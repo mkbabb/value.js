@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full fraunces grid gap-4">
+    <div class="w-full fraunces grid gap-4 relative">
         <Alert class="m-0">
             <AlertTitle>Definition</AlertTitle>
             <AlertDescription>
@@ -10,7 +10,7 @@
         <Separator />
 
         <section>
-            <h2 class="text-2xl mb-2 font-bold">Basic Information</h2>
+            <h2 class="sticky top-0 bg-background text-2xl mb-2 font-bold">Basic Information</h2>
             <div class="grid grid-cols-2 gap-2 text-sm">
                 <div class="italic">Type:</div>
                 <div class="font-bold">{{ currentColorSpaceInfo.type }}</div>
@@ -30,7 +30,7 @@
         <Separator />
 
         <section>
-            <h2 class="text-2xl mb-2 font-bold">Components</h2>
+            <h2 class="sticky top-0 bg-background text-2xl mb-2 font-bold">Components</h2>
             <div class="grid grid-cols-3 gap-4 text-sm">
                 <div
                     v-for="(component, index) in currentColorSpaceInfo.components"
@@ -57,7 +57,7 @@
         <Separator />
 
         <section>
-            <h2 class="text-2xl mb-2 font-bold">Key Properties</h2>
+            <h2 class="sticky top-0 bg-background text-2xl mb-2 font-bold">Key Properties</h2>
             <div class="grid grid-cols-2 gap-2 text-sm">
                 <div class="italic">Perceptual Uniformity:</div>
                 <div class="font-bold">
@@ -77,7 +77,7 @@
         <Separator />
 
         <section class="space-y-4">
-            <h2 class="text-2xl font-bold">Conversion Graph</h2>
+            <h2 class="sticky top-0 bg-background text-2xl font-bold">Conversion Graph</h2>
             <div class="flex flex-wrap gap-4">
                 <TooltipProvider
                     v-for="(path, index) in currentColorSpaceInfo.conversions"
@@ -122,7 +122,7 @@
         <Separator />
 
         <section>
-            <h2 class="text-2xl mb-2 font-bold">Usage</h2>
+            <h2 class="sticky top-0 bg-background text-2xl mb-2 font-bold">Usage</h2>
             <div class="space-y-2 text-sm">
                 <div>
                     <span class="italic">Common Applications: </span>

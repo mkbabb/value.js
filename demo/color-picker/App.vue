@@ -11,54 +11,56 @@
     ></div>
 
     <div
-        :class="'sticky p-4 lg:absolute z-[100] pointer-events-none top-0 w-full h-fit lg:w-min lg:right-0 flex flex-row-reverse lg:flex-col lg:gap-4 gap-6 items-center justify-items-center  justify-between '"
-    >
-        <DarkModeToggle
-            class="pointer-events-auto hover:opacity-50 hover:scale-125 w-8 aspect-square transition-all"
-        />
-        <HoverCard :open-delay="0" class="pointer-events-auto">
-            <HoverCardTrigger class="pointer-events-auto fira-code"
-                ><Button class="p-0 m-0 cursor-pointer" variant="link">@mbabb</Button>
-            </HoverCardTrigger>
-            <HoverCardContent class="pointer-events-auto">
-                <div class="flex gap-4 fira-code">
-                    <Avatar>
-                        <AvatarImage
-                            src="https://avatars.githubusercontent.com/u/2848617?v=4"
-                        >
-                        </AvatarImage>
-                    </Avatar>
-                    <div>
-                        <h4 class="text-sm font-semibold hover:underline">
-                            <a href="https://github.com/mkbabb">@mbabb</a>
-                        </h4>
-                        <p>
-                            Check out the project on
-                            <a
-                                class="font-bold hover:underline"
-                                href="https://github.com/mkbabb/value.js"
-                                >GitHub</a
-                            >🎉
-                        </p>
-                    </div>
-                </div>
-            </HoverCardContent>
-        </HoverCard>
-    </div>
-
-    <div
         class="grid overflow-scroll w-full min-h-screen items-center justify-items-center justify-center"
     >
         <div
-            class="z-1 grid lg:grid-cols-2 max-h-screen lg:grid-rows-2 gap-6 items-center justify-center justify-items-center relative w-screen max-w-screen-lg lg:overflow-hidden lg:p-6"
+            :class="'sticky p-4 lg:absolute z-[100] pointer-events-none top-0 w-full h-fit lg:w-min lg:right-0 flex flex-row-reverse lg:flex-col lg:gap-4 gap-6 items-center justify-items-center  justify-between '"
+        >
+            <DarkModeToggle
+                class="pointer-events-auto hover:opacity-50 hover:scale-125 w-8 aspect-square transition-all"
+            />
+            <HoverCard :open-delay="0" class="pointer-events-auto">
+                <HoverCardTrigger class="pointer-events-auto fira-code"
+                    ><Button class="p-0 m-0 cursor-pointer" variant="link"
+                        >@mbabb</Button
+                    >
+                </HoverCardTrigger>
+                <HoverCardContent class="pointer-events-auto">
+                    <div class="flex gap-4 fira-code">
+                        <Avatar>
+                            <AvatarImage
+                                src="https://avatars.githubusercontent.com/u/2848617?v=4"
+                            >
+                            </AvatarImage>
+                        </Avatar>
+                        <div>
+                            <h4 class="text-sm font-semibold hover:underline">
+                                <a href="https://github.com/mkbabb">@mbabb</a>
+                            </h4>
+                            <p>
+                                Check out the project on
+                                <a
+                                    class="font-bold hover:underline"
+                                    href="https://github.com/mkbabb/value.js"
+                                    >GitHub</a
+                                >🎉
+                            </p>
+                        </div>
+                    </div>
+                </HoverCardContent>
+            </HoverCard>
+        </div>
+
+        <div
+            class="grid lg:grid-cols-2 max-h-screen lg:grid-rows-2 gap-6 items-center justify-center justify-items-center relative w-screen max-w-screen-lg lg:overflow-hidden p-3 lg:p-6"
         >
             <ColorPicker
-                class="w-full max-w-[90%] h-full max-h-screen lg:col-span-1 lg:row-span-2"
+                class="w-full max-w-[100%] h-full max-h-screen lg:col-span-1 lg:row-span-2"
                 v-model="model"
             ></ColorPicker>
 
             <Card
-                class="w-full max-w-[90%] h-full max-h-screen lg:col-span-1 lg:row-span-2 overflow-scroll relative"
+                class="w-full max-w-[100%] h-full max-h-screen lg:col-span-1 lg:row-span-2 overflow-scroll relative"
             >
                 <CardHeader class="fraunces">
                     <CardTitle
