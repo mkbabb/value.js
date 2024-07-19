@@ -1,7 +1,7 @@
 <template>
     <div class="grid gap-4 relative">
         <Card class="grid h-full items-between">
-            <CardHeader class="fraunces mb-0 pb-2 relative">
+            <CardHeader class="fraunces m-0 pb-0 relative">
                 <div class="w-full flex z-1 justify-between">
                     <Select
                         :model-value="model.selectedColorSpace"
@@ -53,7 +53,7 @@
 
                 <CardTitle
                     contenteditable="true"
-                    class="z-10 flex h-fit text-3xl focus-visible:outline-none gap-x-2 flex-wrap justify-start items-start"
+                    class="flex z-10 h-fit text-4xl m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap justify-start items-start"
                 >
                     <template
                         v-for="([component, value], ix) in Object.entries(
@@ -85,10 +85,10 @@
                 </CardTitle>
             </CardHeader>
 
-            <CardContent class="fraunces grid gap-4">
+            <CardContent class="z-1 fraunces grid gap-4">
                 <div
                     ref="spectrumRef"
-                    class="w-full h-48 rounded-sm cursor-crosshair relative"
+                    class="flex w-full h-48 rounded-sm cursor-crosshair relative"
                     :style="spectrumStyle"
                     @mousedown="handleSpectrumChange"
                     @mousemove="handleSpectrumMove"
@@ -96,9 +96,20 @@
                     @mouseleave="stopDragging"
                 >
                     <div
-                        class="w-6 aspect-square border-2 border-solid border-background rounded-full shadow-md absolute -translate-x-1/2 -translate-y-1/2"
+                        class="flex w-6 h-6 aspect-square border-2 border-solid border-background rounded-full shadow-md absolute -translate-x-1/2 -translate-y-1/2 items-center justify-center"
                         :style="spectrumDotStyle"
-                    ></div>
+                    >
+                        <HoverCard :open-delay="30000">
+                            <HoverCardTrigger>
+                                <span class="opacity-10 pointer-events-none select-none"
+                                    >🙂‍↔️</span
+                                >
+                            </HoverCardTrigger>
+                            <HoverCardContent class="fraunces w-fit">
+                                <p>hey! 🌱</p>
+                            </HoverCardContent>
+                        </HoverCard>
+                    </div>
                 </div>
 
                 <div class="grid gap-2">
@@ -143,7 +154,7 @@
                                 <Tooltip>
                                     <TooltipTrigger as-child>
                                         <SliderThumb
-                                            class="block h-full w-3 rounded-sm border-2 border-background bg-transparent transition-colors focus-visible:outline-none"
+                                            class="block h-full w-3 rounded-sm border-2 border-gray-200 bg-transparent transition-colors focus-visible:outline-gray-300"
                                         />
                                     </TooltipTrigger>
                                     <TooltipContent class="fira-code">
@@ -162,7 +173,11 @@
                 <div
                     class="flex flex-col lg:flex-row gap-x-4 p-0 m-0 items-center justify-center"
                 >
-                    <HoverCard :open-delay="700" class="pointer-events-auto">
+                    <HoverCard
+                        :close-delay="0"
+                        :open-delay="700"
+                        class="pointer-events-auto"
+                    >
                         <HoverCardTrigger>
                             <span
                                 contenteditable
@@ -176,27 +191,34 @@
                                 }}</span
                             >
                         </HoverCardTrigger>
-                        <HoverCardContent class="z-[100] pointer-events-auto fraunces">
+                        <HoverCardContent
+                            class="z-[100] pointer-events-auto fraunces w-full"
+                        >
+                            <p class="font-bold text-lg">Enter a color 🖌️</p>
                             <p>
-                                Enter <span class="italic">any</span> valid CSS color
-                                string to update the color. 🖌️
+                                <span class="italic">Any</span> valid CSS color string
+                                is accepted.
                             </p>
                             <Separator class="my-2" />
 
-                            <div class="fira-code">
+                            <div class="fira-code w-full flex justify-center">
                                 {{ denormalizedCurrentColor.value.toFormattedString() }}
                             </div>
                         </HoverCardContent>
                     </HoverCard>
 
                     <div class="flex gap-x-4 justify-around self-center">
-                        <HoverCard :open-delay="700" class="pointer-events-auto">
+                        <HoverCard
+                            :close-delay="0"
+                            :open-delay="700"
+                            class="pointer-events-auto"
+                        >
                             <HoverCardTrigger>
                                 <Palette
                                     @mouseover="
                                         () => {
-                                            paletteHidden = false;
-                                            clearPaletteTimeout();
+                                            startPaletteShowTimeout();
+                                            // clearPaletteTimeout();
                                         }
                                     "
                                     @mouseleave="
@@ -227,7 +249,11 @@
                             </HoverCardContent>
                         </HoverCard>
 
-                        <HoverCard :open-delay="700" class="pointer-events-auto">
+                        <HoverCard
+                            :close-delay="0"
+                            :open-delay="700"
+                            class="pointer-events-auto"
+                        >
                             <HoverCardTrigger>
                                 <Shuffle
                                     @click="
@@ -252,6 +278,29 @@
                                 </div>
                             </HoverCardContent>
                         </HoverCard>
+
+                        <HoverCard
+                            :close-delay="0"
+                            :open-delay="700"
+                            class="pointer-events-auto"
+                        >
+                            <HoverCardTrigger>
+                                <RotateCcw
+                                    @click="() => parseAndSetColor(DEFAULT_COLOR)"
+                                    class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                />
+                            </HoverCardTrigger>
+                            <HoverCardContent
+                                class="z-[100] pointer-events-auto fraunces"
+                            >
+                                <div>
+                                    <p class="font-bold text-lg">Reset 🔄</p>
+                                    <p class="text-sm opacity-60">
+                                        Click to reset the color to the original value.
+                                    </p>
+                                </div>
+                            </HoverCardContent>
+                        </HoverCard>
                     </div>
                 </div>
             </CardContent>
@@ -269,13 +318,22 @@
                 }
             "
             :class="[
-                'absolute bottom-0 w-full transition-all duration-500',
+                'absolute bottom-0 w-full transition-all duration-500 opacity-95 pointer-events-auto',
                 paletteHidden
-                    ? ' translate-y-full pointer-events-none overflow-hidden opacity-0'
-                    : ' translate-y-[-100%] opacity-100',
+                    ? ' translate-y-[100%] pointer-events-none overflow-hidden opacity-0'
+                    : ' translate-y-[0%]',
             ]"
         >
-            <CardContent>
+            <CardHeader class="fraunces">
+                <CardTitle class="text-2xl">Saved colors 🎨</CardTitle>
+                <CardDescription>
+                    Click to add the current color to the palette.
+                    <Separator class="my-2" />
+                    Hold <kbd>⌘</kbd> and click a palette color to swap it with the
+                    current color.
+                </CardDescription>
+            </CardHeader>
+            <CardContent class="pt-0">
                 <div
                     class="relative flex flex-wrap gap-2 items-center justify-center justify-items-center w-full"
                 >
@@ -352,13 +410,17 @@ import {
     normalizeColorUnitComponent,
 } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
-import { Palette, Shuffle } from "lucide-vue-next";
+import { Palette, RotateCcw, Shuffle } from "lucide-vue-next";
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack } from "radix-vue";
 import { computed, onMounted, watch } from "vue";
 import { toast } from "vue-sonner";
 
 import { useDark, useMagicKeys } from "@vueuse/core";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
+import CardDescription from "@components/ui/card/CardDescription.vue";
+import Button from "@components/ui/button/Button.vue";
+
+const DEFAULT_COLOR = "lab(92% 88.8 20 / 82.70%)";
 
 const selectAll = (event: MouseEvent) => {
     const target = event.target as HTMLSpanElement;
@@ -555,7 +617,7 @@ const parseAndSetColor = debounce(
             toast.error(`Invalid color: ${newVal}`);
         }
     },
-    500,
+    200,
     false,
 );
 
@@ -570,8 +632,8 @@ const onSavedColorClick = (
     currentColor = color.clone();
 
     if (keys.current.has("meta")) {
-        model.value.selectedColorSpace = color.value.colorSpace;
         model.value.savedColors[ix] = temp;
+        model.value.selectedColorSpace = color.value.colorSpace;
     }
 
     model.value.color = denormalizedCurrentColor.value;
@@ -610,7 +672,7 @@ const startPaletteTimeout = () => {
 
     paletteTimeout = setTimeout(() => {
         paletteHidden = true;
-    }, 2000);
+    }, 700);
 };
 
 const clearPaletteTimeout = () => {
@@ -618,6 +680,12 @@ const clearPaletteTimeout = () => {
         clearTimeout(paletteTimeout);
         paletteTimeout = null;
     }
+};
+
+const startPaletteShowTimeout = () => {
+    paletteTimeout = setTimeout(() => {
+        paletteHidden = false;
+    }, 1000);
 };
 
 const addColorClick = () => {
@@ -641,7 +709,6 @@ const addColorClick = () => {
     }
 
     const color = currentColor.clone();
-    const normalized = normalizeColorUnit(color, true, false);
 
     model.value.savedColors.push(currentColor.clone());
 };
@@ -725,7 +792,7 @@ const stopDragging = () => {
 };
 
 const spectrumStyle = computed(() => {
-    let { h, s, l } = hslColor.value.value;
+    let { h, s, l, alpha } = hslColor.value.value;
     const denormalized = normalizeColorUnit(currentColor, true, false);
     denormalized.value.alpha.value = 30;
 
@@ -736,12 +803,16 @@ const spectrumStyle = computed(() => {
         linear-gradient(to top, #000, transparent),
         linear-gradient(to right, #fff, hsl(${h.value * 360}deg, 100%, 50%))
       `,
+        opacity: alpha.value,
         boxShadow: `8px 8px 0px 0px ${denormalized.value.toString()}`,
     };
 });
 
 const spectrumDotStyle = computed(() => {
     let { s, v } = hsvColor.value.value;
+
+    s.value = clamp(s.value, 0, 1);
+    v.value = clamp(v.value, 0, 1);
 
     return {
         left: `${100 * s.value}%`,
