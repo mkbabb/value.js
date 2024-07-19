@@ -181,6 +181,11 @@
                                 Enter <span class="italic">any</span> valid CSS color
                                 string to update the color. 🖌️
                             </p>
+                            <Separator class="my-2" />
+
+                            <div class="fira-code">
+                                {{ denormalizedCurrentColor.value.toFormattedString() }}
+                            </div>
                         </HoverCardContent>
                     </HoverCard>
 
