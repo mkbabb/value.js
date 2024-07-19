@@ -221,7 +221,6 @@
                                     @mouseover="
                                         () => {
                                             startPaletteShowTimeout();
-                                            // clearPaletteTimeout();
                                         }
                                     "
                                     @mouseleave="
@@ -245,7 +244,7 @@
                                     </p>
                                     <Separator class="my-2" />
                                     <p class="text-sm opacity-60">
-                                        Hold <kbd>⌘</kbd> and click a palette color to
+                                        Hold <kbd>shift</kbd> and click, or double click 👆, a palette color to
                                         swap it with the current color.
                                     </p>
                                 </div>
@@ -310,9 +309,19 @@
         </Card>
 
         <Card
+            @touchstart="
+                () => {
+                    clearPaletteTimeout();
+                }
+            "
             @mouseover="
                 () => {
                     clearPaletteTimeout();
+                }
+            "
+            @touchend="
+                () => {
+                    startPaletteTimeout();
                 }
             "
             @mouseleave="
@@ -332,7 +341,7 @@
                 <CardDescription>
                     Click to add the current color to the palette.
                     <Separator class="my-2" />
-                    Hold <kbd>⌘</kbd> and click a palette color to swap it with the
+                    Hold <kbd>shift</kbd> and click, or double click 👆, a palette color to swap it with the
                     current color.
                 </CardDescription>
             </CardHeader>
@@ -631,20 +640,36 @@ const parseAndSetColor = debounce(
 
 const keys = useMagicKeys();
 
+let lastClickedTime = $ref(0);
+
+let doubleClickedColor = $ref(null);
+
 const onSavedColorClick = (
     color: ValueUnit<Color<ValueUnit<number>>, "color">,
     ix: number,
 ) => {
-    const temp = currentColor.clone();
+    const now = Date.now();
+    const isDoubleClick = now - lastClickedTime < 300;
 
-    currentColor = color.clone();
+    if (keys.current.has("shift") || isDoubleClick) {
+        // Swap colors
+        const temp = doubleClickedColor ?? currentColor.clone();
+        const swappedColor = color.clone();
 
-    if (keys.current.has("meta")) {
         model.value.savedColors[ix] = temp;
-        model.value.selectedColorSpace = color.value.colorSpace;
+        currentColor = swappedColor;
+
+        doubleClickedColor = null;
+    } else {
+        // Regular click behavior
+        doubleClickedColor = currentColor.clone();
+        currentColor = color.clone();
     }
 
+    model.value.selectedColorSpace = currentColor.value.colorSpace;
     model.value.color = denormalizedCurrentColor.value;
+
+    lastClickedTime = now;
 };
 
 const isDark = useDark({ disableTransition: false });
@@ -693,7 +718,7 @@ const clearPaletteTimeout = () => {
 const startPaletteShowTimeout = () => {
     paletteTimeout = setTimeout(() => {
         paletteHidden = false;
-    }, 1000);
+    }, 700);
 };
 
 const addColorClick = () => {

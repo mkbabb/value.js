@@ -106,6 +106,8 @@
             <Toaster
                 :toastOptions="{
                     unstyled: true,
+                    duration: 1000,
+
                     classes: {
                         toast: 'bg-foreground text-background rounded-md fraunces px-6 py-3 grid grid-cols-1 gap-2 shadow-lg h-32 lg:w-96 w-full ',
                         title: 'font-bold text-lg',
