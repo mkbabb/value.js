@@ -185,8 +185,21 @@
                             <span
                                 contenteditable
                                 class="lg:max-w-[28ch] flex-grow border overflow-hidden justify-center items-center justify-items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code lg:inline-block lg:h-full flex text-ellipsis whitespace-nowrap"
+                                @keydown="
+                                    (e) => {
+                                        if (e.key === 'Enter') {
+                                            e.preventDefault();
+                                            parseAndSetColor(
+                                                (e.target as any).innerText,
+                                            );
+                                        }
+                                    }
+                                "
                                 @input="
-                                    (e) => parseAndSetColor((e.target as any).innerText)
+                                    (e) =>
+                                        parseAndSetColorDebounced(
+                                            (e.target as any).innerText,
+                                        )
                                 "
                                 @focus="selectAll"
                                 >{{
@@ -244,8 +257,9 @@
                                     </p>
                                     <Separator class="my-2" />
                                     <p class="text-sm opacity-60">
-                                        Hold <kbd>shift</kbd> and click, or double click 👆, a palette color to
-                                        swap it with the current color.
+                                        Hold <kbd>shift</kbd> and click, or double click
+                                        👆, a palette color to swap it with the current
+                                        color.
                                     </p>
                                 </div>
                             </HoverCardContent>
@@ -341,8 +355,8 @@
                 <CardDescription>
                     Click to add the current color to the palette.
                     <Separator class="my-2" />
-                    Hold <kbd>shift</kbd> and click, or double click 👆, a palette color to swap it with the
-                    current color.
+                    Hold <kbd>shift</kbd> and click, or double click 👆, a palette color
+                    to swap it with the current color.
                 </CardDescription>
             </CardHeader>
             <CardContent class="pt-0">
@@ -527,6 +541,7 @@ const createGradientStops = (
 };
 
 const parseAndNormalizeColor = (value: string) => {
+    value = value.trim().toLowerCase();
     const color = parseCSSColor(value);
     return normalizeColorUnit(color);
 };
@@ -614,29 +629,32 @@ const denormalizedCurrentColorLight = computed(() => {
     return normalizeColorUnit(lab, true);
 });
 
-const parseAndSetColor = debounce(
-    (newVal: string) => {
-        try {
-            model.value.inputColor = newVal;
+const parseAndSetColor = (newVal: string) => {
+    try {
+        newVal = newVal.trim().toLowerCase();
+        const color = parseAndNormalizeColor(newVal);
 
-            const color = parseAndNormalizeColor(newVal);
-
-            currentColor = color;
-
-            model.value.selectedColorSpace = color.superType[1] as ColorSpace;
-
-            model.value.color = denormalizedCurrentColor.value;
-
-            toast.success(
-                `Parsed ${denormalizedCurrentColor.value.value.toFormattedString()} 🎨`,
-            );
-        } catch (e) {
-            toast.error(`Invalid color: ${newVal}`);
+        if (color.value.toString() === currentColor.value.toString()) {
+            return;
         }
-    },
-    200,
-    false,
-);
+
+        model.value.inputColor = newVal;
+
+        currentColor = color;
+
+        model.value.selectedColorSpace = color.superType[1] as ColorSpace;
+
+        model.value.color = denormalizedCurrentColor.value;
+
+        toast.success(
+            `Parsed ${denormalizedCurrentColor.value.value.toFormattedString()} 🎨`,
+        );
+    } catch (e) {
+        toast.error(`Invalid color: ${newVal}`);
+    }
+};
+
+const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000, false);
 
 const keys = useMagicKeys();
 
@@ -718,7 +736,7 @@ const clearPaletteTimeout = () => {
 const startPaletteShowTimeout = () => {
     paletteTimeout = setTimeout(() => {
         paletteHidden = false;
-    }, 700);
+    }, 1000);
 };
 
 const addColorClick = () => {
