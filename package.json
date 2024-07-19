@@ -1,14 +1,25 @@
 {
     "name": "@mkbabb/value.js",
     "version": "0.1.0",
-    "description": "",
+    "description": "CSS value units for color, length, angles, & c.",
     "licenses": [
         {
             "type": "GNU GPL v3",
             "url": "https://www.gnu.org/licenses/gpl-3.0.html"
         }
     ],
-    "keywords": [],
+    "keywords": [
+        "css",
+        "value",
+        "unit",
+        "value-unit",
+        "css-value-unit",
+        "color",
+        "color-space",
+        "rgb",
+        "xyz",
+        "lab"
+    ],
     "type": "module",
     "main": "./dist/value.js",
     "module": "./dist/value.js",
