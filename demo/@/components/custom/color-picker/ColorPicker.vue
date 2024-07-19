@@ -12,7 +12,7 @@
                         "
                     >
                         <SelectTrigger
-                            class="w-fit h-fit font-light text-3xl p-0 m-0 border-none self-end focus:outline-none bg-transparent"
+                            class="w-fit h-fit font-light italic text-3xl p-0 m-0 border-none self-end focus:outline-none focus:ring-0 focus:ring-transparent bg-transparent"
                         >
                             <SelectValue />
                         </SelectTrigger>
@@ -34,7 +34,7 @@
                                 <div
                                     @click="
                                         copyToClipboard(
-                                            denormalizedCurrentColor.value.toString(),
+                                            denormalizedCurrentColor.value.toFormattedString(),
                                         )
                                     "
                                     class="w-16 aspect-square rounded-full hover:scale-125 flex items-center justify-items-center justify-center transition-transform cursor-pointer"
@@ -474,7 +474,7 @@ const copyToClipboard = (text: string) => {
     navigator.clipboard
         .writeText(text)
         .then(() => {
-            toast.success("Copied to clipboard 📋");
+            toast.success(`Copied ${text} to clipboard 📋`);
         })
         .catch((err) => {
             toast.error("Could not copy to clipboard: " + err);
@@ -592,14 +592,17 @@ const currentColorRanges = computed(() => {
     }, {});
 });
 
-const hslColor = computed(() => {
-    const hsl = colorUnit2(currentColor, "hsl", true, false, false);
-    return hsl;
-});
-
 const hsvColor = computed(() => {
     const hsv = colorUnit2(currentColor, "hsv", true, false, false);
     return hsv;
+});
+
+const denormalizedCurrentColorLight = computed(() => {
+    // convert to lab, update the lightness, convert back to the current color space
+    const lab = colorUnit2(currentColor, "lab", true, false, false);
+    lab.value.l.value = 1.0;
+
+    return normalizeColorUnit(lab, true);
 });
 
 const parseAndSetColor = debounce(

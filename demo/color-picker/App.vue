@@ -14,12 +14,12 @@
         class="grid overflow-scroll w-full min-h-screen items-center justify-items-center justify-center"
     >
         <div
-            :class="'fixed px-6 lg:p-6 lg:absolute z-[100] pointer-events-none top-0 w-full h-fit lg:w-min lg:right-0 flex lg:flex-col lg:gap-4 gap-6 items-center justify-items-center  justify-center opacity-25 hover:opacity-100 transition-all'"
+            :class="'fixed p-2 lg:absolute z-[100] pointer-events-none top-0 w-full h-fit lg:w-min lg:right-0 flex lg:flex-col lg:gap-4 gap-6 items-center justify-items-center  justify-end opacity-25 hover:opacity-100 transition-all'"
         >
             <DarkModeToggle
-                class="pointer-events-auto hover:opacity-50 hover:scale-125 w-8 aspect-square transition-all"
+                class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all"
             />
-            <HoverCard :open-delay="0" class="pointer-events-auto">
+            <!-- <HoverCard :open-delay="0" class="pointer-events-auto">
                 <HoverCardTrigger class="pointer-events-auto fira-code"
                     ><Button class="p-0 m-0 cursor-pointer" variant="link"
                         >@mbabb</Button
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </HoverCardContent>
-            </HoverCard>
+            </HoverCard> -->
         </div>
 
         <div
