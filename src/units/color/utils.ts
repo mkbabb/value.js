@@ -15,6 +15,7 @@ import {
 } from ".";
 import { clamp, scale } from "../../math";
 import {
+    COLOR_SPACE_DENORM_UNITS,
     COLOR_SPACE_RANGES,
     ColorSpace,
     RGBA_MAX,
@@ -24,6 +25,24 @@ import {
     WhitePoint,
 } from "./constants";
 import { normalizeColor } from "./normalize";
+import { memoize } from "@src/utils";
+
+export const getFormattedColorSpaceRange = <T extends ColorSpace>(colorSpace: T) => {
+    const ranges = COLOR_SPACE_RANGES[colorSpace];
+    const denormUnits = COLOR_SPACE_DENORM_UNITS[colorSpace];
+
+    return Object.entries(ranges).reduce((acc, [component, range]) => {
+        const units = denormUnits[component];
+        let { min, max } = range[units] ?? range["number"];
+
+        min = `${min}${units}`;
+        max = `${max}${units}`;
+
+        acc[component] = { min, max };
+
+        return acc;
+    }, {}) as ColorSpaceMap<{ min: string; max: string }>[T];
+};
 
 const normalizeColorComponent = (
     v: number,
@@ -238,17 +257,16 @@ export const rgb2hsl = ({ r, g, b, alpha }: RGBColor): HSLColor => {
     const min = Math.min(r, g, b);
 
     // Lightness: average of the largest and smallest color components
-    const l = (max + min) / 2;
+    let [h, s, l] = [0, 0, (max + min) / 2];
 
     // Chroma: the "colorfulness" of the color
     const c = max - min;
 
-    // Saturation: determined by lightness and chroma
-    let s = c / (1 - Math.abs(2 * l - 1));
+    // Saturation: determined by lightness
+    s = c / (1 - Math.abs(2 * l - 1));
 
     // Hue: determined by which color component is maximum
     // Initial calculation gives h in [0, 6) range
-    let h: number;
     switch (max) {
         case r:
             // Red is max: h in [0, 2)
@@ -263,12 +281,13 @@ export const rgb2hsl = ({ r, g, b, alpha }: RGBColor): HSLColor => {
             h = (r - g) / c + 4;
             break;
     }
+
     // Normalize h to [0, 1) range
     h /= 6;
 
     if (s < 0) {
-        h += 0.5;
-        s = Math.abs(s);
+        h = (h + 0.5) % 1;
+        s = Math.abs(s) % 1;
     }
     if (h >= 1) {
         h -= 1;
@@ -481,12 +500,13 @@ function srgbToLinear(channel: number): number {
     // - A linear portion for low values (below the transition point)
     // - A power function for higher values
     // This accounts for the non-linear perception of brightness by human eyes
-    if (channel <= SRGB_TRANSITION) {
-        // Linear function for low values
+    const sign = channel < 0 ? -1 : 1;
+    const abs = channel * sign;
+
+    if (abs <= SRGB_LINEAR_TRANSITION) {
         return channel / SRGB_SLOPE;
     } else {
-        // Power function: removes gamma correction
-        return ((channel + SRGB_OFFSET) / (1 + SRGB_OFFSET)) ** SRGB_GAMMA;
+        return sign * ((abs + SRGB_OFFSET) / (1 + SRGB_OFFSET)) ** SRGB_GAMMA;
     }
 }
 
@@ -494,12 +514,16 @@ function srgbToLinear(channel: number): number {
 function linearToSrgb(channel: number): number {
     // This function is the inverse of srgbToLinear
     // It applies the sRGB transfer function to convert linear RGB values back to sRGB
-    if (channel <= SRGB_LINEAR_TRANSITION) {
+
+    const sign = channel < 0 ? -1 : 1;
+    const abs = channel * sign;
+
+    if (abs <= SRGB_LINEAR_TRANSITION) {
         // Linear function for low values
         return channel * SRGB_SLOPE;
     } else {
         // Power function: applies gamma correction
-        return (1 + SRGB_OFFSET) * channel ** (1 / SRGB_GAMMA) - SRGB_OFFSET;
+        return sign * ((1 + SRGB_OFFSET) * abs ** (1 / SRGB_GAMMA) - SRGB_OFFSET);
     }
 }
 
@@ -522,7 +546,10 @@ export function rgb2xyz({ r, g, b, alpha }: RGBColor): XYZColor {
     return new XYZColor(x, y, z, alpha);
 }
 
-export function xyz2rgb({ x, y, z, alpha }: XYZColor): RGBColor {
+export const xyz2rgb = (
+    { x, y, z, alpha }: XYZColor,
+    correctGamut: boolean = true,
+): RGBColor => {
     // Transform XYZ to linear RGB
     const linearRGB = vec3.create();
     vec3.transformMat3(linearRGB, vec3.fromValues(x, y, z), XYZ_RGB_MATRIX);
@@ -530,8 +557,13 @@ export function xyz2rgb({ x, y, z, alpha }: XYZColor): RGBColor {
     // Convert linear RGB to sRGB
     const [r, g, b] = linearRGB.map(linearToSrgb);
 
-    return new RGBColor(r, g, b, alpha);
-}
+    if (correctGamut) {
+        const rgb = gamutMap(new RGBColor(r, g, b, alpha));
+        return new RGBColor(rgb.r, rgb.g, rgb.b, alpha) as any;
+    } else {
+        return new RGBColor(r, g, b, alpha);
+    }
+};
 
 // Input and output values in range [0, 1]
 export function lch2lab({ l, c, h, alpha }: LCHColor): LABColor {
@@ -827,6 +859,10 @@ const XYZ_FUNCTIONS = {
 } as const;
 
 export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
+    if (color.colorSpace === to) {
+        return color;
+    }
+
     const toXYZFn = XYZ_FUNCTIONS[color.colorSpace]["to"] as any;
 
     const xyz = toXYZFn(color);
@@ -836,4 +872,76 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
     ) => ColorSpaceMap<T>[C];
 
     return fromXYZFn(xyz);
+}
+
+// New constants for gamut mapping
+const GAMUT_EPSILON = 1e-10;
+const MAX_ITERATIONS = 20;
+const SATURATION_FACTOR = 0.95;
+
+// Helper function to check if a color is within the sRGB gamut
+function isInGamut(color: Color): boolean {
+    return color
+        .entries()
+        .filter(([channel, value]) => channel !== "alpha")
+        .every(([channel, value]) => value <= 1 + GAMUT_EPSILON);
+}
+
+// Helper function to clip RGB values to [0, 1] range
+function clipColor(color: Color): Color {
+    color.entries().forEach(([channel, value]) => {
+        color[channel] = clamp(value, 0, 1);
+    });
+    return color;
+}
+
+export function gamutMap<C extends Color>(color: C): C {
+    // First, convert the input color to RGB
+    let rgb = color2(color, "rgb") as RGBColor;
+
+    // If already in gamut, return the original color converted to the target color space
+    if (isInGamut(rgb)) {
+        return color;
+    }
+
+    for (let i = 0; i < MAX_ITERATIONS; i++) {
+        // Convert current RGB to XYZ
+        const xyz = color2(rgb, "xyz") as XYZColor;
+        const luminance = xyz.y;
+        const sum = xyz.x + xyz.y + xyz.z;
+
+        // Calculate chromaticity
+        const chromaticity = new XYZColor(
+            xyz.x / sum,
+            xyz.y / sum,
+            xyz.z / sum,
+            xyz.alpha,
+        );
+
+        // Reduce saturation while preserving chromaticity
+        const reducedXYZ = new XYZColor(
+            luminance +
+                (chromaticity.x - chromaticity.y) * luminance * SATURATION_FACTOR,
+            luminance,
+            luminance +
+                (chromaticity.z - chromaticity.y) * luminance * SATURATION_FACTOR,
+            xyz.alpha,
+        );
+
+        // Convert reduced XYZ back to RGB
+        rgb = xyz2rgb(reducedXYZ, false) as RGBColor;
+
+        // Check if the new RGB is in gamut
+        if (isInGamut(rgb)) {
+            break;
+        }
+    }
+
+    // If still out of gamut after MAX_ITERATIONS, clip the color
+    if (!isInGamut(rgb)) {
+        rgb = clipColor(rgb) as RGBColor;
+    }
+
+    // Convert the final RGB to the target color space
+    return color2(rgb, color.colorSpace) as C;
 }

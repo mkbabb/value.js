@@ -1,125 +1,124 @@
 <template>
     <div
         ref="gridBackground"
-        class="z-[-2] w-full h-full absolute grid-background"
+        class="z-[-2] flex w-full h-full absolute grid-background"
     ></div>
     <div
-        class="w-full h-full absolute z-[-1]"
+        class="flex w-full h-full absolute z-[-1]"
         :style="{
             backgroundColor: model.color?.toString(),
         }"
     ></div>
 
     <div
-        class="grid lg:grid-cols-2 lg:grid-rows-2 sm:gap-y-4 justify-items-center relative w-screen max-h-screen lg:overflow-hidden overflow-scroll lg:p-6"
+        :class="'sticky p-4 lg:absolute z-[100] pointer-events-none top-0 w-full h-fit lg:w-min lg:right-0 flex flex-row-reverse lg:flex-col lg:gap-4 gap-6 items-center justify-items-center  justify-between '"
     >
-        <div
-            :class="'sticky p-4 mt-[-4rem] lg:mt-0 lg:absolute z-[100] pointer-events-none top-0 w-full h-fit lg:w-min lg:right-0 flex flex-row-reverse lg:flex-col lg:gap-4 gap-6 items-center justify-items-center  justify-between '"
-        >
-            <DarkModeToggle
-                class="pointer-events-auto hover:opacity-50 hover:scale-125 w-8 aspect-square transition-all"
-            />
-            <HoverCard :open-delay="0" class="pointer-events-auto">
-                <HoverCardTrigger class="pointer-events-auto fira-code"
-                    ><Button class="p-0 m-0 cursor-pointer" variant="link"
-                        >@mbabb</Button
-                    >
-                </HoverCardTrigger>
-                <HoverCardContent class="pointer-events-auto">
-                    <div class="flex gap-4 fira-code">
-                        <Avatar>
-                            <AvatarImage
-                                src="https://avatars.githubusercontent.com/u/2848617?v=4"
-                            >
-                            </AvatarImage>
-                        </Avatar>
-                        <div>
-                            <h4 class="text-sm font-semibold hover:underline">
-                                <a href="https://github.com/mkbabb">@mbabb</a>
-                            </h4>
-                            <p>
-                                Check out the project on
-                                <a
-                                    class="font-bold hover:underline"
-                                    href="https://github.com/mkbabb/keyframes.js"
-                                    >GitHub</a
-                                >🎉
-                            </p>
-                        </div>
-                    </div>
-                </HoverCardContent>
-            </HoverCard>
-        </div>
-
-        <ColorPicker
-            class="w-[32rem] h-full lg:col-span-1 lg:row-span-2"
-            v-model="model"
-        ></ColorPicker>
-
-        <Card
-            class="w-[32rem] h-full lg:col-span-1 lg:row-span-2 overflow-scroll relative"
-        >
-            <CardHeader class="fraunces">
-                <CardTitle
-                    >About the color spaces,
-                    <span
-                        class="italic"
-                        :style="{
-                            color: model.color?.toString(),
-                        }"
-                        >{{ COLOR_SPACE_NAMES[model.selectedColorSpace] }}</span
-                    ></CardTitle
-                >
-
-                <CardDescription>
-                    The math, the science, the art, the beauty of color spaces. 🎨
-                </CardDescription>
-            </CardHeader>
-
-            <CardContent>
-                <div v-if="isLoading" class="flex items-center space-x-4 h-full">
-                    <Skeleton class="h-12 w-12 rounded-full" />
-                    <div class="space-y-2">
-                        <Skeleton class="h-4 w-full" />
-                        <Skeleton class="h-4 w-full" />
+        <DarkModeToggle
+            class="pointer-events-auto hover:opacity-50 hover:scale-125 w-8 aspect-square transition-all"
+        />
+        <HoverCard :open-delay="0" class="pointer-events-auto">
+            <HoverCardTrigger class="pointer-events-auto fira-code"
+                ><Button class="p-0 m-0 cursor-pointer" variant="link">@mbabb</Button>
+            </HoverCardTrigger>
+            <HoverCardContent class="pointer-events-auto">
+                <div class="flex gap-4 fira-code">
+                    <Avatar>
+                        <AvatarImage
+                            src="https://avatars.githubusercontent.com/u/2848617?v=4"
+                        >
+                        </AvatarImage>
+                    </Avatar>
+                    <div>
+                        <h4 class="text-sm font-semibold hover:underline">
+                            <a href="https://github.com/mkbabb">@mbabb</a>
+                        </h4>
+                        <p>
+                            Check out the project on
+                            <a
+                                class="font-bold hover:underline"
+                                href="https://github.com/mkbabb/value.js"
+                                >GitHub</a
+                            >🎉
+                        </p>
                     </div>
                 </div>
-
-                <AsyncMarkdown
-                    v-else-if="currentDoc"
-                    :markdown-module="currentDoc.module.VueComponentWith"
-                />
-                <div class="fraunces" v-else>
-                    <Alert>
-                        <AlertTitle class="text-4xl">Oh snap...</AlertTitle>
-                        <AlertDescription>
-                            We couldn't find the documentation for the selected color
-                            space.
-                        </AlertDescription>
-                    </Alert>
-                </div>
-            </CardContent>
-        </Card>
+            </HoverCardContent>
+        </HoverCard>
     </div>
 
-    <ClientOnly>
-        <Teleport to="html">
-            <Toaster
-                :toastOptions="{
-                    unstyled: true,
-                    classes: {
-                        toast: 'bg-foreground text-background rounded-md fraunces px-6 py-4 grid grid-cols-1 gap-2 shadow-lg h-32 lg:w-96 w-full ',
-                        title: 'font-bold text-xl',
-                        description: 'font-normal text-md',
-                        actionButton: '',
-                        cancelButton: '',
-                        closeButton: '',
-                    },
-                }"
-                :theme="isDark ? 'dark' : 'light'"
-            />
-        </Teleport>
-    </ClientOnly>
+    <div
+        class="grid overflow-scroll w-full min-h-screen items-center justify-items-center justify-center"
+    >
+        <div
+            class="z-1 grid lg:grid-cols-2 max-h-screen lg:grid-rows-2 gap-6 items-center justify-center justify-items-center relative w-screen max-w-screen-lg lg:overflow-hidden lg:p-6"
+        >
+            <ColorPicker
+                class="w-full max-w-[90%] h-full max-h-screen lg:col-span-1 lg:row-span-2"
+                v-model="model"
+            ></ColorPicker>
+
+            <Card
+                class="w-full max-w-[90%] h-full max-h-screen lg:col-span-1 lg:row-span-2 overflow-scroll relative"
+            >
+                <CardHeader class="fraunces">
+                    <CardTitle
+                        >About the color spaces,
+                        <span
+                            class="italic"
+                            :style="{
+                                color: model.color?.toString(),
+                            }"
+                            >{{ COLOR_SPACE_NAMES[model.selectedColorSpace] }}</span
+                        ></CardTitle
+                    >
+                    <CardDescription>
+                        The math, the science, the art, the beauty of color spaces. 🎨
+                    </CardDescription>
+                </CardHeader>
+
+                <Separator></Separator>
+
+                <CardContent>
+                    <ColorNutritionLabel class="w-full p-0 m-0" v-model="model">
+                    </ColorNutritionLabel>
+                </CardContent>
+
+                <Separator></Separator>
+
+                <CardContent>
+                    <h2 class="fraunces text-4xl mb-6 font-bold">Detailed Guide</h2>
+                    <template
+                        v-for="[n, m] in Object.entries(markdownModulesMap)"
+                        :module="m"
+                    >
+                        <Markdown
+                            v-show="n === `${model.selectedColorSpace}.md`"
+                            :module="m"
+                        />
+                    </template>
+                </CardContent>
+            </Card>
+        </div>
+
+        <ClientOnly>
+            <Teleport to="html">
+                <Toaster
+                    :toastOptions="{
+                        unstyled: true,
+                        classes: {
+                            toast: 'bg-foreground text-background rounded-md fraunces px-6 py-4 grid grid-cols-1 gap-2 shadow-lg h-32 lg:w-96 w-full ',
+                            title: 'font-bold text-xl',
+                            description: 'font-normal text-md',
+                            actionButton: '',
+                            cancelButton: '',
+                            closeButton: '',
+                        },
+                    }"
+                    :theme="isDark ? 'dark' : 'light'"
+                />
+            </Teleport>
+        </ClientOnly>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -171,7 +170,7 @@ import {
 import { clamp } from "@src/math";
 import { toast } from "vue-sonner";
 import { List } from "lucide-vue-next";
-import { ColorPicker } from "@components/custom/color-picker";
+import { ColorPicker, ColorNutritionLabel } from "@components/custom/color-picker";
 import { useDark, useLocalStorage, useStorage } from "@vueuse/core";
 import { Toaster } from "vue-sonner";
 import { Color } from "@src/units/color";
@@ -180,62 +179,67 @@ import {
     COLOR_SPACE_NAMES,
     ColorSpace,
 } from "@src/units/color/constants";
-import { Markdown } from "@components/custom/markdown";
+import { DocModule, Markdown } from "@components/custom/markdown";
 // @ts-ignore
 import "@styles/utils.scss";
 // @ts-ignore
 import "@styles/style.scss";
-import { Skeleton } from "@components/ui/skeleton";
 
-interface DocModule {
-    VueComponentWith: (components: Record<string, any>) => any;
-}
-interface DocItem {
-    name: string;
-    path: string;
-    module: DocModule;
-}
+import Katex from "@components/custom/katex/Katex.vue";
+import { normalizeColorUnit } from "@src/units/color/normalize";
 
-// @ts-ignore
-const modules = import.meta.glob("@assets/docs/**/*.md");
+// all of the above UI components, and katex:
+const markdownComponents = {
+    Katex,
 
-let docs = $ref<{
-    [key: string]: DocItem;
-}>({});
+    Alert,
+    AlertDescription,
+    AlertTitle,
 
-let isLoading = $ref(true);
+    Separator,
+    Slider,
+    Button,
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+    Input,
+    Label,
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger,
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
 
-const loadDocs = async () => {
-    isLoading = true;
+    Menubar,
+    MenubarContent,
+    MenubarItem,
+    MenubarMenu,
+    MenubarSeparator,
+    MenubarShortcut,
+    MenubarTrigger,
 
-    const loadedDocs = await Promise.all(
-        Object.entries(modules).map(async ([path, importModule]) => {
-            // @ts-ignore
-            const module = (await importModule()) as DocModule;
-            const name = path.split("/").pop().replace(".md", "");
-            return { name, path, module };
-        }),
-    );
-
-    loadedDocs
-        .filter((doc) => doc.module.VueComponentWith)
-        .reduce((acc, doc) => {
-            acc[doc.name] = doc;
-            return acc;
-        }, docs);
-
-    isLoading = false;
+    List,
+    Loader2,
 };
 
-const currentDoc = computed(() => {
-    return docs?.[model.selectedColorSpace];
-});
+// @ts-ignore
+const markdownModules = import.meta.glob("@assets/docs/**/*.md");
 
-const AsyncMarkdown = defineAsyncComponent({
-    loader: () => import("@components/custom/markdown/Markdown.vue"),
-    loadingComponent: Loader2,
-    delay: 200, // delay in ms before showing loading component
-});
+const markdownModulesMap = Object.fromEntries(
+    Object.entries(markdownModules).map(([key, value]) => {
+        const filename = key.split("/").pop();
+        return [filename, value as DocModule];
+    }),
+);
 
 let gridBackground = $ref(null) as HTMLElement;
 
@@ -245,22 +249,32 @@ type ColorModel = {
     selectedColorSpace: ColorSpace;
     color: ValueUnit<Color<ValueUnit<number>>>;
     inputColor: string;
-    savedColors: Array<ValueUnit<Color<ValueUnit<number>>>>;
+    savedColors: Array<ValueUnit<Color<ValueUnit<number>>> | string>;
 };
 
-// const colorStore = useStorage("color-picker", {
-//     selectedColorSpace: "rgb",
-//     color: null,
-//     inputColor: "red",
-//     savedColors: [],
-// } as ColorModel);
-
-const model = $ref({
-    selectedColorSpace: "rgb",
+const defaultColorModel = {
+    selectedColorSpace: "lab",
     color: null,
     inputColor: "lab(92% 88.8 20 / 82.70%)",
     savedColors: [],
+} as ColorModel;
+
+const colorStore = useStorage("color-picker", defaultColorModel);
+
+const model = $ref({
+    ...colorStore.value,
 }) as ColorModel;
+
+watch(
+    () => model,
+    (value) => {
+        colorStore.value.inputColor = model.color.toString();
+        // colorStore.value.savedColors = model.savedColors.map((c) =>
+        //     normalizeColorUnit(c as any, true, false).toString(),
+        // );
+    },
+    { deep: true },
+);
 
 onMounted(() => {
     const encodedSVG = encodeURIComponent(`
@@ -268,10 +282,7 @@ onMounted(() => {
         <path d='M1 2V0h1v1H0v1z' fill-opacity='0.10'/>
     </svg>
 `);
-
     gridBackground.style.backgroundImage = `url("data:image/svg+xml,${encodedSVG}")`;
-
-    loadDocs();
 });
 </script>
 

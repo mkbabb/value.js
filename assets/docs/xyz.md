@@ -11,6 +11,8 @@ The CIE XYZ color space is a fundamental color space in colorimetry, established
 
 ## White Points
 
+this = `L^* = 0 \text{ (black) to } 100 \text{ (diffuse white)}`
+
 White points are crucial reference points in color spaces. Two commonly used white points are:
 
 <Card class="mb-4 p-2">

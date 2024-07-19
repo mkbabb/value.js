@@ -1,65 +1,108 @@
-# CIE XYZ Color Space
+<script setup>
+import { lab2xyz, xyz2lab, getFormattedColorSpaceRange } from "@src/units/color/utils";
+import { Katex } from "@components/custom/katex";
+import {
+    COLOR_SPACE_DENORM_UNITS,
+    COLOR_SPACE_NAMES,
+    COLOR_SPACE_RANGES,
+} from "@src/units/color/constants";
+import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
 
-The CIE XYZ color space is a fundamental color space in colorimetry, established by the International Commission on Illumination (CIE) in 1931. It serves as the basis for defining other color spaces and is crucial for color management systems.
+
+const { l, a, b } = getFormattedColorSpaceRange("lab");
+
+</script>
+
+### Attributes
+
+-   `L^*`: Lightness ({{l.min}} to {{l.max}})
+-   `a^*`: Green-Red axis ({{a.min}} to {{a.max}})
+-   `b^*`: Blue-Yellow axis ({{b.min}} to {{b.max}})
+
+### Historical Context
+
+The Lab color space was developed by the [Commission Internationale de l'Éclairage (CIE)](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) in 1976 as part of their color space. It was created to address the limitations of previous color models of the time, and to provide a standardized way of representing colors across different devices and media.
 
 ## Key Characteristics
 
--   Device-independent color space
--   Based on human color perception
--   All visible colors can be represented using positive XYZ values
--   Y component represents luminance
+### Unique Features
 
-## White Points
+1. **Perceptual Uniformity**: Equal distances in the Lab space correspond to roughly equal perceived color differences.
+2. **Device Independence**: Lab values describe the color itself, not how to produce it on a specific device.
+3. **Separation of Lightness**: The `L^*` component is separate from the chromaticity (`a^\star` and `b^\star`), allowing for easy adjustment of brightness without affecting hue.
 
-White points are crucial reference points in color spaces. Two commonly used white points are:
+### Advantages and Disadvantages
 
-<Card class="mb-4 p-2">
-  <CardHeader>
-    <CardTitle>D50 (5000K)</CardTitle>
-  </CardHeader>
-  <CardContent>
-    <p>Commonly used in the printing industry</p>
-    <Katex expression="X_n = 0.9642, Y_n = 1.0000, Z_n = 0.8251" />
-  </CardContent>
-</Card>
+## Advantages
 
-<Card class="mb-4">
-  <CardHeader>
-    <CardTitle>D65 (6500K)</CardTitle>
-  </CardHeader>
-  <CardContent>
-    <p>Represents average daylight and is widely used in digital imaging</p>
-    <Katex expression="X_n = 0.95047, Y_n = 1.00000, Z_n = 1.08883" />
-  </CardContent>
-</Card>
+-   Perceptually uniform
+-   Device-independent
+-   Covers all perceivable colors
+-   Excellent for color difference calculations
 
-## XYZ to RGB Conversion
+## Disadvantages
 
-Converting from XYZ to RGB involves a matrix multiplication followed by a gamma correction. The matrix depends on the specific RGB color space (e.g., sRGB, Adobe RGB).
+-   Computationally intensive conversions
+-   Not directly displayable on most devices
+-   Can be unintuitive for manual color selection
 
-## RGB to XYZ Conversion
+### Color Gamut and Representation
 
-To convert from RGB to XYZ, we first apply an inverse gamma correction, then multiply by the inverse of the RGB to XYZ matrix.
+The Lab color space encompasses all perceivable colors, making its gamut larger than that of RGB or CMYK. It can represent colors that are outside the gamut of most display and printing devices.
 
-Then, we apply the inverse matrix multiplication:
+## Color Model
 
-<Alert class="m-6">
-  <AlertTitle>Note</AlertTitle>
-  <AlertDescription>
-    These matrices are for the sRGB color space with a D65 white point. Different RGB color spaces or white points will require different matrices.
-  </AlertDescription>
-</Alert>
+### Description of Color Components
 
-## Importance in Color Management
+1. **`L^*` (Lightness)**:
+   `L^* = 0 \text{ (black) to } 100 \text{ (diffuse white)}`
 
-The CIE XYZ color space plays a crucial role in color management systems for several reasons:
+2. **`a^*` (Green-Red axis)**:
+   `a^* < 0 \text{ (green) to } a^* > 0 \text{ (red)}`
 
-1. **Device Independence**: XYZ values are absolute, making them ideal for color communication between different devices.
+3. **`b^*` (Blue-Yellow axis)**:
+   `b^* < 0 \text{ (blue) to } b^* > 0 \text{ (yellow)}`
 
-2. **Gamut Mapping**: It's used as an intermediate color space when converting between different color spaces or devices.
+### How Colors are Represented
 
-3. **Color Appearance Models**: Many advanced color appearance models use XYZ as their starting point.
+Colors in Lab space are represented as a point in a three-dimensional space. The L* axis runs vertically from bottom to top, with the a* and b\* axes forming a horizontal plane.
 
-4. **Standards Compliance**: XYZ is a standard color space in many color management workflows, ensuring consistency across different systems.
+### Whitepoints: Lab and Lab D65
 
-By understanding and utilizing the CIE XYZ color space, color scientists and engineers can ensure accurate color reproduction across various media and devices.
+The Lab color space can use different white points, with D50 and D65 being the most common:
+
+-   **Lab (D50)**: Standard illuminant for graphic arts and photography
+-   **Lab D65**: Standard illuminant representing average daylight
+
+Lab's standard illuminant is D50, which is commonly used in the printing industry. Lab D65 represents average daylight and is widely used in digital imaging.
+
+## Color Conversions
+
+### XYZ to Lab Conversion
+
+The conversion from XYZ to Lab involves several steps:
+
+<div class="language-typescript">
+    {{ xyz2lab }}
+</div>
+
+### Lab to XYZ Conversion
+
+The conversion from Lab to XYZ is the inverse process:
+
+<div class="language-typescript">
+    {{ lab2xyz }}
+</div>
+
+## Common Applications
+
+The Lab color space finds extensive use in various industries and fields:
+
+1. **Color Management**: Used in ICC color profiles for accurate color reproduction across devices.
+2. **Image Processing**: Ideal for operations like sharpening and blurring due to its perceptual uniformity.
+3. **Color Difference Calculations**: Widely used in quality control for manufacturing and textile industries.
+4. **Digital Photography**: Used in RAW image processing and advanced photo editing techniques.
+5. **Printing Industry**: Facilitates color matching and gamut mapping in professional printing workflows.
+6. **Scientific Visualization**: Provides a standardized way to represent and analyze color data in research.
+
+By leveraging its perceptual uniformity and device independence, the Lab color space enables precise color communication and manipulation across a wide range of applications.

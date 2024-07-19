@@ -1,82 +1,250 @@
 <template>
-    <div class="markdown-wrapper fraunces">
+    <div v-if="isLoading" class="flex items-center space-x-4 h-full">
+        <Skeleton class="h-12 w-12 rounded-full" />
+        <div class="space-y-2">
+            <Skeleton class="h-4 w-full" />
+            <Skeleton class="h-4 w-full" />
+        </div>
+    </div>
+
+    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper fraunces">
         <component :is="markdownContent" />
+    </div>
+
+    <div class="fraunces" v-else>
+        <Alert>
+            <AlertTitle class="text-4xl">Oh snap...</AlertTitle>
+            <AlertDescription>
+                We couldn't find the documentation for the selected color space.
+            </AlertDescription>
+        </Alert>
     </div>
 </template>
 
 <script setup lang="ts">
-import { Katex } from "@components/custom/katex";
 import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-import { Button } from "@components/ui/button";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@components/ui/card";
-import { Input } from "@components/ui/input";
-import { Label } from "@components/ui/label";
-import {
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarSeparator,
-} from "@components/ui/menubar";
-import { Slider } from "@components/ui/slider";
-import { List, Loader2 } from "lucide-vue-next";
-import { computed, defineProps } from "vue";
-
-// @ts-ignore
-import "@styles/utils.scss";
-// @ts-ignore
+import { Skeleton } from "@components/ui/skeleton";
+import { convert2 } from "@src/units/utils";
 import "@styles/style.scss";
+import "@styles/utils.scss";
+import { useDark } from "@vueuse/core";
+import hljs from "highlight.js/lib/core";
+import javascript from "highlight.js/lib/languages/javascript";
+import prettier from "prettier";
+import prettierBabelPlugin from "prettier/plugins/babel";
+import prettierESTreePlugin from "prettier/plugins/estree";
+import prettierPostCSSPlugin from "prettier/plugins/postcss";
+import prettierTypeScriptPlugin from "prettier/plugins/typescript";
+import { computed, defineProps, onMounted, onUnmounted, onUpdated, watch } from "vue";
+import { DocItem, DocModule } from ".";
 
-const defaultComponents = {
-    Alert,
-    AlertDescription,
-    AlertTitle,
-    Katex,
-    Card,
-    CardHeader,
-    CardTitle,
-    CardDescription,
-    CardContent,
-    CardFooter,
-    Button,
-    List,
-    Loader2,
-    Slider,
-    Input,
-    Label,
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarSeparator,
+// @ts-ignore
+import darkTheme from "highlight.js/styles/github-dark.css?inline";
+// @ts-ignore
+import lightTheme from "highlight.js/styles/github.css?inline";
+import katex from "katex";
+
+// Then register the languages you need
+hljs.registerLanguage("typescript", javascript);
+hljs.registerLanguage("css", javascript);
+
+const isDark = useDark({ disableTransition: false });
+
+const { module } = defineProps<{
+    module: DocModule;
+}>();
+
+const markdownDiv = $ref(null) as HTMLElement;
+
+let currentDoc = $ref(null) as DocModule;
+
+let isLoading = $ref(true);
+
+const loadDocs = async () => {
+    isLoading = true;
+
+    // @ts-ignore
+    currentDoc = (await module()) as DocModule;
+
+    isLoading = false;
 };
 
-interface Props {
-    markdownModule: (components: Record<string, any>) => any;
-    components?: Record<string, any>;
-}
-
-const props = defineProps<Props>();
-
 const markdownContent = computed(() => {
-    return props.markdownModule({
-        ...defaultComponents,
-        ...(props.components ?? {}),
+    if (!currentDoc) {
+        return null;
+    }
+
+    return currentDoc.default;
+});
+
+const formatCodeId = (id: number) => {
+    return `code-${id}`;
+};
+
+const codeMap = {} as {
+    [key: string]: Partial<{
+        code: string;
+        language: string;
+        printWidth: number;
+    }>;
+};
+let codeId = 0;
+
+const highlightCode = () => {
+    if (!markdownDiv) {
+        return;
+    }
+    // search for "pre code" and "div code" elements; the code must have a class name
+    // that starts with "language-"
+    const selector = "pre code[class^=language-], div[class^=language-]";
+
+    Array.from(markdownDiv.querySelectorAll(selector)).forEach(
+        async (block: HTMLElement, ix) => {
+            if (!block.getAttribute("id")) {
+                if (block.tagName === "DIV") {
+                    // turn the block into a code element
+                    const codeBlock = document.createElement("code");
+                    codeBlock.innerHTML = block.innerHTML;
+                    codeBlock.className = block.className;
+
+                    // turn the parent into a pre element
+                    const preBlock = document.createElement("pre");
+                    preBlock.appendChild(codeBlock);
+
+                    block.replaceWith(preBlock);
+
+                    block = codeBlock;
+                }
+
+                const id = formatCodeId(codeId++);
+                block.setAttribute("id", id);
+
+                const code = block.innerText.trim();
+                const language = block.className.replace("language-", "").toLowerCase();
+
+                codeMap[id] = {
+                    code,
+                    language,
+                };
+            }
+
+            const id = block.getAttribute("id");
+
+            const { code, language } = codeMap[id];
+
+            // Get the width of the code block in characters
+            // Prettier doesn't accept floating point numbers for printWidth
+            const printWidth = Math.max(
+                Math.round(convert2(block.offsetWidth, "px", "ch", block)),
+                80,
+            );
+
+            // If the original code's print width is the same as the current one,
+            // skip formatting
+            if (codeMap[id]?.printWidth === printWidth) {
+                return;
+            } else {
+                codeMap[id].printWidth = printWidth;
+            }
+
+            // Proceed with formatting
+
+            // If it's already been highlighted, set the innerHTML to the original code
+            if (block.getAttribute("highlighted")) {
+                block.innerHTML = code;
+            }
+
+            const formattedCode = await prettier.format(code, {
+                parser: language,
+                plugins: [
+                    // Both estree, babel, and typescript is necessary for JavaScript
+                    prettierESTreePlugin,
+                    prettierBabelPlugin,
+                    prettierTypeScriptPlugin,
+                    // CSS & SCSS support
+                    prettierPostCSSPlugin,
+                ],
+
+                printWidth,
+            });
+
+            const highlighted = hljs.highlight(formattedCode, {
+                language,
+            });
+
+            block.innerHTML = highlighted.value;
+
+            block.setAttribute("highlighted", "true");
+            // Add the hljs class to the parent pre element
+            block.parentElement.className = `hljs ${language}`;
+        },
+    );
+};
+
+const renderKatex = () => {
+    if (!markdownDiv) {
+        return;
+    }
+
+    Array.from(markdownDiv.querySelectorAll("code")).forEach((block: HTMLElement) => {
+        if (!block.className) {
+            const expression = block.innerText.trim();
+
+            const katexElement = document.createElement("div");
+            katexElement.style.display = "inline-block";
+
+            block.replaceWith(katexElement);
+
+            katex.render(expression, katexElement, {
+                throwOnError: false,
+                displayMode: false,
+                output: "mathml",
+            });
+        }
     });
+};
+
+let styleEl = $ref(null);
+
+const changeCodeTheme = () => {
+    const theme = isDark.value ? darkTheme : lightTheme;
+
+    if (!styleEl) {
+        styleEl = document.createElement("style");
+        document.head.appendChild(styleEl);
+    }
+
+    styleEl.innerHTML = theme;
+};
+
+watch(isDark, changeCodeTheme);
+
+onMounted(async () => {
+    await loadDocs();
+
+    changeCodeTheme();
+
+    window.addEventListener("resize", highlightCode);
+});
+
+onUpdated(() => {
+    highlightCode();
+    renderKatex();
+});
+
+onUnmounted(() => {
+    window.removeEventListener("resize", highlightCode);
 });
 </script>
 
 <style lang="scss">
-.markdown-wrapper {
-    @apply max-w-none text-base leading-7 text-gray-700 dark:text-gray-300;
+.markdown-body {
+    @apply text-base leading-7 text-gray-700 dark:text-gray-300;
+    @apply p-0 m-0;
+    @apply max-w-full;
+}
 
+.markdown-wrapper > .markdown-body > {
     /* Headings */
     h1,
     h2,
@@ -84,7 +252,7 @@ const markdownContent = computed(() => {
     h4,
     h5,
     h6 {
-        @apply sticky top-0 bg-background py-2 z-10;
+        @apply sticky top-0 bg-background z-10;
         @apply font-bold text-gray-900 dark:text-gray-100 mb-4 mt-6;
         @apply first:mt-0 scroll-m-20;
     }
@@ -117,7 +285,9 @@ const markdownContent = computed(() => {
     p {
         @apply mb-4 leading-7;
     }
+}
 
+.markdown-wrapper > .markdown-body {
     /* Links */
     a {
         @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200;
@@ -152,7 +322,7 @@ const markdownContent = computed(() => {
     }
 
     code {
-        @apply text-sm font-mono bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5;
+        @apply text-xs font-mono bg-gray-100 dark:bg-gray-800 rounded;
     }
 
     /* Inline code */
@@ -236,6 +406,45 @@ const markdownContent = computed(() => {
         ol {
             @apply text-sm;
         }
+    }
+
+    /* Footnote links */
+    .footnote-ref {
+        @apply text-xs;
+    }
+
+    /* Footnote definitions */
+    .footnote-item {
+        @apply text-sm;
+    }
+
+    /* Tables of contents */
+    .toc {
+        @apply sticky top-0 bg-background z-10;
+        @apply p-4 mb-4;
+        @apply font-bold text-gray-900 dark:text-gray-100;
+        @apply first:mt-0 scroll-m-20;
+    }
+
+    .toc ul {
+        @apply list-none pl-0;
+    }
+
+    .toc li {
+        @apply mb-2;
+
+        > ul {
+            @apply mt-2 mb-0;
+        }
+    }
+
+    .toc a {
+        @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200;
+    }
+
+    /* Tables of contents links */
+    .toc a {
+        @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200;
     }
 }
 </style>

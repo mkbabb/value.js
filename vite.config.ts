@@ -9,7 +9,7 @@ import dts from "vite-plugin-dts";
 import tailwind from "tailwindcss";
 import autoprefixer from "autoprefixer";
 
-import { Mode, plugin as mdPlugin } from "vite-plugin-markdown";
+import Markdown from "unplugin-vue-markdown/vite";
 
 const defaultOptions = {
     base: "./",
@@ -31,13 +31,13 @@ const defaultOptions = {
 };
 
 const defaultPlugins = [
-    mdPlugin({ mode: [Mode.VUE] }),
     VueMacros({
         betterDefine: false,
         plugins: {
-            vue: Vue(),
+            vue: Vue({ include: [/\.vue$/, /\.md$/] }),
         },
     }),
+    Markdown({}),
 ];
 
 export default defineConfig((mode) => {

@@ -1,18 +1,18 @@
 <template>
     <div class="grid gap-4 relative">
-        <Card class="bg-background p-2">
-            <CardHeader class="fraunces mb-0 pb-2">
-                <h2 class="text-xl italic flex relative justify-between">
+        <Card class="grid h-full items-between">
+            <CardHeader class="fraunces mb-0 pb-2 relative">
+                <div class="w-full flex z-1 justify-between">
                     <Select
-                        :model-value="selectedColorSpace"
+                        :model-value="model.selectedColorSpace"
                         @update:model-value="
                             (colorSpace: any) => {
-                                selectedColorSpace = colorSpace;
+                                model.selectedColorSpace = colorSpace;
                             }
                         "
                     >
                         <SelectTrigger
-                            class="w-fit h-fit text-xl p-0 m-0 border-none self-end focus:outline-none bg-transparent"
+                            class="w-fit h-fit font-light text-3xl p-0 m-0 border-none self-end focus:outline-none bg-transparent"
                         >
                             <SelectValue />
                         </SelectTrigger>
@@ -49,10 +49,11 @@
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                </h2>
+                </div>
+
                 <CardTitle
                     contenteditable="true"
-                    class="flex w-full text-5xl justify-start focus-visible:outline-none overflow-hidden gap-x-4"
+                    class="z-10 flex h-fit text-3xl focus-visible:outline-none gap-x-2 flex-wrap justify-start items-start"
                 >
                     <template
                         v-for="([component, value], ix) in Object.entries(
@@ -62,7 +63,7 @@
                     >
                         <span
                             contenteditable="true"
-                            class="focus-visible:outline-none overflow-hidden text-ellipsis block whitespace-nowrap"
+                            class="focus-visible:outline-none text-ellipsis flex whitespace-nowrap font-bold"
                             @input="
                                 (e) =>
                                     updateColorComponentDebounced(
@@ -158,60 +159,95 @@
                     </div>
                 </div>
 
-                <div class="flex items-center justify-center gap-x-4">
-                    <span
-                        contenteditable
-                        class="w-full border overflow-hidden text-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code inline-block text-ellipsis whitespace-nowrap"
-                        @input="(e) => parseAndSetColor((e.target as any).innerText)"
-                        @focus="selectAll"
-                        >{{ denormalizedCurrentColor.value.toFormattedString() }}</span
-                    >
-
-                    <HoverCard :open-delay="0" class="pointer-events-auto">
+                <div
+                    class="flex flex-col lg:flex-row gap-x-4 p-0 m-0 items-center justify-center"
+                >
+                    <HoverCard :open-delay="700" class="pointer-events-auto">
                         <HoverCardTrigger>
-                            <Palette
-                                @click="() => addColorClick()"
-                                class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
-                            />
-                        </HoverCardTrigger>
-                        <HoverCardContent class="z-[100] pointer-events-auto">
-                            <div>
-                                <p class="font-bold text-lg">
-                                    Add color to the palette 🎨
-                                </p>
-                                <p class="text-sm opacity-60">
-                                    Click to add the current color to the palette.
-                                </p>
-                                <Separator class="my-2" />
-                                <p class="text-sm opacity-60">
-                                    Hold <kbd>⌘</kbd> and click a palette color to swap
-                                    it with the current color.
-                                </p>
-                            </div>
-                        </HoverCardContent>
-                    </HoverCard>
-
-                    <HoverCard :open-delay="0" class="pointer-events-auto">
-                        <HoverCardTrigger>
-                            <Shuffle
-                                @click="
-                                    () =>
-                                        updateFromColor(
-                                            generateRandomColor(selectedColorSpace),
-                                        )
+                            <span
+                                contenteditable
+                                class="lg:max-w-[28ch] flex-grow border overflow-hidden justify-center items-center justify-items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code lg:inline-block lg:h-full flex text-ellipsis whitespace-nowrap"
+                                @input="
+                                    (e) => parseAndSetColor((e.target as any).innerText)
                                 "
-                                class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
-                            />
+                                @focus="selectAll"
+                                >{{
+                                    denormalizedCurrentColor.value.toFormattedString()
+                                }}</span
+                            >
                         </HoverCardTrigger>
-                        <HoverCardContent class="z-[100] pointer-events-auto">
-                            <div>
-                                <p class="font-bold text-lg">Random color 🎲</p>
-                                <p class="text-sm opacity-60">
-                                    Click to generate a random color.
-                                </p>
-                            </div>
+                        <HoverCardContent class="z-[100] pointer-events-auto fraunces">
+                            <p>
+                                Enter <span class="italic">any</span> valid CSS color
+                                string to update the color. 🖌️
+                            </p>
                         </HoverCardContent>
                     </HoverCard>
+
+                    <div class="flex gap-x-4 justify-around self-center">
+                        <HoverCard :open-delay="700" class="pointer-events-auto">
+                            <HoverCardTrigger>
+                                <Palette
+                                    @mouseover="
+                                        () => {
+                                            paletteHidden = false;
+                                            clearPaletteTimeout();
+                                        }
+                                    "
+                                    @mouseleave="
+                                        () => {
+                                            startPaletteTimeout();
+                                        }
+                                    "
+                                    @click="() => addColorClick()"
+                                    class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                />
+                            </HoverCardTrigger>
+                            <HoverCardContent
+                                class="z-[100] pointer-events-auto fraunces"
+                            >
+                                <div>
+                                    <p class="font-bold text-lg">
+                                        Add color to the palette 🎨
+                                    </p>
+                                    <p class="text-sm opacity-60">
+                                        Click to add the current color to the palette.
+                                    </p>
+                                    <Separator class="my-2" />
+                                    <p class="text-sm opacity-60">
+                                        Hold <kbd>⌘</kbd> and click a palette color to
+                                        swap it with the current color.
+                                    </p>
+                                </div>
+                            </HoverCardContent>
+                        </HoverCard>
+
+                        <HoverCard :open-delay="700" class="pointer-events-auto">
+                            <HoverCardTrigger>
+                                <Shuffle
+                                    @click="
+                                        () =>
+                                            updateFromColor(
+                                                generateRandomColor(
+                                                    model.selectedColorSpace,
+                                                ),
+                                            )
+                                    "
+                                    class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                />
+                            </HoverCardTrigger>
+                            <HoverCardContent
+                                class="z-[100] pointer-events-auto fraunces"
+                            >
+                                <div>
+                                    <p class="font-bold text-lg">Random color 🎲</p>
+                                    <p class="text-sm opacity-60">
+                                        Click to generate a random color.
+                                    </p>
+                                </div>
+                            </HoverCardContent>
+                        </HoverCard>
+                    </div>
                 </div>
             </CardContent>
         </Card>
@@ -228,7 +264,7 @@
                 }
             "
             :class="[
-                'absolute bottom-0 w-full transition-all',
+                'absolute bottom-0 w-full transition-all duration-500',
                 paletteHidden
                     ? ' translate-y-full pointer-events-none overflow-hidden opacity-0'
                     : ' translate-y-[-100%] opacity-100',
@@ -317,6 +353,7 @@ import { computed, onMounted, watch } from "vue";
 import { toast } from "vue-sonner";
 
 import { useDark, useMagicKeys } from "@vueuse/core";
+import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 
 const selectAll = (event: MouseEvent) => {
     const target = event.target as HTMLSpanElement;
@@ -346,6 +383,8 @@ const generateRandomColor = (
             const randomValue = Math.random();
             value.value = randomValue;
         });
+
+    color.value.alpha = currentColor.value.alpha;
 
     // new CSSKeyframesAnimation({
     //     duration: 700,
@@ -429,15 +468,19 @@ let currentColor = $ref(parseAndNormalizeColor(model.value.inputColor)) as Value
     "color"
 >;
 
-for (let i = 0; i < 6; i++) {
-    model.value.savedColors.push(parseAndNormalizeColor("white"));
+const DEFAULT_PALETTES = 6;
+
+for (let i = 0; i < DEFAULT_PALETTES - model.value.savedColors.length; i++) {
+    model.value.savedColors.push("white" as any);
 }
+
+model.value.savedColors = model.value.savedColors.map((color) => {
+    return color instanceof ValueUnit ? color : parseAndNormalizeColor(color);
+});
 
 let currentColorSpace = computed(() => currentColor.superType[1] as ColorSpace);
 
 model.value.selectedColorSpace = currentColorSpace.value;
-
-let selectedColorSpace = $ref<ColorSpace>(currentColorSpace.value);
 
 const denormalizedCurrentColor = computed(() => {
     return normalizeColorUnit(currentColor, true, false);
@@ -497,7 +540,8 @@ const parseAndSetColor = debounce(
             const color = parseAndNormalizeColor(newVal);
 
             currentColor = color;
-            selectedColorSpace = color.superType[1] as ColorSpace;
+
+            model.value.selectedColorSpace = color.superType[1] as ColorSpace;
 
             model.value.color = denormalizedCurrentColor.value;
 
@@ -521,6 +565,7 @@ const onSavedColorClick = (
     currentColor = color.clone();
 
     if (keys.current.has("meta")) {
+        model.value.selectedColorSpace = color.value.colorSpace;
         model.value.savedColors[ix] = temp;
     }
 
@@ -605,7 +650,8 @@ const updateFromColor = (color: ValueUnit<Color<ValueUnit<number>>, "color">) =>
 
 const updateToColorSpace = (to: ColorSpace) => {
     currentColor = colorUnit2(currentColor, to, true);
-    selectedColorSpace = to;
+
+    model.value.selectedColorSpace = to;
 
     model.value.color = denormalizedCurrentColor.value;
 };
@@ -731,9 +777,8 @@ const componentsSlidersStyle = computed(() => {
 });
 
 watch(
-    () => selectedColorSpace,
+    () => model.value.selectedColorSpace,
     (newVal) => {
-        model.value.selectedColorSpace = newVal;
         updateToColorSpace(newVal);
     },
 );
