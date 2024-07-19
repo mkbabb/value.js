@@ -2,7 +2,7 @@
     <div class="grid gap-4 relative">
         <Card class="grid h-full items-between">
             <CardHeader class="fraunces m-0 pb-0 relative">
-                <div class="w-full flex z-1 justify-between">
+                <div class="w-full flex justify-between">
                     <Select
                         :ref="selectedColorSpaceRef"
                         v-model:open="selectedColorSpaceOpen"
@@ -59,7 +59,7 @@
 
                 <CardTitle
                     contenteditable="true"
-                    class="flex h-fit text-4xl m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap justify-start items-start justify-items-start"
+                    class="flex h-fit m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap justify-start items-start justify-items-start"
                 >
                     <template
                         v-for="([component, value], ix) in Object.entries(
@@ -82,8 +82,8 @@
                                     .toFixed(1)
                                     .replace(/\.0$/, "")
                                     .replace(/^-0$/, "0")
-                            }}<span class="inline font-normal lg:text-lg text-lg">{{
-                                currentColorComponentsFormatted[component].unit +
+                            }}<span class="inline font-normal">{{
+                                
                                 (ix !==
                                 Object.keys(COLOR_SPACE_RANGES[currentColorSpace])
                                     .length -
@@ -134,7 +134,7 @@
                         :key="component"
                         class="grid w-full items-start"
                     >
-                        <Label class="font-bold text-sm"
+                        <Label class="font-bold text-md"
                             >{{ component.toUpperCase()
                             }}<span class="font-normal italic opacity-60">{{
                                 ` ${currentColorRanges[component]}`
