@@ -796,8 +796,10 @@ const stopDragging = () => {
 };
 
 const spectrumStyle = computed(() => {
-    let { h, s, l, alpha } = hslColor.value.value;
+    let { h, alpha } = hsvColor.value.value;
+
     const denormalized = normalizeColorUnit(currentColor, true, false);
+
     denormalized.value.alpha.value = 30;
 
     h.value = clamp(h.value, 0, 1);
