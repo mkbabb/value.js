@@ -15,9 +15,12 @@
                         "
                     >
                         <SelectTrigger
-                            class="w-fit h-fit font-light italic text-3xl p-0 m-0 border-none self-end focus:outline-none focus:ring-0 focus:ring-transparent bg-transparent"
+                            :style="{
+                                color: denormalizedCurrentColor.value.toString(),
+                            }"
+                            class="w-fit h-fit font-bold italic text-3xl p-0 m-0 border-none self-end focus:outline-none focus:ring-0 focus:ring-transparent bg-transparent"
                         >
-                            <SelectValue />
+                            <SelectValue class="w-full" />
                         </SelectTrigger>
                         <SelectContent>
                             <SelectGroup class="fira-code">
@@ -56,7 +59,7 @@
 
                 <CardTitle
                     contenteditable="true"
-                    class="flex h-fit lg:text-4xl text-3xl m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap justify-start items-start justify-items-start"
+                    class="flex h-fit text-4xl m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap justify-start items-start justify-items-start"
                 >
                     <template
                         v-for="([component, value], ix) in Object.entries(
@@ -66,7 +69,7 @@
                     >
                         <span
                             contenteditable="true"
-                            class="'focus-visible:outline-none font-bold'"
+                            class="font-semibold focus-visible:outline-none"
                             @input="
                                 (e) =>
                                     updateColorComponentDebounced(
@@ -79,7 +82,7 @@
                                     .toFixed(1)
                                     .replace(/\.0$/, "")
                                     .replace(/^-0$/, "0")
-                            }}<span class="inline lg:text-lg text-[1rem]">{{
+                            }}<span class="inline font-normal lg:text-lg text-lg">{{
                                 currentColorComponentsFormatted[component].unit +
                                 (ix !==
                                 Object.keys(COLOR_SPACE_RANGES[currentColorSpace])
@@ -193,7 +196,7 @@
                             <span
                                 ref="inputColorRef"
                                 contenteditable
-                                class="w-[28ch] flex-grow border overflow-hidden justify-center items-center justify-items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code lg:inline-block lg:h-full flex text-ellipsis whitespace-nowrap"
+                                class="w-[28ch] flex-grow border overflow-hidden justify-start items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code lg:inline-block lg:h-full flex text-ellipsis whitespace-nowrap"
                                 @keydown="
                                     (e) => {
                                         if (e.key === 'Enter') {
@@ -446,7 +449,13 @@ import {
 } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
 import { Palette, RotateCcw, Shuffle } from "lucide-vue-next";
-import { SliderRange, SliderRoot, SliderThumb, SliderTrack } from "radix-vue";
+import {
+    SelectIcon,
+    SliderRange,
+    SliderRoot,
+    SliderThumb,
+    SliderTrack,
+} from "radix-vue";
 import { computed, onMounted, onUnmounted, watch, watchEffect } from "vue";
 import { toast } from "vue-sonner";
 
