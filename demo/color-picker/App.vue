@@ -14,7 +14,7 @@
         class="grid overflow-scroll w-full min-h-screen items-center justify-items-center justify-center"
     >
         <div
-            :class="'sticky p-4 lg:absolute z-[100] pointer-events-none top-0 w-full h-fit lg:w-min lg:right-0 flex flex-row-reverse lg:flex-col lg:gap-4 gap-6 items-center justify-items-center  justify-between '"
+            :class="'fixed px-6 lg:p-6 lg:absolute z-[100] pointer-events-none top-0 w-full h-fit lg:w-min lg:right-0 flex lg:flex-col lg:gap-4 gap-6 items-center justify-items-center  justify-center opacity-25 hover:opacity-100 transition-all'"
         >
             <DarkModeToggle
                 class="pointer-events-auto hover:opacity-50 hover:scale-125 w-8 aspect-square transition-all"
@@ -52,7 +52,7 @@
         </div>
 
         <div
-            class="grid lg:grid-cols-2 max-h-screen lg:grid-rows-2 gap-6 items-center justify-center justify-items-center relative w-screen max-w-screen-lg lg:overflow-hidden p-3 lg:p-6"
+            class="grid lg:grid-cols-2 max-h-screen lg:grid-rows-2 gap-6 items-center justify-center justify-items-center relative w-screen max-w-screen-lg lg:overflow-hidden lg:p-6"
         >
             <ColorPicker
                 class="w-full max-w-[100%] h-full max-h-screen lg:col-span-1 lg:row-span-2"
