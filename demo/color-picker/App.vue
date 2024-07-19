@@ -102,24 +102,22 @@
             </Card>
         </div>
 
-        <ClientOnly>
-            <Teleport to="html">
-                <Toaster
-                    :toastOptions="{
-                        unstyled: true,
-                        classes: {
-                            toast: 'bg-foreground text-background rounded-md fraunces px-6 py-4 grid grid-cols-1 gap-2 shadow-lg h-32 lg:w-96 w-full ',
-                            title: 'font-bold text-xl',
-                            description: 'font-normal text-md',
-                            actionButton: '',
-                            cancelButton: '',
-                            closeButton: '',
-                        },
-                    }"
-                    :theme="isDark ? 'dark' : 'light'"
-                />
-            </Teleport>
-        </ClientOnly>
+        <Teleport to="html">
+            <Toaster
+                :toastOptions="{
+                    unstyled: true,
+                    classes: {
+                        toast: 'bg-foreground text-background rounded-md fraunces px-6 py-3 grid grid-cols-1 gap-2 shadow-lg h-32 lg:w-96 w-full ',
+                        title: 'font-bold text-lg',
+                        description: 'font-normal text-sm',
+                        actionButton: '',
+                        cancelButton: '',
+                        closeButton: '',
+                    },
+                }"
+                :theme="isDark ? 'dark' : 'light'"
+            />
+        </Teleport>
     </div>
 </template>
 

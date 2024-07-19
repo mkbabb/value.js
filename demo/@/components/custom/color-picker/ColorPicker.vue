@@ -90,6 +90,9 @@
                     ref="spectrumRef"
                     class="flex w-full h-48 rounded-sm cursor-crosshair relative"
                     :style="spectrumStyle"
+                    @touchstart="handleSpectrumChange"
+                    @touchmove="handleSpectrumMove"
+                    @touchend="stopDragging"
                     @mousedown="handleSpectrumChange"
                     @mousemove="handleSpectrumMove"
                     @mouseup="stopDragging"
@@ -612,7 +615,9 @@ const parseAndSetColor = debounce(
 
             model.value.color = denormalizedCurrentColor.value;
 
-            toast.success(`Parsed ${denormalizedCurrentColor.value.toString()} 🎨`);
+            toast.success(
+                `Parsed ${denormalizedCurrentColor.value.value.toFormattedString()} 🎨`,
+            );
         } catch (e) {
             toast.error(`Invalid color: ${newVal}`);
         }
@@ -715,6 +720,7 @@ const addColorClick = () => {
 
 const updateFromColor = (color: ValueUnit<Color<ValueUnit<number>>, "color">) => {
     const converted = colorUnit2(color, currentColorSpace.value, true);
+
     currentColor = converted as any;
 
     model.value.color = denormalizedCurrentColor.value;
@@ -751,19 +757,17 @@ const updateColorComponent = (
 };
 const updateColorComponentDebounced = debounce(updateColorComponent, 500);
 
-const updateHue = (value: number) => {
-    const hsl = hslColor.value;
-    hsl.value.h.value = value;
-
-    updateFromColor(hsl);
-};
-
-const updateSpectrumColor = (event: MouseEvent) => {
+const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
     if (!spectrumRef) return;
 
+    event.preventDefault();
+
+    const { clientX, clientY } = event instanceof MouseEvent ? event : event.touches[0];
+
     const rect = spectrumRef.getBoundingClientRect();
-    const x = clamp(event.clientX - rect.left, 0, rect.width);
-    const y = clamp(event.clientY - rect.top, 0, rect.height);
+
+    const x = clamp(clientX - rect.left, 0, rect.width);
+    const y = clamp(clientY - rect.top, 0, rect.height);
 
     const s = x / rect.width;
     const v = 1 - y / rect.height;
@@ -776,12 +780,12 @@ const updateSpectrumColor = (event: MouseEvent) => {
     updateFromColor(hsv);
 };
 
-const handleSpectrumChange = (event: MouseEvent) => {
+const handleSpectrumChange = (event: MouseEvent | TouchEvent) => {
     isDragging = true;
     updateSpectrumColor(event);
 };
 
-const handleSpectrumMove = (event: MouseEvent) => {
+const handleSpectrumMove = (event: MouseEvent | TouchEvent) => {
     if (isDragging) {
         updateSpectrumColor(event);
     }
@@ -821,18 +825,9 @@ const spectrumDotStyle = computed(() => {
     };
 });
 
-const hueSliderStyle = computed(() => {
-    const color = parseCSSColor("hsl(0, 100%, 50%)");
-    const gradient = createGradientStops(color, "h", 10, "oklab");
-
-    return {
-        background: `linear-gradient(to right, ${gradient.join(", ")})`,
-    };
-});
-
 const componentsSlidersStyle = computed(() => {
     const steps = 10;
-    const to = "rgb" as ColorSpace;
+    const to = "oklab" as ColorSpace;
 
     const gradients = currentColorOpaque.value.value
         .entries()
