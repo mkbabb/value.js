@@ -4,10 +4,13 @@
             <CardHeader class="fraunces m-0 pb-0 relative">
                 <div class="w-full flex z-1 justify-between">
                     <Select
+                        :ref="selectedColorSpaceRef"
+                        v-model:open="selectedColorSpaceOpen"
                         :model-value="model.selectedColorSpace"
                         @update:model-value="
                             (colorSpace: any) => {
                                 model.selectedColorSpace = colorSpace;
+                                selectedColorSpaceOpen = false;
                             }
                         "
                     >
@@ -53,7 +56,7 @@
 
                 <CardTitle
                     contenteditable="true"
-                    class="flex z-10 h-fit text-4xl m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap justify-start items-start"
+                    class="flex h-fit lg:text-4xl text-3xl m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap justify-start items-start justify-items-start"
                 >
                     <template
                         v-for="([component, value], ix) in Object.entries(
@@ -63,7 +66,7 @@
                     >
                         <span
                             contenteditable="true"
-                            class="focus-visible:outline-none text-ellipsis flex whitespace-nowrap font-bold"
+                            class="'focus-visible:outline-none font-bold'"
                             @input="
                                 (e) =>
                                     updateColorComponentDebounced(
@@ -71,16 +74,21 @@
                                         component,
                                     )
                             "
-                            >{{ currentColorComponentsFormatted[component]
-                            }}{{
-                                ix !==
+                            >{{
+                                currentColorComponentsFormatted[component].value
+                                    .toFixed(1)
+                                    .replace(/\.0$/, "")
+                                    .replace(/^-0$/, "0")
+                            }}<span class="inline lg:text-lg text-[1rem]">{{
+                                currentColorComponentsFormatted[component].unit +
+                                (ix !==
                                 Object.keys(COLOR_SPACE_RANGES[currentColorSpace])
                                     .length -
                                     2
-                                    ? ", "
-                                    : ""
-                            }}</span
-                        >
+                                    ? ","
+                                    : "")
+                            }}</span>
+                        </span>
                     </template>
                 </CardTitle>
             </CardHeader>
@@ -174,7 +182,7 @@
                 </div>
 
                 <div
-                    class="flex flex-col lg:flex-row gap-x-4 p-0 m-0 items-center justify-center"
+                    class="flex flex-col lg:flex-row gap-x-4 gap-y-2 p-0 m-0 items-center justify-center relative"
                 >
                     <HoverCard
                         :close-delay="0"
@@ -183,8 +191,9 @@
                     >
                         <HoverCardTrigger>
                             <span
+                                ref="inputColorRef"
                                 contenteditable
-                                class="lg:max-w-[28ch] flex-grow border overflow-hidden justify-center items-center justify-items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code lg:inline-block lg:h-full flex text-ellipsis whitespace-nowrap"
+                                class="w-[28ch] flex-grow border overflow-hidden justify-center items-center justify-items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code lg:inline-block lg:h-full flex text-ellipsis whitespace-nowrap"
                                 @keydown="
                                     (e) => {
                                         if (e.key === 'Enter') {
@@ -223,7 +232,7 @@
                         </HoverCardContent>
                     </HoverCard>
 
-                    <div class="flex gap-x-4 justify-around self-center">
+                    <div class="flex gap-x-4 w-full justify-evenly self-center">
                         <HoverCard
                             :close-delay="0"
                             :open-delay="700"
@@ -438,10 +447,10 @@ import {
 import { debounce } from "@src/utils";
 import { Palette, RotateCcw, Shuffle } from "lucide-vue-next";
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack } from "radix-vue";
-import { computed, onMounted, watch } from "vue";
+import { computed, onMounted, onUnmounted, watch, watchEffect } from "vue";
 import { toast } from "vue-sonner";
 
-import { useDark, useMagicKeys } from "@vueuse/core";
+import { useDark, useMagicKeys, whenever } from "@vueuse/core";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import CardDescription from "@components/ui/card/CardDescription.vue";
 import Button from "@components/ui/button/Button.vue";
@@ -593,10 +602,13 @@ const currentColorComponentsFormatted = computed(() => {
         .entries()
         .filter(([key]) => key !== "alpha")
         .map(([key, value]) => {
-            const n = 6;
-            const s = value.toFixed(1);
-
-            return [key, s];
+            return [
+                key,
+                {
+                    value: value.value,
+                    unit: "deg",
+                },
+            ] as any;
         })
         .reduce((acc, [key, value]) => {
             acc[key] = value;
@@ -629,9 +641,16 @@ const denormalizedCurrentColorLight = computed(() => {
     return normalizeColorUnit(lab, true);
 });
 
+let previousInvalidValue = "";
+
 const parseAndSetColor = (newVal: string) => {
     try {
         newVal = newVal.trim().toLowerCase();
+
+        if (newVal === previousInvalidValue) {
+            return;
+        }
+
         const color = parseAndNormalizeColor(newVal);
 
         if (color.value.toString() === currentColor.value.toString()) {
@@ -650,6 +669,7 @@ const parseAndSetColor = (newVal: string) => {
             `Parsed ${denormalizedCurrentColor.value.value.toFormattedString()} 🎨`,
         );
     } catch (e) {
+        previousInvalidValue = newVal;
         toast.error(`Invalid color: ${newVal}`);
     }
 };
@@ -918,6 +938,25 @@ const sliderAnimOffsets = computed(() => {
     return offsets;
 });
 
+const { cmd, k, i } = useMagicKeys();
+
+let selectedColorSpaceOpen = $ref(false);
+let inputColorRef = $ref(null);
+let selectedColorSpaceRef = $ref(null);
+
+// add event listener for cmd + k:
+window.addEventListener("keydown", (e) => {
+    if (cmd.value && k.value) {
+        e.preventDefault();
+        selectedColorSpaceOpen = !selectedColorSpaceOpen;
+    }
+
+    if (cmd.value && i.value) {
+        e.preventDefault();
+        inputColorRef.focus();
+    }
+});
+
 // const slidersAnim = new CSSKeyframesAnimation({
 //     iterationCount: "infinite",
 //     direction: "alternate",
@@ -932,5 +971,10 @@ onMounted(() => {
     // hover.setTargets(spectrumRef);
     // hover.play();
     // slidersAnim.play();
+});
+
+onUnmounted(() => {
+    // hover.stop();
+    // slidersAnim.stop();
 });
 </script>
