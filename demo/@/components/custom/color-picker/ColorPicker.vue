@@ -892,6 +892,9 @@ const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
     const s = x / rect.width;
     const v = 1 - y / rect.height;
 
+    // Do not update the color if it's NaN:
+    if (isNaN(s) || isNaN(v)) return;
+
     const hsv = hsvColor.value;
 
     hsv.value.s.value = clamp(s, 0, 1);
@@ -918,6 +921,8 @@ const stopDragging = () => {
 const spectrumStyle = computed(() => {
     let { h, alpha } = hsvColor.value.value;
 
+    if (isNaN(h.value) || isNaN(alpha.value)) return;
+
     const denormalized = normalizeColorUnit(currentColor, true, false);
 
     denormalized.value.alpha.value = 30;
@@ -936,6 +941,8 @@ const spectrumStyle = computed(() => {
 
 const spectrumDotStyle = computed(() => {
     let { s, v } = hsvColor.value.value;
+
+    if (isNaN(s.value) || isNaN(v.value)) return;
 
     s.value = clamp(s.value, 0, 1);
     v.value = clamp(v.value, 0, 1);
