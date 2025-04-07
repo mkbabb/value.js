@@ -94,7 +94,7 @@
                         :module="m"
                     >
                         <Markdown
-                            v-show="n === `${model.selectedColorSpace}.md`"
+                            v-show="n === `${model.selectedColorSpace}.md` && m !== null"
                             :module="m"
                         />
                     </template>

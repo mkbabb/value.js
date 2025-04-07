@@ -236,34 +236,6 @@
                         </HoverCardContent>
                     </HoverCard>
 
-                    <HoverCard
-                        :close-delay="0"
-                        :open-delay="700"
-                        class="pointer-events-auto"
-                    >
-                        <HoverCardTrigger>
-                            <Copy
-                                class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
-                                @click="
-                                    copyToClipboard(
-                                        denormalizedCurrentColor.value.toFormattedString(
-                                            2,
-                                        ),
-                                    )
-                                "
-                            >
-                            </Copy>
-                        </HoverCardTrigger>
-                        <HoverCardContent class="z-[100] pointer-events-auto fraunces">
-                            <div>
-                                <p class="font-bold text-lg">Copy color 📋</p>
-                                <p class="text-sm opacity-60">
-                                    Click to copy the current color to the clipboard.
-                                </p>
-                            </div>
-                        </HoverCardContent>
-                    </HoverCard>
-
                     <div class="flex gap-x-4 w-full justify-evenly self-center">
                         <HoverCard
                             :close-delay="0"
@@ -271,18 +243,39 @@
                             class="pointer-events-auto"
                         >
                             <HoverCardTrigger>
+                                <Copy
+                                    class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                    @click="
+                                        copyToClipboard(
+                                            denormalizedCurrentColor.value.toFormattedString(
+                                                2,
+                                            ),
+                                        )
+                                    "
+                                >
+                                </Copy>
+                            </HoverCardTrigger>
+                            <HoverCardContent
+                                class="z-[100] pointer-events-auto fraunces"
+                            >
+                                <div>
+                                    <p class="font-bold text-lg">Copy color 📋</p>
+                                    <p class="text-sm opacity-60">
+                                        Click to copy the current color to the
+                                        clipboard.
+                                    </p>
+                                </div>
+                            </HoverCardContent>
+                        </HoverCard>
+
+                        <HoverCard
+                            :close-delay="0"
+                            :open-delay="700"
+                            class="pointer-events-auto"
+                        >
+                            <HoverCardTrigger>
                                 <Palette
-                                    @mouseover="
-                                        () => {
-                                            startPaletteShowTimeout();
-                                        }
-                                    "
-                                    @mouseleave="
-                                        () => {
-                                            startPaletteTimeout();
-                                        }
-                                    "
-                                    @click="() => addColorClick()"
+                                    @click="() => showPalette()"
                                     class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
                                 />
                             </HoverCardTrigger>
@@ -367,46 +360,38 @@
         </Card>
 
         <Card
-            @touchstart="
-                () => {
-                    clearPaletteTimeout();
-                }
-            "
-            @mouseover="
-                () => {
-                    clearPaletteTimeout();
-                }
-            "
-            @touchend="
-                () => {
-                    startPaletteTimeout();
-                }
-            "
-            @mouseleave="
-                () => {
-                    startPaletteTimeout();
-                }
-            "
             :class="[
-                'absolute bottom-0 w-full transition-all duration-500 opacity-95 pointer-events-auto',
+                'absolute bottom-0 w-full transition-all duration-300 opacity-95 pointer-events-auto',
                 paletteHidden
                     ? ' translate-y-[100%] pointer-events-none overflow-hidden opacity-0'
                     : ' translate-y-[0%]',
             ]"
         >
             <CardHeader class="fraunces">
-                <CardTitle class="text-2xl">Saved colors 🎨</CardTitle>
+                <CardTitle class="text-2xl flex">
+                    <div>Saved colors 🎨</div>
+                    <X
+                        @click="hidePalette"
+                        class="absolute top-0 right-0 m-2 h-6 w-6 cursor-pointer hover:scale-125 transition-all opacity-70"
+                        :class="{
+                            'text-red-500': isDark,
+                            'text-red-700': !isDark,
+                        }"
+                    />
+                </CardTitle>
                 <CardDescription>
                     Click to add the current color to the palette.
-                    <Separator class="my-2" />
-                    Hold <kbd>shift</kbd> and click, or double click 👆, a palette color
-                    to swap it with the current color.
                 </CardDescription>
             </CardHeader>
             <CardContent class="pt-0">
                 <div
                     class="relative flex flex-wrap gap-2 items-center justify-center justify-items-center w-full"
                 >
+                    <Plus
+                        @click="addColorClick"
+                        class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                    />
+
                     <template v-for="(color, ix) in model.savedColors">
                         <TooltipProvider :delay-duration="100">
                             <Tooltip>
@@ -480,7 +465,7 @@ import {
     normalizeColorUnitComponent,
 } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
-import { Palette, RotateCcw, Shuffle, Copy } from "lucide-vue-next";
+import { Palette, RotateCcw, Shuffle, Copy, X, Plus } from "lucide-vue-next";
 import {
     SelectIcon,
     SliderRange,
@@ -790,32 +775,18 @@ watch(isDark, () => {
 });
 
 let paletteHidden = $ref(true);
-let paletteTimeout: number | null = $ref(null);
 
-const startPaletteTimeout = () => {
+const showPalette = () => {
     paletteHidden = false;
-
-    paletteTimeout = setTimeout(() => {
-        paletteHidden = true;
-    }, 700);
 };
 
-const clearPaletteTimeout = () => {
-    if (paletteTimeout) {
-        clearTimeout(paletteTimeout);
-        paletteTimeout = null;
-    }
-};
-
-const startPaletteShowTimeout = () => {
-    paletteTimeout = setTimeout(() => {
-        paletteHidden = false;
-    }, 1000);
+const hidePalette = () => {
+    paletteHidden = true;
 };
 
 const addColorClick = () => {
     if (paletteHidden) {
-        startPaletteTimeout();
+        return;
     }
 
     const colorIx = model.value.savedColors.findIndex((color) => {
