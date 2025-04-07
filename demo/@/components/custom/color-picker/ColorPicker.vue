@@ -474,7 +474,7 @@ import {
 import { computed, onMounted, onUnmounted, watch, watchEffect } from "vue";
 import { toast } from "vue-sonner";
 
-import { useDark, useMagicKeys, whenever } from "@vueuse/core";
+import { get, useDark, useMagicKeys, whenever } from "@vueuse/core";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import CardDescription from "@components/ui/card/CardDescription.vue";
 import Button from "@components/ui/button/Button.vue";
@@ -675,10 +675,9 @@ const denormalizedCurrentColor = computed(() => {
 model.value.color = denormalizedCurrentColor.value;
 
 const currentColorOpaque = computed(() => {
-    // const color = denormalizedCurrentColor.value.clone();
-    // color.value.alpha.value = 100;
-    // return color;
-    return denormalizedCurrentColor.value;
+    const color = denormalizedCurrentColor.value.clone();
+    color.value.alpha.value = 100;
+    return color;
 });
 
 const currentColorComponentsFormatted = computed(() => {
@@ -712,10 +711,9 @@ const currentColorRanges = computed(() => {
     }, {});
 });
 
-const hsvColor = computed(() => {
-    const hsv = colorUnit2(currentColor, "hsv", true, false, false);
-    return hsv;
-});
+const getHSV = () => {
+    return colorUnit2(currentColor, "hsv", true, false, false);
+};
 
 const denormalizedCurrentColorLight = computed(() => {
     // convert to lab, update the lightness, convert back to the current color space
@@ -913,7 +911,7 @@ const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
         // Do not update the color if it's NaN:
         if (isNaN(s) || isNaN(v)) return;
 
-        const hsv = hsvColor.value;
+        const hsv = getHSV();
 
         hsv.value.s.value = clamp(s, 0, 1);
         hsv.value.v.value = clamp(v, 0, 1);
@@ -941,7 +939,7 @@ const stopDragging = () => {
 };
 
 const spectrumStyle = computed(() => {
-    let { h, alpha } = hsvColor.value.value;
+    let { h, alpha } = getHSV().value;
 
     if (isNaN(h.value) || isNaN(alpha.value)) return;
 
@@ -962,7 +960,7 @@ const spectrumStyle = computed(() => {
 });
 
 const spectrumDotStyle = computed(() => {
-    let { s, v } = hsvColor.value.value;
+    let { s, v } = getHSV().value;
 
     if (isNaN(s.value) || isNaN(v.value)) return;
 
