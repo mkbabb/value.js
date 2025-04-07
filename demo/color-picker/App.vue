@@ -52,7 +52,7 @@
         </div>
 
         <div
-            class="grid lg:grid-cols-2 max-h-screen lg:grid-rows-2 gap-6 items-center justify-center justify-items-center relative w-screen max-w-screen-lg lg:overflow-hidden lg:p-6"
+            class="grid lg:grid-cols-2 max-h-screen lg:grid-rows-2 gap-6 items-center justify-center justify-items-center relative w-screen max-w-screen-lg lg:overflow-hidden lg:p-6 p-2"
         >
             <ColorPicker
                 class="w-full max-w-[100%] h-full max-h-screen lg:col-span-1 lg:row-span-2"

@@ -336,4 +336,5 @@ export const COLOR_NAMES = {
     yellowgreen: "#9acd32",
 
     devinka: "oklch(80% 0.14 343.80deg / 100%)",
+    "lodge-blu-color": "rgb(53	101	144)",
 } as const;
