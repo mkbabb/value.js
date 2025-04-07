@@ -94,7 +94,9 @@
                         :module="m"
                     >
                         <Markdown
-                            v-show="n === `${model.selectedColorSpace}.md` && m !== null"
+                            v-show="
+                                n === `${model.selectedColorSpace}.md` && m !== null
+                            "
                             :module="m"
                         />
                     </template>
@@ -333,6 +335,7 @@ watch(
         // Update URL with current color
         updateUrlWithColor(value);
     },
+    { deep: true, immediate: false },
 );
 </script>
 

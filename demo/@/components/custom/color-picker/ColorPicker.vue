@@ -511,7 +511,7 @@ const denormalizedCurrentColorLookup = computed(() => {
         return colorName[0];
     }
 
-    return colorString;
+    return denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
 });
 
 const selectAll = (event: MouseEvent) => {
@@ -560,6 +560,20 @@ const generateRandomColor = (
 };
 
 const copyToClipboard = (text: string) => {
+    if (!navigator.clipboard) {
+        toast.error("Clipboard API not supported");
+        return;
+    }
+    if (!text) {
+        toast.error("No text to copy");
+        return;
+    }
+
+    // Also set the input color to the copied color:
+    const color = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
+
+    model.value.inputColor = color;
+
     navigator.clipboard
         .writeText(text)
         .then(() => {
@@ -879,29 +893,35 @@ const updateColorComponent = (
 const updateColorComponentDebounced = debounce(updateColorComponent, 500);
 
 const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
-    if (!spectrumRef) return;
+    try {
+        if (!spectrumRef) return;
 
-    event.preventDefault();
+        event.preventDefault();
 
-    const { clientX, clientY } = event instanceof MouseEvent ? event : event.touches[0];
+        const { clientX, clientY } =
+            event instanceof MouseEvent ? event : event.touches[0];
 
-    const rect = spectrumRef.getBoundingClientRect();
+        const rect = spectrumRef.getBoundingClientRect();
 
-    const x = clamp(clientX - rect.left, 0, rect.width);
-    const y = clamp(clientY - rect.top, 0, rect.height);
+        const x = clamp(clientX - rect.left, 0, rect.width);
+        const y = clamp(clientY - rect.top, 0, rect.height);
 
-    const s = x / rect.width;
-    const v = 1 - y / rect.height;
+        const s = x / rect.width;
+        const v = 1 - y / rect.height;
 
-    // Do not update the color if it's NaN:
-    if (isNaN(s) || isNaN(v)) return;
+        // Do not update the color if it's NaN:
+        if (isNaN(s) || isNaN(v)) return;
 
-    const hsv = hsvColor.value;
+        const hsv = hsvColor.value;
 
-    hsv.value.s.value = clamp(s, 0, 1);
-    hsv.value.v.value = clamp(v, 0, 1);
+        hsv.value.s.value = clamp(s, 0, 1);
+        hsv.value.v.value = clamp(v, 0, 1);
 
-    updateFromColor(hsv);
+        updateFromColor(hsv);
+    } catch (e) {
+        console.error(e);
+        toast.error("Invalid color: " + e);
+    }
 };
 
 const handleSpectrumChange = (event: MouseEvent | TouchEvent) => {
