@@ -497,7 +497,7 @@ import CardDescription from "@components/ui/card/CardDescription.vue";
 import Button from "@components/ui/button/Button.vue";
 import { COLOR_NAMES } from "@src/units/color/constants";
 
-const DEFAULT_COLOR = "lab(92% 88.8 20 / 82.70%)";
+const DEFAULT_COLOR = "devinka";
 
 const selectAll = (event: MouseEvent) => {
     const target = event.target as HTMLSpanElement;
@@ -592,8 +592,20 @@ const createGradientStops = (
 };
 
 const parseAndNormalizeColor = (value: string) => {
-    value = value.trim().toLowerCase();
-    const color = parseCSSColor(value);
+    let color;
+
+    try {
+        value = value.trim().toLowerCase();
+
+        color = parseCSSColor(value);
+    } catch (e) {
+        console.error(e);
+        toast.error(`Invalid color: ${value}`);
+
+        // parse the default color
+        color = parseCSSColor(DEFAULT_COLOR);
+    }
+
     return normalizeColorUnit(color);
 };
 

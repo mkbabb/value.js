@@ -87,7 +87,7 @@ export const CSSColor = P.createLanguage({
             const c = COLOR_NAMES[x];
             // Parse the color value as a r.Value:
             const value = parseCSSValueUnit(c);
-            console.log(value);
+
             // Return the color value unit:
             if (value) {
                 return P.succeed(value);
