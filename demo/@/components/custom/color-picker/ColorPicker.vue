@@ -215,9 +215,7 @@
                                         )
                                 "
                                 @focus="selectAll"
-                                >{{
-                                    denormalizedCurrentColor.value.toFormattedString()
-                                }}</span
+                                >{{ denormalizedCurrentColorLookup }}</span
                             >
                         </HoverCardTrigger>
                         <HoverCardContent
@@ -483,6 +481,38 @@ import Button from "@components/ui/button/Button.vue";
 import { COLOR_NAMES } from "@src/units/color/constants";
 
 const DEFAULT_COLOR = "devinka";
+
+const DIGITS = 2;
+
+// Normalize the COLOR_NAMES to be all in XYZ, and then in a formatted string:
+const NORMALIZED_COLOR_NAMES = Object.entries(COLOR_NAMES).reduce(
+    (acc, [name, color]) => {
+        const parsedColor = parseCSSColor(color);
+        const xyz = colorUnit2(parsedColor, "xyz", false, false, false);
+        const colorString = xyz.value.toFormattedString(DIGITS);
+
+        acc[name] = colorString;
+
+        return acc;
+    },
+    {} as Record<string, string>,
+);
+
+const denormalizedCurrentColorLookup = computed(() => {
+    // Check to see if the current color is in the COLOR_NAMES, if it is, return the name, else return the color:
+    const xyz = colorUnit2(currentColor, "xyz", true, false, false);
+    const colorString = xyz.value.toFormattedString(DIGITS);
+
+    const colorName = Object.entries(NORMALIZED_COLOR_NAMES).find(
+        ([, value]) => value === colorString,
+    );
+
+    if (colorName) {
+        return colorName[0];
+    }
+
+    return colorString;
+});
 
 const selectAll = (event: MouseEvent) => {
     const target = event.target as HTMLSpanElement;
