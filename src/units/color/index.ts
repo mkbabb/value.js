@@ -30,7 +30,9 @@ export abstract class Color<T = number> {
     }
 
     toFormattedString(digits: number = 2): string {
-        const values = Array.from(this.components.values()).map(formatNumber, digits);
+        const values = Array.from(this.components.values()).map((value) =>
+            formatNumber(value, digits),
+        );
         const alpha = formatNumber(this.alpha, digits);
         return formatColor(this.colorSpace, values, alpha);
     }

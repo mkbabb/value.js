@@ -334,4 +334,6 @@ export const COLOR_NAMES = {
     whitesmoke: "#f5f5f5",
     yellow: "#ffff00",
     yellowgreen: "#9acd32",
+
+    devinka: "oklch(80% 0.14 343.80deg / 100%)",
 } as const;

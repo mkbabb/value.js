@@ -40,7 +40,9 @@
                                 <div
                                     @click="
                                         copyToClipboard(
-                                            denormalizedCurrentColor.value.toFormattedString(),
+                                            denormalizedCurrentColor.value.toFormattedString(
+                                                2,
+                                            ),
                                         )
                                     "
                                     class="w-16 aspect-square rounded-full hover:scale-125 flex items-center justify-items-center justify-center transition-transform cursor-pointer"
@@ -83,13 +85,12 @@
                                     .replace(/\.0$/, "")
                                     .replace(/^-0$/, "0")
                             }}<span class="inline font-normal">{{
-                                
-                                (ix !==
+                                ix !==
                                 Object.keys(COLOR_SPACE_RANGES[currentColorSpace])
                                     .length -
                                     2
                                     ? ","
-                                    : "")
+                                    : ""
                             }}</span>
                         </span>
                     </template>
@@ -235,6 +236,34 @@
                         </HoverCardContent>
                     </HoverCard>
 
+                    <HoverCard
+                        :close-delay="0"
+                        :open-delay="700"
+                        class="pointer-events-auto"
+                    >
+                        <HoverCardTrigger>
+                            <Copy
+                                class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                @click="
+                                    copyToClipboard(
+                                        denormalizedCurrentColor.value.toFormattedString(
+                                            2,
+                                        ),
+                                    )
+                                "
+                            >
+                            </Copy>
+                        </HoverCardTrigger>
+                        <HoverCardContent class="z-[100] pointer-events-auto fraunces">
+                            <div>
+                                <p class="font-bold text-lg">Copy color 📋</p>
+                                <p class="text-sm opacity-60">
+                                    Click to copy the current color to the clipboard.
+                                </p>
+                            </div>
+                        </HoverCardContent>
+                    </HoverCard>
+
                     <div class="flex gap-x-4 w-full justify-evenly self-center">
                         <HoverCard
                             :close-delay="0"
@@ -307,7 +336,7 @@
                             </HoverCardContent>
                         </HoverCard>
 
-                        <HoverCard
+                        <!-- <HoverCard
                             :close-delay="0"
                             :open-delay="700"
                             class="pointer-events-auto"
@@ -329,6 +358,9 @@
                                 </div>
                             </HoverCardContent>
                         </HoverCard>
+                     -->
+
+                        <!-- Copy button: -->
                     </div>
                 </div>
             </CardContent>
@@ -448,7 +480,7 @@ import {
     normalizeColorUnitComponent,
 } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
-import { Palette, RotateCcw, Shuffle } from "lucide-vue-next";
+import { Palette, RotateCcw, Shuffle, Copy } from "lucide-vue-next";
 import {
     SelectIcon,
     SliderRange,
@@ -463,6 +495,7 @@ import { useDark, useMagicKeys, whenever } from "@vueuse/core";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import CardDescription from "@components/ui/card/CardDescription.vue";
 import Button from "@components/ui/button/Button.vue";
+import { COLOR_NAMES } from "@src/units/color/constants";
 
 const DEFAULT_COLOR = "lab(92% 88.8 20 / 82.70%)";
 
@@ -849,8 +882,8 @@ const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
 
     const hsv = hsvColor.value;
 
-    hsv.value.s.value = s;
-    hsv.value.v.value = v;
+    hsv.value.s.value = clamp(s, 0, 1);
+    hsv.value.v.value = clamp(v, 0, 1);
 
     updateFromColor(hsv);
 };
@@ -986,4 +1019,14 @@ onUnmounted(() => {
     // hover.stop();
     // slidersAnim.stop();
 });
+
+// Add this watch in the ColorPicker.vue component
+watch(
+    () => model.value.inputColor,
+    (newVal) => {
+        if (newVal && newVal !== denormalizedCurrentColor.value.toString()) {
+            parseAndSetColor(newVal);
+        }
+    },
+);
 </script>

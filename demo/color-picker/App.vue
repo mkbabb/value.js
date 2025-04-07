@@ -278,14 +278,62 @@ watch(
     { deep: true },
 );
 
+// Function to parse color from URL hash
+function parseColorFromUrl() {
+    // Get the hash part of the URL (without the # symbol)
+    const hash = window.location.hash.substring(1);
+
+    // If there's a hash value, return it decoded
+    if (hash) {
+        return decodeURIComponent(hash);
+    }
+
+    // Return null if no color found
+    return null;
+}
+
+// Function to update URL hash with current color
+function updateUrlWithColor(color) {
+    if (color) {
+        window.location.hash = encodeURIComponent(color);
+    }
+}
+
 onMounted(() => {
+    // Existing grid background code
     const encodedSVG = encodeURIComponent(`
     <svg class="tmp" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'>
         <path d='M1 2V0h1v1H0v1z' fill-opacity='0.10'/>
     </svg>
-`);
+  `);
     gridBackground.style.backgroundImage = `url("data:image/svg+xml,${encodedSVG}")`;
+
+    // Use the function to get color from URL hash
+    const urlColor = parseColorFromUrl();
+    if (urlColor) {
+        // Set the input color from URL
+        model.inputColor = urlColor;
+    }
+
+    console.log("URL Color:", urlColor);
+
+    // Listen for hash changes to update the color when URL changes
+    window.addEventListener("hashchange", () => {
+        const urlColor = parseColorFromUrl();
+        if (urlColor) {
+            model.inputColor = urlColor;
+        }
+    });
 });
+
+// Add a watch to update the URL when the color changes
+watch(
+    () => model.inputColor,
+    (value) => {
+        // Update URL with current color
+        updateUrlWithColor(value);
+    },
+);
 </script>
 
 <style lang="scss" scoped>

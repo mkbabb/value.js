@@ -78,15 +78,22 @@ export const CSSColor = P.createLanguage({
 
     alphaSep: (r) => P.alt(r.div.trim(P.optWhitespace), r.sep),
 
-    name: () =>
+    name: (r) =>
         P.alt(
             ...Object.keys(COLOR_NAMES)
                 .sort((a, b) => b.length - a.length)
                 .map(P.string),
-        ).map((x) => {
+        ).chain((x) => {
             const c = COLOR_NAMES[x];
-            const { r, g, b } = hex2rgb(c);
-            return createColorValueUnit(new RGBColor(r, g, b));
+            // Parse the color value as a r.Value:
+            const value = parseCSSValueUnit(c);
+            console.log(value);
+            // Return the color value unit:
+            if (value) {
+                return P.succeed(value);
+            } else {
+                return P.fail(`Invalid color name: ${x}`);
+            }
         }),
 
     hex: () =>
