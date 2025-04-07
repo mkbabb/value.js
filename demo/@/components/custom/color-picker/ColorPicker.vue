@@ -675,9 +675,10 @@ const denormalizedCurrentColor = computed(() => {
 model.value.color = denormalizedCurrentColor.value;
 
 const currentColorOpaque = computed(() => {
-    const color = denormalizedCurrentColor.value.clone();
-    color.value.alpha.value = 100;
-    return color;
+    // const color = denormalizedCurrentColor.value.clone();
+    // color.value.alpha.value = 100;
+    // return color;
+    return denormalizedCurrentColor.value;
 });
 
 const currentColorComponentsFormatted = computed(() => {
