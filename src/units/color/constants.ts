@@ -337,4 +337,6 @@ export const COLOR_NAMES = {
 
     devinka: "oklch(80% 0.14 343.80deg / 100%)",
     "lodge-blu-color": "rgb(53	101	144)",
+    lavendi: "oklch(79.90% 0.11 318.24deg / 100%)",
+    ppmycota: "oklch(53% 0.07 21.60deg / 100%)",
 } as const;
