@@ -13,6 +13,12 @@ export function scale(
 ) {
     // Calculate slope of the linear function
     const slope = (toMax - toMin) / (fromMax - fromMin);
+
+    // Check for division by zero
+    if (fromMax === fromMin) {
+        throw new Error("fromMax and fromMin cannot be equal");
+    }
+
     // Apply linear transformation
     return (value - fromMin) * slope + toMin;
 }

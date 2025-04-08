@@ -939,7 +939,7 @@ const stopDragging = () => {
 };
 
 const spectrumStyle = computed(() => {
-    let { h, alpha } = getHSV().value;
+    let { h, s, v, alpha } = getHSV().value;
 
     if (isNaN(h.value) || isNaN(alpha.value)) return;
 
