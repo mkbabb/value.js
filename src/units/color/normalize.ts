@@ -75,7 +75,7 @@ export const normalizeColorUnit = (
 
 export const colorUnit2 = <C extends ColorSpace>(
     color: ValueUnit<Color<ValueUnit<number>>, "color">,
-    to: C = "lab" as C,
+    to: C | null = "lab" as C,
     normalized: boolean = false,
     inverse: boolean = false,
     inplace: boolean = false,
@@ -85,6 +85,8 @@ export const colorUnit2 = <C extends ColorSpace>(
             ? color
             : color.clone()
         : normalizeColorUnit(color, false, inplace);
+
+
 
     const convertedColor = color2(normalizedColorUnit.toJSON(), to);
 

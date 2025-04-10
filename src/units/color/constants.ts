@@ -336,7 +336,7 @@ export const COLOR_NAMES = {
     yellowgreen: "#9acd32",
 
     devinka: "oklch(80% 0.14 343.80deg / 100%)",
-    "padaleckipink": "oklch(85.87% 0.09 329.80deg / 100%)",
+    "padaleckipink": "oklch(100% 0.42 360deg / 71.70%)",
     "lodge-blu-color": "rgb(53	101	144)",
     lavendi: "oklch(79.90% 0.11 318.24deg / 100%)",
     shadyshroom: "oklch(53% 0.07 21.60deg / 100%)",

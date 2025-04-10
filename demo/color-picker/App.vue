@@ -52,23 +52,21 @@
         </div>
 
         <div
-            class="grid lg:grid-cols-2 max-h-screen lg:grid-rows-2 gap-6 items-center justify-center justify-items-center relative w-screen max-w-screen-lg lg:overflow-hidden lg:p-6 p-2"
+            class="grid lg:grid-cols-2 gap-6 relative max-w-screen-lg h-full max-h-[800px] lg:overflow-hidden lg:p-6 p-2"
         >
             <ColorPicker
-                class="w-full max-w-[100%] h-full max-h-screen lg:col-span-1 lg:row-span-2"
+                class="w-full h-full lg:col-span-1 self-start"
                 v-model="model"
             ></ColorPicker>
 
-            <Card
-                class="w-full max-w-[100%] h-full max-h-screen lg:col-span-1 lg:row-span-2 overflow-scroll relative"
-            >
+            <Card class="w-full lg:col-span-1 overflow-scroll h-full">
                 <CardHeader class="fraunces">
                     <CardTitle
                         >About the color spaces,
                         <span
                             class="italic"
                             :style="{
-                                color: model.color?.toString(),
+                                color: model.color?.value.toFormattedString(),
                             }"
                             >{{ COLOR_SPACE_NAMES[model.selectedColorSpace] }}</span
                         ></CardTitle
@@ -103,26 +101,26 @@
                 </CardContent>
             </Card>
         </div>
-
-        <Teleport to="html">
-            <Toaster
-                :toastOptions="{
-                    unstyled: true,
-                    duration: 1000,
-
-                    classes: {
-                        toast: 'bg-foreground text-background rounded-md fraunces px-6 py-3 grid grid-cols-1 gap-2 shadow-lg h-32 lg:w-96 w-full ',
-                        title: 'font-bold text-lg',
-                        description: 'font-normal text-sm',
-                        actionButton: '',
-                        cancelButton: '',
-                        closeButton: '',
-                    },
-                }"
-                :theme="isDark ? 'dark' : 'light'"
-            />
-        </Teleport>
     </div>
+
+    <Teleport to="html">
+        <Toaster
+            :toastOptions="{
+                unstyled: true,
+                duration: 1000,
+
+                classes: {
+                    toast: 'bg-foreground text-background rounded-md fraunces px-6 py-3 grid grid-cols-1 gap-2 shadow-lg h-32 lg:w-96 w-full ',
+                    title: 'font-bold text-lg',
+                    description: 'font-normal text-sm',
+                    actionButton: '',
+                    cancelButton: '',
+                    closeButton: '',
+                },
+            }"
+            :theme="isDark ? 'dark' : 'light'"
+        />
+    </Teleport>
 </template>
 
 <script setup lang="ts">
@@ -266,16 +264,16 @@ const defaultColorModel = {
 const colorStore = useStorage("color-picker", defaultColorModel);
 
 const model = $ref({
-    ...colorStore.value,
+    ...defaultColorModel,
 }) as ColorModel;
 
 watch(
     () => model,
     (value) => {
         colorStore.value.inputColor = model.color.toString();
-        // colorStore.value.savedColors = model.savedColors.map((c) =>
-        //     normalizeColorUnit(c as any, true, false).toString(),
-        // );
+        colorStore.value.savedColors = model.savedColors.map((c) =>
+            normalizeColorUnit(c as any, true, false).toString(),
+        );
     },
     { deep: true },
 );
@@ -300,6 +298,16 @@ function updateUrlWithColor(color) {
         window.location.hash = encodeURIComponent(color);
     }
 }
+
+// Add a watch to update the URL when the color changes
+watch(
+    () => model.inputColor,
+    (value) => {
+        // Update URL with current color
+        updateUrlWithColor(value);
+    },
+    { deep: true, immediate: false },
+);
 
 onMounted(() => {
     // Existing grid background code
@@ -326,17 +334,9 @@ onMounted(() => {
             model.inputColor = urlColor;
         }
     });
-});
 
-// Add a watch to update the URL when the color changes
-watch(
-    () => model.inputColor,
-    (value) => {
-        // Update URL with current color
-        updateUrlWithColor(value);
-    },
-    { deep: true, immediate: false },
-);
+    console.log(model.color.value.toFormattedString())
+});
 </script>
 
 <style lang="scss" scoped>
