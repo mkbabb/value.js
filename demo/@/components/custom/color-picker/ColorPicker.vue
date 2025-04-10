@@ -38,13 +38,7 @@
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <div
-                                    @click="
-                                        copyToClipboard(
-                                            denormalizedCurrentColor.value.toFormattedString(
-                                                2,
-                                            ),
-                                        )
-                                    "
+                                    @click="copyAndSetInputColor()"
                                     class="w-16 aspect-square rounded-full hover:scale-125 flex items-center justify-items-center justify-center transition-transform cursor-pointer"
                                     :style="{
                                         backgroundColor:
@@ -97,7 +91,7 @@
                 </CardTitle>
             </CardHeader>
 
-            <CardContent class="z-1 fraunces grid gap-4">
+            <CardContent class="z-1 fraunces grid gap-4 w-full max-w-[500px] m-auto">
                 <div
                     ref="spectrumRef"
                     class="flex w-full h-48 rounded-sm cursor-crosshair relative"
@@ -244,13 +238,7 @@
                             <HoverCardTrigger>
                                 <Copy
                                     class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
-                                    @click="
-                                        copyToClipboard(
-                                            denormalizedCurrentColor.value.toFormattedString(
-                                                2,
-                                            ),
-                                        )
-                                    "
+                                    @click="copyAndSetInputColor()"
                                 >
                                 </Copy>
                             </HoverCardTrigger>
@@ -461,6 +449,7 @@ import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import CardDescription from "@components/ui/card/CardDescription.vue";
 import Button from "@components/ui/button/Button.vue";
 import { COLOR_NAMES } from "@src/units/color/constants";
+import { ColorModel } from ".";
 
 const selectAll = (event: MouseEvent) => {
     const target = event.target as HTMLSpanElement;
@@ -509,22 +498,10 @@ const DIGITS = 2;
 
 const DEFAULT_PALETTES = 6;
 
-const model = defineModel<{
-    inputColor: string;
-
-    color: ValueUnit<Color<ValueUnit<number>>, "color">;
-
-    savedColors: ValueUnit<Color<ValueUnit<number>>, "color">[];
-
-    selectedColorSpace: ColorSpace;
-}>();
+const model = defineModel<ColorModel>();
 
 const denormalizedCurrentColor = computed(() => {
     return normalizeColorUnit(model.value.color, true, false);
-});
-
-const normalizedCurrentColor = computed(() => {
-    return normalizeColorUnit(model.value.color, false, false);
 });
 
 // Check to see if the current color is in the COLOR_NAMES, if it is, return the name, else return the color, formatted:
@@ -549,8 +526,10 @@ const HSVCurrentColor = computed(() => {
 });
 
 const currentColorOpaque = computed(() => {
-    const color = denormalizedCurrentColor.value.clone();
-    color.value.alpha.value = 100;
+    const color = model.value.color.clone();
+
+    color.value.alpha.value = 1;
+
     return color;
 });
 
@@ -619,6 +598,8 @@ const setCurrentColor = (color: ValueUnit<Color<ValueUnit<number>>, "color">) =>
     const converted = colorUnit2(color, getColorSpace(color), true, false, false);
 
     model.value.color = converted;
+
+    model.value.selectedColorSpace = converted.value.colorSpace;
 };
 
 let prevInvalidParsedValue = "";
@@ -641,9 +622,7 @@ const parseAndSetColor = (newVal: string) => {
 
         setCurrentColor(color);
 
-        toast.success(
-            `Parsed ${denormalizedCurrentColor.value.value.toFormattedString()} 🎨`,
-        );
+        toast.success(`Parsed ${formattedCurrentColor.value} 🎨`);
     } catch (e) {
         prevInvalidParsedValue = newVal;
 
@@ -652,6 +631,14 @@ const parseAndSetColor = (newVal: string) => {
 };
 
 const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000, false);
+
+const copyAndSetInputColor = () => {
+    const color = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
+
+    model.value.inputColor = color;
+
+    copyToClipboard(color);
+};
 
 let isDragging = $ref(false);
 
@@ -682,18 +669,15 @@ const createGradientStops = (
     component: string,
     steps: number,
     to?: ColorSpace,
-    normalized: boolean = false,
 ) => {
-    color = normalized ? color : normalizeColorUnit(color);
-
     const colorStops = Array.from({ length: steps }).map((_, ix) => {
         let newColor = color.clone();
 
         newColor.value[component].value = ix / steps;
 
-        newColor = colorUnit2(newColor, to, true, false, true);
+        newColor = colorUnit2(newColor, to, true, true, true);
 
-        return normalizeColorUnit(newColor, true, true).toString();
+        return newColor.toString();
     });
 
     return colorStops.reduce((acc, colorString, ix, arr) => {
@@ -720,9 +704,10 @@ const componentsSlidersStyle = computed(() => {
         .entries()
         .map(([component, value]) => {
             const color = componentColor.clone();
+
             color.value[component].value = 0;
 
-            const gradient = createGradientStops(color, component, steps, to, false);
+            const gradient = createGradientStops(color, component, steps, to);
 
             return [component, gradient] as const;
         })
@@ -754,11 +739,9 @@ const currentColorComponentsFormatted = computed(() => {
 });
 
 const currentColorRanges = computed(() => {
-    const colorSpace = model.value.selectedColorSpace;
-
     return model.value.color.value.keys().reduce((acc, key) => {
-        const unit = COLOR_SPACE_DENORM_UNITS[colorSpace][key];
-        const range = COLOR_SPACE_RANGES[colorSpace][key];
+        const unit = COLOR_SPACE_DENORM_UNITS[currentColorSpace.value][key];
+        const range = COLOR_SPACE_RANGES[currentColorSpace.value][key];
 
         const { min, max } = range[unit] ?? range["number"];
 

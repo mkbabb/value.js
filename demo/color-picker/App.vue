@@ -6,12 +6,12 @@
     <div
         class="flex w-full h-full absolute z-[-1]"
         :style="{
-            backgroundColor: model.color?.toString(),
+            backgroundColor: denormalizedCurrentColor?.value?.toString(),
         }"
     ></div>
 
     <div
-        class="grid overflow-scroll w-full min-h-screen items-center justify-items-center justify-center"
+        class="grid overflow-scroll w-full min-h-screen h-screen items-center justify-items-center justify-center"
     >
         <div
             :class="'fixed p-2 lg:absolute z-[100] pointer-events-none top-0 w-full h-fit lg:w-min lg:right-0 flex lg:flex-col lg:gap-4 gap-6 items-center justify-items-center  justify-end opacity-25 hover:opacity-100 transition-all'"
@@ -19,6 +19,7 @@
             <DarkModeToggle
                 class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all"
             />
+
             <!-- <HoverCard :open-delay="0" class="pointer-events-auto">
                 <HoverCardTrigger class="pointer-events-auto fira-code"
                     ><Button class="p-0 m-0 cursor-pointer" variant="link"
@@ -52,7 +53,7 @@
         </div>
 
         <div
-            class="grid lg:grid-cols-2 gap-6 relative max-w-screen-lg h-full max-h-[800px] lg:overflow-hidden lg:p-6 p-2"
+            class="grid lg:grid-cols-2 gap-6 relative max-w-screen-lg h-full lg:max-h-[800px] lg:overflow-hidden lg:p-6 p-2"
         >
             <ColorPicker
                 class="w-full h-full lg:col-span-1 self-start"
@@ -66,7 +67,7 @@
                         <span
                             class="italic"
                             :style="{
-                                color: model.color?.value.toFormattedString(),
+                                color: denormalizedCurrentColor.value.toString(),
                             }"
                             >{{ COLOR_SPACE_NAMES[model.selectedColorSpace] }}</span
                         ></CardTitle
@@ -172,23 +173,27 @@ import {
 import { clamp } from "@src/math";
 import { toast } from "vue-sonner";
 import { List } from "lucide-vue-next";
-import { ColorPicker, ColorNutritionLabel } from "@components/custom/color-picker";
+import {
+    ColorPicker,
+    ColorNutritionLabel,
+    ColorModel,
+    defaultColorModel,
+} from "@components/custom/color-picker";
 import { useDark, useLocalStorage, useStorage } from "@vueuse/core";
 import { Toaster } from "vue-sonner";
-import { Color } from "@src/units/color";
 import {
     COLOR_SPACE_RANGES,
     COLOR_SPACE_NAMES,
     ColorSpace,
 } from "@src/units/color/constants";
 import { DocModule, Markdown } from "@components/custom/markdown";
+import Katex from "@components/custom/katex/Katex.vue";
+import { normalizeColorUnit } from "@src/units/color/normalize";
+
 // @ts-ignore
 import "@styles/utils.scss";
 // @ts-ignore
 import "@styles/style.scss";
-
-import Katex from "@components/custom/katex/Katex.vue";
-import { normalizeColorUnit } from "@src/units/color/normalize";
 
 // all of the above UI components, and katex:
 const markdownComponents = {
@@ -247,25 +252,17 @@ let gridBackground = $ref(null) as HTMLElement;
 
 const isDark = useDark({ disableTransition: false });
 
-type ColorModel = {
-    selectedColorSpace: ColorSpace;
-    color: ValueUnit<Color<ValueUnit<number>>>;
-    inputColor: string;
-    savedColors: Array<ValueUnit<Color<ValueUnit<number>>> | string>;
-};
-
-const defaultColorModel = {
-    selectedColorSpace: "lab",
-    color: null,
-    inputColor: "lab(92% 88.8 20 / 82.70%)",
-    savedColors: [],
-} as ColorModel;
-
 const colorStore = useStorage("color-picker", defaultColorModel);
 
 const model = $ref({
     ...defaultColorModel,
 }) as ColorModel;
+
+const denormalizedCurrentColor = computed(() => {
+    if (!model.color) return null;
+
+    return normalizeColorUnit(model.color, true, false);
+});
 
 watch(
     () => model,
@@ -334,8 +331,6 @@ onMounted(() => {
             model.inputColor = urlColor;
         }
     });
-
-    console.log(model.color.value.toFormattedString())
 });
 </script>
 
