@@ -1,7 +1,7 @@
 <template>
     <div class="grid gap-4 relative">
-        <Card class="grid h-full items-between">
-            <CardHeader class="fraunces m-0 pb-0 relative">
+        <Card class="grid h-full items-between rounded-md overflow-hidden">
+            <CardHeader class="fraunces m-0 pb-0 relative w-full">
                 <div class="w-full flex justify-between">
                     <Select
                         :ref="selectedColorSpaceRef"
@@ -18,7 +18,7 @@
                             :style="{
                                 color: denormalizedCurrentColor.value.toString(),
                             }"
-                            class="w-fit h-fit font-bold italic text-3xl p-0 m-0 border-none self-end focus:outline-none focus:ring-0 focus:ring-transparent bg-transparent"
+                            class="w-fit h-fit font-bold italic text-2xl p-0 m-0 border-none self-end focus:outline-none focus:ring-0 focus:ring-transparent bg-transparent"
                         >
                             <SelectValue class="w-full" />
                         </SelectTrigger>
@@ -39,7 +39,7 @@
                             <TooltipTrigger as-child>
                                 <div
                                     @click="copyAndSetInputColor()"
-                                    class="w-16 aspect-square rounded-full hover:scale-125 flex items-center justify-items-center justify-center transition-transform cursor-pointer"
+                                    class="w-12 aspect-square rounded-full hover:scale-125 flex items-center justify-items-center justify-center transition-transform cursor-pointer"
                                     :style="{
                                         backgroundColor:
                                             denormalizedCurrentColor.value.toString(),
@@ -54,8 +54,7 @@
                 </div>
 
                 <CardTitle
-                    contenteditable="true"
-                    class="flex h-fit m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap justify-start items-start justify-items-start"
+                    class="flex h-fit text-4xl w-full m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap"
                 >
                     <template
                         v-for="([component, value], ix) in Object.entries(
@@ -63,22 +62,35 @@
                         ).filter(([key]) => key !== 'alpha')"
                         :key="component"
                     >
-                        <span
-                            contenteditable="true"
-                            class="font-semibold focus-visible:outline-none"
-                            @input="
-                                (e) =>
-                                    updateColorComponentDebounced(
-                                        parseFloat((e.target as any).innerText),
-                                        component,
-                                    )
-                            "
-                            >{{
-                                currentColorComponentsFormatted[component].value
-                                    .toFixed(1)
-                                    .replace(/\.0$/, "")
-                                    .replace(/^-0$/, "0")
-                            }}<span class="inline font-normal">{{
+                        <div>
+                            <span
+                                contenteditable="true"
+                                class="font-semibold focus-visible:outline-none"
+                                @input="
+                                    (e) =>
+                                        updateColorComponentDebounced(
+                                            parseFloat((e.target as any).innerText),
+                                            component,
+                                        )
+                                "
+                                >{{
+                                    currentColorComponentsFormatted[component].value
+                                        .toFixed(1)
+                                        .replace(/\.0$/, "")
+                                        .replace(/^-0$/, "0")
+                                }}
+                            </span>
+                            <span
+                                v-if="
+                                    currentColorComponentsFormatted[component].unit !==
+                                    ''
+                                "
+                                class="font-normal italic text-lg"
+                            >
+                                {{
+                                    currentColorComponentsFormatted[component].unit
+                                }}</span
+                            ><span class="inline font-normal">{{
                                 ix !==
                                 Object.keys(COLOR_SPACE_RANGES[currentColorSpace])
                                     .length -
@@ -86,12 +98,12 @@
                                     ? ","
                                     : ""
                             }}</span>
-                        </span>
+                        </div>
                     </template>
                 </CardTitle>
             </CardHeader>
 
-            <CardContent class="z-1 fraunces grid gap-4 w-full max-w-[500px] m-auto">
+            <CardContent class="z-1 fraunces grid gap-4 w-full max-w-screen-sm m-auto">
                 <div
                     ref="spectrumRef"
                     class="flex w-full h-48 rounded-sm cursor-crosshair relative"
@@ -358,7 +370,7 @@
                             <Tooltip>
                                 <TooltipTrigger as-child>
                                     <div
-                                        class="items-center rounded-sm w-12 aspect-square hover:scale-125 cursor-pointer transition-all border-2 border-solid border-gray-300"
+                                        class="items-center rounded-sm w-12 aspect-square hover:scale-125 cursor-pointer transition-all"
                                         :style="{
                                             backgroundColor: normalizeColorUnit(
                                                 color,
@@ -492,7 +504,7 @@ const copyToClipboard = (text: string) => {
 
 const isDark = useDark({ disableTransition: false });
 
-const DEFAULT_COLOR = "devinka";
+const DEFAULT_COLOR = "lavendi";
 
 const DIGITS = 2;
 
@@ -526,9 +538,9 @@ const HSVCurrentColor = computed(() => {
 });
 
 const currentColorOpaque = computed(() => {
-    const color = model.value.color.clone();
+    const color = normalizeColorUnit(model.value.color, true, false);
 
-    color.value.alpha.value = 1;
+    color.value.alpha.value = 100;
 
     return color;
 });
@@ -594,8 +606,17 @@ const parseAndNormalizeColor = (value: string) => {
     return normalizeColorUnit(color);
 };
 
-const setCurrentColor = (color: ValueUnit<Color<ValueUnit<number>>, "color">) => {
-    const converted = colorUnit2(color, getColorSpace(color), true, false, false);
+const setCurrentColor = (
+    color: ValueUnit<Color<ValueUnit<number>>, "color">,
+    colorSpace?: ColorSpace,
+) => {
+    const converted = colorUnit2(
+        color,
+        colorSpace ?? getColorSpace(color),
+        true,
+        false,
+        false,
+    );
 
     model.value.color = converted;
 
@@ -688,6 +709,7 @@ const createGradientStops = (
         };
 
         const percent = (ix / arr.length) * 100;
+
         acc.push(createString(percent, ix));
 
         return acc;
@@ -698,7 +720,7 @@ const componentsSlidersStyle = computed(() => {
     const steps = 10;
     const to = "oklab" as ColorSpace;
 
-    const componentColor = currentColorOpaque.value;
+    const componentColor = normalizeColorUnit(currentColorOpaque.value, false, false);
 
     const gradients = componentColor.value
         .entries()
@@ -728,7 +750,9 @@ const currentColorComponentsFormatted = computed(() => {
                 key,
                 {
                     value: value.value,
-                    unit: "deg",
+                    // unit: value.unit,
+                    // value: 999.8,
+                    // unit: "deg",
                 },
             ] as any;
         })
@@ -799,12 +823,10 @@ const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
 
     const hsv = HSVCurrentColor.value;
 
-    hsv.value.s.value = clamp(s, 0, 1);
-    hsv.value.v.value = clamp(v, 0, 1);
+    hsv.value.s.value = s;
+    hsv.value.v.value = v;
 
-    setCurrentColor(
-        colorUnit2(hsv, model.value.selectedColorSpace, true, false, false),
-    );
+    setCurrentColor(hsv, model.value.selectedColorSpace);
 };
 
 const updateSpectrumColorDebounced = debounce(updateSpectrumColor, 2);
@@ -910,8 +932,6 @@ const addColorClick = () => {
         model.value.savedColors[blankColorIx] = model.value.color.clone();
         return;
     }
-
-    const color = model.value.color.clone();
 
     model.value.savedColors.push(model.value.color.clone());
 };

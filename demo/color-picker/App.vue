@@ -11,18 +11,14 @@
     ></div>
 
     <div
-        class="grid overflow-scroll w-full min-h-screen h-screen items-center justify-items-center justify-center"
+        class="grid overflow-scroll w-full min-h-screen h-screen items-center justify-items-center justify-center m-0 p-0 relative"
     >
         <div
-            :class="'fixed p-2 lg:absolute z-[100] pointer-events-none top-0 w-full h-fit lg:w-min lg:right-0 flex lg:flex-col lg:gap-4 gap-6 items-center justify-items-center  justify-end opacity-25 hover:opacity-100 transition-all'"
+            :class="'fixed z-[100] pointer-events-none top-0 w-full gap-2 h-fit flex justify-items-end justify-between  hover:opacity-100 transition-all p-2'"
         >
-            <DarkModeToggle
-                class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all"
-            />
-
-            <!-- <HoverCard :open-delay="0" class="pointer-events-auto">
+            <HoverCard :open-delay="0" class="pointer-events-auto">
                 <HoverCardTrigger class="pointer-events-auto fira-code"
-                    ><Button class="p-0 m-0 cursor-pointer" variant="link"
+                    ><Button class="p-0 m-0 cursor-pointer h-fit" variant="link"
                         >@mbabb</Button
                     >
                 </HoverCardTrigger>
@@ -49,11 +45,15 @@
                         </div>
                     </div>
                 </HoverCardContent>
-            </HoverCard> -->
+            </HoverCard>
+
+            <DarkModeToggle
+                class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all"
+            />
         </div>
 
         <div
-            class="grid lg:grid-cols-2 gap-6 relative max-w-screen-lg h-full lg:max-h-[800px] lg:overflow-hidden lg:p-6 p-2"
+            class="grid lg:grid-cols-2 gap-6 relative max-w-screen-lg h-full lg:max-h-[800px] lg:overflow-hidden p-4 py-10"
         >
             <ColorPicker
                 class="w-full h-full lg:col-span-1 self-start"
