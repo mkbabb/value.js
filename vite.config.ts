@@ -6,7 +6,7 @@ import Vue from "@vitejs/plugin-vue";
 
 import dts from "vite-plugin-dts";
 
-import tailwind from "tailwindcss";
+import tailwindcss from "@tailwindcss/postcss";
 import autoprefixer from "autoprefixer";
 
 import Markdown from "unplugin-vue-markdown/vite";
@@ -15,7 +15,7 @@ const defaultOptions = {
     base: "./",
     css: {
         postcss: {
-            plugins: [tailwind("./tailwind.config.ts"), autoprefixer()],
+            plugins: [tailwindcss(), autoprefixer()],
         },
     },
 
@@ -53,6 +53,9 @@ export default defineConfig((mode) => {
                     fileName: "value",
                     formats: ["es", "cjs"],
                 },
+                rollupOptions: {
+                    external: ["vue"],
+                },
             },
             plugins: [...defaultPlugins, dts({ rollupTypes: true })],
         };
@@ -69,6 +72,9 @@ export default defineConfig((mode) => {
             plugins: [...defaultPlugins],
         };
     } else {
-        return {};
+        return {
+            ...defaultOptions,
+            plugins: [...defaultPlugins],
+        };
     }
 });

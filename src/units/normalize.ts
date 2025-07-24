@@ -1,6 +1,4 @@
-import { InterpolatedVar } from "@src/animation/constants";
 import { ValueUnit } from ".";
-import { parseCSSKeyframesValue } from "../parsing/keyframes";
 import { parseCSSValueUnit } from "../parsing/units";
 import { memoize } from "../utils";
 import { normalizeColorUnits } from "./color/normalize";
