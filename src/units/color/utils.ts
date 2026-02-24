@@ -24,7 +24,6 @@ import {
     WHITE_POINT_D65_D50,
     WhitePoint,
 } from "./constants";
-import { normalizeColor } from "./normalize";
 import { memoize } from "@src/utils";
 
 export const getFormattedColorSpaceRange = <T extends ColorSpace>(colorSpace: T) => {
@@ -809,9 +808,6 @@ export function xyz2hwb(xyz: XYZColor): HWBColor {
 
 export function lch2xyz(lch: LCHColor): XYZColor {
     const lab = lch2lab(lch);
-
-    const tmp = normalizeColor(lab.clone(), true);
-
     return lab2xyz(lab);
 }
 
