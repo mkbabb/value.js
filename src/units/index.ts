@@ -52,7 +52,7 @@ export class ValueUnit<T = any, U = (typeof UNITS)[number] | string> {
         }
     }
 
-    toJSON() {
+    toJSON(): T {
         return this.valueOf();
     }
 
@@ -61,8 +61,8 @@ export class ValueUnit<T = any, U = (typeof UNITS)[number] | string> {
         return new ValueUnit(value).coalesce(this, true).toString();
     }
 
-    clone(): ValueUnit<T> {
-        const value = new ValueUnit(
+    clone(): ValueUnit<T, U> {
+        const value = new ValueUnit<T, U>(
             clone(this.value),
             this.unit,
             clone(this.superType),
@@ -73,22 +73,22 @@ export class ValueUnit<T = any, U = (typeof UNITS)[number] | string> {
         return value;
     }
 
-    coalesce(right?: ValueUnit, inplace: boolean = false): ValueUnit {
+    coalesce(right?: ValueUnit, inplace: boolean = false): ValueUnit<any, any> {
         if (right == null) {
-            return this;
+            return this as any;
         }
         if (BLACKLISTED_COALESCE_UNITS.includes(this.unit as any)) {
-            return this;
+            return this as any;
         }
 
         if (inplace) {
-            this.unit ??= right.unit;
+            this.unit ??= right.unit as any;
             this.superType ??= right.superType;
             this.subProperty ??= right.subProperty;
             this.property ??= right.property;
             this.targets ??= right.targets;
 
-            return this;
+            return this as any;
         } else {
             const value = new ValueUnit(
                 clone(this.value),
@@ -97,7 +97,7 @@ export class ValueUnit<T = any, U = (typeof UNITS)[number] | string> {
                 this.subProperty ?? right.subProperty,
                 this.property ?? right.property,
                 this.targets ?? right.targets,
-            ) as any;
+            );
 
             return value;
         }
@@ -142,9 +142,9 @@ export class FunctionValue<T = any, N extends string = string> {
         return `${this.name}(${this.values.map((v) => v.toString()).join(", ")})`;
     }
 
-    toJSON() {
+    toJSON(): Record<string, any[]> {
         return {
-            [this.name]: this.values.map((v) => v.toJSON()),
+            [this.name]: this.values.map((v: any) => v.toJSON()),
         };
     }
 

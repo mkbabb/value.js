@@ -1,5 +1,6 @@
 import { parseCSSValue } from "@src/parsing";
-import { InterpolatedVar, ValueUnit } from ".";
+import { ValueUnit } from ".";
+import type { InterpolatedVar } from ".";
 import { parseCSSValueUnit } from "../parsing/units";
 import { memoize } from "../utils";
 import { normalizeColorUnits } from "./color/normalize";
@@ -32,19 +33,20 @@ export const getComputedValue = memoize(
                 value.value &&
                 target
             ) {
-                const originalValue = target.style[value.property];
+                const prop = value.property as string;
+                const originalValue = (target.style as any)[prop];
 
                 const newValue = value.subProperty
                     ? `${value.subProperty}(${value.toString()})`
                     : value.toString();
 
-                target.style[value.property] = newValue;
+                (target.style as any)[prop] = newValue;
 
                 const computed = getComputedStyle(target).getPropertyValue(
-                    value.property,
+                    prop,
                 );
 
-                target.style[value.property] = originalValue;
+                (target.style as any)[prop] = originalValue;
 
                 const p = parseCSSValue(computed);
 
@@ -55,7 +57,7 @@ export const getComputedValue = memoize(
                 if (p.name.startsWith("matrix")) {
                     const matrixValues = unpackMatrixValues(p);
 
-                    const matrixSubValue = matrixValues[value.subProperty];
+                    const matrixSubValue = (matrixValues as any)[value.subProperty!];
 
                     if (matrixSubValue != null) {
                         return new ValueUnit(matrixSubValue, "px", [
@@ -97,7 +99,7 @@ export const normalizeNumericUnits = (
         switch (superType) {
             case "length":
                 return {
-                    value: convertToPixels(value.value, value.unit, value.targets?.[0]),
+                    value: convertToPixels(value.value, value.unit as any, value.targets?.[0]),
                     unit: "px",
                 };
             case "angle":
@@ -116,7 +118,7 @@ export const normalizeNumericUnits = (
                     unit: "dpi",
                 };
             default:
-                return { value: value.value, unit: value.unit };
+                return { value: value.value, unit: value.unit as string };
         }
     };
 
@@ -164,8 +166,8 @@ export function normalizeValueUnits(left: ValueUnit, right: ValueUnit) {
 
     if (isColorUnit(left) && isColorUnit(right)) {
         const [leftCollapsed, rightCollapsed] = normalizeColorUnits(
-            left,
-            right,
+            left as any,
+            right as any,
             "lab",
             true,
         );
@@ -188,7 +190,7 @@ export function normalizeValueUnits(left: ValueUnit, right: ValueUnit) {
     }
 
     out.computed =
-        COMPUTED_UNITS.includes(left.unit) || COMPUTED_UNITS.includes(right.unit);
+        COMPUTED_UNITS.includes(left.unit as any) || COMPUTED_UNITS.includes(right.unit as any);
 
     return out;
 }

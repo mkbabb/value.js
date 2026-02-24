@@ -14,7 +14,7 @@ import * as utils from "./utils";
 
 export { CSSColor, parseCSSColor };
 
-export const CSSValueUnit = P.createLanguage({
+export const CSSValueUnit: P.Language = P.createLanguage({
     lengthUnit: () => P.alt(...LENGTH_UNITS.map(utils.istring)),
     angleUnit: () => P.alt(...ANGLE_UNITS.map(utils.istring)),
     timeUnit: () => P.alt(...TIME_UNITS.map(utils.istring)),
@@ -63,7 +63,7 @@ export const CSSValueUnit = P.createLanguage({
             return new ValueUnit(value, unit, ["percentage"]);
         }),
 
-    Color: (r) => CSSColor.Value,
+    Color: (r): P.Parser<ValueUnit> => CSSColor.Value,
 
     Slash: () =>
         P.string("/")

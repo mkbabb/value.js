@@ -4,11 +4,11 @@ export const isObject = (value: any) => {
     return !!value && value.constructor === Object;
 };
 
-export function clone(obj: any) {
+export function clone(obj: any): any {
     if (isObject(obj)) {
         return Object.entries(obj)
             .map(([k, v]) => [k, clone(v)])
-            .reduce((acc, [k, v]) => {
+            .reduce((acc: Record<string, any>, [k, v]) => {
                 acc[k] = v;
                 return acc;
             }, {});
@@ -104,7 +104,7 @@ export function memoize<T extends (...args: any[]) => any>(
     options: MemoizeOptions = {},
 ): T & { cache: Map<string, { value: ReturnType<T>; timestamp: number }> } {
     const cache = new Map<string, { value: ReturnType<T>; timestamp: number }>();
-    const { maxCacheSize = Infinity, ttl = Infinity, keyFn = JSON.stringify } = options;
+    const { maxCacheSize = Infinity, ttl = Infinity, keyFn = (JSON.stringify as (...args: any[]) => string) } = options;
 
     const memoized = function (
         this: ThisParameterType<T>,
@@ -126,7 +126,7 @@ export function memoize<T extends (...args: any[]) => any>(
         cache.set(key, { value: result, timestamp: now });
 
         if (cache.size > maxCacheSize) {
-            const oldestKey = cache.keys().next().value;
+            const oldestKey = cache.keys().next().value!;
             cache.delete(oldestKey);
         }
 

@@ -6,7 +6,6 @@ import {
     ABSOLUTE_LENGTH_UNITS,
     ANGLE_UNITS,
     LENGTH_UNITS,
-    MatrixValues,
     PERCENTAGE_UNITS,
     RELATIVE_LENGTH_UNITS,
     RESOLUTION_UNITS,
@@ -14,6 +13,7 @@ import {
     TIME_UNITS,
     UNITS,
 } from "./constants";
+import type { MatrixValues } from "./constants";
 
 export function isColorUnit(
     value: ValueUnit<Color<ValueUnit>>,
@@ -22,9 +22,9 @@ export function isColorUnit(
 }
 
 export const flattenObject = (obj: any) => {
-    const flat = {};
+    const flat: Record<string, any> = {};
 
-    const flatten = (obj: any, parentKey: string = undefined) => {
+    const flatten = (obj: any, parentKey: string | undefined = undefined) => {
         if (Array.isArray(obj)) {
             obj.forEach((v, i) => flatten(v, parentKey));
             return;
@@ -50,12 +50,13 @@ export const flattenObject = (obj: any) => {
             return;
         }
 
-        if (flat[parentKey] == null) {
-            flat[parentKey] = new ValueArray();
+        const key = parentKey!;
+        if (flat[key] == null) {
+            flat[key] = new ValueArray();
         }
 
-        flat[parentKey].push(obj);
-        flat[parentKey] = flat[parentKey].flat();
+        flat[key].push(obj);
+        flat[key] = flat[key].flat();
     };
 
     flatten(obj);
@@ -259,7 +260,7 @@ export function convertToPixels(
         );
         value = (value / 100) * parentValue;
     } else if (unit === "ex" || unit === "ch") {
-        value *= parseFloat(getComputedStyle(element).fontSize) ?? 16;
+        value *= parseFloat(getComputedStyle(element!).fontSize) ?? 16;
     } else {
         value = convertAbsoluteUnitToPixels(value, unit);
     }
@@ -294,13 +295,13 @@ export function convertToDPI(value: number, unit: (typeof RESOLUTION_UNITS)[numb
     return value;
 }
 
-type ConversionFunction = (value: number, unit: string, target?: HTMLElement) => number;
+type ConversionFunction = (value: number, unit: any, target?: HTMLElement) => number;
 
 const conversionFunctions: Record<string, ConversionFunction> = {
-    length: convertToPixels,
-    time: convertToMs,
-    angle: convertToDegrees,
-    resolution: convertToDPI,
+    length: convertToPixels as ConversionFunction,
+    time: convertToMs as ConversionFunction,
+    angle: convertToDegrees as ConversionFunction,
+    resolution: convertToDPI as ConversionFunction,
 };
 
 function getUnitGroup(unit: (typeof UNITS)[number]): [any, string] | null {

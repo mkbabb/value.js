@@ -21,13 +21,13 @@ const handleVar = (r: P.Language) => {
 };
 
 const handleCalc = (r: P.Language) => {
-    const calcContent = P.lazy(() =>
+    const calcContent: P.Parser<string[]> = P.lazy(() =>
         P.alt(
             P.regexp(/[^()]+/),
             calcContent
                 .atLeast(1)
                 .wrap(r.lparen, r.rparen)
-                .map((nested) => `(${nested.join(" ")})`),
+                .map((nested: string[][]) => `(${nested.join(" ")})`),
         ).atLeast(1),
     );
 
@@ -39,7 +39,7 @@ const handleCalc = (r: P.Language) => {
                     .map((v) => v),
                 calcContent
                     .wrap(r.lparen, r.rparen)
-                    .map((parts: any[]) => parts.join(" ")),
+                    .map((parts: unknown) => (parts as string[]).join(" ")),
             ),
         )
         .map((v) => {
@@ -68,7 +68,7 @@ const handleTransform = (r: P.Language) => {
     return p.map(([[name, dim], values]: [string[], ValueUnit[]]) => {
         name = name.toLowerCase();
 
-        const transformObject = {};
+        const transformObject: Record<string, any> = {};
 
         if (dim) {
             const newName = name + dim.toUpperCase();
@@ -106,7 +106,7 @@ const handleGradient = (r: P.Language) => {
         P.string("to").skip(r.ws),
         P.alt(...["left", "right", "top", "bottom"].map(utils.istring)),
     ).map(([to, direction]) => {
-        direction = gradientDirections[direction.toLowerCase()];
+        direction = (gradientDirections as Record<string, string>)[direction.toLowerCase()];
         return new ValueUnit(direction, "deg");
     });
 
@@ -145,7 +145,7 @@ const handleGradient = (r: P.Language) => {
                 }
             }),
     ).map(([name, values]) => {
-        return new FunctionValue(name, values);
+        return new FunctionValue(name, values as any[]);
     });
 
     return linearGradient;

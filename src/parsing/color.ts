@@ -50,12 +50,12 @@ const colorOptionalAlpha = (r: P.Language, colorSpace: string) => {
     });
 };
 
-export const CSSColor = P.createLanguage({
+export const CSSColor: P.Language = P.createLanguage({
     colorValue: () =>
         P.alt(
             CSSValueUnit.Percentage,
-            CSSValueUnit.Angle.map((x) => {
-                const deg = convertToDegrees(x.value, x.unit);
+            CSSValueUnit.Angle.map((x: ValueUnit) => {
+                const deg = convertToDegrees(x.value, x.unit as any);
                 return new ValueUnit(deg, "deg", ["angle"]);
             }),
             P.alt(utils.number, utils.integer).map((x) => new ValueUnit(x)),
@@ -76,7 +76,7 @@ export const CSSColor = P.createLanguage({
                 .sort((a, b) => b.length - a.length)
                 .map(P.string),
         ).chain((x) => {
-            const c = COLOR_NAMES[x];
+            const c = (COLOR_NAMES as Record<string, string>)[x];
             // Parse the color value as a r.Value:
             const value = parseCSSValueUnit(c);
 

@@ -1,7 +1,9 @@
-import { Color, ColorSpaceMap } from ".";
+import { Color } from ".";
+import type { ColorSpaceMap } from ".";
 import { ValueUnit } from "..";
 import { scale } from "../../math";
-import { COLOR_SPACE_RANGES, COLOR_SPACE_DENORM_UNITS, ColorSpace } from "./constants";
+import { COLOR_SPACE_RANGES, COLOR_SPACE_DENORM_UNITS } from "./constants";
+import type { ColorSpace } from "./constants";
 import { color2 } from "./utils";
 
 const getColorSpaceBounds = (
@@ -9,7 +11,7 @@ const getColorSpaceBounds = (
     colorSpace: ColorSpace,
     component: string,
 ) => {
-    const ranges = COLOR_SPACE_RANGES[colorSpace][component];
+    const ranges = (COLOR_SPACE_RANGES[colorSpace] as any)[component];
     return ranges[unit] ?? ranges.number;
 };
 
@@ -20,7 +22,7 @@ export const normalizeColorUnitComponent = (
     component: string,
     inverse: boolean = false,
 ) => {
-    unit = inverse ? COLOR_SPACE_DENORM_UNITS[colorSpace][component] : unit;
+    unit = inverse ? (COLOR_SPACE_DENORM_UNITS[colorSpace] as any)[component] : unit;
 
     const { min, max } = getColorSpaceBounds(unit, colorSpace, component);
 
@@ -62,14 +64,14 @@ export const normalizeColorUnit = (
     inverse: boolean = false,
     inplace: boolean = false,
 ): ValueUnit<Color<ValueUnit<number>>, "color"> => {
-    color = inplace ? color : color.clone();
+    color = inplace ? color : color.clone() as typeof color;
 
     const normalizedColor = normalizeColor(color.value, inverse);
 
     if (inplace) {
         return color;
     } else {
-        return new ValueUnit(normalizedColor).coalesce(color, true);
+        return new ValueUnit(normalizedColor).coalesce(color, true) as ValueUnit<Color<ValueUnit<number>>, "color">;
     }
 };
 
@@ -80,23 +82,23 @@ export const colorUnit2 = <C extends ColorSpace>(
     inverse: boolean = false,
     inplace: boolean = false,
 ): ValueUnit<ColorSpaceMap<ValueUnit<number>>[C], "color"> => {
-    const normalizedColorUnit = normalized
+    const normalizedColorUnit = (normalized
         ? inplace
             ? color
             : color.clone()
-        : normalizeColorUnit(color, false, inplace);
+        : normalizeColorUnit(color, false, inplace)) as ValueUnit<Color<ValueUnit<number>>, "color">;
 
-    const convertedColor = color2(normalizedColorUnit.toJSON(), to);
+    const convertedColor = color2(normalizedColorUnit.toJSON(), to!);
 
     convertedColor.entries().forEach(([key, value]) => {
         convertedColor[key] = new ValueUnit(value);
     });
     normalizedColorUnit.value = convertedColor;
 
-    normalizedColorUnit.superType[1] = to;
+    normalizedColorUnit.superType![1] = to as string;
 
     return inverse
-        ? (normalizeColorUnit(normalizedColorUnit, true, true) as any)
+        ? (normalizeColorUnit(normalizedColorUnit as ValueUnit<Color<ValueUnit<number>>, "color">, true, true) as any)
         : normalizedColorUnit as ValueUnit<ColorSpaceMap<ValueUnit<number>>[C], "color">;
 };
 
