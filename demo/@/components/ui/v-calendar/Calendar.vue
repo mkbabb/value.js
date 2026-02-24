@@ -113,7 +113,7 @@ const vCalendarSlots = computed(() => {
 </template>
 
 <style lang="css">
-@reference "../../../styles/style.scss";
+@reference "../../../styles/style.css";
 
 .calendar {
   @apply p-3 text-center;
