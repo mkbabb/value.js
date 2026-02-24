@@ -439,9 +439,8 @@ import {
 } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
 import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
-import { Palette, RotateCcw, Shuffle, Copy, X, Plus } from "lucide-vue-next";
+import { Palette, Shuffle, Copy, X, Plus } from "lucide-vue-next";
 import {
-    SelectIcon,
     SliderRange,
     SliderRoot,
     SliderThumb,
@@ -454,14 +453,11 @@ import {
     onUnmounted,
     ref,
     watch,
-    watchEffect,
 } from "vue";
 import { toast } from "vue-sonner";
 
-import { get, useDark, useMagicKeys, useMemoize, whenever } from "@vueuse/core";
-import { getFormattedColorSpaceRange } from "@src/units/color/utils";
+import { useDark, useMagicKeys } from "@vueuse/core";
 import CardDescription from "@components/ui/card/CardDescription.vue";
-import Button from "@components/ui/button/Button.vue";
 import { COLOR_NAMES } from "@src/units/color/constants";
 import { ColorModel } from ".";
 

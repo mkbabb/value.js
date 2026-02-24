@@ -7,17 +7,17 @@ export { default as ColorNutritionLabel } from "./ColorNutritionLabel.vue";
 
 export type ColorModel = {
     selectedColorSpace: ColorSpace;
-    color: ValueUnit<Color<ValueUnit<number>>>;
+    color: ValueUnit<Color<ValueUnit<number>>> | null;
     inputColor: string;
     savedColors: Array<ValueUnit<Color<ValueUnit<number>>> | any>;
 };
 
-export const defaultColorModel = {
+export const defaultColorModel: ColorModel = {
     selectedColorSpace: "lab",
     color: null,
     inputColor: "lab(92% 88.8 20 / 82.70%)",
     savedColors: [],
-} as ColorModel;
+};
 
 export const colorSpaceInfo = {
     rgb: {

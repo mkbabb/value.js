@@ -126,8 +126,7 @@
 
 <script setup lang="ts">
 import { Separator } from "@components/ui/separator";
-import { computed, defineAsyncComponent, onMounted, reactive, ref, watch } from "vue";
-import { RotateCcw, Lock, LockOpen } from "lucide-vue-next";
+import { computed, onMounted, ref, shallowRef, watch } from "vue";
 import { DarkModeToggle } from "@components/custom/dark-mode-toggle";
 import {
     HoverCard,
@@ -135,8 +134,6 @@ import {
     HoverCardTrigger,
 } from "@components/ui/hover-card";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
-import { mat4 } from "gl-matrix";
-import { FunctionValue, ValueUnit } from "@src/units";
 import { Loader2 } from "lucide-vue-next";
 import { Slider } from "@components/ui/slider";
 import { Button } from "@components/ui/button";
@@ -170,8 +167,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@components/ui/select";
-import { clamp } from "@src/math";
-import { toast } from "vue-sonner";
 import { List } from "lucide-vue-next";
 import {
     ColorPicker,
@@ -179,13 +174,9 @@ import {
     ColorModel,
     defaultColorModel,
 } from "@components/custom/color-picker";
-import { useDark, useLocalStorage, useStorage } from "@vueuse/core";
+import { useDark, useStorage } from "@vueuse/core";
 import { Toaster } from "vue-sonner";
-import {
-    COLOR_SPACE_RANGES,
-    COLOR_SPACE_NAMES,
-    ColorSpace,
-} from "@src/units/color/constants";
+import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
 import { DocModule, Markdown } from "@components/custom/markdown";
 import Katex from "@components/custom/katex/Katex.vue";
 import { normalizeColorUnit } from "@src/units/color/normalize";
@@ -254,20 +245,18 @@ const isDark = useDark({ disableTransition: false });
 
 const colorStore = useStorage("color-picker", defaultColorModel);
 
-const model = ref({
-    ...defaultColorModel,
-}) as any as { value: ColorModel };
+const model = shallowRef<ColorModel>(defaultColorModel);
 
 const denormalizedCurrentColor = computed(() => {
     if (!model.value.color) return null;
 
-    return normalizeColorUnit(model.value.color, true, false);
+    return normalizeColorUnit(model.value.color as any, true, false);
 });
 
 watch(
     () => model.value,
-    (value) => {
-        colorStore.value.inputColor = model.value.color.toString();
+    () => {
+        colorStore.value.inputColor = model.value.color?.toString() ?? "";
         colorStore.value.savedColors = model.value.savedColors.map((c) =>
             normalizeColorUnit(c as any, true, false).toString(),
         );
@@ -290,7 +279,7 @@ function parseColorFromUrl() {
 }
 
 // Function to update URL hash with current color
-function updateUrlWithColor(color) {
+function updateUrlWithColor(color: string) {
     if (color) {
         window.location.hash = encodeURIComponent(color);
     }
