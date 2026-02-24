@@ -1,6 +1,6 @@
-import { ValueUnit } from "@src/units";
-import { Color } from "@src/units/color";
-import { ColorSpace } from "@src/units/color/constants";
+import type { ValueUnit } from "@src/units";
+import type { Color } from "@src/units/color";
+import type { ColorSpace } from "@src/units/color/constants";
 
 export { default as ColorPicker } from "./ColorPicker.vue";
 export { default as ColorNutritionLabel } from "./ColorNutritionLabel.vue";

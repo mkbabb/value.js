@@ -3,24 +3,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
+import { useTemplateRef, onMounted, watch } from "vue";
 import katex from "katex";
 
-interface Props {
+const { expression, displayMode = true } = defineProps<{
     expression: string;
     displayMode?: boolean;
-}
+}>();
 
-const props = withDefaults(defineProps<Props>(), {
-    displayMode: true,
-});
-
-const katexElement = ref<HTMLElement | null>(null);
+const katexElement = useTemplateRef<HTMLElement>("katexElement");
 
 const renderKatex = () => {
     if (katexElement.value) {
-        katex.render(props.expression, katexElement.value, {
-            displayMode: props.displayMode,
+        katex.render(expression, katexElement.value, {
+            displayMode,
             throwOnError: false,
             output: "mathml",
         });
@@ -29,7 +25,7 @@ const renderKatex = () => {
 
 onMounted(renderKatex);
 
-watch(() => props.expression, renderKatex);
+watch(() => expression, renderKatex);
 </script>
 
 <style scoped>

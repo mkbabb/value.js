@@ -25,8 +25,8 @@
 import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
 import { Skeleton } from "@components/ui/skeleton";
 import { convert2 } from "@src/units/utils";
-import "@styles/style.scss";
-import "@styles/utils.scss";
+import "@styles/style.css";
+import "@styles/utils.css";
 import { useDark } from "@vueuse/core";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
@@ -35,8 +35,8 @@ import prettierBabelPlugin from "prettier/plugins/babel";
 import prettierESTreePlugin from "prettier/plugins/estree";
 import prettierPostCSSPlugin from "prettier/plugins/postcss";
 import prettierTypeScriptPlugin from "prettier/plugins/typescript";
-import { computed, defineProps, onMounted, onUnmounted, onUpdated, ref, watch } from "vue";
-import { DocItem, DocModule } from ".";
+import { computed, onMounted, onUnmounted, onUpdated, ref, useTemplateRef, watch } from "vue";
+import type { DocItem, DocModule } from ".";
 
 // @ts-ignore
 import darkTheme from "highlight.js/styles/github-dark.css?inline";
@@ -54,7 +54,7 @@ const { module } = defineProps<{
     module: DocModule;
 }>();
 
-const markdownDiv = ref<HTMLElement | null>(null);
+const markdownDiv = useTemplateRef<HTMLElement>("markdownDiv");
 
 const currentDoc = ref<DocModule | null>(null);
 
@@ -237,54 +237,54 @@ onUnmounted(() => {
 });
 </script>
 
-<style lang="scss">
-@reference "../../../styles/style.scss";
+<style>
+@reference "../../../styles/style.css";
 
 .markdown-body {
-    @apply text-base leading-7 text-gray-700 dark:text-gray-300;
+    @apply text-base leading-7 text-foreground;
     @apply p-0 m-0;
     @apply max-w-full;
 }
 
-.markdown-wrapper > .markdown-body > {
-    /* Headings */
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+.markdown-wrapper > .markdown-body {
+    // Direct child headings
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
         @apply sticky top-0 bg-background z-10;
         @apply font-bold text-gray-900 dark:text-gray-100 mb-4 mt-6;
         @apply first:mt-0 scroll-m-20;
     }
 
-    h1 {
+    > h1 {
         @apply text-4xl font-extrabold;
     }
 
-    h2 {
+    > h2 {
         @apply text-3xl font-semibold;
     }
 
-    h3 {
+    > h3 {
         @apply text-2xl font-semibold;
     }
 
-    h4 {
+    > h4 {
         @apply text-xl font-semibold;
     }
 
-    h5 {
+    > h5 {
         @apply text-lg font-semibold;
     }
 
-    h6 {
+    > h6 {
         @apply text-base font-semibold;
     }
 
-    /* Paragraphs */
-    p {
+    // Direct child paragraphs
+    > p {
         @apply mb-4 leading-7;
     }
 }

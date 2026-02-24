@@ -67,7 +67,7 @@
                         <span
                             class="italic"
                             :style="{
-                                color: denormalizedCurrentColor.value.toString(),
+                                color: denormalizedCurrentColor?.value?.toString(),
                             }"
                             >{{ COLOR_SPACE_NAMES[model.selectedColorSpace] }}</span
                         ></CardTitle
@@ -126,7 +126,7 @@
 
 <script setup lang="ts">
 import { Separator } from "@components/ui/separator";
-import { computed, onMounted, ref, shallowRef, watch } from "vue";
+import { computed, onMounted, shallowRef, useTemplateRef, watch } from "vue";
 import { DarkModeToggle } from "@components/custom/dark-mode-toggle";
 import {
     HoverCard,
@@ -168,23 +168,22 @@ import {
     SelectValue,
 } from "@components/ui/select";
 import { List } from "lucide-vue-next";
+import type { ColorModel } from "@components/custom/color-picker";
 import {
     ColorPicker,
     ColorNutritionLabel,
-    ColorModel,
     defaultColorModel,
 } from "@components/custom/color-picker";
 import { useDark, useStorage } from "@vueuse/core";
 import { Toaster } from "vue-sonner";
 import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
-import { DocModule, Markdown } from "@components/custom/markdown";
+import type { DocModule } from "@components/custom/markdown";
+import { Markdown } from "@components/custom/markdown";
 import Katex from "@components/custom/katex/Katex.vue";
 import { normalizeColorUnit } from "@src/units/color/normalize";
 
-// @ts-ignore
-import "@styles/utils.scss";
-// @ts-ignore
-import "@styles/style.scss";
+import "@styles/utils.css";
+import "@styles/style.css";
 
 // all of the above UI components, and katex:
 const markdownComponents = {
@@ -239,7 +238,7 @@ const markdownModulesMap = Object.fromEntries(
     }),
 );
 
-const gridBackground = ref<HTMLElement | null>(null);
+const gridBackground = useTemplateRef<HTMLElement>("gridBackground");
 
 const isDark = useDark({ disableTransition: false });
 
@@ -323,7 +322,7 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .grid-background {
     background-size: 1rem !important;
     background-repeat: repeat;
