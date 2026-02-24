@@ -86,8 +86,6 @@ export const colorUnit2 = <C extends ColorSpace>(
             : color.clone()
         : normalizeColorUnit(color, false, inplace);
 
-
-
     const convertedColor = color2(normalizedColorUnit.toJSON(), to);
 
     convertedColor.entries().forEach(([key, value]) => {
@@ -99,7 +97,7 @@ export const colorUnit2 = <C extends ColorSpace>(
 
     return inverse
         ? (normalizeColorUnit(normalizedColorUnit, true, true) as any)
-        : normalizedColorUnit;
+        : normalizedColorUnit; // @ts-ignore
 };
 
 export const normalizeColorUnits = (

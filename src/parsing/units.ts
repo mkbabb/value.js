@@ -1,6 +1,5 @@
 import P from "parsimmon";
 import { ValueUnit } from "../units";
-
 import {
     ABSOLUTE_LENGTH_UNITS,
     ANGLE_UNITS,
@@ -10,10 +9,10 @@ import {
     RESOLUTION_UNITS,
     TIME_UNITS,
 } from "../units/constants";
-
-import { CSSColor } from "./color";
-
+import { CSSColor, parseCSSColor } from "./color";
 import * as utils from "./utils";
+
+export { CSSColor, parseCSSColor };
 
 export const CSSValueUnit = P.createLanguage({
     lengthUnit: () => P.alt(...LENGTH_UNITS.map(utils.istring)),
@@ -87,8 +86,4 @@ export const CSSValueUnit = P.createLanguage({
 
 export function parseCSSValueUnit(input: string): ValueUnit {
     return CSSValueUnit.Value.tryParse(input);
-}
-
-export function parseCSSColor(input: string): ValueUnit {
-    return CSSColor.Value.tryParse(input);
 }

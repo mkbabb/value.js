@@ -161,3 +161,7 @@ export const CSSColor = P.createLanguage({
             r.name,
         ).trim(P.optWhitespace),
 });
+
+export function parseCSSColor(input: string): ValueUnit {
+    return CSSColor.Value.tryParse(input);
+}

@@ -197,3 +197,12 @@ export class ValueArray<T = any> extends Array<ValueUnit<T> | FunctionValue<T>> 
         return new ValueArray(...this.map((v) => v.clone()));
     }
 }
+
+export type InterpolatedVar<T> = {
+    start: ValueUnit<T>;
+    stop: ValueUnit<T>;
+
+    value: ValueUnit<T>;
+
+    computed: boolean;
+};

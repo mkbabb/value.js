@@ -1,4 +1,5 @@
-import { ValueUnit } from ".";
+import { parseCSSValue } from "@src/parsing";
+import { InterpolatedVar, ValueUnit } from ".";
 import { parseCSSValueUnit } from "../parsing/units";
 import { memoize } from "../utils";
 import { normalizeColorUnits } from "./color/normalize";
@@ -45,7 +46,7 @@ export const getComputedValue = memoize(
 
                 target.style[value.property] = originalValue;
 
-                const p = parseCSSKeyframesValue(computed);
+                const p = parseCSSValue(computed);
 
                 if (p instanceof ValueUnit) {
                     return p;
