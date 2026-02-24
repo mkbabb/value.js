@@ -238,6 +238,8 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss">
+@reference "../../../styles/style.scss";
+
 .markdown-body {
     @apply text-base leading-7 text-gray-700 dark:text-gray-300;
     @apply p-0 m-0;
