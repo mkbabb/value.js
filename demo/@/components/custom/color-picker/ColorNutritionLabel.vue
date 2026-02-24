@@ -149,7 +149,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { Card, CardHeader, CardTitle, CardContent } from "@components/ui/card";
 import {
     COLOR_SPACE_RANGES,
@@ -198,14 +198,14 @@ const formattedRange = computed(() =>
     getFormattedColorSpaceRange(model.value.selectedColorSpace),
 );
 
-let hoveredPath = $ref<string[]>([]);
+const hoveredPath = ref<string[]>([]);
 
 const setHoveredPath = (path: string[]) => {
-    hoveredPath = path;
+    hoveredPath.value = path;
 };
 
 const clearHoveredPath = () => {
-    hoveredPath = [];
+    hoveredPath.value = [];
 };
 
 const isInPath = (colorSpace: string[], path: string[] | any) => {

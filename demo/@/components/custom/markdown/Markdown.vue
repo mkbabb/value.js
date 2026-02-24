@@ -35,7 +35,7 @@ import prettierBabelPlugin from "prettier/plugins/babel";
 import prettierESTreePlugin from "prettier/plugins/estree";
 import prettierPostCSSPlugin from "prettier/plugins/postcss";
 import prettierTypeScriptPlugin from "prettier/plugins/typescript";
-import { computed, defineProps, onMounted, onUnmounted, onUpdated, watch } from "vue";
+import { computed, defineProps, onMounted, onUnmounted, onUpdated, ref, watch } from "vue";
 import { DocItem, DocModule } from ".";
 
 // @ts-ignore
@@ -54,27 +54,27 @@ const { module } = defineProps<{
     module: DocModule;
 }>();
 
-const markdownDiv = $ref(null) as HTMLElement;
+const markdownDiv = ref<HTMLElement | null>(null);
 
-let currentDoc = $ref(null) as DocModule;
+const currentDoc = ref<DocModule | null>(null);
 
-let isLoading = $ref(true);
+const isLoading = ref(true);
 
 const loadDocs = async () => {
-    isLoading = true;
+    isLoading.value = true;
 
     // @ts-ignore
-    currentDoc = (await module()) as DocModule;
+    currentDoc.value = (await module()) as DocModule;
 
-    isLoading = false;
+    isLoading.value = false;
 };
 
 const markdownContent = computed(() => {
-    if (!currentDoc) {
+    if (!currentDoc.value) {
         return null;
     }
 
-    return currentDoc.default;
+    return currentDoc.value.default;
 });
 
 const formatCodeId = (id: number) => {
@@ -91,14 +91,14 @@ const codeMap = {} as {
 let codeId = 0;
 
 const highlightCode = () => {
-    if (!markdownDiv) {
+    if (!markdownDiv.value) {
         return;
     }
     // search for "pre code" and "div code" elements; the code must have a class name
     // that starts with "language-"
     const selector = "pre code[class^=language-], div[class^=language-]";
 
-    Array.from(markdownDiv.querySelectorAll(selector)).forEach(
+    Array.from(markdownDiv.value.querySelectorAll(selector)).forEach(
         async (block: HTMLElement, ix) => {
             if (!block.getAttribute("id")) {
                 if (block.tagName === "DIV") {
@@ -182,11 +182,11 @@ const highlightCode = () => {
 };
 
 const renderKatex = () => {
-    if (!markdownDiv) {
+    if (!markdownDiv.value) {
         return;
     }
 
-    Array.from(markdownDiv.querySelectorAll("code")).forEach((block: HTMLElement) => {
+    Array.from(markdownDiv.value.querySelectorAll("code")).forEach((block: HTMLElement) => {
         if (!block.className) {
             const expression = block.innerText.trim();
 
@@ -204,17 +204,17 @@ const renderKatex = () => {
     });
 };
 
-let styleEl = $ref(null);
+const styleEl = ref<HTMLStyleElement | null>(null);
 
 const changeCodeTheme = () => {
     const theme = isDark.value ? darkTheme : lightTheme;
 
-    if (!styleEl) {
-        styleEl = document.createElement("style");
-        document.head.appendChild(styleEl);
+    if (!styleEl.value) {
+        styleEl.value = document.createElement("style");
+        document.head.appendChild(styleEl.value);
     }
 
-    styleEl.innerHTML = theme;
+    styleEl.value.innerHTML = theme;
 };
 
 watch(isDark, changeCodeTheme);

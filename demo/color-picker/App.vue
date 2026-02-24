@@ -126,7 +126,7 @@
 
 <script setup lang="ts">
 import { Separator } from "@components/ui/separator";
-import { computed, defineAsyncComponent, onMounted, reactive, watch } from "vue";
+import { computed, defineAsyncComponent, onMounted, reactive, ref, watch } from "vue";
 import { RotateCcw, Lock, LockOpen } from "lucide-vue-next";
 import { DarkModeToggle } from "@components/custom/dark-mode-toggle";
 import {
@@ -248,27 +248,27 @@ const markdownModulesMap = Object.fromEntries(
     }),
 );
 
-let gridBackground = $ref(null) as HTMLElement;
+const gridBackground = ref<HTMLElement | null>(null);
 
 const isDark = useDark({ disableTransition: false });
 
 const colorStore = useStorage("color-picker", defaultColorModel);
 
-const model = $ref({
+const model = ref({
     ...defaultColorModel,
-}) as ColorModel;
+}) as any as { value: ColorModel };
 
 const denormalizedCurrentColor = computed(() => {
-    if (!model.color) return null;
+    if (!model.value.color) return null;
 
-    return normalizeColorUnit(model.color, true, false);
+    return normalizeColorUnit(model.value.color, true, false);
 });
 
 watch(
-    () => model,
+    () => model.value,
     (value) => {
-        colorStore.value.inputColor = model.color.toString();
-        colorStore.value.savedColors = model.savedColors.map((c) =>
+        colorStore.value.inputColor = model.value.color.toString();
+        colorStore.value.savedColors = model.value.savedColors.map((c) =>
             normalizeColorUnit(c as any, true, false).toString(),
         );
     },
@@ -298,7 +298,7 @@ function updateUrlWithColor(color) {
 
 // Add a watch to update the URL when the color changes
 watch(
-    () => model.inputColor,
+    () => model.value.inputColor,
     (value) => {
         // Update URL with current color
         updateUrlWithColor(value);
@@ -313,13 +313,13 @@ onMounted(() => {
         <path d='M1 2V0h1v1H0v1z' fill-opacity='0.10'/>
     </svg>
   `);
-    gridBackground.style.backgroundImage = `url("data:image/svg+xml,${encodedSVG}")`;
+    gridBackground.value.style.backgroundImage = `url("data:image/svg+xml,${encodedSVG}")`;
 
     // Use the function to get color from URL hash
     const urlColor = parseColorFromUrl();
     if (urlColor) {
         // Set the input color from URL
-        model.inputColor = urlColor;
+        model.value.inputColor = urlColor;
     }
 
     console.log("URL Color:", urlColor);
@@ -328,7 +328,7 @@ onMounted(() => {
     window.addEventListener("hashchange", () => {
         const urlColor = parseColorFromUrl();
         if (urlColor) {
-            model.inputColor = urlColor;
+            model.value.inputColor = urlColor;
         }
     });
 });
