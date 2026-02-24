@@ -10,7 +10,7 @@
  * DEPENDENCY NOTE: These tests require @vue/test-utils to be installed:
  *   npm install --save-dev @vue/test-utils
  *
- * The actual ColorPicker.vue has deep template dependencies (radix-vue, lucide,
+ * The actual ColorPicker.vue has deep template dependencies (reka-ui, lucide,
  * shadcn components, etc.) that make full-component mounting impractical in a
  * unit-test environment. Instead, we create a minimal Vue component that
  * replicates the EXACT lifecycle patterns from ColorPicker.vue's <script setup>:
