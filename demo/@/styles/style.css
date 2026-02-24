@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @theme {
     /* Container configuration */
@@ -57,35 +58,6 @@
 
 /* Custom dark mode variant for class-based dark mode */
 @variant dark (&:where(.dark, .dark *));
-
-/* Custom keyframes for accordion and collapsible animations */
-@keyframes accordion-down {
-    from { height: 0; }
-    to { height: var(--radix-accordion-content-height); }
-}
-
-@keyframes accordion-up {
-    from { height: var(--radix-accordion-content-height); }
-    to { height: 0; }
-}
-
-@keyframes collapsible-down {
-    from { height: 0; }
-    to { height: var(--radix-collapsible-content-height); }
-}
-
-@keyframes collapsible-up {
-    from { height: var(--radix-collapsible-content-height); }
-    to { height: 0; }
-}
-
-/* Custom animations */
-@theme {
-    --animate-accordion-down: accordion-down 0.2s ease-out;
-    --animate-accordion-up: accordion-up 0.2s ease-out;
-    --animate-collapsible-down: collapsible-down 0.2s ease-in-out;
-    --animate-collapsible-up: collapsible-up 0.2s ease-in-out;
-}
 
 /* Preserve existing theme variables for compatibility */
 :root {
