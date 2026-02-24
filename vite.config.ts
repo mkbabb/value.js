@@ -6,15 +6,13 @@ import Vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
 
 import tailwindcss from "@tailwindcss/postcss";
-import autoprefixer from "autoprefixer";
 
 import Markdown from "unplugin-vue-markdown/vite";
 
 const defaultOptions = {
-    base: "./",
     css: {
         postcss: {
-            plugins: [tailwindcss(), autoprefixer()],
+            plugins: [tailwindcss()],
         },
     },
 
@@ -56,6 +54,7 @@ export default defineConfig((mode) => {
     } else if (mode.mode === "gh-pages") {
         return {
             ...defaultOptions,
+            base: "./",
             root: "./demo/color-picker/",
             build: {
                 outDir: path.resolve(import.meta.dirname, "./dist/"),
@@ -70,6 +69,18 @@ export default defineConfig((mode) => {
         return {
             ...defaultOptions,
             root: "./demo/color-picker/",
+            optimizeDeps: {
+                include: [
+                    "vue",
+                    "reka-ui",
+                    "@vueuse/core",
+                    "lucide-vue-next",
+                    "vue-sonner",
+                    "katex",
+                    "highlight.js/lib/core",
+                    "prettier",
+                ],
+            },
             plugins: [...defaultPlugins],
         };
     }
