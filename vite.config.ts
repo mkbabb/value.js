@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import path from "path";
 
-import VueMacros from "unplugin-vue-macros/vite";
 import Vue from "@vitejs/plugin-vue";
 
 import dts from "vite-plugin-dts";
@@ -21,22 +20,17 @@ const defaultOptions = {
 
     resolve: {
         alias: {
-            "@src": path.resolve(__dirname, "src"),
-            "@styles": path.resolve(__dirname, "demo/@/styles"),
-            "@components": path.resolve(__dirname, "demo/@/components"),
-            "@utils": path.resolve(__dirname, "demo/@/utils"),
-            "@assets": path.resolve(__dirname, "assets"),
+            "@src": path.resolve(import.meta.dirname, "src"),
+            "@styles": path.resolve(import.meta.dirname, "demo/@/styles"),
+            "@components": path.resolve(import.meta.dirname, "demo/@/components"),
+            "@utils": path.resolve(import.meta.dirname, "demo/@/utils"),
+            "@assets": path.resolve(import.meta.dirname, "assets"),
         },
     },
 };
 
 const defaultPlugins = [
-    VueMacros({
-        betterDefine: false,
-        plugins: {
-            vue: Vue({ include: [/\.vue$/, /\.md$/] }),
-        },
-    }),
+    Vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown({}),
 ];
 
@@ -48,7 +42,7 @@ export default defineConfig((mode) => {
             build: {
                 minify: true,
                 lib: {
-                    entry: path.resolve(__dirname, "src/units/index.ts"),
+                    entry: path.resolve(import.meta.dirname, "src/units/index.ts"),
                     name: "Value",
                     fileName: "value",
                     formats: ["es", "cjs"],
@@ -64,7 +58,7 @@ export default defineConfig((mode) => {
             ...defaultOptions,
             root: "./demo/color-picker/",
             build: {
-                outDir: path.resolve(__dirname, "./dist/"),
+                outDir: path.resolve(import.meta.dirname, "./dist/"),
                 emptyOutDir: true,
                 minify: true,
                 sourcemap: true,

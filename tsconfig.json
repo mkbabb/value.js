@@ -6,7 +6,7 @@
         "moduleResolution": "node",
         "lib": [
             "ESNext",
-            "DOM",
+            "DOM"
         ],
         "experimentalDecorators": true,
         "resolveJsonModule": true,
@@ -29,15 +29,11 @@
             ],
             "@assets/*": [
                 "assets/*"
-            ],
-            
-        },
-        "types": [
-            "unplugin-vue-macros/macros-global"
-        ]
+            ]
+        }
     },
     "include": [
         "src/",
         "demo/"
-    ],
+    ]
 }
