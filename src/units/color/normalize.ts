@@ -97,7 +97,7 @@ export const colorUnit2 = <C extends ColorSpace>(
 
     return inverse
         ? (normalizeColorUnit(normalizedColorUnit, true, true) as any)
-        : normalizedColorUnit; // @ts-ignore
+        : normalizedColorUnit as ValueUnit<ColorSpaceMap<ValueUnit<number>>[C], "color">;
 };
 
 export const normalizeColorUnits = (

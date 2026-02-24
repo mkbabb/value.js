@@ -10,7 +10,7 @@
                         @update:model-value="
                             (colorSpace: any) => {
                                 model.selectedColorSpace = colorSpace;
-                                selectedColorSpaceOpen.value = false;
+                                selectedColorSpaceOpenModel = false;
                             }
                         "
                     >
@@ -808,7 +808,7 @@ const updateColorComponentDebounced = debounce(updateColorComponent, 500);
 
 // rAF-based throttled spectrum update
 let pendingSpectrumEvent: MouseEvent | TouchEvent | null = null;
-let spectrumRafId: number | null = null;
+let spectrumRafId: ReturnType<typeof requestAnimationFrame> | null = null;
 
 const scheduleSpectrumUpdate = (event: MouseEvent | TouchEvent) => {
     pendingSpectrumEvent = event;

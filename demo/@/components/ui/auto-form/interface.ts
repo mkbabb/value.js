@@ -24,6 +24,7 @@ export interface ConfigItem {
   /** Value for the `FormDescription` */
   description?: string
   /** Pick which component to be rendered. */
+  // @ts-ignore TS2502: circular type — `component` indirectly references itself via INPUT_COMPONENTS (only manifests in vite-plugin-dts)
   component?: keyof typeof INPUT_COMPONENTS | Component
   /** Hide `FormLabel`. */
   hideLabel?: boolean
