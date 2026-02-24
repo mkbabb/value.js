@@ -1,7 +1,7 @@
-import { mat3, vec3 } from "gl-matrix";
+import type { Vec3, Mat3 } from "./matrix";
+import { transformMat3, invertMat3 } from "./matrix";
 import {
     Color,
-    ColorSpaceMap,
     HSLColor,
     HSVColor,
     HWBColor,
@@ -13,26 +13,26 @@ import {
     RGBColor,
     XYZColor,
 } from ".";
+import type { ColorSpaceMap } from ".";
 import { clamp, scale } from "../../math";
 import {
     COLOR_SPACE_DENORM_UNITS,
     COLOR_SPACE_RANGES,
-    ColorSpace,
     RGBA_MAX,
     WHITE_POINTS,
     WHITE_POINT_D50_D65,
     WHITE_POINT_D65_D50,
-    WhitePoint,
 } from "./constants";
+import type { ColorSpace, WhitePoint } from "./constants";
 import { memoize } from "@src/utils";
 
 export const getFormattedColorSpaceRange = <T extends ColorSpace>(colorSpace: T) => {
     const ranges = COLOR_SPACE_RANGES[colorSpace];
     const denormUnits = COLOR_SPACE_DENORM_UNITS[colorSpace];
 
-    return Object.entries(ranges).reduce((acc, [component, range]) => {
-        const units = denormUnits[component];
-        let { min, max } = range[units] ?? range["number"];
+    return Object.entries(ranges).reduce((acc: Record<string, any>, [component, range]) => {
+        const units = (denormUnits as any)[component];
+        let { min, max } = (range as any)[units] ?? (range as any)["number"];
 
         min = `${min}${units}`;
         max = `${max}${units}`;
@@ -49,7 +49,7 @@ const normalizeColorComponent = (
     component: string,
     inverse: boolean = false,
 ) => {
-    const { min, max } = COLOR_SPACE_RANGES[colorSpace][component]["number"];
+    const { min, max } = (COLOR_SPACE_RANGES[colorSpace] as any)[component]["number"];
 
     const [toMin, toMax, fromMin, fromMax] = inverse
         ? [min, max, 0, 1]
@@ -343,25 +343,25 @@ const LAB_SCALE_L = 116;
 const LAB_SCALE_A = 500;
 const LAB_SCALE_B = 200;
 
-function xyzToD50(xyz: XYZColor): vec3 {
-    const xyzv = vec3.fromValues(xyz.x, xyz.y, xyz.z);
+function xyzToD50(xyz: XYZColor): Vec3 {
+    const v: Vec3 = [xyz.x, xyz.y, xyz.z];
 
     if (xyz.whitePoint === "D50") {
-        return xyzv;
+        return v;
     } else if (xyz.whitePoint === "D65") {
-        return vec3.transformMat3(xyzv, xyzv, WHITE_POINT_D65_D50);
+        return transformMat3(v, WHITE_POINT_D65_D50);
     }
 
     throw new Error(`Unsupported white point: ${xyz.whitePoint}`);
 }
 
-function xyzToD65(xyz: XYZColor): vec3 {
-    const xyzv = vec3.fromValues(xyz.x, xyz.y, xyz.z);
+function xyzToD65(xyz: XYZColor): Vec3 {
+    const v: Vec3 = [xyz.x, xyz.y, xyz.z];
 
     if (xyz.whitePoint === "D65") {
-        return xyzv;
+        return v;
     } else if (xyz.whitePoint === "D50") {
-        return vec3.transformMat3(xyzv, xyzv, WHITE_POINT_D50_D65);
+        return transformMat3(v, WHITE_POINT_D50_D65);
     }
 
     throw new Error(`Unsupported white point: ${xyz.whitePoint}`);
@@ -474,16 +474,15 @@ export function lab2xyz(lab: LABColor): XYZColor {
     return xyz;
 }
 
-// Constants for RGB to XYZ conversion
-const RGB_XYZ_MATRIX = mat3.fromValues(
-    ...[0.41239079926595934, 0.357584339383878, 0.1804807884018343],
-    ...[0.21263900587151027, 0.715168678767756, 0.07219231536073371],
-    ...[0.01933081871559182, 0.11919477979462598, 0.9505321522496607],
-);
-mat3.transpose(RGB_XYZ_MATRIX, RGB_XYZ_MATRIX);
+// Constants for RGB to XYZ conversion (row-major)
+// The literal values are the mathematical matrix in row-major order.
+const RGB_XYZ_MATRIX: Mat3 = [
+    0.41239079926595934, 0.357584339383878, 0.1804807884018343,
+    0.21263900587151027, 0.715168678767756, 0.07219231536073371,
+    0.01933081871559182, 0.11919477979462598, 0.9505321522496607,
+];
 
-const XYZ_RGB_MATRIX = mat3.create();
-mat3.invert(XYZ_RGB_MATRIX, RGB_XYZ_MATRIX);
+const XYZ_RGB_MATRIX: Mat3 = invertMat3(RGB_XYZ_MATRIX);
 
 // Constants for sRGB to linear RGB conversion
 const SRGB_GAMMA = 2.4; // sRGB gamma
@@ -528,19 +527,10 @@ function linearToSrgb(channel: number): number {
 
 export function rgb2xyz({ r, g, b, alpha }: RGBColor): XYZColor {
     // Convert sRGB values to linear RGB
-    const linearRGB = vec3.fromValues(
-        srgbToLinear(r),
-        srgbToLinear(g),
-        srgbToLinear(b),
-    );
+    const linearRGB: Vec3 = [srgbToLinear(r), srgbToLinear(g), srgbToLinear(b)];
 
     // Transform linear RGB to XYZ using the standardized matrix
-    // This matrix is derived from the CIE color matching functions
-    // and the sRGB primaries
-    const result = vec3.create();
-    vec3.transformMat3(result, linearRGB, RGB_XYZ_MATRIX);
-
-    const [x, y, z] = result;
+    const [x, y, z] = transformMat3(linearRGB, RGB_XYZ_MATRIX);
 
     return new XYZColor(x, y, z, alpha);
 }
@@ -550,8 +540,7 @@ export const xyz2rgb = (
     correctGamut: boolean = true,
 ): RGBColor => {
     // Transform XYZ to linear RGB
-    const linearRGB = vec3.create();
-    vec3.transformMat3(linearRGB, vec3.fromValues(x, y, z), XYZ_RGB_MATRIX);
+    const linearRGB = transformMat3([x, y, z] as Vec3, XYZ_RGB_MATRIX);
 
     // Convert linear RGB to sRGB
     const [r, g, b] = linearRGB.map(linearToSrgb);
@@ -628,25 +617,21 @@ export function lab2lch({ l, a, b, alpha }: LABColor): LCHColor {
     );
 }
 
-const XYZ_TO_LMS_MATRIX = mat3.fromValues(
-    ...[0.819022437996703, 0.3619062600528904, -0.1288737815209879],
-    ...[0.0329836539323885, 0.9292868615863434, 0.0361446663506424],
-    ...[0.0481771893596242, 0.2642395317527308, 0.6335478284694309],
-);
-mat3.transpose(XYZ_TO_LMS_MATRIX, XYZ_TO_LMS_MATRIX);
+const XYZ_TO_LMS_MATRIX: Mat3 = [
+    0.819022437996703, 0.3619062600528904, -0.1288737815209879,
+    0.0329836539323885, 0.9292868615863434, 0.0361446663506424,
+    0.0481771893596242, 0.2642395317527308, 0.6335478284694309,
+];
 
-const LMS_TO_XYZ_MATRIX = mat3.create();
-mat3.invert(LMS_TO_XYZ_MATRIX, XYZ_TO_LMS_MATRIX);
+const LMS_TO_XYZ_MATRIX: Mat3 = invertMat3(XYZ_TO_LMS_MATRIX);
 
-const LMS_TO_OKLAB_MATRIX = mat3.fromValues(
-    ...[0.210454268309314, 0.7936177747023054, -0.0040720430116193],
-    ...[1.9779985324311684, -2.4285922420485799, 0.450593709617411],
-    ...[0.0259040424655478, 0.7827717124575296, -0.8086757549230774],
-);
-mat3.transpose(LMS_TO_OKLAB_MATRIX, LMS_TO_OKLAB_MATRIX);
+const LMS_TO_OKLAB_MATRIX: Mat3 = [
+    0.210454268309314, 0.7936177747023054, -0.0040720430116193,
+    1.9779985324311684, -2.4285922420485799, 0.450593709617411,
+    0.0259040424655478, 0.7827717124575296, -0.8086757549230774,
+];
 
-const OKLAB_TO_LMS_MATRIX = mat3.create();
-mat3.invert(OKLAB_TO_LMS_MATRIX, LMS_TO_OKLAB_MATRIX);
+const OKLAB_TO_LMS_MATRIX: Mat3 = invertMat3(LMS_TO_OKLAB_MATRIX);
 
 // Input and output values in range [0, 1]
 export function oklab2xyz({ l, a, b, alpha }: OKLABColor): XYZColor {
@@ -666,16 +651,13 @@ export function oklab2xyz({ l, a, b, alpha }: OKLABColor): XYZColor {
     );
 
     // Convert OKLab to LMS
-    const lms = vec3.create();
-    vec3.transformMat3(lms, vec3.fromValues(l, a, b), OKLAB_TO_LMS_MATRIX);
+    const lms = transformMat3([l, a, b] as Vec3, OKLAB_TO_LMS_MATRIX);
 
     // Apply non-linearity (LMS to linear LMS)
-    lms.forEach((value, index) => {
-        lms[index] = value ** 3;
-    });
+    const lmsLinear: Vec3 = [lms[0] ** 3, lms[1] ** 3, lms[2] ** 3];
 
     // Convert linear LMS to XYZ
-    let [x, y, z] = vec3.transformMat3(vec3.create(), lms, LMS_TO_XYZ_MATRIX);
+    const [x, y, z] = transformMat3(lmsLinear, LMS_TO_XYZ_MATRIX);
 
     return new XYZColor(x, y, z, alpha);
 }
@@ -685,16 +667,13 @@ export function xyz2oklab(xyz: XYZColor): OKLABColor {
     const { x, y, z } = xyz;
 
     // Convert XYZ to linear LMS
-    const lms = vec3.create();
-    vec3.transformMat3(lms, vec3.fromValues(x, y, z), XYZ_TO_LMS_MATRIX);
+    const lmsLinear = transformMat3([x, y, z] as Vec3, XYZ_TO_LMS_MATRIX);
 
     // Apply non-linearity (linear LMS to LMS)
-    lms.forEach((value, index) => {
-        lms[index] = Math.cbrt(value);
-    });
+    const lms: Vec3 = [Math.cbrt(lmsLinear[0]), Math.cbrt(lmsLinear[1]), Math.cbrt(lmsLinear[2])];
 
     // Convert LMS to OKLab
-    const [l, a, b] = vec3.transformMat3(vec3.create(), lms, LMS_TO_OKLAB_MATRIX);
+    const [l, a, b] = transformMat3(lms, LMS_TO_OKLAB_MATRIX);
 
     return new OKLABColor(
         l,
@@ -863,7 +842,7 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
 
     const xyz = toXYZFn(color);
 
-    const fromXYZFn = XYZ_FUNCTIONS[to as ColorSpace]["from"] as (
+    const fromXYZFn = XYZ_FUNCTIONS[to as ColorSpace]["from"] as unknown as (
         color: XYZColor<T>,
     ) => ColorSpaceMap<T>[C];
 
