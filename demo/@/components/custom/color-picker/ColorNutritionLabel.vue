@@ -95,7 +95,7 @@
                     <Tooltip>
                         <TooltipTrigger as-child>
                             <div
-                                class="flex items-center p-3 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+                                class="flex items-center p-3 bg-muted/50 dark:bg-muted/30 rounded-lg hover:bg-muted dark:hover:bg-muted/60 transition-colors cursor-pointer"
                                 @mouseenter="setHoveredPath(path as any)"
                                 @mouseleave="clearHoveredPath"
                             >
@@ -105,7 +105,7 @@
                                 >
                                     <div
                                         :style="{
-                                            backgroundColor: isInPath(hoveredPath, path)
+                                            backgroundColor: hoveredPath.length && hoveredPath.includes(space as string)
                                                 ? colorLight.value.toString()
                                                 : '',
                                         }"
@@ -151,10 +151,10 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { Card, CardHeader, CardTitle, CardContent } from "@components/ui/card";
+import type { ColorSpace } from "@src/units/color/constants";
 import {
     COLOR_SPACE_RANGES,
     COLOR_SPACE_DENORM_UNITS,
-    ColorSpace,
 } from "@src/units/color/constants";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import Katex from "../katex/Katex.vue";
@@ -171,7 +171,8 @@ import { ArrowRight } from "lucide-vue-next";
 import Alert from "@components/ui/alert/Alert.vue";
 import AlertTitle from "@components/ui/alert/AlertTitle.vue";
 import AlertDescription from "@components/ui/alert/AlertDescription.vue";
-import { ColorModel, colorSpaceInfo } from ".";
+import type { ColorModel } from ".";
+import { colorSpaceInfo } from ".";
 import { normalizeColorUnit } from "@src/units/color/normalize";
 
 const model = defineModel<ColorModel>();
@@ -208,9 +209,10 @@ const clearHoveredPath = () => {
     hoveredPath.value = [];
 };
 
-const isInPath = (colorSpace: string[], path: string[] | any) => {
-    if (!colorSpace.length) return false;
+const isInPath = (hovered: string[], path: string[]) => {
+    if (!hovered.length) return false;
 
-    return colorSpace.every((space, index) => space === path[index]);
+    // Highlight if this path shares any node with the hovered path
+    return path.some((space) => hovered.includes(space));
 };
 </script>

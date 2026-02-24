@@ -106,7 +106,7 @@
             <CardContent class="z-1 fraunces grid gap-4 w-full max-w-screen-sm m-auto">
                 <div
                     ref="spectrumRef"
-                    class="flex w-full h-48 rounded-sm cursor-crosshair relative"
+                    class="spectrum-picker flex w-full h-48 rounded-sm cursor-crosshair relative"
                     :style="spectrumStyle"
                     @touchstart="handleSpectrumChange"
                     @touchmove="handleSpectrumMove"
@@ -426,11 +426,12 @@ import { clamp } from "@src/math";
 import { parseCSSColor } from "@src/parsing/color";
 import { ValueUnit } from "@src/units";
 import { Color } from "@src/units/color";
+import { color2 } from "@src/units/color/utils";
+import type { ColorSpace } from "@src/units/color/constants";
 import {
     COLOR_SPACE_DENORM_UNITS,
     COLOR_SPACE_NAMES,
     COLOR_SPACE_RANGES,
-    ColorSpace,
 } from "@src/units/color/constants";
 import {
     colorUnit2,
@@ -445,13 +446,14 @@ import {
     SliderRoot,
     SliderThumb,
     SliderTrack,
-} from "radix-vue";
+} from "reka-ui";
 import {
     computed,
     onBeforeMount,
     onMounted,
     onUnmounted,
     ref,
+    useTemplateRef,
     watch,
 } from "vue";
 import { toast } from "vue-sonner";
@@ -459,7 +461,7 @@ import { toast } from "vue-sonner";
 import { useDark, useMagicKeys } from "@vueuse/core";
 import CardDescription from "@components/ui/card/CardDescription.vue";
 import { COLOR_NAMES } from "@src/units/color/constants";
-import { ColorModel } from ".";
+import type { ColorModel } from ".";
 
 const selectAll = (event: MouseEvent) => {
     const target = event.target as HTMLSpanElement;
@@ -554,9 +556,9 @@ const selectedColorSpaceOpenModel = computed({
     set: (val: boolean) => { selectedColorSpaceOpen.value = val; },
 });
 
-const inputColorRef = ref<HTMLElement | null>(null);
+const inputColorRef = useTemplateRef<HTMLElement>("inputColorRef");
 
-const selectedColorSpaceRef = ref(null);
+const selectedColorSpaceRef = ref<any>(null);
 
 // Keydown handler — registered in onMounted, removed in onUnmounted
 const handleKeydown = (e: KeyboardEvent) => {
@@ -662,7 +664,7 @@ const copyAndSetInputColor = () => {
 
 const isDragging = ref(false);
 
-const spectrumRef = ref<HTMLElement | null>(null);
+const spectrumRef = useTemplateRef<HTMLElement>("spectrumRef");
 
 const generateRandomColor = (
     colorSpace: ColorSpace,
@@ -684,58 +686,63 @@ const generateRandomColor = (
     return color;
 };
 
+/**
+ * Creates CSS gradient stops by varying a single component.
+ * Reuses a single mutable Color<ValueUnit<number>> — color2() creates new objects
+ * internally and coerces ValueUnit via valueOf(), so reuse is safe.
+ */
 const createGradientStops = (
-    color: ValueUnit<Color<ValueUnit<number>>>,
+    baseColor: Color<ValueUnit<number>>,
     component: string,
     steps: number,
     to?: ColorSpace,
 ) => {
-    const colorStops = Array.from({ length: steps }).map((_, ix) => {
-        let newColor = color.clone();
+    const originalValue = baseColor[component].value;
+    const sourceColorSpace = baseColor.colorSpace;
+    const stops: string[] = [];
 
-        newColor.value[component].value = ix / steps;
+    for (let ix = 0; ix < steps; ix++) {
+        baseColor[component].value = ix / steps;
 
-        newColor = colorUnit2(newColor, to, true, true, true);
+        // color2 returns a new Color<number> via valueOf() coercion
+        const converted = to && to !== sourceColorSpace
+            ? color2(baseColor as any, to)
+            : baseColor;
 
-        return newColor.toString();
-    });
+        const percent = (ix / steps) * 100;
+        stops.push(`${converted.toString()} ${percent}%`);
+    }
 
-    return colorStops.reduce((acc, colorString, ix, arr) => {
-        const createString = (percent: number, ix: number) => {
-            colorString = arr[ix];
+    // Restore original value
+    baseColor[component].value = originalValue;
 
-            return `${colorString} ${percent}%`;
-        };
-
-        const percent = (ix / arr.length) * 100;
-
-        acc.push(createString(percent, ix));
-
-        return acc;
-    }, []);
+    return stops;
 };
 
 const componentsSlidersStyle = computed(() => {
     const steps = 10;
     const to = "oklab" as ColorSpace;
 
+    // Normalize once to get [0,1] values
     const componentColor = normalizeColorUnit(currentColorOpaque.value, false, false);
+    const innerColor = componentColor.value;
 
-    const gradients = componentColor.value
-        .entries()
-        .map(([component, value]) => {
-            const color = componentColor.clone();
+    // color2 works with Color<ValueUnit<number>> via valueOf() coercion,
+    // so we can pass the inner color directly — no need to extract raw numbers.
+    // We just need one clone to mutate per-component without affecting the source.
+    const mutableColor = innerColor.clone();
 
-            color.value[component].value = 0;
+    const gradients: Record<string, string[]> = {};
 
-            const gradient = createGradientStops(color, component, steps, to);
+    for (const [component] of innerColor.entries()) {
+        // Save, zero out this component, generate stops, restore
+        const saved = mutableColor[component].value;
+        mutableColor[component].value = 0;
 
-            return [component, gradient] as const;
-        })
-        .reduce((acc, [component, gradient]) => {
-            acc[component] = gradient;
-            return acc;
-        }, {});
+        gradients[component] = createGradientStops(mutableColor, component, steps, to);
+
+        mutableColor[component].value = saved;
+    }
 
     return gradients;
 });
@@ -887,7 +894,8 @@ const spectrumStyle = computed(() => {
         linear-gradient(to right, #fff, hsl(${hClamped * 360}deg, 100%, 50%))
       `,
         opacity: alpha.value,
-        boxShadow: `8px 8px 0px 0px ${shadowColorSpace}(${shadowComponents} / ${shadowAlpha})`,
+        // CSS custom property for the shadow color — applied via CSS class with transition
+        "--spectrum-shadow": `${shadowColorSpace}(${shadowComponents} / ${shadowAlpha})`,
     };
 });
 
@@ -1041,3 +1049,16 @@ onUnmounted(() => {
     if (updateColorComponentDebounced.cancel) updateColorComponentDebounced.cancel();
 });
 </script>
+
+<style scoped>
+@reference "../../../styles/style.css";
+
+.spectrum-picker {
+    box-shadow: 0px 0px 0px 0px transparent;
+    transition: box-shadow 0.25s ease;
+
+    &:hover {
+        box-shadow: 8px 8px 0px 0px var(--spectrum-shadow, transparent);
+    }
+}
+</style>
