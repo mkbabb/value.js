@@ -52,11 +52,11 @@ export function debounce<T extends (...args: any[]) => any>(
     func: T,
     wait: number = 100,
     immediate: boolean = false,
-): (...args: Parameters<T>) => void {
+): ((...args: Parameters<T>) => void) & { cancel: () => void } {
     let timeout: ReturnType<typeof setTimeout> | null = null;
     let result: ReturnType<T>;
 
-    return function (this: ThisParameterType<T>, ...args: Parameters<T>): void {
+    const debounced = function (this: ThisParameterType<T>, ...args: Parameters<T>): void {
         const context = this;
 
         const later = function () {
@@ -72,6 +72,15 @@ export function debounce<T extends (...args: any[]) => any>(
 
         if (callNow) result = func.apply(context, args);
     };
+
+    debounced.cancel = () => {
+        if (timeout) {
+            clearTimeout(timeout);
+            timeout = null;
+        }
+    };
+
+    return debounced;
 }
 
 export async function createHash(algorithm: string, data: string) {

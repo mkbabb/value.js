@@ -4,13 +4,13 @@
             <CardHeader class="fraunces m-0 pb-0 relative w-full">
                 <div class="w-full flex justify-between">
                     <Select
-                        :ref="selectedColorSpaceRef"
-                        v-model:open="selectedColorSpaceOpen"
+                        :ref="(el) => { selectedColorSpaceRef = el; }"
+                        v-model:open="selectedColorSpaceOpenModel"
                         :model-value="model.selectedColorSpace"
                         @update:model-value="
                             (colorSpace: any) => {
                                 model.selectedColorSpace = colorSpace;
-                                selectedColorSpaceOpen = false;
+                                selectedColorSpaceOpen.value = false;
                             }
                         "
                     >
@@ -423,7 +423,7 @@ import {
     TooltipTrigger,
 } from "@components/ui/tooltip";
 import { clamp } from "@src/math";
-import { parseCSSColor } from "@src/parsing/units";
+import { parseCSSColor } from "@src/parsing/color";
 import { ValueUnit } from "@src/units";
 import { Color } from "@src/units/color";
 import {
@@ -438,6 +438,7 @@ import {
     normalizeColorUnitComponent,
 } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
+import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
 import { Palette, RotateCcw, Shuffle, Copy, X, Plus } from "lucide-vue-next";
 import {
     SelectIcon,
@@ -451,6 +452,7 @@ import {
     onBeforeMount,
     onMounted,
     onUnmounted,
+    ref,
     watch,
     watchEffect,
 } from "vue";
@@ -486,11 +488,6 @@ const copyToClipboard = (text: string) => {
         toast.error("No text to copy");
         return;
     }
-
-    // // Also set the input color to the copied color:
-    // const color = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
-
-    // model.value.inputColor = color;
 
     navigator.clipboard
         .writeText(text)
@@ -549,28 +546,34 @@ const getColorSpace = (color: ValueUnit<Color<ValueUnit<number>>, "color">) => {
     return color.value.colorSpace as ColorSpace;
 };
 
-let currentColorSpace = computed(() => getColorSpace(model.value.color));
+const currentColorSpace = computed(() => getColorSpace(model.value.color));
 
 const { cmd, k, i } = useMagicKeys();
 
-let selectedColorSpaceOpen = $ref(false);
+const selectedColorSpaceOpen = ref(false);
 
-let inputColorRef = $ref(null);
+// Writable computed for v-model:open binding
+const selectedColorSpaceOpenModel = computed({
+    get: () => selectedColorSpaceOpen.value,
+    set: (val: boolean) => { selectedColorSpaceOpen.value = val; },
+});
 
-let selectedColorSpaceRef = $ref(null);
+const inputColorRef = ref<HTMLElement | null>(null);
 
-// add event listener for cmd + k:
-window.addEventListener("keydown", (e) => {
+const selectedColorSpaceRef = ref(null);
+
+// Keydown handler — registered in onMounted, removed in onUnmounted
+const handleKeydown = (e: KeyboardEvent) => {
     if (cmd.value && k.value) {
         e.preventDefault();
-        selectedColorSpaceOpen = !selectedColorSpaceOpen;
+        selectedColorSpaceOpen.value = !selectedColorSpaceOpen.value;
     }
 
     if (cmd.value && i.value) {
         e.preventDefault();
-        inputColorRef.focus();
+        inputColorRef.value?.focus();
     }
-});
+};
 
 // Normalize the COLOR_NAMES to be all in XYZ, and then in a formatted string:
 const NORMALIZED_COLOR_NAMES = Object.entries(COLOR_NAMES).reduce(
@@ -661,9 +664,9 @@ const copyAndSetInputColor = () => {
     copyToClipboard(color);
 };
 
-let isDragging = $ref(false);
+const isDragging = ref(false);
 
-let spectrumRef = $ref<HTMLElement | null>(null);
+const spectrumRef = ref<HTMLElement | null>(null);
 
 const generateRandomColor = (
     colorSpace: ColorSpace,
@@ -750,9 +753,6 @@ const currentColorComponentsFormatted = computed(() => {
                 key,
                 {
                     value: value.value,
-                    // unit: value.unit,
-                    // value: 999.8,
-                    // unit: "deg",
                 },
             ] as any;
         })
@@ -806,14 +806,32 @@ const updateColorComponent = (
 };
 const updateColorComponentDebounced = debounce(updateColorComponent, 500);
 
+// rAF-based throttled spectrum update
+let pendingSpectrumEvent: MouseEvent | TouchEvent | null = null;
+let spectrumRafId: number | null = null;
+
+const scheduleSpectrumUpdate = (event: MouseEvent | TouchEvent) => {
+    pendingSpectrumEvent = event;
+
+    if (spectrumRafId === null) {
+        spectrumRafId = requestAnimationFrame(() => {
+            spectrumRafId = null;
+            if (pendingSpectrumEvent) {
+                updateSpectrumColor(pendingSpectrumEvent);
+                pendingSpectrumEvent = null;
+            }
+        });
+    }
+};
+
 const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
-    if (!spectrumRef) return;
+    if (!spectrumRef.value) return;
 
     event.preventDefault();
 
     const { clientX, clientY } = event instanceof MouseEvent ? event : event.touches[0];
 
-    const rect = spectrumRef.getBoundingClientRect();
+    const rect = spectrumRef.value.getBoundingClientRect();
 
     const x = clamp(clientX - rect.left, 0, rect.width);
     const y = clamp(clientY - rect.top, 0, rect.height);
@@ -829,51 +847,63 @@ const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
     setCurrentColor(hsv, model.value.selectedColorSpace);
 };
 
-const updateSpectrumColorDebounced = debounce(updateSpectrumColor, 2);
-
 const handleSpectrumChange = (event: MouseEvent | TouchEvent) => {
-    isDragging = true;
+    isDragging.value = true;
     updateSpectrumColor(event);
 };
 
 const handleSpectrumMove = (event: MouseEvent | TouchEvent) => {
-    if (isDragging) {
-        updateSpectrumColor(event);
+    if (isDragging.value) {
+        scheduleSpectrumUpdate(event);
     }
 };
 
 const stopDragging = () => {
-    isDragging = false;
+    // Process any pending event before stopping
+    if (pendingSpectrumEvent) {
+        updateSpectrumColor(pendingSpectrumEvent);
+        pendingSpectrumEvent = null;
+    }
+    if (spectrumRafId !== null) {
+        cancelAnimationFrame(spectrumRafId);
+        spectrumRafId = null;
+    }
+    isDragging.value = false;
 };
 
 const spectrumStyle = computed(() => {
-    let { h, alpha } = HSVCurrentColor.value.value;
+    const { h, alpha } = HSVCurrentColor.value.value;
 
-    const denormalized = denormalizedCurrentColor.value.clone();
+    const hClamped = clamp(h.value, 0, 1);
 
-    denormalized.value.alpha.value = 30;
-
-    h.value = clamp(h.value, 0, 1);
+    // Build shadow color string directly without cloning
+    const denorm = denormalizedCurrentColor.value;
+    const shadowAlpha = 30;
+    const shadowColorSpace = denorm.value.colorSpace;
+    const shadowComponents = denorm.value.entries()
+        .filter(([k]) => k !== "alpha")
+        .map(([, v]) => v)
+        .join(" ");
 
     return {
         background: `
         linear-gradient(to top, #000, transparent),
-        linear-gradient(to right, #fff, hsl(${h.value * 360}deg, 100%, 50%))
+        linear-gradient(to right, #fff, hsl(${hClamped * 360}deg, 100%, 50%))
       `,
         opacity: alpha.value,
-        boxShadow: `8px 8px 0px 0px ${denormalized.value.toString()}`,
+        boxShadow: `8px 8px 0px 0px ${shadowColorSpace}(${shadowComponents} / ${shadowAlpha})`,
     };
 });
 
 const spectrumDotStyle = computed(() => {
-    let { s, v } = HSVCurrentColor.value.value;
+    const { s, v } = HSVCurrentColor.value.value;
 
-    s.value = clamp(s.value, 0, 1);
-    v.value = clamp(v.value, 0, 1);
+    const sClamped = clamp(s.value, 0, 1);
+    const vClamped = clamp(v.value, 0, 1);
 
     return {
-        left: `${100 * s.value}%`,
-        top: `${100 * (1 - v.value)}%`,
+        left: `${100 * sClamped}%`,
+        top: `${100 * (1 - vClamped)}%`,
         backgroundColor: currentColorOpaque.value.toString(),
     };
 });
@@ -901,18 +931,18 @@ watch(isDark, () => {
     });
 });
 
-let paletteHidden = $ref(true);
+const paletteHidden = ref(true);
 
 const showPalette = () => {
-    paletteHidden = false;
+    paletteHidden.value = false;
 };
 
 const hidePalette = () => {
-    paletteHidden = true;
+    paletteHidden.value = true;
 };
 
 const addColorClick = () => {
-    if (paletteHidden) {
+    if (paletteHidden.value) {
         return;
     }
 
@@ -938,35 +968,35 @@ const addColorClick = () => {
 
 const keys = useMagicKeys();
 
-let lastClickedTime = $ref(0);
+const lastClickedTime = ref(0);
 
-let doubleClickedColor = $ref(null);
+const doubleClickedColor = ref(null);
 
 const onSavedColorClick = (
     color: ValueUnit<Color<ValueUnit<number>>, "color">,
     ix: number,
 ) => {
     const now = Date.now();
-    const isDoubleClick = now - lastClickedTime < 300;
+    const isDoubleClick = now - lastClickedTime.value < 300;
 
     if (keys.current.has("shift") || isDoubleClick) {
         // Swap colors
-        const temp = doubleClickedColor ?? model.value.color.clone();
+        const temp = doubleClickedColor.value ?? model.value.color.clone();
         const swappedColor = color.clone();
 
         model.value.savedColors[ix] = temp;
         model.value.color = swappedColor;
 
-        doubleClickedColor = null;
+        doubleClickedColor.value = null;
     } else {
         // Regular click behavior
-        doubleClickedColor = model.value.color.clone();
+        doubleClickedColor.value = model.value.color.clone();
         model.value.color = color.clone();
     }
 
     model.value.selectedColorSpace = model.value.color.value.colorSpace;
 
-    lastClickedTime = now;
+    lastClickedTime.value = now;
 };
 
 watch(
@@ -996,7 +1026,22 @@ onBeforeMount(() => {
     });
 });
 
-onMounted(() => {});
+onMounted(() => {
+    window.addEventListener("keydown", handleKeydown);
+});
 
-onUnmounted(() => {});
+onUnmounted(() => {
+    window.removeEventListener("keydown", handleKeydown);
+
+    // Cancel any pending rAF
+    if (spectrumRafId !== null) {
+        cancelAnimationFrame(spectrumRafId);
+        spectrumRafId = null;
+    }
+    pendingSpectrumEvent = null;
+
+    // Cancel debounced functions
+    if (parseAndSetColorDebounced.cancel) parseAndSetColorDebounced.cancel();
+    if (updateColorComponentDebounced.cancel) updateColorComponentDebounced.cancel();
+});
 </script>
