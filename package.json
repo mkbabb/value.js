@@ -34,7 +34,7 @@
         "dist"
     ],
     "scripts": {
-        "dev": "vite --port 8080 --mode production",
+        "dev": "vite --port 8080",
         "build": "vite build --mode production",
         "gh-pages": "vite build --mode gh-pages",
         "test": "vitest"

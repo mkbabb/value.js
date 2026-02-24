@@ -66,8 +66,10 @@ export default defineConfig((mode) => {
             plugins: [...defaultPlugins],
         };
     } else {
+        // Dev mode: serve the demo app with HMR
         return {
             ...defaultOptions,
+            root: "./demo/color-picker/",
             plugins: [...defaultPlugins],
         };
     }
