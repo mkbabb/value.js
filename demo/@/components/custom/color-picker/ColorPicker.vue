@@ -1,6 +1,6 @@
 <template>
-    <div class="grid gap-4 relative">
-        <Card class="grid items-between rounded-md overflow-hidden">
+    <div class="grid gap-4 relative min-w-0">
+        <Card class="grid items-between rounded-md overflow-hidden min-w-0">
             <CardHeader class="fraunces m-0 pb-0 relative w-full">
                 <div class="w-full flex justify-between">
                     <Select
@@ -258,7 +258,7 @@
                         </div>
                     </Transition>
 
-                    <div class="flex gap-x-4 w-full justify-evenly items-center">
+                    <div class="flex flex-wrap gap-4 w-full justify-evenly items-center">
                         <HoverCard
                             :close-delay="0"
                             :open-delay="700"
