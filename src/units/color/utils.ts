@@ -1,30 +1,40 @@
 import type { Vec3, Mat3 } from "./matrix";
 import { transformMat3, invertMat3 } from "./matrix";
 import {
+    AdobeRGBColor,
     Color,
+    DisplayP3Color,
     HSLColor,
     HSVColor,
     HWBColor,
     KelvinColor,
     LABColor,
     LCHColor,
+    LinearSRGBColor,
     OKLABColor,
     OKLCHColor,
+    ProPhotoRGBColor,
     RGBColor,
+    Rec2020Color,
     XYZColor,
 } from ".";
 import type { ColorSpaceMap } from ".";
-import { clamp, scale } from "../../math";
+import { clamp, lerp, scale } from "../../math";
 import {
     COLOR_SPACE_DENORM_UNITS,
     COLOR_SPACE_RANGES,
+    LMS_TO_OKLAB_MATRIX,
+    LMS_TO_XYZ_MATRIX,
+    OKLAB_TO_LMS_MATRIX,
     RGBA_MAX,
     WHITE_POINTS,
     WHITE_POINT_D50_D65,
     WHITE_POINT_D65_D50,
+    XYZ_TO_LMS_MATRIX,
 } from "./constants";
 import type { ColorSpace, WhitePoint } from "./constants";
 import { memoize } from "@src/utils";
+import { gamutMapSRGB } from "./gamut";
 
 export const getFormattedColorSpaceRange = <T extends ColorSpace>(colorSpace: T) => {
     const ranges = COLOR_SPACE_RANGES[colorSpace];
@@ -344,26 +354,14 @@ const LAB_SCALE_A = 500;
 const LAB_SCALE_B = 200;
 
 function xyzToD50(xyz: XYZColor): Vec3 {
-    const v: Vec3 = [xyz.x, xyz.y, xyz.z];
-
-    if (xyz.whitePoint === "D50") {
-        return v;
-    } else if (xyz.whitePoint === "D65") {
-        return transformMat3(v, WHITE_POINT_D65_D50);
-    }
-
+    if (xyz.whitePoint === "D50") return [xyz.x, xyz.y, xyz.z];
+    if (xyz.whitePoint === "D65") return transformMat3([xyz.x, xyz.y, xyz.z], WHITE_POINT_D65_D50);
     throw new Error(`Unsupported white point: ${xyz.whitePoint}`);
 }
 
 function xyzToD65(xyz: XYZColor): Vec3 {
-    const v: Vec3 = [xyz.x, xyz.y, xyz.z];
-
-    if (xyz.whitePoint === "D65") {
-        return v;
-    } else if (xyz.whitePoint === "D50") {
-        return transformMat3(v, WHITE_POINT_D50_D65);
-    }
-
+    if (xyz.whitePoint === "D65") return [xyz.x, xyz.y, xyz.z];
+    if (xyz.whitePoint === "D50") return transformMat3([xyz.x, xyz.y, xyz.z], WHITE_POINT_D50_D65);
     throw new Error(`Unsupported white point: ${xyz.whitePoint}`);
 }
 
@@ -378,9 +376,9 @@ export function xyz2lab(xyz: XYZColor, toWhitePoint: WhitePoint = "D50"): LABCol
     const [x, y, z] = xyzToD50(xyz);
 
     // Normalize XYZ values relative to the given white point
-    const [xr, yr, zr] = [x, y, z].map((value, index) => value / whitePoint[index]);
+    const xr = x / whitePoint[0], yr = y / whitePoint[1], zr = z / whitePoint[2];
 
-    const [fx, fy, fz] = [xr, yr, zr].map(labFunction);
+    const fx = labFunction(xr), fy = labFunction(yr), fz = labFunction(zr);
 
     // Calculate L*, a*, and b* values
     const l = LAB_SCALE_L * fy - LAB_OFFSET; // L* = 116 * f(Y/Yn) - 16
@@ -457,7 +455,7 @@ export function lab2xyz(lab: LABColor): XYZColor {
     const [xr, yr, zr] = [labFunctionXZ(fx), labFunctionY(l), labFunctionXZ(fz)];
 
     // Denormalize XYZ values relative to the given white point
-    let [x, y, z] = [xr, yr, zr].map((value, index) => value * whitePoint[index]);
+    let x = xr * whitePoint[0], y = yr * whitePoint[1], z = zr * whitePoint[2];
 
     const xyz = new XYZColor(x, y, z, alpha);
     xyz.whitePoint = lab.whitePoint;
@@ -493,7 +491,7 @@ const SRGB_TRANSITION = 0.04045; // sRGB transition point
 const SRGB_LINEAR_TRANSITION = SRGB_TRANSITION / SRGB_SLOPE; // sRGB linear transition point
 
 // Helper function to convert sRGB to linear RGB
-function srgbToLinear(channel: number): number {
+export function srgbToLinear(channel: number): number {
     // sRGB uses a piecewise function:
     // - A linear portion for low values (below the transition point)
     // - A power function for higher values
@@ -509,7 +507,7 @@ function srgbToLinear(channel: number): number {
 }
 
 // Helper function to convert linear RGB to sRGB
-function linearToSrgb(channel: number): number {
+export function linearToSrgb(channel: number): number {
     // This function is the inverse of srgbToLinear
     // It applies the sRGB transfer function to convert linear RGB values back to sRGB
 
@@ -617,21 +615,6 @@ export function lab2lch({ l, a, b, alpha }: LABColor): LCHColor {
     );
 }
 
-const XYZ_TO_LMS_MATRIX: Mat3 = [
-    0.819022437996703, 0.3619062600528904, -0.1288737815209879,
-    0.0329836539323885, 0.9292868615863434, 0.0361446663506424,
-    0.0481771893596242, 0.2642395317527308, 0.6335478284694309,
-];
-
-const LMS_TO_XYZ_MATRIX: Mat3 = invertMat3(XYZ_TO_LMS_MATRIX);
-
-const LMS_TO_OKLAB_MATRIX: Mat3 = [
-    0.210454268309314, 0.7936177747023054, -0.0040720430116193,
-    1.9779985324311684, -2.4285922420485799, 0.450593709617411,
-    0.0259040424655478, 0.7827717124575296, -0.8086757549230774,
-];
-
-const OKLAB_TO_LMS_MATRIX: Mat3 = invertMat3(LMS_TO_OKLAB_MATRIX);
 
 // Input and output values in range [0, 1]
 export function oklab2xyz({ l, a, b, alpha }: OKLABColor): XYZColor {
@@ -654,7 +637,7 @@ export function oklab2xyz({ l, a, b, alpha }: OKLABColor): XYZColor {
     const lms = transformMat3([l, a, b] as Vec3, OKLAB_TO_LMS_MATRIX);
 
     // Apply non-linearity (LMS to linear LMS)
-    const lmsLinear: Vec3 = [lms[0] ** 3, lms[1] ** 3, lms[2] ** 3];
+    const lmsLinear: Vec3 = [lms[0] * lms[0] * lms[0], lms[1] * lms[1] * lms[1], lms[2] * lms[2] * lms[2]];
 
     // Convert linear LMS to XYZ
     const [x, y, z] = transformMat3(lmsLinear, LMS_TO_XYZ_MATRIX);
@@ -704,53 +687,48 @@ export function lab2oklab(lab: LABColor): OKLABColor {
 }
 
 // Input and output values in range [0, 1]
-export function oklch2lab({ l, c, h, alpha }: OKLCHColor): LABColor {
-    c = scale(
-        c,
-        0,
-        1,
-        COLOR_SPACE_RANGES.oklch.c.number.min,
-        COLOR_SPACE_RANGES.oklch.c.number.max,
-    );
-
-    // Convert OKLCh to OKLab
-    const hRadians = h * 2 * Math.PI; // h is now in [0, 1] range
-
-    return oklab2lab(
-        new OKLABColor(
-            l,
-            scale(
-                c * Math.cos(hRadians),
-                COLOR_SPACE_RANGES.oklab.a.number.min,
-                COLOR_SPACE_RANGES.oklab.a.number.max,
-            ),
-            scale(
-                c * Math.sin(hRadians),
-                COLOR_SPACE_RANGES.oklab.b.number.min,
-                COLOR_SPACE_RANGES.oklab.b.number.max,
-            ),
-            alpha,
-        ),
-    );
-}
-
-export function lab2oklch(lab: LABColor): OKLCHColor {
-    const lch = lab2lch(lab);
-    return new OKLCHColor(lch.l, lch.c, lch.h, lab.alpha);
-}
-
-// Input and output values in range [0, 1]
 export function oklab2oklch({ l, a, b, alpha }: OKLABColor): OKLCHColor {
-    const lab = new LABColor(l, a, b, alpha);
-    const lch = lab2lch(lab);
-    return new OKLCHColor(lch.l, lch.c, lch.h, alpha);
+    // Denormalize a,b from [0,1] to OKLab range [-0.4, 0.4]
+    a = scale(a, 0, 1, COLOR_SPACE_RANGES.oklab.a.number.min, COLOR_SPACE_RANGES.oklab.a.number.max);
+    b = scale(b, 0, 1, COLOR_SPACE_RANGES.oklab.b.number.min, COLOR_SPACE_RANGES.oklab.b.number.max);
+
+    const c = Math.hypot(a, b);
+
+    let h = Math.atan2(b, a) / (2 * Math.PI);
+    if (h < 0) h += 1;
+
+    return new OKLCHColor(
+        l,
+        scale(c, COLOR_SPACE_RANGES.oklch.c.number.min, COLOR_SPACE_RANGES.oklch.c.number.max),
+        h,
+        alpha,
+    );
 }
 
 // Input and output values in range [0, 1]
 export function oklch2oklab({ l, c, h, alpha }: OKLCHColor): OKLABColor {
-    const lch = new LCHColor(l, c, h, alpha);
-    const lab = lch2lab(lch);
-    return new OKLABColor(lab.l, lab.a, lab.b, alpha);
+    // Denormalize c from [0,1] to OKLCh range [0, 0.5]
+    c = scale(c, 0, 1, COLOR_SPACE_RANGES.oklch.c.number.min, COLOR_SPACE_RANGES.oklch.c.number.max);
+
+    const hRad = h * 2 * Math.PI;
+    const a = Math.cos(hRad) * c;
+    const b = Math.sin(hRad) * c;
+
+    return new OKLABColor(
+        l,
+        scale(a, COLOR_SPACE_RANGES.oklab.a.number.min, COLOR_SPACE_RANGES.oklab.a.number.max),
+        scale(b, COLOR_SPACE_RANGES.oklab.b.number.min, COLOR_SPACE_RANGES.oklab.b.number.max),
+        alpha,
+    );
+}
+
+// Input and output values in range [0, 1]
+export function oklch2lab(oklch: OKLCHColor): LABColor {
+    return oklab2lab(oklch2oklab(oklch));
+}
+
+export function lab2oklch(lab: LABColor): OKLCHColor {
+    return oklab2oklch(lab2oklab(lab));
 }
 
 // Conversion functions to normalize any given space to XYZ and back
@@ -796,13 +774,13 @@ export function xyz2lch(xyz: XYZColor): LCHColor {
 }
 
 export function oklch2xyz(oklch: OKLCHColor): XYZColor {
-    const lab = oklch2lab(oklch);
-    return lab2xyz(lab);
+    const oklab = oklch2oklab(oklch);
+    return oklab2xyz(oklab);
 }
 
 export function xyz2oklch(xyz: XYZColor): OKLCHColor {
     const oklab = xyz2oklab(xyz);
-    return lab2oklch(oklab);
+    return oklab2oklch(oklab);
 }
 
 export function kelvin2xyz(kelvin: KelvinColor): XYZColor {
@@ -815,7 +793,161 @@ export function xyz2kelvin(xyz: XYZColor): KelvinColor {
     return rgb2kelvin(rgb);
 }
 
-const XYZ_FUNCTIONS = {
+// --- Phase 6: Generic color() function — Transfer functions and matrices ---
+
+// Adobe RGB (1998) transfer function: simple gamma 2.19921875 (563/256)
+const ADOBE_RGB_GAMMA = 563 / 256;
+
+export function adobeRgbToLinear(c: number): number {
+    const sign = c < 0 ? -1 : 1;
+    return sign * Math.abs(c) ** ADOBE_RGB_GAMMA;
+}
+
+export function linearToAdobeRgb(c: number): number {
+    const sign = c < 0 ? -1 : 1;
+    return sign * Math.abs(c) ** (1 / ADOBE_RGB_GAMMA);
+}
+
+// ProPhoto RGB (ROMM) transfer function: piecewise, Et = 1/512
+const PROPHOTO_ET = 1 / 512;
+const PROPHOTO_GAMMA = 1.8;
+
+export function proPhotoToLinear(c: number): number {
+    const sign = c < 0 ? -1 : 1;
+    const abs = Math.abs(c);
+    return sign * (abs <= PROPHOTO_ET * 16 ? abs / 16 : abs ** PROPHOTO_GAMMA);
+}
+
+export function linearToProPhoto(c: number): number {
+    const sign = c < 0 ? -1 : 1;
+    const abs = Math.abs(c);
+    return sign * (abs >= PROPHOTO_ET ? abs ** (1 / PROPHOTO_GAMMA) : abs * 16);
+}
+
+// Rec. 2020 transfer function (BT.2020)
+const REC2020_ALPHA = 1.09929682680944;
+const REC2020_BETA = 0.018053968510807;
+
+export function rec2020ToLinear(c: number): number {
+    const sign = c < 0 ? -1 : 1;
+    const abs = Math.abs(c);
+    if (abs < REC2020_BETA * 4.5) {
+        return sign * abs / 4.5;
+    }
+    return sign * ((abs + REC2020_ALPHA - 1) / REC2020_ALPHA) ** (1 / 0.45);
+}
+
+export function linearToRec2020(c: number): number {
+    const sign = c < 0 ? -1 : 1;
+    const abs = Math.abs(c);
+    if (abs >= REC2020_BETA) {
+        return sign * (REC2020_ALPHA * abs ** 0.45 - (REC2020_ALPHA - 1));
+    }
+    return sign * 4.5 * abs;
+}
+
+// XYZ matrices for new color spaces (from CSS Color 4 spec, row-major)
+
+// Display P3 to XYZ D65
+const DISPLAY_P3_XYZ_MATRIX: Mat3 = [
+    0.4865709486482162, 0.26566769316909306, 0.1982172852343625,
+    0.22897456406974884, 0.6917385218365064, 0.079286914093745,
+    0, 0.04511338185890264, 1.043944368900976,
+];
+const XYZ_DISPLAY_P3_MATRIX: Mat3 = invertMat3(DISPLAY_P3_XYZ_MATRIX);
+
+// Adobe RGB (1998) to XYZ D65
+const ADOBE_RGB_XYZ_MATRIX: Mat3 = [
+    0.5766690429101305, 0.1855582379065463, 0.1882286462349947,
+    0.29734497525053605, 0.6273635662554661, 0.07529145849399788,
+    0.02703136138641234, 0.07068885253582723, 0.9913375368376388,
+];
+const XYZ_ADOBE_RGB_MATRIX: Mat3 = invertMat3(ADOBE_RGB_XYZ_MATRIX);
+
+// ProPhoto RGB to XYZ D50 (note: D50 native, needs chromatic adaptation)
+const PROPHOTO_XYZ_D50_MATRIX: Mat3 = [
+    0.7977604896723027, 0.13518583717574031, 0.0313493495815248,
+    0.2880711282292934, 0.7118432178101014, 0.00008565396060525902,
+    0, 0, 0.8251046025104602,
+];
+const XYZ_D50_PROPHOTO_MATRIX: Mat3 = invertMat3(PROPHOTO_XYZ_D50_MATRIX);
+
+// Rec. 2020 to XYZ D65
+const REC2020_XYZ_MATRIX: Mat3 = [
+    0.6369580483012914, 0.14461690358620832, 0.1688809751641721,
+    0.2627002120112671, 0.6779980715188708, 0.05930171646986196,
+    0, 0.028072693049087428, 1.0609850577107909,
+];
+const XYZ_REC2020_MATRIX: Mat3 = invertMat3(REC2020_XYZ_MATRIX);
+
+// sRGB-linear uses the existing RGB_XYZ_MATRIX (already defined above)
+
+// --- Conversion functions for new color spaces ---
+
+export function linearSrgb2xyz({ r, g, b, alpha }: LinearSRGBColor): XYZColor {
+    const [x, y, z] = transformMat3([r, g, b] as Vec3, RGB_XYZ_MATRIX);
+    return new XYZColor(x, y, z, alpha);
+}
+
+export function xyz2linearSrgb({ x, y, z, alpha }: XYZColor): LinearSRGBColor {
+    const [r, g, b] = transformMat3([x, y, z] as Vec3, XYZ_RGB_MATRIX);
+    return new LinearSRGBColor(r, g, b, alpha);
+}
+
+export function displayP32xyz({ r, g, b, alpha }: DisplayP3Color): XYZColor {
+    // Display P3 uses the same sRGB transfer function
+    const linear: Vec3 = [srgbToLinear(r), srgbToLinear(g), srgbToLinear(b)];
+    const [x, y, z] = transformMat3(linear, DISPLAY_P3_XYZ_MATRIX);
+    return new XYZColor(x, y, z, alpha);
+}
+
+export function xyz2displayP3({ x, y, z, alpha }: XYZColor): DisplayP3Color {
+    const linear = transformMat3([x, y, z] as Vec3, XYZ_DISPLAY_P3_MATRIX);
+    const [r, g, b] = linear.map(linearToSrgb);
+    return new DisplayP3Color(r, g, b, alpha);
+}
+
+export function adobeRgb2xyz({ r, g, b, alpha }: AdobeRGBColor): XYZColor {
+    const linear: Vec3 = [adobeRgbToLinear(r), adobeRgbToLinear(g), adobeRgbToLinear(b)];
+    const [x, y, z] = transformMat3(linear, ADOBE_RGB_XYZ_MATRIX);
+    return new XYZColor(x, y, z, alpha);
+}
+
+export function xyz2adobeRgb({ x, y, z, alpha }: XYZColor): AdobeRGBColor {
+    const linear = transformMat3([x, y, z] as Vec3, XYZ_ADOBE_RGB_MATRIX);
+    const [r, g, b] = linear.map(linearToAdobeRgb);
+    return new AdobeRGBColor(r, g, b, alpha);
+}
+
+export function proPhoto2xyz({ r, g, b, alpha }: ProPhotoRGBColor): XYZColor {
+    const linear: Vec3 = [proPhotoToLinear(r), proPhotoToLinear(g), proPhotoToLinear(b)];
+    // ProPhoto is native D50 — multiply by D50 matrix, then adapt to D65
+    const xyzD50 = transformMat3(linear, PROPHOTO_XYZ_D50_MATRIX);
+    const [x, y, z] = transformMat3(xyzD50, WHITE_POINT_D50_D65);
+    return new XYZColor(x, y, z, alpha);
+}
+
+export function xyz2proPhoto({ x, y, z, alpha }: XYZColor): ProPhotoRGBColor {
+    // Adapt from D65 to D50, then apply inverse matrix
+    const xyzD50 = transformMat3([x, y, z] as Vec3, WHITE_POINT_D65_D50);
+    const linear = transformMat3(xyzD50, XYZ_D50_PROPHOTO_MATRIX);
+    const [r, g, b] = linear.map(linearToProPhoto);
+    return new ProPhotoRGBColor(r, g, b, alpha);
+}
+
+export function rec20202xyz({ r, g, b, alpha }: Rec2020Color): XYZColor {
+    const linear: Vec3 = [rec2020ToLinear(r), rec2020ToLinear(g), rec2020ToLinear(b)];
+    const [x, y, z] = transformMat3(linear, REC2020_XYZ_MATRIX);
+    return new XYZColor(x, y, z, alpha);
+}
+
+export function xyz2rec2020({ x, y, z, alpha }: XYZColor): Rec2020Color {
+    const linear = transformMat3([x, y, z] as Vec3, XYZ_REC2020_MATRIX);
+    const [r, g, b] = linear.map(linearToRec2020);
+    return new Rec2020Color(r, g, b, alpha);
+}
+
+const XYZ_FUNCTIONS: Record<string, { to: (color: any) => XYZColor; from: (color: XYZColor) => any }> = {
     rgb: { to: rgb2xyz, from: xyz2rgb },
 
     hsl: { to: hsl2xyz, from: xyz2hsl },
@@ -831,7 +963,13 @@ const XYZ_FUNCTIONS = {
     kelvin: { to: kelvin2xyz, from: xyz2kelvin },
 
     xyz: { to: (color: XYZColor) => color, from: (color: XYZColor) => color },
-} as const;
+
+    "srgb-linear": { to: linearSrgb2xyz, from: xyz2linearSrgb },
+    "display-p3": { to: displayP32xyz, from: xyz2displayP3 },
+    "a98-rgb": { to: adobeRgb2xyz, from: xyz2adobeRgb },
+    "prophoto-rgb": { to: proPhoto2xyz, from: xyz2proPhoto },
+    rec2020: { to: rec20202xyz, from: xyz2rec2020 },
+};
 
 export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
     if (color.colorSpace === to) {
@@ -849,74 +987,168 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
     return fromXYZFn(xyz);
 }
 
-// New constants for gamut mapping
-const GAMUT_EPSILON = 1e-10;
-const MAX_ITERATIONS = 20;
-const SATURATION_FACTOR = 0.95;
+export { deltaEOK, isInSRGBGamut, DELTA_E_OK_JND } from "./gamut";
 
-// Helper function to check if a color is within the sRGB gamut
-function isInGamut(color: Color): boolean {
-    return color
-        .entries()
-        .filter(([channel, value]) => channel !== "alpha")
-        .every(([channel, value]) => value <= 1 + GAMUT_EPSILON);
-}
-
-// Helper function to clip RGB values to [0, 1] range
-function clipColor(color: Color): Color {
-    color.entries().forEach(([channel, value]) => {
-        color[channel] = clamp(value, 0, 1);
-    });
-    return color;
-}
+const GAMUT_EPSILON = 1e-6;
 
 export function gamutMap<C extends Color>(color: C): C {
-    // First, convert the input color to RGB
-    let rgb = color2(color, "rgb") as RGBColor;
+    const rgb = color2(color, "rgb") as RGBColor;
 
-    // If already in gamut, return the original color converted to the target color space
-    if (isInGamut(rgb)) {
+    // Replace NaN ("none" keyword per CSS Color 4) with 0 for gamut purposes
+    const r = Number.isNaN(rgb.r as number) ? 0 : rgb.r;
+    const g = Number.isNaN(rgb.g as number) ? 0 : rgb.g;
+    const b = Number.isNaN(rgb.b as number) ? 0 : rgb.b;
+
+    // Strictly in gamut — pass through
+    if (r >= 0 && r <= 1 && g >= 0 && g <= 1 && b >= 0 && b <= 1) {
         return color;
     }
 
-    for (let i = 0; i < MAX_ITERATIONS; i++) {
-        // Convert current RGB to XYZ
-        const xyz = color2(rgb, "xyz") as XYZColor;
-        const luminance = xyz.y;
-        const sum = xyz.x + xyz.y + xyz.z;
+    // Within epsilon of gamut — just clamp (avoids OKLab round-trip for tiny FP errors)
+    if (
+        r >= -GAMUT_EPSILON && r <= 1 + GAMUT_EPSILON &&
+        g >= -GAMUT_EPSILON && g <= 1 + GAMUT_EPSILON &&
+        b >= -GAMUT_EPSILON && b <= 1 + GAMUT_EPSILON
+    ) {
+        const clamped = new RGBColor(clamp(r, 0, 1), clamp(g, 0, 1), clamp(b, 0, 1), color.alpha);
+        return color2(clamped, color.colorSpace) as C;
+    }
 
-        // Calculate chromaticity
-        const chromaticity = new XYZColor(
-            xyz.x / sum,
-            xyz.y / sum,
-            xyz.z / sum,
-            xyz.alpha,
-        );
+    const [sR, sG, sB] = gamutMapSRGB(r, g, b);
+    const mappedRGB = new RGBColor(sR, sG, sB, color.alpha);
+    return color2(mappedRGB, color.colorSpace) as C;
+}
 
-        // Reduce saturation while preserving chromaticity
-        const reducedXYZ = new XYZColor(
-            luminance +
-                (chromaticity.x - chromaticity.y) * luminance * SATURATION_FACTOR,
-            luminance,
-            luminance +
-                (chromaticity.z - chromaticity.y) * luminance * SATURATION_FACTOR,
-            xyz.alpha,
-        );
+// --- Phase 2: Hue interpolation ---
 
-        // Convert reduced XYZ back to RGB
-        rgb = xyz2rgb(reducedXYZ, false) as RGBColor;
+export type HueInterpolationMethod = "shorter" | "longer" | "increasing" | "decreasing";
 
-        // Check if the new RGB is in gamut
-        if (isInGamut(rgb)) {
+export const CYLINDRICAL_HUE_COMPONENT: Partial<Record<ColorSpace, string>> = {
+    hsl: "h",
+    hsv: "h",
+    hwb: "h",
+    lch: "h",
+    oklch: "h",
+};
+
+/**
+ * Interpolate between two hue values using the given method.
+ * Hues are in [0, 1] (normalized). Returns an interpolated hue in [0, 1].
+ * Handles NaN (CSS `none`): if one hue is NaN, the other's value is used.
+ */
+export function interpolateHue(
+    h1: number,
+    h2: number,
+    t: number,
+    method: HueInterpolationMethod = "shorter",
+): number {
+    // NaN handling: missing hue adopts other color's value
+    if (Number.isNaN(h1) && Number.isNaN(h2)) return 0;
+    if (Number.isNaN(h1)) return h2;
+    if (Number.isNaN(h2)) return h1;
+
+    let diff = h2 - h1;
+
+    switch (method) {
+        case "shorter":
+            if (diff > 0.5) h1 += 1;
+            else if (diff < -0.5) h2 += 1;
             break;
+        case "longer":
+            if (diff > 0 && diff < 0.5) h1 += 1;
+            else if (diff > -0.5 && diff <= 0) h2 += 1;
+            break;
+        case "increasing":
+            if (diff < 0) h2 += 1;
+            break;
+        case "decreasing":
+            if (diff > 0) h1 += 1;
+            break;
+    }
+
+    let result = h1 + t * (h2 - h1);
+    // Normalize to [0, 1)
+    result = ((result % 1) + 1) % 1;
+    return result;
+}
+
+// --- Phase 3: Color mixing ---
+
+/**
+ * Mix two colors per CSS color-mix() specification.
+ * Both colors should be normalized (components in [0, 1]).
+ * Percentages p1, p2 are in [0, 1] (e.g. 0.5 = 50%).
+ */
+export function mixColors(
+    col1: Color,
+    col2: Color,
+    p1: number,
+    p2: number,
+    space: ColorSpace = "oklab",
+    hueMethod: HueInterpolationMethod = "shorter",
+): Color {
+    // Convert both to interpolation space
+    const c1 = color2(col1, space);
+    const c2 = color2(col2, space);
+
+    // Percentage normalization per CSS spec
+    if (p1 < 0) p1 = 0;
+    if (p2 < 0) p2 = 0;
+
+    const sum = p1 + p2;
+    if (sum === 0) {
+        // Both zero — treat as equal
+        p1 = 0.5;
+        p2 = 0.5;
+    } else if (sum !== 1) {
+        // Normalize so they sum to 1
+        p1 = p1 / sum;
+        p2 = p2 / sum;
+    }
+
+    // Alpha multiplier when sum < 1 (original, un-normalized)
+    const alphaMultiplier = Math.min(sum, 1);
+
+    const hueComponent = CYLINDRICAL_HUE_COMPONENT[space];
+
+    // Get component keys (excluding alpha)
+    const keys = c1.keys().filter((k) => k !== "alpha");
+
+    // Handle alpha
+    const a1 = Number.isNaN(c1.alpha as number) ? (c2.alpha as number) : (c1.alpha as number);
+    const a2 = Number.isNaN(c2.alpha as number) ? (c1.alpha as number) : (c2.alpha as number);
+    const resultAlpha = (lerp(p2, a1, a2)) * alphaMultiplier;
+
+    // Premultiplied alpha interpolation for non-hue components
+    const resultComponents: number[] = [];
+
+    for (const key of keys) {
+        let v1 = c1[key] as number;
+        let v2 = c2[key] as number;
+
+        // NaN handling: missing component adopts other color's value
+        if (Number.isNaN(v1) && Number.isNaN(v2)) {
+            resultComponents.push(0);
+            continue;
+        }
+        if (Number.isNaN(v1)) v1 = v2;
+        if (Number.isNaN(v2)) v2 = v1;
+
+        if (key === hueComponent) {
+            // Hue: use hue interpolation method (not premultiplied)
+            resultComponents.push(interpolateHue(v1, v2, p2, hueMethod));
+        } else {
+            // Premultiplied alpha interpolation
+            const premul1 = v1 * a1;
+            const premul2 = v2 * a2;
+            const mixed = lerp(p2, premul1, premul2);
+            resultComponents.push(resultAlpha > 0 ? mixed / resultAlpha : 0);
         }
     }
 
-    // If still out of gamut after MAX_ITERATIONS, clip the color
-    if (!isInGamut(rgb)) {
-        rgb = clipColor(rgb) as RGBColor;
-    }
+    // Create result color in the interpolation space
+    const ResultClass = c1.constructor as new (...args: any[]) => Color;
+    const result = new ResultClass(...resultComponents, resultAlpha);
 
-    // Convert the final RGB to the target color space
-    return color2(rgb, color.colorSpace) as C;
+    return result;
 }
