@@ -11,5 +11,7 @@ dist/
 test-results/
 .claude/
 .playwright-mcp/
+.env.local
+.wrangler/
 *.png
 !demo/**/*.png
