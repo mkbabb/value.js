@@ -24,7 +24,7 @@ export default defineConfig({
             name: "mobile",
             use: {
                 baseURL: "http://localhost:8090",
-                ...devices["iPhone 14"],
+                ...devices["Pixel 7"],
                 headless: true,
             },
         },
