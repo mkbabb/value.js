@@ -509,6 +509,37 @@ export const CSSColor = {
     div,
 };
 
+// --- Runtime custom color name registry ---
+
+const customColorNames = new Map<string, string>();
+
+export function registerColorNames(names: Record<string, string>): void {
+    for (const [name, css] of Object.entries(names)) {
+        customColorNames.set(name.trim().toLowerCase(), css);
+    }
+}
+
+export function clearCustomColorNames(): void {
+    customColorNames.clear();
+}
+
+export function getCustomColorNames(): ReadonlyMap<string, string> {
+    return customColorNames;
+}
+
 export function parseCSSColor(input: string): ValueUnit {
+    const result = utils.parseResult(Value, input);
+    if (result.status) {
+        return result.value;
+    }
+
+    // Fallback: check custom color names
+    const key = input.trim().toLowerCase();
+    const resolved = customColorNames.get(key);
+    if (resolved) {
+        return utils.tryParse(Value, resolved);
+    }
+
+    // Re-throw original parse failure
     return utils.tryParse(Value, input);
 }

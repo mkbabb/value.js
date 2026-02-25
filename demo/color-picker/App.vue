@@ -146,6 +146,7 @@ import type { DocModule } from "@components/custom/markdown";
 import { Markdown } from "@components/custom/markdown";
 import { normalizeColorUnit } from "@src/units/color/normalize";
 import { toCSSColorString } from "@components/custom/color-picker";
+import { useCustomColorNames } from "@composables/useCustomColorNames";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -233,7 +234,11 @@ watch(
     { immediate: true },
 );
 
+const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
+
 onMounted(() => {
+    loadCustomColorNames();
+
     const encodedSVG = encodeURIComponent(`
     <svg class="tmp" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'>
         <path d='M1 2V0h1v1H0v1z' fill-opacity='0.10'/>

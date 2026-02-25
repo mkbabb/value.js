@@ -1,3 +1,4 @@
+export { registerColorNames, clearCustomColorNames, getCustomColorNames } from "@src/parsing/color";
 import { clone } from "@src/utils";
 import { BLACKLISTED_COALESCE_UNITS, UNITS } from "./constants";
 import { isColorUnit } from "./utils";

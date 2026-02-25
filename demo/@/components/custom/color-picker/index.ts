@@ -30,7 +30,7 @@ export function createDefaultColorModel(): ColorModel {
 
 export const defaultColorModel: ColorModel = createDefaultColorModel();
 
-const CSS_NATIVE_SPACES: ReadonlySet<string> = new Set([
+export const CSS_NATIVE_SPACES: ReadonlySet<string> = new Set([
     "rgb", "hsl", "hwb", "lab", "lch", "oklab", "oklch",
 ]);
 

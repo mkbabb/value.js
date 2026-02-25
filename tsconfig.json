@@ -13,6 +13,8 @@
             "@styles/*": ["./demo/@/styles/*"],
             "@components/*": ["./demo/@/components/*"],
             "@utils/*": ["./demo/@/utils/*"],
+            "@lib/*": ["./demo/@/lib/*"],
+            "@composables/*": ["./demo/@/composables/*"],
             "@assets/*": ["./assets/*"]
         }
     },

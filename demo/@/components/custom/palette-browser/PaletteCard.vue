@@ -1,0 +1,180 @@
+<template>
+    <div
+        class="group rounded-lg border-2 border-gray-700 bg-card overflow-hidden transition-all hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.6)] cursor-pointer"
+        @click="$emit('click')"
+    >
+        <!-- Color strip — clamp each swatch to min 4px so large palettes don't collapse -->
+        <div class="h-10 flex w-full overflow-hidden">
+            <div
+                v-for="(color, i) in palette.colors"
+                :key="i"
+                class="h-full shrink-0"
+                :style="{
+                    backgroundColor: color.css,
+                    width: `${Math.max(100 / palette.colors.length, 0.5)}%`,
+                }"
+            ></div>
+        </div>
+
+        <!-- Metadata row -->
+        <div class="px-3 py-2.5 flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2 min-w-0">
+                <span class="fraunces text-lg truncate font-bold">{{ palette.name }}</span>
+                <Badge variant="secondary" class="fira-code text-sm shrink-0">
+                    {{ palette.colors.length }}
+                </Badge>
+            </div>
+
+            <!-- Actions (visible on hover) -->
+            <div
+                class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                @click.stop
+            >
+                <TooltipProvider :delay-duration="200">
+                    <Tooltip>
+                        <TooltipTrigger as-child>
+                            <button
+                                class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                @click="emit('apply', palette)"
+                            >
+                                <Pipette class="w-4 h-4" />
+                            </button>
+                        </TooltipTrigger>
+                        <TooltipContent class="fira-code text-xs">Apply palette 🎨</TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+
+                <TooltipProvider :delay-duration="200">
+                    <Tooltip>
+                        <TooltipTrigger as-child>
+                            <button
+                                class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                @click="copyAllColors"
+                            >
+                                <ClipboardCopy class="w-4 h-4" />
+                            </button>
+                        </TooltipTrigger>
+                        <TooltipContent class="fira-code text-xs">Copy all colors 📋</TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+
+                <TooltipProvider :delay-duration="200" v-if="palette.isLocal">
+                    <Tooltip>
+                        <TooltipTrigger as-child>
+                            <button
+                                class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                @click="emit('delete', palette)"
+                            >
+                                <Trash2 class="w-4 h-4 text-destructive" />
+                            </button>
+                        </TooltipTrigger>
+                        <TooltipContent class="fira-code text-xs">Delete 🗑️</TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+
+                <TooltipProvider :delay-duration="200" v-if="palette.isLocal">
+                    <Tooltip>
+                        <TooltipTrigger as-child>
+                            <button
+                                class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                @click="emit('publish', palette)"
+                            >
+                                <Globe class="w-4 h-4" />
+                            </button>
+                        </TooltipTrigger>
+                        <TooltipContent class="fira-code text-xs">Publish 🌐</TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+
+                <TooltipProvider :delay-duration="200" v-if="!palette.isLocal">
+                    <Tooltip>
+                        <TooltipTrigger as-child>
+                            <button
+                                class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                @click="emit('save', palette)"
+                            >
+                                <Bookmark class="w-4 h-4" />
+                            </button>
+                        </TooltipTrigger>
+                        <TooltipContent class="fira-code text-xs">Save locally 💾</TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+            </div>
+        </div>
+
+        <!-- Expandable detail: color swatches (capped with overflow for very large palettes) -->
+        <div
+            v-if="expanded"
+            class="px-3 pb-3 flex flex-wrap gap-1.5 items-start border-t border-gray-700/15 pt-2 max-h-[200px] overflow-y-auto scrollbar-hidden"
+            @click.stop
+        >
+            <TooltipProvider
+                v-for="(color, i) in palette.colors"
+                :key="i"
+                :delay-duration="100"
+            >
+                <Tooltip>
+                    <TooltipTrigger as-child>
+                        <button
+                            class="flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-accent/50 transition-colors cursor-pointer group/swatch"
+                            @click="copyColor(color.css)"
+                        >
+                            <div
+                                class="w-5 h-5 rounded-full shrink-0 transition-transform group-hover/swatch:scale-125"
+                                :style="{ backgroundColor: color.css }"
+                            ></div>
+                            <span class="fira-code text-sm text-muted-foreground">
+                                {{ color.name || color.css }}
+                            </span>
+                        </button>
+                    </TooltipTrigger>
+                    <TooltipContent class="fira-code text-xs">
+                        {{ color.css }}
+                    </TooltipContent>
+                </Tooltip>
+            </TooltipProvider>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { Badge } from "@components/ui/badge";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@components/ui/tooltip";
+import { Pipette, ClipboardCopy, Trash2, Globe, Bookmark } from "lucide-vue-next";
+import { toast } from "vue-sonner";
+import type { Palette } from "@lib/palette/types";
+
+const props = defineProps<{
+    palette: Palette;
+    expanded?: boolean;
+    cssColor?: string;
+}>();
+
+const emit = defineEmits<{
+    click: [];
+    apply: [palette: Palette];
+    delete: [palette: Palette];
+    publish: [palette: Palette];
+    save: [palette: Palette];
+}>();
+
+function copyColor(css: string) {
+    navigator.clipboard.writeText(css).then(
+        () => toast.success(`Copied ${css}`),
+        () => toast.error("Failed to copy"),
+    );
+}
+
+function copyAllColors() {
+    const text = props.palette.colors.map((c) => c.css).join(", ");
+    navigator.clipboard.writeText(text).then(
+        () => toast.success("Copied all colors"),
+        () => toast.error("Failed to copy"),
+    );
+}
+</script>

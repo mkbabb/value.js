@@ -183,21 +183,49 @@
                         class="pointer-events-auto w-full"
                     >
                         <HoverCardTrigger class="w-full block">
-                            <span
-                                ref="inputColorRef"
-                                contenteditable
-                                class="w-full block border overflow-hidden justify-start items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap"
-                                @keydown="onInputKeydown"
-                                @input="onInputInput"
-                                @focus="onInputFocus"
-                                @blur="onInputBlur"
-                            ></span>
+                            <div class="relative w-full flex items-center">
+                                <span
+                                    ref="inputColorRef"
+                                    contenteditable
+                                    class="w-full block border overflow-hidden items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
+                                    :class="{ 'pr-8': currentColorMeta }"
+                                    @keydown="onInputKeydown"
+                                    @input="onInputInput"
+                                    @focus="onInputFocus"
+                                    @blur="onInputBlur"
+                                ></span>
+
+                                <!-- Crown indicator for approved custom color names -->
+                                <TooltipProvider v-if="currentColorMeta" :delay-duration="200">
+                                    <Tooltip>
+                                        <TooltipTrigger as-child>
+                                            <Crown
+                                                :key="crownKey"
+                                                class="absolute right-2 top-1/2 -translate-y-1/2 w-[0.75em] h-[0.75em] text-[#daa520] opacity-75 hover:opacity-100 hover:scale-110 transition-[opacity,transform] cursor-help"
+                                                :stroke-width="1.75"
+                                                style="animation: crown-appear 0.6s ease-out forwards"
+                                            />
+                                        </TooltipTrigger>
+                                        <TooltipContent class="fira-code text-xs max-w-[200px]">
+                                            <div class="grid gap-1">
+                                                <span class="font-bold">{{ currentColorMeta.name }}</span>
+                                                <span v-if="currentColorMeta.contributor" class="text-muted-foreground">
+                                                    by {{ currentColorMeta.contributor }}
+                                                </span>
+                                                <span class="text-muted-foreground">
+                                                    {{ currentColorMeta.css }}
+                                                </span>
+                                            </div>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </div>
                         </HoverCardTrigger>
 
                         <HoverCardContent
                             class="z-[100] pointer-events-auto fraunces w-full"
                         >
-                            <p class="font-bold text-lg">Enter a color 🖌️</p>
+                            <p class="font-bold text-lg">Enter a color</p>
                             <p>
                                 <span class="italic">Any</span> valid CSS color string
                                 is accepted.
@@ -209,6 +237,26 @@
                             </div>
                         </HoverCardContent>
                     </HoverCard>
+
+                    <!-- Propose Name inline form -->
+                    <Transition name="slug-reveal">
+                        <div v-if="canProposeName && showProposeForm" class="relative">
+                            <Input
+                                v-model="proposedName"
+                                placeholder="Propose a name..."
+                                class="fira-code text-sm h-8 pr-8"
+                                @keydown.enter="submitProposedName"
+                            />
+                            <button
+                                class="absolute right-1 top-1/2 -translate-y-1/2 p-1 rounded-sm transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110"
+                                :disabled="!proposedName.trim() || proposing"
+                                @click="submitProposedName"
+                            >
+                                <Loader2 v-if="proposing" class="w-3.5 h-3.5 animate-spin" />
+                                <Sparkles v-else class="w-3.5 h-3.5" :style="{ stroke: cssColorOpaque }" />
+                            </button>
+                        </div>
+                    </Transition>
 
                     <div class="flex gap-x-4 w-full justify-evenly items-center">
                         <HoverCard
@@ -313,8 +361,62 @@
                                     <Separator class="my-2" />
                                     <p class="text-sm opacity-60">
                                         Hold <kbd>shift</kbd> and click, or double click
-                                        👆, a palette color to swap it with the current
+                                        a palette color to swap it with the current
                                         color.
+                                    </p>
+                                </div>
+                            </HoverCardContent>
+                        </HoverCard>
+
+                        <!-- Palette browser trigger -->
+                        <HoverCard
+                            :close-delay="0"
+                            :open-delay="700"
+                            class="pointer-events-auto"
+                        >
+                            <HoverCardTrigger>
+                                <LayoutGrid
+                                    @click="paletteDialogOpen = true"
+                                    class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                />
+                            </HoverCardTrigger>
+                            <HoverCardContent
+                                class="z-[100] pointer-events-auto fraunces"
+                            >
+                                <div>
+                                    <p class="font-bold text-lg">
+                                        Browse palettes 🗂️
+                                    </p>
+                                    <p class="text-sm opacity-60">
+                                        Save, browse, and publish color palettes.
+                                    </p>
+                                </div>
+                            </HoverCardContent>
+                        </HoverCard>
+
+                        <!-- Propose name button -->
+                        <HoverCard
+                            v-if="canProposeName"
+                            :close-delay="0"
+                            :open-delay="700"
+                            class="pointer-events-auto"
+                        >
+                            <HoverCardTrigger>
+                                <Tag
+                                    @click="showProposeForm = !showProposeForm"
+                                    class="h-8 aspect-square hover:scale-125 transition-all cursor-pointer rounded-md stroke-foreground"
+                                    :style="showProposeForm ? { stroke: cssColorOpaque, strokeWidth: '2.75' } : {}"
+                                />
+                            </HoverCardTrigger>
+                            <HoverCardContent
+                                class="z-[100] pointer-events-auto fraunces"
+                            >
+                                <div>
+                                    <p class="font-bold text-lg">
+                                        Propose a name ✨
+                                    </p>
+                                    <p class="text-sm opacity-60">
+                                        This color doesn't have a name yet. Propose one for the global registry.
                                     </p>
                                 </div>
                             </HoverCardContent>
@@ -384,6 +486,15 @@
                 </div>
             </CardContent>
         </Card>
+
+        <!-- Palette browser dialog (rendered outside card flow) -->
+        <PaletteDialog
+            v-model:open="paletteDialogOpen"
+            :saved-color-strings="savedColorStrings"
+            :css-color="cssColor"
+            :css-color-opaque="cssColorOpaque"
+            @apply="onPaletteApply"
+        />
     </div>
 </template>
 
@@ -427,7 +538,7 @@ import {
 } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
 import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
-import { Palette, Shuffle, Copy, X, Plus, RotateCcw } from "lucide-vue-next";
+import { Palette, Shuffle, Copy, X, Plus, RotateCcw, Crown, Tag, Sparkles, Loader2, LayoutGrid } from "lucide-vue-next";
 import {
     SliderRange,
     SliderRoot,
@@ -447,9 +558,16 @@ import { toast } from "vue-sonner";
 
 import { useDark, useMagicKeys } from "@vueuse/core";
 import CardDescription from "@components/ui/card/CardDescription.vue";
+import { Input } from "@components/ui/input";
+import { Button } from "@components/ui/button";
 import { COLOR_NAMES } from "@src/units/color/constants";
+import { useCustomColorNames } from "@composables/useCustomColorNames";
+import { proposeColorName } from "@lib/palette/api";
+import { PaletteDialog } from "@components/custom/palette-browser";
 import type { ColorModel } from ".";
-import { toCSSColorString } from ".";
+import { toCSSColorString, CSS_NATIVE_SPACES } from ".";
+
+const { findCustomName, getMetadata } = useCustomColorNames();
 
 const selectAll = () => {
     const target = inputColorRef.value;
@@ -519,12 +637,13 @@ const cssColorOpaque = computed(() => {
     return toCSSColorString(c);
 });
 
-// Check to see if the current color is in the COLOR_NAMES, if it is, return the name, else return the color, formatted:
+// Check to see if the current color is in the COLOR_NAMES or custom names, if it is, return the name, else return the color, formatted:
 const formattedCurrentColor = computed(() => {
     const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
 
     const colorString = xyz.value.toFormattedString(DIGITS);
 
+    // Check built-in CSS color names first
     const colorName = Object.entries(NORMALIZED_COLOR_NAMES).find(
         ([, value]) => value === colorString,
     );
@@ -533,8 +652,80 @@ const formattedCurrentColor = computed(() => {
         return colorName[0];
     }
 
+    // Check custom (approved) color names
+    const customName = findCustomName(colorString);
+    if (customName) {
+        return customName;
+    }
+
     return denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
 });
+
+// Metadata for crown display: non-null when current color matches an approved custom name
+const currentColorMeta = computed(() => {
+    const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
+    const colorString = xyz.value.toFormattedString(DIGITS);
+    const customName = findCustomName(colorString);
+    if (!customName) return null;
+    return getMetadata(customName) ?? null;
+});
+
+// Crown animation key: changes when a new custom name is matched, triggering re-animation
+const crownKey = computed(() => currentColorMeta.value?.name ?? "");
+
+// Propose name state
+const showProposeForm = ref(false);
+const proposedName = ref("");
+const proposing = ref(false);
+
+const canProposeName = computed(() => {
+    const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
+    const colorString = xyz.value.toFormattedString(DIGITS);
+    const hasBuiltIn = Object.entries(NORMALIZED_COLOR_NAMES).some(
+        ([, value]) => value === colorString,
+    );
+    const hasCustom = !!findCustomName(colorString);
+    return !hasBuiltIn && !hasCustom;
+});
+
+async function submitProposedName() {
+    if (!proposedName.value.trim() || proposing.value) return;
+    proposing.value = true;
+    try {
+        const cssStr = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
+        await proposeColorName(proposedName.value.trim().toLowerCase(), cssStr);
+        toast.success(`Proposed "${proposedName.value}" for review`);
+        proposedName.value = "";
+        showProposeForm.value = false;
+    } catch (e: any) {
+        toast.error(e?.message ?? "Failed to propose name");
+    } finally {
+        proposing.value = false;
+    }
+}
+
+// Palette dialog: convert saved colors to formatted CSS strings (2 digits, matching display)
+const savedColorStrings = computed(() =>
+    model.value.savedColors
+        .filter((c: any) => c instanceof ValueUnit)
+        .map((c: any) => {
+            const normalized = CSS_NATIVE_SPACES.has(c.value.colorSpace)
+                ? normalizeColorUnit(c, true, false)
+                : colorUnit2(c, "oklch", true, true, false);
+            return normalized.value.toFormattedString(DIGITS);
+        }),
+);
+
+function onPaletteApply(colors: string[]) {
+    const parsed = colors.map((css) => {
+        try { return parseAndNormalizeColor(css); } catch { return null; }
+    }).filter(Boolean) as ValueUnit<Color<ValueUnit<number>>, "color">[];
+
+    if (parsed.length > 0) {
+        updateModel({ savedColors: parsed });
+        toast.success(`Applied palette (${parsed.length} colors)`);
+    }
+}
 
 const HSVCurrentColor = computed(() => {
     return colorUnit2(model.value.color, "hsv", true, false, false);
@@ -947,6 +1138,7 @@ watch(isDark, () => {
 });
 
 const paletteHidden = ref(true);
+const paletteDialogOpen = ref(false);
 
 const showPalette = () => {
     paletteHidden.value = false;

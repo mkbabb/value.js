@@ -9,10 +9,10 @@ import {
     RESOLUTION_UNITS,
     TIME_UNITS,
 } from "../units/constants";
-import { CSSColor, parseCSSColor } from "./color";
+import { CSSColor, parseCSSColor, registerColorNames, clearCustomColorNames, getCustomColorNames } from "./color";
 import * as utils from "./utils";
 
-export { CSSColor, parseCSSColor };
+export { CSSColor, parseCSSColor, registerColorNames, clearCustomColorNames, getCustomColorNames };
 
 const lengthUnit = any(...LENGTH_UNITS.map(utils.istring));
 const angleUnit = any(...ANGLE_UNITS.map(utils.istring));
