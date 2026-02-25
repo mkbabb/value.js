@@ -146,14 +146,12 @@ const baseColors = {
 // Pairs going through XYZ hub accumulate more floating-point error,
 // so we use relaxed precision (4 decimals instead of 6).
 //
-// OKLCH→LAB and OKLCH→XYZ are excluded: oklch2lab denormalizes the chroma
-// component but lab2oklch doesn't renormalize it, so roundtrips diverge.
-// This is a known production bug.
 const conversionPairs: [string, string, number][] = [
     // Direct conversions — high precision
     ["rgb", "hsl", 5],
     ["lch", "lab", 5],
     ["oklab", "lab", 4],
+    ["oklch", "oklab", 5],
 
     // XYZ hub conversions — relaxed precision due to multi-step chains
     ["rgb", "xyz", 4],
@@ -163,6 +161,8 @@ const conversionPairs: [string, string, number][] = [
     ["lab", "xyz", 5],
     ["lch", "xyz", 4],
     ["oklab", "xyz", 4],
+    ["oklch", "lab", 4],
+    ["oklch", "xyz", 4],
 ];
 
 describe("Color Roundtrip Conversion Tests", () => {
@@ -221,7 +221,6 @@ describe("Color Roundtrip Conversion Tests", () => {
         });
     });
 
-    // Document known broken roundtrips
-    it.skip("OKLCH -> LAB roundtrip (broken: oklch2lab denormalizes c but lab2oklch doesn't renormalize)", () => {});
-    it.skip("OKLCH -> XYZ roundtrip (broken: same oklch normalization issue)", () => {});
+    // OKLCH roundtrips — fixed via direct OKLab-based oklab2oklch/oklch2oklab
+
 });

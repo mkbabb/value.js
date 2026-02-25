@@ -464,10 +464,10 @@ describe("Color Validation — Full Refactor Test", () => {
         });
 
         it("none keyword in color components", () => {
-            // "none" should parse as 0 in any component position
+            // "none" parses as NaN per CSS Color Level 4
             const parsed = parse("rgb(none 255 0)");
             const { r, g, b } = toRGBComponents(parsed);
-            expect(r).toBeCloseTo(0, 0);
+            expect(Number.isNaN(r)).toBe(true);
             expect(g).toBeCloseTo(255, 0);
             expect(b).toBeCloseTo(0, 0);
         });
