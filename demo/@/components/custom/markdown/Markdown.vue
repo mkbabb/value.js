@@ -56,15 +56,14 @@ const { module } = defineProps<{
 
 const markdownDiv = useTemplateRef<HTMLElement>("markdownDiv");
 
-const currentDoc = ref<DocModule | null>(null);
+const currentDoc = ref<Awaited<ReturnType<DocModule>> | null>(null);
 
 const isLoading = ref(true);
 
 const loadDocs = async () => {
     isLoading.value = true;
 
-    // @ts-ignore
-    currentDoc.value = (await module()) as DocModule;
+    currentDoc.value = await module();
 
     isLoading.value = false;
 };
@@ -440,11 +439,6 @@ onUnmounted(() => {
         }
     }
 
-    .toc a {
-        @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200;
-    }
-
-    /* Tables of contents links */
     .toc a {
         @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200;
     }
