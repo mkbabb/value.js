@@ -50,7 +50,7 @@
     },
     "homepage": "https://github.com/mkbabb/value.js#readme",
     "dependencies": {
-        "parsimmon": "^1.18.1"
+        "@mkbabb/parse-that": "file:vendor/mkbabb-parse-that-0.6.0.tgz"
     },
     "devDependencies": {
         "@iconify-json/radix-icons": "^1.2.2",
@@ -60,7 +60,6 @@
         "@tailwindcss/postcss": "^4.1.11",
         "@types/katex": "^0.16.7",
         "@types/node": "^24.1.0",
-        "@types/parsimmon": "^1.10.9",
         "@unovis/ts": "^1.5.2",
         "@unovis/vue": "^1.5.2",
         "@vee-validate/zod": "^4.13.2",

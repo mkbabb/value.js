@@ -1,48 +1,59 @@
-import P from "parsimmon";
+import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
 import { FunctionValue, ValueArray, ValueUnit } from "../units";
 
 import * as utils from "./utils";
 import { memoize } from "@src/utils";
 import { CSSValueUnit } from "./units";
 
-const handleFunc = (r: P.Language, name?: P.Parser<any>) => {
-    return P.seq(
+const lparen = string("(");
+const rparen = string(")");
+const comma = string(",");
+
+const FunctionArgs: Parser<ValueArray> = Parser.lazy(() =>
+    Value.sepBy(any(comma, whitespace))
+        .trim(whitespace)
+        .map((v: ValueUnit[]) => new ValueArray(...v)),
+);
+
+const handleFunc = (name?: Parser<any>) => {
+    return all(
         name ? name : utils.identifier,
-        r.FunctionArgs.wrap(r.lparen, r.rparen),
+        FunctionArgs.wrap(lparen, rparen),
     );
 };
 
-const handleVar = (r: P.Language) => {
-    return P.string("var")
-        .then(r.String.trim(r.ws).wrap(r.lparen, r.rparen))
-        .map((value) => {
+const handleVar = () => {
+    // Parse var(--custom-property) or var(--prop, fallback)
+    const varContent = regex(/[^)]+/);
+    return string("var")
+        .next(varContent.trim(whitespace).wrap(lparen, rparen))
+        .map((value: string) => {
             return new ValueUnit(value, "var");
         });
 };
 
-const handleCalc = (r: P.Language) => {
-    const calcContent: P.Parser<string[]> = P.lazy(() =>
-        P.alt(
-            P.regexp(/[^()]+/),
+const handleCalc = () => {
+    const calcContent: Parser<string[]> = Parser.lazy(() =>
+        any(
+            regex(/[^()]+/),
             calcContent
-                .atLeast(1)
-                .wrap(r.lparen, r.rparen)
+                .many(1)
+                .wrap(lparen, rparen)
                 .map((nested: string[][]) => `(${nested.join(" ")})`),
-        ).atLeast(1),
+        ).many(1),
     );
 
-    return P.string("calc")
-        .then(
-            P.alt(
-                r.Value.trim(r.ws)
-                    .wrap(r.lparen, r.rparen)
-                    .map((v) => v),
+    return string("calc")
+        .next(
+            any(
+                Parser.lazy(() => Value).trim(whitespace)
+                    .wrap(lparen, rparen),
                 calcContent
-                    .wrap(r.lparen, r.rparen)
+                    .wrap(lparen, rparen)
                     .map((parts: unknown) => (parts as string[]).join(" ")),
             ),
         )
-        .map((v) => {
+        .map((v: any) => {
             return v instanceof ValueUnit ? v : new ValueUnit(v, "calc");
         });
 };
@@ -53,34 +64,34 @@ const TRANSFORM_DIMENSIONS = ["x", "y", "z"];
 const transformDimensions = TRANSFORM_DIMENSIONS.map(utils.istring);
 const transformFunctions = TRANSFORM_FUNCTIONS.map(utils.istring);
 
-const handleTransform = (r: P.Language) => {
-    const nameParser = P.seq(
-        P.alt(...transformFunctions),
-        P.alt(...transformDimensions, P.string("")),
+const handleTransform = () => {
+    const nameParser = all(
+        any(...transformFunctions),
+        any(...transformDimensions, string("")),
     );
 
     const makeTransformName = (name: string, dim: string) => {
         return name + dim.toUpperCase();
     };
 
-    const p = handleFunc(r, nameParser);
+    const p = handleFunc(nameParser);
 
-    return p.map(([[name, dim], values]: [string[], ValueUnit[]]) => {
-        name = name.toLowerCase();
+    return p.map(([[name, dim], values]: any) => {
+        const lowerName = name.toLowerCase();
 
         const transformObject: Record<string, any> = {};
 
         if (dim) {
-            const newName = name + dim.toUpperCase();
+            const newName = lowerName + dim.toUpperCase();
             transformObject[newName] = values[0];
         } else if (values.length === 1) {
-            TRANSFORM_DIMENSIONS.forEach((d, i) => {
-                const newName = makeTransformName(name, d);
+            TRANSFORM_DIMENSIONS.forEach((d) => {
+                const newName = makeTransformName(lowerName, d);
                 transformObject[newName] = values[0];
             });
         } else {
-            values.forEach((v, i) => {
-                const newName = makeTransformName(name, TRANSFORM_DIMENSIONS[i]);
+            values.forEach((v: any, i: number) => {
+                const newName = makeTransformName(lowerName, TRANSFORM_DIMENSIONS[i]);
                 transformObject[newName] = v;
             });
         }
@@ -93,133 +104,125 @@ const handleTransform = (r: P.Language) => {
     });
 };
 
-const gradientDirections = {
+const gradientDirections: Record<string, string> = {
     left: "270",
     right: "90",
     top: "0",
     bottom: "180",
 };
 
-const handleGradient = (r: P.Language) => {
-    const name = P.alt(...["linear-gradient", "radial-gradient"].map(utils.istring));
-    const sideOrCorner = P.seq(
-        P.string("to").skip(r.ws),
-        P.alt(...["left", "right", "top", "bottom"].map(utils.istring)),
-    ).map(([to, direction]) => {
-        direction = (gradientDirections as Record<string, string>)[direction.toLowerCase()];
-        return new ValueUnit(direction, "deg");
+const handleGradient = () => {
+    const name = any(...["linear-gradient", "radial-gradient"].map(utils.istring));
+    const sideOrCorner = all(
+        string("to").skip(whitespace),
+        any(...["left", "right", "top", "bottom"].map(utils.istring)),
+    ).map(([, direction]: [string, string]) => {
+        const dir = gradientDirections[direction.toLowerCase()];
+        return new ValueUnit(dir, "deg");
     });
 
-    const direction = P.alt(CSSValueUnit.Angle, sideOrCorner);
+    const direction = any(CSSValueUnit.Angle, sideOrCorner);
 
-    const lengthPercentage = P.alt(CSSValueUnit.Length, CSSValueUnit.Percentage);
+    const lengthPercentage = any(CSSValueUnit.Length, CSSValueUnit.Percentage);
 
-    const linearColorStop = P.seq(
+    const linearColorStop = all(
         CSSValueUnit.Color,
-        P.sepBy(lengthPercentage, r.ws),
+        lengthPercentage.sepBy(whitespace),
     ).map(([color, stops]: [any, any]) => {
-        if (!stops) {
+        if (!stops || stops.length === 0) {
             return [color];
         } else {
             return [color, ...stops];
         }
     });
 
-    const colorStopList = P.seq(
+    const colorStopList = all(
         linearColorStop,
-        r.comma.trim(r.ws).then(linearColorStop.or(lengthPercentage)).many(),
-    ).map(([first, rest]) => {
+        comma.trim(whitespace).next(any(linearColorStop, lengthPercentage)).many(),
+    ).map(([first, rest]: [any, any[]]) => {
         return [first, ...rest];
     });
 
-    const linearGradient = P.seq(
+    const linearGradient = all(
         name,
-        P.seq(utils.opt(direction.skip(r.comma)), colorStopList)
-            .trim(r.ws)
-            .wrap(r.lparen, r.rparen)
-            .map(([direction, stops]) => {
-                if (!direction) {
+        all(direction.skip(comma).opt(), colorStopList)
+            .trim(whitespace)
+            .wrap(lparen, rparen)
+            .map(([dir, stops]: [any, any]) => {
+                if (!dir) {
                     return [stops];
                 } else {
-                    return [direction, ...stops].flat();
+                    return [dir, ...stops].flat();
                 }
             }),
-    ).map(([name, values]) => {
+    ).map(([name, values]: [string, any[]]) => {
         return new FunctionValue(name, values as any[]);
     });
 
     return linearGradient;
 };
 
-const handleCubicBezier = (r: P.Language) => {
-    return handleFunc(r, P.string("cubic-bezier")).map((v) => {
+const handleCubicBezier = () => {
+    return handleFunc(string("cubic-bezier")).map((v: any) => {
         return new FunctionValue("cubic-bezier", v[1]);
     });
 };
 
-export const CSSString = P.regexp(/[^\(\)\{\}\s,;]+/).map((x) => new ValueUnit(x));
+export const CSSString = regex(/[^\(\)\{\}\s,;]+/).map((x: string) => new ValueUnit(x));
 
-export const CSSFunction = P.createLanguage({
-    ws: () => P.optWhitespace,
-    lparen: () => P.string("("),
-    rparen: () => P.string(")"),
-    comma: () => P.string(","),
+const Function_: Parser<any> = any(
+    handleTransform(),
+    handleVar(),
+    handleCalc(),
+    handleGradient(),
+    handleCubicBezier(),
+    handleFunc().map(([name, values]: [string, any]) => {
+        return new FunctionValue(name, values);
+    }),
+);
 
-    FunctionArgs: (r) =>
-        r.Value.sepBy(P.string(",").or(r.ws))
-            .trim(r.ws)
-            .map((v) => new ValueArray(...v)),
+const Value: Parser<any> = any(CSSValueUnit.Value, Function_, CSSString).trim(whitespace);
 
-    Function: (r) =>
-        P.alt(
-            handleTransform(r),
-            handleVar(r),
-            handleCalc(r),
-            handleGradient(r),
-            handleCubicBezier(r),
-            handleFunc(r).map(([name, values]) => {
-                return new FunctionValue(name, values);
-            }),
-        ),
+export const CSSFunction = {
+    Function: Function_,
+    Value,
+    FunctionArgs,
+};
 
-    Value: (r) => P.alt(CSSValueUnit.Value, r.Function, CSSString).trim(r.ws),
-});
-
-export const CSSJSON = P.seq(P.string("{"), P.regexp(/[^{}]+/), P.string("}")).map(
-    (x) => {
+export const CSSJSON = all(string("{"), regex(/[^{}]+/), string("}")).map(
+    (x: string[]) => {
         const s = x.join("\n");
-        let obj = eval("(" + s + ")");
+        let obj = JSON.parse(s);
         return new ValueUnit(obj, "json");
     },
 );
 
-export const CSSValues = P.createLanguage({
-    ws: () => P.optWhitespace,
+const ValuesValue: Parser<any> = any(CSSValueUnit.Value, Function_, CSSJSON, CSSString).trim(whitespace);
 
-    Value: () =>
-        P.alt(CSSValueUnit.Value, CSSFunction.Function, CSSJSON, CSSString).trim(
-            P.optWhitespace,
-        ),
-
-    Values: (r) => r.Value.sepBy(r.ws),
-});
+export const CSSValues = {
+    Value: ValuesValue,
+    Values: ValuesValue.sepBy(whitespace),
+};
 
 export const parseCSSValue = memoize((input: string): ValueUnit | FunctionValue => {
-    return CSSValues.Value.tryParse(input);
+    return utils.tryParse(ValuesValue, input);
 });
 
 export const parseCSSPercent = memoize((input: string | number): number =>
-    CSSValueUnit.Percentage.tryParse(String(input)).valueOf(),
+    utils.tryParse(CSSValueUnit.Percentage, String(input)).valueOf(),
 );
 
 export const parseCSSTime = memoize((input: string) => {
-    return CSSValueUnit.Time.map((v: ValueUnit) => {
-        if (v.unit === "ms") {
-            return v.value;
-        } else if (v.unit === "s") {
-            return v.value * 1000;
-        } else {
-            return v.value;
-        }
-    }).tryParse(input) as number;
+    return utils.tryParse(
+        CSSValueUnit.Time.map((v: ValueUnit) => {
+            if (v.unit === "ms") {
+                return v.value;
+            } else if (v.unit === "s") {
+                return v.value * 1000;
+            } else {
+                return v.value;
+            }
+        }),
+        input,
+    ) as number;
 });

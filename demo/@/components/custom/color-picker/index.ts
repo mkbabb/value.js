@@ -14,7 +14,7 @@ export type ColorModel = {
     savedColors: Array<ValueUnit<Color<ValueUnit<number>>, "color"> | any>;
 };
 
-const DEFAULT_INPUT_COLOR = "oklch(0.7 0.15 180 / 1)";
+const DEFAULT_INPUT_COLOR = "lab(92% 88.8 20 / 82.70%)";
 const DEFAULT_COLOR_SPACE: ColorSpace = "oklch";
 
 export function createDefaultColorModel(): ColorModel {
@@ -29,6 +29,19 @@ export function createDefaultColorModel(): ColorModel {
 }
 
 export const defaultColorModel: ColorModel = createDefaultColorModel();
+
+const CSS_NATIVE_SPACES: ReadonlySet<string> = new Set([
+    "rgb", "hsl", "hwb", "lab", "lch", "oklab", "oklch",
+]);
+
+export function toCSSColorString(
+    color: ValueUnit<Color<ValueUnit<number>>, "color">,
+): string {
+    if (CSS_NATIVE_SPACES.has(color.value.colorSpace)) {
+        return normalizeColorUnit(color, true, false).value.toString();
+    }
+    return colorUnit2(color, "oklch", true, true, false).value.toString();
+}
 
 export const colorSpaceInfo = {
     rgb: {

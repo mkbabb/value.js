@@ -16,7 +16,7 @@ import {
     Rec2020Color,
     XYZColor,
 } from "@src/units/color";
-import P from "parsimmon";
+import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
 import { ValueUnit } from "../units";
 import { COLOR_NAMES } from "../units/color/constants";
 import type { ColorSpace } from "../units/color/constants";
@@ -27,7 +27,7 @@ import { convertToDegrees } from "../units/utils";
 import * as utils from "./utils";
 import { CSSValueUnit, parseCSSValueUnit } from "./units";
 
-const createColorValueUnit = (value: Color) => {
+const createColorValueUnit = (value: Color<any>) => {
     return new ValueUnit(
         value,
         "color",
@@ -173,340 +173,342 @@ const COLOR_FUNCTION_SPACES: Record<string, { space: ColorSpace; ctor: new (...a
     "xyz-d50": { space: "xyz", ctor: XYZColor },
 };
 
-const colorOptionalAlpha = (r: P.Language, colorSpace: string) => {
-    const name = P.string(colorSpace).skip(utils.opt(utils.istring("a")));
+// --- Shared sub-parsers ---
 
-    const optionalAlpha = P.alt(
-        P.seq(r.colorValue.skip(r.alphaSep), r.colorValue),
-        P.seq(r.colorValue),
+const comma = string(",");
+const space_ = regex(/\s+/);
+const div = string("/");
+const lparen = string("(");
+const rparen = string(")");
+
+const sep = any(comma.trim(whitespace), space_);
+const alphaSep = any(div.trim(whitespace), sep);
+
+const colorValue: Parser<ValueUnit> = Parser.lazy(() => any(
+    CSSValueUnit.Percentage,
+    CSSValueUnit.Angle.map((x: ValueUnit) => {
+        const deg = convertToDegrees(x.value, x.unit as any);
+        return new ValueUnit(deg, "deg", ["angle"]);
+    }),
+    any(utils.number, utils.integer).map((x: number) => new ValueUnit(x)),
+    utils.none.map(() => new ValueUnit(NaN)),
+));
+
+// Component expression for relative color syntax
+const componentExpr: Parser<ComponentExpr> = any(
+    // calc(...)
+    utils.istring("calc").next(
+        regex(/\(([^)]+)\)/, (m) => m?.[1] ?? null),
+    ).map((expr: string): ComponentExpr => ({ type: "calc", expr })),
+    // none
+    utils.none.map((): ComponentExpr => ({ type: "none" })),
+    // component reference (alpha must be tried before single 'a')
+    regex(/\b(alpha|r|g|b|h|s|l|c|w|a|x|y|z)\b/).map(
+        (name: string): ComponentExpr => ({ type: "ref", name }),
+    ),
+    // literal number / percentage / angle
+    colorValue.map((v: ValueUnit): ComponentExpr => ({ type: "literal", value: v.value })),
+);
+
+// --- Color parser helpers ---
+
+const colorOptionalAlpha = (colorSpace: string) => {
+    const name = string(colorSpace).skip(utils.istring("a").opt());
+
+    const optionalAlpha = any(
+        all(colorValue.skip(alphaSep), colorValue),
+        colorValue.map((v: ValueUnit) => [v] as [ValueUnit]),
     );
 
-    const args = P.seq(
-        r.colorValue.skip(r.sep),
-        r.colorValue.skip(r.sep),
+    const args = all(
+        colorValue.skip(sep),
+        colorValue.skip(sep),
         optionalAlpha,
     )
-        .trim(P.optWhitespace)
-        .wrap(P.string("("), P.string(")"));
+        .trim(whitespace)
+        .wrap(lparen, rparen);
 
-    return name.then(args).map(([x, y, [z, a]]) => {
-        return [x, y, z, a ?? new ValueUnit(1)];
+    return name.next(args).map(([x, y, [z, a]]: [ValueUnit, ValueUnit, [ValueUnit, ValueUnit?]]) => {
+        return [x, y, z, a ?? new ValueUnit(1)] as [ValueUnit, ValueUnit, ValueUnit, ValueUnit];
     });
 };
 
 /** Build a relative color parser for a given space name (CSS function name). */
-function relativeColorParser(r: P.Language, cssName: string, targetSpace: ColorSpace) {
-    return P.string(cssName)
-        .skip(utils.opt(utils.istring("a")))
-        .then(
-            P.seq(
+function relativeColorParser(cssName: string, targetSpace: ColorSpace) {
+    return string(cssName)
+        .skip(utils.istring("a").opt())
+        .next(
+            all(
                 utils.istring("from")
-                    .skip(P.optWhitespace)
-                    .then(P.lazy(() => CSSColor.Value)),
-                P.optWhitespace.then(r.componentExpr),
-                P.optWhitespace.then(r.componentExpr),
-                P.optWhitespace.then(r.componentExpr),
-                utils.opt(
-                    r.div.trim(P.optWhitespace).then(r.componentExpr),
-                ),
+                    .skip(whitespace)
+                    .next(Parser.lazy(() => CSSColor.Value)),
+                whitespace.next(componentExpr),
+                whitespace.next(componentExpr),
+                whitespace.next(componentExpr),
+                div.trim(whitespace).next(componentExpr).opt(),
             )
-                .trim(P.optWhitespace)
-                .wrap(P.string("("), P.string(")")),
+                .trim(whitespace)
+                .wrap(lparen, rparen),
         )
-        .map(([origin, c1, c2, c3, alphaExpr]) => {
+        .map(([origin, c1, c2, c3, alphaExpr]: [ValueUnit, ComponentExpr, ComponentExpr, ComponentExpr, ComponentExpr | undefined]) => {
             return resolveRelativeColor(origin, targetSpace, [c1, c2, c3], alphaExpr);
         });
 }
 
-export const CSSColor: P.Language = P.createLanguage({
-    colorValue: () =>
-        P.alt(
-            CSSValueUnit.Percentage,
-            CSSValueUnit.Angle.map((x: ValueUnit) => {
-                const deg = convertToDegrees(x.value, x.unit as any);
-                return new ValueUnit(deg, "deg", ["angle"]);
-            }),
-            P.alt(utils.number, utils.integer).map((x) => new ValueUnit(x)),
-            utils.none.map(() => new ValueUnit(NaN)),
-        ),
+// --- Individual color space parsers ---
 
-    // Component expression for relative color syntax
-    componentExpr: (r) =>
-        P.alt(
-            // calc(...)
-            utils.istring("calc").then(
-                P.regexp(/\(([^)]+)\)/, 1),
-            ).map((expr): ComponentExpr => ({ type: "calc", expr })),
-            // none
-            utils.none.map((): ComponentExpr => ({ type: "none" })),
-            // component reference (alpha must be tried before single 'a')
-            P.regexp(/\b(alpha|r|g|b|h|s|l|c|w|a|x|y|z)\b/).map(
-                (name): ComponentExpr => ({ type: "ref", name }),
-            ),
-            // literal number / percentage / angle
-            r.colorValue.map((v: ValueUnit): ComponentExpr => ({ type: "literal", value: v.value })),
-        ),
-
-    comma: () => P.string(","),
-    space: () => P.regex(/\s+/),
-    div: () => P.string("/"),
-
-    sep: (r) => P.alt(r.comma.trim(P.optWhitespace), r.space),
-
-    alphaSep: (r) => P.alt(r.div.trim(P.optWhitespace), r.sep),
-
-    name: (r) =>
-        P.alt(
-            ...Object.keys(COLOR_NAMES)
-                .sort((a, b) => b.length - a.length)
-                .map(utils.istring),
-        ).chain((x) => {
-            const c = (COLOR_NAMES as Record<string, string>)[x];
-            // Parse the color value as a r.Value:
-            const value = parseCSSValueUnit(c);
-
-            // Return the color value unit:
-            if (value) {
-                return P.succeed(value);
-            } else {
-                return P.fail(`Invalid color name: ${x}`);
-            }
-        }),
-
-    hex: () =>
-        P.regexp(/#[0-9a-fA-F]{3,8}/).map((x) => {
-            const { r, g, b, alpha } = hex2rgb(x);
-            return createColorValueUnit(new RGBColor(r, g, b, alpha));
-        }),
-
-    kelvin: () =>
-        utils.number.skip(utils.istring("k")).map((kelvin) => {
-            const rgb = kelvin2rgb(new KelvinColor(kelvin));
-            return createColorValueUnit(rgb);
-        }),
-
-    rgb: (r) =>
-        P.alt(
-            relativeColorParser(r, "rgb", "rgb"),
-            colorOptionalAlpha(r, "rgb").map(([r, g, b, alpha]) =>
-                createColorValueUnit(new RGBColor(r, g, b, alpha)),
-            ),
-        ),
-
-    hsl: (r) =>
-        P.alt(
-            relativeColorParser(r, "hsl", "hsl"),
-            colorOptionalAlpha(r, "hsl").map(([h, s, l, alpha]) =>
-                createColorValueUnit(new HSLColor(h, s, l, alpha)),
-            ),
-        ),
-
-    hsv: (r) =>
-        colorOptionalAlpha(r, "hsv").map(([h, s, v, alpha]) => {
-            return createColorValueUnit(new HSVColor(h, s, v, alpha));
-        }),
-
-    hwb: (r) =>
-        P.alt(
-            relativeColorParser(r, "hwb", "hwb"),
-            colorOptionalAlpha(r, "hwb").map(([h, w, b, alpha]) =>
-                createColorValueUnit(new HWBColor(h, w, b, alpha)),
-            ),
-        ),
-
-    lab: (r) =>
-        P.alt(
-            relativeColorParser(r, "lab", "lab"),
-            colorOptionalAlpha(r, "lab").map(([l, a, b, alpha]) =>
-                createColorValueUnit(new LABColor(l, a, b, alpha)),
-            ),
-        ),
-
-    lch: (r) =>
-        P.alt(
-            relativeColorParser(r, "lch", "lch"),
-            colorOptionalAlpha(r, "lch").map(([l, c, h, alpha]) =>
-                createColorValueUnit(new LCHColor(l, c, h, alpha)),
-            ),
-        ),
-
-    oklab: (r) =>
-        P.alt(
-            relativeColorParser(r, "oklab", "oklab"),
-            colorOptionalAlpha(r, "oklab").map(([l, a, b, alpha]) =>
-                createColorValueUnit(new OKLABColor(l, a, b, alpha)),
-            ),
-        ),
-
-    oklch: (r) =>
-        P.alt(
-            relativeColorParser(r, "oklch", "oklch"),
-            colorOptionalAlpha(r, "oklch").map(([l, c, h, alpha]) =>
-                createColorValueUnit(new OKLCHColor(l, c, h, alpha)),
-            ),
-        ),
-
-    xyz: (r) =>
-        P.alt(
-            relativeColorParser(r, "xyz", "xyz"),
-            colorOptionalAlpha(r, "xyz").map(([x, y, z, alpha]) =>
-                createColorValueUnit(new XYZColor(x, y, z, alpha)),
-            ),
-        ),
-
-    // color-mix() parser
-    colorMixSpace: () =>
-        P.alt(
-            utils.istring("srgb-linear").result("srgb-linear"),
-            utils.istring("srgb").result("srgb"),
-            utils.istring("display-p3").result("display-p3"),
-            utils.istring("a98-rgb").result("a98-rgb"),
-            utils.istring("prophoto-rgb").result("prophoto-rgb"),
-            utils.istring("rec2020").result("rec2020"),
-            utils.istring("oklab").result("oklab"),
-            utils.istring("oklch").result("oklch"),
-            utils.istring("lab").result("lab"),
-            utils.istring("lch").result("lch"),
-            utils.istring("hsl").result("hsl"),
-            utils.istring("hwb").result("hwb"),
-            utils.istring("xyz-d65").result("xyz-d65"),
-            utils.istring("xyz-d50").result("xyz-d50"),
-            utils.istring("xyz").result("xyz"),
-        ),
-
-    colorMixHueMethod: () =>
-        P.alt(
-            utils.istring("shorter"),
-            utils.istring("longer"),
-            utils.istring("increasing"),
-            utils.istring("decreasing"),
-        )
-            .skip(P.optWhitespace)
-            .skip(utils.istring("hue")),
-
-    colorMixColorPct: (r) =>
-        P.seq(
-            r.Value,
-            utils.opt(P.optWhitespace.then(CSSValueUnit.Percentage)),
-        ),
-
-    colorMix: (r) =>
-        utils
-            .istring("color-mix")
-            .then(
-                P.seq(
-                    // "in <space> [<hueMethod>]"
-                    utils
-                        .istring("in")
-                        .skip(P.optWhitespace)
-                        .then(
-                            P.seq(
-                                r.colorMixSpace,
-                                utils.opt(P.optWhitespace.then(r.colorMixHueMethod)),
-                            ),
-                        ),
-                    // ", <color> [<pct>]?"
-                    P.string(",")
-                        .trim(P.optWhitespace)
-                        .then(r.colorMixColorPct),
-                    // ", <color> [<pct>]?"
-                    P.string(",")
-                        .trim(P.optWhitespace)
-                        .then(r.colorMixColorPct),
-                )
-                    .trim(P.optWhitespace)
-                    .wrap(P.string("("), P.string(")")),
-            )
-            .map(([[spaceName, hueMethod], [color1Unit, pct1], [color2Unit, pct2]]) => {
-                const space = COLOR_MIX_SPACE_MAP[spaceName] ?? "oklab";
-                const method: HueInterpolationMethod = (hueMethod as HueInterpolationMethod) ?? "shorter";
-
-                // Resolve percentages (default 50% if omitted)
-                let p1 = pct1 != null ? pct1.value / 100 : -1;
-                let p2 = pct2 != null ? pct2.value / 100 : -1;
-
-                // CSS spec: if one is omitted, it's the complement of the other
-                if (p1 < 0 && p2 < 0) {
-                    p1 = 0.5;
-                    p2 = 0.5;
-                } else if (p1 < 0) {
-                    p1 = 1 - p2;
-                } else if (p2 < 0) {
-                    p2 = 1 - p1;
-                }
-
-                // Resolve both colors to plain normalized Color<number>
-                const c1 = resolveToPlainColor(color1Unit);
-                const c2 = resolveToPlainColor(color2Unit);
-
-                const mixed = mixColors(c1, c2, p1, p2, space, method);
-                return createColorValueUnit(mixed);
-            }),
-
-    // CSS color() function: color(<space> c1 c2 c3 [/ alpha])
-    colorFunction: (r) =>
-        utils.istring("color").then(
-            P.seq(
-                P.alt(
-                    utils.istring("srgb-linear").result("srgb-linear"),
-                    utils.istring("srgb").result("srgb"),
-                    utils.istring("display-p3").result("display-p3"),
-                    utils.istring("a98-rgb").result("a98-rgb"),
-                    utils.istring("prophoto-rgb").result("prophoto-rgb"),
-                    utils.istring("rec2020").result("rec2020"),
-                    utils.istring("xyz-d65").result("xyz-d65"),
-                    utils.istring("xyz-d50").result("xyz-d50"),
-                    utils.istring("xyz").result("xyz"),
-                ).skip(P.optWhitespace),
-                r.colorValue.skip(P.optWhitespace),
-                r.colorValue.skip(P.optWhitespace),
-                P.alt(
-                    P.seq(
-                        r.colorValue.skip(r.div.trim(P.optWhitespace)),
-                        r.colorValue,
-                    ),
-                    r.colorValue.map((v: ValueUnit) => [v, undefined]),
-                ),
-            )
-                .trim(P.optWhitespace)
-                .wrap(P.string("("), P.string(")")),
-        ).map(([spaceName, c1, c2, [c3, alphaVal]]: [string, ValueUnit, ValueUnit, [ValueUnit, ValueUnit | undefined]]) => {
-            const mapping = COLOR_FUNCTION_SPACES[spaceName];
-            if (!mapping) {
-                throw new Error(`Unknown color() space: ${spaceName}`);
-            }
-
-            const alpha = alphaVal ?? new ValueUnit(1);
-
-            // color(srgb ...) values are [0,1] but RGBColor expects [0,255] for normalization
-            if (spaceName === "srgb") {
-                const scale = (v: ValueUnit) => new ValueUnit(v.value * 255, v.unit, v.superType);
-                return createColorValueUnit(new RGBColor(scale(c1), scale(c2), scale(c3), alpha));
-            }
-
-            const result = new mapping.ctor(c1, c2, c3, alpha);
-            return createColorValueUnit(result);
-        }),
-
-    Value: (r) =>
-        P.alt(
-            r.colorMix,
-            r.colorFunction,
-            r.hex,
-            r.kelvin,
-            r.rgb,
-            r.hsl,
-            r.hsv,
-            r.hwb,
-            r.lab,
-            r.lch,
-            r.oklab,
-            r.oklch,
-            r.xyz,
-            r.name,
-        ).trim(P.optWhitespace),
+const hex = regex(/#[0-9a-fA-F]{3,8}/).map((x: string) => {
+    const { r, g, b, alpha } = hex2rgb(x);
+    return createColorValueUnit(new RGBColor(r, g, b, alpha));
 });
 
+const kelvin = utils.number.skip(utils.istring("k")).map((k: number) => {
+    const rgb = kelvin2rgb(new KelvinColor(k));
+    return createColorValueUnit(rgb);
+});
+
+const rgbParser: Parser<ValueUnit> = any(
+    relativeColorParser("rgb", "rgb"),
+    colorOptionalAlpha("rgb").map(([r, g, b, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new RGBColor(r, g, b, alpha)),
+    ),
+);
+
+const hslParser: Parser<ValueUnit> = any(
+    relativeColorParser("hsl", "hsl"),
+    colorOptionalAlpha("hsl").map(([h, s, l, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new HSLColor(h, s, l, alpha)),
+    ),
+);
+
+const hsvParser: Parser<ValueUnit> = colorOptionalAlpha("hsv").map(
+    ([h, s, v, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) => {
+        return createColorValueUnit(new HSVColor(h, s, v, alpha));
+    },
+);
+
+const hwbParser: Parser<ValueUnit> = any(
+    relativeColorParser("hwb", "hwb"),
+    colorOptionalAlpha("hwb").map(([h, w, b, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new HWBColor(h, w, b, alpha)),
+    ),
+);
+
+const labParser: Parser<ValueUnit> = any(
+    relativeColorParser("lab", "lab"),
+    colorOptionalAlpha("lab").map(([l, a, b, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new LABColor(l, a, b, alpha)),
+    ),
+);
+
+const lchParser: Parser<ValueUnit> = any(
+    relativeColorParser("lch", "lch"),
+    colorOptionalAlpha("lch").map(([l, c, h, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new LCHColor(l, c, h, alpha)),
+    ),
+);
+
+const oklabParser: Parser<ValueUnit> = any(
+    relativeColorParser("oklab", "oklab"),
+    colorOptionalAlpha("oklab").map(([l, a, b, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new OKLABColor(l, a, b, alpha)),
+    ),
+);
+
+const oklchParser: Parser<ValueUnit> = any(
+    relativeColorParser("oklch", "oklch"),
+    colorOptionalAlpha("oklch").map(([l, c, h, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new OKLCHColor(l, c, h, alpha)),
+    ),
+);
+
+const xyzParser: Parser<ValueUnit> = any(
+    relativeColorParser("xyz", "xyz"),
+    colorOptionalAlpha("xyz").map(([x, y, z, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new XYZColor(x, y, z, alpha)),
+    ),
+);
+
+// --- color-mix() parser ---
+
+const colorMixSpace = any(
+    utils.istring("srgb-linear").map(() => "srgb-linear"),
+    utils.istring("srgb").map(() => "srgb"),
+    utils.istring("display-p3").map(() => "display-p3"),
+    utils.istring("a98-rgb").map(() => "a98-rgb"),
+    utils.istring("prophoto-rgb").map(() => "prophoto-rgb"),
+    utils.istring("rec2020").map(() => "rec2020"),
+    utils.istring("oklab").map(() => "oklab"),
+    utils.istring("oklch").map(() => "oklch"),
+    utils.istring("lab").map(() => "lab"),
+    utils.istring("lch").map(() => "lch"),
+    utils.istring("hsl").map(() => "hsl"),
+    utils.istring("hwb").map(() => "hwb"),
+    utils.istring("xyz-d65").map(() => "xyz-d65"),
+    utils.istring("xyz-d50").map(() => "xyz-d50"),
+    utils.istring("xyz").map(() => "xyz"),
+);
+
+const colorMixHueMethod = any(
+    utils.istring("shorter"),
+    utils.istring("longer"),
+    utils.istring("increasing"),
+    utils.istring("decreasing"),
+)
+    .skip(whitespace)
+    .skip(utils.istring("hue"));
+
+const colorMixColorPct: Parser<[ValueUnit, ValueUnit | undefined]> = Parser.lazy(() =>
+    all(
+        CSSColor.Value,
+        whitespace.next(CSSValueUnit.Percentage).opt(),
+    ) as Parser<[ValueUnit, ValueUnit | undefined]>,
+);
+
+const colorMix: Parser<ValueUnit> = utils
+    .istring("color-mix")
+    .next(
+        all(
+            // "in <space> [<hueMethod>]"
+            utils
+                .istring("in")
+                .skip(whitespace)
+                .next(
+                    all(
+                        colorMixSpace,
+                        whitespace.next(colorMixHueMethod).opt(),
+                    ),
+                ),
+            // ", <color> [<pct>]?"
+            string(",")
+                .trim(whitespace)
+                .next(colorMixColorPct),
+            // ", <color> [<pct>]?"
+            string(",")
+                .trim(whitespace)
+                .next(colorMixColorPct),
+        )
+            .trim(whitespace)
+            .wrap(lparen, rparen),
+    )
+    .map(([[spaceName, hueMethod], [color1Unit, pct1], [color2Unit, pct2]]: [[string, string | undefined], [ValueUnit, ValueUnit | undefined], [ValueUnit, ValueUnit | undefined]]) => {
+        const space = COLOR_MIX_SPACE_MAP[spaceName] ?? "oklab";
+        const method: HueInterpolationMethod = (hueMethod as HueInterpolationMethod) ?? "shorter";
+
+        // Resolve percentages (default 50% if omitted)
+        let p1 = pct1 != null ? pct1.value / 100 : -1;
+        let p2 = pct2 != null ? pct2.value / 100 : -1;
+
+        // CSS spec: if one is omitted, it's the complement of the other
+        if (p1 < 0 && p2 < 0) {
+            p1 = 0.5;
+            p2 = 0.5;
+        } else if (p1 < 0) {
+            p1 = 1 - p2;
+        } else if (p2 < 0) {
+            p2 = 1 - p1;
+        }
+
+        // Resolve both colors to plain normalized Color<number>
+        const c1 = resolveToPlainColor(color1Unit);
+        const c2 = resolveToPlainColor(color2Unit);
+
+        const mixed = mixColors(c1, c2, p1, p2, space, method);
+        return createColorValueUnit(mixed);
+    });
+
+// --- CSS color() function ---
+
+const colorFunctionSpaces = any(
+    utils.istring("srgb-linear").map(() => "srgb-linear"),
+    utils.istring("srgb").map(() => "srgb"),
+    utils.istring("display-p3").map(() => "display-p3"),
+    utils.istring("a98-rgb").map(() => "a98-rgb"),
+    utils.istring("prophoto-rgb").map(() => "prophoto-rgb"),
+    utils.istring("rec2020").map(() => "rec2020"),
+    utils.istring("xyz-d65").map(() => "xyz-d65"),
+    utils.istring("xyz-d50").map(() => "xyz-d50"),
+    utils.istring("xyz").map(() => "xyz"),
+);
+
+const colorFunction: Parser<ValueUnit> = utils.istring("color").next(
+    all(
+        colorFunctionSpaces.skip(whitespace),
+        colorValue.skip(whitespace),
+        colorValue.skip(whitespace),
+        any(
+            all(
+                colorValue.skip(div.trim(whitespace)),
+                colorValue,
+            ),
+            colorValue.map((v: ValueUnit) => [v, undefined] as [ValueUnit, undefined]),
+        ),
+    )
+        .trim(whitespace)
+        .wrap(lparen, rparen),
+).map(([spaceName, c1, c2, [c3, alphaVal]]: [string, ValueUnit, ValueUnit, [ValueUnit, ValueUnit | undefined]]) => {
+    const mapping = COLOR_FUNCTION_SPACES[spaceName];
+    if (!mapping) {
+        throw new Error(`Unknown color() space: ${spaceName}`);
+    }
+
+    const alpha = alphaVal ?? new ValueUnit(1);
+
+    // color(srgb ...) values are [0,1] but RGBColor expects [0,255] for normalization
+    if (spaceName === "srgb") {
+        const s = (v: ValueUnit) => v.value * 255;
+        return createColorValueUnit(new RGBColor(s(c1), s(c2), s(c3), alpha.value));
+    }
+
+    const result = new mapping.ctor(c1, c2, c3, alpha);
+    return createColorValueUnit(result);
+});
+
+// --- Named color parser ---
+
+const nameParser: Parser<ValueUnit> = any(
+    ...Object.keys(COLOR_NAMES)
+        .sort((a, b) => b.length - a.length)
+        .map(utils.istring),
+).chain((x: string) => {
+    const c = (COLOR_NAMES as Record<string, string>)[x.toLowerCase()];
+    if (c) {
+        const value = parseCSSValueUnit(c);
+        if (value) {
+            return utils.succeed(value);
+        }
+    }
+    return utils.fail(`Invalid color name: ${x}`);
+});
+
+// --- Main CSSColor Value parser ---
+
+const Value: Parser<ValueUnit> = any(
+    colorMix,
+    colorFunction,
+    hex,
+    kelvin,
+    rgbParser,
+    hslParser,
+    hsvParser,
+    hwbParser,
+    labParser,
+    lchParser,
+    oklabParser,
+    oklchParser,
+    xyzParser,
+    nameParser,
+).trim(whitespace);
+
+export const CSSColor = {
+    Value,
+    colorValue,
+    componentExpr,
+    sep,
+    alphaSep,
+    div,
+};
+
 export function parseCSSColor(input: string): ValueUnit {
-    return CSSColor.Value.tryParse(input);
+    return utils.tryParse(Value, input);
 }

@@ -16,7 +16,7 @@
                     >
                         <SelectTrigger
                             :style="{
-                                color: denormalizedCurrentColor.value.toString(),
+                                color: cssColor,
                             }"
                             class="w-fit h-fit font-bold italic text-2xl p-0 m-0 border-none self-end focus:outline-none focus:ring-0 focus:ring-transparent bg-transparent"
                         >
@@ -41,8 +41,7 @@
                                     @click="copyAndSetInputColor()"
                                     class="w-12 aspect-square rounded-full hover:scale-125 flex items-center justify-items-center justify-center transition-transform cursor-pointer"
                                     :style="{
-                                        backgroundColor:
-                                            denormalizedCurrentColor.value.toString(),
+                                        backgroundColor: cssColor,
                                     }"
                                 ></div>
                             </TooltipTrigger>
@@ -112,20 +111,9 @@
                     @mouseleave="stopDragging"
                 >
                     <div
-                        class="flex w-6 h-6 aspect-square border-2 border-solid border-background rounded-full shadow-md absolute -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+                        class="w-6 h-6 aspect-square border-2 border-solid border-background rounded-full shadow-md absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                         :style="spectrumDotStyle"
-                    >
-                        <HoverCard :open-delay="30000">
-                            <HoverCardTrigger>
-                                <span class="opacity-10 pointer-events-none select-none"
-                                    >🙂‍↔️</span
-                                >
-                            </HoverCardTrigger>
-                            <HoverCardContent class="fraunces w-fit">
-                                <p>hey! 🌱</p>
-                            </HoverCardContent>
-                        </HoverCard>
-                    </div>
+                    ></div>
                 </div>
 
                 <div class="grid gap-2">
@@ -187,37 +175,23 @@
                 </div>
 
                 <div
-                    class="flex flex-col lg:flex-row gap-x-4 gap-y-2 p-0 m-0 items-center justify-center relative"
+                    class="grid gap-y-2 p-0 m-0 relative"
                 >
                     <HoverCard
                         :close-delay="0"
                         :open-delay="700"
-                        class="pointer-events-auto"
+                        class="pointer-events-auto w-full"
                     >
-                        <HoverCardTrigger>
+                        <HoverCardTrigger class="w-full block">
                             <span
                                 ref="inputColorRef"
                                 contenteditable
-                                class="w-[28ch] flex-grow border overflow-hidden justify-start items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code lg:inline-block lg:h-full flex text-ellipsis whitespace-nowrap"
-                                @keydown="
-                                    (e) => {
-                                        if (e.key === 'Enter') {
-                                            e.preventDefault();
-                                            parseAndSetColor(
-                                                (e.target as any).innerText,
-                                            );
-                                        }
-                                    }
-                                "
-                                @input="
-                                    (e) =>
-                                        parseAndSetColorDebounced(
-                                            (e.target as any).innerText,
-                                        )
-                                "
-                                @focus="selectAll"
-                                >{{ formattedCurrentColor }}</span
-                            >
+                                class="w-full block border overflow-hidden justify-start items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap"
+                                @keydown="onInputKeydown"
+                                @input="onInputInput"
+                                @focus="onInputFocus"
+                                @blur="onInputBlur"
+                            ></span>
                         </HoverCardTrigger>
 
                         <HoverCardContent
@@ -236,7 +210,30 @@
                         </HoverCardContent>
                     </HoverCard>
 
-                    <div class="flex gap-x-4 w-full justify-evenly self-center">
+                    <div class="flex gap-x-4 w-full justify-evenly items-center">
+                        <HoverCard
+                            :close-delay="0"
+                            :open-delay="700"
+                            class="pointer-events-auto"
+                        >
+                            <HoverCardTrigger>
+                                <RotateCcw
+                                    @click="emit('reset')"
+                                    class="h-8 aspect-square stroke-foreground hover:scale-125 hover:-rotate-180 transition-all duration-300 cursor-pointer"
+                                />
+                            </HoverCardTrigger>
+                            <HoverCardContent
+                                class="z-[100] pointer-events-auto fraunces"
+                            >
+                                <div>
+                                    <p class="font-bold text-lg">Reset color 🔄</p>
+                                    <p class="text-sm opacity-60">
+                                        Click to reset to the default color.
+                                    </p>
+                                </div>
+                            </HoverCardContent>
+                        </HoverCard>
+
                         <HoverCard
                             :close-delay="0"
                             :open-delay="700"
@@ -329,7 +326,7 @@
 
         <Card
             :class="[
-                'absolute bottom-0 w-full transition-all duration-300 opacity-95 pointer-events-auto',
+                'absolute bottom-0 w-full transition-all duration-300 z-50 pointer-events-auto',
                 paletteHidden
                     ? ' translate-y-[100%] pointer-events-none overflow-hidden opacity-0'
                     : ' translate-y-[0%]',
@@ -365,13 +362,9 @@
                             <Tooltip>
                                 <TooltipTrigger as-child>
                                     <div
-                                        class="items-center rounded-sm w-12 aspect-square hover:scale-125 cursor-pointer transition-all"
+                                        class="items-center rounded-sm w-12 aspect-square hover:scale-125 cursor-pointer transition-all ring-1 ring-border"
                                         :style="{
-                                            backgroundColor: normalizeColorUnit(
-                                                color,
-                                                true,
-                                                false,
-                                            ).toString(),
+                                            backgroundColor: toCSSColorString(color),
                                         }"
                                         @click="() => onSavedColorClick(color, ix)"
                                     ></div>
@@ -421,7 +414,6 @@ import { clamp } from "@src/math";
 import { parseCSSColor } from "@src/parsing/color";
 import { ValueUnit } from "@src/units";
 import { Color } from "@src/units/color";
-import { color2 } from "@src/units/color/utils";
 import type { ColorSpace } from "@src/units/color/constants";
 import {
     COLOR_SPACE_DENORM_UNITS,
@@ -435,7 +427,7 @@ import {
 } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
 import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
-import { Palette, Shuffle, Copy, X, Plus } from "lucide-vue-next";
+import { Palette, Shuffle, Copy, X, Plus, RotateCcw } from "lucide-vue-next";
 import {
     SliderRange,
     SliderRoot,
@@ -457,9 +449,11 @@ import { useDark, useMagicKeys } from "@vueuse/core";
 import CardDescription from "@components/ui/card/CardDescription.vue";
 import { COLOR_NAMES } from "@src/units/color/constants";
 import type { ColorModel } from ".";
+import { toCSSColorString } from ".";
 
-const selectAll = (event: MouseEvent) => {
-    const target = event.target as HTMLSpanElement;
+const selectAll = () => {
+    const target = inputColorRef.value;
+    if (!target) return;
     const range = document.createRange();
 
     range.selectNodeContents(target);
@@ -471,6 +465,7 @@ const selectAll = (event: MouseEvent) => {
     selection?.removeAllRanges();
     selection?.addRange(range);
 };
+
 
 const copyToClipboard = (text: string) => {
     if (!navigator.clipboard) {
@@ -502,6 +497,8 @@ const DEFAULT_PALETTES = 6;
 
 const model = defineModel<ColorModel>({ required: true });
 
+const emit = defineEmits<{ reset: [] }>();
+
 /**
  * Replace model.value with a shallow copy so defineModel's customRef setter fires,
  * emitting update:modelValue back to the parent shallowRef. Without this, deep
@@ -513,6 +510,13 @@ const updateModel = (patch: Partial<ColorModel>) => {
 
 const denormalizedCurrentColor = computed(() => {
     return normalizeColorUnit(model.value.color, true, false);
+});
+
+const cssColor = computed(() => toCSSColorString(model.value.color));
+const cssColorOpaque = computed(() => {
+    const c = model.value.color.clone();
+    c.value.alpha.value = 1;
+    return toCSSColorString(c);
 });
 
 // Check to see if the current color is in the COLOR_NAMES, if it is, return the name, else return the color, formatted:
@@ -635,6 +639,7 @@ const setCurrentColor = (
 };
 
 let prevInvalidParsedValue = "";
+let isInitialParse = true;
 
 const parseAndSetColor = (newVal: string) => {
     try {
@@ -666,15 +671,34 @@ const parseAndSetColor = (newVal: string) => {
             selectedColorSpace: converted.value.colorSpace,
         });
 
-        toast.success(`Parsed ${formattedCurrentColor.value} 🎨`);
+        if (!isInitialParse) {
+            toast.success(`Parsed ${formattedCurrentColor.value} 🎨`);
+        }
     } catch (e) {
         prevInvalidParsedValue = newVal;
 
-        toast.error(`Invalid color: ${newVal}`);
+        if (!isInitialParse) {
+            toast.error(`Invalid color: ${newVal}`);
+        }
+    } finally {
+        isInitialParse = false;
     }
 };
 
 const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000, false);
+
+const inputIsFocused = ref(false);
+const onInputFocus = () => { inputIsFocused.value = true; selectAll(); };
+const onInputBlur = () => { inputIsFocused.value = false; };
+const onInputInput = (e: Event) => {
+    parseAndSetColorDebounced((e.target as HTMLElement).innerText);
+};
+const onInputKeydown = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        parseAndSetColor((e.target as HTMLElement).innerText);
+    }
+};
 
 const copyAndSetInputColor = () => {
     const color = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
@@ -709,61 +733,35 @@ const generateRandomColor = (
 };
 
 /**
- * Creates CSS gradient stops by varying a single component.
- * Reuses a single mutable Color<ValueUnit<number>> — color2() creates new objects
- * internally and coerces ValueUnit via valueOf(), so reuse is safe.
+ * Build CSS gradient stops for a slider by varying one component from 0→1.
+ *
+ * Works with the normalized [0,1] color model: clones the source into a
+ * temporary ValueUnit wrapper, mutates the target component, converts to a
+ * CSS-native space via colorUnit2 (which handles normalize → convert →
+ * denormalize), then stringifies.
  */
-const createGradientStops = (
-    baseColor: Color<ValueUnit<number>>,
-    component: string,
-    steps: number,
-    to?: ColorSpace,
-) => {
-    const originalValue = baseColor[component].value;
-    const sourceColorSpace = baseColor.colorSpace;
-    const stops: string[] = [];
-
-    for (let ix = 0; ix < steps; ix++) {
-        baseColor[component].value = ix / steps;
-
-        // color2 returns a new Color<number> via valueOf() coercion
-        const converted = to && to !== sourceColorSpace
-            ? color2(baseColor as any, to)
-            : baseColor;
-
-        const percent = (ix / steps) * 100;
-        stops.push(`${converted.toString()} ${percent}%`);
-    }
-
-    // Restore original value
-    baseColor[component].value = originalValue;
-
-    return stops;
-};
-
 const componentsSlidersStyle = computed(() => {
-    const steps = 10;
-    const to = "oklab" as ColorSpace;
-
-    // Normalize once to get [0,1] values
-    const componentColor = normalizeColorUnit(currentColorOpaque.value, false, false);
-    const innerColor = componentColor.value;
-
-    // color2 works with Color<ValueUnit<number>> via valueOf() coercion,
-    // so we can pass the inner color directly — no need to extract raw numbers.
-    // We just need one clone to mutate per-component without affecting the source.
-    const mutableColor = innerColor.clone();
+    const STEPS = 10;
+    // Use the opaque color, already normalized to [0,1]
+    const sourceColor = normalizeColorUnit(currentColorOpaque.value, false, false);
 
     const gradients: Record<string, string[]> = {};
 
-    for (const [component] of innerColor.entries()) {
-        // Save, zero out this component, generate stops, restore
-        const saved = mutableColor[component].value;
-        mutableColor[component].value = 0;
+    for (const [component] of sourceColor.value.entries()) {
+        const stops: string[] = [];
 
-        gradients[component] = createGradientStops(mutableColor, component, steps, to);
+        for (let i = 0; i <= STEPS; i++) {
+            const t = i / STEPS;
 
-        mutableColor[component].value = saved;
+            // Clone, set this component to t, convert to CSS-safe string
+            const step = sourceColor.clone() as typeof sourceColor;
+            step.value[component].value = t;
+
+            const cssStr = toCSSColorString(step);
+            stops.push(`${cssStr} ${(t * 100)}%`);
+        }
+
+        gradients[component] = stops;
     }
 
     return gradients;
@@ -807,7 +805,7 @@ const updateColorComponent = (
     component: string,
     normalized: boolean = false,
 ) => {
-    const color = model.value.color;
+    const color = model.value.color.clone();
     if (normalized) {
         color.value[component].value = value;
     } else {
@@ -859,7 +857,7 @@ const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
     const s = x / rect.width;
     const v = 1 - y / rect.height;
 
-    const hsv = HSVCurrentColor.value;
+    const hsv = HSVCurrentColor.value.clone();
 
     hsv.value.s.value = s;
     hsv.value.v.value = v;
@@ -896,23 +894,17 @@ const spectrumStyle = computed(() => {
 
     const hClamped = clamp(h.value, 0, 1);
 
-    // Build shadow color string directly without cloning
-    const denorm = denormalizedCurrentColor.value;
-    const shadowAlpha = 30;
-    const shadowColorSpace = denorm.value.colorSpace;
-    const shadowComponents = denorm.value.entries()
-        .filter(([k]) => k !== "alpha")
-        .map(([, v]) => v)
-        .join(" ");
+    // Build a CSS-safe shadow color with reduced alpha
+    const shadowClone = model.value.color.clone();
+    shadowClone.value.alpha.value = 0.3;
+    const shadowStr = toCSSColorString(shadowClone);
 
     return {
         background: `
         linear-gradient(to top, #000, transparent),
         linear-gradient(to right, #fff, hsl(${hClamped * 360}deg, 100%, 50%))
       `,
-        opacity: alpha.value,
-        // CSS custom property for the shadow color — applied via CSS class with transition
-        "--spectrum-shadow": `${shadowColorSpace}(${shadowComponents} / ${shadowAlpha})`,
+        "--spectrum-shadow": shadowStr,
     };
 });
 
@@ -925,7 +917,7 @@ const spectrumDotStyle = computed(() => {
     return {
         left: `${100 * sClamped}%`,
         top: `${100 * (1 - vClamped)}%`,
-        backgroundColor: currentColorOpaque.value.toString(),
+        backgroundColor: cssColorOpaque.value,
     };
 });
 
@@ -1052,10 +1044,15 @@ watch(
     { immediate: true },
 );
 
+// Sync displayed text when not focused (prevents cursor jumping)
+watch(formattedCurrentColor, (text) => {
+    if (!inputIsFocused.value && inputColorRef.value) {
+        inputColorRef.value.innerText = text;
+    }
+});
+
 // Run before anything else:
 onBeforeMount(() => {
-    console.log("ColorPicker mounted");
-
     const savedColors = [...model.value.savedColors];
     for (let i = 0; i < DEFAULT_PALETTES - savedColors.length; i++) {
         savedColors.push("white" as any);
@@ -1069,6 +1066,9 @@ onBeforeMount(() => {
 
 onMounted(() => {
     window.addEventListener("keydown", handleKeydown);
+    if (inputColorRef.value) {
+        inputColorRef.value.innerText = formattedCurrentColor.value;
+    }
 });
 
 onUnmounted(() => {

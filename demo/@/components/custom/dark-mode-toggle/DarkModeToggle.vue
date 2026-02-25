@@ -38,7 +38,7 @@ const { size } = defineProps({
     isolation: isolate;
     background: 0;
 
-    transition: all !important;
+    transition: opacity 200ms ease, transform 200ms ease, background 200ms ease;
 
     z-index: 999;
 
@@ -52,6 +52,7 @@ const { size } = defineProps({
     &:focus {
         outline: none;
         opacity: 1;
+        transform: scale(1.25);
         background: hsl(0 0% 50% / 0.15);
     }
 }

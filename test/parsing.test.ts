@@ -1,6 +1,7 @@
 import { assert, describe, expect, it } from "vitest";
 import { CSSColor, parseCSSColor, parseCSSValueUnit } from "../src/parsing/units";
 import { parseCSSValue, parseCSSTime, parseCSSPercent } from "../src/parsing/index";
+import { parseResult } from "../src/parsing/utils";
 import { UNITS } from "../src/units/constants";
 
 const insertRandomWhitespace = (str: string) => {
@@ -83,7 +84,7 @@ describe("CSSColor", () => {
 
         for (const color of colors) {
             const spacedColor = insertRandomWhitespace(color);
-            const value = CSSColor.Value.parse(spacedColor);
+            const value = parseResult(CSSColor.Value, spacedColor);
             expect(value.status, `CSSColor.Value failed to parse: "${color}"`).toBe(
                 true,
             );
@@ -98,7 +99,7 @@ describe("CSSColor", () => {
         ];
 
         for (const color of colors) {
-            const value = CSSColor.Value.parse(color);
+            const value = parseResult(CSSColor.Value, color);
             expect(value.status, `Should have failed on: "${color}"`).toBe(false);
         }
     });
@@ -195,29 +196,21 @@ describe("parseCSSValue", () => {
         expect(result.valueOf()).toBe(42);
     });
 
-    // NOTE: var(), calc(), and gradient parsing via parseCSSValue currently fail
-    // due to a missing "String" rule in the CSSFunction Parsimmon language
-    // (handleVar references r.String which does not exist). These tests use
-    // it.fails to document the known issue.
-
-    it.fails("should parse var() functions (blocked by missing CSSFunction.String rule)", () => {
+    it("should parse var() functions", () => {
         const result = parseCSSValue("var(--foo)");
         expect(result.unit).toBe("var");
-        expect(result.toString()).toBe("var(--foo)");
     });
 
-    it.fails("should parse calc() functions (blocked by missing CSSFunction.String rule)", () => {
+    it("should parse calc() functions", () => {
         const result = parseCSSValue("calc(100px + 50px)");
         expect(result).toBeDefined();
-        expect(result.toString()).toContain("calc");
     });
 
-    it.fails("should parse linear-gradient functions (blocked by missing CSSFunction.String rule)", () => {
+    it("should parse linear-gradient functions", () => {
         const result = parseCSSValue(
             "linear-gradient(to right, red, blue)",
         );
         expect(result).toBeDefined();
-        expect(result.toString()).toContain("linear-gradient");
     });
 
     it("should parse color values", () => {

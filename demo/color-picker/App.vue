@@ -6,7 +6,7 @@
     <div
         class="flex w-full h-full absolute z-[-1]"
         :style="{
-            backgroundColor: denormalizedCurrentColor?.value?.toString(),
+            backgroundColor: cssColor,
         }"
     ></div>
 
@@ -47,20 +47,9 @@
                 </HoverCardContent>
             </HoverCard>
 
-            <div class="flex gap-2 items-center">
-                <Button
-                    variant="ghost"
-                    size="icon"
-                    class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all cursor-pointer"
-                    @click="resetToDefaults"
-                >
-                    <RotateCcw />
-                </Button>
-
-                <DarkModeToggle
-                    class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all"
-                />
-            </div>
+            <DarkModeToggle
+                class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all"
+            />
         </div>
 
         <div
@@ -69,6 +58,7 @@
             <ColorPicker
                 class="w-full h-full lg:col-span-1 self-start"
                 v-model="model"
+                @reset="resetToDefaults"
             ></ColorPicker>
 
             <Card class="w-full lg:col-span-1 overflow-scroll h-full">
@@ -78,7 +68,7 @@
                         <span
                             class="italic"
                             :style="{
-                                color: denormalizedCurrentColor?.value?.toString(),
+                                color: cssColor,
                             }"
                             >{{ COLOR_SPACE_NAMES[model.selectedColorSpace] }}</span
                         ></CardTitle
@@ -155,7 +145,7 @@ import type { ColorSpace } from "@src/units/color/constants";
 import type { DocModule } from "@components/custom/markdown";
 import { Markdown } from "@components/custom/markdown";
 import { normalizeColorUnit } from "@src/units/color/normalize";
-import { RotateCcw } from "lucide-vue-next";
+import { toCSSColorString } from "@components/custom/color-picker";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -188,6 +178,8 @@ const urlParams = useUrlSearchParams<{ space?: string; color?: string }>("hash-p
 const denormalizedCurrentColor = computed(() => {
     return normalizeColorUnit(model.value.color, true, false);
 });
+
+const cssColor = computed(() => toCSSColorString(model.value.color));
 
 const resetToDefaults = () => {
     model.value = createDefaultColorModel();

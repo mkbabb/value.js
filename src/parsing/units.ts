@@ -1,4 +1,4 @@
-import P from "parsimmon";
+import { Parser, any, all, string, whitespace } from "@mkbabb/parse-that";
 import { ValueUnit } from "../units";
 import {
     ABSOLUTE_LENGTH_UNITS,
@@ -14,76 +14,79 @@ import * as utils from "./utils";
 
 export { CSSColor, parseCSSColor };
 
-export const CSSValueUnit: P.Language = P.createLanguage({
-    lengthUnit: () => P.alt(...LENGTH_UNITS.map(utils.istring)),
-    angleUnit: () => P.alt(...ANGLE_UNITS.map(utils.istring)),
-    timeUnit: () => P.alt(...TIME_UNITS.map(utils.istring)),
-    resolutionUnit: () => P.alt(...RESOLUTION_UNITS.map(utils.istring)),
-    percentageUnit: () => P.alt(...PERCENTAGE_UNITS.map(utils.istring)),
+const lengthUnit = any(...LENGTH_UNITS.map(utils.istring));
+const angleUnit = any(...ANGLE_UNITS.map(utils.istring));
+const timeUnit = any(...TIME_UNITS.map(utils.istring));
+const resolutionUnit = any(...RESOLUTION_UNITS.map(utils.istring));
+const percentageUnit = any(...PERCENTAGE_UNITS.map(utils.istring));
 
-    comma: () => P.string(","),
-    space: () => P.string(" "),
+const comma = string(",");
+const space = string(" ");
+const sep = any(comma, space).trim(whitespace);
 
-    sep: (r) => r.comma.or(r.space).trim(P.optWhitespace),
-
-    Length: (r) =>
-        P.seq(utils.number, r.lengthUnit).map(([value, unit]) => {
-            let superType = ["length"];
-            if (RELATIVE_LENGTH_UNITS.includes(unit)) {
-                superType.push("relative");
-            } else if (ABSOLUTE_LENGTH_UNITS.includes(unit)) {
-                superType.push("absolute");
-            }
-            return new ValueUnit(value, unit, superType);
-        }),
-
-    Angle: (r) =>
-        P.seq(utils.number, r.angleUnit).map(([value, unit]) => {
-            return new ValueUnit(value, unit, ["angle"]);
-        }),
-
-    Time: (r) =>
-        P.seq(utils.number, r.timeUnit).map(([value, unit]) => {
-            return new ValueUnit(value, unit, ["time"]);
-        }),
-
-    TimePercentage: (r) => P.alt(r.Percentage, r.Time),
-
-    Resolution: (r) =>
-        P.seq(utils.number, r.resolutionUnit).map(([value, unit]) => {
-            return new ValueUnit(value, unit, ["resolution"]);
-        }),
-
-    Percentage: (r) =>
-        P.alt(
-            P.seq(utils.number, r.percentageUnit),
-            utils.istring("from").map(() => [0, "%"]),
-            utils.istring("to").map(() => [100, "%"]),
-        ).map(([value, unit]) => {
-            return new ValueUnit(value, unit, ["percentage"]);
-        }),
-
-    Color: (r): P.Parser<ValueUnit> => CSSColor.Value,
-
-    Slash: () =>
-        P.string("/")
-            .trim(P.optWhitespace)
-            .map(() => new ValueUnit("/", "string")),
-
-    Value: (r) =>
-        P.alt(
-            r.Length,
-            r.Angle,
-            r.Time,
-            r.Resolution,
-            r.Percentage,
-            r.Color,
-            r.Slash,
-            utils.number.map((x) => new ValueUnit(x)),
-            utils.none.map(() => new ValueUnit(NaN)),
-        ).trim(P.optWhitespace),
+const Length = all(utils.number, lengthUnit).map(([value, unit]: [number, string]) => {
+    const superType = ["length"];
+    if ((RELATIVE_LENGTH_UNITS as readonly string[]).includes(unit)) {
+        superType.push("relative");
+    } else if ((ABSOLUTE_LENGTH_UNITS as readonly string[]).includes(unit)) {
+        superType.push("absolute");
+    }
+    return new ValueUnit(value, unit, superType);
 });
 
+const Angle = all(utils.number, angleUnit).map(([value, unit]: [number, string]) => {
+    return new ValueUnit(value, unit, ["angle"]);
+});
+
+const Time = all(utils.number, timeUnit).map(([value, unit]: [number, string]) => {
+    return new ValueUnit(value, unit, ["time"]);
+});
+
+const TimePercentage: Parser<ValueUnit> = Parser.lazy(() => any(Percentage, Time));
+
+const Resolution = all(utils.number, resolutionUnit).map(([value, unit]: [number, string]) => {
+    return new ValueUnit(value, unit, ["resolution"]);
+});
+
+const Percentage: Parser<ValueUnit> = any(
+    all(utils.number, percentageUnit) as Parser<any>,
+    utils.istring("from").map(() => [0, "%"]),
+    utils.istring("to").map(() => [100, "%"]),
+).map(([value, unit]: [number, string]) => {
+    return new ValueUnit(value, unit, ["percentage"]);
+});
+
+const Color: Parser<ValueUnit> = Parser.lazy(() => CSSColor.Value);
+
+const Slash = string("/")
+    .trim(whitespace)
+    .map(() => new ValueUnit("/", "string"));
+
+const Value: Parser<ValueUnit> = any(
+    Length,
+    Angle,
+    Time,
+    Resolution,
+    Percentage,
+    Color,
+    Slash,
+    utils.number.map((x: number) => new ValueUnit(x)),
+    utils.none.map(() => new ValueUnit(NaN)),
+).trim(whitespace);
+
+export const CSSValueUnit = {
+    Length,
+    Angle,
+    Time,
+    TimePercentage,
+    Resolution,
+    Percentage,
+    Color,
+    Slash,
+    Value,
+    sep,
+};
+
 export function parseCSSValueUnit(input: string): ValueUnit {
-    return CSSValueUnit.Value.tryParse(input);
+    return utils.tryParse(Value, input);
 }
