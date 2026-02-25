@@ -1,23 +1,34 @@
 import type { ValueUnit } from "@src/units";
 import type { Color } from "@src/units/color";
 import type { ColorSpace } from "@src/units/color/constants";
+import { parseCSSColor } from "@src/parsing/color";
+import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 
 export { default as ColorPicker } from "./ColorPicker.vue";
 export { default as ColorNutritionLabel } from "./ColorNutritionLabel.vue";
 
 export type ColorModel = {
     selectedColorSpace: ColorSpace;
-    color: ValueUnit<Color<ValueUnit<number>>> | null;
+    color: ValueUnit<Color<ValueUnit<number>>, "color">;
     inputColor: string;
-    savedColors: Array<ValueUnit<Color<ValueUnit<number>>> | any>;
+    savedColors: Array<ValueUnit<Color<ValueUnit<number>>, "color"> | any>;
 };
 
-export const defaultColorModel: ColorModel = {
-    selectedColorSpace: "lab",
-    color: null,
-    inputColor: "lab(92% 88.8 20 / 82.70%)",
-    savedColors: [],
-};
+const DEFAULT_INPUT_COLOR = "oklch(0.7 0.15 180 / 1)";
+const DEFAULT_COLOR_SPACE: ColorSpace = "oklch";
+
+export function createDefaultColorModel(): ColorModel {
+    const parsed = parseCSSColor(DEFAULT_INPUT_COLOR) as ValueUnit<Color<ValueUnit<number>>, "color">;
+    const color = colorUnit2(normalizeColorUnit(parsed), DEFAULT_COLOR_SPACE, true, false, false);
+    return {
+        selectedColorSpace: DEFAULT_COLOR_SPACE,
+        color,
+        inputColor: DEFAULT_INPUT_COLOR,
+        savedColors: [],
+    };
+}
+
+export const defaultColorModel: ColorModel = createDefaultColorModel();
 
 export const colorSpaceInfo = {
     rgb: {
