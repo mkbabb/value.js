@@ -1,0 +1,27 @@
+services:
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:3100:3000"
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/palette-db
+      ADMIN_TOKEN: ${ADMIN_TOKEN}
+      PORT: "3000"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:8
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: mongosh --eval "db.adminCommand('ping')"
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  mongo-data:

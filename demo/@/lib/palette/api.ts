@@ -1,6 +1,6 @@
 import type { Palette, PaletteColor, ProposedColorName } from "./types";
 
-const BASE_URL = import.meta.env.VITE_API_URL ?? "https://palette-api.value-js.workers.dev";
+const BASE_URL = import.meta.env.VITE_API_URL ?? "https://mbabb.fi.ncsu.edu/colors";
 
 interface PaginatedResponse<T> {
     data: T[];
