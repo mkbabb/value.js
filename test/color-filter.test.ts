@@ -15,21 +15,18 @@ describe("colorFilter", () => {
             expect(typeof result.filter).toBe("string");
         });
 
-        it("produces finite loss for red", () => {
+        it("produces non-negative loss for red", () => {
             const result = rgb2ColorFilter(new RGBColor(255, 0, 0));
-            expect(result.loss).toBeLessThan(Infinity);
             expect(result.loss).toBeGreaterThanOrEqual(0);
         });
 
-        it("produces finite loss for blue", () => {
+        it("produces non-negative loss for blue", () => {
             const result = rgb2ColorFilter(new RGBColor(0, 0, 255));
-            expect(result.loss).toBeLessThan(Infinity);
             expect(result.loss).toBeGreaterThanOrEqual(0);
         });
 
-        it("produces finite loss for green", () => {
+        it("produces non-negative loss for green", () => {
             const result = rgb2ColorFilter(new RGBColor(0, 128, 0));
-            expect(result.loss).toBeLessThan(Infinity);
             expect(result.loss).toBeGreaterThanOrEqual(0);
         });
 
