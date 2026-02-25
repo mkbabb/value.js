@@ -56,7 +56,7 @@
             class="grid lg:grid-cols-2 lg:grid-rows-[minmax(0,1fr)] gap-6 relative max-w-screen-lg w-full lg:max-h-[800px] lg:overflow-hidden p-4 py-10"
         >
             <ColorPicker
-                class="w-full lg:col-span-1 self-start min-w-0"
+                class="w-full lg:col-span-1 min-w-0"
                 v-model="model"
                 @reset="resetToDefaults"
             ></ColorPicker>

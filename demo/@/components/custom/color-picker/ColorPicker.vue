@@ -1,5 +1,5 @@
 <template>
-    <div class="grid gap-4 relative min-w-0">
+    <div class="grid grid-rows-[1fr_auto] gap-4 relative min-w-0">
         <Card class="grid items-between rounded-md overflow-hidden min-w-0">
             <CardHeader class="fraunces m-0 pb-0 relative w-full">
                 <div class="w-full flex justify-between">
