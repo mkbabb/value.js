@@ -139,27 +139,6 @@ export function memoize<T extends (...args: any[]) => any>(
     return memoized as any;
 }
 
-export function memoizeDecorator(options: MemoizeOptions = {}) {
-    return function <T extends (...args: any[]) => any>(
-        target: Object,
-        propertyKey: string | symbol,
-        descriptor: TypedPropertyDescriptor<T>,
-    ): TypedPropertyDescriptor<T> {
-        if (!descriptor.value) {
-            throw new Error("memoizeDecorator can only be used on methods");
-        }
-
-        const originalMethod = descriptor.value;
-        const memoizedMethod = memoize(originalMethod, options);
-
-        descriptor.value = function (this: any, ...args: Parameters<T>): ReturnType<T> {
-            return memoizedMethod.apply(this, args);
-        } as T;
-
-        return descriptor;
-    };
-}
-
 export const hyphenToCamelCase = (str: string) =>
     str.replace(/([-_][a-z])/gi, (group) =>
         group.toUpperCase().replace("-", "").replace("_", ""),
@@ -206,16 +185,3 @@ export function cancelAnimationFrame(handle: number | undefined | null | any) {
     clearTimeout(handle);
 }
 
-// import { TailwindConfig, createTailwindcss } from "@mhsdesign/jit-browser-tailwindcss";
-// import { Config } from "tailwindcss";
-
-// export async function compileTailwindCss(
-//     css: string,
-//     tailwindConfig: TailwindConfig | Config,
-// ) {
-//     const tailwind = createTailwindcss({
-//         tailwindConfig: tailwindConfig as TailwindConfig,
-//     });
-
-//     return await tailwind.generateStylesFromContent(css, [""]);
-// }
