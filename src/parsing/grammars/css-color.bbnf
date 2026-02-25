@@ -1,0 +1,136 @@
+// ============================================================================
+// CSS Color Level 4 — Structural Grammar
+// Spec: https://www.w3.org/TR/css-color-4/
+//
+// Covers all 15 color spaces, color-mix(), color(), relative color syntax,
+// hex, named colors, system colors, and light-dark(). Hand-written
+// combinators in color.ts remain the production parsers.
+// ============================================================================
+
+// --- Separators ---
+
+sep      = "," | whitespace ;
+alphaSep = "/" | sep ;
+
+// --- Color value tokens ---
+
+number     = /[-+]?(\d+)?(\.\d+)?([eE][-+]?\d+)?/ ;
+integer    = /[-+]?\d+/ ;
+percentage = number , "%" ;
+angle      = number , ("deg" | "grad" | "rad" | "turn") ;
+none       = "none" ;
+
+colorValue = percentage | angle | number | none ;
+
+// --- Component expressions (for relative color syntax, CSS Color Level 5) ---
+
+componentRef  = "alpha" | "r" | "g" | "b" | "h" | "s" | "l" | "c" | "w" | "a" | "x" | "y" | "z" ;
+calcExpr      = "calc" , "(" , /[^)]+/ , ")" ;
+componentExpr = calcExpr | none | componentRef | colorValue ;
+
+// --- Standard color functions (all 9 named spaces) ---
+// Each supports optional "a" suffix: rgb() / rgba(), hsl() / hsla(), etc.
+
+colorType = "oklab" | "oklch" | "rgb" | "hsl" | "hsv" | "hwb" | "lab" | "lch" | "xyz" ;
+
+colorFunction =
+    (colorType << "a"?)
+    << "(",
+        colorValue << sep,
+        colorValue << sep,
+        colorValue,
+        (alphaSep >> colorValue)?
+    << ")" ;
+
+// --- Relative color syntax (CSS Color Level 5) ---
+// e.g. rgb(from red calc(r * 0.8) g b / alpha)
+
+relativeColor =
+    (colorType << "a"?)
+    << "(",
+        "from" >> color,
+        componentExpr,
+        componentExpr,
+        componentExpr,
+        ("/" >> componentExpr)?
+    << ")" ;
+
+// --- Hex colors ---
+// #RGB, #RRGGBB, #RGBA, #RRGGBBAA
+
+hex = /#[0-9a-fA-F]{3,8}/ ;
+
+// --- color() function (CSS Color Level 4 §10) ---
+// Predefined color spaces with [0,1] component ranges
+
+colorSpace = "srgb-linear" | "srgb" | "display-p3" | "a98-rgb"
+           | "prophoto-rgb" | "rec2020" | "xyz-d65" | "xyz-d50" | "xyz" ;
+
+colorFn = "color" << "(",
+    colorSpace ,
+    colorValue , colorValue , colorValue ,
+    ("/" >> colorValue)?
+    << ")" ;
+
+// --- color-mix() (CSS Color Level 5) ---
+// Interpolation between two colors in a specified color space
+
+hueMethod = ("shorter" | "longer" | "increasing" | "decreasing") , "hue" ;
+
+mixSpace = "srgb-linear" | "srgb" | "display-p3" | "a98-rgb" | "prophoto-rgb" | "rec2020"
+         | "oklab" | "oklch" | "lab" | "lch" | "hsl" | "hwb"
+         | "xyz-d65" | "xyz-d50" | "xyz" ;
+
+colorMix = "color-mix" << "(",
+    "in" , mixSpace , hueMethod? , ",",
+    color , percentage? , ",",
+    color , percentage?
+    << ")" ;
+
+// --- light-dark() (CSS Color Level 5) ---
+// Resolves to first color in light mode, second in dark mode
+
+lightDark = "light-dark" << "(" , color , "," , color << ")" ;
+
+// --- color-contrast() (CSS Color Level 6 / experimental) ---
+// Picks the color from a list with highest/sufficient contrast against a base
+
+colorContrast = "color-contrast" << "(",
+    color , "vs" , color , ("," , color)* ,
+    ("to" , ("AA" | "AA-large" | "AAA" | number))?
+    << ")" ;
+
+// --- Named colors (CSS Color Level 4 §6.1) ---
+// 148 named colors — structural matching only; semantic lookup in combinator layer
+
+namedColor = /[a-zA-Z]+/ ;
+
+// --- System colors (CSS Color Level 4 §6.2) ---
+
+systemColor = "Canvas" | "CanvasText" | "LinkText" | "VisitedText"
+            | "ActiveText" | "ButtonFace" | "ButtonText" | "ButtonBorder"
+            | "Field" | "FieldText" | "Highlight" | "HighlightText"
+            | "SelectedItem" | "SelectedItemText" | "Mark" | "MarkText"
+            | "GrayText" | "AccentColor" | "AccentColorText" ;
+
+// --- Deprecated color functions (CSS Color Level 3) ---
+
+deprecatedSystemColor = "ActiveBorder" | "ActiveCaption" | "AppWorkspace"
+                      | "Background" | "ButtonHighlight" | "ButtonShadow"
+                      | "CaptionText" | "InactiveBorder" | "InactiveCaption"
+                      | "InactiveCaptionText" | "InfoBackground" | "InfoText"
+                      | "Menu" | "MenuText" | "Scrollbar" | "ThreeDDarkShadow"
+                      | "ThreeDFace" | "ThreeDHighlight" | "ThreeDLightShadow"
+                      | "ThreeDShadow" | "Window" | "WindowFrame" | "WindowText" ;
+
+// --- Kelvin temperature (non-standard, value.js extension) ---
+
+kelvin = number , "k" ;
+
+// --- Top-level color ---
+// Priority order: functional forms first, then hex, then names.
+// Relative colors and named/system colors require semantic resolution.
+
+color = colorMix | colorContrast | lightDark | colorFn
+      | relativeColor | colorFunction
+      | hex | kelvin | systemColor | namedColor ;
