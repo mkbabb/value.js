@@ -150,14 +150,12 @@
 </template>
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Card, CardHeader, CardTitle, CardContent } from "@components/ui/card";
 import type { ColorSpace } from "@src/units/color/constants";
 import {
     COLOR_SPACE_RANGES,
     COLOR_SPACE_DENORM_UNITS,
 } from "@src/units/color/constants";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
-import Katex from "../katex/Katex.vue";
 import { Separator } from "@components/ui/separator";
 import { ValueUnit } from "@src/units";
 import { Color } from "@src/units/color";
@@ -175,11 +173,9 @@ import type { ColorModel } from ".";
 import { colorSpaceInfo } from ".";
 import { normalizeColorUnit } from "@src/units/color/normalize";
 
-const model = defineModel<ColorModel>();
+const model = defineModel<ColorModel>({ required: true });
 
 const denormalizedCurrentColor = computed(() => {
-    if (!model.value.color) return null;
-
     return normalizeColorUnit(model.value.color, true, false);
 });
 
@@ -209,10 +205,4 @@ const clearHoveredPath = () => {
     hoveredPath.value = [];
 };
 
-const isInPath = (hovered: string[], path: string[]) => {
-    if (!hovered.length) return false;
-
-    // Highlight if this path shares any node with the hovered path
-    return path.some((space) => hovered.includes(space));
-};
 </script>

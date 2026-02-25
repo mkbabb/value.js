@@ -9,7 +9,7 @@
                         :model-value="model.selectedColorSpace"
                         @update:model-value="
                             (colorSpace: any) => {
-                                model.selectedColorSpace = colorSpace;
+                                updateModel({ selectedColorSpace: colorSpace });
                                 selectedColorSpaceOpenModel = false;
                             }
                         "
@@ -57,9 +57,7 @@
                     class="flex h-fit text-4xl w-full m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap"
                 >
                     <template
-                        v-for="([component, value], ix) in Object.entries(
-                            COLOR_SPACE_RANGES[currentColorSpace],
-                        ).filter(([key]) => key !== 'alpha')"
+                        v-for="([component, value], ix) in colorComponents"
                         :key="component"
                     >
                         <div>
@@ -91,10 +89,7 @@
                                     currentColorComponentsFormatted[component].unit
                                 }}</span
                             ><span class="inline font-normal">{{
-                                ix !==
-                                Object.keys(COLOR_SPACE_RANGES[currentColorSpace])
-                                    .length -
-                                    2
+                                ix !== colorComponents.length - 1
                                     ? ","
                                     : ""
                             }}</span>
@@ -505,7 +500,16 @@ const DIGITS = 2;
 
 const DEFAULT_PALETTES = 6;
 
-const model = defineModel<ColorModel>();
+const model = defineModel<ColorModel>({ required: true });
+
+/**
+ * Replace model.value with a shallow copy so defineModel's customRef setter fires,
+ * emitting update:modelValue back to the parent shallowRef. Without this, deep
+ * property mutations (model.value.color = X) are invisible to Vue's reactivity.
+ */
+const updateModel = (patch: Partial<ColorModel>) => {
+    model.value = { ...model.value, ...patch };
+};
 
 const denormalizedCurrentColor = computed(() => {
     return normalizeColorUnit(model.value.color, true, false);
@@ -545,6 +549,11 @@ const getColorSpace = (color: ValueUnit<Color<ValueUnit<number>>, "color">) => {
 };
 
 const currentColorSpace = computed(() => getColorSpace(model.value.color));
+
+const colorComponents = computed(() =>
+    Object.entries(COLOR_SPACE_RANGES[currentColorSpace.value])
+        .filter(([key]) => key !== "alpha")
+);
 
 const { cmd, k, i } = useMagicKeys();
 
@@ -619,9 +628,10 @@ const setCurrentColor = (
         false,
     );
 
-    model.value.color = converted;
-
-    model.value.selectedColorSpace = converted.value.colorSpace;
+    updateModel({
+        color: converted,
+        selectedColorSpace: converted.value.colorSpace,
+    });
 };
 
 let prevInvalidParsedValue = "";
@@ -640,9 +650,21 @@ const parseAndSetColor = (newVal: string) => {
             return;
         }
 
-        model.value.inputColor = newVal;
+        // Convert and update everything in a single updateModel call to avoid
+        // intermediate states where color is null
+        const converted = colorUnit2(
+            color,
+            getColorSpace(color),
+            true,
+            false,
+            false,
+        );
 
-        setCurrentColor(color);
+        updateModel({
+            inputColor: newVal,
+            color: converted,
+            selectedColorSpace: converted.value.colorSpace,
+        });
 
         toast.success(`Parsed ${formattedCurrentColor.value} 🎨`);
     } catch (e) {
@@ -657,7 +679,7 @@ const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000, false);
 const copyAndSetInputColor = () => {
     const color = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
 
-    model.value.inputColor = color;
+    updateModel({ inputColor: color });
 
     copyToClipboard(color);
 };
@@ -750,25 +772,20 @@ const componentsSlidersStyle = computed(() => {
 const currentColorComponentsFormatted = computed(() => {
     return denormalizedCurrentColor.value.value
         .entries()
-        .filter(([key]) => key !== "alpha")
-        .map(([key, value]) => {
-            return [
-                key,
-                {
-                    value: value.value,
-                },
-            ] as any;
+        .filter(([key]: [string, any]) => key !== "alpha")
+        .map(([key, value]: [string, any]) => {
+            return [key, { value: value.value, unit: value.unit ?? "" }] as const;
         })
-        .reduce((acc, [key, value]) => {
+        .reduce((acc: Record<string, { value: number; unit: string }>, [key, value]) => {
             acc[key] = value;
             return acc;
         }, {});
 });
 
 const currentColorRanges = computed(() => {
-    return model.value.color.value.keys().reduce((acc, key) => {
-        const unit = COLOR_SPACE_DENORM_UNITS[currentColorSpace.value][key];
-        const range = COLOR_SPACE_RANGES[currentColorSpace.value][key];
+    return model.value.color.value.keys().reduce((acc: Record<string, string>, key: string) => {
+        const unit = (COLOR_SPACE_DENORM_UNITS as any)[currentColorSpace.value][key];
+        const range = (COLOR_SPACE_RANGES as any)[currentColorSpace.value][key];
 
         const { min, max } = range[unit] ?? range["number"];
 
@@ -781,11 +798,8 @@ const currentColorRanges = computed(() => {
 const updateToColorSpace = (to: ColorSpace) => {
     const color = colorUnit2(model.value.color, to, true, false, false);
 
-    // Update the color:
+    // setCurrentColor calls updateModel, which sets both color and selectedColorSpace
     setCurrentColor(color);
-
-    // Finally, set the color space:
-    model.value.selectedColorSpace = to;
 };
 
 const updateColorComponent = (
@@ -793,8 +807,9 @@ const updateColorComponent = (
     component: string,
     normalized: boolean = false,
 ) => {
+    const color = model.value.color;
     if (normalized) {
-        model.value.color.value[component].value = value;
+        color.value[component].value = value;
     } else {
         const normalizedValue = normalizeColorUnitComponent(
             value,
@@ -804,8 +819,10 @@ const updateColorComponent = (
             false,
         );
 
-        model.value.color.value[component].value = normalizedValue.value;
+        color.value[component].value = normalizedValue.value;
     }
+    // Trigger reactivity after deep mutation
+    updateModel({ color });
 };
 const updateColorComponentDebounced = debounce(updateColorComponent, 500);
 
@@ -923,7 +940,8 @@ const isBlankColor = (color: ValueUnit<Color<ValueUnit<number>>, "color">) => {
 
 // watch for dark mode changes, update the blank colors:
 watch(isDark, () => {
-    model.value.savedColors.forEach((color) => {
+    const savedColors = model.value.savedColors;
+    savedColors.forEach((color) => {
         if (isBlankColor(color)) {
             color.value
                 .entries()
@@ -933,6 +951,7 @@ watch(isDark, () => {
                 });
         }
     });
+    updateModel({ savedColors: [...savedColors] });
 });
 
 const paletteHidden = ref(true);
@@ -950,7 +969,9 @@ const addColorClick = () => {
         return;
     }
 
-    const colorIx = model.value.savedColors.findIndex((color) => {
+    const savedColors = [...model.value.savedColors];
+
+    const colorIx = savedColors.findIndex((color) => {
         return color.value.toString() === model.value.color.toString();
     });
 
@@ -958,23 +979,24 @@ const addColorClick = () => {
         return;
     }
 
-    const blankColorIx = model.value.savedColors.findIndex((color) => {
+    const blankColorIx = savedColors.findIndex((color) => {
         return isBlankColor(color);
     });
 
     if (blankColorIx !== -1) {
-        model.value.savedColors[blankColorIx] = model.value.color.clone();
-        return;
+        savedColors[blankColorIx] = model.value.color.clone();
+    } else {
+        savedColors.push(model.value.color.clone());
     }
 
-    model.value.savedColors.push(model.value.color.clone());
+    updateModel({ savedColors });
 };
 
 const keys = useMagicKeys();
 
 const lastClickedTime = ref(0);
 
-const doubleClickedColor = ref(null);
+const doubleClickedColor = ref<ValueUnit<Color<ValueUnit<number>>, "color"> | null>(null);
 
 const onSavedColorClick = (
     color: ValueUnit<Color<ValueUnit<number>>, "color">,
@@ -983,36 +1005,48 @@ const onSavedColorClick = (
     const now = Date.now();
     const isDoubleClick = now - lastClickedTime.value < 300;
 
+    const savedColors = [...model.value.savedColors];
+
     if (keys.current.has("shift") || isDoubleClick) {
         // Swap colors
         const temp = doubleClickedColor.value ?? model.value.color.clone();
         const swappedColor = color.clone();
 
-        model.value.savedColors[ix] = temp;
-        model.value.color = swappedColor;
+        savedColors[ix] = temp;
+
+        updateModel({
+            savedColors,
+            color: swappedColor,
+            selectedColorSpace: swappedColor.value.colorSpace,
+        });
 
         doubleClickedColor.value = null;
     } else {
         // Regular click behavior
         doubleClickedColor.value = model.value.color.clone();
-        model.value.color = color.clone();
-    }
+        const newColor = color.clone();
 
-    model.value.selectedColorSpace = model.value.color.value.colorSpace;
+        updateModel({
+            color: newColor,
+            selectedColorSpace: newColor.value.colorSpace,
+        });
+    }
 
     lastClickedTime.value = now;
 };
 
 watch(
     () => model.value.selectedColorSpace,
-    (newVal) => {
+    (newVal, oldVal) => {
+        if (newVal === oldVal) return;
         updateToColorSpace(newVal);
     },
 );
 
 watch(
     () => model.value.inputColor,
-    (newVal) => {
+    (newVal, oldVal) => {
+        if (newVal === oldVal) return;
         parseAndSetColor(newVal);
     },
     { immediate: true },
@@ -1022,11 +1056,14 @@ watch(
 onBeforeMount(() => {
     console.log("ColorPicker mounted");
 
-    for (let i = 0; i < DEFAULT_PALETTES - model.value.savedColors.length; i++) {
-        model.value.savedColors.push("white" as any);
+    const savedColors = [...model.value.savedColors];
+    for (let i = 0; i < DEFAULT_PALETTES - savedColors.length; i++) {
+        savedColors.push("white" as any);
     }
-    model.value.savedColors = model.value.savedColors.map((color) => {
-        return color instanceof ValueUnit ? color : parseAndNormalizeColor(color);
+    updateModel({
+        savedColors: savedColors.map((color) => {
+            return color instanceof ValueUnit ? color : parseAndNormalizeColor(color);
+        }),
     });
 });
 

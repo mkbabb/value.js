@@ -74,8 +74,9 @@
 }
 
 .icon {
-    --size: 1rem font-size: --size;
-    width: --size;
+    --size: 1rem;
+    font-size: var(--size);
+    width: var(--size);
     aspect-ratio: 1/1;
 }
 
