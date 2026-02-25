@@ -80,7 +80,7 @@ export const CSSValueUnit: P.Language = P.createLanguage({
             r.Color,
             r.Slash,
             utils.number.map((x) => new ValueUnit(x)),
-            utils.none.map(() => new ValueUnit(0)),
+            utils.none.map(() => new ValueUnit(NaN)),
         ).trim(P.optWhitespace),
 });
 
