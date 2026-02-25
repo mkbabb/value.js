@@ -7,3 +7,6 @@ my_venv/
 .env
 auth/
 _*
+dist/
+test-results/
+.claude/
