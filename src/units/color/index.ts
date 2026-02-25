@@ -2,6 +2,7 @@ import { clone } from "@src/utils";
 import type { ColorSpace, WhitePoint } from "./constants";
 
 const formatNumber = (value: unknown, digits: number = 2): string => {
+    if (typeof value === "number" && Number.isNaN(value)) return "none";
     return (String((value as any)?.toFixed?.(digits) ?? value))
         .trim()
         .replace(/\.0+$/, "");
@@ -24,11 +25,11 @@ export abstract class Color<T = number> {
     }
 
     toString(): string {
-        return formatColor(
-            this.colorSpace,
-            Array.from(this.components.values()),
-            this.alpha,
+        const values = Array.from(this.components.values()).map((v) =>
+            typeof v === "number" && Number.isNaN(v) ? "none" : v,
         );
+        const alpha = typeof this.alpha === "number" && Number.isNaN(this.alpha as number) ? "none" : this.alpha;
+        return formatColor(this.colorSpace, values, alpha);
     }
 
     toFormattedString(digits: number = 2): string {
@@ -380,20 +381,95 @@ export class KelvinColor<T = number> extends Color<T> {
     }
 }
 
+export class LinearSRGBColor<T = number> extends Color<T> {
+    constructor(r: T, g: T, b: T, alpha?: T) {
+        super("srgb-linear", alpha!);
+        this.components.set("r", r);
+        this.components.set("g", g);
+        this.components.set("b", b);
+    }
+    get r(): T { return this.getComponent("r")!; }
+    set r(value: T) { this.setComponent("r", value); }
+    get g(): T { return this.getComponent("g")!; }
+    set g(value: T) { this.setComponent("g", value); }
+    get b(): T { return this.getComponent("b")!; }
+    set b(value: T) { this.setComponent("b", value); }
+}
+
+export class DisplayP3Color<T = number> extends Color<T> {
+    constructor(r: T, g: T, b: T, alpha?: T) {
+        super("display-p3", alpha!);
+        this.components.set("r", r);
+        this.components.set("g", g);
+        this.components.set("b", b);
+    }
+    get r(): T { return this.getComponent("r")!; }
+    set r(value: T) { this.setComponent("r", value); }
+    get g(): T { return this.getComponent("g")!; }
+    set g(value: T) { this.setComponent("g", value); }
+    get b(): T { return this.getComponent("b")!; }
+    set b(value: T) { this.setComponent("b", value); }
+}
+
+export class AdobeRGBColor<T = number> extends Color<T> {
+    constructor(r: T, g: T, b: T, alpha?: T) {
+        super("a98-rgb", alpha!);
+        this.components.set("r", r);
+        this.components.set("g", g);
+        this.components.set("b", b);
+    }
+    get r(): T { return this.getComponent("r")!; }
+    set r(value: T) { this.setComponent("r", value); }
+    get g(): T { return this.getComponent("g")!; }
+    set g(value: T) { this.setComponent("g", value); }
+    get b(): T { return this.getComponent("b")!; }
+    set b(value: T) { this.setComponent("b", value); }
+}
+
+export class ProPhotoRGBColor<T = number> extends Color<T> {
+    constructor(r: T, g: T, b: T, alpha?: T) {
+        super("prophoto-rgb", alpha!);
+        this.components.set("r", r);
+        this.components.set("g", g);
+        this.components.set("b", b);
+    }
+    get r(): T { return this.getComponent("r")!; }
+    set r(value: T) { this.setComponent("r", value); }
+    get g(): T { return this.getComponent("g")!; }
+    set g(value: T) { this.setComponent("g", value); }
+    get b(): T { return this.getComponent("b")!; }
+    set b(value: T) { this.setComponent("b", value); }
+}
+
+export class Rec2020Color<T = number> extends Color<T> {
+    constructor(r: T, g: T, b: T, alpha?: T) {
+        super("rec2020", alpha!);
+        this.components.set("r", r);
+        this.components.set("g", g);
+        this.components.set("b", b);
+    }
+    get r(): T { return this.getComponent("r")!; }
+    set r(value: T) { this.setComponent("r", value); }
+    get g(): T { return this.getComponent("g")!; }
+    set g(value: T) { this.setComponent("g", value); }
+    get b(): T { return this.getComponent("b")!; }
+    set b(value: T) { this.setComponent("b", value); }
+}
+
 export type ColorSpaceMap<T> = {
     rgb: RGBColor<T>;
-
     hsl: HSLColor<T>;
     hsv: HSVColor<T>;
     hwb: HWBColor<T>;
-
     lab: LABColor<T>;
     lch: LCHColor<T>;
-
     oklab: OKLABColor<T>;
     oklch: OKLCHColor<T>;
-
     kelvin: KelvinColor<T>;
-
     xyz: XYZColor<T>;
+    "srgb-linear": LinearSRGBColor<T>;
+    "display-p3": DisplayP3Color<T>;
+    "a98-rgb": AdobeRGBColor<T>;
+    "prophoto-rgb": ProPhotoRGBColor<T>;
+    rec2020: Rec2020Color<T>;
 };
