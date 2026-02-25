@@ -9,14 +9,24 @@ npm run dev          # dev server on :8080
 
 ## Test
 npm test             # vitest (jsdom)
+npm run test:e2e     # playwright
 
 ## Structure
-src/parsing/         # Parsimmon-based CSS value parsers
+src/parsing/         # parse-that-based CSS value parsers
 src/units/           # ValueUnit, FunctionValue, ValueArray classes
-src/units/color/     # 10 color spaces, conversion, normalization
+src/units/color/     # 15 color spaces, conversion, normalization, filter solver
+src/easing.ts        # CSS timing functions (18+ named easings, cubic-bezier, stepped)
 src/math.ts          # lerp, bezier, clamp, scale
 src/utils.ts         # clone, memoize, debounce
+src/index.ts         # barrel: exports all public API
 demo/                # Vue 3 color picker demo
+api/                 # Cloudflare Worker + D1 palette API
+
+## Conventions
+- TypeScript strict:true, verbatimModuleSyntax:true
+- moduleResolution:bundler, target:ES2022
+- import type for type-only imports
+- @mkbabb/parse-that for all parsing (not Parsimmon)
 
 ## Entry point
-src/units/index.ts → exports all public API
+src/index.ts → exports all public API
