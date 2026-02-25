@@ -2,6 +2,9 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
     testDir: "./e2e",
+    retries: process.env.CI ? 2 : 0,
+    timeout: 15000,
+    expect: { timeout: 5000 },
     webServer: {
         command: "npx vite --port 8090",
         port: 8090,
@@ -11,5 +14,6 @@ export default defineConfig({
         baseURL: "http://localhost:8090",
         browserName: "chromium",
         headless: true,
+        viewport: { width: 1280, height: 720 },
     },
 });

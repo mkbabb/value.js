@@ -49,6 +49,9 @@ export default defineConfig((mode) => {
                     external: ["vue"],
                 },
             },
+            esbuild: {
+                drop: ["console", "debugger"],
+            },
             plugins: [...defaultPlugins, dts({ rollupTypes: true })],
         };
     } else if (mode.mode === "gh-pages") {
@@ -60,7 +63,18 @@ export default defineConfig((mode) => {
                 outDir: path.resolve(import.meta.dirname, "./dist/"),
                 emptyOutDir: true,
                 minify: true,
-                sourcemap: true,
+                sourcemap: false,
+                rollupOptions: {
+                    output: {
+                        manualChunks(id) {
+                            if (id.includes("node_modules")) {
+                                if (id.includes("katex")) return "vendor-katex";
+                                if (id.includes("prettier")) return "vendor-prettier";
+                                if (id.includes("highlight")) return "vendor-highlight";
+                            }
+                        },
+                    },
+                },
             },
             plugins: [...defaultPlugins],
         };
