@@ -12,7 +12,7 @@ export const istring = (str: string) =>
 
 export const identifier = P.regexp(/-?[a-zA-Z][a-zA-Z0-9-]*/);
 
-export const none = P.string("none");
+export const none = istring("none");
 
 export const integer = P.regexp(/-?\d+/).map(Number);
 

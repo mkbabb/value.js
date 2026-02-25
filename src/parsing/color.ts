@@ -74,7 +74,7 @@ export const CSSColor: P.Language = P.createLanguage({
         P.alt(
             ...Object.keys(COLOR_NAMES)
                 .sort((a, b) => b.length - a.length)
-                .map(P.string),
+                .map(utils.istring),
         ).chain((x) => {
             const c = (COLOR_NAMES as Record<string, string>)[x];
             // Parse the color value as a r.Value:
