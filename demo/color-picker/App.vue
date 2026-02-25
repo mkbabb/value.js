@@ -47,9 +47,20 @@
                 </HoverCardContent>
             </HoverCard>
 
-            <DarkModeToggle
-                class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all"
-            />
+            <div class="flex gap-2 items-center">
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all cursor-pointer"
+                    @click="resetToDefaults"
+                >
+                    <RotateCcw />
+                </Button>
+
+                <DarkModeToggle
+                    class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all"
+                />
+            </div>
         </div>
 
         <div
@@ -88,17 +99,11 @@
 
                 <CardContent>
                     <h2 class="fraunces text-4xl mb-6 font-bold">Detailed Guide</h2>
-                    <template
-                        v-for="[n, m] in Object.entries(markdownModulesMap)"
-                        :module="m"
-                    >
-                        <Markdown
-                            v-show="
-                                n === `${model.selectedColorSpace}.md` && m !== null
-                            "
-                            :module="m"
-                        />
-                    </template>
+                    <Markdown
+                        v-if="activeMarkdownModule"
+                        :key="model.selectedColorSpace"
+                        :module="activeMarkdownModule"
+                    />
                 </CardContent>
             </Card>
         </div>
@@ -134,109 +139,41 @@ import {
     HoverCardTrigger,
 } from "@components/ui/hover-card";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
-import { Loader2 } from "lucide-vue-next";
-import { Slider } from "@components/ui/slider";
 import { Button } from "@components/ui/button";
-import {
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarSeparator,
-    MenubarShortcut,
-    MenubarTrigger,
-} from "@components/ui/menubar";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@components/ui/card";
-import { Input } from "@components/ui/input";
-import { Label } from "@components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@components/ui/select";
-import { List } from "lucide-vue-next";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@components/ui/card";
 import type { ColorModel } from "@components/custom/color-picker";
 import {
     ColorPicker,
     ColorNutritionLabel,
     defaultColorModel,
+    createDefaultColorModel,
 } from "@components/custom/color-picker";
-import { useDark, useStorage } from "@vueuse/core";
+import { useDark, useStorage, useUrlSearchParams } from "@vueuse/core";
 import { Toaster } from "vue-sonner";
 import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
+import type { ColorSpace } from "@src/units/color/constants";
 import type { DocModule } from "@components/custom/markdown";
 import { Markdown } from "@components/custom/markdown";
-import Katex from "@components/custom/katex/Katex.vue";
 import { normalizeColorUnit } from "@src/units/color/normalize";
+import { RotateCcw } from "lucide-vue-next";
 
 import "@styles/utils.css";
 import "@styles/style.css";
 
-// all of the above UI components, and katex:
-const markdownComponents = {
-    Katex,
-
-    Alert,
-    AlertDescription,
-    AlertTitle,
-
-    Separator,
-    Slider,
-    Button,
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-    Input,
-    Label,
-    Tabs,
-    TabsContent,
-    TabsList,
-    TabsTrigger,
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarSeparator,
-    MenubarShortcut,
-    MenubarTrigger,
-
-    List,
-    Loader2,
+const markdownModules: Record<ColorSpace, DocModule> = {
+    rgb:    () => import("@assets/docs/rgb.md"),
+    hsl:    () => import("@assets/docs/hsl.md"),
+    hsv:    () => import("@assets/docs/hsv.md"),
+    hwb:    () => import("@assets/docs/hwb.md"),
+    lab:    () => import("@assets/docs/lab.md"),
+    lch:    () => import("@assets/docs/lch.md"),
+    oklab:  () => import("@assets/docs/oklab.md"),
+    oklch:  () => import("@assets/docs/oklch.md"),
+    xyz:    () => import("@assets/docs/xyz.md"),
+    kelvin: () => import("@assets/docs/kelvin.md"),
 };
 
-// @ts-ignore
-const markdownModules = import.meta.glob("@assets/docs/**/*.md");
-
-const markdownModulesMap = Object.fromEntries(
-    Object.entries(markdownModules).map(([key, value]) => {
-        const filename = key.split("/").pop();
-        return [filename, value as DocModule];
-    }),
-);
+const activeMarkdownModule = computed(() => markdownModules[model.value.selectedColorSpace]);
 
 const gridBackground = useTemplateRef<HTMLElement>("gridBackground");
 
@@ -246,79 +183,71 @@ const colorStore = useStorage("color-picker", defaultColorModel);
 
 const model = shallowRef<ColorModel>(defaultColorModel);
 
-const denormalizedCurrentColor = computed(() => {
-    if (!model.value.color) return null;
+const urlParams = useUrlSearchParams<{ space?: string; color?: string }>("hash-params");
 
-    return normalizeColorUnit(model.value.color as any, true, false);
+const denormalizedCurrentColor = computed(() => {
+    return normalizeColorUnit(model.value.color, true, false);
 });
 
-watch(
-    () => model.value,
-    () => {
-        colorStore.value.inputColor = model.value.color?.toString() ?? "";
-        colorStore.value.savedColors = model.value.savedColors.map((c) =>
-            normalizeColorUnit(c as any, true, false).toString(),
-        );
-    },
-    { deep: true },
-);
+const resetToDefaults = () => {
+    model.value = createDefaultColorModel();
+};
 
-// Function to parse color from URL hash
-function parseColorFromUrl() {
-    // Get the hash part of the URL (without the # symbol)
-    const hash = window.location.hash.substring(1);
+// Watch color changes for storage sync
+watch(() => model.value.color, (color) => {
+    colorStore.value.inputColor = color?.toString() ?? "";
+});
 
-    // If there's a hash value, return it decoded
-    if (hash) {
-        return decodeURIComponent(hash);
+// Watch saved colors separately
+watch(() => model.value.savedColors, (colors) => {
+    colorStore.value.savedColors = colors.map((c) =>
+        normalizeColorUnit(c as any, true, false).toString(),
+    );
+}, { deep: true });
+
+// Bidirectional URL ↔ model sync with guard to prevent circular updates
+let syncing = false;
+
+const applyUrlToModel = () => {
+    const space = urlParams.space as string | undefined;
+    const color = urlParams.color as string | undefined;
+    if (space && color) {
+        syncing = true;
+        model.value = {
+            ...model.value,
+            selectedColorSpace: space as ColorSpace,
+            inputColor: color,
+        };
+        syncing = false;
     }
+};
 
-    // Return null if no color found
-    return null;
-}
+// URL → model: initial load + hashchange
+applyUrlToModel();
+watch(() => [urlParams.space, urlParams.color], () => {
+    if (!syncing) applyUrlToModel();
+});
 
-// Function to update URL hash with current color
-function updateUrlWithColor(color: string) {
-    if (color) {
-        window.location.hash = encodeURIComponent(color);
-    }
-}
-
-// Add a watch to update the URL when the color changes
+// Model → URL
 watch(
-    () => model.value.inputColor,
-    (value) => {
-        // Update URL with current color
-        updateUrlWithColor(value);
+    [() => model.value.selectedColorSpace, () => model.value.inputColor],
+    ([space, color]) => {
+        if (syncing) return;
+        syncing = true;
+        urlParams.space = space;
+        urlParams.color = color;
+        syncing = false;
     },
-    { deep: true, immediate: false },
+    { immediate: true },
 );
 
 onMounted(() => {
-    // Existing grid background code
     const encodedSVG = encodeURIComponent(`
     <svg class="tmp" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'>
         <path d='M1 2V0h1v1H0v1z' fill-opacity='0.10'/>
     </svg>
   `);
-    gridBackground.value.style.backgroundImage = `url("data:image/svg+xml,${encodedSVG}")`;
-
-    // Use the function to get color from URL hash
-    const urlColor = parseColorFromUrl();
-    if (urlColor) {
-        // Set the input color from URL
-        model.value.inputColor = urlColor;
-    }
-
-    console.log("URL Color:", urlColor);
-
-    // Listen for hash changes to update the color when URL changes
-    window.addEventListener("hashchange", () => {
-        const urlColor = parseColorFromUrl();
-        if (urlColor) {
-            model.value.inputColor = urlColor;
-        }
-    });
+    gridBackground.value!.style.backgroundImage = `url("data:image/svg+xml,${encodedSVG}")`;
 });
 </script>
 
