@@ -1,4 +1,4 @@
-import { defineConfig } from "@playwright/test";
+import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
     testDir: "./e2e",
@@ -10,10 +10,23 @@ export default defineConfig({
         port: 8090,
         reuseExistingServer: !process.env.CI,
     },
-    use: {
-        baseURL: "http://localhost:8090",
-        browserName: "chromium",
-        headless: true,
-        viewport: { width: 1280, height: 720 },
-    },
+    projects: [
+        {
+            name: "desktop",
+            use: {
+                baseURL: "http://localhost:8090",
+                browserName: "chromium",
+                headless: true,
+                viewport: { width: 1280, height: 720 },
+            },
+        },
+        {
+            name: "mobile",
+            use: {
+                baseURL: "http://localhost:8090",
+                ...devices["iPhone 14"],
+                headless: true,
+            },
+        },
+    ],
 });

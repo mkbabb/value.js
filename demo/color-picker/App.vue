@@ -11,7 +11,7 @@
     ></div>
 
     <div
-        class="grid overflow-scroll w-full min-h-screen h-screen items-center justify-items-center justify-center m-0 p-0 relative"
+        class="grid overflow-x-hidden w-full min-h-screen items-center justify-items-center justify-center m-0 p-0 relative"
     >
         <div
             :class="'fixed z-[100] pointer-events-none top-0 w-full gap-2 h-fit flex justify-items-end justify-between  hover:opacity-100 transition-all p-2'"
@@ -53,15 +53,15 @@
         </div>
 
         <div
-            class="grid lg:grid-cols-2 gap-6 relative max-w-screen-lg h-full lg:max-h-[800px] lg:overflow-hidden p-4 py-10"
+            class="grid lg:grid-cols-2 gap-6 relative max-w-screen-lg w-full lg:max-h-[800px] lg:overflow-hidden p-4 py-10"
         >
             <ColorPicker
-                class="w-full h-full lg:col-span-1 self-start"
+                class="w-full lg:col-span-1 self-start"
                 v-model="model"
                 @reset="resetToDefaults"
             ></ColorPicker>
 
-            <Card class="w-full lg:col-span-1 overflow-scroll h-full">
+            <Card class="w-full lg:col-span-1 overflow-y-auto lg:h-full">
                 <CardHeader class="fraunces">
                     <CardTitle
                         >About the color spaces,

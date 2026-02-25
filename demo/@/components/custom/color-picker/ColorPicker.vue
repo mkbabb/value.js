@@ -1,6 +1,6 @@
 <template>
     <div class="grid gap-4 relative">
-        <Card class="grid h-full items-between rounded-md overflow-hidden">
+        <Card class="grid items-between rounded-md overflow-hidden">
             <CardHeader class="fraunces m-0 pb-0 relative w-full">
                 <div class="w-full flex justify-between">
                     <Select
@@ -428,10 +428,10 @@
 
         <Card
             :class="[
-                'absolute bottom-0 w-full transition-all duration-300 z-50 pointer-events-auto',
+                'w-full transition-all duration-300 z-50 pointer-events-auto',
                 paletteHidden
-                    ? ' translate-y-[100%] pointer-events-none overflow-hidden opacity-0'
-                    : ' translate-y-[0%]',
+                    ? 'max-h-0 pointer-events-none overflow-hidden opacity-0'
+                    : 'max-h-[500px] opacity-100',
             ]"
         >
             <CardHeader class="fraunces">

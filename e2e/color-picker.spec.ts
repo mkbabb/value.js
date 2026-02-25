@@ -123,7 +123,9 @@ test.describe("Color Picker", () => {
         await expect(page.locator("label").filter({ hasText: "H" }).first()).toBeVisible();
     });
 
-    test("copy button triggers clipboard write", async ({ page, context }) => {
+    test("copy button triggers clipboard write", async ({ page, context, browserName }) => {
+        // WebKit doesn't support clipboard permissions via grantPermissions
+        test.skip(browserName === "webkit", "Clipboard permissions unsupported in WebKit");
         // Grant clipboard permissions
         await context.grantPermissions(["clipboard-read", "clipboard-write"]);
 
