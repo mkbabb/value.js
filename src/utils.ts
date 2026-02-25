@@ -93,7 +93,7 @@ export async function createHash(algorithm: string, data: string) {
     return digestArray.map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
-interface MemoizeOptions {
+export interface MemoizeOptions {
     maxCacheSize?: number;
     ttl?: number;
     keyFn?: (...args: any[]) => string;

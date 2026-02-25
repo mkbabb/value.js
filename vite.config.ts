@@ -40,7 +40,7 @@ export default defineConfig((mode) => {
             build: {
                 minify: true,
                 lib: {
-                    entry: path.resolve(import.meta.dirname, "src/units/index.ts"),
+                    entry: path.resolve(import.meta.dirname, "src/index.ts"),
                     name: "Value",
                     fileName: "value",
                     formats: ["es", "cjs"],

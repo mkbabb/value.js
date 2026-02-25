@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "0.1.0",
+    "version": "0.3.1",
     "description": "CSS value units for color, length, angles, & c.",
     "license": "GPL-3.0-only",
     "keywords": [

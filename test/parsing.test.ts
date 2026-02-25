@@ -77,6 +77,7 @@ describe("CSSColor", () => {
             // Named colors
             "aquamarine",
             "blue",
+            "transparent",
 
             // Kelvin
             "6500K",

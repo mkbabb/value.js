@@ -976,11 +976,19 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
         return color;
     }
 
-    const toXYZFn = XYZ_FUNCTIONS[color.colorSpace]["to"] as any;
+    const fromEntry = XYZ_FUNCTIONS[color.colorSpace];
+    if (!fromEntry) {
+        throw new Error(`Unknown source color space: "${color.colorSpace}"`);
+    }
 
-    const xyz = toXYZFn(color);
+    const toEntry = XYZ_FUNCTIONS[to as ColorSpace];
+    if (!toEntry) {
+        throw new Error(`Unknown target color space: "${to}"`);
+    }
 
-    const fromXYZFn = XYZ_FUNCTIONS[to as ColorSpace]["from"] as unknown as (
+    const xyz = fromEntry.to(color);
+
+    const fromXYZFn = toEntry.from as unknown as (
         color: XYZColor<T>,
     ) => ColorSpaceMap<T>[C];
 
