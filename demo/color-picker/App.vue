@@ -61,8 +61,8 @@
                 @reset="resetToDefaults"
             ></ColorPicker>
 
-            <Card class="w-full lg:col-span-1 overflow-y-auto lg:h-full min-w-0">
-                <CardHeader class="fraunces">
+            <Card class="w-full lg:col-span-1 overflow-y-auto overflow-x-hidden lg:h-full min-w-0">
+                <CardHeader class="fraunces px-3 sm:px-6">
                     <CardTitle
                         >About the color spaces,
                         <span
@@ -80,14 +80,14 @@
 
                 <Separator></Separator>
 
-                <CardContent>
+                <CardContent class="px-3 sm:px-6">
                     <ColorNutritionLabel class="w-full p-0 m-0" v-model="model">
                     </ColorNutritionLabel>
                 </CardContent>
 
                 <Separator></Separator>
 
-                <CardContent>
+                <CardContent class="px-3 sm:px-6">
                     <h2 class="fraunces text-4xl mb-6 font-bold">Detailed Guide</h2>
                     <Markdown
                         v-if="activeMarkdownModule"

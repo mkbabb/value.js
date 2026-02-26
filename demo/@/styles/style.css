@@ -122,20 +122,23 @@
     -webkit-text-fill-color: transparent;
 }
 
-/* Slug preview reveal animation */
-.slug-reveal-enter-active {
-    transition: opacity 0.25s ease-out, transform 0.25s ease-out;
-}
+/* Slug preview reveal animation — smooth height + fade using grid-rows trick */
+.slug-reveal-enter-active,
 .slug-reveal-leave-active {
-    transition: opacity 0.15s ease-in, transform 0.15s ease-in;
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.slug-reveal-enter-from {
-    opacity: 0;
-    transform: translateY(-4px);
-}
+.slug-reveal-enter-from,
 .slug-reveal-leave-to {
+    grid-template-rows: 0fr;
     opacity: 0;
-    transform: translateY(-4px);
+}
+.slug-reveal-enter-active > *,
+.slug-reveal-leave-active > * {
+    overflow: hidden;
+    min-height: 0;
 }
 
 /* Crown indicator animation */

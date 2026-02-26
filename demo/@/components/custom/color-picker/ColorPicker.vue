@@ -97,7 +97,7 @@
                 </CardTitle>
             </CardHeader>
 
-            <CardContent class="z-1 fraunces grid gap-4 w-full m-auto px-3 sm:px-6 min-w-0">
+            <CardContent class="z-1 fraunces grid grid-cols-1 gap-4 w-full m-auto px-3 sm:px-6 min-w-0">
                 <div
                     ref="spectrumRef"
                     class="spectrum-picker flex w-full h-48 rounded-sm cursor-crosshair relative"
@@ -116,13 +116,13 @@
                     ></div>
                 </div>
 
-                <div class="grid gap-2">
+                <div class="grid grid-cols-1 gap-2">
                     <div
                         v-for="[component, value] in Object.entries(
                             COLOR_SPACE_RANGES[currentColorSpace],
                         )"
                         :key="component"
-                        class="grid w-full items-start"
+                        class="grid grid-cols-1 w-full items-start"
                     >
                         <Label class="font-bold text-md"
                             >{{ component.toUpperCase()
@@ -175,7 +175,7 @@
                 </div>
 
                 <div
-                    class="grid gap-y-2 p-0 m-0 relative"
+                    class="grid grid-cols-1 gap-y-2 p-0 m-0 relative"
                 >
                     <HoverCard
                         :close-delay="0"
@@ -240,21 +240,23 @@
 
                     <!-- Propose Name inline form -->
                     <Transition name="slug-reveal">
-                        <div v-if="canProposeName && showProposeForm" class="relative">
-                            <Input
-                                v-model="proposedName"
-                                placeholder="Propose a name..."
-                                class="fira-code text-sm h-8 pr-8"
-                                @keydown.enter="submitProposedName"
-                            />
-                            <button
-                                class="absolute right-1 top-1/2 -translate-y-1/2 p-1 rounded-sm transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110"
-                                :disabled="!proposedName.trim() || proposing"
-                                @click="submitProposedName"
-                            >
-                                <Loader2 v-if="proposing" class="w-3.5 h-3.5 animate-spin" />
-                                <Sparkles v-else class="w-3.5 h-3.5" :style="{ stroke: cssColorOpaque }" />
-                            </button>
+                        <div v-if="canProposeName && showProposeForm">
+                            <div class="relative">
+                                <Input
+                                    v-model="proposedName"
+                                    placeholder="Propose a name..."
+                                    class="fira-code text-sm h-8 pr-8"
+                                    @keydown.enter="submitProposedName"
+                                />
+                                <button
+                                    class="absolute right-1 top-1/2 -translate-y-1/2 p-1 rounded-sm transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110"
+                                    :disabled="!proposedName.trim() || proposing"
+                                    @click="submitProposedName"
+                                >
+                                    <Loader2 v-if="proposing" class="w-3.5 h-3.5 animate-spin" />
+                                    <Sparkles v-else class="w-3.5 h-3.5" :style="{ stroke: cssColorOpaque }" />
+                                </button>
+                            </div>
                         </div>
                     </Transition>
 

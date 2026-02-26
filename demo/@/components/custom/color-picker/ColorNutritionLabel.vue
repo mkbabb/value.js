@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full fraunces grid gap-4 relative">
+    <div class="w-full fraunces grid grid-cols-1 gap-4 relative">
         <Alert class="m-0">
             <AlertTitle>Definition</AlertTitle>
             <AlertDescription>
@@ -95,7 +95,7 @@
                     <Tooltip>
                         <TooltipTrigger as-child>
                             <div
-                                class="flex items-center p-3 bg-muted/50 dark:bg-muted/30 rounded-lg hover:bg-muted dark:hover:bg-muted/60 transition-colors cursor-pointer"
+                                class="flex flex-wrap items-center p-3 bg-muted/50 dark:bg-muted/30 rounded-lg hover:bg-muted dark:hover:bg-muted/60 transition-colors cursor-pointer max-w-full"
                                 @mouseenter="setHoveredPath(path as any)"
                                 @mouseleave="clearHoveredPath"
                             >
