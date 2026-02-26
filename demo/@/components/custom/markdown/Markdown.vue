@@ -240,7 +240,7 @@ onUnmounted(() => {
 @reference "../../../styles/style.css";
 
 .markdown-body {
-    @apply text-base leading-7 text-foreground;
+    @apply text-base leading-7;
     @apply p-0 m-0;
     @apply max-w-full;
 }
@@ -253,7 +253,7 @@ onUnmounted(() => {
     > h4,
     > h5,
     > h6 {
-        @apply font-bold text-foreground pb-1 pt-4;
+        @apply font-bold pb-1 pt-4;
         @apply first:pt-0 scroll-m-20;
     }
 
