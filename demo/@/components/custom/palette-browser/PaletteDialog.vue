@@ -14,19 +14,13 @@
                 ></div>
                 <div class="flex items-center justify-between px-4 sm:px-6 pt-3 sm:pt-4 pb-2 sm:pb-3">
                     <div class="flex items-center gap-2 sm:gap-3 min-w-0">
-                        <!-- Color swatch dot -->
-                        <TooltipProvider :delay-duration="200">
-                            <Tooltip>
-                                <TooltipTrigger as-child>
-                                    <button
-                                        class="w-8 sm:w-10 aspect-square rounded-full shrink-0 hover:scale-125 transition-transform cursor-pointer"
-                                        :style="{ backgroundColor: cssColorOpaque }"
-                                        @click="onDotClick"
-                                    ></button>
-                                </TooltipTrigger>
-                                <TooltipContent class="fira-code text-xs">{{ cssColorOpaque }}</TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
+                        <!-- Color swatch dot — click to copy, shift+click for admin -->
+                        <button
+                            class="w-8 sm:w-10 aspect-square rounded-full shrink-0 hover:scale-125 transition-transform cursor-pointer"
+                            :style="{ backgroundColor: cssColorOpaque }"
+                            :title="cssColorOpaque"
+                            @click="onDotClick"
+                        ></button>
                         <div class="min-w-0">
                             <DialogTitle class="fraunces text-3xl sm:text-5xl font-black tracking-tight">
                                 Color <span class="uppercase pastel-rainbow-text">Palettes</span>
