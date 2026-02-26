@@ -23,6 +23,8 @@ const { l, c, h } = getFormattedColorSpaceRange("oklch");
 
 The OKLCH color space is a relatively recent development in color science, created by Björn Ottosson in 2020. It is derived from the OKLAB color space, which itself was designed to address limitations in perceptual uniformity found in earlier color models. OKLCH represents a polar transformation of OKLAB, making it more intuitive for designers and artists while maintaining perceptual uniformity.
 
+---
+
 ## Key Characteristics
 
 ### Unique Features
@@ -52,6 +54,8 @@ The OKLCH color space is a relatively recent development in color science, creat
 
 OKLCH can represent all visible colors, with its gamut extending beyond what most displays can show. Its polar coordinate system makes it particularly useful for circular color pickers and gradients that maintain perceptual consistency.
 
+---
+
 ## Color Model
 
 ### Description of Color Components
@@ -72,6 +76,8 @@ Colors in OKLCH are represented in a cylindrical space. The vertical axis is lig
 ### Relationship to OKLAB
 
 OKLCH is a polar transformation of OKLAB, similar to how LCH relates to LAB. While OKLAB uses Cartesian coordinates (L, a, b), OKLCH uses cylindrical coordinates (L, C, H), making it more intuitive for certain color adjustments while preserving the perceptual advantages of OKLAB.
+
+---
 
 ## Color Conversions
 
@@ -106,6 +112,8 @@ Similarly, converting from XYZ to OKLCH goes through OKLAB:
 <div class="language-typescript">
     {{ xyz2oklch }}
 </div>
+
+---
 
 ## Common Applications
 

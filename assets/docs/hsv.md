@@ -23,6 +23,8 @@ const { h, s, v } = getFormattedColorSpaceRange("hsv");
 
 The HSV (Hue, Saturation, Value) color space was developed by Alvy Ray Smith in 1978 while working at the New York Institute of Technology. It was created to provide a more intuitive way for artists and designers to work with color in computer graphics, as opposed to the RGB model which was more aligned with hardware implementation than human perception. HSV is also sometimes referred to as HSB (Hue, Saturation, Brightness) in some software applications.
 
+---
+
 ## Key Characteristics
 
 ### Unique Features
@@ -51,6 +53,8 @@ The HSV (Hue, Saturation, Value) color space was developed by Alvy Ray Smith in 
 ### Color Gamut and Representation
 
 The HSV color space is typically represented as a cylinder or cone, with hue as the angular dimension, saturation as the radial distance from the central axis, and value as the vertical dimension. Its gamut is equivalent to that of the RGB space it's derived from, typically sRGB for digital applications.
+
+---
 
 ## Color Model
 
@@ -86,6 +90,8 @@ HSV is closely related to the HSL color space. Both use hue as their first compo
 - In HSV, maximum value (V=1) with varying saturation gives a range from white to fully saturated color
 - In HSL, maximum lightness (L=0.5) with varying saturation gives a range from gray to fully saturated color
 
+---
+
 ## Color Conversions
 
 ### HSV to HSL Conversion
@@ -119,6 +125,8 @@ Converting from XYZ to HSV involves the reverse path:
 <div class="language-typescript">
     {{ xyz2hsv }}
 </div>
+
+---
 
 ## Common Applications
 

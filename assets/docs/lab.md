@@ -23,6 +23,8 @@ const { l, a, b } = getFormattedColorSpaceRange("lab");
 
 The Lab color space was developed by the [Commission Internationale de l'Éclairage (CIE)](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) in 1976 as part of their color space. It was created to address the limitations of previous color models of the time, and to provide a standardized way of representing colors across different devices and media.
 
+---
+
 ## Key Characteristics
 
 ### Unique Features
@@ -50,6 +52,8 @@ The Lab color space was developed by the [Commission Internationale de l'Éclair
 
 The Lab color space encompasses all perceivable colors, making its gamut larger than that of RGB or CMYK. It can represent colors that are outside the gamut of most display and printing devices.
 
+---
+
 ## Color Model
 
 ### Description of Color Components
@@ -76,6 +80,8 @@ The Lab color space can use different white points, with D50 and D65 being the m
 
 Lab's standard illuminant is D50, which is commonly used in the printing industry. Lab D65 represents average daylight and is widely used in digital imaging.
 
+---
+
 ## Color Conversions
 
 ### XYZ to Lab Conversion
@@ -93,6 +99,8 @@ The conversion from Lab to XYZ is the inverse process:
 <div class="language-typescript">
     {{ lab2xyz }}
 </div>
+
+---
 
 ## Common Applications
 

@@ -23,6 +23,8 @@ const { h, w, b } = getFormattedColorSpaceRange("hwb");
 
 The HWB (Hue, Whiteness, Blackness) color space was proposed by Alvy Ray Smith in 1996 as a more intuitive alternative to HSL and HSV for color selection. Smith, a co-founder of Pixar, designed HWB to better match how artists think about color mixing - starting with a pure hue and adding white or black to create tints and shades. It was later incorporated into CSS Color Module Level 4, making it available for web design applications.
 
+---
+
 ## Key Characteristics
 
 ### Unique Features
@@ -53,6 +55,8 @@ The HWB (Hue, Whiteness, Blackness) color space was proposed by Alvy Ray Smith i
 
 The HWB color space represents the same gamut as RGB, from which it is derived through HSL or HSV. It reorganizes the RGB colorspace into coordinates that reflect how artists think about color mixing.
 
+---
+
 ## Color Model
 
 ### Description of Color Components
@@ -82,6 +86,8 @@ The HWB color space represents the same gamut as RGB, from which it is derived t
 
 Colors in HWB are represented conceptually as a mixture of a pure hue with varying amounts of white and black. The hue component determines the base color, while whiteness and blackness modify this base. When the sum of whiteness and blackness exceeds 1, the resulting color is a grayscale value determined by their relative proportions.
 
+---
+
 ## Color Conversions
 
 ### HSL to HWB Conversion
@@ -99,6 +105,8 @@ The conversion from HWB to HSL requires transforming the whiteness and blackness
 <div class="language-typescript">
     {{ hwb2hsl }}
 </div>
+
+---
 
 ## Common Applications
 

@@ -93,6 +93,8 @@
                         v-if="activeMarkdownModule"
                         :key="model.selectedColorSpace"
                         :module="activeMarkdownModule"
+                        :cssColor="cssColor"
+                        :colorSpaceName="COLOR_SPACE_NAMES[model.selectedColorSpace]"
                     />
                 </CardContent>
             </Card>

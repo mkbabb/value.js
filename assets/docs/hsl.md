@@ -23,6 +23,8 @@ const { h, s, l } = getFormattedColorSpaceRange("hsl");
 
 The HSL color space was developed in the 1970s as part of computer graphics research. It was created to provide a more intuitive way for humans to specify colors than the RGB model, which is more aligned with how machines generate colors. HSL stands for Hue, Saturation, and Lightness, representing the three key attributes of color perception.
 
+---
+
 ## Key Characteristics
 
 ### Unique Features
@@ -50,6 +52,8 @@ The HSL color space was developed in the 1970s as part of computer graphics rese
 ### Color Gamut and Representation
 
 The HSL color space can represent the same range of colors as RGB, from which it is derived. It simply reorganizes the RGB colorspace into a more intuitive coordinate system.
+
+---
 
 ## Color Model
 
@@ -80,6 +84,8 @@ The HSL color space can represent the same range of colors as RGB, from which it
 
 Colors in HSL are represented as a point in a cylindrical coordinate system. The cylinder's central axis represents lightness (ranging from black at the bottom to white at the top), with the "pure" colors arranged radially around the center at L=0.5. Saturation is the distance from this central axis.
 
+---
+
 ## Color Conversions
 
 ### RGB to HSL Conversion
@@ -97,6 +103,8 @@ The conversion from HSL to RGB is the inverse process:
 <div class="language-typescript">
     {{ hsl2rgb }}
 </div>
+
+---
 
 ## Common Applications
 

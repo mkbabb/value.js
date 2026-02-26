@@ -23,6 +23,8 @@ const { r, g, b } = getFormattedColorSpaceRange("rgb");
 
 The RGB color space was developed in the early to mid-20th century alongside the development of color television and electronic displays. It is based on the trichromatic theory of color vision, which posits that the human eye perceives color through three types of cone cells that are sensitive to red, green, and blue light wavelengths.
 
+---
+
 ## Key Characteristics
 
 ### Unique Features
@@ -51,6 +53,8 @@ The RGB color space was developed in the early to mid-20th century alongside the
 
 The RGB color space forms a cube in 3D space, with black at the origin (0,0,0) and white at the opposite corner (1,1,1). Its gamut depends on the specific RGB standard being used, with sRGB being the most common standard for web and consumer displays.
 
+---
+
 ## Color Model
 
 ### Description of Color Components
@@ -75,6 +79,8 @@ There are two main variants of the RGB color space:
 -   **sRGB**: The standard RGB color space used for most consumer displays and web content, which includes gamma correction.
 -   **Linear RGB**: A version of RGB without gamma correction, used in certain technical applications and as an intermediate step in color calculations.
 
+---
+
 ## Color Conversions
 
 ### RGB to XYZ Conversion
@@ -92,6 +98,8 @@ The conversion from XYZ to RGB is the inverse process:
 <div class="language-typescript">
     {{ xyz2rgb }}
 </div>
+
+---
 
 ## Common Applications
 

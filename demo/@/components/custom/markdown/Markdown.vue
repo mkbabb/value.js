@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper fraunces">
+    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper fraunces" :style="mdColorVars">
         <component :is="markdownContent" />
     </div>
 
@@ -35,7 +35,7 @@ import prettierBabelPlugin from "prettier/plugins/babel";
 import prettierESTreePlugin from "prettier/plugins/estree";
 import prettierPostCSSPlugin from "prettier/plugins/postcss";
 import prettierTypeScriptPlugin from "prettier/plugins/typescript";
-import { computed, onMounted, onUnmounted, onUpdated, ref, useTemplateRef, watch } from "vue";
+import { computed, onMounted, onUnmounted, onUpdated, ref, useTemplateRef, watch, nextTick } from "vue";
 import type { DocItem, DocModule } from ".";
 
 // @ts-ignore
@@ -50,11 +50,117 @@ hljs.registerLanguage("css", javascript);
 
 const isDark = useDark({ disableTransition: false });
 
-const { module } = defineProps<{
+const { module, cssColor, colorSpaceName } = defineProps<{
     module: DocModule;
+    cssColor?: string;
+    colorSpaceName?: string;
 }>();
 
 const markdownDiv = useTemplateRef<HTMLElement>("markdownDiv");
+
+/* Parse CSS color string to oklch components via browser canvas */
+function cssToOklch(css: string): [number, number, number] | null {
+    try {
+        const ctx = document.createElement("canvas").getContext("2d")!;
+        ctx.fillStyle = css;
+        const resolved = ctx.fillStyle;
+        /* Parse the hex or rgb() result */
+        ctx.fillStyle = resolved;
+        ctx.fillRect(0, 0, 1, 1);
+        const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
+        /* Convert sRGB -> linear -> OKLab -> OKLCh */
+        const toLinear = (c: number) => {
+            const s = c / 255;
+            return s <= 0.04045 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+        };
+        const lr = toLinear(r), lg = toLinear(g), lb = toLinear(b);
+        const l_ = 0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb;
+        const m_ = 0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb;
+        const s_ = 0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb;
+        const l3 = Math.cbrt(l_), m3 = Math.cbrt(m_), s3 = Math.cbrt(s_);
+        const L = 0.2104542553 * l3 + 0.7936177850 * m3 - 0.0040720468 * s3;
+        const a = 1.9779984951 * l3 - 2.4285922050 * m3 + 0.4505937099 * s3;
+        const bOk = 0.0259040371 * l3 + 0.7827717662 * m3 - 0.8086757660 * s3;
+        const C = Math.sqrt(a * a + bOk * bOk);
+        let H = Math.atan2(bOk, a) * 180 / Math.PI;
+        if (H < 0) H += 360;
+        return [L, C, H];
+    } catch {
+        return null;
+    }
+}
+
+/* Derive hue-shifted heading colors from the selected color */
+const mdColorVars = computed(() => {
+    if (!cssColor) return {};
+    const oklch = cssToOklch(cssColor);
+    if (!oklch) return {};
+    const [l, c, h] = oklch;
+
+    /* Keep lightness readable; boost chroma slightly for headings */
+    const baseLightness = isDark.value
+        ? Math.max(l, 0.72)
+        : Math.min(l, 0.45);
+    const headingChroma = Math.max(c, 0.08);
+
+    return {
+        "--md-color-h2": `oklch(${baseLightness} ${headingChroma} ${h})`,
+        "--md-color-h3": `oklch(${baseLightness} ${headingChroma} ${(h + 40) % 360})`,
+        "--md-color-accent": `oklch(${baseLightness} ${headingChroma} ${(h + 20) % 360})`,
+    } as Record<string, string>;
+});
+
+/* Wrap occurrences of the color space name in <mark> tags */
+const highlightColorSpaceName = () => {
+    if (!markdownDiv.value || !colorSpaceName) return;
+    const body = markdownDiv.value.querySelector(".markdown-body");
+    if (!body) return;
+
+    /* Skip if already highlighted */
+    if (body.querySelector("mark.cs-name")) return;
+
+    const name = colorSpaceName;
+    /* Build case-insensitive regex matching the full name, plus common abbreviations */
+    const pattern = new RegExp(`\\b(${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})\\b`, "gi");
+
+    const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+            /* Skip code blocks, pre, and already-marked nodes */
+            const parent = node.parentElement;
+            if (!parent) return NodeFilter.FILTER_REJECT;
+            if (parent.closest("pre, code, mark, script, .katex")) return NodeFilter.FILTER_REJECT;
+            if (pattern.test(node.textContent ?? "")) return NodeFilter.FILTER_ACCEPT;
+            /* Reset regex lastIndex */
+            pattern.lastIndex = 0;
+            return NodeFilter.FILTER_REJECT;
+        },
+    });
+
+    const matches: Text[] = [];
+    while (walker.nextNode()) matches.push(walker.currentNode as Text);
+
+    for (const textNode of matches) {
+        const text = textNode.textContent ?? "";
+        pattern.lastIndex = 0;
+        const frag = document.createDocumentFragment();
+        let lastIdx = 0;
+        let m: RegExpExecArray | null;
+        while ((m = pattern.exec(text)) !== null) {
+            if (m.index > lastIdx) {
+                frag.appendChild(document.createTextNode(text.slice(lastIdx, m.index)));
+            }
+            const mark = document.createElement("mark");
+            mark.className = "cs-name";
+            mark.textContent = m[0];
+            frag.appendChild(mark);
+            lastIdx = pattern.lastIndex;
+        }
+        if (lastIdx < text.length) {
+            frag.appendChild(document.createTextNode(text.slice(lastIdx)));
+        }
+        textNode.parentNode?.replaceChild(frag, textNode);
+    }
+};
 
 const currentDoc = ref<Awaited<ReturnType<DocModule>> | null>(null);
 
@@ -229,6 +335,7 @@ onMounted(async () => {
 onUpdated(() => {
     highlightCode();
     renderKatex();
+    highlightColorSpaceName();
 });
 
 onUnmounted(() => {
@@ -255,6 +362,7 @@ onUnmounted(() => {
     > h6 {
         @apply font-bold pb-1 pt-4;
         @apply first:pt-0 scroll-m-20;
+        transition: color 0.3s ease;
     }
 
     /* Consecutive headings — collapse the top padding of the second one */
@@ -272,14 +380,17 @@ onUnmounted(() => {
 
     > h2 {
         @apply text-3xl font-semibold;
+        color: var(--md-color-h2);
     }
 
     > h3 {
         @apply text-2xl font-semibold;
+        color: var(--md-color-h3);
     }
 
     > h4 {
         @apply text-xl font-semibold;
+        color: var(--md-color-h3);
     }
 
     > h5 {
@@ -288,6 +399,13 @@ onUnmounted(() => {
 
     > h6 {
         @apply text-base font-semibold;
+    }
+
+    /* Color space name highlights */
+    mark.cs-name {
+        background: transparent;
+        color: var(--md-color-accent);
+        font-weight: 600;
     }
 
     /* Direct child paragraphs */
@@ -366,7 +484,9 @@ onUnmounted(() => {
 
     /* Horizontal rule */
     hr {
-        @apply my-8 border-t border-gray-300 dark:border-gray-700;
+        @apply my-4 border-t;
+        border-color: var(--md-color-h2, hsl(var(--border)));
+        opacity: 0.3;
     }
 
     /* Definition lists */

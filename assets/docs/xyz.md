@@ -26,6 +26,8 @@ const { x, y, z } = getFormattedColorSpaceRange("xyz");
 
 The XYZ color space was developed by the [Commission Internationale de l'Éclairage (CIE)](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) in 1931. It was the first mathematically defined color space and represents a pivotal moment in color science. The XYZ system was derived from a series of experiments that mapped how the average human eye responds to different wavelengths of light, creating a standard observer model.
 
+---
+
 ## Key Characteristics
 
 ### Unique Features
@@ -54,6 +56,8 @@ The XYZ color space was developed by the [Commission Internationale de l'Éclair
 ### Color Gamut and Representation
 
 The XYZ color space can represent all colors visible to the human eye, making it a reference for defining the gamuts of other color spaces. The visible color gamut forms a cone-like shape within the XYZ space.
+
+---
 
 ## Color Model
 
@@ -89,6 +93,8 @@ Converting between white points requires chromatic adaptation, often done with a
     {{ WHITE_POINT_D50_D65 }}
 </div>
 
+---
+
 ## Color Conversions
 
 ### RGB to XYZ Conversion
@@ -122,6 +128,8 @@ The inverse transformation from LAB to XYZ:
 <div class="language-typescript">
     {{ lab2xyz }}
 </div>
+
+---
 
 ## Common Applications
 

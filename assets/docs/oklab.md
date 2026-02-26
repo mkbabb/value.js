@@ -23,6 +23,8 @@ const { l, a, b } = getFormattedColorSpaceRange("oklab");
 
 The OKLab color space was developed by Björn Ottosson in 2020 as a modern perceptual color space designed to address the limitations of earlier models. It was created to provide a more accurate representation of perceived color differences while being computationally efficient. The name "OK" suggests it's "Ottosson's Kolors" or simply that it's an "OK" color space that works well enough for practical applications.
 
+---
+
 ## Key Characteristics
 
 ### Unique Features
@@ -53,6 +55,8 @@ The OKLab color space was developed by Björn Ottosson in 2020 as a modern perce
 
 Like Lab, the OKLab color space encompasses all perceivable colors, making its gamut larger than that of RGB or CMYK. It represents colors in a way that better matches human perception, particularly in terms of perceived lightness and color differences.
 
+---
+
 ## Color Model
 
 ### Description of Color Components
@@ -69,6 +73,8 @@ Like Lab, the OKLab color space encompasses all perceivable colors, making its g
 ### How Colors are Represented
 
 Colors in OKLab space are represented as a point in a three-dimensional space similar to Lab. The L axis represents lightness, while the a and b axes form a color plane at each lightness level. The primary difference from Lab is in how the coordinates are calculated, resulting in improved perceptual properties.
+
+---
 
 ## Color Conversions
 
@@ -87,6 +93,8 @@ The conversion from OKLab to XYZ is the inverse process:
 <div class="language-typescript">
     {{ oklab2xyz }}
 </div>
+
+---
 
 ## Common Applications
 

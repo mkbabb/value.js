@@ -21,6 +21,8 @@ const { kelvin } = getFormattedColorSpaceRange("kelvin");
 
 The Kelvin color space is based on the concept of color temperature, which originated in the late 19th century with the work of British physicist William Thomson (Lord Kelvin). It relates the temperature of a theoretical black-body radiator to the color of light it emits. This concept was standardized in the early 20th century and has been widely used in lighting, photography, and color science ever since.
 
+---
+
 ## Key Characteristics
 
 ### Unique Features
@@ -49,6 +51,8 @@ The Kelvin color space is based on the concept of color temperature, which origi
 
 The Kelvin color space represents colors along a specific curve in the CIE chromaticity diagram known as the Planckian locus or black-body locus. It covers a range from reddish-yellow at lower temperatures to blue at higher temperatures but cannot represent the full gamut of perceptible colors.
 
+---
+
 ## Color Model
 
 ### Description of Color Components
@@ -70,6 +74,8 @@ Colors in the Kelvin space are represented as a single value in Kelvin units, co
 - **6500K**: Standard daylight (D65)/overcast sky
 - **15000K-27000K**: Clear blue sky
 
+---
+
 ## Color Conversions
 
 ### RGB to Kelvin Conversion
@@ -87,6 +93,8 @@ Converting from Kelvin to RGB uses approximations based on the black-body radiat
 <div class="language-typescript">
     {{ kelvin2rgb }}
 </div>
+
+---
 
 ## Common Applications
 

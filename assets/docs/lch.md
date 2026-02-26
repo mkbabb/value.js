@@ -23,6 +23,8 @@ const { l, c, h } = getFormattedColorSpaceRange("lch");
 
 The LCH color space (also known as CIELCh or CIELCH) was derived from the CIE L*a*b* color space. It was developed by the [Commission Internationale de l'Éclairage (CIE)](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) as a cylindrical representation of the Lab color space. LCH uses the same L (Lightness) component as Lab but represents the a* and b* components in polar coordinates as Chroma (saturation) and Hue (angle), making it more intuitive for color adjustments while maintaining the perceptual benefits of Lab.
 
+---
+
 ## Key Characteristics
 
 ### Unique Features
@@ -53,6 +55,8 @@ The LCH color space (also known as CIELCh or CIELCH) was derived from the CIE L*
 
 Like Lab, the LCH color space encompasses all perceivable colors, making its gamut larger than that of RGB or CMYK. However, many colors with high chroma values in LCH cannot be displayed on standard RGB monitors or printed with CMYK processes.
 
+---
+
 ## Color Model
 
 ### Description of Color Components
@@ -80,6 +84,8 @@ Like Lab, the LCH color space encompasses all perceivable colors, making its gam
 
 Colors in LCH space are represented as a point in a cylindrical coordinate system. The vertical axis represents lightness (L), the radial distance from this axis represents chroma (C), and the angle around the axis represents hue (H). This creates a more intuitive representation compared to Lab's Cartesian coordinates while maintaining the same perceptual properties.
 
+---
+
 ## Color Conversions
 
 ### Lab to LCH Conversion
@@ -97,6 +103,8 @@ The conversion from LCH to Lab is the inverse process, transforming polar coordi
 <div class="language-typescript">
     {{ lch2lab }}
 </div>
+
+---
 
 ## Common Applications
 
