@@ -1,5 +1,4 @@
 import { ref, onUnmounted, watch, type Ref } from "vue";
-import { lerp } from "@src/math";
 
 /** Mulberry32 — fast 32-bit seeded PRNG */
 function mulberry32(seed: number) {
@@ -43,6 +42,17 @@ export interface UseWatercolorBlobOptions {
     range?: [number, number];
 }
 
+/**
+ * Per-vertex animation state — each of the 8 border-radius values
+ * animates independently with its own timing, producing organic motion.
+ */
+interface VertexState {
+    from: number;
+    to: number;
+    startTime: number;
+    duration: number;
+}
+
 export function useWatercolorBlob(
     color: Ref<string> | (() => string),
     options: UseWatercolorBlobOptions = {},
@@ -79,32 +89,49 @@ export function useWatercolorBlob(
         return { borderRadius, hoverBorderRadius };
     }
 
-    // Animation state
-    let current = [...initial];
-    let from = [...initial];
-    let to = randomRadii(rng, range[0], range[1]);
-    let startTime = 0;
-    let duration = cycleDuration * (0.8 + rng() * 0.4); // +/-20% variance
+    // --- Per-vertex independent animation ---
+
+    const [lo, hi] = range;
+    const current = [...initial];
+
+    // Each vertex gets its own timing with wide variance
+    const vertices: VertexState[] = [];
+    for (let i = 0; i < 8; i++) {
+        // Duration varies 0.5x–1.8x of base, different per vertex
+        const durationMul = 0.5 + rng() * 1.3;
+        // Random phase offset so vertices start at different points
+        const phaseOffset = rng();
+        vertices.push({
+            from: initial[i],
+            to: lo + rng() * (hi - lo),
+            startTime: -phaseOffset * cycleDuration * durationMul,
+            duration: cycleDuration * durationMul,
+        });
+    }
+
     let rafId: number | null = null;
 
     function tick(now: number) {
-        if (startTime === 0) startTime = now;
-
-        let t = (now - startTime) / duration;
-        if (t >= 1) {
-            // Advance to next target
-            from = [...to];
-            to = randomRadii(rng, range[0], range[1]);
-            startTime = now;
-            duration = cycleDuration * (0.8 + rng() * 0.4);
-            t = 0;
-        }
-
-        // Smooth easing (ease-in-out)
-        const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-
         for (let i = 0; i < 8; i++) {
-            current[i] = lerp(ease, from[i], to[i]);
+            const v = vertices[i];
+            let t = (now - v.startTime) / v.duration;
+
+            if (t >= 1) {
+                // Advance: current target becomes new source
+                v.from = v.to;
+                // Pick a new random target — use a mix of the PRNG and vertex index
+                // for variety across vertices even when called in sequence
+                v.to = lo + rng() * (hi - lo);
+                // New duration with wide variance (0.5x–1.8x)
+                v.duration = cycleDuration * (0.5 + rng() * 1.3);
+                v.startTime = now;
+                t = 0;
+            }
+
+            // Sinusoidal ease — smoother and more organic than quadratic
+            const ease = 0.5 - 0.5 * Math.cos(Math.PI * t);
+
+            current[i] = v.from + ease * (v.to - v.from);
         }
 
         borderRadius.value = radiiToCSS(current);
