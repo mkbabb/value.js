@@ -153,33 +153,32 @@
         <Transition name="card-expand" @after-enter="onExpandEnter" @before-leave="onExpandLeave">
             <div v-if="expanded" ref="expandRef" @click.stop>
                 <div
-                    class="px-3 pb-3 flex flex-wrap gap-1.5 items-start border-t border-gray-700/15 pt-2 max-h-[200px] scrollbar-hidden min-w-0 overflow-x-hidden"
+                    class="px-3 pb-3 flex flex-wrap gap-2 items-start border-t border-gray-700/15 pt-3 max-h-[220px] scrollbar-hidden min-w-0 overflow-x-hidden"
                 >
-                    <TooltipProvider
+                    <div
                         v-for="(color, i) in palette.colors"
                         :key="i"
-                        :delay-duration="100"
+                        class="group/swatch relative"
                     >
-                        <Tooltip>
-                            <TooltipTrigger as-child>
-                                <button
-                                    class="flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-accent/50 transition-colors cursor-pointer group/swatch"
-                                    @click="copyColor(color.css)"
-                                >
-                                    <div
-                                        class="w-5 h-5 rounded-full shrink-0 transition-transform group-hover/swatch:scale-125"
-                                        :style="{ backgroundColor: color.css }"
-                                    ></div>
-                                    <span class="fira-code text-sm text-muted-foreground">
-                                        {{ color.name || color.css }}
-                                    </span>
-                                </button>
-                            </TooltipTrigger>
-                            <TooltipContent class="fira-code text-xs">
-                                {{ color.css }}
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
+                        <TooltipProvider :delay-duration="100">
+                            <Tooltip>
+                                <TooltipTrigger as-child>
+                                    <WatercolorDot
+                                        :color="color.css"
+                                        tag="button"
+                                        class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer relative"
+                                        @click="(e) => onSwatchClick(e, color, i)"
+                                    >
+                                        <Pencil class="absolute inset-0 m-auto w-3 h-3 text-white drop-shadow-sm opacity-0 group-hover/swatch:opacity-80 transition-opacity pointer-events-none" />
+                                    </WatercolorDot>
+                                </TooltipTrigger>
+                                <TooltipContent class="fira-code text-xs">
+                                    <div>{{ color.name || color.css }}</div>
+                                    <div class="text-muted-foreground text-[10px]">Click to copy / Shift to edit</div>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    </div>
                 </div>
             </div>
         </Transition>
@@ -209,8 +208,10 @@ import {
     Pencil,
     Check,
 } from "lucide-vue-next";
+import type { PaletteColor } from "@lib/palette/types";
 import { toast } from "vue-sonner";
 import type { Palette } from "@lib/palette/types";
+import { WatercolorDot } from "@components/custom/watercolor-dot";
 
 const props = defineProps<{
     palette: Palette;
@@ -227,7 +228,16 @@ const emit = defineEmits<{
     save: [palette: Palette];
     vote: [palette: Palette];
     rename: [palette: Palette, newName: string];
+    editColor: [palette: Palette, colorIndex: number, css: string];
 }>();
+
+function onSwatchClick(e: MouseEvent, color: PaletteColor, index: number) {
+    if (e.shiftKey) {
+        emit("editColor", props.palette, index, color.css);
+    } else {
+        copyColor(color.css);
+    }
+}
 
 const renameValue = ref(props.palette.name);
 const expandRef = ref<HTMLElement | null>(null);

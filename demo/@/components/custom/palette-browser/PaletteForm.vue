@@ -1,7 +1,7 @@
 <template>
     <div class="grid gap-3">
         <!-- Color preview as dots -->
-        <div v-if="colors.length > 0" class="flex items-center gap-2 flex-wrap">
+        <div v-if="colors.length > 0" class="flex items-center gap-2.5 flex-wrap">
             <TooltipProvider
                 v-for="(color, i) in colors"
                 :key="i"
@@ -9,11 +9,12 @@
             >
                 <Tooltip>
                     <TooltipTrigger as-child>
-                        <button
-                            class="w-7 aspect-square rounded-full hover:scale-125 transition-transform cursor-pointer shrink-0"
-                            :style="{ backgroundColor: color }"
+                        <WatercolorDot
+                            :color="color"
+                            tag="button"
+                            class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer"
                             @click="copyColor(color)"
-                        ></button>
+                        />
                     </TooltipTrigger>
                     <TooltipContent class="fira-code text-xs">
                         {{ color }}
@@ -91,6 +92,7 @@ import {
 import { Globe, Loader2 } from "lucide-vue-next";
 import { slugify } from "@lib/palette/utils";
 import { toast } from "vue-sonner";
+import { WatercolorDot } from "@components/custom/watercolor-dot";
 
 const props = defineProps<{
     colors: string[];
