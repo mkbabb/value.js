@@ -1,4 +1,14 @@
 <template>
+    <!-- Global SVG filter for watercolor swatches -->
+    <svg class="absolute w-0 h-0" aria-hidden="true">
+        <defs>
+            <filter id="watercolor-filter" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+                <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="2" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+
     <div
         ref="gridBackground"
         class="z-[-2] flex w-full h-full absolute grid-background"
@@ -53,15 +63,16 @@
         </div>
 
         <div
-            class="grid lg:grid-cols-2 lg:grid-rows-[minmax(0,1fr)] gap-6 relative max-w-screen-lg w-full lg:max-h-[800px] lg:overflow-hidden p-4 py-10"
+            class="grid lg:grid-cols-2 lg:grid-rows-[auto] gap-6 relative max-w-screen-lg w-full p-4 py-10"
         >
             <ColorPicker
+                ref="colorPickerRef"
                 class="w-full lg:col-span-1 min-w-0"
                 v-model="model"
                 @reset="resetToDefaults"
             ></ColorPicker>
 
-            <Card class="w-full lg:col-span-1 overflow-y-auto overflow-x-hidden lg:h-full min-w-0">
+            <Card :class="['w-full lg:col-span-1 overflow-y-auto overflow-x-hidden min-w-0 lg:h-0 lg:min-h-full', pickerIsEditing ? 'about-card-editing' : 'about-card-normal']">
                 <CardHeader class="fraunces px-3 sm:px-6">
                     <CardTitle
                         >About the color spaces,
@@ -123,7 +134,7 @@
 
 <script setup lang="ts">
 import { Separator } from "@components/ui/separator";
-import { computed, onMounted, shallowRef, useTemplateRef, watch } from "vue";
+import { computed, onMounted, ref, shallowRef, useTemplateRef, watch } from "vue";
 import { DarkModeToggle } from "@components/custom/dark-mode-toggle";
 import {
     HoverCard,
@@ -169,6 +180,8 @@ const markdownModules: Record<ColorSpace, DocModule> = {
 const activeMarkdownModule = computed(() => markdownModules[model.value.selectedColorSpace]);
 
 const gridBackground = useTemplateRef<HTMLElement>("gridBackground");
+const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
+const pickerIsEditing = computed(() => colorPickerRef.value?.isEditing ?? false);
 
 const isDark = useDark({ disableTransition: false });
 
