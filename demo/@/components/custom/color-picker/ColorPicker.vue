@@ -111,7 +111,11 @@
                     @pointerup="stopDragging"
                     @pointercancel="stopDragging"
                 >
-                    <div
+                    <WatercolorDot
+                        :color="cssColorOpaque"
+                        animate
+                        :cycle-duration="3000"
+                        tag="div"
                         class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                         :style="spectrumDotStyle"
                     />
@@ -1298,9 +1302,12 @@ onUnmounted(() => {
 .spectrum-dot {
     width: 1.5rem;
     height: 1.5rem;
-    border-radius: 50%;
     border: 2px solid hsl(var(--background));
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    /* Override watercolor hover transform — spectrum dot should stay put */
+    &:hover {
+        transform: none;
+    }
 }
 
 </style>
