@@ -1,0 +1,948 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("#000") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("#00ff00ff") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("#ff0000") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("#ffffff") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("6500K") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("aquamarine") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("blue") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("color(display-p3 1 0 0)") 1`] = `
+{
+  "colorSpace": "display-p3",
+  "superType": [
+    "color",
+    "display-p3",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("color(srgb 1 0 0)") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("color(srgb-linear 0.5 0.5 0.5)") 1`] = `
+{
+  "colorSpace": "srgb-linear",
+  "superType": [
+    "color",
+    "srgb-linear",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("color-mix(in hsl, hsl(0, 100%, 50%), hsl(120, 100%, 50%))") 1`] = `
+{
+  "colorSpace": "hsl",
+  "superType": [
+    "color",
+    "hsl",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("color-mix(in oklab, red, blue)") 1`] = `
+{
+  "colorSpace": "oklab",
+  "superType": [
+    "color",
+    "oklab",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("color-mix(in oklch, red 30%, blue 70%)") 1`] = `
+{
+  "colorSpace": "oklch",
+  "superType": [
+    "color",
+    "oklch",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("hsl(120, 50%, 50%)") 1`] = `
+{
+  "colorSpace": "hsl",
+  "superType": [
+    "color",
+    "hsl",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("hsl(120deg 50% 50%)") 1`] = `
+{
+  "colorSpace": "hsl",
+  "superType": [
+    "color",
+    "hsl",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("hsla(0, 100%, 50%, 1)") 1`] = `
+{
+  "colorSpace": "hsl",
+  "superType": [
+    "color",
+    "hsl",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("hsv(0, 100%, 100%)") 1`] = `
+{
+  "colorSpace": "hsv",
+  "superType": [
+    "color",
+    "hsv",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("hwb(120, 10%, 20%)") 1`] = `
+{
+  "colorSpace": "hwb",
+  "superType": [
+    "color",
+    "hwb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("lab(50, 20, -30)") 1`] = `
+{
+  "colorSpace": "lab",
+  "superType": [
+    "color",
+    "lab",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("lch(50, 30, 120)") 1`] = `
+{
+  "colorSpace": "lch",
+  "superType": [
+    "color",
+    "lch",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("oklab(0.5, 0.1, -0.1)") 1`] = `
+{
+  "colorSpace": "oklab",
+  "superType": [
+    "color",
+    "oklab",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("oklch(0.7, 0.15, 180)") 1`] = `
+{
+  "colorSpace": "oklch",
+  "superType": [
+    "color",
+    "oklch",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("red") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("rgb(0 128 255 / 0.8)") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("rgb(255, 0, 0)") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("rgba(0, 255, 0, 0.5)") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("transparent") 1`] = `
+{
+  "colorSpace": "rgb",
+  "superType": [
+    "color",
+    "rgb",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSColor > parseCSSColor("xyz(0.5, 0.5, 0.5)") 1`] = `
+{
+  "colorSpace": "xyz",
+  "superType": [
+    "color",
+    "xyz",
+  ],
+  "unit": "color",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSPercent > parseCSSPercent("0%") = 0 1`] = `0`;
+
+exports[`BBNF Equivalence: parseCSSPercent > parseCSSPercent("33.3%") = 33.3 1`] = `33.3`;
+
+exports[`BBNF Equivalence: parseCSSPercent > parseCSSPercent("50%") = 50 1`] = `50`;
+
+exports[`BBNF Equivalence: parseCSSPercent > parseCSSPercent("100%") = 100 1`] = `100`;
+
+exports[`BBNF Equivalence: parseCSSPercent > parseCSSPercent("from") = 0 1`] = `0`;
+
+exports[`BBNF Equivalence: parseCSSPercent > parseCSSPercent("to") = 100 1`] = `100`;
+
+exports[`BBNF Equivalence: parseCSSTime > parseCSSTime("0.5s") = 500 1`] = `500`;
+
+exports[`BBNF Equivalence: parseCSSTime > parseCSSTime("1ms") = 1 1`] = `1`;
+
+exports[`BBNF Equivalence: parseCSSTime > parseCSSTime("2s") = 2000 1`] = `2000`;
+
+exports[`BBNF Equivalence: parseCSSTime > parseCSSTime("100ms") = 100 1`] = `100`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#000") 1`] = `"rgb(0 0 0 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#00ff00ff") 1`] = `"rgb(0 255 0 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#ff0000") 1`] = `"rgb(255 0 0 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#ffffff") 1`] = `"rgb(255 255 255 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("/") 1`] = `
+{
+  "superType": undefined,
+  "toString": "/",
+  "unit": "string",
+  "value": "/",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("-1") 1`] = `
+{
+  "superType": undefined,
+  "toString": "-1",
+  "unit": undefined,
+  "value": -1,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("-3.14mm") 1`] = `
+{
+  "superType": [
+    "length",
+    "absolute",
+  ],
+  "toString": "-3.14mm",
+  "unit": "mm",
+  "value": -3.14,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("0") 1`] = `
+{
+  "superType": undefined,
+  "toString": "0",
+  "unit": undefined,
+  "value": 0,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("0%") 1`] = `
+{
+  "superType": [
+    "percentage",
+  ],
+  "toString": "0%",
+  "unit": "%",
+  "value": 0,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("0.5turn") 1`] = `
+{
+  "superType": [
+    "angle",
+  ],
+  "toString": "0.5turn",
+  "unit": "turn",
+  "value": 0.5,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("0pt") 1`] = `
+{
+  "superType": [
+    "length",
+    "absolute",
+  ],
+  "toString": "0pt",
+  "unit": "pt",
+  "value": 0,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("1.5rad") 1`] = `
+{
+  "superType": [
+    "angle",
+  ],
+  "toString": "1.5rad",
+  "unit": "rad",
+  "value": 1.5,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("1.5s") 1`] = `
+{
+  "superType": [
+    "time",
+  ],
+  "toString": "1.5s",
+  "unit": "s",
+  "value": 1.5,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("1e2") 1`] = `
+{
+  "superType": undefined,
+  "toString": "100",
+  "unit": undefined,
+  "value": 100,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("2.5em") 1`] = `
+{
+  "superType": [
+    "length",
+    "relative",
+  ],
+  "toString": "2.5em",
+  "unit": "em",
+  "value": 2.5,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("2dppx") 1`] = `
+{
+  "superType": [
+    "resolution",
+  ],
+  "toString": "2dppx",
+  "unit": "dppx",
+  "value": 2,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("3.14") 1`] = `
+{
+  "superType": undefined,
+  "toString": "3.14",
+  "unit": undefined,
+  "value": 3.14,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("10px") 1`] = `
+{
+  "superType": [
+    "length",
+    "absolute",
+  ],
+  "toString": "10px",
+  "unit": "px",
+  "value": 10,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("33.3%") 1`] = `
+{
+  "superType": [
+    "percentage",
+  ],
+  "toString": "33.3%",
+  "unit": "%",
+  "value": 33.3,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("42") 1`] = `
+{
+  "superType": undefined,
+  "toString": "42",
+  "unit": undefined,
+  "value": 42,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("50vh") 1`] = `
+{
+  "superType": [
+    "length",
+    "relative",
+  ],
+  "toString": "50vh",
+  "unit": "vh",
+  "value": 50,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("75vw") 1`] = `
+{
+  "superType": [
+    "length",
+    "relative",
+  ],
+  "toString": "75vw",
+  "unit": "vw",
+  "value": 75,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("90deg") 1`] = `
+{
+  "superType": [
+    "angle",
+  ],
+  "toString": "90deg",
+  "unit": "deg",
+  "value": 90,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("96dpi") 1`] = `
+{
+  "superType": [
+    "resolution",
+  ],
+  "toString": "96dpi",
+  "unit": "dpi",
+  "value": 96,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("100%") 1`] = `
+{
+  "superType": [
+    "percentage",
+  ],
+  "toString": "100%",
+  "unit": "%",
+  "value": 100,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("100rem") 1`] = `
+{
+  "superType": [
+    "length",
+    "relative",
+  ],
+  "toString": "100rem",
+  "unit": "rem",
+  "value": 100,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("200grad") 1`] = `
+{
+  "superType": [
+    "angle",
+  ],
+  "toString": "200grad",
+  "unit": "grad",
+  "value": 200,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("500ms") 1`] = `
+{
+  "superType": [
+    "time",
+  ],
+  "toString": "500ms",
+  "unit": "ms",
+  "value": 500,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("6500K") 1`] = `"rgb(1 0.9965101328455601 0.9805565033048651 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("aquamarine") 1`] = `"rgb(127 255 212 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("blue") 1`] = `"rgb(0 0 255 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("calc(50px + 50px)") 1`] = `
+{
+  "superType": undefined,
+  "toString": "calc(50px + 50px)",
+  "unit": "calc",
+  "value": "50px + 50px",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("calc(100% - 20px)") 1`] = `
+{
+  "superType": undefined,
+  "toString": "calc(100% - 20px)",
+  "unit": "calc",
+  "value": "100% - 20px",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(display-p3 1 0 0)") 1`] = `"display-p3(1 0 0 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb 1 0 0)") 1`] = `"rgb(255 0 0 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb-linear 0.5 0.5 0.5)") 1`] = `"srgb-linear(0.5 0.5 0.5 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in hsl, hsl(0, 100%, 50%), hsl(120, 100%, 50%))") 1`] = `"hsl(0.16666666666666674 1 0.5 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in oklab, red, blue)") 1`] = `"oklab(0.5399845410479274 0.6202538082846729 0.38394881978312945 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in oklch, red 30%, blue 70%)") 1`] = `"oklch(0.504796211898526 0.5931101263714953 0.8377960553204091 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("cubic-bezier(0.25, 0.1, 0.25, 1)") 1`] = `"cubic-bezier(0.25, 0.1, 0.25, 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsl(120, 50%, 50%)") 1`] = `"hsl(120 50% 50% / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsl(120deg 50% 50%)") 1`] = `"hsl(120deg 50% 50% / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsla(0, 100%, 50%, 1)") 1`] = `"hsl(0 100% 50% / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsv(0, 100%, 100%)") 1`] = `"hsv(0 100% 100% / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hwb(120, 10%, 20%)") 1`] = `"hwb(120 10% 20% / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("lab(50, 20, -30)") 1`] = `"lab(50 20 -30 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("lch(50, 30, 120)") 1`] = `"lch(50 30 120 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("linear-gradient(90deg, #000, #fff)") 1`] = `"linear-gradient(90deg, rgb(0 0 0 / 1), rgb(255 255 255 / 1))"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("linear-gradient(to right, red, blue)") 1`] = `"linear-gradient(100%, right, rgb(255 0 0 / 1), rgb(0 0 255 / 1))"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("none") 1`] = `
+{
+  "superType": undefined,
+  "toString": "NaN",
+  "unit": undefined,
+  "value": NaN,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("oklab(0.5, 0.1, -0.1)") 1`] = `"oklab(0.5 0.1 -0.1 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("oklch(0.7, 0.15, 180)") 1`] = `"oklch(0.7 0.15 180 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("red") 1`] = `"rgb(255 0 0 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rgb(0 128 255 / 0.8)") 1`] = `"rgb(0 128 255 / 0.8)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rgb(255, 0, 0)") 1`] = `"rgb(255 0 0 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rgba(0, 255, 0, 0.5)") 1`] = `"rgb(0 255 0 / 0.5)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rotate(45deg)") 1`] = `"rotateX(45deg) rotateY(45deg) rotateZ(45deg)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("scale(2)") 1`] = `"scaleX(2) scaleY(2) scaleZ(2)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("scaleY(0.5)") 1`] = `"scaleY(0.5)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("translate(10px, 20px)") 1`] = `"translateX(10px) translateY(20px)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("translateX(10px)") 1`] = `"translateX(10px)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("transparent") 1`] = `"rgb(0 0 0 / 0)"`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("var(--custom-property, fallback)") 1`] = `
+{
+  "superType": undefined,
+  "toString": "var(--custom-property, fallback)",
+  "unit": "var",
+  "value": "--custom-property, fallback",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("var(--x)") 1`] = `
+{
+  "superType": undefined,
+  "toString": "var(--x)",
+  "unit": "var",
+  "value": "--x",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("xyz(0.5, 0.5, 0.5)") 1`] = `"xyz(0.5 0.5 0.5 / 1)"`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("/") 1`] = `
+{
+  "superType": undefined,
+  "unit": "string",
+  "value": "/",
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("-1") 1`] = `
+{
+  "superType": undefined,
+  "unit": undefined,
+  "value": -1,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("-3.14mm") 1`] = `
+{
+  "superType": [
+    "length",
+    "absolute",
+  ],
+  "unit": "mm",
+  "value": -3.14,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("0") 1`] = `
+{
+  "superType": undefined,
+  "unit": undefined,
+  "value": 0,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("0%") 1`] = `
+{
+  "superType": [
+    "percentage",
+  ],
+  "unit": "%",
+  "value": 0,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("0.5turn") 1`] = `
+{
+  "superType": [
+    "angle",
+  ],
+  "unit": "turn",
+  "value": 0.5,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("0pt") 1`] = `
+{
+  "superType": [
+    "length",
+    "absolute",
+  ],
+  "unit": "pt",
+  "value": 0,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("1.5rad") 1`] = `
+{
+  "superType": [
+    "angle",
+  ],
+  "unit": "rad",
+  "value": 1.5,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("1.5s") 1`] = `
+{
+  "superType": [
+    "time",
+  ],
+  "unit": "s",
+  "value": 1.5,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("1e2") 1`] = `
+{
+  "superType": undefined,
+  "unit": undefined,
+  "value": 100,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("2.5em") 1`] = `
+{
+  "superType": [
+    "length",
+    "relative",
+  ],
+  "unit": "em",
+  "value": 2.5,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("2dppx") 1`] = `
+{
+  "superType": [
+    "resolution",
+  ],
+  "unit": "dppx",
+  "value": 2,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("3.14") 1`] = `
+{
+  "superType": undefined,
+  "unit": undefined,
+  "value": 3.14,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("10px") 1`] = `
+{
+  "superType": [
+    "length",
+    "absolute",
+  ],
+  "unit": "px",
+  "value": 10,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("33.3%") 1`] = `
+{
+  "superType": [
+    "percentage",
+  ],
+  "unit": "%",
+  "value": 33.3,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("42") 1`] = `
+{
+  "superType": undefined,
+  "unit": undefined,
+  "value": 42,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("50vh") 1`] = `
+{
+  "superType": [
+    "length",
+    "relative",
+  ],
+  "unit": "vh",
+  "value": 50,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("75vw") 1`] = `
+{
+  "superType": [
+    "length",
+    "relative",
+  ],
+  "unit": "vw",
+  "value": 75,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("90deg") 1`] = `
+{
+  "superType": [
+    "angle",
+  ],
+  "unit": "deg",
+  "value": 90,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("96dpi") 1`] = `
+{
+  "superType": [
+    "resolution",
+  ],
+  "unit": "dpi",
+  "value": 96,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("100%") 1`] = `
+{
+  "superType": [
+    "percentage",
+  ],
+  "unit": "%",
+  "value": 100,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("100rem") 1`] = `
+{
+  "superType": [
+    "length",
+    "relative",
+  ],
+  "unit": "rem",
+  "value": 100,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("200grad") 1`] = `
+{
+  "superType": [
+    "angle",
+  ],
+  "unit": "grad",
+  "value": 200,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("500ms") 1`] = `
+{
+  "superType": [
+    "time",
+  ],
+  "unit": "ms",
+  "value": 500,
+}
+`;
+
+exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("none") 1`] = `
+{
+  "superType": undefined,
+  "unit": undefined,
+  "value": NaN,
+}
+`;
