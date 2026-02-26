@@ -1,7 +1,7 @@
 <template>
     <Dialog v-model:open="openModel">
         <DialogScrollContent
-            class="palette-dialog max-w-[720px] mx-4 sm:mx-auto p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg max-h-[85vh] min-w-0"
+            class="palette-dialog w-[calc(100%-2rem)] sm:w-full max-w-[720px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg max-h-[85vh] min-w-0"
         >
             <!-- Header -->
             <div>
