@@ -246,16 +246,24 @@ onUnmounted(() => {
 }
 
 .markdown-wrapper > .markdown-body {
-    /* Direct child headings — padding (not margin) so adjacent sticky headings still have space */
+    /* Direct child headings */
     > h1,
     > h2,
     > h3,
     > h4,
     > h5,
     > h6 {
-        @apply sticky top-0 bg-background z-10;
-        @apply font-bold text-gray-900 dark:text-gray-100 pb-2 pt-6;
+        @apply font-bold text-foreground pb-1 pt-4;
         @apply first:pt-0 scroll-m-20;
+    }
+
+    /* Consecutive headings — collapse the top padding of the second one */
+    > h1 + h2, > h1 + h3, > h1 + h4, > h1 + h5, > h1 + h6,
+    > h2 + h3, > h2 + h4, > h2 + h5, > h2 + h6,
+    > h3 + h4, > h3 + h5, > h3 + h6,
+    > h4 + h5, > h4 + h6,
+    > h5 + h6 {
+        @apply pt-1;
     }
 
     > h1 {
