@@ -185,6 +185,22 @@
     min-height: 0;
 }
 
+/* Sort toggle slide-in/out */
+.sort-reveal-enter-active,
+.sort-reveal-leave-active {
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 100px;
+    overflow: hidden;
+}
+.sort-reveal-enter-from,
+.sort-reveal-leave-to {
+    opacity: 0;
+    max-width: 0;
+    transform: scale(0.8);
+}
+
 /* Tab content fade transition */
 .tab-fade-enter-active,
 .tab-fade-leave-active {

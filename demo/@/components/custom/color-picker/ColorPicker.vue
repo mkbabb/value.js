@@ -346,8 +346,10 @@
                         >
                             <HoverCardTrigger>
                                 <Palette
-                                    @click="() => showPalette()"
-                                    class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                    @click="togglePalette"
+                                    class="h-8 aspect-square hover:scale-125 transition-all cursor-pointer"
+                                    :class="paletteHidden ? 'stroke-foreground' : ''"
+                                    :style="!paletteHidden ? { stroke: cssColorOpaque, strokeWidth: '2.75' } : {}"
                                 />
                             </HoverCardTrigger>
                             <HoverCardContent
@@ -738,7 +740,6 @@ function onPaletteApply(colors: string[]) {
 
     if (parsed.length > 0) {
         updateModel({ savedColors: parsed });
-        toast.success(`Applied palette (${parsed.length} colors)`);
     }
 }
 
@@ -1160,8 +1161,8 @@ watch(paletteDialogOpen, (open) => {
     if (open) browseHoverOpen.value = false;
 });
 
-const showPalette = () => {
-    paletteHidden.value = false;
+const togglePalette = () => {
+    paletteHidden.value = !paletteHidden.value;
 };
 
 const hidePalette = () => {

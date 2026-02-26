@@ -50,35 +50,37 @@
                             placeholder="Search palettes..."
                             class="fira-code text-base h-10 focus-visible:ring-0 focus-visible:ring-offset-0 min-w-0"
                         />
-                        <!-- Sort controls (browse tab only) -->
-                        <ToggleGroup
-                            v-if="activeTab === 'browse'"
-                            type="single"
-                            :model-value="sortMode"
-                            @update:model-value="onSortChange"
-                            class="shrink-0"
-                        >
-                            <TooltipProvider :delay-duration="200">
-                                <Tooltip>
-                                    <TooltipTrigger as-child>
-                                        <ToggleGroupItem value="newest" class="px-2.5">
-                                            <Clock class="w-4 h-4" />
-                                        </ToggleGroupItem>
-                                    </TooltipTrigger>
-                                    <TooltipContent class="fira-code text-xs">Newest first</TooltipContent>
-                                </Tooltip>
-                            </TooltipProvider>
-                            <TooltipProvider :delay-duration="200">
-                                <Tooltip>
-                                    <TooltipTrigger as-child>
-                                        <ToggleGroupItem value="popular" class="px-2.5">
-                                            <TrendingUp class="w-4 h-4" />
-                                        </ToggleGroupItem>
-                                    </TooltipTrigger>
-                                    <TooltipContent class="fira-code text-xs">Most popular</TooltipContent>
-                                </Tooltip>
-                            </TooltipProvider>
-                        </ToggleGroup>
+                        <!-- Sort controls (browse tab only), animated in/out -->
+                        <Transition name="sort-reveal">
+                            <ToggleGroup
+                                v-if="activeTab === 'browse'"
+                                type="single"
+                                :model-value="sortMode"
+                                @update:model-value="onSortChange"
+                                class="shrink-0"
+                            >
+                                <TooltipProvider :delay-duration="200">
+                                    <Tooltip>
+                                        <TooltipTrigger as-child>
+                                            <ToggleGroupItem value="newest" class="px-2.5">
+                                                <Clock class="w-4 h-4" />
+                                            </ToggleGroupItem>
+                                        </TooltipTrigger>
+                                        <TooltipContent class="fira-code text-xs">Newest first</TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                                <TooltipProvider :delay-duration="200">
+                                    <Tooltip>
+                                        <TooltipTrigger as-child>
+                                            <ToggleGroupItem value="popular" class="px-2.5">
+                                                <TrendingUp class="w-4 h-4" />
+                                            </ToggleGroupItem>
+                                        </TooltipTrigger>
+                                        <TooltipContent class="fira-code text-xs">Most popular</TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </ToggleGroup>
+                        </Transition>
                     </div>
 
                     <!-- Saved palettes tab -->
@@ -171,7 +173,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, Transition } from "vue";
 import {
     Dialog,
     DialogScrollContent,
@@ -331,7 +333,7 @@ async function onCreateAndPublish(name: string) {
 
 function onApply(palette: Palette) {
     emit("apply", palette.colors.map((c) => c.css));
-    openModel.value = false;
+    toast.success(`Applied "${palette.name}" (${palette.colors.length} colors)`);
 }
 
 function onDelete(palette: Palette) {
