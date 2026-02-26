@@ -133,9 +133,9 @@ async function loadQueue() {
     if (!token) return;
     loadingQueue.value = true;
     try {
-        queue.value = await getAdminQueue(token);
+        queue.value = await guardedAdmin(() => getAdminQueue(token));
     } catch (e: any) {
-        toast.error(e?.message ?? "Failed to load queue");
+        if (isAuthenticated.value) toast.error(e?.message ?? "Failed to load queue");
     } finally {
         loadingQueue.value = false;
     }
@@ -158,11 +158,11 @@ async function onApprove(item: ProposedColorName) {
     const token = getToken();
     if (!token) return;
     try {
-        await approveColorName(token, item.id);
+        await guardedAdmin(() => approveColorName(token, item.id));
         queue.value = queue.value.filter((q) => q.id !== item.id);
         toast.success(`Approved "${item.name}"`);
     } catch (e: any) {
-        toast.error(e?.message ?? "Failed to approve");
+        if (isAuthenticated.value) toast.error(e?.message ?? "Failed to approve");
     }
 }
 
@@ -170,11 +170,11 @@ async function onReject(item: ProposedColorName) {
     const token = getToken();
     if (!token) return;
     try {
-        await rejectColorName(token, item.id);
+        await guardedAdmin(() => rejectColorName(token, item.id));
         queue.value = queue.value.filter((q) => q.id !== item.id);
         toast.success(`Rejected "${item.name}"`);
     } catch (e: any) {
-        toast.error(e?.message ?? "Failed to reject");
+        if (isAuthenticated.value) toast.error(e?.message ?? "Failed to reject");
     }
 }
 
@@ -184,11 +184,11 @@ async function onFeature() {
     const slug = paletteSlug.value.trim();
     if (!slug) return;
     try {
-        await featurePalette(token, slug);
+        await guardedAdmin(() => featurePalette(token, slug));
         toast.success(`Featured "${slug}"`);
         paletteSlug.value = "";
     } catch (e: any) {
-        toast.error(e?.message ?? "Failed to feature palette");
+        if (isAuthenticated.value) toast.error(e?.message ?? "Failed to feature palette");
     }
 }
 
@@ -198,11 +198,26 @@ async function onDeletePalette() {
     const slug = paletteSlug.value.trim();
     if (!slug) return;
     try {
-        await deletePaletteAdmin(token, slug);
+        await guardedAdmin(() => deletePaletteAdmin(token, slug));
         toast.success(`Deleted "${slug}"`);
         paletteSlug.value = "";
     } catch (e: any) {
-        toast.error(e?.message ?? "Failed to delete palette");
+        if (isAuthenticated.value) toast.error(e?.message ?? "Failed to delete palette");
+    }
+}
+
+/** Run an admin API call; on 401, silently log out (stale token). */
+async function guardedAdmin<T>(fn: () => Promise<T>): Promise<T> {
+    try {
+        return await fn();
+    } catch (e: any) {
+        if (typeof e?.message === "string" && e.message.startsWith("API 401")) {
+            logout();
+            queue.value = [];
+            toast.error("Session expired — please log in again.");
+            throw e; // propagate so callers skip success paths
+        }
+        throw e;
     }
 }
 

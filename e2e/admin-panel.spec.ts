@@ -186,6 +186,51 @@ test.describe("Admin Panel", () => {
         await expect(adminTab).not.toBeVisible();
     });
 
+    test("401 on admin API auto-logs out and shows login form", async ({ page }) => {
+        // Queue always succeeds — we'll trigger 401 via a feature action
+        await page.route("**/admin/queue", (route) => {
+            route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify([]),
+            });
+        });
+
+        // Feature endpoint returns 401 (simulating revoked token)
+        await page.route("**/admin/palettes/*/feature", (route) => {
+            route.fulfill({ status: 401, body: "Unauthorized" });
+        });
+
+        const dialog = page.getByRole("dialog");
+        const dot = dialog.locator("button.rounded-full").first();
+        await dot.click({ modifiers: ["Shift"] });
+        await page.waitForTimeout(300);
+
+        // Login successfully
+        await page.getByPlaceholder("Admin token...").fill("stale-token");
+        await page.getByRole("button", { name: /login/i }).click();
+        await page.waitForTimeout(500);
+
+        // Should be authenticated
+        await expect(page.getByText("Proposed Color Names")).toBeVisible();
+
+        // Trigger a 401 via the feature action
+        const slugInput = page.getByPlaceholder("Palette slug...");
+        await slugInput.fill("some-palette");
+        await page.getByRole("button", { name: /feature/i }).click();
+        await page.waitForTimeout(500);
+
+        // Should be logged out — admin tab hidden, saved tab active
+        const savedTab = page.getByRole("tab", { name: "Saved" });
+        await expect(savedTab).toHaveAttribute("data-state", "active");
+
+        const adminTab = page.getByRole("tab", { name: /admin/i });
+        await expect(adminTab).not.toBeVisible();
+
+        // Session expired toast should have appeared
+        await expect(page.getByText("Session expired")).toBeVisible();
+    });
+
     test("dialog height stays fixed when switching tabs", async ({ page }) => {
         // Dialog is already open from beforeEach — measure on Saved tab
         const dialog = page.getByRole("dialog");
