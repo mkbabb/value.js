@@ -246,8 +246,7 @@ onUnmounted(() => {
 }
 
 .markdown-wrapper > .markdown-body {
-    // Direct child headings — use padding instead of margin so sticky headings
-    // that are adjacent (e.g. h2 immediately followed by h3) still have visible space
+    /* Direct child headings — padding (not margin) so adjacent sticky headings still have space */
     > h1,
     > h2,
     > h3,
@@ -283,7 +282,7 @@ onUnmounted(() => {
         @apply text-base font-semibold;
     }
 
-    // Direct child paragraphs
+    /* Direct child paragraphs */
     > p {
         @apply mb-4 leading-7;
     }

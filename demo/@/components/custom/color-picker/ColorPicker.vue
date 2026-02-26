@@ -262,13 +262,15 @@
 
                     <div class="flex flex-wrap gap-2 sm:gap-4 w-full justify-evenly items-center">
                         <HoverCard
+                            :open="activeHover === 'reset'"
+                            @update:open="(v) => activeHover = v ? 'reset' : null"
                             :close-delay="0"
                             :open-delay="700"
                             class="pointer-events-auto"
                         >
                             <HoverCardTrigger>
                                 <RotateCcw
-                                    @click="emit('reset')"
+                                    @click="dismissHover(); emit('reset')"
                                     class="h-8 aspect-square stroke-foreground hover:scale-125 hover:-rotate-180 transition-all duration-300 cursor-pointer"
                                 />
                             </HoverCardTrigger>
@@ -285,6 +287,8 @@
                         </HoverCard>
 
                         <HoverCard
+                            :open="activeHover === 'copy'"
+                            @update:open="(v) => activeHover = v ? 'copy' : null"
                             :close-delay="0"
                             :open-delay="700"
                             class="pointer-events-auto"
@@ -292,7 +296,7 @@
                             <HoverCardTrigger>
                                 <Copy
                                     class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
-                                    @click="copyAndSetInputColor()"
+                                    @click="dismissHover(); copyAndSetInputColor()"
                                 >
                                 </Copy>
                             </HoverCardTrigger>
@@ -310,20 +314,15 @@
                         </HoverCard>
 
                         <HoverCard
+                            :open="activeHover === 'random'"
+                            @update:open="(v) => activeHover = v ? 'random' : null"
                             :close-delay="0"
                             :open-delay="700"
                             class="pointer-events-auto"
                         >
                             <HoverCardTrigger>
                                 <Shuffle
-                                    @click="
-                                        () =>
-                                            setCurrentColor(
-                                                generateRandomColor(
-                                                    model.selectedColorSpace,
-                                                ),
-                                            )
-                                    "
+                                    @click="dismissHover(); setCurrentColor(generateRandomColor(model.selectedColorSpace))"
                                     class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
                                 />
                             </HoverCardTrigger>
@@ -340,13 +339,15 @@
                         </HoverCard>
 
                         <HoverCard
+                            :open="activeHover === 'palette'"
+                            @update:open="(v) => activeHover = v ? 'palette' : null"
                             :close-delay="0"
                             :open-delay="700"
                             class="pointer-events-auto"
                         >
                             <HoverCardTrigger>
                                 <Palette
-                                    @click="togglePalette"
+                                    @click="dismissHover(); togglePalette()"
                                     class="h-8 aspect-square hover:scale-125 transition-all cursor-pointer"
                                     :class="paletteHidden ? 'stroke-foreground' : ''"
                                     :style="!paletteHidden ? { stroke: cssColorOpaque, strokeWidth: '2.75' } : {}"
@@ -374,14 +375,15 @@
 
                         <!-- Palette browser trigger -->
                         <HoverCard
-                            v-model:open="browseHoverOpen"
+                            :open="activeHover === 'browse'"
+                            @update:open="(v) => activeHover = v ? 'browse' : null"
                             :close-delay="0"
                             :open-delay="700"
                             class="pointer-events-auto"
                         >
                             <HoverCardTrigger>
                                 <LayoutGrid
-                                    @click="paletteDialogOpen = true"
+                                    @click="dismissHover(); paletteDialogOpen = true"
                                     class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
                                 />
                             </HoverCardTrigger>
@@ -402,13 +404,15 @@
                         <!-- Propose name button -->
                         <HoverCard
                             v-if="canProposeName"
+                            :open="activeHover === 'propose'"
+                            @update:open="(v) => activeHover = v ? 'propose' : null"
                             :close-delay="0"
                             :open-delay="700"
                             class="pointer-events-auto"
                         >
                             <HoverCardTrigger>
                                 <Tag
-                                    @click="showProposeForm = !showProposeForm"
+                                    @click="dismissHover(); showProposeForm = !showProposeForm"
                                     class="h-8 aspect-square hover:scale-125 transition-all cursor-pointer rounded-md stroke-foreground"
                                     :style="showProposeForm ? { stroke: cssColorOpaque, strokeWidth: '2.75' } : {}"
                                 />
@@ -1155,11 +1159,9 @@ watch(isDark, () => {
 
 const paletteHidden = ref(true);
 const paletteDialogOpen = ref(false);
-const browseHoverOpen = ref(false);
+const activeHover = ref<string | null>(null);
 
-watch(paletteDialogOpen, (open) => {
-    if (open) browseHoverOpen.value = false;
-});
+const dismissHover = () => { activeHover.value = null; };
 
 const togglePalette = () => {
     paletteHidden.value = !paletteHidden.value;
