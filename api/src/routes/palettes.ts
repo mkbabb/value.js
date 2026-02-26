@@ -19,8 +19,10 @@ function formatPalette(doc: any, votedSlugs?: Set<string>): any {
 
 // GET /palettes — list palettes
 palettes.get("/", async (c) => {
-    const limit = Math.min(parseInt(c.req.query("limit") ?? "20"), 100);
-    const offset = parseInt(c.req.query("offset") ?? "0");
+    const rawLimit = c.req.query("limit");
+    const rawOffset = c.req.query("offset");
+    const limit = Math.max(1, Math.min(Number(rawLimit) || 20, 100));
+    const offset = Math.min(Math.max(0, Number(rawOffset) || 0), 10_000);
     const sort = c.req.query("sort") === "popular" ? "popular" : "newest";
     const sessionToken = c.get("sessionToken") as string | undefined;
 
@@ -86,27 +88,42 @@ palettes.get("/:slug", async (c) => {
 
 // POST /palettes — publish a new palette
 palettes.post("/", async (c) => {
+    const sessionToken = (c.get("sessionToken") as string) ?? null;
+    if (!sessionToken) {
+        return c.json({ error: "Session token required" }, 401);
+    }
+
     const body = await c.req.json<{
         name: string;
         slug: string;
         colors: { css: string; name?: string; position: number }[];
     }>();
 
-    if (
-        !body.name ||
-        !body.slug ||
-        !Array.isArray(body.colors) ||
-        body.colors.length === 0
-    ) {
-        return c.json(
-            { error: "name, slug, and non-empty colors array required" },
-            400,
-        );
+    // Validate name
+    if (typeof body.name !== "string" || body.name.trim().length === 0 || body.name.length > 100) {
+        return c.json({ error: "name must be a non-empty string (max 100 chars)" }, 400);
     }
 
-    const sessionToken = (c.get("sessionToken") as string) ?? null;
-    const now = new Date();
+    // Validate slug
+    if (typeof body.slug !== "string" || !/^[a-z0-9][a-z0-9-]*$/.test(body.slug) || body.slug.length > 120) {
+        return c.json({ error: "slug must be lowercase alphanumeric with hyphens (max 120 chars)" }, 400);
+    }
 
+    // Validate colors
+    if (!Array.isArray(body.colors) || body.colors.length === 0 || body.colors.length > 50) {
+        return c.json({ error: "colors must be a non-empty array (max 50)" }, 400);
+    }
+
+    for (const color of body.colors) {
+        if (typeof color.css !== "string" || color.css.length > 200) {
+            return c.json({ error: "each color.css must be a string (max 200 chars)" }, 400);
+        }
+        if (typeof color.position !== "number" || !Number.isFinite(color.position)) {
+            return c.json({ error: "each color.position must be a finite number" }, 400);
+        }
+    }
+
+    const now = new Date();
     const db = await getDb();
 
     try {
@@ -133,7 +150,7 @@ palettes.post("/", async (c) => {
     }
 });
 
-// POST /palettes/:slug/vote — toggle vote
+// POST /palettes/:slug/vote — toggle vote (atomic)
 palettes.post("/:slug/vote", async (c) => {
     const slug = c.req.param("slug");
     const sessionToken = c.get("sessionToken") as string | undefined;
@@ -148,16 +165,13 @@ palettes.post("/:slug/vote", async (c) => {
     const palette = await db.collection("palettes").findOne({ slug });
     if (!palette) return c.json({ error: "Palette not found" }, 404);
 
-    // Check if already voted
-    const existing = await db
+    // Try to remove existing vote first (atomic unvote)
+    const deleted = await db
         .collection("votes")
-        .findOne({ sessionToken, paletteSlug: slug });
+        .findOneAndDelete({ sessionToken, paletteSlug: slug });
 
-    if (existing) {
-        // Remove vote
-        await db
-            .collection("votes")
-            .deleteOne({ sessionToken, paletteSlug: slug });
+    if (deleted) {
+        // Had a vote — remove it
         await db
             .collection("palettes")
             .updateOne({ slug }, { $inc: { voteCount: -1 } });
@@ -167,8 +181,10 @@ palettes.post("/:slug/vote", async (c) => {
             voted: false,
             voteCount: updated?.voteCount ?? 0,
         });
-    } else {
-        // Add vote
+    }
+
+    // No existing vote — try to insert (atomic vote)
+    try {
         await db.collection("votes").insertOne({
             sessionToken,
             paletteSlug: slug,
@@ -183,6 +199,16 @@ palettes.post("/:slug/vote", async (c) => {
             voted: true,
             voteCount: updated?.voteCount ?? 0,
         });
+    } catch (e: any) {
+        // Duplicate key — race condition, vote already exists
+        if (e?.code === 11000) {
+            const updated = await db.collection("palettes").findOne({ slug });
+            return c.json({
+                voted: true,
+                voteCount: updated?.voteCount ?? 0,
+            });
+        }
+        throw e;
     }
 });
 
@@ -192,8 +218,8 @@ palettes.patch("/:slug", async (c) => {
     const sessionToken = c.get("sessionToken") as string | undefined;
     const body = await c.req.json<{ name: string }>();
 
-    if (!body.name) {
-        return c.json({ error: "name required" }, 400);
+    if (typeof body.name !== "string" || body.name.trim().length === 0 || body.name.length > 100) {
+        return c.json({ error: "name must be a non-empty string (max 100 chars)" }, 400);
     }
 
     if (!sessionToken) {

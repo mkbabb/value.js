@@ -1,5 +1,6 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { bodyLimit } from "hono/body-limit";
 import cron from "node-cron";
 import "dotenv/config";
 
@@ -21,14 +22,22 @@ app.options("*", (c) => {
     return new Response(null, { status: 204, headers: corsHeaders() });
 });
 
-// Add CORS headers to all responses
+// Add CORS headers to all non-admin responses
 app.use("*", async (c, next) => {
     await next();
-    const headers = corsHeaders();
-    for (const [key, value] of Object.entries(headers)) {
-        c.res.headers.set(key, value);
+    // Admin routes: restrict origin to ADMIN_ORIGIN env var (no CORS if unset)
+    const isAdmin = c.req.path.startsWith("/admin");
+    const origin = isAdmin ? (process.env.ADMIN_ORIGIN || null) : "*";
+    const headers = corsHeaders(origin ?? undefined);
+    if (!isAdmin || origin) {
+        for (const [key, value] of Object.entries(headers)) {
+            c.res.headers.set(key, value);
+        }
     }
 });
+
+// Body size limit (64 KB)
+app.use("*", bodyLimit({ maxSize: 64 * 1024 }));
 
 // Rate limiting
 app.use("*", rateLimit);

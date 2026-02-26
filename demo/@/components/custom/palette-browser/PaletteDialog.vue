@@ -51,6 +51,35 @@
                             placeholder="Search palettes..."
                             class="fira-code text-base h-10"
                         />
+                        <!-- Sort controls (browse tab only) -->
+                        <ToggleGroup
+                            v-if="activeTab === 'browse'"
+                            type="single"
+                            :model-value="sortMode"
+                            @update:model-value="onSortChange"
+                            class="shrink-0"
+                        >
+                            <TooltipProvider :delay-duration="200">
+                                <Tooltip>
+                                    <TooltipTrigger as-child>
+                                        <ToggleGroupItem value="newest" class="px-2.5">
+                                            <Clock class="w-4 h-4" />
+                                        </ToggleGroupItem>
+                                    </TooltipTrigger>
+                                    <TooltipContent class="fira-code text-xs">Newest first</TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                            <TooltipProvider :delay-duration="200">
+                                <Tooltip>
+                                    <TooltipTrigger as-child>
+                                        <ToggleGroupItem value="popular" class="px-2.5">
+                                            <TrendingUp class="w-4 h-4" />
+                                        </ToggleGroupItem>
+                                    </TooltipTrigger>
+                                    <TooltipContent class="fira-code text-xs">Most popular</TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </ToggleGroup>
                     </div>
 
                     <!-- Saved palettes tab -->
@@ -92,9 +121,12 @@
                                     :palette="palette"
                                     :expanded="expandedId === palette.id"
                                     :css-color="cssColorOpaque"
+                                    :is-owned="session.isOwned(palette.slug)"
                                     @click="toggleExpand(palette.id)"
                                     @apply="onApply"
                                     @save="onSaveRemote"
+                                    @vote="onVote"
+                                    @rename="onRename"
                                 />
                                 <p
                                     v-if="filteredBrowse.length === 0"
@@ -130,6 +162,7 @@ import {
     DialogTitle,
 } from "@components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
+import { ToggleGroup, ToggleGroupItem } from "@components/ui/toggle-group";
 import { Input } from "@components/ui/input";
 import {
     Tooltip,
@@ -137,10 +170,11 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import { Loader2 } from "lucide-vue-next";
+import { Loader2, Clock, TrendingUp } from "lucide-vue-next";
 import { toast } from "vue-sonner";
 import { usePaletteStore } from "@composables/usePaletteStore";
-import { listPalettes, publishPalette } from "@lib/palette/api";
+import { useSession } from "@composables/useSession";
+import { listPalettes, publishPalette, votePalette, renamePalette } from "@lib/palette/api";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import PaletteCard from "./PaletteCard.vue";
 import PaletteForm from "./PaletteForm.vue";
@@ -161,6 +195,9 @@ const searchQuery = ref("");
 const expandedId = ref<string | null>(null);
 const browsing = ref(false);
 const remotePalettes = ref<Palette[]>([]);
+const sortMode = ref<"newest" | "popular">("newest");
+
+const session = useSession();
 
 const {
     savedPalettes,
@@ -192,13 +229,19 @@ const filteredBrowse = computed(() => {
 async function loadRemotePalettes() {
     browsing.value = true;
     try {
-        const res = await listPalettes(50, 0);
+        const res = await listPalettes(50, 0, sortMode.value);
         remotePalettes.value = res.data;
     } catch (e) {
         console.warn("Failed to load remote palettes:", e);
     } finally {
         browsing.value = false;
     }
+}
+
+function onSortChange(value: string | undefined) {
+    if (!value) return; // don't allow deselection
+    sortMode.value = value as "newest" | "popular";
+    loadRemotePalettes();
 }
 
 watch(activeTab, (tab) => {
@@ -217,6 +260,12 @@ function onCreateLocal(name: string) {
 }
 
 async function onCreateAndPublish(name: string) {
+    try {
+        await session.ensureSession();
+    } catch {
+        toast.error("Failed to create session");
+        return;
+    }
     const palette = createPalette(name, colorsFromStrings(props.savedColorStrings));
     try {
         await publishPalette({
@@ -224,6 +273,7 @@ async function onCreateAndPublish(name: string) {
             slug: palette.slug,
             colors: palette.colors,
         });
+        session.markOwned(palette.slug);
         toast.success(`Published "${name}"`);
     } catch (e) {
         toast.error("Failed to publish palette");
@@ -242,11 +292,18 @@ function onDelete(palette: Palette) {
 
 async function onPublish(palette: Palette) {
     try {
+        await session.ensureSession();
+    } catch {
+        toast.error("Failed to create session");
+        return;
+    }
+    try {
         await publishPalette({
             name: palette.name,
             slug: palette.slug,
             colors: palette.colors,
         });
+        session.markOwned(palette.slug);
         toast.success(`Published "${palette.name}"`);
     } catch (e) {
         toast.error("Failed to publish palette");
@@ -256,5 +313,45 @@ async function onPublish(palette: Palette) {
 function onSaveRemote(palette: Palette) {
     addPublishedPalette(palette);
     toast.success(`Saved "${palette.name}" locally`);
+}
+
+async function onVote(palette: Palette) {
+    try {
+        await session.ensureSession();
+        const result = await votePalette(palette.slug);
+        // Update in-place
+        const idx = remotePalettes.value.findIndex((p) => p.slug === palette.slug);
+        if (idx !== -1) {
+            remotePalettes.value[idx] = {
+                ...remotePalettes.value[idx],
+                voted: result.voted,
+                voteCount: result.voteCount,
+            };
+        }
+    } catch (e) {
+        toast.error("Failed to vote");
+    }
+}
+
+async function onRename(palette: Palette, newName: string) {
+    try {
+        await session.ensureSession();
+        const updated = await renamePalette(palette.slug, newName);
+        // Update in-place
+        const idx = remotePalettes.value.findIndex((p) => p.slug === palette.slug);
+        if (idx !== -1) {
+            remotePalettes.value[idx] = {
+                ...remotePalettes.value[idx],
+                name: updated.name,
+            };
+        }
+        toast.success(`Renamed to "${newName}"`);
+    } catch (e: any) {
+        if (e?.message?.includes("403")) {
+            toast.error("Not the owner of this palette");
+        } else {
+            toast.error("Failed to rename palette");
+        }
+    }
 }
 </script>

@@ -1,7 +1,8 @@
 import { Hono } from "hono";
+import type { AppEnv } from "../types.js";
 import { getDb } from "../db.js";
 
-const colors = new Hono();
+const colors = new Hono<AppEnv>();
 
 // GET /colors/approved — list approved color names
 colors.get("/approved", async (c) => {
@@ -22,6 +23,11 @@ colors.get("/approved", async (c) => {
 
 // POST /colors/propose — propose a new color name
 colors.post("/propose", async (c) => {
+    const sessionToken = (c.get("sessionToken") as string) ?? null;
+    if (!sessionToken) {
+        return c.json({ error: "Session token required" }, 401);
+    }
+
     const body = await c.req.json<{
         name: string;
         css: string;
@@ -33,13 +39,23 @@ colors.post("/propose", async (c) => {
     }
 
     const name = body.name.trim().toLowerCase();
-    if (!/^[a-z][a-z0-9-]*$/.test(name)) {
+    if (!/^[a-z][a-z0-9-]*$/.test(name) || name.length > 50) {
         return c.json(
             {
-                error: "Name must be lowercase alphanumeric with hyphens, starting with a letter",
+                error: "Name must be lowercase alphanumeric with hyphens, starting with a letter (max 50 chars)",
             },
             400,
         );
+    }
+
+    if (typeof body.css !== "string" || body.css.length > 200) {
+        return c.json({ error: "css must be a string (max 200 chars)" }, 400);
+    }
+
+    if (body.contributor !== undefined) {
+        if (typeof body.contributor !== "string" || body.contributor.length > 64) {
+            return c.json({ error: "contributor must be a string (max 64 chars)" }, 400);
+        }
     }
 
     const db = await getDb();

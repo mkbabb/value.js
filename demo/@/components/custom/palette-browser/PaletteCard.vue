@@ -20,9 +20,26 @@
         <div class="px-3 py-2.5 flex items-center justify-between gap-2">
             <div class="flex items-center gap-2 min-w-0">
                 <span class="fraunces text-lg truncate font-bold">{{ palette.name }}</span>
+                <Badge v-if="palette.status === 'featured'" variant="default" class="fira-code text-xs shrink-0 gap-1">
+                    <Award class="w-3 h-3" />
+                    Featured
+                </Badge>
                 <Badge variant="secondary" class="fira-code text-sm shrink-0">
                     {{ palette.colors.length }}
                 </Badge>
+
+                <!-- Vote count (always visible for remote palettes) -->
+                <button
+                    v-if="!palette.isLocal"
+                    class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent transition-colors cursor-pointer shrink-0"
+                    @click.stop="emit('vote', palette)"
+                >
+                    <Heart
+                        class="w-3.5 h-3.5 transition-colors"
+                        :class="palette.voted ? 'fill-red-500 text-red-500' : 'text-muted-foreground'"
+                    />
+                    <span class="fira-code text-xs text-muted-foreground">{{ palette.voteCount ?? 0 }}</span>
+                </button>
             </div>
 
             <!-- Actions (visible on hover) -->
@@ -99,6 +116,36 @@
                         <TooltipContent class="fira-code text-xs">Save locally 💾</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
+
+                <!-- Rename (owner only, remote palettes) -->
+                <Popover v-if="!palette.isLocal && isOwned">
+                    <TooltipProvider :delay-duration="200">
+                        <Tooltip>
+                            <PopoverTrigger as-child>
+                                <TooltipTrigger as-child>
+                                    <button
+                                        class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                    >
+                                        <Pencil class="w-4 h-4" />
+                                    </button>
+                                </TooltipTrigger>
+                            </PopoverTrigger>
+                            <TooltipContent class="fira-code text-xs">Rename ✏️</TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                    <PopoverContent class="w-64 p-3" @click.stop>
+                        <form class="flex gap-2" @submit.prevent="submitRename">
+                            <Input
+                                v-model="renameValue"
+                                placeholder="New name..."
+                                class="fira-code text-sm h-8"
+                            />
+                            <Button type="submit" size="sm" variant="default" class="shrink-0 h-8">
+                                <Check class="w-4 h-4" />
+                            </Button>
+                        </form>
+                    </PopoverContent>
+                </Popover>
             </div>
         </div>
 
@@ -138,14 +185,28 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import { Badge } from "@components/ui/badge";
+import { Button } from "@components/ui/button";
+import { Input } from "@components/ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import { Pipette, ClipboardCopy, Trash2, Globe, Bookmark } from "lucide-vue-next";
+import {
+    Pipette,
+    ClipboardCopy,
+    Trash2,
+    Globe,
+    Bookmark,
+    Heart,
+    Award,
+    Pencil,
+    Check,
+} from "lucide-vue-next";
 import { toast } from "vue-sonner";
 import type { Palette } from "@lib/palette/types";
 
@@ -153,6 +214,7 @@ const props = defineProps<{
     palette: Palette;
     expanded?: boolean;
     cssColor?: string;
+    isOwned?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -161,7 +223,18 @@ const emit = defineEmits<{
     delete: [palette: Palette];
     publish: [palette: Palette];
     save: [palette: Palette];
+    vote: [palette: Palette];
+    rename: [palette: Palette, newName: string];
 }>();
+
+const renameValue = ref(props.palette.name);
+
+function submitRename() {
+    const name = renameValue.value.trim();
+    if (name && name !== props.palette.name) {
+        emit("rename", props.palette, name);
+    }
+}
 
 function copyColor(css: string) {
     navigator.clipboard.writeText(css).then(

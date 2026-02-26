@@ -15,12 +15,13 @@ export async function getDb(): Promise<Db> {
     await Promise.all([
         db.collection("palettes").createIndex({ slug: 1 }, { unique: true }),
         db.collection("palettes").createIndex({ createdAt: -1 }),
-        db.collection("palettes").createIndex({ voteCount: -1 }),
+        db.collection("palettes").createIndex({ voteCount: -1, createdAt: -1 }),
         db.collection("palettes").createIndex({ status: 1 }),
         db.collection("votes").createIndex(
             { sessionToken: 1, paletteSlug: 1 },
             { unique: true },
         ),
+        db.collection("votes").createIndex({ paletteSlug: 1 }),
         db.collection("sessions").createIndex({ lastSeenAt: 1 }),
         db.collection("proposed_names").createIndex({ name: 1 }, { unique: true }),
         db.collection("proposed_names").createIndex({ status: 1 }),

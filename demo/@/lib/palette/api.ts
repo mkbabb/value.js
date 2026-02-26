@@ -9,13 +9,24 @@ interface PaginatedResponse<T> {
     offset: number;
 }
 
+// Session-aware request helper
+let sessionToken: string | null = null;
+
+export function setSessionToken(token: string) {
+    sessionToken = token;
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
+    const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+        ...(init?.headers as Record<string, string>),
+    };
+    if (sessionToken) {
+        headers["X-Session-Token"] = sessionToken;
+    }
     const res = await fetch(`${BASE_URL}${path}`, {
         ...init,
-        headers: {
-            "Content-Type": "application/json",
-            ...init?.headers,
-        },
+        headers,
     });
     if (!res.ok) {
         const body = await res.text().catch(() => "");
@@ -24,8 +35,16 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     return res.json();
 }
 
-export function listPalettes(limit = 20, offset = 0): Promise<PaginatedResponse<Palette>> {
-    return request(`/palettes?limit=${limit}&offset=${offset}`);
+export function createSession(): Promise<{ token: string }> {
+    return request("/sessions", { method: "POST" });
+}
+
+export function listPalettes(
+    limit = 20,
+    offset = 0,
+    sort: "newest" | "popular" = "newest",
+): Promise<PaginatedResponse<Palette>> {
+    return request(`/palettes?limit=${limit}&offset=${offset}&sort=${sort}`);
 }
 
 export function getPalette(slug: string): Promise<Palette> {
@@ -38,6 +57,21 @@ export function publishPalette(
     return request("/palettes", {
         method: "POST",
         body: JSON.stringify(palette),
+    });
+}
+
+export function votePalette(
+    slug: string,
+): Promise<{ voted: boolean; voteCount: number }> {
+    return request(`/palettes/${encodeURIComponent(slug)}/vote`, {
+        method: "POST",
+    });
+}
+
+export function renamePalette(slug: string, name: string): Promise<Palette> {
+    return request(`/palettes/${encodeURIComponent(slug)}`, {
+        method: "PATCH",
+        body: JSON.stringify({ name }),
     });
 }
 

@@ -12,6 +12,9 @@ export interface Palette {
     createdAt: string;
     updatedAt: string;
     isLocal: boolean;
+    voted?: boolean;
+    voteCount?: number;
+    status?: "published" | "featured";
 }
 
 export interface ProposedColorName {

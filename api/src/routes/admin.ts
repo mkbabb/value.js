@@ -1,12 +1,18 @@
 import { Hono } from "hono";
 import { ObjectId } from "mongodb";
-import { adminAuth } from "../middleware.js";
+import { adminAuth, resolveIP } from "../middleware.js";
 import { getDb } from "../db.js";
 
 const admin = new Hono();
 
 // All admin routes require auth
 admin.use("/*", adminAuth);
+
+// Audit helper
+function audit(c: any, action: string, target: string) {
+    const ip = resolveIP(c);
+    console.log(`[ADMIN] ${new Date().toISOString()} ip=${ip} action=${action} target=${target}`);
+}
 
 // GET /admin/queue — list proposed color names pending review
 admin.get("/queue", async (c) => {
@@ -41,6 +47,7 @@ admin.post("/palettes/:slug/feature", async (c) => {
         { $set: { status: newStatus, updatedAt: new Date() } },
     );
 
+    audit(c, "feature-toggle", `slug=${slug} status=${newStatus}`);
     return c.json({ slug, status: newStatus });
 });
 
@@ -57,6 +64,7 @@ admin.delete("/palettes/:slug", async (c) => {
     // Also remove associated votes
     await db.collection("votes").deleteMany({ paletteSlug: slug });
 
+    audit(c, "delete-palette", `slug=${slug}`);
     return c.json({ deleted: true });
 });
 
@@ -81,6 +89,7 @@ admin.post("/colors/:id/approve", async (c) => {
         return c.json({ error: "Proposed name not found or already processed" }, 404);
     }
 
+    audit(c, "approve-color", `id=${id}`);
     return c.json({ approved: true });
 });
 
@@ -105,6 +114,7 @@ admin.post("/colors/:id/reject", async (c) => {
         return c.json({ error: "Proposed name not found or already processed" }, 404);
     }
 
+    audit(c, "reject-color", `id=${id}`);
     return c.json({ rejected: true });
 });
 
