@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-rows-[1fr_auto] gap-4 relative min-w-0">
-        <Card class="grid items-between rounded-md overflow-hidden min-w-0">
+        <Card class="grid items-between rounded-md min-w-0">
             <CardHeader class="fraunces m-0 pb-0 relative w-full">
                 <div class="w-full flex justify-between">
                     <Select
@@ -97,7 +97,7 @@
                 </CardTitle>
             </CardHeader>
 
-            <CardContent class="z-1 fraunces grid gap-4 w-full max-w-screen-sm m-auto">
+            <CardContent class="z-1 fraunces grid gap-4 w-full m-auto">
                 <div
                     ref="spectrumRef"
                     class="spectrum-picker flex w-full h-48 rounded-sm cursor-crosshair relative"
@@ -258,7 +258,7 @@
                         </div>
                     </Transition>
 
-                    <div class="flex flex-wrap gap-4 w-full justify-evenly items-center">
+                    <div class="flex flex-wrap gap-2 sm:gap-4 w-full justify-evenly items-center">
                         <HoverCard
                             :close-delay="0"
                             :open-delay="700"
