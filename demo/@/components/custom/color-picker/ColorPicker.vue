@@ -879,7 +879,7 @@ const parseAndSetColor = (newVal: string) => {
         });
 
         if (!isInitialParse) {
-            toast.success(`Parsed ${formattedCurrentColor.value} 🎨`);
+            toast.success(`Parsed ${savedColorLabel(converted)} 🎨`);
         }
     } catch (e) {
         prevInvalidParsedValue = newVal;
