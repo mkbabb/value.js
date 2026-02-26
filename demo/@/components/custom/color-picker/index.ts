@@ -36,11 +36,12 @@ export const CSS_NATIVE_SPACES: ReadonlySet<string> = new Set([
 
 export function toCSSColorString(
     color: ValueUnit<Color<ValueUnit<number>>, "color">,
+    digits: number = 2,
 ): string {
     if (CSS_NATIVE_SPACES.has(color.value.colorSpace)) {
-        return normalizeColorUnit(color, true, false).value.toString();
+        return normalizeColorUnit(color, true, false).value.toFormattedString(digits);
     }
-    return colorUnit2(color, "oklch", true, true, false).value.toString();
+    return colorUnit2(color, "oklch", true, true, false).value.toFormattedString(digits);
 }
 
 export const colorSpaceInfo = {

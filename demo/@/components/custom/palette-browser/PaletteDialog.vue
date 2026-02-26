@@ -1,7 +1,7 @@
 <template>
     <Dialog v-model:open="openModel">
         <DialogScrollContent
-            class="palette-dialog max-w-[720px] p-0 gap-0 bg-card text-card-foreground overflow-hidden"
+            class="palette-dialog max-w-[720px] mx-4 sm:mx-auto p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg max-h-[85vh]"
         >
             <!-- Header -->
             <div>
@@ -12,14 +12,14 @@
                         background: `linear-gradient(to right, ${cssColorOpaque}, ${cssColor})`,
                     }"
                 ></div>
-                <div class="flex items-center justify-between px-6 pt-4 pb-3">
-                    <div class="flex items-center gap-3">
+                <div class="flex items-center justify-between px-4 sm:px-6 pt-3 sm:pt-4 pb-2 sm:pb-3">
+                    <div class="flex items-center gap-2 sm:gap-3 min-w-0">
                         <!-- Color swatch dot -->
                         <TooltipProvider :delay-duration="200">
                             <Tooltip>
                                 <TooltipTrigger as-child>
                                     <button
-                                        class="w-10 aspect-square rounded-full shrink-0 hover:scale-125 transition-transform cursor-pointer"
+                                        class="w-8 sm:w-10 aspect-square rounded-full shrink-0 hover:scale-125 transition-transform cursor-pointer"
                                         :style="{ backgroundColor: cssColorOpaque }"
                                         @click="onDotClick"
                                     ></button>
@@ -27,11 +27,11 @@
                                 <TooltipContent class="fira-code text-xs">{{ cssColorOpaque }}</TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
-                        <div>
-                            <DialogTitle class="fraunces text-5xl font-black tracking-tight">
+                        <div class="min-w-0">
+                            <DialogTitle class="fraunces text-3xl sm:text-5xl font-black tracking-tight">
                                 Color <span class="uppercase pastel-rainbow-text">Palettes</span>
                             </DialogTitle>
-                            <DialogDescription class="fira-code text-sm text-muted-foreground italic mt-0.5">
+                            <DialogDescription class="fira-code text-xs sm:text-sm text-muted-foreground italic mt-0.5">
                                 Save, browse, and publish color palettes.
                             </DialogDescription>
                         </div>
@@ -40,7 +40,7 @@
             </div>
 
             <!-- Tabs + Search -->
-            <div class="px-6 h-[min(60vh,500px)] flex flex-col">
+            <div class="px-4 sm:px-6 h-[min(55vh,500px)] flex flex-col">
                 <Tabs v-model="activeTab" class="w-full flex flex-col flex-1 min-h-0">
                     <div class="flex items-center gap-3 mb-4">
                         <TabsList class="shrink-0">
@@ -164,7 +164,7 @@
             </div>
 
             <!-- Footer: new palette form -->
-            <div class="px-6 pb-5 pt-3 border-t border-gray-700/20">
+            <div class="px-4 sm:px-6 pb-4 sm:pb-5 pt-3 border-t border-gray-700/20">
                 <PaletteForm
                     :colors="savedColorStrings"
                     :css-color="cssColorOpaque"

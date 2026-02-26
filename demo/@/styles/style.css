@@ -151,9 +151,12 @@
     100% { color: #daa520; transform: scale(1) rotate(0deg); filter: none; }
 }
 
-/* Palette dialog close button — destructive red, larger to match header scale */
+/* Palette dialog close button — destructive red, repositioned below gradient bar */
 .palette-dialog button:has(> .lucide-x) {
     color: var(--color-destructive);
+    top: 1.25rem;
+    right: 0.75rem;
+    z-index: 10;
 }
 .palette-dialog button:has(> .lucide-x):hover {
     background-color: color-mix(in srgb, var(--color-destructive) 10%, transparent);
