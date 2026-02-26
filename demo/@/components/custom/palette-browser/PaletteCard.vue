@@ -1,6 +1,6 @@
 <template>
     <div
-        class="group rounded-lg border-2 border-gray-700 bg-card overflow-hidden transition-all hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.6)] cursor-pointer"
+        class="group rounded-lg border border-border bg-card overflow-hidden transition-all hover:shadow-md cursor-pointer"
         @click="$emit('click')"
     >
         <!-- Color strip — clamp each swatch to min 4px so large palettes don't collapse -->
@@ -57,7 +57,7 @@
                                 <Pipette class="w-4 h-4" />
                             </button>
                         </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Apply palette 🎨</TooltipContent>
+                        <TooltipContent class="fira-code text-xs">Apply palette</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
 
@@ -71,7 +71,7 @@
                                 <ClipboardCopy class="w-4 h-4" />
                             </button>
                         </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Copy all colors 📋</TooltipContent>
+                        <TooltipContent class="fira-code text-xs">Copy all colors</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
 
@@ -85,7 +85,7 @@
                                 <Trash2 class="w-4 h-4 text-destructive" />
                             </button>
                         </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Delete 🗑️</TooltipContent>
+                        <TooltipContent class="fira-code text-xs">Delete</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
 
@@ -99,7 +99,7 @@
                                 <Globe class="w-4 h-4" />
                             </button>
                         </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Publish 🌐</TooltipContent>
+                        <TooltipContent class="fira-code text-xs">Publish</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
 
@@ -113,7 +113,7 @@
                                 <Bookmark class="w-4 h-4" />
                             </button>
                         </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Save locally 💾</TooltipContent>
+                        <TooltipContent class="fira-code text-xs">Save locally</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
 
@@ -130,7 +130,7 @@
                                     </button>
                                 </TooltipTrigger>
                             </PopoverTrigger>
-                            <TooltipContent class="fira-code text-xs">Rename ✏️</TooltipContent>
+                            <TooltipContent class="fira-code text-xs">Rename</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
                     <PopoverContent class="w-64 p-3" @click.stop>
@@ -150,37 +150,39 @@
         </div>
 
         <!-- Expandable detail: color swatches (capped with overflow for very large palettes) -->
-        <div
-            v-if="expanded"
-            class="px-3 pb-3 flex flex-wrap gap-1.5 items-start border-t border-gray-700/15 pt-2 max-h-[200px] overflow-y-auto scrollbar-hidden"
-            @click.stop
-        >
-            <TooltipProvider
-                v-for="(color, i) in palette.colors"
-                :key="i"
-                :delay-duration="100"
-            >
-                <Tooltip>
-                    <TooltipTrigger as-child>
-                        <button
-                            class="flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-accent/50 transition-colors cursor-pointer group/swatch"
-                            @click="copyColor(color.css)"
-                        >
-                            <div
-                                class="w-5 h-5 rounded-full shrink-0 transition-transform group-hover/swatch:scale-125"
-                                :style="{ backgroundColor: color.css }"
-                            ></div>
-                            <span class="fira-code text-sm text-muted-foreground">
-                                {{ color.name || color.css }}
-                            </span>
-                        </button>
-                    </TooltipTrigger>
-                    <TooltipContent class="fira-code text-xs">
-                        {{ color.css }}
-                    </TooltipContent>
-                </Tooltip>
-            </TooltipProvider>
-        </div>
+        <Transition name="slug-reveal">
+            <div v-if="expanded" @click.stop>
+                <div
+                    class="px-3 pb-3 flex flex-wrap gap-1.5 items-start border-t border-gray-700/15 pt-2 max-h-[200px] overflow-y-auto scrollbar-hidden"
+                >
+                    <TooltipProvider
+                        v-for="(color, i) in palette.colors"
+                        :key="i"
+                        :delay-duration="100"
+                    >
+                        <Tooltip>
+                            <TooltipTrigger as-child>
+                                <button
+                                    class="flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-accent/50 transition-colors cursor-pointer group/swatch"
+                                    @click="copyColor(color.css)"
+                                >
+                                    <div
+                                        class="w-5 h-5 rounded-full shrink-0 transition-transform group-hover/swatch:scale-125"
+                                        :style="{ backgroundColor: color.css }"
+                                    ></div>
+                                    <span class="fira-code text-sm text-muted-foreground">
+                                        {{ color.name || color.css }}
+                                    </span>
+                                </button>
+                            </TooltipTrigger>
+                            <TooltipContent class="fira-code text-xs">
+                                {{ color.css }}
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                </div>
+            </div>
+        </Transition>
     </div>
 </template>
 

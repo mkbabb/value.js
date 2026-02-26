@@ -239,8 +239,8 @@
                     </HoverCard>
 
                     <!-- Propose Name inline form -->
-                    <Transition name="slug-reveal">
-                        <div v-if="canProposeName && showProposeForm">
+                    <Transition name="slug-reveal" @after-enter="scrollProposeFormIntoView">
+                        <div v-if="canProposeName && showProposeForm" ref="proposeFormRef">
                             <div class="relative">
                                 <Input
                                     v-model="proposedName"
@@ -372,6 +372,7 @@
 
                         <!-- Palette browser trigger -->
                         <HoverCard
+                            v-model:open="browseHoverOpen"
                             :close-delay="0"
                             :open-delay="700"
                             class="pointer-events-auto"
@@ -437,16 +438,14 @@
             ]"
         >
             <CardHeader class="fraunces">
-                <CardTitle class="text-2xl flex">
+                <CardTitle class="text-2xl flex items-center justify-between">
                     <div>Saved colors 🎨</div>
-                    <X
+                    <button
                         @click="hidePalette"
-                        class="absolute top-0 right-0 m-2 h-6 w-6 cursor-pointer hover:scale-125 transition-all opacity-70"
-                        :class="{
-                            'text-red-500': isDark,
-                            'text-red-700': !isDark,
-                        }"
-                    />
+                        class="p-1 rounded-sm text-destructive hover:bg-destructive/10 transition-colors cursor-pointer"
+                    >
+                        <X class="h-5 w-5" />
+                    </button>
                 </CardTitle>
                 <CardDescription>
                     Click to add the current color to the palette.
@@ -679,6 +678,11 @@ const crownKey = computed(() => currentColorMeta.value?.name ?? "");
 const showProposeForm = ref(false);
 const proposedName = ref("");
 const proposing = ref(false);
+const proposeFormRef = ref<HTMLElement | null>(null);
+
+function scrollProposeFormIntoView() {
+    proposeFormRef.value?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
 
 const canProposeName = computed(() => {
     const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
@@ -1141,6 +1145,11 @@ watch(isDark, () => {
 
 const paletteHidden = ref(true);
 const paletteDialogOpen = ref(false);
+const browseHoverOpen = ref(false);
+
+watch(paletteDialogOpen, (open) => {
+    if (open) browseHoverOpen.value = false;
+});
 
 const showPalette = () => {
     paletteHidden.value = false;

@@ -30,7 +30,7 @@
                 <Input
                     v-model="name"
                     placeholder="Palette name..."
-                    class="fira-code text-base h-10 flex-1"
+                    class="fira-code text-base h-10 flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
                     @keydown.enter="onSave"
                 />
                 <TooltipProvider :delay-duration="200">
@@ -46,7 +46,7 @@
                                 Save
                             </Button>
                         </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Save palette locally 💾</TooltipContent>
+                        <TooltipContent class="fira-code text-xs">Save palette locally</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
                 <TooltipProvider :delay-duration="200">
@@ -63,7 +63,7 @@
                                 Publish
                             </Button>
                         </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Save &amp; publish publicly 🌐</TooltipContent>
+                        <TooltipContent class="fira-code text-xs">Save &amp; publish publicly</TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
             </div>

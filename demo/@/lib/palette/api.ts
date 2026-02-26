@@ -75,6 +75,44 @@ export function renamePalette(slug: string, name: string): Promise<Palette> {
     });
 }
 
+// Admin API helpers
+async function adminRequest<T>(path: string, token: string, init?: RequestInit): Promise<T> {
+    const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+        ...(init?.headers as Record<string, string>),
+    };
+    const res = await fetch(`${BASE_URL}${path}`, {
+        ...init,
+        headers,
+    });
+    if (!res.ok) {
+        const body = await res.text().catch(() => "");
+        throw new Error(`API ${res.status}: ${body}`);
+    }
+    return res.json();
+}
+
+export function getAdminQueue(token: string): Promise<ProposedColorName[]> {
+    return adminRequest("/admin/queue", token);
+}
+
+export function approveColorName(token: string, id: string): Promise<void> {
+    return adminRequest(`/admin/colors/${encodeURIComponent(id)}/approve`, token, { method: "POST" });
+}
+
+export function rejectColorName(token: string, id: string): Promise<void> {
+    return adminRequest(`/admin/colors/${encodeURIComponent(id)}/reject`, token, { method: "POST" });
+}
+
+export function featurePalette(token: string, slug: string): Promise<void> {
+    return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}/feature`, token, { method: "POST" });
+}
+
+export function deletePaletteAdmin(token: string, slug: string): Promise<void> {
+    return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}`, token, { method: "DELETE" });
+}
+
 export function getApprovedColorNames(): Promise<ProposedColorName[]> {
     return request("/colors/approved");
 }

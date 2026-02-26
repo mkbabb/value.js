@@ -151,6 +151,28 @@
     100% { color: #daa520; transform: scale(1) rotate(0deg); filter: none; }
 }
 
+/* Palette dialog close button — destructive red, larger to match header scale */
+.palette-dialog button:has(> .lucide-x) {
+    color: var(--color-destructive);
+}
+.palette-dialog button:has(> .lucide-x):hover {
+    background-color: color-mix(in srgb, var(--color-destructive) 10%, transparent);
+}
+.palette-dialog button:has(> .lucide-x) .lucide-x {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Tab content fade transition */
+.tab-fade-enter-active,
+.tab-fade-leave-active {
+    transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tab-fade-enter-from,
+.tab-fade-leave-to {
+    opacity: 0;
+}
+
 /* Base styles for compatibility */
 @layer base {
     * {
