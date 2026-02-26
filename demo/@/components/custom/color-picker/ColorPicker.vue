@@ -429,13 +429,13 @@
             </CardContent>
         </Card>
 
-        <Card
+        <div
             :class="[
-                'w-full transition-all duration-300 z-50 pointer-events-auto',
-                paletteHidden
-                    ? 'max-h-0 pointer-events-none overflow-hidden opacity-0'
-                    : 'max-h-[500px] opacity-100',
+                'saved-colors-wrapper w-full z-50 pointer-events-auto',
+                paletteHidden ? 'collapsed' : 'expanded',
             ]"
+        >
+        <Card class="w-full"
         >
             <CardHeader class="fraunces">
                 <CardTitle class="text-2xl flex items-center justify-between">
@@ -473,13 +473,7 @@
                                     ></div>
                                 </TooltipTrigger>
                                 <TooltipContent class="fira-code">
-                                    {{
-                                        normalizeColorUnit(
-                                            color,
-                                            true,
-                                            false,
-                                        ).value.toFormattedString()
-                                    }}
+                                    {{ savedColorLabel(color) }}
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
@@ -487,6 +481,7 @@
                 </div>
             </CardContent>
         </Card>
+        </div>
 
         <!-- Palette browser dialog (rendered outside card flow) -->
         <PaletteDialog
@@ -662,6 +657,20 @@ const formattedCurrentColor = computed(() => {
     return denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
 });
 
+// Return a display label for a saved color: name if it has one, else formatted CSS string
+function savedColorLabel(color: ValueUnit<Color<ValueUnit<number>>, "color">): string {
+    const xyz = colorUnit2(color, "xyz", true, false, false);
+    const colorString = xyz.value.toFormattedString(DIGITS);
+    // Check built-in CSS color names
+    const builtIn = Object.entries(NORMALIZED_COLOR_NAMES).find(([, v]) => v === colorString);
+    if (builtIn) return builtIn[0];
+    // Check custom (approved) names
+    const custom = findCustomName(colorString);
+    if (custom) return custom;
+    // Fall back to formatted CSS string
+    return normalizeColorUnit(color, true, false).value.toFormattedString(DIGITS);
+}
+
 // Metadata for crown display: non-null when current color matches an approved custom name
 const currentColorMeta = computed(() => {
     const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
@@ -681,7 +690,7 @@ const proposing = ref(false);
 const proposeFormRef = ref<HTMLElement | null>(null);
 
 function scrollProposeFormIntoView() {
-    proposeFormRef.value?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    proposeFormRef.value?.scrollIntoView({ behavior: "smooth", block: "end" });
 }
 
 const canProposeName = computed(() => {
@@ -1300,5 +1309,25 @@ onUnmounted(() => {
     &:hover {
         box-shadow: 8px 8px 0px 0px var(--spectrum-shadow, transparent);
     }
+}
+
+/* Saved colors panel — smooth grid-rows open/close */
+.saved-colors-wrapper {
+    display: grid;
+    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.saved-colors-wrapper.expanded {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+.saved-colors-wrapper.collapsed {
+    grid-template-rows: 0fr;
+    opacity: 0;
+    pointer-events: none;
+}
+.saved-colors-wrapper > * {
+    overflow: hidden;
+    min-height: 0;
 }
 </style>

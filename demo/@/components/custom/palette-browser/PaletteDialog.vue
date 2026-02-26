@@ -1,7 +1,7 @@
 <template>
     <Dialog v-model:open="openModel">
         <DialogScrollContent
-            class="palette-dialog max-w-[720px] mx-4 sm:mx-auto p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg max-h-[85vh]"
+            class="palette-dialog max-w-[720px] mx-4 sm:mx-auto p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg max-h-[85vh] min-w-0"
         >
             <!-- Header -->
             <div>
@@ -34,9 +34,9 @@
             </div>
 
             <!-- Tabs + Search -->
-            <div class="px-4 sm:px-6 h-[min(55vh,500px)] flex flex-col">
-                <Tabs v-model="activeTab" class="w-full flex flex-col flex-1 min-h-0">
-                    <div class="flex items-center gap-3 mb-4">
+            <div class="px-4 sm:px-6 h-[min(55vh,500px)] flex flex-col min-w-0 overflow-x-hidden">
+                <Tabs v-model="activeTab" class="w-full flex flex-col flex-1 min-h-0 min-w-0">
+                    <div class="flex items-center gap-2 sm:gap-3 mb-4 min-w-0">
                         <TabsList class="shrink-0">
                             <TabsTrigger value="saved" class="fira-code text-base">Saved</TabsTrigger>
                             <TabsTrigger value="browse" class="fira-code text-base">Browse</TabsTrigger>
@@ -48,7 +48,7 @@
                         <Input
                             v-model="searchQuery"
                             placeholder="Search palettes..."
-                            class="fira-code text-base h-10 focus-visible:ring-0 focus-visible:ring-offset-0"
+                            class="fira-code text-base h-10 focus-visible:ring-0 focus-visible:ring-offset-0 min-w-0"
                         />
                         <!-- Sort controls (browse tab only) -->
                         <ToggleGroup

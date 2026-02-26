@@ -246,7 +246,8 @@ onUnmounted(() => {
 }
 
 .markdown-wrapper > .markdown-body {
-    // Direct child headings
+    // Direct child headings — use padding instead of margin so sticky headings
+    // that are adjacent (e.g. h2 immediately followed by h3) still have visible space
     > h1,
     > h2,
     > h3,
@@ -254,8 +255,8 @@ onUnmounted(() => {
     > h5,
     > h6 {
         @apply sticky top-0 bg-background z-10;
-        @apply font-bold text-gray-900 dark:text-gray-100 mb-4 mt-6;
-        @apply first:mt-0 scroll-m-20;
+        @apply font-bold text-gray-900 dark:text-gray-100 pb-2 pt-6;
+        @apply first:pt-0 scroll-m-20;
     }
 
     > h1 {

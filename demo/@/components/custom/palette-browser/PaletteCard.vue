@@ -17,7 +17,7 @@
         </div>
 
         <!-- Metadata row -->
-        <div class="px-3 py-2.5 flex items-center justify-between gap-2">
+        <div class="px-3 py-2.5 flex items-center justify-between gap-2 min-w-0">
             <div class="flex items-center gap-2 min-w-0">
                 <span class="fraunces text-lg truncate font-bold">{{ palette.name }}</span>
                 <Badge v-if="palette.status === 'featured'" variant="default" class="fira-code text-xs shrink-0 gap-1">
@@ -42,9 +42,9 @@
                 </button>
             </div>
 
-            <!-- Actions (visible on hover) -->
+            <!-- Actions (always visible on mobile, hover-reveal on desktop) -->
             <div
-                class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                class="flex items-center gap-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
                 @click.stop
             >
                 <TooltipProvider :delay-duration="200">
@@ -153,7 +153,7 @@
         <Transition name="card-expand" @after-enter="onExpandEnter" @before-leave="onExpandLeave">
             <div v-if="expanded" ref="expandRef" @click.stop>
                 <div
-                    class="px-3 pb-3 flex flex-wrap gap-1.5 items-start border-t border-gray-700/15 pt-2 max-h-[200px] scrollbar-hidden"
+                    class="px-3 pb-3 flex flex-wrap gap-1.5 items-start border-t border-gray-700/15 pt-2 max-h-[200px] scrollbar-hidden min-w-0 overflow-x-hidden"
                 >
                     <TooltipProvider
                         v-for="(color, i) in palette.colors"
@@ -232,10 +232,12 @@ const emit = defineEmits<{
 const renameValue = ref(props.palette.name);
 const expandRef = ref<HTMLElement | null>(null);
 
-// After the expand animation finishes, enable scrolling on the inner content
+// After the expand animation finishes, enable scrolling and scroll into view
 function onExpandEnter(el: Element) {
     const inner = (el as HTMLElement).querySelector<HTMLElement>("[class*='max-h-']");
     if (inner) inner.style.overflowY = "auto";
+    // Scroll the expanded card into view so the last palette on screen is visible
+    (el as HTMLElement).scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 // Before collapsing, disable scrolling so the animation is clean
 function onExpandLeave(el: Element) {
