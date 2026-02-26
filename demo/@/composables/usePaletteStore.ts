@@ -76,7 +76,7 @@ export function usePaletteStore() {
     function addPublishedPalette(palette: Palette): void {
         const exists = store.value.palettes.some((p) => p.slug === palette.slug);
         if (!exists) {
-            store.value.palettes.push({ ...palette, isLocal: false });
+            store.value.palettes.push({ ...palette, isLocal: true });
         }
     }
 
