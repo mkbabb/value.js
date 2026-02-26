@@ -77,6 +77,9 @@ export function useWatercolorBlob(
     const hoverShape = randomRadii(rng, range[0], range[1]);
     hoverBorderRadius.value = radiiToCSS(hoverShape);
 
+    // No-op nudge for non-animated blobs
+    let nudge = () => {};
+
     // Re-seed when color changes (non-animated mode)
     if (!animate) {
         if (typeof color !== "function") {
@@ -86,7 +89,7 @@ export function useWatercolorBlob(
                 hoverBorderRadius.value = radiiToCSS(randomRadii(r, range[0], range[1]));
             });
         }
-        return { borderRadius, hoverBorderRadius };
+        return { borderRadius, hoverBorderRadius, nudge };
     }
 
     // --- Per-vertex independent animation ---
@@ -97,9 +100,7 @@ export function useWatercolorBlob(
     // Each vertex gets its own timing with wide variance
     const vertices: VertexState[] = [];
     for (let i = 0; i < 8; i++) {
-        // Duration varies 0.5x–1.8x of base, different per vertex
         const durationMul = 0.5 + rng() * 1.3;
-        // Random phase offset so vertices start at different points
         const phaseOffset = rng();
         vertices.push({
             from: initial[i],
@@ -110,19 +111,17 @@ export function useWatercolorBlob(
     }
 
     let rafId: number | null = null;
+    let lastNow = 0;
 
     function tick(now: number) {
+        lastNow = now;
         for (let i = 0; i < 8; i++) {
             const v = vertices[i];
             let t = (now - v.startTime) / v.duration;
 
             if (t >= 1) {
-                // Advance: current target becomes new source
                 v.from = v.to;
-                // Pick a new random target — use a mix of the PRNG and vertex index
-                // for variety across vertices even when called in sequence
                 v.to = lo + rng() * (hi - lo);
-                // New duration with wide variance (0.5x–1.8x)
                 v.duration = cycleDuration * (0.5 + rng() * 1.3);
                 v.startTime = now;
                 t = 0;
@@ -130,13 +129,28 @@ export function useWatercolorBlob(
 
             // Sinusoidal ease — smoother and more organic than quadratic
             const ease = 0.5 - 0.5 * Math.cos(Math.PI * t);
-
             current[i] = v.from + ease * (v.to - v.from);
         }
 
         borderRadius.value = radiiToCSS(current);
         rafId = requestAnimationFrame(tick);
     }
+
+    /**
+     * Nudge: immediately retarget all vertices to new random positions
+     * with short durations, creating a visible "jiggle" effect.
+     */
+    nudge = () => {
+        const now = lastNow || performance.now();
+        for (let i = 0; i < 8; i++) {
+            const v = vertices[i];
+            v.from = current[i];
+            v.to = lo + rng() * (hi - lo);
+            // Fast transition (25-50% of normal cycle)
+            v.duration = cycleDuration * (0.25 + rng() * 0.25);
+            v.startTime = now;
+        }
+    };
 
     rafId = requestAnimationFrame(tick);
 
@@ -147,5 +161,5 @@ export function useWatercolorBlob(
         }
     });
 
-    return { borderRadius, hoverBorderRadius };
+    return { borderRadius, hoverBorderRadius, nudge };
 }

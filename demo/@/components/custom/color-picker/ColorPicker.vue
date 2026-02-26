@@ -42,8 +42,8 @@
                                     animate
                                     :cycle-duration="2500"
                                     tag="div"
-                                    class="w-16 aspect-square scale-200 origin-top-right hover:scale-[2.2] flex items-center justify-items-center justify-center transition-all cursor-pointer"
-                                    :style="{ boxShadow: `0 6px 20px -2px color-mix(in srgb, ${cssColorOpaque} 40%, transparent)` }"
+                                    class="hero-blob w-16 aspect-square scale-200 origin-top-right flex items-center justify-items-center justify-center cursor-pointer"
+                                    :style="{ '--blob-color': cssColorOpaque }"
                                     @click="copyAndSetInputColor()"
                                 />
                             </TooltipTrigger>
@@ -1308,6 +1308,16 @@ onUnmounted(() => {
     /* Override watercolor hover transform — spectrum dot should stay put */
     &:hover {
         transform: none;
+    }
+}
+
+.hero-blob {
+    filter: url(#watercolor-filter) drop-shadow(3px 3px 0 color-mix(in srgb, var(--blob-color, transparent) 20%, black));
+    transition: filter 0.3s ease, transform 0.3s ease;
+    transform: none;
+    &:hover {
+        transform: scale(1.02);
+        filter: url(#watercolor-filter) drop-shadow(4px 4px 0 color-mix(in srgb, var(--blob-color, transparent) 25%, black));
     }
 }
 

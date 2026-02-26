@@ -6,7 +6,7 @@
             backgroundColor: color,
             borderRadius: activeBorderRadius,
         }"
-        @mouseenter="hovered = true"
+        @mouseenter="onMouseEnter"
         @mouseleave="hovered = false"
     >
         <slot />
@@ -41,6 +41,11 @@ const blob = useWatercolorBlob(colorRef, {
     cycleDuration: props.cycleDuration,
     range: props.range,
 });
+
+function onMouseEnter() {
+    hovered.value = true;
+    if (props.animate) blob.nudge();
+}
 
 // When animating passively, always use the rAF-driven borderRadius.
 // When static, morph to hoverBorderRadius on hover (CSS transition handles smoothing).
