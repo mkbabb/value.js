@@ -168,13 +168,14 @@
                                         tag="button"
                                         class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer relative"
                                         @click="(e) => onSwatchClick(e, color, i)"
+                                        v-on="swatchLongPress.bind({ color, index: i })"
                                     >
                                         <Pencil class="absolute inset-0 m-auto w-3 h-3 text-white drop-shadow-sm opacity-0 group-hover/swatch:opacity-80 transition-opacity pointer-events-none" />
                                     </WatercolorDot>
                                 </TooltipTrigger>
                                 <TooltipContent class="fira-code text-xs">
                                     <div>{{ color.name || color.css }}</div>
-                                    <div class="text-muted-foreground text-[10px]">Click to copy / Shift to edit</div>
+                                    <div class="text-muted-foreground text-[10px]">Tap to copy / Hold to edit</div>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
@@ -212,6 +213,7 @@ import type { PaletteColor } from "@lib/palette/types";
 import { toast } from "vue-sonner";
 import type { Palette } from "@lib/palette/types";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { createLongPress } from "@composables/useLongPress";
 
 const props = defineProps<{
     palette: Palette;
@@ -231,7 +233,13 @@ const emit = defineEmits<{
     editColor: [palette: Palette, colorIndex: number, css: string];
 }>();
 
+// Long-press on touch → edit; shift+click on desktop → edit
+const swatchLongPress = createLongPress<{ color: PaletteColor; index: number }>(
+    ({ color, index }) => emit("editColor", props.palette, index, color.css),
+);
+
 function onSwatchClick(e: MouseEvent, color: PaletteColor, index: number) {
+    if (swatchLongPress.consume()) return; // was a long press
     if (e.shiftKey) {
         emit("editColor", props.palette, index, color.css);
     } else {

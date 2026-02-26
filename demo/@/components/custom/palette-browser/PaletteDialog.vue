@@ -42,7 +42,8 @@
             <!-- Tabs + Search -->
             <div class="px-4 sm:px-6 h-[min(55vh,500px)] flex flex-col min-w-0 overflow-x-hidden">
                 <Tabs v-model="activeTab" class="w-full flex flex-col flex-1 min-h-0 min-w-0">
-                    <div class="flex items-center gap-2 sm:gap-3 mb-4 min-w-0">
+                    <!-- Controls: tabs row, then search+sort row on mobile; single row on desktop -->
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4 min-w-0">
                         <TabsList class="shrink-0">
                             <TabsTrigger value="saved" class="fira-code text-base">My Palettes</TabsTrigger>
                             <TabsTrigger value="browse" class="fira-code text-base">Browse</TabsTrigger>
@@ -51,42 +52,44 @@
                                 Admin
                             </TabsTrigger>
                         </TabsList>
-                        <Input
-                            v-model="searchQuery"
-                            placeholder="Search palettes..."
-                            class="fira-code text-base h-10 focus-visible:ring-0 focus-visible:ring-offset-0 min-w-0"
-                        />
-                        <!-- Sort controls (browse tab only), animated in/out -->
-                        <Transition name="sort-reveal">
-                            <ToggleGroup
-                                v-if="activeTab === 'browse'"
-                                type="single"
-                                :model-value="sortMode"
-                                @update:model-value="onSortChange"
-                                class="shrink-0"
-                            >
-                                <TooltipProvider :delay-duration="200">
-                                    <Tooltip>
-                                        <TooltipTrigger as-child>
-                                            <ToggleGroupItem value="newest" class="px-2.5">
-                                                <Clock class="w-4 h-4" />
-                                            </ToggleGroupItem>
-                                        </TooltipTrigger>
-                                        <TooltipContent class="fira-code text-xs">Newest first</TooltipContent>
-                                    </Tooltip>
-                                </TooltipProvider>
-                                <TooltipProvider :delay-duration="200">
-                                    <Tooltip>
-                                        <TooltipTrigger as-child>
-                                            <ToggleGroupItem value="popular" class="px-2.5">
-                                                <TrendingUp class="w-4 h-4" />
-                                            </ToggleGroupItem>
-                                        </TooltipTrigger>
-                                        <TooltipContent class="fira-code text-xs">Most popular</TooltipContent>
-                                    </Tooltip>
-                                </TooltipProvider>
-                            </ToggleGroup>
-                        </Transition>
+                        <div class="flex items-center gap-2 min-w-0 flex-1">
+                            <Input
+                                v-model="searchQuery"
+                                placeholder="Search palettes..."
+                                class="fira-code text-sm sm:text-base h-9 sm:h-10 focus-visible:ring-0 focus-visible:ring-offset-0 min-w-0 flex-1"
+                            />
+                            <!-- Sort controls (browse tab only), animated in/out -->
+                            <Transition name="sort-reveal">
+                                <ToggleGroup
+                                    v-if="activeTab === 'browse'"
+                                    type="single"
+                                    :model-value="sortMode"
+                                    @update:model-value="onSortChange"
+                                    class="shrink-0"
+                                >
+                                    <TooltipProvider :delay-duration="200">
+                                        <Tooltip>
+                                            <TooltipTrigger as-child>
+                                                <ToggleGroupItem value="newest" class="px-2.5">
+                                                    <Clock class="w-4 h-4" />
+                                                </ToggleGroupItem>
+                                            </TooltipTrigger>
+                                            <TooltipContent class="fira-code text-xs">Newest first</TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                    <TooltipProvider :delay-duration="200">
+                                        <Tooltip>
+                                            <TooltipTrigger as-child>
+                                                <ToggleGroupItem value="popular" class="px-2.5">
+                                                    <TrendingUp class="w-4 h-4" />
+                                                </ToggleGroupItem>
+                                            </TooltipTrigger>
+                                            <TooltipContent class="fira-code text-xs">Most popular</TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                </ToggleGroup>
+                            </Transition>
+                        </div>
                     </div>
 
                     <!-- My Palettes tab -->
@@ -116,12 +119,13 @@
                                                         tag="button"
                                                         class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer group/dot relative"
                                                         @click="(e: MouseEvent) => onCurrentSwatchClick(e, color, i)"
+                                                        v-on="currentSwatchLongPress.bind({ css: color, index: i })"
                                                     >
                                                         <Pencil class="absolute inset-0 m-auto w-3.5 h-3.5 text-white drop-shadow-sm opacity-0 group-hover/dot:opacity-80 transition-opacity pointer-events-none" />
                                                     </WatercolorDot>
                                                 </TooltipTrigger>
                                                 <TooltipContent class="fira-code text-xs">
-                                                    Click to copy / Shift+click to edit
+                                                    Tap to copy / Hold to edit
                                                 </TooltipContent>
                                             </Tooltip>
                                         </TooltipProvider>
@@ -278,6 +282,7 @@ import PaletteCard from "./PaletteCard.vue";
 import PaletteForm from "./PaletteForm.vue";
 import AdminPanel from "./AdminPanel.vue";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { createLongPress } from "@composables/useLongPress";
 
 const props = defineProps<{
     savedColorStrings: string[];
@@ -337,7 +342,13 @@ function addCurrentColor() {
     toast.success(`Added ${props.cssColorOpaque}`);
 }
 
+// Long-press on touch → edit; shift+click on desktop → edit
+const currentSwatchLongPress = createLongPress<{ css: string; index: number }>(
+    ({ css, index }) => emit("startEdit", { paletteId: "__current__", colorIndex: index, originalCss: css }),
+);
+
 function onCurrentSwatchClick(e: MouseEvent, css: string, index: number) {
+    if (currentSwatchLongPress.consume()) return;
     if (e.shiftKey) {
         emit("startEdit", { paletteId: "__current__", colorIndex: index, originalCss: css });
     } else {

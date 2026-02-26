@@ -42,7 +42,7 @@
                                     animate
                                     :cycle-duration="2500"
                                     tag="div"
-                                    class="w-12 aspect-square scale-150 origin-top-right hover:scale-[1.56] flex items-center justify-items-center justify-center transition-transform cursor-pointer"
+                                    class="w-20 aspect-square origin-top-right hover:scale-105 flex items-center justify-items-center justify-center transition-transform cursor-pointer"
                                     @click="copyAndSetInputColor()"
                                 />
                             </TooltipTrigger>
