@@ -58,37 +58,37 @@
                                 placeholder="Search palettes..."
                                 class="fira-code text-sm sm:text-base h-9 sm:h-10 focus-visible:ring-0 focus-visible:ring-offset-0 min-w-0 flex-1"
                             />
-                            <!-- Sort controls (browse tab only), animated in/out -->
-                            <Transition name="sort-reveal">
-                                <ToggleGroup
-                                    v-if="activeTab === 'browse'"
-                                    type="single"
-                                    :model-value="sortMode"
-                                    @update:model-value="onSortChange"
-                                    class="shrink-0"
-                                >
-                                    <TooltipProvider :delay-duration="200">
-                                        <Tooltip>
-                                            <TooltipTrigger as-child>
-                                                <ToggleGroupItem value="newest" class="px-2.5">
-                                                    <Clock class="w-4 h-4" />
-                                                </ToggleGroupItem>
-                                            </TooltipTrigger>
-                                            <TooltipContent class="fira-code text-xs">Newest first</TooltipContent>
-                                        </Tooltip>
-                                    </TooltipProvider>
-                                    <TooltipProvider :delay-duration="200">
-                                        <Tooltip>
-                                            <TooltipTrigger as-child>
-                                                <ToggleGroupItem value="popular" class="px-2.5">
-                                                    <TrendingUp class="w-4 h-4" />
-                                                </ToggleGroupItem>
-                                            </TooltipTrigger>
-                                            <TooltipContent class="fira-code text-xs">Most popular</TooltipContent>
-                                        </Tooltip>
-                                    </TooltipProvider>
-                                </ToggleGroup>
-                            </Transition>
+                            <!-- Sort controls (browse tab only) — always rendered to avoid layout shift -->
+                            <ToggleGroup
+                                type="single"
+                                :model-value="sortMode"
+                                @update:model-value="onSortChange"
+                                :class="[
+                                    'shrink-0 transition-opacity duration-200',
+                                    activeTab === 'browse' ? 'opacity-100' : 'opacity-0 pointer-events-none',
+                                ]"
+                            >
+                                <TooltipProvider :delay-duration="200">
+                                    <Tooltip>
+                                        <TooltipTrigger as-child>
+                                            <ToggleGroupItem value="newest" class="px-2.5">
+                                                <Clock class="w-4 h-4" />
+                                            </ToggleGroupItem>
+                                        </TooltipTrigger>
+                                        <TooltipContent class="fira-code text-xs">Newest first</TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                                <TooltipProvider :delay-duration="200">
+                                    <Tooltip>
+                                        <TooltipTrigger as-child>
+                                            <ToggleGroupItem value="popular" class="px-2.5">
+                                                <TrendingUp class="w-4 h-4" />
+                                            </ToggleGroupItem>
+                                        </TooltipTrigger>
+                                        <TooltipContent class="fira-code text-xs">Most popular</TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </ToggleGroup>
                         </div>
                     </div>
 
