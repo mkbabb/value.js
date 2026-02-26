@@ -336,7 +336,7 @@ test.describe("Palette Features — Vote, Sort, Rename, Featured", () => {
         const dialog = await openBrowseTab(page);
 
         // Default order (newest): "My Owned Palette" should be first (most recent createdAt)
-        const cards = dialog.locator("[class*='border-2'][class*='border-gray-700']");
+        const cards = dialog.locator("[class*='bg-card'][class*='group']");
         const firstCardText = await cards.first().textContent();
         // The newest by createdAt is "My Owned Palette" (2026-02-25)
 
@@ -346,7 +346,7 @@ test.describe("Palette Features — Vote, Sort, Rename, Featured", () => {
         await page.waitForTimeout(500);
 
         // After popular sort, "Ocean Depths" (108 votes) should be first
-        const cardsAfter = dialog.locator("[class*='border-2'][class*='border-gray-700']");
+        const cardsAfter = dialog.locator("[class*='bg-card'][class*='group']");
         const firstAfter = await cardsAfter.first().textContent();
         expect(firstAfter).toContain("Ocean Depths");
 
@@ -585,7 +585,7 @@ test.describe("Palette Features — Vote, Sort, Rename, Featured", () => {
 
         // Each card has a secondary badge showing color count
         // "Sunset Glow" has 3 colors, "Ocean Depths" has 3, "My Owned Palette" has 2
-        const cards = dialog.locator("[class*='border-2'][class*='border-gray-700']");
+        const cards = dialog.locator("[class*='bg-card'][class*='group']");
 
         // Find "Sunset Glow" card — it should contain "3" as the color count
         const sunsetCard = cards.filter({ hasText: "Sunset Glow" }).first();
@@ -602,7 +602,7 @@ test.describe("Palette Features — Vote, Sort, Rename, Featured", () => {
         const dialog = await openBrowseTab(page);
 
         // Each palette card's color strip div should have child divs matching the color count
-        const cards = dialog.locator("[class*='border-2'][class*='border-gray-700']");
+        const cards = dialog.locator("[class*='bg-card'][class*='group']");
         const cardCount = await cards.count();
         expect(cardCount).toBe(MOCK_PALETTES.length);
 

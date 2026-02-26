@@ -150,10 +150,10 @@
         </div>
 
         <!-- Expandable detail: color swatches (capped with overflow for very large palettes) -->
-        <Transition name="slug-reveal">
-            <div v-if="expanded" @click.stop>
+        <Transition name="card-expand" @after-enter="onExpandEnter" @before-leave="onExpandLeave">
+            <div v-if="expanded" ref="expandRef" @click.stop>
                 <div
-                    class="px-3 pb-3 flex flex-wrap gap-1.5 items-start border-t border-gray-700/15 pt-2 max-h-[200px] overflow-y-auto scrollbar-hidden"
+                    class="px-3 pb-3 flex flex-wrap gap-1.5 items-start border-t border-gray-700/15 pt-2 max-h-[200px] scrollbar-hidden"
                 >
                     <TooltipProvider
                         v-for="(color, i) in palette.colors"
@@ -230,6 +230,18 @@ const emit = defineEmits<{
 }>();
 
 const renameValue = ref(props.palette.name);
+const expandRef = ref<HTMLElement | null>(null);
+
+// After the expand animation finishes, enable scrolling on the inner content
+function onExpandEnter(el: Element) {
+    const inner = (el as HTMLElement).querySelector<HTMLElement>("[class*='max-h-']");
+    if (inner) inner.style.overflowY = "auto";
+}
+// Before collapsing, disable scrolling so the animation is clean
+function onExpandLeave(el: Element) {
+    const inner = (el as HTMLElement).querySelector<HTMLElement>("[class*='max-h-']");
+    if (inner) inner.style.overflowY = "hidden";
+}
 
 function submitRename() {
     const name = renameValue.value.trim();

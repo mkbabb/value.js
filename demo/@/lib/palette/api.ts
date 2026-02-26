@@ -78,10 +78,13 @@ export function renamePalette(slug: string, name: string): Promise<Palette> {
 // Admin API helpers
 async function adminRequest<T>(path: string, token: string, init?: RequestInit): Promise<T> {
     const headers: Record<string, string> = {
-        "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,
         ...(init?.headers as Record<string, string>),
     };
+    // Only set Content-Type for requests with a body
+    if (init?.body) {
+        headers["Content-Type"] = "application/json";
+    }
     const res = await fetch(`${BASE_URL}${path}`, {
         ...init,
         headers,

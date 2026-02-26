@@ -17,22 +17,24 @@ const app = new Hono<AppEnv>();
 
 // --- Global middleware ---
 
+// CORS — compute origin once, reuse for both preflight and response
+function resolveOrigin(path: string): string {
+    const isAdmin = path.startsWith("/admin");
+    return isAdmin ? (process.env.ADMIN_ORIGIN || "*") : "*";
+}
+
 // CORS preflight
 app.options("*", (c) => {
-    return new Response(null, { status: 204, headers: corsHeaders() });
+    const origin = resolveOrigin(c.req.path);
+    return new Response(null, { status: 204, headers: corsHeaders(origin) });
 });
 
-// Add CORS headers to all non-admin responses
+// Add CORS headers to all responses
 app.use("*", async (c, next) => {
     await next();
-    // Admin routes: restrict origin to ADMIN_ORIGIN env var (no CORS if unset)
-    const isAdmin = c.req.path.startsWith("/admin");
-    const origin = isAdmin ? (process.env.ADMIN_ORIGIN || null) : "*";
-    const headers = corsHeaders(origin ?? undefined);
-    if (!isAdmin || origin) {
-        for (const [key, value] of Object.entries(headers)) {
-            c.res.headers.set(key, value);
-        }
+    const origin = resolveOrigin(c.req.path);
+    for (const [key, value] of Object.entries(corsHeaders(origin))) {
+        c.res.headers.set(key, value);
     }
 });
 
