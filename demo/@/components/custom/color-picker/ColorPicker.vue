@@ -1,7 +1,7 @@
 <template>
     <div class="grid grid-rows-[1fr_auto] gap-4 relative min-w-0">
-        <Card class="grid items-between rounded-md min-w-0 overflow-x-hidden">
-            <CardHeader class="fraunces m-0 pb-0 relative w-full px-3 sm:px-6 min-w-0">
+        <Card class="grid items-between rounded-md min-w-0">
+            <CardHeader class="fraunces m-0 pb-0 relative w-full px-3 sm:px-6 min-w-0 overflow-visible">
                 <div class="w-full flex justify-between">
                     <Select
                         :ref="(el) => { selectedColorSpaceRef = el; }"
@@ -37,13 +37,14 @@
                     <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
                         <Tooltip>
                             <TooltipTrigger as-child>
-                                <div
+                                <WatercolorDot
+                                    :color="cssColor"
+                                    animate
+                                    :cycle-duration="2500"
+                                    tag="div"
+                                    class="w-12 aspect-square scale-175 origin-top-right hover:scale-[1.82] flex items-center justify-items-center justify-center transition-transform cursor-pointer"
                                     @click="copyAndSetInputColor()"
-                                    class="w-12 aspect-square rounded-full hover:scale-125 flex items-center justify-items-center justify-center transition-transform cursor-pointer"
-                                    :style="{
-                                        backgroundColor: cssColor,
-                                    }"
-                                ></div>
+                                />
                             </TooltipTrigger>
                             <TooltipContent class="fira-code">
                                 {{ denormalizedCurrentColor.value.toFormattedString() }}
@@ -100,20 +101,20 @@
             <CardContent class="z-1 fraunces grid grid-cols-1 gap-4 w-full m-auto px-3 sm:px-6 min-w-0">
                 <div
                     ref="spectrumRef"
-                    class="spectrum-picker flex w-full h-48 rounded-sm cursor-crosshair relative"
+                    :class="[
+                        'spectrum-picker flex w-full h-48 cursor-crosshair relative',
+                        spectrumGate.isActive.value ? 'ring-2 ring-primary/50' : '',
+                    ]"
                     :style="spectrumStyle"
-                    @touchstart="handleSpectrumChange"
-                    @touchmove="handleSpectrumMove"
-                    @touchend="stopDragging"
-                    @mousedown="handleSpectrumChange"
-                    @mousemove="handleSpectrumMove"
-                    @mouseup="stopDragging"
-                    @mouseleave="stopDragging"
+                    @pointerdown="handleSpectrumDown"
+                    @pointermove="handleSpectrumMove"
+                    @pointerup="stopDragging"
+                    @pointercancel="stopDragging"
                 >
                     <div
-                        class="w-6 h-6 aspect-square border-2 border-solid border-background rounded-full shadow-md absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                        class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                         :style="spectrumDotStyle"
-                    ></div>
+                    />
                 </div>
 
                 <div class="grid grid-cols-1 gap-2">
@@ -240,7 +241,7 @@
 
                     <!-- Propose Name inline form -->
                     <Transition name="slug-reveal" @after-enter="scrollProposeFormIntoView">
-                        <div v-if="canProposeName && showProposeForm" ref="proposeFormRef">
+                        <div v-if="!editTarget && canProposeName && showProposeForm" ref="proposeFormRef">
                             <div class="relative">
                                 <Input
                                     v-model="proposedName"
@@ -260,6 +261,7 @@
                         </div>
                     </Transition>
 
+                    <!-- Control bar icons -->
                     <div class="flex flex-wrap gap-2 sm:gap-4 w-full justify-evenly items-center">
                         <HoverCard
                             :open="activeHover === 'reset'"
@@ -338,41 +340,6 @@
                             </HoverCardContent>
                         </HoverCard>
 
-                        <HoverCard
-                            :open="activeHover === 'palette'"
-                            @update:open="(v) => activeHover = v ? 'palette' : null"
-                            :close-delay="0"
-                            :open-delay="700"
-                            class="pointer-events-auto"
-                        >
-                            <HoverCardTrigger>
-                                <Palette
-                                    @click="dismissHover(); togglePalette()"
-                                    class="h-8 aspect-square hover:scale-125 transition-all cursor-pointer"
-                                    :class="paletteHidden ? 'stroke-foreground' : ''"
-                                    :style="!paletteHidden ? { stroke: cssColorOpaque, strokeWidth: '2.75' } : {}"
-                                />
-                            </HoverCardTrigger>
-                            <HoverCardContent
-                                class="z-[100] pointer-events-auto fraunces"
-                            >
-                                <div>
-                                    <p class="font-bold text-lg">
-                                        Add color to the palette 🎨
-                                    </p>
-                                    <p class="text-sm opacity-60">
-                                        Click to add the current color to the palette.
-                                    </p>
-                                    <Separator class="my-2" />
-                                    <p class="text-sm opacity-60">
-                                        Hold <kbd>shift</kbd> and click, or double click
-                                        a palette color to swap it with the current
-                                        color.
-                                    </p>
-                                </div>
-                            </HoverCardContent>
-                        </HoverCard>
-
                         <!-- Palette browser trigger -->
                         <HoverCard
                             :open="activeHover === 'browse'"
@@ -382,9 +349,13 @@
                             class="pointer-events-auto"
                         >
                             <HoverCardTrigger>
-                                <LayoutGrid
-                                    @click="dismissHover(); paletteDialogOpen = true"
-                                    class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                <Palette
+                                    @click="openPaletteDialog"
+                                    :class="[
+                                        'h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer',
+                                        isEditing && 'pointer-events-none opacity-50',
+                                    ]"
+                                    :style="paletteDialogOpen || isEditing ? { stroke: cssColorOpaque, strokeWidth: '2.75' } : {}"
                                 />
                             </HoverCardTrigger>
                             <HoverCardContent
@@ -392,7 +363,7 @@
                             >
                                 <div>
                                     <p class="font-bold text-lg">
-                                        Browse palettes 🗂️
+                                        Palettes
                                     </p>
                                     <p class="text-sm opacity-60">
                                         Save, browse, and publish color palettes.
@@ -435,68 +406,65 @@
             </CardContent>
         </Card>
 
-        <div
-            :class="[
-                'saved-colors-wrapper w-full z-50 pointer-events-auto',
-                paletteHidden ? 'collapsed' : 'expanded',
-            ]"
-        >
-        <Card class="w-full"
-        >
-            <CardHeader class="fraunces">
-                <CardTitle class="text-2xl flex items-center justify-between">
-                    <div>Saved colors 🎨</div>
-                    <button
-                        @click="hidePalette"
-                        class="p-1 rounded-sm text-destructive hover:bg-destructive/10 transition-colors cursor-pointer"
-                    >
-                        <X class="h-5 w-5" />
-                    </button>
-                </CardTitle>
-                <CardDescription>
-                    Click to add the current color to the palette.
-                </CardDescription>
-            </CardHeader>
-            <CardContent class="pt-0">
-                <div
-                    class="relative flex flex-wrap gap-2 items-center justify-center justify-items-center w-full"
-                >
-                    <Plus
-                        @click="addColorClick"
-                        class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
-                    />
-
-                    <template v-for="(color, ix) in model.savedColors">
-                        <TooltipProvider :delay-duration="100">
-                            <Tooltip>
-                                <TooltipTrigger as-child>
-                                    <div
-                                        class="items-center rounded-sm w-12 aspect-square hover:scale-125 cursor-pointer transition-all ring-1 ring-border"
-                                        :style="{
-                                            backgroundColor: toCSSColorString(color),
-                                        }"
-                                        @click="() => onSavedColorClick(color, ix)"
-                                    ></div>
-                                </TooltipTrigger>
-                                <TooltipContent class="fira-code">
-                                    {{ savedColorLabel(color) }}
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
-                    </template>
-                </div>
-            </CardContent>
-        </Card>
-        </div>
-
-        <!-- Palette browser dialog (rendered outside card flow) -->
+        <!-- Palette browser sheet -->
         <PaletteDialog
+            ref="paletteDialogRef"
             v-model:open="paletteDialogOpen"
             :saved-color-strings="savedColorStrings"
             :css-color="cssColor"
             :css-color-opaque="cssColorOpaque"
+            :editing-exit="editingExit"
+            :editing-enter="editingEnter"
             @apply="onPaletteApply"
+            @add-color="onPaletteAddColor"
+            @start-edit="onStartEdit"
         />
+
+        <!-- Edit drawer — peeks from left on desktop, bottom on mobile -->
+        <Teleport to="body">
+            <Transition name="edit-drawer">
+                <div v-if="editTarget" class="edit-drawer p-4 flex flex-col gap-3">
+                    <p class="fira-code text-xs text-muted-foreground uppercase tracking-wider">Editing color</p>
+                    <div class="flex items-center gap-2">
+                        <WatercolorDot
+                            :color="editTarget.originalCss"
+                            tag="div"
+                            class="w-10 h-10 shrink-0 opacity-60"
+                        />
+                        <span class="text-muted-foreground text-xs">&rarr;</span>
+                        <WatercolorDot
+                            :color="cssColorOpaque"
+                            tag="div"
+                            class="w-10 h-10 shrink-0 ring-2 ring-primary/50"
+                        />
+                    </div>
+                    <div class="flex gap-6 mt-2 justify-center w-full">
+                        <TooltipProvider :delay-duration="200">
+                            <Tooltip>
+                                <TooltipTrigger as-child>
+                                    <Check
+                                        class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                        @click="commitEdit"
+                                    />
+                                </TooltipTrigger>
+                                <TooltipContent class="fira-code text-xs">Save edit</TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                        <TooltipProvider :delay-duration="200">
+                            <Tooltip>
+                                <TooltipTrigger as-child>
+                                    <Undo2
+                                        class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                        @click="cancelEdit"
+                                    />
+                                </TooltipTrigger>
+                                <TooltipContent class="fira-code text-xs">Cancel</TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    </div>
+                </div>
+            </Transition>
+        </Teleport>
     </div>
 </template>
 
@@ -540,7 +508,7 @@ import {
 } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
 import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
-import { Palette, Shuffle, Copy, X, Plus, RotateCcw, Crown, Tag, Sparkles, Loader2, LayoutGrid } from "lucide-vue-next";
+import { Shuffle, Copy, RotateCcw, Crown, Tag, Sparkles, Loader2, Palette, Check, Undo2 } from "lucide-vue-next";
 import {
     SliderRange,
     SliderRoot,
@@ -549,7 +517,6 @@ import {
 } from "reka-ui";
 import {
     computed,
-    onBeforeMount,
     onMounted,
     onUnmounted,
     ref,
@@ -558,14 +525,15 @@ import {
 } from "vue";
 import { toast } from "vue-sonner";
 
-import { useDark, useMagicKeys } from "@vueuse/core";
-import CardDescription from "@components/ui/card/CardDescription.vue";
+import { useMagicKeys } from "@vueuse/core";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import { COLOR_NAMES } from "@src/units/color/constants";
 import { useCustomColorNames } from "@composables/useCustomColorNames";
 import { proposeColorName } from "@lib/palette/api";
 import { PaletteDialog } from "@components/custom/palette-browser";
+import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { useTouchGate } from "@composables/useTouchGate";
 import type { ColorModel } from ".";
 import { toCSSColorString, CSS_NATIVE_SPACES } from ".";
 
@@ -607,13 +575,15 @@ const copyToClipboard = (text: string) => {
         });
 };
 
-const isDark = useDark({ disableTransition: false });
-
 const DEFAULT_COLOR = "lavendi";
 
 const DIGITS = 2;
 
-const DEFAULT_PALETTES = 6;
+interface EditTarget {
+    paletteId: string;
+    colorIndex: number;
+    originalCss: string;
+}
 
 const model = defineModel<ColorModel>({ required: true });
 
@@ -696,7 +666,27 @@ const proposing = ref(false);
 const proposeFormRef = ref<HTMLElement | null>(null);
 
 function scrollProposeFormIntoView() {
-    proposeFormRef.value?.scrollIntoView({ behavior: "smooth", block: "end" });
+    const el = proposeFormRef.value;
+    if (!el) return;
+
+    // Walk up the DOM to find the nearest scrollable ancestor
+    let scrollable: HTMLElement | null = el.parentElement;
+    while (scrollable) {
+        const { overflowY } = getComputedStyle(scrollable);
+        if (overflowY === "auto" || overflowY === "scroll") {
+            // Scroll within the container so the element is visible
+            const elRect = el.getBoundingClientRect();
+            const containerRect = scrollable.getBoundingClientRect();
+            const offset = elRect.bottom - containerRect.bottom;
+            if (offset > 0) {
+                scrollable.scrollBy({ top: offset + 16, behavior: "smooth" });
+            }
+            return;
+        }
+        scrollable = scrollable.parentElement;
+    }
+    // Fallback: no scrollable ancestor found (mobile / viewport scroll)
+    el.scrollIntoView({ behavior: "smooth", block: "end" });
 }
 
 const canProposeName = computed(() => {
@@ -736,6 +726,22 @@ const savedColorStrings = computed(() =>
             return normalized.value.toFormattedString(DIGITS);
         }),
 );
+
+function onPaletteAddColor(cssColor: string) {
+    const savedColors = [...model.value.savedColors];
+    const currentStr = toCSSColorString(model.value.color);
+
+    // Don't add if already present
+    const alreadyExists = savedColors.some(
+        (c: any) => c instanceof ValueUnit && toCSSColorString(c) === currentStr,
+    );
+    if (alreadyExists) return;
+
+    try {
+        savedColors.push(parseAndNormalizeColor(cssColor));
+        updateModel({ savedColors });
+    } catch { /* ignore */ }
+}
 
 function onPaletteApply(colors: string[]) {
     const parsed = colors.map((css) => {
@@ -786,6 +792,20 @@ const selectedColorSpaceRef = ref<any>(null);
 
 // Keydown handler — registered in onMounted, removed in onUnmounted
 const handleKeydown = (e: KeyboardEvent) => {
+    // Edit mode: Escape = cancel, Enter = save
+    if (isEditing.value) {
+        if (e.key === "Escape") {
+            e.preventDefault();
+            cancelEdit();
+            return;
+        }
+        if (e.key === "Enter" && !inputIsFocused.value) {
+            e.preventDefault();
+            commitEdit();
+            return;
+        }
+    }
+
     if (cmd.value && k.value) {
         e.preventDefault();
         selectedColorSpaceOpen.value = !selectedColorSpaceOpen.value;
@@ -922,6 +942,7 @@ const copyAndSetInputColor = () => {
 const isDragging = ref(false);
 
 const spectrumRef = useTemplateRef<HTMLElement>("spectrumRef");
+const spectrumGate = useTouchGate();
 
 const generateRandomColor = (
     colorSpace: ColorSpace,
@@ -1036,10 +1057,10 @@ const updateColorComponent = (
 const updateColorComponentDebounced = debounce(updateColorComponent, 500);
 
 // rAF-based throttled spectrum update
-let pendingSpectrumEvent: MouseEvent | TouchEvent | null = null;
+let pendingSpectrumEvent: PointerEvent | null = null;
 let spectrumRafId: ReturnType<typeof requestAnimationFrame> | null = null;
 
-const scheduleSpectrumUpdate = (event: MouseEvent | TouchEvent) => {
+const scheduleSpectrumUpdate = (event: PointerEvent) => {
     pendingSpectrumEvent = event;
 
     if (spectrumRafId === null) {
@@ -1053,17 +1074,13 @@ const scheduleSpectrumUpdate = (event: MouseEvent | TouchEvent) => {
     }
 };
 
-const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
+const updateSpectrumColor = (event: PointerEvent) => {
     if (!spectrumRef.value) return;
-
-    event.preventDefault();
-
-    const { clientX, clientY } = event instanceof MouseEvent ? event : event.touches[0];
 
     const rect = spectrumRef.value.getBoundingClientRect();
 
-    const x = clamp(clientX - rect.left, 0, rect.width);
-    const y = clamp(clientY - rect.top, 0, rect.height);
+    const x = clamp(event.clientX - rect.left, 0, rect.width);
+    const y = clamp(event.clientY - rect.top, 0, rect.height);
 
     const s = x / rect.width;
     const v = 1 - y / rect.height;
@@ -1076,18 +1093,27 @@ const updateSpectrumColor = (event: MouseEvent | TouchEvent) => {
     setCurrentColor(hsv, model.value.selectedColorSpace);
 };
 
-const handleSpectrumChange = (event: MouseEvent | TouchEvent) => {
+const handleSpectrumDown = (event: PointerEvent) => {
+    if (event.pointerType === "touch" && spectrumRef.value) {
+        if (!spectrumGate.handleTouchStart(spectrumRef.value)) return;
+    }
+    // Capture pointer so moves/up fire on this element even outside bounds
+    (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
     isDragging.value = true;
     updateSpectrumColor(event);
 };
 
-const handleSpectrumMove = (event: MouseEvent | TouchEvent) => {
+const handleSpectrumMove = (event: PointerEvent) => {
+    if (event.pointerType === "touch") {
+        if (!spectrumGate.handleTouchMove()) return;
+    }
     if (isDragging.value) {
         scheduleSpectrumUpdate(event);
     }
 };
 
 const stopDragging = () => {
+    spectrumGate.handleTouchEnd();
     // Process any pending event before stopping
     if (pendingSpectrumEvent) {
         updateSpectrumColor(pendingSpectrumEvent);
@@ -1132,115 +1158,81 @@ const spectrumDotStyle = computed(() => {
     };
 });
 
-const isBlankColor = (color: ValueUnit<Color<ValueUnit<number>>, "color">) => {
-    return color.value
-        .entries()
-        .filter(([component]) => component !== "alpha")
-        .every(([component, value]) => {
-            return value.value === 0 || value.value === 1;
-        });
-};
 
-// watch for dark mode changes, update the blank colors:
-watch(isDark, () => {
-    const savedColors = model.value.savedColors;
-    savedColors.forEach((color) => {
-        if (isBlankColor(color)) {
-            color.value
-                .entries()
-                .filter(([component]) => component !== "alpha")
-                .forEach(([component, value]) => {
-                    value.value = isDark.value ? 1 : 0;
-                });
-        }
-    });
-    updateModel({ savedColors: [...savedColors] });
-});
-
-const paletteHidden = ref(true);
 const paletteDialogOpen = ref(false);
+const paletteDialogRef = ref<InstanceType<typeof PaletteDialog> | null>(null);
 const activeHover = ref<string | null>(null);
 
 const dismissHover = () => { activeHover.value = null; };
 
-const togglePalette = () => {
-    paletteHidden.value = !paletteHidden.value;
-};
+function openPaletteDialog() {
+    dismissHover();
+    window.setTimeout(() => { paletteDialogOpen.value = true; }, 100);
+}
 
-const hidePalette = () => {
-    paletteHidden.value = true;
-};
+// Edit mode state — managed entirely within ColorPicker
+const editTarget = ref<EditTarget | null>(null);
+const preEditModel = ref<ColorModel | null>(null);
+const isEditing = computed(() => editTarget.value !== null);
+const editingExit = ref(false);
+const editingEnter = ref(false);
 
-const addColorClick = () => {
-    if (paletteHidden.value) {
-        return;
+function onStartEdit(target: EditTarget) {
+    // Save current color state so we can restore on cancel
+    preEditModel.value = { ...model.value };
+    editingExit.value = true;
+    paletteDialogOpen.value = false;
+    // Load the edit color into the main picker
+    const parsed = parseAndNormalizeColor(target.originalCss);
+    setCurrentColor(parsed);
+    // Stagger drawer entrance to overlap with dialog exit
+    setTimeout(() => { editTarget.value = target; }, 120);
+    setTimeout(() => { editingExit.value = false; }, 350);
+}
+
+function reopenDialogFromEdit() {
+    editingEnter.value = true;
+    window.setTimeout(() => {
+        paletteDialogOpen.value = true;
+    }, 100);
+    window.setTimeout(() => {
+        editingEnter.value = false;
+    }, 450);
+}
+
+function commitEdit() {
+    if (!editTarget.value || !paletteDialogRef.value) return;
+    const newCss = toCSSColorString(model.value.color);
+    paletteDialogRef.value.commitColorEdit(
+        editTarget.value.paletteId,
+        editTarget.value.colorIndex,
+        newCss,
+    );
+    // Keep the edited color as the current color (edit-in-place)
+    editTarget.value = null;
+    preEditModel.value = null;
+    reopenDialogFromEdit();
+}
+
+function cancelEdit() {
+    // Restore the pre-edit color
+    if (preEditModel.value) {
+        model.value = preEditModel.value;
     }
+    editTarget.value = null;
+    preEditModel.value = null;
+    reopenDialogFromEdit();
+}
 
-    const savedColors = [...model.value.savedColors];
-
-    const colorIx = savedColors.findIndex((color) => {
-        return color.value.toString() === model.value.color.toString();
-    });
-
-    if (colorIx !== -1) {
-        return;
+// Clear animation flags when dialog closes to prevent flash on next open/close
+watch(paletteDialogOpen, (open) => {
+    if (!open) {
+        editingExit.value = false;
+        editingEnter.value = false;
     }
+});
 
-    const blankColorIx = savedColors.findIndex((color) => {
-        return isBlankColor(color);
-    });
-
-    if (blankColorIx !== -1) {
-        savedColors[blankColorIx] = model.value.color.clone();
-    } else {
-        savedColors.push(model.value.color.clone());
-    }
-
-    updateModel({ savedColors });
-};
-
-const keys = useMagicKeys();
-
-const lastClickedTime = ref(0);
-
-const doubleClickedColor = ref<ValueUnit<Color<ValueUnit<number>>, "color"> | null>(null);
-
-const onSavedColorClick = (
-    color: ValueUnit<Color<ValueUnit<number>>, "color">,
-    ix: number,
-) => {
-    const now = Date.now();
-    const isDoubleClick = now - lastClickedTime.value < 300;
-
-    const savedColors = [...model.value.savedColors];
-
-    if (keys.current.has("shift") || isDoubleClick) {
-        // Swap colors
-        const temp = doubleClickedColor.value ?? model.value.color.clone();
-        const swappedColor = color.clone();
-
-        savedColors[ix] = temp;
-
-        updateModel({
-            savedColors,
-            color: swappedColor,
-            selectedColorSpace: swappedColor.value.colorSpace,
-        });
-
-        doubleClickedColor.value = null;
-    } else {
-        // Regular click behavior
-        doubleClickedColor.value = model.value.color.clone();
-        const newColor = color.clone();
-
-        updateModel({
-            color: newColor,
-            selectedColorSpace: newColor.value.colorSpace,
-        });
-    }
-
-    lastClickedTime.value = now;
-};
+defineExpose({ isEditing });
 
 watch(
     () => model.value.selectedColorSpace,
@@ -1264,19 +1256,6 @@ watch(formattedCurrentColor, (text) => {
     if (!inputIsFocused.value && inputColorRef.value) {
         inputColorRef.value.innerText = text;
     }
-});
-
-// Run before anything else:
-onBeforeMount(() => {
-    const savedColors = [...model.value.savedColors];
-    for (let i = 0; i < DEFAULT_PALETTES - savedColors.length; i++) {
-        savedColors.push("white" as any);
-    }
-    updateModel({
-        savedColors: savedColors.map((color) => {
-            return color instanceof ValueUnit ? color : parseAndNormalizeColor(color);
-        }),
-    });
 });
 
 onMounted(() => {
@@ -1306,31 +1285,22 @@ onUnmounted(() => {
 @reference "../../../styles/style.css";
 
 .spectrum-picker {
+    border-radius: 0.375rem;
     box-shadow: 0px 0px 0px 0px transparent;
     transition: box-shadow 0.25s ease;
-
+    overflow: visible;
+    touch-action: none;
     &:hover {
         box-shadow: 8px 8px 0px 0px var(--spectrum-shadow, transparent);
     }
 }
 
-/* Saved colors panel — smooth grid-rows open/close */
-.saved-colors-wrapper {
-    display: grid;
-    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.spectrum-dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid hsl(var(--background));
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
-.saved-colors-wrapper.expanded {
-    grid-template-rows: 1fr;
-    opacity: 1;
-}
-.saved-colors-wrapper.collapsed {
-    grid-template-rows: 0fr;
-    opacity: 0;
-    pointer-events: none;
-}
-.saved-colors-wrapper > * {
-    overflow: hidden;
-    min-height: 0;
-}
+
 </style>
