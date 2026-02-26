@@ -1,7 +1,7 @@
 <template>
     <div class="grid grid-rows-[1fr_auto] gap-4 relative min-w-0">
-        <Card class="grid items-between rounded-md min-w-0">
-            <CardHeader class="fraunces m-0 pb-0 relative w-full">
+        <Card class="grid items-between rounded-md min-w-0 overflow-x-hidden">
+            <CardHeader class="fraunces m-0 pb-0 relative w-full px-3 sm:px-6 min-w-0">
                 <div class="w-full flex justify-between">
                     <Select
                         :ref="(el) => { selectedColorSpaceRef = el; }"
@@ -97,7 +97,7 @@
                 </CardTitle>
             </CardHeader>
 
-            <CardContent class="z-1 fraunces grid gap-4 w-full m-auto">
+            <CardContent class="z-1 fraunces grid gap-4 w-full m-auto px-3 sm:px-6 min-w-0">
                 <div
                     ref="spectrumRef"
                     class="spectrum-picker flex w-full h-48 rounded-sm cursor-crosshair relative"
