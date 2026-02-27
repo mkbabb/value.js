@@ -75,9 +75,9 @@ export const hex2rgb = (hex: string): RGBColor => {
     hex = hex.slice(1);
     if (hex.length <= 4) {
         // Expand shorthand (e.g., "03F" to "0033FF")
-        const r = parseInt(hex[0] + hex[0], HEX_BASE);
-        const g = parseInt(hex[1] + hex[1], HEX_BASE);
-        const b = parseInt(hex[2] + hex[2], HEX_BASE);
+        const r = parseInt(hex[0]! + hex[0]!, HEX_BASE);
+        const g = parseInt(hex[1]! + hex[1]!, HEX_BASE);
+        const b = parseInt(hex[2]! + hex[2]!, HEX_BASE);
         const alpha = hex[3] ? parseInt(hex[3] + hex[3], HEX_BASE) / RGBA_MAX : 1;
 
         return new RGBColor(r, g, b, alpha);
@@ -541,7 +541,9 @@ export const xyz2rgb = (
     const linearRGB = transformMat3([x, y, z] as Vec3, XYZ_RGB_MATRIX);
 
     // Convert linear RGB to sRGB
-    const [r, g, b] = linearRGB.map(linearToSrgb);
+    const r = linearToSrgb(linearRGB[0]);
+    const g = linearToSrgb(linearRGB[1]);
+    const b = linearToSrgb(linearRGB[2]);
 
     if (correctGamut) {
         const rgb = gamutMap(new RGBColor(r, g, b, alpha));
@@ -903,8 +905,7 @@ export function displayP32xyz({ r, g, b, alpha }: DisplayP3Color): XYZColor {
 
 export function xyz2displayP3({ x, y, z, alpha }: XYZColor): DisplayP3Color {
     const linear = transformMat3([x, y, z] as Vec3, XYZ_DISPLAY_P3_MATRIX);
-    const [r, g, b] = linear.map(linearToSrgb);
-    return new DisplayP3Color(r, g, b, alpha);
+    return new DisplayP3Color(linearToSrgb(linear[0]), linearToSrgb(linear[1]), linearToSrgb(linear[2]), alpha);
 }
 
 export function adobeRgb2xyz({ r, g, b, alpha }: AdobeRGBColor): XYZColor {
@@ -915,8 +916,7 @@ export function adobeRgb2xyz({ r, g, b, alpha }: AdobeRGBColor): XYZColor {
 
 export function xyz2adobeRgb({ x, y, z, alpha }: XYZColor): AdobeRGBColor {
     const linear = transformMat3([x, y, z] as Vec3, XYZ_ADOBE_RGB_MATRIX);
-    const [r, g, b] = linear.map(linearToAdobeRgb);
-    return new AdobeRGBColor(r, g, b, alpha);
+    return new AdobeRGBColor(linearToAdobeRgb(linear[0]), linearToAdobeRgb(linear[1]), linearToAdobeRgb(linear[2]), alpha);
 }
 
 export function proPhoto2xyz({ r, g, b, alpha }: ProPhotoRGBColor): XYZColor {
@@ -931,8 +931,7 @@ export function xyz2proPhoto({ x, y, z, alpha }: XYZColor): ProPhotoRGBColor {
     // Adapt from D65 to D50, then apply inverse matrix
     const xyzD50 = transformMat3([x, y, z] as Vec3, WHITE_POINT_D65_D50);
     const linear = transformMat3(xyzD50, XYZ_D50_PROPHOTO_MATRIX);
-    const [r, g, b] = linear.map(linearToProPhoto);
-    return new ProPhotoRGBColor(r, g, b, alpha);
+    return new ProPhotoRGBColor(linearToProPhoto(linear[0]), linearToProPhoto(linear[1]), linearToProPhoto(linear[2]), alpha);
 }
 
 export function rec20202xyz({ r, g, b, alpha }: Rec2020Color): XYZColor {
@@ -943,8 +942,7 @@ export function rec20202xyz({ r, g, b, alpha }: Rec2020Color): XYZColor {
 
 export function xyz2rec2020({ x, y, z, alpha }: XYZColor): Rec2020Color {
     const linear = transformMat3([x, y, z] as Vec3, XYZ_REC2020_MATRIX);
-    const [r, g, b] = linear.map(linearToRec2020);
-    return new Rec2020Color(r, g, b, alpha);
+    return new Rec2020Color(linearToRec2020(linear[0]), linearToRec2020(linear[1]), linearToRec2020(linear[2]), alpha);
 }
 
 const XYZ_FUNCTIONS: Record<string, { to: (color: any) => XYZColor; from: (color: XYZColor) => any }> = {
@@ -986,7 +984,7 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
         throw new Error(`Unknown target color space: "${to}"`);
     }
 
-    const xyz = fromEntry.to(color);
+    const xyz = fromEntry.to(color) as XYZColor<T>;
 
     const fromXYZFn = toEntry.from as unknown as (
         color: XYZColor<T>,

@@ -1170,9 +1170,19 @@ const activeHover = ref<string | null>(null);
 
 const dismissHover = () => { activeHover.value = null; };
 
+const _pendingTimers: ReturnType<typeof setTimeout>[] = [];
+function _trackTimer(fn: () => void, ms: number) {
+    const id = setTimeout(() => {
+        const idx = _pendingTimers.indexOf(id);
+        if (idx !== -1) _pendingTimers.splice(idx, 1);
+        fn();
+    }, ms);
+    _pendingTimers.push(id);
+}
+
 function openPaletteDialog() {
     dismissHover();
-    window.setTimeout(() => { paletteDialogOpen.value = true; }, 100);
+    _trackTimer(() => { paletteDialogOpen.value = true; }, 100);
 }
 
 // Edit mode state — managed entirely within ColorPicker
@@ -1191,18 +1201,14 @@ function onStartEdit(target: EditTarget) {
     const parsed = parseAndNormalizeColor(target.originalCss);
     setCurrentColor(parsed);
     // Stagger drawer entrance to overlap with dialog exit
-    setTimeout(() => { editTarget.value = target; }, 120);
-    setTimeout(() => { editingExit.value = false; }, 350);
+    _trackTimer(() => { editTarget.value = target; }, 120);
+    _trackTimer(() => { editingExit.value = false; }, 350);
 }
 
 function reopenDialogFromEdit() {
     editingEnter.value = true;
-    window.setTimeout(() => {
-        paletteDialogOpen.value = true;
-    }, 100);
-    window.setTimeout(() => {
-        editingEnter.value = false;
-    }, 450);
+    _trackTimer(() => { paletteDialogOpen.value = true; }, 100);
+    _trackTimer(() => { editingEnter.value = false; }, 450);
 }
 
 function commitEdit() {
@@ -1279,6 +1285,10 @@ onUnmounted(() => {
         spectrumRafId = null;
     }
     pendingSpectrumEvent = null;
+
+    // Cancel pending setTimeout timers
+    for (const id of _pendingTimers) clearTimeout(id);
+    _pendingTimers.length = 0;
 
     // Cancel debounced functions
     if (parseAndSetColorDebounced.cancel) parseAndSetColorDebounced.cancel();

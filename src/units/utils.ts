@@ -73,7 +73,7 @@ export const unflattenObject = (flatObj: Record<string, any[]>): any => {
         let current = result;
 
         for (let i = 0; i < keys.length; i++) {
-            const key = keys[i];
+            const key = keys[i]!;
             const isLastKey = i === keys.length - 1;
 
             if (isLastKey) {
@@ -101,7 +101,7 @@ export const unflattenObjectToString = (
 
     for (const [flatKey, values] of Object.entries(flatObj)) {
         const keys = flatKey.split(".");
-        const propertyKey = keys[0];
+        const propertyKey = keys[0]!;
 
         let current = result[propertyKey] ?? "";
 
@@ -109,7 +109,7 @@ export const unflattenObjectToString = (
         let rightS = "";
 
         for (let i = 1; i < keys.length; i++) {
-            leftS += `${keys[i]}(`;
+            leftS += `${keys[i]!}(`;
             rightS += ")";
         }
 
@@ -359,7 +359,7 @@ function convert2(
     }
 
     const [, conversionType] = fromGroup;
-    const convertToBase = conversionFunctions[conversionType];
+    const convertToBase = conversionFunctions[conversionType]!;
 
     // Convert to base unit
     const baseValue = convertToBase(value, from as string, target);

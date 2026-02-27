@@ -24,7 +24,7 @@ export interface LinearStop {
 
 export function cssLinear(stops: LinearStop[]): (t: number) => number {
     if (stops.length === 0) return linear;
-    if (stops.length === 1) return () => stops[0].output;
+    if (stops.length === 1) return () => stops[0]!.output;
 
     // Resolve missing input positions per CSS spec:
     // 1. First stop defaults to 0%, last defaults to 100%.
@@ -35,34 +35,34 @@ export function cssLinear(stops: LinearStop[]): (t: number) => number {
         input: s.input ?? -1, // -1 = unset
     }));
 
-    if (resolved[0].input < 0) resolved[0].input = 0;
-    if (resolved[resolved.length - 1].input < 0) resolved[resolved.length - 1].input = 100;
+    if (resolved[0]!.input < 0) resolved[0]!.input = 0;
+    if (resolved[resolved.length - 1]!.input < 0) resolved[resolved.length - 1]!.input = 100;
 
     // Fill gaps
     let i = 0;
     while (i < resolved.length) {
-        if (resolved[i].input >= 0) {
+        if (resolved[i]!.input >= 0) {
             i++;
             continue;
         }
         // Find run of unset stops
         const startIdx = i - 1; // previous anchor (always set)
         let endIdx = i;
-        while (endIdx < resolved.length && resolved[endIdx].input < 0) endIdx++;
+        while (endIdx < resolved.length && resolved[endIdx]!.input < 0) endIdx++;
         // endIdx is next anchor
-        const startInput = resolved[startIdx].input;
-        const endInput = resolved[endIdx].input;
+        const startInput = resolved[startIdx]!.input;
+        const endInput = resolved[endIdx]!.input;
         const count = endIdx - startIdx;
         for (let j = startIdx + 1; j < endIdx; j++) {
-            resolved[j].input = startInput + ((endInput - startInput) * (j - startIdx)) / count;
+            resolved[j]!.input = startInput + ((endInput - startInput) * (j - startIdx)) / count;
         }
         i = endIdx + 1;
     }
 
     // Enforce monotonicity on input positions (CSS spec: each must be >= previous)
     for (let k = 1; k < resolved.length; k++) {
-        if (resolved[k].input < resolved[k - 1].input) {
-            resolved[k].input = resolved[k - 1].input;
+        if (resolved[k]!.input < resolved[k - 1]!.input) {
+            resolved[k]!.input = resolved[k - 1]!.input;
         }
     }
 
@@ -70,19 +70,19 @@ export function cssLinear(stops: LinearStop[]): (t: number) => number {
     const points = resolved.map((s) => ({ output: s.output, input: s.input / 100 }));
 
     return (t: number) => {
-        if (t <= points[0].input) return points[0].output;
-        if (t >= points[points.length - 1].input) return points[points.length - 1].output;
+        if (t <= points[0]!.input) return points[0]!.output;
+        if (t >= points[points.length - 1]!.input) return points[points.length - 1]!.output;
 
         // Binary search for the segment
         let lo = 0, hi = points.length - 1;
         while (lo < hi - 1) {
             const mid = (lo + hi) >> 1;
-            if (points[mid].input <= t) lo = mid;
+            if (points[mid]!.input <= t) lo = mid;
             else hi = mid;
         }
 
-        const p0 = points[lo];
-        const p1 = points[hi];
+        const p0 = points[lo]!;
+        const p1 = points[hi]!;
 
         if (p0.input === p1.input) return p0.output; // degenerate segment
 
@@ -158,7 +158,7 @@ export const CSSCubicBezier =
         if (x <= 0) return 0;
         if (x >= 1) return 1;
         const t = solveCubicBezierX(x, x1, x2);
-        return cubicBezier(t, x1, y1, x2, y2)[1];
+        return cubicBezier(t, x1, y1, x2, y2)[1]!;
     };
 
 export function easeInBounce(t: number) {
@@ -178,7 +178,7 @@ export function bounceInEaseHalf(t: number) {
         [0.633, 1.06],
         [1, 0],
     ];
-    t = interpBezier(t, points)[1];
+    t = interpBezier(t, points)[1]!;
     return t;
 }
 
@@ -189,7 +189,7 @@ export function bounceOutEase(t: number) {
         [0.974, 0.254],
         [1, 0],
     ];
-    t = interpBezier(t, points)[1];
+    t = interpBezier(t, points)[1]!;
     return t;
 }
 
@@ -200,7 +200,7 @@ export function bounceOutEaseHalf(t: number) {
         [0.633, 1.06],
         [1, 0],
     ];
-    t = interpBezier(t, points)[1];
+    t = interpBezier(t, points)[1]!;
     return t;
 }
 
@@ -211,7 +211,7 @@ export function bounceInOutEase(t: number) {
         [0.633, 1.06],
         [1, 0],
     ];
-    t = interpBezier(t, points)[1];
+    t = interpBezier(t, points)[1]!;
     return t;
 }
 

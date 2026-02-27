@@ -145,12 +145,12 @@ export const hyphenToCamelCase = (str: string) =>
     );
 
 export function camelCaseToHyphen(str: string) {
-    return str.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`);
+    return str.replace(/([A-Z])/g, (g) => `-${g[0]!.toLowerCase()}`);
 }
 
 export function seekPreviousValue<T>(ix: number, values: T[], pred: (f: T) => boolean) {
     for (let i = ix - 1; i >= 0; i--) {
-        if (pred(values[i])) {
+        if (pred(values[i]!)) {
             return i;
         }
     }

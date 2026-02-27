@@ -54,7 +54,7 @@ export function usePaletteStore() {
     function updatePalette(id: string, patch: Partial<Pick<Palette, "name" | "colors" | "isLocal">>): void {
         const idx = store.value.palettes.findIndex((p) => p.id === id);
         if (idx === -1) return;
-        const palette = store.value.palettes[idx];
+        const palette = store.value.palettes[idx]!;
         if (patch.name != null) {
             palette.name = patch.name;
             palette.slug = createSlug(patch.name);

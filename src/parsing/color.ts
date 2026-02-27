@@ -137,7 +137,7 @@ function resolveRelativeColor(
         rec2020: Rec2020Color,
     };
     const Ctor = CONSTRUCTORS[targetSpace] ?? RGBColor;
-    const result = new Ctor(...values, alpha);
+    const result = new Ctor(...(values as [number, number, number]), alpha);
     return createColorValueUnit(result);
 }
 

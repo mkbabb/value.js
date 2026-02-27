@@ -1,20 +1,40 @@
-import { ref, computed } from "vue";
+import { ref, computed, type Ref } from "vue";
 
 const STORAGE_KEY = "palette-admin-token";
 
-const adminToken = ref<string | null>(localStorage.getItem(STORAGE_KEY));
+let _adminToken: Ref<string | null> | null = null;
+
+function getAdminToken(): Ref<string | null> {
+    if (!_adminToken) {
+        try {
+            _adminToken = ref<string | null>(localStorage.getItem(STORAGE_KEY));
+        } catch {
+            _adminToken = ref<string | null>(null);
+        }
+    }
+    return _adminToken;
+}
 
 export function useAdminAuth() {
+    const adminToken = getAdminToken();
     const isAuthenticated = computed(() => !!adminToken.value);
 
     function login(token: string) {
         adminToken.value = token;
-        localStorage.setItem(STORAGE_KEY, token);
+        try {
+            localStorage.setItem(STORAGE_KEY, token);
+        } catch {
+            // Safari private browsing
+        }
     }
 
     function logout() {
         adminToken.value = null;
-        localStorage.removeItem(STORAGE_KEY);
+        try {
+            localStorage.removeItem(STORAGE_KEY);
+        } catch {
+            // Safari private browsing
+        }
     }
 
     function getToken(): string | null {

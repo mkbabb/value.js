@@ -129,7 +129,7 @@ export class FunctionValue<T = any, N extends string = string> {
 
     setValue(value: T, index?: number) {
         if (index != null) {
-            this.values[index].setValue(value);
+            this.values[index]!.setValue(value);
         } else {
             this.values.forEach((v) => v.setValue(value));
         }
@@ -145,7 +145,7 @@ export class FunctionValue<T = any, N extends string = string> {
             (this.name === "+" || this.name === "-" || this.name === "*" || this.name === "/") &&
             this.values.length === 2
         ) {
-            return `${this.values[0].toString()} ${this.name} ${this.values[1].toString()}`;
+            return `${this.values[0]!.toString()} ${this.name} ${this.values[1]!.toString()}`;
         }
         return `${this.name}(${this.values.map((v) => v.toString()).join(", ")})`;
     }
@@ -183,7 +183,7 @@ export class ValueArray<T = any> extends Array<ValueUnit<T> | FunctionValue<T>> 
 
     setValue(value: T, index?: number) {
         if (index != null) {
-            this[index].setValue(value);
+            this[index]!.setValue(value);
         } else {
             this.forEach((v) => v.setValue(value));
         }

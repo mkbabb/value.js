@@ -44,10 +44,10 @@ export function deCasteljau(t: number, points: number[]) {
     // Iteratively interpolate points
     for (let i = 1; i <= n; i++) {
         for (let j = 0; j <= n - i; j++) {
-            b[j] = lerp(t, b[j], b[j + 1]);
+            b[j] = lerp(t, b[j]!, b[j + 1]!);
         }
     }
-    return b[0];
+    return b[0]!;
 }
 
 // Cubic Bézier curve evaluation
@@ -59,8 +59,8 @@ export function cubicBezier(t: number, x1: number, y1: number, x2: number, y2: n
 // Generalized Bézier curve interpolation
 export function interpBezier(t: number, points: number[][]) {
     // Separate x and y coordinates
-    const xCoords = points.map((xy) => xy[0]);
-    const yCoords = points.map((xy) => xy[1]);
+    const xCoords = points.map((xy) => xy[0]!);
+    const yCoords = points.map((xy) => xy[1]!);
     // Interpolate x and y separately
     return [deCasteljau(t, xCoords), deCasteljau(t, yCoords)];
 }

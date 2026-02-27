@@ -80,7 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onUnmounted } from "vue";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import {
@@ -124,13 +124,24 @@ function onSave() {
     name.value = "";
 }
 
+let publishTimerId: ReturnType<typeof setTimeout> | null = null;
+
 async function onPublish() {
     if (!canSave.value) return;
     publishing.value = true;
     emit("publish", name.value.trim());
-    setTimeout(() => {
+    if (publishTimerId != null) clearTimeout(publishTimerId);
+    publishTimerId = setTimeout(() => {
+        publishTimerId = null;
         publishing.value = false;
         name.value = "";
     }, 1000);
 }
+
+onUnmounted(() => {
+    if (publishTimerId != null) {
+        clearTimeout(publishTimerId);
+        publishTimerId = null;
+    }
+});
 </script>

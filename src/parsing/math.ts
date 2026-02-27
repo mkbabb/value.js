@@ -479,7 +479,9 @@ export function evaluateMathFunction(fn: FunctionValue): ValueUnit | null {
 function inferResultUnit(node: any): { unit?: string; superType?: string[] } | undefined {
     if (node instanceof ValueUnit) {
         if (node.unit && node.unit !== "string" && typeof node.value === "number") {
-            return { unit: node.unit as string, superType: node.superType };
+            const result: { unit: string; superType?: string[] } = { unit: node.unit as string };
+            if (node.superType) result.superType = node.superType;
+            return result;
         }
         return undefined;
     }

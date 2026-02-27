@@ -1,15 +1,38 @@
-import { ref } from "vue";
+import { ref, type Ref } from "vue";
 import { createSession, setSessionToken } from "@lib/palette/api";
 
 const SESSION_KEY = "palette-session-token";
 const OWNED_KEY = "palette-owned-slugs";
 
-const token = ref<string | null>(sessionStorage.getItem(SESSION_KEY));
-const ownedSlugs = ref<Set<string>>(loadOwnedSlugs());
+let _token: Ref<string | null> | null = null;
+let _ownedSlugs: Ref<Set<string>> | null = null;
+let _initialized = false;
 
-// Initialize API module if we already have a token
-if (token.value) {
-    setSessionToken(token.value);
+function getToken(): Ref<string | null> {
+    if (!_token) {
+        try {
+            _token = ref<string | null>(sessionStorage.getItem(SESSION_KEY));
+        } catch {
+            _token = ref<string | null>(null);
+        }
+    }
+    return _token;
+}
+
+function getOwnedSlugs(): Ref<Set<string>> {
+    if (!_ownedSlugs) {
+        _ownedSlugs = ref<Set<string>>(loadOwnedSlugs());
+    }
+    return _ownedSlugs;
+}
+
+function initialize() {
+    if (_initialized) return;
+    _initialized = true;
+    const t = getToken();
+    if (t.value) {
+        setSessionToken(t.value);
+    }
 }
 
 function loadOwnedSlugs(): Set<string> {
@@ -22,32 +45,43 @@ function loadOwnedSlugs(): Set<string> {
 }
 
 function persistOwnedSlugs() {
-    sessionStorage.setItem(OWNED_KEY, JSON.stringify([...ownedSlugs.value]));
+    try {
+        sessionStorage.setItem(OWNED_KEY, JSON.stringify([...getOwnedSlugs().value]));
+    } catch {
+        // Safari private browsing — silently ignore
+    }
 }
 
 async function ensureSession(): Promise<string> {
+    const token = getToken();
     if (token.value) return token.value;
 
     const res = await createSession();
     token.value = res.token;
-    sessionStorage.setItem(SESSION_KEY, res.token);
+    try {
+        sessionStorage.setItem(SESSION_KEY, res.token);
+    } catch {
+        // Safari private browsing
+    }
     setSessionToken(res.token);
     return res.token;
 }
 
 function markOwned(slug: string) {
+    const ownedSlugs = getOwnedSlugs();
     ownedSlugs.value = new Set([...ownedSlugs.value, slug]);
     persistOwnedSlugs();
 }
 
 function isOwned(slug: string): boolean {
-    return ownedSlugs.value.has(slug);
+    return getOwnedSlugs().value.has(slug);
 }
 
 export function useSession() {
+    initialize();
     return {
-        token,
-        ownedSlugs,
+        token: getToken(),
+        ownedSlugs: getOwnedSlugs(),
         ensureSession,
         markOwned,
         isOwned,

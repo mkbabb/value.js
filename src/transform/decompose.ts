@@ -108,7 +108,7 @@ function mat4Identity(): Mat4 {
 
 /** Get element at (row, col) from a column-major 4x4 matrix */
 function m4Get(m: Mat4, row: number, col: number): number {
-    return m[col * 4 + row];
+    return m[col * 4 + row]!;
 }
 
 /** Set element at (row, col) in a column-major 4x4 matrix */
@@ -144,10 +144,10 @@ function mat4Transpose(m: Mat4): Mat4 {
 
 /** Compute the determinant of a 4x4 matrix */
 function mat4Determinant(m: Mat4): number {
-    const a00 = m[0], a01 = m[4], a02 = m[8], a03 = m[12];
-    const a10 = m[1], a11 = m[5], a12 = m[9], a13 = m[13];
-    const a20 = m[2], a21 = m[6], a22 = m[10], a23 = m[14];
-    const a30 = m[3], a31 = m[7], a32 = m[11], a33 = m[15];
+    const a00 = m[0]!, a01 = m[4]!, a02 = m[8]!, a03 = m[12]!;
+    const a10 = m[1]!, a11 = m[5]!, a12 = m[9]!, a13 = m[13]!;
+    const a20 = m[2]!, a21 = m[6]!, a22 = m[10]!, a23 = m[14]!;
+    const a30 = m[3]!, a31 = m[7]!, a32 = m[11]!, a33 = m[15]!;
 
     return (
         a00 * (a11 * (a22 * a33 - a23 * a32) - a12 * (a21 * a33 - a23 * a31) + a13 * (a21 * a32 - a22 * a31)) -
@@ -178,9 +178,9 @@ function mat4Inverse(m: Mat4): Mat4 | null {
             }
             // 3x3 determinant of the minor
             const d3 =
-                minor[0] * (minor[4] * minor[8] - minor[5] * minor[7]) -
-                minor[3] * (minor[1] * minor[8] - minor[2] * minor[7]) +
-                minor[6] * (minor[1] * minor[5] - minor[2] * minor[4]);
+                minor[0]! * (minor[4]! * minor[8]! - minor[5]! * minor[7]!) -
+                minor[3]! * (minor[1]! * minor[8]! - minor[2]! * minor[7]!) +
+                minor[6]! * (minor[1]! * minor[5]! - minor[2]! * minor[4]!);
 
             const sign = ((row + col) & 1) === 0 ? 1 : -1;
             // Cofactor transpose (adjugate): (row, col) → (col, row)
@@ -231,16 +231,16 @@ export function decomposeMatrix3D(cssValues: number[]): DecomposedMatrix3D | nul
     const m: Mat4 = [...cssValues];
 
     // Step 1: Normalize — divide by m[15] (m44)
-    const w = m[15];
+    const w = m[15]!;
     if (Math.abs(w) < 1e-12) return null;
-    for (let i = 0; i < 16; i++) m[i] /= w;
+    for (let i = 0; i < 16; i++) m[i] = m[i]! / w;
 
     // Step 2: Perspective
     const perspective: Vec4 = [0, 0, 0, 1];
     if (
-        Math.abs(m[3]) > 1e-12 ||
-        Math.abs(m[7]) > 1e-12 ||
-        Math.abs(m[11]) > 1e-12
+        Math.abs(m[3]!) > 1e-12 ||
+        Math.abs(m[7]!) > 1e-12 ||
+        Math.abs(m[11]!) > 1e-12
     ) {
         // perspectiveMatrix = m with last column = [0,0,0,1]
         const pm = [...m];
@@ -254,22 +254,22 @@ export function decomposeMatrix3D(cssValues: number[]): DecomposedMatrix3D | nul
 
         const pmInvT = mat4Transpose(pmInv);
         // Multiply transposed inverse by the original perspective column
-        perspective[0] = pmInvT[0] * m[3] + pmInvT[4] * m[7] + pmInvT[8] * m[11] + pmInvT[12] * m[15];
-        perspective[1] = pmInvT[1] * m[3] + pmInvT[5] * m[7] + pmInvT[9] * m[11] + pmInvT[13] * m[15];
-        perspective[2] = pmInvT[2] * m[3] + pmInvT[6] * m[7] + pmInvT[10] * m[11] + pmInvT[14] * m[15];
-        perspective[3] = pmInvT[3] * m[3] + pmInvT[7] * m[7] + pmInvT[11] * m[11] + pmInvT[15] * m[15];
+        perspective[0] = pmInvT[0]! * m[3]! + pmInvT[4]! * m[7]! + pmInvT[8]! * m[11]! + pmInvT[12]! * m[15]!;
+        perspective[1] = pmInvT[1]! * m[3]! + pmInvT[5]! * m[7]! + pmInvT[9]! * m[11]! + pmInvT[13]! * m[15]!;
+        perspective[2] = pmInvT[2]! * m[3]! + pmInvT[6]! * m[7]! + pmInvT[10]! * m[11]! + pmInvT[14]! * m[15]!;
+        perspective[3] = pmInvT[3]! * m[3]! + pmInvT[7]! * m[7]! + pmInvT[11]! * m[11]! + pmInvT[15]! * m[15]!;
     }
 
     // Step 3: Translation
-    const translate: [number, number, number] = [m[12], m[13], m[14]];
+    const translate: [number, number, number] = [m[12]!, m[13]!, m[14]!];
 
     // Step 4: Extract 3x3 sub-matrix (upper-left) from column-major 4x4
     // Column 0: m[0], m[1], m[2]
     // Column 1: m[4], m[5], m[6]
     // Column 2: m[8], m[9], m[10]
-    let row0: [number, number, number] = [m[0], m[1], m[2]];
-    let row1: [number, number, number] = [m[4], m[5], m[6]];
-    let row2: [number, number, number] = [m[8], m[9], m[10]];
+    let row0: [number, number, number] = [m[0]!, m[1]!, m[2]!];
+    let row1: [number, number, number] = [m[4]!, m[5]!, m[6]!];
+    let row2: [number, number, number] = [m[8]!, m[9]!, m[10]!];
 
     // Step 5: Compute scale X
     const scaleX = vec3Length(...row0);
@@ -439,15 +439,15 @@ export function recomposeMatrix3D(d: DecomposedMatrix3D): number[] {
     m4Set(m, 3, 3, d.perspective[3]);
 
     // Step 2: Apply translation
-    m[12] += d.translate[0] * m[0] + d.translate[1] * m[4] + d.translate[2] * m[8];
-    m[13] += d.translate[0] * m[1] + d.translate[1] * m[5] + d.translate[2] * m[9];
-    m[14] += d.translate[0] * m[2] + d.translate[1] * m[6] + d.translate[2] * m[10];
-    m[15] += d.translate[0] * m[3] + d.translate[1] * m[7] + d.translate[2] * m[11];
+    m[12] = m[12]! + d.translate[0] * m[0]! + d.translate[1] * m[4]! + d.translate[2] * m[8]!;
+    m[13] = m[13]! + d.translate[0] * m[1]! + d.translate[1] * m[5]! + d.translate[2] * m[9]!;
+    m[14] = m[14]! + d.translate[0] * m[2]! + d.translate[1] * m[6]! + d.translate[2] * m[10]!;
+    m[15] = m[15]! + d.translate[0] * m[3]! + d.translate[1] * m[7]! + d.translate[2] * m[11]!;
 
     // Step 3: Apply rotation (from quaternion)
     const rotMat = quaternionToMatrix(d.quaternion);
     const mr = mat4Multiply(m, rotMat);
-    for (let i = 0; i < 16; i++) m[i] = mr[i];
+    for (let i = 0; i < 16; i++) m[i] = mr[i]!;
 
     // Step 4: Apply skew
     if (d.skew[2] !== 0) {
@@ -455,28 +455,28 @@ export function recomposeMatrix3D(d: DecomposedMatrix3D): number[] {
         const skewMat = mat4Identity();
         m4Set(skewMat, 1, 2, d.skew[2]);
         const ms = mat4Multiply(m, skewMat);
-        for (let i = 0; i < 16; i++) m[i] = ms[i];
+        for (let i = 0; i < 16; i++) m[i] = ms[i]!;
     }
     if (d.skew[1] !== 0) {
         // XZ skew
         const skewMat = mat4Identity();
         m4Set(skewMat, 0, 2, d.skew[1]);
         const ms = mat4Multiply(m, skewMat);
-        for (let i = 0; i < 16; i++) m[i] = ms[i];
+        for (let i = 0; i < 16; i++) m[i] = ms[i]!;
     }
     if (d.skew[0] !== 0) {
         // XY skew
         const skewMat = mat4Identity();
         m4Set(skewMat, 0, 1, d.skew[0]);
         const ms = mat4Multiply(m, skewMat);
-        for (let i = 0; i < 16; i++) m[i] = ms[i];
+        for (let i = 0; i < 16; i++) m[i] = ms[i]!;
     }
 
     // Step 5: Apply scale
     const [sx, sy, sz] = d.scale;
-    m[0] *= sx; m[1] *= sx; m[2] *= sx; m[3] *= sx;
-    m[4] *= sy; m[5] *= sy; m[6] *= sy; m[7] *= sy;
-    m[8] *= sz; m[9] *= sz; m[10] *= sz; m[11] *= sz;
+    m[0] = m[0]! * sx; m[1] = m[1]! * sx; m[2] = m[2]! * sx; m[3] = m[3]! * sx;
+    m[4] = m[4]! * sy; m[5] = m[5]! * sy; m[6] = m[6]! * sy; m[7] = m[7]! * sy;
+    m[8] = m[8]! * sz; m[9] = m[9]! * sz; m[10] = m[10]! * sz; m[11] = m[11]! * sz;
 
     // Already in column-major order (same as CSS matrix3d parameter order)
     return [...m];

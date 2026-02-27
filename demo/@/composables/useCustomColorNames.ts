@@ -31,7 +31,7 @@ export function useCustomColorNames() {
 
                 try {
                     const parsed = parseCSSColor(entry.css);
-                    const xyz = colorUnit2(parsed, "xyz", false, false, false);
+                    const xyz = colorUnit2(parsed as any, "xyz", false, false, false);
                     normalized.set(key, xyz.value.toFormattedString(DIGITS));
                 } catch {
                     // skip entries that fail to parse

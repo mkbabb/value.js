@@ -30,7 +30,7 @@ function randomRadii(rng: () => number, lo: number, hi: number): number[] {
 }
 
 function radiiToCSS(r: number[]): string {
-    return `${r[0]}% ${r[1]}% ${r[2]}% ${r[3]}% / ${r[4]}% ${r[5]}% ${r[6]}% ${r[7]}%`;
+    return `${r[0]!}% ${r[1]!}% ${r[2]!}% ${r[3]!}% / ${r[4]!}% ${r[5]!}% ${r[6]!}% ${r[7]!}%`;
 }
 
 export interface UseWatercolorBlobOptions {
@@ -103,7 +103,7 @@ export function useWatercolorBlob(
         const durationMul = 0.5 + rng() * 1.3;
         const phaseOffset = rng();
         vertices.push({
-            from: initial[i],
+            from: initial[i]!,
             to: lo + rng() * (hi - lo),
             startTime: -phaseOffset * cycleDuration * durationMul,
             duration: cycleDuration * durationMul,
@@ -116,7 +116,7 @@ export function useWatercolorBlob(
     function tick(now: number) {
         lastNow = now;
         for (let i = 0; i < 8; i++) {
-            const v = vertices[i];
+            const v = vertices[i]!;
             let t = (now - v.startTime) / v.duration;
 
             if (t >= 1) {
@@ -143,8 +143,8 @@ export function useWatercolorBlob(
     nudge = () => {
         const now = lastNow || performance.now();
         for (let i = 0; i < 8; i++) {
-            const v = vertices[i];
-            v.from = current[i];
+            const v = vertices[i]!;
+            v.from = current[i]!;
             v.to = lo + rng() * (hi - lo);
             // Fast transition (25-50% of normal cycle)
             v.duration = cycleDuration * (0.25 + rng() * 0.25);

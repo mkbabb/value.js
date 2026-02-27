@@ -7,7 +7,7 @@ import { transformMat3 } from "./matrix";
 
 export function cssFiltersToString(filters: number[]): string {
     const fmt = (idx: number, multiplier: number = 1) =>
-        Math.round(filters[idx] * multiplier);
+        Math.round(filters[idx]! * multiplier);
 
     return `invert(${fmt(0)}%) sepia(${fmt(1)}%) saturate(${fmt(2)}%) hue-rotate(${fmt(3, 3.6)}deg) brightness(${fmt(4)}%) contrast(${fmt(5)}%)`;
 }
@@ -168,12 +168,12 @@ function invert(color: RGBColor<number>, value: number = 1): RGBColor<number> {
 function loss(filters: number[], target: RGBColor<number>, targetHSL: HSLColor<number>): number {
     let color = rgb(0, 0, 0);
 
-    color = invert(color, filters[0] / 100);
-    color = sepia(color, filters[1] / 100);
-    color = saturate(color, filters[2] / 100);
-    color = hueRotate(color, filters[3] * 3.6);
-    color = brightness(color, filters[4] / 100);
-    color = contrast(color, filters[5] / 100);
+    color = invert(color, filters[0]! / 100);
+    color = sepia(color, filters[1]! / 100);
+    color = saturate(color, filters[2]! / 100);
+    color = hueRotate(color, filters[3]! * 3.6);
+    color = brightness(color, filters[4]! / 100);
+    color = contrast(color, filters[5]! / 100);
 
     const colorHSL = RGBColorToHSLColor(color);
 
@@ -206,16 +206,16 @@ function spsa(
         const ck = c / Math.pow(k + 1, SPSA_GAMMA);
         for (let i = 0; i < 6; i++) {
             deltas[i] = Math.random() > 0.5 ? 1 : -1;
-            highArgs[i] = values[i] + ck * deltas[i];
-            lowArgs[i] = values[i] - ck * deltas[i];
+            highArgs[i] = values[i]! + ck * deltas[i];
+            lowArgs[i] = values[i]! - ck * deltas[i];
         }
 
         const lossDiff =
             loss(highArgs, target, targetHSL) - loss(lowArgs, target, targetHSL);
         for (let i = 0; i < 6; i++) {
-            const g = (lossDiff / (2 * ck)) * deltas[i];
-            const ak = a[i] / Math.pow(A + k + 1, SPSA_ALPHA);
-            values[i] = fixValue(values[i] - ak * g, i);
+            const g = (lossDiff / (2 * ck)) * deltas[i]!;
+            const ak = a[i]! / Math.pow(A + k + 1, SPSA_ALPHA);
+            values[i] = fixValue(values[i]! - ak * g, i);
         }
 
         const currentLoss = loss(values, target, targetHSL);

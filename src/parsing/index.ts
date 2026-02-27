@@ -91,7 +91,7 @@ const handleTransform = () => {
             });
         } else {
             values.forEach((v: any, i: number) => {
-                const newName = makeTransformName(lowerName, dimensions[i]);
+                const newName = makeTransformName(lowerName, dimensions[i]!);
                 transformObject[newName] = v;
             });
         }

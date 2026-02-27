@@ -44,11 +44,11 @@ type Action =
   }
   | {
     type: ActionType['DISMISS_TOAST']
-    toastId?: ToasterToast['id']
+    toastId?: ToasterToast['id'] | undefined
   }
   | {
     type: ActionType['REMOVE_TOAST']
-    toastId?: ToasterToast['id']
+    toastId?: ToasterToast['id'] | undefined
   }
 
 interface State {
@@ -79,6 +79,7 @@ const state = ref<State>({
 function dispatch(action: Action) {
   switch (action.type) {
     case actionTypes.ADD_TOAST:
+      // @ts-expect-error -- recursive type depth limit in reka-ui ToastProps
       state.value.toasts = [action.toast, ...state.value.toasts].slice(0, TOAST_LIMIT)
       break
 
