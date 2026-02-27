@@ -62,13 +62,13 @@ export const COLOR_SPACE_RANGES = {
         alpha: ALPHA_RANGE,
     },
     oklab: {
-        l: { "%": ALPHA_RANGE["%"], number: ALPHA_RANGE["%"] },
+        l: { "%": ALPHA_RANGE["%"], number: ALPHA_RANGE.number },
         a: { number: { min: -0.4, max: 0.4 }, "%": { min: -100, max: 100 } },
         b: { number: { min: -0.4, max: 0.4 }, "%": { min: -100, max: 100 } },
         alpha: ALPHA_RANGE,
     },
     oklch: {
-        l: { "%": ALPHA_RANGE["%"], number: ALPHA_RANGE["%"] },
+        l: { "%": ALPHA_RANGE["%"], number: ALPHA_RANGE.number },
         c: { number: { min: 0, max: 0.5 }, "%": ALPHA_RANGE["%"] },
         h: HUE_RANGE,
         alpha: ALPHA_RANGE,

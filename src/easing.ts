@@ -34,12 +34,44 @@ export function smoothStep3(t: number) {
     return t * t * (3 - 2 * t);
 }
 
+/**
+ * Solve X(t) = x for t using Newton-Raphson with bisection fallback.
+ * X(t) = 3(1-t)^2*t*x1 + 3(1-t)*t^2*x2 + t^3
+ */
+function solveCubicBezierX(x: number, x1: number, x2: number, epsilon = 1e-6): number {
+    let t = x; // initial guess
+    for (let i = 0; i < 8; i++) {
+        const t2 = t * t;
+        const t3 = t2 * t;
+        const mt = 1 - t;
+        const mt2 = mt * mt;
+        const xt = 3 * mt2 * t * x1 + 3 * mt * t2 * x2 + t3 - x;
+        if (Math.abs(xt) < epsilon) return t;
+        const dxt = 3 * mt2 * x1 + 6 * mt * t * (x2 - x1) + 3 * t2 * (1 - x2);
+        if (Math.abs(dxt) < 1e-12) break;
+        t -= xt / dxt;
+    }
+    // Bisection fallback
+    let lo = 0,
+        hi = 1;
+    t = x;
+    for (let i = 0; i < 64; i++) {
+        const mt = 1 - t;
+        const xt = 3 * mt * mt * t * x1 + 3 * mt * t * t * x2 + t * t * t;
+        if (Math.abs(xt - x) < epsilon) return t;
+        if (x > xt) lo = t;
+        else hi = t;
+        t = (lo + hi) / 2;
+    }
+    return t;
+}
+
 export const CSSCubicBezier =
-    (x1: number, y1: number, x2: number, y2: number) => (t: number) => {
-        {
-            t = cubicBezier(t, x1, y1, x2, y2)[1];
-            return t;
-        }
+    (x1: number, y1: number, x2: number, y2: number) => (x: number) => {
+        if (x <= 0) return 0;
+        if (x >= 1) return 1;
+        const t = solveCubicBezierX(x, x1, x2);
+        return cubicBezier(t, x1, y1, x2, y2)[1];
     };
 
 export function easeInBounce(t: number) {
@@ -147,24 +179,25 @@ export const jumpTerms = [
 ] as const;
 
 function jumpStart(t: number, steps: number): number {
-    return Math.floor(t * steps) / steps;
-}
-
-function jumpEnd(t: number, steps: number): number {
     return Math.ceil(t * steps) / steps;
 }
 
+function jumpEnd(t: number, steps: number): number {
+    return Math.floor(t * steps) / steps;
+}
+
 function jumpBoth(t: number, steps: number): number {
-    return t === 0 || t === 1 ? t : jumpStart(t, steps);
+    return Math.floor(t * (steps + 1)) / (steps + 1);
 }
 
 function jumpNone(t: number, steps: number): number {
-    return Math.round(t * steps) / steps;
+    if (steps <= 1) return t;
+    return Math.floor(t * (steps - 1)) / (steps - 1);
 }
 
 export function steppedEase(
     steps: number,
-    jumpTerm: (typeof jumpTerms)[number] = "jump-start",
+    jumpTerm: (typeof jumpTerms)[number] = "jump-end",
 ) {
     switch (jumpTerm) {
         case "jump-none":

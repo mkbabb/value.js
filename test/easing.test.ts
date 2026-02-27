@@ -84,32 +84,41 @@ describe("easing functions", () => {
     });
 
     describe("steppedEase", () => {
-        it("jump-start: steps up at start of interval", () => {
+        it("jump-start: jumps at start of each interval (ceil)", () => {
             const fn = steppedEase(4, "jump-start")!;
             expect(fn(0)).toBe(0);
-            expect(fn(0.3)).toBe(0.25);
-            expect(fn(0.5)).toBe(0.5);
+            expect(fn(0.1)).toBe(0.25);   // ceil(0.4)/4 = 1/4
+            expect(fn(0.25)).toBe(0.25);   // ceil(1)/4 = 1/4
+            expect(fn(0.3)).toBe(0.5);    // ceil(1.2)/4 = 2/4
+            expect(fn(0.5)).toBe(0.5);    // ceil(2)/4 = 2/4
+            expect(fn(0.75)).toBe(0.75);  // ceil(3)/4 = 3/4
             expect(fn(1)).toBe(1);
         });
 
-        it("jump-end: steps up at end of interval", () => {
+        it("jump-end: jumps at end of each interval (floor)", () => {
             const fn = steppedEase(4, "jump-end")!;
             expect(fn(0)).toBe(0);
-            expect(fn(0.25)).toBe(0.25);
-            expect(fn(0.5)).toBe(0.5);
+            expect(fn(0.24)).toBe(0);      // floor(0.96)/4 = 0
+            expect(fn(0.25)).toBe(0.25);   // floor(1)/4 = 1/4
+            expect(fn(0.5)).toBe(0.5);     // floor(2)/4 = 2/4
+            expect(fn(0.99)).toBe(0.75);   // floor(3.96)/4 = 3/4
             expect(fn(1)).toBe(1);
         });
 
-        it("jump-none: rounds to nearest step", () => {
+        it("jump-none: n-1 steps between 0 and 1", () => {
             const fn = steppedEase(4, "jump-none")!;
             expect(fn(0)).toBe(0);
+            // floor(t * 3) / 3, so steps at 0, 1/3, 2/3, 1
+            expect(fn(0.5)).toBeCloseTo(1 / 3, 10);
             expect(fn(1)).toBe(1);
         });
 
-        it("jump-both: preserves 0 and 1 boundaries", () => {
+        it("jump-both: n+1 intervals", () => {
             const fn = steppedEase(4, "jump-both")!;
             expect(fn(0)).toBe(0);
-            expect(fn(1)).toBe(1);
+            // floor(t * (4+1)) / (4+1) = floor(t * 5) / 5
+            expect(fn(0.3)).toBe(0.2);     // floor(1.5)/5 = 1/5
+            expect(fn(1)).toBe(1);         // floor(5)/5 = 1
         });
 
         it("aliases: start = jump-start, end = jump-end", () => {
@@ -126,17 +135,17 @@ describe("easing functions", () => {
     });
 
     describe("stepStart / stepEnd", () => {
-        it("stepStart is steppedEase(1, 'jump-start')", () => {
+        it("stepStart is steppedEase(1, 'jump-start') — jumps immediately", () => {
             const fn = stepStart()!;
             expect(fn(0)).toBe(0);
-            expect(fn(0.5)).toBe(0);
+            expect(fn(0.5)).toBe(1);    // ceil(0.5*1)/1 = 1
             expect(fn(1)).toBe(1);
         });
 
-        it("stepEnd is steppedEase(1, 'jump-end')", () => {
+        it("stepEnd is steppedEase(1, 'jump-end') — stays at 0 until end", () => {
             const fn = stepEnd()!;
             expect(fn(0)).toBe(0);
-            expect(fn(0.5)).toBe(1);
+            expect(fn(0.5)).toBe(0);    // floor(0.5*1)/1 = 0
             expect(fn(1)).toBe(1);
         });
     });
