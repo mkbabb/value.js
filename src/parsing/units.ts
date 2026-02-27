@@ -3,6 +3,8 @@ import { ValueUnit } from "../units";
 import {
     ABSOLUTE_LENGTH_UNITS,
     ANGLE_UNITS,
+    FLEX_UNITS,
+    FREQUENCY_UNITS,
     LENGTH_UNITS,
     PERCENTAGE_UNITS,
     RELATIVE_LENGTH_UNITS,
@@ -17,7 +19,9 @@ export { CSSColor, parseCSSColor, registerColorNames, clearCustomColorNames, get
 const lengthUnit = any(...LENGTH_UNITS.map(utils.istring));
 const angleUnit = any(...ANGLE_UNITS.map(utils.istring));
 const timeUnit = any(...TIME_UNITS.map(utils.istring));
+const frequencyUnit = any(...FREQUENCY_UNITS.map(utils.istring));
 const resolutionUnit = any(...RESOLUTION_UNITS.map(utils.istring));
+const flexUnit = any(...FLEX_UNITS.map(utils.istring));
 const percentageUnit = any(...PERCENTAGE_UNITS.map(utils.istring));
 
 const comma = string(",");
@@ -44,8 +48,16 @@ const Time = all(utils.number, timeUnit).map(([value, unit]: [number, string]) =
 
 const TimePercentage: Parser<ValueUnit> = Parser.lazy(() => any(Percentage, Time));
 
+const Frequency = all(utils.number, frequencyUnit).map(([value, unit]: [number, string]) => {
+    return new ValueUnit(value, unit, ["frequency"]);
+});
+
 const Resolution = all(utils.number, resolutionUnit).map(([value, unit]: [number, string]) => {
     return new ValueUnit(value, unit, ["resolution"]);
+});
+
+const Flex = all(utils.number, flexUnit).map(([value, unit]: [number, string]) => {
+    return new ValueUnit(value, unit, ["flex"]);
 });
 
 const Percentage: Parser<ValueUnit> = any(
@@ -66,7 +78,9 @@ const Value: Parser<ValueUnit> = any(
     Length,
     Angle,
     Time,
+    Frequency,
     Resolution,
+    Flex,
     Percentage,
     Color,
     Slash,
@@ -79,7 +93,9 @@ export const CSSValueUnit = {
     Angle,
     Time,
     TimePercentage,
+    Frequency,
     Resolution,
+    Flex,
     Percentage,
     Color,
     Slash,

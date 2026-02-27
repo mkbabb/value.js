@@ -10,7 +10,9 @@ export {
     TIME_UNITS,
     ANGLE_UNITS,
     PERCENTAGE_UNITS,
+    FREQUENCY_UNITS,
     RESOLUTION_UNITS,
+    FLEX_UNITS,
     COMPUTED_UNITS,
     STRING_UNITS,
     COLOR_UNITS,
@@ -32,6 +34,7 @@ export {
     convertToPixels,
     convertToMs,
     convertToDegrees,
+    convertToHz,
     convertToDPI,
     convert2,
 } from "./units/utils";
@@ -240,6 +243,7 @@ export {
 
 // Parsing — parsers and parse functions
 export {
+    CSS_WIDE_KEYWORDS,
     CSSString,
     CSSFunction,
     CSSJSON,
@@ -265,3 +269,18 @@ export {
     tryParse,
     parseResult,
 } from "./parsing/utils";
+
+// Transform decomposition
+export {
+    decomposeMatrix2D,
+    decomposeMatrix3D,
+    recomposeMatrix3D,
+    slerp,
+    interpolateDecomposed,
+} from "./transform/decompose";
+export type {
+    DecomposedMatrix2D,
+    DecomposedMatrix3D,
+    Vec4,
+    Mat4,
+} from "./transform/decompose";
