@@ -4,6 +4,7 @@ import { FunctionValue, ValueArray, ValueUnit } from "../units";
 import * as utils from "./utils";
 import { memoize } from "@src/utils";
 import { CSSValueUnit } from "./units";
+import { createMathFunctionParsers, evaluateMathFunction } from "./math";
 
 const lparen = string("(");
 const rparen = string(")");
@@ -46,31 +47,10 @@ const handleVar = () => {
         });
 };
 
-const handleCalc = () => {
-    const calcContent: Parser<string[]> = Parser.lazy(() =>
-        any(
-            regex(/[^()]+/),
-            calcContent
-                .many(1)
-                .wrap(lparen, rparen)
-                .map((nested: string[][]) => `(${nested.join(" ")})`),
-        ).many(1),
-    );
-
-    return string("calc")
-        .next(
-            any(
-                Parser.lazy(() => Value).trim(whitespace)
-                    .wrap(lparen, rparen),
-                calcContent
-                    .wrap(lparen, rparen)
-                    .map((parts: unknown) => (parts as string[]).join(" ")),
-            ),
-        )
-        .map((v: any) => {
-            return v instanceof ValueUnit ? v : new ValueUnit(v, "calc");
-        });
-};
+// CSS math functions: calc(), min(), max(), clamp(), round(), mod(), rem(),
+// abs(), sign(), sin(), cos(), tan(), asin(), acos(), atan(), atan2(),
+// pow(), sqrt(), hypot(), log(), exp()
+const { mathFunction: MathFunction, calcFn: CalcFunction } = createMathFunctionParsers(CSSValueUnit.Value);
 
 const TRANSFORM_FUNCTIONS = ["translate", "scale", "rotate", "skew"];
 const TRANSFORM_DIMENSIONS = ["x", "y", "z"];
@@ -244,7 +224,7 @@ export const CSSString = regex(/[^\(\)\{\}\s,;]+/).map((x: string) => new ValueU
 const Function_: Parser<any> = any(
     handleTransform(),
     handleVar(),
-    handleCalc(),
+    MathFunction,
     handleGradient(),
     handleCubicBezier(),
     handleFunc().map(([name, values]: [string, any]) => {
@@ -268,7 +248,7 @@ export const CSSJSON = all(string("{"), regex(/[^{}]+/), string("}")).map(
     },
 );
 
-const ValuesValue: Parser<any> = any(CSSValueUnit.Value, Function_, CSSJSON, CSSString).trim(whitespace);
+const ValuesValue: Parser<any> = any(MathFunction, CSSValueUnit.Value, Function_, CSSJSON, CSSString).trim(whitespace);
 
 export const CSSValues = {
     Value: ValuesValue,

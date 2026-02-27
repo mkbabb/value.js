@@ -1,7 +1,94 @@
-import { cubicBezier, interpBezier } from "./math";
+import { cubicBezier, interpBezier, lerp } from "./math";
 
 export function linear(t: number) {
     return t;
+}
+
+/**
+ * CSS Easing Level 2 `linear()` — piecewise-linear timing function.
+ *
+ * Each stop is `{ output: number, input?: number }`.
+ * - `output` is the easing output value (typically 0–1 but can overshoot).
+ * - `input` is the progress percentage (0–100). If omitted, stops are
+ *   evenly distributed.
+ *
+ * Syntax examples:
+ *   linear(0, 0.25, 1)          → three evenly-spaced stops
+ *   linear(0, 0.25 75%, 1)      → second stop at 75% input
+ *   linear(0, 0.5 25% 75%, 1)   → second stop spans 25%–75% (flat segment)
+ */
+export interface LinearStop {
+    output: number;
+    input?: number;
+}
+
+export function cssLinear(stops: LinearStop[]): (t: number) => number {
+    if (stops.length === 0) return linear;
+    if (stops.length === 1) return () => stops[0].output;
+
+    // Resolve missing input positions per CSS spec:
+    // 1. First stop defaults to 0%, last defaults to 100%.
+    // 2. Stops with explicit positions are anchors; gaps are filled by
+    //    linear interpolation between surrounding anchors.
+    const resolved: { output: number; input: number }[] = stops.map((s) => ({
+        output: s.output,
+        input: s.input ?? -1, // -1 = unset
+    }));
+
+    if (resolved[0].input < 0) resolved[0].input = 0;
+    if (resolved[resolved.length - 1].input < 0) resolved[resolved.length - 1].input = 100;
+
+    // Fill gaps
+    let i = 0;
+    while (i < resolved.length) {
+        if (resolved[i].input >= 0) {
+            i++;
+            continue;
+        }
+        // Find run of unset stops
+        const startIdx = i - 1; // previous anchor (always set)
+        let endIdx = i;
+        while (endIdx < resolved.length && resolved[endIdx].input < 0) endIdx++;
+        // endIdx is next anchor
+        const startInput = resolved[startIdx].input;
+        const endInput = resolved[endIdx].input;
+        const count = endIdx - startIdx;
+        for (let j = startIdx + 1; j < endIdx; j++) {
+            resolved[j].input = startInput + ((endInput - startInput) * (j - startIdx)) / count;
+        }
+        i = endIdx + 1;
+    }
+
+    // Enforce monotonicity on input positions (CSS spec: each must be >= previous)
+    for (let k = 1; k < resolved.length; k++) {
+        if (resolved[k].input < resolved[k - 1].input) {
+            resolved[k].input = resolved[k - 1].input;
+        }
+    }
+
+    // Convert from percentage to 0–1 range
+    const points = resolved.map((s) => ({ output: s.output, input: s.input / 100 }));
+
+    return (t: number) => {
+        if (t <= points[0].input) return points[0].output;
+        if (t >= points[points.length - 1].input) return points[points.length - 1].output;
+
+        // Binary search for the segment
+        let lo = 0, hi = points.length - 1;
+        while (lo < hi - 1) {
+            const mid = (lo + hi) >> 1;
+            if (points[mid].input <= t) lo = mid;
+            else hi = mid;
+        }
+
+        const p0 = points[lo];
+        const p1 = points[hi];
+
+        if (p0.input === p1.input) return p0.output; // degenerate segment
+
+        const segmentT = (t - p0.input) / (p1.input - p0.input);
+        return lerp(segmentT, p0.output, p1.output);
+    };
 }
 
 export function easeInQuad(t: number) {

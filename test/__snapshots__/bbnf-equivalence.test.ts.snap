@@ -601,23 +601,9 @@ exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("aquamarine") 1`] = `"r
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("blue") 1`] = `"rgb(0 0 255 / 1)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("calc(50px + 50px)") 1`] = `
-{
-  "superType": undefined,
-  "toString": "calc(50px + 50px)",
-  "unit": "calc",
-  "value": "50px + 50px",
-}
-`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("calc(50px + 50px)") 1`] = `"calc(50px + 50px)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("calc(100% - 20px)") 1`] = `
-{
-  "superType": undefined,
-  "toString": "calc(100% - 20px)",
-  "unit": "calc",
-  "value": "100% - 20px",
-}
-`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("calc(100% - 20px)") 1`] = `"calc(100% - 20px)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(display-p3 1 0 0)") 1`] = `"display-p3(1 0 0 / 1)"`;
 

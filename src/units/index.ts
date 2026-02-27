@@ -140,6 +140,13 @@ export class FunctionValue<T = any, N extends string = string> {
     }
 
     toString(): string {
+        // Calc AST operators are infix: "left + right", not "+(left, right)"
+        if (
+            (this.name === "+" || this.name === "-" || this.name === "*" || this.name === "/") &&
+            this.values.length === 2
+        ) {
+            return `${this.values[0].toString()} ${this.name} ${this.values[1].toString()}`;
+        }
         return `${this.name}(${this.values.map((v) => v.toString()).join(", ")})`;
     }
 

@@ -238,8 +238,9 @@ export {
     easeInCirc, easeOutCirc, easeInOutCirc,
     easeInExpo, easeOutExpo, easeInOutExpo,
     jumpTerms, steppedEase, stepStart, stepEnd,
-    bezierPresets, timingFunctions,
+    cssLinear, bezierPresets, timingFunctions,
 } from "./easing";
+export type { LinearStop } from "./easing";
 
 // Parsing — parsers and parse functions
 export {
@@ -254,6 +255,8 @@ export {
 } from "./parsing";
 
 export { CSSValueUnit, parseCSSValueUnit } from "./parsing/units";
+
+export { evaluateMathFunction } from "./parsing/math";
 
 export { CSSColor, parseCSSColor } from "./parsing/color";
 
