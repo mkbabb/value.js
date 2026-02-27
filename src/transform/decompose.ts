@@ -212,25 +212,23 @@ function vec3Dot(a: [number, number, number], b: [number, number, number]): numb
 }
 
 /**
- * Decompose a CSS matrix3d (16 values in row-major CSS order) into
+ * Decompose a CSS matrix3d (16 values in column-major CSS order) into
  * translate, scale, skew, rotation (quaternion), and perspective.
  *
- * CSS `matrix3d()` uses row-major order:
- *   matrix3d(m11,m12,m13,m14, m21,m22,m23,m24, m31,m32,m33,m34, m41,m42,m43,m44)
- * which maps to the column-major internal representation.
+ * CSS `matrix3d(a1,b1,c1,d1, a2,b2,c2,d2, a3,b3,c3,d3, a4,b4,c4,d4)` maps to:
+ *   | a1 a2 a3 a4 |
+ *   | b1 b2 b3 b4 |
+ *   | c1 c2 c3 c4 |
+ *   | d1 d2 d3 d4 |
+ * The parameter order is already column-major: [a1,b1,c1,d1, a2,b2,c2,d2, ...].
  *
  * Based on the "unmatrix" algorithm from the CSS Transforms spec.
  */
 export function decomposeMatrix3D(cssValues: number[]): DecomposedMatrix3D | null {
     if (cssValues.length !== 16) return null;
 
-    // Convert CSS row-major to column-major for internal math
-    const m: Mat4 = [
-        cssValues[0], cssValues[4], cssValues[8], cssValues[12],
-        cssValues[1], cssValues[5], cssValues[9], cssValues[13],
-        cssValues[2], cssValues[6], cssValues[10], cssValues[14],
-        cssValues[3], cssValues[7], cssValues[11], cssValues[15],
-    ];
+    // CSS matrix3d parameter order is already column-major — use directly
+    const m: Mat4 = [...cssValues];
 
     // Step 1: Normalize — divide by m[15] (m44)
     const w = m[15];
@@ -428,7 +426,7 @@ export function slerp(qa: Vec4, qb: Vec4, t: number): Vec4 {
 // ────────────────────────────────────────────────────────────────
 
 /**
- * Recompose a 3D decomposed matrix back into a CSS matrix3d() value array (16 values, row-major CSS order).
+ * Recompose a 3D decomposed matrix back into a CSS matrix3d() value array (16 values, column-major CSS order).
  */
 export function recomposeMatrix3D(d: DecomposedMatrix3D): number[] {
     // Start with identity
@@ -480,13 +478,8 @@ export function recomposeMatrix3D(d: DecomposedMatrix3D): number[] {
     m[4] *= sy; m[5] *= sy; m[6] *= sy; m[7] *= sy;
     m[8] *= sz; m[9] *= sz; m[10] *= sz; m[11] *= sz;
 
-    // Convert column-major to CSS row-major order
-    return [
-        m[0], m[4], m[8], m[12],
-        m[1], m[5], m[9], m[13],
-        m[2], m[6], m[10], m[14],
-        m[3], m[7], m[11], m[15],
-    ];
+    // Already in column-major order (same as CSS matrix3d parameter order)
+    return [...m];
 }
 
 /**
