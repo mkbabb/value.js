@@ -24,66 +24,54 @@ const { x, y, z } = getFormattedColorSpaceRange("xyz");
 
 ### Historical Context
 
-The XYZ color space was developed by the [Commission Internationale de l'Éclairage (CIE)](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) in 1931. It was the first mathematically defined color space and represents a pivotal moment in color science. The XYZ system was derived from a series of experiments that mapped how the average human eye responds to different wavelengths of light, creating a standard observer model.
+CIE XYZ (1931) was the first mathematically defined color space. The [Commission Internationale de l'Eclairage](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) derived it from experiments mapping how a standard observer responds to wavelengths of visible light. It's device-independent by design---colors are specified as points in an abstract tristimulus space, not as instructions for a particular display or printer.
+
+In value.js, **XYZ is the conversion hub**: most color space transforms pass through it.
 
 ---
 
 ## Key Characteristics
 
-### Unique Features
-
-1. **Device Independence**: XYZ values describe colors independent of how they are displayed or captured.
-2. **Complete Color Representation**: Can represent all visible colors, unlike RGB which is limited by its gamut.
-3. **Foundation for Other Spaces**: Serves as the reference space for converting between many other color spaces.
-4. **Standardized White Points**: Uses defined reference whites (D50, D65, etc.) for consistent color representation.
-
-### Advantages and Disadvantages
+1. **Device-independent.** XYZ values describe a color itself, not how to reproduce it on hardware.
+2. **Complete gamut.** Encompasses all colors visible to the human eye---no clipping to an RGB or CMYK subset.
+3. **Foundation space.** Lab, Luv, and virtually every perceptual model derives from XYZ.
+4. **Standardized white points.** D50, D65, and others provide fixed reference whites for consistent colorimetry.
 
 ## Advantages
 
 -   Device-independent
 -   Encompasses all visible colors
--   Mathematical basis for color conversions
--   Direct relationship to human vision
+-   Mathematical basis for all other CIE-derived color spaces
+-   Direct relationship to the standard observer model
 
 ## Disadvantages
 
--   Not perceptually uniform
--   Difficult to interpret visually
--   Not directly usable for display or printing
--   Abstract components don't map intuitively to perceived attributes
-
-### Color Gamut and Representation
-
-The XYZ color space can represent all colors visible to the human eye, making it a reference for defining the gamuts of other color spaces. The visible color gamut forms a cone-like shape within the XYZ space.
+-   Not perceptually uniform---equal numeric steps don't look equal
+-   Components are abstract; `X` and `Z` don't map to any intuitive visual attribute
+-   Not directly usable for display or print output
 
 ---
 
 ## Color Model
 
-### Description of Color Components
+### Components
 
-1. **`X`**:
-   Represents a mix of cone response curves, roughly correlating to red sensitivity.
+1. **`X`**: A weighted mix of cone response curves, roughly tracking red sensitivity. Not a pure spectral response---it's a mathematical construct chosen so that all tristimulus values remain non-negative.
 
-2. **`Y`**:
-   Corresponds directly to luminance (brightness), matching the photopic luminosity function of human vision.
+2. **`Y`**: Corresponds directly to luminance. Matches the CIE photopic luminosity function, so it doubles as a measure of perceived brightness.
 
-3. **`Z`**:
-   Roughly corresponds to blue sensitivity, though it's primarily a mathematical construct.
+3. **`Z`**: Roughly tracks blue sensitivity. Like `X`, it's primarily a mathematical convenience rather than a direct perceptual correlate.
 
-### How Colors are Represented
-
-Colors in XYZ space are represented as a point in a three-dimensional space. While Y directly represents brightness, X and Z do not correspond to specific perceptual attributes, making XYZ primarily a mathematical intermediate rather than a creative tool.
+Colors in XYZ are points in a 3D space. `Y` carries brightness information; `X` and `Z` don't correspond to perceptual attributes on their own. This makes XYZ a conversion intermediary, not a creative tool.
 
 ### White Points and Chromatic Adaptation
 
-XYZ values depend on the white point (reference white) used:
+XYZ values are relative to a reference white point:
 
--   **D50**: Standard for graphic arts and printing (yellowish white)
--   **D65**: Standard for digital imaging, representing average daylight (bluish white)
+-   **D50**: Standard for graphic arts and printing (slightly warm/yellowish)
+-   **D65**: Standard for digital imaging, approximating average daylight (slightly cool/bluish)
 
-Converting between white points requires chromatic adaptation, often done with a Bradford transform:
+Converting between white points requires chromatic adaptation. value.js uses the Bradford transform:
 
 <div class="language-typescript">
     // D65 to D50 transformation matrix
@@ -97,33 +85,33 @@ Converting between white points requires chromatic adaptation, often done with a
 
 ## Color Conversions
 
-### RGB to XYZ Conversion
+### RGB to XYZ
 
-Converting from RGB to XYZ involves transforming from sRGB to linear RGB, then applying a transformation matrix:
+Linearize sRGB (undo the gamma curve), then multiply by a 3x3 matrix:
 
 <div class="language-typescript">
     {{ rgb2xyz }}
 </div>
 
-### XYZ to RGB Conversion
+### XYZ to RGB
 
-Converting from XYZ to RGB is the inverse process:
+The inverse: multiply by the inverse matrix, then apply the sRGB gamma curve:
 
 <div class="language-typescript">
     {{ xyz2rgb }}
 </div>
 
-### XYZ to LAB Conversion
+### XYZ to Lab
 
-XYZ can be converted to the perceptually uniform LAB space:
+Map into CIE L\*a\*b\*'s perceptually uniform space:
 
 <div class="language-typescript">
     {{ xyz2lab }}
 </div>
 
-### LAB to XYZ Conversion
+### Lab to XYZ
 
-The inverse transformation from LAB to XYZ:
+The inverse transform:
 
 <div class="language-typescript">
     {{ lab2xyz }}
@@ -131,15 +119,10 @@ The inverse transformation from LAB to XYZ:
 
 ---
 
-## Common Applications
+## Applications
 
-The XYZ color space serves critical functions in color science and technology:
-
-1. **Color Management Systems**: Fundamental component of ICC profiles and color management workflows.
-2. **Colorimetry**: Used in measuring and specifying colors in scientific applications.
-3. **Cross-Media Color Reproduction**: Enables consistent color reproduction across different media and devices.
-4. **Standard Observer Models**: Basis for modeling human color perception in various applications.
-5. **Color Appearance Models**: Foundation for more advanced models that predict color appearance under different viewing conditions.
-6. **Color Difference Calculations**: Used to quantify differences between colors in industrial applications.
-
-As the foundation of modern colorimetry, the XYZ color space remains indispensable despite its abstract nature, serving as the bridge between physical light spectra and the various color models used in creative and technical applications.
+1. **Color management.** ICC profiles define device gamuts in XYZ; all profile-to-profile conversions transit through it.
+2. **Colorimetry.** Spectrophotometers report measurements in XYZ or its derivatives.
+3. **Cross-media reproduction.** The device-independent anchor that lets a print proof match a monitor preview.
+4. **Color difference metrics.** Delta E formulas operate in Lab/Luv, both derived from XYZ.
+5. **Appearance models.** CIECAM02 and similar models take XYZ as input to predict how a color looks under different viewing conditions.

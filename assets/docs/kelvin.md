@@ -17,78 +17,63 @@ const { kelvin } = getFormattedColorSpaceRange("kelvin");
 
 -   `kelvin`: Color temperature ({{kelvin.min}} to {{kelvin.max}})
 
-### Historical Context
+### Background
 
-The Kelvin color space is based on the concept of color temperature, which originated in the late 19th century with the work of British physicist William Thomson (Lord Kelvin). It relates the temperature of a theoretical black-body radiator to the color of light it emits. This concept was standardized in the early 20th century and has been widely used in lighting, photography, and color science ever since.
+Color temperature is rooted in black-body radiation: heat an ideal radiator and its emitted light traces a curve from deep red through white to blue as temperature rises. The concept dates to Lord Kelvin's 19th-century thermodynamics work and was formalized for colorimetry in the early 20th century.
 
----
-
-## Key Characteristics
-
-### Unique Features
-
-1. **Single-Dimensional**: Unlike most color spaces, Kelvin represents color using just one value—the color temperature.
-2. **Intuitive for Lighting**: The scale aligns with how we perceive warm and cool light sources.
-3. **Physical Basis**: Based on actual physical phenomena rather than perceptual models.
-
-### Advantages and Disadvantages
-
-## Advantages
-
--   Simple to understand and communicate
--   Directly applicable to lighting technology
--   Intuitive correlation with perceived warmth/coolness
--   Widely used in photography and cinematography
-
-## Disadvantages
-
--   Limited to a specific range of colors (blue to yellow-red)
--   Cannot represent colors outside the black-body locus
--   Not perceptually uniform
--   Doesn't account for green-magenta variations (the "tint" dimension)
-
-### Color Gamut and Representation
-
-The Kelvin color space represents colors along a specific curve in the CIE chromaticity diagram known as the Planckian locus or black-body locus. It covers a range from reddish-yellow at lower temperatures to blue at higher temperatures but cannot represent the full gamut of perceptible colors.
+This is a **single-dimensional** color space—one number, `1000K` to `40000K`, mapping to a point on the Planckian locus in the CIE chromaticity diagram. It can't represent colors off that curve (no greens, magentas, or saturated colors in general). Conversions to RGB use the **Tanner Helland approximation**, a polynomial fit to the black-body spectrum.
 
 ---
 
 ## Color Model
 
-### Description of Color Components
+### Component
 
 1. **`kelvin` (Color Temperature)**:
    `kelvin = 1000\text{K} \text{ (reddish-orange) to } 40000\text{K} \text{ (blue)}`
 
-### How Colors are Represented
-
-Colors in the Kelvin space are represented as a single value in Kelvin units, corresponding to the temperature of a black-body radiator. Lower values (1000K-3000K) produce warm colors (reddish to yellowish), middle values (4000K-5500K) produce neutral white light, and higher values (6500K-40000K) produce cool colors (bluish white to deep blue).
+   Lower values are warm; higher values are cool. The entire space is a single axis.
 
 ### Common Reference Points
 
 - **1900K**: Candlelight
 - **2700K**: Incandescent/warm white bulb
-- **3200K**: Halogen lamp/studio "tungsten" lighting
+- **3200K**: Halogen lamp/studio tungsten
 - **4100K**: Moonlight
-- **5000K-5500K**: Direct sunlight at noon/photography "daylight"
-- **6500K**: Standard daylight (D65)/overcast sky
-- **15000K-27000K**: Clear blue sky
+- **5000K–5500K**: Direct noon sunlight/photography "daylight"
+- **6500K**: D65 standard daylight/overcast sky
+- **15000K–27000K**: Clear blue sky
+
+---
+
+## Advantages
+
+-   Dead simple—one number describes the whole color
+-   Directly maps to real-world light sources
+-   Intuitive warm/cool axis that photographers and cinematographers already think in
+
+## Disadvantages
+
+-   Covers only the Planckian locus—a narrow slice of visible color
+-   Can't express the green–magenta "tint" dimension perpendicular to the locus
+-   Not perceptually uniform
+-   RGB approximations diverge from the true black-body curve at extreme temperatures
 
 ---
 
 ## Color Conversions
 
-### RGB to Kelvin Conversion
+### RGB to Kelvin
 
-Converting from RGB to Kelvin involves finding the closest point on the black-body locus to the given RGB color:
+Finds the closest color temperature on the black-body locus for a given RGB value:
 
 <div class="language-typescript">
     {{ rgb2kelvin }}
 </div>
 
-### Kelvin to RGB Conversion
+### Kelvin to RGB
 
-Converting from Kelvin to RGB uses approximations based on the black-body radiation curve:
+Uses the Tanner Helland polynomial approximation to convert temperature to RGB:
 
 <div class="language-typescript">
     {{ kelvin2rgb }}
@@ -98,14 +83,8 @@ Converting from Kelvin to RGB uses approximations based on the black-body radiat
 
 ## Common Applications
 
-The Kelvin color space finds extensive use in various industries and fields:
-
-1. **Photography and Cinematography**: Used for white balance settings to match lighting conditions.
-2. **Lighting Industry**: Specifications for bulbs and LED products to indicate color appearance.
-3. **Display Technology**: Adjusting screen color temperature for different viewing environments or times of day.
-4. **Digital Image Processing**: Color correction and grading in photo and video editing.
-5. **Smart Lighting**: Color temperature adjustment for circadian rhythm support and mood enhancement.
-6. **Astronomy**: Classifying stars based on their color temperature.
-7. **Printing and Graphics**: Understanding and compensating for lighting conditions when evaluating color proofs.
-
-By leveraging its intuitive relationship to natural and artificial light sources, the Kelvin color space provides a practical framework for controlling and communicating color temperature across numerous applications.
+1. **Photography and cinematography**: White balance settings—match the camera to the scene's color temperature.
+2. **Lighting industry**: Bulb and LED specifications use correlated color temperature (CCT) to describe appearance.
+3. **Display calibration**: Screen color temperature adjustment for different viewing conditions or time-of-day shifting (e.g., Night Shift, f.lux).
+4. **Smart lighting**: Tunable-white fixtures shift CCT for circadian rhythm support.
+5. **Astronomy**: Stellar classification by photospheric temperature.

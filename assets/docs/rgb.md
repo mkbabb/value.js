@@ -21,43 +21,37 @@ const { r, g, b } = getFormattedColorSpaceRange("rgb");
 
 ### Historical Context
 
-The RGB color space was developed in the early to mid-20th century alongside the development of color television and electronic displays. It is based on the trichromatic theory of color vision, which posits that the human eye perceives color through three types of cone cells that are sensitive to red, green, and blue light wavelengths.
+RGB emerged alongside color television in the mid-20th century, grounded in trichromatic color vision theory—three cone cell types in the retina, each sensitive to a different band of wavelengths. It's the native language of display hardware, mapping directly to the red, green, and blue subpixels of a screen.
 
 ---
 
 ## Key Characteristics
 
-### Unique Features
+1. **Additive model**: colors are produced by combining light at different intensities. R + G + B at full intensity yields white.
+2. **Device-dependent**: the same RGB triplet can look different on different displays without a shared profile (hence sRGB standardization).
+3. **Hardware-native**: values map directly to display hardware, making RGB the *lingua franca* of digital color.
 
-1. **Additive Color Model**: RGB creates colors by adding different intensities of red, green, and blue light together.
-2. **Device-Dependent**: Standard RGB values may appear differently across different displays and devices.
-3. **Direct Display Compatibility**: RGB values can be directly mapped to display hardware, making it the native color space for screens and monitors.
+### Advantages
 
-### Advantages and Disadvantages
+-   Direct hardware implementation—no conversion needed for display
+-   Intuitive for digital work (web, screens, rendering)
+-   Wide adoption across all digital media standards
 
-## Advantages
+### Disadvantages
 
--   Intuitive for digital applications
--   Direct hardware implementation
--   Wide range of colors achievable
--   Standard for web and digital media
+-   Not perceptually uniform—equal numerical steps don't produce equal perceptual steps
+-   Device-dependent without calibration
+-   Unintuitive for artistic color mixing (adjusting R to make a color "warmer" is indirect at best)
 
-## Disadvantages
+### Color Gamut
 
--   Not perceptually uniform
--   Device-dependent without proper calibration
--   Limited in representing certain printable colors
--   Less intuitive for artistic color mixing
-
-### Color Gamut and Representation
-
-The RGB color space forms a cube in 3D space, with black at the origin (0,0,0) and white at the opposite corner (1,1,1). Its gamut depends on the specific RGB standard being used, with sRGB being the most common standard for web and consumer displays.
+The sRGB gamut forms a cube from (0,0,0) black to (1,1,1) white. It covers a modest triangle in CIE xy chromaticity—roughly 35% of visible colors. Wider-gamut variants (Display P3, Adobe RGB, Rec. 2020) expand this triangle.
 
 ---
 
 ## Color Model
 
-### Description of Color Components
+### Components
 
 1. **`R` (Red)**:
    `R = 0 \text{ (no red) to } 1 \text{ (full red intensity)}`
@@ -68,32 +62,30 @@ The RGB color space forms a cube in 3D space, with black at the origin (0,0,0) a
 3. **`B` (Blue)**:
    `B = 0 \text{ (no blue) to } 1 \text{ (full blue intensity)}`
 
-### How Colors are Represented
-
-Colors in the RGB space are represented as a point within a unit cube, where each axis corresponds to the intensity of one of the primary colors. The corners of the cube represent the primary colors (red, green, blue), their complementary colors (cyan, magenta, yellow), and the extremes of black and white.
-
 ### sRGB and Linear RGB
 
-There are two main variants of the RGB color space:
+Two variants matter in practice:
 
--   **sRGB**: The standard RGB color space used for most consumer displays and web content, which includes gamma correction.
--   **Linear RGB**: A version of RGB without gamma correction, used in certain technical applications and as an intermediate step in color calculations.
+-   **sRGB**: the standard for consumer displays and web content, with a piecewise gamma curve (~2.2 effective gamma). All CSS `rgb()` values are sRGB.
+-   **Linear RGB**: the same primaries without gamma correction. Used as an intermediate step in color math—blending, matrix transforms, and conversions to XYZ all operate in linear light.
+
+The transfer function between them is a piecewise curve: linear below a threshold (~0.04045), power-law above.
 
 ---
 
 ## Color Conversions
 
-### RGB to XYZ Conversion
+### RGB to XYZ
 
-The conversion from RGB to XYZ involves converting from sRGB to linear RGB and then applying a transformation matrix:
+Converts from sRGB to linear RGB (inverse gamma), then applies the sRGB-to-XYZ matrix:
 
 <div class="language-typescript">
     {{ rgb2xyz }}
 </div>
 
-### XYZ to RGB Conversion
+### XYZ to RGB
 
-The conversion from XYZ to RGB is the inverse process:
+The inverse: matrix transform to linear RGB, then gamma encoding:
 
 <div class="language-typescript">
     {{ xyz2rgb }}
@@ -101,15 +93,10 @@ The conversion from XYZ to RGB is the inverse process:
 
 ---
 
-## Common Applications
+## Applications
 
-The RGB color space is foundational in digital imaging and has numerous applications:
-
-1. **Digital Displays**: Used in monitors, televisions, smartphones, and other digital screens.
-2. **Web Design**: The standard color model for web design and development.
-3. **Digital Photography**: Used in camera sensors and digital image processing.
-4. **Computer Graphics**: The primary color model for rendering 3D graphics and visual effects.
-5. **Video Production**: Used throughout the digital video production pipeline.
-6. **User Interfaces**: The standard for designing user interfaces and digital visual elements.
-
-By leveraging its direct compatibility with display technology and intuitive additive nature, the RGB color space serves as the foundation for virtually all digital visual content and applications.
+1. **Display rendering**: the final output space for all screen-based content.
+2. **Web design**: CSS `rgb()`, hex codes, and named colors all resolve to sRGB.
+3. **Image formats**: JPEG, PNG, and WebP store pixel data in sRGB.
+4. **Compositing and blending**: typically done in linear RGB to avoid gamma-induced artifacts.
+5. **Color conversion hub**: sRGB ↔ XYZ is the foundational bridge to every other color space in value.js.

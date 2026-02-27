@@ -19,52 +19,22 @@ const { h, w, b } = getFormattedColorSpaceRange("hwb");
 -   `W`: Whiteness ({{w.min}} to {{w.max}})
 -   `B`: Blackness ({{b.min}} to {{b.max}})
 
-### Historical Context
+### Background
 
-The HWB (Hue, Whiteness, Blackness) color space was proposed by Alvy Ray Smith in 1996 as a more intuitive alternative to HSL and HSV for color selection. Smith, a co-founder of Pixar, designed HWB to better match how artists think about color mixing - starting with a pure hue and adding white or black to create tints and shades. It was later incorporated into CSS Color Module Level 4, making it available for web design applications.
+HWB (Hue, Whiteness, Blackness) was proposed by Alvy Ray Smith in 1996 to match how painters actually think: pick a hue, then mix in white or black. It's derived from HSV but replaces saturation and value with two more direct controls—how much white and how much black to add. HWB is part of **CSS Color Level 4**, so it's natively available in modern browsers via `hwb()`.
 
----
-
-## Key Characteristics
-
-### Unique Features
-
-1. **Artist-Friendly Model**: HWB mimics the traditional artist approach of mixing white or black with a pure hue.
-2. **Intuitive Color Selection**: Makes it easier to understand tint and shade relationships between colors.
-3. **Simplified Color Adjustment**: Separate controls for lightening (adding white) and darkening (adding black) a color.
-4. **Derived from HSV**: Maintains the same hue definition as HSV but with more intuitive whiteness and blackness parameters.
-
-### Advantages and Disadvantages
-
-## Advantages
-
--   Intuitive for humans, especially those with an art background
--   Easy to create tints (white added) and shades (black added) of a color
--   Simple to understand color relationships
--   Better aligned with how people conceptualize color modifications
--   Useful for creating color palettes and color schemes
-
-## Disadvantages
-
--   Not perceptually uniform (equal changes in values don't correspond to equal perceived changes)
--   Limited adoption compared to HSL and RGB in software and tools
--   Less precise for color matching applications
--   Whiteness and blackness are not independent (their sum should not exceed 1)
-
-### Color Gamut and Representation
-
-The HWB color space represents the same gamut as RGB, from which it is derived through HSL or HSV. It reorganizes the RGB colorspace into coordinates that reflect how artists think about color mixing.
+The gamut is the same as sRGB. It's a reorganization of the same color cube, not a new one.
 
 ---
 
 ## Color Model
 
-### Description of Color Components
+### Components
 
 1. **`H` (Hue)**:
-   `H = 0° \text{ to } 360°` (often normalized to a 0-1 range)
-   
-   Represents the base color as an angle around a color wheel:
+   `H = 0° \text{ to } 360°` (often normalized to 0–1)
+
+   Base color on the wheel:
    - 0°/360° = Red
    - 60° = Yellow
    - 120° = Green
@@ -74,33 +44,42 @@ The HWB color space represents the same gamut as RGB, from which it is derived t
 
 2. **`W` (Whiteness)**:
    `W = 0 \text{ (no white) to } 1 \text{ (pure white)}`
-   
-   Represents how much white is mixed with the base hue.
+
+   How much white is mixed into the hue. Higher values produce tints.
 
 3. **`B` (Blackness)**:
    `B = 0 \text{ (no black) to } 1 \text{ (pure black)}`
-   
-   Represents how much black is mixed with the base hue.
 
-### How Colors are Represented
+   How much black is mixed into the hue. Higher values produce shades.
 
-Colors in HWB are represented conceptually as a mixture of a pure hue with varying amounts of white and black. The hue component determines the base color, while whiteness and blackness modify this base. When the sum of whiteness and blackness exceeds 1, the resulting color is a grayscale value determined by their relative proportions.
+**`W + B` should not exceed `1`.** When it does, the color collapses to a grayscale value determined by the ratio `W / (W + B)`, and hue is effectively ignored.
+
+---
+
+## Advantages
+
+-   Mirrors the artist's mental model—tint and shade are first-class operations
+-   Easy to create systematic tint/shade ramps from a single hue
+-   Native CSS support via `hwb()` in Color Level 4
+-   Simpler to reason about than HSL's lightness/saturation interaction
+
+## Disadvantages
+
+-   Not perceptually uniform—equal numeric steps don't produce equal visual steps
+-   `W` and `B` aren't independent (their sum is constrained)
+-   Less widely supported in design tools than HSL or HSV
 
 ---
 
 ## Color Conversions
 
-### HSL to HWB Conversion
-
-The conversion from HSL to HWB involves calculating the white and black components:
+### HSL to HWB
 
 <div class="language-typescript">
     {{ hsl2hwb }}
 </div>
 
-### HWB to HSL Conversion
-
-The conversion from HWB to HSL requires transforming the whiteness and blackness back to saturation and lightness:
+### HWB to HSL
 
 <div class="language-typescript">
     {{ hwb2hsl }}
@@ -110,13 +89,8 @@ The conversion from HWB to HSL requires transforming the whiteness and blackness
 
 ## Common Applications
 
-The HWB color space is used in various applications where intuitive color selection is important:
-
-1. **Web Design**: Included in CSS Color Module Level 4, allowing web designers to specify colors in a more intuitive way.
-2. **Color Pickers**: Some modern color selection tools incorporate HWB for more intuitive tint and shade creation.
-3. **Digital Art Applications**: Used in some creative software to provide an artist-friendly approach to color selection.
-4. **Educational Tools**: Helps explain color theory concepts like tints and shades in an accessible way.
-5. **UI/UX Design**: Facilitates creation of coherent color palettes based on a single hue with varying levels of white and black.
-6. **Accessibility Design**: Simplifies the process of creating high-contrast variations of a base color for accessibility purposes.
-
-While not as widely implemented as HSL or RGB, the HWB color space offers a unique and intuitive approach to color manipulation that aligns well with traditional artistic color theory and practice.
+1. **Web design**: First-class CSS function (`hwb()`), useful for declaring tints and shades directly in stylesheets.
+2. **Color pickers**: Some modern pickers expose HWB as a triangle or square selector—whiteness on one axis, blackness on the other.
+3. **Palette generation**: Sweep `W` and `B` for a given hue to produce coherent tint/shade ramps.
+4. **Accessibility**: Straightforward to create high-contrast variants—push `B` up for darker, `W` up for lighter.
+5. **Education**: The tint-shade-tone model maps directly to traditional color theory vocabulary.

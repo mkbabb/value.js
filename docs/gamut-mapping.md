@@ -7,7 +7,7 @@ value.js uses Bjorn Ottosson's analytical sRGB gamut mapping algorithm from
 This replaces the previous iterative XYZ chromaticity reduction approach.
 
 **Key properties:**
-- Deterministic: zero iteration — polynomial initial guess + one Halley's method step
+- Deterministic: zero iteration—polynomial initial guess + one Halley's method step
 - Perceptually correct: operates in OKLab, preserves hue exactly
 - Fast: ~60-125x faster than CSS Color 4's binary search
 
@@ -45,7 +45,7 @@ machine precision in a single step.
 
 ## The Three Hue Sectors
 
-The sRGB gamut boundary is piecewise — at any hue angle, exactly one of the
+The sRGB gamut boundary is piecewise—at any hue angle, exactly one of the
 three sRGB channels (R, G, or B) is the "limiting" channel that hits 0 or 1
 first. The algorithm determines which sector the hue falls in:
 

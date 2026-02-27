@@ -21,45 +21,39 @@ const { l, a, b } = getFormattedColorSpaceRange("oklab");
 
 ### Historical Context
 
-The OKLab color space was developed by Björn Ottosson in 2020 as a modern perceptual color space designed to address the limitations of earlier models. It was created to provide a more accurate representation of perceived color differences while being computationally efficient. The name "OK" suggests it's "Ottosson's Kolors" or simply that it's an "OK" color space that works well enough for practical applications.
+Developed by Bjorn Ottosson in 2020, OKLab addresses the perceptual non-uniformities that plague CIE Lab. The name is either "Ottosson's Kolors" or a modest assertion that the space is "OK"—good enough for practical work. What it actually delivers is considerably better than that.
 
 ---
 
 ## Key Characteristics
 
-### Unique Features
+1. **Perceptual uniformity** superior to Lab—equal Euclidean distances correspond more faithfully to equal perceived color differences.
+2. **Hue linearity**: mixtures of two colors maintain consistent hue, a property Lab struggles with in the blue-purple region.
+3. **Consistent lightness**: the `L` component tracks human brightness perception across the full gamut.
+4. **Computational efficiency**: the conversion path (XYZ → LMS cube root → linear transform) is leaner than Lab's piecewise `f(t)` function.
 
-1. **Improved Perceptual Uniformity**: OKLab offers better perceptual uniformity than Lab, meaning equal distances in the space more accurately represent equal perceived color differences.
-2. **Consistent Lightness**: The lightness dimension closely matches human perception across the entire color gamut.
-3. **Hue Linearity**: Mixtures of colors maintain more consistent hues compared to other color spaces.
-4. **Computational Efficiency**: Designed to be more efficient to compute than many other perceptually uniform color spaces.
+### Advantages
 
-### Advantages and Disadvantages
+-   Better perceptual uniformity than Lab for interpolation and gradient generation
+-   Hue-linear mixing—critical for palette generation and color-mix()
+-   Consistent lightness across hues (blue and yellow at the same `L` look equally bright)
+-   Efficient to compute; no piecewise branching in the forward path
 
-## Advantages
+### Disadvantages
 
--   More perceptually uniform than Lab and most other color spaces
--   Better hue linearity for color mixing and interpolation
--   Consistent lightness perception across different hues
--   Suitable for modern color manipulation algorithms
--   Efficient computation compared to other perceptual color spaces
+-   Relatively new; less tooling and institutional support than Lab
+-   Not an ICC or ISO standard (yet)
+-   Still an approximation of human color perception—no color space is perfect
 
-## Disadvantages
+### Color Gamut
 
--   Relatively new and less established in industry standards
--   Limited support in older software and systems
--   Not as widely understood or documented as older color spaces
--   Still an approximation of human color perception
-
-### Color Gamut and Representation
-
-Like Lab, the OKLab color space encompasses all perceivable colors, making its gamut larger than that of RGB or CMYK. It represents colors in a way that better matches human perception, particularly in terms of perceived lightness and color differences.
+OKLab encompasses all perceivable colors, larger than any RGB or CMYK gamut. Out-of-gamut values are valid in the space; they simply can't be displayed without gamut mapping.
 
 ---
 
 ## Color Model
 
-### Description of Color Components
+### Components
 
 1. **`L` (Lightness)**:
    `L = 0 \text{ (black) to } 1 \text{ (white)}`
@@ -70,25 +64,25 @@ Like Lab, the OKLab color space encompasses all perceivable colors, making its g
 3. **`b` (Blue-Yellow axis)**:
    `b < 0 \text{ (blue) to } b > 0 \text{ (yellow)}`
 
-### How Colors are Represented
+### Representation
 
-Colors in OKLab space are represented as a point in a three-dimensional space similar to Lab. The L axis represents lightness, while the a and b axes form a color plane at each lightness level. The primary difference from Lab is in how the coordinates are calculated, resulting in improved perceptual properties.
+Colors sit in a three-dimensional Cartesian space. `L` runs vertically; the `a`/`b` plane at each lightness level describes chromaticity. Structurally identical to Lab, but the coordinate system is derived from a different LMS basis, yielding the improved perceptual properties.
 
 ---
 
 ## Color Conversions
 
-### XYZ to OKLab Conversion
+### XYZ to OKLab
 
-The conversion from XYZ to OKLab involves a non-linear transformation of LMS cone responses:
+The conversion involves a non-linear transformation of LMS cone responses:
 
 <div class="language-typescript">
     {{ xyz2oklab }}
 </div>
 
-### OKLab to XYZ Conversion
+### OKLab to XYZ
 
-The conversion from OKLab to XYZ is the inverse process:
+The inverse path:
 
 <div class="language-typescript">
     {{ oklab2xyz }}
@@ -96,16 +90,10 @@ The conversion from OKLab to XYZ is the inverse process:
 
 ---
 
-## Common Applications
+## Applications
 
-The OKLab color space, despite being relatively new, is increasingly used in various applications:
-
-1. **Color Interpolation**: Provides better results when interpolating between colors, maintaining consistent perceived lightness and hue.
-2. **Color Palette Generation**: Enables creation of perceptually balanced color palettes and gradients.
-3. **Modern UI Design**: Allows for more consistent color variations in interface elements and themes.
-4. **Image Processing**: Improves results in operations like color grading, correction, and manipulation.
-5. **Data Visualization**: Enhances readability and interpretability of color-coded data by ensuring perceptual consistency.
-6. **Digital Art Tools**: Offers artists more predictable color behavior when mixing and adjusting colors.
-7. **Color Accessibility**: Helps in designing color schemes that maintain distinctiveness for individuals with color vision deficiencies.
-
-By addressing the perceptual limitations of earlier color spaces while maintaining computational efficiency, OKLab has quickly emerged as a valuable tool for color science applications that require high perceptual accuracy.
+1. **Color interpolation**: the default interpolation space in CSS Color Level 4's `color-mix()`.
+2. **Palette generation**: perceptually balanced palettes with consistent lightness steps.
+3. **Gamut mapping**: value.js uses OKLab as the working space for Ottosson's analytical sRGB gamut mapping algorithm.
+4. **Image processing**: color grading, correction, and manipulation benefit from the improved uniformity.
+5. **Accessible design**: consistent lightness makes it easier to maintain contrast ratios across hue variations.

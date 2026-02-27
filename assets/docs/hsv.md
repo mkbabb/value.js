@@ -19,108 +19,78 @@ const { h, s, v } = getFormattedColorSpaceRange("hsv");
 -   `S`: Saturation ({{s.min}} to {{s.max}})
 -   `V`: Value/Brightness ({{v.min}} to {{v.max}})
 
-### Historical Context
+### Background
 
-The HSV (Hue, Saturation, Value) color space was developed by Alvy Ray Smith in 1978 while working at the New York Institute of Technology. It was created to provide a more intuitive way for artists and designers to work with color in computer graphics, as opposed to the RGB model which was more aligned with hardware implementation than human perception. HSV is also sometimes referred to as HSB (Hue, Saturation, Brightness) in some software applications.
+HSV (Hue, Saturation, Value) was developed by Alvy Ray Smith in 1978 as a way to select color by perceptual attributes rather than by RGB channel. It's also called **HSB** (Hue, Saturation, Brightness) in some applications—same thing, different name.
 
----
-
-## Key Characteristics
-
-### Unique Features
-
-1. **Perceptual Organization**: Separates color components in a way that aligns more closely with how humans think about color.
-2. **Cylindrical Coordinates**: Uses a cylindrical representation where hue is an angle, saturation is a distance from the central axis, and value is the height.
-3. **Intuitive Color Selection**: Makes it easier to select variations of a color by independently adjusting hue, saturation, and brightness.
-4. **Artist-Friendly**: Designed with artists and designers in mind, rather than hardware implementations.
-
-### Advantages and Disadvantages
-
-## Advantages
-
--   More intuitive for human color selection and manipulation
--   Separate control of hue, saturation, and brightness
--   Simplified color picking interfaces
--   Easy to create systematic color variations
-
-## Disadvantages
-
--   Not perceptually uniform
--   Doesn't account for human color sensitivity variations
--   Not suitable for precise color matching
--   Mathematical discontinuities at low saturation and brightness
-
-### Color Gamut and Representation
-
-The HSV color space is typically represented as a cylinder or cone, with hue as the angular dimension, saturation as the radial distance from the central axis, and value as the vertical dimension. Its gamut is equivalent to that of the RGB space it's derived from, typically sRGB for digital applications.
+The model is cylindrical: hue is an angle around the wheel, saturation is radial distance from the center axis, and value is height. Its gamut is identical to sRGB—it's a reorganization, not an expansion.
 
 ---
 
 ## Color Model
 
-### Description of Color Components
+### Components
 
 1. **`H` (Hue)**:
    `H = 0 \text{ to } 1 \text{ (representing 0° to 360°)}`
-   
-   Represents the type of color, mapped to a position around a color wheel. Values wrap around, so 0 and 1 both represent red.
+
+   Position on the color wheel. `0` and `1` both map to red.
 
 2. **`S` (Saturation)**:
    `S = 0 \text{ (grayscale) to } 1 \text{ (fully saturated color)}`
-   
-   Represents the purity or intensity of the color. A saturation of 0 results in grayscale.
 
-3. **`V` (Value/Brightness)**:
+   Purity of the color. At `S=0`, the result is grayscale regardless of hue.
+
+3. **`V` (Value)**:
    `V = 0 \text{ (black) to } 1 \text{ (full brightness)}`
-   
-   Represents the brightness of the color. A value of 0 is always black, regardless of hue and saturation.
 
-### How Colors are Represented
-
-Colors in HSV are represented in a cylindrical space where:
-- The central vertical axis represents grayscale values from black (bottom) to white (top)
-- Moving outward from the central axis increases saturation
-- Moving around the cylinder changes the hue
-- Moving up and down the cylinder changes the value (brightness)
+   Brightness. **`V=0` is always black**, no matter what hue or saturation are set to.
 
 ### Relationship to HSL
 
-HSV is closely related to the HSL color space. Both use hue as their first component, but they differ in how they handle saturation and brightness:
+HSV and HSL share a hue channel but diverge on the other two axes. In HSV, `V=1` with varying saturation moves from white to fully saturated color. In HSL, `L=0.5` with varying saturation moves from gray to fully saturated color. HSL's lightness axis is symmetric (black at 0, white at 1); HSV's value axis isn't—there's no way to reach pure white without also reducing saturation.
 
-- In HSV, maximum value (V=1) with varying saturation gives a range from white to fully saturated color
-- In HSL, maximum lightness (L=0.5) with varying saturation gives a range from gray to fully saturated color
+---
+
+## Advantages
+
+-   Intuitive for color selection—hue, purity, and brightness are independent controls
+-   Easy to generate systematic color variations (e.g., darken by lowering `V`)
+-   Ubiquitous in color pickers across design software
+
+## Disadvantages
+
+-   Not perceptually uniform—equal numeric steps don't look like equal steps
+-   Mathematical discontinuities at low saturation and brightness
+-   Doesn't account for human sensitivity differences across the spectrum
 
 ---
 
 ## Color Conversions
 
-### HSV to HSL Conversion
-
-The conversion from HSV to HSL involves recalculating the saturation and lightness components:
+### HSV to HSL
 
 <div class="language-typescript">
     {{ hsv2hsl }}
 </div>
 
-### HSL to HSV Conversion
-
-The conversion from HSL to HSV is the inverse process:
+### HSL to HSV
 
 <div class="language-typescript">
     {{ hsl2hsv }}
 </div>
 
-### HSV to XYZ Conversion
+### HSV to XYZ
 
-Converting from HSV to XYZ typically involves converting to HSL first, then to RGB, and finally to XYZ:
+Conversion goes through HSL and then RGB before reaching XYZ:
 
 <div class="language-typescript">
     {{ hsv2xyz }}
 </div>
 
-### XYZ to HSV Conversion
+### XYZ to HSV
 
-Converting from XYZ to HSV involves the reverse path:
+The reverse path—XYZ to RGB to HSL to HSV:
 
 <div class="language-typescript">
     {{ xyz2hsv }}
@@ -130,13 +100,8 @@ Converting from XYZ to HSV involves the reverse path:
 
 ## Common Applications
 
-The HSV color space is widely used in various creative and technical fields:
-
-1. **Graphic Design Software**: Common in color pickers for applications like Photoshop and Illustrator.
-2. **Color Theory Education**: Used to teach fundamental concepts about color relationships.
-3. **Visualization Tools**: Popular for data visualization where systematic color variation is needed.
-4. **Digital Painting**: Offers intuitive color selection for digital artists.
-5. **Computer Vision**: Used in image segmentation and object detection algorithms.
-6. **UI/UX Design**: Enables systematic generation of color palettes and themes.
-
-By providing a more intuitive model for color manipulation, HSV has become an essential tool for creative professionals, allowing them to think about colors in terms of their perceptual attributes rather than their technical implementation.
+1. **Color pickers**: The dominant model in Photoshop, Illustrator, Figma, and most design tools.
+2. **Computer vision**: Used for image segmentation and object detection where hue separation matters.
+3. **Data visualization**: Systematic variation of saturation or value for encoding data.
+4. **Digital painting**: Artists adjust brightness and saturation independently of hue.
+5. **UI/UX design**: Palette generation from a base hue by sweeping saturation and value.
