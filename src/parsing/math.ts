@@ -146,7 +146,7 @@ export function createMathFunctionParsers(valueParser: Parser<any>) {
                 calcArgList,
             ).wrap(lparen, rparen),
         )
-        .map(([strategy, args]: [string | null, any[]]) => {
+        .map(([strategy, args]: [string | undefined, any[]]) => {
             const strategyVal = new ValueUnit(strategy ?? "nearest", "string");
             return new FunctionValue("round", [strategyVal, ...args]);
         });
