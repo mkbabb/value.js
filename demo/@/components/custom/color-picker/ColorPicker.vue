@@ -42,7 +42,7 @@
                                     animate
                                     :cycle-duration="2500"
                                     tag="div"
-                                    class="hero-blob w-16 aspect-square scale-200 origin-top-right flex items-center justify-items-center justify-center cursor-pointer"
+                                    class="hero-blob w-16 aspect-square scale-[1.8] origin-top-right flex items-center justify-items-center justify-center cursor-pointer"
                                     :style="{ '--blob-color': cssColorOpaque }"
                                     @click="copyAndSetInputColor()"
                                 />
@@ -1294,9 +1294,8 @@ onUnmounted(() => {
     box-shadow: 0px 0px 0px 0px transparent;
     transition: box-shadow 0.25s ease;
     overflow: visible;
-    touch-action: none;
     &:hover {
-        box-shadow: 8px 8px 0px 0px var(--spectrum-shadow, transparent);
+        box-shadow: 8px 8px 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
     }
 }
 

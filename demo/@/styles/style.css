@@ -392,6 +392,11 @@ button.watercolor-swatch {
     padding: 0;
 }
 
+/* Allow vertical scrolling past horizontal sliders on mobile */
+.touch-none {
+    touch-action: pan-y !important;
+}
+
 /* Touch gate active indicator */
 .touch-gate-active {
     box-shadow: 0 0 0 2px hsl(var(--primary) / 0.5);

@@ -42,6 +42,8 @@ export function useTouchGate(deactivateDelayMs = 3000) {
 
         if (!isActive.value) {
             isActive.value = true;
+            // Block scrolling on subsequent touches over this control
+            el.style.touchAction = "none";
             resetTimer();
             return false; // activation tap — don't process, allow scroll
         }
@@ -65,6 +67,10 @@ export function useTouchGate(deactivateDelayMs = 3000) {
     function deactivate() {
         clearTimer();
         isActive.value = false;
+        if (controlEl) {
+            controlEl.style.touchAction = "";
+            controlEl = null;
+        }
     }
 
     // Global listener: tap outside the control deactivates

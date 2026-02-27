@@ -24,7 +24,7 @@
         class="grid overflow-x-hidden w-full min-h-screen items-center justify-items-center justify-center m-0 p-0 relative"
     >
         <div
-            :class="'fixed z-40 pointer-events-none top-0 w-full gap-2 h-fit flex justify-items-end justify-between  hover:opacity-100 transition-all p-2'"
+            :class="'fixed z-40 pointer-events-none top-0 w-full max-w-screen-lg left-1/2 -translate-x-1/2 gap-2 h-fit flex justify-items-end justify-between hover:opacity-100 transition-all px-4 py-2'"
         >
             <HoverCard :open-delay="0" class="pointer-events-auto">
                 <HoverCardTrigger class="pointer-events-auto fira-code"
