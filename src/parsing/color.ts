@@ -461,6 +461,10 @@ const colorFunction: Parser<ValueUnit> = utils.istring("color").next(
     }
 
     const result = new mapping.ctor(c1, c2, c3, alpha);
+    // xyz-d50 values need Bradford adaptation to D65 (our internal XYZ reference)
+    if (spaceName === "xyz-d50" && result instanceof XYZColor) {
+        result.whitePoint = "D50";
+    }
     return createColorValueUnit(result);
 });
 

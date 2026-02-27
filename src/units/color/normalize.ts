@@ -5,6 +5,9 @@ import { scale } from "../../math";
 import { COLOR_SPACE_RANGES, COLOR_SPACE_DENORM_UNITS } from "./constants";
 import type { ColorSpace } from "./constants";
 import { color2 } from "./utils";
+import type { HueInterpolationMethod } from "./utils";
+
+export type { HueInterpolationMethod };
 
 const getColorSpaceBounds = (
     unit: string,
@@ -77,7 +80,7 @@ export const normalizeColorUnit = (
 
 export const colorUnit2 = <C extends ColorSpace>(
     color: ValueUnit<Color<ValueUnit<number>>, "color">,
-    to: C | null = "lab" as C,
+    to: C | null = "oklab" as C,
     normalized: boolean = false,
     inverse: boolean = false,
     inplace: boolean = false,
@@ -105,13 +108,15 @@ export const colorUnit2 = <C extends ColorSpace>(
 export const normalizeColorUnits = (
     a: ValueUnit<Color<ValueUnit<number>>, "color">,
     b: ValueUnit<Color<ValueUnit<number>>, "color">,
-    to: ColorSpace = "lab",
+    to: ColorSpace = "oklab",
     normalized: boolean = false,
     inverse: boolean = false,
     inplace: boolean = false,
+    hueMethod?: HueInterpolationMethod,
 ) => {
     return [
         colorUnit2(a, to, normalized, inverse, inplace),
         colorUnit2(b, to, normalized, inverse, inplace),
+        hueMethod,
     ] as const;
 };

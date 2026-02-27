@@ -23,10 +23,24 @@ const handleFunc = (name?: Parser<any>) => {
 };
 
 const handleVar = () => {
-    // Parse var(--custom-property) or var(--prop, fallback)
-    const varContent = regex(/[^)]+/);
+    // Parse var(--custom-property) or var(--prop, fallback) with nested parens
+    const varContent: Parser<any> = Parser.lazy(() =>
+        any(
+            regex(/[^()]+/),
+            varContent
+                .many(1)
+                .wrap(lparen, rparen)
+                .map((nested: any[]) => `(${nested.flat().join("")})`),
+        ).many(1),
+    );
+
     return string("var")
-        .next(varContent.trim(whitespace).wrap(lparen, rparen))
+        .next(
+            varContent
+                .trim(whitespace)
+                .wrap(lparen, rparen)
+                .map((parts: any[]) => [parts].flat(Infinity).join("")),
+        )
         .map((value: string) => {
             return new ValueUnit(value, "var");
         });
@@ -79,19 +93,25 @@ const handleTransform = () => {
     return p.map(([[name, dim], values]: any) => {
         const lowerName = name.toLowerCase();
 
+        // CSS has no skewZ() — skew only has X and Y axes
+        const dimensions =
+            lowerName === "skew"
+                ? TRANSFORM_DIMENSIONS.filter((d) => d !== "z")
+                : TRANSFORM_DIMENSIONS;
+
         const transformObject: Record<string, any> = {};
 
         if (dim) {
             const newName = lowerName + dim.toUpperCase();
             transformObject[newName] = values[0];
         } else if (values.length === 1) {
-            TRANSFORM_DIMENSIONS.forEach((d) => {
+            dimensions.forEach((d) => {
                 const newName = makeTransformName(lowerName, d);
                 transformObject[newName] = values[0];
             });
         } else {
             values.forEach((v: any, i: number) => {
-                const newName = makeTransformName(lowerName, TRANSFORM_DIMENSIONS[i]);
+                const newName = makeTransformName(lowerName, dimensions[i]);
                 transformObject[newName] = v;
             });
         }
@@ -104,22 +124,64 @@ const handleTransform = () => {
     });
 };
 
-const gradientDirections: Record<string, string> = {
-    left: "270",
-    right: "90",
-    top: "0",
-    bottom: "180",
+const gradientDirections: Record<string, number> = {
+    left: 270,
+    right: 90,
+    top: 0,
+    bottom: 180,
+};
+
+const twoKeywordCorners: Record<string, number> = {
+    "top left": 315,
+    "left top": 315,
+    "top right": 45,
+    "right top": 45,
+    "bottom right": 135,
+    "right bottom": 135,
+    "bottom left": 225,
+    "left bottom": 225,
 };
 
 const handleGradient = () => {
-    const name = any(...["linear-gradient", "radial-gradient"].map(utils.istring));
-    const sideOrCorner = all(
+    const gradientNames = [
+        "linear-gradient",
+        "radial-gradient",
+        "conic-gradient",
+        "repeating-linear-gradient",
+        "repeating-radial-gradient",
+        "repeating-conic-gradient",
+    ];
+    const name = any(...gradientNames.map(utils.istring));
+
+    const sideKeyword = any(...["left", "right", "top", "bottom"].map(utils.istring));
+
+    // Two-keyword corner: "to top left", "to bottom right", etc.
+    const twoKeywordCorner = all(
         string("to").skip(whitespace),
-        any(...["left", "right", "top", "bottom"].map(utils.istring)),
-    ).map(([, direction]: [string, string]) => {
-        const dir = gradientDirections[direction.toLowerCase()];
-        return new ValueUnit(dir, "deg");
+        sideKeyword.skip(whitespace),
+        sideKeyword,
+    ).map(([, d1, d2]: [string, string, string]) => {
+        const key = `${d1.toLowerCase()} ${d2.toLowerCase()}`;
+        const deg = twoKeywordCorners[key];
+        if (deg == null) throw new Error(`Invalid gradient corner: to ${d1} ${d2}`);
+        return new ValueUnit(deg, "deg");
     });
+
+    // Single side: "to left", "to bottom", etc.
+    const singleSide = all(
+        string("to").skip(whitespace),
+        sideKeyword,
+    ).map(([, direction]: [string, string]) => {
+        return new ValueUnit(gradientDirections[direction.toLowerCase()], "deg");
+    });
+
+    const sideOrCorner = any(twoKeywordCorner, singleSide);
+
+    // Conic "from <angle>" prefix
+    const fromAngle = all(
+        utils.istring("from").skip(whitespace),
+        CSSValueUnit.Angle,
+    ).map(([, angle]: [string, any]) => angle);
 
     const direction = any(CSSValueUnit.Angle, sideOrCorner);
 
@@ -145,7 +207,10 @@ const handleGradient = () => {
 
     const linearGradient = all(
         name,
-        all(direction.skip(comma).opt(), colorStopList)
+        all(
+            any(fromAngle, direction).skip(comma).opt(),
+            colorStopList,
+        )
             .trim(whitespace)
             .wrap(lparen, rparen)
             .map(([dir, stops]: [any, any]) => {
@@ -168,6 +233,12 @@ const handleCubicBezier = () => {
     });
 };
 
+export const CSS_WIDE_KEYWORDS = ["inherit", "initial", "unset", "revert", "revert-layer"] as const;
+
+const CSSWideKeyword: Parser<ValueUnit> = any(
+    ...CSS_WIDE_KEYWORDS.map(utils.istring),
+).map((keyword: string) => new ValueUnit(keyword.toLowerCase(), "string", ["keyword"]));
+
 export const CSSString = regex(/[^\(\)\{\}\s,;]+/).map((x: string) => new ValueUnit(x));
 
 const Function_: Parser<any> = any(
@@ -181,7 +252,7 @@ const Function_: Parser<any> = any(
     }),
 );
 
-const Value: Parser<any> = any(CSSValueUnit.Value, Function_, CSSString).trim(whitespace);
+const Value: Parser<any> = any(CSSWideKeyword, CSSValueUnit.Value, Function_, CSSString).trim(whitespace);
 
 export const CSSFunction = {
     Function: Function_,

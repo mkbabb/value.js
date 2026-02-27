@@ -3,6 +3,8 @@ export const RELATIVE_LENGTH_UNITS = [
     "em",
     "ex",
     "ch",
+    "cap",
+    "ic",
     "rem",
     "lh",
     "rlh",
@@ -14,10 +16,28 @@ export const RELATIVE_LENGTH_UNITS = [
     "vi",
     "svw",
     "svh",
+    "svi",
+    "svb",
+    "svmin",
+    "svmax",
     "lvw",
     "lvh",
+    "lvi",
+    "lvb",
+    "lvmin",
+    "lvmax",
     "dvw",
     "dvh",
+    "dvi",
+    "dvb",
+    "dvmin",
+    "dvmax",
+    "cqw",
+    "cqh",
+    "cqi",
+    "cqb",
+    "cqmin",
+    "cqmax",
 ] as const;
 export const LENGTH_UNITS = [
     ...ABSOLUTE_LENGTH_UNITS,
@@ -27,7 +47,9 @@ export const LENGTH_UNITS = [
 export const TIME_UNITS = ["s", "ms"] as const;
 export const ANGLE_UNITS = ["deg", "rad", "grad", "turn"] as const;
 export const PERCENTAGE_UNITS = ["%"] as const;
-export const RESOLUTION_UNITS = ["dpi", "dpcm", "dppx", "cqw"] as const;
+export const FREQUENCY_UNITS = ["Hz", "kHz"] as const;
+export const RESOLUTION_UNITS = ["dpi", "dpcm", "dppx"] as const;
+export const FLEX_UNITS = ["fr"] as const;
 
 export const COMPUTED_UNITS = ["var", "calc"] as const;
 
@@ -41,7 +63,9 @@ export const UNITS = [
 
     ...ANGLE_UNITS,
     ...PERCENTAGE_UNITS,
+    ...FREQUENCY_UNITS,
     ...RESOLUTION_UNITS,
+    ...FLEX_UNITS,
 
     ...COMPUTED_UNITS,
     ...STRING_UNITS,

@@ -5,6 +5,7 @@ import { Color } from "./color";
 import {
     ABSOLUTE_LENGTH_UNITS,
     ANGLE_UNITS,
+    FREQUENCY_UNITS,
     LENGTH_UNITS,
     PERCENTAGE_UNITS,
     RELATIVE_LENGTH_UNITS,
@@ -222,6 +223,8 @@ export function convertAbsoluteUnitToPixels(value: number, unit: string) {
         pixels *= 96 / 2.54;
     } else if (unit === "mm") {
         pixels *= 96 / 25.4;
+    } else if (unit === "Q") {
+        pixels *= 96 / (25.4 * 4);
     } else if (unit === "in") {
         pixels *= 96;
     } else if (unit === "pt") {
@@ -259,8 +262,29 @@ export function convertToPixels(
             getComputedStyle(element.parentElement).getPropertyValue(property),
         );
         value = (value / 100) * parentValue;
-    } else if (unit === "ex" || unit === "ch") {
-        value *= parseFloat(getComputedStyle(element!).fontSize) ?? 16;
+    } else if (unit === "ch" && element) {
+        // ch = width of "0" glyph; approximate via canvas when available
+        const fontSize = parseFloat(getComputedStyle(element).fontSize) || 16;
+        if (typeof OffscreenCanvas !== "undefined" || typeof document !== "undefined") {
+            try {
+                const canvas =
+                    typeof OffscreenCanvas !== "undefined"
+                        ? new OffscreenCanvas(1, 1)
+                        : document.createElement("canvas");
+                const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+                ctx.font = `${fontSize}px ${getComputedStyle(element).fontFamily}`;
+                const zeroWidth = ctx.measureText("0").width;
+                value *= zeroWidth > 0 ? zeroWidth : fontSize * 0.5;
+            } catch {
+                value *= fontSize * 0.5;
+            }
+        } else {
+            value *= fontSize * 0.5;
+        }
+    } else if (unit === "ex" && element) {
+        // ex ≈ x-height; approximate as 0.5 × font-size
+        const fontSize = parseFloat(getComputedStyle(element).fontSize) || 16;
+        value *= fontSize * 0.5;
     } else {
         value = convertAbsoluteUnitToPixels(value, unit);
     }
@@ -286,6 +310,13 @@ export function convertToDegrees(value: number, unit: (typeof ANGLE_UNITS)[numbe
     return value;
 }
 
+export function convertToHz(value: number, unit: (typeof FREQUENCY_UNITS)[number]) {
+    if (unit === "kHz") {
+        value *= 1000;
+    }
+    return value;
+}
+
 export function convertToDPI(value: number, unit: (typeof RESOLUTION_UNITS)[number]) {
     if (unit === "dpcm") {
         value *= 2.54;
@@ -301,6 +332,7 @@ const conversionFunctions: Record<string, ConversionFunction> = {
     length: convertToPixels as ConversionFunction,
     time: convertToMs as ConversionFunction,
     angle: convertToDegrees as ConversionFunction,
+    frequency: convertToHz as ConversionFunction,
     resolution: convertToDPI as ConversionFunction,
 };
 
@@ -308,6 +340,7 @@ function getUnitGroup(unit: (typeof UNITS)[number]): [any, string] | null {
     if (LENGTH_UNITS.includes(unit as any)) return [LENGTH_UNITS, "length"];
     if (TIME_UNITS.includes(unit as any)) return [TIME_UNITS, "time"];
     if (ANGLE_UNITS.includes(unit as any)) return [ANGLE_UNITS, "angle"];
+    if (FREQUENCY_UNITS.includes(unit as any)) return [FREQUENCY_UNITS, "frequency"];
     if (RESOLUTION_UNITS.includes(unit as any)) return [RESOLUTION_UNITS, "resolution"];
     return null;
 }
