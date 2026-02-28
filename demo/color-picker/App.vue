@@ -32,7 +32,7 @@
     ></div>
 
     <div
-        class="grid overflow-x-hidden w-full min-h-screen items-center justify-items-center justify-center m-0 p-0 relative"
+        class="grid overflow-x-hidden w-full min-h-screen lg:h-screen lg:overflow-hidden items-center lg:items-stretch justify-items-center justify-center m-0 p-0 relative"
     >
         <div
             :class="'fixed z-40 pointer-events-none top-0 w-full max-w-screen-lg left-1/2 -translate-x-1/2 gap-2 h-fit flex justify-items-end justify-between hover:opacity-100 transition-all px-4 py-2'"
@@ -90,11 +90,11 @@
         </div>
 
         <div
-            class="grid lg:grid-cols-2 lg:grid-rows-[auto] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-10"
+            class="grid lg:grid-cols-2 lg:grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-10 lg:pb-6"
         >
             <ColorPicker
                 ref="colorPickerRef"
-                class="w-full lg:col-span-1 min-w-0"
+                class="w-full lg:col-span-1 min-w-0 lg:min-h-0 lg:overflow-y-auto"
                 v-model="model"
                 @reset="resetToDefaults"
             ></ColorPicker>
@@ -185,7 +185,7 @@ import {
     defaultColorModel,
     createDefaultColorModel,
 } from "@components/custom/color-picker";
-import { useDark, useStorage, useUrlSearchParams } from "@vueuse/core";
+import { useDark, useStorage } from "@vueuse/core";
 import { toast, Toaster } from "vue-sonner";
 import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
 import type { ColorSpace } from "@src/units/color/constants";
@@ -194,6 +194,7 @@ import { Markdown } from "@components/custom/markdown";
 import { normalizeColorUnit } from "@src/units/color/normalize";
 import { toCSSColorString } from "@components/custom/color-picker";
 import { useCustomColorNames } from "@composables/useCustomColorNames";
+import { useColorUrl } from "@composables/useColorUrl";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -223,13 +224,11 @@ const colorStore = useStorage("color-picker", defaultColorModel);
 
 const model = shallowRef<ColorModel>(defaultColorModel);
 
-const urlParams = useUrlSearchParams<{ space?: string; color?: string }>("hash-params");
-
-const denormalizedCurrentColor = computed(() => {
-    return normalizeColorUnit(model.value.color, true, false);
-});
-
 const cssColor = computed(() => toCSSColorString(model.value.color));
+
+const updateModel = (patch: Partial<ColorModel>) => {
+    model.value = { ...model.value, ...patch };
+};
 
 const resetToDefaults = () => {
     model.value = createDefaultColorModel();
@@ -260,43 +259,10 @@ watch(() => model.value.savedColors, (colors) => {
     colorStore.value.savedColors = colors.map((c) =>
         normalizeColorUnit(c as any, true, false).toString(),
     );
-}, { deep: true });
-
-// Bidirectional URL ↔ model sync with guard to prevent circular updates
-let syncing = false;
-
-const applyUrlToModel = () => {
-    const space = urlParams.space as string | undefined;
-    const color = urlParams.color as string | undefined;
-    if (space && color) {
-        syncing = true;
-        model.value = {
-            ...model.value,
-            selectedColorSpace: space as ColorSpace,
-            inputColor: color,
-        };
-        syncing = false;
-    }
-};
-
-// URL → model: initial load + hashchange
-applyUrlToModel();
-watch(() => [urlParams.space, urlParams.color], () => {
-    if (!syncing) applyUrlToModel();
 });
 
-// Model → URL
-watch(
-    [() => model.value.selectedColorSpace, () => model.value.inputColor],
-    ([space, color]) => {
-        if (syncing) return;
-        syncing = true;
-        urlParams.space = space;
-        urlParams.color = color;
-        syncing = false;
-    },
-    { immediate: true },
-);
+// Bidirectional URL ↔ model sync
+useColorUrl({ model, updateModel });
 
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 

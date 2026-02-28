@@ -7,6 +7,12 @@ import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 export { default as ColorPicker } from "./ColorPicker.vue";
 export { default as ColorNutritionLabel } from "./ColorNutritionLabel.vue";
 
+export interface EditTarget {
+    paletteId: string;
+    colorIndex: number;
+    originalCss: string;
+}
+
 export type ColorModel = {
     selectedColorSpace: ColorSpace;
     color: ValueUnit<Color<ValueUnit<number>>, "color">;
