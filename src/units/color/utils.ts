@@ -271,6 +271,9 @@ export const rgb2hsl = ({ r, g, b, alpha }: RGBColor): HSLColor => {
     // Chroma: the "colorfulness" of the color
     const c = max - min;
 
+    // Achromatic: no chroma means no hue or saturation
+    if (c === 0) return new HSLColor(0, 0, l, alpha);
+
     // Saturation: determined by lightness
     s = c / (1 - Math.abs(2 * l - 1));
 

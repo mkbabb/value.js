@@ -6,6 +6,17 @@
                 <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="2" result="noise" />
                 <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
             </filter>
+            <filter id="gooey-filter" x="-40%" y="-40%" width="180%" height="180%"
+                    color-interpolation-filters="sRGB">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+                <feColorMatrix in="blur" type="matrix"
+                    values="1 0 0 0 0
+                            0 1 0 0 0
+                            0 0 1 0 0
+                            0 0 0 18 -7"
+                    result="goo" />
+                <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
         </defs>
     </svg>
 
@@ -57,13 +68,29 @@
                 </HoverCardContent>
             </HoverCard>
 
-            <DarkModeToggle
-                class="pointer-events-auto hover:opacity-50 hover:scale-125 w-6 aspect-square transition-all"
-            />
+            <div class="flex items-center gap-2 pointer-events-auto">
+                <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
+                    <Tooltip>
+                        <TooltipTrigger as-child>
+                            <button
+                                class="controls-icon"
+                                @click="shareLink()"
+                            >
+                                <Share2 class="w-full h-full" :stroke-width="2" />
+                            </button>
+                        </TooltipTrigger>
+                        <TooltipContent class="fira-code text-xs">
+                            Share link
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+
+                <DarkModeToggle class="controls-icon" />
+            </div>
         </div>
 
         <div
-            class="grid lg:grid-cols-2 lg:grid-rows-[auto] gap-6 relative max-w-screen-lg w-full p-4 py-10"
+            class="grid lg:grid-cols-2 lg:grid-rows-[auto] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-10"
         >
             <ColorPicker
                 ref="colorPickerRef"
@@ -119,9 +146,9 @@
                 duration: 1000,
 
                 classes: {
-                    toast: 'bg-foreground text-background rounded-md fraunces px-6 py-3 grid grid-cols-1 gap-2 shadow-lg h-32 lg:w-96 w-full ',
-                    title: 'font-bold text-lg',
-                    description: 'font-normal text-sm',
+                    toast: 'bg-foreground text-background rounded-md fraunces px-3 py-2 gap-1 shadow-lg lg:w-80 w-[calc(100vw-2rem)]',
+                    title: 'font-semibold text-sm',
+                    description: 'font-normal text-xs',
                     actionButton: '',
                     cancelButton: '',
                     closeButton: '',
@@ -141,6 +168,13 @@ import {
     HoverCardContent,
     HoverCardTrigger,
 } from "@components/ui/hover-card";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@components/ui/tooltip";
+import { Share2 } from "lucide-vue-next";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
 import { Button } from "@components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@components/ui/card";
@@ -152,7 +186,7 @@ import {
     createDefaultColorModel,
 } from "@components/custom/color-picker";
 import { useDark, useStorage, useUrlSearchParams } from "@vueuse/core";
-import { Toaster } from "vue-sonner";
+import { toast, Toaster } from "vue-sonner";
 import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { DocModule } from "@components/custom/markdown";
@@ -199,6 +233,21 @@ const cssColor = computed(() => toCSSColorString(model.value.color));
 
 const resetToDefaults = () => {
     model.value = createDefaultColorModel();
+};
+
+// Share link — copies current URL to clipboard
+const shareLink = async () => {
+    try {
+        await navigator.clipboard.writeText(window.location.href);
+    } catch {
+        const input = document.createElement("input");
+        input.value = window.location.href;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("copy");
+        document.body.removeChild(input);
+    }
+    toast("Link copied", { description: "Color link copied to clipboard" });
 };
 
 // Watch color changes for storage sync
@@ -267,5 +316,23 @@ onMounted(() => {
 .grid-background {
     background-size: 1rem !important;
     background-repeat: repeat;
+}
+
+/* Consistent hover for top-bar controls (share, dark mode) */
+.controls-icon {
+    width: 1.5rem;
+    aspect-ratio: 1;
+    cursor: pointer;
+    color: hsl(var(--foreground));
+    opacity: 0.6;
+    transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+.controls-icon:hover {
+    opacity: 1;
+    transform: scale(1.15);
+    color: hsl(var(--primary));
+}
+.controls-icon:active {
+    transform: scale(0.95);
 }
 </style>

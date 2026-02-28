@@ -18,7 +18,7 @@
                             :style="{
                                 color: cssColor,
                             }"
-                            class="w-fit h-fit font-bold italic text-2xl p-0 m-0 border-none self-end focus:outline-none focus:ring-0 focus:ring-transparent bg-transparent"
+                            class="w-fit h-fit font-bold italic text-2xl p-0 m-0 border-none self-end focus:outline-none focus:ring-0 focus:ring-transparent bg-transparent select-none"
                         >
                             <SelectValue class="w-full" />
                         </SelectTrigger>
@@ -37,15 +37,34 @@
                     <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
                         <Tooltip>
                             <TooltipTrigger as-child>
-                                <WatercolorDot
-                                    :color="cssColor"
-                                    animate
-                                    :cycle-duration="2500"
-                                    tag="div"
-                                    class="hero-blob w-16 aspect-square scale-[1.8] origin-top-right flex items-center justify-items-center justify-center cursor-pointer"
+                                <div
+                                    ref="heroBlobWrapper"
+                                    class="hero-blob-shadow-wrapper scale-[1.8] origin-top-right"
                                     :style="{ '--blob-color': cssColorOpaque }"
                                     @click="copyAndSetInputColor()"
-                                />
+                                >
+                                    <div class="hero-blob-goo">
+                                        <WatercolorDot
+                                            :color="cssColor"
+                                            animate
+                                            :cycle-duration="2500"
+                                            tag="div"
+                                            class="hero-blob w-16 aspect-square flex items-center justify-items-center justify-center"
+                                        >
+                                            <div
+                                                v-for="(sat, i) in satelliteStates"
+                                                :key="i"
+                                                :class="['satellite-blob', i === 1 && 'satellite-blob--small']"
+                                                :style="{
+                                                    transform: sat.transform,
+                                                    opacity: sat.opacity,
+                                                    borderRadius: sat.borderRadius,
+                                                    backgroundColor: cssColorOpaque,
+                                                }"
+                                            />
+                                        </WatercolorDot>
+                                    </div>
+                                </div>
                             </TooltipTrigger>
                             <TooltipContent class="fira-code">
                                 {{ denormalizedCurrentColor.value.toFormattedString() }}
@@ -66,11 +85,10 @@
                                 contenteditable="true"
                                 class="font-semibold focus-visible:outline-none"
                                 @input="
-                                    (e) =>
-                                        updateColorComponentDebounced(
-                                            parseFloat((e.target as any).innerText),
-                                            component,
-                                        )
+                                    (e) => {
+                                        const v = parseFloat((e.target as any).innerText);
+                                        if (!Number.isNaN(v)) updateColorComponentDebounced(v, component);
+                                    }
                                 "
                                 >{{
                                     currentColorComponentsFormatted[component].value
@@ -103,21 +121,26 @@
                 <div
                     ref="spectrumRef"
                     :class="[
-                        'spectrum-picker flex w-full h-48 cursor-crosshair relative',
-                        spectrumGate.isActive.value ? 'ring-2 ring-primary/50' : '',
+                        'spectrum-picker flex w-full h-48 cursor-crosshair relative touch-gate-target',
+                        spectrumGate.isActive.value ? 'touch-gate-active' : '',
                     ]"
                     :style="spectrumStyle"
                     @pointerdown="handleSpectrumDown"
                     @pointermove="handleSpectrumMove"
                     @pointerup="stopDragging"
                     @pointercancel="stopDragging"
+                    @touchmove.passive="(e: TouchEvent) => spectrumGate.handleScrollCheck(e)"
                 >
                     <WatercolorDot
                         :color="cssColorOpaque"
                         animate
-                        :cycle-duration="3000"
+                        :cycle-duration="2000"
+                        :range="[15, 85]"
                         tag="div"
-                        class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                        :class="[
+                            'spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none',
+                            spectrumGate.isActive.value ? 'spectrum-dot-active' : '',
+                        ]"
                         :style="spectrumDotStyle"
                     />
                 </div>
@@ -137,46 +160,55 @@
                             }}</span></Label
                         >
 
-                        <SliderRoot
-                            :min="0"
-                            :max="1"
-                            :step="0.001"
-                            class="relative flex w-full touch-none select-none items-center"
-                            :model-value="[model.color.value[component].value]"
-                            @update:model-value="
-                                ([v]) => updateColorComponent(v, component, true)
-                            "
+                        <div
+                            :ref="(el: any) => { if (el) sliderWrapperEls[component] = el as HTMLElement }"
+                            :class="[
+                                'touch-gate-target',
+                                sliderGates[component]?.isActive.value ? 'touch-gate-active' : '',
+                            ]"
                         >
-                            <SliderTrack
-                                class="relative h-6 w-full grow overflow-hidden rounded-sm"
-                                :style="{
-                                    background: `linear-gradient(to right, ${componentsSlidersStyle[
-                                        component
-                                    ].join(', ')})`,
-                                }"
+                            <SliderRoot
+                                :min="0"
+                                :max="1"
+                                :step="0.001"
+                                class="relative flex w-full select-none items-center"
+                                :style="{ touchAction: spectrumGate.isTouchDevice ? (sliderGates[component]?.isActive.value ? 'none' : 'pan-y') : undefined }"
+                                :model-value="[model.color.value[component].value]"
+                                @update:model-value="
+                                    ([v]) => updateColorComponent(v, component, true)
+                                "
                             >
-                                <SliderRange class="absolute h-full bg-transparent" />
-                            </SliderTrack>
-                            <TooltipProvider
-                                :skip-delay-duration="0"
-                                :delay-duration="100"
-                            >
-                                <Tooltip>
-                                    <TooltipTrigger as-child>
-                                        <SliderThumb
-                                            class="block h-full w-3 rounded-sm border-2 border-gray-200 bg-transparent transition-colors focus-visible:outline-gray-300"
-                                        />
-                                    </TooltipTrigger>
-                                    <TooltipContent class="fira-code">
-                                        {{
-                                            denormalizedCurrentColor.value[
-                                                component
-                                            ].toFixed(2)
-                                        }}
-                                    </TooltipContent>
-                                </Tooltip>
-                            </TooltipProvider>
-                        </SliderRoot>
+                                <SliderTrack
+                                    class="slider-track relative h-6 w-full grow overflow-hidden rounded-sm transition-shadow"
+                                    :style="{
+                                        background: `linear-gradient(to right, ${componentsSlidersStyle[
+                                            component
+                                        ].join(', ')})`,
+                                    }"
+                                >
+                                    <SliderRange class="absolute h-full bg-transparent" />
+                                </SliderTrack>
+                                <TooltipProvider
+                                    :skip-delay-duration="0"
+                                    :delay-duration="100"
+                                >
+                                    <Tooltip>
+                                        <TooltipTrigger as-child>
+                                            <SliderThumb
+                                                class="slider-thumb block h-full w-3 rounded-sm border-2 border-gray-200 bg-transparent transition-colors focus-visible:outline-none"
+                                            />
+                                        </TooltipTrigger>
+                                        <TooltipContent class="fira-code">
+                                            {{
+                                                denormalizedCurrentColor.value[
+                                                    component
+                                                ].toFixed(2)
+                                            }}
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            </SliderRoot>
+                        </div>
                     </div>
                 </div>
 
@@ -193,8 +225,9 @@
                                 <span
                                     ref="inputColorRef"
                                     contenteditable
-                                    class="w-full block border overflow-hidden items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
+                                    class="w-full block border overflow-hidden items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center transition-colors"
                                     :class="{ 'pr-8': currentColorMeta }"
+                                    :style="inputIsFocused ? { borderColor: cssColor } : undefined"
                                     @keydown="onInputKeydown"
                                     @input="onInputInput"
                                     @focus="onInputFocus"
@@ -267,7 +300,7 @@
                     </Transition>
 
                     <!-- Control bar icons -->
-                    <div class="flex flex-wrap gap-2 sm:gap-4 w-full justify-evenly items-center">
+                    <div class="flex flex-wrap gap-2 sm:gap-4 w-full justify-evenly items-center mt-1">
                         <HoverCard
                             :open="activeHover === 'reset'"
                             @update:open="(v) => activeHover = v ? 'reset' : null"
@@ -527,6 +560,7 @@ import {
     ref,
     useTemplateRef,
     watch,
+    watchEffect,
 } from "vue";
 import { toast } from "vue-sonner";
 
@@ -538,6 +572,7 @@ import { useCustomColorNames } from "@composables/useCustomColorNames";
 import { proposeColorName } from "@lib/palette/api";
 import { PaletteDialog } from "@components/custom/palette-browser";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { useSatelliteBlobs } from "@composables/useSatelliteBlobs";
 import { useTouchGate } from "@composables/useTouchGate";
 import type { ColorModel } from ".";
 import { toCSSColorString, CSS_NATIVE_SPACES } from ".";
@@ -612,6 +647,11 @@ const cssColorOpaque = computed(() => {
     const c = model.value.color.clone();
     c.value.alpha.value = 1;
     return toCSSColorString(c);
+});
+
+const heroBlobWrapperRef = useTemplateRef<HTMLElement>("heroBlobWrapper");
+const { satellites: satelliteStates, nudge: nudgeSatellites } = useSatelliteBlobs(cssColorOpaque, {
+    parentEl: heroBlobWrapperRef,
 });
 
 // Check to see if the current color is in the COLOR_NAMES or custom names, if it is, return the name, else return the color, formatted:
@@ -949,6 +989,16 @@ const isDragging = ref(false);
 const spectrumRef = useTemplateRef<HTMLElement>("spectrumRef");
 const spectrumGate = useTouchGate();
 
+// Slider touch gates — one per component across all color spaces
+const ALL_COMPONENTS = new Set(
+    Object.values(COLOR_SPACE_RANGES).flatMap((ranges) => Object.keys(ranges)),
+);
+const sliderGates: Record<string, ReturnType<typeof useTouchGate>> = {};
+for (const comp of ALL_COMPONENTS) {
+    sliderGates[comp] = useTouchGate();
+}
+const sliderWrapperEls = ref<Record<string, HTMLElement>>({});
+
 const generateRandomColor = (
     colorSpace: ColorSpace,
 ): ValueUnit<Color<ValueUnit<number>>> => {
@@ -1042,6 +1092,7 @@ const updateColorComponent = (
     component: string,
     normalized: boolean = false,
 ) => {
+    if (Number.isNaN(value) || !Number.isFinite(value)) return;
     const color = model.value.color.clone();
     if (normalized) {
         color.value[component].value = value;
@@ -1083,6 +1134,7 @@ const updateSpectrumColor = (event: PointerEvent) => {
     if (!spectrumRef.value) return;
 
     const rect = spectrumRef.value.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
 
     const x = clamp(event.clientX - rect.left, 0, rect.width);
     const y = clamp(event.clientY - rect.top, 0, rect.height);
@@ -1099,8 +1151,8 @@ const updateSpectrumColor = (event: PointerEvent) => {
 };
 
 const handleSpectrumDown = (event: PointerEvent) => {
-    if (event.pointerType === "touch" && spectrumRef.value) {
-        if (!spectrumGate.handleTouchStart(spectrumRef.value)) return;
+    if (spectrumGate.isTouchDevice && spectrumRef.value) {
+        if (!spectrumGate.handleTouchStart(spectrumRef.value, event.clientY)) return;
     }
     // Capture pointer so moves/up fire on this element even outside bounds
     (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
@@ -1109,8 +1161,9 @@ const handleSpectrumDown = (event: PointerEvent) => {
 };
 
 const handleSpectrumMove = (event: PointerEvent) => {
-    if (event.pointerType === "touch") {
-        if (!spectrumGate.handleTouchMove()) return;
+    if (spectrumGate.isTouchDevice) {
+        if (!spectrumGate.isActive.value) return;
+        spectrumGate.resetTimer();
     }
     if (isDragging.value) {
         scheduleSpectrumUpdate(event);
@@ -1156,10 +1209,18 @@ const spectrumDotStyle = computed(() => {
     const sClamped = clamp(s.value, 0, 1);
     const vClamped = clamp(v.value, 0, 1);
 
+    // Luminance approximation: low V = dark region → light border, high V → dark border
+    const luma = vClamped * (1 - sClamped * 0.5);
+    const borderAlpha = luma > 0.5 ? 0.8 : 0.9;
+    const borderColor = luma > 0.5
+        ? `rgba(0, 0, 0, ${borderAlpha})`
+        : `rgba(255, 255, 255, ${borderAlpha})`;
+
     return {
         left: `${100 * sClamped}%`,
         top: `${100 * (1 - vClamped)}%`,
         backgroundColor: cssColorOpaque.value,
+        '--dot-border': borderColor,
     };
 });
 
@@ -1170,19 +1231,9 @@ const activeHover = ref<string | null>(null);
 
 const dismissHover = () => { activeHover.value = null; };
 
-const _pendingTimers: ReturnType<typeof setTimeout>[] = [];
-function _trackTimer(fn: () => void, ms: number) {
-    const id = setTimeout(() => {
-        const idx = _pendingTimers.indexOf(id);
-        if (idx !== -1) _pendingTimers.splice(idx, 1);
-        fn();
-    }, ms);
-    _pendingTimers.push(id);
-}
-
 function openPaletteDialog() {
     dismissHover();
-    _trackTimer(() => { paletteDialogOpen.value = true; }, 100);
+    window.setTimeout(() => { paletteDialogOpen.value = true; }, 100);
 }
 
 // Edit mode state — managed entirely within ColorPicker
@@ -1201,14 +1252,18 @@ function onStartEdit(target: EditTarget) {
     const parsed = parseAndNormalizeColor(target.originalCss);
     setCurrentColor(parsed);
     // Stagger drawer entrance to overlap with dialog exit
-    _trackTimer(() => { editTarget.value = target; }, 120);
-    _trackTimer(() => { editingExit.value = false; }, 350);
+    setTimeout(() => { editTarget.value = target; }, 120);
+    setTimeout(() => { editingExit.value = false; }, 350);
 }
 
 function reopenDialogFromEdit() {
     editingEnter.value = true;
-    _trackTimer(() => { paletteDialogOpen.value = true; }, 100);
-    _trackTimer(() => { editingEnter.value = false; }, 450);
+    window.setTimeout(() => {
+        paletteDialogOpen.value = true;
+    }, 100);
+    window.setTimeout(() => {
+        editingEnter.value = false;
+    }, 450);
 }
 
 function commitEdit() {
@@ -1269,6 +1324,44 @@ watch(formattedCurrentColor, (text) => {
     }
 });
 
+// Capture-phase listeners on slider wrappers to intercept reka-ui's pointerdown
+watchEffect((onCleanup) => {
+    const cleanups: (() => void)[] = [];
+
+    for (const [component, el] of Object.entries(sliderWrapperEls.value)) {
+        const gate = sliderGates[component];
+        if (!gate || !el) continue;
+
+        const onPointerDown = (e: PointerEvent) => {
+            if (!gate.isTouchDevice) return; // desktop passes through
+            if (!gate.isActive.value) {
+                e.stopPropagation(); // block slider from capturing pointer
+                gate.handleTouchStart(el, e.clientY);
+            } else {
+                gate.resetTimer();
+            }
+        };
+        const onTouchMove = (e: TouchEvent) => {
+            gate.handleScrollCheck(e);
+        };
+        const onTouchEnd = () => {
+            gate.handleTouchEnd();
+        };
+
+        el.addEventListener("pointerdown", onPointerDown, { capture: true });
+        el.addEventListener("touchmove", onTouchMove, { passive: true });
+        el.addEventListener("touchend", onTouchEnd, { passive: true });
+
+        cleanups.push(() => {
+            el.removeEventListener("pointerdown", onPointerDown, { capture: true });
+            el.removeEventListener("touchmove", onTouchMove);
+            el.removeEventListener("touchend", onTouchEnd);
+        });
+    }
+
+    onCleanup(() => cleanups.forEach((fn) => fn()));
+});
+
 onMounted(() => {
     window.addEventListener("keydown", handleKeydown);
     if (inputColorRef.value) {
@@ -1285,10 +1378,6 @@ onUnmounted(() => {
         spectrumRafId = null;
     }
     pendingSpectrumEvent = null;
-
-    // Cancel pending setTimeout timers
-    for (const id of _pendingTimers) clearTimeout(id);
-    _pendingTimers.length = 0;
 
     // Cancel debounced functions
     if (parseAndSetColorDebounced.cancel) parseAndSetColorDebounced.cancel();
@@ -1310,24 +1399,44 @@ onUnmounted(() => {
 }
 
 .spectrum-dot {
-    width: 1.5rem;
-    height: 1.5rem;
-    border: 2px solid hsl(var(--background));
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 2px solid var(--dot-border, hsl(var(--background)));
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    filter: url(#watercolor-filter);
     /* Override watercolor hover transform — spectrum dot should stay put */
     &:hover {
         transform: none;
     }
 }
 
-.hero-blob {
-    filter: url(#watercolor-filter) drop-shadow(3px 3px 0 color-mix(in srgb, var(--blob-color, transparent) 20%, black));
-    transition: filter 0.3s ease, transform 0.3s ease;
-    transform: none;
+/* Outer: drop-shadow only — Safari can't chain url() + drop-shadow() in one filter */
+.hero-blob-shadow-wrapper {
+    filter: drop-shadow(3px 3px 0 color-mix(in srgb, var(--blob-color, transparent) 20%, hsl(var(--foreground))));
+    position: relative;
+    overflow: visible;
+    cursor: pointer;
+    transition: filter 0.3s ease;
     &:hover {
-        transform: scale(1.02);
-        filter: url(#watercolor-filter) drop-shadow(4px 4px 0 color-mix(in srgb, var(--blob-color, transparent) 25%, black));
+        filter: drop-shadow(4px 4px 0 color-mix(in srgb, var(--blob-color, transparent) 25%, hsl(var(--foreground))));
     }
+}
+
+/* Inner: gooey metaball compositing */
+.hero-blob-goo {
+    filter: url(#gooey-filter);
+    overflow: visible;
+    position: relative;
+}
+
+.hero-blob {
+    filter: url(#watercolor-filter);
+    overflow: visible;
+    position: relative;
+}
+/* Override global .watercolor-swatch:hover scale — hero blob uses nudge instead */
+.hero-blob:hover {
+    transform: none;
 }
 
 </style>
