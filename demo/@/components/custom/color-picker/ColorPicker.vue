@@ -81,7 +81,7 @@
                 </CardTitle>
             </CardHeader>
 
-            <CardContent class="z-1 fraunces grid grid-cols-1 gap-4 w-full m-auto px-3 sm:px-6 min-w-0">
+            <CardContent class="z-1 fraunces grid grid-cols-1 gap-4 w-full m-auto px-3 sm:px-6 pb-4 min-w-0">
                 <SpectrumCanvas />
                 <ComponentSliders />
 
@@ -253,7 +253,6 @@ function onStartEdit(target: EditTarget) {
     const parsed = parseAndNormalizeColor(target.originalCss);
     setCurrentColor(parsed);
     setTimeout(() => { editTarget.value = target; }, 120);
-    setTimeout(() => { editingExit.value = false; }, 350);
 }
 
 function reopenDialogFromEdit() {
@@ -261,9 +260,6 @@ function reopenDialogFromEdit() {
     window.setTimeout(() => {
         paletteDialogOpen.value = true;
     }, 100);
-    window.setTimeout(() => {
-        editingEnter.value = false;
-    }, 450);
 }
 
 function commitEdit() {
@@ -288,14 +284,19 @@ function cancelEdit() {
     reopenDialogFromEdit();
 }
 
+// Reset editing animation flags after transitions complete
 watch(paletteDialogOpen, (open) => {
-    if (!open) {
+    if (open) {
+        // Dialog just opened — clear the exit flag (enter flag stays for this session)
         editingExit.value = false;
+    } else {
+        // Dialog just closed — clear the enter flag (exit flag stays for the close animation)
         editingEnter.value = false;
     }
 });
 
-defineExpose({ isEditing });
+const isTransitioning = computed(() => editingExit.value || editingEnter.value);
+defineExpose({ isEditing, isTransitioning });
 
 // --- Model watchers ---
 

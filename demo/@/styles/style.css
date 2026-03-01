@@ -316,12 +316,17 @@
 }
 
 /* Card expand animation — grid-rows with no competing overflow */
-.card-expand-enter-active,
+.card-expand-enter-active {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.3s ease;
+}
 .card-expand-leave-active {
     display: grid;
     grid-template-rows: 1fr;
     transition: grid-template-rows 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                opacity 0.2s ease;
 }
 .card-expand-enter-from,
 .card-expand-leave-to {
@@ -348,6 +353,27 @@
     opacity: 0;
     max-width: 0;
     transform: scale(0.8);
+}
+
+/* Swatch add/remove animation (TransitionGroup) */
+.swatch-item-enter-active,
+.swatch-item-leave-active {
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.swatch-item-enter-from {
+    opacity: 0;
+    transform: scale(0);
+}
+.swatch-item-leave-to {
+    opacity: 0;
+    transform: scale(0);
+}
+.swatch-item-leave-active {
+    position: absolute;
+}
+.swatch-item-move {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Tab content fade transition */
@@ -441,9 +467,12 @@ button.watercolor-swatch:focus-visible {
 
 /* Touch gate — outline-based activation indicator (no conflict with hover shadows) */
 .touch-gate-target {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+    outline: 3px solid transparent;
+    outline-offset: 1px;
     transition: outline-color 0.25s ease;
+}
+.touch-gate-target:has(.slider-track) {
+    border-radius: var(--radius-sm);
 }
 .touch-gate-target.touch-gate-active {
     outline-color: hsl(var(--foreground) / 0.5);
@@ -451,7 +480,7 @@ button.watercolor-swatch:focus-visible {
 
 /* Slider track gets a foreground-colored border when gate is active */
 .touch-gate-active .slider-track {
-    box-shadow: inset 0 0 0 2px hsl(var(--foreground) / 0.5);
+    box-shadow: inset 0 0 0 3px hsl(var(--foreground) / 0.5);
 }
 
 /* Slider thumb: inverted fill when gate is active — dark knob in dark mode, light in light */
@@ -462,7 +491,7 @@ button.watercolor-swatch:focus-visible {
 
 /* Spectrum dot ring when gate is active */
 .spectrum-dot-active {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0 3px hsl(var(--foreground) / 0.5);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0 4px hsl(var(--foreground) / 0.5);
 }
 
 /* Base styles for compatibility */

@@ -32,7 +32,7 @@
     ></div>
 
     <div
-        class="grid overflow-x-hidden w-full min-h-screen lg:h-screen lg:overflow-hidden items-center lg:items-stretch justify-items-center justify-center m-0 p-0 relative"
+        class="grid overflow-x-hidden w-full min-h-screen lg:h-screen lg:overflow-hidden items-center justify-items-center justify-center m-0 p-0 relative"
     >
         <div
             :class="'fixed z-40 pointer-events-none top-0 w-full max-w-screen-lg left-1/2 -translate-x-1/2 gap-2 h-fit flex justify-items-end justify-between hover:opacity-100 transition-all px-4 py-2'"
@@ -90,16 +90,16 @@
         </div>
 
         <div
-            class="grid lg:grid-cols-2 lg:grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-10 lg:pb-6"
+            class="grid lg:grid-cols-2 lg:grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-10 lg:max-h-screen"
         >
             <ColorPicker
                 ref="colorPickerRef"
-                class="w-full lg:col-span-1 min-w-0 lg:min-h-0 lg:overflow-y-auto"
+                class="w-full lg:col-span-1 min-w-0 lg:min-h-0"
                 v-model="model"
                 @reset="resetToDefaults"
             ></ColorPicker>
 
-            <Card :class="['w-full lg:col-span-1 overflow-y-auto overflow-x-hidden min-w-0 lg:h-0 lg:min-h-full', pickerIsEditing ? 'about-card-editing' : 'about-card-normal']">
+            <Card :class="['w-full lg:col-span-1 overflow-y-auto overflow-x-hidden min-w-0 lg:min-h-0', pickerIsEditing ? 'about-card-editing' : 'about-card-normal']">
                 <CardHeader class="fraunces px-3 sm:px-6">
                     <CardTitle
                         >About the color spaces,
@@ -139,24 +139,7 @@
         </div>
     </div>
 
-    <Teleport to="html">
-        <Toaster
-            :toastOptions="{
-                unstyled: true,
-                duration: 1000,
-
-                classes: {
-                    toast: 'bg-foreground text-background rounded-md fraunces px-3 py-2 gap-1 shadow-lg lg:w-80 w-[calc(100vw-2rem)]',
-                    title: 'font-semibold text-sm',
-                    description: 'font-normal text-xs',
-                    actionButton: '',
-                    cancelButton: '',
-                    closeButton: '',
-                },
-            }"
-            :theme="isDark ? 'dark' : 'light'"
-        />
-    </Teleport>
+    <!-- Toaster disabled for now — toast() calls are no-ops without it -->
 </template>
 
 <script setup lang="ts">
@@ -186,7 +169,7 @@ import {
     createDefaultColorModel,
 } from "@components/custom/color-picker";
 import { useDark, useStorage } from "@vueuse/core";
-import { toast, Toaster } from "vue-sonner";
+import { toast } from "vue-sonner";
 import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { DocModule } from "@components/custom/markdown";
@@ -216,7 +199,9 @@ const activeMarkdownModule = computed(() => markdownModules[model.value.selected
 
 const gridBackground = useTemplateRef<HTMLElement>("gridBackground");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
-const pickerIsEditing = computed(() => colorPickerRef.value?.isEditing ?? false);
+const pickerIsEditing = computed(() =>
+    (colorPickerRef.value?.isEditing ?? false) || (colorPickerRef.value?.isTransitioning ?? false),
+);
 
 const isDark = useDark({ disableTransition: false });
 

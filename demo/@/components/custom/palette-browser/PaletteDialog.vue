@@ -2,7 +2,7 @@
     <Dialog v-model:open="openModel">
         <DialogScrollContent
             :class="[
-                'palette-dialog w-[calc(100%-2rem)] sm:w-full p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg max-h-[85vh] min-w-0 sm:max-w-[500px]',
+                'palette-dialog w-[calc(100%-1rem)] sm:w-full p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg max-h-[85vh] min-w-0 sm:max-w-[500px]',
                 editingExit && 'palette-dialog--editing-exit',
                 editingEnter && 'palette-dialog--editing-enter',
             ]"
@@ -42,9 +42,9 @@
             <!-- Tabs + Search -->
             <div class="px-4 sm:px-6 h-[min(55vh,500px)] flex flex-col min-w-0 overflow-x-hidden">
                 <Tabs v-model="activeTab" class="w-full flex flex-col flex-1 min-h-0 min-w-0">
-                    <!-- Controls: tabs row, then search+sort row on mobile; single row on desktop -->
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4 min-w-0">
-                        <TabsList class="shrink-0">
+                    <!-- Controls: tabs row, then search+sort row -->
+                    <div class="flex flex-col gap-2 mb-4 min-w-0">
+                        <TabsList class="shrink-0 w-fit">
                             <TabsTrigger value="saved" class="fira-code text-base">My Palettes</TabsTrigger>
                             <TabsTrigger value="browse" class="fira-code text-base">Browse</TabsTrigger>
                             <TabsTrigger v-if="showAdminTab" value="admin" class="fira-code text-base">
@@ -58,15 +58,14 @@
                                 placeholder="Search palettes..."
                                 class="fira-code text-sm sm:text-base h-9 sm:h-10 focus-visible:ring-0 focus-visible:ring-offset-0 min-w-0 flex-1"
                             />
-                            <!-- Sort controls (browse tab only) — always rendered to avoid layout shift -->
+                            <!-- Sort controls (browse tab only) -->
+                            <Transition name="sort-reveal">
                             <ToggleGroup
+                                v-if="activeTab === 'browse'"
                                 type="single"
                                 :model-value="sortMode"
                                 @update:model-value="onSortChange"
-                                :class="[
-                                    'shrink-0 transition-opacity duration-200',
-                                    activeTab === 'browse' ? 'opacity-100' : 'opacity-0 pointer-events-none',
-                                ]"
+                                class="shrink-0"
                             >
                                 <TooltipProvider :delay-duration="200">
                                     <Tooltip>
@@ -89,6 +88,7 @@
                                     </Tooltip>
                                 </TooltipProvider>
                             </ToggleGroup>
+                            </Transition>
                         </div>
                     </div>
 
@@ -106,31 +106,49 @@
                                         </span>
                                         <span v-if="savedColorStrings.length > 0" class="fira-code text-xs text-muted-foreground">{{ savedColorStrings.length }} colors</span>
                                     </div>
-                                    <div class="flex items-center gap-2.5 flex-wrap">
-                                        <TooltipProvider
+                                    <TransitionGroup
+                                        name="swatch-item"
+                                        tag="div"
+                                        class="flex items-center gap-2.5 flex-wrap"
+                                    >
+                                        <div
                                             v-for="(color, i) in savedColorStrings"
-                                            :key="color + '-' + i"
-                                            :delay-duration="100"
+                                            :key="swatchKeys[i]"
+                                            class="relative"
+                                            @pointerenter="onCurrentSwatchHover(i, $event)"
+                                            @pointerleave="onCurrentSwatchLeave()"
                                         >
-                                            <Tooltip>
-                                                <TooltipTrigger as-child>
+                                            <Popover
+                                                :open="currentSwatchPopoverIndex === i"
+                                                @update:open="(v: boolean) => onCurrentSwatchPopoverUpdate(v, i)"
+                                            >
+                                                <PopoverTrigger as-child>
                                                     <WatercolorDot
                                                         :color="color"
                                                         tag="button"
-                                                        class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer group/dot relative"
-                                                        @click="(e: MouseEvent) => onCurrentSwatchClick(e, color, i)"
-                                                        v-on="currentSwatchLongPress.bind({ css: color, index: i })"
-                                                    >
-                                                        <Pencil class="absolute inset-0 m-auto w-3.5 h-3.5 text-white drop-shadow-sm opacity-0 group-hover/dot:opacity-80 transition-opacity pointer-events-none" />
-                                                    </WatercolorDot>
-                                                </TooltipTrigger>
-                                                <TooltipContent class="fira-code text-xs">
-                                                    Tap to copy / Hold to edit
-                                                </TooltipContent>
-                                            </Tooltip>
-                                        </TooltipProvider>
+                                                        class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
+                                                    />
+                                                </PopoverTrigger>
+                                                <PopoverContent
+                                                    class="w-auto p-1.5 flex items-center gap-1"
+                                                    :side-offset="8"
+                                                    @pointerenter="cancelCurrentSwatchLeave()"
+                                                    @pointerleave="onCurrentSwatchLeave()"
+                                                >
+                                                    <button @click="onCurrentSwatchEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                                        <Pencil class="w-4 h-4" />
+                                                    </button>
+                                                    <button @click="onCurrentSwatchCopy(color)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                                        <ClipboardCopy class="w-4 h-4" />
+                                                    </button>
+                                                    <button @click="onCurrentSwatchRemove(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                                        <Trash2 class="w-4 h-4 text-destructive" />
+                                                    </button>
+                                                </PopoverContent>
+                                            </Popover>
+                                        </div>
                                         <!-- Add current color button -->
-                                        <TooltipProvider :delay-duration="200">
+                                        <TooltipProvider key="__add__" :delay-duration="200">
                                             <Tooltip>
                                                 <TooltipTrigger as-child>
                                                     <button
@@ -145,7 +163,7 @@
                                                 </TooltipContent>
                                             </Tooltip>
                                         </TooltipProvider>
-                                    </div>
+                                    </TransitionGroup>
                                     <div v-if="savedColorStrings.length > 0" class="flex items-center gap-2">
                                         <Input
                                             v-model="currentPaletteName"
@@ -215,6 +233,7 @@
                                         @vote="onVote"
                                         @rename="onRename"
                                         @edit-color="onEditColor"
+                                        @add-color="onSwatchAddColor"
                                     />
                                     <p
                                         v-if="filteredBrowse.length === 0"
@@ -253,7 +272,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, Transition } from "vue";
+import { ref, computed, watch, Transition, TransitionGroup } from "vue";
 import {
     Dialog,
     DialogScrollContent,
@@ -270,7 +289,8 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import { Loader2, Clock, TrendingUp, Shield, Plus, Pencil } from "lucide-vue-next";
+import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
+import { Loader2, Clock, TrendingUp, Shield, Plus, Pencil, ClipboardCopy, Trash2 } from "lucide-vue-next";
 import { createSlug } from "@lib/palette/utils";
 import { toast } from "vue-sonner";
 import { usePaletteStore } from "@composables/usePaletteStore";
@@ -282,7 +302,6 @@ import PaletteCard from "./PaletteCard.vue";
 import PaletteForm from "./PaletteForm.vue";
 import AdminPanel from "./AdminPanel.vue";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
-import { createLongPress } from "@composables/useLongPress";
 
 const props = defineProps<{
     savedColorStrings: string[];
@@ -342,18 +361,79 @@ function addCurrentColor() {
     toast.success(`Added ${props.cssColorOpaque}`);
 }
 
-// Long-press on touch → edit; shift+click on desktop → edit
-const currentSwatchLongPress = createLongPress<{ css: string; index: number }>(
-    ({ css, index }) => emit("startEdit", { paletteId: "__current__", colorIndex: index, originalCss: css }),
+// Stable keys for TransitionGroup — tracks color identity across add/remove
+let swatchKeyCounter = 0;
+const swatchKeyMap = new Map<string, number>();
+const swatchKeys = computed(() =>
+    props.savedColorStrings.map((color, i) => {
+        const mapKey = `${color}::${i}`;
+        if (!swatchKeyMap.has(mapKey)) {
+            swatchKeyMap.set(mapKey, swatchKeyCounter++);
+        }
+        return swatchKeyMap.get(mapKey)!;
+    }),
 );
-
-function onCurrentSwatchClick(e: MouseEvent, css: string, index: number) {
-    if (currentSwatchLongPress.consume()) return;
-    if (e.shiftKey) {
-        emit("startEdit", { paletteId: "__current__", colorIndex: index, originalCss: css });
-    } else {
-        copyColor(css);
+// Clean stale keys when the list changes
+watch(() => props.savedColorStrings, () => {
+    const validKeys = new Set(props.savedColorStrings.map((c, i) => `${c}::${i}`));
+    for (const key of swatchKeyMap.keys()) {
+        if (!validKeys.has(key)) swatchKeyMap.delete(key);
     }
+});
+
+const currentSwatchPopoverIndex = ref<number | null>(null);
+let currentSwatchHoverTimer: ReturnType<typeof setTimeout> | null = null;
+const canHover = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
+
+function onCurrentSwatchPopoverUpdate(open: boolean, index: number) {
+    if (!canHover) {
+        currentSwatchPopoverIndex.value = open ? index : null;
+    }
+    if (canHover && !open) {
+        currentSwatchPopoverIndex.value = null;
+    }
+}
+
+function onCurrentSwatchHover(index: number, e: PointerEvent) {
+    if (!canHover || e.pointerType === "touch") return;
+    cancelCurrentSwatchLeave();
+    currentSwatchPopoverIndex.value = index;
+}
+
+function onCurrentSwatchLeave() {
+    if (!canHover) return;
+    currentSwatchHoverTimer = setTimeout(() => {
+        currentSwatchPopoverIndex.value = null;
+    }, 200);
+}
+
+function cancelCurrentSwatchLeave() {
+    if (currentSwatchHoverTimer) {
+        clearTimeout(currentSwatchHoverTimer);
+        currentSwatchHoverTimer = null;
+    }
+}
+
+function onCurrentSwatchEdit(css: string, index: number) {
+    currentSwatchPopoverIndex.value = null;
+    emit("startEdit", { paletteId: "__current__", colorIndex: index, originalCss: css });
+}
+
+function onCurrentSwatchCopy(css: string) {
+    currentSwatchPopoverIndex.value = null;
+    copyColor(css);
+}
+
+function onCurrentSwatchRemove(css: string, index: number) {
+    currentSwatchPopoverIndex.value = null;
+    const updated = props.savedColorStrings.filter((_, i) => i !== index);
+    emit("apply", updated);
+    toast.success(`Removed ${css}`);
+}
+
+function onSwatchAddColor(css: string) {
+    emit("addColor", css);
+    toast.success(`Added ${css}`);
 }
 
 function saveCurrentPalette() {

@@ -334,9 +334,7 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
             try { return parseAndNormalizeColor(css); } catch { return null; }
         }).filter(Boolean) as typeof model.value.savedColors;
 
-        if (parsed.length > 0) {
-            updateModel({ savedColors: parsed });
-        }
+        updateModel({ savedColors: parsed });
     }
 
     // --- Clipboard ---

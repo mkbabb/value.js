@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-wrap gap-2 sm:gap-4 w-full justify-evenly items-center mt-1">
+    <div class="flex flex-wrap gap-2 sm:gap-3 w-full justify-evenly items-center">
         <ActionButton
             :icon="RotateCcw"
             hover-key="reset"
@@ -7,6 +7,8 @@
             title="Reset color 🔄"
             description="Click to reset to the default color."
             icon-class="hover:-rotate-180 duration-300"
+            :css-color-opaque="cssColorOpaque"
+            rotate-on-click
             @action="emit('reset')"
             @update:active-hover="(v) => activeHover = v"
         />
@@ -16,6 +18,7 @@
             :active-hover="activeHover"
             title="Copy color 📋"
             description="Click to copy the current color to the clipboard."
+            :css-color-opaque="cssColorOpaque"
             @action="emit('copy')"
             @update:active-hover="(v) => activeHover = v"
         />
@@ -25,6 +28,7 @@
             :active-hover="activeHover"
             title="Random color 🎲"
             description="Click to generate a random color."
+            :css-color-opaque="cssColorOpaque"
             @action="emit('random')"
             @update:active-hover="(v) => activeHover = v"
         />
@@ -35,6 +39,7 @@
             title="Palettes"
             description="Save, browse, and publish color palettes."
             :disabled="isEditing"
+            :css-color-opaque="cssColorOpaque"
             :active-style="paletteActive ? { stroke: cssColorOpaque, strokeWidth: '2.75' } : {}"
             @action="emit('openPalette')"
             @update:active-hover="(v) => activeHover = v"
@@ -47,6 +52,7 @@
             title="Propose a name ✨"
             description="This color doesn't have a name yet. Propose one for the global registry."
             icon-class="rounded-md"
+            :css-color-opaque="cssColorOpaque"
             :active-style="proposeFormOpen ? { stroke: cssColorOpaque, strokeWidth: '2.75' } : {}"
             @action="emit('togglePropose')"
             @update:active-hover="(v) => activeHover = v"

@@ -10,13 +10,14 @@
         <HoverCardTrigger>
             <component
                 :is="icon"
-                @click="emit('update:activeHover', null); emit('action')"
+                @click="handleClick"
                 :class="[
                     'h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer',
                     iconClass,
                     disabled && 'pointer-events-none opacity-50',
+                    isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
                 ]"
-                :style="activeStyle"
+                :style="{ ...activeStyle, '--flash-color': cssColorOpaque ?? 'currentColor' }"
             />
         </HoverCardTrigger>
         <HoverCardContent class="z-[100] pointer-events-auto fraunces">
@@ -29,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type Component } from "vue";
+import { computed, ref, type Component } from "vue";
 import {
     HoverCard,
     HoverCardContent,
@@ -46,6 +47,8 @@ const props = defineProps<{
     activeStyle?: Record<string, string>;
     disabled?: boolean;
     hidden?: boolean;
+    cssColorOpaque?: string;
+    rotateOnClick?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -54,4 +57,33 @@ const emit = defineEmits<{
 }>();
 
 const isOpen = computed(() => props.activeHover === props.hoverKey);
+
+const isClicked = ref(false);
+
+function handleClick() {
+    emit("update:activeHover", null);
+    isClicked.value = true;
+    setTimeout(() => {
+        isClicked.value = false;
+    }, 400);
+    emit("action");
+}
 </script>
+
+<style scoped>
+.action-flash {
+    animation: action-color-flash 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.action-rotate {
+    animation: action-color-flash 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+               action-spin 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes action-color-flash {
+    0%   { stroke: var(--flash-color, currentColor); stroke-width: 2.75; }
+    100% { stroke: currentColor; stroke-width: 2; }
+}
+@keyframes action-spin {
+    0%   { transform: rotate(0deg) scale(1.25); }
+    100% { transform: rotate(-360deg) scale(1); }
+}
+</style>

@@ -151,34 +151,42 @@
 
         <!-- Expandable detail: color swatches (capped with overflow for very large palettes) -->
         <Transition name="card-expand" @after-enter="onExpandEnter" @before-leave="onExpandLeave">
-            <div v-if="expanded" ref="expandRef" @click.stop>
+            <div v-if="expanded" @click.stop>
                 <div
-                    class="px-3 pb-3 flex flex-wrap gap-2 items-start border-t border-gray-700/15 pt-3 max-h-[220px] scrollbar-hidden min-w-0 overflow-x-hidden"
+                    class="px-3 pb-3 flex flex-wrap gap-2 items-start border-t border-gray-700/15 pt-3 min-w-0 overflow-x-hidden"
                 >
                     <div
                         v-for="(color, i) in palette.colors"
                         :key="i"
-                        class="group/swatch relative"
+                        class="relative"
+                        @pointerenter="onSwatchHover(i, $event)"
+                        @pointerleave="onSwatchLeave()"
                     >
-                        <TooltipProvider :delay-duration="100">
-                            <Tooltip>
-                                <TooltipTrigger as-child>
-                                    <WatercolorDot
-                                        :color="color.css"
-                                        tag="button"
-                                        class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer relative"
-                                        @click="(e) => onSwatchClick(e, color, i)"
-                                        v-on="swatchLongPress.bind({ color, index: i })"
-                                    >
-                                        <Pencil class="absolute inset-0 m-auto w-3 h-3 text-white drop-shadow-sm opacity-0 group-hover/swatch:opacity-80 transition-opacity pointer-events-none" />
-                                    </WatercolorDot>
-                                </TooltipTrigger>
-                                <TooltipContent class="fira-code text-xs">
-                                    <div>{{ color.name || color.css }}</div>
-                                    <div class="text-muted-foreground text-[10px]">Tap to copy / Hold to edit</div>
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
+                        <Popover :open="openPopoverIndex === i" @update:open="(v: boolean) => onPopoverUpdate(v, i)">
+                            <PopoverTrigger as-child>
+                                <WatercolorDot
+                                    :color="color.css"
+                                    tag="button"
+                                    class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer"
+                                />
+                            </PopoverTrigger>
+                            <PopoverContent
+                                class="w-auto p-1.5 flex items-center gap-1"
+                                :side-offset="8"
+                                @pointerenter="cancelSwatchLeave()"
+                                @pointerleave="onSwatchLeave()"
+                            >
+                                <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                    <Plus class="w-4 h-4" />
+                                </button>
+                                <button @click="onPopoverEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                    <Pencil class="w-4 h-4" />
+                                </button>
+                                <button @click="onPopoverCopy(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                    <ClipboardCopy class="w-4 h-4" />
+                                </button>
+                            </PopoverContent>
+                        </Popover>
                     </div>
                 </div>
             </div>
@@ -208,12 +216,12 @@ import {
     Award,
     Pencil,
     Check,
+    Plus,
 } from "lucide-vue-next";
 import type { PaletteColor } from "@lib/palette/types";
 import { toast } from "vue-sonner";
 import type { Palette } from "@lib/palette/types";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
-import { createLongPress } from "@composables/useLongPress";
 
 const props = defineProps<{
     palette: Palette;
@@ -231,36 +239,68 @@ const emit = defineEmits<{
     vote: [palette: Palette];
     rename: [palette: Palette, newName: string];
     editColor: [palette: Palette, colorIndex: number, css: string];
+    addColor: [css: string];
 }>();
 
-// Long-press on touch → edit; shift+click on desktop → edit
-const swatchLongPress = createLongPress<{ color: PaletteColor; index: number }>(
-    ({ color, index }) => emit("editColor", props.palette, index, color.css),
-);
+const openPopoverIndex = ref<number | null>(null);
+let hoverCloseTimer: ReturnType<typeof setTimeout> | null = null;
+const canHover = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
-function onSwatchClick(e: MouseEvent, color: PaletteColor, index: number) {
-    if (swatchLongPress.consume()) return; // was a long press
-    if (e.shiftKey) {
-        emit("editColor", props.palette, index, color.css);
-    } else {
-        copyColor(color.css);
+function onPopoverUpdate(open: boolean, index: number) {
+    // On touch devices, let click toggle normally
+    if (!canHover) {
+        openPopoverIndex.value = open ? index : null;
+    }
+    // On hover devices, only allow close from popover internals (e.g. Escape, outside click)
+    if (canHover && !open) {
+        openPopoverIndex.value = null;
     }
 }
 
-const renameValue = ref(props.palette.name);
-const expandRef = ref<HTMLElement | null>(null);
+function onSwatchHover(index: number, e: PointerEvent) {
+    if (!canHover || e.pointerType === "touch") return;
+    cancelSwatchLeave();
+    openPopoverIndex.value = index;
+}
 
-// After the expand animation finishes, enable scrolling and scroll into view
+function onSwatchLeave() {
+    if (!canHover) return;
+    hoverCloseTimer = setTimeout(() => {
+        openPopoverIndex.value = null;
+    }, 200);
+}
+
+function cancelSwatchLeave() {
+    if (hoverCloseTimer) {
+        clearTimeout(hoverCloseTimer);
+        hoverCloseTimer = null;
+    }
+}
+
+function onPopoverAdd(css: string) {
+    openPopoverIndex.value = null;
+    emit("addColor", css);
+}
+
+function onPopoverEdit(color: PaletteColor, index: number) {
+    openPopoverIndex.value = null;
+    emit("editColor", props.palette, index, color.css);
+}
+
+function onPopoverCopy(css: string) {
+    openPopoverIndex.value = null;
+    copyColor(css);
+}
+
+const renameValue = ref(props.palette.name);
+
+// After expand animation, scroll card into view
 function onExpandEnter(el: Element) {
-    const inner = (el as HTMLElement).querySelector<HTMLElement>("[class*='max-h-']");
-    if (inner) inner.style.overflowY = "auto";
-    // Scroll the expanded card into view so the last palette on screen is visible
     (el as HTMLElement).scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
-// Before collapsing, disable scrolling so the animation is clean
-function onExpandLeave(el: Element) {
-    const inner = (el as HTMLElement).querySelector<HTMLElement>("[class*='max-h-']");
-    if (inner) inner.style.overflowY = "hidden";
+// Before collapsing, close popovers for clean animation
+function onExpandLeave() {
+    openPopoverIndex.value = null;
 }
 
 function submitRename() {
