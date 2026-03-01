@@ -315,29 +315,7 @@
     transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-/* Card expand animation — grid-rows with no competing overflow */
-.card-expand-enter-active {
-    display: grid;
-    grid-template-rows: 1fr;
-    transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.3s ease;
-}
-.card-expand-leave-active {
-    display: grid;
-    grid-template-rows: 1fr;
-    transition: grid-template-rows 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.2s ease;
-}
-.card-expand-enter-from,
-.card-expand-leave-to {
-    grid-template-rows: 0fr;
-    opacity: 0;
-}
-.card-expand-enter-active > *,
-.card-expand-leave-active > * {
-    overflow: hidden;
-    min-height: 0;
-}
+/* Card expand/collapse — JS-driven height transition (see PaletteCard.vue hooks) */
 
 /* Sort toggle slide-in/out */
 .sort-reveal-enter-active,

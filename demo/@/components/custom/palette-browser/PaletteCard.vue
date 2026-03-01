@@ -19,7 +19,7 @@
         <!-- Metadata row -->
         <div class="px-3 py-2.5 flex items-center justify-between gap-2 min-w-0">
             <div class="flex items-center gap-2 min-w-0">
-                <span class="fraunces text-lg truncate font-bold">{{ palette.name }}</span>
+                <span class="fraunces text-lg truncate font-bold" :title="palette.name">{{ palette.name }}</span>
                 <Badge v-if="palette.status === 'featured'" variant="default" class="fira-code text-xs shrink-0 gap-1">
                     <Award class="w-3 h-3" />
                     Featured
@@ -149,11 +149,18 @@
             </div>
         </div>
 
-        <!-- Expandable detail: color swatches (capped with overflow for very large palettes) -->
-        <Transition name="card-expand" @after-enter="onExpandEnter" @before-leave="onExpandLeave">
-            <div v-if="expanded" @click.stop>
+        <!-- Expandable detail: color swatches -->
+        <Transition
+            @before-enter="onBeforeEnter"
+            @enter="onEnter"
+            @after-enter="onAfterEnter"
+            @before-leave="onBeforeLeave"
+            @leave="onLeave"
+            @after-leave="onAfterLeave"
+        >
+            <div v-if="expanded" @click.stop class="overflow-hidden">
                 <div
-                    class="px-3 pb-3 flex flex-wrap gap-2 items-start border-t border-gray-700/15 pt-3 min-w-0 overflow-x-hidden"
+                    class="px-3 pb-3 flex flex-wrap gap-2 items-start border-t border-gray-700/15 pt-3 min-w-0"
                 >
                     <div
                         v-for="(color, i) in palette.colors"
@@ -338,13 +345,68 @@ function onPopoverCopy(css: string) {
 
 const renameValue = ref(props.palette.name);
 
-// After expand animation, scroll card into view
-function onExpandEnter(el: Element) {
-    (el as HTMLElement).scrollIntoView({ behavior: "smooth", block: "nearest" });
+// JS-driven height transition for smooth expand/collapse
+const EXPAND_DURATION = 300;
+const COLLAPSE_DURATION = 200;
+const EXPAND_EASING = "cubic-bezier(0.16, 1, 0.3, 1)";
+const COLLAPSE_EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
+
+function onBeforeEnter(el: Element) {
+    const htmlEl = el as HTMLElement;
+    htmlEl.style.height = "0";
+    htmlEl.style.opacity = "0";
 }
-// Before collapsing, close popovers for clean animation
-function onExpandLeave() {
+
+function onEnter(el: Element, done: () => void) {
+    const htmlEl = el as HTMLElement;
+    const targetHeight = htmlEl.scrollHeight;
+    htmlEl.style.transition = `height ${EXPAND_DURATION}ms ${EXPAND_EASING}, opacity ${EXPAND_DURATION}ms ease`;
+    // Force reflow
+    void htmlEl.offsetHeight;
+    htmlEl.style.height = `${targetHeight}px`;
+    htmlEl.style.opacity = "1";
+    htmlEl.addEventListener("transitionend", function handler(e) {
+        if (e.propertyName !== "height") return;
+        htmlEl.removeEventListener("transitionend", handler);
+        done();
+    });
+}
+
+function onAfterEnter(el: Element) {
+    const htmlEl = el as HTMLElement;
+    htmlEl.style.height = "";
+    htmlEl.style.transition = "";
+    htmlEl.style.opacity = "";
+    htmlEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function onBeforeLeave(el: Element) {
+    const htmlEl = el as HTMLElement;
     openPopoverIndex.value = null;
+    htmlEl.style.height = `${htmlEl.scrollHeight}px`;
+    // Force reflow
+    void htmlEl.offsetHeight;
+}
+
+function onLeave(el: Element, done: () => void) {
+    const htmlEl = el as HTMLElement;
+    htmlEl.style.transition = `height ${COLLAPSE_DURATION}ms ${COLLAPSE_EASING}, opacity ${COLLAPSE_DURATION}ms ease`;
+    // Force reflow
+    void htmlEl.offsetHeight;
+    htmlEl.style.height = "0";
+    htmlEl.style.opacity = "0";
+    htmlEl.addEventListener("transitionend", function handler(e) {
+        if (e.propertyName !== "height") return;
+        htmlEl.removeEventListener("transitionend", handler);
+        done();
+    });
+}
+
+function onAfterLeave(el: Element) {
+    const htmlEl = el as HTMLElement;
+    htmlEl.style.height = "";
+    htmlEl.style.transition = "";
+    htmlEl.style.opacity = "";
 }
 
 function submitRename() {
