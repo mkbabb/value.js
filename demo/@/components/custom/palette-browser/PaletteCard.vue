@@ -19,7 +19,11 @@
         <!-- Metadata row -->
         <div class="px-3 py-2.5 flex items-center justify-between gap-2 min-w-0">
             <div class="flex items-center gap-2 min-w-0">
-                <span class="fraunces text-lg truncate font-bold" :title="palette.name">{{ palette.name }}</span>
+                <span
+                    class="fraunces text-lg font-bold line-clamp-2 sm:line-clamp-1"
+                    :title="palette.name"
+                    @click.stop="toggleMenu"
+                >{{ palette.name }}</span>
                 <Badge v-if="palette.status === 'featured'" variant="default" class="fira-code text-xs shrink-0 gap-1">
                     <Award class="w-3 h-3" />
                     Featured
@@ -42,111 +46,90 @@
                 </button>
             </div>
 
-            <!-- Actions (always visible on mobile, hover-reveal on desktop) -->
+            <!-- Hamburger menu trigger -->
             <div
                 class="flex items-center gap-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
                 @click.stop
             >
-                <TooltipProvider :delay-duration="200">
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <button
-                                class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
-                                @click="emit('apply', palette)"
-                            >
-                                <Pipette class="w-4 h-4" />
-                            </button>
-                        </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Apply palette</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                <button
+                    ref="menuTriggerRef"
+                    class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                    @click="toggleMenu"
+                    @pointerenter="onMenuTriggerEnter"
+                    @pointerleave="onMenuTriggerLeave"
+                >
+                    <MoreHorizontal class="w-4 h-4" />
+                </button>
 
-                <TooltipProvider :delay-duration="200">
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <button
-                                class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
-                                @click="copyAllColors"
-                            >
-                                <ClipboardCopy class="w-4 h-4" />
-                            </button>
-                        </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Copy all colors</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                <!-- Floating menu panel -->
+                <Teleport to="body">
+                    <div
+                        v-if="menuOpen"
+                        class="card-menu-panel"
+                        :style="menuStyle"
+                        @pointerenter="onMenuPanelEnter"
+                        @pointerleave="onMenuPanelLeave"
+                        @click.stop
+                    >
+                        <!-- Full palette name as header -->
+                        <div class="px-3 py-1.5 fraunces text-sm font-bold text-foreground border-b border-border truncate max-w-[200px]">
+                            {{ palette.name }}
+                        </div>
 
-                <TooltipProvider :delay-duration="200" v-if="palette.isLocal">
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <button
-                                class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
-                                @click="emit('delete', palette)"
-                            >
-                                <Trash2 class="w-4 h-4 text-destructive" />
-                            </button>
-                        </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Delete</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                        <button class="card-menu-item" @click="onMenuAction(() => emit('apply', palette))">
+                            <Pipette class="w-4 h-4" />
+                            <span>Apply palette</span>
+                        </button>
+                        <button class="card-menu-item" @click="onMenuAction(() => copyAllColors())">
+                            <ClipboardCopy class="w-4 h-4" />
+                            <span>Copy all colors</span>
+                        </button>
 
-                <TooltipProvider :delay-duration="200" v-if="palette.isLocal">
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <button
-                                class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
-                                @click="emit('publish', palette)"
-                            >
+                        <template v-if="palette.isLocal">
+                            <button class="card-menu-item" @click="onMenuAction(() => emit('publish', palette))">
                                 <Globe class="w-4 h-4" />
+                                <span>Publish</span>
                             </button>
-                        </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Publish</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                            <button class="card-menu-item text-destructive" @click="onMenuAction(() => emit('delete', palette))">
+                                <Trash2 class="w-4 h-4" />
+                                <span>Delete</span>
+                            </button>
+                        </template>
 
-                <TooltipProvider :delay-duration="200" v-if="!palette.isLocal">
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <button
-                                class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
-                                @click="emit('save', palette)"
-                            >
+                        <template v-if="!palette.isLocal">
+                            <button class="card-menu-item" @click="onMenuAction(() => emit('save', palette))">
                                 <Bookmark class="w-4 h-4" />
+                                <span>Save locally</span>
                             </button>
-                        </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">Save locally</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                        </template>
 
-                <!-- Rename (owner only, remote palettes) -->
-                <Popover v-if="!palette.isLocal && isOwned">
-                    <TooltipProvider :delay-duration="200">
-                        <Tooltip>
-                            <PopoverTrigger as-child>
-                                <TooltipTrigger as-child>
-                                    <button
-                                        class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
-                                    >
-                                        <Pencil class="w-4 h-4" />
-                                    </button>
-                                </TooltipTrigger>
-                            </PopoverTrigger>
-                            <TooltipContent class="fira-code text-xs">Rename</TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                    <PopoverContent class="w-64 p-3" @click.stop>
-                        <form class="flex gap-2" @submit.prevent="submitRename">
-                            <Input
-                                v-model="renameValue"
-                                placeholder="New name..."
-                                class="fira-code text-sm h-8"
-                            />
-                            <Button type="submit" size="sm" variant="default" class="shrink-0 h-8">
-                                <Check class="w-4 h-4" />
-                            </Button>
-                        </form>
-                    </PopoverContent>
-                </Popover>
+                        <template v-if="!palette.isLocal && isOwned">
+                            <button class="card-menu-item" @click="startRenaming">
+                                <Pencil class="w-4 h-4" />
+                                <span>Rename</span>
+                            </button>
+                        </template>
+                    </div>
+                </Teleport>
             </div>
+        </div>
+
+        <!-- Inline rename input -->
+        <div v-if="renaming" class="px-3 pb-2" @click.stop>
+            <form class="flex gap-2" @submit.prevent="submitRename">
+                <Input
+                    v-model="renameValue"
+                    placeholder="New name..."
+                    class="fira-code text-sm h-8"
+                    autofocus
+                />
+                <Button type="submit" size="sm" variant="default" class="shrink-0 h-8">
+                    <Check class="w-4 h-4" />
+                </Button>
+                <Button type="button" size="sm" variant="ghost" class="shrink-0 h-8" @click="renaming = false">
+                    Cancel
+                </Button>
+            </form>
         </div>
 
         <!-- Expandable detail: color swatches -->
@@ -200,7 +183,7 @@
                                 :color="color.css"
                                 tag="button"
                                 class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer"
-                                @click="onSwatchClick(i)"
+                                @click.stop="onSwatchClick(i)"
                             />
                             <Teleport to="body">
                                 <div
@@ -231,17 +214,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, nextTick } from "vue";
+import { ref, reactive, nextTick, onUnmounted } from "vue";
 import { Badge } from "@components/ui/badge";
 import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@components/ui/tooltip";
 import {
     Pipette,
     ClipboardCopy,
@@ -253,10 +230,11 @@ import {
     Pencil,
     Check,
     Plus,
+    MoreHorizontal,
 } from "lucide-vue-next";
 import type { PaletteColor } from "@lib/palette/types";
-import { toast } from "vue-sonner";
 import type { Palette } from "@lib/palette/types";
+import { copyToClipboard } from "@composables/useClipboard";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 
 const props = defineProps<{
@@ -277,6 +255,90 @@ const emit = defineEmits<{
     editColor: [palette: Palette, colorIndex: number, css: string];
     addColor: [css: string];
 }>();
+
+// --- Hamburger menu ---
+const menuOpen = ref(false);
+const menuTriggerRef = ref<HTMLElement | null>(null);
+const menuStyle = reactive({ top: "0px", left: "0px" });
+let menuLeaveTimer: ReturnType<typeof setTimeout> | null = null;
+const renaming = ref(false);
+
+function positionMenu() {
+    if (!menuTriggerRef.value) return;
+    const rect = menuTriggerRef.value.getBoundingClientRect();
+    menuStyle.top = `${rect.bottom + 4}px`;
+    menuStyle.left = `${rect.right}px`;
+}
+
+function toggleMenu() {
+    cancelMenuLeave();
+    if (menuOpen.value) {
+        menuOpen.value = false;
+    } else {
+        menuOpen.value = true;
+        nextTick(positionMenu);
+    }
+}
+
+function onMenuTriggerEnter(e: PointerEvent) {
+    if (!canHover || e.pointerType === "touch") return;
+    cancelMenuLeave();
+    menuOpen.value = true;
+    nextTick(positionMenu);
+}
+
+function onMenuTriggerLeave(e: PointerEvent) {
+    if (!canHover || e.pointerType === "touch") return;
+    scheduleMenuLeave();
+}
+
+function onMenuPanelEnter() {
+    cancelMenuLeave();
+}
+
+function onMenuPanelLeave() {
+    if (!canHover) return;
+    scheduleMenuLeave();
+}
+
+function scheduleMenuLeave() {
+    cancelMenuLeave();
+    menuLeaveTimer = setTimeout(() => {
+        menuOpen.value = false;
+    }, 250);
+}
+
+function cancelMenuLeave() {
+    if (menuLeaveTimer) {
+        clearTimeout(menuLeaveTimer);
+        menuLeaveTimer = null;
+    }
+}
+
+function onMenuAction(action: () => void) {
+    menuOpen.value = false;
+    action();
+}
+
+function startRenaming() {
+    menuOpen.value = false;
+    renaming.value = true;
+    renameValue.value = props.palette.name;
+}
+
+// Close menu on outside click
+function onDocClick() {
+    if (menuOpen.value) menuOpen.value = false;
+}
+if (typeof document !== "undefined") {
+    document.addEventListener("click", onDocClick, { passive: true });
+}
+onUnmounted(() => {
+    if (typeof document !== "undefined") {
+        document.removeEventListener("click", onDocClick);
+    }
+    cancelMenuLeave();
+});
 
 const openPopoverIndex = ref<number | null>(null);
 let hoverCloseTimer: ReturnType<typeof setTimeout> | null = null;
@@ -306,6 +368,7 @@ function onSwatchHover(index: number, e: PointerEvent) {
 }
 
 function onSwatchClick(index: number) {
+    cancelSwatchLeave();
     // Toggle on click for hover devices as a fallback
     if (openPopoverIndex.value === index) {
         openPopoverIndex.value = null;
@@ -414,25 +477,61 @@ function submitRename() {
     if (name && name !== props.palette.name) {
         emit("rename", props.palette, name);
     }
+    renaming.value = false;
 }
 
 function copyColor(css: string) {
-    navigator.clipboard.writeText(css).then(
-        () => toast.success(`Copied ${css}`),
-        () => toast.error("Failed to copy"),
-    );
+    copyToClipboard(css);
 }
 
 function copyAllColors() {
     const text = props.palette.colors.map((c) => c.css).join(", ");
-    navigator.clipboard.writeText(text).then(
-        () => toast.success("Copied all colors"),
-        () => toast.error("Failed to copy"),
-    );
+    copyToClipboard(text, "Copied all colors");
 }
 </script>
 
 <style scoped>
+.card-menu-panel {
+    position: fixed;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+    border-radius: var(--radius-md);
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--popover));
+    color: hsl(var(--popover-foreground));
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.15), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    pointer-events: auto;
+    animation: card-menu-in 0.15s ease-out;
+    overflow: hidden;
+}
+.card-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    width: 100%;
+    text-align: left;
+}
+.card-menu-item:hover {
+    background-color: hsl(var(--accent));
+}
+@keyframes card-menu-in {
+    from {
+        opacity: 0;
+        transform: translateX(-100%) translateY(-4px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-100%) translateY(0) scale(1);
+    }
+}
+
 .swatch-floating-panel {
     position: fixed;
     z-index: 50;

@@ -1,6 +1,42 @@
 import { ref, onUnmounted } from "vue";
 
 /**
+ * Shared global touchstart listener registry.
+ * Instead of each useTouchGate() instance adding its own global listener,
+ * all instances register a proxy with a single shared listener.
+ */
+interface GateProxy {
+    isActive: () => boolean;
+    controlEl: () => HTMLElement | null;
+    deactivate: () => void;
+}
+
+const gateRegistry = new Set<GateProxy>();
+let sharedListenerInstalled = false;
+
+function onGlobalTouchStartShared(e: TouchEvent) {
+    for (const proxy of gateRegistry) {
+        if (!proxy.isActive()) continue;
+        const el = proxy.controlEl();
+        if (el && !el.contains(e.target as Node)) {
+            proxy.deactivate();
+        }
+    }
+}
+
+function installSharedListener() {
+    if (sharedListenerInstalled) return;
+    document.addEventListener("touchstart", onGlobalTouchStartShared, { passive: true });
+    sharedListenerInstalled = true;
+}
+
+function uninstallSharedListener() {
+    if (gateRegistry.size > 0 || !sharedListenerInstalled) return;
+    document.removeEventListener("touchstart", onGlobalTouchStartShared);
+    sharedListenerInstalled = false;
+}
+
+/**
  * Per-control tap-to-activate pattern for mobile touch.
  *
  * - Desktop (no `ontouchstart`): always active — no gating.
@@ -9,7 +45,7 @@ import { ref, onUnmounted } from "vue";
  *   If no scroll is detected, activates after 150ms.
  * - Mobile subsequent touch while active: interaction passes through.
  * - After `deactivateDelayMs` of no touch, deactivates.
- * - Tapping outside the control deactivates (global `touchstart` listener).
+ * - Tapping outside the control deactivates (shared global `touchstart` listener).
  */
 export function useTouchGate(deactivateDelayMs = 3000) {
     const isActive = ref(false);
@@ -122,23 +158,24 @@ export function useTouchGate(deactivateDelayMs = 3000) {
         }
     }
 
-    // Global listener: tap outside the control deactivates
-    function onGlobalTouchStart(e: TouchEvent) {
-        if (!isActive.value || !controlEl) return;
-        if (!controlEl.contains(e.target as Node)) {
-            deactivate();
-        }
-    }
+    // Register with shared global listener instead of adding our own
+    const proxy: GateProxy = {
+        isActive: () => isActive.value,
+        controlEl: () => controlEl,
+        deactivate,
+    };
 
     if (isTouchDevice) {
-        document.addEventListener("touchstart", onGlobalTouchStart, { passive: true });
+        gateRegistry.add(proxy);
+        installSharedListener();
     }
 
     onUnmounted(() => {
         clearDeactivateTimer();
         clearPendingTimer();
         if (isTouchDevice) {
-            document.removeEventListener("touchstart", onGlobalTouchStart);
+            gateRegistry.delete(proxy);
+            uninstallSharedListener();
         }
         if (controlEl) {
             controlEl.style.touchAction = "";

@@ -1,5 +1,5 @@
 import { computed, ref, type ShallowRef } from "vue";
-import { toast } from "vue-sonner";
+import { copyToClipboard } from "./useClipboard";
 import { debounce } from "@src/utils";
 import { clamp } from "@src/math";
 import { parseCSSColor } from "@src/parsing/color";
@@ -337,26 +337,7 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
         updateModel({ savedColors: parsed });
     }
 
-    // --- Clipboard ---
-
-    const copyToClipboard = (text: string) => {
-        if (!navigator.clipboard) {
-            toast.error("Clipboard API not supported");
-            return;
-        }
-        if (!text) {
-            toast.error("No text to copy");
-            return;
-        }
-        navigator.clipboard
-            .writeText(text)
-            .then(() => {
-                toast.success(`Copied ${text} to clipboard 📋`);
-            })
-            .catch((err) => {
-                toast.error("Could not copy to clipboard: " + err);
-            });
-    };
+    // --- Clipboard (re-exported from useClipboard) ---
 
     return {
         // Model

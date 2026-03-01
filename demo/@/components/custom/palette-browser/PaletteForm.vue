@@ -91,8 +91,8 @@ import {
 } from "@components/ui/tooltip";
 import { Globe, Loader2 } from "lucide-vue-next";
 import { slugify } from "@lib/palette/utils";
-import { toast } from "vue-sonner";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { copyToClipboard } from "@composables/useClipboard";
 
 const props = defineProps<{
     colors: string[];
@@ -112,10 +112,7 @@ const slugPreview = computed(() => (name.value ? slugify(name.value) : ""));
 const canSave = computed(() => name.value.trim().length > 0 && props.colors.length > 0);
 
 function copyColor(css: string) {
-    navigator.clipboard.writeText(css).then(
-        () => toast.success(`Copied ${css}`),
-        () => toast.error("Failed to copy"),
-    );
+    copyToClipboard(css);
 }
 
 function onSave() {

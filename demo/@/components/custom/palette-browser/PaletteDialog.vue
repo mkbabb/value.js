@@ -58,10 +58,14 @@
                                 placeholder="Search palettes..."
                                 class="fira-code text-sm sm:text-base h-9 sm:h-10 focus-visible:ring-0 focus-visible:ring-offset-0 min-w-0 flex-1"
                             />
-                            <!-- Sort controls (browse tab only) -->
-                            <Transition name="sort-reveal">
+                            <!-- Sort controls (browse tab only — always reserves layout space) -->
+                            <div
+                                :class="[
+                                    'shrink-0 transition-[visibility,opacity] duration-200',
+                                    activeTab === 'browse' ? 'visible opacity-100' : 'invisible opacity-0',
+                                ]"
+                            >
                             <ToggleGroup
-                                v-if="activeTab === 'browse'"
                                 type="single"
                                 :model-value="sortMode"
                                 @update:model-value="onSortChange"
@@ -88,7 +92,7 @@
                                     </Tooltip>
                                 </TooltipProvider>
                             </ToggleGroup>
-                            </Transition>
+                            </div>
                         </div>
                     </div>
 
@@ -153,7 +157,7 @@
                                                     :color="color"
                                                     tag="button"
                                                     class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
-                                                    @click="onCurrentSwatchClick(i)"
+                                                    @click.stop="onCurrentSwatchClick(i)"
                                                 />
                                                 <Teleport to="body">
                                                     <div
@@ -322,6 +326,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover"
 import { Loader2, Clock, TrendingUp, Shield, Plus, Pencil, ClipboardCopy, Trash2 } from "lucide-vue-next";
 import { createSlug } from "@lib/palette/utils";
 import { toast } from "vue-sonner";
+import { copyToClipboard } from "@composables/useClipboard";
 import { usePaletteStore } from "@composables/usePaletteStore";
 import { useSession } from "@composables/useSession";
 import { useAdminAuth } from "@composables/useAdminAuth";
@@ -437,6 +442,7 @@ function onCurrentSwatchHover(index: number, e: PointerEvent) {
 }
 
 function onCurrentSwatchClick(index: number) {
+    cancelCurrentSwatchLeave();
     if (currentSwatchPopoverIndex.value === index) {
         currentSwatchPopoverIndex.value = null;
     } else {
@@ -490,10 +496,7 @@ function saveCurrentPalette() {
 }
 
 function copyColor(css: string) {
-    navigator.clipboard.writeText(css).then(
-        () => toast.success(`Copied ${css}`),
-        () => toast.error("Failed to copy"),
-    );
+    copyToClipboard(css);
 }
 
 function onEditColor(palette: Palette, colorIndex: number, css: string) {
@@ -537,10 +540,7 @@ function onDotClick(e: MouseEvent) {
         activeTab.value = "admin";
         return;
     }
-    navigator.clipboard.writeText(props.cssColorOpaque).then(
-        () => toast.success(`Copied ${props.cssColorOpaque}`),
-        () => toast.error("Failed to copy"),
-    );
+    copyToClipboard(props.cssColorOpaque);
 }
 
 const filteredSaved = computed(() => {
@@ -607,7 +607,7 @@ async function onCreateAndPublish(name: string) {
     try {
         await session.ensureSession();
     } catch {
-        toast.error("Failed to create session");
+        toast.error("Failed to create session — check your network connection");
         return;
     }
     const palette = createPalette(name, colorsFromStrings(props.savedColorStrings));
@@ -619,8 +619,13 @@ async function onCreateAndPublish(name: string) {
         });
         session.markOwned(palette.slug);
         toast.success(`Published "${name}"`);
-    } catch (e) {
-        toast.error("Failed to publish palette");
+    } catch (e: any) {
+        const msg = e?.message ?? "";
+        if (msg.includes("409") || msg.includes("duplicate") || msg.includes("conflict")) {
+            toast.error(`A palette named "${name}" already exists — try a different name`);
+        } else {
+            toast.error(`Failed to publish: ${msg || "unknown error"}`);
+        }
     }
 }
 
@@ -638,7 +643,7 @@ async function onPublish(palette: Palette) {
     try {
         await session.ensureSession();
     } catch {
-        toast.error("Failed to create session");
+        toast.error("Failed to create session — check your network connection");
         return;
     }
     try {
@@ -649,8 +654,13 @@ async function onPublish(palette: Palette) {
         });
         session.markOwned(palette.slug);
         toast.success(`Published "${palette.name}"`);
-    } catch (e) {
-        toast.error("Failed to publish palette");
+    } catch (e: any) {
+        const msg = e?.message ?? "";
+        if (msg.includes("409") || msg.includes("duplicate") || msg.includes("conflict")) {
+            toast.error(`"${palette.name}" is already published`);
+        } else {
+            toast.error(`Failed to publish: ${msg || "unknown error"}`);
+        }
     }
 }
 

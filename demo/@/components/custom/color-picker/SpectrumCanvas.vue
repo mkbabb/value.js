@@ -10,6 +10,7 @@
         @pointermove="handleSpectrumMove"
         @pointerup="stopDragging"
         @pointercancel="stopDragging"
+        @lostpointercapture="onLostPointerCapture"
         @touchmove.passive="(e: TouchEvent) => spectrumGate.handleScrollCheck(e)"
     >
         <WatercolorDot
@@ -48,30 +49,46 @@ const isDragging = ref(false);
 const spectrumRef = useTemplateRef<HTMLElement>("spectrumRef");
 const spectrumGate = useTouchGate();
 
-// rAF-based throttled spectrum update
-let pendingSpectrumEvent: PointerEvent | null = null;
+// Pointer capture tracking
+let capturedPointerId: number | null = null;
+let capturedElement: HTMLElement | null = null;
+
+function releaseCapture() {
+    if (capturedPointerId !== null && capturedElement !== null) {
+        try {
+            capturedElement.releasePointerCapture(capturedPointerId);
+        } catch {
+            // Element may be detached — safe to ignore
+        }
+    }
+    capturedPointerId = null;
+    capturedElement = null;
+}
+
+// rAF-based throttled spectrum update — store only primitive coords
+let pendingCoords: { clientX: number; clientY: number } | null = null;
 let spectrumRafId: ReturnType<typeof requestAnimationFrame> | null = null;
 
 const scheduleSpectrumUpdate = (event: PointerEvent) => {
-    pendingSpectrumEvent = event;
+    pendingCoords = { clientX: event.clientX, clientY: event.clientY };
     if (spectrumRafId === null) {
         spectrumRafId = requestAnimationFrame(() => {
             spectrumRafId = null;
-            if (pendingSpectrumEvent) {
-                updateSpectrumColor(pendingSpectrumEvent);
-                pendingSpectrumEvent = null;
+            if (pendingCoords) {
+                updateSpectrumColor(pendingCoords);
+                pendingCoords = null;
             }
         });
     }
 };
 
-const updateSpectrumColor = (event: PointerEvent) => {
+const updateSpectrumColor = (coords: { clientX: number; clientY: number }) => {
     if (!spectrumRef.value) return;
     const rect = spectrumRef.value.getBoundingClientRect();
     if (rect.width === 0 || rect.height === 0) return;
 
-    const x = clamp(event.clientX - rect.left, 0, rect.width);
-    const y = clamp(event.clientY - rect.top, 0, rect.height);
+    const x = clamp(coords.clientX - rect.left, 0, rect.width);
+    const y = clamp(coords.clientY - rect.top, 0, rect.height);
 
     const s = x / rect.width;
     const v = 1 - y / rect.height;
@@ -87,9 +104,12 @@ const handleSpectrumDown = (event: PointerEvent) => {
     if (spectrumGate.isTouchDevice && spectrumRef.value) {
         if (!spectrumGate.handleTouchStart(spectrumRef.value, event.clientY)) return;
     }
-    (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
+    const el = event.currentTarget as HTMLElement;
+    el.setPointerCapture(event.pointerId);
+    capturedPointerId = event.pointerId;
+    capturedElement = el;
     isDragging.value = true;
-    updateSpectrumColor(event);
+    updateSpectrumColor({ clientX: event.clientX, clientY: event.clientY });
 };
 
 const handleSpectrumMove = (event: PointerEvent) => {
@@ -102,11 +122,20 @@ const handleSpectrumMove = (event: PointerEvent) => {
     }
 };
 
+const onLostPointerCapture = () => {
+    capturedPointerId = null;
+    capturedElement = null;
+    if (isDragging.value) {
+        stopDragging();
+    }
+};
+
 const stopDragging = () => {
+    releaseCapture();
     spectrumGate.handleTouchEnd();
-    if (pendingSpectrumEvent) {
-        updateSpectrumColor(pendingSpectrumEvent);
-        pendingSpectrumEvent = null;
+    if (pendingCoords) {
+        updateSpectrumColor(pendingCoords);
+        pendingCoords = null;
     }
     if (spectrumRafId !== null) {
         cancelAnimationFrame(spectrumRafId);
@@ -152,11 +181,12 @@ const spectrumDotStyle = computed(() => {
 });
 
 onUnmounted(() => {
+    releaseCapture();
     if (spectrumRafId !== null) {
         cancelAnimationFrame(spectrumRafId);
         spectrumRafId = null;
     }
-    pendingSpectrumEvent = null;
+    pendingCoords = null;
 });
 </script>
 

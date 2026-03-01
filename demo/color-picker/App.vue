@@ -139,7 +139,7 @@
         </div>
     </div>
 
-    <!-- Toaster disabled for now — toast() calls are no-ops without it -->
+    <Sonner position="bottom-center" :rich-colors="true" />
 </template>
 
 <script setup lang="ts">
@@ -169,7 +169,8 @@ import {
     createDefaultColorModel,
 } from "@components/custom/color-picker";
 import { useDark, useStorage } from "@vueuse/core";
-import { toast } from "vue-sonner";
+import { Toaster as Sonner } from "@components/ui/sonner";
+import { copyToClipboard } from "@composables/useClipboard";
 import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { DocModule } from "@components/custom/markdown";
@@ -220,19 +221,7 @@ const resetToDefaults = () => {
 };
 
 // Share link — copies current URL to clipboard
-const shareLink = async () => {
-    try {
-        await navigator.clipboard.writeText(window.location.href);
-    } catch {
-        const input = document.createElement("input");
-        input.value = window.location.href;
-        document.body.appendChild(input);
-        input.select();
-        document.execCommand("copy");
-        document.body.removeChild(input);
-    }
-    toast("Link copied", { description: "Color link copied to clipboard" });
-};
+const shareLink = () => copyToClipboard(window.location.href, "Link copied");
 
 // Watch color changes for storage sync
 watch(() => model.value.color, (color) => {

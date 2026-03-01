@@ -68,7 +68,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref, watchEffect } from "vue";
+import { inject, ref, watch, nextTick } from "vue";
 import Label from "@components/ui/label/Label.vue";
 import {
     Tooltip,
@@ -108,9 +108,14 @@ for (const comp of ALL_COMPONENTS) {
 }
 const sliderWrapperEls = ref<Record<string, HTMLElement>>({});
 
-// Capture-phase listeners on slider wrappers to intercept reka-ui's pointerdown
-watchEffect((onCleanup) => {
-    const cleanups: (() => void)[] = [];
+// Capture-phase listeners on slider wrappers to intercept reka-ui's pointerdown.
+// Only re-attach when color space changes (not on every reactive tick).
+let listenerCleanups: (() => void)[] = [];
+
+function attachSliderListeners() {
+    // Clean up old listeners first
+    listenerCleanups.forEach((fn) => fn());
+    listenerCleanups = [];
 
     for (const [component, el] of Object.entries(sliderWrapperEls.value)) {
         const gate = sliderGates[component];
@@ -136,13 +141,16 @@ watchEffect((onCleanup) => {
         el.addEventListener("touchmove", onTouchMove, { passive: true });
         el.addEventListener("touchend", onTouchEnd, { passive: true });
 
-        cleanups.push(() => {
+        listenerCleanups.push(() => {
             el.removeEventListener("pointerdown", onPointerDown, { capture: true });
             el.removeEventListener("touchmove", onTouchMove);
             el.removeEventListener("touchend", onTouchEnd);
         });
     }
+}
 
-    onCleanup(() => cleanups.forEach((fn) => fn()));
-});
+// Re-attach listeners when color space changes (which re-renders the slider list)
+watch(currentColorSpace, () => {
+    nextTick(attachSliderListeners);
+}, { immediate: true });
 </script>

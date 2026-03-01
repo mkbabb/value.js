@@ -1,19 +1,19 @@
 <template>
     <Teleport to="body">
         <Transition name="edit-drawer">
-            <div v-if="editTarget" class="edit-drawer p-4 flex flex-col gap-3">
+            <div v-if="editTarget" class="edit-drawer p-4 flex flex-col gap-3 items-center">
                 <p class="fira-code text-xs text-muted-foreground uppercase tracking-wider">Editing color</p>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center justify-center gap-2">
                     <WatercolorDot
                         :color="editTarget.originalCss"
                         tag="div"
-                        class="w-10 h-10 shrink-0 opacity-60"
+                        class="w-14 h-14 shrink-0 opacity-60"
                     />
                     <span class="text-muted-foreground text-xs">&rarr;</span>
                     <WatercolorDot
                         :color="cssColorOpaque"
                         tag="div"
-                        class="w-10 h-10 shrink-0 ring-2 ring-primary/50"
+                        class="w-14 h-14 shrink-0 ring-2 ring-primary/50"
                     />
                 </div>
                 <div class="flex gap-6 mt-2 justify-center w-full">
@@ -21,7 +21,7 @@
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <Check
-                                    class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                    class="h-14 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
                                     @click="emit('commit')"
                                 />
                             </TooltipTrigger>
@@ -32,7 +32,7 @@
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <Undo2
-                                    class="h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                    class="h-14 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
                                     @click="emit('cancel')"
                                 />
                             </TooltipTrigger>
