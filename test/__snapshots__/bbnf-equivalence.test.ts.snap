@@ -635,7 +635,7 @@ exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("lch(50, 30, 120)") 1`]
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("linear-gradient(90deg, #000, #fff)") 1`] = `"linear-gradient(90deg, rgb(0 0 0 / 1), rgb(255 255 255 / 1))"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("linear-gradient(to right, red, blue)") 1`] = `"linear-gradient(100%, right, rgb(255 0 0 / 1), rgb(0 0 255 / 1))"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("linear-gradient(to right, red, blue)") 1`] = `"linear-gradient(90deg, rgb(255 0 0 / 1), rgb(0 0 255 / 1))"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("none") 1`] = `
 {
