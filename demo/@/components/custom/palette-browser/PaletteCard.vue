@@ -162,7 +162,8 @@
                         @pointerenter="onSwatchHover(i, $event)"
                         @pointerleave="onSwatchLeave()"
                     >
-                        <Popover :open="openPopoverIndex === i" @update:open="(v: boolean) => onPopoverUpdate(v, i)">
+                        <!-- Touch: native Popover click toggle. Hover: manually controlled. -->
+                        <Popover v-if="!canHover" :open="openPopoverIndex === i" @update:open="(v: boolean) => onPopoverUpdateTouch(v, i)">
                             <PopoverTrigger as-child>
                                 <WatercolorDot
                                     :color="color.css"
@@ -173,8 +174,6 @@
                             <PopoverContent
                                 class="w-auto p-1.5 flex items-center gap-1"
                                 :side-offset="8"
-                                @pointerenter="cancelSwatchLeave()"
-                                @pointerleave="onSwatchLeave()"
                             >
                                 <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
                                     <Plus class="w-4 h-4" />
@@ -187,6 +186,36 @@
                                 </button>
                             </PopoverContent>
                         </Popover>
+
+                        <!-- Hover: no Popover wrapper — just the dot + a floating panel -->
+                        <template v-else>
+                            <WatercolorDot
+                                :color="color.css"
+                                tag="button"
+                                class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer"
+                                @click="onSwatchClick(i)"
+                            />
+                            <Teleport to="body">
+                                <div
+                                    v-if="openPopoverIndex === i"
+                                    ref="floatingPanelRefs"
+                                    class="swatch-floating-panel"
+                                    :style="floatingStyle"
+                                    @pointerenter="cancelSwatchLeave()"
+                                    @pointerleave="onSwatchLeave()"
+                                >
+                                    <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                        <Plus class="w-4 h-4" />
+                                    </button>
+                                    <button @click="onPopoverEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                        <Pencil class="w-4 h-4" />
+                                    </button>
+                                    <button @click="onPopoverCopy(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                        <ClipboardCopy class="w-4 h-4" />
+                                    </button>
+                                </div>
+                            </Teleport>
+                        </template>
                     </div>
                 </div>
             </div>
@@ -195,7 +224,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, reactive, nextTick } from "vue";
 import { Badge } from "@components/ui/badge";
 import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
@@ -246,28 +275,43 @@ const openPopoverIndex = ref<number | null>(null);
 let hoverCloseTimer: ReturnType<typeof setTimeout> | null = null;
 const canHover = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
-function onPopoverUpdate(open: boolean, index: number) {
-    // On touch devices, let click toggle normally
-    if (!canHover) {
-        openPopoverIndex.value = open ? index : null;
-    }
-    // On hover devices, only allow close from popover internals (e.g. Escape, outside click)
-    if (canHover && !open) {
-        openPopoverIndex.value = null;
-    }
+// Floating panel positioning (hover devices only)
+const floatingStyle = reactive({ top: "0px", left: "0px" });
+const floatingPanelRefs = ref<HTMLElement[]>([]);
+
+function positionFloatingPanel(swatchEl: Element) {
+    const rect = swatchEl.getBoundingClientRect();
+    floatingStyle.top = `${rect.top - 42}px`;
+    floatingStyle.left = `${rect.left + rect.width / 2}px`;
 }
 
+// Touch: let Popover handle open/close natively
+function onPopoverUpdateTouch(open: boolean, index: number) {
+    openPopoverIndex.value = open ? index : null;
+}
+
+// Hover: pointer events drive everything, no Popover involved
 function onSwatchHover(index: number, e: PointerEvent) {
     if (!canHover || e.pointerType === "touch") return;
     cancelSwatchLeave();
     openPopoverIndex.value = index;
+    nextTick(() => positionFloatingPanel(e.currentTarget as Element));
+}
+
+function onSwatchClick(index: number) {
+    // Toggle on click for hover devices as a fallback
+    if (openPopoverIndex.value === index) {
+        openPopoverIndex.value = null;
+    } else {
+        openPopoverIndex.value = index;
+    }
 }
 
 function onSwatchLeave() {
     if (!canHover) return;
     hoverCloseTimer = setTimeout(() => {
         openPopoverIndex.value = null;
-    }, 200);
+    }, 250);
 }
 
 function cancelSwatchLeave() {
@@ -325,3 +369,33 @@ function copyAllColors() {
     );
 }
 </script>
+
+<style scoped>
+.swatch-floating-panel {
+    position: fixed;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.375rem;
+    border-radius: var(--radius-md);
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--popover));
+    color: hsl(var(--popover-foreground));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%);
+    pointer-events: auto;
+    animation: swatch-panel-in 0.15s ease-out;
+}
+
+@keyframes swatch-panel-in {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(4px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+</style>

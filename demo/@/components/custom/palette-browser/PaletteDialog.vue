@@ -118,9 +118,11 @@
                                             @pointerenter="onCurrentSwatchHover(i, $event)"
                                             @pointerleave="onCurrentSwatchLeave()"
                                         >
+                                            <!-- Touch: native Popover click toggle -->
                                             <Popover
+                                                v-if="!canHover"
                                                 :open="currentSwatchPopoverIndex === i"
-                                                @update:open="(v: boolean) => onCurrentSwatchPopoverUpdate(v, i)"
+                                                @update:open="(v: boolean) => onCurrentSwatchPopoverUpdateTouch(v, i)"
                                             >
                                                 <PopoverTrigger as-child>
                                                     <WatercolorDot
@@ -132,8 +134,6 @@
                                                 <PopoverContent
                                                     class="w-auto p-1.5 flex items-center gap-1"
                                                     :side-offset="8"
-                                                    @pointerenter="cancelCurrentSwatchLeave()"
-                                                    @pointerleave="onCurrentSwatchLeave()"
                                                 >
                                                     <button @click="onCurrentSwatchEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
                                                         <Pencil class="w-4 h-4" />
@@ -146,6 +146,35 @@
                                                     </button>
                                                 </PopoverContent>
                                             </Popover>
+
+                                            <!-- Hover: manually positioned floating panel -->
+                                            <template v-else>
+                                                <WatercolorDot
+                                                    :color="color"
+                                                    tag="button"
+                                                    class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
+                                                    @click="onCurrentSwatchClick(i)"
+                                                />
+                                                <Teleport to="body">
+                                                    <div
+                                                        v-if="currentSwatchPopoverIndex === i"
+                                                        class="swatch-floating-panel"
+                                                        :style="currentFloatingStyle"
+                                                        @pointerenter="cancelCurrentSwatchLeave()"
+                                                        @pointerleave="onCurrentSwatchLeave()"
+                                                    >
+                                                        <button @click="onCurrentSwatchEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                                            <Pencil class="w-4 h-4" />
+                                                        </button>
+                                                        <button @click="onCurrentSwatchCopy(color)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                                            <ClipboardCopy class="w-4 h-4" />
+                                                        </button>
+                                                        <button @click="onCurrentSwatchRemove(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                                            <Trash2 class="w-4 h-4 text-destructive" />
+                                                        </button>
+                                                    </div>
+                                                </Teleport>
+                                            </template>
                                         </div>
                                         <!-- Add current color button -->
                                         <TooltipProvider key="__add__" :delay-duration="200">
@@ -272,7 +301,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, Transition, TransitionGroup } from "vue";
+import { ref, reactive, computed, watch, nextTick, Transition, TransitionGroup } from "vue";
 import {
     Dialog,
     DialogScrollContent,
@@ -385,26 +414,41 @@ const currentSwatchPopoverIndex = ref<number | null>(null);
 let currentSwatchHoverTimer: ReturnType<typeof setTimeout> | null = null;
 const canHover = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
-function onCurrentSwatchPopoverUpdate(open: boolean, index: number) {
-    if (!canHover) {
-        currentSwatchPopoverIndex.value = open ? index : null;
-    }
-    if (canHover && !open) {
-        currentSwatchPopoverIndex.value = null;
-    }
+// Floating panel positioning (hover devices only)
+const currentFloatingStyle = reactive({ top: "0px", left: "0px" });
+
+function positionCurrentFloatingPanel(el: Element) {
+    const rect = el.getBoundingClientRect();
+    currentFloatingStyle.top = `${rect.top - 42}px`;
+    currentFloatingStyle.left = `${rect.left + rect.width / 2}px`;
 }
 
+// Touch: let Popover handle open/close natively
+function onCurrentSwatchPopoverUpdateTouch(open: boolean, index: number) {
+    currentSwatchPopoverIndex.value = open ? index : null;
+}
+
+// Hover: pointer events drive everything
 function onCurrentSwatchHover(index: number, e: PointerEvent) {
     if (!canHover || e.pointerType === "touch") return;
     cancelCurrentSwatchLeave();
     currentSwatchPopoverIndex.value = index;
+    nextTick(() => positionCurrentFloatingPanel(e.currentTarget as Element));
+}
+
+function onCurrentSwatchClick(index: number) {
+    if (currentSwatchPopoverIndex.value === index) {
+        currentSwatchPopoverIndex.value = null;
+    } else {
+        currentSwatchPopoverIndex.value = index;
+    }
 }
 
 function onCurrentSwatchLeave() {
     if (!canHover) return;
     currentSwatchHoverTimer = setTimeout(() => {
         currentSwatchPopoverIndex.value = null;
-    }, 200);
+    }, 250);
 }
 
 function cancelCurrentSwatchLeave() {
@@ -653,3 +697,33 @@ async function onRename(palette: Palette, newName: string) {
     }
 }
 </script>
+
+<style scoped>
+.swatch-floating-panel {
+    position: fixed;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.375rem;
+    border-radius: var(--radius-md);
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--popover));
+    color: hsl(var(--popover-foreground));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%);
+    pointer-events: auto;
+    animation: swatch-panel-in 0.15s ease-out;
+}
+
+@keyframes swatch-panel-in {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(4px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+</style>
