@@ -85,20 +85,51 @@
                 <SpectrumCanvas />
                 <ComponentSliders />
 
-                <ColorInput ref="colorInputRef" :edit-target="editTarget" />
+                <div class="grid relative items-center">
+                    <ActionToolbar
+                        :inert="showInput || undefined"
+                        :class="[
+                            '[grid-area:1/1] pr-8 transition-[opacity,transform] duration-150',
+                            showInput ? 'opacity-0 -translate-y-1 pointer-events-none' : 'opacity-100 translate-y-0',
+                        ]"
+                        :css-color-opaque="cssColorOpaque"
+                        :can-propose-name="canProposeName"
+                        :is-editing="isEditing"
+                        :palette-active="paletteDialogOpen || isEditing"
+                        :propose-form-open="colorInputRef?.showProposeForm ?? false"
+                        @reset="emit('reset')"
+                        @copy="colorInputRef?.copyAndSetInputColor()"
+                        @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
+                        @open-palette="openPaletteDialog"
+                        @toggle-propose="colorInputRef && (colorInputRef.showProposeForm = !colorInputRef.showProposeForm)"
+                    />
+                    <ColorInput
+                        :inert="!showInput || undefined"
+                        ref="colorInputRef"
+                        :edit-target="editTarget"
+                        :class="[
+                            '[grid-area:1/1] pr-8 transition-[opacity,transform] duration-150',
+                            showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1 pointer-events-none',
+                        ]"
+                    />
 
-                <ActionToolbar
-                    :css-color-opaque="cssColorOpaque"
-                    :can-propose-name="canProposeName"
-                    :is-editing="isEditing"
-                    :palette-active="paletteDialogOpen || isEditing"
-                    :propose-form-open="colorInputRef?.showProposeForm ?? false"
-                    @reset="emit('reset')"
-                    @copy="colorInputRef?.copyAndSetInputColor()"
-                    @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
-                    @open-palette="openPaletteDialog"
-                    @toggle-propose="colorInputRef && (colorInputRef.showProposeForm = !colorInputRef.showProposeForm)"
-                />
+                    <TooltipProvider :delay-duration="300">
+                        <Tooltip>
+                            <TooltipTrigger as-child>
+                                <button
+                                    class="toggle-btn [grid-area:1/1] justify-self-end self-center z-10 p-1 rounded-sm text-muted-foreground transition-colors cursor-pointer"
+                                    :style="{ '--toggle-hover-color': cssColorOpaque }"
+                                    @click="showInput = !showInput"
+                                >
+                                    <component :is="showInput ? EllipsisVertical : Type" class="w-5 h-5" />
+                                </button>
+                            </TooltipTrigger>
+                            <TooltipContent side="left" class="text-xs">
+                                {{ showInput ? 'Actions' : 'Color input' }}
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                </div>
             </CardContent>
         </Card>
 
@@ -158,6 +189,13 @@ import { COLOR_MODEL_KEY } from "./keys";
 import { usePointerDebug } from "@composables/usePointerDebug";
 import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
 
+import { EllipsisVertical, Type } from "lucide-vue-next";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@components/ui/tooltip";
 import HeroBlob from "./HeroBlob.vue";
 import SpectrumCanvas from "./SpectrumCanvas.vue";
 import ComponentSliders from "./ComponentSliders.vue";
@@ -199,6 +237,7 @@ const {
 // --- Sub-component refs ---
 
 const colorInputRef = ref<InstanceType<typeof ColorInput> | null>(null);
+const showInput = ref(false);
 
 // --- Color space selector ---
 
@@ -338,3 +377,11 @@ onUnmounted(() => {
     if (updateColorComponentDebounced.cancel) updateColorComponentDebounced.cancel();
 });
 </script>
+
+<style scoped>
+@reference "../../../styles/style.css";
+
+.toggle-btn:hover {
+    color: var(--toggle-hover-color);
+}
+</style>

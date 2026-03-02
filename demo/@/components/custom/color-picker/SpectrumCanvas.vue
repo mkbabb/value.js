@@ -1,13 +1,18 @@
 <template>
     <div
         ref="spectrumRef"
-        class="spectrum-picker flex w-full h-48 cursor-crosshair relative"
+        :class="[
+            'spectrum-picker flex w-full h-48 lg:h-36 cursor-crosshair relative touch-gate-target',
+            spectrumGate.isActive.value && 'touch-gate-active',
+        ]"
         :style="spectrumStyle"
         @pointerdown="handleSpectrumDown"
         @pointermove="handleSpectrumMove"
         @pointerup="handleSpectrumUp"
         @pointercancel="handleSpectrumCancel"
         @lostpointercapture="onLostPointerCapture"
+        @touchmove.passive="spectrumGate.handleScrollCheck($event)"
+        @touchend.passive="spectrumGate.handleTouchEnd()"
     >
         <WatercolorDot
             :color="cssColorOpaque"
@@ -26,6 +31,7 @@ import { computed, inject, onUnmounted, ref, useTemplateRef } from "vue";
 import { clamp } from "@src/math";
 import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { useTouchGate } from "@composables/useTouchGate";
 import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
 import { COLOR_MODEL_KEY } from "./keys";
 
@@ -38,6 +44,7 @@ const {
 
 const debug = inject(POINTER_DEBUG_KEY)!;
 
+const spectrumGate = useTouchGate();
 const isDragging = ref(false);
 const spectrumRef = useTemplateRef<HTMLElement>("spectrumRef");
 
@@ -92,14 +99,22 @@ const updateSpectrumColor = (coords: { clientX: number; clientY: number }) => {
     setCurrentColor(hsv, model.value.selectedColorSpace, true);
 };
 
-// No touch gate for the spectrum — it's a 2D drag surface.
-// touch-action: none is set in CSS so iOS doesn't interpret touches as scroll
-// and fire pointercancel before we can capture the pointer.
-
 const handleSpectrumDown = (event: PointerEvent) => {
     debug.logEvent(event, "spec:down");
 
     const el = event.currentTarget as HTMLElement;
+
+    // On touch devices, require tap-to-activate before allowing drag
+    if (spectrumGate.isTouchDevice && !spectrumGate.isActive.value) {
+        spectrumGate.handleTouchStart(el, event.clientY);
+        debug.log("spec:gate-block", event.pointerId, event.target, false);
+        return;
+    }
+
+    if (spectrumGate.isTouchDevice) {
+        spectrumGate.resetTimer();
+    }
+
     el.setPointerCapture(event.pointerId);
     capturedPointerId = event.pointerId;
     capturedElement = el;
@@ -166,6 +181,9 @@ const spectrumStyle = computed(() => {
         linear-gradient(to right, #fff, hsl(${hClamped * 360}deg, 100%, 50%))
       `,
         "--spectrum-shadow": shadowStr,
+        touchAction: spectrumGate.isTouchDevice
+            ? (spectrumGate.isActive.value ? "none" : "pan-y")
+            : "none",
     };
 });
 
@@ -206,10 +224,6 @@ onUnmounted(() => {
     box-shadow: 0px 0px 0px 0px transparent;
     transition: box-shadow 0.25s ease;
     overflow: visible;
-    /* Critical for iOS: prevents the browser from interpreting touches as scroll
-       gestures and firing pointercancel before we can setPointerCapture.
-       The spectrum is a 2D drag surface — scroll is never meaningful here. */
-    touch-action: none;
     &:hover {
         box-shadow: 8px 8px 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
     }
