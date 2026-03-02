@@ -113,22 +113,21 @@
                         ]"
                     />
 
-                    <TooltipProvider :delay-duration="300">
-                        <Tooltip>
-                            <TooltipTrigger as-child>
-                                <button
-                                    class="toggle-btn [grid-area:1/1] justify-self-end self-center z-10 p-1 rounded-sm text-muted-foreground transition-colors cursor-pointer"
-                                    :style="{ '--toggle-hover-color': cssColorOpaque }"
-                                    @click="showInput = !showInput"
-                                >
-                                    <component :is="showInput ? EllipsisVertical : Type" class="w-5 h-5" />
-                                </button>
-                            </TooltipTrigger>
-                            <TooltipContent side="left" class="text-xs">
-                                {{ showInput ? 'Actions' : 'Color input' }}
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
+                    <HoverCard :close-delay="0" :open-delay="700" class="pointer-events-auto">
+                        <HoverCardTrigger>
+                            <button
+                                class="toggle-btn [grid-area:1/1] justify-self-end self-center z-10 p-1 rounded-sm text-muted-foreground transition-colors cursor-pointer"
+                                :style="{ '--toggle-hover-color': cssColorOpaque }"
+                                @click="showInput = !showInput"
+                            >
+                                <component :is="showInput ? EllipsisVertical : Type" class="w-5 h-5" />
+                            </button>
+                        </HoverCardTrigger>
+                        <HoverCardContent class="z-[100] pointer-events-auto fraunces" side="left">
+                            <p class="font-bold text-lg">{{ showInput ? 'Actions' : 'Color input' }}</p>
+                            <p class="text-sm opacity-60">{{ showInput ? 'Switch to action buttons.' : 'Switch to text color input.' }}</p>
+                        </HoverCardContent>
+                    </HoverCard>
                 </div>
             </CardContent>
         </Card>
@@ -191,11 +190,10 @@ import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
 
 import { EllipsisVertical, Type } from "lucide-vue-next";
 import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@components/ui/tooltip";
+    HoverCard,
+    HoverCardContent,
+    HoverCardTrigger,
+} from "@components/ui/hover-card";
 import HeroBlob from "./HeroBlob.vue";
 import SpectrumCanvas from "./SpectrumCanvas.vue";
 import ComponentSliders from "./ComponentSliders.vue";
