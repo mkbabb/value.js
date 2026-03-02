@@ -70,17 +70,17 @@
 
             <div class="flex items-center gap-2 pointer-events-auto">
                 <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
-                    <Tooltip>
+                    <Tooltip v-bind="linkCopied ? { open: true } : {}">
                         <TooltipTrigger as-child>
                             <button
                                 class="controls-icon"
                                 @click="shareLink()"
                             >
-                                <Share2 class="w-full h-full" :stroke-width="2" />
+                                <component :is="linkCopied ? Check : Share2" class="w-full h-full" :stroke-width="2" />
                             </button>
                         </TooltipTrigger>
                         <TooltipContent class="fira-code text-xs">
-                            Share link
+                            {{ linkCopied ? 'Copied!' : 'Share link' }}
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
@@ -157,7 +157,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import { Share2 } from "lucide-vue-next";
+import { Share2, Check } from "lucide-vue-next";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
 import { Button } from "@components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@components/ui/card";
@@ -221,8 +221,20 @@ const resetToDefaults = () => {
     model.value = createDefaultColorModel();
 };
 
-// Share link — copies current URL to clipboard
-const shareLink = () => copyToClipboard(window.location.href, "Link copied");
+// Share link — copies current URL to clipboard with brief visual feedback
+const linkCopied = ref(false);
+let linkCopiedTimer: ReturnType<typeof setTimeout> | undefined;
+
+const shareLink = async () => {
+    const success = await copyToClipboard(window.location.href);
+    if (success) {
+        linkCopied.value = true;
+        clearTimeout(linkCopiedTimer);
+        linkCopiedTimer = setTimeout(() => {
+            linkCopied.value = false;
+        }, 2000);
+    }
+};
 
 // Watch color changes for storage sync (debounced to avoid blocking during rapid drag)
 const syncColorToStorage = debounce((color: any) => {

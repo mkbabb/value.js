@@ -63,6 +63,17 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
         // Skip if this is our own write bouncing back from the parent
         if (ext === lastWrittenModel) return;
         model.value = { ...ext };
+        // Update stableHue from external color change (URL, localStorage, reset)
+        if (ext.color) {
+            try {
+                const hsv = colorUnit2(ext.color, "hsv", true, false, false);
+                const s = hsv.value.s.value;
+                const v = hsv.value.v.value;
+                if (s * v > 0.01) {
+                    stableHue.value = hsv.value.h.value;
+                }
+            } catch { /* ignore — color may not be fully initialized */ }
+        }
     });
 
     // --- Core model mutation ---
