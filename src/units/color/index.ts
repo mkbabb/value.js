@@ -2,7 +2,7 @@ import { clone } from "@src/utils";
 import type { ColorSpace, WhitePoint } from "./constants";
 
 const formatNumber = (value: unknown, digits: number = 2): string => {
-    if (typeof value === "number" && Number.isNaN(value)) return "none";
+    if (typeof value === "number" && !Number.isFinite(value)) return "none";
     return (String((value as any)?.toFixed?.(digits) ?? value))
         .trim()
         .replace(/\.0+$/, "");

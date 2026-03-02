@@ -1,4 +1,4 @@
-import { computed, ref, type ShallowRef } from "vue";
+import { computed, ref, shallowRef, watch, type Ref, type ShallowRef, type WritableComputedRef } from "vue";
 import { copyToClipboard } from "./useClipboard";
 import { debounce } from "@src/utils";
 import { clamp } from "@src/math";
@@ -36,35 +36,99 @@ const NORMALIZED_COLOR_NAMES = Object.entries(COLOR_NAMES).reduce(
     {} as Record<string, string>,
 );
 
-export function useColorModel(model: ShallowRef<ColorModel>) {
+export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableComputedRef<ColorModel> | Ref<ColorModel>) {
     const { findCustomName, getMetadata } = useCustomColorNames();
+
+    // --- Local source of truth ---
+    // The external model may be a defineModel() WritableComputedRef, which emits
+    // update:modelValue to the parent and only reflects the new value AFTER the
+    // parent's shallowRef round-trips back through props. This async lag means
+    // reading externalModel.value right after writing returns STALE data — fatal
+    // during rapid spectrum dragging (~60fps).
+    //
+    // Solution: maintain a local shallowRef that is written synchronously.
+    // All computeds read from `model` (local). Writes go to both local (immediate)
+    // and external (async propagation to parent). External→local sync handles
+    // changes from outside (URL, localStorage, color space dropdown).
+
+    const model = shallowRef<ColorModel>({ ...externalModel.value });
+
+    // External → local sync (URL changes, localStorage restore, parent resets).
+    // Use object identity to detect our own writes bouncing back through the
+    // parent's v-model round-trip. The `localWriteInProgress` flag doesn't work
+    // because Vue watcher callbacks fire asynchronously (pre-flush), by which time
+    // the flag is already reset.
+    let lastWrittenModel: ColorModel | null = null;
+    watch(() => externalModel.value, (ext) => {
+        // Skip if this is our own write bouncing back from the parent
+        if (ext === lastWrittenModel) return;
+        model.value = { ...ext };
+    });
 
     // --- Core model mutation ---
 
     const updateModel = (patch: Partial<ColorModel>) => {
-        model.value = { ...model.value, ...patch };
+        const next = { ...model.value, ...patch };
+        // Synchronous local update — computeds see this immediately
+        model.value = next;
+        // Async propagation to parent (defineModel emit)
+        lastWrittenModel = next;
+        externalModel.value = next;
     };
 
     // --- Derived colors ---
+    // PERF: denormalizedCurrentColor is the single source of truth for denormalized color.
+    // cssColor, cssColorOpaque, and currentColorOpaque all derive from it to avoid
+    // redundant clone+normalize cycles (was 5 per frame, now 1).
 
     const denormalizedCurrentColor = computed(() => {
         return normalizeColorUnit(model.value.color, true, false);
     });
 
-    const cssColor = computed(() => toCSSColorString(model.value.color));
+    const cssColor = computed(() => {
+        if (CSS_NATIVE_SPACES.has(model.value.color.value.colorSpace)) {
+            return denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
+        }
+        // Non-native spaces (hsv, kelvin, xyz) need oklch conversion
+        return toCSSColorString(model.value.color);
+    });
 
     const cssColorOpaque = computed(() => {
+        if (CSS_NATIVE_SPACES.has(model.value.color.value.colorSpace)) {
+            // Clone the already-denormalized result instead of re-denormalizing from scratch
+            const denorm = denormalizedCurrentColor.value;
+            const c = denorm.clone() as typeof denorm;
+            // Alpha is denormalized to % (0-100), set to 100% for opaque
+            c.value.alpha.value = 100;
+            return c.value.toFormattedString(DIGITS);
+        }
         const c = model.value.color.clone();
         c.value.alpha.value = 1;
         return toCSSColorString(c);
     });
 
+    // --- Stable HSV hue ---
+    // The oklch roundtrip loses hue when chroma→0 (Math.atan2(0,0)=0).
+    // stableHue is the source of truth; only updated EXPLICITLY by callers
+    // that change the hue (setCurrentColor, updateColorComponent, parseAndSetColor).
+    // NO watch — a watch on model.value.color fires during spectrum drag, causing
+    // roundtrip float drift that triggers spurious slider gradient recomputations,
+    // eventually blocking the main thread.
+
+    const initHsv = colorUnit2(model.value.color, "hsv", true, false, false);
+    const stableHue = ref(initHsv.value.h.value);
+
     const HSVCurrentColor = computed(() => {
-        return colorUnit2(model.value.color, "hsv", true, false, false);
+        const hsv = colorUnit2(model.value.color, "hsv", true, false, false);
+        // Inject the stable hue to prevent drift from lossy oklch roundtrip
+        hsv.value.h.value = stableHue.value;
+        return hsv;
     });
 
     const currentColorOpaque = computed(() => {
-        const color = normalizeColorUnit(model.value.color, true, false);
+        // Clone from denormalizedCurrentColor instead of re-normalizing
+        const denorm = denormalizedCurrentColor.value;
+        const color = denorm.clone() as typeof denorm;
         color.value.alpha.value = 100;
         return color;
     });
@@ -80,12 +144,20 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
             .filter(([key]) => key !== "alpha"),
     );
 
-    // --- XYZ consolidation (eliminates 2 redundant conversions per color change) ---
+    // --- XYZ consolidation ---
+    // Debounced: XYZ conversion + name resolution are expensive and not needed during drag.
+    // During rapid spectrum dragging (~60fps), only the visual feedback (cssColor, spectrum dot,
+    // slider values) needs real-time updates. Name resolution can wait until the user pauses.
 
-    const currentXYZString = computed(() => {
+    const currentXYZString = ref("");
+
+    const recomputeXYZ = debounce(() => {
         const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
-        return xyz.value.toFormattedString(DIGITS);
-    });
+        currentXYZString.value = xyz.value.toFormattedString(DIGITS);
+    }, 100, false);
+
+    // Trigger XYZ recompute when color changes, but debounced
+    watch(() => model.value.color, () => recomputeXYZ(), { immediate: true });
 
     // --- Color name resolution ---
 
@@ -93,14 +165,16 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
         const colorString = currentXYZString.value;
 
         // Check built-in CSS color names first
-        const colorName = Object.entries(NORMALIZED_COLOR_NAMES).find(
-            ([, value]) => value === colorString,
-        );
-        if (colorName) return colorName[0];
+        if (colorString) {
+            const colorName = Object.entries(NORMALIZED_COLOR_NAMES).find(
+                ([, value]) => value === colorString,
+            );
+            if (colorName) return colorName[0];
 
-        // Check custom (approved) color names
-        const customName = findCustomName(colorString);
-        if (customName) return customName;
+            // Check custom (approved) color names
+            const customName = findCustomName(colorString);
+            if (customName) return customName;
+        }
 
         return denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
     });
@@ -154,8 +228,7 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
             value = value.trim().toLowerCase();
             color = parseCSSColor(value) as ValueUnit<Color<ValueUnit<number>>, "color">;
         } catch (e) {
-            console.error(e);
-            toast.error(`Invalid color: ${value}`);
+            console.warn("[useColorModel] Invalid color:", value, e);
             color = parseCSSColor(DEFAULT_COLOR) as ValueUnit<Color<ValueUnit<number>>, "color">;
         }
         return normalizeColorUnit(color);
@@ -164,6 +237,7 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
     const setCurrentColor = (
         color: ValueUnit<Color<ValueUnit<number>>, "color">,
         colorSpace?: ColorSpace,
+        fromSpectrum?: boolean,
     ) => {
         const converted = colorUnit2(
             color,
@@ -176,6 +250,16 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
             color: converted,
             selectedColorSpace: converted.value.colorSpace,
         });
+        // When called from spectrum, hue is already stable — don't overwrite
+        // from the lossy roundtrip. All other callers update stableHue.
+        if (!fromSpectrum) {
+            const hsv = colorUnit2(converted, "hsv", true, false, false);
+            const s = hsv.value.s.value;
+            const v = hsv.value.v.value;
+            if (s * v > 0.01) {
+                stableHue.value = hsv.value.h.value;
+            }
+        }
     };
 
     let prevInvalidParsedValue = "";
@@ -203,13 +287,18 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
                 selectedColorSpace: converted.value.colorSpace,
             });
 
-            if (!isInitialParse) {
-                toast.success(`Parsed ${savedColorLabel(converted)} 🎨`);
+            // Update stableHue from parsed color
+            const parsedHsv = colorUnit2(converted, "hsv", true, false, false);
+            const ps = parsedHsv.value.s.value;
+            const pv = parsedHsv.value.v.value;
+            if (ps * pv > 0.01) {
+                stableHue.value = parsedHsv.value.h.value;
             }
+
         } catch (e) {
             prevInvalidParsedValue = newVal;
             if (!isInitialParse) {
-                toast.error(`Invalid color: ${newVal}`);
+                console.warn("[useColorModel] Invalid color:", newVal);
             }
         } finally {
             isInitialParse = false;
@@ -238,8 +327,13 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
     };
 
     // --- Slider styles ---
+    // During spectrum drag only s/v change — hue, alpha, and color space stay the same.
+    // Use a watch keyed on those stable values so we skip the expensive 88-clone gradient
+    // recomputation during pure spectrum dragging.
 
-    const componentsSlidersStyle = computed(() => {
+    const componentsSlidersStyle = shallowRef<Record<string, string[]>>({});
+
+    const computeSliderGradients = () => {
         const STEPS = 10;
         const sourceColor = normalizeColorUnit(currentColorOpaque.value, false, false);
         const gradients: Record<string, string[]> = {};
@@ -256,7 +350,20 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
             gradients[component] = stops;
         }
         return gradients;
-    });
+    };
+
+    watch(
+        () => {
+            // Depend on stableHue, alpha, and color space — NOT the lossy HSV hue.
+            // This prevents spurious recomputation from hue drift during dark-area dragging.
+            const alpha = model.value.color?.value?.alpha?.value ?? 1;
+            return `${currentColorSpace.value}:${stableHue.value.toFixed(3)}:${alpha.toFixed(3)}`;
+        },
+        () => {
+            componentsSlidersStyle.value = computeSliderGradients();
+        },
+        { immediate: true },
+    );
 
     const currentColorComponentsFormatted = computed(() => {
         return denormalizedCurrentColor.value.value
@@ -308,6 +415,13 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
             color.value[component].value = normalizedValue.value;
         }
         updateModel({ color });
+
+        // If the user explicitly changes a hue-like component via slider/input,
+        // force-update stableHue regardless of chroma (the user chose this hue).
+        if (component === "h" || component === "hue") {
+            const hsv = colorUnit2(color, "hsv", true, false, false);
+            stableHue.value = hsv.value.h.value;
+        }
     };
 
     const updateColorComponentDebounced = debounce(updateColorComponent, 500);
@@ -349,6 +463,7 @@ export function useColorModel(model: ShallowRef<ColorModel>) {
         cssColor,
         cssColorOpaque,
         HSVCurrentColor,
+        stableHue,
         currentColorOpaque,
         currentColorSpace,
         colorComponents,

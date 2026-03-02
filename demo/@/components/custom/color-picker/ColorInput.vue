@@ -102,7 +102,6 @@ import {
 import Separator from "@components/ui/separator/Separator.vue";
 import { Input } from "@components/ui/input";
 import { Crown, Sparkles, Loader2 } from "lucide-vue-next";
-import { toast } from "vue-sonner";
 import { proposeColorName } from "@lib/palette/api";
 import type { EditTarget } from ".";
 import { COLOR_MODEL_KEY } from "./keys";
@@ -191,11 +190,10 @@ async function submitProposedName() {
     try {
         const cssStr = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
         await proposeColorName(proposedName.value.trim().toLowerCase(), cssStr);
-        toast.success(`Proposed "${proposedName.value}" for review`);
         proposedName.value = "";
         showProposeForm.value = false;
     } catch (e: any) {
-        toast.error(e?.message ?? "Failed to propose name");
+        console.warn("[ColorInput] Failed to propose name:", e?.message);
     } finally {
         proposing.value = false;
     }

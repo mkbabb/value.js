@@ -121,6 +121,8 @@
             @commit="commitEdit"
             @cancel="cancelEdit"
         />
+
+        <PointerDebugOverlay />
     </div>
 </template>
 
@@ -153,12 +155,16 @@ import type { ColorModel, EditTarget } from ".";
 import { toCSSColorString } from ".";
 import { COLOR_MODEL_KEY } from "./keys";
 
+import { usePointerDebug } from "@composables/usePointerDebug";
+import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
+
 import HeroBlob from "./HeroBlob.vue";
 import SpectrumCanvas from "./SpectrumCanvas.vue";
 import ComponentSliders from "./ComponentSliders.vue";
 import ColorInput from "./ColorInput.vue";
 import ActionToolbar from "./ActionToolbar.vue";
 import EditDrawer from "./EditDrawer.vue";
+import PointerDebugOverlay from "./PointerDebugOverlay.vue";
 
 const model = defineModel<ColorModel>({ required: true });
 const emit = defineEmits<{ reset: [] }>();
@@ -167,6 +173,9 @@ const emit = defineEmits<{ reset: [] }>();
 
 const colorModel = useColorModel(model);
 provide(COLOR_MODEL_KEY, colorModel);
+
+const pointerDebug = usePointerDebug();
+provide(POINTER_DEBUG_KEY, pointerDebug);
 
 const {
     updateModel,

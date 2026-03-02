@@ -110,7 +110,7 @@ import { ref, watch } from "vue";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import { Check, Loader2, LogIn, LogOut, Award, Trash2, X as XIcon } from "lucide-vue-next";
-import { toast } from "vue-sonner";
+
 import { useAdminAuth } from "@composables/useAdminAuth";
 import {
     getAdminQueue,
@@ -135,7 +135,7 @@ async function loadQueue() {
     try {
         queue.value = await guardedAdmin(() => getAdminQueue(token));
     } catch (e: any) {
-        if (isAuthenticated.value) toast.error(e?.message ?? "Failed to load queue");
+        if (isAuthenticated.value) console.warn(e?.message ?? "Failed to load queue");
     } finally {
         loadingQueue.value = false;
     }
@@ -160,9 +160,8 @@ async function onApprove(item: ProposedColorName) {
     try {
         await guardedAdmin(() => approveColorName(token, item.id));
         queue.value = queue.value.filter((q) => q.id !== item.id);
-        toast.success(`Approved "${item.name}"`);
     } catch (e: any) {
-        if (isAuthenticated.value) toast.error(e?.message ?? "Failed to approve");
+        if (isAuthenticated.value) console.warn(e?.message ?? "Failed to approve");
     }
 }
 
@@ -172,9 +171,8 @@ async function onReject(item: ProposedColorName) {
     try {
         await guardedAdmin(() => rejectColorName(token, item.id));
         queue.value = queue.value.filter((q) => q.id !== item.id);
-        toast.success(`Rejected "${item.name}"`);
     } catch (e: any) {
-        if (isAuthenticated.value) toast.error(e?.message ?? "Failed to reject");
+        if (isAuthenticated.value) console.warn(e?.message ?? "Failed to reject");
     }
 }
 
@@ -185,10 +183,9 @@ async function onFeature() {
     if (!slug) return;
     try {
         await guardedAdmin(() => featurePalette(token, slug));
-        toast.success(`Featured "${slug}"`);
         paletteSlug.value = "";
     } catch (e: any) {
-        if (isAuthenticated.value) toast.error(e?.message ?? "Failed to feature palette");
+        if (isAuthenticated.value) console.warn(e?.message ?? "Failed to feature palette");
     }
 }
 
@@ -199,10 +196,9 @@ async function onDeletePalette() {
     if (!slug) return;
     try {
         await guardedAdmin(() => deletePaletteAdmin(token, slug));
-        toast.success(`Deleted "${slug}"`);
         paletteSlug.value = "";
     } catch (e: any) {
-        if (isAuthenticated.value) toast.error(e?.message ?? "Failed to delete palette");
+        if (isAuthenticated.value) console.warn(e?.message ?? "Failed to delete palette");
     }
 }
 
@@ -214,7 +210,7 @@ async function guardedAdmin<T>(fn: () => Promise<T>): Promise<T> {
         if (typeof e?.message === "string" && e.message.startsWith("API 401")) {
             logout();
             queue.value = [];
-            toast.error("Session expired — please log in again.");
+            console.warn("Session expired — please log in again.");
             throw e; // propagate so callers skip success paths
         }
         throw e;

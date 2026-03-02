@@ -94,7 +94,13 @@ export const colorUnit2 = <C extends ColorSpace>(
     const convertedColor = color2(normalizedColorUnit.toJSON(), to!);
 
     convertedColor.entries().forEach(([key, value]) => {
-        convertedColor[key] = new ValueUnit(value);
+        // Fully unwrap nested ValueUnits to prevent progressive nesting.
+        // Conversion functions pass alpha through as-is, so if the input had
+        // ValueUnit<number> components, alpha arrives still wrapped. Without
+        // unwrapping, each frame adds a layer: VU<VU<VU<...>>> → stack overflow.
+        let raw: any = value;
+        while (raw instanceof ValueUnit) raw = raw.value;
+        convertedColor[key] = new ValueUnit(raw);
     });
     normalizedColorUnit.value = convertedColor;
 

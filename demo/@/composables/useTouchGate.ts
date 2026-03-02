@@ -56,6 +56,7 @@ export function useTouchGate(deactivateDelayMs = 3000) {
     let controlEl: HTMLElement | null = null;
     let initialTouchY: number | null = null;
     let isPending = false;
+    let suppressDeactivation = false;
 
     function clearDeactivateTimer() {
         if (deactivateTimer !== null) {
@@ -86,7 +87,17 @@ export function useTouchGate(deactivateDelayMs = 3000) {
         resetTimer();
     }
 
+    function suppressDeactivate(suppress: boolean) {
+        suppressDeactivation = suppress;
+        if (suppress) {
+            clearDeactivateTimer();
+        } else {
+            resetTimer();
+        }
+    }
+
     function deactivate() {
+        if (suppressDeactivation) return;
         clearDeactivateTimer();
         clearPendingTimer();
         isActive.value = false;
@@ -191,5 +202,6 @@ export function useTouchGate(deactivateDelayMs = 3000) {
         handleTouchEnd,
         resetTimer,
         deactivate,
+        suppressDeactivate,
     };
 }

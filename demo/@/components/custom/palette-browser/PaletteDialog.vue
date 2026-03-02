@@ -325,7 +325,7 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import { Loader2, Clock, TrendingUp, Shield, Plus, Pencil, ClipboardCopy, Trash2 } from "lucide-vue-next";
 import { createSlug } from "@lib/palette/utils";
-import { toast } from "vue-sonner";
+
 import { copyToClipboard } from "@composables/useClipboard";
 import { usePaletteStore } from "@composables/usePaletteStore";
 import { useSession } from "@composables/useSession";
@@ -384,15 +384,12 @@ function addCurrentColor() {
         const reordered = props.savedColorStrings.filter((_, i) => i !== existingIdx);
         reordered.push(props.cssColorOpaque);
         emit("apply", reordered);
-        toast.success(`Moved ${props.cssColorOpaque} to end`);
         return;
     }
     if (existingIdx !== -1) {
-        toast.info("Color already in palette");
         return;
     }
     emit("addColor", props.cssColorOpaque);
-    toast.success(`Added ${props.cssColorOpaque}`);
 }
 
 // Stable keys for TransitionGroup — tracks color identity across add/remove
@@ -478,19 +475,16 @@ function onCurrentSwatchRemove(css: string, index: number) {
     currentSwatchPopoverIndex.value = null;
     const updated = props.savedColorStrings.filter((_, i) => i !== index);
     emit("apply", updated);
-    toast.success(`Removed ${css}`);
 }
 
 function onSwatchAddColor(css: string) {
     emit("addColor", css);
-    toast.success(`Added ${css}`);
 }
 
 function saveCurrentPalette() {
     if (props.savedColorStrings.length === 0) return;
     const name = currentPaletteName.value.trim() || `Palette ${savedPalettes.value.length + 1}`;
     const palette = createPalette(name, colorsFromStrings(props.savedColorStrings));
-    toast.success(`Saved "${palette.name}" locally`);
     currentPaletteName.value = "";
     expandedId.value = palette.id;
 }
@@ -511,7 +505,6 @@ function commitColorEdit(paletteId: string, colorIndex: number, newCss: string) 
         const updated = [...props.savedColorStrings];
         updated[colorIndex] = newCss;
         emit("apply", updated);
-        toast.success("Updated color");
         return;
     }
 
@@ -526,7 +519,6 @@ function commitColorEdit(paletteId: string, colorIndex: number, newCss: string) 
     const updatedColors = [...palette.colors];
     updatedColors[colorIndex] = { ...updatedColors[colorIndex], css: newCss };
     updatePalette(paletteId, { colors: updatedColors });
-    toast.success(`Updated color #${colorIndex + 1} in "${palette.name}"`);
 }
 
 defineExpose({ commitColorEdit });
@@ -600,14 +592,13 @@ function colorsFromStrings(colors: string[]): PaletteColor[] {
 
 function onCreateLocal(name: string) {
     createPalette(name, colorsFromStrings(props.savedColorStrings));
-    toast.success(`Saved "${name}" locally`);
 }
 
 async function onCreateAndPublish(name: string) {
     try {
         await session.ensureSession();
     } catch {
-        toast.error("Failed to create session — check your network connection");
+        console.warn("Failed to create session — check your network connection");
         return;
     }
     const palette = createPalette(name, colorsFromStrings(props.savedColorStrings));
@@ -618,32 +609,25 @@ async function onCreateAndPublish(name: string) {
             colors: palette.colors,
         });
         session.markOwned(palette.slug);
-        toast.success(`Published "${name}"`);
     } catch (e: any) {
         const msg = e?.message ?? "";
-        if (msg.includes("409") || msg.includes("duplicate") || msg.includes("conflict")) {
-            toast.error(`A palette named "${name}" already exists — try a different name`);
-        } else {
-            toast.error(`Failed to publish: ${msg || "unknown error"}`);
-        }
+        console.warn(`Failed to publish: ${msg || "unknown error"}`);
     }
 }
 
 function onApply(palette: Palette) {
     emit("apply", palette.colors.map((c) => c.css));
-    toast.success(`Applied "${palette.name}" (${palette.colors.length} colors)`);
 }
 
 function onDelete(palette: Palette) {
     deletePalette(palette.id);
-    toast.success(`Deleted "${palette.name}"`);
 }
 
 async function onPublish(palette: Palette) {
     try {
         await session.ensureSession();
     } catch {
-        toast.error("Failed to create session — check your network connection");
+        console.warn("Failed to create session — check your network connection");
         return;
     }
     try {
@@ -653,20 +637,14 @@ async function onPublish(palette: Palette) {
             colors: palette.colors,
         });
         session.markOwned(palette.slug);
-        toast.success(`Published "${palette.name}"`);
     } catch (e: any) {
         const msg = e?.message ?? "";
-        if (msg.includes("409") || msg.includes("duplicate") || msg.includes("conflict")) {
-            toast.error(`"${palette.name}" is already published`);
-        } else {
-            toast.error(`Failed to publish: ${msg || "unknown error"}`);
-        }
+        console.warn(`Failed to publish: ${msg || "unknown error"}`);
     }
 }
 
 function onSaveRemote(palette: Palette) {
     addPublishedPalette(palette);
-    toast.success(`Saved "${palette.name}" locally`);
 }
 
 async function onVote(palette: Palette) {
@@ -682,7 +660,7 @@ async function onVote(palette: Palette) {
             };
         }
     } catch (e) {
-        toast.error("Failed to vote");
+        console.warn("Failed to vote:", e);
     }
 }
 
@@ -697,13 +675,8 @@ async function onRename(palette: Palette, newName: string) {
                 name: updated.name,
             };
         }
-        toast.success(`Renamed to "${newName}"`);
     } catch (e: any) {
-        if (e?.message?.includes("403")) {
-            toast.error("Not the owner of this palette");
-        } else {
-            toast.error("Failed to rename palette");
-        }
+        console.warn("Failed to rename palette:", e?.message);
     }
 }
 </script>

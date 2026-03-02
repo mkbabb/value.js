@@ -85,6 +85,9 @@ export default defineConfig((mode) => {
         return {
             ...defaultOptions,
             root: "./demo/color-picker/",
+            server: {
+                host: true,
+            },
             optimizeDeps: {
                 include: [
                     "vue",

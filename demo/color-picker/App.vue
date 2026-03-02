@@ -139,7 +139,7 @@
         </div>
     </div>
 
-    <Sonner position="bottom-center" :rich-colors="true" />
+
 </template>
 
 <script setup lang="ts">
@@ -169,7 +169,7 @@ import {
     createDefaultColorModel,
 } from "@components/custom/color-picker";
 import { useDark, useStorage } from "@vueuse/core";
-import { Toaster as Sonner } from "@components/ui/sonner";
+
 import { copyToClipboard } from "@composables/useClipboard";
 import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
 import type { ColorSpace } from "@src/units/color/constants";
@@ -179,6 +179,7 @@ import { normalizeColorUnit } from "@src/units/color/normalize";
 import { toCSSColorString } from "@components/custom/color-picker";
 import { useCustomColorNames } from "@composables/useCustomColorNames";
 import { useColorUrl } from "@composables/useColorUrl";
+import { debounce } from "@src/utils";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -223,9 +224,13 @@ const resetToDefaults = () => {
 // Share link — copies current URL to clipboard
 const shareLink = () => copyToClipboard(window.location.href, "Link copied");
 
-// Watch color changes for storage sync
-watch(() => model.value.color, (color) => {
+// Watch color changes for storage sync (debounced to avoid blocking during rapid drag)
+const syncColorToStorage = debounce((color: any) => {
     colorStore.value.inputColor = color?.toString() ?? "";
+}, 200, false);
+
+watch(() => model.value.color, (color) => {
+    syncColorToStorage(color);
 });
 
 // Watch saved colors separately

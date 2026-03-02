@@ -1,5 +1,3 @@
-import { toast } from "vue-sonner";
-
 /**
  * Fallback clipboard copy using a temporary textarea.
  * Works on iOS Safari where navigator.clipboard may not be available.
@@ -25,15 +23,12 @@ function copyViaTextarea(text: string): boolean {
 }
 
 /**
- * Copy text to clipboard with toast feedback.
+ * Copy text to clipboard.
  * Uses navigator.clipboard.writeText with textarea fallback for mobile.
+ * Returns true on success, false on failure.
  */
-export async function copyToClipboard(text: string, label?: string): Promise<boolean> {
-    const display = label ?? text;
-    if (!text) {
-        toast.error("Nothing to copy");
-        return false;
-    }
+export async function copyToClipboard(text: string, _label?: string): Promise<boolean> {
+    if (!text) return false;
 
     try {
         if (navigator.clipboard?.writeText) {
@@ -41,14 +36,11 @@ export async function copyToClipboard(text: string, label?: string): Promise<boo
         } else if (!copyViaTextarea(text)) {
             throw new Error("execCommand failed");
         }
-        toast.success(`Copied ${display}`);
         return true;
     } catch {
         if (copyViaTextarea(text)) {
-            toast.success(`Copied ${display}`);
             return true;
         }
-        toast.error("Failed to copy to clipboard");
         return false;
     }
 }

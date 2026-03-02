@@ -1,17 +1,13 @@
 <template>
     <div
         ref="spectrumRef"
-        :class="[
-            'spectrum-picker flex w-full h-48 cursor-crosshair relative touch-gate-target',
-            spectrumGate.isActive.value ? 'touch-gate-active' : '',
-        ]"
+        class="spectrum-picker flex w-full h-48 cursor-crosshair relative"
         :style="spectrumStyle"
         @pointerdown="handleSpectrumDown"
         @pointermove="handleSpectrumMove"
-        @pointerup="stopDragging"
-        @pointercancel="stopDragging"
+        @pointerup="handleSpectrumUp"
+        @pointercancel="handleSpectrumCancel"
         @lostpointercapture="onLostPointerCapture"
-        @touchmove.passive="(e: TouchEvent) => spectrumGate.handleScrollCheck(e)"
     >
         <WatercolorDot
             :color="cssColorOpaque"
@@ -19,10 +15,7 @@
             :cycle-duration="2000"
             :range="[15, 85]"
             tag="div"
-            :class="[
-                'spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none',
-                spectrumGate.isActive.value ? 'spectrum-dot-active' : '',
-            ]"
+            class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
             :style="spectrumDotStyle"
         />
     </div>
@@ -33,21 +26,20 @@ import { computed, inject, onUnmounted, ref, useTemplateRef } from "vue";
 import { clamp } from "@src/math";
 import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
-import { useTouchGate } from "@composables/useTouchGate";
-import { toCSSColorString } from ".";
+import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
 import { COLOR_MODEL_KEY } from "./keys";
 
 const {
     model,
-    cssColor,
     cssColorOpaque,
     HSVCurrentColor,
     setCurrentColor,
 } = inject(COLOR_MODEL_KEY)!;
 
+const debug = inject(POINTER_DEBUG_KEY)!;
+
 const isDragging = ref(false);
 const spectrumRef = useTemplateRef<HTMLElement>("spectrumRef");
-const spectrumGate = useTouchGate();
 
 // Pointer capture tracking
 let capturedPointerId: number | null = null;
@@ -90,39 +82,46 @@ const updateSpectrumColor = (coords: { clientX: number; clientY: number }) => {
     const x = clamp(coords.clientX - rect.left, 0, rect.width);
     const y = clamp(coords.clientY - rect.top, 0, rect.height);
 
-    const s = x / rect.width;
-    const v = 1 - y / rect.height;
+    const s = clamp(x / rect.width, 0, 1);
+    const v = clamp(1 - y / rect.height, 0, 1);
 
     const hsv = HSVCurrentColor.value.clone();
     hsv.value.s.value = s;
     hsv.value.v.value = v;
 
-    setCurrentColor(hsv, model.value.selectedColorSpace);
+    setCurrentColor(hsv, model.value.selectedColorSpace, true);
 };
 
+// No touch gate for the spectrum — it's a 2D drag surface.
+// touch-action: none is set in CSS so iOS doesn't interpret touches as scroll
+// and fire pointercancel before we can capture the pointer.
+
 const handleSpectrumDown = (event: PointerEvent) => {
-    if (spectrumGate.isTouchDevice && spectrumRef.value) {
-        if (!spectrumGate.handleTouchStart(spectrumRef.value, event.clientY)) return;
-    }
+    debug.logEvent(event, "spec:down");
+
     const el = event.currentTarget as HTMLElement;
     el.setPointerCapture(event.pointerId);
     capturedPointerId = event.pointerId;
     capturedElement = el;
     isDragging.value = true;
+
+    debug.setGauge("spec.isDragging", true);
+    debug.setGauge("spec.capturedPid", event.pointerId);
+
     updateSpectrumColor({ clientX: event.clientX, clientY: event.clientY });
 };
 
 const handleSpectrumMove = (event: PointerEvent) => {
-    if (spectrumGate.isTouchDevice) {
-        if (!spectrumGate.isActive.value) return;
-        spectrumGate.resetTimer();
-    }
     if (isDragging.value) {
         scheduleSpectrumUpdate(event);
     }
+    if (debug.state.enabled && Math.random() < 0.03) {
+        debug.logEvent(event, "spec:move");
+    }
 };
 
-const onLostPointerCapture = () => {
+const onLostPointerCapture = (event: PointerEvent) => {
+    debug.logEvent(event, "spec:lostcap");
     capturedPointerId = null;
     capturedElement = null;
     if (isDragging.value) {
@@ -130,9 +129,20 @@ const onLostPointerCapture = () => {
     }
 };
 
+const handleSpectrumUp = (event: PointerEvent) => {
+    debug.logEvent(event, "spec:up");
+    stopDragging();
+};
+
+const handleSpectrumCancel = (event: PointerEvent) => {
+    debug.logEvent(event, "spec:cancel");
+    stopDragging();
+};
+
 const stopDragging = () => {
+    debug.setGauge("spec.isDragging", false);
+    debug.setGauge("spec.capturedPid", "none");
     releaseCapture();
-    spectrumGate.handleTouchEnd();
     if (pendingCoords) {
         updateSpectrumColor(pendingCoords);
         pendingCoords = null;
@@ -145,12 +155,10 @@ const stopDragging = () => {
 };
 
 const spectrumStyle = computed(() => {
-    const { h, alpha } = HSVCurrentColor.value.value;
+    const { h } = HSVCurrentColor.value.value;
     const hClamped = clamp(h.value, 0, 1);
 
-    const shadowClone = model.value.color.clone();
-    shadowClone.value.alpha.value = 0.3;
-    const shadowStr = toCSSColorString(shadowClone);
+    const shadowStr = cssColorOpaque.value;
 
     return {
         background: `
@@ -198,6 +206,10 @@ onUnmounted(() => {
     box-shadow: 0px 0px 0px 0px transparent;
     transition: box-shadow 0.25s ease;
     overflow: visible;
+    /* Critical for iOS: prevents the browser from interpreting touches as scroll
+       gestures and firing pointercancel before we can setPointerCapture.
+       The spectrum is a 2D drag surface — scroll is never meaningful here. */
+    touch-action: none;
     &:hover {
         box-shadow: 8px 8px 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
     }
