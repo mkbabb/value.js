@@ -474,7 +474,7 @@ export const COLOR_NAMES = {
     yellowgreen: "#9acd32",
 
     padaleckipink: "oklch(100% 0.42 360deg / 71.70%)",
-    "lodge-blu-color": "rgb(53	101	144)",
+    "lodge blu color": "rgb(53	101	144)",
     lavendi: "oklch(79.90% 0.11 318.24deg / 100%)",
     shadyshroom: "oklch(53% 0.07 21.60deg / 100%)",
     patriarchalplum: "oklch(31.20% 0.11 19.80deg / 100%)",

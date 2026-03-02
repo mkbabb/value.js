@@ -276,21 +276,40 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
     let prevInvalidParsedValue = "";
     let isInitialParse = true;
 
+    // --- Parse error feedback ---
+    const parseError = ref(false);
+    let parseErrorTimer: ReturnType<typeof setTimeout> | undefined;
+
+    const flashParseError = () => {
+        parseError.value = true;
+        clearTimeout(parseErrorTimer);
+        parseErrorTimer = setTimeout(() => { parseError.value = false; }, 2000);
+    };
+
     const parseAndSetColor = (newVal: string) => {
         try {
             newVal = newVal.trim().toLowerCase();
-            if (newVal === prevInvalidParsedValue) return;
+            if (!newVal || newVal === prevInvalidParsedValue) return;
 
-            const color = parseAndNormalizeColor(newVal);
-            if (color?.value?.toString() === model?.value?.color?.value?.toString()) return;
+            // Parse directly — throws on invalid input (no silent fallback)
+            const parsed = parseCSSColor(newVal) as ValueUnit<Color<ValueUnit<number>>, "color">;
+            const normalized = normalizeColorUnit(parsed);
+
+            if (normalized?.value?.toString() === model?.value?.color?.value?.toString()) {
+                parseError.value = false;
+                return;
+            }
 
             const converted = colorUnit2(
-                color,
-                getColorSpace(color),
+                normalized,
+                getColorSpace(normalized),
                 true,
                 false,
                 false,
             );
+
+            parseError.value = false;
+            prevInvalidParsedValue = "";
 
             updateModel({
                 inputColor: newVal,
@@ -309,7 +328,7 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
         } catch (e) {
             prevInvalidParsedValue = newVal;
             if (!isInitialParse) {
-                console.warn("[useColorModel] Invalid color:", newVal);
+                flashParseError();
             }
         } finally {
             isInitialParse = false;
@@ -496,6 +515,7 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
         setCurrentColor,
         parseAndSetColor,
         parseAndSetColorDebounced,
+        parseError,
 
         // Random
         generateRandomColor,

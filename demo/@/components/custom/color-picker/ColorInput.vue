@@ -10,9 +10,12 @@
                     <span
                         ref="inputColorRef"
                         contenteditable
-                        class="w-full block border overflow-hidden items-center border-input bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center transition-colors"
-                        :class="{ 'pr-8': currentColorMeta }"
-                        :style="inputIsFocused ? { borderColor: cssColor } : undefined"
+                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
+                        :class="{
+                            'pr-8': currentColorMeta,
+                            'color-input-error': parseError,
+                        }"
+                        :style="inputStyle"
                         @keydown="onInputKeydown"
                         @input="onInputInput"
                         @focus="onInputFocus"
@@ -43,6 +46,14 @@
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
+
+                    <!-- Parse error popover -->
+                    <Transition name="error-pop">
+                        <span
+                            v-if="parseError"
+                            class="error-badge"
+                        >not a valid color</span>
+                    </Transition>
                 </div>
             </HoverCardTrigger>
 
@@ -87,7 +98,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, ref, useTemplateRef, watch } from "vue";
+import { computed, inject, onMounted, ref, useTemplateRef, watch } from "vue";
 import {
     HoverCard,
     HoverCardContent,
@@ -120,6 +131,7 @@ const {
     canProposeName,
     parseAndSetColor,
     parseAndSetColorDebounced,
+    parseError,
     updateModel,
     copyToClipboard,
     DIGITS,
@@ -127,6 +139,12 @@ const {
 
 const inputColorRef = useTemplateRef<HTMLElement>("inputColorRef");
 const inputIsFocused = ref(false);
+
+const inputStyle = computed(() => {
+    if (parseError.value) return { borderColor: "hsl(var(--destructive))" };
+    if (inputIsFocused.value) return { borderColor: cssColor.value };
+    return undefined;
+});
 
 const selectAll = () => {
     const target = inputColorRef.value;
@@ -219,3 +237,47 @@ defineExpose({
     showProposeForm,
 });
 </script>
+
+<style scoped>
+@reference "../../../styles/style.css";
+
+.color-input {
+    border-color: hsl(var(--input));
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.color-input-error {
+    box-shadow: 0 0 0 2px hsl(var(--destructive) / 0.25);
+}
+
+.error-badge {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.65rem;
+    line-height: 1;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    background: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+    white-space: nowrap;
+    pointer-events: none;
+    font-family: var(--font-sans);
+}
+
+.error-pop-enter-active {
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.error-pop-leave-active {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.error-pop-enter-from {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.85);
+}
+.error-pop-leave-to {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.85);
+}
+</style>
