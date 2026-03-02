@@ -8,6 +8,7 @@ import { ValueUnit } from "@src/units";
 import type { Color } from "@src/units/color";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
+import { NORMALIZED_COLOR_NAMES } from "./useColorModel";
 
 function readHashParams(): { space?: string; color?: string } {
     const hash = window.location.hash.slice(1);
@@ -58,11 +59,19 @@ export function useColorUrl(options: {
         }
     }
 
-    // Model → URL: derive CSS string from the actual color (debounced)
+    // Model → URL: prefer named color, fall back to CSS string (debounced)
     const syncModelToUrl = debounce(() => {
         if (syncing) return;
         const space = model.value.selectedColorSpace;
-        const color = toCSSColorString(model.value.color);
+
+        // Check if current color matches a named color
+        const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
+        const xyzStr = xyz.value.toFormattedString(2);
+        const namedColor = Object.entries(NORMALIZED_COLOR_NAMES).find(
+            ([, v]) => v === xyzStr,
+        );
+
+        const color = namedColor ? namedColor[0] : toCSSColorString(model.value.color);
         syncing = true;
         writeHashParams(space, color);
         syncing = false;

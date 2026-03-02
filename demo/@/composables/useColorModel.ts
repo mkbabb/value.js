@@ -26,7 +26,7 @@ const DEFAULT_COLOR = "lavendi";
 const DIGITS = 2;
 
 // Normalize built-in COLOR_NAMES to XYZ formatted strings (module-level, computed once)
-const NORMALIZED_COLOR_NAMES = Object.entries(COLOR_NAMES).reduce(
+export const NORMALIZED_COLOR_NAMES = Object.entries(COLOR_NAMES).reduce(
     (acc, [name, color]) => {
         const parsedColor = parseCSSColor(color) as ValueUnit<Color<ValueUnit<number>>, "color">;
         const xyz = colorUnit2(parsedColor, "xyz", false, false, false);
