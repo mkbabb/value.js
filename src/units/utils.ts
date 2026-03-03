@@ -30,6 +30,19 @@ export const flattenObject = (obj: any) => {
             obj.forEach((v, i) => flatten(v, parentKey));
             return;
         } else if (obj instanceof FunctionValue) {
+            // Treat calc() as an atomic computed value — don't decompose the expression
+            if (obj.name === "calc") {
+                const innerExpr = obj.values.map((v) => v.toString()).join(", ");
+                const calcUnit = new ValueUnit(innerExpr, "calc");
+                const key = parentKey ?? "calc";
+                if (flat[key] == null) {
+                    flat[key] = new ValueArray();
+                }
+                flat[key].push(calcUnit);
+                flat[key] = flat[key].flat();
+                return;
+            }
+
             let newKey = obj.name;
 
             if (parentKey) {
@@ -217,6 +230,23 @@ export const unpackMatrixValues = (value: FunctionValue): MatrixValues => {
     throw new Error("Unsupported matrix type or invalid number of values");
 };
 
+function findQueryContainer(element: HTMLElement): HTMLElement | null {
+    let el = element.parentElement;
+    while (el) {
+        const ct = getComputedStyle(el).containerType;
+        if (ct === "inline-size" || ct === "size") {
+            return el;
+        }
+        el = el.parentElement;
+    }
+    return null;
+}
+
+function isVerticalWritingMode(el: HTMLElement): boolean {
+    const wm = getComputedStyle(el).writingMode;
+    return wm?.startsWith("vertical") || wm?.startsWith("sideways") || false;
+}
+
 export function convertAbsoluteUnitToPixels(value: number, unit: string) {
     let pixels = value;
     if (unit === "cm") {
@@ -285,6 +315,33 @@ export function convertToPixels(
         // ex ≈ x-height; approximate as 0.5 × font-size
         const fontSize = parseFloat(getComputedStyle(element).fontSize) || 16;
         value *= fontSize * 0.5;
+    } else if (
+        (unit === "cqw" || unit === "cqh" || unit === "cqi" || unit === "cqb" || unit === "cqmin" || unit === "cqmax") &&
+        element
+    ) {
+        const container = findQueryContainer(element);
+        if (container) {
+            const cw = container.clientWidth;
+            const ch = container.clientHeight;
+            const isVertical = isVerticalWritingMode(container);
+            const inlineSize = isVertical ? ch : cw;
+            const blockSize = isVertical ? cw : ch;
+
+            if (unit === "cqw") {
+                value *= cw / 100;
+            } else if (unit === "cqh") {
+                value *= ch / 100;
+            } else if (unit === "cqi") {
+                value *= inlineSize / 100;
+            } else if (unit === "cqb") {
+                value *= blockSize / 100;
+            } else if (unit === "cqmin") {
+                value *= Math.min(cw, ch) / 100;
+            } else {
+                // cqmax
+                value *= Math.max(cw, ch) / 100;
+            }
+        }
     } else {
         value = convertAbsoluteUnitToPixels(value, unit);
     }
