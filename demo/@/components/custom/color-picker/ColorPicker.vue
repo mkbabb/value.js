@@ -85,43 +85,44 @@
                 <SpectrumCanvas />
                 <ComponentSliders />
 
-                <div class="grid relative items-center">
-                    <ActionToolbar
-                        :inert="showInput || undefined"
-                        :class="[
-                            '[grid-area:1/1] pr-8 transition-[opacity,transform] duration-150',
-                            showInput ? 'opacity-0 -translate-y-1 pointer-events-none' : 'opacity-100 translate-y-0',
-                        ]"
-                        :css-color-opaque="cssColorOpaque"
-                        :can-propose-name="canProposeName"
-                        :is-editing="isEditing"
-                        :palette-active="paletteDialogOpen || isEditing"
-                        :propose-form-open="colorInputRef?.showProposeForm ?? false"
-                        @reset="emit('reset')"
-                        @copy="colorInputRef?.copyAndSetInputColor()"
-                        @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
-                        @open-palette="openPaletteDialog"
-                        @toggle-propose="colorInputRef && (colorInputRef.showProposeForm = !colorInputRef.showProposeForm)"
-                    />
-                    <ColorInput
-                        :inert="!showInput || undefined"
-                        ref="colorInputRef"
-                        :edit-target="editTarget"
-                        :class="[
-                            '[grid-area:1/1] pr-8 transition-[opacity,transform] duration-150',
-                            showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1 pointer-events-none',
-                        ]"
-                    />
+                <div class="flex items-center gap-2">
+                    <div class="grid relative items-center flex-1 min-w-0">
+                        <ActionToolbar
+                            :inert="showInput || undefined"
+                            :class="[
+                                '[grid-area:1/1] transition-[opacity,transform] duration-150',
+                                showInput ? 'opacity-0 -translate-y-1 pointer-events-none' : 'opacity-100 translate-y-0',
+                            ]"
+                            :css-color-opaque="cssColorOpaque"
+                            :can-propose-name="canProposeName"
+                            :is-editing="isEditing"
+                            :palette-active="paletteDialogOpen || isEditing"
+                            :propose-form-open="colorInputRef?.showProposeForm ?? false"
+                            @reset="emit('reset')"
+                            @copy="colorInputRef?.copyAndSetInputColor()"
+                            @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
+                            @open-palette="openPaletteDialog"
+                            @toggle-propose="colorInputRef && (colorInputRef.showProposeForm = !colorInputRef.showProposeForm)"
+                        />
+                        <ColorInput
+                            :inert="!showInput || undefined"
+                            ref="colorInputRef"
+                            :edit-target="editTarget"
+                            :class="[
+                                '[grid-area:1/1] transition-[opacity,transform] duration-150',
+                                showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1 pointer-events-none',
+                            ]"
+                        />
+                    </div>
 
                     <HoverCard :close-delay="0" :open-delay="700" class="pointer-events-auto">
                         <HoverCardTrigger>
-                            <button
-                                class="toggle-btn [grid-area:1/1] justify-self-end self-center z-10 p-1 rounded-sm text-muted-foreground transition-colors cursor-pointer"
+                            <component
+                                :is="showInput ? EllipsisVertical : Type"
+                                class="toggle-btn h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer shrink-0"
                                 :style="{ '--toggle-hover-color': cssColorOpaque }"
                                 @click="showInput = !showInput"
-                            >
-                                <component :is="showInput ? EllipsisVertical : Type" class="w-5 h-5" />
-                            </button>
+                            />
                         </HoverCardTrigger>
                         <HoverCardContent class="z-[100] pointer-events-auto fraunces" side="left">
                             <p class="font-bold text-lg">{{ showInput ? 'Actions' : 'Color input' }}</p>
@@ -380,6 +381,6 @@ onUnmounted(() => {
 @reference "../../../styles/style.css";
 
 .toggle-btn:hover {
-    color: var(--toggle-hover-color);
+    stroke: var(--toggle-hover-color);
 }
 </style>
