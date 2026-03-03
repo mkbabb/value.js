@@ -93,18 +93,25 @@ export async function createHash(algorithm: string, data: string) {
     return digestArray.map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
-export interface MemoizeOptions {
+export interface MemoizeOptions<T extends (...args: any[]) => any = (...args: any[]) => any> {
     maxCacheSize?: number;
     ttl?: number;
     keyFn?: (...args: any[]) => string;
+    /** When provided, the result is only cached if this returns true. */
+    shouldCache?: (result: ReturnType<T>, ...args: Parameters<T>) => boolean;
 }
 
 export function memoize<T extends (...args: any[]) => any>(
     func: T,
-    options: MemoizeOptions = {},
+    options: MemoizeOptions<T> = {},
 ): T & { cache: Map<string, { value: ReturnType<T>; timestamp: number }> } {
     const cache = new Map<string, { value: ReturnType<T>; timestamp: number }>();
-    const { maxCacheSize = Infinity, ttl = Infinity, keyFn = (JSON.stringify as (...args: any[]) => string) } = options;
+    const {
+        maxCacheSize = Infinity,
+        ttl = Infinity,
+        keyFn = (JSON.stringify as (...args: any[]) => string),
+        shouldCache,
+    } = options;
 
     const memoized = function (
         this: ThisParameterType<T>,
@@ -123,11 +130,14 @@ export function memoize<T extends (...args: any[]) => any>(
         }
 
         const result = func.apply(this, args);
-        cache.set(key, { value: result, timestamp: now });
 
-        if (cache.size > maxCacheSize) {
-            const oldestKey = cache.keys().next().value!;
-            cache.delete(oldestKey);
+        if (!shouldCache || shouldCache(result, ...args)) {
+            cache.set(key, { value: result, timestamp: now });
+
+            if (cache.size > maxCacheSize) {
+                const oldestKey = cache.keys().next().value!;
+                cache.delete(oldestKey);
+            }
         }
 
         return result;
