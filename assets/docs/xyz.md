@@ -1,5 +1,6 @@
 <script setup>
-import { rgb2xyz, xyz2rgb, xyz2lab, lab2xyz, getFormattedColorSpaceRange } from "@src/units/color/utils";
+import { rgb2xyz, xyz2rgb, xyz2lab, lab2xyz } from "virtual:color-source";
+import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import { Katex } from "@components/custom/katex";
 import {
     COLOR_SPACE_DENORM_UNITS,
@@ -10,8 +11,6 @@ import {
     WHITE_POINT_D65_D50
 } from "@src/units/color/constants";
 import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-
-
 const { x, y, z } = getFormattedColorSpaceRange("xyz");
 
 </script>

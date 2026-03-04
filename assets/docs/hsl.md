@@ -1,5 +1,6 @@
 <script setup>
-import { rgb2hsl, hsl2rgb, getFormattedColorSpaceRange } from "@src/units/color/utils";
+import { rgb2hsl, hsl2rgb } from "virtual:color-source";
+import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import { Katex } from "@components/custom/katex";
 import {
     COLOR_SPACE_DENORM_UNITS,
@@ -7,8 +8,6 @@ import {
     COLOR_SPACE_RANGES,
 } from "@src/units/color/constants";
 import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-
-
 const { h, s, l } = getFormattedColorSpaceRange("hsl");
 
 </script>
