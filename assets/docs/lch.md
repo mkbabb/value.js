@@ -1,5 +1,5 @@
 <script setup>
-import { lab2lch, lch2lab } from "virtual:color-source";
+import { lab2lch, lch2lab } from "@src/units/color/utils?source";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import { Katex } from "@components/custom/katex";
 import {

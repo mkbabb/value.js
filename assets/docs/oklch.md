@@ -1,5 +1,5 @@
 <script setup>
-import { oklch2oklab, oklab2oklch, oklch2xyz, xyz2oklch } from "virtual:color-source";
+import { oklch2oklab, oklab2oklch, oklch2xyz, xyz2oklch } from "@src/units/color/utils?source";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import { Katex } from "@components/custom/katex";
 import {

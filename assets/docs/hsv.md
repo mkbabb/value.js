@@ -1,5 +1,5 @@
 <script setup>
-import { hsv2hsl, hsl2hsv, hsv2xyz, xyz2hsv } from "virtual:color-source";
+import { hsv2hsl, hsl2hsv, hsv2xyz, xyz2hsv } from "@src/units/color/utils?source";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import { Katex } from "@components/custom/katex";
 import {

@@ -1,5 +1,5 @@
 <script setup>
-import { rgb2xyz, xyz2rgb, xyz2lab, lab2xyz } from "virtual:color-source";
+import { rgb2xyz, xyz2rgb, xyz2lab, lab2xyz } from "@src/units/color/utils?source";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import { Katex } from "@components/custom/katex";
 import {

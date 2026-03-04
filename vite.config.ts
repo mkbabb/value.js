@@ -1,7 +1,5 @@
 import { defineConfig } from "vite";
-import type { Plugin } from "vite";
 import path from "path";
-import { readFileSync } from "fs";
 
 import Vue from "@vitejs/plugin-vue";
 
@@ -11,77 +9,7 @@ import tailwindcss from "@tailwindcss/postcss";
 
 import Markdown from "unplugin-vue-markdown/vite";
 
-/**
- * Vite plugin: extracts exported function source text from utils.ts
- * at build time, serving them as named string exports from a virtual module.
- *
- * Usage in markdown files:
- *   import { rgb2hsl, hsl2rgb } from "virtual:color-source";
- */
-function colorSourcePlugin(): Plugin {
-    const virtualId = "virtual:color-source";
-    const resolvedId = "\0" + virtualId;
-
-    return {
-        name: "color-source",
-        resolveId(id) {
-            if (id === virtualId) return resolvedId;
-        },
-        load(id) {
-            if (id !== resolvedId) return;
-
-            const filePath = path.resolve(import.meta.dirname, "src/units/color/utils.ts");
-            const raw = readFileSync(filePath, "utf-8");
-
-            // Find all exported functions/consts and extract their source
-            const exportRe = /export\s+(?:const|function)\s+(\w+)/g;
-            const entries: string[] = [];
-            let m: RegExpExecArray | null;
-
-            while ((m = exportRe.exec(raw)) !== null) {
-                const name = m[1];
-                const start = m.index;
-
-                // Find matching closing brace via brace counting
-                const openBrace = raw.indexOf("{", start);
-                if (openBrace === -1) continue;
-
-                let depth = 0;
-                let inStr = false;
-                let strChar = "";
-                let end = -1;
-
-                for (let i = openBrace; i < raw.length; i++) {
-                    const ch = raw[i];
-                    if (inStr) {
-                        if (ch === "\\" ) { i++; continue; }
-                        if (ch === strChar) inStr = false;
-                        continue;
-                    }
-                    if (ch === '"' || ch === "'" || ch === "`") {
-                        inStr = true;
-                        strChar = ch;
-                        continue;
-                    }
-                    if (ch === "{") depth++;
-                    if (ch === "}") {
-                        depth--;
-                        if (depth === 0) {
-                            end = raw[i + 1] === ";" ? i + 2 : i + 1;
-                            break;
-                        }
-                    }
-                }
-
-                if (end === -1) continue;
-                const source = raw.slice(start, end).replace(/^export\s+/, "");
-                entries.push(`export const ${name} = ${JSON.stringify(source)};`);
-            }
-
-            return entries.join("\n");
-        },
-    };
-}
+import { sourceExportPlugin } from "./plugins/vite-source-export";
 
 const defaultOptions = {
     css: {
@@ -104,7 +32,7 @@ const defaultOptions = {
 };
 
 const defaultPlugins = [
-    colorSourcePlugin(),
+    sourceExportPlugin(),
     Vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown({}),
 ];

@@ -1,5 +1,5 @@
 <script setup>
-import { kelvin2rgb, rgb2kelvin } from "virtual:color-source";
+import { kelvin2rgb, rgb2kelvin } from "@src/units/color/utils?source";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import { Katex } from "@components/custom/katex";
 import {
