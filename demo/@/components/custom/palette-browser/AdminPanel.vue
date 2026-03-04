@@ -2,7 +2,9 @@
     <div class="grid gap-6 py-2">
         <!-- Auth gate -->
         <div v-if="!isAuthenticated" class="grid gap-3">
-            <p class="fira-code text-sm text-muted-foreground">Enter admin token to continue.</p>
+            <p class="fira-code text-sm text-muted-foreground">
+                Enter admin token to continue.
+            </p>
             <form class="flex items-center gap-2" @submit.prevent="onLogin">
                 <Input
                     v-model="tokenInput"
@@ -10,7 +12,11 @@
                     placeholder="Admin token..."
                     class="fira-code text-base h-10 flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
-                <Button type="submit" :disabled="!tokenInput.trim()" class="cursor-pointer">
+                <Button
+                    type="submit"
+                    :disabled="!tokenInput.trim()"
+                    class="cursor-pointer"
+                >
                     <LogIn class="w-4 h-4 mr-1.5" />
                     Login
                 </Button>
@@ -25,7 +31,10 @@
                 <div v-if="loadingQueue" class="flex items-center justify-center py-6">
                     <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
                 </div>
-                <div v-else-if="queue.length === 0" class="text-center text-muted-foreground py-6 fira-code text-sm italic">
+                <div
+                    v-else-if="queue.length === 0"
+                    class="text-center text-muted-foreground py-6 fira-code text-sm italic"
+                >
                     No pending proposals.
                 </div>
                 <div v-else class="grid gap-2 max-h-[300px] overflow-y-auto">
@@ -39,8 +48,13 @@
                             :style="{ backgroundColor: item.css }"
                         ></div>
                         <div class="flex-1 min-w-0">
-                            <span class="fira-code text-sm font-medium truncate block">{{ item.name }}</span>
-                            <span class="fira-code text-xs text-muted-foreground">{{ item.css }}</span>
+                            <span
+                                class="fira-code text-sm font-medium truncate block"
+                                >{{ item.name }}</span
+                            >
+                            <span class="fira-code text-xs text-muted-foreground">{{
+                                item.css
+                            }}</span>
                         </div>
                         <div class="flex items-center gap-1.5 shrink-0">
                             <Button
@@ -96,7 +110,11 @@
 
             <!-- Logout -->
             <div class="flex justify-end pt-2 border-t border-border">
-                <Button variant="ghost" class="cursor-pointer text-muted-foreground" @click="onLogout">
+                <Button
+                    variant="ghost"
+                    class="cursor-pointer text-muted-foreground"
+                    @click="onLogout"
+                >
                     <LogOut class="w-4 h-4 mr-1.5" />
                     Logout
                 </Button>
@@ -109,7 +127,15 @@
 import { ref, watch } from "vue";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
-import { Check, Loader2, LogIn, LogOut, Award, Trash2, X as XIcon } from "lucide-vue-next";
+import {
+    Check,
+    Loader2,
+    LogIn,
+    LogOut,
+    Award,
+    Trash2,
+    X as XIcon,
+} from "lucide-vue-next";
 
 import { useAdminAuth } from "@composables/useAdminAuth";
 import {
@@ -128,6 +154,23 @@ const queue = ref<ProposedColorName[]>([]);
 const loadingQueue = ref(false);
 const paletteSlug = ref("");
 
+function normalizeTokenInput(raw: string): string {
+    let token = raw.trim();
+    const assignmentMatch = token.match(/^ADMIN_TOKEN\s*=\s*(.+)$/i);
+    if (assignmentMatch) {
+        token = assignmentMatch[1]!.trim();
+    }
+
+    if (
+        (token.startsWith('"') && token.endsWith('"')) ||
+        (token.startsWith("'") && token.endsWith("'"))
+    ) {
+        token = token.slice(1, -1).trim();
+    }
+
+    return token;
+}
+
 async function loadQueue() {
     const token = getToken();
     if (!token) return;
@@ -142,7 +185,7 @@ async function loadQueue() {
 }
 
 function onLogin() {
-    const t = tokenInput.value.trim();
+    const t = normalizeTokenInput(tokenInput.value);
     if (!t) return;
     login(t);
     tokenInput.value = "";
@@ -185,7 +228,8 @@ async function onFeature() {
         await guardedAdmin(() => featurePalette(token, slug));
         paletteSlug.value = "";
     } catch (e: any) {
-        if (isAuthenticated.value) console.warn(e?.message ?? "Failed to feature palette");
+        if (isAuthenticated.value)
+            console.warn(e?.message ?? "Failed to feature palette");
     }
 }
 
@@ -198,7 +242,8 @@ async function onDeletePalette() {
         await guardedAdmin(() => deletePaletteAdmin(token, slug));
         paletteSlug.value = "";
     } catch (e: any) {
-        if (isAuthenticated.value) console.warn(e?.message ?? "Failed to delete palette");
+        if (isAuthenticated.value)
+            console.warn(e?.message ?? "Failed to delete palette");
     }
 }
 
@@ -218,7 +263,11 @@ async function guardedAdmin<T>(fn: () => Promise<T>): Promise<T> {
 }
 
 // Load queue when authenticated on mount
-watch(isAuthenticated, (auth) => {
-    if (auth) loadQueue();
-}, { immediate: true });
+watch(
+    isAuthenticated,
+    (auth) => {
+        if (auth) loadQueue();
+    },
+    { immediate: true },
+);
 </script>

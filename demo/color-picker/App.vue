@@ -2,19 +2,47 @@
     <!-- Global SVG filter for watercolor swatches -->
     <svg class="absolute w-0 h-0" aria-hidden="true">
         <defs>
-            <filter id="watercolor-filter" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
-                <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="2" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
+            <filter
+                id="watercolor-filter"
+                x="-10%"
+                y="-10%"
+                width="120%"
+                height="120%"
+                color-interpolation-filters="sRGB"
+            >
+                <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.04"
+                    numOctaves="4"
+                    seed="2"
+                    result="noise"
+                />
+                <feDisplacementMap
+                    in="SourceGraphic"
+                    in2="noise"
+                    scale="1.5"
+                    xChannelSelector="R"
+                    yChannelSelector="G"
+                />
             </filter>
-            <filter id="gooey-filter" x="-40%" y="-40%" width="180%" height="180%"
-                    color-interpolation-filters="sRGB">
+            <filter
+                id="gooey-filter"
+                x="-40%"
+                y="-40%"
+                width="180%"
+                height="180%"
+                color-interpolation-filters="sRGB"
+            >
                 <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
-                <feColorMatrix in="blur" type="matrix"
+                <feColorMatrix
+                    in="blur"
+                    type="matrix"
                     values="1 0 0 0 0
                             0 1 0 0 0
                             0 0 1 0 0
                             0 0 0 18 -7"
-                    result="goo" />
+                    result="goo"
+                />
                 <feBlend in="SourceGraphic" in2="goo" />
             </filter>
         </defs>
@@ -72,15 +100,16 @@
                 <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
                     <Tooltip v-bind="linkCopied ? { open: true } : {}">
                         <TooltipTrigger as-child>
-                            <button
-                                class="controls-icon"
-                                @click="shareLink()"
-                            >
-                                <component :is="linkCopied ? Check : Share2" class="w-full h-full" :stroke-width="2" />
+                            <button class="controls-icon" @click="shareLink()">
+                                <component
+                                    :is="linkCopied ? Check : Share2"
+                                    class="w-full h-full"
+                                    :stroke-width="2"
+                                />
                             </button>
                         </TooltipTrigger>
                         <TooltipContent class="fira-code text-xs">
-                            {{ linkCopied ? 'Copied!' : 'Share link' }}
+                            {{ linkCopied ? "Copied!" : "Share link" }}
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
@@ -94,12 +123,17 @@
         >
             <ColorPicker
                 ref="colorPickerRef"
-                class="w-full lg:col-span-1 min-w-0 lg:min-h-0"
+                class="picker-shell w-full max-w-[34rem] mx-auto lg:max-w-none lg:mx-0 lg:col-span-1 min-w-0 lg:min-h-0"
                 v-model="model"
                 @reset="resetToDefaults"
             ></ColorPicker>
 
-            <Card :class="['w-full lg:col-span-1 overflow-y-auto overflow-x-hidden min-w-0 lg:min-h-0', pickerIsEditing ? 'about-card-editing' : 'about-card-normal']">
+            <Card
+                :class="[
+                    'w-full lg:col-span-1 overflow-y-auto overflow-x-hidden min-w-0 lg:min-h-0',
+                    pickerIsEditing ? 'about-card-editing' : 'about-card-normal',
+                ]"
+            >
                 <CardHeader class="fraunces px-3 sm:px-6">
                     <CardTitle
                         >About the color spaces,
@@ -138,8 +172,6 @@
             </Card>
         </div>
     </div>
-
-
 </template>
 
 <script setup lang="ts">
@@ -160,7 +192,13 @@ import {
 import { Share2, Check } from "lucide-vue-next";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
 import { Button } from "@components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@components/ui/card";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@components/ui/card";
 import type { ColorModel } from "@components/custom/color-picker";
 import {
     ColorPicker,
@@ -185,24 +223,28 @@ import "@styles/utils.css";
 import "@styles/style.css";
 
 const markdownModules: Record<ColorSpace, DocModule> = {
-    rgb:    () => import("@assets/docs/rgb.md"),
-    hsl:    () => import("@assets/docs/hsl.md"),
-    hsv:    () => import("@assets/docs/hsv.md"),
-    hwb:    () => import("@assets/docs/hwb.md"),
-    lab:    () => import("@assets/docs/lab.md"),
-    lch:    () => import("@assets/docs/lch.md"),
-    oklab:  () => import("@assets/docs/oklab.md"),
-    oklch:  () => import("@assets/docs/oklch.md"),
-    xyz:    () => import("@assets/docs/xyz.md"),
+    rgb: () => import("@assets/docs/rgb.md"),
+    hsl: () => import("@assets/docs/hsl.md"),
+    hsv: () => import("@assets/docs/hsv.md"),
+    hwb: () => import("@assets/docs/hwb.md"),
+    lab: () => import("@assets/docs/lab.md"),
+    lch: () => import("@assets/docs/lch.md"),
+    oklab: () => import("@assets/docs/oklab.md"),
+    oklch: () => import("@assets/docs/oklch.md"),
+    xyz: () => import("@assets/docs/xyz.md"),
     kelvin: () => import("@assets/docs/kelvin.md"),
 };
 
-const activeMarkdownModule = computed(() => markdownModules[model.value.selectedColorSpace]);
+const activeMarkdownModule = computed(
+    () => markdownModules[model.value.selectedColorSpace],
+);
 
 const gridBackground = useTemplateRef<HTMLElement>("gridBackground");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
-const pickerIsEditing = computed(() =>
-    (colorPickerRef.value?.isEditing ?? false) || (colorPickerRef.value?.isTransitioning ?? false),
+const pickerIsEditing = computed(
+    () =>
+        (colorPickerRef.value?.isEditing ?? false) ||
+        (colorPickerRef.value?.isTransitioning ?? false),
 );
 
 const isDark = useDark({ disableTransition: false });
@@ -237,20 +279,30 @@ const shareLink = async () => {
 };
 
 // Watch color changes for storage sync (debounced to avoid blocking during rapid drag)
-const syncColorToStorage = debounce((color: any) => {
-    colorStore.value.inputColor = color?.toString() ?? "";
-}, 200, false);
+const syncColorToStorage = debounce(
+    (color: any) => {
+        colorStore.value.inputColor = color?.toString() ?? "";
+    },
+    200,
+    false,
+);
 
-watch(() => model.value.color, (color) => {
-    syncColorToStorage(color);
-});
+watch(
+    () => model.value.color,
+    (color) => {
+        syncColorToStorage(color);
+    },
+);
 
 // Watch saved colors separately
-watch(() => model.value.savedColors, (colors) => {
-    colorStore.value.savedColors = colors.map((c) =>
-        normalizeColorUnit(c as any, true, false).toString(),
-    );
-});
+watch(
+    () => model.value.savedColors,
+    (colors) => {
+        colorStore.value.savedColors = colors.map((c) =>
+            normalizeColorUnit(c as any, true, false).toString(),
+        );
+    },
+);
 
 // Bidirectional URL ↔ model sync
 useColorUrl({ model, updateModel });
@@ -282,7 +334,10 @@ onMounted(() => {
     cursor: pointer;
     color: hsl(var(--foreground));
     opacity: 0.6;
-    transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        color 0.2s ease;
 }
 .controls-icon:hover {
     opacity: 1;

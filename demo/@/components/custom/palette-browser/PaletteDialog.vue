@@ -2,13 +2,13 @@
     <Dialog v-model:open="openModel">
         <DialogScrollContent
             :class="[
-                'palette-dialog w-[calc(100%-1rem)] sm:w-full p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg max-h-[85vh] min-w-0 sm:max-w-[500px]',
+                'palette-dialog w-[calc(100%-1rem)] sm:w-[min(92vw,750px)] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg h-[min(90vh,820px)] max-h-[90vh] min-w-0 flex flex-col',
                 editingExit && 'palette-dialog--editing-exit',
                 editingEnter && 'palette-dialog--editing-enter',
             ]"
         >
             <!-- Header -->
-            <div>
+            <div class="shrink-0">
                 <!-- Thick accent bar at top -->
                 <div
                     class="h-3 w-full"
@@ -16,7 +16,9 @@
                         background: `linear-gradient(to right, ${cssColorOpaque}, ${cssColor})`,
                     }"
                 ></div>
-                <div class="flex items-center justify-between px-4 sm:px-6 pt-3 sm:pt-4 pb-2 sm:pb-3">
+                <div
+                    class="flex items-center justify-between px-4 sm:px-6 pt-3 sm:pt-4 pb-2 sm:pb-3"
+                >
                     <div class="flex items-center gap-2 sm:gap-3 min-w-0">
                         <!-- Color swatch dot — click to copy, shift+click for admin -->
                         <WatercolorDot
@@ -28,10 +30,17 @@
                             @click="onDotClick"
                         />
                         <div class="min-w-0">
-                            <DialogTitle class="fraunces text-3xl sm:text-5xl font-black tracking-tight">
-                                Color <span class="uppercase pastel-rainbow-text">Palettes</span>
+                            <DialogTitle
+                                class="fraunces text-3xl sm:text-5xl font-black tracking-tight"
+                            >
+                                Color
+                                <span class="uppercase pastel-rainbow-text"
+                                    >Palettes</span
+                                >
                             </DialogTitle>
-                            <DialogDescription class="fira-code text-xs sm:text-sm text-muted-foreground italic mt-0.5">
+                            <DialogDescription
+                                class="fira-code text-xs sm:text-sm text-muted-foreground italic mt-0.5"
+                            >
                                 Save, browse, and publish color palettes.
                             </DialogDescription>
                         </div>
@@ -40,14 +49,28 @@
             </div>
 
             <!-- Tabs + Search -->
-            <div class="px-4 sm:px-6 h-[min(55vh,500px)] flex flex-col min-w-0 overflow-x-hidden">
-                <Tabs v-model="activeTab" class="w-full flex flex-col flex-1 min-h-0 min-w-0">
+            <div
+                data-testid="palette-browser-scroll-pane"
+                class="px-4 sm:px-6 w-full flex flex-col flex-1 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden"
+            >
+                <Tabs
+                    v-model="activeTab"
+                    class="w-full min-h-full flex flex-col min-w-0"
+                >
                     <!-- Controls: tabs row, then search+sort row -->
                     <div class="flex flex-col gap-2 mb-4 min-w-0">
                         <TabsList class="shrink-0 w-fit">
-                            <TabsTrigger value="saved" class="fira-code text-base">My Palettes</TabsTrigger>
-                            <TabsTrigger value="browse" class="fira-code text-base">Browse</TabsTrigger>
-                            <TabsTrigger v-if="showAdminTab" value="admin" class="fira-code text-base">
+                            <TabsTrigger value="saved" class="fira-code text-base"
+                                >My Palettes</TabsTrigger
+                            >
+                            <TabsTrigger value="browse" class="fira-code text-base"
+                                >Browse</TabsTrigger
+                            >
+                            <TabsTrigger
+                                v-if="showAdminTab"
+                                value="admin"
+                                class="fira-code text-base"
+                            >
                                 <Shield class="w-3.5 h-3.5 mr-1" />
                                 Admin
                             </TabsTrigger>
@@ -62,53 +85,77 @@
                             <div
                                 :class="[
                                     'shrink-0 transition-[visibility,opacity] duration-200',
-                                    activeTab === 'browse' ? 'visible opacity-100' : 'invisible opacity-0',
+                                    activeTab === 'browse'
+                                        ? 'visible opacity-100'
+                                        : 'invisible opacity-0',
                                 ]"
                             >
-                            <ToggleGroup
-                                type="single"
-                                :model-value="sortMode"
-                                @update:model-value="onSortChange"
-                                class="shrink-0"
-                            >
-                                <TooltipProvider :delay-duration="200">
-                                    <Tooltip>
-                                        <TooltipTrigger as-child>
-                                            <ToggleGroupItem value="newest" class="px-2.5">
-                                                <Clock class="w-4 h-4" />
-                                            </ToggleGroupItem>
-                                        </TooltipTrigger>
-                                        <TooltipContent class="fira-code text-xs">Newest first</TooltipContent>
-                                    </Tooltip>
-                                </TooltipProvider>
-                                <TooltipProvider :delay-duration="200">
-                                    <Tooltip>
-                                        <TooltipTrigger as-child>
-                                            <ToggleGroupItem value="popular" class="px-2.5">
-                                                <TrendingUp class="w-4 h-4" />
-                                            </ToggleGroupItem>
-                                        </TooltipTrigger>
-                                        <TooltipContent class="fira-code text-xs">Most popular</TooltipContent>
-                                    </Tooltip>
-                                </TooltipProvider>
-                            </ToggleGroup>
+                                <ToggleGroup
+                                    type="single"
+                                    :model-value="sortMode"
+                                    @update:model-value="onSortChange"
+                                    class="shrink-0"
+                                >
+                                    <TooltipProvider :delay-duration="200">
+                                        <Tooltip>
+                                            <TooltipTrigger as-child>
+                                                <ToggleGroupItem
+                                                    value="newest"
+                                                    class="px-2.5"
+                                                >
+                                                    <Clock class="w-4 h-4" />
+                                                </ToggleGroupItem>
+                                            </TooltipTrigger>
+                                            <TooltipContent class="fira-code text-xs"
+                                                >Newest first</TooltipContent
+                                            >
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                    <TooltipProvider :delay-duration="200">
+                                        <Tooltip>
+                                            <TooltipTrigger as-child>
+                                                <ToggleGroupItem
+                                                    value="popular"
+                                                    class="px-2.5"
+                                                >
+                                                    <TrendingUp class="w-4 h-4" />
+                                                </ToggleGroupItem>
+                                            </TooltipTrigger>
+                                            <TooltipContent class="fira-code text-xs"
+                                                >Most popular</TooltipContent
+                                            >
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                </ToggleGroup>
                             </div>
                         </div>
                     </div>
 
                     <!-- My Palettes tab -->
-                    <TabsContent value="saved" class="mt-0 flex-1 overflow-y-auto min-h-0">
+                    <TabsContent value="saved" class="mt-0 w-full">
                         <Transition name="tab-fade" mode="out-in">
                             <div :key="'saved'" class="grid gap-3 pb-3">
                                 <!-- Current working palette -->
                                 <div
                                     class="rounded-lg border-2 border-dashed border-primary/30 bg-primary/5 p-3 grid gap-2"
                                 >
-                                    <div class="flex items-center justify-between gap-2">
-                                        <span class="fraunces text-sm font-bold text-muted-foreground">
-                                            {{ savedColorStrings.length > 0 ? 'Current Palette' : 'Start a new palette' }}
+                                    <div
+                                        class="flex items-center justify-between gap-2"
+                                    >
+                                        <span
+                                            class="fraunces text-sm font-bold text-muted-foreground"
+                                        >
+                                            {{
+                                                savedColorStrings.length > 0
+                                                    ? "Current Palette"
+                                                    : "Start a new palette"
+                                            }}
                                         </span>
-                                        <span v-if="savedColorStrings.length > 0" class="fira-code text-xs text-muted-foreground">{{ savedColorStrings.length }} colors</span>
+                                        <span
+                                            v-if="savedColorStrings.length > 0"
+                                            class="fira-code text-xs text-muted-foreground"
+                                            >{{ savedColorStrings.length }} colors</span
+                                        >
                                     </div>
                                     <TransitionGroup
                                         name="swatch-item"
@@ -119,14 +166,22 @@
                                             v-for="(color, i) in savedColorStrings"
                                             :key="swatchKeys[i]"
                                             class="relative"
-                                            @pointerenter="onCurrentSwatchHover(i, $event)"
+                                            @pointerenter="
+                                                onCurrentSwatchHover(i, $event)
+                                            "
                                             @pointerleave="onCurrentSwatchLeave()"
                                         >
                                             <!-- Touch: native Popover click toggle -->
                                             <Popover
                                                 v-if="!canHover"
                                                 :open="currentSwatchPopoverIndex === i"
-                                                @update:open="(v: boolean) => onCurrentSwatchPopoverUpdateTouch(v, i)"
+                                                @update:open="
+                                                    (v: boolean) =>
+                                                        onCurrentSwatchPopoverUpdateTouch(
+                                                            v,
+                                                            i,
+                                                        )
+                                                "
                                             >
                                                 <PopoverTrigger as-child>
                                                     <WatercolorDot
@@ -139,14 +194,39 @@
                                                     class="w-auto p-1.5 flex items-center gap-1"
                                                     :side-offset="8"
                                                 >
-                                                    <button @click="onCurrentSwatchEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                                    <button
+                                                        @click="
+                                                            onCurrentSwatchEdit(
+                                                                color,
+                                                                i,
+                                                            )
+                                                        "
+                                                        class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                                    >
                                                         <Pencil class="w-4 h-4" />
                                                     </button>
-                                                    <button @click="onCurrentSwatchCopy(color)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
-                                                        <ClipboardCopy class="w-4 h-4" />
+                                                    <button
+                                                        @click="
+                                                            onCurrentSwatchCopy(color)
+                                                        "
+                                                        class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                                    >
+                                                        <ClipboardCopy
+                                                            class="w-4 h-4"
+                                                        />
                                                     </button>
-                                                    <button @click="onCurrentSwatchRemove(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
-                                                        <Trash2 class="w-4 h-4 text-destructive" />
+                                                    <button
+                                                        @click="
+                                                            onCurrentSwatchRemove(
+                                                                color,
+                                                                i,
+                                                            )
+                                                        "
+                                                        class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                                    >
+                                                        <Trash2
+                                                            class="w-4 h-4 text-destructive"
+                                                        />
                                                     </button>
                                                 </PopoverContent>
                                             </Popover>
@@ -157,50 +237,100 @@
                                                     :color="color"
                                                     tag="button"
                                                     class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
-                                                    @click.stop="onCurrentSwatchClick(i)"
+                                                    @click.stop="
+                                                        onCurrentSwatchClick(i)
+                                                    "
                                                 />
                                                 <Teleport to="body">
                                                     <div
-                                                        v-if="currentSwatchPopoverIndex === i"
+                                                        v-if="
+                                                            currentSwatchPopoverIndex ===
+                                                            i
+                                                        "
                                                         class="swatch-floating-panel"
                                                         :style="currentFloatingStyle"
-                                                        @pointerenter="cancelCurrentSwatchLeave()"
-                                                        @pointerleave="onCurrentSwatchLeave()"
+                                                        @pointerenter="
+                                                            cancelCurrentSwatchLeave()
+                                                        "
+                                                        @pointerleave="
+                                                            onCurrentSwatchLeave()
+                                                        "
                                                     >
-                                                        <button @click="onCurrentSwatchEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                                        <button
+                                                            @click="
+                                                                onCurrentSwatchEdit(
+                                                                    color,
+                                                                    i,
+                                                                )
+                                                            "
+                                                            class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                                        >
                                                             <Pencil class="w-4 h-4" />
                                                         </button>
-                                                        <button @click="onCurrentSwatchCopy(color)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
-                                                            <ClipboardCopy class="w-4 h-4" />
+                                                        <button
+                                                            @click="
+                                                                onCurrentSwatchCopy(
+                                                                    color,
+                                                                )
+                                                            "
+                                                            class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                                        >
+                                                            <ClipboardCopy
+                                                                class="w-4 h-4"
+                                                            />
                                                         </button>
-                                                        <button @click="onCurrentSwatchRemove(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
-                                                            <Trash2 class="w-4 h-4 text-destructive" />
+                                                        <button
+                                                            @click="
+                                                                onCurrentSwatchRemove(
+                                                                    color,
+                                                                    i,
+                                                                )
+                                                            "
+                                                            class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                                        >
+                                                            <Trash2
+                                                                class="w-4 h-4 text-destructive"
+                                                            />
                                                         </button>
                                                     </div>
                                                 </Teleport>
                                             </template>
                                         </div>
                                         <!-- Add current color button -->
-                                        <TooltipProvider key="__add__" :delay-duration="200">
+                                        <TooltipProvider
+                                            key="__add__"
+                                            :delay-duration="200"
+                                        >
                                             <Tooltip>
                                                 <TooltipTrigger as-child>
                                                     <button
                                                         class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center hover:scale-110 hover:border-primary/60 transition-all"
                                                         @click="addCurrentColor"
                                                     >
-                                                        <Plus class="w-5 h-5 text-primary/40" />
+                                                        <Plus
+                                                            class="w-5 h-5 text-primary/40"
+                                                        />
                                                     </button>
                                                 </TooltipTrigger>
-                                                <TooltipContent class="fira-code text-xs">
-                                                    Add current color ({{ cssColorOpaque }})
+                                                <TooltipContent
+                                                    class="fira-code text-xs"
+                                                >
+                                                    Add current color ({{
+                                                        cssColorOpaque
+                                                    }})
                                                 </TooltipContent>
                                             </Tooltip>
                                         </TooltipProvider>
                                     </TransitionGroup>
-                                    <div v-if="savedColorStrings.length > 0" class="flex items-center gap-2">
+                                    <div
+                                        v-if="savedColorStrings.length > 0"
+                                        class="flex items-center gap-2"
+                                    >
                                         <Input
                                             v-model="currentPaletteName"
-                                            :placeholder="'Palette ' + (savedPalettes.length + 1)"
+                                            :placeholder="
+                                                'Palette ' + (savedPalettes.length + 1)
+                                            "
                                             class="fira-code text-sm h-8 flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
                                             @keydown.enter="saveCurrentPalette"
                                         />
@@ -239,49 +369,51 @@
                     </TabsContent>
 
                     <!-- Browse (remote) palettes tab -->
-                    <TabsContent value="browse" class="mt-0 flex-1 overflow-y-auto min-h-0">
+                    <TabsContent value="browse" class="mt-0 w-full">
                         <Transition name="tab-fade" mode="out-in">
                             <div :key="'browse'" class="grid gap-3 pb-3 min-h-[120px]">
                                 <div
                                     v-if="browsing"
                                     class="flex items-center justify-center min-h-[120px]"
                                 >
-                                    <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
+                                    <Loader2
+                                        class="w-5 h-5 animate-spin text-muted-foreground"
+                                    />
                                 </div>
                                 <template v-else>
-                                <div
-                                    class="grid gap-3 transition-opacity duration-200"
-                                    :class="{ 'opacity-50': sortLoading }"
-                                >
-                                    <PaletteCard
-                                        v-for="palette in filteredBrowse"
-                                        :key="palette.slug"
-                                        :palette="palette"
-                                        :expanded="expandedId === palette.id"
-                                        :css-color="cssColorOpaque"
-                                        :is-owned="session.isOwned(palette.slug)"
-                                        @click="toggleExpand(palette.id)"
-                                        @apply="onApply"
-                                        @save="onSaveRemote"
-                                        @vote="onVote"
-                                        @rename="onRename"
-                                        @edit-color="onEditColor"
-                                        @add-color="onSwatchAddColor"
-                                    />
-                                    <p
-                                        v-if="filteredBrowse.length === 0"
-                                        class="text-center text-muted-foreground py-8 fira-code text-base italic"
+                                    <div
+                                        class="grid gap-3 transition-opacity duration-200"
+                                        :class="{ 'opacity-50': sortLoading }"
                                     >
-                                        No published palettes found.
-                                    </p>
-                                </div>
+                                        <PaletteCard
+                                            v-for="palette in filteredBrowse"
+                                            :key="palette.slug"
+                                            :palette="palette"
+                                            :expanded="expandedId === palette.id"
+                                            :css-color="cssColorOpaque"
+                                            :is-owned="session.isOwned(palette.slug)"
+                                            @click="toggleExpand(palette.id)"
+                                            @apply="onApply"
+                                            @save="onSaveRemote"
+                                            @vote="onVote"
+                                            @rename="onRename"
+                                            @edit-color="onEditColor"
+                                            @add-color="onSwatchAddColor"
+                                        />
+                                        <p
+                                            v-if="filteredBrowse.length === 0"
+                                            class="text-center text-muted-foreground py-8 fira-code text-base italic"
+                                        >
+                                            No published palettes found.
+                                        </p>
+                                    </div>
                                 </template>
                             </div>
                         </Transition>
                     </TabsContent>
 
                     <!-- Admin tab -->
-                    <TabsContent value="admin" class="mt-0 flex-1 overflow-y-auto min-h-0">
+                    <TabsContent value="admin" class="mt-0 w-full">
                         <Transition name="tab-fade" mode="out-in">
                             <div :key="'admin'">
                                 <AdminPanel />
@@ -292,7 +424,9 @@
             </div>
 
             <!-- Footer: new palette form -->
-            <div class="px-4 sm:px-6 pb-4 sm:pb-5 pt-3 border-t border-gray-700/20">
+            <div
+                class="px-4 sm:px-6 pb-4 sm:pb-5 pt-3 border-t border-gray-700/20 shrink-0"
+            >
                 <PaletteForm
                     :colors="savedColorStrings"
                     :css-color="cssColorOpaque"
@@ -305,7 +439,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, watch, nextTick, Transition, TransitionGroup } from "vue";
+import {
+    ref,
+    reactive,
+    computed,
+    watch,
+    nextTick,
+    Transition,
+    TransitionGroup,
+} from "vue";
 import {
     Dialog,
     DialogScrollContent,
@@ -323,14 +465,28 @@ import {
     TooltipTrigger,
 } from "@components/ui/tooltip";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
-import { Loader2, Clock, TrendingUp, Shield, Plus, Pencil, ClipboardCopy, Trash2 } from "lucide-vue-next";
+import {
+    Loader2,
+    Clock,
+    TrendingUp,
+    Shield,
+    Plus,
+    Pencil,
+    ClipboardCopy,
+    Trash2,
+} from "lucide-vue-next";
 import { createSlug } from "@lib/palette/utils";
 
 import { copyToClipboard } from "@composables/useClipboard";
 import { usePaletteStore } from "@composables/usePaletteStore";
 import { useSession } from "@composables/useSession";
 import { useAdminAuth } from "@composables/useAdminAuth";
-import { listPalettes, publishPalette, votePalette, renamePalette } from "@lib/palette/api";
+import {
+    listPalettes,
+    publishPalette,
+    votePalette,
+    renamePalette,
+} from "@lib/palette/api";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import PaletteCard from "./PaletteCard.vue";
 import PaletteForm from "./PaletteForm.vue";
@@ -363,8 +519,8 @@ const sortMode = ref<"newest" | "popular">("newest");
 const session = useSession();
 const { isAuthenticated: isAdminAuthenticated } = useAdminAuth();
 
-const showAdminTab = computed(() =>
-    isAdminAuthenticated.value || activeTab.value === "admin",
+const showAdminTab = computed(
+    () => isAdminAuthenticated.value || activeTab.value === "admin",
 );
 
 const {
@@ -405,16 +561,20 @@ const swatchKeys = computed(() =>
     }),
 );
 // Clean stale keys when the list changes
-watch(() => props.savedColorStrings, () => {
-    const validKeys = new Set(props.savedColorStrings.map((c, i) => `${c}::${i}`));
-    for (const key of swatchKeyMap.keys()) {
-        if (!validKeys.has(key)) swatchKeyMap.delete(key);
-    }
-});
+watch(
+    () => props.savedColorStrings,
+    () => {
+        const validKeys = new Set(props.savedColorStrings.map((c, i) => `${c}::${i}`));
+        for (const key of swatchKeyMap.keys()) {
+            if (!validKeys.has(key)) swatchKeyMap.delete(key);
+        }
+    },
+);
 
 const currentSwatchPopoverIndex = ref<number | null>(null);
 let currentSwatchHoverTimer: ReturnType<typeof setTimeout> | null = null;
-const canHover = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
+const canHover =
+    typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
 // Floating panel positioning (hover devices only)
 const currentFloatingStyle = reactive({ top: "0px", left: "0px" });
@@ -463,7 +623,11 @@ function cancelCurrentSwatchLeave() {
 
 function onCurrentSwatchEdit(css: string, index: number) {
     currentSwatchPopoverIndex.value = null;
-    emit("startEdit", { paletteId: "__current__", colorIndex: index, originalCss: css });
+    emit("startEdit", {
+        paletteId: "__current__",
+        colorIndex: index,
+        originalCss: css,
+    });
 }
 
 function onCurrentSwatchCopy(css: string) {
@@ -483,7 +647,8 @@ function onSwatchAddColor(css: string) {
 
 function saveCurrentPalette() {
     if (props.savedColorStrings.length === 0) return;
-    const name = currentPaletteName.value.trim() || `Palette ${savedPalettes.value.length + 1}`;
+    const name =
+        currentPaletteName.value.trim() || `Palette ${savedPalettes.value.length + 1}`;
     const palette = createPalette(name, colorsFromStrings(props.savedColorStrings));
     currentPaletteName.value = "";
     expandedId.value = palette.id;
@@ -616,7 +781,10 @@ async function onCreateAndPublish(name: string) {
 }
 
 function onApply(palette: Palette) {
-    emit("apply", palette.colors.map((c) => c.css));
+    emit(
+        "apply",
+        palette.colors.map((c) => c.css),
+    );
 }
 
 function onDelete(palette: Palette) {
@@ -693,7 +861,9 @@ async function onRename(palette: Palette, newName: string) {
     border: 1px solid hsl(var(--border));
     background: hsl(var(--popover));
     color: hsl(var(--popover-foreground));
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1);
     transform: translateX(-50%);
     pointer-events: auto;
     animation: swatch-panel-in 0.15s ease-out;

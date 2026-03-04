@@ -2,6 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 
 const RUN_LIVE = process.env.PALETTE_API_E2E === "1";
 const API_BASE_URL = process.env.VITE_API_URL ?? "http://127.0.0.1:3100";
+const ADMIN_TOKEN = process.env.ADMIN_TOKEN_E2E ?? "test-admin-token";
 
 async function openPaletteDialog(page: Page) {
     await page.locator(".lucide-palette").first().click();
@@ -147,7 +148,9 @@ test.describe("Palette API Live Integration", () => {
         const dot = adminDialog.getByRole("button").first();
         await dot.click({ modifiers: ["Shift"] });
 
-        await page.getByPlaceholder("Admin token...").fill("test-admin-token");
+        await page
+            .getByPlaceholder("Admin token...")
+            .fill(`ADMIN_TOKEN="${ADMIN_TOKEN}"`);
         await page.getByRole("button", { name: /login/i }).click();
 
         const queueItem = page.getByText(proposedName, { exact: true });

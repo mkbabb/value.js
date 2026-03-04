@@ -6,7 +6,10 @@ test.describe("Mobile Layout", () => {
         await page.waitForSelector(".spectrum-picker");
     });
 
-    test("all main elements are visible and not clipped on mobile", async ({ page, browserName }) => {
+    test("all main elements are visible and not clipped on mobile", async ({
+        page,
+        browserName,
+    }) => {
         // Only run for mobile project (iPhone viewport)
         const viewport = page.viewportSize();
         if (!viewport || viewport.width > 500) {
@@ -33,14 +36,18 @@ test.describe("Mobile Layout", () => {
         }
 
         // Get the total scrollable height
-        const scrollHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+        const scrollHeight = await page.evaluate(
+            () => document.documentElement.scrollHeight,
+        );
         const viewportHeight = viewport!.height;
 
         // Page should be scrollable (content exceeds viewport)
         expect(scrollHeight).toBeGreaterThan(viewportHeight);
 
         // Scroll to bottom and verify we can reach it
-        await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+        await page.evaluate(() =>
+            window.scrollTo(0, document.documentElement.scrollHeight),
+        );
         await page.waitForTimeout(300);
 
         const scrollTop = await page.evaluate(() => window.scrollY);
@@ -90,5 +97,38 @@ test.describe("Mobile Layout", () => {
         const plusIcon = page.locator(".lucide-plus").first();
         await plusIcon.scrollIntoViewIfNeeded();
         await expect(plusIcon).toBeVisible();
+    });
+
+    test("picker width caps and centers on wider mobile viewport", async ({ page }) => {
+        const viewport = page.viewportSize();
+        if (!viewport || viewport.width > 500) {
+            test.skip();
+        }
+
+        await page.setViewportSize({ width: 700, height: viewport.height });
+        await page.waitForTimeout(150);
+
+        const metrics = await page
+            .locator(".picker-shell")
+            .first()
+            .evaluate((el) => {
+                const rect = el.getBoundingClientRect();
+                const style = getComputedStyle(el as HTMLElement);
+                const maxWidth = Number.parseFloat(style.maxWidth);
+                const leftGap = rect.left;
+                const rightGap = window.innerWidth - rect.right;
+                return {
+                    width: rect.width,
+                    maxWidth,
+                    leftGap,
+                    rightGap,
+                    viewportWidth: window.innerWidth,
+                };
+            });
+
+        expect(metrics.viewportWidth).toBe(700);
+        expect(Number.isFinite(metrics.maxWidth)).toBeTruthy();
+        expect(metrics.width).toBeLessThanOrEqual(metrics.maxWidth + 1);
+        expect(Math.abs(metrics.leftGap - metrics.rightGap)).toBeLessThanOrEqual(4);
     });
 });

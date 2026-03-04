@@ -1,6 +1,11 @@
 import type { Palette, PaletteColor, ProposedColorName } from "./types";
 
-const BASE_URL = import.meta.env.VITE_API_URL ?? "https://mbabb.fi.ncsu.edu/colors";
+const DEFAULT_REMOTE_API_URL = "https://mbabb.fi.ncsu.edu/colors";
+const DEFAULT_LOCAL_API_URL = "http://127.0.0.1:3100";
+
+const BASE_URL =
+    import.meta.env.VITE_API_URL ??
+    (import.meta.env.DEV ? DEFAULT_LOCAL_API_URL : DEFAULT_REMOTE_API_URL);
 
 interface PaginatedResponse<T> {
     data: T[];
@@ -51,9 +56,11 @@ export function getPalette(slug: string): Promise<Palette> {
     return request(`/palettes/${encodeURIComponent(slug)}`);
 }
 
-export function publishPalette(
-    palette: { name: string; slug: string; colors: PaletteColor[] },
-): Promise<Palette> {
+export function publishPalette(palette: {
+    name: string;
+    slug: string;
+    colors: PaletteColor[];
+}): Promise<Palette> {
     return request("/palettes", {
         method: "POST",
         body: JSON.stringify(palette),
@@ -76,9 +83,13 @@ export function renamePalette(slug: string, name: string): Promise<Palette> {
 }
 
 // Admin API helpers
-async function adminRequest<T>(path: string, token: string, init?: RequestInit): Promise<T> {
+async function adminRequest<T>(
+    path: string,
+    token: string,
+    init?: RequestInit,
+): Promise<T> {
     const headers: Record<string, string> = {
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         ...(init?.headers as Record<string, string>),
     };
     // Only set Content-Type for requests with a body
@@ -101,19 +112,27 @@ export function getAdminQueue(token: string): Promise<ProposedColorName[]> {
 }
 
 export function approveColorName(token: string, id: string): Promise<void> {
-    return adminRequest(`/admin/colors/${encodeURIComponent(id)}/approve`, token, { method: "POST" });
+    return adminRequest(`/admin/colors/${encodeURIComponent(id)}/approve`, token, {
+        method: "POST",
+    });
 }
 
 export function rejectColorName(token: string, id: string): Promise<void> {
-    return adminRequest(`/admin/colors/${encodeURIComponent(id)}/reject`, token, { method: "POST" });
+    return adminRequest(`/admin/colors/${encodeURIComponent(id)}/reject`, token, {
+        method: "POST",
+    });
 }
 
 export function featurePalette(token: string, slug: string): Promise<void> {
-    return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}/feature`, token, { method: "POST" });
+    return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}/feature`, token, {
+        method: "POST",
+    });
 }
 
 export function deletePaletteAdmin(token: string, slug: string): Promise<void> {
-    return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}`, token, { method: "DELETE" });
+    return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}`, token, {
+        method: "DELETE",
+    });
 }
 
 export function getApprovedColorNames(): Promise<ProposedColorName[]> {
