@@ -13,6 +13,7 @@ sessions.post("/", async (c) => {
 
     const db = await getDb();
     await db.collection("sessions").insertOne({
+        // TODO(HIGH): Remove dynamic `_id` casting and enforce strict session document typing end to end.
         _id: token as any,
         ipHash,
         createdAt: now,

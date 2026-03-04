@@ -24,7 +24,12 @@ npm install @mkbabb/value.js
 ## Usage
 
 ```ts
-import { parseCSSValue, parseCSSColor, ValueUnit, FunctionValue } from "@mkbabb/value.js";
+import {
+    parseCSSValue,
+    parseCSSColor,
+    ValueUnit,
+    FunctionValue,
+} from "@mkbabb/value.js";
 ```
 
 ## Build
@@ -99,13 +104,34 @@ The [demo](https://color.babb.dev) is backed by a palette API for saving, sharin
 
 Hono + MongoDB, Dockerized. See [`api/README.md`](api/README.md) for endpoints, schema, and deployment.
 
-| Feature | Mechanism |
-|---------|-----------|
-| **Sessions** | `POST /sessions` → UUID token; stored with hashed IP; 30-day TTL |
-| **Palettes** | CRUD by slug; 1–50 color stops with CSS string + optional name + position |
-| **Voting** | `POST /palettes/:slug/vote` — idempotent toggle; unique composite index prevents duplication |
-| **Color names** | `POST /colors/propose` → admin approval queue → `GET /colors/approved` feeds the demo's custom name registry |
-| **Rate limiting** | 60 reads/min, 10 writes/min per IP (in-memory, rightmost X-Forwarded-For) |
+| Feature           | Mechanism                                                                                                    |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Sessions**      | `POST /sessions` → UUID token; stored with hashed IP; 30-day TTL                                             |
+| **Palettes**      | CRUD by slug; 1–50 color stops with CSS string + optional name + position                                    |
+| **Voting**        | `POST /palettes/:slug/vote` — idempotent toggle; unique composite index prevents duplication                 |
+| **Color names**   | `POST /colors/propose` → admin approval queue → `GET /colors/approved` feeds the demo's custom name registry |
+| **Rate limiting** | 60 reads/min, 10 writes/min per IP (in-memory, rightmost X-Forwarded-For)                                    |
+
+### Palette System Flow (Frontend + API)
+
+1. **Save locally** (`PaletteForm` / `usePaletteStore`): stores palettes in browser storage (`color-palettes`) for instant local recall.
+2. **Publish** (`PaletteDialog`): ensures an anonymous session (`POST /sessions`), then publishes via `POST /palettes` with `X-Session-Token`.
+3. **Browse + vote** (`Browse` tab): fetches `GET /palettes` and toggles votes with `POST /palettes/:slug/vote` (server maintains atomic vote counts).
+4. **Suggest color names** (`ColorInput` propose form): ensures session, then submits `POST /colors/propose` for moderation.
+5. **Admin moderation** (`AdminPanel`): token login (`Authorization: Bearer ...`), queue from `GET /admin/queue`, actions for approve/reject + feature/delete.
+
+### Validation
+
+- **API smoke (live backend)**: session creation, publish/list/get, vote toggle, rename, propose, admin queue, approve, feature, delete.
+- **Playwright live integration**: [`e2e/palette-api-live.spec.ts`](e2e/palette-api-live.spec.ts) validates save/publish/vote/propose/admin end-to-end against a real API.
+
+```bash
+# 1) Start API (example)
+MONGODB_URI=mongodb://127.0.0.1:27019/palette-e2e ADMIN_TOKEN=test-admin-token PORT=3100 npm --prefix api run dev
+
+# 2) Run live frontend + backend integration
+PALETTE_API_E2E=1 VITE_API_URL=http://127.0.0.1:3100 npx playwright test e2e/palette-api-live.spec.ts --project=desktop
+```
 
 ## Sources, acknowledgements, &c.
 

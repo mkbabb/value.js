@@ -20,7 +20,8 @@ const app = new Hono<AppEnv>();
 // CORS — compute origin once, reuse for both preflight and response
 function resolveOrigin(path: string): string {
     const isAdmin = path.startsWith("/admin");
-    return isAdmin ? (process.env.ADMIN_ORIGIN || "*") : "*";
+    // TODO(HIGH): Eliminate wildcard CORS fallback behavior; require explicit origins and fail boot if admin origin config is missing.
+    return isAdmin ? process.env.ADMIN_ORIGIN || "*" : "*";
 }
 
 // CORS preflight
@@ -58,16 +59,19 @@ app.route("/admin", admin);
 app.get("/", (c) => c.json({ status: "ok", service: "palette-api" }));
 
 // 404 fallback
+// TODO(MEDIUM): Replace this catch-all fallback with explicit route-level 404 handling so missing paths are not silently normalized.
 app.notFound((c) => c.json({ error: "Not found" }, 404));
 
 // Global error handler
 app.onError((err, c) => {
+    // TODO(HIGH): Stop treating all failures with one graceful error path; migrate to explicit error classes and fail-fast handling for programmer/config errors.
     console.error(err);
     return c.json({ error: "Internal server error" }, 500);
 });
 
 // --- Start ---
 
+// TODO(CRITICAL): Remove the PORT default; require a valid PORT and abort startup on invalid configuration.
 const port = parseInt(process.env.PORT ?? "3000");
 
 async function main() {
@@ -76,6 +80,7 @@ async function main() {
 
     // Schedule daily cleanup at 3 AM UTC
     cron.schedule("0 3 * * *", () => {
+        // TODO(CRITICAL): Do not swallow cron failures in-process; route failures to explicit crash/restart or monitored alerting path.
         cleanup().catch(console.error);
     });
 

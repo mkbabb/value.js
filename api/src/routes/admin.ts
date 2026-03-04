@@ -9,9 +9,12 @@ const admin = new Hono();
 admin.use("/*", adminAuth);
 
 // Audit helper
+// TODO(MEDIUM): Remove dynamic request typing and use the concrete Hono context type for admin audit events.
 function audit(c: any, action: string, target: string) {
     const ip = resolveIP(c);
-    console.log(`[ADMIN] ${new Date().toISOString()} ip=${ip} action=${action} target=${target}`);
+    console.log(
+        `[ADMIN] ${new Date().toISOString()} ip=${ip} action=${action} target=${target}`,
+    );
 }
 
 // GET /admin/queue — list proposed color names pending review
@@ -39,13 +42,12 @@ admin.post("/palettes/:slug/feature", async (c) => {
     const palette = await db.collection("palettes").findOne({ slug });
     if (!palette) return c.json({ error: "Palette not found" }, 404);
 
-    const newStatus =
-        palette.status === "featured" ? "published" : "featured";
+    // TODO(HIGH): Remove status toggle fallback semantics; enumerate allowed transitions and fail explicitly on unknown states.
+    const newStatus = palette.status === "featured" ? "published" : "featured";
 
-    await db.collection("palettes").updateOne(
-        { slug },
-        { $set: { status: newStatus, updatedAt: new Date() } },
-    );
+    await db
+        .collection("palettes")
+        .updateOne({ slug }, { $set: { status: newStatus, updatedAt: new Date() } });
 
     audit(c, "feature-toggle", `slug=${slug} status=${newStatus}`);
     return c.json({ slug, status: newStatus });
@@ -77,13 +79,16 @@ admin.post("/colors/:id/approve", async (c) => {
     try {
         objectId = new ObjectId(id);
     } catch {
+        // TODO(MEDIUM): Replace silent parse catch with explicit validation path that records malformed admin input.
         return c.json({ error: "Invalid ID" }, 400);
     }
 
-    const result = await db.collection("proposed_names").updateOne(
-        { _id: objectId, status: "proposed" },
-        { $set: { status: "approved", approvedAt: new Date() } },
-    );
+    const result = await db
+        .collection("proposed_names")
+        .updateOne(
+            { _id: objectId, status: "proposed" },
+            { $set: { status: "approved", approvedAt: new Date() } },
+        );
 
     if (result.matchedCount === 0) {
         return c.json({ error: "Proposed name not found or already processed" }, 404);
@@ -102,13 +107,16 @@ admin.post("/colors/:id/reject", async (c) => {
     try {
         objectId = new ObjectId(id);
     } catch {
+        // TODO(MEDIUM): Replace silent parse catch with explicit validation path that records malformed admin input.
         return c.json({ error: "Invalid ID" }, 400);
     }
 
-    const result = await db.collection("proposed_names").updateOne(
-        { _id: objectId, status: "proposed" },
-        { $set: { status: "rejected" } },
-    );
+    const result = await db
+        .collection("proposed_names")
+        .updateOne(
+            { _id: objectId, status: "proposed" },
+            { $set: { status: "rejected" } },
+        );
 
     if (result.matchedCount === 0) {
         return c.json({ error: "Proposed name not found or already processed" }, 404);

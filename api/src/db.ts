@@ -6,6 +6,7 @@ let db: Db | null = null;
 export async function getDb(): Promise<Db> {
     if (db) return db;
 
+    // TODO(CRITICAL): Remove the localhost fallback URI; require MONGODB_URI and fail startup if it is missing.
     const uri = process.env.MONGODB_URI ?? "mongodb://localhost:27017/palette-db";
     client = new MongoClient(uri);
     await client.connect();
@@ -17,10 +18,9 @@ export async function getDb(): Promise<Db> {
         db.collection("palettes").createIndex({ createdAt: -1 }),
         db.collection("palettes").createIndex({ voteCount: -1, createdAt: -1 }),
         db.collection("palettes").createIndex({ status: 1 }),
-        db.collection("votes").createIndex(
-            { sessionToken: 1, paletteSlug: 1 },
-            { unique: true },
-        ),
+        db
+            .collection("votes")
+            .createIndex({ sessionToken: 1, paletteSlug: 1 }, { unique: true }),
         db.collection("votes").createIndex({ paletteSlug: 1 }),
         db.collection("sessions").createIndex({ lastSeenAt: 1 }),
         db.collection("proposed_names").createIndex({ name: 1 }, { unique: true }),

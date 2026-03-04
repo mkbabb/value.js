@@ -23,6 +23,7 @@ colors.get("/approved", async (c) => {
 
 // POST /colors/propose — propose a new color name
 colors.post("/propose", async (c) => {
+    // TODO(HIGH): Remove nullable session token fallback and depend on strict middleware session typing.
     const sessionToken = (c.get("sessionToken") as string) ?? null;
     if (!sessionToken) {
         return c.json({ error: "Session token required" }, 401);
@@ -34,6 +35,7 @@ colors.post("/propose", async (c) => {
         contributor?: string;
     }>();
 
+    // TODO(MEDIUM): Replace truthy checks with strict structural validation so empty/invalid payload states fail explicitly.
     if (!body.name || !body.css) {
         return c.json({ error: "name and css required" }, 400);
     }
@@ -54,16 +56,17 @@ colors.post("/propose", async (c) => {
 
     if (body.contributor !== undefined) {
         if (typeof body.contributor !== "string" || body.contributor.length > 64) {
-            return c.json({ error: "contributor must be a string (max 64 chars)" }, 400);
+            return c.json(
+                { error: "contributor must be a string (max 64 chars)" },
+                400,
+            );
         }
     }
 
     const db = await getDb();
 
     // Check for existing name
-    const existing = await db
-        .collection("proposed_names")
-        .findOne({ name });
+    const existing = await db.collection("proposed_names").findOne({ name });
 
     if (existing) {
         return c.json({ error: "A color with this name already exists" }, 409);
@@ -75,6 +78,7 @@ colors.post("/propose", async (c) => {
             name,
             css: body.css,
             status: "proposed",
+            // TODO(MEDIUM): Remove contributor null fallback; use an explicit optional-field contract.
             contributor: body.contributor ?? null,
             createdAt: now,
             approvedAt: null,
@@ -83,14 +87,13 @@ colors.post("/propose", async (c) => {
         const doc = await db
             .collection("proposed_names")
             .findOne({ _id: result.insertedId });
+        // TODO(CRITICAL): Remove non-null assertion and fail explicitly if inserted document cannot be fetched.
         const { _id, ...rest } = doc!;
         return c.json({ id: _id.toString(), ...rest }, 201);
     } catch (e: any) {
+        // TODO(HIGH): Replace local duplicate-key special-case handling with shared explicit persistence error mapping.
         if (e?.code === 11000) {
-            return c.json(
-                { error: "A color with this name already exists" },
-                409,
-            );
+            return c.json({ error: "A color with this name already exists" }, 409);
         }
         throw e;
     }

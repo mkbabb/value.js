@@ -30,13 +30,20 @@
                                     :key="crownKey"
                                     class="absolute right-2 top-1/2 -translate-y-1/2 w-[0.75em] h-[0.75em] text-[#daa520] opacity-75 hover:opacity-100 hover:scale-110 transition-[opacity,transform] cursor-help"
                                     :stroke-width="1.75"
-                                    style="animation: crown-appear 0.6s ease-out forwards"
+                                    style="
+                                        animation: crown-appear 0.6s ease-out forwards;
+                                    "
                                 />
                             </TooltipTrigger>
                             <TooltipContent class="fira-code text-xs max-w-[200px]">
                                 <div class="grid gap-1">
-                                    <span class="font-bold">{{ currentColorMeta.name }}</span>
-                                    <span v-if="currentColorMeta.contributor" class="text-muted-foreground">
+                                    <span class="font-bold">{{
+                                        currentColorMeta.name
+                                    }}</span>
+                                    <span
+                                        v-if="currentColorMeta.contributor"
+                                        class="text-muted-foreground"
+                                    >
                                         by {{ currentColorMeta.contributor }}
                                     </span>
                                     <span class="text-muted-foreground">
@@ -49,21 +56,17 @@
 
                     <!-- Parse error popover -->
                     <Transition name="error-pop">
-                        <span
-                            v-if="parseError"
-                            class="error-badge"
-                        >not a valid color</span>
+                        <span v-if="parseError" class="error-badge"
+                            >not a valid color</span
+                        >
                     </Transition>
                 </div>
             </HoverCardTrigger>
 
-            <HoverCardContent
-                class="z-[100] pointer-events-auto fraunces w-full"
-            >
+            <HoverCardContent class="z-[100] pointer-events-auto fraunces w-full">
                 <p class="font-bold text-lg">Enter a color</p>
                 <p>
-                    <span class="italic">Any</span> valid CSS color string
-                    is accepted.
+                    <span class="italic">Any</span> valid CSS color string is accepted.
                 </p>
                 <Separator class="my-2" />
 
@@ -75,7 +78,10 @@
 
         <!-- Propose Name inline form -->
         <Transition name="slug-reveal" @after-enter="scrollProposeFormIntoView">
-            <div v-if="!editTarget && canProposeName && showProposeForm" ref="proposeFormRef">
+            <div
+                v-if="!editTarget && canProposeName && showProposeForm"
+                ref="proposeFormRef"
+            >
                 <div class="relative">
                     <Input
                         v-model="proposedName"
@@ -89,7 +95,11 @@
                         @click="submitProposedName"
                     >
                         <Loader2 v-if="proposing" class="w-3.5 h-3.5 animate-spin" />
-                        <Sparkles v-else class="w-3.5 h-3.5" :style="{ stroke: cssColorOpaque }" />
+                        <Sparkles
+                            v-else
+                            class="w-3.5 h-3.5"
+                            :style="{ stroke: cssColorOpaque }"
+                        />
                     </button>
                 </div>
             </div>
@@ -114,6 +124,7 @@ import Separator from "@components/ui/separator/Separator.vue";
 import { Input } from "@components/ui/input";
 import { Crown, Sparkles, Loader2 } from "lucide-vue-next";
 import { proposeColorName } from "@lib/palette/api";
+import { useSession } from "@composables/useSession";
 import type { EditTarget } from ".";
 import { COLOR_MODEL_KEY } from "./keys";
 
@@ -157,8 +168,13 @@ const selectAll = () => {
     selection?.addRange(range);
 };
 
-const onInputFocus = () => { inputIsFocused.value = true; selectAll(); };
-const onInputBlur = () => { inputIsFocused.value = false; };
+const onInputFocus = () => {
+    inputIsFocused.value = true;
+    selectAll();
+};
+const onInputBlur = () => {
+    inputIsFocused.value = false;
+};
 const onInputInput = (e: Event) => {
     parseAndSetColorDebounced((e.target as HTMLElement).innerText);
 };
@@ -180,6 +196,7 @@ const showProposeForm = ref(false);
 const proposedName = ref("");
 const proposing = ref(false);
 const proposeFormRef = ref<HTMLElement | null>(null);
+const session = useSession();
 
 function scrollProposeFormIntoView() {
     const el = proposeFormRef.value;
@@ -206,6 +223,7 @@ async function submitProposedName() {
     if (!proposedName.value.trim() || proposing.value) return;
     proposing.value = true;
     try {
+        await session.ensureSession();
         const cssStr = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
         await proposeColorName(proposedName.value.trim().toLowerCase(), cssStr);
         proposedName.value = "";
@@ -243,7 +261,9 @@ defineExpose({
 
 .color-input {
     border-color: hsl(var(--input));
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .color-input-error {
@@ -267,10 +287,14 @@ defineExpose({
 }
 
 .error-pop-enter-active {
-    transition: opacity 0.15s ease, transform 0.15s ease;
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
 }
 .error-pop-leave-active {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 .error-pop-enter-from {
     opacity: 0;
