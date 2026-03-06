@@ -27,6 +27,12 @@ export interface ProposedColorName {
     approvedAt?: string;
 }
 
+export interface User {
+    slug: string;
+    createdAt: string;
+    paletteCount?: number;
+}
+
 export interface PaletteStore {
     version: number;
     palettes: Palette[];

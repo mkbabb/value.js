@@ -1,11 +1,7 @@
-import type { Palette, PaletteColor, ProposedColorName } from "./types";
+import type { Palette, PaletteColor, ProposedColorName, User } from "./types";
 
 const DEFAULT_REMOTE_API_URL = "https://mbabb.fi.ncsu.edu/colors";
-const DEFAULT_LOCAL_API_URL = "http://127.0.0.1:3100";
-
-const BASE_URL =
-    import.meta.env.VITE_API_URL ??
-    (import.meta.env.DEV ? DEFAULT_LOCAL_API_URL : DEFAULT_REMOTE_API_URL);
+const BASE_URL = import.meta.env.VITE_API_URL ?? DEFAULT_REMOTE_API_URL;
 
 interface PaginatedResponse<T> {
     data: T[];
@@ -40,8 +36,19 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     return res.json();
 }
 
-export function createSession(): Promise<{ token: string }> {
+export function createSession(): Promise<{ token: string; userSlug: string }> {
     return request("/sessions", { method: "POST" });
+}
+
+export function loginWithSlug(slug: string): Promise<{ token: string; userSlug: string }> {
+    return request("/sessions/login", {
+        method: "POST",
+        body: JSON.stringify({ slug }),
+    });
+}
+
+export function getMe(): Promise<{ userSlug: string; createdAt: string }> {
+    return request("/sessions/me");
 }
 
 export function listPalettes(
@@ -132,6 +139,39 @@ export function featurePalette(token: string, slug: string): Promise<void> {
 export function deletePaletteAdmin(token: string, slug: string): Promise<void> {
     return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}`, token, {
         method: "DELETE",
+    });
+}
+
+export function listUsers(
+    token: string,
+    limit = 20,
+    offset = 0,
+): Promise<PaginatedResponse<User>> {
+    return adminRequest(`/admin/users?limit=${limit}&offset=${offset}`, token);
+}
+
+export function getUserPalettes(token: string, slug: string): Promise<Palette[]> {
+    return adminRequest(`/admin/users/${encodeURIComponent(slug)}/palettes`, token);
+}
+
+export function impersonateUser(
+    token: string,
+    slug: string,
+): Promise<{ token: string; userSlug: string }> {
+    return adminRequest("/admin/impersonate", token, {
+        method: "POST",
+        body: JSON.stringify({ slug }),
+    });
+}
+
+export function importPalettes(
+    token: string,
+    slug: string,
+    palettes: { name: string; slug: string; colors: { css: string; name?: string; position: number }[] }[],
+): Promise<{ imported: number }> {
+    return adminRequest(`/admin/users/${encodeURIComponent(slug)}/import`, token, {
+        method: "POST",
+        body: JSON.stringify({ palettes }),
     });
 }
 
