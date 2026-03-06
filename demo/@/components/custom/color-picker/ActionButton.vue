@@ -12,7 +12,7 @@
                 :is="icon"
                 @click="handleClick"
                 :class="[
-                    'h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer',
+                    'w-8 h-8 stroke-foreground hover:scale-125 transition-all cursor-pointer',
                     iconClass,
                     disabled && 'pointer-events-none opacity-50',
                     isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
@@ -43,6 +43,7 @@ const props = defineProps<{
     activeHover: string | null;
     title: string;
     description: string;
+    label?: string;
     iconClass?: string;
     activeStyle?: Record<string, string>;
     disabled?: boolean;
@@ -72,18 +73,19 @@ function handleClick() {
 
 <style scoped>
 .action-flash {
-    animation: action-color-flash 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: action-pulse 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 .action-rotate {
-    animation: action-color-flash 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+    animation: action-pulse 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards,
                action-spin 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
-@keyframes action-color-flash {
-    0%   { stroke: var(--flash-color, currentColor); stroke-width: 2.75; }
-    100% { stroke: currentColor; stroke-width: 2; }
+@keyframes action-pulse {
+    0%   { stroke: var(--flash-color, currentColor); stroke-width: 2.75; transform: scale(1.3); }
+    50%  { stroke: var(--flash-color, currentColor); stroke-width: 2.5; transform: scale(1.15); }
+    100% { stroke: currentColor; stroke-width: 2; transform: scale(1); }
 }
 @keyframes action-spin {
-    0%   { transform: rotate(0deg) scale(1.25); }
+    0%   { transform: rotate(0deg) scale(1.3); }
     100% { transform: rotate(-360deg) scale(1); }
 }
 </style>

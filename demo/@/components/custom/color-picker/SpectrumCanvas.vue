@@ -2,7 +2,7 @@
     <div
         ref="spectrumRef"
         :class="[
-            'spectrum-picker flex w-full h-48 lg:h-36 cursor-crosshair relative touch-gate-target',
+            'spectrum-picker flex w-full h-40 lg:h-auto lg:aspect-[4/3] lg:max-h-[220px] cursor-crosshair relative touch-gate-target',
             spectrumGate.isActive.value && 'touch-gate-active',
         ]"
         :style="spectrumStyle"

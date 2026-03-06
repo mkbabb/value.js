@@ -12,8 +12,9 @@
                         contenteditable
                         class="color-input w-full block border overflow-hidden items-center bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
                         :class="{
-                            'pr-8': currentColorMeta,
-                            'color-input-error': parseError,
+                            'pr-8': (currentColorMeta && !proposeMode) || proposeMode,
+                            'color-input-error': parseError && !proposeMode,
+                            'color-input-mode-flash': modeTransition,
                         }"
                         :style="inputStyle"
                         @keydown="onInputKeydown"
@@ -23,7 +24,7 @@
                     ></span>
 
                     <!-- Crown indicator for approved custom color names -->
-                    <TooltipProvider v-if="currentColorMeta" :delay-duration="200">
+                    <TooltipProvider v-if="currentColorMeta && !proposeMode" :delay-duration="200">
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <Crown
@@ -54,16 +55,41 @@
                         </Tooltip>
                     </TooltipProvider>
 
+                    <!-- Send button -->
+                    <button
+                        v-if="proposeMode"
+                        class="absolute right-1 top-1/2 -translate-y-1/2 p-1 rounded-sm transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110"
+                        :disabled="!proposedName.trim() || proposing"
+                        @click="submitProposedName"
+                    >
+                        <Loader2 v-if="proposing" class="w-3.5 h-3.5 animate-spin" />
+                        <ArrowRight
+                            v-else
+                            class="w-4.5 h-4.5"
+                            :style="{ stroke: cssColorOpaque }"
+                        />
+                    </button>
+                    <button
+                        v-else-if="!currentColorMeta"
+                        class="absolute right-1 top-1/2 -translate-y-1/2 p-1 rounded-sm transition-all cursor-pointer hover:scale-110"
+                        @click="onSubmitColor"
+                    >
+                        <ArrowRight
+                            class="w-4.5 h-4.5"
+                            :style="{ stroke: cssColorOpaque }"
+                        />
+                    </button>
+
                     <!-- Parse error popover -->
                     <Transition name="error-pop">
-                        <span v-if="parseError" class="error-badge"
+                        <span v-if="parseError && !proposeMode" class="error-badge"
                             >not a valid color</span
                         >
                     </Transition>
                 </div>
             </HoverCardTrigger>
 
-            <HoverCardContent class="z-[100] pointer-events-auto fraunces w-full">
+            <HoverCardContent v-if="!proposeMode" class="z-[100] pointer-events-auto fraunces w-full">
                 <p class="font-bold text-lg">Enter a color</p>
                 <p>
                     <span class="italic">Any</span> valid CSS color string is accepted.
@@ -75,35 +101,6 @@
                 </div>
             </HoverCardContent>
         </HoverCard>
-
-        <!-- Propose Name inline form -->
-        <Transition name="slug-reveal" @after-enter="scrollProposeFormIntoView">
-            <div
-                v-if="!editTarget && canProposeName && showProposeForm"
-                ref="proposeFormRef"
-            >
-                <div class="relative">
-                    <Input
-                        v-model="proposedName"
-                        placeholder="Propose a name..."
-                        class="fira-code text-sm h-8 pr-8"
-                        @keydown.enter="submitProposedName"
-                    />
-                    <button
-                        class="absolute right-1 top-1/2 -translate-y-1/2 p-1 rounded-sm transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110"
-                        :disabled="!proposedName.trim() || proposing"
-                        @click="submitProposedName"
-                    >
-                        <Loader2 v-if="proposing" class="w-3.5 h-3.5 animate-spin" />
-                        <Sparkles
-                            v-else
-                            class="w-3.5 h-3.5"
-                            :style="{ stroke: cssColorOpaque }"
-                        />
-                    </button>
-                </div>
-            </div>
-        </Transition>
     </div>
 </template>
 
@@ -121,8 +118,7 @@ import {
     TooltipTrigger,
 } from "@components/ui/tooltip";
 import Separator from "@components/ui/separator/Separator.vue";
-import { Input } from "@components/ui/input";
-import { Crown, Sparkles, Loader2 } from "lucide-vue-next";
+import { Crown, ArrowRight, Loader2 } from "lucide-vue-next";
 import { proposeColorName } from "@lib/palette/api";
 import { useSession } from "@composables/useSession";
 import type { EditTarget } from ".";
@@ -130,6 +126,7 @@ import { COLOR_MODEL_KEY } from "./keys";
 
 const props = defineProps<{
     editTarget: EditTarget | null;
+    proposeMode?: boolean;
 }>();
 
 const {
@@ -152,7 +149,7 @@ const inputColorRef = useTemplateRef<HTMLElement>("inputColorRef");
 const inputIsFocused = ref(false);
 
 const inputStyle = computed(() => {
-    if (parseError.value) return { borderColor: "hsl(var(--destructive))" };
+    if (!props.proposeMode && parseError.value) return { borderColor: "hsl(var(--destructive))" };
     if (inputIsFocused.value) return { borderColor: cssColor.value };
     return undefined;
 });
@@ -176,12 +173,27 @@ const onInputBlur = () => {
     inputIsFocused.value = false;
 };
 const onInputInput = (e: Event) => {
-    parseAndSetColorDebounced((e.target as HTMLElement).innerText);
+    const text = (e.target as HTMLElement).innerText;
+    if (props.proposeMode) {
+        proposedName.value = text;
+    } else {
+        parseAndSetColorDebounced(text);
+    }
 };
 const onInputKeydown = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
         e.preventDefault();
-        parseAndSetColor((e.target as HTMLElement).innerText);
+        if (props.proposeMode) {
+            submitProposedName();
+        } else {
+            parseAndSetColor((e.target as HTMLElement).innerText);
+        }
+    }
+};
+
+const onSubmitColor = () => {
+    if (inputColorRef.value) {
+        parseAndSetColor(inputColorRef.value.innerText);
     }
 };
 
@@ -192,32 +204,9 @@ const copyAndSetInputColor = () => {
 };
 
 // Propose name state
-const showProposeForm = ref(false);
 const proposedName = ref("");
 const proposing = ref(false);
-const proposeFormRef = ref<HTMLElement | null>(null);
 const session = useSession();
-
-function scrollProposeFormIntoView() {
-    const el = proposeFormRef.value;
-    if (!el) return;
-
-    let scrollable: HTMLElement | null = el.parentElement;
-    while (scrollable) {
-        const { overflowY } = getComputedStyle(scrollable);
-        if (overflowY === "auto" || overflowY === "scroll") {
-            const elRect = el.getBoundingClientRect();
-            const containerRect = scrollable.getBoundingClientRect();
-            const offset = elRect.bottom - containerRect.bottom;
-            if (offset > 0) {
-                scrollable.scrollBy({ top: offset + 16, behavior: "smooth" });
-            }
-            return;
-        }
-        scrollable = scrollable.parentElement;
-    }
-    el.scrollIntoView({ behavior: "smooth", block: "end" });
-}
 
 async function submitProposedName() {
     if (!proposedName.value.trim() || proposing.value) return;
@@ -227,7 +216,10 @@ async function submitProposedName() {
         const cssStr = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
         await proposeColorName(proposedName.value.trim().toLowerCase(), cssStr);
         proposedName.value = "";
-        showProposeForm.value = false;
+        // Signal parent to exit propose mode
+        if (inputColorRef.value) {
+            inputColorRef.value.innerText = formattedCurrentColor.value;
+        }
     } catch (e: any) {
         console.warn("[ColorInput] Failed to propose name:", e?.message);
     } finally {
@@ -235,9 +227,29 @@ async function submitProposedName() {
     }
 }
 
-// Sync displayed text when not focused
+// Switch content when entering/exiting propose mode
+const modeTransition = ref(false);
+
+watch(() => props.proposeMode, (propose) => {
+    if (!inputColorRef.value) return;
+    // Flash animation
+    modeTransition.value = true;
+    setTimeout(() => { modeTransition.value = false; }, 300);
+
+    if (propose) {
+        proposedName.value = "";
+        inputColorRef.value.innerText = "";
+        inputColorRef.value.setAttribute("data-placeholder", "propose a name...");
+        requestAnimationFrame(() => inputColorRef.value?.focus());
+    } else {
+        inputColorRef.value.removeAttribute("data-placeholder");
+        inputColorRef.value.innerText = formattedCurrentColor.value;
+    }
+});
+
+// Sync displayed text when not focused (only in color mode)
 watch(formattedCurrentColor, (text) => {
-    if (!inputIsFocused.value && inputColorRef.value) {
+    if (!props.proposeMode && !inputIsFocused.value && inputColorRef.value) {
         inputColorRef.value.innerText = text;
     }
 });
@@ -252,7 +264,6 @@ defineExpose({
     focus: () => inputColorRef.value?.focus(),
     inputIsFocused,
     copyAndSetInputColor,
-    showProposeForm,
 });
 </script>
 
@@ -268,6 +279,21 @@ defineExpose({
 
 .color-input-error {
     box-shadow: 0 0 0 2px hsl(var(--destructive) / 0.25);
+}
+
+.color-input-mode-flash {
+    animation: input-mode-flash 0.3s ease-out;
+}
+
+@keyframes input-mode-flash {
+    0% { transform: scaleX(0.97); opacity: 0.6; }
+    100% { transform: scaleX(1); opacity: 1; }
+}
+
+.color-input:empty[data-placeholder]::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
 }
 
 .error-badge {

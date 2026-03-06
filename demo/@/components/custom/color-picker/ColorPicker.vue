@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-rows-[1fr_auto] gap-4 relative min-w-0">
-        <Card class="grid items-between rounded-md min-w-0">
+        <Card class="flex flex-col rounded-md min-w-0">
             <CardHeader class="fraunces m-0 pb-0 relative w-full px-3 sm:px-6 min-w-0 overflow-visible">
                 <div class="w-full flex justify-between">
                     <Select
@@ -81,54 +81,58 @@
                 </CardTitle>
             </CardHeader>
 
-            <CardContent class="z-1 fraunces grid grid-cols-1 gap-4 w-full m-auto px-3 sm:px-6 pb-4 min-w-0">
-                <SpectrumCanvas />
-                <ComponentSliders />
+            <CardContent class="z-1 fraunces flex flex-col flex-1 w-full px-3 sm:px-6 pb-4 min-w-0">
+                <div class="flex-1 flex flex-col items-center justify-center gap-4">
+                    <div class="w-full">
+                        <SpectrumCanvas />
+                    </div>
+                    <div class="w-full">
+                        <ComponentSliders />
+                    </div>
+                </div>
 
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 pt-4 mt-auto">
                     <div class="grid relative items-center flex-1 min-w-0">
                         <ActionToolbar
+                            ref="actionToolbarRef"
                             :inert="showInput || undefined"
                             :class="[
-                                '[grid-area:1/1] transition-[opacity,transform] duration-150',
+                                '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out',
                                 showInput ? 'opacity-0 -translate-y-1 pointer-events-none' : 'opacity-100 translate-y-0',
                             ]"
                             :css-color-opaque="cssColorOpaque"
                             :can-propose-name="canProposeName"
                             :is-editing="isEditing"
                             :palette-active="paletteDialogOpen || isEditing"
-                            :propose-form-open="colorInputRef?.showProposeForm ?? false"
+                            :propose-form-open="false"
                             @reset="emit('reset')"
                             @copy="colorInputRef?.copyAndSetInputColor()"
                             @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
                             @open-palette="openPaletteDialog"
-                            @toggle-propose="colorInputRef && (colorInputRef.showProposeForm = !colorInputRef.showProposeForm)"
                         />
                         <ColorInput
                             :inert="!showInput || undefined"
                             ref="colorInputRef"
                             :edit-target="editTarget"
+                            :propose-mode="toolbarMode === 'propose'"
                             :class="[
-                                '[grid-area:1/1] transition-[opacity,transform] duration-150',
+                                '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out',
                                 showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1 pointer-events-none',
                             ]"
                         />
                     </div>
 
-                    <HoverCard :close-delay="0" :open-delay="700" class="pointer-events-auto">
-                        <HoverCardTrigger>
+                    <!-- Toggle button with label, aligned with action buttons -->
+                    <div class="shrink-0 h-5 w-5 relative cursor-pointer" @click="cycleToolbarMode">
+                        <Transition name="toggle-icon" mode="out-in">
                             <component
-                                :is="showInput ? EllipsisVertical : Type"
-                                class="toggle-btn h-8 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer shrink-0"
+                                :is="currentToggleIcon"
+                                :key="toolbarMode"
+                                class="toggle-btn h-5 w-5 stroke-foreground hover:scale-125 transition-[transform] cursor-pointer absolute inset-0"
                                 :style="{ '--toggle-hover-color': cssColorOpaque }"
-                                @click="showInput = !showInput"
                             />
-                        </HoverCardTrigger>
-                        <HoverCardContent class="z-[100] pointer-events-auto fraunces" side="left">
-                            <p class="font-bold text-lg">{{ showInput ? 'Actions' : 'Color input' }}</p>
-                            <p class="text-sm opacity-60">{{ showInput ? 'Switch to action buttons.' : 'Switch to text color input.' }}</p>
-                        </HoverCardContent>
-                    </HoverCard>
+                        </Transition>
+                    </div>
                 </div>
             </CardContent>
         </Card>
@@ -189,12 +193,7 @@ import { COLOR_MODEL_KEY } from "./keys";
 import { usePointerDebug } from "@composables/usePointerDebug";
 import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
 
-import { EllipsisVertical, Type } from "lucide-vue-next";
-import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
-} from "@components/ui/hover-card";
+import { EllipsisVertical, Type, Tag } from "lucide-vue-next";
 import HeroBlob from "./HeroBlob.vue";
 import SpectrumCanvas from "./SpectrumCanvas.vue";
 import ComponentSliders from "./ComponentSliders.vue";
@@ -236,7 +235,30 @@ const {
 // --- Sub-component refs ---
 
 const colorInputRef = ref<InstanceType<typeof ColorInput> | null>(null);
-const showInput = ref(false);
+const actionToolbarRef = ref<InstanceType<typeof ActionToolbar> | null>(null);
+const toolbarMode = ref<"actions" | "input" | "propose">("actions");
+const showInput = computed(() => toolbarMode.value !== "actions");
+
+function cycleToolbarMode() {
+    if (toolbarMode.value === "actions") {
+        toolbarMode.value = "input";
+    } else if (toolbarMode.value === "input") {
+        if (canProposeName.value) {
+            toolbarMode.value = "propose";
+        } else {
+            toolbarMode.value = "actions";
+        }
+    } else {
+        toolbarMode.value = "actions";
+    }
+}
+
+const currentToggleIcon = computed(() => {
+    if (toolbarMode.value === "actions") return Type;
+    if (toolbarMode.value === "input") return canProposeName.value ? Tag : EllipsisVertical;
+    return EllipsisVertical;
+});
+
 
 // --- Color space selector ---
 
@@ -282,6 +304,7 @@ const paletteDialogOpen = ref(false);
 const paletteDialogRef = ref<InstanceType<typeof PaletteDialog> | null>(null);
 
 function openPaletteDialog() {
+    actionToolbarRef.value?.clearHover();
     window.setTimeout(() => { paletteDialogOpen.value = true; }, 100);
 }
 
@@ -383,4 +406,19 @@ onUnmounted(() => {
 .toggle-btn:hover {
     stroke: var(--toggle-hover-color);
 }
+
+/* Toggle icon transition */
+.toggle-icon-enter-active,
+.toggle-icon-leave-active {
+    transition: opacity 0.12s ease, transform 0.12s ease;
+}
+.toggle-icon-enter-from {
+    opacity: 0;
+    transform: scale(0.7);
+}
+.toggle-icon-leave-to {
+    opacity: 0;
+    transform: scale(0.7);
+}
+
 </style>
