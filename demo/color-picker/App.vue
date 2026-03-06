@@ -65,9 +65,9 @@
         <div
             :class="'fixed z-40 pointer-events-none top-0 w-full max-w-screen-lg left-1/2 -translate-x-1/2 gap-2 h-fit flex justify-items-end justify-between hover:opacity-100 transition-all px-4 py-2'"
         >
-            <HoverCard :open-delay="0" class="pointer-events-auto">
+            <HoverCard v-model:open="mbabbHoverOpen" :open-delay="0" class="pointer-events-auto">
                 <HoverCardTrigger class="pointer-events-auto fira-code"
-                    ><Button class="p-0 m-0 cursor-pointer h-fit" variant="link"
+                    ><Button class="p-0 m-0 cursor-pointer h-fit" variant="link" @click="mbabbHoverOpen = !mbabbHoverOpen"
                         >@mbabb</Button
                     >
                 </HoverCardTrigger>
@@ -264,6 +264,7 @@ const resetToDefaults = () => {
 };
 
 // Share link — copies current URL to clipboard with brief visual feedback
+const mbabbHoverOpen = ref(false);
 const linkCopied = ref(false);
 let linkCopiedTimer: ReturnType<typeof setTimeout> | undefined;
 
