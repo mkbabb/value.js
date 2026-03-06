@@ -9,7 +9,7 @@ const palettes = new Hono<AppEnv>();
 
 // TODO(HIGH): Replace dynamic `any` payload shaping with strict palette document/response types.
 function formatPalette(doc: any, votedSlugs?: Set<string>): any {
-    const { _id, sessionToken, ...rest } = doc;
+    const { _id, sessionToken, userSlug, ...rest } = doc;
     return {
         id: _id.toString(),
         ...rest,
@@ -151,6 +151,7 @@ palettes.post("/", async (c) => {
         }
     }
 
+    const userSlug = (c.get("userSlug") as string) ?? null;
     const now = new Date();
     const db = await getDb();
 
@@ -161,6 +162,7 @@ palettes.post("/", async (c) => {
             colors: body.colors,
             voteCount: 0,
             sessionToken,
+            userSlug,
             status: "published",
             createdAt: now,
             updatedAt: now,
@@ -268,7 +270,11 @@ palettes.patch("/:slug", async (c) => {
 
     if (!palette) return c.json({ error: "Palette not found" }, 404);
 
-    if (palette.sessionToken !== sessionToken) {
+    const userSlug = c.get("userSlug") as string | undefined;
+    const isOwner =
+        palette.sessionToken === sessionToken ||
+        (userSlug && palette.userSlug === userSlug);
+    if (!isOwner) {
         return c.json({ error: "Not the owner of this palette" }, 403);
     }
 

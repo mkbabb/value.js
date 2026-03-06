@@ -18,6 +18,7 @@ export async function getDb(): Promise<Db> {
         db.collection("palettes").createIndex({ createdAt: -1 }),
         db.collection("palettes").createIndex({ voteCount: -1, createdAt: -1 }),
         db.collection("palettes").createIndex({ status: 1 }),
+        db.collection("palettes").createIndex({ userSlug: 1, createdAt: -1 }),
         db
             .collection("votes")
             .createIndex({ sessionToken: 1, paletteSlug: 1 }, { unique: true }),
@@ -25,6 +26,7 @@ export async function getDb(): Promise<Db> {
         db.collection("sessions").createIndex({ lastSeenAt: 1 }),
         db.collection("proposed_names").createIndex({ name: 1 }, { unique: true }),
         db.collection("proposed_names").createIndex({ status: 1 }),
+        db.collection("users").createIndex({ createdAt: -1 }),
     ]);
 
     console.log("Connected to MongoDB");

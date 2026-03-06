@@ -110,8 +110,26 @@ export const resolveSession: MiddlewareHandler = async (c, next) => {
             );
         if (session) {
             c.set("sessionToken", token);
+            if (session.userSlug) {
+                c.set("userSlug", session.userSlug);
+            }
         }
         // TODO(CRITICAL): Stop silently ignoring invalid session tokens; fail explicitly (401) when a token is present but not resolvable.
+    }
+    await next();
+};
+
+// --- Login rate limiting (stricter: 5 req/min per IP) ---
+
+const loginLimiter = createRateLimiter(5, 60_000);
+
+export const loginRateLimit: MiddlewareHandler = async (c, next) => {
+    const ip = resolveIP(c);
+    if (!loginLimiter.map.has(ip) && loginLimiter.map.size >= RATE_MAP_CAP) {
+        return c.json({ error: "Rate limit exceeded" }, 429);
+    }
+    if (!loginLimiter.check(ip)) {
+        return c.json({ error: "Rate limit exceeded" }, 429);
     }
     await next();
 };
