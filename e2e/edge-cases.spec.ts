@@ -13,7 +13,7 @@ test.describe("Edge Cases", () => {
         await page.waitForTimeout(400);
 
         // Open palette dialog
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         const nameInput = page.getByPlaceholder("Palette name...");
@@ -29,7 +29,7 @@ test.describe("Edge Cases", () => {
 
     test("search with no results shows empty state", async ({ page }) => {
         // Open palette dialog
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         const searchInput = page.getByPlaceholder("Search palettes...");
@@ -89,7 +89,7 @@ test.describe("Edge Cases", () => {
             test.skip();
         }
 
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(500);
 
         // Dialog should be visible

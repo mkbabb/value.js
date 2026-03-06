@@ -187,7 +187,7 @@ function setupApiMocks(page: Page, requestLog: RequestLog[]) {
 
 /** Open the palette dialog and switch to Browse tab */
 async function openBrowseTab(page: Page) {
-    await page.locator(".lucide-layout-grid").first().click();
+    await page.locator(".lucide-palette").first().click();
     const dialog = page.getByRole("dialog");
     await expect(dialog).toBeVisible({ timeout: 3000 });
 
@@ -321,7 +321,7 @@ test.describe("Palette Features — Vote, Sort, Rename, Featured", () => {
     });
 
     test("sort toggle is NOT visible on saved tab", async ({ page }) => {
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         const dialog = page.getByRole("dialog");
         await expect(dialog).toBeVisible({ timeout: 3000 });
 
@@ -546,7 +546,7 @@ test.describe("Palette Features — Vote, Sort, Rename, Featured", () => {
         await page.waitForTimeout(400);
 
         // Open palette dialog
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         const dialog = page.getByRole("dialog");
         await expect(dialog).toBeVisible({ timeout: 3000 });
 

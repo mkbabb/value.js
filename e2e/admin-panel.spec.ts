@@ -1,79 +1,153 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
+
+async function openPaletteDialog(page: Page) {
+    await page.goto("/");
+    await page.waitForSelector(".spectrum-picker");
+    await page.locator(".lucide-palette").first().click();
+    const dialog = page.getByRole("dialog");
+    await expect(dialog).toBeVisible({ timeout: 5000 });
+    return dialog;
+}
+
+async function loginAsAdmin(page: Page, dialog: ReturnType<typeof page.getByRole>) {
+    // Wait for slug pill to appear (ensureUser auto-registers via POST /sessions)
+    const slugMenu = dialog.locator("button:has(.lucide-ellipsis)").first();
+    await expect(slugMenu).toBeVisible({ timeout: 5000 });
+
+    // Open slug menu → Switch account → enter admin token
+    await slugMenu.click();
+    await page.waitForTimeout(300);
+    await page.getByText("Switch account").click();
+    await page.waitForTimeout(300);
+
+    const slugInput = dialog.getByPlaceholder(/enter slug/i);
+    await slugInput.fill("test-admin-token");
+    await slugInput.press("Enter");
+    await page.waitForTimeout(500);
+}
 
 test.describe("Admin Panel", () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto("/");
-        await page.waitForSelector(".spectrum-picker");
+        // Mock API routes
+        await page.route("**/colors/**", async (route) => {
+            const url = new URL(route.request().url());
+            const method = route.request().method();
 
-        // Open palette dialog
-        await page.locator(".lucide-layout-grid").first().click();
-        await expect(page.getByRole("dialog")).toBeVisible({ timeout: 3000 });
-    });
-
-    test("admin tab is hidden by default", async ({ page }) => {
-        const adminTab = page.getByRole("tab", { name: /admin/i });
-        await expect(adminTab).not.toBeVisible();
-    });
-
-    test("shift+click on header dot reveals admin tab", async ({ page }) => {
-        // The header dot is the colored circle button inside the dialog header
-        const dialog = page.getByRole("dialog");
-        const dot = dialog.locator("button.rounded-full").first();
-        await expect(dot).toBeVisible();
-
-        // Shift+click to reveal admin
-        await dot.click({ modifiers: ["Shift"] });
-        await page.waitForTimeout(300);
-
-        // Admin tab should now be visible and active
-        const adminTab = page.getByRole("tab", { name: /admin/i });
-        await expect(adminTab).toBeVisible();
-        await expect(adminTab).toHaveAttribute("data-state", "active");
-    });
-
-    test("admin tab shows login form when not authenticated", async ({ page }) => {
-        const dialog = page.getByRole("dialog");
-        const dot = dialog.locator("button.rounded-full").first();
-        await dot.click({ modifiers: ["Shift"] });
-        await page.waitForTimeout(300);
-
-        // Should show the login form
-        const tokenInput = page.getByPlaceholder("Admin token...");
-        await expect(tokenInput).toBeVisible();
-
-        const loginButton = page.getByRole("button", { name: /login/i });
-        await expect(loginButton).toBeVisible();
-    });
-
-    test("login with token stores auth and shows admin content", async ({ page }) => {
-        // Mock the admin queue API to return successfully
-        await page.route("**/admin/queue", (route) => {
-            route.fulfill({
-                status: 200,
+            if (url.pathname.endsWith("/sessions") && method === "POST") {
+                return route.fulfill({
+                    status: 201,
+                    contentType: "application/json",
+                    body: JSON.stringify({ token: "test-token", userSlug: "test-slug-one" }),
+                });
+            }
+            if (url.pathname.endsWith("/palettes") && method === "GET") {
+                return route.fulfill({
+                    status: 200,
+                    contentType: "application/json",
+                    body: JSON.stringify({ data: [], total: 0, limit: 50, offset: 0 }),
+                });
+            }
+            if (url.pathname.endsWith("/colors/approved")) {
+                return route.fulfill({
+                    status: 200,
+                    contentType: "application/json",
+                    body: JSON.stringify([]),
+                });
+            }
+            if (url.pathname.endsWith("/admin/queue")) {
+                return route.fulfill({
+                    status: 200,
+                    contentType: "application/json",
+                    body: JSON.stringify([]),
+                });
+            }
+            if (url.pathname.includes("/admin/users") && method === "GET") {
+                return route.fulfill({
+                    status: 200,
+                    contentType: "application/json",
+                    body: JSON.stringify({
+                        data: [
+                            { slug: "user-alpha-one", createdAt: "2026-01-01T00:00:00Z", paletteCount: 3 },
+                            { slug: "user-beta-two", createdAt: "2026-02-01T00:00:00Z", paletteCount: 0 },
+                        ],
+                        total: 2,
+                        limit: 50,
+                        offset: 0,
+                    }),
+                });
+            }
+            return route.fulfill({
+                status: 404,
                 contentType: "application/json",
-                body: JSON.stringify([]),
+                body: JSON.stringify({ error: "Not found" }),
             });
         });
-
-        const dialog = page.getByRole("dialog");
-        const dot = dialog.locator("button.rounded-full").first();
-        await dot.click({ modifiers: ["Shift"] });
-        await page.waitForTimeout(300);
-
-        // Fill in token and login
-        const tokenInput = page.getByPlaceholder("Admin token...");
-        await tokenInput.fill("test-admin-token");
-        await page.getByRole("button", { name: /login/i }).click();
-        await page.waitForTimeout(500);
-
-        // Should show admin content (queue section, palette management)
-        await expect(page.getByText("Proposed Color Names")).toBeVisible();
-        await expect(page.getByText("Palette Management")).toBeVisible();
-        await expect(page.getByPlaceholder("Palette slug...")).toBeVisible();
     });
 
-    test("admin queue renders proposed names from API", async ({ page }) => {
-        // Mock the admin queue API with some data
+    test("admin tabs are hidden by default", async ({ page }) => {
+        const dialog = await openPaletteDialog(page);
+        const usersTab = dialog.getByRole("tab", { name: "Users" });
+        await expect(usersTab).not.toBeVisible();
+    });
+
+    test("entering admin token via slug input reveals admin tabs", async ({ page }) => {
+        const dialog = await openPaletteDialog(page);
+        await page.waitForTimeout(500);
+        await loginAsAdmin(page, dialog);
+
+        // Admin tabs should appear
+        await expect(dialog.getByRole("tab", { name: "Users" })).toBeVisible();
+        await expect(dialog.getByRole("tab", { name: "Palettes", exact: true })).toBeVisible();
+        await expect(dialog.getByRole("tab", { name: "Colors" })).toBeVisible();
+    });
+
+    test("admin header changes to 'Admin Palettes'", async ({ page }) => {
+        const dialog = await openPaletteDialog(page);
+        await page.waitForTimeout(500);
+        await loginAsAdmin(page, dialog);
+
+        await expect(dialog.getByText("Admin")).toBeVisible();
+    });
+
+    test("Users tab loads and shows user list", async ({ page }) => {
+        const dialog = await openPaletteDialog(page);
+        await page.waitForTimeout(500);
+        await loginAsAdmin(page, dialog);
+
+        await dialog.getByRole("tab", { name: "Users" }).click();
+        await page.waitForTimeout(500);
+
+        await expect(dialog.getByText("user-alpha-one")).toBeVisible();
+        await expect(dialog.getByText("user-beta-two")).toBeVisible();
+        await expect(dialog.getByRole("button", { name: "Impersonate" }).first()).toBeVisible();
+    });
+
+    test("Palettes tab shows slug input with Feature and Delete buttons", async ({ page }) => {
+        const dialog = await openPaletteDialog(page);
+        await page.waitForTimeout(500);
+        await loginAsAdmin(page, dialog);
+
+        await dialog.getByRole("tab", { name: "Palettes", exact: true }).click();
+        await page.waitForTimeout(300);
+
+        await expect(dialog.getByPlaceholder("Palette slug...")).toBeVisible();
+        await expect(dialog.getByRole("button", { name: "Feature" })).toBeVisible();
+        await expect(dialog.getByRole("button", { name: "Delete" })).toBeVisible();
+    });
+
+    test("Colors tab shows queue or empty state", async ({ page }) => {
+        const dialog = await openPaletteDialog(page);
+        await page.waitForTimeout(500);
+        await loginAsAdmin(page, dialog);
+
+        await dialog.getByRole("tab", { name: "Colors" }).click();
+        await page.waitForTimeout(300);
+
+        await expect(dialog.getByText("No pending proposals")).toBeVisible();
+    });
+
+    test("Colors tab renders proposed names from API", async ({ page }) => {
+        // Override the queue mock with data
         await page.route("**/admin/queue", (route) => {
             route.fulfill({
                 status: 200,
@@ -97,18 +171,15 @@ test.describe("Admin Panel", () => {
             });
         });
 
-        const dialog = page.getByRole("dialog");
-        const dot = dialog.locator("button.rounded-full").first();
-        await dot.click({ modifiers: ["Shift"] });
-        await page.waitForTimeout(300);
+        const dialog = await openPaletteDialog(page);
+        await page.waitForTimeout(500);
+        await loginAsAdmin(page, dialog);
 
-        await page.getByPlaceholder("Admin token...").fill("test-token");
-        await page.getByRole("button", { name: /login/i }).click();
+        await dialog.getByRole("tab", { name: "Colors" }).click();
         await page.waitForTimeout(500);
 
-        // Both proposed names should appear
-        await expect(page.getByText("midnight-orchid")).toBeVisible();
-        await expect(page.getByText("sunset-coral")).toBeVisible();
+        await expect(dialog.getByText("midnight-orchid")).toBeVisible();
+        await expect(dialog.getByText("sunset-coral")).toBeVisible();
     });
 
     test("approve button removes item from queue", async ({ page }) => {
@@ -127,7 +198,6 @@ test.describe("Admin Panel", () => {
                 ]),
             });
         });
-
         await page.route("**/admin/colors/abc123/approve", (route) => {
             route.fulfill({
                 status: 200,
@@ -136,115 +206,52 @@ test.describe("Admin Panel", () => {
             });
         });
 
-        const dialog = page.getByRole("dialog");
-        const dot = dialog.locator("button.rounded-full").first();
-        await dot.click({ modifiers: ["Shift"] });
-        await page.waitForTimeout(300);
+        const dialog = await openPaletteDialog(page);
+        await page.waitForTimeout(500);
+        await loginAsAdmin(page, dialog);
 
-        await page.getByPlaceholder("Admin token...").fill("test-token");
-        await page.getByRole("button", { name: /login/i }).click();
+        await dialog.getByRole("tab", { name: "Colors" }).click();
         await page.waitForTimeout(500);
 
-        await expect(page.getByText("test-color")).toBeVisible();
+        await expect(dialog.getByText("test-color")).toBeVisible();
 
-        // Click the approve (check) button
-        const approveBtn = page.locator(".lucide-check").first();
+        // Click approve (check icon button)
+        const approveBtn = dialog.locator(".lucide-check").first();
         await approveBtn.click();
         await page.waitForTimeout(500);
 
-        // Item should be removed
-        await expect(page.getByText("test-color")).not.toBeVisible();
+        await expect(dialog.getByText("test-color")).not.toBeVisible();
     });
 
-    test("logout hides admin tab and returns to saved", async ({ page }) => {
-        await page.route("**/admin/queue", (route) => {
-            route.fulfill({
-                status: 200,
-                contentType: "application/json",
-                body: JSON.stringify([]),
-            });
-        });
-
-        const dialog = page.getByRole("dialog");
-        const dot = dialog.locator("button.rounded-full").first();
-        await dot.click({ modifiers: ["Shift"] });
-        await page.waitForTimeout(300);
-
-        await page.getByPlaceholder("Admin token...").fill("test-token");
-        await page.getByRole("button", { name: /login/i }).click();
+    test("search placeholder changes per admin tab", async ({ page }) => {
+        const dialog = await openPaletteDialog(page);
         await page.waitForTimeout(500);
+        await loginAsAdmin(page, dialog);
 
-        // Click logout
-        await page.getByRole("button", { name: /logout/i }).click();
+        await dialog.getByRole("tab", { name: "Users" }).click();
         await page.waitForTimeout(300);
+        await expect(dialog.getByPlaceholder("Search users...")).toBeVisible();
 
-        // Should switch back to saved tab, admin tab hidden
-        const savedTab = page.getByRole("tab", { name: "Saved" });
-        await expect(savedTab).toHaveAttribute("data-state", "active");
-
-        const adminTab = page.getByRole("tab", { name: /admin/i });
-        await expect(adminTab).not.toBeVisible();
-    });
-
-    test("401 on admin API auto-logs out and shows login form", async ({ page }) => {
-        // Queue always succeeds — we'll trigger 401 via a feature action
-        await page.route("**/admin/queue", (route) => {
-            route.fulfill({
-                status: 200,
-                contentType: "application/json",
-                body: JSON.stringify([]),
-            });
-        });
-
-        // Feature endpoint returns 401 (simulating revoked token)
-        await page.route("**/admin/palettes/*/feature", (route) => {
-            route.fulfill({ status: 401, body: "Unauthorized" });
-        });
-
-        const dialog = page.getByRole("dialog");
-        const dot = dialog.locator("button.rounded-full").first();
-        await dot.click({ modifiers: ["Shift"] });
+        await dialog.getByRole("tab", { name: "Palettes", exact: true }).click();
         await page.waitForTimeout(300);
+        await expect(dialog.getByPlaceholder("Palette slug...")).toBeVisible();
 
-        // Login successfully
-        await page.getByPlaceholder("Admin token...").fill("stale-token");
-        await page.getByRole("button", { name: /login/i }).click();
-        await page.waitForTimeout(500);
-
-        // Should be authenticated
-        await expect(page.getByText("Proposed Color Names")).toBeVisible();
-
-        // Trigger a 401 via the feature action
-        const slugInput = page.getByPlaceholder("Palette slug...");
-        await slugInput.fill("some-palette");
-        await page.getByRole("button", { name: /feature/i }).click();
-        await page.waitForTimeout(500);
-
-        // Should be logged out — admin tab hidden, saved tab active
-        const savedTab = page.getByRole("tab", { name: "Saved" });
-        await expect(savedTab).toHaveAttribute("data-state", "active");
-
-        const adminTab = page.getByRole("tab", { name: /admin/i });
-        await expect(adminTab).not.toBeVisible();
-
-        // Session expired toast should have appeared
-        await expect(page.getByText("Session expired")).toBeVisible();
+        await dialog.getByRole("tab", { name: "Colors" }).click();
+        await page.waitForTimeout(300);
+        await expect(dialog.getByPlaceholder(/color names/i)).toBeVisible();
     });
 
     test("dialog height stays fixed when switching tabs", async ({ page }) => {
-        // Dialog is already open from beforeEach — measure on Saved tab
-        const dialog = page.getByRole("dialog");
+        const dialog = await openPaletteDialog(page);
         const initialBox = await dialog.boundingBox();
         expect(initialBox).toBeTruthy();
 
-        // Switch to browse tab
-        await page.getByRole("tab", { name: "Browse" }).click();
+        await dialog.getByRole("tab", { name: "Browse" }).click();
         await page.waitForTimeout(500);
 
         const browseBox = await dialog.boundingBox();
         expect(browseBox).toBeTruthy();
 
-        // Height should be approximately the same (sort toggle animation may shift slightly)
         expect(Math.abs(initialBox!.height - browseBox!.height)).toBeLessThan(40);
     });
 });

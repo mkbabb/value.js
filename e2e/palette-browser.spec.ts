@@ -7,7 +7,7 @@ test.describe("Palette Browser", () => {
     });
 
     test("opens palette dialog via grid icon", async ({ page }) => {
-        const gridIcon = page.locator(".lucide-layout-grid").first();
+        const gridIcon = page.locator(".lucide-palette").first();
         await expect(gridIcon).toBeVisible();
         await gridIcon.click();
 
@@ -20,7 +20,7 @@ test.describe("Palette Browser", () => {
     });
 
     test("saved and browse tabs are present", async ({ page }) => {
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         const savedTab = page.getByRole("tab", { name: "Saved" });
@@ -31,7 +31,7 @@ test.describe("Palette Browser", () => {
     });
 
     test("can switch between saved and browse tabs", async ({ page }) => {
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         const savedTab = page.getByRole("tab", { name: "Saved" });
@@ -58,7 +58,7 @@ test.describe("Palette Browser", () => {
         await page.waitForTimeout(400);
 
         // Open palette dialog
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         const nameInput = page.getByPlaceholder("Palette name...");
@@ -72,7 +72,7 @@ test.describe("Palette Browser", () => {
         await page.waitForTimeout(400);
 
         // Open dialog
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         // Find save buttons — they should be disabled with empty name
@@ -89,7 +89,7 @@ test.describe("Palette Browser", () => {
         await page.waitForTimeout(400);
 
         // Open palette dialog
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         // Type a palette name
@@ -118,7 +118,7 @@ test.describe("Palette Browser", () => {
         await paletteIcon.click();
         await page.waitForTimeout(400);
 
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         const nameInput = page.getByPlaceholder("Palette name...");

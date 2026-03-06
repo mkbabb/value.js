@@ -7,7 +7,7 @@ test.describe("Browse Palettes", () => {
     });
 
     test("browse tab loads remote palettes or shows empty state", async ({ page }) => {
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         const browseTab = page.getByRole("tab", { name: "Browse" });
@@ -28,7 +28,7 @@ test.describe("Browse Palettes", () => {
         await page.waitForTimeout(400);
 
         // Open palette dialog
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         // Create a palette
@@ -54,7 +54,7 @@ test.describe("Browse Palettes", () => {
         await paletteIcon.click();
         await page.waitForTimeout(400);
 
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         const nameInput = page.getByPlaceholder("Palette name...");
@@ -86,7 +86,7 @@ test.describe("Browse Palettes", () => {
         await paletteIcon.click();
         await page.waitForTimeout(400);
 
-        await page.locator(".lucide-layout-grid").first().click();
+        await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
 
         const nameInput = page.getByPlaceholder("Palette name...");
