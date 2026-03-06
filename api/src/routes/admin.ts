@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { ObjectId } from "mongodb";
-import { adminAuth, resolveIP } from "../middleware.js";
+import { adminAuth, hashIP, resolveIP } from "../middleware.js";
 import { getDb } from "../db.js";
 
 const admin = new Hono();
@@ -124,6 +124,130 @@ admin.post("/colors/:id/reject", async (c) => {
 
     audit(c, "reject-color", `id=${id}`);
     return c.json({ rejected: true });
+});
+
+// GET /admin/users — paginated list of all users
+admin.get("/users", async (c) => {
+    const rawLimit = c.req.query("limit");
+    const rawOffset = c.req.query("offset");
+    const limit = Math.max(1, Math.min(Number(rawLimit) || 20, 100));
+    const offset = Math.max(0, Number(rawOffset) || 0);
+
+    const db = await getDb();
+
+    const [results, total] = await Promise.all([
+        db.collection("users")
+            .aggregate([
+                { $sort: { createdAt: -1 } },
+                { $skip: offset },
+                { $limit: limit },
+                {
+                    $lookup: {
+                        from: "palettes",
+                        localField: "_id",
+                        foreignField: "userSlug",
+                        as: "palettes",
+                    },
+                },
+                {
+                    $project: {
+                        slug: "$_id",
+                        createdAt: 1,
+                        lastSeenAt: 1,
+                        paletteCount: { $size: "$palettes" },
+                    },
+                },
+            ])
+            .toArray(),
+        db.collection("users").countDocuments(),
+    ]);
+
+    return c.json({ data: results, total, limit, offset });
+});
+
+// GET /admin/users/:slug/palettes — view any user's palettes
+admin.get("/users/:slug/palettes", async (c) => {
+    const slug = c.req.param("slug");
+    const db = await getDb();
+
+    const palettes = await db.collection("palettes")
+        .find({ userSlug: slug })
+        .sort({ createdAt: -1 })
+        .toArray();
+
+    return c.json(palettes.map((p) => {
+        const { _id, sessionToken, userSlug, ...rest } = p;
+        return { id: _id.toString(), ...rest };
+    }));
+});
+
+// POST /admin/impersonate — create session as another user
+admin.post("/impersonate", async (c) => {
+    const body = await c.req.json<{ slug: string }>();
+    const slug = typeof body.slug === "string" ? body.slug.trim() : "";
+    if (!slug) return c.json({ error: "slug required" }, 400);
+
+    const db = await getDb();
+    const user = await db.collection("users").findOne({ _id: slug as any });
+    if (!user) return c.json({ error: "User not found" }, 404);
+
+    const ip = resolveIP(c);
+    const ipHash = await hashIP(ip);
+    const token = crypto.randomUUID();
+    const now = new Date();
+
+    await db.collection("sessions").insertOne({
+        _id: token as any,
+        ipHash,
+        userSlug: slug,
+        createdAt: now,
+        lastSeenAt: now,
+    });
+
+    audit(c, "impersonate", `slug=${slug}`);
+    return c.json({ token, userSlug: slug });
+});
+
+// POST /admin/users/:slug/import — import palettes to a user account
+admin.post("/users/:slug/import", async (c) => {
+    const slug = c.req.param("slug");
+    const body = await c.req.json<{
+        palettes: { name: string; slug: string; colors: { css: string; name?: string; position: number }[] }[];
+    }>();
+
+    if (!Array.isArray(body.palettes) || body.palettes.length === 0) {
+        return c.json({ error: "palettes array required" }, 400);
+    }
+
+    const db = await getDb();
+    const user = await db.collection("users").findOne({ _id: slug as any });
+    if (!user) return c.json({ error: "User not found" }, 404);
+
+    const now = new Date();
+    let imported = 0;
+
+    for (const p of body.palettes) {
+        try {
+            await db.collection("palettes").insertOne({
+                name: p.name,
+                slug: p.slug,
+                colors: p.colors,
+                voteCount: 0,
+                sessionToken: null,
+                userSlug: slug,
+                status: "published",
+                createdAt: now,
+                updatedAt: now,
+            });
+            imported++;
+        } catch (e: any) {
+            // Skip duplicates
+            if (e?.code !== 11000) throw e;
+        }
+    }
+
+    audit(c, "import-palettes", `slug=${slug} count=${imported}`);
+    return c.json({ imported });
 });
 
 export default admin;
