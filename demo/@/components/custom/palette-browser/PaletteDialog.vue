@@ -2,10 +2,12 @@
     <Dialog v-model:open="openModel">
         <DialogScrollContent
             :class="[
-                'palette-dialog w-[calc(100%-1rem)] sm:w-[min(92vw,750px)] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg h-[min(90vh,820px)] max-h-[90vh] min-w-0 flex flex-col',
+                'palette-dialog w-[calc(100%-1rem)] sm:w-[min(95vw,1050px)] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg h-[min(90vh,820px)] max-h-[90vh] min-w-0 flex flex-col',
                 editingExit && 'palette-dialog--editing-exit',
                 editingEnter && 'palette-dialog--editing-enter',
             ]"
+            @pointer-down-outside="onPointerDownOutside"
+            @interact-outside="onInteractOutside"
         >
             <!-- Header -->
             <div class="shrink-0">
@@ -20,12 +22,15 @@
                     class="flex items-center justify-between px-4 sm:px-6 pt-3 sm:pt-4 pb-2 sm:pb-3"
                 >
                     <div class="flex items-center gap-2 sm:gap-3 min-w-0">
-                        <!-- Color swatch dot — click to copy, shift+click for admin -->
+                        <!-- Color swatch dot -->
                         <WatercolorDot
-                            :color="cssColorOpaque"
+                            :color="isAdminAuthenticated ? '#D4AF37' : cssColorOpaque"
+                            :class="[
+                                'w-10 sm:w-12 aspect-square shrink-0 cursor-pointer',
+                                isAdminAuthenticated && 'admin-golden',
+                            ]"
                             animate
                             tag="button"
-                            class="w-10 sm:w-12 aspect-square shrink-0 cursor-pointer"
                             :title="cssColorOpaque"
                             @click="onDotClick"
                         />
@@ -33,10 +38,15 @@
                             <DialogTitle
                                 class="fraunces text-3xl sm:text-5xl font-black tracking-tight"
                             >
-                                Color
-                                <span class="uppercase pastel-rainbow-text"
-                                    >Palettes</span
-                                >
+                                <template v-if="isAdminAuthenticated">
+                                    Admin <span class="uppercase admin-golden-text">Palettes</span>
+                                </template>
+                                <template v-else>
+                                    Color
+                                    <span class="uppercase pastel-rainbow-text"
+                                        >Palettes</span
+                                    >
+                                </template>
                             </DialogTitle>
                             <DialogDescription
                                 class="fira-code text-xs sm:text-sm text-muted-foreground italic mt-0.5"
@@ -57,77 +67,148 @@
                     v-model="activeTab"
                     class="w-full min-h-full flex flex-col min-w-0"
                 >
-                    <!-- Controls: tabs row, then search+sort row -->
-                    <div class="flex flex-col gap-2 mb-4 min-w-0">
-                        <TabsList class="shrink-0 w-fit">
-                            <TabsTrigger value="saved" class="fira-code text-base"
-                                >My Palettes</TabsTrigger
-                            >
-                            <TabsTrigger value="browse" class="fira-code text-base"
-                                >Browse</TabsTrigger
-                            >
-                            <TabsTrigger
-                                v-if="showAdminTab"
-                                value="admin"
-                                class="fira-code text-base"
-                            >
-                                <Shield class="w-3.5 h-3.5 mr-1" />
-                                Admin
-                            </TabsTrigger>
-                        </TabsList>
+                    <!-- Controls: sticky tabs row, then search+sort row -->
+                    <div class="flex flex-col gap-2 mb-4 min-w-0 sticky top-0 z-10 bg-card pb-2">
+                        <!-- User slug display -->
+                        <div v-if="userSlug || slugEditMode" class="flex items-center gap-1.5 mb-2 relative">
+                            <div :class="['flex items-center gap-1.5 min-w-0', slugEditMode && 'flex-1']">
+                                <!-- Slug pill (default) -->
+                                <HoverCard v-if="!slugEditMode" :close-delay="0" :open-delay="300">
+                                    <HoverCardTrigger as-child>
+                                        <span
+                                            class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-help"
+                                            :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
+                                        >
+                                            {{ userSlug }}
+                                        </span>
+                                    </HoverCardTrigger>
+                                    <HoverCardContent class="fraunces text-sm w-56 z-[100]">
+                                        <p class="font-bold">Your slug</p>
+                                        <p class="text-muted-foreground text-xs mt-1">
+                                            This is your unique identity. Use it to sign in from any device and access your palettes.
+                                        </p>
+                                    </HoverCardContent>
+                                </HoverCard>
+                                <!-- Slug input (switch mode) -->
+                                <form v-else class="flex items-center gap-1.5 flex-1 min-w-0" @submit.prevent="onSlugSwitch">
+                                    <Input
+                                        ref="slugInputRef"
+                                        v-model="slugInput"
+                                        placeholder="🐌 enter slug..."
+                                        class="fira-code text-sm h-7 flex-1 min-w-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                        @keydown.escape.stop="slugEditMode = false"
+                                    />
+                                    <Button
+                                        type="submit"
+                                        variant="outline"
+                                        size="sm"
+                                        :disabled="!slugInput.trim() || slugSwitching"
+                                        class="fraunces text-sm h-7 px-2 cursor-pointer border-primary/30"
+                                    >
+                                        <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin" />
+                                        <LogIn v-else class="w-3.5 h-3.5" />
+                                    </Button>
+                                    <button
+                                        type="button"
+                                        class="p-0.5 transition-colors rounded-md hover:bg-secondary cursor-pointer"
+                                        @click="slugEditMode = false"
+                                    >
+                                        <XIcon class="w-4 h-4 text-muted-foreground" />
+                                    </button>
+                                </form>
+                            </div>
+                            <!-- Three-dot menu -->
+                            <Popover v-if="!slugEditMode" v-model:open="slugMenuOpen">
+                                <PopoverTrigger as-child>
+                                    <button class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                        <MoreHorizontal class="w-3.5 h-3.5 text-muted-foreground" />
+                                    </button>
+                                </PopoverTrigger>
+                                <PopoverContent class="w-auto p-1 flex flex-col gap-0.5 z-[100]" align="end" :side-offset="4">
+                                    <button
+                                        class="flex items-center gap-2 px-3 py-1.5 text-sm fraunces rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
+                                        @click="slugMenuOpen = false; onCopySlug()"
+                                    >
+                                        <Copy class="w-3.5 h-3.5" />
+                                        Copy slug
+                                    </button>
+                                    <button
+                                        class="flex items-center gap-2 px-3 py-1.5 text-sm fraunces rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
+                                        @click="slugMenuOpen = false; onStartSlugEdit()"
+                                    >
+                                        <LogIn class="w-3.5 h-3.5" />
+                                        Switch account
+                                    </button>
+                                    <button
+                                        class="flex items-center gap-2 px-3 py-1.5 text-sm fraunces rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left text-muted-foreground"
+                                        @click="slugMenuOpen = false; onRegenerateSlug()"
+                                    >
+                                        <RefreshCw class="w-3.5 h-3.5" />
+                                        Regenerate slug
+                                    </button>
+                                </PopoverContent>
+                            </Popover>
+                            <p v-if="slugError" class="absolute left-0 -bottom-4 text-[0.65rem] text-destructive fira-code whitespace-nowrap">
+                                {{ slugError }}
+                            </p>
+                        </div>
+
+                        <div class="tabs-scroll-container overflow-x-auto mx-0">
+                            <TabsList class="shrink-0 w-fit flex-nowrap">
+                                <TabsTrigger value="saved" class="fraunces text-base font-bold"
+                                    >My Palettes</TabsTrigger
+                                >
+                                <TabsTrigger value="browse" class="fraunces text-base font-bold"
+                                    >Browse</TabsTrigger
+                                >
+                                <template v-if="isAdminAuthenticated">
+                                    <TabsTrigger value="admin-users" class="fraunces text-base font-bold">
+                                        <Shield class="w-3.5 h-3.5 mr-1" />
+                                        Users
+                                    </TabsTrigger>
+                                    <TabsTrigger value="admin-palettes" class="fraunces text-base font-bold">
+                                        Palettes
+                                    </TabsTrigger>
+                                    <TabsTrigger value="admin-colors" class="fraunces text-base font-bold">
+                                        Colors
+                                    </TabsTrigger>
+                                </template>
+                            </TabsList>
+                        </div>
                         <div class="flex items-center gap-2 min-w-0 flex-1">
                             <Input
                                 v-model="searchQuery"
-                                placeholder="Search palettes..."
+                                :placeholder="searchPlaceholder"
                                 class="fira-code text-sm sm:text-base h-9 sm:h-10 focus-visible:ring-0 focus-visible:ring-offset-0 min-w-0 flex-1"
                             />
-                            <!-- Sort controls (browse tab only — always reserves layout space) -->
-                            <div
-                                :class="[
-                                    'shrink-0 transition-[visibility,opacity] duration-200',
-                                    activeTab === 'browse'
-                                        ? 'visible opacity-100'
-                                        : 'invisible opacity-0',
-                                ]"
-                            >
-                                <ToggleGroup
-                                    type="single"
-                                    :model-value="sortMode"
-                                    @update:model-value="onSortChange"
-                                    class="shrink-0"
+                            <!-- Sort controls (browse tab only) -->
+                            <template v-if="activeTab === 'browse'">
+                                <SortFilterMenu
+                                    :sort="sortMode"
+                                    @update:sort="onSortChange"
+                                />
+                            </template>
+                            <!-- Admin palette actions (admin-palettes tab) -->
+                            <template v-if="activeTab === 'admin-palettes'">
+                                <Button
+                                    variant="outline"
+                                    size="sm"
+                                    :disabled="!searchQuery.trim()"
+                                    class="cursor-pointer fraunces h-9 sm:h-10"
+                                    @click="onAdminFeature"
                                 >
-                                    <TooltipProvider :delay-duration="200">
-                                        <Tooltip>
-                                            <TooltipTrigger as-child>
-                                                <ToggleGroupItem
-                                                    value="newest"
-                                                    class="px-2.5"
-                                                >
-                                                    <Clock class="w-4 h-4" />
-                                                </ToggleGroupItem>
-                                            </TooltipTrigger>
-                                            <TooltipContent class="fira-code text-xs"
-                                                >Newest first</TooltipContent
-                                            >
-                                        </Tooltip>
-                                    </TooltipProvider>
-                                    <TooltipProvider :delay-duration="200">
-                                        <Tooltip>
-                                            <TooltipTrigger as-child>
-                                                <ToggleGroupItem
-                                                    value="popular"
-                                                    class="px-2.5"
-                                                >
-                                                    <TrendingUp class="w-4 h-4" />
-                                                </ToggleGroupItem>
-                                            </TooltipTrigger>
-                                            <TooltipContent class="fira-code text-xs"
-                                                >Most popular</TooltipContent
-                                            >
-                                        </Tooltip>
-                                    </TooltipProvider>
-                                </ToggleGroup>
-                            </div>
+                                    Feature
+                                </Button>
+                                <Button
+                                    variant="destructive"
+                                    size="sm"
+                                    :disabled="!searchQuery.trim()"
+                                    class="cursor-pointer fraunces h-9 sm:h-10"
+                                    @click="onAdminDelete"
+                                >
+                                    Delete
+                                </Button>
+                            </template>
                         </div>
                     </div>
 
@@ -211,7 +292,7 @@
                                                         "
                                                         class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
                                                     >
-                                                        <ClipboardCopy
+                                                        <Copy
                                                             class="w-4 h-4"
                                                         />
                                                     </button>
@@ -275,7 +356,7 @@
                                                             "
                                                             class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
                                                         >
-                                                            <ClipboardCopy
+                                                            <Copy
                                                                 class="w-4 h-4"
                                                             />
                                                         </button>
@@ -337,11 +418,35 @@
                                         <Button
                                             variant="outline"
                                             size="sm"
-                                            class="fira-code text-sm h-8 cursor-pointer border-primary/30"
+                                            class="fraunces text-sm h-8 cursor-pointer border-primary/30"
                                             :disabled="savedColorStrings.length === 0"
                                             @click="saveCurrentPalette"
                                         >
                                             Save
+                                        </Button>
+                                    </div>
+                                    <div
+                                        v-if="duplicateTarget"
+                                        class="flex items-center gap-2 flex-wrap"
+                                    >
+                                        <span class="fira-code text-xs text-muted-foreground italic">
+                                            "{{ duplicateTarget.name }}" already exists.
+                                        </span>
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            class="h-6 px-2 text-xs cursor-pointer fraunces"
+                                            @click="confirmUpdatePalette"
+                                        >
+                                            Update
+                                        </Button>
+                                        <Button
+                                            variant="ghost"
+                                            size="sm"
+                                            class="h-6 px-2 text-xs cursor-pointer fraunces"
+                                            @click="duplicateTarget = null"
+                                        >
+                                            Cancel
                                         </Button>
                                     </div>
                                 </div>
@@ -352,10 +457,12 @@
                                     :palette="palette"
                                     :expanded="expandedId === palette.id"
                                     :css-color="cssColorOpaque"
+                                    :editable-name="true"
                                     @click="toggleExpand(palette.id)"
                                     @apply="onApply"
                                     @delete="onDelete"
                                     @publish="onPublish"
+                                    @rename="onRenameSaved"
                                     @edit-color="onEditColor"
                                 />
                                 <p
@@ -412,28 +519,115 @@
                         </Transition>
                     </TabsContent>
 
-                    <!-- Admin tab -->
-                    <TabsContent value="admin" class="mt-0 w-full">
+                    <!-- Admin Users tab -->
+                    <TabsContent v-if="isAdminAuthenticated" value="admin-users" class="mt-0 w-full">
                         <Transition name="tab-fade" mode="out-in">
-                            <div :key="'admin'">
-                                <AdminPanel />
+                            <div :key="'admin-users'" class="grid gap-3 pb-3">
+                                <div v-if="loadingUsers" class="flex items-center justify-center py-8">
+                                    <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
+                                </div>
+                                <template v-else>
+                                    <div
+                                        v-for="user in filteredAdminUsers"
+                                        :key="user.slug"
+                                        class="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border"
+                                    >
+                                        <div class="flex-1 min-w-0">
+                                            <span class="fira-code text-sm font-medium block truncate">
+                                                {{ user.slug }}
+                                            </span>
+                                            <span class="fira-code text-xs text-muted-foreground">
+                                                {{ user.paletteCount ?? 0 }} palettes
+                                            </span>
+                                        </div>
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            class="h-7 px-2 cursor-pointer fraunces text-xs"
+                                            @click="onImpersonate(user.slug)"
+                                        >
+                                            Impersonate
+                                        </Button>
+                                    </div>
+                                    <p v-if="filteredAdminUsers.length === 0" class="text-center text-muted-foreground py-6 fira-code text-sm italic">
+                                        No users found.
+                                    </p>
+                                </template>
                             </div>
                         </Transition>
                     </TabsContent>
+
+                    <!-- Admin Palettes tab -->
+                    <TabsContent v-if="isAdminAuthenticated" value="admin-palettes" class="mt-0 w-full">
+                        <Transition name="tab-fade" mode="out-in">
+                            <div :key="'admin-palettes'" class="grid gap-3 py-2">
+                                <p class="fira-code text-sm text-muted-foreground italic">
+                                    Enter a palette slug above, then Feature or Delete.
+                                </p>
+                            </div>
+                        </Transition>
+                    </TabsContent>
+
+                    <!-- Admin Colors tab -->
+                    <TabsContent v-if="isAdminAuthenticated" value="admin-colors" class="mt-0 w-full">
+                        <Transition name="tab-fade" mode="out-in">
+                            <div :key="'admin-colors'" class="grid gap-3 pb-3">
+                                <div v-if="loadingColorQueue" class="flex items-center justify-center py-8">
+                                    <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
+                                </div>
+                                <div
+                                    v-else-if="filteredColorQueue.length === 0"
+                                    class="text-center text-muted-foreground py-6 fira-code text-sm italic"
+                                >
+                                    No pending proposals.
+                                </div>
+                                <div v-else class="grid gap-2">
+                                    <div
+                                        v-for="item in filteredColorQueue"
+                                        :key="item.id"
+                                        class="flex items-center gap-3 px-3 py-2 rounded-md border border-border"
+                                    >
+                                        <div
+                                            class="w-6 h-6 rounded-full shrink-0"
+                                            :style="{ backgroundColor: item.css }"
+                                        ></div>
+                                        <div class="flex-1 min-w-0">
+                                            <span class="fira-code text-sm font-medium truncate block">{{ item.name }}</span>
+                                            <span class="fira-code text-xs text-muted-foreground">{{ item.css }}</span>
+                                        </div>
+                                        <div class="flex items-center gap-1.5 shrink-0">
+                                            <Button
+                                                variant="outline"
+                                                size="sm"
+                                                class="h-7 px-2 cursor-pointer"
+                                                @click="onApproveColor(item)"
+                                            >
+                                                <Check class="w-3.5 h-3.5" />
+                                            </Button>
+                                            <Button
+                                                variant="destructive"
+                                                size="sm"
+                                                class="h-7 px-2 cursor-pointer"
+                                                @click="onRejectColor(item)"
+                                            >
+                                                <XIcon class="w-3.5 h-3.5" />
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Transition>
+                    </TabsContent>
+
                 </Tabs>
             </div>
 
-            <!-- Footer: new palette form -->
-            <div
-                class="px-4 sm:px-6 pb-4 sm:pb-5 pt-3 border-t border-gray-700/20 shrink-0"
-            >
-                <PaletteForm
-                    :colors="savedColorStrings"
-                    :css-color="cssColorOpaque"
-                    @save="onCreateLocal"
-                    @publish="onCreateAndPublish"
-                />
-            </div>
+            <MigratePalettesDialog
+                v-model:open="showMigrateDialog"
+                :count="savedPalettes.length"
+                :mode="migrateMode"
+                @respond="onMigrateRespond"
+            />
         </DialogScrollContent>
     </Dialog>
 </template>
@@ -455,7 +649,6 @@ import {
     DialogTitle,
 } from "@components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
-import { ToggleGroup, ToggleGroupItem } from "@components/ui/toggle-group";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import {
@@ -465,15 +658,19 @@ import {
     TooltipTrigger,
 } from "@components/ui/tooltip";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@components/ui/hover-card";
 import {
     Loader2,
-    Clock,
-    TrendingUp,
     Shield,
     Plus,
     Pencil,
-    ClipboardCopy,
+    Copy,
     Trash2,
+    Check,
+    X as XIcon,
+    MoreHorizontal,
+    LogIn,
+    RefreshCw,
 } from "lucide-vue-next";
 import { createSlug } from "@lib/palette/utils";
 
@@ -481,16 +678,24 @@ import { copyToClipboard } from "@composables/useClipboard";
 import { usePaletteStore } from "@composables/usePaletteStore";
 import { useSession } from "@composables/useSession";
 import { useAdminAuth } from "@composables/useAdminAuth";
+import { useUserAuth } from "@composables/useUserAuth";
 import {
     listPalettes,
+    listUsers,
+    impersonateUser,
+    featurePalette,
+    deletePaletteAdmin,
     publishPalette,
     votePalette,
     renamePalette,
+    getAdminQueue,
+    approveColorName,
+    rejectColorName,
 } from "@lib/palette/api";
-import type { Palette, PaletteColor } from "@lib/palette/types";
+import type { Palette, PaletteColor, User, ProposedColorName } from "@lib/palette/types";
 import PaletteCard from "./PaletteCard.vue";
-import PaletteForm from "./PaletteForm.vue";
-import AdminPanel from "./AdminPanel.vue";
+import MigratePalettesDialog from "./MigratePalettesDialog.vue";
+import SortFilterMenu from "./SortFilterMenu.vue";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 
 const props = defineProps<{
@@ -507,21 +712,48 @@ const emit = defineEmits<{
     startEdit: [target: { paletteId: string; colorIndex: number; originalCss: string }];
 }>();
 
+type TabValue = "saved" | "browse" | "admin-users" | "admin-palettes" | "admin-colors";
+
 const openModel = defineModel<boolean>("open", { default: false });
-const activeTab = ref<"saved" | "browse" | "admin">("saved");
+const activeTab = ref<TabValue>("saved");
 const searchQuery = ref("");
 const expandedId = ref<string | null>(null);
 const browsing = ref(false);
 const sortLoading = ref(false);
 const remotePalettes = ref<Palette[]>([]);
 const sortMode = ref<"newest" | "popular">("newest");
+const showMigrateDialog = ref(false);
+const migrateMode = ref<"switch" | "regenerate">("switch");
+const pendingMigrateAction = ref<((choice: "publish" | "transfer" | "discard") => Promise<void>) | null>(null);
+const duplicateTarget = ref<Palette | null>(null);
 
 const session = useSession();
-const { isAuthenticated: isAdminAuthenticated } = useAdminAuth();
+const { isAuthenticated: isAdminAuthenticated, getToken: getAdminToken, login: adminLogin } = useAdminAuth();
+const { userSlug, isLoggedIn, ensureUser, login: userLogin, logout: userLogout } = useUserAuth();
 
-const showAdminTab = computed(
-    () => isAdminAuthenticated.value || activeTab.value === "admin",
-);
+// Auto-register user when dialog opens if no slug exists
+watch(openModel, (open) => {
+    if (open) {
+        ensureUser().catch((e: any) => {
+            console.warn("Auto-register failed:", e?.message);
+        });
+    }
+});
+
+const searchPlaceholder = computed(() => {
+    switch (activeTab.value) {
+        case "admin-users": return "Search users...";
+        case "admin-palettes": return "Palette slug...";
+        case "admin-colors": return "Search color names...";
+        default: return "Search palettes...";
+    }
+});
+
+// Admin state
+const adminUsers = ref<User[]>([]);
+const loadingUsers = ref(false);
+const adminColorQueue = ref<ProposedColorName[]>([]);
+const loadingColorQueue = ref(false);
 
 const {
     savedPalettes,
@@ -649,9 +881,30 @@ function saveCurrentPalette() {
     if (props.savedColorStrings.length === 0) return;
     const name =
         currentPaletteName.value.trim() || `Palette ${savedPalettes.value.length + 1}`;
+
+    // Check for duplicate name
+    const existing = savedPalettes.value.find(
+        (p) => p.name.toLowerCase() === name.toLowerCase(),
+    );
+    if (existing) {
+        duplicateTarget.value = existing;
+        return;
+    }
+
     const palette = createPalette(name, colorsFromStrings(props.savedColorStrings));
     currentPaletteName.value = "";
+    duplicateTarget.value = null;
     expandedId.value = palette.id;
+}
+
+function confirmUpdatePalette() {
+    if (!duplicateTarget.value) return;
+    updatePalette(duplicateTarget.value.id, {
+        colors: colorsFromStrings(props.savedColorStrings),
+    });
+    currentPaletteName.value = "";
+    expandedId.value = duplicateTarget.value.id;
+    duplicateTarget.value = null;
 }
 
 function copyColor(css: string) {
@@ -692,11 +945,38 @@ function toggleExpand(id: string) {
     expandedId.value = expandedId.value === id ? null : id;
 }
 
-function onDotClick(e: MouseEvent) {
-    if (e.shiftKey) {
-        activeTab.value = "admin";
+function isTeleportedTarget(event: any): boolean {
+    const target = event.detail?.originalEvent?.target ?? event.target;
+    return target instanceof HTMLElement && !!(
+        target.closest('[data-reka-popper-content-wrapper]') ||
+        target.closest('.card-menu-panel') ||
+        target.closest('.swatch-floating-panel')
+    );
+}
+
+function onPointerDownOutside(event: any) {
+    // Prevent dialog close only when clicking on teleported floating panels (popovers,
+    // hover cards, menus) that live outside the dialog DOM tree but are logically "inside" it.
+    if (isTeleportedTarget(event)) {
+        event.preventDefault();
+    }
+}
+
+function onInteractOutside(event: any) {
+    // interact-outside fires for focus-loss too (e.g. when a popover closes).
+    // Prevent it unless it's a genuine pointer event on the overlay.
+    if (isTeleportedTarget(event)) {
+        event.preventDefault();
         return;
     }
+    // For focus-loss events (no pointer), always prevent — it's from a closing popover/menu
+    const originalEvent = event.detail?.originalEvent;
+    if (!originalEvent || originalEvent.type === 'focusin' || originalEvent.type === 'focus') {
+        event.preventDefault();
+    }
+}
+
+function onDotClick() {
     copyToClipboard(props.cssColorOpaque);
 }
 
@@ -716,6 +996,12 @@ const filteredBrowse = computed(() => {
     );
 });
 
+const filteredAdminUsers = computed(() => {
+    const q = searchQuery.value.toLowerCase();
+    if (!q) return adminUsers.value;
+    return adminUsers.value.filter((u) => u.slug.toLowerCase().includes(q));
+});
+
 async function loadRemotePalettes(isSort = false) {
     if (!isSort) {
         browsing.value = true;
@@ -733,7 +1019,7 @@ async function loadRemotePalettes(isSort = false) {
     }
 }
 
-function onSortChange(value: string | undefined) {
+function onSortChange(value: string) {
     if (!value) return;
     sortMode.value = value as "newest" | "popular";
     loadRemotePalettes(true);
@@ -743,41 +1029,257 @@ watch(activeTab, (tab) => {
     if (tab === "browse" && remotePalettes.value.length === 0) {
         loadRemotePalettes();
     }
+    if (tab === "admin-users" && adminUsers.value.length === 0) {
+        loadAdminUsers();
+    }
+    if (tab === "admin-colors" && adminColorQueue.value.length === 0) {
+        loadColorQueue();
+    }
 });
 
 watch(isAdminAuthenticated, (auth) => {
-    if (!auth && activeTab.value === "admin") {
+    if (!auth && activeTab.value.startsWith("admin-")) {
         activeTab.value = "saved";
     }
 });
 
-function colorsFromStrings(colors: string[]): PaletteColor[] {
-    return colors.map((css, i) => ({ css, position: i }));
+// Admin functionality
+async function loadAdminUsers() {
+    const token = getAdminToken();
+    if (!token) return;
+    loadingUsers.value = true;
+    try {
+        const res = await listUsers(token, 50);
+        adminUsers.value = res.data;
+    } catch (e) {
+        console.warn("Failed to load users:", e);
+    } finally {
+        loadingUsers.value = false;
+    }
 }
 
-function onCreateLocal(name: string) {
-    createPalette(name, colorsFromStrings(props.savedColorStrings));
+async function onImpersonate(slug: string) {
+    const token = getAdminToken();
+    if (!token) return;
+    try {
+        const res = await impersonateUser(token, slug);
+        console.warn(`Impersonating ${slug} — token: ${res.token.slice(0, 8)}...`);
+    } catch (e: any) {
+        console.warn("Failed to impersonate:", e?.message);
+    }
 }
 
-async function onCreateAndPublish(name: string) {
+async function onAdminFeature() {
+    const token = getAdminToken();
+    if (!token) return;
+    const slug = searchQuery.value.trim();
+    if (!slug) return;
+    try {
+        await featurePalette(token, slug);
+        searchQuery.value = "";
+    } catch (e: any) {
+        console.warn("Failed to feature palette:", e?.message);
+    }
+}
+
+async function onAdminDelete() {
+    const token = getAdminToken();
+    if (!token) return;
+    const slug = searchQuery.value.trim();
+    if (!slug) return;
+    try {
+        await deletePaletteAdmin(token, slug);
+        searchQuery.value = "";
+    } catch (e: any) {
+        console.warn("Failed to delete palette:", e?.message);
+    }
+}
+
+// Admin color queue
+async function loadColorQueue() {
+    const token = getAdminToken();
+    if (!token) return;
+    loadingColorQueue.value = true;
+    try {
+        adminColorQueue.value = await getAdminQueue(token);
+    } catch (e: any) {
+        console.warn("Failed to load color queue:", e?.message);
+    } finally {
+        loadingColorQueue.value = false;
+    }
+}
+
+const filteredColorQueue = computed(() => {
+    const q = searchQuery.value.toLowerCase();
+    if (!q) return adminColorQueue.value;
+    return adminColorQueue.value.filter(
+        (item) => item.name.toLowerCase().includes(q) || item.css.toLowerCase().includes(q),
+    );
+});
+
+async function onApproveColor(item: ProposedColorName) {
+    const token = getAdminToken();
+    if (!token) return;
+    try {
+        await approveColorName(token, item.id);
+        adminColorQueue.value = adminColorQueue.value.filter((q) => q.id !== item.id);
+    } catch (e: any) {
+        console.warn("Failed to approve:", e?.message);
+    }
+}
+
+async function onRejectColor(item: ProposedColorName) {
+    const token = getAdminToken();
+    if (!token) return;
+    try {
+        await rejectColorName(token, item.id);
+        adminColorQueue.value = adminColorQueue.value.filter((q) => q.id !== item.id);
+    } catch (e: any) {
+        console.warn("Failed to reject:", e?.message);
+    }
+}
+
+// --- Inline slug management ---
+
+const slugEditMode = ref(false);
+const slugMenuOpen = ref(false);
+const slugInput = ref("");
+const slugSwitching = ref(false);
+const slugError = ref("");
+const slugInputRef = ref<InstanceType<typeof Input> | null>(null);
+
+function onCopySlug() {
+    if (userSlug.value) copyToClipboard(userSlug.value);
+}
+
+function onStartSlugEdit() {
+    slugInput.value = "";
+    slugError.value = "";
+    // Delay to let the Popover fully close before swapping to input mode
+    setTimeout(() => {
+        slugEditMode.value = true;
+        nextTick(() => {
+            const el = slugInputRef.value?.$el?.querySelector?.("input") ?? slugInputRef.value?.$el;
+            el?.focus?.();
+        });
+    }, 50);
+}
+
+function looksLikeSlug(value: string): boolean {
+    return /^[a-z]+-[a-z]+-[a-z]+-[a-z]+$/.test(value);
+}
+
+function normalizeTokenInput(raw: string): string {
+    let token = raw.trim();
+    const assignmentMatch = token.match(/^ADMIN_TOKEN\s*=\s*(.+)$/i);
+    if (assignmentMatch) token = assignmentMatch[1]!.trim();
+    if ((token.startsWith('"') && token.endsWith('"')) || (token.startsWith("'") && token.endsWith("'"))) {
+        token = token.slice(1, -1).trim();
+    }
+    return token;
+}
+
+async function publishAllLocal() {
     try {
         await session.ensureSession();
-    } catch {
-        console.warn("Failed to create session — check your network connection");
-        return;
+        for (const palette of savedPalettes.value) {
+            try {
+                await publishPalette({
+                    name: palette.name,
+                    slug: palette.slug,
+                    colors: palette.colors,
+                });
+                session.markOwned(palette.slug);
+            } catch {
+                // Skip failures (e.g. duplicate slugs)
+            }
+        }
+    } catch (e) {
+        console.warn("Publish all failed:", e);
     }
-    const palette = createPalette(name, colorsFromStrings(props.savedColorStrings));
+}
+
+async function onSlugSwitch() {
+    const raw = slugInput.value.trim();
+    if (!raw) return;
+    slugSwitching.value = true;
+    slugError.value = "";
     try {
-        await publishPalette({
-            name: palette.name,
-            slug: palette.slug,
-            colors: palette.colors,
-        });
-        session.markOwned(palette.slug);
+        const normalized = normalizeTokenInput(raw).toLowerCase();
+        if (looksLikeSlug(normalized)) {
+            if (normalized === userSlug.value) {
+                slugError.value = "Already signed in as this slug.";
+                slugSwitching.value = false;
+                return;
+            }
+            if (savedPalettes.value.length > 0) {
+                // Show migrate dialog before switching
+                migrateMode.value = "switch";
+                pendingMigrateAction.value = async (choice) => {
+                    if (choice === "publish") {
+                        await publishAllLocal();
+                    }
+                    await userLogin(normalized);
+                    if (choice === "transfer") {
+                        await publishAllLocal();
+                    }
+                    slugInput.value = "";
+                    slugEditMode.value = false;
+                    activeTab.value = "saved";
+                };
+                showMigrateDialog.value = true;
+                slugSwitching.value = false;
+                return;
+            }
+            await userLogin(normalized);
+        } else {
+            adminLogin(normalizeTokenInput(raw));
+        }
+        slugInput.value = "";
+        slugEditMode.value = false;
+        activeTab.value = "saved";
     } catch (e: any) {
         const msg = e?.message ?? "";
-        console.warn(`Failed to publish: ${msg || "unknown error"}`);
+        if (msg.includes("409")) slugError.value = "Already signed in as this slug.";
+        else if (msg.includes("404")) slugError.value = "Slug not found.";
+        else if (msg.includes("429")) slugError.value = "Too many attempts.";
+        else slugError.value = msg || "Login failed";
+    } finally {
+        slugSwitching.value = false;
     }
+}
+
+async function onRegenerateSlug() {
+    slugMenuOpen.value = false;
+    slugEditMode.value = false;
+    if (savedPalettes.value.length > 0) {
+        migrateMode.value = "regenerate";
+        pendingMigrateAction.value = async (choice) => {
+            if (choice === "publish") {
+                await publishAllLocal();
+            }
+            await userLogout();
+        };
+        showMigrateDialog.value = true;
+    } else {
+        await userLogout();
+    }
+}
+
+async function onMigrateRespond(choice: "publish" | "transfer" | "discard") {
+    const action = pendingMigrateAction.value;
+    pendingMigrateAction.value = null;
+    if (action) {
+        try {
+            await action(choice);
+        } catch (e: any) {
+            console.warn("Migration action failed:", e?.message);
+        }
+    }
+}
+
+function colorsFromStrings(colors: string[]): PaletteColor[] {
+    return colors.map((css, i) => ({ css, position: i }));
 }
 
 function onApply(palette: Palette) {
@@ -832,6 +1334,10 @@ async function onVote(palette: Palette) {
     }
 }
 
+function onRenameSaved(palette: Palette, newName: string) {
+    updatePalette(palette.id, { name: newName });
+}
+
 async function onRename(palette: Palette, newName: string) {
     try {
         await session.ensureSession();
@@ -850,6 +1356,13 @@ async function onRename(palette: Palette, newName: string) {
 </script>
 
 <style scoped>
+.tabs-scroll-container {
+    mask-image: linear-gradient(to right, transparent, black 0.75rem, black calc(100% - 0.75rem), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 0.75rem, black calc(100% - 0.75rem), transparent);
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+}
+
 .swatch-floating-panel {
     position: fixed;
     z-index: 50;
@@ -878,5 +1391,24 @@ async function onRename(palette: Palette, newName: string) {
         opacity: 1;
         transform: translateX(-50%) translateY(0) scale(1);
     }
+}
+
+</style>
+
+<style>
+/* Smaller, tighter close button inside the dialog portal */
+.palette-dialog button.absolute {
+    top: 0.875rem;
+    right: 0.5rem;
+    padding: 0.125rem;
+    opacity: 0.35;
+    transition: opacity 0.15s ease;
+}
+.palette-dialog button.absolute:hover {
+    opacity: 0.7;
+}
+.palette-dialog button.absolute svg {
+    width: 0.5rem;
+    height: 0.5rem;
 }
 </style>

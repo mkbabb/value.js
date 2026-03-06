@@ -2,7 +2,7 @@
 import { type HTMLAttributes, computed } from 'vue'
 import { AlertDialogAction, type AlertDialogActionProps } from 'reka-ui'
 import { cn } from '@utils/utils'
-import { buttonVariants } from 'demo/@/components/ui/button'
+import { buttonVariants } from '@components/ui/button'
 
 const props = defineProps<AlertDialogActionProps & { class?: HTMLAttributes['class'] }>()
 

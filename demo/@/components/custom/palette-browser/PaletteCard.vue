@@ -21,10 +21,11 @@
             <div class="flex items-center gap-2 min-w-0">
                 <span
                     class="fraunces text-lg font-bold line-clamp-2 sm:line-clamp-1"
+                    :class="editableName && 'cursor-text hover:underline decoration-dashed underline-offset-4'"
                     :title="palette.name"
-                    @click.stop="toggleMenu"
+                    @click.stop="editableName ? startRenaming() : toggleMenu()"
                 >{{ palette.name }}</span>
-                <Badge v-if="palette.status === 'featured'" variant="default" class="fira-code text-xs shrink-0 gap-1">
+                <Badge v-if="palette.status === 'featured'" variant="outline" class="featured-badge fira-code text-xs shrink-0 gap-1 border-[#D4AF37] text-[#D4AF37]">
                     <Award class="w-3 h-3" />
                     Featured
                 </Badge>
@@ -81,7 +82,7 @@
                             <span>Apply palette</span>
                         </button>
                         <button class="card-menu-item" @click="onMenuAction(() => copyAllColors())">
-                            <ClipboardCopy class="w-4 h-4" />
+                            <Copy class="w-4 h-4" />
                             <span>Copy all colors</span>
                         </button>
 
@@ -172,7 +173,7 @@
                                     <Pencil class="w-4 h-4" />
                                 </button>
                                 <button @click="onPopoverCopy(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
-                                    <ClipboardCopy class="w-4 h-4" />
+                                    <Copy class="w-4 h-4" />
                                 </button>
                             </PopoverContent>
                         </Popover>
@@ -201,7 +202,7 @@
                                         <Pencil class="w-4 h-4" />
                                     </button>
                                     <button @click="onPopoverCopy(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
-                                        <ClipboardCopy class="w-4 h-4" />
+                                        <Copy class="w-4 h-4" />
                                     </button>
                                 </div>
                             </Teleport>
@@ -221,7 +222,7 @@ import { Input } from "@components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import {
     Pipette,
-    ClipboardCopy,
+    Copy,
     Trash2,
     Globe,
     Bookmark,
@@ -242,6 +243,7 @@ const props = defineProps<{
     expanded?: boolean;
     cssColor?: string;
     isOwned?: boolean;
+    editableName?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -512,6 +514,7 @@ function copyAllColors() {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 0.75rem;
+    font-family: "Fraunces", sans-serif;
     font-size: 0.875rem;
     cursor: pointer;
     transition: background-color 0.15s ease;
@@ -558,5 +561,24 @@ function copyAllColors() {
         opacity: 1;
         transform: translateX(-50%) translateY(0) scale(1);
     }
+}
+
+.featured-badge {
+    background: linear-gradient(90deg, #D4AF37, #F5E6A3, #D4AF37, #F5E6A3, #D4AF37);
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-color: #D4AF37;
+    animation: golden-text-shimmer 4s ease-in-out infinite;
+}
+.featured-badge :deep(svg) {
+    stroke: #D4AF37;
+    filter: drop-shadow(0 0 1px rgba(212, 175, 55, 0.4));
+}
+
+@keyframes golden-text-shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 </style>
