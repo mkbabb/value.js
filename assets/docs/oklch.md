@@ -1,5 +1,5 @@
 <script setup>
-import { oklch2oklab, oklab2oklch, oklch2xyz, xyz2oklch } from "@src/units/color/utils?source";
+import { oklch2oklab, oklab2oklch, oklab2xyz, xyz2oklab } from "@src/units/color/utils?source";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import { Katex } from "@components/custom/katex";
 import {
@@ -81,20 +81,20 @@ Cartesian to polar:
     {{ oklab2oklch }}
 </div>
 
-### OKLCh to XYZ
+### OKLab to XYZ
 
-Passes through OKLab as an intermediate:
+The conversion from OKLab to XYZ, used when going from OKLCh → OKLab → XYZ:
 
 <div class="language-typescript">
-    {{ oklch2xyz }}
+    {{ oklab2xyz }}
 </div>
 
-### XYZ to OKLCh
+### XYZ to OKLab
 
 The reverse path, also through OKLab:
 
 <div class="language-typescript">
-    {{ xyz2oklch }}
+    {{ xyz2oklab }}
 </div>
 
 ---

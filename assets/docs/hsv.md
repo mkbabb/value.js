@@ -1,5 +1,5 @@
 <script setup>
-import { hsv2hsl, hsl2hsv, hsv2xyz, xyz2hsv } from "@src/units/color/utils?source";
+import { hsv2hsl, hsl2hsv, hsl2rgb, rgb2hsl } from "@src/units/color/utils?source";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import { Katex } from "@components/custom/katex";
 import {
@@ -79,20 +79,20 @@ HSV and HSL share a hue channel but diverge on the other two axes. In HSV, `V=1`
     {{ hsl2hsv }}
 </div>
 
-### HSV to XYZ
+### HSL to RGB
 
-Conversion goes through HSL and then RGB before reaching XYZ:
+The intermediate step used when converting HSV to display-ready sRGB (HSV → HSL → RGB):
 
 <div class="language-typescript">
-    {{ hsv2xyz }}
+    {{ hsl2rgb }}
 </div>
 
-### XYZ to HSV
+### RGB to HSL
 
-The reverse path—XYZ to RGB to HSL to HSV:
+The intermediate step used when converting from sRGB back to HSV (RGB → HSL → HSV):
 
 <div class="language-typescript">
-    {{ xyz2hsv }}
+    {{ rgb2hsl }}
 </div>
 
 ---
