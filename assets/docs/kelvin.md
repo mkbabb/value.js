@@ -47,7 +47,7 @@ This is a **single-dimensional** color space—one number, `1000K` to `40000K`, 
 
 ## Advantages
 
--   Dead simple—one number describes the whole color
+-   Simple—one number describes the whole color
 -   Directly maps to real-world light sources
 -   Intuitive warm/cool axis that photographers and cinematographers already think in
 

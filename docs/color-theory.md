@@ -21,11 +21,11 @@ chromatic adaptation** matrices for the D50 ↔ D65 bridge.
 ### Device-Oriented (RGB Family)
 
 These spaces map directly to display hardware. Same gamut as their defining
-standard; useful for output but poor for perceptual work.
+standard; useful for output but not perceptually uniform.
 
 | Space | Gamut | Notes |
 |-------|-------|-------|
-| **sRGB** | Consumer displays, web | Piecewise gamma ~2.2. The CSS default. |
+| **sRGB** | Consumer displays, web | Piecewise transfer (exponent 2.4, effective ~2.2). The CSS default. |
 | **sRGB-linear** | Same primaries, no gamma | Used as intermediate for blending and matrix math. |
 | **Display P3** | ~25% wider than sRGB | Modern Apple/OLED displays. D65 native. |
 | **Adobe RGB (a98-rgb)** | ~35% wider than sRGB | Professional photography. |
@@ -53,7 +53,7 @@ encompasses all visible colors—larger than any display can render.
 | **CIE Lab** | CIE 1976 | Good | The industry standard. D50 native. |
 | **CIE LCh** | Lab in polar coords | Same as Lab | Cylindrical: Chroma + Hue instead of a\*/b\*. |
 | **OKLab** | Ottosson 2020 | Better | Improved hue linearity; CSS Color Level 4 default for `color-mix()`. |
-| **OKLCh** | OKLab in polar coords | Same as OKLab | CSS `oklch()`. The recommended space for design systems. |
+| **OKLCh** | OKLab in polar coords | Same as OKLab | CSS `oklch()`. Increasingly adopted for design systems. |
 
 ### Special
 
@@ -65,7 +65,7 @@ encompasses all visible colors—larger than any display can render.
 ## Gamut Mapping
 
 When a color exists in a perceptual space (OKLab, Lab) but falls outside the
-sRGB cube, it must be **gamut-mapped** before display. value.js uses Bjorn
+sRGB cube, it must be **gamut-mapped** before display. value.js uses Björn
 Ottosson's analytical algorithm:
 
 1. Classify the hue into one of three sRGB sectors (R, G, B limiting channel).
@@ -74,8 +74,8 @@ Ottosson's analytical algorithm:
 4. Project toward an adaptive anchor `L0` that blends chroma reduction with
    mid-gray anchoring.
 
-**Properties**: deterministic (zero iteration), hue-preserving, ~60–125x faster
-than CSS Color 4's binary search approach. See
+**Properties**: deterministic (single-step, cubic convergence), hue-preserving,
+significantly faster than CSS Color 4's iterative binary search. See
 [gamut-mapping.md](./gamut-mapping.md) for the full derivation.
 
 ## Perceptual Distance
@@ -90,14 +90,14 @@ The just-noticeable difference (JND) threshold is ~**0.02**.
 
 ## CSS Color Level 4
 
-value.js implements the full CSS Color Level 4 specification:
+value.js implements the core of CSS Color Level 4:
 
 - **Functional syntax**: `rgb()`, `hsl()`, `hwb()`, `lab()`, `lch()`, `oklab()`, `oklch()`, `xyz()`
 - **`color()` function**: `color(display-p3 1 0.5 0)` for arbitrary color spaces
 - **`color-mix()`**: `color-mix(in oklab, red 30%, blue 70%)` with hue interpolation methods (`shorter`, `longer`, `increasing`, `decreasing`)
 - **Relative color syntax**: `rgb(from red calc(r * 0.5) g b)`
 - **Hex colors**: `#RGB`, `#RRGGBB`, `#RGBA`, `#RRGGBBAA`
-- **Named colors**: 147 CSS keywords plus custom registry
+- **Named colors**: 148 CSS keywords (including `rebeccapurple`) plus `transparent` and a custom registry
 - **`none` keyword**: represents missing components (NaN) per spec
 
 ## Transfer Functions
@@ -107,7 +107,7 @@ linear light and encoded values:
 
 | Space | Type | Parameters |
 |-------|------|------------|
-| sRGB | Piecewise | gamma ~2.4, linear segment below 0.04045 |
+| sRGB | Piecewise | exponent 2.4 (effective ~2.2), linear segment below 0.04045 |
 | Adobe RGB | Simple power | gamma 563/256 (~2.2) |
 | ProPhoto RGB | Piecewise | gamma 1.8, threshold 1/512 |
 | Rec. 2020 | Piecewise | alpha 1.0993, beta 0.0181 |

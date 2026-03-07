@@ -20,7 +20,7 @@ const { l, a, b } = getFormattedColorSpaceRange("oklab");
 
 ### Historical Context
 
-Developed by Bjorn Ottosson in 2020, OKLab addresses the perceptual non-uniformities that plague CIE Lab. The name is either "Ottosson's Kolors" or a modest assertion that the space is "OK"—good enough for practical work. What it actually delivers is considerably better than that.
+Developed by Björn Ottosson in 2020, OKLab addresses the perceptual non-uniformities present in CIE Lab—particularly in the blue-purple region, where Lab's uniformity breaks down. The conversion path (XYZ → LMS cube root → linear transform) is leaner than Lab's piecewise `f(t)` function, and the resulting space is a first-class citizen in CSS Color Level 4.
 
 ---
 

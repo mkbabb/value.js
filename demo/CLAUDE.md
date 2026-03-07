@@ -13,9 +13,9 @@ demo/
 │   └── public/CNAME          # GitHub Pages domain
 ├── @/
 │   ├── components/
-│   │   ├── custom/           # 8 maintained components (see below)
+│   │   ├── custom/           # 26 maintained components across 6 directories
 │   │   └── ui/               # ~180 shadcn-vue (reka-ui) components—don't hand-edit
-│   ├── composables/          # 7 composables (see below)
+│   ├── composables/          # 23 composable/utility files
 │   ├── lib/palette/          # palette API client, types, slugify
 │   ├── styles/               # style.css (Tailwind base), utils.css
 │   └── utils/                # cn() — clsx + tailwind-merge
@@ -23,41 +23,74 @@ demo/
 
 ## Custom components (`@/components/custom/`)
 
+### color-picker/
+
 | Component | Purpose |
 |-----------|---------|
 | ColorPicker | Spectrum canvas, hue wheel, alpha slider, space selector, copy, saved colors |
 | ColorNutritionLabel | Color space metadata, component ranges, conversion graph |
-| Markdown | Dynamic .md loader with KaTeX, highlight.js, Prettier formatting |
+| ColorInput | Color text input with validation |
+| SpectrumCanvas | 2D spectrum/gradient canvas |
+| ComponentSliders | Per-component slider bank |
+| EditDrawer | Drawer UI for editing colors |
+| ActionToolbar | Toolbar with action buttons |
+| ActionButton | Individual action button |
+| HeroBlob | Hero section blob visual |
+| PointerDebugOverlay | Debug panel for pointer events (dev) |
+
+### palette-browser/
+
+| Component | Purpose |
+|-----------|---------|
+| PaletteDialog | Modal palette browser (fetch/display from API) |
+| PaletteDialogHeader | Gradient bar, WatercolorDot, title |
+| PaletteSlugBar | Slug pill, edit input, popover menu |
+| CurrentPaletteEditor | Swatch grid, add/save/duplicate |
+| PaletteCard | Palette display + CRUD |
+| AdminPanel | Admin panel container |
+| AdminNamesPanel | Admin color names management |
+| AdminUsersPanel | Admin users management |
+| SortFilterMenu | Sort/filter dropdown |
+| UserSortMenu | User sort dropdown |
+| MigratePalettesDialog | Palette migration dialog |
+| ConfirmDialog | Generic confirmation dialog |
+
+### Standalone
+
+| Component | Purpose |
+|-----------|---------|
 | DarkModeToggle | Animated sun/moon SVG toggle (useDark) |
 | WatercolorDot | Organic blob button with seeded PRNG animation |
 | Katex | Standalone KaTeX renderer |
-| PaletteDialog | Modal palette browser (fetch/display from API) |
-| PaletteDialogHeader | Gradient bar, WatercolorDot, title — extracted from PaletteDialog |
-| PaletteSlugBar | Slug pill, edit input, popover menu — extracted from PaletteDialog |
-| CurrentPaletteEditor | Swatch grid, add/save/duplicate — extracted from PaletteDialog |
-| PaletteCard / PaletteForm | Palette display + CRUD |
+| Markdown | Dynamic .md loader with KaTeX, highlight.js, Prettier formatting |
 
 ## Composables (`@/composables/`)
 
 | Composable | Purpose |
 |------------|---------|
+| useColorModel | Core color model state (shallowRef, space conversion, URL sync) |
+| useColorParsing | Color parse/validate/set logic—extracted from useColorModel |
+| useSliderGradients | Slider gradient computation—extracted from useColorModel |
+| useColorNameResolution | XYZ name lookup + metadata—extracted from useColorModel |
+| useColorUrl | URL hash parameter sync for color state |
 | useWatercolorBlob | Seeded PRNG (Mulberry32) + sinusoidal blob animation |
+| useSatelliteBlobs | Satellite blob animation |
 | usePaletteStore | localStorage palette CRUD (saved vs published) |
+| useBrowsePalettes | Remote palette browsing, sorting, voting, renaming |
+| useSlugMigration | Slug switch/regenerate flows with migration dialog |
+| useAdminOperations | Admin CRUD: users, feature/delete palettes, color queue |
+| useCardMenu | Hamburger menu state/positioning |
+| useHeightTransition | JS-driven expand/collapse hooks |
+| useSession | API session token management |
+| useUserAuth | User slug + token auth with auto-registration |
+| useAdminAuth | Admin bearer token auth |
+| useCustomColorNames | Fetch approved color names from API |
 | useTouchGate | Prevents touch↔mouse interference |
 | useHoverPopover | Shared hover-timer + floating panel positioning |
 | useSafeStorage | Safe localStorage/sessionStorage wrappers (Safari private mode) |
-| useSession | API session token management |
-| useCustomColorNames | Fetch approved color names from API |
-| useAdminAuth | Admin bearer token auth |
-| useUserAuth | User slug + token auth with auto-registration |
-| useColorParsing | Color parse/validate/set logic — extracted from useColorModel |
-| useSliderGradients | Slider gradient computation — extracted from useColorModel |
-| useColorNameResolution | XYZ name lookup + metadata — extracted from useColorModel |
-| useCardMenu | Hamburger menu state/positioning — extracted from PaletteCard |
-| useHeightTransition | JS-driven expand/collapse hooks — extracted from PaletteCard |
-| useAdminOperations | Admin CRUD: users, feature/delete palettes, color queue — extracted from PaletteDialog |
-| useBrowsePalettes | Remote palette browsing, sorting, voting, renaming — extracted from PaletteDialog |
-| useSlugMigration | Slug switch/regenerate flows with migration dialog — extracted from PaletteDialog |
+| usePointerDebug | Pointer event debugging (circular buffer, gauges) |
+| useClipboard | Clipboard copy functionality |
+| prng.ts | Mulberry32 PRNG (utility, not a composable) |
 
 ## Build modes
 

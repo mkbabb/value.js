@@ -2,14 +2,13 @@
 
 ## Overview
 
-value.js uses Bjorn Ottosson's analytical sRGB gamut mapping algorithm from
+value.js uses Björn Ottosson's analytical sRGB gamut mapping algorithm from
 [ok_color.h](https://bottosson.github.io/posts/gamutclipping/) (MIT license).
-This replaces the previous iterative XYZ chromaticity reduction approach.
 
 **Key properties:**
-- Deterministic: zero iteration—polynomial initial guess + one Halley's method step
+- Deterministic: polynomial initial guess + one Halley's method step (cubic convergence)
 - Perceptually correct: operates in OKLab, preserves hue exactly
-- Fast: ~60-125x faster than CSS Color 4's binary search
+- Significantly faster than CSS Color 4's iterative binary search (zero iteration by design)
 
 ## Why sRGB Boundary is Cubic in OKLab
 
@@ -17,7 +16,7 @@ The sRGB gamut boundary in OKLab is defined by the constraint that all three
 linear sRGB channels lie in [0, 1]. The path from OKLab to linear sRGB is:
 
 ```
-OKLab (L, a, b) → LMS_cubic (l', m', s') → LMS_linear (l'³, m'³, s'³) → linear sRGB
+OKLab (L, a, b) → LMS' (cube-root domain) → LMS (l'³, m'³, s'³) → linear sRGB
 ```
 
 Each linear sRGB channel is a linear combination of the cubed LMS values:
@@ -40,7 +39,7 @@ S_{n+1} = S_n - f(S_n) · f'(S_n) / (f'(S_n)² - 0.5 · f(S_n) · f''(S_n))
 ```
 
 Halley's method has **cubic convergence** (vs quadratic for Newton's), meaning
-the initial polynomial approximation (which is already very close) converges to
+the initial polynomial approximation converges to
 machine precision in a single step.
 
 ## The Three Hue Sectors
@@ -82,14 +81,14 @@ and refines the upper half with one Halley step for precision.
 ## The Adaptive L0 Formula
 
 The mapping projects out-of-gamut points toward an anchor `L0` on the lightness
-axis (C = 0). The adaptive formula (Strategy 4) blends between:
+axis (C = 0). The adaptive formula (`gamut_clip_adaptive_L0_0_5` in Ottosson's nomenclature) blends between:
 - Pure chroma reduction (L0 = L, preserve lightness)
 - Mid-gray anchor (L0 = 0.5, preserve saturation appearance)
 
 ```
 L_d = L - 0.5
 e1 = 0.5 + |L_d| + alpha · C
-L0 = 0.5 + sign(L_d) · (e1 - sqrt(e1² - 2·|L_d|))
+L0 = 0.5 · (1 + sign(L_d) · (e1 - sqrt(e1² - 2·|L_d|)))
 ```
 
 With `alpha = 0.05`, this provides a smooth blend. For low-chroma colors, L0 ≈ L

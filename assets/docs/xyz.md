@@ -23,7 +23,7 @@ const { x, y, z } = getFormattedColorSpaceRange("xyz");
 
 ### Historical Context
 
-CIE XYZ (1931) was the first mathematically defined color space. The [Commission Internationale de l'Eclairage](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) derived it from experiments mapping how a standard observer responds to wavelengths of visible light. It's device-independent by design---colors are specified as points in an abstract tristimulus space, not as instructions for a particular display or printer.
+CIE XYZ (1931) was the first mathematically defined color space. The [Commission Internationale de l'Eclairage](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) derived it from experiments mapping how a standard observer responds to wavelengths of visible light. It's device-independent by design—colors are specified as points in an abstract tristimulus space, not as instructions for a particular display or printer.
 
 In value.js, **XYZ is the conversion hub**: most color space transforms pass through it.
 
@@ -32,7 +32,7 @@ In value.js, **XYZ is the conversion hub**: most color space transforms pass thr
 ## Key Characteristics
 
 1. **Device-independent.** XYZ values describe a color itself, not how to reproduce it on hardware.
-2. **Complete gamut.** Encompasses all colors visible to the human eye---no clipping to an RGB or CMYK subset.
+2. **Complete gamut.** Encompasses all colors visible to the human eye—no clipping to an RGB or CMYK subset.
 3. **Foundation space.** Lab, Luv, and virtually every perceptual model derives from XYZ.
 4. **Standardized white points.** D50, D65, and others provide fixed reference whites for consistent colorimetry.
 
@@ -45,7 +45,7 @@ In value.js, **XYZ is the conversion hub**: most color space transforms pass thr
 
 ## Disadvantages
 
--   Not perceptually uniform---equal numeric steps don't look equal
+-   Not perceptually uniform—equal numeric steps don't look equal
 -   Components are abstract; `X` and `Z` don't map to any intuitive visual attribute
 -   Not directly usable for display or print output
 
@@ -55,7 +55,7 @@ In value.js, **XYZ is the conversion hub**: most color space transforms pass thr
 
 ### Components
 
-1. **`X`**: A weighted mix of cone response curves, roughly tracking red sensitivity. Not a pure spectral response---it's a mathematical construct chosen so that all tristimulus values remain non-negative.
+1. **`X`**: A weighted mix of cone response curves, roughly tracking red sensitivity. Not a pure spectral response—it's a mathematical construct chosen so that all tristimulus values remain non-negative.
 
 2. **`Y`**: Corresponds directly to luminance. Matches the CIE photopic luminosity function, so it doubles as a measure of perceived brightness.
 

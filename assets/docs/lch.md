@@ -20,7 +20,7 @@ const { l, c, h } = getFormattedColorSpaceRange("lch");
 
 ### Historical Context
 
-CIELCh is Lab in polar coordinates. The [CIE](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) defined it as a cylindrical reparameterization of L\*a\*b\*: same `L` axis, but the Cartesian `a*`/`b*` plane is expressed as chroma (`C = sqrt(a^2 + b^2)`) and hue (`H = atan2(b, a)`). The result keeps Lab's perceptual uniformity while giving you direct handles on saturation and hue---two things designers actually want to tweak.
+CIELCh is Lab in polar coordinates. The [CIE](https://en.wikipedia.org/wiki/International_Commission_on_Illumination) defined it as a cylindrical reparameterization of L\*a\*b\*: same `L` axis, but the Cartesian `a*`/`b*` plane is expressed as chroma (`C = sqrt(a^2 + b^2)`) and hue (`H = atan2(b, a)`). The result keeps Lab's perceptual uniformity while giving you direct handles on saturation and hue—two things designers actually want to tweak.
 
 ---
 
@@ -33,7 +33,7 @@ CIELCh is Lab in polar coordinates. The [CIE](https://en.wikipedia.org/wiki/Inte
 
 ## Advantages
 
--   Chroma and hue are independently adjustable---change saturation without shifting hue
+-   Chroma and hue are independently adjustable—change saturation without shifting hue
 -   Perceptually uniform gradients and interpolation
 -   Covers the full gamut of perceivable colors
 -   Natural fit for color harmonies (rotate hue, hold L and C constant)
@@ -69,7 +69,7 @@ The space forms a cylinder: `L` runs vertically, `C` extends radially, and `H` s
 
 ### Lab to LCh
 
-Cartesian to polar---extract the magnitude and angle from `a*` and `b*`:
+Cartesian to polar—extract the magnitude and angle from `a*` and `b*`:
 
 <div class="language-typescript">
     {{ lab2lch }}

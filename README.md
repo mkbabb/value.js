@@ -1,6 +1,6 @@
 # value.js ![image](demo/color-picker/cube.png)
 
-CSS value parsing, color theory, and unit conversion. Typed values with units—`deg`, `px`, `rem`, `oklch()`—the full CSS value vocabulary.
+CSS value parsing, color theory, and unit conversion. Typed values with units—`deg`, `px`, `rem`, `oklch()`—the core CSS value vocabulary.
 
 [demo](https://color.babb.dev)
 
@@ -11,7 +11,7 @@ CSS value parsing, color theory, and unit conversion. Typed values with units—
 - Color space conversion via **XYZ hub** with analytical gamut mapping (Ottosson's algorithm)
 - CSS Color Level 4 support: `color()`, `color-mix()`, relative color syntax
 - CSS math functions: `calc()`, `min()`, `max()`, `clamp()`, trig, exponential
-- 40+ easing functions: cubic-bezier, stepped, linear(), bounce, sine, expo
+- 30+ easing functions: cubic-bezier, stepped, linear(), bounce, sine, expo
 - 2D/3D matrix decomposition with quaternion slerp interpolation
 - Normalize, interpolate, and convert between units
 
@@ -37,8 +37,8 @@ import {
 ```bash
 npm run build        # library → dist/value.js + value.cjs + value.d.ts
 npm run gh-pages     # demo → dist/
-npm run dev          # dev server on :8080
-npm test             # vitest (1279 tests)
+npm run dev          # dev server (Vite default port)
+npm test             # vitest (1372 tests)
 npm run test:e2e     # playwright (desktop + mobile)
 ```
 
@@ -49,29 +49,32 @@ src/
 ├── index.ts              # barrel exports (~200 symbols)
 ├── math.ts               # lerp, bezier, clamp, scale, deCasteljau
 ├── easing.ts             # CSS timing functions (cubic-bezier, stepped, linear())
-├── utils.ts              # clone, memoize, debounce, RAF
+├── utils.ts              # clone, memoize, debounce, RAF, case conversion
 ├── parsing/              # @mkbabb/parse-that combinators for CSS values
 │   ├── index.ts          # parseCSSValue, gradients, transforms, var()
 │   ├── units.ts          # length, angle, time, frequency, resolution, flex, %
 │   ├── color.ts          # 15 spaces, hex, named, color-mix(), relative syntax
 │   ├── math.ts           # calc() AST, min/max/clamp, trig, exp
-│   └── grammars/         # BBNF spec grammars (documentation only)
+│   ├── utils.ts          # istring, number, none, tryParse helpers
+│   └── grammars/         # BBNF spec grammars (used in equivalence tests)
 ├── units/                # core value classes + unit definitions
 │   ├── index.ts          # ValueUnit, FunctionValue, ValueArray
-│   ├── constants.ts      # unit arrays, 735+ CSS property names
+│   ├── constants.ts      # unit arrays, 630+ CSS property names
 │   ├── utils.ts          # unit conversion (px, deg, ms, Hz, dpi)
+│   ├── normalize.ts      # value normalization + interpolation setup
 │   └── color/            # 15 color spaces, conversion, gamut mapping
 │       ├── index.ts      # Color<T> base + space classes
 │       ├── constants.ts  # ranges, matrices, white points, named colors
 │       ├── matrix.ts     # Vec3/Mat3 (row-major, replaces gl-matrix)
-│       ├── utils.ts      # 100+ conversions via XYZ, mixColors, gamutMap
+│       ├── utils.ts      # conversions via XYZ, mixColors, gamutMap
+│       ├── normalize.ts  # color normalization to [0,1], space conversion
 │       ├── gamut.ts      # Ottosson analytical sRGB gamut mapping
 │       └── colorFilter.ts # CSS filter solver (SPSA)
 └── transform/
     └── decompose.ts      # 2D/3D matrix decomposition, quaternion slerp
 
 test/                     # vitest unit tests (24 files)
-e2e/                      # playwright E2E (10 specs)
+e2e/                      # playwright E2E (14 specs)
 demo/                     # Vue 3.5 color picker (reka-ui, Tailwind)
 api/                      # Hono + MongoDB palette API (Docker)
 docs/                     # color-theory.md, gamut-mapping.md
@@ -80,42 +83,42 @@ assets/docs/              # 10 color space reference pages
 
 ## Color Spaces
 
-All conversions route through the **XYZ D65** hub for universal interoperability. Perceptual spaces (OKLab, Lab) use D50 natively with Bradford chromatic adaptation where needed.
+All conversions route through the **XYZ D65** hub, enabling any-to-any conversion. Perceptual spaces (OKLab, Lab) use D50 natively with Bradford chromatic adaptation where needed.
 
 Each color space is documented in [`assets/docs/`](assets/docs/)—historical context, component ranges, conversion functions, and practical applications.
 
 ### Gamut Mapping
 
-Out-of-gamut colors are mapped using Ottosson's analytical sRGB algorithm: a polynomial initial guess refined by one Halley's method step. Zero iteration, cubic convergence, ~60–125x faster than CSS Color 4's binary search. Hue is preserved exactly; an adaptive `L0` formula blends between chroma reduction and mid-gray anchoring.
+Out-of-gamut colors are mapped using Björn Ottosson's analytical sRGB algorithm: a polynomial initial guess refined by a single Halley's method step (cubic convergence). Significantly faster than CSS Color 4's iterative binary search. Hue is preserved exactly; an adaptive `L0` formula blends between chroma reduction and mid-gray anchoring.
 
 See [`docs/gamut-mapping.md`](docs/gamut-mapping.md) for the full treatment.
 
 ## Easing
 
-40+ timing functions covering every CSS `<easing-function>` value plus bounce, back, and elastic. `CSSCubicBezier` solves via Newton-Raphson with bisection fallback; `cssLinear()` implements CSS Easing Level 2 piecewise-linear with gap filling per spec; stepped easings support all four jump terms.
+30+ timing functions covering the CSS `<easing-function>` grammar plus bounce and back. `CSSCubicBezier` solves via Newton-Raphson with bisection fallback; `cssLinear()` implements CSS Easing Level 2 piecewise-linear with gap filling per spec; stepped easings support all four jump terms.
 
 ## Transforms
 
-CSS `matrix()` and `matrix3d()` decomposition per CSSOM spec. 3D uses Gram-Schmidt orthogonalization + quaternion extraction. `slerp` for rotation interpolation. `interpolateDecomposed()` for full transform blending.
+CSS `matrix()` and `matrix3d()` decomposition per the CSSOM View and CSS Transforms specs. 3D uses Gram-Schmidt orthogonalization + quaternion extraction. `slerp` for rotation interpolation. `interpolateDecomposed()` for full transform blending.
 
 ## Palette API
 
-The [demo](https://color.babb.dev) is backed by a palette API for saving, sharing, and voting on color palettes. Anonymous sessions (UUID tokens via `X-Session-Token`) gate all writes—no accounts required. Palettes are slug-addressed, votable (atomic toggle), and sortable by popularity or recency. A color name registry lets users propose names for CSS colors; admins approve or reject through a moderation queue.
+The [demo](https://color.babb.dev) is backed by a palette API for saving, sharing, and voting on color palettes. Users register via `POST /sessions`, which mints a UUID token and a four-word slug—no accounts required. Palettes are slug-addressed, votable (atomic toggle), and sortable by popularity or recency. A color name registry lets users propose names for CSS colors; admins approve or reject through a moderation queue.
 
 Hono + MongoDB, Dockerized. See [`api/README.md`](api/README.md) for endpoints, schema, and deployment.
 
 | Feature           | Mechanism                                                                                                    |
 | ----------------- | ------------------------------------------------------------------------------------------------------------ |
-| **Sessions**      | `POST /sessions` → UUID token; stored with hashed IP; 30-day TTL                                             |
+| **Sessions**      | `POST /sessions` → UUID token + user slug; stored with hashed IP; 30-day TTL                                  |
 | **Palettes**      | CRUD by slug; 1–50 color stops with CSS string + optional name + position                                    |
-| **Voting**        | `POST /palettes/:slug/vote` — idempotent toggle; unique composite index prevents duplication                 |
+| **Voting**        | `POST /palettes/:slug/vote` — idempotent toggle; unique composite index on `{userSlug, paletteSlug}`         |
 | **Color names**   | `POST /colors/propose` → admin approval queue → `GET /colors/approved` feeds the demo's custom name registry |
 | **Rate limiting** | 60 reads/min, 10 writes/min per IP (in-memory, rightmost X-Forwarded-For)                                    |
 
 ### Palette System Flow (Frontend + API)
 
 1. **Save locally** (`PaletteForm` / `usePaletteStore`): stores palettes in browser storage (`color-palettes`) for instant local recall.
-2. **Publish** (`PaletteDialog`): ensures an anonymous session (`POST /sessions`), then publishes via `POST /palettes` with `X-Session-Token`.
+2. **Publish** (`PaletteDialog`): ensures a session (`POST /sessions`), then publishes via `POST /palettes` with `X-Session-Token`.
 3. **Browse + vote** (`Browse` tab): fetches `GET /palettes` and toggles votes with `POST /palettes/:slug/vote` (server maintains atomic vote counts).
 4. **Suggest color names** (`ColorInput` propose form): ensures session, then submits `POST /colors/propose` for moderation.
 5. **Admin moderation** (`AdminPanel`): token login (`Authorization: Bearer ...`), queue from `GET /admin/queue`, actions for approve/reject + feature/delete.
