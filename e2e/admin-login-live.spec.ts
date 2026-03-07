@@ -47,8 +47,7 @@ test.describe("Admin Login Live", () => {
         const usersResponse = await usersResponsePromise;
         expect(usersResponse.status()).toBe(200);
 
-        await expect(dialog.getByRole("tab", { name: "Palettes" })).toBeVisible();
-        await expect(dialog.getByRole("tab", { name: "Colors" })).toBeVisible();
+        await expect(dialog.getByRole("tab", { name: "Names" })).toBeVisible();
         await expect(dialog.getByPlaceholder("Search users...")).toBeVisible();
     });
 });

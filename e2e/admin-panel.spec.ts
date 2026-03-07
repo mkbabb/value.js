@@ -97,8 +97,7 @@ test.describe("Admin Panel", () => {
 
         // Admin tabs should appear
         await expect(dialog.getByRole("tab", { name: "Users" })).toBeVisible();
-        await expect(dialog.getByRole("tab", { name: "Palettes", exact: true })).toBeVisible();
-        await expect(dialog.getByRole("tab", { name: "Colors" })).toBeVisible();
+        await expect(dialog.getByRole("tab", { name: "Names" })).toBeVisible();
     });
 
     test("admin header changes to 'Admin Palettes'", async ({ page }) => {
@@ -122,31 +121,18 @@ test.describe("Admin Panel", () => {
         await expect(dialog.getByRole("button", { name: "Impersonate" }).first()).toBeVisible();
     });
 
-    test("Palettes tab shows slug input with Feature and Delete buttons", async ({ page }) => {
+    test("Names tab shows queue or empty state", async ({ page }) => {
         const dialog = await openPaletteDialog(page);
         await page.waitForTimeout(500);
         await loginAsAdmin(page, dialog);
 
-        await dialog.getByRole("tab", { name: "Palettes", exact: true }).click();
-        await page.waitForTimeout(300);
-
-        await expect(dialog.getByPlaceholder("Palette slug...")).toBeVisible();
-        await expect(dialog.getByRole("button", { name: "Feature" })).toBeVisible();
-        await expect(dialog.getByRole("button", { name: "Delete" })).toBeVisible();
-    });
-
-    test("Colors tab shows queue or empty state", async ({ page }) => {
-        const dialog = await openPaletteDialog(page);
-        await page.waitForTimeout(500);
-        await loginAsAdmin(page, dialog);
-
-        await dialog.getByRole("tab", { name: "Colors" }).click();
+        await dialog.getByRole("tab", { name: "Names" }).click();
         await page.waitForTimeout(300);
 
         await expect(dialog.getByText("No pending proposals")).toBeVisible();
     });
 
-    test("Colors tab renders proposed names from API", async ({ page }) => {
+    test("Names tab renders proposed names from API", async ({ page }) => {
         // Override the queue mock with data
         await page.route("**/admin/queue", (route) => {
             route.fulfill({
@@ -175,7 +161,7 @@ test.describe("Admin Panel", () => {
         await page.waitForTimeout(500);
         await loginAsAdmin(page, dialog);
 
-        await dialog.getByRole("tab", { name: "Colors" }).click();
+        await dialog.getByRole("tab", { name: "Names" }).click();
         await page.waitForTimeout(500);
 
         await expect(dialog.getByText("midnight-orchid")).toBeVisible();
@@ -210,7 +196,7 @@ test.describe("Admin Panel", () => {
         await page.waitForTimeout(500);
         await loginAsAdmin(page, dialog);
 
-        await dialog.getByRole("tab", { name: "Colors" }).click();
+        await dialog.getByRole("tab", { name: "Names" }).click();
         await page.waitForTimeout(500);
 
         await expect(dialog.getByText("test-color")).toBeVisible();
@@ -232,11 +218,7 @@ test.describe("Admin Panel", () => {
         await page.waitForTimeout(300);
         await expect(dialog.getByPlaceholder("Search users...")).toBeVisible();
 
-        await dialog.getByRole("tab", { name: "Palettes", exact: true }).click();
-        await page.waitForTimeout(300);
-        await expect(dialog.getByPlaceholder("Palette slug...")).toBeVisible();
-
-        await dialog.getByRole("tab", { name: "Colors" }).click();
+        await dialog.getByRole("tab", { name: "Names" }).click();
         await page.waitForTimeout(300);
         await expect(dialog.getByPlaceholder(/color names/i)).toBeVisible();
     });

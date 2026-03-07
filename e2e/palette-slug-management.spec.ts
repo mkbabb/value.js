@@ -103,7 +103,66 @@ function setupApiMocks(page: Page) {
             });
         }
 
-        // Admin users
+        // Admin user palettes
+        if (url.pathname.match(/\/admin\/users\/[^/]+\/palettes$/) && method === "GET") {
+            const slug = url.pathname.split("/").at(-2);
+            return route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify([
+                    {
+                        id: `${slug}-pal-1`,
+                        name: `${slug} Palette 1`,
+                        slug: `${slug}-palette-1`,
+                        colors: [{ css: "#ff0000", position: 0 }, { css: "#00ff00", position: 1 }],
+                        createdAt: "2026-01-01T00:00:00Z",
+                        updatedAt: "2026-01-01T00:00:00Z",
+                        isLocal: false,
+                        status: "published",
+                        voteCount: 0,
+                    },
+                ]),
+            });
+        }
+
+        // Admin delete user palettes
+        if (url.pathname.match(/\/admin\/users\/[^/]+\/palettes$/) && method === "DELETE") {
+            return route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify({ deleted: 3 }),
+            });
+        }
+
+        // Admin delete user
+        if (url.pathname.match(/\/admin\/users\/[^/]+$/) && method === "DELETE") {
+            return route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify({ deleted: true, palettesDeleted: 3 }),
+            });
+        }
+
+        // Admin feature palette
+        if (url.pathname.match(/\/admin\/palettes\/[^/]+\/feature$/) && method === "POST") {
+            const slug = url.pathname.split("/").at(-2);
+            return route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify({ slug, status: "featured" }),
+            });
+        }
+
+        // Admin delete palette
+        if (url.pathname.match(/\/admin\/palettes\/[^/]+$/) && method === "DELETE") {
+            return route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify({ deleted: true }),
+            });
+        }
+
+        // Admin users list
         if (url.pathname.includes("/admin/users") && method === "GET") {
             return route.fulfill({
                 status: 200,
@@ -509,6 +568,10 @@ test.describe("Admin Login via Slug Input", () => {
 
         const usersTab = page.getByRole("tab", { name: "Users" });
         await expect(usersTab).toBeVisible();
+
+        // Names tab should be visible (renamed from Colors)
+        const namesTab = page.getByRole("tab", { name: "Names" });
+        await expect(namesTab).toBeVisible();
     });
 
     test("admin Users tab shows user list", async ({ page }) => {
@@ -529,6 +592,144 @@ test.describe("Admin Login via Slug Input", () => {
 
             await expect(dialog.getByText("test-user-one")).toBeVisible();
             await expect(dialog.getByText("test-user-two")).toBeVisible();
+        }
+    });
+});
+
+// ========================================================================
+// Admin User Management
+// ========================================================================
+
+test.describe("Admin User Management", () => {
+    test.beforeEach(async ({ page }) => {
+        await setupApiMocks(page);
+        await page.goto("/");
+        await page.waitForSelector(".spectrum-picker");
+    });
+
+    async function loginAsAdmin(page: Page) {
+        const dialog = await openPaletteDialog(page);
+        await page.waitForTimeout(500);
+        if (!(await enterSlugSwitchMode(page, dialog))) return null;
+        const slugInput = dialog.getByPlaceholder(/enter slug/i);
+        await slugInput.fill("admin-token-for-test");
+        await slugInput.press("Enter");
+        await page.waitForTimeout(500);
+        return dialog;
+    }
+
+    test("admin Users tab shows user list with action buttons", async ({ page }) => {
+        const dialog = await loginAsAdmin(page);
+        if (!dialog) return;
+
+        const usersTab = page.getByRole("tab", { name: "Users" });
+        if (!(await usersTab.isVisible())) return;
+        await usersTab.click();
+        await page.waitForTimeout(500);
+
+        // Users should be visible
+        await expect(dialog.getByText("test-user-one")).toBeVisible();
+        await expect(dialog.getByText("test-user-two")).toBeVisible();
+
+        // Action buttons should exist
+        const impersonateButtons = dialog.getByRole("button", { name: "Impersonate" });
+        expect(await impersonateButtons.count()).toBeGreaterThanOrEqual(2);
+    });
+
+    test("clicking user row expands to show their palettes", async ({ page }) => {
+        const dialog = await loginAsAdmin(page);
+        if (!dialog) return;
+
+        const usersTab = page.getByRole("tab", { name: "Users" });
+        if (!(await usersTab.isVisible())) return;
+        await usersTab.click();
+        await page.waitForTimeout(500);
+
+        // Click on user row to expand
+        await dialog.getByText("test-user-one").click();
+        await page.waitForTimeout(500);
+
+        // Should show user's palettes
+        await expect(dialog.getByText("test-user-one Palette 1")).toBeVisible();
+    });
+
+    test("delete user button removes user from list", async ({ page }) => {
+        const dialog = await loginAsAdmin(page);
+        if (!dialog) return;
+
+        const usersTab = page.getByRole("tab", { name: "Users" });
+        if (!(await usersTab.isVisible())) return;
+        await usersTab.click();
+        await page.waitForTimeout(500);
+
+        // Find delete button for first user (the red trash button)
+        const userRow = dialog.getByText("test-user-one").locator("../..");
+        const deleteBtn = userRow.locator("button.bg-destructive, button[class*='destructive']").first();
+        if (await deleteBtn.isVisible()) {
+            await deleteBtn.click();
+            await page.waitForTimeout(500);
+            await expect(dialog.getByText("test-user-one")).not.toBeVisible();
+        }
+    });
+});
+
+// ========================================================================
+// Admin Browse Features
+// ========================================================================
+
+test.describe("Admin Browse Features", () => {
+    test.beforeEach(async ({ page }) => {
+        await setupApiMocks(page);
+        // Override palettes mock to include palettes
+        await page.route("**/colors/palettes?*", async (route: Route) => {
+            return route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: JSON.stringify({
+                    data: [
+                        {
+                            id: "pal-1",
+                            name: "Test Palette",
+                            slug: "test-palette-slug",
+                            colors: [
+                                { css: "#ff6b6b", position: 0 },
+                                { css: "#4ecdc4", position: 1 },
+                            ],
+                            createdAt: "2026-01-01T00:00:00Z",
+                            updatedAt: "2026-01-01T00:00:00Z",
+                            isLocal: false,
+                            status: "published",
+                            voteCount: 5,
+                        },
+                    ],
+                    total: 1,
+                    limit: 50,
+                    offset: 0,
+                }),
+            });
+        });
+        await page.goto("/");
+        await page.waitForSelector(".spectrum-picker");
+    });
+
+    test("expanding palette card in browse shows slug with first palette color", async ({ page }) => {
+        const dialog = await openPaletteDialog(page);
+        await page.waitForTimeout(500);
+
+        // Switch to browse tab
+        const browseTab = dialog.getByRole("tab", { name: "Browse" });
+        await browseTab.click();
+        await page.waitForTimeout(1000);
+
+        // Click palette to expand
+        const card = dialog.getByText("Test Palette").first();
+        if (await card.isVisible()) {
+            await card.click();
+            await page.waitForTimeout(500);
+
+            // Slug should be visible in expanded section
+            const slugPill = dialog.locator(".fira-code.rounded-full").filter({ hasText: "test-palette-slug" });
+            await expect(slugPill).toBeVisible();
         }
     });
 });
