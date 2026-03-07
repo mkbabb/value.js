@@ -66,7 +66,7 @@
             :class="'fixed z-40 pointer-events-none top-0 w-full max-w-screen-lg left-1/2 -translate-x-1/2 gap-2 h-fit flex justify-items-end justify-between hover:opacity-100 transition-all px-4 py-2'"
         >
             <HoverCard v-model:open="mbabbHoverOpen" :open-delay="0" class="pointer-events-auto">
-                <HoverCardTrigger class="pointer-events-auto fira-code"
+                <HoverCardTrigger class="pointer-events-auto font-mono"
                     ><Button class="p-0 m-0 cursor-pointer h-fit" variant="link" @click="mbabbHoverOpen = !mbabbHoverOpen"
                         >@mbabb</Button
                     >
@@ -80,7 +80,7 @@
                             </AvatarImage>
                         </Avatar>
                         <div class="flex-1 min-w-0">
-                            <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="fira-code text-sm font-semibold text-foreground hover:underline">@mbabb</a>
+                            <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm font-semibold text-foreground hover:underline">@mbabb</a>
                             <p class="mt-0.5 text-xs italic text-muted-foreground">Perceptual color space picker &amp; converter</p>
                         </div>
                     </div>
