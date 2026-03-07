@@ -32,6 +32,9 @@ demo/
 | WatercolorDot | Organic blob button with seeded PRNG animation |
 | Katex | Standalone KaTeX renderer |
 | PaletteDialog | Modal palette browser (fetch/display from API) |
+| PaletteDialogHeader | Gradient bar, WatercolorDot, title — extracted from PaletteDialog |
+| PaletteSlugBar | Slug pill, edit input, popover menu — extracted from PaletteDialog |
+| CurrentPaletteEditor | Swatch grid, add/save/duplicate — extracted from PaletteDialog |
 | PaletteCard / PaletteForm | Palette display + CRUD |
 
 ## Composables (`@/composables/`)
@@ -41,10 +44,20 @@ demo/
 | useWatercolorBlob | Seeded PRNG (Mulberry32) + sinusoidal blob animation |
 | usePaletteStore | localStorage palette CRUD (saved vs published) |
 | useTouchGate | Prevents touch↔mouse interference |
-| useLongPress | Long-press gesture detection |
+| useHoverPopover | Shared hover-timer + floating panel positioning |
+| useSafeStorage | Safe localStorage/sessionStorage wrappers (Safari private mode) |
 | useSession | API session token management |
 | useCustomColorNames | Fetch approved color names from API |
 | useAdminAuth | Admin bearer token auth |
+| useUserAuth | User slug + token auth with auto-registration |
+| useColorParsing | Color parse/validate/set logic — extracted from useColorModel |
+| useSliderGradients | Slider gradient computation — extracted from useColorModel |
+| useColorNameResolution | XYZ name lookup + metadata — extracted from useColorModel |
+| useCardMenu | Hamburger menu state/positioning — extracted from PaletteCard |
+| useHeightTransition | JS-driven expand/collapse hooks — extracted from PaletteCard |
+| useAdminOperations | Admin CRUD: users, feature/delete palettes, color queue — extracted from PaletteDialog |
+| useBrowsePalettes | Remote palette browsing, sorting, voting, renaming — extracted from PaletteDialog |
+| useSlugMigration | Slug switch/regenerate flows with migration dialog — extracted from PaletteDialog |
 
 ## Build modes
 
