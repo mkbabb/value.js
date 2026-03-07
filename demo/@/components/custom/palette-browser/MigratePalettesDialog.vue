@@ -1,7 +1,7 @@
 <template>
     <Dialog v-model:open="open">
-        <DialogContent
-            class="migrate-dialog bg-card border-border rounded-lg sm:rounded-lg max-w-sm p-0 gap-0 [&>button:last-child]:hidden"
+        <DialogScrollContent
+            class="bg-card text-card-foreground border-border rounded-lg sm:rounded-lg max-w-sm p-0 gap-0 [&>button:last-child]:hidden"
         >
             <div class="p-5 pb-0 pr-10 relative">
                 <button
@@ -44,7 +44,7 @@
                     {{ discardLabel }}
                 </Button>
             </div>
-        </DialogContent>
+        </DialogScrollContent>
     </Dialog>
 </template>
 
@@ -52,7 +52,7 @@
 import { computed } from "vue";
 import {
     Dialog,
-    DialogContent,
+    DialogScrollContent,
 } from "@components/ui/dialog";
 import { Button } from "@components/ui/button";
 import { Globe, ArrowRightLeft, SkipForward, X as XIcon } from "lucide-vue-next";
