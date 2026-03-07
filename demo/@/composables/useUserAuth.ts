@@ -1,5 +1,6 @@
 import { ref, computed, type Ref } from "vue";
 import { createSession, loginWithSlug, setSessionToken } from "@lib/palette/api";
+import { safeGetItem, safeSetItem, safeRemoveItem } from "./useSafeStorage";
 
 const SLUG_KEY = "palette-user-slug";
 const TOKEN_KEY = "palette-user-token";
@@ -7,25 +8,18 @@ const TOKEN_KEY = "palette-user-token";
 let _userSlug: Ref<string | null> | null = null;
 let _userToken: Ref<string | null> | null = null;
 let _autoRegisterPromise: Promise<string> | null = null;
+let _registrationCancelled = false;
 
 function getUserSlug(): Ref<string | null> {
     if (!_userSlug) {
-        try {
-            _userSlug = ref<string | null>(localStorage.getItem(SLUG_KEY));
-        } catch {
-            _userSlug = ref<string | null>(null);
-        }
+        _userSlug = ref<string | null>(safeGetItem(localStorage, SLUG_KEY));
     }
     return _userSlug;
 }
 
 function getUserToken(): Ref<string | null> {
     if (!_userToken) {
-        try {
-            _userToken = ref<string | null>(localStorage.getItem(TOKEN_KEY));
-        } catch {
-            _userToken = ref<string | null>(null);
-        }
+        _userToken = ref<string | null>(safeGetItem(localStorage, TOKEN_KEY));
     }
     return _userToken;
 }
@@ -35,12 +29,8 @@ function persist(slug: string, token: string) {
     const tokenRef = getUserToken();
     slugRef.value = slug;
     tokenRef.value = token;
-    try {
-        localStorage.setItem(SLUG_KEY, slug);
-        localStorage.setItem(TOKEN_KEY, token);
-    } catch {
-        // Safari private browsing
-    }
+    safeSetItem(localStorage, SLUG_KEY, slug);
+    safeSetItem(localStorage, TOKEN_KEY, token);
     setSessionToken(token);
 }
 
@@ -57,7 +47,11 @@ export function useUserAuth() {
     const isLoggedIn = computed(() => !!slugRef.value);
 
     async function register(): Promise<string> {
+        _registrationCancelled = false;
         const res = await createSession();
+        if (_registrationCancelled) {
+            return res.userSlug ?? "";
+        }
         if (!res.userSlug) {
             throw new Error("Server did not return a user slug");
         }
@@ -76,12 +70,8 @@ export function useUserAuth() {
     async function logout() {
         slugRef.value = null;
         tokenRef.value = null;
-        try {
-            localStorage.removeItem(SLUG_KEY);
-            localStorage.removeItem(TOKEN_KEY);
-        } catch {
-            // Safari private browsing
-        }
+        safeRemoveItem(localStorage, SLUG_KEY);
+        safeRemoveItem(localStorage, TOKEN_KEY);
         // Auto-register a fresh anonymous session so the slug UI reappears
         await register();
     }
@@ -99,5 +89,14 @@ export function useUserAuth() {
         return _autoRegisterPromise;
     }
 
-    return { userSlug, isLoggedIn, register, login, logout, ensureUser };
+    function clearSlug() {
+        _registrationCancelled = true;
+        _autoRegisterPromise = null;
+        slugRef.value = null;
+        tokenRef.value = null;
+        safeRemoveItem(localStorage, SLUG_KEY);
+        safeRemoveItem(localStorage, TOKEN_KEY);
+    }
+
+    return { userSlug, isLoggedIn, register, login, logout, ensureUser, clearSlug };
 }
