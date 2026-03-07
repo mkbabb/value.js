@@ -71,7 +71,7 @@
                         >@mbabb</Button
                     >
                 </HoverCardTrigger>
-                <HoverCardContent class="pointer-events-auto p-4 min-w-[17rem]">
+                <HoverCardContent class="pointer-events-auto p-4 min-w-[17rem] fraunces">
                     <div class="flex items-center gap-3">
                         <Avatar>
                             <AvatarImage
