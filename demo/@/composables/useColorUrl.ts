@@ -1,5 +1,5 @@
 import type { ShallowRef } from "vue";
-import { watch } from "vue";
+import { onUnmounted, watch } from "vue";
 import type { ColorModel } from "@components/custom/color-picker";
 import { toCSSColorString } from "@components/custom/color-picker";
 import type { ColorSpace } from "@src/units/color/constants";
@@ -81,8 +81,13 @@ export function useColorUrl(options: {
     applyUrlToModel();
 
     // hashchange — back/forward navigation, manual URL edits
-    window.addEventListener("hashchange", () => {
+    const onHashChange = () => {
         if (!syncing) applyUrlToModel();
+    };
+    window.addEventListener("hashchange", onHashChange);
+
+    onUnmounted(() => {
+        window.removeEventListener("hashchange", onHashChange);
     });
 
     // Model → URL: watch actual color and space

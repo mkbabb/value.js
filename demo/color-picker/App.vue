@@ -71,28 +71,21 @@
                         >@mbabb</Button
                     >
                 </HoverCardTrigger>
-                <HoverCardContent class="pointer-events-auto">
-                    <div class="flex gap-4 fira-code">
+                <HoverCardContent class="pointer-events-auto p-4 min-w-[17rem]">
+                    <div class="flex items-center gap-3">
                         <Avatar>
                             <AvatarImage
                                 src="https://avatars.githubusercontent.com/u/2848617?v=4"
                             >
                             </AvatarImage>
                         </Avatar>
-                        <div>
-                            <h4 class="text-sm font-semibold hover:underline">
-                                <a href="https://github.com/mkbabb">@mbabb</a>
-                            </h4>
-                            <p>
-                                Check out the project on
-                                <a
-                                    class="font-bold hover:underline"
-                                    href="https://github.com/mkbabb/value.js"
-                                    >GitHub</a
-                                >🎉
-                            </p>
+                        <div class="flex-1 min-w-0">
+                            <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="fira-code text-sm font-semibold text-foreground hover:underline">@mbabb</a>
+                            <p class="mt-0.5 text-xs italic text-muted-foreground">Perceptual color space picker &amp; converter</p>
                         </div>
                     </div>
+                    <hr class="my-2 border-border/50" />
+                    <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="block text-sm text-foreground hover:underline">View project on GitHub</a>
                 </HoverCardContent>
             </HoverCard>
 

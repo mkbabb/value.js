@@ -47,7 +47,10 @@
     --color-card-foreground: hsl(var(--card-foreground));
 
     --color-shadow: hsl(var(--shadow));
-    
+
+    --color-gold: #D4AF37;
+    --color-gold-light: #F5E6A3;
+
     /* Border radius using existing radius variable */
     --radius: 0.5rem;
     --radius-xl: calc(var(--radius) + 4px);
@@ -108,7 +111,7 @@
 
 /* Admin golden shimmer */
 .admin-golden-text {
-    background-image: linear-gradient(to right, #D4AF37, #F5E6A3, #D4AF37);
+    background-image: linear-gradient(to right, var(--color-gold), var(--color-gold-light), var(--color-gold));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -179,7 +182,8 @@
     100% { color: #daa520; transform: scale(1) rotate(0deg); filter: none; }
 }
 
-/* Palette dialog overlay — blur & desaturate main view */
+/* Palette dialog overlay — blur & desaturate main view.
+   !important needed to override Tailwind's bg-black/80 on DialogOverlay (shadcn-vue, not editable). */
 [data-state]:has(> .palette-dialog) {
     background: rgba(0, 0, 0, 0.4) !important;
     backdrop-filter: blur(4px) saturate(0.7);

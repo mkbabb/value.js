@@ -166,9 +166,7 @@ import {
     TooltipContent,
 } from "@components/ui/tooltip";
 import { ArrowRight } from "lucide-vue-next";
-import Alert from "@components/ui/alert/Alert.vue";
-import AlertTitle from "@components/ui/alert/AlertTitle.vue";
-import AlertDescription from "@components/ui/alert/AlertDescription.vue";
+import { Alert, AlertTitle, AlertDescription } from "@components/ui/alert";
 import type { ColorModel } from ".";
 import { colorSpaceInfo } from ".";
 import { normalizeColorUnit } from "@src/units/color/normalize";

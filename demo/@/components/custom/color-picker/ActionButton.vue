@@ -11,13 +11,14 @@
             <component
                 :is="icon"
                 @click="handleClick"
+                :aria-label="title"
                 :class="[
-                    'w-8 h-8 stroke-foreground hover:scale-125 transition-all cursor-pointer',
+                    'action-icon w-8 h-8 stroke-foreground transition-all cursor-pointer',
                     iconClass,
                     disabled && 'pointer-events-none opacity-50',
                     isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
                 ]"
-                :style="{ ...activeStyle, '--flash-color': cssColorOpaque ?? 'currentColor' }"
+                :style="{ ...activeStyle, '--flash-color': cssColorOpaque ?? 'currentColor', '--hover-color': cssColorOpaque ?? 'currentColor' }"
             />
         </HoverCardTrigger>
         <HoverCardContent class="z-[100] pointer-events-auto fraunces">
@@ -72,6 +73,10 @@ function handleClick() {
 </script>
 
 <style scoped>
+.action-icon:hover {
+    transform: scale(1.25);
+    stroke: var(--hover-color);
+}
 .action-flash {
     animation: action-pulse 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }

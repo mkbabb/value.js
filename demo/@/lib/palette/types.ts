@@ -8,6 +8,7 @@ export interface Palette {
     id: string;
     name: string;
     slug: string;
+    userSlug?: string;
     colors: PaletteColor[];
     createdAt: string;
     updatedAt: string;

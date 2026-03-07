@@ -10,6 +10,8 @@
                     <span
                         ref="inputColorRef"
                         contenteditable
+                        role="textbox"
+                        :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
                         class="color-input w-full block border overflow-hidden items-center bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
                         :class="{
                             'pr-8': (currentColorMeta && !proposeMode) || proposeMode,
@@ -117,7 +119,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import Separator from "@components/ui/separator/Separator.vue";
+import { Separator } from "@components/ui/separator";
 import { Crown, ArrowRight, Loader2 } from "lucide-vue-next";
 import { proposeColorName } from "@lib/palette/api";
 import { useSession } from "@composables/useSession";

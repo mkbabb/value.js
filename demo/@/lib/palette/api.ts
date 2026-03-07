@@ -130,7 +130,17 @@ export function rejectColorName(token: string, id: string): Promise<void> {
     });
 }
 
-export function featurePalette(token: string, slug: string): Promise<void> {
+export function getApprovedColorNamesAdmin(token: string): Promise<ProposedColorName[]> {
+    return adminRequest("/admin/colors/approved", token);
+}
+
+export function deleteColorName(token: string, id: string): Promise<void> {
+    return adminRequest(`/admin/colors/${encodeURIComponent(id)}`, token, {
+        method: "DELETE",
+    });
+}
+
+export function featurePalette(token: string, slug: string): Promise<{ slug: string; status: string }> {
     return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}/feature`, token, {
         method: "POST",
     });
@@ -172,6 +182,24 @@ export function importPalettes(
     return adminRequest(`/admin/users/${encodeURIComponent(slug)}/import`, token, {
         method: "POST",
         body: JSON.stringify({ palettes }),
+    });
+}
+
+export function pruneEmptyUsers(token: string): Promise<{ pruned: number }> {
+    return adminRequest("/admin/users/prune-empty", token, {
+        method: "POST",
+    });
+}
+
+export function deleteUser(token: string, slug: string): Promise<{ deleted: boolean; palettesDeleted: number }> {
+    return adminRequest(`/admin/users/${encodeURIComponent(slug)}`, token, {
+        method: "DELETE",
+    });
+}
+
+export function deleteUserPalettes(token: string, slug: string): Promise<{ deleted: number }> {
+    return adminRequest(`/admin/users/${encodeURIComponent(slug)}/palettes`, token, {
+        method: "DELETE",
     });
 }
 

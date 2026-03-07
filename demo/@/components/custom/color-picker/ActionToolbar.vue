@@ -61,7 +61,6 @@ defineProps<{
     canProposeName: boolean;
     isEditing: boolean;
     paletteActive: boolean;
-    proposeFormOpen: boolean;
 }>();
 
 const emit = defineEmits<{
