@@ -25,7 +25,7 @@
                     :title="palette.name"
                     @click.stop="editableName ? startRenaming() : toggleMenu()"
                 >{{ palette.name }}</span>
-                <Badge v-if="palette.status === 'featured'" variant="outline" class="featured-badge fira-code text-xs shrink-0 gap-1 border-[#D4AF37] text-[#D4AF37]">
+                <Badge v-if="palette.status === 'featured'" variant="outline" class="featured-badge fira-code text-xs shrink-0 gap-1 border-gold text-gold">
                     <Award class="w-3 h-3" />
                     Featured
                 </Badge>
@@ -37,6 +37,7 @@
                 <button
                     v-if="!palette.isLocal"
                     class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent transition-colors cursor-pointer shrink-0"
+                    aria-label="Vote for palette"
                     @click.stop="emit('vote', palette)"
                 >
                     <Heart
@@ -49,17 +50,18 @@
 
             <!-- Hamburger menu trigger -->
             <div
-                class="flex items-center gap-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
+                class="flex items-center gap-1"
                 @click.stop
             >
                 <button
                     ref="menuTriggerRef"
                     class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                    aria-label="Palette menu"
                     @click="toggleMenu"
                     @pointerenter="onMenuTriggerEnter"
                     @pointerleave="onMenuTriggerLeave"
                 >
-                    <MoreHorizontal class="w-4 h-4" />
+                    <MoreHorizontal class="w-4 h-4 text-muted-foreground" />
                 </button>
 
                 <!-- Floating menu panel -->
@@ -78,7 +80,7 @@
                         </div>
 
                         <button class="card-menu-item" @click="onMenuAction(() => emit('apply', palette))">
-                            <Pipette class="w-4 h-4" />
+                            <SwatchBook class="w-4 h-4" />
                             <span>Apply palette</span>
                         </button>
                         <button class="card-menu-item" @click="onMenuAction(() => copyAllColors())">
@@ -108,6 +110,19 @@
                             <button class="card-menu-item" @click="startRenaming">
                                 <Pencil class="w-4 h-4" />
                                 <span>Rename</span>
+                            </button>
+                        </template>
+
+                        <template v-if="isAdmin && !palette.isLocal">
+                            <div class="border-t border-border my-0.5"></div>
+                            <button class="card-menu-item" @click="onMenuAction(() => emit('feature', palette), true)">
+                                <Star v-if="palette.status !== 'featured'" class="w-4 h-4" />
+                                <StarOff v-else class="w-4 h-4" />
+                                <span>{{ palette.status === 'featured' ? 'Unfeature' : 'Feature' }}</span>
+                            </button>
+                            <button class="card-menu-item text-destructive" @click="onMenuAction(() => emit('adminDelete', palette), true)">
+                                <Trash2 class="w-4 h-4" />
+                                <span>Delete</span>
                             </button>
                         </template>
                     </div>
@@ -143,8 +158,22 @@
             @after-leave="onAfterLeave"
         >
             <div v-if="expanded" @click.stop class="overflow-hidden">
+                <!-- User slug display -->
+                <div v-if="showSlug && displaySlug" class="px-3 pt-2.5 flex items-center gap-1.5 border-t border-gray-700/15">
+                    <span
+                        class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border truncate max-w-[200px]"
+                        :style="{ color: firstColor, borderColor: firstColor }"
+                    >{{ displaySlug }}</span>
+                    <button
+                        class="p-0.5 rounded-sm hover:bg-accent transition-colors cursor-pointer shrink-0"
+                        @click="copyToClipboard(displaySlug)"
+                    >
+                        <Copy class="w-3 h-3 text-muted-foreground" />
+                    </button>
+                </div>
                 <div
-                    class="px-3 pb-3 flex flex-wrap gap-2 items-start border-t border-gray-700/15 pt-3 min-w-0"
+                    class="px-3 pb-3 flex flex-wrap gap-2 items-start pt-3 min-w-0"
+                    :class="!(showSlug && displaySlug) && 'border-t border-gray-700/15'"
                 >
                     <div
                         v-for="(color, i) in palette.colors"
@@ -215,13 +244,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, nextTick, onUnmounted } from "vue";
+import { ref, computed } from "vue";
 import { Badge } from "@components/ui/badge";
 import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import {
-    Pipette,
+    SwatchBook,
     Copy,
     Trash2,
     Globe,
@@ -232,10 +261,15 @@ import {
     Check,
     Plus,
     MoreHorizontal,
+    Star,
+    StarOff,
 } from "lucide-vue-next";
 import type { PaletteColor } from "@lib/palette/types";
 import type { Palette } from "@lib/palette/types";
 import { copyToClipboard } from "@composables/useClipboard";
+import { useHoverPopover } from "@composables/useHoverPopover";
+import { useCardMenu } from "@composables/useCardMenu";
+import { useHeightTransition } from "@composables/useHeightTransition";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 
 const props = defineProps<{
@@ -244,6 +278,8 @@ const props = defineProps<{
     cssColor?: string;
     isOwned?: boolean;
     editableName?: boolean;
+    isAdmin?: boolean;
+    showSlug?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -256,141 +292,55 @@ const emit = defineEmits<{
     rename: [palette: Palette, newName: string];
     editColor: [palette: Palette, colorIndex: number, css: string];
     addColor: [css: string];
+    feature: [palette: Palette];
+    adminDelete: [palette: Palette];
 }>();
 
-// --- Hamburger menu ---
-const menuOpen = ref(false);
-const menuTriggerRef = ref<HTMLElement | null>(null);
-const menuStyle = reactive({ top: "0px", left: "0px" });
-let menuLeaveTimer: ReturnType<typeof setTimeout> | null = null;
+const firstColor = computed(() => props.palette.colors[0]?.css ?? props.cssColor ?? '#888');
+const displaySlug = computed(() => props.palette.userSlug ?? props.palette.slug);
+
 const renaming = ref(false);
 
-function positionMenu() {
-    if (!menuTriggerRef.value) return;
-    const rect = menuTriggerRef.value.getBoundingClientRect();
-    menuStyle.top = `${rect.bottom + 4}px`;
-    menuStyle.left = `${rect.right}px`;
-}
+const {
+    canHover,
+    openIndex: openPopoverIndex,
+    style: floatingStyle,
+    onHover: onSwatchHover,
+    onLeave: onSwatchLeave,
+    cancelLeave: cancelSwatchLeave,
+    onPopoverUpdateTouch,
+    onSwatchClick,
+} = useHoverPopover();
 
-function toggleMenu() {
-    cancelMenuLeave();
-    if (menuOpen.value) {
-        menuOpen.value = false;
-    } else {
-        menuOpen.value = true;
-        nextTick(positionMenu);
-    }
-}
+const {
+    menuOpen,
+    menuTriggerRef,
+    menuStyle,
+    toggleMenu,
+    onMenuTriggerEnter,
+    onMenuTriggerLeave,
+    onMenuPanelEnter,
+    onMenuPanelLeave,
+    onMenuAction,
+} = useCardMenu({ canHover });
 
-function onMenuTriggerEnter(e: PointerEvent) {
-    if (!canHover || e.pointerType === "touch") return;
-    cancelMenuLeave();
-    menuOpen.value = true;
-    nextTick(positionMenu);
-}
+const {
+    onBeforeEnter,
+    onEnter,
+    onAfterEnter,
+    onBeforeLeave,
+    onLeave,
+    onAfterLeave,
+} = useHeightTransition({
+    onBeforeCollapse: () => { openPopoverIndex.value = null; },
+});
 
-function onMenuTriggerLeave(e: PointerEvent) {
-    if (!canHover || e.pointerType === "touch") return;
-    scheduleMenuLeave();
-}
-
-function onMenuPanelEnter() {
-    cancelMenuLeave();
-}
-
-function onMenuPanelLeave() {
-    if (!canHover) return;
-    scheduleMenuLeave();
-}
-
-function scheduleMenuLeave() {
-    cancelMenuLeave();
-    menuLeaveTimer = setTimeout(() => {
-        menuOpen.value = false;
-    }, 250);
-}
-
-function cancelMenuLeave() {
-    if (menuLeaveTimer) {
-        clearTimeout(menuLeaveTimer);
-        menuLeaveTimer = null;
-    }
-}
-
-function onMenuAction(action: () => void) {
-    menuOpen.value = false;
-    action();
-}
+const floatingPanelRefs = ref<HTMLElement[]>([]);
 
 function startRenaming() {
     menuOpen.value = false;
     renaming.value = true;
     renameValue.value = props.palette.name;
-}
-
-// Close menu on outside click
-function onDocClick() {
-    if (menuOpen.value) menuOpen.value = false;
-}
-if (typeof document !== "undefined") {
-    document.addEventListener("click", onDocClick, { passive: true });
-}
-onUnmounted(() => {
-    if (typeof document !== "undefined") {
-        document.removeEventListener("click", onDocClick);
-    }
-    cancelMenuLeave();
-});
-
-const openPopoverIndex = ref<number | null>(null);
-let hoverCloseTimer: ReturnType<typeof setTimeout> | null = null;
-const canHover = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
-
-// Floating panel positioning (hover devices only)
-const floatingStyle = reactive({ top: "0px", left: "0px" });
-const floatingPanelRefs = ref<HTMLElement[]>([]);
-
-function positionFloatingPanel(swatchEl: Element) {
-    const rect = swatchEl.getBoundingClientRect();
-    floatingStyle.top = `${rect.top - 42}px`;
-    floatingStyle.left = `${rect.left + rect.width / 2}px`;
-}
-
-// Touch: let Popover handle open/close natively
-function onPopoverUpdateTouch(open: boolean, index: number) {
-    openPopoverIndex.value = open ? index : null;
-}
-
-// Hover: pointer events drive everything, no Popover involved
-function onSwatchHover(index: number, e: PointerEvent) {
-    if (!canHover || e.pointerType === "touch") return;
-    cancelSwatchLeave();
-    openPopoverIndex.value = index;
-    nextTick(() => positionFloatingPanel(e.currentTarget as Element));
-}
-
-function onSwatchClick(index: number) {
-    cancelSwatchLeave();
-    // Toggle on click for hover devices as a fallback
-    if (openPopoverIndex.value === index) {
-        openPopoverIndex.value = null;
-    } else {
-        openPopoverIndex.value = index;
-    }
-}
-
-function onSwatchLeave() {
-    if (!canHover) return;
-    hoverCloseTimer = setTimeout(() => {
-        openPopoverIndex.value = null;
-    }, 250);
-}
-
-function cancelSwatchLeave() {
-    if (hoverCloseTimer) {
-        clearTimeout(hoverCloseTimer);
-        hoverCloseTimer = null;
-    }
 }
 
 function onPopoverAdd(css: string) {
@@ -409,70 +359,6 @@ function onPopoverCopy(css: string) {
 }
 
 const renameValue = ref(props.palette.name);
-
-// JS-driven height transition for smooth expand/collapse
-const EXPAND_DURATION = 300;
-const COLLAPSE_DURATION = 200;
-const EXPAND_EASING = "cubic-bezier(0.16, 1, 0.3, 1)";
-const COLLAPSE_EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
-
-function onBeforeEnter(el: Element) {
-    const htmlEl = el as HTMLElement;
-    htmlEl.style.height = "0";
-    htmlEl.style.opacity = "0";
-}
-
-function onEnter(el: Element, done: () => void) {
-    const htmlEl = el as HTMLElement;
-    const targetHeight = htmlEl.scrollHeight;
-    htmlEl.style.transition = `height ${EXPAND_DURATION}ms ${EXPAND_EASING}, opacity ${EXPAND_DURATION}ms ease`;
-    // Force reflow
-    void htmlEl.offsetHeight;
-    htmlEl.style.height = `${targetHeight}px`;
-    htmlEl.style.opacity = "1";
-    htmlEl.addEventListener("transitionend", function handler(e) {
-        if (e.propertyName !== "height") return;
-        htmlEl.removeEventListener("transitionend", handler);
-        done();
-    });
-}
-
-function onAfterEnter(el: Element) {
-    const htmlEl = el as HTMLElement;
-    htmlEl.style.height = "";
-    htmlEl.style.transition = "";
-    htmlEl.style.opacity = "";
-    htmlEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
-}
-
-function onBeforeLeave(el: Element) {
-    const htmlEl = el as HTMLElement;
-    openPopoverIndex.value = null;
-    htmlEl.style.height = `${htmlEl.scrollHeight}px`;
-    // Force reflow
-    void htmlEl.offsetHeight;
-}
-
-function onLeave(el: Element, done: () => void) {
-    const htmlEl = el as HTMLElement;
-    htmlEl.style.transition = `height ${COLLAPSE_DURATION}ms ${COLLAPSE_EASING}, opacity ${COLLAPSE_DURATION}ms ease`;
-    // Force reflow
-    void htmlEl.offsetHeight;
-    htmlEl.style.height = "0";
-    htmlEl.style.opacity = "0";
-    htmlEl.addEventListener("transitionend", function handler(e) {
-        if (e.propertyName !== "height") return;
-        htmlEl.removeEventListener("transitionend", handler);
-        done();
-    });
-}
-
-function onAfterLeave(el: Element) {
-    const htmlEl = el as HTMLElement;
-    htmlEl.style.height = "";
-    htmlEl.style.transition = "";
-    htmlEl.style.opacity = "";
-}
 
 function submitRename() {
     const name = renameValue.value.trim();
@@ -527,11 +413,13 @@ function copyAllColors() {
 @keyframes card-menu-in {
     from {
         opacity: 0;
-        transform: translateX(-100%) translateY(-4px) scale(0.95);
+        filter: blur(4px);
+        transform: translateX(-100%) scale(0.96);
     }
     to {
         opacity: 1;
-        transform: translateX(-100%) translateY(0) scale(1);
+        filter: blur(0);
+        transform: translateX(-100%) scale(1);
     }
 }
 
@@ -555,25 +443,27 @@ function copyAllColors() {
 @keyframes swatch-panel-in {
     from {
         opacity: 0;
-        transform: translateX(-50%) translateY(4px) scale(0.95);
+        filter: blur(4px);
+        transform: translateX(-50%) scale(0.96);
     }
     to {
         opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1);
+        filter: blur(0);
+        transform: translateX(-50%) scale(1);
     }
 }
 
 .featured-badge {
-    background: linear-gradient(90deg, #D4AF37, #F5E6A3, #D4AF37, #F5E6A3, #D4AF37);
+    background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light), var(--color-gold), var(--color-gold-light), var(--color-gold));
     background-size: 300% 100%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    border-color: #D4AF37;
+    border-color: var(--color-gold);
     animation: golden-text-shimmer 4s ease-in-out infinite;
 }
 .featured-badge :deep(svg) {
-    stroke: #D4AF37;
+    stroke: var(--color-gold);
     filter: drop-shadow(0 0 1px rgba(212, 175, 55, 0.4));
 }
 
