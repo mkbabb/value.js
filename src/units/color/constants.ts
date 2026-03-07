@@ -478,4 +478,6 @@ export const COLOR_NAMES = {
     lavendi: "oklch(79.90% 0.11 318.24deg / 100%)",
     shadyshroom: "oklch(53% 0.07 21.60deg / 100%)",
     patriarchalplum: "oklch(31.20% 0.11 19.80deg / 100%)",
+    winterwind: "oklch(21.80% 0.28 210.96deg / 82.70%)",
+    blackwellberry: "oklch(53.60% 0.35 267.12deg / 100%)",
 } as const;
