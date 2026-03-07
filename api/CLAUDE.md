@@ -49,7 +49,7 @@ api/
 
 **Collections**: `palettes`, `votes`, `sessions`, `proposed_names`
 
-Key indexes: `palettes.slug` (unique), `votes.{sessionToken,paletteSlug}` (unique composite), `sessions.lastSeenAt`, `proposed_names.name` (unique).
+Key indexes: `palettes.slug` (unique), `votes.{userSlug,paletteSlug}` (unique composite), `sessions.lastSeenAt`, `proposed_names.name` (unique).
 
 ## Middleware stack (order)
 

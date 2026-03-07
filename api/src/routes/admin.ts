@@ -70,6 +70,44 @@ admin.delete("/palettes/:slug", async (c) => {
     return c.json({ deleted: true });
 });
 
+// GET /admin/colors/approved — list approved color names
+admin.get("/colors/approved", async (c) => {
+    const db = await getDb();
+    const results = await db
+        .collection("proposed_names")
+        .find({ status: "approved" })
+        .sort({ name: 1 })
+        .toArray();
+
+    return c.json(
+        results.map((r) => {
+            const { _id, ...rest } = r;
+            return { id: _id.toString(), ...rest };
+        }),
+    );
+});
+
+// DELETE /admin/colors/:id — delete a color name (any status)
+admin.delete("/colors/:id", async (c) => {
+    const id = c.req.param("id");
+    const db = await getDb();
+
+    let objectId: ObjectId;
+    try {
+        objectId = new ObjectId(id);
+    } catch {
+        return c.json({ error: "Invalid ID" }, 400);
+    }
+
+    const result = await db.collection("proposed_names").deleteOne({ _id: objectId });
+    if (result.deletedCount === 0) {
+        return c.json({ error: "Color name not found" }, 404);
+    }
+
+    audit(c, "delete-color", `id=${id}`);
+    return c.json({ deleted: true });
+});
+
 // POST /admin/colors/:id/approve — approve a proposed color name
 admin.post("/colors/:id/approve", async (c) => {
     const id = c.req.param("id");
@@ -206,6 +244,86 @@ admin.post("/impersonate", async (c) => {
 
     audit(c, "impersonate", `slug=${slug}`);
     return c.json({ token, userSlug: slug });
+});
+
+// DELETE /admin/users/:slug — delete a user and all their data
+admin.delete("/users/:slug", async (c) => {
+    const slug = c.req.param("slug");
+    const db = await getDb();
+
+    const user = await db.collection("users").findOne({ _id: slug as any });
+    if (!user) return c.json({ error: "User not found" }, 404);
+
+    // Delete all user's palettes and their associated votes
+    const palettes = await db.collection("palettes").find({ userSlug: slug }).toArray();
+    const paletteSlugs = palettes.map((p) => p.slug);
+    if (paletteSlugs.length > 0) {
+        await db.collection("votes").deleteMany({ paletteSlug: { $in: paletteSlugs } });
+        await db.collection("palettes").deleteMany({ userSlug: slug });
+    }
+
+    // Delete user's sessions
+    await db.collection("sessions").deleteMany({ userSlug: slug });
+
+    // Delete the user
+    await db.collection("users").deleteOne({ _id: slug as any });
+
+    audit(c, "delete-user", `slug=${slug} palettes=${paletteSlugs.length}`);
+    return c.json({ deleted: true, palettesDeleted: paletteSlugs.length });
+});
+
+// DELETE /admin/users/:slug/palettes — delete all palettes for a user
+admin.delete("/users/:slug/palettes", async (c) => {
+    const slug = c.req.param("slug");
+    const db = await getDb();
+
+    const user = await db.collection("users").findOne({ _id: slug as any });
+    if (!user) return c.json({ error: "User not found" }, 404);
+
+    const palettes = await db.collection("palettes").find({ userSlug: slug }).toArray();
+    const paletteSlugs = palettes.map((p) => p.slug);
+    if (paletteSlugs.length > 0) {
+        await db.collection("votes").deleteMany({ paletteSlug: { $in: paletteSlugs } });
+    }
+
+    const result = await db.collection("palettes").deleteMany({ userSlug: slug });
+
+    audit(c, "delete-user-palettes", `slug=${slug} count=${result.deletedCount}`);
+    return c.json({ deleted: result.deletedCount });
+});
+
+// POST /admin/users/prune-empty — delete all users with 0 palettes
+admin.post("/users/prune-empty", async (c) => {
+    const db = await getDb();
+
+    const emptyUsers = await db.collection("users")
+        .aggregate([
+            {
+                $lookup: {
+                    from: "palettes",
+                    localField: "_id",
+                    foreignField: "userSlug",
+                    as: "palettes",
+                },
+            },
+            { $match: { palettes: { $size: 0 } } },
+            { $project: { _id: 1 } },
+        ])
+        .toArray();
+
+    const slugs = emptyUsers.map((u) => u._id);
+    if (slugs.length === 0) {
+        audit(c, "prune-empty-users", "count=0");
+        return c.json({ pruned: 0 });
+    }
+
+    // Delete their sessions
+    await db.collection("sessions").deleteMany({ userSlug: { $in: slugs } });
+    // Delete the users
+    const result = await db.collection("users").deleteMany({ _id: { $in: slugs } });
+
+    audit(c, "prune-empty-users", `count=${result.deletedCount}`);
+    return c.json({ pruned: result.deletedCount });
 });
 
 // POST /admin/users/:slug/import — import palettes to a user account

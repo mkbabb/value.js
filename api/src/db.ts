@@ -21,7 +21,7 @@ export async function getDb(): Promise<Db> {
         db.collection("palettes").createIndex({ userSlug: 1, createdAt: -1 }),
         db
             .collection("votes")
-            .createIndex({ sessionToken: 1, paletteSlug: 1 }, { unique: true }),
+            .createIndex({ userSlug: 1, paletteSlug: 1 }, { unique: true }),
         db.collection("votes").createIndex({ paletteSlug: 1 }),
         db.collection("sessions").createIndex({ lastSeenAt: 1 }),
         db.collection("proposed_names").createIndex({ name: 1 }, { unique: true }),

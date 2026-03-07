@@ -9,7 +9,7 @@ const palettes = new Hono<AppEnv>();
 
 // TODO(HIGH): Replace dynamic `any` payload shaping with strict palette document/response types.
 function formatPalette(doc: any, votedSlugs?: Set<string>): any {
-    const { _id, sessionToken, userSlug, ...rest } = doc;
+    const { _id, sessionToken, ...rest } = doc;
     return {
         id: _id.toString(),
         ...rest,
@@ -27,7 +27,6 @@ palettes.get("/", async (c) => {
     const limit = Math.max(1, Math.min(Number(rawLimit) || 20, 100));
     const offset = Math.min(Math.max(0, Number(rawOffset) || 0), 10_000);
     const sort = c.req.query("sort") === "popular" ? "popular" : "newest";
-    const sessionToken = c.get("sessionToken") as string | undefined;
 
     const db = await getDb();
 
@@ -45,13 +44,14 @@ palettes.get("/", async (c) => {
         db.collection("palettes").countDocuments(),
     ]);
 
-    // Resolve vote status for this session
+    // Resolve vote status for this user
     let votedSlugs = new Set<string>();
-    if (sessionToken && results.length > 0) {
+    const userSlug = c.get("userSlug") as string | undefined;
+    if (userSlug && results.length > 0) {
         const slugs = results.map((r) => r.slug);
         const votes = await db
             .collection("votes")
-            .find({ sessionToken, paletteSlug: { $in: slugs } })
+            .find({ userSlug, paletteSlug: { $in: slugs } })
             .toArray();
         votedSlugs = new Set(votes.map((v) => v.paletteSlug));
     }
@@ -67,7 +67,6 @@ palettes.get("/", async (c) => {
 // GET /palettes/:slug — get single palette
 palettes.get("/:slug", async (c) => {
     const slug = c.req.param("slug");
-    const sessionToken = c.get("sessionToken") as string | undefined;
 
     const db = await getDb();
     const doc = await db.collection("palettes").findOne({ slug });
@@ -75,10 +74,11 @@ palettes.get("/:slug", async (c) => {
     if (!doc) return c.json({ error: "Palette not found" }, 404);
 
     let voted = false;
-    if (sessionToken) {
+    const userSlug = c.get("userSlug") as string | undefined;
+    if (userSlug) {
         const vote = await db
             .collection("votes")
-            .findOne({ sessionToken, paletteSlug: slug });
+            .findOne({ userSlug, paletteSlug: slug });
         voted = !!vote;
     }
 
@@ -180,13 +180,13 @@ palettes.post("/", async (c) => {
     }
 });
 
-// POST /palettes/:slug/vote — toggle vote (atomic)
+// POST /palettes/:slug/vote — toggle vote (atomic, bound to userSlug)
 palettes.post("/:slug/vote", async (c) => {
     const slug = c.req.param("slug");
-    const sessionToken = c.get("sessionToken") as string | undefined;
+    const userSlug = c.get("userSlug") as string | undefined;
 
-    if (!sessionToken) {
-        return c.json({ error: "Session token required" }, 401);
+    if (!userSlug) {
+        return c.json({ error: "User authentication required" }, 401);
     }
 
     const db = await getDb();
@@ -198,7 +198,7 @@ palettes.post("/:slug/vote", async (c) => {
     // Try to remove existing vote first (atomic unvote)
     const deleted = await db
         .collection("votes")
-        .findOneAndDelete({ sessionToken, paletteSlug: slug });
+        .findOneAndDelete({ userSlug, paletteSlug: slug });
 
     if (deleted) {
         // Had a vote — remove it
@@ -207,7 +207,6 @@ palettes.post("/:slug/vote", async (c) => {
             .updateOne({ slug }, { $inc: { voteCount: -1 } });
 
         const updated = await db.collection("palettes").findOne({ slug });
-        // TODO(CRITICAL): Remove `?? 0` vote-count fallback; fail explicitly if palette readback is absent/inconsistent.
         return c.json({
             voted: false,
             voteCount: updated?.voteCount ?? 0,
@@ -217,26 +216,23 @@ palettes.post("/:slug/vote", async (c) => {
     // No existing vote — try to insert (atomic vote)
     try {
         await db.collection("votes").insertOne({
-            sessionToken,
+            userSlug,
             paletteSlug: slug,
             createdAt: new Date(),
         });
         await db.collection("palettes").updateOne({ slug }, { $inc: { voteCount: 1 } });
 
         const updated = await db.collection("palettes").findOne({ slug });
-        // TODO(CRITICAL): Remove `?? 0` vote-count fallback; fail explicitly if palette readback is absent/inconsistent.
         return c.json({
             voted: true,
             voteCount: updated?.voteCount ?? 0,
         });
     } catch (e: any) {
-        // TODO(CRITICAL): Remove race-condition special-case success path; enforce a single explicit atomic API outcome.
         // Duplicate key — race condition, vote already exists
         if (e?.code === 11000) {
             const updated = await db.collection("palettes").findOne({ slug });
             return c.json({
                 voted: true,
-                // TODO(CRITICAL): Remove `?? 0` vote-count fallback; fail explicitly if palette readback is absent/inconsistent.
                 voteCount: updated?.voteCount ?? 0,
             });
         }
