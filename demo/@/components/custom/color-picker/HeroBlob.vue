@@ -10,7 +10,7 @@
                 >
                     <div class="hero-blob-goo">
                         <WatercolorDot
-                            :color="cssColor"
+                            :color="cssColorOpaque"
                             animate
                             :cycle-duration="2500"
                             tag="div"

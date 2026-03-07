@@ -20,14 +20,14 @@
             :cycle-duration="2000"
             :range="[15, 85]"
             tag="div"
-            class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            class="spectrum-dot !absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
             :style="spectrumDotStyle"
         />
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onUnmounted, ref, useTemplateRef } from "vue";
+import { computed, inject, onUnmounted, ref, useTemplateRef, watch } from "vue";
 import { clamp } from "@src/math";
 import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
@@ -47,6 +47,25 @@ const debug = inject(POINTER_DEBUG_KEY)!;
 const spectrumGate = useTouchGate();
 const isDragging = ref(false);
 const spectrumRef = useTemplateRef<HTMLElement>("spectrumRef");
+
+// Raw spectrum coords to avoid HSV roundtrip jitter.
+// Persists after mouseup so the dot stays where the user placed it.
+// Cleared when color changes from a non-spectrum source (slider, input, space change).
+const rawS = ref<number | null>(null);
+const rawV = ref<number | null>(null);
+let spectrumIsSource = false;
+
+watch(
+    () => model.value.color,
+    () => {
+        if (spectrumIsSource) {
+            spectrumIsSource = false;
+            return;
+        }
+        rawS.value = null;
+        rawV.value = null;
+    },
+);
 
 // Pointer capture tracking
 let capturedPointerId: number | null = null;
@@ -91,6 +110,10 @@ const updateSpectrumColor = (coords: { clientX: number; clientY: number }) => {
 
     const s = clamp(x / rect.width, 0, 1);
     const v = clamp(1 - y / rect.height, 0, 1);
+
+    rawS.value = s;
+    rawV.value = v;
+    spectrumIsSource = true;
 
     const hsv = HSVCurrentColor.value.clone();
     hsv.value.s.value = s;
@@ -189,8 +212,8 @@ const spectrumStyle = computed(() => {
 
 const spectrumDotStyle = computed(() => {
     const { s, v } = HSVCurrentColor.value.value;
-    const sClamped = clamp(s.value, 0, 1);
-    const vClamped = clamp(v.value, 0, 1);
+    const sClamped = rawS.value ?? clamp(s.value, 0, 1);
+    const vClamped = rawV.value ?? clamp(v.value, 0, 1);
 
     const luma = vClamped * (1 - sClamped * 0.5);
     const borderAlpha = luma > 0.5 ? 0.8 : 0.9;

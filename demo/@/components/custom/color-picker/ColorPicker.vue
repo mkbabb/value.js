@@ -1,16 +1,16 @@
 <template>
-    <div class="grid grid-rows-[1fr_auto] gap-4 relative min-w-0">
+    <div class="grid grid-rows-[auto_auto] gap-4 relative min-w-0 content-center">
         <Card class="flex flex-col rounded-md min-w-0">
             <CardHeader class="fraunces m-0 pb-0 relative w-full px-3 sm:px-6 min-w-0 overflow-visible">
                 <div class="w-full flex justify-between">
                     <Select
                         :ref="(el) => { selectedColorSpaceRef = el; }"
-                        v-model:open="selectedColorSpaceOpenModel"
+                        v-model:open="selectedColorSpaceOpen"
                         :model-value="model.selectedColorSpace"
                         @update:model-value="
                             (colorSpace: any) => {
                                 updateModel({ selectedColorSpace: colorSpace });
-                                selectedColorSpaceOpenModel = false;
+                                selectedColorSpaceOpen = false;
                             }
                         "
                     >
@@ -47,6 +47,8 @@
                         <div>
                             <span
                                 contenteditable="true"
+                                role="textbox"
+                                :aria-label="`${component} component value`"
                                 class="font-semibold focus-visible:outline-none"
                                 @input="
                                     (e) => {
@@ -81,8 +83,8 @@
                 </CardTitle>
             </CardHeader>
 
-            <CardContent class="z-1 fraunces flex flex-col flex-1 w-full px-3 sm:px-6 pb-4 min-w-0">
-                <div class="flex-1 flex flex-col items-center justify-center gap-4">
+            <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pb-4 min-w-0">
+                <div class="flex flex-col items-center gap-4">
                     <div class="w-full">
                         <SpectrumCanvas />
                     </div>
@@ -91,7 +93,7 @@
                     </div>
                 </div>
 
-                <div class="flex items-center gap-2 pt-4 mt-auto">
+                <div class="flex items-center gap-2 pt-4 -mx-3 sm:-mx-6 px-3 sm:px-6 pb-0 border-t border-gray-700/15 shadow-[0_-4px_12px_-4px_rgba(0,0,0,0.12)]">
                     <div class="grid relative items-center flex-1 min-w-0">
                         <ActionToolbar
                             ref="actionToolbarRef"
@@ -104,7 +106,6 @@
                             :can-propose-name="canProposeName"
                             :is-editing="isEditing"
                             :palette-active="paletteDialogOpen || isEditing"
-                            :propose-form-open="false"
                             @reset="emit('reset')"
                             @copy="colorInputRef?.copyAndSetInputColor()"
                             @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
@@ -263,10 +264,6 @@ const currentToggleIcon = computed(() => {
 // --- Color space selector ---
 
 const selectedColorSpaceOpen = ref(false);
-const selectedColorSpaceOpenModel = computed({
-    get: () => selectedColorSpaceOpen.value,
-    set: (val: boolean) => { selectedColorSpaceOpen.value = val; },
-});
 const selectedColorSpaceRef = ref<any>(null);
 
 // --- Keyboard shortcuts ---
