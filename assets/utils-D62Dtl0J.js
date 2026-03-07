@@ -1,4 +1,4 @@
-const n="const kelvin2rgb = ({ kelvin, alpha }",l="const rgb2kelvin = ({ r, g, b, alpha }",a="const hsv2hsl = ({ h, s, v, alpha }",o="const hsl2hsv = ({ h, s, l, alpha }",t="const hwb2hsl = ({ h, w, b, alpha }",s="const hsl2hwb = ({ h, s, l, alpha }",b="const rgb2hsl = ({ r, g, b, alpha }",c="function hsl2rgb({ h, s, l, alpha }",e=`function xyz2lab(xyz: XYZColor, toWhitePoint: WhitePoint = "D50"): LABColor {
+const n="const kelvin2rgb = ({ kelvin, alpha }",a="const rgb2kelvin = ({ r, g, b, alpha }",l="const hsv2hsl = ({ h, s, v, alpha }",t="const hsl2hsv = ({ h, s, l, alpha }",o="const hwb2hsl = ({ h, w, b, alpha }",b="const hsl2hwb = ({ h, s, l, alpha }",e="const rgb2hsl = ({ r, g, b, alpha }",s="function hsl2rgb({ h, s, l, alpha }",c=`function xyz2lab(xyz: XYZColor, toWhitePoint: WhitePoint = "D50"): LABColor {
     const labFunction = (value: number) =>
         value > LAB_EPSILON
             ? Math.cbrt(value)
@@ -40,7 +40,7 @@ const n="const kelvin2rgb = ({ kelvin, alpha }",l="const rgb2kelvin = ({ r, g, b
     lab.whitePoint = toWhitePoint;
 
     return lab;
-}`,h=`function lab2xyz(lab: LABColor): XYZColor {
+}`,i=`function lab2xyz(lab: LABColor): XYZColor {
     const labFunctionXZ = (value: number) =>
         value > LAB_EPSILON_3
             ? value ** 3
@@ -101,8 +101,8 @@ const n="const kelvin2rgb = ({ kelvin, alpha }",l="const rgb2kelvin = ({ r, g, b
     xyz.z = z;
 
     return xyz;
-}`,r="function rgb2xyz({ r, g, b, alpha }",i=`const xyz2rgb = (
-    { x, y, z, alpha }`,A="function lch2lab({ l, c, h, alpha }",L="function lab2lch({ l, a, b, alpha }",x="function oklab2xyz({ l, a, b, alpha }",u=`function xyz2oklab(xyz: XYZColor): OKLABColor {
+}`,r="function rgb2xyz({ r, g, b, alpha }",h=`const xyz2rgb = (
+    { x, y, z, alpha }`,A="function lch2lab({ l, c, h, alpha }",L="function lab2lch({ l, a, b, alpha }",_="function oklab2xyz({ l, a, b, alpha }",u=`function xyz2oklab(xyz: XYZColor): OKLABColor {
     const { x, y, z } = xyz;
 
     // Convert XYZ to linear LMS
@@ -128,16 +128,4 @@ const n="const kelvin2rgb = ({ kelvin, alpha }",l="const rgb2kelvin = ({ r, g, b
         ),
         xyz.alpha,
     );
-}`,_="function oklab2oklch({ l, a, b, alpha }",y="function oklch2oklab({ l, c, h, alpha }",z=`function hsv2xyz(hsv: HSVColor): XYZColor {
-    const hsl = hsv2hsl(hsv);
-    return hsl2xyz(hsl);
-}`,C=`function xyz2hsv(xyz: XYZColor): HSVColor {
-    const hsl = xyz2hsl(xyz);
-    return hsl2hsv(hsl);
-}`,S=`function oklch2xyz(oklch: OKLCHColor): XYZColor {
-    const oklab = oklch2oklab(oklch);
-    return oklab2xyz(oklab);
-}`,E=`function xyz2oklch(xyz: XYZColor): OKLCHColor {
-    const oklab = xyz2oklab(xyz);
-    return oklab2oklch(oklab);
-}`;export{b as a,a as b,o as c,z as d,C as e,s as f,t as g,c as h,e as i,L as j,A as k,h as l,u as m,y as n,x as o,_ as p,S as q,r,E as s,l as t,n as u,i as x};
+}`,x="function oklab2oklch({ l, a, b, alpha }",S="function oklch2oklab({ l, c, h, alpha }";export{e as a,l as b,t as c,b as d,o as e,c as f,L as g,s as h,A as i,u as j,S as k,i as l,x as m,a as n,_ as o,n as p,r,h as x};
