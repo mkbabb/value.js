@@ -63,11 +63,11 @@
         class="grid overflow-x-hidden w-full min-h-screen lg:h-screen lg:overflow-hidden items-center justify-items-center justify-center m-0 p-0 relative"
     >
         <div
-            class="fixed z-40 pointer-events-none top-0 left-0 w-fit h-fit flex items-center px-4 py-2"
+            class="fixed z-40 pointer-events-none top-0 left-0 w-fit flex items-center px-4 py-2"
             @mouseleave="onHeaderMouseLeave"
         >
             <div
-                class="pointer-events-auto flex items-center"
+                class="pointer-events-auto flex items-center h-6"
                 @mouseenter="onHeaderMouseEnter"
             >
                 <!-- @mbabb anchor — always visible, click to pin/unpin -->
