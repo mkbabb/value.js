@@ -50,7 +50,7 @@
     },
     "homepage": "https://github.com/mkbabb/value.js#readme",
     "dependencies": {
-        "@mkbabb/parse-that": "^0.7.0"
+        "@mkbabb/parse-that": "file:../parse-that/typescript"
     },
     "devDependencies": {
         "@iconify-json/radix-icons": "^1.2.2",
