@@ -1,6 +1,6 @@
 <template>
     <!-- Credit to Kevin Powell at https://codepen.io/kevinpowell/pen/PomqjxO -->
-    <button class="dark-mode-toggle-button" v-bind="$attrs" @click="changeTheme()">
+    <button class="dark-mode-toggle-button" v-bind="$attrs" @click="toggleDark()">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="472.39"
@@ -19,12 +19,10 @@
     </button>
 </template>
 
-<script setup>
-import { changeTheme } from ".";
+<script setup lang="ts">
+import { useGlobalDark } from ".";
 
-const { size } = defineProps({
-    size: { type: String, default: "2rem" },
-});
+const { toggleDark } = useGlobalDark();
 </script>
 
 <style scoped>
@@ -38,7 +36,7 @@ const { size } = defineProps({
     isolation: isolate;
     background: 0;
 
-    transition: opacity 200ms ease, transform 200ms ease, background 200ms ease;
+    transition: opacity 0.2s ease, background 0.2s ease;
 
     z-index: 999;
 
@@ -52,12 +50,17 @@ const { size } = defineProps({
     &:focus {
         outline: none;
         opacity: 1;
-        transform: scale(1.25);
         background: hsl(0 0% 50% / 0.15);
     }
 }
 
 .dark-mode-toggle-button::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    pointer-events: none;
     animation: pulseToDark 650ms ease-out;
 }
 
@@ -71,7 +74,7 @@ const { size } = defineProps({
     transition: transform 500ms ease-out;
 }
 
-.dark {
+:global(.dark) {
     .dark-mode-toggle-button::before {
         animation: pulseToLight 650ms ease-out;
     }

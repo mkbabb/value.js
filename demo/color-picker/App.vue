@@ -62,24 +62,16 @@
     <div
         class="grid overflow-x-hidden w-full min-h-screen lg:h-screen lg:overflow-hidden items-center justify-items-center justify-center m-0 p-0 relative"
     >
-        <div
-            class="fixed z-40 pointer-events-none top-0 left-0 w-fit flex items-center px-4 py-2"
-            @mouseleave="onHeaderMouseLeave"
-        >
-            <div
-                class="pointer-events-auto flex items-center h-6"
-                @mouseenter="onHeaderMouseEnter"
-            >
-                <!-- @mbabb anchor — always visible, click to pin/unpin -->
+        <HeaderRibbon ref="headerRibbonRef" position="left">
+            <template #anchor="{ pinned, toggled }">
                 <HoverCard v-model:open="mbabbHoverOpen" :open-delay="300" :close-delay="200">
                     <HoverCardTrigger>
                         <Button
-                            @click.stop="onMbabbAnchorClick"
                             :class="[
                                 'p-0 m-0 cursor-pointer h-fit text-xs lg:text-sm transition-all duration-200 font-mono font-normal',
-                                mbabbToggled
+                                toggled
                                     ? 'underline underline-offset-4 text-foreground decoration-2'
-                                    : headerPinned
+                                    : pinned
                                         ? 'underline underline-offset-4 text-foreground'
                                         : 'no-underline',
                             ]"
@@ -102,38 +94,33 @@
                         <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="block text-sm text-foreground hover:underline">View project on GitHub 🎉</a>
                     </HoverCardContent>
                 </HoverCard>
+            </template>
 
-                <!-- Collapsible controls — accordion width -->
-                <div
-                    :class="[
-                        'header-items-wrapper flex items-center gap-3',
-                        headerVisible ? '' : 'header-collapsed',
-                    ]"
-                >
-                    <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
-                        <Tooltip v-bind="linkCopied ? { open: true } : {}">
-                            <TooltipTrigger as-child>
-                                <button class="header-control-item" @click="shareLink()">
-                                    <component
-                                        :is="linkCopied ? Check : Share2"
-                                        class="w-full h-full"
-                                        :stroke-width="2"
-                                    />
-                                </button>
-                            </TooltipTrigger>
-                            <TooltipContent class="fira-code text-xs">
-                                {{ linkCopied ? "Copied!" : "Share link" }}
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
+            <template #items>
+                <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
+                    <Tooltip v-bind="linkCopied ? { open: true } : {}">
+                        <TooltipTrigger as-child>
+                            <button class="header-control-item" @click="shareLink()">
+                                <component
+                                    :is="linkCopied ? Check : Share2"
+                                    class="w-full h-full"
+                                    :stroke-width="2"
+                                />
+                            </button>
+                        </TooltipTrigger>
+                        <TooltipContent class="fira-code text-xs">
+                            <template v-if="linkCopied">Copied!</template>
+                            <template v-else>Share <span class="italic">{{ COLOR_SPACE_NAMES[model.selectedColorSpace] }}</span> color</template>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
 
-                    <DarkModeToggle
-                        title="Toggle dark mode"
-                        class="aspect-square w-8 hover:scale-105 hover:opacity-50"
-                    />
-                </div>
-            </div>
-        </div>
+                <DarkModeToggle
+                    title="Toggle dark mode"
+                    class="aspect-square w-8 hover:scale-105 hover:opacity-50"
+                />
+            </template>
+        </HeaderRibbon>
 
         <div
             class="grid lg:grid-cols-2 lg:grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-10 lg:max-h-screen"
@@ -195,6 +182,7 @@
 import { Separator } from "@components/ui/separator";
 import { computed, onMounted, ref, shallowRef, useTemplateRef, watch } from "vue";
 import { DarkModeToggle } from "@components/custom/dark-mode-toggle";
+import { HeaderRibbon } from "@components/custom/header-ribbon";
 import {
     HoverCard,
     HoverCardContent,
@@ -223,7 +211,7 @@ import {
     defaultColorModel,
     createDefaultColorModel,
 } from "@components/custom/color-picker";
-import { useDark, useStorage } from "@vueuse/core";
+import { useStorage } from "@vueuse/core";
 
 import { copyToClipboard } from "@composables/useClipboard";
 import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
@@ -264,8 +252,6 @@ const pickerIsEditing = computed(
         (colorPickerRef.value?.isTransitioning ?? false),
 );
 
-const isDark = useDark({ disableTransition: false });
-
 const colorStore = useStorage("color-picker", defaultColorModel);
 
 const model = shallowRef<ColorModel>(defaultColorModel);
@@ -280,52 +266,9 @@ const resetToDefaults = () => {
     model.value = createDefaultColorModel();
 };
 
-// Collapsible header ribbon (keyframes.js pattern)
+// Header ribbon
+const headerRibbonRef = ref<InstanceType<typeof HeaderRibbon> | null>(null);
 const mbabbHoverOpen = ref(false);
-const headerExpanded = ref(false);
-const headerPinned = ref(false);
-const mbabbToggled = ref(false);
-let headerHoverTimeout: ReturnType<typeof setTimeout> | undefined;
-
-const headerVisible = computed(() => headerExpanded.value || headerPinned.value);
-
-function clearHeaderTimeout() {
-    if (headerHoverTimeout != null) {
-        clearTimeout(headerHoverTimeout);
-        headerHoverTimeout = undefined;
-    }
-}
-
-function startHeaderHideTimeout() {
-    clearHeaderTimeout();
-    headerHoverTimeout = setTimeout(() => {
-        headerExpanded.value = false;
-    }, 2000);
-}
-
-function onHeaderMouseEnter() {
-    clearHeaderTimeout();
-    headerExpanded.value = true;
-}
-
-function onHeaderMouseLeave() {
-    if (!headerPinned.value) {
-        startHeaderHideTimeout();
-    }
-}
-
-function onMbabbAnchorClick() {
-    if (headerPinned.value) {
-        headerPinned.value = false;
-        mbabbToggled.value = false;
-        startHeaderHideTimeout();
-    } else {
-        headerPinned.value = true;
-        headerExpanded.value = true;
-        mbabbToggled.value = true;
-        clearHeaderTimeout();
-    }
-}
 
 // Share link — copies current URL to clipboard with brief visual feedback
 const linkCopied = ref(false);
@@ -391,24 +334,6 @@ onMounted(() => {
     background-repeat: repeat;
 }
 
-/* Collapsible header ribbon */
-.header-items-wrapper {
-    max-width: 500px;
-    margin-left: 0.75rem;
-    opacity: 1;
-    transition:
-        max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        margin-left 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.25s ease-out;
-    overflow: visible;
-}
-.header-collapsed {
-    max-width: 0;
-    margin-left: 0;
-    opacity: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
 .header-control-item {
     display: flex;
     align-items: center;
