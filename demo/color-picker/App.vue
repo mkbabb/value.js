@@ -63,51 +63,76 @@
         class="grid overflow-x-hidden w-full min-h-screen lg:h-screen lg:overflow-hidden items-center justify-items-center justify-center m-0 p-0 relative"
     >
         <div
-            :class="'fixed z-40 pointer-events-none top-0 w-full max-w-screen-lg left-1/2 -translate-x-1/2 gap-2 h-fit flex justify-items-end justify-between hover:opacity-100 transition-all px-4 py-2'"
+            class="fixed z-40 pointer-events-none top-0 right-0 w-fit h-fit flex items-center px-4 py-2"
+            @mouseleave="onHeaderMouseLeave"
         >
-            <HoverCard v-model:open="mbabbHoverOpen" :open-delay="0" class="pointer-events-auto">
-                <HoverCardTrigger class="pointer-events-auto font-mono"
-                    ><Button class="p-0 m-0 cursor-pointer h-fit" variant="link" @click="mbabbHoverOpen = !mbabbHoverOpen"
-                        >@mbabb</Button
-                    >
-                </HoverCardTrigger>
-                <HoverCardContent class="pointer-events-auto p-4 min-w-[17rem] fraunces">
-                    <div class="flex items-center gap-3">
-                        <Avatar>
-                            <AvatarImage
-                                src="https://avatars.githubusercontent.com/u/2848617?v=4"
-                            >
-                            </AvatarImage>
-                        </Avatar>
-                        <div class="flex-1 min-w-0">
-                            <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm font-semibold text-foreground hover:underline">@mbabb</a>
-                            <p class="mt-0.5 text-xs italic text-muted-foreground">Perceptual color space picker &amp; converter</p>
-                        </div>
+            <div
+                class="pointer-events-auto flex items-center"
+                @mouseenter="onHeaderMouseEnter"
+            >
+                <!-- Collapsible controls — accordion width -->
+                <div
+                    :class="[
+                        'header-items-wrapper overflow-hidden flex items-center gap-3',
+                        headerVisible ? '' : 'header-collapsed',
+                    ]"
+                >
+                    <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
+                        <Tooltip v-bind="linkCopied ? { open: true } : {}">
+                            <TooltipTrigger as-child>
+                                <button class="header-control-item" @click="shareLink()">
+                                    <component
+                                        :is="linkCopied ? Check : Share2"
+                                        class="w-full h-full"
+                                        :stroke-width="2"
+                                    />
+                                    <span class="header-control-label">{{ linkCopied ? "Copied" : "Share" }}</span>
+                                </button>
+                            </TooltipTrigger>
+                            <TooltipContent class="fira-code text-xs">
+                                {{ linkCopied ? "Copied!" : "Share link" }}
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+
+                    <div class="header-control-item">
+                        <DarkModeToggle class="w-5 h-5" />
+                        <span class="header-control-label">Theme</span>
                     </div>
-                    <hr class="my-2 border-border/50" />
-                    <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="block text-sm text-foreground hover:underline">View project on GitHub 🎉</a>
-                </HoverCardContent>
-            </HoverCard>
+                </div>
 
-            <div class="flex items-center gap-2 pointer-events-auto">
-                <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
-                    <Tooltip v-bind="linkCopied ? { open: true } : {}">
-                        <TooltipTrigger as-child>
-                            <button class="controls-icon" @click="shareLink()">
-                                <component
-                                    :is="linkCopied ? Check : Share2"
-                                    class="w-full h-full"
-                                    :stroke-width="2"
+                <!-- @mbabb anchor — always visible, click to pin/unpin -->
+                <HoverCard v-model:open="mbabbHoverOpen" :open-delay="300" :close-delay="200">
+                    <HoverCardTrigger>
+                        <Button
+                            @click.stop="onMbabbAnchorClick"
+                            :class="[
+                                'p-0 m-0 cursor-pointer h-fit text-xs lg:text-sm transition-all duration-200 font-mono font-normal',
+                                mbabbToggled
+                                    ? 'underline underline-offset-4 text-foreground decoration-2'
+                                    : headerPinned
+                                        ? 'underline underline-offset-4 text-foreground'
+                                        : 'no-underline',
+                            ]"
+                            variant="link"
+                        >@mbabb</Button>
+                    </HoverCardTrigger>
+                    <HoverCardContent class="pointer-events-auto z-[100] p-4 min-w-[17rem] fraunces">
+                        <div class="flex items-center gap-3">
+                            <Avatar>
+                                <AvatarImage
+                                    src="https://avatars.githubusercontent.com/u/2848617?v=4"
                                 />
-                            </button>
-                        </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">
-                            {{ linkCopied ? "Copied!" : "Share link" }}
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-
-                <DarkModeToggle class="controls-icon" />
+                            </Avatar>
+                            <div class="flex-1 min-w-0">
+                                <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm font-semibold text-foreground hover:underline">@mbabb</a>
+                                <p class="mt-0.5 text-xs italic text-muted-foreground">Perceptual color space picker &amp; converter</p>
+                            </div>
+                        </div>
+                        <hr class="my-2 border-border/50" />
+                        <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="block text-sm text-foreground hover:underline">View project on GitHub 🎉</a>
+                    </HoverCardContent>
+                </HoverCard>
             </div>
         </div>
 
@@ -256,8 +281,54 @@ const resetToDefaults = () => {
     model.value = createDefaultColorModel();
 };
 
-// Share link — copies current URL to clipboard with brief visual feedback
+// Collapsible header ribbon (keyframes.js pattern)
 const mbabbHoverOpen = ref(false);
+const headerExpanded = ref(false);
+const headerPinned = ref(false);
+const mbabbToggled = ref(false);
+let headerHoverTimeout: ReturnType<typeof setTimeout> | undefined;
+
+const headerVisible = computed(() => headerExpanded.value || headerPinned.value);
+
+function clearHeaderTimeout() {
+    if (headerHoverTimeout != null) {
+        clearTimeout(headerHoverTimeout);
+        headerHoverTimeout = undefined;
+    }
+}
+
+function startHeaderHideTimeout() {
+    clearHeaderTimeout();
+    headerHoverTimeout = setTimeout(() => {
+        headerExpanded.value = false;
+    }, 2000);
+}
+
+function onHeaderMouseEnter() {
+    clearHeaderTimeout();
+    headerExpanded.value = true;
+}
+
+function onHeaderMouseLeave() {
+    if (!headerPinned.value) {
+        startHeaderHideTimeout();
+    }
+}
+
+function onMbabbAnchorClick() {
+    if (headerPinned.value) {
+        headerPinned.value = false;
+        mbabbToggled.value = false;
+        startHeaderHideTimeout();
+    } else {
+        headerPinned.value = true;
+        headerExpanded.value = true;
+        mbabbToggled.value = true;
+        clearHeaderTimeout();
+    }
+}
+
+// Share link — copies current URL to clipboard with brief visual feedback
 const linkCopied = ref(false);
 let linkCopiedTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -321,24 +392,49 @@ onMounted(() => {
     background-repeat: repeat;
 }
 
-/* Consistent hover for top-bar controls (share, dark mode) */
-.controls-icon {
-    width: 1.5rem;
-    aspect-ratio: 1;
+/* Collapsible header ribbon */
+.header-items-wrapper {
+    max-width: 500px;
+    margin-right: 0.75rem;
+    opacity: 1;
+    transition:
+        max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        margin-right 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.25s ease-out;
+}
+.header-collapsed {
+    max-width: 0;
+    margin-right: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.header-control-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.125rem;
     cursor: pointer;
     color: hsl(var(--foreground));
-    opacity: 0.6;
+    opacity: 0.7;
     transition:
         opacity 0.2s ease,
-        transform 0.2s ease,
-        color 0.2s ease;
+        transform 0.2s ease;
+    width: 2rem;
+    flex-shrink: 0;
 }
-.controls-icon:hover {
+.header-control-item:hover {
     opacity: 1;
-    transform: scale(1.15);
-    color: hsl(var(--primary));
+    transform: scale(1.1);
 }
-.controls-icon:active {
+.header-control-item:active {
     transform: scale(0.95);
+}
+.header-control-label {
+    font-size: 0.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    opacity: 0.7;
 }
 </style>

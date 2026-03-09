@@ -8,18 +8,20 @@
         class="pointer-events-auto"
     >
         <HoverCardTrigger>
-            <component
-                :is="icon"
-                @click="handleClick"
-                :aria-label="title"
-                :class="[
-                    'action-icon w-8 h-8 stroke-foreground transition-all cursor-pointer',
-                    iconClass,
-                    disabled && 'pointer-events-none opacity-50',
-                    isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
-                ]"
-                :style="{ ...activeStyle, '--flash-color': cssColorOpaque ?? 'currentColor', '--hover-color': cssColorOpaque ?? 'currentColor' }"
-            />
+            <div class="action-button-wrapper" @click="handleClick">
+                <component
+                    :is="icon"
+                    :aria-label="title"
+                    :class="[
+                        'action-icon w-7 h-7 stroke-foreground transition-all cursor-pointer',
+                        iconClass,
+                        disabled && 'pointer-events-none opacity-50',
+                        isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
+                    ]"
+                    :style="{ ...activeStyle, '--flash-color': cssColorOpaque ?? 'currentColor', '--hover-color': cssColorOpaque ?? 'currentColor' }"
+                />
+                <span v-if="label" class="action-label">{{ label }}</span>
+            </div>
         </HoverCardTrigger>
         <HoverCardContent class="z-[100] pointer-events-auto fraunces">
             <div>
@@ -73,6 +75,25 @@ function handleClick() {
 </script>
 
 <style scoped>
+.action-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.125rem;
+    cursor: pointer;
+}
+.action-label {
+    font-size: 0.55rem;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+}
+.action-button-wrapper:hover .action-label {
+    opacity: 0.85;
+}
 .action-icon:hover {
     transform: scale(1.25);
     stroke: var(--hover-color);

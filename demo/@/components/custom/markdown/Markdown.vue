@@ -482,6 +482,12 @@ onUnmounted(() => {
         @apply max-w-full h-auto rounded-lg my-4 mx-auto;
     }
 
+    /* KaTeX display math blocks — rendered by <Katex> Vue component */
+    > div.inline-block:has(> .katex) {
+        display: block;
+        @apply py-2 pl-6 my-1 overflow-x-auto;
+    }
+
     /* Horizontal rule */
     hr {
         @apply my-4 border-t;
