@@ -184,12 +184,14 @@ export function createMathFunctionParsers(valueParser: Parser<any>) {
         });
 
     // CSS constants: e, pi, infinity, -infinity, NaN
+    // Use word-boundary anchored regexes so that e.g. "e" doesn't match
+    // the start of "ease-in", and "pi" doesn't match "pixel", etc.
     const cssConstants = any(
-        string("infinity").map(() => new ValueUnit(Infinity)),
-        string("-infinity").map(() => new ValueUnit(-Infinity)),
-        string("NaN").map(() => new ValueUnit(NaN)),
-        string("pi").map(() => new ValueUnit(Math.PI)),
-        string("e").map(() => new ValueUnit(Math.E)),
+        regex(/infinity(?![a-zA-Z0-9_-])/).map(() => new ValueUnit(Infinity)),
+        regex(/-infinity(?![a-zA-Z0-9_-])/).map(() => new ValueUnit(-Infinity)),
+        regex(/NaN(?![a-zA-Z0-9_-])/).map(() => new ValueUnit(NaN)),
+        regex(/pi(?![a-zA-Z0-9_-])/).map(() => new ValueUnit(Math.PI)),
+        regex(/e(?![a-zA-Z0-9_-])/).map(() => new ValueUnit(Math.E)),
     );
 
     const allMathFunctions: Parser<any> = any(
