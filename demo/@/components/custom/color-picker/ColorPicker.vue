@@ -1,6 +1,6 @@
 <template>
-    <div class="grid grid-rows-[auto_auto] gap-4 relative min-w-0 content-center">
-        <Card class="flex flex-col rounded-md min-w-0">
+    <div class="grid grid-rows-[auto_auto] gap-4 relative min-w-0 content-center lg:max-h-full">
+        <Card class="flex flex-col rounded-md min-w-0 lg:overflow-hidden lg:min-h-0">
             <CardHeader class="fraunces m-0 pb-0 relative w-full px-3 sm:px-6 min-w-0 overflow-visible">
                 <div class="w-full flex justify-between">
                     <Select
@@ -83,17 +83,17 @@
                 </CardTitle>
             </CardHeader>
 
-            <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pb-4 min-w-0">
-                <div class="flex flex-col items-center gap-4">
-                    <div class="w-full">
+            <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pb-0 min-w-0 lg:flex-1 lg:min-h-0">
+                <div class="flex flex-col items-center gap-4 lg:flex-1 lg:min-h-0">
+                    <div class="w-full lg:flex-1 lg:min-h-0 lg:overflow-hidden">
                         <SpectrumCanvas />
                     </div>
-                    <div class="w-full">
+                    <div class="w-full shrink-0">
                         <ComponentSliders />
                     </div>
                 </div>
 
-                <div class="flex items-center gap-2 pt-4 -mx-3 sm:-mx-6 px-3 sm:px-6 pb-0 border-t border-gray-700/15 shadow-[0_-4px_12px_-4px_rgba(0,0,0,0.12)]">
+                <div class="flex items-center gap-2 mt-4 pt-3 -mx-3 sm:-mx-6 px-3 sm:px-6 pb-3 shrink-0 border-t border-gray-700/15 shadow-[0_-4px_12px_-4px_rgba(0,0,0,0.12)]">
                     <div class="grid relative items-center flex-1 min-w-0">
                         <ActionToolbar
                             ref="actionToolbarRef"

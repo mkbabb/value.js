@@ -86,7 +86,6 @@
                                         class="w-full h-full"
                                         :stroke-width="2"
                                     />
-                                    <span class="header-control-label">{{ linkCopied ? "Copied" : "Share" }}</span>
                                 </button>
                             </TooltipTrigger>
                             <TooltipContent class="fira-code text-xs">
@@ -97,7 +96,6 @@
 
                     <div class="header-control-item">
                         <DarkModeToggle class="w-5 h-5" />
-                        <span class="header-control-label">Theme</span>
                     </div>
                 </div>
 
@@ -410,16 +408,16 @@ onMounted(() => {
 }
 .header-control-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.125rem;
+    justify-content: center;
     cursor: pointer;
     color: hsl(var(--foreground));
     opacity: 0.7;
     transition:
         opacity 0.2s ease,
         transform 0.2s ease;
-    width: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     flex-shrink: 0;
 }
 .header-control-item:hover {
@@ -428,13 +426,5 @@ onMounted(() => {
 }
 .header-control-item:active {
     transform: scale(0.95);
-}
-.header-control-label {
-    font-size: 0.5rem;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-    opacity: 0.7;
 }
 </style>

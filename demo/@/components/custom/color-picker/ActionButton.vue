@@ -84,9 +84,9 @@ function handleClick() {
 }
 .action-label {
     font-size: 0.55rem;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-transform: lowercase;
+    letter-spacing: 0.03em;
     opacity: 0.5;
     transition: opacity 0.2s ease;
     white-space: nowrap;
