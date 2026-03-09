@@ -2,7 +2,7 @@
     "name": "@mkbabb/value.js",
     "version": "0.4.6",
     "description": "CSS value units for color, length, angles, & c.",
-    "license": "GPL-3.0-only",
+    "license": "MIT",
     "keywords": [
         "css",
         "value",
@@ -31,7 +31,7 @@
         "dist"
     ],
     "scripts": {
-        "dev": "vite",
+        "dev": "vite --port 9000",
         "build": "vite build --mode production",
         "gh-pages": "vite build --mode gh-pages",
         "test": "vitest",
