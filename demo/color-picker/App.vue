@@ -63,42 +63,13 @@
         class="grid overflow-x-hidden w-full min-h-screen lg:h-screen lg:overflow-hidden items-center justify-items-center justify-center m-0 p-0 relative"
     >
         <div
-            class="fixed z-40 pointer-events-none top-0 right-0 w-fit h-fit flex items-center px-4 py-2"
+            class="fixed z-40 pointer-events-none top-0 left-0 w-fit h-fit flex items-center px-4 py-2"
             @mouseleave="onHeaderMouseLeave"
         >
             <div
                 class="pointer-events-auto flex items-center"
                 @mouseenter="onHeaderMouseEnter"
             >
-                <!-- Collapsible controls — accordion width -->
-                <div
-                    :class="[
-                        'header-items-wrapper overflow-hidden flex items-center gap-3',
-                        headerVisible ? '' : 'header-collapsed',
-                    ]"
-                >
-                    <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
-                        <Tooltip v-bind="linkCopied ? { open: true } : {}">
-                            <TooltipTrigger as-child>
-                                <button class="header-control-item" @click="shareLink()">
-                                    <component
-                                        :is="linkCopied ? Check : Share2"
-                                        class="w-full h-full"
-                                        :stroke-width="2"
-                                    />
-                                </button>
-                            </TooltipTrigger>
-                            <TooltipContent class="fira-code text-xs">
-                                {{ linkCopied ? "Copied!" : "Share link" }}
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-
-                    <div class="header-control-item">
-                        <DarkModeToggle class="w-5 h-5" />
-                    </div>
-                </div>
-
                 <!-- @mbabb anchor — always visible, click to pin/unpin -->
                 <HoverCard v-model:open="mbabbHoverOpen" :open-delay="300" :close-delay="200">
                     <HoverCardTrigger>
@@ -131,6 +102,35 @@
                         <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="block text-sm text-foreground hover:underline">View project on GitHub 🎉</a>
                     </HoverCardContent>
                 </HoverCard>
+
+                <!-- Collapsible controls — accordion width -->
+                <div
+                    :class="[
+                        'header-items-wrapper flex items-center gap-3',
+                        headerVisible ? '' : 'header-collapsed',
+                    ]"
+                >
+                    <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
+                        <Tooltip v-bind="linkCopied ? { open: true } : {}">
+                            <TooltipTrigger as-child>
+                                <button class="header-control-item" @click="shareLink()">
+                                    <component
+                                        :is="linkCopied ? Check : Share2"
+                                        class="w-full h-full"
+                                        :stroke-width="2"
+                                    />
+                                </button>
+                            </TooltipTrigger>
+                            <TooltipContent class="fira-code text-xs">
+                                {{ linkCopied ? "Copied!" : "Share link" }}
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+
+                    <div class="header-control-item">
+                        <DarkModeToggle class="w-5 h-5" />
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -393,18 +393,20 @@ onMounted(() => {
 /* Collapsible header ribbon */
 .header-items-wrapper {
     max-width: 500px;
-    margin-right: 0.75rem;
+    margin-left: 0.75rem;
     opacity: 1;
     transition:
         max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        margin-right 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        margin-left 0.35s cubic-bezier(0.4, 0, 0.2, 1),
         opacity 0.25s ease-out;
+    overflow: visible;
 }
 .header-collapsed {
     max-width: 0;
-    margin-right: 0;
+    margin-left: 0;
     opacity: 0;
     pointer-events: none;
+    overflow: hidden;
 }
 .header-control-item {
     display: flex;
