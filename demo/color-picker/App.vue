@@ -127,9 +127,10 @@
                         </Tooltip>
                     </TooltipProvider>
 
-                    <div class="header-control-item">
-                        <DarkModeToggle class="w-5 h-5" />
-                    </div>
+                    <DarkModeToggle
+                        title="Toggle dark mode"
+                        class="aspect-square w-8 hover:scale-105 hover:opacity-50"
+                    />
                 </div>
             </div>
         </div>
@@ -418,13 +419,13 @@ onMounted(() => {
     transition:
         opacity 0.2s ease,
         transform 0.2s ease;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
     flex-shrink: 0;
 }
 .header-control-item:hover {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 .header-control-item:active {
     transform: scale(0.95);
