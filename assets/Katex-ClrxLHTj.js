@@ -1,4 +1,4 @@
-const n="const kelvin2rgb = ({ kelvin, alpha }",a="const rgb2kelvin = ({ r, g, b, alpha }",l="const hsv2hsl = ({ h, s, v, alpha }",t="const hsl2hsv = ({ h, s, l, alpha }",o="const hwb2hsl = ({ h, w, b, alpha }",b="const hsl2hwb = ({ h, s, l, alpha }",e="const rgb2hsl = ({ r, g, b, alpha }",s="function hsl2rgb({ h, s, l, alpha }",c=`function xyz2lab(xyz: XYZColor, toWhitePoint: WhitePoint = "D50"): LABColor {
+import{k as t}from"./vendor-katex-Dehg5p_Y.js";import{C as o,ad as e,o as s,w as b,J as r,V as c}from"./vendor-highlight-sMWp9TLU.js";import{_ as i}from"./index-Q19pIqw1.js";const m="const kelvin2rgb = ({ kelvin, alpha }",y="const rgb2kelvin = ({ r, g, b, alpha }",S="const hsv2hsl = ({ h, s, v, alpha }",E="const hsl2hsv = ({ h, s, l, alpha }",C="const hwb2hsl = ({ h, w, b, alpha }",f="const hsl2hwb = ({ h, s, l, alpha }",z="const rgb2hsl = ({ r, g, b, alpha }",O="function hsl2rgb({ h, s, l, alpha }",P=`function xyz2lab(xyz: XYZColor, toWhitePoint: WhitePoint = "D50"): LABColor {
     const labFunction = (value: number) =>
         value > LAB_EPSILON
             ? Math.cbrt(value)
@@ -40,7 +40,7 @@ const n="const kelvin2rgb = ({ kelvin, alpha }",a="const rgb2kelvin = ({ r, g, b
     lab.whitePoint = toWhitePoint;
 
     return lab;
-}`,i=`function lab2xyz(lab: LABColor): XYZColor {
+}`,p=`function lab2xyz(lab: LABColor): XYZColor {
     const labFunctionXZ = (value: number) =>
         value > LAB_EPSILON_3
             ? value ** 3
@@ -101,8 +101,8 @@ const n="const kelvin2rgb = ({ kelvin, alpha }",a="const rgb2kelvin = ({ r, g, b
     xyz.z = z;
 
     return xyz;
-}`,r="function rgb2xyz({ r, g, b, alpha }",h=`const xyz2rgb = (
-    { x, y, z, alpha }`,A="function lch2lab({ l, c, h, alpha }",L="function lab2lch({ l, a, b, alpha }",_="function oklab2xyz({ l, a, b, alpha }",u=`function xyz2oklab(xyz: XYZColor): OKLABColor {
+}`,v="function rgb2xyz({ r, g, b, alpha }",R=`const xyz2rgb = (
+    { x, y, z, alpha }`,k="function lch2lab({ l, c, h, alpha }",B="function lab2lch({ l, a, b, alpha }",w="function oklab2xyz({ l, a, b, alpha }",Y=`function xyz2oklab(xyz: XYZColor): OKLABColor {
     const { x, y, z } = xyz;
 
     // Convert XYZ to linear LMS
@@ -128,4 +128,4 @@ const n="const kelvin2rgb = ({ kelvin, alpha }",a="const rgb2kelvin = ({ r, g, b
         ),
         xyz.alpha,
     );
-}`,x="function oklab2oklch({ l, a, b, alpha }",S="function oklch2oklab({ l, c, h, alpha }";export{e as a,l as b,t as c,b as d,o as e,c as f,L as g,s as h,A as i,u as j,S as k,i as l,x as m,a as n,_ as o,n as p,r,h as x};
+}`,N="function oklab2oklch({ l, a, b, alpha }",F="function oklch2oklab({ l, c, h, alpha }",h=o({__name:"Katex",props:{expression:{},displayMode:{type:Boolean,default:!0}},setup(n){const a=e("katexElement"),l=()=>{a.value&&t.render(n.expression,a.value,{displayMode:n.displayMode,throwOnError:!1,output:"mathml"})};return s(l),b(()=>n.expression,l),(A,_)=>(r(),c("div",{class:"inline-block",ref_key:"katexElement",ref:a},null,512))}}),d=i(h,[["__scopeId","data-v-aaeb860d"]]);export{d as K,z as a,S as b,E as c,f as d,C as e,P as f,B as g,O as h,k as i,Y as j,F as k,p as l,N as m,m as n,w as o,y as p,v as r,R as x};
