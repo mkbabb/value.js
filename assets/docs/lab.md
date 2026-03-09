@@ -75,11 +75,25 @@ A three-dimensional Cartesian space. `L*` is the vertical axis; the `a*`/`b*` pl
 
 ### XYZ to Lab
 
+Normalize XYZ by the reference white point, apply a piecewise function that approximates a cube root, then scale into L\*a\*b\*:
+
+<Katex expression="f(t) = \begin{cases} \sqrt[3]{t} & t > \epsilon \\ \frac{\kappa\, t + 16}{116} & \text{otherwise} \end{cases}" />
+
+<Katex expression="L^* = 116\, f\!\left(\frac{Y}{Y_n}\right) - 16, \quad a^* = 500\left[f\!\left(\frac{X}{X_n}\right) - f\!\left(\frac{Y}{Y_n}\right)\right], \quad b^* = 200\left[f\!\left(\frac{Y}{Y_n}\right) - f\!\left(\frac{Z}{Z_n}\right)\right]" />
+
+where <Katex expression="\epsilon = \tfrac{216}{24389}" :display-mode="false" /> and <Katex expression="\kappa = \tfrac{24389}{27}" :display-mode="false" />.
+
 <div class="language-typescript">
     {{ xyz2lab }}
 </div>
 
 ### Lab to XYZ
+
+Invert the L\*a\*b\* formulas—recover the normalized XYZ ratios, apply the inverse piecewise function, then scale by the white point:
+
+<Katex expression="f_y = \frac{L^* + 16}{116}, \quad f_x = \frac{a^*}{500} + f_y, \quad f_z = f_y - \frac{b^*}{200}" />
+
+<Katex expression="X = X_n \cdot f^{-1}(f_x), \quad Y = Y_n \cdot f^{-1}(f_y), \quad Z = Z_n \cdot f^{-1}(f_z)" />
 
 <div class="language-typescript">
     {{ lab2xyz }}

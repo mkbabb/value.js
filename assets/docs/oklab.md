@@ -73,7 +73,9 @@ Colors sit in a three-dimensional Cartesian space. `L` runs vertically; the `a`/
 
 ### XYZ to OKLab
 
-The conversion involves a non-linear transformation of LMS cone responses:
+Two matrix multiplications sandwiching a cube root. The first maps XYZ to LMS cone responses; the cube root models the perceptual non-linearity; the second projects into OKLab:
+
+<Katex expression="\begin{bmatrix} l \\ m \\ s \end{bmatrix} = M_1 \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}, \quad \begin{bmatrix} L \\ a \\ b \end{bmatrix} = M_2 \begin{bmatrix} \sqrt[3]{l} \\ \sqrt[3]{m} \\ \sqrt[3]{s} \end{bmatrix}" />
 
 <div class="language-typescript">
     {{ xyz2oklab }}
@@ -81,7 +83,9 @@ The conversion involves a non-linear transformation of LMS cone responses:
 
 ### OKLab to XYZ
 
-The inverse path:
+The inverse: undo the linear transform, cube to reverse the perceptual compression, then map back to XYZ:
+
+<Katex expression="\begin{bmatrix} l' \\ m' \\ s' \end{bmatrix} = M_2^{-1} \begin{bmatrix} L \\ a \\ b \end{bmatrix}, \quad \begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_1^{-1} \begin{bmatrix} l'^3 \\ m'^3 \\ s'^3 \end{bmatrix}" />
 
 <div class="language-typescript">
     {{ oklab2xyz }}

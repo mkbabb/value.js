@@ -76,7 +76,11 @@ The transfer function between them is a piecewise curve: linear below a threshol
 
 ### RGB to XYZ
 
-Converts from sRGB to linear RGB (inverse gamma), then applies the sRGB-to-XYZ matrix:
+Linearize sRGB via the inverse transfer function, then apply the 3×3 matrix:
+
+<Katex expression="\gamma^{-1}(c) = \begin{cases} c / 12.92 & c \leq 0.04045 \\ \left(\frac{c + 0.055}{1.055}\right)^{2.4} & \text{otherwise} \end{cases}" />
+
+<Katex expression="\begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_{\text{sRGB}} \begin{bmatrix} \gamma^{-1}(R) \\ \gamma^{-1}(G) \\ \gamma^{-1}(B) \end{bmatrix}" />
 
 <div class="language-typescript">
     {{ rgb2xyz }}
@@ -84,7 +88,11 @@ Converts from sRGB to linear RGB (inverse gamma), then applies the sRGB-to-XYZ m
 
 ### XYZ to RGB
 
-The inverse: matrix transform to linear RGB, then gamma encoding:
+Multiply by the inverse matrix, then apply gamma encoding:
+
+<Katex expression="\gamma(c) = \begin{cases} 12.92\, c & c \leq 0.0031308 \\ 1.055\, c^{1/2.4} - 0.055 & \text{otherwise} \end{cases}" />
+
+<Katex expression="\begin{bmatrix} R \\ G \\ B \end{bmatrix} = \gamma\!\left(M_{\text{sRGB}}^{-1} \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}\right)" />
 
 <div class="language-typescript">
     {{ xyz2rgb }}

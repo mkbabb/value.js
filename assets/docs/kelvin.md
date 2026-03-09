@@ -62,20 +62,28 @@ This is a **single-dimensional** color space—one number, `1000K` to `40000K`, 
 
 ## Color Conversions
 
-### RGB to Kelvin
-
-Finds the closest color temperature on the black-body locus for a given RGB value:
-
-<div class="language-typescript">
-    {{ rgb2kelvin }}
-</div>
-
 ### Kelvin to RGB
 
-Uses the Tanner Helland polynomial approximation to convert temperature to RGB:
+Polynomial approximation (Tanner Helland) mapping temperature to RGB. Each channel uses a different curve depending on whether the temperature is below or above ~6600K:
+
+<Katex expression="R = \begin{cases} 255 & T \leq 66 \\ 329.7 \cdot (T - 60)^{-0.133} & T > 66 \end{cases}" />
+
+<Katex expression="G = \begin{cases} 99.47 \ln T - 161.12 & T \leq 66 \\ 288.12 \cdot (T - 60)^{-0.0755} & T > 66 \end{cases}" />
+
+<Katex expression="B = \begin{cases} 255 & T \geq 66 \\ 138.52 \ln(T - 10) - 305.04 & 19 < T < 66 \\ 0 & T \leq 19 \end{cases}" />
+
+where <Katex expression="T = \text{kelvin} / 100" :display-mode="false" /> and results are clamped to [0, 255] then normalized.
 
 <div class="language-typescript">
     {{ kelvin2rgb }}
+</div>
+
+### RGB to Kelvin
+
+Inverts the polynomial fits to estimate the closest color temperature for a given RGB value:
+
+<div class="language-typescript">
+    {{ rgb2kelvin }}
 </div>
 
 ---

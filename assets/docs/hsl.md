@@ -68,11 +68,25 @@ HSL was developed in the 1970s as part of computer graphics research—an attemp
 
 ### RGB to HSL
 
+Compute lightness from the min/max of the RGB channels, derive chroma and saturation, then determine hue from whichever channel dominates:
+
+<Katex expression="L = \frac{\max + \min}{2}, \quad C = \max - \min, \quad S = \frac{C}{1 - |2L - 1|}" />
+
+<Katex expression="H = \begin{cases} \frac{G - B}{C} & \text{if } \max = R \\ \frac{B - R}{C} + 2 & \text{if } \max = G \\ \frac{R - G}{C} + 4 & \text{if } \max = B \end{cases} \quad (\text{then } H = H / 6)" />
+
 <div class="language-typescript">
     {{ rgb2hsl }}
 </div>
 
 ### HSL to RGB
+
+Recover chroma from saturation and lightness, determine the RGB triple by hue sector, then shift by the lightness offset:
+
+<Katex expression="C = (1 - |2L - 1|) \cdot S, \quad X = C(1 - |(H \cdot 6) \bmod 2 - 1|), \quad m = L - C/2" />
+
+<Katex expression="(R,\, G,\, B) = (r_1 + m,\; g_1 + m,\; b_1 + m)" />
+
+where <Katex expression="(r_1, g_1, b_1)" :display-mode="false" /> is selected from <Katex expression="(C, X, 0)" :display-mode="false" /> and its permutations based on the hue sector.
 
 <div class="language-typescript">
     {{ hsl2rgb }}

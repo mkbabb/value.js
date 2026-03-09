@@ -69,11 +69,19 @@ HSV and HSL share a hue channel but diverge on the other two axes. In HSV, `V=1`
 
 ### HSV to HSL
 
+Derive lightness from value and saturation, then recompute saturation for the HSL model:
+
+<Katex expression="L = V - \frac{V \cdot S}{2}, \quad S_L = \begin{cases} 0 & L = 0 \text{ or } L = 1 \\ \frac{V - L}{\min(L,\; 1 - L)} & \text{otherwise} \end{cases}" />
+
 <div class="language-typescript">
     {{ hsv2hsl }}
 </div>
 
 ### HSL to HSV
+
+The inverse—recover value and saturation in the HSV model:
+
+<Katex expression="V = L + S \cdot \min(L,\; 1 - L), \quad S_V = \begin{cases} 0 & V = 0 \\ 2\left(1 - \frac{L}{V}\right) & \text{otherwise} \end{cases}" />
 
 <div class="language-typescript">
     {{ hsl2hsv }}
@@ -81,7 +89,7 @@ HSV and HSL share a hue channel but diverge on the other two axes. In HSV, `V=1`
 
 ### HSL to RGB
 
-The intermediate step used when converting HSV to display-ready sRGB (HSV → HSL → RGB):
+The intermediate step when converting HSV to display-ready sRGB (HSV → HSL → RGB):
 
 <div class="language-typescript">
     {{ hsl2rgb }}
@@ -89,7 +97,7 @@ The intermediate step used when converting HSV to display-ready sRGB (HSV → HS
 
 ### RGB to HSL
 
-The intermediate step used when converting from sRGB back to HSV (RGB → HSL → HSV):
+The intermediate step when converting from sRGB back to HSV (RGB → HSL → HSV):
 
 <div class="language-typescript">
     {{ rgb2hsl }}

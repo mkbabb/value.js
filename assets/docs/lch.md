@@ -69,7 +69,9 @@ The space forms a cylinder: `L` runs vertically, `C` extends radially, and `H` s
 
 ### Lab to LCh
 
-Cartesian to polar—extract the magnitude and angle from `a*` and `b*`:
+Cartesian to polar—extract chroma (magnitude) and hue (angle) from the `a*`/`b*` plane:
+
+<Katex expression="C = \sqrt{a^{*2} + b^{*2}}, \quad H = \frac{\operatorname{atan2}(b^*,\, a^*)}{2\pi}" />
 
 <div class="language-typescript">
     {{ lab2lch }}
@@ -77,7 +79,9 @@ Cartesian to polar—extract the magnitude and angle from `a*` and `b*`:
 
 ### LCh to Lab
 
-Polar back to Cartesian:
+Polar back to Cartesian—recover `a*` and `b*` from chroma and hue:
+
+<Katex expression="a^* = C \cos(2\pi H), \quad b^* = C \sin(2\pi H)" />
 
 <div class="language-typescript">
     {{ lch2lab }}

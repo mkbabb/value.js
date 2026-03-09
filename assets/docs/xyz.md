@@ -86,7 +86,11 @@ Converting between white points requires chromatic adaptation. value.js uses the
 
 ### RGB to XYZ
 
-Linearize sRGB (undo the gamma curve), then multiply by a 3x3 matrix:
+Linearize sRGB (undo the gamma curve), then multiply by the 3×3 sRGB-to-XYZ matrix:
+
+<Katex expression="\mathbf{rgb}_{\text{linear}} = \gamma^{-1}(\mathbf{rgb}), \quad \begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_{\text{sRGB}} \cdot \mathbf{rgb}_{\text{linear}}" />
+
+The sRGB transfer function is piecewise: linear below ~0.04045, power-law (exponent 2.4) above.
 
 <div class="language-typescript">
     {{ rgb2xyz }}
@@ -94,7 +98,9 @@ Linearize sRGB (undo the gamma curve), then multiply by a 3x3 matrix:
 
 ### XYZ to RGB
 
-The inverse: multiply by the inverse matrix, then apply the sRGB gamma curve:
+Multiply by the inverse matrix, then apply the sRGB gamma curve:
+
+<Katex expression="\mathbf{rgb}_{\text{linear}} = M_{\text{sRGB}}^{-1} \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}, \quad \mathbf{rgb} = \gamma(\mathbf{rgb}_{\text{linear}})" />
 
 <div class="language-typescript">
     {{ xyz2rgb }}
@@ -102,7 +108,9 @@ The inverse: multiply by the inverse matrix, then apply the sRGB gamma curve:
 
 ### XYZ to Lab
 
-Map into CIE L\*a\*b\*'s perceptually uniform space:
+Normalize by the white point, apply the CIE perceptual function, then scale:
+
+<Katex expression="L^* = 116\, f\!\left(\frac{Y}{Y_n}\right) - 16, \quad a^* = 500\left[f\!\left(\frac{X}{X_n}\right) - f\!\left(\frac{Y}{Y_n}\right)\right], \quad b^* = 200\left[f\!\left(\frac{Y}{Y_n}\right) - f\!\left(\frac{Z}{Z_n}\right)\right]" />
 
 <div class="language-typescript">
     {{ xyz2lab }}
@@ -110,7 +118,9 @@ Map into CIE L\*a\*b\*'s perceptually uniform space:
 
 ### Lab to XYZ
 
-The inverse transform:
+Invert the L\*a\*b\* formulas and scale by the white point:
+
+<Katex expression="f_y = \frac{L^* + 16}{116}, \quad f_x = \frac{a^*}{500} + f_y, \quad f_z = f_y - \frac{b^*}{200}" />
 
 <div class="language-typescript">
     {{ lab2xyz }}

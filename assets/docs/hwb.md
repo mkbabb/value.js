@@ -74,11 +74,21 @@ The gamut is the same as sRGB. It's a reorganization of the same color cube, not
 
 ### HSL to HWB
 
+Convert through HSV as an intermediate—whiteness and blackness derive directly from HSV's saturation and value:
+
+<Katex expression="W = V(1 - S_V), \quad B = 1 - V" />
+
 <div class="language-typescript">
     {{ hsl2hwb }}
 </div>
 
 ### HWB to HSL
+
+Recover HSV saturation and value from whiteness and blackness (normalizing when `W + B ≥ 1`), then convert HSV → HSL:
+
+<Katex expression="V = 1 - B, \quad S_V = \begin{cases} 0 & V = 0 \\ 1 - W/V & \text{otherwise} \end{cases}" />
+
+When <Katex expression="W + B \geq 1" :display-mode="false" />, the color collapses to gray: <Katex expression="V = W/(W+B),\; S_V = 0" :display-mode="false" />.
 
 <div class="language-typescript">
     {{ hwb2hsl }}

@@ -67,7 +67,9 @@ OKLCh relates to OKLab exactly as CIE LCh relates to CIE Lab: same data, polar v
 
 ### OKLCh to OKLab
 
-Polar to Cartesian:
+Polar to Cartesian—recover the `a`/`b` axes from chroma and hue:
+
+<Katex expression="a = C \cos(2\pi h), \quad b = C \sin(2\pi h)" />
 
 <div class="language-typescript">
     {{ oklch2oklab }}
@@ -75,7 +77,9 @@ Polar to Cartesian:
 
 ### OKLab to OKLCh
 
-Cartesian to polar:
+Cartesian to polar—extract chroma (magnitude) and hue (angle) from the `a`/`b` plane:
+
+<Katex expression="C = \sqrt{a^2 + b^2}, \quad h = \frac{\operatorname{atan2}(b,\, a)}{2\pi}" />
 
 <div class="language-typescript">
     {{ oklab2oklch }}
@@ -83,7 +87,9 @@ Cartesian to polar:
 
 ### OKLab to XYZ
 
-The conversion from OKLab to XYZ, used when going from OKLCh → OKLab → XYZ:
+Invert the two linear transforms around a cube operation. The cube reverses the perceptual cube-root compression applied in the forward path:
+
+<Katex expression="\begin{bmatrix} l' \\ m' \\ s' \end{bmatrix} = M_1^{-1} \begin{bmatrix} L \\ a \\ b \end{bmatrix}, \quad \begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_2^{-1} \begin{bmatrix} l'^3 \\ m'^3 \\ s'^3 \end{bmatrix}" />
 
 <div class="language-typescript">
     {{ oklab2xyz }}
@@ -91,7 +97,9 @@ The conversion from OKLab to XYZ, used when going from OKLCh → OKLab → XYZ:
 
 ### XYZ to OKLab
 
-The reverse path, also through OKLab:
+Two matrix multiplications sandwiching a cube root. The first maps XYZ to LMS cone responses; the cube root models the perceptual non-linearity; the second projects into OKLab:
+
+<Katex expression="\begin{bmatrix} l \\ m \\ s \end{bmatrix} = M_1 \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}, \quad \begin{bmatrix} L \\ a \\ b \end{bmatrix} = M_2 \begin{bmatrix} \sqrt[3]{l} \\ \sqrt[3]{m} \\ \sqrt[3]{s} \end{bmatrix}" />
 
 <div class="language-typescript">
     {{ xyz2oklab }}
