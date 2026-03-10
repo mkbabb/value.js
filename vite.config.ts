@@ -48,10 +48,10 @@ export default defineConfig((mode) => {
                     entry: path.resolve(import.meta.dirname, "src/index.ts"),
                     name: "Value",
                     fileName: "value",
-                    formats: ["es", "cjs"],
+                    formats: ["es"],
                 },
                 rollupOptions: {
-                    external: ["vue"],
+                    external: ["vue", "@mkbabb/parse-that"],
                 },
             },
             esbuild: {
