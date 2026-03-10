@@ -57,7 +57,7 @@ export default defineConfig((mode) => {
             esbuild: {
                 drop: ["console", "debugger"],
             },
-            plugins: [...defaultPlugins, dts({ rollupTypes: true })],
+            plugins: [...defaultPlugins, dts({ include: ["src/"] })],
         };
     } else if (mode.mode === "gh-pages") {
         return {

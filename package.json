@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "0.4.6",
+    "version": "0.5.0",
     "description": "CSS value units for color, length, angles, & c.",
     "license": "MIT",
     "keywords": [
@@ -18,11 +18,11 @@
     "type": "module",
     "main": "./dist/value.js",
     "module": "./dist/value.js",
-    "types": "./dist/value.d.ts",
+    "types": "./dist/index.d.ts",
     "sideEffects": false,
     "exports": {
         ".": {
-            "types": "./dist/value.d.ts",
+            "types": "./dist/index.d.ts",
             "import": "./dist/value.js",
             "require": "./dist/value.cjs"
         }
