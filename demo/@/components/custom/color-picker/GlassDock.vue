@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, onUnmounted, useTemplateRef, provide } from "vue";
+import { useTemplateRef } from "vue";
+import { useDockState } from "@composables/useDockState";
 
 const props = withDefaults(
     defineProps<{
@@ -16,140 +17,31 @@ const props = withDefaults(
     },
 );
 
-const expanded = ref(!props.startCollapsed);
-let collapseTimer: ReturnType<typeof setTimeout> | null = null;
-let ignoreEvents = true;
-
 const dockEl = useTemplateRef<HTMLElement>("dockEl");
 
-// --- Hold-open bookkeeping ---
-// Child components (e.g. DockPopover, Select) can hold the dock open
-let keepOpenCount = 0;
-// True while any descendant has focus
-let hasFocus = false;
-// True while the pointer is hovering the dock
-let hovered = false;
-
-provide("dockKeepOpen", () => {
-    keepOpenCount++;
-    clearTimer();
+const {
+    expanded,
+    isPinned,
+    onMouseEnter,
+    onMouseLeave,
+    onFocusIn,
+    onFocusOut,
+    onClickCollapsed,
+    keepOpen,
+    release,
+    expand,
+    collapse,
+} = useDockState({
+    collapseDelay: props.collapseDelay,
+    rootEl: dockEl,
 });
 
-provide("dockRelease", () => {
-    keepOpenCount = Math.max(0, keepOpenCount - 1);
-    if (keepOpenCount === 0) maybeScheduleCollapse();
-});
-
-onMounted(() => {
-    setTimeout(() => {
-        ignoreEvents = false;
-    }, 600);
-});
-
-function clearTimer() {
-    if (collapseTimer) {
-        clearTimeout(collapseTimer);
-        collapseTimer = null;
-    }
+// If startCollapsed is false, expand immediately after mount
+if (!props.startCollapsed) {
+    expand();
 }
 
-/** Only schedule collapse when nothing is actively holding the dock open. */
-function maybeScheduleCollapse() {
-    if (keepOpenCount > 0 || hasFocus || hovered) return;
-    clearTimer();
-    collapseTimer = setTimeout(() => {
-        expanded.value = false;
-    }, props.collapseDelay);
-}
-
-function onEnter() {
-    if (ignoreEvents) return;
-    hovered = true;
-    clearTimer();
-    expanded.value = true;
-}
-
-function onLeave(e: MouseEvent) {
-    // relatedTarget inside the dock → pointer is still here
-    const root = dockEl.value;
-    if (root && e.relatedTarget instanceof Node && root.contains(e.relatedTarget)) return;
-
-    // Fallback: when relatedTarget is null (child removed during Vue Transition,
-    // SVG edge cases, mobile), check if cursor is still within bounds.
-    if (root && !e.relatedTarget) {
-        const rect = root.getBoundingClientRect();
-        if (
-            e.clientX >= rect.left &&
-            e.clientX <= rect.right &&
-            e.clientY >= rect.top &&
-            e.clientY <= rect.bottom
-        ) return;
-    }
-
-    hovered = false;
-    maybeScheduleCollapse();
-}
-
-function onFocusIn() {
-    if (ignoreEvents) return;
-    hasFocus = true;
-    clearTimer();
-    expanded.value = true;
-}
-
-function onFocusOut(e: FocusEvent) {
-    const root = e.currentTarget as HTMLElement;
-    // Focus moving to another element inside the dock — still focused
-    if (e.relatedTarget && root.contains(e.relatedTarget as Node)) return;
-    hasFocus = false;
-    maybeScheduleCollapse();
-}
-
-/** Any pointer activity inside the dock resets the collapse timer. */
-function onPointerDownDock() {
-    if (ignoreEvents) return;
-    clearTimer();
-    expanded.value = true;
-}
-
-function onClickSummary() {
-    clearTimer();
-    expanded.value = true;
-    // On mobile the summary tap is the only entry point — don't
-    // immediately schedule collapse; wait for pointer/focus/hover
-    // to leave the dock instead.
-}
-
-// Click-away collapse
-function onPointerDownOutside(e: PointerEvent) {
-    const root = dockEl.value;
-    if (!root || root.contains(e.target as Node)) return;
-    if (keepOpenCount > 0) return;
-    clearTimer();
-    expanded.value = false;
-}
-
-let removeClickAway: (() => void) | null = null;
-
-watch(expanded, (isExpanded) => {
-    if (isExpanded) {
-        document.addEventListener("pointerdown", onPointerDownOutside, true);
-        removeClickAway = () => {
-            document.removeEventListener("pointerdown", onPointerDownOutside, true);
-            removeClickAway = null;
-        };
-    } else {
-        removeClickAway?.();
-        hovered = false;
-        hasFocus = false;
-    }
-});
-
-defineExpose({ expanded, expand: onEnter, collapse: () => { expanded.value = false; } });
-onUnmounted(() => {
-    clearTimer();
-    removeClickAway?.();
-});
+defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
 </script>
 
 <template>
@@ -157,20 +49,26 @@ onUnmounted(() => {
         ref="dockEl"
         class="glass-dock"
         :class="[
-            { expanded, collapsed: !expanded, 'fit-content': fitContent },
+            { expanded, collapsed: !expanded, pinned: isPinned, 'fit-content': fitContent },
             position === 'fixed' ? 'fixed bottom-4 left-1/2 -translate-x-1/2' : 'dock-inline',
         ]"
-        @mouseenter="onEnter"
-        @mouseleave="onLeave"
+        @mouseenter="onMouseEnter"
+        @mouseleave="onMouseLeave($event)"
         @focusin="onFocusIn"
         @focusout="onFocusOut"
-        @pointerdown="onPointerDownDock"
     >
         <div class="dock-layers">
-            <div :class="['dock-layer dock-layer--full', { 'layer-active': expanded }]">
+            <div
+                :class="['dock-layer dock-layer--full', { 'layer-active': expanded }]"
+                :inert="!expanded || undefined"
+            >
                 <slot />
             </div>
-            <div :class="['dock-layer dock-layer--summary', { 'layer-active': !expanded }]" @click="onClickSummary">
+            <div
+                :class="['dock-layer dock-layer--summary', { 'layer-active': !expanded }]"
+                :inert="expanded || undefined"
+                @click="onClickCollapsed"
+            >
                 <slot name="collapsed" />
             </div>
         </div>
