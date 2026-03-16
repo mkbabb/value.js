@@ -48,7 +48,7 @@
     },
     "homepage": "https://github.com/mkbabb/value.js#readme",
     "dependencies": {
-        "@mkbabb/parse-that": "^0.8.0"
+        "@mkbabb/parse-that": "^0.8.2"
     },
     "devDependencies": {
         "@iconify-json/radix-icons": "^1.2.2",
