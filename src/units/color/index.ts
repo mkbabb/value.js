@@ -12,6 +12,19 @@ const formatColor = <T>(colorSpace: ColorSpace, values: T[], alpha: T) => {
     return `${colorSpace}(${values.join(" ")} / ${alpha})`;
 };
 
+/**
+ * Abstract base class for all CSS color spaces.
+ *
+ * Generic over component type `T` — `number` for math operations,
+ * `ValueUnit` for CSS parsing/serialization. Components are stored
+ * in a Map keyed by channel name (e.g. "r", "g", "b" for RGB).
+ *
+ * All 15 color spaces extend this class. Conversion between spaces
+ * routes through XYZ D65 as the hub (see `utils.ts`).
+ *
+ * Components are normalized to [0,1] internally; physical ranges
+ * (e.g. [0,255] for RGB, [0,360] for hue) are applied on output.
+ */
 export abstract class Color<T = number> {
     [key: string]: any;
 
@@ -97,6 +110,7 @@ class WhitePointColor<T = number> extends Color<T> {
     }
 }
 
+/** sRGB color space — the web's default. Components: r, g, b in [0,255] denormalized. D65 white point, ~2.2 gamma. */
 export class RGBColor<T = number> extends Color<T> {
     constructor(r: T, g: T, b: T, alpha?: T) {
         super("rgb", alpha!);
@@ -127,6 +141,7 @@ export class RGBColor<T = number> extends Color<T> {
     }
 }
 
+/** HSL cylindrical space — hue [0,360], saturation [0,1], lightness [0,1]. D65 white point. */
 export class HSLColor<T = number> extends Color<T> {
     constructor(h: T, s: T, l: T, alpha?: T) {
         super("hsl", alpha!);
@@ -157,6 +172,7 @@ export class HSLColor<T = number> extends Color<T> {
     }
 }
 
+/** HSV cylindrical space — hue [0,360], saturation [0,1], value [0,1]. D65 white point. */
 export class HSVColor<T = number> extends Color<T> {
     constructor(h: T, s: T, v: T, alpha?: T) {
         super("hsv", alpha!);
@@ -187,6 +203,7 @@ export class HSVColor<T = number> extends Color<T> {
     }
 }
 
+/** HWB space — hue [0,360], whiteness [0,1], blackness [0,1]. D65 white point. */
 export class HWBColor<T = number> extends Color<T> {
     constructor(h: T, w: T, b: T, alpha?: T) {
         super("hwb", alpha!);
@@ -217,6 +234,7 @@ export class HWBColor<T = number> extends Color<T> {
     }
 }
 
+/** CIE Lab (D50) — perceptual lightness L [0,100], a/b axes [-125,125]. */
 export class LABColor<T = number> extends WhitePointColor<T> {
     constructor(l: T, a: T, b: T, alpha?: T) {
         super("lab", alpha!, "D50");
@@ -247,6 +265,7 @@ export class LABColor<T = number> extends WhitePointColor<T> {
     }
 }
 
+/** CIE LCH (D50) — cylindrical form of Lab. L [0,100], C [0,150], H [0,360]. */
 export class LCHColor<T = number> extends Color<T> {
     constructor(l: T, c: T, h: T, alpha?: T) {
         super("lch", alpha!);
@@ -277,6 +296,7 @@ export class LCHColor<T = number> extends Color<T> {
     }
 }
 
+/** OKLab (D50) — perceptually uniform. L [0,1], a/b [-0.4,0.4]. Björn Ottosson's improvement over CIE Lab. */
 export class OKLABColor<T = number> extends WhitePointColor<T> {
     constructor(l: T, a: T, b: T, alpha?: T) {
         super("oklab", alpha!, "D50");
@@ -307,6 +327,7 @@ export class OKLABColor<T = number> extends WhitePointColor<T> {
     }
 }
 
+/** OKLCH — cylindrical form of OKLab. L [0,1], C [0,0.4], H [0,360]. CSS Color Level 4 recommended space. */
 export class OKLCHColor<T = number> extends Color<T> {
     constructor(l: T, c: T, h: T, alpha?: T) {
         super("oklch", alpha!);
@@ -337,6 +358,7 @@ export class OKLCHColor<T = number> extends Color<T> {
     }
 }
 
+/** CIE XYZ (D65) — the connection space hub for all conversions. Unbounded components. */
 export class XYZColor<T = number> extends WhitePointColor<T> {
     constructor(x: T, y: T, z: T, alpha?: T) {
         super("xyz", alpha!, "D65");
@@ -367,6 +389,7 @@ export class XYZColor<T = number> extends WhitePointColor<T> {
     }
 }
 
+/** Color temperature — single kelvin component [1000,40000]. Converts through blackbody radiation to sRGB. */
 export class KelvinColor<T = number> extends Color<T> {
     constructor(kelvin: T, alpha?: T) {
         super("kelvin", alpha!);
@@ -381,6 +404,7 @@ export class KelvinColor<T = number> extends Color<T> {
     }
 }
 
+/** Linear-light sRGB — no gamma curve. Components r, g, b in [0,1]. D65 white point. */
 export class LinearSRGBColor<T = number> extends Color<T> {
     constructor(r: T, g: T, b: T, alpha?: T) {
         super("srgb-linear", alpha!);
@@ -396,6 +420,7 @@ export class LinearSRGBColor<T = number> extends Color<T> {
     set b(value: T) { this.setComponent("b", value); }
 }
 
+/** Display P3 — wide-gamut space used by Apple displays. Components r, g, b in [0,1]. D65, sRGB transfer. */
 export class DisplayP3Color<T = number> extends Color<T> {
     constructor(r: T, g: T, b: T, alpha?: T) {
         super("display-p3", alpha!);
@@ -411,6 +436,7 @@ export class DisplayP3Color<T = number> extends Color<T> {
     set b(value: T) { this.setComponent("b", value); }
 }
 
+/** Adobe RGB (1998) — wide-gamut space for print/photography. Components r, g, b in [0,1]. D65, gamma 2.2. */
 export class AdobeRGBColor<T = number> extends Color<T> {
     constructor(r: T, g: T, b: T, alpha?: T) {
         super("a98-rgb", alpha!);
@@ -426,6 +452,7 @@ export class AdobeRGBColor<T = number> extends Color<T> {
     set b(value: T) { this.setComponent("b", value); }
 }
 
+/** ProPhoto RGB (ROMM) — ultra-wide gamut for photography. Components r, g, b in [0,1]. D50, gamma 1.8. */
 export class ProPhotoRGBColor<T = number> extends Color<T> {
     constructor(r: T, g: T, b: T, alpha?: T) {
         super("prophoto-rgb", alpha!);
@@ -441,6 +468,7 @@ export class ProPhotoRGBColor<T = number> extends Color<T> {
     set b(value: T) { this.setComponent("b", value); }
 }
 
+/** ITU-R BT.2020 — HDR/UHD broadcast gamut. Components r, g, b in [0,1]. D65, PQ transfer. */
 export class Rec2020Color<T = number> extends Color<T> {
     constructor(r: T, g: T, b: T, alpha?: T) {
         super("rec2020", alpha!);

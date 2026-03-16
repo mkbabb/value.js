@@ -482,6 +482,12 @@ onUnmounted(() => {
         @apply max-w-full h-auto rounded-lg my-4 mx-auto;
     }
 
+    /* Inline math — add breathing room between formulas and surrounding text */
+    p div.inline-block:has(> .katex),
+    li div.inline-block:has(> .katex) {
+        @apply mx-1;
+    }
+
     /* KaTeX display math blocks — rendered by <Katex> Vue component */
     > div.inline-block:has(> .katex) {
         display: block;
