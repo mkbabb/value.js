@@ -14,7 +14,7 @@
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
                         class="color-input w-full block border overflow-hidden items-center bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
                         :class="{
-                            'pr-8': (currentColorMeta && !proposeMode) || proposeMode,
+                            'pr-9': true,
                             'color-input-error': parseError && !proposeMode,
                             'color-input-mode-flash': modeTransition,
                         }"
@@ -57,29 +57,22 @@
                         </Tooltip>
                     </TooltipProvider>
 
-                    <!-- Send button -->
+                    <!-- Inline send button -->
                     <button
                         v-if="proposeMode"
-                        class="absolute right-1 top-1/2 -translate-y-1/2 p-1 rounded-sm transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:scale-110"
+                        class="send-btn"
                         :disabled="!proposedName.trim() || proposing"
                         @click="submitProposedName"
                     >
                         <Loader2 v-if="proposing" class="w-3.5 h-3.5 animate-spin" />
-                        <ArrowRight
-                            v-else
-                            class="w-4.5 h-4.5"
-                            :style="{ stroke: cssColorOpaque }"
-                        />
+                        <ArrowRight v-else class="w-4 h-4" :style="{ stroke: cssColorOpaque }" />
                     </button>
                     <button
-                        v-else-if="!currentColorMeta"
-                        class="absolute right-1 top-1/2 -translate-y-1/2 p-1 rounded-sm transition-all cursor-pointer hover:scale-110"
+                        v-else
+                        class="send-btn"
                         @click="onSubmitColor"
                     >
-                        <ArrowRight
-                            class="w-4.5 h-4.5"
-                            :style="{ stroke: cssColorOpaque }"
-                        />
+                        <ArrowRight class="w-4 h-4" :style="{ stroke: cssColorOpaque }" />
                     </button>
 
                     <!-- Parse error popover -->
@@ -266,6 +259,8 @@ defineExpose({
     focus: () => inputColorRef.value?.focus(),
     inputIsFocused,
     copyAndSetInputColor,
+    onSubmitColor,
+    submitProposedName,
 });
 </script>
 
@@ -277,6 +272,12 @@ defineExpose({
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease;
+    mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent 100%);
+}
+.color-input:focus {
+    mask-image: none;
+    -webkit-mask-image: none;
 }
 
 .color-input-error {
@@ -298,15 +299,33 @@ defineExpose({
     pointer-events: none;
 }
 
+.send-btn {
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.25rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.send-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+.send-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
 .error-badge {
     position: absolute;
     right: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 0.65rem;
+    @apply text-xs;
     line-height: 1;
     padding: 0.2rem 0.4rem;
-    border-radius: 0.25rem;
+    border-radius: var(--radius-sm);
     background: hsl(var(--destructive));
     color: hsl(var(--destructive-foreground));
     white-space: nowrap;
@@ -331,5 +350,15 @@ defineExpose({
 .error-pop-leave-to {
     opacity: 0;
     transform: translateY(-50%) scale(0.85);
+}
+
+/* Crown indicator animation */
+@keyframes crown-appear {
+    0%   { opacity: 0; color: var(--color-gold-light); transform: scale(0) rotate(-15deg); }
+    40%  { opacity: 1; color: var(--color-gold); transform: scale(1.4) rotate(5deg);
+           filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.7)); }
+    70%  { color: var(--color-gold); transform: scale(0.95) rotate(-2deg);
+           filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.4)); }
+    100% { color: var(--color-gold); transform: scale(1) rotate(0deg); filter: none; }
 }
 </style>

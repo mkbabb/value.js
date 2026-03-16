@@ -3,84 +3,22 @@
         <Card class="flex flex-col rounded-md min-w-0 lg:overflow-hidden lg:min-h-0">
             <CardHeader class="fraunces m-0 pb-0 relative w-full px-3 sm:px-6 min-w-0 overflow-visible">
                 <div class="w-full flex justify-between">
-                    <Select
-                        :ref="(el) => { selectedColorSpaceRef = el; }"
-                        v-model:open="selectedColorSpaceOpen"
+                    <ColorSpaceSelector
                         :model-value="model.selectedColorSpace"
-                        @update:model-value="
-                            (colorSpace: any) => {
-                                updateModel({ selectedColorSpace: colorSpace });
-                                selectedColorSpaceOpen = false;
-                            }
-                        "
-                    >
-                        <SelectTrigger
-                            :style="{
-                                color: cssColor,
-                            }"
-                            class="w-fit h-fit font-bold italic text-2xl p-0 m-0 border-none self-end focus:outline-none focus:ring-0 focus:ring-transparent bg-transparent select-none"
-                        >
-                            <SelectValue class="w-full" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectGroup class="fira-code">
-                                <SelectItem
-                                    class="text-lg"
-                                    v-for="space in Object.keys(COLOR_SPACE_RANGES)"
-                                    :value="space"
-                                    >{{ COLOR_SPACE_NAMES[space] }}</SelectItem
-                                >
-                            </SelectGroup>
-                        </SelectContent>
-                    </Select>
+                        v-model:open="selectedColorSpaceOpen"
+                        :css-color="cssColor"
+                        @update:model-value="(colorSpace: any) => updateModel({ selectedColorSpace: colorSpace })"
+                        @update:select-ref="(el: any) => { selectedColorSpaceRef = el; }"
+                    />
 
                     <HeroBlob ref="heroBlobRef" @click="colorInputRef?.copyAndSetInputColor()" />
                 </div>
 
-                <CardTitle
-                    class="flex h-fit text-4xl w-full m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap"
-                >
-                    <template
-                        v-for="([component, value], ix) in colorComponents"
-                        :key="component"
-                    >
-                        <div>
-                            <span
-                                contenteditable="true"
-                                role="textbox"
-                                :aria-label="`${component} component value`"
-                                class="font-semibold focus-visible:outline-none"
-                                @input="
-                                    (e) => {
-                                        const v = parseFloat((e.target as any).innerText);
-                                        if (!Number.isNaN(v)) updateColorComponentDebounced(v, component);
-                                    }
-                                "
-                                >{{
-                                    currentColorComponentsFormatted[component].value
-                                        .toFixed(1)
-                                        .replace(/\.0$/, "")
-                                        .replace(/^-0$/, "0")
-                                }}
-                            </span>
-                            <span
-                                v-if="
-                                    currentColorComponentsFormatted[component].unit !==
-                                    ''
-                                "
-                                class="font-normal italic text-lg"
-                            >
-                                {{
-                                    currentColorComponentsFormatted[component].unit
-                                }}</span
-                            ><span class="inline font-normal">{{
-                                ix !== colorComponents.length - 1
-                                    ? ","
-                                    : ""
-                            }}</span>
-                        </div>
-                    </template>
-                </CardTitle>
+                <ColorComponentDisplay
+                    :color-components="colorComponents"
+                    :formatted="currentColorComponentsFormatted"
+                    @update="(v, c) => updateColorComponentDebounced(v, c)"
+                />
             </CardHeader>
 
             <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pb-0 min-w-0 lg:flex-1 lg:min-h-0">
@@ -93,47 +31,67 @@
                     </div>
                 </div>
 
-                <div class="flex items-center gap-2 mt-4 pt-3 -mx-3 sm:-mx-6 px-3 sm:px-6 pb-3 shrink-0 border-t border-gray-700/15 shadow-[0_-4px_12px_-4px_rgba(0,0,0,0.12)]">
-                    <div class="grid relative items-center flex-1 min-w-0">
-                        <ActionToolbar
-                            ref="actionToolbarRef"
-                            :inert="showInput || undefined"
-                            :class="[
-                                '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out',
-                                showInput ? 'opacity-0 -translate-y-1 pointer-events-none' : 'opacity-100 translate-y-0',
-                            ]"
-                            :css-color-opaque="cssColorOpaque"
-                            :can-propose-name="canProposeName"
-                            :is-editing="isEditing"
-                            :palette-active="paletteDialogOpen || isEditing"
-                            @reset="emit('reset')"
-                            @copy="colorInputRef?.copyAndSetInputColor()"
-                            @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
-                            @open-palette="openPaletteDialog"
-                        />
-                        <ColorInput
-                            :inert="!showInput || undefined"
-                            ref="colorInputRef"
-                            :edit-target="editTarget"
-                            :propose-mode="toolbarMode === 'propose'"
-                            :class="[
-                                '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out',
-                                showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1 pointer-events-none',
-                            ]"
-                        />
-                    </div>
+                <div class="flex justify-center items-center pt-2 pb-3 -mx-3 sm:-mx-6 px-3 sm:px-6 h-16 shrink-0">
+                    <GlassDock :collapse-delay="2000">
+                        <div class="flex items-center gap-2">
+                            <div class="grid relative items-center flex-1 min-w-[18rem] sm:min-w-[22rem]">
+                                <ActionToolbar
+                                    ref="actionToolbarRef"
+                                    :inert="showInput || undefined"
+                                    :class="[
+                                        '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out',
+                                        showInput ? 'opacity-0 -translate-y-1 pointer-events-none' : 'opacity-100 translate-y-0',
+                                    ]"
+                                    :css-color-opaque="cssColorOpaque"
+                                    :can-propose-name="canProposeName"
+                                    :is-editing="isEditing"
+                                    :palette-active="paletteDialogOpen || isEditing"
+                                    @reset="emit('reset')"
+                                    @copy="colorInputRef?.copyAndSetInputColor()"
+                                    @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
+                                    @open-palette="openPaletteDialog"
+                                />
+                                <ColorInput
+                                    :inert="!showInput || undefined"
+                                    ref="colorInputRef"
+                                    :edit-target="editTarget"
+                                    :propose-mode="toolbarMode === 'propose'"
+                                    :class="[
+                                        '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out',
+                                        showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1 pointer-events-none',
+                                    ]"
+                                />
+                            </div>
 
-                    <!-- Toggle button with label, aligned with action buttons -->
-                    <div class="shrink-0 h-5 w-5 relative cursor-pointer" @click="cycleToolbarMode">
-                        <Transition name="toggle-icon" mode="out-in">
+                            <div class="dock-separator"></div>
+
+                            <!-- Toggle button -->
+                            <div class="flex items-center shrink-0">
+                                <div class="shrink-0 h-5 w-5 relative cursor-pointer" @click="cycleToolbarMode">
+                                    <Transition name="toggle-icon" mode="out-in">
+                                        <component
+                                            :is="currentToggleIcon"
+                                            :key="toolbarMode"
+                                            class="toggle-btn h-5 w-5 stroke-foreground hover:scale-125 transition-[transform] cursor-pointer absolute inset-0"
+                                            :style="{ '--toggle-hover-color': cssColorOpaque }"
+                                        />
+                                    </Transition>
+                                </div>
+                            </div>
+                        </div>
+
+                        <template #collapsed>
+                            <WatercolorDot
+                                :color="cssColorOpaque"
+                                tag="div"
+                                class="w-6 h-6 shrink-0"
+                            />
                             <component
                                 :is="currentToggleIcon"
-                                :key="toolbarMode"
-                                class="toggle-btn h-5 w-5 stroke-foreground hover:scale-125 transition-[transform] cursor-pointer absolute inset-0"
-                                :style="{ '--toggle-hover-color': cssColorOpaque }"
+                                class="h-4 w-4 stroke-foreground/60"
                             />
-                        </Transition>
-                    </div>
+                        </template>
+                    </GlassDock>
                 </div>
             </CardContent>
         </Card>
@@ -163,19 +121,9 @@
 </template>
 
 <script setup lang="ts">
-import { Card, CardContent, CardHeader, CardTitle } from "@components/ui/card";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@components/ui/select";
-import {
-    COLOR_SPACE_NAMES,
-    COLOR_SPACE_RANGES,
-} from "@src/units/color/constants";
+import { Card, CardContent, CardHeader } from "@components/ui/card";
+import ColorSpaceSelector from "./ColorSpaceSelector.vue";
+import ColorComponentDisplay from "./ColorComponentDisplay.vue";
 import {
     computed,
     onMounted,
@@ -201,7 +149,9 @@ import ComponentSliders from "./ComponentSliders.vue";
 import ColorInput from "./ColorInput.vue";
 import ActionToolbar from "./ActionToolbar.vue";
 import EditDrawer from "./EditDrawer.vue";
+import GlassDock from "./GlassDock.vue";
 import PointerDebugOverlay from "./PointerDebugOverlay.vue";
+import { WatercolorDot } from "@components/custom/watercolor-dot";
 
 const model = defineModel<ColorModel>({ required: true });
 const emit = defineEmits<{ reset: [] }>();
