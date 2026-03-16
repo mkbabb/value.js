@@ -64,12 +64,12 @@
     >
         <HeaderRibbon ref="headerRibbonRef" position="left">
             <template #anchor="{ pinned, toggled }">
-                <HoverCard v-model:open="mbabbHoverOpen" :open-delay="300" :close-delay="200">
-                    <HoverCardTrigger>
+                <HoverCard v-model:open="mbabbHoverOpen" :open-delay="400" :close-delay="0">
+                    <HoverCardTrigger @click.prevent="onMbabbClick">
                         <Button
                             :class="[
                                 'p-0 m-0 cursor-pointer h-fit text-xs lg:text-sm transition-all duration-200 font-mono font-normal',
-                                toggled
+                                mbabbHoverOpen
                                     ? 'underline underline-offset-4 text-foreground decoration-2'
                                     : pinned
                                         ? 'underline underline-offset-4 text-foreground'
@@ -123,7 +123,7 @@
         </HeaderRibbon>
 
         <div
-            class="grid lg:grid-cols-2 lg:grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-10 lg:max-h-screen"
+            class="grid lg:grid-cols-2 lg:grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-4 sm:py-10 lg:max-h-screen"
         >
             <ColorPicker
                 ref="colorPickerRef"
@@ -269,6 +269,17 @@ const resetToDefaults = () => {
 // Header ribbon
 const headerRibbonRef = ref<InstanceType<typeof HeaderRibbon> | null>(null);
 const mbabbHoverOpen = ref(false);
+const mbabbPinned = ref(false);
+
+function onMbabbClick() {
+    mbabbPinned.value = !mbabbPinned.value;
+    mbabbHoverOpen.value = mbabbPinned.value;
+}
+
+// When HoverCard closes via click-away or hover-out, unpin
+watch(mbabbHoverOpen, (open) => {
+    if (!open) mbabbPinned.value = false;
+});
 
 // Share link — copies current URL to clipboard with brief visual feedback
 const linkCopied = ref(false);
@@ -354,5 +365,18 @@ onMounted(() => {
 }
 .header-control-item:active {
     transform: scale(0.95);
+}
+
+/* Blur the "About" card when editing */
+.about-card-editing {
+    filter: blur(3px) saturate(0.6);
+    opacity: 0.5;
+    transition: filter var(--duration-slow) ease, opacity var(--duration-slow) ease;
+    pointer-events: none;
+}
+.about-card-normal {
+    filter: none;
+    opacity: 1;
+    transition: filter var(--duration-slow) ease, opacity var(--duration-slow) ease;
 }
 </style>
