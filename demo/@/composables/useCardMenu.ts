@@ -1,4 +1,5 @@
 import { ref, reactive, nextTick, onUnmounted } from "vue";
+import { useLeaveTimer } from "./useLeaveTimer";
 
 export function useCardMenu(options?: { canHover?: boolean }) {
     const canHover = options?.canHover ?? (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches);
@@ -6,7 +7,7 @@ export function useCardMenu(options?: { canHover?: boolean }) {
     const menuOpen = ref(false);
     const menuTriggerRef = ref<HTMLElement | null>(null);
     const menuStyle = reactive({ top: "0px", left: "0px" });
-    let menuLeaveTimer: ReturnType<typeof setTimeout> | null = null;
+    const leaveTimer = useLeaveTimer(250);
 
     function positionMenu() {
         if (!menuTriggerRef.value) return;
@@ -47,17 +48,11 @@ export function useCardMenu(options?: { canHover?: boolean }) {
     }
 
     function scheduleMenuLeave() {
-        cancelMenuLeave();
-        menuLeaveTimer = setTimeout(() => {
-            menuOpen.value = false;
-        }, 250);
+        leaveTimer.schedule(() => { menuOpen.value = false; });
     }
 
     function cancelMenuLeave() {
-        if (menuLeaveTimer) {
-            clearTimeout(menuLeaveTimer);
-            menuLeaveTimer = null;
-        }
+        leaveTimer.cancel();
     }
 
     function onMenuAction(action: () => void, keepOpen = false) {
@@ -76,7 +71,7 @@ export function useCardMenu(options?: { canHover?: boolean }) {
         if (typeof document !== "undefined") {
             document.removeEventListener("click", onDocClick);
         }
-        cancelMenuLeave();
+        leaveTimer.cancel();
     });
 
     return {

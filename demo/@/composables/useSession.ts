@@ -40,6 +40,11 @@ function clearSession() {
     sessionStorage.removeItem(SESSION_KEY);
 }
 
+/**
+ * Module-level singleton: state is shared across all callers.
+ * Lazy-init avoids accessing Storage at import time
+ * (SSR safety + Safari private browsing).
+ */
 export function useSession() {
     initialize();
     return {

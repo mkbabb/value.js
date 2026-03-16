@@ -12,6 +12,11 @@ function getAdminToken(): Ref<string | null> {
     return _adminToken;
 }
 
+/**
+ * Module-level singleton: state is shared across all callers.
+ * Lazy-init avoids accessing Storage at import time
+ * (SSR safety + Safari private browsing).
+ */
 export function useAdminAuth() {
     const adminToken = getAdminToken();
     const isAuthenticated = computed(() => !!adminToken.value);

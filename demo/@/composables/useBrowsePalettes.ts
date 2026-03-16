@@ -1,4 +1,5 @@
-import { ref, computed, type Ref } from "vue";
+import { ref, type Ref } from "vue";
+import { useFilteredList } from "./useFilteredList";
 import { useSession } from "./useSession";
 import { usePaletteStore } from "./usePaletteStore";
 import {
@@ -19,13 +20,9 @@ export function useBrowsePalettes(deps: {
     const sortLoading = ref(false);
     const sortMode = ref<"newest" | "popular">("newest");
 
-    const filteredBrowse = computed(() => {
-        const q = deps.searchQuery.value.toLowerCase();
-        if (!q) return remotePalettes.value;
-        return remotePalettes.value.filter(
-            (p) => p.name.toLowerCase().includes(q) || p.slug.includes(q),
-        );
-    });
+    const filteredBrowse = useFilteredList(remotePalettes, deps.searchQuery, (p, q) =>
+        p.name.toLowerCase().includes(q) || p.slug.includes(q),
+    );
 
     async function loadRemotePalettes(isSort = false) {
         if (!isSort) {

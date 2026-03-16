@@ -13,7 +13,7 @@ interface PaginatedResponse<T> {
 // Session-aware request helper
 let sessionToken: string | null = null;
 
-export function setSessionToken(token: string) {
+export function setSessionToken(token: string | null) {
     sessionToken = token;
 }
 
@@ -30,10 +30,17 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
         headers,
     });
     if (!res.ok) {
+        if (res.status === 401) {
+            sessionToken = null;
+        }
         const body = await res.text().catch(() => "");
         throw new Error(`API ${res.status}: ${body}`);
     }
     return res.json();
+}
+
+export function deleteSession(): Promise<{ ok: boolean }> {
+    return request("/sessions", { method: "DELETE" });
 }
 
 export function createSession(): Promise<{ token: string; userSlug: string }> {

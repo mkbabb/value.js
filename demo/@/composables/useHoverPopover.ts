@@ -1,4 +1,5 @@
 import { ref, reactive, nextTick } from "vue";
+import { useLeaveTimer } from "./useLeaveTimer";
 
 const CAN_HOVER = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
@@ -11,7 +12,7 @@ export function useHoverPopover(options?: { canHover?: boolean }) {
 
     const openIndex = ref<number | null>(null);
     const style = reactive({ top: "0px", left: "0px" });
-    let hoverTimer: ReturnType<typeof setTimeout> | null = null;
+    const leaveTimer = useLeaveTimer(250);
 
     function positionPanel(swatchEl: Element, offsetY = -42) {
         const rect = swatchEl.getBoundingClientRect();
@@ -28,16 +29,11 @@ export function useHoverPopover(options?: { canHover?: boolean }) {
 
     function onLeave() {
         if (!canHover) return;
-        hoverTimer = setTimeout(() => {
-            openIndex.value = null;
-        }, 250);
+        leaveTimer.schedule(() => { openIndex.value = null; });
     }
 
     function cancelLeave() {
-        if (hoverTimer) {
-            clearTimeout(hoverTimer);
-            hoverTimer = null;
-        }
+        leaveTimer.cancel();
     }
 
     function close() {
