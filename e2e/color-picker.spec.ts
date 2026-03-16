@@ -1,5 +1,14 @@
 import { test, expect } from "@playwright/test";
 
+/** Expand the GlassDock so toolbar icons become clickable. */
+async function expandDock(page: import("@playwright/test").Page) {
+    const dock = page.locator(".glass-dock").first();
+    // Click the dock itself (not just hover near it — the collapsed dock is small
+    // and centered in a larger wrapper, so hovering the wrapper misses it).
+    await dock.click();
+    await page.waitForTimeout(300);
+}
+
 test.describe("Color Picker", () => {
     test.beforeEach(async ({ page }) => {
         await page.goto("/");
@@ -127,6 +136,9 @@ test.describe("Color Picker", () => {
         // Grant clipboard permissions
         await context.grantPermissions(["clipboard-read", "clipboard-write"]);
 
+        // Expand dock so toolbar icons are interactive
+        await expandDock(page);
+
         // Find and click the copy icon
         const copyButton = page.locator(".lucide-copy").first();
         await expect(copyButton).toBeVisible();
@@ -167,6 +179,9 @@ test.describe("Color Picker", () => {
         await page.waitForSelector("[role='option']");
         await page.locator("[role='option']").filter({ hasText: "HSV" }).click();
         await expect(trigger).toContainText("HSV");
+
+        // Expand dock so toolbar icons are interactive
+        await expandDock(page);
 
         // Click the reset button
         const resetButton = page.locator(".lucide-rotate-ccw").first();

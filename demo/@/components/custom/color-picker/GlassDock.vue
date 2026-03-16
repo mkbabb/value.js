@@ -22,8 +22,13 @@ let ignoreEvents = true;
 
 const dockEl = useTemplateRef<HTMLElement>("dockEl");
 
+// --- Hold-open bookkeeping ---
 // Child components (e.g. DockPopover, Select) can hold the dock open
 let keepOpenCount = 0;
+// True while any descendant has focus
+let hasFocus = false;
+// True while the pointer is hovering the dock
+let hovered = false;
 
 provide("dockKeepOpen", () => {
     keepOpenCount++;
@@ -32,7 +37,7 @@ provide("dockKeepOpen", () => {
 
 provide("dockRelease", () => {
     keepOpenCount = Math.max(0, keepOpenCount - 1);
-    if (keepOpenCount === 0) scheduleCollapse();
+    if (keepOpenCount === 0) maybeScheduleCollapse();
 });
 
 onMounted(() => {
@@ -48,8 +53,9 @@ function clearTimer() {
     }
 }
 
-function scheduleCollapse() {
-    if (keepOpenCount > 0) return;
+/** Only schedule collapse when nothing is actively holding the dock open. */
+function maybeScheduleCollapse() {
+    if (keepOpenCount > 0 || hasFocus || hovered) return;
     clearTimer();
     collapseTimer = setTimeout(() => {
         expanded.value = false;
@@ -58,28 +64,60 @@ function scheduleCollapse() {
 
 function onEnter() {
     if (ignoreEvents) return;
+    hovered = true;
     clearTimer();
     expanded.value = true;
 }
 
 function onLeave(e: MouseEvent) {
+    // relatedTarget inside the dock → pointer is still here
     const root = dockEl.value;
     if (root && e.relatedTarget instanceof Node && root.contains(e.relatedTarget)) return;
-    if (keepOpenCount > 0) return;
-    scheduleCollapse();
+
+    // Fallback: when relatedTarget is null (child removed during Vue Transition,
+    // SVG edge cases, mobile), check if cursor is still within bounds.
+    if (root && !e.relatedTarget) {
+        const rect = root.getBoundingClientRect();
+        if (
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom
+        ) return;
+    }
+
+    hovered = false;
+    maybeScheduleCollapse();
+}
+
+function onFocusIn() {
+    if (ignoreEvents) return;
+    hasFocus = true;
+    clearTimer();
+    expanded.value = true;
 }
 
 function onFocusOut(e: FocusEvent) {
     const root = e.currentTarget as HTMLElement;
+    // Focus moving to another element inside the dock — still focused
     if (e.relatedTarget && root.contains(e.relatedTarget as Node)) return;
-    if (keepOpenCount > 0) return;
-    scheduleCollapse();
+    hasFocus = false;
+    maybeScheduleCollapse();
+}
+
+/** Any pointer activity inside the dock resets the collapse timer. */
+function onPointerDownDock() {
+    if (ignoreEvents) return;
+    clearTimer();
+    expanded.value = true;
 }
 
 function onClickSummary() {
     clearTimer();
     expanded.value = true;
-    scheduleCollapse();
+    // On mobile the summary tap is the only entry point — don't
+    // immediately schedule collapse; wait for pointer/focus/hover
+    // to leave the dock instead.
 }
 
 // Click-away collapse
@@ -102,6 +140,8 @@ watch(expanded, (isExpanded) => {
         };
     } else {
         removeClickAway?.();
+        hovered = false;
+        hasFocus = false;
     }
 });
 
@@ -122,8 +162,9 @@ onUnmounted(() => {
         ]"
         @mouseenter="onEnter"
         @mouseleave="onLeave"
-        @focusin="onEnter"
+        @focusin="onFocusIn"
         @focusout="onFocusOut"
+        @pointerdown="onPointerDownDock"
     >
         <div class="dock-layers">
             <div :class="['dock-layer dock-layer--full', { 'layer-active': expanded }]">

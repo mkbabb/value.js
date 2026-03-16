@@ -1,5 +1,12 @@
 import { test, expect } from "@playwright/test";
 
+/** Expand the GlassDock so toolbar icons become clickable. */
+async function expandDock(page: import("@playwright/test").Page) {
+    const dock = page.locator(".glass-dock").first();
+    await dock.click();
+    await page.waitForTimeout(300);
+}
+
 test.describe("Edge Cases", () => {
     test.beforeEach(async ({ page }) => {
         await page.goto("/");
@@ -7,10 +14,16 @@ test.describe("Edge Cases", () => {
     });
 
     test("slug preview appears when typing palette name", async ({ page }) => {
+        // Expand dock so palette icon is interactive
+        await expandDock(page);
+
         // Add a color first
         const paletteIcon = page.locator(".lucide-palette").first();
         await paletteIcon.click();
         await page.waitForTimeout(400);
+
+        // Re-expand dock for second click
+        await expandDock(page);
 
         // Open palette dialog
         await page.locator(".lucide-palette").first().click();
@@ -28,6 +41,9 @@ test.describe("Edge Cases", () => {
     });
 
     test("search with no results shows empty state", async ({ page }) => {
+        // Expand dock so palette icon is interactive
+        await expandDock(page);
+
         // Open palette dialog
         await page.locator(".lucide-palette").first().click();
         await page.waitForTimeout(300);
@@ -89,7 +105,12 @@ test.describe("Edge Cases", () => {
             test.skip();
         }
 
-        await page.locator(".lucide-palette").first().click();
+        // Expand dock so palette icon is interactive
+        const dock = page.locator(".glass-dock").first();
+        await dock.tap();
+        await page.waitForTimeout(200);
+
+        await page.locator(".lucide-palette").first().tap();
         await page.waitForTimeout(500);
 
         // Dialog should be visible
