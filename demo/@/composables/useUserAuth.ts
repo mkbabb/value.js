@@ -1,5 +1,5 @@
 import { ref, computed, type Ref } from "vue";
-import { createSession, loginWithSlug, setSessionToken } from "@lib/palette/api";
+import { createSession, deleteSession, loginWithSlug, setSessionToken } from "@lib/palette/api";
 import { safeGetItem, safeSetItem, safeRemoveItem } from "./useSafeStorage";
 
 const SLUG_KEY = "palette-user-slug";
@@ -34,6 +34,11 @@ function persist(slug: string, token: string) {
     setSessionToken(token);
 }
 
+/**
+ * Module-level singleton: state is shared across all callers.
+ * Lazy-init avoids accessing Storage at import time
+ * (SSR safety + Safari private browsing).
+ */
 export function useUserAuth() {
     const slugRef = getUserSlug();
     const tokenRef = getUserToken();
@@ -68,12 +73,17 @@ export function useUserAuth() {
     }
 
     async function logout() {
+        // Revoke session on server before clearing local state
+        try {
+            await deleteSession();
+        } catch {
+            // Session may already be expired
+        }
         slugRef.value = null;
         tokenRef.value = null;
         safeRemoveItem(localStorage, SLUG_KEY);
         safeRemoveItem(localStorage, TOKEN_KEY);
-        // Auto-register a fresh anonymous session so the slug UI reappears
-        await register();
+        setSessionToken(null);
     }
 
     /**

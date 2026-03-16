@@ -2,7 +2,7 @@
     <Dialog v-model:open="openModel">
         <DialogScrollContent
             :class="[
-                'palette-dialog w-[calc(100%-1rem)] sm:w-[min(95vw,1050px)] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg h-[min(90vh,820px)] max-h-[90vh] min-w-0 flex flex-col',
+                'palette-dialog max-w-[1200px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg h-[min(90vh,820px)] max-h-[90vh] min-w-0 flex flex-col',
                 editingExit && 'palette-dialog--editing-exit',
                 editingEnter && 'palette-dialog--editing-enter',
             ]"
@@ -28,168 +28,65 @@
                     :style="{ '--active-tab-color': cssColorOpaque }"
                 >
                     <!-- Controls: sticky tabs row, then search+sort row -->
-                    <div class="flex flex-col gap-2 mb-4 min-w-0 sticky top-0 z-10 bg-card pb-2">
-                        <!-- User slug display -->
-                        <PaletteSlugBar
-                            ref="slugBarRef"
-                            :user-slug="userSlug"
-                            :css-color-opaque="cssColorOpaque"
-                            :has-saved-palettes="savedPalettes.length > 0"
-                            :is-admin="isAdminAuthenticated"
-                            @switch-slug="onSlugSwitch"
-                            @regenerate="onRegenerateSlug"
-                        />
-
-                        <div
-                            ref="tabsScrollRef"
-                            :class="['overflow-x-auto mx-0', tabsOverflowing && 'tabs-scroll-mask']"
-                        >
-                            <TabsList class="shrink-0 w-fit flex-nowrap">
-                                <TabsTrigger value="saved" class="fraunces text-base font-bold"
-                                    >My Palettes</TabsTrigger
-                                >
-                                <TabsTrigger value="browse" class="fraunces text-base font-bold"
-                                    >Browse</TabsTrigger
-                                >
-                                <template v-if="isAdminAuthenticated">
-                                    <TabsTrigger value="admin-users" class="fraunces text-base font-bold">
-                                        <Shield class="w-3.5 h-3.5 mr-1" />
-                                        Users
-                                    </TabsTrigger>
-                                    <TabsTrigger value="admin-names" class="fraunces text-base font-bold">
-                                        Names
-                                    </TabsTrigger>
-                                </template>
-                            </TabsList>
-                        </div>
-                        <div class="flex items-center gap-2 min-w-0 flex-1">
-                            <Input
-                                v-model="searchQuery"
-                                :placeholder="searchPlaceholder"
-                                class="fira-code text-sm sm:text-base h-9 sm:h-10 focus-visible:ring-0 focus-visible:ring-offset-0 min-w-0 flex-1"
-                            />
-                            <!-- Sort controls (browse tab) -->
-                            <template v-if="activeTab === 'browse'">
-                                <SortFilterMenu
-                                    :sort="sortMode"
-                                    @update:sort="onSortChange"
-                                />
-                            </template>
-                            <!-- Sort controls (admin users tab) -->
-                            <template v-if="activeTab === 'admin-users'">
-                                <UserSortMenu
-                                    :sort="userSortMode"
-                                    @update:sort="onUserSortChange"
-                                />
-                            </template>
-                        </div>
-                    </div>
+                    <PaletteControlsBar
+                        ref="controlsBarRef"
+                        v-model:search="searchQuery"
+                        :active-tab="activeTab"
+                        :search-placeholder="searchPlaceholder"
+                        :user-slug="userSlug"
+                        :css-color-opaque="cssColorOpaque"
+                        :has-saved-palettes="savedPalettes.length > 0"
+                        :is-admin="isAdminAuthenticated"
+                        :sort-mode="sortMode"
+                        :user-sort-mode="userSortMode"
+                        :dialog-open="openModel"
+                        @switch-slug="onSlugSwitch"
+                        @regenerate="onRegenerateSlug"
+                        @logout="userLogout"
+                        @sort-change="onSortChange"
+                        @user-sort-change="onUserSortChange"
+                    />
 
                     <!-- My Palettes tab -->
-                    <TabsContent value="saved" class="mt-0 w-full">
-                        <Transition name="tab-fade" mode="out-in">
-                            <div :key="'saved'" class="grid gap-3 pb-3">
-                                <!-- Current working palette -->
-                                <CurrentPaletteEditor
-                                    :saved-color-strings="savedColorStrings"
-                                    :css-color-opaque="cssColorOpaque"
-                                    :saved-palette-count="savedPalettes.length"
-                                    :saved-palettes="savedPalettes"
-                                    @apply="(colors) => emit('apply', colors)"
-                                    @add-color="(css) => emit('addColor', css)"
-                                    @start-edit="(target) => emit('startEdit', target)"
-                                    @saved="onCurrentPaletteSaved"
-                                    @updated="onCurrentPaletteUpdated"
-                                />
-
-                                <!-- Saved palettes toolbar -->
-                                <div v-if="savedPalettes.length > 0" class="flex items-center gap-2">
-                                    <span class="fira-code text-xs text-muted-foreground">
-                                        {{ savedPalettes.length }} palette{{ savedPalettes.length !== 1 ? 's' : '' }}
-                                    </span>
-                                    <div class="flex-1" />
-                                    <Button
-                                        variant="destructive"
-                                        size="sm"
-                                        class="h-7 px-2.5 cursor-pointer fraunces text-xs gap-1.5"
-                                        @click="showDeleteAllConfirm = true"
-                                    >
-                                        <Trash2 class="w-3 h-3" />
-                                        Delete all
-                                    </Button>
-                                </div>
-
-                                <PaletteCard
-                                    v-for="palette in filteredSaved"
-                                    :key="palette.id"
-                                    :palette="palette"
-                                    :expanded="expandedId === palette.id"
-                                    :css-color="cssColorOpaque"
-                                    :editable-name="true"
-                                    @click="toggleExpand(palette.id)"
-                                    @apply="onApply"
-                                    @delete="onDelete"
-                                    @publish="onPublish"
-                                    @rename="onRenameSaved"
-                                    @edit-color="onEditColor"
-                                />
-                                <p
-                                    v-if="filteredSaved.length === 0"
-                                    class="text-center text-muted-foreground py-4 fira-code text-sm italic"
-                                >
-                                    No saved palettes yet. Add colors above, then save.
-                                </p>
-                            </div>
-                        </Transition>
-                    </TabsContent>
+                    <PaletteSavedTab
+                        :saved-color-strings="savedColorStrings"
+                        :css-color-opaque="cssColorOpaque"
+                        :saved-palettes="savedPalettes"
+                        :filtered-saved="filteredSaved"
+                        :expanded-id="expandedId"
+                        @apply="(colors) => emit('apply', colors)"
+                        @add-color="(css) => emit('addColor', css)"
+                        @start-edit="(target) => emit('startEdit', target)"
+                        @saved="onCurrentPaletteSaved"
+                        @updated="onCurrentPaletteUpdated"
+                        @delete-all="showDeleteAllConfirm = true"
+                        @toggle-expand="toggleExpand"
+                        @apply-palette="onApply"
+                        @delete="onDelete"
+                        @publish="onPublish"
+                        @rename="onRenameSaved"
+                        @edit-color="onEditColor"
+                    />
 
                     <!-- Browse (remote) palettes tab -->
-                    <TabsContent value="browse" class="mt-0 w-full">
-                        <Transition name="tab-fade" mode="out-in">
-                            <div :key="'browse'" class="grid gap-3 pb-3 min-h-[120px]">
-                                <div
-                                    v-if="browsing"
-                                    class="flex items-center justify-center min-h-[120px]"
-                                >
-                                    <Loader2
-                                        class="w-5 h-5 animate-spin text-muted-foreground"
-                                    />
-                                </div>
-                                <template v-else>
-                                    <div
-                                        class="grid gap-3 transition-opacity duration-200"
-                                        :class="{ 'opacity-50': sortLoading }"
-                                    >
-                                        <PaletteCard
-                                            v-for="palette in filteredBrowse"
-                                            :key="palette.slug"
-                                            :palette="palette"
-                                            :expanded="expandedId === palette.id"
-                                            :css-color="cssColorOpaque"
-                                            :is-owned="palette.userSlug === userSlug"
-                                            :is-admin="isAdminAuthenticated"
-                                            show-slug
-                                            @click="toggleExpand(palette.id)"
-                                            @apply="onApply"
-                                            @save="onSaveRemote"
-                                            @vote="onVote"
-                                            @rename="onRename"
-                                            @edit-color="onEditColor"
-                                            @add-color="onSwatchAddColor"
-                                            @feature="onFeaturePalette"
-                                            @admin-delete="onAdminDeletePalette"
-                                        />
-                                        <p
-                                            v-if="filteredBrowse.length === 0"
-                                            class="text-center text-muted-foreground py-8 fira-code text-base italic"
-                                        >
-                                            No published palettes found.
-                                        </p>
-                                    </div>
-                                </template>
-                            </div>
-                        </Transition>
-                    </TabsContent>
+                    <PaletteBrowseTab
+                        :browsing="browsing"
+                        :sort-loading="sortLoading"
+                        :filtered-browse="filteredBrowse"
+                        :expanded-id="expandedId"
+                        :css-color-opaque="cssColorOpaque"
+                        :user-slug="userSlug"
+                        :is-admin="isAdminAuthenticated"
+                        @toggle-expand="toggleExpand"
+                        @apply="onApply"
+                        @save="onSaveRemote"
+                        @vote="onVote"
+                        @rename="onRename"
+                        @edit-color="onEditColor"
+                        @add-color="onSwatchAddColor"
+                        @feature="onFeaturePalette"
+                        @admin-delete="onAdminDeletePalette"
+                    />
 
                     <!-- Admin Users tab -->
                     <TabsContent v-if="isAdminAuthenticated" value="admin-users" class="mt-0 w-full">
@@ -264,23 +161,14 @@ import {
     ref,
     computed,
     watch,
-    nextTick,
-    onMounted,
-    onBeforeUnmount,
     Transition,
 } from "vue";
 import {
     Dialog,
     DialogScrollContent,
 } from "@components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
-import { Input } from "@components/ui/input";
-import {
-    Loader2,
-    Shield,
-    Trash2,
-} from "lucide-vue-next";
-import { Button } from "@components/ui/button";
+import { Tabs, TabsContent } from "@components/ui/tabs";
+import { Trash2 } from "lucide-vue-next";
 
 import ConfirmDialog from "./ConfirmDialog.vue";
 
@@ -290,18 +178,16 @@ import { useAdminAuth } from "@composables/useAdminAuth";
 import { useUserAuth } from "@composables/useUserAuth";
 import { useSession } from "@composables/useSession";
 import { useBrowsePalettes } from "@composables/useBrowsePalettes";
-import { useAdminOperations } from "@composables/useAdminOperations";
+import { useAdminUsers, useColorNameQueue } from "@composables/useAdminOperations";
 import { useSlugMigration } from "@composables/useSlugMigration";
 import { publishPalette } from "@lib/palette/api";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 
 import PaletteDialogHeader from "./PaletteDialogHeader.vue";
-import PaletteSlugBar from "./PaletteSlugBar.vue";
-import CurrentPaletteEditor from "./CurrentPaletteEditor.vue";
-import PaletteCard from "./PaletteCard.vue";
+import PaletteControlsBar from "./PaletteControlsBar.vue";
+import PaletteSavedTab from "./PaletteSavedTab.vue";
+import PaletteBrowseTab from "./PaletteBrowseTab.vue";
 import MigratePalettesDialog from "./MigratePalettesDialog.vue";
-import SortFilterMenu from "./SortFilterMenu.vue";
-import UserSortMenu from "./UserSortMenu.vue";
 import AdminUsersPanel from "./AdminUsersPanel.vue";
 import AdminNamesPanel from "./AdminNamesPanel.vue";
 
@@ -325,8 +211,7 @@ const openModel = defineModel<boolean>("open", { default: false });
 const activeTab = ref<TabValue>("saved");
 const searchQuery = ref("");
 const expandedId = ref<string | null>(null);
-const tabsScrollRef = ref<HTMLElement | null>(null);
-const tabsOverflowing = ref(false);
+const controlsBarRef = ref<InstanceType<typeof PaletteControlsBar> | null>(null);
 
 const { isAuthenticated: isAdminAuthenticated, login: adminLogin } = useAdminAuth();
 const { userSlug, ensureUser, login: userLogin, logout: userLogout, clearSlug } = useUserAuth();
@@ -353,16 +238,13 @@ const {
     onRename,
 } = useBrowsePalettes({ searchQuery });
 
-// --- Admin operations composable ---
+// --- Admin operations composables ---
 const {
     adminUsers,
     loadingUsers,
-    adminColorQueue,
-    loadingColorQueue,
     userSortMode,
     adminUsersPanelRef,
     filteredAdminUsers,
-    filteredColorQueue,
     onUserSortChange,
     loadAdminUsers,
     onFeaturePalette,
@@ -370,17 +252,23 @@ const {
     onAdminDeleteUserPalette,
     onDeleteUserPalettes,
     onDeleteUser,
-    loadColorQueue,
+    onPruneEmpty,
+} = useAdminUsers({ searchQuery, remotePalettes });
+
+const {
+    adminColorQueue,
+    loadingColorQueue,
     approvedColors,
     loadingApproved,
     approvedLoaded,
+    filteredColorQueue,
     filteredApproved,
+    loadColorQueue,
     loadApprovedColors,
     onApproveColor,
     onRejectColor,
     onDeleteColor,
-    onPruneEmpty,
-} = useAdminOperations({ searchQuery, remotePalettes });
+} = useColorNameQueue({ searchQuery });
 
 // --- Slug migration composable ---
 const {
@@ -396,57 +284,20 @@ const {
     userLogout,
     adminLogin,
     clearUserSlug: clearSlug,
+    ensureUser,
     activeTab,
 });
 
-// Auto-register user when dialog opens if no slug exists (skip for admin)
-watch(openModel, (open) => {
-    if (open && !isAdminAuthenticated.value) {
-        ensureUser().catch((e: any) => {
-            console.warn("Auto-register failed:", e?.message);
-        });
-    }
-});
+// Keep the migration composable's slugBarRef synced with the nested ref in PaletteControlsBar
+watch(controlsBarRef, (bar) => {
+    slugBarRef.value = bar?.slugBarRef ?? null;
+}, { immediate: true, flush: "post" });
 
 // Reload browse palettes when slug changes (vote status is slug-bound)
 watch(userSlug, () => {
     if (remotePalettes.value.length > 0) {
         loadRemotePalettes();
     }
-});
-
-// Tabs overflow detection
-function checkTabsOverflow() {
-    const el = tabsScrollRef.value;
-    if (el) {
-        tabsOverflowing.value = el.scrollWidth > el.clientWidth;
-    }
-}
-
-let tabsResizeObserver: ResizeObserver | null = null;
-
-watch(openModel, (open) => {
-    if (open) {
-        nextTick(checkTabsOverflow);
-    }
-});
-
-watch(isAdminAuthenticated, () => {
-    nextTick(checkTabsOverflow);
-});
-
-onMounted(() => {
-    tabsResizeObserver = new ResizeObserver(checkTabsOverflow);
-    if (tabsScrollRef.value) {
-        tabsResizeObserver.observe(tabsScrollRef.value);
-    }
-    watch(tabsScrollRef, (el) => {
-        if (el) tabsResizeObserver?.observe(el);
-    });
-});
-
-onBeforeUnmount(() => {
-    tabsResizeObserver?.disconnect();
 });
 
 const searchPlaceholder = computed(() => {
@@ -459,7 +310,8 @@ const searchPlaceholder = computed(() => {
 
 // --- Current palette events from sub-component ---
 
-function onCurrentPaletteSaved(name: string, colors: PaletteColor[]) {
+async function onCurrentPaletteSaved(name: string, colors: PaletteColor[]) {
+    await ensureUser();
     const palette = createPalette(name, colors);
     expandedId.value = palette.id;
 }
@@ -582,6 +434,7 @@ function onDelete(palette: Palette) {
 
 async function onPublish(palette: Palette) {
     try {
+        await ensureUser();
         await session.ensureSession();
     } catch {
         console.warn("Failed to create session — check your network connection");
@@ -616,13 +469,6 @@ function onDeleteAllSaved() {
 </script>
 
 <style scoped>
-.tabs-scroll-mask {
-    mask-image: linear-gradient(to right, transparent, black 0.75rem, black calc(100% - 0.75rem), transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 0.75rem, black calc(100% - 0.75rem), transparent);
-    scrollbar-width: none;
-    &::-webkit-scrollbar { display: none; }
-}
-
 :deep(button[role="tab"][data-state="active"]) {
     color: var(--active-tab-color) !important;
     box-shadow: none !important;
@@ -632,13 +478,102 @@ function onDeleteAllSaved() {
 </style>
 
 <style>
+/* Palette dialog overlay — blur & desaturate main view.
+   !important needed to override Tailwind's bg-black/80 on DialogOverlay (shadcn-vue, not editable). */
+[data-state]:has(> .palette-dialog) {
+    background: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(4px) saturate(0.7);
+    transition: backdrop-filter var(--duration-slow) ease, background var(--duration-slow) ease, opacity var(--duration-slow) ease;
+    --tw-duration: var(--duration-slow);
+}
+[data-state="closed"]:has(> .palette-dialog) {
+    backdrop-filter: blur(0px) saturate(1);
+    background: transparent !important;
+}
+
+/* Palette dialog enter/exit animation */
+.palette-dialog {
+    animation: dialog-in var(--duration-slow) var(--ease-decelerate);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 0 1px hsl(var(--border));
+    outline: none;
+}
+.palette-dialog:focus,
+.palette-dialog:focus-visible {
+    outline: none;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 0 1px hsl(var(--border));
+}
+.palette-dialog[data-state="closed"] {
+    animation: dialog-out var(--duration-normal) var(--ease-standard);
+}
+@keyframes dialog-in {
+    from { opacity: 0; transform: scale(0.95) translateY(8px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes dialog-out {
+    from { opacity: 1; transform: scale(1) translateY(0); }
+    to   { opacity: 0; transform: scale(0.95) translateY(8px); }
+}
+
+/* Dialog exits by sliding left + shrinking toward drawer position */
+.palette-dialog--editing-exit[data-state="closed"] {
+    animation: dialog-out-to-drawer var(--duration-slow) var(--ease-standard);
+}
+@keyframes dialog-out-to-drawer {
+    from { opacity: 1; transform: scale(1) translateX(0); }
+    to   { opacity: 0; transform: scale(0.35) translateX(-120%); }
+}
+
+/* Dialog enters by sliding in from left (returning from edit mode) */
+.palette-dialog--editing-enter[data-state="open"] {
+    animation: dialog-in-from-drawer var(--duration-slow) var(--ease-standard);
+}
+@keyframes dialog-in-from-drawer {
+    from { opacity: 0; transform: scale(0.35) translateX(-120%); }
+    to   { opacity: 1; transform: scale(1) translateX(0); }
+}
+
+/* Mobile variants: slide down/up instead of left */
+@media (max-width: 639px) {
+    @keyframes dialog-out-to-drawer {
+        from { opacity: 1; transform: scale(1) translateY(0); }
+        to   { opacity: 0; transform: scale(0.5) translateY(60%); }
+    }
+    @keyframes dialog-in-from-drawer {
+        from { opacity: 0; transform: scale(0.5) translateY(60%); }
+        to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+}
+
+/* Slow overlay fade to match longer dialog animation */
+[data-state="closed"]:has(> .palette-dialog--editing-exit) {
+    animation-duration: var(--duration-slow) !important;
+}
+
+/* Palette dialog close button — repositioned below gradient bar */
+.palette-dialog button:has(> .lucide-x) {
+    color: var(--color-muted-foreground);
+    top: 1rem;
+    right: 0.75rem;
+    z-index: var(--z-content);
+}
+.palette-dialog button:has(> .lucide-x):hover {
+    background-color: var(--color-secondary);
+}
+.palette-dialog button:has(> .lucide-x) .lucide-x {
+    width: 1rem;
+    height: 1rem;
+    stroke-width: 2;
+}
+
 /* Smaller, tighter close button inside the dialog portal */
 .palette-dialog button.absolute {
     top: 0.875rem;
     right: 0.5rem;
     padding: 0.125rem;
     opacity: 0.35;
-    transition: opacity 0.15s ease;
+    transition: opacity var(--duration-fast) ease;
 }
 .palette-dialog button.absolute:hover {
     opacity: 0.7;

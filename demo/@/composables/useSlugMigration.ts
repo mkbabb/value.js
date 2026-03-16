@@ -10,6 +10,7 @@ export function useSlugMigration(deps: {
     userLogout: () => Promise<void>;
     adminLogin: (token: string) => void;
     clearUserSlug: () => void;
+    ensureUser: () => Promise<string>;
     activeTab: Ref<string>;
 }) {
     const session = useSession();
@@ -81,10 +82,12 @@ export function useSlugMigration(deps: {
                     await publishAllLocal();
                 }
                 await deps.userLogout();
+                await deps.ensureUser();
             };
             showMigrateDialog.value = true;
         } else {
             await deps.userLogout();
+            await deps.ensureUser();
         }
     }
 
