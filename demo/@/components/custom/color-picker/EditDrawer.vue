@@ -69,3 +69,69 @@ const emit = defineEmits<{
     cancel: [];
 }>();
 </script>
+
+<style>
+/* Edit drawer — peek panel that sticks out from left on desktop, bottom on mobile */
+.edit-drawer {
+    position: fixed;
+    z-index: var(--z-dock);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 4px 0 24px -4px rgba(0, 0, 0, 0.15);
+    animation: edit-drawer-in var(--duration-normal) var(--ease-standard);
+}
+/* Desktop: left side panel */
+@media (min-width: 640px) {
+    .edit-drawer {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        border-left: none;
+        border-radius: 0 0.75rem 0.75rem 0;
+        width: auto;
+        max-width: 280px;
+    }
+}
+/* Mobile: centered panel */
+@media (max-width: 639px) {
+    .edit-drawer {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 0.75rem;
+    }
+}
+@keyframes edit-drawer-in {
+    from { opacity: 0; transform: translateX(-100%) translateY(-50%); }
+    to   { opacity: 1; transform: translateX(0) translateY(-50%); }
+}
+@media (max-width: 639px) {
+    @keyframes edit-drawer-in {
+        from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+        to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+}
+
+/* Edit drawer enter/leave transition */
+.edit-drawer-enter-active,
+.edit-drawer-leave-active {
+    transition: opacity var(--duration-normal) var(--ease-standard),
+                transform var(--duration-normal) var(--ease-standard);
+}
+@media (min-width: 640px) {
+    .edit-drawer-enter-from,
+    .edit-drawer-leave-to {
+        opacity: 0;
+        transform: translateX(-100%) translateY(-50%);
+    }
+}
+@media (max-width: 639px) {
+    .edit-drawer-enter-from,
+    .edit-drawer-leave-to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.85);
+    }
+}
+</style>

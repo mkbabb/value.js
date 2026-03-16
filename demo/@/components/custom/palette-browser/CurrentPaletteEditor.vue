@@ -378,7 +378,7 @@ function confirmUpdatePalette() {
 <style scoped>
 .swatch-floating-panel {
     position: fixed;
-    z-index: 50;
+    z-index: var(--z-overlay);
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -392,7 +392,7 @@ function confirmUpdatePalette() {
         0 2px 4px -2px rgba(0, 0, 0, 0.1);
     transform: translateX(-50%);
     pointer-events: auto;
-    animation: swatch-panel-in 0.15s ease-out;
+    animation: swatch-panel-in var(--duration-fast) ease-out;
 }
 
 @keyframes swatch-panel-in {
@@ -404,5 +404,28 @@ function confirmUpdatePalette() {
         opacity: 1;
         transform: translateX(-50%) translateY(0) scale(1);
     }
+}
+</style>
+
+<style>
+/* Swatch add/remove animation (TransitionGroup) — unscoped for Vue Transition classes */
+.swatch-item-enter-active,
+.swatch-item-leave-active {
+    transition: opacity var(--duration-normal) var(--ease-standard),
+                transform var(--duration-normal) var(--ease-standard);
+}
+.swatch-item-enter-from {
+    opacity: 0;
+    transform: scale(0);
+}
+.swatch-item-leave-to {
+    opacity: 0;
+    transform: scale(0);
+}
+.swatch-item-leave-active {
+    position: absolute;
+}
+.swatch-item-move {
+    transition: transform var(--duration-normal) var(--ease-standard);
 }
 </style>

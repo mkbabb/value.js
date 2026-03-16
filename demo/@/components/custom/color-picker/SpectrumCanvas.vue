@@ -243,7 +243,7 @@ onUnmounted(() => {
 @reference "../../../styles/style.css";
 
 .spectrum-picker {
-    border-radius: 0.375rem;
+    border-radius: var(--radius-md);
     box-shadow: 0px 0px 0px 0px transparent;
     transition: box-shadow 0.25s ease;
     overflow: visible;

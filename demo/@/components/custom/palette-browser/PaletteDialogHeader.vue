@@ -62,3 +62,49 @@ defineEmits<{
     dotClick: [];
 }>();
 </script>
+
+<style>
+/* Admin golden shimmer */
+.admin-golden-text {
+    background-image: linear-gradient(to right, var(--color-gold), var(--color-gold-light), var(--color-gold));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.admin-golden {
+    position: relative;
+}
+.admin-golden::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, transparent 20%, oklch(85% 0.15 85deg / 0.4) 40%, oklch(90% 0.12 55deg / 0.6) 50%, oklch(85% 0.15 85deg / 0.4) 60%, transparent 80%);
+    background-size: 200% 200%;
+    animation: golden-shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+@keyframes golden-shimmer {
+    0%, 100% { background-position: 100% 100%; }
+    50% { background-position: 0% 0%; }
+}
+
+/* Pastel rainbow gradient for palette title */
+.pastel-rainbow-text {
+    background-image: linear-gradient(
+        to right,
+        oklch(75% 0.18 0deg),
+        oklch(82% 0.16 60deg),
+        oklch(85% 0.17 130deg),
+        oklch(78% 0.14 200deg),
+        oklch(72% 0.18 270deg),
+        oklch(75% 0.16 330deg)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+</style>

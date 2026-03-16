@@ -213,7 +213,7 @@ function forceReset() {
     position: fixed;
     bottom: 8px;
     left: 8px;
-    z-index: 99999;
+    z-index: var(--z-debug);
     width: 280px;
     max-height: 35vh;
     display: flex;
@@ -223,7 +223,7 @@ function forceReset() {
     font-family: "SF Mono", "Fira Code", monospace;
     font-size: 10px;
     line-height: 1.3;
-    border-radius: 8px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
@@ -333,7 +333,7 @@ function forceReset() {
     flex: 1;
     padding: 6px 6px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     background: rgba(255, 255, 255, 0.08);
     color: #e0e0e0;
     font-size: 10px;

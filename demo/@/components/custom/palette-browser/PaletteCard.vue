@@ -3,18 +3,8 @@
         class="group rounded-lg border border-border bg-card overflow-hidden transition-all hover:shadow-md cursor-pointer"
         @click="$emit('click')"
     >
-        <!-- Color strip — clamp each swatch to min 4px so large palettes don't collapse -->
-        <div class="h-10 flex w-full overflow-hidden">
-            <div
-                v-for="(color, i) in palette.colors"
-                :key="i"
-                class="h-full shrink-0"
-                :style="{
-                    backgroundColor: color.css,
-                    width: `${Math.max(100 / palette.colors.length, 0.5)}%`,
-                }"
-            ></div>
-        </div>
+        <!-- Color strip -->
+        <PaletteColorStrip :colors="palette.colors" />
 
         <!-- Metadata row -->
         <div class="px-3 py-2.5 flex items-center justify-between gap-2 min-w-0">
@@ -33,7 +23,7 @@
                     {{ palette.colors.length }}
                 </Badge>
 
-                <!-- Vote count (always visible for remote palettes) -->
+                <!-- Vote count -->
                 <button
                     v-if="!palette.isLocal"
                     class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent transition-colors cursor-pointer shrink-0"
@@ -49,10 +39,7 @@
             </div>
 
             <!-- Hamburger menu trigger -->
-            <div
-                class="flex items-center gap-1"
-                @click.stop
-            >
+            <div class="flex items-center gap-1" @click.stop>
                 <button
                     ref="menuTriggerRef"
                     class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
@@ -64,89 +51,26 @@
                     <MoreHorizontal class="w-4 h-4 text-muted-foreground" />
                 </button>
 
-                <!-- Floating menu panel -->
-                <Teleport to="body">
-                    <div
-                        v-if="menuOpen"
-                        class="card-menu-panel"
-                        :style="menuStyle"
-                        @pointerenter="onMenuPanelEnter"
-                        @pointerleave="onMenuPanelLeave"
-                        @click.stop
-                    >
-                        <!-- Full palette name as header -->
-                        <div class="px-3 py-1.5 fraunces text-sm font-bold text-foreground border-b border-border truncate max-w-[200px]">
-                            {{ palette.name }}
-                        </div>
-
-                        <button class="card-menu-item" @click="onMenuAction(() => emit('apply', palette))">
-                            <SwatchBook class="w-4 h-4" />
-                            <span>Apply palette</span>
-                        </button>
-                        <button class="card-menu-item" @click="onMenuAction(() => copyAllColors())">
-                            <Copy class="w-4 h-4" />
-                            <span>Copy all colors</span>
-                        </button>
-
-                        <template v-if="palette.isLocal">
-                            <button class="card-menu-item" @click="onMenuAction(() => emit('publish', palette))">
-                                <Globe class="w-4 h-4" />
-                                <span>Publish</span>
-                            </button>
-                            <button class="card-menu-item text-destructive" @click="onMenuAction(() => emit('delete', palette))">
-                                <Trash2 class="w-4 h-4" />
-                                <span>Delete</span>
-                            </button>
-                        </template>
-
-                        <template v-if="!palette.isLocal">
-                            <button class="card-menu-item" @click="onMenuAction(() => emit('save', palette))">
-                                <Bookmark class="w-4 h-4" />
-                                <span>Save locally</span>
-                            </button>
-                        </template>
-
-                        <template v-if="!palette.isLocal && isOwned">
-                            <button class="card-menu-item" @click="startRenaming">
-                                <Pencil class="w-4 h-4" />
-                                <span>Rename</span>
-                            </button>
-                        </template>
-
-                        <template v-if="isAdmin && !palette.isLocal">
-                            <div class="border-t border-border my-0.5"></div>
-                            <button class="card-menu-item" @click="onMenuAction(() => emit('feature', palette), true)">
-                                <Star v-if="palette.status !== 'featured'" class="w-4 h-4" />
-                                <StarOff v-else class="w-4 h-4" />
-                                <span>{{ palette.status === 'featured' ? 'Unfeature' : 'Feature' }}</span>
-                            </button>
-                            <button class="card-menu-item text-destructive" @click="onMenuAction(() => emit('adminDelete', palette), true)">
-                                <Trash2 class="w-4 h-4" />
-                                <span>Delete</span>
-                            </button>
-                        </template>
-                    </div>
-                </Teleport>
+                <PaletteCardMenu
+                    :palette="palette"
+                    :menu-open="menuOpen"
+                    :menu-style="menuStyle"
+                    :is-owned="isOwned"
+                    :is-admin="isAdmin"
+                    @panel-enter="onMenuPanelEnter"
+                    @panel-leave="onMenuPanelLeave"
+                    @action="handleMenuAction"
+                />
             </div>
         </div>
 
         <!-- Inline rename input -->
-        <div v-if="renaming" class="px-3 pb-2" @click.stop>
-            <form class="flex gap-2" @submit.prevent="submitRename">
-                <Input
-                    v-model="renameValue"
-                    placeholder="New name..."
-                    class="fira-code text-sm h-8"
-                    autofocus
-                />
-                <Button type="submit" size="sm" variant="default" class="shrink-0 h-8">
-                    <Check class="w-4 h-4" />
-                </Button>
-                <Button type="button" size="sm" variant="ghost" class="shrink-0 h-8" @click="renaming = false">
-                    Cancel
-                </Button>
-            </form>
-        </div>
+        <PaletteRenameInput
+            v-if="renaming"
+            :name="palette.name"
+            @submit="onRenameSubmit"
+            @cancel="renaming = false"
+        />
 
         <!-- Expandable detail: color swatches -->
         <Transition
@@ -159,7 +83,7 @@
         >
             <div v-if="expanded" @click.stop class="overflow-hidden">
                 <!-- User slug display -->
-                <div v-if="showSlug && displaySlug" class="px-3 pt-2.5 flex items-center gap-1.5 border-t border-gray-700/15">
+                <div v-if="showSlug && displaySlug" class="px-3 pt-2.5 flex items-center gap-1.5 border-t border-border/15">
                     <span
                         class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border truncate max-w-[200px]"
                         :style="{ color: firstColor, borderColor: firstColor }"
@@ -173,7 +97,7 @@
                 </div>
                 <div
                     class="px-3 pb-3 flex flex-wrap gap-2 items-start pt-3 min-w-0"
-                    :class="!(showSlug && displaySlug) && 'border-t border-gray-700/15'"
+                    :class="!(showSlug && displaySlug) && 'border-t border-border/15'"
                 >
                     <div
                         v-for="(color, i) in palette.colors"
@@ -246,23 +170,14 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { Badge } from "@components/ui/badge";
-import { Button } from "@components/ui/button";
-import { Input } from "@components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import {
-    SwatchBook,
     Copy,
-    Trash2,
-    Globe,
-    Bookmark,
     Heart,
     Award,
     Pencil,
-    Check,
     Plus,
     MoreHorizontal,
-    Star,
-    StarOff,
 } from "lucide-vue-next";
 import type { PaletteColor } from "@lib/palette/types";
 import type { Palette } from "@lib/palette/types";
@@ -271,6 +186,9 @@ import { useHoverPopover } from "@composables/useHoverPopover";
 import { useCardMenu } from "@composables/useCardMenu";
 import { useHeightTransition } from "@composables/useHeightTransition";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
+import PaletteColorStrip from "./PaletteColorStrip.vue";
+import PaletteCardMenu from "./PaletteCardMenu.vue";
+import PaletteRenameInput from "./PaletteRenameInput.vue";
 
 const props = defineProps<{
     palette: Palette;
@@ -340,7 +258,36 @@ const floatingPanelRefs = ref<HTMLElement[]>([]);
 function startRenaming() {
     menuOpen.value = false;
     renaming.value = true;
-    renameValue.value = props.palette.name;
+}
+
+function onRenameSubmit(newName: string) {
+    emit("rename", props.palette, newName);
+    renaming.value = false;
+}
+
+function handleMenuAction(action: string) {
+    const adminActions = new Set(["feature", "adminDelete"]);
+    const isAdmin = adminActions.has(action);
+
+    const actions: Record<string, () => void> = {
+        apply: () => emit("apply", props.palette),
+        copyAll: () => copyToClipboard(props.palette.colors.map((c) => c.css).join(", "), "Copied all colors"),
+        publish: () => emit("publish", props.palette),
+        delete: () => emit("delete", props.palette),
+        save: () => emit("save", props.palette),
+        rename: () => startRenaming(),
+        feature: () => emit("feature", props.palette),
+        adminDelete: () => emit("adminDelete", props.palette),
+    };
+
+    const fn = actions[action];
+    if (fn) {
+        if (action === "rename") {
+            fn();
+        } else {
+            onMenuAction(fn, isAdmin);
+        }
+    }
 }
 
 function onPopoverAdd(css: string) {
@@ -355,77 +302,14 @@ function onPopoverEdit(color: PaletteColor, index: number) {
 
 function onPopoverCopy(css: string) {
     openPopoverIndex.value = null;
-    copyColor(css);
-}
-
-const renameValue = ref(props.palette.name);
-
-function submitRename() {
-    const name = renameValue.value.trim();
-    if (name && name !== props.palette.name) {
-        emit("rename", props.palette, name);
-    }
-    renaming.value = false;
-}
-
-function copyColor(css: string) {
     copyToClipboard(css);
-}
-
-function copyAllColors() {
-    const text = props.palette.colors.map((c) => c.css).join(", ");
-    copyToClipboard(text, "Copied all colors");
 }
 </script>
 
 <style scoped>
-.card-menu-panel {
-    position: fixed;
-    z-index: 50;
-    display: flex;
-    flex-direction: column;
-    min-width: 160px;
-    border-radius: var(--radius-md);
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--popover));
-    color: hsl(var(--popover-foreground));
-    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.15), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    transform: translateX(-100%);
-    pointer-events: auto;
-    animation: card-menu-in 0.15s ease-out;
-    overflow: hidden;
-}
-.card-menu-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    font-family: "Fraunces", sans-serif;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-    width: 100%;
-    text-align: left;
-}
-.card-menu-item:hover {
-    background-color: hsl(var(--accent));
-}
-@keyframes card-menu-in {
-    from {
-        opacity: 0;
-        filter: blur(4px);
-        transform: translateX(-100%) scale(0.96);
-    }
-    to {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateX(-100%) scale(1);
-    }
-}
-
 .swatch-floating-panel {
     position: fixed;
-    z-index: 50;
+    z-index: var(--z-overlay);
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -437,7 +321,7 @@ function copyAllColors() {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     transform: translateX(-50%);
     pointer-events: auto;
-    animation: swatch-panel-in 0.15s ease-out;
+    animation: swatch-panel-in var(--duration-fast) ease-out;
 }
 
 @keyframes swatch-panel-in {
