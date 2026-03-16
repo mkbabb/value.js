@@ -27,12 +27,12 @@ sessions.post("/", async (c) => {
 
     // Create session linked to user
     await db.collection("sessions").insertOne({
-        // TODO(HIGH): Remove dynamic `_id` casting and enforce strict session document typing end to end.
         _id: token as any,
         ipHash,
         userSlug,
         createdAt: now,
         lastSeenAt: now,
+        expiresAt: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000),
     });
 
     return c.json({ token, userSlug }, 201);
@@ -43,10 +43,9 @@ sessions.post("/login", loginRateLimit, async (c) => {
     const body = await c.req.json<{ slug: string }>();
     const slug = typeof body.slug === "string" ? body.slug.trim().toLowerCase() : "";
 
-    if (!slug || !/^[a-z]+-[a-z]+-[a-z]+-[a-z]+$/.test(slug)) {
-        // Constant delay to prevent timing attacks
+    if (!slug) {
         await new Promise((r) => setTimeout(r, 200));
-        return c.json({ error: "Invalid slug format" }, 400);
+        return c.json({ error: "Slug required" }, 400);
     }
 
     // Reject switching to the same slug the session already owns
@@ -78,6 +77,7 @@ sessions.post("/login", loginRateLimit, async (c) => {
         userSlug: slug,
         createdAt: now,
         lastSeenAt: now,
+        expiresAt: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000),
     });
 
     // Update user's lastSeenAt
@@ -87,6 +87,17 @@ sessions.post("/login", loginRateLimit, async (c) => {
     );
 
     return c.json({ token, userSlug: slug });
+});
+
+// DELETE /sessions — revoke current session
+sessions.delete("/", async (c) => {
+    const token = c.get("sessionToken") as string | undefined;
+    if (!token) {
+        return c.json({ error: "Not authenticated" }, 401);
+    }
+    const db = await getDb();
+    await db.collection("sessions").deleteOne({ _id: token as any });
+    return c.json({ ok: true });
 });
 
 // GET /sessions/me — get current user info

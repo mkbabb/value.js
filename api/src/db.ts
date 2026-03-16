@@ -6,9 +6,14 @@ let db: Db | null = null;
 export async function getDb(): Promise<Db> {
     if (db) return db;
 
-    // TODO(CRITICAL): Remove the localhost fallback URI; require MONGODB_URI and fail startup if it is missing.
-    const uri = process.env.MONGODB_URI ?? "mongodb://localhost:27017/palette-db";
-    client = new MongoClient(uri);
+    const uri = process.env.MONGODB_URI;
+    if (!uri) {
+        if (process.env.NODE_ENV === "production") {
+            throw new Error("MONGODB_URI is required in production");
+        }
+        console.warn("[WARN] MONGODB_URI not set, using localhost default");
+    }
+    client = new MongoClient(uri ?? "mongodb://localhost:27017/palette-db");
     await client.connect();
     db = client.db();
 
@@ -24,9 +29,11 @@ export async function getDb(): Promise<Db> {
             .createIndex({ userSlug: 1, paletteSlug: 1 }, { unique: true }),
         db.collection("votes").createIndex({ paletteSlug: 1 }),
         db.collection("sessions").createIndex({ lastSeenAt: 1 }),
+        db.collection("sessions").createIndex({ expiresAt: 1 }),
         db.collection("proposed_names").createIndex({ name: 1 }, { unique: true }),
         db.collection("proposed_names").createIndex({ status: 1 }),
         db.collection("users").createIndex({ createdAt: -1 }),
+        db.collection("admin_audit").createIndex({ timestamp: -1 }),
     ]);
 
     console.log("Connected to MongoDB");

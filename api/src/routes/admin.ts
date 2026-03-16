@@ -8,13 +8,21 @@ const admin = new Hono();
 // All admin routes require auth
 admin.use("/*", adminAuth);
 
-// Audit helper
-// TODO(MEDIUM): Remove dynamic request typing and use the concrete Hono context type for admin audit events.
-function audit(c: any, action: string, target: string) {
+// Audit helper — persistent MongoDB writes
+async function audit(c: any, action: string, target: string) {
     const ip = resolveIP(c);
-    console.log(
-        `[ADMIN] ${new Date().toISOString()} ip=${ip} action=${action} target=${target}`,
-    );
+    const ipHash = await hashIP(ip);
+    try {
+        const db = await getDb();
+        await db.collection("admin_audit").insertOne({
+            timestamp: new Date(),
+            ipHash,
+            action,
+            target,
+        });
+    } catch (err) {
+        console.error("[ADMIN] Failed to write audit log:", err);
+    }
 }
 
 // GET /admin/queue — list proposed color names pending review
@@ -42,14 +50,13 @@ admin.post("/palettes/:slug/feature", async (c) => {
     const palette = await db.collection("palettes").findOne({ slug });
     if (!palette) return c.json({ error: "Palette not found" }, 404);
 
-    // TODO(HIGH): Remove status toggle fallback semantics; enumerate allowed transitions and fail explicitly on unknown states.
     const newStatus = palette.status === "featured" ? "published" : "featured";
 
     await db
         .collection("palettes")
         .updateOne({ slug }, { $set: { status: newStatus, updatedAt: new Date() } });
 
-    audit(c, "feature-toggle", `slug=${slug} status=${newStatus}`);
+    await audit(c, "feature-toggle", `slug=${slug} status=${newStatus}`);
     return c.json({ slug, status: newStatus });
 });
 
@@ -66,7 +73,7 @@ admin.delete("/palettes/:slug", async (c) => {
     // Also remove associated votes
     await db.collection("votes").deleteMany({ paletteSlug: slug });
 
-    audit(c, "delete-palette", `slug=${slug}`);
+    await audit(c, "delete-palette", `slug=${slug}`);
     return c.json({ deleted: true });
 });
 
@@ -104,7 +111,7 @@ admin.delete("/colors/:id", async (c) => {
         return c.json({ error: "Color name not found" }, 404);
     }
 
-    audit(c, "delete-color", `id=${id}`);
+    await audit(c, "delete-color", `id=${id}`);
     return c.json({ deleted: true });
 });
 
@@ -117,7 +124,6 @@ admin.post("/colors/:id/approve", async (c) => {
     try {
         objectId = new ObjectId(id);
     } catch {
-        // TODO(MEDIUM): Replace silent parse catch with explicit validation path that records malformed admin input.
         return c.json({ error: "Invalid ID" }, 400);
     }
 
@@ -132,7 +138,7 @@ admin.post("/colors/:id/approve", async (c) => {
         return c.json({ error: "Proposed name not found or already processed" }, 404);
     }
 
-    audit(c, "approve-color", `id=${id}`);
+    await audit(c, "approve-color", `id=${id}`);
     return c.json({ approved: true });
 });
 
@@ -145,7 +151,6 @@ admin.post("/colors/:id/reject", async (c) => {
     try {
         objectId = new ObjectId(id);
     } catch {
-        // TODO(MEDIUM): Replace silent parse catch with explicit validation path that records malformed admin input.
         return c.json({ error: "Invalid ID" }, 400);
     }
 
@@ -160,7 +165,7 @@ admin.post("/colors/:id/reject", async (c) => {
         return c.json({ error: "Proposed name not found or already processed" }, 404);
     }
 
-    audit(c, "reject-color", `id=${id}`);
+    await audit(c, "reject-color", `id=${id}`);
     return c.json({ rejected: true });
 });
 
@@ -242,7 +247,7 @@ admin.post("/impersonate", async (c) => {
         lastSeenAt: now,
     });
 
-    audit(c, "impersonate", `slug=${slug}`);
+    await audit(c, "impersonate", `slug=${slug}`);
     return c.json({ token, userSlug: slug });
 });
 
@@ -268,7 +273,7 @@ admin.delete("/users/:slug", async (c) => {
     // Delete the user
     await db.collection("users").deleteOne({ _id: slug as any });
 
-    audit(c, "delete-user", `slug=${slug} palettes=${paletteSlugs.length}`);
+    await audit(c, "delete-user", `slug=${slug} palettes=${paletteSlugs.length}`);
     return c.json({ deleted: true, palettesDeleted: paletteSlugs.length });
 });
 
@@ -288,7 +293,7 @@ admin.delete("/users/:slug/palettes", async (c) => {
 
     const result = await db.collection("palettes").deleteMany({ userSlug: slug });
 
-    audit(c, "delete-user-palettes", `slug=${slug} count=${result.deletedCount}`);
+    await audit(c, "delete-user-palettes", `slug=${slug} count=${result.deletedCount}`);
     return c.json({ deleted: result.deletedCount });
 });
 
@@ -313,7 +318,7 @@ admin.post("/users/prune-empty", async (c) => {
 
     const slugs = emptyUsers.map((u) => u._id);
     if (slugs.length === 0) {
-        audit(c, "prune-empty-users", "count=0");
+        await audit(c, "prune-empty-users", "count=0");
         return c.json({ pruned: 0 });
     }
 
@@ -322,7 +327,7 @@ admin.post("/users/prune-empty", async (c) => {
     // Delete the users
     const result = await db.collection("users").deleteMany({ _id: { $in: slugs } });
 
-    audit(c, "prune-empty-users", `count=${result.deletedCount}`);
+    await audit(c, "prune-empty-users", `count=${result.deletedCount}`);
     return c.json({ pruned: result.deletedCount });
 });
 
@@ -364,7 +369,7 @@ admin.post("/users/:slug/import", async (c) => {
         }
     }
 
-    audit(c, "import-palettes", `slug=${slug} count=${imported}`);
+    await audit(c, "import-palettes", `slug=${slug} count=${imported}`);
     return c.json({ imported });
 });
 

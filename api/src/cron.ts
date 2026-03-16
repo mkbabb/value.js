@@ -1,15 +1,17 @@
 import { getDb } from "./db.js";
 
-/**
- * Cleanup stale sessions (not seen in 30 days)
- * and orphaned votes from deleted palettes.
- */
 export async function cleanup(): Promise<void> {
     const db = await getDb();
-    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const now = new Date();
+    const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
 
-    // Remove stale sessions
-    const sessionResult = await db
+    // Remove expired sessions (by expiresAt)
+    const expiredResult = await db
+        .collection("sessions")
+        .deleteMany({ expiresAt: { $lt: now } });
+
+    // Remove stale sessions (not seen in 30 days, for pre-expiry sessions)
+    const staleResult = await db
         .collection("sessions")
         .deleteMany({ lastSeenAt: { $lt: thirtyDaysAgo } });
 
@@ -22,6 +24,6 @@ export async function cleanup(): Promise<void> {
         .deleteMany({ paletteSlug: { $nin: paletteSlugs } });
 
     console.log(
-        `[cron] Cleanup: removed ${sessionResult.deletedCount} stale sessions, ${voteResult.deletedCount} orphaned votes`,
+        `[cron] Cleanup: removed ${expiredResult.deletedCount} expired + ${staleResult.deletedCount} stale sessions, ${voteResult.deletedCount} orphaned votes`,
     );
 }

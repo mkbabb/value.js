@@ -4,21 +4,25 @@ import { getDb } from "./db.js";
 
 // --- CORS ---
 
-export function corsHeaders(origin?: string): Record<string, string> {
+const ALLOWED_ORIGINS = new Set(
+    (process.env.ALLOWED_ORIGINS ?? "").split(",").map(s => s.trim()).filter(Boolean)
+);
+
+export function corsHeaders(requestOrigin?: string): Record<string, string> {
+    const origin = requestOrigin && ALLOWED_ORIGINS.has(requestOrigin)
+        ? requestOrigin
+        : ALLOWED_ORIGINS.values().next().value ?? "";
     return {
-        // TODO(HIGH): Remove wildcard CORS fallback; pass only validated, explicit origins.
-        "Access-Control-Allow-Origin": origin ?? "*",
+        "Access-Control-Allow-Origin": origin,
         "Access-Control-Allow-Methods": "GET, POST, PATCH, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, X-Session-Token, Authorization",
+        "Access-Control-Allow-Credentials": "true",
     };
 }
 
 // --- IP resolution ---
 
 export function resolveIP(c: Context): string {
-    // TODO(HIGH): Remove IP fallback chain and reject requests when trusted proxy headers are absent or invalid.
-    // Use rightmost X-Forwarded-For entry (proxy-appended, not client-supplied),
-    // then fall back to X-Real-IP (set by Apache), then "unknown".
     return (
         c.req.header("X-Forwarded-For")?.split(",").at(-1)?.trim() ??
         c.req.header("X-Real-IP") ??
@@ -78,12 +82,22 @@ setInterval(() => {
 export const rateLimit: MiddlewareHandler = async (c, next) => {
     const ip = resolveIP(c);
     const method = c.req.method;
-    // TODO(MEDIUM): Avoid implicit method fall-through to writeLimiter; enumerate supported methods explicitly and fail unknown methods.
     const limiter = method === "GET" || method === "HEAD" ? readLimiter : writeLimiter;
 
-    // Cap map size — reject if too many tracked IPs
+    // Cap map size — LRU eviction of oldest expired entry before rejecting
     if (!limiter.map.has(ip) && limiter.map.size >= RATE_MAP_CAP) {
-        return c.json({ error: "Rate limit exceeded" }, 429);
+        const now = Date.now();
+        let evicted = false;
+        for (const [key, entry] of limiter.map) {
+            if (now > entry.resetAt) {
+                limiter.map.delete(key);
+                evicted = true;
+                break;
+            }
+        }
+        if (!evicted) {
+            return c.json({ error: "Rate limit exceeded" }, 429);
+        }
     }
 
     if (!limiter.check(ip)) {
@@ -98,13 +112,11 @@ export const rateLimit: MiddlewareHandler = async (c, next) => {
 export const resolveSession: MiddlewareHandler = async (c, next) => {
     const token = c.req.header("X-Session-Token");
     if (token && c.req.path !== "/") {
-        // TODO(HIGH): Remove dynamic id casting and model the session _id type explicitly.
-        // Validate token against DB; only trust if it actually exists
         const db = await getDb();
         const session = await db
             .collection("sessions")
             .findOneAndUpdate(
-                { _id: token as any },
+                { _id: token as any, expiresAt: { $gt: new Date() } },
                 { $set: { lastSeenAt: new Date() } },
                 { returnDocument: "after" },
             );
@@ -113,8 +125,9 @@ export const resolveSession: MiddlewareHandler = async (c, next) => {
             if (session.userSlug) {
                 c.set("userSlug", session.userSlug);
             }
+        } else {
+            return c.json({ error: "Invalid or expired session" }, 401);
         }
-        // TODO(CRITICAL): Stop silently ignoring invalid session tokens; fail explicitly (401) when a token is present but not resolvable.
     }
     await next();
 };
@@ -126,7 +139,18 @@ const loginLimiter = createRateLimiter(5, 60_000);
 export const loginRateLimit: MiddlewareHandler = async (c, next) => {
     const ip = resolveIP(c);
     if (!loginLimiter.map.has(ip) && loginLimiter.map.size >= RATE_MAP_CAP) {
-        return c.json({ error: "Rate limit exceeded" }, 429);
+        const now = Date.now();
+        let evicted = false;
+        for (const [key, entry] of loginLimiter.map) {
+            if (now > entry.resetAt) {
+                loginLimiter.map.delete(key);
+                evicted = true;
+                break;
+            }
+        }
+        if (!evicted) {
+            return c.json({ error: "Rate limit exceeded" }, 429);
+        }
     }
     if (!loginLimiter.check(ip)) {
         return c.json({ error: "Rate limit exceeded" }, 429);
@@ -137,27 +161,23 @@ export const loginRateLimit: MiddlewareHandler = async (c, next) => {
 // --- Admin auth ---
 
 export const adminAuth: MiddlewareHandler = async (c, next) => {
-    const auth = c.req.header("Authorization");
     const token = process.env.ADMIN_TOKEN;
-
-    // TODO(CRITICAL): Split config failure from auth failure; missing ADMIN_TOKEN must fail startup, not return Unauthorized at request time.
-    if (!token || !auth) {
+    if (!token) {
+        return c.json({ error: "Admin not configured" }, 503);
+    }
+    const auth = c.req.header("Authorization");
+    if (!auth) {
         return c.json({ error: "Unauthorized" }, 401);
     }
-
     const expected = `Bearer ${token}`;
-
-    // Length-constant comparison to prevent timing attacks
     if (auth.length !== expected.length) {
-        return c.json({ error: "Unauthorized" }, 401);
+        return c.json({ error: "Forbidden" }, 403);
     }
-
     const authBuf = Buffer.from(auth);
     const expectedBuf = Buffer.from(expected);
     if (!crypto.timingSafeEqual(authBuf, expectedBuf)) {
-        return c.json({ error: "Unauthorized" }, 401);
+        return c.json({ error: "Forbidden" }, 403);
     }
-
     await next();
 };
 

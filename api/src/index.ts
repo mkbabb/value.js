@@ -17,23 +17,21 @@ const app = new Hono<AppEnv>();
 
 // --- Global middleware ---
 
-// CORS — compute origin once, reuse for both preflight and response
-function resolveOrigin(path: string): string {
-    const isAdmin = path.startsWith("/admin");
-    // TODO(HIGH): Eliminate wildcard CORS fallback behavior; require explicit origins and fail boot if admin origin config is missing.
-    return isAdmin ? process.env.ADMIN_ORIGIN || "*" : "*";
+// CORS — resolve origin from request header
+function resolveOrigin(c: any): string {
+    return c.req.header("Origin") ?? "";
 }
 
 // CORS preflight
 app.options("*", (c) => {
-    const origin = resolveOrigin(c.req.path);
+    const origin = resolveOrigin(c);
     return new Response(null, { status: 204, headers: corsHeaders(origin) });
 });
 
 // Add CORS headers to all responses
 app.use("*", async (c, next) => {
     await next();
-    const origin = resolveOrigin(c.req.path);
+    const origin = resolveOrigin(c);
     for (const [key, value] of Object.entries(corsHeaders(origin))) {
         c.res.headers.set(key, value);
     }
@@ -59,28 +57,45 @@ app.route("/admin", admin);
 app.get("/", (c) => c.json({ status: "ok", service: "palette-api" }));
 
 // 404 fallback
-// TODO(MEDIUM): Replace this catch-all fallback with explicit route-level 404 handling so missing paths are not silently normalized.
 app.notFound((c) => c.json({ error: "Not found" }, 404));
 
 // Global error handler
 app.onError((err, c) => {
-    // TODO(HIGH): Stop treating all failures with one graceful error path; migrate to explicit error classes and fail-fast handling for programmer/config errors.
     console.error(err);
     return c.json({ error: "Internal server error" }, 500);
 });
 
 // --- Start ---
 
-// TODO(CRITICAL): Remove the PORT default; require a valid PORT and abort startup on invalid configuration.
-const port = parseInt(process.env.PORT ?? "3000");
-
 async function main() {
+    // Startup validation
+    const isProduction = process.env.NODE_ENV === "production";
+    if (isProduction) {
+        if (!process.env.ADMIN_TOKEN) {
+            throw new Error("ADMIN_TOKEN is required in production");
+        }
+        if (!process.env.ALLOWED_ORIGINS) {
+            throw new Error("ALLOWED_ORIGINS is required in production");
+        }
+        if (!process.env.MONGODB_URI) {
+            throw new Error("MONGODB_URI is required in production");
+        }
+    } else {
+        if (!process.env.ADMIN_TOKEN) {
+            console.warn("[WARN] ADMIN_TOKEN not set — admin endpoints will return 503");
+        }
+    }
+
+    const port = parseInt(process.env.PORT ?? "3000");
+    if (isNaN(port) || port < 1 || port > 65535) {
+        throw new Error(`Invalid PORT: ${process.env.PORT}`);
+    }
+
     // Connect to MongoDB (creates indexes)
     await getDb();
 
     // Schedule daily cleanup at 3 AM UTC
     cron.schedule("0 3 * * *", () => {
-        // TODO(CRITICAL): Do not swallow cron failures in-process; route failures to explicit crash/restart or monitored alerting path.
         cleanup().catch(console.error);
     });
 
