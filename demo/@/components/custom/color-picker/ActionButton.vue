@@ -2,7 +2,7 @@
     <HoverCard
         v-if="!hidden"
         :open="isOpen"
-        @update:open="(v) => emit('update:activeHover', v ? hoverKey : null)"
+        @update:open="onHoverOpenChange"
         :close-delay="0"
         :open-delay="700"
         class="pointer-events-auto"
@@ -13,7 +13,7 @@
                     :is="icon"
                     :aria-label="title"
                     :class="[
-                        'action-icon w-7 h-7 stroke-foreground transition-all cursor-pointer',
+                        'action-icon w-8 h-8 stroke-foreground transition-all cursor-pointer',
                         iconClass,
                         disabled && 'pointer-events-none opacity-50',
                         isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
@@ -33,12 +33,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, type Component } from "vue";
+import { computed, inject, ref, type Component } from "vue";
 import {
     HoverCard,
     HoverCardContent,
     HoverCardTrigger,
 } from "@components/ui/hover-card";
+
+const dockKeepOpen = inject<(() => void) | null>("dockKeepOpen", null);
+const dockRelease = inject<(() => void) | null>("dockRelease", null);
 
 const props = defineProps<{
     icon: Component;
@@ -62,6 +65,15 @@ const emit = defineEmits<{
 
 const isOpen = computed(() => props.activeHover === props.hoverKey);
 
+function onHoverOpenChange(v: boolean) {
+    emit("update:activeHover", v ? props.hoverKey : null);
+    if (v) {
+        dockKeepOpen?.();
+    } else {
+        dockRelease?.();
+    }
+}
+
 const isClicked = ref(false);
 
 function handleClick() {
@@ -77,26 +89,15 @@ function handleClick() {
 <style scoped>
 .action-button-wrapper {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.125rem;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
     cursor: pointer;
-}
-.action-label {
-    font-size: 0.55rem;
-    font-weight: 400;
-    line-height: 1.2;
-    text-transform: lowercase;
-    letter-spacing: 0.03em;
-    opacity: 0.5;
-    transition: opacity 0.2s ease;
-    white-space: nowrap;
-}
-.action-button-wrapper:hover .action-label {
-    opacity: 0.85;
+    flex-shrink: 0;
 }
 .action-icon:hover {
-    transform: scale(1.25);
+    transform: scale(1.2);
     stroke: var(--hover-color);
 }
 .action-flash {

@@ -6,7 +6,6 @@
             :active-hover="activeHover"
             title="Reset color"
             description="Click to reset to the default color."
-            label="Reset"
             icon-class="hover:-rotate-180 duration-300"
             :css-color-opaque="cssColorOpaque"
             rotate-on-click
@@ -19,7 +18,7 @@
             :active-hover="activeHover"
             title="Copy color"
             description="Click to copy the current color to the clipboard."
-            label="Copy"
+
             :css-color-opaque="cssColorOpaque"
             @action="emit('copy')"
             @update:active-hover="(v) => activeHover = v"
@@ -30,7 +29,7 @@
             :active-hover="activeHover"
             title="Random color"
             description="Click to generate a random color."
-            label="Random"
+
             :css-color-opaque="cssColorOpaque"
             @action="emit('random')"
             @update:active-hover="(v) => activeHover = v"
@@ -41,7 +40,7 @@
             :active-hover="activeHover"
             title="Palettes"
             description="Save, browse, and publish color palettes."
-            label="Palettes"
+
             :disabled="isEditing"
             :css-color-opaque="cssColorOpaque"
             :active-style="paletteActive ? { stroke: cssColorOpaque, strokeWidth: '2.75' } : {}"
