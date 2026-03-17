@@ -85,16 +85,49 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
     padding: 0.375rem 0.75rem;
     border-radius: var(--radius-pill);
     background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1.5px solid hsl(var(--foreground) / 0.25);
+    box-shadow:
+        0 4px 20px hsl(var(--foreground) / 0.25),
+        0 0 0 1px hsl(var(--foreground) / 0.15);
     overflow: hidden;
     white-space: nowrap;
+
+    /* Single spring transition for all properties */
     transition:
+        width 0.3s cubic-bezier(0.22, 1.6, 0.36, 1),
+        max-width 0.3s cubic-bezier(0.22, 1.6, 0.36, 1),
+        padding 0.2s cubic-bezier(0.22, 1.6, 0.36, 1),
+        box-shadow 0.2s ease,
         background 0.2s ease,
         border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        transform 0.2s cubic-bezier(0.22, 1.6, 0.36, 1);
+}
+
+/* Expanded: concrete max width */
+.glass-dock.expanded {
+    width: auto;
+    max-width: min(600px, calc(100vw - 1rem));
+}
+
+/* Collapsed: small pill */
+.glass-dock.collapsed {
+    width: auto;
+    max-width: 5rem;
+    min-width: 3rem;
+    padding: 0.375rem 0.5rem;
+    cursor: pointer;
+    background: hsl(var(--card) / 0.92);
+    border-color: hsl(var(--foreground) / 0.3);
+    box-shadow:
+        0 2px 12px hsl(var(--foreground) / 0.2),
+        0 0 0 1px hsl(var(--foreground) / 0.15);
+}
+
+.glass-dock.collapsed:hover {
+    background: hsl(var(--card) / 0.96);
+    border-color: hsl(var(--foreground) / 0.4);
 }
 
 .glass-dock:where(.fixed) {
@@ -105,20 +138,7 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
     margin: 0 auto;
 }
 
-.glass-dock.collapsed {
-    cursor: pointer;
-    background: hsl(var(--card) / 0.92);
-    border-color: hsl(var(--border) / 0.7);
-    box-shadow:
-        var(--shadow-sm),
-        0 0 0 1px hsl(var(--foreground) / 0.06);
-}
-
-.glass-dock.collapsed:hover {
-    background: hsl(var(--card) / 0.96);
-    border-color: hsl(var(--border));
-}
-
+/* Layer container */
 .dock-layers {
     position: relative;
     display: flex;
@@ -136,15 +156,24 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
     transition: opacity 0.2s ease;
 }
 
+/* Full layer always in flow — drives the container height */
+.dock-layer--full {
+    position: relative;
+}
+
+/* Summary layer always absolutely positioned — never affects height */
+.dock-layer--summary {
+    position: absolute;
+    inset: 0;
+}
+
 .dock-layer.layer-active {
     opacity: 1;
     pointer-events: auto;
-    position: relative;
 }
 
 .dock-layer:not(.layer-active) {
     opacity: 0;
     pointer-events: none;
-    position: absolute;
 }
 </style>
