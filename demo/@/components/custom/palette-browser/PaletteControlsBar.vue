@@ -34,12 +34,12 @@
                 </template>
             </TabsList>
         </div>
-        <div class="search-bar flex items-center gap-2 rounded-2xl border border-border/50 bg-card/80 backdrop-blur-xl px-4 h-12 min-w-0 flex-1 transition-all">
-            <Search class="w-4 h-4 text-muted-foreground shrink-0" />
+        <div class="search-bar flex items-center gap-2 rounded-2xl border border-border/50 bg-card/80 backdrop-blur-xl px-3 h-9 max-w-sm w-full transition-[box-shadow,border-color] focus-within:ring-2 focus-within:ring-ring/40 focus-within:border-border">
+            <Search class="w-3.5 h-3.5 text-muted-foreground shrink-0" />
             <input
                 v-model="searchModel"
                 :placeholder="searchPlaceholder"
-                class="fira-code text-base bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground/50"
+                class="fira-code text-sm bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground/50"
             />
             <SortFilterMenu v-if="activeTab === 'browse'"
                 :sort="sortMode"
@@ -50,6 +50,12 @@
                 @update:sort="$emit('userSortChange', $event)"
             />
         </div>
+
+        <!-- Divider in current color -->
+        <div
+            class="h-px w-full rounded-full opacity-40"
+            :style="{ background: cssColorOpaque }"
+        />
     </div>
 </template>
 

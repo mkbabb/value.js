@@ -2,7 +2,7 @@
     <div class="shrink-0">
         <!-- Thick accent bar at top -->
         <div
-            class="h-3 w-full"
+            class="h-6 w-full"
             :style="{
                 background: `linear-gradient(to right, ${cssColorOpaque}, ${cssColor})`,
             }"

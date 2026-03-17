@@ -2,7 +2,7 @@
     <Dialog v-model:open="openModel">
         <DialogScrollContent
             :class="[
-                'palette-dialog max-w-[1200px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-lg h-[min(90vh,820px)] max-h-[90vh] min-w-0 flex flex-col',
+                'palette-dialog max-w-[1200px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-2xl h-[min(90vh,820px)] max-h-[90vh] min-w-0 flex flex-col',
                 editingExit && 'palette-dialog--editing-exit',
                 editingEnter && 'palette-dialog--editing-enter',
             ]"
@@ -364,7 +364,7 @@ function isTeleportedTarget(event: any): boolean {
     return target instanceof HTMLElement && !!(
         target.closest('[data-reka-popper-content-wrapper]') ||
         target.closest('.card-menu-panel') ||
-        target.closest('.swatch-floating-panel')
+        target.closest('.floating-panel')
     );
 }
 
@@ -468,16 +468,15 @@ function onDeleteAllSaved() {
 }
 </script>
 
-<style scoped>
-:deep(button[role="tab"][data-state="active"]) {
-    color: var(--active-tab-color) !important;
-    box-shadow: none !important;
+<style>
+/* Tab active state — scoped to .palette-dialog to avoid leaking */
+.palette-dialog button[role="tab"][data-state="active"] {
+    color: var(--active-tab-color);
+    box-shadow: none;
     border-bottom: 2px solid var(--active-tab-color);
     border-radius: 0;
 }
-</style>
 
-<style>
 /* Palette dialog overlay — blur & desaturate main view.
    !important needed to override Tailwind's bg-black/80 on DialogOverlay (shadcn-vue, not editable). */
 [data-state]:has(> .palette-dialog) {
@@ -494,14 +493,14 @@ function onDeleteAllSaved() {
 /* Palette dialog enter/exit animation */
 .palette-dialog {
     animation: dialog-in var(--duration-slow) var(--ease-decelerate);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    box-shadow: 0 25px 50px -12px hsl(var(--foreground) / 0.25),
                 0 0 0 1px hsl(var(--border));
     outline: none;
 }
 .palette-dialog:focus,
 .palette-dialog:focus-visible {
     outline: none;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    box-shadow: 0 25px 50px -12px hsl(var(--foreground) / 0.25),
                 0 0 0 1px hsl(var(--border));
 }
 .palette-dialog[data-state="closed"] {
@@ -551,35 +550,23 @@ function onDeleteAllSaved() {
     animation-duration: var(--duration-slow) !important;
 }
 
-/* Palette dialog close button — repositioned below gradient bar */
+/* Palette dialog close button — positioned below gradient bar */
 .palette-dialog button:has(> .lucide-x) {
     color: var(--color-muted-foreground);
-    top: 1rem;
+    top: 2rem;
     right: 0.75rem;
     z-index: var(--z-content);
+    padding: 0.25rem;
+    opacity: 0.6;
+    transition: opacity var(--duration-fast) ease;
 }
 .palette-dialog button:has(> .lucide-x):hover {
     background-color: var(--color-secondary);
+    opacity: 1;
 }
 .palette-dialog button:has(> .lucide-x) .lucide-x {
     width: 1rem;
     height: 1rem;
     stroke-width: 2;
-}
-
-/* Smaller, tighter close button inside the dialog portal */
-.palette-dialog button.absolute {
-    top: 0.875rem;
-    right: 0.5rem;
-    padding: 0.125rem;
-    opacity: 0.35;
-    transition: opacity var(--duration-fast) ease;
-}
-.palette-dialog button.absolute:hover {
-    opacity: 0.7;
-}
-.palette-dialog button.absolute svg {
-    width: 0.5rem;
-    height: 0.5rem;
 }
 </style>
