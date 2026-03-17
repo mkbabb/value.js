@@ -95,7 +95,7 @@
                     <Tooltip>
                         <TooltipTrigger as-child>
                             <div
-                                class="flex flex-wrap items-center p-3 bg-muted/50 dark:bg-muted/30 rounded-lg hover:bg-muted dark:hover:bg-muted/60 transition-colors cursor-pointer max-w-full"
+                                class="flex flex-wrap items-center p-3 bg-muted/50 dark:bg-muted/30 rounded-2xl hover:bg-muted dark:hover:bg-muted/60 transition-colors cursor-pointer max-w-full"
                                 @mouseenter="setHoveredPath(path as any)"
                                 @mouseleave="clearHoveredPath"
                             >

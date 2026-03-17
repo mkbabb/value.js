@@ -18,6 +18,10 @@
     --font-size-4xl: 2.25rem;
     --font-size-5xl: 3rem;
 
+    /* Display & mono fonts */
+    --font-display: "Fraunces", serif;
+    --font-mono: "Fira Code", monospace;
+
     /* Theme colors — reference dynamic CSS vars so .dark overrides work */
     --color-border: hsl(var(--border));
     --color-input: hsl(var(--input));
@@ -159,15 +163,57 @@
     opacity: 0;
 }
 
+/* Shared floating panel — used by PaletteCard swatch popover & PaletteCardMenu (Teleported) */
+@layer components {
+    .floating-panel {
+        position: fixed;
+        z-index: var(--z-overlay);
+        border-radius: var(--radius-xl);
+        border: 1px solid hsl(var(--border));
+        background: hsl(var(--popover));
+        color: hsl(var(--popover-foreground));
+        box-shadow: var(--shadow-md);
+        pointer-events: auto;
+        animation: floating-panel-in var(--duration-fast) ease-out;
+    }
+    .floating-panel-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.375rem 0.5rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: background-color var(--duration-fast) ease;
+    }
+    .floating-panel-item:hover {
+        background-color: hsl(var(--accent));
+    }
+    .floating-panel-item:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px hsl(var(--ring) / 0.4);
+    }
+}
+@keyframes floating-panel-in {
+    from {
+        opacity: 0;
+        filter: blur(4px);
+        scale: 0.96;
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        scale: 1;
+    }
+}
 
 /* Watercolor swatch — organic pastel blobs */
 .watercolor-swatch {
     border-radius: 48% 52% 55% 45% / 52% 48% 45% 55%;
     filter: url(#watercolor-filter);
     box-shadow:
-        inset 0 0 6px rgba(255, 255, 255, 0.35),
-        inset 0 -2px 4px rgba(0, 0, 0, 0.06),
-        0 2px 6px rgba(0, 0, 0, 0.10);
+        inset 0 0 6px hsl(var(--background) / 0.35),
+        inset 0 -2px 4px hsl(var(--foreground) / 0.06),
+        0 2px 6px hsl(var(--foreground) / 0.10);
     transition: transform var(--duration-fast) var(--ease-standard),
                 border-radius 0.6s var(--ease-standard),
                 filter var(--duration-fast) ease,
@@ -184,9 +230,9 @@
     transform: scale(1.06);
     filter: url(#watercolor-filter) brightness(1.05);
     box-shadow:
-        inset 0 0 8px rgba(255, 255, 255, 0.4),
-        inset 0 -2px 4px rgba(0, 0, 0, 0.06),
-        0 4px 12px rgba(0, 0, 0, 0.15);
+        inset 0 0 8px hsl(var(--background) / 0.4),
+        inset 0 -2px 4px hsl(var(--foreground) / 0.06),
+        0 4px 12px hsl(var(--foreground) / 0.15);
 }
 .watercolor-swatch:active {
     transform: scale(0.97);
@@ -204,8 +250,8 @@
     pointer-events: none;
     will-change: transform, opacity;
     box-shadow:
-        inset 0 0 4px rgba(255, 255, 255, 0.3),
-        inset 0 -1px 3px rgba(0, 0, 0, 0.05);
+        inset 0 0 4px hsl(var(--background) / 0.3),
+        inset 0 -1px 3px hsl(var(--foreground) / 0.05);
 }
 .satellite-blob--small {
     width: 18%;
@@ -233,9 +279,9 @@ button.watercolor-swatch {
 button.watercolor-swatch:focus-visible {
     outline: none;
     box-shadow:
-        inset 0 0 6px rgba(255, 255, 255, 0.35),
-        inset 0 -2px 4px rgba(0, 0, 0, 0.06),
-        0 2px 8px rgba(0, 0, 0, 0.2);
+        inset 0 0 6px hsl(var(--background) / 0.35),
+        inset 0 -2px 4px hsl(var(--foreground) / 0.06),
+        0 2px 8px hsl(var(--foreground) / 0.2);
 }
 
 /* Touch gate — outline-based activation indicator (no conflict with hover shadows) */
@@ -245,7 +291,7 @@ button.watercolor-swatch:focus-visible {
     transition: outline-color var(--duration-normal) ease;
 }
 .touch-gate-target:has(.slider-track) {
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-pill);
 }
 .touch-gate-target.touch-gate-active {
     outline-color: hsl(var(--foreground) / 0.5);

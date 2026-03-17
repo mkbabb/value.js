@@ -33,7 +33,7 @@
                     "
                 >
                     <SliderTrack
-                        class="slider-track relative h-6 w-full grow overflow-hidden rounded-sm transition-shadow"
+                        class="slider-track relative h-6 w-full grow overflow-hidden rounded-full transition-shadow"
                         :style="{
                             background: componentsSlidersStyle[component]
                                 ? `linear-gradient(to right, ${componentsSlidersStyle[component].join(', ')})`
@@ -49,7 +49,7 @@
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <SliderThumb
-                                    class="slider-thumb block h-full w-3 rounded-sm border-2 border-gray-200 bg-transparent transition-colors focus-visible:outline-none"
+                                    class="slider-thumb block h-full w-3 rounded-full border-2 border-gray-200 bg-transparent transition-colors focus-visible:outline-none"
                                 />
                             </TooltipTrigger>
                             <TooltipContent class="fira-code">

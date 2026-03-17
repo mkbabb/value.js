@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-rows-[auto_auto] gap-4 relative min-w-0 content-center lg:max-h-full">
-        <Card class="flex flex-col rounded-md min-w-0 lg:overflow-hidden lg:min-h-0">
+        <Card class="flex flex-col rounded-2xl min-w-0 lg:overflow-hidden lg:min-h-0">
             <CardHeader class="fraunces m-0 pb-0 relative w-full px-3 sm:px-6 min-w-0 overflow-visible">
                 <div class="w-full flex justify-between">
                     <ColorSpaceSelector
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-center items-center pt-2 pb-3 -mx-3 sm:-mx-6 px-3 sm:px-6 h-16 shrink-0">
+                <div class="flex justify-center items-center mt-2 pb-3 -mx-3 sm:-mx-6 px-3 sm:px-6 shrink-0">
                     <GlassDock :collapse-delay="2000">
                         <div class="flex items-center gap-2">
                             <div class="grid relative items-center flex-1 min-w-[18rem] sm:min-w-[22rem]">

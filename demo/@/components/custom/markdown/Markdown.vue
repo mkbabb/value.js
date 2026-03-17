@@ -445,7 +445,7 @@ onUnmounted(() => {
 
     /* Code blocks */
     pre {
-        @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-4 mb-4 overflow-x-auto;
+        @apply bg-gray-100 dark:bg-gray-800 rounded-2xl p-4 mb-4 overflow-x-auto;
     }
 
     code {
@@ -479,7 +479,7 @@ onUnmounted(() => {
 
     /* Images */
     img {
-        @apply max-w-full h-auto rounded-lg my-4 mx-auto;
+        @apply max-w-full h-auto rounded-2xl my-4 mx-auto;
     }
 
     /* Inline math — add breathing room between formulas and surrounding text */
@@ -529,7 +529,7 @@ onUnmounted(() => {
 
     /* Callouts or admonitions */
     .callout {
-        @apply bg-gray-100 dark:bg-gray-800 border-l-4 border-blue-500 dark:border-blue-400 p-4 mb-4 rounded-r-lg;
+        @apply bg-gray-100 dark:bg-gray-800 border-l-4 border-blue-500 dark:border-blue-400 p-4 mb-4 rounded-r-2xl;
 
         &.warning {
             @apply border-yellow-500 dark:border-yellow-400;
