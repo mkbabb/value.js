@@ -1,6 +1,6 @@
 <template>
     <div
-        class="group rounded-lg border border-border bg-card overflow-hidden transition-all hover:shadow-md cursor-pointer"
+        class="group rounded-2xl border border-border bg-card overflow-hidden transition-shadow hover:shadow-md cursor-pointer"
         @click="$emit('click')"
     >
         <!-- Color strip -->
@@ -26,7 +26,7 @@
                 <!-- Vote count -->
                 <button
                     v-if="!palette.isLocal"
-                    class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent transition-colors cursor-pointer shrink-0"
+                    class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent transition-colors cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
                     aria-label="Vote for palette"
                     @click.stop="emit('vote', palette)"
                 >
@@ -42,7 +42,7 @@
             <div class="flex items-center gap-1" @click.stop>
                 <button
                     ref="menuTriggerRef"
-                    class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                    class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
                     aria-label="Palette menu"
                     @click="toggleMenu"
                     @pointerenter="onMenuTriggerEnter"
@@ -119,13 +119,13 @@
                                 class="w-auto p-1.5 flex items-center gap-1"
                                 :side-offset="8"
                             >
-                                <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5">
                                     <Plus class="w-4 h-4" />
                                 </button>
-                                <button @click="onPopoverEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                <button @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5">
                                     <Pencil class="w-4 h-4" />
                                 </button>
-                                <button @click="onPopoverCopy(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                <button @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5">
                                     <Copy class="w-4 h-4" />
                                 </button>
                             </PopoverContent>
@@ -143,18 +143,18 @@
                                 <div
                                     v-if="openPopoverIndex === i"
                                     ref="floatingPanelRefs"
-                                    class="swatch-floating-panel"
-                                    :style="floatingStyle"
+                                    class="floating-panel flex items-center gap-1 p-1.5"
+                                    :style="{ ...floatingStyle, transform: 'translateX(-50%)' }"
                                     @pointerenter="cancelSwatchLeave()"
                                     @pointerleave="onSwatchLeave()"
                                 >
-                                    <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                    <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5">
                                         <Plus class="w-4 h-4" />
                                     </button>
-                                    <button @click="onPopoverEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                    <button @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5">
                                         <Pencil class="w-4 h-4" />
                                     </button>
-                                    <button @click="onPopoverCopy(color.css)" class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                                    <button @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5">
                                         <Copy class="w-4 h-4" />
                                     </button>
                                 </div>
@@ -307,36 +307,6 @@ function onPopoverCopy(css: string) {
 </script>
 
 <style scoped>
-.swatch-floating-panel {
-    position: fixed;
-    z-index: var(--z-overlay);
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.375rem;
-    border-radius: var(--radius-md);
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--popover));
-    color: hsl(var(--popover-foreground));
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    transform: translateX(-50%);
-    pointer-events: auto;
-    animation: swatch-panel-in var(--duration-fast) ease-out;
-}
-
-@keyframes swatch-panel-in {
-    from {
-        opacity: 0;
-        filter: blur(4px);
-        transform: translateX(-50%) scale(0.96);
-    }
-    to {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateX(-50%) scale(1);
-    }
-}
-
 .featured-badge {
     background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light), var(--color-gold), var(--color-gold-light), var(--color-gold));
     background-size: 300% 100%;

@@ -1,6 +1,6 @@
 <template>
     <div
-        class="rounded-lg border-2 border-dashed border-primary/30 bg-primary/5 p-3 grid gap-2"
+        class="max-w-sm rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5 p-3 grid gap-2"
     >
         <div
             class="flex items-center justify-between gap-2"
@@ -110,7 +110,7 @@
                                 currentSwatchPopoverIndex ===
                                 i
                             "
-                            class="swatch-floating-panel"
+                            class="floating-panel flex items-center gap-1 p-1.5"
                             :style="currentFloatingStyle"
                             @pointerenter="
                                 cancelCurrentSwatchLeave()
@@ -126,7 +126,7 @@
                                         i,
                                     )
                                 "
-                                class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                class="floating-panel-item"
                             >
                                 <Pencil class="w-4 h-4" />
                             </button>
@@ -136,7 +136,7 @@
                                         color,
                                     )
                                 "
-                                class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                class="floating-panel-item"
                             >
                                 <Copy
                                     class="w-4 h-4"
@@ -149,7 +149,7 @@
                                         i,
                                     )
                                 "
-                                class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
+                                class="floating-panel-item"
                             >
                                 <Trash2
                                     class="w-4 h-4 text-destructive"
@@ -374,38 +374,6 @@ function confirmUpdatePalette() {
     duplicateTarget.value = null;
 }
 </script>
-
-<style scoped>
-.swatch-floating-panel {
-    position: fixed;
-    z-index: var(--z-overlay);
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.375rem;
-    border-radius: var(--radius-md);
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--popover));
-    color: hsl(var(--popover-foreground));
-    box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    transform: translateX(-50%);
-    pointer-events: auto;
-    animation: swatch-panel-in var(--duration-fast) ease-out;
-}
-
-@keyframes swatch-panel-in {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(4px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1);
-    }
-}
-</style>
 
 <style>
 /* Swatch add/remove animation (TransitionGroup) — unscoped for Vue Transition classes */
