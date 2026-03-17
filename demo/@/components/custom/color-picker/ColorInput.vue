@@ -84,7 +84,7 @@
                 </div>
             </HoverCardTrigger>
 
-            <HoverCardContent v-if="!proposeMode" class="z-[100] pointer-events-auto fraunces w-full">
+            <HoverCardContent v-if="!proposeMode" class="z-[var(--z-modal)] pointer-events-auto fraunces w-full">
                 <p class="font-bold text-lg">Enter a color</p>
                 <p>
                     <span class="italic">Any</span> valid CSS color string is accepted.
@@ -270,8 +270,8 @@ defineExpose({
 .color-input {
     border-color: hsl(var(--input));
     transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        border-color var(--duration-fast) var(--ease-standard),
+        box-shadow var(--duration-fast) var(--ease-standard);
     mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent 100%);
     -webkit-mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent 100%);
 }

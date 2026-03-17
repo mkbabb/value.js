@@ -1,13 +1,9 @@
 <template>
     <DropdownMenu>
         <DropdownMenuTrigger as-child>
-            <Button
-                variant="outline"
-                size="sm"
-                class="h-9 sm:h-10 px-2.5 cursor-pointer shrink-0"
-            >
-                <EllipsisVertical class="w-4 h-4" />
-            </Button>
+            <button class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0">
+                <EllipsisVertical class="w-4 h-4 text-muted-foreground" />
+            </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" class="w-48 fraunces">
             <DropdownMenuLabel class="text-xs">Sort</DropdownMenuLabel>
@@ -29,7 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from "@components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,

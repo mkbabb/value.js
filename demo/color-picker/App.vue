@@ -78,7 +78,7 @@
                             variant="link"
                         >@mbabb</Button>
                     </HoverCardTrigger>
-                    <HoverCardContent class="pointer-events-auto z-[100] p-4 min-w-[17rem] fraunces">
+                    <HoverCardContent class="pointer-events-auto z-[var(--z-modal)] p-4 min-w-[17rem] fraunces">
                         <div class="flex items-center gap-3">
                             <Avatar>
                                 <AvatarImage
@@ -336,12 +336,12 @@ onMounted(() => {
     </svg>
   `);
     gridBackground.value!.style.backgroundImage = `url("data:image/svg+xml,${encodedSVG}")`;
+    gridBackground.value!.style.backgroundSize = "1rem";
 });
 </script>
 
 <style scoped>
 .grid-background {
-    background-size: 1rem !important;
     background-repeat: repeat;
 }
 
@@ -353,11 +353,12 @@ onMounted(() => {
     color: hsl(var(--foreground));
     opacity: 0.7;
     transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
+        opacity var(--duration-fast) var(--ease-standard),
+        transform var(--duration-fast) var(--ease-standard);
     width: 1.25rem;
     height: 1.25rem;
     flex-shrink: 0;
+    border-radius: var(--radius-sm);
 }
 .header-control-item:hover {
     opacity: 1;
@@ -365,6 +366,10 @@ onMounted(() => {
 }
 .header-control-item:active {
     transform: scale(0.95);
+}
+.header-control-item:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--ring) / 0.4);
 }
 
 /* Blur the "About" card when editing */

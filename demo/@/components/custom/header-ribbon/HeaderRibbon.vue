@@ -116,7 +116,7 @@ defineExpose({ isPinned, isExpanded, isVisible, isToggled });
 <style scoped>
 /* Shared base */
 .header-items-wrapper {
-    max-width: 500px;
+    max-width: 30rem;
     opacity: 1;
     overflow: visible;
 }
@@ -125,9 +125,9 @@ defineExpose({ isPinned, isExpanded, isVisible, isToggled });
 .header-items-left {
     margin-left: 0.75rem;
     transition:
-        max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        margin-left 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.25s ease-out;
+        max-width var(--duration-slow) var(--ease-standard),
+        margin-left var(--duration-slow) var(--ease-standard),
+        opacity var(--duration-normal) var(--ease-decelerate);
 }
 .header-collapsed-left {
     max-width: 0;
@@ -141,9 +141,9 @@ defineExpose({ isPinned, isExpanded, isVisible, isToggled });
 .header-items-right {
     margin-right: 0.75rem;
     transition:
-        max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        margin-right 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.25s ease-out;
+        max-width var(--duration-slow) var(--ease-standard),
+        margin-right var(--duration-slow) var(--ease-standard),
+        opacity var(--duration-normal) var(--ease-decelerate);
 }
 .header-collapsed-right {
     max-width: 0;

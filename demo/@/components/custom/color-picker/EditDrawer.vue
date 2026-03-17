@@ -21,7 +21,7 @@
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <Check
-                                    class="h-14 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                    class="h-14 aspect-square stroke-foreground hover:scale-125 active:scale-90 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none rounded-sm"
                                     @click="emit('commit')"
                                 />
                             </TooltipTrigger>
@@ -32,7 +32,7 @@
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <Undo2
-                                    class="h-14 aspect-square stroke-foreground hover:scale-125 transition-all cursor-pointer"
+                                    class="h-14 aspect-square stroke-foreground hover:scale-125 active:scale-90 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none rounded-sm"
                                     @click="emit('cancel')"
                                 />
                             </TooltipTrigger>
@@ -79,7 +79,7 @@ const emit = defineEmits<{
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid hsl(var(--border));
-    box-shadow: 4px 0 24px -4px rgba(0, 0, 0, 0.15);
+    box-shadow: 4px 0 24px -4px hsl(var(--foreground) / 0.15);
     animation: edit-drawer-in var(--duration-normal) var(--ease-standard);
 }
 /* Desktop: left side panel */
@@ -89,7 +89,7 @@ const emit = defineEmits<{
         left: 0;
         transform: translateY(-50%);
         border-left: none;
-        border-radius: 0 0.75rem 0.75rem 0;
+        border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
         width: auto;
         max-width: 280px;
     }
@@ -100,7 +100,7 @@ const emit = defineEmits<{
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        border-radius: 0.75rem;
+        border-radius: var(--radius-xl);
     }
 }
 @keyframes edit-drawer-in {

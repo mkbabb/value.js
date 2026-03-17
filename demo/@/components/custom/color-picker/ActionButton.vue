@@ -13,7 +13,7 @@
                     :is="icon"
                     :aria-label="title"
                     :class="[
-                        'action-icon w-8 h-8 stroke-foreground transition-all cursor-pointer',
+                        'action-icon w-8 h-8 stroke-foreground transition-[transform,stroke] cursor-pointer',
                         iconClass,
                         disabled && 'pointer-events-none opacity-50',
                         isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
@@ -23,7 +23,7 @@
                 <span v-if="label" class="action-label">{{ label }}</span>
             </div>
         </HoverCardTrigger>
-        <HoverCardContent class="z-[100] pointer-events-auto fraunces">
+        <HoverCardContent class="z-[var(--z-modal)] pointer-events-auto fraunces">
             <div>
                 <p class="font-bold text-lg">{{ title }}</p>
                 <p class="text-sm opacity-60">{{ description }}</p>
@@ -101,11 +101,11 @@ function handleClick() {
     stroke: var(--hover-color);
 }
 .action-flash {
-    animation: action-pulse 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: action-pulse 0.4s var(--ease-standard) forwards;
 }
 .action-rotate {
-    animation: action-pulse 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards,
-               action-spin 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: action-pulse 0.4s var(--ease-standard) forwards,
+               action-spin 0.4s var(--ease-standard) forwards;
 }
 @keyframes action-pulse {
     0%   { stroke: var(--flash-color, currentColor); stroke-width: 2.75; transform: scale(1.3); }

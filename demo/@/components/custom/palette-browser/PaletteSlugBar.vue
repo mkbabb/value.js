@@ -1,31 +1,33 @@
 <template>
-    <div class="flex items-center gap-1.5 mb-2 relative h-8">
+    <div class="flex items-center gap-1.5 mb-2 relative h-9">
         <!-- Edit mode: slug input form -->
         <template v-if="slugEditMode">
-            <form class="flex items-center gap-1.5 flex-1 min-w-0" @submit.prevent="onSlugSwitch">
-                <Input
+            <form
+                class="flex items-center gap-2 rounded-2xl border border-border/50 bg-card/80 backdrop-blur-xl px-3 h-9 max-w-sm w-full transition-[box-shadow,border-color] focus-within:ring-2 focus-within:ring-ring/40 focus-within:border-border"
+                @submit.prevent="onSlugSwitch"
+            >
+                <LogIn class="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+                <input
                     ref="slugInputRef"
                     v-model="slugInput"
-                    placeholder="🐌 enter slug..."
-                    class="fira-code text-sm h-8 flex-1 min-w-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                    placeholder="enter slug..."
+                    class="fira-code text-sm bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground/50"
                     @keydown.escape.stop="slugEditMode = false"
                 />
-                <Button
+                <button
                     type="submit"
-                    variant="outline"
-                    size="sm"
                     :disabled="!slugInput.trim() || slugSwitching"
-                    class="fraunces text-sm h-8 px-2 cursor-pointer border-primary/30"
+                    class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0 disabled:opacity-30 disabled:cursor-not-allowed"
                 >
-                    <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin" />
-                    <LogIn v-else class="w-3.5 h-3.5" />
-                </Button>
+                    <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin text-muted-foreground" />
+                    <ArrowRight v-else class="w-3.5 h-3.5 text-muted-foreground" />
+                </button>
                 <button
                     type="button"
-                    class="p-0.5 transition-colors rounded-md hover:bg-secondary cursor-pointer"
+                    class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0"
                     @click="slugEditMode = false"
                 >
-                    <XIcon class="w-4 h-4 text-muted-foreground" />
+                    <XIcon class="w-3.5 h-3.5 text-muted-foreground" />
                 </button>
             </form>
         </template>
@@ -42,7 +44,7 @@
                         {{ userSlug }}
                     </span>
                 </HoverCardTrigger>
-                <HoverCardContent class="fraunces text-sm w-56 z-[100]">
+                <HoverCardContent class="fraunces text-sm w-56 z-[var(--z-modal)]">
                     <p class="font-bold">Your slug</p>
                     <p class="text-muted-foreground text-xs mt-1">
                         This is your unique identity. Use it to sign in from any device and access your palettes.
@@ -75,7 +77,7 @@
                         <MoreHorizontal class="w-3.5 h-3.5 text-muted-foreground" />
                     </button>
                 </PopoverTrigger>
-                <PopoverContent class="w-auto p-1 flex flex-col gap-0.5 z-[100]" align="end" :side-offset="4">
+                <PopoverContent class="w-auto p-1 flex flex-col gap-0.5 z-[var(--z-modal)]" align="end" :side-offset="4">
                     <button
                         v-if="userSlug"
                         class="flex items-center gap-2 px-3 py-1.5 text-sm fraunces rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
@@ -100,12 +102,11 @@
                         Logout
                     </button>
                     <button
-                        v-if="userSlug"
                         class="flex items-center gap-2 px-3 py-1.5 text-sm fraunces rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left text-muted-foreground"
                         @click="slugMenuOpen = false; $emit('regenerate')"
                     >
                         <RefreshCw class="w-3.5 h-3.5" />
-                        Regenerate slug
+                        {{ userSlug ? 'Regenerate slug' : 'Generate slug' }}
                     </button>
                 </PopoverContent>
             </Popover>
@@ -119,14 +120,13 @@
 
 <script setup lang="ts">
 import { ref, nextTick } from "vue";
-import { Input } from "@components/ui/input";
-import { Button } from "@components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@components/ui/hover-card";
 import {
     Loader2,
     Copy,
     X as XIcon,
+    ArrowRight,
     MoreHorizontal,
     LogIn,
     LogOut,
@@ -153,7 +153,7 @@ const slugMenuOpen = ref(false);
 const slugInput = ref("");
 const slugSwitching = ref(false);
 const slugError = ref("");
-const slugInputRef = ref<InstanceType<typeof Input> | null>(null);
+const slugInputRef = ref<HTMLInputElement | null>(null);
 
 function onCopySlug() {
     if (props.userSlug) copyToClipboard(props.userSlug);
@@ -166,8 +166,7 @@ function onStartSlugEdit() {
     setTimeout(() => {
         slugEditMode.value = true;
         nextTick(() => {
-            const el = slugInputRef.value?.$el?.querySelector?.("input") ?? slugInputRef.value?.$el;
-            el?.focus?.();
+            slugInputRef.value?.focus();
         });
     }, 50);
 }
