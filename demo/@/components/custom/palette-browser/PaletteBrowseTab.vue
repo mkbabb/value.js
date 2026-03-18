@@ -1,7 +1,6 @@
 <template>
-    <TabsContent value="browse" class="mt-0 w-full">
-        <Transition name="tab-fade" mode="out-in">
-            <div :key="'browse'" class="grid gap-3 pb-3">
+    <TabsContent value="browse" class="mt-0 w-full palette-tab-content" force-mount>
+            <div class="grid gap-3 pb-3">
                 <div
                     v-if="browsing"
                     class="flex items-center justify-center min-h-[120px]"
@@ -37,12 +36,10 @@
                     />
                 </PaletteCardGrid>
             </div>
-        </Transition>
     </TabsContent>
 </template>
 
 <script setup lang="ts">
-import { Transition } from "vue";
 import { TabsContent } from "@components/ui/tabs";
 import { Loader2 } from "lucide-vue-next";
 

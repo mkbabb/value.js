@@ -153,7 +153,7 @@
     --shadow: 0, 0%, 45%;
 }
 
-/* Tab content fade transition — used by PaletteDialog, PaletteBrowseTab, PaletteSavedTab */
+/* Tab content fade transition — Vue <Transition> variant */
 .tab-fade-enter-active,
 .tab-fade-leave-active {
     transition: opacity var(--duration-fast) var(--ease-standard);
@@ -161,6 +161,23 @@
 .tab-fade-enter-from,
 .tab-fade-leave-to {
     opacity: 0;
+}
+
+/* Palette tab content — animated via reka-ui data-state (forceMount) */
+.palette-tab-content {
+    transition: opacity var(--duration-normal) var(--ease-standard);
+}
+.palette-tab-content[data-state="inactive"] {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    overflow: hidden;
+    height: 0;
+}
+.palette-tab-content[data-state="active"] {
+    opacity: 1;
+    position: relative;
+    height: auto;
 }
 
 /* Shared floating panel — used by PaletteCard swatch popover & PaletteCardMenu (Teleported) */

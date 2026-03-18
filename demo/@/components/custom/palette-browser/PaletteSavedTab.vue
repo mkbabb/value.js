@@ -1,7 +1,6 @@
 <template>
-    <TabsContent value="saved" class="mt-0 w-full">
-        <Transition name="tab-fade" mode="out-in">
-            <div :key="'saved'" class="grid gap-3 pb-3">
+    <TabsContent value="saved" class="mt-0 w-full palette-tab-content" force-mount>
+            <div class="grid gap-3 pb-3">
                 <!-- Current working palette -->
                 <CurrentPaletteEditor
                     :saved-color-strings="savedColorStrings"
@@ -52,12 +51,10 @@
                     />
                 </PaletteCardGrid>
             </div>
-        </Transition>
     </TabsContent>
 </template>
 
 <script setup lang="ts">
-import { Transition } from "vue";
 import { TabsContent } from "@components/ui/tabs";
 import { Button } from "@components/ui/button";
 import { Trash2 } from "lucide-vue-next";

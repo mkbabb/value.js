@@ -1,39 +1,40 @@
 <template>
-    <div class="flex items-center gap-1.5 mb-2 relative h-9">
+    <div class="flex items-center gap-1.5 mb-2 pt-0.5 relative min-h-9">
         <!-- Edit mode: slug input form -->
-        <template v-if="slugEditMode">
-            <form
-                class="flex items-center gap-2 rounded-2xl border border-border/50 bg-card/80 backdrop-blur-xl px-3 h-9 max-w-sm w-full transition-[box-shadow,border-color] focus-within:ring-2 focus-within:ring-ring/40 focus-within:border-border"
-                @submit.prevent="onSlugSwitch"
+        <Transition name="slug-bar-swap" mode="out-in">
+        <form
+            v-if="slugEditMode"
+            key="slug-edit"
+            class="flex items-center gap-2 rounded-2xl border border-border/50 bg-card/80 backdrop-blur-xl px-3 h-9 max-w-sm w-full transition-[box-shadow,border-color] focus-within:ring-2 focus-within:ring-ring/40 focus-within:border-border"
+            @submit.prevent="onSlugSwitch"
+        >
+            <LogIn class="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+            <input
+                ref="slugInputRef"
+                v-model="slugInput"
+                placeholder="enter slug..."
+                class="fira-code text-sm bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground/50"
+                @keydown.escape.stop="slugEditMode = false"
+            />
+            <button
+                type="submit"
+                :disabled="!slugInput.trim() || slugSwitching"
+                class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0 disabled:opacity-30 disabled:cursor-not-allowed"
             >
-                <LogIn class="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-                <input
-                    ref="slugInputRef"
-                    v-model="slugInput"
-                    placeholder="enter slug..."
-                    class="fira-code text-sm bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground/50"
-                    @keydown.escape.stop="slugEditMode = false"
-                />
-                <button
-                    type="submit"
-                    :disabled="!slugInput.trim() || slugSwitching"
-                    class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0 disabled:opacity-30 disabled:cursor-not-allowed"
-                >
-                    <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin text-muted-foreground" />
-                    <ArrowRight v-else class="w-3.5 h-3.5 text-muted-foreground" />
-                </button>
-                <button
-                    type="button"
-                    class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0"
-                    @click="slugEditMode = false"
-                >
-                    <XIcon class="w-3.5 h-3.5 text-muted-foreground" />
-                </button>
-            </form>
-        </template>
+                <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin text-muted-foreground" />
+                <ArrowRight v-else class="w-3.5 h-3.5 text-muted-foreground" />
+            </button>
+            <button
+                type="button"
+                class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0"
+                @click="slugEditMode = false"
+            >
+                <XIcon class="w-3.5 h-3.5 text-muted-foreground" />
+            </button>
+        </form>
 
         <!-- Default mode -->
-        <template v-else>
+        <div v-else key="slug-default" class="flex items-center gap-1.5">
             <!-- Slug pill (logged in) -->
             <HoverCard v-if="userSlug" :close-delay="0" :open-delay="300">
                 <HoverCardTrigger as-child>
@@ -110,7 +111,8 @@
                     </button>
                 </PopoverContent>
             </Popover>
-        </template>
+        </div>
+        </Transition>
 
         <p v-if="slugError" class="absolute left-0 -bottom-4 text-xs text-destructive fira-code whitespace-nowrap">
             {{ slugError }}
@@ -225,3 +227,24 @@ function resetEditMode() {
 
 defineExpose({ slugEditMode, setError, resetEditMode });
 </script>
+
+<style scoped>
+@reference "../../../styles/style.css";
+
+.slug-bar-swap-enter-active {
+    transition: opacity var(--duration-normal) var(--ease-decelerate),
+                transform var(--duration-normal) var(--ease-spring);
+}
+.slug-bar-swap-leave-active {
+    transition: opacity var(--duration-fast) var(--ease-accelerate),
+                transform var(--duration-fast) var(--ease-accelerate);
+}
+.slug-bar-swap-enter-from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+}
+.slug-bar-swap-leave-to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.97);
+}
+</style>
