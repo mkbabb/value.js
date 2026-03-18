@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTemplateRef } from "vue";
 import { useDockState } from "@composables/useDockState";
+import { useDockTransition } from "@composables/useDockTransition";
 
 const props = withDefaults(
     defineProps<{
@@ -8,12 +9,14 @@ const props = withDefaults(
         startCollapsed?: boolean;
         fitContent?: boolean;
         position?: "fixed" | "inline";
+        fadeMs?: number;
     }>(),
     {
         collapseDelay: 2000,
         startCollapsed: true,
         fitContent: false,
         position: "inline",
+        fadeMs: 60,
     },
 );
 
@@ -36,6 +39,12 @@ const {
     rootEl: dockEl,
 });
 
+const { visualExpanded, isTransitioning, onTransitionEnd } = useDockTransition({
+    expanded,
+    rootEl: dockEl,
+    fadeMs: props.fadeMs,
+});
+
 // If startCollapsed is false, expand immediately after mount
 if (!props.startCollapsed) {
     expand();
@@ -49,23 +58,24 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
         ref="dockEl"
         class="glass-dock"
         :class="[
-            { expanded, collapsed: !expanded, pinned: isPinned, 'fit-content': fitContent },
+            { expanded: visualExpanded, collapsed: !visualExpanded, pinned: isPinned, 'fit-content': fitContent },
             position === 'fixed' ? 'fixed bottom-4 left-1/2 -translate-x-1/2' : 'dock-inline',
         ]"
         @mouseenter="onMouseEnter"
         @mouseleave="onMouseLeave($event)"
         @focusin="onFocusIn"
         @focusout="onFocusOut"
+        @transitionend="onTransitionEnd"
     >
-        <div class="dock-layers">
+        <div class="dock-layers" :class="{ 'dock-transitioning': isTransitioning }">
             <div
-                :class="['dock-layer dock-layer--full', { 'layer-active': expanded }]"
+                :class="['dock-layer dock-layer--full', { 'layer-active': visualExpanded }]"
                 :inert="!expanded || undefined"
             >
                 <slot />
             </div>
             <div
-                :class="['dock-layer dock-layer--summary', { 'layer-active': !expanded }]"
+                :class="['dock-layer dock-layer--summary', { 'layer-active': !visualExpanded }]"
                 :inert="expanded || undefined"
                 @click="onClickCollapsed"
             >
@@ -81,7 +91,6 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
 .glass-dock {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     padding: 0.375rem 0.75rem;
     border-radius: var(--radius-pill);
     background: var(--glass-bg);
@@ -91,33 +100,22 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
     box-shadow:
         0 4px 20px hsl(var(--foreground) / 0.25),
         0 0 0 1px hsl(var(--foreground) / 0.15);
-    overflow: hidden;
     white-space: nowrap;
-
-    /* Single spring transition for all properties */
+    overflow: hidden;
+    --ease-dock: cubic-bezier(0.18, 1.4, 0.4, 1);
     transition:
-        width 0.3s cubic-bezier(0.22, 1.6, 0.36, 1),
-        max-width 0.3s cubic-bezier(0.22, 1.6, 0.36, 1),
-        padding 0.2s cubic-bezier(0.22, 1.6, 0.36, 1),
-        box-shadow 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s cubic-bezier(0.22, 1.6, 0.36, 1);
+        width 0.25s var(--ease-dock),
+        padding 0.25s var(--ease-dock),
+        box-shadow var(--duration-normal) var(--ease-standard),
+        transform 0.25s var(--ease-dock),
+        background var(--duration-normal) var(--ease-standard),
+        border-color var(--duration-normal) var(--ease-standard);
 }
 
-/* Expanded: concrete max width */
-.glass-dock.expanded {
-    width: auto;
-    max-width: min(600px, calc(100vw - 1rem));
-}
-
-/* Collapsed: small pill */
+/* ── Collapsed: compact pill ── */
 .glass-dock.collapsed {
-    width: auto;
-    max-width: 5rem;
-    min-width: 3rem;
-    padding: 0.375rem 0.5rem;
     cursor: pointer;
+    padding: 0.375rem 0.5rem;
     background: hsl(var(--card) / 0.92);
     border-color: hsl(var(--foreground) / 0.3);
     box-shadow:
@@ -128,6 +126,10 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
 .glass-dock.collapsed:hover {
     background: hsl(var(--card) / 0.96);
     border-color: hsl(var(--foreground) / 0.4);
+    box-shadow:
+        0 4px 20px hsl(var(--foreground) / 0.25),
+        0 0 0 1px hsl(var(--foreground) / 0.15);
+    transform: scale(1.03);
 }
 
 .glass-dock:where(.fixed) {
@@ -138,42 +140,32 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
     margin: 0 auto;
 }
 
-/* Layer container */
+/* ── Layer stacking via grid ── */
 .dock-layers {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    transition: opacity 60ms var(--ease-standard);
+}
+
+.dock-layers.dock-transitioning {
+    opacity: 0;
 }
 
 .dock-layer {
+    grid-area: 1 / 1;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 0.5rem;
-    min-height: 2rem;
+    height: 2.5rem;
     white-space: nowrap;
-    transition: opacity 0.2s ease;
-}
-
-/* Full layer always in flow — drives the container height */
-.dock-layer--full {
-    position: relative;
-}
-
-/* Summary layer always absolutely positioned — never affects height */
-.dock-layer--summary {
-    position: absolute;
-    inset: 0;
 }
 
 .dock-layer.layer-active {
-    opacity: 1;
     pointer-events: auto;
 }
 
 .dock-layer:not(.layer-active) {
-    opacity: 0;
     pointer-events: none;
+    position: absolute;
+    visibility: hidden;
 }
 </style>
