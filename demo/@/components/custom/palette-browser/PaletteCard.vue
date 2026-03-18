@@ -1,10 +1,19 @@
 <template>
     <div
-        class="group rounded-2xl border border-border bg-card overflow-hidden transition-shadow hover:shadow-md cursor-pointer"
+        :class="[
+            'group rounded-2xl border border-border bg-card overflow-hidden transition-shadow hover:shadow-md cursor-pointer',
+            layout === 'aside' && 'flex',
+        ]"
         @click="$emit('click')"
     >
         <!-- Color strip -->
-        <PaletteColorStrip :colors="palette.colors" />
+        <PaletteColorStrip
+            :colors="palette.colors"
+            :orientation="layout === 'aside' ? 'vertical' : 'horizontal'"
+        />
+
+        <!-- Card body (flex-1 in aside layout so it sits next to the vertical strip) -->
+        <div :class="layout === 'aside' && 'flex-1 min-w-0'">
 
         <!-- Metadata row -->
         <div class="px-3 py-2.5 flex items-center justify-between gap-2 min-w-0">
@@ -65,12 +74,14 @@
         </div>
 
         <!-- Inline rename input -->
-        <PaletteRenameInput
-            v-if="renaming"
-            :name="palette.name"
-            @submit="onRenameSubmit"
-            @cancel="renaming = false"
-        />
+        <Transition name="rename-slide">
+            <PaletteRenameInput
+                v-if="renaming"
+                :name="palette.name"
+                @submit="onRenameSubmit"
+                @cancel="renaming = false"
+            />
+        </Transition>
 
         <!-- Expandable detail: color swatches -->
         <Transition
@@ -112,7 +123,7 @@
                                 <WatercolorDot
                                     :color="color.css"
                                     tag="button"
-                                    class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer"
+                                    :class="[swatchClass, 'shrink-0 cursor-pointer']"
                                 />
                             </PopoverTrigger>
                             <PopoverContent
@@ -136,7 +147,7 @@
                             <WatercolorDot
                                 :color="color.css"
                                 tag="button"
-                                class="w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer"
+                                :class="[swatchClass, 'shrink-0 cursor-pointer']"
                                 @click.stop="onSwatchClick(i)"
                             />
                             <Teleport to="body">
@@ -164,6 +175,7 @@
                 </div>
             </div>
         </Transition>
+        </div><!-- /card body -->
     </div>
 </template>
 
@@ -190,15 +202,22 @@ import PaletteColorStrip from "./PaletteColorStrip.vue";
 import PaletteCardMenu from "./PaletteCardMenu.vue";
 import PaletteRenameInput from "./PaletteRenameInput.vue";
 
-const props = defineProps<{
-    palette: Palette;
-    expanded?: boolean;
-    cssColor?: string;
-    isOwned?: boolean;
-    editableName?: boolean;
-    isAdmin?: boolean;
-    showSlug?: boolean;
-}>();
+const props = withDefaults(
+    defineProps<{
+        palette: Palette;
+        expanded?: boolean;
+        cssColor?: string;
+        isOwned?: boolean;
+        editableName?: boolean;
+        isAdmin?: boolean;
+        showSlug?: boolean;
+        /** "default" = strip on top; "aside" = vertical strip on left */
+        layout?: "default" | "aside";
+        /** CSS class(es) for swatch size override (default: "w-9 h-9 sm:w-10 sm:h-10") */
+        swatchClass?: string;
+    }>(),
+    { layout: "default", swatchClass: "w-9 h-9 sm:w-10 sm:h-10" },
+);
 
 const emit = defineEmits<{
     click: [];
@@ -324,5 +343,33 @@ function onPopoverCopy(css: string) {
 @keyframes golden-text-shimmer {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
+}
+
+/* Rename input slide-in / slide-out */
+.rename-slide-enter-active {
+    transition: opacity var(--duration-normal) var(--ease-decelerate),
+                transform var(--duration-normal) var(--ease-spring),
+                max-height var(--duration-normal) var(--ease-decelerate);
+    overflow: hidden;
+}
+.rename-slide-leave-active {
+    transition: opacity var(--duration-fast) var(--ease-accelerate),
+                transform var(--duration-fast) var(--ease-accelerate),
+                max-height var(--duration-fast) var(--ease-accelerate);
+    overflow: hidden;
+}
+.rename-slide-enter-from {
+    opacity: 0;
+    transform: translateY(-6px);
+    max-height: 0;
+}
+.rename-slide-enter-to,
+.rename-slide-leave-from {
+    max-height: 3rem;
+}
+.rename-slide-leave-to {
+    opacity: 0;
+    transform: translateY(-6px);
+    max-height: 0;
 }
 </style>
