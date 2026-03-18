@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-wrap gap-2 sm:gap-3 w-full justify-evenly items-center">
+    <div class="flex flex-wrap gap-1.5 sm:gap-2 w-full justify-evenly items-center">
         <ActionButton
             :icon="RotateCcw"
             hover-key="reset"
@@ -47,12 +47,24 @@
             @action="emit('openPalette')"
             @update:active-hover="(v) => activeHover = v"
         />
+        <ActionButton
+            :icon="Camera"
+            hover-key="extract"
+            :active-hover="activeHover"
+            title="Extract palette"
+            description="Open image palette extraction from a photo or camera."
+
+            :disabled="isEditing"
+            :css-color-opaque="cssColorOpaque"
+            @action="emit('openExtract')"
+            @update:active-hover="(v) => activeHover = v"
+        />
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { Dices, Copy, RotateCcw, Palette } from "lucide-vue-next";
+import { Dices, Copy, RotateCcw, Palette, Camera } from "lucide-vue-next";
 import ActionButton from "./ActionButton.vue";
 
 defineProps<{
@@ -67,6 +79,7 @@ const emit = defineEmits<{
     copy: [];
     random: [];
     openPalette: [];
+    openExtract: [];
 }>();
 
 const activeHover = ref<string | null>(null);

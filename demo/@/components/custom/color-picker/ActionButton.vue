@@ -13,7 +13,7 @@
                     :is="icon"
                     :aria-label="title"
                     :class="[
-                        'action-icon w-8 h-8 stroke-foreground transition-[transform,stroke] cursor-pointer',
+                        'action-icon w-7 h-7 sm:w-8 sm:h-8 stroke-foreground transition-[transform,stroke] cursor-pointer',
                         iconClass,
                         disabled && 'pointer-events-none opacity-50',
                         isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),

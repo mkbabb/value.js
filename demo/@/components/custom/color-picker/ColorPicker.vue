@@ -50,6 +50,7 @@
                                     @copy="colorInputRef?.copyAndSetInputColor()"
                                     @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
                                     @open-palette="openPaletteDialog"
+                                    @open-extract="openExtractTab"
                                 />
                                 <ColorInput
                                     :inert="!showInput || undefined"
@@ -253,6 +254,14 @@ const paletteDialogRef = ref<InstanceType<typeof PaletteDialog> | null>(null);
 function openPaletteDialog() {
     actionToolbarRef.value?.clearHover();
     window.setTimeout(() => { paletteDialogOpen.value = true; }, 100);
+}
+
+function openExtractTab() {
+    actionToolbarRef.value?.clearHover();
+    window.setTimeout(() => {
+        paletteDialogOpen.value = true;
+        paletteDialogRef.value?.setActiveTab("extract");
+    }, 100);
 }
 
 // --- Edit mode state machine ---

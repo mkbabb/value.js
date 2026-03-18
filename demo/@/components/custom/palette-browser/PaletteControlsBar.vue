@@ -23,6 +23,10 @@
                 <TabsTrigger value="browse" class="fraunces text-base font-bold"
                     >Browse</TabsTrigger
                 >
+                <TabsTrigger value="extract" class="fraunces text-base font-bold">
+                    <ImagePlus class="w-3.5 h-3.5 mr-1" />
+                    Extract
+                </TabsTrigger>
                 <template v-if="isAdmin">
                     <TabsTrigger value="admin-users" class="fraunces text-base font-bold">
                         <Shield class="w-3.5 h-3.5 mr-1" />
@@ -62,7 +66,7 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, onBeforeUnmount, nextTick } from "vue";
 import { TabsList, TabsTrigger } from "@components/ui/tabs";
-import { Shield, Search } from "lucide-vue-next";
+import { Shield, Search, ImagePlus } from "lucide-vue-next";
 
 import PaletteSlugBar from "./PaletteSlugBar.vue";
 import SortFilterMenu from "./SortFilterMenu.vue";

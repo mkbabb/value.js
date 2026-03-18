@@ -68,6 +68,13 @@
                         @edit-color="onEditColor"
                     />
 
+                    <!-- Extract from image tab -->
+                    <ImagePaletteExtractor
+                        :css-color-opaque="cssColorOpaque"
+                        @apply="(colors) => emit('apply', colors)"
+                        @add-color="(css) => emit('addColor', css)"
+                    />
+
                     <!-- Browse (remote) palettes tab -->
                     <PaletteBrowseTab
                         :browsing="browsing"
@@ -89,11 +96,9 @@
                     />
 
                     <!-- Admin Users tab -->
-                    <TabsContent v-if="isAdminAuthenticated" value="admin-users" class="mt-0 w-full">
-                        <Transition name="tab-fade" mode="out-in">
+                    <TabsContent v-if="isAdminAuthenticated" value="admin-users" class="mt-0 w-full palette-tab-content" force-mount>
                             <AdminUsersPanel
                                 ref="adminUsersPanelRef"
-                                :key="'admin-users'"
                                 :users="filteredAdminUsers"
                                 :loading="loadingUsers"
                                 :expanded-id="expandedId"
@@ -108,14 +113,11 @@
                                 @prune="onPrune"
                                 @refresh="loadAdminUsers"
                             />
-                        </Transition>
                     </TabsContent>
 
                     <!-- Admin Names tab -->
-                    <TabsContent v-if="isAdminAuthenticated" value="admin-names" class="mt-0 w-full">
-                        <Transition name="tab-fade" mode="out-in">
+                    <TabsContent v-if="isAdminAuthenticated" value="admin-names" class="mt-0 w-full palette-tab-content" force-mount>
                             <AdminNamesPanel
-                                :key="'admin-names'"
                                 :pending-items="filteredColorQueue"
                                 :approved-items="filteredApproved"
                                 :loading-pending="loadingColorQueue"
@@ -125,7 +127,6 @@
                                 @reject="onRejectColor"
                                 @delete="onDeleteColor"
                             />
-                        </Transition>
                     </TabsContent>
 
                 </Tabs>
@@ -161,7 +162,6 @@ import {
     ref,
     computed,
     watch,
-    Transition,
 } from "vue";
 import {
     Dialog,
@@ -190,6 +190,7 @@ import PaletteBrowseTab from "./PaletteBrowseTab.vue";
 import MigratePalettesDialog from "./MigratePalettesDialog.vue";
 import AdminUsersPanel from "./AdminUsersPanel.vue";
 import AdminNamesPanel from "./AdminNamesPanel.vue";
+import { ImagePaletteExtractor } from "@components/custom/image-palette-extractor";
 
 const props = defineProps<{
     savedColorStrings: string[];
@@ -205,7 +206,7 @@ const emit = defineEmits<{
     startEdit: [target: { paletteId: string; colorIndex: number; originalCss: string }];
 }>();
 
-type TabValue = "saved" | "browse" | "admin-users" | "admin-names";
+type TabValue = "saved" | "browse" | "extract" | "admin-users" | "admin-names";
 
 const openModel = defineModel<boolean>("open", { default: false });
 const activeTab = ref<TabValue>("saved");
@@ -353,7 +354,11 @@ function commitColorEdit(paletteId: string, colorIndex: number, newCss: string) 
     updatePalette(paletteId, { colors: updatedColors });
 }
 
-defineExpose({ commitColorEdit });
+function setActiveTab(tab: TabValue) {
+    activeTab.value = tab;
+}
+
+defineExpose({ commitColorEdit, setActiveTab });
 
 function toggleExpand(id: string) {
     expandedId.value = expandedId.value === id ? null : id;
