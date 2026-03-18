@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-center items-center mt-2 pb-3 -mx-3 sm:-mx-6 px-3 sm:px-6 shrink-0">
+                <div class="flex justify-center items-start mt-2 pb-3 -mx-3 sm:-mx-6 px-3 sm:px-6 shrink-0">
                     <GlassDock :collapse-delay="2000">
                         <div class="flex items-center gap-2">
                             <div class="grid relative items-center flex-1 min-w-[18rem] sm:min-w-[22rem]">

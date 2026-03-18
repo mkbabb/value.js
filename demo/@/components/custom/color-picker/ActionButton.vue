@@ -7,7 +7,7 @@
         :open-delay="700"
         class="pointer-events-auto"
     >
-        <HoverCardTrigger>
+        <HoverCardTrigger as-child>
             <div class="action-button-wrapper" @click="handleClick">
                 <component
                     :is="icon"
