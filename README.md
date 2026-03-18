@@ -1,6 +1,6 @@
-# value.js ![image](demo/color-picker/cube.png)
+# `value.js` ![image](demo/color-picker/favicon.svg)
 
-CSS value parsing, color theory, and unit conversion. Typed values with units—`deg`, `px`, `rem`, `oklch()`—the core CSS value vocabulary.
+CSS value parsing, color theory, and unit conversion. Typed values with units—`deg`, `px`, `rem`, `oklch()`—the CSS value vocabulary.
 
 [demo](https://color.babb.dev)
 
@@ -72,20 +72,13 @@ src/
 │       └── colorFilter.ts # CSS filter solver (SPSA)
 └── transform/
     └── decompose.ts      # 2D/3D matrix decomposition, quaternion slerp
-
-test/                     # vitest unit tests (24 files)
-e2e/                      # playwright E2E (14 specs)
-demo/                     # Vue 3.5 color picker (reka-ui, Tailwind)
-api/                      # Hono + MongoDB palette API (Docker)
-docs/                     # color-theory.md, gamut-mapping.md
-assets/docs/              # 10 color space reference pages
 ```
 
 ## Color Spaces
 
 All conversions route through the **XYZ D65** hub, enabling any-to-any conversion. Perceptual spaces (OKLab, Lab) use D50 natively with Bradford chromatic adaptation where needed.
 
-Each color space is documented in [`assets/docs/`](assets/docs/)—historical context, component ranges, conversion functions, and practical applications.
+Each color space is documented in [`assets/docs/`](assets/docs/), therein with historical context, component ranges, conversion functions, and practical applications.
 
 ### Gamut Mapping
 
@@ -103,38 +96,10 @@ CSS `matrix()` and `matrix3d()` decomposition per the CSSOM View and CSS Transfo
 
 ## Palette API
 
-The [demo](https://color.babb.dev) is backed by a palette API for saving, sharing, and voting on color palettes. Users register via `POST /sessions`, which mints a UUID token and a four-word slug—no accounts required. Palettes are slug-addressed, votable (atomic toggle), and sortable by popularity or recency. A color name registry lets users propose names for CSS colors; admins approve or reject through a moderation queue.
+The [demo](https://color.babb.dev) is backed by a palette API for saving, sharing, and voting on color palettes. Users register via `POST /sessions`, which begets a UUID token and a four-word slug for userless auth. Palettes are addressed, votable (atomic toggle), and sortable by popularity or recency. A color name registry lets users propose names for CSS colors; admins approve or reject through a moderation queue.
 
-Hono + MongoDB, Dockerized. See [`api/README.md`](api/README.md) for endpoints, schema, and deployment.
+See [`api/README.md`](api/README.md) for endpoints, schema, and deployment.
 
-| Feature           | Mechanism                                                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------ |
-| **Sessions**      | `POST /sessions` → UUID token + user slug; stored with hashed IP; 30-day TTL                                  |
-| **Palettes**      | CRUD by slug; 1–50 color stops with CSS string + optional name + position                                    |
-| **Voting**        | `POST /palettes/:slug/vote` — idempotent toggle; unique composite index on `{userSlug, paletteSlug}`         |
-| **Color names**   | `POST /colors/propose` → admin approval queue → `GET /colors/approved` feeds the demo's custom name registry |
-| **Rate limiting** | 60 reads/min, 10 writes/min per IP (in-memory, rightmost X-Forwarded-For)                                    |
-
-### Palette System Flow (Frontend + API)
-
-1. **Save locally** (`PaletteForm` / `usePaletteStore`): stores palettes in browser storage (`color-palettes`) for instant local recall.
-2. **Publish** (`PaletteDialog`): ensures a session (`POST /sessions`), then publishes via `POST /palettes` with `X-Session-Token`.
-3. **Browse + vote** (`Browse` tab): fetches `GET /palettes` and toggles votes with `POST /palettes/:slug/vote` (server maintains atomic vote counts).
-4. **Suggest color names** (`ColorInput` propose form): ensures session, then submits `POST /colors/propose` for moderation.
-5. **Admin moderation** (`AdminPanel`): token login (`Authorization: Bearer ...`), queue from `GET /admin/queue`, actions for approve/reject + feature/delete.
-
-### Validation
-
-- **API smoke (live backend)**: session creation, publish/list/get, vote toggle, rename, propose, admin queue, approve, feature, delete.
-- **Playwright live integration**: [`e2e/palette-api-live.spec.ts`](e2e/palette-api-live.spec.ts) validates save/publish/vote/propose/admin end-to-end against a real API.
-
-```bash
-# 1) Start API (example)
-MONGODB_URI=mongodb://127.0.0.1:27019/palette-e2e ADMIN_TOKEN=test-admin-token PORT=3100 npm --prefix api run dev
-
-# 2) Run live frontend + backend integration
-PALETTE_API_E2E=1 VITE_API_URL=http://127.0.0.1:3100 npx playwright test e2e/palette-api-live.spec.ts --project=desktop
-```
 
 ## Sources, acknowledgements, &c.
 
@@ -146,7 +111,3 @@ PALETTE_API_E2E=1 VITE_API_URL=http://127.0.0.1:3100 npx playwright test e2e/pal
 - [`@mkbabb/parse-that`](https://github.com/mkbabb/parse-that) — Parser combinators powering the CSS value grammar.
 
 See [`docs/color-theory.md`](docs/color-theory.md) for the full bibliography.
-
-## License
-
-GPL-3.0-only
