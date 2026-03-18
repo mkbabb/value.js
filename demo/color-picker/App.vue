@@ -123,7 +123,7 @@
         </HeaderRibbon>
 
         <div
-            class="grid lg:grid-cols-2 lg:grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-4 sm:py-10 lg:max-h-screen"
+            class="grid lg:grid-cols-2 lg:grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-4 sm:py-10 lg:max-h-[calc(100vh-5rem)]"
         >
             <ColorPicker
                 ref="colorPickerRef"
@@ -134,7 +134,7 @@
 
             <Card
                 :class="[
-                    'w-full lg:col-span-1 overflow-y-auto overflow-x-hidden min-w-0 lg:min-h-0',
+                    'about-card w-full lg:col-span-1 overflow-y-auto overflow-x-hidden min-w-0 lg:min-h-0',
                     pickerIsEditing ? 'about-card-editing' : 'about-card-normal',
                 ]"
             >
@@ -370,6 +370,27 @@ onMounted(() => {
 .header-control-item:focus-visible {
     outline: none;
     box-shadow: 0 0 0 2px hsl(var(--ring) / 0.4);
+}
+
+/* About card — subtle scroll fade at bottom edge (desktop only).
+   Uses ::after overlay instead of mask-image so box-shadow is preserved. */
+@media (min-width: 1024px) {
+    .about-card {
+        position: relative;
+    }
+    .about-card::after {
+        content: '';
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        height: 2rem;
+        margin-top: -2rem;
+        pointer-events: none;
+        background: linear-gradient(to bottom, transparent, hsl(var(--card)));
+        border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    }
 }
 
 /* Blur the "About" card when editing */
