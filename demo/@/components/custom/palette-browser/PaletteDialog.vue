@@ -2,7 +2,7 @@
     <Dialog v-model:open="openModel">
         <DialogScrollContent
             :class="[
-                'palette-dialog max-w-[1200px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-2xl h-[min(90vh,820px)] max-h-[90vh] min-w-0 flex flex-col',
+                'palette-dialog max-w-[800px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-2xl sm:h-[min(90vh,820px)] sm:max-h-[90vh] min-w-0 flex flex-col',
                 editingExit && 'palette-dialog--editing-exit',
                 editingEnter && 'palette-dialog--editing-enter',
             ]"
@@ -20,7 +20,7 @@
             <!-- Tabs + Search -->
             <div
                 data-testid="palette-browser-scroll-pane"
-                class="px-4 sm:px-6 w-full flex flex-col flex-1 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden"
+                class="px-4 sm:px-6 w-full flex flex-col flex-1 min-h-0 min-w-0 sm:overflow-y-auto overflow-x-hidden"
             >
                 <Tabs
                     v-model="activeTab"
