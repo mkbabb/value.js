@@ -273,6 +273,10 @@ export {
     parseResult,
 } from "./parsing/utils";
 
+// Color quantization
+export { quantizePixels, dominantColor } from "./quantize";
+export type { QuantizeOptions, QuantizedColor } from "./quantize";
+
 // Transform decomposition
 export {
     decomposeMatrix2D,
