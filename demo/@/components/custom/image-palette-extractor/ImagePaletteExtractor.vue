@@ -1,84 +1,86 @@
 <template>
     <TabsContent value="extract" class="mt-0 w-full palette-tab-content" force-mount>
-            <div class="pb-4">
+        <div class="pb-4">
+            <!-- Single continuous flow on mobile, two-column on sm+ -->
+            <div class="grid gap-4 sm:grid-cols-2">
 
-                <!-- Two-column on sm+, stacked on mobile -->
-                <div class="grid gap-4 sm:grid-cols-2">
+                <!-- Left column: image + camera -->
+                <div class="flex flex-col gap-3 sm:min-h-[280px]">
+                    <ImageDropZone class="flex-1 min-h-0 sm:max-h-[min(400px,50vh)]" :preview="previewDataUrl" @file="onFile" />
 
-                    <!-- Left: image + camera + controls -->
-                    <div class="flex flex-col gap-3 sm:min-h-[280px]">
-                        <ImageDropZone class="flex-1 min-h-0 max-h-[min(400px,50vh)]" :preview="previewDataUrl" @file="onFile" />
-
-                        <!-- Camera viewfinder -->
-                        <Transition name="expand-fade">
-                            <div v-if="cameraActive" class="relative rounded-2xl overflow-hidden bg-black shrink-0">
-                                <video
-                                    ref="videoRef"
-                                    autoplay
-                                    playsinline
-                                    muted
-                                    class="w-full max-h-[200px] object-cover"
-                                />
-                                <div class="absolute inset-x-0 bottom-0 flex justify-center p-2.5 bg-gradient-to-t from-black/50 to-transparent">
-                                    <button class="dock-icon-btn !w-9 !h-9 !bg-white/20 hover:!bg-white/40 backdrop-blur-sm" @click="captureFrame">
-                                        <Aperture class="w-4.5 h-4.5 text-white" />
-                                    </button>
-                                </div>
+                    <!-- Camera viewfinder -->
+                    <Transition name="expand-fade">
+                        <div v-if="cameraActive" class="relative rounded-2xl overflow-hidden bg-black shrink-0">
+                            <video
+                                ref="videoRef"
+                                autoplay
+                                playsinline
+                                muted
+                                class="w-full max-h-[200px] object-cover"
+                            />
+                            <div class="absolute inset-x-0 bottom-0 flex justify-center p-2.5 bg-gradient-to-t from-black/50 to-transparent">
+                                <button class="dock-icon-btn !w-9 !h-9 !bg-white/20 hover:!bg-white/40 backdrop-blur-sm" @click="captureFrame">
+                                    <Aperture class="w-4.5 h-4.5 text-white" />
+                                </button>
                             </div>
-                        </Transition>
+                        </div>
+                    </Transition>
+                </div>
 
-                        <ExtractControls
-                            class="shrink-0"
-                            :k="colorCount"
-                            :chroma-weight="chromaWeight"
-                            :gradient="kSliderGradient"
-                            :css-color="cssColorOpaque"
-                            :disabled="isProcessing || cameraActive"
-                            @update:k="onKChange"
-                            @update:chroma-weight="onChromaChange"
-                            @camera="startCamera"
-                        />
+                <!-- Right column: controls + palette result -->
+                <div class="flex flex-col gap-3 min-w-0">
+                    <!-- Controls: K slider (own row) + camera/kC/reset row -->
+                    <ExtractControls
+                        class="shrink-0"
+                        :k="colorCount"
+                        :chroma-weight="chromaWeight"
+                        :gradient="kSliderGradient"
+                        :css-color="cssColorOpaque"
+                        :disabled="isProcessing || cameraActive"
+                        :has-image="!!previewDataUrl"
+                        @update:k="onKChange"
+                        @update:chroma-weight="onChromaChange"
+                        @camera="startCamera"
+                        @reset="onReset"
+                    />
+
+                    <!-- Processing indicator -->
+                    <div v-if="isProcessing" class="flex items-center gap-2 justify-center py-2">
+                        <div class="w-4 h-4 rounded-full border-2 border-muted-foreground/30 border-t-primary animate-spin" />
+                        <span class="fira-code text-xs text-muted-foreground">Extracting...</span>
                     </div>
 
-                    <!-- Right: palette result -->
-                    <div class="flex flex-col gap-3 min-w-0">
-                        <!-- Processing indicator -->
-                        <div v-if="isProcessing" class="flex items-center gap-2 justify-center py-2">
-                            <div class="w-4 h-4 rounded-full border-2 border-muted-foreground/30 border-t-primary animate-spin" />
-                            <span class="fira-code text-xs text-muted-foreground">Extracting...</span>
-                        </div>
+                    <!-- Error -->
+                    <div v-if="quantizeError" class="fira-code text-xs text-destructive px-1">
+                        {{ quantizeError }}
+                    </div>
 
-                        <!-- Error -->
-                        <div v-if="quantizeError" class="fira-code text-xs text-destructive px-1">
-                            {{ quantizeError }}
-                        </div>
+                    <!-- Extracted palette as PaletteCard -->
+                    <Transition name="expand-fade">
+                        <PaletteCard
+                            v-if="extractedPalette && !isProcessing"
+                            :palette="extractedPalette"
+                            :expanded="true"
+                            :layout="isWide ? 'aside' : 'default'"
+                            :css-color="cssColorOpaque"
+                            swatch-class="w-12 h-12 sm:w-14 sm:h-14"
+                            editable-name
+                            @click="() => {}"
+                            @apply="onApply"
+                            @save="onSave"
+                            @rename="onRename"
+                            @add-color="(css) => emit('addColor', css)"
+                        />
+                    </Transition>
 
-                        <!-- Extracted palette as PaletteCard -->
-                        <Transition name="expand-fade">
-                            <PaletteCard
-                                v-if="extractedPalette && !isProcessing"
-                                :palette="extractedPalette"
-                                :expanded="true"
-                                :layout="isWide ? 'aside' : 'default'"
-                                :css-color="cssColorOpaque"
-                                swatch-class="w-12 h-12 sm:w-14 sm:h-14"
-                                editable-name
-                                @click="() => {}"
-                                @apply="onApply"
-                                @save="onSave"
-                                @rename="onRename"
-                                @add-color="(css) => emit('addColor', css)"
-                            />
-                        </Transition>
-
-                        <!-- Empty state -->
-                        <div v-if="!extractedPalette && !isProcessing && !quantizeError" class="flex flex-col items-center justify-center gap-2 py-4 text-center">
-                            <Pipette class="w-6 h-6 text-muted-foreground/30" />
-                            <span class="fira-code text-xs text-muted-foreground/40">Upload an image to extract colors</span>
-                        </div>
+                    <!-- Empty state -->
+                    <div v-if="!extractedPalette && !isProcessing && !quantizeError" class="flex flex-col items-center justify-center gap-2 py-4 text-center">
+                        <Pipette class="w-6 h-6 text-muted-foreground/30" />
+                        <span class="fira-code text-xs text-muted-foreground/40">Upload an image to extract colors</span>
                     </div>
                 </div>
             </div>
+        </div>
     </TabsContent>
 </template>
 
@@ -189,6 +191,14 @@ function onKChange(k: number) {
 function onChromaChange(v: number) {
     chromaWeight.value = v;
     debouncedReQuantize();
+}
+
+function onReset() {
+    colorCount.value = 5;
+    chromaWeight.value = 0.5;
+    if (lastFile.value) {
+        runQuantize();
+    }
 }
 
 async function startCamera() {
