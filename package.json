@@ -30,7 +30,9 @@
     ],
     "scripts": {
         "dev": "vite --port 9000",
+        "dev:hero-lab": "vite --mode hero-lab --port 9010",
         "build": "vite build --mode production",
+        "build:hero-lab": "vite build --mode hero-lab",
         "gh-pages": "vite build --mode gh-pages",
         "test": "vitest",
         "test:e2e": "playwright test"
@@ -51,6 +53,7 @@
         "@mkbabb/parse-that": "^0.8.2"
     },
     "devDependencies": {
+        "@mkbabb/keyframes.js": "file:../keyframes.js",
         "@iconify-json/radix-icons": "^1.2.2",
         "@iconify/vue": "^4.1.2",
         "@playwright/test": "^1.58.2",

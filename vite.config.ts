@@ -27,6 +27,7 @@ const defaultOptions = {
             "@lib": path.resolve(import.meta.dirname, "demo/@/lib"),
             "@composables": path.resolve(import.meta.dirname, "demo/@/composables"),
             "@assets": path.resolve(import.meta.dirname, "assets"),
+            "@mkbabb/keyframes.js": path.resolve(import.meta.dirname, "../keyframes.js/dist/keyframes.js"),
         },
     },
 };
@@ -58,6 +59,34 @@ export default defineConfig((mode) => {
                 drop: ["console", "debugger"],
             },
             plugins: [...defaultPlugins, dts({ include: ["src/"] })],
+        };
+    } else if (mode.mode === "hero-lab") {
+        return {
+            ...defaultOptions,
+            base: "./",
+            root: "./demo/hero-lab/",
+            build:
+                mode.command === "build"
+                    ? {
+                          outDir: path.resolve(import.meta.dirname, "./dist/hero-lab"),
+                          emptyOutDir: true,
+                          minify: true,
+                          sourcemap: false,
+                      }
+                    : undefined,
+            server: {
+                host: true,
+            },
+            optimizeDeps: {
+                exclude: ["@mkbabb/keyframes.js"],
+                include: [
+                    "vue",
+                    "reka-ui",
+                    "@vueuse/core",
+                    "lucide-vue-next",
+                ],
+            },
+            plugins: [...defaultPlugins],
         };
     } else if (mode.mode === "gh-pages") {
         return {
@@ -91,18 +120,7 @@ export default defineConfig((mode) => {
             server: {
                 host: true,
             },
-            optimizeDeps: {
-                include: [
-                    "vue",
-                    "reka-ui",
-                    "@vueuse/core",
-                    "lucide-vue-next",
-                    "vue-sonner",
-                    "katex",
-                    "highlight.js/lib/core",
-                    "prettier",
-                ],
-            },
+            optimizeDeps: {},
             plugins: [...defaultPlugins],
         };
     }
