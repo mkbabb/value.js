@@ -7,6 +7,8 @@ import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 
 export { default as ColorPicker } from "./ColorPicker.vue";
 export { default as ColorNutritionLabel } from "./ColorNutritionLabel.vue";
+export { ACTION_BAR_KEY } from "./keys";
+export type { ActionBarContext } from "./keys";
 
 export interface EditTarget {
     paletteId: string;
