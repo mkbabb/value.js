@@ -7,11 +7,24 @@
         <title>Color Picker</title>
         <link rel="icon" type="image/svg+xml" href="./assets/favicon-BpOvZXpk.svg" />
 
-      <script type="module" crossorigin src="./assets/index-COQr9x3G.js"></script>
+        <!-- Prevent flash: apply dark mode class + initial bg before any rendering -->
+        <script>
+            (function() {
+                var stored = localStorage.getItem('vueuse-color-scheme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var dark = stored === 'dark' || (!stored && prefersDark);
+                if (dark) document.documentElement.classList.add('dark');
+                document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+                var bg = localStorage.getItem('color-picker-bg');
+                if (bg) document.documentElement.style.background = bg;
+            })();
+        </script>
+
+      <script type="module" crossorigin src="./assets/index-D3vxKVg_.js"></script>
       <link rel="modulepreload" crossorigin href="./assets/vendor-highlight-C4QuFBUx.js">
       <link rel="modulepreload" crossorigin href="./assets/vendor-prettier-wO8BBsoP.js">
       <link rel="modulepreload" crossorigin href="./assets/vendor-katex-Dehg5p_Y.js">
-      <link rel="stylesheet" crossorigin href="./assets/index-DBUwSOi2.css">
+      <link rel="stylesheet" crossorigin href="./assets/index--siXaAiT.css">
     </head>
 
     <body class="relative" id="app"></body>
