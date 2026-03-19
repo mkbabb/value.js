@@ -375,16 +375,20 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                         </Select>
 
                         <!-- Action bar toggle button -->
-                        <template v-if="actionBar">
+                        <div
+                            class="flex items-center gap-[0.25rem] overflow-hidden transition-all duration-300 ease-[var(--ease-standard)]"
+                            :style="{ maxWidth: actionBar ? '3rem' : '0px', opacity: actionBar ? 1 : 0 }"
+                        >
                             <div class="dock-separator"></div>
                             <button
-                                class="dock-icon-btn"
+                                class="dock-icon-btn shrink-0"
                                 title="Action bar"
+                                :tabindex="actionBar ? 0 : -1"
                                 @click="toggleActionBar"
                             >
                                 <Paintbrush class="w-5 h-5" :style="{ color: cssColorOpaque }" />
                             </button>
-                        </template>
+                        </div>
 
                         <!-- Mobile pane toggle (only when two panes exist) -->
                         <template v-if="viewManager.currentConfig.value.right !== null">
@@ -629,5 +633,6 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
     pointer-events: none;
     transform: scale(0.96);
 }
+
 
 </style>
