@@ -153,11 +153,10 @@ export function useDockState(options: UseDockStateOptions) {
     function onPointerDownOutside(e: PointerEvent) {
         const root = rootEl.value;
         if (!root || root.contains(e.target as Node)) return;
-        if (keepOpenCount > 0) return;
         if (isTeleportedTarget(e.target)) return;
 
-        // Click outside in hover state → collapse
-        // Click outside in pinned state → collapse
+        // Click outside → always collapse, even if keepOpenCount > 0
+        // (keepOpenCount prevents timer-based collapse, not explicit dismissal)
         collapse();
     }
 
