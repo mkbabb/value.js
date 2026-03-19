@@ -99,6 +99,28 @@ export function useUserAuth() {
         return _autoRegisterPromise;
     }
 
+    /**
+     * Atomically replace the current slug: revoke old session, register new one.
+     * The slug ref transitions directly from old → new with no null gap, avoiding UI flash.
+     */
+    async function regenerate(): Promise<string> {
+        try {
+            await deleteSession();
+        } catch {
+            // Old session may already be expired
+        }
+        // Clear storage but DON'T null the ref yet
+        safeRemoveItem(localStorage, SLUG_KEY);
+        safeRemoveItem(localStorage, TOKEN_KEY);
+        setSessionToken(null);
+
+        // Register new user — persist() updates the ref atomically
+        const res = await createSession();
+        if (!res.userSlug) throw new Error("Server did not return a user slug");
+        persist(res.userSlug, res.token);
+        return res.userSlug;
+    }
+
     function clearSlug() {
         _registrationCancelled = true;
         _autoRegisterPromise = null;
@@ -108,5 +130,5 @@ export function useUserAuth() {
         safeRemoveItem(localStorage, TOKEN_KEY);
     }
 
-    return { userSlug, isLoggedIn, register, login, logout, ensureUser, clearSlug };
+    return { userSlug, isLoggedIn, register, login, logout, ensureUser, regenerate, clearSlug };
 }

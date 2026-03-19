@@ -215,7 +215,7 @@ const expandedId = ref<string | null>(null);
 const controlsBarRef = ref<InstanceType<typeof PaletteControlsBar> | null>(null);
 
 const { isAuthenticated: isAdminAuthenticated, login: adminLogin } = useAdminAuth();
-const { userSlug, ensureUser, login: userLogin, logout: userLogout, clearSlug } = useUserAuth();
+const { userSlug, ensureUser, login: userLogin, logout: userLogout, regenerate: userRegenerate, clearSlug } = useUserAuth();
 const session = useSession();
 
 const {
@@ -283,6 +283,7 @@ const {
     savedPalettes,
     userLogin,
     userLogout,
+    userRegenerate,
     adminLogin,
     clearUserSlug: clearSlug,
     ensureUser,

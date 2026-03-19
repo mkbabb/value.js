@@ -8,6 +8,7 @@ export function useSlugMigration(deps: {
     savedPalettes: Ref<Palette[]>;
     userLogin: (slug: string) => Promise<void>;
     userLogout: () => Promise<void>;
+    userRegenerate: () => Promise<string>;
     adminLogin: (token: string) => void;
     clearUserSlug: () => void;
     ensureUser: () => Promise<string>;
@@ -81,13 +82,11 @@ export function useSlugMigration(deps: {
                 if (choice === "publish") {
                     await publishAllLocal();
                 }
-                await deps.userLogout();
-                await deps.ensureUser();
+                await deps.userRegenerate();
             };
             showMigrateDialog.value = true;
         } else {
-            await deps.userLogout();
-            await deps.ensureUser();
+            await deps.userRegenerate();
         }
     }
 
