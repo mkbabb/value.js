@@ -6,8 +6,8 @@
             dragging
                 ? 'border-primary bg-primary/10 scale-[1.01]'
                 : preview
-                    ? 'border-transparent bg-muted/20 hover:bg-muted/30'
-                    : 'border-border/50 bg-muted/30 hover:border-border hover:bg-muted/50',
+                    ? 'border-transparent bg-primary/5 hover:bg-primary/10'
+                    : 'border-primary/30 bg-primary/5 hover:border-primary/50 hover:bg-primary/10',
         ]"
         :style="{ transitionDuration: 'var(--duration-normal)', transitionTimingFunction: 'var(--ease-standard)' }"
         @click="openFilePicker"

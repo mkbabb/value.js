@@ -82,26 +82,9 @@ const emit = defineEmits<{
     box-shadow: 4px 0 24px -4px hsl(var(--foreground) / 0.15);
     animation: edit-drawer-in var(--duration-normal) var(--ease-standard);
 }
-/* Desktop: left side panel */
-@media (min-width: 640px) {
-    .edit-drawer {
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        border-left: none;
-        border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
-        width: auto;
-        max-width: 280px;
-    }
-}
-/* Mobile: centered panel */
-@media (max-width: 639px) {
-    .edit-drawer {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: var(--radius-xl);
-    }
+/* Edit drawer is fully handled by TopDock on mobile and not needed on desktop */
+.edit-drawer {
+    display: none;
 }
 @keyframes edit-drawer-in {
     from { opacity: 0; transform: translateX(-100%) translateY(-50%); }

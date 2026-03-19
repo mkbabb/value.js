@@ -8,6 +8,8 @@ export interface UseWatercolorBlobOptions {
     cycleDuration?: number;
     /** Border-radius range [lo, hi] as percentages (default [20, 80]) */
     range?: [number, number];
+    /** Extra seed string mixed into the hash for unique shapes */
+    seed?: string;
 }
 
 /**
@@ -29,6 +31,7 @@ export function useWatercolorBlob(
         animate = false,
         cycleDuration = 4000,
         range = [20, 80],
+        seed = "",
     } = options;
 
     const borderRadius = ref("");
@@ -36,8 +39,8 @@ export function useWatercolorBlob(
 
     const getColor = typeof color === "function" ? color : () => color.value;
 
-    // Deterministic initial shape from color string
-    const rng = mulberry32(hashString(getColor()));
+    // Deterministic initial shape from color string + optional seed
+    const rng = mulberry32(hashString(getColor() + seed));
     const initial = randomRadii(rng, range[0], range[1]);
     borderRadius.value = radiiToCSS(initial);
 
@@ -52,7 +55,7 @@ export function useWatercolorBlob(
     if (!animate) {
         if (typeof color !== "function") {
             watch(color, (c) => {
-                const r = mulberry32(hashString(c));
+                const r = mulberry32(hashString(c + seed));
                 borderRadius.value = radiiToCSS(randomRadii(r, range[0], range[1]));
                 hoverBorderRadius.value = radiiToCSS(randomRadii(r, range[0], range[1]));
             });

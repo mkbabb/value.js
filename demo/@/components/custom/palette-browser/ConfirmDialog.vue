@@ -2,13 +2,13 @@
     <Transition name="confirm-overlay">
         <div
             v-if="open"
-            class="absolute inset-0 z-50 grid place-items-center bg-black/50 rounded-lg"
+            class="absolute inset-0 z-50 grid place-items-center bg-black/50 rounded-2xl"
             @click.self="open = false"
         >
             <Transition name="confirm-panel" appear>
                 <div
                     v-if="open"
-                    class="w-[calc(100%-2rem)] sm:max-w-sm bg-card text-card-foreground border border-border rounded-lg shadow-lg"
+                    class="w-[calc(100%-2rem)] sm:max-w-sm bg-card text-card-foreground border border-border rounded-2xl shadow-lg"
                 >
                     <div class="p-6 grid gap-4">
                         <div class="grid gap-2">
@@ -22,14 +22,14 @@
                         <div class="flex justify-end gap-2">
                             <Button
                                 variant="outline"
-                                class="fraunces cursor-pointer"
+                                class="fraunces cursor-pointer rounded-full"
                                 @click="open = false"
                             >
                                 Cancel
                             </Button>
                             <Button
                                 :variant="destructive ? 'destructive' : 'default'"
-                                class="fraunces cursor-pointer gap-1.5"
+                                class="fraunces cursor-pointer gap-1.5 rounded-full"
                                 @click="onConfirm"
                             >
                                 <slot name="action">{{ confirmLabel }}</slot>

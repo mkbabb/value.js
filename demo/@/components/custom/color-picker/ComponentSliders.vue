@@ -7,7 +7,7 @@
             :key="component"
             class="grid grid-cols-1 w-full items-start"
         >
-            <Label class="font-bold text-md"
+            <Label class="font-normal text-md"
                 >{{ component.toUpperCase()
                 }}<span class="font-normal italic opacity-60">{{
                     ` ${currentColorRanges[component]}`

@@ -4,7 +4,7 @@
         :open="isOpen"
         @update:open="onHoverOpenChange"
         :close-delay="0"
-        :open-delay="700"
+        :open-delay="300"
         class="pointer-events-auto"
     >
         <HoverCardTrigger as-child>
@@ -13,7 +13,7 @@
                     :is="icon"
                     :aria-label="title"
                     :class="[
-                        'action-icon w-7 h-7 sm:w-8 sm:h-8 stroke-foreground transition-[transform,stroke] cursor-pointer',
+                        'action-icon w-5 h-5 sm:w-6 sm:h-6 stroke-foreground transition-[transform,stroke] cursor-pointer',
                         iconClass,
                         disabled && 'pointer-events-none opacity-50',
                         isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
@@ -25,7 +25,7 @@
         </HoverCardTrigger>
         <HoverCardContent class="z-[var(--z-modal)] pointer-events-auto fraunces">
             <div>
-                <p class="font-bold text-lg">{{ title }}</p>
+                <p class="text-lg">{{ title }}</p>
                 <p class="text-sm opacity-60">{{ description }}</p>
             </div>
         </HoverCardContent>
@@ -91,8 +91,8 @@ function handleClick() {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
     cursor: pointer;
     flex-shrink: 0;
 }

@@ -59,7 +59,7 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
         class="glass-dock"
         :class="[
             { expanded: visualExpanded, collapsed: !visualExpanded, pinned: isPinned, 'fit-content': fitContent },
-            position === 'fixed' ? 'fixed bottom-4 left-1/2 -translate-x-1/2' : 'dock-inline',
+            position === 'fixed' ? 'fixed bottom-[var(--dock-pos)] left-1/2 -translate-x-1/2' : 'dock-inline',
         ]"
         @mouseenter="onMouseEnter"
         @mouseleave="onMouseLeave($event)"
@@ -94,8 +94,8 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
     padding: 0.375rem 0.75rem;
     border-radius: var(--radius-pill);
     background: var(--glass-bg);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border: 1.5px solid hsl(var(--foreground) / 0.25);
     box-shadow:
         0 4px 20px hsl(var(--foreground) / 0.25),
@@ -116,7 +116,7 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
 .glass-dock.collapsed {
     cursor: pointer;
     padding: 0.375rem 0.5rem;
-    background: hsl(var(--card) / 0.92);
+    background: var(--glass-bg);
     border-color: hsl(var(--foreground) / 0.3);
     box-shadow:
         0 2px 12px hsl(var(--foreground) / 0.2),
@@ -124,7 +124,7 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
 }
 
 .glass-dock.collapsed:hover {
-    background: hsl(var(--card) / 0.96);
+    background: var(--glass-bg);
     border-color: hsl(var(--foreground) / 0.4);
     box-shadow:
         0 4px 20px hsl(var(--foreground) / 0.25),
@@ -167,5 +167,9 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
     pointer-events: none;
     position: absolute;
     visibility: hidden;
+}
+
+.glass-dock.expanded {
+    overflow: visible;
 }
 </style>

@@ -22,12 +22,11 @@
                     <div class="flex-1" />
                     <Button
                         variant="destructive"
-                        size="sm"
-                        class="h-7 px-2.5 cursor-pointer fraunces text-xs gap-1.5"
+                        size="icon"
+                        class="h-7 w-7 rounded-full cursor-pointer"
                         @click="$emit('deleteAll')"
                     >
-                        <Trash2 class="w-3 h-3" />
-                        Delete all
+                        <Trash2 class="w-3.5 h-3.5" />
                     </Button>
                 </div>
 

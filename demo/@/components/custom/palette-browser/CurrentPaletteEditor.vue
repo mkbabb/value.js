@@ -50,7 +50,7 @@
                         <WatercolorDot
                             :color="color"
                             tag="button"
-                            class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
+                            :class="['w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer', isSwatchEditing(i) && 'swatch-editing']"
                         />
                     </PopoverTrigger>
                     <PopoverContent
@@ -99,7 +99,7 @@
                     <WatercolorDot
                         :color="color"
                         tag="button"
-                        class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
+                        :class="['w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer', isSwatchEditing(i) && 'swatch-editing']"
                         @click.stop="
                             onCurrentSwatchClick(i)
                         "
@@ -158,6 +158,43 @@
                         </div>
                     </Teleport>
                 </template>
+
+                <!-- Edit overlay popover (desktop) — wraps around the swatch -->
+                <Transition name="edit-overlay">
+                    <div v-if="isSwatchEditing(i)" class="edit-overlay hidden lg:flex">
+                        <div class="flex items-center gap-2">
+                            <WatercolorDot
+                                :color="color"
+                                tag="div"
+                                class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 opacity-50 grayscale-[0.4] swatch-cutout"
+                                :seed="'edit-from-' + i"
+                            />
+                            <span class="text-muted-foreground text-xs">&rarr;</span>
+                            <WatercolorDot
+                                :color="cssColorOpaque"
+                                tag="div"
+                                class="w-11 h-11 sm:w-12 sm:h-12 shrink-0"
+                                :seed="'edit-to-' + i"
+                            />
+                        </div>
+                        <div class="flex gap-2 mt-2 self-center">
+                            <button
+                                class="p-2 rounded-full bg-foreground/5 hover:bg-foreground/15 transition-all cursor-pointer hover:scale-110 active:scale-95"
+                                title="Save edit"
+                                @click.stop="emit('commitEdit')"
+                            >
+                                <Check class="w-5 h-5" :style="{ color: cssColorOpaque }" />
+                            </button>
+                            <button
+                                class="p-2 rounded-full bg-foreground/5 hover:bg-foreground/15 transition-all cursor-pointer hover:scale-110 active:scale-95"
+                                title="Cancel edit"
+                                @click.stop="emit('cancelEdit')"
+                            >
+                                <Undo2 class="w-5 h-5 text-muted-foreground" />
+                            </button>
+                        </div>
+                    </div>
+                </Transition>
             </div>
             <!-- Add current color button -->
             <TooltipProvider
@@ -194,17 +231,17 @@
                 :placeholder="
                     'Palette ' + (savedPaletteCount + 1)
                 "
-                class="fira-code text-sm h-8 flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
+                class="fira-code text-sm h-8 flex-1 rounded-2xl bg-background border-border/50 focus-visible:ring-0 focus-visible:ring-offset-0"
                 @keydown.enter="saveCurrentPalette"
             />
             <Button
                 variant="outline"
-                size="sm"
-                class="fraunces text-sm h-8 cursor-pointer border-primary/30"
+                size="icon"
+                class="h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
                 :disabled="savedColorStrings.length === 0"
                 @click="saveCurrentPalette"
             >
-                Save
+                <Check class="w-4 h-4" />
             </Button>
         </div>
         <div
@@ -217,7 +254,7 @@
             <Button
                 variant="outline"
                 size="sm"
-                class="h-6 px-2 text-xs cursor-pointer fraunces"
+                class="h-6 px-2 text-xs cursor-pointer fraunces rounded-full"
                 @click="confirmUpdatePalette"
             >
                 Update
@@ -225,7 +262,7 @@
             <Button
                 variant="ghost"
                 size="sm"
-                class="h-6 px-2 text-xs cursor-pointer fraunces"
+                class="h-6 px-2 text-xs cursor-pointer fraunces rounded-full"
                 @click="duplicateTarget = null"
             >
                 Cancel
@@ -235,7 +272,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, TransitionGroup } from "vue";
+import { ref, computed, inject, watch, TransitionGroup } from "vue";
+import type { Ref } from "vue";
+import type { EditTarget } from "@components/custom/color-picker";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import {
@@ -250,6 +289,8 @@ import {
     Pencil,
     Copy,
     Trash2,
+    Check,
+    Undo2,
 } from "lucide-vue-next";
 import { copyToClipboard } from "@composables/useClipboard";
 import { useHoverPopover } from "@composables/useHoverPopover";
@@ -269,7 +310,16 @@ const emit = defineEmits<{
     startEdit: [target: { paletteId: string; colorIndex: number; originalCss: string }];
     saved: [name: string, colors: PaletteColor[]];
     updated: [id: string, colors: PaletteColor[]];
+    commitEdit: [];
+    cancelEdit: [];
 }>();
+
+// --- Edit target from parent (for dashed outline on editing swatch) ---
+const activeEditTarget = inject<Ref<EditTarget | null>>("activeEditTarget", ref(null));
+function isSwatchEditing(index: number): boolean {
+    const et = activeEditTarget.value;
+    return !!et && et.paletteId === "__current__" && et.colorIndex === index;
+}
 
 // --- Hover popover for current swatches ---
 const {
@@ -395,5 +445,58 @@ function confirmUpdatePalette() {
 }
 .swatch-item-move {
     transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+/* Editing swatch — dashed outline + grayed out */
+.swatch-editing {
+    outline: 2px dashed hsl(var(--foreground) / 0.3);
+    outline-offset: 2px;
+    opacity: 0.4;
+    filter: grayscale(0.5);
+    transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+/* Cutout effect on the FROM swatch in the edit overlay */
+.swatch-cutout {
+    outline: 2px dashed hsl(var(--foreground) / 0.3);
+    outline-offset: -2px;
+    box-shadow: inset 0 2px 8px hsl(var(--foreground) / 0.15);
+}
+
+/* Edit overlay — anchored so the FROM swatch aligns exactly over the original */
+.edit-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 20;
+    padding: 0.375rem;
+    background: var(--glass-bg-heavy);
+    backdrop-filter: var(--glass-blur-heavy);
+    -webkit-backdrop-filter: var(--glass-blur-heavy);
+    border: 1px solid hsl(var(--border) / 0.6);
+    border-radius: var(--radius-lg, 1rem);
+    box-shadow: var(--glass-shadow-elevated);
+    /* Offset so the padding + first swatch aligns with the original swatch position */
+    margin-top: -0.375rem;
+    margin-left: -0.375rem;
+}
+
+.edit-overlay-enter-active {
+    transition: opacity 0.2s ease, transform 0.35s cubic-bezier(0.18, 1.4, 0.4, 1);
+}
+.edit-overlay-leave-active {
+    transition: opacity 0.12s ease, transform 0.15s ease;
+}
+.edit-overlay-enter-from {
+    opacity: 0;
+    transform: scale(0.5);
+    transform-origin: top left;
+}
+.edit-overlay-leave-to {
+    opacity: 0;
+    transform: scale(0.8);
+    transform-origin: top left;
 }
 </style>

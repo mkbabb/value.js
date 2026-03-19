@@ -74,7 +74,7 @@ export function useDockState(options: UseDockStateOptions) {
     }
 
     function onMouseLeave(e?: MouseEvent) {
-        // If mouse moved to a descendant, don't collapse
+        // If mouse moved to a descendant or teleported child (dropdown, popover), don't collapse
         if (e) {
             const root = rootEl.value;
             if (
@@ -83,6 +83,7 @@ export function useDockState(options: UseDockStateOptions) {
                 root.contains(e.relatedTarget)
             )
                 return;
+            if (isTeleportedTarget(e.relatedTarget)) return;
         }
         if (state.value === "hover") {
             if (keepOpenCount > 0) return;
@@ -140,10 +141,20 @@ export function useDockState(options: UseDockStateOptions) {
 
     // --- Click-away listener ---
 
+    function isTeleportedTarget(target: EventTarget | null): boolean {
+        return target instanceof HTMLElement && !!(
+            target.closest('[data-reka-popper-content-wrapper]') ||
+            target.closest('[data-reka-select-content]') ||
+            target.closest('.floating-panel') ||
+            target.closest('.dock-popover')
+        );
+    }
+
     function onPointerDownOutside(e: PointerEvent) {
         const root = rootEl.value;
         if (!root || root.contains(e.target as Node)) return;
         if (keepOpenCount > 0) return;
+        if (isTeleportedTarget(e.target)) return;
 
         // Click outside in hover state → collapse
         // Click outside in pinned state → collapse

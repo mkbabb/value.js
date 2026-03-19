@@ -154,6 +154,30 @@
         cursor: not-allowed;
     }
 
+    .dock-select-trigger {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: var(--radius-pill);
+        border: none;
+        background: transparent;
+        color: hsl(var(--foreground) / 0.8);
+        cursor: pointer;
+        transition: all var(--duration-fast) var(--ease-standard);
+        white-space: nowrap;
+    }
+
+    .dock-select-trigger:hover {
+        background: hsl(var(--foreground) / 0.08);
+        color: hsl(var(--foreground));
+    }
+
+    .dock-select-trigger:focus-visible {
+        box-shadow: 0 0 0 2px var(--dock-ring, hsl(var(--ring) / 0.4));
+        outline: none;
+    }
+
     .dock-separator {
         width: 1px;
         height: 1.25rem;

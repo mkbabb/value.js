@@ -24,12 +24,14 @@ const props = withDefaults(
         tag?: "div" | "button";
         cycleDuration?: number;
         range?: [number, number];
+        seed?: string;
     }>(),
     {
         animate: false,
         tag: "div",
         cycleDuration: 4000,
         range: () => [20, 80],
+        seed: "",
     },
 );
 
@@ -40,6 +42,7 @@ const blob = useWatercolorBlob(colorRef, {
     animate: props.animate,
     cycleDuration: props.cycleDuration,
     range: props.range,
+    seed: props.seed,
 });
 
 function onMouseEnter() {

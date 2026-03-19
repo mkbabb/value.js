@@ -43,7 +43,7 @@
 
             :disabled="isEditing"
             :css-color-opaque="cssColorOpaque"
-            :active-style="paletteActive ? { stroke: cssColorOpaque, strokeWidth: '2.75' } : {}"
+            :active-style="paletteActive ? { stroke: cssColorOpaque, strokeWidth: '2' } : {}"
             @action="emit('openPalette')"
             @update:active-hover="(v) => activeHover = v"
         />

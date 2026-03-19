@@ -1,11 +1,11 @@
 <template>
     <Dialog v-model:open="open">
         <DialogScrollContent
-            class="bg-card text-card-foreground border-border rounded-lg sm:rounded-lg max-w-sm p-0 gap-0 [&>button:last-child]:hidden"
+            class="bg-card text-card-foreground border-border rounded-2xl sm:rounded-2xl max-w-sm p-0 gap-0 [&>button:last-child]:hidden"
         >
             <div class="p-5 pb-0 pr-10 relative">
                 <button
-                    class="absolute top-3 right-3 p-0.5 transition-colors rounded-md hover:bg-secondary cursor-pointer"
+                    class="absolute top-3 right-3 p-0.5 transition-colors rounded-full hover:bg-secondary cursor-pointer"
                     @click="open = false"
                 >
                     <XIcon class="w-4 h-4" />
@@ -20,7 +20,7 @@
             <div class="flex flex-col gap-2 p-5">
                 <Button
                     variant="default"
-                    class="cursor-pointer fraunces justify-start gap-2"
+                    class="cursor-pointer fraunces justify-start gap-2 rounded-full"
                     @click="onRespond('publish')"
                 >
                     <Globe class="w-4 h-4 shrink-0" />
@@ -29,7 +29,7 @@
                 <Button
                     v-if="mode === 'switch'"
                     variant="outline"
-                    class="cursor-pointer fraunces justify-start gap-2"
+                    class="cursor-pointer fraunces justify-start gap-2 rounded-full"
                     @click="onRespond('transfer')"
                 >
                     <ArrowRightLeft class="w-4 h-4 shrink-0" />
@@ -37,7 +37,7 @@
                 </Button>
                 <Button
                     variant="ghost"
-                    class="cursor-pointer fraunces justify-start gap-2 text-muted-foreground"
+                    class="cursor-pointer fraunces justify-start gap-2 text-muted-foreground rounded-full"
                     @click="onRespond('discard')"
                 >
                     <SkipForward class="w-4 h-4 shrink-0" />

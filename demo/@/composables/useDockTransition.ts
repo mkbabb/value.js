@@ -35,11 +35,14 @@ export function useDockTransition(options: UseDockTransitionOptions) {
         }
     }
 
+    let transitionId = 0;
+
     watch(expanded, () => {
         const el = rootEl.value;
         if (!el) return;
 
         clearFadeTimer();
+        const id = ++transitionId;
 
         // Pin width so the layer swap can't cause a resize
         const from = el.getBoundingClientRect().width;
@@ -51,11 +54,14 @@ export function useDockTransition(options: UseDockTransitionOptions) {
         // Phase 2: after fade, swap visual layer and animate width
         fadeTimer = setTimeout(() => {
             fadeTimer = null;
+            if (id !== transitionId) return; // stale
 
             // Swap layers while content is invisible
             visualExpanded.value = expanded.value;
 
             nextTick(() => {
+                if (id !== transitionId) return; // stale
+
                 // Measure target width with new layer in flow
                 el.style.transition = "none";
                 el.style.width = "";
@@ -66,6 +72,7 @@ export function useDockTransition(options: UseDockTransitionOptions) {
                 el.offsetWidth; // force recalc
                 el.style.transition = "";
                 requestAnimationFrame(() => {
+                    if (id !== transitionId) return; // stale
                     el.style.width = `${to}px`;
                 });
             });
