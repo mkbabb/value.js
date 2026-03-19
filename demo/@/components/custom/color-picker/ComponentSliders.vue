@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-1 gap-2">
+    <div class="grid grid-cols-1 gap-1">
         <div
             v-for="[component, value] in Object.entries(
                 COLOR_SPACE_RANGES[currentColorSpace],
@@ -7,7 +7,7 @@
             :key="component"
             class="grid grid-cols-1 w-full items-start"
         >
-            <Label class="font-normal text-md"
+            <Label class="font-normal text-sm"
                 >{{ component.toUpperCase()
                 }}<span class="font-normal italic opacity-60">{{
                     ` ${currentColorRanges[component]}`
