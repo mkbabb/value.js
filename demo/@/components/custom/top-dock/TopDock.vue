@@ -15,11 +15,15 @@ import {
     MoreVertical,
     Undo2,
     UserCircle,
+    Paintbrush,
+    Home,
+    ArrowLeft,
 } from "lucide-vue-next";
 import GlassDock from "@components/custom/color-picker/GlassDock.vue";
 import { DarkModeToggle } from "@components/custom/dark-mode-toggle";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 import DockPopover from "./DockPopover.vue";
+import ActionBarLayer from "./ActionBarLayer.vue";
 import {
     Select,
     SelectContent,
@@ -29,12 +33,12 @@ import {
     SelectValue,
 } from "@components/ui/select";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
-import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
-import { useDark, useMediaQuery, useToggle } from "@vueuse/core";
+import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import type { ViewId } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
 import { copyToClipboard } from "@composables/useClipboard";
+import type { ActionBarContext } from "@components/custom/color-picker/keys";
 
 import type { EditTarget } from "@components/custom/color-picker";
 
@@ -42,6 +46,7 @@ const props = defineProps<{
     cssColorOpaque: string;
     linkCopied: boolean;
     editTarget: EditTarget | null;
+    actionBar?: ActionBarContext | null;
 }>();
 
 const emit = defineEmits<{
@@ -52,6 +57,7 @@ const emit = defineEmits<{
 
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
+const actionBar = computed(() => props.actionBar ?? null);
 
 const viewEntries = computed(() => {
     const entries: { id: ViewId; label: string; icon: any }[] = [
@@ -72,6 +78,43 @@ const viewEntries = computed(() => {
 function onViewChange(id: string | number | boolean | Record<string, string> | null) {
     if (typeof id === "string") {
         viewManager.switchView(id as ViewId);
+    }
+}
+
+// ── Action bar layer ──
+const actionBarLayerActive = ref(false);
+const actionBarLayerRef = ref<InstanceType<typeof ActionBarLayer> | null>(null);
+
+function toggleActionBar() {
+    actionBarLayerActive.value = !actionBarLayerActive.value;
+}
+
+// Auto-close action bar when actionBar becomes null (KeepAlive deactivation)
+watch(actionBar, (ctx) => {
+    if (!ctx && actionBarLayerActive.value) {
+        actionBarLayerActive.value = false;
+    }
+});
+
+// Keep dock open while action bar is active
+watch(actionBarLayerActive, (active) => {
+    if (active) dockRef.value?.keepOpen();
+    else dockRef.value?.release();
+});
+
+function onActionBarOpenPalette() {
+    if (viewManager.currentView.value === "palettes") {
+        viewManager.switchView("picker");
+    } else {
+        viewManager.switchView("palettes");
+    }
+}
+
+function onActionBarOpenExtract() {
+    if (viewManager.currentView.value === "extract") {
+        viewManager.switchView("picker");
+    } else {
+        viewManager.switchView("extract");
     }
 }
 
@@ -145,12 +188,7 @@ const viewSelectOpen = ref(false);
 const isDesktop = useMediaQuery("(min-width: 1024px)");
 const mobileEditActive = computed(() => !isDesktop.value && !!props.editTarget);
 
-// @mbabb menu
-const mbabbMenuOpen = ref(false);
-const isDark = useDark();
-const toggleDarkMode = useToggle(isDark);
-
-// Reset login mode when dock collapses
+// Reset login mode when dock collapses (but preserve action bar state)
 const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>('dockRef');
 watch(() => dockRef.value?.expanded, (expanded) => {
     if (!expanded && slugEditMode.value) {
@@ -170,16 +208,14 @@ watch(viewSelectOpen, (open) => {
     else dockRef.value?.release();
 });
 
-watch(mbabbMenuOpen, (open) => {
-    if (open) dockRef.value?.keepOpen();
-    else dockRef.value?.release();
-});
+// Determine which main layer is active
+const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.value && !actionBarLayerActive.value);
 </script>
 
 <template>
     <div class="fixed top-[var(--dock-pos)] left-1/2 -translate-x-1/2 z-40 flex items-center justify-center pointer-events-none">
         <div class="pointer-events-auto">
-            <GlassDock ref="dockRef" :collapse-delay="2500" :start-collapsed="true" :fit-content="true">
+            <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="true" :fit-content="true">
                 <!-- Expanded state: login mode transforms entire dock -->
                 <div class="dock-content-layers">
                     <!-- Mobile edit layer -->
@@ -217,7 +253,7 @@ watch(mbabbMenuOpen, (open) => {
                     </div>
 
                     <!-- Slug edit layer -->
-                    <div :class="['dock-content-layer', { 'layer-active': slugEditMode && !mobileEditActive }]"
+                    <div :class="['dock-content-layer justify-center', { 'layer-active': slugEditMode && !mobileEditActive }]"
                          :inert="!(slugEditMode && !mobileEditActive) || undefined">
                         <form
                             class="flex items-center gap-1.5"
@@ -259,8 +295,31 @@ watch(mbabbMenuOpen, (open) => {
                             <XIcon class="w-3.5 h-3.5" />
                         </button>
                     </div>
-                    <div :class="['dock-content-layer', { 'layer-active': !slugEditMode && !mobileEditActive }]"
-                         :inert="(slugEditMode || mobileEditActive) || undefined">
+
+                    <!-- Action bar layer -->
+                    <div v-if="actionBar"
+                         :class="['dock-content-layer', { 'layer-active': actionBarLayerActive && !mobileEditActive && !slugEditMode }]"
+                         :inert="!(actionBarLayerActive && !mobileEditActive && !slugEditMode) || undefined">
+                        <button
+                            class="dock-icon-btn shrink-0"
+                            title="Back"
+                            @click="actionBarLayerActive = false"
+                        >
+                            <ArrowLeft class="w-5 h-5" />
+                        </button>
+                        <div class="dock-separator"></div>
+                        <ActionBarLayer
+                            ref="actionBarLayerRef"
+                            :action-bar="actionBar"
+                            :edit-target="editTarget"
+                            @open-palette="onActionBarOpenPalette"
+                            @open-extract="onActionBarOpenExtract"
+                        />
+                    </div>
+
+                    <!-- Main navigation layer -->
+                    <div :class="['dock-content-layer', { 'layer-active': mainLayerActive }]"
+                         :inert="!mainLayerActive || undefined">
                         <!-- View selector -->
                         <Select
                             :model-value="viewManager.currentView.value"
@@ -269,23 +328,22 @@ watch(mbabbMenuOpen, (open) => {
                             @update:model-value="onViewChange"
                         >
                             <SelectTrigger
-                                class="dock-select-trigger border-none h-auto bg-transparent fraunces text-base gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 !rounded-full focus:!ring-0 focus:!ring-offset-0 focus:!outline-none"
+                                class="dock-select-trigger border-none h-auto bg-transparent fraunces text-sm gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 !rounded-full focus:!ring-0 focus:!ring-offset-0 focus:!outline-none"
                                 :style="{ '--dock-ring': cssColorOpaque }"
                             >
-                                <component
-                                    :is="viewManager.currentConfig.value.icon"
-                                    class="w-4 h-4 shrink-0"
+                                <Home
+                                    class="w-5 h-5 shrink-0"
                                     :style="{ color: cssColorOpaque }"
                                 />
-                                <SelectValue />
+                                <SelectValue class="hidden sm:inline" />
                             </SelectTrigger>
                             <SelectContent class="view-select-content min-w-[12rem] bg-card/95 backdrop-blur-xl border-border/60 shadow-lg rounded-xl">
-                                <SelectGroup class="fraunces text-base">
+                                <SelectGroup class="fraunces text-sm">
                                     <SelectItem
                                         v-for="entry in viewEntries"
                                         :key="entry.id"
                                         :value="entry.id"
-                                        class="!pl-3 py-2 px-3 !rounded-lg"
+                                        class="!pl-2.5 py-1.5 px-2.5 !rounded-lg"
                                         hide-indicator
                                     >
                                         <span class="flex items-center gap-2">
@@ -303,6 +361,18 @@ watch(mbabbMenuOpen, (open) => {
                                 </SelectGroup>
                             </SelectContent>
                         </Select>
+
+                        <!-- Action bar toggle button -->
+                        <template v-if="actionBar">
+                            <div class="dock-separator"></div>
+                            <button
+                                class="dock-icon-btn"
+                                title="Action bar"
+                                @click="toggleActionBar"
+                            >
+                                <Paintbrush class="w-5 h-5" :style="{ color: cssColorOpaque }" />
+                            </button>
+                        </template>
 
                         <!-- Mobile pane toggle (only when two panes exist) -->
                         <template v-if="viewManager.currentConfig.value.right !== null">
@@ -336,9 +406,9 @@ watch(mbabbMenuOpen, (open) => {
                         <!-- Mobile overflow menu (⋮) -->
                         <div class="dock-separator lg:hidden"></div>
                         <div class="lg:hidden flex items-center">
-                        <DockPopover direction="down" :collapse-delay="1200">
+                        <DockPopover direction="down" :collapse-delay="2400" align="end" click-only>
                             <template #trigger>
-                                <MoreVertical class="w-4 h-4" />
+                                <MoreVertical class="w-5 h-5" />
                             </template>
 
                             <div class="flex flex-col gap-0.5 p-1 min-w-[11rem]">
@@ -376,7 +446,7 @@ watch(mbabbMenuOpen, (open) => {
                                     </button>
                                 </template>
 
-                                <div class="h-px bg-border/50 my-0.5"></div>
+                                <div class="h-[2px] bg-border/70 my-1"></div>
 
                                 <!-- @mbabb section -->
                                 <div class="flex items-center gap-2 px-2 py-1.5">
@@ -385,7 +455,7 @@ watch(mbabbMenuOpen, (open) => {
                                     </Avatar>
                                     <div>
                                         <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
-                                        <p class="text-[10px] italic text-muted-foreground leading-tight">Color space picker &amp; converter</p>
+                                        <p class="text-[10px] italic text-muted-foreground leading-tight fraunces">Color space picker &amp; converter</p>
                                     </div>
                                 </div>
                                 <button class="floating-panel-item text-sm fraunces" @click="emit('shareLink')">
@@ -396,108 +466,113 @@ watch(mbabbMenuOpen, (open) => {
                                     <Github class="w-3.5 h-3.5" /> GitHub
                                 </a>
                                 <div class="h-px bg-border/50 my-0.5"></div>
-                                <button class="floating-panel-item text-sm fraunces" @click="toggleDarkMode()">
+                                <div class="floating-panel-item text-sm fraunces">
                                     <DarkModeToggle title="Toggle dark mode" class="aspect-square w-4" />
                                     Dark mode
-                                </button>
+                                </div>
                             </div>
                         </DockPopover>
                         </div>
 
-                        <div class="dock-separator hidden lg:block"></div>
+                        <!-- Desktop-only: user/login section -->
+                        <div class="hidden lg:flex items-center gap-[0.25rem]">
+                            <div class="dock-separator"></div>
 
-                        <!-- Logged in: "Account" button with popover -->
-                        <template v-if="pm.userSlug.value">
-                            <DockPopover direction="down" :collapse-delay="1200" class="hidden lg:inline-flex">
-                                <template #trigger>
-                                    <UserCircle class="w-4 h-4" :style="{ color: cssColorOpaque }" />
-                                </template>
-
-                                <div class="flex flex-col gap-0.5 p-1 min-w-[10rem]">
-                                    <div class="px-2 py-1.5">
+                            <!-- Logged in: "Account" button with popover -->
+                            <template v-if="pm.userSlug.value">
+                                <DockPopover direction="down" :collapse-delay="2400" click-only class="profile-popover">
+                                    <template #trigger>
                                         <span
-                                            class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
+                                            class="flex items-center gap-1.5 fira-code text-sm font-bold px-3 py-0.5 rounded-full border whitespace-nowrap transition-colors"
                                             :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
-                                        >{{ pm.userSlug.value }}</span>
+                                        >
+                                            <UserCircle class="w-3.5 h-3.5" />
+                                            Profile
+                                        </span>
+                                    </template>
+
+                                    <div class="flex flex-col gap-0.5 p-1 min-w-[10rem]">
+                                        <div class="px-2 py-1.5">
+                                            <span
+                                                class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
+                                                :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
+                                            >{{ pm.userSlug.value }}</span>
+                                        </div>
+                                        <button
+                                            class="floating-panel-item text-sm fraunces"
+                                            @click="onCopySlug()"
+                                        >
+                                            <Copy class="w-3.5 h-3.5" />
+                                            Copy slug
+                                        </button>
+                                        <button
+                                            class="floating-panel-item text-sm fraunces"
+                                            @click="onStartSlugEdit()"
+                                        >
+                                            <LogIn class="w-3.5 h-3.5" />
+                                            Switch account
+                                        </button>
+                                        <button
+                                            class="floating-panel-item text-sm fraunces"
+                                            @click="pm.userLogout()"
+                                        >
+                                            <LogOut class="w-3.5 h-3.5" />
+                                            Logout
+                                        </button>
+                                        <div class="h-px bg-border/50 my-0.5"></div>
+                                        <button
+                                            class="floating-panel-item text-sm fraunces text-muted-foreground"
+                                            @click="pm.onRegenerateSlug()"
+                                        >
+                                            <RefreshCw class="w-3.5 h-3.5" />
+                                            Regenerate slug
+                                        </button>
                                     </div>
-                                    <button
-                                        class="floating-panel-item text-sm fraunces"
-                                        @click="onCopySlug()"
-                                    >
-                                        <Copy class="w-3.5 h-3.5" />
-                                        Copy slug
-                                    </button>
-                                    <button
-                                        class="floating-panel-item text-sm fraunces"
-                                        @click="onStartSlugEdit()"
-                                    >
-                                        <LogIn class="w-3.5 h-3.5" />
-                                        Switch account
-                                    </button>
-                                    <button
-                                        class="floating-panel-item text-sm fraunces"
-                                        @click="pm.userLogout()"
-                                    >
-                                        <LogOut class="w-3.5 h-3.5" />
-                                        Logout
-                                    </button>
-                                    <div class="h-px bg-border/50 my-0.5"></div>
-                                    <button
-                                        class="floating-panel-item text-sm fraunces text-muted-foreground"
-                                        @click="pm.onRegenerateSlug()"
-                                    >
-                                        <RefreshCw class="w-3.5 h-3.5" />
-                                        Regenerate slug
-                                    </button>
-                                </div>
-                            </DockPopover>
-                        </template>
+                                </DockPopover>
+                            </template>
 
-                        <!-- Admin (no slug) -->
-                        <template v-else-if="pm.isAdminAuthenticated.value">
-                            <span class="hidden lg:inline fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground whitespace-nowrap">
-                                admin
-                            </span>
-                        </template>
+                            <!-- Admin (no slug) -->
+                            <template v-else-if="pm.isAdminAuthenticated.value">
+                                <span class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground whitespace-nowrap">
+                                    admin
+                                </span>
+                            </template>
 
-                        <!-- Not logged in -->
-                        <template v-else>
-                            <button
-                                class="hidden lg:flex items-center gap-1.5 fira-code text-sm font-bold px-3 py-0.5 rounded-full border border-primary/30 hover:bg-accent/50 transition-colors cursor-pointer whitespace-nowrap"
-                                @click="onStartSlugEdit()"
-                            >
-                                <LogIn class="w-3.5 h-3.5" />
-                                Login
-                            </button>
-                        </template>
+                            <!-- Not logged in -->
+                            <template v-else>
+                                <button
+                                    class="flex items-center gap-1.5 fira-code text-sm font-bold px-3 py-0.5 rounded-full border border-primary/30 hover:bg-accent/50 transition-colors cursor-pointer whitespace-nowrap"
+                                    @click="onStartSlugEdit()"
+                                >
+                                    <LogIn class="w-3.5 h-3.5" />
+                                    Login
+                                </button>
+                            </template>
 
-                        <div class="dock-separator hidden lg:block"></div>
+                            <div class="dock-separator"></div>
+                        </div>
 
                         <!-- @mbabb menu -->
-                        <Popover v-model:open="mbabbMenuOpen">
-                            <PopoverTrigger as-child>
-                                <button class="hidden lg:inline text-sm font-mono text-foreground/70 hover:text-foreground hover:underline underline-offset-4 transition-colors cursor-pointer whitespace-nowrap">
-                                    @mbabb
-                                </button>
-                            </PopoverTrigger>
-                            <PopoverContent
-                                class="w-auto p-2 flex flex-col gap-0.5 z-[var(--z-modal)] bg-card/95 backdrop-blur-xl border-border/60 shadow-lg rounded-xl min-w-[11rem]"
-                                align="end"
-                                :side-offset="8"
-                            >
+                        <div class="hidden lg:flex items-center">
+                        <DockPopover direction="down" :collapse-delay="2400" click-only>
+                            <template #trigger>
+                                <span class="text-xs font-mono">@mbabb</span>
+                            </template>
+
+                            <div class="flex flex-col gap-0.5 p-1 min-w-[11rem]">
                                 <div class="flex items-center gap-2 px-2 py-1.5">
                                     <Avatar class="w-7 h-7">
                                         <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
                                     </Avatar>
                                     <div>
                                         <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
-                                        <p class="text-[10px] italic text-muted-foreground leading-tight">Color space picker &amp; converter</p>
+                                        <p class="text-[10px] italic text-muted-foreground leading-tight fraunces">Color space picker &amp; converter</p>
                                     </div>
                                 </div>
                                 <div class="h-px bg-border/50 my-1"></div>
                                 <button
                                     class="floating-panel-item text-sm fraunces"
-                                    @click="mbabbMenuOpen = false; emit('shareLink')"
+                                    @click="emit('shareLink')"
                                 >
                                     <component :is="linkCopied ? Check : Share2" class="w-3.5 h-3.5" />
                                     {{ linkCopied ? 'Copied!' : 'Share color' }}
@@ -512,18 +587,16 @@ watch(mbabbMenuOpen, (open) => {
                                     GitHub
                                 </a>
                                 <div class="h-px bg-border/50 my-1"></div>
-                                <button
-                                    class="floating-panel-item text-sm fraunces"
-                                    @click="toggleDarkMode()"
-                                >
+                                <div class="floating-panel-item text-sm fraunces">
                                     <DarkModeToggle
                                         title="Toggle dark mode"
                                         class="aspect-square w-4"
                                     />
                                     Dark mode
-                                </button>
-                            </PopoverContent>
-                        </Popover>
+                                </div>
+                            </div>
+                        </DockPopover>
+                        </div>
                     </div>
                 </div>
 
@@ -535,7 +608,12 @@ watch(mbabbMenuOpen, (open) => {
                         class="w-6 h-6 shrink-0"
                         seed="top-dock"
                     />
-                    <span class="text-base fraunces text-foreground whitespace-nowrap">
+                    <component
+                        :is="viewManager.currentConfig.value.icon"
+                        class="w-5 h-5 shrink-0 sm:hidden"
+                        :style="{ color: cssColorOpaque }"
+                    />
+                    <span class="text-base fraunces text-foreground whitespace-nowrap hidden sm:inline">
                         {{ viewManager.currentConfig.value.label }}
                     </span>
                     <ChevronDown class="w-3 h-3 text-muted-foreground shrink-0" />
@@ -556,7 +634,7 @@ watch(mbabbMenuOpen, (open) => {
     grid-area: 1 / 1;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.25rem;
     transition: opacity 0.25s var(--ease-standard),
                 transform 0.25s var(--ease-standard);
     transform-origin: center;
@@ -565,5 +643,12 @@ watch(mbabbMenuOpen, (open) => {
     opacity: 0;
     pointer-events: none;
     transform: scale(0.96);
+}
+
+.profile-popover :deep(.popover-trigger) {
+    width: auto;
+    height: auto;
+    padding: 0;
+    border-radius: 9999px;
 }
 </style>

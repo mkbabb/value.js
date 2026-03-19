@@ -49,7 +49,7 @@
     </svg>
 
     <div
-        class="grid overflow-x-hidden w-full min-h-[100dvh] lg:h-[100dvh] lg:overflow-hidden items-center justify-items-stretch m-0 p-0 relative"
+        class="grid overflow-x-hidden w-full min-h-[100dvh] lg:h-[100dvh] lg:overflow-hidden items-start justify-items-stretch m-0 p-0 relative"
     >
         <canvas
             ref="atmosphereCanvas"
@@ -60,6 +60,7 @@
             :css-color-opaque="cssColorOpaque"
             :link-copied="linkCopied"
             :edit-target="activeEditTarget"
+            :action-bar="colorPickerRef?.actionBarContext ?? null"
             @share-link="shareLink"
             @commit-edit="colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1"
             @cancel-edit="colorPickerRef?.cancelEdit(); viewManager.mobilePaneIndex.value = 1"
@@ -68,7 +69,7 @@
         <!-- Two-pane grid -->
         <div
             :class="[
-                'grid grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full mx-auto px-4 lg:px-2 h-[min(var(--content-h),var(--content-max-h))]',
+                'grid grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full mx-auto px-4 lg:px-2 h-[min(var(--content-h),var(--content-max-h))] mt-[calc(var(--dock-total)+1rem)] pb-[var(--dock-inset)]',
                 currentConfig.right !== null ? 'lg:grid-cols-[1fr_1fr]' : 'lg:grid-cols-1',
             ]"
         >

@@ -10,12 +10,14 @@ import type { Ref } from "vue";
 const allPopovers = new Set<{ expanded: { value: boolean }, scheduleCollapse: (d: number) => void }>();
 let popoverZCounter = 0;
 
-withDefaults(
+const props = withDefaults(
     defineProps<{
         direction?: "up" | "down";
         collapseDelay?: number;
+        align?: "center" | "end";
+        clickOnly?: boolean;
     }>(),
-    { direction: "down", collapseDelay: 1200 },
+    { direction: "down", collapseDelay: 1200, align: "center", clickOnly: false },
 );
 
 const expanded = ref(false);
@@ -109,9 +111,9 @@ defineExpose({ expanded, expand: onEnter, collapse: () => { expanded.value = fal
     <div
         ref="popoverEl"
         class="dock-popover"
-        :class="{ expanded, ['dir-' + direction]: true }"
-        @mouseenter="onEnter"
-        @mouseleave="scheduleCollapse(collapseDelay)"
+        :class="{ expanded, ['dir-' + direction]: true, ['align-' + align]: true }"
+        @mouseenter="!clickOnly && onEnter()"
+        @mouseleave="!clickOnly && scheduleCollapse(collapseDelay)"
     >
         <button class="popover-trigger dock-icon-btn" @click.stop="toggle">
             <slot name="trigger" />
@@ -156,15 +158,23 @@ defineExpose({ expanded, expand: onEnter, collapse: () => { expanded.value = fal
     box-shadow: var(--glass-shadow-elevated);
 }
 
-.dir-up .popover-panel {
+.dir-up.align-center .popover-panel {
     bottom: calc(100% + 0.375rem);
     left: 50%;
     transform: translateX(-50%);
 }
-.dir-down .popover-panel {
+.dir-down.align-center .popover-panel {
     top: calc(100% + 0.375rem);
     left: 50%;
     transform: translateX(-50%);
+}
+.dir-up.align-end .popover-panel {
+    bottom: calc(100% + 0.375rem);
+    right: 0;
+}
+.dir-down.align-end .popover-panel {
+    top: calc(100% + 0.375rem);
+    right: 0;
 }
 
 /* ── Spring transitions ── */
@@ -174,20 +184,36 @@ defineExpose({ expanded, expand: onEnter, collapse: () => { expanded.value = fal
 .pop-leave-active {
     transition: opacity var(--duration-fast) var(--ease-decelerate), transform var(--duration-fast) var(--ease-decelerate);
 }
-.dir-up .pop-enter-from {
+.dir-up.align-center .pop-enter-from {
     opacity: 0;
     transform: translateX(-50%) scale(0.5) translateY(8px);
 }
-.dir-up .pop-leave-to {
+.dir-up.align-center .pop-leave-to {
     opacity: 0;
     transform: translateX(-50%) scale(0.9) translateY(3px);
 }
-.dir-down .pop-enter-from {
+.dir-down.align-center .pop-enter-from {
     opacity: 0;
     transform: translateX(-50%) scale(0.5) translateY(-8px);
 }
-.dir-down .pop-leave-to {
+.dir-down.align-center .pop-leave-to {
     opacity: 0;
     transform: translateX(-50%) scale(0.9) translateY(-3px);
+}
+.dir-up.align-end .pop-enter-from {
+    opacity: 0;
+    transform: scale(0.5) translateY(8px);
+}
+.dir-up.align-end .pop-leave-to {
+    opacity: 0;
+    transform: scale(0.9) translateY(3px);
+}
+.dir-down.align-end .pop-enter-from {
+    opacity: 0;
+    transform: scale(0.5) translateY(-8px);
+}
+.dir-down.align-end .pop-leave-to {
+    opacity: 0;
+    transform: scale(0.9) translateY(-3px);
 }
 </style>
