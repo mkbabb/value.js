@@ -1,6 +1,11 @@
 <template>
     <!-- Credit to Kevin Powell at https://codepen.io/kevinpowell/pen/PomqjxO -->
-    <button class="dark-mode-toggle-button" v-bind="$attrs" @click="toggleDark()">
+    <component
+        :is="passive ? 'div' : 'button'"
+        class="dark-mode-toggle-button"
+        v-bind="$attrs"
+        @click="!passive && toggleDark()"
+    >
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="472.39"
@@ -16,11 +21,15 @@
                 <circle cx="236.2" cy="236.2" r="90" />
             </g>
         </svg>
-    </button>
+    </component>
 </template>
 
 <script setup lang="ts">
 import { useGlobalDark } from ".";
+
+defineProps<{
+    passive?: boolean;
+}>();
 
 const { toggleDark } = useGlobalDark();
 </script>

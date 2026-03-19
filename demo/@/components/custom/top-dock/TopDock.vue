@@ -20,9 +20,8 @@ import {
     ArrowLeft,
 } from "lucide-vue-next";
 import GlassDock from "@components/custom/color-picker/GlassDock.vue";
-import { DarkModeToggle } from "@components/custom/dark-mode-toggle";
+import { DarkModeToggle, useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
-import DockPopover from "./DockPopover.vue";
 import ActionBarLayer from "./ActionBarLayer.vue";
 import {
     Select,
@@ -32,6 +31,14 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@components/ui/select";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+    DropdownMenuLabel,
+} from "@components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
@@ -57,6 +64,7 @@ const emit = defineEmits<{
 
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
+const { toggleDark } = useGlobalDark();
 const actionBar = computed(() => props.actionBar ?? null);
 
 const viewEntries = computed(() => {
@@ -181,8 +189,11 @@ function onCopySlug() {
     if (pm.userSlug.value) copyToClipboard(pm.userSlug.value);
 }
 
-// View select open state — keep dock open while dropdown is visible
+// Dropdown open states — keep dock open while any dropdown is visible
 const viewSelectOpen = ref(false);
+const mobileMenuOpen = ref(false);
+const profileMenuOpen = ref(false);
+const mbabbMenuOpen = ref(false);
 
 // Mobile edit mode — show edit controls in dock instead of EditDrawer
 const isDesktop = useMediaQuery("(min-width: 1024px)");
@@ -202,8 +213,9 @@ watch(mobileEditActive, (active) => {
     else dockRef.value?.release();
 });
 
-// Keep dock open when view select dropdown, @mbabb popover, or any teleported child is open
-watch(viewSelectOpen, (open) => {
+// Keep dock open when any dropdown is visible
+const anyDropdownOpen = computed(() => viewSelectOpen.value || mobileMenuOpen.value || profileMenuOpen.value || mbabbMenuOpen.value);
+watch(anyDropdownOpen, (open) => {
     if (open) dockRef.value?.keepOpen();
     else dockRef.value?.release();
 });
@@ -337,7 +349,7 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                                 />
                                 <SelectValue class="hidden sm:inline" />
                             </SelectTrigger>
-                            <SelectContent class="view-select-content min-w-[12rem] bg-card/95 backdrop-blur-xl border-border/60 shadow-lg rounded-xl">
+                            <SelectContent class="min-w-[12rem]">
                                 <SelectGroup class="fraunces text-sm">
                                     <SelectItem
                                         v-for="entry in viewEntries"
@@ -406,129 +418,111 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                         <!-- Mobile overflow menu (⋮) -->
                         <div class="dock-separator lg:hidden"></div>
                         <div class="lg:hidden flex items-center">
-                        <DockPopover direction="down" :collapse-delay="2400" align="end" click-only>
-                            <template #trigger>
-                                <MoreVertical class="w-5 h-5" />
-                            </template>
+                            <DropdownMenu v-model:open="mobileMenuOpen">
+                                <DropdownMenuTrigger class="dock-icon-btn">
+                                    <MoreVertical class="w-5 h-5" />
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end" class="min-w-[11rem] fraunces">
+                                    <!-- Login / slug section -->
+                                    <template v-if="pm.userSlug.value">
+                                        <DropdownMenuLabel class="px-2 py-1.5">
+                                            <span
+                                                class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
+                                                :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
+                                            >{{ pm.userSlug.value }}</span>
+                                        </DropdownMenuLabel>
+                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="onCopySlug()">
+                                            <Copy class="w-3.5 h-3.5" /> Copy slug
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="onStartSlugEdit()">
+                                            <LogIn class="w-3.5 h-3.5" /> Switch account
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="pm.userLogout()">
+                                            <LogOut class="w-3.5 h-3.5" /> Logout
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer text-muted-foreground" @click="pm.onRegenerateSlug()">
+                                            <RefreshCw class="w-3.5 h-3.5" /> Regenerate slug
+                                        </DropdownMenuItem>
+                                    </template>
+                                    <template v-else-if="pm.isAdminAuthenticated.value">
+                                        <DropdownMenuLabel class="px-2 py-1.5">
+                                            <span class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground whitespace-nowrap">admin</span>
+                                        </DropdownMenuLabel>
+                                    </template>
+                                    <template v-else>
+                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="onStartSlugEdit()">
+                                            <LogIn class="w-3.5 h-3.5" /> Login
+                                        </DropdownMenuItem>
+                                    </template>
 
-                            <div class="flex flex-col gap-0.5 p-1 min-w-[11rem]">
-                                <!-- Login / slug section -->
-                                <template v-if="pm.userSlug.value">
+                                    <DropdownMenuSeparator class="!bg-border/70 !h-[2px]" />
+
+                                    <!-- @mbabb section -->
                                     <div class="flex items-center gap-2 px-2 py-1.5">
-                                        <span
-                                            class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
-                                            :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
-                                        >
-                                            {{ pm.userSlug.value }}
-                                        </span>
+                                        <Avatar class="w-7 h-7">
+                                            <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
+                                        </Avatar>
+                                        <div>
+                                            <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
+                                            <p class="text-[10px] italic text-muted-foreground leading-tight fraunces">Color space picker &amp; converter</p>
+                                        </div>
                                     </div>
-                                    <button class="floating-panel-item text-sm fraunces" @click="onCopySlug()">
-                                        <Copy class="w-3.5 h-3.5" /> Copy slug
-                                    </button>
-                                    <button class="floating-panel-item text-sm fraunces" @click="onStartSlugEdit()">
-                                        <LogIn class="w-3.5 h-3.5" /> Switch account
-                                    </button>
-                                    <button class="floating-panel-item text-sm fraunces" @click="pm.userLogout()">
-                                        <LogOut class="w-3.5 h-3.5" /> Logout
-                                    </button>
-                                    <button class="floating-panel-item text-sm fraunces text-muted-foreground" @click="pm.onRegenerateSlug()">
-                                        <RefreshCw class="w-3.5 h-3.5" /> Regenerate slug
-                                    </button>
-                                </template>
-                                <template v-else-if="pm.isAdminAuthenticated.value">
-                                    <div class="flex items-center gap-2 px-2 py-1.5">
-                                        <span class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground whitespace-nowrap">admin</span>
-                                    </div>
-                                </template>
-                                <template v-else>
-                                    <button class="floating-panel-item text-sm fraunces" @click="onStartSlugEdit()">
-                                        <LogIn class="w-3.5 h-3.5" /> Login
-                                    </button>
-                                </template>
-
-                                <div class="h-[2px] bg-border/70 my-1"></div>
-
-                                <!-- @mbabb section -->
-                                <div class="flex items-center gap-2 px-2 py-1.5">
-                                    <Avatar class="w-7 h-7">
-                                        <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
-                                    </Avatar>
-                                    <div>
-                                        <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
-                                        <p class="text-[10px] italic text-muted-foreground leading-tight fraunces">Color space picker &amp; converter</p>
-                                    </div>
-                                </div>
-                                <button class="floating-panel-item text-sm fraunces" @click="emit('shareLink')">
-                                    <component :is="linkCopied ? Check : Share2" class="w-3.5 h-3.5" />
-                                    {{ linkCopied ? 'Copied!' : 'Share color' }}
-                                </button>
-                                <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="floating-panel-item text-sm fraunces no-underline text-foreground">
-                                    <Github class="w-3.5 h-3.5" /> GitHub
-                                </a>
-                                <div class="h-px bg-border/50 my-0.5"></div>
-                                <div class="floating-panel-item text-sm fraunces">
-                                    <DarkModeToggle title="Toggle dark mode" class="aspect-square w-4" />
-                                    Dark mode
-                                </div>
-                            </div>
-                        </DockPopover>
+                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">
+                                        <component :is="linkCopied ? Check : Share2" class="w-3.5 h-3.5" />
+                                        {{ linkCopied ? 'Copied!' : 'Share color' }}
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" as-child>
+                                        <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="no-underline text-foreground">
+                                            <Github class="w-3.5 h-3.5" /> GitHub
+                                        </a>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuSeparator />
+                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
+                                        <DarkModeToggle passive title="Toggle dark mode" class="aspect-square w-4" />
+                                        Dark mode
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                         </div>
 
                         <!-- Desktop-only: user/login section -->
                         <div class="hidden lg:flex items-center gap-[0.25rem]">
                             <div class="dock-separator"></div>
 
-                            <!-- Logged in: "Account" button with popover -->
+                            <!-- Logged in: "Account" button with dropdown -->
                             <template v-if="pm.userSlug.value">
-                                <DockPopover direction="down" :collapse-delay="2400" click-only class="profile-popover">
-                                    <template #trigger>
-                                        <span
-                                            class="flex items-center gap-1.5 fira-code text-sm font-bold px-3 py-0.5 rounded-full border whitespace-nowrap transition-colors"
+                                <DropdownMenu v-model:open="profileMenuOpen">
+                                    <DropdownMenuTrigger as-child>
+                                        <button
+                                            class="flex items-center gap-1.5 fira-code text-sm font-bold px-3 py-0.5 rounded-full border whitespace-nowrap transition-colors cursor-pointer"
                                             :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
                                         >
                                             <UserCircle class="w-3.5 h-3.5" />
                                             Profile
-                                        </span>
-                                    </template>
-
-                                    <div class="flex flex-col gap-0.5 p-1 min-w-[10rem]">
-                                        <div class="px-2 py-1.5">
+                                        </button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent align="end" class="min-w-[10rem] fraunces">
+                                        <DropdownMenuLabel class="px-2 py-1.5">
                                             <span
                                                 class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
                                                 :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
                                             >{{ pm.userSlug.value }}</span>
-                                        </div>
-                                        <button
-                                            class="floating-panel-item text-sm fraunces"
-                                            @click="onCopySlug()"
-                                        >
-                                            <Copy class="w-3.5 h-3.5" />
-                                            Copy slug
-                                        </button>
-                                        <button
-                                            class="floating-panel-item text-sm fraunces"
-                                            @click="onStartSlugEdit()"
-                                        >
-                                            <LogIn class="w-3.5 h-3.5" />
-                                            Switch account
-                                        </button>
-                                        <button
-                                            class="floating-panel-item text-sm fraunces"
-                                            @click="pm.userLogout()"
-                                        >
-                                            <LogOut class="w-3.5 h-3.5" />
-                                            Logout
-                                        </button>
-                                        <div class="h-px bg-border/50 my-0.5"></div>
-                                        <button
-                                            class="floating-panel-item text-sm fraunces text-muted-foreground"
-                                            @click="pm.onRegenerateSlug()"
-                                        >
-                                            <RefreshCw class="w-3.5 h-3.5" />
-                                            Regenerate slug
-                                        </button>
-                                    </div>
-                                </DockPopover>
+                                        </DropdownMenuLabel>
+                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="onCopySlug()">
+                                            <Copy class="w-3.5 h-3.5" /> Copy slug
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="onStartSlugEdit()">
+                                            <LogIn class="w-3.5 h-3.5" /> Switch account
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="pm.userLogout()">
+                                            <LogOut class="w-3.5 h-3.5" /> Logout
+                                        </DropdownMenuItem>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer text-muted-foreground" @click="pm.onRegenerateSlug()">
+                                            <RefreshCw class="w-3.5 h-3.5" /> Regenerate slug
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
                             </template>
 
                             <!-- Admin (no slug) -->
@@ -554,48 +548,39 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
 
                         <!-- @mbabb menu -->
                         <div class="hidden lg:flex items-center">
-                        <DockPopover direction="down" :collapse-delay="2400" click-only>
-                            <template #trigger>
-                                <span class="text-xs font-mono">@mbabb</span>
-                            </template>
-
-                            <div class="flex flex-col gap-0.5 p-1 min-w-[11rem]">
-                                <div class="flex items-center gap-2 px-2 py-1.5">
-                                    <Avatar class="w-7 h-7">
-                                        <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
-                                    </Avatar>
-                                    <div>
-                                        <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
-                                        <p class="text-[10px] italic text-muted-foreground leading-tight fraunces">Color space picker &amp; converter</p>
+                            <DropdownMenu v-model:open="mbabbMenuOpen">
+                                <DropdownMenuTrigger as-child>
+                                    <button class="text-xs font-mono text-foreground/70 hover:text-foreground hover:underline underline-offset-4 transition-colors cursor-pointer whitespace-nowrap">
+                                        @mbabb
+                                    </button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end" class="min-w-[11rem] fraunces">
+                                    <div class="flex items-center gap-2 px-2 py-1.5">
+                                        <Avatar class="w-7 h-7">
+                                            <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
+                                        </Avatar>
+                                        <div>
+                                            <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
+                                            <p class="text-[10px] italic text-muted-foreground leading-tight fraunces">Color space picker &amp; converter</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="h-px bg-border/50 my-1"></div>
-                                <button
-                                    class="floating-panel-item text-sm fraunces"
-                                    @click="emit('shareLink')"
-                                >
-                                    <component :is="linkCopied ? Check : Share2" class="w-3.5 h-3.5" />
-                                    {{ linkCopied ? 'Copied!' : 'Share color' }}
-                                </button>
-                                <a
-                                    href="https://github.com/mkbabb/value.js"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="floating-panel-item text-sm fraunces no-underline text-foreground"
-                                >
-                                    <Github class="w-3.5 h-3.5" />
-                                    GitHub
-                                </a>
-                                <div class="h-px bg-border/50 my-1"></div>
-                                <div class="floating-panel-item text-sm fraunces">
-                                    <DarkModeToggle
-                                        title="Toggle dark mode"
-                                        class="aspect-square w-4"
-                                    />
-                                    Dark mode
-                                </div>
-                            </div>
-                        </DockPopover>
+                                    <DropdownMenuSeparator />
+                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">
+                                        <component :is="linkCopied ? Check : Share2" class="w-3.5 h-3.5" />
+                                        {{ linkCopied ? 'Copied!' : 'Share color' }}
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" as-child>
+                                        <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="no-underline text-foreground">
+                                            <Github class="w-3.5 h-3.5" /> GitHub
+                                        </a>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuSeparator />
+                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
+                                        <DarkModeToggle passive title="Toggle dark mode" class="aspect-square w-4" />
+                                        Dark mode
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                         </div>
                     </div>
                 </div>
@@ -645,10 +630,4 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
     transform: scale(0.96);
 }
 
-.profile-popover :deep(.popover-trigger) {
-    width: auto;
-    height: auto;
-    padding: 0;
-    border-radius: 9999px;
-}
 </style>
