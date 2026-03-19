@@ -89,6 +89,16 @@
     --ring: 222.2 84% 4.9%;
     --shadow: 0, 0%, 65%;
 
+    /* ── Layout tokens ── */
+    --dock-h: 2.5rem;
+    --dock-inset: 1rem;
+    --dock-gap: 1rem;
+    --dock-total: calc(var(--dock-inset) + var(--dock-h) + var(--dock-gap)); /* ~4.5rem */
+    --content-h: calc(100dvh - 2 * var(--dock-total));
+    --content-max-h: 52rem;
+    /* Clamp dock position: stay near content on very tall screens */
+    --dock-pos: max(var(--dock-inset), calc((100dvh - var(--content-max-h)) / 2 - var(--dock-h) - var(--dock-gap)));
+
     /* ── Duration tokens ── */
     --duration-fast: 0.15s;
     --duration-normal: 0.25s;
@@ -118,8 +128,8 @@
     --glass-bg: hsl(var(--card) / 0.82);
     --glass-bg-heavy: hsl(var(--card) / 0.95);
     --glass-border: hsl(var(--border) / 0.5);
-    --glass-blur: blur(12px);
-    --glass-blur-heavy: blur(16px) saturate(1.3);
+    --glass-blur: blur(8px);
+    --glass-blur-heavy: blur(12px) saturate(1.3);
     --glass-shadow: 0 4px 16px hsl(var(--foreground) / 0.08);
     --glass-shadow-elevated: 0 4px 20px hsl(var(--foreground) / 0.12),
         0 0 0 0.5px hsl(var(--foreground) / 0.05);
@@ -135,11 +145,11 @@
     --foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 222.2 60% 8%;
     --popover-foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 222.2 60% 8%;
     --card-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
+    --border: 217.2 32.6% 22%;
     --input: 217.2 32.6% 17.5%;
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
@@ -196,11 +206,13 @@
     .floating-panel-item {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 0.5rem;
-        padding: 0.375rem 0.5rem;
-        border-radius: var(--radius-sm);
+        padding: 0.375rem;
+        border-radius: var(--radius-pill);
         cursor: pointer;
-        transition: background-color var(--duration-fast) ease;
+        transition: background-color var(--duration-fast) ease,
+                    transform var(--duration-fast) var(--ease-standard);
     }
     .floating-panel-item:hover {
         background-color: hsl(var(--accent));
@@ -329,6 +341,57 @@ button.watercolor-swatch:focus-visible {
 .spectrum-dot-active {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0 4px hsl(var(--foreground) / 0.5);
 }
+
+/* ── Dock & select focus rings (glassmorphism) ── */
+.dock-select-trigger:focus-visible {
+    box-shadow: 0 0 0 2px var(--dock-ring, hsl(var(--ring) / 0.4));
+    outline: none;
+    border-radius: var(--radius-pill);
+}
+
+/* Select dropdown items — glass hover/highlight with rounded pill corners */
+.view-select-content [role="option"] {
+    border-radius: var(--radius-xl) !important;
+    padding-left: 0.75rem !important;
+    transition: background var(--duration-fast) var(--ease-standard);
+}
+.view-select-content [role="option"][data-highlighted] {
+    background: hsl(var(--foreground) / 0.06) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.view-select-content [role="option"][data-state="checked"] {
+    background: hsl(var(--foreground) / 0.04) !important;
+}
+.view-select-content [role="option"]:focus,
+.view-select-content [role="option"]:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    background: hsl(var(--foreground) / 0.06) !important;
+}
+/* Hide the default check indicator in the view select */
+.view-select-content [role="option"] > span:first-child:has(.lucide-check) {
+    display: none !important;
+}
+
+/* Pastel rainbow gradient for palette title */
+.pastel-rainbow-text {
+    background-image: linear-gradient(
+        to right,
+        oklch(75% 0.18 0deg),
+        oklch(82% 0.16 60deg),
+        oklch(85% 0.17 130deg),
+        oklch(78% 0.14 200deg),
+        oklch(72% 0.18 270deg),
+        oklch(75% 0.16 330deg)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ── Scroll fade — sticky gradient at bottom of scrollable pane cards ── */
+/* Disabled: conflicts with bg-card/90 semi-transparent cards */
 
 /* Base styles for compatibility */
 @layer base {
