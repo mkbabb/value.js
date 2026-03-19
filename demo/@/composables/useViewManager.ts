@@ -6,7 +6,7 @@ import {
     Camera,
     Shield,
     Tag,
-    Paintbrush,
+    Home,
     Info,
 } from "lucide-vue-next";
 import { useStorage } from "@vueuse/core";
@@ -44,7 +44,7 @@ const VIEW_MAP: Record<ViewId, PaneConfig> = {
         label: "Home",
         leftLabel: "Picker",
         rightLabel: "About",
-        icon: Paintbrush,
+        icon: Home,
     },
     palettes: {
         left: "color-picker",
