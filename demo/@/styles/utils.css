@@ -181,7 +181,7 @@
     .dock-separator {
         width: 1px;
         height: 1.25rem;
-        margin: 0 0.25rem;
+        margin: 0 0.125rem;
         background: hsl(var(--foreground) / 0.15);
         flex-shrink: 0;
     }

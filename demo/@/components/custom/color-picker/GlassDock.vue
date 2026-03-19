@@ -91,7 +91,7 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
 .glass-dock {
     display: inline-flex;
     align-items: center;
-    padding: 0.375rem 0.75rem;
+    padding: 0.375rem 0.5rem;
     border-radius: var(--radius-pill);
     background: var(--glass-bg);
     backdrop-filter: blur(4px);
@@ -154,7 +154,7 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
     grid-area: 1 / 1;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.25rem;
     height: 2.5rem;
     white-space: nowrap;
 }
