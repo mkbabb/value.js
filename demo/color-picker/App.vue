@@ -49,214 +49,187 @@
     </svg>
 
     <div
-        ref="gridBackground"
-        class="z-[-2] flex w-full h-full absolute grid-background"
-    ></div>
-    <div
-        class="flex w-full h-full absolute z-[-1]"
-        :style="{
-            backgroundColor: cssColor,
-        }"
-    ></div>
-
-    <div
-        class="grid overflow-x-hidden w-full min-h-screen lg:h-screen lg:overflow-hidden items-center justify-items-center justify-center m-0 p-0 relative"
+        class="grid overflow-x-hidden w-full min-h-[100dvh] lg:h-[100dvh] lg:overflow-hidden items-center justify-items-stretch m-0 p-0 relative"
     >
-        <HeaderRibbon ref="headerRibbonRef" position="left">
-            <template #anchor="{ pinned, toggled }">
-                <HoverCard v-model:open="mbabbHoverOpen" :open-delay="400" :close-delay="0">
-                    <HoverCardTrigger @click.prevent="onMbabbClick">
-                        <Button
-                            :class="[
-                                'p-0 m-0 cursor-pointer h-fit text-xs lg:text-sm transition-all duration-200 font-mono font-normal',
-                                mbabbHoverOpen
-                                    ? 'underline underline-offset-4 text-foreground decoration-2'
-                                    : pinned
-                                        ? 'underline underline-offset-4 text-foreground'
-                                        : 'no-underline',
-                            ]"
-                            variant="link"
-                        >@mbabb</Button>
-                    </HoverCardTrigger>
-                    <HoverCardContent class="pointer-events-auto z-[var(--z-modal)] p-4 min-w-[17rem] fraunces">
-                        <div class="flex items-center gap-3">
-                            <Avatar>
-                                <AvatarImage
-                                    src="https://avatars.githubusercontent.com/u/2848617?v=4"
-                                />
-                            </Avatar>
-                            <div class="flex-1 min-w-0">
-                                <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm font-semibold text-foreground hover:underline">@mbabb</a>
-                                <p class="mt-0.5 text-xs italic text-muted-foreground">Perceptual color space picker &amp; converter</p>
-                            </div>
-                        </div>
-                        <hr class="my-2 border-border/50" />
-                        <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="block text-sm text-foreground hover:underline">View project on GitHub 🎉</a>
-                    </HoverCardContent>
-                </HoverCard>
-            </template>
+        <canvas
+            ref="atmosphereCanvas"
+            class="absolute inset-0 w-full h-full pointer-events-none"
+        />
+        <!-- TopDock -->
+        <TopDock
+            :css-color-opaque="cssColorOpaque"
+            :link-copied="linkCopied"
+            :edit-target="activeEditTarget"
+            @share-link="shareLink"
+            @commit-edit="colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1"
+            @cancel-edit="colorPickerRef?.cancelEdit(); viewManager.mobilePaneIndex.value = 1"
+        />
 
-            <template #items>
-                <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
-                    <Tooltip v-bind="linkCopied ? { open: true } : {}">
-                        <TooltipTrigger as-child>
-                            <button class="header-control-item" @click="shareLink()">
-                                <component
-                                    :is="linkCopied ? Check : Share2"
-                                    class="w-full h-full"
-                                    :stroke-width="2"
-                                />
-                            </button>
-                        </TooltipTrigger>
-                        <TooltipContent class="fira-code text-xs">
-                            <template v-if="linkCopied">Copied!</template>
-                            <template v-else>Share <span class="italic">{{ COLOR_SPACE_NAMES[model.selectedColorSpace] }}</span> color</template>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-
-                <DarkModeToggle
-                    title="Toggle dark mode"
-                    class="aspect-square w-8 hover:scale-105 hover:opacity-50"
-                />
-            </template>
-        </HeaderRibbon>
-
+        <!-- Two-pane grid -->
         <div
-            class="grid lg:grid-cols-2 lg:grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full px-2 sm:px-4 py-4 sm:py-10 lg:max-h-[calc(100vh-5rem)]"
+            :class="[
+                'grid grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full mx-auto px-4 lg:px-2 h-[min(var(--content-h),var(--content-max-h))]',
+                currentConfig.right !== null ? 'lg:grid-cols-[1fr_1fr]' : 'lg:grid-cols-1',
+            ]"
         >
-            <ColorPicker
-                ref="colorPickerRef"
-                class="picker-shell w-full max-w-[34rem] mx-auto lg:max-w-none lg:mx-0 lg:col-span-1 min-w-0 lg:min-h-0"
-                v-model="model"
-                @reset="resetToDefaults"
-            ></ColorPicker>
+            <!-- Mobile: single pane slot (below lg) -->
+            <div class="lg:hidden w-full min-w-0 min-h-0 h-full flex flex-col justify-center">
+                <Transition name="pane-left" mode="out-in">
+                    <KeepAlive :max="5">
+                        <component
+                            :is="mobileComponent"
+                            :key="mobileKey"
+                            v-bind="mobileProps"
+                        />
+                    </KeepAlive>
+                </Transition>
+            </div>
 
-            <Card
+            <!-- Desktop: left pane (lg+) -->
+            <div
                 :class="[
-                    'about-card w-full lg:col-span-1 overflow-y-auto overflow-x-hidden min-w-0 lg:min-h-0',
-                    pickerIsEditing ? 'about-card-editing' : 'about-card-normal',
+                    'pane-wrapper hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col',
+                    'justify-start',
                 ]"
             >
-                <CardHeader class="fraunces px-3 sm:px-6">
-                    <CardTitle
-                        >About the color spaces,
-                        <span
-                            class="italic"
-                            :style="{
-                                color: cssColor,
-                            }"
-                            >{{ COLOR_SPACE_NAMES[model.selectedColorSpace] }}</span
-                        ></CardTitle
-                    >
-                    <CardDescription>
-                        The math, the science, the art, the beauty of color spaces. 🎨
-                    </CardDescription>
-                </CardHeader>
+                <Transition name="pane-left" mode="out-in">
+                    <KeepAlive :max="3">
+                        <ColorPicker
+                            v-if="currentConfig.left === 'color-picker'"
+                            key="color-picker"
+                            ref="colorPickerRef"
+                            class="picker-shell w-full"
+                            v-model="model"
+                            @reset="resetToDefaults"
+                            @update:edit-target="onEditTargetChange"
+                        />
+                        <BrowsePane
+                            v-else-if="currentConfig.left === 'browse'"
+                            key="browse"
+                            :css-color-opaque="cssColorOpaque"
+                        />
+                        <ExtractPane
+                            v-else-if="currentConfig.left === 'extract'"
+                            key="extract"
+                            :css-color-opaque="cssColorOpaque"
+                            :color-space="model.selectedColorSpace"
+                        />
+                        <AdminPane
+                            v-else-if="currentConfig.left === 'admin-users'"
+                            key="admin-users"
+                            sub-view="admin-users"
+                            :css-color-opaque="cssColorOpaque"
+                        />
+                        <AdminPane
+                            v-else-if="currentConfig.left === 'admin-names'"
+                            key="admin-names"
+                            sub-view="admin-names"
+                            :css-color-opaque="cssColorOpaque"
+                        />
+                    </KeepAlive>
+                </Transition>
+            </div>
 
-                <Separator></Separator>
-
-                <CardContent class="px-3 sm:px-6">
-                    <ColorNutritionLabel class="w-full p-0 m-0" v-model="model">
-                    </ColorNutritionLabel>
-                </CardContent>
-
-                <Separator></Separator>
-
-                <CardContent class="px-3 sm:px-6">
-                    <h2 class="fraunces text-4xl mb-6 font-bold">Detailed Guide</h2>
-                    <Markdown
-                        v-if="activeMarkdownModule"
-                        :key="model.selectedColorSpace"
-                        :module="activeMarkdownModule"
-                        :cssColor="cssColor"
-                        :colorSpaceName="COLOR_SPACE_NAMES[model.selectedColorSpace]"
-                    />
-                </CardContent>
-            </Card>
+            <!-- Desktop: right pane (lg+) -->
+            <div
+                v-if="currentConfig.right !== null"
+                class="pane-wrapper hidden lg:block w-full min-w-0 min-h-0 h-full"
+            >
+                <Transition name="pane-right" mode="out-in">
+                    <KeepAlive :max="3">
+                        <AboutPane
+                            v-if="currentConfig.right === 'about'"
+                            key="about"
+                            v-model="model"
+                            :css-color="cssColor"
+                        />
+                        <PalettesPane
+                            v-else-if="currentConfig.right === 'palettes'"
+                            key="palettes"
+                            :saved-color-strings="savedColorStrings"
+                            :css-color-opaque="cssColorOpaque"
+                            @commit-edit="colorPickerRef?.commitEdit()"
+                            @cancel-edit="colorPickerRef?.cancelEdit()"
+                        />
+                    </KeepAlive>
+                </Transition>
+            </div>
         </div>
     </div>
+
+    <!-- Global modals -->
+    <MigratePalettesDialog
+        v-model:open="paletteManager.showMigrateDialog.value"
+        :count="paletteManager.savedPalettes.value.length"
+        :mode="paletteManager.migrateMode.value"
+        @respond="paletteManager.onMigrateRespond"
+    />
 </template>
 
 <script setup lang="ts">
-import { Separator } from "@components/ui/separator";
-import { computed, onMounted, ref, shallowRef, useTemplateRef, watch } from "vue";
-import { DarkModeToggle } from "@components/custom/dark-mode-toggle";
-import { HeaderRibbon } from "@components/custom/header-ribbon";
-import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
-} from "@components/ui/hover-card";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@components/ui/tooltip";
-import { Share2, Check } from "lucide-vue-next";
-import { Avatar, AvatarImage } from "@components/ui/avatar";
-import { Button } from "@components/ui/button";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@components/ui/card";
-import type { ColorModel } from "@components/custom/color-picker";
+import { computed, onMounted, provide, ref, shallowRef, useTemplateRef, watch } from "vue";
+
+import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import {
     ColorPicker,
-    ColorNutritionLabel,
     defaultColorModel,
     createDefaultColorModel,
+    toCSSColorString,
 } from "@components/custom/color-picker";
-import { useStorage } from "@vueuse/core";
 
+import { TopDock } from "@components/custom/top-dock";
+import {
+    AboutPane,
+    PalettesPane,
+    BrowsePane,
+    ExtractPane,
+    AdminPane,
+
+} from "@components/custom/panes";
+
+import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
+
+import { useStorage } from "@vueuse/core";
 import { copyToClipboard } from "@composables/useClipboard";
-import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
-import type { ColorSpace } from "@src/units/color/constants";
-import type { DocModule } from "@components/custom/markdown";
-import { Markdown } from "@components/custom/markdown";
-import { normalizeColorUnit } from "@src/units/color/normalize";
-import { toCSSColorString } from "@components/custom/color-picker";
+import { normalizeColorUnit, colorUnit2 } from "@src/units/color/normalize";
+import { parseCSSColor } from "@src/parsing/color";
+import { CSS_NATIVE_SPACES } from "@components/custom/color-picker";
 import { useCustomColorNames } from "@composables/useCustomColorNames";
 import { useColorUrl } from "@composables/useColorUrl";
 import { debounce } from "@src/utils";
+import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
+import { usePaletteManager } from "@composables/usePaletteManager";
+import { useAtmosphereCanvas } from "@composables/useAtmosphereCanvas";
 
 import "@styles/utils.css";
 import "@styles/style.css";
 
-const markdownModules: Record<ColorSpace, DocModule> = {
-    rgb: () => import("@assets/docs/rgb.md"),
-    hsl: () => import("@assets/docs/hsl.md"),
-    hsv: () => import("@assets/docs/hsv.md"),
-    hwb: () => import("@assets/docs/hwb.md"),
-    lab: () => import("@assets/docs/lab.md"),
-    lch: () => import("@assets/docs/lch.md"),
-    oklab: () => import("@assets/docs/oklab.md"),
-    oklch: () => import("@assets/docs/oklch.md"),
-    xyz: () => import("@assets/docs/xyz.md"),
-    kelvin: () => import("@assets/docs/kelvin.md"),
-};
+// --- Color model ---
 
-const activeMarkdownModule = computed(
-    () => markdownModules[model.value.selectedColorSpace],
-);
-
-const gridBackground = useTemplateRef<HTMLElement>("gridBackground");
+const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
-const pickerIsEditing = computed(
-    () =>
-        (colorPickerRef.value?.isEditing ?? false) ||
-        (colorPickerRef.value?.isTransitioning ?? false),
-);
 
 const colorStore = useStorage("color-picker", defaultColorModel);
-
 const model = shallowRef<ColorModel>(defaultColorModel);
-
 const cssColor = computed(() => toCSSColorString(model.value.color));
+const cssColorOpaque = computed(() => {
+    const color = model.value.color;
+    if (CSS_NATIVE_SPACES.has(color.value.colorSpace)) {
+        const denorm = normalizeColorUnit(color, true, false);
+        const c = denorm.clone() as typeof denorm;
+        c.value.alpha.value = 100;
+        return c.value.toFormattedString(2);
+    }
+    const c = color.clone();
+    c.value.alpha.value = 1;
+    return toCSSColorString(c);
+});
+
+const savedColorStrings = computed(() =>
+    model.value.savedColors.map((c) =>
+        normalizeColorUnit(c as any, true, false).toString(),
+    ),
+);
 
 const updateModel = (patch: Partial<ColorModel>) => {
     model.value = { ...model.value, ...patch };
@@ -266,22 +239,153 @@ const resetToDefaults = () => {
     model.value = createDefaultColorModel();
 };
 
-// Header ribbon
-const headerRibbonRef = ref<InstanceType<typeof HeaderRibbon> | null>(null);
-const mbabbHoverOpen = ref(false);
-const mbabbPinned = ref(false);
+// --- Edit target (synced from ColorPicker, provided for palette components + TopDock) ---
 
-function onMbabbClick() {
-    mbabbPinned.value = !mbabbPinned.value;
-    mbabbHoverOpen.value = mbabbPinned.value;
-}
+const activeEditTarget = shallowRef<EditTarget | null>(null);
+const onEditTargetChange = (et: EditTarget | null) => { activeEditTarget.value = et; };
+provide("activeEditTarget", activeEditTarget);
 
-// When HoverCard closes via click-away or hover-out, unpin
-watch(mbabbHoverOpen, (open) => {
-    if (!open) mbabbPinned.value = false;
+// --- View manager ---
+
+const viewManager = useViewManager();
+provide(VIEW_MANAGER_KEY, viewManager);
+
+const currentConfig = computed(() => viewManager.currentConfig.value);
+
+// --- Mobile pane (single slot below lg) ---
+
+const mobileComponent = computed(() => {
+    const cfg = currentConfig.value;
+    // If two panes, mobilePaneIndex picks which one
+    if (cfg.right !== null && viewManager.mobilePaneIndex.value === 1) {
+        // Show right pane
+        if (cfg.right === "about") return AboutPane;
+        if (cfg.right === "palettes") return PalettesPane;
+    }
+    // Show left pane
+    if (cfg.left === "color-picker") return ColorPicker;
+    if (cfg.left === "browse") return BrowsePane;
+    if (cfg.left === "extract") return ExtractPane;
+    if (cfg.left === "admin-users") return AdminPane;
+    if (cfg.left === "admin-names") return AdminPane;
+    return ColorPicker;
 });
 
-// Share link — copies current URL to clipboard with brief visual feedback
+const mobileKey = computed(() => {
+    const cfg = currentConfig.value;
+    if (cfg.right !== null && viewManager.mobilePaneIndex.value === 1) {
+        return cfg.right;
+    }
+    return cfg.left;
+});
+
+const mobileProps = computed(() => {
+    const cfg = currentConfig.value;
+    if (cfg.right !== null && viewManager.mobilePaneIndex.value === 1) {
+        if (cfg.right === "about") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { model.value = v; }, cssColor: cssColor.value };
+        if (cfg.right === "palettes") return { savedColorStrings: savedColorStrings.value, cssColorOpaque: cssColorOpaque.value, "onCommit-edit": () => colorPickerRef.value?.commitEdit(), "onCancel-edit": () => colorPickerRef.value?.cancelEdit() };
+    }
+    if (cfg.left === "color-picker") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { model.value = v; }, "onUpdate:editTarget": onEditTargetChange, onReset: resetToDefaults, ref: colorPickerRef, class: "picker-shell w-full" };
+    if (cfg.left === "browse") return { cssColorOpaque: cssColorOpaque.value };
+    if (cfg.left === "extract") return { cssColorOpaque: cssColorOpaque.value, colorSpace: model.value.selectedColorSpace };
+    if (cfg.left === "admin-users") return { subView: "admin-users", cssColorOpaque: cssColorOpaque.value };
+    if (cfg.left === "admin-names") return { subView: "admin-names", cssColorOpaque: cssColorOpaque.value };
+    return {};
+});
+
+// --- Palette manager ---
+
+const paletteManager = usePaletteManager({
+    currentView: viewManager.currentView,
+    savedColorStrings,
+    emitApply: (colors: string[]) => {
+        if (colorPickerRef.value) {
+            colorPickerRef.value.onPaletteApply(colors);
+        } else {
+            // ColorPicker not mounted (e.g. extract view) — update model directly
+            // Only set the current color; do NOT replace savedColors
+            if (colors.length === 0) return;
+            try {
+                const parsed = normalizeColorUnit(parseCSSColor(colors[0]));
+                const resolvedSpace = model.value.selectedColorSpace === "hex" ? "rgb" : model.value.selectedColorSpace;
+                const color = colorUnit2(parsed, resolvedSpace, true, false, false);
+                updateModel({
+                    color,
+                    inputColor: colors[0],
+                    selectedColorSpace: model.value.selectedColorSpace,
+                });
+            } catch { /* ignore parse errors */ }
+        }
+    },
+    emitAddColor: (css: string) => {
+        // Add color directly to model — no need for ColorPicker to be mounted
+        // Only switch view if on a view that has no palettes pane (extract already has one on the right)
+        const cur = viewManager.currentView.value;
+        if (cur !== "picker" && cur !== "palettes" && cur !== "extract") {
+            viewManager.switchView("palettes");
+        }
+        try {
+            const parsed = parseCSSColor(css);
+            if (!parsed) return;
+            const normalized = normalizeColorUnit(parsed);
+            const newStr = normalizeColorUnit(normalized, true, false).value.toFormattedString(2);
+
+            // Check for duplicate: compare formatted strings
+            const savedColors = [...model.value.savedColors];
+            const existingIdx = savedColors.findIndex((c: any) => {
+                try {
+                    return normalizeColorUnit(c, true, false).value.toFormattedString(2) === newStr;
+                } catch { return false; }
+            });
+
+            if (existingIdx >= 0) {
+                // Already exists — move to front if not already first
+                if (existingIdx > 0) {
+                    const [existing] = savedColors.splice(existingIdx, 1);
+                    savedColors.unshift(existing);
+                    model.value = { ...model.value, savedColors };
+                }
+                // If already first, do nothing
+            } else {
+                // New color — prepend
+                savedColors.unshift(normalized);
+                model.value = { ...model.value, savedColors };
+            }
+        } catch {
+            // If we can't parse directly, fall back to ColorPicker
+            const tryAdd = () => {
+                if (colorPickerRef.value) {
+                    colorPickerRef.value.onPaletteAddColor(css);
+                } else {
+                    setTimeout(tryAdd, 50);
+                }
+            };
+            tryAdd();
+        }
+    },
+    emitStartEdit: (target) => {
+        // Stay on palettes view (picker + palettes side-by-side on desktop)
+        // Only switch if we're not already on a view that has the color picker
+        const cur = viewManager.currentView.value;
+        if (cur !== "picker" && cur !== "palettes") {
+            viewManager.switchView("palettes");
+        }
+        // On mobile, show the picker pane (left) so the user can edit
+        viewManager.mobilePaneIndex.value = 0;
+        // Wait for ColorPicker to mount if needed, then start edit
+        const tryStartEdit = () => {
+            if (colorPickerRef.value) {
+                colorPickerRef.value.onStartEdit(target);
+            } else {
+                setTimeout(tryStartEdit, 50);
+            }
+        };
+        setTimeout(tryStartEdit, 50);
+    },
+});
+
+// --- Share link ---
+
 const linkCopied = ref(false);
 let linkCopiedTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -296,7 +400,8 @@ const shareLink = async () => {
     }
 };
 
-// Watch color changes for storage sync (debounced to avoid blocking during rapid drag)
+// --- Storage sync ---
+
 const syncColorToStorage = debounce(
     (color: any) => {
         colorStore.value.inputColor = color?.toString() ?? "";
@@ -312,7 +417,6 @@ watch(
     },
 );
 
-// Watch saved colors separately
 watch(
     () => model.value.savedColors,
     (colors) => {
@@ -327,82 +431,46 @@ useColorUrl({ model, updateModel });
 
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
+useAtmosphereCanvas(atmosphereCanvas, cssColorOpaque);
+
 onMounted(() => {
     loadCustomColorNames();
-
-    const encodedSVG = encodeURIComponent(`
-    <svg class="tmp" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'>
-        <path d='M1 2V0h1v1H0v1z' fill-opacity='0.10'/>
-    </svg>
-  `);
-    gridBackground.value!.style.backgroundImage = `url("data:image/svg+xml,${encodedSVG}")`;
-    gridBackground.value!.style.backgroundSize = "1rem";
 });
 </script>
 
 <style scoped>
-.grid-background {
-    background-repeat: repeat;
+/* Smooth layout transitions for pane wrappers */
+.pane-wrapper {
+    transition: height 0.3s var(--ease-standard),
+                margin 0.3s var(--ease-standard),
+                padding 0.3s var(--ease-standard);
 }
 
-.header-control-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: hsl(var(--foreground));
-    opacity: 0.7;
-    transition:
-        opacity var(--duration-fast) var(--ease-standard),
-        transform var(--duration-fast) var(--ease-standard);
-    width: 1.25rem;
-    height: 1.25rem;
-    flex-shrink: 0;
-    border-radius: var(--radius-sm);
+/* ── Left pane: slides off left, enters from left ── */
+.pane-left-enter-active {
+    transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.header-control-item:hover {
-    opacity: 1;
-    transform: scale(1.05);
+.pane-left-leave-active {
+    transition: transform 0.15s cubic-bezier(0.5, 0, 1, 0.5);
 }
-.header-control-item:active {
-    transform: scale(0.95);
+.pane-left-enter-from {
+    transform: translateX(-110%) rotate(-2deg);
 }
-.header-control-item:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px hsl(var(--ring) / 0.4);
+.pane-left-leave-to {
+    transform: translateX(-110%) rotate(-2deg);
 }
 
-/* About card — subtle scroll fade at bottom edge (desktop only).
-   Uses ::after overlay instead of mask-image so box-shadow is preserved. */
-@media (min-width: 1024px) {
-    .about-card {
-        position: relative;
-    }
-    .about-card::after {
-        content: '';
-        position: sticky;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: block;
-        height: 2rem;
-        margin-top: -2rem;
-        pointer-events: none;
-        background: linear-gradient(to bottom, transparent, hsl(var(--card)));
-        border-radius: 0 0 var(--radius-xl) var(--radius-xl);
-    }
+/* ── Right pane: slides off right, enters from right ── */
+.pane-right-enter-active {
+    transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
-/* Blur the "About" card when editing */
-.about-card-editing {
-    filter: blur(3px) saturate(0.6);
-    opacity: 0.5;
-    transition: filter var(--duration-slow) ease, opacity var(--duration-slow) ease;
-    pointer-events: none;
+.pane-right-leave-active {
+    transition: transform 0.15s cubic-bezier(0.5, 0, 1, 0.5);
 }
-.about-card-normal {
-    filter: none;
-    opacity: 1;
-    transition: filter var(--duration-slow) ease, opacity var(--duration-slow) ease;
+.pane-right-enter-from {
+    transform: translateX(110%) rotate(2deg);
+}
+.pane-right-leave-to {
+    transform: translateX(110%) rotate(2deg);
 }
 </style>
