@@ -43,6 +43,16 @@
                 <Camera class="w-5 h-5 transition-colors" />
             </button>
 
+            <button
+                class="dock-icon-btn"
+                :disabled="disabled || !hasImage"
+                title="Eyedropper"
+                :style="{ '--hover-color': cssColor }"
+                @click="$emit('eyedropper')"
+            >
+                <Pipette class="w-4.5 h-4.5 transition-colors" />
+            </button>
+
             <div class="dock-separator" />
 
             <!-- Chroma weight slider -->
@@ -92,7 +102,7 @@
 
 <script setup lang="ts">
 import { ref, useTemplateRef } from "vue";
-import { Camera, RotateCcw } from "lucide-vue-next";
+import { Camera, Pipette, RotateCcw } from "lucide-vue-next";
 import { useTouchGate } from "@composables/useTouchGate";
 
 defineProps<{
@@ -108,6 +118,7 @@ defineEmits<{
     "update:k": [value: number];
     "update:chromaWeight": [value: number];
     camera: [];
+    eyedropper: [];
     reset: [];
 }>();
 
