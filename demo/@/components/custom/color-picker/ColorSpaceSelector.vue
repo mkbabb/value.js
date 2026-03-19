@@ -16,13 +16,22 @@
         >
             <SelectValue class="w-full" />
         </SelectTrigger>
-        <SelectContent class="bg-card/95 backdrop-blur-xl border-border/60 shadow-lg rounded-xl">
+        <SelectContent>
             <SelectGroup class="fira-code">
                 <SelectItem
-                    class="text-xl"
+                    class="!pl-7 !pr-3 py-1.5 text-xl !rounded-lg"
                     v-for="[space, name] in Object.entries(DISPLAY_COLOR_SPACE_NAMES)"
                     :value="space"
-                >{{ name }}</SelectItem>
+                    hide-indicator
+                >
+                    <span class="flex items-center gap-2">
+                        <span
+                            class="inline-block w-2 h-2 rounded-full shrink-0 transition-colors"
+                            :style="{ backgroundColor: modelValue === space ? cssColor : 'transparent' }"
+                        ></span>
+                        <span :class="modelValue === space ? 'font-semibold' : ''">{{ name }}</span>
+                    </span>
+                </SelectItem>
             </SelectGroup>
         </SelectContent>
     </Select>
@@ -51,4 +60,3 @@ const emit = defineEmits<{
     "update:selectRef": [el: any];
 }>();
 </script>
-
