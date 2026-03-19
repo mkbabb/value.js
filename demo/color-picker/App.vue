@@ -418,6 +418,11 @@ watch(
     },
 );
 
+// Persist opaque color for flash-free page load background
+watch(cssColorOpaque, (c) => {
+    try { localStorage.setItem("color-picker-bg", c); } catch {}
+}, { immediate: true });
+
 watch(
     () => model.value.savedColors,
     (colors) => {

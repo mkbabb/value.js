@@ -7,6 +7,19 @@
         <title>Color Picker</title>
         <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 
+        <!-- Prevent flash: apply dark mode class + initial bg before any rendering -->
+        <script>
+            (function() {
+                var stored = localStorage.getItem('vueuse-color-scheme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var dark = stored === 'dark' || (!stored && prefersDark);
+                if (dark) document.documentElement.classList.add('dark');
+                document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+                var bg = localStorage.getItem('color-picker-bg');
+                if (bg) document.documentElement.style.background = bg;
+            })();
+        </script>
+
         <script type="module">
             import { createApp } from "vue";
             import App from "./App.vue";
