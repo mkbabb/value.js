@@ -8,7 +8,7 @@ import {
 } from "@src/units/color/constants";
 import { normalizeColorUnit } from "@src/units/color/normalize";
 import type { ColorModel } from "@components/custom/color-picker";
-import { toCSSColorString } from "@components/custom/color-picker";
+import { toCSSColorString, colorToHexString } from "@components/custom/color-picker";
 
 const DIGITS = 2;
 
@@ -58,13 +58,19 @@ export function useSliderGradients(deps: {
     );
 
     const currentColorComponentsFormatted = computed(() => {
+        // Hex mode: single component displaying the hex string
+        if (model.value.selectedColorSpace === "hex") {
+            const hex = colorToHexString(model.value.color);
+            return { hex: { value: hex, unit: "", monospace: true } } as Record<string, { value: number | string; unit: string; monospace?: boolean }>;
+        }
+
         return denormalizedCurrentColor.value.value
             .entries()
             .filter(([key]: [string, any]) => key !== "alpha")
             .map(([key, value]: [string, any]) => {
                 return [key, { value: value.value, unit: value.unit ?? "" }] as const;
             })
-            .reduce((acc: Record<string, { value: number; unit: string }>, [key, value]) => {
+            .reduce((acc: Record<string, { value: number | string; unit: string; monospace?: boolean }>, [key, value]) => {
                 acc[key] = value;
                 return acc;
             }, {});

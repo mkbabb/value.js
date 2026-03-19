@@ -1,6 +1,7 @@
 import type { ValueUnit } from "@src/units";
 import type { Color } from "@src/units/color";
 import type { ColorSpace } from "@src/units/color/constants";
+import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
 import { parseCSSColor } from "@src/parsing/color";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 
@@ -13,8 +14,19 @@ export interface EditTarget {
     originalCss: string;
 }
 
+/**
+ * Display color space — extends ColorSpace with "hex", which is an RGB encoding
+ * (not a color space in the mathematical sense).
+ */
+export type DisplayColorSpace = ColorSpace | "hex";
+
+/** Map a display color space to its underlying ColorSpace for computation. */
+export function resolveColorSpace(space: DisplayColorSpace): ColorSpace {
+    return space === "hex" ? "rgb" : space;
+}
+
 export type ColorModel = {
-    selectedColorSpace: ColorSpace;
+    selectedColorSpace: DisplayColorSpace;
     color: ValueUnit<Color<ValueUnit<number>>, "color">;
     inputColor: string;
     savedColors: Array<ValueUnit<Color<ValueUnit<number>>, "color"> | any>;
@@ -39,6 +51,20 @@ export const defaultColorModel: ColorModel = createDefaultColorModel();
 export const CSS_NATIVE_SPACES: ReadonlySet<string> = new Set([
     "rgb", "hsl", "hwb", "lab", "lch", "oklab", "oklch",
 ]);
+
+/** Convert a normalized rgb color (components in [0,1]) to a hex string. */
+export function colorToHexString(
+    color: ValueUnit<Color<ValueUnit<number>>, "color">,
+): string {
+    const rgb = colorUnit2(color, "rgb", true, false, false);
+    const denorm = normalizeColorUnit(rgb, true, false);
+    const r = Math.round(denorm.value.r.value);
+    const g = Math.round(denorm.value.g.value);
+    const b = Math.round(denorm.value.b.value);
+    const a = denorm.value.alpha.value / 100; // alpha is denormalized to percentage
+    const hex = (v: number) => v.toString(16).padStart(2, "0");
+    return `#${hex(r)}${hex(g)}${hex(b)}${a < 1 ? hex(Math.round(a * 255)) : ""}`;
+}
 
 export function toCSSColorString(
     color: ValueUnit<Color<ValueUnit<number>>, "color">,
@@ -303,4 +329,47 @@ export const colorSpaceInfo = {
         ],
         notes: "Represents the color of an ideal black-body radiator at a given temperature. Useful for describing the color of light sources.",
     },
+
+    hex: {
+        name: "Hex (Hexadecimal RGB)",
+        type: "Encoding of RGB",
+        definition:
+            "A compact hexadecimal notation for sRGB colors, widely used in web design and CSS. Each pair of hex digits encodes a red, green, or blue channel (0-255).",
+        deviceDependency: "Device-dependent (same as RGB)",
+        created: "1996",
+        whitePoint: "Inherited from RGB (typically D65)",
+        gamut: "Same as sRGB",
+        components: ["Red (00-FF)", "Green (00-FF)", "Blue (00-FF)"],
+        perceptualUniformity: "No",
+        hueLinearity: "No",
+        lightnessSeparation: "No",
+        applications: ["Web design", "CSS styling", "Brand guidelines"],
+        industries: ["Web development", "Graphic design", "Digital media"],
+        conversions: [
+            ["Hex", "RGB"],
+            ["Hex", "RGB", "HSL"],
+            ["Hex", "RGB", "XYZ"],
+        ],
+        notes: "The most common color notation on the web. Equivalent to RGB but encoded as a 6-digit (or 8-digit with alpha) hexadecimal string prefixed with #.",
+    },
 } as const;
+
+/** Display names for all selectable color spaces. Defines canonical UI ordering. */
+export const DISPLAY_COLOR_SPACE_NAMES: Record<DisplayColorSpace, string> = {
+    rgb: "RGB",
+    hex: "Hex",
+    hsl: "HSL",
+    hsv: "HSV",
+    hwb: "HWB",
+    lab: "Lab",
+    lch: "LCh",
+    oklab: "OKLab",
+    oklch: "OKLCh",
+    xyz: "XYZ",
+    kelvin: "Kelvin",
+    "srgb-linear": "sRGB Linear",
+    "display-p3": "Display P3",
+    "a98-rgb": "Adobe RGB",
+    "prophoto-rgb": "ProPhoto RGB",
+    rec2020: "Rec. 2020",
+};

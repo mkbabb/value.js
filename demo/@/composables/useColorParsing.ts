@@ -6,6 +6,8 @@ import { Color } from "@src/units/color";
 import type { ColorSpace } from "@src/units/color/constants";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 import type { ColorModel } from "@components/custom/color-picker";
+import type { DisplayColorSpace } from "@components/custom/color-picker";
+import { resolveColorSpace } from "@components/custom/color-picker";
 
 const DEFAULT_COLOR = "lavendi";
 
@@ -35,19 +37,21 @@ export function useColorParsing(deps: {
 
     const setCurrentColor = (
         color: ValueUnit<Color<ValueUnit<number>>, "color">,
-        colorSpace?: ColorSpace,
+        colorSpace?: DisplayColorSpace,
         fromSpectrum?: boolean,
     ) => {
+        const resolved = resolveColorSpace(colorSpace ?? getColorSpace(color));
         const converted = colorUnit2(
             color,
-            colorSpace ?? getColorSpace(color),
+            resolved,
             true,
             false,
             false,
         );
+        // Preserve the display space (e.g. "hex") rather than replacing with "rgb"
         updateModel({
             color: converted,
-            selectedColorSpace: converted.value.colorSpace,
+            selectedColorSpace: colorSpace ?? converted.value.colorSpace,
         });
         // When called from spectrum, hue is already stable -- don't overwrite
         // from the lossy roundtrip. All other callers update stableHue.
@@ -99,10 +103,16 @@ export function useColorParsing(deps: {
             parseError.value = false;
             prevInvalidParsedValue = "";
 
+            // If input is a hex string, select "hex" display mode rather than "rgb"
+            const detectedSpace: DisplayColorSpace =
+                converted.value.colorSpace === "rgb" && newVal.startsWith("#")
+                    ? "hex"
+                    : converted.value.colorSpace;
+
             updateModel({
                 inputColor: newVal,
                 color: converted,
-                selectedColorSpace: converted.value.colorSpace,
+                selectedColorSpace: detectedSpace,
             });
 
             // Update stableHue from parsed color
@@ -128,10 +138,10 @@ export function useColorParsing(deps: {
     // --- Random color ---
 
     const generateRandomColor = (
-        colorSpace: ColorSpace,
+        colorSpace: DisplayColorSpace,
     ): ValueUnit<Color<ValueUnit<number>>> => {
         let color = parseAndNormalizeColor("white");
-        color = colorUnit2(color, colorSpace, true, false, true);
+        color = colorUnit2(color, resolveColorSpace(colorSpace), true, false, true);
 
         color.value
             .entries()

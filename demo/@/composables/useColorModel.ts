@@ -15,7 +15,7 @@ import {
     normalizeColorUnitComponent,
 } from "@src/units/color/normalize";
 import type { ColorModel } from "@components/custom/color-picker";
-import { toCSSColorString, CSS_NATIVE_SPACES } from "@components/custom/color-picker";
+import { toCSSColorString, CSS_NATIVE_SPACES, resolveColorSpace, colorToHexString } from "@components/custom/color-picker";
 
 import { useColorParsing } from "./useColorParsing";
 import { useSliderGradients } from "./useSliderGradients";
@@ -111,12 +111,16 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
         return color.value.colorSpace as ColorSpace;
     };
 
-    const currentColorSpace = computed(() => getColorSpace(model.value.color));
+    const currentColorSpace = computed(() => resolveColorSpace(model.value.selectedColorSpace));
 
-    const colorComponents = computed(() =>
-        Object.entries(COLOR_SPACE_RANGES[currentColorSpace.value])
-            .filter(([key]) => key !== "alpha"),
-    );
+    const colorComponents = computed(() => {
+        // Hex mode: single "hex" component for the heading display
+        if (model.value.selectedColorSpace === "hex") {
+            return [["hex", 0]] as [string, any][];
+        }
+        return Object.entries(COLOR_SPACE_RANGES[currentColorSpace.value])
+            .filter(([key]) => key !== "alpha");
+    });
 
     // --- Delegated composables ---
 
@@ -160,7 +164,9 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
 
     const updateToColorSpace = (to: ColorSpace) => {
         const color = colorUnit2(model.value.color, to, true, false, false);
-        setCurrentColor(color);
+        // Preserve the display space (e.g. "hex") rather than letting setCurrentColor
+        // overwrite it with the resolved color space ("rgb")
+        setCurrentColor(color, model.value.selectedColorSpace);
     };
 
     const updateColorComponent = (

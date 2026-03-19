@@ -1,6 +1,6 @@
 <template>
-    <div class="grid grid-rows-[auto_auto] gap-4 relative min-w-0 content-center lg:max-h-full">
-        <Card class="flex flex-col rounded-2xl min-w-0 lg:overflow-hidden lg:min-h-0">
+    <div class="flex flex-col relative min-w-0 max-w-lg mx-auto lg:h-full transition-[margin,transform] duration-300 ease-[var(--ease-standard)]">
+        <Card class="flex flex-col rounded-2xl min-w-0 lg:flex-1 lg:min-h-0 lg:overflow-visible transition-[box-shadow] duration-300 bg-card/75 backdrop-blur-sm">
             <CardHeader class="fraunces m-0 pb-0 relative w-full px-3 sm:px-6 min-w-0 overflow-visible">
                 <div class="w-full flex justify-between">
                     <ColorSpaceSelector
@@ -18,21 +18,26 @@
                     :color-components="colorComponents"
                     :formatted="currentColorComponentsFormatted"
                     @update="(v, c) => updateColorComponentDebounced(v, c)"
+                    @input="onComponentInput"
                 />
             </CardHeader>
 
-            <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pb-0 min-w-0 lg:flex-1 lg:min-h-0">
+            <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pb-4 min-w-0 lg:flex-1 lg:min-h-0">
                 <div class="flex flex-col items-center gap-4 lg:flex-1 lg:min-h-0">
-                    <div class="w-full lg:flex-1 lg:min-h-0 lg:overflow-hidden">
+                    <div class="w-full lg:flex-1 lg:min-h-0 lg:overflow-visible">
                         <SpectrumCanvas />
                     </div>
                     <div class="w-full shrink-0">
                         <ComponentSliders />
                     </div>
                 </div>
+            </CardContent>
+        </Card>
 
-                <div class="flex justify-center items-start mt-2 pb-3 -mx-3 sm:-mx-6 px-3 sm:px-6 shrink-0">
-                    <GlassDock :collapse-delay="2000">
+        <Teleport to="body">
+            <div class="fixed bottom-[var(--dock-pos)] left-1/2 -translate-x-1/2 z-[var(--z-dock)] pointer-events-none">
+                <div class="pointer-events-auto">
+                    <GlassDock :collapse-delay="2000" :fit-content="true">
                         <div class="flex items-center gap-2">
                             <div class="grid relative items-center flex-1 min-w-[18rem] sm:min-w-[22rem]">
                                 <ActionToolbar
@@ -45,12 +50,12 @@
                                     :css-color-opaque="cssColorOpaque"
                                     :can-propose-name="canProposeName"
                                     :is-editing="isEditing"
-                                    :palette-active="paletteDialogOpen || isEditing"
+                                    :palette-active="viewManager.currentView.value !== 'picker' || isEditing"
                                     @reset="emit('reset')"
                                     @copy="colorInputRef?.copyAndSetInputColor()"
                                     @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
-                                    @open-palette="openPaletteDialog"
-                                    @open-extract="openExtractTab"
+                                    @open-palette="onOpenPalette"
+                                    @open-extract="onOpenExtract"
                                 />
                                 <ColorInput
                                     :inert="!showInput || undefined"
@@ -86,6 +91,7 @@
                                 :color="cssColorOpaque"
                                 tag="div"
                                 class="w-6 h-6 shrink-0"
+                                seed="bottom-dock"
                             />
                             <component
                                 :is="currentToggleIcon"
@@ -94,22 +100,8 @@
                         </template>
                     </GlassDock>
                 </div>
-            </CardContent>
-        </Card>
-
-        <!-- Palette browser sheet -->
-        <PaletteDialog
-            ref="paletteDialogRef"
-            v-model:open="paletteDialogOpen"
-            :saved-color-strings="savedColorStrings"
-            :css-color="cssColor"
-            :css-color-opaque="cssColorOpaque"
-            :editing-exit="editingExit"
-            :editing-enter="editingEnter"
-            @apply="onPaletteApply"
-            @add-color="onPaletteAddColor"
-            @start-edit="onStartEdit"
-        />
+            </div>
+        </Teleport>
 
         <EditDrawer
             :edit-target="editTarget"
@@ -127,6 +119,7 @@ import ColorSpaceSelector from "./ColorSpaceSelector.vue";
 import ColorComponentDisplay from "./ColorComponentDisplay.vue";
 import {
     computed,
+    inject,
     onMounted,
     onUnmounted,
     provide,
@@ -134,11 +127,12 @@ import {
     watch,
 } from "vue";
 import { useMagicKeys } from "@vueuse/core";
-import { PaletteDialog } from "@components/custom/palette-browser";
 import { useColorModel } from "@composables/useColorModel";
 import type { ColorModel, EditTarget } from ".";
-import { toCSSColorString } from ".";
+import { toCSSColorString, resolveColorSpace } from ".";
 import { COLOR_MODEL_KEY } from "./keys";
+import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
+import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
 
 import { usePointerDebug } from "@composables/usePointerDebug";
 import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
@@ -155,7 +149,10 @@ import PointerDebugOverlay from "./PointerDebugOverlay.vue";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 
 const model = defineModel<ColorModel>({ required: true });
-const emit = defineEmits<{ reset: [] }>();
+const emit = defineEmits<{
+    reset: [];
+    "update:editTarget": [target: EditTarget | null];
+}>();
 
 // --- Color model composable + provide ---
 
@@ -165,12 +162,16 @@ provide(COLOR_MODEL_KEY, colorModel);
 const pointerDebug = usePointerDebug();
 provide(POINTER_DEBUG_KEY, pointerDebug);
 
+const viewManager = inject(VIEW_MANAGER_KEY)!;
+const paletteManager = inject(PALETTE_MANAGER_KEY);
+
 const {
     updateModel,
     cssColor,
     cssColorOpaque,
     colorComponents,
     currentColorComponentsFormatted,
+    formattedCurrentColor,
     canProposeName,
     savedColorStrings,
     parseAndNormalizeColor,
@@ -212,10 +213,35 @@ const currentToggleIcon = computed(() => {
 });
 
 
+// --- Component display input handler (general: parses text per component) ---
+
+function onComponentInput(text: string, component: string) {
+    if (component === "hex") {
+        // Hex string input — parse and set color
+        const hex = text.startsWith("#") ? text : `#${text}`;
+        if (/^#[0-9a-fA-F]{3,8}$/.test(hex)) {
+            parseAndSetColor(hex);
+        }
+    } else {
+        // Numeric component — existing behavior
+        const v = parseFloat(text);
+        if (!Number.isNaN(v)) updateColorComponentDebounced(v, component);
+    }
+}
+
 // --- Color space selector ---
 
 const selectedColorSpaceOpen = ref(false);
 const selectedColorSpaceRef = ref<any>(null);
+
+// Close color space dropdown on any outside interaction
+function onDocumentPointerDown(e: PointerEvent) {
+    if (!selectedColorSpaceOpen.value) return;
+    const selectEl = selectedColorSpaceRef.value?.$el ?? selectedColorSpaceRef.value;
+    if (selectEl && !selectEl.contains(e.target as Node)) {
+        selectedColorSpaceOpen.value = false;
+    }
+}
 
 // --- Keyboard shortcuts ---
 
@@ -246,22 +272,16 @@ const handleKeydown = (e: KeyboardEvent) => {
     }
 };
 
-// --- Palette dialog ---
+// --- View switching (replaces palette dialog open/close) ---
 
-const paletteDialogOpen = ref(false);
-const paletteDialogRef = ref<InstanceType<typeof PaletteDialog> | null>(null);
-
-function openPaletteDialog() {
+function onOpenPalette() {
     actionToolbarRef.value?.clearHover();
-    window.setTimeout(() => { paletteDialogOpen.value = true; }, 100);
+    viewManager.switchView("palettes");
 }
 
-function openExtractTab() {
+function onOpenExtract() {
     actionToolbarRef.value?.clearHover();
-    window.setTimeout(() => {
-        paletteDialogOpen.value = true;
-        paletteDialogRef.value?.setActiveTab("extract");
-    }, 100);
+    viewManager.switchView("extract");
 }
 
 // --- Edit mode state machine ---
@@ -269,60 +289,54 @@ function openExtractTab() {
 const editTarget = ref<EditTarget | null>(null);
 const preEditModel = ref<ColorModel | null>(null);
 const isEditing = computed(() => editTarget.value !== null);
-const editingExit = ref(false);
-const editingEnter = ref(false);
+
+// Emit edit target changes to parent
+watch(editTarget, (et) => emit("update:editTarget", et));
+
+function setEditTarget(target: EditTarget | null) {
+    editTarget.value = target;
+}
 
 function onStartEdit(target: EditTarget) {
     preEditModel.value = { ...model.value };
-    editingExit.value = true;
-    paletteDialogOpen.value = false;
     const parsed = parseAndNormalizeColor(target.originalCss);
-    setCurrentColor(parsed);
-    setTimeout(() => { editTarget.value = target; }, 120);
-}
-
-function reopenDialogFromEdit() {
-    editingEnter.value = true;
-    window.setTimeout(() => {
-        paletteDialogOpen.value = true;
-    }, 100);
+    setCurrentColor(parsed, model.value.selectedColorSpace);
+    setTimeout(() => setEditTarget(target), 120);
 }
 
 function commitEdit() {
-    if (!editTarget.value || !paletteDialogRef.value) return;
+    if (!editTarget.value || !paletteManager) return;
     const newCss = toCSSColorString(model.value.color);
-    paletteDialogRef.value.commitColorEdit(
+    paletteManager.commitColorEdit(
         editTarget.value.paletteId,
         editTarget.value.colorIndex,
         newCss,
     );
-    editTarget.value = null;
+    setEditTarget(null);
     preEditModel.value = null;
-    reopenDialogFromEdit();
 }
 
 function cancelEdit() {
     if (preEditModel.value) {
         model.value = preEditModel.value;
     }
-    editTarget.value = null;
+    setEditTarget(null);
     preEditModel.value = null;
-    reopenDialogFromEdit();
 }
 
-// Reset editing animation flags after transitions complete
-watch(paletteDialogOpen, (open) => {
-    if (open) {
-        // Dialog just opened — clear the exit flag (enter flag stays for this session)
-        editingExit.value = false;
-    } else {
-        // Dialog just closed — clear the enter flag (exit flag stays for the close animation)
-        editingEnter.value = false;
-    }
+const isTransitioning = ref(false);
+defineExpose({
+    isEditing,
+    isTransitioning,
+    editTarget,
+    commitEdit,
+    cancelEdit,
+    onPaletteApply,
+    onPaletteAddColor,
+    parseAndNormalizeColor,
+    setCurrentColor,
+    onStartEdit,
 });
-
-const isTransitioning = computed(() => editingExit.value || editingEnter.value);
-defineExpose({ isEditing, isTransitioning });
 
 // --- Model watchers ---
 
@@ -330,7 +344,7 @@ watch(
     () => model.value.selectedColorSpace,
     (newVal, oldVal) => {
         if (newVal === oldVal) return;
-        updateToColorSpace(newVal);
+        updateToColorSpace(resolveColorSpace(newVal));
     },
 );
 
@@ -347,10 +361,12 @@ watch(
 
 onMounted(() => {
     window.addEventListener("keydown", handleKeydown);
+    document.addEventListener("pointerdown", onDocumentPointerDown, true);
 });
 
 onUnmounted(() => {
     window.removeEventListener("keydown", handleKeydown);
+    document.removeEventListener("pointerdown", onDocumentPointerDown, true);
     if (parseAndSetColorDebounced.cancel) parseAndSetColorDebounced.cancel();
     if (updateColorComponentDebounced.cancel) updateColorComponentDebounced.cancel();
 });

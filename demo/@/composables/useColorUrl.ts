@@ -1,7 +1,8 @@
 import type { ShallowRef } from "vue";
 import { onUnmounted, watch } from "vue";
 import type { ColorModel } from "@components/custom/color-picker";
-import { toCSSColorString } from "@components/custom/color-picker";
+import type { DisplayColorSpace } from "@components/custom/color-picker";
+import { toCSSColorString, resolveColorSpace, colorToHexString } from "@components/custom/color-picker";
 import type { ColorSpace } from "@src/units/color/constants";
 import { parseCSSColor } from "@src/parsing/color";
 import { ValueUnit } from "@src/units";
@@ -41,13 +42,14 @@ export function useColorUrl(options: {
         if (!space || !color) return false;
 
         try {
+            const displaySpace = space as DisplayColorSpace;
             const parsed = parseCSSColor(color) as ValueUnit<Color<ValueUnit<number>>, "color">;
             const normalized = normalizeColorUnit(parsed);
-            const converted = colorUnit2(normalized, space as ColorSpace, true, false, false);
+            const converted = colorUnit2(normalized, resolveColorSpace(displaySpace), true, false, false);
 
             syncing = true;
             updateModel({
-                selectedColorSpace: space as ColorSpace,
+                selectedColorSpace: displaySpace,
                 inputColor: color,
                 color: converted,
             });
@@ -71,7 +73,11 @@ export function useColorUrl(options: {
             ([, v]) => v === xyzStr,
         );
 
-        const color = namedColor ? namedColor[0] : toCSSColorString(model.value.color);
+        const color = namedColor
+            ? namedColor[0]
+            : space === "hex"
+              ? colorToHexString(model.value.color)
+              : toCSSColorString(model.value.color);
         syncing = true;
         writeHashParams(space, color);
         syncing = false;

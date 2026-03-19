@@ -1,6 +1,6 @@
 <template>
     <div class="w-full fraunces grid grid-cols-1 gap-4 relative">
-        <Alert class="m-0">
+        <Alert class="m-0 bg-muted/50 dark:bg-muted/30 border-border/30 rounded-2xl">
             <AlertTitle>Definition</AlertTitle>
             <AlertDescription>
                 {{ currentColorSpaceInfo.definition }}
@@ -10,29 +10,29 @@
         <Separator />
 
         <section>
-            <h2 class="sticky top-0 bg-background text-2xl mb-2 font-bold">
+            <h2 class="text-2xl mb-2 font-normal">
                 Basic Information
             </h2>
             <div class="grid grid-cols-2 gap-2 text-sm">
                 <div class="italic">Type:</div>
-                <div class="font-bold">{{ currentColorSpaceInfo.type }}</div>
+                <div class="font-normal">{{ currentColorSpaceInfo.type }}</div>
                 <div class="italic">Device Dependency:</div>
-                <div class="font-bold">
+                <div class="font-normal">
                     {{ currentColorSpaceInfo.deviceDependency }}
                 </div>
                 <div class="italic">White Point:</div>
-                <div class="font-bold">{{ currentColorSpaceInfo.whitePoint }}</div>
+                <div class="font-normal">{{ currentColorSpaceInfo.whitePoint }}</div>
                 <div class="italic">Gamut:</div>
-                <div class="font-bold">{{ currentColorSpaceInfo.gamut }}</div>
+                <div class="font-normal">{{ currentColorSpaceInfo.gamut }}</div>
                 <div class="italic">Created:</div>
-                <div class="font-bold">{{ currentColorSpaceInfo.created }}</div>
+                <div class="font-normal">{{ currentColorSpaceInfo.created }}</div>
             </div>
         </section>
 
         <Separator />
 
         <section>
-            <h2 class="sticky top-0 bg-background text-2xl mb-2 font-bold">
+            <h2 class="text-2xl mb-2 font-normal">
                 Components
             </h2>
             <div class="grid grid-cols-3 gap-4 text-sm">
@@ -45,7 +45,7 @@
                         :style="{
                             color: denormalizedCurrentColor.value.toString(),
                         }"
-                        class="text-lg font-semibold"
+                        class="text-lg font-normal"
                     >
                         {{ component }}
                     </div>
@@ -61,20 +61,20 @@
         <Separator />
 
         <section>
-            <h2 class="sticky top-0 bg-background text-2xl mb-2 font-bold">
+            <h2 class="text-2xl mb-2 font-normal">
                 Key Properties
             </h2>
             <div class="grid grid-cols-2 gap-2 text-sm">
                 <div class="italic">Perceptual Uniformity:</div>
-                <div class="font-bold">
+                <div class="font-normal">
                     {{ currentColorSpaceInfo.perceptualUniformity }}
                 </div>
                 <div class="italic">Hue Linearity:</div>
-                <div class="font-bold">
+                <div class="font-normal">
                     {{ currentColorSpaceInfo.hueLinearity }}
                 </div>
                 <div class="italic">Lightness Separation:</div>
-                <div class="font-bold">
+                <div class="font-normal">
                     {{ currentColorSpaceInfo.lightnessSeparation }}
                 </div>
             </div>
@@ -83,7 +83,7 @@
         <Separator />
 
         <section class="space-y-4">
-            <h2 class="sticky top-0 bg-background text-2xl font-bold">
+            <h2 class="text-2xl font-normal">
                 Conversion Graph
             </h2>
             <div class="flex flex-wrap gap-4">
@@ -130,17 +130,17 @@
         <Separator />
 
         <section>
-            <h2 class="sticky top-0 bg-background text-2xl mb-2 font-bold">Usage</h2>
+            <h2 class="text-2xl mb-2 font-normal">Usage</h2>
             <div class="space-y-2 text-sm">
                 <div>
                     <span class="italic">Common Applications: </span>
-                    <span class="font-bold">{{
+                    <span class="font-normal">{{
                         currentColorSpaceInfo.applications.join(", ")
                     }}</span>
                 </div>
                 <div>
                     <span class="italic">Industries: </span>
-                    <span class="font-bold">{{
+                    <span class="font-normal">{{
                         (currentColorSpaceInfo.industries as any).join(", ")
                     }}</span>
                 </div>
@@ -168,7 +168,7 @@ import {
 import { ArrowRight } from "lucide-vue-next";
 import { Alert, AlertTitle, AlertDescription } from "@components/ui/alert";
 import type { ColorModel } from ".";
-import { colorSpaceInfo } from ".";
+import { colorSpaceInfo, resolveColorSpace } from ".";
 import { normalizeColorUnit } from "@src/units/color/normalize";
 
 const model = defineModel<ColorModel>({ required: true });
@@ -190,7 +190,7 @@ const currentColorSpaceInfo = computed(
 );
 
 const formattedRange = computed(() =>
-    getFormattedColorSpaceRange(model.value.selectedColorSpace),
+    getFormattedColorSpaceRange(resolveColorSpace(model.value.selectedColorSpace)),
 );
 
 const hoveredPath = ref<string[]>([]);

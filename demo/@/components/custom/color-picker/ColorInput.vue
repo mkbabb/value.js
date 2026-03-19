@@ -2,7 +2,7 @@
     <div class="grid grid-cols-1 gap-y-2 p-0 m-0 relative">
         <HoverCard
             :close-delay="0"
-            :open-delay="700"
+            :open-delay="300"
             class="pointer-events-auto w-full"
         >
             <HoverCardTrigger class="w-full block">
@@ -12,7 +12,7 @@
                         contenteditable
                         role="textbox"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
-                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-sm px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
+                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-2xl px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
                         :class="{
                             'pr-9': true,
                             'color-input-error': parseError && !proposeMode,
@@ -193,7 +193,7 @@ const onSubmitColor = () => {
 };
 
 const copyAndSetInputColor = () => {
-    const color = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
+    const color = formattedCurrentColor.value;
     updateModel({ inputColor: color });
     copyToClipboard(color);
 };

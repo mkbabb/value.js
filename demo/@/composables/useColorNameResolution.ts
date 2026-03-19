@@ -6,6 +6,8 @@ import type { ColorSpace } from "@src/units/color/constants";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 import { useCustomColorNames } from "@composables/useCustomColorNames";
 import type { ColorModel } from "@components/custom/color-picker";
+import type { DisplayColorSpace } from "@components/custom/color-picker";
+import { colorToHexString } from "@components/custom/color-picker";
 import { NORMALIZED_COLOR_NAMES } from "./useColorModel";
 
 const DIGITS = 2;
@@ -16,6 +18,7 @@ export function useColorNameResolution(deps: {
     currentColorSpace: ComputedRef<ColorSpace>;
 }) {
     const { model, denormalizedCurrentColor } = deps;
+    const selectedDisplaySpace = computed<DisplayColorSpace>(() => model.value.selectedColorSpace);
     const { findCustomName, getMetadata } = useCustomColorNames();
 
     // --- XYZ consolidation ---
@@ -43,6 +46,11 @@ export function useColorNameResolution(deps: {
             // Check custom (approved) color names
             const customName = findCustomName(colorString);
             if (customName) return customName;
+        }
+
+        // Hex display format
+        if (selectedDisplaySpace.value === "hex") {
+            return colorToHexString(model.value.color);
         }
 
         return denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
