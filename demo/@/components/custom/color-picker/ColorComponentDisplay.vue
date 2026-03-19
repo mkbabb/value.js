@@ -1,6 +1,6 @@
 <template>
     <CardTitle
-        class="flex h-fit text-5xl w-full m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap font-normal"
+        class="flex h-fit text-4xl w-full m-0 p-0 focus-visible:outline-none gap-x-2 flex-wrap font-normal"
     >
         <template
             v-for="([component, value], ix) in colorComponents"

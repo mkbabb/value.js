@@ -12,7 +12,7 @@
     >
         <SelectTrigger
             :style="{ color: cssColor }"
-            class="w-fit h-fit italic text-3xl p-0 m-0 border-none rounded-none self-end bg-transparent shadow-none ring-0 ring-offset-0 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 select-none"
+            class="w-fit h-fit italic text-2xl p-0 m-0 border-none rounded-none self-end bg-transparent shadow-none ring-0 ring-offset-0 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 select-none"
         >
             <SelectValue class="w-full" />
         </SelectTrigger>
