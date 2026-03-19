@@ -11,7 +11,7 @@
                         @update:select-ref="(el: any) => { selectedColorSpaceRef = el; }"
                     />
 
-                    <HeroBlob ref="heroBlobRef" @click="colorInputRef?.copyAndSetInputColor()" />
+                    <HeroBlob ref="heroBlobRef" @click="onHeroBlobClick()" />
                 </div>
 
                 <ColorComponentDisplay
@@ -22,8 +22,8 @@
                 />
             </CardHeader>
 
-            <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pb-4 min-w-0 lg:flex-1 lg:min-h-0">
-                <div class="flex flex-col items-center gap-4 lg:flex-1 lg:min-h-0">
+            <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pb-6 min-w-0 lg:flex-1 lg:min-h-0">
+                <div class="flex flex-col items-center gap-4 lg:gap-2 lg:flex-1 lg:min-h-0">
                     <div class="w-full lg:flex-1 lg:min-h-0 lg:overflow-visible">
                         <SpectrumCanvas />
                     </div>
@@ -33,75 +33,6 @@
                 </div>
             </CardContent>
         </Card>
-
-        <Teleport to="body">
-            <div class="fixed bottom-[var(--dock-pos)] left-1/2 -translate-x-1/2 z-[var(--z-dock)] pointer-events-none">
-                <div class="pointer-events-auto">
-                    <GlassDock :collapse-delay="2000" :fit-content="true">
-                        <div class="flex items-center gap-2">
-                            <div class="grid relative items-center flex-1 min-w-[18rem] sm:min-w-[22rem]">
-                                <ActionToolbar
-                                    ref="actionToolbarRef"
-                                    :inert="showInput || undefined"
-                                    :class="[
-                                        '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out',
-                                        showInput ? 'opacity-0 -translate-y-1 pointer-events-none' : 'opacity-100 translate-y-0',
-                                    ]"
-                                    :css-color-opaque="cssColorOpaque"
-                                    :can-propose-name="canProposeName"
-                                    :is-editing="isEditing"
-                                    :palette-active="viewManager.currentView.value !== 'picker' || isEditing"
-                                    @reset="emit('reset')"
-                                    @copy="colorInputRef?.copyAndSetInputColor()"
-                                    @random="setCurrentColor(generateRandomColor(model.selectedColorSpace))"
-                                    @open-palette="onOpenPalette"
-                                    @open-extract="onOpenExtract"
-                                />
-                                <ColorInput
-                                    :inert="!showInput || undefined"
-                                    ref="colorInputRef"
-                                    :edit-target="editTarget"
-                                    :propose-mode="toolbarMode === 'propose'"
-                                    :class="[
-                                        '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out',
-                                        showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1 pointer-events-none',
-                                    ]"
-                                />
-                            </div>
-
-                            <div class="dock-separator"></div>
-
-                            <!-- Toggle button -->
-                            <div class="flex items-center shrink-0">
-                                <div class="shrink-0 h-5 w-5 relative cursor-pointer" @click="cycleToolbarMode">
-                                    <Transition name="toggle-icon" mode="out-in">
-                                        <component
-                                            :is="currentToggleIcon"
-                                            :key="toolbarMode"
-                                            class="toggle-btn h-5 w-5 stroke-foreground hover:scale-125 transition-[transform] cursor-pointer absolute inset-0"
-                                            :style="{ '--toggle-hover-color': cssColorOpaque }"
-                                        />
-                                    </Transition>
-                                </div>
-                            </div>
-                        </div>
-
-                        <template #collapsed>
-                            <WatercolorDot
-                                :color="cssColorOpaque"
-                                tag="div"
-                                class="w-6 h-6 shrink-0"
-                                seed="bottom-dock"
-                            />
-                            <component
-                                :is="currentToggleIcon"
-                                class="h-4 w-4 stroke-foreground/60"
-                            />
-                        </template>
-                    </GlassDock>
-                </div>
-            </div>
-        </Teleport>
 
         <EditDrawer
             :edit-target="editTarget"
@@ -131,22 +62,19 @@ import { useColorModel } from "@composables/useColorModel";
 import type { ColorModel, EditTarget } from ".";
 import { toCSSColorString, resolveColorSpace } from ".";
 import { COLOR_MODEL_KEY } from "./keys";
+import type { ActionBarContext } from "./keys";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
 
 import { usePointerDebug } from "@composables/usePointerDebug";
 import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
 
-import { EllipsisVertical, Type, Tag } from "lucide-vue-next";
+import { copyToClipboard } from "@composables/useClipboard";
 import HeroBlob from "./HeroBlob.vue";
 import SpectrumCanvas from "./SpectrumCanvas.vue";
 import ComponentSliders from "./ComponentSliders.vue";
-import ColorInput from "./ColorInput.vue";
-import ActionToolbar from "./ActionToolbar.vue";
 import EditDrawer from "./EditDrawer.vue";
-import GlassDock from "./GlassDock.vue";
 import PointerDebugOverlay from "./PointerDebugOverlay.vue";
-import { WatercolorDot } from "@components/custom/watercolor-dot";
 
 const model = defineModel<ColorModel>({ required: true });
 const emit = defineEmits<{
@@ -185,33 +113,13 @@ const {
     onPaletteApply,
 } = colorModel;
 
-// --- Sub-component refs ---
+// --- HeroBlob click: copy color to clipboard ---
 
-const colorInputRef = ref<InstanceType<typeof ColorInput> | null>(null);
-const actionToolbarRef = ref<InstanceType<typeof ActionToolbar> | null>(null);
-const toolbarMode = ref<"actions" | "input" | "propose">("actions");
-const showInput = computed(() => toolbarMode.value !== "actions");
-
-function cycleToolbarMode() {
-    if (toolbarMode.value === "actions") {
-        toolbarMode.value = "input";
-    } else if (toolbarMode.value === "input") {
-        if (canProposeName.value) {
-            toolbarMode.value = "propose";
-        } else {
-            toolbarMode.value = "actions";
-        }
-    } else {
-        toolbarMode.value = "actions";
-    }
+function onHeroBlobClick() {
+    const color = formattedCurrentColor.value;
+    updateModel({ inputColor: color });
+    copyToClipboard(color);
 }
-
-const currentToggleIcon = computed(() => {
-    if (toolbarMode.value === "actions") return Type;
-    if (toolbarMode.value === "input") return canProposeName.value ? Tag : EllipsisVertical;
-    return EllipsisVertical;
-});
-
 
 // --- Component display input handler (general: parses text per component) ---
 
@@ -254,7 +162,7 @@ const handleKeydown = (e: KeyboardEvent) => {
             cancelEdit();
             return;
         }
-        if (e.key === "Enter" && !colorInputRef.value?.inputIsFocused) {
+        if (e.key === "Enter") {
             e.preventDefault();
             commitEdit();
             return;
@@ -265,24 +173,7 @@ const handleKeydown = (e: KeyboardEvent) => {
         e.preventDefault();
         selectedColorSpaceOpen.value = !selectedColorSpaceOpen.value;
     }
-
-    if (keys.cmd?.value && keys.i?.value) {
-        e.preventDefault();
-        colorInputRef.value?.focus();
-    }
 };
-
-// --- View switching (replaces palette dialog open/close) ---
-
-function onOpenPalette() {
-    actionToolbarRef.value?.clearHover();
-    viewManager.switchView("palettes");
-}
-
-function onOpenExtract() {
-    actionToolbarRef.value?.clearHover();
-    viewManager.switchView("extract");
-}
 
 // --- Edit mode state machine ---
 
@@ -324,6 +215,22 @@ function cancelEdit() {
     preEditModel.value = null;
 }
 
+// --- Action bar context for TopDock (exposed, not provided — TopDock is a sibling) ---
+
+const paletteActive = computed(() => viewManager.currentView.value !== "picker" || isEditing.value);
+
+const actionBarContext: ActionBarContext = {
+    cssColorOpaque,
+    formattedCurrentColor,
+    isEditing,
+    canProposeName,
+    paletteActive,
+    colorModel,
+    reset: () => emit("reset"),
+    copy: () => { updateModel({ inputColor: formattedCurrentColor.value }); copyToClipboard(formattedCurrentColor.value); },
+    random: () => setCurrentColor(generateRandomColor(model.value.selectedColorSpace)),
+};
+
 const isTransitioning = ref(false);
 defineExpose({
     isEditing,
@@ -336,6 +243,7 @@ defineExpose({
     parseAndNormalizeColor,
     setCurrentColor,
     onStartEdit,
+    actionBarContext,
 });
 
 // --- Model watchers ---
@@ -374,23 +282,4 @@ onUnmounted(() => {
 
 <style scoped>
 @reference "../../../styles/style.css";
-
-.toggle-btn:hover {
-    stroke: var(--toggle-hover-color);
-}
-
-/* Toggle icon transition */
-.toggle-icon-enter-active,
-.toggle-icon-leave-active {
-    transition: opacity 0.12s ease, transform 0.12s ease;
-}
-.toggle-icon-enter-from {
-    opacity: 0;
-    transform: scale(0.7);
-}
-.toggle-icon-leave-to {
-    opacity: 0;
-    transform: scale(0.7);
-}
-
 </style>
