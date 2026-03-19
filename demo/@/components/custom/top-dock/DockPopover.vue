@@ -150,9 +150,9 @@ defineExpose({ expanded, expand: onEnter, collapse: () => { expanded.value = fal
     z-index: var(--z-modal);
     pointer-events: auto;
 
-    background: var(--glass-bg-heavy);
-    backdrop-filter: var(--glass-blur-heavy);
-    -webkit-backdrop-filter: var(--glass-blur-heavy);
+    background: hsl(var(--card) / 0.75);
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
     border: 1px solid hsl(var(--border) / 0.6);
     border-radius: var(--radius-lg, 1rem);
     box-shadow: var(--glass-shadow-elevated);
