@@ -16,7 +16,6 @@ import {
     Undo2,
     UserCircle,
     Paintbrush,
-    Home,
     ArrowLeft,
 } from "lucide-vue-next";
 import GlassDock from "@components/custom/color-picker/GlassDock.vue";
@@ -343,7 +342,8 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                                 class="dock-select-trigger border-none h-auto bg-transparent fraunces text-sm gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 !rounded-full focus:!ring-0 focus:!ring-offset-0 focus:!outline-none"
                                 :style="{ '--dock-ring': cssColorOpaque }"
                             >
-                                <Home
+                                <component
+                                    :is="viewManager.currentConfig.value.icon"
                                     class="w-5 h-5 shrink-0"
                                     :style="{ color: cssColorOpaque }"
                                 />

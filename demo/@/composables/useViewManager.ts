@@ -49,7 +49,7 @@ const VIEW_MAP: Record<ViewId, PaneConfig> = {
     palettes: {
         left: "color-picker",
         right: "palettes",
-        label: "My Palettes",
+        label: "Palettes",
         leftLabel: "Picker",
         rightLabel: "Palettes",
         icon: Palette,
