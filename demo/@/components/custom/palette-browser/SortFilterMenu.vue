@@ -6,7 +6,6 @@
             </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" class="w-48 fraunces">
-            <DropdownMenuLabel class="text-xs">Sort</DropdownMenuLabel>
             <DropdownMenuRadioGroup
                 :model-value="sort"
                 @update:model-value="(v: any) => $emit('update:sort', v as string)"
@@ -28,7 +27,6 @@
 import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuLabel,
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
     DropdownMenuTrigger,

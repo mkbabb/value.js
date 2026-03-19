@@ -9,7 +9,7 @@
             @click.stop
         >
             <!-- Full palette name as header -->
-            <div class="px-3 py-1.5 fraunces text-sm font-bold text-foreground border-b border-border truncate max-w-[200px]">
+            <div class="px-3 py-1.5 fraunces text-sm font-bold text-foreground border-b border-border/50 truncate max-w-[200px]">
                 {{ palette.name }}
             </div>
 
