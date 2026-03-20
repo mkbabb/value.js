@@ -196,7 +196,7 @@ const { layerProps, onTransitionEnd: onLayerTransitionEnd } = useLayerTransition
 </script>
 
 <template>
-    <div class="fixed top-[var(--dock-pos)] inset-x-0 z-40 flex items-center justify-center pointer-events-none">
+    <div class="fixed top-[var(--dock-pos)] inset-x-0 z-40 flex items-center justify-center pointer-events-none overflow-x-hidden">
         <div class="pointer-events-auto">
             <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="isDesktop" :fit-content="true" :always-expanded="!isDesktop">
                 <div ref="layerGridEl" class="dock-layer-grid" @transitionend="onLayerTransitionEnd">

@@ -123,10 +123,16 @@
         align-items: center;
         gap: 0.375rem;
         min-width: 0;
+        transition: opacity var(--duration-normal) var(--ease-standard);
+    }
+
+    /* Inactive layers: out of flow so only the active layer drives grid width.
+       Uses !important to prevent Tailwind utilities (e.g. `relative`) on child
+       component roots from overriding the position and breaking sizing. */
+    .dock-layer-item:not(.dock-layer-active) {
+        position: absolute !important;
         opacity: 0;
         pointer-events: none;
-        position: absolute;
-        transition: opacity var(--duration-normal) var(--ease-standard);
     }
 
     .dock-layer-item.dock-layer-active {

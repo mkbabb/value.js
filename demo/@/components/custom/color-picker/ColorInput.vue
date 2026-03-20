@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-1 gap-y-2 p-0 m-0 relative">
+    <div class="grid grid-cols-1 gap-y-2 p-0 m-0">
         <HoverCard
             :close-delay="0"
             :open-delay="300"
