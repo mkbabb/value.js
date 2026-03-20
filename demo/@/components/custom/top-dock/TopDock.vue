@@ -1,51 +1,21 @@
 <script setup lang="ts">
-import { computed, inject, ref, nextTick, watch, useTemplateRef } from "vue";
-import {
-    ChevronDown,
-    Share2,
-    Check,
-    Github,
-    LogIn,
-    LogOut,
-    Copy,
-    RefreshCw,
-    ArrowRight,
-    X as XIcon,
-    Loader2,
-    MoreVertical,
-    Undo2,
-    UserCircle,
-    Paintbrush,
-    ArrowLeft,
-} from "lucide-vue-next";
+import { computed, inject, ref, watch, useTemplateRef } from "vue";
+import { ChevronDown, Check, Undo2, Paintbrush, ArrowLeft } from "lucide-vue-next";
 import GlassDock from "@components/custom/color-picker/GlassDock.vue";
-import { DarkModeToggle, useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 import ActionBarLayer from "./ActionBarLayer.vue";
+import SlugEditLayer from "./SlugEditLayer.vue";
+import MobileMenuDropdown from "./MobileMenuDropdown.vue";
+import ProfileSection from "./ProfileSection.vue";
 import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
+    Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue,
 } from "@components/ui/select";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-    DropdownMenuLabel,
-} from "@components/ui/dropdown-menu";
-import { Avatar, AvatarImage } from "@components/ui/avatar";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import type { ViewId } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
-import { copyToClipboard } from "@composables/useClipboard";
+import { useLayerTransition } from "@composables/useLayerTransition";
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
-
 import type { EditTarget } from "@components/custom/color-picker";
 
 const props = defineProps<{
@@ -63,7 +33,6 @@ const emit = defineEmits<{
 
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
-const { toggleDark } = useGlobalDark();
 const actionBar = computed(() => props.actionBar ?? null);
 
 const viewEntries = computed(() => {
@@ -96,105 +65,43 @@ function toggleActionBar() {
     actionBarLayerActive.value = !actionBarLayerActive.value;
 }
 
-// Auto-close action bar when actionBar becomes null (KeepAlive deactivation)
 watch(actionBar, (ctx) => {
     if (!ctx && actionBarLayerActive.value) {
         actionBarLayerActive.value = false;
     }
 });
 
-// Keep dock open while action bar is active
 watch(actionBarLayerActive, (active) => {
     if (active) dockRef.value?.keepOpen();
     else dockRef.value?.release();
 });
 
 function onActionBarOpenPalette() {
-    if (viewManager.currentView.value === "palettes") {
-        viewManager.switchView("picker");
-    } else {
-        viewManager.switchView("palettes");
-    }
+    viewManager.switchView(viewManager.currentView.value === "palettes" ? "picker" : "palettes");
 }
 
 function onActionBarOpenExtract() {
-    if (viewManager.currentView.value === "extract") {
-        viewManager.switchView("picker");
-    } else {
-        viewManager.switchView("extract");
-    }
+    viewManager.switchView(viewManager.currentView.value === "extract" ? "picker" : "extract");
 }
 
-// ── Inline slug / login logic ──
+// ── Slug edit ──
 const slugEditMode = ref(false);
-const slugInput = ref("");
-const slugSwitching = ref(false);
-const slugError = ref("");
-const slugInputRef = ref<HTMLInputElement | null>(null);
+const slugEditRef = ref<InstanceType<typeof SlugEditLayer> | null>(null);
 
 function onStartSlugEdit() {
-    slugInput.value = "";
-    slugError.value = "";
-    slugEditMode.value = true;
-    nextTick(() => {
-        slugInputRef.value?.focus();
-    });
-}
-
-function looksLikeSlug(value: string): boolean {
-    return /^[a-z]+-[a-z]+-[a-z]+-[a-z]+$/.test(value);
-}
-
-function normalizeTokenInput(raw: string): string {
-    let token = raw.trim();
-    const assignmentMatch = token.match(/^ADMIN_TOKEN\s*=\s*(.+)$/i);
-    if (assignmentMatch) token = assignmentMatch[1]!.trim();
-    if ((token.startsWith('"') && token.endsWith('"')) || (token.startsWith("'") && token.endsWith("'"))) {
-        token = token.slice(1, -1).trim();
-    }
-    return token;
-}
-
-async function onSlugSubmit() {
-    const raw = slugInput.value.trim();
-    if (!raw) return;
-    slugSwitching.value = true;
-    slugError.value = "";
-    try {
-        const normalized = normalizeTokenInput(raw).toLowerCase();
-        const isAdmin = !looksLikeSlug(normalized);
-
-        if (looksLikeSlug(normalized) && normalized === pm.userSlug.value) {
-            slugError.value = "Already signed in.";
-            slugSwitching.value = false;
-            return;
-        }
-
-        pm.onSlugSwitch(isAdmin ? normalizeTokenInput(raw) : normalized, isAdmin);
-        slugInput.value = "";
-        slugEditMode.value = false;
-    } catch (e: any) {
-        const msg = e?.message ?? "";
-        if (msg.includes("409")) slugError.value = "Already signed in.";
-        else if (msg.includes("404")) slugError.value = "Slug not found.";
-        else if (msg.includes("429")) slugError.value = "Too many attempts.";
-        else slugError.value = msg || "Login failed";
-    } finally {
-        slugSwitching.value = false;
-    }
+    slugEditRef.value?.onStartSlugEdit();
 }
 
 function onCopySlug() {
-    if (pm.userSlug.value) copyToClipboard(pm.userSlug.value);
+    slugEditRef.value?.onCopySlug();
 }
 
-// Dropdown open states — keep dock open while any dropdown is visible
+// ── Dock popup mutex ──
 type DockPopupKey = "view-select" | "mobile-menu" | "profile-menu" | "mbabb-menu";
 const dockPopup = ref<DockPopupKey | null>(null);
 const pendingDockPopup = ref<DockPopupKey | null>(null);
 let popupSwapTimer: ReturnType<typeof setTimeout> | null = null;
 
-// Mobile edit mode — show edit controls in dock instead of EditDrawer
 const isDesktop = useMediaQuery("(min-width: 1024px)");
 const mobileEditActive = computed(() => !isDesktop.value && !!props.editTarget);
 const anyEditActive = computed(() => !!props.editTarget);
@@ -250,40 +157,51 @@ function updateDockPopup(key: DockPopupKey, open: boolean) {
     }
 }
 
-// Reset login mode when dock collapses (but preserve action bar state)
+// ── Dock state management ──
 const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>('dockRef');
+
 watch(() => dockRef.value?.expanded, (expanded) => {
     if (!expanded && slugEditMode.value) {
         slugEditMode.value = false;
     }
 });
 
-// Keep dock open while editing on mobile
 watch(anyEditActive, (active) => {
     if (active) { dockRef.value?.keepOpen(); dockRef.value?.expand?.(); }
     else dockRef.value?.release();
 });
 
-// Keep dock open when any dropdown is visible
 const anyDropdownOpen = computed(() => dockPopup.value !== null || pendingDockPopup.value !== null);
 watch(anyDropdownOpen, (open) => {
     if (open) dockRef.value?.keepOpen();
     else dockRef.value?.release();
 });
 
-// Determine which main layer is active
 const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.value && !actionBarLayerActive.value);
+
+// ── Layer transition ──
+const layerGridEl = useTemplateRef<HTMLElement>("layerGridEl");
+
+const activeLayer = computed<string>(() => {
+    if (mobileEditActive.value) return "mobile-edit";
+    if (slugEditMode.value) return "slug-edit";
+    if (actionBarLayerActive.value) return "action-bar";
+    return "main";
+});
+
+const { layerProps, onTransitionEnd: onLayerTransitionEnd } = useLayerTransition({
+    containerEl: layerGridEl,
+    activeLayer,
+});
 </script>
 
 <template>
     <div class="fixed top-[var(--dock-pos)] left-1/2 -translate-x-1/2 z-40 flex items-center justify-center pointer-events-none">
         <div class="pointer-events-auto">
             <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="isDesktop" :fit-content="true" :always-expanded="!isDesktop">
-                <!-- Expanded state: login mode transforms entire dock -->
-                <div class="dock-content-layers">
+                <div ref="layerGridEl" class="dock-layer-grid" @transitionend="onLayerTransitionEnd">
                     <!-- Mobile edit layer -->
-                    <div :class="['dock-content-layer justify-center', { 'layer-active': mobileEditActive }]"
-                         :inert="!mobileEditActive || undefined">
+                    <div v-bind="layerProps('mobile-edit')" class="justify-center">
                         <WatercolorDot
                             v-if="editTarget"
                             :color="editTarget.originalCss"
@@ -299,76 +217,23 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                             seed="edit-new"
                         />
                         <div class="dock-separator"></div>
-                        <button
-                            class="dock-icon-btn"
-                            title="Save edit"
-                            @click="emit('commitEdit')"
-                        >
-                            <Check class="w-4 h-4" :style="{ color: cssColorOpaque }" />
+                        <button class="dock-icon-btn" title="Save edit" @click="emit('commitEdit')">
+                            <Check class="w-5 h-5" :style="{ color: cssColorOpaque }" />
                         </button>
-                        <button
-                            class="dock-icon-btn"
-                            title="Cancel edit"
-                            @click="emit('cancelEdit')"
-                        >
-                            <Undo2 class="w-4 h-4" />
+                        <button class="dock-icon-btn" title="Cancel edit" @click="emit('cancelEdit')">
+                            <Undo2 class="w-5 h-5" />
                         </button>
                     </div>
 
                     <!-- Slug edit layer -->
-                    <div :class="['dock-content-layer justify-center', { 'layer-active': slugEditMode && !mobileEditActive }]"
-                         :inert="!(slugEditMode && !mobileEditActive) || undefined">
-                        <form
-                            class="flex items-center gap-1.5"
-                            @submit.prevent="onSlugSubmit"
-                        >
-                            <LogIn class="w-4 h-4 text-muted-foreground shrink-0" />
-                            <input
-                                ref="slugInputRef"
-                                v-model="slugInput"
-                                placeholder="enter slug or token..."
-                                class="fira-code text-sm bg-transparent border-none outline-none w-40 min-w-0 placeholder:text-muted-foreground/50"
-                                @keydown.escape.stop="slugEditMode = false"
-                            />
-                            <button
-                                type="submit"
-                                :disabled="!slugInput.trim() || slugSwitching"
-                                class="dock-icon-btn !min-w-0 !w-auto !h-auto !p-1"
-                            >
-                                <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin" />
-                                <ArrowRight v-else class="w-3.5 h-3.5" />
-                            </button>
-                        </form>
-
-                        <div class="dock-separator"></div>
-
-                        <button
-                            class="dock-icon-btn !min-w-0 !w-auto !h-auto !p-1"
-                            title="Generate new slug"
-                            @click="slugEditMode = false; pm.onRegenerateSlug()"
-                        >
-                            <RefreshCw class="w-3.5 h-3.5" />
-                        </button>
-
-                        <button
-                            class="dock-icon-btn !min-w-0 !w-auto !h-auto !p-1"
-                            title="Cancel"
-                            @click="slugEditMode = false"
-                        >
-                            <XIcon class="w-3.5 h-3.5" />
-                        </button>
+                    <div v-bind="layerProps('slug-edit')" class="justify-center">
+                        <SlugEditLayer ref="slugEditRef" v-model:active="slugEditMode" />
                     </div>
 
                     <!-- Action bar layer -->
-                    <div v-if="actionBar"
-                         :class="['dock-content-layer dock-content-layer--action-bar', { 'layer-active': actionBarLayerActive && !mobileEditActive && !slugEditMode }]"
-                         :inert="!(actionBarLayerActive && !mobileEditActive && !slugEditMode) || undefined">
-                        <button
-                            class="dock-icon-btn shrink-0"
-                            title="Back"
-                            @click="actionBarLayerActive = false"
-                        >
-                            <ArrowLeft class="w-5 h-5" />
+                    <div v-if="actionBar" v-bind="layerProps('action-bar')">
+                        <button class="dock-icon-btn shrink-0" title="Back" @click="actionBarLayerActive = false">
+                            <ArrowLeft class="w-6 h-6" />
                         </button>
                         <div class="dock-separator"></div>
                         <ActionBarLayer
@@ -381,8 +246,7 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                     </div>
 
                     <!-- Main navigation layer -->
-                    <div :class="['dock-content-layer', { 'layer-active': mainLayerActive }]"
-                         :inert="!mainLayerActive || undefined">
+                    <div v-bind="layerProps('main')">
                         <!-- View selector -->
                         <Select
                             :model-value="viewManager.currentView.value"
@@ -391,15 +255,15 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                             @update:model-value="onViewChange"
                         >
                             <SelectTrigger
-                                class="dock-select-trigger border-none h-auto bg-transparent fraunces text-sm gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 !rounded-full focus:!ring-0 focus:!ring-offset-0 focus:!outline-none"
+                                class="dock-select-trigger border-none h-auto bg-transparent fraunces text-sm gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 focus-ring"
                                 :style="{ '--dock-ring': cssColorOpaque }"
                             >
                                 <component
                                     :is="viewManager.currentConfig.value.icon"
-                                    class="w-5 h-5 shrink-0"
+                                    class="w-6 h-6 shrink-0"
                                     :style="{ color: cssColorOpaque }"
                                 />
-                                <SelectValue class="hidden sm:inline" />
+                                <SelectValue v-if="isDesktop" />
                             </SelectTrigger>
                             <SelectContent class="min-w-[12rem]">
                                 <SelectGroup class="fraunces text-sm">
@@ -407,7 +271,7 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                                         v-for="entry in viewEntries"
                                         :key="entry.id"
                                         :value="entry.id"
-                                        class="!pl-2.5 py-1.5 px-2.5 !rounded-lg"
+                                        class="py-1.5 px-2.5"
                                         hide-indicator
                                     >
                                         <span class="flex items-center gap-2">
@@ -426,29 +290,31 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                             </SelectContent>
                         </Select>
 
-                        <!-- Action bar toggle button -->
+                        <!-- Action bar toggle -->
                         <div
-                            class="flex items-center gap-[0.25rem] overflow-hidden transition-all duration-300 ease-[var(--ease-standard)]"
-                            :style="{ maxWidth: actionBar ? '3rem' : '0px', opacity: actionBar ? 1 : 0 }"
+                            class="flex items-center gap-1 overflow-hidden transition-all duration-300 ease-[var(--ease-standard)]"
+                            :style="{ maxWidth: actionBar ? '8rem' : '0px', opacity: actionBar ? 1 : 0 }"
                         >
                             <div class="dock-separator"></div>
                             <button
-                                class="dock-icon-btn shrink-0"
+                                class="shrink-0 flex items-center gap-1 px-1.5 py-1 bg-transparent border-none cursor-pointer focus-ring"
                                 title="Action bar"
                                 :tabindex="actionBar ? 0 : -1"
                                 @click="toggleActionBar"
                             >
-                                <Paintbrush class="w-5 h-5" :style="{ color: cssColorOpaque }" />
+                                <Paintbrush class="w-6 h-6" :style="{ color: cssColorOpaque }" />
+                                <span v-if="isDesktop" class="fraunces text-sm" :style="{ color: cssColorOpaque }">Tools</span>
+                                <ChevronDown class="w-3 h-3 text-muted-foreground" />
                             </button>
                         </div>
 
-                        <!-- Mobile pane toggle (only when two panes exist) -->
+                        <!-- Mobile pane toggle -->
                         <template v-if="viewManager.currentConfig.value.right !== null">
                             <div class="dock-separator lg:hidden"></div>
                             <div class="lg:hidden flex items-center gap-0.5 rounded-full bg-foreground/5 p-0.5">
                                 <button
                                     :class="[
-                                        'px-2.5 py-0.5 text-xs fraunces rounded-full transition-all cursor-pointer',
+                                        'px-2.5 py-0.5 text-xs fraunces rounded-full transition-all cursor-pointer focus-ring',
                                         viewManager.mobilePaneIndex.value === 0
                                             ? 'bg-foreground text-background'
                                             : 'text-muted-foreground hover:text-foreground',
@@ -459,7 +325,7 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                                 </button>
                                 <button
                                     :class="[
-                                        'px-2.5 py-0.5 text-xs fraunces rounded-full transition-all cursor-pointer',
+                                        'px-2.5 py-0.5 text-xs fraunces rounded-full transition-all cursor-pointer focus-ring',
                                         viewManager.mobilePaneIndex.value === 1
                                             ? 'bg-foreground text-background'
                                             : 'text-muted-foreground hover:text-foreground',
@@ -471,175 +337,29 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
                             </div>
                         </template>
 
-                        <!-- Mobile overflow menu (⋮) -->
+                        <!-- Mobile overflow menu -->
                         <div class="dock-separator lg:hidden"></div>
-                        <div class="lg:hidden flex items-center">
-                            <DropdownMenu v-model:open="mobileMenuOpen">
-                                <DropdownMenuTrigger class="dock-icon-btn">
-                                    <MoreVertical class="w-5 h-5" />
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end" class="min-w-[11rem] fraunces">
-                                    <!-- Login / slug section -->
-                                    <template v-if="pm.userSlug.value">
-                                        <DropdownMenuLabel class="px-2 py-1.5">
-                                            <span
-                                                class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
-                                                :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
-                                            >{{ pm.userSlug.value }}</span>
-                                        </DropdownMenuLabel>
-                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="onCopySlug()">
-                                            <Copy class="w-3.5 h-3.5" /> Copy slug
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="onStartSlugEdit()">
-                                            <LogIn class="w-3.5 h-3.5" /> Switch account
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="pm.userLogout()">
-                                            <LogOut class="w-3.5 h-3.5" /> Logout
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer text-muted-foreground" @click="pm.onRegenerateSlug()">
-                                            <RefreshCw class="w-3.5 h-3.5" /> Regenerate slug
-                                        </DropdownMenuItem>
-                                    </template>
-                                    <template v-else-if="pm.isAdminAuthenticated.value">
-                                        <DropdownMenuLabel class="px-2 py-1.5">
-                                            <span class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground whitespace-nowrap">admin</span>
-                                        </DropdownMenuLabel>
-                                    </template>
-                                    <template v-else>
-                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="onStartSlugEdit()">
-                                            <LogIn class="w-3.5 h-3.5" /> Login
-                                        </DropdownMenuItem>
-                                    </template>
+                        <MobileMenuDropdown
+                            v-model:open="mobileMenuOpen"
+                            :css-color-opaque="cssColorOpaque"
+                            :link-copied="linkCopied"
+                            @share-link="emit('shareLink')"
+                            @start-slug-edit="onStartSlugEdit()"
+                            @copy-slug="onCopySlug()"
+                        />
 
-                                    <DropdownMenuSeparator class="!bg-border/70 !h-[2px]" />
-
-                                    <!-- @mbabb section -->
-                                    <div class="flex items-center gap-2 px-2 py-1.5">
-                                        <Avatar class="w-7 h-7">
-                                            <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
-                                        </Avatar>
-                                        <div>
-                                            <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
-                                            <p class="text-[10px] italic text-muted-foreground leading-tight fraunces">Color space picker &amp; converter</p>
-                                        </div>
-                                    </div>
-                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">
-                                        <component :is="linkCopied ? Check : Share2" class="w-3.5 h-3.5" />
-                                        {{ linkCopied ? 'Copied!' : 'Share color' }}
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" as-child>
-                                        <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="no-underline text-foreground">
-                                            <Github class="w-3.5 h-3.5" /> GitHub
-                                        </a>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
-                                        <DarkModeToggle passive title="Toggle dark mode" class="aspect-square w-4" />
-                                        Dark mode
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        </div>
-
-                        <!-- Desktop-only: user/login section -->
-                        <div class="hidden lg:flex items-center gap-[0.25rem]">
-                            <div class="dock-separator"></div>
-
-                            <!-- Logged in: "Account" button with dropdown -->
-                            <template v-if="pm.userSlug.value">
-                                <DropdownMenu v-model:open="profileMenuOpen">
-                                    <DropdownMenuTrigger as-child>
-                                        <button
-                                            class="flex items-center gap-1.5 fira-code text-sm font-bold px-3 py-0.5 rounded-full border whitespace-nowrap transition-colors cursor-pointer"
-                                            :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
-                                        >
-                                            <UserCircle class="w-3.5 h-3.5" />
-                                            Profile
-                                        </button>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent align="end" class="min-w-[10rem] fraunces">
-                                        <DropdownMenuLabel class="px-2 py-1.5">
-                                            <span
-                                                class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
-                                                :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
-                                            >{{ pm.userSlug.value }}</span>
-                                        </DropdownMenuLabel>
-                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="onCopySlug()">
-                                            <Copy class="w-3.5 h-3.5" /> Copy slug
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="onStartSlugEdit()">
-                                            <LogIn class="w-3.5 h-3.5" /> Switch account
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="pm.userLogout()">
-                                            <LogOut class="w-3.5 h-3.5" /> Logout
-                                        </DropdownMenuItem>
-                                        <DropdownMenuSeparator />
-                                        <DropdownMenuItem class="text-sm gap-2 cursor-pointer text-muted-foreground" @click="pm.onRegenerateSlug()">
-                                            <RefreshCw class="w-3.5 h-3.5" /> Regenerate slug
-                                        </DropdownMenuItem>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
-                            </template>
-
-                            <!-- Admin (no slug) -->
-                            <template v-else-if="pm.isAdminAuthenticated.value">
-                                <span class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground whitespace-nowrap">
-                                    admin
-                                </span>
-                            </template>
-
-                            <!-- Not logged in -->
-                            <template v-else>
-                                <button
-                                    class="flex items-center gap-1.5 fira-code text-sm font-bold px-3 py-0.5 rounded-full border border-primary/30 hover:bg-accent/50 transition-colors cursor-pointer whitespace-nowrap"
-                                    @click="onStartSlugEdit()"
-                                >
-                                    <LogIn class="w-3.5 h-3.5" />
-                                    Login
-                                </button>
-                            </template>
-
-                            <div class="dock-separator"></div>
-                        </div>
-
-                        <!-- @mbabb menu -->
-                        <div class="hidden lg:flex items-center">
-                            <DropdownMenu v-model:open="mbabbMenuOpen">
-                                <DropdownMenuTrigger as-child>
-                                    <button class="text-xs font-mono text-foreground/70 hover:text-foreground hover:underline underline-offset-4 transition-colors cursor-pointer whitespace-nowrap">
-                                        @mbabb
-                                    </button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end" class="min-w-[11rem] fraunces">
-                                    <div class="flex items-center gap-2 px-2 py-1.5">
-                                        <Avatar class="w-7 h-7">
-                                            <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
-                                        </Avatar>
-                                        <div>
-                                            <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
-                                            <p class="text-[10px] italic text-muted-foreground leading-tight fraunces">Color space picker &amp; converter</p>
-                                        </div>
-                                    </div>
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">
-                                        <component :is="linkCopied ? Check : Share2" class="w-3.5 h-3.5" />
-                                        {{ linkCopied ? 'Copied!' : 'Share color' }}
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" as-child>
-                                        <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="no-underline text-foreground">
-                                            <Github class="w-3.5 h-3.5" /> GitHub
-                                        </a>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
-                                        <DarkModeToggle passive title="Toggle dark mode" class="aspect-square w-4" />
-                                        Dark mode
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        </div>
+                        <!-- Desktop profile + @mbabb -->
+                        <ProfileSection
+                            v-model:profile-menu-open="profileMenuOpen"
+                            v-model:mbabb-menu-open="mbabbMenuOpen"
+                            :css-color-opaque="cssColorOpaque"
+                            :link-copied="linkCopied"
+                            @share-link="emit('shareLink')"
+                            @start-slug-edit="onStartSlugEdit()"
+                            @copy-slug="onCopySlug()"
+                        />
                     </div>
-                </div>
+                </div><!-- /dock-layer-grid -->
 
                 <!-- Collapsed state -->
                 <template #collapsed>
@@ -666,29 +386,4 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
 
 <style scoped>
 @reference "../../../styles/style.css";
-
-.dock-content-layers {
-    display: grid;
-    position: relative;
-}
-.dock-content-layer {
-    grid-area: 1 / 1;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    min-width: 0;
-    transition: opacity 0.25s var(--ease-standard),
-                transform 0.25s var(--ease-standard);
-    transform-origin: center;
-}
-.dock-content-layer:not(.layer-active) {
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.96);
-}
-
-.dock-content-layer--action-bar {
-    width: min(100%, clamp(18rem, 72vw, 42rem));
-}
-
 </style>

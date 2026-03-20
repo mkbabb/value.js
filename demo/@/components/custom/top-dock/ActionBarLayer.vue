@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, provide, ref } from "vue";
+import { computed, provide, ref, useTemplateRef } from "vue";
 import { EllipsisVertical, Type, Tag } from "lucide-vue-next";
 import { COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import ActionToolbar from "@components/custom/color-picker/ActionToolbar.vue";
 import ColorInput from "@components/custom/color-picker/ColorInput.vue";
+import { useLayerTransition } from "@composables/useLayerTransition";
 import type { EditTarget } from "@components/custom/color-picker";
 
 const props = defineProps<{
@@ -47,24 +48,21 @@ const currentToggleIcon = computed(() => {
     return EllipsisVertical;
 });
 
+// ── Sub-layer transition (actions ↔ input) ──
+const subLayerGridEl = useTemplateRef<HTMLElement>("subLayerGridEl");
+const activeSubLayer = computed(() => (showInput.value ? "input" : "actions"));
+const { layerProps: subLayerProps, onTransitionEnd: onSubLayerTransitionEnd } =
+    useLayerTransition({ containerEl: subLayerGridEl, activeLayer: activeSubLayer });
+
 defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </script>
 
 <template>
     <div class="flex items-center gap-0 min-w-0 w-full">
-        <div
-            :class="[
-                'grid relative min-w-0 items-center',
-                showInput ? 'flex-1 w-full' : 'shrink-0',
-            ]"
-        >
+        <div ref="subLayerGridEl" class="dock-layer-grid flex-1" @transitionend="onSubLayerTransitionEnd">
             <ActionToolbar
                 ref="actionToolbarRef"
-                :inert="showInput || undefined"
-                :class="[
-                    '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out',
-                    showInput ? 'opacity-0 -translate-y-1 pointer-events-none' : 'opacity-100 translate-y-0',
-                ]"
+                v-bind="subLayerProps('actions')"
                 :css-color-opaque="actionBar.cssColorOpaque.value"
                 :can-propose-name="actionBar.canProposeName.value"
                 :is-editing="actionBar.isEditing.value"
@@ -76,14 +74,11 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
                 @open-extract="emit('openExtract')"
             />
             <ColorInput
-                :inert="!showInput || undefined"
                 ref="colorInputRef"
+                v-bind="subLayerProps('input')"
                 :edit-target="editTarget"
                 :propose-mode="toolbarMode === 'propose'"
-                :class="[
-                    '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out min-w-0',
-                    showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1 pointer-events-none',
-                ]"
+                class="min-w-0"
             />
         </div>
 
@@ -95,7 +90,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
                 <component
                     :is="currentToggleIcon"
                     :key="toolbarMode"
-                    class="toggle-btn w-5 h-5 stroke-foreground"
+                    class="toggle-btn w-6 h-6 stroke-foreground"
                     :style="{ '--toggle-hover-color': actionBar.cssColorOpaque.value }"
                 />
             </Transition>
@@ -113,7 +108,8 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 /* Toggle icon transition */
 .toggle-icon-enter-active,
 .toggle-icon-leave-active {
-    transition: opacity 0.12s ease, transform 0.12s ease;
+    transition: opacity var(--duration-fast) var(--ease-standard),
+                transform var(--duration-fast) var(--ease-standard);
 }
 .toggle-icon-enter-from {
     opacity: 0;
