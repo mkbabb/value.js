@@ -362,7 +362,7 @@ onUnmounted(() => {
     > h6 {
         @apply font-bold pb-1 pt-4;
         @apply first:pt-0 scroll-m-20;
-        transition: color 0.3s ease;
+        transition: color var(--duration-slow) var(--ease-standard);
     }
 
     /* Consecutive headings — collapse the top padding of the second one */

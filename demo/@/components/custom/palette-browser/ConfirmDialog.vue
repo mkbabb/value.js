@@ -1,5 +1,5 @@
 <template>
-    <Transition name="confirm-overlay">
+    <Transition name="fade">
         <div
             v-if="open"
             class="absolute inset-0 z-50 grid place-items-center bg-black/50 rounded-2xl"
@@ -63,20 +63,15 @@ function onConfirm() {
 </script>
 
 <style scoped>
-.confirm-overlay-enter-active,
-.confirm-overlay-leave-active {
-    transition: opacity 0.2s ease;
-}
-.confirm-overlay-enter-from,
-.confirm-overlay-leave-to {
-    opacity: 0;
-}
+@reference "../../../styles/style.css";
 
 .confirm-panel-enter-active {
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity var(--duration-normal) var(--ease-decelerate),
+                transform var(--duration-normal) var(--ease-decelerate);
 }
 .confirm-panel-leave-active {
-    transition: opacity 0.15s ease, transform 0.15s ease;
+    transition: opacity var(--duration-fast) var(--ease-accelerate),
+                transform var(--duration-fast) var(--ease-accelerate);
 }
 .confirm-panel-enter-from {
     opacity: 0;

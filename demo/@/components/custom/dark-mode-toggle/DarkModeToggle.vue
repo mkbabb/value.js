@@ -35,6 +35,8 @@ const { toggleDark } = useGlobalDark();
 </script>
 
 <style scoped>
+@reference "../../../styles/style.css";
+
 .dark-mode-toggle-button {
     cursor: pointer;
     border: 0;
@@ -45,7 +47,8 @@ const { toggleDark } = useGlobalDark();
     isolation: isolate;
     background: 0;
 
-    transition: opacity 0.2s ease, background 0.2s ease;
+    transition: opacity var(--duration-normal) var(--ease-standard),
+                background var(--duration-normal) var(--ease-standard);
 
     z-index: var(--z-popover);
 
@@ -70,17 +73,17 @@ const { toggleDark } = useGlobalDark();
     inset: 0;
     border-radius: 50%;
     pointer-events: none;
-    animation: pulseToDark 650ms ease-out;
+    animation: pulseToDark 650ms var(--ease-decelerate);
 }
 
 .toggle-sun {
     transform-origin: center center;
-    transition: transform 750ms cubic-bezier(0.11, 0.14, 0.29, 1.5);
+    transition: transform 750ms var(--ease-overshoot);
 }
 
 .toggle-circle {
     transform: translateX(0%);
-    transition: transform 500ms ease-out;
+    transition: transform 500ms var(--ease-decelerate);
 }
 
 :global(.dark) {

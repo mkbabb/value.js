@@ -479,25 +479,22 @@ function onDeleteAllSaved() {
 </script>
 
 <style>
-/* Tab active state — scoped to .palette-dialog to avoid leaking */
+/* Tab underline variant — color handled by root TabsTrigger via --active-tab-color */
 .palette-dialog button[role="tab"][data-state="active"] {
-    color: var(--active-tab-color);
-    box-shadow: none;
     border-bottom: 2px solid var(--active-tab-color);
     border-radius: 0;
 }
 
-/* Palette dialog overlay — blur & desaturate main view.
-   !important needed to override Tailwind's bg-black/80 on DialogOverlay (shadcn-vue, not editable). */
+/* Palette dialog overlay — saturate + transition (backdrop defaults from DialogScrollContent root) */
 [data-state]:has(> .palette-dialog) {
-    background: rgba(0, 0, 0, 0.4) !important;
     backdrop-filter: blur(4px) saturate(0.7);
-    transition: backdrop-filter var(--duration-slow) ease, background var(--duration-slow) ease, opacity var(--duration-slow) ease;
+    transition: backdrop-filter var(--duration-slow) var(--ease-standard),
+                background var(--duration-slow) var(--ease-standard),
+                opacity var(--duration-slow) var(--ease-standard);
     --tw-duration: var(--duration-slow);
 }
 [data-state="closed"]:has(> .palette-dialog) {
     backdrop-filter: blur(0px) saturate(1);
-    background: transparent !important;
 }
 
 /* Palette dialog enter/exit animation */
@@ -557,7 +554,7 @@ function onDeleteAllSaved() {
 
 /* Slow overlay fade to match longer dialog animation */
 [data-state="closed"]:has(> .palette-dialog--editing-exit) {
-    animation-duration: var(--duration-slow) !important;
+    animation-duration: var(--duration-slow);
 }
 
 /* Palette dialog close button — positioned below gradient bar */
@@ -568,7 +565,7 @@ function onDeleteAllSaved() {
     z-index: var(--z-content);
     padding: 0.25rem;
     opacity: 0.6;
-    transition: opacity var(--duration-fast) ease;
+    transition: opacity var(--duration-fast) var(--ease-standard);
 }
 .palette-dialog button:has(> .lucide-x):hover {
     background-color: var(--color-secondary);

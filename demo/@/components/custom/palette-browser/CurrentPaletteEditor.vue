@@ -453,7 +453,8 @@ function confirmUpdatePalette() {
     outline-offset: 2px;
     opacity: 0.4;
     filter: grayscale(0.5);
-    transition: opacity 0.2s ease, filter 0.2s ease;
+    transition: opacity var(--duration-normal) var(--ease-standard),
+                filter var(--duration-normal) var(--ease-standard);
 }
 
 /* Cutout effect on the FROM swatch in the edit overlay */
@@ -484,10 +485,12 @@ function confirmUpdatePalette() {
 }
 
 .edit-overlay-enter-active {
-    transition: opacity 0.2s ease, transform 0.35s cubic-bezier(0.18, 1.4, 0.4, 1);
+    transition: opacity var(--duration-normal) var(--ease-standard),
+                transform var(--duration-slow) var(--ease-dock);
 }
 .edit-overlay-leave-active {
-    transition: opacity 0.12s ease, transform 0.15s ease;
+    transition: opacity var(--duration-fast) var(--ease-standard),
+                transform var(--duration-fast) var(--ease-standard);
 }
 .edit-overlay-enter-from {
     opacity: 0;

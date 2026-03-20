@@ -9,7 +9,7 @@
                 · {{ emptyCount }} empty
             </span>
             <div class="flex-1" />
-            <Transition name="prune-result">
+            <Transition name="fade">
                 <span v-if="pruneResult" class="fira-code text-xs text-muted-foreground italic">
                     {{ pruneResult }}
                 </span>
@@ -299,13 +299,3 @@ function clearUserPalettes(slug: string) {
 defineExpose({ removeUserPalette, updatePaletteStatus, clearUserPalettes, onPruneDone, userPalettes });
 </script>
 
-<style scoped>
-.prune-result-enter-active,
-.prune-result-leave-active {
-    transition: opacity 0.2s ease;
-}
-.prune-result-enter-from,
-.prune-result-leave-to {
-    opacity: 0;
-}
-</style>

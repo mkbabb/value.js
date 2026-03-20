@@ -13,7 +13,7 @@
                     :is="icon"
                     :aria-label="title"
                     :class="[
-                        'action-icon w-5 h-5 sm:w-6 sm:h-6 stroke-foreground transition-[transform,stroke] cursor-pointer',
+                        'action-icon w-6 h-6 stroke-foreground transition-[transform,stroke] cursor-pointer',
                         iconClass,
                         disabled && 'pointer-events-none opacity-50',
                         isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
@@ -87,12 +87,14 @@ function handleClick() {
 </script>
 
 <style scoped>
+@reference "../../../styles/style.css";
+
 .action-button-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1.75rem;
-    height: 1.75rem;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
     flex-shrink: 0;
 }

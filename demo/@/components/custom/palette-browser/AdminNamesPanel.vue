@@ -1,6 +1,6 @@
 <template>
     <div class="grid gap-3 pb-3">
-        <Tabs v-model="namesTab" class="w-full" :style="{ '--active-tab-color': cssColorOpaque }">
+        <Tabs v-model="namesTab" class="admin-names-tabs w-full" :style="{ '--active-tab-color': cssColorOpaque }">
             <TabsList class="w-full">
                 <TabsTrigger value="pending" class="fraunces text-sm font-bold flex-1 gap-1.5">
                     <Clock class="w-3.5 h-3.5" />
@@ -126,9 +126,10 @@ const namesTab = ref<"pending" | "approved">("pending");
 </script>
 
 <style scoped>
-:deep(button[role="tab"][data-state="active"]) {
-    color: var(--active-tab-color) !important;
-    box-shadow: none !important;
+@reference "../../../styles/style.css";
+
+/* Underline tab variant — color is handled by root TabsTrigger via --active-tab-color */
+.admin-names-tabs :deep(button[role="tab"][data-state="active"]) {
     border-bottom: 2px solid var(--active-tab-color);
     border-radius: 0;
 }

@@ -2,7 +2,7 @@
     <div
         ref="spectrumRef"
         :class="[
-            'spectrum-picker flex w-full h-[22dvh] min-h-24 max-h-40 lg:h-full lg:min-h-0 lg:max-h-[24rem] cursor-crosshair relative touch-gate-target',
+            'spectrum-picker flex w-full h-[16dvh] min-h-20 max-h-32 lg:h-full lg:min-h-0 lg:max-h-[18rem] cursor-crosshair relative touch-gate-target',
             spectrumGate.isActive.value && 'touch-gate-active',
         ]"
         :style="spectrumStyle"
@@ -20,7 +20,7 @@
             :cycle-duration="2000"
             :range="[15, 85]"
             tag="div"
-            class="spectrum-dot !absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
             :style="spectrumDotStyle"
         />
     </div>
@@ -245,7 +245,7 @@ onUnmounted(() => {
 .spectrum-picker {
     border-radius: var(--radius-xl);
     box-shadow: 0px 0px 0px 0px transparent;
-    transition: box-shadow 0.25s ease;
+    transition: box-shadow var(--duration-normal) var(--ease-standard);
     overflow: visible;
     &:hover {
         box-shadow: 8px 8px 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
@@ -253,6 +253,7 @@ onUnmounted(() => {
 }
 
 .spectrum-dot {
+    position: absolute;
     width: 1.75rem;
     height: 1.75rem;
     border: 2px solid var(--dot-border, hsl(var(--background)));

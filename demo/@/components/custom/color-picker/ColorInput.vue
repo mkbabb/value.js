@@ -285,7 +285,7 @@ defineExpose({
 }
 
 .color-input-mode-flash {
-    animation: input-mode-flash 0.3s ease-out;
+    animation: input-mode-flash var(--duration-slow) var(--ease-decelerate);
 }
 
 @keyframes input-mode-flash {
@@ -307,7 +307,8 @@ defineExpose({
     padding: 0.25rem;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: transform 0.15s ease, opacity 0.15s ease;
+    transition: transform var(--duration-fast) var(--ease-standard),
+                opacity var(--duration-fast) var(--ease-standard);
 }
 .send-btn:hover {
     transform: translateY(-50%) scale(1.1);
@@ -335,13 +336,13 @@ defineExpose({
 
 .error-pop-enter-active {
     transition:
-        opacity 0.15s ease,
-        transform 0.15s ease;
+        opacity var(--duration-fast) var(--ease-standard),
+        transform var(--duration-fast) var(--ease-standard);
 }
 .error-pop-leave-active {
     transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+        opacity var(--duration-slow) var(--ease-standard),
+        transform var(--duration-slow) var(--ease-standard);
 }
 .error-pop-enter-from {
     opacity: 0;

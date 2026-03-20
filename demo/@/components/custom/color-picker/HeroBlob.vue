@@ -63,6 +63,7 @@ defineExpose({ nudgeSatellites });
 </script>
 
 <style scoped>
+@reference "../../../styles/style.css";
 /* Outer: drop-shadow only — Safari can't chain url() + drop-shadow() in one filter */
 .hero-blob-shadow-wrapper {
     filter: drop-shadow(3px 3px 0 color-mix(in srgb, var(--blob-color, transparent) 20%, hsl(var(--foreground))));
@@ -70,7 +71,7 @@ defineExpose({ nudgeSatellites });
     position: relative;
     overflow: visible;
     cursor: pointer;
-    transition: filter 0.3s ease;
+    transition: filter var(--duration-slow) var(--ease-standard);
     &:hover {
         filter: drop-shadow(4px 4px 0 color-mix(in srgb, var(--blob-color, transparent) 25%, hsl(var(--foreground))));
     }
