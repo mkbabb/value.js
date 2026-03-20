@@ -189,14 +189,66 @@ function onCopySlug() {
 }
 
 // Dropdown open states — keep dock open while any dropdown is visible
-const viewSelectOpen = ref(false);
-const mobileMenuOpen = ref(false);
-const profileMenuOpen = ref(false);
-const mbabbMenuOpen = ref(false);
+type DockPopupKey = "view-select" | "mobile-menu" | "profile-menu" | "mbabb-menu";
+const dockPopup = ref<DockPopupKey | null>(null);
+const pendingDockPopup = ref<DockPopupKey | null>(null);
+let popupSwapTimer: ReturnType<typeof setTimeout> | null = null;
 
 // Mobile edit mode — show edit controls in dock instead of EditDrawer
 const isDesktop = useMediaQuery("(min-width: 1024px)");
 const mobileEditActive = computed(() => !isDesktop.value && !!props.editTarget);
+const anyEditActive = computed(() => !!props.editTarget);
+
+const viewSelectOpen = computed({
+    get: () => dockPopup.value === "view-select",
+    set: (open: boolean) => updateDockPopup("view-select", open),
+});
+const mobileMenuOpen = computed({
+    get: () => dockPopup.value === "mobile-menu",
+    set: (open: boolean) => updateDockPopup("mobile-menu", open),
+});
+const profileMenuOpen = computed({
+    get: () => dockPopup.value === "profile-menu",
+    set: (open: boolean) => updateDockPopup("profile-menu", open),
+});
+const mbabbMenuOpen = computed({
+    get: () => dockPopup.value === "mbabb-menu",
+    set: (open: boolean) => updateDockPopup("mbabb-menu", open),
+});
+
+function clearPopupSwapTimer() {
+    if (popupSwapTimer) {
+        clearTimeout(popupSwapTimer);
+        popupSwapTimer = null;
+    }
+}
+
+function updateDockPopup(key: DockPopupKey, open: boolean) {
+    if (open) {
+        if (dockPopup.value === key) return;
+        clearPopupSwapTimer();
+        if (dockPopup.value && dockPopup.value !== key) {
+            pendingDockPopup.value = key;
+            dockPopup.value = null;
+            popupSwapTimer = setTimeout(() => {
+                dockPopup.value = pendingDockPopup.value;
+                pendingDockPopup.value = null;
+                popupSwapTimer = null;
+            }, 180);
+            return;
+        }
+        pendingDockPopup.value = null;
+        dockPopup.value = key;
+        return;
+    }
+
+    if (pendingDockPopup.value === key) {
+        pendingDockPopup.value = null;
+    }
+    if (dockPopup.value === key) {
+        dockPopup.value = null;
+    }
+}
 
 // Reset login mode when dock collapses (but preserve action bar state)
 const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>('dockRef');
@@ -207,13 +259,13 @@ watch(() => dockRef.value?.expanded, (expanded) => {
 });
 
 // Keep dock open while editing on mobile
-watch(mobileEditActive, (active) => {
+watch(anyEditActive, (active) => {
     if (active) { dockRef.value?.keepOpen(); dockRef.value?.expand?.(); }
     else dockRef.value?.release();
 });
 
 // Keep dock open when any dropdown is visible
-const anyDropdownOpen = computed(() => viewSelectOpen.value || mobileMenuOpen.value || profileMenuOpen.value || mbabbMenuOpen.value);
+const anyDropdownOpen = computed(() => dockPopup.value !== null || pendingDockPopup.value !== null);
 watch(anyDropdownOpen, (open) => {
     if (open) dockRef.value?.keepOpen();
     else dockRef.value?.release();
@@ -226,7 +278,7 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
 <template>
     <div class="fixed top-[var(--dock-pos)] left-1/2 -translate-x-1/2 z-40 flex items-center justify-center pointer-events-none">
         <div class="pointer-events-auto">
-            <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="true" :fit-content="true">
+            <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="isDesktop" :fit-content="true" :always-expanded="!isDesktop">
                 <!-- Expanded state: login mode transforms entire dock -->
                 <div class="dock-content-layers">
                     <!-- Mobile edit layer -->
@@ -309,7 +361,7 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
 
                     <!-- Action bar layer -->
                     <div v-if="actionBar"
-                         :class="['dock-content-layer', { 'layer-active': actionBarLayerActive && !mobileEditActive && !slugEditMode }]"
+                         :class="['dock-content-layer dock-content-layer--action-bar', { 'layer-active': actionBarLayerActive && !mobileEditActive && !slugEditMode }]"
                          :inert="!(actionBarLayerActive && !mobileEditActive && !slugEditMode) || undefined">
                         <button
                             class="dock-icon-btn shrink-0"
@@ -624,6 +676,7 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    min-width: 0;
     transition: opacity 0.25s var(--ease-standard),
                 transform 0.25s var(--ease-standard);
     transform-origin: center;
@@ -634,5 +687,8 @@ const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.
     transform: scale(0.96);
 }
 
+.dock-content-layer--action-bar {
+    width: min(100%, clamp(18rem, 72vw, 42rem));
+}
 
 </style>
