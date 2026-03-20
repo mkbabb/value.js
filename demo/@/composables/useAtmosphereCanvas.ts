@@ -108,18 +108,22 @@ export function useAtmosphereCanvas(
         const colorRgb = cssToRgb(css);
         const dark = isDark();
 
-        // Surface: tinted toward the current color
-        const anchor: [number, number, number] = dark ? [30, 30, 30] : [255, 255, 255];
-        surfaceRgb = mixRgb(anchor, colorRgb, dark ? 0.85 : 0.6);
+        // Surface: gently tinted toward the current color
+        const anchor: [number, number, number] = dark ? [75, 75, 80] : [255, 255, 255];
+        surfaceRgb = mixRgb(anchor, colorRgb, dark ? 0.65 : 0.35);
 
-        // Blobs: variations of the actual color (full strength, hue/sat/light shifts)
+        // Blobs: many small variations of the actual color
         blobColors = [
             colorRgb,                                      // the color itself
-            shiftHue(colorRgb, 25, 0.1, 0.12),            // warm, lighter
-            shiftHue(colorRgb, -30, 0.05, -0.15),         // cool, darker
-            shiftHue(colorRgb, 50, -0.05, 0.20),          // further warm, brighter
-            shiftHue(colorRgb, -20, 0.15, -0.25),         // cool, saturated, deeper
-            shiftHue(colorRgb, 70, 0.0, 0.08),            // accent shift
+            shiftHue(colorRgb, 15, 0.05, 0.08),           // warm, slightly lighter
+            shiftHue(colorRgb, -20, 0.03, -0.10),         // cool, slightly darker
+            shiftHue(colorRgb, 35, -0.03, 0.14),          // warm shift
+            shiftHue(colorRgb, -40, 0.10, -0.18),         // cool, saturated
+            shiftHue(colorRgb, 55, 0.0, 0.05),            // accent
+            shiftHue(colorRgb, -10, 0.08, 0.06),          // near-hue warm
+            shiftHue(colorRgb, 80, -0.05, -0.08),         // far accent
+            shiftHue(colorRgb, -55, 0.06, 0.12),          // complementary hint
+            shiftHue(colorRgb, 40, 0.12, -0.12),          // saturated shift
         ];
     }
 
@@ -156,8 +160,8 @@ export function useAtmosphereCanvas(
 
         updatePalette(cssColor.value);
 
-        const speed = 0.8;
-        const blur = 100 * blurScale;
+        const speed = 0.5;
+        const blur = 60 * blurScale;
 
         const render = (now: number) => {
             if (!running) return;
@@ -186,17 +190,18 @@ export function useAtmosphereCanvas(
 
             for (let i = 0; i < count; i++) {
                 const c = blobColors[i]!;
-                const r = dim * (0.3 + i * 0.04);
+                const r = dim * (0.18 + i * 0.025);
                 const phase = i * (Math.PI * 2 / count);
-                const orbitX = w * 0.15;
-                const orbitY = h * 0.12;
+                const orbitX = w * 0.25;
+                const orbitY = h * 0.2;
                 const x = w * 0.5 + Math.sin(t * (0.4 + i * 0.15) + phase) * orbitX + Math.cos(t * 0.2 + i) * orbitX * 0.5;
                 const y = h * 0.5 + Math.cos(t * (0.35 + i * 0.12) + phase) * orbitY + Math.sin(t * 0.18 + i) * orbitY * 0.6;
 
                 const grad = ctx.createRadialGradient(x, y, 0, x, y, r);
-                grad.addColorStop(0, rgba(c[0], c[1], c[2], 0.55));
-                grad.addColorStop(0.35, rgba(c[0], c[1], c[2], 0.35));
-                grad.addColorStop(0.65, rgba(c[0], c[1], c[2], 0.15));
+                grad.addColorStop(0, rgba(c[0], c[1], c[2], 0.4));
+                grad.addColorStop(0.2, rgba(c[0], c[1], c[2], 0.25));
+                grad.addColorStop(0.45, rgba(c[0], c[1], c[2], 0.1));
+                grad.addColorStop(0.7, rgba(c[0], c[1], c[2], 0.03));
                 grad.addColorStop(1, rgba(c[0], c[1], c[2], 0));
 
                 ctx.fillStyle = grad;
