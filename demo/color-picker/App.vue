@@ -48,9 +48,7 @@
         </defs>
     </svg>
 
-    <div
-        class="grid overflow-x-hidden w-full min-h-[100dvh] lg:h-[100dvh] lg:overflow-hidden items-center justify-items-stretch m-0 p-0 relative"
-    >
+    <div class="app-layout">
         <canvas
             ref="atmosphereCanvas"
             class="absolute inset-0 w-full h-full pointer-events-none"
@@ -69,12 +67,12 @@
         <!-- Two-pane grid -->
         <div
             :class="[
-                'grid grid-rows-[1fr] gap-6 lg:gap-[var(--desktop-pane-gap)] relative w-full max-w-[var(--content-shell-max-w)] mx-auto px-4 lg:px-2 h-[var(--content-shell-h)] mt-[calc(var(--dock-total)+1rem)] pb-[var(--dock-inset)]',
-                currentConfig.right !== null ? 'lg:grid-cols-[1fr_1fr]' : 'lg:grid-cols-1',
+                'pane-container',
+                currentConfig.right !== null && 'pane-container--dual',
             ]"
         >
             <!-- Mobile: single pane slot (below lg) -->
-            <div class="lg:hidden w-full min-w-0 min-h-0 flex flex-col items-center justify-center self-center">
+            <div class="lg:hidden w-full min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
                 <Transition name="pane-left" mode="out-in">
                     <KeepAlive :max="5">
                         <component
@@ -472,17 +470,29 @@ onMounted(() => {
 <style scoped>
 /* Smooth layout transitions for pane wrappers */
 .pane-wrapper {
-    transition: height 0.3s var(--ease-standard),
-                margin 0.3s var(--ease-standard),
-                padding 0.3s var(--ease-standard);
+    transition: height var(--duration-slow) var(--ease-standard),
+                margin var(--duration-slow) var(--ease-standard),
+                padding var(--duration-slow) var(--ease-standard);
 }
 
-/* ── Left pane: slides off left, enters from left ── */
+/* ── Pane slide — shared enter/leave with CSS variable direction ── */
+.pane-slide-enter-active {
+    transition: transform 280ms var(--ease-pane);
+}
+.pane-slide-leave-active {
+    transition: transform var(--duration-fast) var(--ease-pane-exit);
+}
+.pane-slide-enter-from,
+.pane-slide-leave-to {
+    transform: translateX(var(--pane-slide-dir, -110%)) rotate(var(--pane-slide-rot, -2deg));
+}
+
+/* ── Legacy aliases — kept for KeepAlive cache keys ── */
 .pane-left-enter-active {
-    transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 280ms var(--ease-pane);
 }
 .pane-left-leave-active {
-    transition: transform 0.15s cubic-bezier(0.5, 0, 1, 0.5);
+    transition: transform var(--duration-fast) var(--ease-pane-exit);
 }
 .pane-left-enter-from {
     transform: translateX(-110%) rotate(-2deg);
@@ -491,12 +501,11 @@ onMounted(() => {
     transform: translateX(-110%) rotate(-2deg);
 }
 
-/* ── Right pane: slides off right, enters from right ── */
 .pane-right-enter-active {
-    transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 280ms var(--ease-pane);
 }
 .pane-right-leave-active {
-    transition: transform 0.15s cubic-bezier(0.5, 0, 1, 0.5);
+    transition: transform var(--duration-fast) var(--ease-pane-exit);
 }
 .pane-right-enter-from {
     transform: translateX(110%) rotate(2deg);
