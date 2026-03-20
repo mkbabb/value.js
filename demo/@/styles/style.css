@@ -95,7 +95,12 @@
     --dock-gap: 1rem;
     --dock-total: calc(var(--dock-inset) + var(--dock-h) + var(--dock-gap)); /* ~4.5rem */
     --content-h: calc(100dvh - var(--dock-total) - 1rem - var(--dock-inset) - var(--dock-inset));
-    --content-max-h: 52rem;
+    --content-max-h: clamp(34rem, 78dvh, 48rem);
+    --content-shell-h: min(var(--content-h), var(--content-max-h));
+    --content-shell-max-w: min(92rem, calc(100vw - 2rem));
+    --desktop-pane-max-w: 36rem;
+    --desktop-pane-gap: 0.875rem;
+    --mobile-picker-max-h: min(calc(100dvh - var(--dock-total) - 2rem), 38rem);
     /* Clamp dock position: stay near content on very tall screens */
     --dock-pos: max(var(--dock-inset), calc((100dvh - var(--content-max-h)) / 2 - var(--dock-h) - var(--dock-gap)));
 
@@ -138,6 +143,22 @@
     --shadow-sm: 0 2px 8px hsl(var(--foreground) / 0.06);
     --shadow-md: 0 4px 16px hsl(var(--foreground) / 0.08);
     --shadow-lg: 0 4px 20px hsl(var(--foreground) / 0.12);
+}
+
+@media (min-aspect-ratio: 21 / 9) {
+    :root {
+        --content-max-h: clamp(30rem, 62dvh, 38rem);
+        --content-shell-max-w: min(calc(var(--desktop-pane-max-w) * 2 + var(--desktop-pane-gap) + 2rem), calc(100vw - 4rem));
+        --desktop-pane-gap: 0.75rem;
+    }
+}
+
+@media (max-width: 1023px) and (min-height: 900px) {
+    :root {
+        --content-max-h: clamp(26rem, 56dvh, 34rem);
+        --content-shell-max-w: min(32rem, calc(100vw - 2rem));
+        --mobile-picker-max-h: min(calc(100dvh - var(--dock-total) - 2rem), 32rem);
+    }
 }
 
 .dark {

@@ -1,5 +1,5 @@
 <template>
-    <Card class="pane-scroll-fade w-full max-w-3xl mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm">
+    <Card class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm">
         <div class="px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-10 backdrop-blur-md">
             <h3 class="fraunces text-3xl sm:text-4xl tracking-tight">
                 <span class="capitalize pastel-rainbow-text">My Palettes</span>

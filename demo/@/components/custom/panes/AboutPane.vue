@@ -1,6 +1,6 @@
 <template>
     <Card
-        class="about-card pane-scroll-fade w-full max-w-3xl mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm"
+        class="about-card pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm"
     >
         <CardHeader class="fraunces px-3 sm:px-6 sticky top-0 z-10 backdrop-blur-md">
             <CardTitle class="font-normal !text-3xl sm:!text-4xl"
@@ -78,4 +78,3 @@ const activeMarkdownModule = computed(() =>
     markdownModules[model.value.selectedColorSpace as MarkdownSpace],
 );
 </script>
-
