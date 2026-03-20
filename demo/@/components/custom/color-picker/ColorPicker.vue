@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-col relative min-w-0 w-full max-w-lg lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-auto lg:h-full max-h-[var(--mobile-picker-max-h)] lg:max-h-[var(--content-shell-h)] transition-[margin,transform] duration-300 ease-[var(--ease-standard)]">
-        <Card class="flex flex-col rounded-2xl min-w-0 flex-none lg:flex-1 min-h-0 max-h-full lg:overflow-visible transition-[box-shadow] duration-300 bg-card/75 backdrop-blur-sm">
+    <div class="flex flex-col relative min-w-0 w-full max-w-lg lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-auto lg:h-full max-h-full lg:max-h-[var(--content-shell-h)] transition-[margin,transform] duration-300 ease-[var(--ease-standard)]">
+        <Card class="flex flex-col rounded-2xl min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-hidden lg:overflow-visible transition-[box-shadow] duration-300 bg-card/75 backdrop-blur-sm">
             <CardHeader class="fraunces m-0 pt-3 pb-0 relative w-full px-3 sm:px-6 min-w-0 overflow-visible">
                 <div class="w-full flex justify-between">
                     <ColorSpaceSelector
