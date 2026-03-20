@@ -1,12 +1,9 @@
 <template>
     <Card class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm">
-        <div class="px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-10 backdrop-blur-md">
-            <h3 class="fraunces text-3xl sm:text-4xl tracking-tight">
-                <span class="capitalize pastel-rainbow-text">My Palettes</span>
-                <span v-if="pm.savedPalettes.value.length > 0" class="fira-code text-sm font-normal text-muted-foreground ml-2">{{ pm.savedPalettes.value.length }}</span>
-            </h3>
-            <p class="text-sm text-muted-foreground/60 fira-code">Save, organize, and share your colors.</p>
-        </div>
+        <PaneHeader description="Save, organize, and share your colors.">
+            <span class="capitalize pastel-rainbow-text">My Palettes</span>
+            <span v-if="pm.savedPalettes.value.length > 0" class="fira-code text-sm font-normal text-muted-foreground ml-2">{{ pm.savedPalettes.value.length }}</span>
+        </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <PaneSearchBar
                 v-model:search="pm.searchQuery.value"
@@ -95,6 +92,7 @@ import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
 import ConfirmDialog from "@components/custom/palette-browser/ConfirmDialog.vue";
 import PaneSearchBar from "./PaneSearchBar.vue";
+import PaneHeader from "./PaneHeader.vue";
 
 const props = defineProps<{
     savedColorStrings: string[];

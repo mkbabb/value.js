@@ -2,18 +2,32 @@
     <Card
         class="about-card pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm"
     >
-        <CardHeader class="fraunces px-3 sm:px-6 sticky top-0 z-10 backdrop-blur-md">
-            <CardTitle class="font-normal !text-3xl sm:!text-4xl"
-                >About the color spaces,
-                <span
-                    class="italic"
-                    :style="{ color: cssColor }"
-                >{{ colorSpaceName }}</span>
-            </CardTitle>
-            <CardDescription>
-                The math, the science, the art, the beauty of color spaces.
-            </CardDescription>
-        </CardHeader>
+        <PaneHeader description="The math, the science, the art, the beauty of color spaces.">
+            About the color spaces,
+            <Select
+                :model-value="model.selectedColorSpace"
+                @update:model-value="(v: any) => { model = { ...model, selectedColorSpace: v }; }"
+            >
+                <SelectTrigger
+                    class="inline-flex w-auto h-auto p-0 m-0 border-none bg-transparent shadow-none focus:outline-none italic text-3xl sm:text-4xl tracking-tight gap-1 [&>svg:last-child]:w-5 [&>svg:last-child]:h-5"
+                    :style="{ color: cssColor, fontFamily: 'var(--font-display)' }"
+                >
+                    <SelectValue />
+                </SelectTrigger>
+                <SelectContent class="min-w-[10rem]">
+                    <SelectGroup class="fraunces">
+                        <SelectItem
+                            v-for="[space, name] in Object.entries(DISPLAY_COLOR_SPACE_NAMES)"
+                            :key="space"
+                            :value="space"
+                            hide-indicator
+                        >
+                            {{ name }}
+                        </SelectItem>
+                    </SelectGroup>
+                </SelectContent>
+            </Select>
+        </PaneHeader>
 
         <Separator />
 
@@ -39,13 +53,16 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { Separator } from "@components/ui/separator";
+import { Card, CardContent } from "@components/ui/card";
+import PaneHeader from "./PaneHeader.vue";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@components/ui/card";
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@components/ui/select";
 import { ColorNutritionLabel } from "@components/custom/color-picker";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { DocModule } from "@components/custom/markdown";
@@ -78,3 +95,4 @@ const activeMarkdownModule = computed(() =>
     markdownModules[model.value.selectedColorSpace as MarkdownSpace],
 );
 </script>
+

@@ -6,7 +6,7 @@
         <div class="inline-flex rounded-full border border-border/60 bg-card/80 backdrop-blur-xl overflow-hidden">
             <button
                 :class="[
-                    'px-4 py-1.5 text-sm fraunces font-bold transition-all cursor-pointer',
+                    'px-4 py-1.5 text-sm fraunces font-bold transition-all cursor-pointer focus-ring',
                     modelValue === 0
                         ? 'bg-foreground text-background'
                         : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
@@ -17,7 +17,7 @@
             </button>
             <button
                 :class="[
-                    'px-4 py-1.5 text-sm fraunces font-bold transition-all cursor-pointer',
+                    'px-4 py-1.5 text-sm fraunces font-bold transition-all cursor-pointer focus-ring',
                     modelValue === 1
                         ? 'bg-foreground text-background'
                         : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',

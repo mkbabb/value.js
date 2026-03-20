@@ -1,11 +1,6 @@
 <template>
     <Card class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm">
-        <div class="px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-10 backdrop-blur-md">
-            <h3 class="fraunces text-3xl sm:text-4xl tracking-tight">
-                Browse
-            </h3>
-            <p class="text-sm text-muted-foreground/60 fira-code">Discover palettes from the community.</p>
-        </div>
+        <PaneHeader description="Discover palettes from the community.">Browse</PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <PaneSearchBar
                 v-model:search="pm.searchQuery.value"
@@ -64,6 +59,7 @@ import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
 import SortFilterMenu from "@components/custom/palette-browser/SortFilterMenu.vue";
 import PaneSearchBar from "./PaneSearchBar.vue";
+import PaneHeader from "./PaneHeader.vue";
 
 defineProps<{
     cssColorOpaque: string;
