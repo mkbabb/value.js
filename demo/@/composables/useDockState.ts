@@ -6,16 +6,22 @@ export interface UseDockStateOptions {
     collapseDelay?: number;
     /** Root element ref — used for contains() checks */
     rootEl: Ref<HTMLElement | null>;
+    /** Disable collapse behavior and keep the dock expanded. */
+    alwaysExpanded?: Ref<boolean> | boolean;
 }
 
 export type DockState = "collapsed" | "hover" | "pinned";
 
 export function useDockState(options: UseDockStateOptions) {
-    const { collapseDelay = 2500, rootEl } = options;
+    const { collapseDelay = 2500, rootEl, alwaysExpanded = false } = options;
 
-    const state = ref<DockState>("collapsed");
-    const expanded = ref(false);
-    const isPinned = ref(false);
+    const getAlwaysExpanded = () =>
+        typeof alwaysExpanded === "boolean" ? alwaysExpanded : alwaysExpanded.value;
+
+    const initiallyExpanded = getAlwaysExpanded();
+    const state = ref<DockState>(initiallyExpanded ? "pinned" : "collapsed");
+    const expanded = ref(initiallyExpanded);
+    const isPinned = ref(initiallyExpanded);
 
     let collapseTimer: ReturnType<typeof setTimeout> | null = null;
     let keepOpenCount = 0;
@@ -28,6 +34,9 @@ export function useDockState(options: UseDockStateOptions) {
     }, 600);
 
     function syncDerived() {
+        if (getAlwaysExpanded()) {
+            state.value = "pinned";
+        }
         expanded.value = state.value !== "collapsed";
         isPinned.value = state.value === "pinned";
     }
@@ -40,6 +49,7 @@ export function useDockState(options: UseDockStateOptions) {
     }
 
     function scheduleCollapse() {
+        if (getAlwaysExpanded()) return;
         if (keepOpenCount > 0) return;
         clearTimer();
         collapseTimer = setTimeout(() => {
@@ -49,12 +59,22 @@ export function useDockState(options: UseDockStateOptions) {
     }
 
     function collapse() {
+        if (getAlwaysExpanded()) {
+            state.value = "pinned";
+            syncDerived();
+            return;
+        }
         clearTimer();
         state.value = "collapsed";
         syncDerived();
     }
 
     function expand() {
+        if (getAlwaysExpanded()) {
+            state.value = "pinned";
+            syncDerived();
+            return;
+        }
         if (ignoreEvents) return;
         clearTimer();
         state.value = "hover";
@@ -64,6 +84,7 @@ export function useDockState(options: UseDockStateOptions) {
     // --- Mouse handlers ---
 
     function onMouseEnter() {
+        if (getAlwaysExpanded()) return;
         if (ignoreEvents) return;
         clearTimer();
         if (state.value === "collapsed") {
@@ -74,6 +95,7 @@ export function useDockState(options: UseDockStateOptions) {
     }
 
     function onMouseLeave(e?: MouseEvent) {
+        if (getAlwaysExpanded()) return;
         // If mouse moved to a descendant or teleported child (dropdown, popover), don't collapse
         if (e) {
             const root = rootEl.value;
@@ -95,6 +117,7 @@ export function useDockState(options: UseDockStateOptions) {
     // --- Focus handlers ---
 
     function onFocusIn() {
+        if (getAlwaysExpanded()) return;
         if (ignoreEvents) return;
         clearTimer();
         if (state.value === "collapsed") {
@@ -104,6 +127,7 @@ export function useDockState(options: UseDockStateOptions) {
     }
 
     function onFocusOut(e: FocusEvent) {
+        if (getAlwaysExpanded()) return;
         const root = e.currentTarget as HTMLElement;
         if (e.relatedTarget && root.contains(e.relatedTarget as Node)) return;
         if (keepOpenCount > 0) return;
@@ -115,6 +139,11 @@ export function useDockState(options: UseDockStateOptions) {
     // --- Click on collapsed layer → PINNED ---
 
     function onClickCollapsed() {
+        if (getAlwaysExpanded()) {
+            state.value = "pinned";
+            syncDerived();
+            return;
+        }
         clearTimer();
         state.value = "pinned";
         syncDerived();
@@ -151,6 +180,7 @@ export function useDockState(options: UseDockStateOptions) {
     }
 
     function onPointerDownOutside(e: PointerEvent) {
+        if (getAlwaysExpanded()) return;
         const root = rootEl.value;
         if (!root || root.contains(e.target as Node)) return;
         if (isTeleportedTarget(e.target)) return;
@@ -182,6 +212,22 @@ export function useDockState(options: UseDockStateOptions) {
             removeClickAway?.();
         }
     });
+
+    if (typeof alwaysExpanded !== "boolean") {
+        watch(alwaysExpanded, (forceOpen) => {
+            if (forceOpen) {
+                clearTimer();
+                state.value = "pinned";
+                syncDerived();
+                return;
+            }
+            state.value = "collapsed";
+            syncDerived();
+        }, { immediate: true });
+    } else if (alwaysExpanded) {
+        state.value = "pinned";
+        syncDerived();
+    }
 
     // Cleanup
     onUnmounted(() => {

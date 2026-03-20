@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTemplateRef } from "vue";
+import { computed, onMounted, useTemplateRef } from "vue";
 import { useDockState } from "@composables/useDockState";
 import { useDockTransition } from "@composables/useDockTransition";
 
@@ -10,6 +10,7 @@ const props = withDefaults(
         fitContent?: boolean;
         position?: "fixed" | "inline";
         fadeMs?: number;
+        alwaysExpanded?: boolean;
     }>(),
     {
         collapseDelay: 2000,
@@ -17,10 +18,12 @@ const props = withDefaults(
         fitContent: false,
         position: "inline",
         fadeMs: 60,
+        alwaysExpanded: false,
     },
 );
 
 const dockEl = useTemplateRef<HTMLElement>("dockEl");
+const alwaysExpanded = computed(() => props.alwaysExpanded);
 
 const {
     expanded,
@@ -37,6 +40,7 @@ const {
 } = useDockState({
     collapseDelay: props.collapseDelay,
     rootEl: dockEl,
+    alwaysExpanded,
 });
 
 const { visualExpanded, isTransitioning, onTransitionEnd } = useDockTransition({
@@ -45,10 +49,11 @@ const { visualExpanded, isTransitioning, onTransitionEnd } = useDockTransition({
     fadeMs: props.fadeMs,
 });
 
-// If startCollapsed is false, expand immediately after mount
-if (!props.startCollapsed) {
-    expand();
-}
+onMounted(() => {
+    if (props.alwaysExpanded || !props.startCollapsed) {
+        expand();
+    }
+});
 
 defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
 </script>
@@ -58,7 +63,7 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
         ref="dockEl"
         class="glass-dock"
         :class="[
-            { expanded: visualExpanded, collapsed: !visualExpanded, pinned: isPinned, 'fit-content': fitContent },
+            { expanded: visualExpanded, collapsed: !visualExpanded, pinned: isPinned, 'fit-content': fitContent, 'always-expanded': alwaysExpanded },
             position === 'fixed' ? 'fixed bottom-[var(--dock-pos)] left-1/2 -translate-x-1/2' : 'dock-inline',
         ]"
         @mouseenter="onMouseEnter"
@@ -171,5 +176,9 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
 
 .glass-dock.expanded {
     overflow: visible;
+}
+
+.glass-dock.always-expanded {
+    cursor: default;
 }
 </style>
