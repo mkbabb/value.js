@@ -169,6 +169,23 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
         setCurrentColor(color, model.value.selectedColorSpace);
     };
 
+    const formatForSelectedDisplaySpace = (
+        color: ValueUnit<Color<ValueUnit<number>>, "color">,
+    ) => {
+        if (model.value.selectedColorSpace === "hex") {
+            return colorToHexString(color);
+        }
+        return normalizeColorUnit(color, true, false).value.toFormattedString(DIGITS);
+    };
+
+    const applyExternalColor = (cssColor: string) => {
+        const parsed = parseAndNormalizeColor(cssColor);
+        const resolved = resolveColorSpace(model.value.selectedColorSpace);
+        const converted = colorUnit2(parsed, resolved, true, false, false);
+        setCurrentColor(parsed, model.value.selectedColorSpace);
+        updateModel({ inputColor: formatForSelectedDisplaySpace(converted) });
+    };
+
     const updateColorComponent = (
         value: number,
         component: string,
@@ -256,6 +273,7 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
         parseAndSetColor,
         parseAndSetColorDebounced,
         parseError,
+        applyExternalColor,
 
         // Random
         generateRandomColor,

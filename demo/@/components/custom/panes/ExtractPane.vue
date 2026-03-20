@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-full max-w-3xl mx-auto h-full min-w-0">
+    <div class="relative w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-full min-w-0">
         <Card class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm">
             <div class="px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-10 backdrop-blur-md">
                 <h3 class="fraunces text-3xl sm:text-4xl tracking-tight">
@@ -300,8 +300,7 @@ function onRename(_p: Palette, newName: string) {
 }
 
 function onEyedropperApply(css: string) {
-    // Apply as the current color in the color picker
-    pm.emitApply([css]);
+    pm.emitSetCurrentColor(css);
 }
 
 function onEyedropperAddToPalette(css: string) {

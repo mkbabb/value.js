@@ -12,6 +12,8 @@
                     @start-edit="(target) => $emit('startEdit', target)"
                     @saved="(name, colors) => $emit('saved', name, colors)"
                     @updated="(id, colors) => $emit('updated', id, colors)"
+                    @commit-edit="$emit('commitEdit')"
+                    @cancel-edit="$emit('cancelEdit')"
                 />
 
                 <!-- Saved palettes toolbar -->
@@ -77,6 +79,8 @@ defineEmits<{
     startEdit: [target: { paletteId: string; colorIndex: number; originalCss: string }];
     saved: [name: string, colors: PaletteColor[]];
     updated: [id: string, colors: PaletteColor[]];
+    commitEdit: [];
+    cancelEdit: [];
     deleteAll: [];
     toggleExpand: [id: string];
     applyPalette: [palette: Palette];

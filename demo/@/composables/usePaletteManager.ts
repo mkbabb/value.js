@@ -101,6 +101,7 @@ export interface PaletteManager {
     emitApply: (colors: string[]) => void;
     emitAddColor: (css: string) => void;
     emitStartEdit: (target: { paletteId: string; colorIndex: number; originalCss: string }) => void;
+    emitSetCurrentColor: (css: string) => void;
 }
 
 export const PALETTE_MANAGER_KEY: InjectionKey<PaletteManager> =
@@ -112,8 +113,9 @@ export function usePaletteManager(deps: {
     emitApply: (colors: string[]) => void;
     emitAddColor: (css: string) => void;
     emitStartEdit: (target: { paletteId: string; colorIndex: number; originalCss: string }) => void;
+    emitSetCurrentColor: (css: string) => void;
 }): PaletteManager {
-    const { currentView, savedColorStrings, emitApply, emitAddColor, emitStartEdit } = deps;
+    const { currentView, savedColorStrings, emitApply, emitAddColor, emitStartEdit, emitSetCurrentColor } = deps;
 
     const searchQuery = ref("");
     const expandedId = ref<string | null>(null);
@@ -408,6 +410,7 @@ export function usePaletteManager(deps: {
         emitApply,
         emitAddColor,
         emitStartEdit,
+        emitSetCurrentColor,
     };
 
     provide(PALETTE_MANAGER_KEY, manager);

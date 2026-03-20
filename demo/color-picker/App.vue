@@ -49,7 +49,7 @@
     </svg>
 
     <div
-        class="grid overflow-x-hidden w-full min-h-[100dvh] lg:h-[100dvh] lg:overflow-hidden items-start justify-items-stretch m-0 p-0 relative"
+        class="grid overflow-x-hidden w-full min-h-[100dvh] lg:h-[100dvh] lg:overflow-hidden items-center justify-items-stretch m-0 p-0 relative"
     >
         <canvas
             ref="atmosphereCanvas"
@@ -69,12 +69,12 @@
         <!-- Two-pane grid -->
         <div
             :class="[
-                'grid grid-rows-[1fr] gap-6 relative max-w-screen-lg w-full mx-auto px-4 lg:px-2 h-[min(var(--content-h),var(--content-max-h))] mt-[calc(var(--dock-total)+1rem)] pb-[var(--dock-inset)]',
+                'grid grid-rows-[1fr] gap-6 lg:gap-[var(--desktop-pane-gap)] relative w-full max-w-[var(--content-shell-max-w)] mx-auto px-4 lg:px-2 h-[var(--content-shell-h)] mt-[calc(var(--dock-total)+1rem)] pb-[var(--dock-inset)]',
                 currentConfig.right !== null ? 'lg:grid-cols-[1fr_1fr]' : 'lg:grid-cols-1',
             ]"
         >
             <!-- Mobile: single pane slot (below lg) -->
-            <div class="lg:hidden w-full min-w-0 min-h-0 h-full flex flex-col justify-center">
+            <div class="lg:hidden w-full min-w-0 min-h-0 flex flex-col items-center justify-center self-center">
                 <Transition name="pane-left" mode="out-in">
                     <KeepAlive :max="5">
                         <component
@@ -176,6 +176,7 @@ import {
     defaultColorModel,
     createDefaultColorModel,
     toCSSColorString,
+    colorToHexString,
 } from "@components/custom/color-picker";
 
 import { TopDock } from "@components/custom/top-dock";
@@ -382,6 +383,30 @@ const paletteManager = usePaletteManager({
             }
         };
         setTimeout(tryStartEdit, 50);
+    },
+    emitSetCurrentColor: (css: string) => {
+        const trySetCurrent = () => {
+            if (colorPickerRef.value?.applyExternalColor) {
+                colorPickerRef.value.applyExternalColor(css);
+                return;
+            }
+            try {
+                const parsed = normalizeColorUnit(parseCSSColor(css));
+                const resolvedSpace = model.value.selectedColorSpace === "hex" ? "rgb" : model.value.selectedColorSpace;
+                const color = colorUnit2(parsed, resolvedSpace, true, false, false);
+                const inputColor = model.value.selectedColorSpace === "hex"
+                    ? colorToHexString(color)
+                    : normalizeColorUnit(color, true, false).value.toFormattedString(2);
+                updateModel({
+                    color,
+                    inputColor,
+                    selectedColorSpace: model.value.selectedColorSpace,
+                });
+            } catch {
+                // ignore parse errors
+            }
+        };
+        trySetCurrent();
     },
 });
 

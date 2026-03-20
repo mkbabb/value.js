@@ -59,6 +59,8 @@
                         @start-edit="(target) => emit('startEdit', target)"
                         @saved="onCurrentPaletteSaved"
                         @updated="onCurrentPaletteUpdated"
+                        @commit-edit="emit('commitEdit')"
+                        @cancel-edit="emit('cancelEdit')"
                         @delete-all="showDeleteAllConfirm = true"
                         @toggle-expand="toggleExpand"
                         @apply-palette="onApply"
@@ -204,6 +206,8 @@ const emit = defineEmits<{
     apply: [colors: string[]];
     addColor: [css: string];
     startEdit: [target: { paletteId: string; colorIndex: number; originalCss: string }];
+    commitEdit: [];
+    cancelEdit: [];
 }>();
 
 type TabValue = "saved" | "browse" | "extract" | "admin-users" | "admin-names";

@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-col relative min-w-0 max-w-lg mx-auto h-full lg:h-full transition-[margin,transform] duration-300 ease-[var(--ease-standard)]">
-        <Card class="flex flex-col rounded-2xl min-w-0 flex-1 min-h-0 lg:overflow-visible transition-[box-shadow] duration-300 bg-card/75 backdrop-blur-sm">
+    <div class="flex flex-col relative min-w-0 w-full max-w-lg lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-auto lg:h-full max-h-[var(--mobile-picker-max-h)] lg:max-h-[var(--content-shell-h)] transition-[margin,transform] duration-300 ease-[var(--ease-standard)]">
+        <Card class="flex flex-col rounded-2xl min-w-0 flex-none lg:flex-1 min-h-0 max-h-full lg:overflow-visible transition-[box-shadow] duration-300 bg-card/75 backdrop-blur-sm">
             <CardHeader class="fraunces m-0 pt-3 pb-0 relative w-full px-3 sm:px-6 min-w-0 overflow-visible">
                 <div class="w-full flex justify-between">
                     <ColorSpaceSelector
@@ -22,8 +22,8 @@
                 />
             </CardHeader>
 
-            <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pt-3 pb-3 min-w-0 lg:flex-1 lg:min-h-0">
-                <div class="flex flex-col items-center gap-2 lg:flex-1 lg:min-h-0">
+            <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pt-3 pb-4 sm:pb-5 min-w-0 lg:flex-1 lg:min-h-0">
+                <div class="flex flex-col items-center gap-3 lg:flex-1 lg:min-h-0">
                     <div class="w-full lg:flex-1 lg:min-h-0 lg:overflow-visible">
                         <SpectrumCanvas />
                     </div>
@@ -111,6 +111,7 @@ const {
     updateColorComponentDebounced,
     onPaletteAddColor,
     onPaletteApply,
+    applyExternalColor,
 } = colorModel;
 
 // --- HeroBlob click: copy color to clipboard ---
@@ -242,6 +243,7 @@ defineExpose({
     onPaletteAddColor,
     parseAndNormalizeColor,
     setCurrentColor,
+    applyExternalColor,
     onStartEdit,
     actionBarContext,
 });
