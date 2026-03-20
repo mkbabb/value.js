@@ -51,8 +51,13 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </script>
 
 <template>
-    <div class="flex items-center gap-0">
-        <div class="grid relative items-center flex-1">
+    <div class="flex items-center gap-0 min-w-0 w-full">
+        <div
+            :class="[
+                'grid relative min-w-0 items-center',
+                showInput ? 'flex-1 w-full' : 'shrink-0',
+            ]"
+        >
             <ActionToolbar
                 ref="actionToolbarRef"
                 :inert="showInput || undefined"
@@ -76,7 +81,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
                 :edit-target="editTarget"
                 :propose-mode="toolbarMode === 'propose'"
                 :class="[
-                    '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out',
+                    '[grid-area:1/1] transition-[opacity,transform] duration-200 ease-out min-w-0',
                     showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1 pointer-events-none',
                 ]"
             />

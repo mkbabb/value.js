@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full justify-evenly items-center">
+    <div class="flex items-center gap-1.5 shrink-0">
         <ActionButton
             :icon="RotateCcw"
             hover-key="reset"
