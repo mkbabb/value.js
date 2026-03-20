@@ -9,6 +9,7 @@ CSS value parsing, color theory, and unit conversion. Typed values with units—
 - Parse any CSS value: lengths, angles, times, colors, `calc()`, `var()`, gradients, transforms
 - **15 color spaces**: RGB, HSL, HSV, HWB, Lab, LCh, OKLab, OKLCh, XYZ, Kelvin, sRGB-linear, Display P3, Adobe RGB, ProPhoto RGB, Rec. 2020
 - Color space conversion via **XYZ hub** with analytical gamut mapping (Ottosson's algorithm)
+- **Color quantization**: OKLab-native palette extraction (MMCQ + k-means++) with chroma-weighted clustering and JND deduplication
 - CSS Color Level 4 support: `color()`, `color-mix()`, relative color syntax
 - CSS math functions: `calc()`, `min()`, `max()`, `clamp()`, trig, exponential
 - 30+ easing functions: cubic-bezier, stepped, linear(), bounce, sine, expo
@@ -70,6 +71,10 @@ src/
 │       ├── normalize.ts  # color normalization to [0,1], space conversion
 │       ├── gamut.ts      # Ottosson analytical sRGB gamut mapping
 │       └── colorFilter.ts # CSS filter solver (SPSA)
+├── quantize/             # image color quantization
+│   ├── index.ts          # quantizePixels, dominantColor (public API)
+│   ├── cluster.ts        # MMCQ median cut, k-means++, JND dedup
+│   └── types.ts          # QuantizeOptions, QuantizedColor
 └── transform/
     └── decompose.ts      # 2D/3D matrix decomposition, quaternion slerp
 ```
@@ -85,6 +90,33 @@ Each color space is documented in [`assets/docs/`](assets/docs/), therein with h
 Out-of-gamut colors are mapped using Björn Ottosson's analytical sRGB algorithm: a polynomial initial guess refined by a single Halley's method step (cubic convergence). Significantly faster than CSS Color 4's iterative binary search. Hue is preserved exactly; an adaptive `L0` formula blends between chroma reduction and mid-gray anchoring.
 
 See [`docs/gamut-mapping.md`](docs/gamut-mapping.md) for the full treatment.
+
+### Color Quantization
+
+`quantizePixels()` extracts a perceptual palette from raw image data. The pipeline operates natively in OKLab so that cluster boundaries align with perceived color differences rather than RGB channel magnitudes.
+
+```ts
+import { quantizePixels, dominantColor } from "@mkbabb/value.js";
+
+// pixels: Uint8ClampedArray (RGBA), from a canvas or ImageData
+const palette = quantizePixels(pixels, width, height, { k: 6 });
+// → QuantizedColor[] with oklab, oklch, rgb, css, population
+
+const dominant = dominantColor(pixels, width, height);
+// → the highest-chroma cluster from a k=5 extraction
+```
+
+The pipeline:
+
+1. **Downsample** to ~20k pixels (configurable via `targetPixels`).
+2. **sRGB→OKLab** conversion; transparent pixels (alpha < 10) are discarded.
+3. **MMCQ pre-clustering**—median cut along the OKLab axis of greatest range—produces coarse buckets that seed the next stage.
+4. **K-means++ initialization** (D²-weighted) selects k seeds from the MMCQ centroids.
+5. **K-means iteration** with a chroma-weighted distance metric: `d² = ΔL² + (1 + kC·C)·(Δa² + Δb²)`. The `chromaWeight` parameter (kC, default 0.5) controls how strongly hue/chroma distinctions influence clustering relative to lightness.
+6. **JND deduplication** merges centroids within deltaE_OK < 0.02 (the just-noticeable difference), collapsing clusters that landed in the same perceptual neighborhood.
+7. **Perceptual sort** orders the palette by nearest-neighbor traversal in weighted OKLCH space, starting from the darkest color.
+
+Each `QuantizedColor` carries OKLab, OKLCH, sRGB [0–255], a CSS `oklch()` string, and a `population` count.
 
 ## Easing
 

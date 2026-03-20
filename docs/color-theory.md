@@ -88,6 +88,41 @@ deltaE_OK = sqrt((L1-L2)^2 + (a1-a2)^2 + (b1-b2)^2)
 
 The just-noticeable difference (JND) threshold is ~**0.02**.
 
+## Color Quantization
+
+Palette extraction from image pixel data, operating natively in OKLab.
+
+Conventional quantizers (median cut, octree) work in sRGB, where Euclidean distance poorly tracks perceived difference. By clustering in OKLab, the quantizer's bucket splits and centroid convergence respect perceptual uniformity directly.
+
+### Pipeline
+
+1. **Downsample** the source image to a target pixel count (~20k by default). Transparent pixels are discarded.
+2. **MMCQ pre-clustering**: median cut in OKLab, splitting along whichever axis (L, a, or b) has the widest range per bucket. This produces `k×4` to 64 coarse clusters.
+3. **K-means++ seeding**: D²-weighted selection from the MMCQ centroids, biased by population count. The first seed is the most populated bucket.
+4. **K-means refinement** with a chroma-weighted distance metric:
+
+```
+d² = ΔL² + (1 + kC · C) · (Δa² + Δb²)
+```
+
+The `chromaWeight` (kC) parameter scales chromatic axes relative to lightness. At kC = 0 the metric is standard Euclidean in OKLab; higher values separate hue/chroma variations more aggressively.
+
+5. **JND deduplication**: centroids within deltaE_OK < 0.02 (the just-noticeable difference threshold) are merged via population-weighted averaging.
+6. **Perceptual sort**: nearest-neighbor traversal in weighted OKLCH space (hue continuity > lightness flow > chroma similarity), starting from the darkest color.
+
+### Public API
+
+```ts
+quantizePixels(pixels, width, height, options?) → QuantizedColor[]
+dominantColor(pixels, width, height)            → QuantizedColor | null
+```
+
+`dominantColor` runs a k=5 extraction and returns the cluster with highest OKLCH chroma.
+
+### Why OKLab
+
+Median cut in sRGB tends to over-split greens (large gamut area in sRGB coordinates) and under-split blues and purples. OKLab's perceptual uniformity means bucket volume correlates with perceived color range, producing palettes that better represent what a human viewer actually distinguishes.
+
 ## CSS Color Level 4
 
 value.js implements the core of CSS Color Level 4:
@@ -133,6 +168,11 @@ All conversions linearize before matrix transforms and re-encode afterward.
 - Helland, T. (2012). [How to convert temperature (K) to RGB](https://tannerhelland.com/2012/09/18/convert-temperature-rgb-algorithm-code.html). — Piecewise polynomial approximation used in `kelvin.ts`.
 - Myndex. [A comparative look at Lab and Luv colorspaces, and LCh](https://gist.github.com/Myndex/47c793f8a054041bd2b52caa7ad5271c). — Analysis of CIE Lab vs. CIE Luv for display-oriented color picking.
 - [XYZ to RGB — Color Calculations](https://colorcalculations.wordpress.com/xyz-to-rgb/). — Worked examples of XYZ↔RGB matrix transforms.
+
+### Clustering and quantization
+
+- Arthur, D. & Vassilvitskii, S. (2007). [k-means++: The advantages of careful seeding](http://ilpubs.stanford.edu:8090/778/1/2006-13.pdf). SODA 2007. — D²-weighted initialization used in the k-means++ seeding stage.
+- Heckbert, P. (1982). Color image quantization for frame buffer display. SIGGRAPH 1982. — The median-cut algorithm (MMCQ) adapted here for OKLab.
 
 ### Tools and implementations
 

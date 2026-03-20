@@ -48,6 +48,10 @@ src/
 │       ├── normalize.ts  # color normalization to [0,1], space conversion
 │       ├── gamut.ts      # Ottosson analytical sRGB gamut mapping (zero-iteration)
 │       └── colorFilter.ts # CSS filter solver via SPSA optimization
+├── quantize/             # image color quantization (OKLab-native)
+│   ├── index.ts          # quantizePixels, dominantColor (public API)
+│   ├── cluster.ts        # MMCQ median cut, k-means++, JND deduplication
+│   └── types.ts          # QuantizeOptions, QuantizedColor
 └── transform/
     └── decompose.ts      # 2D/3D matrix decomposition, quaternion slerp, recomposition
 ```
