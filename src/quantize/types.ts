@@ -1,28 +1,43 @@
+/**
+ * Types and defaults for OKLab-native color quantization.
+ *
+ * The quantizer operates entirely in OKLab for perceptual uniformity,
+ * then converts results to OKLCH, sRGB, and CSS on output.
+ */
+
 import { DELTA_E_OK_JND } from "../units/color/gamut";
 
 export interface QuantizeOptions {
-    /** Palette size (default 5, range 1–16) */
+    /** Number of palette colors to extract (default 5, clamped to [1, 16]). */
     k: number;
-    /** K-means max iterations (default 10) */
+    /** Maximum k-means refinement iterations before convergence cutoff (default 10). */
     maxIterations: number;
-    /** Downsample target pixel count (default 20_000) */
+    /** Downsample target: images are subsampled to approximately this many pixels (default 20,000). */
     targetPixels: number;
-    /** Chroma weight kC for distance (default 0.5) */
+    /**
+     * Chroma weight (kC) for the distance metric.
+     * Scales the chromatic (a, b) axes relative to lightness:
+     *   d² = ΔL² + (1 + kC·C)·(Δa² + Δb²)
+     * Higher values bias clustering toward hue/chroma distinctions (default 0.5).
+     */
     chromaWeight: number;
-    /** JND merge threshold in deltaEOK (default 0.02) */
+    /**
+     * Minimum deltaE_OK between centroids; pairs below this threshold are
+     * merged as perceptually indistinguishable. Defaults to the JND (~0.02).
+     */
     dedupeThreshold: number;
 }
 
 export interface QuantizedColor {
-    /** Raw OKLab [L, a, b] (L ∈ [0,1], a,b ∈ [-0.4,0.4]) */
+    /** OKLab triplet [L, a, b]. L ∈ [0, 1]; a, b ∈ approx [-0.4, 0.4]. */
     oklab: [number, number, number];
-    /** OKLCH [L, C, H] (L ∈ [0,1], C ≥ 0, H ∈ [0,360)) */
+    /** OKLCH triplet [L, C, H]. L ∈ [0, 1]; C ≥ 0; H ∈ [0, 360). */
     oklch: [number, number, number];
-    /** sRGB [r, g, b] each ∈ [0, 255] */
+    /** Gamma-encoded sRGB triplet, each channel ∈ [0, 255]. */
     rgb: [number, number, number];
-    /** CSS oklch() string */
+    /** CSS `oklch()` string, ready for stylesheet injection. */
     css: string;
-    /** Number of pixels in this cluster */
+    /** Pixel count assigned to this cluster (after downsampling). */
     population: number;
 }
 

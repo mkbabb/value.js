@@ -1,6 +1,15 @@
 /**
- * Clustering internals: MMCQ median cut, k-means++ init, k-means iteration,
- * JND deduplication, and color conversion helpers.
+ * Clustering internals for OKLab-native color quantization.
+ *
+ * - Median-cut quantization (MMCQ) in OKLab: pre-clusters pixels by
+ *   splitting along the axis of greatest perceptual range.
+ * - K-means++ (D²-weighted) initialization from MMCQ centroids.
+ * - K-means iteration with chroma-weighted distance.
+ * - JND deduplication: merges centroids within deltaE_OK threshold,
+ *   population-weighted.
+ *
+ * All distances use OKLab coordinates directly, so lightness and
+ * chromaticity contribute proportionally to perceived difference.
  */
 
 import { oklabToLinearSRGB, deltaEOK } from "../units/color/gamut";
@@ -57,6 +66,10 @@ export function oklchToCss(L: number, C: number, H: number): string {
 }
 
 // ── Median Cut (MMCQ) in OKLab ──
+//
+// Splits pixel populations along whichever OKLab axis (L, a, or b) has
+// the widest range in each bucket. Produces coarse clusters that seed
+// k-means++ initialization.
 
 interface OKLabBucket {
     pixels: Float64Array;
@@ -117,6 +130,13 @@ function splitBucket(bucket: OKLabBucket): [OKLabBucket, OKLabBucket] {
     ];
 }
 
+/**
+ * Median-cut quantization in OKLab space.
+ *
+ * Iteratively splits pixel buckets along the axis of greatest range
+ * until `targetBuckets` clusters are reached. Returns each bucket's
+ * centroid (mean L, a, b) and population count.
+ */
 export function medianCutOKLab(
     allPixels: Float64Array,
     pixelCount: number,
@@ -161,6 +181,12 @@ export function medianCutOKLab(
 
 // ── K-Means++ Initialization ──
 
+/**
+ * Select k seed centroids from MMCQ output using D²-weighted sampling
+ * (Arthur & Vassilvitskii, 2007). The first seed is the most populated
+ * MMCQ bucket; subsequent seeds are chosen with probability proportional
+ * to chroma-weighted squared distance × population.
+ */
 export function kmeansPlusPlusInit(
     centroids: { centroid: [number, number, number]; population: number }[],
     k: number,
@@ -222,6 +248,11 @@ export function kmeansPlusPlusInit(
 
 // ── K-Means Iteration ──
 
+/**
+ * Standard Lloyd's algorithm with chroma-weighted distance.
+ * Runs until centroids converge (shift < 1e-10) or `maxIterations` is reached.
+ * Returns final centroids and per-cluster pixel populations.
+ */
 export function kmeansIterate(
     pixels: Float64Array,
     pixelCount: number,
@@ -301,6 +332,11 @@ export function kmeansIterate(
 
 // ── Deduplication ──
 
+/**
+ * Merge centroids whose deltaE_OK falls below `threshold` (the JND).
+ * Merged centroids are population-weighted averages. This collapses
+ * clusters that k-means settled into the same perceptual neighborhood.
+ */
 export function deduplicateCentroids(
     centroids: [number, number, number][],
     populations: number[],
