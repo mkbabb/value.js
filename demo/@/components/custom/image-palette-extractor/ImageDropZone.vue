@@ -10,7 +10,7 @@
                     : 'border-primary/30 bg-primary/5 hover:border-primary/50 hover:bg-primary/10',
         ]"
         :style="{ transitionDuration: 'var(--duration-normal)', transitionTimingFunction: 'var(--ease-standard)' }"
-        @click="openFilePicker"
+        @click="!disableClick && openFilePicker()"
         @dragover.prevent="dragging = true"
         @dragleave.prevent="dragging = false"
         @drop.prevent="onDrop"
@@ -23,7 +23,7 @@
             @change="onFileSelected"
         />
 
-        <Transition name="image-fade" mode="out-in">
+        <Transition name="fade" mode="out-in">
             <img
                 v-if="preview"
                 :key="preview"
@@ -45,7 +45,7 @@
             class="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 hover:opacity-100 transition-opacity"
             :style="{ transitionDuration: 'var(--duration-fast)' }"
         >
-            <span class="fira-code text-xs text-muted-foreground">Click or drop to replace</span>
+            <span class="fira-code text-xs text-muted-foreground">{{ disableClick ? 'Click to sample colors' : 'Click or drop to replace' }}</span>
         </div>
     </div>
 </template>
@@ -56,6 +56,7 @@ import { ImagePlus } from "lucide-vue-next";
 
 defineProps<{
     preview: string | null;
+    disableClick?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -68,6 +69,8 @@ const dragging = ref(false);
 function openFilePicker() {
     fileInputRef.value?.click();
 }
+
+defineExpose({ openFilePicker });
 
 function onFileSelected(e: Event) {
     const input = e.target as HTMLInputElement;
@@ -85,15 +88,3 @@ function onDrop(e: DragEvent) {
 }
 </script>
 
-<style scoped>
-@reference "../../../styles/style.css";
-
-.image-fade-enter-active,
-.image-fade-leave-active {
-    transition: opacity var(--duration-normal) var(--ease-standard);
-}
-.image-fade-enter-from,
-.image-fade-leave-to {
-    opacity: 0;
-}
-</style>

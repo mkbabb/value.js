@@ -9,7 +9,7 @@
                     <ImageDropZone class="flex-1 min-h-0 sm:max-h-[min(400px,50vh)]" :preview="previewDataUrl" @file="onFile" />
 
                     <!-- Camera viewfinder -->
-                    <Transition name="expand-fade">
+                    <Transition name="fade-slide">
                         <div v-if="cameraActive" class="relative rounded-2xl overflow-hidden bg-black shrink-0">
                             <video
                                 ref="videoRef"
@@ -19,7 +19,7 @@
                                 class="w-full max-h-[200px] object-cover"
                             />
                             <div class="absolute inset-x-0 bottom-0 flex justify-center p-2.5 bg-gradient-to-t from-black/50 to-transparent">
-                                <button class="dock-icon-btn !w-9 !h-9 !bg-white/20 hover:!bg-white/40 backdrop-blur-sm" @click="captureFrame">
+                                <button class="dock-icon-btn-compact p-1.5 bg-white/20 hover:bg-white/40 backdrop-blur-sm" @click="captureFrame">
                                     <Aperture class="w-4.5 h-4.5 text-white" />
                                 </button>
                             </div>
@@ -56,7 +56,7 @@
                     </div>
 
                     <!-- Extracted palette as PaletteCard -->
-                    <Transition name="expand-fade">
+                    <Transition name="fade-slide">
                         <PaletteCard
                             v-if="extractedPalette && !isProcessing"
                             :palette="extractedPalette"
@@ -257,23 +257,3 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped>
-@reference "../../../styles/style.css";
-
-.expand-fade-enter-active {
-    transition: opacity var(--duration-normal) var(--ease-decelerate),
-                transform var(--duration-normal) var(--ease-decelerate);
-}
-.expand-fade-leave-active {
-    transition: opacity var(--duration-fast) var(--ease-accelerate),
-                transform var(--duration-fast) var(--ease-accelerate);
-}
-.expand-fade-enter-from {
-    opacity: 0;
-    transform: translateY(-4px);
-}
-.expand-fade-leave-to {
-    opacity: 0;
-    transform: translateY(4px);
-}
-</style>

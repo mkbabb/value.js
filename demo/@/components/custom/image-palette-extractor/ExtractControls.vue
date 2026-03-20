@@ -31,26 +31,15 @@
             </div>
         </div>
 
-        <!-- Controls row: camera, kC slider, reset -->
+        <!-- Controls row: upload, kC slider, reset -->
         <div class="flex items-center gap-2">
             <button
                 class="dock-icon-btn"
-                :disabled="disabled"
-                title="Camera"
+                title="Upload image"
                 :style="{ '--hover-color': cssColor }"
-                @click="$emit('camera')"
+                @click="$emit('upload')"
             >
-                <Camera class="w-5 h-5 transition-colors" />
-            </button>
-
-            <button
-                class="dock-icon-btn"
-                :disabled="disabled || !hasImage"
-                title="Eyedropper"
-                :style="{ '--hover-color': cssColor }"
-                @click="$emit('eyedropper')"
-            >
-                <Pipette class="w-4.5 h-4.5 transition-colors" />
+                <Upload class="w-5 h-5 transition-colors" />
             </button>
 
             <div class="dock-separator" />
@@ -94,7 +83,7 @@
                 :style="{ '--hover-color': cssColor }"
                 @click="$emit('reset')"
             >
-                <RotateCcw class="w-4 h-4 transition-colors" />
+                <RotateCcw class="w-5 h-5 transition-colors" />
             </button>
         </div>
     </div>
@@ -102,7 +91,7 @@
 
 <script setup lang="ts">
 import { ref, useTemplateRef } from "vue";
-import { Camera, Pipette, RotateCcw } from "lucide-vue-next";
+import { Upload, RotateCcw } from "lucide-vue-next";
 import { useTouchGate } from "@composables/useTouchGate";
 
 defineProps<{
@@ -117,8 +106,7 @@ defineProps<{
 defineEmits<{
     "update:k": [value: number];
     "update:chromaWeight": [value: number];
-    camera: [];
-    eyedropper: [];
+    upload: [];
     reset: [];
 }>();
 
@@ -190,7 +178,7 @@ function onKcPointerDown(e: PointerEvent) {
     background: transparent;
     border: 2px solid hsl(var(--foreground) / 0.4);
     cursor: pointer;
-    transition: border-color var(--duration-fast) ease, transform var(--duration-fast) var(--ease-spring);
+    transition: border-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-spring);
 }
 .extract-slider--k::-moz-range-thumb {
     width: 0.75rem;
@@ -225,7 +213,7 @@ function onKcPointerDown(e: PointerEvent) {
     background: transparent;
     border: 2px solid hsl(var(--foreground) / 0.4);
     cursor: pointer;
-    transition: border-color var(--duration-fast) ease, transform var(--duration-fast) var(--ease-spring);
+    transition: border-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-spring);
 }
 .extract-slider--kc::-moz-range-thumb {
     width: 0.625rem;

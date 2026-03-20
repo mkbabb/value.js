@@ -357,7 +357,7 @@ watch(() => props.imageUrl, () => { loadImage(); });
     pointer-events: none;
     z-index: 30;
     overflow: hidden;
-    transition: opacity var(--duration-fast) ease;
+    transition: opacity var(--duration-fast) var(--ease-standard);
 }
 
 .loupe-pinned {
