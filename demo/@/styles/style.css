@@ -5,13 +5,13 @@
 @import "./floating-panel.css";
 @import "./transitions.css";
 
-/* Prevent horizontal overflow on mobile Safari — elements with
-   overflow:visible (hero blob satellites, atmosphere canvas blobs)
-   can extend beyond the viewport and trigger horizontal scrolling.
-   Must use `hidden` not `clip`: the spec does not propagate `clip`
-   from the root element to the viewport. */
-html {
+/* Prevent horizontal overflow on mobile Safari — CSS filters
+   (drop-shadow on hero blob, backdrop-filter on dock/cards) create
+   visual overflow that Safari propagates to the viewport even through
+   overflow:hidden ancestors. Lock down at every level. */
+html, body {
     overflow-x: hidden;
+    overscroll-behavior-x: none;
 }
 
 @theme {
@@ -187,6 +187,7 @@ html {
     height: 100dvh;
     width: 100%;
     position: relative;
+    overflow: hidden;
     padding: calc(var(--dock-total) + 0.5rem) 1rem 0.5rem;
     align-items: stretch;
 }
