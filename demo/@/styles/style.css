@@ -6,10 +6,12 @@
 @import "./transitions.css";
 
 /* Prevent horizontal overflow on mobile Safari — elements with
-   overflow:visible (hero blob, atmosphere canvas) can extend beyond
-   the viewport and trigger horizontal scrolling. */
-html, body {
-    overflow-x: clip;
+   overflow:visible (hero blob satellites, atmosphere canvas blobs)
+   can extend beyond the viewport and trigger horizontal scrolling.
+   Must use `hidden` not `clip`: the spec does not propagate `clip`
+   from the root element to the viewport. */
+html {
+    overflow-x: hidden;
 }
 
 @theme {
