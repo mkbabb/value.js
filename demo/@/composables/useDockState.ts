@@ -96,19 +96,20 @@ export function useDockState(options: UseDockStateOptions) {
 
     function onMouseLeave(e?: MouseEvent) {
         if (getAlwaysExpanded()) return;
-        // If mouse moved to a descendant or teleported child (dropdown, popover), don't collapse
-        if (e) {
-            const root = rootEl.value;
-            if (
-                root &&
-                e.relatedTarget instanceof Node &&
-                root.contains(e.relatedTarget)
-            )
-                return;
-            if (isTeleportedTarget(e.relatedTarget)) return;
-        }
         if (state.value === "hover") {
+            // Something is explicitly holding the dock open (dropdown, edit, etc.)
             if (keepOpenCount > 0) return;
+            // Mouse moved to a descendant or teleported child (dropdown, popover)
+            if (e) {
+                const root = rootEl.value;
+                if (
+                    root &&
+                    e.relatedTarget instanceof Node &&
+                    root.contains(e.relatedTarget)
+                )
+                    return;
+                if (isTeleportedTarget(e.relatedTarget)) return;
+            }
             scheduleCollapse();
         }
         // If pinned, no-op (stays pinned)
@@ -128,12 +129,13 @@ export function useDockState(options: UseDockStateOptions) {
 
     function onFocusOut(e: FocusEvent) {
         if (getAlwaysExpanded()) return;
+        if (state.value !== "hover") return;
+        if (keepOpenCount > 0) return;
         const root = e.currentTarget as HTMLElement;
         if (e.relatedTarget && root.contains(e.relatedTarget as Node)) return;
-        if (keepOpenCount > 0) return;
-        if (state.value === "hover") {
-            scheduleCollapse();
-        }
+        // Focus moved to a teleported element (dropdown content, select, popover)
+        if (isTeleportedTarget(e.relatedTarget)) return;
+        scheduleCollapse();
     }
 
     // --- Click on collapsed layer → PINNED ---
@@ -171,9 +173,16 @@ export function useDockState(options: UseDockStateOptions) {
     // --- Click-away listener ---
 
     function isTeleportedTarget(target: EventTarget | null): boolean {
-        return target instanceof HTMLElement && !!(
+        if (!(target instanceof HTMLElement)) return false;
+        // reka-ui teleports dropdown/select/popover content to <body> via Portal.
+        // Any of these selectors means the target is logically "inside" the dock.
+        return !!(
             target.closest('[data-reka-popper-content-wrapper]') ||
             target.closest('[data-reka-select-content]') ||
+            target.closest('[data-reka-dropdown-menu-content]') ||
+            target.closest('[data-reka-menu-content]') ||
+            target.closest('[role="menu"]') ||
+            target.closest('[role="listbox"]') ||
             target.closest('.floating-panel') ||
             target.closest('.dock-popover')
         );
