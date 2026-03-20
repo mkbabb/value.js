@@ -47,6 +47,7 @@ const { visualExpanded, isTransitioning, onTransitionEnd } = useDockTransition({
     expanded,
     rootEl: dockEl,
     fadeMs: props.fadeMs,
+    alwaysExpanded,
 });
 
 onMounted(() => {
@@ -98,21 +99,24 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
     align-items: center;
     padding: 0.375rem 0.5rem;
     border-radius: var(--radius-pill);
-    background: var(--glass-bg);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: hsl(var(--card) / 0.92);
+    backdrop-filter: var(--glass-blur-light);
+    -webkit-backdrop-filter: var(--glass-blur-light);
+
+    @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+        background: var(--glass-bg);
+    }
     border: 1.5px solid hsl(var(--foreground) / 0.25);
     box-shadow:
         0 4px 20px hsl(var(--foreground) / 0.25),
         0 0 0 1px hsl(var(--foreground) / 0.15);
     white-space: nowrap;
     overflow: hidden;
-    --ease-dock: cubic-bezier(0.18, 1.4, 0.4, 1);
     transition:
-        width 0.25s var(--ease-dock),
-        padding 0.25s var(--ease-dock),
+        width var(--duration-normal) var(--ease-dock),
+        padding var(--duration-normal) var(--ease-dock),
         box-shadow var(--duration-normal) var(--ease-standard),
-        transform 0.25s var(--ease-dock),
+        transform var(--duration-normal) var(--ease-dock),
         background var(--duration-normal) var(--ease-standard),
         border-color var(--duration-normal) var(--ease-standard);
 }
@@ -180,5 +184,6 @@ defineExpose({ expanded, isPinned, expand, collapse, keepOpen, release });
 
 .glass-dock.always-expanded {
     cursor: default;
+    overflow: visible;
 }
 </style>

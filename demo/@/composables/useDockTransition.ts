@@ -8,6 +8,8 @@ export interface UseDockTransitionOptions {
     rootEl: Ref<HTMLElement | null>;
     /** Fade duration in ms before the layer swap (default: 60) */
     fadeMs?: number;
+    /** When true, skip all width-pinning transitions (dock is always open) */
+    alwaysExpanded?: Ref<boolean>;
 }
 
 /**
@@ -21,7 +23,7 @@ export interface UseDockTransitionOptions {
  * Sequence: fade out → swap layer → animate width → fade in.
  */
 export function useDockTransition(options: UseDockTransitionOptions) {
-    const { expanded, rootEl, fadeMs = 60 } = options;
+    const { expanded, rootEl, fadeMs = 60, alwaysExpanded } = options;
 
     const visualExpanded = ref(expanded.value);
     const isTransitioning = ref(false);
@@ -38,6 +40,12 @@ export function useDockTransition(options: UseDockTransitionOptions) {
     let transitionId = 0;
 
     watch(expanded, () => {
+        // Skip width-pinning transition when always expanded — no layer swap needed
+        if (alwaysExpanded?.value) {
+            visualExpanded.value = expanded.value;
+            return;
+        }
+
         const el = rootEl.value;
         if (!el) return;
 
