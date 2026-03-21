@@ -12,7 +12,8 @@
  * chromaticity contribute proportionally to perceived difference.
  */
 
-import { oklabToLinearSRGB, deltaEOK } from "../units/color/gamut";
+import { deltaEOK, rawOklabToOklch, oklabToRgb255 } from "../units/color/gamut";
+export { rawOklabToOklch, oklabToRgb255 };
 
 // ── Color conversion helpers ──
 
@@ -27,34 +28,6 @@ export function chromaDistSq(
     const db = b1 - b2;
     const C = Math.sqrt(a1 * a1 + b1 * b1);
     return dL * dL + (1 + kC * C) * (da * da + db * db);
-}
-
-/** OKLab → OKLCH (raw values, not normalized [0,1]) */
-export function rawOklabToOklch(L: number, a: number, b: number): [number, number, number] {
-    const C = Math.sqrt(a * a + b * b);
-    let H = Math.atan2(b, a) * (180 / Math.PI);
-    if (H < 0) H += 360;
-    return [L, C, H];
-}
-
-/** OKLab → clamped sRGB [0,255] */
-export function oklabToRgb255(L: number, a: number, b: number): [number, number, number] {
-    const [rLin, gLin, bLin] = oklabToLinearSRGB(L, a, b);
-
-    const gamma = 2.4;
-    const offset = 0.055;
-    const threshold = 0.0031308;
-
-    function toSrgb(c: number): number {
-        const abs = Math.abs(c);
-        const sign = c < 0 ? -1 : 1;
-        const srgb = abs <= threshold
-            ? c * 12.92
-            : sign * ((1 + offset) * abs ** (1 / gamma) - offset);
-        return Math.round(Math.min(Math.max(srgb * 255, 0), 255));
-    }
-
-    return [toSrgb(rLin), toSrgb(gLin), toSrgb(bLin)];
 }
 
 /** Format OKLCH as CSS string */

@@ -79,83 +79,27 @@ import { Card, CardHeader, CardContent } from "@components/ui/card";
 import { Separator } from "@components/ui/separator";
 import { Button } from "@components/ui/button";
 import { RotateCcw, Copy, Check, X as XIcon } from "lucide-vue-next";
+import { copyToClipboard } from "@composables/useClipboard";
 import {
     DEFAULT_ATMOSPHERE_CONFIG,
-    type AtmosphereConfig,
-} from "@composables/useAtmosphereCanvas";
+    ATMOSPHERE_SECTIONS,
+} from "@composables/atmosphereConfig";
+import type {
+    AtmosphereConfig,
+    AtmosphereParam,
+} from "@composables/atmosphereConfig";
 
 defineProps<{ cssColorOpaque: string }>();
 
 const cfg = inject<AtmosphereConfig>("atmosphereConfig")!;
 const copyState = ref<"idle" | "ok" | "err">("idle");
 
-// ── Param schema ──
-
-interface P {
-    key: keyof AtmosphereConfig;
-    label: string;
-    desc: string;
-    min: number;
-    max: number;
-    step: number;
-}
-
-interface Section {
-    title: string;
-    desc: string;
-    params: P[];
-}
-
-const sections: Section[] = [
-    {
-        title: "Surface",
-        desc: "The base layer beneath the blobs.",
-        params: [
-            { key: "bgAlpha", label: "Opacity", desc: "How opaque the base fill is", min: 0, max: 1, step: 0.05 },
-            { key: "blur", label: "Blur", desc: "Gaussian blur on every blob", min: 0, max: 100, step: 1 },
-            { key: "speed", label: "Speed", desc: "Animation tempo multiplier", min: 0, max: 2, step: 0.05 },
-        ],
-    },
-    {
-        title: "Geometry",
-        desc: "Size, count, and orbit paths.",
-        params: [
-            { key: "blobCount", label: "Count", desc: "Total number of blobs", min: 1, max: 20, step: 1 },
-            { key: "blobBaseRadius", label: "Base radius", desc: "Starting size as % of viewport", min: 0.02, max: 0.5, step: 0.01 },
-            { key: "blobRadiusStep", label: "Radius step", desc: "Each subsequent blob grows by", min: 0, max: 0.1, step: 0.005 },
-            { key: "smallRadiusScale", label: "Small scale", desc: "Size ratio for the small blobs", min: 0.1, max: 1, step: 0.05 },
-            { key: "orbitX", label: "Orbit X", desc: "Horizontal drift amplitude", min: 0, max: 0.5, step: 0.01 },
-            { key: "orbitY", label: "Orbit Y", desc: "Vertical drift amplitude", min: 0, max: 0.5, step: 0.01 },
-        ],
-    },
-    {
-        title: "Color",
-        desc: "OKLCH lightness and hue offsets.",
-        params: [
-            { key: "peakAlphaLarge", label: "Alpha (large)", desc: "Opacity at blob center", min: 0, max: 1, step: 0.05 },
-            { key: "peakAlphaSmall", label: "Alpha (small)", desc: "Opacity of smaller blobs", min: 0, max: 1, step: 0.05 },
-            { key: "lShiftLarge", label: "L shift (large)", desc: "Lightness variation for big blobs", min: 0, max: 0.5, step: 0.01 },
-            { key: "lShiftSmall", label: "L shift (small)", desc: "Lightness variation for small", min: 0, max: 0.5, step: 0.01 },
-            { key: "hueShiftLarge", label: "Hue (large)", desc: "Degrees of hue rotation", min: 0, max: 180, step: 1 },
-            { key: "hueShiftSmall", label: "Hue (small)", desc: "More rotation for small blobs", min: 0, max: 180, step: 1 },
-        ],
-    },
-    {
-        title: "Falloff",
-        desc: "Radial gradient shape per blob.",
-        params: [
-            { key: "gradStop2", label: "Mid", desc: "Where gradient hits 60% fade", min: 0.05, max: 0.8, step: 0.01 },
-            { key: "gradStop3", label: "Fade", desc: "Where gradient hits 20% fade", min: 0.1, max: 0.95, step: 0.01 },
-            { key: "gradStop4", label: "End", desc: "Radius at full transparency", min: 0.2, max: 1, step: 0.01 },
-        ],
-    },
-];
-
+const sections = ATMOSPHERE_SECTIONS;
 const allParams = sections.flatMap((s) => s.params);
 
 // ── Helpers ──
 
-function fmt(p: P): string {
+function fmt(p: AtmosphereParam): string {
     const v = (cfg as any)[p.key] as number;
     return p.step >= 1 ? String(v) : v.toFixed(2);
 }
@@ -164,7 +108,7 @@ function set(key: keyof AtmosphereConfig, e: Event) {
     (cfg as any)[key] = parseFloat((e.target as HTMLInputElement).value);
 }
 
-function resetSection(params: P[]) {
+function resetSection(params: AtmosphereParam[]) {
     for (const p of params) {
         (cfg as any)[p.key] = DEFAULT_ATMOSPHERE_CONFIG[p.key];
     }
@@ -175,26 +119,9 @@ function resetAll() {
 }
 
 async function copyJson() {
-    try {
-        const snapshot: Record<string, number> = {};
-        for (const p of allParams) snapshot[p.key] = (cfg as any)[p.key];
-        const text = JSON.stringify(snapshot, null, 2);
-        // Fallback for non-secure contexts (localhost over HTTP)
-        if (navigator.clipboard?.writeText) {
-            await navigator.clipboard.writeText(text);
-        } else {
-            const ta = document.createElement("textarea");
-            ta.value = text;
-            ta.style.cssText = "position:fixed;left:-9999px";
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand("copy");
-            document.body.removeChild(ta);
-        }
-        copyState.value = "ok";
-    } catch {
-        copyState.value = "err";
-    }
+    const snapshot: Record<string, number> = {};
+    for (const p of allParams) snapshot[p.key] = (cfg as any)[p.key];
+    copyState.value = (await copyToClipboard(JSON.stringify(snapshot, null, 2))) ? "ok" : "err";
     setTimeout(() => { copyState.value = "idle"; }, 2000);
 }
 </script>

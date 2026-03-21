@@ -319,3 +319,29 @@ export function gamutMapSRGB(
         clamp(linearToSrgb(bM), 0, 1),
     ];
 }
+
+// ── Raw tuple conversions (promoted from quantize/cluster.ts) ──
+
+/** OKLab (L,a,b) → OKLCH (L,C,H) with H in degrees [0,360). */
+export function rawOklabToOklch(L: number, a: number, b: number): [number, number, number] {
+    const C = Math.sqrt(a * a + b * b);
+    let H = Math.atan2(b, a) * (180 / Math.PI);
+    if (H < 0) H += 360;
+    return [L, C, H];
+}
+
+/** OKLCH (L,C,H) → OKLab (L,a,b). H in degrees. */
+export function rawOklchToOklab(L: number, C: number, H: number): [number, number, number] {
+    const hRad = (H * Math.PI) / 180;
+    return [L, C * Math.cos(hRad), C * Math.sin(hRad)];
+}
+
+/** OKLab → clamped sRGB [0,255]. */
+export function oklabToRgb255(L: number, a: number, b: number): [number, number, number] {
+    const [rLin, gLin, bLin] = oklabToLinearSRGB(L, a, b);
+    return [
+        Math.round(clamp(linearToSrgb(rLin), 0, 1) * 255),
+        Math.round(clamp(linearToSrgb(gLin), 0, 1) * 255),
+        Math.round(clamp(linearToSrgb(bLin), 0, 1) * 255),
+    ];
+}

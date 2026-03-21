@@ -6,143 +6,29 @@ import {
     type Ref,
     type ShallowRef,
 } from "vue";
+import { clamp } from "@src/math";
+import { srgbToOKLab, rawOklabToOklch, rawOklchToOklab, oklabToRgb255 } from "@src/units/color/gamut";
+import { cssToRgb, DEFAULT_ATMOSPHERE_CONFIG } from "./atmosphereConfig";
+import type { AtmosphereConfig } from "./atmosphereConfig";
 
-// ── Local utilities ──
+export type { AtmosphereConfig } from "./atmosphereConfig";
+export { DEFAULT_ATMOSPHERE_CONFIG } from "./atmosphereConfig";
 
-function clamp(v: number, lo: number, hi: number) {
-    return Math.min(hi, Math.max(lo, v));
-}
-
-/** Resolve any CSS color string → [r, g, b] via a 1×1 canvas. */
-function cssToRgb(css: string): [number, number, number] {
-    if (!cssToRgb._ctx) {
-        const c = document.createElement("canvas");
-        c.width = c.height = 1;
-        cssToRgb._ctx = c.getContext("2d", { willReadFrequently: true })!;
-    }
-    const ctx = cssToRgb._ctx;
-    ctx.clearRect(0, 0, 1, 1);
-    ctx.fillStyle = "#808080";
-    ctx.fillStyle = css;
-    ctx.fillRect(0, 0, 1, 1);
-    const d = ctx.getImageData(0, 0, 1, 1).data;
-    return [d[0]!, d[1]!, d[2]!];
-}
-cssToRgb._ctx = null as CanvasRenderingContext2D | null;
+// ── Local helpers ──
 
 function rgba(r: number, g: number, b: number, a: number): string {
     return `rgba(${r},${g},${b},${a})`;
 }
 
-// ── sRGB ↔ OKLCH ──
-
-function srgbToLinear(x: number): number {
-    return x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
-}
-
-function linearToSrgb(x: number): number {
-    return x <= 0.0031308 ? 12.92 * x : 1.055 * x ** (1 / 2.4) - 0.055;
-}
-
 function rgbToOklch(r: number, g: number, b: number): [number, number, number] {
-    const lr = srgbToLinear(r / 255);
-    const lg = srgbToLinear(g / 255);
-    const lb = srgbToLinear(b / 255);
-
-    const l = Math.cbrt(0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb);
-    const m = Math.cbrt(0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb);
-    const s = Math.cbrt(0.0883024619 * lr + 0.2817188376 * lb + 0.6299787005 * lb);
-
-    const L = 0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s;
-    const a = 1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s;
-    const bVal = 0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s;
-
-    const C = Math.sqrt(a * a + bVal * bVal);
-    const H = ((Math.atan2(bVal, a) * 180) / Math.PI + 360) % 360;
-    return [L, C, H];
+    const [L, a, b_] = srgbToOKLab(r / 255, g / 255, b / 255);
+    return rawOklabToOklch(L, a, b_);
 }
 
 function oklchToRgb(L: number, C: number, H: number): [number, number, number] {
-    const hRad = (H * Math.PI) / 180;
-    const a = C * Math.cos(hRad);
-    const b = C * Math.sin(hRad);
-
-    const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
-    const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
-    const s_ = L - 0.0894841775 * a - 1.2914855480 * b;
-
-    const lr = 4.0767416621 * l_ ** 3 - 3.3077115913 * m_ ** 3 + 0.2309699292 * s_ ** 3;
-    const lg = -1.2684380046 * l_ ** 3 + 2.6097574011 * m_ ** 3 - 0.3413193965 * s_ ** 3;
-    const lb = -0.0041960863 * l_ ** 3 - 0.7034186147 * m_ ** 3 + 1.7076147010 * s_ ** 3;
-
-    return [
-        Math.round(clamp(linearToSrgb(lr), 0, 1) * 255),
-        Math.round(clamp(linearToSrgb(lg), 0, 1) * 255),
-        Math.round(clamp(linearToSrgb(lb), 0, 1) * 255),
-    ];
+    const [la, a, b] = rawOklchToOklab(L, C, H);
+    return oklabToRgb255(la, a, b);
 }
-
-// ── Config type ──
-
-export interface AtmosphereConfig {
-    /** Background opacity (0–1) */
-    bgAlpha: number;
-    /** Blur radius in px */
-    blur: number;
-    /** Animation speed multiplier */
-    speed: number;
-    /** Number of blobs to render */
-    blobCount: number;
-    /** Base radius as fraction of max(w,h) */
-    blobBaseRadius: number;
-    /** Radius increment per blob index */
-    blobRadiusStep: number;
-    /** Small blob radius multiplier (vs large) */
-    smallRadiusScale: number;
-    /** Peak alpha for large blobs */
-    peakAlphaLarge: number;
-    /** Peak alpha for small blobs */
-    peakAlphaSmall: number;
-    /** L shift magnitude for large blobs */
-    lShiftLarge: number;
-    /** L shift magnitude for small blobs */
-    lShiftSmall: number;
-    /** Hue shift for large blobs (degrees) */
-    hueShiftLarge: number;
-    /** Hue shift for small blobs (degrees) */
-    hueShiftSmall: number;
-    /** Orbit X amplitude as fraction of width */
-    orbitX: number;
-    /** Orbit Y amplitude as fraction of height */
-    orbitY: number;
-    /** Gradient stop 2 position (0–1) */
-    gradStop2: number;
-    /** Gradient stop 3 position (0–1) */
-    gradStop3: number;
-    /** Gradient stop 4 (fade-out) position (0–1) */
-    gradStop4: number;
-}
-
-export const DEFAULT_ATMOSPHERE_CONFIG: AtmosphereConfig = {
-    bgAlpha: 0.75,
-    blur: 13,
-    speed: 0.65,
-    blobCount: 10,
-    blobBaseRadius: 0.16,
-    blobRadiusStep: 0.03,
-    smallRadiusScale: 0.60,
-    peakAlphaLarge: 0.80,
-    peakAlphaSmall: 0.60,
-    lShiftLarge: 0.15,
-    lShiftSmall: 0.10,
-    hueShiftLarge: 25,
-    hueShiftSmall: 55,
-    orbitX: 0.30,
-    orbitY: 0.20,
-    gradStop2: 0.30,
-    gradStop3: 0.60,
-    gradStop4: 1.00,
-};
 
 // ── Composable ──
 

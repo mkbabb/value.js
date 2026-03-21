@@ -190,6 +190,9 @@ export {
     gamutMapOKLab,
     srgbToOKLab,
     gamutMapSRGB,
+    rawOklabToOklch,
+    rawOklchToOklab,
+    oklabToRgb255,
 } from "./units/color/gamut";
 
 // Math utilities
