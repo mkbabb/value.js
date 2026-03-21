@@ -8,6 +8,7 @@ import {
     Tag,
     Home,
     Info,
+    Sparkles,
 } from "lucide-vue-next";
 import { useStorage } from "@vueuse/core";
 
@@ -16,6 +17,7 @@ export type ViewId =
     | "palettes"
     | "browse"
     | "extract"
+    | "atmosphere"
     | "admin-users"
     | "admin-names";
 
@@ -23,6 +25,7 @@ export type LeftPane =
     | "color-picker"
     | "browse"
     | "extract"
+    | "atmosphere"
     | "admin-users"
     | "admin-names";
 
@@ -69,6 +72,14 @@ const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Extract",
         rightLabel: "Palettes",
         icon: Camera,
+    },
+    atmosphere: {
+        left: "atmosphere",
+        right: null,
+        label: "Atmosphere",
+        leftLabel: "Atmosphere",
+        rightLabel: null,
+        icon: Sparkles,
     },
     "admin-users": {
         left: "admin-users",

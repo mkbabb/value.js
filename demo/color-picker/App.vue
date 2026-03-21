@@ -53,7 +53,6 @@
             ref="atmosphereCanvas"
             class="absolute inset-0 w-full h-full pointer-events-none"
         />
-        <!-- TopDock -->
         <TopDock
             :css-color-opaque="cssColorOpaque"
             :link-copied="linkCopied"
@@ -113,6 +112,11 @@
                             :css-color-opaque="cssColorOpaque"
                             :color-space="model.selectedColorSpace"
                         />
+                        <AtmospherePane
+                            v-else-if="currentConfig.left === 'atmosphere'"
+                            key="atmosphere"
+                            :css-color-opaque="cssColorOpaque"
+                        />
                         <AdminPane
                             v-else-if="currentConfig.left === 'admin-users'"
                             key="admin-users"
@@ -129,10 +133,10 @@
                 </Transition>
             </div>
 
-            <!-- Desktop: right pane (lg+) -->
+            <!-- Desktop: right pane (lg+) — always in DOM to preserve scroll-timeline state -->
             <div
-                v-if="currentConfig.right !== null"
-                class="pane-wrapper hidden lg:block w-full min-w-0 min-h-0 h-full"
+                class="pane-wrapper hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+                :style="currentConfig.right === null ? 'visibility:hidden;position:absolute;pointer-events:none;opacity:0' : ''"
             >
                 <Transition name="pane-right" mode="out-in">
                     <KeepAlive :max="3">
@@ -184,7 +188,7 @@ import {
     BrowsePane,
     ExtractPane,
     AdminPane,
-
+    AtmospherePane,
 } from "@components/custom/panes";
 
 import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
@@ -266,6 +270,7 @@ const mobileComponent = computed(() => {
     if (cfg.left === "color-picker") return ColorPicker;
     if (cfg.left === "browse") return BrowsePane;
     if (cfg.left === "extract") return ExtractPane;
+    if (cfg.left === "atmosphere") return AtmospherePane;
     if (cfg.left === "admin-users") return AdminPane;
     if (cfg.left === "admin-names") return AdminPane;
     return ColorPicker;
@@ -288,6 +293,7 @@ const mobileProps = computed(() => {
     if (cfg.left === "color-picker") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { model.value = v; }, "onUpdate:editTarget": onEditTargetChange, onReset: resetToDefaults, ref: colorPickerRef, class: "picker-shell w-full" };
     if (cfg.left === "browse") return { cssColorOpaque: cssColorOpaque.value };
     if (cfg.left === "extract") return { cssColorOpaque: cssColorOpaque.value, colorSpace: model.value.selectedColorSpace };
+    if (cfg.left === "atmosphere") return { cssColorOpaque: cssColorOpaque.value };
     if (cfg.left === "admin-users") return { subView: "admin-users", cssColorOpaque: cssColorOpaque.value };
     if (cfg.left === "admin-names") return { subView: "admin-names", cssColorOpaque: cssColorOpaque.value };
     return {};
@@ -460,7 +466,8 @@ useColorUrl({ model, updateModel });
 
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
-useAtmosphereCanvas(atmosphereCanvas, cssColorOpaque);
+const atmosphereConfig = useAtmosphereCanvas(atmosphereCanvas, cssColorOpaque);
+provide("atmosphereConfig", atmosphereConfig);
 
 onMounted(() => {
     loadCustomColorNames();

@@ -1,4 +1,11 @@
-import { onBeforeUnmount, onMounted, watch, type Ref, type ShallowRef } from "vue";
+import {
+    onBeforeUnmount,
+    onMounted,
+    reactive,
+    watch,
+    type Ref,
+    type ShallowRef,
+} from "vue";
 
 // ── Local utilities ──
 
@@ -23,70 +30,133 @@ function cssToRgb(css: string): [number, number, number] {
 }
 cssToRgb._ctx = null as CanvasRenderingContext2D | null;
 
-function rgbToHsl(r: number, g: number, b: number): [number, number, number] {
-    r /= 255; g /= 255; b /= 255;
-    const max = Math.max(r, g, b), min = Math.min(r, g, b);
-    const l = (max + min) / 2;
-    if (max === min) return [0, 0, l];
-    const d = max - min;
-    const s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    let h = 0;
-    if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
-    else if (max === g) h = ((b - r) / d + 2) / 6;
-    else h = ((r - g) / d + 4) / 6;
-    return [h, s, l];
-}
-
-function hslToRgb(h: number, s: number, l: number): [number, number, number] {
-    if (s === 0) { const v = Math.round(l * 255); return [v, v, v]; }
-    const hue2rgb = (p: number, q: number, t: number) => {
-        if (t < 0) t += 1; if (t > 1) t -= 1;
-        if (t < 1 / 6) return p + (q - p) * 6 * t;
-        if (t < 1 / 2) return q;
-        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-        return p;
-    };
-    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-    const p = 2 * l - q;
-    return [
-        Math.round(hue2rgb(p, q, h + 1 / 3) * 255),
-        Math.round(hue2rgb(p, q, h) * 255),
-        Math.round(hue2rgb(p, q, h - 1 / 3) * 255),
-    ];
-}
-
-function shiftHue(rgb: [number, number, number], degrees: number, satDelta: number, lightDelta: number): [number, number, number] {
-    const [h, s, l] = rgbToHsl(rgb[0], rgb[1], rgb[2]);
-    return hslToRgb(
-        ((h + degrees / 360) % 1 + 1) % 1,
-        clamp(s + satDelta, 0, 1),
-        clamp(l + lightDelta, 0, 1),
-    );
-}
-
-/** Mix two RGB colors by t (0 = a, 1 = b). */
-function mixRgb(a: [number, number, number], b: [number, number, number], t: number): [number, number, number] {
-    return [
-        Math.round(a[0] + (b[0] - a[0]) * t),
-        Math.round(a[1] + (b[1] - a[1]) * t),
-        Math.round(a[2] + (b[2] - a[2]) * t),
-    ];
-}
-
 function rgba(r: number, g: number, b: number, a: number): string {
     return `rgba(${r},${g},${b},${a})`;
 }
+
+// ── sRGB ↔ OKLCH ──
+
+function srgbToLinear(x: number): number {
+    return x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4;
+}
+
+function linearToSrgb(x: number): number {
+    return x <= 0.0031308 ? 12.92 * x : 1.055 * x ** (1 / 2.4) - 0.055;
+}
+
+function rgbToOklch(r: number, g: number, b: number): [number, number, number] {
+    const lr = srgbToLinear(r / 255);
+    const lg = srgbToLinear(g / 255);
+    const lb = srgbToLinear(b / 255);
+
+    const l = Math.cbrt(0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb);
+    const m = Math.cbrt(0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb);
+    const s = Math.cbrt(0.0883024619 * lr + 0.2817188376 * lb + 0.6299787005 * lb);
+
+    const L = 0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s;
+    const a = 1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s;
+    const bVal = 0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s;
+
+    const C = Math.sqrt(a * a + bVal * bVal);
+    const H = ((Math.atan2(bVal, a) * 180) / Math.PI + 360) % 360;
+    return [L, C, H];
+}
+
+function oklchToRgb(L: number, C: number, H: number): [number, number, number] {
+    const hRad = (H * Math.PI) / 180;
+    const a = C * Math.cos(hRad);
+    const b = C * Math.sin(hRad);
+
+    const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
+    const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
+    const s_ = L - 0.0894841775 * a - 1.2914855480 * b;
+
+    const lr = 4.0767416621 * l_ ** 3 - 3.3077115913 * m_ ** 3 + 0.2309699292 * s_ ** 3;
+    const lg = -1.2684380046 * l_ ** 3 + 2.6097574011 * m_ ** 3 - 0.3413193965 * s_ ** 3;
+    const lb = -0.0041960863 * l_ ** 3 - 0.7034186147 * m_ ** 3 + 1.7076147010 * s_ ** 3;
+
+    return [
+        Math.round(clamp(linearToSrgb(lr), 0, 1) * 255),
+        Math.round(clamp(linearToSrgb(lg), 0, 1) * 255),
+        Math.round(clamp(linearToSrgb(lb), 0, 1) * 255),
+    ];
+}
+
+// ── Config type ──
+
+export interface AtmosphereConfig {
+    /** Background opacity (0–1) */
+    bgAlpha: number;
+    /** Blur radius in px */
+    blur: number;
+    /** Animation speed multiplier */
+    speed: number;
+    /** Number of blobs to render */
+    blobCount: number;
+    /** Base radius as fraction of max(w,h) */
+    blobBaseRadius: number;
+    /** Radius increment per blob index */
+    blobRadiusStep: number;
+    /** Small blob radius multiplier (vs large) */
+    smallRadiusScale: number;
+    /** Peak alpha for large blobs */
+    peakAlphaLarge: number;
+    /** Peak alpha for small blobs */
+    peakAlphaSmall: number;
+    /** L shift magnitude for large blobs */
+    lShiftLarge: number;
+    /** L shift magnitude for small blobs */
+    lShiftSmall: number;
+    /** Hue shift for large blobs (degrees) */
+    hueShiftLarge: number;
+    /** Hue shift for small blobs (degrees) */
+    hueShiftSmall: number;
+    /** Orbit X amplitude as fraction of width */
+    orbitX: number;
+    /** Orbit Y amplitude as fraction of height */
+    orbitY: number;
+    /** Gradient stop 2 position (0–1) */
+    gradStop2: number;
+    /** Gradient stop 3 position (0–1) */
+    gradStop3: number;
+    /** Gradient stop 4 (fade-out) position (0–1) */
+    gradStop4: number;
+}
+
+export const DEFAULT_ATMOSPHERE_CONFIG: AtmosphereConfig = {
+    bgAlpha: 0.75,
+    blur: 13,
+    speed: 0.65,
+    blobCount: 10,
+    blobBaseRadius: 0.16,
+    blobRadiusStep: 0.03,
+    smallRadiusScale: 0.60,
+    peakAlphaLarge: 0.80,
+    peakAlphaSmall: 0.60,
+    lShiftLarge: 0.15,
+    lShiftSmall: 0.10,
+    hueShiftLarge: 25,
+    hueShiftSmall: 55,
+    orbitX: 0.30,
+    orbitY: 0.20,
+    gradStop2: 0.30,
+    gradStop3: 0.60,
+    gradStop4: 1.00,
+};
 
 // ── Composable ──
 
 export function useAtmosphereCanvas(
     canvasRef: Ref<HTMLCanvasElement | null> | ShallowRef<HTMLCanvasElement | null>,
     cssColor: Ref<string>,
+    config?: AtmosphereConfig,
 ) {
+    const cfg = config ?? reactive({ ...DEFAULT_ATMOSPHERE_CONFIG });
+
     let frame = 0;
     let observer: ResizeObserver | null = null;
     let surfaceRgb: [number, number, number] = [255, 255, 255];
-    let blobColors: Array<[number, number, number]> = [];
+    let baseOklch: [number, number, number] = [0.5, 0.1, 0];
     let running = false;
 
     const reducedMotion =
@@ -100,31 +170,37 @@ export function useAtmosphereCanvas(
     const dprMax = isSafari || isLowPower ? 1.6 : 2;
     const blurScale = isSafari || isLowPower ? 0.82 : 1;
 
-    function isDark(): boolean {
-        return document.documentElement.classList.contains("dark");
+    function updatePalette(css: string) {
+        const rgb = cssToRgb(css);
+        surfaceRgb = rgb;
+        baseOklch = rgbToOklch(rgb[0], rgb[1], rgb[2]);
     }
 
-    function updatePalette(css: string) {
-        const colorRgb = cssToRgb(css);
-        const dark = isDark();
+    /** Build blob colors on-the-fly from current config + base OKLCH. */
+    function buildBlobColors(): Array<[number, number, number]> {
+        const [L, C, H] = baseOklch;
+        const count = cfg.blobCount;
+        const colors: Array<[number, number, number]> = [];
 
-        // Surface: gently tinted toward the current color
-        const anchor: [number, number, number] = dark ? [75, 75, 80] : [255, 255, 255];
-        surfaceRgb = mixRgb(anchor, colorRgb, dark ? 0.65 : 0.35);
+        for (let i = 0; i < count; i++) {
+            const isSmall = i >= Math.ceil(count / 2);
+            const lShift = isSmall ? cfg.lShiftSmall : cfg.lShiftLarge;
+            const hShift = isSmall ? cfg.hueShiftSmall : cfg.hueShiftLarge;
 
-        // Blobs: many small variations of the actual color
-        blobColors = [
-            colorRgb,                                      // the color itself
-            shiftHue(colorRgb, 15, 0.05, 0.08),           // warm, slightly lighter
-            shiftHue(colorRgb, -20, 0.03, -0.10),         // cool, slightly darker
-            shiftHue(colorRgb, 35, -0.03, 0.14),          // warm shift
-            shiftHue(colorRgb, -40, 0.10, -0.18),         // cool, saturated
-            shiftHue(colorRgb, 55, 0.0, 0.05),            // accent
-            shiftHue(colorRgb, -10, 0.08, 0.06),          // near-hue warm
-            shiftHue(colorRgb, 80, -0.05, -0.08),         // far accent
-            shiftHue(colorRgb, -55, 0.06, 0.12),          // complementary hint
-            shiftHue(colorRgb, 40, 0.12, -0.12),          // saturated shift
-        ];
+            // Alternate +/- for L, spread hue evenly
+            const sign = i % 2 === 0 ? 1 : -1;
+            const lAmount = lShift * (0.5 + (i / count) * 0.5) * sign;
+            const hAmount = hShift * ((i + 1) / count) * (i % 3 === 0 ? -1 : 1);
+
+            colors.push(
+                oklchToRgb(
+                    clamp(L + lAmount, 0, 1),
+                    C,
+                    (H + hAmount + 360) % 360,
+                ),
+            );
+        }
+        return colors;
     }
 
     function stop() {
@@ -160,9 +236,6 @@ export function useAtmosphereCanvas(
 
         updatePalette(cssColor.value);
 
-        const speed = 0.5;
-        const blur = 60 * blurScale;
-
         const render = (now: number) => {
             if (!running) return;
 
@@ -173,36 +246,48 @@ export function useAtmosphereCanvas(
                 return;
             }
 
-            const t = now * 0.001 * motionScale * speed;
+            const t = now * 0.001 * motionScale * cfg.speed;
             const dim = Math.max(w, h);
+            const blobColors = buildBlobColors();
             const count = blobColors.length;
+            const blur = cfg.blur * blurScale;
 
-            // Surface fill: muted half-tint of the color
-            ctx.globalAlpha = 1;
+            // Surface fill
+            ctx.globalAlpha = cfg.bgAlpha;
             ctx.globalCompositeOperation = "source-over";
             ctx.filter = "none";
             ctx.fillStyle = rgba(surfaceRgb[0], surfaceRgb[1], surfaceRgb[2], 1);
             ctx.fillRect(0, 0, w, h);
 
-            // Blobs: full-color variations orbiting across the surface
+            // Blobs
+            ctx.globalAlpha = 1;
             ctx.save();
             ctx.filter = `blur(${blur}px) saturate(140%)`;
 
             for (let i = 0; i < count; i++) {
                 const c = blobColors[i]!;
-                const r = dim * (0.18 + i * 0.025);
-                const phase = i * (Math.PI * 2 / count);
-                const orbitX = w * 0.25;
-                const orbitY = h * 0.2;
-                const x = w * 0.5 + Math.sin(t * (0.4 + i * 0.15) + phase) * orbitX + Math.cos(t * 0.2 + i) * orbitX * 0.5;
-                const y = h * 0.5 + Math.cos(t * (0.35 + i * 0.12) + phase) * orbitY + Math.sin(t * 0.18 + i) * orbitY * 0.6;
+                const isSmall = i >= Math.ceil(count / 2);
+                const r = dim * (isSmall
+                    ? cfg.blobBaseRadius * cfg.smallRadiusScale + i * cfg.blobRadiusStep * 0.5
+                    : cfg.blobBaseRadius + i * cfg.blobRadiusStep);
+                const phase = i * ((Math.PI * 2) / count);
+                const ox = w * cfg.orbitX;
+                const oy = h * cfg.orbitY;
+                const x =
+                    w * 0.5 +
+                    Math.sin(t * (0.4 + i * 0.15) + phase) * ox +
+                    Math.cos(t * 0.2 + i) * ox * 0.5;
+                const y =
+                    h * 0.5 +
+                    Math.cos(t * (0.35 + i * 0.12) + phase) * oy +
+                    Math.sin(t * 0.18 + i) * oy * 0.6;
 
+                const peakAlpha = isSmall ? cfg.peakAlphaSmall : cfg.peakAlphaLarge;
                 const grad = ctx.createRadialGradient(x, y, 0, x, y, r);
-                grad.addColorStop(0, rgba(c[0], c[1], c[2], 0.4));
-                grad.addColorStop(0.2, rgba(c[0], c[1], c[2], 0.25));
-                grad.addColorStop(0.45, rgba(c[0], c[1], c[2], 0.1));
-                grad.addColorStop(0.7, rgba(c[0], c[1], c[2], 0.03));
-                grad.addColorStop(1, rgba(c[0], c[1], c[2], 0));
+                grad.addColorStop(0, rgba(c[0], c[1], c[2], peakAlpha));
+                grad.addColorStop(cfg.gradStop2, rgba(c[0], c[1], c[2], peakAlpha * 0.6));
+                grad.addColorStop(cfg.gradStop3, rgba(c[0], c[1], c[2], peakAlpha * 0.2));
+                grad.addColorStop(cfg.gradStop4, rgba(c[0], c[1], c[2], 0));
 
                 ctx.fillStyle = grad;
                 ctx.beginPath();
@@ -219,10 +304,12 @@ export function useAtmosphereCanvas(
 
     watch(cssColor, (css) => updatePalette(css));
 
-    // Re-derive palette when dark mode toggles
     if (typeof window !== "undefined") {
         const mo = new MutationObserver(() => updatePalette(cssColor.value));
-        mo.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+        mo.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
         onBeforeUnmount(() => mo.disconnect());
     }
 
@@ -233,4 +320,6 @@ export function useAtmosphereCanvas(
     });
 
     onBeforeUnmount(() => stop());
+
+    return cfg;
 }
