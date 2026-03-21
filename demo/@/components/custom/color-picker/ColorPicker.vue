@@ -23,13 +23,9 @@
             </CardHeader>
 
             <CardContent class="z-1 fraunces flex flex-col w-full px-3 sm:px-6 pt-3 pb-4 sm:pb-5 min-w-0 lg:flex-1 lg:min-h-0">
-                <div class="flex flex-col items-center gap-3 lg:flex-1 lg:min-h-0">
-                    <div class="w-full lg:flex-1 lg:min-h-0 lg:overflow-visible">
-                        <SpectrumCanvas />
-                    </div>
-                    <div class="w-full shrink-0">
-                        <ComponentSliders />
-                    </div>
+                <div class="flex flex-col gap-3">
+                    <SpectrumCanvas />
+                    <ComponentSliders />
                 </div>
             </CardContent>
         </Card>

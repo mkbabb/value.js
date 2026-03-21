@@ -5,15 +5,6 @@
 @import "./floating-panel.css";
 @import "./transitions.css";
 
-/* Prevent horizontal overflow on mobile Safari — CSS filters
-   (drop-shadow on hero blob, backdrop-filter on dock/cards) create
-   visual overflow that Safari propagates to the viewport even through
-   overflow:hidden ancestors. Lock down at every level. */
-html, body {
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
-}
-
 @theme {
     /* Container configuration */
     --container-center: true;
@@ -103,7 +94,7 @@ html, body {
     --shadow: 0, 0%, 65%;
 
     /* ── Layout tokens ── */
-    --dock-h: 2.5rem;
+    --dock-h: calc(2.5rem + 0.75rem + 3px); /* icon + padding + border */
     --dock-inset: 1rem;
     --dock-gap: 1rem;
     --dock-total: calc(var(--dock-inset) + var(--dock-h) + var(--dock-gap)); /* ~4.5rem */
@@ -164,10 +155,12 @@ html, body {
     --shadow-xl: 0 25px 50px -12px hsl(var(--foreground) / 0.25);
 }
 
-/* Desktop: clamp content height and width for aesthetics */
+/* Desktop: tighter dock margins, clamp content height and width */
 @media (min-width: 1024px) {
     :root {
-        --content-max-h: clamp(34rem, 78dvh, 48rem);
+        --dock-inset: 0.5rem;
+        --dock-gap: 0.5rem;
+        --content-max-h: clamp(34rem, 86dvh, 52rem);
         --content-shell-max-w: calc(var(--desktop-pane-max-w) * 2 + var(--desktop-pane-gap) + 2rem);
     }
 }
@@ -193,8 +186,8 @@ html, body {
 }
 @media (min-width: 1024px) {
     .app-layout {
-        padding: calc(var(--dock-total) + 1rem) 1rem var(--dock-inset);
-        align-items: center;
+        padding: var(--dock-total) 1rem var(--dock-inset);
+        align-items: start;
     }
 }
 

@@ -86,18 +86,16 @@ const { toggleDark } = useGlobalDark();
     transition: transform 500ms var(--ease-decelerate);
 }
 
-:global(.dark) {
-    .dark-mode-toggle-button::before {
-        animation: pulseToLight 650ms ease-out;
-    }
+:global(.dark .dark-mode-toggle-button)::before {
+    animation: pulseToLight 650ms ease-out;
+}
 
-    .toggle-sun {
-        transform: rotate(0.5turn);
-    }
+:global(.dark .dark-mode-toggle-button .toggle-sun) {
+    transform: rotate(0.5turn);
+}
 
-    .toggle-circle {
-        transform: translateX(-15%);
-    }
+:global(.dark .dark-mode-toggle-button .toggle-circle) {
+    transform: translateX(-15%);
 }
 
 @keyframes pulseToLight {
