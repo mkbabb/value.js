@@ -3,29 +3,48 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Color Picker</title>
         <link rel="icon" type="image/svg+xml" href="./assets/favicon-BpOvZXpk.svg" />
 
-        <!-- Prevent flash: apply dark mode class + initial bg before any rendering -->
+        <!-- Critical: prevent FOUC before Tailwind CSS loads.
+             Without this, .hidden elements are visible during the
+             CSS/JS race, causing both mobile+desktop panes to render
+             simultaneously, expanding the viewport past 1024px and
+             flipping media queries to desktop mode permanently.
+
+             Uses @layer so that once Tailwind loads, its utilities
+             (lg:flex, lg:block) take priority and override this. -->
+        <style>
+            @layer fouc-guard {
+                .hidden { display: none; }
+                body { background: var(--saved-bg); }
+            }
+        </style>
+
+        <!-- Prevent flash: apply dark mode class + initial bg before any rendering. -->
         <script>
             (function() {
+                var s = document.documentElement.style;
                 var stored = localStorage.getItem('vueuse-color-scheme');
                 var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                 var dark = stored === 'dark' || (!stored && prefersDark);
                 if (dark) document.documentElement.classList.add('dark');
-                document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+                s.colorScheme = dark ? 'dark' : 'light';
                 var bg = localStorage.getItem('color-picker-bg');
-                if (bg) document.documentElement.style.background = bg;
+                if (bg) {
+                    s.background = bg;
+                    s.setProperty('--saved-bg', bg);
+                }
             })();
         </script>
 
-      <script type="module" crossorigin src="./assets/index-BVHp9Hly.js"></script>
+      <script type="module" crossorigin src="./assets/index-D67ut19e.js"></script>
       <link rel="modulepreload" crossorigin href="./assets/vendor-highlight-DfNXkdLp.js">
       <link rel="modulepreload" crossorigin href="./assets/vendor-prettier-wO8BBsoP.js">
       <link rel="modulepreload" crossorigin href="./assets/vendor-katex-Dehg5p_Y.js">
-      <link rel="stylesheet" crossorigin href="./assets/index-nb0jVwag.css">
+      <link rel="stylesheet" crossorigin href="./assets/index-Du26wxdr.css">
     </head>
 
-    <body class="relative" id="app" style="overflow-x:hidden"></body>
+    <body class="relative" id="app"></body>
 </html>
