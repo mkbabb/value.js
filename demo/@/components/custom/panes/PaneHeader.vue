@@ -18,13 +18,13 @@ defineProps<{
 
 .pane-header {
     animation: pane-header-shrink linear both;
-    animation-timeline: scroll(nearest);
+    animation-timeline: --pane-scroll;
     animation-range: 0px 120px;
 }
 
 .pane-header-title {
     animation: pane-title-shrink linear both;
-    animation-timeline: scroll(nearest);
+    animation-timeline: --pane-scroll;
     animation-range: 0px 120px;
 }
 
@@ -34,7 +34,7 @@ defineProps<{
     overflow: hidden;
     margin-top: 0.125rem;
     animation: pane-desc-shrink linear both;
-    animation-timeline: scroll(nearest);
+    animation-timeline: --pane-scroll;
     animation-range: 0px 80px;
 }
 
