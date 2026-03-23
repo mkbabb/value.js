@@ -2,7 +2,7 @@
 
 CSS value parsing, color theory, and unit conversion. Typed values with units—`deg`, `px`, `rem`, `oklch()`—the CSS value vocabulary.
 
-[demo](https://color.babb.dev)
+[demo](https://color.babb.dev) · [color app guide](docs/color-app.md)
 
 ## Features
 
@@ -39,7 +39,7 @@ import {
 npm run build        # library → dist/value.js + value.cjs + value.d.ts
 npm run gh-pages     # demo → dist/
 npm run dev          # dev server (Vite default port)
-npm test             # vitest (1372 tests)
+npm test             # vitest (1387 tests)
 npm run test:e2e     # playwright (desktop + mobile)
 ```
 
@@ -93,30 +93,16 @@ See [`docs/gamut-mapping.md`](docs/gamut-mapping.md) for the full treatment.
 
 ### Color Quantization
 
-`quantizePixels()` extracts a perceptual palette from raw image data. The pipeline operates natively in OKLab so that cluster boundaries align with perceived color differences rather than RGB channel magnitudes.
+`quantizePixels()` extracts a perceptual palette from raw image data. The pipeline operates natively in OKLab—MMCQ pre-clustering, k-means++ with chroma-weighted distance, JND deduplication.
 
 ```ts
 import { quantizePixels, dominantColor } from "@mkbabb/value.js";
 
-// pixels: Uint8ClampedArray (RGBA), from a canvas or ImageData
 const palette = quantizePixels(pixels, width, height, { k: 6 });
-// → QuantizedColor[] with oklab, oklch, rgb, css, population
-
 const dominant = dominantColor(pixels, width, height);
-// → the highest-chroma cluster from a k=5 extraction
 ```
 
-The pipeline:
-
-1. **Downsample** to ~20k pixels (configurable via `targetPixels`).
-2. **sRGB→OKLab** conversion; transparent pixels (alpha < 10) are discarded.
-3. **MMCQ pre-clustering**—median cut along the OKLab axis of greatest range—produces coarse buckets that seed the next stage.
-4. **K-means++ initialization** (D²-weighted) selects k seeds from the MMCQ centroids.
-5. **K-means iteration** with a chroma-weighted distance metric: `d² = ΔL² + (1 + kC·C)·(Δa² + Δb²)`. The `chromaWeight` parameter (kC, default 0.5) controls how strongly hue/chroma distinctions influence clustering relative to lightness.
-6. **JND deduplication** merges centroids within deltaE_OK < 0.02 (the just-noticeable difference), collapsing clusters that landed in the same perceptual neighborhood.
-7. **Perceptual sort** orders the palette by nearest-neighbor traversal in weighted OKLCH space, starting from the darkest color.
-
-Each `QuantizedColor` carries OKLab, OKLCH, sRGB [0–255], a CSS `oklch()` string, and a `population` count.
+See [`docs/quantization.md`](docs/quantization.md) for the full pipeline.
 
 ## Easing
 
@@ -125,13 +111,6 @@ Each `QuantizedColor` carries OKLab, OKLCH, sRGB [0–255], a CSS `oklch()` stri
 ## Transforms
 
 CSS `matrix()` and `matrix3d()` decomposition per the CSSOM View and CSS Transforms specs. 3D uses Gram-Schmidt orthogonalization + quaternion extraction. `slerp` for rotation interpolation. `interpolateDecomposed()` for full transform blending.
-
-## Palette API
-
-The [demo](https://color.babb.dev) is backed by a palette API for saving, sharing, and voting on color palettes. Users register via `POST /sessions`, which begets a UUID token and a four-word slug for userless auth. Palettes are addressed, votable (atomic toggle), and sortable by popularity or recency. A color name registry lets users propose names for CSS colors; admins approve or reject through a moderation queue.
-
-See [`api/README.md`](api/README.md) for endpoints, schema, and deployment.
-
 
 ## Sources, acknowledgements, &c.
 
