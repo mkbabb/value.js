@@ -1,5 +1,6 @@
 import { ref, type ShallowRef, type Ref, type ComputedRef } from "vue";
 import { debounce } from "@src/utils";
+import { generateSingleColor } from "@composables/useColorGeneration";
 import { parseCSSColor } from "@src/parsing/color";
 import { ValueUnit } from "@src/units";
 import { Color } from "@src/units/color";
@@ -140,16 +141,10 @@ export function useColorParsing(deps: {
     const generateRandomColor = (
         colorSpace: DisplayColorSpace,
     ): ValueUnit<Color<ValueUnit<number>>> => {
-        let color = parseAndNormalizeColor("white");
+        // Generate a pleasing random color using OKLCh-constrained generation
+        const css = generateSingleColor("vibrant");
+        let color = parseAndNormalizeColor(css);
         color = colorUnit2(color, resolveColorSpace(colorSpace), true, false, true);
-
-        color.value
-            .entries()
-            .filter(([component]) => component !== "alpha")
-            .forEach(([component, value]) => {
-                value.value = Math.random();
-            });
-
         color.value.alpha = model.value.color.value.alpha;
         return color;
     };
