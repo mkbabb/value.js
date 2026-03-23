@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     v-bind="forwardedProps"
     :class="
       cn(
-        'relative flex w-full cursor-default select-none items-center rounded-lg py-1.5 pr-2 text-sm outline-none focus:bg-foreground/[0.06] focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+        'fira-code relative flex w-full cursor-default select-none items-center rounded-lg py-1.5 pr-2 text-sm outline-none focus:bg-foreground/[0.06] focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         hideIndicator ? 'pl-2' : 'pl-7',
         props.class,
       )
@@ -37,8 +37,12 @@ const forwardedProps = useForwardProps(delegatedProps)
       </SelectItemIndicator>
     </span>
 
-    <SelectItemText>
-      <slot />
-    </SelectItemText>
+    <div class="flex flex-col gap-0.5 min-w-0">
+      <SelectItemText>
+        <slot />
+      </SelectItemText>
+      <!-- Description slot renders in dropdown but NOT in the trigger's SelectValue -->
+      <slot name="description" />
+    </div>
   </SelectItem>
 </template>

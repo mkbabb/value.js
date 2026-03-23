@@ -59,6 +59,10 @@
     --color-gold: #D4AF37;
     --color-gold-light: #F5E6A3;
 
+    /* ppmycota accent — vibrant blue-purple (from keyframes.js) */
+    --color-ppmycota: hsl(248 88% 71%);
+    --ppmycota-primary: 248 88% 71%;
+
     /* Border radius — absolute values on 4px grid */
     --radius: 0.5rem;
     --radius-sm: 4px;
@@ -98,14 +102,10 @@
     --dock-inset: 1rem;
     --dock-gap: 1rem;
     --dock-total: calc(var(--dock-inset) + var(--dock-h) + var(--dock-gap)); /* ~4.5rem */
-    --content-h: calc(100dvh - var(--dock-total) - 1rem - var(--dock-inset) - var(--dock-inset));
     --content-max-h: calc(100dvh - var(--dock-total) - 2rem);
-    --content-shell-h: min(var(--content-h), var(--content-max-h));
-    --content-shell-max-w: min(92rem, calc(100vw - 2rem));
     --desktop-pane-max-w: 30rem;
     --desktop-pane-gap: 0.5rem;
-    --mobile-picker-max-h: calc(100dvh - var(--dock-total) - 1.5rem);
-    /* Clamp dock position: stay near content on very tall screens */
+    /* Dock vertical position: near content on tall screens */
     --dock-pos: max(var(--dock-inset), calc((100dvh - var(--content-max-h)) / 2 - var(--dock-h) - var(--dock-gap)));
 
     /* ── Duration tokens ── */
@@ -155,20 +155,18 @@
     --shadow-xl: 0 25px 50px -12px hsl(var(--foreground) / 0.25);
 }
 
-/* Desktop: tighter dock margins, clamp content height and width */
+/* Desktop: tighter dock margins */
 @media (min-width: 1024px) {
     :root {
         --dock-inset: 0.5rem;
         --dock-gap: 0.5rem;
         --content-max-h: clamp(34rem, 86dvh, 52rem);
-        --content-shell-max-w: calc(var(--desktop-pane-max-w) * 2 + var(--desktop-pane-gap) + 2rem);
     }
 }
 
 @media (min-aspect-ratio: 21 / 9) {
     :root {
         --content-max-h: clamp(30rem, 62dvh, 38rem);
-        --content-shell-max-w: min(calc(var(--desktop-pane-max-w) * 2 + var(--desktop-pane-gap) + 2rem), calc(100vw - 4rem));
         --desktop-pane-gap: 0.75rem;
     }
 }
@@ -194,9 +192,9 @@
 .pane-container {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
     width: 100%;
-    max-width: var(--content-shell-max-w);
+    max-width: calc(var(--desktop-pane-max-w) * 2 + var(--desktop-pane-gap) + 2rem);
     margin: 0 auto;
     position: relative;
     height: 100%;
@@ -298,11 +296,11 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 25%;
-    height: 22%;
-    margin-top: -11%;
-    margin-left: -12.5%;
-    filter: url(#watercolor-filter);
+    width: 30%;
+    height: 26%;
+    margin-top: -13%;
+    margin-left: -15%;
+    filter: url(#watercolor-filter-hero);
     pointer-events: none;
     will-change: transform, opacity;
     box-shadow:
@@ -310,10 +308,10 @@
         inset 0 -1px 3px hsl(var(--foreground) / 0.05);
 }
 .satellite-blob--small {
-    width: 18%;
-    height: 20%;
-    margin-top: -10%;
-    margin-left: -9%;
+    width: 22%;
+    height: 24%;
+    margin-top: -12%;
+    margin-left: -11%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -383,6 +381,31 @@ button.watercolor-swatch:focus-visible {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* Pane scroll timeline — named timeline so PaneHeader animations
+   only respond to THIS container's scroll, not portal-triggered
+   layout shifts in ancestor containers. */
+.pane-scroll-fade {
+    scroll-timeline: --pane-scroll block;
+}
+
+/* Section utilities — reusable across all view panes */
+.section-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: hsl(var(--muted-foreground));
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.section-subtitle {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    color: hsl(var(--muted-foreground) / 0.5);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 /* Base styles for compatibility */

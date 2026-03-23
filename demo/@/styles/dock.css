@@ -19,7 +19,7 @@
 
     .dock-icon-btn:hover:not(:disabled) {
         background: hsl(var(--foreground) / 0.08);
-        color: hsl(var(--foreground));
+        color: var(--btn-hover-color, hsl(var(--foreground)));
         transform: scale(1.1);
     }
 
@@ -58,7 +58,7 @@
 
     .dock-icon-btn-compact:hover:not(:disabled) {
         background: hsl(var(--foreground) / 0.08);
-        color: hsl(var(--foreground));
+        color: var(--btn-hover-color, hsl(var(--foreground)));
         transform: scale(1.1);
     }
 
