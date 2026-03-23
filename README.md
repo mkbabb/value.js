@@ -2,15 +2,15 @@
 
 CSS value parsing, color theory, and unit conversion. Typed values with units—`deg`, `px`, `rem`, `oklch()`—the CSS value vocabulary.
 
-[demo](https://color.babb.dev) · [color app guide](docs/color-app.md)
+[demo](https://color.babb.dev) & [app guide](docs/colors/app.md)
 
 ## Features
 
 - Parse any CSS value: lengths, angles, times, colors, `calc()`, `var()`, gradients, transforms
+- CSS Color Level 4 support: `color()`, `color-mix()`, relative color syntax
 - **15 color spaces**: RGB, HSL, HSV, HWB, Lab, LCh, OKLab, OKLCh, XYZ, Kelvin, sRGB-linear, Display P3, Adobe RGB, ProPhoto RGB, Rec. 2020
 - Color space conversion via **XYZ hub** with analytical gamut mapping (Ottosson's algorithm)
 - **Color quantization**: OKLab-native palette extraction (MMCQ + k-means++) with chroma-weighted clustering and JND deduplication
-- CSS Color Level 4 support: `color()`, `color-mix()`, relative color syntax
 - CSS math functions: `calc()`, `min()`, `max()`, `clamp()`, trig, exponential
 - 30+ easing functions: cubic-bezier, stepped, linear(), bounce, sine, expo
 - 2D/3D matrix decomposition with quaternion slerp interpolation
@@ -89,7 +89,7 @@ Each color space is documented in [`assets/docs/`](assets/docs/), therein with h
 
 Out-of-gamut colors are mapped using Björn Ottosson's analytical sRGB algorithm: a polynomial initial guess refined by a single Halley's method step (cubic convergence). Significantly faster than CSS Color 4's iterative binary search. Hue is preserved exactly; an adaptive `L0` formula blends between chroma reduction and mid-gray anchoring.
 
-See [`docs/gamut-mapping.md`](docs/gamut-mapping.md) for the full treatment.
+See [`docs/colors/gamut-mapping.md`](docs/colors/gamut-mapping.md) for the full treatment.
 
 ### Color Quantization
 
@@ -102,7 +102,7 @@ const palette = quantizePixels(pixels, width, height, { k: 6 });
 const dominant = dominantColor(pixels, width, height);
 ```
 
-See [`docs/quantization.md`](docs/quantization.md) for the full pipeline.
+See [`docs/colors/quantization.md`](docs/colors/quantization.md) for the full pipeline.
 
 ## Easing
 
@@ -112,7 +112,7 @@ See [`docs/quantization.md`](docs/quantization.md) for the full pipeline.
 
 CSS `matrix()` and `matrix3d()` decomposition per the CSSOM View and CSS Transforms specs. 3D uses Gram-Schmidt orthogonalization + quaternion extraction. `slerp` for rotation interpolation. `interpolateDecomposed()` for full transform blending.
 
-## Sources, acknowledgements, &c.
+## Sources, acknowledgements, & c.
 
 - Ottosson, B. (2020). [A perceptual color space for image processing](https://bottosson.github.io/posts/oklab/). — OKLab: the perceptual color space used for `color-mix()` and gamut mapping.
 - Ottosson, B. (2021). [sRGB gamut clipping](https://bottosson.github.io/posts/gamutclipping/). — Analytical gamut mapping algorithm (cubic boundary + Halley's method).
@@ -121,4 +121,4 @@ CSS `matrix()` and `matrix3d()` decomposition per the CSSOM View and CSS Transfo
 - Lindbloom, B. [XYZ to Correlated Color Temperature](http://www.brucelindbloom.com/index.html?Eqn_XYZ_to_T.html). — CCT conversion reference.
 - [`@mkbabb/parse-that`](https://github.com/mkbabb/parse-that) — Parser combinators powering the CSS value grammar.
 
-See [`docs/color-theory.md`](docs/color-theory.md) for the full bibliography.
+See [`docs/colors/theory.md`](docs/colors/theory.md) for the full bibliography.

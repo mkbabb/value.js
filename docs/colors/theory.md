@@ -149,7 +149,7 @@ linear light and encoded values:
 
 All conversions linearize before matrix transforms and re-encode afterward.
 
-## Sources, acknowledgements, &c.
+## Sources, acknowledgements, & c.
 
 ### Specifications
 
@@ -183,5 +183,5 @@ All conversions linearize before matrix transforms and re-encode afterward.
 
 ### Internal docs
 
-- Individual color space references: [`assets/docs/`](../assets/docs/) — Historical context, component ranges, conversion functions for each of the 15 spaces.
-- Gamut mapping derivation: [`docs/gamut-mapping.md`](./gamut-mapping.md) — Full walkthrough of the cubic boundary, Halley's method, hue sectors, and the adaptive L0 formula.
+- Individual color space references: [`assets/docs/`](../../assets/docs/) — Historical context, component ranges, conversion functions for each of the 15 spaces.
+- Gamut mapping derivation: [gamut-mapping.md](./gamut-mapping.md) — Full walkthrough of the cubic boundary, Halley's method, hue sectors, and the adaptive L0 formula.

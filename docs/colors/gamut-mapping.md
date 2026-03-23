@@ -2,7 +2,7 @@
 
 ## Overview
 
-value.js uses Björn Ottosson's analytical sRGB gamut mapping algorithm from
+Herein, we describe, and in our library leverage, Björn Ottosson's analytical sRGB gamut mapping algorithm from
 [ok_color.h](https://bottosson.github.io/posts/gamutclipping/) (MIT license).
 
 **Key properties:**

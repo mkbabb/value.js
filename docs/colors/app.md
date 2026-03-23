@@ -1,6 +1,6 @@
-# Color App
+# App
 
-The [color picker](https://color.babb.dev) exercises value.js's parsing, conversion, and interpolation facilities across eight views.
+The [color picker](https://color.babb.dev) spans eight views for working with color: picking, generating, mixing, gradient building, palette extraction, browsing, and atmosphere tuning.
 
 ## Views
 
@@ -26,11 +26,11 @@ Create random palettes with aesthetic presets and harmony algorithms.
 
 **Presets** constrain OKLCh ranges for consistent character: vibrant, pastel, warm, cool, earth, neon, muted, dark, jewel. Each defines lightness, chroma, and hue bounds.
 
-**Harmonies** distribute hues: golden angle (137.5°), analogous (±30°), complementary (180°), triadic (120°), split-complementary (150°/210°). Generated colors are gamut-mapped to sRGB via Ottosson's analytical method. A seedable PRNG ensures reproducibility.
+**Harmonies** distribute hues: golden angle (137.5°), analogous (±30°), complementary (180°), triadic (120°), split-complementary (150°/210°). Generated colors are gamut-mapped to sRGB via Ottosson's [analytical method](gamut-mapping.md). A seedable PRNG ensures reproducibility.
 
 ### Gradient
 
-Build gradients with per-interval easing across any of the 15 color spaces. The CSS output bakes easing into explicit color stops since browsers can't natively interpolate with arbitrary easing between stops. Editing is bi-directional: visual changes update the CSS and CSS edits parse back into the model.
+Build gradients with per-interval easing across any of the 15 [color spaces](theory.md). The CSS output bakes easing into explicit color stops since browsers can't natively interpolate with arbitrary easing between stops. Editing is bi-directional: visual changes update the CSS and CSS edits parse back into the model.
 
 ### Mix
 
@@ -53,7 +53,7 @@ REST API for palette CRUD, voting, user sessions, and color name proposals.
 
 ### Sessions
 
-No traditional accounts. `POST /sessions` mints a UUID token and a four-word slug. The token gates all writes; reads are public. Sessions unseen for 30 days are purged by daily cron.
+No traditional accounts. `POST /sessions` begets a UUID token and a four-word slug. The token gates all writes; reads are public. Sessions unseen for 30 days are purged by daily cron.
 
 ### Palettes
 
