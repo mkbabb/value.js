@@ -169,6 +169,9 @@ export {
 } from "./units/color/utils";
 export type { HueInterpolationMethod } from "./units/color/utils";
 
+// N-color mixing
+export { mixColorsN } from "./units/color/mix";
+
 // Color normalization
 export {
     normalizeColorUnitComponent,
