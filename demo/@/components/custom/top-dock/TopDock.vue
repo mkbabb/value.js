@@ -4,6 +4,7 @@ import { ChevronDown, Check, Undo2, Paintbrush, ArrowLeft } from "lucide-vue-nex
 import GlassDock from "@components/custom/color-picker/GlassDock.vue";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 import ActionBarLayer from "./ActionBarLayer.vue";
+import GenericActionBar from "./GenericActionBar.vue";
 import SlugEditLayer from "./SlugEditLayer.vue";
 import MobileMenuDropdown from "./MobileMenuDropdown.vue";
 import ProfileSection from "./ProfileSection.vue";
@@ -17,12 +18,14 @@ import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
 import { useLayerTransition } from "@composables/useLayerTransition";
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import type { EditTarget } from "@components/custom/color-picker";
+import type { DockActionBar } from "@composables/useDockActionBar";
 
 const props = defineProps<{
     cssColorOpaque: string;
     linkCopied: boolean;
     editTarget: EditTarget | null;
     actionBar?: ActionBarContext | null;
+    genericActionBar?: DockActionBar | null;
 }>();
 
 const emit = defineEmits<{
@@ -34,6 +37,8 @@ const emit = defineEmits<{
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 const actionBar = computed(() => props.actionBar ?? null);
+const genericBar = computed(() => props.genericActionBar ?? null);
+const hasAnyActionBar = computed(() => !!actionBar.value || !!genericBar.value);
 
 const viewEntries = computed(() => {
     const entries: { id: ViewId; label: string; icon: any }[] = [
@@ -41,6 +46,9 @@ const viewEntries = computed(() => {
         { id: "palettes", ...viewManager.viewMap.palettes },
         { id: "browse", ...viewManager.viewMap.browse },
         { id: "extract", ...viewManager.viewMap.extract },
+        { id: "mix", ...viewManager.viewMap.mix },
+        { id: "generate", ...viewManager.viewMap.generate },
+        { id: "gradient", ...viewManager.viewMap.gradient },
         { id: "atmosphere", ...viewManager.viewMap.atmosphere },
     ];
     if (pm.isAdminAuthenticated.value) {
@@ -66,8 +74,8 @@ function toggleActionBar() {
     actionBarLayerActive.value = !actionBarLayerActive.value;
 }
 
-watch(actionBar, (ctx) => {
-    if (!ctx && actionBarLayerActive.value) {
+watch(hasAnyActionBar, (has) => {
+    if (!has && actionBarLayerActive.value) {
         actionBarLayerActive.value = false;
     }
 });
@@ -231,18 +239,26 @@ const { layerProps, onTransitionEnd: onLayerTransitionEnd } = useLayerTransition
                         <SlugEditLayer ref="slugEditRef" v-model:active="slugEditMode" />
                     </div>
 
-                    <!-- Action bar layer -->
-                    <div v-if="actionBar" v-bind="layerProps('action-bar')">
+                    <!-- Action bar layer (color picker or generic) -->
+                    <div v-if="hasAnyActionBar" v-bind="layerProps('action-bar')">
                         <button class="dock-icon-btn shrink-0" title="Back" @click="actionBarLayerActive = false">
                             <ArrowLeft class="w-6 h-6" />
                         </button>
                         <div class="dock-separator"></div>
+                        <!-- Color picker's rich action bar -->
                         <ActionBarLayer
+                            v-if="actionBar"
                             ref="actionBarLayerRef"
                             :action-bar="actionBar"
                             :edit-target="editTarget"
                             @open-palette="onActionBarOpenPalette"
                             @open-extract="onActionBarOpenExtract"
+                        />
+                        <!-- Generic action bar for other views -->
+                        <GenericActionBar
+                            v-else-if="genericBar"
+                            :actions="genericBar.actions.value"
+                            :accent-color="genericBar.accentColor ?? cssColorOpaque"
                         />
                     </div>
 
@@ -256,7 +272,7 @@ const { layerProps, onTransitionEnd: onLayerTransitionEnd } = useLayerTransition
                             @update:model-value="onViewChange"
                         >
                             <SelectTrigger
-                                class="dock-select-trigger border-none h-auto bg-transparent fraunces text-sm gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 focus-ring"
+                                class="dock-select-trigger border-none h-auto bg-transparent fraunces text-sm font-normal gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 focus-ring"
                                 :style="{ '--dock-ring': cssColorOpaque }"
                             >
                                 <component
@@ -294,17 +310,23 @@ const { layerProps, onTransitionEnd: onLayerTransitionEnd } = useLayerTransition
                         <!-- Action bar toggle -->
                         <div
                             class="flex items-center gap-1 overflow-hidden transition-all duration-300 ease-[var(--ease-standard)]"
-                            :style="{ maxWidth: actionBar ? '8rem' : '0px', opacity: actionBar ? 1 : 0 }"
+                            :style="{ maxWidth: hasAnyActionBar ? '8rem' : '0px', opacity: hasAnyActionBar ? 1 : 0 }"
                         >
                             <div class="dock-separator"></div>
                             <button
                                 class="shrink-0 flex items-center gap-1 px-1.5 py-1 bg-transparent border-none cursor-pointer focus-ring"
                                 title="Action bar"
-                                :tabindex="actionBar ? 0 : -1"
+                                :tabindex="hasAnyActionBar ? 0 : -1"
                                 @click="toggleActionBar"
                             >
-                                <Paintbrush class="w-6 h-6" :style="{ color: cssColorOpaque }" />
-                                <span v-if="isDesktop" class="fraunces text-sm" :style="{ color: cssColorOpaque }">Tools</span>
+                                <component
+                                    :is="genericBar?.icon ?? Paintbrush"
+                                    class="w-6 h-6"
+                                    :style="{ color: genericBar?.accentColor ?? cssColorOpaque }"
+                                />
+                                <span v-if="isDesktop" class="fraunces text-sm" :style="{ color: genericBar?.accentColor ?? cssColorOpaque }">
+                                    {{ genericBar?.label ?? 'Tools' }}
+                                </span>
                                 <ChevronDown class="w-3 h-3 text-muted-foreground" />
                             </button>
                         </div>

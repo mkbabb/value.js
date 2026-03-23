@@ -9,6 +9,9 @@ import {
     Home,
     Info,
     Sparkles,
+    Blend,
+    Wand2,
+    Rainbow,
 } from "lucide-vue-next";
 import { useStorage } from "@vueuse/core";
 
@@ -18,6 +21,9 @@ export type ViewId =
     | "browse"
     | "extract"
     | "atmosphere"
+    | "mix"
+    | "generate"
+    | "gradient"
     | "admin-users"
     | "admin-names";
 
@@ -26,10 +32,12 @@ export type LeftPane =
     | "browse"
     | "extract"
     | "atmosphere"
+    | "generate"
+    | "gradient"
     | "admin-users"
     | "admin-names";
 
-export type RightPane = "about" | "palettes" | null;
+export type RightPane = "about" | "palettes" | "mix" | null;
 
 export interface PaneConfig {
     left: LeftPane;
@@ -72,6 +80,30 @@ const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Extract",
         rightLabel: "Palettes",
         icon: Camera,
+    },
+    mix: {
+        left: "color-picker",
+        right: "mix",
+        label: "Mix",
+        leftLabel: "Picker",
+        rightLabel: "Mix",
+        icon: Blend,
+    },
+    generate: {
+        left: "generate",
+        right: "palettes",
+        label: "Generate",
+        leftLabel: "Generate",
+        rightLabel: "Palettes",
+        icon: Wand2,
+    },
+    gradient: {
+        left: "gradient",
+        right: "palettes",
+        label: "Gradient",
+        leftLabel: "Gradient",
+        rightLabel: "Palettes",
+        icon: Rainbow,
     },
     atmosphere: {
         left: "atmosphere",
@@ -129,7 +161,9 @@ export function useViewManager(): ViewManager {
         // For palettes view, default to showing palettes pane on mobile (right/index 1)
         // For other two-pane views, default to left pane
         const cfg = VIEW_MAP[id];
-        mobilePaneIndex.value = (cfg.right !== null && id === "palettes") ? 1 : 0;
+        // Default mobile pane: show the view's primary content
+        // "palettes" and "mix" are right-pane views → show index 1
+        mobilePaneIndex.value = (cfg.right !== null && (id === "palettes" || id === "mix")) ? 1 : 0;
     }
 
     function goBack() {

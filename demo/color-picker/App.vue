@@ -25,25 +25,51 @@
                     yChannelSelector="G"
                 />
             </filter>
+            <!-- Hero-specific watercolor: scaled for native 115px rendering -->
             <filter
-                id="gooey-filter"
-                x="-40%"
-                y="-40%"
-                width="180%"
-                height="180%"
+                id="watercolor-filter-hero"
+                x="-12%"
+                y="-12%"
+                width="124%"
+                height="124%"
                 color-interpolation-filters="sRGB"
             >
-                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+                <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.022"
+                    numOctaves="4"
+                    seed="2"
+                    result="noise"
+                />
+                <feDisplacementMap
+                    in="SourceGraphic"
+                    in2="noise"
+                    scale="2.7"
+                    xChannelSelector="R"
+                    yChannelSelector="G"
+                />
+            </filter>
+            <!-- Gooey metaball filter — parameters scaled for 115px hero blob -->
+            <filter
+                id="gooey-filter"
+                x="-50%"
+                y="-50%"
+                width="200%"
+                height="200%"
+                color-interpolation-filters="sRGB"
+            >
+                <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur" />
                 <feColorMatrix
                     in="blur"
                     type="matrix"
                     values="1 0 0 0 0
                             0 1 0 0 0
                             0 0 1 0 0
-                            0 0 0 18 -7"
+                            0 0 0 12 -5"
                     result="goo"
                 />
-                <feBlend in="SourceGraphic" in2="goo" />
+                <feGaussianBlur in="goo" stdDeviation="1" result="goo-smooth" />
+                <feBlend in="SourceGraphic" in2="goo-smooth" />
             </filter>
         </defs>
     </svg>
@@ -58,6 +84,7 @@
             :link-copied="linkCopied"
             :edit-target="activeEditTarget"
             :action-bar="colorPickerRef?.actionBarContext ?? null"
+            :generic-action-bar="genericActionBar"
             @share-link="shareLink"
             @commit-edit="colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1"
             @cancel-edit="colorPickerRef?.cancelEdit(); viewManager.mobilePaneIndex.value = 1"
@@ -87,7 +114,7 @@
             <div
                 :class="[
                     'pane-wrapper hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col',
-                    'justify-start',
+                    'justify-center',
                 ]"
             >
                 <Transition name="pane-left" mode="out-in">
@@ -111,6 +138,18 @@
                             key="extract"
                             :css-color-opaque="cssColorOpaque"
                             :color-space="model.selectedColorSpace"
+                        />
+                        <GeneratePane
+                            v-else-if="currentConfig.left === 'generate'"
+                            key="generate"
+                            ref="generatePaneRef"
+                            :css-color-opaque="cssColorOpaque"
+                        />
+                        <GradientPane
+                            v-else-if="currentConfig.left === 'gradient'"
+                            key="gradient"
+                            ref="gradientPaneRef"
+                            :css-color-opaque="cssColorOpaque"
                         />
                         <AtmospherePane
                             v-else-if="currentConfig.left === 'atmosphere'"
@@ -154,6 +193,12 @@
                             @commit-edit="colorPickerRef?.commitEdit()"
                             @cancel-edit="colorPickerRef?.cancelEdit()"
                         />
+                        <MixPane
+                            v-else-if="currentConfig.right === 'mix'"
+                            key="mix"
+                            ref="mixPaneRef"
+                            :css-color-opaque="cssColorOpaque"
+                        />
                     </KeepAlive>
                 </Transition>
             </div>
@@ -182,6 +227,8 @@ import {
 } from "@components/custom/color-picker";
 
 import { TopDock } from "@components/custom/top-dock";
+import { RefreshCw, Copy, Save, RotateCcw, Pipette, Blend, Paintbrush, Trash2 } from "lucide-vue-next";
+import type { DockActionBar } from "@composables/useDockActionBar";
 import {
     AboutPane,
     PalettesPane,
@@ -189,6 +236,9 @@ import {
     ExtractPane,
     AdminPane,
     AtmospherePane,
+    MixPane,
+    GeneratePane,
+    GradientPane,
 } from "@components/custom/panes";
 
 import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
@@ -256,6 +306,54 @@ provide(VIEW_MANAGER_KEY, viewManager);
 
 const currentConfig = computed(() => viewManager.currentConfig.value);
 
+// --- Generic action bar (per-view) ---
+
+const generatePaneRef = ref<any>(null);
+const gradientPaneRef = ref<any>(null);
+const mixPaneRef = ref<any>(null);
+
+const genericActionBar = computed<DockActionBar | null>(() => {
+    const view = viewManager.currentView.value;
+
+    if (view === "generate") {
+        return {
+            label: "Tools",
+            icon: Paintbrush,
+            actions: computed(() => [
+                { key: "regenerate", icon: RefreshCw, title: "Regenerate", description: "New random palette with current settings.", rotateOnClick: true, handler: () => generatePaneRef.value?.regenerate?.() },
+                { key: "save", icon: Save, title: "Save palette", description: "Save the generated palette.", handler: () => generatePaneRef.value?.save?.() },
+                { key: "copy", icon: Copy, title: "Copy colors", description: "Copy palette colors to clipboard.", handler: () => generatePaneRef.value?.copyColors?.() },
+            ]),
+        };
+    }
+
+    if (view === "gradient") {
+        return {
+            label: "Tools",
+            icon: Paintbrush,
+            actions: computed(() => [
+                { key: "reset", icon: RotateCcw, title: "Reset", description: "Reset gradient to defaults.", rotateOnClick: true, handler: () => gradientPaneRef.value?.reset?.() },
+                { key: "copy", icon: Copy, title: "Copy CSS", description: "Copy the gradient CSS to clipboard.", handler: () => gradientPaneRef.value?.copyCSS?.() },
+                { key: "seed", icon: Pipette, title: "Seed from palette", description: "Seed gradient stops from a saved palette.", handler: () => gradientPaneRef.value?.seedFromPalette?.() },
+            ]),
+        };
+    }
+
+    if (view === "mix") {
+        return {
+            label: "Tools",
+            icon: Paintbrush,
+            actions: computed(() => [
+                { key: "clear", icon: Trash2, title: "Clear", description: "Clear all selected colors.", handler: () => mixPaneRef.value?.clearSelection?.() },
+                { key: "mix", icon: Blend, title: "Mix", description: "Mix the selected colors.", handler: () => mixPaneRef.value?.startMix?.() },
+                { key: "copy", icon: Copy, title: "Copy result", description: "Copy the mixed color result.", handler: () => mixPaneRef.value?.copyResult?.() },
+            ]),
+        };
+    }
+
+    return null;
+});
+
 // --- Mobile pane (single slot below lg) ---
 
 const mobileComponent = computed(() => {
@@ -265,11 +363,14 @@ const mobileComponent = computed(() => {
         // Show right pane
         if (cfg.right === "about") return AboutPane;
         if (cfg.right === "palettes") return PalettesPane;
+        if (cfg.right === "mix") return MixPane;
     }
     // Show left pane
     if (cfg.left === "color-picker") return ColorPicker;
     if (cfg.left === "browse") return BrowsePane;
     if (cfg.left === "extract") return ExtractPane;
+    if (cfg.left === "generate") return GeneratePane;
+    if (cfg.left === "gradient") return GradientPane;
     if (cfg.left === "atmosphere") return AtmospherePane;
     if (cfg.left === "admin-users") return AdminPane;
     if (cfg.left === "admin-names") return AdminPane;
@@ -289,10 +390,13 @@ const mobileProps = computed(() => {
     if (cfg.right !== null && viewManager.mobilePaneIndex.value === 1) {
         if (cfg.right === "about") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { model.value = v; }, cssColor: cssColor.value };
         if (cfg.right === "palettes") return { savedColorStrings: savedColorStrings.value, cssColorOpaque: cssColorOpaque.value, "onCommit-edit": () => colorPickerRef.value?.commitEdit(), "onCancel-edit": () => colorPickerRef.value?.cancelEdit() };
+        if (cfg.right === "mix") return { cssColorOpaque: cssColorOpaque.value };
     }
     if (cfg.left === "color-picker") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { model.value = v; }, "onUpdate:editTarget": onEditTargetChange, onReset: resetToDefaults, ref: colorPickerRef, class: "picker-shell w-full" };
     if (cfg.left === "browse") return { cssColorOpaque: cssColorOpaque.value };
     if (cfg.left === "extract") return { cssColorOpaque: cssColorOpaque.value, colorSpace: model.value.selectedColorSpace };
+    if (cfg.left === "generate") return { cssColorOpaque: cssColorOpaque.value };
+    if (cfg.left === "gradient") return { cssColorOpaque: cssColorOpaque.value };
     if (cfg.left === "atmosphere") return { cssColorOpaque: cssColorOpaque.value };
     if (cfg.left === "admin-users") return { subView: "admin-users", cssColorOpaque: cssColorOpaque.value };
     if (cfg.left === "admin-names") return { subView: "admin-names", cssColorOpaque: cssColorOpaque.value };
