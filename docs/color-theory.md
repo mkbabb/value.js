@@ -1,6 +1,6 @@
-# Color Theory in value.js
+# Color Theory
 
-An overview of the color science underpinning value.js—15 color spaces, a
+An overview of the color science—15 color spaces, a
 conversion hub, analytical gamut mapping, and CSS Color Level 4 support.
 
 ## The Conversion Hub
