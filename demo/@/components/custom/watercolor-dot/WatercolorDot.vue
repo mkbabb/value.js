@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { ref, computed, toRef } from "vue";
-import { useWatercolorBlob } from "@composables/useWatercolorBlob";
+import { useWatercolorBlob } from "./composables/useWatercolorBlob";
 
 const props = withDefaults(
     defineProps<{

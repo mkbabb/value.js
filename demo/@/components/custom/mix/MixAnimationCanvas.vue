@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useTemplateRef, computed } from "vue";
-import { useMixingAnimation } from "@composables/useMixingAnimation";
-import type { AnimationPhase } from "@composables/useMixingState";
-import type { SelectedColor } from "@composables/useMixingState";
+import { useMixingAnimation } from "./composables/useMixingAnimation";
+import type { AnimationPhase } from "./composables/useMixingState";
+import type { SelectedColor } from "./composables/useMixingState";
 
 const props = defineProps<{
     phase: AnimationPhase;

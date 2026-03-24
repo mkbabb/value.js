@@ -6,7 +6,7 @@
 
                 <!-- Left column: image + camera -->
                 <div class="flex flex-col gap-3 sm:min-h-[280px]">
-                    <ImageDropZone class="flex-1 min-h-0 sm:max-h-[min(400px,50vh)]" :preview="previewDataUrl" @file="onFile" />
+                    <ImageDropZone class="flex-1 min-h-0 sm:max-h-[min(400px,50dvh)]" :preview="previewDataUrl" @file="onFile" />
 
                     <!-- Camera viewfinder -->
                     <Transition name="fade-slide">
@@ -88,8 +88,8 @@
 import { ref, shallowRef, computed, onBeforeUnmount, onMounted, useTemplateRef } from "vue";
 import { TabsContent } from "@components/ui/tabs";
 import { Aperture, Pipette } from "lucide-vue-next";
-import { useImageQuantize } from "@composables/useImageQuantize";
-import { usePaletteStore } from "@composables/usePaletteStore";
+import { useImageQuantize } from "./composables/useImageQuantize";
+import { usePaletteStore } from "@composables/palette/usePaletteStore";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 
 import ImageDropZone from "./ImageDropZone.vue";

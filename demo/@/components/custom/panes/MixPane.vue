@@ -6,14 +6,12 @@ import MixSourceSelector from "@components/custom/mix/MixSourceSelector.vue";
 import MixConfigBar from "@components/custom/mix/MixConfigBar.vue";
 import MixResultDisplay from "@components/custom/mix/MixResultDisplay.vue";
 import MixAnimationCanvas from "@components/custom/mix/MixAnimationCanvas.vue";
-import { useMixingState } from "@composables/useMixingState";
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
+import { useMixingState } from "@components/custom/mix/composables/useMixingState";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import type { PaletteColor } from "@lib/palette/types";
 
-const props = defineProps<{
-    cssColorOpaque?: string;
-}>();
-
+const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 
 const {

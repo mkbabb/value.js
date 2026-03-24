@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import type { GradientStop } from "@composables/useGradientModel";
+import type { GradientStop } from "./composables/useGradientModel";
 
 const props = defineProps<{
     stops: GradientStop[];

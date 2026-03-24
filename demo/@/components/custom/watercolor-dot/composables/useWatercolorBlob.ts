@@ -1,5 +1,5 @@
 import { ref, onUnmounted, watch, type Ref } from "vue";
-import { mulberry32, hashString, randomRadii, radiiToCSS } from "./prng";
+import { mulberry32, hashString, randomRadii, radiiToCSS } from "@composables/prng";
 
 export interface UseWatercolorBlobOptions {
     /** Enable rAF animation loop */

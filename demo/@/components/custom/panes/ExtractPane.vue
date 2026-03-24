@@ -6,7 +6,7 @@
                 <!-- Image upload area — click opens eyedropper when image is loaded -->
                 <ImageDropZone
                     ref="dropZoneRef"
-                    class="min-h-[180px] max-h-[min(320px,40vh)]"
+                    class="min-h-[180px] max-h-[min(320px,40dvh)]"
                     :preview="previewDataUrl"
                     :disable-click="!!previewDataUrl"
                     @file="onFile"
@@ -75,10 +75,11 @@
 <script setup lang="ts">
 import { ref, shallowRef, computed, onBeforeUnmount, onMounted, inject } from "vue";
 import { Card } from "@components/ui/card";
-import { useImageQuantize } from "@composables/useImageQuantize";
-import { usePaletteStore } from "@composables/usePaletteStore";
+import { useImageQuantize } from "@components/custom/image-palette-extractor/composables/useImageQuantize";
+import { usePaletteStore } from "@composables/palette/usePaletteStore";
 import type { Palette, PaletteColor } from "@lib/palette/types";
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import type { ColorSpace } from "@src/units/color/constants";
 type DisplayColorSpace = ColorSpace | "hex";
@@ -91,12 +92,12 @@ import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardS
 import PaneHeader from "./PaneHeader.vue";
 
 const props = withDefaults(defineProps<{
-    cssColorOpaque?: string;
     colorSpace?: DisplayColorSpace;
 }>(), {
     colorSpace: "hex",
 });
 
+const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 

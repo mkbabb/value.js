@@ -7,7 +7,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@components/ui/select";
-import { GRADIENT_EASING_NAMES, resolveEasing } from "@composables/useGradientModel";
+import { GRADIENT_EASING_NAMES, resolveEasing } from "./composables/useGradientModel";
 
 const props = defineProps<{
     modelValue: string;

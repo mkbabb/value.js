@@ -1,5 +1,5 @@
 import { ref, reactive, nextTick } from "vue";
-import { useLeaveTimer } from "./useLeaveTimer";
+import { useLeaveTimer } from "@composables/useLeaveTimer";
 
 const CAN_HOVER = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 

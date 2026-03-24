@@ -79,7 +79,7 @@ import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
 import type { ColorSpace } from "@src/units/color/constants";
 import { parseCSSColor } from "@src/parsing/color";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
-import { useInertiaGesture } from "@composables/useInertiaGesture";
+import { useInertiaGesture } from "./composables/useInertiaGesture";
 
 type DisplayColorSpace = ColorSpace | "hex";
 
@@ -330,7 +330,7 @@ watch(() => props.imageUrl, () => { loadImage(); });
 
 /* Smooth zoom transition — always on, disabled during active gestures */
 .eyedropper-canvas {
-    transition: transform 80ms ease-out;
+    transition: transform var(--duration-fast) var(--ease-decelerate);
 }
 .eyedropper-canvas.no-transition {
     transition: none;

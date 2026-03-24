@@ -16,11 +16,11 @@ import {
     useGradientModel,
     INTERPOLATION_SPACES,
     HUE_INTERPOLATION_METHODS,
-} from "@composables/useGradientModel";
-import type { GradientType } from "@composables/useGradientModel";
+} from "./composables/useGradientModel";
+import type { GradientType } from "./composables/useGradientModel";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/utils";
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
 const pm = inject(PALETTE_MANAGER_KEY);
 

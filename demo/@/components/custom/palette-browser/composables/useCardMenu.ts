@@ -1,5 +1,5 @@
 import { ref, reactive, nextTick, onUnmounted } from "vue";
-import { useLeaveTimer } from "./useLeaveTimer";
+import { useLeaveTimer } from "@composables/useLeaveTimer";
 
 export function useCardMenu(options?: { canHover?: boolean }) {
     const canHover = options?.canHover ?? (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches);

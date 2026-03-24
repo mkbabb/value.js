@@ -194,9 +194,9 @@ import {
 import type { PaletteColor } from "@lib/palette/types";
 import type { Palette } from "@lib/palette/types";
 import { copyToClipboard } from "@composables/useClipboard";
-import { useHoverPopover } from "@composables/useHoverPopover";
-import { useCardMenu } from "@composables/useCardMenu";
-import { useHeightTransition } from "@composables/useHeightTransition";
+import { useHoverPopover } from "./composables/useHoverPopover";
+import { useCardMenu } from "./composables/useCardMenu";
+import { useHeightTransition } from "./composables/useHeightTransition";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 import PaletteColorStrip from "./PaletteColorStrip.vue";
 import PaletteCardMenu from "./PaletteCardMenu.vue";
@@ -360,7 +360,7 @@ function onPopoverCopy(css: string) {
 }
 .rename-slide-enter-from {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(calc(-1 * var(--animation-slide-md)));
     max-height: 0;
 }
 .rename-slide-enter-to,
@@ -369,7 +369,7 @@ function onPopoverCopy(css: string) {
 }
 .rename-slide-leave-to {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(calc(-1 * var(--animation-slide-md)));
     max-height: 0;
 }
 </style>

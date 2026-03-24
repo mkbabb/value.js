@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { inject, computed, watch, ref, TransitionGroup } from "vue";
 import { Plus, X, Palette as PaletteIcon } from "lucide-vue-next";
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
 import type { Palette } from "@lib/palette/types";
-import type { SelectedColor } from "@composables/useMixingState";
+import type { SelectedColor } from "./composables/useMixingState";
 
 const props = defineProps<{
     mode: "colors" | "palettes";

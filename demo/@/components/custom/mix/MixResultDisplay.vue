@@ -3,7 +3,7 @@ import { Copy, Check, Save, RotateCcw } from "lucide-vue-next";
 import { ref, TransitionGroup } from "vue";
 import { copyToClipboard } from "@composables/useClipboard";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
-import type { MixResult } from "@composables/useMixingState";
+import type { MixResult } from "./composables/useMixingState";
 
 const props = defineProps<{
     result: MixResult;

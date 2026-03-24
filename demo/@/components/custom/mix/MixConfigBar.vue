@@ -11,7 +11,7 @@ import { Blend } from "lucide-vue-next";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/utils";
 import type { LeftoverStrategy } from "@lib/palette/mix";
-import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@composables/useGradientModel";
+import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@components/custom/gradient/composables/useGradientModel";
 
 const props = defineProps<{
     colorSpace: ColorSpace;
