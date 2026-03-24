@@ -272,9 +272,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, inject, watch, TransitionGroup } from "vue";
-import type { Ref } from "vue";
-import type { EditTarget } from "@components/custom/color-picker";
+import { ref, toRef, TransitionGroup } from "vue";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import {
@@ -292,10 +290,9 @@ import {
     Check,
     Undo2,
 } from "lucide-vue-next";
-import { copyToClipboard } from "@composables/useClipboard";
-import { useHoverPopover } from "@composables/useHoverPopover";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { useSwatchActions } from "./composables/useSwatchActions";
 
 const props = defineProps<{
     savedColorStrings: string[];
@@ -314,85 +311,31 @@ const emit = defineEmits<{
     cancelEdit: [];
 }>();
 
-// --- Edit target from parent (for dashed outline on editing swatch) ---
-const activeEditTarget = inject<Ref<EditTarget | null>>("activeEditTarget", ref(null));
-function isSwatchEditing(index: number): boolean {
-    const et = activeEditTarget.value;
-    return !!et && et.paletteId === "__current__" && et.colorIndex === index;
-}
-
-// --- Hover popover for current swatches ---
+// --- Swatch interaction state & actions ---
 const {
     canHover,
-    openIndex: currentSwatchPopoverIndex,
-    style: currentFloatingStyle,
-    onHover: onCurrentSwatchHover,
-    onLeave: onCurrentSwatchLeave,
-    cancelLeave: cancelCurrentSwatchLeave,
-    close: closeCurrentSwatchPopover,
-    onPopoverUpdateTouch: onCurrentSwatchPopoverUpdateTouch,
-    onSwatchClick: onCurrentSwatchClick,
-} = useHoverPopover();
-
-// --- Stable keys for TransitionGroup ---
-let swatchKeyCounter = 0;
-const swatchKeyMap = new Map<string, number>();
-const swatchKeys = computed(() =>
-    props.savedColorStrings.map((color, i) => {
-        const mapKey = `${color}::${i}`;
-        if (!swatchKeyMap.has(mapKey)) {
-            swatchKeyMap.set(mapKey, swatchKeyCounter++);
-        }
-        return swatchKeyMap.get(mapKey)!;
-    }),
-);
-watch(
-    () => props.savedColorStrings,
-    () => {
-        const validKeys = new Set(props.savedColorStrings.map((c, i) => `${c}::${i}`));
-        for (const key of swatchKeyMap.keys()) {
-            if (!validKeys.has(key)) swatchKeyMap.delete(key);
-        }
-    },
-);
+    currentSwatchPopoverIndex,
+    currentFloatingStyle,
+    swatchKeys,
+    onCurrentSwatchHover,
+    onCurrentSwatchLeave,
+    cancelCurrentSwatchLeave,
+    onCurrentSwatchPopoverUpdateTouch,
+    onCurrentSwatchClick,
+    isSwatchEditing,
+    addCurrentColor,
+    onCurrentSwatchEdit,
+    onCurrentSwatchCopy,
+    onCurrentSwatchRemove,
+} = useSwatchActions({
+    savedColorStrings: toRef(props, "savedColorStrings"),
+    cssColorOpaque: toRef(props, "cssColorOpaque"),
+    emit,
+});
 
 // --- Current palette save ---
 const currentPaletteName = ref("");
 const duplicateTarget = ref<Palette | null>(null);
-
-function addCurrentColor() {
-    const existingIdx = props.savedColorStrings.indexOf(props.cssColorOpaque);
-    if (existingIdx !== -1 && props.savedColorStrings.length > 1) {
-        const reordered = props.savedColorStrings.filter((_, i) => i !== existingIdx);
-        reordered.push(props.cssColorOpaque);
-        emit("apply", reordered);
-        return;
-    }
-    if (existingIdx !== -1) {
-        return;
-    }
-    emit("addColor", props.cssColorOpaque);
-}
-
-function onCurrentSwatchEdit(css: string, index: number) {
-    closeCurrentSwatchPopover();
-    emit("startEdit", {
-        paletteId: "__current__",
-        colorIndex: index,
-        originalCss: css,
-    });
-}
-
-function onCurrentSwatchCopy(css: string) {
-    closeCurrentSwatchPopover();
-    copyToClipboard(css);
-}
-
-function onCurrentSwatchRemove(css: string, index: number) {
-    closeCurrentSwatchPopover();
-    const updated = props.savedColorStrings.filter((_, i) => i !== index);
-    emit("apply", updated);
-}
 
 function colorsFromStrings(colors: string[]): PaletteColor[] {
     return colors.map((css, i) => ({ css, position: i }));

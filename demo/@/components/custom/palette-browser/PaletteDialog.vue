@@ -2,7 +2,7 @@
     <Dialog v-model:open="openModel">
         <DialogScrollContent
             :class="[
-                'palette-dialog max-w-[800px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-2xl sm:h-[min(90vh,820px)] sm:max-h-[90vh] min-w-0 flex flex-col',
+                'palette-dialog max-w-[800px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-2xl sm:h-[min(90dvh,820px)] sm:max-h-[90dvh] min-w-0 flex flex-col',
                 editingExit && 'palette-dialog--editing-exit',
                 editingEnter && 'palette-dialog--editing-enter',
             ]"
@@ -162,7 +162,6 @@
 <script setup lang="ts">
 import {
     ref,
-    computed,
     watch,
 } from "vue";
 import {
@@ -175,13 +174,13 @@ import { Trash2 } from "lucide-vue-next";
 import ConfirmDialog from "./ConfirmDialog.vue";
 
 import { copyToClipboard } from "@composables/useClipboard";
-import { usePaletteStore } from "@composables/usePaletteStore";
-import { useAdminAuth } from "@composables/useAdminAuth";
-import { useUserAuth } from "@composables/useUserAuth";
-import { useSession } from "@composables/useSession";
-import { useBrowsePalettes } from "@composables/useBrowsePalettes";
-import { useAdminUsers, useColorNameQueue } from "@composables/useAdminOperations";
-import { useSlugMigration } from "@composables/useSlugMigration";
+import { usePaletteStore } from "@composables/palette/usePaletteStore";
+import { useAdminAuth } from "@composables/auth/useAdminAuth";
+import { useUserAuth } from "@composables/auth/useUserAuth";
+import { useSession } from "@composables/auth/useSession";
+import { useBrowsePalettes } from "@composables/palette/useBrowsePalettes";
+import { useAdminUsers, useColorNameQueue } from "@composables/auth/useAdminOperations";
+import { useSlugMigration } from "@composables/palette/useSlugMigration";
 import { publishPalette } from "@lib/palette/api";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 
@@ -193,6 +192,7 @@ import MigratePalettesDialog from "./MigratePalettesDialog.vue";
 import AdminUsersPanel from "./AdminUsersPanel.vue";
 import AdminNamesPanel from "./AdminNamesPanel.vue";
 import { ImagePaletteExtractor } from "@components/custom/image-palette-extractor";
+import { usePaletteDialogState } from "./composables/usePaletteDialogState";
 
 const props = defineProps<{
     savedColorStrings: string[];
@@ -210,12 +210,7 @@ const emit = defineEmits<{
     cancelEdit: [];
 }>();
 
-type TabValue = "saved" | "browse" | "extract" | "admin-users" | "admin-names";
-
 const openModel = defineModel<boolean>("open", { default: false });
-const activeTab = ref<TabValue>("saved");
-const searchQuery = ref("");
-const expandedId = ref<string | null>(null);
 const controlsBarRef = ref<InstanceType<typeof PaletteControlsBar> | null>(null);
 
 const { isAuthenticated: isAdminAuthenticated, login: adminLogin } = useAdminAuth();
@@ -228,6 +223,20 @@ const {
     updatePalette,
     deletePalette,
 } = usePaletteStore();
+
+// --- Tab + search + filter state (must be defined before composables that read searchQuery) ---
+const {
+    activeTab,
+    searchQuery,
+    expandedId,
+    searchPlaceholder,
+    filteredSaved,
+    toggleExpand,
+    setActiveTab,
+} = usePaletteDialogState({
+    savedPalettes,
+    isAdminAuthenticated,
+});
 
 // --- Browse palettes composable ---
 const {
@@ -306,11 +315,17 @@ watch(userSlug, () => {
     }
 });
 
-const searchPlaceholder = computed(() => {
-    switch (activeTab.value) {
-        case "admin-users": return "Search users...";
-        case "admin-names": return "Search color names...";
-        default: return "Search palettes...";
+// Lazy-load data on first tab visit
+watch(activeTab, (tab) => {
+    if (tab === "browse" && remotePalettes.value.length === 0) {
+        loadRemotePalettes();
+    }
+    if (tab === "admin-users" && adminUsers.value.length === 0) {
+        loadAdminUsers();
+    }
+    if (tab === "admin-names") {
+        if (adminColorQueue.value.length === 0) loadColorQueue();
+        if (!approvedLoaded.value) loadApprovedColors();
     }
 });
 
@@ -359,15 +374,7 @@ function commitColorEdit(paletteId: string, colorIndex: number, newCss: string) 
     updatePalette(paletteId, { colors: updatedColors });
 }
 
-function setActiveTab(tab: TabValue) {
-    activeTab.value = tab;
-}
-
 defineExpose({ commitColorEdit, setActiveTab });
-
-function toggleExpand(id: string) {
-    expandedId.value = expandedId.value === id ? null : id;
-}
 
 function isTeleportedTarget(event: any): boolean {
     const target = event.detail?.originalEvent?.target ?? event.target;
@@ -398,33 +405,6 @@ function onInteractOutside(event: any) {
 function onDotClick() {
     copyToClipboard(props.cssColorOpaque);
 }
-
-const filteredSaved = computed(() => {
-    const q = searchQuery.value.toLowerCase();
-    if (!q) return savedPalettes.value;
-    return savedPalettes.value.filter(
-        (p) => p.name.toLowerCase().includes(q) || p.slug.includes(q),
-    );
-});
-
-watch(activeTab, (tab) => {
-    if (tab === "browse" && remotePalettes.value.length === 0) {
-        loadRemotePalettes();
-    }
-    if (tab === "admin-users" && adminUsers.value.length === 0) {
-        loadAdminUsers();
-    }
-    if (tab === "admin-names") {
-        if (adminColorQueue.value.length === 0) loadColorQueue();
-        if (!approvedLoaded.value) loadApprovedColors();
-    }
-});
-
-watch(isAdminAuthenticated, (auth) => {
-    if (!auth && activeTab.value.startsWith("admin-")) {
-        activeTab.value = "saved";
-    }
-});
 
 async function onPrune() {
     const pruned = await onPruneEmpty();
@@ -513,43 +493,15 @@ function onDeleteAllSaved() {
 .palette-dialog[data-state="closed"] {
     animation: dialog-out var(--duration-normal) var(--ease-standard);
 }
-@keyframes dialog-in {
-    from { opacity: 0; transform: scale(0.95) translateY(8px); }
-    to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-@keyframes dialog-out {
-    from { opacity: 1; transform: scale(1) translateY(0); }
-    to   { opacity: 0; transform: scale(0.95) translateY(8px); }
-}
 
 /* Dialog exits by sliding left + shrinking toward drawer position */
 .palette-dialog--editing-exit[data-state="closed"] {
     animation: dialog-out-to-drawer var(--duration-slow) var(--ease-standard);
 }
-@keyframes dialog-out-to-drawer {
-    from { opacity: 1; transform: scale(1) translateX(0); }
-    to   { opacity: 0; transform: scale(0.35) translateX(-120%); }
-}
 
 /* Dialog enters by sliding in from left (returning from edit mode) */
 .palette-dialog--editing-enter[data-state="open"] {
     animation: dialog-in-from-drawer var(--duration-slow) var(--ease-standard);
-}
-@keyframes dialog-in-from-drawer {
-    from { opacity: 0; transform: scale(0.35) translateX(-120%); }
-    to   { opacity: 1; transform: scale(1) translateX(0); }
-}
-
-/* Mobile variants: slide down/up instead of left */
-@media (max-width: 639px) {
-    @keyframes dialog-out-to-drawer {
-        from { opacity: 1; transform: scale(1) translateY(0); }
-        to   { opacity: 0; transform: scale(0.5) translateY(60%); }
-    }
-    @keyframes dialog-in-from-drawer {
-        from { opacity: 0; transform: scale(0.5) translateY(60%); }
-        to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
 }
 
 /* Slow overlay fade to match longer dialog animation */

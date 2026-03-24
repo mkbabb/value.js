@@ -79,8 +79,7 @@
             ref="atmosphereCanvas"
             class="absolute inset-0 w-full h-full pointer-events-none"
         />
-        <TopDock
-            :css-color-opaque="cssColorOpaque"
+        <Dock
             :link-copied="linkCopied"
             :edit-target="activeEditTarget"
             :action-bar="colorPickerRef?.actionBarContext ?? null"
@@ -131,42 +130,42 @@
                         <BrowsePane
                             v-else-if="currentConfig.left === 'browse'"
                             key="browse"
-                            :css-color-opaque="cssColorOpaque"
+
                         />
                         <ExtractPane
                             v-else-if="currentConfig.left === 'extract'"
                             key="extract"
-                            :css-color-opaque="cssColorOpaque"
+
                             :color-space="model.selectedColorSpace"
                         />
                         <GeneratePane
                             v-else-if="currentConfig.left === 'generate'"
                             key="generate"
                             ref="generatePaneRef"
-                            :css-color-opaque="cssColorOpaque"
+
                         />
                         <GradientPane
                             v-else-if="currentConfig.left === 'gradient'"
                             key="gradient"
                             ref="gradientPaneRef"
-                            :css-color-opaque="cssColorOpaque"
+
                         />
                         <AtmospherePane
                             v-else-if="currentConfig.left === 'atmosphere'"
                             key="atmosphere"
-                            :css-color-opaque="cssColorOpaque"
+
                         />
                         <AdminPane
                             v-else-if="currentConfig.left === 'admin-users'"
                             key="admin-users"
                             sub-view="admin-users"
-                            :css-color-opaque="cssColorOpaque"
+
                         />
                         <AdminPane
                             v-else-if="currentConfig.left === 'admin-names'"
                             key="admin-names"
                             sub-view="admin-names"
-                            :css-color-opaque="cssColorOpaque"
+
                         />
                     </KeepAlive>
                 </Transition>
@@ -189,7 +188,7 @@
                             v-else-if="currentConfig.right === 'palettes'"
                             key="palettes"
                             :saved-color-strings="savedColorStrings"
-                            :css-color-opaque="cssColorOpaque"
+
                             @commit-edit="colorPickerRef?.commitEdit()"
                             @cancel-edit="colorPickerRef?.cancelEdit()"
                         />
@@ -197,7 +196,7 @@
                             v-else-if="currentConfig.right === 'mix'"
                             key="mix"
                             ref="mixPaneRef"
-                            :css-color-opaque="cssColorOpaque"
+
                         />
                     </KeepAlive>
                 </Transition>
@@ -225,10 +224,11 @@ import {
     toCSSColorString,
     colorToHexString,
 } from "@components/custom/color-picker";
+import { CSS_COLOR_KEY, EDIT_TARGET_KEY } from "@components/custom/color-picker/keys";
 
-import { TopDock } from "@components/custom/top-dock";
+import { Dock } from "@components/custom/dock";
 import { RefreshCw, Copy, Save, RotateCcw, Pipette, Blend, Paintbrush, Trash2 } from "lucide-vue-next";
-import type { DockActionBar } from "@composables/useDockActionBar";
+import type { DockActionBar } from "@components/custom/dock/composables/useDockActionBar";
 import {
     AboutPane,
     PalettesPane,
@@ -248,12 +248,12 @@ import { copyToClipboard } from "@composables/useClipboard";
 import { normalizeColorUnit, colorUnit2 } from "@src/units/color/normalize";
 import { parseCSSColor } from "@src/parsing/color";
 import { CSS_NATIVE_SPACES } from "@components/custom/color-picker";
-import { useCustomColorNames } from "@composables/useCustomColorNames";
-import { useColorUrl } from "@composables/useColorUrl";
+import { useCustomColorNames } from "@components/custom/color-picker/composables/useCustomColorNames";
+import { useColorUrl } from "@components/custom/color-picker/composables/useColorUrl";
 import { debounce } from "@src/utils";
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
-import { usePaletteManager } from "@composables/usePaletteManager";
-import { useAtmosphereCanvas } from "@composables/useAtmosphereCanvas";
+import { usePaletteManager } from "@composables/palette/usePaletteManager";
+import { useAtmosphereCanvas } from "@composables/animation/useAtmosphereCanvas";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -293,11 +293,12 @@ const resetToDefaults = () => {
     model.value = createDefaultColorModel();
 };
 
-// --- Edit target (synced from ColorPicker, provided for palette components + TopDock) ---
+// --- Edit target (synced from ColorPicker, provided for palette components + Dock) ---
 
 const activeEditTarget = shallowRef<EditTarget | null>(null);
 const onEditTargetChange = (et: EditTarget | null) => { activeEditTarget.value = et; };
-provide("activeEditTarget", activeEditTarget);
+provide(EDIT_TARGET_KEY, activeEditTarget);
+provide(CSS_COLOR_KEY, cssColorOpaque);
 
 // --- View manager ---
 
@@ -389,17 +390,17 @@ const mobileProps = computed(() => {
     const cfg = currentConfig.value;
     if (cfg.right !== null && viewManager.mobilePaneIndex.value === 1) {
         if (cfg.right === "about") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { model.value = v; }, cssColor: cssColor.value };
-        if (cfg.right === "palettes") return { savedColorStrings: savedColorStrings.value, cssColorOpaque: cssColorOpaque.value, "onCommit-edit": () => colorPickerRef.value?.commitEdit(), "onCancel-edit": () => colorPickerRef.value?.cancelEdit() };
-        if (cfg.right === "mix") return { cssColorOpaque: cssColorOpaque.value };
+        if (cfg.right === "palettes") return { savedColorStrings: savedColorStrings.value, "onCommit-edit": () => colorPickerRef.value?.commitEdit(), "onCancel-edit": () => colorPickerRef.value?.cancelEdit() };
+        if (cfg.right === "mix") return {};
     }
     if (cfg.left === "color-picker") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { model.value = v; }, "onUpdate:editTarget": onEditTargetChange, onReset: resetToDefaults, ref: colorPickerRef, class: "picker-shell w-full" };
-    if (cfg.left === "browse") return { cssColorOpaque: cssColorOpaque.value };
-    if (cfg.left === "extract") return { cssColorOpaque: cssColorOpaque.value, colorSpace: model.value.selectedColorSpace };
-    if (cfg.left === "generate") return { cssColorOpaque: cssColorOpaque.value };
-    if (cfg.left === "gradient") return { cssColorOpaque: cssColorOpaque.value };
-    if (cfg.left === "atmosphere") return { cssColorOpaque: cssColorOpaque.value };
-    if (cfg.left === "admin-users") return { subView: "admin-users", cssColorOpaque: cssColorOpaque.value };
-    if (cfg.left === "admin-names") return { subView: "admin-names", cssColorOpaque: cssColorOpaque.value };
+    if (cfg.left === "browse") return {};
+    if (cfg.left === "extract") return { colorSpace: model.value.selectedColorSpace };
+    if (cfg.left === "generate") return {};
+    if (cfg.left === "gradient") return {};
+    if (cfg.left === "atmosphere") return {};
+    if (cfg.left === "admin-users") return { subView: "admin-users" };
+    if (cfg.left === "admin-names") return { subView: "admin-names" };
     return {};
 });
 
