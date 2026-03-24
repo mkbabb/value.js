@@ -1,0 +1,89 @@
+/* Centralized keyframe animations for the demo app.
+ * Only GLOBAL (non-scoped) keyframes live here.
+ * Component-scoped keyframes remain in their <style scoped> blocks. */
+
+/* --- Floating panel entrance --- */
+
+@keyframes floating-panel-in {
+    from {
+        opacity: 0;
+        filter: blur(4px);
+        scale: 0.96;
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        scale: 1;
+    }
+}
+
+/* --- Dialog open / close --- */
+
+@keyframes dialog-in {
+    from { opacity: 0; transform: scale(0.95) translateY(8px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes dialog-out {
+    from { opacity: 1; transform: scale(1) translateY(0); }
+    to   { opacity: 0; transform: scale(0.95) translateY(8px); }
+}
+
+/* --- Dialog ↔ drawer transitions --- */
+
+@keyframes dialog-out-to-drawer {
+    from { opacity: 1; transform: scale(1) translateX(0); }
+    to   { opacity: 0; transform: scale(0.35) translateX(-120%); }
+}
+
+@keyframes dialog-in-from-drawer {
+    from { opacity: 0; transform: scale(0.35) translateX(-120%); }
+    to   { opacity: 1; transform: scale(1) translateX(0); }
+}
+
+@media (max-width: 639px) {
+    @keyframes dialog-out-to-drawer {
+        from { opacity: 1; transform: scale(1) translateY(0); }
+        to   { opacity: 0; transform: scale(0.5) translateY(60%); }
+    }
+    @keyframes dialog-in-from-drawer {
+        from { opacity: 0; transform: scale(0.5) translateY(60%); }
+        to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+}
+
+/* --- Edit drawer entrance --- */
+
+@keyframes edit-drawer-in {
+    from { opacity: 0; transform: translateX(-100%) translateY(-50%); }
+    to   { opacity: 1; transform: translateX(0) translateY(-50%); }
+}
+
+@media (max-width: 639px) {
+    @keyframes edit-drawer-in {
+        from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+        to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+}
+
+/* --- Card menu entrance --- */
+
+@keyframes card-menu-in {
+    from {
+        opacity: 0;
+        filter: blur(4px);
+        transform: translateX(-100%) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(-100%) scale(1);
+    }
+}
+
+/* --- Shimmer effects --- */
+
+@keyframes golden-shimmer {
+    0%, 100% { background-position: 100% 100%; }
+    50% { background-position: 0% 0%; }
+}

@@ -96,16 +96,4 @@ defineEmits<{
 .card-menu-panel {
     animation: card-menu-in var(--duration-fast) ease-out;
 }
-@keyframes card-menu-in {
-    from {
-        opacity: 0;
-        filter: blur(4px);
-        transform: translateX(-100%) scale(0.96);
-    }
-    to {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateX(-100%) scale(1);
-    }
-}
 </style>

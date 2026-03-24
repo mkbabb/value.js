@@ -4,6 +4,7 @@
 @import "./dock.css";
 @import "./floating-panel.css";
 @import "./transitions.css";
+@import "./animations.css";
 
 @theme {
     /* Container configuration */
@@ -113,6 +114,12 @@
     --duration-normal: 0.25s;
     --duration-slow: 0.35s;
     --duration-linger: 2.5s;
+
+    /* ── Animation offset tokens ── */
+    --animation-slide-sm: 3px;
+    --animation-slide-md: 6px;
+    --animation-slide-lg: 8px;
+    --popover-offset: 0.375rem;
 
     /* ── Easing tokens ── */
     --ease-spring: cubic-bezier(0.22, 1.6, 0.36, 1);

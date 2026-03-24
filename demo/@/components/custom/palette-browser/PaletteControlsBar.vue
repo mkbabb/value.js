@@ -136,8 +136,9 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .tabs-scroll-mask {
-    mask-image: linear-gradient(to right, transparent, black 0.75rem, black calc(100% - 0.75rem), transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 0.75rem, black calc(100% - 0.75rem), transparent);
+    --mask-pad: 0.75rem;
+    mask-image: linear-gradient(to right, transparent, black var(--mask-pad), black calc(100% - var(--mask-pad)), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black var(--mask-pad), black calc(100% - var(--mask-pad)), transparent);
     scrollbar-width: none;
     &::-webkit-scrollbar { display: none; }
 }

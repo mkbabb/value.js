@@ -87,11 +87,6 @@ defineEmits<{
     mix-blend-mode: overlay;
 }
 
-@keyframes golden-shimmer {
-    0%, 100% { background-position: 100% 100%; }
-    50% { background-position: 0% 0%; }
-}
-
 /* Pastel rainbow gradient for palette title */
 .pastel-rainbow-text {
     background-image: linear-gradient(
