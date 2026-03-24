@@ -80,17 +80,17 @@ import { Separator } from "@components/ui/separator";
 import { Button } from "@components/ui/button";
 import { RotateCcw, Copy, Check, X as XIcon } from "lucide-vue-next";
 import { copyToClipboard } from "@composables/useClipboard";
+import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import {
     DEFAULT_ATMOSPHERE_CONFIG,
     ATMOSPHERE_SECTIONS,
-} from "@composables/atmosphereConfig";
+} from "@composables/animation/atmosphereConfig";
 import type {
     AtmosphereConfig,
     AtmosphereParam,
-} from "@composables/atmosphereConfig";
+} from "@composables/animation/atmosphereConfig";
 
-defineProps<{ cssColorOpaque: string }>();
-
+const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const cfg = inject<AtmosphereConfig>("atmosphereConfig")!;
 const copyState = ref<"idle" | "ok" | "err">("idle");
 

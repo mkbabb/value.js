@@ -17,8 +17,8 @@ import {
     HARMONY_NAMES,
     GENERATION_PRESETS,
     HARMONY_DEFS,
-} from "@composables/useColorGeneration";
-import type { PresetName, HarmonyName } from "@composables/useColorGeneration";
+} from "@components/custom/color-picker/composables/useColorGeneration";
+import type { PresetName, HarmonyName } from "@components/custom/color-picker/composables/useColorGeneration";
 
 const {
     preset,

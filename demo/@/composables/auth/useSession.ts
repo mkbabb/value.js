@@ -1,6 +1,6 @@
 import { ref, type Ref } from "vue";
 import { createSession, setSessionToken } from "@lib/palette/api";
-import { safeGetItem, safeSetItem } from "./useSafeStorage";
+import { safeGetItem, safeSetItem } from "../useSafeStorage";
 
 const SESSION_KEY = "palette-session-token";
 

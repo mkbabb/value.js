@@ -1,6 +1,6 @@
 import { ref, type Ref } from "vue";
-import { useFilteredList } from "./useFilteredList";
-import { useSession } from "./useSession";
+import { useFilteredList } from "../useFilteredList";
+import { useSession } from "../auth/useSession";
 import { usePaletteStore } from "./usePaletteStore";
 import {
     listPalettes,

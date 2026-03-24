@@ -145,7 +145,7 @@ import ConfirmDialog from "./ConfirmDialog.vue";
 import { Loader2, Trash2, Eraser, RefreshCw } from "lucide-vue-next";
 import type { Palette, User } from "@lib/palette/types";
 import { getUserPalettes } from "@lib/palette/api";
-import { useAdminAuth } from "@composables/useAdminAuth";
+import { useAdminAuth } from "@composables/auth/useAdminAuth";
 import PaletteCard from "./PaletteCard.vue";
 
 const props = defineProps<{

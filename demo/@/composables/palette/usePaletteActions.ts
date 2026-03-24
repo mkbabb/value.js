@@ -1,8 +1,8 @@
 import { ref, computed, type Ref } from "vue";
 
-import { copyToClipboard } from "./useClipboard";
-import { useSession } from "./useSession";
-import { useUserAuth } from "./useUserAuth";
+import { copyToClipboard } from "../useClipboard";
+import { useSession } from "../auth/useSession";
+import { useUserAuth } from "../auth/useUserAuth";
 import { publishPalette } from "@lib/palette/api";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 

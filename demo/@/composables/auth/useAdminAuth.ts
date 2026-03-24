@@ -1,5 +1,5 @@
 import { ref, computed, type Ref } from "vue";
-import { safeGetItem, safeSetItem, safeRemoveItem } from "./useSafeStorage";
+import { safeGetItem, safeSetItem, safeRemoveItem } from "../useSafeStorage";
 
 const STORAGE_KEY = "palette-admin-token";
 

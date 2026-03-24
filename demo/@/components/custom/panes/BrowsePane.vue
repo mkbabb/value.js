@@ -54,16 +54,14 @@
 import { inject } from "vue";
 import { Card } from "@components/ui/card";
 import { Loader2, Search } from "lucide-vue-next";
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
 import SortFilterMenu from "@components/custom/palette-browser/SortFilterMenu.vue";
 import PaneSearchBar from "./PaneSearchBar.vue";
 import PaneHeader from "./PaneHeader.vue";
 
-defineProps<{
-    cssColorOpaque: string;
-}>();
-
+const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 </script>

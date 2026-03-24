@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { inject, ref } from "vue";
 import { Card } from "@components/ui/card";
 import PaneHeader from "./PaneHeader.vue";
 import GradientVisualizer from "@components/custom/gradient/GradientVisualizer.vue";
+import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 
-defineProps<{
-    cssColorOpaque?: string;
-}>();
-
+const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const visualizerRef = ref<InstanceType<typeof GradientVisualizer> | null>(null);
 
 defineExpose({

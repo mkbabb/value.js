@@ -1,17 +1,16 @@
 import { ref, computed, watch, provide } from "vue";
 import type { Ref, InjectionKey } from "vue";
 
-import { copyToClipboard } from "./useClipboard";
 import { usePaletteStore } from "./usePaletteStore";
-import { useAdminAuth } from "./useAdminAuth";
-import { useUserAuth } from "./useUserAuth";
-import { useSession } from "./useSession";
+import { useAdminAuth } from "../auth/useAdminAuth";
+import { useUserAuth } from "../auth/useUserAuth";
 import { useBrowsePalettes } from "./useBrowsePalettes";
-import { useAdminUsers, useColorNameQueue } from "./useAdminOperations";
+import { useAdminUsers, useColorNameQueue } from "../auth/useAdminOperations";
 import { useSlugMigration } from "./useSlugMigration";
-import { publishPalette } from "@lib/palette/api";
+import { usePaletteActions } from "./usePaletteActions";
+import { useFilteredList } from "../useFilteredList";
 import type { Palette, PaletteColor } from "@lib/palette/types";
-import type { ViewId } from "./useViewManager";
+import type { ViewId } from "../useViewManager";
 import type PaletteSlugBar from "@components/custom/palette-browser/PaletteSlugBar.vue";
 
 export interface PaletteManager {
@@ -118,77 +117,23 @@ export function usePaletteManager(deps: {
     const { currentView, savedColorStrings, emitApply, emitAddColor, emitStartEdit, emitSetCurrentColor } = deps;
 
     const searchQuery = ref("");
-    const expandedId = ref<string | null>(null);
-    const showDeleteAllConfirm = ref(false);
 
     // --- Auth ---
     const { isAuthenticated: isAdminAuthenticated, login: adminLogin } = useAdminAuth();
     const { userSlug, ensureUser, login: userLogin, logout: userLogout, regenerate: userRegenerate, clearSlug } = useUserAuth();
-    const session = useSession();
 
     // --- Palette store ---
-    const {
-        savedPalettes,
-        createPalette,
-        updatePalette,
-        deletePalette,
-    } = usePaletteStore();
+    const { savedPalettes, createPalette, updatePalette, deletePalette } = usePaletteStore();
 
     // --- Browse palettes ---
-    const {
-        remotePalettes,
-        browsing,
-        sortLoading,
-        sortMode,
-        filteredBrowse,
-        loadRemotePalettes,
-        onSortChange,
-        onSaveRemote,
-        onVote,
-        onRename,
-    } = useBrowsePalettes({ searchQuery });
+    const browse = useBrowsePalettes({ searchQuery });
 
     // --- Admin operations ---
-    const {
-        adminUsers,
-        loadingUsers,
-        userSortMode,
-        adminUsersPanelRef,
-        filteredAdminUsers,
-        onUserSortChange,
-        loadAdminUsers,
-        onFeaturePalette,
-        onAdminDeletePalette,
-        onAdminDeleteUserPalette,
-        onDeleteUserPalettes,
-        onDeleteUser,
-        onPruneEmpty,
-    } = useAdminUsers({ searchQuery, remotePalettes });
-
-    const {
-        adminColorQueue,
-        loadingColorQueue,
-        approvedColors,
-        loadingApproved,
-        approvedLoaded,
-        filteredColorQueue,
-        filteredApproved,
-        loadColorQueue,
-        loadApprovedColors,
-        onApproveColor,
-        onRejectColor,
-        onDeleteColor,
-    } = useColorNameQueue({ searchQuery });
+    const admin = useAdminUsers({ searchQuery, remotePalettes: browse.remotePalettes });
+    const colorQueue = useColorNameQueue({ searchQuery });
 
     // --- Slug migration ---
-    const {
-        showMigrateDialog,
-        migrateMode,
-        slugBarRef,
-        onSlugSwitch,
-        onRegenerateSlug,
-        onMigrateRespond,
-    } = useSlugMigration({
+    const migration = useSlugMigration({
         savedPalettes,
         userLogin,
         userLogout,
@@ -199,24 +144,39 @@ export function usePaletteManager(deps: {
         activeTab: currentView as Ref<string>,
     });
 
+    // --- Palette actions (publish, edit, delete, expand) ---
+    const actions = usePaletteActions({
+        savedPalettes,
+        remotePalettes: browse.remotePalettes,
+        savedColorStrings,
+        createPalette,
+        updatePalette,
+        deletePalette,
+        emitApply,
+        emitAddColor,
+        emitStartEdit,
+    });
+
+    // --- Cross-module orchestration (watchers) ---
+
     // Reload browse palettes when slug changes
     watch(userSlug, () => {
-        if (remotePalettes.value.length > 0) {
-            loadRemotePalettes();
+        if (browse.remotePalettes.value.length > 0) {
+            browse.loadRemotePalettes();
         }
     });
 
     // Lazy load data based on view
     watch(currentView, (view) => {
-        if (view === "browse" && remotePalettes.value.length === 0) {
-            loadRemotePalettes();
+        if (view === "browse" && browse.remotePalettes.value.length === 0) {
+            browse.loadRemotePalettes();
         }
-        if (view === "admin-users" && adminUsers.value.length === 0) {
-            loadAdminUsers();
+        if (view === "admin-users" && admin.adminUsers.value.length === 0) {
+            admin.loadAdminUsers();
         }
         if (view === "admin-names") {
-            if (adminColorQueue.value.length === 0) loadColorQueue();
-            if (!approvedLoaded.value) loadApprovedColors();
+            if (colorQueue.adminColorQueue.value.length === 0) colorQueue.loadColorQueue();
+            if (!colorQueue.approvedLoaded.value) colorQueue.loadApprovedColors();
         }
     });
 
@@ -227,6 +187,8 @@ export function usePaletteManager(deps: {
         }
     });
 
+    // --- Search UI ---
+
     const searchPlaceholder = computed(() => {
         switch (currentView.value) {
             case "admin-users": return "Search users...";
@@ -235,178 +197,53 @@ export function usePaletteManager(deps: {
         }
     });
 
-    const filteredSaved = computed(() => {
-        const q = searchQuery.value.toLowerCase();
-        if (!q) return savedPalettes.value;
-        return savedPalettes.value.filter(
-            (p) => p.name.toLowerCase().includes(q) || p.slug.includes(q),
-        );
-    });
+    const filteredSaved = useFilteredList(savedPalettes, searchQuery, (p, q) =>
+        p.name.toLowerCase().includes(q) || p.slug.includes(q),
+    );
 
-    // --- Actions ---
-
-    function toggleExpand(id: string) {
-        expandedId.value = expandedId.value === id ? null : id;
-    }
-
-    function onApply(palette: Palette) {
-        emitApply(palette.colors.map((c) => c.css));
-    }
-
-    function onDelete(palette: Palette) {
-        deletePalette(palette.id);
-    }
-
-    async function onPublish(palette: Palette) {
-        try {
-            await ensureUser();
-            await session.ensureSession();
-        } catch {
-            console.warn("Failed to create session — check your network connection");
-            return;
-        }
-        try {
-            await publishPalette({
-                name: palette.name,
-                slug: palette.slug,
-                colors: palette.colors,
-            });
-        } catch (e: any) {
-            const msg = e?.message ?? "";
-            console.warn(`Failed to publish: ${msg || "unknown error"}`);
-        }
-    }
-
-    function onRenameSaved(palette: Palette, newName: string) {
-        updatePalette(palette.id, { name: newName });
-    }
-
-    async function onCurrentPaletteSaved(name: string, colors: PaletteColor[]) {
-        await ensureUser();
-        const palette = createPalette(name, colors);
-        expandedId.value = palette.id;
-    }
-
-    function onCurrentPaletteUpdated(id: string, colors: PaletteColor[]) {
-        updatePalette(id, { colors });
-        expandedId.value = id;
-    }
-
-    function onSwatchAddColor(css: string) {
-        emitAddColor(css);
-    }
-
-    function onEditColor(palette: Palette, colorIndex: number, css: string) {
-        emitStartEdit({ paletteId: palette.id, colorIndex, originalCss: css });
-    }
-
-    function commitColorEdit(paletteId: string, colorIndex: number, newCss: string) {
-        if (paletteId === "__current__") {
-            const oldCss = savedColorStrings.value[colorIndex];
-            if (oldCss === newCss) return;
-            const updated = [...savedColorStrings.value];
-            updated[colorIndex] = newCss;
-            emitApply(updated);
-            return;
-        }
-
-        const palette =
-            savedPalettes.value.find((p) => p.id === paletteId) ??
-            remotePalettes.value.find((p) => p.id === paletteId);
-        if (!palette) return;
-
-        const oldCss = palette.colors[colorIndex]?.css;
-        if (oldCss === newCss) return;
-
-        const updatedColors = [...palette.colors];
-        updatedColors[colorIndex] = { ...updatedColors[colorIndex]!, css: newCss };
-        updatePalette(paletteId, { colors: updatedColors });
-    }
-
-    function onDeleteAllSaved() {
-        for (const p of [...savedPalettes.value]) {
-            deletePalette(p.id);
-        }
-        expandedId.value = null;
-        showDeleteAllConfirm.value = false;
-    }
+    // --- Prune (bridges admin + panel ref) ---
 
     async function onPrune() {
-        const pruned = await onPruneEmpty();
-        adminUsersPanelRef.value?.onPruneDone(pruned);
+        const pruned = await admin.onPruneEmpty();
+        admin.adminUsersPanelRef.value?.onPruneDone(pruned);
     }
 
-    function onDotClick(cssColorOpaque: string) {
-        copyToClipboard(cssColorOpaque);
-    }
+    // --- Assemble facade ---
 
     const manager: PaletteManager = {
+        // Auth
         isAdminAuthenticated,
         userSlug,
         userLogout,
+
+        // Palette store
         savedPalettes,
         createPalette,
         updatePalette,
         deletePalette,
-        remotePalettes,
-        browsing,
-        sortLoading,
-        sortMode,
-        filteredBrowse,
-        loadRemotePalettes,
-        onSortChange,
-        onSaveRemote,
-        onVote,
-        onRename,
-        adminUsers,
-        loadingUsers,
-        userSortMode,
-        adminUsersPanelRef,
-        filteredAdminUsers,
-        onUserSortChange,
-        loadAdminUsers,
-        onFeaturePalette,
-        onAdminDeletePalette,
-        onAdminDeleteUserPalette,
-        onDeleteUserPalettes,
-        onDeleteUser,
-        onPruneEmpty,
-        adminColorQueue,
-        loadingColorQueue,
-        approvedColors,
-        loadingApproved,
-        approvedLoaded,
-        filteredColorQueue,
-        filteredApproved,
-        loadColorQueue,
-        loadApprovedColors,
-        onApproveColor,
-        onRejectColor,
-        onDeleteColor,
-        showMigrateDialog,
-        migrateMode,
-        slugBarRef,
-        onSlugSwitch,
-        onRegenerateSlug,
-        onMigrateRespond,
+
+        // Browse
+        ...browse,
+
+        // Admin users
+        ...admin,
+
+        // Admin color names
+        ...colorQueue,
+
+        // Slug migration
+        ...migration,
+
+        // Actions (includes expandedId, showDeleteAllConfirm)
+        ...actions,
+        onPrune,
+
+        // Search & UI
         searchQuery,
-        expandedId,
         filteredSaved,
         searchPlaceholder,
-        toggleExpand,
-        onApply,
-        onDelete,
-        onPublish,
-        onRenameSaved,
-        onCurrentPaletteSaved,
-        onCurrentPaletteUpdated,
-        onEditColor,
-        onSwatchAddColor,
-        commitColorEdit,
-        showDeleteAllConfirm,
-        onDeleteAllSaved,
-        onPrune,
-        onDotClick,
+
+        // Emitters
         emitApply,
         emitAddColor,
         emitStartEdit,

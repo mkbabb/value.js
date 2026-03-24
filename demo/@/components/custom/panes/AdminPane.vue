@@ -56,7 +56,8 @@ import { inject, computed } from "vue";
 import { Card } from "@components/ui/card";
 import { Shield, Tag } from "lucide-vue-next";
 
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import AdminUsersPanel from "@components/custom/palette-browser/AdminUsersPanel.vue";
 import AdminNamesPanel from "@components/custom/palette-browser/AdminNamesPanel.vue";
 import UserSortMenu from "@components/custom/palette-browser/UserSortMenu.vue";
@@ -65,9 +66,9 @@ import PaneHeader from "./PaneHeader.vue";
 
 const props = defineProps<{
     subView: "admin-users" | "admin-names";
-    cssColorOpaque: string;
 }>();
 
+const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 
 const adminCount = computed(() =>

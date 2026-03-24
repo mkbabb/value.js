@@ -1,6 +1,6 @@
 import { ref, computed, type Ref } from "vue";
 import { createSession, deleteSession, loginWithSlug, setSessionToken } from "@lib/palette/api";
-import { safeGetItem, safeSetItem, safeRemoveItem } from "./useSafeStorage";
+import { safeGetItem, safeSetItem, safeRemoveItem } from "../useSafeStorage";
 
 const SLUG_KEY = "palette-user-slug";
 const TOKEN_KEY = "palette-user-token";

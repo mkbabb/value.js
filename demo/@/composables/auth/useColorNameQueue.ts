@@ -1,5 +1,5 @@
 import { ref, type Ref } from "vue";
-import { useFilteredList } from "./useFilteredList";
+import { useFilteredList } from "../useFilteredList";
 import { useAdminAuth } from "./useAdminAuth";
 import {
     getAdminQueue,

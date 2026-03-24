@@ -36,7 +36,7 @@ import AdminAuthGate from "./AdminAuthGate.vue";
 import AdminColorQueue from "./AdminColorQueue.vue";
 import AdminPaletteOps from "./AdminPaletteOps.vue";
 
-import { useAdminAuth } from "@composables/useAdminAuth";
+import { useAdminAuth } from "@composables/auth/useAdminAuth";
 import {
     getAdminQueue,
     approveColorName,

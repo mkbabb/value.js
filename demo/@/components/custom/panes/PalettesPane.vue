@@ -86,7 +86,8 @@ import { inject } from "vue";
 import { Card } from "@components/ui/card";
 import { Button } from "@components/ui/button";
 import { Trash2, Palette } from "lucide-vue-next";
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import CurrentPaletteEditor from "@components/custom/palette-browser/CurrentPaletteEditor.vue";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
@@ -96,7 +97,6 @@ import PaneHeader from "./PaneHeader.vue";
 
 const props = defineProps<{
     savedColorStrings: string[];
-    cssColorOpaque: string;
 }>();
 
 const emit = defineEmits<{
@@ -104,5 +104,6 @@ const emit = defineEmits<{
     cancelEdit: [];
 }>();
 
+const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 </script>

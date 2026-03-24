@@ -1,5 +1,5 @@
 import { ref, type Ref } from "vue";
-import { useSession } from "./useSession";
+import { useSession } from "../auth/useSession";
 import { publishPalette } from "@lib/palette/api";
 import type { Palette } from "@lib/palette/types";
 import type PaletteSlugBar from "@components/custom/palette-browser/PaletteSlugBar.vue";
