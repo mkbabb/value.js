@@ -24,31 +24,13 @@
 <script setup lang="ts">
 import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
 import { Skeleton } from "@components/ui/skeleton";
-import { convert2 } from "@src/units/utils";
 import "@styles/style.css";
 import "@styles/utils.css";
-import { useDark } from "@vueuse/core";
-import hljs from "highlight.js/lib/core";
-import javascript from "highlight.js/lib/languages/javascript";
-import prettier from "prettier";
-import prettierBabelPlugin from "prettier/plugins/babel";
-import prettierESTreePlugin from "prettier/plugins/estree";
-import prettierPostCSSPlugin from "prettier/plugins/postcss";
-import prettierTypeScriptPlugin from "prettier/plugins/typescript";
-import { computed, onMounted, onUnmounted, onUpdated, ref, useTemplateRef, watch, nextTick } from "vue";
-import type { DocItem, DocModule } from ".";
-
-// @ts-ignore
-import darkTheme from "highlight.js/styles/github-dark.css?inline";
-// @ts-ignore
-import lightTheme from "highlight.js/styles/github.css?inline";
-import katex from "katex";
-
-// Then register the languages you need
-hljs.registerLanguage("typescript", javascript);
-hljs.registerLanguage("css", javascript);
-
-const isDark = useDark({ disableTransition: false });
+import { computed, onMounted, onUpdated, ref, useTemplateRef } from "vue";
+import type { DocModule } from ".";
+import { useCodeFormatting } from "./composables/useCodeFormatting";
+import { useMarkdownColors } from "./composables/useMarkdownColors";
+import { useMarkdownHighlighting } from "./composables/useMarkdownHighlighting";
 
 const { module, cssColor, colorSpaceName } = defineProps<{
     module: DocModule;
@@ -58,288 +40,31 @@ const { module, cssColor, colorSpaceName } = defineProps<{
 
 const markdownDiv = useTemplateRef<HTMLElement>("markdownDiv");
 
-/* Parse CSS color string to oklch components via browser canvas */
-function cssToOklch(css: string): [number, number, number] | null {
-    try {
-        const ctx = document.createElement("canvas").getContext("2d")!;
-        ctx.fillStyle = css;
-        const resolved = ctx.fillStyle;
-        /* Parse the hex or rgb() result */
-        ctx.fillStyle = resolved;
-        ctx.fillRect(0, 0, 1, 1);
-        const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
-        /* Convert sRGB -> linear -> OKLab -> OKLCh */
-        const toLinear = (c: number) => {
-            const s = c / 255;
-            return s <= 0.04045 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
-        };
-        const lr = toLinear(r), lg = toLinear(g), lb = toLinear(b);
-        const l_ = 0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb;
-        const m_ = 0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb;
-        const s_ = 0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb;
-        const l3 = Math.cbrt(l_), m3 = Math.cbrt(m_), s3 = Math.cbrt(s_);
-        const L = 0.2104542553 * l3 + 0.7936177850 * m3 - 0.0040720468 * s3;
-        const a = 1.9779984951 * l3 - 2.4285922050 * m3 + 0.4505937099 * s3;
-        const bOk = 0.0259040371 * l3 + 0.7827717662 * m3 - 0.8086757660 * s3;
-        const C = Math.sqrt(a * a + bOk * bOk);
-        let H = Math.atan2(bOk, a) * 180 / Math.PI;
-        if (H < 0) H += 360;
-        return [L, C, H];
-    } catch {
-        return null;
-    }
-}
-
-/* Derive hue-shifted heading colors from the selected color */
-const mdColorVars = computed(() => {
-    if (!cssColor) return {};
-    const oklch = cssToOklch(cssColor);
-    if (!oklch) return {};
-    const [l, c, h] = oklch;
-
-    /* Keep lightness readable; boost chroma slightly for headings */
-    const baseLightness = isDark.value
-        ? Math.max(l, 0.72)
-        : Math.min(l, 0.45);
-    const headingChroma = Math.max(c, 0.08);
-
-    return {
-        "--md-color-h2": `oklch(${baseLightness} ${headingChroma} ${h})`,
-        "--md-color-h3": `oklch(${baseLightness} ${headingChroma} ${(h + 40) % 360})`,
-        "--md-color-accent": `oklch(${baseLightness} ${headingChroma} ${(h + 20) % 360})`,
-    } as Record<string, string>;
-});
-
-/* Wrap occurrences of the color space name in <mark> tags */
-const highlightColorSpaceName = () => {
-    if (!markdownDiv.value || !colorSpaceName) return;
-    const body = markdownDiv.value.querySelector(".markdown-body");
-    if (!body) return;
-
-    /* Skip if already highlighted */
-    if (body.querySelector("mark.cs-name")) return;
-
-    const name = colorSpaceName;
-    /* Build case-insensitive regex matching the full name, plus common abbreviations */
-    const pattern = new RegExp(`\\b(${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})\\b`, "gi");
-
-    const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, {
-        acceptNode(node) {
-            /* Skip code blocks, pre, and already-marked nodes */
-            const parent = node.parentElement;
-            if (!parent) return NodeFilter.FILTER_REJECT;
-            if (parent.closest("pre, code, mark, script, .katex")) return NodeFilter.FILTER_REJECT;
-            if (pattern.test(node.textContent ?? "")) return NodeFilter.FILTER_ACCEPT;
-            /* Reset regex lastIndex */
-            pattern.lastIndex = 0;
-            return NodeFilter.FILTER_REJECT;
-        },
-    });
-
-    const matches: Text[] = [];
-    while (walker.nextNode()) matches.push(walker.currentNode as Text);
-
-    for (const textNode of matches) {
-        const text = textNode.textContent ?? "";
-        pattern.lastIndex = 0;
-        const frag = document.createDocumentFragment();
-        let lastIdx = 0;
-        let m: RegExpExecArray | null;
-        while ((m = pattern.exec(text)) !== null) {
-            if (m.index > lastIdx) {
-                frag.appendChild(document.createTextNode(text.slice(lastIdx, m.index)));
-            }
-            const mark = document.createElement("mark");
-            mark.className = "cs-name";
-            mark.textContent = m[0];
-            frag.appendChild(mark);
-            lastIdx = pattern.lastIndex;
-        }
-        if (lastIdx < text.length) {
-            frag.appendChild(document.createTextNode(text.slice(lastIdx)));
-        }
-        textNode.parentNode?.replaceChild(frag, textNode);
-    }
-};
+const { mdColorVars } = useMarkdownColors(() => cssColor);
+const { highlightCode } = useCodeFormatting(markdownDiv);
+const { applyHighlighting } = useMarkdownHighlighting(markdownDiv, () => colorSpaceName);
 
 const currentDoc = ref<Awaited<ReturnType<DocModule>> | null>(null);
-
 const isLoading = ref(true);
 
 const loadDocs = async () => {
     isLoading.value = true;
-
     currentDoc.value = await module();
-
     isLoading.value = false;
 };
 
 const markdownContent = computed(() => {
-    if (!currentDoc.value) {
-        return null;
-    }
-
+    if (!currentDoc.value) return null;
     return currentDoc.value.default;
 });
 
-const formatCodeId = (id: number) => {
-    return `code-${id}`;
-};
-
-const codeMap = {} as {
-    [key: string]: Partial<{
-        code: string;
-        language: string;
-        printWidth: number;
-    }>;
-};
-let codeId = 0;
-
-const highlightCode = () => {
-    if (!markdownDiv.value) {
-        return;
-    }
-    // search for "pre code" and "div code" elements; the code must have a class name
-    // that starts with "language-"
-    const selector = "pre code[class^=language-], div[class^=language-]";
-
-    Array.from(markdownDiv.value.querySelectorAll(selector)).forEach(
-        async (block: HTMLElement, ix) => {
-            if (!block.getAttribute("id")) {
-                if (block.tagName === "DIV") {
-                    // turn the block into a code element
-                    const codeBlock = document.createElement("code");
-                    codeBlock.innerHTML = block.innerHTML;
-                    codeBlock.className = block.className;
-
-                    // turn the parent into a pre element
-                    const preBlock = document.createElement("pre");
-                    preBlock.appendChild(codeBlock);
-
-                    block.replaceWith(preBlock);
-
-                    block = codeBlock;
-                }
-
-                const id = formatCodeId(codeId++);
-                block.setAttribute("id", id);
-
-                const code = block.innerText.trim();
-                const language = block.className.replace("language-", "").toLowerCase();
-
-                codeMap[id] = {
-                    code,
-                    language,
-                };
-            }
-
-            const id = block.getAttribute("id");
-
-            const { code, language } = codeMap[id];
-
-            // Get the width of the code block in characters
-            // Prettier doesn't accept floating point numbers for printWidth
-            const printWidth = Math.max(
-                Math.round(convert2(block.offsetWidth, "px", "ch", block)),
-                80,
-            );
-
-            // If the original code's print width is the same as the current one,
-            // skip formatting
-            if (codeMap[id]?.printWidth === printWidth) {
-                return;
-            } else {
-                codeMap[id].printWidth = printWidth;
-            }
-
-            // Proceed with formatting
-
-            // If it's already been highlighted, set the innerHTML to the original code
-            if (block.getAttribute("highlighted")) {
-                block.innerHTML = code;
-            }
-
-            const formattedCode = await prettier.format(code, {
-                parser: language,
-                plugins: [
-                    // Both estree, babel, and typescript is necessary for JavaScript
-                    prettierESTreePlugin,
-                    prettierBabelPlugin,
-                    prettierTypeScriptPlugin,
-                    // CSS & SCSS support
-                    prettierPostCSSPlugin,
-                ],
-
-                printWidth,
-            });
-
-            const highlighted = hljs.highlight(formattedCode, {
-                language,
-            });
-
-            block.innerHTML = highlighted.value;
-
-            block.setAttribute("highlighted", "true");
-            // Add the hljs class to the parent pre element
-            block.parentElement.className = `hljs ${language}`;
-        },
-    );
-};
-
-const renderKatex = () => {
-    if (!markdownDiv.value) {
-        return;
-    }
-
-    Array.from(markdownDiv.value.querySelectorAll("code")).forEach((block: HTMLElement) => {
-        if (!block.className) {
-            const expression = block.innerText.trim();
-
-            const katexElement = document.createElement("div");
-            katexElement.style.display = "inline-block";
-
-            block.replaceWith(katexElement);
-
-            katex.render(expression, katexElement, {
-                throwOnError: false,
-                displayMode: false,
-                output: "mathml",
-            });
-        }
-    });
-};
-
-const styleEl = ref<HTMLStyleElement | null>(null);
-
-const changeCodeTheme = () => {
-    const theme = isDark.value ? darkTheme : lightTheme;
-
-    if (!styleEl.value) {
-        styleEl.value = document.createElement("style");
-        document.head.appendChild(styleEl.value);
-    }
-
-    styleEl.value.innerHTML = theme;
-};
-
-watch(isDark, changeCodeTheme);
-
 onMounted(async () => {
     await loadDocs();
-
-    changeCodeTheme();
-
-    window.addEventListener("resize", highlightCode);
 });
 
 onUpdated(() => {
     highlightCode();
-    renderKatex();
-    highlightColorSpaceName();
-});
-
-onUnmounted(() => {
-    window.removeEventListener("resize", highlightCode);
+    applyHighlighting();
 });
 </script>
 
