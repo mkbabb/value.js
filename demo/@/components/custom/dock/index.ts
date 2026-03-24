@@ -1,3 +1,1 @@
-export { default as TopDock } from "./TopDock.vue";
-export { default as DockPopover } from "./DockPopover.vue";
-export { default as ActionBarLayer } from "./ActionBarLayer.vue";
+export { default as Dock } from "./Dock.vue";

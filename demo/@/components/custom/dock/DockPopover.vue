@@ -120,7 +120,7 @@ defineExpose({ expanded, expand: onEnter, collapse: () => { expanded.value = fal
         </button>
         <Transition name="pop">
             <div v-if="expanded" class="popover-panel"
-                :style="{ zIndex: 50 + zOffset }"
+                :style="{ zIndex: 50 + (zOffset % 50) }"
                 @click.stop @mousedown.stop @pointerdown.stop>
                 <slot />
             </div>
@@ -159,21 +159,21 @@ defineExpose({ expanded, expand: onEnter, collapse: () => { expanded.value = fal
 }
 
 .dir-up.align-center .popover-panel {
-    bottom: calc(100% + 0.375rem);
+    bottom: calc(100% + var(--popover-offset));
     left: 50%;
     transform: translateX(-50%);
 }
 .dir-down.align-center .popover-panel {
-    top: calc(100% + 0.375rem);
+    top: calc(100% + var(--popover-offset));
     left: 50%;
     transform: translateX(-50%);
 }
 .dir-up.align-end .popover-panel {
-    bottom: calc(100% + 0.375rem);
+    bottom: calc(100% + var(--popover-offset));
     right: 0;
 }
 .dir-down.align-end .popover-panel {
-    top: calc(100% + 0.375rem);
+    top: calc(100% + var(--popover-offset));
     right: 0;
 }
 
@@ -186,34 +186,34 @@ defineExpose({ expanded, expand: onEnter, collapse: () => { expanded.value = fal
 }
 .dir-up.align-center .pop-enter-from {
     opacity: 0;
-    transform: translateX(-50%) scale(0.5) translateY(8px);
+    transform: translateX(-50%) scale(0.5) translateY(var(--animation-slide-lg));
 }
 .dir-up.align-center .pop-leave-to {
     opacity: 0;
-    transform: translateX(-50%) scale(0.9) translateY(3px);
+    transform: translateX(-50%) scale(0.9) translateY(var(--animation-slide-sm));
 }
 .dir-down.align-center .pop-enter-from {
     opacity: 0;
-    transform: translateX(-50%) scale(0.5) translateY(-8px);
+    transform: translateX(-50%) scale(0.5) translateY(calc(-1 * var(--animation-slide-lg)));
 }
 .dir-down.align-center .pop-leave-to {
     opacity: 0;
-    transform: translateX(-50%) scale(0.9) translateY(-3px);
+    transform: translateX(-50%) scale(0.9) translateY(calc(-1 * var(--animation-slide-sm)));
 }
 .dir-up.align-end .pop-enter-from {
     opacity: 0;
-    transform: scale(0.5) translateY(8px);
+    transform: scale(0.5) translateY(var(--animation-slide-lg));
 }
 .dir-up.align-end .pop-leave-to {
     opacity: 0;
-    transform: scale(0.9) translateY(3px);
+    transform: scale(0.9) translateY(var(--animation-slide-sm));
 }
 .dir-down.align-end .pop-enter-from {
     opacity: 0;
-    transform: scale(0.5) translateY(-8px);
+    transform: scale(0.5) translateY(calc(-1 * var(--animation-slide-lg)));
 }
 .dir-down.align-end .pop-leave-to {
     opacity: 0;
-    transform: scale(0.9) translateY(-3px);
+    transform: scale(0.9) translateY(calc(-1 * var(--animation-slide-sm)));
 }
 </style>

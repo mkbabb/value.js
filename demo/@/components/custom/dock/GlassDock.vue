@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, useTemplateRef } from "vue";
-import { useDockState } from "@composables/useDockState";
-import { useDockTransition } from "@composables/useDockTransition";
+import { useDockState } from "./composables/useDockState";
+import { useDockTransition } from "./composables/useDockTransition";
 
 const props = withDefaults(
     defineProps<{

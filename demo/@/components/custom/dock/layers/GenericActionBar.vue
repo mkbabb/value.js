@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import ActionButton from "@components/custom/color-picker/ActionButton.vue";
-import type { DockAction } from "@composables/useDockActionBar";
+import ActionButton from "@components/custom/color-picker/controls/ActionButton.vue";
+import type { DockAction } from "../composables/useDockActionBar";
 
 const props = defineProps<{
     actions: DockAction[];

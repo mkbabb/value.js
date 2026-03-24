@@ -9,7 +9,7 @@ import {
     DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuLabel,
 } from "@components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
 const props = defineProps<{
     cssColorOpaque: string;

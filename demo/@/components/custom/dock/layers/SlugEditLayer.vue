@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, nextTick, inject } from "vue";
 import { LogIn, ArrowRight, RefreshCw, X as XIcon, Loader2 } from "lucide-vue-next";
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { copyToClipboard } from "@composables/useClipboard";
 
 const pm = inject(PALETTE_MANAGER_KEY)!;

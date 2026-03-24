@@ -3,9 +3,9 @@ import { computed, provide, ref, useTemplateRef } from "vue";
 import { EllipsisVertical, Type, Tag } from "lucide-vue-next";
 import { COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
-import ActionToolbar from "@components/custom/color-picker/ActionToolbar.vue";
-import ColorInput from "@components/custom/color-picker/ColorInput.vue";
-import { useLayerTransition } from "@composables/useLayerTransition";
+import ActionToolbar from "@components/custom/color-picker/controls/ActionToolbar.vue";
+import ColorInput from "@components/custom/color-picker/controls/ColorInput.vue";
+import { useLayerTransition } from "../composables/useLayerTransition";
 import type { EditTarget } from "@components/custom/color-picker";
 
 const props = defineProps<{
@@ -99,7 +99,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </template>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../../../../styles/style.css";
 
 .toggle-btn:hover {
     stroke: var(--toggle-hover-color);

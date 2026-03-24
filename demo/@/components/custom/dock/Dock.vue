@@ -1,32 +1,34 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
 import { ChevronDown, Check, Undo2, Paintbrush, ArrowLeft } from "lucide-vue-next";
-import GlassDock from "@components/custom/color-picker/GlassDock.vue";
+import GlassDock from "./GlassDock.vue";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
-import ActionBarLayer from "./ActionBarLayer.vue";
-import GenericActionBar from "./GenericActionBar.vue";
-import SlugEditLayer from "./SlugEditLayer.vue";
-import MobileMenuDropdown from "./MobileMenuDropdown.vue";
-import ProfileSection from "./ProfileSection.vue";
+import ActionBarLayer from "./layers/ActionBarLayer.vue";
+import GenericActionBar from "./layers/GenericActionBar.vue";
+import SlugEditLayer from "./layers/SlugEditLayer.vue";
+import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
+import ProfileSection from "./menus/ProfileSection.vue";
 import {
     Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue,
 } from "@components/ui/select";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import type { ViewId } from "@composables/useViewManager";
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
-import { useLayerTransition } from "@composables/useLayerTransition";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import { useLayerTransition } from "./composables/useLayerTransition";
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import type { EditTarget } from "@components/custom/color-picker";
-import type { DockActionBar } from "@composables/useDockActionBar";
+import type { DockActionBar } from "./composables/useDockActionBar";
 
 const props = defineProps<{
-    cssColorOpaque: string;
     linkCopied: boolean;
     editTarget: EditTarget | null;
     actionBar?: ActionBarContext | null;
     genericActionBar?: DockActionBar | null;
 }>();
+
+const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 
 const emit = defineEmits<{
     shareLink: [];
