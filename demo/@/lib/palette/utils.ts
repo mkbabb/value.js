@@ -1,4 +1,4 @@
-export function slugify(str: string): string {
+function slugify(str: string): string {
     return str
         .normalize("NFKD")
         .replace(/[\u0300-\u036f]/g, "")

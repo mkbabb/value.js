@@ -6,8 +6,7 @@ import { parseCSSColor } from "@src/parsing/color";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 
 export { default as ColorPicker } from "./ColorPicker.vue";
-export { default as ColorNutritionLabel } from "./ColorNutritionLabel.vue";
-export { ACTION_BAR_KEY } from "./keys";
+export { default as ColorNutritionLabel } from "./display/ColorNutritionLabel.vue";
 export type { ActionBarContext } from "./keys";
 
 export interface EditTarget {

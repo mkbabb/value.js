@@ -1,7 +1,10 @@
-import type { ComputedRef, InjectionKey, Ref } from "vue";
-import type { UseColorModelReturn } from "@composables/useColorModel";
+import type { ComputedRef, InjectionKey, Ref, ShallowRef } from "vue";
+import type { UseColorModelReturn } from "./composables/useColorModel";
+import type { EditTarget } from ".";
 
 export const COLOR_MODEL_KEY: InjectionKey<UseColorModelReturn> = Symbol("COLOR_MODEL_KEY");
+export const CSS_COLOR_KEY: InjectionKey<ComputedRef<string>> = Symbol("CSS_COLOR_KEY");
+export const EDIT_TARGET_KEY: InjectionKey<ShallowRef<EditTarget | null>> = Symbol("EDIT_TARGET_KEY");
 
 export interface ActionBarContext {
     cssColorOpaque: ComputedRef<string>;
@@ -14,5 +17,3 @@ export interface ActionBarContext {
     copy: () => void;
     random: () => void;
 }
-
-export const ACTION_BAR_KEY: InjectionKey<ActionBarContext> = Symbol("ACTION_BAR_KEY");
