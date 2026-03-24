@@ -55,8 +55,8 @@ import {
 } from "@components/ui/tooltip";
 import { Check, Undo2 } from "lucide-vue-next";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
-import type { EditTarget } from ".";
-import { COLOR_MODEL_KEY } from "./keys";
+import type { EditTarget } from "..";
+import { COLOR_MODEL_KEY } from "../keys";
 
 const { cssColorOpaque } = inject(COLOR_MODEL_KEY)!;
 
@@ -86,17 +86,6 @@ const emit = defineEmits<{
 .edit-drawer {
     display: none;
 }
-@keyframes edit-drawer-in {
-    from { opacity: 0; transform: translateX(-100%) translateY(-50%); }
-    to   { opacity: 1; transform: translateX(0) translateY(-50%); }
-}
-@media (max-width: 639px) {
-    @keyframes edit-drawer-in {
-        from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
-        to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    }
-}
-
 /* Edit drawer enter/leave transition */
 .edit-drawer-enter-active,
 .edit-drawer-leave-active {

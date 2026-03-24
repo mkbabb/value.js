@@ -47,8 +47,8 @@ import {
     TooltipTrigger,
 } from "@components/ui/tooltip";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
-import { useSatelliteBlobs } from "@composables/useSatelliteBlobs";
-import { COLOR_MODEL_KEY } from "./keys";
+import { useSatelliteBlobs } from "../composables/useSatelliteBlobs";
+import { COLOR_MODEL_KEY } from "../keys";
 
 const { cssColor, cssColorOpaque, denormalizedCurrentColor } = inject(COLOR_MODEL_KEY)!;
 
@@ -64,7 +64,7 @@ defineExpose({ nudgeSatellites });
 </script>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../../../../styles/style.css";
 /* Outer: drop-shadow only — Safari can't chain url() + drop-shadow() in one filter */
 .hero-blob-shadow-wrapper {
     filter: drop-shadow(5px 5px 2.5px color-mix(in srgb, var(--blob-color, transparent) 20%, hsl(var(--foreground))));

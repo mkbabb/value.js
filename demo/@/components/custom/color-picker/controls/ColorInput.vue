@@ -115,9 +115,9 @@ import {
 import { Separator } from "@components/ui/separator";
 import { Crown, ArrowRight, Loader2 } from "lucide-vue-next";
 import { proposeColorName } from "@lib/palette/api";
-import { useSession } from "@composables/useSession";
-import type { EditTarget } from ".";
-import { COLOR_MODEL_KEY } from "./keys";
+import { useSession } from "@composables/auth/useSession";
+import type { EditTarget } from "..";
+import { COLOR_MODEL_KEY } from "../keys";
 
 const props = defineProps<{
     editTarget: EditTarget | null;
@@ -265,15 +265,16 @@ defineExpose({
 </script>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../../../../styles/style.css";
 
 .color-input {
     border-color: hsl(var(--input));
     transition:
         border-color var(--duration-fast) var(--ease-standard),
         box-shadow var(--duration-fast) var(--ease-standard);
-    mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent 100%);
+    --input-action-width: 2.5rem;
+    mask-image: linear-gradient(to right, black calc(100% - var(--input-action-width)), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black calc(100% - var(--input-action-width)), transparent 100%);
 }
 .color-input:focus {
     mask-image: none;

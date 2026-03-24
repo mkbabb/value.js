@@ -95,7 +95,7 @@ import { ref, computed, inject } from "vue";
 import {
     POINTER_DEBUG_KEY,
     type PointerDebugEvent,
-} from "@composables/usePointerDebug";
+} from "../composables/usePointerDebug";
 
 const debug = inject(POINTER_DEBUG_KEY)!;
 const collapsed = ref(true); // start collapsed so it doesn't interfere
@@ -215,7 +215,7 @@ function forceReset() {
     left: 8px;
     z-index: var(--z-debug);
     width: 280px;
-    max-height: 35vh;
+    max-height: 35dvh;
     display: flex;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.92);

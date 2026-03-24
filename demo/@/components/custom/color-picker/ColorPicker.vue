@@ -42,8 +42,8 @@
 
 <script setup lang="ts">
 import { Card, CardContent, CardHeader } from "@components/ui/card";
-import ColorSpaceSelector from "./ColorSpaceSelector.vue";
-import ColorComponentDisplay from "./ColorComponentDisplay.vue";
+import ColorSpaceSelector from "./display/ColorSpaceSelector.vue";
+import ColorComponentDisplay from "./display/ColorComponentDisplay.vue";
 import {
     computed,
     inject,
@@ -54,23 +54,22 @@ import {
     watch,
 } from "vue";
 import { useMagicKeys } from "@vueuse/core";
-import { useColorModel } from "@composables/useColorModel";
+import { useColorModel } from "./composables/useColorModel";
 import type { ColorModel, EditTarget } from ".";
 import { toCSSColorString, resolveColorSpace } from ".";
 import { COLOR_MODEL_KEY } from "./keys";
 import type { ActionBarContext } from "./keys";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
-import { PALETTE_MANAGER_KEY } from "@composables/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
-import { usePointerDebug } from "@composables/usePointerDebug";
-import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
+import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
 
 import { copyToClipboard } from "@composables/useClipboard";
-import HeroBlob from "./HeroBlob.vue";
-import SpectrumCanvas from "./SpectrumCanvas.vue";
-import ComponentSliders from "./ComponentSliders.vue";
-import EditDrawer from "./EditDrawer.vue";
-import PointerDebugOverlay from "./PointerDebugOverlay.vue";
+import HeroBlob from "./visual/HeroBlob.vue";
+import SpectrumCanvas from "./controls/SpectrumCanvas.vue";
+import ComponentSliders from "./controls/ComponentSliders.vue";
+import EditDrawer from "./editing/EditDrawer.vue";
+import PointerDebugOverlay from "./visual/PointerDebugOverlay.vue";
 
 const model = defineModel<ColorModel>({ required: true });
 const emit = defineEmits<{

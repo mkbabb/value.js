@@ -1,5 +1,5 @@
 import { ref, onUnmounted, type Ref, watch } from "vue";
-import { mulberry32, hashString } from "./prng";
+import { mulberry32, hashString } from "@composables/prng";
 
 export type { SatelliteState, UseSatelliteBlobsOptions } from "@lib/animation/satellite-types";
 import type { SatelliteState, UseSatelliteBlobsOptions } from "@lib/animation/satellite-types";

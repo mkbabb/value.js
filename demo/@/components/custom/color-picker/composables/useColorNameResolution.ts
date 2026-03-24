@@ -4,7 +4,7 @@ import { ValueUnit } from "@src/units";
 import { Color } from "@src/units/color";
 import type { ColorSpace } from "@src/units/color/constants";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
-import { useCustomColorNames } from "@composables/useCustomColorNames";
+import { useCustomColorNames } from "./useCustomColorNames";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { DisplayColorSpace } from "@components/custom/color-picker";
 import { colorToHexString } from "@components/custom/color-picker";

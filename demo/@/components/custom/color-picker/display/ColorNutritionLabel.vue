@@ -167,8 +167,8 @@ import {
 } from "@components/ui/tooltip";
 import { ArrowRight } from "lucide-vue-next";
 import { Alert, AlertTitle, AlertDescription } from "@components/ui/alert";
-import type { ColorModel } from ".";
-import { colorSpaceInfo, resolveColorSpace } from ".";
+import type { ColorModel } from "..";
+import { colorSpaceInfo, resolveColorSpace } from "..";
 import { normalizeColorUnit } from "@src/units/color/normalize";
 
 const model = defineModel<ColorModel>({ required: true });

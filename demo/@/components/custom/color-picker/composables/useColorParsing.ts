@@ -1,6 +1,6 @@
 import { ref, type ShallowRef, type Ref, type ComputedRef } from "vue";
 import { debounce } from "@src/utils";
-import { generateSingleColor } from "@composables/useColorGeneration";
+import { generateSingleColor } from "./useColorGeneration";
 import { parseCSSColor } from "@src/parsing/color";
 import { ValueUnit } from "@src/units";
 import { Color } from "@src/units/color";

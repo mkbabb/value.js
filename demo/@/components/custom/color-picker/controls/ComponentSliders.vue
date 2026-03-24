@@ -84,8 +84,8 @@ import {
 } from "reka-ui";
 import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
 import { useTouchGate } from "@composables/useTouchGate";
-import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
-import { COLOR_MODEL_KEY } from "./keys";
+import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
+import { COLOR_MODEL_KEY } from "../keys";
 
 const {
     model,

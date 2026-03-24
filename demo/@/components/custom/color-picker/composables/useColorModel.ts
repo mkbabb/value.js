@@ -1,5 +1,5 @@
 import { computed, ref, shallowRef, watch, type Ref, type ShallowRef, type WritableComputedRef } from "vue";
-import { copyToClipboard } from "./useClipboard";
+import { copyToClipboard } from "@composables/useClipboard";
 import { debounce } from "@src/utils";
 import { parseCSSColor } from "@src/parsing/color";
 import { ValueUnit } from "@src/units";

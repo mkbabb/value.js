@@ -23,7 +23,7 @@ import type { Ref } from "vue";
 import { OKLCHColor, RGBColor } from "@src/units/color";
 import { oklch2xyz, xyz2rgb } from "@src/units/color/utils";
 import { gamutMapSRGB } from "@src/units/color/gamut";
-import { mulberry32 } from "./prng";
+import { mulberry32 } from "@composables/prng";
 
 // ── Preset definitions ──
 

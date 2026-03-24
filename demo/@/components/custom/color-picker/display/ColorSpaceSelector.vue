@@ -46,7 +46,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@components/ui/select";
-import { DISPLAY_COLOR_SPACE_NAMES } from ".";
+import { DISPLAY_COLOR_SPACE_NAMES } from "..";
 
 defineProps<{
     modelValue: string;

@@ -32,8 +32,8 @@ import { clamp } from "@src/math";
 import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 import { useTouchGate } from "@composables/useTouchGate";
-import { POINTER_DEBUG_KEY } from "@composables/usePointerDebug";
-import { COLOR_MODEL_KEY } from "./keys";
+import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
+import { COLOR_MODEL_KEY } from "../keys";
 
 const {
     model,
@@ -240,7 +240,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../../../../styles/style.css";
 
 .spectrum-picker {
     border-radius: var(--radius-xl);
