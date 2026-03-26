@@ -1,3 +1,14 @@
+/**
+ * User auth — module-level singleton with lazy initialization and
+ * auto-registration deduplication.
+ *
+ * Same singleton pattern as useAdminAuth/useSession. Additionally manages:
+ * - `_autoRegisterPromise` — deduplicates concurrent auto-registration calls
+ *   (multiple components calling `ensureUser()` during mount)
+ * - `_registrationCancelled` — cancellation flag for in-flight registrations
+ *
+ * User slug + token persist in localStorage across sessions.
+ */
 import { ref, computed, type Ref } from "vue";
 import { createSession, deleteSession, loginWithSlug, setSessionToken } from "@lib/palette/api";
 import { safeGetItem, safeSetItem, safeRemoveItem } from "../useSafeStorage";

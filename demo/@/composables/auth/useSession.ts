@@ -1,3 +1,13 @@
+/**
+ * Session management — module-level singleton with lazy initialization.
+ *
+ * Same singleton pattern as useAdminAuth: a single `_token` Ref shared
+ * across all callers. The `_initialized` flag prevents duplicate session
+ * creation during concurrent component mounts.
+ *
+ * Session tokens are stored in sessionStorage (cleared on tab close)
+ * and automatically passed to the API client via `setSessionToken()`.
+ */
 import { ref, type Ref } from "vue";
 import { createSession, setSessionToken } from "@lib/palette/api";
 import { safeGetItem, safeSetItem } from "../useSafeStorage";

@@ -1,3 +1,14 @@
+/**
+ * Admin auth — module-level singleton with lazy initialization.
+ *
+ * Pattern: a single `_adminToken` Ref is created on first call to `useAdminAuth()`.
+ * Subsequent calls return the SAME ref, ensuring all components share one token.
+ *
+ * Why lazy-init:
+ * - Avoids Storage access at import time (SSR-safe, Safari private mode safe)
+ * - Guarantees single instance even if multiple components call useAdminAuth()
+ * - Token persists in localStorage across page reloads
+ */
 import { ref, computed, type Ref } from "vue";
 import { safeGetItem, safeSetItem, safeRemoveItem } from "../useSafeStorage";
 
