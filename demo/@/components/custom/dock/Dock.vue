@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
-import { ChevronDown, Check, Undo2, Paintbrush, ArrowLeft } from "lucide-vue-next";
+import { ChevronDown, Check, Undo2, Paintbrush, ArrowLeft, Shield } from "lucide-vue-next";
 import { GlassDock, DockLayerGroup } from ".";
 import { BouncyTabs } from "@mkbabb/glass-ui";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
@@ -16,7 +16,7 @@ import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import type { ViewId } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import { usePopupMutex } from "./composables/usePopupMutex";
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import type { EditTarget } from "@components/custom/color-picker";
@@ -30,6 +30,7 @@ const props = defineProps<{
 }>();
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
+const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
 const emit = defineEmits<{
     shareLink: [];
@@ -43,28 +44,46 @@ const actionBar = computed(() => props.actionBar ?? null);
 const genericBar = computed(() => props.genericActionBar ?? null);
 const hasAnyActionBar = computed(() => !!actionBar.value || !!genericBar.value);
 
+// Admin dock mode — toggled via "Admin" entry in user mode, "Exit Admin" in admin mode
+const isAdminMode = ref(viewManager.currentView.value.startsWith("admin-"));
+
+const userViews: ViewId[] = ["picker", "palettes", "browse", "extract", "mix", "generate", "gradient"];
+const adminViews: ViewId[] = ["admin-users", "admin-names", "admin-audit", "admin-flagged", "admin-tags", "atmosphere"];
+
 const viewEntries = computed(() => {
-    const entries: { id: ViewId; label: string; icon: any }[] = [
-        { id: "picker", ...viewManager.viewMap.picker },
-        { id: "palettes", ...viewManager.viewMap.palettes },
-        { id: "browse", ...viewManager.viewMap.browse },
-        { id: "extract", ...viewManager.viewMap.extract },
-        { id: "mix", ...viewManager.viewMap.mix },
-        { id: "generate", ...viewManager.viewMap.generate },
-        { id: "gradient", ...viewManager.viewMap.gradient },
-        { id: "atmosphere", ...viewManager.viewMap.atmosphere },
-    ];
-    if (pm.isAdminAuthenticated.value) {
-        entries.push(
-            { id: "admin-users", ...viewManager.viewMap["admin-users"] },
-            { id: "admin-names", ...viewManager.viewMap["admin-names"] },
-        );
+    if (isAdminMode.value && pm.isAdminAuthenticated.value) {
+        return adminViews.map((id) => ({ id, ...viewManager.viewMap[id] }));
     }
-    return entries;
+    return userViews.map((id) => ({ id, ...viewManager.viewMap[id] }));
+});
+
+function toggleAdminMode() {
+    isAdminMode.value = !isAdminMode.value;
+    if (isAdminMode.value) {
+        viewManager.switchView("admin-users");
+    } else {
+        viewManager.switchView("picker");
+    }
+}
+
+// Sync admin mode with current view
+watch(() => viewManager.currentView.value, (view) => {
+    if (view.startsWith("admin-") || view === "atmosphere") {
+        isAdminMode.value = true;
+    }
+});
+
+// Exit admin mode on logout
+watch(() => pm.isAdminAuthenticated.value, (auth) => {
+    if (!auth) isAdminMode.value = false;
 });
 
 function onViewChange(id: string | number | boolean | Record<string, string> | null) {
     if (typeof id === "string") {
+        if (id === "__admin_toggle__") {
+            toggleAdminMode();
+            return;
+        }
         viewManager.switchView(id as ViewId);
     }
 }
@@ -170,7 +189,7 @@ const activeLayer = computed<string>(() => {
                         />
                         <div class="dock-separator"></div>
                         <button class="dock-icon-btn" title="Save edit" @click="emit('commitEdit')">
-                            <Check class="w-5 h-5" :style="{ color: cssColorOpaque }" />
+                            <Check class="w-5 h-5" :style="{ color: safeAccent }" />
                         </button>
                         <button class="dock-icon-btn" title="Cancel edit" @click="emit('cancelEdit')">
                             <Undo2 class="w-5 h-5" />
@@ -201,7 +220,7 @@ const activeLayer = computed<string>(() => {
                         <GenericActionBar
                             v-else-if="genericBar"
                             :actions="genericBar.actions.value"
-                            :accent-color="genericBar.accentColor ?? cssColorOpaque"
+                            :accent-color="genericBar.accentColor ?? safeAccent"
                         />
                     </div>
 
@@ -216,12 +235,13 @@ const activeLayer = computed<string>(() => {
                         >
                             <SelectTrigger
                                 class="dock-select-trigger border-none h-auto bg-transparent fraunces text-sm font-normal gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 focus-ring"
-                                :style="{ '--dock-ring': cssColorOpaque }"
+                                :style="{ '--dock-ring': safeAccent }"
                             >
                                 <component
                                     :is="viewManager.currentConfig.value.icon"
                                     class="w-6 h-6 shrink-0"
-                                    :style="{ color: cssColorOpaque }"
+                                    :class="isAdminMode && 'gold-shimmer-icon'"
+                                    :style="isAdminMode ? {} : { color: safeAccent }"
                                 />
                                 <SelectValue v-if="isDesktop" />
                             </SelectTrigger>
@@ -237,13 +257,40 @@ const activeLayer = computed<string>(() => {
                                         <span class="flex items-center gap-2">
                                             <span
                                                 class="inline-block w-2 h-2 rounded-full shrink-0 transition-colors"
-                                                :style="{ backgroundColor: viewManager.currentView.value === entry.id ? cssColorOpaque : 'hsl(var(--muted-foreground) / 0.25)' }"
+                                                :style="{ backgroundColor: viewManager.currentView.value === entry.id ? (isAdminMode ? 'var(--color-gold)' : cssColorOpaque) : 'hsl(var(--muted-foreground) / 0.25)' }"
                                             ></span>
-                                            <component :is="entry.icon" class="w-4 h-4 shrink-0" :style="viewManager.currentView.value === entry.id ? { color: cssColorOpaque } : {}" :class="viewManager.currentView.value !== entry.id ? 'text-muted-foreground' : ''" />
+                                            <component :is="entry.icon" class="w-4 h-4 shrink-0" :style="viewManager.currentView.value === entry.id ? { color: isAdminMode ? 'var(--color-gold)' : safeAccent } : {}" :class="viewManager.currentView.value !== entry.id ? 'text-muted-foreground' : ''" />
                                             <span :class="[
                                                 viewManager.currentView.value === entry.id ? 'font-semibold' : '',
                                                 entry.id === 'palettes' ? 'pastel-rainbow-text' : '',
                                             ]">{{ entry.label }}</span>
+                                        </span>
+                                    </SelectItem>
+
+                                    <!-- Mode toggle separator + entry -->
+                                    <div v-if="pm.isAdminAuthenticated.value" class="border-t border-border my-1"></div>
+                                    <SelectItem
+                                        v-if="pm.isAdminAuthenticated.value && !isAdminMode"
+                                        value="__admin_toggle__"
+                                        class="py-1.5 px-2.5"
+                                        hide-indicator
+                                    >
+                                        <span class="flex items-center gap-2">
+                                            <span class="inline-block w-2 h-2 rounded-full shrink-0" style="background: var(--color-gold)"></span>
+                                            <Shield class="w-4 h-4 shrink-0 gold-shimmer-icon" />
+                                            <span class="gold-shimmer">Admin</span>
+                                        </span>
+                                    </SelectItem>
+                                    <SelectItem
+                                        v-if="pm.isAdminAuthenticated.value && isAdminMode"
+                                        value="__admin_toggle__"
+                                        class="py-1.5 px-2.5"
+                                        hide-indicator
+                                    >
+                                        <span class="flex items-center gap-2">
+                                            <span class="inline-block w-2 h-2 rounded-full shrink-0" style="background: hsl(var(--muted-foreground) / 0.25)"></span>
+                                            <ArrowLeft class="w-4 h-4 shrink-0 text-muted-foreground" />
+                                            <span>Back to app</span>
                                         </span>
                                     </SelectItem>
                                 </SelectGroup>
@@ -257,7 +304,8 @@ const activeLayer = computed<string>(() => {
                             :style="{ maxWidth: hasAnyActionBar ? '8rem' : '0px', opacity: hasAnyActionBar ? 1 : 0 }"
                         >
                             <button
-                                class="shrink-0 flex items-center gap-1 px-1.5 py-1 bg-transparent border-none cursor-pointer focus-ring"
+                                class="dock-dropdown-trigger"
+                                :class="{ 'is-active': actionBarLayerActive }"
                                 title="Action bar"
                                 :tabindex="hasAnyActionBar ? 0 : -1"
                                 @click="toggleActionBar"
@@ -265,9 +313,9 @@ const activeLayer = computed<string>(() => {
                                 <component
                                     :is="genericBar?.icon ?? Paintbrush"
                                     class="w-6 h-6"
-                                    :style="{ color: genericBar?.accentColor ?? cssColorOpaque }"
+                                    :style="{ color: genericBar?.accentColor ?? safeAccent }"
                                 />
-                                <span v-if="isDesktop" class="fraunces text-sm" :style="{ color: genericBar?.accentColor ?? cssColorOpaque }">
+                                <span v-if="isDesktop" class="fraunces text-sm" :style="{ color: genericBar?.accentColor ?? safeAccent }">
                                     {{ genericBar?.label ?? 'Tools' }}
                                 </span>
                                 <ChevronDown class="w-3 h-3 text-muted-foreground" />
@@ -295,7 +343,7 @@ const activeLayer = computed<string>(() => {
                         <div class="dock-separator lg:hidden"></div>
                         <MobileMenuDropdown
                             v-model:open="mobileMenuOpen"
-                            :css-color-opaque="cssColorOpaque"
+                            :css-color-opaque="safeAccent"
                             :link-copied="linkCopied"
                             @share-link="emit('shareLink')"
                             @start-slug-edit="onStartSlugEdit()"
@@ -306,7 +354,7 @@ const activeLayer = computed<string>(() => {
                         <ProfileSection
                             v-model:profile-menu-open="profileMenuOpen"
                             v-model:mbabb-menu-open="mbabbMenuOpen"
-                            :css-color-opaque="cssColorOpaque"
+                            :css-color-opaque="safeAccent"
                             :link-copied="linkCopied"
                             @share-link="emit('shareLink')"
                             @start-slug-edit="onStartSlugEdit()"
@@ -326,7 +374,7 @@ const activeLayer = computed<string>(() => {
                     <component
                         :is="viewManager.currentConfig.value.icon"
                         class="w-5 h-5 shrink-0 sm:hidden"
-                        :style="{ color: cssColorOpaque }"
+                        :style="{ color: safeAccent }"
                     />
                     <span class="text-base fraunces text-foreground whitespace-nowrap hidden sm:inline">
                         {{ viewManager.currentConfig.value.label }}

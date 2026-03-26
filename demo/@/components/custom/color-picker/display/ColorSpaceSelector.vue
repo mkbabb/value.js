@@ -12,7 +12,7 @@
     >
         <SelectTrigger
             variant="ghost"
-            :style="{ color: cssColor, fontFamily: 'var(--font-display)' }"
+            :style="{ color: safeAccent, fontFamily: 'var(--font-display)' }"
             class="w-fit h-fit italic text-3xl sm:text-4xl tracking-tight p-0 m-0 self-end focus:outline-none select-none"
         >
             <SelectValue class="w-full" />
@@ -47,12 +47,16 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@components/ui/select";
+import { inject } from "vue";
 import { DISPLAY_COLOR_SPACE_NAMES } from "..";
+import { SAFE_ACCENT_KEY } from "../keys";
 
 defineProps<{
     modelValue: string;
     cssColor: string;
 }>();
+
+const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
 const openModel = defineModel<boolean>("open", { required: true });
 

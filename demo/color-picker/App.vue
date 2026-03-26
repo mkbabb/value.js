@@ -167,6 +167,21 @@
                             sub-view="admin-names"
 
                         />
+                        <AdminPane
+                            v-else-if="currentConfig.left === 'admin-audit'"
+                            key="admin-audit"
+                            sub-view="admin-audit"
+                        />
+                        <AdminPane
+                            v-else-if="currentConfig.left === 'admin-flagged'"
+                            key="admin-flagged"
+                            sub-view="admin-flagged"
+                        />
+                        <AdminPane
+                            v-else-if="currentConfig.left === 'admin-tags'"
+                            key="admin-tags"
+                            sub-view="admin-tags"
+                        />
                     </KeepAlive>
                 </Transition>
             </div>
@@ -224,7 +239,8 @@ import {
     toCSSColorString,
     colorToHexString,
 } from "@components/custom/color-picker";
-import { CSS_COLOR_KEY, EDIT_TARGET_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY, SAFE_ACCENT_KEY, EDIT_TARGET_KEY } from "@components/custom/color-picker/keys";
+import { useContrastSafeColor } from "@composables/useContrastSafeColor";
 
 import { Dock } from "@components/custom/dock";
 import { RefreshCw, Copy, Save, RotateCcw, Pipette, Blend, Paintbrush, Trash2 } from "lucide-vue-next";
@@ -301,6 +317,9 @@ const onEditTargetChange = (et: EditTarget | null) => { activeEditTarget.value =
 provide(EDIT_TARGET_KEY, activeEditTarget);
 provide(CSS_COLOR_KEY, cssColorOpaque);
 
+const { safeAccentCss } = useContrastSafeColor(model, cssColorOpaque);
+provide(SAFE_ACCENT_KEY, safeAccentCss);
+
 // --- View manager ---
 
 const viewManager = useViewManager();
@@ -376,6 +395,9 @@ const mobileComponent = computed(() => {
     if (cfg.left === "atmosphere") return AtmospherePane;
     if (cfg.left === "admin-users") return AdminPane;
     if (cfg.left === "admin-names") return AdminPane;
+    if (cfg.left === "admin-audit") return AdminPane;
+    if (cfg.left === "admin-flagged") return AdminPane;
+    if (cfg.left === "admin-tags") return AdminPane;
     return ColorPicker;
 });
 
@@ -402,6 +424,9 @@ const mobileProps = computed(() => {
     if (cfg.left === "atmosphere") return {};
     if (cfg.left === "admin-users") return { subView: "admin-users" };
     if (cfg.left === "admin-names") return { subView: "admin-names" };
+    if (cfg.left === "admin-audit") return { subView: "admin-audit" };
+    if (cfg.left === "admin-flagged") return { subView: "admin-flagged" };
+    if (cfg.left === "admin-tags") return { subView: "admin-tags" };
     return {};
 });
 
@@ -409,6 +434,7 @@ const mobileProps = computed(() => {
 
 const paletteManager = usePaletteManager({
     currentView: viewManager.currentView,
+    switchView: viewManager.switchView,
     savedColorStrings,
     emitApply: (colors: string[]) => {
         if (colorPickerRef.value) {

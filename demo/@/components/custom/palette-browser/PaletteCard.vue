@@ -27,7 +27,7 @@
                     class="fraunces text-lg font-bold line-clamp-2 sm:line-clamp-1"
                     :class="editableName && 'cursor-text hover:underline decoration-dashed underline-offset-4'"
                     :title="palette.name"
-                    @click.stop="editableName ? startRenaming() : toggleMenu()"
+                    @click.stop="editableName && startRenaming()"
                 >{{ palette.name }}</span>
                 <Badge v-if="palette.status === 'featured'" variant="outline" class="featured-badge fira-code text-xs shrink-0 gap-1 border-gold text-gold">
                     <Award class="w-3 h-3" />
@@ -36,6 +36,42 @@
                 <Badge variant="secondary" class="fira-code text-sm shrink-0">
                     {{ palette.colors.length }}
                 </Badge>
+
+                <!-- Fork indicator -->
+                <span
+                    v-if="palette.forkOf"
+                    class="flex items-center gap-0.5 text-[10px] text-muted-foreground shrink-0"
+                    :title="`Remixed from ${palette.forkOf}`"
+                >
+                    <GitFork class="w-3 h-3" />
+                </span>
+
+                <!-- Fork count -->
+                <span
+                    v-if="(palette.forkCount ?? 0) > 0"
+                    class="flex items-center gap-0.5 text-[10px] text-muted-foreground shrink-0"
+                    :title="`${palette.forkCount} remix${palette.forkCount === 1 ? '' : 'es'}`"
+                >
+                    <GitFork class="w-3 h-3" />
+                    <span class="fira-code">{{ palette.forkCount }}</span>
+                </span>
+
+                <!-- Version count -->
+                <span
+                    v-if="(palette.versionCount ?? 0) > 1"
+                    class="flex items-center gap-0.5 text-[10px] text-muted-foreground shrink-0"
+                    :title="`${palette.versionCount} versions`"
+                >
+                    <History class="w-3 h-3" />
+                    <span class="fira-code">{{ palette.versionCount }}</span>
+                </span>
+
+                <!-- Tag chips -->
+                <span
+                    v-for="tag in (palette.tags ?? []).slice(0, 3)"
+                    :key="tag"
+                    class="rounded-full bg-muted/60 px-1.5 py-0.5 text-[9px] text-muted-foreground shrink-0"
+                >{{ tag }}</span>
 
                 <!-- Vote count -->
                 <button
@@ -52,30 +88,26 @@
                 </button>
             </div>
 
-            <!-- Hamburger menu trigger -->
+            <!-- Dropdown menu -->
             <div class="flex items-center gap-1" @click.stop>
-                <button
-                    ref="menuTriggerRef"
-                    class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
-                    aria-label="Palette menu"
-                    @click="toggleMenu"
-                    @pointerenter="onMenuTriggerEnter"
-                    @pointerleave="onMenuTriggerLeave"
-                >
-                    <MoreHorizontal class="w-4 h-4 text-muted-foreground" />
-                </button>
-
                 <PaletteCardMenu
                     :palette="palette"
                     :palette-kind="kind"
                     :menu-open="menuOpen"
-                    :menu-style="menuStyle"
                     :is-owned="isOwned"
                     :is-admin="isAdmin"
-                    @panel-enter="onMenuPanelEnter"
-                    @panel-leave="onMenuPanelLeave"
+                    @update-open="menuOpen = $event"
                     @action="handleMenuAction"
-                />
+                >
+                    <template #trigger>
+                        <button
+                            class="p-1 bg-transparent border-none shadow-none cursor-pointer focus-visible:outline-none"
+                            aria-label="Palette menu"
+                        >
+                            <MoreHorizontal class="w-4 h-4 text-muted-foreground" />
+                        </button>
+                    </template>
+                </PaletteCardMenu>
             </div>
         </div>
 
@@ -111,7 +143,7 @@
                 <div v-if="showSlug && displaySlug" class="px-3 pt-2.5 flex items-center gap-1.5 border-t border-border/15">
                     <span
                         class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border truncate max-w-[200px]"
-                        :style="{ color: firstColor, borderColor: firstColor }"
+                        :style="{ color: safeFirstColor, borderColor: safeFirstColor }"
                     >{{ displaySlug }}</span>
                     <button
                         class="p-0.5 rounded-sm hover:bg-accent transition-colors cursor-pointer shrink-0"
@@ -168,14 +200,16 @@ import {
     Plus,
     MoreHorizontal,
     GripVertical,
+    GitFork,
+    History,
 } from "lucide-vue-next";
 import type { PaletteColor } from "@lib/palette/types";
 import type { Palette } from "@lib/palette/types";
 import { getPaletteKind } from "@lib/palette/utils";
 import type { PaletteKind } from "@lib/palette/utils";
 import { copyToClipboard } from "@composables/useClipboard";
+import { useSafeAccentFn } from "@composables/useContrastSafeColor";
 import { useHoverPopover } from "./composables/useHoverPopover";
-import { useCardMenu } from "./composables/useCardMenu";
 import { useHeightTransition } from "./composables/useHeightTransition";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
 import PaletteColorStrip from "./PaletteColorStrip.vue";
@@ -212,10 +246,17 @@ const emit = defineEmits<{
     addColor: [css: string];
     feature: [palette: Palette];
     adminDelete: [palette: Palette];
+    fork: [palette: Palette];
+    versions: [palette: Palette];
+    flag: [palette: Palette];
+    export: [palette: Palette, format: string];
 }>();
 
 const kind = computed<PaletteKind>(() => getPaletteKind(props.palette));
 const firstColor = computed(() => props.palette.colors[0]?.css ?? props.cssColor ?? '#888');
+
+const { safeCss } = useSafeAccentFn();
+const safeFirstColor = computed(() => safeCss(firstColor.value));
 const displaySlug = computed(() => props.palette.userSlug ?? props.palette.slug);
 
 const renaming = ref(false);
@@ -242,17 +283,16 @@ const {
     onSwatchClick,
 } = useHoverPopover();
 
-const {
-    menuOpen,
-    menuTriggerRef,
-    menuStyle,
-    toggleMenu,
-    onMenuTriggerEnter,
-    onMenuTriggerLeave,
-    onMenuPanelEnter,
-    onMenuPanelLeave,
-    onMenuAction,
-} = useCardMenu({ canHover });
+const menuOpen = ref(false);
+
+function toggleMenu() {
+    menuOpen.value = !menuOpen.value;
+}
+
+function onMenuAction(fn: () => void, _isAdmin?: boolean) {
+    menuOpen.value = false;
+    fn();
+}
 
 const {
     onBeforeEnter,
@@ -287,6 +327,14 @@ function handleMenuAction(action: string) {
         rename: () => startRenaming(),
         feature: () => emit("feature", props.palette),
         adminDelete: () => emit("adminDelete", props.palette),
+        fork: () => emit("fork", props.palette),
+        versions: () => emit("versions", props.palette),
+        flag: () => emit("flag", props.palette),
+        exportJSON: () => emit("export", props.palette, "json"),
+        exportCSS: () => emit("export", props.palette, "css"),
+        exportTailwind: () => emit("export", props.palette, "tailwind"),
+        exportSVG: () => emit("export", props.palette, "svg"),
+        exportPNG: () => emit("export", props.palette, "png"),
     };
 
     const fn = actions[action];

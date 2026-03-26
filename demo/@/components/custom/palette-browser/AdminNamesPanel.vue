@@ -2,12 +2,12 @@
     <div class="grid gap-3 pb-3">
         <Tabs v-model="namesTab" class="admin-names-tabs w-full" :style="{ '--active-tab-color': cssColorOpaque }">
             <TabsList class="w-full">
-                <TabsTrigger value="pending" class="fraunces text-sm font-bold flex-1 gap-1.5">
+                <TabsTrigger value="pending" class="fraunces text-base font-bold flex-1 gap-1.5">
                     <Clock class="w-3.5 h-3.5" />
                     Pending
                     <span class="fira-code text-xs font-normal">({{ pendingItems.length }})</span>
                 </TabsTrigger>
-                <TabsTrigger value="approved" class="fraunces text-sm font-bold flex-1 gap-1.5">
+                <TabsTrigger value="approved" class="fraunces text-base font-bold flex-1 gap-1.5">
                     <CheckCircle class="w-3.5 h-3.5" />
                     Approved
                     <span class="fira-code text-xs font-normal">({{ approvedItems.length }})</span>

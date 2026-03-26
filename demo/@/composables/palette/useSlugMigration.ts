@@ -13,6 +13,7 @@ export function useSlugMigration(deps: {
     clearUserSlug: () => void;
     ensureUser: () => Promise<string>;
     activeTab: Ref<string>;
+    setActiveTab: (tab: string) => void;
 }) {
     const session = useSession();
 
@@ -44,7 +45,7 @@ export function useSlugMigration(deps: {
         if (isAdmin) {
             deps.clearUserSlug();
             deps.adminLogin(value);
-            deps.activeTab.value = "saved";
+            deps.setActiveTab("saved");
             return;
         }
 
@@ -58,14 +59,14 @@ export function useSlugMigration(deps: {
                 if (choice === "transfer") {
                     await publishAllLocal();
                 }
-                deps.activeTab.value = "saved";
+                deps.setActiveTab("saved");
             };
             showMigrateDialog.value = true;
             return;
         }
         try {
             await deps.userLogin(value);
-            deps.activeTab.value = "saved";
+            deps.setActiveTab("saved");
         } catch (e: any) {
             const msg = e?.message ?? "";
             if (msg.includes("409")) slugBarRef.value?.setError("Already signed in as this slug.");

@@ -19,8 +19,12 @@ export function useBrowsePalettes(deps: {
     const remotePalettes = ref<Palette[]>([]);
     const browsing = ref(false);
     const sortLoading = ref(false);
-    const sortMode = ref<"newest" | "popular">("newest");
+    const sortMode = ref<"newest" | "popular" | "most-forked">("newest");
     const browseError = ref<string | null>(null);
+
+    // Filter state — set externally by PaletteDialog
+    const statusFilter = ref("");
+    const selectedTags = ref<string[]>([]);
 
     const filteredBrowse = useFilteredList(remotePalettes, deps.searchQuery, (p, q) =>
         p.name.toLowerCase().includes(q) || p.slug.includes(q),
@@ -37,7 +41,15 @@ export function useBrowsePalettes(deps: {
         }
         try {
             browseError.value = null;
-            const res = await listPalettes(50, 0, sortMode.value);
+            const q = deps.searchQuery.value.trim();
+            const res = await listPalettes({
+                limit: 50,
+                offset: 0,
+                sort: sortMode.value,
+                q: q.length >= 2 ? q : undefined,
+                status: statusFilter.value || undefined,
+                tags: selectedTags.value.length > 0 ? selectedTags.value : undefined,
+            });
             if (gen !== loadGeneration) return; // stale response
             remotePalettes.value = Array.isArray(res.data) ? res.data : [];
         } catch (e) {
@@ -54,7 +66,7 @@ export function useBrowsePalettes(deps: {
 
     function onSortChange(value: string) {
         if (!value) return;
-        sortMode.value = value as "newest" | "popular";
+        sortMode.value = value as typeof sortMode.value;
         loadRemotePalettes(true);
     }
 
@@ -113,6 +125,8 @@ export function useBrowsePalettes(deps: {
         sortLoading,
         sortMode,
         browseError,
+        statusFilter,
+        selectedTags,
         filteredBrowse,
         loadRemotePalettes,
         onSortChange,

@@ -97,7 +97,7 @@ watch(
         <!-- Colors mode -->
         <template v-if="mode === 'colors'">
             <!-- Selected colors + add button -->
-            <div class="max-w-sm rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5 p-3 grid gap-2">
+            <div class="dashed-well">
                 <div class="flex items-center justify-between">
                     <span class="fraunces text-sm font-bold text-muted-foreground">Selected</span>
                     <span v-if="selectedColors.length > 0" class="fira-code text-xs text-muted-foreground">{{ selectedColors.length }} colors</span>

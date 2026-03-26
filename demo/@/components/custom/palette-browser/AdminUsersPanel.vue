@@ -57,7 +57,7 @@
                     <div class="flex-1 min-w-0 flex items-center gap-2">
                         <span
                             class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border truncate"
-                            :style="{ color: cssColor, borderColor: cssColor }"
+                            :style="{ color: safeAccent, borderColor: safeAccent }"
                         >{{ user.slug }}</span>
                         <Badge variant="secondary" class="fira-code text-xs shrink-0">
                             {{ user.paletteCount ?? 0 }}
@@ -125,7 +125,7 @@
             <span
                 v-if="confirmSlug"
                 class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border inline-block align-middle mx-0.5"
-                :style="{ color: cssColor, borderColor: cssColor }"
+                :style="{ color: safeAccent, borderColor: safeAccent }"
             >{{ confirmSlug }}</span>
             <template v-if="confirmSlug"> and all associated data. This cannot be undone.</template>
             <template #action>
@@ -137,7 +137,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, Transition } from "vue";
+import { inject, ref, computed, Transition } from "vue";
+import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { ConfirmDialog } from "@mkbabb/glass-ui";
@@ -165,6 +166,7 @@ const emit = defineEmits<{
     refresh: [];
 }>();
 
+const safeAccent = inject(SAFE_ACCENT_KEY)!;
 const { getToken: getAdminToken } = useAdminAuth();
 
 const expandedUserSlug = ref<string | null>(null);

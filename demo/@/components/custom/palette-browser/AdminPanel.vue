@@ -71,7 +71,8 @@ async function loadQueue() {
     if (!token) return;
     loadingQueue.value = true;
     try {
-        queue.value = await guardedAdmin(() => getAdminQueue(token));
+        const res = await guardedAdmin(() => getAdminQueue(token));
+        queue.value = res.data;
     } catch (e: any) {
         if (isAuthenticated.value) console.warn(e?.message ?? "Failed to load queue");
     } finally {

@@ -35,25 +35,34 @@
                     <TabsTrigger value="admin-names" class="fraunces text-base font-bold">
                         Names
                     </TabsTrigger>
+                    <TabsTrigger value="admin-audit" class="fraunces text-base font-bold">
+                        Audit
+                    </TabsTrigger>
+                    <TabsTrigger value="admin-flagged" class="fraunces text-base font-bold">
+                        Flagged
+                    </TabsTrigger>
+                    <TabsTrigger value="admin-tags" class="fraunces text-base font-bold">
+                        Tags
+                    </TabsTrigger>
                 </template>
             </TabsList>
         </div>
-        <div class="search-bar flex items-center gap-2 rounded-2xl border border-border/50 bg-card/80 backdrop-blur-xl px-3 h-9 max-w-sm w-full transition-[box-shadow,border-color] focus-within:ring-2 focus-within:ring-ring/40 focus-within:border-border">
-            <Search class="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-            <input
-                v-model="searchModel"
-                :placeholder="searchPlaceholder"
-                class="fira-code text-sm bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground/50"
-            />
-            <SortFilterMenu v-if="activeTab === 'browse'"
+        <SearchBar v-model="searchModel" :placeholder="searchPlaceholder">
+            <SearchFilterBar v-if="activeTab === 'browse'"
                 :sort="sortMode"
+                :status="statusFilter"
+                :selected-tags="selectedTags"
+                :available-tags="availableTags"
                 @update:sort="$emit('sortChange', $event)"
+                @update:status="$emit('statusChange', $event)"
+                @update:selected-tags="$emit('tagsChange', $event)"
+                @clear-filters="$emit('clearFilters')"
             />
             <UserSortMenu v-if="activeTab === 'admin-users'"
                 :sort="userSortMode"
                 @update:sort="$emit('userSortChange', $event)"
             />
-        </div>
+        </SearchBar>
 
         <!-- Divider in current color -->
         <div
@@ -66,11 +75,14 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, onBeforeUnmount, nextTick } from "vue";
 import { TabsList, TabsTrigger } from "@components/ui/tabs";
-import { Shield, Search, ImagePlus } from "lucide-vue-next";
+import { Shield, ImagePlus } from "lucide-vue-next";
+import { SearchBar } from "@mkbabb/glass-ui";
 
 import PaletteSlugBar from "./PaletteSlugBar.vue";
-import SortFilterMenu from "./SortFilterMenu.vue";
+import SearchFilterBar from "./SearchFilterBar.vue";
 import UserSortMenu from "./UserSortMenu.vue";
+
+import type { Tag } from "@lib/palette/types";
 
 const props = defineProps<{
     activeTab: string;
@@ -80,6 +92,9 @@ const props = defineProps<{
     hasSavedPalettes: boolean;
     isAdmin: boolean;
     sortMode: "newest" | "popular";
+    statusFilter: string;
+    selectedTags: string[];
+    availableTags: Tag[];
     userSortMode: "slug" | "newest" | "palettes";
     dialogOpen: boolean;
 }>();
@@ -89,6 +104,9 @@ defineEmits<{
     regenerate: [];
     logout: [];
     sortChange: [mode: string];
+    statusChange: [status: string];
+    tagsChange: [tags: string[]];
+    clearFilters: [];
     userSortChange: [mode: string];
 }>();
 

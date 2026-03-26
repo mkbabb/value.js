@@ -1,5 +1,6 @@
-import { ref, computed, watch } from "vue";
-import type { Component, Ref, InjectionKey } from "vue";
+import { ref, computed, type Ref } from "vue";
+import type { Component, InjectionKey } from "vue";
+import { useRouter, useRoute } from "vue-router";
 import {
     Palette,
     Search,
@@ -7,13 +8,13 @@ import {
     Shield,
     Tag,
     Home,
-    Info,
     Sparkles,
     Blend,
     Wand2,
     Rainbow,
+    ScrollText,
+    Flag,
 } from "lucide-vue-next";
-import { useStorage } from "@vueuse/core";
 
 export type ViewId =
     | "picker"
@@ -25,7 +26,10 @@ export type ViewId =
     | "generate"
     | "gradient"
     | "admin-users"
-    | "admin-names";
+    | "admin-names"
+    | "admin-audit"
+    | "admin-flagged"
+    | "admin-tags";
 
 export type LeftPane =
     | "color-picker"
@@ -35,7 +39,10 @@ export type LeftPane =
     | "generate"
     | "gradient"
     | "admin-users"
-    | "admin-names";
+    | "admin-names"
+    | "admin-audit"
+    | "admin-flagged"
+    | "admin-tags";
 
 export type RightPane = "about" | "palettes" | "mix" | null;
 
@@ -116,7 +123,7 @@ const VIEW_MAP: Record<ViewId, PaneConfig> = {
     "admin-users": {
         left: "admin-users",
         right: "palettes",
-        label: "Admin Users",
+        label: "Users",
         leftLabel: "Users",
         rightLabel: "Palettes",
         icon: Shield,
@@ -124,8 +131,32 @@ const VIEW_MAP: Record<ViewId, PaneConfig> = {
     "admin-names": {
         left: "admin-names",
         right: "palettes",
-        label: "Admin Names",
+        label: "Names",
         leftLabel: "Names",
+        rightLabel: "Palettes",
+        icon: Tag,
+    },
+    "admin-audit": {
+        left: "admin-audit",
+        right: "palettes",
+        label: "Audit Log",
+        leftLabel: "Audit",
+        rightLabel: "Palettes",
+        icon: ScrollText,
+    },
+    "admin-flagged": {
+        left: "admin-flagged",
+        right: "palettes",
+        label: "Flagged",
+        leftLabel: "Flagged",
+        rightLabel: "Palettes",
+        icon: Flag,
+    },
+    "admin-tags": {
+        left: "admin-tags",
+        right: "palettes",
+        label: "Tags",
+        leftLabel: "Tags",
         rightLabel: "Palettes",
         icon: Tag,
     },
@@ -145,10 +176,14 @@ export const VIEW_MANAGER_KEY: InjectionKey<ViewManager> =
     Symbol("viewManager");
 
 export function useViewManager(): ViewManager {
-    const stored = useStorage<ViewId>("color-picker-view", "picker");
-    const currentView = ref<ViewId>(
-        stored.value in VIEW_MAP ? stored.value : "picker",
-    );
+    const router = useRouter();
+    const route = useRoute();
+
+    const currentView = computed<ViewId>(() => {
+        const name = route.name as string;
+        return (name && name in VIEW_MAP) ? name as ViewId : "picker";
+    });
+
     const previousView = ref<ViewId | null>(null);
     const mobilePaneIndex = ref<0 | 1>(0);
 
@@ -157,32 +192,24 @@ export function useViewManager(): ViewManager {
     function switchView(id: ViewId) {
         if (id === currentView.value) return;
         previousView.value = currentView.value;
-        currentView.value = id;
-        // For palettes view, default to showing palettes pane on mobile (right/index 1)
-        // For other two-pane views, default to left pane
+        // Preserve color query params when switching views
+        router.push({ name: id, query: route.query });
         const cfg = VIEW_MAP[id];
-        // Default mobile pane: show the view's primary content
-        // "palettes" and "mix" are right-pane views → show index 1
         mobilePaneIndex.value = (cfg.right !== null && (id === "palettes" || id === "mix")) ? 1 : 0;
     }
 
     function goBack() {
         if (previousView.value) {
-            currentView.value = previousView.value;
+            switchView(previousView.value);
             previousView.value = null;
         } else {
-            currentView.value = "picker";
+            switchView("picker");
         }
         mobilePaneIndex.value = 0;
     }
 
-    // Persist view to localStorage
-    watch(currentView, (v) => {
-        stored.value = v;
-    });
-
     return {
-        currentView,
+        currentView: currentView as unknown as Ref<ViewId>,
         previousView,
         mobilePaneIndex,
         currentConfig,

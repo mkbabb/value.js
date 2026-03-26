@@ -1,113 +1,170 @@
 <template>
-    <Teleport to="body">
-        <div
-            v-if="menuOpen"
-            class="floating-panel card-menu-panel flex flex-col min-w-[160px] overflow-hidden"
-            :style="{ ...menuStyle, transform: 'translateX(-100%)' }"
-            @pointerenter="$emit('panelEnter')"
-            @pointerleave="$emit('panelLeave')"
-            @click.stop
-        >
-            <!-- Full palette name as header -->
-            <div class="px-3 py-1.5 fraunces text-sm font-bold text-foreground border-b border-border/50 truncate max-w-[200px]">
-                {{ palette.name }}
-            </div>
+    <DropdownMenu :open="menuOpen" @update:open="$emit('updateOpen', $event)">
+        <DropdownMenuTrigger as-child>
+            <slot name="trigger" />
+        </DropdownMenuTrigger>
 
-            <!-- Temporary + Remote: Save (first action) -->
-            <button
+        <DropdownMenuContent align="end" class="w-48 text-sm">
+            <!-- Header: palette name -->
+            <DropdownMenuLabel class="fraunces font-bold truncate max-w-[180px]">
+                {{ palette.name }}
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+
+            <!-- Save (temporary + remote) -->
+            <DropdownMenuItem
                 v-if="paletteKind === 'temporary' || paletteKind === 'remote'"
-                class="floating-panel-item px-3 py-2 fraunces text-sm"
                 @click="$emit('action', 'save')"
             >
-                <Bookmark class="w-4 h-4" />
-                <span>Save</span>
-            </button>
+                <Bookmark class="mr-2 h-4 w-4" />
+                Save
+            </DropdownMenuItem>
 
-            <!-- Always: Copy colors -->
-            <button class="floating-panel-item px-3 py-2 fraunces text-sm" @click="$emit('action', 'copyAll')">
-                <Copy class="w-4 h-4" />
-                <span>Copy colors</span>
-            </button>
-
-            <!-- Saved only: Publish -->
-            <button
+            <!-- Publish (saved only) -->
+            <DropdownMenuItem
                 v-if="paletteKind === 'saved'"
-                class="floating-panel-item px-3 py-2 fraunces text-sm"
                 @click="$emit('action', 'publish')"
             >
-                <Globe class="w-4 h-4" />
-                <span>Publish</span>
-            </button>
+                <Globe class="mr-2 h-4 w-4" />
+                Publish
+            </DropdownMenuItem>
 
-            <!-- Rename: temporary, saved, or remote+owned -->
-            <button
+            <!-- Fork/remix (remote palettes) -->
+            <DropdownMenuItem
+                v-if="paletteKind === 'remote'"
+                @click="$emit('action', 'fork')"
+            >
+                <GitFork class="mr-2 h-4 w-4" />
+                Remix
+            </DropdownMenuItem>
+
+            <!-- Rename (temporary, saved, or remote+owned) -->
+            <DropdownMenuItem
                 v-if="paletteKind !== 'remote' || isOwned"
-                class="floating-panel-item px-3 py-2 fraunces text-sm"
                 @click="$emit('action', 'rename')"
             >
-                <Pencil class="w-4 h-4" />
-                <span>Rename</span>
-            </button>
+                <Pencil class="mr-2 h-4 w-4" />
+                Rename
+            </DropdownMenuItem>
 
-            <!-- Delete: saved, or remote+owned (with confirm) -->
-            <button
+            <!-- Version history (remote palettes with versions) -->
+            <DropdownMenuItem
+                v-if="!palette.isLocal && (palette.versionCount ?? 0) > 1"
+                @click="$emit('action', 'versions')"
+            >
+                <History class="mr-2 h-4 w-4" />
+                Versions
+                <span class="ml-auto text-xs text-muted-foreground">{{ palette.versionCount }}</span>
+            </DropdownMenuItem>
+
+            <DropdownMenuSeparator />
+
+            <!-- Export sub-menu -->
+            <DropdownMenuSub>
+                <DropdownMenuSubTrigger>
+                    <Download class="mr-2 h-4 w-4" />
+                    Export
+                </DropdownMenuSubTrigger>
+                <DropdownMenuSubContent class="text-xs">
+                    <DropdownMenuItem @select="() => $emit('action', 'exportJSON')">
+                        JSON
+                    </DropdownMenuItem>
+                    <DropdownMenuItem @select="() => $emit('action', 'exportCSS')">
+                        CSS Custom Properties
+                    </DropdownMenuItem>
+                    <DropdownMenuItem @select="() => $emit('action', 'exportTailwind')">
+                        Tailwind Config
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem @select="() => $emit('action', 'exportSVG')">
+                        SVG Swatch
+                    </DropdownMenuItem>
+                    <DropdownMenuItem @select="() => $emit('action', 'exportPNG')">
+                        PNG Swatch
+                    </DropdownMenuItem>
+                </DropdownMenuSubContent>
+            </DropdownMenuSub>
+
+            <!-- Delete (saved, or remote+owned) -->
+            <DropdownMenuItem
                 v-if="paletteKind === 'saved' || (paletteKind === 'remote' && isOwned)"
-                class="floating-panel-item px-3 py-2 fraunces text-sm text-destructive"
+                class="text-destructive focus:text-destructive"
                 @click="$emit('action', 'delete')"
             >
-                <Trash2 class="w-4 h-4" />
-                <span>Delete</span>
-            </button>
+                <Trash2 class="mr-2 h-4 w-4" />
+                Delete
+            </DropdownMenuItem>
 
-            <!-- Admin section: remote only -->
+            <!-- Report (remote, not owned) -->
+            <DropdownMenuItem
+                v-if="paletteKind === 'remote' && !isOwned"
+                class="text-muted-foreground"
+                @click="$emit('action', 'flag')"
+            >
+                <Flag class="mr-2 h-4 w-4" />
+                Report
+            </DropdownMenuItem>
+
+            <!-- Admin section -->
             <template v-if="isAdmin && paletteKind === 'remote'">
-                <div class="border-t border-border my-0.5"></div>
-                <button class="floating-panel-item px-3 py-2 fraunces text-sm" @click="$emit('action', 'feature')">
-                    <Star v-if="palette.status !== 'featured'" class="w-4 h-4" />
-                    <StarOff v-else class="w-4 h-4" />
-                    <span>{{ palette.status === 'featured' ? 'Unfeature' : 'Feature' }}</span>
-                </button>
-                <button class="floating-panel-item px-3 py-2 fraunces text-sm text-destructive" @click="$emit('action', 'adminDelete')">
-                    <Trash2 class="w-4 h-4" />
-                    <span>Delete (admin)</span>
-                </button>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel class="text-[10px] uppercase tracking-wider text-muted-foreground">
+                    Admin
+                </DropdownMenuLabel>
+                <DropdownMenuItem @click="$emit('action', 'feature')">
+                    <Star v-if="palette.status !== 'featured'" class="mr-2 h-4 w-4" />
+                    <StarOff v-else class="mr-2 h-4 w-4" />
+                    {{ palette.status === 'featured' ? 'Unfeature' : 'Feature' }}
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                    class="text-destructive focus:text-destructive"
+                    @click="$emit('action', 'adminDelete')"
+                >
+                    <Trash2 class="mr-2 h-4 w-4" />
+                    Delete (admin)
+                </DropdownMenuItem>
             </template>
-        </div>
-    </Teleport>
+        </DropdownMenuContent>
+    </DropdownMenu>
 </template>
 
 <script setup lang="ts">
 import type { Palette } from "@lib/palette/types";
 import type { PaletteKind } from "@lib/palette/utils";
 import {
-    Copy,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+} from "@components/ui/dropdown-menu";
+import {
     Trash2,
     Globe,
     Bookmark,
     Pencil,
     Star,
     StarOff,
+    GitFork,
+    History,
+    Download,
+    Flag,
 } from "lucide-vue-next";
 
 defineProps<{
     palette: Palette;
     paletteKind: PaletteKind;
     menuOpen: boolean;
-    menuStyle: Record<string, string>;
     isOwned?: boolean;
     isAdmin?: boolean;
 }>();
 
 defineEmits<{
     action: [action: string];
-    panelEnter: [];
-    panelLeave: [];
+    updateOpen: [value: boolean];
 }>();
 </script>
-
-<style>
-/* Card menu panel uses .floating-panel (global) — only override the animation for translateX offset */
-.card-menu-panel {
-    animation: card-menu-in var(--duration-fast) ease-out;
-}
-</style>

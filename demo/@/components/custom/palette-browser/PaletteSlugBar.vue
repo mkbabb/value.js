@@ -2,20 +2,17 @@
     <div class="flex items-center gap-1.5 mb-2 pt-0.5 relative min-h-9">
         <!-- Edit mode: slug input form -->
         <Transition name="slug-bar-swap" mode="out-in">
-        <form
+        <SearchBar
             v-if="slugEditMode"
+            ref="searchBarRef"
             key="slug-edit"
-            class="flex items-center gap-2 rounded-2xl border border-border/50 bg-card/80 backdrop-blur-xl px-3 h-9 max-w-sm w-full transition-[box-shadow,border-color] focus-within:ring-2 focus-within:ring-ring/40 focus-within:border-border"
+            tag="form"
+            v-model="slugInput"
+            :icon="LogIn"
+            placeholder="enter slug..."
             @submit.prevent="onSlugSwitch"
+            @keydown.escape.stop="slugEditMode = false"
         >
-            <LogIn class="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-            <input
-                ref="slugInputRef"
-                v-model="slugInput"
-                placeholder="enter slug..."
-                class="fira-code text-sm bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground/50"
-                @keydown.escape.stop="slugEditMode = false"
-            />
             <button
                 type="submit"
                 :disabled="!slugInput.trim() || slugSwitching"
@@ -31,7 +28,7 @@
             >
                 <XIcon class="w-3.5 h-3.5 text-muted-foreground" />
             </button>
-        </form>
+        </SearchBar>
 
         <!-- Default mode -->
         <div v-else key="slug-default" class="flex items-center gap-1.5">
@@ -122,6 +119,7 @@
 
 <script setup lang="ts">
 import { ref, nextTick } from "vue";
+import { SearchBar } from "@mkbabb/glass-ui";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@components/ui/hover-card";
 import {
@@ -155,7 +153,7 @@ const slugMenuOpen = ref(false);
 const slugInput = ref("");
 const slugSwitching = ref(false);
 const slugError = ref("");
-const slugInputRef = ref<HTMLInputElement | null>(null);
+const searchBarRef = ref<InstanceType<typeof SearchBar> | null>(null);
 
 function onCopySlug() {
     if (props.userSlug) copyToClipboard(props.userSlug);
@@ -168,7 +166,7 @@ function onStartSlugEdit() {
     setTimeout(() => {
         slugEditMode.value = true;
         nextTick(() => {
-            slugInputRef.value?.focus();
+            searchBarRef.value?.inputRef?.focus();
         });
     }, 50);
 }

@@ -4,6 +4,7 @@ import type { Ref, InjectionKey } from "vue";
 import { usePaletteStore } from "./usePaletteStore";
 import { useAdminAuth } from "../auth/useAdminAuth";
 import { useUserAuth } from "../auth/useUserAuth";
+import { useSession } from "../auth/useSession";
 import { useBrowsePalettes } from "./useBrowsePalettes";
 import { useAdminUsers, useColorNameQueue } from "../auth/useAdminOperations";
 import { useSlugMigration } from "./useSlugMigration";
@@ -30,15 +31,21 @@ export interface PaletteManager {
     remotePalettes: Ref<Palette[]>;
     browsing: Ref<boolean>;
     sortLoading: Ref<boolean>;
-    sortMode: Ref<"newest" | "popular">;
+    sortMode: Ref<string>;
+    statusFilter: Ref<string>;
+    selectedTags: Ref<string[]>;
     browseError: Ref<string | null>;
     filteredBrowse: Ref<Palette[]>;
-    loadRemotePalettes: () => Promise<void>;
+    loadRemotePalettes: (isSort?: boolean) => Promise<void>;
     onSortChange: (mode: string) => void;
     onSaveRemote: (palette: Palette) => void;
     onDeleteOwned: (palette: Palette) => Promise<{ success: boolean; message: string }>;
     onVote: (palette: Palette) => void;
     onRename: (palette: Palette, newName: string) => void;
+
+    // Auth helpers (for actions that need session)
+    ensureUser: () => Promise<string>;
+    ensureSession: () => Promise<void>;
 
     // Admin users
     adminUsers: Ref<any[]>;
@@ -110,19 +117,21 @@ export const PALETTE_MANAGER_KEY: InjectionKey<PaletteManager> =
 
 export function usePaletteManager(deps: {
     currentView: Ref<ViewId>;
+    switchView: (id: ViewId) => void;
     savedColorStrings: Ref<string[]>;
     emitApply: (colors: string[]) => void;
     emitAddColor: (css: string) => void;
     emitStartEdit: (target: { paletteId: string; colorIndex: number; originalCss: string }) => void;
     emitSetCurrentColor: (css: string) => void;
 }): PaletteManager {
-    const { currentView, savedColorStrings, emitApply, emitAddColor, emitStartEdit, emitSetCurrentColor } = deps;
+    const { currentView, switchView: depsSwitchView, savedColorStrings, emitApply, emitAddColor, emitStartEdit, emitSetCurrentColor } = deps;
 
     const searchQuery = ref("");
 
     // --- Auth ---
     const { isAuthenticated: isAdminAuthenticated, login: adminLogin } = useAdminAuth();
     const { userSlug, ensureUser, login: userLogin, logout: userLogout, regenerate: userRegenerate, clearSlug } = useUserAuth();
+    const session = useSession();
 
     // --- Palette store ---
     const { savedPalettes, createPalette, updatePalette, deletePalette, reorderPalettes } = usePaletteStore();
@@ -144,6 +153,7 @@ export function usePaletteManager(deps: {
         clearUserSlug: clearSlug,
         ensureUser,
         activeTab: currentView as Ref<string>,
+        setActiveTab: (tab: string) => depsSwitchView(tab as ViewId),
     });
 
     // --- Palette actions (publish, edit, delete, expand) ---
@@ -182,10 +192,19 @@ export function usePaletteManager(deps: {
         }
     }, { immediate: true });
 
+    // Debounced server-side search: reload browse when search query changes
+    let searchDebounce: ReturnType<typeof setTimeout>;
+    watch(searchQuery, () => {
+        if (currentView.value === "browse") {
+            clearTimeout(searchDebounce);
+            searchDebounce = setTimeout(() => browse.loadRemotePalettes(true), 400);
+        }
+    });
+
     // Hide admin views when logged out
     watch(isAdminAuthenticated, (auth) => {
         if (!auth && currentView.value.startsWith("admin-")) {
-            currentView.value = "picker" as ViewId;
+            depsSwitchView("picker");
         }
     });
 
@@ -224,6 +243,10 @@ export function usePaletteManager(deps: {
         updatePalette,
         deletePalette,
         reorderPalettes,
+
+        // Auth helpers
+        ensureUser,
+        ensureSession: () => session.ensureSession(),
 
         // Browse
         ...browse,

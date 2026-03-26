@@ -15,6 +15,7 @@ import { safeGetItem, safeSetItem, safeRemoveItem } from "../useSafeStorage";
 
 const SLUG_KEY = "palette-user-slug";
 const TOKEN_KEY = "palette-user-token";
+const SESSION_KEY = "palette-session-token"; // shared with useSession
 
 let _userSlug: Ref<string | null> | null = null;
 let _userToken: Ref<string | null> | null = null;
@@ -42,6 +43,8 @@ function persist(slug: string, token: string) {
     tokenRef.value = token;
     safeSetItem(localStorage, SLUG_KEY, slug);
     safeSetItem(localStorage, TOKEN_KEY, token);
+    // Sync with useSession's sessionStorage so ensureSession() won't create a competing session
+    safeSetItem(sessionStorage, SESSION_KEY, token);
     setSessionToken(token);
 }
 
@@ -54,9 +57,10 @@ export function useUserAuth() {
     const slugRef = getUserSlug();
     const tokenRef = getUserToken();
 
-    // Restore session token on first use
+    // Restore session token on first use — sync both api module and sessionStorage
     if (tokenRef.value) {
         setSessionToken(tokenRef.value);
+        safeSetItem(sessionStorage, SESSION_KEY, tokenRef.value);
     }
 
     const userSlug = computed(() => slugRef.value);
@@ -94,6 +98,7 @@ export function useUserAuth() {
         tokenRef.value = null;
         safeRemoveItem(localStorage, SLUG_KEY);
         safeRemoveItem(localStorage, TOKEN_KEY);
+        sessionStorage.removeItem(SESSION_KEY);
         setSessionToken(null);
     }
 
@@ -123,6 +128,7 @@ export function useUserAuth() {
         // Clear storage but DON'T null the ref yet
         safeRemoveItem(localStorage, SLUG_KEY);
         safeRemoveItem(localStorage, TOKEN_KEY);
+        sessionStorage.removeItem(SESSION_KEY);
         setSessionToken(null);
 
         // Register new user — persist() updates the ref atomically
@@ -139,6 +145,7 @@ export function useUserAuth() {
         tokenRef.value = null;
         safeRemoveItem(localStorage, SLUG_KEY);
         safeRemoveItem(localStorage, TOKEN_KEY);
+        sessionStorage.removeItem(SESSION_KEY);
     }
 
     return { userSlug, isLoggedIn, register, login, logout, ensureUser, regenerate, clearSlug };

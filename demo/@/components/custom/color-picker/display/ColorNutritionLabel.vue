@@ -42,9 +42,7 @@
                     class="space-y-1"
                 >
                     <div
-                        :style="{
-                            color: denormalizedCurrentColor.value.toString(),
-                        }"
+                        :style="{ color: nodeHighlightColor }"
                         class="text-lg font-normal"
                     >
                         {{ component }}
@@ -106,7 +104,7 @@
                                     <div
                                         :style="{
                                             backgroundColor: hoveredPath.length && hoveredPath.includes(space as string)
-                                                ? colorLight.value.toString()
+                                                ? nodeHighlightColor
                                                 : '',
                                         }"
                                         :class="['px-2 py-1 rounded transition-colors']"
@@ -149,7 +147,8 @@
     </div>
 </template>
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, inject } from "vue";
+import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import type { ColorSpace } from "@src/units/color/constants";
 import {
     COLOR_SPACE_RANGES,
@@ -177,12 +176,18 @@ const denormalizedCurrentColor = computed(() => {
     return normalizeColorUnit(model.value.color, true, false);
 });
 
+const safeAccent = inject(SAFE_ACCENT_KEY, null);
+
 const colorLight = computed(() => {
     const color = denormalizedCurrentColor.value.clone();
-
     color.value.alpha.value = 25;
-
     return color;
+});
+
+/** CSS color string for conversion graph node highlighting — contrast-safe variant */
+const nodeHighlightColor = computed(() => {
+    if (safeAccent?.value) return safeAccent.value;
+    return colorLight.value.toString();
 });
 
 const currentColorSpaceInfo = computed(

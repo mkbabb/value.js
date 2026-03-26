@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, provide, ref, useTemplateRef } from "vue";
+import { computed, inject, provide, ref, useTemplateRef } from "vue";
 import { EllipsisVertical, Type, Tag } from "lucide-vue-next";
-import { COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import ActionToolbar from "@components/custom/color-picker/controls/ActionToolbar.vue";
 import ColorInput from "@components/custom/color-picker/controls/ColorInput.vue";
@@ -20,6 +20,8 @@ const emit = defineEmits<{
 
 // Re-provide COLOR_MODEL_KEY so ColorInput works unchanged
 provide(COLOR_MODEL_KEY, props.actionBar.colorModel);
+
+const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
 // --- Toolbar mode cycling (moved from ColorPicker) ---
 
@@ -63,7 +65,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
             <ActionToolbar
                 ref="actionToolbarRef"
                 v-bind="subLayerProps('actions')"
-                :css-color-opaque="actionBar.cssColorOpaque.value"
+                :css-color-opaque="safeAccent"
                 :can-propose-name="actionBar.canProposeName.value"
                 :is-editing="actionBar.isEditing.value"
                 :palette-active="actionBar.paletteActive.value"
@@ -91,7 +93,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
                     :is="currentToggleIcon"
                     :key="toolbarMode"
                     class="toggle-btn w-6 h-6 stroke-foreground"
-                    :style="{ '--toggle-hover-color': actionBar.cssColorOpaque.value }"
+                    :style="{ '--toggle-hover-color': safeAccent }"
                 />
             </Transition>
         </button>

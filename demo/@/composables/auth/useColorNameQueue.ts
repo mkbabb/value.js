@@ -34,7 +34,8 @@ export function useColorNameQueue(deps: {
         if (!token) return;
         loadingColorQueue.value = true;
         try {
-            adminColorQueue.value = await getAdminQueue(token);
+            const res = await getAdminQueue(token);
+            adminColorQueue.value = res.data;
         } catch (e: any) {
             console.warn("Failed to load color queue:", e?.message);
         } finally {
@@ -47,7 +48,8 @@ export function useColorNameQueue(deps: {
         if (!token) return;
         loadingApproved.value = true;
         try {
-            approvedColors.value = await getApprovedColorNamesAdmin(token);
+            const res = await getApprovedColorNamesAdmin(token);
+            approvedColors.value = res.data;
             approvedLoaded.value = true;
         } catch (e: any) {
             console.warn("Failed to load approved colors:", e?.message);

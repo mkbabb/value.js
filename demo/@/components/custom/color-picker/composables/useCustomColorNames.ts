@@ -18,7 +18,7 @@ export function useCustomColorNames() {
         loading.value = true;
 
         try {
-            const approved = await getApprovedColorNames();
+            const { data: approved } = await getApprovedColorNames();
 
             const nameMap: Record<string, string> = {};
             const registry = new Map<string, ProposedColorName>();

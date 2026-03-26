@@ -62,6 +62,7 @@
                         @publish="(p) => onPublish(p)"
                         @rename="(p, name) => pm.onRenameSaved(p, name)"
                         @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
+                        @export="(p, fmt) => onExport(p, fmt)"
                     />
                 </PaletteCardGrid>
             </div>
@@ -99,6 +100,14 @@ import { ConfirmDialog } from "@mkbabb/glass-ui";
 import PaneSearchBar from "./PaneSearchBar.vue";
 import PaneHeader from "./PaneHeader.vue";
 import type { Palette } from "@lib/palette/types";
+import {
+    exportAsJSON,
+    exportAsCSSCustomProperties,
+    exportAsTailwindConfig,
+    exportAsSVG,
+    exportAsPNG,
+    downloadExport,
+} from "@lib/palette/export";
 
 const props = defineProps<{
     savedColorStrings: string[];
@@ -139,6 +148,20 @@ async function onPublish(palette: Palette) {
     const card = cardRefs[palette.id];
     if (card) {
         card.showFeedback(result.message, result.success ? "success" : "error");
+    }
+}
+
+async function onExport(palette: Palette, format: string) {
+    try {
+        switch (format) {
+            case "json": downloadExport(exportAsJSON(palette)); break;
+            case "css": downloadExport(exportAsCSSCustomProperties(palette)); break;
+            case "tailwind": downloadExport(exportAsTailwindConfig(palette)); break;
+            case "svg": downloadExport(exportAsSVG(palette)); break;
+            case "png": downloadExport(await exportAsPNG(palette)); break;
+        }
+    } catch (e) {
+        console.warn("Export failed:", e);
     }
 }
 </script>

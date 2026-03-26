@@ -65,14 +65,14 @@
                         @click="submitProposedName"
                     >
                         <Loader2 v-if="proposing" class="w-3.5 h-3.5 animate-spin" />
-                        <ArrowRight v-else class="w-4 h-4" :style="{ stroke: cssColorOpaque }" />
+                        <ArrowRight v-else class="w-4 h-4" :style="{ stroke: safeAccent }" />
                     </button>
                     <button
                         v-else
                         class="send-btn"
                         @click="onSubmitColor"
                     >
-                        <ArrowRight class="w-4 h-4" :style="{ stroke: cssColorOpaque }" />
+                        <ArrowRight class="w-4 h-4" :style="{ stroke: safeAccent }" />
                     </button>
 
                     <!-- Parse error popover -->
@@ -117,7 +117,7 @@ import { Crown, ArrowRight, Loader2 } from "lucide-vue-next";
 import { proposeColorName } from "@lib/palette/api";
 import { useSession } from "@composables/auth/useSession";
 import type { EditTarget } from "..";
-import { COLOR_MODEL_KEY } from "../keys";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../keys";
 
 const props = defineProps<{
     editTarget: EditTarget | null;
@@ -139,6 +139,8 @@ const {
     copyToClipboard,
     DIGITS,
 } = inject(COLOR_MODEL_KEY)!;
+
+const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
 const inputColorRef = useTemplateRef<HTMLElement>("inputColorRef");
 const inputIsFocused = ref(false);

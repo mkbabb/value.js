@@ -1,18 +1,22 @@
 /**
- * Session management — module-level singleton with lazy initialization.
+ * Session management — thin wrapper that delegates to useUserAuth when a
+ * persistent user token exists, and only creates anonymous sessions as a
+ * fallback.
  *
- * Same singleton pattern as useAdminAuth: a single `_token` Ref shared
- * across all callers. The `_initialized` flag prevents duplicate session
- * creation during concurrent component mounts.
+ * This prevents the original bug where ensureSession() would create a
+ * competing anonymous session that overwrote the user's real token in
+ * the api module.
  *
- * Session tokens are stored in sessionStorage (cleared on tab close)
- * and automatically passed to the API client via `setSessionToken()`.
+ * Storage: sessionStorage (cleared on tab close) for anonymous sessions.
+ * When useUserAuth has a token, it is synced to sessionStorage so both
+ * systems see the same value.
  */
 import { ref, type Ref } from "vue";
 import { createSession, setSessionToken } from "@lib/palette/api";
 import { safeGetItem, safeSetItem } from "../useSafeStorage";
 
 const SESSION_KEY = "palette-session-token";
+const USER_TOKEN_KEY = "palette-user-token"; // shared with useUserAuth
 
 let _token: Ref<string | null> | null = null;
 let _initialized = false;
@@ -35,8 +39,25 @@ function initialize() {
 
 async function ensureSession(): Promise<string> {
     const token = getToken();
-    if (token.value) return token.value;
 
+    // 1. Check sessionStorage (may have been synced from useUserAuth)
+    if (token.value) {
+        setSessionToken(token.value);
+        return token.value;
+    }
+
+    // 2. Check if useUserAuth has a persistent token in localStorage
+    //    (covers the case where sessionStorage was cleared on tab close
+    //    but the user is still "logged in" via localStorage)
+    const userToken = safeGetItem(localStorage, USER_TOKEN_KEY);
+    if (userToken) {
+        token.value = userToken;
+        safeSetItem(sessionStorage, SESSION_KEY, userToken);
+        setSessionToken(userToken);
+        return userToken;
+    }
+
+    // 3. No token anywhere — create an anonymous session
     const res = await createSession();
     token.value = res.token;
     safeSetItem(sessionStorage, SESSION_KEY, res.token);

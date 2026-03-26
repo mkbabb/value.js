@@ -33,8 +33,28 @@
                         @add-color="(css) => $emit('addColor', css)"
                         @feature="(p) => $emit('feature', p)"
                         @admin-delete="(p) => $emit('adminDelete', p)"
+                        @fork="(p) => $emit('fork', p)"
+                        @versions="(p) => $emit('versions', p)"
+                        @flag="(p) => $emit('flag', p)"
+                        @export="(p, fmt) => $emit('export', p, fmt)"
                     />
                 </PaletteCardGrid>
+
+                <!-- Infinite scroll sentinel -->
+                <div
+                    v-if="!browsing && filteredBrowse.length > 0"
+                    ref="sentinelRef"
+                    class="h-4"
+                />
+
+                <!-- Loading more indicator -->
+                <div
+                    v-if="loadingMore"
+                    class="flex items-center justify-center py-3"
+                >
+                    <Loader2 class="w-4 h-4 animate-spin text-muted-foreground" />
+                    <span class="ml-2 text-xs text-muted-foreground">Loading more...</span>
+                </div>
             </div>
     </TabsContent>
 </template>
@@ -55,6 +75,7 @@ defineProps<{
     cssColorOpaque: string;
     userSlug: string | null;
     isAdmin: boolean;
+    loadingMore?: boolean;
 }>();
 
 defineEmits<{
@@ -67,5 +88,11 @@ defineEmits<{
     addColor: [css: string];
     feature: [palette: Palette];
     adminDelete: [palette: Palette];
+    fork: [palette: Palette];
+    versions: [palette: Palette];
+    flag: [palette: Palette];
+    export: [palette: Palette, format: string];
 }>();
+
+const sentinelRef = defineModel<HTMLElement | null>("sentinelRef");
 </script>

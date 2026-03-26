@@ -46,7 +46,7 @@ const { toggleDark } = useGlobalDark();
                         Profile
                     </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" class="min-w-[10rem] fraunces">
+                <DropdownMenuContent align="end" class="min-w-[11rem] fraunces">
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
                             class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
@@ -72,7 +72,7 @@ const { toggleDark } = useGlobalDark();
 
         <!-- Admin (no slug) -->
         <template v-else-if="pm.isAdminAuthenticated.value">
-            <span class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground whitespace-nowrap">
+            <span class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default whitespace-nowrap gold-shimmer" style="border-color: var(--color-gold)">
                 admin
             </span>
         </template>

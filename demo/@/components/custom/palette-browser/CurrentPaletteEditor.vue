@@ -1,6 +1,6 @@
 <template>
     <div
-        class="max-w-sm rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5 p-3 grid gap-2"
+        class="dashed-well"
     >
         <div
             class="flex items-center justify-between gap-2"
@@ -61,7 +61,7 @@
                             </div>
                             <div class="flex gap-2 mt-2 self-center">
                                 <button class="p-2 rounded-full bg-foreground/5 hover:bg-foreground/15 transition-all cursor-pointer hover:scale-110 active:scale-95" title="Save edit" @click.stop="emit('commitEdit')">
-                                    <Check class="w-5 h-5" :style="{ color: cssColorOpaque }" />
+                                    <Check class="w-5 h-5" :style="{ color: safeAccent }" />
                                 </button>
                                 <button class="p-2 rounded-full bg-foreground/5 hover:bg-foreground/15 transition-all cursor-pointer hover:scale-110 active:scale-95" title="Cancel edit" @click.stop="emit('cancelEdit')">
                                     <Undo2 class="w-5 h-5 text-muted-foreground" />
@@ -147,7 +147,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, toRef, TransitionGroup } from "vue";
+import { inject, ref, toRef, TransitionGroup } from "vue";
+import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import {
@@ -186,6 +187,8 @@ const emit = defineEmits<{
     cancelEdit: [];
     clearCurrent: [];
 }>();
+
+const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
 // --- Swatch interaction state & actions ---
 const {

@@ -25,7 +25,7 @@
                 <Tabs
                     v-model="activeTab"
                     class="w-full min-h-full flex flex-col min-w-0"
-                    :style="{ '--active-tab-color': cssColorOpaque }"
+                    :style="{ '--active-tab-color': safeAccent }"
                 >
                     <!-- Controls: sticky tabs row, then search+sort row -->
                     <PaletteControlsBar
@@ -34,16 +34,22 @@
                         :active-tab="activeTab"
                         :search-placeholder="searchPlaceholder"
                         :user-slug="userSlug"
-                        :css-color-opaque="cssColorOpaque"
+                        :css-color-opaque="safeAccent"
                         :has-saved-palettes="savedPalettes.length > 0"
                         :is-admin="isAdminAuthenticated"
                         :sort-mode="sortMode"
+                        :status-filter="statusFilter"
+                        :selected-tags="selectedTags"
+                        :available-tags="availableTags"
                         :user-sort-mode="userSortMode"
                         :dialog-open="openModel"
                         @switch-slug="onSlugSwitch"
                         @regenerate="onRegenerateSlug"
                         @logout="userLogout"
                         @sort-change="onSortChange"
+                        @status-change="onStatusChange"
+                        @tags-change="onTagsChange"
+                        @clear-filters="onClearFilters"
                         @user-sort-change="onUserSortChange"
                     />
 
@@ -88,12 +94,17 @@
                         :is-admin="isAdminAuthenticated"
                         @toggle-expand="toggleExpand"
                         @save="onSaveRemote"
+                        @delete="onDeleteOwned"
                         @vote="onVote"
                         @rename="onRename"
                         @edit-color="onEditColor"
                         @add-color="onSwatchAddColor"
                         @feature="onFeaturePalette"
                         @admin-delete="onAdminDeletePalette"
+                        @fork="onFork"
+                        @versions="onVersions"
+                        @flag="onFlag"
+                        @export="onExport"
                     />
 
                     <!-- Admin Users tab -->
@@ -122,7 +133,7 @@
                                 :approved-items="filteredApproved"
                                 :loading-pending="loadingColorQueue"
                                 :loading-approved="loadingApproved"
-                                :css-color-opaque="cssColorOpaque"
+                                :css-color-opaque="safeAccent"
                                 @approve="onApproveColor"
                                 @reject="onRejectColor"
                                 @delete="onDeleteColor"
@@ -155,13 +166,36 @@
             />
         </DialogScrollContent>
     </Dialog>
+
+    <!-- Version history drawer -->
+    <VersionHistoryDrawer
+        v-if="versionDrawerPalette"
+        :open="versionDrawerOpen"
+        :palette-slug="versionDrawerPalette.slug"
+        :palette-name="versionDrawerPalette.name"
+        :current-hash="versionDrawerPalette.currentHash ?? null"
+        @update:open="versionDrawerOpen = $event"
+        @revert="onRevert"
+    />
+
+    <!-- Flag report dialog -->
+    <FlagReportDialog
+        v-if="flagDialogPalette"
+        :open="flagDialogOpen"
+        :palette-name="flagDialogPalette.name"
+        :palette-slug="flagDialogPalette.slug"
+        @update:open="flagDialogOpen = $event"
+        @submit="onFlagSubmit"
+    />
 </template>
 
 <script setup lang="ts">
 import {
+    inject,
     ref,
     watch,
 } from "vue";
+import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import {
     Dialog,
     DialogScrollContent,
@@ -179,7 +213,16 @@ import { useSession } from "@composables/auth/useSession";
 import { useBrowsePalettes } from "@composables/palette/useBrowsePalettes";
 import { useAdminUsers, useColorNameQueue } from "@composables/auth/useAdminOperations";
 import { useSlugMigration } from "@composables/palette/useSlugMigration";
-import { publishPalette } from "@lib/palette/api";
+import { publishPalette, forkPalette, flagPalette, revertPalette, getTags } from "@lib/palette/api";
+import {
+    exportAsJSON,
+    exportAsCSSCustomProperties,
+    exportAsTailwindConfig,
+    exportAsSVG,
+    exportAsPNG,
+    downloadExport,
+} from "@lib/palette/export";
+import type { Tag } from "@lib/palette/types";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 
 import PaletteDialogHeader from "./PaletteDialogHeader.vue";
@@ -191,6 +234,8 @@ import AdminUsersPanel from "./AdminUsersPanel.vue";
 import AdminNamesPanel from "./AdminNamesPanel.vue";
 import { ImagePaletteExtractor } from "@components/custom/image-palette-extractor";
 import { usePaletteDialogState } from "./composables/usePaletteDialogState";
+import VersionHistoryDrawer from "./VersionHistoryDrawer.vue";
+import FlagReportDialog from "./FlagReportDialog.vue";
 
 const props = defineProps<{
     savedColorStrings: string[];
@@ -207,6 +252,8 @@ const emit = defineEmits<{
     commitEdit: [];
     cancelEdit: [];
 }>();
+
+const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
 const openModel = defineModel<boolean>("open", { default: false });
 const controlsBarRef = ref<InstanceType<typeof PaletteControlsBar> | null>(null);
@@ -242,10 +289,13 @@ const {
     browsing,
     sortLoading,
     sortMode,
+    statusFilter,
+    selectedTags,
     filteredBrowse,
     loadRemotePalettes,
     onSortChange,
     onSaveRemote,
+    onDeleteOwned,
     onVote,
     onRename,
 } = useBrowsePalettes({ searchQuery });
@@ -446,6 +496,98 @@ function onDeleteAllSaved() {
     }
     expandedId.value = null;
     showDeleteAllConfirm.value = false;
+}
+
+// --- Fork / Remix ---
+
+async function onFork(palette: Palette) {
+    try {
+        await ensureUser();
+        await session.ensureSession();
+        const forked = await forkPalette(palette.slug);
+        remotePalettes.value = [forked, ...remotePalettes.value];
+    } catch (e) {
+        console.warn("Failed to fork palette:", e);
+    }
+}
+
+// --- Version history ---
+
+const versionDrawerOpen = ref(false);
+const versionDrawerPalette = ref<Palette | null>(null);
+
+function onVersions(palette: Palette) {
+    versionDrawerPalette.value = palette;
+    versionDrawerOpen.value = true;
+}
+
+async function onRevert(hash: string) {
+    if (!versionDrawerPalette.value) return;
+    try {
+        const updated = await revertPalette(versionDrawerPalette.value.slug, hash);
+        const idx = remotePalettes.value.findIndex((p) => p.slug === updated.slug);
+        if (idx >= 0) remotePalettes.value[idx] = updated;
+        versionDrawerPalette.value = updated;
+    } catch (e) {
+        console.warn("Failed to revert:", e);
+    }
+}
+
+// --- Flag / Report ---
+
+const flagDialogOpen = ref(false);
+const flagDialogPalette = ref<Palette | null>(null);
+
+function onFlag(palette: Palette) {
+    flagDialogPalette.value = palette;
+    flagDialogOpen.value = true;
+}
+
+async function onFlagSubmit(reason: string, detail: string | undefined) {
+    if (!flagDialogPalette.value) return;
+    try {
+        await flagPalette(flagDialogPalette.value.slug, reason, detail);
+    } catch (e) {
+        console.warn("Failed to flag palette:", e);
+    }
+    flagDialogOpen.value = false;
+}
+
+// --- Export ---
+
+async function onExport(palette: Palette, format: string) {
+    try {
+        switch (format) {
+            case "json": downloadExport(exportAsJSON(palette)); break;
+            case "css": downloadExport(exportAsCSSCustomProperties(palette)); break;
+            case "tailwind": downloadExport(exportAsTailwindConfig(palette)); break;
+            case "svg": downloadExport(exportAsSVG(palette)); break;
+            case "png": downloadExport(await exportAsPNG(palette)); break;
+        }
+    } catch (e) {
+        console.warn("Export failed:", e);
+    }
+}
+
+// --- Browse filter state (exposed from composable) ---
+
+const availableTags = ref<Tag[]>([]);
+getTags().then((tags) => { availableTags.value = tags; }).catch(() => {});
+
+function onStatusChange(status: string) {
+    statusFilter.value = status;
+    loadRemotePalettes(true);
+}
+
+function onTagsChange(tags: string[]) {
+    selectedTags.value = tags;
+    loadRemotePalettes(true);
+}
+
+function onClearFilters() {
+    statusFilter.value = "";
+    selectedTags.value = [];
+    loadRemotePalettes(true);
 }
 </script>
 
