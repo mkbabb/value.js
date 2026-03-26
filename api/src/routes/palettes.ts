@@ -240,6 +240,34 @@ palettes.post("/:slug/vote", async (c) => {
     }
 });
 
+// DELETE /palettes/:slug — delete own palette (owner only)
+palettes.delete("/:slug", async (c) => {
+    const slug = c.req.param("slug");
+    const sessionToken = c.get("sessionToken") as string | undefined;
+
+    if (!sessionToken) {
+        return c.json({ error: "Session token required" }, 401);
+    }
+
+    const db = await getDb();
+    const palette = await db.collection("palettes").findOne({ slug });
+
+    if (!palette) return c.json({ error: "Palette not found" }, 404);
+
+    const userSlug = c.get("userSlug") as string | undefined;
+    const isOwner =
+        palette.sessionToken === sessionToken ||
+        (userSlug && palette.userSlug === userSlug);
+    if (!isOwner) {
+        return c.json({ error: "Not the owner of this palette" }, 403);
+    }
+
+    await db.collection("palettes").deleteOne({ slug });
+    await db.collection("votes").deleteMany({ paletteSlug: slug });
+
+    return c.json({ deleted: true });
+});
+
 // PATCH /palettes/:slug — rename (owner only)
 palettes.patch("/:slug", async (c) => {
     const slug = c.req.param("slug");

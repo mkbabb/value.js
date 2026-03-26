@@ -9,9 +9,13 @@ const ALLOWED_ORIGINS = new Set(
 );
 
 export function corsHeaders(requestOrigin?: string): Record<string, string> {
-    const origin = requestOrigin && ALLOWED_ORIGINS.has(requestOrigin)
-        ? requestOrigin
-        : ALLOWED_ORIGINS.values().next().value ?? "";
+    // If no allowlist configured, reflect the request origin (open CORS).
+    // With an allowlist, only allowed origins get reflected; others get the first allowed origin.
+    const origin = ALLOWED_ORIGINS.size === 0
+        ? (requestOrigin ?? "*")
+        : (requestOrigin && ALLOWED_ORIGINS.has(requestOrigin))
+            ? requestOrigin
+            : ALLOWED_ORIGINS.values().next().value ?? "";
     return {
         "Access-Control-Allow-Origin": origin,
         "Access-Control-Allow-Methods": "GET, POST, PATCH, DELETE, OPTIONS",
@@ -125,9 +129,9 @@ export const resolveSession: MiddlewareHandler = async (c, next) => {
             if (session.userSlug) {
                 c.set("userSlug", session.userSlug);
             }
-        } else {
-            return c.json({ error: "Invalid or expired session" }, 401);
         }
+        // Stale/expired tokens: proceed without session context.
+        // Route handlers that require auth check c.get("sessionToken") themselves.
     }
     await next();
 };
