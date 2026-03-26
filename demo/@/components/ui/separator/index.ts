@@ -1,1 +1,1 @@
-export { default as Separator } from './Separator.vue'
+export { Separator } from "@mkbabb/glass-ui";

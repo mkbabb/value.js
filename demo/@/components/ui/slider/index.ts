@@ -1,1 +1,1 @@
-export { default as Slider } from './Slider.vue'
+export { Slider } from "@mkbabb/glass-ui";

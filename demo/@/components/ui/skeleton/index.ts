@@ -1,1 +1,1 @@
-export { default as Skeleton } from './Skeleton.vue'
+export { Skeleton } from "@mkbabb/glass-ui";
