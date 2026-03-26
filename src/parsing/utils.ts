@@ -12,7 +12,7 @@ export const none = istring("none");
 
 export const integer = regex(/-?\d+/).map(Number);
 
-export const number = regex(/-?(0|[1-9]\d*)(\.\d+)?([eE][+-]?\d+)?/).map(Number);
+export const number = regex(/-?(?:(0|[1-9]\d*)(\.\d+)?|\.\d+)([eE][+-]?\d+)?/).map(Number);
 
 /** Parser that always succeeds with the given value without consuming input. */
 export function succeed<T>(value: T): Parser<T> {
