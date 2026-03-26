@@ -1,9 +1,9 @@
 <template>
     <Transition
-        enter-active-class="transition-all duration-200 ease-out"
+        enter-active-class="transition-all duration-[var(--duration-fast)] ease-[var(--ease-decelerate)]"
         enter-from-class="translate-y-2 opacity-0"
         enter-to-class="translate-y-0 opacity-100"
-        leave-active-class="transition-all duration-150 ease-in"
+        leave-active-class="transition-all duration-[var(--duration-instant)] ease-[var(--ease-accelerate)]"
         leave-from-class="translate-y-0 opacity-100"
         leave-to-class="translate-y-2 opacity-0"
     >

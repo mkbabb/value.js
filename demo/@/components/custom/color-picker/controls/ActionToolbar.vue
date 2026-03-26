@@ -6,7 +6,7 @@
             :active-hover="activeHover"
             title="Reset color"
             description="Click to reset to the default color."
-            icon-class="hover:-rotate-180 duration-300"
+            icon-class="hover:-rotate-180 duration-[var(--duration-normal)]"
             :css-color-opaque="cssColorOpaque"
             rotate-on-click
             @action="emit('reset')"

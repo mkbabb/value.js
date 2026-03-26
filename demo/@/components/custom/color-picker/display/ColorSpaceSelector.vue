@@ -13,7 +13,7 @@
         <SelectTrigger
             variant="ghost"
             :style="{ color: safeAccent, fontFamily: 'var(--font-display)' }"
-            class="w-fit h-fit italic text-3xl sm:text-4xl tracking-tight p-0 m-0 pb-1 self-end focus:outline-none select-none [&>span]:line-clamp-none"
+            class="w-fit h-fit italic text-3xl sm:text-4xl tracking-tight p-0 m-0 pb-1 self-end focus:outline-none select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block"
         >
             <SelectValue class="w-full" />
         </SelectTrigger>

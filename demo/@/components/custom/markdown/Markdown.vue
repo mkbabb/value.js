@@ -142,7 +142,7 @@ onUpdated(() => {
 .markdown-wrapper > .markdown-body {
     /* Links */
     a {
-        @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200;
+        @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-[var(--duration-fast)];
     }
 
     /* Lists */
@@ -305,7 +305,7 @@ onUpdated(() => {
     }
 
     .toc a {
-        @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200;
+        @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-[var(--duration-fast)];
     }
 }
 </style>

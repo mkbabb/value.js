@@ -300,7 +300,7 @@ const activeLayer = computed<string>(() => {
                         <!-- Action bar toggle -->
                         <div v-if="hasAnyActionBar" class="dock-separator"></div>
                         <div
-                            class="flex items-center gap-1 overflow-hidden transition-all duration-300 ease-[var(--ease-standard)]"
+                            class="flex items-center gap-1 overflow-hidden transition-all duration-[var(--duration-normal)] ease-[var(--ease-standard)]"
                             :style="{ maxWidth: hasAnyActionBar ? '8rem' : '0px', opacity: hasAnyActionBar ? 1 : 0 }"
                         >
                             <button
