@@ -105,6 +105,7 @@ import { Loader2, RefreshCw, Trash2 } from "lucide-vue-next";
 import PaginationBar from "./PaginationBar.vue";
 import { getFlaggedPalettes, dismissFlags, deletePaletteAdmin } from "@lib/palette/api";
 import type { FlaggedPalette } from "@lib/palette/types";
+import { formatDate } from "@lib/dateFormat";
 import { useAdminAuth } from "@composables/auth/useAdminAuth";
 
 const { getToken } = useAdminAuth();
@@ -119,13 +120,7 @@ const pageCount = computed(() => Math.max(1, Math.ceil(total.value / pageSize)))
 const hasNext = computed(() => page.value < pageCount.value);
 const hasPrev = computed(() => page.value > 1);
 
-function formatDate(iso: string): string {
-    try {
-        return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" });
-    } catch {
-        return iso;
-    }
-}
+
 
 async function loadFlagged() {
     const token = getToken();

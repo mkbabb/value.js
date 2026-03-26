@@ -87,22 +87,22 @@
                                     />
                                 </template>
                             </MiniColorPicker>
-                            <!-- Inline text + search -->
-                            <input
-                                v-model="colorText"
-                                type="text"
-                                placeholder="#hex, hsl(...)"
-                                class="h-7 flex-1 min-w-0 rounded-md border border-input bg-background px-2 font-mono-code text-caption focus:outline-none focus:ring-1 focus:ring-ring"
-                                @keydown.enter="applyColorSearch"
-                            />
-                            <Button
-                                variant="outline"
-                                size="sm"
-                                class="h-7 px-2.5 text-micro shrink-0"
-                                @click="applyColorSearch"
-                            >
-                                Search
-                            </Button>
+                            <!-- Text input with inline search button -->
+                            <div class="relative flex-1 min-w-0">
+                                <input
+                                    v-model="colorText"
+                                    type="text"
+                                    placeholder="#hex, hsl(...)"
+                                    class="h-7 w-full rounded-md border border-input bg-background pl-2 pr-14 font-mono-code text-caption truncate focus:outline-none focus:ring-1 focus:ring-ring"
+                                    @keydown.enter="applyColorSearch"
+                                />
+                                <button
+                                    class="absolute right-0.5 top-0.5 h-6 px-2 rounded text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors cursor-pointer"
+                                    @click="applyColorSearch"
+                                >
+                                    Search
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -140,6 +140,8 @@ import {
     X,
 } from "lucide-vue-next";
 import type { Tag } from "@lib/palette/types";
+import { srgbToOKLab } from "@src/units/color/gamut";
+import { hex2rgb } from "@src/units/color/utils";
 
 const props = defineProps<{
     sort: string;
@@ -199,19 +201,9 @@ function toggleTag(name: string) {
 }
 
 function hexToOklab(hex: string): { L: number; a: number; b: number } {
-    const r = parseInt(hex.slice(1, 3), 16) / 255;
-    const g = parseInt(hex.slice(3, 5), 16) / 255;
-    const b = parseInt(hex.slice(5, 7), 16) / 255;
-    const lin = (c: number) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
-    const lr = lin(r), lg = lin(g), lb = lin(b);
-    const l_ = Math.cbrt(0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb);
-    const m_ = Math.cbrt(0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb);
-    const s_ = Math.cbrt(0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb);
-    return {
-        L: 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_,
-        a: 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_,
-        b: 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086757660 * s_,
-    };
+    const rgb = hex2rgb(hex);
+    const [L, a, b] = srgbToOKLab(rgb.r, rgb.g, rgb.b);
+    return { L, a, b };
 }
 
 function applyColorSearch() {

@@ -108,6 +108,7 @@ import {
 import { Button } from "@components/ui/button";
 import { Loader2, RotateCcw } from "lucide-vue-next";
 import { listVersions } from "@lib/palette/api";
+import { formatTime } from "@lib/dateFormat";
 import type { PaletteVersion } from "@lib/palette/types";
 
 const props = defineProps<{
@@ -126,18 +127,6 @@ const versions = ref<PaletteVersion[]>([]);
 const total = ref(0);
 const loading = ref(false);
 
-function formatTime(iso: string): string {
-    try {
-        return new Date(iso).toLocaleString(undefined, {
-            month: "short",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-        });
-    } catch {
-        return iso;
-    }
-}
 
 async function loadVersions(offset = 0) {
     loading.value = true;

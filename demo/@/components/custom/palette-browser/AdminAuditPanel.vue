@@ -75,6 +75,7 @@ import { Loader2, RefreshCw } from "lucide-vue-next";
 import PaginationBar from "./PaginationBar.vue";
 import { getAuditLog } from "@lib/palette/api";
 import type { AuditEntry } from "@lib/palette/types";
+import { formatTime } from "@lib/dateFormat";
 import { useAdminAuth } from "@composables/auth/useAdminAuth";
 
 const { getToken } = useAdminAuth();
@@ -91,18 +92,7 @@ const pageCount = computed(() => Math.max(1, Math.ceil(total.value / pageSize)))
 const hasNext = computed(() => page.value < pageCount.value);
 const hasPrev = computed(() => page.value > 1);
 
-function formatTime(iso: string): string {
-    try {
-        return new Date(iso).toLocaleString(undefined, {
-            month: "short",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-        });
-    } catch {
-        return iso;
-    }
-}
+
 
 async function loadAudit() {
     const token = getToken();
