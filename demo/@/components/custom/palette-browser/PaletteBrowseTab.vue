@@ -25,8 +25,8 @@
                         :is-admin="isAdmin"
                         show-slug
                         @click="$emit('toggleExpand', palette.id)"
-                        @apply="(p) => $emit('apply', p)"
                         @save="(p) => $emit('save', p)"
+                        @delete="(p) => $emit('delete', p)"
                         @vote="(p) => $emit('vote', p)"
                         @rename="(p, name) => $emit('rename', p, name)"
                         @edit-color="(p, idx, css) => $emit('editColor', p, idx, css)"
@@ -59,8 +59,8 @@ defineProps<{
 
 defineEmits<{
     toggleExpand: [id: string];
-    apply: [palette: Palette];
     save: [palette: Palette];
+    delete: [palette: Palette];
     vote: [palette: Palette];
     rename: [palette: Palette, newName: string];
     editColor: [palette: Palette, colorIndex: number, css: string];

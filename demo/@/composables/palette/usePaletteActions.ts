@@ -27,21 +27,16 @@ export function usePaletteActions(deps: {
         expandedId.value = expandedId.value === id ? null : id;
     }
 
-    function onApply(palette: Palette) {
-        deps.emitApply(palette.colors.map((c) => c.css));
-    }
-
     function onDelete(palette: Palette) {
         deps.deletePalette(palette.id);
     }
 
-    async function onPublish(palette: Palette) {
+    async function onPublish(palette: Palette): Promise<{ success: boolean; message: string }> {
         try {
             await ensureUser();
             await session.ensureSession();
         } catch {
-            console.warn("Failed to create session — check your network connection");
-            return;
+            return { success: false, message: "Failed to create session" };
         }
         try {
             await publishPalette({
@@ -49,9 +44,10 @@ export function usePaletteActions(deps: {
                 slug: palette.slug,
                 colors: palette.colors,
             });
+            return { success: true, message: "Published!" };
         } catch (e: any) {
-            const msg = e?.message ?? "";
-            console.warn(`Failed to publish: ${msg || "unknown error"}`);
+            const msg = e?.message ?? "unknown error";
+            return { success: false, message: `Failed to publish: ${msg}` };
         }
     }
 
@@ -117,7 +113,6 @@ export function usePaletteActions(deps: {
         expandedId,
         showDeleteAllConfirm,
         toggleExpand,
-        onApply,
         onDelete,
         onPublish,
         onRenameSaved,

@@ -45,7 +45,7 @@
                         {{ userSlug }}
                     </span>
                 </HoverCardTrigger>
-                <HoverCardContent class="fraunces text-sm w-56 z-[var(--z-modal)]">
+                <HoverCardContent class="fraunces text-sm w-56 z-[var(--z-popover)]">
                     <p class="font-bold">Your slug</p>
                     <p class="text-muted-foreground text-xs mt-1">
                         This is your unique identity. Use it to sign in from any device and access your palettes.
@@ -78,7 +78,7 @@
                         <MoreHorizontal class="w-3.5 h-3.5 text-muted-foreground" />
                     </button>
                 </PopoverTrigger>
-                <PopoverContent class="w-auto p-1 flex flex-col gap-0.5 z-[var(--z-modal)]" align="end" :side-offset="4">
+                <PopoverContent class="w-auto p-1 flex flex-col gap-0.5 z-[var(--z-popover)]" align="end" :side-offset="4">
                     <button
                         v-if="userSlug"
                         class="flex items-center gap-2 px-3 py-1.5 text-sm fraunces rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"

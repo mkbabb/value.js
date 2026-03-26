@@ -61,9 +61,9 @@
                         @updated="onCurrentPaletteUpdated"
                         @commit-edit="emit('commitEdit')"
                         @cancel-edit="emit('cancelEdit')"
+                        @clear-current="emit('apply', [])"
                         @delete-all="showDeleteAllConfirm = true"
                         @toggle-expand="toggleExpand"
-                        @apply-palette="onApply"
                         @delete="onDelete"
                         @publish="onPublish"
                         @rename="onRenameSaved"
@@ -87,7 +87,6 @@
                         :user-slug="userSlug"
                         :is-admin="isAdminAuthenticated"
                         @toggle-expand="toggleExpand"
-                        @apply="onApply"
                         @save="onSaveRemote"
                         @vote="onVote"
                         @rename="onRename"
@@ -109,7 +108,6 @@
                                 @delete-user-palettes="onDeleteUserPalettes"
                                 @delete-user="onDeleteUser"
                                 @toggle-expand="toggleExpand"
-                                @apply="onApply"
                                 @feature="onFeaturePalette"
                                 @admin-delete-user-palette="onAdminDeleteUserPalette"
                                 @prune="onPrune"
@@ -171,7 +169,7 @@ import {
 import { Tabs, TabsContent } from "@components/ui/tabs";
 import { Trash2 } from "lucide-vue-next";
 
-import ConfirmDialog from "./ConfirmDialog.vue";
+import { ConfirmDialog } from "@mkbabb/glass-ui";
 
 import { copyToClipboard } from "@composables/useClipboard";
 import { usePaletteStore } from "@composables/palette/usePaletteStore";
@@ -409,13 +407,6 @@ function onDotClick() {
 async function onPrune() {
     const pruned = await onPruneEmpty();
     adminUsersPanelRef.value?.onPruneDone(pruned);
-}
-
-function onApply(palette: Palette) {
-    emit(
-        "apply",
-        palette.colors.map((c) => c.css),
-    );
 }
 
 function onDelete(palette: Palette) {

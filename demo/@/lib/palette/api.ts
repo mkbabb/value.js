@@ -89,6 +89,12 @@ export function votePalette(
     });
 }
 
+export function deletePaletteUser(slug: string): Promise<{ deleted: boolean }> {
+    return request(`/palettes/${encodeURIComponent(slug)}`, {
+        method: "DELETE",
+    });
+}
+
 export function renamePalette(slug: string, name: string): Promise<Palette> {
     return request(`/palettes/${encodeURIComponent(slug)}`, {
         method: "PATCH",

@@ -24,16 +24,19 @@ export interface PaletteManager {
     createPalette: (name: string, colors: PaletteColor[]) => Palette;
     updatePalette: (id: string, patch: Partial<Palette>) => void;
     deletePalette: (id: string) => void;
+    reorderPalettes: (orderedIds: string[]) => void;
 
     // Browse
     remotePalettes: Ref<Palette[]>;
     browsing: Ref<boolean>;
     sortLoading: Ref<boolean>;
     sortMode: Ref<"newest" | "popular">;
+    browseError: Ref<string | null>;
     filteredBrowse: Ref<Palette[]>;
     loadRemotePalettes: () => Promise<void>;
     onSortChange: (mode: string) => void;
     onSaveRemote: (palette: Palette) => void;
+    onDeleteOwned: (palette: Palette) => Promise<{ success: boolean; message: string }>;
     onVote: (palette: Palette) => void;
     onRename: (palette: Palette, newName: string) => void;
 
@@ -82,9 +85,8 @@ export interface PaletteManager {
 
     // Actions
     toggleExpand: (id: string) => void;
-    onApply: (palette: Palette) => void;
     onDelete: (palette: Palette) => void;
-    onPublish: (palette: Palette) => Promise<void>;
+    onPublish: (palette: Palette) => Promise<{ success: boolean; message: string }>;
     onRenameSaved: (palette: Palette, newName: string) => void;
     onCurrentPaletteSaved: (name: string, colors: PaletteColor[]) => Promise<void>;
     onCurrentPaletteUpdated: (id: string, colors: PaletteColor[]) => void;
@@ -123,7 +125,7 @@ export function usePaletteManager(deps: {
     const { userSlug, ensureUser, login: userLogin, logout: userLogout, regenerate: userRegenerate, clearSlug } = useUserAuth();
 
     // --- Palette store ---
-    const { savedPalettes, createPalette, updatePalette, deletePalette } = usePaletteStore();
+    const { savedPalettes, createPalette, updatePalette, deletePalette, reorderPalettes } = usePaletteStore();
 
     // --- Browse palettes ---
     const browse = useBrowsePalettes({ searchQuery });
@@ -159,16 +161,16 @@ export function usePaletteManager(deps: {
 
     // --- Cross-module orchestration (watchers) ---
 
-    // Reload browse palettes when slug changes
+    // Reload browse palettes when slug changes (always reload if on browse tab)
     watch(userSlug, () => {
-        if (browse.remotePalettes.value.length > 0) {
+        if (currentView.value === "browse") {
             browse.loadRemotePalettes();
         }
     });
 
-    // Lazy load data based on view
+    // Load data when switching to a view (immediate: run on mount too)
     watch(currentView, (view) => {
-        if (view === "browse" && browse.remotePalettes.value.length === 0) {
+        if (view === "browse") {
             browse.loadRemotePalettes();
         }
         if (view === "admin-users" && admin.adminUsers.value.length === 0) {
@@ -178,7 +180,7 @@ export function usePaletteManager(deps: {
             if (colorQueue.adminColorQueue.value.length === 0) colorQueue.loadColorQueue();
             if (!colorQueue.approvedLoaded.value) colorQueue.loadApprovedColors();
         }
-    });
+    }, { immediate: true });
 
     // Hide admin views when logged out
     watch(isAdminAuthenticated, (auth) => {
@@ -221,6 +223,7 @@ export function usePaletteManager(deps: {
         createPalette,
         updatePalette,
         deletePalette,
+        reorderPalettes,
 
         // Browse
         ...browse,

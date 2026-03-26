@@ -1,3 +1,5 @@
+import type { Palette } from "./types";
+
 function slugify(str: string): string {
     return str
         .normalize("NFKD")
@@ -11,4 +13,14 @@ function slugify(str: string): string {
 
 export function createSlug(name: string): string {
     return `${slugify(name)}-${crypto.randomUUID().slice(0, 8)}`;
+}
+
+export type PaletteKind = "temporary" | "saved" | "remote";
+
+const TEMP_ID_PREFIXES = ["gen-", "__extracted__", "mix-"];
+
+export function getPaletteKind(palette: Palette): PaletteKind {
+    if (!palette.isLocal) return "remote";
+    if (TEMP_ID_PREFIXES.some((p) => palette.id.startsWith(p))) return "temporary";
+    return "saved";
 }

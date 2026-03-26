@@ -18,6 +18,11 @@
         <!-- Metadata row -->
         <div class="px-3 py-2.5 flex items-center justify-between gap-2 min-w-0">
             <div class="flex items-center gap-2 min-w-0">
+                <!-- Drag handle -->
+                <GripVertical
+                    v-if="draggable"
+                    class="drag-handle w-4 h-4 text-muted-foreground/40 shrink-0 cursor-grab active:cursor-grabbing"
+                />
                 <span
                     class="fraunces text-lg font-bold line-clamp-2 sm:line-clamp-1"
                     :class="editableName && 'cursor-text hover:underline decoration-dashed underline-offset-4'"
@@ -62,6 +67,7 @@
 
                 <PaletteCardMenu
                     :palette="palette"
+                    :palette-kind="kind"
                     :menu-open="menuOpen"
                     :menu-style="menuStyle"
                     :is-owned="isOwned"
@@ -82,6 +88,14 @@
                 @cancel="renaming = false"
             />
         </Transition>
+
+        <!-- Action feedback -->
+        <ActionFeedback
+            :message="feedbackMessage"
+            :variant="feedbackVariant"
+            :visible="feedbackVisible"
+            @update:visible="feedbackVisible = $event"
+        />
 
         <!-- Expandable detail: color swatches -->
         <Transition
@@ -110,68 +124,32 @@
                     class="px-3 pb-3 flex flex-wrap gap-2 items-start pt-3 min-w-0"
                     :class="!(showSlug && displaySlug) && 'border-t border-border/15'"
                 >
-                    <div
+                    <SwatchHoverMenu
                         v-for="(color, i) in palette.colors"
                         :key="i"
-                        class="relative"
-                        @pointerenter="onSwatchHover(i, $event)"
-                        @pointerleave="onSwatchLeave()"
+                        :color="color.css"
+                        :open="openPopoverIndex === i"
+                        :can-hover="canHover"
+                        :floating-style="{ ...floatingStyle, transform: 'translateX(-50%)' }"
+                        :size-class="swatchClass"
+                        @hover="onSwatchHover(i, $event)"
+                        @leave="onSwatchLeave()"
+                        @cancel-leave="cancelSwatchLeave()"
+                        @click="onSwatchClick(i)"
+                        @update:open="(v: boolean) => onPopoverUpdateTouch(v, i)"
                     >
-                        <!-- Touch: native Popover click toggle. Hover: manually controlled. -->
-                        <Popover v-if="!canHover" :open="openPopoverIndex === i" @update:open="(v: boolean) => onPopoverUpdateTouch(v, i)">
-                            <PopoverTrigger as-child>
-                                <WatercolorDot
-                                    :color="color.css"
-                                    tag="button"
-                                    :class="[swatchClass, 'shrink-0 cursor-pointer']"
-                                />
-                            </PopoverTrigger>
-                            <PopoverContent
-                                class="w-auto p-1.5 flex items-center gap-1"
-                                :side-offset="8"
-                            >
-                                <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5">
-                                    <Plus class="w-4 h-4" />
-                                </button>
-                                <button @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5">
-                                    <Pencil class="w-4 h-4" />
-                                </button>
-                                <button @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5">
-                                    <Copy class="w-4 h-4" />
-                                </button>
-                            </PopoverContent>
-                        </Popover>
-
-                        <!-- Hover: no Popover wrapper — just the dot + a floating panel -->
-                        <template v-else>
-                            <WatercolorDot
-                                :color="color.css"
-                                tag="button"
-                                :class="[swatchClass, 'shrink-0 cursor-pointer']"
-                                @click.stop="onSwatchClick(i)"
-                            />
-                            <Teleport to="body">
-                                <div
-                                    v-if="openPopoverIndex === i"
-                                    ref="floatingPanelRefs"
-                                    class="floating-panel flex items-center gap-1 p-1.5"
-                                    :style="{ ...floatingStyle, transform: 'translateX(-50%)' }"
-                                    @pointerenter="cancelSwatchLeave()"
-                                    @pointerleave="onSwatchLeave()"
-                                >
-                                    <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5">
-                                        <Plus class="w-4 h-4" />
-                                    </button>
-                                    <button @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5">
-                                        <Pencil class="w-4 h-4" />
-                                    </button>
-                                    <button @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5">
-                                        <Copy class="w-4 h-4" />
-                                    </button>
-                                </div>
-                            </Teleport>
+                        <template #actions>
+                            <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5">
+                                <Plus class="w-4 h-4" />
+                            </button>
+                            <button @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5">
+                                <Pencil class="w-4 h-4" />
+                            </button>
+                            <button @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5">
+                                <Copy class="w-4 h-4" />
+                            </button>
                         </template>
-                    </div>
+                    </SwatchHoverMenu>
                 </div>
             </div>
         </Transition>
@@ -182,7 +160,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { Badge } from "@components/ui/badge";
-import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import {
     Copy,
     Heart,
@@ -190,17 +167,21 @@ import {
     Pencil,
     Plus,
     MoreHorizontal,
+    GripVertical,
 } from "lucide-vue-next";
 import type { PaletteColor } from "@lib/palette/types";
 import type { Palette } from "@lib/palette/types";
+import { getPaletteKind } from "@lib/palette/utils";
+import type { PaletteKind } from "@lib/palette/utils";
 import { copyToClipboard } from "@composables/useClipboard";
 import { useHoverPopover } from "./composables/useHoverPopover";
 import { useCardMenu } from "./composables/useCardMenu";
 import { useHeightTransition } from "./composables/useHeightTransition";
-import { WatercolorDot } from "@components/custom/watercolor-dot";
+import SwatchHoverMenu from "./SwatchHoverMenu.vue";
 import PaletteColorStrip from "./PaletteColorStrip.vue";
 import PaletteCardMenu from "./PaletteCardMenu.vue";
 import PaletteRenameInput from "./PaletteRenameInput.vue";
+import ActionFeedback from "./ActionFeedback.vue";
 
 const props = withDefaults(
     defineProps<{
@@ -211,6 +192,7 @@ const props = withDefaults(
         editableName?: boolean;
         isAdmin?: boolean;
         showSlug?: boolean;
+        draggable?: boolean;
         /** "default" = strip on top; "aside" = vertical strip on left */
         layout?: "default" | "aside";
         /** CSS class(es) for swatch size override (default: "w-9 h-9 sm:w-10 sm:h-10") */
@@ -221,7 +203,6 @@ const props = withDefaults(
 
 const emit = defineEmits<{
     click: [];
-    apply: [palette: Palette];
     delete: [palette: Palette];
     publish: [palette: Palette];
     save: [palette: Palette];
@@ -233,10 +214,22 @@ const emit = defineEmits<{
     adminDelete: [palette: Palette];
 }>();
 
+const kind = computed<PaletteKind>(() => getPaletteKind(props.palette));
 const firstColor = computed(() => props.palette.colors[0]?.css ?? props.cssColor ?? '#888');
 const displaySlug = computed(() => props.palette.userSlug ?? props.palette.slug);
 
 const renaming = ref(false);
+const feedbackMessage = ref("");
+const feedbackVariant = ref<"success" | "error">("success");
+const feedbackVisible = ref(false);
+
+function showFeedback(message: string, variant: "success" | "error") {
+    feedbackMessage.value = message;
+    feedbackVariant.value = variant;
+    feedbackVisible.value = true;
+}
+
+defineExpose({ showFeedback });
 
 const {
     canHover,
@@ -272,8 +265,6 @@ const {
     onBeforeCollapse: () => { openPopoverIndex.value = null; },
 });
 
-const floatingPanelRefs = ref<HTMLElement[]>([]);
-
 function startRenaming() {
     menuOpen.value = false;
     renaming.value = true;
@@ -286,10 +277,9 @@ function onRenameSubmit(newName: string) {
 
 function handleMenuAction(action: string) {
     const adminActions = new Set(["feature", "adminDelete"]);
-    const isAdmin = adminActions.has(action);
+    const isAdminAction = adminActions.has(action);
 
     const actions: Record<string, () => void> = {
-        apply: () => emit("apply", props.palette),
         copyAll: () => copyToClipboard(props.palette.colors.map((c) => c.css).join(", "), "Copied all colors"),
         publish: () => emit("publish", props.palette),
         delete: () => emit("delete", props.palette),
@@ -304,7 +294,7 @@ function handleMenuAction(action: string) {
         if (action === "rename") {
             fn();
         } else {
-            onMenuAction(fn, isAdmin);
+            onMenuAction(fn, isAdminAction);
         }
     }
 }
@@ -333,7 +323,7 @@ function onPopoverCopy(css: string) {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     border-color: var(--color-gold);
-    animation: golden-text-shimmer 4s ease-in-out infinite;
+    animation: golden-text-shimmer 4s var(--ease-standard) infinite;
 }
 .featured-badge :deep(svg) {
     stroke: var(--color-gold);

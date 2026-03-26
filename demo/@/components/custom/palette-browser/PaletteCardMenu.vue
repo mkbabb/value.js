@@ -13,41 +13,54 @@
                 {{ palette.name }}
             </div>
 
-            <button class="floating-panel-item px-3 py-2 fraunces text-sm" @click="$emit('action', 'apply')">
-                <SwatchBook class="w-4 h-4" />
-                <span>Apply palette</span>
+            <!-- Temporary + Remote: Save (first action) -->
+            <button
+                v-if="paletteKind === 'temporary' || paletteKind === 'remote'"
+                class="floating-panel-item px-3 py-2 fraunces text-sm"
+                @click="$emit('action', 'save')"
+            >
+                <Bookmark class="w-4 h-4" />
+                <span>Save</span>
             </button>
+
+            <!-- Always: Copy colors -->
             <button class="floating-panel-item px-3 py-2 fraunces text-sm" @click="$emit('action', 'copyAll')">
                 <Copy class="w-4 h-4" />
-                <span>Copy all colors</span>
+                <span>Copy colors</span>
             </button>
 
-            <template v-if="palette.isLocal">
-                <button class="floating-panel-item px-3 py-2 fraunces text-sm" @click="$emit('action', 'publish')">
-                    <Globe class="w-4 h-4" />
-                    <span>Publish</span>
-                </button>
-                <button class="floating-panel-item px-3 py-2 fraunces text-sm text-destructive" @click="$emit('action', 'delete')">
-                    <Trash2 class="w-4 h-4" />
-                    <span>Delete</span>
-                </button>
-            </template>
+            <!-- Saved only: Publish -->
+            <button
+                v-if="paletteKind === 'saved'"
+                class="floating-panel-item px-3 py-2 fraunces text-sm"
+                @click="$emit('action', 'publish')"
+            >
+                <Globe class="w-4 h-4" />
+                <span>Publish</span>
+            </button>
 
-            <template v-if="!palette.isLocal">
-                <button class="floating-panel-item px-3 py-2 fraunces text-sm" @click="$emit('action', 'save')">
-                    <Bookmark class="w-4 h-4" />
-                    <span>Save locally</span>
-                </button>
-            </template>
+            <!-- Rename: temporary, saved, or remote+owned -->
+            <button
+                v-if="paletteKind !== 'remote' || isOwned"
+                class="floating-panel-item px-3 py-2 fraunces text-sm"
+                @click="$emit('action', 'rename')"
+            >
+                <Pencil class="w-4 h-4" />
+                <span>Rename</span>
+            </button>
 
-            <template v-if="!palette.isLocal && isOwned">
-                <button class="floating-panel-item px-3 py-2 fraunces text-sm" @click="$emit('action', 'rename')">
-                    <Pencil class="w-4 h-4" />
-                    <span>Rename</span>
-                </button>
-            </template>
+            <!-- Delete: saved, or remote+owned (with confirm) -->
+            <button
+                v-if="paletteKind === 'saved' || (paletteKind === 'remote' && isOwned)"
+                class="floating-panel-item px-3 py-2 fraunces text-sm text-destructive"
+                @click="$emit('action', 'delete')"
+            >
+                <Trash2 class="w-4 h-4" />
+                <span>Delete</span>
+            </button>
 
-            <template v-if="isAdmin && !palette.isLocal">
+            <!-- Admin section: remote only -->
+            <template v-if="isAdmin && paletteKind === 'remote'">
                 <div class="border-t border-border my-0.5"></div>
                 <button class="floating-panel-item px-3 py-2 fraunces text-sm" @click="$emit('action', 'feature')">
                     <Star v-if="palette.status !== 'featured'" class="w-4 h-4" />
@@ -56,7 +69,7 @@
                 </button>
                 <button class="floating-panel-item px-3 py-2 fraunces text-sm text-destructive" @click="$emit('action', 'adminDelete')">
                     <Trash2 class="w-4 h-4" />
-                    <span>Delete</span>
+                    <span>Delete (admin)</span>
                 </button>
             </template>
         </div>
@@ -65,8 +78,8 @@
 
 <script setup lang="ts">
 import type { Palette } from "@lib/palette/types";
+import type { PaletteKind } from "@lib/palette/utils";
 import {
-    SwatchBook,
     Copy,
     Trash2,
     Globe,
@@ -78,6 +91,7 @@ import {
 
 defineProps<{
     palette: Palette;
+    paletteKind: PaletteKind;
     menuOpen: boolean;
     menuStyle: Record<string, string>;
     isOwned?: boolean;

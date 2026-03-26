@@ -25,177 +25,52 @@
             tag="div"
             class="flex items-center gap-2.5 flex-wrap"
         >
-            <div
+            <SwatchHoverMenu
                 v-for="(color, i) in savedColorStrings"
                 :key="swatchKeys[i]"
-                class="relative"
-                @pointerenter="
-                    onCurrentSwatchHover(i, $event)
-                "
-                @pointerleave="onCurrentSwatchLeave()"
+                :color="color"
+                :open="currentSwatchPopoverIndex === i"
+                :can-hover="canHover"
+                :floating-style="currentFloatingStyle"
+                size-class="w-11 h-11 sm:w-12 sm:h-12"
+                :swatch-extra-class="isSwatchEditing(i) ? 'swatch-editing' : undefined"
+                @hover="onCurrentSwatchHover(i, $event)"
+                @leave="onCurrentSwatchLeave()"
+                @cancel-leave="cancelCurrentSwatchLeave()"
+                @click="onCurrentSwatchClick(i)"
+                @update:open="(v: boolean) => onCurrentSwatchPopoverUpdateTouch(v, i)"
             >
-                <!-- Touch: native Popover click toggle -->
-                <Popover
-                    v-if="!canHover"
-                    :open="currentSwatchPopoverIndex === i"
-                    @update:open="
-                        (v: boolean) =>
-                            onCurrentSwatchPopoverUpdateTouch(
-                                v,
-                                i,
-                            )
-                    "
-                >
-                    <PopoverTrigger as-child>
-                        <WatercolorDot
-                            :color="color"
-                            tag="button"
-                            :class="['w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer', isSwatchEditing(i) && 'swatch-editing']"
-                        />
-                    </PopoverTrigger>
-                    <PopoverContent
-                        class="w-auto p-1.5 flex items-center gap-1"
-                        :side-offset="8"
-                    >
-                        <button
-                            @click="
-                                onCurrentSwatchEdit(
-                                    color,
-                                    i,
-                                )
-                            "
-                            class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
-                        >
-                            <Pencil class="w-4 h-4" />
-                        </button>
-                        <button
-                            @click="
-                                onCurrentSwatchCopy(color)
-                            "
-                            class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
-                        >
-                            <Copy
-                                class="w-4 h-4"
-                            />
-                        </button>
-                        <button
-                            @click="
-                                onCurrentSwatchRemove(
-                                    color,
-                                    i,
-                                )
-                            "
-                            class="p-1.5 rounded-sm hover:bg-accent transition-colors cursor-pointer"
-                        >
-                            <Trash2
-                                class="w-4 h-4 text-destructive"
-                            />
-                        </button>
-                    </PopoverContent>
-                </Popover>
-
-                <!-- Hover: manually positioned floating panel -->
-                <template v-else>
-                    <WatercolorDot
-                        :color="color"
-                        tag="button"
-                        :class="['w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer', isSwatchEditing(i) && 'swatch-editing']"
-                        @click.stop="
-                            onCurrentSwatchClick(i)
-                        "
-                    />
-                    <Teleport to="body">
-                        <div
-                            v-if="
-                                currentSwatchPopoverIndex ===
-                                i
-                            "
-                            class="floating-panel flex items-center gap-1 p-1.5"
-                            :style="currentFloatingStyle"
-                            @pointerenter="
-                                cancelCurrentSwatchLeave()
-                            "
-                            @pointerleave="
-                                onCurrentSwatchLeave()
-                            "
-                        >
-                            <button
-                                @click="
-                                    onCurrentSwatchEdit(
-                                        color,
-                                        i,
-                                    )
-                                "
-                                class="floating-panel-item"
-                            >
-                                <Pencil class="w-4 h-4" />
-                            </button>
-                            <button
-                                @click="
-                                    onCurrentSwatchCopy(
-                                        color,
-                                    )
-                                "
-                                class="floating-panel-item"
-                            >
-                                <Copy
-                                    class="w-4 h-4"
-                                />
-                            </button>
-                            <button
-                                @click="
-                                    onCurrentSwatchRemove(
-                                        color,
-                                        i,
-                                    )
-                                "
-                                class="floating-panel-item"
-                            >
-                                <Trash2
-                                    class="w-4 h-4 text-destructive"
-                                />
-                            </button>
-                        </div>
-                    </Teleport>
+                <template #actions>
+                    <button @click="onCurrentSwatchEdit(color, i)" class="floating-panel-item">
+                        <Pencil class="w-4 h-4" />
+                    </button>
+                    <button @click="onCurrentSwatchCopy(color)" class="floating-panel-item">
+                        <Copy class="w-4 h-4" />
+                    </button>
+                    <button @click="onCurrentSwatchRemove(color, i)" class="floating-panel-item">
+                        <Trash2 class="w-4 h-4 text-destructive" />
+                    </button>
                 </template>
-
-                <!-- Edit overlay popover (desktop) — wraps around the swatch -->
-                <Transition name="edit-overlay">
-                    <div v-if="isSwatchEditing(i)" class="edit-overlay hidden lg:flex">
-                        <div class="flex items-center gap-2">
-                            <WatercolorDot
-                                :color="color"
-                                tag="div"
-                                class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 opacity-50 grayscale-[0.4] swatch-cutout"
-                                :seed="'edit-from-' + i"
-                            />
-                            <span class="text-muted-foreground text-xs">&rarr;</span>
-                            <WatercolorDot
-                                :color="cssColorOpaque"
-                                tag="div"
-                                class="w-11 h-11 sm:w-12 sm:h-12 shrink-0"
-                                :seed="'edit-to-' + i"
-                            />
+                <template #overlay>
+                    <Transition name="edit-overlay">
+                        <div v-if="isSwatchEditing(i)" class="edit-overlay hidden lg:flex">
+                            <div class="flex items-center gap-2">
+                                <WatercolorDot :color="color" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 opacity-50 grayscale-[0.4] swatch-cutout" :seed="'edit-from-' + i" />
+                                <span class="text-muted-foreground text-xs">&rarr;</span>
+                                <WatercolorDot :color="cssColorOpaque" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-to-' + i" />
+                            </div>
+                            <div class="flex gap-2 mt-2 self-center">
+                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-foreground/15 transition-all cursor-pointer hover:scale-110 active:scale-95" title="Save edit" @click.stop="emit('commitEdit')">
+                                    <Check class="w-5 h-5" :style="{ color: cssColorOpaque }" />
+                                </button>
+                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-foreground/15 transition-all cursor-pointer hover:scale-110 active:scale-95" title="Cancel edit" @click.stop="emit('cancelEdit')">
+                                    <Undo2 class="w-5 h-5 text-muted-foreground" />
+                                </button>
+                            </div>
                         </div>
-                        <div class="flex gap-2 mt-2 self-center">
-                            <button
-                                class="p-2 rounded-full bg-foreground/5 hover:bg-foreground/15 transition-all cursor-pointer hover:scale-110 active:scale-95"
-                                title="Save edit"
-                                @click.stop="emit('commitEdit')"
-                            >
-                                <Check class="w-5 h-5" :style="{ color: cssColorOpaque }" />
-                            </button>
-                            <button
-                                class="p-2 rounded-full bg-foreground/5 hover:bg-foreground/15 transition-all cursor-pointer hover:scale-110 active:scale-95"
-                                title="Cancel edit"
-                                @click.stop="emit('cancelEdit')"
-                            >
-                                <Undo2 class="w-5 h-5 text-muted-foreground" />
-                            </button>
-                        </div>
-                    </div>
-                </Transition>
-            </div>
+                    </Transition>
+                </template>
+            </SwatchHoverMenu>
             <!-- Add current color button -->
             <TooltipProvider
                 key="__add__"
@@ -241,7 +116,7 @@
                 :disabled="savedColorStrings.length === 0"
                 @click="saveCurrentPalette"
             >
-                <Check class="w-4 h-4" />
+                <Check class="w-4 h-4 text-foreground" />
             </Button>
         </div>
         <div
@@ -281,7 +156,6 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import {
     Plus,
     Pencil,
@@ -292,6 +166,7 @@ import {
 } from "lucide-vue-next";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
+import SwatchHoverMenu from "./SwatchHoverMenu.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 
 const props = defineProps<{
@@ -309,6 +184,7 @@ const emit = defineEmits<{
     updated: [id: string, colors: PaletteColor[]];
     commitEdit: [];
     cancelEdit: [];
+    clearCurrent: [];
 }>();
 
 // --- Swatch interaction state & actions ---
@@ -358,6 +234,7 @@ function saveCurrentPalette() {
     emit("saved", name, colorsFromStrings(props.savedColorStrings));
     currentPaletteName.value = "";
     duplicateTarget.value = null;
+    emit("clearCurrent");
 }
 
 function confirmUpdatePalette() {
@@ -365,6 +242,7 @@ function confirmUpdatePalette() {
     emit("updated", duplicateTarget.value.id, colorsFromStrings(props.savedColorStrings));
     currentPaletteName.value = "";
     duplicateTarget.value = null;
+    emit("clearCurrent");
 }
 </script>
 
@@ -414,7 +292,7 @@ function confirmUpdatePalette() {
     left: 0;
     flex-direction: column;
     align-items: flex-start;
-    z-index: 20;
+    z-index: var(--z-content);
     padding: 0.375rem;
     background: var(--glass-bg-heavy);
     backdrop-filter: var(--glass-blur-heavy);

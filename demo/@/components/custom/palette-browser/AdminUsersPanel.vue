@@ -102,7 +102,6 @@
                             is-admin
                             show-slug
                             @click="emit('toggleExpand', palette.id)"
-                            @apply="(p) => emit('apply', p)"
                             @feature="(p) => emit('feature', p)"
                             @admin-delete="emit('adminDeleteUserPalette', $event, user.slug)"
                         />
@@ -141,7 +140,7 @@
 import { ref, computed, Transition } from "vue";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
-import ConfirmDialog from "./ConfirmDialog.vue";
+import { ConfirmDialog } from "@mkbabb/glass-ui";
 import { Loader2, Trash2, Eraser, RefreshCw } from "lucide-vue-next";
 import type { Palette, User } from "@lib/palette/types";
 import { getUserPalettes } from "@lib/palette/api";
@@ -160,7 +159,6 @@ const emit = defineEmits<{
     deleteUserPalettes: [slug: string];
     deleteUser: [slug: string];
     toggleExpand: [id: string];
-    apply: [palette: Palette];
     feature: [palette: Palette];
     adminDeleteUserPalette: [palette: Palette, ownerSlug: string];
     prune: [];

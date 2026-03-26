@@ -1,7 +1,7 @@
-const DEFAULT_EXPAND_DURATION = 300;
-const DEFAULT_COLLAPSE_DURATION = 200;
-const EXPAND_EASING = "cubic-bezier(0.16, 1, 0.3, 1)";
-const COLLAPSE_EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
+const DEFAULT_EXPAND_DURATION = 350; // var(--duration-slow) = 0.35s
+const DEFAULT_COLLAPSE_DURATION = 250; // var(--duration-normal) = 0.25s
+const EXPAND_EASING = "cubic-bezier(0.16, 1, 0.3, 1)"; // matches --ease-out-expo
+const COLLAPSE_EASING = "cubic-bezier(0.4, 0, 0.2, 1)"; // matches --ease-standard
 
 export function useHeightTransition(options?: {
     expandDuration?: number;

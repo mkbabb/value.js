@@ -6,6 +6,7 @@ import {
     listPalettes,
     votePalette,
     renamePalette,
+    deletePaletteUser,
 } from "@lib/palette/api";
 import type { Palette } from "@lib/palette/types";
 
@@ -19,25 +20,35 @@ export function useBrowsePalettes(deps: {
     const browsing = ref(false);
     const sortLoading = ref(false);
     const sortMode = ref<"newest" | "popular">("newest");
+    const browseError = ref<string | null>(null);
 
     const filteredBrowse = useFilteredList(remotePalettes, deps.searchQuery, (p, q) =>
         p.name.toLowerCase().includes(q) || p.slug.includes(q),
     );
 
+    let loadGeneration = 0;
+
     async function loadRemotePalettes(isSort = false) {
+        const gen = ++loadGeneration;
         if (!isSort) {
             browsing.value = true;
         } else {
             sortLoading.value = true;
         }
         try {
+            browseError.value = null;
             const res = await listPalettes(50, 0, sortMode.value);
-            remotePalettes.value = res.data;
+            if (gen !== loadGeneration) return; // stale response
+            remotePalettes.value = Array.isArray(res.data) ? res.data : [];
         } catch (e) {
+            if (gen !== loadGeneration) return;
+            browseError.value = "Failed to load palettes";
             console.warn("Failed to load remote palettes:", e);
         } finally {
-            browsing.value = false;
-            sortLoading.value = false;
+            if (gen === loadGeneration) {
+                browsing.value = false;
+                sortLoading.value = false;
+            }
         }
     }
 
@@ -68,6 +79,18 @@ export function useBrowsePalettes(deps: {
         }
     }
 
+    async function onDeleteOwned(palette: Palette): Promise<{ success: boolean; message: string }> {
+        try {
+            await session.ensureSession();
+            await deletePaletteUser(palette.slug);
+            remotePalettes.value = remotePalettes.value.filter((p) => p.slug !== palette.slug);
+            return { success: true, message: "Deleted" };
+        } catch (e: any) {
+            console.warn("Failed to delete palette:", e?.message);
+            return { success: false, message: e?.message ?? "Failed to delete" };
+        }
+    }
+
     async function onRename(palette: Palette, newName: string) {
         try {
             await session.ensureSession();
@@ -89,10 +112,12 @@ export function useBrowsePalettes(deps: {
         browsing,
         sortLoading,
         sortMode,
+        browseError,
         filteredBrowse,
         loadRemotePalettes,
         onSortChange,
         onSaveRemote,
+        onDeleteOwned,
         onVote,
         onRename,
     };

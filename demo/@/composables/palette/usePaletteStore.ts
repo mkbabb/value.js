@@ -36,7 +36,27 @@ export function usePaletteStore() {
         store.value.palettes.filter((p) => !p.isLocal),
     );
 
+    function colorsMatch(a: PaletteColor[], b: PaletteColor[]): boolean {
+        if (a.length !== b.length) return false;
+        return a.every((c, i) => c.css === b[i]?.css);
+    }
+
     function createPalette(name: string, colors: PaletteColor[]): Palette {
+        // Dedup: if same name + colors exist, move to front
+        const existing = store.value.palettes.find(
+            (p) =>
+                p.isLocal &&
+                p.name.toLowerCase() === name.toLowerCase() &&
+                colorsMatch(p.colors, colors),
+        );
+        if (existing) {
+            const idx = store.value.palettes.indexOf(existing);
+            store.value.palettes.splice(idx, 1);
+            store.value.palettes.unshift(existing);
+            existing.updatedAt = new Date().toISOString();
+            return existing;
+        }
+
         const now = new Date().toISOString();
         const palette: Palette = {
             id: crypto.randomUUID(),
@@ -47,7 +67,7 @@ export function usePaletteStore() {
             updatedAt: now,
             isLocal: true,
         };
-        store.value.palettes.push(palette);
+        store.value.palettes.unshift(palette);
         return palette;
     }
 
@@ -74,10 +94,39 @@ export function usePaletteStore() {
     }
 
     function addPublishedPalette(palette: Palette): void {
-        const exists = store.value.palettes.some((p) => p.slug === palette.slug);
-        if (!exists) {
-            store.value.palettes.push({ ...palette, isLocal: true });
+        // Dedup by name + colors
+        const existing = store.value.palettes.find(
+            (p) =>
+                p.isLocal &&
+                p.name.toLowerCase() === palette.name.toLowerCase() &&
+                colorsMatch(p.colors, palette.colors),
+        );
+        if (existing) {
+            // Move to front instead of duplicating
+            const idx = store.value.palettes.indexOf(existing);
+            store.value.palettes.splice(idx, 1);
+            store.value.palettes.unshift(existing);
+            return;
         }
+        // Also check slug to avoid exact duplicates
+        const slugExists = store.value.palettes.some((p) => p.slug === palette.slug);
+        if (!slugExists) {
+            store.value.palettes.unshift({ ...palette, isLocal: true });
+        }
+    }
+
+    function reorderPalettes(orderedIds: string[]): void {
+        const map = new Map(store.value.palettes.map((p) => [p.id, p]));
+        const reordered: Palette[] = [];
+        for (const id of orderedIds) {
+            const p = map.get(id);
+            if (p) reordered.push(p);
+        }
+        // Append any palettes not in the ordered list
+        for (const p of store.value.palettes) {
+            if (!orderedIds.includes(p.id)) reordered.push(p);
+        }
+        store.value.palettes = reordered;
     }
 
     return {
@@ -89,5 +138,6 @@ export function usePaletteStore() {
         deletePalette,
         getPalette,
         addPublishedPalette,
+        reorderPalettes,
     };
 }

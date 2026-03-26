@@ -14,6 +14,7 @@
                     @updated="(id, colors) => $emit('updated', id, colors)"
                     @commit-edit="$emit('commitEdit')"
                     @cancel-edit="$emit('cancelEdit')"
+                    @clear-current="$emit('clearCurrent')"
                 />
 
                 <!-- Saved palettes toolbar -->
@@ -44,7 +45,6 @@
                         :css-color="cssColorOpaque"
                         :editable-name="true"
                         @click="$emit('toggleExpand', palette.id)"
-                        @apply="(p) => $emit('applyPalette', p)"
                         @delete="(p) => $emit('delete', p)"
                         @publish="(p) => $emit('publish', p)"
                         @rename="(p, name) => $emit('rename', p, name)"
@@ -81,9 +81,9 @@ defineEmits<{
     updated: [id: string, colors: PaletteColor[]];
     commitEdit: [];
     cancelEdit: [];
+    clearCurrent: [];
     deleteAll: [];
     toggleExpand: [id: string];
-    applyPalette: [palette: Palette];
     delete: [palette: Palette];
     publish: [palette: Palette];
     rename: [palette: Palette, newName: string];
