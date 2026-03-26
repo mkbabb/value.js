@@ -459,7 +459,9 @@ const paletteManager = usePaletteManager({
         // Add color directly to model — no need for ColorPicker to be mounted
         // Only switch view if on a view that has no palettes pane (extract already has one on the right)
         const cur = viewManager.currentView.value;
-        if (cur !== "picker" && cur !== "palettes" && cur !== "extract") {
+        // Only navigate if the current view has no palettes pane on the right
+        const cfg = viewManager.currentConfig.value;
+        if (cfg.right !== "palettes") {
             viewManager.switchView("palettes");
         }
         try {

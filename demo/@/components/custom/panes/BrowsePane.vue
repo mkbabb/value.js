@@ -71,32 +71,44 @@
                         @versions="(p) => onVersions(p)"
                         @flag="(p) => onFlag(p)"
                         @export="(p, fmt) => onExport(p, fmt)"
+                        @edit-tags="(p) => onEditTags(p)"
                     />
                 </PaletteCardGrid>
             </div>
         </div>
     </Card>
 
-    <!-- Version history drawer -->
-    <VersionHistoryDrawer
-        v-if="versionPalette"
-        :open="versionDrawerOpen"
-        :palette-slug="versionPalette.slug"
-        :palette-name="versionPalette.name"
-        :current-hash="versionPalette.currentHash ?? null"
-        @update:open="versionDrawerOpen = $event"
-        @revert="onRevert"
-    />
+    <!-- Portaled so BrowsePane stays single-root for Transition/KeepAlive -->
+    <Teleport to="body">
+        <!-- Tag edit popover -->
+        <TagEditPopover
+            v-if="tagEditPalette"
+            :open="tagEditOpen"
+            :palette-slug="tagEditPalette.slug"
+            :current-tags="tagEditPalette.tags ?? []"
+            @update:open="tagEditOpen = $event"
+            @update:tags="onTagsUpdated"
+        />
 
-    <!-- Flag report dialog -->
-    <FlagReportDialog
-        v-if="flagPalette"
-        :open="flagDialogOpen"
-        :palette-name="flagPalette.name"
-        :palette-slug="flagPalette.slug"
-        @update:open="flagDialogOpen = $event"
-        @submit="onFlagSubmit"
-    />
+        <VersionHistoryDrawer
+            v-if="versionPalette"
+            :open="versionDrawerOpen"
+            :palette-slug="versionPalette.slug"
+            :palette-name="versionPalette.name"
+            :current-hash="versionPalette.currentHash ?? null"
+            @update:open="versionDrawerOpen = $event"
+            @revert="onRevert"
+        />
+
+        <FlagReportDialog
+            v-if="flagPalette"
+            :open="flagDialogOpen"
+            :palette-name="flagPalette.name"
+            :palette-slug="flagPalette.slug"
+            @update:open="flagDialogOpen = $event"
+            @submit="onFlagSubmit"
+        />
+    </Teleport>
 </template>
 
 <script setup lang="ts">
@@ -110,6 +122,7 @@ import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.
 import SearchFilterBar from "@components/custom/palette-browser/SearchFilterBar.vue";
 import VersionHistoryDrawer from "@components/custom/palette-browser/VersionHistoryDrawer.vue";
 import FlagReportDialog from "@components/custom/palette-browser/FlagReportDialog.vue";
+import TagEditPopover from "@components/custom/palette-browser/TagEditPopover.vue";
 import PaneSearchBar from "./PaneSearchBar.vue";
 import PaneHeader from "./PaneHeader.vue";
 import type { Palette, Tag } from "@lib/palette/types";
@@ -217,6 +230,25 @@ async function onFlagSubmit(reason: string, detail: string | undefined) {
         console.warn("Failed to flag palette:", e);
     }
     flagDialogOpen.value = false;
+}
+
+// --- Tag editing ---
+
+const tagEditOpen = ref(false);
+const tagEditPalette = ref<Palette | null>(null);
+
+function onEditTags(palette: Palette) {
+    tagEditPalette.value = palette;
+    tagEditOpen.value = true;
+}
+
+function onTagsUpdated(tags: string[]) {
+    if (!tagEditPalette.value) return;
+    const idx = pm.remotePalettes.value.findIndex((p) => p.slug === tagEditPalette.value!.slug);
+    if (idx >= 0) {
+        pm.remotePalettes.value[idx] = { ...pm.remotePalettes.value[idx], tags };
+    }
+    tagEditPalette.value = { ...tagEditPalette.value, tags };
 }
 
 // --- Export ---

@@ -1,7 +1,7 @@
 <template>
     <div class="flex items-center gap-1.5">
-        <DropdownMenu>
-            <DropdownMenuTrigger as-child>
+        <Popover>
+            <PopoverTrigger as-child>
                 <button
                     class="relative flex h-8 w-8 items-center justify-center bg-transparent border-none cursor-pointer focus-visible:outline-none"
                 >
@@ -13,144 +13,124 @@
                         {{ activeFilterCount }}
                     </span>
                 </button>
-            </DropdownMenuTrigger>
+            </PopoverTrigger>
 
-            <DropdownMenuContent align="end" class="w-56">
-                <!-- Sort -->
-                <DropdownMenuLabel class="section-label text-muted-foreground">
-                    Sort
-                </DropdownMenuLabel>
-                <DropdownMenuRadioGroup :model-value="sort" @update:model-value="$emit('update:sort', $event)">
-                    <DropdownMenuRadioItem value="newest">
-                        <Clock class="mr-2 h-3.5 w-3.5" /> Newest
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="popular">
-                        <TrendingUp class="mr-2 h-3.5 w-3.5" /> Most Popular
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="most-forked">
-                        <GitFork class="mr-2 h-3.5 w-3.5" /> Most Forked
-                    </DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-
-                <DropdownMenuSeparator />
-
-                <!-- Status -->
-                <DropdownMenuLabel class="section-label text-muted-foreground">
-                    Status
-                </DropdownMenuLabel>
-                <DropdownMenuRadioGroup :model-value="status" @update:model-value="$emit('update:status', $event)">
-                    <DropdownMenuRadioItem value="">All</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="featured">
-                        <Award class="mr-2 h-3.5 w-3.5" /> Featured
-                    </DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-
-                <!-- Tags -->
-                <template v-if="availableTags.length > 0">
-                    <DropdownMenuSeparator />
-                    <DropdownMenuLabel class="section-label text-muted-foreground">
-                        Tags
-                    </DropdownMenuLabel>
-                    <div class="max-h-32 overflow-y-auto px-2 py-1">
-                        <label
-                            v-for="tag in availableTags"
-                            :key="tag.name"
-                            class="flex cursor-pointer items-center gap-2 rounded px-1 py-0.5 text-mono-small hover:bg-accent/50"
-                        >
-                            <input
-                                type="checkbox"
-                                :checked="selectedTags.includes(tag.name)"
-                                class="rounded border-input"
-                                @change="toggleTag(tag.name)"
-                            />
-                            {{ tag.name }}
-                        </label>
+            <PopoverContent align="end" class="w-60 p-0">
+                <div class="flex flex-col divide-y divide-border">
+                    <!-- Sort -->
+                    <div class="px-3 py-2.5">
+                        <div class="section-label mb-1.5">Sort</div>
+                        <RadioGroup :model-value="sort" @update:model-value="$emit('update:sort', $event)">
+                            <label
+                                v-for="opt in sortOptions"
+                                :key="opt.value"
+                                class="flex items-center gap-2 rounded-md px-2 py-1 text-small cursor-pointer hover:bg-accent/50 transition-colors"
+                            >
+                                <RadioGroupItem :value="opt.value" class="shrink-0" />
+                                <component :is="opt.icon" class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                                <span>{{ opt.label }}</span>
+                            </label>
+                        </RadioGroup>
                     </div>
-                </template>
 
-                <!-- Color search -->
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel class="section-label text-muted-foreground">
-                    Find by Color
-                </DropdownMenuLabel>
-                <div class="px-2 py-1.5 flex flex-col gap-1.5" @click.stop>
-                    <div class="flex items-center gap-2">
-                        <!-- Native color picker (mini swatch) -->
-                        <label class="relative shrink-0 cursor-pointer">
-                            <input
-                                :value="pickerHex"
-                                type="color"
-                                class="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
-                                @input="onPickerInput($event)"
-                            />
-                            <span
-                                class="block h-7 w-7 rounded-full border border-input"
-                                :style="{ backgroundColor: previewColor }"
-                            />
-                        </label>
-                        <!-- CSS color text input with inline dot preview -->
-                        <div class="relative flex-1">
-                            <span
-                                class="absolute left-2 top-1/2 -translate-y-1/2 block h-3 w-3 rounded-full border border-input/50"
-                                :style="{ backgroundColor: previewColor }"
-                            />
+                    <!-- Status -->
+                    <div class="px-3 py-2.5">
+                        <div class="section-label mb-1.5">Status</div>
+                        <RadioGroup :model-value="status" @update:model-value="$emit('update:status', $event)">
+                            <label class="flex items-center gap-2 rounded-md px-2 py-1 text-small cursor-pointer hover:bg-accent/50 transition-colors">
+                                <RadioGroupItem value="" class="shrink-0" />
+                                <span>All</span>
+                            </label>
+                            <label class="flex items-center gap-2 rounded-md px-2 py-1 text-small cursor-pointer hover:bg-accent/50 transition-colors">
+                                <RadioGroupItem value="featured" class="shrink-0" />
+                                <Award class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                                <span>Featured</span>
+                            </label>
+                        </RadioGroup>
+                    </div>
+
+                    <!-- Tags -->
+                    <div v-if="availableTags.length > 0" class="px-3 py-2.5">
+                        <div class="section-label mb-1.5">Tags</div>
+                        <div class="max-h-28 overflow-y-auto flex flex-col gap-0.5">
+                            <label
+                                v-for="tag in availableTags"
+                                :key="tag.name"
+                                class="flex items-center gap-2 rounded-md px-2 py-1 text-small cursor-pointer hover:bg-accent/50 transition-colors"
+                            >
+                                <Checkbox
+                                    :checked="selectedTags.includes(tag.name)"
+                                    @update:checked="toggleTag(tag.name)"
+                                    class="shrink-0"
+                                />
+                                <span>{{ tag.name }}</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Find by Color -->
+                    <div class="px-3 py-2.5">
+                        <div class="section-label mb-1.5">Find by Color</div>
+                        <div class="flex items-center gap-1.5">
+                            <!-- Mini color picker trigger swatch -->
+                            <MiniColorPicker
+                                :open="miniPickerOpen"
+                                :hex="pickerHex"
+                                @update:open="miniPickerOpen = $event"
+                                @update:hex="onPickerHexUpdate"
+                                @search="applyColorSearchFromPicker"
+                            >
+                                <template #trigger>
+                                    <button
+                                        class="block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0"
+                                        :style="{ backgroundColor: pickerHex }"
+                                    />
+                                </template>
+                            </MiniColorPicker>
+                            <!-- Inline text + search -->
                             <input
                                 v-model="colorText"
                                 type="text"
-                                placeholder="#4488cc or hsl(210,60%,50%)"
-                                class="h-7 w-full rounded-md border border-input bg-background pl-7 pr-2 font-mono-code text-caption focus:outline-none focus:ring-1 focus:ring-ring"
+                                placeholder="#hex, hsl(...)"
+                                class="h-7 flex-1 min-w-0 rounded-md border border-input bg-background px-2 font-mono-code text-caption focus:outline-none focus:ring-1 focus:ring-ring"
                                 @keydown.enter="applyColorSearch"
                             />
+                            <Button
+                                variant="outline"
+                                size="sm"
+                                class="h-7 px-2.5 text-micro shrink-0"
+                                @click="applyColorSearch"
+                            >
+                                Search
+                            </Button>
                         </div>
                     </div>
-                    <div class="flex items-center gap-1.5">
+
+                    <!-- Clear all -->
+                    <div v-if="activeFilterCount > 0" class="px-3 py-2">
                         <Button
-                            v-if="!colorSearchActive"
-                            variant="outline"
-                            size="sm"
-                            class="h-6 px-2.5 text-micro flex-1"
-                            @click="applyColorSearch"
-                        >
-                            Search
-                        </Button>
-                        <Button
-                            v-if="colorSearchActive"
                             variant="ghost"
                             size="sm"
-                            class="h-6 px-2 text-micro"
-                            @click="clearColorSearch"
+                            class="h-7 w-full text-small text-muted-foreground"
+                            @click="onClearAll"
                         >
-                            <X class="h-3 w-3 mr-1" /> Clear
+                            <X class="h-3.5 w-3.5 mr-1.5" />
+                            Clear all filters
                         </Button>
                     </div>
                 </div>
-
-                <!-- Clear all -->
-                <template v-if="activeFilterCount > 0">
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem @click="$emit('clearFilters')">
-                        <X class="mr-2 h-3.5 w-3.5" />
-                        Clear all filters
-                    </DropdownMenuItem>
-                </template>
-            </DropdownMenuContent>
-        </DropdownMenu>
+            </PopoverContent>
+        </Popover>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { Button } from "@components/ui/button";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuRadioGroup,
-    DropdownMenuRadioItem,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@components/ui/dropdown-menu";
+import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
+import MiniColorPicker from "./MiniColorPicker.vue";
+import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
+import { Checkbox } from "@components/ui/checkbox";
 import {
     EllipsisVertical,
     Clock,
@@ -177,25 +157,29 @@ const emit = defineEmits<{
     clearColorSearch: [];
 }>();
 
-const colorText = ref("#4488cc");
+const sortOptions = [
+    { value: "newest", label: "Newest", icon: Clock },
+    { value: "popular", label: "Most Popular", icon: TrendingUp },
+    { value: "most-forked", label: "Most Forked", icon: GitFork },
+];
+
+const colorText = ref("");
 const pickerHex = ref("#4488cc");
 const colorSearchActive = ref(false);
+const miniPickerOpen = ref(false);
 
-/** Preview color — try to parse the text input, fall back to the picker hex */
-const previewColor = computed(() => {
-    const t = colorText.value.trim();
-    if (!t) return pickerHex.value;
-    // Validate: hex, rgb(), hsl(), oklch(), named colors
-    if (/^#[0-9a-f]{3,8}$/i.test(t)) return t;
-    if (/^(rgb|hsl|oklch|oklab|lab|lch)\(/i.test(t)) return t;
-    // Try as CSS color name
-    return t;
-});
-
-function onPickerInput(event: Event) {
-    const hex = (event.target as HTMLInputElement).value;
+function onPickerHexUpdate(hex: string) {
     pickerHex.value = hex;
     colorText.value = hex;
+}
+
+function applyColorSearchFromPicker(hex: string) {
+    pickerHex.value = hex;
+    colorText.value = hex;
+    miniPickerOpen.value = false;
+    const lab = hexToOklab(hex);
+    colorSearchActive.value = true;
+    emit("colorSearch", lab.L, lab.a, lab.b);
 }
 
 const activeFilterCount = computed(() => {
@@ -231,16 +215,17 @@ function hexToOklab(hex: string): { L: number; a: number; b: number } {
 }
 
 function applyColorSearch() {
-    // Try hex first, then fall back to treating as hex if it starts with #
     const text = colorText.value.trim();
-    const hex = text.startsWith("#") ? text : pickerHex.value;
+    const hex = text.startsWith("#") && /^#[0-9a-f]{6}$/i.test(text) ? text : pickerHex.value;
     const lab = hexToOklab(hex);
     colorSearchActive.value = true;
     emit("colorSearch", lab.L, lab.a, lab.b);
 }
 
-function clearColorSearch() {
+function onClearAll() {
     colorSearchActive.value = false;
+    colorText.value = "";
     emit("clearColorSearch");
+    emit("clearFilters");
 }
 </script>

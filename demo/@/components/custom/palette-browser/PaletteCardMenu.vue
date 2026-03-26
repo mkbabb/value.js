@@ -47,6 +47,15 @@
                 Rename
             </DropdownMenuItem>
 
+            <!-- Edit Tags (remote+owned) -->
+            <DropdownMenuItem
+                v-if="paletteKind === 'remote' && isOwned"
+                @click="$emit('action', 'editTags')"
+            >
+                <Tag class="mr-2 h-4 w-4" />
+                Edit Tags
+            </DropdownMenuItem>
+
             <!-- Version history (remote palettes with versions) -->
             <DropdownMenuItem
                 v-if="!palette.isLocal && (palette.versionCount ?? 0) > 1"
@@ -54,14 +63,14 @@
             >
                 <History class="mr-2 h-4 w-4" />
                 Versions
-                <span class="ml-auto text-xs text-muted-foreground">{{ palette.versionCount }}</span>
+                <span class="ml-auto text-caption text-muted-foreground">{{ palette.versionCount }}</span>
             </DropdownMenuItem>
 
             <DropdownMenuSeparator />
 
             <!-- Export sub-menu -->
             <DropdownMenuSub>
-                <DropdownMenuSubTrigger>
+                <DropdownMenuSubTrigger @click.prevent>
                     <Download class="mr-2 h-4 w-4" />
                     Export
                 </DropdownMenuSubTrigger>
@@ -153,6 +162,7 @@ import {
     History,
     Download,
     Flag,
+    Tag,
 } from "lucide-vue-next";
 
 defineProps<{

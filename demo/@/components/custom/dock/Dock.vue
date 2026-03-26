@@ -234,7 +234,7 @@ const activeLayer = computed<string>(() => {
                             @update:model-value="onViewChange"
                         >
                             <SelectTrigger
-                                class="dock-select-trigger border-none h-auto bg-transparent fraunces text-sm font-normal gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 focus-ring"
+                                class="dock-select-trigger border-none h-auto bg-transparent text-small font-display font-normal gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 focus-ring"
                                 :style="{ '--dock-ring': safeAccent }"
                             >
                                 <component
@@ -246,7 +246,7 @@ const activeLayer = computed<string>(() => {
                                 <SelectValue v-if="isDesktop" />
                             </SelectTrigger>
                             <SelectContent class="min-w-[12rem]">
-                                <SelectGroup class="fraunces text-sm">
+                                <SelectGroup class="text-small font-display">
                                     <SelectItem
                                         v-for="entry in viewEntries"
                                         :key="entry.id"
@@ -315,7 +315,7 @@ const activeLayer = computed<string>(() => {
                                     class="w-6 h-6"
                                     :style="{ color: genericBar?.accentColor ?? safeAccent }"
                                 />
-                                <span v-if="isDesktop" class="fraunces text-sm" :style="{ color: genericBar?.accentColor ?? safeAccent }">
+                                <span v-if="isDesktop" class="text-small font-display" :style="{ color: genericBar?.accentColor ?? safeAccent }">
                                     {{ genericBar?.label ?? 'Tools' }}
                                 </span>
                                 <ChevronDown class="w-3 h-3 text-muted-foreground" />

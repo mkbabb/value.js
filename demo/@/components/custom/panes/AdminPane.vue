@@ -2,7 +2,7 @@
     <Card variant="pane" class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader :description="headerDescription">
             {{ headerTitle }}
-            <span v-if="adminCount != null" class="fira-code text-sm font-normal text-muted-foreground ml-2">{{ adminCount }}</span>
+            <span v-if="adminCount != null" class="text-mono-small font-normal text-muted-foreground ml-2">{{ adminCount }}</span>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <PaneSearchBar

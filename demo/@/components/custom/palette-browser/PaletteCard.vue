@@ -24,16 +24,16 @@
                     class="drag-handle w-4 h-4 text-muted-foreground/40 shrink-0 cursor-grab active:cursor-grabbing"
                 />
                 <span
-                    class="fraunces text-lg font-bold line-clamp-2 sm:line-clamp-1"
+                    class="text-subheading line-clamp-2 sm:line-clamp-1"
                     :class="editableName && 'cursor-text hover:underline decoration-dashed underline-offset-4'"
                     :title="palette.name"
                     @click.stop="editableName && startRenaming()"
                 >{{ palette.name }}</span>
-                <Badge v-if="palette.status === 'featured'" variant="outline" class="featured-badge fira-code text-xs shrink-0 gap-1 border-gold text-gold">
+                <Badge v-if="palette.status === 'featured'" variant="outline" class="featured-badge text-mono-small shrink-0 gap-1 border-gold text-gold">
                     <Award class="w-3 h-3" />
                     Featured
                 </Badge>
-                <Badge variant="secondary" class="fira-code text-sm shrink-0">
+                <Badge variant="secondary" class="text-mono-small shrink-0">
                     {{ palette.colors.length }}
                 </Badge>
 
@@ -84,7 +84,7 @@
                         class="w-3.5 h-3.5 transition-colors"
                         :class="palette.voted ? 'fill-red-500 text-red-500' : 'text-muted-foreground'"
                     />
-                    <span class="fira-code text-xs text-muted-foreground">{{ palette.voteCount ?? 0 }}</span>
+                    <span class="text-mono-small text-muted-foreground">{{ palette.voteCount ?? 0 }}</span>
                 </button>
             </div>
 
@@ -142,7 +142,7 @@
                 <!-- User slug display -->
                 <div v-if="showSlug && displaySlug" class="px-3 pt-2.5 flex items-center gap-1.5 border-t border-border/15">
                     <span
-                        class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border truncate max-w-[200px]"
+                        class="text-mono-small font-bold px-2 py-0.5 rounded-full border truncate max-w-[200px]"
                         :style="{ color: safeFirstColor, borderColor: safeFirstColor }"
                     >{{ displaySlug }}</span>
                     <button
@@ -249,6 +249,7 @@ const emit = defineEmits<{
     fork: [palette: Palette];
     versions: [palette: Palette];
     flag: [palette: Palette];
+    editTags: [palette: Palette];
     export: [palette: Palette, format: string];
 }>();
 
@@ -330,6 +331,7 @@ function handleMenuAction(action: string) {
         fork: () => emit("fork", props.palette),
         versions: () => emit("versions", props.palette),
         flag: () => emit("flag", props.palette),
+        editTags: () => emit("editTags", props.palette),
         exportJSON: () => emit("export", props.palette, "json"),
         exportCSS: () => emit("export", props.palette, "css"),
         exportTailwind: () => emit("export", props.palette, "tailwind"),

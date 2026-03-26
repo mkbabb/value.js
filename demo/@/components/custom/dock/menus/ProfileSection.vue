@@ -39,7 +39,7 @@ const { toggleDark } = useGlobalDark();
             <DropdownMenu v-model:open="profileMenuOpen">
                 <DropdownMenuTrigger as-child>
                     <button
-                        class="flex items-center gap-1.5 fira-code text-sm font-bold px-3 py-0.5 rounded-full border whitespace-nowrap transition-colors cursor-pointer focus-ring"
+                        class="flex items-center gap-1.5 text-mono-small font-bold px-3 py-0.5 rounded-full border whitespace-nowrap transition-colors cursor-pointer focus-ring"
                         :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
                     >
                         <UserCircle class="w-3.5 h-3.5" />
@@ -49,7 +49,7 @@ const { toggleDark } = useGlobalDark();
                 <DropdownMenuContent align="end" class="min-w-[11rem] fraunces">
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
-                            class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
+                            class="text-mono-small font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
                             :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
                         >{{ pm.userSlug.value }}</span>
                     </DropdownMenuLabel>
@@ -72,7 +72,7 @@ const { toggleDark } = useGlobalDark();
 
         <!-- Admin (no slug) -->
         <template v-else-if="pm.isAdminAuthenticated.value">
-            <span class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default whitespace-nowrap gold-shimmer" style="border-color: var(--color-gold)">
+            <span class="text-mono-small font-bold px-2 py-0.5 rounded-full border cursor-default whitespace-nowrap gold-shimmer" style="border-color: var(--color-gold)">
                 admin
             </span>
         </template>
@@ -80,7 +80,7 @@ const { toggleDark } = useGlobalDark();
         <!-- Not logged in -->
         <template v-else>
             <button
-                class="flex items-center gap-1.5 fira-code text-sm font-bold px-3 py-0.5 rounded-full border border-primary/30 hover:bg-accent/50 transition-colors cursor-pointer whitespace-nowrap focus-ring"
+                class="flex items-center gap-1.5 text-mono-small font-bold px-3 py-0.5 rounded-full border border-primary/30 hover:bg-accent/50 transition-colors cursor-pointer whitespace-nowrap focus-ring"
                 @click="emit('startSlugEdit')"
             >
                 <LogIn class="w-3.5 h-3.5" />
