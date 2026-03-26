@@ -214,7 +214,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, provide, ref, shallowRef, useTemplateRef, watch } from "vue";
+import { computed, onMounted, provide, reactive, ref, shallowRef, useTemplateRef, watch } from "vue";
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import {
@@ -253,7 +253,8 @@ import { useColorUrl } from "@components/custom/color-picker/composables/useColo
 import { debounce } from "@src/utils";
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { usePaletteManager } from "@composables/palette/usePaletteManager";
-import { useAtmosphereCanvas } from "@composables/animation/useAtmosphereCanvas";
+import { useAtmosphereCanvas } from "@mkbabb/glass-ui";
+import type { AtmosphereConfig } from "@mkbabb/glass-ui";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -552,9 +553,12 @@ watch(
     },
 );
 
-// Persist opaque color for flash-free page load background
+// Persist opaque color for flash-free page load background.
+// Clear the FOUC guard inline styles once the live color is active.
 watch(cssColorOpaque, (c) => {
     try { localStorage.setItem("color-picker-bg", c); } catch {}
+    document.documentElement.style.background = "";
+    document.body.style.background = "";
 }, { immediate: true });
 
 watch(
@@ -571,7 +575,17 @@ useColorUrl({ model, updateModel });
 
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
-const atmosphereConfig = useAtmosphereCanvas(atmosphereCanvas, cssColorOpaque);
+const atmosphereConfig = useAtmosphereCanvas(
+    atmosphereCanvas, cssColorOpaque,
+    reactive<AtmosphereConfig>({
+        bgAlpha: 0.70, blur: 100, speed: 0.40,
+        blobCount: 10, blobBaseRadius: 0.16, blobRadiusStep: 0.03,
+        smallRadiusScale: 0.60, peakAlphaLarge: 0.80, peakAlphaSmall: 0.60,
+        lShiftLarge: 0.15, lShiftSmall: 0.10, hueShiftLarge: 25, hueShiftSmall: 55,
+        orbitX: 0.45, orbitY: 0.25, gradStop2: 0.30, gradStop3: 0.60, gradStop4: 1.00,
+    }),
+    { surfaceMode: "color" },
+);
 provide("atmosphereConfig", atmosphereConfig);
 
 onMounted(() => {

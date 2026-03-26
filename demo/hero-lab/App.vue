@@ -65,15 +65,7 @@
                             :hero="CanvasTileHero"
                             :config="tileConfigs.canvas"
                         />
-                        <HeroPanel
-                            title="CSS Tile Wave"
-                            description="DOM tiles with keyed transforms and square fragment patterns."
-                            renderer="CSS + keyframes.js"
-                            complexity="Low"
-                            kind="tile"
-                            :hero="CssTileHero"
-                            :config="tileConfigs.css"
-                        />
+                       
                     </section>
                 </TabsContent>
 
@@ -97,15 +89,7 @@
                             :hero="CanvasAtmosphereHero"
                             :config="atmosphereConfigs.canvas"
                         />
-                        <HeroPanel
-                            title="CSS Atmosphere"
-                            description="KISS gradient blobs animated with keyframes.js."
-                            renderer="CSS + keyframes.js"
-                            complexity="Low"
-                            kind="atmosphere"
-                            :hero="CssAtmosphereHero"
-                            :config="atmosphereConfigs.css"
-                        />
+                        
                     </section>
                 </TabsContent>
             </Tabs>
@@ -123,8 +107,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
 
 import CanvasAtmosphereHero from "./components/CanvasAtmosphereHero.vue";
 import CanvasTileHero from "./components/CanvasTileHero.vue";
-import CssAtmosphereHero from "./components/CssAtmosphereHero.vue";
-import CssTileHero from "./components/CssTileHero.vue";
+
 import HeroPanel from "./components/HeroPanel.vue";
 import WebGLAtmosphereHero from "./components/WebGLAtmosphereHero.vue";
 import WebGLTileHero from "./components/WebGLTileHero.vue";

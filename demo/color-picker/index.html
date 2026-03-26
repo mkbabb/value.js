@@ -35,6 +35,10 @@
                 if (bg) {
                     s.background = bg;
                     s.setProperty('--saved-bg', bg);
+                    // Also set on body once it exists, so Tailwind base styles don't flash
+                    document.addEventListener('DOMContentLoaded', function() {
+                        document.body.style.background = bg;
+                    }, { once: true });
                 }
             })();
         </script>
