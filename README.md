@@ -1,4 +1,4 @@
-# `value.js` ![image](demo/color-picker/favicon.svg)
+# `value.js` <img src="demo/color-picker/favicon.svg" style="vertical-align: middle" width="48">
 
 CSS value parsing, color theory, and unit conversion. Typed values with units—`deg`, `px`, `rem`, `oklch()`—the CSS value vocabulary.
 
