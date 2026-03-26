@@ -4,13 +4,46 @@ services:
     ports:
       - "127.0.0.1:3100:3000"
     environment:
-      MONGODB_URI: mongodb://mongo:27017/palette-db
-      ADMIN_TOKEN: ${ADMIN_TOKEN}
+      MONGODB_URI: "mongodb://mongo:27017/palette-db"
+      ADMIN_TOKEN: "${ADMIN_TOKEN}"
+      ALLOWED_ORIGINS: "${ALLOWED_ORIGINS:-}"
       PORT: "3000"
     depends_on:
       mongo:
         condition: service_healthy
     restart: unless-stopped
+    networks:
+      - internal
+    # Security hardening
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=64m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "1.0"
+        reservations:
+          memory: 128M
+          cpus: "0.25"
+    # Healthcheck
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    # Log rotation
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   mongo:
     image: mongo:8
@@ -20,8 +53,71 @@ services:
       test: mongosh --eval "db.adminCommand('ping')"
       interval: 10s
       timeout: 5s
-      retries: 3
+      retries: 5
+      start_period: 20s
     restart: unless-stopped
+    networks:
+      - internal
+    security_opt:
+      - no-new-privileges:true
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "1.5"
+        reservations:
+          memory: 256M
+          cpus: "0.5"
+    # Log rotation
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+  backup:
+    image: mongo:8
+    volumes:
+      - mongo-backups:/backups
+      - ./scripts/backup.sh:/usr/local/bin/backup.sh:ro
+    environment:
+      MONGO_HOST: "mongo"
+      MONGO_PORT: "27017"
+      MONGO_DB: "palette-db"
+      BACKUP_RETAIN_DAYS: "14"
+    entrypoint: ["/bin/bash", "/usr/local/bin/backup.sh"]
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - internal
+    # Security hardening
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=512m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "0.5"
+    # Log rotation
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+networks:
+  internal:
+    driver: bridge
 
 volumes:
   mongo-data:
+  mongo-backups:

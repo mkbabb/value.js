@@ -2,5 +2,15 @@ node_modules
 dist
 .env
 .env.local
+.env.example
 *.log
 .git
+.DS_Store
+test-results
+scripts
+mongo-init
+CLAUDE.md
+README.md
+apache-vhost.conf
+deploy.sh
+compose.yaml

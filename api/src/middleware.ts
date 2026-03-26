@@ -26,12 +26,32 @@ export function corsHeaders(requestOrigin?: string): Record<string, string> {
 
 // --- IP resolution ---
 
+/**
+ * Resolve client IP from trusted proxy headers.
+ * Only trusts X-Forwarded-For when the request arrives from the local reverse proxy (127.0.0.1).
+ * Falls back to X-Real-IP (set by Apache), then to the raw connection address.
+ */
 export function resolveIP(c: Context): string {
-    return (
-        c.req.header("X-Forwarded-For")?.split(",").at(-1)?.trim() ??
-        c.req.header("X-Real-IP") ??
-        "unknown"
-    );
+    // In Docker, the API receives connections from Apache on localhost.
+    // Only trust proxy headers from the local machine.
+    const remoteAddr =
+        c.env?.incoming?.socket?.remoteAddress ?? // @hono/node-server exposes this
+        "unknown";
+    const isFromTrustedProxy =
+        remoteAddr === "127.0.0.1" ||
+        remoteAddr === "::1" ||
+        remoteAddr === "::ffff:127.0.0.1";
+
+    if (isFromTrustedProxy) {
+        return (
+            c.req.header("X-Forwarded-For")?.split(",").at(-1)?.trim() ??
+            c.req.header("X-Real-IP") ??
+            remoteAddr
+        );
+    }
+
+    // Untrusted: ignore proxy headers, use the direct connection IP
+    return remoteAddr;
 }
 
 // --- Rate limiting (in-memory, per-method tiers) ---
@@ -70,11 +90,12 @@ function createRateLimiter(
 
 const readLimiter = createRateLimiter(60, 60_000); // 60 req/min for GETs
 const writeLimiter = createRateLimiter(10, 60_000); // 10 req/min for POST/PATCH/DELETE
+const registrationLimiter = createRateLimiter(3, 60_000); // 3 req/min for registration
 
 // Sweep expired entries every 60s
 setInterval(() => {
     const now = Date.now();
-    for (const limiter of [readLimiter, writeLimiter]) {
+    for (const limiter of [readLimiter, writeLimiter, registrationLimiter, loginLimiter]) {
         for (const [key, entry] of limiter.map) {
             if (now > entry.resetAt) {
                 limiter.map.delete(key);
@@ -113,6 +134,9 @@ export const rateLimit: MiddlewareHandler = async (c, next) => {
 
 // --- Session resolution ---
 
+// In-memory cache of suspended user slugs (60s TTL)
+const suspendedCache = new Map<string, number>(); // slug → expiresAt timestamp
+
 export const resolveSession: MiddlewareHandler = async (c, next) => {
     const token = c.req.header("X-Session-Token");
     if (token && c.req.path !== "/") {
@@ -127,11 +151,55 @@ export const resolveSession: MiddlewareHandler = async (c, next) => {
         if (session) {
             c.set("sessionToken", token);
             if (session.userSlug) {
+                // Check if user is suspended (with cache)
+                const now = Date.now();
+                const cachedExpiry = suspendedCache.get(session.userSlug);
+                let isSuspended = false;
+
+                if (cachedExpiry && cachedExpiry > now) {
+                    isSuspended = true;
+                } else {
+                    // Cache miss or expired — check DB
+                    const user = await db.collection("users").findOne({ _id: session.userSlug as any });
+                    if (user?.status === "suspended") {
+                        suspendedCache.set(session.userSlug, now + 60_000); // 60s TTL
+                        isSuspended = true;
+                    } else {
+                        suspendedCache.delete(session.userSlug);
+                    }
+                }
+
+                if (isSuspended) {
+                    return c.json({ error: "Account suspended" }, 403);
+                }
+
                 c.set("userSlug", session.userSlug);
             }
         }
-        // Stale/expired tokens: proceed without session context.
-        // Route handlers that require auth check c.get("sessionToken") themselves.
+    }
+    await next();
+};
+
+// --- Registration rate limiting (3 req/min per IP) ---
+
+export const registrationRateLimit: MiddlewareHandler = async (c, next) => {
+    const ip = resolveIP(c);
+    if (!registrationLimiter.map.has(ip) && registrationLimiter.map.size >= RATE_MAP_CAP) {
+        const now = Date.now();
+        let evicted = false;
+        for (const [key, entry] of registrationLimiter.map) {
+            if (now > entry.resetAt) {
+                registrationLimiter.map.delete(key);
+                evicted = true;
+                break;
+            }
+        }
+        if (!evicted) {
+            return c.json({ error: "Rate limit exceeded" }, 429);
+        }
+    }
+    if (!registrationLimiter.check(ip)) {
+        return c.json({ error: "Rate limit exceeded" }, 429);
     }
     await next();
 };
@@ -181,6 +249,41 @@ export const adminAuth: MiddlewareHandler = async (c, next) => {
     const expectedBuf = Buffer.from(expected);
     if (!crypto.timingSafeEqual(authBuf, expectedBuf)) {
         return c.json({ error: "Forbidden" }, 403);
+    }
+    await next();
+};
+
+// --- MongoDB operator injection guard ---
+
+/** Recursively check for keys starting with $ in parsed JSON body. */
+function hasDollarKeys(obj: unknown): boolean {
+    if (obj === null || typeof obj !== "object") return false;
+    if (Array.isArray(obj)) return obj.some(hasDollarKeys);
+    for (const key of Object.keys(obj as Record<string, unknown>)) {
+        if (key.startsWith("$")) return true;
+        if (hasDollarKeys((obj as Record<string, unknown>)[key])) return true;
+    }
+    return false;
+}
+
+/**
+ * Reject JSON request bodies containing keys starting with `$`.
+ * Prevents MongoDB operator injection (e.g., `{ "$gt": "" }` in query fields).
+ */
+export const sanitizeBody: MiddlewareHandler = async (c, next) => {
+    const method = c.req.method;
+    if (method === "POST" || method === "PATCH" || method === "PUT") {
+        const contentType = c.req.header("Content-Type") ?? "";
+        if (contentType.includes("application/json")) {
+            try {
+                const body = await c.req.json();
+                if (hasDollarKeys(body)) {
+                    return c.json({ error: "Invalid input" }, 400);
+                }
+            } catch {
+                // Malformed JSON — let downstream handlers deal with it
+            }
+        }
     }
     await next();
 };

@@ -14,22 +14,26 @@ rsync -avz --delete \
     --exclude dist \
     --exclude .env \
     --exclude .env.local \
+    --exclude test-results \
     -e "ssh -p $PORT" \
     ./ "$SERVER:$REMOTE_DIR/"
 
 echo "==> Building and starting containers ..."
 ssh -p "$PORT" "$SERVER" "cd $REMOTE_DIR && docker compose up -d --build"
 
+echo "==> Container status:"
+ssh -p "$PORT" "$SERVER" "cd $REMOTE_DIR && docker compose ps"
+
 echo "==> Recent logs:"
-ssh -p "$PORT" "$SERVER" "cd $REMOTE_DIR && docker compose logs --tail=20 api"
+ssh -p "$PORT" "$SERVER" "cd $REMOTE_DIR && docker compose logs --tail=30 api"
 
 echo ""
 echo "==> Smoke test:"
-STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://mbabb.fi.ncsu.edu/colors/palettes || true)
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://mbabb.fi.ncsu.edu/colors/ || true)
 if [ "$STATUS" = "200" ]; then
-    echo "    GET /colors/palettes -> $STATUS OK"
+    echo "    GET /colors/ -> $STATUS OK"
 else
-    echo "    GET /colors/palettes -> $STATUS (expected 200)"
+    echo "    GET /colors/ -> $STATUS (expected 200)"
 fi
 
 echo "==> Done."

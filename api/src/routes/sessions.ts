@@ -1,13 +1,13 @@
 import { Hono } from "hono";
 import type { AppEnv } from "../types.js";
 import { getDb } from "../db.js";
-import { hashIP, resolveIP, loginRateLimit } from "../middleware.js";
+import { hashIP, resolveIP, loginRateLimit, registrationRateLimit } from "../middleware.js";
 import { generateUniqueSlug } from "../slugWords.js";
 
 const sessions = new Hono<AppEnv>();
 
 // POST /sessions — register a new session + user slug
-sessions.post("/", async (c) => {
+sessions.post("/", registrationRateLimit, async (c) => {
     const ip = resolveIP(c);
     const ipHash = await hashIP(ip);
     const token = crypto.randomUUID();
@@ -43,9 +43,9 @@ sessions.post("/login", loginRateLimit, async (c) => {
     const body = await c.req.json<{ slug: string }>();
     const slug = typeof body.slug === "string" ? body.slug.trim().toLowerCase() : "";
 
-    if (!slug) {
+    if (!slug || slug.length > 120) {
         await new Promise((r) => setTimeout(r, 200));
-        return c.json({ error: "Slug required" }, 400);
+        return c.json({ error: slug ? "Invalid slug" : "Slug required" }, 400);
     }
 
     // Reject switching to the same slug the session already owns

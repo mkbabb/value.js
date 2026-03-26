@@ -6,7 +6,7 @@ import "dotenv/config";
 
 import type { AppEnv } from "./types.js";
 import { getDb } from "./db.js";
-import { corsHeaders, rateLimit, resolveSession } from "./middleware.js";
+import { corsHeaders, rateLimit, resolveSession, sanitizeBody } from "./middleware.js";
 import { cleanup } from "./cron.js";
 import palettes from "./routes/palettes.js";
 import sessions from "./routes/sessions.js";
@@ -42,6 +42,9 @@ app.use("*", bodyLimit({ maxSize: 64 * 1024 }));
 
 // Rate limiting
 app.use("*", rateLimit);
+
+// MongoDB operator injection guard
+app.use("*", sanitizeBody);
 
 // Session resolution
 app.use("*", resolveSession);
