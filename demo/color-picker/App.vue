@@ -97,7 +97,7 @@
             ]"
         >
             <!-- Mobile: single pane slot (below lg) -->
-            <div class="lg:hidden w-full max-w-lg sm:max-w-xl md:max-w-2xl mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
+            <div class="lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
                 <Transition name="pane-left" mode="out-in">
                     <KeepAlive :max="5">
                         <component

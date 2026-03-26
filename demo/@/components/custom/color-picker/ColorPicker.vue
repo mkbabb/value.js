@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col relative min-w-0 w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-auto max-h-full lg:max-h-[var(--content-max-h)] transition-[margin,transform] duration-[var(--duration-normal)] ease-[var(--ease-standard)]">
+    <div class="flex flex-col relative min-w-0 w-full max-w-md sm:max-w-lg lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-auto max-h-full lg:max-h-[var(--content-max-h)] transition-[margin,transform] duration-[var(--duration-normal)] ease-[var(--ease-standard)]">
         <Card variant="pane" class="flex flex-col rounded-2xl min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-hidden lg:overflow-visible transition-[box-shadow] duration-[var(--duration-normal)]">
             <CardHeader class="fraunces m-0 pt-3 pb-0 relative w-full px-3 sm:px-6 min-w-0 overflow-visible">
                 <div class="w-full flex justify-between">
