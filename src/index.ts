@@ -166,6 +166,10 @@ export {
     interpolateHue,
     mixColors,
     CYLINDRICAL_HUE_COMPONENT,
+    computeSafeAccent,
+    safeAccentColor,
+    needsContrastAdjustment,
+    getOklchLightness,
 } from "./units/color/utils";
 export type { HueInterpolationMethod } from "./units/color/utils";
 

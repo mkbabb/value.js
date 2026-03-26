@@ -997,6 +997,7 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
 }
 
 export { deltaEOK, isInSRGBGamut, DELTA_E_OK_JND } from "./gamut";
+export { computeSafeAccent, safeAccentColor, needsContrastAdjustment, getOklchLightness } from "./contrast";
 
 const GAMUT_EPSILON = 1e-6;
 
