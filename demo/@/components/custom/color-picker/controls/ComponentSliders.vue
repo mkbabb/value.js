@@ -69,7 +69,7 @@
 
 <script setup lang="ts">
 import { inject, ref, watch, nextTick, onMounted, onUnmounted } from "vue";
-import Label from "@components/ui/label/Label.vue";
+import { Label } from "@components/ui/label";
 import {
     Tooltip,
     TooltipContent,
@@ -83,7 +83,7 @@ import {
     SliderTrack,
 } from "reka-ui";
 import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
-import { useTouchGate } from "@composables/useTouchGate";
+import { useTouchGate } from "@mkbabb/glass-ui";
 import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
 import { COLOR_MODEL_KEY } from "../keys";
 

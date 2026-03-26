@@ -31,10 +31,10 @@
                             <TooltipTrigger as-child>
                                 <Crown
                                     :key="crownKey"
-                                    class="absolute right-2 top-1/2 -translate-y-1/2 w-[0.75em] h-[0.75em] text-[#daa520] opacity-75 hover:opacity-100 hover:scale-110 transition-[opacity,transform] cursor-help"
+                                    class="absolute right-2 top-1/2 -translate-y-1/2 w-[0.75em] h-[0.75em] text-gold opacity-75 hover:opacity-100 hover:scale-110 transition-[opacity,transform] cursor-help"
                                     :stroke-width="1.75"
                                     style="
-                                        animation: crown-appear 0.6s ease-out forwards;
+                                        animation: crown-appear var(--duration-panel) var(--ease-decelerate) forwards;
                                     "
                                 />
                             </TooltipTrigger>
@@ -84,7 +84,7 @@
                 </div>
             </HoverCardTrigger>
 
-            <HoverCardContent v-if="!proposeMode" class="z-[var(--z-modal)] pointer-events-auto fraunces w-full">
+            <HoverCardContent v-if="!proposeMode" class="z-[var(--z-hovercard)] pointer-events-auto fraunces w-full">
                 <p class="font-bold text-lg">Enter a color</p>
                 <p>
                     <span class="italic">Any</span> valid CSS color string is accepted.

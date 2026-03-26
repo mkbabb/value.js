@@ -66,7 +66,6 @@
                             swatch-class="w-12 h-12 sm:w-14 sm:h-14"
                             editable-name
                             @click="() => {}"
-                            @apply="onApply"
                             @save="onSave"
                             @rename="onRename"
                             @add-color="(css) => emit('addColor', css)"
@@ -237,10 +236,6 @@ async function captureFrame() {
     });
     const file = new File([blob], "camera-capture.png", { type: "image/png" });
     await onFile(file);
-}
-
-function onApply(p: Palette) {
-    emit("apply", p.colors.map((c) => c.css));
 }
 
 function onSave(p: Palette) {

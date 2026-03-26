@@ -116,7 +116,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
     <div class="flex flex-col gap-5">
         <!-- Hero: Gradient preview + stop editor -->
         <div
-            class="h-20 sm:h-24 rounded-2xl border border-border bg-card overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]"
+            class="h-20 sm:h-24 rounded-2xl border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]"
             :style="{ background: coalescedCSS }"
         />
 
@@ -146,7 +146,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         <SelectItem v-for="t in GRADIENT_TYPES" :key="t.value" :value="t.value">
                             {{ t.label }}
                             <template #description>
-                                <span class="text-[10px] text-muted-foreground/60">{{ t.description }}</span>
+                                <span class="text-2xs text-muted-foreground/60">{{ t.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>
@@ -164,7 +164,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         <SelectItem v-for="s in INTERPOLATION_SPACES" :key="s.value" :value="s.value">
                             {{ s.label }}
                             <template #description>
-                                <span class="text-[10px] text-muted-foreground/60">{{ s.description }}</span>
+                                <span class="text-2xs text-muted-foreground/60">{{ s.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>
@@ -182,7 +182,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         <SelectItem v-for="m in HUE_INTERPOLATION_METHODS" :key="m.value" :value="m.value">
                             {{ m.label }}
                             <template #description>
-                                <span class="text-[10px] text-muted-foreground/60">{{ m.description }}</span>
+                                <span class="text-2xs text-muted-foreground/60">{{ m.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>

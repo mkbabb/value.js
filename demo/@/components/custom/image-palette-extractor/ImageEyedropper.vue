@@ -355,7 +355,7 @@ watch(() => props.imageUrl, () => { loadImage(); });
     border: 2px solid hsl(var(--foreground) / 0.5);
     box-shadow: 0 4px 16px hsl(var(--foreground) / 0.15), 0 0 0 1px hsl(var(--background) / 0.3);
     pointer-events: none;
-    z-index: 30;
+    z-index: var(--z-controls);
     overflow: hidden;
     transition: opacity var(--duration-fast) var(--ease-standard);
 }
