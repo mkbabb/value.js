@@ -1,5 +1,5 @@
 <template>
-    <Card class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm">
+    <Card variant="pane" class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader :description="subView === 'admin-users' ? 'Manage accounts and permissions.' : 'Review and approve color names.'">
             {{ subView === 'admin-users' ? 'Users' : 'Names' }}
             <span class="fira-code text-sm font-normal text-muted-foreground ml-2">{{ adminCount }}</span>
@@ -28,7 +28,6 @@
                 @delete-user-palettes="pm.onDeleteUserPalettes"
                 @delete-user="pm.onDeleteUser"
                 @toggle-expand="pm.toggleExpand"
-                @apply="pm.onApply"
                 @feature="pm.onFeaturePalette"
                 @admin-delete-user-palette="pm.onAdminDeleteUserPalette"
                 @prune="pm.onPrune"

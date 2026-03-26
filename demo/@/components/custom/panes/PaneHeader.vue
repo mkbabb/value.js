@@ -1,6 +1,6 @@
 <template>
     <div class="pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-[1] backdrop-blur-md bg-card/60">
-        <h3 class="pane-header-title text-pane-title"><slot /></h3>
+        <h3 class="pane-header-title text-heading"><slot /></h3>
         <div v-if="description" class="pane-header-desc-wrap">
             <p class="text-pane-description">{{ description }}</p>
         </div>
@@ -55,10 +55,10 @@ defineProps<{
 
 @keyframes pane-title-shrink {
     from {
-        font-size: var(--font-size-3xl);
+        font-size: var(--type-heading);
     }
     to {
-        font-size: var(--font-size-lg);
+        font-size: var(--type-prose);
     }
 }
 

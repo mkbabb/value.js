@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { inject, computed, watch, ref, TransitionGroup } from "vue";
-import { Plus, X, Palette as PaletteIcon } from "lucide-vue-next";
+import { Plus, X, ChevronDown } from "lucide-vue-next";
+import { BouncyTabs } from "@mkbabb/glass-ui";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components/ui/collapsible";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
+import PaletteColorStrip from "@components/custom/palette-browser/PaletteColorStrip.vue";
 import type { Palette } from "@lib/palette/types";
 import type { SelectedColor } from "./composables/useMixingState";
 
@@ -26,6 +29,15 @@ const emit = defineEmits<{
 const pm = inject(PALETTE_MANAGER_KEY);
 const savedPalettes = computed(() => pm?.savedPalettes.value ?? []);
 
+const tabOptions = [
+    { label: "Colors", value: "colors" },
+    { label: "Palettes", value: "palettes" },
+];
+
+function onTabChange(value: string) {
+    emit("update:mode", value as "colors" | "palettes");
+}
+
 function isPaletteSelected(id: string): boolean {
     return props.selectedPalettes.some((p) => p.id === id);
 }
@@ -43,6 +55,9 @@ function addCurrentColor() {
         emit("addColor", props.cssColorOpaque, "picker");
     }
 }
+
+// --- Palette dropdown for "From palettes" in colors mode ---
+const paletteDropdownOpen = ref(false);
 
 // --- Stable keys for TransitionGroup ---
 let swatchKeyCounter = 0;
@@ -69,32 +84,14 @@ watch(
 
 <template>
     <div class="flex flex-col gap-3">
-        <!-- Inline segmented control -->
+        <!-- Bouncy segmented control -->
         <div class="flex items-center justify-center pb-1">
-            <div class="flex items-center gap-0.5 rounded-full bg-foreground/5 p-0.5">
-                <button
-                    :class="[
-                        'px-2.5 py-0.5 text-xs fraunces rounded-full transition-all cursor-pointer focus-ring',
-                        mode === 'colors'
-                            ? 'bg-foreground text-background'
-                            : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
-                    ]"
-                    @click="emit('update:mode', 'colors')"
-                >
-                    Colors
-                </button>
-                <button
-                    :class="[
-                        'px-2.5 py-0.5 text-xs fraunces rounded-full transition-all cursor-pointer focus-ring',
-                        mode === 'palettes'
-                            ? 'bg-foreground text-background'
-                            : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
-                    ]"
-                    @click="emit('update:mode', 'palettes')"
-                >
-                    Palettes
-                </button>
-            </div>
+            <BouncyTabs
+                variant="pill"
+                :options="tabOptions"
+                :model-value="mode"
+                @update:model-value="onTabChange"
+            />
         </div>
 
         <!-- Colors mode -->
@@ -140,29 +137,47 @@ watch(
                 </TransitionGroup>
             </div>
 
-            <!-- Palette swatches to pick from -->
-            <div v-if="savedPalettes.length > 0" class="flex flex-col gap-2">
-                <span class="fira-code text-xs text-muted-foreground uppercase tracking-wide">From palettes</span>
-                <div
-                    v-for="palette in savedPalettes"
-                    :key="palette.id"
-                    class="flex flex-col gap-1.5"
-                >
-                    <span class="fraunces text-xs text-muted-foreground truncate">{{ palette.name }}</span>
-                    <div class="flex flex-wrap gap-1.5">
-                        <WatercolorDot
-                            v-for="(color, ci) in palette.colors"
-                            :key="ci"
-                            :color="color.css"
-                            tag="button"
-                            class="w-8 h-8 shrink-0 cursor-pointer"
-                            :title="color.css"
-                            :seed="`palette-${palette.id}-${ci}`"
-                            @click="emit('addColor', color.css, palette.name)"
-                        />
+            <!-- From palettes — collapsible dropdown of PaletteCards -->
+            <Collapsible v-if="savedPalettes.length > 0" v-model:open="paletteDropdownOpen">
+                <CollapsibleTrigger class="flex items-center gap-2 w-full cursor-pointer group py-1">
+                    <span class="section-label">From palettes</span>
+                    <span class="fira-code text-2xs text-muted-foreground/50">{{ savedPalettes.length }}</span>
+                    <div class="flex-1" />
+                    <ChevronDown
+                        class="w-4 h-4 text-muted-foreground/50 transition-transform group-hover:text-foreground"
+                        :class="paletteDropdownOpen && 'rotate-180'"
+                    />
+                </CollapsibleTrigger>
+                <CollapsibleContent class="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
+                    <div class="flex flex-col gap-2 pt-2">
+                        <div
+                            v-for="palette in savedPalettes"
+                            :key="palette.id"
+                            class="rounded-2xl border border-border/30 overflow-hidden"
+                        >
+                            <!-- Compact palette header with color strip + name -->
+                            <PaletteColorStrip :colors="palette.colors" />
+                            <div class="px-3 py-2 flex items-center justify-between gap-2">
+                                <span class="fraunces text-sm font-bold truncate">{{ palette.name }}</span>
+                                <span class="fira-code text-2xs text-muted-foreground shrink-0">{{ palette.colors.length }}</span>
+                            </div>
+                            <!-- Clickable swatches -->
+                            <div class="px-3 pb-3 flex flex-wrap gap-1.5">
+                                <WatercolorDot
+                                    v-for="(color, ci) in palette.colors"
+                                    :key="ci"
+                                    :color="color.css"
+                                    tag="button"
+                                    class="w-8 h-8 shrink-0 cursor-pointer"
+                                    :title="color.css"
+                                    :seed="`palette-${palette.id}-${ci}`"
+                                    @click="emit('addColor', color.css, palette.name)"
+                                />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </CollapsibleContent>
+            </Collapsible>
         </template>
 
         <!-- Palettes mode -->
@@ -174,8 +189,8 @@ watch(
                 :class="[
                     'cursor-pointer transition-all rounded-2xl',
                     isPaletteSelected(palette.id)
-                        ? 'ring-2 ring-primary'
-                        : 'hover:shadow-md',
+                        ? 'ring-2 ring-primary ring-offset-2 ring-offset-background'
+                        : 'opacity-75 hover:opacity-100',
                 ]"
                 @click="togglePalette(palette)"
             >

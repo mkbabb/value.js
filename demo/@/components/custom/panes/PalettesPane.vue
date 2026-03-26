@@ -1,5 +1,5 @@
 <template>
-    <Card class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm">
+    <Card variant="pane" class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Save, organize, and share your colors.">
             <span class="capitalize pastel-rainbow-text">My Palettes</span>
             <span v-if="pm.savedPalettes.value.length > 0" class="fira-code text-sm font-normal text-muted-foreground ml-2">{{ pm.savedPalettes.value.length }}</span>
@@ -24,6 +24,7 @@
                     @updated="(id, colors) => pm.onCurrentPaletteUpdated(id, colors)"
                     @commit-edit="emit('commitEdit')"
                     @cancel-edit="emit('cancelEdit')"
+                    @clear-current="pm.emitApply([])"
                 />
 
                 <!-- Saved palettes toolbar -->
@@ -43,20 +44,22 @@
                 </div>
 
                 <PaletteCardGrid
+                    ref="sortableGridRef"
                     :empty="pm.filteredSaved.value.length === 0"
                     empty-text="No saved palettes yet. Add colors above, then save."
                 >
                     <PaletteCard
                         v-for="palette in pm.filteredSaved.value"
+                        :ref="(el: any) => el && (cardRefs[palette.id] = el)"
                         :key="palette.id"
                         :palette="palette"
                         :expanded="pm.expandedId.value === palette.id"
                         :css-color="cssColorOpaque"
                         :editable-name="true"
+                        draggable
                         @click="pm.toggleExpand(palette.id)"
-                        @apply="(p) => pm.onApply(p)"
                         @delete="(p) => pm.onDelete(p)"
-                        @publish="(p) => pm.onPublish(p)"
+                        @publish="(p) => onPublish(p)"
                         @rename="(p, name) => pm.onRenameSaved(p, name)"
                         @edit-color="(p, idx, css) => pm.onEditColor(p, idx, css)"
                     />
@@ -82,18 +85,20 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from "vue";
+import { inject, reactive, ref, computed, watch, onMounted, nextTick } from "vue";
 import { Card } from "@components/ui/card";
 import { Button } from "@components/ui/button";
-import { Trash2, Palette } from "lucide-vue-next";
+import { Trash2 } from "lucide-vue-next";
+import { useSortable } from "@vueuse/integrations/useSortable";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import CurrentPaletteEditor from "@components/custom/palette-browser/CurrentPaletteEditor.vue";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
-import ConfirmDialog from "@components/custom/palette-browser/ConfirmDialog.vue";
+import { ConfirmDialog } from "@mkbabb/glass-ui";
 import PaneSearchBar from "./PaneSearchBar.vue";
 import PaneHeader from "./PaneHeader.vue";
+import type { Palette } from "@lib/palette/types";
 
 const props = defineProps<{
     savedColorStrings: string[];
@@ -106,4 +111,34 @@ const emit = defineEmits<{
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
+
+const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
+
+// Drag-to-reorder
+const sortableGridRef = ref<InstanceType<typeof PaletteCardGrid> | null>(null);
+const sortableEl = computed(() => (sortableGridRef.value as any)?.$el as HTMLElement | undefined);
+
+useSortable(sortableEl, pm.filteredSaved.value, {
+    handle: ".drag-handle",
+    animation: 150,
+    ghostClass: "opacity-30",
+    onEnd(evt) {
+        if (evt.oldIndex == null || evt.newIndex == null) return;
+        if (evt.oldIndex === evt.newIndex) return;
+        const ids = pm.filteredSaved.value.map((p) => p.id);
+        const [moved] = ids.splice(evt.oldIndex, 1);
+        if (moved) {
+            ids.splice(evt.newIndex, 0, moved);
+            pm.reorderPalettes(ids);
+        }
+    },
+});
+
+async function onPublish(palette: Palette) {
+    const result = await pm.onPublish(palette);
+    const card = cardRefs[palette.id];
+    if (card) {
+        card.showFeedback(result.message, result.success ? "success" : "error");
+    }
+}
 </script>

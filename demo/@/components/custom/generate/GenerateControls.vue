@@ -76,9 +76,7 @@ defineExpose({ regenerate, save, copyColors });
 <template>
     <div class="flex flex-col gap-5">
         <!-- Controls -->
-        <div class="rounded-2xl border border-border/20 p-4 flex flex-col gap-4">
-            <h3 class="fraunces text-lg text-muted-foreground">Controls</h3>
-
+        <div class="flex flex-col gap-4">
             <!-- Preset & Harmony in 2-col grid -->
             <div class="grid grid-cols-2 gap-3 items-end">
                 <div class="flex flex-col gap-1">
@@ -96,7 +94,7 @@ defineExpose({ regenerate, save, copyColors });
                             >
                                 {{ capitalize(p) }}
                                 <template #description>
-                                    <span class="text-[10px] text-muted-foreground/60">{{ GENERATION_PRESETS[p].description }}</span>
+                                    <span class="text-2xs text-muted-foreground/60">{{ GENERATION_PRESETS[p].description }}</span>
                                 </template>
                             </SelectItem>
                         </SelectContent>
@@ -118,7 +116,7 @@ defineExpose({ regenerate, save, copyColors });
                             >
                                 {{ capitalize(h) }}
                                 <template #description>
-                                    <span class="text-[10px] text-muted-foreground/60">{{ HARMONY_DEFS[h].description }}</span>
+                                    <span class="text-2xs text-muted-foreground/60">{{ HARMONY_DEFS[h].description }}</span>
                                 </template>
                             </SelectItem>
                         </SelectContent>
@@ -133,6 +131,7 @@ defineExpose({ regenerate, save, copyColors });
                     <span class="fira-code text-xs text-muted-foreground tabular-nums">{{ count }}</span>
                 </div>
                 <Slider
+                    variant="spectrum"
                     :model-value="[count]"
                     :min="1"
                     :max="12"

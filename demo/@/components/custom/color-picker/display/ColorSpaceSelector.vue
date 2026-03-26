@@ -11,8 +11,9 @@
         "
     >
         <SelectTrigger
-            :style="{ color: cssColor }"
-            class="w-fit h-fit italic text-3xl sm:text-4xl tracking-tight p-0 m-0 border-none self-end bg-transparent shadow-none focus:outline-none select-none"
+            variant="ghost"
+            :style="{ color: cssColor, fontFamily: 'var(--font-display)' }"
+            class="w-fit h-fit italic text-3xl sm:text-4xl tracking-tight p-0 m-0 self-end focus:outline-none select-none"
         >
             <SelectValue class="w-full" />
         </SelectTrigger>

@@ -1,6 +1,6 @@
 <template>
     <div class="relative w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-full min-w-0">
-        <Card class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm">
+        <Card variant="pane" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
             <PaneHeader description="Pull palettes from any image.">Extract</PaneHeader>
             <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6 pt-2">
                 <!-- Image upload area — click opens eyedropper when image is loaded -->
@@ -50,7 +50,6 @@
                         swatch-class="w-12 h-12 sm:w-14 sm:h-14"
                         editable-name
                         @click="() => {}"
-                        @apply="onApply"
                         @save="onSave"
                         @rename="onRename"
                         @add-color="(css) => pm.emitAddColor(css)"
@@ -196,10 +195,6 @@ function onReset() {
     colorCount.value = 5;
     chromaWeight.value = 0.5;
     if (lastFile.value) runQuantize();
-}
-
-function onApply(p: Palette) {
-    pm.emitApply(p.colors.map((c) => c.css));
 }
 
 function onSave(p: Palette) {

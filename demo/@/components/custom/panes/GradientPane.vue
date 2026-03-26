@@ -17,7 +17,7 @@ defineExpose({
 
 <template>
     <div class="relative w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-full min-w-0">
-        <Card class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm">
+        <Card variant="pane" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
             <PaneHeader description="Build gradients with per-interval easing and CSS output.">
                 Gradient
             </PaneHeader>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
 import { ChevronDown, Check, Undo2, Paintbrush, ArrowLeft } from "lucide-vue-next";
-import GlassDock from "./GlassDock.vue";
+import { GlassDock, DockLayerGroup } from ".";
+import { BouncyTabs } from "@mkbabb/glass-ui";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
 import GenericActionBar from "./layers/GenericActionBar.vue";
@@ -16,7 +17,7 @@ import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import type { ViewId } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
-import { useLayerTransition } from "./composables/useLayerTransition";
+import { usePopupMutex } from "./composables/usePopupMutex";
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import type { EditTarget } from "@components/custom/color-picker";
 import type { DockActionBar } from "./composables/useDockActionBar";
@@ -108,65 +109,15 @@ function onCopySlug() {
 }
 
 // ── Dock popup mutex ──
-type DockPopupKey = "view-select" | "mobile-menu" | "profile-menu" | "mbabb-menu";
-const dockPopup = ref<DockPopupKey | null>(null);
-const pendingDockPopup = ref<DockPopupKey | null>(null);
-let popupSwapTimer: ReturnType<typeof setTimeout> | null = null;
+const { isAnyOpen, popupModel } = usePopupMutex<"view-select" | "mobile-menu" | "profile-menu" | "mbabb-menu">();
+const viewSelectOpen = popupModel("view-select");
+const mobileMenuOpen = popupModel("mobile-menu");
+const profileMenuOpen = popupModel("profile-menu");
+const mbabbMenuOpen = popupModel("mbabb-menu");
 
 const isDesktop = useMediaQuery("(min-width: 1024px)");
 const mobileEditActive = computed(() => !isDesktop.value && !!props.editTarget);
 const anyEditActive = computed(() => !!props.editTarget);
-
-const viewSelectOpen = computed({
-    get: () => dockPopup.value === "view-select",
-    set: (open: boolean) => updateDockPopup("view-select", open),
-});
-const mobileMenuOpen = computed({
-    get: () => dockPopup.value === "mobile-menu",
-    set: (open: boolean) => updateDockPopup("mobile-menu", open),
-});
-const profileMenuOpen = computed({
-    get: () => dockPopup.value === "profile-menu",
-    set: (open: boolean) => updateDockPopup("profile-menu", open),
-});
-const mbabbMenuOpen = computed({
-    get: () => dockPopup.value === "mbabb-menu",
-    set: (open: boolean) => updateDockPopup("mbabb-menu", open),
-});
-
-function clearPopupSwapTimer() {
-    if (popupSwapTimer) {
-        clearTimeout(popupSwapTimer);
-        popupSwapTimer = null;
-    }
-}
-
-function updateDockPopup(key: DockPopupKey, open: boolean) {
-    if (open) {
-        if (dockPopup.value === key) return;
-        clearPopupSwapTimer();
-        if (dockPopup.value && dockPopup.value !== key) {
-            pendingDockPopup.value = key;
-            dockPopup.value = null;
-            popupSwapTimer = setTimeout(() => {
-                dockPopup.value = pendingDockPopup.value;
-                pendingDockPopup.value = null;
-                popupSwapTimer = null;
-            }, 180);
-            return;
-        }
-        pendingDockPopup.value = null;
-        dockPopup.value = key;
-        return;
-    }
-
-    if (pendingDockPopup.value === key) {
-        pendingDockPopup.value = null;
-    }
-    if (dockPopup.value === key) {
-        dockPopup.value = null;
-    }
-}
 
 // ── Dock state management ──
 const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>('dockRef');
@@ -182,35 +133,25 @@ watch(anyEditActive, (active) => {
     else dockRef.value?.release();
 });
 
-const anyDropdownOpen = computed(() => dockPopup.value !== null || pendingDockPopup.value !== null);
-watch(anyDropdownOpen, (open) => {
+watch(isAnyOpen, (open) => {
     if (open) dockRef.value?.keepOpen();
     else dockRef.value?.release();
 });
 
-const mainLayerActive = computed(() => !slugEditMode.value && !mobileEditActive.value && !actionBarLayerActive.value);
-
 // ── Layer transition ──
-const layerGridEl = useTemplateRef<HTMLElement>("layerGridEl");
-
 const activeLayer = computed<string>(() => {
     if (mobileEditActive.value) return "mobile-edit";
     if (slugEditMode.value) return "slug-edit";
     if (actionBarLayerActive.value) return "action-bar";
     return "main";
 });
-
-const { layerProps, onTransitionEnd: onLayerTransitionEnd } = useLayerTransition({
-    containerEl: layerGridEl,
-    activeLayer,
-});
 </script>
 
 <template>
-    <div class="fixed top-[var(--dock-pos)] inset-x-0 z-40 flex items-center justify-center pointer-events-none">
+    <div class="fixed top-[var(--dock-pos)] inset-x-0 z-[var(--z-dock)] flex items-center justify-center pointer-events-none">
         <div class="pointer-events-auto">
             <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="isDesktop" :fit-content="true" :always-expanded="!isDesktop">
-                <div ref="layerGridEl" class="dock-layer-grid" @transitionend="onLayerTransitionEnd">
+                <DockLayerGroup :active-layer="activeLayer" v-slot="{ layerProps }">
                     <!-- Mobile edit layer -->
                     <div v-bind="layerProps('mobile-edit')" class="justify-center">
                         <WatercolorDot
@@ -310,11 +251,11 @@ const { layerProps, onTransitionEnd: onLayerTransitionEnd } = useLayerTransition
                         </Select>
 
                         <!-- Action bar toggle -->
+                        <div v-if="hasAnyActionBar" class="dock-separator"></div>
                         <div
                             class="flex items-center gap-1 overflow-hidden transition-all duration-300 ease-[var(--ease-standard)]"
                             :style="{ maxWidth: hasAnyActionBar ? '8rem' : '0px', opacity: hasAnyActionBar ? 1 : 0 }"
                         >
-                            <div class="dock-separator"></div>
                             <button
                                 class="shrink-0 flex items-center gap-1 px-1.5 py-1 bg-transparent border-none cursor-pointer focus-ring"
                                 title="Action bar"
@@ -336,29 +277,17 @@ const { layerProps, onTransitionEnd: onLayerTransitionEnd } = useLayerTransition
                         <!-- Mobile pane toggle -->
                         <template v-if="viewManager.currentConfig.value.right !== null">
                             <div class="dock-separator lg:hidden"></div>
-                            <div class="lg:hidden flex items-center gap-0.5 rounded-full bg-foreground/5 p-0.5">
-                                <button
-                                    :class="[
-                                        'px-2.5 py-0.5 text-xs fraunces rounded-full transition-all cursor-pointer focus-ring',
-                                        viewManager.mobilePaneIndex.value === 0
-                                            ? 'bg-foreground text-background'
-                                            : 'text-muted-foreground hover:text-foreground',
+                            <div class="lg:hidden">
+                                <BouncyTabs
+                                    variant="pill"
+                                    class="fraunces"
+                                    :options="[
+                                        { label: viewManager.currentConfig.value.leftLabel ?? '', value: '0' },
+                                        { label: viewManager.currentConfig.value.rightLabel ?? '', value: '1' },
                                     ]"
-                                    @click="viewManager.mobilePaneIndex.value = 0"
-                                >
-                                    {{ viewManager.currentConfig.value.leftLabel }}
-                                </button>
-                                <button
-                                    :class="[
-                                        'px-2.5 py-0.5 text-xs fraunces rounded-full transition-all cursor-pointer focus-ring',
-                                        viewManager.mobilePaneIndex.value === 1
-                                            ? 'bg-foreground text-background'
-                                            : 'text-muted-foreground hover:text-foreground',
-                                    ]"
-                                    @click="viewManager.mobilePaneIndex.value = 1"
-                                >
-                                    {{ viewManager.currentConfig.value.rightLabel }}
-                                </button>
+                                    :model-value="String(viewManager.mobilePaneIndex.value)"
+                                    @update:model-value="(v: string) => viewManager.mobilePaneIndex.value = Number(v) as 0 | 1"
+                                />
                             </div>
                         </template>
 
@@ -384,7 +313,7 @@ const { layerProps, onTransitionEnd: onLayerTransitionEnd } = useLayerTransition
                             @copy-slug="onCopySlug()"
                         />
                     </div>
-                </div><!-- /dock-layer-grid -->
+                </DockLayerGroup>
 
                 <!-- Collapsed state -->
                 <template #collapsed>

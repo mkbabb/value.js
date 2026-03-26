@@ -3,35 +3,21 @@
         v-if="leftLabel && rightLabel"
         class="flex items-center justify-center gap-0 px-4 pb-2"
     >
-        <div class="inline-flex rounded-full border border-border/60 bg-card/80 backdrop-blur-xl overflow-hidden">
-            <button
-                :class="[
-                    'px-4 py-1.5 text-sm fraunces font-bold transition-all cursor-pointer focus-ring',
-                    modelValue === 0
-                        ? 'bg-foreground text-background'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
-                ]"
-                @click="emit('update:modelValue', 0)"
-            >
-                {{ leftLabel }}
-            </button>
-            <button
-                :class="[
-                    'px-4 py-1.5 text-sm fraunces font-bold transition-all cursor-pointer focus-ring',
-                    modelValue === 1
-                        ? 'bg-foreground text-background'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
-                ]"
-                @click="emit('update:modelValue', 1)"
-            >
-                {{ rightLabel }}
-            </button>
-        </div>
+        <BouncyTabs
+            variant="pill"
+            :options="tabOptions"
+            :model-value="String(modelValue)"
+            class="fraunces"
+            @update:model-value="(v: string) => emit('update:modelValue', Number(v) as 0 | 1)"
+        />
     </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import { computed } from "vue";
+import { BouncyTabs } from "@mkbabb/glass-ui";
+
+const props = defineProps<{
     modelValue: 0 | 1;
     leftLabel: string | null;
     rightLabel: string | null;
@@ -40,4 +26,9 @@ defineProps<{
 const emit = defineEmits<{
     "update:modelValue": [value: 0 | 1];
 }>();
+
+const tabOptions = computed(() => [
+    { label: props.leftLabel ?? "", value: "0" },
+    { label: props.rightLabel ?? "", value: "1" },
+]);
 </script>

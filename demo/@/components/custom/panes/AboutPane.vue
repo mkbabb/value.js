@@ -1,32 +1,16 @@
 <template>
     <Card
-        class="about-card pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full bg-card/75 backdrop-blur-sm"
+        variant="pane"
+        class="about-card pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
     >
         <PaneHeader description="The math, the science, the art, the beauty of color spaces.">
             About the color spaces,
-            <Select
+            <ColorSpaceSelector
                 :model-value="model.selectedColorSpace"
-                @update:model-value="(v: any) => { model = { ...model, selectedColorSpace: v }; }"
-            >
-                <SelectTrigger
-                    class="inline-flex w-auto h-auto p-0 m-0 border-none bg-transparent shadow-none focus:outline-none italic text-3xl sm:text-4xl tracking-tight gap-1 [&>svg:last-child]:w-5 [&>svg:last-child]:h-5"
-                    :style="{ color: cssColor, fontFamily: 'var(--font-display)' }"
-                >
-                    <SelectValue />
-                </SelectTrigger>
-                <SelectContent class="min-w-[10rem]">
-                    <SelectGroup class="fraunces">
-                        <SelectItem
-                            v-for="[space, name] in Object.entries(DISPLAY_COLOR_SPACE_NAMES)"
-                            :key="space"
-                            :value="space"
-                            hide-indicator
-                        >
-                            {{ name }}
-                        </SelectItem>
-                    </SelectGroup>
-                </SelectContent>
-            </Select>
+                v-model:open="aboutSelectOpen"
+                :css-color="cssColor"
+                @update:model-value="(colorSpace: any) => { model = { ...model, selectedColorSpace: colorSpace }; }"
+            />
         </PaneHeader>
 
         <Separator />
@@ -51,24 +35,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { Separator } from "@components/ui/separator";
 import { Card, CardContent } from "@components/ui/card";
 import PaneHeader from "./PaneHeader.vue";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@components/ui/select";
-import { ColorNutritionLabel } from "@components/custom/color-picker";
+import { ColorNutritionLabel, DISPLAY_COLOR_SPACE_NAMES } from "@components/custom/color-picker";
 import type { ColorModel } from "@components/custom/color-picker";
+import ColorSpaceSelector from "@components/custom/color-picker/display/ColorSpaceSelector.vue";
 import type { DocModule } from "@components/custom/markdown";
 import { Markdown } from "@components/custom/markdown";
-import { DISPLAY_COLOR_SPACE_NAMES } from "@components/custom/color-picker";
 const model = defineModel<ColorModel>({ required: true });
+const aboutSelectOpen = ref(false);
 
 defineProps<{
     cssColor: string;

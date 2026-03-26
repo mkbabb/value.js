@@ -51,7 +51,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                         <SelectItem v-for="s in INTERPOLATION_SPACES" :key="s.value" :value="s.value">
                             {{ s.label }}
                             <template #description>
-                                <span class="text-[10px] text-muted-foreground/60">{{ s.description }}</span>
+                                <span class="text-2xs text-muted-foreground/60">{{ s.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>
@@ -69,7 +69,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                         <SelectItem v-for="m in HUE_INTERPOLATION_METHODS" :key="m.value" :value="m.value">
                             {{ m.label }}
                             <template #description>
-                                <span class="text-[10px] text-muted-foreground/60">{{ m.description }}</span>
+                                <span class="text-2xs text-muted-foreground/60">{{ m.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>
