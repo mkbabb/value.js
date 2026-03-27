@@ -304,7 +304,7 @@ const activeLayer = computed<string>(() => {
                             :style="{ maxWidth: hasAnyActionBar ? '8rem' : '0px', opacity: hasAnyActionBar ? 1 : 0 }"
                         >
                             <button
-                                class="dock-dropdown-trigger"
+                                class="dock-select-trigger"
                                 :class="{ 'is-active': actionBarLayerActive }"
                                 title="Action bar"
                                 :tabindex="hasAnyActionBar ? 0 : -1"
