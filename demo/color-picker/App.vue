@@ -614,8 +614,8 @@ const auroraConfig = reactive<AuroraBlobsConfig>({
     orbitAmplitude: 0.25, blendMode: "source-over",
     gradStop2: 0.30, gradStop3: 0.60, gradStop4: 1.00,
 });
-const { config: atmosphereConfig } = useAuroraBlobs(atmosphereCanvas, auroraConfig, cssColorOpaque);
-provide("atmosphereConfig", atmosphereConfig);
+const { config: auroraConfigResult } = useAuroraBlobs(atmosphereCanvas, auroraConfig, cssColorOpaque);
+provide("auroraConfig", auroraConfigResult);
 
 onMounted(() => {
     loadCustomColorNames();

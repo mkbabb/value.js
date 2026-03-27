@@ -25,6 +25,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - name: Checkout glass-ui (local file: dependency)
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/glass-ui
+                  path: ../glass-ui
             - name: Use Node.js 24
               uses: actions/setup-node@v5
               with:
