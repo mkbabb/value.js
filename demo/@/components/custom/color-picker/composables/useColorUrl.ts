@@ -19,9 +19,13 @@ export function useColorUrl(options: {
     const router = useRouter();
     const route = useRoute();
 
-    let syncing = false;
+    // Monotonic generation counter — replaces fragile boolean syncing guard.
+    // When URL→Model writes (applyUrlToModel), it increments the generation.
+    // The Model→URL debounced writer captures the generation at call time and
+    // no-ops if it changed (meaning someone else wrote in the interim).
+    let syncGen = 0;
 
-    // URL → Model: parse color from route query params
+    // URL → Model
     function applyUrlToModel(): boolean {
         const space = route.query.space as string | undefined;
         const color = route.query.color as string | undefined;
@@ -33,13 +37,12 @@ export function useColorUrl(options: {
             const normalized = normalizeColorUnit(parsed);
             const converted = colorUnit2(normalized, resolveColorSpace(displaySpace), true, false, false);
 
-            syncing = true;
+            syncGen++;
             updateModel({
                 selectedColorSpace: displaySpace,
                 inputColor: color,
                 color: converted,
             });
-            syncing = false;
             return true;
         } catch (e) {
             console.warn("[useColorUrl] Invalid color in URL:", color, e);
@@ -47,12 +50,11 @@ export function useColorUrl(options: {
         }
     }
 
-    // Model → URL: write color state to route query params (debounced)
+    // Model → URL (debounced, generation-guarded)
     const syncModelToUrl = debounce(() => {
-        if (syncing) return;
+        const gen = syncGen;
         const space = model.value.selectedColorSpace;
 
-        // Check if current color matches a named color
         const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
         const xyzStr = xyz.value.toFormattedString(2);
         const namedColor = Object.entries(NORMALIZED_COLOR_NAMES).find(
@@ -65,29 +67,26 @@ export function useColorUrl(options: {
               ? colorToHexString(model.value.color)
               : toCSSColorString(model.value.color);
 
-        syncing = true;
-        router.replace({
-            query: { ...route.query, space, color },
-        });
-        syncing = false;
+        // If generation changed since debounce was scheduled, URL→Model wrote
+        // in the interim — skip to avoid circular update
+        if (gen !== syncGen) return;
+
+        syncGen++;
+        router.replace({ query: { ...route.query, space, color } });
     }, 300, false);
 
-    // Initial load: apply URL params to model
+    // Initial load
     applyUrlToModel();
 
-    // Watch route query for back/forward navigation
+    // Back/forward navigation
     watch(
         () => route.query.color,
-        () => {
-            if (!syncing) applyUrlToModel();
-        },
+        () => applyUrlToModel(),
     );
 
-    // Model → URL: watch color changes
+    // Model → URL
     watch(
         [() => model.value.selectedColorSpace, () => model.value.color],
-        () => {
-            if (!syncing) syncModelToUrl();
-        },
+        () => syncModelToUrl(),
     );
 }

@@ -117,7 +117,7 @@
                 ]"
             >
                 <Transition :name="viewManager.ready.value ? 'pane-left' : ''" mode="out-in">
-                    <KeepAlive :max="3">
+                    <KeepAlive :max="6">
                         <ColorPicker
                             v-if="currentConfig.left === 'color-picker'"
                             key="color-picker"
@@ -130,56 +130,30 @@
                         <BrowsePane
                             v-else-if="currentConfig.left === 'browse'"
                             key="browse"
-
                         />
                         <ExtractPane
                             v-else-if="currentConfig.left === 'extract'"
                             key="extract"
-
                             :color-space="model.selectedColorSpace"
                         />
                         <GeneratePane
                             v-else-if="currentConfig.left === 'generate'"
                             key="generate"
                             ref="generatePaneRef"
-
                         />
                         <GradientPane
                             v-else-if="currentConfig.left === 'gradient'"
                             key="gradient"
                             ref="gradientPaneRef"
-
                         />
                         <AuroraPane
                             v-else-if="currentConfig.left === 'atmosphere'"
                             key="atmosphere"
                         />
                         <AdminPane
-                            v-else-if="currentConfig.left === 'admin-users'"
-                            key="admin-users"
-                            sub-view="admin-users"
-
-                        />
-                        <AdminPane
-                            v-else-if="currentConfig.left === 'admin-names'"
-                            key="admin-names"
-                            sub-view="admin-names"
-
-                        />
-                        <AdminPane
-                            v-else-if="currentConfig.left === 'admin-audit'"
-                            key="admin-audit"
-                            sub-view="admin-audit"
-                        />
-                        <AdminPane
-                            v-else-if="currentConfig.left === 'admin-flagged'"
-                            key="admin-flagged"
-                            sub-view="admin-flagged"
-                        />
-                        <AdminPane
-                            v-else-if="currentConfig.left === 'admin-tags'"
-                            key="admin-tags"
-                            sub-view="admin-tags"
+                            v-else-if="currentConfig.left.startsWith('admin-')"
+                            :key="currentConfig.left"
+                            :sub-view="currentConfig.left"
                         />
                     </KeepAlive>
                 </Transition>
@@ -244,17 +218,20 @@ import { useContrastSafeColor } from "@composables/useContrastSafeColor";
 import { Dock } from "@components/custom/dock";
 import { RefreshCw, Copy, Save, RotateCcw, Pipette, Blend, Paintbrush, Trash2 } from "lucide-vue-next";
 import type { DockActionBar } from "@components/custom/dock/composables/useDockActionBar";
+import { defineAsyncComponent } from "vue";
 import {
     AboutPane,
     PalettesPane,
     BrowsePane,
-    ExtractPane,
-    AdminPane,
-    AuroraPane,
-    MixPane,
-    GeneratePane,
-    GradientPane,
 } from "@components/custom/panes";
+
+// Lazy-load panes that aren't visited on every session
+const ExtractPane = defineAsyncComponent(() => import("@components/custom/panes/ExtractPane.vue"));
+const GeneratePane = defineAsyncComponent(() => import("@components/custom/panes/GeneratePane.vue"));
+const GradientPane = defineAsyncComponent(() => import("@components/custom/panes/GradientPane.vue"));
+const MixPane = defineAsyncComponent(() => import("@components/custom/panes/MixPane.vue"));
+const AdminPane = defineAsyncComponent(() => import("@components/custom/panes/AdminPane.vue"));
+const AuroraPane = defineAsyncComponent(() => import("@components/custom/panes/AuroraPane.vue"));
 
 import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
 
@@ -392,11 +369,7 @@ const mobileComponent = computed(() => {
     if (cfg.left === "generate") return GeneratePane;
     if (cfg.left === "gradient") return GradientPane;
     if (cfg.left === "atmosphere") return AuroraPane;
-    if (cfg.left === "admin-users") return AdminPane;
-    if (cfg.left === "admin-names") return AdminPane;
-    if (cfg.left === "admin-audit") return AdminPane;
-    if (cfg.left === "admin-flagged") return AdminPane;
-    if (cfg.left === "admin-tags") return AdminPane;
+    if (cfg.left.startsWith("admin-")) return AdminPane;
     return ColorPicker;
 });
 
@@ -421,11 +394,7 @@ const mobileProps = computed(() => {
     if (cfg.left === "generate") return {};
     if (cfg.left === "gradient") return {};
     if (cfg.left === "atmosphere") return {};
-    if (cfg.left === "admin-users") return { subView: "admin-users" };
-    if (cfg.left === "admin-names") return { subView: "admin-names" };
-    if (cfg.left === "admin-audit") return { subView: "admin-audit" };
-    if (cfg.left === "admin-flagged") return { subView: "admin-flagged" };
-    if (cfg.left === "admin-tags") return { subView: "admin-tags" };
+    if (cfg.left.startsWith("admin-")) return { subView: cfg.left };
     return {};
 });
 

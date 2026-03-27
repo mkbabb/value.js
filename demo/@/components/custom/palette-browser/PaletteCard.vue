@@ -158,7 +158,7 @@
                 >
                     <SwatchHoverMenu
                         v-for="(color, i) in palette.colors"
-                        :key="i"
+                        :key="`${color.css}-${i}`"
                         :color="color.css"
                         :open="openPopoverIndex === i"
                         :can-hover="canHover"

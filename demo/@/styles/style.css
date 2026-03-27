@@ -61,6 +61,19 @@
     filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.3));
 }
 
+/* ── CSS containment — isolate layout/paint for performance ── */
+.pane-scroll-fade {
+    contain: layout style paint;
+}
+
+.palette-card-grid {
+    contain: content;
+}
+
+.palette-tab-content[data-state="inactive"] {
+    content-visibility: hidden;
+}
+
 /* ── App layout — grid replaces manual calc chain ── */
 .app-layout {
     display: grid;
