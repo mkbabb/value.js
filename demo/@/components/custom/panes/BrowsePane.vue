@@ -76,11 +76,7 @@
                 </PaletteCardGrid>
             </div>
         </div>
-    </Card>
-
-    <!-- Portaled so BrowsePane stays single-root for Transition/KeepAlive -->
-    <Teleport to="body">
-        <!-- Tag edit popover -->
+        <!-- These components portal themselves via reka-ui (Sheet/Dialog) -->
         <TagEditPopover
             v-if="tagEditPalette"
             :open="tagEditOpen"
@@ -108,7 +104,7 @@
             @update:open="flagDialogOpen = $event"
             @submit="onFlagSubmit"
         />
-    </Teleport>
+    </Card>
 </template>
 
 <script setup lang="ts">

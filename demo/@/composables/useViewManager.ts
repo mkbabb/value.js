@@ -167,6 +167,8 @@ export interface ViewManager {
     previousView: Ref<ViewId | null>;
     mobilePaneIndex: Ref<0 | 1>;
     currentConfig: Ref<PaneConfig>;
+    /** False until the router has resolved the initial route */
+    ready: Ref<boolean>;
     switchView: (id: ViewId) => void;
     goBack: () => void;
     viewMap: typeof VIEW_MAP;
@@ -178,6 +180,10 @@ export const VIEW_MANAGER_KEY: InjectionKey<ViewManager> =
 export function useViewManager(): ViewManager {
     const router = useRouter();
     const route = useRoute();
+
+    // Suppress pane transition on initial route resolution
+    const ready = ref(false);
+    router.isReady().then(() => { ready.value = true; });
 
     const currentView = computed<ViewId>(() => {
         const name = route.name as string;
@@ -213,6 +219,7 @@ export function useViewManager(): ViewManager {
         previousView,
         mobilePaneIndex,
         currentConfig,
+        ready,
         switchView,
         goBack,
         viewMap: VIEW_MAP,

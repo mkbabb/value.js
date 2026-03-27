@@ -98,7 +98,7 @@
         >
             <!-- Mobile: single pane slot (below lg) -->
             <div class="lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
-                <Transition name="pane-left" mode="out-in">
+                <Transition :name="viewManager.ready.value ? 'pane-left' : ''" mode="out-in">
                     <KeepAlive :max="5">
                         <component
                             :is="mobileComponent"
@@ -116,7 +116,7 @@
                     'justify-center',
                 ]"
             >
-                <Transition name="pane-left" mode="out-in">
+                <Transition :name="viewManager.ready.value ? 'pane-left' : ''" mode="out-in">
                     <KeepAlive :max="3">
                         <ColorPicker
                             v-if="currentConfig.left === 'color-picker'"
@@ -190,7 +190,7 @@
                 class="pane-wrapper hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
                 :style="currentConfig.right === null ? 'visibility:hidden;position:absolute;pointer-events:none;opacity:0' : ''"
             >
-                <Transition name="pane-right" mode="out-in">
+                <Transition :name="viewManager.ready.value ? 'pane-right' : ''" mode="out-in">
                     <KeepAlive :max="3">
                         <AboutPane
                             v-if="currentConfig.right === 'about'"
@@ -268,8 +268,8 @@ import { useColorUrl } from "@components/custom/color-picker/composables/useColo
 import { debounce } from "@src/utils";
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { usePaletteManager } from "@composables/palette/usePaletteManager";
-import { useAuroraBlobs } from "@mkbabb/glass-ui";
-import type { AuroraBlobsConfig } from "@mkbabb/glass-ui";
+import { useAurora } from "@mkbabb/glass-ui";
+import type { AuroraConfig } from "@mkbabb/glass-ui";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -602,7 +602,7 @@ useColorUrl({ model, updateModel });
 
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
-const auroraConfig = reactive<AuroraBlobsConfig>({
+const auroraConfig = reactive<AuroraConfig>({
     colorMode: "derived",
     colors: [],
     surfaceMode: "color", surfaceAlpha: 0.70,
@@ -614,7 +614,7 @@ const auroraConfig = reactive<AuroraBlobsConfig>({
     orbitAmplitude: 0.25, blendMode: "source-over",
     gradStop2: 0.30, gradStop3: 0.60, gradStop4: 1.00,
 });
-const { config: auroraConfigResult } = useAuroraBlobs(atmosphereCanvas, auroraConfig, cssColorOpaque);
+const { config: auroraConfigResult } = useAurora(atmosphereCanvas, auroraConfig, cssColorOpaque);
 provide("auroraConfig", auroraConfigResult);
 
 onMounted(() => {
