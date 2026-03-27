@@ -3,7 +3,7 @@ export { default as PalettesPane } from "./PalettesPane.vue";
 export { default as BrowsePane } from "./BrowsePane.vue";
 export { default as ExtractPane } from "./ExtractPane.vue";
 export { default as AdminPane } from "./AdminPane.vue";
-export { default as AtmospherePane } from "./AtmospherePane.vue";
+export { default as AuroraPane } from "./AuroraPane.vue";
 export { default as MixPane } from "./MixPane.vue";
 export { default as GeneratePane } from "./GeneratePane.vue";
 export { default as GradientPane } from "./GradientPane.vue";

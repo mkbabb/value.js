@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { ObjectId } from "mongodb";
-import { adminAuth, hashIP, resolveIP } from "../middleware.js";
+import { adminAuth, escapeRegex, hashIP, resolveIP } from "../middleware.js";
 import { getDb } from "../db.js";
 
 const admin = new Hono();
@@ -214,7 +214,7 @@ admin.get("/users", async (c) => {
 
     const matchStage: Record<string, any> = {};
     if (q) {
-        matchStage._id = { $regex: q, $options: "i" };
+        matchStage._id = { $regex: escapeRegex(q), $options: "i" };
     }
 
     const [results, total] = await Promise.all([
@@ -721,7 +721,7 @@ admin.get("/audit", async (c) => {
     }
 
     const target = c.req.query("target");
-    if (target) filter.target = { $regex: target, $options: "i" };
+    if (target) filter.target = { $regex: escapeRegex(target), $options: "i" };
 
     const [results, total] = await Promise.all([
         db.collection("admin_audit")

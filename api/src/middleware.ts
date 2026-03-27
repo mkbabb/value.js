@@ -288,6 +288,13 @@ export const sanitizeBody: MiddlewareHandler = async (c, next) => {
     await next();
 };
 
+// --- Regex escaping ---
+
+/** Escape special regex characters for safe use in MongoDB $regex queries. */
+export function escapeRegex(s: string): string {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 // --- IP hashing ---
 
 export async function hashIP(ip: string): Promise<string> {

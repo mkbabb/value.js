@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import type { AppEnv } from "../types.js";
 import { getDb } from "../db.js";
+import { escapeRegex } from "../middleware.js";
 
 const colors = new Hono<AppEnv>();
 
@@ -62,8 +63,8 @@ colors.get("/search", async (c) => {
             .find({
                 status: "approved",
                 $or: [
-                    { name: { $regex: q, $options: "i" } },
-                    { css: { $regex: q, $options: "i" } },
+                    { name: { $regex: escapeRegex(q), $options: "i" } },
+                    { css: { $regex: escapeRegex(q), $options: "i" } },
                 ],
             })
             .limit(limit - results.length + 5) // fetch extra to account for overlap

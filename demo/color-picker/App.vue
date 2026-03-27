@@ -150,10 +150,9 @@
                             ref="gradientPaneRef"
 
                         />
-                        <AtmospherePane
+                        <AuroraPane
                             v-else-if="currentConfig.left === 'atmosphere'"
                             key="atmosphere"
-
                         />
                         <AdminPane
                             v-else-if="currentConfig.left === 'admin-users'"
@@ -251,7 +250,7 @@ import {
     BrowsePane,
     ExtractPane,
     AdminPane,
-    AtmospherePane,
+    AuroraPane,
     MixPane,
     GeneratePane,
     GradientPane,
@@ -269,8 +268,8 @@ import { useColorUrl } from "@components/custom/color-picker/composables/useColo
 import { debounce } from "@src/utils";
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { usePaletteManager } from "@composables/palette/usePaletteManager";
-import { useAtmosphereCanvas } from "@mkbabb/glass-ui";
-import type { AtmosphereConfig } from "@mkbabb/glass-ui";
+import { useAuroraBlobs } from "@mkbabb/glass-ui";
+import type { AuroraBlobsConfig } from "@mkbabb/glass-ui";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -392,7 +391,7 @@ const mobileComponent = computed(() => {
     if (cfg.left === "extract") return ExtractPane;
     if (cfg.left === "generate") return GeneratePane;
     if (cfg.left === "gradient") return GradientPane;
-    if (cfg.left === "atmosphere") return AtmospherePane;
+    if (cfg.left === "atmosphere") return AuroraPane;
     if (cfg.left === "admin-users") return AdminPane;
     if (cfg.left === "admin-names") return AdminPane;
     if (cfg.left === "admin-audit") return AdminPane;
@@ -603,17 +602,19 @@ useColorUrl({ model, updateModel });
 
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
-const atmosphereConfig = useAtmosphereCanvas(
-    atmosphereCanvas, cssColorOpaque,
-    reactive<AtmosphereConfig>({
-        bgAlpha: 0.70, blur: 100, speed: 0.40,
-        blobCount: 10, blobBaseRadius: 0.16, blobRadiusStep: 0.03,
-        smallRadiusScale: 0.60, peakAlphaLarge: 0.80, peakAlphaSmall: 0.60,
-        lShiftLarge: 0.15, lShiftSmall: 0.10, hueShiftLarge: 25, hueShiftSmall: 55,
-        orbitX: 0.45, orbitY: 0.25, gradStop2: 0.30, gradStop3: 0.60, gradStop4: 1.00,
-    }),
-    { surfaceMode: "color" },
-);
+const auroraConfig = reactive<AuroraBlobsConfig>({
+    colorMode: "derived",
+    colors: [],
+    surfaceMode: "color", surfaceAlpha: 0.70,
+    blur: 100, speed: 0.40,
+    blobCount: 10, baseRadius: 0.16, radiusVariance: 0.03,
+    viewportAnchorRatio: 1.0,
+    alphaLight: 0.80, alphaDark: 0.60,
+    lShiftLarge: 0.15, lShiftSmall: 0.10, hueShiftLarge: 25, hueShiftSmall: 55,
+    orbitAmplitude: 0.25, blendMode: "source-over",
+    gradStop2: 0.30, gradStop3: 0.60, gradStop4: 1.00,
+});
+const { config: atmosphereConfig } = useAuroraBlobs(atmosphereCanvas, auroraConfig, cssColorOpaque);
 provide("atmosphereConfig", atmosphereConfig);
 
 onMounted(() => {
