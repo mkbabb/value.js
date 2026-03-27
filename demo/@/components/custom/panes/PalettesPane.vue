@@ -2,7 +2,7 @@
     <Card variant="pane" class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Save, organize, and share your colors.">
             <span class="capitalize pastel-rainbow-text">My Palettes</span>
-            <span v-if="pm.savedPalettes.value.length > 0" class="fira-code text-sm font-normal text-muted-foreground ml-2">{{ pm.savedPalettes.value.length }}</span>
+            <span v-if="pm.savedPalettes.value.length > 0" class="text-mono-small font-normal text-muted-foreground ml-2">{{ pm.savedPalettes.value.length }}</span>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <PaneSearchBar
@@ -29,7 +29,7 @@
 
                 <!-- Saved palettes toolbar -->
                 <div v-if="pm.savedPalettes.value.length > 0" class="flex items-center gap-2">
-                    <span class="fira-code text-xs text-muted-foreground">
+                    <span class="text-mono-small text-muted-foreground">
                         {{ pm.savedPalettes.value.length }} palette{{ pm.savedPalettes.value.length !== 1 ? 's' : '' }}
                     </span>
                     <div class="flex-1" />

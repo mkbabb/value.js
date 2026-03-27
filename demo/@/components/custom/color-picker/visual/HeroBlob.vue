@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </TooltipTrigger>
-            <TooltipContent class="fira-code">
+            <TooltipContent class="font-mono-code">
                 {{ denormalizedCurrentColor.value.toFormattedString() }}
             </TooltipContent>
         </Tooltip>

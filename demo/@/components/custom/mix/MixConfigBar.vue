@@ -95,7 +95,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
         <!-- Mix button -->
         <Button
             :disabled="!canMix"
-            class="h-10 gap-2 font-medium fraunces"
+            class="h-10 gap-2 font-medium font-display"
             @click="emit('mix')"
         >
             <Blend class="w-4 h-4" />

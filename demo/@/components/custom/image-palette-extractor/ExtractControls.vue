@@ -2,7 +2,7 @@
     <div class="flex flex-col gap-3">
         <!-- K slider — own row, full width, tall track with gradient -->
         <div class="flex items-center gap-2 w-full min-w-0">
-            <label class="fira-code text-sm font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right">
+            <label class="text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right">
                 {{ k }}
             </label>
             <div
@@ -46,7 +46,7 @@
 
             <!-- Chroma weight slider -->
             <div class="flex items-center gap-1.5 flex-1 min-w-0">
-                <label class="fira-code text-2xs text-muted-foreground/60 whitespace-nowrap" title="Chroma weight">kC</label>
+                <label class="font-mono-code text-2xs text-muted-foreground/60 whitespace-nowrap" title="Chroma weight">kC</label>
                 <div
                     ref="kcSliderWrapperRef"
                     :class="[
@@ -71,7 +71,7 @@
                         @touchend.passive="kcGate.handleTouchEnd()"
                     />
                 </div>
-                <span class="fira-code text-2xs text-muted-foreground/50 tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
+                <span class="font-mono-code text-2xs text-muted-foreground/50 tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
             </div>
 
             <div class="dock-separator" />

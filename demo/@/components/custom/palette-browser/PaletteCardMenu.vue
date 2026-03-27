@@ -6,7 +6,7 @@
 
         <DropdownMenuContent align="end" class="w-48 text-sm">
             <!-- Header: palette name -->
-            <DropdownMenuLabel class="fraunces font-bold truncate max-w-[180px]">
+            <DropdownMenuLabel class="font-display font-bold truncate max-w-[180px]">
                 {{ palette.name }}
             </DropdownMenuLabel>
             <DropdownMenuSeparator />

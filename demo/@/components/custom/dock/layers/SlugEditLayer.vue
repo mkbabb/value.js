@@ -81,7 +81,7 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
             ref="slugInputRef"
             v-model="slugInput"
             placeholder="enter slug or token..."
-            class="fira-code text-sm bg-transparent border-none outline-none w-40 min-w-0 placeholder:text-muted-foreground/50"
+            class="text-mono-small bg-transparent border-none outline-none w-40 min-w-0 placeholder:text-muted-foreground/50"
             @keydown.escape.stop="slugEditMode = false"
         />
         <button

@@ -47,11 +47,11 @@
                     <!-- Processing indicator -->
                     <div v-if="isProcessing" class="flex items-center gap-2 justify-center py-2">
                         <div class="w-4 h-4 rounded-full border-2 border-muted-foreground/30 border-t-primary animate-spin" />
-                        <span class="fira-code text-xs text-muted-foreground">Extracting...</span>
+                        <span class="text-mono-small text-muted-foreground">Extracting...</span>
                     </div>
 
                     <!-- Error -->
-                    <div v-if="quantizeError" class="fira-code text-xs text-destructive px-1">
+                    <div v-if="quantizeError" class="text-mono-small text-destructive px-1">
                         {{ quantizeError }}
                     </div>
 
@@ -75,7 +75,7 @@
                     <!-- Empty state -->
                     <div v-if="!extractedPalette && !isProcessing && !quantizeError" class="flex flex-col items-center justify-center gap-2 py-4 text-center">
                         <Pipette class="w-6 h-6 text-muted-foreground/30" />
-                        <span class="fira-code text-xs text-muted-foreground/40">Upload an image to extract colors</span>
+                        <span class="text-mono-small text-muted-foreground/40">Upload an image to extract colors</span>
                     </div>
                 </div>
             </div>

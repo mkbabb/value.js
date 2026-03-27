@@ -1,6 +1,6 @@
 <template>
     <div class="grid gap-3">
-        <p class="fira-code text-sm text-muted-foreground">
+        <p class="text-mono-small text-muted-foreground">
             Enter admin token to continue.
         </p>
         <form class="flex items-center gap-2" @submit.prevent="onSubmit">
@@ -8,7 +8,7 @@
                 v-model="tokenInput"
                 type="password"
                 placeholder="Admin token..."
-                class="fira-code text-base h-10 flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
+                class="font-mono-code text-base h-10 flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
             />
             <Button
                 type="submit"

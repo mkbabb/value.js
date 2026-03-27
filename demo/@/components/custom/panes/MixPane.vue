@@ -98,7 +98,7 @@ defineExpose({ clearSelection, startMix, copyResult });
                     class="flex items-center gap-2 justify-center py-4"
                 >
                     <div class="w-5 h-5 rounded-full border-2 border-muted-foreground/30 border-t-primary animate-spin" />
-                    <span class="fira-code text-xs text-muted-foreground">
+                    <span class="text-mono-small text-muted-foreground">
                         {{ animationPhase === 'gathering' ? 'Gathering…' : animationPhase === 'mixing' ? 'Mixing…' : 'Revealing…' }}
                     </span>
                 </div>

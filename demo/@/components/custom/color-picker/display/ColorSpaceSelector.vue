@@ -18,7 +18,7 @@
             <SelectValue class="w-full" />
         </SelectTrigger>
         <SelectContent>
-            <SelectGroup class="fira-code">
+            <SelectGroup class="font-mono-code">
                 <SelectItem
                     class="pl-7 pr-3 py-1.5 text-lg"
                     v-for="[space, name] in Object.entries(DISPLAY_COLOR_SPACE_NAMES)"

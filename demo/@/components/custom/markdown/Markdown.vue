@@ -7,11 +7,11 @@
         </div>
     </div>
 
-    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper fraunces" :style="mdColorVars">
+    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper font-display" :style="mdColorVars">
         <component :is="markdownContent" />
     </div>
 
-    <div class="fraunces" v-else>
+    <div class="font-display" v-else>
         <Alert>
             <AlertTitle class="text-4xl">Oh snap...</AlertTitle>
             <AlertDescription>
@@ -142,7 +142,7 @@ onUpdated(() => {
 .markdown-wrapper > .markdown-body {
     /* Links */
     a {
-        @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-[var(--duration-fast)];
+        @apply text-primary hover:underline transition-colors duration-[var(--duration-fast)];
     }
 
     /* Lists */
@@ -170,22 +170,22 @@ onUpdated(() => {
 
     /* Code blocks */
     pre {
-        @apply bg-gray-100 dark:bg-gray-800 rounded-2xl p-4 mb-4 overflow-x-auto;
+        @apply bg-muted rounded-2xl p-4 mb-4 overflow-x-auto;
     }
 
     code {
-        @apply text-xs font-mono bg-gray-100 dark:bg-gray-800 rounded;
+        @apply text-xs font-mono bg-muted rounded;
     }
 
     /* Inline code */
     p > code,
     li > code {
-        @apply text-pink-600 dark:text-pink-400 bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5;
+        @apply text-primary bg-muted rounded px-1 py-0.5;
     }
 
     /* Blockquotes */
     blockquote {
-        @apply border-l-4 border-gray-300 dark:border-gray-700 pl-4 italic my-4 text-gray-600 dark:text-gray-400;
+        @apply border-l-4 border-border pl-4 italic my-4 text-muted-foreground;
     }
 
     /* Tables */
@@ -195,11 +195,11 @@ onUpdated(() => {
 
     th,
     td {
-        @apply border border-gray-300 dark:border-gray-700 px-4 py-2;
+        @apply border border-border px-4 py-2;
     }
 
     th {
-        @apply bg-gray-100 dark:bg-gray-800 font-bold text-left;
+        @apply bg-muted font-bold text-left;
     }
 
     /* Images */
@@ -254,7 +254,7 @@ onUpdated(() => {
 
     /* Callouts or admonitions */
     .callout {
-        @apply bg-gray-100 dark:bg-gray-800 border-l-4 border-blue-500 dark:border-blue-400 p-4 mb-4 rounded-r-2xl;
+        @apply bg-muted border-l-4 border-primary p-4 mb-4 rounded-r-2xl;
 
         &.warning {
             @apply border-yellow-500 dark:border-yellow-400;
@@ -267,7 +267,7 @@ onUpdated(() => {
 
     /* Footnotes */
     .footnotes {
-        @apply mt-8 pt-4 border-t border-gray-300 dark:border-gray-700;
+        @apply mt-8 pt-4 border-t border-border;
 
         ol {
             @apply text-sm;
@@ -286,9 +286,9 @@ onUpdated(() => {
 
     /* Tables of contents */
     .toc {
-        @apply sticky top-0 bg-background z-10;
+        @apply sticky top-0 bg-background z-[var(--z-popover)];
         @apply p-4 mb-4;
-        @apply font-bold text-gray-900 dark:text-gray-100;
+        @apply font-bold text-foreground;
         @apply first:mt-0 scroll-m-20;
     }
 
@@ -305,7 +305,7 @@ onUpdated(() => {
     }
 
     .toc a {
-        @apply text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-[var(--duration-fast)];
+        @apply text-primary hover:underline transition-colors duration-[var(--duration-fast)];
     }
 }
 </style>

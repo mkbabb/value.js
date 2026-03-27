@@ -6,7 +6,7 @@
             class="flex items-center justify-between gap-2"
         >
             <span
-                class="fraunces text-sm font-bold text-muted-foreground"
+                class="text-small font-display font-semibold text-muted-foreground"
             >
                 {{
                     savedColorStrings.length > 0
@@ -16,7 +16,7 @@
             </span>
             <span
                 v-if="savedColorStrings.length > 0"
-                class="fira-code text-xs text-muted-foreground"
+                class="text-mono-small text-muted-foreground"
                 >{{ savedColorStrings.length }} colors</span
             >
         </div>
@@ -60,10 +60,10 @@
                                 <WatercolorDot :color="cssColorOpaque" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-to-' + i" />
                             </div>
                             <div class="flex gap-2 mt-2 self-center">
-                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-foreground/15 transition-all cursor-pointer hover:scale-110 active:scale-95" title="Save edit" @click.stop="emit('commitEdit')">
+                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-accent/50 transition-all cursor-pointer hover:scale-110 active:scale-95" title="Save edit" @click.stop="emit('commitEdit')">
                                     <Check class="w-5 h-5" :style="{ color: safeAccent }" />
                                 </button>
-                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-foreground/15 transition-all cursor-pointer hover:scale-110 active:scale-95" title="Cancel edit" @click.stop="emit('cancelEdit')">
+                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-accent/50 transition-all cursor-pointer hover:scale-110 active:scale-95" title="Cancel edit" @click.stop="emit('cancelEdit')">
                                     <Undo2 class="w-5 h-5 text-muted-foreground" />
                                 </button>
                             </div>
@@ -99,7 +99,7 @@
                 :placeholder="
                     'Palette ' + (savedPaletteCount + 1)
                 "
-                class="fira-code text-sm h-8 flex-1 rounded-2xl bg-background border-border/50 focus-visible:ring-0 focus-visible:ring-offset-0"
+                class="text-mono-small h-8 flex-1 rounded-2xl bg-background border-border/50 focus-visible:ring-0 focus-visible:ring-offset-0"
                 @keydown.enter="saveCurrentPalette"
             />
             <Button
@@ -116,13 +116,13 @@
             v-if="duplicateTarget"
             class="flex items-center gap-2 flex-wrap"
         >
-            <span class="fira-code text-xs text-muted-foreground italic">
+            <span class="text-mono-small text-muted-foreground italic">
                 "{{ duplicateTarget.name }}" already exists.
             </span>
             <Button
                 variant="outline"
                 size="sm"
-                class="h-6 px-2 text-xs cursor-pointer fraunces rounded-full"
+                class="h-6 px-2 text-xs cursor-pointer font-display rounded-full"
                 @click="confirmUpdatePalette"
             >
                 Update
@@ -130,7 +130,7 @@
             <Button
                 variant="ghost"
                 size="sm"
-                class="h-6 px-2 text-xs cursor-pointer fraunces rounded-full"
+                class="h-6 px-2 text-xs cursor-pointer font-display rounded-full"
                 @click="duplicateTarget = null"
             >
                 Cancel

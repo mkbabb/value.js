@@ -12,7 +12,7 @@
                         contenteditable
                         role="textbox"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
-                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-2xl px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
+                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-2xl px-3 py-2 focus-visible:outline-none font-mono-code text-ellipsis whitespace-nowrap text-center"
                         :class="{
                             'pr-9': true,
                             'color-input-error': parseError && !proposeMode,
@@ -38,7 +38,7 @@
                                     "
                                 />
                             </TooltipTrigger>
-                            <TooltipContent class="fira-code text-xs max-w-[200px]">
+                            <TooltipContent class="text-mono-small max-w-[200px]">
                                 <div class="grid gap-1">
                                     <span class="font-bold">{{
                                         currentColorMeta.name
@@ -84,14 +84,14 @@
                 </div>
             </HoverCardTrigger>
 
-            <HoverCardContent v-if="!proposeMode" class="z-[var(--z-hovercard)] pointer-events-auto fraunces w-full">
+            <HoverCardContent v-if="!proposeMode" class="z-[var(--z-hovercard)] pointer-events-auto font-display w-full">
                 <p class="font-bold text-lg">Enter a color</p>
                 <p>
                     <span class="italic">Any</span> valid CSS color string is accepted.
                 </p>
                 <Separator class="my-2" />
 
-                <div class="fira-code w-full flex justify-center">
+                <div class="font-mono-code w-full flex justify-center">
                     {{ denormalizedCurrentColor.value.toFormattedString() }}
                 </div>
             </HoverCardContent>

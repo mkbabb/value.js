@@ -5,7 +5,7 @@
                 <EllipsisVertical class="w-4 h-4 text-muted-foreground" />
             </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" class="min-w-[11rem] fraunces">
+        <DropdownMenuContent align="end" class="min-w-[11rem] font-display">
             <DropdownMenuRadioGroup
                 :model-value="sort"
                 @update:model-value="(v: any) => $emit('update:sort', v as string)"

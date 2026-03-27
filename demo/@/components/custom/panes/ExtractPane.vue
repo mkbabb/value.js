@@ -31,11 +31,11 @@
                 <!-- Processing indicator -->
                 <div v-if="isProcessing" class="flex items-center gap-2 justify-center py-2">
                     <div class="w-4 h-4 rounded-full border-2 border-muted-foreground/30 border-t-primary animate-spin" />
-                    <span class="fira-code text-xs text-muted-foreground">Extracting...</span>
+                    <span class="text-mono-small text-muted-foreground">Extracting...</span>
                 </div>
 
                 <!-- Error -->
-                <div v-if="quantizeError" class="fira-code text-xs text-destructive px-1">
+                <div v-if="quantizeError" class="text-mono-small text-destructive px-1">
                     {{ quantizeError }}
                 </div>
 

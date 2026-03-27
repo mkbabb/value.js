@@ -99,8 +99,8 @@ watch(
             <!-- Selected colors + add button -->
             <div class="dashed-well">
                 <div class="flex items-center justify-between">
-                    <span class="fraunces text-sm font-bold text-muted-foreground">Selected</span>
-                    <span v-if="selectedColors.length > 0" class="fira-code text-xs text-muted-foreground">{{ selectedColors.length }} colors</span>
+                    <span class="text-small font-display font-semibold text-muted-foreground">Selected</span>
+                    <span v-if="selectedColors.length > 0" class="text-mono-small text-muted-foreground">{{ selectedColors.length }} colors</span>
                 </div>
                 <TransitionGroup
                     name="swatch-item"
@@ -119,7 +119,7 @@ watch(
                             :title="`${sc.css} (${sc.source})`"
                         />
                         <button
-                            class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer z-10"
+                            class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer z-[var(--z-popover)]"
                             @click="emit('removeColor', i)"
                         >
                             <X class="w-2.5 h-2.5" />
@@ -141,7 +141,7 @@ watch(
             <Collapsible v-if="savedPalettes.length > 0" v-model:open="paletteDropdownOpen">
                 <CollapsibleTrigger class="flex items-center gap-2 w-full cursor-pointer group py-1">
                     <span class="section-label">From palettes</span>
-                    <span class="fira-code text-2xs text-muted-foreground/50">{{ savedPalettes.length }}</span>
+                    <span class="font-mono-code text-2xs text-muted-foreground/50">{{ savedPalettes.length }}</span>
                     <div class="flex-1" />
                     <ChevronDown
                         class="w-4 h-4 text-muted-foreground/50 transition-transform group-hover:text-foreground"
@@ -158,8 +158,8 @@ watch(
                             <!-- Compact palette header with color strip + name -->
                             <PaletteColorStrip :colors="palette.colors" />
                             <div class="px-3 py-2 flex items-center justify-between gap-2">
-                                <span class="fraunces text-sm font-bold truncate">{{ palette.name }}</span>
-                                <span class="fira-code text-2xs text-muted-foreground shrink-0">{{ palette.colors.length }}</span>
+                                <span class="text-small font-display font-semibold truncate">{{ palette.name }}</span>
+                                <span class="font-mono-code text-2xs text-muted-foreground shrink-0">{{ palette.colors.length }}</span>
                             </div>
                             <!-- Clickable swatches -->
                             <div class="px-3 pb-3 flex flex-wrap gap-1.5">
@@ -200,7 +200,7 @@ watch(
                 />
             </div>
 
-            <div v-if="selectedPalettes.length > 0" class="fira-code text-xs text-muted-foreground">
+            <div v-if="selectedPalettes.length > 0" class="text-mono-small text-muted-foreground">
                 {{ selectedPalettes.length }} palette{{ selectedPalettes.length === 1 ? '' : 's' }} selected
             </div>
         </template>

@@ -36,13 +36,13 @@
             <HoverCard v-if="userSlug" :close-delay="0" :open-delay="300">
                 <HoverCardTrigger as-child>
                     <span
-                        class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-help"
+                        class="text-mono-small font-bold px-2 py-0.5 rounded-full border cursor-help"
                         :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
                     >
                         {{ userSlug }}
                     </span>
                 </HoverCardTrigger>
-                <HoverCardContent class="fraunces text-sm w-56 z-[var(--z-popover)]">
+                <HoverCardContent class="text-small font-display w-56 z-[var(--z-popover)]">
                     <p class="font-bold">Your slug</p>
                     <p class="text-muted-foreground text-xs mt-1">
                         This is your unique identity. Use it to sign in from any device and access your palettes.
@@ -53,7 +53,7 @@
             <!-- Admin pill -->
             <span
                 v-else-if="isAdmin"
-                class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground"
+                class="text-mono-small font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground"
             >
                 admin
             </span>
@@ -61,7 +61,7 @@
             <!-- Login button (not logged in, not admin) -->
             <button
                 v-else
-                class="flex items-center gap-1.5 fira-code text-sm font-bold px-3 py-1 rounded-full border border-primary/30 hover:bg-accent transition-colors cursor-pointer"
+                class="flex items-center gap-1.5 text-mono-small font-bold px-3 py-1 rounded-full border border-primary/30 hover:bg-accent transition-colors cursor-pointer"
                 @click="onStartSlugEdit()"
             >
                 <LogIn class="w-3.5 h-3.5" />
@@ -78,14 +78,14 @@
                 <PopoverContent class="w-auto p-1 flex flex-col gap-0.5 z-[var(--z-popover)]" align="end" :side-offset="4">
                     <button
                         v-if="userSlug"
-                        class="flex items-center gap-2 px-3 py-1.5 text-sm fraunces rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
+                        class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
                         @click="slugMenuOpen = false; onCopySlug()"
                     >
                         <Copy class="w-3.5 h-3.5" />
                         Copy slug
                     </button>
                     <button
-                        class="flex items-center gap-2 px-3 py-1.5 text-sm fraunces rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
+                        class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
                         @click="slugMenuOpen = false; onStartSlugEdit()"
                     >
                         <LogIn class="w-3.5 h-3.5" />
@@ -93,14 +93,14 @@
                     </button>
                     <button
                         v-if="userSlug"
-                        class="flex items-center gap-2 px-3 py-1.5 text-sm fraunces rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
+                        class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
                         @click="slugMenuOpen = false; $emit('logout')"
                     >
                         <LogOut class="w-3.5 h-3.5" />
                         Logout
                     </button>
                     <button
-                        class="flex items-center gap-2 px-3 py-1.5 text-sm fraunces rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left text-muted-foreground"
+                        class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left text-muted-foreground"
                         @click="slugMenuOpen = false; $emit('regenerate')"
                     >
                         <RefreshCw class="w-3.5 h-3.5" />
@@ -111,7 +111,7 @@
         </div>
         </Transition>
 
-        <p v-if="slugError" class="absolute left-0 -bottom-4 text-xs text-destructive fira-code whitespace-nowrap">
+        <p v-if="slugError" class="absolute left-0 -bottom-4 text-mono-small text-destructive whitespace-nowrap">
             {{ slugError }}
         </p>
     </div>

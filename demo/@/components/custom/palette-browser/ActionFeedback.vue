@@ -3,7 +3,7 @@
         <div
             v-if="visible"
             :class="[
-                'flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs fira-code',
+                'flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono-code',
                 variant === 'success' && 'bg-green-500/10 text-green-600 dark:text-green-400',
                 variant === 'error' && 'bg-destructive/10 text-destructive',
             ]"

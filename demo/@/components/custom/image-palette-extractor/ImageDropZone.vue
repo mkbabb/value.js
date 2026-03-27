@@ -33,7 +33,7 @@
             />
             <div v-else class="flex flex-col items-center gap-2 py-6">
                 <ImagePlus class="w-7 h-7 text-muted-foreground/50" />
-                <span class="fira-code text-xs text-muted-foreground/60 text-center px-4">
+                <span class="text-mono-small text-muted-foreground/60 text-center px-4">
                     Drop an image or click to browse
                 </span>
             </div>
@@ -45,7 +45,7 @@
             class="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 hover:opacity-100 transition-opacity"
             :style="{ transitionDuration: 'var(--duration-fast)' }"
         >
-            <span class="fira-code text-xs text-muted-foreground">{{ disableClick ? 'Click to sample colors' : 'Click or drop to replace' }}</span>
+            <span class="text-mono-small text-muted-foreground">{{ disableClick ? 'Click to sample colors' : 'Click or drop to replace' }}</span>
         </div>
     </div>
 </template>

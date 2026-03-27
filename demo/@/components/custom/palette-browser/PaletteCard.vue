@@ -53,7 +53,7 @@
                     :title="`${palette.forkCount} remix${palette.forkCount === 1 ? '' : 'es'}`"
                 >
                     <GitFork class="w-3 h-3" />
-                    <span class="fira-code">{{ palette.forkCount }}</span>
+                    <span class="font-mono-code">{{ palette.forkCount }}</span>
                 </span>
 
                 <!-- Version count -->
@@ -63,7 +63,7 @@
                     :title="`${palette.versionCount} versions`"
                 >
                     <History class="w-3 h-3" />
-                    <span class="fira-code">{{ palette.versionCount }}</span>
+                    <span class="font-mono-code">{{ palette.versionCount }}</span>
                 </span>
 
                 <!-- Tag chips -->

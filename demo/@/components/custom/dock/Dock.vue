@@ -328,7 +328,7 @@ const activeLayer = computed<string>(() => {
                             <div class="lg:hidden">
                                 <BouncyTabs
                                     variant="pill"
-                                    class="fraunces"
+                                    class="font-display"
                                     :options="[
                                         { label: viewManager.currentConfig.value.leftLabel ?? '', value: '0' },
                                         { label: viewManager.currentConfig.value.rightLabel ?? '', value: '1' },
@@ -376,7 +376,7 @@ const activeLayer = computed<string>(() => {
                         class="w-5 h-5 shrink-0 sm:hidden"
                         :style="{ color: safeAccent }"
                     />
-                    <span class="text-base fraunces text-foreground whitespace-nowrap hidden sm:inline">
+                    <span class="text-base font-display text-foreground whitespace-nowrap hidden sm:inline">
                         {{ viewManager.currentConfig.value.label }}
                     </span>
                     <ChevronDown class="w-3 h-3 text-muted-foreground shrink-0" />

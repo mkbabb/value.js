@@ -13,7 +13,7 @@
                     :aria-label="`${component} component value`"
                     :class="[
                         'font-normal focus-visible:outline-none',
-                        formatted[component]?.monospace && 'fira-code',
+                        formatted[component]?.monospace && 'font-mono-code',
                     ]"
                     @input="
                         (e) => {

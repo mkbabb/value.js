@@ -132,7 +132,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
         <!-- ── Interpolation ── -->
         <hr class="border-border" />
-        <h3 class="fraunces text-lg text-muted-foreground">Interpolation</h3>
+        <h3 class="font-display text-lg text-muted-foreground">Interpolation</h3>
 
         <div class="grid grid-cols-3 gap-3">
             <div class="flex flex-col gap-1">
@@ -193,7 +193,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <div class="flex flex-col gap-1">
             <div class="flex items-center justify-between">
                 <span class="section-label">Direction</span>
-                <span class="fira-code text-xs text-muted-foreground tabular-nums">{{ direction }}&deg;</span>
+                <span class="text-mono-small text-muted-foreground tabular-nums">{{ direction }}&deg;</span>
             </div>
             <Slider :model-value="[direction]" :min="0" :max="360" :step="1"
                 @update:model-value="(v: number[]) => direction = v[0]!" />
@@ -202,13 +202,13 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <!-- ── Easing ── -->
         <template v-if="intervalPairs.length > 0">
             <hr class="border-border" />
-            <h3 class="fraunces text-lg text-muted-foreground">Easing</h3>
+            <h3 class="font-display text-lg text-muted-foreground">Easing</h3>
             <div
                 v-for="pair in intervalPairs"
                 :key="pair.index"
                 class="flex items-center gap-2"
             >
-                <span class="fira-code text-xs text-muted-foreground/60 w-10 shrink-0">{{ pair.label }}</span>
+                <span class="text-mono-small text-muted-foreground/60 w-10 shrink-0">{{ pair.label }}</span>
                 <EasingSelector
                     :model-value="pair.easingName"
                     @update:model-value="(v) => updateInterval(pair.index, v)"
@@ -219,7 +219,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <!-- ── CSS ── -->
         <hr class="border-border" />
         <div class="flex items-center justify-between">
-            <h3 class="fraunces text-lg text-muted-foreground">CSS</h3>
+            <h3 class="font-display text-lg text-muted-foreground">CSS</h3>
             <button class="dock-icon-btn-compact" title="Copy CSS" @click="copyCSS">
                 <Copy class="w-5 h-5" />
             </button>

@@ -5,7 +5,7 @@
                 <EllipsisVertical class="w-4 h-4 text-muted-foreground" />
             </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" class="w-48 fraunces">
+        <DropdownMenuContent align="end" class="w-48 font-display">
             <DropdownMenuLabel class="text-xs">Sort</DropdownMenuLabel>
             <DropdownMenuRadioGroup
                 :model-value="sort"

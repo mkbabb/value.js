@@ -46,7 +46,7 @@ const { toggleDark } = useGlobalDark();
                         Profile
                     </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" class="min-w-[11rem] fraunces">
+                <DropdownMenuContent align="end" class="min-w-[11rem] font-display">
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
                             class="text-mono-small font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
@@ -99,14 +99,14 @@ const { toggleDark } = useGlobalDark();
                     @mbabb
                 </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" class="min-w-[11rem] fraunces">
+            <DropdownMenuContent align="end" class="min-w-[11rem] font-display">
                 <div class="flex items-center gap-2 px-2 py-1.5">
                     <Avatar class="w-7 h-7">
                         <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
                     </Avatar>
                     <div>
                         <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
-                        <p class="text-2xs italic text-muted-foreground leading-tight fraunces">Color space picker &amp; converter</p>
+                        <p class="text-2xs italic text-muted-foreground leading-tight font-display">Color space picker &amp; converter</p>
                     </div>
                 </div>
                 <DropdownMenuSeparator />

@@ -1,12 +1,12 @@
 <template>
     <div class="grid gap-3">
-        <h3 class="fraunces text-lg font-bold">Proposed Color Names</h3>
+        <h3 class="text-subheading">Proposed Color Names</h3>
         <div v-if="loading" class="flex items-center justify-center py-6">
             <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
         </div>
         <div
             v-else-if="queue.length === 0"
-            class="text-center text-muted-foreground py-6 fira-code text-sm italic"
+            class="text-center text-muted-foreground py-6 text-mono-small italic"
         >
             No pending proposals.
         </div>
@@ -22,10 +22,10 @@
                 ></div>
                 <div class="flex-1 min-w-0">
                     <span
-                        class="fira-code text-sm font-medium truncate block"
+                        class="text-mono-small font-medium truncate block"
                         >{{ item.name }}</span
                     >
-                    <span class="fira-code text-xs text-muted-foreground">{{
+                    <span class="text-mono-small text-muted-foreground">{{
                         item.css
                     }}</span>
                 </div>

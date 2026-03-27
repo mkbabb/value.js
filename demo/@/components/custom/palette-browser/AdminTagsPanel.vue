@@ -59,7 +59,7 @@
                     <div
                         v-for="tag in catTags"
                         :key="tag.name"
-                        class="group flex items-center gap-1 rounded-full border border-border bg-muted/30 px-2.5 py-1 text-mono-small transition-colors hover:bg-accent/30"
+                        class="group flex items-center gap-1 rounded-full border border-border bg-muted/30 px-2.5 py-1 text-mono-small transition-colors hover:bg-accent/50"
                     >
                         <span>{{ tag.name }}</span>
                         <button

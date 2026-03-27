@@ -2,22 +2,22 @@
     <div class="grid gap-3 pb-3">
         <!-- Admin toolbar -->
         <div class="flex items-center gap-2 flex-wrap">
-            <span class="fira-code text-xs text-muted-foreground">
+            <span class="text-mono-small text-muted-foreground">
                 {{ totalUsers }} user{{ totalUsers !== 1 ? 's' : '' }}
             </span>
-            <span v-if="emptyCount > 0" class="fira-code text-xs text-muted-foreground">
+            <span v-if="emptyCount > 0" class="text-mono-small text-muted-foreground">
                 · {{ emptyCount }} empty
             </span>
             <div class="flex-1" />
             <Transition name="fade">
-                <span v-if="pruneResult" class="fira-code text-xs text-muted-foreground italic">
+                <span v-if="pruneResult" class="text-mono-small text-muted-foreground italic">
                     {{ pruneResult }}
                 </span>
             </Transition>
             <Button
                 variant="outline"
                 size="sm"
-                class="h-7 px-2.5 cursor-pointer fraunces text-xs gap-1.5"
+                class="h-7 px-2.5 cursor-pointer font-display text-xs gap-1.5"
                 :disabled="emptyCount === 0 || pruning"
                 @click="onPruneClick"
             >
@@ -28,7 +28,7 @@
             <Button
                 variant="outline"
                 size="sm"
-                class="h-7 px-2.5 cursor-pointer fraunces text-xs gap-1.5"
+                class="h-7 px-2.5 cursor-pointer font-display text-xs gap-1.5"
                 :disabled="loading"
                 @click="emit('refresh')"
             >
@@ -56,10 +56,10 @@
                 >
                     <div class="flex-1 min-w-0 flex items-center gap-2">
                         <span
-                            class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border truncate"
+                            class="text-mono-small font-bold px-2 py-0.5 rounded-full border truncate"
                             :style="{ color: safeAccent, borderColor: safeAccent }"
                         >{{ user.slug }}</span>
-                        <Badge variant="secondary" class="fira-code text-xs shrink-0">
+                        <Badge variant="secondary" class="text-mono-small shrink-0">
                             {{ user.paletteCount ?? 0 }}
                         </Badge>
                     </div>
@@ -67,7 +67,7 @@
                         <Button
                             variant="outline"
                             size="sm"
-                            class="h-7 px-2 cursor-pointer fraunces text-xs"
+                            class="h-7 px-2 cursor-pointer font-display text-xs"
                             :disabled="!user.paletteCount"
                             @click="onDeletePalettesClick($event, user.slug)"
                         >
@@ -77,7 +77,7 @@
                         <Button
                             variant="destructive"
                             size="sm"
-                            class="h-7 px-2 cursor-pointer fraunces text-xs"
+                            class="h-7 px-2 cursor-pointer font-display text-xs"
                             @click="onDeleteUserClick($event, user.slug)"
                         >
                             <Trash2 class="w-3 h-3" />
@@ -89,7 +89,7 @@
                     <div v-if="loadingUserPalettes" class="flex items-center justify-center py-4">
                         <Loader2 class="w-4 h-4 animate-spin text-muted-foreground" />
                     </div>
-                    <div v-else-if="userPalettes.length === 0" class="text-center text-muted-foreground py-3 fira-code text-sm italic">
+                    <div v-else-if="userPalettes.length === 0" class="text-center text-muted-foreground py-3 text-mono-small italic">
                         No palettes.
                     </div>
                     <div v-else class="grid gap-2">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            <p v-if="users.length === 0" class="text-center text-muted-foreground py-6 fira-code text-sm italic">
+            <p v-if="users.length === 0" class="text-center text-muted-foreground py-6 text-mono-small italic">
                 No users found.
             </p>
         </template>
@@ -124,7 +124,7 @@
             {{ confirmDescription }}
             <span
                 v-if="confirmSlug"
-                class="fira-code text-xs font-bold px-2 py-0.5 rounded-full border inline-block align-middle mx-0.5"
+                class="text-mono-small font-bold px-2 py-0.5 rounded-full border inline-block align-middle mx-0.5"
                 :style="{ color: safeAccent, borderColor: safeAccent }"
             >{{ confirmSlug }}</span>
             <template v-if="confirmSlug"> and all associated data. This cannot be undone.</template>

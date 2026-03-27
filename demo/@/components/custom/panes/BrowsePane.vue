@@ -33,9 +33,9 @@
                     v-else-if="pm.browseError.value && displayedBrowse.length === 0"
                     class="flex flex-col items-center justify-center gap-2 min-h-[120px]"
                 >
-                    <span class="fira-code text-xs text-muted-foreground">{{ pm.browseError.value }}</span>
+                    <span class="text-mono-small text-muted-foreground">{{ pm.browseError.value }}</span>
                     <button
-                        class="dock-icon-btn-compact fira-code text-xs text-primary"
+                        class="dock-icon-btn-compact text-mono-small text-primary"
                         @click="pm.loadRemotePalettes()"
                     >
                         Tap to retry

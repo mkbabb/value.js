@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-2 mb-4 min-w-0 sticky top-0 z-10 bg-card pb-2">
+    <div class="flex flex-col gap-2 mb-4 min-w-0 sticky top-0 z-[var(--z-popover)] bg-card pb-2">
         <!-- User slug display -->
         <PaletteSlugBar
             ref="slugBarRef"
@@ -17,31 +17,31 @@
             :class="['overflow-x-auto mx-0', tabsOverflowing && 'tabs-scroll-mask']"
         >
             <TabsList class="shrink-0 w-fit flex-nowrap">
-                <TabsTrigger value="saved" class="fraunces text-base font-bold"
+                <TabsTrigger value="saved" class="text-subheading"
                     >My Palettes</TabsTrigger
                 >
-                <TabsTrigger value="browse" class="fraunces text-base font-bold"
+                <TabsTrigger value="browse" class="text-subheading"
                     >Browse</TabsTrigger
                 >
-                <TabsTrigger value="extract" class="fraunces text-base font-bold">
+                <TabsTrigger value="extract" class="text-subheading">
                     <ImagePlus class="w-3.5 h-3.5 mr-1" />
                     Extract
                 </TabsTrigger>
                 <template v-if="isAdmin">
-                    <TabsTrigger value="admin-users" class="fraunces text-base font-bold">
+                    <TabsTrigger value="admin-users" class="text-subheading">
                         <Shield class="w-3.5 h-3.5 mr-1" />
                         Users
                     </TabsTrigger>
-                    <TabsTrigger value="admin-names" class="fraunces text-base font-bold">
+                    <TabsTrigger value="admin-names" class="text-subheading">
                         Names
                     </TabsTrigger>
-                    <TabsTrigger value="admin-audit" class="fraunces text-base font-bold">
+                    <TabsTrigger value="admin-audit" class="text-subheading">
                         Audit
                     </TabsTrigger>
-                    <TabsTrigger value="admin-flagged" class="fraunces text-base font-bold">
+                    <TabsTrigger value="admin-flagged" class="text-subheading">
                         Flagged
                     </TabsTrigger>
-                    <TabsTrigger value="admin-tags" class="fraunces text-base font-bold">
+                    <TabsTrigger value="admin-tags" class="text-subheading">
                         Tags
                     </TabsTrigger>
                 </template>

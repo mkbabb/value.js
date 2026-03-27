@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full fraunces grid grid-cols-1 gap-4 relative">
+    <div class="w-full font-display grid grid-cols-1 gap-4 relative">
         <Alert class="m-0 bg-muted/50 dark:bg-muted/30 border-border/30 rounded-2xl">
             <AlertTitle>Definition</AlertTitle>
             <AlertDescription>

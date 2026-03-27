@@ -119,7 +119,7 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
                 class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 :class="[
                     selectedId === stop.id
-                        ? 'border-white ring-2 ring-primary z-10'
+                        ? 'border-white ring-2 ring-primary z-[var(--z-popover)]'
                         : 'border-white/80 z-0'
                 ]"
                 :style="{
@@ -138,7 +138,7 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
         </div>
 
         <!-- Hint text -->
-        <p class="fira-code text-xs text-muted-foreground/40">
+        <p class="text-mono-small text-muted-foreground/40">
             Double-click to add · Right-click to remove · Drag to reposition
         </p>
     </div>

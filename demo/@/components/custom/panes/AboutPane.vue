@@ -22,7 +22,7 @@
         <Separator />
 
         <CardContent class="px-3 sm:px-6 pb-6">
-            <h2 class="fraunces text-4xl mb-6">Detailed Guide</h2>
+            <h2 class="font-display text-4xl mb-6">Detailed Guide</h2>
             <Markdown
                 v-if="activeMarkdownModule"
                 :key="model.selectedColorSpace"

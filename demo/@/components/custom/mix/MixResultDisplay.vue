@@ -28,7 +28,7 @@ async function onCopy() {
 
 <template>
     <div class="flex flex-col gap-3 p-4 rounded-xl glass-elevated">
-        <span class="fraunces text-xs font-bold text-muted-foreground uppercase tracking-wide">Result</span>
+        <span class="font-display text-xs font-bold text-muted-foreground uppercase tracking-wide">Result</span>
 
         <!-- Single color result -->
         <Transition name="pop" mode="out-in">
@@ -40,7 +40,7 @@ async function onCopy() {
                         class="w-14 h-14 shrink-0"
                         seed="mix-result"
                     />
-                    <span class="fira-code text-xs text-foreground select-all break-all">
+                    <span class="text-mono-small text-foreground select-all break-all">
                         {{ result.css }}
                     </span>
                 </div>

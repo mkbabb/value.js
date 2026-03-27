@@ -9,7 +9,7 @@
                 ref="inputRef"
                 v-model="localName"
                 placeholder="Palette name..."
-                class="fira-code text-sm bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground/50"
+                class="text-mono-small bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground/50"
                 @keydown.escape.stop="$emit('cancel')"
             />
             <button

@@ -7,7 +7,7 @@
             variant="pill"
             :options="tabOptions"
             :model-value="String(modelValue)"
-            class="fraunces"
+            class="font-display"
             @update:model-value="(v: string) => emit('update:modelValue', Number(v) as 0 | 1)"
         />
     </div>

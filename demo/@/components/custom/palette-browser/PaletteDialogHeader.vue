@@ -25,7 +25,7 @@
                 />
                 <div class="min-w-0">
                     <DialogTitle
-                        class="fraunces text-3xl sm:text-5xl font-black tracking-tight"
+                        class="font-display text-3xl sm:text-5xl font-black tracking-tight"
                     >
                         <template v-if="isAdminAuthenticated">
                             Admin <span class="uppercase admin-golden-text">Palettes</span>
@@ -38,7 +38,7 @@
                         </template>
                     </DialogTitle>
                     <DialogDescription
-                        class="fira-code text-xs sm:text-sm text-muted-foreground italic mt-0.5"
+                        class="text-mono-small text-muted-foreground italic mt-0.5"
                     >
                         Save, browse, and publish color palettes.
                     </DialogDescription>

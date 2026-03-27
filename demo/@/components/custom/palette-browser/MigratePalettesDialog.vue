@@ -10,17 +10,17 @@
                 >
                     <XIcon class="w-4 h-4" />
                 </button>
-                <h2 class="fraunces text-lg font-bold">
+                <h2 class="text-subheading">
                     {{ title }}
                 </h2>
-                <p class="fraunces text-sm text-muted-foreground mt-1">
+                <p class="text-small font-display text-muted-foreground mt-1">
                     {{ description }}
                 </p>
             </div>
             <div class="flex flex-col gap-2 p-5">
                 <Button
                     variant="default"
-                    class="cursor-pointer fraunces justify-start gap-2 rounded-full"
+                    class="cursor-pointer font-display justify-start gap-2 rounded-full"
                     @click="onRespond('publish')"
                 >
                     <Globe class="w-4 h-4 shrink-0" />
@@ -29,7 +29,7 @@
                 <Button
                     v-if="mode === 'switch'"
                     variant="outline"
-                    class="cursor-pointer fraunces justify-start gap-2 rounded-full"
+                    class="cursor-pointer font-display justify-start gap-2 rounded-full"
                     @click="onRespond('transfer')"
                 >
                     <ArrowRightLeft class="w-4 h-4 shrink-0" />
@@ -37,7 +37,7 @@
                 </Button>
                 <Button
                     variant="ghost"
-                    class="cursor-pointer fraunces justify-start gap-2 text-muted-foreground rounded-full"
+                    class="cursor-pointer font-display justify-start gap-2 text-muted-foreground rounded-full"
                     @click="onRespond('discard')"
                 >
                     <SkipForward class="w-4 h-4 shrink-0" />

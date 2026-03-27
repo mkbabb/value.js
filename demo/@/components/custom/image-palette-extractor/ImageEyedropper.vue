@@ -1,6 +1,6 @@
 <template>
     <Transition name="eyedropper-fade" @after-enter="onTransitionEnd">
-        <div class="absolute inset-0 z-20 flex flex-col bg-card/75 backdrop-blur-sm rounded-2xl overflow-hidden">
+        <div class="absolute inset-0 z-[var(--z-popover)] flex flex-col bg-card/75 backdrop-blur-sm rounded-2xl overflow-hidden">
             <!-- Top bar -->
             <div class="flex items-center gap-2 px-3 py-2 shrink-0" :style="{ '--hover-color': sampledColor ?? '' }">
                 <button class="dock-icon-btn eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">
@@ -18,7 +18,7 @@
                 />
                 <div v-else class="w-7 h-7 shrink-0 rounded-full border-2 border-dashed border-muted-foreground/30" />
 
-                <span class="fira-code text-xs text-muted-foreground truncate select-all">
+                <span class="text-mono-small text-muted-foreground truncate select-all">
                     {{ formattedColor ?? 'Tap to sample' }}
                 </span>
 

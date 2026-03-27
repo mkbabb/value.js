@@ -23,7 +23,7 @@
                 <span v-if="label" class="action-label">{{ label }}</span>
             </div>
         </HoverCardTrigger>
-        <HoverCardContent class="z-[var(--z-hovercard)] pointer-events-auto fraunces">
+        <HoverCardContent class="z-[var(--z-hovercard)] pointer-events-auto font-display">
             <div>
                 <p class="text-lg">{{ title }}</p>
                 <p class="text-sm opacity-60">{{ description }}</p>

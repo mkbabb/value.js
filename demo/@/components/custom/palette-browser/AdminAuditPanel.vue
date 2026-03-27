@@ -38,7 +38,7 @@
         <div
             v-for="entry in entries"
             :key="entry.id"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border transition-colors hover:bg-accent/30"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border transition-colors hover:bg-accent/50"
         >
             <div class="flex flex-col gap-0.5 min-w-0 flex-1">
                 <div class="flex items-center gap-2">

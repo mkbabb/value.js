@@ -3,7 +3,7 @@
         <slot />
         <p
             v-if="empty"
-            class="text-center text-muted-foreground py-8 fira-code text-base italic"
+            class="text-center text-muted-foreground py-8 font-mono-code text-base italic"
         >
             {{ emptyText }}
         </p>

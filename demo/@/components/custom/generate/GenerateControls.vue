@@ -128,7 +128,7 @@ defineExpose({ regenerate, save, copyColors });
             <div class="flex flex-col gap-1">
                 <div class="flex items-center justify-between">
                     <span class="section-label">Count</span>
-                    <span class="fira-code text-xs text-muted-foreground tabular-nums">{{ count }}</span>
+                    <span class="text-mono-small text-muted-foreground tabular-nums">{{ count }}</span>
                 </div>
                 <Slider
                     variant="spectrum"
@@ -142,7 +142,7 @@ defineExpose({ regenerate, save, copyColors });
 
             <!-- Seed row -->
             <div class="flex items-center gap-1">
-                <span class="fira-code text-xs text-muted-foreground/60 tabular-nums select-all">
+                <span class="text-mono-small text-muted-foreground/60 tabular-nums select-all">
                     seed: {{ seed.toString(16).padStart(8, '0') }}
                 </span>
                 <button

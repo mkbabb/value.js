@@ -18,7 +18,7 @@
                 <div
                     v-for="(version, i) in versions"
                     :key="version.hash"
-                    class="group relative rounded-lg border border-border bg-card p-3 transition-colors hover:bg-accent/30"
+                    class="group relative rounded-lg border border-border bg-card p-3 transition-colors hover:bg-accent/50"
                     :class="{ 'ring-2 ring-primary': version.hash === currentHash }"
                 >
                     <!-- Current indicator -->

@@ -2,7 +2,7 @@
     <Teleport to="body">
         <Transition name="edit-drawer">
             <div v-if="editTarget" class="edit-drawer p-4 flex flex-col gap-3 items-center">
-                <p class="fira-code text-xs text-muted-foreground uppercase tracking-wider">Editing color</p>
+                <p class="text-mono-small text-muted-foreground uppercase tracking-wider">Editing color</p>
                 <div class="flex items-center justify-center gap-2">
                     <WatercolorDot
                         :color="editTarget.originalCss"
@@ -25,7 +25,7 @@
                                     @click="emit('commit')"
                                 />
                             </TooltipTrigger>
-                            <TooltipContent class="fira-code text-xs">Save edit</TooltipContent>
+                            <TooltipContent class="text-mono-small">Save edit</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
                     <TooltipProvider :delay-duration="200">
@@ -36,7 +36,7 @@
                                     @click="emit('cancel')"
                                 />
                             </TooltipTrigger>
-                            <TooltipContent class="fira-code text-xs">Cancel</TooltipContent>
+                            <TooltipContent class="text-mono-small">Cancel</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
                 </div>

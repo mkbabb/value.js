@@ -52,7 +52,7 @@
                                     class="slider-thumb block h-full w-3 rounded-full border-2 border-gray-200 bg-transparent transition-colors focus-visible:outline-none"
                                 />
                             </TooltipTrigger>
-                            <TooltipContent class="fira-code">
+                            <TooltipContent class="font-mono-code">
                                 {{
                                     denormalizedCurrentColor.value[
                                         component

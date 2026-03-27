@@ -33,12 +33,12 @@ const { toggleDark } = useGlobalDark();
             <DropdownMenuTrigger class="dock-icon-btn">
                 <MoreVertical class="w-6 h-6" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" class="min-w-[11rem] fraunces">
+            <DropdownMenuContent align="end" class="min-w-[11rem] font-display">
                 <!-- Login / slug section -->
                 <template v-if="pm.userSlug.value">
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
-                            class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
+                            class="text-mono-small font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
                             :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
                         >{{ pm.userSlug.value }}</span>
                     </DropdownMenuLabel>
@@ -57,7 +57,7 @@ const { toggleDark } = useGlobalDark();
                 </template>
                 <template v-else-if="pm.isAdminAuthenticated.value">
                     <DropdownMenuLabel class="px-2 py-1.5">
-                        <span class="fira-code text-sm font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground whitespace-nowrap">admin</span>
+                        <span class="text-mono-small font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground whitespace-nowrap">admin</span>
                     </DropdownMenuLabel>
                 </template>
                 <template v-else>
@@ -75,7 +75,7 @@ const { toggleDark } = useGlobalDark();
                     </Avatar>
                     <div>
                         <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
-                        <p class="text-2xs italic text-muted-foreground leading-tight fraunces">Color space picker &amp; converter</p>
+                        <p class="text-2xs italic text-muted-foreground leading-tight font-display">Color space picker &amp; converter</p>
                     </div>
                 </div>
                 <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">

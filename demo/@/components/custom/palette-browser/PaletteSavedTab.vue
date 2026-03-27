@@ -19,7 +19,7 @@
 
                 <!-- Saved palettes toolbar -->
                 <div v-if="savedPalettes.length > 0" class="flex items-center gap-2">
-                    <span class="fira-code text-xs text-muted-foreground">
+                    <span class="text-mono-small text-muted-foreground">
                         {{ savedPalettes.length }} palette{{ savedPalettes.length !== 1 ? 's' : '' }}
                     </span>
                     <div class="flex-1" />
