@@ -147,7 +147,7 @@ const extractedPalette = computed<Palette | null>(() => {
 });
 
 const kSliderGradient = computed(() => {
-    if (palette.value.length === 0) return "hsl(var(--muted))";
+    if (palette.value.length === 0) return "var(--muted)";
     const stops = palette.value.map((c, i) => {
         const pct = palette.value.length === 1 ? 50 : (i / (palette.value.length - 1)) * 100;
         return `${c.css} ${pct.toFixed(0)}%`;

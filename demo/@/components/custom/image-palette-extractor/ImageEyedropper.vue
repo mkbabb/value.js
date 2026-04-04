@@ -352,8 +352,8 @@ watch(() => props.imageUrl, () => { loadImage(); });
 .loupe {
     position: absolute;
     border-radius: 50%;
-    border: 2px solid hsl(var(--foreground) / 0.5);
-    box-shadow: 0 4px 16px hsl(var(--foreground) / 0.15), 0 0 0 1px hsl(var(--background) / 0.3);
+    border: 2px solid color-mix(in srgb, var(--foreground) 50%, transparent);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--foreground) 15%, transparent), 0 0 0 1px color-mix(in srgb, var(--background) 30%, transparent);
     pointer-events: none;
     z-index: var(--z-controls);
     overflow: hidden;
@@ -361,13 +361,13 @@ watch(() => props.imageUrl, () => { loadImage(); });
 }
 
 .loupe-pinned {
-    border-color: hsl(var(--primary));
-    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.4), 0 4px 16px hsl(var(--foreground) / 0.2);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 40%, transparent), 0 4px 16px color-mix(in srgb, var(--foreground) 20%, transparent);
 }
 
 /* Action button hover → sampled color */
 .eyedropper-action-btn:hover:not(:disabled) svg {
-    color: var(--hover-color, hsl(var(--foreground)));
+    color: var(--hover-color, var(--foreground));
     transform: scale(1.2);
 }
 

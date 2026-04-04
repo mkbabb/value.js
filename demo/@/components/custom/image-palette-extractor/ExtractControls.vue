@@ -21,6 +21,7 @@
                     type="range"
                     min="1"
                     max="16"
+                    aria-label="Number of colors"
                     class="extract-slider extract-slider--k relative w-full h-6 cursor-pointer appearance-none bg-transparent"
                     :style="{ touchAction: isTouchDevice ? (kGate.isActive.value ? 'none' : 'pan-y') : undefined }"
                     @input="$emit('update:k', Number(($event.target as HTMLInputElement).value))"
@@ -36,7 +37,7 @@
             <button
                 class="dock-icon-btn"
                 title="Upload image"
-                :style="{ '--hover-color': cssColor }"
+                :style="{ '--btn-hover-color': cssColor }"
                 @click="$emit('upload')"
             >
                 <Upload class="w-5 h-5 transition-colors" />
@@ -60,9 +61,10 @@
                         min="0"
                         max="1.5"
                         step="0.1"
+                        aria-label="Chroma weight"
                         class="extract-slider extract-slider--kc w-full h-5 cursor-pointer appearance-none bg-transparent"
                         :style="{
-                            '--track-bg': 'hsl(var(--muted))',
+                            '--track-bg': 'var(--muted)',
                             touchAction: isTouchDevice ? (kcGate.isActive.value ? 'none' : 'pan-y') : undefined,
                         }"
                         @input="$emit('update:chromaWeight', Number(($event.target as HTMLInputElement).value))"
@@ -80,7 +82,7 @@
                 class="dock-icon-btn"
                 :disabled="disabled || !hasImage"
                 title="Reset"
-                :style="{ '--hover-color': cssColor }"
+                :style="{ '--btn-hover-color': cssColor }"
                 @click="$emit('reset')"
             >
                 <RotateCcw class="w-5 h-5 transition-colors" />
@@ -148,11 +150,6 @@ function onKcPointerDown(e: PointerEvent) {
 <style scoped>
 @reference "../../../styles/style.css";
 
-/* Camera/reset button hover → current color */
-.dock-icon-btn:hover:not(:disabled) svg {
-    color: var(--hover-color, hsl(var(--foreground)));
-}
-
 .extract-slider {
     -webkit-appearance: none;
     appearance: none;
@@ -176,7 +173,7 @@ function onKcPointerDown(e: PointerEvent) {
     height: 1.5rem;
     border-radius: var(--radius-pill);
     background: transparent;
-    border: 2px solid hsl(var(--foreground) / 0.4);
+    border: 2px solid color-mix(in srgb, var(--foreground) 40%, transparent);
     cursor: pointer;
     transition: border-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-spring);
 }
@@ -185,11 +182,11 @@ function onKcPointerDown(e: PointerEvent) {
     height: 1.5rem;
     border-radius: var(--radius-pill);
     background: transparent;
-    border: 2px solid hsl(var(--foreground) / 0.4);
+    border: 2px solid color-mix(in srgb, var(--foreground) 40%, transparent);
     cursor: pointer;
 }
 .extract-slider--k:hover::-webkit-slider-thumb {
-    border-color: hsl(var(--foreground) / 0.7);
+    border-color: color-mix(in srgb, var(--foreground) 70%, transparent);
     transform: scaleY(1.1);
 }
 
@@ -211,7 +208,7 @@ function onKcPointerDown(e: PointerEvent) {
     height: 1.25rem;
     border-radius: var(--radius-pill);
     background: transparent;
-    border: 2px solid hsl(var(--foreground) / 0.4);
+    border: 2px solid color-mix(in srgb, var(--foreground) 40%, transparent);
     cursor: pointer;
     transition: border-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-spring);
 }
@@ -220,11 +217,11 @@ function onKcPointerDown(e: PointerEvent) {
     height: 1.25rem;
     border-radius: var(--radius-pill);
     background: transparent;
-    border: 2px solid hsl(var(--foreground) / 0.4);
+    border: 2px solid color-mix(in srgb, var(--foreground) 40%, transparent);
     cursor: pointer;
 }
 .extract-slider--kc:hover::-webkit-slider-thumb {
-    border-color: hsl(var(--foreground) / 0.7);
+    border-color: color-mix(in srgb, var(--foreground) 70%, transparent);
     transform: scaleY(1.1);
 }
 
