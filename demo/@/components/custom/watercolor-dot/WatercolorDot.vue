@@ -57,3 +57,51 @@ const activeBorderRadius = computed(() => {
     return hovered.value ? blob.hoverBorderRadius.value : blob.borderRadius.value;
 });
 </script>
+
+<style>
+/* Watercolor swatch — organic pastel blobs */
+.watercolor-swatch {
+    border-radius: 48% 52% 55% 45% / 52% 48% 45% 55%;
+    filter: url(#watercolor-filter);
+    box-shadow:
+        inset 0 0 6px color-mix(in srgb, var(--background) 35%, transparent),
+        inset 0 -2px 4px color-mix(in srgb, var(--foreground) 6%, transparent),
+        0 2px 6px color-mix(in srgb, var(--foreground) 10%, transparent);
+    transition: transform var(--duration-fast) var(--ease-standard),
+                border-radius 0.6s var(--ease-standard),
+                filter var(--duration-fast) var(--ease-standard),
+                box-shadow var(--duration-fast) var(--ease-standard);
+    position: relative;
+}
+/* Animated blobs: disable CSS transition so rAF-driven border-radius updates render immediately */
+.watercolor-swatch.watercolor-animated {
+    transition: transform var(--duration-fast) var(--ease-standard),
+                filter var(--duration-fast) var(--ease-standard),
+                box-shadow var(--duration-fast) var(--ease-standard);
+}
+.watercolor-swatch:hover {
+    transform: scale(1.06);
+    filter: url(#watercolor-filter) brightness(1.05);
+    box-shadow:
+        inset 0 0 8px color-mix(in srgb, var(--background) 40%, transparent),
+        inset 0 -2px 4px color-mix(in srgb, var(--foreground) 6%, transparent),
+        0 4px 12px color-mix(in srgb, var(--foreground) 15%, transparent);
+}
+.watercolor-swatch:active {
+    transform: scale(0.97);
+}
+
+/* Remove default button border from watercolor swatches (palette dots) */
+button.watercolor-swatch {
+    border: none;
+    padding: 0;
+    outline: none;
+}
+button.watercolor-swatch:focus-visible {
+    outline: none;
+    box-shadow:
+        inset 0 0 6px color-mix(in srgb, var(--background) 35%, transparent),
+        inset 0 -2px 4px color-mix(in srgb, var(--foreground) 6%, transparent),
+        0 2px 8px color-mix(in srgb, var(--foreground) 20%, transparent);
+}
+</style>
