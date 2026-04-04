@@ -16,6 +16,8 @@ defineProps<{
 <style scoped>
 @reference "../../../styles/style.css";
 
+/* animation-range: scroll distance over which the effect completes.
+   120px ≈ pane top-padding + header natural height; 80px for desc fade-out. */
 .pane-header {
     animation: pane-header-shrink linear both;
     animation-timeline: --pane-scroll;
