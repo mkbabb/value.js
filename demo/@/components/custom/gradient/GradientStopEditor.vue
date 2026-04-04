@@ -103,7 +103,7 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
         <!-- Gradient bar with draggable handles -->
         <div
             ref="barRef"
-            :class="['relative h-10 rounded-lg glass select-none touch-none', draggingId ? 'cursor-grabbing' : 'cursor-crosshair']"
+            :class="['relative h-10 rounded-lg glass-subtle select-none touch-none', draggingId ? 'cursor-grabbing' : 'cursor-crosshair']"
             :style="{ background: coalescedCSS }"
             @pointerdown="onBarPointerDown"
             @pointermove="onBarPointerMove"
@@ -116,6 +116,7 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
                 v-for="stop in stops"
                 :key="stop.id"
                 :data-stop-id="stop.id"
+                :aria-label="`Gradient stop at ${Math.round(stop.position)}%`"
                 class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 :class="[
                     selectedId === stop.id

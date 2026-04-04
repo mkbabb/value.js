@@ -135,7 +135,7 @@ async function onCopy() {
         ref="editorRef"
         contenteditable="true"
         spellcheck="false"
-        class="hljs text-mono-small leading-relaxed p-3 rounded-lg glass border-border/40 min-h-[5rem] max-h-[12rem] overflow-y-auto whitespace-pre-wrap break-all outline-none focus:ring-1 focus:ring-ring"
+        class="hljs text-mono-small leading-relaxed p-3 rounded-lg glass-subtle border-border/40 min-h-[5rem] max-h-[12rem] overflow-y-auto whitespace-pre-wrap break-all outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
         :class="[parseError && 'border-destructive']"
         :style="{
             transition: `border-color var(--duration-normal) var(--ease-standard), box-shadow var(--duration-normal) var(--ease-standard)`,

@@ -83,7 +83,7 @@ defineExpose({ regenerate, save, copyColors });
                     <span class="section-label">Preset</span>
                     <span class="section-subtitle">{{ GENERATION_PRESETS[preset].description }}</span>
                     <Select :model-value="preset" @update:model-value="onPresetChange">
-                        <SelectTrigger class="h-9">
+                        <SelectTrigger aria-label="Generation preset" class="h-9">
                             <SelectValue />
                         </SelectTrigger>
                         <SelectContent class="min-w-[14rem]">
@@ -105,7 +105,7 @@ defineExpose({ regenerate, save, copyColors });
                     <span class="section-label">Harmony</span>
                     <span class="section-subtitle">{{ HARMONY_DEFS[harmony].description }}</span>
                     <Select :model-value="harmony" @update:model-value="onHarmonyChange">
-                        <SelectTrigger class="h-9">
+                        <SelectTrigger aria-label="Color harmony" class="h-9">
                             <SelectValue />
                         </SelectTrigger>
                         <SelectContent class="min-w-[14rem]">
@@ -131,6 +131,7 @@ defineExpose({ regenerate, save, copyColors });
                     <span class="text-mono-small text-muted-foreground tabular-nums">{{ count }}</span>
                 </div>
                 <Slider
+                    aria-label="Color count"
                     variant="spectrum"
                     :model-value="[count]"
                     :min="1"

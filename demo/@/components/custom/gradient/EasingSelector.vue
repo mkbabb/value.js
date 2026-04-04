@@ -37,7 +37,7 @@ function capitalize(s: string): string {
 <template>
     <div class="flex items-center gap-2">
         <Select :model-value="modelValue" @update:model-value="(v: string) => emit('update:modelValue', v)">
-            <SelectTrigger class="h-9 text-xs min-w-[9rem]">
+            <SelectTrigger aria-label="Easing function" class="h-9 text-xs min-w-[9rem]">
                 <SelectValue />
             </SelectTrigger>
             <SelectContent class="max-h-[16rem] min-w-[10rem]">
@@ -54,9 +54,9 @@ function capitalize(s: string): string {
         <svg width="48" height="32" viewBox="-0.05 -0.3 1.1 1.6" preserveAspectRatio="none"
              class="rounded-md border border-border/30 shrink-0">
             <!-- Bounding box -->
-            <rect x="0" y="0" width="1" height="1" fill="none" stroke="hsl(var(--border))" stroke-width="0.02" opacity="0.3" />
+            <rect x="0" y="0" width="1" height="1" fill="none" stroke="var(--border)" stroke-width="0.02" opacity="0.3" />
             <!-- Diagonal reference -->
-            <line x1="0" y1="1" x2="1" y2="0" stroke="hsl(var(--border))" stroke-width="0.02" stroke-dasharray="0.04 0.03" opacity="0.3" />
+            <line x1="0" y1="1" x2="1" y2="0" stroke="var(--border)" stroke-width="0.02" stroke-dasharray="0.04 0.03" opacity="0.3" />
             <!-- Easing curve -->
             <polyline :points="curvePoints" fill="none" stroke="hsl(248, 88%, 71%)" stroke-width="0.06" stroke-linecap="round" stroke-linejoin="round" />
         </svg>

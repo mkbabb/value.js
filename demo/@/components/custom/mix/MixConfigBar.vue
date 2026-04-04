@@ -44,7 +44,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                 <label class="section-label">Color space</label>
                 <span class="section-subtitle">{{ INTERPOLATION_SPACES.find(s => s.value === colorSpace)?.description }}</span>
                 <Select :model-value="colorSpace" @update:model-value="(v: string) => emit('update:colorSpace', v as ColorSpace)">
-                    <SelectTrigger class="h-9">
+                    <SelectTrigger aria-label="Color space" class="h-9">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -62,7 +62,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                 <label class="section-label">Hue method</label>
                 <span class="section-subtitle">{{ HUE_INTERPOLATION_METHODS.find(m => m.value === hueMethod)?.description }}</span>
                 <Select :model-value="hueMethod" @update:model-value="(v: string) => emit('update:hueMethod', v as HueInterpolationMethod)">
-                    <SelectTrigger class="h-9">
+                    <SelectTrigger aria-label="Hue method" class="h-9">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -81,7 +81,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
         <div v-if="showLeftoverStrategy" class="flex flex-col gap-1">
             <label class="section-label">Size mismatch</label>
             <Select :model-value="leftoverStrategy" @update:model-value="(v: string) => emit('update:leftoverStrategy', v as LeftoverStrategy)">
-                <SelectTrigger class="h-9">
+                <SelectTrigger aria-label="Size mismatch strategy" class="h-9">
                     <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
