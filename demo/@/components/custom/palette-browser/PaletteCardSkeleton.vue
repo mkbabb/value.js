@@ -1,12 +1,12 @@
 <template>
-    <div class="rounded-2xl border border-border bg-card overflow-hidden">
+    <div class="rounded-[var(--radius-card)] border border-border bg-card overflow-hidden">
         <!-- Shadow color strip -->
         <div class="flex h-10 w-full">
             <div v-for="i in count" :key="i"
                 class="h-full animate-pulse"
                 :style="{
                     width: `${100 / count}%`,
-                    backgroundColor: 'hsl(var(--muted-foreground) / 0.1)',
+                    backgroundColor: 'color-mix(in srgb, var(--muted-foreground) 10%, transparent)',
                     animationDelay: `${i * 0.12}s`,
                 }"
             />

@@ -8,7 +8,8 @@
                 </SheetDescription>
             </SheetHeader>
 
-            <div class="mt-4 flex flex-col gap-2 overflow-y-auto max-h-[calc(100vh-160px)]">
+            <!-- 160px accounts for SheetHeader + top/bottom padding + footer -->
+            <div class="mt-4 flex flex-col gap-2 overflow-y-auto max-h-[calc(100dvh-160px)]">
                 <!-- Loading -->
                 <div v-if="loading" class="flex items-center justify-center py-8">
                     <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />
@@ -29,17 +30,17 @@
 
                     <!-- Header: version number + timestamp -->
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-medium">
+                        <span class="text-micro font-medium">
                             v{{ total - i }}
                             <span v-if="version.hash === currentHash" class="ml-1 text-primary">(current)</span>
                         </span>
-                        <span class="text-[10px] text-muted-foreground tabular-nums">
+                        <span class="text-micro text-muted-foreground tabular-nums">
                             {{ formatTime(version.createdAt) }}
                         </span>
                     </div>
 
                     <!-- Name (if different from current) -->
-                    <div class="mt-1 text-xs text-muted-foreground truncate">
+                    <div class="mt-1 text-micro text-muted-foreground truncate">
                         {{ version.name }}
                     </div>
 
@@ -53,7 +54,7 @@
                         />
                         <span
                             v-if="version.colors.length > 8"
-                            class="flex h-5 items-center px-1 text-[9px] text-muted-foreground"
+                            class="flex h-5 items-center px-1 text-micro text-muted-foreground"
                         >
                             +{{ version.colors.length - 8 }}
                         </span>
@@ -62,7 +63,7 @@
                     <!-- Fork indicator -->
                     <div
                         v-if="version.forkedFromHash"
-                        class="mt-1 text-[10px] text-muted-foreground"
+                        class="mt-1 text-micro text-muted-foreground"
                     >
                         Forked from {{ version.forkedFromHash.slice(0, 8) }}...
                     </div>

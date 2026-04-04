@@ -44,7 +44,7 @@
             <div
                 v-for="user in users"
                 :key="user.slug"
-                class="rounded-md border border-border overflow-hidden"
+                class="rounded-[var(--radius-md)] border border-border overflow-hidden"
             >
                 <!-- User header row -->
                 <div
@@ -89,9 +89,7 @@
                     <div v-if="loadingUserPalettes" class="flex items-center justify-center py-4">
                         <Loader2 class="w-4 h-4 animate-spin text-muted-foreground" />
                     </div>
-                    <div v-else-if="userPalettes.length === 0" class="text-center text-muted-foreground py-3 text-mono-small italic">
-                        No palettes.
-                    </div>
+                    <EmptyState v-else-if="userPalettes.length === 0" message="No palettes." />
                     <div v-else class="grid gap-2">
                         <PaletteCard
                             v-for="palette in userPalettes"
@@ -108,9 +106,7 @@
                     </div>
                 </div>
             </div>
-            <p v-if="users.length === 0" class="text-center text-muted-foreground py-6 text-mono-small italic">
-                No users found.
-            </p>
+            <EmptyState v-if="users.length === 0" message="No users found." />
         </template>
 
         <!-- Confirmation dialog -->
@@ -147,6 +143,7 @@ import type { Palette, User } from "@lib/palette/types";
 import { getUserPalettes } from "@lib/palette/api";
 import { useAdminAuth } from "@composables/auth/useAdminAuth";
 import PaletteCard from "./PaletteCard.vue";
+import EmptyState from "./EmptyState.vue";
 
 const props = defineProps<{
     users: User[];

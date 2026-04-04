@@ -14,6 +14,7 @@
                 <WatercolorDot
                     :color="color"
                     tag="button"
+                    :aria-label="`Color swatch ${color}`"
                     :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
                 />
             </PopoverTrigger>
@@ -27,6 +28,7 @@
             <WatercolorDot
                 :color="color"
                 tag="button"
+                :aria-label="`Color swatch ${color}`"
                 :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
                 @click.stop="$emit('click')"
             />

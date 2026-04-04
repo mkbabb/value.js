@@ -2,7 +2,7 @@
     <Dialog v-model:open="openModel">
         <DialogScrollContent
             :class="[
-                'palette-dialog max-w-[800px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-2xl sm:h-[min(90dvh,820px)] sm:max-h-[90dvh] min-w-0 flex flex-col',
+                'palette-dialog max-w-[800px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-[var(--radius-dialog)] sm:h-[min(90dvh,820px)] sm:max-h-[90dvh] min-w-0 flex flex-col',
                 editingExit && 'palette-dialog--editing-exit',
                 editingEnter && 'palette-dialog--editing-enter',
             ]"
@@ -24,7 +24,7 @@
             >
                 <Tabs
                     v-model="activeTab"
-                    class="w-full min-h-full flex flex-col min-w-0"
+                    class="underline-tabs w-full min-h-full flex flex-col min-w-0"
                     :style="{ '--active-tab-color': safeAccent }"
                 >
                     <!-- Controls: sticky tabs row, then search+sort row -->
@@ -592,13 +592,8 @@ function onClearFilters() {
 </script>
 
 <style>
-/* Tab underline variant — color handled by root TabsTrigger via --active-tab-color */
-.palette-dialog button[role="tab"][data-state="active"] {
-    border-bottom: 2px solid var(--active-tab-color);
-    border-radius: 0;
-}
-
-/* Palette dialog overlay — saturate + transition (backdrop defaults from DialogScrollContent root) */
+/* INTENTIONAL: de-saturate(0.7) dims backdrop more aggressively than glass-ui's
+   default saturate(1.05). Deliberate design choice for modal focus. */
 [data-state]:has(> .palette-dialog) {
     backdrop-filter: blur(4px) saturate(0.7);
     transition: backdrop-filter var(--duration-slow) var(--ease-standard),
@@ -613,15 +608,15 @@ function onClearFilters() {
 /* Palette dialog enter/exit animation */
 .palette-dialog {
     animation: dialog-in var(--duration-slow) var(--ease-decelerate);
-    box-shadow: 0 25px 50px -12px hsl(var(--foreground) / 0.25),
-                0 0 0 1px hsl(var(--border));
+    box-shadow: 0 25px 50px -12px color-mix(in srgb, var(--foreground) 25%, transparent),
+                0 0 0 1px var(--border);
     outline: none;
 }
 .palette-dialog:focus,
 .palette-dialog:focus-visible {
     outline: none;
-    box-shadow: 0 25px 50px -12px hsl(var(--foreground) / 0.25),
-                0 0 0 1px hsl(var(--border));
+    box-shadow: 0 25px 50px -12px color-mix(in srgb, var(--foreground) 25%, transparent),
+                0 0 0 1px var(--border);
 }
 .palette-dialog[data-state="closed"] {
     animation: dialog-out var(--duration-normal) var(--ease-standard);

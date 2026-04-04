@@ -1,7 +1,7 @@
 <template>
     <div
         :class="[
-            'group rounded-2xl border border-border bg-card overflow-hidden transition-shadow hover:shadow-md cursor-pointer',
+            'group rounded-[var(--radius-card)] border border-border bg-card overflow-hidden transition-shadow hover:shadow-[var(--shadow-card-hover)] cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
         @click="$emit('click')"
@@ -40,7 +40,7 @@
                 <!-- Fork indicator -->
                 <span
                     v-if="palette.forkOf"
-                    class="flex items-center gap-0.5 text-[10px] text-muted-foreground shrink-0"
+                    class="flex items-center gap-0.5 text-micro text-muted-foreground shrink-0"
                     :title="`Remixed from ${palette.forkOf}`"
                 >
                     <GitFork class="w-3 h-3" />
@@ -49,7 +49,7 @@
                 <!-- Fork count -->
                 <span
                     v-if="(palette.forkCount ?? 0) > 0"
-                    class="flex items-center gap-0.5 text-[10px] text-muted-foreground shrink-0"
+                    class="flex items-center gap-0.5 text-micro text-muted-foreground shrink-0"
                     :title="`${palette.forkCount} remix${palette.forkCount === 1 ? '' : 'es'}`"
                 >
                     <GitFork class="w-3 h-3" />
@@ -59,7 +59,7 @@
                 <!-- Version count -->
                 <span
                     v-if="(palette.versionCount ?? 0) > 1"
-                    class="flex items-center gap-0.5 text-[10px] text-muted-foreground shrink-0"
+                    class="flex items-center gap-0.5 text-micro text-muted-foreground shrink-0"
                     :title="`${palette.versionCount} versions`"
                 >
                     <History class="w-3 h-3" />
@@ -70,14 +70,14 @@
                 <span
                     v-for="tag in (palette.tags ?? []).slice(0, 3)"
                     :key="tag"
-                    class="rounded-full bg-muted/60 px-1.5 py-0.5 text-[9px] text-muted-foreground shrink-0"
+                    class="rounded-full bg-muted/60 px-1.5 py-0.5 text-micro text-muted-foreground shrink-0"
                 >{{ tag }}</span>
 
                 <!-- Vote count -->
                 <button
                     v-if="!palette.isLocal"
-                    class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent transition-colors cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
-                    aria-label="Vote for palette"
+                    class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent transition-colors duration-[var(--duration-fast)] cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+                    :aria-label="`${palette.voteCount ?? 0} votes, click to vote`"
                     @click.stop="emit('vote', palette)"
                 >
                     <Heart
@@ -208,7 +208,7 @@ import type { Palette } from "@lib/palette/types";
 import { getPaletteKind } from "@lib/palette/utils";
 import type { PaletteKind } from "@lib/palette/utils";
 import { copyToClipboard } from "@composables/useClipboard";
-import { useSafeAccentFn } from "@composables/useContrastSafeColor";
+import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 import { useHoverPopover } from "./composables/useHoverPopover";
 import { useHeightTransition } from "./composables/useHeightTransition";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";

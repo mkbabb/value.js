@@ -17,13 +17,13 @@
                 v-model="newName"
                 type="text"
                 placeholder="Tag name..."
-                class="h-7 flex-1 rounded-md border border-input bg-background px-2.5 text-mono-small focus:outline-none focus:ring-1 focus:ring-ring"
+                class="h-7 flex-1 rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
             <input
                 v-model="newCategory"
                 type="text"
                 placeholder="Category..."
-                class="h-7 w-28 rounded-md border border-input bg-background px-2.5 text-mono-small focus:outline-none focus:ring-1 focus:ring-ring"
+                class="h-7 w-28 rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
             <Button
                 variant="outline"
@@ -42,12 +42,7 @@
         </div>
 
         <!-- Empty -->
-        <div
-            v-else-if="tags.length === 0"
-            class="py-8 text-center text-mono-small italic text-muted-foreground"
-        >
-            No tags yet.
-        </div>
+        <EmptyState v-else-if="tags.length === 0" message="No tags yet." />
 
         <!-- Tag list grouped by category -->
         <div v-else class="flex flex-col gap-4">
@@ -79,6 +74,7 @@
 import { ref, computed, onMounted } from "vue";
 import { Button } from "@components/ui/button";
 import { Loader2, Plus, RefreshCw, X } from "lucide-vue-next";
+import EmptyState from "./EmptyState.vue";
 import { getAdminTags, createTag, deleteTag } from "@lib/palette/api";
 import type { Tag } from "@lib/palette/types";
 import { useAdminAuth } from "@composables/auth/useAdminAuth";

@@ -266,7 +266,7 @@ function confirmUpdatePalette() {
 
 /* Editing swatch — dashed outline + grayed out */
 .swatch-editing {
-    outline: 2px dashed hsl(var(--foreground) / 0.3);
+    outline: 2px dashed color-mix(in srgb, var(--foreground) 30%, transparent);
     outline-offset: 2px;
     opacity: 0.4;
     filter: grayscale(0.5);
@@ -276,9 +276,9 @@ function confirmUpdatePalette() {
 
 /* Cutout effect on the FROM swatch in the edit overlay */
 .swatch-cutout {
-    outline: 2px dashed hsl(var(--foreground) / 0.3);
+    outline: 2px dashed color-mix(in srgb, var(--foreground) 30%, transparent);
     outline-offset: -2px;
-    box-shadow: inset 0 2px 8px hsl(var(--foreground) / 0.15);
+    box-shadow: inset 0 2px 8px color-mix(in srgb, var(--foreground) 15%, transparent);
 }
 
 /* Edit overlay — anchored so the FROM swatch aligns exactly over the original */
@@ -290,10 +290,10 @@ function confirmUpdatePalette() {
     align-items: flex-start;
     z-index: var(--z-content);
     padding: 0.375rem;
-    background: var(--glass-bg-heavy);
-    backdrop-filter: var(--glass-blur-heavy);
-    -webkit-backdrop-filter: var(--glass-blur-heavy);
-    border: 1px solid hsl(var(--border) / 0.6);
+    background: var(--glass-bg-elevated);
+    backdrop-filter: var(--glass-blur-elevated);
+    -webkit-backdrop-filter: var(--glass-blur-elevated);
+    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     border-radius: var(--radius-lg, 1rem);
     box-shadow: var(--glass-shadow-elevated);
     /* Offset so the padding + first swatch aligns with the original swatch position */

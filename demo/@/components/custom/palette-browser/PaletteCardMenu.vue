@@ -117,7 +117,7 @@
             <!-- Admin section -->
             <template v-if="isAdmin && paletteKind === 'remote'">
                 <DropdownMenuSeparator />
-                <DropdownMenuLabel class="text-[10px] uppercase tracking-wider text-muted-foreground">
+                <DropdownMenuLabel class="text-mono-caption uppercase tracking-wider text-muted-foreground">
                     Admin
                 </DropdownMenuLabel>
                 <DropdownMenuItem @click="$emit('action', 'feature')">

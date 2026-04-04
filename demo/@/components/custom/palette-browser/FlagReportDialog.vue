@@ -16,7 +16,7 @@
                         class="flex items-center gap-2"
                     >
                         <RadioGroupItem :value="r.value" :id="`reason-${r.value}`" />
-                        <label :for="`reason-${r.value}`" class="text-sm">
+                        <label :for="`reason-${r.value}`" class="text-small">
                             {{ r.label }}
                         </label>
                     </div>
@@ -25,7 +25,7 @@
                 <textarea
                     v-model="detail"
                     placeholder="Additional details (optional)..."
-                    class="h-20 rounded-md border border-input bg-background px-3 py-2 text-sm resize-none"
+                    class="h-20 rounded-[var(--radius-input)] border border-input bg-background px-3 py-2 text-small resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                     maxlength="500"
                 />
             </div>

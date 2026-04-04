@@ -16,7 +16,7 @@
             <button
                 type="submit"
                 :disabled="!slugInput.trim() || slugSwitching"
-                class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0 disabled:opacity-30 disabled:cursor-not-allowed"
+                class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors duration-[var(--duration-fast)] cursor-pointer shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin text-muted-foreground" />
                 <ArrowRight v-else class="w-3.5 h-3.5 text-muted-foreground" />
@@ -71,21 +71,21 @@
             <!-- Three-dot menu -->
             <Popover v-model:open="slugMenuOpen">
                 <PopoverTrigger as-child>
-                    <button class="p-1 rounded-sm hover:bg-accent transition-colors cursor-pointer">
+                    <button class="p-1 rounded-sm hover:bg-accent transition-colors duration-[var(--duration-fast)] cursor-pointer">
                         <MoreHorizontal class="w-3.5 h-3.5 text-muted-foreground" />
                     </button>
                 </PopoverTrigger>
                 <PopoverContent class="w-auto p-1 flex flex-col gap-0.5 z-[var(--z-popover)]" align="end" :side-offset="4">
                     <button
                         v-if="userSlug"
-                        class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
+                        class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent transition-colors duration-[var(--duration-fast)] cursor-pointer w-full text-left"
                         @click="slugMenuOpen = false; onCopySlug()"
                     >
                         <Copy class="w-3.5 h-3.5" />
                         Copy slug
                     </button>
                     <button
-                        class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
+                        class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent transition-colors duration-[var(--duration-fast)] cursor-pointer w-full text-left"
                         @click="slugMenuOpen = false; onStartSlugEdit()"
                     >
                         <LogIn class="w-3.5 h-3.5" />
@@ -93,7 +93,7 @@
                     </button>
                     <button
                         v-if="userSlug"
-                        class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent transition-colors cursor-pointer w-full text-left"
+                        class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent transition-colors duration-[var(--duration-fast)] cursor-pointer w-full text-left"
                         @click="slugMenuOpen = false; $emit('logout')"
                     >
                         <LogOut class="w-3.5 h-3.5" />

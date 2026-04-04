@@ -6,13 +6,13 @@
                 v-model="actionFilter"
                 type="text"
                 placeholder="Action..."
-                class="h-7 w-28 rounded-md border border-input bg-background px-2.5 text-mono-small focus:outline-none focus:ring-1 focus:ring-ring"
+                class="h-7 w-28 rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
             <input
                 v-model="targetFilter"
                 type="text"
                 placeholder="Target..."
-                class="h-7 flex-1 min-w-[6rem] rounded-md border border-input bg-background px-2.5 text-mono-small focus:outline-none focus:ring-1 focus:ring-ring"
+                class="h-7 flex-1 min-w-[6rem] rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
             <div class="flex-1" />
             <span class="text-mono-small text-muted-foreground">{{ total }}</span>
@@ -27,18 +27,13 @@
         </div>
 
         <!-- Empty -->
-        <div
-            v-else-if="entries.length === 0"
-            class="py-8 text-center text-mono-small italic text-muted-foreground"
-        >
-            No audit entries found.
-        </div>
+        <EmptyState v-else-if="entries.length === 0" message="No audit entries found." />
 
         <!-- Entries -->
         <div
             v-for="entry in entries"
             :key="entry.id"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border transition-colors hover:bg-accent/50"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] border border-border transition-colors duration-[var(--duration-fast)] hover:bg-accent/50"
         >
             <div class="flex flex-col gap-0.5 min-w-0 flex-1">
                 <div class="flex items-center gap-2">
@@ -72,6 +67,7 @@ import { ref, computed, watch, onMounted } from "vue";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { Loader2, RefreshCw } from "lucide-vue-next";
+import EmptyState from "./EmptyState.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { getAuditLog } from "@lib/palette/api";
 import type { AuditEntry } from "@lib/palette/types";

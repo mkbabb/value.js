@@ -1,23 +1,14 @@
 <template>
     <Dialog v-model:open="open">
-        <DialogScrollContent
-            class="bg-card text-card-foreground border-border rounded-2xl sm:rounded-2xl max-w-sm p-0 gap-0 [&>button:last-child]:hidden"
-        >
-            <div class="p-5 pb-0 pr-10 relative">
-                <button
-                    class="absolute top-3 right-3 p-0.5 transition-colors rounded-full hover:bg-secondary cursor-pointer"
-                    @click="open = false"
-                >
-                    <XIcon class="w-4 h-4" />
-                </button>
-                <h2 class="text-subheading">
-                    {{ title }}
-                </h2>
-                <p class="text-small font-display text-muted-foreground mt-1">
+        <DialogContent class="rounded-[var(--radius-dialog)] max-w-sm">
+            <DialogHeader>
+                <DialogTitle class="text-subheading">{{ title }}</DialogTitle>
+                <DialogDescription class="text-small font-display">
                     {{ description }}
-                </p>
-            </div>
-            <div class="flex flex-col gap-2 p-5">
+                </DialogDescription>
+            </DialogHeader>
+
+            <div class="flex flex-col gap-2">
                 <Button
                     variant="default"
                     class="cursor-pointer font-display justify-start gap-2 rounded-full"
@@ -44,7 +35,7 @@
                     {{ discardLabel }}
                 </Button>
             </div>
-        </DialogScrollContent>
+        </DialogContent>
     </Dialog>
 </template>
 
@@ -52,10 +43,13 @@
 import { computed } from "vue";
 import {
     Dialog,
-    DialogScrollContent,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
 } from "@components/ui/dialog";
 import { Button } from "@components/ui/button";
-import { Globe, ArrowRightLeft, SkipForward, X as XIcon } from "lucide-vue-next";
+import { Globe, ArrowRightLeft, SkipForward } from "lucide-vue-next";
 
 export type MigrateChoice = "publish" | "transfer" | "discard";
 
