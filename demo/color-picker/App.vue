@@ -1,78 +1,5 @@
 <template>
-    <!-- Global SVG filter for watercolor swatches -->
-    <svg class="absolute w-0 h-0" aria-hidden="true">
-        <defs>
-            <filter
-                id="watercolor-filter"
-                x="-10%"
-                y="-10%"
-                width="120%"
-                height="120%"
-                color-interpolation-filters="sRGB"
-            >
-                <feTurbulence
-                    type="fractalNoise"
-                    baseFrequency="0.04"
-                    numOctaves="4"
-                    seed="2"
-                    result="noise"
-                />
-                <feDisplacementMap
-                    in="SourceGraphic"
-                    in2="noise"
-                    scale="1.5"
-                    xChannelSelector="R"
-                    yChannelSelector="G"
-                />
-            </filter>
-            <!-- Hero-specific watercolor: scaled for native 115px rendering -->
-            <filter
-                id="watercolor-filter-hero"
-                x="-12%"
-                y="-12%"
-                width="124%"
-                height="124%"
-                color-interpolation-filters="sRGB"
-            >
-                <feTurbulence
-                    type="fractalNoise"
-                    baseFrequency="0.022"
-                    numOctaves="4"
-                    seed="2"
-                    result="noise"
-                />
-                <feDisplacementMap
-                    in="SourceGraphic"
-                    in2="noise"
-                    scale="2.7"
-                    xChannelSelector="R"
-                    yChannelSelector="G"
-                />
-            </filter>
-            <!-- Gooey metaball filter — parameters scaled for 115px hero blob -->
-            <filter
-                id="gooey-filter"
-                x="-50%"
-                y="-50%"
-                width="200%"
-                height="200%"
-                color-interpolation-filters="sRGB"
-            >
-                <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur" />
-                <feColorMatrix
-                    in="blur"
-                    type="matrix"
-                    values="1 0 0 0 0
-                            0 1 0 0 0
-                            0 0 1 0 0
-                            0 0 0 12 -5"
-                    result="goo"
-                />
-                <feGaussianBlur in="goo" stdDeviation="1" result="goo-smooth" />
-                <feBlend in="SourceGraphic" in2="goo-smooth" />
-            </filter>
-        </defs>
-    </svg>
+    <SvgFilters />
 
     <div class="app-layout">
         <canvas
@@ -176,7 +103,6 @@
                             v-else-if="currentConfig.right === 'palettes'"
                             key="palettes"
                             :saved-color-strings="savedColorStrings"
-
                             @commit-edit="colorPickerRef?.commitEdit()"
                             @cancel-edit="colorPickerRef?.cancelEdit()"
                         />
@@ -184,7 +110,6 @@
                             v-else-if="currentConfig.right === 'mix'"
                             key="mix"
                             ref="mixPaneRef"
-
                         />
                     </KeepAlive>
                 </Transition>
@@ -202,49 +127,32 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, provide, reactive, ref, shallowRef, useTemplateRef, watch } from "vue";
+import { computed, defineAsyncComponent, onMounted, provide, reactive, ref, shallowRef, useTemplateRef, watch } from "vue";
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
-import {
-    ColorPicker,
-    defaultColorModel,
-    createDefaultColorModel,
-    toCSSColorString,
-    colorToHexString,
-} from "@components/custom/color-picker";
+import { ColorPicker } from "@components/custom/color-picker";
 import { CSS_COLOR_KEY, SAFE_ACCENT_KEY, EDIT_TARGET_KEY } from "@components/custom/color-picker/keys";
-import { useContrastSafeColor } from "@composables/useContrastSafeColor";
+import { useContrastSafeColor } from "@composables/color/useContrastSafeColor";
 
 import { Dock } from "@components/custom/dock";
-import { RefreshCw, Copy, Save, RotateCcw, Pipette, Blend, Paintbrush, Trash2 } from "lucide-vue-next";
-import type { DockActionBar } from "@components/custom/dock/composables/useDockActionBar";
-import { defineAsyncComponent } from "vue";
-import {
-    AboutPane,
-    PalettesPane,
-    BrowsePane,
-} from "@components/custom/panes";
-
-// Lazy-load panes that aren't visited on every session
-const ExtractPane = defineAsyncComponent(() => import("@components/custom/panes/ExtractPane.vue"));
-const GeneratePane = defineAsyncComponent(() => import("@components/custom/panes/GeneratePane.vue"));
-const GradientPane = defineAsyncComponent(() => import("@components/custom/panes/GradientPane.vue"));
-const MixPane = defineAsyncComponent(() => import("@components/custom/panes/MixPane.vue"));
-const AdminPane = defineAsyncComponent(() => import("@components/custom/panes/AdminPane.vue"));
-const AuroraPane = defineAsyncComponent(() => import("@components/custom/panes/AuroraPane.vue"));
-
+const AboutPane = defineAsyncComponent(() => import("@components/custom/panes/AboutPane.vue"));
+const PalettesPane = defineAsyncComponent(() => import("@components/custom/panes/PalettesPane.vue"));
+const BrowsePane = defineAsyncComponent(() => import("@components/custom/panes/BrowsePane.vue"));
 import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
+import SvgFilters from "@components/custom/svg-filters/SvgFilters.vue";
 
-import { useStorage } from "@vueuse/core";
-import { copyToClipboard } from "@composables/useClipboard";
+import { defaultColorModel } from "@components/custom/color-picker";
 import { normalizeColorUnit, colorUnit2 } from "@src/units/color/normalize";
 import { parseCSSColor } from "@src/parsing/color";
-import { CSS_NATIVE_SPACES } from "@components/custom/color-picker";
 import { useCustomColorNames } from "@components/custom/color-picker/composables/useCustomColorNames";
 import { useColorUrl } from "@components/custom/color-picker/composables/useColorUrl";
-import { debounce } from "@src/utils";
+
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
+import { useAppColorModel } from "@composables/color/useAppColorModel";
+import { useGenericActionBar } from "@components/custom/dock/composables/useGenericActionBar";
+import { useMobilePaneRouter, ExtractPane, GeneratePane, GradientPane, MixPane, AdminPane, AuroraPane } from "@composables/useMobilePaneRouter";
 import { usePaletteManager } from "@composables/palette/usePaletteManager";
+import { copyToClipboard } from "@composables/useClipboard";
 import { useAurora } from "@mkbabb/glass-ui";
 import type { AuroraConfig } from "@mkbabb/glass-ui";
 
@@ -255,38 +163,18 @@ import "@styles/style.css";
 
 const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
-
-const colorStore = useStorage("color-picker", defaultColorModel);
 const model = shallowRef<ColorModel>(defaultColorModel);
-const cssColor = computed(() => toCSSColorString(model.value.color));
-const cssColorOpaque = computed(() => {
-    const color = model.value.color;
-    if (CSS_NATIVE_SPACES.has(color.value.colorSpace)) {
-        const denorm = normalizeColorUnit(color, true, false);
-        const c = denorm.clone() as typeof denorm;
-        c.value.alpha.value = 100;
-        return c.value.toFormattedString(2);
-    }
-    const c = color.clone();
-    c.value.alpha.value = 1;
-    return toCSSColorString(c);
-});
 
-const savedColorStrings = computed(() =>
-    model.value.savedColors.map((c) =>
-        normalizeColorUnit(c as any, true, false).toString(),
-    ),
-);
+const {
+    cssColor,
+    cssColorOpaque,
+    savedColorStrings,
+    updateModel,
+    resetToDefaults,
+    applyColorString,
+} = useAppColorModel(model);
 
-const updateModel = (patch: Partial<ColorModel>) => {
-    model.value = { ...model.value, ...patch };
-};
-
-const resetToDefaults = () => {
-    model.value = createDefaultColorModel();
-};
-
-// --- Edit target (synced from ColorPicker, provided for palette components + Dock) ---
+// --- Edit target ---
 
 const activeEditTarget = shallowRef<EditTarget | null>(null);
 const onEditTargetChange = (et: EditTarget | null) => { activeEditTarget.value = et; };
@@ -309,94 +197,25 @@ const generatePaneRef = ref<any>(null);
 const gradientPaneRef = ref<any>(null);
 const mixPaneRef = ref<any>(null);
 
-const genericActionBar = computed<DockActionBar | null>(() => {
-    const view = viewManager.currentView.value;
+const genericActionBar = useGenericActionBar(
+    computed(() => viewManager.currentView.value),
+    { generate: generatePaneRef, gradient: gradientPaneRef, mix: mixPaneRef },
+);
 
-    if (view === "generate") {
-        return {
-            label: "Tools",
-            icon: Paintbrush,
-            actions: computed(() => [
-                { key: "regenerate", icon: RefreshCw, title: "Regenerate", description: "New random palette with current settings.", rotateOnClick: true, handler: () => generatePaneRef.value?.regenerate?.() },
-                { key: "save", icon: Save, title: "Save palette", description: "Save the generated palette.", handler: () => generatePaneRef.value?.save?.() },
-                { key: "copy", icon: Copy, title: "Copy colors", description: "Copy palette colors to clipboard.", handler: () => generatePaneRef.value?.copyColors?.() },
-            ]),
-        };
-    }
+// --- Mobile pane routing ---
 
-    if (view === "gradient") {
-        return {
-            label: "Tools",
-            icon: Paintbrush,
-            actions: computed(() => [
-                { key: "reset", icon: RotateCcw, title: "Reset", description: "Reset gradient to defaults.", rotateOnClick: true, handler: () => gradientPaneRef.value?.reset?.() },
-                { key: "copy", icon: Copy, title: "Copy CSS", description: "Copy the gradient CSS to clipboard.", handler: () => gradientPaneRef.value?.copyCSS?.() },
-                { key: "seed", icon: Pipette, title: "Seed from palette", description: "Seed gradient stops from a saved palette.", handler: () => gradientPaneRef.value?.seedFromPalette?.() },
-            ]),
-        };
-    }
-
-    if (view === "mix") {
-        return {
-            label: "Tools",
-            icon: Paintbrush,
-            actions: computed(() => [
-                { key: "clear", icon: Trash2, title: "Clear", description: "Clear all selected colors.", handler: () => mixPaneRef.value?.clearSelection?.() },
-                { key: "mix", icon: Blend, title: "Mix", description: "Mix the selected colors.", handler: () => mixPaneRef.value?.startMix?.() },
-                { key: "copy", icon: Copy, title: "Copy result", description: "Copy the mixed color result.", handler: () => mixPaneRef.value?.copyResult?.() },
-            ]),
-        };
-    }
-
-    return null;
-});
-
-// --- Mobile pane (single slot below lg) ---
-
-const mobileComponent = computed(() => {
-    const cfg = currentConfig.value;
-    // If two panes, mobilePaneIndex picks which one
-    if (cfg.right !== null && viewManager.mobilePaneIndex.value === 1) {
-        // Show right pane
-        if (cfg.right === "about") return AboutPane;
-        if (cfg.right === "palettes") return PalettesPane;
-        if (cfg.right === "mix") return MixPane;
-    }
-    // Show left pane
-    if (cfg.left === "color-picker") return ColorPicker;
-    if (cfg.left === "browse") return BrowsePane;
-    if (cfg.left === "extract") return ExtractPane;
-    if (cfg.left === "generate") return GeneratePane;
-    if (cfg.left === "gradient") return GradientPane;
-    if (cfg.left === "atmosphere") return AuroraPane;
-    if (cfg.left.startsWith("admin-")) return AdminPane;
-    return ColorPicker;
-});
-
-const mobileKey = computed(() => {
-    const cfg = currentConfig.value;
-    if (cfg.right !== null && viewManager.mobilePaneIndex.value === 1) {
-        return cfg.right;
-    }
-    return cfg.left;
-});
-
-const mobileProps = computed(() => {
-    const cfg = currentConfig.value;
-    if (cfg.right !== null && viewManager.mobilePaneIndex.value === 1) {
-        if (cfg.right === "about") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { model.value = v; }, cssColor: cssColor.value };
-        if (cfg.right === "palettes") return { savedColorStrings: savedColorStrings.value, "onCommit-edit": () => colorPickerRef.value?.commitEdit(), "onCancel-edit": () => colorPickerRef.value?.cancelEdit() };
-        if (cfg.right === "mix") return {};
-    }
-    if (cfg.left === "color-picker") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { model.value = v; }, "onUpdate:editTarget": onEditTargetChange, onReset: resetToDefaults, ref: colorPickerRef, class: "picker-shell w-full" };
-    if (cfg.left === "browse") return {};
-    if (cfg.left === "extract") return { colorSpace: model.value.selectedColorSpace };
-    if (cfg.left === "generate") return {};
-    if (cfg.left === "gradient") return {};
-    if (cfg.left === "atmosphere") return {};
-    if (cfg.left.startsWith("admin-")) return { subView: cfg.left };
-    return {};
-});
+const { mobileComponent, mobileKey, mobileProps } = useMobilePaneRouter(
+    viewManager,
+    model,
+    {
+        cssColor: () => cssColor.value,
+        savedColorStrings: () => savedColorStrings.value,
+        colorPickerRef: () => colorPickerRef.value,
+        onEditTargetChange,
+        resetToDefaults,
+        updateModel: (v: ColorModel) => { model.value = v; },
+    },
+);
 
 // --- Palette manager ---
 
@@ -408,26 +227,11 @@ const paletteManager = usePaletteManager({
         if (colorPickerRef.value) {
             colorPickerRef.value.onPaletteApply(colors);
         } else {
-            // ColorPicker not mounted (e.g. extract view) — update model directly
-            // Only set the current color; do NOT replace savedColors
             if (colors.length === 0) return;
-            try {
-                const parsed = normalizeColorUnit(parseCSSColor(colors[0]));
-                const resolvedSpace = model.value.selectedColorSpace === "hex" ? "rgb" : model.value.selectedColorSpace;
-                const color = colorUnit2(parsed, resolvedSpace, true, false, false);
-                updateModel({
-                    color,
-                    inputColor: colors[0],
-                    selectedColorSpace: model.value.selectedColorSpace,
-                });
-            } catch { /* ignore parse errors */ }
+            applyColorString(colors[0]);
         }
     },
     emitAddColor: (css: string) => {
-        // Add color directly to model — no need for ColorPicker to be mounted
-        // Only switch view if on a view that has no palettes pane (extract already has one on the right)
-        const cur = viewManager.currentView.value;
-        // Only navigate if the current view has no palettes pane on the right
         const cfg = viewManager.currentConfig.value;
         if (cfg.right !== "palettes") {
             viewManager.switchView("palettes");
@@ -438,29 +242,23 @@ const paletteManager = usePaletteManager({
             const normalized = normalizeColorUnit(parsed);
             const newStr = normalizeColorUnit(normalized, true, false).value.toFormattedString(2);
 
-            // Check for duplicate: compare formatted strings
             const savedColors = [...model.value.savedColors];
             const existingIdx = savedColors.findIndex((c: any) => {
-                try {
-                    return normalizeColorUnit(c, true, false).value.toFormattedString(2) === newStr;
-                } catch { return false; }
+                try { return normalizeColorUnit(c, true, false).value.toFormattedString(2) === newStr; }
+                catch { return false; }
             });
 
             if (existingIdx >= 0) {
-                // Already exists — move to front if not already first
                 if (existingIdx > 0) {
                     const [existing] = savedColors.splice(existingIdx, 1);
                     savedColors.unshift(existing);
                     model.value = { ...model.value, savedColors };
                 }
-                // If already first, do nothing
             } else {
-                // New color — prepend
                 savedColors.unshift(normalized);
                 model.value = { ...model.value, savedColors };
             }
         } catch {
-            // If we can't parse directly, fall back to ColorPicker
             const tryAdd = () => {
                 if (colorPickerRef.value) {
                     colorPickerRef.value.onPaletteAddColor(css);
@@ -472,15 +270,11 @@ const paletteManager = usePaletteManager({
         }
     },
     emitStartEdit: (target) => {
-        // Stay on palettes view (picker + palettes side-by-side on desktop)
-        // Only switch if we're not already on a view that has the color picker
         const cur = viewManager.currentView.value;
         if (cur !== "picker" && cur !== "palettes") {
             viewManager.switchView("palettes");
         }
-        // On mobile, show the picker pane (left) so the user can edit
         viewManager.mobilePaneIndex.value = 0;
-        // Wait for ColorPicker to mount if needed, then start edit
         const tryStartEdit = () => {
             if (colorPickerRef.value) {
                 colorPickerRef.value.onStartEdit(target);
@@ -491,28 +285,11 @@ const paletteManager = usePaletteManager({
         setTimeout(tryStartEdit, 50);
     },
     emitSetCurrentColor: (css: string) => {
-        const trySetCurrent = () => {
-            if (colorPickerRef.value?.applyExternalColor) {
-                colorPickerRef.value.applyExternalColor(css);
-                return;
-            }
-            try {
-                const parsed = normalizeColorUnit(parseCSSColor(css));
-                const resolvedSpace = model.value.selectedColorSpace === "hex" ? "rgb" : model.value.selectedColorSpace;
-                const color = colorUnit2(parsed, resolvedSpace, true, false, false);
-                const inputColor = model.value.selectedColorSpace === "hex"
-                    ? colorToHexString(color)
-                    : normalizeColorUnit(color, true, false).value.toFormattedString(2);
-                updateModel({
-                    color,
-                    inputColor,
-                    selectedColorSpace: model.value.selectedColorSpace,
-                });
-            } catch {
-                // ignore parse errors
-            }
-        };
-        trySetCurrent();
+        if (colorPickerRef.value?.applyExternalColor) {
+            colorPickerRef.value.applyExternalColor(css);
+        } else {
+            applyColorString(css);
+        }
     },
 });
 
@@ -526,50 +303,16 @@ const shareLink = async () => {
     if (success) {
         linkCopied.value = true;
         clearTimeout(linkCopiedTimer);
-        linkCopiedTimer = setTimeout(() => {
-            linkCopied.value = false;
-        }, 2000);
+        linkCopiedTimer = setTimeout(() => { linkCopied.value = false; }, 2000);
     }
 };
 
-// --- Storage sync ---
+// --- URL sync + custom color names ---
 
-const syncColorToStorage = debounce(
-    (color: any) => {
-        colorStore.value.inputColor = color?.toString() ?? "";
-    },
-    200,
-    false,
-);
-
-watch(
-    () => model.value.color,
-    (color) => {
-        syncColorToStorage(color);
-    },
-);
-
-// Persist opaque color for flash-free page load background.
-// Clear the FOUC guard inline styles once the live color is active.
-watch(cssColorOpaque, (c) => {
-    try { localStorage.setItem("color-picker-bg", c); } catch {}
-    document.documentElement.style.background = "";
-    document.body.style.background = "";
-}, { immediate: true });
-
-watch(
-    () => model.value.savedColors,
-    (colors) => {
-        colorStore.value.savedColors = colors.map((c) =>
-            normalizeColorUnit(c as any, true, false).toString(),
-        );
-    },
-);
-
-// Bidirectional URL ↔ model sync
 useColorUrl({ model, updateModel });
-
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
+
+// --- Aurora atmosphere ---
 
 const auroraConfig = reactive<AuroraConfig>({
     colorMode: "derived",
@@ -586,12 +329,12 @@ const auroraConfig = reactive<AuroraConfig>({
 const { config: auroraConfigResult } = useAurora(atmosphereCanvas, auroraConfig, cssColorOpaque);
 provide("auroraConfig", auroraConfigResult);
 
-onMounted(() => {
-    loadCustomColorNames();
-});
+onMounted(() => { loadCustomColorNames(); });
 </script>
 
 <style scoped>
+@reference "../../demo/@/styles/style.css";
+
 /* Smooth layout transitions for pane wrappers */
 .pane-wrapper {
     transition: height var(--duration-slow) var(--ease-standard),
@@ -601,22 +344,22 @@ onMounted(() => {
 
 /* ── Pane slide — shared enter/leave with CSS variable direction ── */
 .pane-slide-enter-active {
-    transition: transform 280ms var(--ease-pane);
+    transition: transform var(--duration-slow) var(--spring-snappy);
 }
 .pane-slide-leave-active {
-    transition: transform var(--duration-fast) var(--ease-pane-exit);
+    transition: transform var(--duration-normal) var(--ease-out);
 }
 .pane-slide-enter-from,
 .pane-slide-leave-to {
     transform: translateX(var(--pane-slide-dir, -110%)) rotate(var(--pane-slide-rot, -2deg));
 }
 
-/* ── Legacy aliases — kept for KeepAlive cache keys ── */
+/* ── Left pane transitions ── */
 .pane-left-enter-active {
-    transition: transform 280ms var(--ease-pane);
+    transition: transform var(--duration-slow) var(--spring-snappy);
 }
 .pane-left-leave-active {
-    transition: transform var(--duration-fast) var(--ease-pane-exit);
+    transition: transform var(--duration-normal) var(--ease-out);
 }
 .pane-left-enter-from {
     transform: translateX(-110%) rotate(-2deg);
@@ -625,11 +368,12 @@ onMounted(() => {
     transform: translateX(-110%) rotate(-2deg);
 }
 
+/* ── Right pane transitions ── */
 .pane-right-enter-active {
-    transition: transform 280ms var(--ease-pane);
+    transition: transform var(--duration-slow) var(--spring-snappy);
 }
 .pane-right-leave-active {
-    transition: transform var(--duration-fast) var(--ease-pane-exit);
+    transition: transform var(--duration-normal) var(--ease-out);
 }
 .pane-right-enter-from {
     transform: translateX(110%) rotate(2deg);
