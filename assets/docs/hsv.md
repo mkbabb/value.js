@@ -73,9 +73,7 @@ Derive lightness from value and saturation, then recompute saturation for the HS
 
 <Katex expression="L = V - \frac{V \cdot S}{2}, \quad S_L = \begin{cases} 0 & L = 0 \text{ or } L = 1 \\ \frac{V - L}{\min(L,\; 1 - L)} & \text{otherwise} \end{cases}" />
 
-<div class="language-typescript">
-    {{ hsv2hsl }}
-</div>
+<div v-html="hsv2hsl" />
 
 ### HSL to HSV
 
@@ -83,25 +81,19 @@ The inverse—recover value and saturation in the HSV model:
 
 <Katex expression="V = L + S \cdot \min(L,\; 1 - L), \quad S_V = \begin{cases} 0 & V = 0 \\ 2\left(1 - \frac{L}{V}\right) & \text{otherwise} \end{cases}" />
 
-<div class="language-typescript">
-    {{ hsl2hsv }}
-</div>
+<div v-html="hsl2hsv" />
 
 ### HSL to RGB
 
 The intermediate step when converting HSV to display-ready sRGB (HSV → HSL → RGB):
 
-<div class="language-typescript">
-    {{ hsl2rgb }}
-</div>
+<div v-html="hsl2rgb" />
 
 ### RGB to HSL
 
 The intermediate step when converting from sRGB back to HSV (RGB → HSL → HSV):
 
-<div class="language-typescript">
-    {{ rgb2hsl }}
-</div>
+<div v-html="rgb2hsl" />
 
 ---
 

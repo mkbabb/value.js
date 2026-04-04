@@ -83,9 +83,7 @@ Normalize XYZ by the reference white point, apply a piecewise function that appr
 
 where <Katex expression="\epsilon = \tfrac{216}{24389}" :display-mode="false" /> and <Katex expression="\kappa = \tfrac{24389}{27}" :display-mode="false" />.
 
-<div class="language-typescript">
-    {{ xyz2lab }}
-</div>
+<div v-html="xyz2lab" />
 
 ### Lab to XYZ
 
@@ -95,9 +93,7 @@ Invert the L\*a\*b\* formulas—recover the normalized XYZ ratios, apply the inv
 
 <Katex expression="X = X_n \cdot f^{-1}(f_x), \quad Y = Y_n \cdot f^{-1}(f_y), \quad Z = Z_n \cdot f^{-1}(f_z)" />
 
-<div class="language-typescript">
-    {{ lab2xyz }}
-</div>
+<div v-html="lab2xyz" />
 
 ---
 

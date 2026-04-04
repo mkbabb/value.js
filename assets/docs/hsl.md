@@ -74,9 +74,7 @@ Compute lightness from the min/max of the RGB channels, derive chroma and satura
 
 <Katex expression="H = \begin{cases} \frac{G - B}{C} & \text{if } \max = R \\ \frac{B - R}{C} + 2 & \text{if } \max = G \\ \frac{R - G}{C} + 4 & \text{if } \max = B \end{cases} \quad (\text{then } H = H / 6)" />
 
-<div class="language-typescript">
-    {{ rgb2hsl }}
-</div>
+<div v-html="rgb2hsl" />
 
 ### HSL to RGB
 
@@ -88,9 +86,7 @@ Recover chroma from saturation and lightness, determine the RGB triple by hue se
 
 where <Katex expression="(r_1, g_1, b_1)" :display-mode="false" /> is selected from <Katex expression="(C, X, 0)" :display-mode="false" /> and its permutations based on the hue sector.
 
-<div class="language-typescript">
-    {{ hsl2rgb }}
-</div>
+<div v-html="hsl2rgb" />
 
 ---
 

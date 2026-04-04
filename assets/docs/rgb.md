@@ -82,9 +82,7 @@ Linearize sRGB via the inverse transfer function, then apply the 3×3 matrix:
 
 <Katex expression="\begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_{\text{sRGB}} \begin{bmatrix} \gamma^{-1}(R) \\ \gamma^{-1}(G) \\ \gamma^{-1}(B) \end{bmatrix}" />
 
-<div class="language-typescript">
-    {{ rgb2xyz }}
-</div>
+<div v-html="rgb2xyz" />
 
 ### XYZ to RGB
 
@@ -94,9 +92,7 @@ Multiply by the inverse matrix, then apply gamma encoding:
 
 <Katex expression="\begin{bmatrix} R \\ G \\ B \end{bmatrix} = \gamma\!\left(M_{\text{sRGB}}^{-1} \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}\right)" />
 
-<div class="language-typescript">
-    {{ xyz2rgb }}
-</div>
+<div v-html="xyz2rgb" />
 
 ---
 

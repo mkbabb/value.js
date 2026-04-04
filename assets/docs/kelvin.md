@@ -74,17 +74,13 @@ Polynomial approximation (Tanner Helland) mapping temperature to RGB. Each chann
 
 where <Katex expression="T = \text{kelvin} / 100" :display-mode="false" /> and results are clamped to [0, 255] then normalized.
 
-<div class="language-typescript">
-    {{ kelvin2rgb }}
-</div>
+<div v-html="kelvin2rgb" />
 
 ### RGB to Kelvin
 
 Inverts the polynomial fits to estimate the closest color temperature for a given RGB value:
 
-<div class="language-typescript">
-    {{ rgb2kelvin }}
-</div>
+<div v-html="rgb2kelvin" />
 
 ---
 

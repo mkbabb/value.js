@@ -77,9 +77,7 @@ Two matrix multiplications sandwiching a cube root. The first maps XYZ to LMS co
 
 <Katex expression="\begin{bmatrix} l \\ m \\ s \end{bmatrix} = M_1 \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}, \quad \begin{bmatrix} L \\ a \\ b \end{bmatrix} = M_2 \begin{bmatrix} \sqrt[3]{l} \\ \sqrt[3]{m} \\ \sqrt[3]{s} \end{bmatrix}" />
 
-<div class="language-typescript">
-    {{ xyz2oklab }}
-</div>
+<div v-html="xyz2oklab" />
 
 ### OKLab to XYZ
 
@@ -87,9 +85,7 @@ The inverse: undo the linear transform, cube to reverse the perceptual compressi
 
 <Katex expression="\begin{bmatrix} l' \\ m' \\ s' \end{bmatrix} = M_2^{-1} \begin{bmatrix} L \\ a \\ b \end{bmatrix}, \quad \begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_1^{-1} \begin{bmatrix} l'^3 \\ m'^3 \\ s'^3 \end{bmatrix}" />
 
-<div class="language-typescript">
-    {{ oklab2xyz }}
-</div>
+<div v-html="oklab2xyz" />
 
 ---
 

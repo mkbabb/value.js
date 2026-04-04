@@ -1,5 +1,6 @@
 <script setup>
 import { rgb2xyz, xyz2rgb, xyz2lab, lab2xyz } from "@src/units/color/utils?source";
+import { WHITE_POINT_D65_D50, WHITE_POINT_D50_D65 } from "@src/units/color/constants?source";
 import { getFormattedColorSpaceRange } from "@src/units/color/utils";
 import { Katex } from "@components/custom/katex";
 import {
@@ -7,8 +8,6 @@ import {
     COLOR_SPACE_NAMES,
     COLOR_SPACE_RANGES,
     WHITE_POINTS,
-    WHITE_POINT_D50_D65,
-    WHITE_POINT_D65_D50
 } from "@src/units/color/constants";
 import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
 const { x, y, z } = getFormattedColorSpaceRange("xyz");
@@ -72,13 +71,8 @@ XYZ values are relative to a reference white point:
 
 Converting between white points requires chromatic adaptation. value.js uses the Bradford transform:
 
-<div class="language-typescript">
-    // D65 to D50 transformation matrix
-    {{ WHITE_POINT_D65_D50 }}
-
-    // D50 to D65 transformation matrix
-    {{ WHITE_POINT_D50_D65 }}
-</div>
+<div v-html="WHITE_POINT_D65_D50" />
+<div v-html="WHITE_POINT_D50_D65" />
 
 ---
 
@@ -92,9 +86,7 @@ Linearize sRGB (undo the gamma curve), then multiply by the 3×3 sRGB-to-XYZ mat
 
 The sRGB transfer function is piecewise: linear below ~0.04045, power-law (exponent 2.4) above.
 
-<div class="language-typescript">
-    {{ rgb2xyz }}
-</div>
+<div v-html="rgb2xyz" />
 
 ### XYZ to RGB
 
@@ -102,9 +94,7 @@ Multiply by the inverse matrix, then apply the sRGB gamma curve:
 
 <Katex expression="\mathbf{rgb}_{\text{linear}} = M_{\text{sRGB}}^{-1} \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}, \quad \mathbf{rgb} = \gamma(\mathbf{rgb}_{\text{linear}})" />
 
-<div class="language-typescript">
-    {{ xyz2rgb }}
-</div>
+<div v-html="xyz2rgb" />
 
 ### XYZ to Lab
 
@@ -112,9 +102,7 @@ Normalize by the white point, apply the CIE perceptual function, then scale:
 
 <Katex expression="L^* = 116\, f\!\left(\frac{Y}{Y_n}\right) - 16, \quad a^* = 500\left[f\!\left(\frac{X}{X_n}\right) - f\!\left(\frac{Y}{Y_n}\right)\right], \quad b^* = 200\left[f\!\left(\frac{Y}{Y_n}\right) - f\!\left(\frac{Z}{Z_n}\right)\right]" />
 
-<div class="language-typescript">
-    {{ xyz2lab }}
-</div>
+<div v-html="xyz2lab" />
 
 ### Lab to XYZ
 
@@ -122,9 +110,7 @@ Invert the L\*a\*b\* formulas and scale by the white point:
 
 <Katex expression="f_y = \frac{L^* + 16}{116}, \quad f_x = \frac{a^*}{500} + f_y, \quad f_z = f_y - \frac{b^*}{200}" />
 
-<div class="language-typescript">
-    {{ lab2xyz }}
-</div>
+<div v-html="lab2xyz" />
 
 ---
 

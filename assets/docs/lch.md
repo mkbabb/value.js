@@ -73,9 +73,7 @@ Cartesian to polar—extract chroma (magnitude) and hue (angle) from the `a*`/`b
 
 <Katex expression="C = \sqrt{a^{*2} + b^{*2}}, \quad H = \frac{\operatorname{atan2}(b^*,\, a^*)}{2\pi}" />
 
-<div class="language-typescript">
-    {{ lab2lch }}
-</div>
+<div v-html="lab2lch" />
 
 ### LCh to Lab
 
@@ -83,9 +81,7 @@ Polar back to Cartesian—recover `a*` and `b*` from chroma and hue:
 
 <Katex expression="a^* = C \cos(2\pi H), \quad b^* = C \sin(2\pi H)" />
 
-<div class="language-typescript">
-    {{ lch2lab }}
-</div>
+<div v-html="lch2lab" />
 
 ---
 

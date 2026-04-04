@@ -78,9 +78,7 @@ Convert through HSV as an intermediate—whiteness and blackness derive directly
 
 <Katex expression="W = V(1 - S_V), \quad B = 1 - V" />
 
-<div class="language-typescript">
-    {{ hsl2hwb }}
-</div>
+<div v-html="hsl2hwb" />
 
 ### HWB to HSL
 
@@ -90,9 +88,7 @@ Recover HSV saturation and value from whiteness and blackness (normalizing when 
 
 When <Katex expression="W + B \geq 1" :display-mode="false" />, the color collapses to gray: <Katex expression="V = W/(W+B),\; S_V = 0" :display-mode="false" />.
 
-<div class="language-typescript">
-    {{ hwb2hsl }}
-</div>
+<div v-html="hwb2hsl" />
 
 ---
 
