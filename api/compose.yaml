@@ -2,7 +2,7 @@ services:
   api:
     build: .
     ports:
-      - "127.0.0.1:3100:3000"
+      - "127.0.0.1:8130:3000"
     environment:
       MONGODB_URI: "mongodb://mongo:27017/palette-db"
       ADMIN_TOKEN: "${ADMIN_TOKEN}"
