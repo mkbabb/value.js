@@ -30,7 +30,7 @@ const { toggleDark } = useGlobalDark();
 <template>
     <div class="lg:hidden flex items-center">
         <DropdownMenu v-model:open="open">
-            <DropdownMenuTrigger class="dock-icon-btn">
+            <DropdownMenuTrigger class="dock-icon-btn" aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" class="min-w-[11rem] font-display">

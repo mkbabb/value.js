@@ -234,6 +234,7 @@ const activeLayer = computed<string>(() => {
                             @update:model-value="onViewChange"
                         >
                             <SelectTrigger
+                                aria-label="Select view"
                                 class="dock-select-trigger border-none h-auto bg-transparent text-small font-display font-normal gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 focus-ring"
                                 :style="{ '--dock-ring': safeAccent }"
                             >
@@ -257,7 +258,7 @@ const activeLayer = computed<string>(() => {
                                         <span class="flex items-center gap-2">
                                             <span
                                                 class="inline-block w-2 h-2 rounded-full shrink-0 transition-colors"
-                                                :style="{ backgroundColor: viewManager.currentView.value === entry.id ? (isAdminMode ? 'var(--color-gold)' : cssColorOpaque) : 'hsl(var(--muted-foreground) / 0.25)' }"
+                                                :style="{ backgroundColor: viewManager.currentView.value === entry.id ? (isAdminMode ? 'var(--color-gold)' : cssColorOpaque) : 'color-mix(in srgb, var(--muted-foreground) 25%, transparent)' }"
                                             ></span>
                                             <component :is="entry.icon" class="w-4 h-4 shrink-0" :style="viewManager.currentView.value === entry.id ? { color: isAdminMode ? 'var(--color-gold)' : safeAccent } : {}" :class="viewManager.currentView.value !== entry.id ? 'text-muted-foreground' : ''" />
                                             <span :class="[
@@ -288,7 +289,7 @@ const activeLayer = computed<string>(() => {
                                         hide-indicator
                                     >
                                         <span class="flex items-center gap-2">
-                                            <span class="inline-block w-2 h-2 rounded-full shrink-0" style="background: hsl(var(--muted-foreground) / 0.25)"></span>
+                                            <span class="inline-block w-2 h-2 rounded-full shrink-0" style="background: color-mix(in srgb, var(--muted-foreground) 25%, transparent)"></span>
                                             <ArrowLeft class="w-4 h-4 shrink-0 text-muted-foreground" />
                                             <span>Back to app</span>
                                         </span>
@@ -388,4 +389,10 @@ const activeLayer = computed<string>(() => {
 
 <style scoped>
 @reference "../../../styles/style.css";
+
+/* Admin golden icon — solid gold color + subtle glow */
+.gold-shimmer-icon {
+    color: var(--color-gold);
+    filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.3));
+}
 </style>
