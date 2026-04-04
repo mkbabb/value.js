@@ -103,7 +103,6 @@ export default defineConfig((mode) => {
                         manualChunks(id) {
                             if (id.includes("node_modules")) {
                                 if (id.includes("katex")) return "vendor-katex";
-                                if (id.includes("prettier")) return "vendor-prettier";
                                 if (id.includes("highlight")) return "vendor-highlight";
                             }
                         },

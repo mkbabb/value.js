@@ -1,6 +1,4 @@
 import { useDark } from "@vueuse/core";
-import hljs from "highlight.js/lib/core";
-import javascript from "highlight.js/lib/languages/javascript";
 import { onMounted, ref, watch } from "vue";
 import type { ShallowRef } from "vue";
 
@@ -10,10 +8,6 @@ import darkTheme from "highlight.js/styles/github-dark.css?inline";
 import lightTheme from "highlight.js/styles/github.css?inline";
 
 import katex from "katex";
-
-/* Register languages once at module level */
-hljs.registerLanguage("typescript", javascript);
-hljs.registerLanguage("css", javascript);
 
 /**
  * Wraps occurrences of `colorSpaceName` in `<mark>` tags inside the markdown body.
@@ -101,12 +95,11 @@ function renderKatex(container: HTMLElement | null) {
 }
 
 /**
- * Manages highlight.js theme switching (light/dark) and color-space-name marking.
+ * Manages highlight.js theme switching (light/dark), KaTeX rendering,
+ * and color-space-name marking.
  *
- * Handles:
- * - Injecting/swapping the highlight.js theme stylesheet based on dark mode
- * - Rendering inline KaTeX expressions
- * - Highlighting occurrences of the color space name in prose
+ * Code blocks are pre-formatted and pre-highlighted at build time by
+ * the vite-source-export plugin — no runtime highlight.js core needed.
  */
 export function useMarkdownHighlighting(
     markdownDiv: Readonly<ShallowRef<HTMLElement | null>>,

@@ -28,7 +28,6 @@ import "@styles/style.css";
 import "@styles/utils.css";
 import { computed, onMounted, onUpdated, ref, useTemplateRef } from "vue";
 import type { DocModule } from ".";
-import { useCodeFormatting } from "./composables/useCodeFormatting";
 import { useMarkdownColors } from "./composables/useMarkdownColors";
 import { useMarkdownHighlighting } from "./composables/useMarkdownHighlighting";
 
@@ -41,7 +40,6 @@ const { module, cssColor, colorSpaceName } = defineProps<{
 const markdownDiv = useTemplateRef<HTMLElement>("markdownDiv");
 
 const { mdColorVars } = useMarkdownColors(() => cssColor);
-const { highlightCode } = useCodeFormatting(markdownDiv);
 const { applyHighlighting } = useMarkdownHighlighting(markdownDiv, () => colorSpaceName);
 
 const currentDoc = ref<Awaited<ReturnType<DocModule>> | null>(null);
@@ -63,7 +61,6 @@ onMounted(async () => {
 });
 
 onUpdated(() => {
-    highlightCode();
     applyHighlighting();
 });
 </script>
@@ -75,6 +72,12 @@ onUpdated(() => {
     @apply text-base leading-7;
     @apply p-0 m-0;
     @apply max-w-full;
+
+    /* Skip layout/paint for off-screen sections (KaTeX formulas, code blocks) */
+    > *:not(:first-child) {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 200px;
+    }
 }
 
 .markdown-wrapper > .markdown-body {
@@ -222,7 +225,7 @@ onUpdated(() => {
     /* Horizontal rule */
     hr {
         @apply my-4 border-t;
-        border-color: var(--md-color-h2, hsl(var(--border)));
+        border-color: var(--md-color-h2, var(--border));
         opacity: 0.3;
     }
 

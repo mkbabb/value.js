@@ -8,17 +8,22 @@ const QUERY = "?source";
  *
  * Appending `?source` to any TS import rewrites each exported
  * function/const into a named string export containing the original
- * source text — preserving formatting through minified builds.
+ * source text — pre-formatted with Prettier and pre-highlighted with
+ * highlight.js at build time.
  *
- * Works like `?raw` but per-export instead of whole-file.
+ * The exports are HTML strings wrapped in `<pre><code class="hljs typescript">`.
+ * No runtime formatting or highlighting libraries are needed.
  *
  * @example
  * ```ts
  * import { rgb2hsl, hsl2rgb } from "@src/units/color/utils?source";
- * // rgb2hsl is a string containing the function's source code
+ * // rgb2hsl is an HTML string: '<pre><code class="hljs typescript">...</code></pre>'
  * ```
  */
 export function sourceExportPlugin(): Plugin {
+    let prettier: typeof import("prettier") | null = null;
+    let hljs: typeof import("highlight.js/lib/core").default | null = null;
+
     return {
         name: "source-export",
 
@@ -35,23 +40,38 @@ export function sourceExportPlugin(): Plugin {
             return resolved.id + QUERY;
         },
 
-        load(id) {
+        async load(id) {
             if (!id.endsWith(QUERY)) return;
+
+            // Lazy-init prettier + hljs (Node-side only, not shipped to client)
+            if (!prettier) {
+                prettier = await import("prettier");
+            }
+            if (!hljs) {
+                const mod = await import("highlight.js/lib/core");
+                hljs = mod.default;
+                const ts = await import("highlight.js/lib/languages/typescript");
+                hljs.registerLanguage("typescript", ts.default);
+            }
 
             const filePath = id.slice(0, -QUERY.length);
             const raw = readFileSync(filePath, "utf-8");
 
-            return extractExports(raw);
+            return await extractExports(raw, prettier, hljs);
         },
     };
 }
 
 /**
  * Extract all `export const` and `export function` declarations from
- * raw TypeScript source, returning a module where each export is a
- * string literal of the original source text.
+ * raw TypeScript source, format with Prettier, highlight with highlight.js,
+ * and return a module where each export is a pre-rendered HTML string.
  */
-function extractExports(raw: string): string {
+async function extractExports(
+    raw: string,
+    prettier: typeof import("prettier"),
+    hljs: typeof import("highlight.js/lib/core").default,
+): Promise<string> {
     const exportRe = /export\s+(?:const|function)\s+(\w+)/g;
     const entries: string[] = [];
     let m: RegExpExecArray | null;
@@ -93,7 +113,24 @@ function extractExports(raw: string): string {
         if (end === -1) continue;
 
         const source = raw.slice(start, end).replace(/^export\s+/, "");
-        entries.push(`export const ${name} = ${JSON.stringify(source)};`);
+
+        // Format with Prettier (fixed 80-col width)
+        let formatted: string;
+        try {
+            formatted = await prettier.format(source, {
+                parser: "typescript",
+                printWidth: 80,
+                tabWidth: 4,
+            });
+        } catch {
+            formatted = source;
+        }
+
+        // Highlight with highlight.js
+        const highlighted = hljs.highlight(formatted.trimEnd(), { language: "typescript" });
+        const html = `<pre class="hljs typescript"><code>${highlighted.value}</code></pre>`;
+
+        entries.push(`export const ${name} = ${JSON.stringify(html)};`);
     }
 
     return entries.join("\n");
