@@ -1,15 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "@mkbabb/glass-ui/styles";
-@import "@mkbabb/glass-ui/presets/value-js";
 @import "./animations.css";
 
 @theme {
-    /* Project-specific colors */
+    --font-display: "Fraunces", serif;
+    --font-serif: "Fraunces", serif;
+    --font-mono: "Fira Code", monospace;
+
     --color-gold: #D4AF37;
     --color-gold-light: #F5E6A3;
     --color-ppmycota: hsl(248 88% 71%);
-    --ppmycota-primary: 248 88% 71%;
+    --ppmycota-primary: hsl(248 88% 71%);
 }
 
 /* Project-specific tokens (layout, colors)
@@ -23,7 +25,25 @@
  * Responsive overrides at 1024px+ and 21/9 aspect ratio adjust inset, gap, and max-h.
  */
 :root {
-    /* ── Component font tokens ── */
+    /* ── Project theme tokens ──
+     * These override glass-ui defaults for project-specific aesthetics.
+     * Glass-UI defaults are documented inline for reference.
+     */
+
+    --shadow-color: var(--foreground);
+
+    /* PROJECT OVERRIDE: heavier cartoon shadows (glass-ui: 4px offset, 50% opacity).
+     * Larger offset + higher opacity for a more dramatic pop-art feel. */
+    --shadow-card: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 80%, transparent);
+    --shadow-card-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 85%, transparent);
+
+    /* PROJECT OVERRIDE: much more opaque panes (glass-ui: 0.30 light / 0.42 dark).
+     * Panes need solid-feeling surfaces for readability over the hero blob. */
+    --glass-opacity-subtle: 0.75;
+
+    /* PROJECT OVERRIDE: monospace fonts for Select and DropdownMenu triggers
+     * (glass-ui defaults to inherit). */
+    --select-font: var(--font-mono);
     --dropdown-menu-font: var(--font-mono);
 
     /* ── Layout tokens ── */
@@ -53,12 +73,6 @@
         --content-max-h: clamp(30rem, 62dvh, 38rem);
         --desktop-pane-gap: 0.75rem;
     }
-}
-
-/* ── Admin golden icon ── */
-.gold-shimmer-icon {
-    color: var(--color-gold);
-    filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.3));
 }
 
 /* ── CSS containment — isolate layout/paint for performance ── */
@@ -112,27 +126,25 @@
     }
 }
 
+/* PROJECT OVERRIDE: dark palette tuned for this demo's color-picker context.
+ * glass-ui dark defaults differ (e.g. --shadow: hsl(0 0% 10%) vs 45% here for
+ * lighter cartoon shadows; --popover: hsl(224 71% 4%) vs 50% 10% here for
+ * warmer, less saturated popover backgrounds). */
 .dark {
-    --background: 224 71% 4%;
-    --foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --popover: 224 50% 10%;
-    --popover-foreground: 210 40% 98%;
-    --card: 224 50% 10%;
-    --card-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 18%;
-    --input: 217.2 32.6% 17.5%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: 212.7 26.8% 83.9%;
-    --shadow: 0, 0%, 45%;
+    --shadow-card: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 50%, transparent);
+    --shadow-card-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 55%, transparent);
+
+    --popover: hsl(224 50% 10%);
+    --border: hsl(217.2 32.6% 18%);
+    --input: hsl(217.2 32.6% 17.5%);
+    --shadow: hsl(0 0% 45%);
+}
+
+/* Underline tab variant — active tab gets a colored bottom border.
+ * Apply this class to the Tabs root; set --active-tab-color via :style. */
+.underline-tabs button[role="tab"][data-state="active"] {
+    border-bottom: 2px solid var(--active-tab-color, var(--primary));
+    border-radius: 0;
 }
 
 /* Palette tab content — animated via reka-ui data-state (forceMount) */
@@ -152,84 +164,6 @@
     height: auto;
 }
 
-/* Watercolor swatch — organic pastel blobs */
-.watercolor-swatch {
-    border-radius: 48% 52% 55% 45% / 52% 48% 45% 55%;
-    filter: url(#watercolor-filter);
-    box-shadow:
-        inset 0 0 6px hsl(var(--background) / 0.35),
-        inset 0 -2px 4px hsl(var(--foreground) / 0.06),
-        0 2px 6px hsl(var(--foreground) / 0.10);
-    transition: transform var(--duration-fast) var(--ease-standard),
-                border-radius 0.6s var(--ease-standard),
-                filter var(--duration-fast) var(--ease-standard),
-                box-shadow var(--duration-fast) var(--ease-standard);
-    position: relative;
-}
-/* Animated blobs: disable CSS transition so rAF-driven border-radius updates render immediately */
-.watercolor-swatch.watercolor-animated {
-    transition: transform var(--duration-fast) var(--ease-standard),
-                filter var(--duration-fast) var(--ease-standard),
-                box-shadow var(--duration-fast) var(--ease-standard);
-}
-.watercolor-swatch:hover {
-    transform: scale(1.06);
-    filter: url(#watercolor-filter) brightness(1.05);
-    box-shadow:
-        inset 0 0 8px hsl(var(--background) / 0.4),
-        inset 0 -2px 4px hsl(var(--foreground) / 0.06),
-        0 4px 12px hsl(var(--foreground) / 0.15);
-}
-.watercolor-swatch:active {
-    transform: scale(0.97);
-}
-/* Satellite blobs — GPU-composited via translate3d (no layout thrash) */
-.satellite-blob {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 30%;
-    height: 26%;
-    margin-top: -13%;
-    margin-left: -15%;
-    filter: url(#watercolor-filter-hero);
-    pointer-events: none;
-    will-change: transform, opacity;
-    box-shadow:
-        inset 0 0 4px hsl(var(--background) / 0.3),
-        inset 0 -1px 3px hsl(var(--foreground) / 0.05);
-}
-.satellite-blob--small {
-    width: 22%;
-    height: 24%;
-    margin-top: -12%;
-    margin-left: -11%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .hero-blob-shadow-wrapper,
-    .hero-blob-goo {
-        filter: none !important;
-    }
-    .satellite-blob {
-        transition: none !important;
-    }
-}
-
-/* Remove default button border from watercolor swatches (palette dots) */
-button.watercolor-swatch {
-    border: none;
-    padding: 0;
-    outline: none;
-}
-button.watercolor-swatch:focus-visible {
-    outline: none;
-    box-shadow:
-        inset 0 0 6px hsl(var(--background) / 0.35),
-        inset 0 -2px 4px hsl(var(--foreground) / 0.06),
-        0 2px 8px hsl(var(--foreground) / 0.2);
-}
-
 /* Touch gate — outline-based activation indicator (no conflict with hover shadows) */
 .touch-gate-target {
     outline: 3px solid transparent;
@@ -240,39 +174,18 @@ button.watercolor-swatch:focus-visible {
     border-radius: var(--radius-pill);
 }
 .touch-gate-target.touch-gate-active {
-    outline-color: hsl(var(--foreground) / 0.5);
+    outline-color: color-mix(in srgb, var(--foreground) 50%, transparent);
 }
 
 /* Slider track gets a foreground-colored border when gate is active */
 .touch-gate-active .slider-track {
-    box-shadow: inset 0 0 0 3px hsl(var(--foreground) / 0.5);
+    box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--foreground) 50%, transparent);
 }
 
 /* Slider thumb: inverted fill when gate is active — dark knob in dark mode, light in light */
 .touch-gate-active .slider-thumb {
-    background-color: hsl(var(--background));
-    border-color: hsl(var(--foreground));
-}
-
-/* Spectrum dot ring when gate is active */
-.spectrum-dot-active {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0 4px hsl(var(--foreground) / 0.5);
-}
-
-/* Pastel rainbow gradient for palette title */
-.pastel-rainbow-text {
-    background-image: linear-gradient(
-        to right,
-        oklch(75% 0.18 0deg),
-        oklch(82% 0.16 60deg),
-        oklch(85% 0.17 130deg),
-        oklch(78% 0.14 200deg),
-        oklch(72% 0.18 270deg),
-        oklch(75% 0.16 330deg)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-color: var(--background);
+    border-color: var(--foreground);
 }
 
 /* Pane scroll timeline — named timeline so PaneHeader animations
@@ -282,31 +195,48 @@ button.watercolor-swatch:focus-visible {
     scroll-timeline: --pane-scroll block;
 }
 
-/* Section utilities — reusable across all view panes */
-.section-label {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-    color: hsl(var(--muted-foreground));
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
+/* .section-label is provided by glass-ui typography.css (type-caption + tracking-caps).
+ * .section-subtitle extends it with muted half-opacity and single-line clamp. */
 .section-subtitle {
     font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-    color: hsl(var(--muted-foreground) / 0.5);
+    font-size: var(--type-caption);
+    color: color-mix(in srgb, var(--muted-foreground) 50%, transparent);
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
 
+/* ── Filter popover utilities ── */
+.filter-section {
+    padding: 0.75rem;
+}
+.filter-section > .section-label {
+    margin-bottom: 0.375rem;
+}
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-family: var(--font-serif);
+    font-size: var(--type-small);
+    line-height: var(--leading-small);
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: background-color var(--duration-fast) var(--ease-standard);
+}
+.filter-option:hover {
+    background-color: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
 /* Base styles for compatibility */
 @layer base {
     * {
-        border-color: hsl(var(--border));
+        border-color: var(--border);
     }
     body {
-        background-color: hsl(var(--background));
-        color: hsl(var(--foreground));
+        background-color: var(--background);
+        color: var(--foreground);
     }
 }
