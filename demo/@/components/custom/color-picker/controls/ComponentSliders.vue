@@ -49,6 +49,7 @@
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <SliderThumb
+                                    :aria-label="`${component.toUpperCase()} channel`"
                                     class="slider-thumb block h-full w-3 rounded-full border-2 border-gray-200 bg-transparent transition-colors focus-visible:outline-none"
                                 />
                             </TooltipTrigger>

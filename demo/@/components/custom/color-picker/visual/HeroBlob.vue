@@ -67,14 +67,14 @@ defineExpose({ nudgeSatellites });
 @reference "../../../../styles/style.css";
 /* Outer: drop-shadow only — Safari can't chain url() + drop-shadow() in one filter */
 .hero-blob-shadow-wrapper {
-    filter: drop-shadow(5px 5px 2.5px color-mix(in srgb, var(--blob-color, transparent) 20%, hsl(var(--foreground))));
+    filter: drop-shadow(5px 5px 2.5px color-mix(in srgb, var(--blob-color, transparent) 20%, var(--foreground)));
     opacity: 0.75;
     position: relative;
     overflow: visible;
     cursor: pointer;
     transition: filter var(--duration-slow) var(--ease-standard);
     &:hover {
-        filter: drop-shadow(7px 7px 3px color-mix(in srgb, var(--blob-color, transparent) 25%, hsl(var(--foreground))));
+        filter: drop-shadow(7px 7px 3px color-mix(in srgb, var(--blob-color, transparent) 25%, var(--foreground)));
     }
 }
 
@@ -95,8 +95,43 @@ defineExpose({ nudgeSatellites });
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
-/* Override global .watercolor-swatch:hover scale — hero blob uses nudge instead */
+/* Override watercolor-swatch:hover scale — hero blob uses nudge instead */
 .hero-blob:hover {
     transform: none;
+}
+</style>
+
+<style>
+/* Satellite blobs — GPU-composited via translate3d (no layout thrash) */
+.satellite-blob {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    height: 26%;
+    margin-top: -13%;
+    margin-left: -15%;
+    filter: url(#watercolor-filter-hero);
+    pointer-events: none;
+    will-change: transform, opacity;
+    box-shadow:
+        inset 0 0 4px color-mix(in srgb, var(--background) 30%, transparent),
+        inset 0 -1px 3px color-mix(in srgb, var(--foreground) 5%, transparent);
+}
+.satellite-blob--small {
+    width: 22%;
+    height: 24%;
+    margin-top: -12%;
+    margin-left: -11%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-blob-shadow-wrapper,
+    .hero-blob-goo {
+        filter: none !important;
+    }
+    .satellite-blob {
+        transition: none !important;
+    }
 }
 </style>

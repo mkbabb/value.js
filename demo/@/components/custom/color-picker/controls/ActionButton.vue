@@ -12,6 +12,7 @@
                 <component
                     :is="icon"
                     :aria-label="title"
+                    :aria-disabled="disabled || undefined"
                     :class="[
                         'action-icon w-6 h-6 stroke-foreground transition-[transform,stroke] cursor-pointer',
                         iconClass,
@@ -25,8 +26,8 @@
         </HoverCardTrigger>
         <HoverCardContent class="z-[var(--z-hovercard)] pointer-events-auto font-display">
             <div>
-                <p class="text-lg">{{ title }}</p>
-                <p class="text-sm opacity-60">{{ description }}</p>
+                <p class="text-subheading">{{ title }}</p>
+                <p class="text-small text-muted-foreground">{{ description }}</p>
             </div>
         </HoverCardContent>
     </HoverCard>

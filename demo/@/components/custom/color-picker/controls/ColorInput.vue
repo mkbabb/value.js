@@ -5,8 +5,8 @@
             :open-delay="300"
             class="pointer-events-auto w-full"
         >
-            <HoverCardTrigger class="w-full block">
-                <div class="relative w-full flex items-center">
+            <HoverCardTrigger as-child>
+                <div class="relative w-full flex items-center cursor-default">
                     <span
                         ref="inputColorRef"
                         contenteditable
@@ -146,7 +146,7 @@ const inputColorRef = useTemplateRef<HTMLElement>("inputColorRef");
 const inputIsFocused = ref(false);
 
 const inputStyle = computed(() => {
-    if (!props.proposeMode && parseError.value) return { borderColor: "hsl(var(--destructive))" };
+    if (!props.proposeMode && parseError.value) return { borderColor: "var(--destructive)" };
     if (inputIsFocused.value) return { borderColor: cssColor.value };
     return undefined;
 });
@@ -270,7 +270,7 @@ defineExpose({
 @reference "../../../../styles/style.css";
 
 .color-input {
-    border-color: hsl(var(--input));
+    border-color: var(--input);
     transition:
         border-color var(--duration-fast) var(--ease-standard),
         box-shadow var(--duration-fast) var(--ease-standard);
@@ -284,7 +284,7 @@ defineExpose({
 }
 
 .color-input-error {
-    box-shadow: 0 0 0 2px hsl(var(--destructive) / 0.25);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--destructive) 25%, transparent);
 }
 
 .color-input-mode-flash {
@@ -298,7 +298,7 @@ defineExpose({
 
 .color-input:empty[data-placeholder]::before {
     content: attr(data-placeholder);
-    color: hsl(var(--muted-foreground));
+    color: var(--muted-foreground);
     pointer-events: none;
 }
 
@@ -330,8 +330,8 @@ defineExpose({
     line-height: 1;
     padding: 0.2rem 0.4rem;
     border-radius: var(--radius-sm);
-    background: hsl(var(--destructive));
-    color: hsl(var(--destructive-foreground));
+    background: var(--destructive);
+    color: var(--destructive-foreground);
     white-space: nowrap;
     pointer-events: none;
     font-family: var(--font-sans);

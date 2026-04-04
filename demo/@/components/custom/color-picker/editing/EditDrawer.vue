@@ -75,11 +75,11 @@ const emit = defineEmits<{
 .edit-drawer {
     position: fixed;
     z-index: var(--z-dock);
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid hsl(var(--border));
-    box-shadow: 4px 0 24px -4px hsl(var(--foreground) / 0.15);
+    background: var(--glass-bg-subtle);
+    backdrop-filter: var(--glass-blur-default);
+    -webkit-backdrop-filter: var(--glass-blur-default);
+    border: 1px solid var(--border);
+    box-shadow: 4px 0 24px -4px color-mix(in srgb, var(--foreground) 15%, transparent);
     animation: edit-drawer-in var(--duration-normal) var(--ease-standard);
 }
 /* Edit drawer is fully handled by TopDock on mobile and not needed on desktop */
