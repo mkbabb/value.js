@@ -34,6 +34,10 @@ function createSatellite(
         (5 * Math.PI) / 4 + (rng() - 0.5) * 0.5,
     ];
 
+    // Elliptical: X and Y radii vary independently (0.75–1.25 of base)
+    const eccentricity = 0.75 + rng() * 0.50;
+    const baseR = orbitRadius * (0.92 + rng() * 0.16);
+
     return {
         phase: "orbiting",
         phaseStart: now,
@@ -42,7 +46,8 @@ function createSatellite(
         timeOrigin: now,
         angularSpeed: 0.12 + rng() * 0.1,
         phaseOffset: startAngles[index] ?? rng() * Math.PI * 2,
-        baseRadius: orbitRadius * (0.92 + rng() * 0.16),
+        baseRadiusX: baseR * eccentricity,
+        baseRadiusY: baseR * (2 - eccentricity), // complementary so avg ≈ baseR
 
         wobbleAmp1: 0.03 + rng() * 0.04,
         wobbleFreq1: 0.15 + rng() * 0.15,
@@ -77,13 +82,12 @@ function setPhase(
 function orbitPos(s: SatelliteInternal, now: number): { x: number; y: number } {
     const t = (now - s.timeOrigin) / 1000;
     const angle = s.angularSpeed * t + s.phaseOffset;
-    const r =
-        s.baseRadius +
+    const wobble =
         s.wobbleAmp1 * Math.sin(s.wobbleFreq1 * t) +
         s.wobbleAmp2 * Math.sin(s.wobbleFreq2 * t + 1.3);
     return {
-        x: r * Math.cos(angle) + s.pertXAmp * Math.sin(s.pertXFreq * t + s.pertXPhase),
-        y: r * Math.sin(angle) + s.pertYAmp * Math.cos(s.pertYFreq * t + s.pertYPhase),
+        x: (s.baseRadiusX + wobble) * Math.cos(angle) + s.pertXAmp * Math.sin(s.pertXFreq * t + s.pertXPhase),
+        y: (s.baseRadiusY + wobble) * Math.sin(angle) + s.pertYAmp * Math.cos(s.pertYFreq * t + s.pertYPhase),
     };
 }
 
@@ -96,7 +100,10 @@ function randomizeOrbit(
     s.timeOrigin = now;
     s.angularSpeed = 0.12 + rng() * 0.1;
     s.phaseOffset = rng() * Math.PI * 2;
-    s.baseRadius = orbitRadius * (0.92 + rng() * 0.16);
+    const eccentricity = 0.75 + rng() * 0.50;
+    const baseR = orbitRadius * (0.92 + rng() * 0.16);
+    s.baseRadiusX = baseR * eccentricity;
+    s.baseRadiusY = baseR * (2 - eccentricity);
     s.wobbleAmp1 = 0.03 + rng() * 0.04;
     s.wobbleFreq1 = 0.15 + rng() * 0.15;
     s.wobbleAmp2 = 0.02 + rng() * 0.03;
@@ -109,6 +116,40 @@ function randomizeOrbit(
     s.pertYPhase = rng() * Math.PI * 2;
 }
 
+/**
+ * Seed orbit params so that orbitPos(s, now) ≈ (targetX, targetY).
+ * This eliminates the visible snap when transitioning emerge → orbit.
+ */
+function seedOrbitToMatch(
+    s: SatelliteInternal,
+    targetX: number,
+    targetY: number,
+    now: number,
+) {
+    // Set timeOrigin = now so t=0 in orbitPos
+    s.timeOrigin = now;
+    // At t=0, wobble terms are: wobbleAmp1*sin(0) + wobbleAmp2*sin(1.3) ≈ wobbleAmp2*sin(1.3)
+    // perturbation terms: pertXAmp*sin(pertXPhase), pertYAmp*cos(pertYPhase)
+    // Compute the angle that would place the satellite at (targetX, targetY)
+    const angle = Math.atan2(targetY, targetX);
+    s.phaseOffset = angle;
+    // Set radii so that the orbit passes through the target at t=0
+    const dist = Math.hypot(targetX, targetY);
+    if (dist > 0.01) {
+        // Distribute between X and Y radii proportionally
+        const cosA = Math.abs(Math.cos(angle));
+        const sinA = Math.abs(Math.sin(angle));
+        // Avoid division by zero — if nearly axis-aligned, set equal radii
+        if (cosA > 0.1 && sinA > 0.1) {
+            s.baseRadiusX = Math.abs(targetX) / cosA;
+            s.baseRadiusY = Math.abs(targetY) / sinA;
+        } else {
+            s.baseRadiusX = dist;
+            s.baseRadiusY = dist;
+        }
+    }
+}
+
 const BASE_OPACITY = 0.75;
 
 export function useBlobSatellites(config: BlobConfig, initialColor: string) {
@@ -119,22 +160,18 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
     let lastMergeTime = -Infinity;
     const MERGE_STAGGER_MS = 3000;
 
-    /** Ensure internals/sources arrays match the current config count */
     function syncCount() {
         const count = config.satelliteCount;
-        // Add new satellites
         while (internals.length < count) {
             internals.push(createSatellite(rng, internals.length, config.orbitRadius));
             sources.push({ x: 0, y: 0, radius: config.satelliteRadius, opacity: 0 });
         }
-        // Remove excess (from the end)
         if (internals.length > count) {
             internals.length = count;
             sources.length = count;
         }
     }
 
-    // Initial population
     syncCount();
 
     function tick(now: number, mood: MoodParams) {
@@ -182,6 +219,7 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
                 }
                 case "absorbed": {
                     if (t >= 1) {
+                        // Randomize new orbit, then compute emerge endpoint ON that orbit
                         randomizeOrbit(s, rng, orbitRadius, now);
                         const pos = orbitPos(s, now + 2000);
                         s.endX = pos.x;
@@ -196,13 +234,14 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
                 }
                 case "emerging": {
                     if (t >= 1) {
+                        // Seed orbit so orbitPos matches the emerge endpoint — no snap
+                        seedOrbitToMatch(s, s.endX, s.endY, now);
                         setPhase(s, "orbiting", now, randRange(rng, orbitDuration[0], orbitDuration[1]));
                     }
                     break;
                 }
             }
 
-            // Compute output
             let x: number, y: number, opacity: number, scale: number;
 
             switch (s.phase) {

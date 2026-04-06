@@ -33,7 +33,8 @@ export interface SatelliteInternal {
     timeOrigin: number;
     angularSpeed: number;
     phaseOffset: number;
-    baseRadius: number;
+    baseRadiusX: number;
+    baseRadiusY: number;
 
     wobbleAmp1: number;
     wobbleFreq1: number;
