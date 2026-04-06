@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { inject } from "vue";
+import { Button } from "@components/ui/button";
 import { Card } from "@components/ui/card";
 import { Slider } from "@components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@components/ui/select";
@@ -183,16 +184,15 @@ function resetDefaults() {
             </div>
 
             <!-- Floating bottom action dock -->
-            <div class="aurora-action-dock">
-                <button class="dock-icon-btn-compact" title="Copy config as JSON" @click="copyAsJson">
-                    <Copy class="w-4 h-4" />
-                    <span class="font-mono-code text-[length:var(--type-caption)]">Copy JSON</span>
-                </button>
-                <div class="dock-separator" />
-                <button class="dock-icon-btn-compact" title="Reset to defaults" @click="resetDefaults">
-                    <RotateCcw class="w-4 h-4" />
-                    <span class="font-mono-code text-[length:var(--type-caption)]">Reset</span>
-                </button>
+            <div class="config-action-dock">
+                <Button variant="ghost" size="sm" @click="copyAsJson">
+                    <Copy class="w-3.5 h-3.5" />
+                    Copy JSON
+                </Button>
+                <Button variant="ghost" size="sm" @click="resetDefaults">
+                    <RotateCcw class="w-3.5 h-3.5" />
+                    Reset
+                </Button>
             </div>
         </Card>
     </div>

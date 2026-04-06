@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { inject } from "vue";
+import { Button } from "@components/ui/button";
 import { Card } from "@components/ui/card";
 import { Slider } from "@components/ui/slider";
 import { Copy, RotateCcw } from "lucide-vue-next";
@@ -139,15 +140,14 @@ function resetDefaults() {
 
             <!-- Floating bottom action dock -->
             <div class="config-action-dock">
-                <button class="dock-icon-btn-compact" title="Copy config as JSON" @click="copyAsJson">
-                    <Copy class="w-4 h-4" />
-                    <span class="font-mono-code text-[length:var(--type-caption)]">Copy JSON</span>
-                </button>
-                <div class="dock-separator" />
-                <button class="dock-icon-btn-compact" title="Reset to defaults" @click="resetDefaults">
-                    <RotateCcw class="w-4 h-4" />
-                    <span class="font-mono-code text-[length:var(--type-caption)]">Reset</span>
-                </button>
+                <Button variant="ghost" size="sm" @click="copyAsJson">
+                    <Copy class="w-3.5 h-3.5" />
+                    Copy JSON
+                </Button>
+                <Button variant="ghost" size="sm" @click="resetDefaults">
+                    <RotateCcw class="w-3.5 h-3.5" />
+                    Reset
+                </Button>
             </div>
         </Card>
     </div>
@@ -176,7 +176,7 @@ function resetDefaults() {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.625rem 1rem;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     background: color-mix(in srgb, var(--card) 70%, transparent);
