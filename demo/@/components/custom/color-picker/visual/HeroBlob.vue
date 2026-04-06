@@ -2,34 +2,14 @@
     <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
         <Tooltip>
             <TooltipTrigger as-child>
-                <div
-                    ref="heroBlobWrapper"
-                    class="hero-blob-shadow-wrapper -ml-[3.2rem] -mb-[3.2rem]"
-                    :style="{ '--blob-color': cssColorOpaque }"
-                    @click="emit('click')"
-                >
-                    <div class="hero-blob-goo">
-                        <WatercolorDot
-                            :color="cssColorOpaque"
-                            animate
-                            :cycle-duration="2500"
-                            tag="div"
-                            class="hero-blob w-[7.2rem] aspect-square flex items-center justify-items-center justify-center"
-                        >
-                            <div
-                                v-for="(sat, i) in satelliteStates"
-                                :key="i"
-                                :class="['satellite-blob', i === 1 && 'satellite-blob--small']"
-                                :style="{
-                                    transform: sat.transform,
-                                    opacity: sat.opacity,
-                                    borderRadius: sat.borderRadius,
-                                    backgroundColor: cssColorOpaque,
-                                }"
-                            />
-                        </WatercolorDot>
-                    </div>
-                </div>
+                <GooBlob
+                    ref="gooBlobRef"
+                    :color="cssColorOpaque"
+                    :size="150"
+                    :satellites="2"
+                    class="-ml-[3.2rem] -mb-[3.2rem]"
+                    @click="onBlobClick"
+                />
             </TooltipTrigger>
             <TooltipContent class="font-mono-code">
                 {{ denormalizedCurrentColor.value.toFormattedString() }}
@@ -39,99 +19,76 @@
 </template>
 
 <script setup lang="ts">
-import { inject, useTemplateRef } from "vue";
+import { inject, useTemplateRef, watch, ref, onUnmounted } from "vue";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import { WatercolorDot } from "@components/custom/watercolor-dot";
-import { useSatelliteBlobs } from "../composables/useSatelliteBlobs";
+import { GooBlob } from "@components/custom/goo-blob";
 import { COLOR_MODEL_KEY } from "../keys";
 
-const { cssColor, cssColorOpaque, denormalizedCurrentColor } = inject(COLOR_MODEL_KEY)!;
+const { cssColorOpaque, denormalizedCurrentColor } = inject(COLOR_MODEL_KEY)!;
 
 const emit = defineEmits<{ click: [] }>();
 
-const heroBlobWrapperRef = useTemplateRef<HTMLElement>("heroBlobWrapper");
-const { satellites: satelliteStates, nudge: nudgeSatellites } = useSatelliteBlobs(cssColorOpaque, {
-    parentEl: heroBlobWrapperRef,
-    parentSize: 115,
+const gooBlobRef = useTemplateRef<InstanceType<typeof GooBlob>>("gooBlobRef");
+
+// --- Mood triggers ---
+
+let idleTimer: ReturnType<typeof setTimeout> | null = null;
+let moodResetTimer: ReturnType<typeof setTimeout> | null = null;
+const colorChangeTimestamps: number[] = [];
+
+function resetIdleTimer() {
+    if (idleTimer) clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => {
+        gooBlobRef.value?.setMood("sleepy");
+    }, 15000);
+}
+
+function cancelMoodAfter(ms: number) {
+    if (moodResetTimer) clearTimeout(moodResetTimer);
+    moodResetTimer = setTimeout(() => {
+        gooBlobRef.value?.setMood("idle");
+        resetIdleTimer();
+    }, ms);
+}
+
+function onBlobClick() {
+    emit("click");
+    gooBlobRef.value?.setMood("happy");
+    gooBlobRef.value?.nudge();
+    cancelMoodAfter(3000);
+    resetIdleTimer();
+}
+
+// Rapid color changes → excited
+watch(cssColorOpaque, () => {
+    resetIdleTimer();
+    const now = Date.now();
+    colorChangeTimestamps.push(now);
+    // Keep only last 2 seconds
+    while (colorChangeTimestamps.length > 0 && now - colorChangeTimestamps[0] > 2000) {
+        colorChangeTimestamps.shift();
+    }
+    if (colorChangeTimestamps.length > 3) {
+        gooBlobRef.value?.setMood("excited");
+        cancelMoodAfter(4000);
+    }
 });
+
+resetIdleTimer();
+
+onUnmounted(() => {
+    if (idleTimer) clearTimeout(idleTimer);
+    if (moodResetTimer) clearTimeout(moodResetTimer);
+});
+
+function nudgeSatellites() {
+    gooBlobRef.value?.nudge();
+}
 
 defineExpose({ nudgeSatellites });
 </script>
-
-<style scoped>
-@reference "../../../../styles/style.css";
-/* Outer: drop-shadow only — Safari can't chain url() + drop-shadow() in one filter */
-.hero-blob-shadow-wrapper {
-    filter: drop-shadow(5px 5px 2.5px color-mix(in srgb, var(--blob-color, transparent) 20%, var(--foreground)));
-    opacity: 0.75;
-    position: relative;
-    overflow: visible;
-    cursor: pointer;
-    transition: filter var(--duration-slow) var(--ease-standard);
-    &:hover {
-        filter: drop-shadow(7px 7px 3px color-mix(in srgb, var(--blob-color, transparent) 25%, var(--foreground)));
-    }
-}
-
-/* Inner: gooey metaball compositing */
-.hero-blob-goo {
-    filter: url(#gooey-filter);
-    overflow: visible;
-    position: relative;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    outline: 1px solid transparent;
-}
-
-.hero-blob {
-    filter: url(#watercolor-filter-hero);
-    overflow: visible;
-    position: relative;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-/* Override watercolor-swatch:hover scale — hero blob uses nudge instead */
-.hero-blob:hover {
-    transform: none;
-}
-</style>
-
-<style>
-/* Satellite blobs — GPU-composited via translate3d (no layout thrash) */
-.satellite-blob {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 30%;
-    height: 26%;
-    margin-top: -13%;
-    margin-left: -15%;
-    filter: url(#watercolor-filter-hero);
-    pointer-events: none;
-    will-change: transform, opacity;
-    box-shadow:
-        inset 0 0 4px color-mix(in srgb, var(--background) 30%, transparent),
-        inset 0 -1px 3px color-mix(in srgb, var(--foreground) 5%, transparent);
-}
-.satellite-blob--small {
-    width: 22%;
-    height: 24%;
-    margin-top: -12%;
-    margin-left: -11%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .hero-blob-shadow-wrapper,
-    .hero-blob-goo {
-        filter: none !important;
-    }
-    .satellite-blob {
-        transition: none !important;
-    }
-}
-</style>

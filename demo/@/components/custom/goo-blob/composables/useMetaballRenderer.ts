@@ -29,9 +29,9 @@ const UNIFORM_NAMES = [
 function hexToRgb(hex: string): [number, number, number] {
     const raw = hex.replace("#", "");
     if (raw.length === 3) {
-        const r = parseInt(raw[0] + raw[0], 16) / 255;
-        const g = parseInt(raw[1] + raw[1], 16) / 255;
-        const b = parseInt(raw[2] + raw[2], 16) / 255;
+        const r = parseInt(raw.charAt(0) + raw.charAt(0), 16) / 255;
+        const g = parseInt(raw.charAt(1) + raw.charAt(1), 16) / 255;
+        const b = parseInt(raw.charAt(2) + raw.charAt(2), 16) / 255;
         return [r, g, b];
     }
     return [
@@ -45,7 +45,7 @@ function cssColorToRgb(color: string): [number, number, number] {
     if (color.startsWith("#")) return hexToRgb(color);
     // Parse rgb(r, g, b) or rgba(r, g, b, a)
     const match = color.match(/rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/);
-    if (match) {
+    if (match && match[1] && match[2] && match[3]) {
         return [
             parseFloat(match[1]) / 255,
             parseFloat(match[2]) / 255,
@@ -84,10 +84,11 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
     let program: WebGLProgram | null = null;
     let vao: WebGLVertexArrayObject | null = null;
     let buffer: WebGLBuffer | null = null;
-    let uniforms: Record<string, WebGLUniformLocation | null> = {};
-    let satPosLocs: (WebGLUniformLocation | null)[] = [];
-    let satRadLocs: (WebGLUniformLocation | null)[] = [];
-    let satOpLocs: (WebGLUniformLocation | null)[] = [];
+    type Loc = WebGLUniformLocation | null;
+    let uniforms: Record<(typeof UNIFORM_NAMES)[number], Loc> = {} as never;
+    let satPosLocs: Loc[] = [];
+    let satRadLocs: Loc[] = [];
+    let satOpLocs: Loc[] = [];
     let rafId: number | null = null;
     let paused = false;
     let destroyed = false;
@@ -206,14 +207,18 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         const sats = satellites.sources;
         gl.uniform1i(uniforms.uSatCount, sats.length);
         for (let i = 0; i < MAX_SATS; i++) {
-            if (i < sats.length) {
-                gl.uniform2f(satPosLocs[i], sats[i].x, sats[i].y);
-                gl.uniform1f(satRadLocs[i], sats[i].radius);
-                gl.uniform1f(satOpLocs[i], sats[i].opacity);
+            const posLoc = satPosLocs[i] ?? null;
+            const radLoc = satRadLocs[i] ?? null;
+            const opLoc = satOpLocs[i] ?? null;
+            const sat = sats[i];
+            if (sat) {
+                gl.uniform2f(posLoc, sat.x, sat.y);
+                gl.uniform1f(radLoc, sat.radius);
+                gl.uniform1f(opLoc, sat.opacity);
             } else {
-                gl.uniform2f(satPosLocs[i], 0, 0);
-                gl.uniform1f(satRadLocs[i], 0);
-                gl.uniform1f(satOpLocs[i], 0);
+                gl.uniform2f(posLoc, 0, 0);
+                gl.uniform1f(radLoc, 0);
+                gl.uniform1f(opLoc, 0);
             }
         }
 

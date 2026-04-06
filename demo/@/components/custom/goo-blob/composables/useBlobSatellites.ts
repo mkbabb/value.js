@@ -149,7 +149,7 @@ export function useBlobSatellites(options: UseBlobSatellitesOptions) {
         const speedScale = mood.orbitSpeedScale;
 
         for (let i = 0; i < count; i++) {
-            const s = internals[i];
+            const s = internals[i]!;
             const elapsed = now - s.phaseStart;
             const t = clamp01(s.phaseDuration > 0 ? elapsed / s.phaseDuration : 1);
 
@@ -254,10 +254,11 @@ export function useBlobSatellites(options: UseBlobSatellitesOptions) {
                 }
             }
 
-            sources[i].x = x;
-            sources[i].y = y;
-            sources[i].radius = satelliteRadius * scale;
-            sources[i].opacity = opacity;
+            const src = sources[i]!;
+            src.x = x;
+            src.y = y;
+            src.radius = satelliteRadius * scale;
+            src.opacity = opacity;
         }
     }
 
