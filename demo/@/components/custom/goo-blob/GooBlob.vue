@@ -77,6 +77,7 @@ defineExpose({ nudge, setMood, currentMood: mood.currentMood });
     width: var(--blob-core);
     height: var(--blob-core);
     position: relative;
+    z-index: 10;
     overflow: visible;
     cursor: pointer;
     filter: drop-shadow(

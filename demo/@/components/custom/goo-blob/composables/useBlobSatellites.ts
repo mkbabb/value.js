@@ -159,7 +159,21 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
     const sources: MetaballSource[] = [];
 
     let lastMergeTime = -Infinity;
+    let lastOrbitRadius = config.orbitRadius;
     const MERGE_STAGGER_MS = 3000;
+
+    /** Scale existing satellite radii when orbitRadius changes live */
+    function syncOrbitRadius() {
+        const cur = config.orbitRadius;
+        if (cur !== lastOrbitRadius && lastOrbitRadius > 0) {
+            const scale = cur / lastOrbitRadius;
+            for (const s of internals) {
+                s.baseRadiusX *= scale;
+                s.baseRadiusY *= scale;
+            }
+            lastOrbitRadius = cur;
+        }
+    }
 
     function syncCount() {
         const count = config.satelliteCount;
@@ -177,6 +191,7 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
 
     function tick(now: number, mood: MoodParams) {
         syncCount();
+        syncOrbitRadius();
 
         const count = internals.length;
         const mergeRateScale = mood.mergeRate;
