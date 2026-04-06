@@ -11,3 +11,8 @@ declare module "*.md" {
     const Component: ComponentOptions;
     export default Component;
 }
+
+declare module "*.glsl?raw" {
+    const content: string;
+    export default content;
+}
