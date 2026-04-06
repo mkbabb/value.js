@@ -2,7 +2,7 @@
     <div
         ref="wrapperRef"
         class="goo-blob-wrapper"
-        :style="{ '--blob-color': color, '--blob-size': `${size}px` }"
+        :style="{ '--blob-color': color, '--blob-size': `${cfg.canvasSize}px` }"
         @click="emit('click')"
     >
         <canvas ref="canvasRef" class="goo-blob-canvas" />
@@ -10,8 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import { useTemplateRef, watch, toRef } from "vue";
-import type { BlobMood } from "./types";
+import { inject, reactive, useTemplateRef, watch, toRef } from "vue";
+import type { BlobMood, BlobConfig } from "./types";
+import { BLOB_CONFIG_DEFAULTS, BLOB_CONFIG_KEY } from "./types";
 import { useBlobMood } from "./composables/useBlobMood";
 import { useBlobPointer } from "./composables/useBlobPointer";
 import { useBlobSatellites } from "./composables/useBlobSatellites";
@@ -20,18 +21,15 @@ import { useMetaballRenderer } from "./composables/useMetaballRenderer";
 const props = withDefaults(
     defineProps<{
         color: string;
-        size?: number;
-        satellites?: number;
         seed?: string;
     }>(),
-    {
-        size: 200,
-        satellites: 2,
-        seed: "",
-    },
+    { seed: "" },
 );
 
 const emit = defineEmits<{ click: [] }>();
+
+const injectedConfig = inject(BLOB_CONFIG_KEY, null);
+const cfg: BlobConfig = injectedConfig ?? reactive({ ...BLOB_CONFIG_DEFAULTS });
 
 const canvasRef = useTemplateRef<HTMLCanvasElement>("canvasRef");
 const wrapperRef = useTemplateRef<HTMLElement>("wrapperRef");
@@ -39,8 +37,10 @@ const wrapperRef = useTemplateRef<HTMLElement>("wrapperRef");
 const mood = useBlobMood();
 const pointer = useBlobPointer(wrapperRef);
 const satelliteSystem = useBlobSatellites({
-    count: props.satellites,
+    count: cfg.satelliteCount,
     color: props.color + props.seed,
+    orbitRadius: cfg.orbitRadius,
+    satelliteRadius: cfg.satelliteRadius,
 });
 
 const colorRef = toRef(props, "color");
@@ -51,7 +51,7 @@ useMetaballRenderer({
     mood,
     pointer,
     satellites: satelliteSystem,
-    size: props.size,
+    config: cfg,
 });
 
 watch(colorRef, (c) => {

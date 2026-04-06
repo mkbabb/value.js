@@ -12,18 +12,29 @@ uniform vec3 uBaseColor;
 uniform vec2 uPointer;
 uniform float uPointerActive;
 uniform float uPointerAttraction;
+uniform float uPointerStrength;
 
 // Main body
 uniform float uBodyRadius;
 
-// Mood-driven
+// Pulsation
 uniform float uPulsePhase;
 uniform float uPulseAmp;
+
+// Surface noise
 uniform float uNoiseAmp;
+uniform float uNoiseFreq;
+uniform float uNoiseSpeed;
+
+// Gooey
 uniform float uSmoothK;
+
+// Color perturbation
 uniform float uHueRange;
 uniform float uSatShift;
 uniform float uBrightnessShift;
+uniform float uColorNoiseFreq;
+uniform float uColorNoiseSpeed;
 
 // Satellites (max 4)
 #define MAX_SATS 4
@@ -43,7 +54,7 @@ float hash21(vec2 p) {
 float valueNoise(vec2 p) {
     vec2 i = floor(p);
     vec2 f = fract(p);
-    f = f * f * (3.0 - 2.0 * f); // hermite smoothstep
+    f = f * f * (3.0 - 2.0 * f);
 
     float a = hash21(i);
     float b = hash21(i + vec2(1.0, 0.0));
@@ -95,22 +106,21 @@ vec3 hsv2rgb(vec3 c) {
 }
 
 void main() {
-    // Aspect-corrected coordinates centered on blob [−0.5, 0.5]
     vec2 uv = vUv - 0.5;
 
-    // Pointer deformation: warp UV toward/away from pointer
+    // Pointer deformation
     if (uPointerActive > 0.5) {
         vec2 pointerDir = uPointer - uv;
         float pointerDist = length(pointerDir);
-        float influence = smoothstep(0.4, 0.0, pointerDist) * uPointerAttraction * 0.08;
+        float influence = smoothstep(0.4, 0.0, pointerDist) * uPointerAttraction * uPointerStrength;
         uv -= normalize(pointerDir + 1e-6) * influence;
     }
 
     // Main body with pulsation
     float bodyR = uBodyRadius + sin(uPulsePhase) * uPulseAmp;
 
-    // FBM displacement on the surface for organic watercolor edge
-    float noiseVal = fbm(uv * 3.5 + uTime * 0.08, 3);
+    // FBM displacement for organic watercolor edge
+    float noiseVal = fbm(uv * uNoiseFreq + uTime * uNoiseSpeed, 3);
     float bodyDisplacement = (noiseVal - 0.5) * uNoiseAmp;
 
     float d = sdCircle(uv, vec2(0.0), bodyR + bodyDisplacement);
@@ -119,7 +129,6 @@ void main() {
     for (int i = 0; i < MAX_SATS; i++) {
         if (i >= uSatCount) break;
         float satD = sdCircle(uv, uSatPos[i], uSatRadius[i]);
-        // Fade: push SDF outward as opacity drops (satellite disappears smoothly)
         satD += (1.0 - uSatOpacity[i]) * 0.3;
         d = smin(d, satD, uSmoothK);
     }
@@ -136,8 +145,7 @@ void main() {
     // Color with position-dependent perturbation
     vec3 hsv = rgb2hsv(uBaseColor);
 
-    // Slow hue/sat variation driven by FBM noise
-    float colorNoise = fbm(uv * 2.0 + uTime * 0.05, 3);
+    float colorNoise = fbm(uv * uColorNoiseFreq + uTime * uColorNoiseSpeed, 3);
     hsv.x += (colorNoise - 0.5) * uHueRange / 360.0;
     hsv.y = clamp(hsv.y + (colorNoise - 0.5) * uSatShift, 0.0, 1.0);
     hsv.z = clamp(hsv.z + uBrightnessShift, 0.0, 1.0);
@@ -148,6 +156,5 @@ void main() {
 
     vec3 rgb = hsv2rgb(hsv);
 
-    // Premultiplied alpha
     fragColor = vec4(rgb * alpha, alpha);
 }

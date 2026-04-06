@@ -2,6 +2,7 @@ import { watch, onUnmounted, type Ref } from "vue";
 import { compileShader, linkProgram, createQuadVAO, getUniforms } from "@lib/animation/webgl-utils";
 import vertSource from "../shaders/metaball.vert.glsl?raw";
 import fragSource from "../shaders/metaball.frag.glsl?raw";
+import type { BlobConfig } from "../types";
 import type { useBlobMood } from "./useBlobMood";
 import type { useBlobPointer } from "./useBlobPointer";
 import type { useBlobSatellites } from "./useBlobSatellites";
@@ -15,19 +16,23 @@ const UNIFORM_NAMES = [
     "uPointer",
     "uPointerActive",
     "uPointerAttraction",
+    "uPointerStrength",
     "uBodyRadius",
     "uPulsePhase",
     "uPulseAmp",
     "uNoiseAmp",
+    "uNoiseFreq",
+    "uNoiseSpeed",
     "uSmoothK",
     "uHueRange",
     "uSatShift",
     "uBrightnessShift",
+    "uColorNoiseFreq",
+    "uColorNoiseSpeed",
     "uSatCount",
 ] as const;
 
 // Resolve any CSS color string (lab, oklch, hsl, hex, rgb, ...) to [0,1] RGB
-// Uses a 1x1 canvas 2D context — the browser handles all color space conversion.
 const resolverCtx = (() => {
     if (typeof document === "undefined") return null;
     const c = document.createElement("canvas");
@@ -51,20 +56,11 @@ export interface UseMetaballRendererOptions {
     mood: ReturnType<typeof useBlobMood>;
     pointer: ReturnType<typeof useBlobPointer>;
     satellites: ReturnType<typeof useBlobSatellites>;
-    size?: number;
-    bodyRadius?: number;
+    config: BlobConfig;
 }
 
 export function useMetaballRenderer(options: UseMetaballRendererOptions) {
-    const {
-        canvasRef,
-        color,
-        mood,
-        pointer,
-        satellites,
-        size = 200,
-        bodyRadius = 0.25,
-    } = options;
+    const { canvasRef, color, mood, pointer, satellites, config } = options;
 
     const prefersReducedMotion =
         typeof window !== "undefined" &&
@@ -112,7 +108,6 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         gl.useProgram(program);
         uniforms = getUniforms(gl, program, UNIFORM_NAMES);
 
-        // Array uniform locations
         satPosLocs = [];
         satRadLocs = [];
         satOpLocs = [];
@@ -132,7 +127,7 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
     function resize(canvas: HTMLCanvasElement) {
         if (!gl) return;
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        const w = Math.round(size * dpr);
+        const w = Math.round(config.canvasSize * dpr);
         const h = w;
         if (canvas.width !== w || canvas.height !== h) {
             canvas.width = w;
@@ -153,7 +148,6 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         lastFrameTime = now;
         const time = (now - startTime) / 1000;
 
-        // Tick subsystems
         mood.tick(dt);
         pointer.tick();
         satellites.tick(now, mood.params.value);
@@ -169,7 +163,6 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         gl.useProgram(program);
         gl.bindVertexArray(vao);
 
-        // Global uniforms
         const canvas = canvasRef.value!;
         gl.uniform2f(uniforms.uResolution, canvas.width, canvas.height);
         gl.uniform1f(uniforms.uTime, time);
@@ -179,19 +172,28 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         const ptr = pointer.pointer.value;
         gl.uniform2f(uniforms.uPointer, ptr.x * 0.5, ptr.y * 0.5);
         gl.uniform1f(uniforms.uPointerActive, pointer.active.value ? 1.0 : 0.0);
-        gl.uniform1f(uniforms.uPointerAttraction, params.pointerAttraction);
+        gl.uniform1f(uniforms.uPointerAttraction, config.pointerAttraction + params.pointerAttraction);
+        gl.uniform1f(uniforms.uPointerStrength, config.pointerStrength);
 
-        // Body
-        gl.uniform1f(uniforms.uBodyRadius, bodyRadius);
+        // Body — config is the base, mood params modulate
+        gl.uniform1f(uniforms.uBodyRadius, config.bodyRadius);
+        gl.uniform1f(uniforms.uPulsePhase, time * config.pulseFreq * params.pulseFreq * Math.PI * 2);
+        gl.uniform1f(uniforms.uPulseAmp, config.pulseAmp * params.pulseAmp / 0.015); // normalize to idle baseline
 
-        // Mood-driven
-        gl.uniform1f(uniforms.uPulsePhase, time * params.pulseFreq * Math.PI * 2);
-        gl.uniform1f(uniforms.uPulseAmp, params.pulseAmp);
-        gl.uniform1f(uniforms.uNoiseAmp, params.noiseAmp);
-        gl.uniform1f(uniforms.uSmoothK, params.smoothK);
-        gl.uniform1f(uniforms.uHueRange, params.hueRange);
-        gl.uniform1f(uniforms.uSatShift, params.satShift);
-        gl.uniform1f(uniforms.uBrightnessShift, params.brightnessShift);
+        // Surface noise — config controls shape, mood scales amplitude
+        gl.uniform1f(uniforms.uNoiseAmp, config.noiseAmp * params.noiseAmp / 0.025);
+        gl.uniform1f(uniforms.uNoiseFreq, config.noiseFreq);
+        gl.uniform1f(uniforms.uNoiseSpeed, config.noiseSpeed);
+
+        // Gooey
+        gl.uniform1f(uniforms.uSmoothK, config.smoothK * params.smoothK / 0.22);
+
+        // Color perturbation
+        gl.uniform1f(uniforms.uHueRange, config.hueRange + params.hueRange);
+        gl.uniform1f(uniforms.uSatShift, config.satShift + params.satShift);
+        gl.uniform1f(uniforms.uBrightnessShift, config.brightnessShift + params.brightnessShift);
+        gl.uniform1f(uniforms.uColorNoiseFreq, config.colorNoiseFreq);
+        gl.uniform1f(uniforms.uColorNoiseSpeed, config.colorNoiseSpeed);
 
         // Satellites
         const sats = satellites.sources;
@@ -215,7 +217,6 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         gl.clearColor(0, 0, 0, 0);
         gl.clear(gl.COLOR_BUFFER_BIT);
         gl.drawArrays(gl.TRIANGLES, 0, 6);
-
         gl.bindVertexArray(null);
 
         if (!prefersReducedMotion) {
@@ -240,10 +241,7 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         lastFrameTime = 0;
 
         if (prefersReducedMotion) {
-            // Single static frame
-            requestAnimationFrame((now) => {
-                render(now);
-            });
+            requestAnimationFrame((now) => render(now));
         } else {
             rafId = requestAnimationFrame(render);
         }
@@ -288,12 +286,10 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         }
     }
 
-    // Start when canvas becomes available
     watch(canvasRef, (canvas) => {
         if (canvas && !destroyed) start();
     }, { immediate: true });
 
-    // Re-render on color change in reduced-motion mode
     if (prefersReducedMotion) {
         watch(color, () => {
             if (canvasRef.value && gl) {

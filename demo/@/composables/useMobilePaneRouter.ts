@@ -13,8 +13,9 @@ const GradientPane = defineAsyncComponent(() => import("@components/custom/panes
 const MixPane = defineAsyncComponent(() => import("@components/custom/panes/MixPane.vue"));
 const AdminPane = defineAsyncComponent(() => import("@components/custom/panes/AdminPane.vue"));
 const AuroraPane = defineAsyncComponent(() => import("@components/custom/panes/AuroraPane.vue"));
+const BlobPane = defineAsyncComponent(() => import("@components/custom/panes/BlobPane.vue"));
 
-export { ExtractPane, GeneratePane, GradientPane, MixPane, AdminPane, AuroraPane };
+export { ExtractPane, GeneratePane, GradientPane, MixPane, AdminPane, AuroraPane, BlobPane };
 
 export function useMobilePaneRouter(
     viewManager: ReturnType<typeof useViewManager>,
@@ -43,6 +44,7 @@ export function useMobilePaneRouter(
         if (cfg.left === "generate") return GeneratePane;
         if (cfg.left === "gradient") return GradientPane;
         if (cfg.left === "atmosphere") return AuroraPane;
+        if (cfg.left === "blob") return BlobPane;
         if (cfg.left.startsWith("admin-")) return AdminPane;
         return ColorPicker;
     });
@@ -68,6 +70,7 @@ export function useMobilePaneRouter(
         if (cfg.left === "generate") return {};
         if (cfg.left === "gradient") return {};
         if (cfg.left === "atmosphere") return {};
+        if (cfg.left === "blob") return {};
         if (cfg.left.startsWith("admin-")) return { subView: cfg.left };
         return {};
     });

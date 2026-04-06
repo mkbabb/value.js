@@ -77,6 +77,10 @@
                             v-else-if="currentConfig.left === 'atmosphere'"
                             key="atmosphere"
                         />
+                        <BlobPane
+                            v-else-if="currentConfig.left === 'blob'"
+                            key="blob"
+                        />
                         <AdminPane
                             v-else-if="currentConfig.left.startsWith('admin-')"
                             :key="currentConfig.left"
@@ -150,7 +154,7 @@ import { useColorUrl } from "@components/custom/color-picker/composables/useColo
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { useAppColorModel } from "@composables/color/useAppColorModel";
 import { useGenericActionBar } from "@components/custom/dock/composables/useGenericActionBar";
-import { useMobilePaneRouter, ExtractPane, GeneratePane, GradientPane, MixPane, AdminPane, AuroraPane } from "@composables/useMobilePaneRouter";
+import { useMobilePaneRouter, ExtractPane, GeneratePane, GradientPane, MixPane, AdminPane, AuroraPane, BlobPane } from "@composables/useMobilePaneRouter";
 import { usePaletteManager } from "@composables/palette/usePaletteManager";
 import { copyToClipboard } from "@composables/useClipboard";
 import { useAurora } from "@mkbabb/glass-ui";
@@ -328,6 +332,11 @@ const auroraConfig = reactive<AuroraConfig>({
 });
 const { config: auroraConfigResult } = useAurora(atmosphereCanvas, auroraConfig, cssColorOpaque);
 provide("auroraConfig", auroraConfigResult);
+
+// --- Blob config ---
+import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@components/custom/goo-blob";
+const blobConfig = reactive({ ...BLOB_CONFIG_DEFAULTS });
+provide(BLOB_CONFIG_KEY, blobConfig);
 
 onMounted(() => { loadCustomColorNames(); });
 </script>

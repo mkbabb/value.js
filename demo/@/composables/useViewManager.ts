@@ -14,6 +14,7 @@ import {
     Rainbow,
     ScrollText,
     Flag,
+    Droplets,
 } from "lucide-vue-next";
 
 export type ViewId =
@@ -22,6 +23,7 @@ export type ViewId =
     | "browse"
     | "extract"
     | "atmosphere"
+    | "blob"
     | "mix"
     | "generate"
     | "gradient"
@@ -36,6 +38,7 @@ export type LeftPane =
     | "browse"
     | "extract"
     | "atmosphere"
+    | "blob"
     | "generate"
     | "gradient"
     | "admin-users"
@@ -119,6 +122,14 @@ const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Atmosphere",
         rightLabel: null,
         icon: Sparkles,
+    },
+    blob: {
+        left: "blob",
+        right: null,
+        label: "Blob",
+        leftLabel: "Blob",
+        rightLabel: null,
+        icon: Droplets,
     },
     "admin-users": {
         left: "admin-users",

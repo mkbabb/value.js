@@ -25,6 +25,7 @@ const routes: RouteRecordRaw[] = [
     { path: "/generate", name: "generate", component: Stub },
     { path: "/gradient", name: "gradient", component: Stub },
     { path: "/atmosphere", name: "atmosphere", component: Stub },
+    { path: "/blob", name: "blob", component: Stub },
     { path: "/admin/users", name: "admin-users", component: Stub, meta: { admin: true } },
     { path: "/admin/names", name: "admin-names", component: Stub, meta: { admin: true } },
     { path: "/admin/audit", name: "admin-audit", component: Stub, meta: { admin: true } },

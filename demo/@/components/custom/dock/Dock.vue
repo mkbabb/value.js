@@ -48,7 +48,7 @@ const hasAnyActionBar = computed(() => !!actionBar.value || !!genericBar.value);
 const isAdminMode = ref(viewManager.currentView.value.startsWith("admin-"));
 
 const userViews: ViewId[] = ["picker", "palettes", "browse", "extract", "mix", "generate", "gradient"];
-const adminViews: ViewId[] = ["admin-users", "admin-names", "admin-audit", "admin-flagged", "admin-tags", "atmosphere"];
+const adminViews: ViewId[] = ["admin-users", "admin-names", "admin-audit", "admin-flagged", "admin-tags", "atmosphere", "blob"];
 
 const viewEntries = computed(() => {
     if (isAdminMode.value && pm.isAdminAuthenticated.value) {

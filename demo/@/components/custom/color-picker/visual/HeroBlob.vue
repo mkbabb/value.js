@@ -5,8 +5,6 @@
                 <GooBlob
                     ref="gooBlobRef"
                     :color="cssColorOpaque"
-                    :size="200"
-                    :satellites="2"
                     class="-ml-[4rem] -mb-[4rem]"
                     @click="onBlobClick"
                 />
