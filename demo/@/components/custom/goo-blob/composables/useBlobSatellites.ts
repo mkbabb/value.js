@@ -1,5 +1,5 @@
 import { mulberry32, hashString } from "@composables/prng";
-import type { MetaballSource, MoodParams, SatelliteInternal, SatellitePhase } from "../types";
+import type { BlobConfig, MetaballSource, MoodParams, SatelliteInternal, SatellitePhase } from "../types";
 
 function randRange(rng: () => number, lo: number, hi: number): number {
     return lo + rng() * (hi - lo);
@@ -109,44 +109,45 @@ function randomizeOrbit(
     s.pertYPhase = rng() * Math.PI * 2;
 }
 
-export interface UseBlobSatellitesOptions {
-    count?: number;
-    orbitRadius?: number;
-    satelliteRadius?: number;
-    color: string;
-}
+const BASE_OPACITY = 0.75;
 
-export function useBlobSatellites(options: UseBlobSatellitesOptions) {
-    const {
-        count = 2,
-        orbitRadius = 0.35,
-        satelliteRadius = 0.09,
-    } = options;
-
-    let rng = mulberry32(hashString(options.color + "goo"));
+export function useBlobSatellites(config: BlobConfig, initialColor: string) {
+    let rng = mulberry32(hashString(initialColor + "goo"));
     const internals: SatelliteInternal[] = [];
-    for (let i = 0; i < count; i++) {
-        internals.push(createSatellite(rng, i, orbitRadius));
-    }
-
-    const sources: MetaballSource[] = Array.from({ length: count }, () => ({
-        x: 0,
-        y: 0,
-        radius: satelliteRadius,
-        opacity: 0.75,
-    }));
+    const sources: MetaballSource[] = [];
 
     let lastMergeTime = -Infinity;
     const MERGE_STAGGER_MS = 3000;
-    const BASE_ORBIT_DURATION: [number, number] = [8000, 14000];
-    const BASE_ABSORBED_DURATION: [number, number] = [2000, 4000];
-    const MERGE_DURATION = 1800;
-    const EMERGE_DURATION = 2200;
-    const BASE_OPACITY = 0.75;
+
+    /** Ensure internals/sources arrays match the current config count */
+    function syncCount() {
+        const count = config.satelliteCount;
+        // Add new satellites
+        while (internals.length < count) {
+            internals.push(createSatellite(rng, internals.length, config.orbitRadius));
+            sources.push({ x: 0, y: 0, radius: config.satelliteRadius, opacity: 0 });
+        }
+        // Remove excess (from the end)
+        if (internals.length > count) {
+            internals.length = count;
+            sources.length = count;
+        }
+    }
+
+    // Initial population
+    syncCount();
 
     function tick(now: number, mood: MoodParams) {
+        syncCount();
+
+        const count = internals.length;
         const mergeRateScale = mood.mergeRate;
-        const speedScale = mood.orbitSpeedScale;
+        const orbitRadius = config.orbitRadius;
+        const satelliteRadius = config.satelliteRadius;
+        const mergeDuration = config.mergeDuration;
+        const emergeDuration = config.emergeDuration;
+        const orbitDuration = config.orbitDuration;
+        const absorbedDuration = config.absorbedDuration;
 
         for (let i = 0; i < count; i++) {
             const s = internals[i]!;
@@ -158,11 +159,7 @@ export function useBlobSatellites(options: UseBlobSatellitesOptions) {
                     if (t >= 1) {
                         if (now - lastMergeTime < MERGE_STAGGER_MS * mergeRateScale) {
                             s.phaseStart = now;
-                            s.phaseDuration = randRange(
-                                rng,
-                                BASE_ORBIT_DURATION[0],
-                                BASE_ORBIT_DURATION[1],
-                            );
+                            s.phaseDuration = randRange(rng, orbitDuration[0], orbitDuration[1]);
                         } else {
                             const pos = orbitPos(s, now);
                             s.startX = pos.x;
@@ -171,7 +168,7 @@ export function useBlobSatellites(options: UseBlobSatellitesOptions) {
                             const sc = dist > 0.01 ? 0.08 / dist : 0;
                             s.endX = pos.x * sc;
                             s.endY = pos.y * sc;
-                            setPhase(s, "merging", now, MERGE_DURATION);
+                            setPhase(s, "merging", now, mergeDuration);
                             lastMergeTime = now;
                         }
                     }
@@ -179,12 +176,7 @@ export function useBlobSatellites(options: UseBlobSatellitesOptions) {
                 }
                 case "merging": {
                     if (t >= 1) {
-                        setPhase(
-                            s,
-                            "absorbed",
-                            now,
-                            randRange(rng, BASE_ABSORBED_DURATION[0], BASE_ABSORBED_DURATION[1]),
-                        );
+                        setPhase(s, "absorbed", now, randRange(rng, absorbedDuration[0], absorbedDuration[1]));
                     }
                     break;
                 }
@@ -198,24 +190,19 @@ export function useBlobSatellites(options: UseBlobSatellitesOptions) {
                         const sc = dist > 0.01 ? 0.08 / dist : 0;
                         s.startX = pos.x * sc;
                         s.startY = pos.y * sc;
-                        setPhase(s, "emerging", now, EMERGE_DURATION);
+                        setPhase(s, "emerging", now, emergeDuration);
                     }
                     break;
                 }
                 case "emerging": {
                     if (t >= 1) {
-                        setPhase(
-                            s,
-                            "orbiting",
-                            now,
-                            randRange(rng, BASE_ORBIT_DURATION[0], BASE_ORBIT_DURATION[1]),
-                        );
+                        setPhase(s, "orbiting", now, randRange(rng, orbitDuration[0], orbitDuration[1]));
                     }
                     break;
                 }
             }
 
-            // Compute output position and opacity
+            // Compute output
             let x: number, y: number, opacity: number, scale: number;
 
             switch (s.phase) {
@@ -263,7 +250,6 @@ export function useBlobSatellites(options: UseBlobSatellitesOptions) {
     }
 
     function nudge() {
-        const now = performance.now();
         for (const s of internals) {
             s.phaseOffset += (rng() - 0.5) * 0.4;
             s.pertXPhase += rng() * Math.PI * 0.5;

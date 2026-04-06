@@ -43,12 +43,7 @@ const wrapperRef = useTemplateRef<HTMLElement>("wrapperRef");
 
 const mood = useBlobMood();
 const pointer = useBlobPointer(wrapperRef);
-const satelliteSystem = useBlobSatellites({
-    count: cfg.satelliteCount,
-    color: props.color + props.seed,
-    orbitRadius: cfg.orbitRadius,
-    satelliteRadius: cfg.satelliteRadius,
-});
+const satelliteSystem = useBlobSatellites(cfg, props.color + props.seed);
 
 const colorRef = toRef(props, "color");
 
