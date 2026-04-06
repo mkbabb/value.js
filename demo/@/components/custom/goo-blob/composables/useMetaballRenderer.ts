@@ -26,33 +26,23 @@ const UNIFORM_NAMES = [
     "uSatCount",
 ] as const;
 
-function hexToRgb(hex: string): [number, number, number] {
-    const raw = hex.replace("#", "");
-    if (raw.length === 3) {
-        const r = parseInt(raw.charAt(0) + raw.charAt(0), 16) / 255;
-        const g = parseInt(raw.charAt(1) + raw.charAt(1), 16) / 255;
-        const b = parseInt(raw.charAt(2) + raw.charAt(2), 16) / 255;
-        return [r, g, b];
-    }
-    return [
-        parseInt(raw.slice(0, 2), 16) / 255,
-        parseInt(raw.slice(2, 4), 16) / 255,
-        parseInt(raw.slice(4, 6), 16) / 255,
-    ];
-}
+// Resolve any CSS color string (lab, oklch, hsl, hex, rgb, ...) to [0,1] RGB
+// Uses a 1x1 canvas 2D context — the browser handles all color space conversion.
+const resolverCtx = (() => {
+    if (typeof document === "undefined") return null;
+    const c = document.createElement("canvas");
+    c.width = 1;
+    c.height = 1;
+    return c.getContext("2d", { willReadFrequently: true });
+})();
 
 function cssColorToRgb(color: string): [number, number, number] {
-    if (color.startsWith("#")) return hexToRgb(color);
-    // Parse rgb(r, g, b) or rgba(r, g, b, a)
-    const match = color.match(/rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/);
-    if (match && match[1] && match[2] && match[3]) {
-        return [
-            parseFloat(match[1]) / 255,
-            parseFloat(match[2]) / 255,
-            parseFloat(match[3]) / 255,
-        ];
-    }
-    return [0.5, 0.5, 0.5];
+    if (!resolverCtx) return [0.5, 0.5, 0.5];
+    resolverCtx.clearRect(0, 0, 1, 1);
+    resolverCtx.fillStyle = color;
+    resolverCtx.fillRect(0, 0, 1, 1);
+    const d = resolverCtx.getImageData(0, 0, 1, 1).data;
+    return [d[0]! / 255, d[1]! / 255, d[2]! / 255];
 }
 
 export interface UseMetaballRendererOptions {
@@ -72,8 +62,8 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         mood,
         pointer,
         satellites,
-        size = 150,
-        bodyRadius = 0.18,
+        size = 200,
+        bodyRadius = 0.25,
     } = options;
 
     const prefersReducedMotion =

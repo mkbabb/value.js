@@ -119,8 +119,8 @@ export interface UseBlobSatellitesOptions {
 export function useBlobSatellites(options: UseBlobSatellitesOptions) {
     const {
         count = 2,
-        orbitRadius = 0.22,
-        satelliteRadius = 0.07,
+        orbitRadius = 0.35,
+        satelliteRadius = 0.09,
     } = options;
 
     let rng = mulberry32(hashString(options.color + "goo"));

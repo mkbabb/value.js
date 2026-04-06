@@ -110,7 +110,7 @@ void main() {
     float bodyR = uBodyRadius + sin(uPulsePhase) * uPulseAmp;
 
     // FBM displacement on the surface for organic watercolor edge
-    float noiseVal = fbm(uv * 8.0 + uTime * 0.3, 3);
+    float noiseVal = fbm(uv * 3.5 + uTime * 0.08, 3);
     float bodyDisplacement = (noiseVal - 0.5) * uNoiseAmp;
 
     float d = sdCircle(uv, vec2(0.0), bodyR + bodyDisplacement);
@@ -137,7 +137,7 @@ void main() {
     vec3 hsv = rgb2hsv(uBaseColor);
 
     // Slow hue/sat variation driven by FBM noise
-    float colorNoise = fbm(uv * 4.0 + uTime * 0.15, 3);
+    float colorNoise = fbm(uv * 2.0 + uTime * 0.05, 3);
     hsv.x += (colorNoise - 0.5) * uHueRange / 360.0;
     hsv.y = clamp(hsv.y + (colorNoise - 0.5) * uSatShift, 0.0, 1.0);
     hsv.z = clamp(hsv.z + uBrightnessShift, 0.0, 1.0);

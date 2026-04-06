@@ -5,9 +5,9 @@
                 <GooBlob
                     ref="gooBlobRef"
                     :color="cssColorOpaque"
-                    :size="150"
+                    :size="200"
                     :satellites="2"
-                    class="-ml-[3.2rem] -mb-[3.2rem]"
+                    class="-ml-[4rem] -mb-[4rem]"
                     @click="onBlobClick"
                 />
             </TooltipTrigger>

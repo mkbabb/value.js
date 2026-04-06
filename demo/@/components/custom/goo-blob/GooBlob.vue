@@ -25,7 +25,7 @@ const props = withDefaults(
         seed?: string;
     }>(),
     {
-        size: 150,
+        size: 200,
         satellites: 2,
         seed: "",
     },
