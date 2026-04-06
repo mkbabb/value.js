@@ -57,6 +57,7 @@ const POINTER: SliderDef[] = [
 ];
 
 const ORBIT: SliderDef[] = [
+    { key: "eccentricity", label: "Eccentricity", min: 0.0, max: 0.5, step: 0.01 },
     { key: "orbitSpeedScale", label: "Orbit Speed", min: 0.1, max: 3.0, step: 0.05 },
     { key: "wobbleScale", label: "Wobble", min: 0.0, max: 3.0, step: 0.05 },
     { key: "mergeRate", label: "Merge Rate", min: 0.1, max: 3.0, step: 0.05 },
@@ -108,7 +109,9 @@ function resetDefaults() {
                     :key="section.title"
                     class="flex flex-col gap-2.5"
                 >
-                    <span class="section-label">{{ section.title }}</span>
+                    <div class="config-section-header">
+                        <span class="config-section-title">{{ section.title }}</span>
+                    </div>
 
                     <div
                         v-for="def in section.defs"
@@ -135,7 +138,7 @@ function resetDefaults() {
             </div>
 
             <!-- Floating bottom action dock -->
-            <div class="blob-action-dock">
+            <div class="config-action-dock">
                 <button class="dock-icon-btn-compact" title="Copy config as JSON" @click="copyAsJson">
                     <Copy class="w-4 h-4" />
                     <span class="font-mono-code text-[length:var(--type-caption)]">Copy JSON</span>
@@ -153,7 +156,20 @@ function resetDefaults() {
 <style scoped>
 @reference "../../../styles/style.css";
 
-.blob-action-dock {
+.config-section-header {
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+    padding-bottom: 0.375rem;
+}
+
+.config-section-title {
+    font-family: var(--font-mono);
+    font-size: var(--type-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-caps);
+    color: var(--muted-foreground);
+}
+
+.config-action-dock {
     position: sticky;
     bottom: 0;
     display: flex;

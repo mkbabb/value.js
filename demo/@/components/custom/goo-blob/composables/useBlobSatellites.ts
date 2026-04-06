@@ -25,6 +25,7 @@ function createSatellite(
     rng: () => number,
     index: number,
     orbitRadius: number,
+    eccentricity: number,
 ): SatelliteInternal {
     const now = performance.now();
     const startAngles = [
@@ -34,9 +35,8 @@ function createSatellite(
         (5 * Math.PI) / 4 + (rng() - 0.5) * 0.5,
     ];
 
-    // Elliptical: X and Y radii vary independently (0.75–1.25 of base)
-    const eccentricity = 0.75 + rng() * 0.50;
     const baseR = orbitRadius * (0.92 + rng() * 0.16);
+    const ecc = eccentricity * (0.5 + rng() * 0.5); // per-satellite variation within range
 
     return {
         phase: "orbiting",
@@ -46,8 +46,8 @@ function createSatellite(
         timeOrigin: now,
         angularSpeed: 0.12 + rng() * 0.1,
         phaseOffset: startAngles[index] ?? rng() * Math.PI * 2,
-        baseRadiusX: baseR * eccentricity,
-        baseRadiusY: baseR * (2 - eccentricity), // complementary so avg ≈ baseR
+        baseRadiusX: baseR * (1 - ecc),
+        baseRadiusY: baseR * (1 + ecc),
 
         wobbleAmp1: 0.03 + rng() * 0.04,
         wobbleFreq1: 0.15 + rng() * 0.15,
@@ -95,15 +95,16 @@ function randomizeOrbit(
     s: SatelliteInternal,
     rng: () => number,
     orbitRadius: number,
+    eccentricity: number,
     now: number,
 ) {
     s.timeOrigin = now;
     s.angularSpeed = 0.12 + rng() * 0.1;
     s.phaseOffset = rng() * Math.PI * 2;
-    const eccentricity = 0.75 + rng() * 0.50;
     const baseR = orbitRadius * (0.92 + rng() * 0.16);
-    s.baseRadiusX = baseR * eccentricity;
-    s.baseRadiusY = baseR * (2 - eccentricity);
+    const ecc = eccentricity * (0.5 + rng() * 0.5);
+    s.baseRadiusX = baseR * (1 - ecc);
+    s.baseRadiusY = baseR * (1 + ecc);
     s.wobbleAmp1 = 0.03 + rng() * 0.04;
     s.wobbleFreq1 = 0.15 + rng() * 0.15;
     s.wobbleAmp2 = 0.02 + rng() * 0.03;
@@ -163,7 +164,7 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
     function syncCount() {
         const count = config.satelliteCount;
         while (internals.length < count) {
-            internals.push(createSatellite(rng, internals.length, config.orbitRadius));
+            internals.push(createSatellite(rng, internals.length, config.orbitRadius, config.eccentricity));
             sources.push({ x: 0, y: 0, radius: config.satelliteRadius, opacity: 0 });
         }
         if (internals.length > count) {
@@ -220,7 +221,7 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
                 case "absorbed": {
                     if (t >= 1) {
                         // Randomize new orbit, then compute emerge endpoint ON that orbit
-                        randomizeOrbit(s, rng, orbitRadius, now);
+                        randomizeOrbit(s, rng, orbitRadius, config.eccentricity, now);
                         const pos = orbitPos(s, now + 2000);
                         s.endX = pos.x;
                         s.endY = pos.y;

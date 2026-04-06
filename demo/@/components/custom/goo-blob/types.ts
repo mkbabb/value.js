@@ -87,6 +87,7 @@ export interface BlobConfig {
     pointerStrength: number;
 
     // Satellites
+    eccentricity: number;
     orbitSpeedScale: number;
     wobbleScale: number;
     mergeRate: number;
@@ -121,6 +122,7 @@ export const BLOB_CONFIG_DEFAULTS: BlobConfig = {
     pointerAttraction: 0.0,
     pointerStrength: 0.08,
 
+    eccentricity: 0.25,
     orbitSpeedScale: 1.0,
     wobbleScale: 1.0,
     mergeRate: 1.0,

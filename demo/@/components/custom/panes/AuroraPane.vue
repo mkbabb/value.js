@@ -115,7 +115,7 @@ function resetDefaults() {
                 <!-- Selects row -->
                 <div class="grid grid-cols-2 gap-3">
                     <div class="flex flex-col gap-1">
-                        <span class="section-label">Color Mode</span>
+                        <span class="font-mono-code text-[length:var(--type-caption)] text-muted-foreground">Color Mode</span>
                         <Select
                             :model-value="cfg.colorMode"
                             @update:model-value="(v: string) => { cfg.colorMode = v as AuroraConfig['colorMode']; }"
@@ -131,7 +131,7 @@ function resetDefaults() {
                     </div>
 
                     <div class="flex flex-col gap-1">
-                        <span class="section-label">Surface Mode</span>
+                        <span class="font-mono-code text-[length:var(--type-caption)] text-muted-foreground">Surface Mode</span>
                         <Select
                             :model-value="cfg.surfaceMode"
                             @update:model-value="(v: string) => { cfg.surfaceMode = v as AuroraConfig['surfaceMode']; }"
@@ -154,7 +154,9 @@ function resetDefaults() {
                     :key="section.title"
                     class="flex flex-col gap-2.5"
                 >
-                    <span class="section-label">{{ section.title }}</span>
+                    <div class="config-section-header">
+                        <span class="config-section-title">{{ section.title }}</span>
+                    </div>
 
                     <div
                         v-for="def in section.defs"
@@ -199,7 +201,20 @@ function resetDefaults() {
 <style scoped>
 @reference "../../../styles/style.css";
 
-.aurora-action-dock {
+.config-section-header {
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+    padding-bottom: 0.375rem;
+}
+
+.config-section-title {
+    font-family: var(--font-mono);
+    font-size: var(--type-small);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-caps);
+    color: var(--muted-foreground);
+}
+
+.config-action-dock {
     position: sticky;
     bottom: 0;
     display: flex;
