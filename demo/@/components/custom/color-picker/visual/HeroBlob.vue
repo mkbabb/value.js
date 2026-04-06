@@ -5,7 +5,7 @@
                 <GooBlob
                     ref="gooBlobRef"
                     :color="cssColorOpaque"
-                    class="-ml-[4rem] -mb-[4rem]"
+                    class="-ml-[2rem] -mb-[2rem]"
                     @click="onBlobClick"
                 />
             </TooltipTrigger>

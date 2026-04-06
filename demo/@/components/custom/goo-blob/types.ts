@@ -99,7 +99,7 @@ export const BLOB_CONFIG_DEFAULTS: BlobConfig = {
     canvasSize: 200,
     bodyRadius: 0.25,
     satelliteCount: 3,
-    satelliteRadius: 0.09,
+    satelliteRadius: 0.13,
     orbitRadius: 0.35,
 
     smoothK: 0.22,
