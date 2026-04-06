@@ -77,10 +77,6 @@
                             v-else-if="currentConfig.left === 'atmosphere'"
                             key="atmosphere"
                         />
-                        <BlobPane
-                            v-else-if="currentConfig.left === 'blob'"
-                            key="blob"
-                        />
                         <AdminPane
                             v-else-if="currentConfig.left.startsWith('admin-')"
                             :key="currentConfig.left"
@@ -114,6 +110,10 @@
                             v-else-if="currentConfig.right === 'mix'"
                             key="mix"
                             ref="mixPaneRef"
+                        />
+                        <BlobPane
+                            v-else-if="currentConfig.right === 'blob'"
+                            key="blob"
                         />
                     </KeepAlive>
                 </Transition>

@@ -37,6 +37,7 @@ export function useMobilePaneRouter(
             if (cfg.right === "about") return AboutPane;
             if (cfg.right === "palettes") return PalettesPane;
             if (cfg.right === "mix") return MixPane;
+            if (cfg.right === "blob") return BlobPane;
         }
         if (cfg.left === "color-picker") return ColorPicker;
         if (cfg.left === "browse") return BrowsePane;
@@ -44,7 +45,6 @@ export function useMobilePaneRouter(
         if (cfg.left === "generate") return GeneratePane;
         if (cfg.left === "gradient") return GradientPane;
         if (cfg.left === "atmosphere") return AuroraPane;
-        if (cfg.left === "blob") return BlobPane;
         if (cfg.left.startsWith("admin-")) return AdminPane;
         return ColorPicker;
     });
@@ -63,6 +63,7 @@ export function useMobilePaneRouter(
             if (cfg.right === "about") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { deps.updateModel(v); }, cssColor: deps.cssColor() };
             if (cfg.right === "palettes") return { savedColorStrings: deps.savedColorStrings(), "onCommit-edit": () => deps.colorPickerRef()?.commitEdit(), "onCancel-edit": () => deps.colorPickerRef()?.cancelEdit() };
             if (cfg.right === "mix") return {};
+            if (cfg.right === "blob") return {};
         }
         if (cfg.left === "color-picker") return { modelValue: model.value, "onUpdate:modelValue": (v: ColorModel) => { deps.updateModel(v); }, "onUpdate:editTarget": deps.onEditTargetChange, onReset: deps.resetToDefaults, class: "picker-shell w-full" };
         if (cfg.left === "browse") return {};
@@ -70,7 +71,6 @@ export function useMobilePaneRouter(
         if (cfg.left === "generate") return {};
         if (cfg.left === "gradient") return {};
         if (cfg.left === "atmosphere") return {};
-        if (cfg.left === "blob") return {};
         if (cfg.left.startsWith("admin-")) return { subView: cfg.left };
         return {};
     });

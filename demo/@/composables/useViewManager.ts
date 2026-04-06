@@ -38,7 +38,6 @@ export type LeftPane =
     | "browse"
     | "extract"
     | "atmosphere"
-    | "blob"
     | "generate"
     | "gradient"
     | "admin-users"
@@ -47,7 +46,7 @@ export type LeftPane =
     | "admin-flagged"
     | "admin-tags";
 
-export type RightPane = "about" | "palettes" | "mix" | null;
+export type RightPane = "about" | "palettes" | "mix" | "blob" | null;
 
 export interface PaneConfig {
     left: LeftPane;
@@ -124,11 +123,11 @@ const VIEW_MAP: Record<ViewId, PaneConfig> = {
         icon: Sparkles,
     },
     blob: {
-        left: "blob",
-        right: null,
+        left: "color-picker",
+        right: "blob",
         label: "Blob",
-        leftLabel: "Blob",
-        rightLabel: null,
+        leftLabel: "Picker",
+        rightLabel: "Blob",
         icon: Droplets,
     },
     "admin-users": {
