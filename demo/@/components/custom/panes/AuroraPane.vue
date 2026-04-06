@@ -5,6 +5,7 @@ import { Card } from "@components/ui/card";
 import { Slider } from "@components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@components/ui/select";
 import { Copy, RotateCcw } from "lucide-vue-next";
+import { GlassDock } from "@mkbabb/glass-ui";
 import PaneHeader from "./PaneHeader.vue";
 import type { AuroraConfig } from "@mkbabb/glass-ui";
 import { copyToClipboard } from "@composables/useClipboard";
@@ -116,7 +117,7 @@ function resetDefaults() {
                 <!-- Selects row -->
                 <div class="grid grid-cols-2 gap-3">
                     <div class="flex flex-col gap-1">
-                        <span class="font-mono-code text-[length:var(--type-caption)] text-muted-foreground">Color Mode</span>
+                        <span class="section-label normal-case tracking-normal">Color Mode</span>
                         <Select
                             :model-value="cfg.colorMode"
                             @update:model-value="(v: string) => { cfg.colorMode = v as AuroraConfig['colorMode']; }"
@@ -132,7 +133,7 @@ function resetDefaults() {
                     </div>
 
                     <div class="flex flex-col gap-1">
-                        <span class="font-mono-code text-[length:var(--type-caption)] text-muted-foreground">Surface Mode</span>
+                        <span class="section-label normal-case tracking-normal">Surface Mode</span>
                         <Select
                             :model-value="cfg.surfaceMode"
                             @update:model-value="(v: string) => { cfg.surfaceMode = v as AuroraConfig['surfaceMode']; }"
@@ -165,8 +166,8 @@ function resetDefaults() {
                         class="flex flex-col gap-0.5"
                     >
                         <div class="flex items-center justify-between">
-                            <span class="font-mono-code text-[length:var(--type-caption)] text-muted-foreground">{{ def.label }}</span>
-                            <span class="font-mono-code text-[length:var(--type-caption)] text-muted-foreground tabular-nums">
+                            <span class="section-label normal-case tracking-normal">{{ def.label }}</span>
+                            <span class="section-label normal-case tracking-normal tabular-nums">
                                 {{ fmt(cfg[def.key] as number) }}
                             </span>
                         </div>
@@ -183,16 +184,18 @@ function resetDefaults() {
                 </div>
             </div>
 
-            <!-- Floating bottom action dock -->
-            <div class="config-action-dock">
-                <Button variant="ghost" size="sm" @click="copyAsJson">
-                    <Copy class="w-3.5 h-3.5" />
-                    Copy JSON
-                </Button>
-                <Button variant="ghost" size="sm" @click="resetDefaults">
-                    <RotateCcw class="w-3.5 h-3.5" />
-                    Reset
-                </Button>
+            <!-- Floating glass dock at bottom -->
+            <div class="config-dock-anchor">
+                <GlassDock :always-expanded="true" :fit-content="true">
+                    <Button variant="ghost" size="sm" @click="copyAsJson">
+                        <Copy class="w-3.5 h-3.5" />
+                        Copy JSON
+                    </Button>
+                    <Button variant="ghost" size="sm" @click="resetDefaults">
+                        <RotateCcw class="w-3.5 h-3.5" />
+                        Reset
+                    </Button>
+                </GlassDock>
             </div>
         </Card>
     </div>
@@ -214,18 +217,16 @@ function resetDefaults() {
     color: var(--muted-foreground);
 }
 
-.config-action-dock {
+.config-dock-anchor {
     position: sticky;
-    bottom: 0;
+    bottom: 0.75rem;
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: color-mix(in srgb, var(--card) 70%, transparent);
-    border-top: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
     z-index: 2;
+    pointer-events: none;
+}
+
+.config-dock-anchor > * {
+    pointer-events: auto;
 }
 </style>

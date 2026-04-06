@@ -4,6 +4,7 @@ import { Button } from "@components/ui/button";
 import { Card } from "@components/ui/card";
 import { Slider } from "@components/ui/slider";
 import { Copy, RotateCcw } from "lucide-vue-next";
+import { GlassDock } from "@mkbabb/glass-ui";
 import PaneHeader from "./PaneHeader.vue";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@components/custom/goo-blob";
 import type { BlobConfig } from "@components/custom/goo-blob";
@@ -22,7 +23,6 @@ interface SliderDef {
 }
 
 const GEOMETRY: SliderDef[] = [
-    { key: "canvasSize", label: "Canvas Size", min: 100, max: 400, step: 10 },
     { key: "bodyRadius", label: "Body Radius", min: 0.08, max: 0.45, step: 0.005 },
     { key: "satelliteCount", label: "Satellites", min: 0, max: 4, step: 1 },
     { key: "satelliteRadius", label: "Sat Radius", min: 0.02, max: 0.20, step: 0.005 },
@@ -59,7 +59,7 @@ const POINTER: SliderDef[] = [
 
 const ORBIT: SliderDef[] = [
     { key: "eccentricity", label: "Eccentricity", min: 0.0, max: 0.5, step: 0.01 },
-    { key: "orbitSpeedScale", label: "Orbit Speed", min: 0.1, max: 3.0, step: 0.05 },
+    { key: "orbitSpeedScale", label: "Speed", min: 0.1, max: 3.0, step: 0.05 },
     { key: "wobbleScale", label: "Wobble", min: 0.0, max: 3.0, step: 0.05 },
     { key: "mergeRate", label: "Merge Rate", min: 0.1, max: 3.0, step: 0.05 },
     { key: "mergeDuration", label: "Merge (ms)", min: 500, max: 5000, step: 100 },
@@ -120,8 +120,8 @@ function resetDefaults() {
                         class="flex flex-col gap-0.5"
                     >
                         <div class="flex items-center justify-between">
-                            <span class="font-mono-code text-[length:var(--type-caption)] text-muted-foreground">{{ def.label }}</span>
-                            <span class="font-mono-code text-[length:var(--type-caption)] text-muted-foreground tabular-nums">
+                            <span class="section-label normal-case tracking-normal">{{ def.label }}</span>
+                            <span class="section-label normal-case tracking-normal tabular-nums">
                                 {{ fmt(cfg[def.key] as number) }}
                             </span>
                         </div>
@@ -138,16 +138,18 @@ function resetDefaults() {
                 </div>
             </div>
 
-            <!-- Floating bottom action dock -->
-            <div class="config-action-dock">
-                <Button variant="ghost" size="sm" @click="copyAsJson">
-                    <Copy class="w-3.5 h-3.5" />
-                    Copy JSON
-                </Button>
-                <Button variant="ghost" size="sm" @click="resetDefaults">
-                    <RotateCcw class="w-3.5 h-3.5" />
-                    Reset
-                </Button>
+            <!-- Floating glass dock at bottom -->
+            <div class="config-dock-anchor">
+                <GlassDock :always-expanded="true" :fit-content="true">
+                    <Button variant="ghost" size="sm" @click="copyAsJson">
+                        <Copy class="w-3.5 h-3.5" />
+                        Copy JSON
+                    </Button>
+                    <Button variant="ghost" size="sm" @click="resetDefaults">
+                        <RotateCcw class="w-3.5 h-3.5" />
+                        Reset
+                    </Button>
+                </GlassDock>
             </div>
         </Card>
     </div>
@@ -169,18 +171,16 @@ function resetDefaults() {
     color: var(--muted-foreground);
 }
 
-.config-action-dock {
+.config-dock-anchor {
     position: sticky;
-    bottom: 0;
+    bottom: 0.75rem;
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 0.625rem 1rem;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: color-mix(in srgb, var(--card) 70%, transparent);
-    border-top: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
     z-index: 2;
+    pointer-events: none;
+}
+
+.config-dock-anchor > * {
+    pointer-events: auto;
 }
 </style>

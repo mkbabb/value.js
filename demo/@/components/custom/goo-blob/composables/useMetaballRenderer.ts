@@ -127,8 +127,11 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
     function resize(canvas: HTMLCanvasElement) {
         if (!gl) return;
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        const w = Math.round(config.canvasSize * dpr);
-        const h = w;
+        // Size from actual rendered element, not config — blob fills its container
+        const cssW = canvas.clientWidth || config.canvasSize;
+        const cssH = canvas.clientHeight || config.canvasSize;
+        const w = Math.round(cssW * dpr);
+        const h = Math.round(cssH * dpr);
         if (canvas.width !== w || canvas.height !== h) {
             canvas.width = w;
             canvas.height = h;

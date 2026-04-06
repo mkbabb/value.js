@@ -2,17 +2,10 @@
     <div
         ref="wrapperRef"
         class="goo-blob-wrapper"
-        :style="{
-            '--blob-color': color,
-            '--blob-core': `${cfg.canvasSize * cfg.bodyRadius * 2}px`,
-        }"
+        :style="{ '--blob-color': color }"
         @click="emit('click')"
     >
-        <canvas
-            ref="canvasRef"
-            class="goo-blob-canvas"
-            :style="{ width: `${cfg.canvasSize}px`, height: `${cfg.canvasSize}px` }"
-        />
+        <canvas ref="canvasRef" class="goo-blob-canvas" />
     </div>
 </template>
 
@@ -73,9 +66,9 @@ defineExpose({ nudge, setMood, currentMood: mood.currentMood });
 
 <style scoped>
 .goo-blob-wrapper {
-    /* Layout footprint = core body only */
-    width: var(--blob-core);
-    height: var(--blob-core);
+    /* Fill container — parent controls the size */
+    width: 100%;
+    aspect-ratio: 1;
     position: relative;
     z-index: 10;
     overflow: visible;
@@ -102,13 +95,10 @@ defineExpose({ nudge, setMood, currentMood: mood.currentMood });
     );
 }
 
-/* Canvas is larger than the wrapper — centered and overflowing */
 .goo-blob-canvas {
     display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
     will-change: transform;
     pointer-events: none;
 }

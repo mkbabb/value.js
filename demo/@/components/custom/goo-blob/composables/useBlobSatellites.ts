@@ -28,37 +28,33 @@ function createSatellite(
     eccentricity: number,
 ): SatelliteInternal {
     const now = performance.now();
-    const startAngles = [
-        (3 * Math.PI) / 4 + (rng() - 0.5) * 0.5,
-        (7 * Math.PI) / 4 + (rng() - 0.5) * 0.5,
-        Math.PI / 4 + (rng() - 0.5) * 0.5,
-        (5 * Math.PI) / 4 + (rng() - 0.5) * 0.5,
-    ];
+    // Spread starts widely — full circle with large random offset
+    const baseAngle = (index / 4) * Math.PI * 2 + (rng() - 0.5) * Math.PI;
 
-    const baseR = orbitRadius * (0.92 + rng() * 0.16);
-    const ecc = eccentricity * (0.5 + rng() * 0.5); // per-satellite variation within range
+    const baseR = orbitRadius * (0.8 + rng() * 0.4);
+    const ecc = eccentricity * (0.3 + rng() * 0.7);
 
     return {
         phase: "orbiting",
         phaseStart: now,
-        phaseDuration: 8000 + rng() * 6000,
+        phaseDuration: 6000 + rng() * 10000,
 
         timeOrigin: now,
-        angularSpeed: 0.12 + rng() * 0.1,
-        phaseOffset: startAngles[index] ?? rng() * Math.PI * 2,
+        angularSpeed: 0.08 + rng() * 0.16,
+        phaseOffset: baseAngle,
         baseRadiusX: baseR * (1 - ecc),
         baseRadiusY: baseR * (1 + ecc),
 
-        wobbleAmp1: 0.03 + rng() * 0.04,
-        wobbleFreq1: 0.15 + rng() * 0.15,
-        wobbleAmp2: 0.02 + rng() * 0.03,
-        wobbleFreq2: 0.25 + rng() * 0.2,
+        wobbleAmp1: 0.02 + rng() * 0.06,
+        wobbleFreq1: 0.08 + rng() * 0.22,
+        wobbleAmp2: 0.015 + rng() * 0.04,
+        wobbleFreq2: 0.18 + rng() * 0.32,
 
-        pertXAmp: 0.02 + rng() * 0.03,
-        pertXFreq: 0.1 + rng() * 0.12,
+        pertXAmp: 0.03 + rng() * 0.05,
+        pertXFreq: 0.06 + rng() * 0.18,
         pertXPhase: rng() * Math.PI * 2,
-        pertYAmp: 0.02 + rng() * 0.03,
-        pertYFreq: 0.12 + rng() * 0.12,
+        pertYAmp: 0.03 + rng() * 0.05,
+        pertYFreq: 0.07 + rng() * 0.17,
         pertYPhase: rng() * Math.PI * 2,
 
         startX: 0,
@@ -68,12 +64,7 @@ function createSatellite(
     };
 }
 
-function setPhase(
-    s: SatelliteInternal,
-    phase: SatellitePhase,
-    now: number,
-    duration: number,
-) {
+function setPhase(s: SatelliteInternal, phase: SatellitePhase, now: number, duration: number) {
     s.phase = phase;
     s.phaseStart = now;
     s.phaseDuration = duration;
@@ -91,78 +82,42 @@ function orbitPos(s: SatelliteInternal, now: number): { x: number; y: number } {
     };
 }
 
-function randomizeOrbit(
-    s: SatelliteInternal,
-    rng: () => number,
-    orbitRadius: number,
-    eccentricity: number,
-    now: number,
-) {
+function randomizeOrbit(s: SatelliteInternal, rng: () => number, orbitRadius: number, eccentricity: number, now: number) {
     s.timeOrigin = now;
-    s.angularSpeed = 0.12 + rng() * 0.1;
+    s.angularSpeed = 0.08 + rng() * 0.16;
     s.phaseOffset = rng() * Math.PI * 2;
-    const baseR = orbitRadius * (0.92 + rng() * 0.16);
-    const ecc = eccentricity * (0.5 + rng() * 0.5);
+    const baseR = orbitRadius * (0.8 + rng() * 0.4);
+    const ecc = eccentricity * (0.3 + rng() * 0.7);
     s.baseRadiusX = baseR * (1 - ecc);
     s.baseRadiusY = baseR * (1 + ecc);
-    s.wobbleAmp1 = 0.03 + rng() * 0.04;
-    s.wobbleFreq1 = 0.15 + rng() * 0.15;
-    s.wobbleAmp2 = 0.02 + rng() * 0.03;
-    s.wobbleFreq2 = 0.25 + rng() * 0.2;
-    s.pertXAmp = 0.02 + rng() * 0.03;
-    s.pertXFreq = 0.1 + rng() * 0.12;
+    s.wobbleAmp1 = 0.02 + rng() * 0.06;
+    s.wobbleFreq1 = 0.08 + rng() * 0.22;
+    s.wobbleAmp2 = 0.015 + rng() * 0.04;
+    s.wobbleFreq2 = 0.18 + rng() * 0.32;
+    s.pertXAmp = 0.03 + rng() * 0.05;
+    s.pertXFreq = 0.06 + rng() * 0.18;
     s.pertXPhase = rng() * Math.PI * 2;
-    s.pertYAmp = 0.02 + rng() * 0.03;
-    s.pertYFreq = 0.12 + rng() * 0.12;
+    s.pertYAmp = 0.03 + rng() * 0.05;
+    s.pertYFreq = 0.07 + rng() * 0.17;
     s.pertYPhase = rng() * Math.PI * 2;
 }
 
-/**
- * Seed orbit params so that orbitPos(s, now) ≈ (targetX, targetY).
- * This eliminates the visible snap when transitioning emerge → orbit.
- */
-function seedOrbitToMatch(
-    s: SatelliteInternal,
-    targetX: number,
-    targetY: number,
-    now: number,
-) {
-    // Set timeOrigin = now so t=0 in orbitPos
-    s.timeOrigin = now;
-    // At t=0, wobble terms are: wobbleAmp1*sin(0) + wobbleAmp2*sin(1.3) ≈ wobbleAmp2*sin(1.3)
-    // perturbation terms: pertXAmp*sin(pertXPhase), pertYAmp*cos(pertYPhase)
-    // Compute the angle that would place the satellite at (targetX, targetY)
-    const angle = Math.atan2(targetY, targetX);
-    s.phaseOffset = angle;
-    // Set radii so that the orbit passes through the target at t=0
-    const dist = Math.hypot(targetX, targetY);
-    if (dist > 0.01) {
-        // Distribute between X and Y radii proportionally
-        const cosA = Math.abs(Math.cos(angle));
-        const sinA = Math.abs(Math.sin(angle));
-        // Avoid division by zero — if nearly axis-aligned, set equal radii
-        if (cosA > 0.1 && sinA > 0.1) {
-            s.baseRadiusX = Math.abs(targetX) / cosA;
-            s.baseRadiusY = Math.abs(targetY) / sinA;
-        } else {
-            s.baseRadiusX = dist;
-            s.baseRadiusY = dist;
-        }
-    }
-}
-
 const BASE_OPACITY = 0.75;
+/** Duration (ms) to blend from emerge endpoint into live orbit — eliminates snap */
+const ORBIT_BLEND_MS = 2000;
 
 export function useBlobSatellites(config: BlobConfig, initialColor: string) {
     let rng = mulberry32(hashString(initialColor + "goo"));
     const internals: SatelliteInternal[] = [];
     const sources: MetaballSource[] = [];
 
+    // Per-satellite: the position where orbit began, for blending
+    const orbitBlendOrigins: { x: number; y: number; start: number }[] = [];
+
     let lastMergeTime = -Infinity;
     let lastOrbitRadius = config.orbitRadius;
     const MERGE_STAGGER_MS = 3000;
 
-    /** Scale existing satellite radii when orbitRadius changes live */
     function syncOrbitRadius() {
         const cur = config.orbitRadius;
         if (cur !== lastOrbitRadius && lastOrbitRadius > 0) {
@@ -180,10 +135,12 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
         while (internals.length < count) {
             internals.push(createSatellite(rng, internals.length, config.orbitRadius, config.eccentricity));
             sources.push({ x: 0, y: 0, radius: config.satelliteRadius, opacity: 0 });
+            orbitBlendOrigins.push({ x: 0, y: 0, start: 0 });
         }
         if (internals.length > count) {
             internals.length = count;
             sources.length = count;
+            orbitBlendOrigins.length = count;
         }
     }
 
@@ -195,7 +152,6 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
 
         const count = internals.length;
         const mergeRateScale = mood.mergeRate;
-        const orbitRadius = config.orbitRadius;
         const satelliteRadius = config.satelliteRadius;
         const mergeDuration = config.mergeDuration;
         const emergeDuration = config.emergeDuration;
@@ -235,36 +191,54 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
                 }
                 case "absorbed": {
                     if (t >= 1) {
-                        // Randomize new orbit, then compute emerge endpoint ON that orbit
-                        randomizeOrbit(s, rng, orbitRadius, config.eccentricity, now);
-                        const pos = orbitPos(s, now + 2000);
-                        s.endX = pos.x;
-                        s.endY = pos.y;
-                        const dist = Math.hypot(pos.x, pos.y);
+                        // New orbit — emerge toward a point on it
+                        randomizeOrbit(s, rng, config.orbitRadius, config.eccentricity, now);
+                        const futurePos = orbitPos(s, now + 3000);
+                        s.endX = futurePos.x;
+                        s.endY = futurePos.y;
+                        const dist = Math.hypot(futurePos.x, futurePos.y);
                         const sc = dist > 0.01 ? 0.08 / dist : 0;
-                        s.startX = pos.x * sc;
-                        s.startY = pos.y * sc;
+                        s.startX = futurePos.x * sc;
+                        s.startY = futurePos.y * sc;
                         setPhase(s, "emerging", now, emergeDuration);
                     }
                     break;
                 }
                 case "emerging": {
                     if (t >= 1) {
-                        // Seed orbit so orbitPos matches the emerge endpoint — no snap
-                        seedOrbitToMatch(s, s.endX, s.endY, now);
+                        // Begin orbit — store emerge endpoint for blending
+                        const blend = orbitBlendOrigins[i]!;
+                        blend.x = s.endX;
+                        blend.y = s.endY;
+                        blend.start = now;
+                        // Set timeOrigin so orbit starts from now
+                        s.timeOrigin = now;
+                        // Compute phaseOffset so the orbit direction roughly matches
+                        s.phaseOffset = Math.atan2(s.endY, s.endX);
                         setPhase(s, "orbiting", now, randRange(rng, orbitDuration[0], orbitDuration[1]));
                     }
                     break;
                 }
             }
 
+            // Compute output position and opacity
             let x: number, y: number, opacity: number, scale: number;
 
             switch (s.phase) {
                 case "orbiting": {
                     const pos = orbitPos(s, now);
-                    x = pos.x;
-                    y = pos.y;
+                    // Smooth blend from emerge endpoint into orbit over ORBIT_BLEND_MS
+                    const blend = orbitBlendOrigins[i]!;
+                    const blendElapsed = now - blend.start;
+                    if (blend.start > 0 && blendElapsed < ORBIT_BLEND_MS) {
+                        const bt = clamp01(blendElapsed / ORBIT_BLEND_MS);
+                        const ease = bt * bt * (3 - 2 * bt); // smoothstep
+                        x = lerp(blend.x, pos.x, ease);
+                        y = lerp(blend.y, pos.y, ease);
+                    } else {
+                        x = pos.x;
+                        y = pos.y;
+                    }
                     opacity = BASE_OPACITY;
                     scale = 1;
                     break;
@@ -306,9 +280,9 @@ export function useBlobSatellites(config: BlobConfig, initialColor: string) {
 
     function nudge() {
         for (const s of internals) {
-            s.phaseOffset += (rng() - 0.5) * 0.4;
-            s.pertXPhase += rng() * Math.PI * 0.5;
-            s.pertYPhase += rng() * Math.PI * 0.5;
+            s.phaseOffset += (rng() - 0.5) * 0.6;
+            s.pertXPhase += rng() * Math.PI;
+            s.pertYPhase += rng() * Math.PI;
         }
     }
 
