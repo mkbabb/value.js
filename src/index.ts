@@ -248,7 +248,7 @@ export {
     easeInCirc, easeOutCirc, easeInOutCirc,
     easeInExpo, easeOutExpo, easeInOutExpo,
     jumpTerms, steppedEase, stepStart, stepEnd,
-    cssLinear, bezierPresets, timingFunctions,
+    cssLinear, bezierPresets, timingFunctions, timingFunctionDescriptions,
 } from "./easing";
 export type { LinearStop } from "./easing";
 

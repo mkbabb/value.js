@@ -309,15 +309,112 @@ export function stepEnd() {
     return steppedEase(1, "jump-end");
 }
 
+/**
+ * Canonical cubic-bezier control-point tables for every CSS timing
+ * function expressible as a bezier curve. The CSS spec only defines the
+ * four "standard" keywords (ease, ease-in, ease-out, ease-in-out), but
+ * the sine/quad/cubic/expo/circ/back families used throughout the
+ * animation ecosystem have well-known bezier approximations — these are
+ * the values popularised by Robert Penner and shipped by libraries like
+ * GSAP, anime.js, and the Material Design curves.
+ *
+ * Keeping all of these in value.js means every consumer (keyframes.js,
+ * bbnf-buddy, future editors) can ask "is this name a bezier curve?"
+ * and "what are its control points?" from one source of truth, rather
+ * than hand-rolling parallel tables.
+ */
 export const bezierPresets = {
+    // Linear — trivially expressible as a bezier
+    linear: [0, 0, 1, 1],
+
+    // Standard CSS spec keywords
     ease: [0.25, 0.1, 0.25, 1],
     "ease-in": [0.42, 0, 1, 1],
     "ease-out": [0, 0, 0.58, 1],
     "ease-in-out": [0.42, 0, 0.58, 1],
+
+    // Sine
+    "ease-in-sine": [0.47, 0, 0.745, 0.715],
+    "ease-out-sine": [0.39, 0.575, 0.565, 1],
+    "ease-in-out-sine": [0.445, 0.05, 0.55, 0.95],
+
+    // Quad
+    "ease-in-quad": [0.55, 0.085, 0.68, 0.53],
+    "ease-out-quad": [0.25, 0.46, 0.45, 0.94],
+    "ease-in-out-quad": [0.455, 0.03, 0.515, 0.955],
+
+    // Cubic
+    "ease-in-cubic": [0.55, 0.055, 0.675, 0.19],
+    "ease-out-cubic": [0.215, 0.61, 0.355, 1],
+    "ease-in-out-cubic": [0.645, 0.045, 0.355, 1],
+
+    // Expo
+    "ease-in-expo": [0.95, 0.05, 0.795, 0.035],
+    "ease-out-expo": [0.19, 1, 0.22, 1],
+    "ease-in-out-expo": [1, 0, 0, 1],
+
+    // Circ
+    "ease-in-circ": [0.6, 0.04, 0.98, 0.335],
+    "ease-out-circ": [0.075, 0.82, 0.165, 1],
+    "ease-in-out-circ": [0.785, 0.135, 0.15, 0.86],
+
+    // Back (overshoot)
     "ease-in-back": [0.6, -0.28, 0.735, 0.045],
     "ease-out-back": [0.175, 0.885, 0.32, 1.275],
     "ease-in-out-back": [0.68, -0.55, 0.265, 1.55],
 } as const;
+
+/**
+ * Short human descriptions for every timing-function name value.js knows
+ * about — bezier presets, analytic functions, and step variants. Editors
+ * and demos can surface these as tooltip copy without hand-maintaining a
+ * parallel map.
+ */
+export const timingFunctionDescriptions: Record<string, string> = {
+    "cubic-bezier": "custom curve",
+    linear: "constant velocity",
+    ease: "gentle start & end",
+    "ease-in": "slow start, fast end",
+    "ease-out": "fast start, slow end",
+    "ease-in-out": "slow start & end",
+
+    "ease-in-sine": "sinusoidal ramp up",
+    "ease-out-sine": "sinusoidal ramp down",
+    "ease-in-out-sine": "sinusoidal both",
+
+    "ease-in-quad": "quadratic acceleration",
+    "ease-out-quad": "quadratic deceleration",
+    "ease-in-out-quad": "quadratic both",
+
+    "ease-in-cubic": "cubic acceleration",
+    "ease-out-cubic": "cubic deceleration",
+    "ease-in-out-cubic": "cubic both",
+
+    "ease-in-expo": "exponential ramp",
+    "ease-out-expo": "exponential decay",
+    "ease-in-out-expo": "exponential both",
+
+    "ease-in-circ": "circular ramp up",
+    "ease-out-circ": "circular ramp down",
+    "ease-in-out-circ": "circular both",
+
+    "ease-in-back": "pulls back first",
+    "ease-out-back": "overshoots, settles",
+    "ease-in-out-back": "pull back & overshoot",
+
+    "ease-in-bounce": "bouncing ramp up",
+    "bounce-in-ease": "bounce entrance",
+    "bounce-in-ease-half": "half bounce in",
+    "bounce-out-ease": "bounce landing",
+    "bounce-out-ease-half": "half bounce out",
+    "bounce-in-out-ease": "bounce both ends",
+
+    "smooth-step-3": "hermite interpolation",
+
+    steps: "discrete jumps",
+    "step-start": "jump at start",
+    "step-end": "jump at end",
+};
 
 export const timingFunctions = {
     linear,
