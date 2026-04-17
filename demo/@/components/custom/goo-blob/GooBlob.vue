@@ -66,8 +66,9 @@ defineExpose({ nudge, setMood, currentMood: mood.currentMood });
 
 <style scoped>
 .goo-blob-wrapper {
-    /* Sized & positioned by parent — pass width + positioning classes */
+    /* Layout footprint = width passed by parent (e.g. w-[7rem]) */
     aspect-ratio: 1;
+    position: relative;
     z-index: 10;
     overflow: visible;
     cursor: pointer;
@@ -93,10 +94,15 @@ defineExpose({ nudge, setMood, currentMood: mood.currentMood });
     );
 }
 
+/* Canvas is 160% of wrapper — overflows so satellites at wide orbits render beyond the layout footprint */
 .goo-blob-canvas {
     display: block;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160%;
+    height: 160%;
+    transform: translate(-50%, -50%);
     will-change: transform;
     pointer-events: none;
 }
