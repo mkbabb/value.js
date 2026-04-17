@@ -2,13 +2,15 @@
     <div class="flex flex-col relative min-w-0 w-full max-w-md sm:max-w-lg lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-auto max-h-full lg:max-h-[var(--content-max-h)] transition-[margin,transform] duration-[var(--duration-normal)] ease-[var(--ease-standard)]">
         <Card variant="pane" class="flex flex-col rounded-2xl min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
             <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-3 sm:px-6 min-w-0 overflow-visible">
-                <ColorSpaceSelector
-                    :model-value="model.selectedColorSpace"
-                    v-model:open="selectedColorSpaceOpen"
-                    :css-color="cssColor"
-                    @update:model-value="(colorSpace: any) => updateModel({ selectedColorSpace: colorSpace })"
-                    @update:select-ref="(el: any) => { selectedColorSpaceRef = el; }"
-                />
+                <div class="flex">
+                    <ColorSpaceSelector
+                        :model-value="model.selectedColorSpace"
+                        v-model:open="selectedColorSpaceOpen"
+                        :css-color="cssColor"
+                        @update:model-value="(colorSpace: any) => updateModel({ selectedColorSpace: colorSpace })"
+                        @update:select-ref="(el: any) => { selectedColorSpaceRef = el; }"
+                    />
+                </div>
 
                 <ColorComponentDisplay
                     :color-components="colorComponents"

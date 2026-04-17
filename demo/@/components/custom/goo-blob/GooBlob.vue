@@ -66,9 +66,8 @@ defineExpose({ nudge, setMood, currentMood: mood.currentMood });
 
 <style scoped>
 .goo-blob-wrapper {
-    /* Sized by parent — pass a width class (e.g. w-24) to <GooBlob /> */
+    /* Sized & positioned by parent — pass width + positioning classes */
     aspect-ratio: 1;
-    position: relative;
     z-index: 10;
     overflow: visible;
     cursor: pointer;
