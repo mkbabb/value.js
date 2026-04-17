@@ -9,6 +9,15 @@ import type { useBlobSatellites } from "./useBlobSatellites";
 
 const MAX_SATS = 4;
 
+/**
+ * Canvas is CSS-sized 1.6x its layout wrapper (see GooBlob.vue). Positions
+ * are in [-0.5, 0.5] normalized space mapped to canvas UVs. To make the
+ * layout footprint represent the "visible blob region" and have the extra
+ * 60% of canvas serve as overflow margin for satellite orbits, scale all
+ * length-like uniforms by 1/1.6 = 0.625.
+ */
+const POS_SCALE = 1 / 1.6;
+
 const UNIFORM_NAMES = [
     "uResolution",
     "uTime",
@@ -173,23 +182,23 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
 
         // Pointer
         const ptr = pointer.pointer.value;
-        gl.uniform2f(uniforms.uPointer, ptr.x * 0.5, ptr.y * 0.5);
+        gl.uniform2f(uniforms.uPointer, ptr.x * 0.5 * POS_SCALE, ptr.y * 0.5 * POS_SCALE);
         gl.uniform1f(uniforms.uPointerActive, pointer.active.value ? 1.0 : 0.0);
         gl.uniform1f(uniforms.uPointerAttraction, config.pointerAttraction + params.pointerAttraction);
-        gl.uniform1f(uniforms.uPointerStrength, config.pointerStrength);
+        gl.uniform1f(uniforms.uPointerStrength, config.pointerStrength * POS_SCALE);
 
         // Body — config is the base, mood params modulate
-        gl.uniform1f(uniforms.uBodyRadius, config.bodyRadius);
+        gl.uniform1f(uniforms.uBodyRadius, config.bodyRadius * POS_SCALE);
         gl.uniform1f(uniforms.uPulsePhase, time * config.pulseFreq * params.pulseFreq * Math.PI * 2);
-        gl.uniform1f(uniforms.uPulseAmp, config.pulseAmp * params.pulseAmp / 0.015); // normalize to idle baseline
+        gl.uniform1f(uniforms.uPulseAmp, config.pulseAmp * params.pulseAmp / 0.015 * POS_SCALE); // normalize to idle baseline
 
         // Surface noise — config controls shape, mood scales amplitude
-        gl.uniform1f(uniforms.uNoiseAmp, config.noiseAmp * params.noiseAmp / 0.025);
+        gl.uniform1f(uniforms.uNoiseAmp, config.noiseAmp * params.noiseAmp / 0.025 * POS_SCALE);
         gl.uniform1f(uniforms.uNoiseFreq, config.noiseFreq);
         gl.uniform1f(uniforms.uNoiseSpeed, config.noiseSpeed);
 
         // Gooey
-        gl.uniform1f(uniforms.uSmoothK, config.smoothK * params.smoothK / 0.22);
+        gl.uniform1f(uniforms.uSmoothK, config.smoothK * params.smoothK / 0.22 * POS_SCALE);
 
         // Color perturbation
         gl.uniform1f(uniforms.uHueRange, config.hueRange + params.hueRange);
@@ -207,8 +216,8 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
             const opLoc = satOpLocs[i] ?? null;
             const sat = sats[i];
             if (sat) {
-                gl.uniform2f(posLoc, sat.x, sat.y);
-                gl.uniform1f(radLoc, sat.radius);
+                gl.uniform2f(posLoc, sat.x * POS_SCALE, sat.y * POS_SCALE);
+                gl.uniform1f(radLoc, sat.radius * POS_SCALE);
                 gl.uniform1f(opLoc, sat.opacity);
             } else {
                 gl.uniform2f(posLoc, 0, 0);
