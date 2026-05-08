@@ -31,9 +31,11 @@
     "scripts": {
         "dev": "vite --port 9000",
         "dev:hero-lab": "vite --mode hero-lab --port 9010",
+        "prebuild": "node scripts/freshness-gate.mjs --pre",
         "build": "vite build --mode production",
         "build:hero-lab": "vite build --mode hero-lab",
         "gh-pages": "vite build --mode gh-pages",
+        "prepare": "test -f dist/value.js || npm run build",
         "test": "vitest",
         "test:e2e": "playwright test"
     },
