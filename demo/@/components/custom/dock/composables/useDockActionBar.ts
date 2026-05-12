@@ -2,7 +2,7 @@
  * Generic dock action bar system.
  *
  * Any view can provide a DockActionBar — a list of actions with icons,
- * titles, and callbacks. The TopDock renders them as dock-icon-btn buttons.
+ * titles, and callbacks. The TopDock renders them as DockIconButton components.
  *
  * The ColorPicker's ActionBarContext is a specific, richer implementation
  * that also supports input mode cycling. The generic system handles

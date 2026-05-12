@@ -34,14 +34,13 @@
 
         <!-- Controls row: upload, kC slider, reset -->
         <div class="flex items-center gap-2">
-            <button
-                class="dock-icon-btn"
+            <DockIconButton
                 title="Upload image"
                 :style="{ '--btn-hover-color': cssColor }"
                 @click="$emit('upload')"
             >
                 <Upload class="w-5 h-5 transition-colors" />
-            </button>
+            </DockIconButton>
 
             <div class="dock-separator" />
 
@@ -78,15 +77,14 @@
 
             <div class="dock-separator" />
 
-            <button
-                class="dock-icon-btn"
+            <DockIconButton
                 :disabled="disabled || !hasImage"
                 title="Reset"
                 :style="{ '--btn-hover-color': cssColor }"
                 @click="$emit('reset')"
             >
                 <RotateCcw class="w-5 h-5 transition-colors" />
-            </button>
+            </DockIconButton>
         </div>
     </div>
 </template>
@@ -95,6 +93,7 @@
 import { ref, useTemplateRef } from "vue";
 import { Upload, RotateCcw } from "lucide-vue-next";
 import { useTouchGate } from "@mkbabb/glass-ui";
+import { DockIconButton } from "@mkbabb/glass-ui/dock";
 
 defineProps<{
     k: number;

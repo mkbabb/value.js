@@ -76,7 +76,7 @@
 import { ref, watch, onMounted, onBeforeUnmount, nextTick } from "vue";
 import { TabsList, TabsTrigger } from "@components/ui/tabs";
 import { Shield, ImagePlus } from "lucide-vue-next";
-import { SearchBar } from "@mkbabb/glass-ui";
+import { SearchBar } from "@mkbabb/glass-ui/search";
 
 import PaletteSlugBar from "./PaletteSlugBar.vue";
 import SearchFilterBar from "./SearchFilterBar.vue";

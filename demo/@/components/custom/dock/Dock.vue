@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
 import { ChevronDown, Check, Undo2, Paintbrush, ArrowLeft, Shield } from "lucide-vue-next";
-import { GlassDock, DockLayerGroup } from ".";
-import { BouncyTabs } from "@mkbabb/glass-ui";
+import { GlassDock, DockLayerGroup, DockLayer } from ".";
+import { DockIconButton, DockSelectTrigger } from "@mkbabb/glass-ui/dock";
+import { BouncyTabs } from "@mkbabb/glass-ui/tabs";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
 import GenericActionBar from "./layers/GenericActionBar.vue";
@@ -158,21 +159,22 @@ watch(isAnyOpen, (open) => {
 });
 
 // ── Layer transition ──
-const activeLayer = computed<string>(() => {
-    if (mobileEditActive.value) return "mobile-edit";
-    if (slugEditMode.value) return "slug-edit";
-    if (actionBarLayerActive.value) return "action-bar";
-    return "main";
-});
+const activeLayer = ref<string>("main");
+watch([mobileEditActive, slugEditMode, actionBarLayerActive], () => {
+    if (mobileEditActive.value) activeLayer.value = "mobile-edit";
+    else if (slugEditMode.value) activeLayer.value = "slug-edit";
+    else if (actionBarLayerActive.value) activeLayer.value = "action-bar";
+    else activeLayer.value = "main";
+}, { immediate: true });
 </script>
 
 <template>
     <div class="fixed top-[var(--dock-pos)] inset-x-0 z-[var(--z-dock)] flex items-center justify-center pointer-events-none">
         <div class="pointer-events-auto">
             <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="isDesktop" :fit-content="true" :always-expanded="!isDesktop">
-                <DockLayerGroup :active-layer="activeLayer" v-slot="{ layerProps }">
+                <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
                     <!-- Mobile edit layer -->
-                    <div v-bind="layerProps('mobile-edit')" class="justify-center">
+                    <DockLayer id="mobile-edit" class="justify-center">
                         <WatercolorDot
                             v-if="editTarget"
                             :color="editTarget.originalCss"
@@ -188,24 +190,24 @@ const activeLayer = computed<string>(() => {
                             seed="edit-new"
                         />
                         <div class="dock-separator"></div>
-                        <button class="dock-icon-btn" title="Save edit" @click="emit('commitEdit')">
+                        <DockIconButton title="Save edit" @click="emit('commitEdit')">
                             <Check class="w-5 h-5" :style="{ color: safeAccent }" />
-                        </button>
-                        <button class="dock-icon-btn" title="Cancel edit" @click="emit('cancelEdit')">
+                        </DockIconButton>
+                        <DockIconButton title="Cancel edit" @click="emit('cancelEdit')">
                             <Undo2 class="w-5 h-5" />
-                        </button>
-                    </div>
+                        </DockIconButton>
+                    </DockLayer>
 
                     <!-- Slug edit layer -->
-                    <div v-bind="layerProps('slug-edit')" class="justify-center">
+                    <DockLayer id="slug-edit" class="justify-center">
                         <SlugEditLayer ref="slugEditRef" v-model:active="slugEditMode" />
-                    </div>
+                    </DockLayer>
 
                     <!-- Action bar layer (color picker or generic) -->
-                    <div v-if="hasAnyActionBar" v-bind="layerProps('action-bar')">
-                        <button class="dock-icon-btn shrink-0" title="Back" @click="actionBarLayerActive = false">
+                    <DockLayer v-if="hasAnyActionBar" id="action-bar">
+                        <DockIconButton class="shrink-0" title="Back" @click="actionBarLayerActive = false">
                             <ArrowLeft class="w-6 h-6" />
-                        </button>
+                        </DockIconButton>
                         <div class="dock-separator"></div>
                         <!-- Color picker's rich action bar -->
                         <ActionBarLayer
@@ -222,10 +224,10 @@ const activeLayer = computed<string>(() => {
                             :actions="genericBar.actions.value"
                             :accent-color="genericBar.accentColor ?? safeAccent"
                         />
-                    </div>
+                    </DockLayer>
 
                     <!-- Main navigation layer -->
-                    <div v-bind="layerProps('main')">
+                    <DockLayer id="main">
                         <!-- View selector -->
                         <Select
                             :model-value="viewManager.currentView.value"
@@ -233,9 +235,9 @@ const activeLayer = computed<string>(() => {
                             @update:open="viewSelectOpen = $event"
                             @update:model-value="onViewChange"
                         >
-                            <SelectTrigger
+                            <DockSelectTrigger
                                 aria-label="Select view"
-                                class="dock-select-trigger border-none h-auto bg-transparent text-small font-display font-normal gap-1 w-auto [&>span]:line-clamp-none [&>svg:last-child]:w-3 [&>svg:last-child]:h-3 focus-ring"
+                                class="text-small font-display font-normal [&>span]:line-clamp-none"
                                 :style="{ '--dock-ring': safeAccent }"
                             >
                                 <component
@@ -245,7 +247,7 @@ const activeLayer = computed<string>(() => {
                                     :style="isAdminMode ? {} : { color: safeAccent }"
                                 />
                                 <SelectValue v-if="isDesktop" />
-                            </SelectTrigger>
+                            </DockSelectTrigger>
                             <SelectContent class="min-w-[12rem]">
                                 <SelectGroup class="text-small font-display">
                                     <SelectItem
@@ -301,26 +303,29 @@ const activeLayer = computed<string>(() => {
                         <!-- Action bar toggle -->
                         <div v-if="hasAnyActionBar" class="dock-separator"></div>
                         <div
-                            class="flex items-center gap-1 overflow-hidden transition-all duration-[var(--duration-normal)] ease-[var(--ease-standard)]"
-                            :style="{ maxWidth: hasAnyActionBar ? '8rem' : '0px', opacity: hasAnyActionBar ? 1 : 0 }"
+                            class="action-bar-toggle-slot"
+                            :class="{ 'is-visible': hasAnyActionBar }"
                         >
-                            <button
-                                class="dock-select-trigger"
-                                :class="{ 'is-active': actionBarLayerActive }"
-                                title="Action bar"
-                                :tabindex="hasAnyActionBar ? 0 : -1"
-                                @click="toggleActionBar"
-                            >
-                                <component
-                                    :is="genericBar?.icon ?? Paintbrush"
-                                    class="w-6 h-6"
-                                    :style="{ color: genericBar?.accentColor ?? safeAccent }"
-                                />
-                                <span v-if="isDesktop" class="text-small font-display" :style="{ color: genericBar?.accentColor ?? safeAccent }">
-                                    {{ genericBar?.label ?? 'Tools' }}
-                                </span>
-                                <ChevronDown class="w-3 h-3 text-muted-foreground" />
-                            </button>
+                            <div class="action-bar-toggle-inner">
+                                <DockIconButton
+                                    compact
+                                    :class="{ 'is-active': actionBarLayerActive }"
+                                    title="Action bar"
+                                    :aria-pressed="actionBarLayerActive"
+                                    :tabindex="hasAnyActionBar ? 0 : -1"
+                                    @click="toggleActionBar"
+                                >
+                                    <component
+                                        :is="genericBar?.icon ?? Paintbrush"
+                                        class="w-6 h-6"
+                                        :style="{ color: genericBar?.accentColor ?? safeAccent }"
+                                    />
+                                    <span v-if="isDesktop" class="text-small font-display" :style="{ color: genericBar?.accentColor ?? safeAccent }">
+                                        {{ genericBar?.label ?? 'Tools' }}
+                                    </span>
+                                    <ChevronDown class="w-3 h-3 text-muted-foreground" />
+                                </DockIconButton>
+                            </div>
                         </div>
 
                         <!-- Mobile pane toggle -->
@@ -361,7 +366,7 @@ const activeLayer = computed<string>(() => {
                             @start-slug-edit="onStartSlugEdit()"
                             @copy-slug="onCopySlug()"
                         />
-                    </div>
+                    </DockLayer>
                 </DockLayerGroup>
 
                 <!-- Collapsed state -->
@@ -394,5 +399,28 @@ const activeLayer = computed<string>(() => {
 .gold-shimmer-icon {
     color: var(--color-gold);
     filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.3));
+}
+
+/* Action-bar toggle slot: animates between 0 and content width via the
+   grid-template-columns 0fr → 1fr pattern (no max-width clipping). */
+.action-bar-toggle-slot {
+    display: grid;
+    grid-template-columns: 0fr;
+    opacity: 0;
+    transition:
+        grid-template-columns var(--duration-normal) var(--ease-standard),
+        opacity var(--duration-normal) var(--ease-standard);
+}
+
+.action-bar-toggle-slot.is-visible {
+    grid-template-columns: 1fr;
+    opacity: 1;
+}
+
+.action-bar-toggle-inner {
+    overflow: hidden;
+    min-width: 0;
+    display: flex;
+    align-items: center;
 }
 </style>

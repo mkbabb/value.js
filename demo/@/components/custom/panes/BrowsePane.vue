@@ -34,12 +34,13 @@
                     class="flex flex-col items-center justify-center gap-2 min-h-[120px]"
                 >
                     <span class="text-mono-small text-muted-foreground">{{ pm.browseError.value }}</span>
-                    <button
-                        class="dock-icon-btn-compact text-mono-small text-primary"
+                    <DockIconButton
+                        compact
+                        class="text-mono-small text-primary"
                         @click="pm.loadRemotePalettes()"
                     >
                         Tap to retry
-                    </button>
+                    </DockIconButton>
                 </div>
 
                 <PaletteCardGrid
@@ -110,6 +111,7 @@
 <script setup lang="ts">
 import { inject, reactive, ref, computed, onMounted } from "vue";
 import { Card } from "@components/ui/card";
+import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { Loader2 } from "lucide-vue-next";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";

@@ -137,7 +137,7 @@ import { inject, ref, computed, Transition } from "vue";
 import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
-import { ConfirmDialog } from "@mkbabb/glass-ui";
+import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 import { Loader2, Trash2, Eraser, RefreshCw } from "lucide-vue-next";
 import type { Palette, User } from "@lib/palette/types";
 import { getUserPalettes } from "@lib/palette/api";

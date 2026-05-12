@@ -9,6 +9,7 @@ import {
 } from "@components/ui/select";
 import { Slider } from "@components/ui/slider";
 import { RefreshCw } from "lucide-vue-next";
+import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import type { Palette } from "@lib/palette/types";
 import {
@@ -146,13 +147,14 @@ defineExpose({ regenerate, save, copyColors });
                 <span class="text-mono-small text-muted-foreground/60 tabular-nums select-all">
                     seed: {{ seed.toString(16).padStart(8, '0') }}
                 </span>
-                <button
-                    class="dock-icon-btn-compact ml-auto"
+                <DockIconButton
+                    compact
+                    class="ml-auto"
                     title="Regenerate"
                     @click="regenerate()"
                 >
                     <RefreshCw class="w-5 h-5" />
-                </button>
+                </DockIconButton>
             </div>
         </div>
 

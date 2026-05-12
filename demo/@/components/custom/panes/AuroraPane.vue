@@ -5,9 +5,9 @@ import { Card } from "@components/ui/card";
 import { Slider } from "@components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@components/ui/select";
 import { Copy, RotateCcw } from "lucide-vue-next";
-import { GlassDock } from "@mkbabb/glass-ui";
+import { GlassDock } from "@mkbabb/glass-ui/dock";
 import PaneHeader from "./PaneHeader.vue";
-import type { AuroraConfig } from "@mkbabb/glass-ui";
+import type { AuroraConfig } from "@mkbabb/glass-ui/aurora";
 import { copyToClipboard } from "@composables/useClipboard";
 
 const cfg = inject<AuroraConfig>("auroraConfig")!;

@@ -4,7 +4,7 @@ import { Button } from "@components/ui/button";
 import { Card } from "@components/ui/card";
 import { Slider } from "@components/ui/slider";
 import { Copy, RotateCcw } from "lucide-vue-next";
-import { GlassDock } from "@mkbabb/glass-ui";
+import { GlassDock } from "@mkbabb/glass-ui/dock";
 import PaneHeader from "./PaneHeader.vue";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@components/custom/goo-blob";
 import type { BlobConfig } from "@components/custom/goo-blob";

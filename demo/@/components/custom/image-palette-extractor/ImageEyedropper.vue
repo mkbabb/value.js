@@ -3,9 +3,9 @@
         <div class="absolute inset-0 z-[var(--z-popover)] flex flex-col bg-card/75 backdrop-blur-sm rounded-2xl overflow-hidden">
             <!-- Top bar -->
             <div class="flex items-center gap-2 px-3 py-2 shrink-0" :style="{ '--hover-color': sampledColor ?? '' }">
-                <button class="dock-icon-btn eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">
+                <DockIconButton class="eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">
                     <X class="w-4 h-4 transition-[transform,color]" />
-                </button>
+                </DockIconButton>
 
                 <div class="dock-separator" />
 
@@ -27,20 +27,20 @@
 
                 <!-- Action buttons (visible after pinning) -->
                 <template v-if="pinned">
-                    <button
-                        class="dock-icon-btn eyedropper-action-btn"
+                    <DockIconButton
+                        class="eyedropper-action-btn"
                         title="Add to palette"
                         @click="onAddToPalette"
                     >
                         <Plus class="w-4 h-4 transition-[transform,color]" />
-                    </button>
-                    <button
-                        class="dock-icon-btn eyedropper-action-btn"
+                    </DockIconButton>
+                    <DockIconButton
+                        class="eyedropper-action-btn"
                         title="Apply as current color"
                         @click="onApplyColor"
                     >
                         <Check class="w-4 h-4 transition-[transform,color]" />
-                    </button>
+                    </DockIconButton>
                 </template>
             </div>
 
@@ -75,6 +75,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, computed, watch, nextTick, useTemplateRef } from "vue";
 import { X, Plus, Check } from "lucide-vue-next";
+import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
 import type { ColorSpace } from "@src/units/color/constants";
 import { parseCSSColor } from "@src/parsing/color";

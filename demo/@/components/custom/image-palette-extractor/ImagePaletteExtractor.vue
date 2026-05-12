@@ -19,9 +19,9 @@
                                 class="w-full max-h-[200px] object-cover"
                             />
                             <div class="absolute inset-x-0 bottom-0 flex justify-center p-2.5 bg-gradient-to-t from-black/50 to-transparent">
-                                <button class="dock-icon-btn-compact p-1.5 bg-white/20 hover:bg-white/40 backdrop-blur-sm" @click="captureFrame">
+                                <DockIconButton compact class="p-1.5 bg-white/20 hover:bg-white/40 backdrop-blur-sm" @click="captureFrame">
                                     <Aperture class="w-4.5 h-4.5 text-white" />
-                                </button>
+                                </DockIconButton>
                             </div>
                         </div>
                     </Transition>
@@ -87,6 +87,7 @@
 import { ref, shallowRef, computed, onBeforeUnmount, onMounted, useTemplateRef } from "vue";
 import { TabsContent } from "@components/ui/tabs";
 import { Aperture, Pipette } from "lucide-vue-next";
+import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useImageQuantize } from "./composables/useImageQuantize";
 import { usePaletteStore } from "@composables/palette/usePaletteStore";
 import type { Palette, PaletteColor } from "@lib/palette/types";

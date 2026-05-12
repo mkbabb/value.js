@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject, computed, watch, ref, TransitionGroup } from "vue";
 import { Plus, X, ChevronDown } from "lucide-vue-next";
-import { BouncyTabs } from "@mkbabb/glass-ui";
+import { BouncyTabs } from "@mkbabb/glass-ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components/ui/collapsible";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";

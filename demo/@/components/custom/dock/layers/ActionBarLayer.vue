@@ -5,6 +5,7 @@ import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@components/custom/color-picke
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import ActionToolbar from "@components/custom/color-picker/controls/ActionToolbar.vue";
 import ColorInput from "@components/custom/color-picker/controls/ColorInput.vue";
+import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useLayerTransition } from "../composables/useLayerTransition";
 import type { EditTarget } from "@components/custom/color-picker";
 
@@ -60,7 +61,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </script>
 
 <template>
-    <div class="flex items-center gap-0 min-w-0 w-full">
+    <div class="flex items-center gap-0 min-w-0">
         <div ref="subLayerGridEl" class="dock-layer-grid flex-1" @transitionend="onSubLayerTransitionEnd">
             <ActionToolbar
                 ref="actionToolbarRef"
@@ -87,7 +88,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
         <div class="dock-separator"></div>
 
         <!-- Toggle button -->
-        <button class="dock-icon-btn shrink-0" @click="cycleToolbarMode">
+        <DockIconButton class="shrink-0" @click="cycleToolbarMode">
             <Transition name="toggle-icon" mode="out-in">
                 <component
                     :is="currentToggleIcon"
@@ -96,7 +97,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
                     :style="{ '--toggle-hover-color': safeAccent }"
                 />
             </Transition>
-        </button>
+        </DockIconButton>
     </div>
 </template>
 

@@ -203,7 +203,7 @@ import {
 import { Tabs, TabsContent } from "@components/ui/tabs";
 import { Trash2 } from "lucide-vue-next";
 
-import { ConfirmDialog } from "@mkbabb/glass-ui";
+import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 
 import { copyToClipboard } from "@composables/useClipboard";
 import { usePaletteStore } from "@composables/palette/usePaletteStore";

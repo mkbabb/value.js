@@ -119,7 +119,7 @@
 
 <script setup lang="ts">
 import { ref, nextTick } from "vue";
-import { SearchBar } from "@mkbabb/glass-ui";
+import { SearchBar } from "@mkbabb/glass-ui/search";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@components/ui/hover-card";
 import {

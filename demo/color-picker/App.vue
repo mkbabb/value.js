@@ -157,8 +157,8 @@ import { useGenericActionBar } from "@components/custom/dock/composables/useGene
 import { useMobilePaneRouter, ExtractPane, GeneratePane, GradientPane, MixPane, AdminPane, AuroraPane, BlobPane } from "@composables/useMobilePaneRouter";
 import { usePaletteManager } from "@composables/palette/usePaletteManager";
 import { copyToClipboard } from "@composables/useClipboard";
-import { useAurora } from "@mkbabb/glass-ui";
-import type { AuroraConfig } from "@mkbabb/glass-ui";
+import { useAurora } from "@mkbabb/glass-ui/aurora";
+import type { AuroraConfig } from "@mkbabb/glass-ui/aurora";
 
 import "@styles/utils.css";
 import "@styles/style.css";

@@ -1,1 +1,1 @@
-export { Select, SelectTrigger, SelectItem, SelectValue, SelectContent, SelectGroup, SelectItemText, SelectLabel, SelectSeparator, SelectScrollUpButton, SelectScrollDownButton } from "@mkbabb/glass-ui";
+export { Select, SelectTrigger, SelectItem, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectSeparator, SelectScrollUpButton, SelectScrollDownButton } from "@mkbabb/glass-ui";

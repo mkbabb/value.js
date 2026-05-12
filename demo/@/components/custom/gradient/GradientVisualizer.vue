@@ -9,6 +9,7 @@ import {
 } from "@components/ui/select";
 import { Slider } from "@components/ui/slider";
 import { Copy } from "lucide-vue-next";
+import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import GradientStopEditor from "./GradientStopEditor.vue";
 import EasingSelector from "./EasingSelector.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
@@ -220,9 +221,9 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <hr class="border-border" />
         <div class="flex items-center justify-between">
             <h3 class="font-display text-lg text-muted-foreground">CSS</h3>
-            <button class="dock-icon-btn-compact" title="Copy CSS" @click="copyCSS">
+            <DockIconButton compact title="Copy CSS" @click="copyCSS">
                 <Copy class="w-5 h-5" />
-            </button>
+            </DockIconButton>
         </div>
         <GradientCodeEditor
             :model-value="simpleCSS"

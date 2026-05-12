@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Copy, Check, Save, RotateCcw } from "lucide-vue-next";
+import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { ref, TransitionGroup } from "vue";
 import { copyToClipboard } from "@composables/useClipboard";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
@@ -75,28 +76,28 @@ async function onCopy() {
 
         <!-- Actions -->
         <div class="flex items-center gap-1">
-            <button
-                class="dock-icon-btn-compact"
+            <DockIconButton
+                compact
                 :title="copied ? 'Copied!' : 'Copy color'"
                 @click="onCopy"
             >
                 <component :is="copied ? Check : Copy" class="w-5 h-5" />
-            </button>
-            <button
-                class="dock-icon-btn-compact"
+            </DockIconButton>
+            <DockIconButton
+                compact
                 title="Save to palettes"
                 @click="emit('save')"
             >
                 <Save class="w-5 h-5" />
-            </button>
+            </DockIconButton>
             <div class="dock-separator" />
-            <button
-                class="dock-icon-btn-compact"
+            <DockIconButton
+                compact
                 title="Reset"
                 @click="emit('reset')"
             >
                 <RotateCcw class="w-5 h-5" />
-            </button>
+            </DockIconButton>
         </div>
     </div>
 </template>

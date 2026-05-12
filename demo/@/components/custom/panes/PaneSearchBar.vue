@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { SearchBar } from "@mkbabb/glass-ui";
+import { SearchBar } from "@mkbabb/glass-ui/search";
 
 defineProps<{
     placeholder: string;

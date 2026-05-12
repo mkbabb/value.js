@@ -6,8 +6,9 @@ import {
 import { DarkModeToggle, useGlobalDark } from "@components/custom/dark-mode-toggle";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
-    DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuLabel,
+    DropdownMenuSeparator, DropdownMenuLabel,
 } from "@components/ui/dropdown-menu";
+import { DockDropdownTrigger } from "@mkbabb/glass-ui/dock";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
@@ -30,9 +31,9 @@ const { toggleDark } = useGlobalDark();
 <template>
     <div class="lg:hidden flex items-center">
         <DropdownMenu v-model:open="open">
-            <DropdownMenuTrigger class="dock-icon-btn" aria-label="Menu">
+            <DockDropdownTrigger aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />
-            </DropdownMenuTrigger>
+            </DockDropdownTrigger>
             <DropdownMenuContent align="end" class="min-w-[11rem] font-display">
                 <!-- Login / slug section -->
                 <template v-if="pm.userSlug.value">

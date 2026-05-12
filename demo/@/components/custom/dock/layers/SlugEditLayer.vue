@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, nextTick, inject } from "vue";
 import { LogIn, ArrowRight, RefreshCw, X as XIcon, Loader2 } from "lucide-vue-next";
+import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { copyToClipboard } from "@composables/useClipboard";
 
@@ -84,31 +85,31 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
             class="text-mono-small bg-transparent border-none outline-none w-40 min-w-0 placeholder:text-muted-foreground/50"
             @keydown.escape.stop="slugEditMode = false"
         />
-        <button
+        <DockIconButton
+            compact
             type="submit"
             :disabled="!slugInput.trim() || slugSwitching"
-            class="dock-icon-btn-compact"
         >
             <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin" />
             <ArrowRight v-else class="w-3.5 h-3.5" />
-        </button>
+        </DockIconButton>
     </form>
 
     <div class="dock-separator"></div>
 
-    <button
-        class="dock-icon-btn-compact"
+    <DockIconButton
+        compact
         title="Generate new slug"
         @click="slugEditMode = false; pm.onRegenerateSlug()"
     >
         <RefreshCw class="w-3.5 h-3.5" />
-    </button>
+    </DockIconButton>
 
-    <button
-        class="dock-icon-btn-compact"
+    <DockIconButton
+        compact
         title="Cancel"
         @click="slugEditMode = false"
     >
         <XIcon class="w-3.5 h-3.5" />
-    </button>
+    </DockIconButton>
 </template>

@@ -1,1 +1,1 @@
-export { Textarea } from "@mkbabb/glass-ui";
+export { Textarea } from "@mkbabb/glass-ui/forms";
