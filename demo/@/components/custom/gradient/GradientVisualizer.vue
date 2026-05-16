@@ -106,7 +106,7 @@ const activeHueDesc = computed(() =>
 );
 
 async function copyCSS() {
-    const { copyToClipboard } = await import("@composables/useClipboard");
+    const { copyToClipboard } = await import("@mkbabb/glass-ui");
     await copyToClipboard(coalescedCSS.value);
 }
 

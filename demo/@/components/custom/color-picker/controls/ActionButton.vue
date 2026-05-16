@@ -34,15 +34,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, type Component } from "vue";
+import { computed, ref, type Component } from "vue";
 import {
     HoverCard,
     HoverCardContent,
     HoverCardTrigger,
 } from "@components/ui/hover-card";
+import { useOptionalDockContext } from "@mkbabb/glass-ui/dock";
 
-const dockKeepOpen = inject<(() => void) | null>("dockKeepOpen", null);
-const dockRelease = inject<(() => void) | null>("dockRelease", null);
+const dock = useOptionalDockContext();
 
 const props = defineProps<{
     icon: Component;
@@ -69,9 +69,9 @@ const isOpen = computed(() => props.activeHover === props.hoverKey);
 function onHoverOpenChange(v: boolean) {
     emit("update:activeHover", v ? props.hoverKey : null);
     if (v) {
-        dockKeepOpen?.();
+        dock?.keepOpen();
     } else {
-        dockRelease?.();
+        dock?.release();
     }
 }
 

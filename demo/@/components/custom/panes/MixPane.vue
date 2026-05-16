@@ -46,7 +46,7 @@ function onSave() {
 
 async function copyResult() {
     if (!mixResult.value) return;
-    const { copyToClipboard } = await import("@composables/useClipboard");
+    const { copyToClipboard } = await import("@mkbabb/glass-ui");
     const text = mixResult.value.type === "color"
         ? mixResult.value.css ?? ""
         : mixResult.value.colors?.map((c) => c.css).join(", ") ?? "";

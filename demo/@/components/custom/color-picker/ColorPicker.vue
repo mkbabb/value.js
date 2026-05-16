@@ -64,7 +64,7 @@ import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
 import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
 
-import { copyToClipboard } from "@composables/useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import HeroBlob from "./visual/HeroBlob.vue";
 import SpectrumCanvas from "./controls/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders.vue";

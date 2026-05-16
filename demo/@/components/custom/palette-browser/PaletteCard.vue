@@ -207,7 +207,7 @@ import type { PaletteColor } from "@lib/palette/types";
 import type { Palette } from "@lib/palette/types";
 import { getPaletteKind } from "@lib/palette/utils";
 import type { PaletteKind } from "@lib/palette/utils";
-import { copyToClipboard } from "@composables/useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 import { useHoverPopover } from "./composables/useHoverPopover";
 import { useHeightTransition } from "./composables/useHeightTransition";
@@ -321,7 +321,7 @@ function handleMenuAction(action: string) {
     const isAdminAction = adminActions.has(action);
 
     const actions: Record<string, () => void> = {
-        copyAll: () => copyToClipboard(props.palette.colors.map((c) => c.css).join(", "), "Copied all colors"),
+        copyAll: () => copyToClipboard(props.palette.colors.map((c) => c.css).join(", ")),
         publish: () => emit("publish", props.palette),
         delete: () => emit("delete", props.palette),
         save: () => emit("save", props.palette),

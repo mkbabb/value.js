@@ -3,7 +3,7 @@ import { ref, watch, nextTick, onMounted } from "vue";
 import { useDark } from "@vueuse/core";
 import { Button } from "@components/ui/button";
 import { Copy, Check } from "lucide-vue-next";
-import { copyToClipboard } from "@composables/useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import { debounce } from "@src/utils";
 
 import hljs from "highlight.js/lib/core";

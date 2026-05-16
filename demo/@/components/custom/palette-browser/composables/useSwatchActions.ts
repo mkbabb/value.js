@@ -2,7 +2,7 @@ import { ref, computed, inject, watch } from "vue";
 import type { Ref, ShallowRef } from "vue";
 import type { EditTarget } from "@components/custom/color-picker";
 import { EDIT_TARGET_KEY } from "@components/custom/color-picker/keys";
-import { copyToClipboard } from "@composables/useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useHoverPopover } from "./useHoverPopover";
 
 export interface SwatchActionsDeps {

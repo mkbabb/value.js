@@ -2,7 +2,7 @@
 import { Copy, Check, Save, RotateCcw } from "lucide-vue-next";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { ref, TransitionGroup } from "vue";
-import { copyToClipboard } from "@composables/useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
 import type { MixResult } from "./composables/useMixingState";
 

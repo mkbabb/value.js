@@ -67,7 +67,7 @@ function onRename(_palette: Palette, newName: string) {
 }
 
 async function copyColors() {
-    const { copyToClipboard } = await import("@composables/useClipboard");
+    const { copyToClipboard } = await import("@mkbabb/glass-ui");
     await copyToClipboard(palette.value.join(", "));
 }
 

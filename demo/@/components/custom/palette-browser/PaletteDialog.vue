@@ -205,7 +205,7 @@ import { Trash2 } from "lucide-vue-next";
 
 import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 
-import { copyToClipboard } from "@composables/useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import { usePaletteStore } from "@composables/palette/usePaletteStore";
 import { useAdminAuth } from "@composables/auth/useAdminAuth";
 import { useUserAuth } from "@composables/auth/useUserAuth";

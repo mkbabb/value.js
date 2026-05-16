@@ -156,7 +156,7 @@ import { useAppColorModel } from "@composables/color/useAppColorModel";
 import { useGenericActionBar } from "@components/custom/dock/composables/useGenericActionBar";
 import { useMobilePaneRouter, ExtractPane, GeneratePane, GradientPane, MixPane, AdminPane, AuroraPane, BlobPane } from "@composables/useMobilePaneRouter";
 import { usePaletteManager } from "@composables/palette/usePaletteManager";
-import { copyToClipboard } from "@composables/useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useAurora } from "@mkbabb/glass-ui/aurora";
 import type { AuroraConfig } from "@mkbabb/glass-ui/aurora";
 

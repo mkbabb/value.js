@@ -8,7 +8,7 @@ import { Copy, RotateCcw } from "lucide-vue-next";
 import { GlassDock } from "@mkbabb/glass-ui/dock";
 import PaneHeader from "./PaneHeader.vue";
 import type { AuroraConfig } from "@mkbabb/glass-ui/aurora";
-import { copyToClipboard } from "@composables/useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 
 const cfg = inject<AuroraConfig>("auroraConfig")!;
 

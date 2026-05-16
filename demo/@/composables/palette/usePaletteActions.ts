@@ -1,6 +1,6 @@
 import { ref, computed, type Ref } from "vue";
 
-import { copyToClipboard } from "../useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useSession } from "../auth/useSession";
 import { useUserAuth } from "../auth/useUserAuth";
 import { publishPalette } from "@lib/palette/api";

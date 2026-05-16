@@ -132,7 +132,7 @@ import {
     LogOut,
     RefreshCw,
 } from "lucide-vue-next";
-import { copyToClipboard } from "@composables/useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 
 const props = defineProps<{
     userSlug: string | null;

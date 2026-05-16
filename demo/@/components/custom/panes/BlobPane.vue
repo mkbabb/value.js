@@ -8,7 +8,7 @@ import { GlassDock } from "@mkbabb/glass-ui/dock";
 import PaneHeader from "./PaneHeader.vue";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@components/custom/goo-blob";
 import type { BlobConfig } from "@components/custom/goo-blob";
-import { copyToClipboard } from "@composables/useClipboard";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 
 const cfg = inject(BLOB_CONFIG_KEY)!;
 
