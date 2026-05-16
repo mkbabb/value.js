@@ -2,7 +2,7 @@ import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that"
 import { FunctionValue, ValueArray, ValueUnit } from "../units";
 
 import * as utils from "./utils";
-import { memoize } from "@src/utils";
+import { memoize } from "../utils";
 import { CSSValueUnit } from "./units";
 import { createMathFunctionParsers, evaluateMathFunction } from "./math";
 

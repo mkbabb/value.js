@@ -15,7 +15,7 @@ import {
     RGBColor,
     Rec2020Color,
     XYZColor,
-} from "@src/units/color";
+} from "../units/color";
 import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
 import { ValueUnit } from "../units";
 import { COLOR_NAMES } from "../units/color/constants";

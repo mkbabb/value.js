@@ -1,5 +1,5 @@
-export { registerColorNames, clearCustomColorNames, getCustomColorNames } from "@src/parsing/color";
-import { clone } from "@src/utils";
+export { registerColorNames, clearCustomColorNames, getCustomColorNames } from "../parsing/color";
+import { clone } from "../utils";
 import { BLACKLISTED_COALESCE_UNITS, UNITS } from "./constants";
 import { isColorUnit } from "./utils";
 

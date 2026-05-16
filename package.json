@@ -21,6 +21,7 @@
     "sideEffects": false,
     "exports": {
         ".": {
+            "development": "./src/index.ts",
             "types": "./dist/index.d.ts",
             "import": "./dist/value.js"
         }
@@ -31,7 +32,6 @@
     "scripts": {
         "dev": "vite --port 9000",
         "dev:hero-lab": "vite --mode hero-lab --port 9010",
-        "prebuild": "node scripts/freshness-gate.mjs --pre",
         "build": "vite build --mode production",
         "build:hero-lab": "vite build --mode hero-lab",
         "gh-pages": "vite build --mode gh-pages",

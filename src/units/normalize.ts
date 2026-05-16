@@ -1,4 +1,4 @@
-import { parseCSSValue } from "@src/parsing";
+import { parseCSSValue } from "../parsing";
 import { ValueUnit } from ".";
 import type { InterpolatedVar } from ".";
 import { parseCSSValueUnit } from "../parsing/units";

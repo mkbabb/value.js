@@ -33,7 +33,7 @@ import {
     XYZ_TO_LMS_MATRIX,
 } from "./constants";
 import type { ColorSpace, WhitePoint } from "./constants";
-import { memoize } from "@src/utils";
+import { memoize } from "../../utils";
 import { gamutMapSRGB } from "./gamut";
 
 export const getFormattedColorSpaceRange = <T extends ColorSpace>(colorSpace: T) => {

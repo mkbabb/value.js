@@ -1,4 +1,4 @@
-import { clone } from "@src/utils";
+import { clone } from "../../utils";
 import type { ColorSpace, WhitePoint } from "./constants";
 
 const formatNumber = (value: unknown, digits: number = 2): string => {
