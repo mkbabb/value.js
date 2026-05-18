@@ -38,14 +38,16 @@
 
     --shadow-color: var(--foreground);
 
-    /* PROJECT OVERRIDE: heavier cartoon shadows (glass-ui: 4px offset, 50% opacity).
-     * Larger offset + higher opacity for a more dramatic pop-art feel. */
-    --shadow-card: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 80%, transparent);
-    --shadow-card-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 85%, transparent);
-
-    /* PROJECT OVERRIDE: much more opaque panes (glass-ui: 0.30 light / 0.42 dark).
-     * Panes need solid-feeling surfaces for readability over the hero blob. */
-    --glass-opacity-subtle: 0.75;
+    /* PROJECT OVERRIDE: the demo's identity surface shadow is a bold pop-art
+     * cartoon offset. glass-ui's default --shadow-card is the soft --shadow-md
+     * and its --shadow-cartoon is a subtle 3px/8% rung. Override the cartoon
+     * rung to the demo's intensity and route --shadow-card through it, so
+     * `shadow-card` consumers and explicit `shadow-cartoon` consumers render
+     * one cartoon language — no fourth ad-hoc shadow recipe. */
+    --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 80%, transparent);
+    --shadow-cartoon-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 85%, transparent);
+    --shadow-card: var(--shadow-cartoon);
+    --shadow-card-hover: var(--shadow-cartoon-hover);
 
     /* PROJECT OVERRIDE: monospace fonts for Select and DropdownMenu triggers
      * (glass-ui defaults to inherit). */
@@ -143,8 +145,10 @@
  * lighter cartoon shadows; --popover: hsl(224 71% 4%) vs 50% 10% here for
  * warmer, less saturated popover backgrounds). */
 .dark {
-    --shadow-card: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 50%, transparent);
-    --shadow-card-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 55%, transparent);
+    /* Lighter cartoon shadows in dark mode; --shadow-card / --shadow-card-hover
+     * resolve through these via the var() reference set in :root. */
+    --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 50%, transparent);
+    --shadow-cartoon-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 55%, transparent);
 
     --popover: hsl(224 50% 10%);
     --border: hsl(217.2 32.6% 18%);
@@ -209,6 +213,13 @@
 .pane-scroll-fade {
     contain: layout style paint;
     scroll-timeline: --pane-scroll block;
+}
+
+/* Slug pill — the user/palette slug chip recipe, shared across the dock menus,
+ * the admin users panel, and the slug bar (was copy-pasted at 5+ sites).
+ * Consumers set `color` / `border-color` per-instance via :style. */
+.slug-pill {
+    @apply text-mono-small font-bold px-2 py-0.5 rounded-full border;
 }
 
 /* Base styles for compatibility */

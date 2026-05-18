@@ -4,7 +4,7 @@
 
 ## Token Overrides
 
-Fraunces (display) / Fira Code (mono). Cartoon shadow overrides: `8px` offset at `80%` opacity for a heavier illustrative feel. `--glass-opacity-subtle: 0.75` (more transparent than glass-ui default). Custom select/dropdown-menu fonts forced to monospace for numeric value display. Hero-lab layout math tokens (`--hero-cols`, `--hero-gap`, `--viewport-aspect`).
+Fraunces (display) / Fira Code (mono). Cartoon shadow: `--shadow-cartoon` is overridden to an `8px` offset at `80%` opacity (`10px`/`85%` on hover) for a heavier illustrative feel, and `--shadow-card` is routed through it — one cartoon shadow language for both `shadow-card` and `shadow-cartoon` consumers. Custom select/dropdown-menu fonts forced to monospace for numeric value display. Hero-lab layout math tokens (`--hero-cols`, `--hero-gap`, `--viewport-aspect`).
 
 ## Local Utilities
 
