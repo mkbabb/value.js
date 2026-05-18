@@ -131,7 +131,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineAsyncComponent, onMounted, provide, reactive, ref, shallowRef, useTemplateRef, watch } from "vue";
+import { computed, defineAsyncComponent, onMounted, provide, reactive, ref, shallowRef, watch } from "vue";
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import { ColorPicker } from "@components/custom/color-picker";
@@ -157,7 +157,7 @@ import { useGenericActionBar } from "@components/custom/dock/composables/useGene
 import { useMobilePaneRouter, ExtractPane, GeneratePane, GradientPane, MixPane, AdminPane, AuroraPane, BlobPane } from "@composables/useMobilePaneRouter";
 import { usePaletteManager } from "@composables/palette/usePaletteManager";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import { useAurora } from "@mkbabb/glass-ui/aurora";
+import { useAurora, DEFAULT_AURORA_CONFIG } from "@mkbabb/glass-ui/aurora";
 import type { AuroraConfig } from "@mkbabb/glass-ui/aurora";
 
 import "@styles/utils.css";
@@ -165,7 +165,10 @@ import "@styles/style.css";
 
 // --- Color model ---
 
-const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
+// Plain ref (not useTemplateRef): useAurora's signature wants a writable
+// Ref<HTMLCanvasElement | null>, and this matches glass-ui Aurora.vue's own
+// canvas-ref pattern. Vue binds the template `ref="atmosphereCanvas"` to it.
+const atmosphereCanvas = ref<HTMLCanvasElement | null>(null);
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
 const model = shallowRef<ColorModel>(defaultColorModel);
 
@@ -318,20 +321,11 @@ const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
 // --- Aurora atmosphere ---
 
-const auroraConfig = reactive<AuroraConfig>({
-    colorMode: "derived",
-    colors: [],
-    surfaceMode: "color", surfaceAlpha: 0.70,
-    blur: 100, speed: 0.40,
-    blobCount: 10, baseRadius: 0.16, radiusVariance: 0.03,
-    viewportAnchorRatio: 1.0,
-    alphaLight: 0.80, alphaDark: 0.60,
-    lShiftLarge: 0.15, lShiftSmall: 0.10, hueShiftLarge: 25, hueShiftSmall: 55,
-    orbitAmplitude: 0.25, blendMode: "source-over",
-    gradStop2: 0.30, gradStop3: 0.60, gradStop4: 1.00,
+const auroraConfig = reactive<AuroraConfig>(structuredClone(DEFAULT_AURORA_CONFIG));
+useAurora(atmosphereCanvas, () => auroraConfig, {
+    onInitError: (err) => console.warn("[aurora] init failed:", err),
 });
-const { config: auroraConfigResult } = useAurora(atmosphereCanvas, auroraConfig, cssColorOpaque);
-provide("auroraConfig", auroraConfigResult);
+provide("auroraConfig", auroraConfig);
 
 // --- Blob config ---
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@components/custom/goo-blob";

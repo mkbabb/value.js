@@ -175,7 +175,13 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         gl.useProgram(program);
         gl.bindVertexArray(vao);
 
-        const canvas = canvasRef.value!;
+        // The RAF frame can outrun destroy(): cancelAnimationFrame does not
+        // stop a frame already dequeued and executing. A null canvas here
+        // means the component tore down mid-frame — end the loop, do not
+        // reschedule.
+        const canvas = canvasRef.value;
+        if (!canvas) return;
+
         gl.uniform2f(uniforms.uResolution, canvas.width, canvas.height);
         gl.uniform1f(uniforms.uTime, time);
         gl.uniform3f(uniforms.uBaseColor, rgb[0], rgb[1], rgb[2]);

@@ -27,10 +27,27 @@ const defaultOptions = {
             "@lib": path.resolve(import.meta.dirname, "demo/@/lib"),
             "@composables": path.resolve(import.meta.dirname, "demo/@/composables"),
             "@assets": path.resolve(import.meta.dirname, "assets"),
-            "@mkbabb/keyframes.js": path.resolve(import.meta.dirname, "../keyframes.js/dist/keyframes.js"),
         },
+        // The symlinked `@mkbabb/glass-ui` ships its own nested `vue` in
+        // node_modules. Without dedupe the demo loads two Vue instances —
+        // two reactivity systems, broken cross-package provide/inject.
+        // glass-ui declares `vue` as a peerDependency, so the host's copy is
+        // the intended single instance.
+        dedupe: ["vue"],
     },
 };
+
+// Demo build modes (dev, gh-pages, hero-lab) resolve sibling `@mkbabb/*`
+// packages through their `development` conditional export so the demo always
+// consumes the siblings' `src/` and never a stale `dist/`. This is scoped to
+// the demo modes only — the `production` library build keeps Vite's default
+// conditions so it resolves to published `dist/` artefacts.
+const demoConditions = ["development", "module", "browser"];
+
+// The demo reaches assets (fonts) inside symlinked sibling packages that live
+// outside value.js's root. `fs.allow` must cover the shared parent directory
+// or Vite's dev server denies them with a 403.
+const demoServerFsAllow = [path.resolve(import.meta.dirname, "..")];
 
 const defaultPlugins = [
     sourceExportPlugin(),
@@ -63,6 +80,7 @@ export default defineConfig((mode) => {
     } else if (mode.mode === "hero-lab") {
         return {
             ...defaultOptions,
+            resolve: { ...defaultOptions.resolve, conditions: demoConditions },
             base: "./",
             root: "./demo/hero-lab/",
             build:
@@ -76,9 +94,9 @@ export default defineConfig((mode) => {
                     : undefined,
             server: {
                 host: true,
+                fs: { allow: demoServerFsAllow },
             },
             optimizeDeps: {
-                exclude: ["@mkbabb/keyframes.js"],
                 include: [
                     "vue",
                     "reka-ui",
@@ -91,10 +109,11 @@ export default defineConfig((mode) => {
     } else if (mode.mode === "gh-pages") {
         return {
             ...defaultOptions,
+            resolve: { ...defaultOptions.resolve, conditions: demoConditions },
             base: "./",
             root: "./demo/color-picker/",
             build: {
-                outDir: path.resolve(import.meta.dirname, "./dist/"),
+                outDir: path.resolve(import.meta.dirname, "./dist/gh-pages"),
                 emptyOutDir: true,
                 minify: true,
                 sourcemap: false,
@@ -115,9 +134,11 @@ export default defineConfig((mode) => {
         // Dev mode: serve the demo app with HMR
         return {
             ...defaultOptions,
+            resolve: { ...defaultOptions.resolve, conditions: demoConditions },
             root: "./demo/color-picker/",
             server: {
                 host: true,
+                fs: { allow: demoServerFsAllow },
             },
             optimizeDeps: {},
             plugins: [...defaultPlugins],

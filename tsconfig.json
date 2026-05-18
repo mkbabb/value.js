@@ -21,7 +21,9 @@
             "@utils/*": ["./demo/@/utils/*"],
             "@lib/*": ["./demo/@/lib/*"],
             "@composables/*": ["./demo/@/composables/*"],
-            "@assets/*": ["./assets/*"]
+            "@assets/*": ["./assets/*"],
+            "vue": ["./node_modules/vue"],
+            "@vue/*": ["./node_modules/@vue/*"]
         }
     },
     "include": ["src/", "demo/"]
