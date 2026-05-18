@@ -257,7 +257,7 @@ onUnmounted(() => {
     width: 1.75rem;
     height: 1.75rem;
     border: 2px solid var(--dot-border, var(--background));
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-sm);
     filter: url(#watercolor-filter);
     &:hover {
         transform: none;

@@ -7,8 +7,8 @@
             <!-- SV canvas -->
             <div
                 ref="canvasRef"
-                class="relative w-full h-28 rounded-lg cursor-crosshair overflow-hidden border border-border"
-                :style="{ background: `linear-gradient(to top, #000, transparent), linear-gradient(to right, #fff, hsl(${hue}, 100%, 50%))` }"
+                class="sv-canvas relative w-full h-28 rounded-lg cursor-crosshair overflow-hidden border border-border"
+                :style="{ '--hue': hue }"
                 @pointerdown="onCanvasPointer"
                 @pointermove="onCanvasMove"
                 @pointerup="onCanvasUp"
@@ -153,3 +153,12 @@ function updateHue(e: PointerEvent) {
     hue.value = Math.max(0, Math.min(360, ((e.clientX - rect.left) / rect.width) * 360));
 }
 </script>
+
+<style scoped>
+/* Static black-to-transparent overlay lives in CSS; only the dynamic hue layer stays in :style */
+.sv-canvas {
+    background:
+        linear-gradient(to top, #000, transparent),
+        linear-gradient(to right, #fff, hsl(calc(var(--hue) * 1deg), 100%, 50%));
+}
+</style>

@@ -398,7 +398,7 @@ watch([mobileEditActive, slugEditMode, actionBarLayerActive], () => {
 /* Admin golden icon — solid gold color + subtle glow */
 .gold-shimmer-icon {
     color: var(--color-gold);
-    filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.3));
+    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent));
 }
 
 /* Action-bar toggle slot: animates between 0 and content width via the

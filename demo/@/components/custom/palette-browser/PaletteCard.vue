@@ -377,7 +377,7 @@ function onPopoverCopy(css: string) {
 }
 .featured-badge :deep(svg) {
     stroke: var(--color-gold);
-    filter: drop-shadow(0 0 1px rgba(212, 175, 55, 0.4));
+    filter: drop-shadow(0 0 1px color-mix(in srgb, var(--color-gold) 40%, transparent));
 }
 
 @keyframes golden-text-shimmer {

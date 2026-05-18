@@ -37,10 +37,10 @@ function capitalize(s: string): string {
 <template>
     <div class="flex items-center gap-2">
         <Select :model-value="modelValue" @update:model-value="(v: string) => emit('update:modelValue', v)">
-            <SelectTrigger aria-label="Easing function" class="h-9 text-xs min-w-[9rem]">
+            <SelectTrigger aria-label="Easing function" class="h-9 text-xs min-w-[var(--menu-min-w)]">
                 <SelectValue />
             </SelectTrigger>
-            <SelectContent class="max-h-[16rem] min-w-[10rem]">
+            <SelectContent class="max-h-[16rem] min-w-[var(--menu-min-w)]">
                 <SelectItem
                     v-for="name in GRADIENT_EASING_NAMES"
                     :key="name"

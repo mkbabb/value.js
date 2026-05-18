@@ -360,9 +360,9 @@ defineExpose({
 @keyframes crown-appear {
     0%   { opacity: 0; color: var(--color-gold-light); transform: scale(0) rotate(-15deg); }
     40%  { opacity: 1; color: var(--color-gold); transform: scale(1.4) rotate(5deg);
-           filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.7)); }
+           filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-gold) 70%, transparent)); }
     70%  { color: var(--color-gold); transform: scale(0.95) rotate(-2deg);
-           filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.4)); }
+           filter: drop-shadow(0 0 3px color-mix(in srgb, var(--color-gold) 40%, transparent)); }
     100% { color: var(--color-gold); transform: scale(1) rotate(0deg); filter: none; }
 }
 </style>

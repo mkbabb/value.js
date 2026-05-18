@@ -1,15 +1,14 @@
 <template>
     <Sheet :open="open" @update:open="$emit('update:open', $event)">
-        <SheetContent side="right" class="w-[380px] sm:max-w-[420px]">
-            <SheetHeader>
+        <SheetContent side="right" class="w-[380px] sm:max-w-[420px] flex flex-col">
+            <SheetHeader class="shrink-0">
                 <SheetTitle>Version History</SheetTitle>
                 <SheetDescription>
                     {{ paletteName }} &mdash; {{ total }} version{{ total === 1 ? "" : "s" }}
                 </SheetDescription>
             </SheetHeader>
 
-            <!-- 160px accounts for SheetHeader + top/bottom padding + footer -->
-            <div class="mt-4 flex flex-col gap-2 overflow-y-auto max-h-[calc(100dvh-160px)]">
+            <div class="mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto">
                 <!-- Loading -->
                 <div v-if="loading" class="flex items-center justify-center py-8">
                     <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />

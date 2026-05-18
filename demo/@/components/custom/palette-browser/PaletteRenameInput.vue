@@ -1,7 +1,7 @@
 <template>
     <div class="px-3 pb-2.5 pt-1" @click.stop>
         <form
-            class="flex items-center gap-2 rounded-2xl border border-border/50 bg-card/80 backdrop-blur-xl px-3 h-9 max-w-sm w-full transition-[box-shadow,border-color] focus-within:ring-2 focus-within:ring-ring/40 focus-within:border-border"
+            class="input-bar max-w-sm"
             @submit.prevent="onSubmit"
         >
             <Pencil class="w-3.5 h-3.5 text-muted-foreground shrink-0" />

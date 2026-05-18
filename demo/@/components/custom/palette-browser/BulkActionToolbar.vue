@@ -9,7 +9,7 @@
     >
         <div
             v-if="count > 0"
-            class="sticky bottom-2 z-[var(--z-popover)] mx-auto flex w-fit items-center gap-2 rounded-xl border border-border bg-card/95 px-4 py-2 shadow-lg backdrop-blur-sm"
+            class="glass-floating sticky bottom-2 z-[var(--z-popover)] mx-auto flex w-fit items-center gap-2 rounded-xl px-4 py-2"
         >
             <span class="text-xs font-medium tabular-nums">
                 {{ count }} selected

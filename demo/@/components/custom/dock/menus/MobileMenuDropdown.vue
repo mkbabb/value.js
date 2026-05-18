@@ -34,7 +34,7 @@ const { toggleDark } = useGlobalDark();
             <DockDropdownTrigger aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />
             </DockDropdownTrigger>
-            <DropdownMenuContent align="end" class="min-w-[11rem] font-display">
+            <DropdownMenuContent align="end" class="min-w-[var(--menu-min-w)] font-display">
                 <!-- Login / slug section -->
                 <template v-if="pm.userSlug.value">
                     <DropdownMenuLabel class="px-2 py-1.5">
