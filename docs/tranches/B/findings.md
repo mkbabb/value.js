@@ -84,15 +84,18 @@ glass-ui shipped `<UnderlineTabs>` as a standalone component (not a `<Tabs varia
 
 Folded into: **B.W3**.
 
-### G. E2e strategy shift (Bδ §3)
+### G. E2e abrogation (Bδ §3 + the four-lane e2e assay)
 
-The 16-spec full suite as a wave gate is the "hung on e2e" mechanism. Reshape:
-- Stand up `e2e/smoke/` with 4–5 critical-path specs using role/label selectors only: page load + hydration; color-space switching; palette create+name; admin login; mobile layout.
-- `playwright.config.ts` gains a `smoke` project. Feature/refactor waves gate on `--project=smoke` green.
-- The full 16-spec suite runs nightly / on deploy.
-- Migrate 3 high-traffic structural selectors to `data-testid` / accessible names.
+The user's second directive: "Most of our e2e tests are likely superfluous, and the playwright-driven ones are likely nonsense and can be totally abrogated." A four-lane parallel assay confirmed it (`research/B-e2e-census.md`, `B-e2e-overlap.md`, `B-e2e-brittleness.md`, `B-e2e-target.md`):
 
-Folded into: **B.W4**.
+- **Census** — of 16 specs: 4 NONSENSE, 6 SUPERFLUOUS, 6 essential-but-entangled.
+- **Overlap** — `color-visual-validation.spec.ts` injects `parseCSSColor`/`colorUnit2` into a headless browser and re-runs ~120 inputs already covered by `color-validation.test.ts` — a unit test masquerading as e2e.
+- **Brittleness** — ≈3,510 lines; ~42 `.lucide-*` selectors, ~132 `waitForTimeout`, ~34 `page.evaluate()` interaction-workarounds, ~29 `test.skip`; 10 of 16 score ≥3/5 nonsense; the 2 live-API specs never run in CI. This lane *dissented* and recommended keep-and-migrate — the orchestrator overrode it: keep-and-migrate is the exact W5-C hang pattern, and the lane's "color-visual-validation is the best spec" contradicts the overlap lane's proof.
+- **Target** — recommendation: abrogate all 16; replace with a 3-spec role/label smoke suite (`page-load`, `color-space-switching`, `view-switch`); add the project's first browser CI gate; the per-wave orchestrator live probe stays the wave-gate.
+
+Resolution: **delete all 16 `e2e/*.spec.ts`** (≈3,510 lines). Create `e2e/smoke/` with exactly 3 role/label-selector specs. `playwright.config.ts` gains a `smoke` project and loses the `mobile` project. `.github/workflows/node.js.yml` gains a `playwright test --project=smoke` step. No `admin-login` smoke spec (the W5-C hang root; not smoke-critical).
+
+Folded into: **B.W4 Lane D**.
 
 ### H. Library gap audit — Mandate 12's AND (Bε §5)
 

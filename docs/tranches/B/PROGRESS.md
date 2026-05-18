@@ -50,6 +50,23 @@ B.W0 ratifies, gates, and commits this work as part of closing A.
 
 Eight files in the working tree predate A. They are not B's to commit until B.W4 dispositions them: `src/index.ts`, `src/parsing/units.ts`, `src/units/normalize.ts`, `plugins/vite-source-export.ts` (all `M`); plus untracked `src/parsing/{animation-shorthand,extract,serialize,stylesheet}.ts`, `src/units/interpolate.ts`. All five untracked files are re-exported from `src/index.ts` — public-API debt. B.W4 audits and dispositions.
 
+## 2026-05-18 — e2e assay round
+
+The user followed the turn-4 directive with: "Most of our e2e tests are likely superfluous, and the playwright-driven ones are likely nonsense and can be totally abrogated. Deploy 4 agents in parallel to assay, and fold your findings into the B tranche."
+
+The orchestrator stopped the still-running W5-C e2e agent (`TaskStop` — its selector-migration work was superseded and it was mutating the assay's read target) and dispatched 4 read-only assay lanes.
+
+| Lane | Deliverable | Verdict |
+|---|---|---|
+| e2e-census | `research/B-e2e-census.md` | 4 NONSENSE, 6 SUPERFLUOUS, 6 essential-but-entangled |
+| e2e-overlap | `research/B-e2e-overlap.md` | `color-visual-validation` is a unit test routed through a browser — ~120 assertions duplicate `color-validation.test.ts` |
+| e2e-brittleness | `research/B-e2e-brittleness.md` | ≈3,510 lines; ~42 `.lucide-*`, ~132 `waitForTimeout`, ~34 `page.evaluate()`, ~29 `test.skip`; 10/16 score ≥3 nonsense; 2 dead live-API specs. **This lane dissented** — recommended keep-and-migrate. |
+| e2e-target | `research/B-e2e-target.md` | Recommendation: abrogate all 16; replace with 3 role/label smoke specs; add a browser CI gate |
+
+**Orchestrator synthesis**: census + overlap + target + the user's directive + the precept "abrogate before patch" all converge — **delete all 16 specs, replace with a 3-spec smoke suite.** The brittleness lane's keep-and-migrate dissent was overridden: keep-and-migrate is the exact W5-C hang pattern, and the lane's own claim "`color-visual-validation` is the best spec" is contradicted by the overlap lane's proof that it is a misplaced unit test. The dissent is recorded, not silently dropped.
+
+**Folded into B.W4 Lane D** — revised from "stand up a 4–5-spec smoke suite, keep the 16 full" to "delete all 16; create exactly 3 `e2e/smoke/` specs; `playwright.config.ts` gains `smoke`, loses `mobile`; CI gains a `playwright test --project=smoke` step." `B.md §1/§3/§5/§6`, `findings.md §2 G`, `dispatch/AGENT.md`, and `waves/B.W0.md` (no commit of the soon-deleted e2e specs) updated accordingly.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -58,7 +75,7 @@ Eight files in the working tree predate A. They are not B's to commit until B.W4
 | B.W1 — W5 a11y corrections + reduced-motion refinement + floating-panel-item | planned | — | — | — |
 | B.W2 — layout simplification (Bβ Proposal B) | planned | — | — | — |
 | B.W3 — component consolidation (Bγ) + hero-lab + UnderlineTabs | planned | — | — | — |
-| B.W4 — library gap audit + WIP disposition + custom typecheck + e2e smoke | planned | — | — | — |
+| B.W4 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | planned | — | — | — |
 | B.W5 HEADLINE close — FINAL.md, doc drift, Q.md update, A close-residuals | planned | — | — | — |
 
 ## Open dependencies

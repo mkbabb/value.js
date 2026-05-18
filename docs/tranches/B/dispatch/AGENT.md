@@ -33,7 +33,9 @@ Per the precept orchestration rules: a wave with ≥2 agents writing shared file
 
 ## E2e gate (new in B)
 
-**Wave gates run `--project=smoke` only** (B.W4 stands up `e2e/smoke/`). The full 16-spec suite is the nightly / on-deploy gate, not the wave gate. This is the explicit fix to the "hung on e2e" wave-shape failure A experienced (`research/Bd-w5-audit.md §4`). An agent whose wave changes demo DOM is responsible for keeping the smoke suite green; the full suite's selector migrations are an explicit deferred concern.
+The four-lane e2e assay (`research/B-e2e-*`) found the 16-spec Playwright suite is ≈3,510 lines of brittle, largely-superfluous nonsense. **B.W4 deletes all 16 and replaces them with a 3-spec role/label smoke suite in `e2e/smoke/`.**
+
+After B.W4: wave gates run `--project=smoke` only — 3 specs (page-load, color-space-switching, view-switch), all role/label selectors. There is no full suite to run nightly; it was abrogated. The per-wave orchestrator live Playwright probe (3 viewports, console-error + network-2xx check, screenshots to `audit/`) remains the primary wave-gate mechanism. An agent writing a smoke spec uses `getByRole`/`getByLabel` exclusively — no class selectors, no `.lucide-*`, no `page.evaluate()` for interaction, no `waitForTimeout`. This is the explicit fix to the "hung on e2e" wave-shape failure (`research/Bd-w5-audit.md §4`, `B-e2e-target.md`).
 
 ## Build hygiene
 
