@@ -9,3 +9,19 @@
 .fira-code {
     font-family: var(--font-mono);
 }
+
+/* Shared single-line caption recipe — `.section-label` (glass-ui typography)
+ * extended with muted half-opacity and a one-line clamp. Consumed by the
+ * control-bar components (gradient / mix / generate). The standard `line-clamp`
+ * drives modern engines; `-webkit-line-clamp` + `-webkit-box` remain the
+ * Safari support floor. */
+.section-subtitle {
+    font-family: var(--font-mono);
+    font-size: var(--type-caption);
+    color: color-mix(in srgb, var(--muted-foreground) 50%, transparent);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+}
