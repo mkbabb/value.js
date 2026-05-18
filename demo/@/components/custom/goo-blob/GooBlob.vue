@@ -69,7 +69,7 @@ defineExpose({ nudge, setMood, currentMood: mood.currentMood });
     /* Layout footprint = width passed by parent (e.g. w-[7rem]) */
     aspect-ratio: 1;
     position: relative;
-    z-index: 10;
+    z-index: var(--z-content);
     overflow: visible;
     cursor: pointer;
     filter: drop-shadow(

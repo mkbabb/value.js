@@ -315,7 +315,6 @@ function forceReset() {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
     pointer-events: none;
 }
 

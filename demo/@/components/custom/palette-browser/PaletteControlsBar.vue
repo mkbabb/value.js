@@ -14,7 +14,7 @@
 
         <div
             ref="tabsScrollRef"
-            :class="['overflow-x-auto mx-0', tabsOverflowing && 'tabs-scroll-mask']"
+            :class="['overflow-x-auto mx-0 scrollbar-hidden', tabsOverflowing && 'tabs-scroll-mask']"
         >
             <TabsList class="shrink-0 w-fit flex-nowrap">
                 <TabsTrigger value="saved" class="text-subheading"
@@ -158,6 +158,5 @@ onBeforeUnmount(() => {
     mask-image: linear-gradient(to right, transparent, black var(--mask-pad), black calc(100% - var(--mask-pad)), transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black var(--mask-pad), black calc(100% - var(--mask-pad)), transparent);
     scrollbar-width: none;
-    &::-webkit-scrollbar { display: none; }
 }
 </style>

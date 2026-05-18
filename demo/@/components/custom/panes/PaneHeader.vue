@@ -1,5 +1,5 @@
 <template>
-    <div class="pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-[1] backdrop-blur-md bg-card/60">
+    <div class="pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-[var(--z-header)] backdrop-blur-md bg-card/60">
         <h3 class="pane-header-title text-heading"><slot /></h3>
         <div v-if="description" class="pane-header-desc-wrap">
             <p class="text-caption text-muted-foreground">{{ description }}</p>

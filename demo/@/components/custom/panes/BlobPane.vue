@@ -176,7 +176,7 @@ function resetDefaults() {
     bottom: 0.75rem;
     display: flex;
     justify-content: center;
-    z-index: 2;
+    z-index: var(--z-content);
     pointer-events: none;
 }
 
