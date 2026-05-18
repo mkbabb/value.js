@@ -84,7 +84,7 @@
                 </div>
             </HoverCardTrigger>
 
-            <HoverCardContent v-if="!proposeMode" class="z-[var(--z-hovercard)] pointer-events-auto font-display w-full">
+            <HoverCardContent v-if="!proposeMode" class="pointer-events-auto font-display w-full">
                 <p class="font-bold text-subheading">Enter a color</p>
                 <p>
                     <span class="italic">Any</span> valid CSS color string is accepted.
@@ -315,6 +315,13 @@ defineExpose({
 }
 .send-btn:hover {
     transform: translateY(-50%) scale(1.1);
+}
+.send-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+.send-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--ring);
 }
 .send-btn:disabled {
     opacity: 0.3;

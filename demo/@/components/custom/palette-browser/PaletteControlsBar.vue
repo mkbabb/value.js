@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-2 mb-4 min-w-0 sticky top-0 z-[var(--z-popover)] bg-card pb-2">
+    <div class="flex flex-col gap-2 mb-4 min-w-0 sticky top-0 z-[var(--z-bar)] bg-card pb-2">
         <!-- User slug display -->
         <PaletteSlugBar
             ref="slugBarRef"

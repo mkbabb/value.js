@@ -18,7 +18,7 @@
                     :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
                 />
             </PopoverTrigger>
-            <PopoverContent class="w-auto p-1.5 flex items-center gap-1" :side-offset="8">
+            <PopoverContent class="w-auto" :class="PANEL_LAYOUT" :side-offset="8">
                 <slot name="actions" />
             </PopoverContent>
         </Popover>
@@ -35,7 +35,8 @@
             <Teleport to="body">
                 <div
                     v-if="open"
-                    class="floating-panel flex items-center gap-1 p-1.5"
+                    class="floating-panel"
+                    :class="PANEL_LAYOUT"
                     :style="floatingStyle"
                     @pointerenter="$emit('cancelLeave')"
                     @pointerleave="$emit('leave')"
@@ -54,6 +55,10 @@
 import type { CSSProperties } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
+
+/** Shared panel layout — applied to both PopoverContent and the hover Teleport
+ *  panel so the two paths cannot drift. */
+const PANEL_LAYOUT = "p-1.5 flex items-center gap-1";
 
 withDefaults(
     defineProps<{

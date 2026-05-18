@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import type { GradientStop } from "./composables/useGradientModel";
 
 const props = defineProps<{
@@ -18,6 +18,9 @@ const selectedId = defineModel<string | null>("selectedId", { default: null });
 
 const barRef = ref<HTMLDivElement | null>(null);
 const draggingId = ref<string | null>(null);
+
+// A stop is removable only when more than 2 stops exist; matches onHandleContextMenu guard.
+const removable = computed(() => props.stops.length > 2);
 
 function getPosition(e: PointerEvent): number {
     if (!barRef.value) return 0;
@@ -117,7 +120,8 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
                 :key="stop.id"
                 :data-stop-id="stop.id"
                 :aria-label="`Gradient stop at ${Math.round(stop.position)}%`"
-                class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                :aria-disabled="!removable"
+                class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring hover:scale-110 aria-disabled:opacity-50"
                 :class="[
                     selectedId === stop.id
                         ? 'border-white ring-2 ring-primary z-[var(--z-popover)]'

@@ -1,7 +1,7 @@
 <template>
     <DropdownMenu>
         <DropdownMenuTrigger as-child>
-            <button class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0">
+            <button class="p-0.5 rounded-sm hover:bg-accent/50 active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                 <EllipsisVertical class="w-4 h-4 text-muted-foreground" />
             </button>
         </DropdownMenuTrigger>

@@ -14,13 +14,13 @@
             />
             <button
                 type="submit"
-                class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0"
+                class="p-0.5 rounded-sm hover:bg-accent/50 active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             >
                 <Check class="w-3.5 h-3.5 text-muted-foreground" />
             </button>
             <button
                 type="button"
-                class="p-0.5 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer shrink-0"
+                class="p-0.5 rounded-sm hover:bg-accent/50 active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 @click="$emit('cancel')"
             >
                 <XIcon class="w-3.5 h-3.5 text-muted-foreground" />

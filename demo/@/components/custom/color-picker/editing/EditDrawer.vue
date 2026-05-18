@@ -20,21 +20,30 @@
                     <TooltipProvider :delay-duration="200">
                         <Tooltip>
                             <TooltipTrigger as-child>
-                                <Check
-                                    class="h-14 aspect-square stroke-foreground hover:scale-125 active:scale-90 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none rounded-button"
+                                <!-- A.W4: wrapped in <button> for keyboard reach + focus-visible (matches CurrentPaletteEditor.vue:63) -->
+                                <button
+                                    type="button"
+                                    class="p-2 rounded-button bg-foreground/5 hover:bg-accent/50 hover:scale-125 active:scale-90 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                                     @click="emit('commit')"
-                                />
+                                >
+                                    <Check class="h-10 w-10 stroke-foreground" />
+                                </button>
                             </TooltipTrigger>
+                            <!-- A.W4: TooltipContent mono recipe — root fix pending glass-ui TooltipContent variant="mono" (coordination/Q.md §3) -->
                             <TooltipContent class="text-mono-small">Save edit</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
                     <TooltipProvider :delay-duration="200">
                         <Tooltip>
                             <TooltipTrigger as-child>
-                                <Undo2
-                                    class="h-14 aspect-square stroke-foreground hover:scale-125 active:scale-90 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none rounded-button"
+                                <!-- A.W4: wrapped in <button> for keyboard reach + focus-visible (matches CurrentPaletteEditor.vue:66) -->
+                                <button
+                                    type="button"
+                                    class="p-2 rounded-button bg-foreground/5 hover:bg-accent/50 hover:scale-125 active:scale-90 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                                     @click="emit('cancel')"
-                                />
+                                >
+                                    <Undo2 class="h-10 w-10 stroke-foreground" />
+                                </button>
                             </TooltipTrigger>
                             <TooltipContent class="text-mono-small">Cancel</TooltipContent>
                         </Tooltip>

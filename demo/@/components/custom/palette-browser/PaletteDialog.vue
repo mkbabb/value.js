@@ -2,7 +2,7 @@
     <Dialog v-model:open="openModel">
         <DialogScrollContent
             :class="[
-                'palette-dialog max-w-[800px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-dialog sm:h-[min(90dvh,820px)] sm:max-h-[90dvh] min-w-0 flex flex-col',
+                'palette-dialog max-w-[800px] p-0 gap-0 overflow-hidden sm:h-[min(90dvh,820px)] sm:max-h-[90dvh] min-w-0 flex flex-col',
                 editingExit && 'palette-dialog--editing-exit',
                 editingEnter && 'palette-dialog--editing-enter',
             ]"
@@ -608,13 +608,6 @@ function onClearFilters() {
 /* Palette dialog enter/exit animation */
 .palette-dialog {
     animation: dialog-in var(--duration-slow) var(--ease-decelerate);
-    box-shadow: var(--shadow-modal), 0 0 0 1px var(--border);
-    outline: none;
-}
-.palette-dialog:focus,
-.palette-dialog:focus-visible {
-    outline: none;
-    box-shadow: var(--shadow-modal), 0 0 0 1px var(--border);
 }
 .palette-dialog[data-state="closed"] {
     animation: dialog-out var(--duration-normal) var(--ease-standard);

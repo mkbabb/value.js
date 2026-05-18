@@ -41,13 +41,15 @@
                 @update:open="(v: boolean) => onCurrentSwatchPopoverUpdateTouch(v, i)"
             >
                 <template #actions>
-                    <button @click="onCurrentSwatchEdit(color, i)" class="floating-panel-item">
+                    <!-- floating-panel-item: glass-ui utility listed in floating-panel.css comment
+                         but not yet defined — four-state applied demo-side (HARDEN-4 §2, §5.3) -->
+                    <button @click="onCurrentSwatchEdit(color, i)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                         <Pencil class="w-4 h-4" />
                     </button>
-                    <button @click="onCurrentSwatchCopy(color)" class="floating-panel-item">
+                    <button @click="onCurrentSwatchCopy(color)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                         <Copy class="w-4 h-4" />
                     </button>
-                    <button @click="onCurrentSwatchRemove(color, i)" class="floating-panel-item">
+                    <button @click="onCurrentSwatchRemove(color, i)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                         <Trash2 class="w-4 h-4 text-destructive" />
                     </button>
                 </template>

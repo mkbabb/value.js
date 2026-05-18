@@ -29,6 +29,12 @@ const emit = defineEmits<{
 const pm = inject(PALETTE_MANAGER_KEY);
 const savedPalettes = computed(() => pm?.savedPalettes.value ?? []);
 
+// Source guards: remove needs ≥ 1 remaining, add stops at a sensible upper bound.
+const MIN_COLORS = 1;
+const MAX_COLORS = 12;
+const canRemoveColor = computed(() => props.selectedColors.length > MIN_COLORS);
+const canAddColor = computed(() => props.selectedColors.length < MAX_COLORS);
+
 const tabOptions = [
     { label: "Colors", value: "colors" },
     { label: "Palettes", value: "palettes" },
@@ -119,7 +125,8 @@ watch(
                             :title="`${sc.css} (${sc.source})`"
                         />
                         <button
-                            class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer z-[var(--z-popover)]"
+                            class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all cursor-pointer z-[var(--z-popover)] active:scale-95 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
+                            :disabled="!canRemoveColor || undefined"
                             @click="emit('removeColor', i)"
                         >
                             <X class="w-2.5 h-2.5" />
@@ -129,7 +136,8 @@ watch(
                     <!-- Add current color swatch -->
                     <button
                         key="__add__"
-                        class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch border-2 border-dashed border-primary/30 bg-primary/5 flex items-center justify-center hover:scale-110 hover:border-primary/60 transition-all"
+                        class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch border-2 border-dashed border-primary/30 bg-primary/5 flex items-center justify-center hover:scale-110 hover:border-primary/60 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
+                        :disabled="!canAddColor || undefined"
                         @click="addCurrentColor"
                     >
                         <Plus class="w-5 h-5 text-primary/40" />

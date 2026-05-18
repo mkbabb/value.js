@@ -58,7 +58,7 @@
                     >
                         <span>{{ tag.name }}</span>
                         <button
-                            class="ml-0.5 opacity-0 transition-opacity group-hover:opacity-100 cursor-pointer"
+                            class="ml-0.5 p-0.5 rounded-sm opacity-0 transition-all group-hover:opacity-100 hover:bg-accent/50 active:scale-95 active:bg-accent/70 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:opacity-100"
                             @click="onDelete(tag.name)"
                         >
                             <X class="h-3 w-3 text-muted-foreground hover:text-destructive transition-colors" />

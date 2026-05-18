@@ -339,6 +339,17 @@ function forceReset() {
     font-weight: 600;
     cursor: pointer;
     touch-action: manipulation;
+    transition: filter 0.1s ease, transform 0.1s ease;
+}
+.debug-btn:hover {
+    filter: brightness(1.3);
+}
+.debug-btn:active {
+    transform: scale(0.95);
+}
+.debug-btn:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 1px;
 }
 
 .debug-btn-danger {

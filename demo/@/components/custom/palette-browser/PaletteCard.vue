@@ -76,7 +76,7 @@
                 <!-- Vote count -->
                 <button
                     v-if="!palette.isLocal"
-                    class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent transition-colors duration-[var(--duration-fast)] cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+                    class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors duration-[var(--duration-fast)] cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
                     :aria-label="`${palette.voteCount ?? 0} votes, click to vote`"
                     @click.stop="emit('vote', palette)"
                 >
@@ -101,7 +101,7 @@
                 >
                     <template #trigger>
                         <button
-                            class="p-1 bg-transparent border-none shadow-none cursor-pointer focus-visible:outline-none"
+                            class="p-1 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                             aria-label="Palette menu"
                         >
                             <MoreHorizontal class="w-4 h-4 text-muted-foreground" />
@@ -146,7 +146,7 @@
                         :style="{ color: safeFirstColor, borderColor: safeFirstColor }"
                     >{{ displaySlug }}</span>
                     <button
-                        class="p-0.5 rounded-sm hover:bg-accent transition-colors cursor-pointer shrink-0"
+                        class="p-0.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                         @click="copyToClipboard(displaySlug)"
                     >
                         <Copy class="w-3 h-3 text-muted-foreground" />
@@ -171,13 +171,15 @@
                         @update:open="(v: boolean) => onPopoverUpdateTouch(v, i)"
                     >
                         <template #actions>
-                            <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5">
+                            <!-- floating-panel-item: glass-ui utility listed in floating-panel.css comment
+                                 but not yet defined — four-state applied demo-side (HARDEN-4 §2, §5.3) -->
+                            <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                                 <Plus class="w-4 h-4" />
                             </button>
-                            <button @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5">
+                            <button @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                                 <Pencil class="w-4 h-4" />
                             </button>
-                            <button @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5">
+                            <button @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                                 <Copy class="w-4 h-4" />
                             </button>
                         </template>

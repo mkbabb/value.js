@@ -37,6 +37,7 @@ function capitalize(s: string): string {
 <template>
     <div class="flex items-center gap-2">
         <Select :model-value="modelValue" @update:model-value="(v: string) => emit('update:modelValue', v)">
+            <!-- A.W4: h-9 pending glass-ui SelectTrigger size prop (coordination/Q.md §3) -->
             <SelectTrigger aria-label="Easing function" class="h-9 text-caption min-w-[var(--menu-min-w)]">
                 <SelectValue />
             </SelectTrigger>

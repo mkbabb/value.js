@@ -72,7 +72,7 @@
                             >
                                 <template #trigger>
                                     <button
-                                        class="block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0"
+                                        class="block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
                                         :style="{ backgroundColor: pickerHex }"
                                     />
                                 </template>
@@ -87,10 +87,12 @@
                                     @keydown.enter="applyColorSearch"
                                 />
                                 <button
-                                    class="absolute right-0.5 top-0.5 h-6 px-2 rounded-[var(--radius-sm)] text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-[var(--duration-fast)] cursor-pointer"
+                                    :disabled="searching"
+                                    class="absolute right-0.5 top-0.5 h-6 px-2 rounded-[var(--radius-sm)] text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-[var(--duration-fast)] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
                                     @click="applyColorSearch"
                                 >
-                                    Search
+                                    <Loader2 v-if="searching" class="h-3 w-3 animate-spin" />
+                                    <span v-else>Search</span>
                                 </button>
                             </div>
                         </div>
@@ -128,6 +130,7 @@ import {
     GitFork,
     Award,
     X,
+    Loader2,
 } from "lucide-vue-next";
 import type { Tag } from "@lib/palette/types";
 import { srgbToOKLab } from "@src/units/color/gamut";
@@ -159,6 +162,7 @@ const colorText = ref("");
 const pickerHex = ref("#4488cc");
 const colorSearchActive = ref(false);
 const miniPickerOpen = ref(false);
+const searching = ref(false);
 
 function onPickerHexUpdate(hex: string) {
     pickerHex.value = hex;
@@ -196,12 +200,18 @@ function hexToOklab(hex: string): { L: number; a: number; b: number } {
     return { L, a, b };
 }
 
-function applyColorSearch() {
-    const text = colorText.value.trim();
-    const hex = text.startsWith("#") && /^#[0-9a-f]{6}$/i.test(text) ? text : pickerHex.value;
-    const lab = hexToOklab(hex);
-    colorSearchActive.value = true;
-    emit("colorSearch", lab.L, lab.a, lab.b);
+async function applyColorSearch() {
+    if (searching.value) return;
+    searching.value = true;
+    try {
+        const text = colorText.value.trim();
+        const hex = text.startsWith("#") && /^#[0-9a-f]{6}$/i.test(text) ? text : pickerHex.value;
+        const lab = hexToOklab(hex);
+        colorSearchActive.value = true;
+        emit("colorSearch", lab.L, lab.a, lab.b);
+    } finally {
+        searching.value = false;
+    }
 }
 
 function onClearAll() {
