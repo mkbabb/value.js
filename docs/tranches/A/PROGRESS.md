@@ -111,13 +111,32 @@ Dark mode does not apply on cold load. `useGlobalDark` (glass-ui) wraps `useDark
 - `92fe64d` — `fix(tranche-a/w1)`: 11 Card sites → `tier`.
 - `efc7d25` — `fix(tranche-a/w1)`: 3 undefined classes + `ColorInput` radius.
 
+## 2026-05-18 — A.W2 close — Style co-location + resilience
+
+The orchestrator owned the global stylesheets (`style.css`, `utils.css`) — one coherent refactor by the single file owner. Three agents ran in parallel on disjoint SFC sets (partitioned by file ownership; no two agents touched the same file). This substitutes for the plan's worktree-isolation mechanism — the invariant it protects (no concurrent writes to one file) is satisfied by single-owner partitioning.
+
+### What landed
+
+- **Global stylesheets (orchestrator)** — dock calc chain de-tangled and documented; magic literal `0.75rem` named `--dock-padding-y`; `.app-layout` derives row sizing from `grid-template-rows` (dock-clearance row + `1fr` content row), `.pane-container` placed in `grid-row: 2`; the two dead `@theme` tokens `--color-ppmycota`/`--ppmycota-primary` deleted (zero consumers); `.section-subtitle` moved to `utils.css` with standard `line-clamp`; `.filter-section`/`.filter-option` removed from `style.css` (re-homed in `SearchFilterBar.vue`); `--menu-min-w` token added; the `.underline-tabs` reka-ui override kept with a coordination marker.
+- **Lane B** (`audit/W2-lane-b.md`) — 6 unscoped `<style>` blocks split (plain selectors → `scoped`, transition/portal selectors stay global); `SearchFilterBar` re-homes the filter recipe; Ab-1 surface classes, Ab-2 `--shadow-modal`, Ab-4 (PaletteDialogHeader gold), Ab-17 radius fallback.
+- **Lane C+A** (`audit/W2-lane-ca.md`) — deprecated CSS retired (`-webkit-overflow-scrolling`, `::-webkit-scrollbar`→`.scrollbar-hidden`, native range inputs→reka-ui `Slider`); bare z-index → glass-ui z-tier tokens (3 SFCs); Ab-16 recorded-deferred (dev-only).
+- **Lane D** (`audit/W2-lane-d.md`) — Ab-3/4/5/6/7/18/19: ad-hoc colors→`--color-gold`, utility-soup surfaces→`.input-bar`/`.glass-floating`, arbitrary menu widths→`--menu-min-w` (two kept wider with recorded content rationale), magic-pixel `max-h`→flex layout, raw shadow→`--shadow-sm`.
+
+### Plan deviation — `--dock-pos` (recorded per the scope-reveal protocol)
+
+`waves/W2.md` Lane A item 1 prescribed recomputing `--dock-pos` "purely from the dock's own footprint" so `--content-max-h` becomes a leaf. Runtime measurement showed this prescription conflicts with the same wave's gate item 3 ("dock position matches the W0 baseline within 1px at 1280×800 **and a 21:9 viewport**"): the original `--dock-pos` centring formula places the dock at **173px** at 2520×1080, while a footprint-only `--dock-pos = --dock-inset` pins it at **8px** — a 165px relocation, a visible behavior change at ultra-wide. The 21:9 centred-cluster layout is a deliberate design (the `@media (min-aspect-ratio: 21/9)` block tunes it). Per "evidence beats claims", the gate (runtime evidence) overrides the soft prescription: `--dock-pos` keeps its centring dependency on `--content-max-h`, now documented as an explicit one-way derivation rather than a fold-back. The genuine fragility — silent, undocumented coupling — is resolved by documentation; the dependency itself is correct. Verified: W2 dock position is 8px @ 1280×800 and 173px @ 2520×1080, both 0px from the W0 baseline.
+
+### Gate evidence
+
+`style.css` holds no plain component selector; no unscoped `<style>` keeps a non-transition/non-portal selector; deprecated `-webkit-*` retired; `vue-tsc` 246 (unchanged); `npm test` 1409 passed. Playwright (`audit/W2-playwright/`): dock position 0px from baseline at both viewports, layout intact, 0 console errors.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | W0 HEADLINE — consumer un-break + repo hygiene | closed | 2026-05-18 | 2026-05-18 | bc7ad2c, c20f609 |
 | W1 — Card surface + real-bug sweep | closed | 2026-05-18 | 2026-05-18 | 92fe64d, efc7d25 |
-| W2 — style co-location + resilience | planned | — | — | — |
+| W2 — style co-location + resilience | closed | 2026-05-18 | 2026-05-18 | 3b72007, f0b8c54, 3a1b673, 6b3b64e |
 | W3 — design tokens + hierarchy | planned | — | — | — |
 | W4 — interactive states + structure | planned | — | — | — |
 | W5 — accessibility + animation + e2e integrity | planned | — | — | — |
