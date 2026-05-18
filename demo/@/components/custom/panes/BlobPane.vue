@@ -1,186 +1,91 @@
 <script setup lang="ts">
+// BlobPane — metaball blob tuning pane. Consumes ConfigSliderPane (Ae-6
+// merge). The slider definitions and section structure are unchanged; the
+// slider-pane layout and copy/reset dock are now owned by ConfigSliderPane.
+
 import { inject } from "vue";
-import { Button } from "@components/ui/button";
-import { Card } from "@components/ui/card";
-import { Slider } from "@components/ui/slider";
-import { Copy, RotateCcw } from "lucide-vue-next";
-import { GlassDock } from "@mkbabb/glass-ui/dock";
-import PaneHeader from "./PaneHeader.vue";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@components/custom/goo-blob";
 import type { BlobConfig } from "@components/custom/goo-blob";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import ConfigSliderPane from "./ConfigSliderPane.vue";
+import type { SliderSection } from "./ConfigSliderPane.vue";
 
 const cfg = inject(BLOB_CONFIG_KEY)!;
 
-type NumericKey = { [K in keyof BlobConfig]: BlobConfig[K] extends number ? K : never }[keyof BlobConfig];
+type NumericKey = {
+    [K in keyof BlobConfig]: BlobConfig[K] extends number ? K : never
+}[keyof BlobConfig];
 
-interface SliderDef {
-    key: NumericKey;
-    label: string;
-    min: number;
-    max: number;
-    step: number;
+// Helper to make the typed key assertion explicit for the section arrays.
+function s(key: NumericKey, label: string, min: number, max: number, step: number) {
+    return { key, label, min, max, step };
 }
 
-const GEOMETRY: SliderDef[] = [
-    { key: "bodyRadius", label: "Body Radius", min: 0.08, max: 0.45, step: 0.005 },
-    { key: "satelliteCount", label: "Satellites", min: 0, max: 4, step: 1 },
-    { key: "satelliteRadius", label: "Sat Radius", min: 0.02, max: 0.20, step: 0.005 },
-    { key: "orbitRadius", label: "Orbit Radius", min: 0.15, max: 0.48, step: 0.005 },
+const SECTIONS: SliderSection[] = [
+    {
+        title: "Geometry",
+        defs: [
+            s("bodyRadius", "Body Radius", 0.08, 0.45, 0.005),
+            s("satelliteCount", "Satellites", 0, 4, 1),
+            s("satelliteRadius", "Sat Radius", 0.02, 0.20, 0.005),
+            s("orbitRadius", "Orbit Radius", 0.15, 0.48, 0.005),
+        ],
+    },
+    {
+        title: "Gooey",
+        defs: [s("smoothK", "Smooth K", 0.02, 0.45, 0.005)],
+    },
+    {
+        title: "Surface Noise",
+        defs: [
+            s("noiseAmp", "Amplitude", 0.0, 0.10, 0.001),
+            s("noiseFreq", "Frequency", 0.5, 10.0, 0.1),
+            s("noiseSpeed", "Speed", 0.0, 0.5, 0.005),
+        ],
+    },
+    {
+        title: "Pulsation",
+        defs: [
+            s("pulseFreq", "Frequency", 0.0, 2.0, 0.01),
+            s("pulseAmp", "Amplitude", 0.0, 0.06, 0.001),
+        ],
+    },
+    {
+        title: "Color",
+        defs: [
+            s("hueRange", "Hue Range", 0, 60, 1),
+            s("satShift", "Saturation", -0.2, 0.2, 0.005),
+            s("brightnessShift", "Brightness", -0.15, 0.15, 0.005),
+            s("colorNoiseFreq", "Noise Freq", 0.5, 8.0, 0.1),
+            s("colorNoiseSpeed", "Noise Speed", 0.0, 0.3, 0.005),
+        ],
+    },
+    {
+        title: "Pointer",
+        defs: [
+            s("pointerAttraction", "Attraction", -1.0, 1.0, 0.05),
+            s("pointerStrength", "Strength", 0.0, 0.3, 0.005),
+        ],
+    },
+    {
+        title: "Orbit",
+        defs: [
+            s("eccentricity", "Eccentricity", 0.0, 0.5, 0.01),
+            s("orbitSpeedScale", "Speed", 0.1, 3.0, 0.05),
+            s("wobbleScale", "Wobble", 0.0, 3.0, 0.05),
+            s("mergeRate", "Merge Rate", 0.1, 3.0, 0.05),
+            s("mergeDuration", "Merge (ms)", 500, 5000, 100),
+            s("emergeDuration", "Emerge (ms)", 500, 5000, 100),
+        ],
+    },
 ];
-
-const GOOEY: SliderDef[] = [
-    { key: "smoothK", label: "Smooth K", min: 0.02, max: 0.45, step: 0.005 },
-];
-
-const NOISE: SliderDef[] = [
-    { key: "noiseAmp", label: "Amplitude", min: 0.0, max: 0.10, step: 0.001 },
-    { key: "noiseFreq", label: "Frequency", min: 0.5, max: 10.0, step: 0.1 },
-    { key: "noiseSpeed", label: "Speed", min: 0.0, max: 0.5, step: 0.005 },
-];
-
-const PULSE: SliderDef[] = [
-    { key: "pulseFreq", label: "Frequency", min: 0.0, max: 2.0, step: 0.01 },
-    { key: "pulseAmp", label: "Amplitude", min: 0.0, max: 0.06, step: 0.001 },
-];
-
-const COLOR: SliderDef[] = [
-    { key: "hueRange", label: "Hue Range", min: 0, max: 60, step: 1 },
-    { key: "satShift", label: "Saturation", min: -0.2, max: 0.2, step: 0.005 },
-    { key: "brightnessShift", label: "Brightness", min: -0.15, max: 0.15, step: 0.005 },
-    { key: "colorNoiseFreq", label: "Noise Freq", min: 0.5, max: 8.0, step: 0.1 },
-    { key: "colorNoiseSpeed", label: "Noise Speed", min: 0.0, max: 0.3, step: 0.005 },
-];
-
-const POINTER: SliderDef[] = [
-    { key: "pointerAttraction", label: "Attraction", min: -1.0, max: 1.0, step: 0.05 },
-    { key: "pointerStrength", label: "Strength", min: 0.0, max: 0.3, step: 0.005 },
-];
-
-const ORBIT: SliderDef[] = [
-    { key: "eccentricity", label: "Eccentricity", min: 0.0, max: 0.5, step: 0.01 },
-    { key: "orbitSpeedScale", label: "Speed", min: 0.1, max: 3.0, step: 0.05 },
-    { key: "wobbleScale", label: "Wobble", min: 0.0, max: 3.0, step: 0.05 },
-    { key: "mergeRate", label: "Merge Rate", min: 0.1, max: 3.0, step: 0.05 },
-    { key: "mergeDuration", label: "Merge (ms)", min: 500, max: 5000, step: 100 },
-    { key: "emergeDuration", label: "Emerge (ms)", min: 500, max: 5000, step: 100 },
-];
-
-const SECTIONS = [
-    { title: "Geometry", defs: GEOMETRY },
-    { title: "Gooey", defs: GOOEY },
-    { title: "Surface Noise", defs: NOISE },
-    { title: "Pulsation", defs: PULSE },
-    { title: "Color", defs: COLOR },
-    { title: "Pointer", defs: POINTER },
-    { title: "Orbit", defs: ORBIT },
-];
-
-function update(key: NumericKey, value: number) {
-    (cfg as Record<string, number>)[key] = value;
-}
-
-function fmt(v: number): string {
-    return Number.isInteger(v) ? String(v) : v.toFixed(3);
-}
-
-async function copyAsJson() {
-    const snapshot: Record<string, unknown> = {};
-    for (const k of Object.keys(BLOB_CONFIG_DEFAULTS) as (keyof BlobConfig)[]) {
-        snapshot[k] = cfg[k];
-    }
-    await copyToClipboard(JSON.stringify(snapshot, null, 2));
-}
-
-function resetDefaults() {
-    Object.assign(cfg, BLOB_CONFIG_DEFAULTS);
-}
 </script>
 
 <template>
-    <div class="relative w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-full min-w-0">
-        <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full relative">
-            <PaneHeader description="Tune metaball geometry, gooey blend, noise, and satellite behavior.">
-                Blob
-            </PaneHeader>
-
-            <div class="flex flex-col gap-5 px-4 sm:px-6 pt-2 pb-20">
-                <div
-                    v-for="section in SECTIONS"
-                    :key="section.title"
-                    class="flex flex-col gap-2.5"
-                >
-                    <div class="config-section-header">
-                        <span class="config-section-title">{{ section.title }}</span>
-                    </div>
-
-                    <div
-                        v-for="def in section.defs"
-                        :key="def.key"
-                        class="flex flex-col gap-0.5"
-                    >
-                        <div class="flex items-center justify-between">
-                            <span class="section-label normal-case tracking-normal">{{ def.label }}</span>
-                            <span class="section-label normal-case tracking-normal tabular-nums">
-                                {{ fmt(cfg[def.key] as number) }}
-                            </span>
-                        </div>
-                        <Slider
-                            :aria-label="def.label"
-                            variant="spectrum"
-                            :model-value="[cfg[def.key] as number]"
-                            :min="def.min"
-                            :max="def.max"
-                            :step="def.step"
-                            @update:model-value="(v: number[]) => update(def.key, v[0]!)"
-                        />
-                    </div>
-                </div>
-            </div>
-
-            <!-- Floating glass dock at bottom -->
-            <div class="config-dock-anchor">
-                <GlassDock :always-expanded="true" :fit-content="true">
-                    <Button variant="ghost" size="sm" @click="copyAsJson">
-                        <Copy class="w-3.5 h-3.5" />
-                        Copy JSON
-                    </Button>
-                    <Button variant="ghost" size="sm" @click="resetDefaults">
-                        <RotateCcw class="w-3.5 h-3.5" />
-                        Reset
-                    </Button>
-                </GlassDock>
-            </div>
-        </Card>
-    </div>
+    <ConfigSliderPane
+        :config="(cfg as unknown) as Record<string, unknown>"
+        :sections="SECTIONS"
+        :defaults="(BLOB_CONFIG_DEFAULTS as unknown) as Record<string, unknown>"
+        title="Blob"
+        description="Tune metaball geometry, gooey blend, noise, and satellite behavior."
+    />
 </template>
-
-<style scoped>
-@reference "../../../styles/style.css";
-
-.config-section-header {
-    border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
-    padding-bottom: 0.375rem;
-}
-
-.config-section-title {
-    font-family: var(--font-mono);
-    font-size: var(--type-small);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-caps);
-    color: var(--muted-foreground);
-}
-
-.config-dock-anchor {
-    position: sticky;
-    bottom: 0.75rem;
-    display: flex;
-    justify-content: center;
-    z-index: var(--z-content);
-    pointer-events: none;
-}
-
-.config-dock-anchor > * {
-    pointer-events: auto;
-}
-</style>

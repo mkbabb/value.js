@@ -25,98 +25,40 @@
         >
             <!-- Mobile: single pane slot (below lg) -->
             <div class="lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
-                <Transition :name="viewManager.ready.value ? 'pane-left' : ''" mode="out-in">
-                    <KeepAlive :max="5">
-                        <component
-                            :is="mobileComponent"
-                            :key="mobileKey"
-                            v-bind="mobileProps"
-                        />
-                    </KeepAlive>
-                </Transition>
+                <PaneSlot
+                    :component="mobileComponent"
+                    :component-key="mobileKey"
+                    :component-props="mobileProps"
+                    :transition-name="viewManager.ready.value ? 'pane-left' : ''"
+                    :max="5"
+                />
             </div>
 
             <!-- Desktop: left pane (lg+) -->
-            <div
-                :class="[
-                    'pane-wrapper hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col',
-                    'justify-center',
-                ]"
-            >
-                <Transition :name="viewManager.ready.value ? 'pane-left' : ''" mode="out-in">
-                    <KeepAlive :max="6">
-                        <ColorPicker
-                            v-if="currentConfig.left === 'color-picker'"
-                            key="color-picker"
-                            ref="colorPickerRef"
-                            class="picker-shell w-full"
-                            v-model="model"
-                            @reset="resetToDefaults"
-                            @update:edit-target="onEditTargetChange"
-                        />
-                        <BrowsePane
-                            v-else-if="currentConfig.left === 'browse'"
-                            key="browse"
-                        />
-                        <ExtractPane
-                            v-else-if="currentConfig.left === 'extract'"
-                            key="extract"
-                            :color-space="model.selectedColorSpace"
-                        />
-                        <GeneratePane
-                            v-else-if="currentConfig.left === 'generate'"
-                            key="generate"
-                            ref="generatePaneRef"
-                        />
-                        <GradientPane
-                            v-else-if="currentConfig.left === 'gradient'"
-                            key="gradient"
-                            ref="gradientPaneRef"
-                        />
-                        <AuroraPane
-                            v-else-if="currentConfig.left === 'atmosphere'"
-                            key="atmosphere"
-                        />
-                        <AdminPane
-                            v-else-if="currentConfig.left.startsWith('admin-')"
-                            :key="currentConfig.left"
-                            :sub-view="currentConfig.left"
-                        />
-                    </KeepAlive>
-                </Transition>
+            <div class="pane-wrapper hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
+                <PaneSlot
+                    :component="desktopLeftComponent"
+                    :component-key="desktopLeftKey"
+                    :component-props="desktopLeftProps"
+                    :on-mount="onDesktopLeftMount"
+                    :transition-name="viewManager.ready.value ? 'pane-left' : ''"
+                    :max="6"
+                />
             </div>
 
             <!-- Desktop: right pane (lg+) — always in DOM to preserve scroll-timeline state -->
             <div
                 class="pane-wrapper hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
-                :style="currentConfig.right === null ? 'visibility:hidden;position:absolute;pointer-events:none;opacity:0' : ''"
+                :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
             >
-                <Transition :name="viewManager.ready.value ? 'pane-right' : ''" mode="out-in">
-                    <KeepAlive :max="3">
-                        <AboutPane
-                            v-if="currentConfig.right === 'about'"
-                            key="about"
-                            v-model="model"
-                            :css-color="cssColor"
-                        />
-                        <PalettesPane
-                            v-else-if="currentConfig.right === 'palettes'"
-                            key="palettes"
-                            :saved-color-strings="savedColorStrings"
-                            @commit-edit="colorPickerRef?.commitEdit()"
-                            @cancel-edit="colorPickerRef?.cancelEdit()"
-                        />
-                        <MixPane
-                            v-else-if="currentConfig.right === 'mix'"
-                            key="mix"
-                            ref="mixPaneRef"
-                        />
-                        <BlobPane
-                            v-else-if="currentConfig.right === 'blob'"
-                            key="blob"
-                        />
-                    </KeepAlive>
-                </Transition>
+                <PaneSlot
+                    :component="desktopRightComponent"
+                    :component-key="desktopRightKey"
+                    :component-props="desktopRightProps"
+                    :on-mount="onDesktopRightMount"
+                    :transition-name="viewManager.ready.value ? 'pane-right' : ''"
+                    :max="3"
+                />
             </div>
         </div>
     </div>
@@ -131,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineAsyncComponent, onMounted, provide, reactive, ref, shallowRef, watch } from "vue";
+import { computed, onMounted, provide, reactive, ref, shallowRef } from "vue";
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import { ColorPicker } from "@components/custom/color-picker";
@@ -139,39 +81,39 @@ import { CSS_COLOR_KEY, SAFE_ACCENT_KEY, EDIT_TARGET_KEY } from "@components/cus
 import { useContrastSafeColor } from "@composables/color/useContrastSafeColor";
 
 import { Dock } from "@components/custom/dock";
-const AboutPane = defineAsyncComponent(() => import("@components/custom/panes/AboutPane.vue"));
-const PalettesPane = defineAsyncComponent(() => import("@components/custom/panes/PalettesPane.vue"));
-const BrowsePane = defineAsyncComponent(() => import("@components/custom/panes/BrowsePane.vue"));
 import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
 import SvgFilters from "@components/custom/svg-filters/SvgFilters.vue";
+import PaneSlot from "@components/custom/panes/PaneSlot.vue";
 
 import { defaultColorModel } from "@components/custom/color-picker";
-import { normalizeColorUnit, colorUnit2 } from "@src/units/color/normalize";
-import { parseCSSColor } from "@src/parsing/color";
 import { useCustomColorNames } from "@components/custom/color-picker/composables/useCustomColorNames";
 import { useColorUrl } from "@components/custom/color-picker/composables/useColorUrl";
 
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { useAppColorModel } from "@composables/color/useAppColorModel";
 import { useGenericActionBar } from "@components/custom/dock/composables/useGenericActionBar";
-import { useMobilePaneRouter, ExtractPane, GeneratePane, GradientPane, MixPane, AdminPane, AuroraPane, BlobPane } from "@composables/useMobilePaneRouter";
-import { usePaletteManager } from "@composables/palette/usePaletteManager";
+import { useMobilePaneRouter } from "@composables/useMobilePaneRouter";
+import { useDesktopPaneRouter } from "@composables/useDesktopPaneRouter";
+import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
+import { useAtmosphere } from "@composables/useAtmosphere";
+import { useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import { useAurora, DEFAULT_AURORA_CONFIG } from "@mkbabb/glass-ui/aurora";
-import type { AuroraConfig } from "@mkbabb/glass-ui/aurora";
+
+import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@components/custom/goo-blob";
 
 import "@styles/utils.css";
 import "@styles/style.css";
 
-// --- Color model ---
+// --- Dark mode: initialize global dark state eagerly so the user's saved
+//     preference takes effect before the Dock profile menu mounts. ---
+useGlobalDark();
 
-// Plain ref (not useTemplateRef): useAurora's signature wants a writable
-// Ref<HTMLCanvasElement | null>, and this matches glass-ui Aurora.vue's own
-// canvas-ref pattern. Vue binds the template `ref="atmosphereCanvas"` to it.
+// --- Template refs ---
 const atmosphereCanvas = ref<HTMLCanvasElement | null>(null);
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
 const model = shallowRef<ColorModel>(defaultColorModel);
 
+// --- Color model ---
 const {
     cssColor,
     cssColorOpaque,
@@ -182,7 +124,6 @@ const {
 } = useAppColorModel(model);
 
 // --- Edit target ---
-
 const activeEditTarget = shallowRef<EditTarget | null>(null);
 const onEditTargetChange = (et: EditTarget | null) => { activeEditTarget.value = et; };
 provide(EDIT_TARGET_KEY, activeEditTarget);
@@ -192,25 +133,34 @@ const { safeAccentCss } = useContrastSafeColor(model, cssColorOpaque);
 provide(SAFE_ACCENT_KEY, safeAccentCss);
 
 // --- View manager ---
-
 const viewManager = useViewManager();
 provide(VIEW_MANAGER_KEY, viewManager);
-
 const currentConfig = computed(() => viewManager.currentConfig.value);
 
 // --- Generic action bar (per-view) ---
-
+// These refs are populated by the onMount callbacks on desktop PaneSlots.
 const generatePaneRef = ref<any>(null);
 const gradientPaneRef = ref<any>(null);
 const mixPaneRef = ref<any>(null);
-
 const genericActionBar = useGenericActionBar(
     computed(() => viewManager.currentView.value),
     { generate: generatePaneRef, gradient: gradientPaneRef, mix: mixPaneRef },
 );
 
-// --- Mobile pane routing ---
+// Ref-capture callbacks for desktop pane slots (replaces direct template refs).
+// Called by PaneSlot's :on-mount prop when the inner component mounts/unmounts.
+function onDesktopLeftMount(el: any) {
+    const left = currentConfig.value.left;
+    colorPickerRef.value = left === "color-picker" ? el : null;
+    generatePaneRef.value = left === "generate" ? el : null;
+    gradientPaneRef.value = left === "gradient" ? el : null;
+}
 
+function onDesktopRightMount(el: any) {
+    mixPaneRef.value = currentConfig.value.right === "mix" ? el : null;
+}
+
+// --- Mobile pane routing ---
 const { mobileComponent, mobileKey, mobileProps } = useMobilePaneRouter(
     viewManager,
     model,
@@ -224,84 +174,34 @@ const { mobileComponent, mobileKey, mobileProps } = useMobilePaneRouter(
     },
 );
 
-// --- Palette manager ---
-
-const paletteManager = usePaletteManager({
-    currentView: viewManager.currentView,
-    switchView: viewManager.switchView,
+// --- Desktop pane routing (companion to useMobilePaneRouter) ---
+const {
+    desktopLeftComponent,
+    desktopLeftKey,
+    desktopLeftProps,
+    desktopRightComponent,
+    desktopRightKey,
+    desktopRightProps,
+} = useDesktopPaneRouter({
+    currentConfig,
+    model,
+    colorPickerRef,
+    onEditTargetChange,
+    resetToDefaults,
+    cssColor,
     savedColorStrings,
-    emitApply: (colors: string[]) => {
-        if (colorPickerRef.value) {
-            colorPickerRef.value.onPaletteApply(colors);
-        } else {
-            if (colors.length === 0) return;
-            applyColorString(colors[0]);
-        }
-    },
-    emitAddColor: (css: string) => {
-        const cfg = viewManager.currentConfig.value;
-        if (cfg.right !== "palettes") {
-            viewManager.switchView("palettes");
-        }
-        try {
-            const parsed = parseCSSColor(css);
-            if (!parsed) return;
-            const normalized = normalizeColorUnit(parsed);
-            const newStr = normalizeColorUnit(normalized, true, false).value.toFormattedString(2);
-
-            const savedColors = [...model.value.savedColors];
-            const existingIdx = savedColors.findIndex((c: any) => {
-                try { return normalizeColorUnit(c, true, false).value.toFormattedString(2) === newStr; }
-                catch { return false; }
-            });
-
-            if (existingIdx >= 0) {
-                if (existingIdx > 0) {
-                    const [existing] = savedColors.splice(existingIdx, 1);
-                    savedColors.unshift(existing);
-                    model.value = { ...model.value, savedColors };
-                }
-            } else {
-                savedColors.unshift(normalized);
-                model.value = { ...model.value, savedColors };
-            }
-        } catch {
-            const tryAdd = () => {
-                if (colorPickerRef.value) {
-                    colorPickerRef.value.onPaletteAddColor(css);
-                } else {
-                    setTimeout(tryAdd, 50);
-                }
-            };
-            tryAdd();
-        }
-    },
-    emitStartEdit: (target) => {
-        const cur = viewManager.currentView.value;
-        if (cur !== "picker" && cur !== "palettes") {
-            viewManager.switchView("palettes");
-        }
-        viewManager.mobilePaneIndex.value = 0;
-        const tryStartEdit = () => {
-            if (colorPickerRef.value) {
-                colorPickerRef.value.onStartEdit(target);
-            } else {
-                setTimeout(tryStartEdit, 50);
-            }
-        };
-        setTimeout(tryStartEdit, 50);
-    },
-    emitSetCurrentColor: (css: string) => {
-        if (colorPickerRef.value?.applyExternalColor) {
-            colorPickerRef.value.applyExternalColor(css);
-        } else {
-            applyColorString(css);
-        }
-    },
 });
 
-// --- Share link ---
+// --- Palette manager ---
+const paletteManager = usePaletteManagerWiring(
+    colorPickerRef,
+    viewManager,
+    model,
+    applyColorString,
+    savedColorStrings,
+);
 
+// --- Share link ---
 const linkCopied = ref(false);
 let linkCopiedTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -315,20 +215,14 @@ const shareLink = async () => {
 };
 
 // --- URL sync + custom color names ---
-
 useColorUrl({ model, updateModel });
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
 // --- Aurora atmosphere ---
-
-const auroraConfig = reactive<AuroraConfig>(structuredClone(DEFAULT_AURORA_CONFIG));
-useAurora(atmosphereCanvas, () => auroraConfig, {
-    onInitError: (err) => console.warn("[aurora] init failed:", err),
-});
+const { auroraConfig } = useAtmosphere(atmosphereCanvas);
 provide("auroraConfig", auroraConfig);
 
 // --- Blob config ---
-import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@components/custom/goo-blob";
 const blobConfig = reactive({ ...BLOB_CONFIG_DEFAULTS });
 provide(BLOB_CONFIG_KEY, blobConfig);
 
@@ -343,6 +237,15 @@ onMounted(() => { loadCustomColorNames(); });
     transition: height var(--duration-slow) var(--ease-standard),
                 margin var(--duration-slow) var(--ease-standard),
                 padding var(--duration-slow) var(--ease-standard);
+}
+
+/* Ghost pane: always in DOM to preserve scroll-timeline state, but invisible
+   and non-interactive. Replaces the former inline 5-property style hack. */
+.pane-wrapper--ghost {
+    visibility: hidden;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
 }
 
 /* ── Pane slide — shared enter/leave with CSS variable direction ── */
