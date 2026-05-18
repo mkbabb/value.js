@@ -9,7 +9,7 @@
                     @click="onBlobClick"
                 />
             </TooltipTrigger>
-            <TooltipContent class="font-mono-code">
+            <TooltipContent class="fira-code">
                 {{ denormalizedCurrentColor.value.toFormattedString() }}
             </TooltipContent>
         </Tooltip>

@@ -24,7 +24,7 @@
                         </TooltipTrigger>
                         <TooltipContent side="left" class="max-w-56">
                             <p class="font-display text-sm font-semibold">{{ componentDescription(component) }}</p>
-                            <p class="font-mono-code text-xs opacity-60 mt-0.5">{{ currentColorRanges[component] }}</p>
+                            <p class="fira-code text-xs opacity-60 mt-0.5">{{ currentColorRanges[component] }}</p>
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
@@ -82,7 +82,7 @@
                                         class="slider-thumb block h-full w-3 rounded-full border-2 border-gray-200 bg-transparent transition-colors focus-visible:outline-none"
                                     />
                                 </TooltipTrigger>
-                                <TooltipContent class="font-mono-code">
+                                <TooltipContent class="fira-code">
                                     {{
                                         denormalizedCurrentColor.value[
                                             component

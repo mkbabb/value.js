@@ -95,7 +95,7 @@ defineExpose({ regenerate, save, copyColors });
                             >
                                 {{ capitalize(p) }}
                                 <template #description>
-                                    <span class="text-2xs text-muted-foreground/60">{{ GENERATION_PRESETS[p].description }}</span>
+                                    <span class="text-micro text-muted-foreground/60">{{ GENERATION_PRESETS[p].description }}</span>
                                 </template>
                             </SelectItem>
                         </SelectContent>
@@ -117,7 +117,7 @@ defineExpose({ regenerate, save, copyColors });
                             >
                                 {{ capitalize(h) }}
                                 <template #description>
-                                    <span class="text-2xs text-muted-foreground/60">{{ HARMONY_DEFS[h].description }}</span>
+                                    <span class="text-micro text-muted-foreground/60">{{ HARMONY_DEFS[h].description }}</span>
                                 </template>
                             </SelectItem>
                         </SelectContent>

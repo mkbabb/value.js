@@ -8,7 +8,7 @@
                 v-model="tokenInput"
                 type="password"
                 placeholder="Admin token..."
-                class="font-mono-code text-base h-10 flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
+                class="fira-code text-base h-10 flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
             />
             <Button
                 type="submit"

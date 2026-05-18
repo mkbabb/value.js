@@ -147,7 +147,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         <SelectItem v-for="t in GRADIENT_TYPES" :key="t.value" :value="t.value">
                             {{ t.label }}
                             <template #description>
-                                <span class="text-2xs text-muted-foreground/60">{{ t.description }}</span>
+                                <span class="text-micro text-muted-foreground/60">{{ t.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>
@@ -165,7 +165,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         <SelectItem v-for="s in INTERPOLATION_SPACES" :key="s.value" :value="s.value">
                             {{ s.label }}
                             <template #description>
-                                <span class="text-2xs text-muted-foreground/60">{{ s.description }}</span>
+                                <span class="text-micro text-muted-foreground/60">{{ s.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>
@@ -183,7 +183,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         <SelectItem v-for="m in HUE_INTERPOLATION_METHODS" :key="m.value" :value="m.value">
                             {{ m.label }}
                             <template #description>
-                                <span class="text-2xs text-muted-foreground/60">{{ m.description }}</span>
+                                <span class="text-micro text-muted-foreground/60">{{ m.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>

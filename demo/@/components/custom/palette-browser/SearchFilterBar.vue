@@ -83,7 +83,7 @@
                                     v-model="colorText"
                                     type="text"
                                     placeholder="#hex, hsl(...)"
-                                    class="h-7 w-full rounded-[var(--radius-input)] border border-input bg-background pl-2 pr-14 font-mono-code text-caption truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                                    class="h-7 w-full rounded-[var(--radius-input)] border border-input bg-background pl-2 pr-14 fira-code text-caption truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                                     @keydown.enter="applyColorSearch"
                                 />
                                 <button

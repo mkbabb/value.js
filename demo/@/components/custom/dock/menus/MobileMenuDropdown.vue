@@ -76,7 +76,7 @@ const { toggleDark } = useGlobalDark();
                     </Avatar>
                     <div>
                         <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
-                        <p class="text-2xs italic text-muted-foreground leading-tight font-display">Color space picker &amp; converter</p>
+                        <p class="text-micro italic text-muted-foreground leading-tight font-display">Color space picker &amp; converter</p>
                     </div>
                 </div>
                 <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">

@@ -41,7 +41,7 @@
                     class="block h-6 w-6 rounded-full border-2 border-border shrink-0 shadow-cartoon-sm"
                     :style="{ backgroundColor: currentHex }"
                 />
-                <span class="font-mono-code text-caption flex-1 truncate text-muted-foreground">
+                <span class="fira-code text-caption flex-1 truncate text-muted-foreground">
                     {{ currentHex }}
                 </span>
                 <Button

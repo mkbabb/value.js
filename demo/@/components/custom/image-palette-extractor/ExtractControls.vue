@@ -46,7 +46,7 @@
 
             <!-- Chroma weight slider -->
             <div class="flex items-center gap-1.5 flex-1 min-w-0">
-                <label class="font-mono-code text-2xs text-muted-foreground/60 whitespace-nowrap" title="Chroma weight">kC</label>
+                <label class="fira-code text-micro text-muted-foreground/60 whitespace-nowrap" title="Chroma weight">kC</label>
                 <div
                     ref="kcSliderWrapperRef"
                     :class="[
@@ -72,7 +72,7 @@
                         @touchend.passive="kcGate.handleTouchEnd()"
                     />
                 </div>
-                <span class="font-mono-code text-2xs text-muted-foreground/50 tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
+                <span class="fira-code text-micro text-muted-foreground/50 tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
             </div>
 
             <div class="dock-separator" />

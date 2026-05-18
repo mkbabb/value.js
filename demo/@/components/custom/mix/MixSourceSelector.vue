@@ -141,7 +141,7 @@ watch(
             <Collapsible v-if="savedPalettes.length > 0" v-model:open="paletteDropdownOpen">
                 <CollapsibleTrigger class="flex items-center gap-2 w-full cursor-pointer group py-1">
                     <span class="section-label">From palettes</span>
-                    <span class="font-mono-code text-2xs text-muted-foreground/50">{{ savedPalettes.length }}</span>
+                    <span class="fira-code text-micro text-muted-foreground/50">{{ savedPalettes.length }}</span>
                     <div class="flex-1" />
                     <ChevronDown
                         class="w-4 h-4 text-muted-foreground/50 transition-transform group-hover:text-foreground"
@@ -159,7 +159,7 @@ watch(
                             <PaletteColorStrip :colors="palette.colors" />
                             <div class="px-3 py-2 flex items-center justify-between gap-2">
                                 <span class="text-small font-display font-semibold truncate">{{ palette.name }}</span>
-                                <span class="font-mono-code text-2xs text-muted-foreground shrink-0">{{ palette.colors.length }}</span>
+                                <span class="fira-code text-micro text-muted-foreground shrink-0">{{ palette.colors.length }}</span>
                             </div>
                             <!-- Clickable swatches -->
                             <div class="px-3 pb-3 flex flex-wrap gap-1.5">

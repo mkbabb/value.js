@@ -12,7 +12,7 @@
                         contenteditable
                         role="textbox"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
-                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-2xl px-3 py-2 focus-visible:outline-none font-mono-code text-ellipsis whitespace-nowrap text-center"
+                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-[var(--radius-input)] px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
                         :class="{
                             'pr-9': true,
                             'color-input-error': parseError && !proposeMode,
@@ -91,7 +91,7 @@
                 </p>
                 <Separator class="my-2" />
 
-                <div class="font-mono-code w-full flex justify-center">
+                <div class="fira-code w-full flex justify-center">
                     {{ denormalizedCurrentColor.value.toFormattedString() }}
                 </div>
             </HoverCardContent>
