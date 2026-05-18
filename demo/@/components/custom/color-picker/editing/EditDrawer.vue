@@ -1,7 +1,7 @@
 <template>
     <Teleport to="body">
         <Transition name="edit-drawer">
-            <div v-if="editTarget" class="edit-drawer p-4 flex flex-col gap-3 items-center">
+            <div v-if="editTarget" class="edit-drawer glass-quiet p-4 flex flex-col gap-3 items-center">
                 <p class="text-mono-small text-muted-foreground uppercase tracking-wider">Editing color</p>
                 <div class="flex items-center justify-center gap-2">
                     <WatercolorDot
@@ -71,21 +71,6 @@ const emit = defineEmits<{
 </script>
 
 <style>
-/* Edit drawer — peek panel that sticks out from left on desktop, bottom on mobile */
-.edit-drawer {
-    position: fixed;
-    z-index: var(--z-dock);
-    background: var(--glass-bg-subtle);
-    backdrop-filter: var(--glass-blur-default);
-    -webkit-backdrop-filter: var(--glass-blur-default);
-    border: 1px solid var(--border);
-    box-shadow: 4px 0 24px -4px color-mix(in srgb, var(--foreground) 15%, transparent);
-    animation: edit-drawer-in var(--duration-normal) var(--ease-standard);
-}
-/* Edit drawer is fully handled by TopDock on mobile and not needed on desktop */
-.edit-drawer {
-    display: none;
-}
 /* Edit drawer enter/leave transition */
 .edit-drawer-enter-active,
 .edit-drawer-leave-active {
@@ -105,5 +90,18 @@ const emit = defineEmits<{
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.85);
     }
+}
+</style>
+
+<style scoped>
+/* Edit drawer — peek panel that sticks out from left on desktop, bottom on mobile */
+.edit-drawer {
+    position: fixed;
+    z-index: var(--z-dock);
+    animation: edit-drawer-in var(--duration-normal) var(--ease-standard);
+}
+/* Edit drawer is fully handled by TopDock on mobile and not needed on desktop */
+.edit-drawer {
+    display: none;
 }
 </style>

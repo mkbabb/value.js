@@ -211,3 +211,19 @@ function onClearAll() {
     emit("clearFilters");
 }
 </script>
+
+<style scoped>
+@reference "../../../styles/style.css";
+
+.filter-section { padding: 0.75rem; }
+.filter-section > .section-label { margin-bottom: 0.375rem; }
+.filter-option {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-family: var(--font-serif); font-size: var(--type-small);
+    line-height: var(--leading-small); cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: background-color var(--duration-fast) var(--ease-standard);
+}
+.filter-option:hover { background-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+</style>

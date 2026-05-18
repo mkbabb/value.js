@@ -65,7 +65,7 @@ onUpdated(() => {
 });
 </script>
 
-<style>
+<style scoped>
 @reference "../../../styles/style.css";
 
 .markdown-body {

@@ -58,7 +58,7 @@ const activeBorderRadius = computed(() => {
 });
 </script>
 
-<style>
+<style scoped>
 /* Watercolor swatch — organic pastel blobs */
 .watercolor-swatch {
     border-radius: 48% 52% 55% 45% / 52% 48% 45% 55%;

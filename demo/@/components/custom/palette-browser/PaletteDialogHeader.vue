@@ -13,7 +13,7 @@
             <div class="flex items-center gap-2 sm:gap-3 min-w-0">
                 <!-- Color swatch dot -->
                 <WatercolorDot
-                    :color="isAdminAuthenticated ? '#D4AF37' : cssColorOpaque"
+                    :color="isAdminAuthenticated ? 'var(--color-gold)' : cssColorOpaque"
                     :class="[
                         'w-10 sm:w-12 aspect-square shrink-0 cursor-pointer',
                         isAdminAuthenticated && 'admin-golden',
@@ -63,7 +63,7 @@ defineEmits<{
 }>();
 </script>
 
-<style>
+<style scoped>
 /* Admin golden shimmer */
 .admin-golden-text {
     background-image: linear-gradient(to right, var(--color-gold), var(--color-gold-light), var(--color-gold));

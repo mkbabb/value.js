@@ -608,15 +608,13 @@ function onClearFilters() {
 /* Palette dialog enter/exit animation */
 .palette-dialog {
     animation: dialog-in var(--duration-slow) var(--ease-decelerate);
-    box-shadow: 0 25px 50px -12px color-mix(in srgb, var(--foreground) 25%, transparent),
-                0 0 0 1px var(--border);
+    box-shadow: var(--shadow-modal), 0 0 0 1px var(--border);
     outline: none;
 }
 .palette-dialog:focus,
 .palette-dialog:focus-visible {
     outline: none;
-    box-shadow: 0 25px 50px -12px color-mix(in srgb, var(--foreground) 25%, transparent),
-                0 0 0 1px var(--border);
+    box-shadow: var(--shadow-modal), 0 0 0 1px var(--border);
 }
 .palette-dialog[data-state="closed"] {
     animation: dialog-out var(--duration-normal) var(--ease-standard);

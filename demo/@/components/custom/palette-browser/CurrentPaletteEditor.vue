@@ -53,7 +53,7 @@
                 </template>
                 <template #overlay>
                     <Transition name="edit-overlay">
-                        <div v-if="isSwatchEditing(i)" class="edit-overlay hidden lg:flex">
+                        <div v-if="isSwatchEditing(i)" class="edit-overlay glass-floating hidden lg:flex">
                             <div class="flex items-center gap-2">
                                 <WatercolorDot :color="color" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 opacity-50 grayscale-[0.4] swatch-cutout" :seed="'edit-from-' + i" />
                                 <span class="text-muted-foreground text-xs">&rarr;</span>
@@ -264,6 +264,27 @@ function confirmUpdatePalette() {
     transition: transform var(--duration-normal) var(--ease-standard);
 }
 
+.edit-overlay-enter-active {
+    transition: opacity var(--duration-normal) var(--ease-standard),
+                transform var(--duration-slow) var(--ease-dock);
+}
+.edit-overlay-leave-active {
+    transition: opacity var(--duration-fast) var(--ease-standard),
+                transform var(--duration-fast) var(--ease-standard);
+}
+.edit-overlay-enter-from {
+    opacity: 0;
+    transform: scale(0.5);
+    transform-origin: top left;
+}
+.edit-overlay-leave-to {
+    opacity: 0;
+    transform: scale(0.8);
+    transform-origin: top left;
+}
+</style>
+
+<style scoped>
 /* Editing swatch — dashed outline + grayed out */
 .swatch-editing {
     outline: 2px dashed color-mix(in srgb, var(--foreground) 30%, transparent);
@@ -290,33 +311,9 @@ function confirmUpdatePalette() {
     align-items: flex-start;
     z-index: var(--z-content);
     padding: 0.375rem;
-    background: var(--glass-bg-elevated);
-    backdrop-filter: var(--glass-blur-elevated);
-    -webkit-backdrop-filter: var(--glass-blur-elevated);
-    border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
-    border-radius: var(--radius-lg, 1rem);
-    box-shadow: var(--glass-shadow-elevated);
+    border-radius: var(--radius-lg);
     /* Offset so the padding + first swatch aligns with the original swatch position */
     margin-top: -0.375rem;
     margin-left: -0.375rem;
-}
-
-.edit-overlay-enter-active {
-    transition: opacity var(--duration-normal) var(--ease-standard),
-                transform var(--duration-slow) var(--ease-dock);
-}
-.edit-overlay-leave-active {
-    transition: opacity var(--duration-fast) var(--ease-standard),
-                transform var(--duration-fast) var(--ease-standard);
-}
-.edit-overlay-enter-from {
-    opacity: 0;
-    transform: scale(0.5);
-    transform-origin: top left;
-}
-.edit-overlay-leave-to {
-    opacity: 0;
-    transform: scale(0.8);
-    transform-origin: top left;
 }
 </style>
