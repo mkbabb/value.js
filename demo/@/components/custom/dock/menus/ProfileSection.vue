@@ -39,7 +39,7 @@ const { toggleDark } = useGlobalDark();
             <DropdownMenu v-model:open="profileMenuOpen">
                 <DropdownMenuTrigger as-child>
                     <button
-                        class="flex items-center gap-1.5 text-mono-small font-bold px-3 py-0.5 rounded-full border whitespace-nowrap transition-colors cursor-pointer focus-ring"
+                        class="flex items-center gap-1.5 text-mono-small font-bold px-3 py-0.5 rounded-full border whitespace-nowrap transition-colors cursor-pointer focus-ring active:opacity-70 disabled:opacity-40 disabled:cursor-not-allowed"
                         :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
                     >
                         <UserCircle class="w-3.5 h-3.5" />
@@ -80,7 +80,7 @@ const { toggleDark } = useGlobalDark();
         <!-- Not logged in -->
         <template v-else>
             <button
-                class="flex items-center gap-1.5 text-mono-small font-bold px-3 py-0.5 rounded-full border border-primary/30 hover:bg-accent/50 transition-colors cursor-pointer whitespace-nowrap focus-ring"
+                class="flex items-center gap-1.5 text-mono-small font-bold px-3 py-0.5 rounded-full border border-primary/30 hover:bg-accent/50 active:bg-accent/70 transition-colors cursor-pointer whitespace-nowrap focus-ring focus-visible:ring-2 focus-visible:ring-primary disabled:opacity-40 disabled:cursor-not-allowed"
                 @click="emit('startSlugEdit')"
             >
                 <LogIn class="w-3.5 h-3.5" />
@@ -95,7 +95,7 @@ const { toggleDark } = useGlobalDark();
     <div class="hidden lg:flex items-center">
         <DropdownMenu v-model:open="mbabbMenuOpen">
             <DropdownMenuTrigger as-child>
-                <button class="text-mono-caption text-foreground/70 hover:text-foreground hover:underline underline-offset-4 transition-colors cursor-pointer whitespace-nowrap">
+                <button class="text-mono-caption text-foreground/70 hover:text-foreground hover:underline active:text-foreground/50 underline-offset-4 transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 rounded-sm disabled:opacity-40 disabled:cursor-not-allowed">
                     @mbabb
                 </button>
             </DropdownMenuTrigger>
