@@ -29,22 +29,24 @@
         <!-- Empty -->
         <EmptyState v-else-if="entries.length === 0" message="No audit entries found." />
 
-        <!-- Entries -->
+        <!-- Entries — Ag-13: primary (action+time) / secondary (target) hierarchy -->
         <div
             v-for="entry in entries"
             :key="entry.id"
             class="flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] border border-border transition-colors duration-[var(--duration-fast)] hover:bg-accent/50"
         >
             <div class="flex flex-col gap-0.5 min-w-0 flex-1">
+                <!-- primary line: action badge + timestamp -->
                 <div class="flex items-center gap-2">
                     <Badge variant="secondary" class="text-mono-caption shrink-0">
                         {{ entry.action }}
                     </Badge>
-                    <span class="text-mono-small text-muted-foreground tabular-nums shrink-0">
+                    <span class="text-small text-muted-foreground tabular-nums shrink-0">
                         {{ formatTime(entry.timestamp) }}
                     </span>
                 </div>
-                <span class="text-mono-small text-muted-foreground truncate">
+                <!-- secondary line: target -->
+                <span class="text-caption text-muted-foreground truncate">
                     {{ entry.target }}
                 </span>
             </div>

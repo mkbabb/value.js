@@ -17,7 +17,7 @@
             <Button
                 variant="outline"
                 size="sm"
-                class="h-7 px-2.5 cursor-pointer font-display text-xs gap-1.5"
+                class="h-7 px-2.5 cursor-pointer font-display text-caption gap-1.5"
                 :disabled="emptyCount === 0 || pruning"
                 @click="onPruneClick"
             >
@@ -28,7 +28,7 @@
             <Button
                 variant="outline"
                 size="sm"
-                class="h-7 px-2.5 cursor-pointer font-display text-xs gap-1.5"
+                class="h-7 px-2.5 cursor-pointer font-display text-caption gap-1.5"
                 :disabled="loading"
                 @click="emit('refresh')"
             >
@@ -55,8 +55,9 @@
                     @click="user.paletteCount ? toggleUserExpand(user.slug) : undefined"
                 >
                     <div class="flex-1 min-w-0 flex items-center gap-2">
+                        <!-- Ag-11: slug-pill class replaces copy-pasted cluster -->
                         <span
-                            class="text-mono-small font-bold px-2 py-0.5 rounded-full border truncate"
+                            class="slug-pill truncate"
                             :style="{ color: safeAccent, borderColor: safeAccent }"
                         >{{ user.slug }}</span>
                         <Badge variant="secondary" class="text-mono-small shrink-0">
@@ -67,7 +68,7 @@
                         <Button
                             variant="outline"
                             size="sm"
-                            class="h-7 px-2 cursor-pointer font-display text-xs"
+                            class="h-7 px-2 cursor-pointer font-display text-caption"
                             :disabled="!user.paletteCount"
                             @click="onDeletePalettesClick($event, user.slug)"
                         >
@@ -77,7 +78,7 @@
                         <Button
                             variant="destructive"
                             size="sm"
-                            class="h-7 px-2 cursor-pointer font-display text-xs"
+                            class="h-7 px-2 cursor-pointer font-display text-caption"
                             @click="onDeleteUserClick($event, user.slug)"
                         >
                             <Trash2 class="w-3 h-3" />
@@ -118,9 +119,10 @@
             @confirm="confirmAction?.()"
         >
             {{ confirmDescription }}
+            <!-- Ag-11: slug-pill class replaces copy-pasted cluster -->
             <span
                 v-if="confirmSlug"
-                class="text-mono-small font-bold px-2 py-0.5 rounded-full border inline-block align-middle mx-0.5"
+                class="slug-pill inline-block align-middle mx-0.5"
                 :style="{ color: safeAccent, borderColor: safeAccent }"
             >{{ confirmSlug }}</span>
             <template v-if="confirmSlug"> and all associated data. This cannot be undone.</template>

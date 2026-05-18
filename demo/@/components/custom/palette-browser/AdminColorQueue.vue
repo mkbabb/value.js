@@ -8,11 +8,13 @@
         <div v-else class="grid gap-2 max-h-[300px] overflow-y-auto">
             <AdminListItem v-for="item in queue" :key="item.id">
                 <template #swatch>
-                    <div class="w-6 h-6 rounded-full shrink-0" :style="{ backgroundColor: item.css }" />
+                    <!-- Ag-13: swatch sized as 8×8 leading visual -->
+                    <div class="w-8 h-8 rounded-full border border-border" :style="{ backgroundColor: item.css }" />
                 </template>
                 <template #content>
-                    <span class="text-mono-small font-medium truncate block">{{ item.name }}</span>
-                    <span class="text-mono-small text-muted-foreground">{{ item.css }}</span>
+                    <!-- Ag-13: primary/secondary hierarchy -->
+                    <span class="text-small font-medium truncate">{{ item.name }}</span>
+                    <span class="text-caption text-muted-foreground truncate">{{ item.css }}</span>
                 </template>
                 <template #actions>
                     <Button variant="outline" size="sm" class="h-7 px-2 cursor-pointer" @click="$emit('approve', item.id)">

@@ -1,15 +1,18 @@
 <template>
-    <Tabs v-model="namesTab" class="underline-tabs w-full grid gap-3 pb-3" :style="{ '--active-tab-color': cssColorOpaque }">
+    <!-- Ag-12: Tabs normalized to filled TabsList (no underline-tabs). (A.W3)
+         Ag-12: count indicators → Badge variant="secondary" + text-mono-small.
+         Ag-13: AdminListItem content slots use primary/secondary hierarchy. -->
+    <Tabs v-model="namesTab" class="w-full grid gap-3 pb-3">
         <TabsList class="w-full">
             <TabsTrigger value="pending" class="text-subheading flex-1 gap-1.5">
                 <Clock class="w-3.5 h-3.5" />
                 Pending
-                <span class="text-mono-small font-normal">({{ pendingItems.length }})</span>
+                <Badge variant="secondary" class="text-mono-small">{{ pendingItems.length }}</Badge>
             </TabsTrigger>
             <TabsTrigger value="approved" class="text-subheading flex-1 gap-1.5">
                 <CheckCircle class="w-3.5 h-3.5" />
                 Approved
-                <span class="text-mono-small font-normal">({{ approvedItems.length }})</span>
+                <Badge variant="secondary" class="text-mono-small">{{ approvedItems.length }}</Badge>
             </TabsTrigger>
         </TabsList>
 
@@ -21,11 +24,13 @@
             <div v-else class="grid gap-2">
                 <AdminListItem v-for="item in pendingItems" :key="item.id">
                     <template #swatch>
-                        <div class="w-6 h-6 rounded-full shrink-0 border border-border" :style="{ backgroundColor: item.css }" />
+                        <div class="w-8 h-8 rounded-full border border-border" :style="{ backgroundColor: item.css }" />
                     </template>
                     <template #content>
-                        <span class="text-mono-small font-medium truncate block">{{ item.name }}</span>
-                        <span class="text-mono-small text-muted-foreground truncate block">{{ item.css }}</span>
+                        <!-- primary line -->
+                        <span class="text-small font-medium truncate">{{ item.name }}</span>
+                        <!-- secondary line -->
+                        <span class="text-caption text-muted-foreground truncate">{{ item.css }}</span>
                     </template>
                     <template #actions>
                         <Button variant="outline" size="sm" class="h-7 px-2 cursor-pointer" @click="emit('approve', item)">
@@ -47,11 +52,13 @@
             <div v-else class="grid gap-2">
                 <AdminListItem v-for="item in approvedItems" :key="item.id">
                     <template #swatch>
-                        <div class="w-6 h-6 rounded-full shrink-0 border border-border" :style="{ backgroundColor: item.css }" />
+                        <div class="w-8 h-8 rounded-full border border-border" :style="{ backgroundColor: item.css }" />
                     </template>
                     <template #content>
-                        <span class="text-mono-small font-medium truncate block">{{ item.name }}</span>
-                        <span class="text-mono-small text-muted-foreground truncate block">{{ item.css }}</span>
+                        <!-- primary line -->
+                        <span class="text-small font-medium truncate">{{ item.name }}</span>
+                        <!-- secondary line -->
+                        <span class="text-caption text-muted-foreground truncate">{{ item.css }}</span>
                     </template>
                     <template #actions>
                         <Button variant="destructive" size="sm" class="h-7 px-2 cursor-pointer" @click="emit('delete', item)">
@@ -68,6 +75,7 @@
 import { ref } from "vue";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
 import { Button } from "@components/ui/button";
+import { Badge } from "@components/ui/badge";
 import { Loader2, Check, X as XIcon, CheckCircle, Clock, Trash2 } from "lucide-vue-next";
 import type { ProposedColorName } from "@lib/palette/types";
 import AdminListItem from "./AdminListItem.vue";

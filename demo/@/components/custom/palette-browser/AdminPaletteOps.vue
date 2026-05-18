@@ -5,7 +5,7 @@
             <Input
                 v-model="slug"
                 placeholder="Palette slug..."
-                class="fira-code text-base h-10 flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
+                class="fira-code text-mono-small h-10 flex-1 focus-visible:ring-0 focus-visible:ring-offset-0"
             />
             <Button
                 variant="outline"

@@ -56,7 +56,8 @@
                 </Badge>
 
                 <div class="flex items-center gap-1 shrink-0">
-                    <Button variant="outline" size="sm" class="h-7 px-2 text-xs" @click="onDismiss(item.paletteSlug)">
+                    <!-- Ag-1: text-xs → text-caption (caption role) -->
+                    <Button variant="outline" size="sm" class="h-7 px-2 text-caption" @click="onDismiss(item.paletteSlug)">
                         Dismiss
                     </Button>
                     <Button variant="destructive" size="sm" class="h-7 px-2" @click="onDeletePalette(item.paletteSlug)">
