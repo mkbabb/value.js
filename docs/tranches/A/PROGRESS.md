@@ -88,12 +88,35 @@ The pre-existing uncommitted `src/` WIP (`vite-source-export.ts`, `index.ts`, `u
 
 glass-ui Q.W1's hard gate (c/d/e) can now reader-check value.js GREEN against `audit/W0-*` (`coordination/Q.md §7`). The keyframes.js dependency was already discharged at `8d824ee`.
 
+## 2026-05-18 — A.W1 close — Card surface + real-bug sweep
+
+Three lanes dispatched in parallel as agents (disjoint file sets, shared tree per `dispatch/AGENT.md`).
+
+### What landed
+
+- **Lane A1** (`audit/W1-card-wash-panes.md`) — the 10 scroll-pane `<Card variant="pane">` sites migrated to `tier="wash" :shadow="false" :grain="false"`. `variant` was never a Card prop; the silent fallback to `tier="resting"` + shadow was A-key-4's black drop-shadow.
+- **Lane A2** (`audit/W1-card-colorpicker.md`) — `ColorPicker.vue` migrated to an explicit `tier="resting"`, shadow kept; it is the protagonist plate, not a wash pane.
+- **Lane B** (`audit/W1-class-resolution.md`) — three undefined utility classes resolved: `font-mono-code`→`fira-code` (14 SFCs), `text-2xs`→`text-micro` (7 SFCs, glass-ui `@utility`), `text-pane-description`→`text-caption text-muted-foreground` (shared `PaneHeader.vue`). `ColorInput`'s contenteditable field `rounded-2xl`→`rounded-[var(--radius-input)]`.
+
+### Gate evidence
+
+`grep` confirms zero `variant="pane"` and zero residual undefined classes. `vue-tsc` error count unchanged at 246 (no new type debt). `npm test` 1409 passed. Playwright re-probe (`audit/W1-playwright/`, light + dark, 1280×800): the Palettes wash pane renders flat with no black drop-shadow, `ColorPicker` keeps its elevated `resting` plate, 0 console errors.
+
+### Finding routed
+
+Dark mode does not apply on cold load. `useGlobalDark` (glass-ui) wraps `useDark` inside `createGlobalState`, which initializes lazily on first consumer. Nothing in `App.vue` consumes it at mount, so a user who set dark mode sees light until the dock profile menu mounts. Fix: `App.vue` should call `useGlobalDark()` once at setup. Routed to **W4** (interactive states / App.vue wiring).
+
+### Commits
+
+- `92fe64d` — `fix(tranche-a/w1)`: 11 Card sites → `tier`.
+- `efc7d25` — `fix(tranche-a/w1)`: 3 undefined classes + `ColorInput` radius.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | W0 HEADLINE — consumer un-break + repo hygiene | closed | 2026-05-18 | 2026-05-18 | bc7ad2c, c20f609 |
-| W1 — Card surface + real-bug sweep | planned | — | — | — |
+| W1 — Card surface + real-bug sweep | closed | 2026-05-18 | 2026-05-18 | 92fe64d, efc7d25 |
 | W2 — style co-location + resilience | planned | — | — | — |
 | W3 — design tokens + hierarchy | planned | — | — | — |
 | W4 — interactive states + structure | planned | — | — | — |
