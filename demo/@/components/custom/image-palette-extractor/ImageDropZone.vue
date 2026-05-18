@@ -1,7 +1,7 @@
 <template>
     <div
         :class="[
-            'relative rounded-2xl border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center overflow-hidden',
+            'relative rounded-panel border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center overflow-hidden',
             'min-h-[140px]',
             dragging
                 ? 'border-primary bg-primary/10 scale-[1.01]'
@@ -33,7 +33,7 @@
             />
             <div v-else class="flex flex-col items-center gap-2 py-6">
                 <ImagePlus class="w-7 h-7 text-muted-foreground/50" />
-                <span class="text-mono-small text-muted-foreground/60 text-center px-4">
+                <span class="text-mono-small text-muted-foreground text-center px-4">
                     Drop an image or click to browse
                 </span>
             </div>

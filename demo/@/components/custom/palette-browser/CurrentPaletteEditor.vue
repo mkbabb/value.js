@@ -56,7 +56,7 @@
                         <div v-if="isSwatchEditing(i)" class="edit-overlay glass-floating hidden lg:flex">
                             <div class="flex items-center gap-2">
                                 <WatercolorDot :color="color" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 opacity-50 grayscale-[0.4] swatch-cutout" :seed="'edit-from-' + i" />
-                                <span class="text-muted-foreground text-xs">&rarr;</span>
+                                <span class="text-muted-foreground text-caption">&rarr;</span>
                                 <WatercolorDot :color="cssColorOpaque" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-to-' + i" />
                             </div>
                             <div class="flex gap-2 mt-2 self-center">
@@ -99,7 +99,7 @@
                 :placeholder="
                     'Palette ' + (savedPaletteCount + 1)
                 "
-                class="text-mono-small h-8 flex-1 rounded-2xl bg-background border-border/50 focus-visible:ring-0 focus-visible:ring-offset-0"
+                class="text-mono-small h-8 flex-1 rounded-input bg-background border-border/50 focus-visible:ring-0 focus-visible:ring-offset-0"
                 @keydown.enter="saveCurrentPalette"
             />
             <Button
@@ -122,7 +122,7 @@
             <Button
                 variant="outline"
                 size="sm"
-                class="h-6 px-2 text-xs cursor-pointer font-display rounded-full"
+                class="h-6 px-2 text-caption cursor-pointer font-display rounded-full"
                 @click="confirmUpdatePalette"
             >
                 Update
@@ -130,7 +130,7 @@
             <Button
                 variant="ghost"
                 size="sm"
-                class="h-6 px-2 text-xs cursor-pointer font-display rounded-full"
+                class="h-6 px-2 text-caption cursor-pointer font-display rounded-full"
                 @click="duplicateTarget = null"
             >
                 Cancel
@@ -299,7 +299,7 @@ function confirmUpdatePalette() {
 .swatch-cutout {
     outline: 2px dashed color-mix(in srgb, var(--foreground) 30%, transparent);
     outline-offset: -2px;
-    box-shadow: inset 0 2px 8px color-mix(in srgb, var(--foreground) 15%, transparent);
+    box-shadow: inset 0 2px 8px color-mix(in srgb, var(--shadow-color) 15%, transparent);
 }
 
 /* Edit overlay — anchored so the FROM swatch aligns exactly over the original */

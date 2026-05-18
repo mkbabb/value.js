@@ -53,7 +53,7 @@
                     class="flex items-center justify-center py-3"
                 >
                     <Loader2 class="w-4 h-4 animate-spin text-muted-foreground" />
-                    <span class="ml-2 text-xs text-muted-foreground">Loading more...</span>
+                    <span class="ml-2 text-caption text-muted-foreground">Loading more...</span>
                 </div>
             </div>
     </TabsContent>

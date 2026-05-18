@@ -19,9 +19,9 @@
 
                 <!-- Saved palettes toolbar -->
                 <div v-if="savedPalettes.length > 0" class="flex items-center gap-2">
-                    <span class="text-mono-small text-muted-foreground">
+                    <Badge variant="secondary" class="text-mono-small">
                         {{ savedPalettes.length }} palette{{ savedPalettes.length !== 1 ? 's' : '' }}
-                    </span>
+                    </Badge>
                     <div class="flex-1" />
                     <Button
                         variant="destructive"
@@ -58,6 +58,7 @@
 <script setup lang="ts">
 import { TabsContent } from "@components/ui/tabs";
 import { Button } from "@components/ui/button";
+import { Badge } from "@components/ui/badge";
 import { Trash2 } from "lucide-vue-next";
 
 import CurrentPaletteEditor from "./CurrentPaletteEditor.vue";

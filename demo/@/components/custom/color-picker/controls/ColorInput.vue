@@ -85,7 +85,7 @@
             </HoverCardTrigger>
 
             <HoverCardContent v-if="!proposeMode" class="z-[var(--z-hovercard)] pointer-events-auto font-display w-full">
-                <p class="font-bold text-lg">Enter a color</p>
+                <p class="font-bold text-subheading">Enter a color</p>
                 <p>
                     <span class="italic">Any</span> valid CSS color string is accepted.
                 </p>

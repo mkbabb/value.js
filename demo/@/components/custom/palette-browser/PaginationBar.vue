@@ -12,7 +12,7 @@
             <ChevronLeft class="h-4 w-4" />
         </Button>
 
-        <span class="text-xs text-muted-foreground tabular-nums px-2">
+        <span class="text-caption text-muted-foreground tabular-nums px-2">
             {{ page }} / {{ pageCount }}
         </span>
 

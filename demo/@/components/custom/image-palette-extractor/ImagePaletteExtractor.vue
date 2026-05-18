@@ -10,7 +10,7 @@
 
                     <!-- Camera viewfinder -->
                     <Transition name="fade-slide">
-                        <div v-if="cameraActive" class="relative rounded-2xl overflow-hidden bg-black shrink-0">
+                        <div v-if="cameraActive" class="relative rounded-panel overflow-hidden bg-black shrink-0">
                             <video
                                 ref="videoRef"
                                 autoplay

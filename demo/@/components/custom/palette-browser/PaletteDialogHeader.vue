@@ -25,7 +25,7 @@
                 />
                 <div class="min-w-0">
                     <DialogTitle
-                        class="font-display text-3xl sm:text-5xl font-black tracking-tight"
+                        class="font-display text-title sm:text-display-2 font-black tracking-tight"
                     >
                         <template v-if="isAdminAuthenticated">
                             Admin <span class="uppercase admin-golden-text">Palettes</span>

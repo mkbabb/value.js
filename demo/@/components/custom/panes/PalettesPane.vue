@@ -2,7 +2,7 @@
     <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Save, organize, and share your colors.">
             <span class="capitalize pastel-rainbow-text">My Palettes</span>
-            <span v-if="pm.savedPalettes.value.length > 0" class="text-mono-small font-normal text-muted-foreground ml-2">{{ pm.savedPalettes.value.length }}</span>
+            <Badge v-if="pm.savedPalettes.value.length > 0" variant="secondary" class="text-mono-small ml-2">{{ pm.savedPalettes.value.length }}</Badge>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <PaneSearchBar
@@ -89,6 +89,7 @@
 import { inject, reactive, ref, computed, watch, onMounted, nextTick } from "vue";
 import { Card } from "@components/ui/card";
 import { Button } from "@components/ui/button";
+import { Badge } from "@components/ui/badge";
 import { Trash2 } from "lucide-vue-next";
 import { useSortable } from "@vueuse/integrations/useSortable";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";

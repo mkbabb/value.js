@@ -1,6 +1,6 @@
 <template>
     <Transition name="eyedropper-fade" @after-enter="onTransitionEnd">
-        <div class="absolute inset-0 z-[var(--z-popover)] flex flex-col bg-card/75 backdrop-blur-sm rounded-2xl overflow-hidden">
+        <div class="absolute inset-0 z-[var(--z-popover)] flex flex-col bg-card/75 backdrop-blur-sm rounded-panel overflow-hidden">
             <!-- Top bar -->
             <div class="flex items-center gap-2 px-3 py-2 shrink-0" :style="{ '--hover-color': sampledColor ?? '' }">
                 <DockIconButton class="eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">
@@ -353,8 +353,8 @@ watch(() => props.imageUrl, () => { loadImage(); });
 .loupe {
     position: absolute;
     border-radius: 50%;
-    border: 2px solid color-mix(in srgb, var(--foreground) 50%, transparent);
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--foreground) 15%, transparent), 0 0 0 1px color-mix(in srgb, var(--background) 30%, transparent);
+    border: 2px solid color-mix(in srgb, var(--shadow-color) 50%, transparent);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-color) 15%, transparent), 0 0 0 1px color-mix(in srgb, var(--shadow-color) 30%, transparent);
     pointer-events: none;
     z-index: var(--z-controls);
     overflow: hidden;
@@ -363,7 +363,7 @@ watch(() => props.imageUrl, () => { loadImage(); });
 
 .loupe-pinned {
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 40%, transparent), 0 4px 16px color-mix(in srgb, var(--foreground) 20%, transparent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 40%, transparent), 0 4px 16px color-mix(in srgb, var(--shadow-color) 20%, transparent);
 }
 
 /* Action button hover → sampled color */

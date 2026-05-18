@@ -20,11 +20,11 @@ import PaneHeader from "./PaneHeader.vue";
             </PaneHeader>
 
             <div class="flex flex-col items-center justify-center gap-2 px-6 py-16 text-center">
-                <p class="text-sm text-muted-foreground">
+                <p class="text-small text-muted-foreground">
                     Atmosphere controls are temporarily unavailable while the tuning
                     panel is rebuilt against the updated Aurora configuration schema.
                 </p>
-                <p class="text-xs text-muted-foreground/70">
+                <p class="text-caption text-muted-foreground/70">
                     The background atmosphere itself is live.
                 </p>
             </div>

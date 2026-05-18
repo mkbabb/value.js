@@ -1,6 +1,6 @@
 <template>
     <Dialog v-model:open="open">
-        <DialogContent class="rounded-[var(--radius-dialog)] max-w-sm">
+        <DialogContent class="rounded-dialog max-w-sm">
             <DialogHeader>
                 <DialogTitle class="text-subheading">{{ title }}</DialogTitle>
                 <DialogDescription class="text-small font-display">

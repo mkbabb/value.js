@@ -10,11 +10,11 @@
                 :model-value="sort"
                 @update:model-value="(v: any) => $emit('update:sort', v as string)"
             >
-                <DropdownMenuRadioItem value="newest" class="text-sm cursor-pointer gap-2">
+                <DropdownMenuRadioItem value="newest" class="text-small cursor-pointer gap-2">
                     <Clock class="w-3.5 h-3.5" />
                     Newest first
                 </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="popular" class="text-sm cursor-pointer gap-2">
+                <DropdownMenuRadioItem value="popular" class="text-small cursor-pointer gap-2">
                     <TrendingUp class="w-3.5 h-3.5" />
                     Most popular
                 </DropdownMenuRadioItem>

@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-[var(--radius-card)] border border-border bg-card overflow-hidden">
+    <div class="rounded-card border border-border bg-card overflow-hidden">
         <!-- Shadow color strip -->
         <div class="flex h-10 w-full">
             <div v-for="i in count" :key="i"
@@ -19,7 +19,7 @@
         <!-- Shadow swatches -->
         <div class="px-3 pb-3 flex flex-wrap gap-2">
             <div v-for="i in count" :key="i"
-                class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-xl bg-foreground/[0.04] animate-pulse"
+                class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-badge bg-foreground/[0.04] animate-pulse"
                 :style="{ animationDelay: `${i * 0.1}s` }"
             />
         </div>

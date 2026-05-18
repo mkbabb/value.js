@@ -15,7 +15,7 @@
                         <TooltipTrigger as-child>
                             <GlassCarouselItem
                                 :active="activeComponent === component"
-                                class="font-display text-lg italic"
+                                class="font-display text-subheading italic"
                                 :style="{ color: labelColor(component) }"
                                 @click="scrollToSlider(component)"
                             >
@@ -23,8 +23,8 @@
                             </GlassCarouselItem>
                         </TooltipTrigger>
                         <TooltipContent side="left" class="max-w-56">
-                            <p class="font-display text-sm font-semibold">{{ componentDescription(component) }}</p>
-                            <p class="fira-code text-xs opacity-60 mt-0.5">{{ currentColorRanges[component] }}</p>
+                            <p class="font-display text-small font-semibold">{{ componentDescription(component) }}</p>
+                            <p class="fira-code text-mono-caption opacity-60 mt-0.5">{{ currentColorRanges[component] }}</p>
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
@@ -37,7 +37,7 @@
                 :style="{ gridRow: i + 1, gridColumn: '2' }"
                 class="min-w-0 flex flex-col gap-0.5"
             >
-                <span class="font-normal text-xs italic opacity-50 pl-1">{{
+                <span class="font-normal text-caption italic opacity-50 pl-1">{{
                     currentColorRanges[component]
                 }}</span>
                 <div

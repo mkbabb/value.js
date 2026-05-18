@@ -182,7 +182,7 @@ watch([mobileEditActive, slugEditMode, actionBarLayerActive], () => {
                             class="w-7 h-7 shrink-0 opacity-50"
                             seed="edit-original"
                         />
-                        <span class="text-muted-foreground text-xs">&rarr;</span>
+                        <span class="text-muted-foreground text-caption">&rarr;</span>
                         <WatercolorDot
                             :color="cssColorOpaque"
                             tag="div"

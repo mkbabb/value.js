@@ -1,6 +1,6 @@
 <template>
     <div class="w-full font-display grid grid-cols-1 gap-4 relative">
-        <Alert class="m-0 bg-muted/50 dark:bg-muted/30 border-border/30 rounded-2xl">
+        <Alert class="m-0 bg-muted/50 dark:bg-muted/30 border-border/30 rounded-card">
             <AlertTitle>Definition</AlertTitle>
             <AlertDescription>
                 {{ currentColorSpaceInfo.definition }}
@@ -10,32 +10,32 @@
         <Separator />
 
         <section>
-            <h2 class="text-2xl mb-2 font-normal">
+            <h2 class="text-subheading mb-2">
                 Basic Information
             </h2>
-            <div class="grid grid-cols-2 gap-2 text-sm">
+            <div class="grid grid-cols-2 gap-2 text-small">
                 <div class="italic">Type:</div>
-                <div class="font-normal">{{ currentColorSpaceInfo.type }}</div>
+                <div>{{ currentColorSpaceInfo.type }}</div>
                 <div class="italic">Device Dependency:</div>
-                <div class="font-normal">
+                <div>
                     {{ currentColorSpaceInfo.deviceDependency }}
                 </div>
                 <div class="italic">White Point:</div>
-                <div class="font-normal">{{ currentColorSpaceInfo.whitePoint }}</div>
+                <div>{{ currentColorSpaceInfo.whitePoint }}</div>
                 <div class="italic">Gamut:</div>
-                <div class="font-normal">{{ currentColorSpaceInfo.gamut }}</div>
+                <div>{{ currentColorSpaceInfo.gamut }}</div>
                 <div class="italic">Created:</div>
-                <div class="font-normal">{{ currentColorSpaceInfo.created }}</div>
+                <div>{{ currentColorSpaceInfo.created }}</div>
             </div>
         </section>
 
         <Separator />
 
         <section>
-            <h2 class="text-2xl mb-2 font-normal">
+            <h2 class="text-subheading mb-2">
                 Components
             </h2>
-            <div class="grid grid-cols-3 gap-4 text-sm">
+            <div class="grid grid-cols-3 gap-4 text-small">
                 <div
                     v-for="(component, index) in currentColorSpaceInfo.components"
                     :key="index"
@@ -43,13 +43,13 @@
                 >
                     <div
                         :style="{ color: nodeHighlightColor }"
-                        class="text-lg font-normal"
+                        class="text-body"
                     >
                         {{ component }}
                     </div>
                     <div>
                         {{ formattedRange[Object.keys(formattedRange)[index]].min }}
-                        <span class="font-normal italic">to</span>
+                        <span class="italic">to</span>
                         {{ formattedRange[Object.keys(formattedRange)[index]].max }}
                     </div>
                 </div>
@@ -59,20 +59,20 @@
         <Separator />
 
         <section>
-            <h2 class="text-2xl mb-2 font-normal">
+            <h2 class="text-subheading mb-2">
                 Key Properties
             </h2>
-            <div class="grid grid-cols-2 gap-2 text-sm">
+            <div class="grid grid-cols-2 gap-2 text-small">
                 <div class="italic">Perceptual Uniformity:</div>
-                <div class="font-normal">
+                <div>
                     {{ currentColorSpaceInfo.perceptualUniformity }}
                 </div>
                 <div class="italic">Hue Linearity:</div>
-                <div class="font-normal">
+                <div>
                     {{ currentColorSpaceInfo.hueLinearity }}
                 </div>
                 <div class="italic">Lightness Separation:</div>
-                <div class="font-normal">
+                <div>
                     {{ currentColorSpaceInfo.lightnessSeparation }}
                 </div>
             </div>
@@ -81,7 +81,7 @@
         <Separator />
 
         <section class="space-y-4">
-            <h2 class="text-2xl font-normal">
+            <h2 class="text-subheading">
                 Conversion Graph
             </h2>
             <div class="flex flex-wrap gap-4">
@@ -93,7 +93,7 @@
                     <Tooltip>
                         <TooltipTrigger as-child>
                             <div
-                                class="flex flex-wrap items-center p-3 bg-muted/50 dark:bg-muted/30 rounded-2xl hover:bg-muted dark:hover:bg-muted/60 transition-colors cursor-pointer max-w-full"
+                                class="flex flex-wrap items-center p-3 bg-muted/50 dark:bg-muted/30 rounded-panel hover:bg-muted dark:hover:bg-muted/60 transition-colors cursor-pointer max-w-full"
                                 @mouseenter="setHoveredPath(path as any)"
                                 @mouseleave="clearHoveredPath"
                             >
@@ -118,7 +118,7 @@
                                 </template>
                             </div>
                         </TooltipTrigger>
-                        <TooltipContent class="contents w-64 p-2 text-sm">
+                        <TooltipContent class="contents w-64 p-2 text-small">
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
@@ -128,17 +128,17 @@
         <Separator />
 
         <section>
-            <h2 class="text-2xl mb-2 font-normal">Usage</h2>
-            <div class="space-y-2 text-sm">
+            <h2 class="text-subheading mb-2">Usage</h2>
+            <div class="space-y-2 text-small">
                 <div>
                     <span class="italic">Common Applications: </span>
-                    <span class="font-normal">{{
+                    <span>{{
                         currentColorSpaceInfo.applications.join(", ")
                     }}</span>
                 </div>
                 <div>
                     <span class="italic">Industries: </span>
-                    <span class="font-normal">{{
+                    <span>{{
                         (currentColorSpaceInfo.industries as any).join(", ")
                     }}</span>
                 </div>

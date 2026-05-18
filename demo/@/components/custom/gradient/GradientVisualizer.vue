@@ -117,7 +117,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
     <div class="flex flex-col gap-5">
         <!-- Hero: Gradient preview + stop editor -->
         <div
-            class="h-20 sm:h-24 rounded-2xl border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]"
+            class="h-20 sm:h-24 rounded-card border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]"
             :style="{ background: coalescedCSS }"
         />
 
@@ -133,7 +133,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
         <!-- ── Interpolation ── -->
         <hr class="border-border" />
-        <h3 class="font-display text-lg text-muted-foreground">Interpolation</h3>
+        <h3 class="font-display text-subheading text-muted-foreground">Interpolation</h3>
 
         <div class="grid grid-cols-3 gap-3">
             <div class="flex flex-col gap-1">
@@ -147,7 +147,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         <SelectItem v-for="t in GRADIENT_TYPES" :key="t.value" :value="t.value">
                             {{ t.label }}
                             <template #description>
-                                <span class="text-micro text-muted-foreground/60">{{ t.description }}</span>
+                                <span class="text-micro text-muted-foreground">{{ t.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>
@@ -165,7 +165,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         <SelectItem v-for="s in INTERPOLATION_SPACES" :key="s.value" :value="s.value">
                             {{ s.label }}
                             <template #description>
-                                <span class="text-micro text-muted-foreground/60">{{ s.description }}</span>
+                                <span class="text-micro text-muted-foreground">{{ s.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>
@@ -183,7 +183,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         <SelectItem v-for="m in HUE_INTERPOLATION_METHODS" :key="m.value" :value="m.value">
                             {{ m.label }}
                             <template #description>
-                                <span class="text-micro text-muted-foreground/60">{{ m.description }}</span>
+                                <span class="text-micro text-muted-foreground">{{ m.description }}</span>
                             </template>
                         </SelectItem>
                     </SelectContent>
@@ -203,13 +203,13 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <!-- ── Easing ── -->
         <template v-if="intervalPairs.length > 0">
             <hr class="border-border" />
-            <h3 class="font-display text-lg text-muted-foreground">Easing</h3>
+            <h3 class="font-display text-subheading text-muted-foreground">Easing</h3>
             <div
                 v-for="pair in intervalPairs"
                 :key="pair.index"
                 class="flex items-center gap-2"
             >
-                <span class="text-mono-small text-muted-foreground/60 w-10 shrink-0">{{ pair.label }}</span>
+                <span class="text-mono-small text-muted-foreground w-10 shrink-0">{{ pair.label }}</span>
                 <EasingSelector
                     :model-value="pair.easingName"
                     @update:model-value="(v) => updateInterval(pair.index, v)"
@@ -220,7 +220,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <!-- ── CSS ── -->
         <hr class="border-border" />
         <div class="flex items-center justify-between">
-            <h3 class="font-display text-lg text-muted-foreground">CSS</h3>
+            <h3 class="font-display text-subheading text-muted-foreground">CSS</h3>
             <DockIconButton compact title="Copy CSS" @click="copyCSS">
                 <Copy class="w-5 h-5" />
             </DockIconButton>

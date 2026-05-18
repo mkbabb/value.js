@@ -95,7 +95,7 @@ defineExpose({ regenerate, save, copyColors });
                             >
                                 {{ capitalize(p) }}
                                 <template #description>
-                                    <span class="text-micro text-muted-foreground/60">{{ GENERATION_PRESETS[p].description }}</span>
+                                    <span class="text-micro text-muted-foreground">{{ GENERATION_PRESETS[p].description }}</span>
                                 </template>
                             </SelectItem>
                         </SelectContent>
@@ -117,7 +117,7 @@ defineExpose({ regenerate, save, copyColors });
                             >
                                 {{ capitalize(h) }}
                                 <template #description>
-                                    <span class="text-micro text-muted-foreground/60">{{ HARMONY_DEFS[h].description }}</span>
+                                    <span class="text-micro text-muted-foreground">{{ HARMONY_DEFS[h].description }}</span>
                                 </template>
                             </SelectItem>
                         </SelectContent>
@@ -144,7 +144,7 @@ defineExpose({ regenerate, save, copyColors });
 
             <!-- Seed row -->
             <div class="flex items-center gap-1">
-                <span class="text-mono-small text-muted-foreground/60 tabular-nums select-all">
+                <span class="text-mono-small text-muted-foreground tabular-nums select-all">
                     seed: {{ seed.toString(16).padStart(8, '0') }}
                 </span>
                 <DockIconButton

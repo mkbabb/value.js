@@ -2,7 +2,7 @@
     <Dialog v-model:open="openModel">
         <DialogScrollContent
             :class="[
-                'palette-dialog max-w-[800px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-[var(--radius-dialog)] sm:h-[min(90dvh,820px)] sm:max-h-[90dvh] min-w-0 flex flex-col',
+                'palette-dialog max-w-[800px] p-0 gap-0 bg-card text-card-foreground overflow-hidden rounded-dialog sm:h-[min(90dvh,820px)] sm:max-h-[90dvh] min-w-0 flex flex-col',
                 editingExit && 'palette-dialog--editing-exit',
                 editingEnter && 'palette-dialog--editing-enter',
             ]"

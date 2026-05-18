@@ -14,14 +14,14 @@
             aria-label="Select color space"
             variant="ghost"
             :style="{ color: safeAccent, fontFamily: 'var(--font-display)' }"
-            class="w-fit h-fit italic text-3xl sm:text-4xl tracking-tight p-0 m-0 pb-1 self-end focus:outline-none select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block"
+            class="w-fit h-fit italic text-title sm:text-display tracking-tight p-0 m-0 pb-1 self-end focus:outline-none select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block"
         >
             <SelectValue class="w-full" />
         </SelectTrigger>
         <SelectContent>
             <SelectGroup class="fira-code">
                 <SelectItem
-                    class="pl-7 pr-3 py-1.5 text-lg"
+                    class="pl-7 pr-3 py-1.5 text-prose"
                     v-for="[space, name] in Object.entries(DISPLAY_COLOR_SPACE_NAMES)"
                     :value="space"
                     hide-indicator

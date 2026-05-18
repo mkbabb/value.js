@@ -4,7 +4,7 @@
             <slot name="trigger" />
         </DropdownMenuTrigger>
 
-        <DropdownMenuContent align="end" class="w-48 text-sm">
+        <DropdownMenuContent align="end" class="w-48 text-small">
             <!-- Header: palette name -->
             <DropdownMenuLabel class="font-display font-bold truncate max-w-[180px]">
                 {{ palette.name }}
@@ -14,55 +14,62 @@
             <!-- Save (temporary + remote) -->
             <DropdownMenuItem
                 v-if="paletteKind === 'temporary' || paletteKind === 'remote'"
+                class="gap-2 cursor-pointer"
                 @click="$emit('action', 'save')"
             >
-                <Bookmark class="mr-2 h-4 w-4" />
+                <Bookmark class="h-4 w-4" />
                 Save
             </DropdownMenuItem>
 
             <!-- Publish (saved only) -->
             <DropdownMenuItem
                 v-if="paletteKind === 'saved'"
+                class="gap-2 cursor-pointer"
                 @click="$emit('action', 'publish')"
             >
-                <Globe class="mr-2 h-4 w-4" />
+                <Globe class="h-4 w-4" />
                 Publish
             </DropdownMenuItem>
 
             <!-- Fork/remix (remote palettes) -->
             <DropdownMenuItem
                 v-if="paletteKind === 'remote'"
+                class="gap-2 cursor-pointer"
                 @click="$emit('action', 'fork')"
             >
-                <GitFork class="mr-2 h-4 w-4" />
+                <GitFork class="h-4 w-4" />
                 Remix
             </DropdownMenuItem>
 
             <!-- Rename (temporary, saved, or remote+owned) -->
             <DropdownMenuItem
                 v-if="paletteKind !== 'remote' || isOwned"
+                class="gap-2 cursor-pointer"
                 @click="$emit('action', 'rename')"
             >
-                <Pencil class="mr-2 h-4 w-4" />
+                <Pencil class="h-4 w-4" />
                 Rename
             </DropdownMenuItem>
 
             <!-- Edit Tags (remote+owned) -->
             <DropdownMenuItem
                 v-if="paletteKind === 'remote' && isOwned"
+                class="gap-2 cursor-pointer"
                 @click="$emit('action', 'editTags')"
             >
-                <Tag class="mr-2 h-4 w-4" />
+                <Tag class="h-4 w-4" />
                 Edit Tags
             </DropdownMenuItem>
 
             <!-- Version history (remote palettes with versions) -->
             <DropdownMenuItem
                 v-if="!palette.isLocal && (palette.versionCount ?? 0) > 1"
+                class="gap-2 cursor-pointer"
                 @click="$emit('action', 'versions')"
             >
-                <History class="mr-2 h-4 w-4" />
+                <History class="h-4 w-4" />
                 Versions
+                <!-- inline count: dropdown-item sidebar count, not a heading-level count indicator; kept as caption span per exception -->
                 <span class="ml-auto text-caption text-muted-foreground">{{ palette.versionCount }}</span>
             </DropdownMenuItem>
 
@@ -70,25 +77,25 @@
 
             <!-- Export sub-menu -->
             <DropdownMenuSub>
-                <DropdownMenuSubTrigger @click.prevent>
-                    <Download class="mr-2 h-4 w-4" />
+                <DropdownMenuSubTrigger class="gap-2 cursor-pointer" @click.prevent>
+                    <Download class="h-4 w-4" />
                     Export
                 </DropdownMenuSubTrigger>
-                <DropdownMenuSubContent class="text-xs">
-                    <DropdownMenuItem @select="() => $emit('action', 'exportJSON')">
+                <DropdownMenuSubContent class="text-caption">
+                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportJSON')">
                         JSON
                     </DropdownMenuItem>
-                    <DropdownMenuItem @select="() => $emit('action', 'exportCSS')">
+                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportCSS')">
                         CSS Custom Properties
                     </DropdownMenuItem>
-                    <DropdownMenuItem @select="() => $emit('action', 'exportTailwind')">
+                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportTailwind')">
                         Tailwind Config
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem @select="() => $emit('action', 'exportSVG')">
+                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportSVG')">
                         SVG Swatch
                     </DropdownMenuItem>
-                    <DropdownMenuItem @select="() => $emit('action', 'exportPNG')">
+                    <DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportPNG')">
                         PNG Swatch
                     </DropdownMenuItem>
                 </DropdownMenuSubContent>
@@ -97,20 +104,20 @@
             <!-- Delete (saved, or remote+owned) -->
             <DropdownMenuItem
                 v-if="paletteKind === 'saved' || (paletteKind === 'remote' && isOwned)"
-                class="text-destructive focus:text-destructive"
+                class="gap-2 cursor-pointer text-destructive focus:text-destructive"
                 @click="$emit('action', 'delete')"
             >
-                <Trash2 class="mr-2 h-4 w-4" />
+                <Trash2 class="h-4 w-4" />
                 Delete
             </DropdownMenuItem>
 
             <!-- Report (remote, not owned) -->
             <DropdownMenuItem
                 v-if="paletteKind === 'remote' && !isOwned"
-                class="text-muted-foreground"
+                class="gap-2 cursor-pointer text-muted-foreground"
                 @click="$emit('action', 'flag')"
             >
-                <Flag class="mr-2 h-4 w-4" />
+                <Flag class="h-4 w-4" />
                 Report
             </DropdownMenuItem>
 
@@ -120,16 +127,16 @@
                 <DropdownMenuLabel class="text-mono-caption uppercase tracking-wider text-muted-foreground">
                     Admin
                 </DropdownMenuLabel>
-                <DropdownMenuItem @click="$emit('action', 'feature')">
-                    <Star v-if="palette.status !== 'featured'" class="mr-2 h-4 w-4" />
-                    <StarOff v-else class="mr-2 h-4 w-4" />
+                <DropdownMenuItem class="gap-2 cursor-pointer" @click="$emit('action', 'feature')">
+                    <Star v-if="palette.status !== 'featured'" class="h-4 w-4" />
+                    <StarOff v-else class="h-4 w-4" />
                     {{ palette.status === 'featured' ? 'Unfeature' : 'Feature' }}
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                    class="text-destructive focus:text-destructive"
+                    class="gap-2 cursor-pointer text-destructive focus:text-destructive"
                     @click="$emit('action', 'adminDelete')"
                 >
-                    <Trash2 class="mr-2 h-4 w-4" />
+                    <Trash2 class="h-4 w-4" />
                     Delete (admin)
                 </DropdownMenuItem>
             </template>

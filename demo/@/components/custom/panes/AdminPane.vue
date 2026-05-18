@@ -2,7 +2,7 @@
     <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader :description="headerDescription">
             {{ headerTitle }}
-            <span v-if="adminCount != null" class="text-mono-small font-normal text-muted-foreground ml-2">{{ adminCount }}</span>
+            <Badge v-if="adminCount != null" variant="secondary" class="text-mono-small ml-2">{{ adminCount }}</Badge>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <PaneSearchBar
@@ -63,6 +63,7 @@
 <script setup lang="ts">
 import { inject, computed } from "vue";
 import { Card } from "@components/ui/card";
+import { Badge } from "@components/ui/badge";
 import { Shield, Tag } from "lucide-vue-next";
 
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";

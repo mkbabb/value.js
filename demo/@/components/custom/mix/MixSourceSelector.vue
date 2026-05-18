@@ -141,7 +141,7 @@ watch(
             <Collapsible v-if="savedPalettes.length > 0" v-model:open="paletteDropdownOpen">
                 <CollapsibleTrigger class="flex items-center gap-2 w-full cursor-pointer group py-1">
                     <span class="section-label">From palettes</span>
-                    <span class="fira-code text-micro text-muted-foreground/50">{{ savedPalettes.length }}</span>
+                    <span class="text-micro text-muted-foreground">{{ savedPalettes.length }}</span>
                     <div class="flex-1" />
                     <ChevronDown
                         class="w-4 h-4 text-muted-foreground/50 transition-transform group-hover:text-foreground"
@@ -153,7 +153,7 @@ watch(
                         <div
                             v-for="palette in savedPalettes"
                             :key="palette.id"
-                            class="rounded-2xl border border-border/30 overflow-hidden"
+                            class="rounded-card border border-border/30 overflow-hidden"
                         >
                             <!-- Compact palette header with color strip + name -->
                             <PaletteColorStrip :colors="palette.colors" />
@@ -187,7 +187,7 @@ watch(
                 v-for="palette in savedPalettes"
                 :key="palette.id"
                 :class="[
-                    'cursor-pointer transition-all rounded-2xl',
+                    'cursor-pointer transition-all rounded-card',
                     isPaletteSelected(palette.id)
                         ? 'ring-2 ring-primary ring-offset-2 ring-offset-background'
                         : 'opacity-75 hover:opacity-100',

@@ -1,7 +1,7 @@
 <template>
     <div
         :class="[
-            'group rounded-[var(--radius-card)] border border-border bg-card overflow-hidden transition-shadow hover:shadow-[var(--shadow-card-hover)] cursor-pointer',
+            'group rounded-card border border-border bg-card overflow-hidden transition-shadow hover:shadow-[var(--shadow-card-hover)] cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
         @click="$emit('click')"

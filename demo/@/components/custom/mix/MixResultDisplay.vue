@@ -29,7 +29,7 @@ async function onCopy() {
 
 <template>
     <div class="flex flex-col gap-3 p-4 rounded-xl glass-elevated">
-        <span class="font-display text-xs font-bold text-muted-foreground uppercase tracking-wide">Result</span>
+        <span class="font-display text-caption font-bold text-muted-foreground uppercase tracking-wide">Result</span>
 
         <!-- Single color result -->
         <Transition name="pop" mode="out-in">

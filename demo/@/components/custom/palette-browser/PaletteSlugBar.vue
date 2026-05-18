@@ -36,7 +36,7 @@
             <HoverCard v-if="userSlug" :close-delay="0" :open-delay="300">
                 <HoverCardTrigger as-child>
                     <span
-                        class="text-mono-small font-bold px-2 py-0.5 rounded-full border cursor-help"
+                        class="slug-pill cursor-help"
                         :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
                     >
                         {{ userSlug }}
@@ -44,7 +44,7 @@
                 </HoverCardTrigger>
                 <HoverCardContent class="text-small font-display w-56 z-[var(--z-popover)]">
                     <p class="font-bold">Your slug</p>
-                    <p class="text-muted-foreground text-xs mt-1">
+                    <p class="text-muted-foreground text-caption mt-1">
                         This is your unique identity. Use it to sign in from any device and access your palettes.
                     </p>
                 </HoverCardContent>
@@ -53,7 +53,7 @@
             <!-- Admin pill -->
             <span
                 v-else-if="isAdmin"
-                class="text-mono-small font-bold px-2 py-0.5 rounded-full border cursor-default text-muted-foreground border-muted-foreground"
+                class="slug-pill cursor-default text-muted-foreground border-muted-foreground"
             >
                 admin
             </span>

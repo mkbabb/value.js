@@ -38,7 +38,7 @@
 
             <!-- Chroma weight slider -->
             <div class="flex items-center gap-1.5 flex-1 min-w-0">
-                <label class="fira-code text-micro text-muted-foreground/60 whitespace-nowrap" title="Chroma weight">kC</label>
+                <label class="fira-code text-micro text-muted-foreground whitespace-nowrap" title="Chroma weight">kC</label>
                 <Slider
                     aria-label="Chroma weight"
                     variant="spectrum"
@@ -50,7 +50,7 @@
                     :style="{ '--slider-track-bg': 'var(--muted)' }"
                     @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
                 />
-                <span class="fira-code text-micro text-muted-foreground/50 tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
+                <span class="fira-code text-micro text-muted-foreground tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
             </div>
 
             <div class="dock-separator" />

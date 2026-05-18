@@ -6,20 +6,20 @@
             </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" class="w-48 font-display">
-            <DropdownMenuLabel class="text-xs">Sort</DropdownMenuLabel>
+            <DropdownMenuLabel class="text-micro">Sort</DropdownMenuLabel>
             <DropdownMenuRadioGroup
                 :model-value="sort"
                 @update:model-value="(v: any) => $emit('update:sort', v as string)"
             >
-                <DropdownMenuRadioItem value="newest" class="text-sm cursor-pointer gap-2">
+                <DropdownMenuRadioItem value="newest" class="text-small cursor-pointer gap-2">
                     <Clock class="w-3.5 h-3.5" />
                     Newest first
                 </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="slug" class="text-sm cursor-pointer gap-2">
+                <DropdownMenuRadioItem value="slug" class="text-small cursor-pointer gap-2">
                     <ArrowDownAZ class="w-3.5 h-3.5" />
                     Alphabetical
                 </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem value="palettes" class="text-sm cursor-pointer gap-2">
+                <DropdownMenuRadioItem value="palettes" class="text-small cursor-pointer gap-2">
                     <Palette class="w-3.5 h-3.5" />
                     Most palettes
                 </DropdownMenuRadioItem>

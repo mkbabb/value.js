@@ -49,21 +49,21 @@ const { toggleDark } = useGlobalDark();
                 <DropdownMenuContent align="end" class="min-w-[var(--menu-min-w)] font-display">
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
-                            class="text-mono-small font-bold px-2 py-0.5 rounded-full border whitespace-nowrap"
+                            class="slug-pill whitespace-nowrap"
                             :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
                         >{{ pm.userSlug.value }}</span>
                     </DropdownMenuLabel>
-                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="emit('copySlug')">
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="emit('copySlug')">
                         <Copy class="w-3.5 h-3.5" /> Copy slug
                     </DropdownMenuItem>
-                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="emit('startSlugEdit')">
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="emit('startSlugEdit')">
                         <LogIn class="w-3.5 h-3.5" /> Switch account
                     </DropdownMenuItem>
-                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @click="pm.userLogout()">
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer" @click="pm.userLogout()">
                         <LogOut class="w-3.5 h-3.5" /> Logout
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem class="text-sm gap-2 cursor-pointer text-muted-foreground" @click="pm.onRegenerateSlug()">
+                    <DropdownMenuItem class="text-small gap-2 cursor-pointer text-muted-foreground" @click="pm.onRegenerateSlug()">
                         <RefreshCw class="w-3.5 h-3.5" /> Regenerate slug
                     </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -72,7 +72,7 @@ const { toggleDark } = useGlobalDark();
 
         <!-- Admin (no slug) -->
         <template v-else-if="pm.isAdminAuthenticated.value">
-            <span class="text-mono-small font-bold px-2 py-0.5 rounded-full border cursor-default whitespace-nowrap gold-shimmer" style="border-color: var(--color-gold)">
+            <span class="slug-pill cursor-default whitespace-nowrap gold-shimmer" style="border-color: var(--color-gold); color: var(--color-gold)">
                 admin
             </span>
         </template>
@@ -95,7 +95,7 @@ const { toggleDark } = useGlobalDark();
     <div class="hidden lg:flex items-center">
         <DropdownMenu v-model:open="mbabbMenuOpen">
             <DropdownMenuTrigger as-child>
-                <button class="text-xs font-mono text-foreground/70 hover:text-foreground hover:underline underline-offset-4 transition-colors cursor-pointer whitespace-nowrap">
+                <button class="text-mono-caption text-foreground/70 hover:text-foreground hover:underline underline-offset-4 transition-colors cursor-pointer whitespace-nowrap">
                     @mbabb
                 </button>
             </DropdownMenuTrigger>
@@ -105,22 +105,22 @@ const { toggleDark } = useGlobalDark();
                         <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
                     </Avatar>
                     <div>
-                        <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-foreground hover:underline">@mbabb</a>
+                        <a href="https://github.com/mkbabb" target="_blank" rel="noopener noreferrer" class="text-mono-small text-foreground hover:underline">@mbabb</a>
                         <p class="text-micro italic text-muted-foreground leading-tight font-display">Color space picker &amp; converter</p>
                     </div>
                 </div>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">
+                <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="emit('shareLink')">
                     <component :is="linkCopied ? Check : Share2" class="w-3.5 h-3.5" />
                     {{ linkCopied ? 'Copied!' : 'Share color' }}
                 </DropdownMenuItem>
-                <DropdownMenuItem class="text-sm gap-2 cursor-pointer" as-child>
+                <DropdownMenuItem class="text-small gap-2 cursor-pointer" as-child>
                     <a href="https://github.com/mkbabb/value.js" target="_blank" rel="noopener noreferrer" class="no-underline text-foreground">
                         <Github class="w-3.5 h-3.5" /> GitHub
                     </a>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem class="text-sm gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
+                <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
                     <DarkModeToggle passive title="Toggle dark mode" class="aspect-square w-4" />
                     Dark mode
                 </DropdownMenuItem>

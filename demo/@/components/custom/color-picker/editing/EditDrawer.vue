@@ -9,7 +9,7 @@
                         tag="div"
                         class="w-14 h-14 shrink-0 opacity-60"
                     />
-                    <span class="text-muted-foreground text-xs">&rarr;</span>
+                    <span class="text-muted-foreground text-caption">&rarr;</span>
                     <WatercolorDot
                         :color="cssColorOpaque"
                         tag="div"
@@ -21,7 +21,7 @@
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <Check
-                                    class="h-14 aspect-square stroke-foreground hover:scale-125 active:scale-90 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none rounded-sm"
+                                    class="h-14 aspect-square stroke-foreground hover:scale-125 active:scale-90 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none rounded-button"
                                     @click="emit('commit')"
                                 />
                             </TooltipTrigger>
@@ -32,7 +32,7 @@
                         <Tooltip>
                             <TooltipTrigger as-child>
                                 <Undo2
-                                    class="h-14 aspect-square stroke-foreground hover:scale-125 active:scale-90 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none rounded-sm"
+                                    class="h-14 aspect-square stroke-foreground hover:scale-125 active:scale-90 transition-transform cursor-pointer focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none rounded-button"
                                     @click="emit('cancel')"
                                 />
                             </TooltipTrigger>
