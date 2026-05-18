@@ -77,6 +77,13 @@ User directive lifted the planning-only constraint and authorized tranche execut
 
 `audit/W0-build-typecheck.md` + `audit/W0-playwright-boot/` (4 captures). Cold-start boot clean; Playwright ×3 viewports + opened color-space Select, **0 console errors, 0 non-2xx** of 473 requests; `npm test` 1409 passed; library build clean; gh-pages writes `dist/gh-pages/` without clobbering `dist/value.js`.
 
+### Commits
+
+- `bc7ad2c` — `chore(tranche-a/w0)`: register `docs/precepts` submodule + tranche A plan substrate.
+- `c20f609` — `fix(tranche-a/w0)`: un-break the demo boot.
+
+The pre-existing uncommitted `src/` WIP (`vite-source-export.ts`, `index.ts`, `units.ts`, `normalize.ts`, the new `parsing/*.ts`) is untouched by W0 and deliberately not committed — it predates the tranche and is outside A's scope (`A.md §5`).
+
 ### Cross-tranche
 
 glass-ui Q.W1's hard gate (c/d/e) can now reader-check value.js GREEN against `audit/W0-*` (`coordination/Q.md §7`). The keyframes.js dependency was already discharged at `8d824ee`.
@@ -85,7 +92,7 @@ glass-ui Q.W1's hard gate (c/d/e) can now reader-check value.js GREEN against `a
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| W0 HEADLINE — consumer un-break + repo hygiene | closed | 2026-05-18 | 2026-05-18 | see W0 close entry |
+| W0 HEADLINE — consumer un-break + repo hygiene | closed | 2026-05-18 | 2026-05-18 | bc7ad2c, c20f609 |
 | W1 — Card surface + real-bug sweep | planned | — | — | — |
 | W2 — style co-location + resilience | planned | — | — | — |
 | W3 — design tokens + hierarchy | planned | — | — | — |
