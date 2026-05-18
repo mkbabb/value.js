@@ -160,6 +160,34 @@ Orchestrator owned `style.css` (shadow consolidation, `.slug-pill` `@apply`). Si
 
 `e58155f` shadow + slug-pill, `8e99a7d` admin restructure, `6cfded5` φ-scale + radii sweep.
 
+## 2026-05-18 — A.W4 close — Interactive states + structure
+
+Four agents ran in parallel on file-disjoint sets: states-A (color-picker/gradient/mix), states-B (palette-browser), dock-decomposition, app-decomposition.
+
+### What landed
+
+- **Four-state contract** (`audit/W4-states-a.md`, `W4-states-b.md`) — every interactive control named in `research/Ad §1` + the four HARDEN-4 §2 additions (ProfileSection, PaletteCard, UserSortMenu, CurrentPaletteEditor floating-panel-item triplet) completed to default/hover/active/disabled + focus-visible. EditDrawer's bare clickable SVGs became real `<button>`s.
+- **Overlay convergence** — BulkActionToolbar/PaletteDialog dropped bespoke surfaces for `glass-floating`; the three HoverCardContent `z-*` re-passes deleted (PaletteSlugBar's forced `z-popover` was a real stacking bug); PaletteControlsBar sticky header dropped to `z-bar`.
+- **Dock.vue decomposed** 426→128 (`audit/W4-dock-decomposition.md`) — `useDockLayers`, `useDockAdminMode`, `DockViewSelect.vue`, `DockMainLayer.vue`. The three HARDEN-4 split gates honored (single `usePopupMutex`; `DockViewSelect` takes `viewSelectOpen` as `v-model:open`; `dockRef` watchers stay in the SFC; immediate-watch deps passed as refs).
+- **App.vue decomposed** 387→290, script 210→156 (`audit/W4-app-decomposition.md`) — `usePaletteManagerWiring`, `useAtmosphere`, `PaneSlot`, `ConfigSliderPane` (merges AuroraPane+BlobPane, composes glass-ui `./configurator`). The dark-mode cold-load fix (W1-routed) landed: `useGlobalDark()` at App setup.
+
+### Orchestrator follow-up
+
+The app-decomposition agent collapsed the pane template with `PaneSlot` but left the desktop route tables as `computed`s inside App.vue's script (script 196). The orchestrator extracted them into `useDesktopPaneRouter` — the companion to `useMobilePaneRouter`, properly realizing Ae-3's "one pane route table out of the shell." App.vue script 196→156.
+
+### Findings recorded
+
+- `floating-panel-item` is an **undefined glass-ui class** (named in `floating-panel.css`'s comment but with no CSS rule). Used by PaletteCard + CurrentPaletteEditor. A glass-ui gap — the four-state contract was completed demo-side on the consuming buttons; the class is kept so it picks up a future glass-ui definition. Filed for glass-ui.
+- The glass-ui-variant root fixes (`SelectTrigger size`, `TooltipContent variant=mono`, `DockSelectTrigger clampLabel`, `Button size=icon-sm`) stay filed in `coordination/Q.md §3`; demo-side completions landed with marker comments.
+
+### Gate evidence
+
+`vue-tsc` 243 (down from 246 — the 2 `usePaletteManagerWiring` errors are the pre-existing color-library debt relocated out of App.vue, not new). `npm test` 1409 passed. Playwright (`audit/W4-playwright/`, light + dark): the decomposed dock's view-select opens, view-switching transitions layers through `PaneSlot`, the dark preference applies on cold load, 0 console errors. Dock.vue 128 and App.vue script 156 are at the `≤ ~120`/`≤ ~150` targets.
+
+### Commits
+
+`c011b18` states + overlays, `c3df1e2` Dock decomposition, `3f39026` App decomposition.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -168,7 +196,7 @@ Orchestrator owned `style.css` (shadow consolidation, `.slug-pill` `@apply`). Si
 | W1 — Card surface + real-bug sweep | closed | 2026-05-18 | 2026-05-18 | 92fe64d, efc7d25 |
 | W2 — style co-location + resilience | closed | 2026-05-18 | 2026-05-18 | 3b72007, f0b8c54, 3a1b673, 6b3b64e |
 | W3 — design tokens + hierarchy | closed | 2026-05-18 | 2026-05-18 | e58155f, 8e99a7d, 6cfded5 |
-| W4 — interactive states + structure | planned | — | — | — |
+| W4 — interactive states + structure | closed | 2026-05-18 | 2026-05-18 | c011b18, c3df1e2, 3f39026 |
 | W5 — accessibility + animation + e2e integrity | planned | — | — | — |
 | W6 — blob/aurora idiomatic abstraction (conditional) | planned | — | — | — |
 | W7 HEADLINE close — strengthened close | planned | — | — | — |
