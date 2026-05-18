@@ -99,7 +99,7 @@ function resetDefaults() {
 
 <template>
     <div class="relative w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-full min-w-0">
-        <Card variant="pane" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full relative">
+        <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full relative">
             <PaneHeader description="Tune metaball geometry, gooey blend, noise, and satellite behavior.">
                 Blob
             </PaneHeader>
