@@ -130,6 +130,36 @@ The orchestrator owned the global stylesheets (`style.css`, `utils.css`) — one
 
 `style.css` holds no plain component selector; no unscoped `<style>` keeps a non-transition/non-portal selector; deprecated `-webkit-*` retired; `vue-tsc` 246 (unchanged); `npm test` 1409 passed. Playwright (`audit/W2-playwright/`): dock position 0px from baseline at both viewports, layout intact, 0 console errors.
 
+## 2026-05-18 — A.W3 close — Design tokens + hierarchy
+
+Orchestrator owned `style.css` (shadow consolidation, `.slug-pill` `@apply`). Six agents ran in parallel on file-disjoint component groups (color-picker, palette-cards, palette-controls, admin, dock-panes, feature-controls), each applying the binding rules in `audit/W3-conventions.md` + its slice of `research/Ag`.
+
+### What landed
+
+- **Shadow** — `--shadow-card`/`-hover` route through `--shadow-cartoon`/`-hover`, overridden to the demo's pop-art intensity; one cartoon language, no fourth recipe. Dead `--glass-opacity-subtle` deleted (Ag-6).
+- **φ type scale** (Ag-1) — raw Tailwind sizes mapped to glass-ui φ utilities by role across ~48 SFCs. `text-mono-*` for mono contexts; genuine misfits recorded as documented exceptions in the lane docs.
+- **Radii** (Ag-8) — role-bearing radii on semantic aliases; the `ColorInput`/`CurrentPaletteEditor` input fields stop wearing card radius.
+- **Hierarchy** (Ag-9/Ag-10) — `ColorNutritionLabel` rebuilt into a φ heading→emphasis→body cascade.
+- **Admin lists** (Ag-13) — `AdminListItem` restructured into a primary/secondary hierarchy primitive with a leading swatch; the admin panels + `VersionHistoryDrawer` adopt it.
+- **Normalization** (Ag-11/Ag-12) — `.slug-pill` adopted at the dock menus + admin users panel; `DropdownMenuItem`, descriptor sub-text, count indicators normalized; `AdminNamesPanel` tabs moved to the filled `TabsList`.
+
+### Orchestrator corrections
+
+- **ColorComponentDisplay** — the W3 color-picker agent moved the large numeric readout to `text-display`; runtime probe showed the φ heading utilities force Fraunces serif, which mis-fits a numeric value row and wraps it across lines (regardless of size — `text-title` wrapped too). Restored to `text-4xl font-normal` and recorded as a documented W3 exception per the conventions doc ("no fitting φ utility → documented exception"). A large numeric readout is a `text-mono-*`-shaped need glass-ui does not cover at display size — a candidate glass-ui gap.
+- `demo/DESIGN.md` updated (doc drift — the old `--glass-opacity-subtle` / raw-8px-shadow description).
+
+### `underline-tabs` residual
+
+`AdminNamesPanel` dropped `underline-tabs`; `PaletteDialog.vue:27` still consumes it, so the `.underline-tabs` class stays in `style.css` with its W2 coordination marker (glass-ui Tabs `underline` variant pending).
+
+### Gate evidence
+
+`vue-tsc` 246 (unchanged), `npm test` 1409 passed. Playwright `audit/W3-playwright/` (light + dark, 1280×800): one cartoon shadow language renders on cards in both modes, the `ColorNutritionLabel` hierarchy reads as a cascade, 0 console errors. Two residual `rounded-2xl` remain in `Markdown.vue` (a code block and an image — not role-bearing surfaces; out of W3 scope).
+
+### Commits
+
+`e58155f` shadow + slug-pill, `8e99a7d` admin restructure, `6cfded5` φ-scale + radii sweep.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -137,7 +167,7 @@ The orchestrator owned the global stylesheets (`style.css`, `utils.css`) — one
 | W0 HEADLINE — consumer un-break + repo hygiene | closed | 2026-05-18 | 2026-05-18 | bc7ad2c, c20f609 |
 | W1 — Card surface + real-bug sweep | closed | 2026-05-18 | 2026-05-18 | 92fe64d, efc7d25 |
 | W2 — style co-location + resilience | closed | 2026-05-18 | 2026-05-18 | 3b72007, f0b8c54, 3a1b673, 6b3b64e |
-| W3 — design tokens + hierarchy | planned | — | — | — |
+| W3 — design tokens + hierarchy | closed | 2026-05-18 | 2026-05-18 | e58155f, 8e99a7d, 6cfded5 |
 | W4 — interactive states + structure | planned | — | — | — |
 | W5 — accessibility + animation + e2e integrity | planned | — | — | — |
 | W6 — blob/aurora idiomatic abstraction (conditional) | planned | — | — | — |
