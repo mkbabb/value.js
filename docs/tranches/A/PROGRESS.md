@@ -210,6 +210,16 @@ The W5 plan carried an e2e-integrity Lane C; its agent was killed mid-run (the "
 - `7088da4` — `fix(tranche-a/w5)`: accessibility sweep — ARIA roles, landmarks, SVG-as-button.
 - `5247313` — `fix(tranche-a/w5)`: animation correctness — global reduced-motion + GooBlob tab-hidden.
 
+## 2026-05-19 — A.W6 disposition — formal re-scope (at B.W0)
+
+A.W6 (blob/aurora idiomatic abstraction) was conditional on glass-ui shipping the metaballs `positionSource` hook, Aurora `deriveAuroraPalette`, and the `BlobDot` primitive. B.W0 Lane B re-verified against glass-ui's **current** HEAD `e2e5303` (post-Q-close): none shipped. glass-ui Q has closed (`4b16de7`) and never scheduled the W6 extension set.
+
+A.W6 is **closed by re-scope** per `A.md §9` / `waves/W6.md` Conditionality. `audit/W6-deferred.md` records the inheritance — `useMetaballRenderer.ts` (333 lines) stays in full, `WatercolorDot` stays demo-local, `AuroraPane` keeps its "under rework" state, the atmosphere keeps W0's static `AuroraConfig`. The A-key-3 guard landed at W0; the demo boots; the duplication is documented, not broken. Per precept §10 ("wire before retire") the wired, working `useMetaballRenderer.ts` cannot be retired ahead of its glass-ui replacement.
+
+Named successors (invariant A5, zero silent deferral): the glass-ui API additions → a glass-ui successor tranche (`coordination/Q.md §3`); the demo-side abstraction → a value.js demo-abstraction tranche opened once glass-ui ships (not tranche C — C is the palette-CRUD/fourier cohort tranche).
+
+Commit: `2e... docs(tranche-a/w6)` (see wave log).
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -220,7 +230,7 @@ The W5 plan carried an e2e-integrity Lane C; its agent was killed mid-run (the "
 | W3 — design tokens + hierarchy | closed | 2026-05-18 | 2026-05-18 | e58155f, 8e99a7d, 6cfded5 |
 | W4 — interactive states + structure | closed | 2026-05-18 | 2026-05-18 | c011b18, c3df1e2, 3f39026 |
 | W5 — accessibility + animation + e2e integrity | closed | 2026-05-18 | 2026-05-19 | 7088da4, 5247313 (e2e lane superseded by B.W3) |
-| W6 — blob/aurora idiomatic abstraction (conditional) | planned | — | — | — |
+| W6 — blob/aurora idiomatic abstraction (conditional) | closed (re-scoped) | 2026-05-19 | 2026-05-19 | see W6 disposition commit |
 | W7 HEADLINE close — strengthened close | planned | — | — | — |
 
 ## Open dependencies
