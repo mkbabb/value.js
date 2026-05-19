@@ -24,6 +24,10 @@ export function sourceExportPlugin(): Plugin {
     let prettier: typeof import("prettier") | null = null;
     let hljs: typeof import("highlight.js/lib/core").default | null = null;
 
+    // Vite dev mode mangles resolved.id into /@alias/... URLs.
+    // Store the real filesystem path from resolveId for use in load.
+    const idToPath = new Map<string, string>();
+
     return {
         name: "source-export",
 
@@ -37,7 +41,9 @@ export function sourceExportPlugin(): Plugin {
             });
             if (!resolved) return;
 
-            return resolved.id + QUERY;
+            const virtualId = resolved.id + QUERY;
+            idToPath.set(virtualId, resolved.id);
+            return virtualId;
         },
 
         async load(id) {
@@ -54,7 +60,7 @@ export function sourceExportPlugin(): Plugin {
                 hljs.registerLanguage("typescript", ts.default);
             }
 
-            const filePath = id.slice(0, -QUERY.length);
+            const filePath = idToPath.get(id) ?? id.slice(0, -QUERY.length);
             const raw = readFileSync(filePath, "utf-8");
 
             return await extractExports(raw, prettier, hljs);
@@ -128,7 +134,7 @@ async function extractExports(
 
         // Highlight with highlight.js
         const highlighted = hljs.highlight(formatted.trimEnd(), { language: "typescript" });
-        const html = `<pre class="hljs typescript"><code>${highlighted.value}</code></pre>`;
+        const html = `<pre class="hljs typescript"><code class="language-typescript">${highlighted.value}</code></pre>`;
 
         entries.push(`export const ${name} = ${JSON.stringify(html)};`);
     }

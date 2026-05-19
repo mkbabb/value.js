@@ -45,6 +45,16 @@ export {
     normalizeNumericUnits,
     normalizeValueUnits,
 } from "./units/normalize";
+export type { NormalizeValueUnitsOptions } from "./units/normalize";
+
+// Value-level interpolation
+export {
+    lerpValue,
+    lerpComputedValue,
+    lerpColorValue,
+    lerpNumericValue,
+    prepareInterpVar,
+} from "./units/interpolate";
 
 // Color classes
 export {
@@ -264,7 +274,48 @@ export {
     parseCSSTime,
 } from "./parsing";
 
-export { CSSValueUnit, parseCSSValueUnit } from "./parsing/units";
+// Stylesheet AST — full CSS at-rule + qualified-rule parsing
+export { parseCSSStylesheet } from "./parsing/stylesheet";
+export type {
+    Stylesheet,
+    StylesheetItem,
+    KeyframeRule,
+    KeyframeSelector,
+    Declaration,
+    PropertyDescriptor,
+} from "./parsing/stylesheet";
+
+// Stylesheet extractors
+export {
+    extractKeyframes,
+    extractProperties,
+    extractStyleRules,
+    extractAnimationOptions,
+} from "./parsing/extract";
+export type { AnimationOptions } from "./parsing/extract";
+
+// Animation shorthand parser/serializer
+export {
+    parseAnimationShorthand,
+    reverseAnimationShorthand,
+} from "./parsing/animation-shorthand";
+
+// Stylesheet serialiser + Prettier wrapper
+export {
+    serializeStylesheet,
+    serializeStylesheetItem,
+    serializeDeclaration,
+    serializeKeyframeSelector,
+    formatCSS,
+    stylesheetToString,
+} from "./parsing/serialize";
+
+export {
+    CSSValueUnit,
+    parseCSSValueUnit,
+    reverseCSSTime,
+    reverseCSSIterationCount,
+} from "./parsing/units";
 
 export { evaluateMathFunction } from "./parsing/math";
 

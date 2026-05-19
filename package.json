@@ -23,7 +23,8 @@
         ".": {
             "development": "./src/index.ts",
             "types": "./dist/index.d.ts",
-            "import": "./dist/value.js"
+            "import": "./dist/value.js",
+            "default": "./dist/value.js"
         }
     },
     "files": [
