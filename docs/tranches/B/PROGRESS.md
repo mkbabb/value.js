@@ -98,6 +98,18 @@ The user re-issued the turn-4 audit directive scoped to harden Tranche B *itself
 
 **Hardening applied to the substrate** (planning-only): six waves → five (old B.W2 layout folded into B.W1 Lane D; old W3/W4/W5 renumbered to W2/W3/W4); B.W2's consolidation lane expanded (Tier-1 confirmed + Tier-2 evaluate-at-open + the view-schema routed to B.W3); the 4 `B-e2e-*` research docs merged into one `B-e2e-investigation.md`; `findings.md §1` deleted (duplicate), §2 pared to a mapping table; `B.md §1/§5/§6` pared, gate model collapsed 5 tiers → 3; the Playwright probe wave-qualified (B4). No new wave, no scope dropped — every finding still lands; the apparatus is leaner.
 
+## 2026-05-19 — keyframes.js parity round
+
+The user directed an audit of value.js ↔ `@mkbabb/keyframes.js` parity and abstraction — "in both their libraries AND their demos" — folded into Tranche B, planning-only. Six read-only `Explore` agents audited in parallel: library API/module conventions, build/tooling, shared-logic duplication, cross-consumption coupling, demo parity, and precept/convention conformance.
+
+**Headline**: the coupling is **architecturally sound**. keyframes.js → value.js is a clean one-way dependency (~14 imports across 12 modules); value.js imports nothing from keyframes.js. **Zero shared-math duplication** — keyframes.js consumes value.js's easing/bezier/`lerp`/`timingFunctions` rather than re-implementing. Dev resolution is idiomatic (the `development` export condition, no hard `dist/` alias). keyframes.js is invariant-30 compliant on its root export.
+
+**Findings folded** (`research/B-keyframes-parity.md`, `findings.md §2 M`):
+- value.js-side (B-actionable) → **B.W3** (vestigial keyframes.js devDependency K1; tsconfig/vitest drift K2/K3; `solveCubicBezierX` export K5) + **B.W4** (Prettier-doc gap K4).
+- keyframes.js-side (6 gaps) + the precept-pin desync (value.js `3310a8c`, keyframes.js `458c2d1`, glass-ui `3c32fae`) → **filed in `coordination/Q.md §9`**; B writes value.js only, so these route to keyframes.js's own maintenance.
+
+No new wave; no scope change. The audit added one research doc and §9 to the coordination manifest.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |

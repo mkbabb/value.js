@@ -20,7 +20,12 @@ Scope: `src/parsing/` (parser surface coverage vs the demo's needs, missing colo
 
 **Invariant-30 compliance (precepts `3c32fae`).** value.js is itself a cross-repo publisher. Lane A verifies: `package.json` `exports` carries the 4-key shape `development`/`types`/`import`/`default` (already true — `package.json:23-27`); every subpath export follows the same shape; the consumer-side `resolve.conditions` are explicit; zero hard `dist/` aliases survive. Record whether value.js should port glass-ui's `proof-resolution-contract.mjs` fail-closed gate — recommendation only.
 
-**Sub-gate A**: `audit/B.W3-library-gap.md` exists with a per-area finding count, a prioritized gap table, the view-schema verdict, and the invariant-30 compliance check.
+**keyframes.js parity items (from `research/B-keyframes-parity.md §2`).** The value.js↔keyframes.js coupling is sound; these value.js-side items land here:
+- **K1** — `@mkbabb/keyframes.js` is a `package.json:64` devDependency with **zero import sites** in `src/` or `demo/`. Verify (grep), then disposition: remove if genuinely vestigial, or document the non-import use. Decided by the orchestrator with Lane B (the WIP/dependency disposition lane).
+- **K2/K3** — `tsconfig.json` hard-aliases `vue`/`@vue/*` (over-prescriptive — keyframes.js does not) and `vitest.config.ts` carries only a minimal `@src` alias (keyframes.js mirrors the full vite set). Record in the audit; converge only if low-risk.
+- **K5** — `solveCubicBezierX` (`easing.ts:128-154`) is a private helper; the audit notes exporting it from the barrel as a zero-cost public-API completion — recommendation only.
+
+**Sub-gate A**: `audit/B.W3-library-gap.md` exists with a per-area finding count, a prioritized gap table, the view-schema verdict, the invariant-30 compliance check, and the K1–K5 keyframes.js-parity dispositions.
 
 ### Lane B — `src/` WIP disposition
 

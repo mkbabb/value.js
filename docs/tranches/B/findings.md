@@ -28,6 +28,7 @@ Every finding from the six audit lanes (`research/Bα..Bζ`), the consolidated e
 | J | Doc drift + A close-residuals — test counts, research-letter renaming, A.md §8 records, citations | Bζ | **B.W4** | Close-ceremony doc work; `CLAUDE.md` 1372→1409; `Aa..Ae` contiguous rename; A↔Q boundary logged. |
 | K | glass-ui Q closed (`4b16de7`); precept submodule advanced `3310a8c`→`3c32fae` | Q-close assay 2026-05-19 | **B.W0/W1/W3/W4** | B.W0 advances value.js's precept pin; B runs under invariants 30–33; gaps re-verified (`coordination/Q.md §2a`); contested boundary MOOT. |
 | L | B's own first plan carried apparatus bloat — 6 waves, 22 docs, 5 gate tiers | Hardening audit 2026-05-19 | **plan** | 6 waves → 5 (old layout wave folded into B.W1); 4 e2e docs → 1; gate tiers 5 → 3; `findings.md` pared. Applied to this substrate directly. |
+| M | value.js ↔ keyframes.js parity — coupling sound, minor convention drift | 6-lane parity audit 2026-05-19 (`research/B-keyframes-parity.md`) | **B.W3/W4** | Coupling is clean one-way, zero math duplication. value.js-side: vestigial keyframes.js devDependency (K1), tsconfig/vitest drift (K2/K3), Prettier doc gap (K4 → B.W4), `solveCubicBezierX` export (K5) — all B.W3 except K4. keyframes.js-side gaps + the precept-pin desync are FILED in `coordination/Q.md §9` (B cannot write keyframes.js). |
 
 ## §3 — Items NOT folded into B (named destinations, not silent deferrals)
 

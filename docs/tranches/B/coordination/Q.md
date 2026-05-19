@@ -4,7 +4,7 @@
 **Date**: 2026-05-18 (B open); **re-verified 2026-05-19** at Q close — see §2a.
 **This repo**: value.js, tranche B, HEAD `191d66a`, branch `master`.
 **Peer repo**: glass-ui — tranche Q **CLOSED** at HEAD `4b16de7` (v1.9.2; W0–W6 all closed). This doc was first written against Q's pre-execution HEAD `888d227`; §2 below is preserved as the B-open snapshot, §2a is the Q-close re-verification.
-**keyframes.js**: HEAD `8d824ee` — `development` export condition shipped at A.W0; no further keyframes.js coordination required for B.
+**keyframes.js**: HEAD `19d1a1b` (v2.1.1). value.js depends on it (`package.json:64`, devDependency). A 2026-05-19 parity audit (`research/B-keyframes-parity.md`) found the coupling sound but filed keyframes.js-side gaps — see §9.
 **Shared submodule**: `docs/precepts` — value.js pinned at `3310a8c` (registered at A.W0); **glass-ui Q.W6 advanced the shared submodule to `3c32fae`** (invariants 30–33 + π-lane re-activation). B.W0 advances value.js's pin to match — see §6.
 
 ## §1 — Inheritance from A↔Q coordination
@@ -124,4 +124,20 @@ Same as A coord §8: B writes value.js only. B reads glass-ui at HEAD `888d227` 
 | 1 partially shipped gap (UnderlineTabs) | §2a, §3 | unchanged-PARTIAL; demo structural migration in B.W2 |
 | 1 newly filed gap (floating-panel-item) | §2a, §3 | NOT SHIPPED; B.W1 strips locally (invariant-32 retirement) |
 | Contested A↔Q boundary | §4 | **MOOT** — Q closed, never wrote value.js; B.W4 records closed-state |
-| docs/precepts pin | §6 | value.js `3310a8c` → glass-ui advanced to `3c32fae`; **B.W0 advances value.js's pin to match** |
+| docs/precepts pin | §6, §9 | value.js `3310a8c` → `3c32fae` at B.W0; keyframes.js `458c2d1` off-target — filed §9 |
+| keyframes.js parity | §9 | coupling sound; 6 keyframes.js-side gaps filed; B cannot write keyframes.js |
+
+## §9 — keyframes.js coordination (parity audit, 2026-05-19)
+
+value.js depends on `@mkbabb/keyframes.js` (animation library, v2.1.1, HEAD `19d1a1b`). A 6-lane parity audit (`research/B-keyframes-parity.md`) found the **coupling architecturally sound** — clean one-way dependency (keyframes.js → value.js), zero shared-math duplication, idiomatic `development`-condition dev resolution. value.js-side parity items fold into B.W3/B.W4 (`findings.md §2 M`). The keyframes.js-side gaps below are **filed, not actioned** — Tranche B writes value.js only:
+
+| Gap | Evidence | Disposition |
+|---|---|---|
+| kf-1 | `src/animation/index.ts` is a 965-line OOP god module | filed — keyframes.js maintenance (split to small barrels, the fleet idiom) |
+| kf-2 | `verbatimModuleSyntax: true` but `import type` applied inconsistently | filed — keyframes.js maintenance |
+| kf-3 | `package.json` missing `"sideEffects": false` — blocks tree-shaking | filed — keyframes.js maintenance |
+| kf-4 | `dts({ rollupTypes: true })` + unconditional `prepare` build — diverge from value.js | filed — fleet decision |
+| kf-5 | demo hand-rolls a clipboard wrapper + lacks a safe-storage helper | filed — the shared utilities belong in glass-ui (design-system rule); a glass-ui-side filing |
+| kf-6 | keyframes.js runs no tranche methodology — modified *by* glass-ui's tranches | recorded — fleet owner's call |
+
+**Precept-pin desync.** The shared `docs/precepts` submodule is at three SHAs: value.js `3310a8c` (→ `3c32fae` at B.W0), keyframes.js `458c2d1`, glass-ui `3c32fae` (fleet HEAD). The fleet target is `3c32fae`; keyframes.js's pin is off-target — filed; keyframes.js converges on its own schedule. B does not block.
