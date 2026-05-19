@@ -17,11 +17,12 @@
                     <span class="text-caption text-muted-foreground truncate">{{ item.css }}</span>
                 </template>
                 <template #actions>
-                    <Button variant="outline" size="sm" class="h-7 px-2 cursor-pointer" @click="$emit('approve', item.id)">
-                        <Check class="w-3.5 h-3.5" />
+                    <!-- W5-a11y: icon-only action buttons need accessible names -->
+                    <Button variant="outline" size="sm" class="h-7 px-2 cursor-pointer" :aria-label="`Approve ${item.name}`" @click="$emit('approve', item.id)">
+                        <Check class="w-3.5 h-3.5" aria-hidden="true" />
                     </Button>
-                    <Button variant="destructive" size="sm" class="h-7 px-2 cursor-pointer" @click="$emit('reject', item.id)">
-                        <XIcon class="w-3.5 h-3.5" />
+                    <Button variant="destructive" size="sm" class="h-7 px-2 cursor-pointer" :aria-label="`Reject ${item.name}`" @click="$emit('reject', item.id)">
+                        <XIcon class="w-3.5 h-3.5" aria-hidden="true" />
                     </Button>
                 </template>
             </AdminListItem>

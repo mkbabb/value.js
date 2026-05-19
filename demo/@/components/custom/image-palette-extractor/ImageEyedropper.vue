@@ -51,11 +51,13 @@
                 :class="pinned ? 'cursor-pointer' : 'cursor-crosshair'"
                 style="touch-action: none;"
             >
+                <!-- W5-a11y: pixel canvas is a decorative/interactive visual; hidden from AT -->
                 <canvas
                     ref="canvasRef"
                     class="origin-top-left will-change-transform eyedropper-canvas"
                     :class="gesture.gestureActive.value ? 'no-transition' : ''"
                     :style="canvasStyle"
+                    aria-hidden="true"
                 />
 
                 <!-- Magnifier loupe (inside viewport so coordinates align) -->
@@ -65,7 +67,8 @@
                     :class="pinned ? 'loupe-pinned' : ''"
                     :style="loupeStyle"
                 >
-                    <canvas ref="loupeCanvasRef" width="110" height="110" class="w-full h-full rounded-full" />
+                    <!-- W5-a11y: loupe canvas is decorative -->
+                    <canvas ref="loupeCanvasRef" width="110" height="110" class="w-full h-full rounded-full" aria-hidden="true" />
                 </div>
             </div>
         </div>

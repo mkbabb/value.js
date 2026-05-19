@@ -71,9 +71,11 @@
                                 @search="applyColorSearchFromPicker"
                             >
                                 <template #trigger>
+                                    <!-- W5-a11y: swatch trigger needs accessible name -->
                                     <button
                                         class="block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
                                         :style="{ backgroundColor: pickerHex }"
+                                        :aria-label="`Open color picker, current color ${pickerHex}`"
                                     />
                                 </template>
                             </MiniColorPicker>

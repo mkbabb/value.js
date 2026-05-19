@@ -65,12 +65,15 @@ async function onCopy() {
                     :seed="`mix-result-${i}`"
                 />
             </TransitionGroup>
-            <!-- Gradient preview -->
+            <!-- Gradient preview (decorative) -->
+            <!-- W5-a11y: gradient strip is decorative -->
             <div
                 class="h-4 rounded-full overflow-hidden"
                 :style="{
                     background: `linear-gradient(to right, ${result.colors.map(c => c.css).join(', ')})`,
                 }"
+                aria-hidden="true"
+                role="presentation"
             />
         </template>
 

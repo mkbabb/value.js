@@ -119,8 +119,27 @@
     }
 }
 
-.pane-container {
+/* The a11y <nav> / <main> landmarks are the direct grid items of .app-layout.
+ * .pane-main owns grid row 2 and re-establishes the definite-height context
+ * .pane-container's `height: 100%` resolves against. Without it the bare
+ * <main> is auto-height (the lg+ `align-items: start` suppresses the stretch),
+ * the percentage-height chain collapses, and the pane renders 0×0. */
+.app-layout > nav {
+    grid-row: 1;
+}
+.pane-main {
     grid-row: 2;
+    /* Fill the 1fr track regardless of the lg+ `align-items: start`, so the
+     * downstream percentage-height chain has a definite basis. */
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    /* flex-min-size idiom — let the column shrink inside the grid track. */
+    min-height: 0;
+    min-width: 0;
+}
+
+.pane-container {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -130,6 +149,7 @@
     position: relative;
     height: 100%;
     max-height: var(--content-max-h);
+    min-height: 0;
 }
 @media (min-width: 1024px) {
     .pane-container {

@@ -75,13 +75,15 @@
                             <Trash2 class="w-3 h-3 mr-1" />
                             Palettes
                         </Button>
+                        <!-- W5-a11y: icon-only destructive button needs accessible name -->
                         <Button
                             variant="destructive"
                             size="sm"
                             class="h-7 px-2 cursor-pointer font-display text-caption"
+                            :aria-label="`Delete user ${user.slug}`"
                             @click="onDeleteUserClick($event, user.slug)"
                         >
-                            <Trash2 class="w-3 h-3" />
+                            <Trash2 class="w-3 h-3" aria-hidden="true" />
                         </Button>
                     </div>
                 </div>

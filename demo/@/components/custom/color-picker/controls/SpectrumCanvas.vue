@@ -1,6 +1,9 @@
 <template>
+    <!-- W5-a11y: spectrum canvas is a 2D color picker widget -->
     <div
         ref="spectrumRef"
+        role="slider"
+        aria-label="Color spectrum: drag to pick saturation and lightness"
         :class="[
             'spectrum-picker flex w-full h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] lg:max-h-none cursor-crosshair relative touch-gate-target',
             spectrumGate.isActive.value && 'touch-gate-active',

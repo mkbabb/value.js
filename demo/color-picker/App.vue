@@ -2,20 +2,27 @@
     <SvgFilters />
 
     <div class="app-layout">
+        <!-- W5-a11y: decorative aurora canvas — hidden from AT -->
         <canvas
             ref="atmosphereCanvas"
             class="absolute inset-0 w-full h-full pointer-events-none"
+            aria-hidden="true"
         />
-        <Dock
-            :link-copied="linkCopied"
-            :edit-target="activeEditTarget"
-            :action-bar="colorPickerRef?.actionBarContext ?? null"
-            :generic-action-bar="genericActionBar"
-            @share-link="shareLink"
-            @commit-edit="colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1"
-            @cancel-edit="colorPickerRef?.cancelEdit(); viewManager.mobilePaneIndex.value = 1"
-        />
+        <!-- W5-a11y: nav landmark for the dock -->
+        <nav aria-label="Application navigation">
+            <Dock
+                :link-copied="linkCopied"
+                :edit-target="activeEditTarget"
+                :action-bar="colorPickerRef?.actionBarContext ?? null"
+                :generic-action-bar="genericActionBar"
+                @share-link="shareLink"
+                @commit-edit="colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1"
+                @cancel-edit="colorPickerRef?.cancelEdit(); viewManager.mobilePaneIndex.value = 1"
+            />
+        </nav>
 
+        <!-- W5-a11y: main landmark for pane content -->
+        <main class="pane-main" aria-label="Color tool panes">
         <!-- Two-pane grid -->
         <div
             :class="[
@@ -61,6 +68,7 @@
                 />
             </div>
         </div>
+        </main>
     </div>
 
     <!-- Global modals -->

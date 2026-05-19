@@ -1,9 +1,14 @@
 <template>
+    <!-- W5-a11y: role="article" provides a landmark for each palette; button semantics on the card
+         are omitted because inner interactive controls must be reachable — using article + click is
+         the correct pattern for a card container that also houses nested interactive elements. -->
     <div
         :class="[
             'group rounded-card border border-border bg-card overflow-hidden transition-shadow hover:shadow-[var(--shadow-card-hover)] cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
+        role="article"
+        :aria-label="`Palette: ${palette.name}`"
         @click="$emit('click')"
     >
         <!-- Color strip -->
@@ -145,11 +150,13 @@
                         class="text-mono-small font-bold px-2 py-0.5 rounded-full border truncate max-w-[200px]"
                         :style="{ color: safeFirstColor, borderColor: safeFirstColor }"
                     >{{ displaySlug }}</span>
+                    <!-- W5-a11y: icon-only copy button needs accessible name -->
                     <button
                         class="p-0.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                        :aria-label="`Copy slug ${displaySlug}`"
                         @click="copyToClipboard(displaySlug)"
                     >
-                        <Copy class="w-3 h-3 text-muted-foreground" />
+                        <Copy class="w-3 h-3 text-muted-foreground" aria-hidden="true" />
                     </button>
                 </div>
                 <div
@@ -173,14 +180,15 @@
                         <template #actions>
                             <!-- floating-panel-item: glass-ui utility listed in floating-panel.css comment
                                  but not yet defined — four-state applied demo-side (HARDEN-4 §2, §5.3) -->
-                            <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                                <Plus class="w-4 h-4" />
+                            <!-- W5-a11y: icon-only buttons need explicit aria-label -->
+                            <button v-if="!palette.isLocal" :aria-label="`Add ${color.css} to current palette`" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                                <Plus class="w-4 h-4" aria-hidden="true" />
                             </button>
-                            <button @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                                <Pencil class="w-4 h-4" />
+                            <button :aria-label="`Edit color ${color.css}`" @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                                <Pencil class="w-4 h-4" aria-hidden="true" />
                             </button>
-                            <button @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                                <Copy class="w-4 h-4" />
+                            <button :aria-label="`Copy color ${color.css}`" @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                                <Copy class="w-4 h-4" aria-hidden="true" />
                             </button>
                         </template>
                     </SwatchHoverMenu>

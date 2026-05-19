@@ -16,8 +16,9 @@
             />
             <div class="flex-1" />
             <span class="text-mono-small text-muted-foreground">{{ total }}</span>
-            <Button variant="outline" size="sm" class="h-7 px-2" @click="loadAudit">
-                <RefreshCw class="h-3 w-3" />
+            <!-- W5-a11y: icon-only refresh button needs accessible name -->
+            <Button variant="outline" size="sm" class="h-7 px-2" aria-label="Refresh audit log" @click="loadAudit">
+                <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
 

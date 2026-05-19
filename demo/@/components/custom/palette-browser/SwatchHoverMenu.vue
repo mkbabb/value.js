@@ -33,11 +33,14 @@
                 @click.stop="$emit('click')"
             />
             <Teleport to="body">
+                <!-- W5-a11y: role="toolbar" groups icon-only action buttons; aria-label identifies it -->
                 <div
                     v-if="open"
                     class="floating-panel"
                     :class="PANEL_LAYOUT"
                     :style="floatingStyle"
+                    role="toolbar"
+                    :aria-label="`Actions for color ${color}`"
                     @pointerenter="$emit('cancelLeave')"
                     @pointerleave="$emit('leave')"
                 >

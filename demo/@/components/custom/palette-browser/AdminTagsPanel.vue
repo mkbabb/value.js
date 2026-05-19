@@ -6,8 +6,9 @@
                 {{ tags.length }} tag{{ tags.length === 1 ? "" : "s" }}
             </span>
             <div class="flex-1" />
-            <Button variant="outline" size="sm" class="h-7 px-2" @click="loadTags">
-                <RefreshCw class="h-3 w-3" />
+            <!-- W5-a11y: icon-only refresh button needs accessible name -->
+            <Button variant="outline" size="sm" class="h-7 px-2" aria-label="Refresh tags" @click="loadTags">
+                <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
 
@@ -25,14 +26,16 @@
                 placeholder="Category..."
                 class="h-7 w-28 rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
+            <!-- W5-a11y: icon-only create tag button needs accessible name -->
             <Button
                 variant="outline"
                 size="sm"
                 class="h-7 px-2"
+                aria-label="Create tag"
                 :disabled="!newName.trim() || !newCategory.trim() || creating"
                 @click="onCreate"
             >
-                <Plus class="h-3 w-3" />
+                <Plus class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
 
@@ -57,11 +60,13 @@
                         class="group flex items-center gap-1 rounded-full border border-border bg-muted/30 px-2.5 py-1 text-mono-small transition-colors hover:bg-accent/50"
                     >
                         <span>{{ tag.name }}</span>
+                        <!-- W5-a11y: icon-only delete button needs accessible name -->
                         <button
                             class="ml-0.5 p-0.5 rounded-sm opacity-0 transition-all group-hover:opacity-100 hover:bg-accent/50 active:scale-95 active:bg-accent/70 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:opacity-100"
+                            :aria-label="`Delete tag ${tag.name}`"
                             @click="onDelete(tag.name)"
                         >
-                            <X class="h-3 w-3 text-muted-foreground hover:text-destructive transition-colors" />
+                            <X class="h-3 w-3 text-muted-foreground hover:text-destructive transition-colors" aria-hidden="true" />
                         </button>
                     </div>
                 </div>

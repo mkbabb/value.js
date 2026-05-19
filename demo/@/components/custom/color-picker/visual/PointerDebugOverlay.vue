@@ -5,7 +5,14 @@
             class="debug-overlay"
             :class="{ 'debug-collapsed': collapsed }"
         >
-            <div class="debug-header" @click="collapsed = !collapsed">
+            <!-- W5-a11y: debug header is a toggle control; button semantics needed -->
+            <button
+                type="button"
+                class="debug-header"
+                :aria-expanded="!collapsed"
+                aria-controls="debug-body"
+                @click="collapsed = !collapsed"
+            >
                 <span class="debug-title">Debug</span>
                 <span v-if="debug.state.frozen" class="debug-frozen"
                     >FROZEN?</span
@@ -14,7 +21,7 @@
                 <span class="debug-toggle">{{
                     collapsed ? "+" : "−"
                 }}</span>
-            </div>
+            </button>
 
             <template v-if="!collapsed">
                 <!-- Scrollable content area -->

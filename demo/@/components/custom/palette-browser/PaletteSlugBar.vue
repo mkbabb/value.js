@@ -14,20 +14,23 @@
             @keydown.escape.stop="slugEditMode = false"
         >
             <!-- TODO(glass-ui): migrate to Button size="icon-sm" once shipped (Ad-5) -->
+            <!-- W5-a11y: icon-only submit / close buttons need accessible names -->
             <button
                 type="submit"
                 :disabled="!slugInput.trim() || slugSwitching"
+                :aria-label="slugSwitching ? 'Signing in…' : 'Sign in with slug'"
                 class="p-0.5 rounded-sm hover:bg-accent/50 active:scale-95 active:bg-accent/70 transition-colors duration-[var(--duration-fast)] cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
             >
-                <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin text-muted-foreground" />
-                <ArrowRight v-else class="w-3.5 h-3.5 text-muted-foreground" />
+                <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin text-muted-foreground" aria-hidden="true" />
+                <ArrowRight v-else class="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
             </button>
             <button
                 type="button"
+                aria-label="Cancel slug edit"
                 class="p-0.5 rounded-sm hover:bg-accent/50 active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 @click="slugEditMode = false"
             >
-                <XIcon class="w-3.5 h-3.5 text-muted-foreground" />
+                <XIcon class="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
             </button>
         </SearchBar>
 
@@ -72,8 +75,9 @@
             <!-- Three-dot menu -->
             <Popover v-model:open="slugMenuOpen">
                 <PopoverTrigger as-child>
-                    <button class="p-1 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors duration-[var(--duration-fast)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                        <MoreHorizontal class="w-3.5 h-3.5 text-muted-foreground" />
+                    <!-- W5-a11y: three-dot menu trigger needs accessible name -->
+                <button class="p-1 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors duration-[var(--duration-fast)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40" aria-label="Account menu" :aria-expanded="slugMenuOpen" aria-haspopup="dialog">
+                        <MoreHorizontal class="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
                     </button>
                 </PopoverTrigger>
                 <PopoverContent class="w-auto p-1 flex flex-col gap-0.5 z-[var(--z-popover)]" align="end" :side-offset="4">

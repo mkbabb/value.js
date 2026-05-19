@@ -12,6 +12,7 @@
         >
             <div class="flex items-center gap-2 sm:gap-3 min-w-0">
                 <!-- Color swatch dot -->
+                <!-- W5-a11y: swatch button needs accessible name -->
                 <WatercolorDot
                     :color="isAdminAuthenticated ? 'var(--color-gold)' : cssColorOpaque"
                     :class="[
@@ -21,6 +22,7 @@
                     animate
                     tag="button"
                     :title="cssColorOpaque"
+                    :aria-label="isAdminAuthenticated ? 'Admin palette header' : `Current color ${cssColorOpaque}`"
                     @click="$emit('dotClick')"
                 />
                 <div class="min-w-0">

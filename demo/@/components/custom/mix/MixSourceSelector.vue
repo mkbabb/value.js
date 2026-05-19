@@ -171,6 +171,7 @@ watch(
                             </div>
                             <!-- Clickable swatches -->
                             <div class="px-3 pb-3 flex flex-wrap gap-1.5">
+                                <!-- W5-a11y: swatch button needs accessible name -->
                                 <WatercolorDot
                                     v-for="(color, ci) in palette.colors"
                                     :key="ci"
@@ -178,6 +179,7 @@ watch(
                                     tag="button"
                                     class="w-8 h-8 shrink-0 cursor-pointer"
                                     :title="color.css"
+                                    :aria-label="`Add color ${color.css} from ${palette.name}`"
                                     :seed="`palette-${palette.id}-${ci}`"
                                     @click="emit('addColor', color.css, palette.name)"
                                 />
@@ -191,11 +193,15 @@ watch(
         <!-- Palettes mode -->
         <template v-else>
             <PaletteCardSkeleton v-if="savedPalettes.length === 0" :count="3" />
-            <div
+            <!-- W5-a11y: native <button> for keyboard reach + aria-pressed for selection state -->
+            <button
                 v-for="palette in savedPalettes"
                 :key="palette.id"
+                type="button"
+                :aria-pressed="isPaletteSelected(palette.id)"
+                :aria-label="`${isPaletteSelected(palette.id) ? 'Deselect' : 'Select'} palette ${palette.name}`"
                 :class="[
-                    'cursor-pointer transition-all rounded-card',
+                    'cursor-pointer transition-all rounded-card w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40',
                     isPaletteSelected(palette.id)
                         ? 'ring-2 ring-primary ring-offset-2 ring-offset-background'
                         : 'opacity-75 hover:opacity-100',
@@ -206,7 +212,7 @@ watch(
                     :palette="palette"
                     :css-color="''"
                 />
-            </div>
+            </button>
 
             <div v-if="selectedPalettes.length > 0" class="text-mono-small text-muted-foreground">
                 {{ selectedPalettes.length }} palette{{ selectedPalettes.length === 1 ? '' : 's' }} selected

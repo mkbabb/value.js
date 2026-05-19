@@ -6,8 +6,9 @@
                 {{ total }} flagged
             </span>
             <div class="flex-1" />
-            <Button variant="outline" size="sm" class="h-7 px-2" @click="loadFlagged">
-                <RefreshCw class="h-3 w-3" />
+            <!-- W5-a11y: icon-only refresh button needs accessible name -->
+            <Button variant="outline" size="sm" class="h-7 px-2" aria-label="Refresh flagged palettes" @click="loadFlagged">
+                <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
 
