@@ -188,6 +188,28 @@ The app-decomposition agent collapsed the pane template with `PaneSlot` but left
 
 `c011b18` states + overlays, `c3df1e2` Dock decomposition, `3f39026` App decomposition.
 
+## 2026-05-19 — A.W5 close — accessibility + animation (ratified at B.W0)
+
+A's W5 work was complete in the working tree but committed nowhere — the "hung on e2e" diagnostic the user named. Tranche B's invariant B1 ("close A before new structural work") closes it. B.W0 Lane A **ratified** the working tree against the W5 audit docs and committed it; it did not re-do W5's work.
+
+### What landed
+
+- **Lane A — accessibility** (`audit/W5-a11y.md`) — ARIA roles/labels, `<nav>`/`<main>` landmarks, 4 SVG-as-button fixes, decorative `aria-hidden`, focus-visible coverage across 25 demo SFCs + `App.vue`. `style.css` carried the landmark-integration fix (the new `<main>` landmark needed `.pane-main` as a definite-height grid item) — W5-a11y collateral not listed in that doc's file table; folded into the a11y commit with recorded rationale.
+- **Lane B — animation** (`audit/W5-animation.md`) — global `prefers-reduced-motion: reduce` block in `animations.css`; GooBlob `<canvas>` `aria-hidden`; `useMetaballRenderer.ts` tab-hidden RAF idle.
+
+### Lane C — e2e — superseded
+
+The W5 plan carried an e2e-integrity Lane C; its agent was killed mid-run (the "hung on e2e"). The 16 modified `e2e/*.spec.ts` selector-migration edits remain uncommitted and are **deliberately not committed** — Tranche B.W3 abrogates the entire 16-spec Playwright suite (`docs/tranches/B/research/B-e2e-investigation.md`). Committing work the next wave deletes would be churn. The e2e-integrity *intent* is carried forward by B.W3's role/label smoke suite.
+
+### Gate evidence
+
+`vue-tsc` 243 (the W5 ARIA additions did not raise the count — the `audit/W5-animation.md` baseline held; B.W0 expected ~290, actual is better). `npm test` 1409 passed, 26 files. Playwright re-probe (`audit/W5-playwright/`, 3 viewports × light+dark): **0 console errors, 0 non-2xx, 0 glass-ui stale-prop dev-warnings** — the invariant-31 check passes (A.W1 migrated all `<Card>` consumers to the `tier` API; glass-ui's now-fail-explicit `<Card>` emits no stale-prop warning).
+
+### Commits
+
+- `7088da4` — `fix(tranche-a/w5)`: accessibility sweep — ARIA roles, landmarks, SVG-as-button.
+- `5247313` — `fix(tranche-a/w5)`: animation correctness — global reduced-motion + GooBlob tab-hidden.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -197,7 +219,7 @@ The app-decomposition agent collapsed the pane template with `PaneSlot` but left
 | W2 — style co-location + resilience | closed | 2026-05-18 | 2026-05-18 | 3b72007, f0b8c54, 3a1b673, 6b3b64e |
 | W3 — design tokens + hierarchy | closed | 2026-05-18 | 2026-05-18 | e58155f, 8e99a7d, 6cfded5 |
 | W4 — interactive states + structure | closed | 2026-05-18 | 2026-05-18 | c011b18, c3df1e2, 3f39026 |
-| W5 — accessibility + animation + e2e integrity | planned | — | — | — |
+| W5 — accessibility + animation + e2e integrity | closed | 2026-05-18 | 2026-05-19 | 7088da4, 5247313 (e2e lane superseded by B.W3) |
 | W6 — blob/aurora idiomatic abstraction (conditional) | planned | — | — | — |
 | W7 HEADLINE close — strengthened close | planned | — | — | — |
 
