@@ -39,3 +39,22 @@
         scroll-behavior: auto !important;
     }
 }
+
+/* -----------------------------------------------------------------------
+ * Reduced-motion overlay opacity carve-out (B.W1 Lane B)
+ * The global guard above is too blunt for reka-ui Dialog/Sheet/Popover
+ * overlays, which drive transitions off [data-state]. This block MUST
+ * come after the global guard so its later source order wins the cascade
+ * over `transition-duration: 0.01ms` (equal specificity, equal !important).
+ * ----------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    /* keep state-change opacity fades on overlay primitives — the fade
+     * communicates state without inducing vestibular stress. */
+    [data-state="open"],
+    [data-state="closed"],
+    [data-state="open"]::before,
+    [data-state="closed"]::after {
+        transition-duration: 150ms !important;
+        transition-property: opacity !important;
+    }
+}
