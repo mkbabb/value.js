@@ -1,4 +1,4 @@
-# Ag — Design-Language Consistency and Typographic/Visual Hierarchy
+# Ac — Design-Language Consistency and Typographic/Visual Hierarchy
 
 Tranche A research. Audit scope: `demo/color-picker/` and `demo/@/`, consuming
 `@mkbabb/glass-ui` (symlinked at `node_modules/@mkbabb/glass-ui`).
@@ -19,7 +19,7 @@ Counts come from `grep` over `demo/@/components/custom/**/*.vue` plus
 
 ---
 
-## Ag-1 — The demo runs on the raw Tailwind type scale, not the glass-ui φ scale
+## Ac-1 — The demo runs on the raw Tailwind type scale, not the glass-ui φ scale
 
 Location: every custom SFC; aggregate counts below.
 
@@ -51,7 +51,7 @@ Fix. Map raw sizes to the φ ladder per role: `text-xs` → `text-caption` or
 / `text-title` / `text-display`. Doing this also restores `--font-serif` and the
 φ-tuned leading instead of Tailwind's flat 1.25–1.75.
 
-## Ag-2 — `font-mono-code` is an undefined class used in 14+ files
+## Ac-2 — `font-mono-code` is an undefined class used in 14+ files
 
 Location: `ColorComponentDisplay.vue:16`, `ColorInput.vue:15` and `:94`,
 `ComponentSliders.vue:27` and `:85`, `ColorSpaceSelector.vue:22`, `HeroBlob.vue:12`,
@@ -77,7 +77,7 @@ Fix. Replace `font-mono-code` with `fira-code` (family only) or with one of the
 `text-mono-*` utilities where a size is also wanted. This is a single global
 find-and-replace and it is a real visual bug, not just a token-purity issue.
 
-## Ag-3 — `text-2xs` is an undefined class used as the caption rung in 9 sites
+## Ac-3 — `text-2xs` is an undefined class used as the caption rung in 9 sites
 
 Location: `GradientVisualizer.vue:150,168,186`, `MixConfigBar.vue:54,72`,
 `MixSourceSelector.vue:144,162`, `GenerateControls.vue:98,120`,
@@ -96,9 +96,9 @@ glass-ui already ships it as `text-micro` (`--type-micro`, 0.6875rem, line-heigh
 
 Fix. Replace `text-2xs` with `text-micro` for descriptor text. The dropdown
 descriptor pattern (`text-2xs italic text-muted-foreground`) recurs in
-GenerateControls, MixConfigBar, and GradientVisualizer — see Ag-12.
+GenerateControls, MixConfigBar, and GradientVisualizer — see Ac-12.
 
-## Ag-4 — `text-pane-description` is an undefined class on the shared pane header
+## Ac-4 — `text-pane-description` is an undefined class on the shared pane header
 
 Location: `PaneHeader.vue:5`.
 
@@ -115,7 +115,7 @@ Fix. Define the class, or replace it with `text-caption text-muted-foreground` o
 `section-subtitle` (glass-ui-adjacent class already defined in `style.css:200`).
 Since this is one shared component, the fix lands once and propagates to all panes.
 
-## Ag-5 — `--shadow-card` overridden with a hardcoded 8px cartoon offset
+## Ac-5 — `--shadow-card` overridden with a hardcoded 8px cartoon offset
 
 Location: `demo/@/styles/style.css:37-38` and `:134-135`.
 
@@ -138,7 +138,7 @@ token's name.
 
 Consequence. Anything reading `--shadow-card` (and the glass-ui `shadow-card`
 utility) now gets a pop-art offset, while anything reading `shadow-cartoon`
-(4 usages, see Ag-7) gets the much subtler glass-ui 3px version. There are two
+(4 usages, see Ac-7) gets the much subtler glass-ui 3px version. There are two
 cartoon languages in the demo at two different intensities, plus the soft glass
 ladder, with no single source of truth.
 
@@ -148,7 +148,7 @@ Fix. Pick one. If the pop-art look is the demo's identity, override
 so the card and the explicit `shadow-cartoon` consumers agree. The 8px/10px
 literals should become the value of a named token, not an inline recipe.
 
-## Ag-6 — `--glass-opacity-subtle` override targets a token glass-ui retired
+## Ac-6 — `--glass-opacity-subtle` override targets a token glass-ui retired
 
 Location: `demo/@/styles/style.css:42`.
 
@@ -174,7 +174,7 @@ Fix. Override the live rung the panes actually want — likely
 `--glass-opacity-floating`. Verify which glass tier the pane surfaces consume and
 override that one. Delete the stale `--glass-opacity-subtle` line.
 
-## Ag-7 — Three parallel shadow languages, no single elevation system
+## Ac-7 — Three parallel shadow languages, no single elevation system
 
 Location: shadow audit across `demo/@/components/custom`.
 
@@ -182,7 +182,7 @@ Problem. Card/panel/popover shadows come from at least three unrelated systems:
 
 - glass-ui soft ladder, used twice: `shadow-sm` (×2), `shadow-elevated` (×1),
   `shadow-lg` (×1).
-- the demo's overridden cartoon `--shadow-card` (Ag-5), consumed by
+- the demo's overridden cartoon `--shadow-card` (Ac-5), consumed by
   `PaletteCard.vue:4` (`hover:shadow-[var(--shadow-card-hover)]`) and
   `GradientVisualizer.vue`.
 - glass-ui `shadow-cartoon`, used 4 times directly — at the glass-ui 3px
@@ -204,11 +204,11 @@ literally. `SpectrumCanvas.vue:260` uses raw `rgba(0,0,0,0.3)` which ignores
 
 Fix. Route dialog/popover elevation through `--shadow-modal` / `--shadow-2xl` /
 `--shadow-glass-overlay`; route card elevation through one cartoon-or-soft choice
-(Ag-5); replace the raw `rgba(0,0,0,...)` literal with a `--shadow-color`-based
+(Ac-5); replace the raw `rgba(0,0,0,...)` literal with a `--shadow-color`-based
 `color-mix`. The inset depth in `CurrentPaletteEditor.vue:281` has no glass-ui
 token and is a legitimate one-off, but it should still read `--shadow-color`.
 
-## Ag-8 — Border-radius mixes semantic aliases, raw rungs, and `var()` arbitraries
+## Ac-8 — Border-radius mixes semantic aliases, raw rungs, and `var()` arbitraries
 
 Location: radius audit across `demo/@/components/custom`.
 
@@ -239,7 +239,7 @@ keep `rounded-full`). `ColorInput.vue:15` is a concrete bug: an input wearing ca
 radius. The scoped-CSS uses are already token-based and consistent
 (`ExtractControls.vue` uses `--radius-pill` throughout) — leave those.
 
-## Ag-9 — Flat / inverted hierarchy in ColorNutritionLabel
+## Ac-9 — Flat / inverted hierarchy in ColorNutritionLabel
 
 Location: `ColorNutritionLabel.vue:13, 16, 35, 38, 46, 62, 65, 84, 121, 131, 132`.
 
@@ -260,7 +260,7 @@ and drop the `font-normal` override. Body → `text-small`. Component-name empha
 (line 46) → `text-body` or `text-prose`. The result is a real
 heading > emphasis > body cascade on the φ scale instead of three arbitrary sizes.
 
-## Ag-10 — Flat hierarchy: `font-normal` applied 27 times, often onto headings
+## Ac-10 — Flat hierarchy: `font-normal` applied 27 times, often onto headings
 
 Location: 27 `font-normal` occurrences; concentrated in `ColorNutritionLabel.vue`
 (10×, all on `<h2>` or body), `ColorComponentDisplay.vue:3,15,28` (on `CardTitle`),
@@ -284,7 +284,7 @@ cancelling an unwanted bold on a section heading (the nutrition-label case), use
 the φ heading utilities and accept their intended weight, or pick `text-subheading`
 (600) for a lighter heading register.
 
-## Ag-11 — `@apply` used in exactly one component; styling otherwise copy-pasted
+## Ac-11 — `@apply` used in exactly one component; styling otherwise copy-pasted
 
 Location: `Markdown.vue:72-311` (the only real `@apply` consumer; the matches in
 `PalettesPane.vue:20`, `PaletteDialog.vue:63,82`, `PaletteSavedTab.vue:10` are the
@@ -304,8 +304,8 @@ repeated styling is pasted inline instead. The worst repeated clusters:
 - The admin toolbar button: `h-7 px-2 cursor-pointer font-display text-xs` repeated
   on every `Button` in `AdminUsersPanel.vue` (lines 70, 80), `AdminNamesPanel.vue`
   (31, 34, 57), `AdminUsersPanel.vue:20,31` (`h-7 px-2.5 ... text-xs gap-1.5`).
-- The descriptor span: `text-2xs text-muted-foreground/60` italic (see Ag-3,
-  Ag-12).
+- The descriptor span: `text-2xs text-muted-foreground/60` italic (see Ac-3,
+  Ac-12).
 
 Fix. Promote the slug pill to one `@apply` class (`.slug-pill`) in `style.css` —
 it is already a candidate alongside the existing `.filter-option` /
@@ -315,7 +315,7 @@ eight inline copies (per the project's `feedback_no_god_modules` and
 `feedback_glass_ui_first_class` notes — a shared register belongs in glass-ui or
 in one `@apply` rule, not pasted).
 
-## Ag-12 — Divergent styling of the same repeated component patterns
+## Ac-12 — Divergent styling of the same repeated component patterns
 
 Location: cross-component comparison.
 
@@ -346,12 +346,12 @@ Problem. Repeated UI patterns are styled inconsistently between instances:
 
 Fix. Pick one tab treatment for the dialog (either filled `TabsList` or
 `underline-tabs`, applied to both strips). Normalize dropdown-item classes — best
-as one `@apply` class (Ag-11). Normalize the descriptor span to `text-micro
+as one `@apply` class (Ac-11). Normalize the descriptor span to `text-micro
 text-muted-foreground` (one opacity). Normalize the count indicator to one form —
 the `Badge variant="secondary"` is the most semantic; the bare spans should adopt
 it.
 
-## Ag-13 — Spreadsheet-style flat row lists
+## Ac-13 — Spreadsheet-style flat row lists
 
 Location: `AdminListItem.vue`, `AdminUsersPanel.vue:44-108`, `PaletteCardGrid.vue`
 hosts, `AdminNamesPanel.vue:21-39` / `:47-61`, `VersionHistoryDrawer.vue`,
@@ -394,39 +394,39 @@ or at least the φ scale (`text-small` / `text-caption`).
 
 P1 — real bugs (intended styling silently lost):
 
-1. Ag-2 — `font-mono-code` undefined in 14+ files; mono text renders as serif.
+1. Ac-2 — `font-mono-code` undefined in 14+ files; mono text renders as serif.
    Single global replace with `fira-code`.
-2. Ag-6 — `--glass-opacity-subtle` override targets a token glass-ui retired in
+2. Ac-6 — `--glass-opacity-subtle` override targets a token glass-ui retired in
    v0.8.0; panes do not get the opacity the comment promises.
-3. Ag-3 — `text-2xs` undefined in 9 sites; descriptor text renders at inherited
+3. Ac-3 — `text-2xs` undefined in 9 sites; descriptor text renders at inherited
    size. Replace with `text-micro`.
-4. Ag-4 — `text-pane-description` undefined on the shared `PaneHeader`; description
+4. Ac-4 — `text-pane-description` undefined on the shared `PaneHeader`; description
    renders as equal-weight body. Replace with `text-caption text-muted-foreground`.
-5. Ag-8 (partial) — `ColorInput.vue:15` input field wears `rounded-2xl` (card
+5. Ac-8 (partial) — `ColorInput.vue:15` input field wears `rounded-2xl` (card
    radius) instead of `--radius-input`.
 
 P2 — design-system divergence:
 
-6. Ag-5 — `--shadow-card` overridden with an ad-hoc 8px/80% cartoon recipe; a
+6. Ac-5 — `--shadow-card` overridden with an ad-hoc 8px/80% cartoon recipe; a
    fourth shadow language. Re-route through `--shadow-cartoon` overrides.
-7. Ag-7 — three parallel shadow systems plus raw `rgba(0,0,0,...)` literals; pick
+7. Ac-7 — three parallel shadow systems plus raw `rgba(0,0,0,...)` literals; pick
    one elevation language, route dialogs through `--shadow-modal`/`--shadow-2xl`.
-8. Ag-1 — 91 raw Tailwind text sizes vs a barely-used φ scale; map per role to
+8. Ac-1 — 91 raw Tailwind text sizes vs a barely-used φ scale; map per role to
    `text-caption/small/body/prose/heading/title/display`.
-9. Ag-8 — radius expressed four ways; standardize on semantic aliases.
+9. Ac-8 — radius expressed four ways; standardize on semantic aliases.
 
 P3 — hierarchy and repetition cleanup:
 
-10. Ag-9 — `ColorNutritionLabel` flat hierarchy (uniform 2xl/sm, `font-normal`
+10. Ac-9 — `ColorNutritionLabel` flat hierarchy (uniform 2xl/sm, `font-normal`
     headings); rebuild on the φ heading→body cascade.
-11. Ag-12 — divergent tabs / dropdown-item / descriptor / count-chip instances;
+11. Ac-12 — divergent tabs / dropdown-item / descriptor / count-chip instances;
     normalize each repeated pattern to one treatment.
-12. Ag-13 — admin list components (`AdminListItem`, `AdminUsersPanel`,
+12. Ac-13 — admin list components (`AdminListItem`, `AdminUsersPanel`,
     `VersionHistoryDrawer`, `AdminFlaggedPanel`) read as spreadsheets; restyle the
     shared `AdminListItem` primitive with primary/secondary hierarchy.
-13. Ag-11 — `@apply` used in one component only; promote the slug-pill,
+13. Ac-11 — `@apply` used in one component only; promote the slug-pill,
     dropdown-item, and admin-button clusters to `@apply` classes or glass-ui
     variants.
-14. Ag-10 — `font-normal` used 27 times, often to cancel heading weight; where the
+14. Ac-10 — `font-normal` used 27 times, often to cancel heading weight; where the
     thin-large look is wanted use `text-display-*`, otherwise accept φ heading
     weights.

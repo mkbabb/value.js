@@ -1,9 +1,9 @@
 # A.W3 — Design-token conventions (binding for all W3 lanes)
 
 Shared rules for the W3 type-scale / radius / shadow / hierarchy sweep. Every W3
-agent reads this plus its slice of `research/Ag-design-tokens-hierarchy.md`.
+agent reads this plus its slice of `research/Ac-design-tokens-hierarchy.md`.
 
-## 1 — φ type-scale mapping (Ag-1)
+## 1 — φ type-scale mapping (Ac-1)
 
 glass-ui ships a golden-ratio type scale as `@utility text-*`. Map raw Tailwind
 size keywords to the φ utility **by the element's semantic role**, not blindly:
@@ -33,7 +33,7 @@ Caveats — do NOT blind-replace:
 - `text-2xs` and `font-mono-code` were already resolved in W1 — they should not
   appear; if you find a residual, replace per W1 (`text-micro` / `fira-code`).
 
-## 2 — Border-radius semantic aliases (Ag-8)
+## 2 — Border-radius semantic aliases (Ac-8)
 
 Standardize role-bearing radii on the semantic aliases. Tailwind v4 generates a
 `rounded-{alias}` utility from each `--radius-{alias}` token, so prefer the
@@ -54,7 +54,7 @@ verbose.
 surface → the matching alias. Leave radii inside scoped CSS that already use
 `--radius-*` tokens. Leave `rounded-full` on genuine pills.
 
-## 3 — Shadow routing (Ag-7)
+## 3 — Shadow routing (Ac-7)
 
 The orchestrator has already consolidated the shadow tokens in `style.css`:
 `--shadow-card` / `--shadow-card-hover` now route through `--shadow-cartoon*`
@@ -71,7 +71,7 @@ The orchestrator has already consolidated the shadow tokens in `style.css`:
 - Some shadow fixes already landed in W2 (SpectrumCanvas Ab-19, PaletteDialog
   Ab-2) — skip those, do not re-touch.
 
-## 4 — Ag-12 normalization decisions (binding)
+## 4 — Ac-12 normalization decisions (binding)
 
 - **Tabs**: normalize the two palette-dialog tab strips to ONE treatment — the
   filled `TabsList` pill (glass-ui default). Drop `underline-tabs` from
@@ -87,20 +87,20 @@ The orchestrator has already consolidated the shadow tokens in `style.css`:
   `Badge variant="secondary"` with `text-mono-small` — the bare `<span>` count
   forms adopt the Badge.
 
-## 5 — `.slug-pill` (Ag-11)
+## 5 — `.slug-pill` (Ac-11)
 
 `style.css` now defines `.slug-pill` (`@apply text-mono-small font-bold px-2
 py-0.5 rounded-full border`). The slug-pill consumers (dock menus, admin users
 panel, slug bar) replace their copy-pasted utility cluster with the
 `slug-pill` class, keeping their per-instance `:style` `color`/`border-color`.
 
-## 6 — Hierarchy (Ag-9, Ag-10)
+## 6 — Hierarchy (Ac-9, Ac-10)
 
 - `ColorNutritionLabel.vue` — rebuild the flat `text-2xl font-normal` /
   `text-sm` ladder into a real cascade: section headings → `text-subheading`
   (drop the `font-normal` weight override), component-name emphasis →
   `text-body`, body → `text-small`.
-- `font-normal` (Ag-10) — where it cancels a heading's intended weight, drop it
+- `font-normal` (Ac-10) — where it cancels a heading's intended weight, drop it
   and use the φ heading utility's own weight. Where the thin-large poster look
   is deliberate (e.g. `ColorComponentDisplay`'s big numeral), use a
   `text-display-*` utility (φ-scaled, thin by design) instead of `text-4xl

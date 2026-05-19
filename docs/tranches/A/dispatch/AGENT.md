@@ -51,4 +51,4 @@ Every dispatched agent authors a proof doc under `docs/tranches/A/audit/<wave>-<
 
 ## Prose
 
-Agent-authored docs follow the precept `STYLE.md` — declarative and evidence-led, unspaced em-dashes used sparingly, no epanorthosis, no AI-writing signs, contractions allowed. Every claim cites a file:line or an artefact path.
+Agent-authored docs follow the precept style guide (`docs/precepts/instructions/STYLE.md`) — declarative and evidence-led, unspaced em-dashes used sparingly, no epanorthosis, no AI-writing signs, contractions allowed. Every claim cites a file:line or an artefact path.

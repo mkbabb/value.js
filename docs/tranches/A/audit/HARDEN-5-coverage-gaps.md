@@ -2,10 +2,10 @@
 
 Hardening-lane 5 for value.js tranche A. This document records whole categories of
 scope the five-angle audit (`research/Aa` runtime, `Ab` styling-resilience,
-`Ad` interactive-states, `Ae` structure/blob, `Ag` tokens/hierarchy) never opened.
+`Ad` interactive-states, `Ae` structure/blob, `Ac` tokens/hierarchy) never opened.
 A gap counts as "missed" when no research wave probes it and no W0–W5 wave owns it.
 
-Method: read of `A.md`, `findings.md`, `research/Aa..Ag`, the six wave specs, plus
+Method: read of `A.md`, `findings.md`, `research/Aa..Ae`, the six wave specs, plus
 a source sweep of `demo/color-picker/`, `demo/@/`, `demo/hero-lab/`, `e2e/`, and
 `api/`. Evidence is cited `file:line`.
 
@@ -57,7 +57,7 @@ Concrete uncovered defects found in this sweep:
   glass-ui honors the query internally in 33 places, so glass-ui primitives are
   covered, but every demo-authored animation is not. See §2.
 
-- **Contrast on glass/aurora surfaces is unmeasured.** `Ab` and `Ag` catalogue
+- **Contrast on glass/aurora surfaces is unmeasured.** `Ab` and `Ac` catalogue
   hand-built glass surfaces and hardcoded colors but never compute a contrast
   ratio. Text painted on `bg-card/60` (`PaneHeader.vue:2`), on the aurora canvas,
   and the gold accent (`--color-gold #D4AF37`, `Ab-4`) on glass have no recorded
@@ -151,7 +151,7 @@ The e2e suite will break, on two independent grounds:
     by `Ad-12`.
   - `e2e/color-header-layout.spec.ts:81` — `.fraunces`; `:83` — an XPath
     `ancestor::div[contains(@class,'rounded')]`. The φ type-scale adoption (W3,
-    `Ag-1`) and the radius-vocabulary consolidation (W3, `Ag-8`) change exactly
+    `Ac-1`) and the radius-vocabulary consolidation (W3, `Ac-8`) change exactly
     these class names and DOM depth.
   - `e2e/admin-panel.spec.ts` drives the admin flow through `.lucide-*` icon
     classes; `Ad-3`/`Ad-5` rewrite icon controls into `<button>`/glass-ui `Button`,
@@ -220,11 +220,11 @@ is not a valid close-state.
 
 ## 5 — Dark-mode correctness — PARTIALLY COVERED, gap is systematic verification
 
-`Ab` and `Ag` catch dark-mode-blind values one finding at a time: `Ab-2` (a
+`Ab` and `Ac` catch dark-mode-blind values one finding at a time: `Ab-2` (a
 hand-tuned modal shadow that "does not track dark mode"), `Ab-3` (`#000`/`#fff`
 inline gradient stops "read identically in light and dark"), `Ab-4` (gold as raw
 `rgb` triples), `Ab-16` (`PointerDebugOverlay` "fixed black background ignores dark
-mode"), `Ab-19` (`SpectrumCanvas` raw `rgba` shadow). `Ag-5`/`Ag-6` touch
+mode"), `Ab-19` (`SpectrumCanvas` raw `rgba` shadow). `Ac-5`/`Ac-6` touch
 dark-mode token overrides. So individual offenders are caught.
 
 What is missing is systematic verification. The demo has exactly one `.dark` block

@@ -46,7 +46,7 @@ Mandates 12 and 13 are the parts the user flagged repeatedly; both carry a named
 
 ## §4 — Research-finding disposition
 
-`findings.md` is the authoritative per-finding ledger. Every finding from `research/Aa..Ag` either landed in a wave, retired with recorded rationale, or routed to a named destination. Aα runtime keystones — landed W0. Aβ styling resilience (19) — landed W1/W2. Aγ design tokens (13) — landed W3. Aδ interactive states (20) — landed W4 (`Ad-20`/`Ae-12` retire-rationale to be recorded in `A.md §8` by B.W4 — see §6). Aε structure + blob/aurora — structure landed W4; blob/aurora re-scoped W6.
+`findings.md` is the authoritative per-finding ledger. Every finding from `research/Aa..Ae` either landed in a wave, retired with recorded rationale, or routed to a named destination. Aα runtime keystones — landed W0. Aβ styling resilience (19) — landed W1/W2. Aγ design tokens (13) — landed W3. Aδ interactive states (20) — landed W4 (`Ad-20`/`Ae-12` retire-rationale recorded in `A.md §8` by B.W4 — see §6). Aε structure + blob/aurora — structure landed W4; blob/aurora re-scoped W6. (The Aγ research file was renamed `Ag→Ac` in B.W4, making the Latin sequence `Aa..Ae` contiguous.)
 
 ## §5 — Close-honesty checklist (`precepts/SPEC §Close`)
 

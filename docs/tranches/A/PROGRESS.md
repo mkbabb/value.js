@@ -12,7 +12,7 @@ Five research lanes dispatched in parallel, each authoring a deliverable under `
 |---|---|---|---|
 | Aα | runtime keystone | `research/Aa-runtime-keystone.md` | three stacked fatal faults + one cosmetic; A-key-2 is the user's `stops.length` crash, absent from glass-ui Q's ledger |
 | Aβ | styling resilience | `research/Ab-styling-resilience.md` | 19 findings; the dock `calc()` chain folds back on itself |
-| Aγ | design tokens + hierarchy | `research/Ag-design-tokens-hierarchy.md` | 13 findings; `font-mono-code`/`text-2xs`/`text-pane-description` undefined classes silently dropped |
+| Aγ | design tokens + hierarchy | `research/Ac-design-tokens-hierarchy.md` | 13 findings; `font-mono-code`/`text-2xs`/`text-pane-description` undefined classes silently dropped |
 | Aδ | interactive states | `research/Ad-interactive-states.md` | 20 findings; four-state gaps; `<SelectTrigger class="h-9">` ×11 |
 | Aε | structure + blob/aurora | `research/Ae-structure-blob-aurora.md` | `Dock.vue`/`App.vue` god-components; GooBlob duplicates glass-ui `useMetaballs`; Aurora built against a deleted schema |
 
@@ -34,7 +34,7 @@ Six hardening lanes dispatched in parallel against the round-3 plan, each author
 |---|---|---|---|
 | HARDEN-1 | A↔Q de-dup boundary | `audit/HARDEN-1-dedup-boundary.md` | 6 pure-duplicate value.js writes between A.W0/A.W1 and Q.W1-C/Q.W2-B; Q's gate silently depends on A; value.js does not pin `docs/precepts` |
 | HARDEN-2 | W0 keystone | `audit/HARDEN-2-w0-keystone.md` | A-key-3 line is `:178-179` not `:131`; the cascade is an App-subtree crash not a hook-tail; `vue-tsc` not installed; `dist/` already clobbered; font 403 is a `server.fs` fault; keyframes.js already fixed at `8d824ee` |
-| HARDEN-3 | design waves W1-W3 | `audit/HARDEN-3-design-waves.md` | 12 findings unassigned; W2 under-scoped; the 11 Card sites are not homogeneous; Ag has 13 findings not 14 |
+| HARDEN-3 | design waves W1-W3 | `audit/HARDEN-3-design-waves.md` | 12 findings unassigned; W2 under-scoped; the 11 Card sites are not homogeneous; Ac (γ) has 13 findings not 14 |
 | HARDEN-4 | W4-W5 + blob/aurora | `audit/HARDEN-4-w4-w5-blob.md` | W5 un-closeable (close ceremony over an open dependency); `usePopupMutex` split hazard; gap-list error — Ae-15 struck, `ConfigSliderPane` re-framed |
 | HARDEN-5 | coverage gaps | `audit/HARDEN-5-coverage-gaps.md` | accessibility, animation, and the e2e suite were entirely uncovered; `hero-lab` scope unrecorded |
 | HARDEN-6 | methodology | `audit/HARDEN-6-methodology.md` | brittleness window mislabeled; zero-deferral claim overstated; wave specs lack per-lane sub-gates; style tics |
@@ -45,7 +45,7 @@ The plan was re-synthesized from the hardening audits:
 
 - **Wave-set augmented 6 → 8.** The former W5 illegally combined the close ceremony with an open cross-repo dependency (`HARDEN-4`); it split into W6 (the conditional blob/aurora abstraction, carrying the dependency) and W7 (the clean close). A new W5 absorbs the accessibility, animation, and e2e-integrity scope the five-angle audit never covered (`HARDEN-5`).
 - **De-dup hardened.** `coordination/Q.md` rewritten with the contested-boundary statement, the airtight ownership table, the reverse gate-dependency edges, the merged cross-tranche timeline, and the gate-handoff protocol. Q.W1 Lane C and Q.W2 Lane B are flagged for deletion from Q's plan.
-- **12 prior-unassigned findings routed** — Ab-1..7 and Ab-16..19 into W2's added fourth lane, Ag-6 into W3. `A.md §8` is now honest.
+- **12 prior-unassigned findings routed** — Ab-1..7 and Ab-16..19 into W2's added fourth lane, Ac-6 into W3. `A.md §8` is now honest.
 - **W0 corrected** — line numbers, the cascade description, and four missed items added: `vue-tsc` install, `dist/` clear, the `server.fs` font fix, the `docs/precepts` submodule registration. The keyframes.js dependency is discharged.
 - **Gap list corrected** — Ae-15 struck (the glass `Select` is already complete); the config-pane gap re-framed as non-adoption of glass-ui's existing `./configurator`.
 - **`A.md §9`** reframed from a brittleness window to a cross-repo dependency (no tree-breaking, no suspended gates).
@@ -132,16 +132,16 @@ The orchestrator owned the global stylesheets (`style.css`, `utils.css`) — one
 
 ## 2026-05-18 — A.W3 close — Design tokens + hierarchy
 
-Orchestrator owned `style.css` (shadow consolidation, `.slug-pill` `@apply`). Six agents ran in parallel on file-disjoint component groups (color-picker, palette-cards, palette-controls, admin, dock-panes, feature-controls), each applying the binding rules in `audit/W3-conventions.md` + its slice of `research/Ag`.
+Orchestrator owned `style.css` (shadow consolidation, `.slug-pill` `@apply`). Six agents ran in parallel on file-disjoint component groups (color-picker, palette-cards, palette-controls, admin, dock-panes, feature-controls), each applying the binding rules in `audit/W3-conventions.md` + its slice of `research/Ac`.
 
 ### What landed
 
-- **Shadow** — `--shadow-card`/`-hover` route through `--shadow-cartoon`/`-hover`, overridden to the demo's pop-art intensity; one cartoon language, no fourth recipe. Dead `--glass-opacity-subtle` deleted (Ag-6).
-- **φ type scale** (Ag-1) — raw Tailwind sizes mapped to glass-ui φ utilities by role across ~48 SFCs. `text-mono-*` for mono contexts; genuine misfits recorded as documented exceptions in the lane docs.
-- **Radii** (Ag-8) — role-bearing radii on semantic aliases; the `ColorInput`/`CurrentPaletteEditor` input fields stop wearing card radius.
-- **Hierarchy** (Ag-9/Ag-10) — `ColorNutritionLabel` rebuilt into a φ heading→emphasis→body cascade.
-- **Admin lists** (Ag-13) — `AdminListItem` restructured into a primary/secondary hierarchy primitive with a leading swatch; the admin panels + `VersionHistoryDrawer` adopt it.
-- **Normalization** (Ag-11/Ag-12) — `.slug-pill` adopted at the dock menus + admin users panel; `DropdownMenuItem`, descriptor sub-text, count indicators normalized; `AdminNamesPanel` tabs moved to the filled `TabsList`.
+- **Shadow** — `--shadow-card`/`-hover` route through `--shadow-cartoon`/`-hover`, overridden to the demo's pop-art intensity; one cartoon language, no fourth recipe. Dead `--glass-opacity-subtle` deleted (Ac-6).
+- **φ type scale** (Ac-1) — raw Tailwind sizes mapped to glass-ui φ utilities by role across ~48 SFCs. `text-mono-*` for mono contexts; genuine misfits recorded as documented exceptions in the lane docs.
+- **Radii** (Ac-8) — role-bearing radii on semantic aliases; the `ColorInput`/`CurrentPaletteEditor` input fields stop wearing card radius.
+- **Hierarchy** (Ac-9/Ac-10) — `ColorNutritionLabel` rebuilt into a φ heading→emphasis→body cascade.
+- **Admin lists** (Ac-13) — `AdminListItem` restructured into a primary/secondary hierarchy primitive with a leading swatch; the admin panels + `VersionHistoryDrawer` adopt it.
+- **Normalization** (Ac-11/Ac-12) — `.slug-pill` adopted at the dock menus + admin users panel; `DropdownMenuItem`, descriptor sub-text, count indicators normalized; `AdminNamesPanel` tabs moved to the filled `TabsList`.
 
 ### Orchestrator corrections
 

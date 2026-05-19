@@ -8,7 +8,7 @@ Lane: admin. Files owned: `demo/@/components/custom/palette-browser/` —
 
 ---
 
-## Ag-13 — AdminListItem restructure (headline)
+## Ac-13 — AdminListItem restructure (headline)
 
 **Before.** `AdminListItem.vue` was a flat `flex items-center gap-3 px-3 py-2`
 row. The `#content` slot had no structural opinion — panels stuffed two equal-size
@@ -58,15 +58,15 @@ the primitive (w-6 h-6 set per-caller, no container).
   split.
 - `VersionHistoryDrawer.vue` — already uses `text-micro` throughout for the
   compact timeline entries; primary (v#) / secondary (name) are both `text-micro`
-  but the badge and "(current)" annotation provide hierarchy. The Ag-1 `text-xs`
-  instances (Revert button, Load more button) were resolved; see Ag-1 below.
+  but the badge and "(current)" annotation provide hierarchy. The Ac-1 `text-xs`
+  instances (Revert button, Load more button) were resolved; see Ac-1 below.
 - `AdminUsersPanel.vue` — user rows are a disclosure pattern (slug pill + count
   badge + action buttons), not a name/value pair. No `AdminListItem` usage here.
-  Ag-11 slug-pill fix applied; see below.
+  Ac-11 slug-pill fix applied; see below.
 
 ---
 
-## Ag-1 — φ type-scale mapping
+## Ac-1 — φ type-scale mapping
 
 Raw Tailwind sizes found and resolved in admin files:
 
@@ -85,7 +85,7 @@ text sizes found; already on φ utilities.
 
 ---
 
-## Ag-10 — `font-normal` on headings
+## Ac-10 — `font-normal` on headings
 
 No `font-normal` found in any of the 11 admin files. The finding in the research
 doc is concentrated in `ColorNutritionLabel.vue` and `ColorComponentDisplay.vue`
@@ -93,7 +93,7 @@ doc is concentrated in `ColorNutritionLabel.vue` and `ColorComponentDisplay.vue`
 
 ---
 
-## Ag-11 — `.slug-pill` class adoption
+## Ac-11 — `.slug-pill` class adoption
 
 `style.css:221` defines `.slug-pill` (`@apply text-mono-small font-bold px-2
 py-0.5 rounded-full border`). `AdminUsersPanel.vue` had two copy-pasted clusters:
@@ -107,7 +107,7 @@ py-0.5 rounded-full border`). `AdminUsersPanel.vue` had two copy-pasted clusters
 
 ---
 
-## Ag-12 — `underline-tabs` normalization in AdminNamesPanel
+## Ac-12 — `underline-tabs` normalization in AdminNamesPanel
 
 **Change.** `AdminNamesPanel.vue:2` — removed `underline-tabs` class and the
 `:style="{ '--active-tab-color': cssColorOpaque }"` binding from the `Tabs` root.

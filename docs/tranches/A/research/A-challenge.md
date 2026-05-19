@@ -22,9 +22,9 @@ Resolved by the §9 brittleness window. The dependency has a named destination: 
 
 ## C4 — Are the "undefined class" findings real, or Tailwind v4 arbitrary values?
 
-`research/Ag` (Ag-2/3/4) claims `font-mono-code`, `text-2xs`, `text-pane-description` are undefined and silently dropped. Challenge: Tailwind v4 generates utilities on demand; could these resolve through `@theme` or a safelist?
+`research/Ac` (Ac-2/3/4) claims `font-mono-code`, `text-2xs`, `text-pane-description` are undefined and silently dropped. Challenge: Tailwind v4 generates utilities on demand; could these resolve through `@theme` or a safelist?
 
-Spot-verified, upheld. Tailwind v4 generates a utility only when its theme namespace key exists — `text-2xs` would require a `--text-2xs` theme entry, `font-mono-code` a `--font-mono-code`. `research/Ag` confirms none is registered in `demo/@/styles/*`, glass-ui `typography.css`, or any config. v4 silently emits nothing for an unknown utility; it does not error. These are real visual bugs (mono text rendering as serif, descriptors at inherited size), correctly P1 in `research/Ag`. W1 carries them. One refinement: the W1 agent must re-run the grep against HEAD before editing, since a glass-ui token addition between audit and wave could make one of the three resolve.
+Spot-verified, upheld. Tailwind v4 generates a utility only when its theme namespace key exists — `text-2xs` would require a `--text-2xs` theme entry, `font-mono-code` a `--font-mono-code`. `research/Ac` confirms none is registered in `demo/@/styles/*`, glass-ui `typography.css`, or any config. v4 silently emits nothing for an unknown utility; it does not error. These are real visual bugs (mono text rendering as serif, descriptors at inherited size), correctly P1 in `research/Ac`. W1 carries them. One refinement: the W1 agent must re-run the grep against HEAD before editing, since a glass-ui token addition between audit and wave could make one of the three resolve.
 
 ## C5 — Is W0 truly closed-form, or does it hide design space?
 

@@ -20,7 +20,7 @@ tree plus `git log -S` for provenance.
 | `DockMainLayer.vue` | component (W4) | 1 — `Dock.vue:10,101` | yes (rendered) | consumed |
 | `PaneSlot.vue` | component (W4) | 3 sites — `App.vue:35,46,61` (import `:94`) | yes (rendered ×3) | consumed |
 | `ConfigSliderPane.vue` | component (W4, Ae-6 merge) | 2 — `AuroraPane.vue:12,16`, `BlobPane.vue:9,84` | yes (rendered by both panes) | consumed |
-| `AdminListItem.vue` | component (W3, Ag-13) | 2 — `AdminColorQueue.vue:9,37`, `AdminNamesPanel.vue:25,54,83` | yes (rendered ×3) | consumed |
+| `AdminListItem.vue` | component (W3, Ac-13) | 2 — `AdminColorQueue.vue:9,37`, `AdminNamesPanel.vue:25,54,83` | yes (rendered ×3) | consumed |
 | `--dock-padding-y` | CSS token (W2, `style.css:59`) | 1 — `style.css:61` (`--dock-h` calc) | yes (feeds dock height chain) | consumed |
 | `--menu-min-w` | CSS token (W2, `style.css:74`) | 6 — `EasingSelector.vue:41,44`, `SortFilterMenu.vue:8`, `ProfileSection.vue:49,102`, `MobileMenuDropdown.vue:37` | yes (menu/select panel min-width) | consumed |
 | `.slug-pill` | `@apply` class (W3, `style.css:241`) | 8 sites — `PaletteSlugBar.vue:43,60`, `AdminUsersPanel.vue:60,127`, `MobileMenuDropdown.vue:42,61`, `ProfileSection.vue:52,75` | yes (slug chip recipe) | consumed |
@@ -52,7 +52,7 @@ is consumed by `Dock.vue`.
 `PaneSlot.vue` is the highest-leverage W4 component: rendered three times in
 `App.vue`'s desktop layout (`:35,:46,:61`). `ConfigSliderPane.vue` is the Ae-6
 merge target — both `AuroraPane.vue` and `BlobPane.vue` compose it.
-`AdminListItem.vue` (W3 Ag-13 hierarchy primitive) is rendered by both admin
+`AdminListItem.vue` (W3 Ac-13 hierarchy primitive) is rendered by both admin
 panels. No orphan component.
 
 ### CSS tokens — A authored only two
