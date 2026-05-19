@@ -1,5 +1,10 @@
 <template>
-    <div class="palette-card-grid grid grid-cols-1 gap-3 min-h-[120px]" :class="gridClass">
+    <!-- W5-a11y: role="list" so each child PaletteCard (role="article") sits in a list landmark -->
+    <div
+        role="list"
+        class="palette-card-grid grid grid-cols-1 gap-3 min-h-[120px]"
+        :class="gridClass"
+    >
         <slot />
         <p
             v-if="empty"

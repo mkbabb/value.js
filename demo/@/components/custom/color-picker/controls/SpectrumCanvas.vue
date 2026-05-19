@@ -1,9 +1,10 @@
 <template>
-    <!-- W5-a11y: spectrum canvas is a 2D color picker widget -->
+    <!-- W5-a11y: 2D saturation×lightness picker — not a linear slider,
+         so role="img" with a reactive descriptive label, not role="slider". -->
     <div
         ref="spectrumRef"
-        role="slider"
-        aria-label="Color spectrum: drag to pick saturation and lightness"
+        role="img"
+        :aria-label="spectrumAriaLabel"
         :class="[
             'spectrum-picker flex w-full h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] lg:max-h-none cursor-crosshair relative touch-gate-target',
             spectrumGate.isActive.value && 'touch-gate-active',
@@ -194,6 +195,15 @@ const stopDragging = () => {
     }
     isDragging.value = false;
 };
+
+// W5-a11y: reactive description of the picker's current 2D position.
+// HSV s/v are 0–1 fractions; rendered as rounded percent.
+const spectrumAriaLabel = computed(() => {
+    const { s, v } = HSVCurrentColor.value.value;
+    const sPct = Math.round((rawS.value ?? clamp(s.value, 0, 1)) * 100);
+    const vPct = Math.round((rawV.value ?? clamp(v.value, 0, 1)) * 100);
+    return `Color spectrum, saturation ${sPct}%, lightness ${vPct}%`;
+});
 
 const spectrumStyle = computed(() => {
     const { h } = HSVCurrentColor.value.value;

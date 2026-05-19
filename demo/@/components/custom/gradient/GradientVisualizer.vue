@@ -143,7 +143,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 <span class="section-label">Type</span>
                 <span class="section-subtitle">{{ activeTypeDesc }}</span>
                 <Select :model-value="type" @update:model-value="(v: string) => type = v as GradientType">
-                    <SelectTrigger aria-label="Gradient type" class="h-9">
+                    <SelectTrigger class="h-9">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -161,7 +161,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 <span class="section-label">Space</span>
                 <span class="section-subtitle">{{ activeSpaceDesc }}</span>
                 <Select :model-value="interpolationSpace" @update:model-value="(v: string) => interpolationSpace = v as ColorSpace">
-                    <SelectTrigger aria-label="Interpolation space" class="h-9">
+                    <SelectTrigger class="h-9">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -179,7 +179,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 <span class="section-label">Hue</span>
                 <span class="section-subtitle">{{ activeHueDesc }}</span>
                 <Select :model-value="hueMethod" @update:model-value="(v: string) => hueMethod = v as HueInterpolationMethod">
-                    <SelectTrigger aria-label="Hue interpolation" class="h-9">
+                    <SelectTrigger class="h-9">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>

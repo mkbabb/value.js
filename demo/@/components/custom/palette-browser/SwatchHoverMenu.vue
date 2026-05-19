@@ -33,14 +33,14 @@
                 @click.stop="$emit('click')"
             />
             <Teleport to="body">
-                <!-- W5-a11y: role="toolbar" groups icon-only action buttons; aria-label identifies it -->
+                <!-- W5-a11y: hover-only panel is keyboard-inaccessible — hidden from
+                     AT. The reka-ui Popover (touch path) is the accessible route. -->
                 <div
                     v-if="open"
                     class="floating-panel"
                     :class="PANEL_LAYOUT"
                     :style="floatingStyle"
-                    role="toolbar"
-                    :aria-label="`Actions for color ${color}`"
+                    aria-hidden="true"
                     @pointerenter="$emit('cancelLeave')"
                     @pointerleave="$emit('leave')"
                 >
