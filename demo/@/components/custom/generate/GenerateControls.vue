@@ -87,6 +87,7 @@ defineExpose({ regenerate, save, copyColors });
                         <SelectTrigger aria-label="Generation preset" class="h-9">
                             <SelectValue />
                         </SelectTrigger>
+                        <!-- B.W1: kept wider than --menu-min-w — preset names + descriptions need the space -->
                         <SelectContent class="min-w-[14rem]">
                             <SelectItem
                                 v-for="p in PRESET_NAMES"
@@ -109,6 +110,7 @@ defineExpose({ regenerate, save, copyColors });
                         <SelectTrigger aria-label="Color harmony" class="h-9">
                             <SelectValue />
                         </SelectTrigger>
+                        <!-- B.W1: kept wider than --menu-min-w — harmony names + descriptions need the space -->
                         <SelectContent class="min-w-[14rem]">
                             <SelectItem
                                 v-for="h in HARMONY_NAMES"

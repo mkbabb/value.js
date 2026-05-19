@@ -14,22 +14,19 @@
 
 /* Project tokens (layout, surfaces).
  *
- * Dock layout:
+ * Dock layout (B.W1 — flex+fixed transposition, Bβ Proposal B):
  *   --dock-h      = icon-btn + vertical padding + border  (intrinsic height)
  *   --dock-total  = inset + dock-h + gap                  (vertical band the dock occupies)
  *   --content-max-h = the cap on the pane container's height
- *   --dock-pos    = the dock's distance from the viewport top
  *
- * --dock-pos derives from --content-max-h on purpose — this is a one-way
- * dependency, not the prior fold-back. The fixed dock floats above a
- * vertically-centred content block of height --content-max-h:
- *   dock-pos = (content block's top edge) − dock-h − dock-gap
- * On common viewports the centring term is small or negative and the max()
- * floors --dock-pos at --dock-inset (top-anchored). On ultra-wide aspect
- * ratios, where --content-max-h is much shorter than the viewport, the
- * centring term wins and the dock floats down with the centred content.
- * Editing the --content-max-h clamps therefore moves the dock with the
- * content by design; the responsive overrides below are deliberate.
+ * The dock is position:fixed and pins at --dock-inset on every viewport.
+ * .app-layout is a flex column whose padding-top: --dock-total reserves the
+ * dock band and whose justify-content: center vertically centres the pane
+ * container. There is no --dock-pos formula, no grid clearance row, no
+ * fold-back: the dock's position and the content's centring are independent
+ * CSS layout, not a token derivation. At ultra-wide aspect ratios the dock
+ * pins at the top rather than floating with the content — the one accepted
+ * visual delta of Proposal B.
  */
 :root {
     /* ── Project theme tokens ──
@@ -54,19 +51,14 @@
     --select-font: var(--font-mono);
     --dropdown-menu-font: var(--font-mono);
 
-    /* ── Layout tokens ── */
+    /* ── Layout tokens ── (7 — B.W1 dropped --dock-pos and --layout-padding) */
     --dock-border-width: 3px;
     --dock-padding-y: 0.75rem;
-    --layout-padding: 2rem;
     --dock-h: calc(var(--size-icon-btn) + var(--dock-padding-y) + var(--dock-border-width));
     --dock-inset: 1rem;
     --dock-gap: 1rem;
     --dock-total: calc(var(--dock-inset) + var(--dock-h) + var(--dock-gap));
-    --content-max-h: calc(100dvh - var(--dock-total) - var(--layout-padding));
-    --dock-pos: max(
-        var(--dock-inset),
-        calc((100dvh - var(--content-max-h)) / 2 - var(--dock-h) - var(--dock-gap))
-    );
+    --content-max-h: calc(100dvh - var(--dock-total) - 1rem);
     --desktop-pane-max-w: 30rem;
     --desktop-pane-gap: 0.5rem;
 
@@ -100,41 +92,26 @@
 }
 
 /* ── App layout ──
- * Grid: row 1 is the dock-clearance band, row 2 holds the pane container.
- * Row sizing comes from grid-template-rows, not a calc() padding reservation. */
+ * Flex column: padding-top reserves the fixed dock's band (--dock-total),
+ * justify-content centres the pane container. No grid clearance row. */
 .app-layout {
-    display: grid;
-    grid-template-rows: calc(var(--dock-total) + 0.5rem) 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100dvh;
     width: 100%;
     position: relative;
     overflow: hidden;
-    padding: 0 1rem 0.5rem;
-    align-items: stretch;
-}
-@media (min-width: 1024px) {
-    .app-layout {
-        grid-template-rows: var(--dock-total) 1fr;
-        align-items: start;
-    }
+    padding: var(--dock-total) 1rem 0.5rem;
 }
 
-/* The a11y <nav> / <main> landmarks are the direct grid items of .app-layout.
- * .pane-main owns grid row 2 and re-establishes the definite-height context
- * .pane-container's `height: 100%` resolves against. Without it the bare
- * <main> is auto-height (the lg+ `align-items: start` suppresses the stretch),
- * the percentage-height chain collapses, and the pane renders 0×0. */
-.app-layout > nav {
-    grid-row: 1;
-}
+/* The a11y landmarks are the flex children of .app-layout. <nav> wraps the
+ * position:fixed dock so it carries no in-flow height; <main> (.pane-main)
+ * holds the pane container and is the flex item justify-content centres. */
 .pane-main {
-    grid-row: 2;
-    /* Fill the 1fr track regardless of the lg+ `align-items: start`, so the
-     * downstream percentage-height chain has a definite basis. */
-    align-self: stretch;
     display: flex;
     flex-direction: column;
-    /* flex-min-size idiom — let the column shrink inside the grid track. */
+    /* flex-min-size idiom — let the column shrink to its content. */
     min-height: 0;
     min-width: 0;
 }
@@ -147,7 +124,6 @@
     max-width: calc(var(--desktop-pane-max-w) * 2 + var(--desktop-pane-gap) + 2rem);
     margin: 0 auto;
     position: relative;
-    height: 100%;
     max-height: var(--content-max-h);
     min-height: 0;
 }

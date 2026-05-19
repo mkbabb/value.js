@@ -70,7 +70,7 @@ const { activeLayer } = useDockLayers({ mobileEditActive, slugEditMode, actionBa
 </script>
 
 <template>
-    <div class="fixed top-[var(--dock-pos)] inset-x-0 z-[var(--z-dock)] flex items-center justify-center pointer-events-none">
+    <div class="fixed top-[var(--dock-inset)] inset-x-0 z-[var(--z-dock)] flex items-center justify-center pointer-events-none">
         <div class="pointer-events-auto">
             <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="isDesktop" :fit-content="true" :always-expanded="!isDesktop">
                 <DockLayerGroup v-model:active="activeLayer" :show-rail="false">

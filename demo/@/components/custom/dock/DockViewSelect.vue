@@ -54,6 +54,7 @@ const pm = inject(PALETTE_MANAGER_KEY)!;
             />
             <SelectValue v-if="isDesktop" />
         </DockSelectTrigger>
+        <!-- B.W1: kept wider than --menu-min-w — long view-option labels need the space -->
         <SelectContent class="min-w-[12rem]">
             <SelectGroup class="text-small font-display">
                 <SelectItem
