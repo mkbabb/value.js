@@ -41,6 +41,34 @@ Plan substrate: `D.md`, `D-PROMPTS.md`, `findings.md`, `research/Da..Dh` (8 audi
 - glass-ui: `e2e5303` (post-Q-close; contract-v2 shipped at `ce5aad8`).
 - keyframes.js: `0909177` (contract-v2 OK code-side; precept-pin off-target).
 
+## 2026-05-19 — Hardening round (6-lane audit)
+
+The user re-issued the original "DEEPLY audit with 6 agents in parallel" directive — scoped to harden Tranche D *itself*. Six read-only `general-purpose` agents audited D's substrate (the just-authored plan + 8 research lanes).
+
+| Lane | Angle | Headline finding |
+|---|---|---|
+| D-HARDEN-1 | wave structure | Keep 7 waves (no B-style 6→5 collapse — D's waves are file-tree-disjoint). **Critical insight**: W2/W3 are file-disjoint and gate-disjoint; the linear schedule is illusory. Allow W2 ∥ W3 → 6 wave-slots. Plus minor gate tightenings. |
+| D-HARDEN-2 | apparatus / docs / gates | 4,631 LoC across 21 files. **Not over-built** (apparatus shell 874 LoC vs B's 1,159). Zero gate-tier violations. Recommended pares: ~119 LoC (P1 Dh §5 → pointer, P2 dispatch/AGENT.md → deltas-only). |
+| D-HARDEN-3 | D.W2 backend depth | 19 Db findings → D.W2 cross-walk: 9 FULL / 6 PARTIAL / 4 MISSED. **Defects**: repository list hallucinated 2 collections, omitted `votes`; lane order was wrong (A∥B → C → D would let A/B write services calling `db.collection(…)` before C lands the repos); Db §6 L2 (`api/dist/` checked-in) is FALSE. **15 amendments**: re-order lanes (C → A∥B → D), pin DI as Hono-context-middleware + route-as-controller + `withTransaction` for cross-collection writes, add `errors/`/`events/`/`middleware/inject-services/require-ownership`/`format/` to the tree, revise F1/F3/W3/W4 fail-explicit dispositions, fold F6/C3/C4/F1 missed findings. |
+| D-HARDEN-4 | D.W3 frontend depth | 7 De findings folded; **3 missed sub-findings** + **TabValue reframe** (NOT a union drift — `PaletteControlsBar.vue:38-46` renders 3 stray admin-triggers with no matching TabsContent). Facade is 11 consumers (missed `VersionHistoryDrawer.vue:110`), NOT 10; lift into 5 colocated sub-composables exposed as `pm.audit`/`pm.flagged`/`pm.tags`/`pm.versions`/`pm.tagEdit` sub-objects (NOT flat methods on a 50+-member facade). Codemod is 32 SFCs not 38; 2 hand-conversion sites. **`viewSchema.ts` extraction un-folded — D5 violation** — folded as new Lane D in D.W3. `cssColorToRgb` micro-fix + `./configurator` adoption folded. |
+| D-HARDEN-5 | D.W4 styling + D.W5 e2e + aurora/blob filings | D.W4 OK; pixel gate 1% → 0% with 3-row enumerated drift list. D.W5 had picker double-spec + WebGL compacted 2→1; both fixed. **Pixel-7 emulation runs Chromium not WebKit** — `smoke-safari` follow-up filed for post-D. Aurora filing 9/10 implementable (grayscale C=0 gap — 1-line clarification). Blob filing 10/10. |
+| D-HARDEN-6 | prompts + invariants + chronically-deferred | Clause cross-walk: 33/35 ADDRESSED-or-FILED (94%). 2 GAPS: clause 22 "no effusive dynamicism" + clause 26 "linting". **D6 invariant codified** ("explicit pipeline / no effusive dynamicism"); `lint` script + eslint config + CI step folded into D.W1 Lane L7. Fail-explicit (D3) expanded to bind frontend too. **6 chronically-deferred items un-folded** (strict D5 violation) — all 6 folded (items 9/10/12/13/19 → D.W1/W3; item 18 → D.W6). |
+
+### Hardening applied (planning-only, in-place to the substrate)
+
+- `D.md §2` — D6 invariant added; D3 expanded to whole-codebase; precept-clause notes added.
+- `D.md §3` — critical-path updated to 6 wave-slots (W2 ∥ W3 allowed); wave schedule annotated.
+- `D.W1.md` — split sub-gate into 7 numbered conditions; **added L6** (library barrel completeness — G1-G11) + **L7** (5-module vitest coverage + `lint` script + CI step).
+- `D.W2.md` — re-ordered lanes (C → A∥B → D); repo list corrected to the real 9 collections; added `errors/`/`events/`/`middleware/`/`format/` to the tree; pinned DI/controller/transactional shape; revised F1/F3/W3/W4 fail-explicit dispositions; folded 4 missed Db findings (F6/C3/C4/F1); corrected Db §6 L2 (`api/dist/` not checked-in). 15 amendments.
+- `D.W3.md` — restructured as **4 lanes** (added Lane D — `viewSchema.ts` extraction); fold-ins for the 3 missed De sub-findings (ImageEyedropper split, `useColorNameQueue`/`useAdminOperations`, `CURRENT_PALETTE_ID`); reframed TabValue as the PaletteControlsBar trigger bug; facade as 5 sub-objects (11 consumers, not 10); codemod count 32 (not 38) with 2 hand-conversion sites; `cssColorToRgb` memoise folded into Lane C; `./configurator` adoption folded into Lane A; opens after D.W1 (not D.W2) per HARDEN-1.
+- `D.W4.md` — pixel gate 1% → 0% with a 3-row enumerated drift table; pixel-diff artefacts named.
+- `D.W5.md` — picker double-spec dropped; WebGL split into 2 specs (atmosphere + goo-blob); `smoke-mobile` note about Chromium-not-WebKit + follow-up filing.
+- `D.W6.md` — K4 Prettier-doc folded as close-residual item 8; `smoke-safari` WebKit follow-up filed (item 9); D5 close-state table showing all 6 chronically-deferred items LANDED in D.
+- `findings.md` — rows HARDEN-1 / HARDEN-3a..f / HARDEN-4a..f / HARDEN-5a..d / HARDEN-6a..d added (the 22 hardening corrections all wave-routed).
+- `coordination/Q.md` — `§3` aurora row + grayscale clarification; new `§11` records the `smoke-safari` follow-up.
+
+No new wave; no scope dropped — every original finding still lands; the apparatus is hardened.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |

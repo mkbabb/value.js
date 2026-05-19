@@ -27,6 +27,23 @@ The close ceremony for tranche D. Inherits B's strengthened-close shape; the 7 l
 5. **Update root `CLAUDE.md`** — test count + smoke spec count after D.W5 (~20 specs across 3 projects).
 6. **`demo/CLAUDE.md`** — wholesale reconcile to the post-D state (the Mar-2026 restructure + B + D consolidations and additions).
 7. **`api/CLAUDE.md`** — verify D.W2's reconcile to 9 collections / 24 indexes is accurate post-Lane-A/B splits; document the new service/repository layer.
+8. **K4 Prettier-doc gap** (Da §3 item 18 — the value.js-side keyframes.js parity finding from B.W3) — fold the Prettier-config doc-coverage gap into the close ceremony's doc-drift sweep. Either: add the Prettier config to `CLAUDE.md`'s "Conventions" block; or record the gap as a named-destination item if a library-doc tranche is intended.
+9. **iOS-Safari WebKit smoke-safari follow-up** (D-HARDEN-5 §4) — file as a named-destination in `coordination/Q.md §3` (a `smoke-safari` Playwright project + a 30s sustained spec to catch iOS-Safari engine-specific bugs Pixel-7 emulation misses). Successor: a value.js testing-hardening tranche or the next pass. Not in D — D's `smoke-mobile` covers the mobile-layout class.
+
+## D5 close-state — chronically-deferred items at D close
+
+Per D-HARDEN-6 §3, the 6 chronically-deferred items that opened D un-folded (item 9 `./configurator` adoption, item 10 G1-G11 library barrel, item 12 viewSchema, item 13 cssColorToRgb memoise, item 18 K4 Prettier-doc, item 19 5-module test coverage) are all addressed by D's hardened plan:
+
+| Item | Disposition at D close |
+|---|---|
+| 9 `./configurator` half | LANDED in D.W3 Lane A (small sub-step — single-file demo-side migration) |
+| 10 G1-G11 library barrel | LANDED in D.W1 Lane L6 (per-gap disposition table) |
+| 12 viewSchema.ts | LANDED in D.W3 Lane D (new lane folded by D-HARDEN-4) |
+| 13 cssColorToRgb memoise | LANDED in D.W3 Lane C (5-line micro-fix folded with the codemod) |
+| 18 K4 Prettier-doc | LANDED here (D.W6 item 8) — close-ceremony doc work |
+| 19 5-module test coverage | LANDED in D.W1 Lane L7 (vitest specs added for the B.W3-committed src/ WIP) |
+
+D5 invariant satisfied — zero chronically-deferred item drops off D without a wave assignment or a named destination.
 
 ## File bounds
 

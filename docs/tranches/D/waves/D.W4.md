@@ -17,7 +17,15 @@ Source: `research/Df-styling.md`. **Binding constraint**: changes must be "perfe
 5. **Minor cohesion drift** — `research/Df-styling.md §8`: 3 mono stacks (consolidate to one `--font-mono` reference), hero-lab literal `999px` (route through a token), the redundant `, monospace` fallback (drop).
 6. **Brittle selectors** — `research/Df-styling.md §5`: replace `:deep(svg)` (`PaletteCard.vue`) and `button:has(> .lucide-x)` (`PaletteDialog.vue`) with role/label or `data-*` selectors.
 
-**Sub-gate A**: `grep -rn '\[var(--' demo/@/components demo/color-picker | wc -l` ≤ 5 (the truly-bespoke residuals, each with an inline rationale); `wc -l demo/@/styles/style.css` shows ≈ -40 lines vs the post-W3 baseline; the 4 colocation candidates live in their components; `grep -rn ':deep(svg)\|:has(>' demo/@/components` returns zero; Playwright visual probe at 3 viewports light+dark — pixel-drift ≤ 1% (or every drift is documented and accepted).
+**Sub-gate A**: `grep -rn '\[var(--' demo/@/components demo/color-picker | wc -l` ≤ 5 (the truly-bespoke residuals, each with an inline rationale); `wc -l demo/@/styles/style.css` shows ≈ −40 lines vs the post-W3 baseline; the 4 colocation candidates live in their components; `grep -rn ':deep(svg)\|:has(>' demo/@/components` returns zero; **Playwright visual probe at 3 viewports light+dark — 0 pixel-drift** against the post-D.W3 baseline EXCEPT the enumerated drift list below, each documented and accepted:
+
+| Site | Drift source | Accepted because |
+|---|---|---|
+| `hero-lab/**` | the literal `999px` → token may shift 1 px on the rounded surface | tokenisation gain ≫ sub-pixel rounding noise |
+| touch-gate cascade | the colocation move re-orders source within `<style scoped>`; cascade order is unchanged within selectors | structurally isomorphic; verified |
+| `PaletteCard`'s `:deep(svg)` → role/label or `data-*` rewrite | the new selector still scopes to the SVG; specificity may differ by 0 or 1 | a11y win > selector-shape change |
+
+Any drift outside the enumerated list FAILS the gate. The pixel-diff report (per-viewport diff masks) lives in `audit/D.W4-pixel-diff/`.
 
 ### Lane B — `demo/DESIGN.md` catalog expansion
 

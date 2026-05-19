@@ -1,74 +1,35 @@
-# D tranche — agent dispatch template
+# D tranche — agent dispatch (deltas vs B)
 
-Inherits B's hardened dispatch contract (`docs/tranches/B/dispatch/AGENT.md`); the deltas for D are at §"What's new in D" at the bottom.
+D inherits **B's hardened dispatch contract verbatim** (`docs/tranches/B/dispatch/AGENT.md`). This doc carries only the D-specific deltas; the binding clauses (hardened git, cross-repo boundary, runtime-evidence, worktree isolation, build hygiene, sub-gates, proof docs, hard caps, prose) are unchanged and live in B's doc — read both.
 
-## Hardened agent git clause (binding, non-negotiable)
+## D6 — invariant added (`D.md §2`)
 
-NO mutating git. Forbidden for agents in every context:
+Codified after the hardening pass: "explicit pipeline / no effusive dynamicism." Backend: explicit `validate → authn → authz → service → repository → response` pipeline; no runtime indirection (no `Function` constructor, no dynamic `require`, no string-keyed dispatch on user input). Frontend: dynamic component dispatch where it routes types (`usePaneRouter`'s registry is the canonical idiomatic use) is permitted; runtime registry mutation / `eval` / string-keyed inject leaks are not. The close ceremony's idiomatic-gestalt lane spot-checks.
 
-- `git add` / `git stash` (any form) / `git commit` / `git commit --amend`
-- `git checkout <branch>` / `git checkout <path>` / `git switch`
-- `git reset` / `git restore` / `git mv` / `git rebase` / `git merge` / `git cherry-pick` / `git revert`
-- `git push` / `git pull` / `git fetch --prune`
+## D3 — fail-explicit, expanded to whole codebase
 
-Allowed (read-only): `git log`, `git diff`, `git show`, `git status`, `git reflog`, `git tag -l`, `git branch -l`, `git remote -v`, `git config --get`, `git ls-files`, `git stash list` (audit-only).
+The directive's "no silent or graceful handling unless befitting" binds **across the codebase, not just `api/`**. D.W2 lands the backend sites (`research/Db-backend-legacy.md §2` + `audit/D-HARDEN-3-backend.md §3`); D.W3/D.W4 sweep the frontend for any `?? null`/`?.()` that swallows a real failure path; the close verifies. "Befitting graceful" exceptions (the audit-log W3 carve-out) record explicit rationale inline.
 
-The orchestrator owns the index. When a build fails, an agent reverts surgically with the Edit tool, never with a state-rewinding git command.
+## Contract-v2 + lint (D.W1)
 
-## Cross-repo boundary
+D.W1 lands contract-v2 (`package.json exports` collapses to `{types, import, default}`; `vite.config.ts` loses `development` conditions + sibling-`fs.allow`; `scripts/proof-resolution-contract.mjs` ported; precepts pinned at `68d9b20`). Agents in D.W2+ must NOT re-introduce a `development` condition or a `dist/` hard alias. D.W1 Lane L7 adds a `lint` script + eslint config + CI step — every wave's gate matrix from W1 onward runs `npm run lint` alongside `vue-tsc` + `npm test`.
 
-D agents write **value.js only**. No agent edits `glass-ui/` or `keyframes.js/` — those are read-only at the SHAs recorded in `coordination/Q.md`. A glass-ui or keyframes.js need is FILED in `coordination/Q.md §3`/`§9`, not written.
+## Expanded e2e suite (D.W5)
 
-## Zero deferral (invariant D5)
+3 → ~12 specs in `e2e/smoke/` (D-HARDEN-5 §3 trimmed: picker double-spec dropped; WebGL split to 2). Plus 6 admin specs + an admin-walk in `smoke-admin` (`addInitScript` localStorage seeding — NEVER live-login). Plus one Pixel-7 spec in `smoke-mobile` (Chromium, not WebKit — iOS-Safari follow-up routed `coordination/Q.md §11`). Role/label only, all invariants from B.W3 stand.
 
-Every `research/Da..Dh` finding lands in a wave, retires with recorded rationale, or has a named cross-repo destination in `coordination/Q.md`. An agent that finds its wave's scope underspecified escalates to the orchestrator; it does not stub, shadow-API, or "temporarily" defer.
+## Backend lane in scope (D.W2)
 
-## Runtime-evidence gate (invariant D4)
+D.W2 is the first tranche-D wave that writes `api/`. Per D-HARDEN-3's amendments: **lane order is C → (A ∥ B) → D** (Lane C lays the service/repository/errors/events/DI-middleware rails; A and B then split the god modules onto them). NO god modules (every file ≤ 500); fail-explicit per D3 + D-HARDEN-3 §3 revised dispositions (F1 migration smoke-probe, F3 idempotent upsert + gated `$inc` in `withTransaction`, W3 logged-with-rationale, W4 library-throw); DI via Hono context middleware; transactional boundary on cross-collection writes (`deleteUser`/`fork`/`vote`).
 
-A wave that changes the demo closes on a Playwright probe; a wave that changes only `src/` or only `api/` closes on the relevant build/test gate plus a smaller probe. An implementation agent validates with `vue-tsc --noEmit` + `npm test` + `npm run test:e2e -- --project=smoke` (and after D.W5: `--project=smoke-admin` / `--project=smoke-mobile` where relevant); the orchestrator runs the Playwright probe and the full gate matrix at wave close.
+## Frontend cohesion (D.W3)
 
-## Fail-explicit (invariant D3 — new in D)
+`PaletteDialog.vue` (652) → a 12-file colocated `PaletteDialog/` dir. Facade as 5 sub-objects (`pm.audit`/`pm.flagged`/`pm.tags`/`pm.versions`/`pm.tagEdit`), NOT flat methods. Codemod = 32 SFCs (`GooBlob.vue:41` + `ImageEyedropper.vue:336` are hand-conversion; sequence after the ImageEyedropper split). `viewSchema.ts` extracted as the canonical `ViewId` + `VIEW_MAP` source. `cssColorToRgb` memoised. `App.vue` retires the dead `provide("auroraConfig", …)`.
 
-The user's D-opening directive binds: "no silent or graceful handling unless befitting." For the backend wave (D.W2) especially: every silent-fallback site identified in `research/Db-backend-legacy.md §2` is excised OR converted to an explicit `throw new HTTPException(…)`/`error(…)` — never `?? null`, never `try {} catch {}`, never `console.warn` and continue. Where graceful is genuinely befitting (e.g. the audit-write best-effort), the agent records the explicit rationale in the change.
+## `demo/CLAUDE.md` wholesale reconcile
 
-## Worktree isolation
+Routed to **D.W6** close ceremony (per D-HARDEN-4 §7). D.W3 makes only targeted in-place edits for files it touches; the wholesale rewrite (the pre-Mar-2026-restructure stale structure section) lands at the close.
 
-A wave with ≥2 agents writing shared files dispatches with `Agent isolation: "worktree"`; the orchestrator integrates at wave close via `git cherry-pick`. D's waves are mostly file-disjoint (D.W2 backend vs D.W3 frontend); read-only research and audit lanes never need a worktree.
+## Parallelism (D-HARDEN-1)
 
-## E2e gate
-
-Inherits B.W3's role/label-only invariant for smoke specs. D.W5 expands the suite (3 → ~20) but **the invariants STAND**: `getByRole`/`getByLabel`/`aria-label` only. NO class selectors, NO `.lucide-*`, NO xpath, NO `page.evaluate()` for interaction, NO `waitForTimeout`. Admin specs mock via `addInitScript` localStorage seeding (per `research/Dg-playwright-coverage.md §2`), NEVER live-login (the W5-C hang root).
-
-## Build hygiene
-
-NO `npm run build` mid-task when sibling agents run in parallel — the build mutates `dist/`. Agents validate with `vue-tsc` + `npm test` + the smoke suite. The orchestrator runs `npm run build` once, at wave close. `npm run build:watch` (D.W1's new script) runs only on explicit orchestrator request.
-
-## Agent dispatch contract
-
-Each dispatched agent gets: a self-contained prompt, explicit file bounds, a hard gate, the expected artefacts, a return format, and a hard time cap. No broad repo context — specific files only. A prompt over ~700 words means the task is mis-scoped; split it.
-
-## Sub-gates
-
-Every wave spec carries an explicit per-lane sub-gate. An agent's prompt cites its sub-gate verbatim. The wave's hard gate is the conjunction of sub-gates plus the Playwright probe (wave-qualified).
-
-## Proof docs
-
-Every dispatched agent authors a proof doc under `docs/tranches/D/audit/<wave>-<lane>-<title>.md` citing the gate evidence. Research agents author under `research/`.
-
-## Hard caps
-
-- Research / audit lane: 25–35 min (the HEADLINE close audit gets 35).
-- Implementation lane: 30 min (D.W2 backend lanes may need 40 — the backend wave is the heaviest).
-- Doc-only lane: 20 min.
-
-## Prose
-
-Agent-authored docs follow the precept `STYLE.md` — declarative and evidence-led, unspaced em-dashes used sparingly, no epanorthosis, no AI-writing signs, contractions allowed. Every claim cites a file:line or an artefact path.
-
-## What's new in D (vs B's dispatch)
-
-1. **Fail-explicit invariant (D3)** — codified above. Binds D.W2 in particular.
-2. **Contract-v2** — D.W1 ships value.js's compliance. D.W0 advances the precept submodule to `68d9b20`. After D.W1, the dev demo resolves value.js via `default` (not `development`); agents in later waves must not re-introduce a `development` condition or a `dist/` hard alias.
-3. **Expanded e2e suite** — D.W5 grows smoke from 3 to ~20 specs across `smoke` / `smoke-admin` / `smoke-mobile` projects. Wave gates after D.W5 run the appropriate subset.
-4. **Backend lane in scope** — D.W2 is the first tranche-D wave that writes `api/`. Per the dispatch invariants above, NO god modules, fail-explicit, service/repository layer, zod validation pipeline.
-5. **A wholesale `demo/CLAUDE.md` reconcile** is routed to D.W3 / D.W6's doc-drift sweep — B.W4 only made the genuinely B-introduced fixes; D owns the wholesale.
+D.W2 (`api/`) and D.W3 (`demo/`) are file-disjoint and gate-disjoint. The orchestrator MAY run them in parallel under worktree isolation, reducing the critical path from 7 wave-slots to 6. Serialization is also allowed (gate-isolation discipline); the choice is the orchestrator's at wave-open.

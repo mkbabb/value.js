@@ -1,74 +1,109 @@
 # D.W2 — Backend (`api/`) — god module split + service/repo + fail-explicit
 
-**Opens after**: D.W1 close.
-**Lanes**: 4 — A (palettes.ts split), B (admin.ts split), C (service/repository layer + zod pipeline), D (legacy excision + doc reconcile). Lanes A and B share the route-file domain; C and D are file-disjoint and run in parallel after A/B land their splits. Worktree isolation for A and B (they share `api/src/routes/` namespace).
+**Opens after**: D.W1 close. **May run in parallel with D.W3** (file- and gate-disjoint per D-HARDEN-1).
+**Lanes**: 4 — sequenced **C → (A ∥ B) → D** (corrected by D-HARDEN-3: A/B writing services BEFORE C's repositories exist would re-introduce direct `db.collection(…)` calls). C lands the layer; A and B then split the god modules onto it; D excises legacy and reconciles docs.
+**Worktree isolation**: A and B share `api/src/routes/` namespace, dispatched with `isolation: "worktree"`.
 **Status**: planned.
 
-The heaviest wave of tranche D. Source: `research/Db-backend-legacy.md` (read it first).
+The heaviest wave of tranche D. Source: `research/Db-backend-legacy.md`; hardening corrections from `audit/D-HARDEN-3-backend.md`.
 
 ## Scope
 
-The `api/` codebase (13 files / 2,800 LoC) carries 2 god modules (`palettes.ts` 845 lines / 6 concerns; `admin.ts` 750 lines / 8 concerns), no service or repository layer (157 direct `db.collection(…)` calls + 123 inline Mongo ops in route handlers), 31 `as any` casts, 6 silent-fallback sites, and `api/dist/` checked-in build artefacts. The directive's binding rule: **fail-explicit, no silent / graceful handling unless befitting.** Invariant D3.
+`api/` is 13 files / 2,800 LoC with 2 god modules (`palettes.ts` 845 / 6 concerns; `admin.ts` 750 / 8 concerns), no service or repository layer (157 direct `db.collection(…)` + 123 inline Mongo ops in route handlers), 31 `as any` casts, 6 silent-fallback sites, and 2 dead migration scripts. The directive's binding rule: **fail-explicit, no silent / graceful handling unless befitting** (invariant D3).
 
-### Lane A — `routes/palettes.ts` split (845 → ≤ 250 per file)
+**Db research correction** (per D-HARDEN-3 §3): `api/dist/` is NOT checked in — root `.gitignore:11` already excludes `dist/` and `git ls-files api/dist/` returns zero. Db §6 L2 is wrong on that point; the dist concern is local-cleanup only, not invariant-33 git-removal.
 
-`research/Db-backend-legacy.md §1` breaks down palettes.ts into 6 concerns. Split per-concern into a routes file + a service file. Sketched split:
+### Lane C — service + repository layer + DI middleware + zod pipeline + errors/events (lands FIRST)
 
-- `routes/palettes/index.ts` — the Hono router; mounts the sub-routes.
-- `routes/palettes/{crud,versions,forks,votes,export,slug}.ts` — one routes file per concern. Routes are thin: validate (zod) → service call → response shape.
-- `services/palette/{crud,versions,forks,votes,export,slug}.ts` — services own the domain logic.
+`research/Db-backend-legacy.md §3` named the verdict as "flat tangle" (verdict D). C lays the rails Lanes A and B then build on. Per D-HARDEN-3:
 
-Every route handler MUST go through a repository (Lane C); zero direct `db.collection(…)` survives. The 6 concern splits each become a routes/service pair.
+1. **`api/src/db/collections.ts`** — a typed `collections{}` factory over the **real 9 collections** (per `api/src/db.ts:21-150`): `palettes`, `palette_versions`, `votes`, `sessions`, `proposed_names`, `tags`, `flags`, `admin_audit`, `users`. The factory: `{ palettes: Collection<Palette>, users: Collection<User>, … }`. Route handlers never use raw `db.collection(…)`. (The earlier draft hallucinated `color_names`+`color_proposals` and omitted `votes`; corrected.)
 
-**Sub-gate A**: `wc -l api/src/routes/palettes/**/*.ts` shows every file ≤ 250; `palettes.ts` (the original) deleted; `routes/palettes/index.ts` is the new entry; every concern has a service + a routes file.
+2. **`api/src/repositories/{palette,paletteVersion,vote,session,proposedName,tag,flag,adminAudit,user}.ts`** — one repository per collection (singular naming). Each owns all queries, projections, and write ops for its collection. Every public method has a typed signature; zero `as any` (or each remaining ≤ 5 with inline rationale).
 
-### Lane B — `routes/admin.ts` split (750 → ≤ 250 per file)
+3. **`api/src/errors/index.ts`** (new — D-HARDEN-3 §4) — typed error classes + a `toResponse(err)` mapper for Hono. `class ApiError extends Error { constructor(public status: number, public code: string, public message: string, public detail?: unknown) }` + `class ValidationError extends ApiError` + `class OwnershipError extends ApiError` + `class ConflictError extends ApiError`. The mapper renders an explicit `{ error: { code, message, detail? } }` envelope. Every fail-explicit path throws a typed error; the global error middleware maps it.
 
-Same pattern as Lane A. 8 concerns → 8 routes/service pairs under `routes/admin/`. The `admin-audit` route in particular should NOT silently catch write failures (Lane D's F-finding W3 fixes this).
+4. **`api/src/events/auditLog.ts`** (new — D-HARDEN-3 §4) — `emitAuditEvent(ctx, action, payload)`. The single canonical entry-point for admin-audit writes; carries the explicit-rationale logic for W3 (see Lane D F-revisions below).
+
+5. **`api/src/middleware/inject-services.ts`** (new — D-HARDEN-3 §2 DI pin) — Hono context middleware that hangs a typed `services` object off `c.var`. Routes read `const { palettes } = c.var.services`. **DI is via Hono context, not constructor injection or module-level singletons.** The middleware constructs services once per worker (lazy), passes the repositories in.
+
+6. **`api/src/middleware/require-ownership.ts`** (new — D-HARDEN-3 §4 F2 replacement) — replaces the F2 `sessionToken` ownership shim. The middleware reads the authenticated user from `c.var.user` (set by `authn`) and the resource owner from the route; throws `OwnershipError` if mismatched.
+
+7. **`api/src/validation/`** — zod schemas for every request body / params / query. Routes call `c.req.parseValid(schema)` (or equivalent Hono+zod helper). On validation failure: explicit 400 via the `ValidationError` typed throw — the zod issue map travels as `detail`.
+
+8. **`api/src/format/palette.ts`** (new — D-HARDEN-3 §4) — the shared `formatPalette` (C1 Db finding) lifts here, callable from any service.
+
+9. **Pipeline shape** (pinned per D-HARDEN-3 §2):
+   ```
+   request → validate (zod via parseValid) → authn (middleware) → authz (require-ownership middleware OR service-level)
+           → service (consumes c.var.services) → repository (the ONLY db.collection consumer)
+           → format/<shape> → response (or typed-error throw → toResponse)
+   ```
+   The route file IS the controller (`route-as-controller` pin). No separate controller layer.
+
+10. **Transactional boundary** (pinned per D-HARDEN-3 §2) — for cross-collection writes, services use `client.withTransaction`. Specifically required for: `deleteUser` (users + palettes + sessions + admin_audit), `fork` (palettes + palette_versions), `vote` (votes + palettes — gated `$inc` on the count).
+
+**Sub-gate C** (4 numbered conditions):
+- C-1: `grep -rn 'db\.collection' api/src/routes api/src/services` returns zero (repositories only).
+- C-2: `grep -rn 'as any' api/src/` returns ≤ 5; each remaining annotated with a rationale comment.
+- C-3: `api/src/{errors,events,middleware,format,validation,repositories,db,services}/` exist with the typed files named above.
+- C-4: `c.var.services` is the canonical DI entry; no service is constructed inside a route handler.
+
+### Lane A — `routes/palettes.ts` split (845 → ≤ 250 per file) — runs after Lane C
+
+`research/Db-backend-legacy.md §1` breaks palettes.ts into 6 concerns:
+- `routes/palettes/index.ts` — the Hono router; mounts the sub-routes; binds the `inject-services` + `authn` middleware.
+- `routes/palettes/{crud,versions,forks,votes,export,slug}.ts` — one route file per concern. Each route is thin: `parseValid → service call → format → respond`.
+- `services/palette/{crud,versions,forks,votes,export,slug}.ts` — services own the domain logic; consume repositories via `c.var.services` (or take them as a typed argument from the route).
+
+Every route handler MUST go through a repository (Lane C exists by now). Zero direct `db.collection(…)` survives.
+
+**Sub-gate A**: `wc -l api/src/routes/palettes/**/*.ts` every file ≤ 250; the original `palettes.ts` deleted; `routes/palettes/index.ts` mounts everything; every concern has a service + a route file.
+
+### Lane B — `routes/admin.ts` split (750 → ≤ 250 per file) — runs after Lane C
+
+Same pattern as Lane A. 8 concerns → 8 route/service pairs under `routes/admin/`. The `admin-audit` route consumes `events/auditLog.ts` (the single canonical audit emit).
 
 **Sub-gate B**: `wc -l api/src/routes/admin/**/*.ts` ≤ 250 each; `admin.ts` deleted; service + repository wiring complete.
 
-### Lane C — service + repository layer + zod validation pipeline
+### Lane D — legacy excision + fail-explicit + doc reconcile
 
-`research/Db-backend-legacy.md §3` names the verdict as "flat tangle" (verdict D). Introduce:
+`research/Db-backend-legacy.md §2 / §6 / §4` + D-HARDEN-3 §5 revisions:
 
-1. `api/src/db/collections.ts` — a typed `collections{}` factory: `{ palettes: Collection<Palette>, users: Collection<User>, … }` for every one of the 9 actual collections (per the reconciled `api/CLAUDE.md` in Lane D). This is the type-safe entry; route handlers never use raw `db.collection(…)`.
-2. `api/src/repositories/{palette,user,palette_versions,tags,flags,admin_audit,sessions,color_names,color_proposals}.ts` — one repository per collection. Repositories own all queries, projections, and write operations. Every public method has a typed signature; no `as any`.
-3. `api/src/services/**` — already created in Lanes A and B (the per-concern services). This lane verifies they call only repositories, never `db.collection(…)`.
-4. `api/src/validation/` — zod schemas for every request body / params / query. Routes call `c.req.parseValid(schema)` (or equivalent Hono+zod helper). On validation failure: explicit 400 with the zod issue map.
-5. Standard pipeline: `validate → authn (middleware) → authz (service-level) → service → repository → response shape`. Every route follows this; record any deviation with a rationale comment.
+1. **Excise the 6 silent fallbacks** (revised dispositions per D-HARDEN-3 §3):
+   - **F1** `formatPalette` pre-migration defaults — the migrations are done; defaults excised. **D-HARDEN-3 amendment**: add a migration smoke probe (an `api/src/migrations/check.ts` startup-time sanity check that asserts the schema invariants the defaults used to mask; logs + exits non-zero on violation).
+   - **F2** `sessionToken` ownership shim — replaced by `middleware/require-ownership.ts` (Lane C item 6); the shim deletes.
+   - **F3** vote-toggle race swallow — **D-HARDEN-3 correction**: NOT the earlier "optimistic-write + 409" framing (which breaks toggle semantics — a 409 on a legitimate retoggle is wrong). Replace with an **idempotent upsert + gated `$inc`**: the `votes` collection has a unique `(userSlug, paletteSlug)` index already; `upsert` the vote document, then `$inc` the palette `voteCount` only when the upsert was a true insert (use `result.upsertedId`); inside `withTransaction` (Lane C item 10) for atomicity.
+   - **W2** JSON-parse-to-empty-body — fail-explicit via `ValidationError` (400 with the parse-error detail).
+   - **W3** audit-write silent catch — **D-HARDEN-3 correction**: audit writes do NOT fail the originating request (befitting graceful — the request is real and shouldn't be undone by an audit-log infrastructure hiccup). BUT the silent catch is replaced with an explicit `logger.error(…)` with structured context + an inline rationale comment naming W3 + the precept clause permitting graceful here. This is the documented "befitting graceful" carve-out invariant D3 anticipates.
+   - **W4** `cssToOklab` returns-null-then-drop — fail-explicit at the validation boundary. **D-HARDEN-3 amendment**: name the library import explicitly — if `cssToOklab` lives in `@src/units/color/normalize` (the value.js library), import via the published surface and let the library's parser throw; do not catch-and-null in the api layer.
 
-**Sub-gate C**: `grep -rn 'db\.collection' api/src/routes api/src/services` returns zero (only `api/src/repositories` may use it); `grep -rn 'as any' api/src/` returns zero (or each remaining ≤ 5 with a rationale comment); every route handler in the post-split tree calls a service, every service calls a repository.
+2. **`api/dist/` cleanup** — already gitignored (D-HARDEN-3 §3); the action is just a local `rm -rf api/dist/` for hygiene + a verification grep. No git-removal needed.
 
-### Lane D — legacy excision + doc reconcile
+3. **Delete `api/src/migrate-{oklab,slugs}.ts`** — one-shot scripts; the migrations are done. Invariant-33 corpus grep proves zero references in the running code. Record the grep proof in `audit/D.W2-legacy-excision.md`.
 
-`research/Db-backend-legacy.md §2 / §6 / §4` items:
+4. **4 missed Db findings (D-HARDEN-3 §1 — fold here)**:
+   - **F6 crypto-import** — Db named a crypto import shape mismatch; verify + correct.
+   - **C3 LRU triplication** — three independent in-memory LRU caches with separate eviction; consolidate behind a single typed LRU module under `api/src/cache/`.
+   - **C4 SIGTERM** — the process lacks an explicit SIGTERM handler that closes the Mongo client cleanly; add `process.on("SIGTERM", …)` with a 5s grace.
+   - **F1 migration-evidence gap** — the startup check (Lane D item 1) IS the migration-evidence; close that loop.
 
-1. **Excise the 6 silent fallbacks** (F1–F3 / W2–W4):
-   - F1 `formatPalette` pre-migration defaults — the migration is done; defaults excised; missing fields are explicit errors (or the schema asserts non-null).
-   - F2 `sessionToken` ownership shim — remove; ownership is determined by the explicit owner field, not a token shim.
-   - F3 vote-toggle race swallow — replace with an optimistic-write + explicit conflict error.
-   - W2 JSON-parse-to-empty-body — fail-explicit (400 invalid body).
-   - W3 audit-write silent catch — audit writes are NOT best-effort; if they fail, the request fails (or the audit failure is logged with structured context AND the rationale is recorded inline).
-   - W4 `cssToOklab` returns-null-then-drop — fail-explicit at the validation boundary.
-2. **Delete `api/dist/`** from the repo tree + add to `.gitignore` (verify it's not committed).
-3. **Delete `api/src/migrate-{oklab,slugs}.ts`** — one-shot scripts; the migrations are done. Invariant-33 corpus grep: zero references in the running code.
-4. **Reconcile `api/CLAUDE.md`**: B-vintage says 5 collections / 11 indexes; reality is 9 collections / 24 indexes (`palette_versions`, `tags`, `flags`, `admin_audit` added since). Re-write the structure section.
+5. **Reconcile `api/CLAUDE.md`**: 9 collections / 24 indexes (not 5/11). Re-write the structure section + document the new service/repository layer.
 
-**Sub-gate D**: `grep -rn '?? null\|console\.warn\b' api/src/routes api/src/services` returns only documented-rationale sites; `api/dist/` absent from `git ls-files`; `migrate-*.ts` absent; `api/CLAUDE.md` reflects 9 collections / 24 indexes.
+**Sub-gate D**: `grep -rn '?? null\|console\.warn\b' api/src/routes api/src/services` returns only the documented-rationale W3 site; `api/dist/` not on disk; `migrate-*.ts` absent; `api/CLAUDE.md` reflects 9 / 24 + the new layer; the migration startup check exists; the 3 LRUs are consolidated; SIGTERM handler installed.
 
 ## File bounds
 
 | Lane | Files |
 |---|---|
-| A | `api/src/routes/palettes.ts` (delete), `api/src/routes/palettes/**` (new), `api/src/services/palette/**` (new — partial; full wiring after Lane C) |
-| B | `api/src/routes/admin.ts` (delete), `api/src/routes/admin/**` (new), `api/src/services/admin/**` (new) |
-| C | `api/src/db/collections.ts` (new), `api/src/repositories/**` (new), `api/src/validation/**` (new), every route handler in Lanes A and B (verification only — they must call services + repositories) |
-| D | The 6 fail-explicit sites (per-file: `services/**`, `repositories/**`, `validation/**` once Lane C lands them), `api/dist/` (delete from index), `api/.gitignore`, `api/src/migrate-{oklab,slugs}.ts` (delete), `api/CLAUDE.md` |
+| C (first) | `api/src/db/collections.ts` (new), `api/src/repositories/{palette,paletteVersion,vote,session,proposedName,tag,flag,adminAudit,user}.ts` (new — 9 files), `api/src/errors/index.ts` (new), `api/src/events/auditLog.ts` (new), `api/src/middleware/{inject-services,require-ownership}.ts` (new), `api/src/validation/**` (new), `api/src/format/palette.ts` (new) |
+| A | `api/src/routes/palettes.ts` (delete), `api/src/routes/palettes/{index,crud,versions,forks,votes,export,slug}.ts` (new — 7 files), `api/src/services/palette/{crud,versions,forks,votes,export,slug}.ts` (new — 6 files) |
+| B | `api/src/routes/admin.ts` (delete), `api/src/routes/admin/{index,users,names,audit,flagged,tags,colors,palettes,sortmenu}.ts` (new — 8 sub-route files + index), `api/src/services/admin/**` (new) |
+| D | The 6 fail-explicit sites (per-file across `services/**`/`middleware/**`/`format/**`), `api/src/migrate-{oklab,slugs}.ts` (delete), `api/src/migrations/check.ts` (new — F1 migration-evidence), `api/src/cache/lru.ts` (new — C3 consolidation), `api/src/index.ts` (SIGTERM handler — C4), `api/src/crypto/index.ts` (F6 import shape), `api/CLAUDE.md` (reconcile) |
 
 ## Gate
 
-The conjunction of sub-gates A–D + a backend integration probe: spin up the api (Docker-compose if needed; per `api/CLAUDE.md`'s deployment), curl each route's smoke endpoint, assert the explicit error shapes on the 6 ex-silent paths. `vitest` 1409 unchanged (no library regression). `npm run build` (library) clean. `vue-tsc` 126 unchanged (this is api/ work; demo unaffected). If there are api-side type-tests, they pass.
+The conjunction of sub-gates **C + A + B + D** (in lane order) + the **api-integration probe** (invariant D4's api wave-qualifier). The integration probe: spin up the api (Docker-compose per `api/CLAUDE.md` deployment), curl each route's smoke endpoint, assert the explicit error envelopes on the 6 ex-silent paths (`ValidationError`/`OwnershipError`/`ConflictError` shapes), verify the SIGTERM-graceful-close lands within the 5s grace. `vitest` 1409 unchanged (no library regression). `npm run build` (library) clean. `vue-tsc` 126 unchanged (api/ work; demo unaffected).
 
 ## Verification artefacts
 
@@ -76,10 +111,10 @@ The conjunction of sub-gates A–D + a backend integration probe: spin up the ap
 
 ## Commit plan
 
-- `refactor(api/w2): split palettes.ts (845 lines) per-concern — 6 routes/services + repository wiring` — Lane A.
-- `refactor(api/w2): split admin.ts (750 lines) per-concern — 8 routes/services + repository wiring` — Lane B.
-- `feat(api/w2): introduce service + repository layer + zod validation pipeline` — Lane C.
-- `chore(api/w2): excise legacy + fail-explicit on silent fallbacks + retire api/dist + reconcile CLAUDE.md` — Lane D.
+- `feat(api/w2): introduce service + repository + errors + events + DI middleware + zod pipeline (9-repo + typed errors + audit emit)` — Lane C (lands FIRST).
+- `refactor(api/w2): split palettes.ts (845 lines) per-concern — 6 routes/services on the new layer` — Lane A.
+- `refactor(api/w2): split admin.ts (750 lines) per-concern — 8 routes/services on the new layer` — Lane B.
+- `chore(api/w2): excise legacy + fail-explicit per D-HARDEN-3 revisions (F1 migration-check, F2 ownership-middleware, F3 idempotent upsert + gated $inc in transaction, W3 logged-with-rationale, W4 library-throw) + retire migrate-*.ts + SIGTERM handler + consolidate 3 LRUs + reconcile CLAUDE.md` — Lane D.
 
 ## Dependencies
 

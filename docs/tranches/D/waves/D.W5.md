@@ -12,8 +12,7 @@ Source: `research/Dg-playwright-coverage.md`. **Binding invariant** (inherited f
 
 ### Lane A — user-facing view specs + walk + WebGL
 
-`e2e/smoke/views/`:
-- `picker.spec.ts` — open color-picker view, exercise the SpectrumCanvas pointer (role/label-only — assert `role="img"` aria-label updates on drag), assert the dock view-select reads "Home".
+`e2e/smoke/views/` — **6 new specs** (D-HARDEN-5 §3 dropped the `picker.spec.ts` double-spec — `page-load.spec.ts` already covers the picker view at boot; a second picker spec would duplicate):
 - `palettes.spec.ts` — switch to palettes view, assert the `Search palettes...` SearchBar + the empty-state copy + zero console errors.
 - `browse.spec.ts` — switch to browse view, assert it renders the PaletteCardGrid (its post-B.W2 single-root + `useSortable` clean — invariant against the B.W1 regression).
 - `extract.spec.ts` — switch to extract; assert the drop-zone (`role="button"` with the keyboard a11y from W5).
@@ -23,9 +22,13 @@ Source: `research/Dg-playwright-coverage.md`. **Binding invariant** (inherited f
 
 `e2e/smoke/walk.spec.ts` — one spec walks ALL user views in sequence (`picker → palettes → browse → extract → generate → gradient → mix → back`), asserts 0 console errors throughout (exercises `usePaneRouter`'s component registry under transition load).
 
-`e2e/smoke/webgl.spec.ts` — locate the atmosphere canvas (root-mounted, always alive) + the goo-blob canvas; assert no `webglcontextlost` and no `[stale prop]` console substrings during a 2s warm-up + a view switch. The `addInitScript`-installed `webglcontextlost` listener pattern is per `research/Dg-playwright-coverage.md §3`. Recommend `data-testid` additions to the canvases to eliminate the lone class selector.
+**WebGL — 2 specs** (per Dg §6.1; D-HARDEN-5 §3 restored the original 2-spec split; one was compacted in error):
+- `e2e/smoke/webgl-atmosphere.spec.ts` — the atmosphere canvas (root-mounted, always alive); assert no `webglcontextlost` and no `[stale prop]` console substrings during a 2s warm-up.
+- `e2e/smoke/webgl-goo-blob.spec.ts` — the goo-blob canvas; same assertions during a view switch (the canvas mounts/unmounts with the picker view).
 
-**Sub-gate A**: `ls e2e/smoke/views/*.spec.ts` = 7; the walk + webgl specs exist; `npx playwright test --project=smoke` green (the 3 existing + ~9 new = 12 specs); zero banned-pattern hits in any spec.
+The `addInitScript`-installed `webglcontextlost` listener pattern is per `research/Dg-playwright-coverage.md §3`. Both specs use `data-testid` on the canvases (added in Lane A's small `data-testid` additions to `GooBlob.vue` + the atmosphere canvas wrapper).
+
+**Sub-gate A**: `ls e2e/smoke/views/*.spec.ts` = 6 (the picker double was dropped); the walk + 2 WebGL specs exist; `npx playwright test --project=smoke` green (3 baseline + 6 view + 1 walk + 2 WebGL = **12 specs**); zero banned-pattern hits.
 
 ### Lane B — admin specs + admin-mock fixture
 
@@ -43,7 +46,7 @@ Source: `research/Dg-playwright-coverage.md`. **Binding invariant** (inherited f
 
 ### Lane C — `smoke-mobile` + `playwright.config.ts` + CI
 
-1. `e2e/smoke/mobile/page-load-mobile.spec.ts` — Pixel-7 viewport; one spec exercising the mobile-only paths (`PaneSegmentedControl` toggle, the mobile dock layer, the iOS-Safari-class bug surfaces). Per `research/Dg-playwright-coverage.md §6`: ONE probe, not a full mobile suite (Pixel-7 single-spec, 5-second budget).
+1. `e2e/smoke/mobile/page-load-mobile.spec.ts` — Pixel-7 viewport; one spec exercising the mobile-only paths (`PaneSegmentedControl` toggle, the mobile dock layer). Per `research/Dg-playwright-coverage.md §6`: ONE probe, not a full mobile suite (Pixel-7 single-spec, 5-second budget). **D-HARDEN-5 §4 note**: Pixel-7 in Playwright runs Chromium (not WebKit), so this spec catches mobile-layout bugs but NOT iOS-Safari engine bugs. A `smoke-safari` WebKit project + 30s sustained spec is recorded as a follow-up beyond D (filed in `D.W6` close as a named-destination item for a successor tranche).
 2. `playwright.config.ts` — add `smoke-admin` (desktop Chromium + the admin fixture project setup) and `smoke-mobile` (Pixel-7) projects. The `smoke` project stays for user-facing specs. Sequence: `npx playwright test` runs all three when invoked without `--project`.
 3. `.github/workflows/node.js.yml` — extend the CI step from `--project=smoke` to run all three projects: `npx playwright test --project=smoke --project=smoke-admin --project=smoke-mobile`. The Chromium install command may need `--with-deps` already; verify.
 4. CI runtime budget — aggregate ~30–40 s across all three (per the research doc's estimate).

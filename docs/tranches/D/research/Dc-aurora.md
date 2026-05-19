@@ -287,6 +287,18 @@ deriveAuroraPalette(baseColor, opts):
     harmony   = opts.harmony ?? "analogous"
     hueSpread = opts.hueSpread ?? harmonyDefaults[harmony]  # see 3.3
 
+    # 1a. Grayscale carve-out (D-HARDEN-5 §6 — added at hardening).
+    #     When C0 == 0 (or below a small epsilon, e.g. 1e-4), the hue is
+    #     undefined; harmony generation would emit nonsense angles applied to
+    #     a zero-chroma color, drifting the palette into accidental hues at
+    #     gamut-mapping time. Short-circuit: produce an L-only ramp at C=0;
+    #     no hue generation, no chroma envelope.
+    if C0 < 1e-4:
+        return [
+            { L: clamp01(L0 + lSpread * ((i / (n-1)) - 0.5) * 2), C: 0, h: 0 }
+            for i in 0..n-1
+        ]
+
     # 2. Generate hues per harmony
     hues = generateHarmonyHues(n, harmony, H0, hueSpread)
 

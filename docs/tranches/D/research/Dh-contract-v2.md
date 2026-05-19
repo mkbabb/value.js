@@ -479,87 +479,12 @@ submodule-SHA story is precept-hygiene, not gate-hygiene.
 
 ## §5 — Recommended D-wave shape
 
-### §5.1 — Single-wave alignment — `D.W?-contract-v2` (proposed)
+The wave shape derived from this research is **`waves/D.W1.md`** (the authoritative spec post-hardening). D.W1 lands L1–L5 as the contract-v2 alignment + L6/L7 added by D-HARDEN-6 (library barrel completeness + test coverage + `lint` script). Per D-HARDEN-2 §3, this §5 used to restate the wave shape; the restatement has been pruned to a pointer to avoid drift between the research doc and the wave spec.
 
-The contract-v2 alignment is small, mechanical, and self-contained. One wave
-absorbs the whole change. Proposed wave shape:
-
-| Lane | Edit | Risk | Gate |
-|---|---|---|---|
-| **L1** | `package.json` — delete `development` from `exports["."]`; add `build:watch`; (optionally) version bump `0.5.1 → 0.5.2` | low — public surface unchanged at the bare-specifier level | `npm run build` GREEN (dist/ produced); the package's own entry resolves from dist/ via the collapsed map |
-| **L2** | `vite.config.ts` — delete `demoConditions` + its three callsites; delete `demoServerFsAllow` + its two callsites; rewrite the explanatory comment to v2 framing | low-medium — depends on whether any demo asset actually reaches a sibling's `src/` outside `node_modules` | demo build modes (`hero-lab`, `gh-pages`, `dev`) all run; demo loads correctly with no `403`s |
-| **L3** | `scripts/proof-resolution-contract.mjs` — port verbatim from glass-ui `ce5aad8`; add `"proof:resolution": "node scripts/proof-resolution-contract.mjs"` to `package.json` scripts | low — net-new file, no risk to existing surface | `npm run proof:resolution` GREEN for value.js's own publisher + consumer rows; expected RED for keyframes.js until its precept-pin convergence (gate is constellation-wide; transient RED is acceptable and named in the v2 precept) |
-| **L4** | `docs/precepts` submodule bump `3c32fae → 68d9b20` | nil — moves a pointer | submodule status clean; the new precept text reads as the v2 edict |
-| **L5** (close, coordination) | refresh `coordination/<peer>.md` §keyframes.js convergence per §4.2; record the precept SHA convergence target | nil | the coordination doc names the v2 fleet HEAD `68d9b20` and the one-line keyframes.js ask |
-
-All five lanes can execute as one wave — they are non-conflicting (L1/L2/L3
-touch separate files; L4 is a submodule pointer; L5 is a doc edit), and the
-gate (L3 ‖ `npm run proof:resolution`) cleanly verifies L1+L2 in one stroke.
-
-### §5.2 — Lane ordering
-
-L1 → L2 → L3 → L4 → L5 is a safe order:
-
-1. L1 first because the `package.json` edit is the centrepiece — every other
-   lane is downstream of it. After L1 alone, `npm run build` should still
-   pass (the production build never resolved through `development`).
-2. L2 next, because once value.js stops *publishing* `development` (L1),
-   continuing to *consume* `development` in `demoConditions` is dead code.
-3. L3 introduces the gate — and the gate runs against the post-L1+L2 state,
-   so it should immediately pass for value.js's own rows.
-4. L4 is precept-hygiene; it could run first (the precept text is what
-   defines the contract value.js is implementing), but landing it last has
-   the practical benefit that the code edits are already in tree when the
-   precept's narrative starts pointing at them.
-5. L5 is the close ceremony — refresh the keyframes.js coordination ask and
-   record the precept SHA target. Already covered above.
-
-### §5.3 — What this lane does NOT propose
-
-- **No demo-orchestration `dev.sh` work** (contract-v2 §2.3 second clause:
-  consumer dev orchestration spawns siblings' `build:watch`). value.js's
-  demo is started via `npm run dev` (a single Vite invocation) and there is
-  no `dev.sh` orchestration script. Adding one to spawn glass-ui's
-  `build:watch` is a *correctness improvement* (the demo will currently
-  resolve a possibly-stale glass-ui `dist/`) but a separate wave from
-  contract-v2 alignment per se. The per-repo migration map in
-  `precepts@68d9b20 §5` routes all-consumers dev-orchestration to **AG-GU3**,
-  a later wave; value.js's mirror (an own-side D-or-later wave) follows the
-  same staging.
-- **No version-bump strategy beyond a recommendation**. Whether D bumps
-  `0.5.1 → 0.5.2` or leaves `0.5.1` is a judgement call for the D
-  orchestrator. Glass-ui chose a patch bump (`v1.9.2 → v1.9.3`); keyframes.js
-  did not bump (v2.1.1 stayed). Both are defensible. The decision is filed
-  here, not pre-empted.
-- **No `node_modules/.bin/vite` invocation in `build:watch`.** The canonical
-  form matches keyframes.js (`vite build --watch --mode production`); the
-  `--mode production` is value.js's existing convention. Heap ceiling is
-  not needed (value.js's bundle is small).
-
-### §5.4 — Single-wave or split?
-
-**Single wave.** Rationale: the five lanes are tightly coupled (the gate
-verifies the publisher edits), small enough to fit one execution turn, and
-non-conflicting at the file level. Splitting them adds a temporal-coupling
-hazard with no benefit. Glass-ui's contract-v2 close was a single commit
-(`ce5aad8`, 5 files, 121 insertions, 113 deletions). value.js's version will
-be similarly compact (5 files: `package.json`, `vite.config.ts`,
-`scripts/proof-resolution-contract.mjs`, `docs/precepts` submodule pointer,
-`docs/tranches/D/coordination/<peer>.md`).
-
-### §5.5 — Where Dh fits in the D-tranche plan
-
-The other Dh-adjacent research lanes filed at this tranche open are Da
-(hitherto deferrals), Db (api/ legacy), Dc (aurora), Dd (blob/glass-ui
-extirpation). Contract-v2 alignment is **orthogonal to all four** — it edits
-`package.json` / `vite.config.ts` / `scripts/` / submodule pointers, none of
-which collide with `api/` work, demo aurora/blob component changes, or the
-backend audit. The Dh wave can run in parallel with any of Da/Db/Dc/Dd.
-
-If D wants to absorb the Dh edits into a broader "consumer/publisher hygiene"
-W0-style opening wave, that is also defensible: it pairs the precept-side
-discipline with whatever else D opens with. The lane-set in §5.1 is granular
-enough to slot under any container wave.
+Per-clause filings retained elsewhere:
+- Risk + per-lane gate detail — `waves/D.W1.md §Gate` (7 numbered sub-gate conditions D.W1-L1..L7).
+- Lane ordering rationale — `waves/D.W1.md §"### L1..L7"` (in spec order).
+- What this lane does NOT propose (the dev.sh orchestration deferral; the version-bump abstention; the `build:watch` form choice) — `waves/D.W1.md` carries the same exclusions; the original prose narrative lives only in this research doc's git history (`git log -p research/Dh-contract-v2.md`).
 
 ---
 

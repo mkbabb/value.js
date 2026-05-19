@@ -30,7 +30,7 @@ Inherits B's `§3` row set, **refreshes the metaballs row to 7 additions** (per 
 | Gap | Evidence | Status | Wave (consumes) |
 |---|---|---|---|
 | **metaballs API additions (7)** — `positionSource` hook (G1), pointer input (G2), per-blob opacity (G3), HSV color perturbation (G4), context-loss recovery (G5), `MetaballCanvas mode="layout"` (G6, newly filed), `pauseOnHidden` (G7, newly filed) | `research/Dd-blob.md §3-4`; signature sketch in §4 of that doc | **STANDS — surface sharpened (7 items, was "5 + perturbation+context-loss")** | a value.js demo-abstraction tranche post-glass-ui-ship |
-| **Aurora `deriveAuroraPalette(baseColor, opts)`** + `deriveAuroraConfig(baseColor, opts)` | `research/Dc-aurora.md §3` (~55 line algorithm sketch — two-cohort partition + 5-harmony hue gen + L-envelope; preserved from the older glass-ui `637955b` algorithm); §6 ships pseudocode | **STANDS — surface sharpened (algorithm + atmosphere-preset bundling)** | glass-ui successor; a value.js demo-abstraction tranche post-ship |
+| **Aurora `deriveAuroraPalette(baseColor, opts)`** + `deriveAuroraConfig(baseColor, opts)` | `research/Dc-aurora.md §3` (~55 line algorithm sketch — two-cohort partition + 5-harmony hue gen + L-envelope; preserved from the older glass-ui `637955b` algorithm); §6 ships pseudocode. **D-HARDEN-5 §6 clarification**: the grayscale C=0 input case must collapse to a single-cohort lightness-only ramp (no hue generation when chroma is zero) — 1-line addition to the algorithm; recorded in `Dc-aurora.md §3.2`. | **STANDS — surface sharpened (algorithm + atmosphere-preset bundling + grayscale carve)** | glass-ui successor; a value.js demo-abstraction tranche post-ship |
 | `BlobDot` organic-dot primitive | `research/Dd-blob.md §6`; 11 `WatercolorDot` consumers (16 instance sites — corrected from "11") | STANDS | glass-ui successor; value.js extirpation tranche post-ship |
 | `SelectTrigger size` prop | unchanged from B `§3` | STANDS | B does not retire; demo markers stay |
 | `DockSelectTrigger clampLabel` | unchanged | STANDS | as above |
@@ -98,3 +98,7 @@ value.js cannot write keyframes.js. The ask is filed.
 ## §10 — Open question — contract-v2 codification + a precepts SHA
 
 The precepts SHA `68d9b20` is named throughout this doc as the contract-v2 codification target. The agent that produced `research/Dh-contract-v2.md` cited it from glass-ui's `precepts@68d9b20`. D.W0 Lane 0 verifies the SHA against the actual precepts repository before the bump (the bump is the load-bearing change; the SHA must exist and codify contract-v2).
+
+## §11 — `smoke-safari` follow-up beyond D (D-HARDEN-5 §4)
+
+Pixel-7 in Playwright runs Chromium (not WebKit), so D.W5's `smoke-mobile` project catches mobile-layout regressions but not iOS-Safari engine-specific bugs (e.g. the W5-vintage iOS Safari `_data-driver` bug class — sub-pixel-layout reflow timing, the `100vh` family, scroll-snap quirks, font-rendering). Filed as a follow-up: a `smoke-safari` Playwright project + a single 30-second sustained spec exercising the picker + a view switch. Routes to a value.js testing-hardening tranche post-D (or the next pass after D close).
