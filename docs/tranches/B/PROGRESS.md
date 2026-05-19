@@ -142,12 +142,29 @@ Four lanes — A/B/C dispatched as parallel agents on disjoint file sets, D (lay
 
 Wave closes on the conjunction of the 4 sub-gates A–D + the layout-class Playwright probe. Probe: 4 viewports (375×667 / 1280×720 / 1280×800 / 2520×1080) × light+dark, **0 console errors, 0 stale-prop warnings**; dock pins at `--dock-inset` (16px mobile / 8px desktop) on every viewport — 0 drift from the W4 baseline at standard viewports, and the one accepted Proposal-B delta at 21:9 (dock at 8px vs the old ~173px float). `vue-tsc` 243 (unchanged); `vitest` 1409. Captures in `audit/B.W1-layout/`.
 
+## 2026-05-19 — B.W2 close — component consolidation + hero-lab + UnderlineTabs
+
+Three lanes. Lane A (the consolidation transposition) orchestrator-owned; Lanes B and C dispatched as parallel agents.
+
+- **Lane A — component consolidation.** One architectural transposition: `usePaneRouter.ts` (new) is the single source of truth — it replaces the parallel `useMobilePaneRouter` + `useDesktopPaneRouter` (a precept §5 one-path violation) and folds in `useGenericActionBar`. `DockMainLayer.vue` (passthrough) merged into `Dock.vue`; `useDockLayers`/`useAtmosphere` inlined. **7 files deleted.** Tier-1b: `ui/alert/` converted to a glass-ui re-export (was a hand-rolled duplicate — A.W7 finding N1), dead `ui/table/` barrel deleted (N2). Tier-2: `PaneSearchBar` deleted (pure relay); `usePaletteManagerWiring`/`PaneSlot`/`PaneSegmentedControl` KEPT with recorded evidence. App.vue script → 140 lines, Dock.vue 229. Commits `fa57f02` (a regression fix — see below) + `4fde60e`. Audit: `audit/B.W2-consolidation.md`.
+- **Lane B — hero-lab pass.** 31 vue-tsc errors → 0 (a `kind`-discriminated config union); 4 WebGL RAF loops gain `prefers-reduced-motion` guards; DESIGN.md "design exemplar" claim honoured. Repo-wide vue-tsc 243 → **212**. Commit `9091e12`.
+- **Lane C — UnderlineTabs.** Agent verified glass-ui's `<UnderlineTabs>` is header-only — it cannot replace `PaletteDialog`'s reka-ui `<Tabs>` provider (5 content panels, `data-state` animations, panel ARIA) without a rebuild-by-hand a11y regression. **Orchestrator decision: do not migrate** — the demo keeps reka-ui `<Tabs>` + the `.underline-tabs` override; the gap re-files sharper (glass-ui should ship underline as a `<Tabs>`-provider variant). Commit `c2efa83`. Audit: `audit/B.W2-underline-tabs.md §9`.
+
+### Regression caught by the wave probe (invariant B4)
+
+The B.W2 view-switch probe surfaced a `SortableJS: el must be an HTMLElement` error on the Palettes view — a **B.W1 regression**: B.W1's a11y pass made `PaletteCardGrid` multi-root (a leading comment), breaking the `$el` `PalettesPane`'s `useSortable` reads. Fixed (`fa57f02`); the comment moved inside the root `<div>`.
+
+### Gate
+
+Sub-gates A–C + the Playwright probe. Boot probe (3 viewports × light+dark) 0 console errors; interaction probes (dock expand, view-select, switch to Generate — the folded action bar "Tools" appears — and to Palettes — `useSortable` clean post-fix) 0 console errors. `vue-tsc` 212 (−31 from hero-lab); `vitest` 1409. Captures in `audit/B.W2-playwright/`.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | B.W0 HEADLINE — close A + precept advance | closed | 2026-05-19 | 2026-05-19 | de8c573, 7088da4, 5247313, 36a4ad0, 065c6fe, a9b6a94 |
 | B.W1 — W5 a11y corrections + reduced-motion + floating-panel-item strip + layout simplification | closed | 2026-05-19 | 2026-05-19 | bda38b6, 2a13de3, e7da1b5, ff6354d |
+| B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | closed | 2026-05-19 | 2026-05-19 | 9091e12, c2efa83, fa57f02, 4fde60e |
 | B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | planned | — | — | — |
 | B.W3 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | planned | — | — | — |
 | B.W4 HEADLINE close — FINAL.md, doc drift, Q.md update, A close-residuals | planned | — | — | — |
