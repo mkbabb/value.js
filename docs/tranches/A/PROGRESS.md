@@ -218,7 +218,29 @@ A.W6 is **closed by re-scope** per `A.md §9` / `waves/W6.md` Conditionality. `a
 
 Named successors (invariant A5, zero silent deferral): the glass-ui API additions → a glass-ui successor tranche (`coordination/Q.md §3`); the demo-side abstraction → a value.js demo-abstraction tranche opened once glass-ui ships (not tranche C — C is the palette-CRUD/fourier cohort tranche).
 
-Commit: `2e... docs(tranche-a/w6)` (see wave log).
+Commit: `065c6fe` — `docs(tranche-a/w6): formal re-scope — glass-ui APIs unshipped; routed to named successor`.
+
+## 2026-05-19 — A.W7 close — strengthened close ceremony (at B.W0 Lane C)
+
+The A close ceremony, run inside value.js tranche B.W0 Lane C. Seven read-only close-audit lanes: six dispatched as parallel agents, the integrity sweep run by the orchestrator (the orchestrator owns the index).
+
+### Close audit (7 lanes — all returned clean or with findings absorbed)
+
+- **plan-vs-actual** (`audit/W7-plan-vs-actual.md`) — clean; every wave landed its headline, every cited commit resolves.
+- **substrate-without-consumer** (`audit/W7-substrate-without-consumer.md`) — clean; no dead substrate; all 15 A-introduced artefacts consumed.
+- **doc-drift** (`audit/W7-doc-drift.md`) — 14 drift items inventoried across 6 files; routed to B.W4.
+- **idiomatic-gestalt** (`audit/W7-idiomatic-gestalt.md`) — mostly idiomatic; one fossil (`ui/alert/` hand-rolled) routed to B.W2.
+- **performance** (`audit/W7-performance.md`) — frame budget PASS; one per-frame hot-spot routed.
+- **visual-runtime** (`audit/W7-visual-runtime.md`) — render OK, 0 console errors, A.W5 landmarks present.
+- **integrity sweep** (`audit/W7-integrity-sweep.md`) — clean: zero unauthorized agent git mutations, empty stash, `docs/precepts` changed only as planned.
+
+### Close ceremony
+
+`docs/tranches/A/FINAL.md` written — cites every wave's commits, gate evidence, Playwright artefacts, the 13-mandate disposition, the research-finding ledger, and the close-honesty checklist (all PASS). The close-audit findings routed to B are recorded in `FINAL.md §6`.
+
+### Commit
+
+- `docs(tranche-a/w7-close): A close — FINAL.md + 7 read-only audit lanes + integrity sweep` (see wave log).
 
 ## Wave log
 
@@ -230,13 +252,14 @@ Commit: `2e... docs(tranche-a/w6)` (see wave log).
 | W3 — design tokens + hierarchy | closed | 2026-05-18 | 2026-05-18 | e58155f, 8e99a7d, 6cfded5 |
 | W4 — interactive states + structure | closed | 2026-05-18 | 2026-05-18 | c011b18, c3df1e2, 3f39026 |
 | W5 — accessibility + animation + e2e integrity | closed | 2026-05-18 | 2026-05-19 | 7088da4, 5247313 (e2e lane superseded by B.W3) |
-| W6 — blob/aurora idiomatic abstraction (conditional) | closed (re-scoped) | 2026-05-19 | 2026-05-19 | see W6 disposition commit |
-| W7 HEADLINE close — strengthened close | planned | — | — | — |
+| W6 — blob/aurora idiomatic abstraction (conditional) | closed (re-scoped) | 2026-05-19 | 2026-05-19 | 065c6fe |
+| W7 HEADLINE close — strengthened close | closed | 2026-05-19 | 2026-05-19 | see W7 close commit (B.W0 Lane C) |
 
-## Open dependencies
+## Open dependencies — resolved at A close
 
-- A.W1 depends on glass-ui Q.W2 Lane A (`Card` props fail-explicit).
-- A.W6 depends on glass-ui shipping the `coordination/Q.md §3` extension set — not in glass-ui Q's current wave plan; W6 re-scopes per `A.md §9` if unscheduled.
-- Reverse direction: glass-ui Q.W1 hard gate (c/d/e) depends on A.W0 close + artefacts; Q.W2 hard gate (b) depends on A.W1; Q.W5's value.js re-audit reads A.W0 + A.W1 (`coordination/Q.md §2`).
-- The A↔Q boundary is contested until glass-ui Q deletes Q.W1 Lane C and Q.W2 Lane B from its plan (`coordination/Q.md §0-1`). A's orchestrator sends the request; Q's response is recorded here when received.
-- A.W0 registers `docs/precepts` at `3310a8c`; A acknowledges Q's W5 precepts advance before A close.
+- A.W1 / glass-ui Q.W2 Lane A (`Card` props fail-explicit) — **RESOLVED**. Q shipped it (`cab7258`); A.W1 consumed it. Verified at Q close `4b16de7` (`B/coordination/Q.md §2a`).
+- A.W6 / glass-ui extension set — **RESOLVED by re-scope**. glass-ui Q closed (`4b16de7`) without scheduling the metaballs/aurora APIs; A.W6 re-scoped (`audit/W6-deferred.md`).
+- A↔Q contested boundary — **MOOT**. Q closed and never wrote value.js; Q's own round-4 audit retired the contested Q.W1 Lane C / Q.W2 Lane B. Recorded in `B/coordination/Q.md §4`.
+- `docs/precepts` — A ran under `3310a8c`; B.W0 advanced the shared pin to `3c32fae`. A's close acknowledges `3310a8c` as its working baseline.
+
+Every A open dependency now has a resolved or named-destination state. See `FINAL.md`.
