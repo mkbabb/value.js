@@ -171,6 +171,21 @@ Four lanes. Lane A (read-only library audit), C (typecheck), D (e2e abrogation) 
 
 Sub-gates A–D + the gate matrix. `npm run build` clean (`dist/value.js` 139 kB); `npm test` 1409; `vue-tsc` 126 (≤135); `npx playwright test --project=smoke` 3/3 green. Boot probe (3 viewports × light+dark, `audit/B.W3-playwright/`) 0 console errors — the typecheck pass introduced no runtime regression.
 
+## 2026-05-19 — B.W4 HEADLINE close — strengthened close
+
+The Tranche B close ceremony. Seven read-only close-audit lanes — six dispatched as parallel agents, the integrity sweep run by the orchestrator. All clean (see the `audit(tranche-b/w4-close)` commit). The close ceremony then fixed every doc-drift item the audit inventoried: A's `W7-doc-drift.md` 14 items (the `Ag→Ac` research rename, `A.md §8` retire-records, phantom-citation + stale-SHA fixes — `docs(tranche-a/close-residuals)`) and the 9 new B-introduced items (`CLAUDE.md`/`demo/CLAUDE.md` counts + structure, the duplicate wave-log rows, the typecheck-estimate reconcile, the `Bz` wave-number, the `B.W2.md` Lane C re-scope note, the `coordination/Q.md §7` SHA).
+
+### Close ceremony
+
+- `docs/tranches/B/FINAL.md` written — the close report.
+- `coordination/Q.md` — §3/§7 reconciled to the Q-close state; `floating-panel-item` row RETIRED, `UnderlineTabs` row records the wrong-shape re-file.
+- `CLAUDE.md` — `1409 tests, 26 files`, e2e → smoke, the 5 new `src/` files.
+- A close-residuals — the `Ag→Ac` rename + `A.md §8` records committed.
+
+### Gate
+
+The conjunction of the 7 read-only audit lanes (all clean / findings absorbed) + the close-honesty checklist + the visual-runtime re-probe (6 viewport/scheme combos, 0 console errors). `npm run build` clean; `npm test` 1409; `vue-tsc` 126; `npx playwright test --project=smoke` 3/3. `FINAL.md` cites every B commit + the A close. B's wave-log shows zero `planned`.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -179,9 +194,9 @@ Sub-gates A–D + the gate matrix. `npm run build` clean (`dist/value.js` 139 kB
 | B.W1 — W5 a11y corrections + reduced-motion + floating-panel-item strip + layout simplification | closed | 2026-05-19 | 2026-05-19 | bda38b6, 2a13de3, e7da1b5, ff6354d |
 | B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | closed | 2026-05-19 | 2026-05-19 | 9091e12, c2efa83, fa57f02, 4fde60e |
 | B.W3 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | closed | 2026-05-19 | 2026-05-19 | 7b6b473, 8d6dfac, 92ee51f, afe102a |
-| B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | planned | — | — | — |
-| B.W3 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | planned | — | — | — |
-| B.W4 HEADLINE close — FINAL.md, doc drift, Q.md update, A close-residuals | planned | — | — | — |
+| B.W4 HEADLINE close — FINAL.md, doc drift, Q.md update, A close-residuals | closed | 2026-05-19 | 2026-05-19 | 6d1cb40, 719d2a6, + this close commit |
+
+Per-wave close-doc commits: `40609ce` (W0), `5db9746` (W1), `d36ff5d` (W2), `31da0d6` (W3).
 
 ## Open dependencies
 

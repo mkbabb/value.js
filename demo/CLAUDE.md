@@ -13,13 +13,19 @@ demo/
 │   └── public/CNAME          # GitHub Pages domain
 ├── @/
 │   ├── components/
-│   │   ├── custom/           # 26 maintained components across 6 directories
-│   │   └── ui/               # ~180 shadcn-vue (reka-ui) components—don't hand-edit
-│   ├── composables/          # 23 composable/utility files
+│   │   ├── custom/           # maintained components (custom/ subtrees)
+│   │   └── ui/               # shadcn-vue (reka-ui) components—don't hand-edit;
+│   │                         #   ui/alert is a glass-ui re-export (B.W2); ui/table retired (B.W2)
+│   ├── composables/          # composables (incl. usePaneRouter — the pane source-of-truth, B.W2)
 │   ├── lib/palette/          # palette API client, types, slugify
 │   ├── styles/               # style.css (Tailwind base), utils.css
 │   └── utils/                # cn() — clsx + tailwind-merge
 ```
+
+> The structure tables below predate the Mar-2026 composable restructure and
+> tranche B's consolidations; component/composable counts are indicative, not
+> exact. A wholesale reconcile is routed to the next value.js tranche (which
+> reworks the frontend component/composable surface).
 
 ## Custom components (`@/components/custom/`)
 

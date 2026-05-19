@@ -113,7 +113,7 @@ B's `FINAL.md` pins `3c32fae`.
 
 ## §7 — Conflict-resolution protocol
 
-Same as A coord §8: B writes value.js only. B reads glass-ui at HEAD `888d227` unless an explicit re-read is recorded in a wave's audit doc. If A.W6 fallback or B.W2 UnderlineTabs migration depends on glass-ui surface shape, B re-reads at the wave open.
+Same as A coord §8: B writes value.js only. B reads glass-ui at its Q-close HEAD `4b16de7` (the §2/§2a authoritative ship-state; `888d227` was the B-open snapshot, superseded). Each wave that depends on glass-ui surface shape re-reads at the wave open — B.W0 re-verified the metaballs/aurora APIs against glass-ui's then-current HEAD `e2e5303`, and B.W2 Lane C re-read `<UnderlineTabs>` at `4b16de7`; both re-reads are recorded in their wave audit docs.
 
 ## §8 — Summary table
 

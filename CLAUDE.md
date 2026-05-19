@@ -13,8 +13,8 @@ npm run dev          # dev server (Vite default port)
 ## Test
 
 ```
-npm test             # vitest (jsdom) — 1372 tests, 24 files
-npm run test:e2e     # playwright — desktop (Chromium) + mobile (Pixel 7)
+npm test             # vitest (jsdom) — 1409 tests, 26 files
+npm run test:e2e -- --project=smoke   # playwright smoke suite — desktop Chromium, 3 specs
 ```
 
 ## Structure
@@ -32,6 +32,10 @@ src/
 │   ├── color.ts          # 15 color spaces, hex, kelvin, color-mix(), relative color syntax
 │   ├── math.ts           # calc() AST, min/max/clamp, trig, exp, round/mod/rem
 │   ├── utils.ts          # istring, number, none, tryParse, succeed, fail
+│   ├── animation-shorthand.ts  # animation/transition shorthand parsing
+│   ├── extract.ts        # value extraction helpers
+│   ├── serialize.ts      # value serialization
+│   ├── stylesheet.ts     # stylesheet-level parsing
 │   └── grammars/         # BBNF spec grammars (used in equivalence tests)
 │       ├── css-values.bbnf
 │       └── css-color.bbnf
@@ -40,6 +44,7 @@ src/
 │   ├── constants.ts      # unit arrays, STYLE_NAMES (630+ CSS properties), MatrixValues
 │   ├── utils.ts          # unit conversion (px, deg, ms, Hz, dpi), flatten/unflatten
 │   ├── normalize.ts      # value normalization + interpolation setup
+│   ├── interpolate.ts    # value interpolation
 │   └── color/            # color system (15 spaces, conversion, gamut mapping)
 │       ├── index.ts      # Color<T> base + 15 space classes (RGB, HSL, OKLab, etc.)
 │       ├── constants.ts  # ranges, matrices, white points, named colors
@@ -57,8 +62,8 @@ src/
 ```
 
 ```
-test/                     # vitest unit tests (24 files)
-e2e/                      # playwright E2E tests (14 specs)
+test/                     # vitest unit tests (26 files)
+e2e/smoke/                # playwright smoke suite (3 role/label specs)
 demo/                     # Vue 3.5 color picker app (reka-ui, Tailwind, @vueuse)
 api/                      # Hono + MongoDB palette API (Docker, Node 22, 5 collections)
 docs/                     # color-theory.md, gamut-mapping.md

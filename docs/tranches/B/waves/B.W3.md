@@ -37,7 +37,7 @@ Default: **commit all five** + the related modifications (the work is in the pub
 
 ### Lane C — custom typecheck cluster
 
-Target: vue-tsc count from ~290 to ≤135 by fixing ~155 custom-component errors — `useInertiaGesture.ts` (18, index-narrowing), `useWatercolorBlob.ts` (16, index-narrowing), `GenerateControls.vue` (5), `GradientVisualizer.vue` (4), `BrowsePane.vue` (3), + ~6 SFCs. The ~104 generated shadcn-vue errors route to a future generator-update effort (recorded in `audit/B.W3-typecheck.md`); hero-lab's ~31 closed in B.W2.
+Target: vue-tsc count to ≤135 by fixing the custom-component cluster. **Landed (B.W3 close):** the baseline was 212 (not the pre-execution ~290 estimate — A.W4 + B.W2's hero-lab pass had already reduced it); the custom bucket was **86 errors** (not the ~155 estimate), all cleared; final total 126. The 126 remaining are all generated shadcn-vue (`auto-form`/`button`/`form`/`chart`/`calendar`), routed to a generator-update effort (recorded in `audit/B.W3-typecheck.md`).
 
 **Sub-gate C**: `npx vue-tsc --noEmit 2>&1 | grep -c 'error TS'` ≤ 135.
 
@@ -79,7 +79,7 @@ Per `B.md §6`: the conjunction of sub-gates A–D plus the Playwright probe. `n
 
 - `audit(tranche-b/w3): value.js library gap audit (Mandate 12 AND)` — Lane A.
 - `feat(library/w3): commit src/ WIP — parsing/{animation-shorthand,extract,serialize,stylesheet}, units/interpolate` — Lane B (or `chore(library/w3): retire src/ WIP` on the retire path).
-- `fix(types/w3): close custom-component typecheck cluster (-155 errors)` — Lane C.
+- `fix(types/w3): close the custom-component typecheck cluster (-86 errors)` — Lane C.
 - `test(e2e): abrogate the 16-spec Playwright suite, replace with a 3-spec role-based smoke suite + CI gate` — Lane D. Body cites `research/B-e2e-investigation.md`, lists the 16 deletions, names the brittleness-lane dissent and the override.
 
 ## Dependencies

@@ -56,6 +56,8 @@ Each Tier-2 decision is recorded in `audit/B.W2-consolidation.md` with the file:
 
 ### Lane C — UnderlineTabs structural migration
 
+> **Re-scope note (B.W2 close, 2026-05-19).** Lane C executed and **declined the migration** — the steps below describe a migration that did not happen. At wave open the lane verified glass-ui's `<UnderlineTabs>` is **header-only** (no content panels, no `data-state`, no slots); it cannot replace `PaletteDialog`'s reka-ui `<Tabs>` provider (5 `<TabsContent>` panels with `role="tabpanel"`/`aria-labelledby`/roving-tabindex) without hand-rebuilding the panel a11y — a rebuild-by-hand regression. **Orchestrator decision: keep reka-ui `<Tabs>` + the `.underline-tabs` override; re-file the gap sharper** (glass-ui should ship underline as a `<Tabs>`-provider variant). See `audit/B.W2-underline-tabs.md §9`, `coordination/Q.md §3`, `findings.md §2 F`. The steps below are retained as the as-planned record.
+
 glass-ui shipped `<UnderlineTabs>` as a standalone component (verified at Q close `4b16de7` — `coordination/Q.md §2a`), not a `<Tabs variant="underline">` prop.
 
 1. `PaletteDialog.vue:27` — import `<UnderlineTabs>` from glass-ui; replace `<Tabs class="underline-tabs">` with `<UnderlineTabs :options="tabs" v-model="activeTab">`; verify `.palette-tab-content` animations survive the DOM-shape change.

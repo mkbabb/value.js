@@ -73,7 +73,7 @@ Every composable and component A created has at least one consumer. No orphans.
 
 ### Category 10: doc drift (1)
 
-`CLAUDE.md:16,60` says "1372 tests, 24 files." Reality: **1409 tests, 26 files**. **B.W7 fix.**
+`CLAUDE.md:16,60` says "1372 tests, 24 files." Reality: **1409 tests, 26 files**. **B.W4 fix.**
 
 ### Category 11: pre-existing src/ WIP (8 items)
 
@@ -81,7 +81,7 @@ Every composable and component A created has at least one consumer. No orphans.
 
 ### Category 12: coordination Q.md §3 (9 rows)
 
-Eight rows STAND (gaps still real). One row (`Tabs underline`) needs updating to "shipped as standalone, demo needs structural migration." **B.W7 updates §3.**
+Eight rows STAND (gaps still real). One row (`Tabs underline`) needs updating to "shipped as standalone, demo needs structural migration." **B.W4 updates §3.**
 
 ## §4 — B disposition summary
 
