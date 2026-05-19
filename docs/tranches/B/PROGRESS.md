@@ -129,12 +129,25 @@ The A.W7 close audit surfaced B-actionable items, folded into the wave specs and
 
 B.W0 hard gate MET — precepts advanced + committed; A's wave-log zero `planned`; `A/FINAL.md` cites every commit; `audit/W6-deferred.md` exists; A.W5 working-tree paths clean (e2e specs deliberately uncommitted); integrity sweep clean; `npm test` 1409; `vue-tsc` 243 recorded; Playwright 0 stale-prop warnings.
 
+## 2026-05-19 — B.W1 close — W5 corrections + layout transposition
+
+Four lanes — A/B/C dispatched as parallel agents on disjoint file sets, D (layout) owned by the orchestrator (the user named layout the "contrived/overfit" surface — kept in one hand).
+
+- **Lane A — W5 a11y corrections.** SpectrumCanvas `role="slider"` → `role="img"` + reactive `:aria-label`; SwatchHoverMenu hover panel `role="toolbar"` → `aria-hidden`; PaletteCardGrid `role="list"`; 3 redundant GradientVisualizer SelectTrigger aria-labels removed. Commit `bda38b6`.
+- **Lane B — reduced-motion carve-out.** `animations.css` gains an overlay opacity-fade carve-out after the global guard (reka-ui `[data-state]` overlays keep a 150ms opacity fade). Commit `2a13de3`.
+- **Lane C — phantom retirement.** `floating-panel-item` stripped from 6 sites (zero CSS rule — invariant 32/33 corpus-grep proof); `--animation-slide-md` phantom token (undefined, invalidated PaletteCard's `.rename-slide` transform) replaced with the literal `0.5rem`; Markdown `rounded-2xl` documented as content-element exceptions. `audit/B.W1-floating-panel-item.md` is value.js's retired-class/token registry. Commit `e7da1b5`.
+- **Lane D — layout transposition (Bβ Proposal B).** `--dock-pos` + `--layout-padding` deleted (9 → 7 layout tokens); `.app-layout` grid → flex column; the `--dock-pos` fold-back gone. Commit `ff6354d`.
+
+### Gate
+
+Wave closes on the conjunction of the 4 sub-gates A–D + the layout-class Playwright probe. Probe: 4 viewports (375×667 / 1280×720 / 1280×800 / 2520×1080) × light+dark, **0 console errors, 0 stale-prop warnings**; dock pins at `--dock-inset` (16px mobile / 8px desktop) on every viewport — 0 drift from the W4 baseline at standard viewports, and the one accepted Proposal-B delta at 21:9 (dock at 8px vs the old ~173px float). `vue-tsc` 243 (unchanged); `vitest` 1409. Captures in `audit/B.W1-layout/`.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | B.W0 HEADLINE — close A + precept advance | closed | 2026-05-19 | 2026-05-19 | de8c573, 7088da4, 5247313, 36a4ad0, 065c6fe, a9b6a94 |
-| B.W1 — W5 a11y corrections + reduced-motion + floating-panel-item strip + layout simplification | planned | — | — | — |
+| B.W1 — W5 a11y corrections + reduced-motion + floating-panel-item strip + layout simplification | closed | 2026-05-19 | 2026-05-19 | bda38b6, 2a13de3, e7da1b5, ff6354d |
 | B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | planned | — | — | — |
 | B.W3 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | planned | — | — | — |
 | B.W4 HEADLINE close — FINAL.md, doc drift, Q.md update, A close-residuals | planned | — | — | — |
