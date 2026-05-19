@@ -111,3 +111,12 @@ panel, slug bar) replace their copy-pasted utility cluster with the
 Each lane: `vue-tsc` error count must not exceed 246. No state-mutating git.
 Do not run `npm run build`. The orchestrator runs the Playwright re-probe
 (light + dark) at wave close.
+
+## 8 — Standing radius exceptions (B.W1-C)
+
+`rounded-2xl` is a surface-radius token; the radius sweep targets surface
+elements. `Markdown.vue` retains `rounded-2xl` on its `pre code` block and on
+`img` — these are **content elements** (rendered Markdown body), not UI
+surfaces, so the surface-radius rule does not apply. Both sites carry an inline
+exception comment. These two are documented standing exceptions; do not flag in
+future radius audits. See `docs/tranches/B/audit/B.W1-floating-panel-item.md`.

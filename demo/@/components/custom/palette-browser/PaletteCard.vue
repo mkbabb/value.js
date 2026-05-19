@@ -178,16 +178,14 @@
                         @update:open="(v: boolean) => onPopoverUpdateTouch(v, i)"
                     >
                         <template #actions>
-                            <!-- floating-panel-item: glass-ui utility listed in floating-panel.css comment
-                                 but not yet defined — four-state applied demo-side (HARDEN-4 §2, §5.3) -->
                             <!-- W5-a11y: icon-only buttons need explicit aria-label -->
-                            <button v-if="!palette.isLocal" :aria-label="`Add ${color.css} to current palette`" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                            <button v-if="!palette.isLocal" :aria-label="`Add ${color.css} to current palette`" @click="onPopoverAdd(color.css)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                                 <Plus class="w-4 h-4" aria-hidden="true" />
                             </button>
-                            <button :aria-label="`Edit color ${color.css}`" @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                            <button :aria-label="`Edit color ${color.css}`" @click="onPopoverEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                                 <Pencil class="w-4 h-4" aria-hidden="true" />
                             </button>
-                            <button :aria-label="`Copy color ${color.css}`" @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                            <button :aria-label="`Copy color ${color.css}`" @click="onPopoverCopy(color.css)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
                                 <Copy class="w-4 h-4" aria-hidden="true" />
                             </button>
                         </template>
@@ -410,7 +408,9 @@ function onPopoverCopy(css: string) {
 }
 .rename-slide-enter-from {
     opacity: 0;
-    transform: translateY(calc(-1 * var(--animation-slide-md)));
+    /* B.W1-C: --animation-slide-md was a phantom token (never defined) — calc()
+       invalidated the transform. Replaced with literal 0.5rem "md" slide offset. */
+    transform: translateY(-0.5rem);
     max-height: 0;
 }
 .rename-slide-enter-to,
@@ -419,7 +419,8 @@ function onPopoverCopy(css: string) {
 }
 .rename-slide-leave-to {
     opacity: 0;
-    transform: translateY(calc(-1 * var(--animation-slide-md)));
+    /* B.W1-C: see .rename-slide-enter-from — phantom --animation-slide-md → literal. */
+    transform: translateY(-0.5rem);
     max-height: 0;
 }
 </style>

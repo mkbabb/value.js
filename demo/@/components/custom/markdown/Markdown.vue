@@ -172,6 +172,7 @@ onUpdated(() => {
     }
 
     /* Code blocks */
+    /* rounded-2xl: documented exception (content element, not a surface) — W3-conventions */
     pre {
         @apply bg-muted rounded-2xl p-4 mb-4 overflow-x-auto;
     }
@@ -206,6 +207,7 @@ onUpdated(() => {
     }
 
     /* Images */
+    /* rounded-2xl: documented exception (content element, not a surface) — W3-conventions */
     img {
         @apply max-w-full h-auto rounded-2xl my-4 mx-auto;
     }
