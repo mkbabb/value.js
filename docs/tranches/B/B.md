@@ -2,11 +2,11 @@
 
 **Tranche letter**: B (value.js repo; second tranche).
 **Successor to**: A (value.js HEAD `191d66a` at B open; A.W0–W4 closed; A.W5 uncommitted; A.W6/W7 planned-not-run).
-**glass-ui peer tranche**: Q (in flight; glass-ui HEAD `888d227`).
+**glass-ui peer tranche**: Q — **CLOSED** at HEAD `4b16de7` (v1.9.2). Re-verified 2026-05-19; see `coordination/Q.md §2a`. B's plan was first drawn against Q's pre-execution HEAD `888d227`; the re-verification confirms 8 of 10 filed gaps unchanged.
 **Cohort identity**: close A honestly; abrogate the four over-fits the user flagged; complete Mandate 12's "AND" (value.js library audit); reshape the e2e gate; retire residual legacy; close A and B both on `FINAL.md` artefacts.
 **Mode**: planning-only at open per user directive ("This is NOT an implementation phase. Tranche development only.").
 **Open**: 2026-05-18.
-**Precepts pinned**: `docs/precepts` at `3310a8c` (inherited from A.W0 registration).
+**Precepts pinned**: `docs/precepts` at `3310a8c` (inherited from A.W0). glass-ui Q.W6 advanced the shared submodule to `3c32fae` (invariants 30–33 + π-lane re-activation); **B.W0 advances value.js's pin to `3c32fae`** and B operates under invariants 30–33 — see `coordination/Q.md §6`.
 
 ## §1 — Thesis
 
@@ -31,6 +31,8 @@ B's job is narrow and concrete:
 3. **B3 — One path.** Reject parallel codepaths for one logical concern. The dual pane router is the canonical violation; `usePaneRouter.ts` is the resolution.
 4. **B4 — Runtime evidence.** Same shape as A3. Every demo-touching wave closes on a Playwright probe (3 viewports light+dark, 0 console errors, 0 non-2xx) plus `vue-tsc` + `npm test` + the smoke suite. Wave gates do not depend on the 16-spec full e2e suite.
 5. **B5 — Zero deferral at close.** Same shape as A5. Every research finding lands in B, retires with recorded rationale, or names a cross-repo destination in `coordination/Q.md`. B closes with `FINAL.md` and zero open ledger items.
+
+**Precept invariants in force (30–33).** After B.W0 advances the `docs/precepts` pin to `3c32fae` (glass-ui Q.W6's advance), B operates under invariants 30–33. Two are load-bearing for B's deletions: **invariant 33** (dead-code-removal corpus-grep) gates B.W4's 16-spec e2e abrogation and B.W1's `floating-panel-item` strip; **invariant 32** (phantom-class corpus-grep) gates the `floating-panel-item` retirement. **Invariant 30** (cross-repo dev-resolution) is checked against value.js's own publisher `exports` in B.W4's library audit; **invariant 31** (props fail-explicit) is verified at the B.W0/B.W1 probes — value.js consumes glass-ui's now-fail-explicit `<Card>`.
 
 ## §3 — Wave schedule (6 waves)
 
@@ -96,12 +98,14 @@ No gate closes on grep or claim alone. Every gate has an artefact.
 
 ## §7 — Cross-tranche debt
 
-B inherits A's open `coordination/Q.md §3` rows. The audit (Bζ §2) verified each against glass-ui HEAD `888d227`:
+B inherits A's open `coordination/Q.md §3` rows. The audit (Bζ §2) verified each against glass-ui HEAD `888d227`; a 3-lane re-assay re-verified each against glass-ui's **closed** state `4b16de7` (`coordination/Q.md §2a`):
 
-- **STAND (8 gaps)**: `positionSource` hook + pointer + per-blob opacity + perturbation; `deriveAuroraPalette`; `BlobDot`; `SelectTrigger size`; `clampLabel`; `TooltipContent variant="mono"`; `Button size="icon-sm"`; `floating-panel-item` (formally file in B.W7 — never filed in A).
-- **PARTIAL (1)**: `Tabs underline variant` — glass-ui shipped `<UnderlineTabs>` as a standalone component, not a `variant` prop. The demo's current `<Tabs>` + `.underline-tabs` CSS override needs a structural migration to consume the standalone; B.W3 owns it. `coordination/Q.md §3` row 67 is updated by B.W5 to reflect the actual ship shape.
+- **STAND — NOT SHIPPED at Q close (7 gaps)**: `positionSource` hook + pointer + per-blob opacity + perturbation; `deriveAuroraPalette`; `BlobDot`; `SelectTrigger size`; `clampLabel`; `TooltipContent variant="mono"`; `Button size="icon-sm"`. Q closed without shipping any of them — every marker stays; B does not retire.
+- **SHIPPED (1)**: `Card` props fail-explicit — Q.W2 `cab7258`; A.W1 already consumed it. Q.W3 additionally added a `surface` prop (ScrollPane/CartoonCard DEMOTE) — value.js's demo uses neither demoted component, no breakage.
+- **PARTIAL — unchanged (1)**: `Tabs underline variant` — glass-ui shipped `<UnderlineTabs>` as a standalone component, not a `variant` prop, and Q closed without changing that. The demo's current `<Tabs>` + `.underline-tabs` CSS override needs a structural migration to consume the standalone; B.W3 owns it. `coordination/Q.md §3` is updated by B.W5 to reflect the closed ship shape.
+- **NOT SHIPPED (1)**: `floating-panel-item` — never a glass-ui rule; B.W1 strips it locally as an invariant-32 phantom-class retirement (no longer routed to glass-ui).
 
-B does not block on glass-ui shipping anything. The 8 standing gaps stay filed and are revisited at B close. Coordination updates land in B.W5.
+B does not block on glass-ui shipping anything. Q has closed; the 7 standing gaps route to a glass-ui successor tranche (named in `coordination/Q.md`). Coordination updates land in B.W5.
 
 ## §8 — Finding disposition (zero deferral)
 

@@ -67,6 +67,22 @@ The orchestrator stopped the still-running W5-C e2e agent (`TaskStop` — its se
 
 **Folded into B.W4 Lane D** — revised from "stand up a 4–5-spec smoke suite, keep the 16 full" to "delete all 16; create exactly 3 `e2e/smoke/` specs; `playwright.config.ts` gains `smoke`, loses `mobile`; CI gains a `playwright test --project=smoke` step." `B.md §1/§3/§5/§6`, `findings.md §2 G`, `dispatch/AGENT.md`, and `waves/B.W0.md` (no commit of the soon-deleted e2e specs) updated accordingly.
 
+## 2026-05-19 — Q-close realignment round
+
+The user directed: "assay what was recently done by the completed Q agent, and what was done herein, and what needs to be done hereof. This is in glass-ui — and align our extant tranche therewith."
+
+B's plan was drawn against glass-ui's pre-execution HEAD `888d227`. glass-ui's tranche Q has since fully executed W0–W6 and **closed at HEAD `4b16de7` (v1.9.2)**. A 3-lane read-only assay re-aligned B.
+
+| Lane | Deliverable | Verdict |
+|---|---|---|
+| Q-scope ledger | (assay-only, no doc) | Q ran W0–W6: dev-resolution contract (W0), fleet consumer un-break (W1), Card props fail-explicit (W2), core-feature cohesion + ScrollPane/CartoonCard DEMOTE (W3), token co-location (W4), keyframes.js demo restoration (W5), strengthened close + phantom-class gate + precept advance (W6). v1.8.5 → v1.9.2. |
+| Gap re-verification | `coordination/Q.md §2a` | 8 of 10 B-filed gaps unchanged at Q close. `Card` SHIPPED (Q.W2, already consumed by A.W1; + `surface` prop Q.W3). `UnderlineTabs` unchanged-PARTIAL. 7 primitive/blob gaps + `floating-panel-item` NOT SHIPPED. No consumer breakage from the W3 DEMOTE (value.js uses neither demoted component). |
+| Contested-boundary check | `coordination/Q.md §4` | **MOOT** — Q never wrote value.js; round-4 audit retired the contested lanes; the picker-0×0 fix was handed over as a patch whose content already lives in committed value.js history. |
+
+**Precept advance**: glass-ui Q.W6 advanced the shared `docs/precepts` submodule `3310a8c` → `3c32fae` — invariants 30 (cross-repo dev-resolution), 31 (props fail-explicit), 32 (phantom-class corpus-grep), 33 (dead-code corpus-grep), + π-lane re-activation. value.js's pin is still `3310a8c`; **B.W0 advances it to `3c32fae`** (new Lane 0).
+
+**Realignment edits** (planning-only, no implementation): `coordination/Q.md` (header, new §2a, §4 resolution, §6 rewrite, §8 table), `B.md` (§0 header, §2 invariants note, §7 cross-tranche debt), `findings.md` (§2 G + H, new §2 K), `waves/B.W0.md` (Lane 0 + invariant-31 probe check + gate + commit plan), `waves/B.W1.md` (invariant 32/33 on the `floating-panel-item` strip), `waves/B.W4.md` (invariant-33 pre-deletion grep on the e2e abrogation; invariant-30 in the library audit), `waves/B.W5.md` (precept SHA `3c32fae`; contested-boundary closed-state; integrity-sweep expectation). No new wave; no scope change beyond gate hardening.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -80,7 +96,7 @@ The orchestrator stopped the still-running W5-C e2e agent (`TaskStop` — its se
 
 ## Open dependencies
 
-- B.W0 inherits A.W6's conditional dependency on glass-ui shipping the metaballs/aurora APIs. Verified at B open (`coordination/Q.md §2`): NOT shipped at glass-ui HEAD `888d227`. B.W0 executes the formal re-scope per `A.md §9` — names the successor (glass-ui successor tranche + value.js successor) and records in `audit/W6-deferred.md`.
-- The 8 standing glass-ui §3 gaps (`coordination/Q.md §3`) — filed; no B wave blocks on them.
-- The A↔Q contested boundary (`A coord §0-1`) — Q.W1 Lane C + Q.W2 Lane B never deleted from Q's plan; no response recorded. B.W5 logs the latest state at close.
-- `docs/precepts` pin (3310a8c). If Q.W5 advances precepts during B, B.W5 acknowledges the new SHA.
+- B.W0 inherits A.W6's conditional dependency on glass-ui shipping the metaballs/aurora APIs. Re-verified at Q close (`coordination/Q.md §2a`, 2026-05-19): still NOT shipped at glass-ui's closed HEAD `4b16de7`. B.W0 executes the formal re-scope per `A.md §9` — names the successor (glass-ui successor tranche + value.js successor) and records in `audit/W6-deferred.md`. Q being closed means the successor is a *future* glass-ui tranche, not a wave of the in-flight Q.
+- The 7 standing glass-ui §3 primitive/blob gaps (`coordination/Q.md §2a, §3`) — NOT SHIPPED at Q close; route to a glass-ui successor tranche; no B wave blocks on them.
+- The A↔Q contested boundary — **resolved/MOOT**. Q closed without writing value.js (`coordination/Q.md §4`). B.W5 records the closed-state in FINAL.md.
+- `docs/precepts` pin: B opens at `3310a8c`; glass-ui Q.W6 advanced the shared submodule to `3c32fae`. **B.W0 Lane 0 advances value.js's pin to `3c32fae`**; B.W5 pins it in FINAL.md.

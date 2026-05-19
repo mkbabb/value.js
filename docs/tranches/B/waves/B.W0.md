@@ -1,13 +1,25 @@
 # B.W0 HEADLINE — Close A
 
 **Opens after**: B open.
-**Agents**: 3 lanes — A-ratify (commit W5), A.W6-disposition (execute or re-scope), A.W7-close-ceremony (A's FINAL.md). Lanes are sequential — A.W6 cannot dispose until A.W5 is committed; A.W7 cannot close until A.W6 is resolved.
+**Agents**: 1 orchestrator preamble (Lane 0 — precept submodule advance) + 3 lanes — A-ratify (commit W5), A.W6-disposition (execute or re-scope), A.W7-close-ceremony (A's FINAL.md). Lane 0 runs first; the three A-close lanes are sequential — A.W6 cannot dispose until A.W5 is committed; A.W7 cannot close until A.W6 is resolved.
 **Hard gate**: see §"Hard gate" below.
 **Status**: planned.
 
 ## Scope
 
 B does not begin its own structural work until A is honestly closed. A is functionally complete at master HEAD `191d66a` for W0–W4 and has uncommitted work for W5 (30+ SFCs, 2 untracked audit docs, 16 modified e2e specs) and unrun status for W6 (conditional on glass-ui) and W7 (close). Closing A is invariant B1.
+
+### Lane 0 — precept submodule advance (orchestrator, before Lane A)
+
+glass-ui Q.W6 advanced the shared `docs/precepts` submodule to `3c32fae` (invariants 30–33 + π-lane re-activation; `coordination/Q.md §6`). B operates under invariants 30–33, so the advance lands first.
+
+1. `git -C docs/precepts fetch && git -C docs/precepts checkout 3c32fae` — advance the working pin (note: value.js's `.gitmodules` + submodule registration is itself untracked-WIP at B open; the orchestrator reconciles `.gitmodules` registration as part of this step).
+2. Verify the advance: `git -C docs/precepts log -1 --oneline` shows `3c32fae`; the precepts SPEC carries invariants 30–33.
+3. Commit: `chore(precepts): advance shared submodule to 3c32fae (glass-ui Q.W6 — invariants 30-33)`.
+
+This is a clean bump — no working-tree entanglement with A's W5 files. It precedes Lane A so the A-close commits and every later B wave run under the current precepts.
+
+**Sub-gate 0**: `git -C docs/precepts rev-parse HEAD` returns `3c32fae`; the submodule registration is committed.
 
 ### Lane A — A.W5 ratify + commit
 
@@ -20,7 +32,7 @@ B does not begin its own structural work until A is honestly closed. A is functi
 4. Run the W5 gate matrix:
    - `npx vue-tsc --noEmit 2>&1 | grep -c 'error TS'` — record count (expected ~290; the increase from 243 reflects W5-A ARIA additions surfacing strict-prop issues, a separate finding for B.W4).
    - `npx vitest run` — must show 1409+ tests passing (no library regression).
-   - Cold-start `npm run dev`, then Playwright probe at 375×667 / 1280×800 / 1440×900 light AND dark. Capture to `audit/W5-playwright/`. (No e2e run — there is no smoke suite yet, and the full suite is about to be abrogated.)
+   - Cold-start `npm run dev`, then Playwright probe at 375×667 / 1280×800 / 1440×900 light AND dark. Capture to `audit/W5-playwright/`. (No e2e run — there is no smoke suite yet, and the full suite is about to be abrogated.) **Invariant-31 check**: the console probe asserts zero glass-ui stale-prop dev-warnings — value.js consumes glass-ui's now-fail-explicit `<Card>` (Q.W2 `useStalePropWarning`); A.W1 migrated all Card consumers to the `tier` API, so the probe expects zero `[stale prop]` warnings. A non-zero count is a real bug routed to B.W1.
 5. Commit W5 as 2 logical commits:
    - `fix(tranche-a/w5): accessibility sweep — ARIA roles, landmarks, SVG-as-button` (the 25+ SFCs).
    - `fix(tranche-a/w5): animation correctness — global reduced-motion + GooBlob tab-hidden` (`animations.css`, `useMetaballRenderer.ts`, `GooBlob.vue`).
@@ -56,6 +68,7 @@ B does not begin its own structural work until A is honestly closed. A is functi
 
 | Lane | Files written |
 |---|---|
+| 0 | `docs/precepts` (submodule pointer); `.gitmodules` + submodule registration reconcile |
 | A | A's 25+ modified SFCs (commit only — no further edits); `animations.css`; `useMetaballRenderer.ts`; `GooBlob.vue`; `docs/tranches/A/PROGRESS.md`; `docs/tranches/A/audit/W5-playwright/` (new screenshots). The 16 modified `e2e/*.spec.ts` are deliberately left uncommitted — B.W4 deletes them. |
 | B | `docs/tranches/A/audit/W6-deferred.md` (new); `docs/tranches/A/PROGRESS.md` |
 | C | `docs/tranches/A/FINAL.md` (new); `docs/tranches/A/audit/W7-*` (7 new docs); `docs/tranches/A/PROGRESS.md` |
@@ -64,6 +77,7 @@ B.W0 writes only into `docs/tranches/A/` and the working-tree files A.W5 already
 
 ## Hard gate
 
+0. `docs/precepts` submodule advanced to `3c32fae` and committed (Lane 0).
 1. A's wave-log shows zero `planned` rows.
 2. `docs/tranches/A/FINAL.md` exists and cites every wave's commits and key audit artefacts.
 3. `audit/W6-deferred.md` exists (re-scope path) OR a W6 close commit + Playwright re-probe (executed path).
@@ -71,6 +85,7 @@ B.W0 writes only into `docs/tranches/A/` and the working-tree files A.W5 already
 5. Integrity sweep (`git reflog`, `git stash list`) clean.
 6. `npm test` 1409+ passing.
 7. `vue-tsc` count recorded (not gated — B.W4 owns the cluster).
+8. Playwright probe records zero glass-ui stale-prop dev-warnings (invariant-31 check); any non-zero count routed to B.W1.
 
 ## Format and lint cadence
 
@@ -82,6 +97,7 @@ Lint after each lane; gate matrix before B.W0 close.
 
 ## Commit plan
 
+- `chore(precepts): advance shared submodule to 3c32fae …` (Lane 0)
 - `fix(tranche-a/w5): accessibility sweep …` (Lane A)
 - `fix(tranche-a/w5): animation correctness …` (Lane A)
 - `docs(tranche-a/w5): W5 close …` (Lane A) — notes the e2e lane superseded by B.W4 abrogation
