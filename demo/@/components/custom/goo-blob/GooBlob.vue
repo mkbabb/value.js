@@ -5,7 +5,7 @@
         :style="{ '--blob-color': color }"
         @click="emit('click')"
     >
-        <canvas ref="canvasRef" class="goo-blob-canvas" />
+        <canvas ref="canvasRef" class="goo-blob-canvas" aria-hidden="true" />
     </div>
 </template>
 

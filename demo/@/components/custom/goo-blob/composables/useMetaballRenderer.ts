@@ -86,6 +86,7 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
     let satOpLocs: Loc[] = [];
     let rafId: number | null = null;
     let paused = false;
+    let tabHidden = false;
     let destroyed = false;
     let startTime = 0;
     let lastFrameTime = 0;
@@ -150,7 +151,7 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
 
     function render(now: number) {
         if (destroyed) return;
-        if (paused) {
+        if (paused || tabHidden) {
             rafId = requestAnimationFrame(render);
             return;
         }
@@ -242,6 +243,10 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         }
     }
 
+    function onVisibilityChange() {
+        tabHidden = document.hidden;
+    }
+
     function start() {
         const canvas = canvasRef.value;
         if (!canvas) return;
@@ -254,6 +259,8 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
 
         canvas.addEventListener("webglcontextlost", onContextLost);
         canvas.addEventListener("webglcontextrestored", onContextRestored);
+        document.addEventListener("visibilitychange", onVisibilityChange);
+        tabHidden = document.hidden;
 
         startTime = 0;
         lastFrameTime = 0;
@@ -291,6 +298,7 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
             rafId = null;
         }
         observer?.disconnect();
+        document.removeEventListener("visibilitychange", onVisibilityChange);
         const canvas = canvasRef.value;
         if (canvas) {
             canvas.removeEventListener("webglcontextlost", onContextLost);
