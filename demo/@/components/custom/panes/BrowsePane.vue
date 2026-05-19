@@ -2,8 +2,8 @@
     <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Discover palettes from the community.">Browse</PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
-            <PaneSearchBar
-                v-model:search="pm.searchQuery.value"
+            <SearchBar
+                v-model="pm.searchQuery.value"
                 placeholder="Search palettes..."
             >
                 <SearchFilterBar
@@ -18,7 +18,7 @@
                     @color-search="onColorSearch"
                     @clear-color-search="onClearColorSearch"
                 />
-            </PaneSearchBar>
+            </SearchBar>
 
             <div class="grid gap-3 pb-3">
                 <div
@@ -121,7 +121,7 @@ import SearchFilterBar from "@components/custom/palette-browser/SearchFilterBar.
 import VersionHistoryDrawer from "@components/custom/palette-browser/VersionHistoryDrawer.vue";
 import FlagReportDialog from "@components/custom/palette-browser/FlagReportDialog.vue";
 import TagEditPopover from "@components/custom/palette-browser/TagEditPopover.vue";
-import PaneSearchBar from "./PaneSearchBar.vue";
+import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 import type { Palette, Tag } from "@lib/palette/types";
 import {

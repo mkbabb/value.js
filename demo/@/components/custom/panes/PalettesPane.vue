@@ -5,8 +5,8 @@
             <Badge v-if="pm.savedPalettes.value.length > 0" variant="secondary" class="text-mono-small ml-2">{{ pm.savedPalettes.value.length }}</Badge>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
-            <PaneSearchBar
-                v-model:search="pm.searchQuery.value"
+            <SearchBar
+                v-model="pm.searchQuery.value"
                 placeholder="Search palettes..."
             />
 
@@ -98,7 +98,7 @@ import CurrentPaletteEditor from "@components/custom/palette-browser/CurrentPale
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
 import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
-import PaneSearchBar from "./PaneSearchBar.vue";
+import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 import type { Palette } from "@lib/palette/types";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";

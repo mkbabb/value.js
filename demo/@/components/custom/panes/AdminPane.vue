@@ -5,9 +5,9 @@
             <Badge v-if="adminCount != null" variant="secondary" class="text-mono-small ml-2">{{ adminCount }}</Badge>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
-            <PaneSearchBar
+            <SearchBar
                 v-if="subView === 'admin-users' || subView === 'admin-names'"
-                v-model:search="pm.searchQuery.value"
+                v-model="pm.searchQuery.value"
                 :placeholder="subView === 'admin-users' ? 'Search users...' : 'Search color names...'"
             >
                 <UserSortMenu
@@ -15,7 +15,7 @@
                     :sort="pm.userSortMode.value"
                     @update:sort="pm.onUserSortChange"
                 />
-            </PaneSearchBar>
+            </SearchBar>
 
             <!-- Users sub-view -->
             <AdminUsersPanel
@@ -74,7 +74,7 @@ import AdminAuditPanel from "@components/custom/palette-browser/AdminAuditPanel.
 import AdminFlaggedPanel from "@components/custom/palette-browser/AdminFlaggedPanel.vue";
 import AdminTagsPanel from "@components/custom/palette-browser/AdminTagsPanel.vue";
 import UserSortMenu from "@components/custom/palette-browser/UserSortMenu.vue";
-import PaneSearchBar from "./PaneSearchBar.vue";
+import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 
 const props = defineProps<{
