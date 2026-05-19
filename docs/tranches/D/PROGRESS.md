@@ -69,6 +69,50 @@ The user re-issued the original "DEEPLY audit with 6 agents in parallel" directi
 
 No new wave; no scope dropped — every original finding still lands; the apparatus is hardened.
 
+## 2026-05-19 — Library-perf round (6 research + 6 challenge agents)
+
+The user directed: "Analyze with 6 agents in parallel our parsing, math, library, and color code, alongside keyframes' parsing, library, math, and animation code… deploy 6 challenge agents to challenge each and every claim. Converge upon an optimum and challenged and research-backed claims. KISS."
+
+### Research wave — 6 parallel lanes (Di–Dn)
+
+| Lane | Angle | Headline finding |
+|---|---|---|
+| Di | V8 hot-paths + shape stability + deopt | 10 findings + 7 shape-stability items + 1 inlining barrier. Top: `Color<T>` Map storage; per-frame `cssColorToRgb` canvas round-trip; `new Function` in `evaluateSimpleCalc` (D6 violation). |
+| Dj | Memoisation opportunities | 22 candidates surveyed → **1 P1** (`parseCSSColor` memo parity with CLAUDE.md contract); **11 explicit anti-recommendations** (don't memo `color2`/`mixColors`/`solveCubicBezierX`/`toFormattedString`/etc). |
+| Dk | Math correctness + numerical | **0 correctness bugs** across ~3,100 LoC. Ottosson gamut + slerp + cssLinear + steppedEase + hue interpolation all spec-faithful. P1: targeted `decompose` test coverage gaps. |
+| Dl | Interpolation API surface | 25 entry points; **0 true duplicates**; the canonical surface already exists; P1: `lerpColorValue` discards `hueMethod` → cylindrical animations go the long way round. |
+| Dm | Parser architecture | 7 fail-explicit candidates; 5 allocation hot-spots; BBNF grammar drift + misnamed equivalence test; CSSWideKeyword missing from public `parseCSSValue`; case-sensitivity bug in color/calc function names. |
+| Dn | value.js ↔ keyframes.js integration | Coupling sound; keyframes.js's 965-line `animation/index.ts` god module sketched into 7 cohesive sub-modules; 1 P1 ship candidate (later DOWNGRADED at challenge); type/name collision (`AnimationOptions`). |
+
+### Challenge wave — 6 adversarial reviews (one per research doc)
+
+Every research claim re-tested against source + spec evidence. **Strict skepticism**: a claim REJECTED unless the challenge could independently confirm. The user's "we mustn't change things just to change them" bound.
+
+| Challenge | Verdicts |
+|---|---|
+| CHALLENGE-Di | 5 UPHELD / 5 REVISED / 5 REJECTED + 3 false-negatives added. **Post-challenge P1**: Color<T> flatten + cssColorToRgb memoise. F1/S1 demoted to P3 (bimorphism claim was wrong — monomorphic after `prepareInterpVar`). F2 TS-index-signature claim REJECTED (TS erases). F9 megamorphic-dispatch claim REJECTED. |
+| CHALLENGE-Dj | P1 STANDS (parseCSSColor memo); **0 of 11 anti-recommendations overturned** (all rejections upheld); 1 missed candidate added (`parseCSSValueUnit` parity). `solveCubicBezierX` reject confirmed (continuous-input → cache thrash); `toFormattedString` reject confirmed (mutation-in-place → stale-cache hazard). |
+| CHALLENGE-Dk | 5/5 spot-checks UPHELD (Ottosson + slerp + cssLinear + steppedEase + hue interpolation all spec-correct). k-means threshold PARTIAL UPHOLD with benchmark (3× speedup on noisy-photo, coupled with maxIterations cap). P1 decompose-test gap REDUCED (refactor-fixes.test.ts already covers some cases). Missed sites added: SPSA optimizer + logerp mixed-sign NaN. |
+| CHALLENGE-Dl | 0-duplicates CONFIRMED. P1 UPHELD as load-bearing BUT "one-branch fix" REJECTED (requires 3-file change). 5 missing cases REDUCED to 3 (length-%, incompatible transform, hue boundary which dupes P1); `currentColor` SOFT; same-name FunctionValue REJECTED. P4 arg-order drift cheap; bundle with P1. |
+| CHALLENGE-Dm | 5 FE UPHOLD / 2 REVISE (FE1 high→medium per CSS Syntax 3 permissiveness; FE3 medium→low per CSS Animations spec) / 0 REJECT. 4 HP UPHELD + 1 PARTIAL-REJECT. HP3 branch count corrected to 156 (not 148). CSSWideKeyword + case-insensitivity both UPHELD. parse-that `dispatch`/diagnostics unused are real defects; `splitBalanced` is DRY-only; `cssParser` architectural. |
+| CHALLENGE-Dn | K9 (resolveTimingFunction ship) **DOWNGRADED to HOLD/P3** — the keyframes.js regex is an arithmetic shortcut, not parser-shaped; net-wash. K7 (TimingFunction type) UPHOLD. K10 (flattenValueTree) DROP — single consumer, KISS gate. K6 UPHOLD (rename to `CSSAnimationOptions`). K8 REFRAME — pin desync cosmetic; real hazard is cross-realm Parser-class doubling. 7-module split FAITHFUL. |
+
+### Synthesis
+
+Wrote `audit/D-LIB-OPTIMIZATION-SYNTHESIS.md` — the authoritative ledger of every SURVIVING claim with research × challenge × wave assignment. **6 P1 + 5 P2 + 4 P3 surviving items + 4 coordination items fold into existing D infrastructure**:
+
+- **D.W1 gains Lane L8** (NEW) — Color<T> Map → own-property storage transposition; the load-bearing perf + ergonomic win.
+- **D.W1 Lane L6** gains 4 small library-barrel fixes: CSSWideKeyword fix, case-insensitivity fix, `TimingFunction` type export, `AnimationOptions` → `CSSAnimationOptions` rename, optional `nameParser` dispatch refactor.
+- **D.W1 Lane L7** gains targeted decompose tests + `colorFilter` SPSA tests + optional k-means tune (benchmark-gated).
+- **D.W2 Lane D** gains the `evaluateSimpleCalc` D6-violation excision (route through the existing AST evaluator).
+- **D.W3 Lane C** gains 5 micro-fixes: `parseCSSColor` + `parseCSSValueUnit` memo parity, `hueMethod` wiring (3-file), interpolation arg-order canonicalisation, optional `_lerp` bolt-on cleanup.
+- **D.W6** gains the `bbnf-equivalence.test.ts` rename-or-rewire decision.
+- **coordination/Q.md §9** gains 4 keyframes.js asks (`AnimationOptions` import update, parse-that cross-realm peer-dep, kf-1 7-module split sketch, `sideEffects: false` refresh).
+
+**12 claims REJECTED** by challenge — the KISS gate held against premature optimisation (synthesis doc §5).
+
+No new wave; no scope dropped. The directive's "research-backed, challenged, KISS" frame is satisfied.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |

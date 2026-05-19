@@ -69,7 +69,22 @@ Facade exposure: `pm.audit.loadAuditLog()`, `pm.flagged.list()`, `pm.tags.create
 3. **`cssColorToRgb` per-frame memoise** (chronically-deferred Da §3 item 13, A.W7 performance finding) — `demo/@/components/custom/goo-blob/composables/useMetaballRenderer.ts:174` calls `cssColorToRgb(color.value)` every frame, doing a full 2D-canvas `getImageData` + a 3-element array allocation. 5-line memoise on the input-string key; correctness-neutral optimisation.
 4. **Dead `provide("auroraConfig", …)` removal** — `App.vue` provides it with zero consumers (D-HARDEN-4 confirms). Remove the provide + the import.
 
-**Sub-gate C**: `grep -rln 'const props = defineProps<' demo/@/components/custom demo/color-picker` ≤ 2 (the 2 hand-converted holds get an inline rationale); 8 `useTemplateRef` migrations land; `cssColorToRgb` memoised; `App.vue` no longer carries `provide("auroraConfig", …)`.
+**Library-perf research+challenge fold-ins** (per `audit/D-LIB-OPTIMIZATION-SYNTHESIS.md §1-3`, items L3 + L5 + L8 + L11 + L12):
+
+5. **L3 — `parseCSSColor` memoisation + invalidation hook** (Dj P1 + CHALLENGE upheld). value.js's siblings `parseCSSValue` / `parseCSSPercent` / `parseCSSTime` / `parseAnimationShorthand` / `parseCSSStylesheet` / `getComputedValue` all memoize today (per CLAUDE.md contract); `parseCSSColor` does not, despite the doc promising parity. Mirror the existing memo wrapper at `src/parsing/color.ts:534` + add the invalidation hook called from `registerColorNames`/`clearCustomColorNames`. JSDoc warns "returned ValueUnit MUST NOT be mutated" (hardens an implicit invariant). ≤ 10 lines library-side.
+
+6. **L8 — `parseCSSValueUnit` memo parity** (Dj M1 added at CHALLENGE). Same contract as L3; same call-pattern stability.
+
+7. **L5 — `lerpColorValue` carries `hueMethod`** (Dl P1 + CHALLENGE UPHELD as load-bearing). `normalizeColorUnits` returns `hueMethod` in a 3-tuple that the downstream destructure drops; animations between `oklch(50% 0.2 350°) → oklch(50% 0.2 10°)` go the long way round (340° via 180°) instead of CSS Color 4 §12.4's default `shorter` (20° via 360→0). **CHALLENGE rejected the "one-branch fix" claim** — `InterpolatedVar<T>` has 4 fields, none for `hueMethod`/`colorSpace`. The fix is a 3-file change:
+   - `InterpolatedVar<T>` type extension to carry `hueMethod?: HueInterpolationMethod` + `colorSpace?: ColorSpace`.
+   - `normalizeColorUnits` producer: write the hueMethod into the IV instead of dropping it.
+   - `lerpColorValue` consumer: dispatch `interpolateHue(a, b, t, hueMethod)` for the hue channel of cylindrical spaces instead of plain `lerp`.
+
+8. **L11 — interpolation argument-order canonicalisation** (Dl P4 + CHALLENGE upheld as cheap). Three different t-positions across `lerp(t, a, b)` / `interpolateHue(a, b, t, method)` / `slerp(a, b, t)`. Bundle with L5 so the interpolation surface is touched once. Pick the canonical (`(a, b, t, opts?)` — value-pair first, parameter last) and migrate the ~8 call sites; provide a 1-tranche aliased export for the old signatures with a `@deprecated` JSDoc.
+
+9. **L12 — `_lerp` bolt-on cleanup** (Di F1 post-CHALLENGE demotion to P3, optional, gated on bandwidth). `(iv as any)._lerp` bolt-on at `src/units/interpolate.ts:117` creates a non-stable call site. Pre-declare `_lerp` on `InterpolatedVar` and initialise it in `normalizeValueUnits`. Small cleanup; only ships if Lane C has time and the L5/L8 storage transposition didn't already address it.
+
+**Sub-gate C** (extended): `grep -rln 'const props = defineProps<' demo/@/components/custom demo/color-picker` ≤ 2 (the 2 hand-converted holds get an inline rationale); 8 `useTemplateRef` migrations land; `cssColorToRgb` memoised; `App.vue` no longer carries `provide("auroraConfig", …)`; **library-perf fold-ins L3/L5/L8/L11 land**: `parseCSSColor` + `parseCSSValueUnit` carry the memo wrapper (verified by `grep` for the wrapper pattern); `InterpolatedVar` carries `hueMethod`/`colorSpace`; a `lerpColorValue` unit test asserts the short-way-round answer for the 350°→10° oklch pair; interpolation signatures consistent at the canonical `(a, b, t, opts?)`; L12 lands or is recorded as deferred.
 
 ### Lane D — `viewSchema.ts` extraction (the chronically-deferred Da §3 item 12)
 

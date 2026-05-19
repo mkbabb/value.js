@@ -87,13 +87,40 @@ Inherits B `§7`: D writes value.js only. D reads glass-ui at the Q-close `4b16d
 | contract-v2 alignment | §6 | value.js consumes at D.W1 |
 | keyframes.js parity | §9 | code-side OK; precept-pin off-target |
 
-## §9 — keyframes.js coordination (refresh — corrects B `§9` framing)
+## §9 — keyframes.js coordination (refresh + the 6+6 library research/challenge fold-ins)
 
 `research/Dh-contract-v2.md §4` re-verified keyframes.js's contract-v2 alignment. **Refreshed verdict**: keyframes.js is **already contract-v2 compliant on the code side** at HEAD `0909177` (`build: abrogate development export condition — contract-v2`). Its `package.json` carries the 3-key shape + `build:watch`; its `vite.config.ts` drops `development` + the sibling-`fs.allow`.
 
-The only remaining drift is the `docs/precepts` submodule pin — keyframes.js at `458c2d1`, fleet at `68d9b20`. **Refreshed ask**: a one-line submodule bump to `68d9b20`. The B-vintage filing's "6 keyframes.js gaps" framing (959-line god module, `import type` drift, missing `sideEffects`, etc.) was a maintainability inventory; those items route to keyframes.js's own maintenance schedule.
+### §9.1 — Precept-pin convergence (the standing ask)
 
-value.js cannot write keyframes.js. The ask is filed.
+The only contract-v2-side drift is the `docs/precepts` submodule pin — keyframes.js at `458c2d1`, fleet at `68d9b20`. **Refreshed ask**: a one-line submodule bump to `68d9b20`. The B-vintage filing's "6 keyframes.js gaps" framing was a maintainability inventory; those items route to keyframes.js's own maintenance schedule.
+
+### §9.2 — New items from the library-perf research + challenge round (`audit/D-LIB-OPTIMIZATION-SYNTHESIS.md §4`)
+
+Filed after the 6 research (Di–Dn) + 6 challenge agents audited both repos' library code. Each item is challenge-upheld; the speculative claims (R1–R12 in the synthesis doc) were dropped.
+
+| # | Ask | Evidence | Source |
+|---|---|---|---|
+| **C1** | **Update `AnimationOptions` import name post value.js rename to `CSSAnimationOptions`** — value.js's `src/parsing/extract.ts:16-25` exported `AnimationOptions` (a CSS-shorthand-string type); keyframes.js's `src/animation/constants.ts:73-91` defines `AnimationOptions` (an engine-callable type) — a silent shadow with two genuinely-different shapes. value.js renames its export at **D.W1 Lane L6**; keyframes.js's only ask is to update the import name if it consumes value.js's old `AnimationOptions` symbol. | Dn K6 → CHALLENGE upheld | `Dn-cross-integration.md §3` |
+| **C2** | **Declare parse-that as a peer-dependency** (or arrange workspace hoisting) — the `^0.8.1` (keyframes.js) vs `^0.8.2` (value.js) pin desync was REFRAMED at challenge: pin alignment is cosmetic, but the **real hazard is cross-realm Parser-class doubling** from `file:..` linking. Confirmed: nested `node_modules/@mkbabb/value.js/node_modules/@mkbabb/parse-that` exists in the install tree. Only a peer-dep declaration on keyframes.js OR workspace hoisting can fix this; pin alignment cannot. | Dn K8 → CHALLENGE REFRAMED with file-tree evidence | `Dn-cross-integration.md §4` |
+| **C3** | **kf-1 (965-line `src/animation/index.ts` god module) — 7-module cohesive split** — the user's "NO god modules" rule binds; sketch follows. value.js cannot write keyframes.js but the split was sketched and CHALLENGE-verified faithful. | Dn §1 + CHALLENGE-Dn upheld | `Dn-cross-integration.md §1` |
+| **C4** | **Add `"sideEffects": false` to keyframes.js's `package.json`** — verified absent (refresh of B `coordination/Q.md §9 kf-3`). Tree-shaking blocked without it. | Dn §4 → confirmed | refresh |
+| **C5** | **kf-1 split sketch (the actual 7-module shape)**: `animation.ts` (~250 — the animation primitive + setOptions boundary lifted to `options.ts`), `options.ts` (~140 — config + setOptions), `playback.ts` (~180 — play/pause/seek + `_boundDraw` via module augmentation), `interp.ts` (~80 — the interpolation kernel), `events.ts` (~25 — emit/subscribe), `css-keyframes.ts` (~110 — CSS @keyframes parsing/extraction; consumes value.js's `parseCSSStylesheet`), `index.ts` (~50 — barrel). Per CHALLENGE-Dn caveats: `setOptions` boundary belongs in `options.ts` not `animation.ts`; `_boundDraw` bridges `animation/playback` via module augmentation. | Dn §1 + CHALLENGE faithful | this is the body of C3 — recorded for the keyframes.js maintainer |
+
+### §9.3 — What value.js's library-perf round does NOT ask of keyframes.js
+
+The synthesis (`audit/D-LIB-OPTIMIZATION-SYNTHESIS.md §5 R1`) explicitly rejected one cross-repo ship: shipping `resolveTimingFunction` from value.js to absorb keyframes.js's `utils.ts:86-87` cubic-bezier regex. CHALLENGE-Dn demonstrated the regex is an arithmetic shortcut (regex → 4 floats → `CSSCubicBezier(…)`), NOT parser-shaped; routing it through value.js's full parser would slow keyframes.js or be a net-wash byte move. **No ship; the regex stays where it is.**
+
+Similarly, `flattenValueTree` (Dn K10) was DROPPED — single 17-line consumer in keyframes.js, KISS gate held.
+
+### §9.4 — Value-side actions for the keyframes.js consumption
+
+These value.js-side changes flow keyframes.js's way as part of D.W1 (D writes value.js; the items LAND in value.js's library):
+
+- **L10** — value.js exports `type TimingFunction = (t: number) => number` from `src/easing.ts` and the barrel; keyframes.js can import the canonical name (no rename or change required on keyframes.js's side, just a type-cleanup opportunity at its own discretion). Per Dn K7 + CHALLENGE.
+- **C1's value-side half** — value.js renames `AnimationOptions` → `CSSAnimationOptions` at D.W1 Lane L6.
+
+value.js cannot write keyframes.js. All keyframes.js-side actions above are filed asks.
 
 ## §10 — Open question — contract-v2 codification + a precepts SHA
 

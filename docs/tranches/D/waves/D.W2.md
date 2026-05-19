@@ -90,6 +90,8 @@ Same pattern as Lane A. 8 concerns → 8 route/service pairs under `routes/admin
 
 5. **Reconcile `api/CLAUDE.md`**: 9 collections / 24 indexes (not 5/11). Re-write the structure section + document the new service/repository layer.
 
+6. **Library D6-invariant excision** (per `audit/D-LIB-OPTIMIZATION-SYNTHESIS.md §1 L4`) — `evaluateSimpleCalc` at `src/parsing/color.ts:78` uses `new Function()` to evaluate trivial calc() expressions. Both Di (B1 inlining barrier) AND Dm (FE7) flagged this independently; both challenges UPHELD. It violates invariant D6 ("no effusive dynamicism") and is REDUNDANT — value.js already ships a real calc() AST evaluator (`src/parsing/math.ts`'s calc parser + evaluator). Replace the ~10-line `new Function(…)` block with a delegation: `evaluateCalc(parseCSSMath(input))`. Adds zero new code (both helpers exist); deletes the dynamic-eval. Falls under D.W2 because it's a library-side fail-explicit / D6-cleanup that lives in `src/parsing/`, not `api/` — sequenced with the legacy-excision lane for narrative coherence.
+
 **Sub-gate D**: `grep -rn '?? null\|console\.warn\b' api/src/routes api/src/services` returns only the documented-rationale W3 site; `api/dist/` not on disk; `migrate-*.ts` absent; `api/CLAUDE.md` reflects 9 / 24 + the new layer; the migration startup check exists; the 3 LRUs are consolidated; SIGTERM handler installed.
 
 ## File bounds
