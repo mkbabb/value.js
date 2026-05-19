@@ -110,11 +110,30 @@ The user directed an audit of value.js ↔ `@mkbabb/keyframes.js` parity and abs
 
 No new wave; no scope change. The audit added one research doc and §9 to the coordination manifest.
 
+## 2026-05-19 — B execution authorized; B.W0 HEADLINE close
+
+The user lifted the planning-only constraint and authorized tranche execution in totality ("Begin and continue the current tranche … do not relinquish control … until you have completed the plan IN TOTALITY"). Execution runs on the branch `tranche-b` off `master` HEAD `f9a47ca` (the system-prompt git rule — branch off the default branch before committing execution work).
+
+### B.W0 — close A
+
+- **Lane 0 — precept advance.** `docs/precepts` submodule advanced `3310a8c` → `3c32fae` (glass-ui Q.W6's advance — invariants 30–33 + π-lane). Commit `de8c573`. B operates under invariants 30–33 for the rest of the tranche.
+- **Lane A — A.W5 ratify + commit.** The working tree was ratified against `docs/tranches/A/audit/W5-a11y.md` / `W5-animation.md` — not re-done. Gate matrix: `vitest` 1409 passed; `vue-tsc` 243 (the W5 ARIA additions did not raise it — B.W0 expected ~290, actual is better); Playwright boot re-probe 3 viewports × light+dark, **0 console errors, 0 stale-prop warnings** (invariant-31 check passes). Committed as 2 logical commits (`7088da4` a11y, `5247313` animation) + the close doc (`36a4ad0`). The 16 modified `e2e/*.spec.ts` left uncommitted — B.W3 deletes them. `style.css` was W5-a11y collateral (landmark integration) folded into the a11y commit.
+- **Lane B — A.W6 disposition.** Re-verified the metaballs/aurora/`BlobDot` APIs against glass-ui's **current** HEAD `e2e5303` (post-Q-close): none shipped. A.W6 closed by formal re-scope — `docs/tranches/A/audit/W6-deferred.md`; commit `065c6fe`. Adjacent finding: glass-ui `ce5aad8` (contract-v2, v1.9.3) abrogates the `development` dev-resolution condition — a B.W3 invariant-30 audit concern, noted for that wave.
+- **Lane C — A.W7 close ceremony.** 6 read-only close-audit lanes dispatched as parallel agents + the integrity sweep run by the orchestrator. All clean. `docs/tranches/A/FINAL.md` written; A's wave-log shows zero `planned`; commit `a9b6a94`. Tranche A is **closed**.
+
+### W7 close-audit findings folded into B (invariant B5)
+
+The A.W7 close audit surfaced B-actionable items, folded into the wave specs and `findings.md §2 N`: the `ui/alert/` hand-rolled fossil + dead `ui/` barrels → **B.W2** Lane A Tier-1b; the `--animation-slide-md` phantom token → **B.W1** Lane C; the `cssColorToRgb` per-frame hot-spot → routed with `audit/W6-deferred.md`; 14 doc-drift items → **B.W4** (its doc-drift lane already owns the scope).
+
+### Gate
+
+B.W0 hard gate MET — precepts advanced + committed; A's wave-log zero `planned`; `A/FINAL.md` cites every commit; `audit/W6-deferred.md` exists; A.W5 working-tree paths clean (e2e specs deliberately uncommitted); integrity sweep clean; `npm test` 1409; `vue-tsc` 243 recorded; Playwright 0 stale-prop warnings.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| B.W0 HEADLINE — close A + precept advance | planned | — | — | — |
+| B.W0 HEADLINE — close A + precept advance | closed | 2026-05-19 | 2026-05-19 | de8c573, 7088da4, 5247313, 36a4ad0, 065c6fe, a9b6a94 |
 | B.W1 — W5 a11y corrections + reduced-motion + floating-panel-item strip + layout simplification | planned | — | — | — |
 | B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | planned | — | — | — |
 | B.W3 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | planned | — | — | — |
