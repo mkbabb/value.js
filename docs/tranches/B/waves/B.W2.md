@@ -1,91 +1,87 @@
-# B.W2 — Layout simplification (Bβ Proposal B)
+# B.W2 — Component consolidation + hero-lab pass + UnderlineTabs migration
 
 **Opens after**: B.W1 close.
-**Agents**: 1 lane (the orchestrator owns this — `style.css` + 2 consumers; small and surgical, like A.W0). The user explicitly named this the "contrived, overfit, over-engineered" surface — the orchestrator owns the transposition to ensure idiomatic intent is preserved.
-**Hard gate**: `--dock-pos` token absent from `style.css` (deletion proof); Playwright at 4 viewports (375×667 / 1280×720 / 1280×800 / 2520×1080), light + dark — at standard viewports the dock and content positions are unchanged from W4 baseline; at 2520×1080 the documented visual delta is captured; 0 console errors; `vue-tsc` + `npm test` + smoke green.
+**Lanes**: 3 — A (component consolidation, Bγ + the hardening-audit extension), B (hero-lab pass), C (UnderlineTabs migration). Lanes B and C are disjoint from A and from each other and run in parallel after Lane A lands its file deletions.
 **Status**: planned.
+
+> **Hardening note (2026-05-19).** This was B.W3. Renumbered (six waves → five; old B.W2 layout folded into B.W1). Lane A's scope is **expanded** by the two component-structure audit lanes — the original Bγ found 4 over-fits; the hardening audit found the consolidation is one *architectural transposition*, not 4 disconnected merges, and named a 5th confirmed merge plus a tier of evaluate-at-wave-open candidates. The old Lane D (`--menu-min-w` comments) moved to B.W1 Lane D (it was double-listed).
 
 ## Scope
 
-`research/Bb-layout-simplification.md` — Proposal B: delete `--dock-pos`, flex+fixed layout.
+`research/Bg-component-simplification.md` + the hardening audit's component lanes (recorded in `PROGRESS.md` 2026-05-19) — Lane A; `research/Bα §3` + `research/Bζ §8` — Lane B; `research/Bζ §1` + `coordination/Q.md §3` — Lane C.
 
-### Pre-execution decision
+### Lane A — component consolidation
 
-At wave open, the orchestrator confirms the design intent with the user:
-> Tranche B's W2 wave is about to delete the `--dock-pos` centring formula (currently 9 active layout tokens, 1 fold-back dependency edge, 173px dock at 2520×1080). Proposal B replaces it with a flex+fixed layout: dock pins at `--dock-inset` (8px) across all viewports; the content cluster vertically centres via `justify-content: center` on `.app-layout`. Visual delta only at 21:9. Confirm Proposal B, or prefer Proposal A (keep dock-follows-content at 21:9 via `align-self: center` on `.pane-container`; slightly less deletion but preserves the 21:9 dock-following-content visual)?
+**Thesis.** The demo's pane-rendering surface is over-decomposed around one root cause: App.vue's template was too dense to inline its computed chains, so layer after layer was lifted into wrappers and composables — `useDesktopPaneRouter` + `useMobilePaneRouter` (parallel codepaths, a precept §5 one-path violation), `PaneSlot.vue` (a Transition/KeepAlive wrapper), `useGenericActionBar.ts`, `DockMainLayer.vue` (a pure 12-prop/5-emit passthrough). Lifting did not *remove* the duplication — it hid it. The transposition: **one `usePaneRouter` as the single source of truth**, App.vue consuming three computed shapes, and the downstream wrappers collapsing because App.vue is no longer too dense to inline them. This is one gestalt move, executed as graded steps.
 
-If user picks A, this wave executes Proposal A instead. Both are documented in `research/Bb`. The hard gate adapts accordingly.
+**Tier 1 — confirmed consolidations** (line-verified by the hardening audit; execute):
 
-### Lane A — layout transposition (Proposal B default)
+1. **Merge `DockMainLayer.vue` (151 lines) into Dock.vue.** Pure passthrough — 12 props forwarded, 5 emits relayed, zero local logic, duplicate `inject()` calls already available in Dock.vue. Move the `<DockLayer id="main">` block and the `.action-bar-toggle-slot` scoped CSS into Dock.vue. Dock.vue grows ~128 → ~230 lines (still ~50% below pre-W4's 426). Replace the 4 parallel `defineModel` mutex calls (`viewSelectOpen`/`mobileMenuOpen`/`profileMenuOpen`/`mbabbMenuOpen`) with a single `popupStates` reactive object.
+2. **Inline `useDockLayers.ts` (37 lines) into Dock.vue.** 3 lines of logic (one `ref` + one immediate `watch`) under 16 lines of interface boilerplate. Move into Dock.vue's `// --- Layer dispatch ---` block; inline order preserves the immediate-watch-deps-as-refs contract. Delete the file.
+3. **Inline `useAtmosphere.ts` (24 lines) into App.vue.** Two statements (`reactive(structuredClone(DEFAULT_AURORA_CONFIG))` + `useAurora(...)`). Move into App.vue's `// --- Aurora atmosphere ---` block; the `provide` line is already there. Delete the file.
+4. **Collapse `useDesktopPaneRouter.ts` (103) + `useMobilePaneRouter.ts` (79) into `usePaneRouter.ts`.** Both `defineAsyncComponent` the same panes — duplicated component registry, parallel switch ladders. Create `usePaneRouter(viewManager, model, callbacks)` returning `{ mobile, desktopLeft, desktopRight }`, each `{ component, key, props }` computeds, with one component registry. Delete both routers.
+5. **Fold `useGenericActionBar.ts` (54 lines) into `usePaneRouter`.** The hardening audit found Bγ missed this: the generic action bar is per-pane metadata wired separately from the pane component, for the same three panes the router already dispatches. Expand the router's return shape to `{ component, key, props, actionBar? }`; App.vue stops wiring two sources for one logical concern. Delete `useGenericActionBar.ts`.
 
-1. `style.css` `:root`:
-   - DELETE `--dock-pos` (the entire `max(...)` formula).
-   - DELETE `--layout-padding` (folds into the `.app-layout` `padding` shorthand).
-   - Verify `--dock-h`, `--dock-total`, `--content-max-h`, `--dock-padding-y`, `--dock-border-width`, `--dock-inset`, `--dock-gap` remain. (Token count: 9 → 7.)
-   - The `--content-max-h` media-query clamps remain (they govern the pane container's height cap; they no longer feed back into the dock).
-2. `style.css` `.app-layout`:
-   - DELETE `grid-template-rows`, `grid-row` participation, `align-items`.
-   - REPLACE with `display: flex; flex-direction: column; justify-content: center; height: 100dvh; overflow: hidden; padding: var(--dock-total) 1rem 0.5rem;`.
-3. `style.css` `.pane-container`:
-   - DELETE `grid-row: 2`.
-   - DELETE `height: 100%`.
-   - KEEP `max-height: var(--content-max-h)`, `margin: 0 auto`, the responsive `pane-container--dual` grid-template-columns.
-4. `Dock.vue:73` — change `top-[var(--dock-pos)]` to `top-[var(--dock-inset)]`.
-5. `ColorPicker.vue:2` — DELETE the `lg:max-h-[var(--content-max-h)]` portion; the pane-container now constrains height.
+**Tier 2 — evaluate at wave open** (the hardening audit's two component lanes split on these; the orchestrator decides each with file:line evidence, default toward consolidation where the file is a pure relay):
 
-### Lane A.2 — Visual probe + measurement
-
-Run Playwright at 4 viewports light+dark with the dev server. Measure dock `top` and `.pane-container` `top`/`bottom`/`height`. Capture screenshots. Confirm:
-
-| Viewport | Expected dock top | Expected pane-container top | Delta from W4 baseline |
+| Candidate | Lines | Audit split | Default |
 |---|---|---|---|
-| 1280×800 | 8px | ~71px | 0px |
-| 1280×720 | 8px | ~71px | 0px (or W4 baseline) |
-| 375×667 | 16px | ~91px | 0px |
-| 2520×1080 (21:9) | 8px | ~236px (centred via `justify-content`) | dock −165px, pane top +165px (documented delta) |
+| `usePaletteManagerWiring.ts` | 103 | "real adapter, keep" vs "pure 7-callback relay, inline" | INLINE if it carries no branching logic — a single-consumer callback bundler is contrivance |
+| `PaneSlot.vue` | 45 | Transition+KeepAlive wrapper for 3 slots | INLINE once the routers flatten — App.vue can hold three slots directly |
+| `PaneSearchBar.vue` | 15 | passthrough of glass-ui SearchBar + one defineModel | DELETE — use glass-ui SearchBar directly |
+| `PaneSegmentedControl.vue` | 34 | thin wrapper of glass-ui BouncyTabs | KEEP if consumed at ≥2 sites (it was a W4 dedup product); else inline — verify consumer count first |
+| `useDockActionBar.ts` | 43 | types + a Symbol, no logic | MERGE the type+Symbol into `color-picker/keys.ts` or the `usePaneRouter` surface |
 
-Document the 21:9 delta in `audit/B.W2-playwright/` with side-by-side before/after captures.
+Each Tier-2 decision is recorded in `audit/B.W2-consolidation.md` with the file:line evidence and the verdict — zero silent deferral (invariant B5).
 
-### Lane A.3 — `--menu-min-w` inline rationale (folded in from Bα §46)
+**Routed onward**: the `useViewManager` `VIEW_MAP` schema is re-encoded three times (useViewManager + both routers); after Tier-1 step 4 the duplication is down to one router, but the schema-vs-runtime split in `useViewManager` (237 lines) is a library-shaped concern — routed to **B.W3 Lane A** (the value.js audit explicitly takes the "view-schema unification" gap).
 
-Two menus deliberately stay wider than `--menu-min-w`: `Dock.vue` view-select SelectContent at `min-w-[12rem]` (content: "Atmosphere", "Audit Log" + icons + dots); `GenerateControls.vue` SelectContent at `min-w-[14rem]` (content: "Split Complementary" etc.). Add an inline comment at each site:
+**Sub-gate A**: Tier-1 deletions confirmed (`git ls-files | grep -E 'DockMainLayer|useDockLayers|useAtmosphere|useMobilePaneRouter|useDesktopPaneRouter|useGenericActionBar'` returns nothing); `usePaneRouter.ts` present and consumed by App.vue; every Tier-2 candidate has a recorded verdict in `audit/B.W2-consolidation.md`; Dock.vue ≤ ~250 lines, App.vue script ≤ ~140 lines; Playwright re-probe walks the DockLayers + pane transitions, 0 console errors; vue-tsc not raised.
 
-```vue
-<!-- B.W2: kept wider than --menu-min-w because long option labels need the space -->
-<SelectContent class="min-w-[12rem]">
-```
+### Lane B — hero-lab pass
+
+`demo/hero-lab/` has 31 vue-tsc errors, 4 unguarded WebGL RAF loops, no `prefers-reduced-motion`. DESIGN.md calls it the "design exemplar."
+
+1. **Card migration** — `grep variant="pane" demo/hero-lab/`; apply the tier-API migration if any stale-prop sites exist (glass-ui's `<Card>` now dev-WARNs on stale props — invariant 31).
+2. **Index-narrowing type fixes** — `HeroControls.vue`'s 23 errors are `noUncheckedIndexedAccess` + tagged-union narrowing on `TileHeroConfig | AtmosphereHeroConfig`. Add `kind`-discriminated narrowings; index access via destructuring + length check.
+3. **`prefers-reduced-motion` guards** on the 4 RAF loops (`CanvasAtmosphereHero.vue`, `WebGLAtmosphereHero.vue`, `CanvasTileHero.vue`, `WebGLTileHero.vue`) — adopt the goo-blob pattern (read `matchMedia` once; render one frame and stop on reduce).
+4. **Decision** — does hero-lab stay? After the pass, either honour DESIGN.md's "exemplary visual hierarchy reference" claim (it is now exemplary) or retract it (retired). Update DESIGN.md to the actual state.
+
+**Sub-gate B**: `vue-tsc --noEmit | grep -c 'demo/hero-lab/'` returns 0; the 4 RAF files honour `prefers-reduced-motion`; DESIGN.md TODO resolved.
+
+### Lane C — UnderlineTabs structural migration
+
+glass-ui shipped `<UnderlineTabs>` as a standalone component (verified at Q close `4b16de7` — `coordination/Q.md §2a`), not a `<Tabs variant="underline">` prop.
+
+1. `PaletteDialog.vue:27` — import `<UnderlineTabs>` from glass-ui; replace `<Tabs class="underline-tabs">` with `<UnderlineTabs :options="tabs" v-model="activeTab">`; verify `.palette-tab-content` animations survive the DOM-shape change.
+2. `style.css` — DELETE the `.underline-tabs` rule block (`:161-167`) and its marker comment.
+3. `coordination/Q.md §3` — mark the row "shipped as standalone; B.W2 migration consumed it; `.underline-tabs` CSS retired."
+
+**Sub-gate C**: `grep underline-tabs demo/` returns nothing (deletion proof); PaletteDialog tabs render correctly under Playwright; `coordination/Q.md §3` updated.
 
 ## File bounds
 
-`demo/@/styles/style.css`, `demo/@/components/custom/dock/Dock.vue`, `demo/@/components/custom/color-picker/ColorPicker.vue`, `demo/@/components/custom/dock/DockViewSelect.vue` (or Dock.vue if min-w lives there), `demo/@/components/custom/generate/GenerateControls.vue`.
+| Lane | Files |
+|---|---|
+| A | `Dock.vue`, `App.vue`, deleted: `DockMainLayer.vue`, `useDockLayers.ts`, `useAtmosphere.ts`, `useMobilePaneRouter.ts`, `useDesktopPaneRouter.ts`, `useGenericActionBar.ts`; new: `usePaneRouter.ts`; Tier-2 files per the recorded verdicts (`PaneSlot.vue`, `PaneSearchBar.vue`, `PaneSegmentedControl.vue`, `useDockActionBar.ts`, `usePaletteManagerWiring.ts`) |
+| B | `demo/hero-lab/**` |
+| C | `PaletteDialog.vue`, `style.css`, `coordination/Q.md` |
 
-## Hard gate
+## Gate
 
-1. `grep -n 'dock-pos' demo/@/styles/style.css` returns nothing (deletion proof).
-2. `grep -n 'layout-padding' demo/@/styles/style.css` returns nothing.
-3. Token count = 7 in `style.css :root` (active layout tokens).
-4. Playwright at 4 viewports (375×667 / 1280×720 / 1280×800 / 2520×1080), light + dark — dock + pane positions measured against the W4 baseline; standard viewports show 0 drift; 21:9 shows the documented visual delta. Captures to `audit/B.W2-playwright/`.
-5. 0 console errors at every viewport.
-6. `vue-tsc` count not raised; `npm test` 1409+ green; smoke suite green.
-7. `--menu-min-w` exception sites carry inline rationale comments.
-
-## Format and lint cadence
-
-Lint after the lane; gate before close.
+Per `B.md §6`: the conjunction of sub-gates A–C plus one Playwright probe (3 viewports light+dark, walks the DockLayers, opens PaletteDialog tabs, switches panes; 0 console errors). `vue-tsc` drops by ~31 (hero-lab); `npm test` 1409+; smoke green.
 
 ## Verification artefacts
 
-`audit/B.W2-layout-transposition.md` (the before/after CSS diff + the token graph after; the 21:9 visual delta captures); `audit/B.W2-playwright/` (4-viewport captures, light + dark).
+`audit/B.W2-consolidation.md` (Tier-1 deletion proofs + line counts + every Tier-2 verdict), `audit/B.W2-hero-lab.md`, `audit/B.W2-underline-tabs.md`, `audit/B.W2-playwright/`.
 
 ## Commit plan
 
-1 commit: `refactor(tranche-b/w2): delete --dock-pos centring formula, flex+fixed layout (Bβ Proposal B)`. Plus a small docs note in `demo/DESIGN.md` if the change affects the design-language documentation.
+- `refactor(tranche-b/w2): consolidate the pane-rendering surface — usePaneRouter source-of-truth, merge DockMainLayer, inline composables` (Lane A)
+- `fix(tranche-b/w2): hero-lab pass — Card migration, index narrowing (-31 type errors), prefers-reduced-motion on 4 RAF loops` (Lane B)
+- `refactor(tranche-b/w2): migrate PaletteDialog tabs to <UnderlineTabs>, retire .underline-tabs CSS` (Lane C)
 
 ## Dependencies
 
 - Depends on: B.W1.
 - Blocks: B.W3.
-
-## Open decision
-
-User confirmation at wave open: Proposal B (default) vs Proposal A. Default is Proposal B per the user's "contrived/overfit/over-engineered" diagnostic and the precept "abrogate before patch."

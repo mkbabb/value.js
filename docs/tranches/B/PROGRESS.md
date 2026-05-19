@@ -83,20 +83,34 @@ B's plan was drawn against glass-ui's pre-execution HEAD `888d227`. glass-ui's t
 
 **Realignment edits** (planning-only, no implementation): `coordination/Q.md` (header, new §2a, §4 resolution, §6 rewrite, §8 table), `B.md` (§0 header, §2 invariants note, §7 cross-tranche debt), `findings.md` (§2 G + H, new §2 K), `waves/B.W0.md` (Lane 0 + invariant-31 probe check + gate + commit plan), `waves/B.W1.md` (invariant 32/33 on the `floating-panel-item` strip), `waves/B.W4.md` (invariant-33 pre-deletion grep on the e2e abrogation; invariant-30 in the library audit), `waves/B.W5.md` (precept SHA `3c32fae`; contested-boundary closed-state; integrity-sweep expectation). No new wave; no scope change beyond gate hardening.
 
+## 2026-05-19 — Hardening round (six waves → five)
+
+The user re-issued the turn-4 audit directive scoped to harden Tranche B *itself* — "harden B in place" — naming three overfit surfaces: component structure, the tranche apparatus, the e2e/test scaffolding (layout explicitly excluded). Six read-only `Explore` agents audited B's plan in parallel.
+
+| Lane | Angle | Headline finding |
+|---|---|---|
+| 1 | wave structure | The standalone layout wave (old B.W2) is a single-lane, 1-commit refactor — wave-inflation. Merge into B.W1. The other waves are appropriately sized; the close ceremony is precept policy, not over-fit. **6 → 5 waves.** |
+| 2 | apparatus / docs / gates | 22 docs / ~2,713 lines — 30–40% over-built. `findings.md §1` duplicates `B-PROMPTS.md`; the 4 e2e assay docs should consolidate; the gate apparatus is 5 tiers where 3 suffice. |
+| 3 | B.W2 consolidation depth | All 4 Bγ consolidations verified correct; the audit found a 5th (`useGenericActionBar` → fold into `usePaneRouter`) and reframed the lane as one architectural transposition, not 4 disconnected merges. |
+| 4 | actual component tree | 7 over-engineering candidates beyond Bγ's 4 — `usePaletteManagerWiring`, `PaneSlot`, `PaneSearchBar`, `PaneSegmentedControl`, `useDockActionBar`, the `DockMainLayer` defineModel tax. Folded as B.W2 Tier-2 (evaluate-at-wave-open). |
+| 5 | e2e gate model | Smoke suite + per-wave probe are complementary, not redundant — keep both. The 6-capture probe is over-provisioned for library-only waves → probe wave-qualification (invariant B4). |
+| 6 | A's landed changes + prompt recap | All 5 A over-fits already captured in B's plan. 13 mandates: 7 closed by A, 6 routed to B; mandates 12/13 foregrounded in `findings.md §4`. No coverage gap. |
+
+**Hardening applied to the substrate** (planning-only): six waves → five (old B.W2 layout folded into B.W1 Lane D; old W3/W4/W5 renumbered to W2/W3/W4); B.W2's consolidation lane expanded (Tier-1 confirmed + Tier-2 evaluate-at-open + the view-schema routed to B.W3); the 4 `B-e2e-*` research docs merged into one `B-e2e-investigation.md`; `findings.md §1` deleted (duplicate), §2 pared to a mapping table; `B.md §1/§5/§6` pared, gate model collapsed 5 tiers → 3; the Playwright probe wave-qualified (B4). No new wave, no scope dropped — every finding still lands; the apparatus is leaner.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| B.W0 HEADLINE — close A | planned | — | — | — |
-| B.W1 — W5 a11y corrections + reduced-motion refinement + floating-panel-item | planned | — | — | — |
-| B.W2 — layout simplification (Bβ Proposal B) | planned | — | — | — |
-| B.W3 — component consolidation (Bγ) + hero-lab + UnderlineTabs | planned | — | — | — |
-| B.W4 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | planned | — | — | — |
-| B.W5 HEADLINE close — FINAL.md, doc drift, Q.md update, A close-residuals | planned | — | — | — |
+| B.W0 HEADLINE — close A + precept advance | planned | — | — | — |
+| B.W1 — W5 a11y corrections + reduced-motion + floating-panel-item strip + layout simplification | planned | — | — | — |
+| B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | planned | — | — | — |
+| B.W3 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | planned | — | — | — |
+| B.W4 HEADLINE close — FINAL.md, doc drift, Q.md update, A close-residuals | planned | — | — | — |
 
 ## Open dependencies
 
 - B.W0 inherits A.W6's conditional dependency on glass-ui shipping the metaballs/aurora APIs. Re-verified at Q close (`coordination/Q.md §2a`, 2026-05-19): still NOT shipped at glass-ui's closed HEAD `4b16de7`. B.W0 executes the formal re-scope per `A.md §9` — names the successor (glass-ui successor tranche + value.js successor) and records in `audit/W6-deferred.md`. Q being closed means the successor is a *future* glass-ui tranche, not a wave of the in-flight Q.
 - The 7 standing glass-ui §3 primitive/blob gaps (`coordination/Q.md §2a, §3`) — NOT SHIPPED at Q close; route to a glass-ui successor tranche; no B wave blocks on them.
-- The A↔Q contested boundary — **resolved/MOOT**. Q closed without writing value.js (`coordination/Q.md §4`). B.W5 records the closed-state in FINAL.md.
-- `docs/precepts` pin: B opens at `3310a8c`; glass-ui Q.W6 advanced the shared submodule to `3c32fae`. **B.W0 Lane 0 advances value.js's pin to `3c32fae`**; B.W5 pins it in FINAL.md.
+- The A↔Q contested boundary — **resolved/MOOT**. Q closed without writing value.js (`coordination/Q.md §4`). B.W4 records the closed-state in FINAL.md.
+- `docs/precepts` pin: B opens at `3310a8c`; glass-ui Q.W6 advanced the shared submodule to `3c32fae`. **B.W0 Lane 0 advances value.js's pin to `3c32fae`**; B.W4 pins it in FINAL.md.

@@ -1,26 +1,27 @@
-# B.W1 — W5 corrections + floating-panel-item + Markdown residuals
+# B.W1 — W5 corrections + layout simplification
 
 **Opens after**: B.W0 close (A is officially closed).
-**Agents**: 3 lanes (A — W5 a11y corrections; B — reduced-motion overlay carve-out; C — floating-panel-item + Markdown radius residuals). Disjoint files; shared tree.
-**Hard gate**: SpectrumCanvas + SwatchHoverMenu ARIA corrected; overlay opacity carve-out present in `animations.css`; `.floating-panel-item` either has a CSS definition or is stripped from every consumer; Markdown.vue residual `rounded-2xl` resolved; Playwright re-probe clean; `vue-tsc` not regressed beyond the documented baseline; smoke suite (if up) green.
+**Lanes**: 4 — A (W5 a11y corrections), B (reduced-motion overlay carve-out), C (floating-panel-item + Markdown residuals), D (layout transposition — Bβ Proposal B). Files are disjoint except `style.css`, which Lane C (define-path only) and Lane D both touch — the orchestrator sequences C→D if so. The orchestrator owns Lane D directly: the user named layout the "contrived/overfit" surface, so the transposition stays in one hand.
 **Status**: planned.
+
+> **Hardening note (2026-05-19).** The former standalone layout wave (old B.W2) was a single-lane, orchestrator-owned, 1-commit refactor — wave-inflation, per the hardening audit (`PROGRESS.md`). It is folded here as Lane D. Six waves → five.
 
 ## Scope
 
-`research/Bd-w5-audit.md §1, §2` and `research/Bz-legacy-cruft.md §3`.
+`research/Bd-w5-audit.md §1-2`, `research/Bz-legacy-cruft.md §3` (Lanes A/B/C); `research/Bb-layout-simplification.md` (Lane D).
 
 ### Lane A — W5 a11y corrections
 
-1. **SpectrumCanvas.vue:5-6** — the `role="slider"` is invalid (missing `aria-valuenow`/`aria-valuemin`/`aria-valuemax`); the widget is a 2D saturation×lightness picker, not a linear slider. Fix: replace `role="slider"` with `role="img"` and add a reactive `:aria-label` interpolating the current saturation and lightness in percent ("Color spectrum, saturation N%, lightness M%"). Or: `role="application"` with a `<div role="status" class="sr-only" aria-live="polite">` reporting the current value. Pick the simpler path (`role="img"`).
-2. **SwatchHoverMenu.vue:42-43** — the `role="toolbar"` sits on the hover-triggered teleport panel, which is keyboard-inaccessible. Add `aria-hidden="true"` to the hover-path panel; the reka-ui Popover touch path is the accessible route. Remove the `role="toolbar"` + `aria-label` from the hover panel.
-3. **PaletteCardGrid.vue** — the parent of PaletteCard's `role="article"` is currently a plain `<div>`. Add `role="list"` to the grid container (and the children get implicit `role="listitem"` via `role="article"` inside `role="list"`; verify a11y inspector confirms).
-4. **GradientVisualizer.vue** SelectTrigger `aria-label`s — verify each `aria-label` supplements (does not override) the visible label. If the SelectValue shows the category name, the `aria-label` is redundant — remove. If the SelectValue shows the selected value only, the `aria-label` correctly names the category — keep.
+1. **SpectrumCanvas.vue:5-6** — the `role="slider"` is invalid (missing `aria-valuenow`/`aria-valuemin`/`aria-valuemax`); the widget is a 2D saturation×lightness picker, not a linear slider. Fix: replace `role="slider"` with `role="img"` and a reactive `:aria-label` interpolating current saturation and lightness in percent ("Color spectrum, saturation N%, lightness M%").
+2. **SwatchHoverMenu.vue:42-43** — the `role="toolbar"` sits on the hover-triggered teleport panel, which is keyboard-inaccessible. Add `aria-hidden="true"` to the hover-path panel; remove `role="toolbar"` + `aria-label`. The reka-ui Popover touch path is the accessible route.
+3. **PaletteCardGrid.vue** — add `role="list"` to the grid container so PaletteCard's `role="article"` children sit in a list landmark.
+4. **GradientVisualizer.vue** SelectTrigger `aria-label`s — verify each supplements (does not override) the visible label; remove the redundant ones.
 
-**Sub-gate A**: snapshot diff shows SpectrumCanvas no longer has `role="slider"`; SwatchHoverMenu hover panel has `aria-hidden="true"`; PaletteCardGrid container has `role="list"` (or equivalent); Playwright a11y tree snapshot confirms no invalid ARIA. vue-tsc count not raised.
+**Sub-gate A**: snapshot diff shows SpectrumCanvas no longer `role="slider"`; SwatchHoverMenu hover panel `aria-hidden="true"`; PaletteCardGrid container `role="list"`; a11y tree snapshot confirms no invalid ARIA; vue-tsc not raised.
 
 ### Lane B — reduced-motion overlay opacity carve-out
 
-The W5 reduced-motion block neutralises every transition globally. Reka-ui Dialog/Sheet/Popover use `[data-state="open"]`/`[data-state="closed"]` to drive transitions — those should keep an opacity fade so AT users can perceive the state change. Per Bδ §2:
+The W5 reduced-motion block neutralises every transition globally. Reka-ui Dialog/Sheet/Popover drive transitions off `[data-state]` — those should keep an opacity fade so AT users perceive the state change. Add to `animations.css` after the global block:
 
 ```css
 @media (prefers-reduced-motion: reduce) {
@@ -36,23 +37,32 @@ The W5 reduced-motion block neutralises every transition globally. Reka-ui Dialo
 }
 ```
 
-Add to `animations.css` after the existing global block.
-
-**Sub-gate B**: `animations.css` carries the carve-out block; Playwright probe with `--emulate-media reduce-motion` opens a Dialog and a Popover and observes an opacity fade (not instantaneous on/off). vue-tsc unchanged.
+**Sub-gate B**: `animations.css` carries the carve-out; Playwright probe with `--emulate-media reduce-motion` opens a Dialog + Popover and observes an opacity fade; vue-tsc unchanged.
 
 ### Lane C — floating-panel-item + Markdown radius
 
-1. **`floating-panel-item` decision**. Bζ §3 found the class is applied at 7 sites (`PaletteCard.vue` `:181-190`, `CurrentPaletteEditor.vue` `:44-50`) with zero CSS rule anywhere. Choices:
-   - **Define locally** — add a `.floating-panel-item` rule in `style.css` (or a new shared utilities file) wiring `:hover` / `:active` / `:focus-visible` / `:disabled` states. Then formally file the glass-ui gap in B's `coordination/Q.md §3` (already filed — note in `audit/B.W1-floating-panel-item.md`). When glass-ui ships, retire the local rule.
-   - **Strip the class** from all consumers. The buttons already carry inline Tailwind utilities implementing the four-state contract (W4-states-b.md confirmed). The class adds nothing today.
-   
-   **Default: strip the class.** The local-define path adds policy (a CSS rule) before its consumers need it (they already work without one); the strip path satisfies precept §4 ("abrogate before patch"). If the orchestrator's review at the wave's start prefers the local-define path for forward-compatibility with glass-ui's eventual ship, the wave switches. The default is strip.
+1. **`floating-panel-item` — strip (default).** Bζ §3 found the class applied at 7 sites (`PaletteCard.vue:181-190`, `CurrentPaletteEditor.vue:44-50`) with zero CSS rule anywhere. The buttons already carry Tailwind utilities implementing the four-state contract — the class adds nothing. Strip it from all consumers (precept §4, abrogate before patch).
 
-   **Invariant 32 + 33 (precepts `3c32fae`, in force after B.W0).** The strip is a phantom-class retirement and a dead-code removal. Before stripping: run a corpus grep for `floating-panel-item` across `demo/`, `src/`, and `glass-ui/src/` proving the only references are the 7 demo callsites and zero CSS rule exists anywhere (invariant 33). After stripping: record the retired class name in `audit/B.W1-floating-panel-item.md` (value.js has no `.retired-classes.txt` registry; the audit doc is the registry-equivalent — invariant 32). The post-strip grep returning zero is the deletion proof.
+   **Invariant 32 + 33 (precepts `3c32fae`).** Before stripping: a corpus grep for `floating-panel-item` across `demo/`, `src/`, `glass-ui/src/` proves the only references are the 7 callsites and zero CSS rule exists (invariant 33). After stripping: record the retired class name in `audit/B.W1-floating-panel-item.md` — value.js has no `.retired-classes.txt`; the audit doc is the registry-equivalent (invariant 32). The post-strip grep returning zero is the deletion proof.
 
-2. **Markdown.vue residual `rounded-2xl`** — 2 sites: a `pre code` block (`@apply ... rounded-2xl ...`) and an `img` (`@apply ... rounded-2xl ...`). Code blocks and images are not role-bearing card/panel/dialog/input surfaces; `rounded-2xl` is acceptable per the W3 conventions doc's "leave on non-surface elements." However, the conventions doc also encourages semantic aliases where applicable. Decision: leave both — code-block and image radii are content-element radii, not surface radii. Update the W3-conventions doc to document the exception explicitly.
+2. **Markdown.vue residual `rounded-2xl`** — 2 sites (a `pre code` block, an `img`). Code blocks and images are content elements, not surface elements; `rounded-2xl` is acceptable. Leave both; add an inline comment naming them as exceptions; update the W3-conventions doc.
 
-**Sub-gate C**: `floating-panel-item` resolved (either defined OR removed from all 7 sites with a grep proof of zero remaining); Markdown residuals documented; W3-conventions doc updated; vue-tsc unchanged.
+**Sub-gate C**: `floating-panel-item` stripped from all 7 sites (grep proof of zero); the retired class recorded in the audit doc; Markdown residuals documented inline; vue-tsc unchanged.
+
+### Lane D — layout transposition (Bβ Proposal B)
+
+`research/Bb-layout-simplification.md` Proposal B: delete the `--dock-pos` centring formula; flex+fixed layout. The user excluded layout from the hardening overfit set — Proposal B's *content* stands; only its wave home changed.
+
+**Pre-execution decision.** At wave open the orchestrator confirms with the user: Proposal B (default — dock pins at `--dock-inset` across all viewports; content cluster centres via `justify-content: center`; visual delta only at 21:9) vs Proposal A (keep dock-follows-content at 21:9 via `align-self: center`; less deletion). Default Proposal B per the "contrived/overfit" diagnostic + precept "abrogate before patch".
+
+1. `style.css :root` — DELETE `--dock-pos` (the `max(...)` formula) and `--layout-padding` (folds into `.app-layout` `padding`). Keep `--dock-h`, `--dock-total`, `--content-max-h`, `--dock-padding-y`, `--dock-border-width`, `--dock-inset`, `--dock-gap`. Token count 9 → 7. The `--content-max-h` media clamps remain (they cap pane height; they no longer feed back into the dock).
+2. `style.css .app-layout` — DELETE `grid-template-rows`, `grid-row`, `align-items`; REPLACE with `display: flex; flex-direction: column; justify-content: center; height: 100dvh; overflow: hidden; padding: var(--dock-total) 1rem 0.5rem;`.
+3. `style.css .pane-container` — DELETE `grid-row: 2` and `height: 100%`; KEEP `max-height: var(--content-max-h)`, `margin: 0 auto`, the `pane-container--dual` columns.
+4. `Dock.vue:73` — `top-[var(--dock-pos)]` → `top-[var(--dock-inset)]`.
+5. `ColorPicker.vue:2` — DELETE `lg:max-h-[var(--content-max-h)]`; the pane-container now constrains height.
+6. **`--menu-min-w` inline rationale** (folded from Bα §46, and de-duplicated — this task was double-listed in old W2 and old W3). Two menus deliberately stay wider than `--menu-min-w`: `Dock.vue` view-select `SelectContent min-w-[12rem]`, `GenerateControls.vue` `SelectContent min-w-[14rem]`. Add one inline comment at each: `<!-- B.W1: kept wider than --menu-min-w — long option labels need the space -->`.
+
+**Sub-gate D**: `grep dock-pos|layout-padding style.css` returns nothing (deletion proof); `:root` carries 7 layout tokens; Playwright at 375×667 / 1280×720 / 1280×800 / 2520×1080 light+dark measures dock `top` and `.pane-container` geometry against the W4 baseline — standard viewports show 0 drift, 21:9 shows the documented delta (dock pins at 8px vs floating ~173px), captures to `audit/B.W1-layout/`; `--menu-min-w` exception sites carry the rationale comment.
 
 ## File bounds
 
@@ -60,28 +70,23 @@ Add to `animations.css` after the existing global block.
 |---|---|
 | A | `SpectrumCanvas.vue`, `SwatchHoverMenu.vue`, `PaletteCardGrid.vue`, `GradientVisualizer.vue` |
 | B | `animations.css` |
-| C | `PaletteCard.vue`, `CurrentPaletteEditor.vue` (if strip path); OR `style.css` (if define path); `docs/tranches/A/audit/W3-conventions.md` (Markdown exception note) |
+| C | `PaletteCard.vue`, `CurrentPaletteEditor.vue`, `docs/tranches/A/audit/W3-conventions.md` |
+| D | `style.css`, `Dock.vue`, `ColorPicker.vue`, `GenerateControls.vue` |
 
-Disjoint per file. Lane B and C both touch `animations.css`/`style.css` only if Lane C takes the define path — orchestrator sequences if so.
+## Gate
 
-## Hard gate
-
-1. Playwright probe ×3 viewports, light + dark — no console errors; a11y tree confirms SpectrumCanvas + SwatchHoverMenu + PaletteCardGrid correctness; overlay opacity fades present under `prefers-reduced-motion: reduce`.
-2. `grep -rn 'floating-panel-item' demo/` returns zero OR `grep -n '.floating-panel-item' demo/@/styles/` returns the defining rule.
-3. `grep -n 'rounded-2xl' demo/@/components/custom/markdown/Markdown.vue` returns the 2 documented residuals only, with an inline comment naming them as exceptions.
-4. `vue-tsc` count not raised; `npm test` 1409+ green; smoke suite (if up) green.
-
-## Format and lint cadence
-
-Lint per lane; gate before close.
+Per the hardened 3-tier model (`B.md §6`): the wave closes on the **conjunction of the four sub-gates A–D plus one Playwright probe**. The probe is the layout-class wave probe — 4 viewports (375×667 / 1280×720 / 1280×800 / 2520×1080) light+dark, 0 console errors, a11y tree clean, layout geometry measured. `vue-tsc` not raised; `npm test` 1409+; smoke suite green (if up). No separately enumerated hard-gate list — the sub-gates are the gate.
 
 ## Verification artefacts
 
-`audit/B.W1-states-corrections.md` (Lane A — before/after a11y tree), `audit/B.W1-reduced-motion.md` (Lane B), `audit/B.W1-floating-panel-item.md` (Lane C), `audit/B.W1-playwright/` (3-viewport captures).
+`audit/B.W1-a11y.md` (Lane A before/after a11y tree), `audit/B.W1-reduced-motion.md` (Lane B), `audit/B.W1-floating-panel-item.md` (Lane C — retired-class record), `audit/B.W1-layout/` (Lane D — 4-viewport captures + before/after CSS diff + token graph).
 
 ## Commit plan
 
-3 commits, one per lane, `fix(tranche-b/w1): …`. Plus a docs commit if W3-conventions updated.
+- `fix(tranche-b/w1): W5 a11y corrections — SpectrumCanvas, SwatchHoverMenu, PaletteCardGrid` (Lane A)
+- `fix(tranche-b/w1): reduced-motion overlay opacity carve-out` (Lane B)
+- `refactor(tranche-b/w1): strip phantom floating-panel-item class` (Lane C) + a docs note if W3-conventions updated
+- `refactor(tranche-b/w1): delete --dock-pos centring formula, flex+fixed layout (Bβ Proposal B)` (Lane D)
 
 ## Dependencies
 

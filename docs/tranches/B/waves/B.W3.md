@@ -1,89 +1,81 @@
-# B.W3 — Component consolidation (Bγ) + hero-lab pass + UnderlineTabs migration
+# B.W3 — value.js library audit + WIP disposition + typecheck cluster + e2e abrogation
 
 **Opens after**: B.W2 close.
-**Agents**: 4 lanes (A — consolidations Bγ, B — hero-lab pass, C — UnderlineTabs migration, D — `--menu-min-w` exception sites if not already done in B.W2). Disjoint files. Shared tree.
-**Hard gate**: 4 over-fit files deleted (DockMainLayer.vue, useDockLayers.ts, useAtmosphere.ts, useMobilePaneRouter.ts) + 1 new file (usePaneRouter.ts); useDesktopPaneRouter.ts also deleted (folded into usePaneRouter); hero-lab vue-tsc → 0 errors; 4 hero-lab RAF loops carry `prefers-reduced-motion`; `<UnderlineTabs>` consumed by PaletteDialog; `.underline-tabs` CSS rule absent from `style.css`; Playwright clean.
+**Lanes**: 4 — A (read-only library gap audit), B (WIP disposition), C (custom typecheck cluster), D (e2e abrogation + smoke suite). Lane A is read-only; B sequences with A's output; C and D are file-disjoint from A/B and each other and run in parallel.
 **Status**: planned.
+
+> **Hardening note (2026-05-19).** This was B.W4. Renumbered (six waves → five). Lane A's scope picks up the `useViewManager` view-schema unification routed from B.W2.
 
 ## Scope
 
-`research/Bg-component-simplification.md` (Lane A) + `research/Bα §3` and `research/Bζ §8` (Lane B) + `research/Bζ §1` and `coordination/Q.md §3` row 8 (Lane C).
+`research/Be-mandate-coverage.md §5` (Mandate 12 AND) + `research/Bα §1-2` (typecheck baseline + src/ WIP) + `research/B-e2e-investigation.md` (the consolidated e2e assay).
 
-### Lane A — component consolidations (Bγ)
+### Lane A — value.js library gap audit (READ-ONLY)
 
-Four merges, each a small, focused refactor. Bγ recommends per-file verdicts:
+Deliverable: `audit/B.W3-library-gap.md`. Mandate 12 asked for "gaps in value.js AND glass-ui." A scoped `src/` out; B fulfils the AND.
 
-1. **Merge `DockMainLayer.vue` back into Dock.vue.** Move the `<DockLayer id="main">` block; remove the 12-prop + 5-emit interface; consolidate the duplicate inject calls; move `.action-bar-toggle-slot` scoped CSS into Dock.vue's `<style>`. Dock.vue grows ~128 → ~230 lines (still 50% below pre-W4 426 lines).
-2. **Inline `useDockLayers.ts` into Dock.vue.** Move `const activeLayer = ref("main")` and the layer-dispatch `watch` directly into Dock.vue at the existing `// --- Layer dispatch ---` block. The HARDEN-4 gate (immediate watch deps as refs) is preserved by inline order. Delete `composables/useDockLayers.ts`.
-3. **Inline `useAtmosphere.ts` into App.vue.** Move the 2 statements (`reactive(structuredClone(DEFAULT_AURORA_CONFIG))` + `useAurora(...)`) into App.vue's setup at the existing `// --- Aurora atmosphere ---` block. The `provide("auroraConfig", auroraConfig)` line is already in App.vue. Delete `composables/useAtmosphere.ts`.
-4. **Collapse dual routers into `usePaneRouter.ts`.**
-   - Create `demo/@/composables/usePaneRouter.ts`.
-   - Move all 11 `defineAsyncComponent` declarations (currently duplicated across the two routers) here.
-   - Implement: `usePaneRouter(viewManager, model, callbacks)` returning `{ mobile, desktopLeft, desktopRight }` each shaped `{ component, key, props }` (computeds).
-   - Update App.vue: one import, one call, three destructured shapes consumed by three PaneSlots.
-   - Delete `useMobilePaneRouter.ts` and `useDesktopPaneRouter.ts`.
+Scope: `src/parsing/` (parser surface coverage vs the demo's needs, missing color-space-aware helpers), `src/units/` (`ValueUnit`/`FunctionValue`/`ValueArray`, conversion tables, missing interpolation/gamut primitives), `src/transform/decompose.ts`, `src/quantize/`, and the cross-cutting question of where the demo's color composables reach into library internals that should be public. Documentation coverage against `assets/docs/`.
 
-**Sub-gate A**: 4 deletions confirmed (`git ls-files | grep -E 'DockMainLayer|useDockLayers|useAtmosphere|useMobilePaneRouter|useDesktopPaneRouter'` returns nothing); 1 new file present (`usePaneRouter.ts`); Dock.vue ≤ ~250 lines; App.vue script ≤ ~140 lines; Playwright re-probe walks 5 DockLayers and PaneSlot transitions; 0 console errors; vue-tsc count not raised.
+**View-schema unification (routed from B.W2).** `useViewManager.ts` (~237 lines) owns both the view *schema* (`VIEW_MAP` — the pane route table) and the runtime *state* (current view, mobile pane index). After B.W2 collapses the dual router, `usePaneRouter` still re-derives shapes from that schema. Lane A audits whether the schema should be extracted (a `viewSchema.ts` consumed by both `useViewManager` and `usePaneRouter`) — a cohesion finding, recorded with a proposed destination; not implemented in this read-only lane.
 
-### Lane B — hero-lab pass
+**Invariant-30 compliance (precepts `3c32fae`).** value.js is itself a cross-repo publisher. Lane A verifies: `package.json` `exports` carries the 4-key shape `development`/`types`/`import`/`default` (already true — `package.json:23-27`); every subpath export follows the same shape; the consumer-side `resolve.conditions` are explicit; zero hard `dist/` aliases survive. Record whether value.js should port glass-ui's `proof-resolution-contract.mjs` fail-closed gate — recommendation only.
 
-`demo/hero-lab/` has 31 vue-tsc errors, 4 unguarded WebGL RAF loops, no `prefers-reduced-motion`. DESIGN.md calls it the "design exemplar." A light pass closes the gap:
+**Sub-gate A**: `audit/B.W3-library-gap.md` exists with a per-area finding count, a prioritized gap table, the view-schema verdict, and the invariant-30 compliance check.
 
-1. **Card migration**. `grep -rn 'variant="pane"' demo/hero-lab/` and apply the W1-style migration if any sites use the stale prop (likely none — hero-lab predates the demo's Card usage pattern). Audit hero-lab's Card usage for tier/shadow correctness.
-2. **Index-narrowing type fixes**. `HeroControls.vue` 23 errors are concentrated on `noUncheckedIndexedAccess` violations and tagged-union narrowing on `TileHeroConfig | AtmosphereHeroConfig`. Add `const cfg = props.config; if (cfg.kind === 'tile') { … } else { … }` narrowings; index access via destructuring + length check.
-3. **`prefers-reduced-motion` guards** on the 4 RAF loops (`CanvasAtmosphereHero.vue`, `WebGLAtmosphereHero.vue`, `CanvasTileHero.vue`, `WebGLTileHero.vue`). Adopt the goo-blob pattern (read `matchMedia` once at init; render a single frame and stop on reduce).
-4. **Decision**: does hero-lab stay? It is a separate demo (`npm run dev:hero-lab` on port 9010). DESIGN.md's claim "exemplary visual hierarchy reference" should be either honoured (it is now exemplary) or retracted (it is retired). After the pass, update DESIGN.md to reflect the actual state.
+### Lane B — `src/` WIP disposition
 
-**Sub-gate B**: `npx vue-tsc --noEmit 2>&1 | grep -c 'demo/hero-lab/'` returns 0; grep confirms `prefers-reduced-motion` is honoured in each of the 4 RAF files; DESIGN.md TODO checkbox is checked or retracted.
+Five untracked files (`parsing/animation-shorthand.ts` 286, `parsing/extract.ts` 200, `parsing/serialize.ts` 156, `parsing/stylesheet.ts` 515, `units/interpolate.ts` 124), all re-exported from `src/index.ts` — public-API debt. Plus 3 modified (`src/index.ts`, `src/parsing/units.ts`, `src/units/normalize.ts`) and `plugins/vite-source-export.ts`.
 
-### Lane C — `<UnderlineTabs>` structural migration
+Default: **commit all five** + the related modifications (the work is in the public API surface; the library owner clearly intended these to ship). If on inspection the WIP is genuinely abandoned, retire and remove from `src/index.ts`. The orchestrator + user decide per-file at wave open.
 
-glass-ui shipped `<UnderlineTabs>` as a standalone component (not a `<Tabs variant="underline">` prop). The demo's `PaletteDialog.vue:27` currently uses `<Tabs class="underline-tabs">`. Migrate:
+**Sub-gate B**: `git status` shows no untracked `src/**.ts`; the library build emits the expected `dist/` shape; the library test suite shows no regression.
 
-1. Update `PaletteDialog.vue` — import `<UnderlineTabs>` from glass-ui; replace the `<Tabs>` block with `<UnderlineTabs :options="tabs" v-model="activeTab">`; remove the `class="underline-tabs"`. Verify the surrounding `.palette-tab-content` animations still work (they may need adjustment if `<UnderlineTabs>` exposes a different DOM shape).
-2. `style.css` — DELETE the `.underline-tabs` CSS rule block (`:161-167`). The marker comment goes with it.
-3. Update `coordination/Q.md §3` row 67 — "shipped as standalone; B.W3 migration consumed it; `.underline-tabs` CSS retired."
+### Lane C — custom typecheck cluster
 
-**Sub-gate C**: `grep -n 'underline-tabs' demo/@/styles/style.css` returns nothing (deletion proof); `grep -rn 'underline-tabs' demo/` returns nothing; PaletteDialog tabs render correctly under Playwright; `coordination/Q.md §3` updated.
+Target: vue-tsc count from ~290 to ≤135 by fixing ~155 custom-component errors — `useInertiaGesture.ts` (18, index-narrowing), `useWatercolorBlob.ts` (16, index-narrowing), `GenerateControls.vue` (5), `GradientVisualizer.vue` (4), `BrowsePane.vue` (3), + ~6 SFCs. The ~104 generated shadcn-vue errors route to a future generator-update effort (recorded in `audit/B.W3-typecheck.md`); hero-lab's ~31 closed in B.W2.
 
-### Lane D — `--menu-min-w` exception comments (deferred from B.W2 if not done there)
+**Sub-gate C**: `npx vue-tsc --noEmit 2>&1 | grep -c 'error TS'` ≤ 135.
 
-Add inline rationale comments to `Dock.vue` view-select SelectContent and `GenerateControls.vue` SelectContent, per `research/Bα §46`. If B.W2 already did this in its Lane A.3, this lane is a no-op.
+### Lane D — e2e abrogation + 3-spec smoke suite
+
+`research/B-e2e-investigation.md` (the consolidated four-lane assay) found the 16-spec suite is ≈3,510 lines of brittle, largely-superfluous nonsense — ~42 `.lucide-*` selectors, ~132 `waitForTimeout`, ~34 `page.evaluate()` interaction-workarounds, ~29 `test.skip`, 2 dead live-API specs; `color-visual-validation` is a library unit test routed through a browser. The brittleness lane dissented (keep-and-migrate); the orchestrator overrode it — keep-and-migrate is the W5-C hang pattern, and the precept is "abrogate before patch."
+
+1. **Invariant-33 pre-deletion corpus grep, then delete all 16 specs.** First (precepts `3c32fae`, invariant 33): grep the whole repo for any non-`e2e/` file importing an `e2e/*.spec.ts` or an `e2e/` helper, and grep `e2e/` for cross-spec imports — expect zero (spec files are Playwright entrypoints). Record the grep output in `audit/B.W3-smoke.md` as the deletion-justification proof. Then `rm e2e/*.spec.ts` — all 16: `admin-login-live`, `admin-panel`, `browse-palettes`, `color-docs-rendering`, `color-header-layout`, `color-picker`, `color-space-switching`, `color-visual-validation`, `edge-cases`, `mobile-layout`, `palette-api-live`, `palette-browser`, `palette-dialog-layout`, `palette-features`, `palette-slug-management`, `propose-name` — plus any `e2e/` helper modules the grep shows only those specs imported.
+2. **Create `e2e/smoke/` with exactly 3 specs.** `getByRole`/`getByLabel`/`aria-label` selectors ONLY — no class selectors, no `.lucide-*`, no xpath, no `page.evaluate()` for interaction, no `waitForTimeout`:
+   - `smoke/page-load.spec.ts` — navigate `/`, wait `main[aria-label="Color tool panes"]`, assert zero uncaught console errors, assert `<nav aria-label="Application navigation">` + `button[aria-label="Select color space"]` present.
+   - `smoke/color-space-switching.spec.ts` — click `button[aria-label="Select color space"]`, pick "OKLab" via `getByRole("option", { name: "OKLab" })`, assert the trigger text + the URL-hash space parameter.
+   - `smoke/view-switch.spec.ts` — click `button[aria-label="Select view"]`, pick "Palettes", assert `getByText("My Palettes")` visible; a mobile-viewport assertion of the single-pane layout.
+   - No `smoke/admin-login.spec.ts` — admin-login mocking + dock slug-edit navigation was the W5-C hang root and is not smoke-critical. Record the exclusion in `audit/B.W3-smoke.md`.
+3. **`playwright.config.ts`** — add a `smoke` project (desktop Chromium, `testDir: "./e2e/smoke"`); REMOVE the `mobile` project.
+4. **`.github/workflows/node.js.yml`** — add after `npx vitest run`: `npx playwright install --with-deps chromium` then `npx playwright test --project=smoke`. The project's first automated CI gate on browser behaviour.
+
+The per-wave orchestrator live Playwright probe stays the primary wave-gate (see `B.md §6` for the probe-qualification rule). The 2 live-API specs are replaced by nothing — a live API belongs in a separate staging harness, not the committed suite.
+
+**Sub-gate D**: `e2e/*.spec.ts` (root) has 0 files (deletion proof); `e2e/smoke/` has exactly 3 specs; `playwright.config.ts` has `smoke`, no `mobile`; `grep -rE 'lucide|page\.evaluate\(|waitForTimeout|xpath=' e2e/smoke/` returns nothing; `npx playwright test --project=smoke` green; the CI workflow carries the smoke step.
 
 ## File bounds
 
 | Lane | Files |
 |---|---|
-| A | Dock.vue, App.vue, DockMainLayer.vue (deleted), dock/composables/useDockLayers.ts (deleted), composables/useAtmosphere.ts (deleted), composables/useMobilePaneRouter.ts (deleted), composables/useDesktopPaneRouter.ts (deleted), composables/usePaneRouter.ts (new), maybe Dock.vue's `<style>` (CSS moved from DockMainLayer) |
-| B | demo/hero-lab/** |
-| C | PaletteDialog.vue, style.css (delete .underline-tabs block), coordination/Q.md (row update in B.W5 prep — minor) |
-| D | Dock.vue or DockViewSelect.vue (rationale comment), GenerateControls.vue (rationale comment) |
+| A | `audit/B.W3-library-gap.md` (new) — read-only audit |
+| B | `src/parsing/{animation-shorthand,extract,serialize,stylesheet}.ts`, `src/units/interpolate.ts`, `src/index.ts`, `src/parsing/units.ts`, `src/units/normalize.ts`, `plugins/vite-source-export.ts` |
+| C | `useInertiaGesture.ts`, `useWatercolorBlob.ts`, `GenerateControls.vue`, `GradientVisualizer.vue`, `BrowsePane.vue`, + ~6 SFCs (finalized from `vue-tsc` output at wave open) |
+| D | `e2e/*.spec.ts` (16 deleted); `e2e/smoke/{page-load,color-space-switching,view-switch}.spec.ts` (new); `playwright.config.ts`; `.github/workflows/node.js.yml` |
 
-## Hard gate
+## Gate
 
-1. Deletion proofs for the 4 file removals (Lane A) + the `.underline-tabs` CSS rule (Lane C).
-2. `usePaneRouter.ts` present and consumed by App.vue.
-3. `npx vue-tsc --noEmit 2>&1 | grep -c 'demo/hero-lab/'` returns 0.
-4. Hero-lab 4 RAF loops carry `prefers-reduced-motion` (grep verifies presence; manual review confirms semantic correctness).
-5. PaletteDialog tabs render as `<UnderlineTabs>` (snapshot confirms).
-6. Playwright re-probe ×3 viewports light+dark — walks 5 DockLayers, opens PaletteDialog tabs, switches a few panes; 0 console errors.
-7. `vue-tsc` count drops by ~31 (hero-lab); `npm test` 1409+; smoke suite green.
-
-## Format and lint cadence
-
-Lint per lane; gate before close.
+Per `B.md §6`: the conjunction of sub-gates A–D plus the Playwright probe. `npm run build` clean; `npm test` 1409+ (library suite no regression after Lane B); `vue-tsc` ≤ 135.
 
 ## Verification artefacts
 
-`audit/B.W3-consolidation.md` (Lane A, with the 4 deletion proofs + line counts), `audit/B.W3-hero-lab.md` (Lane B), `audit/B.W3-underline-tabs.md` (Lane C), `audit/B.W3-playwright/` (re-probe).
+`audit/B.W3-library-gap.md`, `audit/B.W3-wip-disposition.md`, `audit/B.W3-typecheck.md` (before/after errors per file), `audit/B.W3-smoke.md` (the invariant-33 grep proof; the 16 deletions; the 3 smoke specs; the admin-login exclusion rationale).
 
 ## Commit plan
 
-4 commits, one per lane:
-- `refactor(tranche-b/w3): consolidate W4 over-fits — merge DockMainLayer, inline useDockLayers/useAtmosphere, collapse dual router to usePaneRouter`
-- `fix(tranche-b/w3): hero-lab pass — Card migration, index narrowing (-31 type errors), prefers-reduced-motion on 4 RAF loops`
-- `refactor(tranche-b/w3): migrate PaletteDialog tabs to <UnderlineTabs>, retire .underline-tabs CSS override`
-- `style(tranche-b/w3): inline rationale on --menu-min-w exception sites` (if needed)
+- `audit(tranche-b/w3): value.js library gap audit (Mandate 12 AND)` — Lane A.
+- `feat(library/w3): commit src/ WIP — parsing/{animation-shorthand,extract,serialize,stylesheet}, units/interpolate` — Lane B (or `chore(library/w3): retire src/ WIP` on the retire path).
+- `fix(types/w3): close custom-component typecheck cluster (-155 errors)` — Lane C.
+- `test(e2e): abrogate the 16-spec Playwright suite, replace with a 3-spec role-based smoke suite + CI gate` — Lane D. Body cites `research/B-e2e-investigation.md`, lists the 16 deletions, names the brittleness-lane dissent and the override.
 
 ## Dependencies
 

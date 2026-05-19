@@ -28,18 +28,18 @@ This is a clean bump — no working-tree entanglement with A's W5 files. It prec
    - `docs/tranches/A/audit/W5-animation.md` (untracked)
    - The W5-C agent's `docs/tranches/A/audit/W5-e2e.md` (may or may not have landed; the running async agent's output file is at `/private/tmp/.../a39ef97baee28faea.output`).
 2. Confirm the working tree matches the audit claims: 25+ SFCs modified per `W5-a11y.md`; `animations.css` carries the global `prefers-reduced-motion` block; `useMetaballRenderer.ts` carries the `tabHidden`/`document.visibilitychange` handler; `GooBlob.vue` `<canvas>` carries `aria-hidden="true"`. If divergent, report and stop (no commit of work the audit docs don't describe).
-3. **The 16 modified e2e specs are NOT committed.** The killed W5-C agent's selector-migration edits to `e2e/*.spec.ts` are moot — B.W4 abrogates the entire 16-spec suite (`research/B-e2e-target.md`). Leave the e2e working-tree changes uncommitted; B.W4 deletes the files. Do not commit work that the next wave deletes.
+3. **The 16 modified e2e specs are NOT committed.** The killed W5-C agent's selector-migration edits to `e2e/*.spec.ts` are moot — B.W3 abrogates the entire 16-spec suite (`research/B-e2e-investigation.md`). Leave the e2e working-tree changes uncommitted; B.W3 deletes the files. Do not commit work that the next wave deletes.
 4. Run the W5 gate matrix:
-   - `npx vue-tsc --noEmit 2>&1 | grep -c 'error TS'` — record count (expected ~290; the increase from 243 reflects W5-A ARIA additions surfacing strict-prop issues, a separate finding for B.W4).
+   - `npx vue-tsc --noEmit 2>&1 | grep -c 'error TS'` — record count (expected ~290; the increase from 243 reflects W5-A ARIA additions surfacing strict-prop issues, a separate finding for B.W3).
    - `npx vitest run` — must show 1409+ tests passing (no library regression).
    - Cold-start `npm run dev`, then Playwright probe at 375×667 / 1280×800 / 1440×900 light AND dark. Capture to `audit/W5-playwright/`. (No e2e run — there is no smoke suite yet, and the full suite is about to be abrogated.) **Invariant-31 check**: the console probe asserts zero glass-ui stale-prop dev-warnings — value.js consumes glass-ui's now-fail-explicit `<Card>` (Q.W2 `useStalePropWarning`); A.W1 migrated all Card consumers to the `tier` API, so the probe expects zero `[stale prop]` warnings. A non-zero count is a real bug routed to B.W1.
 5. Commit W5 as 2 logical commits:
    - `fix(tranche-a/w5): accessibility sweep — ARIA roles, landmarks, SVG-as-button` (the 25+ SFCs).
    - `fix(tranche-a/w5): animation correctness — global reduced-motion + GooBlob tab-hidden` (`animations.css`, `useMetaballRenderer.ts`, `GooBlob.vue`).
-6. Add A.W5 close entry to A's `PROGRESS.md` (following the W4 close template); record that the W5-C e2e lane's work is superseded by B.W4's abrogation; update A's wave-log row.
+6. Add A.W5 close entry to A's `PROGRESS.md` (following the W4 close template); record that the W5-C e2e lane's work is superseded by B.W3's abrogation; update A's wave-log row.
 7. Audit doc commit: `docs(tranche-a/w5): W5 close — audit docs + playwright re-probe + PROGRESS`.
 
-**Sub-gate A**: 3 commits land; A's PROGRESS.md W5 entry written and notes the e2e-lane supersession; the W5-A/W5-B working-tree paths are clean (the e2e specs remain modified-uncommitted, deleted at B.W4); cold-start Playwright re-probe captured; vue-tsc count recorded.
+**Sub-gate A**: 3 commits land; A's PROGRESS.md W5 entry written and notes the e2e-lane supersession; the W5-A/W5-B working-tree paths are clean (the e2e specs remain modified-uncommitted, deleted at B.W3); cold-start Playwright re-probe captured; vue-tsc count recorded.
 
 ### Lane B — A.W6 disposition
 
@@ -55,7 +55,7 @@ This is a clean bump — no working-tree entanglement with A's W5 files. It prec
 
 ### Lane C — A.W7 close ceremony
 
-1. Run the read-only close audit per `A waves/W7.md`. Adapted for B's e2e gate shift: skip the full e2e gate (deferred to nightly); run the smoke suite check (skip if smoke suite not yet stood up — B.W4); replace the full-e2e item in W7's gate with a "the smoke-suite path is now correct in playwright.config" item (or note that B.W4 takes over the e2e shaping).
+1. Run the read-only close audit per `A waves/W7.md`. Adapted for B's e2e gate shift: skip the full e2e gate (deferred to nightly); run the smoke suite check (skip if smoke suite not yet stood up — B.W3); replace the full-e2e item in W7's gate with a "the smoke-suite path is now correct in playwright.config" item (or note that B.W3 takes over the e2e shaping).
 2. Author 7 read-only lane outputs under `docs/tranches/A/audit/W7-*` (plan-vs-actual, substrate-without-consumer, doc-drift, idiomatic-gestalt, performance, visual-runtime, integrity sweep). Use the close-honesty checklist from `precepts/SPEC §Close`.
 3. Run `git reflog` integrity sweep — confirm zero unauthorized agent-attributed mutating git operations across the A span (B open at `191d66a`; B.W0 lane A's 4 commits and lane B's 1 commit should be the only mutations).
 4. Write `docs/tranches/A/FINAL.md` — close report citing every wave's commits (the W0..W7 commit list), the gate evidence (audit doc paths), the Playwright artefacts, the disposition of every `research/Aa..Ae` finding (landed / retired-with-rationale / routed). Run the close-honesty checklist.
@@ -69,7 +69,7 @@ This is a clean bump — no working-tree entanglement with A's W5 files. It prec
 | Lane | Files written |
 |---|---|
 | 0 | `docs/precepts` (submodule pointer); `.gitmodules` + submodule registration reconcile |
-| A | A's 25+ modified SFCs (commit only — no further edits); `animations.css`; `useMetaballRenderer.ts`; `GooBlob.vue`; `docs/tranches/A/PROGRESS.md`; `docs/tranches/A/audit/W5-playwright/` (new screenshots). The 16 modified `e2e/*.spec.ts` are deliberately left uncommitted — B.W4 deletes them. |
+| A | A's 25+ modified SFCs (commit only — no further edits); `animations.css`; `useMetaballRenderer.ts`; `GooBlob.vue`; `docs/tranches/A/PROGRESS.md`; `docs/tranches/A/audit/W5-playwright/` (new screenshots). The 16 modified `e2e/*.spec.ts` are deliberately left uncommitted — B.W3 deletes them. |
 | B | `docs/tranches/A/audit/W6-deferred.md` (new); `docs/tranches/A/PROGRESS.md` |
 | C | `docs/tranches/A/FINAL.md` (new); `docs/tranches/A/audit/W7-*` (7 new docs); `docs/tranches/A/PROGRESS.md` |
 
@@ -84,7 +84,7 @@ B.W0 writes only into `docs/tranches/A/` and the working-tree files A.W5 already
 4. Working tree clean for all A.W5 paths (no uncommitted W5 work remaining).
 5. Integrity sweep (`git reflog`, `git stash list`) clean.
 6. `npm test` 1409+ passing.
-7. `vue-tsc` count recorded (not gated — B.W4 owns the cluster).
+7. `vue-tsc` count recorded (not gated — B.W3 owns the cluster).
 8. Playwright probe records zero glass-ui stale-prop dev-warnings (invariant-31 check); any non-zero count routed to B.W1.
 
 ## Format and lint cadence
@@ -100,7 +100,7 @@ Lint after each lane; gate matrix before B.W0 close.
 - `chore(precepts): advance shared submodule to 3c32fae …` (Lane 0)
 - `fix(tranche-a/w5): accessibility sweep …` (Lane A)
 - `fix(tranche-a/w5): animation correctness …` (Lane A)
-- `docs(tranche-a/w5): W5 close …` (Lane A) — notes the e2e lane superseded by B.W4 abrogation
+- `docs(tranche-a/w5): W5 close …` (Lane A) — notes the e2e lane superseded by B.W3 abrogation
 - `docs(tranche-a/w6): formal re-scope …` (Lane B) OR `refactor(tranche-a/w6): …` (executed path)
 - `docs(tranche-a/w7-close): A close — FINAL.md …` (Lane C)
 

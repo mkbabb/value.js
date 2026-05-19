@@ -33,9 +33,9 @@ Per the precept orchestration rules: a wave with ≥2 agents writing shared file
 
 ## E2e gate (new in B)
 
-The four-lane e2e assay (`research/B-e2e-*`) found the 16-spec Playwright suite is ≈3,510 lines of brittle, largely-superfluous nonsense. **B.W4 deletes all 16 and replaces them with a 3-spec role/label smoke suite in `e2e/smoke/`.**
+The e2e assay (`research/B-e2e-investigation.md`) found the 16-spec Playwright suite is ≈3,510 lines of brittle, largely-superfluous nonsense. **B.W3 deletes all 16 and replaces them with a 3-spec role/label smoke suite in `e2e/smoke/`.**
 
-After B.W4: wave gates run `--project=smoke` only — 3 specs (page-load, color-space-switching, view-switch), all role/label selectors. There is no full suite to run nightly; it was abrogated. The per-wave orchestrator live Playwright probe (3 viewports, console-error + network-2xx check, screenshots to `audit/`) remains the primary wave-gate mechanism. An agent writing a smoke spec uses `getByRole`/`getByLabel` exclusively — no class selectors, no `.lucide-*`, no `page.evaluate()` for interaction, no `waitForTimeout`. This is the explicit fix to the "hung on e2e" wave-shape failure (`research/Bd-w5-audit.md §4`, `B-e2e-target.md`).
+After B.W3: wave gates run `--project=smoke` only — 3 specs (page-load, color-space-switching, view-switch), all role/label selectors. There is no full suite to run nightly; it was abrogated. The per-wave orchestrator live Playwright probe (3 viewports, console-error + network-2xx check, screenshots to `audit/`) remains the primary wave-gate mechanism. An agent writing a smoke spec uses `getByRole`/`getByLabel` exclusively — no class selectors, no `.lucide-*`, no `page.evaluate()` for interaction, no `waitForTimeout`. This is the explicit fix to the "hung on e2e" wave-shape failure (`research/Bd-w5-audit.md §4`, `research/B-e2e-investigation.md §4`).
 
 ## Build hygiene
 
@@ -68,4 +68,4 @@ Agent-authored docs follow the precept `STYLE.md` — declarative and evidence-l
 1. **Smoke-suite e2e gate** replaces full-suite gate. Decouples wave closure from cross-cutting e2e maintenance.
 2. **Explicit sub-gates per lane** required in wave specs.
 3. **A-close discipline in B.W0**: an agent dispatched to commit/close A's W5 work checks the working tree against the actual A audit docs before committing — it does not re-do A's work, it ratifies and gates it. If the W5 working-tree state diverges from `W5-a11y.md` / `W5-animation.md`, the agent reports and stops.
-4. **Library audit lane (B.W4) is read-only.** No `src/` edits as part of the audit. WIP disposition decisions are made by the orchestrator after the audit lane returns.
+4. **Library audit lane (B.W3) is read-only.** No `src/` edits as part of the audit. WIP disposition decisions are made by the orchestrator after the audit lane returns.

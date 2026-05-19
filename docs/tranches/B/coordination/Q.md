@@ -11,7 +11,7 @@
 
 B inherits A's `coordination/Q.md` substrate. The A↔Q boundary state at B open:
 
-**Contested boundary** (`A coord §0-1`): glass-ui Q's wave specs still carry Q.W1 Lane C ("value.js un-break") and Q.W2 Lane B ("value.js Card migration") as direct value.js writes. A.W0 and A.W1 ran and committed those writes from the value.js side. No response from Q's orchestrator on the deletion request has been recorded in A's PROGRESS.md. B.W5 records the latest state at close.
+**Contested boundary** (`A coord §0-1`): glass-ui Q's wave specs still carry Q.W1 Lane C ("value.js un-break") and Q.W2 Lane B ("value.js Card migration") as direct value.js writes. A.W0 and A.W1 ran and committed those writes from the value.js side. No response from Q's orchestrator on the deletion request has been recorded in A's PROGRESS.md. B.W4 records the latest state at close.
 
 **Boundary for B**: B writes value.js only. glass-ui and keyframes.js are read at the SHAs recorded here. B files new gaps in §3 below; B does not write glass-ui.
 
@@ -45,11 +45,11 @@ Q executed and closed W0–W6 since this doc was written. A 3-lane read-only ass
 | `DockSelectTrigger clampLabel` | NOT SHIPPED | `DockSelectTrigger.vue:16-18` — no extra props | none |
 | `TooltipContent variant="mono"` | NOT SHIPPED | `TooltipContent.vue:10` — no `variant` prop | none |
 | `Button size="icon-sm"` | NOT SHIPPED | `button/index.ts:34-40` — default/xs/sm/lg/icon | none |
-| Tabs `underline` | PARTIAL | `UnderlineTabs.vue:5-14,59-73` still standalone (`:options` array + `v-model`, not slotted children); no `variant` prop on `<Tabs>` | none — B.W3 migration shape confirmed |
+| Tabs `underline` | PARTIAL | `UnderlineTabs.vue:5-14,59-73` still standalone (`:options` array + `v-model`, not slotted children); no `variant` prop on `<Tabs>` | none — B.W2 migration shape confirmed |
 | `Card` props fail-explicit | **SHIPPED** | Q.W2 `cab7258`; `Card.vue:17-43` — `tier`/`surface`/`shadow`/`grain`; `useStalePropWarning` dev-WARNs on stale `variant`/`flush` | **shipped + Q.W3 added `surface?: "glass"\|"cartoon"`** (ScrollPane/CartoonCard DEMOTE) |
 | `floating-panel-item` | NOT SHIPPED | `floating-panel.css` defines `.floating-panel` only — no `-item` rule | none |
 
-**Net**: 8 of 10 gaps unchanged at Q close — every B disposition filed in §3 holds. One confirmed SHIPPED (`Card`, already consumed by A.W1). One unchanged-PARTIAL (`UnderlineTabs` — B.W3's structural-migration plan is correct as written).
+**Net**: 8 of 10 gaps unchanged at Q close — every B disposition filed in §3 holds. One confirmed SHIPPED (`Card`, already consumed by A.W1). One unchanged-PARTIAL (`UnderlineTabs` — B.W2's structural-migration plan is correct as written).
 
 **Consumer-breakage check**: Q.W3 DEMOTE'd `<ScrollPane>` and `<CartoonCard>` (folded into `<Card surface=>`). value.js's demo uses neither (`grep` returns 0) — no consumer breakage from the DEMOTE. Q.W2's `useStalePropWarning` dev-WARNs on stale `<Card variant>`/`<Card flush>`; value.js's demo passes neither (A.W1 migrated all Card consumers to the `tier` API) — B.W0/B.W1 Playwright probes verify zero stale-prop console warnings as an invariant-31 check.
 
@@ -66,18 +66,18 @@ Updated gap table for glass-ui Q. Rows STAND from A unless noted; one row UPDATE
 | `DockSelectTrigger clampLabel` | `research/Ad` Ad-18; `[&>span]:line-clamp-none` hack | **STANDS** | A.W4 (marker) | B does not retire |
 | `TooltipContent variant="mono"` | `research/Ad` Ad-17; 7 consumers | **STANDS** | A.W4 (marker) | B does not retire |
 | `Button size="icon-sm"` rung | `research/Ad` Ad-5; ~7 inline icon buttons | **STANDS** | A.W4 (markers + demo-side completions) | B does not retire |
-| **Tabs `underline`** (UPDATED) | glass-ui shipped `UnderlineTabs.vue` as standalone (`src/components/custom/tabs/UnderlineTabs.vue`, JS-animated indicator, ResizeObserver). The demo's `<Tabs class="underline-tabs">` cannot prop-swap. | **PARTIAL — structural migration available** | A.W2 (`.underline-tabs` CSS marker) | **B.W3** — `PaletteDialog.vue` migrates to `<UnderlineTabs>`; `.underline-tabs` CSS retires |
+| **Tabs `underline`** (UPDATED) | glass-ui shipped `UnderlineTabs.vue` as standalone (`src/components/custom/tabs/UnderlineTabs.vue`, JS-animated indicator, ResizeObserver). The demo's `<Tabs class="underline-tabs">` cannot prop-swap. | **PARTIAL — structural migration available** | A.W2 (`.underline-tabs` CSS marker) | **B.W2** — `PaletteDialog.vue` migrates to `<UnderlineTabs>`; `.underline-tabs` CSS retires |
 | `Card` props fail-explicit | A.W1 consumed Q.W2 Lane A's anticipated Card change | unchanged | A.W1 | — |
 | **`floating-panel-item`** (NEWLY FILED) | `floating-panel.css:` comment names it, no CSS rule anywhere; demo applies the class at 7 sites with no styling effect | **NEW — never formally filed** | (`HARDEN-4 §5.3` said "consider filing"; never filed) | **B.W1** — either glass-ui defines the rule, or demo defines `.floating-panel-item` locally (B.W1 chooses) |
-| **Open question** — `<Tabs>` underline as a variant prop | If glass-ui prefers a variant prop on the existing `<Tabs>` family rather than a parallel `<UnderlineTabs>` component, B can consume that instead. The current standalone shipped shape is fine for B's migration plan, but worth Q knowing. | Open | — | B.W3 (consumes whichever shape Q endorses) |
+| **Open question** — `<Tabs>` underline as a variant prop | If glass-ui prefers a variant prop on the existing `<Tabs>` family rather than a parallel `<UnderlineTabs>` component, B can consume that instead. The current standalone shipped shape is fine for B's migration plan, but worth Q knowing. | Open | — | B.W2 (consumes whichever shape Q endorses) |
 
 ## §4 — A↔Q contested boundary (still open)
 
 `A coord §0-1` declared Q.W1 Lane C + Q.W2 Lane B duplicate value.js writes that Q must delete. A.W0 + A.W1 ran and committed the value.js side. **No response from Q's orchestrator has been recorded in A's PROGRESS.md.**
 
-B does not re-litigate the boundary. B.W5 records the latest state at close — whether Q has acted, what the current Q wave plan says, and whether the dual-orchestrator hazard remains. If still open at B close, B's `FINAL.md` names it as a closed-state-with-named-cross-repo-issue (precept-valid).
+B does not re-litigate the boundary. B.W4 records the latest state at close — whether Q has acted, what the current Q wave plan says, and whether the dual-orchestrator hazard remains. If still open at B close, B's `FINAL.md` names it as a closed-state-with-named-cross-repo-issue (precept-valid).
 
-**Update at Q close (2026-05-19)**: Q has closed. The cross-repo assay confirms Q **never wrote value.js** — Q.W1 `bb79eb4` and Q.W2 `cab7258` touched glass-ui files only. Q's round-4 audit retired the contested lanes from its own plan (`Q PROGRESS.md`: "W1 Lane C RETIRES — value.js A.W0 shipped the un-break"; "W2 value.js Lane B RETIRES — A.W1 already did it"). The one surviving value.js item, Q's W1 Lane I picker-0×0 fix, was delivered as `W1-Lane-I-valuejs.patch` and handed over — never committed by Q. Its content (the `default` exports key + `<nav>`/`<main>` landmarks + the `.pane-main` flex-stretch idiom) is already present in committed value.js history: `package.json:23-27` carries the 4-key `exports`; `App.vue:12,25` carries the landmarks; `style.css:130` carries `.pane-main`. **Verdict: the contested boundary is MOOT** — Q wrote nothing, value.js's own A waves produced the equivalent, value.js builds GREEN. B.W5 records it as a closed-state cross-repo item; no B wave acts on it.
+**Update at Q close (2026-05-19)**: Q has closed. The cross-repo assay confirms Q **never wrote value.js** — Q.W1 `bb79eb4` and Q.W2 `cab7258` touched glass-ui files only. Q's round-4 audit retired the contested lanes from its own plan (`Q PROGRESS.md`: "W1 Lane C RETIRES — value.js A.W0 shipped the un-break"; "W2 value.js Lane B RETIRES — A.W1 already did it"). The one surviving value.js item, Q's W1 Lane I picker-0×0 fix, was delivered as `W1-Lane-I-valuejs.patch` and handed over — never committed by Q. Its content (the `default` exports key + `<nav>`/`<main>` landmarks + the `.pane-main` flex-stretch idiom) is already present in committed value.js history: `package.json:23-27` carries the 4-key `exports`; `App.vue:12,25` carries the landmarks; `style.css:130` carries `.pane-main`. **Verdict: the contested boundary is MOOT** — Q wrote nothing, value.js's own A waves produced the equivalent, value.js builds GREEN. B.W4 records it as a closed-state cross-repo item; no B wave acts on it.
 
 ## §5 — Cross-tranche sequencing
 
@@ -88,9 +88,9 @@ B's waves carry no cross-repo gate on the critical path. Every glass-ui dependen
 | 1 | B opens | none |
 | 2 | B.W0 — close A | A.W6 conditional on glass-ui shipping the metaballs/aurora APIs. Verified NOT shipped at B open. **B.W0 records the re-scope per `A.md §9` — formal fallback path.** No wait. |
 | 3 | B.W1..W4 | none — disjoint from glass-ui ships |
-| 4 | B.W5 — close | `coordination/Q.md §3` reflects B-end ship state; A↔Q boundary status logged |
+| 4 | B.W4 — close | `coordination/Q.md §3` reflects B-end ship state; A↔Q boundary status logged |
 
-If glass-ui ships any of the 8 standing gaps mid-B, B records the ship and consumes opportunistically (likely in B.W3 or B.W5).
+If glass-ui ships any of the 8 standing gaps mid-B, B records the ship and consumes opportunistically (likely in B.W2 or B.W4).
 
 ## §6 — The `docs/precepts` submodule
 
@@ -104,16 +104,16 @@ value.js pins `docs/precepts` at `3310a8c` (registered in A.W0). **glass-ui Q.W6
 
 B advances value.js's pin to `3c32fae` at **B.W0** (a clean submodule bump — no working-tree entanglement) and operates under invariants 30–33 for the rest of the tranche. The advance is load-bearing for B's waves:
 
-- **Invariant 33** governs B.W4's deletion of the 16 e2e specs and B.W1's `floating-panel-item` strip — both now require a pre-deletion corpus grep proving zero live references.
+- **Invariant 33** governs B.W2's deletion of the 16 e2e specs and B.W1's `floating-panel-item` strip — both now require a pre-deletion corpus grep proving zero live references.
 - **Invariant 32** governs the `floating-panel-item` strip specifically (a phantom-class retirement; the strip path adds the class name to a `.retired-classes.txt`-equivalent record in the B.W1 audit doc).
-- **Invariant 30** governs B.W4's library audit — value.js is itself a publisher; its `exports` map already carries the 4-key shape (verified: `package.json:23-27`), and B.W4 confirms full invariant-30 compliance (consumer conditions + zero `dist/` aliases).
+- **Invariant 30** governs B.W2's library audit — value.js is itself a publisher; its `exports` map already carries the 4-key shape (verified: `package.json:23-27`), and B.W2 confirms full invariant-30 compliance (consumer conditions + zero `dist/` aliases).
 - **Invariant 31** — value.js consumes glass-ui's now-fail-explicit `<Card>`; B.W0/B.W1 Playwright probes verify zero stale-prop dev-warnings.
 
 B's `FINAL.md` pins `3c32fae`.
 
 ## §7 — Conflict-resolution protocol
 
-Same as A coord §8: B writes value.js only. B reads glass-ui at HEAD `888d227` unless an explicit re-read is recorded in a wave's audit doc. If A.W6 fallback or B.W3 UnderlineTabs migration depends on glass-ui surface shape, B re-reads at the wave open.
+Same as A coord §8: B writes value.js only. B reads glass-ui at HEAD `888d227` unless an explicit re-read is recorded in a wave's audit doc. If A.W6 fallback or B.W2 UnderlineTabs migration depends on glass-ui surface shape, B re-reads at the wave open.
 
 ## §8 — Summary table
 
@@ -121,7 +121,7 @@ Same as A coord §8: B writes value.js only. B reads glass-ui at HEAD `888d227` 
 |---|---|---|
 | 7 standing glass-ui primitive/blob gaps | §2a, §3 | NOT SHIPPED at Q close — filed, B does not block; markers stay |
 | 1 shipped gap (`Card` props fail-explicit) | §2a | SHIPPED Q.W2 `cab7258` (+ `surface` prop Q.W3); already consumed by A.W1 — no B action |
-| 1 partially shipped gap (UnderlineTabs) | §2a, §3 | unchanged-PARTIAL; demo structural migration in B.W3 |
+| 1 partially shipped gap (UnderlineTabs) | §2a, §3 | unchanged-PARTIAL; demo structural migration in B.W2 |
 | 1 newly filed gap (floating-panel-item) | §2a, §3 | NOT SHIPPED; B.W1 strips locally (invariant-32 retirement) |
-| Contested A↔Q boundary | §4 | **MOOT** — Q closed, never wrote value.js; B.W5 records closed-state |
+| Contested A↔Q boundary | §4 | **MOOT** — Q closed, never wrote value.js; B.W4 records closed-state |
 | docs/precepts pin | §6 | value.js `3310a8c` → glass-ui advanced to `3c32fae`; **B.W0 advances value.js's pin to match** |
