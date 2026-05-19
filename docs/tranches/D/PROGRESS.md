@@ -113,6 +113,60 @@ Wrote `audit/D-LIB-OPTIMIZATION-SYNTHESIS.md` — the authoritative ledger of ev
 
 No new wave; no scope dropped. The directive's "research-backed, challenged, KISS" frame is satisfied.
 
+## 2026-05-19 — Reactivity hardening + release-plan round (2 parallel agents)
+
+The user directed: "We MUST have proper, instant, reactivity within the keyframes.js demo app and value.js color picker app. We've had massive recursion issues in the past that resulted in infinitely nested, memory-leak-like, Color and Value objects … Challenge and refine with two agents in parallel knowing this. And we must plan to fully merge all items into master, and version bump."
+
+### REACTIVITY-A — recursion + infinite-nesting class
+
+Excavated the commit history deeply per the directive's "look to our commit history for this, deeply." Findings (`audit/D-REACTIVITY-A-recursion.md`):
+
+- **Bug-commit**: `35cd9d5` (Jul 17 2024) — `colorUnit2()` in `src/units/color/normalize.ts` shipped with `new ValueUnit(value)` and no unwrap; bug latent for ~19 months across 4 refactors before manifesting.
+- **Fix-commit**: `80cdd59` (Mar 1 2026) — `while (raw instanceof ValueUnit) raw = raw.value` inserted at what is now `src/units/color/normalize.ts:102`.
+- **Fix-site count at HEAD**: 1 unwrap loop intact + 10 read-only defensive peels (all clean).
+- **Memory's "ONLY accumulation site" claim VERIFIED** at HEAD `56feb87` — the 5 B.W3-committed files (animation-shorthand/extract/serialize/stylesheet/interpolate) contribute zero new accumulation sites.
+- **L8 Color flatten — 6 site-classes at re-introduction risk**: Map-keyed storage was an implicit chokepoint; flattening removes it. **4 cooperating safeguards REQUIRED inside the L8 commit** (NOT optional, NOT deferable):
+  - (a) `ColorChannel<T>` TypeScript brand — compile-time refusal of `instance.L = colorInstance`.
+  - (b) DEV-only `assertNotNested` setters — runtime guard, free in production (Vite NODE_ENV-stripped).
+  - (c) `test/recursion-guard.test.ts` — 3 named tests: 294-frame replay, clone-no-amplify, depth-3-nest.
+  - (d) `clone()` depth-16 ceiling — diagnostic-only, single int per clone-call.
+- **Critical**: `Color.clone()` rewrite must use per-channel explicit construction (Option III); the current `new Constructor()` no-args is fragile under own-property storage.
+
+### REACTIVITY-B — instant reactivity in both demos
+
+Findings (`audit/D-REACTIVITY-B-instant.md`):
+
+- **13 reactivity-graph barriers** in the color picker cataloged; all hot-path barriers are rAF-coalesced, debounced-by-design, or echo-suppressed. The two-tier `shallowRef<ColorModel>` cache (`App.vue` model + `useColorModel` local model) is load-bearing for `defineModel`'s async round-trip — KEEP.
+- **`stableHue` low-chroma guard** (`s*v > 0.01`) intact at 3 update sites — the `atan2(0,0)=0` regression properly fenced.
+- **L8 × Vue reactivity verdict**: trap-cost regression does NOT apply. Grep-verified zero `Color`/`ValueUnit` instances inside `reactive()` anywhere — the 4 `reactive()` sites hold pure primitives (AuroraConfig, BlobConfig, popover styles). L8 flatten is strictly cheaper; add `isReactive(color) === false` regression test to L8's sub-gate.
+- **Non-instant sites**: 0 unintentional; 1 needs binding-verification (`parseAndSetColorDebounced` 2000ms — confirm commit-on-blur, not live-input — flagged for D.W5 follow-up).
+- **`_lerp` bolt-on (L12)**: reactivity-benign. `InterpolatedVar` never inside `reactive()`; the assignment is invariant and pre-exposure.
+- **keyframes.js demo**: gold-standard pattern (`markRaw` AnimationGroup + `useAnimationSync` rAF-poll bridge → primitive refs); zero reactivity issues.
+- **Hardening primitives required**:
+  - `e2e/smoke/reactivity-instant.spec.ts` — wall-clock ≤ 50 ms median across 5 paths.
+  - `bench/color-channel-access.mjs` — L8 microbench acceptance gate (≥ 5× speedup REQUIRED).
+  - `useEffectCensus` DEV probe (optional).
+
+### Synthesis applied to the substrate (planning-only)
+
+- **`D.md §2`** — added **invariant D7** ("No nested `Color`/`ValueUnit`") codifying the unwrap pattern as a tranche-D-binding rule with all 4 hardening primitives named.
+- **`D.W1.md` Lane L8** — extended with the 4 hardening primitives, the per-channel explicit `clone()` rewrite, and the L8 microbench acceptance gate. Sub-gate L8 now requires: `import.meta.env.DEV` blocks STRIPPED from `dist/value.js`; recursion-guard suite green; `isReactive(color) === false` regression; ≥ 5× microbench speedup.
+- **`D.W5.md`** — added `e2e/smoke/reactivity-instant.spec.ts` (the wall-clock instant-reactivity assertion) + an optional `useEffectCensus` DEV probe.
+- **`D.W6.md`** — added the merge + release ceremony pointing at `D-RELEASE-PLAN.md`. The pre-merge gate matrix has 9 named conditions including the two REACTIVITY primitives.
+- **`D-RELEASE-PLAN.md`** (NEW) — full release plan:
+  - §2 version-bump strategy — value.js `0.5.1 → 0.6.0` (minor; two breaking changes: L8 Color shape + C1 `AnimationOptions` rename; pre-1.0 semver mandates minor bump). CHANGELOG sketch covering BREAKING / FEATURES / INTERNAL / RECURSION-PREVENTION HARDENING / DEPS.
+  - §3 merge ceremony — `tranche-b → master` `--no-ff`; tag `v0.6.0`; the merge-commit message drafted.
+  - §4 risk register — 6 named risks with mitigations + owners.
+  - §5 reactivity acceptance gate — both REQUIRED primitives green or STOP.
+- **`coordination/Q.md §9`** — added §9.5 (post-D-merge keyframes.js consumption update: bump pin + rename imports + verify Color channel access) and §9.6 (reactivity hardening summary).
+- **`findings.md`** — 7 new rows (RA-1, RA-2, RB-1, RB-2, RB-3, REL-1, +the LIB-RX retained).
+
+### Net effect
+
+The user's hard requirement ("we MUST have proper, instant, reactivity") and the directive's "look to commit history deeply" are both fully evidenced. The L8 thesis from the lib-perf round is preserved AND fortified with 4 cooperating safeguards. The merge + version-bump plan is authored as `D-RELEASE-PLAN.md`; D.W6 executes it. The keyframes.js consumption-update ask is filed at `coordination/Q.md §9.5`.
+
+No new wave; no scope dropped. The reactivity verdict is empirical-evidence-backed (the 2 required wall-clock primitives gate the merge).
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |

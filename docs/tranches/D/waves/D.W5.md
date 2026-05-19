@@ -22,6 +22,20 @@ Source: `research/Dg-playwright-coverage.md`. **Binding invariant** (inherited f
 
 `e2e/smoke/walk.spec.ts` — one spec walks ALL user views in sequence (`picker → palettes → browse → extract → generate → gradient → mix → back`), asserts 0 console errors throughout (exercises `usePaneRouter`'s component registry under transition load).
 
+**Reactivity-smoke spec** — `e2e/smoke/reactivity-instant.spec.ts` (per REACTIVITY-B `audit/D-REACTIVITY-B-instant.md §7(a)`). The user's directive demands "proper, instant, reactivity." The agent verified the topology is correct (rAF-coalesced, debounced-by-design, echo-suppressed) — but topology is a static argument; this spec converts the claim to wall-clock evidence.
+
+The spec drives the spectrum canvas at picker view:
+1. `getByRole("img", { name: /Color spectrum/ })` → the SpectrumCanvas (B.W1 Lane A a11y).
+2. Sequence: `dispatchEvent(pointerdown @ start)` → `dispatchEvent(pointermove @ end)` → record `performance.now()` → await the docs pane's reactive text update (`getByRole("region", { name: /About the color spaces/ })` text contains the new color components) → record `performance.now()` again.
+3. Assert delta ≤ 50 ms (the agent's threshold — one Vue tick + one frame + DOM commit). ≤ 16 ms would be ideal but allows for browser scheduling jitter under CI.
+4. Repeat 5× across 5 different pointer paths to catch outliers.
+
+A second drive: the hex-input → preview path. Type a new hex value into ColorInput, await the spectrum-canvas style mutation (the spectrum tracks current color), measure the delta. Same threshold.
+
+The keyframes.js demo's animation kernel is the gold-standard reactivity pattern per REACTIVITY-B §2 (`markRaw` + rAF-poll bridge → primitive refs); the demo is not in value.js's e2e/, so no spec lands here for it — the kf-1 split sketch in `coordination/Q.md §9` records the pattern for the keyframes.js maintainer.
+
+**Optional dev probe** — `useEffectCensus` (REACTIVITY-B §7(b)) is a 15-line dev-only utility that counts active reactivity effects/watchers. Place under `demo/@/composables/dev/useEffectCensus.ts` (gated `import.meta.env.DEV`). Mounted invisibly; logs a count on every view-switch. Detects leaks across view transitions. Optional — lands only if the agent identifies a candidate leak.
+
 **WebGL — 2 specs** (per Dg §6.1; D-HARDEN-5 §3 restored the original 2-spec split; one was compacted in error):
 - `e2e/smoke/webgl-atmosphere.spec.ts` — the atmosphere canvas (root-mounted, always alive); assert no `webglcontextlost` and no `[stale prop]` console substrings during a 2s warm-up.
 - `e2e/smoke/webgl-goo-blob.spec.ts` — the goo-blob canvas; same assertions during a view switch (the canvas mounts/unmounts with the picker view).

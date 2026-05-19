@@ -122,6 +122,28 @@ These value.js-side changes flow keyframes.js's way as part of D.W1 (D writes va
 
 value.js cannot write keyframes.js. All keyframes.js-side actions above are filed asks.
 
+### §9.5 — Post-D-merge consumption update (v0.6.0)
+
+When D merges to master and tags `v0.6.0`, keyframes.js needs two consumer-side updates (per `D-RELEASE-PLAN.md §2 BREAKING`):
+
+| Action | What changes |
+|---|---|
+| **Bump `@mkbabb/value.js` pin** in keyframes.js's `package.json` (currently `file:..` — the bump is the tag reference) to acknowledge `^0.6.0` | breaking-change handshake |
+| **Rename `AnimationOptions` imports** if keyframes.js imports value.js's `AnimationOptions` type (the CSS-shorthand-string type, NOT keyframes.js's same-named engine-options type) — rename to `CSSAnimationOptions`. The C1 ask above is the value.js-side rename; this is the consumer-side update. | breaking-change handshake |
+| **Migrate `Color.components.get("L")` → `Color.L`** at any consumer site that reads Color channels through the (removed) Map. The L8 transposition collapses the Map storage to own properties. CHALLENGE-Di confirmed keyframes.js does not depend on `Color.components` directly — but a verification sweep at v0.6.0 consumption is prudent. | breaking-change verification |
+
+These are filed asks. value.js's D close does NOT block on them; keyframes.js bumps on its own schedule. The v2-precept-style transient RED on the constellation-wide `proof:resolution` gate (until keyframes.js catches up) is acceptable per the precept text.
+
+### §9.6 — Reactivity hardening summary (D writes the gates; both consumers benefit)
+
+REACTIVITY-A + REACTIVITY-B verified that the 13-barrier reactivity topology in the value.js color picker AND the gold-standard `markRaw + rAF-poll bridge` pattern in the keyframes.js demo are both correct today. D ships three primitives that turn this topology argument into wall-clock evidence the merge gate enforces:
+
+- `e2e/smoke/reactivity-instant.spec.ts` (D.W5) — spectrum-drag wall-clock ≤ 50 ms median.
+- `bench/color-channel-access.mjs` (D.W1 L8) — channel-read post-L8 ≥ 5× faster.
+- `useEffectCensus` DEV probe (D.W5, optional) — leak detection.
+
+The keyframes.js demo's animation kernel already uses the gold-standard pattern; no D-side ship needed for keyframes.js's reactivity. The kf-1 7-module split sketch (C5 above) records the architectural recommendation for the keyframes.js maintainer's own schedule.
+
 ## §10 — Open question — contract-v2 codification + a precepts SHA
 
 The precepts SHA `68d9b20` is named throughout this doc as the contract-v2 codification target. The agent that produced `research/Dh-contract-v2.md` cited it from glass-ui's `precepts@68d9b20`. D.W0 Lane 0 verifies the SHA against the actual precepts repository before the bump (the bump is the load-bearing change; the SHA must exist and codify contract-v2).

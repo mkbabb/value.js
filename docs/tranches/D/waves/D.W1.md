@@ -106,7 +106,36 @@ Net effect (per Di + CHALLENGE-Di evidence):
 - Hidden-class stability — every `OKLab<T>` instance shares the same shape; V8's inline cache stays monomorphic.
 - Preserves the public API (consumers still see typed `.L`, `.a`, `.b` access — better, in fact, than the string-keyed Map).
 
-**Sub-gate L8**: `grep -rn '\.components\.get\b\|\.components\.set\b\|\.components\.keys\b\|\.components\.values\b\|\.components\.entries\b' src/ demo/` returns zero (or recorded exceptions); every color-space class declares its component fields directly; `vitest` 1409+ (no regression — the test suite covers the color math); `npm run build` clean; library bundle size delta recorded (expect ≤ +5% — the conversion methods unchanged).
+**Recursion-prevention hardening primitives** (REACTIVITY-A `audit/D-REACTIVITY-A-recursion.md §5` — REQUIRED, not optional; fold INSIDE the L8 commit, not later, per the agent's "critical follow-up" verdict):
+
+The Mar-2026 bug (`80cdd59` fix of `35cd9d5`'s latent 19-month nesting bug) gave us one canonical unwrap loop at `src/units/color/normalize.ts:102`. Map-keyed storage was an implicit chokepoint (channels read via `map.get(key)`); flattening to own properties REMOVES that chokepoint, so we must replace it with 4 cooperating safeguards:
+
+- **(a)** **`ColorChannel<T>` TypeScript brand** — `type ColorChannel<T> = T & { readonly __color_channel: unique symbol }`. Every color-space class declares its fields as `ColorChannel<T>` (e.g. `class OKLab<T extends number = number> { declare L: ColorChannel<T>; declare a: ColorChannel<T>; … }`). Compile-time rejection of `instance.L = colorInstance`. Zero runtime cost (brands erase). Recommended by REACTIVITY-A §5(a).
+
+- **(b)** **`assertNotNested` dev-only assertion** — inside every `Color` / `ValueUnit` setter, gated behind `import.meta.env.DEV` (Vite inlines this constant; production strips the check). Throws on `value instanceof Color` / `value instanceof ValueUnit` when a scalar is expected. Recommended by REACTIVITY-A §5(b). Verify Vite NODE_ENV inlining via a `dist/value.js` grep — the `if (import.meta.env.DEV)` block must be absent from the production bundle.
+
+- **(c)** **vitest regression suite** — 3 named tests in `test/recursion-guard.test.ts` (NEW):
+  - `294-frame-replay` — simulate iOS Safari's smaller stack: build a `colorUnit2(c)` chain at depth 294, assert `clone()` doesn't stack-overflow.
+  - `clone-no-amplify` — `Color → clone → clone → clone` of a deeply-nested ValueUnit; assert depth never grows.
+  - `depth-3-nest` — intentionally construct `new ValueUnit(new ValueUnit(new ValueUnit(5)))`, pass through `colorUnit2`/`normalizeColorUnit`, assert the result is depth-1.
+
+- **(d)** **`clone()` depth-guard** — if `clone` detects a structure deeper than 16 levels, throw with a stack trace. Cheap (single integer increment per clone-call); only fires on the bug pattern. Diagnostic-only — the depth-16 ceiling is well above any legitimate nesting.
+
+Plus the **`Color.clone()` rewrite must use per-channel explicit construction** (REACTIVITY-A §6 Option III) — `new Constructor()` with no args is fragile under own-property storage; `Object.assign(new ChildClass(), this)` would shallow-copy and miss the brand. The clone strategy:
+```ts
+clone(): this {
+    const c = new (this.constructor as any)() as this;
+    for (const k of this.channels) (c as any)[k] = (this as any)[k];
+    return c;
+}
+```
+(or a typed equivalent — sketch only; implementation lands at L8 execution). The clone must be tested under the (c) regression suite.
+
+**L8 acceptance gate — microbenchmark** (REACTIVITY-B §7(d) — REQUIRED, not optional; per the agent: "the only way 'instant-reactivity' claims become measurement evidence"):
+
+Author `bench/color-channel-access.mjs` (≤ 30 lines). Two scenarios: (1) pre-L8 Map.get per-channel read in a tight 1M-iteration loop; (2) post-L8 own-property read in the same loop. Record both timings. **Acceptance**: post-L8 ≥ 5× faster on Node ≥ 20 (V8 own-property inline-cache vs Map-prototype dispatch). If the benchmark doesn't show ≥ 5×, the L8 thesis is wrong — STOP and re-evaluate.
+
+**Sub-gate L8** (extended): `grep -rn '\.components\.get\b\|\.components\.set\b\|\.components\.keys\b\|\.components\.values\b\|\.components\.entries\b' src/ demo/` returns zero (or recorded exceptions); every color-space class declares its component fields as `ColorChannel<T>` (the brand from primitive (a)); the dev-assertions from (b) are present in `Color` and `ValueUnit` setters and DEV-gated; the 3 regression tests from (c) all green; the depth-guard from (d) is in `clone()`; the L8 microbenchmark shows ≥ 5× channel-read speedup; `vitest` 1409+ (no regression); `npm run build` clean; production bundle grep for `import.meta.env.DEV` returns zero (the dev-assert blocks stripped); REACTIVITY-B §3's `isReactive(color) === false` regression test added; library bundle size delta recorded (expect ≤ +5%).
 
 ## File bounds
 

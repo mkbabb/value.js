@@ -47,12 +47,47 @@ Per D-HARDEN-6 §3, the 6 chronically-deferred items that opened D un-folded (it
 
 D5 invariant satisfied — zero chronically-deferred item drops off D without a wave assignment or a named destination.
 
+## Merge + release ceremony (the user's "fully merge into master, and version bump")
+
+D ships as **v0.6.0** — minor bump per `D-RELEASE-PLAN.md §2` (two breaking changes: L8 Color storage shape + C1 `AnimationOptions` rename, plus the contract-v2 `development`-condition removal). The full release plan + the CHANGELOG sketch + the merge sequence + the risk register live in `D-RELEASE-PLAN.md`; D.W6 executes against that plan.
+
+### Pre-merge gate matrix (`D-RELEASE-PLAN.md §3` — must all be green)
+
+1. Every D wave-log row reads `closed` (D5 invariant).
+2. `FINAL.md` cites every D commit + the B/A close hashes.
+3. `npm run build` + `vue-tsc` + `npm test` + `npm run lint` + `npm run proof:resolution` + `npx playwright test` across all 3 smoke projects — all green.
+4. **L8 microbenchmark recorded** — `bench/color-channel-access.mjs` output saved to `audit/D.W6-bench/`; post-L8 channel-read ≥ 5× faster than pre-L8 (the L8 acceptance gate).
+5. **Recursion-guard suite green** — `test/recursion-guard.test.ts` 3 tests passing (D7 invariant).
+6. **Reactivity-smoke spec green** — `e2e/smoke/reactivity-instant.spec.ts` measuring ≤ 50 ms median across 5 pointer paths.
+7. Integrity sweep clean (audit lane 7).
+8. `CHANGELOG.md` carries the v0.6.0 entry (template in `D-RELEASE-PLAN.md §2`).
+9. `package.json` version bumped to `0.6.0` (the very last D commit on `tranche-b` before the merge).
+
+### Merge sequence
+
+Per `D-RELEASE-PLAN.md §3`:
+
+```
+git checkout master && git pull --ff-only origin master
+git checkout tranche-b && git rebase master           # no-conflict if D didn't diverge
+git checkout master && git merge --no-ff tranche-b -m "<merge message from D-RELEASE-PLAN §3>"
+git tag -a v0.6.0 -m "v0.6.0 — D close (contract-v2 + api/ refactor + frontend cohesion + library hardening)"
+git push origin master --follow-tags
+```
+
+### Post-merge
+
+- `npm publish` if applicable (or surface the tag for the `file:` consumer).
+- File the keyframes.js consumption-update ask in `coordination/Q.md §9` (bump pin + rename `AnimationOptions` imports).
+- Delete the `tranche-b` branch (local + remote) — the merge commit + the v0.6.0 tag preserve the history.
+- Open the next tranche's planning substrate at the new master HEAD. Candidate successors (named in `coordination/Q.md §3`): glass-ui-side primitive ship, value.js demo-abstraction post-ship, shadcn-vue generator-update, smoke-safari WebKit hardening.
+
 ## File bounds
 
 | Lane | Files |
 |---|---|
 | Close audit | All D + A + B docs — read-only |
-| Close ceremony writes | `docs/tranches/D/FINAL.md` (new), `docs/tranches/D/PROGRESS.md`, root `CLAUDE.md`, `demo/CLAUDE.md`, `api/CLAUDE.md`, `docs/tranches/D/coordination/Q.md` (§3 final state) |
+| Close ceremony writes | `docs/tranches/D/FINAL.md` (new), `docs/tranches/D/PROGRESS.md`, root `CLAUDE.md`, `demo/CLAUDE.md`, `api/CLAUDE.md`, `docs/tranches/D/coordination/Q.md` (§3 final state), **`CHANGELOG.md`** (new or appended at the v0.6.0 entry), **`package.json`** (the version bump to `0.6.0`) |
 
 ## Gate
 
