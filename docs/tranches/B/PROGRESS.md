@@ -158,6 +158,19 @@ The B.W2 view-switch probe surfaced a `SortableJS: el must be an HTMLElement` er
 
 Sub-gates A–C + the Playwright probe. Boot probe (3 viewports × light+dark) 0 console errors; interaction probes (dock expand, view-select, switch to Generate — the folded action bar "Tools" appears — and to Palettes — `useSortable` clean post-fix) 0 console errors. `vue-tsc` 212 (−31 from hero-lab); `vitest` 1409. Captures in `audit/B.W2-playwright/`.
 
+## 2026-05-19 — B.W3 close — library audit + WIP + typecheck + e2e abrogation
+
+Four lanes. Lane A (read-only library audit), C (typecheck), D (e2e abrogation) dispatched as parallel agents; Lane B (WIP disposition) orchestrator-owned, sequenced on Lane A's output.
+
+- **Lane A — value.js library gap audit (Mandate 12 AND).** A scoped `src/` out of Mandate 12; B audits it. 11 gaps (3 P1 / 4 P2 / 4 P3) in `audit/B.W3-library-gap.md`. G5 confirmed the 5 untracked `src/` WIP files are re-exported from `src/index.ts` (clean checkout fails build → Lane B). invariant-30: value.js is contract-v1 compliant but **stale vs glass-ui's contract-v2** (`ce5aad8` abrogated `development`) — recommendation recorded, routed to coordination. View-schema: EXTRACT `viewSchema.ts` (recommendation). K1: the `@mkbabb/keyframes.js` devDependency is vestigial — recommend-remove recorded; the removal (lockfile reconciliation) routes to a value.js library-maintenance effort. Commit `7b6b473`.
+- **Lane B — `src/` WIP disposition.** The 5 untracked files committed (wired public API, not abandoned — Lane A G5) + the 3 `src/` modifications + `plugins/vite-source-export.ts` + `package.json`'s invariant-30 `default` export key. Library build clean, vitest 1409, `dist/value.js` emits. Commit `8d6dfac`.
+- **Lane C — typecheck cluster.** vue-tsc **212 → 126** (sub-gate ≤135). The 86 custom-bucket errors fully cleared (28 erroring files + 8 supporting). The 126 remaining are all vendored `demo/@/components/ui/**` shadcn-vue — untouched, routed to a generator-update effort. Commit `92ee51f`.
+- **Lane D — e2e abrogation.** Invariant-33 corpus-grep proof, then all 16 root specs deleted; `e2e/smoke/` stood up with exactly 3 role/label specs (page-load, color-space-switching, view-switch); `playwright.config.ts` gains `smoke`, loses `mobile`; CI gains a `playwright test --project=smoke` step. The brittleness-lane keep-and-migrate dissent overridden (recorded). Commit `afe102a`.
+
+### Gate
+
+Sub-gates A–D + the gate matrix. `npm run build` clean (`dist/value.js` 139 kB); `npm test` 1409; `vue-tsc` 126 (≤135); `npx playwright test --project=smoke` 3/3 green. Boot probe (3 viewports × light+dark, `audit/B.W3-playwright/`) 0 console errors — the typecheck pass introduced no runtime regression.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -165,6 +178,7 @@ Sub-gates A–C + the Playwright probe. Boot probe (3 viewports × light+dark) 0
 | B.W0 HEADLINE — close A + precept advance | closed | 2026-05-19 | 2026-05-19 | de8c573, 7088da4, 5247313, 36a4ad0, 065c6fe, a9b6a94 |
 | B.W1 — W5 a11y corrections + reduced-motion + floating-panel-item strip + layout simplification | closed | 2026-05-19 | 2026-05-19 | bda38b6, 2a13de3, e7da1b5, ff6354d |
 | B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | closed | 2026-05-19 | 2026-05-19 | 9091e12, c2efa83, fa57f02, 4fde60e |
+| B.W3 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | closed | 2026-05-19 | 2026-05-19 | 7b6b473, 8d6dfac, 92ee51f, afe102a |
 | B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | planned | — | — | — |
 | B.W3 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | planned | — | — | — |
 | B.W4 HEADLINE close — FINAL.md, doc drift, Q.md update, A close-residuals | planned | — | — | — |
