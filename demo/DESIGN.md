@@ -14,11 +14,11 @@ Fraunces (display) / Fira Code (mono). Cartoon shadow: `--shadow-cartoon` is ove
   - `hero-panel` — main container with responsive grid
   - `hero-panel__title-row` — sticky header with controls
   - `hero-panel__viewport` — aspect-ratio-locked preview area
-  - Serves as an exemplary visual hierarchy reference
+  - Serves as an exemplary visual hierarchy reference — claim honoured as of B.W2 Lane B: `demo/hero-lab/` is type-clean (0 vue-tsc errors) and all four RAF render loops honour `prefers-reduced-motion`.
 
 ## Migration Tasks
 
 Minimal—already tightly integrated with glass-ui.
 
 - [ ] Add visual grouping (section separators or category headers) to BrowsePane palette grid
-- [ ] Document `hero-lab.css` as exemplary visual hierarchy reference
+- [x] Document `hero-lab.css` as exemplary visual hierarchy reference (B.W2 Lane B — claim verified: type-clean + reduced-motion-correct)

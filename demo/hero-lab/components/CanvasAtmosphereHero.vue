@@ -17,6 +17,10 @@ const canvasRef = ref<HTMLCanvasElement | null>(null);
 let frame = 0;
 let observer: ResizeObserver | null = null;
 
+const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false);
+
 function mountScene() {
     cancelAnimationFrame(frame);
     observer?.disconnect();
@@ -66,7 +70,7 @@ function mountScene() {
         const count = props.config.blobCount;
         const colors = props.palette.atmosphereStops;
         for (let index = 0; index < count; index += 1) {
-            const color = colors[index % colors.length];
+            const color = colors[index % colors.length] ?? colors[0];
             const radius = Math.max(width, height) * (0.12 + index * 0.035) * props.config.intensity;
             const x = width * (0.15 + ((index * 0.21) % 0.65)) + Math.sin(time * (0.4 + index * 0.14)) * 48;
             const y = height * (0.18 + ((index * 0.17) % 0.6)) + Math.cos(time * (0.33 + index * 0.11)) * 36;
@@ -93,7 +97,9 @@ function mountScene() {
         }
 
         context.globalAlpha = 1;
-        frame = requestAnimationFrame(render);
+        if (!prefersReducedMotion) {
+            frame = requestAnimationFrame(render);
+        }
     };
 
     frame = requestAnimationFrame(render);
