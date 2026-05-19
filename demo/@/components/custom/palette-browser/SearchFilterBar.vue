@@ -18,7 +18,7 @@
                     <!-- Sort -->
                     <div class="filter-section">
                         <div class="section-label">Sort</div>
-                        <RadioGroup :model-value="sort" @update:model-value="$emit('update:sort', $event)">
+                        <RadioGroup :model-value="sort" @update:model-value="(v) => $emit('update:sort', String(v))">
                             <label v-for="opt in sortOptions" :key="opt.value" class="filter-option">
                                 <RadioGroupItem :value="opt.value" class="shrink-0" />
                                 <component :is="opt.icon" class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
@@ -30,7 +30,7 @@
                     <!-- Status -->
                     <div class="filter-section">
                         <div class="section-label">Status</div>
-                        <RadioGroup :model-value="status" @update:model-value="$emit('update:status', $event)">
+                        <RadioGroup :model-value="status" @update:model-value="(v) => $emit('update:status', String(v))">
                             <label class="filter-option">
                                 <RadioGroupItem value="" class="shrink-0" />
                                 <span>All</span>

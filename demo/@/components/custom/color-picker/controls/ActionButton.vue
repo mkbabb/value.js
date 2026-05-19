@@ -57,13 +57,13 @@ const props = defineProps<{
     activeHover: string | null;
     title: string;
     description: string;
-    label?: string;
-    iconClass?: string;
-    activeStyle?: Record<string, string>;
-    disabled?: boolean;
-    hidden?: boolean;
-    cssColorOpaque?: string;
-    rotateOnClick?: boolean;
+    label?: string | undefined;
+    iconClass?: string | undefined;
+    activeStyle?: Record<string, string> | undefined;
+    disabled?: boolean | undefined;
+    hidden?: boolean | undefined;
+    cssColorOpaque?: string | undefined;
+    rotateOnClick?: boolean | undefined;
 }>();
 
 const emit = defineEmits<{

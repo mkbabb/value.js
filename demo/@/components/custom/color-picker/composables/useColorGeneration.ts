@@ -56,15 +56,6 @@ export interface HarmonyDef {
     description: string;
 }
 
-export const HARMONY_DEFS: Record<string, HarmonyDef> = {
-    golden:               { description: "Golden angle — maximum separation" },
-    analogous:            { description: "Tight hue cluster, ±30°" },
-    complementary:        { description: "Opposing hue pairs, 180°" },
-    triadic:              { description: "Three equidistant hues, 120°" },
-    "split-complementary": { description: "Base + two flanking complements" },
-    random:               { description: "Independent random hues" },
-};
-
 export const HARMONY_NAMES = [
     "golden",
     "analogous",
@@ -74,6 +65,15 @@ export const HARMONY_NAMES = [
     "random",
 ] as const;
 export type HarmonyName = (typeof HARMONY_NAMES)[number];
+
+export const HARMONY_DEFS: Record<HarmonyName, HarmonyDef> = {
+    golden:               { description: "Golden angle — maximum separation" },
+    analogous:            { description: "Tight hue cluster, ±30°" },
+    complementary:        { description: "Opposing hue pairs, 180°" },
+    triadic:              { description: "Three equidistant hues, 120°" },
+    "split-complementary": { description: "Base + two flanking complements" },
+    random:               { description: "Independent random hues" },
+};
 
 /** Golden angle in degrees — produces maximum visual hue separation. */
 const GOLDEN_ANGLE = 137.50776405003785;

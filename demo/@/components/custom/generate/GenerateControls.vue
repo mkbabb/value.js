@@ -20,6 +20,7 @@ import {
     HARMONY_DEFS,
 } from "@components/custom/color-picker/composables/useColorGeneration";
 import type { PresetName, HarmonyName } from "@components/custom/color-picker/composables/useColorGeneration";
+import type { AcceptableValue } from "reka-ui";
 
 const {
     preset,
@@ -46,11 +47,11 @@ const generatedPalette = computed<Palette>(() => ({
     isLocal: true,
 }));
 
-function onPresetChange(value: string) {
+function onPresetChange(value: AcceptableValue) {
     preset.value = value as PresetName;
 }
 
-function onHarmonyChange(value: string) {
+function onHarmonyChange(value: AcceptableValue) {
     harmony.value = value as HarmonyName;
 }
 
@@ -140,7 +141,7 @@ defineExpose({ regenerate, save, copyColors });
                     :min="1"
                     :max="12"
                     :step="1"
-                    @update:model-value="(v: number[]) => count = v[0]!"
+                    @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) count = v[0]; }"
                 />
             </div>
 

@@ -79,9 +79,10 @@ export function useAdminUsers(deps: {
         try {
             const result = await featurePalette(token, palette.slug);
             const idx = deps.remotePalettes.value.findIndex((p) => p.slug === palette.slug);
-            if (idx !== -1) {
+            const existing = deps.remotePalettes.value[idx];
+            if (idx !== -1 && existing) {
                 deps.remotePalettes.value[idx] = {
-                    ...deps.remotePalettes.value[idx],
+                    ...existing,
                     status: result.status as "published" | "featured",
                 };
             }

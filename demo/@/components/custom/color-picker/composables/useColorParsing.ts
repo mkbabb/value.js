@@ -140,11 +140,17 @@ export function useColorParsing(deps: {
 
     const generateRandomColor = (
         colorSpace: DisplayColorSpace,
-    ): ValueUnit<Color<ValueUnit<number>>> => {
+    ): ValueUnit<Color<ValueUnit<number>>, "color"> => {
         // Generate a pleasing random color using OKLCh-constrained generation
         const css = generateSingleColor("vibrant");
-        let color = parseAndNormalizeColor(css);
-        color = colorUnit2(color, resolveColorSpace(colorSpace), true, false, true);
+        const parsed = parseAndNormalizeColor(css);
+        const color = colorUnit2(
+            parsed,
+            resolveColorSpace(colorSpace),
+            true,
+            false,
+            true,
+        );
         color.value.alpha = model.value.color.value.alpha;
         return color;
     };

@@ -5,7 +5,7 @@
             <div v-for="i in count" :key="i"
                 class="h-full animate-pulse"
                 :style="{
-                    width: `${100 / count}%`,
+                    width: `${100 / (count ?? 5)}%`,
                     backgroundColor: 'color-mix(in srgb, var(--muted-foreground) 10%, transparent)',
                     animationDelay: `${i * 0.12}s`,
                 }"

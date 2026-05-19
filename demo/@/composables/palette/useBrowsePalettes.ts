@@ -46,9 +46,11 @@ export function useBrowsePalettes(deps: {
                 limit: 50,
                 offset: 0,
                 sort: sortMode.value,
-                q: q.length >= 2 ? q : undefined,
-                status: statusFilter.value || undefined,
-                tags: selectedTags.value.length > 0 ? selectedTags.value : undefined,
+                ...(q.length >= 2 ? { q } : {}),
+                ...(statusFilter.value ? { status: statusFilter.value } : {}),
+                ...(selectedTags.value.length > 0
+                    ? { tags: selectedTags.value }
+                    : {}),
             });
             if (gen !== loadGeneration) return; // stale response
             remotePalettes.value = Array.isArray(res.data) ? res.data : [];
@@ -79,9 +81,10 @@ export function useBrowsePalettes(deps: {
             await session.ensureSession();
             const result = await votePalette(palette.slug);
             const idx = remotePalettes.value.findIndex((p) => p.slug === palette.slug);
-            if (idx !== -1) {
+            const existing = remotePalettes.value[idx];
+            if (idx !== -1 && existing) {
                 remotePalettes.value[idx] = {
-                    ...remotePalettes.value[idx],
+                    ...existing,
                     voted: result.voted,
                     voteCount: result.voteCount,
                 };
@@ -108,9 +111,10 @@ export function useBrowsePalettes(deps: {
             await session.ensureSession();
             const updated = await renamePalette(palette.slug, newName);
             const idx = remotePalettes.value.findIndex((p) => p.slug === palette.slug);
-            if (idx !== -1) {
+            const existing = remotePalettes.value[idx];
+            if (idx !== -1 && existing) {
                 remotePalettes.value[idx] = {
-                    ...remotePalettes.value[idx],
+                    ...existing,
                     name: updated.name,
                 };
             }

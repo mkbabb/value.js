@@ -83,13 +83,15 @@ import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
 import type { ColorSpace } from "@src/units/color/constants";
 import { parseCSSColor } from "@src/parsing/color";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
+import type { ValueUnit } from "@src/units";
+import type { Color } from "@src/units/color";
 import { useInertiaGesture } from "./composables/useInertiaGesture";
 
 type DisplayColorSpace = ColorSpace | "hex";
 
 const props = withDefaults(defineProps<{
     imageUrl: string;
-    colorSpace?: DisplayColorSpace;
+    colorSpace?: DisplayColorSpace | undefined;
 }>(), {
     colorSpace: "hex",
 });
@@ -203,8 +205,13 @@ function formatInColorSpace(hex: string): string {
     try {
         const parsed = parseCSSColor(hex);
         if (!parsed) return hex;
-        const resolved: ColorSpace = space === "hex" ? "rgb" : space;
-        const converted = colorUnit2(parsed, resolved, false, false, false);
+        const converted = colorUnit2(
+            parsed as ValueUnit<Color<ValueUnit<number>>, "color">,
+            space,
+            false,
+            false,
+            false,
+        );
         const denorm = normalizeColorUnit(converted, true, false);
         return denorm.value.toFormattedString(2);
     } catch {
@@ -263,7 +270,7 @@ function sampleAt(rx: number, ry: number) {
     const { ix, iy } = viewportToImage(rx, ry);
     if (ix < 0 || iy < 0 || ix >= imgWidth || iy >= imgHeight) return null;
     const data = offscreenCtx.getImageData(ix, iy, 1, 1).data;
-    const hex = formatHex(data[0], data[1], data[2]);
+    const hex = formatHex(data[0] ?? 0, data[1] ?? 0, data[2] ?? 0);
     return { hex, formatted: formatInColorSpace(hex) };
 }
 

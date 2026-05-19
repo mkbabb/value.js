@@ -246,7 +246,9 @@ export function usePaletteManager(deps: {
 
         // Auth helpers
         ensureUser,
-        ensureSession: () => session.ensureSession(),
+        ensureSession: async () => {
+            await session.ensureSession();
+        },
 
         // Browse
         ...browse,

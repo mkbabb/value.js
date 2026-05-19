@@ -91,7 +91,7 @@ const props = defineProps<{
     cssColorOpaque: string;
     hasSavedPalettes: boolean;
     isAdmin: boolean;
-    sortMode: "newest" | "popular";
+    sortMode: "newest" | "popular" | "most-forked";
     statusFilter: string;
     selectedTags: string[];
     availableTags: Tag[];

@@ -282,9 +282,10 @@ function removeUserPalette(paletteSlug: string) {
 
 function updatePaletteStatus(paletteSlug: string, status: string) {
     const idx = userPalettes.value.findIndex((p) => p.slug === paletteSlug);
-    if (idx !== -1) {
+    const existing = userPalettes.value[idx];
+    if (idx !== -1 && existing) {
         userPalettes.value[idx] = {
-            ...userPalettes.value[idx],
+            ...existing,
             status: status as "published" | "featured",
         };
     }

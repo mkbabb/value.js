@@ -68,9 +68,9 @@ withDefaults(
         color: string;
         open: boolean;
         canHover: boolean;
-        floatingStyle?: CSSProperties;
-        sizeClass?: string;
-        swatchExtraClass?: string;
+        floatingStyle?: CSSProperties | undefined;
+        sizeClass?: string | undefined;
+        swatchExtraClass?: string | undefined;
     }>(),
     {
         sizeClass: "w-9 h-9 sm:w-10 sm:h-10",

@@ -55,7 +55,9 @@
                         :style="{ touchAction: spectrumGateIsTouchDevice ? (sliderGates[component]?.isActive.value ? 'none' : 'pan-y') : undefined }"
                         :model-value="[model.color.value[component].value]"
                         @update:model-value="
-                            ([v]: number[]) => {
+                            (payload: number[] | undefined) => {
+                                const v = payload?.[0];
+                                if (v === undefined) return;
                                 updateColorComponent(v, component, true);
                                 activeComponent = component;
                             }
@@ -176,6 +178,7 @@ function labelColor(component: string): string {
     const val = model.value.color.value[component]?.value ?? 0.5;
     const idx = Math.round(val * (stops.length - 1));
     const stop = stops[Math.min(idx, stops.length - 1)];
+    if (stop === undefined) return "var(--foreground)";
     // Strip the position suffix (e.g., "oklch(0.5 0.1 180) 50%")
     const css = stop.replace(/\s+\d+(\.\d+)?%$/, "");
     return safeCss(css);

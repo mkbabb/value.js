@@ -27,7 +27,7 @@
         >
             <SwatchHoverMenu
                 v-for="(color, i) in savedColorStrings"
-                :key="swatchKeys[i]"
+                :key="swatchKeys[i] ?? i"
                 :color="color"
                 :open="currentSwatchPopoverIndex === i"
                 :can-hover="canHover"

@@ -171,10 +171,11 @@ async function onFork(palette: Palette) {
         pm.remotePalettes.value = [forked, ...pm.remotePalettes.value];
         // Update fork count on source
         const idx = pm.remotePalettes.value.findIndex((p) => p.slug === palette.slug);
-        if (idx >= 0) {
+        const source = pm.remotePalettes.value[idx];
+        if (idx >= 0 && source) {
             pm.remotePalettes.value[idx] = {
-                ...pm.remotePalettes.value[idx],
-                forkCount: (pm.remotePalettes.value[idx].forkCount ?? 0) + 1,
+                ...source,
+                forkCount: (source.forkCount ?? 0) + 1,
             };
         }
     } catch (e) {
@@ -237,8 +238,9 @@ function onEditTags(palette: Palette) {
 function onTagsUpdated(tags: string[]) {
     if (!tagEditPalette.value) return;
     const idx = pm.remotePalettes.value.findIndex((p) => p.slug === tagEditPalette.value!.slug);
-    if (idx >= 0) {
-        pm.remotePalettes.value[idx] = { ...pm.remotePalettes.value[idx], tags };
+    const target = pm.remotePalettes.value[idx];
+    if (idx >= 0 && target) {
+        pm.remotePalettes.value[idx] = { ...target, tags };
     }
     tagEditPalette.value = { ...tagEditPalette.value, tags };
 }

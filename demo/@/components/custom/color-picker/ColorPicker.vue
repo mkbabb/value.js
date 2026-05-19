@@ -51,6 +51,7 @@ import {
     onUnmounted,
     provide,
     ref,
+    shallowRef,
     watch,
 } from "vue";
 import { useMagicKeys } from "@vueuse/core";
@@ -174,7 +175,7 @@ const handleKeydown = (e: KeyboardEvent) => {
 // --- Edit mode state machine ---
 
 const editTarget = ref<EditTarget | null>(null);
-const preEditModel = ref<ColorModel | null>(null);
+const preEditModel = shallowRef<ColorModel | null>(null);
 const isEditing = computed(() => editTarget.value !== null);
 
 // Emit edit target changes to parent
@@ -185,7 +186,9 @@ function setEditTarget(target: EditTarget | null) {
 }
 
 function onStartEdit(target: EditTarget) {
-    preEditModel.value = { ...model.value };
+    // Snapshot: updateModel() replaces model.value wholesale, so holding
+    // the reference is a valid pre-edit snapshot (no in-place mutation).
+    preEditModel.value = model.value;
     const parsed = parseAndNormalizeColor(target.originalCss);
     setCurrentColor(parsed, model.value.selectedColorSpace);
     setTimeout(() => setEditTarget(target), 120);

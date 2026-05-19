@@ -101,8 +101,8 @@ async function loadAudit() {
         const res = await getAuditLog(token, {
             limit: pageSize,
             offset: (page.value - 1) * pageSize,
-            action: actionFilter.value || undefined,
-            target: targetFilter.value || undefined,
+            ...(actionFilter.value ? { action: actionFilter.value } : {}),
+            ...(targetFilter.value ? { target: targetFilter.value } : {}),
         });
         entries.value = res.data;
         total.value = res.total;

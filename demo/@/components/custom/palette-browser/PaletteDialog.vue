@@ -418,7 +418,9 @@ function commitColorEdit(paletteId: string, colorIndex: number, newCss: string) 
     if (oldCss === newCss) return;
 
     const updatedColors = [...palette.colors];
-    updatedColors[colorIndex] = { ...updatedColors[colorIndex], css: newCss };
+    const existingColor = updatedColors[colorIndex];
+    if (!existingColor) return;
+    updatedColors[colorIndex] = { ...existingColor, css: newCss };
     updatePalette(paletteId, { colors: updatedColors });
 }
 

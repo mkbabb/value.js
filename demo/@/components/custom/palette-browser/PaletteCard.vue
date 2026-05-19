@@ -228,17 +228,17 @@ import ActionFeedback from "./ActionFeedback.vue";
 const props = withDefaults(
     defineProps<{
         palette: Palette;
-        expanded?: boolean;
-        cssColor?: string;
-        isOwned?: boolean;
-        editableName?: boolean;
-        isAdmin?: boolean;
-        showSlug?: boolean;
-        draggable?: boolean;
+        expanded?: boolean | undefined;
+        cssColor?: string | undefined;
+        isOwned?: boolean | undefined;
+        editableName?: boolean | undefined;
+        isAdmin?: boolean | undefined;
+        showSlug?: boolean | undefined;
+        draggable?: boolean | undefined;
         /** "default" = strip on top; "aside" = vertical strip on left */
-        layout?: "default" | "aside";
+        layout?: "default" | "aside" | undefined;
         /** CSS class(es) for swatch size override (default: "w-9 h-9 sm:w-10 sm:h-10") */
-        swatchClass?: string;
+        swatchClass?: string | undefined;
     }>(),
     { layout: "default", swatchClass: "w-9 h-9 sm:w-10 sm:h-10" },
 );

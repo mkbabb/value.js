@@ -76,9 +76,9 @@ defineProps<{
     k: number;
     chromaWeight: number;
     gradient: string;
-    cssColor?: string;
-    disabled?: boolean;
-    hasImage?: boolean;
+    cssColor?: string | undefined;
+    disabled?: boolean | undefined;
+    hasImage?: boolean | undefined;
 }>();
 
 defineEmits<{
