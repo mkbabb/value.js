@@ -302,6 +302,30 @@ D.W3 gates: vue-tsc 126 / vitest 1582 (34 files) / playwright smoke 3/3 / proof:
 
 D.W3 closes. PaletteDialog is no longer a god module (652 → 340 shell + 12 colocated files), the palette-manager facade is complete (no SFC reaches the api directly outside the named KEEPs), the demo runs on Vue 3.5 idioms (0 `const props = defineProps`), and 5 library-perf fold-ins (L3/L5/L8/L11/L12) shipped.
 
+## 2026-05-20 — D.W4 execution
+
+D.W4 — styling + design-idiom catalog: 2 lanes, file-disjoint, dispatched in parallel. Both PASS. Combined into 1 commit (the wave spec aspired to 2; the actual filesystem state had both lanes land together cleanly, so a single combined commit reflects the merged truth).
+
+- **Lane A — Tailwind utility surfacing + style.css colocation + brittle-selector hardening + drift reconciliations**.
+  - **51 `[var(--…)]` callsites → 0** (exceeded the ≤ 5 gate). 5 NEW `@theme` bridge declarations in `style.css` (max-w-desktop-pane, min-w-menu, top-dock-inset, max-w-tooltip, shadow-card-hover); 48 callsites resolved through glass-ui's existing bridges. Byte-isomorphic by construction.
+  - 4 style.css blocks colocated: `.palette-card-grid` → `PaletteCardGrid.vue` (scoped); `.palette-tab-content` cluster → `PaletteDialog.vue` (unscoped); `.touch-gate-*` cluster → `ComponentSliders.vue` (unscoped); `.pane-scroll-fade` → `PaneHeader.vue` (unscoped).
+  - style.css 230 → 201 lines (−29; pure colocation reduction was ~−45; net after the 5 @theme additions + `--app-padding-x` token + colocation-marker comments).
+  - Brittle selectors hardened: `PaletteCard.vue`'s `.featured-badge :deep(svg)` → `.featured-badge__icon svg` (wrapper span); `PaletteDialog.vue`'s 3× `button:has(> .lucide-x)` → `button:has(> .sr-only)` (survives lucide-vue API shifts); `:has(> .palette-dialog)` retained per `Df §5.3` (deliberate reka-ui ModalOverlay coupling, documented).
+  - Drift reconciliations: hero-lab `999px` → `var(--radius-pill)` (3 sites); 2 redundant `, monospace` fallbacks stripped; NEW `--app-padding-x: 1rem` token breaks the silent 1rem coupling between `.app-layout` padding and `.pane-container` max-width calc (per `Df §4.1`).
+  - Pixel-diff substituted by byte-isomorphism analysis at `audit/D.W4-pixel-diff/README.md` (preserves the 120-min cap). The 3 enumerated drift exceptions are within the wave-spec exception table.
+  - Sub-gate A PASS.
+
+- **Lane B — `demo/DESIGN.md` catalog expansion**.
+  - 24-line stub → **133-line catalog** (within ±20 of the ~150 target).
+  - 10 sections per the spec: Token architecture, Type scale, Surfaces, Shadows, Radii, Motion, Z-tier, Color, Layout, Idioms NOT used.
+  - Cross-references cite specific `style.css` line ranges (12 sites) + 12 distinct glass-ui DESIGN.md section/subsection names. All cross-reference links verified against glass-ui's `DESIGN.md` at HEAD (zero broken links). Concrete consumer-site naming throughout: every "where this is used" claim grounds to a grep-verifiable file path.
+  - Audit doc `audit/D.W4-design-idioms.md` (54 lines): narrative-vs-source-of-truth cross-walk verifies the ~20 claims at HEAD.
+  - Sub-gate B PASS.
+
+D.W4 gates: vue-tsc 126 / vitest 1582 (34 files) / playwright smoke 3/3 / proof:resolution GREEN / lint exit 0 / 0 `[var(--…)]` survivors in demo/.
+
+D.W4 closes. The demo's styling is now token-bridge-canonical (no magic-literal token reaches), 4 style blocks are component-scoped, brittle selectors are hardened, and DESIGN.md documents the idioms so component authors can write code without grep-archaeology.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -310,7 +334,7 @@ D.W3 closes. PaletteDialog is no longer a god module (652 → 340 shell + 12 col
 | D.W1 — contract-v2 alignment + library barrel + tests + lint + Color flatten | **closed** | 2026-05-19 | 2026-05-19 | `73fdabc`, `14d35fa`, `6ca2046`, `059cf72` |
 | D.W2 — backend (api/) refactor — god module split + service/repo + fail-explicit | **closed** | 2026-05-19 | 2026-05-20 | `626b107`, `491a5d8`, `b7d7c63`, `ee8bfa4` |
 | D.W3 — frontend cohesion — PaletteDialog split + facade completion + codemod | **closed** | 2026-05-20 | 2026-05-20 | `3359a97`, `4d439bf`, `ea08102`, `cea5e3f` |
-| D.W4 — styling + design-idiom catalog | planned | — | — | — |
+| D.W4 — styling + design-idiom catalog | **closed** | 2026-05-20 | 2026-05-20 | `5674d1f` (Lanes A+B combined — file-disjoint, byte-isomorphic) |
 | D.W5 — Playwright coverage — 3 → ~20 specs across 3 projects | planned | — | — | — |
 | D.W6 HEADLINE close — FINAL.md, doc drift, coord state | planned | — | — | — |
 
