@@ -6,13 +6,13 @@
                 v-model="audit.actionFilter.value"
                 type="text"
                 placeholder="Action..."
-                class="h-7 w-28 rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                class="h-7 w-28 rounded-input border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
             <input
                 v-model="audit.targetFilter.value"
                 type="text"
                 placeholder="Target..."
-                class="h-7 flex-1 min-w-[6rem] rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                class="h-7 flex-1 min-w-[6rem] rounded-input border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
             <div class="flex-1" />
             <span class="text-mono-small text-muted-foreground">{{ audit.total.value }}</span>
@@ -34,7 +34,7 @@
         <div
             v-for="entry in audit.entries.value"
             :key="entry.id"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] border border-border transition-colors duration-[var(--duration-fast)] hover:bg-accent/50"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border transition-colors duration-fast hover:bg-accent/50"
         >
             <div class="flex flex-col gap-0.5 min-w-0 flex-1">
                 <!-- primary line: action badge + timestamp -->

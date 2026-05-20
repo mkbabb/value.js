@@ -3,7 +3,7 @@
          Swatch slot: sized as a 8×8 leading visual (w-8 h-8 expected).
          Content slot: wrap two lines — primary with text-small, secondary
          with text-caption text-muted-foreground. Actions slot: unchanged. -->
-    <div class="flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] border border-border">
+    <div class="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border">
         <!-- Leading swatch — sized as a 8×8 visual anchor -->
         <div class="shrink-0 w-8 h-8 flex items-center justify-center">
             <slot name="swatch" />

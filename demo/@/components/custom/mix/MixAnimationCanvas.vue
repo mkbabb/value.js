@@ -22,7 +22,7 @@ useMixingAnimation(canvasRef, colorList, phaseRef);
     <!-- W5-a11y: decorative animation canvas — hidden from AT -->
     <canvas
         ref="mixCanvas"
-        class="absolute inset-0 w-full h-full pointer-events-none z-[var(--z-controls)]"
+        class="absolute inset-0 w-full h-full pointer-events-none z-controls"
         aria-hidden="true"
     />
 </template>

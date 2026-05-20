@@ -26,3 +26,11 @@ defineProps<{
     gridClass?: string;
 }>();
 </script>
+
+<style scoped>
+/* CSS containment — isolates layout/paint scope for the card grid (D.W4 Lane A
+ * §4: colocated from styles/style.css). */
+.palette-card-grid {
+    contain: content;
+}
+</style>

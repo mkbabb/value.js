@@ -1,5 +1,5 @@
 <template>
-    <div class="pane-shell flex flex-col relative min-w-0 w-full max-w-md sm:max-w-lg lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-auto max-h-full">
+    <div class="pane-shell flex flex-col relative min-w-0 w-full max-w-md sm:max-w-lg lg:max-w-desktop-pane mx-auto h-auto max-h-full">
         <Card tier="resting" class="flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
 <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-3 sm:px-6 min-w-0 overflow-visible grid grid-cols-3 grid-rows-[auto_auto] gap-x-3 items-start">
                 <ColorSpaceSelector

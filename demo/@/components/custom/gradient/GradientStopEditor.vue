@@ -124,7 +124,7 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
                 class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring hover:scale-110 aria-disabled:opacity-50"
                 :class="[
                     selectedId === stop.id
-                        ? 'border-white ring-2 ring-primary z-[var(--z-popover)]'
+                        ? 'border-white ring-2 ring-primary z-popover'
                         : 'border-white/80 z-0'
                 ]"
                 :style="{

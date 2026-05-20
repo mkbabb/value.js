@@ -291,3 +291,43 @@ onUnmounted(() => {
     listenerCleanups = [];
 });
 </script>
+
+<style>
+/* Touch-gate cluster (D.W4 Lane A §4: colocated from styles/style.css).
+ *
+ * Outline-based activation indicator avoids conflict with hover shadows.
+ * The selectors target reka-ui's Slider markup classes (.slider-track,
+ * .slider-thumb) which are emitted across multiple slider host components
+ * (ComponentSliders, SpectrumCanvas, plus the ExtractControls/PointerDebug
+ * touch-gate-target uses) — the block is intentionally UNSCOPED so the
+ * cascade reaches consumers outside this SFC's data-v-* attribute scope.
+ *
+ * Cascade-preserving order: keep the four selectors in this sequence so
+ * `:has(.slider-track)` is anchored on `.touch-gate-target`, the active
+ * outline-color override follows the base, and the track/thumb cascades
+ * (which read `.touch-gate-active` not `.touch-gate-target.touch-gate-active`)
+ * are last. Source-order isomorphism with the pre-D.W4 style.css block. */
+.touch-gate-target {
+    outline: 3px solid transparent;
+    outline-offset: 1px;
+    transition: outline-color var(--duration-normal) var(--ease-standard);
+}
+.touch-gate-target:has(.slider-track) {
+    border-radius: var(--radius-pill);
+}
+.touch-gate-target.touch-gate-active {
+    outline-color: color-mix(in srgb, var(--foreground) 50%, transparent);
+}
+
+/* Slider track gets a foreground-colored border when gate is active */
+.touch-gate-active .slider-track {
+    box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--foreground) 50%, transparent);
+}
+
+/* Slider thumb: inverted fill when gate is active — dark knob in dark mode, light in light */
+.touch-gate-active .slider-thumb {
+    background-color: var(--background);
+    border-color: var(--foreground);
+}
+</style>
+

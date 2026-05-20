@@ -18,13 +18,13 @@
                 v-model="tagsApi.newName.value"
                 type="text"
                 placeholder="Tag name..."
-                class="h-7 flex-1 rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                class="h-7 flex-1 rounded-input border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
             <input
                 v-model="tagsApi.newCategory.value"
                 type="text"
                 placeholder="Category..."
-                class="h-7 w-28 rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                class="h-7 w-28 rounded-input border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
             <!-- W5-a11y: icon-only create tag button needs accessible name -->
             <Button

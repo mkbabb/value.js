@@ -85,12 +85,12 @@
                                     v-model="colorText"
                                     type="text"
                                     placeholder="#hex, hsl(...)"
-                                    class="h-7 w-full rounded-[var(--radius-input)] border border-input bg-background pl-2 pr-14 fira-code text-caption truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                                    class="h-7 w-full rounded-input border border-input bg-background pl-2 pr-14 fira-code text-caption truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                                     @keydown.enter="applyColorSearch"
                                 />
                                 <button
                                     :disabled="searching"
-                                    class="absolute right-0.5 top-0.5 h-6 px-2 rounded-[var(--radius-sm)] text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-[var(--duration-fast)] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
+                                    class="absolute right-0.5 top-0.5 h-6 px-2 rounded-sm text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-fast cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
                                     @click="applyColorSearch"
                                 >
                                     <Loader2 v-if="searching" class="h-3 w-3 animate-spin" />

@@ -3,7 +3,7 @@
         tier="wash"
         :shadow="false"
         :grain="false"
-        class="about-card pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+        class="about-card pane-scroll-fade w-full max-w-3xl lg:max-w-desktop-pane mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
     >
         <PaneHeader description="The math, the science, the art, the beauty of color spaces.">
             About the color spaces,

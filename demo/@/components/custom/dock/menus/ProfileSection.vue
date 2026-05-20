@@ -46,7 +46,7 @@ const { toggleDark } = useGlobalDark();
                         Profile
                     </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" class="min-w-[var(--menu-min-w)] font-display">
+                <DropdownMenuContent align="end" class="min-w-menu font-display">
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
                             class="slug-pill whitespace-nowrap"
@@ -99,7 +99,7 @@ const { toggleDark } = useGlobalDark();
                     @mbabb
                 </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" class="min-w-[var(--menu-min-w)] font-display">
+            <DropdownMenuContent align="end" class="min-w-menu font-display">
                 <div class="flex items-center gap-2 px-2 py-1.5">
                     <Avatar class="w-7 h-7">
                         <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />

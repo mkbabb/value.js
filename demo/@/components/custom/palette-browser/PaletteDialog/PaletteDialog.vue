@@ -281,6 +281,27 @@ defineExpose({
 </script>
 
 <style>
+/* Palette tab content — animated via reka-ui data-state (forceMount)
+ * (D.W4 Lane A §4: colocated from styles/style.css). The block must remain
+ * unscoped because reka-ui's Tabs primitive renders the data-state attribute
+ * on a generated descendant that scoped-attr selectors would not match. */
+.palette-tab-content {
+    transition: opacity var(--duration-normal) var(--ease-standard);
+}
+.palette-tab-content[data-state="inactive"] {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    overflow: hidden;
+    height: 0;
+    content-visibility: hidden;
+}
+.palette-tab-content[data-state="active"] {
+    opacity: 1;
+    position: relative;
+    height: auto;
+}
+
 /* INTENTIONAL: de-saturate(0.7) dims backdrop more aggressively than glass-ui's
    default saturate(1.05). Deliberate design choice for modal focus. */
 [data-state]:has(> .palette-dialog) {
@@ -317,8 +338,15 @@ defineExpose({
     animation-duration: var(--duration-slow);
 }
 
-/* Palette dialog close button — positioned below gradient bar */
-.palette-dialog button:has(> .lucide-x) {
+/* Palette dialog close button — positioned below gradient bar.
+ *
+ * D.W4 Lane A §3: previously reached the close button via `:has(> .lucide-x)`
+ * which couples to lucide-vue's class scheme. Replaced with `:has(> .sr-only)`
+ * which targets via the universal Tailwind a11y-text class the glass-ui
+ * DialogClose template emits as the accessible-name span. The new selector
+ * still scopes to the close button (the only `.palette-dialog` button with
+ * an `.sr-only` child) and survives icon-library swaps. */
+.palette-dialog > button:has(> .sr-only) {
     color: var(--color-muted-foreground);
     top: 2rem;
     right: 0.75rem;
@@ -327,11 +355,11 @@ defineExpose({
     opacity: 0.6;
     transition: opacity var(--duration-fast) var(--ease-standard);
 }
-.palette-dialog button:has(> .lucide-x):hover {
+.palette-dialog > button:has(> .sr-only):hover {
     background-color: var(--color-secondary);
     opacity: 1;
 }
-.palette-dialog button:has(> .lucide-x) .lucide-x {
+.palette-dialog > button:has(> .sr-only) > svg {
     width: 1rem;
     height: 1rem;
     stroke-width: 2;

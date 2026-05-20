@@ -119,7 +119,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <!-- Hero: Gradient preview (decorative visual) + stop editor -->
         <!-- W5-a11y: preview swatch is decorative -->
         <div
-            class="h-20 sm:h-24 rounded-card border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]"
+            class="h-20 sm:h-24 rounded-card border border-border bg-card overflow-hidden shadow-card"
             :style="{ background: coalescedCSS }"
             aria-hidden="true"
             role="presentation"

@@ -1,15 +1,15 @@
 <template>
     <Transition
-        enter-active-class="transition-all duration-[var(--duration-fast)] ease-[var(--ease-decelerate)]"
+        enter-active-class="transition-all duration-fast ease-decelerate"
         enter-from-class="translate-y-2 opacity-0"
         enter-to-class="translate-y-0 opacity-100"
-        leave-active-class="transition-all duration-[var(--duration-instant)] ease-[var(--ease-accelerate)]"
+        leave-active-class="transition-all duration-instant ease-accelerate"
         leave-from-class="translate-y-0 opacity-100"
         leave-to-class="translate-y-2 opacity-0"
     >
         <div
             v-if="count > 0"
-            class="glass-floating sticky bottom-2 z-[var(--z-popover)] mx-auto flex w-fit items-center gap-2 rounded-panel px-4 py-2"
+            class="glass-floating sticky bottom-2 z-popover mx-auto flex w-fit items-center gap-2 rounded-panel px-4 py-2"
         >
             <span class="text-caption font-medium tabular-nums">
                 {{ count }} selected

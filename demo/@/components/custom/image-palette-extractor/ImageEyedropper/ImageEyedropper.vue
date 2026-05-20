@@ -1,6 +1,6 @@
 <template>
     <Transition name="eyedropper-fade" @after-enter="onTransitionEnd">
-        <div class="absolute inset-0 z-[var(--z-popover)] flex flex-col bg-card/75 backdrop-blur-sm rounded-panel overflow-hidden">
+        <div class="absolute inset-0 z-popover flex flex-col bg-card/75 backdrop-blur-sm rounded-panel overflow-hidden">
             <!-- Top bar -->
             <div class="flex items-center gap-2 px-3 py-2 shrink-0" :style="{ '--hover-color': sampledColor ?? '' }">
                 <DockIconButton class="eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">

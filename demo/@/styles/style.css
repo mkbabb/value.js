@@ -10,6 +10,19 @@
 
     --color-gold: #D4AF37;
     --color-gold-light: #F5E6A3;
+
+    /* ── Demo-local layout token bridges (D.W4 Lane A) ──
+     * Surface the demo's :root layout tokens as Tailwind utility keys so
+     * consumers write `max-w-desktop-pane`, `min-w-menu`, `top-dock-inset`
+     * instead of `max-w-[var(--desktop-pane-max-w)]` etc.
+     * Glass-ui already bridges --z-index-*, --transition-duration-*, --radius-*,
+     * --shadow-card, --ease-* (see node_modules/@mkbabb/glass-ui … theme.css).
+     * These four bridges are the demo-local additions. */
+    --max-width-desktop-pane: var(--desktop-pane-max-w);
+    --max-width-tooltip:      12.5rem;
+    --min-width-menu:         var(--menu-min-w);
+    --spacing-dock-inset:     var(--dock-inset);
+    --shadow-card-hover:      var(--shadow-cartoon-hover);
 }
 
 /* Project tokens (layout, surfaces).
@@ -64,6 +77,12 @@
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
     --menu-min-w: 11rem;
+
+    /* App-shell horizontal padding (D.W4 Lane A §4.1 / §5.3 drift) — was a
+     * silent 1rem literal coupled between .app-layout's `padding: … 1rem …`
+     * and .pane-container's `max-width: calc(… + 2rem)`. Both now read this
+     * token so the coupling is explicit and survives a future tightening. */
+    --app-padding-x: 1rem;
 }
 
 /* Desktop: tighter dock margins */
@@ -82,14 +101,8 @@
     }
 }
 
-/* ── CSS containment — isolate layout/paint for performance ── */
-.palette-card-grid {
-    contain: content;
-}
-
-.palette-tab-content[data-state="inactive"] {
-    content-visibility: hidden;
-}
+/* D.W4 Lane A: .palette-card-grid + .palette-tab-content[data-state="inactive"]
+ * containment hints colocated into PaletteCardGrid.vue + PaletteDialog.vue. */
 
 /* ── App layout ──
  * Flex column: padding-top reserves the fixed dock's band (--dock-total),
@@ -102,7 +115,7 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    padding: var(--dock-total) 1rem 0.5rem;
+    padding: var(--dock-total) var(--app-padding-x) 0.5rem;
 }
 
 /* The a11y landmarks are the flex children of .app-layout. <nav> wraps the
@@ -121,7 +134,9 @@
     grid-template-columns: 1fr;
     gap: 1rem;
     width: 100%;
-    max-width: calc(var(--desktop-pane-max-w) * 2 + var(--desktop-pane-gap) + 2rem);
+    /* The `* 2` on --app-padding-x accommodates .app-layout's horizontal
+     * padding on both sides; coupling is now explicit (D.W4 Lane A §5.3). */
+    max-width: calc(var(--desktop-pane-max-w) * 2 + var(--desktop-pane-gap) + var(--app-padding-x) * 2);
     margin: 0 auto;
     position: relative;
     max-height: var(--content-max-h);
@@ -162,54 +177,10 @@
     border-radius: 0;
 }
 
-/* Palette tab content — animated via reka-ui data-state (forceMount) */
-.palette-tab-content {
-    transition: opacity var(--duration-normal) var(--ease-standard);
-}
-.palette-tab-content[data-state="inactive"] {
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    overflow: hidden;
-    height: 0;
-}
-.palette-tab-content[data-state="active"] {
-    opacity: 1;
-    position: relative;
-    height: auto;
-}
-
-/* Touch gate — outline-based activation indicator (no conflict with hover shadows) */
-.touch-gate-target {
-    outline: 3px solid transparent;
-    outline-offset: 1px;
-    transition: outline-color var(--duration-normal) var(--ease-standard);
-}
-.touch-gate-target:has(.slider-track) {
-    border-radius: var(--radius-pill);
-}
-.touch-gate-target.touch-gate-active {
-    outline-color: color-mix(in srgb, var(--foreground) 50%, transparent);
-}
-
-/* Slider track gets a foreground-colored border when gate is active */
-.touch-gate-active .slider-track {
-    box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--foreground) 50%, transparent);
-}
-
-/* Slider thumb: inverted fill when gate is active — dark knob in dark mode, light in light */
-.touch-gate-active .slider-thumb {
-    background-color: var(--background);
-    border-color: var(--foreground);
-}
-
-/* Pane scroll host — `contain` isolates layout/paint; the named scroll-timeline
- * keeps PaneHeader animations responding to THIS container's scroll only, not
- * portal-triggered layout shifts in ancestor containers. */
-.pane-scroll-fade {
-    contain: layout style paint;
-    scroll-timeline: --pane-scroll block;
-}
+/* D.W4 Lane A: .palette-tab-content (data-state cascade) colocated into
+ * PaletteDialog.vue's unscoped <style>; .touch-gate-* cluster colocated into
+ * ComponentSliders.vue's unscoped <style>; .pane-scroll-fade colocated into
+ * PaneHeader.vue's unscoped <style> (alongside the --pane-scroll consumers). */
 
 /* Slug pill — the user/palette slug chip recipe, shared across the dock menus,
  * the admin users panel, and the slug bar (was copy-pasted at 5+ sites).

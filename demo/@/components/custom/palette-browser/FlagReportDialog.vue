@@ -25,7 +25,7 @@
                 <textarea
                     v-model="detail"
                     placeholder="Additional details (optional)..."
-                    class="h-20 rounded-[var(--radius-input)] border border-input bg-background px-3 py-2 text-small resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                    class="h-20 rounded-input border border-input bg-background px-3 py-2 text-small resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                     maxlength="500"
                 />
             </div>
