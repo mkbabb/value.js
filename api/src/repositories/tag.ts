@@ -1,0 +1,27 @@
+/**
+ * TagRepository — owns query/write ops for the `tags` collection.
+ */
+
+import type { Collection, ObjectId, WithoutId } from "mongodb";
+import type { Tag } from "../models.js";
+
+export class TagRepository {
+    constructor(private readonly col: Collection<Tag>) {}
+
+    findAllSorted(): Promise<Tag[]> {
+        return this.col.find().sort({ name: 1 }).toArray();
+    }
+
+    findByName(name: string): Promise<Tag | null> {
+        return this.col.findOne({ name });
+    }
+
+    async insert(tag: WithoutId<Tag>): Promise<ObjectId> {
+        const result = await this.col.insertOne(tag as Tag);
+        return result.insertedId;
+    }
+
+    deleteByName(name: string): Promise<number> {
+        return this.col.deleteOne({ name }).then((r) => r.deletedCount);
+    }
+}

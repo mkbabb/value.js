@@ -7,6 +7,8 @@ import "dotenv/config";
 import type { AppEnv } from "./types.js";
 import { getDb } from "./db.js";
 import { corsHeaders, rateLimit, resolveSession, sanitizeBody } from "./middleware.js";
+import { injectServices } from "./middleware/inject-services.js";
+import { toResponseEnvelope } from "./errors/index.js";
 import { cleanup } from "./cron.js";
 import palettes from "./routes/palettes.js";
 import sessions from "./routes/sessions.js";
@@ -46,6 +48,10 @@ app.use("*", rateLimit);
 // MongoDB operator injection guard
 app.use("*", sanitizeBody);
 
+// DI: hang typed `services` off c.var (D.W2 Lane C — D-HARDEN-3 §2.2).
+// Must run BEFORE resolveSession so the latter (when migrated) can use repositories.
+app.use("*", injectServices);
+
 // Session resolution
 app.use("*", resolveSession);
 
@@ -62,10 +68,14 @@ app.get("/", (c) => c.json({ status: "ok", service: "palette-api" }));
 // 404 fallback
 app.notFound((c) => c.json({ error: "Not found" }, 404));
 
-// Global error handler
+// Global error handler — maps ApiError subclasses to the canonical envelope
+// (D.W2 Lane C #3); unrecognised throws become 500/"internal" with operator logs.
 app.onError((err, c) => {
-    console.error(err);
-    return c.json({ error: "Internal server error" }, 500);
+    const { status, body } = toResponseEnvelope(err);
+    if (status >= 500) {
+        console.error("[api] unhandled error", err);
+    }
+    return c.json(body, status);
 });
 
 // --- Start ---
