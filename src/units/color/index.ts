@@ -23,6 +23,20 @@ declare const __ColorChannel: unique symbol;
 export type ColorChannel<T = number> = T & { readonly [__ColorChannel]: true };
 
 /**
+ * Brand-erasing identity helper. Casts a plain `T` value to `ColorChannel<T>`
+ * at write sites that compute channels from arithmetic / interpolation. The
+ * `ColorChannel<T>` brand on declared fields requires an explicit cast on
+ * assignment — this helper makes the intent clear and keeps the line short.
+ *
+ * Zero runtime cost (identity function; inlined by V8).
+ *
+ * E.W1 Lane E — lifted from per-file duplicates in `utils.ts` + `contrast.ts`
+ * to live alongside the `ColorChannel<T>` brand declaration. Internal-only:
+ * NOT re-exported from `src/index.ts`.
+ */
+export const ch = <T>(v: T): ColorChannel<T> => v as ColorChannel<T>;
+
+/**
  * Abstract base class for all CSS color spaces.
  *
  * Generic over component type `T` — `number` for math operations,

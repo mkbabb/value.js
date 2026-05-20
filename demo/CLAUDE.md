@@ -2,7 +2,7 @@
 
 Vue 3.5 color picker app. Serves as the live demo at [color.babb.dev](https://color.babb.dev).
 
-Design idioms catalog: see `demo/DESIGN.md` (the 133-line authoritative catalog landed at D.W4 Lane B — Token architecture, Type scale, Surfaces, Shadows, Radii, Motion, Z-tier, Color, Layout, Idioms NOT used, with cross-references to glass-ui's DESIGN.md and concrete `style.css` line ranges).
+Design idioms catalog: see `demo/DESIGN.md` (the authoritative catalog landed at D.W4 Lane B — Token architecture, Type scale, Surfaces, Shadows, Radii, Motion, Z-tier, Color, Layout, Idioms NOT used, with cross-references to glass-ui's DESIGN.md and concrete `style.css` line ranges).
 
 ## Structure
 
@@ -13,7 +13,7 @@ demo/
 │   ├── index.html            # Vite entry
 │   ├── vite.d.ts             # .vue + .md module declarations
 │   └── public/CNAME          # GitHub Pages domain
-├── DESIGN.md                 # design-idiom catalog (D.W4 Lane B, 133 lines, 10 sections)
+├── DESIGN.md                 # design-idiom catalog (D.W4 Lane B; 10 sections)
 ├── @/
 │   ├── components/
 │   │   ├── custom/           # maintained components — see subtrees below
@@ -49,7 +49,7 @@ Organised into `controls/`, `display/`, `editing/`, `visual/`, `composables/` su
 
 | Component / Subdir | Purpose |
 |---|---|
-| `PaletteDialog/` | **13-file colocated dir** (D.W3 Lane A; was 652-LoC god module). Contains `PaletteDialog.vue` (340 LoC shell) + `components/` (6 SFCs: `PaletteAdminTabs`, `PaletteBrowseTab`, `PaletteControlsBar`, `PaletteDialogHeader`, `PaletteSavedTab`, `DeleteAllConfirm`) + `composables/` (5 composables: `usePaletteDialogState` with type-level enforcement assertion, `useDialogBrowseActions`, `useDialogModalStack`, `useDialogOverlayGuards`, `usePaletteExport`) + `constants.ts` |
+| `PaletteDialog/` | **Colocated dir** (D.W3 Lane A; was a single ~650-LoC god module pre-split). Contains `PaletteDialog.vue` shell + `components/` (6 SFCs: `PaletteAdminTabs`, `PaletteBrowseTab`, `PaletteControlsBar`, `PaletteDialogHeader`, `PaletteSavedTab`, `DeleteAllConfirm`) + `composables/` (5 composables: `usePaletteDialogState` with type-level enforcement assertion, `useDialogBrowseActions`, `useDialogModalStack`, `useDialogOverlayGuards`, `usePaletteExport`) + `constants.ts` |
 | `PaletteCard.vue` + `PaletteCardGrid.vue` + `PaletteCardMenu.vue` + `PaletteCardSkeleton.vue` + `PaletteColorStrip.vue` | palette display tiles |
 | `CurrentPaletteEditor.vue` | swatch grid, add/save/duplicate |
 | `AdminPanel.vue` + `AdminNamesPanel.vue` + `AdminUsersPanel.vue` + `AdminFlaggedPanel.vue` + `AdminTagsPanel.vue` + `AdminAuditPanel.vue` + `AdminColorQueue.vue` + `AdminAuthGate.vue` + `AdminPaletteOps.vue` + `AdminListItem.vue` | admin panel components — consume `pm.audit`/`pm.flagged`/`pm.tags` sub-objects of the palette-manager facade |
@@ -65,7 +65,7 @@ Organised into `controls/`, `display/`, `editing/`, `visual/`, `composables/` su
 | File | Purpose |
 |---|---|
 | `ImagePaletteExtractor.vue` | shell |
-| `ImageEyedropper/` | **4-file colocated split** (D.W3 Lane A; was 399-LoC) |
+| `ImageEyedropper/` | **Colocated split** (D.W3 Lane A; was a single ~400-LoC component pre-split) |
 | `ExtractControls.vue`, `ImageDropZone.vue` | controls |
 | `composables/` | extraction helpers |
 
@@ -128,7 +128,7 @@ Organised by domain (Mar-2026 restructure) plus root utilities + the D.W3 Lane D
 | File | Purpose |
 |---|---|
 | `viewSchema.ts` | **canonical `ViewId`, `LeftPane`, `RightPane`, `PaneConfig`, `VIEW_MAP`, `isViewId` predicate** (D.W3 Lane D) — pure data + types |
-| `useViewManager.ts` | view router (237→79 LoC at D.W3 Lane D; re-exports types from viewSchema for source-compat) |
+| `useViewManager.ts` | view router (slimmed at D.W3 Lane D; re-exports types from viewSchema for source-compat) |
 | `usePaneRouter.ts` | the pane source-of-truth (B.W2) — single registry for both desktop + mobile slots |
 | `useFilteredList.ts` | filtered-list helpers |
 | `useSafeStorage.ts` | safe localStorage/sessionStorage (Safari private mode) |
@@ -159,9 +159,9 @@ Color state: `shallowRef<ColorModel>` + localStorage + URL hash params (bidirect
 
 ## Tailwind v4 token-bridge surface (D.W4 Lane A)
 
-51 arbitrary `[var(--…)]` callsites → 0. The fix surface:
+Arbitrary `[var(--…)]` callsites → 0. The fix surface:
 - **5 NEW `@theme` bridge declarations** in `style.css`: `max-w-desktop-pane`, `min-w-menu`, `top-dock-inset`, `max-w-tooltip`, `shadow-card-hover`.
-- 48 callsites resolved through glass-ui's existing bridges.
+- Remaining callsites resolved through glass-ui's existing bridges.
 - NEW `--app-padding-x: 1rem` token breaks the silent `.app-layout` padding ↔ `.pane-container` max-width coupling.
 
 4 style.css blocks were colocated at D.W4 Lane A:
@@ -170,14 +170,12 @@ Color state: `shallowRef<ColorModel>` + localStorage + URL hash params (bidirect
 - `.touch-gate-*` → `ComponentSliders.vue` (unscoped)
 - `.pane-scroll-fade` → `PaneHeader.vue` (unscoped)
 
-`style.css` line ranges shrank 230 → 201 lines net after the 5 @theme additions + `--app-padding-x` token + colocation comments.
-
 ## Conventions
 
-- shadcn-vue components in `ui/` are generated — don't hand-edit (D.W6 carries the ~126-typecheck cluster as a generator-update successor effort).
+- shadcn-vue components in `ui/` are generated — don't hand-edit (D.W6 carries the typecheck cluster as a generator-update successor effort).
 - Custom components live in `custom/` subtrees and are maintained manually.
 - `--reka-*` CSS variables (migrated from `--radix-*`).
-- **Vue 3.5 idioms** — reactive props destructure (D.W3 Lane C codemodded 32 SFCs; final `const props = defineProps<` count: 0); `useTemplateRef` for template refs (8 migrations across 7 SFCs); `withDefaults` + `toRef(() => x)` for hand-conversion sites (`GooBlob.vue`, `ImageEyedropper.vue`).
+- **Vue 3.5 idioms** — reactive props destructure (D.W3 Lane C codemodded the SFC tree; final `const props = defineProps<` count: 0); `useTemplateRef` for template refs (migrated across the custom tree); `withDefaults` + `toRef(() => x)` for hand-conversion sites (`GooBlob.vue`, `ImageEyedropper.vue`).
 - **Facade-sub-object** pattern for cross-cutting state: `pm.audit`/`pm.flagged`/`pm.tags`/`pm.versions`/`pm.tagEdit` instead of flat methods on a 50+-member object.
 - **Injection-key** pattern over prop-drilling for shared color state (`CSS_COLOR_KEY`, `EDIT_TARGET_KEY`, `POINTER_DEBUG_KEY`, `BLOB_CONFIG_KEY`).
 - **viewSchema.ts** is the canonical `ViewId` source — `useViewManager.ts` + `usePaneRouter.ts` + `PaletteDialog/composables/usePaletteDialogState.ts` all consume from it.

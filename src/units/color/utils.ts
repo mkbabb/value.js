@@ -2,6 +2,7 @@ import type { Vec3, Mat3 } from "./matrix";
 import { transformMat3, invertMat3 } from "./matrix";
 import {
     AdobeRGBColor,
+    ch,
     Color,
     DisplayP3Color,
     HSLColor,
@@ -18,17 +19,7 @@ import {
     Rec2020Color,
     XYZColor,
 } from ".";
-import type { ColorChannel, ColorSpaceMap } from ".";
-
-/**
- * Brand-erasing identity helper. Casts a plain `T` value to `ColorChannel<T>`
- * at write sites that compute channels from arithmetic / interpolation. The
- * `ColorChannel<T>` brand on declared fields requires an explicit cast on
- * assignment — this helper makes the intent clear and keeps the line short.
- *
- * Zero runtime cost (identity function; inlined by V8).
- */
-const ch = <T>(v: T): ColorChannel<T> => v as ColorChannel<T>;
+import type { ColorSpaceMap } from ".";
 import { clamp, lerp, scale } from "../../math";
 import {
     COLOR_SPACE_DENORM_UNITS,

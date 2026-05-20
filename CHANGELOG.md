@@ -37,7 +37,9 @@
 
 ### INTERNAL
 
-- (Final E.W1 lane will append: type-tidy + CLAUDE.md drift.)
+- **Type-tidy** (`src/units/normalize.ts` + `src/units/utils.ts`). 7 `as any` suppressions removed (2 in `normalize.ts` + 5 in `utils.ts`'s `getUnitGroup` chain, refactored as a table-driven sentinel-narrowing dispatch). Zero new suppressions introduced. (E.W1 Lane E)
+- **`ch<T>` brand-eraser consolidated to `src/units/color/index.ts`** (alongside the `ColorChannel<T>` phantom brand). Pre-v0.7.0 the helper lived in two places — `utils.ts` AND `contrast.ts` — a D.W1 Lane L8 residual. Post-v0.7.0 there is exactly one canonical export; 2 consumers updated. (E.W1 Lane E)
+- **CLAUDE.md drift-footgun cleanup** — 5 CLAUDE.md files (root + `src/units/` + `src/units/color/` + `src/parsing/` + `demo/`) had stale inline LoC counts that drifted across D + E waves. All inline counts STRIPPED with a `> LoC counts intentionally omitted — wc -l is the source of truth.` note. Missing file entries added (6 new entries across `src/units/color/` + `src/parsing/` for `contrast.ts`, `mix.ts`, `animation-shorthand.ts`, `extract.ts`, `serialize.ts`, `stylesheet.ts`). Root CLAUDE.md's test/spec counts downgraded to ranges. Prevents re-drift across future tranches. (E.W1 Lane E)
 
 ## v0.6.0 — 2026-05-20
 

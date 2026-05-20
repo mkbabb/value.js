@@ -393,12 +393,30 @@ const conversionFunctions: Record<string, ConversionFunction> = {
     resolution: convertToDPI as ConversionFunction,
 };
 
-function getUnitGroup(unit: (typeof UNITS)[number]): [any, string] | null {
-    if (LENGTH_UNITS.includes(unit as any)) return [LENGTH_UNITS, "length"];
-    if (TIME_UNITS.includes(unit as any)) return [TIME_UNITS, "time"];
-    if (ANGLE_UNITS.includes(unit as any)) return [ANGLE_UNITS, "angle"];
-    if (FREQUENCY_UNITS.includes(unit as any)) return [FREQUENCY_UNITS, "frequency"];
-    if (RESOLUTION_UNITS.includes(unit as any)) return [RESOLUTION_UNITS, "resolution"];
+type UnitGroupName = "length" | "time" | "angle" | "frequency" | "resolution";
+
+// Widen the readonly tuple types once at the table — the runtime check is
+// `.includes(string)`, which TS would otherwise reject because the tuples are
+// declared `as const`. Widening at the table site preserves type safety at
+// every other use of the unit-tuple constants.
+const UNIT_GROUPS: ReadonlyArray<readonly [readonly string[], UnitGroupName]> = [
+    [LENGTH_UNITS, "length"],
+    [TIME_UNITS, "time"],
+    [ANGLE_UNITS, "angle"],
+    [FREQUENCY_UNITS, "frequency"],
+    [RESOLUTION_UNITS, "resolution"],
+];
+
+function getUnitGroup(
+    unit: (typeof UNITS)[number],
+): readonly [readonly string[], UnitGroupName] | null {
+    // UNITS includes `undefined` + `""` as sentinels; the unit-group tables
+    // contain only non-empty strings, so an early bail-out narrows the type
+    // for `.includes()` and dodges 5 redundant lookups for the sentinels.
+    if (typeof unit !== "string" || unit === "") return null;
+    for (const group of UNIT_GROUPS) {
+        if (group[0].includes(unit)) return group;
+    }
     return null;
 }
 
