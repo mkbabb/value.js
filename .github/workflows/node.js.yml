@@ -21,7 +21,7 @@ jobs:
             - run: npm run lint
             - run: npx vitest run
             - run: npx playwright install --with-deps chromium
-            - run: npx playwright test --project=smoke
+            - run: npx playwright test --project=smoke --project=smoke-admin --project=smoke-mobile
 
     deploy:
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'

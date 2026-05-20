@@ -1,4 +1,4 @@
-import { adminTest as test, expect } from "./admin/fixtures/admin-auth";
+import { adminTest as test, expect } from "./fixtures/admin-auth";
 
 /**
  * D.W5 Lane B — admin-walk smoke spec.
