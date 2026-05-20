@@ -44,21 +44,33 @@ const defaultOptions = {
 // `resolve.conditions` widening is struck — Vite's defaults (`module`,
 // `browser`, `default`) resolve the published surface in every demo mode.
 //
-// `server.fs.allow` widening: narrowly retained as an explicit transient.
-// glass-ui's `./styles` subpath (`./src/styles/index.css`) violates the
-// contract-v2 §2.1 keystone ("no subpath advertises anything but a `dist/`
-// artefact") because it ships Tailwind-source CSS that the consumer's
-// Tailwind compiler processes — Tailwind-source is structurally `src/` and
-// cannot be pre-compiled into `dist/` without losing its semantics. The
-// precept's §5 migration map names glass-ui's 41-subpath cleanup as
-// outstanding work in the AG fleet; the AG glass-ui-core wave at `ce5aad8`
-// landed the root `exports["."]` advance only. Until that subpath migration
-// completes (or glass-ui changes its Tailwind-source distribution model —
-// see `docs/tranches/D/coordination/Q.md §3`), the demo must `@import
-// "@mkbabb/glass-ui/styles"` and Vite must serve the `src/`-relative font
-// assets (`url("../fonts/fira-code/…woff2")`) from glass-ui's parent
-// directory. This widening is the consumer-side reciprocal of the
-// publisher-side gap; it is filed and time-boxed, not silent.
+// `server.fs.allow` widening: NARROWED at E.W0 Lane A (post-glass-ui-9275584
+// `./styles.css` adoption) — see `docs/tranches/E/audit/E.W0-lane-a-styles-
+// adoption.md`. Glass-ui now ships TWO orthogonal style surfaces:
+//
+//   `./styles`     — Tailwind-source (src/styles/index.css): tokens,
+//                    typography (@font-face + url("../fonts/...woff2")),
+//                    theme.css @theme aliases, utilities, @source directive.
+//                    Consumer's Tailwind compiler processes this; structurally
+//                    `src/`, cannot be pre-compiled without losing semantics.
+//   `./styles.css` — SFC-scoped compiled (dist/glass-ui.css): data-v-* scoped
+//                    component CSS. Zero @font-face, zero url() refs.
+//
+// The compiled `./styles.css` surface ABSORBS the SFC-scoped contract-v2
+// component-CSS gap, but the Tailwind-source `./styles` surface still ships
+// `@font-face` declarations whose `url("../fonts/fira-code/...woff2")` refs
+// are resolved RELATIVE to `node_modules/@mkbabb/glass-ui/src/styles/` — i.e.
+// they walk OUT of the symlinked package into glass-ui's repo-root `fonts/`
+// directory. That walk is the residual reason `server.fs.allow` must reach
+// glass-ui's parent (`path.resolve(__dirname, "..")`). The widening is now
+// the consumer-side reciprocal of a NARROWED publisher-side gap — only
+// font-asset resolution remains; the SFC-scoped component-CSS half is
+// closed. Retiring this entirely requires either (a) glass-ui inlining the
+// font binaries as base64 data URLs in `dist/glass-ui.css` and exporting the
+// `@font-face` declarations through the compiled surface, or (b) the demo
+// dropping the Tailwind-source `./styles` import entirely (which would
+// forfeit the design-system tokens + Tailwind `@source` class-scanning).
+// Neither is appropriate scope for tranche E; filed as a successor concern.
 const siblingFsAllowTransient = [path.resolve(import.meta.dirname, "..")];
 
 const defaultPlugins = [

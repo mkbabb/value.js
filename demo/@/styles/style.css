@@ -1,6 +1,27 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+/*
+ * Glass-ui imports the two orthogonal distribution surfaces glass-ui ships
+ * (post-9275584 — E.W0 Lane A adoption, closes contract-v2 §2.1 keystone gap):
+ *
+ *   `./styles`     — Tailwind-source surface (src/styles/index.css):
+ *                    tokens.css, typography.css (@font-face + url("../fonts/…")),
+ *                    theme.css (@theme aliases), glass/paper/dock/cards/...
+ *                    utilities, and `@source "../components"` for Tailwind's
+ *                    class-scanning over glass-ui's component tree. This path
+ *                    MUST be processed by the consumer's Tailwind compiler
+ *                    (its semantics depend on Tailwind v4 `@theme` + `@source`).
+ *
+ *   `./styles.css` — Compiled SFC-scoped surface (dist/glass-ui.css):
+ *                    Vue <style scoped> output (data-v-* attribute selectors)
+ *                    for glass-ui's components. Pre-compiled; consumed as-is.
+ *
+ * The two are complementary, not substitutes: the Tailwind-source path carries
+ * design-system tokens + font-face + utilities; the compiled path carries
+ * SFC-scoped component CSS. Both are needed for a faithful glass-ui render.
+ */
 @import "@mkbabb/glass-ui/styles";
+@import "@mkbabb/glass-ui/styles.css";
 @import "./animations.css";
 
 @theme {
