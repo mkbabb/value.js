@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { setupEnvNoise } from "../fixtures/env-noise";
 
 /**
  * Smoke (D.W5 Lane A): the Palettes view renders its SearchBar + heading.
@@ -7,20 +8,7 @@ import { test, expect } from "@playwright/test";
 test("palettes view renders SearchBar + heading with zero console errors", async ({
     page,
 }) => {
-    const consoleErrors: string[] = [];
-    // Environmental noise filter: HTTP 4xx/5xx from the shared production
-    // palette API surface under parallel-worker load (parallel runs hit
-    // the live server's rate limit). Those are network conditions, not
-    // value.js code paths — discard them at capture time.
-    const isEnvNoise = (text: string) =>
-        /\b(429|503|504)\b|Too Many Requests|Failed to load resource/i.test(text);
-    page.on("console", (msg) => {
-        if (msg.type() === "error" && !isEnvNoise(msg.text()))
-            consoleErrors.push(msg.text());
-    });
-    page.on("pageerror", (err) => {
-        if (!isEnvNoise(err.message)) consoleErrors.push(err.message);
-    });
+    const consoleErrors = setupEnvNoise(page);
 
     await page.goto("/");
 

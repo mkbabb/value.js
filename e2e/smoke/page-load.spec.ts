@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { setupEnvNoise } from "./fixtures/env-noise";
 
 /**
  * Smoke: the app shell mounts cleanly.
@@ -11,19 +12,10 @@ import { test, expect } from "@playwright/test";
  * the visible "Select view" combobox it contains.
  */
 test("page loads with shell landmarks and zero console errors", async ({ page }) => {
-    const consoleErrors: string[] = [];
-    // Environmental noise filter (D.W5 Lane A): HTTP 4xx/5xx from the
-    // shared production palette API surface under parallel-worker load.
-    // Network conditions, not value.js code paths — discard at capture.
-    const isEnvNoise = (text: string) =>
-        /\b(429|503|504)\b|Too Many Requests|Failed to load resource/i.test(text);
-    page.on("console", (msg) => {
-        if (msg.type() === "error" && !isEnvNoise(msg.text()))
-            consoleErrors.push(msg.text());
-    });
-    page.on("pageerror", (err) => {
-        if (!isEnvNoise(err.message)) consoleErrors.push(err.message);
-    });
+    // Env-noise filter (D.W5 Lane A; consolidated at E.W3 Lane C):
+    // discards HTTP 4xx/5xx from the shared production palette API
+    // surface under parallel-worker load.
+    const consoleErrors = setupEnvNoise(page);
 
     await page.goto("/");
 
