@@ -5,7 +5,7 @@
 **This repo**: value.js, tranche D, branch `tranche-b` (D opens off B.W4 close).
 **Peer repo (glass-ui)**: tranche Q **CLOSED** at `4b16de7` (v1.9.2; W0–W6); post-Q ship **contract-v2** at `ce5aad8` (v1.9.3). HEAD at D open: `e2e5303` (a Safari post-paint fix).
 **Peer repo (keyframes.js)**: v2.1.1 / HEAD `0909177` — code-side contract-v2 OK.
-**Shared submodule**: `docs/precepts` — value.js currently pinned at `3c32fae`; **fleet HEAD `68d9b20`** (the contract-v2 codification SHA, per `research/Dh-contract-v2.md §1`). **D.W0 advances value.js's pin to `68d9b20`** — see §6.
+**Shared submodule**: `docs/precepts` — value.js pinned at `68d9b20` (post-D.W0 Lane 0; was `3c32fae` at B.W4 close); **fleet HEAD `68d9b20`** (the contract-v2 codification SHA, per `research/Dh-contract-v2.md §1`). **D.W0 Lane 0 has landed the advance `3c32fae → 68d9b20`** — see §6.
 
 ## §1 — Inheritance from B↔Q coordination
 
@@ -30,7 +30,7 @@ Inherits B's `§3` row set, **refreshes the metaballs row to 7 additions** (per 
 | Gap | Evidence | Status | Wave (consumes) |
 |---|---|---|---|
 | **metaballs API additions (7)** — `positionSource` hook (G1), pointer input (G2), per-blob opacity (G3), HSV color perturbation (G4), context-loss recovery (G5), `MetaballCanvas mode="layout"` (G6, newly filed), `pauseOnHidden` (G7, newly filed) | `research/Dd-blob.md §3-4`; signature sketch in §4 of that doc | **STANDS — surface sharpened (7 items, was "5 + perturbation+context-loss")** | a value.js demo-abstraction tranche post-glass-ui-ship |
-| **Aurora `deriveAuroraPalette(baseColor, opts)`** + `deriveAuroraConfig(baseColor, opts)` | `research/Dc-aurora.md §3` (~55 line algorithm sketch — two-cohort partition + 5-harmony hue gen + L-envelope; preserved from the older glass-ui `637955b` algorithm); §6 ships pseudocode. **D-HARDEN-5 §6 clarification**: the grayscale C=0 input case must collapse to a single-cohort lightness-only ramp (no hue generation when chroma is zero) — 1-line addition to the algorithm; recorded in `Dc-aurora.md §3.2`. | **STANDS — surface sharpened (algorithm + atmosphere-preset bundling + grayscale carve)** | glass-ui successor; a value.js demo-abstraction tranche post-ship |
+| **Aurora `deriveAuroraPalette(baseColor, opts)`** + `deriveAuroraConfig(baseColor, opts)` | `research/Dc-aurora.md §3` (~55 line algorithm sketch — two-cohort partition + 5-harmony hue gen + L-envelope; preserved from the older glass-ui `637955b` algorithm); §6 ships pseudocode. **D-HARDEN-5 §5 clarification**: the grayscale C=0 input case must collapse to a single-cohort lightness-only ramp (no hue generation when chroma is zero) — 1-line addition to the algorithm; recorded in `Dc-aurora.md §3.2`. | **STANDS — surface sharpened (algorithm + atmosphere-preset bundling + grayscale carve)** | glass-ui successor; a value.js demo-abstraction tranche post-ship |
 | `BlobDot` organic-dot primitive | `research/Dd-blob.md §6`; 11 `WatercolorDot` consumers (16 instance sites — corrected from "11") | STANDS | glass-ui successor; value.js extirpation tranche post-ship |
 | `SelectTrigger size` prop | unchanged from B `§3` | STANDS | B does not retire; demo markers stay |
 | `DockSelectTrigger clampLabel` | unchanged | STANDS | as above |
