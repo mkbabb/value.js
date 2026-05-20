@@ -31,13 +31,18 @@ forksRouter.post("/:slug/fork", async (c) => {
         throw new AuthenticationError();
     }
 
-    // F-W2 fix is in Lane D; for now we keep parity with the original surface
-    // (the fork body is optional, all fields are optional).
-    let raw: unknown;
-    try {
-        raw = await c.req.json();
-    } catch {
-        raw = {};
+    // F-W2 fix (Lane D): the fork body is optional (`POST /:slug/fork` with
+    // no body is valid → all parsed.data fields undefined → server-generated
+    // slug + inherited name). Distinguish empty body (Content-Length: 0 →
+    // hono's `c.req.json()` throws `SyntaxError`) from MALFORMED JSON
+    // (non-empty body that fails to parse → explicit 400).
+    let raw: unknown = {};
+    const contentLength = c.req.header("Content-Length");
+    const hasBody = contentLength !== undefined && contentLength !== "0";
+    if (hasBody) {
+        raw = await c.req.json().catch(() => {
+            throw new ValidationError("Invalid JSON body");
+        });
     }
     const parsed = forkPaletteBody.safeParse(raw);
     if (!parsed.success) {

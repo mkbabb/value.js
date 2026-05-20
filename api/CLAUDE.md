@@ -1,80 +1,181 @@
 # api/
 
-Hono + MongoDB palette API. Dockerized, deployed behind Apache reverse proxy. Node.js server (not Cloudflare Workers or D1).
+Hono + MongoDB palette API. Dockerized, deployed behind Apache reverse proxy. Node.js server (NOT Cloudflare Workers + D1).
 
 ## Structure
 
 ```
 api/
 ├── src/
-│   ├── index.ts          # Hono app, middleware stack, route mounting, cron
-│   ├── types.ts          # AppEnv (session token + userSlug context variables)
-│   ├── db.ts             # MongoDB singleton, 11 indexes across 5 collections
-│   ├── middleware.ts      # CORS, rateLimit, loginRateLimit, resolveSession, adminAuth, hashIP
-│   ├── cron.ts           # daily cleanup: stale sessions (30d), orphaned votes
-│   ├── slugWords.ts      # word lists + generateUniqueSlug for user slug creation
-│   └── routes/
-│       ├── palettes.ts   # CRUD, paginated list, atomic vote toggle
-│       ├── sessions.ts   # user registration, slug-based login, /me endpoint
-│       ├── colors.ts     # color name proposal + approved list
-│       └── admin.ts      # moderation, user management, impersonation, palette import
-├── package.json          # hono, mongodb, node-cron, dotenv
-├── tsconfig.json         # strict, ES2022, Node16 modules
-├── Dockerfile            # multi-stage Node 22-alpine build
-├── compose.yaml          # api + mongo services, health checks
-├── deploy.sh             # rsync + docker compose up on remote
-├── apache-vhost.conf     # /colors/ → localhost:3100 reverse proxy
-├── .env.example          # MONGODB_URI, ADMIN_TOKEN, PORT
+│   ├── index.ts              # Hono app, middleware stack, route mounting, cron, SIGTERM shutdown
+│   ├── types.ts              # AppEnv (session token + userSlug + services context vars)
+│   ├── db.ts                 # MongoDB singleton + closeDb; 27 indexes across 9 collections
+│   ├── db/
+│   │   └── collections.ts    # typed Collection<T> accessors (D.W2 Lane C)
+│   ├── models.ts             # typed document shapes for the 9 collections
+│   ├── hash.ts               # computeContentHash (SHA-256 over canonical palette payload)
+│   ├── middleware.ts         # CORS, rateLimit, sanitizeBody, resolveSession, adminAuth, hashIP
+│   ├── middleware/
+│   │   ├── inject-services.ts    # DI: hangs typed `services` off c.var
+│   │   └── require-ownership.ts  # canonical ownership check (userSlug-only)
+│   ├── repositories/         # per-collection data-access (Palette, Vote, Session, User,
+│   │                         #  ProposedName, Tag, Flag, AdminAudit, PaletteVersion)
+│   ├── services/             # business logic, depends on repositories via Services DI
+│   │   ├── palette/          # crud + crud-list + forks + votes + flags + versions + oklab
+│   │   └── admin/            # colors + palettes + users + impersonate + import + tags +
+│   │                         #  flagged + audit + batch
+│   ├── routes/
+│   │   ├── palettes/         # crud + forks + votes + flags + versions (+ index barrel)
+│   │   ├── admin/            # colors + palettes + users + impersonate + tags + flagged +
+│   │   │                     #  audit + batch (+ index barrel)
+│   │   ├── colors.ts         # color name propose + search + approved + tags
+│   │   └── sessions.ts       # register + login + /me + DELETE
+│   ├── validation/           # zod schemas (palette + admin + color + session)
+│   ├── errors/               # ApiError hierarchy + toResponseEnvelope mapper
+│   ├── events/
+│   │   └── auditLog.ts       # canonical emitAuditEvent (befitting-graceful per D3)
+│   ├── format/
+│   │   └── palette.ts        # formatPalette (canonical Palette → API envelope)
+│   ├── cache/
+│   │   └── lru.ts            # LRU<K, V> — single consolidated in-memory cache (D.W2 Lane D)
+│   ├── migrations/
+│   │   └── check.ts          # startup smoke probe — schema-invariant assertions
+│   ├── cron.ts               # daily cleanup: stale sessions (30d), orphaned votes
+│   └── slugWords.ts          # word lists + generateUniqueSlug
+├── package.json              # hono, mongodb, node-cron, dotenv, zod
+├── tsconfig.json             # strict, ES2022, Node16 modules
+├── Dockerfile                # multi-stage Node 22-alpine build
+├── compose.yaml              # api + mongo services, health checks
+├── deploy.sh                 # rsync + docker compose up on remote
+├── apache-vhost.conf         # /colors/ → localhost:3100 reverse proxy
+├── .env.example              # MONGODB_URI, ADMIN_TOKEN, ALLOWED_ORIGINS, PORT
 └── .dockerignore
 ```
 
+## Pipeline shape
+
+The canonical request pipeline (D-HARDEN-3 §2):
+
+```
+validate → authn → authz → service → repository → format → response
+```
+
+- **validate** — `validation/*.ts` (zod); route handlers throw `ValidationError` on parse failure.
+- **authn** — `resolveSession` middleware reads `X-Session-Token` → sets `sessionToken` + `userSlug` on `c.var`.
+- **authz** — `require-ownership` (palettes) / `adminAuth` (admin); both throw on failure.
+- **service** — `services/{palette,admin}/*.ts`; receives `Services` from `c.var.services`.
+- **repository** — `repositories/*.ts`; the ONLY layer that calls `db.collection(...)`.
+- **format** — `format/palette.ts`; converts the document shape to the API envelope.
+- **response** — `c.json(...)`; errors thrown anywhere upstream become canonical envelopes via the global `onError → toResponseEnvelope` mapper.
+
+## Database (MongoDB)
+
+**9 collections, 27 indexes** (per `src/db.ts`):
+
+| Collection | Indexes |
+|------------|---------|
+| `palettes` | `slug` (unique), `createdAt`, `voteCount+createdAt`, `status`, `userSlug+createdAt`, `tags`, `forkOf`, `forkCount+createdAt`, `name` (text) |
+| `palette_versions` | `paletteSlug+createdAt`, `forkedFromHash`, `rootHash`, `authorSlug+createdAt` |
+| `votes` | `userSlug+paletteSlug` (unique), `paletteSlug` |
+| `sessions` | `lastSeenAt`, `expiresAt` |
+| `proposed_names` | `name` (unique), `status`, `name+css` (text) |
+| `users` | `createdAt` |
+| `tags` | `name` (unique) |
+| `flags` | `paletteSlug+reporterSlug` (unique), `paletteSlug`, `createdAt` |
+| `admin_audit` | `timestamp`, `action+timestamp` |
+
+## Middleware stack (order)
+
+1. `OPTIONS *` → 204 + CORS preflight
+2. CORS headers on all responses
+3. Body size limit: 64 KB (`hono/body-limit`)
+4. Rate limiting: 60 read/min, 10 write/min per IP (login: 5/min, registration: 3/min) — all backed by `cache/lru.ts`
+5. `sanitizeBody` — reject JSON bodies containing `$`-prefixed keys (MongoDB operator injection guard)
+6. `injectServices` — DI hands typed `Services` (repositories + helpers) to every handler
+7. `resolveSession` — `X-Session-Token` → `sessionToken` + `userSlug` (suspended-user check, 60s LRU cache)
+
+Admin routes additionally require `Authorization: Bearer {ADMIN_TOKEN}` (timing-safe comparison via `node:crypto`'s `timingSafeEqual`).
+
 ## Endpoints
+
+### Sessions
 
 | Method | Path | Auth | Purpose |
 |--------|------|------|---------|
 | POST | `/sessions` | — | Register (creates user + session) |
 | POST | `/sessions/login` | — | Log in with existing slug |
 | GET | `/sessions/me` | Session | Current user info |
-| GET | `/palettes` | — | List (paginated, sort: newest/popular) |
+| DELETE | `/sessions` | Session | Log out (delete session token) |
+
+### Palettes
+
+| Method | Path | Auth | Purpose |
+|--------|------|------|---------|
+| GET | `/palettes` | — | List (paginated cursor or offset; sort: newest / popular / most-forked; color-distance filter) |
+| GET | `/palettes/mine` | Session | List my palettes |
 | GET | `/palettes/:slug` | — | Get by slug |
 | POST | `/palettes` | Session | Create palette |
-| PATCH | `/palettes/:slug` | Session | Rename (owner only) |
-| POST | `/palettes/:slug/vote` | Session | Toggle vote (atomic) |
+| PATCH | `/palettes/:slug` | Session+owner | Edit palette |
+| DELETE | `/palettes/:slug` | Session+owner | Delete palette |
+| POST | `/palettes/:slug/vote` | Session | Toggle vote (idempotent upsert + gated `$inc`) |
+| POST | `/palettes/:slug/flag` | Session | Flag for moderation |
+| POST | `/palettes/:slug/fork` | Session | Fork (cross-collection write) |
+| GET | `/palettes/:slug/forks` | — | List direct forks |
+| GET | `/palettes/:slug/provenance` | — | Ancestry chain (≤50 depth) |
+| GET | `/palettes/:slug/versions` | — | List versions |
+| GET | `/palettes/:slug/versions/:hash` | — | Get specific version |
+| POST | `/palettes/:slug/revert` | Session+owner | Revert palette to prior version |
+
+### Colors
+
+| Method | Path | Auth | Purpose |
+|--------|------|------|---------|
 | GET | `/colors/approved` | — | List approved color names |
+| GET | `/colors/search` | — | Search approved color names |
+| GET | `/colors/tags` | — | List color tags |
 | POST | `/colors/propose` | Session | Propose color name |
-| GET | `/admin/queue` | Admin | List pending proposals |
-| GET | `/admin/colors/approved` | Admin | List approved names |
-| DELETE | `/admin/colors/:id` | Admin | Delete color name |
-| POST | `/admin/colors/:id/approve` | Admin | Approve proposed name |
-| POST | `/admin/colors/:id/reject` | Admin | Reject proposed name |
-| POST | `/admin/palettes/:slug/feature` | Admin | Toggle featured status |
-| DELETE | `/admin/palettes/:slug` | Admin | Delete palette + votes |
-| GET | `/admin/users` | Admin | List users (paginated) |
-| GET | `/admin/users/:slug/palettes` | Admin | View user's palettes |
-| POST | `/admin/impersonate` | Admin | Create session as user |
-| DELETE | `/admin/users/:slug` | Admin | Delete user + all data |
-| DELETE | `/admin/users/:slug/palettes` | Admin | Delete user's palettes |
-| POST | `/admin/users/prune-empty` | Admin | Prune users with 0 palettes |
-| POST | `/admin/users/:slug/import` | Admin | Import palettes to user |
 
-## Database (MongoDB)
+### Admin
 
-**Collections**: `palettes`, `votes`, `sessions`, `proposed_names`, `users`
+| Method | Path | Purpose |
+|--------|------|---------|
+| GET | `/admin/audit` | List audit-log entries |
+| GET | `/admin/queue` | List pending color-name proposals |
+| GET | `/admin/colors/approved` | List approved color names |
+| DELETE | `/admin/colors/:id` | Delete color name |
+| POST | `/admin/colors/:id/approve` | Approve color name |
+| POST | `/admin/colors/:id/reject` | Reject color name |
+| POST | `/admin/palettes/:slug/feature` | Toggle featured status |
+| DELETE | `/admin/palettes/:slug` | Delete palette + votes |
+| GET | `/admin/users` | List users |
+| POST | `/admin/users/prune-empty` | Prune users with 0 palettes |
+| GET | `/admin/users/:slug/palettes` | List user's palettes |
+| POST | `/admin/users/:slug/status` | Suspend / unsuspend user |
+| DELETE | `/admin/users/:slug` | Delete user + all data |
+| DELETE | `/admin/users/:slug/palettes` | Delete user's palettes |
+| POST | `/admin/users/:slug/import` | Import palettes to user |
+| POST | `/admin/impersonate` | Create session as user |
+| GET | `/admin/tags` | List tags |
+| POST | `/admin/tags` | Create tag |
+| DELETE | `/admin/tags/:name` | Delete tag |
+| GET | `/admin/flagged` | List flagged palettes |
+| DELETE | `/admin/flags/:paletteSlug` | Dismiss flags for palette |
+| POST | `/admin/batch/palettes` | Batch palette operation |
+| POST | `/admin/batch/users` | Batch user operation |
 
-Key indexes: `palettes.slug` (unique), `votes.{userSlug, paletteSlug}` (unique composite), `sessions.lastSeenAt`, `proposed_names.name` (unique), `users.createdAt`.
+All admin actions require `Authorization: Bearer {ADMIN_TOKEN}` AND emit an `admin_audit` event via `emitAuditEvent` (befitting-graceful per D3 — audit-write failure is logged via `console.error`, not surfaced to the client; documented in `events/auditLog.ts`).
 
-## Middleware stack (order)
+## Startup sequence
 
-1. OPTIONS → 204 + CORS
-2. CORS headers on all responses
-3. Body size limit: 64 KB
-4. Rate limiting: 60 read/min, 10 write/min per IP (login: 5/min)
-5. Session resolution (X-Session-Token header → sessionToken + userSlug)
-
-Admin routes additionally require `Authorization: Bearer {ADMIN_TOKEN}` (timing-safe comparison).
+1. Validate env (`MONGODB_URI`, `ADMIN_TOKEN`, `ALLOWED_ORIGINS` in production)
+2. `getDb()` — connect + create indexes (idempotent)
+3. `assertMigrationsApplied(db)` — schema-invariant smoke probe (exits non-zero on violation, D.W2 Lane D F1)
+4. Schedule cron cleanup (3 AM UTC daily)
+5. `serve(...)` — start HTTP listener
+6. Install `SIGTERM` / `SIGINT` handlers (5s grace; `.close()` → `closeDb()` → exit)
 
 ## Deployment
 
 - **Production URL**: `https://mbabb.fi.ncsu.edu/colors/`
 - **Server**: Docker Compose (api + mongo) on port 3100
-- **Deploy**: `bash deploy.sh`—rsync → SSH → `docker compose up -d --build` → smoke test
+- **Deploy**: `bash deploy.sh` — rsync → SSH → `docker compose up -d --build` → smoke test

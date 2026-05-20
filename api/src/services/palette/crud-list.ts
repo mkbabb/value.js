@@ -32,6 +32,9 @@ function decodeCursor(raw: string | undefined): PaginationCursor | null {
     try {
         return JSON.parse(Buffer.from(raw, "base64url").toString());
     } catch {
+        // Befitting graceful per D3: a malformed/stale cursor is treated as
+        // "start from beginning" — the documented pagination semantic, not a
+        // silent data-loss. (D.W2 Lane D rationale.)
         return null;
     }
 }

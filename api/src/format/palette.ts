@@ -1,16 +1,15 @@
 /**
  * Shared palette response formatter (D.W2 Lane C #8 — D-HARDEN-3 §1 C1
- * extraction).
+ * extraction; Lane D F1 default-excision).
  *
  * One canonical place to convert a `Palette` document to its API envelope.
- * Lanes A + B will replace their inline `formatPalette` helpers with this
- * import; the demo-side TS client should infer its `PaletteResponse` shape
- * from the return type here once contract-v2 lands.
  *
- * Pre-migration defaults (`?? []`, `?? null`, etc.) are preserved here for
- * **read-side compatibility** with existing documents; Lane D's F1 migration
- * smoke probe verifies the at-rest data is post-migration and the defaults
- * can be safely excised once the probe passes.
+ * Pre-migration `??` defaults were excised in Lane D (F1) — the
+ * `assertMigrationsApplied` smoke probe at startup (`migrations/check.ts`)
+ * verifies the at-rest data carries every field the `Palette` interface
+ * declares. The formatter no longer compensates for missing fields; any
+ * `undefined` at this point is a schema-invariant violation surfaced by the
+ * startup probe, not silently defaulted here.
  */
 
 import type { Palette } from "../models.js";
@@ -52,19 +51,22 @@ export function formatPalette(
     const restWithoutSessionToken = { ...rest } as Partial<Palette>;
     delete restWithoutSessionToken.sessionToken;
 
+    // Lane D F1: every field below is guaranteed-present by the
+    // `assertMigrationsApplied` smoke probe at startup. The previous `??`
+    // defaults were silent compensation for the in-flight migration window
+    // and are no longer needed.
     return {
         id: String(_id),
         name: rest.name,
         slug: rest.slug,
         colors: rest.colors,
-        // Pre-migration defaults — see file-header note + Lane D F1.
-        tags: rest.tags ?? [],
-        versionCount: rest.versionCount ?? 1,
-        forkCount: rest.forkCount ?? 0,
-        forkOf: rest.forkOf ?? null,
-        forkOfHash: rest.forkOfHash ?? null,
-        currentHash: rest.currentHash ?? null,
-        oklabColors: rest.oklabColors ?? [],
+        tags: rest.tags,
+        versionCount: rest.versionCount,
+        forkCount: rest.forkCount,
+        forkOf: rest.forkOf,
+        forkOfHash: rest.forkOfHash,
+        currentHash: rest.currentHash,
+        oklabColors: rest.oklabColors,
         voteCount: rest.voteCount,
         userSlug: rest.userSlug,
         status: rest.status,

@@ -17,7 +17,7 @@ import {
     XYZColor,
 } from "../units/color";
 import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
-import { ValueUnit } from "../units";
+import { FunctionValue, ValueUnit } from "../units";
 import { COLOR_NAMES } from "../units/color/constants";
 import type { ColorSpace } from "../units/color/constants";
 import { normalizeColorUnit } from "../units/color/normalize";
@@ -26,6 +26,7 @@ import type { HueInterpolationMethod } from "../units/color/utils";
 import { convertToDegrees } from "../units/utils";
 import * as utils from "./utils";
 import { CSSValueUnit, parseCSSValueUnit } from "./units";
+import { createCalcParser, createMathFunctionParsers, evaluateMathFunction } from "./math";
 
 const createColorValueUnit = (value: Color<any>) => {
     return new ValueUnit(
@@ -74,10 +75,48 @@ const COLOR_SPACE_COMPONENTS: Record<string, string[]> = {
     rec2020: ["r", "g", "b"],
 };
 
-/** Safe arithmetic evaluator: only allows digits, operators, parens, dots, whitespace. */
-function evaluateSimpleCalc(expr: string): number {
-    const sanitized = expr.replace(/[^0-9.+\-*/() e]/g, "");
-    return new Function(`return (${sanitized})`)() as number;
+/**
+ * Internal calc-expression parser, built on top of the same `createCalcParser`
+ * surface used by `parseCSSValue`. Accepts a bare arithmetic expression (the
+ * inside of a `calc(...)` already-substituted with numeric bindings) and
+ * returns the parsed AST (`FunctionValue | ValueUnit`).
+ *
+ * Invariant D6: no `new Function`, no `eval`. The math AST is evaluated via
+ * the library's published `evaluateMathFunction` surface.
+ *
+ * Lazy initialization via a closure — `CSSValueUnit` is in a circular module
+ * relationship with this file (units.ts ↔ color.ts), so the parser pair must
+ * be created after both modules finish initialising.
+ */
+let _relativeCalcExpr: ReturnType<typeof createCalcParser> | null = null;
+function getRelativeCalcExpr() {
+    if (_relativeCalcExpr) return _relativeCalcExpr;
+    const { mathFunction } = createMathFunctionParsers(CSSValueUnit.Value);
+    _relativeCalcExpr = createCalcParser(CSSValueUnit.Value, mathFunction);
+    return _relativeCalcExpr;
+}
+
+/**
+ * Evaluate the bare arithmetic body of a relative-color `calc(...)` expression
+ * (e.g. `"r * 0.5 + 0.3"`) after numeric binding substitution. Routes through
+ * the library's `evaluateMathFunction` rather than `new Function`.
+ *
+ * Throws on parse / evaluation failure — relative color syntax should fail at
+ * the validation boundary, not silently return NaN.
+ */
+function evaluateRelativeCalc(expr: string): number {
+    const ast = utils.tryParse(getRelativeCalcExpr(), expr);
+    if (ast instanceof ValueUnit) {
+        return ast.value as number;
+    }
+    if (ast instanceof FunctionValue) {
+        const result = evaluateMathFunction(ast);
+        if (result == null || typeof result.value !== "number") {
+            throw new Error(`Could not evaluate calc expression: ${expr}`);
+        }
+        return result.value;
+    }
+    throw new Error(`Could not evaluate calc expression: ${expr}`);
 }
 
 function resolveExpr(expr: ComponentExpr, bindings: Record<string, number>): number {
@@ -95,7 +134,7 @@ function resolveExpr(expr: ComponentExpr, bindings: Record<string, number>): num
             for (const k of keys) {
                 s = s.replace(new RegExp(`\\b${k}\\b`, "g"), String(bindings[k]));
             }
-            return evaluateSimpleCalc(s);
+            return evaluateRelativeCalc(s);
         }
     }
 }
