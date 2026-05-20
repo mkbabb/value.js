@@ -256,14 +256,60 @@ D.W2 gates: cd api && tsc --noEmit clean / vue-tsc 126 / vitest 1581 (34 files) 
 
 D.W2 closes. Lanes A+B are file-disjoint per HARDEN-1; the parallel dispatch was successful (Lane B's worktree had to be manually integrated due to wrong-base divergence — recorded for future-tranche learnings).
 
+## 2026-05-20 — D.W3 execution
+
+D.W3 — frontend cohesion: 4 lanes sequenced **A → D → B → C** (Lane A first to lay the PaletteDialog dir structure; Lane D next, small extraction; Lane B to complete the facade across the new structure; Lane C last so the 32-SFC codemod picks up everything A + B touched).
+
+- **Lane A — PaletteDialog 12-file split + ImageEyedropper split + adjacencies (`3359a97`)**.
+  - PaletteDialog.vue (652 LoC) → 13-file colocated `PaletteDialog/` dir. Shell at 340 LoC (47% reduction). Single `pm = inject(PALETTE_MANAGER_KEY)` consumption; parallel re-wiring removed.
+  - PaletteControlsBar trigger bug REFRAMED (D-HARDEN-4 §2): 3 stray admin-only triggers (`admin-audit`, `admin-flagged`, `admin-tags`) deleted — those views render in AdminPane.vue, reached via dock view-select, not in the dialog. Trigger count = `TabValue.length` (5).
+  - ImageEyedropper.vue (399 LoC) → 4-file colocated `ImageEyedropper/` dir.
+  - ConfigSliderPane.vue → KEEP (already adopts glass-ui `./configurator`).
+  - CURRENT_PALETTE_ID lifted to `@/lib/palette/constants.ts` (canonical) + re-exported from PaletteDialog/constants.ts.
+  - Net: 12 old files / 1,579 LoC deleted; 17 new files / ~1,100 LoC added; 5 consumer imports updated.
+  - Sub-gates A-1 PARTIAL (shell 340 vs aspirational ~200; the template-coordination tier is irreducible without antipattern wrapping), A-2 + A-3 PASS.
+
+- **Lane D — viewSchema.ts extraction (`4d439bf`)**.
+  - `demo/@/composables/viewSchema.ts` NEW (199 LoC) — pure data + types (ViewId, LeftPane, RightPane, PaneConfig, VIEW_MAP, isViewId predicate).
+  - `useViewManager.ts` 237 → 79 LoC (-67%); imports from viewSchema, re-exports types for source-compat with 5 transitive consumers.
+  - PaletteDialog/composables/usePaletteDialogState.ts: type-level enforcement landed — `Exclude<TabValue, "saved"> extends ViewId ? true : never` assertion catches drift between the 4 admin/extract/browse tabs and the schema.
+  - Chronically-deferred Da §3 item 12 closes. All sub-gate D conditions PASS.
+
+- **Lane B — facade completion: 5 sub-composables + 11 SFC lifts (`ea08102`)**.
+  - 5 NEW colocated composables in `demo/@/composables/palette/` (536 LoC total, all ≤ 150 LoC):
+    - useAdminAudit (96), useAdminFlagged (143), useAdminTags (103), useVersionHistory (128), useTagEdit (66).
+  - usePaletteManager extended to expose them as **sub-objects**: pm.audit, pm.flagged, pm.tags, pm.versions, pm.tagEdit (NOT flat methods, preventing 50+→70+ member bloat).
+  - 11 SFC consumer migrations: all `@lib/palette/api` direct imports removed from `palette-browser/` SFCs. Defensible KEEPs (ColorInput.vue + useCustomColorNames.ts) preserved per spec.
+  - useColorNameQueue moved `auth/` → `palette/`; useAdminOperations.ts barrel deleted.
+  - Net: 11 SFCs / -495 LoC (state moved to composables); 5 new composables / +536 LoC. Net wash; the architectural win is cohesion + facade-completeness.
+  - All sub-gate B conditions PASS.
+
+- **Lane C — Vue 3.5 codemod (32 SFCs) + library-perf L3/L5/L8/L11/L12 + cssColorToRgb memoise + dead-provide cleanup (`cea5e3f`)**.
+  - 32 SFCs codemodded to Vue 3.5 reactive-props destructure form. Final `rg "const props = defineProps<"` = 0 (exceeded the ≤ 2 gate).
+  - 2 hand-conversion sites (GooBlob.vue + ImageEyedropper.vue) handled with withDefaults + `toRef(() => x)`. 1 incidental hand-conv inside CurrentPaletteEditor.vue.
+  - 8 useTemplateRef migrations across 7 SFCs.
+  - cssColorToRgb at `useMetaballRenderer.ts:53` memoised with 256-entry cap — eliminates per-frame canvas getImageData + 3-element array allocation.
+  - Dead `provide("auroraConfig", …)` removed from App.vue:215 (zero injectors confirmed).
+  - **L3 parseCSSColor memo + invalidation hook** — landed at `src/parsing/color.ts:584`. Cache invalidates on registerColorNames/clearCustomColorNames.
+  - **L8 parseCSSValueUnit memo parity** — landed at `src/parsing/units.ts:111`.
+  - **L5 lerpColorValue carries hueMethod (3-file fix)** — InterpolatedVar<T> extended with hueMethod + colorSpace; normalizeColorUnits writes them in; lerpColorValue dispatches `interpolateHue(a, b, t, hueMethod)` for the hue channel of cylindrical spaces. Bridge complication: `normalizeColorUnits` is called with `inverse=true`, so the hue channel needs `/360 → interpolateHue → *360`. Vitest assertion at `test/units-interpolate.test.ts:319` for the oklch(50% 0.2 350°) → oklch(50% 0.2 10°) short-way pair.
+  - **L11 interpolation arg-order canonicalisation** — `lerp(t, a, b)` → `lerp(a, b, t)` to match interpolateHue + slerp. 14+ call sites updated. `lerpLegacy` aliased with `@deprecated` JSDoc + re-exported from `src/index.ts`.
+  - **L12 _lerp bolt-on cleanup (OPTIONAL)** — LANDED (not deferred). `_lerp` declared on InterpolatedVar<T>; prepareInterpVar writes the property directly; lerpValue reads without `(iv as any)` cast.
+  - Net: 51 files modified, 816 insertions / 196 deletions. vitest 1581 → 1582 (+1 L5 test).
+  - All sub-gate C conditions PASS including the optional L12.
+
+D.W3 gates: vue-tsc 126 / vitest 1582 (34 files) / playwright smoke 3/3 / proof:resolution GREEN / lint exit 0 / api tsc clean.
+
+D.W3 closes. PaletteDialog is no longer a god module (652 → 340 shell + 12 colocated files), the palette-manager facade is complete (no SFC reaches the api directly outside the named KEEPs), the demo runs on Vue 3.5 idioms (0 `const props = defineProps`), and 5 library-perf fold-ins (L3/L5/L8/L11/L12) shipped.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | D.W0 HEADLINE — open + precept advance + coord refresh | **closed** | 2026-05-19 | 2026-05-19 | `11abd86`, `afdfe77` |
 | D.W1 — contract-v2 alignment + library barrel + tests + lint + Color flatten | **closed** | 2026-05-19 | 2026-05-19 | `73fdabc`, `14d35fa`, `6ca2046`, `059cf72` |
-| D.W2 — backend (api/) refactor — god module split + service/repo + fail-explicit | **closed** | 2026-05-19 | 2026-05-20 | `626b107`, `491a5d8`, `b7d7c63`, `<this>` |
-| D.W3 — frontend cohesion — PaletteDialog split + facade completion + codemod | planned | — | — | — |
+| D.W2 — backend (api/) refactor — god module split + service/repo + fail-explicit | **closed** | 2026-05-19 | 2026-05-20 | `626b107`, `491a5d8`, `b7d7c63`, `ee8bfa4` |
+| D.W3 — frontend cohesion — PaletteDialog split + facade completion + codemod | **closed** | 2026-05-20 | 2026-05-20 | `3359a97`, `4d439bf`, `ea08102`, `cea5e3f` |
 | D.W4 — styling + design-idiom catalog | planned | — | — | — |
 | D.W5 — Playwright coverage — 3 → ~20 specs across 3 projects | planned | — | — | — |
 | D.W6 HEADLINE close — FINAL.md, doc drift, coord state | planned | — | — | — |
