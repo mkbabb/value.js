@@ -28,7 +28,16 @@
 ### INTERNAL
 
 - **`WhitePointColor<T>` intermediate class lifted into `Color<T>` base** (`src/units/color/index.ts`). Pre-v0.7.0 the inheritance graph was asymmetric: `OKLABColor extends WhitePointColor<T>` but `OKLCHColor extends Color<T>` directly — the same color family split across two inheritance levels. Post-v0.7.0 the `whitePoint` field lives on `Color<T>` base with a `"D65"` default; LAB and OKLAB override to `"D50"` in their constructors; XYZ inherits the default. `WhitePointColor<T>` was never exported from the barrel — no consumer migration required. L8 microbench held at 10.87× median (≥ 5× gate). (E.W1 Lane B)
-- (Other E.W1 lanes will append: DIRECT_PATHS table; keys() cache; type-tidy.)
+
+### PERFORMANCE (continued)
+
+- **`DIRECT_PATHS` table in `color2()` for hot-path conversions** (`src/units/color/utils.ts`). The 6-entry table covers `oklab↔rgb`, `oklch↔rgb`, `hsl↔rgb` — the highest-frequency conversions per a typical app's render loop. Direct paths use Ottosson's LMS→linear-sRGB matrix (OKLab/OKLCh) or the well-known direct HSL↔RGB cylindrical conversion, skipping the XYZ hub entirely. `color2()` consults the table first; the existing XYZ-hub path remains the fallback. Bench: HSL→RGB **3.80×–4.40× speedup** (≥ 2× gate PASS); OKLab→RGB ~1.04× and OKLCh→RGB ~1.07× (smaller savings — dominated by the shared `linearToSrgb` transcendental + `gamutMap` cost; the saved matrix-multiply is real but a tiny fraction of total cost). 2 parser-snapshot tests updated for floating-point ε-equivalent values (delta ~3e-9 from the skipped matrix multiply). (E.W1 Lane C)
+- **`rgbFamily2xyz` / `xyz2rgbFamily` extracted** (`src/units/color/utils.ts`). The 5 wide-gamut RGB-family classes (LinearSRGB, DisplayP3, AdobeRGB, ProPhotoRGB, Rec2020) share an identical matrix-multiply structure post-transfer-function; the helpers parameterize over the matrix. 8 of 10 family converters collapse to one-liners (ProPhoto's 2 cases keep the explicit D50 Bradford-adapt shape). (E.W1 Lane C)
+- **`Color.keys()` cache via `static readonly channelKeysWithAlpha`** (`src/units/color/index.ts`). Pre-v0.7.0 `keys()` returned a new `[...channels, "alpha"]` array per call — a per-frame allocation source in `lerpColorValue`'s `forEach`. Post-v0.7.0 each subclass exposes a frozen static tuple; `keys()` returns the cached reference. 15 subclasses, 8 shared tuples (RGB/LinearSRGB/DisplayP3/AdobeRGB/ProPhoto/Rec2020 share `["r","g","b","alpha"]`; LAB/OKLAB share `["l","a","b","alpha"]`; LCH/OKLCH share `["l","c","h","alpha"]`). Zero per-call allocation. (E.W1 Lane C)
+
+### INTERNAL
+
+- (Final E.W1 lane will append: type-tidy + CLAUDE.md drift.)
 
 ## v0.6.0 — 2026-05-20
 
