@@ -368,11 +368,57 @@ D.W5 closes. The user's directive ("proper, instant reactivity") now has wall-cl
 | D.W3 — frontend cohesion — PaletteDialog split + facade completion + codemod | **closed** | 2026-05-20 | 2026-05-20 | `3359a97`, `4d439bf`, `ea08102`, `cea5e3f` |
 | D.W4 — styling + design-idiom catalog | **closed** | 2026-05-20 | 2026-05-20 | `5674d1f` (Lanes A+B combined — file-disjoint, byte-isomorphic) |
 | D.W5 — Playwright coverage — 3 → 21 specs across 3 projects | **closed** | 2026-05-20 | 2026-05-20 | `707d1be`, `f374f13` |
-| D.W6 HEADLINE close — FINAL.md, doc drift, coord state | planned | — | — | — |
+| D.W6 HEADLINE close — FINAL.md, doc drift, coord state, CHANGELOG, v0.6.0 bump | **closed** | 2026-05-20 | 2026-05-20 | `<this>` |
 
-## Open dependencies
+## Open dependencies (post-D-close state)
 
-- **None on the critical path** — D's value.js-only scope is fully unblocked.
-- D.W0 Lane 0 advances `docs/precepts` `3c32fae → 68d9b20` (the contract-v2 codification SHA). This is verified-before-bump: D.W0 reads the precepts repo to confirm `68d9b20` exists and codifies contract-v2.
-- The aurora derive-from-color and the blob extirpation are precept-§10 blocked on glass-ui ships (`coordination/Q.md §3` rows 1+2+3); both have named successor destinations and are out of D's waves.
-- keyframes.js's precept-pin convergence is filed (`coordination/Q.md §9`); value.js cannot write keyframes.js. No D block.
+- **None on D's critical path** — D's value.js-only scope fully unblocked + executed.
+- **glass-ui-blocked filings (named successors)** — aurora derive-from-color + blob extirpation routes to a value.js demo-abstraction tranche post-glass-ui-ship (`coordination/Q.md §3` rows 1+2+3 STAND).
+- **keyframes.js consumption-update ask** (`coordination/Q.md §9.5`) — filed post-v0.6.0 (bump `^0.6.0` pin + rename `AnimationOptions` → `CSSAnimationOptions` + verify `Color.components.get` → own-property migration). value.js cannot write keyframes.js; bumps on keyframes.js's schedule.
+- **smoke-safari WebKit follow-up** (`coordination/Q.md §11`) — Pixel-7 in Playwright runs Chromium, not WebKit; iOS-Safari engine bugs uncaught. Routes to a value.js testing-hardening tranche post-D.
+- **Contract-v2 §2.1 keystone gap on glass-ui's `./styles` subpath** (`coordination/Q.md §3`) — value.js's narrow `siblingFsAllowTransient` is the consumer-side reciprocal; retires when glass-ui ships a contract-v2-compliant Tailwind-source distribution.
+
+## 2026-05-20 — D.W6 close
+
+The close ceremony for tranche D. Inherits B's strengthened-close shape; the 7 lanes are precept policy.
+
+### Read-only close audit lanes (7 PASS verdicts)
+
+1. **plan-vs-actual** (`audit/D.W6-plan-vs-actual.md`) — every D wave's planned scope landed at its target commit. Zero `planned` rows after this close. D5 satisfied.
+2. **substrate-without-consumer** (`audit/D.W6-substrate.md`) — every D-introduced primitive (D.W1 hardening + lint + proof + L6 barrel exports; D.W2 service/repo/errors/events/middleware/format/cache/migrations rails + 14 route+service files; D.W3 PaletteDialog 13-file dir + viewSchema + 5 sub-composables + Tailwind utilities; D.W4 5 @theme bridges + 4 colocations + DESIGN.md; D.W5 21 smoke specs + admin fixture + 3-project config) has at least one consumer. ZERO ORPHANS.
+3. **doc-drift** (`audit/D.W6-doc-drift.md`) — root `CLAUDE.md` test/spec counts updated (1409→1582, 3→21+3-project, new scripts listed); `demo/CLAUDE.md` wholesale-reconciled to post-D state (Mar-2026 restructure + B+D consolidations + PaletteDialog/+viewSchema+facade sub-objects + Vue 3.5 idioms + Tailwind v4 token-bridge surface); `api/CLAUDE.md` verified current post-D.W2 reconcile (9 collections / 27 indexes / pipeline shape); `coordination/Q.md §3` updated to final state. `bbnf-equivalence.test.ts` → `parser-snapshot.test.ts` rename applied (KISS default per spec). K4 Prettier-doc filed as named-destination.
+4. **idiomatic-gestalt** (`audit/D.W6-idiomatic-gestalt.md`) — value.js contract-v2 compliant; api/ service+repository discipline (zero `db.collection` in D.W2-scoped code); demo facade complete (2 named KEEPs only); invariants D1-D7 + precepts 30-33 all hold.
+5. **performance** (`audit/D.W6-performance.md`) — bundle `dist/value.js` 137.60 kB / 40.33 kB gzip (+0.18 kB gzip vs D.W1 L8 baseline 40.15 kB; essentially zero); L8 microbench re-run 3 times at 10.02× / 10.09× / 10.67× medians (gate ≥ 5×; median-of-medians 10.09×); production bundle has zero `import.meta.env.DEV` references (DCE-verified); backend startup DEFERRED (no local MongoDB; structural-no-regression by construction).
+6. **visual-runtime** (`audit/D.W6-visual-runtime.md`) — Playwright re-probe 21/21 green in 9.2s across 3 projects; zero console errors; reactivity-instant 2.50ms spectrum-drag / 11.40ms slider-keyboard medians (gate ≤ 50ms); 5 view screenshots captured (picker/palettes/browse/extract/admin-users).
+7. **integrity sweep** (`audit/D.W6-integrity-sweep.md`) — 25 commits since D open, all human-authored (Mike Babb); zero agent-attributed mutating git ops; stash empty; `docs/precepts` advanced exactly once (the planned D.W0 advance `3c32fae → 68d9b20`); untracked WIP confined to pre-D `docs/tranches/C/`.
+
+### Close ceremony writes
+
+- **`docs/tranches/D/FINAL.md`** — NEW; close report with §1-10 covering tranche metadata, scope delivered, invariants honored, finding disposition, mandate coverage, gate matrix at close, open dependencies, cross-tranche debt, successor destinations, and authority. Pins B's FINAL.md at `625322e`.
+- **`docs/tranches/D/PROGRESS.md`** — D.W6 row marked closed; open-dependencies refreshed; this execution-log entry.
+- **`CLAUDE.md`** (root) — targeted updates: test count 1409→1582, spec count 3→21 across 3 projects, new scripts (`lint`, `proof:resolution`, `build:watch`).
+- **`demo/CLAUDE.md`** — wholesale reconcile to post-D state.
+- **`api/CLAUDE.md`** — verified current (D.W2 Lane D reconcile holds).
+- **`coordination/Q.md §3`** — final state updated.
+- **`CHANGELOG.md`** — NEW at repo root; v0.6.0 entry per `D-RELEASE-PLAN.md §2` template.
+- **`package.json`** — version bumped `0.5.1 → 0.6.0`.
+- **`test/bbnf-equivalence.test.ts` → `test/parser-snapshot.test.ts`** — KISS rename per D.W6 spec item 10.
+
+### Gate matrix at close (10 items per D-RELEASE-PLAN.md §3 + recursion + reactivity-smoke)
+
+| # | Gate | Target | Actual | Verdict |
+|---|---|---|---|---|
+| 1 | vue-tsc errors | 126 | 126 | GREEN |
+| 2 | vitest | 1582 / 34 files | 1582 / 34 files | GREEN |
+| 3 | playwright (3 projects) | 21 green | 21 passed (9.2s) | GREEN |
+| 4 | lint exit code | 0 | 0 | GREEN |
+| 5 | proof:resolution | PASS | PASS | GREEN |
+| 6 | api tsc | clean | clean | GREEN |
+| 7 | npm run build | clean | clean; 137.60 kB / 40.33 kB gzip | GREEN |
+| 8 | L8 microbench | ≥ 5× | 10.09× median | GREEN |
+| 9 | recursion-guard | 5 passing | 5 passing | GREEN |
+| 10 | reactivity-instant | ≤ 50ms median | 2.50ms / 11.40ms | GREEN |
+
+**All 10 gates GREEN.** D is mergeable. The orchestrator owns the merge + tag per `D-RELEASE-PLAN.md §3` sequence.
+
+D.W6 closes. **Tranche D is closed.**

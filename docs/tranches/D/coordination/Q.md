@@ -1,8 +1,8 @@
 # Coordination — value.js D ↔ glass-ui ↔ keyframes.js
 
 **Artefact class**: `coordination/Q.md` — value.js D's cross-repo manifest. Successor to `tranches/B/coordination/Q.md`. Q (glass-ui) is closed; this doc inherits B's §2a/§3/§9 state and refreshes against the post-Q glass-ui + the contract-v2 codification.
-**Date**: 2026-05-19.
-**This repo**: value.js, tranche D, branch `tranche-b` (D opens off B.W4 close).
+**Date**: 2026-05-19 (opened) → 2026-05-20 (D.W6 close — §3 final state below).
+**This repo**: value.js, tranche D, branch `tranche-b` (D opens off B.W4 close; closes at D.W6 ceremony).
 **Peer repo (glass-ui)**: tranche Q **CLOSED** at `4b16de7` (v1.9.2; W0–W6); post-Q ship **contract-v2** at `ce5aad8` (v1.9.3). HEAD at D open: `e2e5303` (a Safari post-paint fix).
 **Peer repo (keyframes.js)**: v2.1.1 / HEAD `0909177` — code-side contract-v2 OK.
 **Shared submodule**: `docs/precepts` — value.js pinned at `68d9b20` (post-D.W0 Lane 0; was `3c32fae` at B.W4 close); **fleet HEAD `68d9b20`** (the contract-v2 codification SHA, per `research/Dh-contract-v2.md §1`). **D.W0 Lane 0 has landed the advance `3c32fae → 68d9b20`** — see §6.
@@ -23,9 +23,11 @@ D inherits B's `coordination/Q.md` state. B closed every contested item; the cro
 
 Re-verified per `research/Dd-blob.md §3` and `research/Dc-aurora.md §1`. **No new ships since B close.** The metaballs/aurora/`BlobDot` surface is still gap-filled; the 7 metaballs additions + `BlobDot` + `deriveAuroraPalette` all stand.
 
-## §3 — Glass-ui gap list (D's filing)
+## §3 — Glass-ui gap list (D's filing — final state at D close)
 
 Inherits B's `§3` row set, **refreshes the metaballs row to 7 additions** (per `research/Dd-blob.md §3`), and **adds the algorithm sketch** for `deriveAuroraPalette` (per `research/Dc-aurora.md §3`).
+
+**Post-D-close state** (2026-05-20): all 9 STANDS-rows below remain unchanged — no glass-ui ships during D's window. The 2 RETIRED rows stay retired. The contract-v2 §2.1 keystone gap row was added at D.W1 Step 1 and STANDS at D close; the consumer-side `vite.config.ts:siblingFsAllowTransient` retains its narrow carve-out until glass-ui ships a contract-v2-compliant Tailwind-source distribution.
 
 | Gap | Evidence | Status | Wave (consumes) |
 |---|---|---|---|
@@ -162,3 +164,19 @@ The precepts SHA `68d9b20` is named throughout this doc as the contract-v2 codif
 ## §11 — `smoke-safari` follow-up beyond D (D-HARDEN-5 §4)
 
 Pixel-7 in Playwright runs Chromium (not WebKit), so D.W5's `smoke-mobile` project catches mobile-layout regressions but not iOS-Safari engine-specific bugs (e.g. the W5-vintage iOS Safari `_data-driver` bug class — sub-pixel-layout reflow timing, the `100vh` family, scroll-snap quirks, font-rendering). Filed as a follow-up: a `smoke-safari` Playwright project + a single 30-second sustained spec exercising the picker + a view switch. Routes to a value.js testing-hardening tranche post-D (or the next pass after D close).
+
+## §12 — D close — final cross-repo state (2026-05-20)
+
+Snapshot at the D.W6 close ceremony:
+
+| Item | Status | Destination |
+|---|---|---|
+| 7 standing glass-ui §3 primitive/blob gaps (incl. 7-addition metaballs surface + BlobDot + deriveAuroraPalette + `<Tabs variant="underline">`) | STAND — unchanged at D close | glass-ui primitive-ship successor tranche |
+| Contract-v2 §2.1 keystone gap on glass-ui's `./styles` Tailwind-source subpath | STANDS — value.js's narrow `siblingFsAllowTransient` retained as documented transient | glass-ui's next subpath-surface wave or the AG-GU fleet-migration sequence |
+| keyframes.js precept-pin convergence (`458c2d1 → 68d9b20`) | STANDS — value.js does not block on it | keyframes.js's own schedule |
+| keyframes.js post-v0.6.0 consumption update — bump `^0.6.0` pin + rename `AnimationOptions` → `CSSAnimationOptions` imports + verify `Color.components.get` → own-property migration | FILED (§9.5) — value.js's v0.6.0 ships at D.W6 | keyframes.js's own schedule |
+| smoke-safari WebKit follow-up | FILED (§11) | value.js testing-hardening successor tranche |
+| K4 Prettier-doc gap (Da §3 item 18 — folded as D.W6 close-residual) | Named-destination filed in `audit/D.W6-doc-drift.md §K4` — no D.W6 action beyond record | future library-doc tranche if formatting-policy unification pursued |
+| 4 RETIRED rows (Card props, floating-panel-item, A↔Q boundary moot, MOOT) | stay RETIRED | — |
+
+**Net**: D ships value.js v0.6.0 with its cross-repo asks all routed or filed. No cross-repo block on the merge.
