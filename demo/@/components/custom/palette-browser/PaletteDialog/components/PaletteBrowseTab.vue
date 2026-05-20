@@ -63,8 +63,8 @@
 import { TabsContent } from "@components/ui/tabs";
 import { Loader2 } from "lucide-vue-next";
 
-import PaletteCard from "./PaletteCard.vue";
-import PaletteCardGrid from "./PaletteCardGrid.vue";
+import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
+import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
 import type { Palette } from "@lib/palette/types";
 
 defineProps<{

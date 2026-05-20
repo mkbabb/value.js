@@ -27,6 +27,12 @@
                     <ImagePlus class="w-3.5 h-3.5 mr-1" />
                     Extract
                 </TabsTrigger>
+                <!--
+                    D.W3 Lane A — admin triggers limited to the 2 admin views with
+                    matching `<TabsContent>` in PaletteDialog (admin-users, admin-names).
+                    The other admin views (admin-audit, admin-flagged, admin-tags)
+                    render in AdminPane.vue and are reached via the dock view-select.
+                -->
                 <template v-if="isAdmin">
                     <TabsTrigger value="admin-users" class="text-subheading">
                         <Shield class="w-3.5 h-3.5 mr-1" />
@@ -34,15 +40,6 @@
                     </TabsTrigger>
                     <TabsTrigger value="admin-names" class="text-subheading">
                         Names
-                    </TabsTrigger>
-                    <TabsTrigger value="admin-audit" class="text-subheading">
-                        Audit
-                    </TabsTrigger>
-                    <TabsTrigger value="admin-flagged" class="text-subheading">
-                        Flagged
-                    </TabsTrigger>
-                    <TabsTrigger value="admin-tags" class="text-subheading">
-                        Tags
                     </TabsTrigger>
                 </template>
             </TabsList>
@@ -78,9 +75,9 @@ import { TabsList, TabsTrigger } from "@components/ui/tabs";
 import { Shield, ImagePlus } from "lucide-vue-next";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 
-import PaletteSlugBar from "./PaletteSlugBar.vue";
-import SearchFilterBar from "./SearchFilterBar.vue";
-import UserSortMenu from "./UserSortMenu.vue";
+import PaletteSlugBar from "@components/custom/palette-browser/PaletteSlugBar.vue";
+import SearchFilterBar from "@components/custom/palette-browser/SearchFilterBar.vue";
+import UserSortMenu from "@components/custom/palette-browser/UserSortMenu.vue";
 
 import type { Tag } from "@lib/palette/types";
 

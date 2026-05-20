@@ -31,7 +31,7 @@ export interface PaletteManager {
     remotePalettes: Ref<Palette[]>;
     browsing: Ref<boolean>;
     sortLoading: Ref<boolean>;
-    sortMode: Ref<string>;
+    sortMode: Ref<"newest" | "popular" | "most-forked">;
     statusFilter: Ref<string>;
     selectedTags: Ref<string[]>;
     browseError: Ref<string | null>;

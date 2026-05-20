@@ -85,7 +85,7 @@ type DisplayColorSpace = ColorSpace | "hex";
 
 import ImageDropZone from "@components/custom/image-palette-extractor/ImageDropZone.vue";
 import ExtractControls from "@components/custom/image-palette-extractor/ExtractControls.vue";
-import ImageEyedropper from "@components/custom/image-palette-extractor/ImageEyedropper.vue";
+import ImageEyedropper from "@components/custom/image-palette-extractor/ImageEyedropper/ImageEyedropper.vue";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
 import PaneHeader from "./PaneHeader.vue";

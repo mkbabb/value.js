@@ -61,9 +61,9 @@ import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { Trash2 } from "lucide-vue-next";
 
-import CurrentPaletteEditor from "./CurrentPaletteEditor.vue";
-import PaletteCard from "./PaletteCard.vue";
-import PaletteCardGrid from "./PaletteCardGrid.vue";
+import CurrentPaletteEditor from "@components/custom/palette-browser/CurrentPaletteEditor.vue";
+import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
+import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 
 defineProps<{
