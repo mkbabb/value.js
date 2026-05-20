@@ -10,7 +10,7 @@ import { corsHeaders, rateLimit, resolveSession, sanitizeBody } from "./middlewa
 import { injectServices } from "./middleware/inject-services.js";
 import { toResponseEnvelope } from "./errors/index.js";
 import { cleanup } from "./cron.js";
-import palettes from "./routes/palettes.js";
+import { palettes } from "./routes/palettes/index.js";
 import sessions from "./routes/sessions.js";
 import colors from "./routes/colors.js";
 import admin from "./routes/admin.js";
