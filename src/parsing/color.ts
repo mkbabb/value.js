@@ -509,17 +509,27 @@ const colorFunction: Parser<ValueUnit> = utils.istring("color").next(
 });
 
 // --- Named color parser ---
+//
+// Transposition (E.W1 Lane D / E-AUDIT-5 §9 item 2): rather than try each of
+// the 155 names as a separate `istring()` branch via `any(...)` (155 sequential
+// regex tests + 155 RegExp allocations at module init), we match a single
+// broad CSS identifier regex once and then look the result up in the
+// COLOR_NAMES table via O(1) object access. Case-insensitivity is preserved
+// by lowercasing the captured identifier before the lookup (same semantics as
+// the prior `istring()` + `x.toLowerCase()` chain).
+const KNOWN_COLOR_NAMES: ReadonlySet<string> = new Set(Object.keys(COLOR_NAMES));
 
-const nameParser: Parser<ValueUnit> = any(
-    ...Object.keys(COLOR_NAMES)
-        .sort((a, b) => b.length - a.length)
-        .map(utils.istring),
-).chain((x: string) => {
-    const c = (COLOR_NAMES as Record<string, string>)[x.toLowerCase()];
-    if (c) {
-        const value = parseCSSValueUnit(c);
-        if (value) {
-            return utils.succeed(value);
+const namedColorIdent = regex(/[a-zA-Z][a-zA-Z0-9-]*/);
+
+const nameParser: Parser<ValueUnit> = namedColorIdent.chain((x: string) => {
+    const key = x.toLowerCase();
+    if (KNOWN_COLOR_NAMES.has(key)) {
+        const c = (COLOR_NAMES as Record<string, string>)[key];
+        if (c) {
+            const value = parseCSSValueUnit(c);
+            if (value) {
+                return utils.succeed(value);
+            }
         }
     }
     return utils.fail(`Invalid color name: ${x}`);
@@ -582,19 +592,24 @@ export function getCustomColorNames(): ReadonlyMap<string, string> {
  *
  * The cache is invalidated by `registerColorNames` and `clearCustomColorNames`.
  */
-export const parseCSSColor = memoize((input: string): ValueUnit => {
-    const result = utils.parseResult(Value, input);
-    if (result.status) {
-        return result.value;
-    }
+// keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see comment in
+// src/parsing/index.ts.
+export const parseCSSColor = memoize(
+    (input: string): ValueUnit => {
+        const result = utils.parseResult(Value, input);
+        if (result.status) {
+            return result.value;
+        }
 
-    // Fallback: check custom color names
-    const key = input.trim().toLowerCase();
-    const resolved = customColorNames.get(key);
-    if (resolved) {
-        return utils.tryParse(Value, resolved);
-    }
+        // Fallback: check custom color names
+        const key = input.trim().toLowerCase();
+        const resolved = customColorNames.get(key);
+        if (resolved) {
+            return utils.tryParse(Value, resolved);
+        }
 
-    // Re-throw original parse failure
-    return utils.tryParse(Value, input);
-});
+        // Re-throw original parse failure
+        return utils.tryParse(Value, input);
+    },
+    { keyFn: (input: string) => input },
+);

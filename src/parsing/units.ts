@@ -109,9 +109,14 @@ export const CSSValueUnit = {
  * returned `ValueUnit` is shared across callers, so callers MUST NOT mutate it.
  * Mirrors the memo contract of the sibling `parseCSSValue`/`parseCSSColor`.
  */
-export const parseCSSValueUnit = memoize((input: string): ValueUnit => {
-    return utils.tryParse(Value, input);
-});
+// keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see comment in
+// src/parsing/index.ts.
+export const parseCSSValueUnit = memoize(
+    (input: string): ValueUnit => {
+        return utils.tryParse(Value, input);
+    },
+    { keyFn: (input: string) => input },
+);
 
 /**
  * Format a millisecond duration as a CSS time string. Emits `<n>s`

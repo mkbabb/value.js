@@ -512,4 +512,7 @@ const stylesheet: Parser<Stylesheet> = stylesheetItem.many().trim(ws).skip(
 export const parseCSSStylesheet = memoize(
     (input: string): Stylesheet =>
         utils.tryParse(stylesheet, stripCSSComments(input)),
+    // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see
+    // comment in src/parsing/index.ts.
+    { keyFn: (input: string) => input },
 );

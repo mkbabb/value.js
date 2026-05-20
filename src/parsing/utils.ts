@@ -1,4 +1,5 @@
-import { Parser, ParserState, regex, string } from "@mkbabb/parse-that";
+import { Parser, regex, string } from "@mkbabb/parse-that";
+import type { ParserState } from "@mkbabb/parse-that";
 
 /** Case-insensitive string match. Returns the matched portion of the input. */
 export const istring = (str: string) => {
@@ -31,11 +32,22 @@ export function fail(message: string): Parser<never> {
 /**
  * Try to parse; return the result or throw on failure.
  * Equivalent to Parsimmon's `.tryParse()`.
+ *
+ * The thrown error includes a 16-char context window (8 before / 8 after
+ * the failure offset) so callers — particularly the demo's color-picker
+ * error toasts — can pinpoint where the parse derailed. (E.W1 Lane D /
+ * E-AUDIT-5 §9 item 11.)
  */
 export function tryParse<T>(parser: Parser<T>, input: string): T {
     const state = parser.parseState(input);
     if (state.isError) {
-        throw new Error(`Parse error at offset ${state.offset}`);
+        const offset = state.offset;
+        const start = Math.max(0, offset - 8);
+        const end = Math.min(input.length, offset + 8);
+        const context = input.slice(start, end);
+        throw new Error(
+            `Parse error at offset ${offset}: "...${context}..."`,
+        );
     }
     return state.value;
 }

@@ -202,6 +202,9 @@ export const parseAnimationShorthand = memoize(
         const segments = splitTopLevelCommas(input);
         return segments.map((seg) => parseSingleAnimation(seg));
     },
+    // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see
+    // comment in src/parsing/index.ts.
+    { keyFn: (input: string) => input },
 );
 
 const splitTopLevelCommas = (input: string): string[] => {

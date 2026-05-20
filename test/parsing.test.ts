@@ -1,7 +1,7 @@
 import { assert, describe, expect, it } from "vitest";
 import { CSSColor, parseCSSColor, parseCSSValueUnit } from "../src/parsing/units";
 import { parseCSSValue, parseCSSTime, parseCSSPercent } from "../src/parsing/index";
-import { parseResult } from "../src/parsing/utils";
+import { parseResult, tryParse } from "../src/parsing/utils";
 import { UNITS } from "../src/units/constants";
 
 const insertRandomWhitespace = (str: string) => {
@@ -267,5 +267,53 @@ describe("parseCSSPercent", () => {
     it("should parse 'from' as 0% and 'to' as 100%", () => {
         assert.equal(parseCSSPercent("from"), 0);
         assert.equal(parseCSSPercent("to"), 100);
+    });
+});
+
+// E.W1 Lane D / E-AUDIT-5 §9 item 11: tryParse failures must include a
+// context window of ~16 chars around the failure offset so consumers can
+// see where the parse derailed without re-reading the input by hand.
+describe("tryParse error context window", () => {
+    it("should include a 16-char input slice around the failure offset", () => {
+        // CSSValueUnit.Value rejects `calc(...)` shape (calc is handled at the
+        // CSSValues level, not the dimension level); the parse fails somewhere
+        // inside the bad fragment so the message should quote it.
+        const input = "calc(1 + bad)";
+        let caught: Error | null = null;
+        try {
+            tryParse(CSSColor.Value, input);
+        } catch (e) {
+            caught = e as Error;
+        }
+        expect(caught).not.toBeNull();
+        const msg = caught!.message;
+        // The "Parse error at offset N" prefix is preserved.
+        expect(msg).toMatch(/Parse error at offset \d+/);
+        // The message embeds a quoted context window with ellipses.
+        expect(msg).toMatch(/"\.\.\..*\.\.\."/);
+        // The context window must contain at least one character from the
+        // failing input (within an 8-char radius of the failure offset).
+        const contextMatch = msg.match(/"\.\.\.(.*)\.\.\."/);
+        expect(contextMatch).not.toBeNull();
+        const context = contextMatch![1]!;
+        // The window length is bounded by 16 chars (8 either side of offset).
+        expect(context.length).toBeLessThanOrEqual(16);
+        // And at least one char of the original input is preserved.
+        const inputChars = new Set(input.split(""));
+        const overlap = context.split("").filter((c) => inputChars.has(c));
+        expect(overlap.length).toBeGreaterThan(0);
+    });
+
+    it("should not throw on the slice itself when the offset is at the start", () => {
+        let caught: Error | null = null;
+        try {
+            tryParse(CSSColor.Value, "@");
+        } catch (e) {
+            caught = e as Error;
+        }
+        expect(caught).not.toBeNull();
+        // Even with offset=0, the slice is safe.
+        expect(caught!.message).toMatch(/Parse error at offset \d+/);
+        expect(caught!.message).toContain("...");
     });
 });

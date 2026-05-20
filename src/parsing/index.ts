@@ -255,25 +255,37 @@ export const CSSValues = {
     Values: ValuesValue.sepBy(whitespace),
 };
 
-export const parseCSSValue = memoize((input: string): ValueUnit | FunctionValue => {
-    return utils.tryParse(ValuesValue, input);
-});
-
-export const parseCSSPercent = memoize((input: string | number): number =>
-    utils.tryParse(CSSValueUnit.Percentage, String(input)).valueOf(),
+// keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): the default
+// `JSON.stringify(args)` cache-key synthesises a quoted copy of the input
+// string on every call. For single-string parsers, identity is both faster
+// and clearer about the cache-key shape.
+export const parseCSSValue = memoize(
+    (input: string): ValueUnit | FunctionValue => {
+        return utils.tryParse(ValuesValue, input);
+    },
+    { keyFn: (input: string) => input },
 );
 
-export const parseCSSTime = memoize((input: string) => {
-    return utils.tryParse(
-        CSSValueUnit.Time.map((v: ValueUnit) => {
-            if (v.unit === "ms") {
-                return v.value;
-            } else if (v.unit === "s") {
-                return v.value * 1000;
-            } else {
-                return v.value;
-            }
-        }),
-        input,
-    ) as number;
-});
+export const parseCSSPercent = memoize(
+    (input: string | number): number =>
+        utils.tryParse(CSSValueUnit.Percentage, String(input)).valueOf(),
+    { keyFn: (input: string | number) => String(input) },
+);
+
+export const parseCSSTime = memoize(
+    (input: string) => {
+        return utils.tryParse(
+            CSSValueUnit.Time.map((v: ValueUnit) => {
+                if (v.unit === "ms") {
+                    return v.value;
+                } else if (v.unit === "s") {
+                    return v.value * 1000;
+                } else {
+                    return v.value;
+                }
+            }),
+            input,
+        ) as number;
+    },
+    { keyFn: (input: string) => input },
+);
