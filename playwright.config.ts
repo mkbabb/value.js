@@ -1,15 +1,16 @@
 import { defineConfig, devices } from "@playwright/test";
 
 /**
- * E.W3 Lane A — 4-project smoke partition (extends D.W5 Lane C 3-project
- * partition with a dedicated `smoke-reactivity` project for the
- * wall-clock-measurement spec).
+ * E.W3 Lane B — 5-project smoke partition (extends E.W3 Lane A 4-project
+ * partition with a `smoke-safari` WebKit project for iOS-Safari
+ * engine-specific bugs — the D-FINAL-named follow-up for D-03 per
+ * E-AUDIT-2 §2 / E-AUDIT-4 §3 / `D/coordination/Q.md §11`).
  *
  *   smoke              — user-view + walk + WebGL + flows
- *                        (excludes admin/, mobile/, and reactivity-instant)
+ *                        (excludes admin/, mobile/, safari/, and reactivity-instant)
  *   smoke-admin        — 5 admin-view specs + admin-walk + 6 admin-flow
  *                        specs, via the addInitScript admin-auth fixture
- *   smoke-mobile       — Pixel-7 single-spec mobile boot probe
+ *   smoke-mobile       — Pixel-7 single-spec mobile boot probe (Chromium engine)
  *   smoke-reactivity   — wall-clock reactivity measurement;
  *                        WORKERS:1 ENFORCED at project level so the
  *                        wall-clock medians are isolated from other-spec
@@ -21,9 +22,16 @@ import { defineConfig, devices } from "@playwright/test";
  *                        from 31.20ms (solo) to 54.30ms (over the 50ms
  *                        threshold) under parallel-worker host-CPU
  *                        contention.
+ *   smoke-safari       — iPhone 14 (WebKit engine) 30s sustained spec.
+ *                        Catches the iOS-Safari engine-specific class
+ *                        (recursion-guard frame-294 stack-overflow,
+ *                        WebGL-on-WebKit shader-compile divergence)
+ *                        that Pixel-7 (Chromium) cannot reach.
+ *                        E.W4 Lane B wires CI; E.W3 ships local + spec.
  *
- * `npx playwright test` (no --project flag) runs all four.
- * CI invokes all four via the workflow at .github/workflows/node.js.yml.
+ * `npx playwright test` (no --project flag) runs all five.
+ * CI invokes all five via the workflow at .github/workflows/node.js.yml
+ * once E.W4 Lane B lands the `npx playwright install webkit` step.
  */
 
 export default defineConfig({
@@ -40,12 +48,13 @@ export default defineConfig({
         {
             name: "smoke",
             testDir: "./e2e/smoke",
-            // Carve out the admin, mobile, and reactivity subtrees — each
-            // has its own project with the right fixtures, viewport, or
-            // worker policy.
+            // Carve out the admin, mobile, safari, and reactivity subtrees —
+            // each has its own project with the right fixtures, engine,
+            // viewport, or worker policy.
             testIgnore: [
                 "**/admin/**",
                 "**/mobile/**",
+                "**/safari/**",
                 "**/reactivity-instant.spec.ts",
             ],
             use: {
@@ -91,6 +100,27 @@ export default defineConfig({
                 browserName: "chromium",
                 headless: true,
                 viewport: { width: 1280, height: 720 },
+            },
+        },
+        {
+            // E.W3 Lane B — iPhone 14 WebKit engine project. Catches
+            // iOS-Safari class bugs (e.g. ValueUnit-nesting frame-294
+            // stack-overflow, WebGL-on-WebKit shader-compile divergence)
+            // that Pixel-7 (Chromium) cannot reach. Per the wave spec
+            // (E.W3.md §"Lane B") + D-FINAL named-destination
+            // (`D/coordination/Q.md §11`).
+            //
+            // The Playwright iPhone 14 device descriptor pins
+            // `defaultBrowserType: "webkit"` — no separate browserName
+            // override needed. WebKit binary install is a CI-side
+            // requirement that E.W4 Lane B addresses (npx playwright
+            // install webkit).
+            name: "smoke-safari",
+            testDir: "./e2e/smoke/safari",
+            use: {
+                ...devices["iPhone 14"],
+                baseURL: "http://localhost:8090",
+                headless: true,
             },
         },
     ],
