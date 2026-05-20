@@ -91,6 +91,7 @@ assets/docs/              # 10 color space reference pages (Vue + KaTeX)
 - Named exports only, no defaults (enables tree-shaking)
 - Color matrices stored row-major (3x3); transform matrices column-major (4x4, CSS convention)
 - Color components normalized to [0,1] internally; denormalized on output
+- See `VENDOR-POLICY.md` for the `demo/@/components/ui/` shadcn-vue vendored-noise policy (accepted-noise; vue-tsc count gated at 126).
 
 ## Entry point
 

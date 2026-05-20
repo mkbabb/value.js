@@ -67,6 +67,24 @@ Inherits D's `§3` rows. Post-D-close updates:
   - `siblingFsAllowTransient` removed (E.W0).
   - The contract-v2 publisher half stays green (post-E.W1 changes don't violate).
 
+### CW-readiness verdict (E.W4 Lane D — read-only)
+
+**Verdict**: **READY.**
+
+| Check | Result |
+|---|---|
+| D.1 — Zero hard `dist/` aliases for `@mkbabb/*` in `vite.config.ts` | PASS (re-verified at HEAD post-E.W3; all `dist/` mentions are comments, rollup `external`, or `build.outDir`) |
+| D.2 — `parse-that` peer-dep migration | **STAY-AS-RUNTIME**. Two consumers (value.js `^0.8.2`, keyframes.js `^0.8.1`); pnpm workspace hoist deduplicates by range overlap regardless of peer-dep declaration. Promoting to peer-dep is a BREAKING CHANGE for `@mkbabb/value.js@^0.4.6`'s registry consumer (fourier-analysis) and is out of E.W4 scope. Filed forward as a v0.7.0+ "library API consolidation" candidate. |
+| D.3 — `siblingFsAllowTransient` posture | **NARROWED** at E.W0 Lane A (font-asset resolution only). Structurally retires under CW Phase-2 — workspace overlay hoists glass-ui's `src/styles/` inside `constellation/node_modules/`, so the `url("../fonts/...")` walk resolves inside the hoisted tree rather than escaping a `file:` symlink. No E.W4 action; the carve-out falls away with the CW flip. |
+| D.4 — Contract-v2 publisher half (`proof:resolution`) | **GREEN**. 3-key shape (`types/import/default`); zero `development` condition keys; `build:watch` script present. `dist/index.d.ts` is the canonical types target (vite-plugin-dts emits from `src/index.ts`); shape-compliant per the contract check. |
+| D.5 — `default` export key under workspace-resolution | **POINTS AT `./dist/value.js`** — verified. Under CW Phase-2 (`workspace:^` in demo + keyframes.js + fourier-analysis), the consumer resolves through `exports["."]` to `dist/value.js`; dev-orchestration relies on `build:watch` keeping `dist/` fresh. No `default → src/` resolution path exists; the contract-v1 `development` condition was abrogated at D.W1. |
+
+**When CW Phase-2 reaches value.js**, the only change required is a 1-line `package.json` edit: `"@mkbabb/glass-ui": "file:../glass-ui"` → `"@mkbabb/glass-ui": "workspace:^"` in `devDependencies` (demo-side dep). The library publisher half (`exports`, `types`, `default`, `build:watch`) stays green; the consumer-half `vite.config.ts` requires no edits; `siblingFsAllowTransient` retires structurally with the symlink retirement.
+
+**Sequencing reminder** (per A4 §5.1 option 2): value.js is FLIPPED LAST in CW Phase-2, after Phase-0 quiescence (fourier-analysis dirty-tree gate) clears and the per-member opt-in cadence reaches value.js.
+
+**Filed at**: 2026-05-20 (E.W4 Lane D). **Evidence**: `audit/E.W4-lane-d-cw-readiness.md`.
+
 ## §5 — keyframes.js
 
 **HEAD `0909177` — no commits since D open.**
@@ -83,8 +101,9 @@ Inherits D's `§3` rows. Post-D-close updates:
 
 The E-FOLD audit (`audit/E-FOLD-2-3-4-synthesis.md §1`) surfaced that value.js's v0.6.0 release SILENTLY BROKE keyframes.js's `file:`-linked consumer:
 
-**Site**: `/Users/mkbabb/Programming/keyframes.js/src/animation/numeric.ts:159-163`
-**Call**:
+**E.W4 Lane F surfaced a 2nd silently-broken call site** beyond the originally-named `numeric.ts:159`. Both are silently broken by v0.6.0's `(a, b, t)` arg flip:
+
+**Site 1** — `/Users/mkbabb/Programming/keyframes.js/src/animation/numeric.ts:159-163`:
 ```ts
 (this.result as Record<string, number>)[seg.keys[i]!] = lerp(
     eased,
@@ -92,13 +111,24 @@ The E-FOLD audit (`audit/E-FOLD-2-3-4-synthesis.md §1`) surfaced that value.js'
     seg.stopVals[i]!,
 );
 ```
-**Was** (pre-v0.6.0): `lerp(t, a, b)` — produced the interpolated value from `eased` (the t parameter) and `startVals/stopVals` (the endpoints).
-**Now** (v0.6.0): `lerp(a, b, t)` — interprets `eased` as `start`, `startVals` as `end`, `stopVals` as `t` — **produces garbage**.
 
-**Call-site count**: verify by `grep -rn '\blerp(' /Users/mkbabb/Programming/keyframes.js/src/` at E.W4 Lane F dispatch — expect 1 site, escalate if more.
+**Site 2** — `/Users/mkbabb/Programming/keyframes.js/src/animation/group.ts:251-255` (NEW per E.W4 Lane F audit):
+```ts
+existing.value = lerp(
+    layer.weight,
+    existing.value,
+    incoming.value,
+);
+```
 
-### §5.2 — Migration diff (the consumer-side change)
+**Was** (pre-v0.6.0): `lerp(t, a, b)` — produced the interpolated value from the first arg (t) and the next two (endpoints).
+**Now** (v0.6.0): `lerp(a, b, t)` — interprets the first arg as `start`, the second as `end`, the third as `t` — **produces garbage** at both sites.
 
+**Call-site count**: 2 (verified by `grep -rn '\blerp(' /Users/mkbabb/Programming/keyframes.js/src/` at E.W4 Lane F dispatch).
+
+### §5.2 — Migration diffs (the consumer-side change at both sites)
+
+**Site 1** — `numeric.ts:159-163`:
 ```diff
 - (this.result as Record<string, number>)[seg.keys[i]!] = lerp(
 -     eased,
@@ -112,14 +142,28 @@ The E-FOLD audit (`audit/E-FOLD-2-3-4-synthesis.md §1`) surfaced that value.js'
 + );
 ```
 
-Plus value.js publishes `scripts/migrate-keyframes-js-lerp.mjs` at E.W4 Lane F — a tiny codemod the keyframes.js maintainer can run locally.
+**Site 2** — `group.ts:251-255` (NEW per E.W4 Lane F):
+```diff
+- existing.value = lerp(
+-     layer.weight,
+-     existing.value,
+-     incoming.value,
+- );
++ existing.value = lerp(
++     existing.value,
++     incoming.value,
++     layer.weight,
++ );
+```
+
+Plus value.js publishes `scripts/migrate-keyframes-js-lerp.mjs` at E.W4 Lane F — a tiny codemod (257 LoC, `--dry-run` + idempotency + parity-count assertion) the keyframes.js maintainer runs locally. The codemod covers BOTH sites and is idempotent (re-running on already-migrated code emits `[already-migrated]` and exits 0).
 
 ### §5.3 — `lerpLegacy` retirement trigger (E5 sharpened escalation)
 
 Per E5: a deferral must record (a) the systemic blocker, (b) the smallest unblock action, (c) the re-check trigger.
 
-- **(a) Blocker**: keyframes.js's `numeric.ts:159` consumer uses the old `lerp(t, a, b)` signature; value.js's v0.6.0 silently breaks it. Removing `lerpLegacy` BEFORE the consumer migrates would compound the breakage.
-- **(b) Smallest unblock**: keyframes.js's maintainer applies the §5.2 diff (or runs the §5.4 codemod). value.js's `lerpLegacy` stays as a transitional safety until then.
+- **(a) Blocker**: keyframes.js's `numeric.ts:159` AND `group.ts:251` consumers use the old `lerp(t, a, b)` signature; value.js's v0.6.0 silently breaks BOTH. Removing `lerpLegacy` BEFORE the consumer migrates would compound the breakage.
+- **(b) Smallest unblock**: keyframes.js's maintainer applies the §5.2 diffs (or runs the §5.4 codemod — covers both sites). value.js's `lerpLegacy` stays as a transitional safety until then.
 - **(c) Re-check trigger**: `cd /Users/mkbabb/Programming/keyframes.js && npm test` passes against master value.js (the keyframes.js test suite exercises the animation path; success indicates the migration is correctly applied). At that point value.js may delete `lerpLegacy` in its next breaking-change tranche.
 
 **Critical reframing**: E2 ("NO LEGACY CODE") is honored — `lerpLegacy` is not dead code; it has ONE active consumer pattern. The deletion ships AT THE EARLIEST UNBLOCK MOMENT, not arbitrarily in the next tranche.
