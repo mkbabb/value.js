@@ -418,6 +418,91 @@ E3 (pipeline parity: validate → authn → authz → service → repository →
 
 **PASS** — all 3 lanes closed; conjunction holds; iOS-Safari engine coverage added; reactivity-instant flake closed with measured + RAIL-grounded methodology.
 
+## 2026-05-20 — E.W4 close (vendor policy + CI hardening + bench gate + CW preparation + motion canon + keyframes coord)
+
+### Dispatch shape
+
+6 lanes dispatched in 2 phases:
+- **Phase 1 (parallel)**: Lanes C (vendor policy) + D (CW readiness) + F (keyframes.js coordination) — file-disjoint primary scopes; shared Q.md touch is different sections.
+- **Phase 2 (parallel)**: Lanes A+B combined (CI hardening — shared `.github/workflows/node.js.yml` + `package.json`) + Lane E (motion canon + Vite upgrade).
+
+| Lane | Commit | Status | Deliverable |
+|---|---|---|---|
+| Lane C | `f1d2005` | LANDED | `audit/E.W4-lane-c-vendor-policy.md` + `VENDOR-POLICY.md` |
+| Lane D | `f1d2005` | LANDED | `audit/E.W4-lane-d-cw-readiness.md` |
+| Lane F | `f1d2005` | LANDED | `audit/E.W4-lane-f-keyframes-coordination.md` + `scripts/migrate-keyframes-js-lerp.mjs` |
+| Lane A | `8e42a2d` | LANDED | `audit/E.W4-lanes-ab-ci-hardening.md` |
+| Lane B | `8e42a2d` | LANDED | (combined with Lane A) |
+| Lane E | `8e42a2d` | LANDED | `audit/E.W4-lane-e-motion-vite.md` |
+
+### Outcomes per lane
+
+**Lane C — vendor policy** (closes B-01 + B-07 chronic ledger items):
+- VENDOR-POLICY.md authored at repo root; decision: ACCEPT + DOCUMENT (Option 3). 94% of 126 vue-tsc errors are TS2379 `exactOptionalPropertyTypes` regressions from reka-ui type version-skew (generator-noise, not authored-code defects).
+- CLAUDE.md Conventions section cites the policy.
+- vue-tsc count gated at 126 (CI assertion at Lane B).
+
+**Lane D — CW seed prep (READ-ONLY)**:
+- Verdict: READY.
+- 5 checks PASS: zero hard `dist/` aliases; `parse-that` stays as runtime dep (defensible — 3 consumers); `siblingFsAllowTransient` NARROWED at E.W0 retires structurally under CW; contract-v2 publisher half GREEN; default key points at dist/value.js.
+- When CW Phase-2 reaches value.js: 1-line `package.json` flip (`"file:../glass-ui"` → `"workspace:^"`).
+- coordination/Q.md §4 updated with the CW-readiness verdict block.
+
+**Lane F — keyframes.js consumption-update coordination (E5 sharpened)**:
+- `scripts/migrate-keyframes-js-lerp.mjs` (257 LoC) — idempotent codemod with `--dry-run`, parity-count assertion, `[unmatched]` refusal mode. Registered as `npm run codemod:keyframes-lerp`.
+- **CRITICAL NEW FINDING**: keyframes.js has TWO silently-broken lerp call sites, not 1: `numeric.ts:159` (originally documented) AND `group.ts:251` (`lerp(layer.weight, existing.value, incoming.value)` — same legacy shape, same silent breakage). Codemod covers both.
+- Updates: coordination/Q.md §5.1 + §5.2 (both sites enumerated; migration diffs for both); src/math.ts (lerpLegacy JSDoc references both sites); CHANGELOG.md (VENDOR-POLICY + codemod publication entries).
+- Dry-run verification against live keyframes.js: both sites detected, ZERO writes (cross-repo boundary preserved). Temp-copy write verification passed; idempotency confirmed.
+- `lerpLegacy` NOT deleted — retirement correctly deferred to next tranche, gated by keyframes.js maintainer confirmation.
+
+**Lanes A + B — Benchmark CI gate + CI hardening (combined)**:
+- `npm run bench` script added (sequential L8 + DIRECT_PATHS + nameParser).
+- `.github/workflows/node.js.yml`: 50 → 232 LoC. Matrix build-and-test job (Node 22 + 24, fail-fast: false) with 18 steps — checkout → setup-node → npm ci → lint → vue-tsc (count ≤ 126) → build → vitest → api/ tests → proof:resolution → bench + assert gates → Playwright cache + chromium/webkit install → playwright test (all 5 projects) → CHANGELOG-changed gate (PR-only). Deploy job `needs: build-and-test`.
+- 3 bench gate assertions (L8 ≥ 5×, DIRECT_PATHS HSL→RGB ≥ 2×, nameParser ≥ 5×) parsed via grep + awk from bench-output.txt; chained `&&` provides redundant short-circuit gating.
+- Local verification at HEAD: L8 12.24× / DIRECT_PATHS 4.28× / nameParser 47.33×.
+
+**Lane E — Glass-ui motion-canon adoption + Vite upgrade**:
+- Glass-ui motion-canon survey identified TWO families:
+  - Family A (general-purpose `--duration-*` in glass-ui's tokens.css) — 74 demo consumers already aligned; ADOPTED Family A.
+  - Family B (specialised celebratory `--motion-duration-*`/-delay-* for badge reveals, complete-shimmer, progress-lifecycle, ripple) — demo doesn't author analogous SFCs; REVIEWED + NOT ADOPTED with rationale.
+- 3 hard-coded ms residuals tokenized to Family A (PointerDebugOverlay shimmer fade, GooBlob slow-fallback refresh, PaletteDialogHeader shimmer / useHeightTransition instant snap).
+- 6 bespoke literals preserved per `feedback_preserve_animations.md` (physics-tuned values).
+- Vite 7.3.1 → 7.3.3 (within `^7.0.6` constraint; build+dev clean).
+- demo/DESIGN.md § Motion expanded; coordination/Q.md §3 row updated.
+
+### E.W4 wave gate
+
+| Gate | Expected | Actual | Verdict |
+|---|---|---|---|
+| `npm run lint` | exit 0 | 0 | PASS |
+| `npx vue-tsc --noEmit` | 126 | 126 | PASS (held; gated at CI per VENDOR-POLICY) |
+| `npm run build` | clean | clean (Vite 7.3.3) | PASS |
+| `npm run gh-pages` | clean | clean (9.09s) | PASS |
+| `npm run proof:resolution` | GREEN | GREEN | PASS |
+| `npx vitest run` (library) | 1584+ | 1584 / 34 | PASS |
+| `cd api && npx vitest run` | 104+ | 104 / 20 | PASS |
+| `npm run bench` | exit 0, 3 medians | L8 12.24× / DIRECT 4.28× / nameParser 47.33× | PASS (all gates exceeded) |
+| `npx playwright test` (5 projects) | 36/36 | 36/36 | PASS |
+| `VENDOR-POLICY.md` exists | yes | yes | PASS |
+| `scripts/migrate-keyframes-js-lerp.mjs` exists | yes | yes | PASS |
+| CI matrix (Node 22 + 24) | added | added | PASS (validates on first push) |
+
+### Cross-tranche residuals state (post-E.W4)
+
+| Item | Status |
+|---|---|
+| B-01 + B-07 vendor policy chronic items | **CLOSED** (Lane C: ACCEPT + DOCUMENT) |
+| D-03 smoke-safari CI integration | **CLOSED** (Lane B: WebKit in Playwright cache install + 5-project test) |
+| D-04 motion canon adoption | **CLOSED** (Lane E: Family A ADOPTED + Family B REVIEWED-NOT-ADOPTED) |
+| E-FOLD keyframes.js silent breakage | **SCAFFOLDING PUBLISHED** (Lane F: codemod + Q.md §5 covers both sites). Retirement gated on consumer confirmation. |
+| CW readiness | **READY** (Lane D: 1-line flip when CW Phase-2 reaches value.js) |
+| Standing glass-ui primitive asks (7 items) | UNCHANGED — glass-ui-side authorship (cross-repo) |
+| Precept submodule pin (68d9b20) | UNCHANGED at upstream HEAD |
+
+### E.W4 sub-gate verdict
+
+**PASS** — all 6 lanes closed; conjunction holds; 4 chronically-deferred items closed (B-01/B-07/D-03/D-04); CI matrix validates remaining gates on first push; keyframes.js silent-breakage migration scaffolding published with E5-compliant trigger.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -426,7 +511,7 @@ E3 (pipeline parity: validate → authn → authz → service → repository →
 | E.W1 — library architectural transposition (v0.7.0 candidate) | closed | 2026-05-20 | 2026-05-20 | `8db0e89` (Lane A) + `b4bc8ea` (Lane D) + `5cf4271` (Lane B) + `2413d61` (Lane C) + `762c11c` (Lane E) |
 | E.W2 — api/ pipeline parity + middleware split + first backend tests | closed | 2026-05-20 | 2026-05-20 | `417c3a5` (Lanes A+B) + `a8e4de3` (Lane D) + `1e1b248` (Lane F) + `bf29b71` (Lane C) + Lane E |
 | E.W3 — e2e/ coverage expansion + smoke-safari + flake fix | closed | 2026-05-20 | 2026-05-20 | `0f490cc` (Lane A) + `0d74e05` (Lane C) + `aa2d62a` (Lane B) |
-| E.W4 — vendor policy + CI hardening + bench gate + CW preparation | planned | — | — | — |
+| E.W4 — vendor policy + CI hardening + bench gate + CW preparation | closed | 2026-05-20 | 2026-05-20 | `f1d2005` (Lanes C+D+F) + `8e42a2d` (Lanes A+B+E) |
 | E.W5 HEADLINE close — FINAL.md, merge, v0.7.0 tag | planned | — | — | — |
 
 ## Open dependencies
