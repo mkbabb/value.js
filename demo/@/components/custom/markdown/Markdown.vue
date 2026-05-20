@@ -145,7 +145,7 @@ onUpdated(() => {
 .markdown-wrapper > .markdown-body {
     /* Links */
     a {
-        @apply text-primary hover:underline transition-colors duration-[var(--duration-fast)];
+        @apply text-primary hover:underline transition-colors duration-fast;
     }
 
     /* Lists */
@@ -172,6 +172,7 @@ onUpdated(() => {
     }
 
     /* Code blocks */
+    /* rounded-2xl: documented exception (content element, not a surface) — W3-conventions */
     pre {
         @apply bg-muted rounded-2xl p-4 mb-4 overflow-x-auto;
     }
@@ -206,6 +207,7 @@ onUpdated(() => {
     }
 
     /* Images */
+    /* rounded-2xl: documented exception (content element, not a surface) — W3-conventions */
     img {
         @apply max-w-full h-auto rounded-2xl my-4 mx-auto;
     }
@@ -289,7 +291,7 @@ onUpdated(() => {
 
     /* Tables of contents */
     .toc {
-        @apply sticky top-0 bg-background z-[var(--z-popover)];
+        @apply sticky top-0 bg-background z-popover;
         @apply p-4 mb-4;
         @apply font-bold text-foreground;
         @apply first:mt-0 scroll-m-20;
@@ -308,7 +310,7 @@ onUpdated(() => {
     }
 
     .toc a {
-        @apply text-primary hover:underline transition-colors duration-[var(--duration-fast)];
+        @apply text-primary hover:underline transition-colors duration-fast;
     }
 }
 </style>

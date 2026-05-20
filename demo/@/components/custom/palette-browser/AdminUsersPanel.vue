@@ -44,7 +44,7 @@
             <div
                 v-for="user in users"
                 :key="user.slug"
-                class="rounded-[var(--radius-md)] border border-border overflow-hidden"
+                class="rounded-md border border-border overflow-hidden"
             >
                 <!-- User header row -->
                 <div
@@ -75,13 +75,15 @@
                             <Trash2 class="w-3 h-3 mr-1" />
                             Palettes
                         </Button>
+                        <!-- W5-a11y: icon-only destructive button needs accessible name -->
                         <Button
                             variant="destructive"
                             size="sm"
                             class="h-7 px-2 cursor-pointer font-display text-caption"
+                            :aria-label="`Delete user ${user.slug}`"
                             @click="onDeleteUserClick($event, user.slug)"
                         >
-                            <Trash2 class="w-3 h-3" />
+                            <Trash2 class="w-3 h-3" aria-hidden="true" />
                         </Button>
                     </div>
                 </div>
@@ -142,12 +144,17 @@ import { Badge } from "@components/ui/badge";
 import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 import { Loader2, Trash2, Eraser, RefreshCw } from "lucide-vue-next";
 import type { Palette, User } from "@lib/palette/types";
-import { getUserPalettes } from "@lib/palette/api";
-import { useAdminAuth } from "@composables/auth/useAdminAuth";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import PaletteCard from "./PaletteCard.vue";
 import EmptyState from "./EmptyState.vue";
 
-const props = defineProps<{
+const {
+    users,
+    loading,
+    expandedId,
+    cssColor,
+    totalUsers,
+} = defineProps<{
     users: User[];
     loading: boolean;
     expandedId: string | null;
@@ -166,14 +173,15 @@ const emit = defineEmits<{
 }>();
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
-const { getToken: getAdminToken } = useAdminAuth();
+// D.W3 Lane B: route through pm.loadUserPalettes (was: direct getUserPalettes)
+const pm = inject(PALETTE_MANAGER_KEY)!;
 
 const expandedUserSlug = ref<string | null>(null);
 const userPalettes = ref<Palette[]>([]);
 const loadingUserPalettes = ref(false);
 const pruning = ref(false);
 
-const emptyCount = computed(() => props.users.filter((u) => !(u.paletteCount ?? 0)).length);
+const emptyCount = computed(() => users.filter((u) => !(u.paletteCount ?? 0)).length);
 
 // Confirmation dialog state
 const confirmOpen = ref(false);
@@ -261,14 +269,9 @@ async function toggleUserExpand(slug: string) {
         return;
     }
     expandedUserSlug.value = slug;
-    const token = getAdminToken();
-    if (!token) return;
     loadingUserPalettes.value = true;
     try {
-        userPalettes.value = await getUserPalettes(token, slug);
-    } catch (e: any) {
-        console.warn("Failed to load user palettes:", e?.message);
-        userPalettes.value = [];
+        userPalettes.value = await pm.loadUserPalettes(slug);
     } finally {
         loadingUserPalettes.value = false;
     }
@@ -280,9 +283,10 @@ function removeUserPalette(paletteSlug: string) {
 
 function updatePaletteStatus(paletteSlug: string, status: string) {
     const idx = userPalettes.value.findIndex((p) => p.slug === paletteSlug);
-    if (idx !== -1) {
+    const existing = userPalettes.value[idx];
+    if (idx !== -1 && existing) {
         userPalettes.value[idx] = {
-            ...userPalettes.value[idx],
+            ...existing,
             status: status as "published" | "featured",
         };
     }

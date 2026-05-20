@@ -118,8 +118,9 @@ import "./hero-lab.css";
 
 useGlobalDark();
 
-const tileConfigs = reactive<Record<string, TileHeroConfig>>({
+const tileConfigs = reactive<Record<"webgl" | "canvas", TileHeroConfig>>({
     webgl: {
+        kind: "tile",
         paletteId: "ember-glass",
         speed: 1,
         intensity: 1,
@@ -131,6 +132,7 @@ const tileConfigs = reactive<Record<string, TileHeroConfig>>({
         revealSpeed: 1.1,
     },
     canvas: {
+        kind: "tile",
         paletteId: "sea-glass",
         speed: 0.95,
         intensity: 1.05,
@@ -141,21 +143,11 @@ const tileConfigs = reactive<Record<string, TileHeroConfig>>({
         ditherStrength: 0.62,
         revealSpeed: 0.95,
     },
-    css: {
-        paletteId: "citrine-mist",
-        speed: 0.85,
-        intensity: 0.9,
-        reducedMotion: false,
-        tileSize: 18,
-        bands: 5,
-        patternDensity: 0.76,
-        ditherStrength: 0.5,
-        revealSpeed: 0.82,
-    },
 });
 
-const atmosphereConfigs = reactive<Record<string, AtmosphereHeroConfig>>({
+const atmosphereConfigs = reactive<Record<"webgl" | "canvas", AtmosphereHeroConfig>>({
     webgl: {
+        kind: "atmosphere",
         paletteId: "night-studio",
         speed: 1,
         intensity: 1,
@@ -164,20 +156,13 @@ const atmosphereConfigs = reactive<Record<string, AtmosphereHeroConfig>>({
         blobCount: 4,
     },
     canvas: {
+        kind: "atmosphere",
         paletteId: "ember-glass",
         speed: 0.9,
         intensity: 1.15,
         reducedMotion: false,
         blurRadius: 42,
         blobCount: 5,
-    },
-    css: {
-        paletteId: "sea-glass",
-        speed: 0.75,
-        intensity: 0.95,
-        reducedMotion: false,
-        blurRadius: 36,
-        blobCount: 4,
     },
 });
 </script>

@@ -110,15 +110,93 @@ The user directed an audit of value.js ↔ `@mkbabb/keyframes.js` parity and abs
 
 No new wave; no scope change. The audit added one research doc and §9 to the coordination manifest.
 
+## 2026-05-19 — B execution authorized; B.W0 HEADLINE close
+
+The user lifted the planning-only constraint and authorized tranche execution in totality ("Begin and continue the current tranche … do not relinquish control … until you have completed the plan IN TOTALITY"). Execution runs on the branch `tranche-b` off `master` HEAD `f9a47ca` (the system-prompt git rule — branch off the default branch before committing execution work).
+
+### B.W0 — close A
+
+- **Lane 0 — precept advance.** `docs/precepts` submodule advanced `3310a8c` → `3c32fae` (glass-ui Q.W6's advance — invariants 30–33 + π-lane). Commit `de8c573`. B operates under invariants 30–33 for the rest of the tranche.
+- **Lane A — A.W5 ratify + commit.** The working tree was ratified against `docs/tranches/A/audit/W5-a11y.md` / `W5-animation.md` — not re-done. Gate matrix: `vitest` 1409 passed; `vue-tsc` 243 (the W5 ARIA additions did not raise it — B.W0 expected ~290, actual is better); Playwright boot re-probe 3 viewports × light+dark, **0 console errors, 0 stale-prop warnings** (invariant-31 check passes). Committed as 2 logical commits (`7088da4` a11y, `5247313` animation) + the close doc (`36a4ad0`). The 16 modified `e2e/*.spec.ts` left uncommitted — B.W3 deletes them. `style.css` was W5-a11y collateral (landmark integration) folded into the a11y commit.
+- **Lane B — A.W6 disposition.** Re-verified the metaballs/aurora/`BlobDot` APIs against glass-ui's **current** HEAD `e2e5303` (post-Q-close): none shipped. A.W6 closed by formal re-scope — `docs/tranches/A/audit/W6-deferred.md`; commit `065c6fe`. Adjacent finding: glass-ui `ce5aad8` (contract-v2, v1.9.3) abrogates the `development` dev-resolution condition — a B.W3 invariant-30 audit concern, noted for that wave.
+- **Lane C — A.W7 close ceremony.** 6 read-only close-audit lanes dispatched as parallel agents + the integrity sweep run by the orchestrator. All clean. `docs/tranches/A/FINAL.md` written; A's wave-log shows zero `planned`; commit `a9b6a94`. Tranche A is **closed**.
+
+### W7 close-audit findings folded into B (invariant B5)
+
+The A.W7 close audit surfaced B-actionable items, folded into the wave specs and `findings.md §2 N`: the `ui/alert/` hand-rolled fossil + dead `ui/` barrels → **B.W2** Lane A Tier-1b; the `--animation-slide-md` phantom token → **B.W1** Lane C; the `cssColorToRgb` per-frame hot-spot → routed with `audit/W6-deferred.md`; 14 doc-drift items → **B.W4** (its doc-drift lane already owns the scope).
+
+### Gate
+
+B.W0 hard gate MET — precepts advanced + committed; A's wave-log zero `planned`; `A/FINAL.md` cites every commit; `audit/W6-deferred.md` exists; A.W5 working-tree paths clean (e2e specs deliberately uncommitted); integrity sweep clean; `npm test` 1409; `vue-tsc` 243 recorded; Playwright 0 stale-prop warnings.
+
+## 2026-05-19 — B.W1 close — W5 corrections + layout transposition
+
+Four lanes — A/B/C dispatched as parallel agents on disjoint file sets, D (layout) owned by the orchestrator (the user named layout the "contrived/overfit" surface — kept in one hand).
+
+- **Lane A — W5 a11y corrections.** SpectrumCanvas `role="slider"` → `role="img"` + reactive `:aria-label`; SwatchHoverMenu hover panel `role="toolbar"` → `aria-hidden`; PaletteCardGrid `role="list"`; 3 redundant GradientVisualizer SelectTrigger aria-labels removed. Commit `bda38b6`.
+- **Lane B — reduced-motion carve-out.** `animations.css` gains an overlay opacity-fade carve-out after the global guard (reka-ui `[data-state]` overlays keep a 150ms opacity fade). Commit `2a13de3`.
+- **Lane C — phantom retirement.** `floating-panel-item` stripped from 6 sites (zero CSS rule — invariant 32/33 corpus-grep proof); `--animation-slide-md` phantom token (undefined, invalidated PaletteCard's `.rename-slide` transform) replaced with the literal `0.5rem`; Markdown `rounded-2xl` documented as content-element exceptions. `audit/B.W1-floating-panel-item.md` is value.js's retired-class/token registry. Commit `e7da1b5`.
+- **Lane D — layout transposition (Bβ Proposal B).** `--dock-pos` + `--layout-padding` deleted (9 → 7 layout tokens); `.app-layout` grid → flex column; the `--dock-pos` fold-back gone. Commit `ff6354d`.
+
+### Gate
+
+Wave closes on the conjunction of the 4 sub-gates A–D + the layout-class Playwright probe. Probe: 4 viewports (375×667 / 1280×720 / 1280×800 / 2520×1080) × light+dark, **0 console errors, 0 stale-prop warnings**; dock pins at `--dock-inset` (16px mobile / 8px desktop) on every viewport — 0 drift from the W4 baseline at standard viewports, and the one accepted Proposal-B delta at 21:9 (dock at 8px vs the old ~173px float). `vue-tsc` 243 (unchanged); `vitest` 1409. Captures in `audit/B.W1-layout/`.
+
+## 2026-05-19 — B.W2 close — component consolidation + hero-lab + UnderlineTabs
+
+Three lanes. Lane A (the consolidation transposition) orchestrator-owned; Lanes B and C dispatched as parallel agents.
+
+- **Lane A — component consolidation.** One architectural transposition: `usePaneRouter.ts` (new) is the single source of truth — it replaces the parallel `useMobilePaneRouter` + `useDesktopPaneRouter` (a precept §5 one-path violation) and folds in `useGenericActionBar`. `DockMainLayer.vue` (passthrough) merged into `Dock.vue`; `useDockLayers`/`useAtmosphere` inlined. **7 files deleted.** Tier-1b: `ui/alert/` converted to a glass-ui re-export (was a hand-rolled duplicate — A.W7 finding N1), dead `ui/table/` barrel deleted (N2). Tier-2: `PaneSearchBar` deleted (pure relay); `usePaletteManagerWiring`/`PaneSlot`/`PaneSegmentedControl` KEPT with recorded evidence. App.vue script → 140 lines, Dock.vue 229. Commits `fa57f02` (a regression fix — see below) + `4fde60e`. Audit: `audit/B.W2-consolidation.md`.
+- **Lane B — hero-lab pass.** 31 vue-tsc errors → 0 (a `kind`-discriminated config union); 4 WebGL RAF loops gain `prefers-reduced-motion` guards; DESIGN.md "design exemplar" claim honoured. Repo-wide vue-tsc 243 → **212**. Commit `9091e12`.
+- **Lane C — UnderlineTabs.** Agent verified glass-ui's `<UnderlineTabs>` is header-only — it cannot replace `PaletteDialog`'s reka-ui `<Tabs>` provider (5 content panels, `data-state` animations, panel ARIA) without a rebuild-by-hand a11y regression. **Orchestrator decision: do not migrate** — the demo keeps reka-ui `<Tabs>` + the `.underline-tabs` override; the gap re-files sharper (glass-ui should ship underline as a `<Tabs>`-provider variant). Commit `c2efa83`. Audit: `audit/B.W2-underline-tabs.md §9`.
+
+### Regression caught by the wave probe (invariant B4)
+
+The B.W2 view-switch probe surfaced a `SortableJS: el must be an HTMLElement` error on the Palettes view — a **B.W1 regression**: B.W1's a11y pass made `PaletteCardGrid` multi-root (a leading comment), breaking the `$el` `PalettesPane`'s `useSortable` reads. Fixed (`fa57f02`); the comment moved inside the root `<div>`.
+
+### Gate
+
+Sub-gates A–C + the Playwright probe. Boot probe (3 viewports × light+dark) 0 console errors; interaction probes (dock expand, view-select, switch to Generate — the folded action bar "Tools" appears — and to Palettes — `useSortable` clean post-fix) 0 console errors. `vue-tsc` 212 (−31 from hero-lab); `vitest` 1409. Captures in `audit/B.W2-playwright/`.
+
+## 2026-05-19 — B.W3 close — library audit + WIP + typecheck + e2e abrogation
+
+Four lanes. Lane A (read-only library audit), C (typecheck), D (e2e abrogation) dispatched as parallel agents; Lane B (WIP disposition) orchestrator-owned, sequenced on Lane A's output.
+
+- **Lane A — value.js library gap audit (Mandate 12 AND).** A scoped `src/` out of Mandate 12; B audits it. 11 gaps (3 P1 / 4 P2 / 4 P3) in `audit/B.W3-library-gap.md`. G5 confirmed the 5 untracked `src/` WIP files are re-exported from `src/index.ts` (clean checkout fails build → Lane B). invariant-30: value.js is contract-v1 compliant but **stale vs glass-ui's contract-v2** (`ce5aad8` abrogated `development`) — recommendation recorded, routed to coordination. View-schema: EXTRACT `viewSchema.ts` (recommendation). K1: the `@mkbabb/keyframes.js` devDependency is vestigial — recommend-remove recorded; the removal (lockfile reconciliation) routes to a value.js library-maintenance effort. Commit `7b6b473`.
+- **Lane B — `src/` WIP disposition.** The 5 untracked files committed (wired public API, not abandoned — Lane A G5) + the 3 `src/` modifications + `plugins/vite-source-export.ts` + `package.json`'s invariant-30 `default` export key. Library build clean, vitest 1409, `dist/value.js` emits. Commit `8d6dfac`.
+- **Lane C — typecheck cluster.** vue-tsc **212 → 126** (sub-gate ≤135). The 86 custom-bucket errors fully cleared (28 erroring files + 8 supporting). The 126 remaining are all vendored `demo/@/components/ui/**` shadcn-vue — untouched, routed to a generator-update effort. Commit `92ee51f`.
+- **Lane D — e2e abrogation.** Invariant-33 corpus-grep proof, then all 16 root specs deleted; `e2e/smoke/` stood up with exactly 3 role/label specs (page-load, color-space-switching, view-switch); `playwright.config.ts` gains `smoke`, loses `mobile`; CI gains a `playwright test --project=smoke` step. The brittleness-lane keep-and-migrate dissent overridden (recorded). Commit `afe102a`.
+
+### Gate
+
+Sub-gates A–D + the gate matrix. `npm run build` clean (`dist/value.js` 139 kB); `npm test` 1409; `vue-tsc` 126 (≤135); `npx playwright test --project=smoke` 3/3 green. Boot probe (3 viewports × light+dark, `audit/B.W3-playwright/`) 0 console errors — the typecheck pass introduced no runtime regression.
+
+## 2026-05-19 — B.W4 HEADLINE close — strengthened close
+
+The Tranche B close ceremony. Seven read-only close-audit lanes — six dispatched as parallel agents, the integrity sweep run by the orchestrator. All clean (see the `audit(tranche-b/w4-close)` commit). The close ceremony then fixed every doc-drift item the audit inventoried: A's `W7-doc-drift.md` 14 items (the `Ag→Ac` research rename, `A.md §8` retire-records, phantom-citation + stale-SHA fixes — `docs(tranche-a/close-residuals)`) and the 9 new B-introduced items (`CLAUDE.md`/`demo/CLAUDE.md` counts + structure, the duplicate wave-log rows, the typecheck-estimate reconcile, the `Bz` wave-number, the `B.W2.md` Lane C re-scope note, the `coordination/Q.md §7` SHA).
+
+### Close ceremony
+
+- `docs/tranches/B/FINAL.md` written — the close report.
+- `coordination/Q.md` — §3/§7 reconciled to the Q-close state; `floating-panel-item` row RETIRED, `UnderlineTabs` row records the wrong-shape re-file.
+- `CLAUDE.md` — `1409 tests, 26 files`, e2e → smoke, the 5 new `src/` files.
+- A close-residuals — the `Ag→Ac` rename + `A.md §8` records committed.
+
+### Gate
+
+The conjunction of the 7 read-only audit lanes (all clean / findings absorbed) + the close-honesty checklist + the visual-runtime re-probe (6 viewport/scheme combos, 0 console errors). `npm run build` clean; `npm test` 1409; `vue-tsc` 126; `npx playwright test --project=smoke` 3/3. `FINAL.md` cites every B commit + the A close. B's wave-log shows zero `planned`.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| B.W0 HEADLINE — close A + precept advance | planned | — | — | — |
-| B.W1 — W5 a11y corrections + reduced-motion + floating-panel-item strip + layout simplification | planned | — | — | — |
-| B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | planned | — | — | — |
-| B.W3 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | planned | — | — | — |
-| B.W4 HEADLINE close — FINAL.md, doc drift, Q.md update, A close-residuals | planned | — | — | — |
+| B.W0 HEADLINE — close A + precept advance | closed | 2026-05-19 | 2026-05-19 | de8c573, 7088da4, 5247313, 36a4ad0, 065c6fe, a9b6a94 |
+| B.W1 — W5 a11y corrections + reduced-motion + floating-panel-item strip + layout simplification | closed | 2026-05-19 | 2026-05-19 | bda38b6, 2a13de3, e7da1b5, ff6354d |
+| B.W2 — component consolidation (usePaneRouter transposition) + hero-lab + UnderlineTabs | closed | 2026-05-19 | 2026-05-19 | 9091e12, c2efa83, fa57f02, 4fde60e |
+| B.W3 — library gap audit + WIP disposition + custom typecheck + e2e abrogation | closed | 2026-05-19 | 2026-05-19 | 7b6b473, 8d6dfac, 92ee51f, afe102a |
+| B.W4 HEADLINE close — FINAL.md, doc drift, Q.md update, A close-residuals | closed | 2026-05-19 | 2026-05-19 | 6d1cb40, 719d2a6, + this close commit |
+
+Per-wave close-doc commits: `40609ce` (W0), `5db9746` (W1), `d36ff5d` (W2), `31da0d6` (W3).
 
 ## Open dependencies
 

@@ -101,9 +101,15 @@ A hands glass-ui a gap list — the metaballs/aurora API extensions, the `BlobDo
 
 ## §8 — Finding disposition (zero deferral)
 
-Every `research/Aa..Ae` finding is assigned. The hardening pass (`audit/HARDEN-3`) found 12 findings the 6-wave plan left unassigned — Ab-1 through Ab-7, Ab-16 through Ab-19, and Ag-6. The augmented schedule routes them: the Ab Category-1 non-idiomatic-usage findings (Ab-1..7) and the Ab fragile-rule findings (Ab-16..19) land in W2's added fourth lane; Ag-6 (the dead `--glass-opacity-subtle` override) lands in W3. With the augmentation, the assignment is complete — `audit/HARDEN-3 §7` and `waves/W2.md`/`W3.md` carry the per-finding table.
+Every `research/Aa..Ae` finding is assigned. The hardening pass (`audit/HARDEN-3`) found 12 findings the 6-wave plan left unassigned — Ab-1 through Ab-7, Ab-16 through Ab-19, and Ac-6. The augmented schedule routes them: the Ab Category-1 non-idiomatic-usage findings (Ab-1..7) and the Ab fragile-rule findings (Ab-16..19) land in W2's added fourth lane; Ac-6 (the dead `--glass-opacity-subtle` override) lands in W3. With the augmentation, the assignment is complete — `audit/HARDEN-3 §7` and `waves/W2.md`/`W3.md` carry the per-finding table.
 
-`research/Ag` holds 13 findings (Ag-1..Ag-13), not 14; the count is corrected here and in `PROGRESS.md`.
+Four lower-priority findings are retired with recorded rationale rather than routed to a wave:
+
+- `Ab-16` — PointerDebugOverlay hardcoded colors. The overlay is a dev-only iOS-Safari debugging surface, not user-facing; its colors carry no design-token obligation. Recorded-deferred per the research note (`PROGRESS.md` line 122, `audit/W2-lane-ca.md`).
+- `Ad-20` — `SelectContent` `min-w-*`/`max-h-*` literals scattered across instances. `research/Ad §Ad-20` marks this "genuinely not worth fixing as a single change" — the literals are per-instance sizing, not a shared token, and consolidating them would invent an abstraction the demo does not need. Retired with that rationale.
+- `Ae-12` — Aurora cursor interaction wired separately from the canvas. `research/Ae §Ae-12` marks this "worth noting as a known seam, not a blocker" — a cosmetic seam, not a fault. Retired as a recorded non-blocker.
+
+`research/Ac` holds 13 findings (Ac-1..Ac-13), not 14 — `audit/HARDEN-3 §1` independently confirms the count ("the document has 13 ... there is no Ac-14"); the count is corrected here and in `PROGRESS.md`.
 
 The glass-ui-side audit recommendations are not value.js work and are not A deferrals; they are coordination items in `coordination/Q.md §3`. `audit/HARDEN-4` struck one (Ae-15 — the demo's `@components/ui/select` already re-exports the full glass-ui `Select`; the "falls back to raw reka-ui" claim was false) and re-framed another (the config-pane gap is non-adoption of glass-ui's existing `./configurator`, not a missing primitive).
 
@@ -127,9 +133,9 @@ W0–W5 do not depend on it and close independently. W7 (the close) opens only a
 
 ## §10 — Authority
 
-Plan substrate at A open, hardened: this file + `findings.md` + `research/Aa-runtime-keystone.md` (= angle α) + `research/Ab-styling-resilience.md` (β) + `research/Ag-design-tokens-hierarchy.md` (γ) + `research/Ad-interactive-states.md` (δ) + `research/Ae-structure-blob-aurora.md` (ε) + `research/A-challenge.md` + `research/screenshots/` (3 Playwright captures) + `audit/HARDEN-1..6` (the hardening pass) + `coordination/Q.md` + `dispatch/AGENT.md` + `waves/W0..W7.md` + `PROGRESS.md`.
+Plan substrate at A open, hardened: this file + `findings.md` + `research/Aa-runtime-keystone.md` (= angle α) + `research/Ab-styling-resilience.md` (β) + `research/Ac-design-tokens-hierarchy.md` (γ) + `research/Ad-interactive-states.md` (δ) + `research/Ae-structure-blob-aurora.md` (ε) + `research/A-challenge.md` + `research/screenshots/` (3 Playwright captures) + `audit/HARDEN-1..6` (the hardening pass) + `coordination/Q.md` + `dispatch/AGENT.md` + `waves/W0..W7.md` + `PROGRESS.md`.
 
-Research-file legend: the five angles map to the Greek sequence α β γ δ ε, transliterated `a b g d e` — `Aa`=α runtime, `Ab`=β styling-resilience, `Ag`=γ tokens, `Ad`=δ interactive-states, `Ae`=ε structure. There is no `Ac`/`Af`; the sequence is contiguous in Greek.
+Research-file legend: the five angles map to the Greek sequence α β γ δ ε, transliterated `a b c d e` — `Aa`=α runtime, `Ab`=β styling-resilience, `Ac`=γ tokens, `Ad`=δ interactive-states, `Ae`=ε structure. The Latin filenames are contiguous: `Aa..Ae`, no gaps. (The γ angle's research file was authored as `Ag` — a Greek-letter transliteration — and renamed to `Ac` in B.W4 so the Latin sequence is gap-free; finding IDs follow as `Ac-1..Ac-13`.)
 
 ## §11 — Revision history
 

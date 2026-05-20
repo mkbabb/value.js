@@ -1,11 +1,11 @@
-import { ref, type Ref } from "vue";
+import { ref, type Ref, type ComputedRef } from "vue";
 import { useSession } from "../auth/useSession";
 import { publishPalette } from "@lib/palette/api";
 import type { Palette } from "@lib/palette/types";
 import type PaletteSlugBar from "@components/custom/palette-browser/PaletteSlugBar.vue";
 
 export function useSlugMigration(deps: {
-    savedPalettes: Ref<Palette[]>;
+    savedPalettes: Ref<Palette[]> | ComputedRef<Palette[]>;
     userLogin: (slug: string) => Promise<void>;
     userLogout: () => Promise<void>;
     userRegenerate: () => Promise<string>;
@@ -13,9 +13,15 @@ export function useSlugMigration(deps: {
     clearUserSlug: () => void;
     ensureUser: () => Promise<string>;
     activeTab: Ref<string>;
-    setActiveTab: (tab: string) => void;
+    setActiveTab?: ((tab: string) => void) | undefined;
 }) {
     const session = useSession();
+
+    const setActiveTab = (tab: string) => {
+        const fn = deps.setActiveTab;
+        if (fn) fn(tab);
+        else deps.activeTab.value = tab;
+    };
 
     const showMigrateDialog = ref(false);
     const migrateMode = ref<"switch" | "regenerate">("switch");
@@ -45,7 +51,7 @@ export function useSlugMigration(deps: {
         if (isAdmin) {
             deps.clearUserSlug();
             deps.adminLogin(value);
-            deps.setActiveTab("saved");
+            setActiveTab("saved");
             return;
         }
 
@@ -59,14 +65,14 @@ export function useSlugMigration(deps: {
                 if (choice === "transfer") {
                     await publishAllLocal();
                 }
-                deps.setActiveTab("saved");
+                setActiveTab("saved");
             };
             showMigrateDialog.value = true;
             return;
         }
         try {
             await deps.userLogin(value);
-            deps.setActiveTab("saved");
+            setActiveTab("saved");
         } catch (e: any) {
             const msg = e?.message ?? "";
             if (msg.includes("409")) slugBarRef.value?.setError("Already signed in as this slug.");

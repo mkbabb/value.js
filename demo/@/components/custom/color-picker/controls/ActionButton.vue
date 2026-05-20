@@ -8,21 +8,28 @@
         class="pointer-events-auto"
     >
         <HoverCardTrigger as-child>
-            <div class="action-button-wrapper" @click="handleClick">
+            <!-- W5-a11y: native <button> for keyboard reach, focus-visible ring, and Enter/Space activation -->
+            <button
+                type="button"
+                class="action-button-wrapper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 rounded-sm"
+                :aria-label="title"
+                :aria-disabled="disabled || undefined"
+                :disabled="disabled || undefined"
+                @click="handleClick"
+            >
                 <component
                     :is="icon"
-                    :aria-label="title"
-                    :aria-disabled="disabled || undefined"
+                    aria-hidden="true"
                     :class="[
-                        'action-icon w-6 h-6 stroke-foreground transition-[transform,stroke] cursor-pointer',
+                        'action-icon w-6 h-6 stroke-foreground transition-[transform,stroke]',
                         iconClass,
-                        disabled && 'pointer-events-none opacity-50',
+                        disabled && 'opacity-50',
                         isClicked && (rotateOnClick ? 'action-rotate' : 'action-flash'),
                     ]"
                     :style="{ ...activeStyle, '--flash-color': cssColorOpaque ?? 'currentColor', '--hover-color': cssColorOpaque ?? 'currentColor' }"
                 />
                 <span v-if="label" class="action-label">{{ label }}</span>
-            </div>
+            </button>
         </HoverCardTrigger>
         <HoverCardContent class="pointer-events-auto font-display">
             <div>
@@ -44,19 +51,19 @@ import { useOptionalDockContext } from "@mkbabb/glass-ui/dock";
 
 const dock = useOptionalDockContext();
 
-const props = defineProps<{
+const { hoverKey, activeHover } = defineProps<{
     icon: Component;
     hoverKey: string;
     activeHover: string | null;
     title: string;
     description: string;
-    label?: string;
-    iconClass?: string;
-    activeStyle?: Record<string, string>;
-    disabled?: boolean;
-    hidden?: boolean;
-    cssColorOpaque?: string;
-    rotateOnClick?: boolean;
+    label?: string | undefined;
+    iconClass?: string | undefined;
+    activeStyle?: Record<string, string> | undefined;
+    disabled?: boolean | undefined;
+    hidden?: boolean | undefined;
+    cssColorOpaque?: string | undefined;
+    rotateOnClick?: boolean | undefined;
 }>();
 
 const emit = defineEmits<{
@@ -64,10 +71,10 @@ const emit = defineEmits<{
     "update:activeHover": [value: string | null];
 }>();
 
-const isOpen = computed(() => props.activeHover === props.hoverKey);
+const isOpen = computed(() => activeHover === hoverKey);
 
 function onHoverOpenChange(v: boolean) {
-    emit("update:activeHover", v ? props.hoverKey : null);
+    emit("update:activeHover", v ? hoverKey : null);
     if (v) {
         dock?.keepOpen();
     } else {
@@ -98,6 +105,9 @@ function handleClick() {
     height: 2rem;
     cursor: pointer;
     flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 0;
 }
 .action-icon:hover {
     transform: scale(1.2);

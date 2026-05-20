@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "description": "CSS value units for color, length, angles, & c.",
     "license": "MIT",
     "keywords": [
@@ -21,9 +21,9 @@
     "sideEffects": false,
     "exports": {
         ".": {
-            "development": "./src/index.ts",
             "types": "./dist/index.d.ts",
-            "import": "./dist/value.js"
+            "import": "./dist/value.js",
+            "default": "./dist/value.js"
         }
     },
     "files": [
@@ -34,9 +34,12 @@
         "dev:hero-lab": "vite --mode hero-lab --port 9010",
         "build": "vite build --mode production",
         "build:hero-lab": "vite build --mode hero-lab",
+        "build:watch": "vite build --mode production --watch",
         "gh-pages": "vite build --mode gh-pages",
         "prepare": "test -f dist/value.js || npm run build",
+        "proof:resolution": "node scripts/proof-resolution-contract.mjs",
         "typecheck": "vue-tsc --noEmit",
+        "lint": "eslint . --max-warnings=0",
         "test": "vitest",
         "test:e2e": "playwright test"
     },
@@ -67,6 +70,8 @@
         "@types/katex": "^0.16.7",
         "@types/node": "^24.1.0",
         "@types/sortablejs": "^1.15.9",
+        "@typescript-eslint/eslint-plugin": "^8.59.2",
+        "@typescript-eslint/parser": "^8.59.2",
         "@unovis/ts": "^1.5.2",
         "@unovis/vue": "^1.5.2",
         "@vee-validate/zod": "^4.13.2",
@@ -77,6 +82,9 @@
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "embla-carousel-vue": "^8.6.0",
+        "eslint": "^10.3.0",
+        "eslint-plugin-vue": "^10.9.1",
+        "globals": "^17.6.0",
         "highlight.js": "^11.11.1",
         "jsdom": "^26.1.0",
         "katex": "^0.16.22",
@@ -96,6 +104,7 @@
         "vite-plugin-dts": "^4.5.4",
         "vitest": "^3.2.4",
         "vue": "^3.5.18",
+        "vue-eslint-parser": "^10.4.0",
         "vue-tsc": "^2.2.0",
         "zod": "^3.23.8"
     }

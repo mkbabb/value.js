@@ -2,20 +2,28 @@
     <SvgFilters />
 
     <div class="app-layout">
+        <!-- W5-a11y: decorative aurora canvas — hidden from AT -->
         <canvas
             ref="atmosphereCanvas"
             class="absolute inset-0 w-full h-full pointer-events-none"
+            aria-hidden="true"
+            data-testid="atmosphere-canvas"
         />
-        <Dock
-            :link-copied="linkCopied"
-            :edit-target="activeEditTarget"
-            :action-bar="colorPickerRef?.actionBarContext ?? null"
-            :generic-action-bar="genericActionBar"
-            @share-link="shareLink"
-            @commit-edit="colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1"
-            @cancel-edit="colorPickerRef?.cancelEdit(); viewManager.mobilePaneIndex.value = 1"
-        />
+        <!-- W5-a11y: nav landmark for the dock -->
+        <nav aria-label="Application navigation">
+            <Dock
+                :link-copied="linkCopied"
+                :edit-target="activeEditTarget"
+                :action-bar="colorPickerRef?.actionBarContext ?? null"
+                :generic-action-bar="actionBar"
+                @share-link="shareLink"
+                @commit-edit="colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1"
+                @cancel-edit="colorPickerRef?.cancelEdit(); viewManager.mobilePaneIndex.value = 1"
+            />
+        </nav>
 
+        <!-- W5-a11y: main landmark for pane content -->
+        <main class="pane-main" aria-label="Color tool panes">
         <!-- Two-pane grid -->
         <div
             :class="[
@@ -26,9 +34,9 @@
             <!-- Mobile: single pane slot (below lg) -->
             <div class="lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
                 <PaneSlot
-                    :component="mobileComponent"
-                    :component-key="mobileKey"
-                    :component-props="mobileProps"
+                    :component="mobile.component"
+                    :component-key="mobile.key"
+                    :component-props="mobile.props"
                     :transition-name="viewManager.ready.value ? 'pane-left' : ''"
                     :max="5"
                 />
@@ -37,30 +45,31 @@
             <!-- Desktop: left pane (lg+) -->
             <div class="pane-wrapper hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
                 <PaneSlot
-                    :component="desktopLeftComponent"
-                    :component-key="desktopLeftKey"
-                    :component-props="desktopLeftProps"
+                    :component="desktopLeft.component"
+                    :component-key="desktopLeft.key"
+                    :component-props="desktopLeft.props"
                     :on-mount="onDesktopLeftMount"
                     :transition-name="viewManager.ready.value ? 'pane-left' : ''"
                     :max="6"
                 />
             </div>
 
-            <!-- Desktop: right pane (lg+) — always in DOM to preserve scroll-timeline state -->
+            <!-- Desktop: right pane (lg+) — always in DOM to preserve KeepAlive scroll position -->
             <div
                 class="pane-wrapper hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
                 :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
             >
                 <PaneSlot
-                    :component="desktopRightComponent"
-                    :component-key="desktopRightKey"
-                    :component-props="desktopRightProps"
+                    :component="desktopRight.component"
+                    :component-key="desktopRight.key"
+                    :component-props="desktopRight.props"
                     :on-mount="onDesktopRightMount"
                     :transition-name="viewManager.ready.value ? 'pane-right' : ''"
                     :max="3"
                 />
             </div>
         </div>
+        </main>
     </div>
 
     <!-- Global modals -->
@@ -73,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, provide, reactive, ref, shallowRef } from "vue";
+import { computed, onMounted, provide, reactive, ref, shallowRef, useTemplateRef } from "vue";
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import { ColorPicker } from "@components/custom/color-picker";
@@ -91,13 +100,11 @@ import { useColorUrl } from "@components/custom/color-picker/composables/useColo
 
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { useAppColorModel } from "@composables/color/useAppColorModel";
-import { useGenericActionBar } from "@components/custom/dock/composables/useGenericActionBar";
-import { useMobilePaneRouter } from "@composables/useMobilePaneRouter";
-import { useDesktopPaneRouter } from "@composables/useDesktopPaneRouter";
+import { usePaneRouter } from "@composables/usePaneRouter";
 import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
-import { useAtmosphere } from "@composables/useAtmosphere";
 import { useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { copyToClipboard } from "@mkbabb/glass-ui";
+import { useAurora, DEFAULT_AURORA_CONFIG, type AuroraConfig } from "@mkbabb/glass-ui/aurora";
 
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@components/custom/goo-blob";
 
@@ -109,7 +116,7 @@ import "@styles/style.css";
 useGlobalDark();
 
 // --- Template refs ---
-const atmosphereCanvas = ref<HTMLCanvasElement | null>(null);
+const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
 const model = shallowRef<ColorModel>(defaultColorModel);
 
@@ -137,15 +144,12 @@ const viewManager = useViewManager();
 provide(VIEW_MANAGER_KEY, viewManager);
 const currentConfig = computed(() => viewManager.currentConfig.value);
 
-// --- Generic action bar (per-view) ---
-// These refs are populated by the onMount callbacks on desktop PaneSlots.
+// --- Pane action refs ---
+// Populated by the onMount callbacks on the desktop PaneSlots; the action bar
+// dispatches its per-view handlers onto them.
 const generatePaneRef = ref<any>(null);
 const gradientPaneRef = ref<any>(null);
 const mixPaneRef = ref<any>(null);
-const genericActionBar = useGenericActionBar(
-    computed(() => viewManager.currentView.value),
-    { generate: generatePaneRef, gradient: gradientPaneRef, mix: mixPaneRef },
-);
 
 // Ref-capture callbacks for desktop pane slots (replaces direct template refs).
 // Called by PaneSlot's :on-mount prop when the inner component mounts/unmounts.
@@ -160,8 +164,9 @@ function onDesktopRightMount(el: any) {
     mixPaneRef.value = currentConfig.value.right === "mix" ? el : null;
 }
 
-// --- Mobile pane routing ---
-const { mobileComponent, mobileKey, mobileProps } = useMobilePaneRouter(
+// --- Pane routing — one source of truth: mobile single-slot, the two desktop
+//     slots, and the per-view action bar all derive from one route table. ---
+const { mobile, desktopLeft, desktopRight, actionBar } = usePaneRouter(
     viewManager,
     model,
     {
@@ -172,25 +177,8 @@ const { mobileComponent, mobileKey, mobileProps } = useMobilePaneRouter(
         resetToDefaults,
         updateModel: (v: ColorModel) => { model.value = v; },
     },
+    { generate: generatePaneRef, gradient: gradientPaneRef, mix: mixPaneRef },
 );
-
-// --- Desktop pane routing (companion to useMobilePaneRouter) ---
-const {
-    desktopLeftComponent,
-    desktopLeftKey,
-    desktopLeftProps,
-    desktopRightComponent,
-    desktopRightKey,
-    desktopRightProps,
-} = useDesktopPaneRouter({
-    currentConfig,
-    model,
-    colorPickerRef,
-    onEditTargetChange,
-    resetToDefaults,
-    cssColor,
-    savedColorStrings,
-});
 
 // --- Palette manager ---
 const paletteManager = usePaletteManagerWiring(
@@ -219,8 +207,12 @@ useColorUrl({ model, updateModel });
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
 // --- Aurora atmosphere ---
-const { auroraConfig } = useAtmosphere(atmosphereCanvas);
-provide("auroraConfig", auroraConfig);
+// W0 landed a static AuroraConfig; a glass-ui-derived picker-tracking palette
+// is the conditional A.W6 work (re-scoped — docs/tranches/A/audit/W6-deferred.md).
+const auroraConfig = reactive<AuroraConfig>(structuredClone(DEFAULT_AURORA_CONFIG));
+useAurora(atmosphereCanvas, () => auroraConfig, {
+    onInitError: (err) => console.warn("[aurora] init failed:", err),
+});
 
 // --- Blob config ---
 const blobConfig = reactive({ ...BLOB_CONFIG_DEFAULTS });

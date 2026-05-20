@@ -68,7 +68,7 @@ export function usePointerDebug() {
             pointerId,
             target: describeElement(target),
             hasCapture,
-            extra,
+            ...(extra !== undefined ? { extra } : {}),
         };
         state.events.push(evt);
         if (state.events.length > MAX_EVENTS) {

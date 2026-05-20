@@ -6,7 +6,7 @@ vue-tsc error count: **246** (baseline 246 — no regressions).
 
 ---
 
-## Ag-1 — φ type-scale mapping
+## Ac-1 — φ type-scale mapping
 
 ### Changes applied
 
@@ -30,13 +30,13 @@ ActionBarLayer.vue, SlugEditLayer.vue, GenericActionBar.vue, BrowsePane.vue, Pan
 
 ---
 
-## Ag-8 — Border-radius semantic aliases
+## Ac-8 — Border-radius semantic aliases
 
 No raw role-bearing radii (`rounded-2xl`, `rounded-xl`, `rounded-md`, `rounded-lg`, `rounded-sm`) appear in any of the 19 files in scope. All pill elements already use `rounded-full`; the scoped CSS in BlobPane.vue uses no radius utilities. No changes required.
 
 ---
 
-## Ag-11 — `.slug-pill` adoption
+## Ac-11 — `.slug-pill` adoption
 
 `style.css:221–222` defines `.slug-pill` (`@apply text-mono-small font-bold px-2 py-0.5 rounded-full border`).
 
@@ -60,7 +60,7 @@ Note: the Profile trigger button (`class="flex items-center gap-1.5 text-mono-sm
 
 ---
 
-## Ag-12 — DropdownMenuItem consistency + count indicators
+## Ac-12 — DropdownMenuItem consistency + count indicators
 
 ### DropdownMenuItem normalization
 

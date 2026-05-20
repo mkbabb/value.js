@@ -15,6 +15,10 @@ const emit = defineEmits<{
 
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 
+const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false);
+
 let cleanup: (() => void) | null = null;
 
 function mountScene() {
@@ -245,7 +249,9 @@ function mountScene() {
         gl.uniform3fv(colorDUniform, hexToRgbUnit(props.palette.tileStops[3]));
 
         gl.drawArrays(gl.TRIANGLES, 0, 6);
-        frame = requestAnimationFrame(render);
+        if (!prefersReducedMotion) {
+            frame = requestAnimationFrame(render);
+        }
     };
 
     frame = requestAnimationFrame(render);

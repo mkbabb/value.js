@@ -1,23 +1,11 @@
-import { type VariantProps, cva } from 'class-variance-authority'
-
-export { default as Alert } from './Alert.vue'
-export { default as AlertTitle } from './AlertTitle.vue'
-export { default as AlertDescription } from './AlertDescription.vue'
-
-export const alertVariants = cva(
-  'relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground',
-  {
-    variants: {
-      variant: {
-        default: 'bg-background text-foreground',
-        destructive:
-          'border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-    },
-  },
-)
-
-export type AlertVariants = VariantProps<typeof alertVariants>
+// ui/alert — re-export of the glass-ui Alert primitive.
+//
+// This barrel previously held a local shadcn-vue re-implementation
+// (Alert/AlertTitle/AlertDescription SFCs + a local `alertVariants` cva) that
+// duplicated a primitive glass-ui ships. B.W2 (A.W7 idiomatic-gestalt finding
+// N1) converted it to a re-export: glass-ui is the design system, the demo
+// consumes its Alert, not a hand-rolled copy. The two consumers
+// (`ColorNutritionLabel.vue`, `Markdown.vue`) import from this barrel
+// unchanged.
+export { Alert, AlertTitle, AlertDescription } from "@mkbabb/glass-ui";
+export type { AlertVariants } from "@mkbabb/glass-ui";

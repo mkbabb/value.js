@@ -20,7 +20,22 @@ const emit = defineEmits<{
 
 const config = computed(() => props.modelValue);
 
-function updateConfig(patch: Partial<TileHeroConfig & AtmosphereHeroConfig>) {
+// kind-discriminated views: each is non-null only for its matching config,
+// so the template can index tile-/atmosphere-specific fields type-safely.
+const tileConfig = computed<TileHeroConfig | null>(() =>
+    props.modelValue.kind === "tile" ? props.modelValue : null,
+);
+const atmosphereConfig = computed<AtmosphereHeroConfig | null>(() =>
+    props.modelValue.kind === "atmosphere" ? props.modelValue : null,
+);
+
+// The patch never touches `kind`; omitting it keeps the intersection from
+// collapsing to `never` (the two `kind` literals are disjoint).
+type HeroConfigPatch = Partial<
+    Omit<TileHeroConfig, "kind"> & Omit<AtmosphereHeroConfig, "kind">
+>;
+
+function updateConfig(patch: HeroConfigPatch) {
     emit("update:modelValue", {
         ...props.modelValue,
         ...patch,
@@ -56,7 +71,7 @@ function updateConfig(patch: Partial<TileHeroConfig & AtmosphereHeroConfig>) {
                 :min="0.4"
                 :max="1.8"
                 :step="0.05"
-                @update:model-value="(value) => updateConfig({ speed: value[0] ?? config.speed })"
+                @update:model-value="(value) => updateConfig({ speed: value?.[0] ?? config.speed })"
             />
         </div>
 
@@ -67,86 +82,90 @@ function updateConfig(patch: Partial<TileHeroConfig & AtmosphereHeroConfig>) {
                 :min="0.45"
                 :max="1.35"
                 :step="0.05"
-                @update:model-value="(value) => updateConfig({ intensity: value[0] ?? config.intensity })"
+                @update:model-value="(value) => updateConfig({ intensity: value?.[0] ?? config.intensity })"
             />
         </div>
 
-        <div v-if="kind === 'tile'" class="hero-controls__field">
-            <Label class="hero-controls__label">Tile Size</Label>
-            <Slider
-                :model-value="[config.tileSize]"
-                :min="12"
-                :max="42"
-                :step="1"
-                @update:model-value="(value) => updateConfig({ tileSize: value[0] ?? config.tileSize })"
-            />
-        </div>
+        <template v-if="tileConfig">
+            <div class="hero-controls__field">
+                <Label class="hero-controls__label">Tile Size</Label>
+                <Slider
+                    :model-value="[tileConfig.tileSize]"
+                    :min="12"
+                    :max="42"
+                    :step="1"
+                    @update:model-value="(value) => updateConfig({ tileSize: value?.[0] ?? tileConfig!.tileSize })"
+                />
+            </div>
 
-        <div v-if="kind === 'tile'" class="hero-controls__field">
-            <Label class="hero-controls__label">Bands</Label>
-            <Slider
-                :model-value="[config.bands]"
-                :min="5"
-                :max="7"
-                :step="1"
-                @update:model-value="(value) => updateConfig({ bands: value[0] ?? config.bands })"
-            />
-        </div>
+            <div class="hero-controls__field">
+                <Label class="hero-controls__label">Bands</Label>
+                <Slider
+                    :model-value="[tileConfig.bands]"
+                    :min="5"
+                    :max="7"
+                    :step="1"
+                    @update:model-value="(value) => updateConfig({ bands: value?.[0] ?? tileConfig!.bands })"
+                />
+            </div>
 
-        <div v-if="kind === 'tile'" class="hero-controls__field">
-            <Label class="hero-controls__label">Pattern Density</Label>
-            <Slider
-                :model-value="[config.patternDensity]"
-                :min="0.45"
-                :max="1"
-                :step="0.05"
-                @update:model-value="(value) => updateConfig({ patternDensity: value[0] ?? config.patternDensity })"
-            />
-        </div>
+            <div class="hero-controls__field">
+                <Label class="hero-controls__label">Pattern Density</Label>
+                <Slider
+                    :model-value="[tileConfig.patternDensity]"
+                    :min="0.45"
+                    :max="1"
+                    :step="0.05"
+                    @update:model-value="(value) => updateConfig({ patternDensity: value?.[0] ?? tileConfig!.patternDensity })"
+                />
+            </div>
 
-        <div v-if="kind === 'tile'" class="hero-controls__field">
-            <Label class="hero-controls__label">Dither</Label>
-            <Slider
-                :model-value="[config.ditherStrength]"
-                :min="0"
-                :max="1"
-                :step="0.05"
-                @update:model-value="(value) => updateConfig({ ditherStrength: value[0] ?? config.ditherStrength })"
-            />
-        </div>
+            <div class="hero-controls__field">
+                <Label class="hero-controls__label">Dither</Label>
+                <Slider
+                    :model-value="[tileConfig.ditherStrength]"
+                    :min="0"
+                    :max="1"
+                    :step="0.05"
+                    @update:model-value="(value) => updateConfig({ ditherStrength: value?.[0] ?? tileConfig!.ditherStrength })"
+                />
+            </div>
 
-        <div v-if="kind === 'tile'" class="hero-controls__field">
-            <Label class="hero-controls__label">Reveal Speed</Label>
-            <Slider
-                :model-value="[config.revealSpeed]"
-                :min="0.4"
-                :max="1.8"
-                :step="0.05"
-                @update:model-value="(value) => updateConfig({ revealSpeed: value[0] ?? config.revealSpeed })"
-            />
-        </div>
+            <div class="hero-controls__field">
+                <Label class="hero-controls__label">Reveal Speed</Label>
+                <Slider
+                    :model-value="[tileConfig.revealSpeed]"
+                    :min="0.4"
+                    :max="1.8"
+                    :step="0.05"
+                    @update:model-value="(value) => updateConfig({ revealSpeed: value?.[0] ?? tileConfig!.revealSpeed })"
+                />
+            </div>
+        </template>
 
-        <div v-else class="hero-controls__field">
-            <Label class="hero-controls__label">Blur Radius</Label>
-            <Slider
-                :model-value="[config.blurRadius]"
-                :min="18"
-                :max="90"
-                :step="1"
-                @update:model-value="(value) => updateConfig({ blurRadius: value[0] ?? config.blurRadius })"
-            />
-        </div>
+        <template v-if="atmosphereConfig">
+            <div class="hero-controls__field">
+                <Label class="hero-controls__label">Blur Radius</Label>
+                <Slider
+                    :model-value="[atmosphereConfig.blurRadius]"
+                    :min="18"
+                    :max="90"
+                    :step="1"
+                    @update:model-value="(value) => updateConfig({ blurRadius: value?.[0] ?? atmosphereConfig!.blurRadius })"
+                />
+            </div>
 
-        <div v-if="kind === 'atmosphere'" class="hero-controls__field">
-            <Label class="hero-controls__label">Blob Count</Label>
-            <Slider
-                :model-value="[config.blobCount]"
-                :min="3"
-                :max="7"
-                :step="1"
-                @update:model-value="(value) => updateConfig({ blobCount: value[0] ?? config.blobCount })"
-            />
-        </div>
+            <div class="hero-controls__field">
+                <Label class="hero-controls__label">Blob Count</Label>
+                <Slider
+                    :model-value="[atmosphereConfig.blobCount]"
+                    :min="3"
+                    :max="7"
+                    :step="1"
+                    @update:model-value="(value) => updateConfig({ blobCount: value?.[0] ?? atmosphereConfig!.blobCount })"
+                />
+            </div>
+        </template>
 
         <div class="hero-controls__field hero-controls__field--toggle">
             <Label class="hero-controls__label">Reduced Motion</Label>

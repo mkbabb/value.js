@@ -96,7 +96,7 @@ import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 
-const props = defineProps<{
+const { cssColorOpaque } = defineProps<{
     cssColorOpaque?: string;
 }>();
 

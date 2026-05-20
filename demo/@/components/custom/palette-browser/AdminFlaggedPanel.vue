@@ -3,22 +3,23 @@
         <!-- Toolbar -->
         <div class="flex items-center gap-2">
             <span class="text-mono-small text-muted-foreground">
-                {{ total }} flagged
+                {{ flagged.total.value }} flagged
             </span>
             <div class="flex-1" />
-            <Button variant="outline" size="sm" class="h-7 px-2" @click="loadFlagged">
-                <RefreshCw class="h-3 w-3" />
+            <!-- W5-a11y: icon-only refresh button needs accessible name -->
+            <Button variant="outline" size="sm" class="h-7 px-2" aria-label="Refresh flagged palettes" @click="flagged.loadFlagged">
+                <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
 
         <!-- Loading -->
-        <div v-if="loading" class="flex items-center justify-center py-8">
+        <div v-if="flagged.loading.value" class="flex items-center justify-center py-8">
             <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />
         </div>
 
         <!-- Empty -->
         <div
-            v-else-if="items.length === 0"
+            v-else-if="flagged.items.value.length === 0"
             class="py-8 text-center text-mono-small italic text-muted-foreground"
         >
             No flagged palettes.
@@ -26,7 +27,7 @@
 
         <!-- Flagged items -->
         <div
-            v-for="item in items"
+            v-for="item in flagged.items.value"
             :key="item.paletteSlug"
             class="rounded-md border border-border overflow-hidden"
         >
@@ -57,10 +58,10 @@
 
                 <div class="flex items-center gap-1 shrink-0">
                     <!-- Ag-1: text-xs → text-caption (caption role) -->
-                    <Button variant="outline" size="sm" class="h-7 px-2 text-caption" @click="onDismiss(item.paletteSlug)">
+                    <Button variant="outline" size="sm" class="h-7 px-2 text-caption" @click="flagged.dismiss(item.paletteSlug)">
                         Dismiss
                     </Button>
-                    <Button variant="destructive" size="sm" class="h-7 px-2" @click="onDeletePalette(item.paletteSlug)">
+                    <Button variant="destructive" size="sm" class="h-7 px-2" @click="flagged.deletePalette(item.paletteSlug)">
                         <Trash2 class="h-3 w-3" />
                     </Button>
                 </div>
@@ -88,82 +89,28 @@
 
         <!-- Pagination -->
         <PaginationBar
-            :page="page"
-            :page-count="pageCount"
-            :has-next="hasNext"
-            :has-prev="hasPrev"
-            @prev="prevPage"
-            @next="nextPage"
+            :page="flagged.page.value"
+            :page-count="flagged.pageCount.value"
+            :has-next="flagged.hasNext.value"
+            :has-prev="flagged.hasPrev.value"
+            @prev="flagged.prevPage"
+            @next="flagged.nextPage"
         />
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { inject, onMounted } from "vue";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { Loader2, RefreshCw, Trash2 } from "lucide-vue-next";
 import PaginationBar from "./PaginationBar.vue";
-import { getFlaggedPalettes, dismissFlags, deletePaletteAdmin } from "@lib/palette/api";
-import type { FlaggedPalette } from "@lib/palette/types";
 import { formatDate } from "@lib/dateFormat";
-import { useAdminAuth } from "@composables/auth/useAdminAuth";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
-const { getToken } = useAdminAuth();
+// D.W3 Lane B: route through pm.flagged sub-object (was: direct getFlaggedPalettes/dismissFlags/deletePaletteAdmin)
+const pm = inject(PALETTE_MANAGER_KEY)!;
+const flagged = pm.flagged;
 
-const items = ref<FlaggedPalette[]>([]);
-const total = ref(0);
-const page = ref(1);
-const pageSize = 20;
-const loading = ref(false);
-
-const pageCount = computed(() => Math.max(1, Math.ceil(total.value / pageSize)));
-const hasNext = computed(() => page.value < pageCount.value);
-const hasPrev = computed(() => page.value > 1);
-
-
-
-async function loadFlagged() {
-    const token = getToken();
-    if (!token) return;
-    loading.value = true;
-    try {
-        const res = await getFlaggedPalettes(token, pageSize, (page.value - 1) * pageSize);
-        items.value = res.data;
-        total.value = res.total;
-    } catch (e) {
-        console.warn("Failed to load flagged palettes:", e);
-    } finally {
-        loading.value = false;
-    }
-}
-
-async function onDismiss(paletteSlug: string) {
-    const token = getToken();
-    if (!token) return;
-    try {
-        await dismissFlags(token, paletteSlug);
-        items.value = items.value.filter((i) => i.paletteSlug !== paletteSlug);
-        total.value = Math.max(0, total.value - 1);
-    } catch (e) {
-        console.warn("Failed to dismiss flags:", e);
-    }
-}
-
-async function onDeletePalette(paletteSlug: string) {
-    const token = getToken();
-    if (!token) return;
-    try {
-        await deletePaletteAdmin(token, paletteSlug);
-        items.value = items.value.filter((i) => i.paletteSlug !== paletteSlug);
-        total.value = Math.max(0, total.value - 1);
-    } catch (e) {
-        console.warn("Failed to delete palette:", e);
-    }
-}
-
-function nextPage() { if (hasNext.value) { page.value++; loadFlagged(); } }
-function prevPage() { if (hasPrev.value) { page.value--; loadFlagged(); } }
-
-onMounted(loadFlagged);
+onMounted(() => flagged.loadFlagged());
 </script>

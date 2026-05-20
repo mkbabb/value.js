@@ -18,7 +18,17 @@ import {
     Rec2020Color,
     XYZColor,
 } from ".";
-import type { ColorSpaceMap } from ".";
+import type { ColorChannel, ColorSpaceMap } from ".";
+
+/**
+ * Brand-erasing identity helper. Casts a plain `T` value to `ColorChannel<T>`
+ * at write sites that compute channels from arithmetic / interpolation. The
+ * `ColorChannel<T>` brand on declared fields requires an explicit cast on
+ * assignment — this helper makes the intent clear and keeps the line short.
+ *
+ * Zero runtime cost (identity function; inlined by V8).
+ */
+const ch = <T>(v: T): ColorChannel<T> => v as ColorChannel<T>;
 import { clamp, lerp, scale } from "../../math";
 import {
     COLOR_SPACE_DENORM_UNITS,
@@ -111,7 +121,7 @@ const TEMP_SCALE = 100;
 // Valid for temperatures between 1000K and 40,000K
 export const kelvin2rgb = ({ kelvin, alpha }: KelvinColor): RGBColor => {
     // Clamp temperature to valid range and scale down
-    kelvin = clamp(kelvin, MIN_TEMP, MAX_TEMP) / TEMP_SCALE;
+    kelvin = ch(clamp(kelvin, MIN_TEMP, MAX_TEMP) / TEMP_SCALE);
     let r, g, b;
 
     // Red calculation
@@ -161,9 +171,9 @@ export const kelvin2rgb = ({ kelvin, alpha }: KelvinColor): RGBColor => {
 // Input values in range [0, 1]
 export const rgb2kelvin = ({ r, g, b, alpha }: RGBColor): KelvinColor => {
     // Ensure input values are within valid range
-    r = clamp(r * RGBA_MAX, 0, RGBA_MAX);
-    g = clamp(g * RGBA_MAX, 0, RGBA_MAX);
-    b = clamp(b * RGBA_MAX, 0, RGBA_MAX);
+    r = ch(clamp(r * RGBA_MAX, 0, RGBA_MAX));
+    g = ch(clamp(g * RGBA_MAX, 0, RGBA_MAX));
+    b = ch(clamp(b * RGBA_MAX, 0, RGBA_MAX));
 
     let kelvin;
 
@@ -427,27 +437,27 @@ export function lab2xyz(lab: LABColor): XYZColor {
 
     let { l, a, b, alpha } = lab;
 
-    l = scale(
+    l = ch(scale(
         l,
         0,
         1,
         COLOR_SPACE_RANGES.lab.l.number.min,
         COLOR_SPACE_RANGES.lab.l.number.max,
-    );
-    a = scale(
+    ));
+    a = ch(scale(
         a,
         0,
         1,
         COLOR_SPACE_RANGES.lab.a.number.min,
         COLOR_SPACE_RANGES.lab.a.number.max,
-    );
-    b = scale(
+    ));
+    b = ch(scale(
         b,
         0,
         1,
         COLOR_SPACE_RANGES.lab.b.number.min,
         COLOR_SPACE_RANGES.lab.b.number.max,
-    );
+    ));
 
     // Inverse of the xyz2lab function
     const fy = (l + LAB_OFFSET) / LAB_SCALE_L; // f(Y/Yn) = (L* + 16) / 116
@@ -468,9 +478,9 @@ export function lab2xyz(lab: LABColor): XYZColor {
 
     xyz.whitePoint = "D65";
 
-    xyz.x = x;
-    xyz.y = y;
-    xyz.z = z;
+    xyz.x = ch(x);
+    xyz.y = ch(y);
+    xyz.z = ch(z);
 
     return xyz;
 }
@@ -558,13 +568,13 @@ export const xyz2rgb = (
 
 // Input and output values in range [0, 1]
 export function lch2lab({ l, c, h, alpha }: LCHColor): LABColor {
-    c = scale(
+    c = ch(scale(
         c,
         0,
         1,
         COLOR_SPACE_RANGES.lch.c.number.min,
         COLOR_SPACE_RANGES.lch.c.number.max,
-    );
+    ));
 
     const hRad = h * 2 * Math.PI;
     const a = Math.cos(hRad) * c;
@@ -588,20 +598,20 @@ export function lch2lab({ l, c, h, alpha }: LCHColor): LABColor {
 
 // Input and output values in range [0, 1]
 export function lab2lch({ l, a, b, alpha }: LABColor): LCHColor {
-    a = scale(
+    a = ch(scale(
         a,
         0,
         1,
         COLOR_SPACE_RANGES.lab.a.number.min,
         COLOR_SPACE_RANGES.lab.a.number.max,
-    );
-    b = scale(
+    ));
+    b = ch(scale(
         b,
         0,
         1,
         COLOR_SPACE_RANGES.lab.b.number.min,
         COLOR_SPACE_RANGES.lab.b.number.max,
-    );
+    ));
 
     const c = Math.hypot(a, b);
 
@@ -623,20 +633,20 @@ export function lab2lch({ l, a, b, alpha }: LABColor): LCHColor {
 
 // Input and output values in range [0, 1]
 export function oklab2xyz({ l, a, b, alpha }: OKLABColor): XYZColor {
-    a = scale(
+    a = ch(scale(
         a,
         0,
         1,
         COLOR_SPACE_RANGES.oklab.a.number.min,
         COLOR_SPACE_RANGES.oklab.a.number.max,
-    );
-    b = scale(
+    ));
+    b = ch(scale(
         b,
         0,
         1,
         COLOR_SPACE_RANGES.oklab.b.number.min,
         COLOR_SPACE_RANGES.oklab.b.number.max,
-    );
+    ));
 
     // Convert OKLab to LMS
     const lms = transformMat3([l, a, b] as Vec3, OKLAB_TO_LMS_MATRIX);
@@ -694,8 +704,8 @@ export function lab2oklab(lab: LABColor): OKLABColor {
 // Input and output values in range [0, 1]
 export function oklab2oklch({ l, a, b, alpha }: OKLABColor): OKLCHColor {
     // Denormalize a,b from [0,1] to OKLab range [-0.4, 0.4]
-    a = scale(a, 0, 1, COLOR_SPACE_RANGES.oklab.a.number.min, COLOR_SPACE_RANGES.oklab.a.number.max);
-    b = scale(b, 0, 1, COLOR_SPACE_RANGES.oklab.b.number.min, COLOR_SPACE_RANGES.oklab.b.number.max);
+    a = ch(scale(a, 0, 1, COLOR_SPACE_RANGES.oklab.a.number.min, COLOR_SPACE_RANGES.oklab.a.number.max));
+    b = ch(scale(b, 0, 1, COLOR_SPACE_RANGES.oklab.b.number.min, COLOR_SPACE_RANGES.oklab.b.number.max));
 
     const c = Math.hypot(a, b);
 
@@ -713,7 +723,7 @@ export function oklab2oklch({ l, a, b, alpha }: OKLABColor): OKLCHColor {
 // Input and output values in range [0, 1]
 export function oklch2oklab({ l, c, h, alpha }: OKLCHColor): OKLABColor {
     // Denormalize c from [0,1] to OKLCh range [0, 0.5]
-    c = scale(c, 0, 1, COLOR_SPACE_RANGES.oklch.c.number.min, COLOR_SPACE_RANGES.oklch.c.number.max);
+    c = ch(scale(c, 0, 1, COLOR_SPACE_RANGES.oklch.c.number.min, COLOR_SPACE_RANGES.oklch.c.number.max));
 
     const hRad = h * 2 * Math.PI;
     const a = Math.cos(hRad) * c;
@@ -1127,7 +1137,7 @@ export function mixColors(
     // Handle alpha
     const a1 = Number.isNaN(c1.alpha as number) ? (c2.alpha as number) : (c1.alpha as number);
     const a2 = Number.isNaN(c2.alpha as number) ? (c1.alpha as number) : (c2.alpha as number);
-    const resultAlpha = (lerp(p2, a1, a2)) * alphaMultiplier;
+    const resultAlpha = (lerp(a1, a2, p2)) * alphaMultiplier;
 
     // Premultiplied alpha interpolation for non-hue components
     const resultComponents: number[] = [];
@@ -1151,7 +1161,7 @@ export function mixColors(
             // Premultiplied alpha interpolation
             const premul1 = v1 * a1;
             const premul2 = v2 * a2;
-            const mixed = lerp(p2, premul1, premul2);
+            const mixed = lerp(premul1, premul2, p2);
             resultComponents.push(resultAlpha > 0 ? mixed / resultAlpha : 0);
         }
     }

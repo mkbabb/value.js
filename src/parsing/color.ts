@@ -17,7 +17,7 @@ import {
     XYZColor,
 } from "../units/color";
 import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
-import { ValueUnit } from "../units";
+import { FunctionValue, ValueUnit } from "../units";
 import { COLOR_NAMES } from "../units/color/constants";
 import type { ColorSpace } from "../units/color/constants";
 import { normalizeColorUnit } from "../units/color/normalize";
@@ -25,7 +25,9 @@ import { color2, hex2rgb, kelvin2rgb, mixColors } from "../units/color/utils";
 import type { HueInterpolationMethod } from "../units/color/utils";
 import { convertToDegrees } from "../units/utils";
 import * as utils from "./utils";
+import { memoize } from "../utils";
 import { CSSValueUnit, parseCSSValueUnit } from "./units";
+import { createCalcParser, createMathFunctionParsers, evaluateMathFunction } from "./math";
 
 const createColorValueUnit = (value: Color<any>) => {
     return new ValueUnit(
@@ -74,10 +76,48 @@ const COLOR_SPACE_COMPONENTS: Record<string, string[]> = {
     rec2020: ["r", "g", "b"],
 };
 
-/** Safe arithmetic evaluator: only allows digits, operators, parens, dots, whitespace. */
-function evaluateSimpleCalc(expr: string): number {
-    const sanitized = expr.replace(/[^0-9.+\-*/() e]/g, "");
-    return new Function(`return (${sanitized})`)() as number;
+/**
+ * Internal calc-expression parser, built on top of the same `createCalcParser`
+ * surface used by `parseCSSValue`. Accepts a bare arithmetic expression (the
+ * inside of a `calc(...)` already-substituted with numeric bindings) and
+ * returns the parsed AST (`FunctionValue | ValueUnit`).
+ *
+ * Invariant D6: no `new Function`, no `eval`. The math AST is evaluated via
+ * the library's published `evaluateMathFunction` surface.
+ *
+ * Lazy initialization via a closure — `CSSValueUnit` is in a circular module
+ * relationship with this file (units.ts ↔ color.ts), so the parser pair must
+ * be created after both modules finish initialising.
+ */
+let _relativeCalcExpr: ReturnType<typeof createCalcParser> | null = null;
+function getRelativeCalcExpr() {
+    if (_relativeCalcExpr) return _relativeCalcExpr;
+    const { mathFunction } = createMathFunctionParsers(CSSValueUnit.Value);
+    _relativeCalcExpr = createCalcParser(CSSValueUnit.Value, mathFunction);
+    return _relativeCalcExpr;
+}
+
+/**
+ * Evaluate the bare arithmetic body of a relative-color `calc(...)` expression
+ * (e.g. `"r * 0.5 + 0.3"`) after numeric binding substitution. Routes through
+ * the library's `evaluateMathFunction` rather than `new Function`.
+ *
+ * Throws on parse / evaluation failure — relative color syntax should fail at
+ * the validation boundary, not silently return NaN.
+ */
+function evaluateRelativeCalc(expr: string): number {
+    const ast = utils.tryParse(getRelativeCalcExpr(), expr);
+    if (ast instanceof ValueUnit) {
+        return ast.value as number;
+    }
+    if (ast instanceof FunctionValue) {
+        const result = evaluateMathFunction(ast);
+        if (result == null || typeof result.value !== "number") {
+            throw new Error(`Could not evaluate calc expression: ${expr}`);
+        }
+        return result.value;
+    }
+    throw new Error(`Could not evaluate calc expression: ${expr}`);
 }
 
 function resolveExpr(expr: ComponentExpr, bindings: Record<string, number>): number {
@@ -95,7 +135,7 @@ function resolveExpr(expr: ComponentExpr, bindings: Record<string, number>): num
             for (const k of keys) {
                 s = s.replace(new RegExp(`\\b${k}\\b`, "g"), String(bindings[k]));
             }
-            return evaluateSimpleCalc(s);
+            return evaluateRelativeCalc(s);
         }
     }
 }
@@ -213,7 +253,7 @@ const componentExpr: Parser<ComponentExpr> = any(
 // --- Color parser helpers ---
 
 const colorOptionalAlpha = (colorSpace: string) => {
-    const name = string(colorSpace).skip(utils.istring("a").opt());
+    const name = utils.istring(colorSpace).skip(utils.istring("a").opt());
 
     const optionalAlpha = any(
         all(colorValue.skip(alphaSep), colorValue),
@@ -235,7 +275,7 @@ const colorOptionalAlpha = (colorSpace: string) => {
 
 /** Build a relative color parser for a given space name (CSS function name). */
 function relativeColorParser(cssName: string, targetSpace: ColorSpace) {
-    return string(cssName)
+    return utils.istring(cssName)
         .skip(utils.istring("a").opt())
         .next(
             all(
@@ -521,17 +561,28 @@ export function registerColorNames(names: Record<string, string>): void {
     for (const [name, css] of Object.entries(names)) {
         customColorNames.set(name.trim().toLowerCase(), css);
     }
+    // Custom-name registration changes the resolution of unrecognized inputs;
+    // invalidate the memo cache so fallback lookups re-run.
+    parseCSSColor.cache.clear();
 }
 
 export function clearCustomColorNames(): void {
     customColorNames.clear();
+    parseCSSColor.cache.clear();
 }
 
 export function getCustomColorNames(): ReadonlyMap<string, string> {
     return customColorNames;
 }
 
-export function parseCSSColor(input: string): ValueUnit {
+/**
+ * Parse a CSS color string into a `ValueUnit<Color>`. Memoised — the returned
+ * ValueUnit is shared across callers, so callers MUST NOT mutate it. Clone
+ * before mutating if a per-call instance is needed.
+ *
+ * The cache is invalidated by `registerColorNames` and `clearCustomColorNames`.
+ */
+export const parseCSSColor = memoize((input: string): ValueUnit => {
     const result = utils.parseResult(Value, input);
     if (result.status) {
         return result.value;
@@ -546,4 +597,4 @@ export function parseCSSColor(input: string): ValueUnit {
 
     // Re-throw original parse failure
     return utils.tryParse(Value, input);
-}
+});

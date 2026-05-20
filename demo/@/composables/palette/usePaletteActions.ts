@@ -4,6 +4,7 @@ import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useSession } from "../auth/useSession";
 import { useUserAuth } from "../auth/useUserAuth";
 import { publishPalette } from "@lib/palette/api";
+import { CURRENT_PALETTE_ID } from "@lib/palette/constants";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 
 export function usePaletteActions(deps: {
@@ -75,7 +76,7 @@ export function usePaletteActions(deps: {
     }
 
     function commitColorEdit(paletteId: string, colorIndex: number, newCss: string) {
-        if (paletteId === "__current__") {
+        if (paletteId === CURRENT_PALETTE_ID) {
             const oldCss = deps.savedColorStrings.value[colorIndex];
             if (oldCss === newCss) return;
             const updated = [...deps.savedColorStrings.value];

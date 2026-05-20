@@ -68,7 +68,10 @@ watch(cssColorOpaque, () => {
     const now = Date.now();
     colorChangeTimestamps.push(now);
     // Keep only last 2 seconds
-    while (colorChangeTimestamps.length > 0 && now - colorChangeTimestamps[0] > 2000) {
+    while (
+        colorChangeTimestamps.length > 0 &&
+        now - (colorChangeTimestamps[0] ?? now) > 2000
+    ) {
         colorChangeTimestamps.shift();
     }
     if (colorChangeTimestamps.length > 3) {

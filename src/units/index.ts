@@ -2,6 +2,8 @@ export { registerColorNames, clearCustomColorNames, getCustomColorNames } from "
 import { clone } from "../utils";
 import { BLACKLISTED_COALESCE_UNITS, UNITS } from "./constants";
 import { isColorUnit } from "./utils";
+import type { ColorSpace } from "./color/constants";
+import type { HueInterpolationMethod } from "./color/utils";
 
 export class ValueUnit<T = any, U = (typeof UNITS)[number] | string> {
     constructor(
@@ -213,4 +215,26 @@ export type InterpolatedVar<T> = {
     value: ValueUnit<T>;
 
     computed: boolean;
+
+    /**
+     * For color interpolation in cylindrical spaces (hsl/hsv/hwb/lch/oklch):
+     * which hue-direction method to use. Defaults to `"shorter"` per CSS
+     * Color 4 §12.4 when omitted.
+     */
+    hueMethod?: HueInterpolationMethod;
+
+    /**
+     * For color interpolation: the color space the start/stop endpoints have
+     * been normalised into. Drives the choice of which component is the hue
+     * channel in `lerpColorValue`.
+     */
+    colorSpace?: ColorSpace;
+
+    /**
+     * Pre-resolved dispatch function set by `prepareInterpVar`. Avoids three
+     * sequential type checks per `lerpValue` call in hot paths. Optional —
+     * external callers can construct an `InterpolatedVar` without it and the
+     * runtime dispatch in `lerpValue` will resolve at call time.
+     */
+    _lerp?: (t: number, iv: InterpolatedVar<any>) => ValueUnit<any>;
 };

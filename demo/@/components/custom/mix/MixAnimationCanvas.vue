@@ -4,23 +4,25 @@ import { useMixingAnimation } from "./composables/useMixingAnimation";
 import type { AnimationPhase } from "./composables/useMixingState";
 import type { SelectedColor } from "./composables/useMixingState";
 
-const props = defineProps<{
+const { phase, selectedColors } = defineProps<{
     phase: AnimationPhase;
     selectedColors: SelectedColor[];
 }>();
 
 const canvasRef = useTemplateRef<HTMLCanvasElement>("mixCanvas");
 
-const colorList = computed(() => props.selectedColors.map((sc) => sc.css));
+const colorList = computed(() => selectedColors.map((sc) => sc.css));
 
-const phaseRef = computed(() => props.phase);
+const phaseRef = computed(() => phase);
 
 useMixingAnimation(canvasRef, colorList, phaseRef);
 </script>
 
 <template>
+    <!-- W5-a11y: decorative animation canvas — hidden from AT -->
     <canvas
         ref="mixCanvas"
-        class="absolute inset-0 w-full h-full pointer-events-none z-[var(--z-controls)]"
+        class="absolute inset-0 w-full h-full pointer-events-none z-controls"
+        aria-hidden="true"
     />
 </template>

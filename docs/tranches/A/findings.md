@@ -3,8 +3,8 @@
 **Tranche letter**: A (value.js repo; first tranche authored here).
 **Date opened**: 2026-05-18.
 **Repo HEAD at open**: `70e61e9` on branch `w.w2.1-value-js-prebuild`.
-**glass-ui peer tranche**: Q (in flight; glass-ui HEAD `d244dd5`). See `coordination/Q.md`.
-**Mode**: tranche development only. No source edits this session per user directive ("This is tranche development only in this session.").
+**glass-ui peer tranche**: Q — closed at `4b16de7` (glass-ui v1.9.2). See `coordination/Q.md` and `FINAL.md`.
+**Mode**: A is closed — all 8 waves (W0–W7) executed and shipped commits after the user lifted the planning-only constraint and authorized tranche execution in totality. See `FINAL.md` for the close record. The "planning-only" framing of A's open is historical.
 
 ## §1 — Verbatim user directive
 
@@ -98,6 +98,6 @@ Q owns every glass-ui-side substrate change (the dev-resolution contract, `Card`
 
 In scope for A: the value.js demo (`demo/color-picker/`, `demo/@/`), `vite.config.ts`, `package.json` consumer-resolution surface, and the design/functionality audit of the demo. glass-ui API gaps the audit surfaces (blob/aurora abstraction, missing primitives/variants/tokens) are authored as **coordination items handed to glass-ui**, designed at the root, not written from this tranche.
 
-Out of scope: the value.js library itself (`src/` — parsing, color, units, transform) has no part in the regression and no audit mandate. The `api/` directory (Hono + MongoDB) is a backend surface unrelated to the frontend regression. The `demo/hero-lab/` second demo is repaired at the boot level as a side effect of A.W0's `vite.config.ts` resolution fix, but a hero-lab design audit routes to a named successor (value.js tranche B) — see `A.md §5`. The `gh-pages` demo build output is a release surface touched only by A.W0's clobber fix.
+Out of scope: the value.js library itself (`src/` — parsing, color, units, transform) has no part in the regression and no audit mandate. The `api/` directory (Hono + MongoDB palette backend) is a backend surface unrelated to the frontend regression and is explicitly out of scope for both A and B — neither tranche audits or edits it. The `demo/hero-lab/` second demo is repaired at the boot level as a side effect of A.W0's `vite.config.ts` resolution fix, but a hero-lab design audit routes to a named successor (value.js tranche B) — see `A.md §5`. The `gh-pages` demo build output is a release surface touched only by A.W0's clobber fix.
 
 This section and the scope decisions in it were hardened by `audit/HARDEN-5` (coverage gaps) and `audit/HARDEN-1` (the precepts submodule and the A↔Q boundary).

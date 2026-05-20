@@ -37,7 +37,7 @@ export interface SliderSection {
     defs: SliderDef[];
 }
 
-const props = defineProps<{
+const { config, sections, defaults, title, description } = defineProps<{
     /** The reactive config object (provided via inject in the consuming pane). */
     config: Record<string, unknown>;
     /** Slider sections to render. Pass empty array to show empty state. */
@@ -51,7 +51,7 @@ const props = defineProps<{
 }>();
 
 function update(key: string, value: number) {
-    props.config[key] = value;
+    config[key] = value;
 }
 
 function fmt(v: number): string {
@@ -60,19 +60,19 @@ function fmt(v: number): string {
 
 async function copyAsJson() {
     const snapshot: Record<string, unknown> = {};
-    for (const k of Object.keys(props.defaults)) {
-        snapshot[k] = props.config[k];
+    for (const k of Object.keys(defaults)) {
+        snapshot[k] = config[k];
     }
     await copyToClipboard(JSON.stringify(snapshot, null, 2));
 }
 
 function resetDefaults() {
-    Object.assign(props.config, props.defaults);
+    Object.assign(config, defaults);
 }
 </script>
 
 <template>
-    <div class="relative w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto h-full min-w-0">
+    <div class="relative w-full max-w-3xl lg:max-w-desktop-pane mx-auto h-full min-w-0">
         <Card
             tier="wash"
             :shadow="false"

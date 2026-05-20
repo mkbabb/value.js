@@ -37,7 +37,7 @@
             </h2>
             <div class="grid grid-cols-3 gap-4 text-small">
                 <div
-                    v-for="(component, index) in currentColorSpaceInfo.components"
+                    v-for="([rangeKey, range], index) in Object.entries(formattedRange)"
                     :key="index"
                     class="space-y-1"
                 >
@@ -45,12 +45,12 @@
                         :style="{ color: nodeHighlightColor }"
                         class="text-body"
                     >
-                        {{ component }}
+                        {{ currentColorSpaceInfo.components[index] ?? rangeKey }}
                     </div>
                     <div>
-                        {{ formattedRange[Object.keys(formattedRange)[index]].min }}
+                        {{ range.min }}
                         <span class="italic">to</span>
-                        {{ formattedRange[Object.keys(formattedRange)[index]].max }}
+                        {{ range.max }}
                     </div>
                 </div>
             </div>
@@ -190,9 +190,12 @@ const nodeHighlightColor = computed(() => {
     return colorLight.value.toString();
 });
 
-const currentColorSpaceInfo = computed(
-    () => colorSpaceInfo[model.value.selectedColorSpace],
-);
+const currentColorSpaceInfo = computed(() => {
+    const space = resolveColorSpace(model.value.selectedColorSpace);
+    return space in colorSpaceInfo
+        ? colorSpaceInfo[space as keyof typeof colorSpaceInfo]
+        : colorSpaceInfo.rgb;
+});
 
 const formattedRange = computed(() =>
     getFormattedColorSpaceRange(resolveColorSpace(model.value.selectedColorSpace)),

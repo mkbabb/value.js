@@ -6,15 +6,18 @@ CSS value unit library: parsing, normalization, interpolation, color space conve
 
 ```
 npm run build        # library → dist/value.js + value.cjs + value.d.ts
+npm run build:watch  # vite build --watch (D.W1 — contract-v2 fleet dev orchestration)
 npm run gh-pages     # demo → dist/
 npm run dev          # dev server (Vite default port)
 ```
 
-## Test
+## Test + verify
 
 ```
-npm test             # vitest (jsdom) — 1372 tests, 24 files
-npm run test:e2e     # playwright — desktop (Chromium) + mobile (Pixel 7)
+npm test                 # vitest (jsdom) — 1582 tests, 34 files
+npx playwright test      # all 3 projects — 21 specs (smoke / smoke-admin / smoke-mobile)
+npm run lint             # eslint flat config (D.W1 L7) — exit 0 required
+npm run proof:resolution # contract-v2 dev-resolution proof across the fleet (D.W1)
 ```
 
 ## Structure
@@ -32,6 +35,10 @@ src/
 │   ├── color.ts          # 15 color spaces, hex, kelvin, color-mix(), relative color syntax
 │   ├── math.ts           # calc() AST, min/max/clamp, trig, exp, round/mod/rem
 │   ├── utils.ts          # istring, number, none, tryParse, succeed, fail
+│   ├── animation-shorthand.ts  # animation/transition shorthand parsing
+│   ├── extract.ts        # value extraction helpers
+│   ├── serialize.ts      # value serialization
+│   ├── stylesheet.ts     # stylesheet-level parsing
 │   └── grammars/         # BBNF spec grammars (used in equivalence tests)
 │       ├── css-values.bbnf
 │       └── css-color.bbnf
@@ -40,6 +47,7 @@ src/
 │   ├── constants.ts      # unit arrays, STYLE_NAMES (630+ CSS properties), MatrixValues
 │   ├── utils.ts          # unit conversion (px, deg, ms, Hz, dpi), flatten/unflatten
 │   ├── normalize.ts      # value normalization + interpolation setup
+│   ├── interpolate.ts    # value interpolation
 │   └── color/            # color system (15 spaces, conversion, gamut mapping)
 │       ├── index.ts      # Color<T> base + 15 space classes (RGB, HSL, OKLab, etc.)
 │       ├── constants.ts  # ranges, matrices, white points, named colors
@@ -57,10 +65,13 @@ src/
 ```
 
 ```
-test/                     # vitest unit tests (24 files)
-e2e/                      # playwright E2E tests (14 specs)
+test/                     # vitest unit tests (34 files, 1582 tests)
+e2e/smoke/                # playwright smoke suite — 21 specs across 3 projects:
+                          #   smoke (desktop Chromium, 14 specs incl. reactivity-instant + WebGL)
+                          #   smoke-admin (admin views via addInitScript mock fixture, 6 specs)
+                          #   smoke-mobile (Pixel-7 layout probe, 1 spec)
 demo/                     # Vue 3.5 color picker app (reka-ui, Tailwind, @vueuse)
-api/                      # Hono + MongoDB palette API (Docker, Node 22, 5 collections)
+api/                      # Hono + MongoDB palette API (Docker, Node 22, 9 collections / 27 indexes)
 docs/                     # color-theory.md, gamut-mapping.md
 assets/docs/              # 10 color space reference pages (Vue + KaTeX)
 ```

@@ -58,11 +58,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, useTemplateRef } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import { Button } from "@components/ui/button";
 
-const props = defineProps<{
+const { open, hex } = defineProps<{
     open: boolean;
     hex?: string;
 }>();
@@ -79,8 +79,8 @@ const val = ref(0.8);
 let canvasDragging = false;
 let hueDragging = false;
 
-const canvasRef = ref<HTMLElement | null>(null);
-const hueRef = ref<HTMLElement | null>(null);
+const canvasRef = useTemplateRef<HTMLElement>("canvasRef");
+const hueRef = useTemplateRef<HTMLElement>("hueRef");
 
 const currentHex = computed(() => {
     const h = hue.value / 360;
@@ -107,11 +107,11 @@ const currentHex = computed(() => {
 watch(currentHex, (hex) => emit("update:hex", hex));
 
 // Parse incoming hex prop
-watch(() => props.hex, (hex) => {
-    if (!hex || !hex.startsWith("#") || hex.length < 7) return;
-    const r = parseInt(hex.slice(1, 3), 16) / 255;
-    const g = parseInt(hex.slice(3, 5), 16) / 255;
-    const b = parseInt(hex.slice(5, 7), 16) / 255;
+watch(() => hex, (incomingHex) => {
+    if (!incomingHex || !incomingHex.startsWith("#") || incomingHex.length < 7) return;
+    const r = parseInt(incomingHex.slice(1, 3), 16) / 255;
+    const g = parseInt(incomingHex.slice(3, 5), 16) / 255;
+    const b = parseInt(incomingHex.slice(5, 7), 16) / 255;
     const max = Math.max(r, g, b), min = Math.min(r, g, b);
     const d = max - min;
     val.value = max;

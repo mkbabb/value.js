@@ -27,9 +27,13 @@ export interface AsciiTileConfig {
 }
 
 export interface TileHeroConfig extends BaseHeroConfig, AsciiTileConfig {
+    kind: "tile";
 }
 
 export interface AtmosphereHeroConfig extends BaseHeroConfig {
+    kind: "atmosphere";
     blurRadius: number;
     blobCount: number;
 }
+
+export type HeroConfig = TileHeroConfig | AtmosphereHeroConfig;

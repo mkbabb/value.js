@@ -176,8 +176,8 @@ defineProps<{
     palette: Palette;
     paletteKind: PaletteKind;
     menuOpen: boolean;
-    isOwned?: boolean;
-    isAdmin?: boolean;
+    isOwned?: boolean | undefined;
+    isAdmin?: boolean | undefined;
 }>();
 
 defineEmits<{

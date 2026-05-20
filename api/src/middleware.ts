@@ -1,6 +1,7 @@
-import crypto from "node:crypto";
+import { createHash, timingSafeEqual } from "node:crypto";
 import { type Context, type MiddlewareHandler } from "hono";
 import { getDb } from "./db.js";
+import { LRU } from "./cache/lru.js";
 
 // --- CORS ---
 
@@ -55,35 +56,32 @@ export function resolveIP(c: Context): string {
 }
 
 // --- Rate limiting (in-memory, per-method tiers) ---
+// Consolidated behind `cache/lru.ts` (D.W2 Lane D — D-HARDEN-3 §1 C3).
 
 const RATE_MAP_CAP = 50_000;
 const CLEANUP_INTERVAL_MS = 60_000;
 
 interface RateEntry {
     count: number;
-    resetAt: number;
 }
 
-function createRateLimiter(
-    limit: number,
-    windowMs: number,
-): {
-    map: Map<string, RateEntry>;
+function createRateLimiter(limit: number, windowMs: number): {
+    lru: LRU<string, RateEntry>;
     check(ip: string): boolean; // true = allowed
 } {
-    const map = new Map<string, RateEntry>();
+    const lru = new LRU<string, RateEntry>(RATE_MAP_CAP, windowMs);
     return {
-        map,
+        lru,
         check(ip: string): boolean {
             const now = Date.now();
-            const entry = map.get(ip);
+            const entry = lru.getEntry(ip);
 
-            if (!entry || now > entry.resetAt) {
-                map.set(ip, { count: 1, resetAt: now + windowMs });
+            if (!entry || entry.expiresAt < now) {
+                lru.setWithExpiry(ip, { count: 1 }, now + windowMs);
                 return true;
             }
-            entry.count++;
-            return entry.count <= limit;
+            entry.value.count++;
+            return entry.value.count <= limit;
         },
     };
 }
@@ -95,13 +93,10 @@ const registrationLimiter = createRateLimiter(3, 60_000); // 3 req/min for regis
 // Sweep expired entries every 60s
 setInterval(() => {
     const now = Date.now();
-    for (const limiter of [readLimiter, writeLimiter, registrationLimiter, loginLimiter]) {
-        for (const [key, entry] of limiter.map) {
-            if (now > entry.resetAt) {
-                limiter.map.delete(key);
-            }
-        }
-    }
+    readLimiter.lru.sweepExpired(now);
+    writeLimiter.lru.sweepExpired(now);
+    registrationLimiter.lru.sweepExpired(now);
+    loginLimiter.lru.sweepExpired(now);
 }, CLEANUP_INTERVAL_MS);
 
 export const rateLimit: MiddlewareHandler = async (c, next) => {
@@ -109,18 +104,11 @@ export const rateLimit: MiddlewareHandler = async (c, next) => {
     const method = c.req.method;
     const limiter = method === "GET" || method === "HEAD" ? readLimiter : writeLimiter;
 
-    // Cap map size — LRU eviction of oldest expired entry before rejecting
-    if (!limiter.map.has(ip) && limiter.map.size >= RATE_MAP_CAP) {
-        const now = Date.now();
-        let evicted = false;
-        for (const [key, entry] of limiter.map) {
-            if (now > entry.resetAt) {
-                limiter.map.delete(key);
-                evicted = true;
-                break;
-            }
-        }
-        if (!evicted) {
+    // Cap map size — opportunistic expired-entry eviction before rejecting.
+    // (LRU.setWithExpiry will FIFO-evict if needed, but we prefer to drop
+    // expired entries first to keep live entries warm.)
+    if (!limiter.lru.has(ip) && limiter.lru.size >= RATE_MAP_CAP) {
+        if (!limiter.lru.evictOne()) {
             return c.json({ error: "Rate limit exceeded" }, 429);
         }
     }
@@ -135,7 +123,13 @@ export const rateLimit: MiddlewareHandler = async (c, next) => {
 // --- Session resolution ---
 
 // In-memory cache of suspended user slugs (60s TTL)
-const suspendedCache = new Map<string, number>(); // slug → expiresAt timestamp
+// Consolidated behind `cache/lru.ts` (D.W2 Lane D — D-HARDEN-3 §1 C3).
+const SUSPENDED_CACHE_TTL_MS = 60_000;
+const SUSPENDED_CACHE_CAP = 10_000;
+const suspendedCache = new LRU<string, true>(
+    SUSPENDED_CACHE_CAP,
+    SUSPENDED_CACHE_TTL_MS,
+);
 
 export const resolveSession: MiddlewareHandler = async (c, next) => {
     const token = c.req.header("X-Session-Token");
@@ -151,18 +145,14 @@ export const resolveSession: MiddlewareHandler = async (c, next) => {
         if (session) {
             c.set("sessionToken", token);
             if (session.userSlug) {
-                // Check if user is suspended (with cache)
-                const now = Date.now();
-                const cachedExpiry = suspendedCache.get(session.userSlug);
-                let isSuspended = false;
+                // Check if user is suspended (cache: 60s TTL via LRU.get)
+                let isSuspended = suspendedCache.get(session.userSlug) === true;
 
-                if (cachedExpiry && cachedExpiry > now) {
-                    isSuspended = true;
-                } else {
+                if (!isSuspended) {
                     // Cache miss or expired — check DB
                     const user = await db.collection("users").findOne({ _id: session.userSlug as any });
                     if (user?.status === "suspended") {
-                        suspendedCache.set(session.userSlug, now + 60_000); // 60s TTL
+                        suspendedCache.set(session.userSlug, true);
                         isSuspended = true;
                     } else {
                         suspendedCache.delete(session.userSlug);
@@ -184,17 +174,8 @@ export const resolveSession: MiddlewareHandler = async (c, next) => {
 
 export const registrationRateLimit: MiddlewareHandler = async (c, next) => {
     const ip = resolveIP(c);
-    if (!registrationLimiter.map.has(ip) && registrationLimiter.map.size >= RATE_MAP_CAP) {
-        const now = Date.now();
-        let evicted = false;
-        for (const [key, entry] of registrationLimiter.map) {
-            if (now > entry.resetAt) {
-                registrationLimiter.map.delete(key);
-                evicted = true;
-                break;
-            }
-        }
-        if (!evicted) {
+    if (!registrationLimiter.lru.has(ip) && registrationLimiter.lru.size >= RATE_MAP_CAP) {
+        if (!registrationLimiter.lru.evictOne()) {
             return c.json({ error: "Rate limit exceeded" }, 429);
         }
     }
@@ -210,17 +191,8 @@ const loginLimiter = createRateLimiter(5, 60_000);
 
 export const loginRateLimit: MiddlewareHandler = async (c, next) => {
     const ip = resolveIP(c);
-    if (!loginLimiter.map.has(ip) && loginLimiter.map.size >= RATE_MAP_CAP) {
-        const now = Date.now();
-        let evicted = false;
-        for (const [key, entry] of loginLimiter.map) {
-            if (now > entry.resetAt) {
-                loginLimiter.map.delete(key);
-                evicted = true;
-                break;
-            }
-        }
-        if (!evicted) {
+    if (!loginLimiter.lru.has(ip) && loginLimiter.lru.size >= RATE_MAP_CAP) {
+        if (!loginLimiter.lru.evictOne()) {
             return c.json({ error: "Rate limit exceeded" }, 429);
         }
     }
@@ -247,7 +219,7 @@ export const adminAuth: MiddlewareHandler = async (c, next) => {
     }
     const authBuf = Buffer.from(auth);
     const expectedBuf = Buffer.from(expected);
-    if (!crypto.timingSafeEqual(authBuf, expectedBuf)) {
+    if (!timingSafeEqual(authBuf, expectedBuf)) {
         return c.json({ error: "Forbidden" }, 403);
     }
     await next();
@@ -298,9 +270,10 @@ export function escapeRegex(s: string): string {
 // --- IP hashing ---
 
 export async function hashIP(ip: string): Promise<string> {
-    const data = new TextEncoder().encode(ip);
-    const hash = await globalThis.crypto.subtle.digest("SHA-256", data);
-    return Array.from(new Uint8Array(hash))
-        .map((b) => b.toString(16).padStart(2, "0"))
-        .join("");
+    // F6 (D-HARDEN-3 §1): use `node:crypto`'s `createHash` consistently with
+    // `hash.ts`. The previous `globalThis.crypto.subtle.digest` shape works
+    // in the runtime but introduces a second crypto API surface for no
+    // benefit; the named-import shape from `node:crypto` is the canonical
+    // choice for this Node server.
+    return createHash("sha256").update(ip).digest("hex");
 }

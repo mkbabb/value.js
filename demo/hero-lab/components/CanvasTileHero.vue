@@ -24,6 +24,10 @@ const canvasRef = ref<HTMLCanvasElement | null>(null);
 let frame = 0;
 let observer: ResizeObserver | null = null;
 
+const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false);
+
 function mountScene() {
     cancelAnimationFrame(frame);
     observer?.disconnect();
@@ -110,7 +114,9 @@ function mountScene() {
         }
 
         context.globalAlpha = 1;
-        frame = requestAnimationFrame(render);
+        if (!prefersReducedMotion) {
+            frame = requestAnimationFrame(render);
+        }
     };
 
     frame = requestAnimationFrame(render);

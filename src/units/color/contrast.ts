@@ -1,7 +1,9 @@
 import { clamp } from "../../math";
 import { OKLCHColor } from ".";
-import type { Color } from ".";
+import type { Color, ColorChannel } from ".";
 import { color2 } from "./utils";
+
+const ch = <T>(v: T): ColorChannel<T> => v as ColorChannel<T>;
 
 /**
  * Minimum OKLab lightness distance for readable accent text/icons.
@@ -102,9 +104,9 @@ export function safeAccentColor(
 
     const safe = computeSafeAccent(L, C, H, bgLightness, minContrast);
 
-    oklch.l = safe.L;
-    oklch.c = safe.C;
-    oklch.h = safe.H;
+    oklch.l = ch(safe.L);
+    oklch.c = ch(safe.C);
+    oklch.h = ch(safe.H);
 
     return oklch;
 }

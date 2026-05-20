@@ -7,7 +7,7 @@
 **keyframes.js**: HEAD `8d824ee` — already carries the `development` export condition (the keyframes.js side of A-key-1 is fixed; see §2).
 **Shared submodule**: `docs/precepts` — see §6. value.js does not yet pin it; A.W0 registers it.
 
-When ≥2 repos run tranches concurrently with shared touchpoints, both publish a coordination artefact (precept `SPEC §"Document Set"`). glass-ui Q published `CONSTELLATION.md`; this is value.js A's counterpart.
+When ≥2 repos run tranches concurrently with shared touchpoints, each publishes a coordination artefact. value.js A adopts glass-ui's constellation-coordination practice: glass-ui Q published `CONSTELLATION.md`; this file is value.js A's counterpart. (`HARDEN-6 §1` confirmed the precept spec has no `SPEC §"Document Set"` clause mandating this — it is an adopted practice, not a precept requirement.)
 
 ## §0 — The contested boundary, stated plainly
 
@@ -101,7 +101,7 @@ A.W2 through A.W5 have no cross-repo gate (`audit/HARDEN-1 §5`); an A orchestra
 
 ## §6 — The `docs/precepts` submodule
 
-glass-ui pins `docs/precepts` at `3310a8c` (`heads/main`). value.js's `.gitmodules` is **untracked** and the submodule is **not registered in value.js's index** — value.js currently pins no precepts SHA (`audit/HARDEN-1 §6`). value.js's `docs/precepts/` exists on disk only as a bare checkout.
+At A.W0 the precepts baseline was `3310a8c` (`heads/main`); value.js's `.gitmodules` was untracked and the submodule unregistered in value.js's index (`audit/HARDEN-1 §6`). A.W0 Lane A registered `docs/precepts` at `3310a8c`, and value.js tranche B.W0 advanced the registered SHA to `3c32fae` (commit `de8c573`, "advance shared submodule to 3c32fae"). value.js's index now pins `3c32fae`; the `3310a8c` baseline below is the A-open historical state.
 
 Two coordination actions follow:
 

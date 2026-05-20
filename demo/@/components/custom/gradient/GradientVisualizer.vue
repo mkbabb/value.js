@@ -22,6 +22,7 @@ import type { GradientType } from "./composables/useGradientModel";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/utils";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import type { AcceptableValue } from "reka-ui";
 
 const pm = inject(PALETTE_MANAGER_KEY);
 
@@ -115,10 +116,13 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
 <template>
     <div class="flex flex-col gap-5">
-        <!-- Hero: Gradient preview + stop editor -->
+        <!-- Hero: Gradient preview (decorative visual) + stop editor -->
+        <!-- W5-a11y: preview swatch is decorative -->
         <div
-            class="h-20 sm:h-24 rounded-card border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]"
+            class="h-20 sm:h-24 rounded-card border border-border bg-card overflow-hidden shadow-card"
             :style="{ background: coalescedCSS }"
+            aria-hidden="true"
+            role="presentation"
         />
 
         <GradientStopEditor
@@ -139,8 +143,8 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
             <div class="flex flex-col gap-1">
                 <span class="section-label">Type</span>
                 <span class="section-subtitle">{{ activeTypeDesc }}</span>
-                <Select :model-value="type" @update:model-value="(v: string) => type = v as GradientType">
-                    <SelectTrigger aria-label="Gradient type" class="h-9">
+                <Select :model-value="type" @update:model-value="(v: AcceptableValue) => type = v as GradientType">
+                    <SelectTrigger class="h-9">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -157,8 +161,8 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
             <div class="flex flex-col gap-1">
                 <span class="section-label">Space</span>
                 <span class="section-subtitle">{{ activeSpaceDesc }}</span>
-                <Select :model-value="interpolationSpace" @update:model-value="(v: string) => interpolationSpace = v as ColorSpace">
-                    <SelectTrigger aria-label="Interpolation space" class="h-9">
+                <Select :model-value="interpolationSpace" @update:model-value="(v: AcceptableValue) => interpolationSpace = v as ColorSpace">
+                    <SelectTrigger class="h-9">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -175,8 +179,8 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
             <div class="flex flex-col gap-1">
                 <span class="section-label">Hue</span>
                 <span class="section-subtitle">{{ activeHueDesc }}</span>
-                <Select :model-value="hueMethod" @update:model-value="(v: string) => hueMethod = v as HueInterpolationMethod">
-                    <SelectTrigger aria-label="Hue interpolation" class="h-9">
+                <Select :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => hueMethod = v as HueInterpolationMethod">
+                    <SelectTrigger class="h-9">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -197,7 +201,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 <span class="text-mono-small text-muted-foreground tabular-nums">{{ direction }}&deg;</span>
             </div>
             <Slider aria-label="Gradient direction" :model-value="[direction]" :min="0" :max="360" :step="1"
-                @update:model-value="(v: number[]) => direction = v[0]!" />
+                @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) direction = v[0]; }" />
         </div>
 
         <!-- ── Easing ── -->

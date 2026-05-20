@@ -12,7 +12,7 @@ Five research lanes dispatched in parallel, each authoring a deliverable under `
 |---|---|---|---|
 | Aα | runtime keystone | `research/Aa-runtime-keystone.md` | three stacked fatal faults + one cosmetic; A-key-2 is the user's `stops.length` crash, absent from glass-ui Q's ledger |
 | Aβ | styling resilience | `research/Ab-styling-resilience.md` | 19 findings; the dock `calc()` chain folds back on itself |
-| Aγ | design tokens + hierarchy | `research/Ag-design-tokens-hierarchy.md` | 13 findings; `font-mono-code`/`text-2xs`/`text-pane-description` undefined classes silently dropped |
+| Aγ | design tokens + hierarchy | `research/Ac-design-tokens-hierarchy.md` | 13 findings; `font-mono-code`/`text-2xs`/`text-pane-description` undefined classes silently dropped |
 | Aδ | interactive states | `research/Ad-interactive-states.md` | 20 findings; four-state gaps; `<SelectTrigger class="h-9">` ×11 |
 | Aε | structure + blob/aurora | `research/Ae-structure-blob-aurora.md` | `Dock.vue`/`App.vue` god-components; GooBlob duplicates glass-ui `useMetaballs`; Aurora built against a deleted schema |
 
@@ -34,7 +34,7 @@ Six hardening lanes dispatched in parallel against the round-3 plan, each author
 |---|---|---|---|
 | HARDEN-1 | A↔Q de-dup boundary | `audit/HARDEN-1-dedup-boundary.md` | 6 pure-duplicate value.js writes between A.W0/A.W1 and Q.W1-C/Q.W2-B; Q's gate silently depends on A; value.js does not pin `docs/precepts` |
 | HARDEN-2 | W0 keystone | `audit/HARDEN-2-w0-keystone.md` | A-key-3 line is `:178-179` not `:131`; the cascade is an App-subtree crash not a hook-tail; `vue-tsc` not installed; `dist/` already clobbered; font 403 is a `server.fs` fault; keyframes.js already fixed at `8d824ee` |
-| HARDEN-3 | design waves W1-W3 | `audit/HARDEN-3-design-waves.md` | 12 findings unassigned; W2 under-scoped; the 11 Card sites are not homogeneous; Ag has 13 findings not 14 |
+| HARDEN-3 | design waves W1-W3 | `audit/HARDEN-3-design-waves.md` | 12 findings unassigned; W2 under-scoped; the 11 Card sites are not homogeneous; Ac (γ) has 13 findings not 14 |
 | HARDEN-4 | W4-W5 + blob/aurora | `audit/HARDEN-4-w4-w5-blob.md` | W5 un-closeable (close ceremony over an open dependency); `usePopupMutex` split hazard; gap-list error — Ae-15 struck, `ConfigSliderPane` re-framed |
 | HARDEN-5 | coverage gaps | `audit/HARDEN-5-coverage-gaps.md` | accessibility, animation, and the e2e suite were entirely uncovered; `hero-lab` scope unrecorded |
 | HARDEN-6 | methodology | `audit/HARDEN-6-methodology.md` | brittleness window mislabeled; zero-deferral claim overstated; wave specs lack per-lane sub-gates; style tics |
@@ -45,7 +45,7 @@ The plan was re-synthesized from the hardening audits:
 
 - **Wave-set augmented 6 → 8.** The former W5 illegally combined the close ceremony with an open cross-repo dependency (`HARDEN-4`); it split into W6 (the conditional blob/aurora abstraction, carrying the dependency) and W7 (the clean close). A new W5 absorbs the accessibility, animation, and e2e-integrity scope the five-angle audit never covered (`HARDEN-5`).
 - **De-dup hardened.** `coordination/Q.md` rewritten with the contested-boundary statement, the airtight ownership table, the reverse gate-dependency edges, the merged cross-tranche timeline, and the gate-handoff protocol. Q.W1 Lane C and Q.W2 Lane B are flagged for deletion from Q's plan.
-- **12 prior-unassigned findings routed** — Ab-1..7 and Ab-16..19 into W2's added fourth lane, Ag-6 into W3. `A.md §8` is now honest.
+- **12 prior-unassigned findings routed** — Ab-1..7 and Ab-16..19 into W2's added fourth lane, Ac-6 into W3. `A.md §8` is now honest.
 - **W0 corrected** — line numbers, the cascade description, and four missed items added: `vue-tsc` install, `dist/` clear, the `server.fs` font fix, the `docs/precepts` submodule registration. The keyframes.js dependency is discharged.
 - **Gap list corrected** — Ae-15 struck (the glass `Select` is already complete); the config-pane gap re-framed as non-adoption of glass-ui's existing `./configurator`.
 - **`A.md §9`** reframed from a brittleness window to a cross-repo dependency (no tree-breaking, no suspended gates).
@@ -132,16 +132,16 @@ The orchestrator owned the global stylesheets (`style.css`, `utils.css`) — one
 
 ## 2026-05-18 — A.W3 close — Design tokens + hierarchy
 
-Orchestrator owned `style.css` (shadow consolidation, `.slug-pill` `@apply`). Six agents ran in parallel on file-disjoint component groups (color-picker, palette-cards, palette-controls, admin, dock-panes, feature-controls), each applying the binding rules in `audit/W3-conventions.md` + its slice of `research/Ag`.
+Orchestrator owned `style.css` (shadow consolidation, `.slug-pill` `@apply`). Six agents ran in parallel on file-disjoint component groups (color-picker, palette-cards, palette-controls, admin, dock-panes, feature-controls), each applying the binding rules in `audit/W3-conventions.md` + its slice of `research/Ac`.
 
 ### What landed
 
-- **Shadow** — `--shadow-card`/`-hover` route through `--shadow-cartoon`/`-hover`, overridden to the demo's pop-art intensity; one cartoon language, no fourth recipe. Dead `--glass-opacity-subtle` deleted (Ag-6).
-- **φ type scale** (Ag-1) — raw Tailwind sizes mapped to glass-ui φ utilities by role across ~48 SFCs. `text-mono-*` for mono contexts; genuine misfits recorded as documented exceptions in the lane docs.
-- **Radii** (Ag-8) — role-bearing radii on semantic aliases; the `ColorInput`/`CurrentPaletteEditor` input fields stop wearing card radius.
-- **Hierarchy** (Ag-9/Ag-10) — `ColorNutritionLabel` rebuilt into a φ heading→emphasis→body cascade.
-- **Admin lists** (Ag-13) — `AdminListItem` restructured into a primary/secondary hierarchy primitive with a leading swatch; the admin panels + `VersionHistoryDrawer` adopt it.
-- **Normalization** (Ag-11/Ag-12) — `.slug-pill` adopted at the dock menus + admin users panel; `DropdownMenuItem`, descriptor sub-text, count indicators normalized; `AdminNamesPanel` tabs moved to the filled `TabsList`.
+- **Shadow** — `--shadow-card`/`-hover` route through `--shadow-cartoon`/`-hover`, overridden to the demo's pop-art intensity; one cartoon language, no fourth recipe. Dead `--glass-opacity-subtle` deleted (Ac-6).
+- **φ type scale** (Ac-1) — raw Tailwind sizes mapped to glass-ui φ utilities by role across ~48 SFCs. `text-mono-*` for mono contexts; genuine misfits recorded as documented exceptions in the lane docs.
+- **Radii** (Ac-8) — role-bearing radii on semantic aliases; the `ColorInput`/`CurrentPaletteEditor` input fields stop wearing card radius.
+- **Hierarchy** (Ac-9/Ac-10) — `ColorNutritionLabel` rebuilt into a φ heading→emphasis→body cascade.
+- **Admin lists** (Ac-13) — `AdminListItem` restructured into a primary/secondary hierarchy primitive with a leading swatch; the admin panels + `VersionHistoryDrawer` adopt it.
+- **Normalization** (Ac-11/Ac-12) — `.slug-pill` adopted at the dock menus + admin users panel; `DropdownMenuItem`, descriptor sub-text, count indicators normalized; `AdminNamesPanel` tabs moved to the filled `TabsList`.
 
 ### Orchestrator corrections
 
@@ -188,6 +188,60 @@ The app-decomposition agent collapsed the pane template with `PaneSlot` but left
 
 `c011b18` states + overlays, `c3df1e2` Dock decomposition, `3f39026` App decomposition.
 
+## 2026-05-19 — A.W5 close — accessibility + animation (ratified at B.W0)
+
+A's W5 work was complete in the working tree but committed nowhere — the "hung on e2e" diagnostic the user named. Tranche B's invariant B1 ("close A before new structural work") closes it. B.W0 Lane A **ratified** the working tree against the W5 audit docs and committed it; it did not re-do W5's work.
+
+### What landed
+
+- **Lane A — accessibility** (`audit/W5-a11y.md`) — ARIA roles/labels, `<nav>`/`<main>` landmarks, 4 SVG-as-button fixes, decorative `aria-hidden`, focus-visible coverage across 25 demo SFCs + `App.vue`. `style.css` carried the landmark-integration fix (the new `<main>` landmark needed `.pane-main` as a definite-height grid item) — W5-a11y collateral not listed in that doc's file table; folded into the a11y commit with recorded rationale.
+- **Lane B — animation** (`audit/W5-animation.md`) — global `prefers-reduced-motion: reduce` block in `animations.css`; GooBlob `<canvas>` `aria-hidden`; `useMetaballRenderer.ts` tab-hidden RAF idle.
+
+### Lane C — e2e — superseded
+
+The W5 plan carried an e2e-integrity Lane C; its agent was killed mid-run (the "hung on e2e"). The 16 modified `e2e/*.spec.ts` selector-migration edits remain uncommitted and are **deliberately not committed** — Tranche B.W3 abrogates the entire 16-spec Playwright suite (`docs/tranches/B/research/B-e2e-investigation.md`). Committing work the next wave deletes would be churn. The e2e-integrity *intent* is carried forward by B.W3's role/label smoke suite.
+
+### Gate evidence
+
+`vue-tsc` 243 (the W5 ARIA additions did not raise the count — the `audit/W5-animation.md` baseline held; B.W0 expected ~290, actual is better). `npm test` 1409 passed, 26 files. Playwright re-probe (`audit/W5-playwright/`, 3 viewports × light+dark): **0 console errors, 0 non-2xx, 0 glass-ui stale-prop dev-warnings** — the invariant-31 check passes (A.W1 migrated all `<Card>` consumers to the `tier` API; glass-ui's now-fail-explicit `<Card>` emits no stale-prop warning).
+
+### Commits
+
+- `7088da4` — `fix(tranche-a/w5)`: accessibility sweep — ARIA roles, landmarks, SVG-as-button.
+- `5247313` — `fix(tranche-a/w5)`: animation correctness — global reduced-motion + GooBlob tab-hidden.
+
+## 2026-05-19 — A.W6 disposition — formal re-scope (at B.W0)
+
+A.W6 (blob/aurora idiomatic abstraction) was conditional on glass-ui shipping the metaballs `positionSource` hook, Aurora `deriveAuroraPalette`, and the `BlobDot` primitive. B.W0 Lane B re-verified against glass-ui's **current** HEAD `e2e5303` (post-Q-close): none shipped. glass-ui Q has closed (`4b16de7`) and never scheduled the W6 extension set.
+
+A.W6 is **closed by re-scope** per `A.md §9` / `waves/W6.md` Conditionality. `audit/W6-deferred.md` records the inheritance — `useMetaballRenderer.ts` (333 lines) stays in full, `WatercolorDot` stays demo-local, `AuroraPane` keeps its "under rework" state, the atmosphere keeps W0's static `AuroraConfig`. The A-key-3 guard landed at W0; the demo boots; the duplication is documented, not broken. Per precept §10 ("wire before retire") the wired, working `useMetaballRenderer.ts` cannot be retired ahead of its glass-ui replacement.
+
+Named successors (invariant A5, zero silent deferral): the glass-ui API additions → a glass-ui successor tranche (`coordination/Q.md §3`); the demo-side abstraction → a value.js demo-abstraction tranche opened once glass-ui ships (not tranche C — C is the palette-CRUD/fourier cohort tranche).
+
+Commit: `065c6fe` — `docs(tranche-a/w6): formal re-scope — glass-ui APIs unshipped; routed to named successor`.
+
+## 2026-05-19 — A.W7 close — strengthened close ceremony (at B.W0 Lane C)
+
+The A close ceremony, run inside value.js tranche B.W0 Lane C. Seven read-only close-audit lanes: six dispatched as parallel agents, the integrity sweep run by the orchestrator (the orchestrator owns the index).
+
+### Close audit (7 lanes — all returned clean or with findings absorbed)
+
+- **plan-vs-actual** (`audit/W7-plan-vs-actual.md`) — clean; every wave landed its headline, every cited commit resolves.
+- **substrate-without-consumer** (`audit/W7-substrate-without-consumer.md`) — clean; no dead substrate; all 15 A-introduced artefacts consumed.
+- **doc-drift** (`audit/W7-doc-drift.md`) — 14 drift items inventoried across 6 files; routed to B.W4.
+- **idiomatic-gestalt** (`audit/W7-idiomatic-gestalt.md`) — mostly idiomatic; one fossil (`ui/alert/` hand-rolled) routed to B.W2.
+- **performance** (`audit/W7-performance.md`) — frame budget PASS; one per-frame hot-spot routed.
+- **visual-runtime** (`audit/W7-visual-runtime.md`) — render OK, 0 console errors, A.W5 landmarks present.
+- **integrity sweep** (`audit/W7-integrity-sweep.md`) — clean: zero unauthorized agent git mutations, empty stash, `docs/precepts` changed only as planned.
+
+### Close ceremony
+
+`docs/tranches/A/FINAL.md` written — cites every wave's commits, gate evidence, Playwright artefacts, the 13-mandate disposition, the research-finding ledger, and the close-honesty checklist (all PASS). The close-audit findings routed to B are recorded in `FINAL.md §6`.
+
+### Commit
+
+- `docs(tranche-a/w7-close): A close — FINAL.md + 7 read-only audit lanes + integrity sweep` (see wave log).
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -197,14 +251,15 @@ The app-decomposition agent collapsed the pane template with `PaneSlot` but left
 | W2 — style co-location + resilience | closed | 2026-05-18 | 2026-05-18 | 3b72007, f0b8c54, 3a1b673, 6b3b64e |
 | W3 — design tokens + hierarchy | closed | 2026-05-18 | 2026-05-18 | e58155f, 8e99a7d, 6cfded5 |
 | W4 — interactive states + structure | closed | 2026-05-18 | 2026-05-18 | c011b18, c3df1e2, 3f39026 |
-| W5 — accessibility + animation + e2e integrity | planned | — | — | — |
-| W6 — blob/aurora idiomatic abstraction (conditional) | planned | — | — | — |
-| W7 HEADLINE close — strengthened close | planned | — | — | — |
+| W5 — accessibility + animation + e2e integrity | closed | 2026-05-18 | 2026-05-19 | 7088da4, 5247313 (e2e lane superseded by B.W3) |
+| W6 — blob/aurora idiomatic abstraction (conditional) | closed (re-scoped) | 2026-05-19 | 2026-05-19 | 065c6fe |
+| W7 HEADLINE close — strengthened close | closed | 2026-05-19 | 2026-05-19 | see W7 close commit (B.W0 Lane C) |
 
-## Open dependencies
+## Open dependencies — resolved at A close
 
-- A.W1 depends on glass-ui Q.W2 Lane A (`Card` props fail-explicit).
-- A.W6 depends on glass-ui shipping the `coordination/Q.md §3` extension set — not in glass-ui Q's current wave plan; W6 re-scopes per `A.md §9` if unscheduled.
-- Reverse direction: glass-ui Q.W1 hard gate (c/d/e) depends on A.W0 close + artefacts; Q.W2 hard gate (b) depends on A.W1; Q.W5's value.js re-audit reads A.W0 + A.W1 (`coordination/Q.md §2`).
-- The A↔Q boundary is contested until glass-ui Q deletes Q.W1 Lane C and Q.W2 Lane B from its plan (`coordination/Q.md §0-1`). A's orchestrator sends the request; Q's response is recorded here when received.
-- A.W0 registers `docs/precepts` at `3310a8c`; A acknowledges Q's W5 precepts advance before A close.
+- A.W1 / glass-ui Q.W2 Lane A (`Card` props fail-explicit) — **RESOLVED**. Q shipped it (`cab7258`); A.W1 consumed it. Verified at Q close `4b16de7` (`B/coordination/Q.md §2a`).
+- A.W6 / glass-ui extension set — **RESOLVED by re-scope**. glass-ui Q closed (`4b16de7`) without scheduling the metaballs/aurora APIs; A.W6 re-scoped (`audit/W6-deferred.md`).
+- A↔Q contested boundary — **MOOT**. Q closed and never wrote value.js; Q's own round-4 audit retired the contested Q.W1 Lane C / Q.W2 Lane B. Recorded in `B/coordination/Q.md §4`.
+- `docs/precepts` — A ran under `3310a8c`; B.W0 advanced the shared pin to `3c32fae`. A's close acknowledges `3310a8c` as its working baseline.
+
+Every A open dependency now has a resolved or named-destination state. See `FINAL.md`.

@@ -12,7 +12,7 @@
                         contenteditable
                         role="textbox"
                         :aria-label="proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
-                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-[var(--radius-input)] px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
+                        class="color-input w-full block border overflow-hidden items-center bg-background rounded-input px-3 py-2 focus-visible:outline-none fira-code text-ellipsis whitespace-nowrap text-center"
                         :class="{
                             'pr-9': true,
                             'color-input-error': parseError && !proposeMode,
@@ -38,7 +38,7 @@
                                     "
                                 />
                             </TooltipTrigger>
-                            <TooltipContent class="text-mono-small max-w-[200px]">
+                            <TooltipContent class="text-mono-small max-w-tooltip">
                                 <div class="grid gap-1">
                                     <span class="font-bold">{{
                                         currentColorMeta.name
@@ -119,7 +119,7 @@ import { useSession } from "@composables/auth/useSession";
 import type { EditTarget } from "..";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../keys";
 
-const props = defineProps<{
+const { proposeMode } = defineProps<{
     editTarget: EditTarget | null;
     proposeMode?: boolean;
 }>();
@@ -146,7 +146,7 @@ const inputColorRef = useTemplateRef<HTMLElement>("inputColorRef");
 const inputIsFocused = ref(false);
 
 const inputStyle = computed(() => {
-    if (!props.proposeMode && parseError.value) return { borderColor: "var(--destructive)" };
+    if (!proposeMode && parseError.value) return { borderColor: "var(--destructive)" };
     if (inputIsFocused.value) return { borderColor: cssColor.value };
     return undefined;
 });
@@ -171,7 +171,7 @@ const onInputBlur = () => {
 };
 const onInputInput = (e: Event) => {
     const text = (e.target as HTMLElement).innerText;
-    if (props.proposeMode) {
+    if (proposeMode) {
         proposedName.value = text;
     } else {
         parseAndSetColorDebounced(text);
@@ -180,7 +180,7 @@ const onInputInput = (e: Event) => {
 const onInputKeydown = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
         e.preventDefault();
-        if (props.proposeMode) {
+        if (proposeMode) {
             submitProposedName();
         } else {
             parseAndSetColor((e.target as HTMLElement).innerText);
@@ -227,7 +227,7 @@ async function submitProposedName() {
 // Switch content when entering/exiting propose mode
 const modeTransition = ref(false);
 
-watch(() => props.proposeMode, (propose) => {
+watch(() => proposeMode, (propose) => {
     if (!inputColorRef.value) return;
     // Flash animation
     modeTransition.value = true;
@@ -246,7 +246,7 @@ watch(() => props.proposeMode, (propose) => {
 
 // Sync displayed text when not focused (only in color mode)
 watch(formattedCurrentColor, (text) => {
-    if (!props.proposeMode && !inputIsFocused.value && inputColorRef.value) {
+    if (!proposeMode && !inputIsFocused.value && inputColorRef.value) {
         inputColorRef.value.innerText = text;
     }
 });

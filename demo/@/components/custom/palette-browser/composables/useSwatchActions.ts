@@ -3,6 +3,7 @@ import type { Ref, ShallowRef } from "vue";
 import type { EditTarget } from "@components/custom/color-picker";
 import { EDIT_TARGET_KEY } from "@components/custom/color-picker/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";
+import { CURRENT_PALETTE_ID } from "@lib/palette/constants";
 import { useHoverPopover } from "./useHoverPopover";
 
 export interface SwatchActionsDeps {
@@ -22,7 +23,7 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
     const activeEditTarget = inject(EDIT_TARGET_KEY, ref(null) as ShallowRef<EditTarget | null>);
     function isSwatchEditing(index: number): boolean {
         const et = activeEditTarget.value;
-        return !!et && et.paletteId === "__current__" && et.colorIndex === index;
+        return !!et && et.paletteId === CURRENT_PALETTE_ID && et.colorIndex === index;
     }
 
     // --- Hover popover for current swatches ---
@@ -75,7 +76,7 @@ export function useSwatchActions(deps: SwatchActionsDeps) {
     function onCurrentSwatchEdit(css: string, index: number) {
         closeCurrentSwatchPopover();
         emit("startEdit", {
-            paletteId: "__current__",
+            paletteId: CURRENT_PALETTE_ID,
             colorIndex: index,
             originalCss: css,
         });

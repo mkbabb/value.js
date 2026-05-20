@@ -47,7 +47,9 @@ The W5 reduced-motion block neutralises every transition globally. Reka-ui Dialo
 
 2. **Markdown.vue residual `rounded-2xl`** — 2 sites (a `pre code` block, an `img`). Code blocks and images are content elements, not surface elements; `rounded-2xl` is acceptable. Leave both; add an inline comment naming them as exceptions; update the W3-conventions doc.
 
-**Sub-gate C**: `floating-panel-item` stripped from all 7 sites (grep proof of zero); the retired class recorded in the audit doc; Markdown residuals documented inline; vue-tsc unchanged.
+3. **`--animation-slide-md` phantom token — strip (findings.md §2 N3).** The A.W7 substrate audit (`docs/tranches/A/audit/W7-substrate-without-consumer.md`) found `PaletteCard.vue` references `var(--animation-slide-md)` with no `--animation-slide-*` token defined anywhere in `demo/` or `glass-ui/` — a phantom CSS custom property (the cascade falls through to the property's initial/invalid value). It predates A. Same class of defect as `floating-panel-item`, same invariant. Corpus-grep `--animation-slide` across `demo/`, `src/`, `glass-ui/src/` (invariant 33); then either replace the reference with the intended literal duration (if the animation is visibly load-bearing — verify under the probe) or strip the dead `animation:`/`transition:` declaration entirely (invariant 32 — abrogate before patch). Record the phantom token in `audit/B.W1-floating-panel-item.md` alongside the stripped class.
+
+**Sub-gate C**: `floating-panel-item` stripped from all 7 sites (grep proof of zero); `--animation-slide-md` phantom reference resolved (grep proof); both retirements recorded in the audit doc; Markdown residuals documented inline; vue-tsc unchanged.
 
 ### Lane D — layout transposition (Bβ Proposal B)
 

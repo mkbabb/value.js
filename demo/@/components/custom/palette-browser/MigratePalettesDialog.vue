@@ -55,7 +55,7 @@ export type MigrateChoice = "publish" | "transfer" | "discard";
 
 const open = defineModel<boolean>("open", { default: false });
 
-const props = defineProps<{
+const { count, mode } = defineProps<{
     count: number;
     mode: "switch" | "regenerate";
 }>();
@@ -70,26 +70,26 @@ function onRespond(choice: MigrateChoice) {
 }
 
 const title = computed(() =>
-    props.mode === "switch"
+    mode === "switch"
         ? "What about your palettes?"
         : "What about your palettes?",
 );
 
 const description = computed(() => {
-    const n = props.count;
+    const n = count;
     const s = n !== 1 ? "s" : "";
-    return props.mode === "switch"
+    return mode === "switch"
         ? `You have ${n} local palette${s}. What would you like to do with them?`
         : `You have ${n} local palette${s}. What would you like to do before regenerating your slug?`;
 });
 
 const publishLabel = computed(() =>
-    props.mode === "switch"
+    mode === "switch"
         ? "Publish, then switch"
         : "Publish, then regenerate",
 );
 
 const discardLabel = computed(() =>
-    props.mode === "switch" ? "Just switch" : "Just regenerate",
+    mode === "switch" ? "Just switch" : "Just regenerate",
 );
 </script>

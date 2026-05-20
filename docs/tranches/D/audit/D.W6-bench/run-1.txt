@@ -1,0 +1,26 @@
+
+D.W1 L8 — Color channel-access microbenchmark
+  instances=256, outer-iter=100,000, total channel reads/scenario = 76,800,000,
+  target speedup: ≥ 5×
+
+Run 1:
+  Scenario A (pre-L8: Map.get)    :  196.356 ms  (sink=38250000.0)
+  Scenario B (post-L8: own-prop)  :   19.773 ms  (sink=38250000.0)
+  speedup: 9.93×
+
+Run 2:
+  Scenario A (pre-L8: Map.get)    :  194.199 ms  (sink=38250000.0)
+  Scenario B (post-L8: own-prop)  :   19.382 ms  (sink=38250000.0)
+  speedup: 10.02×
+
+Run 3:
+  Scenario A (pre-L8: Map.get)    :  201.099 ms  (sink=38250000.0)
+  Scenario B (post-L8: own-prop)  :   18.966 ms  (sink=38250000.0)
+  speedup: 10.60×
+
+Summary:
+  speedups (sorted): 9.93×, 10.02×, 10.60×
+  median speedup:    10.02×
+  target:            ≥ 5×
+  verdict:           PASS
+

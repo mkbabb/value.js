@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // PaneSlot — collapses the triple-nested Transition + KeepAlive + component:is
 // pattern repeated three times in App.vue (Ae-3). Receives the resolved
-// component, key, props, and transition name from the shared route table that
-// useMobilePaneRouter provides so both mobile and desktop slots use one path.
+// component, key, props, and transition name from the single route table that
+// usePaneRouter provides so both mobile and desktop slots use one path.
 //
 // `onMount` is an optional callback that receives the mounted component
 // instance (or null on unmount). This lets App.vue capture template refs

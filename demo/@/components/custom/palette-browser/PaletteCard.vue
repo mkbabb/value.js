@@ -1,9 +1,14 @@
 <template>
+    <!-- W5-a11y: role="article" provides a landmark for each palette; button semantics on the card
+         are omitted because inner interactive controls must be reachable — using article + click is
+         the correct pattern for a card container that also houses nested interactive elements. -->
     <div
         :class="[
-            'group rounded-card border border-border bg-card overflow-hidden transition-shadow hover:shadow-[var(--shadow-card-hover)] cursor-pointer',
+            'group rounded-card border border-border bg-card overflow-hidden transition-shadow hover:shadow-card-hover cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
+        role="article"
+        :aria-label="`Palette: ${palette.name}`"
         @click="$emit('click')"
     >
         <!-- Color strip -->
@@ -30,7 +35,11 @@
                     @click.stop="editableName && startRenaming()"
                 >{{ palette.name }}</span>
                 <Badge v-if="palette.status === 'featured'" variant="outline" class="featured-badge text-mono-small shrink-0 gap-1 border-gold text-gold">
-                    <Award class="w-3 h-3" />
+                    <!-- Wrapper class lets the scoped `.featured-badge__icon`
+                         selector style the icon without :deep(svg) reach. -->
+                    <span class="featured-badge__icon inline-flex">
+                        <Award class="w-3 h-3" />
+                    </span>
                     Featured
                 </Badge>
                 <Badge variant="secondary" class="text-mono-small shrink-0">
@@ -76,7 +85,7 @@
                 <!-- Vote count -->
                 <button
                     v-if="!palette.isLocal"
-                    class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors duration-[var(--duration-fast)] cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+                    class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors duration-fast cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
                     :aria-label="`${palette.voteCount ?? 0} votes, click to vote`"
                     @click.stop="emit('vote', palette)"
                 >
@@ -142,14 +151,16 @@
                 <!-- User slug display -->
                 <div v-if="showSlug && displaySlug" class="px-3 pt-2.5 flex items-center gap-1.5 border-t border-border/15">
                     <span
-                        class="text-mono-small font-bold px-2 py-0.5 rounded-full border truncate max-w-[200px]"
+                        class="text-mono-small font-bold px-2 py-0.5 rounded-full border truncate max-w-tooltip"
                         :style="{ color: safeFirstColor, borderColor: safeFirstColor }"
                     >{{ displaySlug }}</span>
+                    <!-- W5-a11y: icon-only copy button needs accessible name -->
                     <button
                         class="p-0.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                        :aria-label="`Copy slug ${displaySlug}`"
                         @click="copyToClipboard(displaySlug)"
                     >
-                        <Copy class="w-3 h-3 text-muted-foreground" />
+                        <Copy class="w-3 h-3 text-muted-foreground" aria-hidden="true" />
                     </button>
                 </div>
                 <div
@@ -171,16 +182,15 @@
                         @update:open="(v: boolean) => onPopoverUpdateTouch(v, i)"
                     >
                         <template #actions>
-                            <!-- floating-panel-item: glass-ui utility listed in floating-panel.css comment
-                                 but not yet defined — four-state applied demo-side (HARDEN-4 §2, §5.3) -->
-                            <button v-if="!palette.isLocal" @click="onPopoverAdd(color.css)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                                <Plus class="w-4 h-4" />
+                            <!-- W5-a11y: icon-only buttons need explicit aria-label -->
+                            <button v-if="!palette.isLocal" :aria-label="`Add ${color.css} to current palette`" @click="onPopoverAdd(color.css)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                                <Plus class="w-4 h-4" aria-hidden="true" />
                             </button>
-                            <button @click="onPopoverEdit(color, i)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                                <Pencil class="w-4 h-4" />
+                            <button :aria-label="`Edit color ${color.css}`" @click="onPopoverEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                                <Pencil class="w-4 h-4" aria-hidden="true" />
                             </button>
-                            <button @click="onPopoverCopy(color.css)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                                <Copy class="w-4 h-4" />
+                            <button :aria-label="`Copy color ${color.css}`" @click="onPopoverCopy(color.css)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                                <Copy class="w-4 h-4" aria-hidden="true" />
                             </button>
                         </template>
                     </SwatchHoverMenu>
@@ -222,17 +232,17 @@ import ActionFeedback from "./ActionFeedback.vue";
 const props = withDefaults(
     defineProps<{
         palette: Palette;
-        expanded?: boolean;
-        cssColor?: string;
-        isOwned?: boolean;
-        editableName?: boolean;
-        isAdmin?: boolean;
-        showSlug?: boolean;
-        draggable?: boolean;
+        expanded?: boolean | undefined;
+        cssColor?: string | undefined;
+        isOwned?: boolean | undefined;
+        editableName?: boolean | undefined;
+        isAdmin?: boolean | undefined;
+        showSlug?: boolean | undefined;
+        draggable?: boolean | undefined;
         /** "default" = strip on top; "aside" = vertical strip on left */
-        layout?: "default" | "aside";
+        layout?: "default" | "aside" | undefined;
         /** CSS class(es) for swatch size override (default: "w-9 h-9 sm:w-10 sm:h-10") */
-        swatchClass?: string;
+        swatchClass?: string | undefined;
     }>(),
     { layout: "default", swatchClass: "w-9 h-9 sm:w-10 sm:h-10" },
 );
@@ -377,7 +387,12 @@ function onPopoverCopy(css: string) {
     border-color: var(--color-gold);
     animation: golden-text-shimmer 4s var(--ease-standard) infinite;
 }
-.featured-badge :deep(svg) {
+/* Featured-badge icon — selector-stable replacement for the prior
+ * `.featured-badge :deep(svg)` reach (D.W4 Lane A §3). The wrapper span
+ * carries the `.featured-badge__icon` class; targeting via that wrapper
+ * survives lucide-vue API shifts and avoids the deep-piercing.
+ * Specificity may shift by 0 or 1 — accepted per the wave-spec drift list. */
+.featured-badge__icon svg {
     stroke: var(--color-gold);
     filter: drop-shadow(0 0 1px color-mix(in srgb, var(--color-gold) 40%, transparent));
 }
@@ -402,7 +417,9 @@ function onPopoverCopy(css: string) {
 }
 .rename-slide-enter-from {
     opacity: 0;
-    transform: translateY(calc(-1 * var(--animation-slide-md)));
+    /* B.W1-C: --animation-slide-md was a phantom token (never defined) — calc()
+       invalidated the transform. Replaced with literal 0.5rem "md" slide offset. */
+    transform: translateY(-0.5rem);
     max-height: 0;
 }
 .rename-slide-enter-to,
@@ -411,7 +428,8 @@ function onPopoverCopy(css: string) {
 }
 .rename-slide-leave-to {
     opacity: 0;
-    transform: translateY(calc(-1 * var(--animation-slide-md)));
+    /* B.W1-C: see .rename-slide-enter-from — phantom --animation-slide-md → literal. */
+    transform: translateY(-0.5rem);
     max-height: 0;
 }
 </style>

@@ -8,7 +8,15 @@ import { inject } from "vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import type { ViewEntry } from "./composables/useDockAdminMode";
 
-const props = defineProps<{
+const {
+    currentView,
+    currentIcon,
+    safeAccent,
+    cssColorOpaque,
+    isAdminMode,
+    isDesktop,
+    viewEntries,
+} = defineProps<{
     currentView: string;
     currentIcon: unknown;
     safeAccent: string;
@@ -54,6 +62,7 @@ const pm = inject(PALETTE_MANAGER_KEY)!;
             />
             <SelectValue v-if="isDesktop" />
         </DockSelectTrigger>
+        <!-- B.W1: kept wider than --menu-min-w — long view-option labels need the space -->
         <SelectContent class="min-w-[12rem]">
             <SelectGroup class="text-small font-display">
                 <SelectItem

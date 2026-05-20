@@ -11,7 +11,12 @@ import PaletteColorStrip from "@components/custom/palette-browser/PaletteColorSt
 import type { Palette } from "@lib/palette/types";
 import type { SelectedColor } from "./composables/useMixingState";
 
-const props = defineProps<{
+const {
+    mode,
+    selectedColors,
+    selectedPalettes,
+    cssColorOpaque,
+} = defineProps<{
     mode: "colors" | "palettes";
     selectedColors: SelectedColor[];
     selectedPalettes: Palette[];
@@ -32,8 +37,8 @@ const savedPalettes = computed(() => pm?.savedPalettes.value ?? []);
 // Source guards: remove needs ≥ 1 remaining, add stops at a sensible upper bound.
 const MIN_COLORS = 1;
 const MAX_COLORS = 12;
-const canRemoveColor = computed(() => props.selectedColors.length > MIN_COLORS);
-const canAddColor = computed(() => props.selectedColors.length < MAX_COLORS);
+const canRemoveColor = computed(() => selectedColors.length > MIN_COLORS);
+const canAddColor = computed(() => selectedColors.length < MAX_COLORS);
 
 const tabOptions = [
     { label: "Colors", value: "colors" },
@@ -45,7 +50,7 @@ function onTabChange(value: string) {
 }
 
 function isPaletteSelected(id: string): boolean {
-    return props.selectedPalettes.some((p) => p.id === id);
+    return selectedPalettes.some((p) => p.id === id);
 }
 
 function togglePalette(palette: Palette) {
@@ -57,8 +62,8 @@ function togglePalette(palette: Palette) {
 }
 
 function addCurrentColor() {
-    if (props.cssColorOpaque) {
-        emit("addColor", props.cssColorOpaque, "picker");
+    if (cssColorOpaque) {
+        emit("addColor", cssColorOpaque, "picker");
     }
 }
 
@@ -69,7 +74,7 @@ const paletteDropdownOpen = ref(false);
 let swatchKeyCounter = 0;
 const swatchKeyMap = new Map<string, number>();
 const swatchKeys = computed(() =>
-    props.selectedColors.map((sc, i) => {
+    selectedColors.map((sc, i) => {
         const mapKey = `${sc.css}::${i}`;
         if (!swatchKeyMap.has(mapKey)) {
             swatchKeyMap.set(mapKey, swatchKeyCounter++);
@@ -78,9 +83,9 @@ const swatchKeys = computed(() =>
     }),
 );
 watch(
-    () => props.selectedColors,
+    () => selectedColors,
     () => {
-        const validKeys = new Set(props.selectedColors.map((sc, i) => `${sc.css}::${i}`));
+        const validKeys = new Set(selectedColors.map((sc, i) => `${sc.css}::${i}`));
         for (const key of swatchKeyMap.keys()) {
             if (!validKeys.has(key)) swatchKeyMap.delete(key);
         }
@@ -125,7 +130,7 @@ watch(
                             :title="`${sc.css} (${sc.source})`"
                         />
                         <button
-                            class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all cursor-pointer z-[var(--z-popover)] active:scale-95 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
+                            class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all cursor-pointer z-popover active:scale-95 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
                             :disabled="!canRemoveColor || undefined"
                             @click="emit('removeColor', i)"
                         >
@@ -171,6 +176,7 @@ watch(
                             </div>
                             <!-- Clickable swatches -->
                             <div class="px-3 pb-3 flex flex-wrap gap-1.5">
+                                <!-- W5-a11y: swatch button needs accessible name -->
                                 <WatercolorDot
                                     v-for="(color, ci) in palette.colors"
                                     :key="ci"
@@ -178,6 +184,7 @@ watch(
                                     tag="button"
                                     class="w-8 h-8 shrink-0 cursor-pointer"
                                     :title="color.css"
+                                    :aria-label="`Add color ${color.css} from ${palette.name}`"
                                     :seed="`palette-${palette.id}-${ci}`"
                                     @click="emit('addColor', color.css, palette.name)"
                                 />
@@ -191,11 +198,15 @@ watch(
         <!-- Palettes mode -->
         <template v-else>
             <PaletteCardSkeleton v-if="savedPalettes.length === 0" :count="3" />
-            <div
+            <!-- W5-a11y: native <button> for keyboard reach + aria-pressed for selection state -->
+            <button
                 v-for="palette in savedPalettes"
                 :key="palette.id"
+                type="button"
+                :aria-pressed="isPaletteSelected(palette.id)"
+                :aria-label="`${isPaletteSelected(palette.id) ? 'Deselect' : 'Select'} palette ${palette.name}`"
                 :class="[
-                    'cursor-pointer transition-all rounded-card',
+                    'cursor-pointer transition-all rounded-card w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40',
                     isPaletteSelected(palette.id)
                         ? 'ring-2 ring-primary ring-offset-2 ring-offset-background'
                         : 'opacity-75 hover:opacity-100',
@@ -206,7 +217,7 @@ watch(
                     :palette="palette"
                     :css-color="''"
                 />
-            </div>
+            </button>
 
             <div v-if="selectedPalettes.length > 0" class="text-mono-small text-muted-foreground">
                 {{ selectedPalettes.length }} palette{{ selectedPalettes.length === 1 ? '' : 's' }} selected

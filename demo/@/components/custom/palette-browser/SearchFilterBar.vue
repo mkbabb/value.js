@@ -18,7 +18,7 @@
                     <!-- Sort -->
                     <div class="filter-section">
                         <div class="section-label">Sort</div>
-                        <RadioGroup :model-value="sort" @update:model-value="$emit('update:sort', $event)">
+                        <RadioGroup :model-value="sort" @update:model-value="(v) => $emit('update:sort', String(v))">
                             <label v-for="opt in sortOptions" :key="opt.value" class="filter-option">
                                 <RadioGroupItem :value="opt.value" class="shrink-0" />
                                 <component :is="opt.icon" class="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
@@ -30,7 +30,7 @@
                     <!-- Status -->
                     <div class="filter-section">
                         <div class="section-label">Status</div>
-                        <RadioGroup :model-value="status" @update:model-value="$emit('update:status', $event)">
+                        <RadioGroup :model-value="status" @update:model-value="(v) => $emit('update:status', String(v))">
                             <label class="filter-option">
                                 <RadioGroupItem value="" class="shrink-0" />
                                 <span>All</span>
@@ -71,9 +71,11 @@
                                 @search="applyColorSearchFromPicker"
                             >
                                 <template #trigger>
+                                    <!-- W5-a11y: swatch trigger needs accessible name -->
                                     <button
                                         class="block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
                                         :style="{ backgroundColor: pickerHex }"
+                                        :aria-label="`Open color picker, current color ${pickerHex}`"
                                     />
                                 </template>
                             </MiniColorPicker>
@@ -83,12 +85,12 @@
                                     v-model="colorText"
                                     type="text"
                                     placeholder="#hex, hsl(...)"
-                                    class="h-7 w-full rounded-[var(--radius-input)] border border-input bg-background pl-2 pr-14 fira-code text-caption truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                                    class="h-7 w-full rounded-input border border-input bg-background pl-2 pr-14 fira-code text-caption truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                                     @keydown.enter="applyColorSearch"
                                 />
                                 <button
                                     :disabled="searching"
-                                    class="absolute right-0.5 top-0.5 h-6 px-2 rounded-[var(--radius-sm)] text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-[var(--duration-fast)] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
+                                    class="absolute right-0.5 top-0.5 h-6 px-2 rounded-sm text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-fast cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
                                     @click="applyColorSearch"
                                 >
                                     <Loader2 v-if="searching" class="h-3 w-3 animate-spin" />
@@ -136,7 +138,7 @@ import type { Tag } from "@lib/palette/types";
 import { srgbToOKLab } from "@src/units/color/gamut";
 import { hex2rgb } from "@src/units/color/utils";
 
-const props = defineProps<{
+const { sort, status, selectedTags, availableTags } = defineProps<{
     sort: string;
     status: string;
     selectedTags: string[];
@@ -180,14 +182,14 @@ function applyColorSearchFromPicker(hex: string) {
 
 const activeFilterCount = computed(() => {
     let count = 0;
-    if (props.status) count++;
-    count += props.selectedTags.length;
+    if (status) count++;
+    count += selectedTags.length;
     if (colorSearchActive.value) count++;
     return count;
 });
 
 function toggleTag(name: string) {
-    const current = [...props.selectedTags];
+    const current = [...selectedTags];
     const idx = current.indexOf(name);
     if (idx >= 0) current.splice(idx, 1);
     else current.push(name);

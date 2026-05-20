@@ -50,13 +50,23 @@ const resolverCtx = (() => {
     return c.getContext("2d", { willReadFrequently: true });
 })();
 
+// Per-frame memoise: the demo cycles through ~10 stable color strings, so the
+// 2D-canvas getImageData hot-path runs once per unique color, not every frame.
+// Cap defensively against unbounded growth from synthesized values.
+const cssColorCache = new Map<string, [number, number, number]>();
+
 function cssColorToRgb(color: string): [number, number, number] {
+    const cached = cssColorCache.get(color);
+    if (cached) return cached;
     if (!resolverCtx) return [0.5, 0.5, 0.5];
     resolverCtx.clearRect(0, 0, 1, 1);
     resolverCtx.fillStyle = color;
     resolverCtx.fillRect(0, 0, 1, 1);
     const d = resolverCtx.getImageData(0, 0, 1, 1).data;
-    return [d[0]! / 255, d[1]! / 255, d[2]! / 255];
+    const result: [number, number, number] = [d[0]! / 255, d[1]! / 255, d[2]! / 255];
+    if (cssColorCache.size > 256) cssColorCache.clear();
+    cssColorCache.set(color, result);
+    return result;
 }
 
 export interface UseMetaballRendererOptions {
@@ -86,6 +96,7 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
     let satOpLocs: Loc[] = [];
     let rafId: number | null = null;
     let paused = false;
+    let tabHidden = false;
     let destroyed = false;
     let startTime = 0;
     let lastFrameTime = 0;
@@ -150,7 +161,7 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
 
     function render(now: number) {
         if (destroyed) return;
-        if (paused) {
+        if (paused || tabHidden) {
             rafId = requestAnimationFrame(render);
             return;
         }
@@ -242,6 +253,10 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
         }
     }
 
+    function onVisibilityChange() {
+        tabHidden = document.hidden;
+    }
+
     function start() {
         const canvas = canvasRef.value;
         if (!canvas) return;
@@ -254,6 +269,8 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
 
         canvas.addEventListener("webglcontextlost", onContextLost);
         canvas.addEventListener("webglcontextrestored", onContextRestored);
+        document.addEventListener("visibilitychange", onVisibilityChange);
+        tabHidden = document.hidden;
 
         startTime = 0;
         lastFrameTime = 0;
@@ -291,6 +308,7 @@ export function useMetaballRenderer(options: UseMetaballRendererOptions) {
             rafId = null;
         }
         observer?.disconnect();
+        document.removeEventListener("visibilitychange", onVisibilityChange);
         const canvas = canvasRef.value;
         if (canvas) {
             canvas.removeEventListener("webglcontextlost", onContextLost);

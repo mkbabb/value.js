@@ -151,11 +151,12 @@ export function useInertiaGesture(
         } else if (pointers.size === 2) {
             isPanning = true;
             hasMoved = true;
-            const pts = [...pointers.values()];
-            prevPinchDist = Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y);
+            const [p0, p1] = [...pointers.values()];
+            if (!p0 || !p1) return;
+            prevPinchDist = Math.hypot(p1.x - p0.x, p1.y - p0.y);
             const mid = clientToViewport(
-                (pts[0].x + pts[1].x) / 2,
-                (pts[0].y + pts[1].y) / 2,
+                (p0.x + p1.x) / 2,
+                (p0.y + p1.y) / 2,
             );
             if (mid) {
                 prevPinchMidX = mid.rx;
@@ -177,11 +178,12 @@ export function useInertiaGesture(
 
         if (pointers.size === 2) {
             // Pinch zoom + pan (incremental)
-            const pts = [...pointers.values()];
-            const dist = Math.hypot(pts[1].x - pts[0].x, pts[1].y - pts[0].y);
+            const [p0, p1] = [...pointers.values()];
+            if (!p0 || !p1) return;
+            const dist = Math.hypot(p1.x - p0.x, p1.y - p0.y);
             const mid = clientToViewport(
-                (pts[0].x + pts[1].x) / 2,
-                (pts[0].y + pts[1].y) / 2,
+                (p0.x + p1.x) / 2,
+                (p0.y + p1.y) / 2,
             );
             if (!mid) return;
 
@@ -249,8 +251,10 @@ export function useInertiaGesture(
         } else if (pointers.size === 1) {
             // One finger left after pinch — seamlessly continue as pan
             const remaining = [...pointers.values()][0];
-            lastX = remaining.x;
-            lastY = remaining.y;
+            if (remaining) {
+                lastX = remaining.x;
+                lastY = remaining.y;
+            }
             isPanning = true;
             velocityX = 0;
             velocityY = 0;

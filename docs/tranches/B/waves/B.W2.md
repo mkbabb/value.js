@@ -36,7 +36,12 @@ Each Tier-2 decision is recorded in `audit/B.W2-consolidation.md` with the file:
 
 **Routed onward**: the `useViewManager` `VIEW_MAP` schema is re-encoded three times (useViewManager + both routers); after Tier-1 step 4 the duplication is down to one router, but the schema-vs-runtime split in `useViewManager` (237 lines) is a library-shaped concern — routed to **B.W3 Lane A** (the value.js audit explicitly takes the "view-schema unification" gap).
 
-**Sub-gate A**: Tier-1 deletions confirmed (`git ls-files | grep -E 'DockMainLayer|useDockLayers|useAtmosphere|useMobilePaneRouter|useDesktopPaneRouter|useGenericActionBar'` returns nothing); `usePaneRouter.ts` present and consumed by App.vue; every Tier-2 candidate has a recorded verdict in `audit/B.W2-consolidation.md`; Dock.vue ≤ ~250 lines, App.vue script ≤ ~140 lines; Playwright re-probe walks the DockLayers + pane transitions, 0 console errors; vue-tsc not raised.
+**Tier 1b — `ui/alert/` fossil + dead `ui/` barrels (findings.md §2 N1/N2).** The A.W7 idiomatic-gestalt audit (`docs/tranches/A/audit/W7-idiomatic-gestalt.md`) found two cruft items in `demo/@/components/ui/`:
+
+6. **`demo/@/components/ui/alert/` is a hand-rolled re-implementation**, not a generated shadcn re-export — 3 local SFCs (`Alert.vue`/`AlertTitle.vue`/`AlertDescription.vue`) + a local `alertVariants` cva, duplicating a primitive glass-ui ships (`@mkbabb/glass-ui` `Alert`/`AlertTitle`/`AlertDescription`). 2 consumers (`ColorNutritionLabel.vue`, `Markdown.vue`). Per the glass-ui-first-class precept: convert the `ui/alert/index.ts` barrel to a glass-ui re-export and delete the 3 local SFCs + the local cva; the 2 consumers' imports are unchanged (they already import from the barrel). The general "do not modify `ui/`" rule covers *generated* shadcn components — a hand-rolled fossil masquerading as one is the explicit exception. Verify the glass-ui `Alert` API shape at wave open (`coordination/Q.md §7` re-read rule); if it diverges, record and keep the fossil with a filed gap rather than half-migrate.
+7. **Dead unused `ui/` barrels** — `chart`, `table`, `calendar`, and any other `ui/` subdir with zero `demo/` consumers (shadcn scaffolding never wired). Invariant-33: corpus-grep each barrel's exports across `demo/`; for every barrel with a proven-zero consumer count, delete the subdir. Record the grep proof + the deletion list in `audit/B.W2-consolidation.md`.
+
+**Sub-gate A**: Tier-1 deletions confirmed (`git ls-files | grep -E 'DockMainLayer|useDockLayers|useAtmosphere|useMobilePaneRouter|useDesktopPaneRouter|useGenericActionBar'` returns nothing); `usePaneRouter.ts` present and consumed by App.vue; every Tier-2 candidate has a recorded verdict in `audit/B.W2-consolidation.md`; Tier-1b — `ui/alert/` is a glass-ui re-export (the 3 local SFCs + local cva deleted) or the fossil is kept with a filed gap, and the dead `ui/` barrels are deleted with the invariant-33 grep proof recorded; Dock.vue ≤ ~250 lines, App.vue script ≤ ~140 lines; Playwright re-probe walks the DockLayers + pane transitions, 0 console errors; vue-tsc not raised.
 
 ### Lane B — hero-lab pass
 
@@ -51,6 +56,8 @@ Each Tier-2 decision is recorded in `audit/B.W2-consolidation.md` with the file:
 
 ### Lane C — UnderlineTabs structural migration
 
+> **Re-scope note (B.W2 close, 2026-05-19).** Lane C executed and **declined the migration** — the steps below describe a migration that did not happen. At wave open the lane verified glass-ui's `<UnderlineTabs>` is **header-only** (no content panels, no `data-state`, no slots); it cannot replace `PaletteDialog`'s reka-ui `<Tabs>` provider (5 `<TabsContent>` panels with `role="tabpanel"`/`aria-labelledby`/roving-tabindex) without hand-rebuilding the panel a11y — a rebuild-by-hand regression. **Orchestrator decision: keep reka-ui `<Tabs>` + the `.underline-tabs` override; re-file the gap sharper** (glass-ui should ship underline as a `<Tabs>`-provider variant). See `audit/B.W2-underline-tabs.md §9`, `coordination/Q.md §3`, `findings.md §2 F`. The steps below are retained as the as-planned record.
+
 glass-ui shipped `<UnderlineTabs>` as a standalone component (verified at Q close `4b16de7` — `coordination/Q.md §2a`), not a `<Tabs variant="underline">` prop.
 
 1. `PaletteDialog.vue:27` — import `<UnderlineTabs>` from glass-ui; replace `<Tabs class="underline-tabs">` with `<UnderlineTabs :options="tabs" v-model="activeTab">`; verify `.palette-tab-content` animations survive the DOM-shape change.
@@ -63,7 +70,7 @@ glass-ui shipped `<UnderlineTabs>` as a standalone component (verified at Q clos
 
 | Lane | Files |
 |---|---|
-| A | `Dock.vue`, `App.vue`, deleted: `DockMainLayer.vue`, `useDockLayers.ts`, `useAtmosphere.ts`, `useMobilePaneRouter.ts`, `useDesktopPaneRouter.ts`, `useGenericActionBar.ts`; new: `usePaneRouter.ts`; Tier-2 files per the recorded verdicts (`PaneSlot.vue`, `PaneSearchBar.vue`, `PaneSegmentedControl.vue`, `useDockActionBar.ts`, `usePaletteManagerWiring.ts`) |
+| A | `Dock.vue`, `App.vue`, deleted: `DockMainLayer.vue`, `useDockLayers.ts`, `useAtmosphere.ts`, `useMobilePaneRouter.ts`, `useDesktopPaneRouter.ts`, `useGenericActionBar.ts`; new: `usePaneRouter.ts`; Tier-2 files per the recorded verdicts (`PaneSlot.vue`, `PaneSearchBar.vue`, `PaneSegmentedControl.vue`, `useDockActionBar.ts`, `usePaletteManagerWiring.ts`); Tier-1b: `demo/@/components/ui/alert/` (barrel → glass-ui re-export, 3 SFCs deleted), dead `ui/` barrel subdirs (`chart`/`table`/`calendar`/… per the grep) |
 | B | `demo/hero-lab/**` |
 | C | `PaletteDialog.vue`, `style.css`, `coordination/Q.md` |
 

@@ -7,6 +7,5 @@ export { default as AuroraPane } from "./AuroraPane.vue";
 export { default as MixPane } from "./MixPane.vue";
 export { default as GeneratePane } from "./GeneratePane.vue";
 export { default as GradientPane } from "./GradientPane.vue";
-export { default as PaneSearchBar } from "./PaneSearchBar.vue";
 export { default as PaneSegmentedControl } from "./PaneSegmentedControl.vue";
 export { default as PaneHeader } from "./PaneHeader.vue";

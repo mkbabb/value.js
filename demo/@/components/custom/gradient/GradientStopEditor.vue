@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, useTemplateRef } from "vue";
 import type { GradientStop } from "./composables/useGradientModel";
 
-const props = defineProps<{
+const { stops, coalescedCSS } = defineProps<{
     stops: GradientStop[];
     coalescedCSS: string;
 }>();
@@ -16,11 +16,11 @@ const emit = defineEmits<{
 
 const selectedId = defineModel<string | null>("selectedId", { default: null });
 
-const barRef = ref<HTMLDivElement | null>(null);
+const barRef = useTemplateRef<HTMLDivElement>("barRef");
 const draggingId = ref<string | null>(null);
 
 // A stop is removable only when more than 2 stops exist; matches onHandleContextMenu guard.
-const removable = computed(() => props.stops.length > 2);
+const removable = computed(() => stops.length > 2);
 
 function getPosition(e: PointerEvent): number {
     if (!barRef.value) return 0;
@@ -38,15 +38,15 @@ function onBarPointerDown(e: PointerEvent) {
     // Find closest stop and warp it to click position
     let closestIdx = 0;
     let closestDist = Infinity;
-    for (let i = 0; i < props.stops.length; i++) {
-        const dist = Math.abs(props.stops[i]!.position - pos);
+    for (let i = 0; i < stops.length; i++) {
+        const dist = Math.abs(stops[i]!.position - pos);
         if (dist < closestDist) { // strict < means left wins ties
             closestDist = dist;
             closestIdx = i;
         }
     }
 
-    const closestStop = props.stops[closestIdx]!;
+    const closestStop = stops[closestIdx]!;
     selectedId.value = closestStop.id;
     emit("select", closestStop.id);
     emit("update:position", closestStop.id, pos);
@@ -95,7 +95,7 @@ function onBarPointerUp() {
 
 function onHandleContextMenu(e: MouseEvent, id: string) {
     e.preventDefault();
-    if (props.stops.length > 2) {
+    if (stops.length > 2) {
         emit("remove", id);
     }
 }
@@ -124,7 +124,7 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
                 class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring hover:scale-110 aria-disabled:opacity-50"
                 :class="[
                     selectedId === stop.id
-                        ? 'border-white ring-2 ring-primary z-[var(--z-popover)]'
+                        ? 'border-white ring-2 ring-primary z-popover'
                         : 'border-white/80 z-0'
                 ]"
                 :style="{

@@ -23,11 +23,19 @@ export function scale(
     return (value - fromMin) * slope + toMin;
 }
 
-// Linear interpolation between two values
-export function lerp(t: number, start: number, end: number) {
+// Linear interpolation between two values.
+// Canonical (a, b, t) — value-pair first, parameter last.
+export function lerp(start: number, end: number, t: number) {
     // t is the interpolation factor [0, 1]
     return (1 - t) * start + t * end;
 }
+
+/**
+ * @deprecated Legacy `lerp(t, a, b)` ordering. Migrate to `lerp(a, b, t)`.
+ * Will be removed in the next tranche.
+ */
+export const lerpLegacy = (t: number, start: number, end: number) =>
+    lerp(start, end, t);
 
 // Logarithmic interpolation between two values
 export function logerp(t: number, start: number, end: number) {
@@ -44,7 +52,7 @@ export function deCasteljau(t: number, points: number[]) {
     // Iteratively interpolate points
     for (let i = 1; i <= n; i++) {
         for (let j = 0; j <= n - i; j++) {
-            b[j] = lerp(t, b[j]!, b[j + 1]!);
+            b[j] = lerp(b[j]!, b[j + 1]!, t);
         }
     }
     return b[0]!;

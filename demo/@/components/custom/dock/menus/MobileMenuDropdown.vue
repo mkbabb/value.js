@@ -12,7 +12,7 @@ import { DockDropdownTrigger } from "@mkbabb/glass-ui/dock";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
-const props = defineProps<{
+const { cssColorOpaque, linkCopied } = defineProps<{
     cssColorOpaque: string;
     linkCopied: boolean;
 }>();
@@ -34,7 +34,7 @@ const { toggleDark } = useGlobalDark();
             <DockDropdownTrigger aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />
             </DockDropdownTrigger>
-            <DropdownMenuContent align="end" class="min-w-[var(--menu-min-w)] font-display">
+            <DropdownMenuContent align="end" class="min-w-menu font-display">
                 <!-- Login / slug section -->
                 <template v-if="pm.userSlug.value">
                     <DropdownMenuLabel class="px-2 py-1.5">

@@ -74,7 +74,7 @@ export function useWatercolorBlob(
         const durationMul = 0.5 + rng() * 1.3;
         const phaseOffset = rng();
         vertices.push({
-            from: initial[i],
+            from: initial[i] ?? lo,
             to: lo + rng() * (hi - lo),
             startTime: -phaseOffset * cycleDuration * durationMul,
             duration: cycleDuration * durationMul,
@@ -88,6 +88,7 @@ export function useWatercolorBlob(
         lastNow = now;
         for (let i = 0; i < 8; i++) {
             const v = vertices[i];
+            if (!v) continue;
             let t = (now - v.startTime) / v.duration;
 
             if (t >= 1) {
@@ -115,7 +116,8 @@ export function useWatercolorBlob(
         const now = lastNow || performance.now();
         for (let i = 0; i < 8; i++) {
             const v = vertices[i];
-            v.from = current[i];
+            if (!v) continue;
+            v.from = current[i] ?? v.from;
             v.to = lo + rng() * (hi - lo);
             // Fast transition (25-50% of normal cycle)
             v.duration = cycleDuration * (0.25 + rng() * 0.25);

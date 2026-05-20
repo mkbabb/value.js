@@ -16,6 +16,7 @@
 import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
 import { FunctionValue, ValueUnit } from "../units";
 import { convertToDegrees } from "../units/utils";
+import { istring } from "./utils";
 
 // ────────────────────────────────────────────────────────────────
 // Calc expression AST
@@ -106,7 +107,7 @@ export function createMathFunctionParsers(valueParser: Parser<any>) {
     const calcSum = createCalcParser(valueParser, mathFunction);
 
     // calc() — full expression parser
-    const calcFn = string("calc")
+    const calcFn = istring("calc")
         .next(calcSum.trim(whitespace).wrap(lparen, rparen))
         .map((expr: any) => new FunctionValue("calc", [expr]));
 
@@ -115,16 +116,16 @@ export function createMathFunctionParsers(valueParser: Parser<any>) {
     const calcArgList = calcArg.sepBy(comma.trim(whitespace));
 
     // min(), max() — variadic
-    const minFn = string("min")
+    const minFn = istring("min")
         .next(calcArgList.wrap(lparen, rparen))
         .map((args: any[]) => new FunctionValue("min", args));
 
-    const maxFn = string("max")
+    const maxFn = istring("max")
         .next(calcArgList.wrap(lparen, rparen))
         .map((args: any[]) => new FunctionValue("max", args));
 
     // clamp(min, val, max)
-    const clampFn = string("clamp")
+    const clampFn = istring("clamp")
         .next(calcArgList.wrap(lparen, rparen))
         .map((args: any[]) => {
             if (args.length !== 3) throw new Error("clamp() requires exactly 3 arguments");
@@ -133,13 +134,13 @@ export function createMathFunctionParsers(valueParser: Parser<any>) {
 
     // round(strategy?, A, B)
     const roundStrategy = any(
-        string("nearest"),
-        string("up"),
-        string("down"),
-        string("to-zero"),
+        istring("nearest"),
+        istring("up"),
+        istring("down"),
+        istring("to-zero"),
     ).trim(whitespace);
 
-    const roundFn = string("round")
+    const roundFn = istring("round")
         .next(
             all(
                 roundStrategy.skip(comma.trim(whitespace)).opt(),
@@ -153,7 +154,7 @@ export function createMathFunctionParsers(valueParser: Parser<any>) {
 
     // mod(A, B), rem(A, B)
     const twoArgFn = (name: string) =>
-        string(name)
+        istring(name)
             .next(calcArgList.wrap(lparen, rparen))
             .map((args: any[]) => {
                 if (args.length !== 2) throw new Error(`${name}() requires exactly 2 arguments`);
@@ -162,7 +163,7 @@ export function createMathFunctionParsers(valueParser: Parser<any>) {
 
     // Single-arg functions: abs, sign, sin, cos, tan, asin, acos, atan, sqrt, exp
     const singleArgFn = (name: string) =>
-        string(name)
+        istring(name)
             .next(calcArg.trim(whitespace).wrap(lparen, rparen))
             .map((arg: any) => new FunctionValue(name, [arg]));
 
@@ -171,12 +172,12 @@ export function createMathFunctionParsers(valueParser: Parser<any>) {
     const atan2Fn = twoArgFn("atan2");
 
     // hypot() — variadic
-    const hypotFn = string("hypot")
+    const hypotFn = istring("hypot")
         .next(calcArgList.wrap(lparen, rparen))
         .map((args: any[]) => new FunctionValue("hypot", args));
 
     // log(value) or log(value, base)
-    const logFn = string("log")
+    const logFn = istring("log")
         .next(calcArgList.wrap(lparen, rparen))
         .map((args: any[]) => {
             if (args.length < 1 || args.length > 2) throw new Error("log() requires 1 or 2 arguments");
@@ -188,11 +189,11 @@ export function createMathFunctionParsers(valueParser: Parser<any>) {
     // start of "ease-in", and "pi" doesn't match "pixel", etc.
     const identContinuation = regex(/[a-zA-Z0-9_-]/);
     const cssConstants = any(
-        string("infinity").not(identContinuation).map(() => new ValueUnit(Infinity)),
-        string("-infinity").not(identContinuation).map(() => new ValueUnit(-Infinity)),
-        string("NaN").not(identContinuation).map(() => new ValueUnit(NaN)),
-        string("pi").not(identContinuation).map(() => new ValueUnit(Math.PI)),
-        string("e").not(identContinuation).map(() => new ValueUnit(Math.E)),
+        istring("infinity").not(identContinuation).map(() => new ValueUnit(Infinity)),
+        istring("-infinity").not(identContinuation).map(() => new ValueUnit(-Infinity)),
+        istring("NaN").not(identContinuation).map(() => new ValueUnit(NaN)),
+        istring("pi").not(identContinuation).map(() => new ValueUnit(Math.PI)),
+        istring("e").not(identContinuation).map(() => new ValueUnit(Math.E)),
     );
 
     const allMathFunctions: Parser<any> = any(

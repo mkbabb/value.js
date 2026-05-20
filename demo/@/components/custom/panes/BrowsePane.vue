@@ -1,9 +1,9 @@
 <template>
-    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full max-w-3xl lg:max-w-desktop-pane mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Discover palettes from the community.">Browse</PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
-            <PaneSearchBar
-                v-model:search="pm.searchQuery.value"
+            <SearchBar
+                v-model="pm.searchQuery.value"
                 placeholder="Search palettes..."
             >
                 <SearchFilterBar
@@ -18,7 +18,7 @@
                     @color-search="onColorSearch"
                     @clear-color-search="onClearColorSearch"
                 />
-            </PaneSearchBar>
+            </SearchBar>
 
             <div class="grid gap-3 pb-3">
                 <div
@@ -121,15 +121,9 @@ import SearchFilterBar from "@components/custom/palette-browser/SearchFilterBar.
 import VersionHistoryDrawer from "@components/custom/palette-browser/VersionHistoryDrawer.vue";
 import FlagReportDialog from "@components/custom/palette-browser/FlagReportDialog.vue";
 import TagEditPopover from "@components/custom/palette-browser/TagEditPopover.vue";
-import PaneSearchBar from "./PaneSearchBar.vue";
+import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
-import type { Palette, Tag } from "@lib/palette/types";
-import {
-    forkPalette,
-    flagPalette as flagPaletteAPI,
-    revertPalette,
-    getTags,
-} from "@lib/palette/api";
+import type { Palette } from "@lib/palette/types";
 import { deltaEOK } from "@src/units/color/gamut";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
 
@@ -137,10 +131,11 @@ const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 
 const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
-const availableTags = ref<Tag[]>([]);
+// D.W3 Lane B: shared tag catalog via pm.tagEdit (was: local getTags fetch)
+const availableTags = computed(() => pm.tagEdit.allTags.value);
 
 onMounted(() => {
-    getTags().then((tags) => { availableTags.value = tags; }).catch(() => {});
+    pm.tagEdit.loadAllTags();
 });
 
 function onSave(palette: Palette) {
@@ -167,14 +162,16 @@ async function onFork(palette: Palette) {
     try {
         await pm.ensureUser();
         await pm.ensureSession();
-        const forked = await forkPalette(palette.slug);
+        const forked = await pm.versions.fork(palette.slug);
+        if (!forked) return;
         pm.remotePalettes.value = [forked, ...pm.remotePalettes.value];
         // Update fork count on source
         const idx = pm.remotePalettes.value.findIndex((p) => p.slug === palette.slug);
-        if (idx >= 0) {
+        const source = pm.remotePalettes.value[idx];
+        if (idx >= 0 && source) {
             pm.remotePalettes.value[idx] = {
-                ...pm.remotePalettes.value[idx],
-                forkCount: (pm.remotePalettes.value[idx].forkCount ?? 0) + 1,
+                ...source,
+                forkCount: (source.forkCount ?? 0) + 1,
             };
         }
     } catch (e) {
@@ -194,14 +191,11 @@ function onVersions(palette: Palette) {
 
 async function onRevert(hash: string) {
     if (!versionPalette.value) return;
-    try {
-        const updated = await revertPalette(versionPalette.value.slug, hash);
-        const idx = pm.remotePalettes.value.findIndex((p) => p.slug === updated.slug);
-        if (idx >= 0) pm.remotePalettes.value[idx] = updated;
-        versionPalette.value = updated;
-    } catch (e) {
-        console.warn("Failed to revert:", e);
-    }
+    const updated = await pm.versions.revert(versionPalette.value.slug, hash);
+    if (!updated) return;
+    const idx = pm.remotePalettes.value.findIndex((p) => p.slug === updated.slug);
+    if (idx >= 0) pm.remotePalettes.value[idx] = updated;
+    versionPalette.value = updated;
 }
 
 // --- Flag / Report ---
@@ -216,11 +210,7 @@ function onFlag(palette: Palette) {
 
 async function onFlagSubmit(reason: string, detail: string | undefined) {
     if (!flagPalette.value) return;
-    try {
-        await flagPaletteAPI(flagPalette.value.slug, reason, detail);
-    } catch (e) {
-        console.warn("Failed to flag palette:", e);
-    }
+    await pm.flagged.report(flagPalette.value.slug, reason, detail);
     flagDialogOpen.value = false;
 }
 
@@ -237,8 +227,9 @@ function onEditTags(palette: Palette) {
 function onTagsUpdated(tags: string[]) {
     if (!tagEditPalette.value) return;
     const idx = pm.remotePalettes.value.findIndex((p) => p.slug === tagEditPalette.value!.slug);
-    if (idx >= 0) {
-        pm.remotePalettes.value[idx] = { ...pm.remotePalettes.value[idx], tags };
+    const target = pm.remotePalettes.value[idx];
+    if (idx >= 0 && target) {
+        pm.remotePalettes.value[idx] = { ...target, tags };
     }
     tagEditPalette.value = { ...tagEditPalette.value, tags };
 }

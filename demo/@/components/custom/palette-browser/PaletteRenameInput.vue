@@ -33,7 +33,7 @@
 import { ref, watch, onMounted, useTemplateRef } from "vue";
 import { Check, X as XIcon, Pencil } from "lucide-vue-next";
 
-const props = defineProps<{
+const { name } = defineProps<{
     name: string;
 }>();
 
@@ -43,9 +43,9 @@ const emit = defineEmits<{
 }>();
 
 const inputRef = useTemplateRef<HTMLInputElement>("inputRef");
-const localName = ref(props.name);
+const localName = ref(name);
 
-watch(() => props.name, (v) => { localName.value = v; });
+watch(() => name, (v) => { localName.value = v; });
 
 onMounted(() => {
     inputRef.value?.focus();
@@ -54,7 +54,7 @@ onMounted(() => {
 
 function onSubmit() {
     const trimmed = localName.value.trim();
-    if (trimmed && trimmed !== props.name) {
+    if (trimmed && trimmed !== name) {
         emit("submit", trimmed);
     } else {
         emit("cancel");

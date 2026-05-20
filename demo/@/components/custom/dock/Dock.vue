@@ -1,25 +1,32 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
-import { ChevronDown, Check, Undo2, ArrowLeft } from "lucide-vue-next";
+import { ChevronDown, Check, Undo2, ArrowLeft, Paintbrush } from "lucide-vue-next";
 import { GlassDock, DockLayerGroup, DockLayer } from ".";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
 import GenericActionBar from "./layers/GenericActionBar.vue";
 import SlugEditLayer from "./layers/SlugEditLayer.vue";
-import DockMainLayer from "./DockMainLayer.vue";
+import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
+import ProfileSection from "./menus/ProfileSection.vue";
+import DockViewSelect from "./DockViewSelect.vue";
+import PaneSegmentedControl from "@components/custom/panes/PaneSegmentedControl.vue";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import { usePopupMutex } from "./composables/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
-import { useDockLayers } from "./composables/useDockLayers";
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import type { EditTarget } from "@components/custom/color-picker";
-import type { DockActionBar } from "./composables/useDockActionBar";
+import type { DockActionBar } from "@composables/usePaneRouter";
 
-const props = defineProps<{ linkCopied: boolean; editTarget: EditTarget | null; actionBar?: ActionBarContext | null; genericActionBar?: DockActionBar | null }>();
+const {
+    linkCopied,
+    editTarget,
+    actionBar: actionBarProp,
+    genericActionBar,
+} = defineProps<{ linkCopied: boolean; editTarget: EditTarget | null; actionBar?: ActionBarContext | null; genericActionBar?: DockActionBar | null }>();
 const emit = defineEmits<{ shareLink: []; commitEdit: []; cancelEdit: [] }>();
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
@@ -27,8 +34,8 @@ const safeAccent = inject(SAFE_ACCENT_KEY)!;
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 
-const actionBar = computed(() => props.actionBar ?? null);
-const genericBar = computed(() => props.genericActionBar ?? null);
+const actionBar = computed(() => actionBarProp ?? null);
+const genericBar = computed(() => genericActionBar ?? null);
 const hasAnyActionBar = computed(() => !!actionBar.value || !!genericBar.value);
 
 // ── Admin mode (composable owns isAdminMode, viewEntries, watchers) ──
@@ -57,20 +64,31 @@ const profileMenuOpen = popupModel("profile-menu");
 const mbabbMenuOpen = popupModel("mbabb-menu");
 
 const isDesktop = useMediaQuery("(min-width: 1024px)");
-const mobileEditActive = computed(() => !isDesktop.value && !!props.editTarget);
-const anyEditActive = computed(() => !!props.editTarget);
+const mobileEditActive = computed(() => !isDesktop.value && !!editTarget);
+const anyEditActive = computed(() => !!editTarget);
 const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>('dockRef');
 
 watch(() => dockRef.value?.expanded, (expanded) => { if (!expanded && slugEditMode.value) slugEditMode.value = false; });
 watch(anyEditActive, (active) => { if (active) { dockRef.value?.keepOpen(); dockRef.value?.expand?.(); } else dockRef.value?.release(); });
 watch(isAnyOpen, (open) => { if (open) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
 
-// ── Layer dispatch — gate (c): deps are reactive refs/computeds, call order pins the immediate run ──
-const { activeLayer } = useDockLayers({ mobileEditActive, slugEditMode, actionBarLayerActive });
+// ── Layer dispatch (inlined from the retired useDockLayers — gate (c): the
+//    immediate watch reads live reactive deps, so call order does not matter) ──
+const activeLayer = ref("main");
+watch(
+    [mobileEditActive, slugEditMode, actionBarLayerActive],
+    () => {
+        if (mobileEditActive.value) activeLayer.value = "mobile-edit";
+        else if (slugEditMode.value) activeLayer.value = "slug-edit";
+        else if (actionBarLayerActive.value) activeLayer.value = "action-bar";
+        else activeLayer.value = "main";
+    },
+    { immediate: true },
+);
 </script>
 
 <template>
-    <div class="fixed top-[var(--dock-pos)] inset-x-0 z-[var(--z-dock)] flex items-center justify-center pointer-events-none">
+    <div class="fixed top-dock-inset inset-x-0 z-dock flex items-center justify-center pointer-events-none">
         <div class="pointer-events-auto">
             <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="isDesktop" :fit-content="true" :always-expanded="!isDesktop">
                 <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
@@ -97,17 +115,81 @@ const { activeLayer } = useDockLayers({ mobileEditActive, slugEditMode, actionBa
                         <GenericActionBar v-else-if="genericBar" :actions="genericBar.actions.value" :accent-color="genericBar.accentColor ?? safeAccent" />
                     </DockLayer>
 
-                    <!-- Main navigation layer (delegated to DockMainLayer) -->
-                    <DockMainLayer
-                        v-model:view-select-open="viewSelectOpen" v-model:mobile-menu-open="mobileMenuOpen"
-                        v-model:profile-menu-open="profileMenuOpen" v-model:mbabb-menu-open="mbabbMenuOpen"
-                        :current-view="viewManager.currentView.value" :current-icon="viewManager.currentConfig.value.icon"
-                        :is-admin-mode="isAdminMode" :is-desktop="isDesktop" :view-entries="viewEntries"
-                        :has-any-action-bar="hasAnyActionBar" :action-bar-layer-active="actionBarLayerActive"
-                        :generic-bar="genericBar" :link-copied="linkCopied"
-                        @view-change="onViewChange" @toggle-action-bar="toggleActionBar"
-                        @start-slug-edit="onStartSlugEdit" @copy-slug="onCopySlug" @share-link="emit('shareLink')"
-                    />
+                    <!-- Main navigation layer (inlined — was the passthrough DockMainLayer.vue) -->
+                    <DockLayer id="main">
+                        <!-- View selector — gate (a): viewSelectOpen comes from the single mutex above -->
+                        <DockViewSelect
+                            v-model:open="viewSelectOpen"
+                            :current-view="viewManager.currentView.value"
+                            :current-icon="viewManager.currentConfig.value.icon"
+                            :safe-accent="safeAccent"
+                            :css-color-opaque="cssColorOpaque"
+                            :is-admin-mode="isAdminMode"
+                            :is-desktop="isDesktop"
+                            :view-entries="viewEntries"
+                            @update:model-value="onViewChange"
+                        />
+
+                        <!-- Action bar toggle -->
+                        <div v-if="hasAnyActionBar" class="dock-separator"></div>
+                        <div class="action-bar-toggle-slot" :class="{ 'is-visible': hasAnyActionBar }">
+                            <div class="action-bar-toggle-inner">
+                                <DockIconButton
+                                    compact
+                                    :class="{ 'is-active': actionBarLayerActive }"
+                                    title="Action bar"
+                                    :aria-pressed="actionBarLayerActive"
+                                    :tabindex="hasAnyActionBar ? 0 : -1"
+                                    @click="toggleActionBar"
+                                >
+                                    <component
+                                        :is="genericBar?.icon ?? Paintbrush"
+                                        class="w-6 h-6"
+                                        :style="{ color: genericBar?.accentColor ?? safeAccent }"
+                                    />
+                                    <span v-if="isDesktop" class="text-small font-display" :style="{ color: genericBar?.accentColor ?? safeAccent }">
+                                        {{ genericBar?.label ?? 'Tools' }}
+                                    </span>
+                                    <ChevronDown class="w-3 h-3 text-muted-foreground" />
+                                </DockIconButton>
+                            </div>
+                        </div>
+
+                        <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner) -->
+                        <template v-if="viewManager.currentConfig.value.right !== null">
+                            <div class="dock-separator lg:hidden"></div>
+                            <div class="lg:hidden">
+                                <PaneSegmentedControl
+                                    :model-value="viewManager.mobilePaneIndex.value"
+                                    :left-label="viewManager.currentConfig.value.leftLabel ?? ''"
+                                    :right-label="viewManager.currentConfig.value.rightLabel ?? ''"
+                                    @update:model-value="(v) => viewManager.mobilePaneIndex.value = v"
+                                />
+                            </div>
+                        </template>
+
+                        <!-- Mobile overflow menu -->
+                        <div class="dock-separator lg:hidden"></div>
+                        <MobileMenuDropdown
+                            v-model:open="mobileMenuOpen"
+                            :css-color-opaque="safeAccent"
+                            :link-copied="linkCopied"
+                            @share-link="emit('shareLink')"
+                            @start-slug-edit="onStartSlugEdit"
+                            @copy-slug="onCopySlug"
+                        />
+
+                        <!-- Desktop profile + @mbabb -->
+                        <ProfileSection
+                            v-model:profile-menu-open="profileMenuOpen"
+                            v-model:mbabb-menu-open="mbabbMenuOpen"
+                            :css-color-opaque="safeAccent"
+                            :link-copied="linkCopied"
+                            @share-link="emit('shareLink')"
+                            @start-slug-edit="onStartSlugEdit"
+                            @copy-slug="onCopySlug"
+                        />
+                    </DockLayer>
                 </DockLayerGroup>
 
                 <!-- Collapsed state -->
@@ -125,4 +207,28 @@ const { activeLayer } = useDockLayers({ mobileEditActive, slugEditMode, actionBa
 <style scoped>
 @reference "../../../styles/style.css";
 .gold-shimmer-icon { color: var(--color-gold); filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent)); }
+
+/* Action-bar toggle slot: animates between 0 and content width via the
+   grid-template-columns 0fr → 1fr pattern (no max-width clipping).
+   Merged in from the retired DockMainLayer.vue. */
+.action-bar-toggle-slot {
+    display: grid;
+    grid-template-columns: 0fr;
+    opacity: 0;
+    transition:
+        grid-template-columns var(--duration-normal) var(--ease-standard),
+        opacity var(--duration-normal) var(--ease-standard);
+}
+
+.action-bar-toggle-slot.is-visible {
+    grid-template-columns: 1fr;
+    opacity: 1;
+}
+
+.action-bar-toggle-inner {
+    overflow: hidden;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+}
 </style>

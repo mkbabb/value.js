@@ -1,5 +1,14 @@
 <template>
-    <div class="palette-card-grid grid grid-cols-1 gap-3 min-h-[120px]" :class="gridClass">
+    <div
+        role="list"
+        class="palette-card-grid grid grid-cols-1 gap-3 min-h-[120px]"
+        :class="gridClass"
+    >
+        <!-- role="list" — each child PaletteCard (role="article") sits in a list
+             landmark. This comment is the div's first CHILD, not a sibling: a
+             leading comment node would make this a multi-root component, and
+             PalettesPane reads `$el` for useSortable — a fragment root resolves
+             $el to the comment node, not the <div>. -->
         <slot />
         <p
             v-if="empty"
@@ -17,3 +26,11 @@ defineProps<{
     gridClass?: string;
 }>();
 </script>
+
+<style scoped>
+/* CSS containment — isolates layout/paint scope for the card grid (D.W4 Lane A
+ * §4: colocated from styles/style.css). */
+.palette-card-grid {
+    contain: content;
+}
+</style>

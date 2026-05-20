@@ -1,4 +1,5 @@
 <template>
+    <!-- W5-a11y: role="button" + tabindex + keyboard activation so the drop zone is reachable via keyboard -->
     <div
         :class="[
             'relative rounded-panel border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center overflow-hidden',
@@ -10,7 +11,11 @@
                     : 'border-primary/30 bg-primary/5 hover:border-primary/50 hover:bg-primary/10',
         ]"
         :style="{ transitionDuration: 'var(--duration-normal)', transitionTimingFunction: 'var(--ease-standard)' }"
+        role="button"
+        :tabindex="disableClick ? -1 : 0"
+        :aria-label="preview ? (disableClick ? 'Image preview area, tap to sample colors' : 'Replace image, click or drop a new image') : 'Upload image, click to browse or drop an image here'"
         @click="!disableClick && openFilePicker()"
+        @keydown.enter.space.prevent="!disableClick && openFilePicker()"
         @dragover.prevent="dragging = true"
         @dragleave.prevent="dragging = false"
         @drop.prevent="onDrop"

@@ -27,7 +27,7 @@
         >
             <SwatchHoverMenu
                 v-for="(color, i) in savedColorStrings"
-                :key="swatchKeys[i]"
+                :key="swatchKeys[i] ?? i"
                 :color="color"
                 :open="currentSwatchPopoverIndex === i"
                 :can-hover="canHover"
@@ -41,16 +41,15 @@
                 @update:open="(v: boolean) => onCurrentSwatchPopoverUpdateTouch(v, i)"
             >
                 <template #actions>
-                    <!-- floating-panel-item: glass-ui utility listed in floating-panel.css comment
-                         but not yet defined — four-state applied demo-side (HARDEN-4 §2, §5.3) -->
-                    <button @click="onCurrentSwatchEdit(color, i)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                        <Pencil class="w-4 h-4" />
+                    <!-- W5-a11y: icon-only swatch action buttons need accessible names -->
+                    <button :aria-label="`Edit color ${color}`" @click="onCurrentSwatchEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                        <Pencil class="w-4 h-4" aria-hidden="true" />
                     </button>
-                    <button @click="onCurrentSwatchCopy(color)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                        <Copy class="w-4 h-4" />
+                    <button :aria-label="`Copy color ${color}`" @click="onCurrentSwatchCopy(color)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                        <Copy class="w-4 h-4" aria-hidden="true" />
                     </button>
-                    <button @click="onCurrentSwatchRemove(color, i)" class="floating-panel-item p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                        <Trash2 class="w-4 h-4 text-destructive" />
+                    <button :aria-label="`Remove color ${color} from palette`" @click="onCurrentSwatchRemove(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
+                        <Trash2 class="w-4 h-4 text-destructive" aria-hidden="true" />
                     </button>
                 </template>
                 <template #overlay>
@@ -62,11 +61,12 @@
                                 <WatercolorDot :color="cssColorOpaque" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-to-' + i" />
                             </div>
                             <div class="flex gap-2 mt-2 self-center">
-                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-accent/50 transition-all cursor-pointer hover:scale-110 active:scale-95" title="Save edit" @click.stop="emit('commitEdit')">
-                                    <Check class="w-5 h-5" :style="{ color: safeAccent }" />
+                                <!-- W5-a11y: title is tooltip-only; add aria-label so AT reads it -->
+                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-accent/50 transition-all cursor-pointer hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40" title="Save edit" aria-label="Save edit" @click.stop="emit('commitEdit')">
+                                    <Check class="w-5 h-5" :style="{ color: safeAccent }" aria-hidden="true" />
                                 </button>
-                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-accent/50 transition-all cursor-pointer hover:scale-110 active:scale-95" title="Cancel edit" @click.stop="emit('cancelEdit')">
-                                    <Undo2 class="w-5 h-5 text-muted-foreground" />
+                                <button class="p-2 rounded-full bg-foreground/5 hover:bg-accent/50 transition-all cursor-pointer hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40" title="Cancel edit" aria-label="Cancel edit" @click.stop="emit('cancelEdit')">
+                                    <Undo2 class="w-5 h-5 text-muted-foreground" aria-hidden="true" />
                                 </button>
                             </div>
                         </div>
@@ -78,11 +78,13 @@
                 <TooltipProvider :delay-duration="200">
                     <Tooltip>
                         <TooltipTrigger as-child>
+                            <!-- W5-a11y: tooltip provides name but aria-label ensures AT reads it -->
                             <button
-                                class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center hover:scale-110 hover:border-primary/60 transition-all"
+                                class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center hover:scale-110 hover:border-primary/60 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                                :aria-label="`Add current color ${cssColorOpaque} to palette`"
                                 @click="addCurrentColor"
                             >
-                                <Plus class="w-5 h-5 text-primary/40" />
+                                <Plus class="w-5 h-5 text-primary/40" aria-hidden="true" />
                             </button>
                         </TooltipTrigger>
                         <TooltipContent class="text-mono-small">
@@ -165,12 +167,13 @@ import { WatercolorDot } from "@components/custom/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 
-const props = defineProps<{
-    savedColorStrings: string[];
-    cssColorOpaque: string;
-    savedPaletteCount: number;
-    savedPalettes: Palette[];
-}>();
+const { savedColorStrings, cssColorOpaque, savedPaletteCount, savedPalettes } =
+    defineProps<{
+        savedColorStrings: string[];
+        cssColorOpaque: string;
+        savedPaletteCount: number;
+        savedPalettes: Palette[];
+    }>();
 
 const emit = defineEmits<{
     apply: [colors: string[]];
@@ -202,8 +205,8 @@ const {
     onCurrentSwatchCopy,
     onCurrentSwatchRemove,
 } = useSwatchActions({
-    savedColorStrings: toRef(props, "savedColorStrings"),
-    cssColorOpaque: toRef(props, "cssColorOpaque"),
+    savedColorStrings: toRef(() => savedColorStrings),
+    cssColorOpaque: toRef(() => cssColorOpaque),
     emit,
 });
 
@@ -216,12 +219,12 @@ function colorsFromStrings(colors: string[]): PaletteColor[] {
 }
 
 function saveCurrentPalette() {
-    if (props.savedColorStrings.length === 0) return;
+    if (savedColorStrings.length === 0) return;
     const name =
-        currentPaletteName.value.trim() || `Palette ${props.savedPaletteCount + 1}`;
+        currentPaletteName.value.trim() || `Palette ${savedPaletteCount + 1}`;
 
     // Check for duplicate name
-    const existing = props.savedPalettes.find(
+    const existing = savedPalettes.find(
         (p) => p.name.toLowerCase() === name.toLowerCase(),
     );
     if (existing) {
@@ -229,7 +232,7 @@ function saveCurrentPalette() {
         return;
     }
 
-    emit("saved", name, colorsFromStrings(props.savedColorStrings));
+    emit("saved", name, colorsFromStrings(savedColorStrings));
     currentPaletteName.value = "";
     duplicateTarget.value = null;
     emit("clearCurrent");
@@ -237,7 +240,7 @@ function saveCurrentPalette() {
 
 function confirmUpdatePalette() {
     if (!duplicateTarget.value) return;
-    emit("updated", duplicateTarget.value.id, colorsFromStrings(props.savedColorStrings));
+    emit("updated", duplicateTarget.value.id, colorsFromStrings(savedColorStrings));
     currentPaletteName.value = "";
     duplicateTarget.value = null;
     emit("clearCurrent");

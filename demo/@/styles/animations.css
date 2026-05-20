@@ -9,9 +9,52 @@
     to   { opacity: 1; transform: translateX(0) translateY(-50%); }
 }
 
+/* INTENTIONAL media-query keyframe override: on mobile (≤ 639 px) the drawer
+ * is centred rather than slide-in from the left, so the geometry differs
+ * entirely. A media-query @keyframes redefinition is legal CSS (the UA picks
+ * the whole matching block); the mobile variant intentionally restates all
+ * frames so nothing is inherited from the desktop block. */
 @media (max-width: 639px) {
     @keyframes edit-drawer-in {
         from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
         to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+}
+
+/* -----------------------------------------------------------------------
+ * Global prefers-reduced-motion guard
+ * Neutralises CSS keyframe animations and transitions app-wide for users
+ * who have requested reduced motion in their OS/browser settings.
+ * The goo-blob WebGL RAF loop is handled separately in useMetaballRenderer
+ * (single-frame render on reduced-motion).  The aurora RAF is glass-ui-owned
+ * and honours the query internally.
+ * ----------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* -----------------------------------------------------------------------
+ * Reduced-motion overlay opacity carve-out (B.W1 Lane B)
+ * The global guard above is too blunt for reka-ui Dialog/Sheet/Popover
+ * overlays, which drive transitions off [data-state]. This block MUST
+ * come after the global guard so its later source order wins the cascade
+ * over `transition-duration: 0.01ms` (equal specificity, equal !important).
+ * ----------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    /* keep state-change opacity fades on overlay primitives — the fade
+     * communicates state without inducing vestibular stress. */
+    [data-state="open"],
+    [data-state="closed"],
+    [data-state="open"]::before,
+    [data-state="closed"]::after {
+        transition-duration: 150ms !important;
+        transition-property: opacity !important;
     }
 }

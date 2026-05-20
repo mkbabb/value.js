@@ -33,11 +33,12 @@
                         <span class="text-caption text-muted-foreground truncate">{{ item.css }}</span>
                     </template>
                     <template #actions>
-                        <Button variant="outline" size="sm" class="h-7 px-2 cursor-pointer" @click="emit('approve', item)">
-                            <Check class="w-3.5 h-3.5" />
+                        <!-- W5-a11y: icon-only action buttons need accessible names -->
+                        <Button variant="outline" size="sm" class="h-7 px-2 cursor-pointer" :aria-label="`Approve color name ${item.name}`" @click="emit('approve', item)">
+                            <Check class="w-3.5 h-3.5" aria-hidden="true" />
                         </Button>
-                        <Button variant="destructive" size="sm" class="h-7 px-2 cursor-pointer" @click="emit('reject', item)">
-                            <XIcon class="w-3.5 h-3.5" />
+                        <Button variant="destructive" size="sm" class="h-7 px-2 cursor-pointer" :aria-label="`Reject color name ${item.name}`" @click="emit('reject', item)">
+                            <XIcon class="w-3.5 h-3.5" aria-hidden="true" />
                         </Button>
                     </template>
                 </AdminListItem>
@@ -61,8 +62,9 @@
                         <span class="text-caption text-muted-foreground truncate">{{ item.css }}</span>
                     </template>
                     <template #actions>
-                        <Button variant="destructive" size="sm" class="h-7 px-2 cursor-pointer" @click="emit('delete', item)">
-                            <Trash2 class="w-3.5 h-3.5" />
+                        <!-- W5-a11y: icon-only delete button needs accessible name -->
+                        <Button variant="destructive" size="sm" class="h-7 px-2 cursor-pointer" :aria-label="`Delete color name ${item.name}`" @click="emit('delete', item)">
+                            <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
                         </Button>
                     </template>
                 </AdminListItem>

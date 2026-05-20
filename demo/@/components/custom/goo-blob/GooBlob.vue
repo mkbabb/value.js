@@ -5,7 +5,7 @@
         :style="{ '--blob-color': color }"
         @click="emit('click')"
     >
-        <canvas ref="canvasRef" class="goo-blob-canvas" />
+        <canvas ref="canvasRef" class="goo-blob-canvas" aria-hidden="true" data-testid="goo-blob-canvas" />
     </div>
 </template>
 
@@ -18,13 +18,10 @@ import { useBlobPointer } from "./composables/useBlobPointer";
 import { useBlobSatellites } from "./composables/useBlobSatellites";
 import { useMetaballRenderer } from "./composables/useMetaballRenderer";
 
-const props = withDefaults(
-    defineProps<{
-        color: string;
-        seed?: string;
-    }>(),
-    { seed: "" },
-);
+const { color, seed = "" } = defineProps<{
+    color: string;
+    seed?: string;
+}>();
 
 const emit = defineEmits<{ click: [] }>();
 
@@ -36,9 +33,9 @@ const wrapperRef = useTemplateRef<HTMLElement>("wrapperRef");
 
 const mood = useBlobMood();
 const pointer = useBlobPointer(wrapperRef);
-const satelliteSystem = useBlobSatellites(cfg, props.color + props.seed);
+const satelliteSystem = useBlobSatellites(cfg, color + seed);
 
-const colorRef = toRef(props, "color");
+const colorRef = toRef(() => color);
 
 useMetaballRenderer({
     canvasRef,
@@ -50,7 +47,7 @@ useMetaballRenderer({
 });
 
 watch(colorRef, (c) => {
-    satelliteSystem.reseed(c + props.seed);
+    satelliteSystem.reseed(c + seed);
 });
 
 function nudge() {

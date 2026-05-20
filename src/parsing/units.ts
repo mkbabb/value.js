@@ -13,6 +13,7 @@ import {
 } from "../units/constants";
 import { CSSColor, parseCSSColor, registerColorNames, clearCustomColorNames, getCustomColorNames } from "./color";
 import * as utils from "./utils";
+import { memoize } from "../utils";
 
 export { CSSColor, parseCSSColor, registerColorNames, clearCustomColorNames, getCustomColorNames };
 
@@ -103,6 +104,32 @@ export const CSSValueUnit = {
     sep,
 };
 
-export function parseCSSValueUnit(input: string): ValueUnit {
+/**
+ * Parse a CSS dimension/value string into a `ValueUnit`. Memoised — the
+ * returned `ValueUnit` is shared across callers, so callers MUST NOT mutate it.
+ * Mirrors the memo contract of the sibling `parseCSSValue`/`parseCSSColor`.
+ */
+export const parseCSSValueUnit = memoize((input: string): ValueUnit => {
     return utils.tryParse(Value, input);
+});
+
+/**
+ * Format a millisecond duration as a CSS time string. Emits `<n>s`
+ * for durations ≥ 5 s (where seconds become more readable than
+ * milliseconds); otherwise `<n>ms`. Threshold matches the historical
+ * keyframes.js convention so round-trips don't drift.
+ */
+export function reverseCSSTime(time: number): string {
+    if (time >= 5000) return `${time / 1000}s`;
+    return `${time}ms`;
+}
+
+/**
+ * Format an iteration count for the `animation-iteration-count`
+ * property. `Infinity` becomes the keyword `infinite`; finite values
+ * render as their decimal representation.
+ */
+export function reverseCSSIterationCount(count: number): string {
+    if (count === Infinity) return "infinite";
+    return String(count);
 }

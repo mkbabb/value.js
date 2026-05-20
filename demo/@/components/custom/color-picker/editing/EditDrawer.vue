@@ -20,13 +20,14 @@
                     <TooltipProvider :delay-duration="200">
                         <Tooltip>
                             <TooltipTrigger as-child>
-                                <!-- A.W4: wrapped in <button> for keyboard reach + focus-visible (matches CurrentPaletteEditor.vue:63) -->
+                                <!-- A.W4: wrapped in <button> for keyboard reach + focus-visible; W5-a11y: aria-label for AT -->
                                 <button
                                     type="button"
+                                    aria-label="Save edit"
                                     class="p-2 rounded-button bg-foreground/5 hover:bg-accent/50 hover:scale-125 active:scale-90 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                                     @click="emit('commit')"
                                 >
-                                    <Check class="h-10 w-10 stroke-foreground" />
+                                    <Check class="h-10 w-10 stroke-foreground" aria-hidden="true" />
                                 </button>
                             </TooltipTrigger>
                             <!-- A.W4: TooltipContent mono recipe — root fix pending glass-ui TooltipContent variant="mono" (coordination/Q.md §3) -->
@@ -36,13 +37,14 @@
                     <TooltipProvider :delay-duration="200">
                         <Tooltip>
                             <TooltipTrigger as-child>
-                                <!-- A.W4: wrapped in <button> for keyboard reach + focus-visible (matches CurrentPaletteEditor.vue:66) -->
+                                <!-- A.W4: wrapped in <button> for keyboard reach + focus-visible; W5-a11y: aria-label for AT -->
                                 <button
                                     type="button"
+                                    aria-label="Cancel edit"
                                     class="p-2 rounded-button bg-foreground/5 hover:bg-accent/50 hover:scale-125 active:scale-90 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                                     @click="emit('cancel')"
                                 >
-                                    <Undo2 class="h-10 w-10 stroke-foreground" />
+                                    <Undo2 class="h-10 w-10 stroke-foreground" aria-hidden="true" />
                                 </button>
                             </TooltipTrigger>
                             <TooltipContent class="text-mono-small">Cancel</TooltipContent>

@@ -1,5 +1,5 @@
 <template>
-    <div class="pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-[var(--z-header)] backdrop-blur-md bg-card/60">
+    <div class="pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header backdrop-blur-md bg-card/60">
         <h3 class="pane-header-title text-heading"><slot /></h3>
         <div v-if="description" class="pane-header-desc-wrap">
             <p class="text-caption text-muted-foreground">{{ description }}</p>
@@ -12,6 +12,26 @@ defineProps<{
     description?: string;
 }>();
 </script>
+
+<style>
+/* Pane scroll host (D.W4 Lane A §4: colocated from styles/style.css).
+ *
+ * The `.pane-scroll-fade` host class lives on the ROOT element of each pane
+ * Card (9 sibling panes: Browse/Admin/About/Palettes/Mix/Gradient/Extract/
+ * Generate/ConfigSlider). Because the class is applied across siblings of
+ * PaneHeader (not its descendants), the block must be UNSCOPED to reach
+ * those consumers. It is colocated HERE because PaneHeader owns the only
+ * consumers of `--pane-scroll` (the named scroll-timeline defined by this
+ * block), so the producer + consumer live in one file.
+ *
+ * `contain: layout style paint` isolates the named scroll-timeline so
+ * PaneHeader animations respond to THIS pane's scroll only, not
+ * portal-triggered layout shifts in ancestor containers. */
+.pane-scroll-fade {
+    contain: layout style paint;
+    scroll-timeline: --pane-scroll block;
+}
+</style>
 
 <style scoped>
 @reference "../../../styles/style.css";

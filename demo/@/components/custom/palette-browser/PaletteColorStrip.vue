@@ -1,5 +1,8 @@
 <template>
+    <!-- W5-a11y: color strip is a decorative visual, hidden from AT -->
     <div
+        aria-hidden="true"
+        role="presentation"
         :class="[
             'overflow-hidden',
             orientation === 'vertical'

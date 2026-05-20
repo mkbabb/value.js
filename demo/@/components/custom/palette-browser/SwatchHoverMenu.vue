@@ -33,11 +33,14 @@
                 @click.stop="$emit('click')"
             />
             <Teleport to="body">
+                <!-- W5-a11y: hover-only panel is keyboard-inaccessible — hidden from
+                     AT. The reka-ui Popover (touch path) is the accessible route. -->
                 <div
                     v-if="open"
                     class="floating-panel"
                     :class="PANEL_LAYOUT"
                     :style="floatingStyle"
+                    aria-hidden="true"
                     @pointerenter="$emit('cancelLeave')"
                     @pointerleave="$emit('leave')"
                 >
@@ -65,9 +68,9 @@ withDefaults(
         color: string;
         open: boolean;
         canHover: boolean;
-        floatingStyle?: CSSProperties;
-        sizeClass?: string;
-        swatchExtraClass?: string;
+        floatingStyle?: CSSProperties | undefined;
+        sizeClass?: string | undefined;
+        swatchExtraClass?: string | undefined;
     }>(),
     {
         sizeClass: "w-9 h-9 sm:w-10 sm:h-10",

@@ -1,13 +1,13 @@
 <template>
-    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full max-w-3xl lg:max-w-[var(--desktop-pane-max-w)] mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full max-w-3xl lg:max-w-desktop-pane mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader :description="headerDescription">
             {{ headerTitle }}
             <Badge v-if="adminCount != null" variant="secondary" class="text-mono-small ml-2">{{ adminCount }}</Badge>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
-            <PaneSearchBar
+            <SearchBar
                 v-if="subView === 'admin-users' || subView === 'admin-names'"
-                v-model:search="pm.searchQuery.value"
+                v-model="pm.searchQuery.value"
                 :placeholder="subView === 'admin-users' ? 'Search users...' : 'Search color names...'"
             >
                 <UserSortMenu
@@ -15,7 +15,7 @@
                     :sort="pm.userSortMode.value"
                     @update:sort="pm.onUserSortChange"
                 />
-            </PaneSearchBar>
+            </SearchBar>
 
             <!-- Users sub-view -->
             <AdminUsersPanel
@@ -74,10 +74,10 @@ import AdminAuditPanel from "@components/custom/palette-browser/AdminAuditPanel.
 import AdminFlaggedPanel from "@components/custom/palette-browser/AdminFlaggedPanel.vue";
 import AdminTagsPanel from "@components/custom/palette-browser/AdminTagsPanel.vue";
 import UserSortMenu from "@components/custom/palette-browser/UserSortMenu.vue";
-import PaneSearchBar from "./PaneSearchBar.vue";
+import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 
-const props = defineProps<{
+const { subView } = defineProps<{
     subView: "admin-users" | "admin-names" | "admin-audit" | "admin-flagged" | "admin-tags";
 }>();
 
@@ -85,7 +85,7 @@ const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 
 const headerTitle = computed(() => {
-    switch (props.subView) {
+    switch (subView) {
         case "admin-users": return "Users";
         case "admin-names": return "Names";
         case "admin-audit": return "Audit Log";
@@ -95,7 +95,7 @@ const headerTitle = computed(() => {
 });
 
 const headerDescription = computed(() => {
-    switch (props.subView) {
+    switch (subView) {
         case "admin-users": return "Manage accounts and permissions.";
         case "admin-names": return "Review and approve color names.";
         case "admin-audit": return "View admin action history.";
@@ -105,7 +105,7 @@ const headerDescription = computed(() => {
 });
 
 const adminCount = computed(() => {
-    switch (props.subView) {
+    switch (subView) {
         case "admin-users": return pm.adminUsers.value.length;
         case "admin-names": return pm.filteredColorQueue.value.length + pm.filteredApproved.value.length;
         default: return null;

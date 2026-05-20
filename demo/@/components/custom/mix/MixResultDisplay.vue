@@ -6,7 +6,7 @@ import { copyToClipboard } from "@mkbabb/glass-ui";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
 import type { MixResult } from "./composables/useMixingState";
 
-const props = defineProps<{
+const { result } = defineProps<{
     result: MixResult;
 }>();
 
@@ -18,9 +18,9 @@ const emit = defineEmits<{
 const copied = ref(false);
 
 async function onCopy() {
-    const text = props.result.type === "color"
-        ? props.result.css ?? ""
-        : props.result.colors?.map((c) => c.css).join(", ") ?? "";
+    const text = result.type === "color"
+        ? result.css ?? ""
+        : result.colors?.map((c) => c.css).join(", ") ?? "";
     await copyToClipboard(text);
     copied.value = true;
     setTimeout(() => { copied.value = false; }, 1500);
@@ -65,12 +65,15 @@ async function onCopy() {
                     :seed="`mix-result-${i}`"
                 />
             </TransitionGroup>
-            <!-- Gradient preview -->
+            <!-- Gradient preview (decorative) -->
+            <!-- W5-a11y: gradient strip is decorative -->
             <div
                 class="h-4 rounded-full overflow-hidden"
                 :style="{
                     background: `linear-gradient(to right, ${result.colors.map(c => c.css).join(', ')})`,
                 }"
+                aria-hidden="true"
+                role="presentation"
             />
         </template>
 

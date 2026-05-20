@@ -8,8 +8,9 @@ import {
     SelectValue,
 } from "@components/ui/select";
 import { GRADIENT_EASING_NAMES, resolveEasing } from "./composables/useGradientModel";
+import type { AcceptableValue } from "reka-ui";
 
-const props = defineProps<{
+const { modelValue } = defineProps<{
     modelValue: string;
 }>();
 
@@ -18,7 +19,7 @@ const emit = defineEmits<{
 }>();
 
 const curvePoints = computed(() => {
-    const fn = resolveEasing(props.modelValue);
+    const fn = resolveEasing(modelValue);
     const steps = 30;
     const pts: string[] = [];
     for (let i = 0; i <= steps; i++) {
@@ -36,12 +37,12 @@ function capitalize(s: string): string {
 
 <template>
     <div class="flex items-center gap-2">
-        <Select :model-value="modelValue" @update:model-value="(v: string) => emit('update:modelValue', v)">
+        <Select :model-value="modelValue" @update:model-value="(v: AcceptableValue) => emit('update:modelValue', String(v))">
             <!-- A.W4: h-9 pending glass-ui SelectTrigger size prop (coordination/Q.md §3) -->
-            <SelectTrigger aria-label="Easing function" class="h-9 text-caption min-w-[var(--menu-min-w)]">
+            <SelectTrigger aria-label="Easing function" class="h-9 text-caption min-w-menu">
                 <SelectValue />
             </SelectTrigger>
-            <SelectContent class="max-h-[16rem] min-w-[var(--menu-min-w)]">
+            <SelectContent class="max-h-[16rem] min-w-menu">
                 <SelectItem
                     v-for="name in GRADIENT_EASING_NAMES"
                     :key="name"

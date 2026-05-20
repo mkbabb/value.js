@@ -11,9 +11,16 @@ import { Blend } from "lucide-vue-next";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/utils";
 import type { LeftoverStrategy } from "@lib/palette/mix";
+import type { AcceptableValue } from "reka-ui";
 import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@components/custom/gradient/composables/useGradientModel";
 
-const props = defineProps<{
+const {
+    colorSpace,
+    hueMethod,
+    leftoverStrategy,
+    showLeftoverStrategy,
+    canMix,
+} = defineProps<{
     colorSpace: ColorSpace;
     hueMethod: HueInterpolationMethod;
     leftoverStrategy: LeftoverStrategy;
@@ -43,7 +50,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             <div class="flex flex-col gap-1">
                 <label class="section-label">Color space</label>
                 <span class="section-subtitle">{{ INTERPOLATION_SPACES.find(s => s.value === colorSpace)?.description }}</span>
-                <Select :model-value="colorSpace" @update:model-value="(v: string) => emit('update:colorSpace', v as ColorSpace)">
+                <Select :model-value="colorSpace" @update:model-value="(v: AcceptableValue) => emit('update:colorSpace', v as ColorSpace)">
                     <SelectTrigger aria-label="Color space" class="h-9">
                         <SelectValue />
                     </SelectTrigger>
@@ -61,7 +68,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             <div class="flex flex-col gap-1">
                 <label class="section-label">Hue method</label>
                 <span class="section-subtitle">{{ HUE_INTERPOLATION_METHODS.find(m => m.value === hueMethod)?.description }}</span>
-                <Select :model-value="hueMethod" @update:model-value="(v: string) => emit('update:hueMethod', v as HueInterpolationMethod)">
+                <Select :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => emit('update:hueMethod', v as HueInterpolationMethod)">
                     <SelectTrigger aria-label="Hue method" class="h-9">
                         <SelectValue />
                     </SelectTrigger>
@@ -80,7 +87,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
         <!-- Leftover strategy (palette mode only) -->
         <div v-if="showLeftoverStrategy" class="flex flex-col gap-1">
             <label class="section-label">Size mismatch</label>
-            <Select :model-value="leftoverStrategy" @update:model-value="(v: string) => emit('update:leftoverStrategy', v as LeftoverStrategy)">
+            <Select :model-value="leftoverStrategy" @update:model-value="(v: AcceptableValue) => emit('update:leftoverStrategy', v as LeftoverStrategy)">
                 <SelectTrigger aria-label="Size mismatch strategy" class="h-9">
                     <SelectValue />
                 </SelectTrigger>
