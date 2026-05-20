@@ -21,7 +21,6 @@
     "sideEffects": false,
     "exports": {
         ".": {
-            "development": "./src/index.ts",
             "types": "./dist/index.d.ts",
             "import": "./dist/value.js",
             "default": "./dist/value.js"
@@ -35,8 +34,10 @@
         "dev:hero-lab": "vite --mode hero-lab --port 9010",
         "build": "vite build --mode production",
         "build:hero-lab": "vite build --mode hero-lab",
+        "build:watch": "vite build --mode production --watch",
         "gh-pages": "vite build --mode gh-pages",
         "prepare": "test -f dist/value.js || npm run build",
+        "proof:resolution": "node scripts/proof-resolution-contract.mjs",
         "typecheck": "vue-tsc --noEmit",
         "test": "vitest",
         "test:e2e": "playwright test"

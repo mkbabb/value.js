@@ -37,17 +37,29 @@ const defaultOptions = {
     },
 };
 
-// Demo build modes (dev, gh-pages, hero-lab) resolve sibling `@mkbabb/*`
-// packages through their `development` conditional export so the demo always
-// consumes the siblings' `src/` and never a stale `dist/`. This is scoped to
-// the demo modes only — the `production` library build keeps Vite's default
-// conditions so it resolves to published `dist/` artefacts.
-const demoConditions = ["development", "module", "browser"];
-
-// The demo reaches assets (fonts) inside symlinked sibling packages that live
-// outside value.js's root. `fs.allow` must cover the shared parent directory
-// or Vite's dev server denies them with a 403.
-const demoServerFsAllow = [path.resolve(import.meta.dirname, "..")];
+// Contract-v2 (docs/precepts/cross-repo-dev-resolution.md §1.2, §2):
+// bare `@mkbabb/*` specifiers resolve through the sibling's `exports` map to
+// `dist/` via the `file:` symlink in `node_modules`; the sibling's
+// `build:watch` keeps `dist/` fresh under dev-orchestration. Consumer-side
+// `resolve.conditions` widening is struck — Vite's defaults (`module`,
+// `browser`, `default`) resolve the published surface in every demo mode.
+//
+// `server.fs.allow` widening: narrowly retained as an explicit transient.
+// glass-ui's `./styles` subpath (`./src/styles/index.css`) violates the
+// contract-v2 §2.1 keystone ("no subpath advertises anything but a `dist/`
+// artefact") because it ships Tailwind-source CSS that the consumer's
+// Tailwind compiler processes — Tailwind-source is structurally `src/` and
+// cannot be pre-compiled into `dist/` without losing its semantics. The
+// precept's §5 migration map names glass-ui's 41-subpath cleanup as
+// outstanding work in the AG fleet; the AG glass-ui-core wave at `ce5aad8`
+// landed the root `exports["."]` advance only. Until that subpath migration
+// completes (or glass-ui changes its Tailwind-source distribution model —
+// see `docs/tranches/D/coordination/Q.md §3`), the demo must `@import
+// "@mkbabb/glass-ui/styles"` and Vite must serve the `src/`-relative font
+// assets (`url("../fonts/fira-code/…woff2")`) from glass-ui's parent
+// directory. This widening is the consumer-side reciprocal of the
+// publisher-side gap; it is filed and time-boxed, not silent.
+const siblingFsAllowTransient = [path.resolve(import.meta.dirname, "..")];
 
 const defaultPlugins = [
     sourceExportPlugin(),
@@ -80,7 +92,6 @@ export default defineConfig((mode) => {
     } else if (mode.mode === "hero-lab") {
         return {
             ...defaultOptions,
-            resolve: { ...defaultOptions.resolve, conditions: demoConditions },
             base: "./",
             root: "./demo/hero-lab/",
             build:
@@ -94,7 +105,7 @@ export default defineConfig((mode) => {
                     : undefined,
             server: {
                 host: true,
-                fs: { allow: demoServerFsAllow },
+                fs: { allow: siblingFsAllowTransient },
             },
             optimizeDeps: {
                 include: [
@@ -109,7 +120,6 @@ export default defineConfig((mode) => {
     } else if (mode.mode === "gh-pages") {
         return {
             ...defaultOptions,
-            resolve: { ...defaultOptions.resolve, conditions: demoConditions },
             base: "./",
             root: "./demo/color-picker/",
             build: {
@@ -134,11 +144,10 @@ export default defineConfig((mode) => {
         // Dev mode: serve the demo app with HMR
         return {
             ...defaultOptions,
-            resolve: { ...defaultOptions.resolve, conditions: demoConditions },
             root: "./demo/color-picker/",
             server: {
                 host: true,
-                fs: { allow: demoServerFsAllow },
+                fs: { allow: siblingFsAllowTransient },
             },
             optimizeDeps: {},
             plugins: [...defaultPlugins],

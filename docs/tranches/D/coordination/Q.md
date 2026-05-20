@@ -37,6 +37,7 @@ Inherits B's `§3` row set, **refreshes the metaballs row to 7 additions** (per 
 | `TooltipContent variant="mono"` | unchanged | STANDS | as above |
 | `Button size="icon-sm"` rung | unchanged | STANDS | as above |
 | **`<Tabs variant="underline">` on the provider family** (the real ask, re-filed at B.W2) | glass-ui shipped header-only `<UnderlineTabs>`; demo needs underline as a `<Tabs>` provider variant preserving `<TabsContent>` + `data-state` + ARIA | OPEN | demo's `.underline-tabs` override stays until glass-ui ships |
+| **Contract-v2 §2.1 keystone gap on `./styles` Tailwind-source subpath** (filed at D.W1 Step 1) | glass-ui's `package.json:exports["./styles"]` → `./src/styles/index.css` violates precept §2.1 ("no subpath advertises anything but a `dist/` artefact"); the AG glass-ui-core wave at `ce5aad8` migrated root exports only; the 41-subpath migration cited in precept §5 is pending. The subpath is structurally Tailwind-source (`@theme`, `@layer`, `@apply` — consumer-Tailwind-processed), so a straight `dist/`-migration loses Tailwind semantics. Consumer-side reciprocal at value.js: `vite.config.ts:siblingFsAllowTransient` retained narrowly on dev + hero-lab modes with inline rationale citing this row. Retires when glass-ui ships a contract-v2-compliant Tailwind-source distribution (JS-export tokens? bundle fonts inline? rework the seam?). | OPEN — value.js does not block | glass-ui's next subpath-surface wave or the AG-GU fleet-migration sequence (`cross-repo-dev-resolution.md §5`) |
 | `Card` props fail-explicit | A.W1 consumed Q.W2 | RETIRED | — |
 | `floating-panel-item` | B.W1 stripped — phantom class, never glass-ui-defined | RETIRED at B.W1 | — |
 
@@ -94,6 +95,16 @@ Inherits B `§7`: D writes value.js only. D reads glass-ui at the Q-close `4b16d
 ### §9.1 — Precept-pin convergence (the standing ask)
 
 The only contract-v2-side drift is the `docs/precepts` submodule pin — keyframes.js at `458c2d1`, fleet at `68d9b20`. **Refreshed ask**: a one-line submodule bump to `68d9b20`. The B-vintage filing's "6 keyframes.js gaps" framing was a maintainability inventory; those items route to keyframes.js's own maintenance schedule.
+
+**Post-D.W1 Step 1 fleet status** (snapshot after value.js's contract-v2 alignment lands):
+
+| Repo | Code-side compliance | Precept-pin | Status |
+|---|---|---|---|
+| **glass-ui** | ✓ contract-v2 at `ce5aad8` (`exports["."]` 3-key shape + `build:watch` + gate rewritten) | `68d9b20` (fleet target) | ✓ compliant |
+| **value.js** | ✓ contract-v2 at D.W1 Step 1 (this commit) — `exports["."]` collapsed to `{types, import, default}`, `build:watch` + `proof:resolution` scripts added, `vite.config.ts` stripped of `demoConditions`/`demoServerFsAllow` | `68d9b20` (fleet target — advanced at D.W0) | ✓ compliant |
+| **keyframes.js** | ✓ contract-v2 code-side at `0909177` (`build: abrogate development export condition — contract-v2`) | `458c2d1` (off-target; standing ask filed §9.1) | ✓ code-side; precept-pin drift filed — value.js does **not** block on this |
+
+With value.js's row now green, `npm run proof:resolution` returns **PASS** across the constellation at this commit. The precept-pin drift on keyframes.js is documentation-only — it does not affect the runtime gate, which checks code-side compliance only.
 
 ### §9.2 — New items from the library-perf research + challenge round (`audit/D-LIB-OPTIMIZATION-SYNTHESIS.md §4`)
 
