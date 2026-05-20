@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.7.0] — Unreleased (E close)
+## [0.7.0] — 2026-05-20 (E close)
 
 ### BREAKING
 
