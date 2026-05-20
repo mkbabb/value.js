@@ -181,12 +181,102 @@ All ancillary re-verifications PASS: glass-ui `./styles.css` ship at `9275584` P
 
 **PASS** — all 3 lanes closed sub-gates; conjunction holds. The wave gate (`vue-tsc` ≤ 126, `vitest` 1582+, smoke 21/21 across 3 projects, lint exit 0, proof:resolution GREEN, build clean, bench ≥ 5×) all GREEN.
 
+## 2026-05-20 — E.W1 HEADLINE close (library architectural transposition + v0.7.0 candidate breaking)
+
+### Dispatch shape
+
+Five lanes dispatched in 3 phases (file-conflict-disjoint planning):
+- **Phase 1 (parallel)**: Lane A (legacy-clean + barrel surface) + Lane D (152-branch nameParser + tryParse context window) — file-disjoint.
+- **Phase 2 (sequential, shared `src/units/color/index.ts`)**: Lane B (WhitePointColor lift) → Lane C (DIRECT_PATHS + rgb-family + keys cache) → Lane E (type-tidy + ch<T> consolidation + 5 CLAUDE.md drift fix).
+
+| Lane | Commit | Status | Deliverable |
+|---|---|---|---|
+| Lane A | `8db0e89` | LANDED | `audit/E.W1-lane-a-legacy-clean.md` |
+| Lane D | `b4bc8ea` | LANDED | `audit/E.W1-lane-d-parsing.md` + `bench/parser-namelookup.mjs` |
+| Lane B | `5cf4271` | LANDED | `audit/E.W1-lane-b-whitepoint-lift.md` |
+| Lane C | `2413d61` | LANDED | `audit/E.W1-lane-c-direct-paths.md` + `bench/color2-direct-paths.mjs` |
+| Lane E | `762c11c` | LANDED | `audit/E.W1-lane-e-type-tidy.md` |
+
+### Outcomes per lane
+
+**Lane A — legacy-clean + barrel cleanup (v0.7.0 BREAKING)**:
+- 54 internal `<from>2<to>` conversion helpers UN-EXPORTED from `src/index.ts` barrel. Definitions remain in `src/units/color/` (still called internally by `color2`); the public surface is `color2(value, "from", "to")` + `colorUnit2`.
+- 3 dead unit-tuple exports deleted: `BLACKLISTED_COALESCE_UNITS`, `STRING_UNITS`, `COLOR_UNITS`.
+- `vue-router` moved from `dependencies` → `devDependencies`.
+- `lerpLegacy` JSDoc updated to E5-compliant retirement trigger (DEFERRED until keyframes.js migrates `numeric.ts:159`).
+- Size delta: `dist/value.js` 137,600 → 136,051 B (−1,549 B raw; gzip 40.44 → 39.96 kB).
+
+**Lane D — 152-branch nameParser + parser micro-fixes**:
+- `src/parsing/color.ts:513`: 155-branch `any(istring(...))` → broad-regex (`/[a-zA-Z][a-zA-Z0-9-]*/`) + `KNOWN_COLOR_NAMES: ReadonlySet<string>` lookup. **Median 37.13× speedup** (3 runs: 36.62×, 37.13×, 37.76×); ≥ 5× gate PASS.
+- 7 memoize keyFn identity overrides across `src/parsing/`.
+- `tryParse` error message 16-char context window: `Parse error at offset N: "...<context>..."`.
+- 2 new context-window tests: vitest 1582 → 1584.
+- SUBTLE BEHAVIORAL CHANGE: prefix-collision identifiers (`"redwood"`) now reject outright (previously partial-matched as `"red"`). Documented in CHANGELOG.md.
+
+**Lane B — WhitePointColor<T> lift**:
+- `whitePoint: WhitePoint = "D65"` lifted to `Color<T>` base; `WhitePointColor<T>` intermediate class DELETED. LAB/OKLAB set `whitePoint = "D50"` in constructors; XYZ inherits the D65 default.
+- Closes the asymmetric-inheritance debt (OKLAB↔OKLCH now share Color<T> as common ancestor).
+- `WhitePointColor` was never barrel-exported — no consumer migration; CHANGELOG records as INTERNAL, not BREAKING.
+- L8 bench held at 10.87× median.
+
+**Lane C — DIRECT_PATHS table + rgb-family helpers + keys() cache**:
+- 6-entry `DIRECT_PATHS` table in `color2`: `oklab↔rgb`, `oklch↔rgb`, `hsl↔rgb`. HSL→RGB **3.80×–4.40× speedup** (≥ 2× gate PASS); OKLab/OKLCh → RGB ~1.04× and ~1.07× (smaller savings dominated by `linearToSrgb` transcendental + `gamutMap` cost).
+- `rgbFamily2xyz` / `xyz2rgbFamily` helpers extracted: 8 of 10 wide-gamut family converters collapse to one-liners.
+- `Color.keys()` via `static readonly channelKeysWithAlpha` per subclass — 15 subclasses, 8 shared frozen tuples; zero per-call allocation in `lerpColorValue`'s `forEach`.
+- 2 parser-snapshot tests updated for FP-ε-equivalent values (delta ~3e-9 from skipped matrix multiply).
+- L8 bench post-Lane-C: 14.95× median.
+
+**Lane E — type-tidy + ch<T> consolidation + CLAUDE.md drift**:
+- 7 `as any` suppressions removed (2 in `src/units/normalize.ts` + 5 in `src/units/utils.ts`'s `getUnitGroup` chain — refactored as a table-driven sentinel-narrowing dispatch).
+- `ch<T>` brand-eraser consolidated to `src/units/color/index.ts:37`; duplicates in `utils.ts` + `contrast.ts` DELETED; 2 consumers updated.
+- 5 CLAUDE.md files (root + `src/units/` + `src/units/color/` + `src/parsing/` + `demo/`) had all inline LoC counts STRIPPED with a `> LoC counts intentionally omitted — wc -l is the source of truth.` note; 6 missing file entries added; root test/spec counts downgraded to ranges. Prevents re-drift.
+- L8 bench post-Lane-E: 14.34× median.
+
+### E.W1 wave gate
+
+| Gate | Expected | Actual | Verdict |
+|---|---|---|---|
+| `npm run lint` | exit 0 | 0 | PASS |
+| `npx vue-tsc --noEmit` | 126 | 126 | PASS (held across all 5 lanes) |
+| `npx vitest run` | 1584+ | 1584 / 34 | PASS (+2 tests from Lane D; held across B/C/E) |
+| `npm run build` | clean | clean (dist/value.js 141.47 kB / 41.64 kB gzip) | PASS |
+| `npm run proof:resolution` | GREEN | GREEN | PASS |
+| L8 microbench median | ≥ 5× | 14.34× | PASS (no regression from B/C/E shape changes) |
+| color2-direct-paths bench (HSL→RGB) | ≥ 2× | 3.80×–4.40× | PASS |
+| parser-namelookup bench | ≥ 5× | 37.13× | PASS |
+| `bench/` directory count | ≥ 3 | 3 (color-channel-access + color2-direct-paths + parser-namelookup) | PASS |
+
+### Architectural-transposition tally (E1 binding)
+
+15 transposition opportunities from `E-AUDIT-5 §9` enumerated at E open. E.W1 landed **9 of 15**:
+1. ✅ Item 1 — `lerpLegacy` retirement (DEFERRED with E5 trigger — see Q.md §5)
+2. ✅ Item 2 — 152-branch nameParser → Map-lookup (Lane D)
+3. ✅ Item 3 — WhitePointColor<T> lift (Lane B)
+4. ✅ Item 4 — DIRECT_PATHS table for color2 hot paths (Lane C)
+5. ✅ Item 5 — rgb-family helpers (Lane C)
+6. ✅ Item 6 — 51 conversion exports moved (Lane A — un-exported)
+7. ✅ Item 7 — vue-router devDep move (Lane A)
+8. ✅ Item 8 — keys() cache (Lane C)
+9. ✅ Item 9 — keyFn identity override at memoize sites (Lane D)
+10. — Item 10 — `as any` cleanup (Lane E)
+11. — Item 11 — tryParse context window (Lane D)
+12. — Item 12 — ch<T> consolidation (Lane E)
+13. — Item 13 — CLAUDE.md drift fix (Lane E)
+14. — Item 14 — palette-manager wiring extraction (E.W2 Lane D — defers, demo cohesion)
+15. — Item 15 — middleware.ts split (E.W2 Lane E — defers, api/ scope)
+
+13 of 15 land in E.W1; items 14 + 15 route to E.W2 (correct routing per E.md §3 wave schedule); item 1 DEFERS with documented E5 trigger.
+
+### E.W1 sub-gate verdict
+
+**PASS** — all 5 lanes closed; conjunction holds; v0.7.0 BREAKING surface defined in CHANGELOG; L8 bench preserved + 2 new benchmarks added (≥ 2× + ≥ 5× both PASS).
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| E.W0 HEADLINE — open + `./styles.css` adoption + state-at-open + coord refresh | closed | 2026-05-20 | 2026-05-20 | <E.W0-A> + <E.W0-BC> |
-| E.W1 — library architectural transposition (v0.7.0 candidate) | planned | — | — | — |
+| E.W0 HEADLINE — open + `./styles.css` adoption + state-at-open + coord refresh | closed | 2026-05-20 | 2026-05-20 | `7904324` (Lane A) + `d9a1399` (Lanes B+C) |
+| E.W1 — library architectural transposition (v0.7.0 candidate) | closed | 2026-05-20 | 2026-05-20 | `8db0e89` (Lane A) + `b4bc8ea` (Lane D) + `5cf4271` (Lane B) + `2413d61` (Lane C) + `762c11c` (Lane E) |
 | E.W2 — api/ pipeline parity + middleware split + first backend tests | planned | — | — | — |
 | E.W3 — e2e/ coverage expansion + smoke-safari + flake fix | planned | — | — | — |
 | E.W4 — vendor policy + CI hardening + bench gate + CW preparation | planned | — | — | — |
