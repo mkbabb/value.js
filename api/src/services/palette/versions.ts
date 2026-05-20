@@ -14,7 +14,7 @@ import type {
     PaletteColor,
     PaletteVersion,
 } from "../../models.js";
-import { NotFoundError, OwnershipError } from "../../errors/index.js";
+import { NotFoundError } from "../../errors/index.js";
 import { computeContentHash } from "../../hash.js";
 import { computeOklabColors } from "./oklab.js";
 
@@ -113,7 +113,9 @@ export async function getVersionByHash(
 export interface RevertInput {
     slug: string;
     hash: string;
-    sessionToken: string;
+    // `userSlug` is the authenticated caller's slug. The route's
+    // `requireOwnership` middleware (E.W2 Lane C) guarantees this also owns
+    // the palette — we use it here purely to attribute the new version record.
     userSlug: string | undefined;
 }
 
@@ -125,15 +127,14 @@ export async function revertToVersion(
     services: Services,
     input: RevertInput,
 ): Promise<RevertOutput> {
-    const { slug, hash, sessionToken, userSlug } = input;
+    const { slug, hash, userSlug } = input;
 
+    // Ownership is enforced upstream by `requireOwnership` on the route. We
+    // still re-read here for the parent-hash bookkeeping; a 404 here would
+    // indicate the palette was deleted between middleware and handler
+    // (extremely narrow race).
     const palette = await services.repositories.palettes.findBySlug(slug);
     if (!palette) throw new NotFoundError("Palette not found");
-
-    const isOwner =
-        palette.sessionToken === sessionToken ||
-        (userSlug !== undefined && palette.userSlug === userSlug);
-    if (!isOwner) throw new OwnershipError("Not the owner");
 
     const version = await services.repositories.paletteVersions.findByHash(hash);
     if (!version) throw new NotFoundError("Version not found");

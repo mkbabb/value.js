@@ -7,11 +7,7 @@ import {
     getPaletteBySlug,
     patchPalette,
 } from "../../src/services/palette/crud.js";
-import {
-    ConflictError,
-    NotFoundError,
-    OwnershipError,
-} from "../../src/errors/index.js";
+import { ConflictError, NotFoundError } from "../../src/errors/index.js";
 import type { Services } from "../../src/middleware/inject-services.js";
 
 describe("service.palette.crud", () => {
@@ -95,26 +91,10 @@ describe("service.palette.crud", () => {
         ).rejects.toBeInstanceOf(NotFoundError);
     });
 
-    it("patchPalette rejects non-owner with OwnershipError", async () => {
-        await createPalette(services, {
-            body: {
-                name: "Mine",
-                slug: "mine",
-                colors: [{ css: "#fff", position: 0 }],
-                tags: [],
-            },
-            sessionToken: "tok-owner",
-            userSlug: "alice",
-        });
-        await expect(
-            patchPalette(services, {
-                slug: "mine",
-                body: { name: "Stolen" },
-                sessionToken: "tok-other",
-                userSlug: "mallory",
-            }),
-        ).rejects.toBeInstanceOf(OwnershipError);
-    });
+    // NOTE (E.W2 Lane C): the prior "patchPalette rejects non-owner with
+    // OwnershipError" test is gone — ownership has lifted out of the service
+    // into the route's `requireOwnership` middleware. The middleware path is
+    // covered by `test/routes/palettes-ownership.test.ts`.
 
     it("patchPalette updates and bumps versionCount on content change", async () => {
         await createPalette(services, {
@@ -130,7 +110,6 @@ describe("service.palette.crud", () => {
         const updated = await patchPalette(services, {
             slug: "v",
             body: { colors: [{ css: "#00ff00", position: 0 }] },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         expect(updated.versionCount).toBe(2);
@@ -142,7 +121,9 @@ describe("service.palette.crud", () => {
         expect(versions).toHaveLength(2);
     });
 
-    it("deletePalette removes by owner; non-owner is blocked", async () => {
+    it("deletePalette removes by slug and cascades", async () => {
+        // Ownership is enforced by the route's `requireOwnership` middleware
+        // (E.W2 Lane C); the service is now slug-only.
         await createPalette(services, {
             body: {
                 name: "ToKill",
@@ -153,19 +134,14 @@ describe("service.palette.crud", () => {
             sessionToken: "tok",
             userSlug: "alice",
         });
-        await expect(
-            deletePalette(services, {
-                slug: "kill",
-                sessionToken: "wrong",
-                userSlug: "mallory",
-            }),
-        ).rejects.toBeInstanceOf(OwnershipError);
-        const result = await deletePalette(services, {
-            slug: "kill",
-            sessionToken: "tok",
-            userSlug: "alice",
-        });
+        const result = await deletePalette(services, { slug: "kill" });
         expect(result.deleted).toBe(true);
         expect(await services.repositories.palettes.findBySlug("kill")).toBeNull();
+    });
+
+    it("deletePalette throws NotFoundError on missing slug", async () => {
+        await expect(
+            deletePalette(services, { slug: "ghost" }),
+        ).rejects.toBeInstanceOf(NotFoundError);
     });
 });

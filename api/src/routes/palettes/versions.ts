@@ -12,7 +12,8 @@ import {
     paginationQuery,
     revertPaletteBody,
 } from "../../validation/palette.js";
-import { AuthenticationError, ValidationError } from "../../errors/index.js";
+import { ValidationError } from "../../errors/index.js";
+import { requireOwnership } from "../../middleware/require-ownership.js";
 import { formatPalette } from "../../format/palette.js";
 import type { Palette } from "../../models.js";
 import {
@@ -47,22 +48,28 @@ versionsRouter.get("/:slug/versions/:hash", async (c) => {
     return c.json({ hash: version._id, ...version, _id: undefined });
 });
 
-versionsRouter.post("/:slug/revert", async (c) => {
-    const slug = c.req.param("slug");
-    const sessionToken = c.var.sessionToken;
-    if (!sessionToken) throw new AuthenticationError("Session token required");
+versionsRouter.post(
+    "/:slug/revert",
+    requireOwnership(async (c) => {
+        const palette = await c.var.services.repositories.palettes.findBySlug(
+            c.req.param("slug"),
+        );
+        return palette?.userSlug ?? null;
+    }),
+    async (c) => {
+        const slug = c.req.param("slug");
 
-    const raw = await c.req.json();
-    const parsed = revertPaletteBody.safeParse(raw);
-    if (!parsed.success) {
-        throw new ValidationError("Invalid request body", parsed.error.format());
-    }
+        const raw = await c.req.json();
+        const parsed = revertPaletteBody.safeParse(raw);
+        if (!parsed.success) {
+            throw new ValidationError("Invalid request body", parsed.error.format());
+        }
 
-    const { palette } = await revertToVersion(c.var.services, {
-        slug,
-        hash: parsed.data.hash,
-        sessionToken,
-        userSlug: c.var.userSlug,
-    });
-    return c.json(formatPalette(palette as Palette & { _id: unknown }));
-});
+        const { palette } = await revertToVersion(c.var.services, {
+            slug,
+            hash: parsed.data.hash,
+            userSlug: c.var.userSlug,
+        });
+        return c.json(formatPalette(palette as Palette & { _id: unknown }));
+    },
+);

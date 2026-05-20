@@ -19,6 +19,7 @@ import {
     updatePaletteBody,
 } from "../../validation/palette.js";
 import { AuthenticationError, ValidationError } from "../../errors/index.js";
+import { requireOwnership } from "../../middleware/require-ownership.js";
 import {
     createPalette,
     deletePalette,
@@ -81,37 +82,47 @@ crudRouter.post("/", async (c) => {
     return c.json(result, 201);
 });
 
-// PATCH /palettes/:slug — update (owner only)
-crudRouter.patch("/:slug", async (c) => {
-    const slug = c.req.param("slug");
-    const sessionToken = c.var.sessionToken;
-    if (!sessionToken) throw new AuthenticationError("Session token required");
+// Owner-extractor shared by PATCH + DELETE — reads the palette's `userSlug`.
+// Returns `null` to signal "not found" (middleware → 404); the caller's
+// `userSlug` must match for the request to proceed (middleware → 403).
+const paletteOwnerExtractor = async (
+    c: Parameters<Parameters<typeof requireOwnership>[0]>[0],
+): Promise<string | null> => {
+    const palette = await c.var.services.repositories.palettes.findBySlug(
+        c.req.param("slug"),
+    );
+    return palette?.userSlug ?? null;
+};
 
-    const raw = await c.req.json();
-    const parsed = updatePaletteBody.safeParse(raw);
-    if (!parsed.success) {
-        throw new ValidationError("Invalid request body", parsed.error.format());
-    }
+// PATCH /palettes/:slug — update (owner only; gated by requireOwnership)
+crudRouter.patch(
+    "/:slug",
+    requireOwnership(paletteOwnerExtractor),
+    async (c) => {
+        const slug = c.req.param("slug");
 
-    const result = await patchPalette(c.var.services, {
-        slug,
-        body: parsed.data,
-        sessionToken,
-        userSlug: c.var.userSlug,
-    });
-    return c.json(result);
-});
+        const raw = await c.req.json();
+        const parsed = updatePaletteBody.safeParse(raw);
+        if (!parsed.success) {
+            throw new ValidationError("Invalid request body", parsed.error.format());
+        }
 
-// DELETE /palettes/:slug — delete (owner only)
-crudRouter.delete("/:slug", async (c) => {
-    const slug = c.req.param("slug");
-    const sessionToken = c.var.sessionToken;
-    if (!sessionToken) throw new AuthenticationError("Session token required");
+        const result = await patchPalette(c.var.services, {
+            slug,
+            body: parsed.data,
+            userSlug: c.var.userSlug,
+        });
+        return c.json(result);
+    },
+);
 
-    const result = await deletePalette(c.var.services, {
-        slug,
-        sessionToken,
-        userSlug: c.var.userSlug,
-    });
-    return c.json(result);
-});
+// DELETE /palettes/:slug — delete (owner only; gated by requireOwnership)
+crudRouter.delete(
+    "/:slug",
+    requireOwnership(paletteOwnerExtractor),
+    async (c) => {
+        const slug = c.req.param("slug");
+        const result = await deletePalette(c.var.services, { slug });
+        return c.json(result);
+    },
+);

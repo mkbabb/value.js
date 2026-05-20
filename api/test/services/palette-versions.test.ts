@@ -8,10 +8,7 @@ import {
     revertToVersion,
 } from "../../src/services/palette/versions.js";
 import { createPalette, patchPalette } from "../../src/services/palette/crud.js";
-import {
-    NotFoundError,
-    OwnershipError,
-} from "../../src/errors/index.js";
+import { NotFoundError } from "../../src/errors/index.js";
 import type { Services } from "../../src/middleware/inject-services.js";
 
 describe("service.palette.versions", () => {
@@ -73,32 +70,24 @@ describe("service.palette.versions", () => {
         await patchPalette(services, {
             slug: "x",
             body: { colors: [{ css: "#00ff00", position: 0 }] },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         const list = await listVersions(services, "x", 0, 10);
         expect(list.total).toBe(2);
     });
 
-    it("revertToVersion rejects non-owner with OwnershipError", async () => {
-        await createPalette(services, {
-            body: {
-                name: "X",
-                slug: "x",
-                colors: [{ css: "#ff0000", position: 0 }],
-                tags: [],
-            },
-            sessionToken: "tok-owner",
-            userSlug: "alice",
-        });
-        const palette = await services.repositories.palettes.findBySlug("x");
+    // NOTE (E.W2 Lane C): the prior "revertToVersion rejects non-owner with
+    // OwnershipError" test is gone — ownership has lifted out of the service
+    // into the route's `requireOwnership` middleware. The middleware path is
+    // covered by `test/routes/palettes-ownership.test.ts`.
+
+    it("revertToVersion throws NotFoundError on missing palette", async () => {
         await expect(
             revertToVersion(services, {
-                slug: "x",
-                hash: palette!.currentHash!,
-                sessionToken: "tok-other",
-                userSlug: "mallory",
+                slug: "ghost",
+                hash: "deadbeef",
+                userSlug: "alice",
             }),
-        ).rejects.toBeInstanceOf(OwnershipError);
+        ).rejects.toBeInstanceOf(NotFoundError);
     });
 });
