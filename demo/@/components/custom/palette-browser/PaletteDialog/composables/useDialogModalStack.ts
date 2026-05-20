@@ -10,15 +10,14 @@
  * Extracted from `PaletteDialog.vue` (D.W3 Lane A). The dialog shell calls
  * `openVersions(palette)` / `openFlag(palette)` etc. and binds the returned
  * refs to v-model:open on each sub-dialog. Side-effect handlers
- * (`onRevert`, `onFlagSubmit`, `onDeleteAllSaved`) take their dependencies
- * as args so the composable stays free of injection/coupling — see usage in
- * the outer shell.
+ * (`onRevert`, `onFlagSubmit`) route through `pm.versions.revert` and
+ * `pm.flagged.report` respectively (D.W3 Lane B facade completion).
  */
 import { ref } from "vue";
-import { flagPalette, revertPalette } from "@lib/palette/api";
 import type { Palette } from "@lib/palette/types";
+import type { PaletteManager } from "@composables/palette/usePaletteManager";
 
-export function useDialogModalStack() {
+export function useDialogModalStack(pm: PaletteManager) {
     // --- Delete-all-saved confirm ---
     const showDeleteAllConfirm = ref(false);
 
@@ -38,13 +37,10 @@ export function useDialogModalStack() {
         },
     ) {
         if (!versionDrawerPalette.value) return;
-        try {
-            const updated = await revertPalette(versionDrawerPalette.value.slug, hash);
-            deps.updateRemote(updated.slug, updated);
-            versionDrawerPalette.value = updated;
-        } catch (e) {
-            console.warn("Failed to revert:", e);
-        }
+        const updated = await pm.versions.revert(versionDrawerPalette.value.slug, hash);
+        if (!updated) return;
+        deps.updateRemote(updated.slug, updated);
+        versionDrawerPalette.value = updated;
     }
 
     // --- Flag report dialog ---
@@ -58,11 +54,7 @@ export function useDialogModalStack() {
 
     async function onFlagSubmit(reason: string, detail: string | undefined) {
         if (!flagDialogPalette.value) return;
-        try {
-            await flagPalette(flagDialogPalette.value.slug, reason, detail);
-        } catch (e) {
-            console.warn("Failed to flag palette:", e);
-        }
+        await pm.flagged.report(flagDialogPalette.value.slug, reason, detail);
         flagDialogOpen.value = false;
     }
 

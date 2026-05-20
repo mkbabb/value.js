@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { inject, watch } from "vue";
 import { Button } from "@components/ui/button";
 import { LogOut } from "lucide-vue-next";
 
@@ -37,52 +37,19 @@ import AdminColorQueue from "./AdminColorQueue.vue";
 import AdminPaletteOps from "./AdminPaletteOps.vue";
 
 import { useAdminAuth } from "@composables/auth/useAdminAuth";
-import {
-    getAdminQueue,
-    approveColorName,
-    rejectColorName,
-    featurePalette,
-    deletePaletteAdmin,
-} from "@lib/palette/api";
-import type { ProposedColorName } from "@lib/palette/types";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
-const { isAuthenticated, login, logout, getToken } = useAdminAuth();
+// D.W3 Lane B: route api calls through the facade
+// (was: direct getAdminQueue/approveColorName/rejectColorName/featurePalette/deletePaletteAdmin)
+const pm = inject(PALETTE_MANAGER_KEY)!;
+const { isAuthenticated, login, logout } = useAdminAuth();
 
-const queue = ref<ProposedColorName[]>([]);
-const loadingQueue = ref(false);
-
-/** Run an admin API call; on 401, silently log out (stale token). */
-async function guardedAdmin<T>(fn: () => Promise<T>): Promise<T> {
-    try {
-        return await fn();
-    } catch (e: any) {
-        if (typeof e?.message === "string" && e.message.startsWith("API 401")) {
-            logout();
-            queue.value = [];
-            console.warn("Session expired — please log in again.");
-            throw e;
-        }
-        throw e;
-    }
-}
-
-async function loadQueue() {
-    const token = getToken();
-    if (!token) return;
-    loadingQueue.value = true;
-    try {
-        const res = await guardedAdmin(() => getAdminQueue(token));
-        queue.value = res.data;
-    } catch (e: any) {
-        if (isAuthenticated.value) console.warn(e?.message ?? "Failed to load queue");
-    } finally {
-        loadingQueue.value = false;
-    }
-}
+const queue = pm.adminColorQueue;
+const loadingQueue = pm.loadingColorQueue;
 
 function onLogin(token: string) {
     login(token);
-    loadQueue();
+    pm.loadColorQueue();
 }
 
 function onLogout() {
@@ -90,54 +57,28 @@ function onLogout() {
     queue.value = [];
 }
 
-async function onApprove(id: string) {
-    const token = getToken();
-    if (!token) return;
-    try {
-        await guardedAdmin(() => approveColorName(token, id));
-        queue.value = queue.value.filter((q) => q.id !== id);
-    } catch (e: any) {
-        if (isAuthenticated.value) console.warn(e?.message ?? "Failed to approve");
-    }
+function onApprove(id: string) {
+    const item = queue.value.find((q) => q.id === id);
+    if (item) pm.onApproveColor(item);
 }
 
-async function onReject(id: string) {
-    const token = getToken();
-    if (!token) return;
-    try {
-        await guardedAdmin(() => rejectColorName(token, id));
-        queue.value = queue.value.filter((q) => q.id !== id);
-    } catch (e: any) {
-        if (isAuthenticated.value) console.warn(e?.message ?? "Failed to reject");
-    }
+function onReject(id: string) {
+    const item = queue.value.find((q) => q.id === id);
+    if (item) pm.onRejectColor(item);
 }
 
-async function onFeature(slug: string) {
-    const token = getToken();
-    if (!token) return;
-    try {
-        await guardedAdmin(() => featurePalette(token, slug));
-    } catch (e: any) {
-        if (isAuthenticated.value)
-            console.warn(e?.message ?? "Failed to feature palette");
-    }
+function onFeature(slug: string) {
+    pm.featurePaletteBySlug(slug);
 }
 
-async function onDeletePalette(slug: string) {
-    const token = getToken();
-    if (!token) return;
-    try {
-        await guardedAdmin(() => deletePaletteAdmin(token, slug));
-    } catch (e: any) {
-        if (isAuthenticated.value)
-            console.warn(e?.message ?? "Failed to delete palette");
-    }
+function onDeletePalette(slug: string) {
+    pm.deletePaletteAdminBySlug(slug);
 }
 
 watch(
     isAuthenticated,
     (auth) => {
-        if (auth) loadQueue();
+        if (auth) pm.loadColorQueue();
     },
     { immediate: true },
 );

@@ -97,7 +97,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { inject, ref, watch } from "vue";
 import {
     Sheet,
     SheetContent,
@@ -107,8 +107,8 @@ import {
 } from "@components/ui/sheet";
 import { Button } from "@components/ui/button";
 import { Loader2, RotateCcw } from "lucide-vue-next";
-import { listVersions } from "@lib/palette/api";
 import { formatTime } from "@lib/dateFormat";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import type { PaletteVersion } from "@lib/palette/types";
 
 const props = defineProps<{
@@ -123,23 +123,24 @@ defineEmits<{
     revert: [hash: string];
 }>();
 
+// D.W3 Lane B: route the api call through pm.versions, keep per-drawer local
+// list (each drawer instance owns its display state).
+const pm = inject(PALETTE_MANAGER_KEY)!;
 const versions = ref<PaletteVersion[]>([]);
 const total = ref(0);
 const loading = ref(false);
 
-
 async function loadVersions(offset = 0) {
     loading.value = true;
     try {
-        const res = await listVersions(props.paletteSlug, 20, offset);
+        const page = await pm.versions.fetchVersions(props.paletteSlug, 20, offset);
+        if (!page) return;
         if (offset === 0) {
-            versions.value = res.data;
+            versions.value = page.data;
         } else {
-            versions.value = [...versions.value, ...res.data];
+            versions.value = [...versions.value, ...page.data];
         }
-        total.value = res.total;
-    } catch (e) {
-        console.warn("Failed to load versions:", e);
+        total.value = page.total;
     } finally {
         loading.value = false;
     }

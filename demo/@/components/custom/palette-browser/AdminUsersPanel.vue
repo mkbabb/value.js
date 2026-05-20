@@ -144,8 +144,7 @@ import { Badge } from "@components/ui/badge";
 import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 import { Loader2, Trash2, Eraser, RefreshCw } from "lucide-vue-next";
 import type { Palette, User } from "@lib/palette/types";
-import { getUserPalettes } from "@lib/palette/api";
-import { useAdminAuth } from "@composables/auth/useAdminAuth";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import PaletteCard from "./PaletteCard.vue";
 import EmptyState from "./EmptyState.vue";
 
@@ -168,7 +167,8 @@ const emit = defineEmits<{
 }>();
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
-const { getToken: getAdminToken } = useAdminAuth();
+// D.W3 Lane B: route through pm.loadUserPalettes (was: direct getUserPalettes)
+const pm = inject(PALETTE_MANAGER_KEY)!;
 
 const expandedUserSlug = ref<string | null>(null);
 const userPalettes = ref<Palette[]>([]);
@@ -263,14 +263,9 @@ async function toggleUserExpand(slug: string) {
         return;
     }
     expandedUserSlug.value = slug;
-    const token = getAdminToken();
-    if (!token) return;
     loadingUserPalettes.value = true;
     try {
-        userPalettes.value = await getUserPalettes(token, slug);
-    } catch (e: any) {
-        console.warn("Failed to load user palettes:", e?.message);
-        userPalettes.value = [];
+        userPalettes.value = await pm.loadUserPalettes(slug);
     } finally {
         loadingUserPalettes.value = false;
     }

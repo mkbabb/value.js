@@ -15,7 +15,6 @@
  * The composable accepts the facade slice it touches + the modal-stack
  * handle so it stays free of injection (the dialog shell already injects pm).
  */
-import { forkPalette } from "@lib/palette/api";
 import type { Palette } from "@lib/palette/types";
 import type { PaletteManager } from "@composables/palette/usePaletteManager";
 
@@ -31,7 +30,8 @@ export function useDialogBrowseActions(deps: DialogBrowseActionsDeps) {
         try {
             await pm.ensureUser();
             await pm.ensureSession();
-            const forked = await forkPalette(palette.slug);
+            const forked = await pm.versions.fork(palette.slug);
+            if (!forked) return;
             pm.remotePalettes.value = [forked, ...pm.remotePalettes.value];
         } catch (e) {
             console.warn("Failed to fork palette:", e);

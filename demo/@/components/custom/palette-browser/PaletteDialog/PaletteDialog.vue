@@ -40,7 +40,7 @@
                         :sort-mode="pm.sortMode.value"
                         :status-filter="pm.statusFilter.value"
                         :selected-tags="pm.selectedTags.value"
-                        :available-tags="availableTags"
+                        :available-tags="pm.tagEdit.allTags.value"
                         :user-sort-mode="pm.userSortMode.value"
                         :dialog-open="openModel"
                         @switch-slug="pm.onSlugSwitch"
@@ -180,8 +180,6 @@ import { Tabs } from "@components/ui/tabs";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { getTags } from "@lib/palette/api";
-import type { Tag } from "@lib/palette/types";
 
 import PaletteDialogHeader from "./components/PaletteDialogHeader.vue";
 import PaletteControlsBar from "./components/PaletteControlsBar.vue";
@@ -230,7 +228,7 @@ const { activeTab, setActiveTab } = usePaletteDialogState({
 });
 
 // --- Modal stack (delete-all / versions / flag) ---
-const modalStack = useDialogModalStack();
+const modalStack = useDialogModalStack(pm);
 
 // --- Overlay dismissal guards ---
 const overlayGuards = useDialogOverlayGuards();
@@ -255,13 +253,8 @@ watch(activeTab, (tab) => {
     }
 });
 
-// --- Browse filter state (dialog-local: availableTags is fetched once) ---
-const availableTags = ref<Tag[]>([]);
-getTags()
-    .then((tags) => {
-        availableTags.value = tags;
-    })
-    .catch(() => {});
+// --- Browse filter state — shared catalog via pm.tagEdit (D.W3 Lane B) ---
+pm.tagEdit.loadAllTags();
 
 // --- Browse-side actions (fork / revert / filter handlers) ---
 const { onFork, onRevert, onStatusChange, onTagsChange, onClearFilters } =

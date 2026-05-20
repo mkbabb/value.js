@@ -3,36 +3,36 @@
         <!-- Toolbar -->
         <div class="flex items-center gap-2 flex-wrap">
             <input
-                v-model="actionFilter"
+                v-model="audit.actionFilter.value"
                 type="text"
                 placeholder="Action..."
                 class="h-7 w-28 rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
             <input
-                v-model="targetFilter"
+                v-model="audit.targetFilter.value"
                 type="text"
                 placeholder="Target..."
                 class="h-7 flex-1 min-w-[6rem] rounded-[var(--radius-input)] border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             />
             <div class="flex-1" />
-            <span class="text-mono-small text-muted-foreground">{{ total }}</span>
+            <span class="text-mono-small text-muted-foreground">{{ audit.total.value }}</span>
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
-            <Button variant="outline" size="sm" class="h-7 px-2" aria-label="Refresh audit log" @click="loadAudit">
+            <Button variant="outline" size="sm" class="h-7 px-2" aria-label="Refresh audit log" @click="audit.loadAuditLog()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
 
         <!-- Loading -->
-        <div v-if="loading" class="flex items-center justify-center py-8">
+        <div v-if="audit.loading.value" class="flex items-center justify-center py-8">
             <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />
         </div>
 
         <!-- Empty -->
-        <EmptyState v-else-if="entries.length === 0" message="No audit entries found." />
+        <EmptyState v-else-if="audit.entries.value.length === 0" message="No audit entries found." />
 
         <!-- Entries — Ag-13: primary (action+time) / secondary (target) hierarchy -->
         <div
-            v-for="entry in entries"
+            v-for="entry in audit.entries.value"
             :key="entry.id"
             class="flex items-center gap-3 px-3 py-2.5 rounded-[var(--radius-md)] border border-border transition-colors duration-[var(--duration-fast)] hover:bg-accent/50"
         >
@@ -55,72 +55,38 @@
 
         <!-- Pagination -->
         <PaginationBar
-            :page="page"
-            :page-count="pageCount"
-            :has-next="hasNext"
-            :has-prev="hasPrev"
-            @prev="prevPage"
-            @next="nextPage"
+            :page="audit.page.value"
+            :page-count="audit.pageCount.value"
+            :has-next="audit.hasNext.value"
+            :has-prev="audit.hasPrev.value"
+            @prev="audit.prevPage"
+            @next="audit.nextPage"
         />
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from "vue";
+import { inject, onMounted, watch } from "vue";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { Loader2, RefreshCw } from "lucide-vue-next";
 import EmptyState from "./EmptyState.vue";
 import PaginationBar from "./PaginationBar.vue";
-import { getAuditLog } from "@lib/palette/api";
-import type { AuditEntry } from "@lib/palette/types";
 import { formatTime } from "@lib/dateFormat";
-import { useAdminAuth } from "@composables/auth/useAdminAuth";
+import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
-const { getToken } = useAdminAuth();
-
-const entries = ref<AuditEntry[]>([]);
-const total = ref(0);
-const page = ref(1);
-const pageSize = 20;
-const loading = ref(false);
-const actionFilter = ref("");
-const targetFilter = ref("");
-
-const pageCount = computed(() => Math.max(1, Math.ceil(total.value / pageSize)));
-const hasNext = computed(() => page.value < pageCount.value);
-const hasPrev = computed(() => page.value > 1);
-
-
-
-async function loadAudit() {
-    const token = getToken();
-    if (!token) return;
-    loading.value = true;
-    try {
-        const res = await getAuditLog(token, {
-            limit: pageSize,
-            offset: (page.value - 1) * pageSize,
-            ...(actionFilter.value ? { action: actionFilter.value } : {}),
-            ...(targetFilter.value ? { target: targetFilter.value } : {}),
-        });
-        entries.value = res.data;
-        total.value = res.total;
-    } catch (e) {
-        console.warn("Failed to load audit log:", e);
-    } finally {
-        loading.value = false;
-    }
-}
-
-function nextPage() { if (hasNext.value) { page.value++; loadAudit(); } }
-function prevPage() { if (hasPrev.value) { page.value--; loadAudit(); } }
+// D.W3 Lane B: route through pm.audit sub-object (was: direct getAuditLog)
+const pm = inject(PALETTE_MANAGER_KEY)!;
+const audit = pm.audit;
 
 let filterTimeout: ReturnType<typeof setTimeout>;
-watch([actionFilter, targetFilter], () => {
+watch([audit.actionFilter, audit.targetFilter], () => {
     clearTimeout(filterTimeout);
-    filterTimeout = setTimeout(() => { page.value = 1; loadAudit(); }, 300);
+    filterTimeout = setTimeout(() => {
+        audit.page.value = 1;
+        audit.loadAuditLog();
+    }, 300);
 });
 
-onMounted(loadAudit);
+onMounted(() => audit.loadAuditLog());
 </script>

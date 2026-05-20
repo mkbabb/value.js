@@ -6,10 +6,16 @@ import { useAdminAuth } from "../auth/useAdminAuth";
 import { useUserAuth } from "../auth/useUserAuth";
 import { useSession } from "../auth/useSession";
 import { useBrowsePalettes } from "./useBrowsePalettes";
-import { useAdminUsers, useColorNameQueue } from "../auth/useAdminOperations";
+import { useAdminUsers } from "../auth/useAdminUsers";
+import { useColorNameQueue } from "./useColorNameQueue";
 import { useSlugMigration } from "./useSlugMigration";
 import { usePaletteActions } from "./usePaletteActions";
 import { useFilteredList } from "../useFilteredList";
+import { useAdminAudit, type UseAdminAudit } from "./useAdminAudit";
+import { useAdminFlagged, type UseAdminFlagged } from "./useAdminFlagged";
+import { useAdminTags, type UseAdminTags } from "./useAdminTags";
+import { useVersionHistory, type UseVersionHistory } from "./useVersionHistory";
+import { useTagEdit, type UseTagEdit } from "./useTagEdit";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import type { ViewId } from "../useViewManager";
 import type PaletteSlugBar from "@components/custom/palette-browser/PaletteSlugBar.vue";
@@ -61,6 +67,9 @@ export interface PaletteManager {
     onDeleteUserPalettes: (userId: string) => Promise<void>;
     onDeleteUser: (userId: string) => Promise<void>;
     onPruneEmpty: () => Promise<number>;
+    loadUserPalettes: (slug: string) => Promise<Palette[]>;
+    featurePaletteBySlug: (slug: string) => Promise<void>;
+    deletePaletteAdminBySlug: (slug: string) => Promise<void>;
 
     // Admin color names
     adminColorQueue: Ref<any[]>;
@@ -110,6 +119,13 @@ export interface PaletteManager {
     emitAddColor: (css: string) => void;
     emitStartEdit: (target: { paletteId: string; colorIndex: number; originalCss: string }) => void;
     emitSetCurrentColor: (css: string) => void;
+
+    // Sub-object facades (D.W3 Lane B)
+    audit: UseAdminAudit;
+    flagged: UseAdminFlagged;
+    tags: UseAdminTags;
+    versions: UseVersionHistory;
+    tagEdit: UseTagEdit;
 }
 
 export const PALETTE_MANAGER_KEY: InjectionKey<PaletteManager> =
@@ -142,6 +158,13 @@ export function usePaletteManager(deps: {
     // --- Admin operations ---
     const admin = useAdminUsers({ searchQuery, remotePalettes: browse.remotePalettes });
     const colorQueue = useColorNameQueue({ searchQuery });
+
+    // --- Sub-composable facades (D.W3 Lane B) ---
+    const audit = useAdminAudit();
+    const flagged = useAdminFlagged();
+    const tags = useAdminTags();
+    const versions = useVersionHistory();
+    const tagEdit = useTagEdit();
 
     // --- Slug migration ---
     const migration = useSlugMigration({
@@ -276,6 +299,13 @@ export function usePaletteManager(deps: {
         emitAddColor,
         emitStartEdit,
         emitSetCurrentColor,
+
+        // Sub-object facades (D.W3 Lane B)
+        audit,
+        flagged,
+        tags,
+        versions,
+        tagEdit,
     };
 
     provide(PALETTE_MANAGER_KEY, manager);

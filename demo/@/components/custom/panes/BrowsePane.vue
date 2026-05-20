@@ -123,13 +123,7 @@ import FlagReportDialog from "@components/custom/palette-browser/FlagReportDialo
 import TagEditPopover from "@components/custom/palette-browser/TagEditPopover.vue";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
-import type { Palette, Tag } from "@lib/palette/types";
-import {
-    forkPalette,
-    flagPalette as flagPaletteAPI,
-    revertPalette,
-    getTags,
-} from "@lib/palette/api";
+import type { Palette } from "@lib/palette/types";
 import { deltaEOK } from "@src/units/color/gamut";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
 
@@ -137,10 +131,11 @@ const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 
 const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
-const availableTags = ref<Tag[]>([]);
+// D.W3 Lane B: shared tag catalog via pm.tagEdit (was: local getTags fetch)
+const availableTags = computed(() => pm.tagEdit.allTags.value);
 
 onMounted(() => {
-    getTags().then((tags) => { availableTags.value = tags; }).catch(() => {});
+    pm.tagEdit.loadAllTags();
 });
 
 function onSave(palette: Palette) {
@@ -167,7 +162,8 @@ async function onFork(palette: Palette) {
     try {
         await pm.ensureUser();
         await pm.ensureSession();
-        const forked = await forkPalette(palette.slug);
+        const forked = await pm.versions.fork(palette.slug);
+        if (!forked) return;
         pm.remotePalettes.value = [forked, ...pm.remotePalettes.value];
         // Update fork count on source
         const idx = pm.remotePalettes.value.findIndex((p) => p.slug === palette.slug);
@@ -195,14 +191,11 @@ function onVersions(palette: Palette) {
 
 async function onRevert(hash: string) {
     if (!versionPalette.value) return;
-    try {
-        const updated = await revertPalette(versionPalette.value.slug, hash);
-        const idx = pm.remotePalettes.value.findIndex((p) => p.slug === updated.slug);
-        if (idx >= 0) pm.remotePalettes.value[idx] = updated;
-        versionPalette.value = updated;
-    } catch (e) {
-        console.warn("Failed to revert:", e);
-    }
+    const updated = await pm.versions.revert(versionPalette.value.slug, hash);
+    if (!updated) return;
+    const idx = pm.remotePalettes.value.findIndex((p) => p.slug === updated.slug);
+    if (idx >= 0) pm.remotePalettes.value[idx] = updated;
+    versionPalette.value = updated;
 }
 
 // --- Flag / Report ---
@@ -217,11 +210,7 @@ function onFlag(palette: Palette) {
 
 async function onFlagSubmit(reason: string, detail: string | undefined) {
     if (!flagPalette.value) return;
-    try {
-        await flagPaletteAPI(flagPalette.value.slug, reason, detail);
-    } catch (e) {
-        console.warn("Failed to flag palette:", e);
-    }
+    await pm.flagged.report(flagPalette.value.slug, reason, detail);
     flagDialogOpen.value = false;
 }
 

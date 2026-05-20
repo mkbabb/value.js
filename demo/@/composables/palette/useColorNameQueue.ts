@@ -1,6 +1,6 @@
 import { ref, type Ref } from "vue";
 import { useFilteredList } from "../useFilteredList";
-import { useAdminAuth } from "./useAdminAuth";
+import { useAdminAuth } from "../auth/useAdminAuth";
 import {
     getAdminQueue,
     approveColorName,

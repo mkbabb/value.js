@@ -8,6 +8,7 @@ import {
     deleteUser,
     deleteUserPalettes,
     pruneEmptyUsers,
+    getUserPalettes,
 } from "@lib/palette/api";
 import type { Palette, User } from "@lib/palette/types";
 import type AdminUsersPanel from "@components/custom/palette-browser/AdminUsersPanel.vue";
@@ -143,6 +144,40 @@ export function useAdminUsers(deps: {
         }
     }
 
+    /** Fetch palettes owned by a user (admin-only). Returns [] on failure. */
+    async function loadUserPalettes(slug: string): Promise<Palette[]> {
+        const token = getAdminToken();
+        if (!token) return [];
+        try {
+            return await getUserPalettes(token, slug);
+        } catch (e: any) {
+            console.warn("Failed to load user palettes:", e?.message);
+            return [];
+        }
+    }
+
+    /** Slug-only feature toggle (does not mutate local lists). */
+    async function featurePaletteBySlug(slug: string): Promise<void> {
+        const token = getAdminToken();
+        if (!token) return;
+        try {
+            await featurePalette(token, slug);
+        } catch (e: any) {
+            console.warn("Failed to feature palette:", e?.message);
+        }
+    }
+
+    /** Slug-only delete (does not mutate local lists). */
+    async function deletePaletteAdminBySlug(slug: string): Promise<void> {
+        const token = getAdminToken();
+        if (!token) return;
+        try {
+            await deletePaletteAdmin(token, slug);
+        } catch (e: any) {
+            console.warn("Failed to delete palette:", e?.message);
+        }
+    }
+
     async function onPruneEmpty(): Promise<number> {
         const token = getAdminToken();
         if (!token) return 0;
@@ -173,5 +208,8 @@ export function useAdminUsers(deps: {
         onDeleteUserPalettes,
         onDeleteUser,
         onPruneEmpty,
+        loadUserPalettes,
+        featurePaletteBySlug,
+        deletePaletteAdminBySlug,
     };
 }
