@@ -212,13 +212,57 @@ D.W1 gates: vue-tsc 126 / vitest 1581 (34 files) / playwright smoke 3/3 / proof:
 
 D.W1 closes. **The v0.6.0 release gate clears empirically** at `059cf72`.
 
+## 2026-05-20 — D.W2 execution
+
+D.W2 — backend (`api/`) refactor: 4 lanes ordered **C → (A ∥ B) → D** per D-HARDEN-3 §7. The api/ moves from 2 god modules + raw `db.collection(…)` to a typed service+repository pipeline with fail-explicit error envelopes.
+
+- **Lane C — rails (`626b107`)**. 20 NEW files / 1502 LoC (every file ≤ 250).
+  - `api/src/db/collections.ts` typed factory over 9 real collections.
+  - `api/src/models.ts` 9 typed document interfaces (`Palette`, `Vote`, `PaletteVersion`, `Session`, `ProposedName`, `Tag`, `Flag`, `AdminAuditEvent`, `User`).
+  - `api/src/repositories/*.ts` 9 repositories — the ONLY layer touching `db.collection(...)`.
+  - `api/src/errors/index.ts` typed `ApiError` hierarchy (7 subclasses) + `toResponseEnvelope` mapper.
+  - `api/src/events/auditLog.ts` canonical `emitAuditEvent` with W3 befitting-graceful carve-out.
+  - `api/src/middleware/inject-services.ts` DI via Hono context (singleton, lazy-init per worker).
+  - `api/src/middleware/require-ownership.ts` factory for ownership gating.
+  - `api/src/validation/{palette,admin,session,color}.ts` zod 4.4.3 schemas covering every route family.
+  - `api/src/format/palette.ts` shared `formatPalette` (C1 Db lift).
+  - `AppEnv` extended with `services: Services`; `injectServices` registered before `resolveSession`; `app.onError` → `toResponseEnvelope`.
+  - Sub-gates C-1..C-4 all PASS. Zero `as any` across new rails.
+- **Lane A — palettes.ts split (`491a5d8`)**. 845 LoC → 5 concerns + per-concern services (file-disjoint topology landed cleanly with the wave-spec carve-out for 5 concerns instead of 6).
+  - Routes: `routes/palettes/{index,crud,versions,forks,votes,flags}.ts` (6 files, 358 LoC, max 117).
+  - Services: `services/palette/{crud,crud-list,versions,forks,oklab,votes,flags}.ts` (7 files, 905 LoC, max 215).
+  - **F3 fix landed** — vote-toggle race resolved via `VoteRepository.upsertIdempotent` + gated `$inc` (per D-HARDEN-3 §3 correction; `client.withTransaction` not wired but the idempotent-upsert pattern is sufficient given Mongo's unique-index atomicity).
+  - Sub-gate A: every file ≤ 250 lines, zero `db.collection` in new code. PASS.
+- **Lane B — admin.ts split (`b7d7c63`)**. 750 LoC → 8 concerns + per-concern services. Worktree-isolated dispatch; orchestrator integrated via file-copy (the worktree landed on master, not Lane C — orchestrator extracted only Lane B's new files + the one-line `index.ts` import edit).
+  - Routes: `routes/admin/{index,audit,batch,colors,flagged,impersonate,palettes,tags,users}.ts` (9 files, 409 LoC, max 104).
+  - Services: `services/admin/{audit,batch,colors,flagged,impersonate,import,palettes,tags,users}.ts` (9 files, 779 LoC, max 203).
+  - **17 audit-emit invocations** across the new services (every admin WRITE op emits exactly once; the read-only audit.ts service correctly emits zero).
+  - Sub-gate B: every file ≤ 250, `adminAuth` bound once at `/admin/*`, zero `db.collection` in new code. PASS.
+- **Lane D — legacy excision + fail-explicit + doc reconcile (`<this commit>`)**. Closes the wave.
+  - F1 — `formatPalette` migration defaults excised; `api/src/migrations/check.ts` startup smoke probe asserts schema invariants.
+  - F2 — verified gone (Lane C's `require-ownership` middleware is canonical).
+  - F3 — verified handled in Lane A.
+  - W2 — fork JSON-parse-to-empty-body distinguishes empty body from malformed; explicit `ValidationError` on malformed.
+  - W3 — audit-log carve-out verified inline-rationaled.
+  - W4 — `cssToOklab` throws `ValidationError` on unrecognised format (kept inline per KISS rather than coupling api to value.js as file: dep).
+  - **4 missed Db findings folded**: F6 crypto-import normalized; C3 three LRUs consolidated behind `api/src/cache/lru.ts`; C4 SIGTERM+SIGINT handlers with 5s grace window; F1 evidence closed by the migration probe.
+  - **L4 library D6-violation excised** — `evaluateSimpleCalc` (`new Function(...)`) at `src/parsing/color.ts:78` replaced with explicit AST pipeline via `createCalcParser` + `evaluateMathFunction`. `grep -rn 'new Function' src/parsing/` returns zero.
+  - `api/dist/` confirmed never tracked (per D-HARDEN-3 §3 Db §6 L2 correction); local cleanup.
+  - `api/src/migrate-{oklab,slugs}.ts` deleted (corpus-grep proof clean per invariant-33).
+  - `api/CLAUDE.md` wholesale reconcile (81 → ~190 LoC): 9 collections / 27 indexes, full Lane A+B+C topology, explicit pipeline shape, updated endpoint tables.
+  - Sub-gate D: all items PASS.
+
+D.W2 gates: cd api && tsc --noEmit clean / vue-tsc 126 / vitest 1581 (34 files) / playwright smoke 3/3 / proof:resolution GREEN / lint exit 0.
+
+D.W2 closes. Lanes A+B are file-disjoint per HARDEN-1; the parallel dispatch was successful (Lane B's worktree had to be manually integrated due to wrong-base divergence — recorded for future-tranche learnings).
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | D.W0 HEADLINE — open + precept advance + coord refresh | **closed** | 2026-05-19 | 2026-05-19 | `11abd86`, `afdfe77` |
 | D.W1 — contract-v2 alignment + library barrel + tests + lint + Color flatten | **closed** | 2026-05-19 | 2026-05-19 | `73fdabc`, `14d35fa`, `6ca2046`, `059cf72` |
-| D.W2 — backend (api/) refactor — god module split + service/repo + fail-explicit | planned | — | — | — |
+| D.W2 — backend (api/) refactor — god module split + service/repo + fail-explicit | **closed** | 2026-05-19 | 2026-05-20 | `626b107`, `491a5d8`, `b7d7c63`, `<this>` |
 | D.W3 — frontend cohesion — PaletteDialog split + facade completion + codemod | planned | — | — | — |
 | D.W4 — styling + design-idiom catalog | planned | — | — | — |
 | D.W5 — Playwright coverage — 3 → ~20 specs across 3 projects | planned | — | — | — |
