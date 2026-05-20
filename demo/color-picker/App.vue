@@ -7,6 +7,7 @@
             ref="atmosphereCanvas"
             class="absolute inset-0 w-full h-full pointer-events-none"
             aria-hidden="true"
+            data-testid="atmosphere-canvas"
         />
         <!-- W5-a11y: nav landmark for the dock -->
         <nav aria-label="Application navigation">
