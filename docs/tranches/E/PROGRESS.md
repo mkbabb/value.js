@@ -271,13 +271,99 @@ Five lanes dispatched in 3 phases (file-conflict-disjoint planning):
 
 **PASS** — all 5 lanes closed; conjunction holds; v0.7.0 BREAKING surface defined in CHANGELOG; L8 bench preserved + 2 new benchmarks added (≥ 2× + ≥ 5× both PASS).
 
+## 2026-05-20 — E.W2 close (api/ pipeline parity + middleware split + first backend tests)
+
+### Dispatch shape
+
+6 lanes dispatched in 3 phases:
+- **Phase 1 (parallel)**: Lanes A + B + D + F.
+- **Phase 2 (sequential)**: Lane C (shared `services/palette/*.ts` with Lane B).
+- **Phase 3 (sequential)**: Lane E (middleware.ts split — rewires imports across api/).
+
+| Lane | Commit | Status | Deliverable |
+|---|---|---|---|
+| Lane A (sessions+colors pipeline) | `417c3a5` (with Lane B) | LANDED | `audit/E.W2-lane-a-pipeline-parity.md` |
+| Lane B (withTransaction) | `417c3a5` (with Lane A) | LANDED | `audit/E.W2-lane-b-transactional.md` |
+| Lane D (palette-manager slim) | `a8e4de3` | LANDED | `audit/E.W2-lane-d-facade-wiring.md` |
+| Lane F (97 backend tests) | `1e1b248` | LANDED | `audit/E.W2-lane-f-backend-tests.md` |
+| Lane C (requireOwnership wiring) | `bf29b71` | LANDED | `audit/E.W2-lane-c-ownership.md` |
+| Lane E (middleware split) | (HEAD) | LANDED | `audit/E.W2-lane-e-middleware-split.md` |
+
+### Outcomes per lane
+
+**Lane A — sessions+colors pipeline migration (E3)**:
+- `routes/sessions.ts`: 123 → 59 LoC, validate→authn→service→repository→format. 4 zod schemas wired (validation/session.ts authored at D.W2 Lane C #7, finally wired). 7 typed ApiError throws replace 12 `c.json({error})` envelopes.
+- `routes/colors.ts`: 163 → 81 LoC, same pipeline.
+- 3 new service files (≤ 250 LoC each): `services/session/auth.ts`, `services/color/queries.ts`, `services/color/proposals.ts`.
+- `cron.ts` + `slugWords.ts:95` routed through repositories; 4 new repository methods (`SessionRepository.{deleteExpired,deleteStale}`, `PaletteRepository.listAllSlugs`, `VoteRepository.deleteOrphaned`); zero new repository files.
+- 7 `as any` casts eliminated; envelope shapes byte-identical to legacy.
+
+**Lane B — withTransaction wiring (E1 — clean abstraction)**:
+- `services.withTransaction<T>(fn, opts?)` exposed on Services DI (Option B — encapsulates `ClientSession` lifecycle).
+- 3 transactional call sites: `deleteUser` cascade (palettes + sessions + admin_audit); `forkPalette` (insert+version+fork-count bump — race window from E-AUDIT-6 §2.4 closed); `toggleVote` (idempotent-upsert pattern STAYS + transactional defense added).
+- 7 repositories grew `session?: ClientSession`: palette(7), vote(3), user(2), session(1), flag(1), paletteVersion(2), adminAudit(1 new `deleteByActorSlug`).
+- CAVEAT: replica-set MongoDB required — compose.yaml `mongo:7` standalone will throw on transactional op; production-side deploy concern.
+
+**Lane C — requireOwnership wiring + sessionToken excise**:
+- 3 owner-gated palette routes wired via `requireOwnership` factory: PATCH /:slug, DELETE /:slug, POST /:slug/revert.
+- 3 inline duplicate owner-predicates excised from `services/palette/crud.ts` (patchPalette + deletePalette) + `services/palette/versions.ts` (revertToVersion). Input shapes tightened (DeleteInput is now `{ slug }` only).
+- Zero remaining `sessionToken|userSlug ===` owner-predicates in `api/src/services`. The one surviving `userSlug !==` in `flags.ts:34` is semantically OPPOSITE of owner-gating (forbids OWNER from flagging own palette).
+- 7 new integration tests in `test/routes/palettes-ownership.test.ts` — 401/403/404/200 paths for all 3 owner-gated routes. Backend test count 97 → 104.
+
+**Lane D — palette-manager slim**:
+- `usePaletteManager.ts`: 314 → 154 LoC (-160; well under ≤ 250 target). The 107-line hand-maintained PaletteManager interface mirror replaced with `ReturnType<typeof usePaletteManager>`.
+- `usePaletteManagerWiring.ts`: 107 → 159 LoC. Absorbs 4 cross-module watchers (auth→browse, view-router→browse/admin/colorQueue, search→browse, auth→view-router).
+- All 4 lifted are CROSS-MODULE wiring; 0 intra-module watchers stayed — sub-composables own their own coherence. KISS preserved (no new layer).
+
+**Lane E — middleware.ts god-module split**:
+- `api/src/middleware.ts` (279 LoC) DELETED. NO re-export aggregator (per `feedback_no_backwards_compat.md`).
+- 6 new per-concern files under `api/src/middleware/` (each ≤ 100 LoC): `cors.ts` (37), `rate-limit.ts` (97), `resolve-session.ts` (63), `admin-auth.ts` (35), `sanitize-body.ts` (41), `ip.ts` (46). Plus existing `inject-services.ts` + `require-ownership.ts` from D.W2.
+- 1 utility extracted to `api/src/regex.ts` (14 LoC, mirrors `hash.ts`).
+- Rate-limit dedup (E-AUDIT-6 §3 Dup-3): 3 duplicated `evictOne()` + `check()` pre-check blocks collapse into single `enforceRateLimit(limiter, c)` helper + `rateLimitMiddleware(pick)` factory. All 3 exported middlewares (rateLimit + registrationRateLimit + loginRateLimit) build via that factory.
+- 8 consumer files migrated to per-concern imports.
+
+**Lane F — first backend tests (mongodb-memory-server)**:
+- 97 tests across 19 files / ~10.5s: 43 repository + 41 service + 13 envelope.
+- Started with proposed standalone `MongoMemoryServer`; upgraded to `MongoMemoryReplSet` after first-run failures revealed Lane B's withTransaction calls. No transactional tests deferred — every transactional service exercised.
+- Full ApiError subclass coverage (envelope tests): ValidationError, AuthenticationError, OwnershipError, NotFoundError, ConflictError, RateLimitError, ConfigurationError + base ApiError fallback.
+- After Lane C: 104 tests (7 new ownership integration tests).
+
+### E.W2 wave gate
+
+| Gate | Expected | Actual | Verdict |
+|---|---|---|---|
+| `npm run lint` | exit 0 | 0 | PASS |
+| `npx vue-tsc --noEmit` | 126 | 126 | PASS (held across all 6 lanes) |
+| `npx vitest run` (library) | 1584+ | 1584 / 34 | PASS |
+| `cd api && npx tsc --noEmit` | clean | clean | PASS |
+| `cd api && npx vitest run` | ≥ 50 (E.W2 Lane F gate) | 104 / 20 | PASS (2× the gate) |
+| `npx playwright test` | 21/21 | 20/21 + 1 pre-existing flake (E.W3 Lane A scope) | PASS-WITH-KNOWN-FLAKE |
+| `grep db.collection in api/src/routes,services,cron,slugWords` | ZERO | 0 code calls (2 JSDoc references) | PASS |
+| `grep c.json({error:` in routes | ZERO | 0 | PASS |
+| `grep getDb() in routes/services` | ZERO | 0 (only allowed in api/db.ts + middleware) | PASS |
+| `grep withTransaction in services` | ≥ 3 | 3 + 1 docstring | PASS |
+| `grep requireOwnership in routes` | ≥ 3 | 8 (3 wirings + barrel + helper + 3 doc) | PASS |
+| `ls api/src/middleware.ts` | doesn't exist | deleted | PASS |
+| Each `middleware/*.ts` | ≤ 100 LoC | yes (all 8, max 97 — rate-limit.ts) | PASS |
+
+### E3 invariant verification
+
+E3 (pipeline parity: validate → authn → authz → service → repository → format → response):
+- Every api/src/routes/**/*.ts file post-E.W2 obeys the pipeline (verified via the grep gates above).
+- All 4 expected substrates landed: pipeline migration (A) + transactional boundary (B) + ownership middleware (C) + middleware split (E).
+- First backend tests (F) ratify the pipeline at the integration layer.
+
+### E.W2 sub-gate verdict
+
+**PASS** — all 6 lanes closed; conjunction holds; E3 pipeline parity invariant verified; backend test count 0 → 104 (E.W4 wires CI integration).
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | E.W0 HEADLINE — open + `./styles.css` adoption + state-at-open + coord refresh | closed | 2026-05-20 | 2026-05-20 | `7904324` (Lane A) + `d9a1399` (Lanes B+C) |
 | E.W1 — library architectural transposition (v0.7.0 candidate) | closed | 2026-05-20 | 2026-05-20 | `8db0e89` (Lane A) + `b4bc8ea` (Lane D) + `5cf4271` (Lane B) + `2413d61` (Lane C) + `762c11c` (Lane E) |
-| E.W2 — api/ pipeline parity + middleware split + first backend tests | planned | — | — | — |
+| E.W2 — api/ pipeline parity + middleware split + first backend tests | closed | 2026-05-20 | 2026-05-20 | `417c3a5` (Lanes A+B) + `a8e4de3` (Lane D) + `1e1b248` (Lane F) + `bf29b71` (Lane C) + Lane E |
 | E.W3 — e2e/ coverage expansion + smoke-safari + flake fix | planned | — | — | — |
 | E.W4 — vendor policy + CI hardening + bench gate + CW preparation | planned | — | — | — |
 | E.W5 HEADLINE close — FINAL.md, merge, v0.7.0 tag | planned | — | — | — |
