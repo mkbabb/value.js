@@ -3,7 +3,7 @@
  * the flagged-palettes aggregation used by the admin moderation queue.
  */
 
-import type { Collection, Document, WithoutId } from "mongodb";
+import type { ClientSession, Collection, Document, WithoutId } from "mongodb";
 import type { Flag } from "../models.js";
 
 export class FlagRepository {
@@ -17,9 +17,15 @@ export class FlagRepository {
         return this.col.deleteMany({ paletteSlug }).then((r) => r.deletedCount);
     }
 
-    deleteByPaletteSlugs(paletteSlugs: string[]): Promise<number> {
+    deleteByPaletteSlugs(
+        paletteSlugs: string[],
+        session?: ClientSession,
+    ): Promise<number> {
         return this.col
-            .deleteMany({ paletteSlug: { $in: paletteSlugs } })
+            .deleteMany(
+                { paletteSlug: { $in: paletteSlugs } },
+                session ? { session } : undefined,
+            )
             .then((r) => r.deletedCount);
     }
 

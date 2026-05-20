@@ -6,14 +6,15 @@
 
 ```
 color/
-├── index.ts        # 475 loc — Color<T> base class + 15 space classes
+├── index.ts        # Color<T> base class + 15 space classes
 │                     RGBColor, HSLColor, HSVColor, HWBColor
 │                     LABColor, LCHColor, OKLABColor, OKLCHColor
 │                     XYZColor, KelvinColor
 │                     LinearSRGBColor, DisplayP3Color, AdobeRGBColor
 │                     ProPhotoRGBColor, Rec2020Color
 │                     ColorSpaceMap<T> discriminated union type
-├── constants.ts    # 481 loc — ranges, matrices, white points, named colors
+│                     ColorChannel<T> phantom brand + `ch<T>` brand-eraser (E.W1 Lane E lift)
+├── constants.ts    # ranges, matrices, white points, named colors
 │                     COLOR_SPACE_RANGES (per-component min/max for all 15 spaces)
 │                     COLOR_SPACE_DENORM_UNITS (default output units per space)
 │                     WHITE_POINT_D65, WHITE_POINT_D50 (Vec3)
@@ -21,33 +22,42 @@ color/
 │                     XYZ↔LMS, LMS↔OKLab, RGB↔XYZ matrices (all 15 spaces)
 │                     GAMUT_SECTOR_COEFFICIENTS (Red/Green/Blue polynomial k0-k4)
 │                     COLOR_NAMES — 147 CSS named + 5 custom colors
-├── matrix.ts       # 75 loc — 3x3 matrix math (replaces gl-matrix)
+├── matrix.ts       # 3x3 matrix math (replaces gl-matrix)
 │                     Vec3 = [number, number, number]
 │                     Mat3 = 9-element tuple (ROW-MAJOR)
 │                     transformMat3, transposeMat3, multiplyMat3, invertMat3
-├── utils.ts        # 1160 loc — all color conversions + interpolation
+├── utils.ts        # all color conversions + interpolation
 │                     100+ conversion functions via XYZ hub
 │                     Transfer functions: srgb, adobeRgb, proPhoto, rec2020
 │                     color2<T,C>() — generic any-space-to-any-space converter
 │                     mixColors() — CSS color-mix() with premultiplied alpha
 │                     interpolateHue() — shorter/longer/increasing/decreasing methods
 │                     gamutMap() — adaptive gamut mapping wrapper
-├── normalize.ts    # 122 loc — color normalization
+├── normalize.ts    # color normalization
 │                     normalizeColorUnit() — ValueUnit<Color> → [0,1] range
 │                     colorUnit2<C>() — convert + normalize color unit to target space
 │                     normalizeColorUnits() — prepare two colors for interpolation
-├── gamut.ts        # 321 loc — Ottosson analytical sRGB gamut mapping
+├── gamut.ts        # Ottosson analytical sRGB gamut mapping
 │                     gamutMapSRGB() — main entry point
 │                     gamutMapOKLab() — core mapping in raw OKLab space
 │                     findCusp(), findGamutIntersection() — boundary computation
 │                     computeMaxSaturation() — polynomial + Halley's method
 │                     deltaEOK() — Euclidean ΔE in OKLab (JND ≈ 0.02)
 │                     srgbToOKLab() — direct path via LMS (no XYZ intermediary)
-└── colorFilter.ts  # 305 loc — CSS filter solver
-                      rgb2ColorFilter() — SPSA optimization
-                      Solves: invert → sepia → saturate → hue-rotate → brightness → contrast
-                      cssFiltersToString() — format filter array to CSS
+├── colorFilter.ts  # CSS filter solver
+│                     rgb2ColorFilter() — SPSA optimization
+│                     Solves: invert → sepia → saturate → hue-rotate → brightness → contrast
+│                     cssFiltersToString() — format filter array to CSS
+├── contrast.ts     # OKLab contrast helpers
+│                     computeSafeAccent() — lightness-shift away from background
+│                     safeAccentColor() — Color → contrast-safe OKLCHColor
+│                     needsContrastAdjustment(), getOklchLightness()
+└── mix.ts          # N-color mix() helpers (CSS color-mix() with arbitrary stop counts)
 ```
+
+> LoC counts intentionally omitted — `wc -l` is the source of truth.
+> Inline numbers drifted past 70 lines on `index.ts` across the L8 + Lane B + Lane C
+> waves; E.W1 Lane E stripped them.
 
 ## Color spaces
 

@@ -15,7 +15,7 @@ import type { Context } from "hono";
 import type { AppEnv } from "../../types.js";
 import { NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
-import { hashIP, resolveIP } from "../../middleware.js";
+import { hashIP, resolveIP } from "../../middleware/ip.js";
 
 export interface ImpersonateResult {
     token: string;

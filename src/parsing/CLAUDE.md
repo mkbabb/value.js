@@ -6,33 +6,41 @@ CSS value parsers built on `@mkbabb/parse-that` combinators.
 
 ```
 parsing/
-├── index.ts          # 279 loc — top-level CSS parsing
+├── index.ts          # top-level CSS parsing
 │                       parseCSSValue, parseCSSPercent, parseCSSTime
 │                       gradients (linear/radial/conic + repeating variants)
 │                       transforms (translate/scale/rotate/skew expansion)
 │                       var(), cubic-bezier(), generic function()
 │                       CSS wide keywords (inherit, initial, unset, revert, revert-layer)
-├── units.ts          # 108 loc — dimension parsers
+├── units.ts          # dimension parsers
 │                       Length, Angle, Time, Frequency, Resolution, Flex, Percentage
 │                       each maps number+unit → ValueUnit with superType
-├── color.ts          # 549 loc — color parsing
+├── color.ts          # color parsing
 │                       15 color spaces (rgb/hsl/hsv/hwb/lab/lch/oklab/oklch/xyz + kelvin)
 │                       hex (#RGB/#RRGGBB/#RRGGBBAA), named colors (147 CSS + custom)
 │                       color-mix(), color() function, relative color syntax (CSS L5)
 │                       custom color name registry (registerColorNames, clearCustomColorNames)
-├── math.ts           # 500 loc — CSS math functions
+├── math.ts           # CSS math functions
 │                       calc() → binary-operator AST (FunctionValue nodes)
 │                       min/max/clamp, round/mod/rem, abs/sign
 │                       trig (sin/cos/tan/asin/acos/atan/atan2)
 │                       exp (pow/sqrt/hypot/log/exp)
 │                       evaluateMathFunction() — resolve AST to ValueUnit
-├── utils.ts          # 50 loc — parse-that primitives
+├── utils.ts          # parse-that primitives
 │                       istring (case-insensitive), number, integer, none
 │                       succeed, fail, tryParse, parseResult
+├── animation-shorthand.ts  # animation / transition shorthand expansion
+├── extract.ts        # stylesheet → keyframes / properties / rules
+├── serialize.ts      # stylesheet AST → string + prettier wrapper
+├── stylesheet.ts     # full CSS at-rule + qualified-rule parsing
 └── grammars/         # BBNF spec grammars (documentation only, not executed at runtime)
-    ├── css-values.bbnf   # 99 loc — CSS Values Level 4 structural grammar
-    └── css-color.bbnf    # 136 loc — CSS Color Level 4 structural grammar
+    ├── css-values.bbnf   # CSS Values Level 4 structural grammar
+    └── css-color.bbnf    # CSS Color Level 4 structural grammar
 ```
+
+> LoC counts intentionally omitted — `wc -l` is the source of truth.
+> Inline numbers drifted past 50 lines on `color.ts` across the relative-color
+> syntax + color() additions; E.W1 Lane E stripped them.
 
 ## Dependency flow
 

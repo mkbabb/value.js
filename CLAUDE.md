@@ -14,11 +14,15 @@ npm run dev          # dev server (Vite default port)
 ## Test + verify
 
 ```
-npm test                 # vitest (jsdom) — 1582 tests, 34 files
-npx playwright test      # all 3 projects — 21 specs (smoke / smoke-admin / smoke-mobile)
+npm test                 # vitest (jsdom) — unit suite (~1580+ tests across ~34 files)
+npx playwright test      # smoke / smoke-admin / smoke-mobile (~20+ specs across 3 projects)
 npm run lint             # eslint flat config (D.W1 L7) — exit 0 required
 npm run proof:resolution # contract-v2 dev-resolution proof across the fleet (D.W1)
 ```
+
+> Exact test/spec counts belong in per-tranche FINAL.md docs (e.g.
+> `docs/tranches/E/FINAL.md`). Numbers inlined here drift each wave; the
+> wave-gate doc carries the authoritative count for that wave.
 
 ## Structure
 
@@ -44,18 +48,20 @@ src/
 │       └── css-color.bbnf
 ├── units/                # core value classes + unit definitions
 │   ├── index.ts          # ValueUnit, FunctionValue, ValueArray classes
-│   ├── constants.ts      # unit arrays, STYLE_NAMES (630+ CSS properties), MatrixValues
+│   ├── constants.ts      # unit arrays, STYLE_NAMES (CSS properties), MatrixValues
 │   ├── utils.ts          # unit conversion (px, deg, ms, Hz, dpi), flatten/unflatten
 │   ├── normalize.ts      # value normalization + interpolation setup
 │   ├── interpolate.ts    # value interpolation
 │   └── color/            # color system (15 spaces, conversion, gamut mapping)
-│       ├── index.ts      # Color<T> base + 15 space classes (RGB, HSL, OKLab, etc.)
+│       ├── index.ts      # Color<T> base + 15 space classes + ColorChannel brand + ch<T> helper
 │       ├── constants.ts  # ranges, matrices, white points, named colors
 │       ├── matrix.ts     # Vec3/Mat3 math (row-major, f64, replaces gl-matrix)
 │       ├── utils.ts      # conversion functions via XYZ hub, mixColors, gamutMap
 │       ├── normalize.ts  # color normalization to [0,1], space conversion
 │       ├── gamut.ts      # Ottosson analytical sRGB gamut mapping (zero-iteration)
-│       └── colorFilter.ts # CSS filter solver via SPSA optimization
+│       ├── colorFilter.ts # CSS filter solver via SPSA optimization
+│       ├── contrast.ts   # OKLab contrast helpers, safeAccentColor
+│       └── mix.ts        # N-color mix() helpers
 ├── quantize/             # image color quantization (OKLab-native)
 │   ├── index.ts          # quantizePixels, dominantColor (public API)
 │   ├── cluster.ts        # MMCQ median cut, k-means++, JND deduplication
@@ -65,11 +71,11 @@ src/
 ```
 
 ```
-test/                     # vitest unit tests (34 files, 1582 tests)
-e2e/smoke/                # playwright smoke suite — 21 specs across 3 projects:
-                          #   smoke (desktop Chromium, 14 specs incl. reactivity-instant + WebGL)
-                          #   smoke-admin (admin views via addInitScript mock fixture, 6 specs)
-                          #   smoke-mobile (Pixel-7 layout probe, 1 spec)
+test/                     # vitest unit tests
+e2e/smoke/                # playwright smoke suite across 3 projects:
+                          #   smoke (desktop Chromium, incl. reactivity-instant + WebGL)
+                          #   smoke-admin (admin views via addInitScript mock fixture)
+                          #   smoke-mobile (Pixel-7 layout probe)
 demo/                     # Vue 3.5 color picker app (reka-ui, Tailwind, @vueuse)
 api/                      # Hono + MongoDB palette API (Docker, Node 22, 9 collections / 27 indexes)
 docs/                     # color-theory.md, gamut-mapping.md
@@ -85,10 +91,11 @@ assets/docs/              # 10 color space reference pages (Vue + KaTeX)
 - Named exports only, no defaults (enables tree-shaking)
 - Color matrices stored row-major (3x3); transform matrices column-major (4x4, CSS convention)
 - Color components normalized to [0,1] internally; denormalized on output
+- See `VENDOR-POLICY.md` for the `demo/@/components/ui/` shadcn-vue vendored-noise policy (accepted-noise; vue-tsc count gated at 126).
 
 ## Entry point
 
-`src/index.ts`—re-exports all public API (~200 symbols across units, colors, parsing, easing, math, transforms)
+`src/index.ts` — re-exports the public API (units, colors, parsing, easing, math, transforms).
 
 ## Dependencies
 

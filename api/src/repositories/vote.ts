@@ -9,7 +9,7 @@
  * a Mongo transaction.
  */
 
-import type { Collection } from "mongodb";
+import type { ClientSession, Collection } from "mongodb";
 import type { Vote } from "../models.js";
 
 export interface VoteUpsertResult {
@@ -40,6 +40,7 @@ export class VoteRepository {
     async upsertIdempotent(
         userSlug: string,
         paletteSlug: string,
+        session?: ClientSession,
     ): Promise<VoteUpsertResult> {
         const result = await this.col.updateOne(
             { userSlug, paletteSlug },
@@ -50,14 +51,21 @@ export class VoteRepository {
                     createdAt: new Date(),
                 },
             },
-            { upsert: true },
+            session ? { upsert: true, session } : { upsert: true },
         );
         return { inserted: result.upsertedCount === 1 };
     }
 
     /** Returns true iff a vote was found and deleted. */
-    async deleteOne(userSlug: string, paletteSlug: string): Promise<boolean> {
-        const result = await this.col.deleteOne({ userSlug, paletteSlug });
+    async deleteOne(
+        userSlug: string,
+        paletteSlug: string,
+        session?: ClientSession,
+    ): Promise<boolean> {
+        const result = await this.col.deleteOne(
+            { userSlug, paletteSlug },
+            session ? { session } : undefined,
+        );
         return result.deletedCount > 0;
     }
 
@@ -65,9 +73,26 @@ export class VoteRepository {
         return this.col.deleteMany({ paletteSlug }).then((r) => r.deletedCount);
     }
 
-    deleteByPaletteSlugs(paletteSlugs: string[]): Promise<number> {
+    deleteByPaletteSlugs(
+        paletteSlugs: string[],
+        session?: ClientSession,
+    ): Promise<number> {
         return this.col
-            .deleteMany({ paletteSlug: { $in: paletteSlugs } })
+            .deleteMany(
+                { paletteSlug: { $in: paletteSlugs } },
+                session ? { session } : undefined,
+            )
+            .then((r) => r.deletedCount);
+    }
+
+    /**
+     * Delete vote rows whose `paletteSlug` is NOT in `validSlugs` — the cron
+     * orphan-cleanup primitive. `validSlugs` is the authoritative palette
+     * inventory at the time of the sweep.
+     */
+    deleteOrphaned(validSlugs: string[]): Promise<number> {
+        return this.col
+            .deleteMany({ paletteSlug: { $nin: validSlugs } })
             .then((r) => r.deletedCount);
     }
 }

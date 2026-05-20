@@ -3,6 +3,24 @@ import { MongoClient, type Db } from "mongodb";
 let client: MongoClient | null = null;
 let db: Db | null = null;
 
+/**
+ * Internal client accessor — exposed for the transactional boundary
+ * (`middleware/inject-services.ts` builds `services.withTransaction` on top
+ * of this). Services should NEVER import this directly; they call
+ * `services.withTransaction(fn)` instead. Returns the cached client, ensuring
+ * `getDb()` has been called at least once.
+ */
+export async function getClient(): Promise<MongoClient> {
+    if (!client) {
+        // Force connect via getDb's side-effect — same lifecycle as `db`.
+        await getDb();
+    }
+    if (!client) {
+        throw new Error("MongoClient not initialised");
+    }
+    return client;
+}
+
 export async function getDb(): Promise<Db> {
     if (db) return db;
 

@@ -23,6 +23,20 @@ declare const __ColorChannel: unique symbol;
 export type ColorChannel<T = number> = T & { readonly [__ColorChannel]: true };
 
 /**
+ * Brand-erasing identity helper. Casts a plain `T` value to `ColorChannel<T>`
+ * at write sites that compute channels from arithmetic / interpolation. The
+ * `ColorChannel<T>` brand on declared fields requires an explicit cast on
+ * assignment — this helper makes the intent clear and keeps the line short.
+ *
+ * Zero runtime cost (identity function; inlined by V8).
+ *
+ * E.W1 Lane E — lifted from per-file duplicates in `utils.ts` + `contrast.ts`
+ * to live alongside the `ColorChannel<T>` brand declaration. Internal-only:
+ * NOT re-exported from `src/index.ts`.
+ */
+export const ch = <T>(v: T): ColorChannel<T> => v as ColorChannel<T>;
+
+/**
  * Abstract base class for all CSS color spaces.
  *
  * Generic over component type `T` — `number` for math operations,
@@ -39,6 +53,22 @@ export type ColorChannel<T = number> = T & { readonly [__ColorChannel]: true };
  */
 export abstract class Color<T = number> {
     [key: string]: any;
+
+    /**
+     * Reference white point for this color instance.
+     *
+     * E.W1 Lane B (WhitePointColor lift): hoisted from the deleted
+     * `WhitePointColor<T>` intermediate class to the base. Optional with a
+     * D65 default — the historically D50 spaces (`LABColor`, `OKLABColor`)
+     * set `"D50"` explicitly in their constructors; `XYZColor` keeps the
+     * D65 default to mirror its prior `super(…, "D65")` call.
+     *
+     * Subclasses that don't carry a meaningful white point (HSL/HSV/HWB
+     * cylindrical, KelvinColor) leave it as the inherited default; reads
+     * are harmless and the field is monomorphic across all 14 subclasses
+     * (V8 hidden-class stable — verified by `bench/color-channel-access.mjs`).
+     */
+    public whitePoint: WhitePoint = "D65";
 
     constructor(
         public readonly colorSpace: ColorSpace,
@@ -139,8 +169,25 @@ export abstract class Color<T = number> {
         }
     }
 
-    keys(): string[] {
-        return [...this.channels, "alpha"];
+    /**
+     * Return the ordered list of channel keys followed by `"alpha"`.
+     *
+     * E.W1 Lane C — cached as a static-per-subclass `readonly` tuple
+     * (`channelKeysWithAlpha`). Pre-Lane-C this allocated a new array on every
+     * call via `[...this.channels, "alpha"]`; the demo gradient interpolation
+     * + `lerpColorValue` + `mixColors` + `normalizeColor` all hit this path
+     * per frame, so the per-call array churn was measurable.
+     *
+     * Subclasses define their own `static readonly channelKeysWithAlpha`
+     * (frozen tuple); the base falls back to a synthesized array for the
+     * abstract case (never reached in normal flow — there is no abstract
+     * `Color` instance — but kept for type safety).
+     */
+    keys(): readonly string[] {
+        const C = this.constructor as typeof Color & {
+            channelKeysWithAlpha?: readonly string[];
+        };
+        return C.channelKeysWithAlpha ?? [...this.channels, "alpha"];
     }
 
     values(): T[] {
@@ -160,23 +207,17 @@ export abstract class Color<T = number> {
     }
 }
 
-class WhitePointColor<T = number> extends Color<T> {
-    constructor(
-        colorSpace: ColorSpace,
-        alpha: T,
-        public whitePoint: WhitePoint,
-    ) {
-        super(colorSpace, alpha);
-    }
-
-    // Abstract override — concrete subclasses override `channels` themselves.
-    get channels(): readonly string[] {
-        return [];
-    }
-}
-
 // ──────────────────────────────────────────────────────────────────────────────
 // 15 color-space subclasses — own-property storage (V8 monomorphic).
+//
+// E.W1 Lane B (WhitePointColor lift): the `WhitePointColor<T>` intermediate
+// class previously sat between Color<T> and the three white-point-bearing
+// subclasses (LAB, OKLAB, XYZ). Its sole purpose was to carry a `whitePoint`
+// field — but that asymmetric inheritance broke the type-level invariant
+// (OKLCH is the cylindrical form of OKLAB yet inherited from Color directly,
+// not the white-point intermediate). `whitePoint` now lives on Color<T> base
+// with a D65 default; LAB/OKLAB override to D50 in their constructors.
+// See `docs/tranches/E/audit/E.W1-lane-b-whitepoint-lift.md`.
 // ──────────────────────────────────────────────────────────────────────────────
 
 const _RGB_CHANNELS = ["r", "g", "b"] as const;
@@ -188,8 +229,22 @@ const _LCH_CHANNELS = ["l", "c", "h"] as const;
 const _XYZ_CHANNELS = ["x", "y", "z"] as const;
 const _KELVIN_CHANNELS = ["kelvin"] as const;
 
+// E.W1 Lane C — channel-keys-with-alpha tuples cached per subclass shape.
+// Static-per-subclass pattern avoids per-instance copies AND per-call
+// allocation in `Color.keys()`. Frozen + `as const` for V8 hidden-class
+// stability — every Color subclass references the same shared tuple object.
+const _RGB_KEYS_A = ["r", "g", "b", "alpha"] as const;
+const _HSL_KEYS_A = ["h", "s", "l", "alpha"] as const;
+const _HSV_KEYS_A = ["h", "s", "v", "alpha"] as const;
+const _HWB_KEYS_A = ["h", "w", "b", "alpha"] as const;
+const _LAB_KEYS_A = ["l", "a", "b", "alpha"] as const;
+const _LCH_KEYS_A = ["l", "c", "h", "alpha"] as const;
+const _XYZ_KEYS_A = ["x", "y", "z", "alpha"] as const;
+const _KELVIN_KEYS_A = ["kelvin", "alpha"] as const;
+
 /** sRGB color space — the web's default. Components: r, g, b in [0,255] denormalized. D65 white point, ~2.2 gamma. */
 export class RGBColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _RGB_KEYS_A;
     declare r: ColorChannel<T>;
     declare g: ColorChannel<T>;
     declare b: ColorChannel<T>;
@@ -213,6 +268,7 @@ export class RGBColor<T = number> extends Color<T> {
 
 /** HSL cylindrical space — hue [0,360], saturation [0,1], lightness [0,1]. D65 white point. */
 export class HSLColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _HSL_KEYS_A;
     declare h: ColorChannel<T>;
     declare s: ColorChannel<T>;
     declare l: ColorChannel<T>;
@@ -236,6 +292,7 @@ export class HSLColor<T = number> extends Color<T> {
 
 /** HSV cylindrical space — hue [0,360], saturation [0,1], value [0,1]. D65 white point. */
 export class HSVColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _HSV_KEYS_A;
     declare h: ColorChannel<T>;
     declare s: ColorChannel<T>;
     declare v: ColorChannel<T>;
@@ -259,6 +316,7 @@ export class HSVColor<T = number> extends Color<T> {
 
 /** HWB space — hue [0,360], whiteness [0,1], blackness [0,1]. D65 white point. */
 export class HWBColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _HWB_KEYS_A;
     declare h: ColorChannel<T>;
     declare w: ColorChannel<T>;
     declare b: ColorChannel<T>;
@@ -281,7 +339,8 @@ export class HWBColor<T = number> extends Color<T> {
 }
 
 /** CIE Lab (D50) — perceptual lightness L [0,100], a/b axes [-125,125]. */
-export class LABColor<T = number> extends WhitePointColor<T> {
+export class LABColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _LAB_KEYS_A;
     declare l: ColorChannel<T>;
     declare a: ColorChannel<T>;
     declare b: ColorChannel<T>;
@@ -291,7 +350,8 @@ export class LABColor<T = number> extends WhitePointColor<T> {
     }
 
     constructor(l?: T, a?: T, b?: T, alpha?: T) {
-        super("lab", alpha as T, "D50");
+        super("lab", alpha as T);
+        this.whitePoint = "D50";
         if (import.meta.env.DEV) {
             Color._assertChannel(l);
             Color._assertChannel(a);
@@ -305,6 +365,7 @@ export class LABColor<T = number> extends WhitePointColor<T> {
 
 /** CIE LCH (D50) — cylindrical form of Lab. L [0,100], C [0,150], H [0,360]. */
 export class LCHColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _LCH_KEYS_A;
     declare l: ColorChannel<T>;
     declare c: ColorChannel<T>;
     declare h: ColorChannel<T>;
@@ -327,7 +388,8 @@ export class LCHColor<T = number> extends Color<T> {
 }
 
 /** OKLab (D50) — perceptually uniform. L [0,1], a/b [-0.4,0.4]. Björn Ottosson's improvement over CIE Lab. */
-export class OKLABColor<T = number> extends WhitePointColor<T> {
+export class OKLABColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _LAB_KEYS_A;
     declare l: ColorChannel<T>;
     declare a: ColorChannel<T>;
     declare b: ColorChannel<T>;
@@ -337,7 +399,8 @@ export class OKLABColor<T = number> extends WhitePointColor<T> {
     }
 
     constructor(l?: T, a?: T, b?: T, alpha?: T) {
-        super("oklab", alpha as T, "D50");
+        super("oklab", alpha as T);
+        this.whitePoint = "D50";
         if (import.meta.env.DEV) {
             Color._assertChannel(l);
             Color._assertChannel(a);
@@ -351,6 +414,7 @@ export class OKLABColor<T = number> extends WhitePointColor<T> {
 
 /** OKLCH — cylindrical form of OKLab. L [0,1], C [0,0.4], H [0,360]. CSS Color Level 4 recommended space. */
 export class OKLCHColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _LCH_KEYS_A;
     declare l: ColorChannel<T>;
     declare c: ColorChannel<T>;
     declare h: ColorChannel<T>;
@@ -373,7 +437,8 @@ export class OKLCHColor<T = number> extends Color<T> {
 }
 
 /** CIE XYZ (D65) — the connection space hub for all conversions. Unbounded components. */
-export class XYZColor<T = number> extends WhitePointColor<T> {
+export class XYZColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _XYZ_KEYS_A;
     declare x: ColorChannel<T>;
     declare y: ColorChannel<T>;
     declare z: ColorChannel<T>;
@@ -383,7 +448,8 @@ export class XYZColor<T = number> extends WhitePointColor<T> {
     }
 
     constructor(x?: T, y?: T, z?: T, alpha?: T) {
-        super("xyz", alpha as T, "D65");
+        super("xyz", alpha as T);
+        // whitePoint defaults to "D65" on Color<T> base — explicit set elided.
         if (import.meta.env.DEV) {
             Color._assertChannel(x);
             Color._assertChannel(y);
@@ -397,6 +463,7 @@ export class XYZColor<T = number> extends WhitePointColor<T> {
 
 /** Color temperature — single kelvin component [1000,40000]. Converts through blackbody radiation to sRGB. */
 export class KelvinColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _KELVIN_KEYS_A;
     declare kelvin: ColorChannel<T>;
 
     get channels(): readonly string[] {
@@ -414,6 +481,7 @@ export class KelvinColor<T = number> extends Color<T> {
 
 /** Linear-light sRGB — no gamma curve. Components r, g, b in [0,1]. D65 white point. */
 export class LinearSRGBColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _RGB_KEYS_A;
     declare r: ColorChannel<T>;
     declare g: ColorChannel<T>;
     declare b: ColorChannel<T>;
@@ -437,6 +505,7 @@ export class LinearSRGBColor<T = number> extends Color<T> {
 
 /** Display P3 — wide-gamut space used by Apple displays. Components r, g, b in [0,1]. D65, sRGB transfer. */
 export class DisplayP3Color<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _RGB_KEYS_A;
     declare r: ColorChannel<T>;
     declare g: ColorChannel<T>;
     declare b: ColorChannel<T>;
@@ -460,6 +529,7 @@ export class DisplayP3Color<T = number> extends Color<T> {
 
 /** Adobe RGB (1998) — wide-gamut space for print/photography. Components r, g, b in [0,1]. D65, gamma 2.2. */
 export class AdobeRGBColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _RGB_KEYS_A;
     declare r: ColorChannel<T>;
     declare g: ColorChannel<T>;
     declare b: ColorChannel<T>;
@@ -483,6 +553,7 @@ export class AdobeRGBColor<T = number> extends Color<T> {
 
 /** ProPhoto RGB (ROMM) — ultra-wide gamut for photography. Components r, g, b in [0,1]. D50, gamma 1.8. */
 export class ProPhotoRGBColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _RGB_KEYS_A;
     declare r: ColorChannel<T>;
     declare g: ColorChannel<T>;
     declare b: ColorChannel<T>;
@@ -506,6 +577,7 @@ export class ProPhotoRGBColor<T = number> extends Color<T> {
 
 /** ITU-R BT.2020 — HDR/UHD broadcast gamut. Components r, g, b in [0,1]. D65, PQ transfer. */
 export class Rec2020Color<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _RGB_KEYS_A;
     declare r: ColorChannel<T>;
     declare g: ColorChannel<T>;
     declare b: ColorChannel<T>;

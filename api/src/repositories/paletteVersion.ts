@@ -4,14 +4,14 @@
  * Document `_id` is the content-hash; see `models.ts: PaletteVersion`.
  */
 
-import type { Collection, WithoutId } from "mongodb";
+import type { ClientSession, Collection, WithoutId } from "mongodb";
 import type { PaletteVersion } from "../models.js";
 
 export class PaletteVersionRepository {
     constructor(private readonly col: Collection<PaletteVersion>) {}
 
-    findByHash(hash: string): Promise<PaletteVersion | null> {
-        return this.col.findOne({ _id: hash });
+    findByHash(hash: string, session?: ClientSession): Promise<PaletteVersion | null> {
+        return this.col.findOne({ _id: hash }, session ? { session } : undefined);
     }
 
     findByPaletteSlug(
@@ -36,10 +36,16 @@ export class PaletteVersionRepository {
      * hash already exists, the existing hash is returned (no write happens).
      * Returns the hash either way.
      */
-    async insertIfAbsent(version: WithoutId<PaletteVersion> & { _id: string }): Promise<string> {
-        const existing = await this.col.findOne({ _id: version._id });
+    async insertIfAbsent(
+        version: WithoutId<PaletteVersion> & { _id: string },
+        session?: ClientSession,
+    ): Promise<string> {
+        const existing = await this.col.findOne(
+            { _id: version._id },
+            session ? { session } : undefined,
+        );
         if (existing) return version._id;
-        await this.col.insertOne(version);
+        await this.col.insertOne(version, session ? { session } : undefined);
         return version._id;
     }
 }

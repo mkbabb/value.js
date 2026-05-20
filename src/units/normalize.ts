@@ -3,6 +3,7 @@ import { ValueUnit } from ".";
 import type { InterpolatedVar } from ".";
 import { parseCSSValueUnit } from "../parsing/units";
 import { memoize } from "../utils";
+import type { ColorSpace } from "./color/constants";
 import type { HueInterpolationMethod } from "./color/utils";
 import { normalizeColorUnits } from "./color/normalize";
 import {
@@ -320,7 +321,7 @@ const asColorValueUnit = (value: ValueUnit): Parameters<typeof normalizeColorUni
 
 export type NormalizeValueUnitsOptions = {
     /** Color space for color interpolation. Default: `"oklab"`. */
-    colorSpace?: string;
+    colorSpace?: ColorSpace;
     /** Hue interpolation method for cylindrical color spaces. */
     hueMethod?: HueInterpolationMethod;
 };
@@ -343,7 +344,7 @@ export function normalizeValueUnits(
     right: ValueUnit,
     options: NormalizeValueUnitsOptions = {},
 ): InterpolatedVar<unknown> {
-    const colorSpace = options.colorSpace ?? "oklab";
+    const colorSpace: ColorSpace = options.colorSpace ?? "oklab";
     const hueMethod = options.hueMethod;
 
     left = left.coalesce(right);
@@ -360,7 +361,7 @@ export function normalizeValueUnits(
         const [leftCollapsed, rightCollapsed] = normalizeColorUnits(
             asColorValueUnit(left),
             asColorValueUnit(right),
-            colorSpace as any,
+            colorSpace,
             false,
             true,
             false,
@@ -373,7 +374,7 @@ export function normalizeValueUnits(
         // Producer side: carry hueMethod + colorSpace through to the
         // InterpolatedVar so `lerpColorValue` can dispatch `interpolateHue`
         // for the hue channel of cylindrical spaces.
-        out.colorSpace = colorSpace as any;
+        out.colorSpace = colorSpace;
         if (hueMethod) out.hueMethod = hueMethod;
     }
 

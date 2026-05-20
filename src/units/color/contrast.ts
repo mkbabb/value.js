@@ -1,9 +1,7 @@
 import { clamp } from "../../math";
-import { OKLCHColor } from ".";
-import type { Color, ColorChannel } from ".";
+import { ch, OKLCHColor } from ".";
+import type { Color } from ".";
 import { color2 } from "./utils";
-
-const ch = <T>(v: T): ColorChannel<T> => v as ColorChannel<T>;
 
 /**
  * Minimum OKLab lightness distance for readable accent text/icons.

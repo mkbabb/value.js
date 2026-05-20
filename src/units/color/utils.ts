@@ -2,6 +2,7 @@ import type { Vec3, Mat3 } from "./matrix";
 import { transformMat3, invertMat3 } from "./matrix";
 import {
     AdobeRGBColor,
+    ch,
     Color,
     DisplayP3Color,
     HSLColor,
@@ -18,23 +19,16 @@ import {
     Rec2020Color,
     XYZColor,
 } from ".";
-import type { ColorChannel, ColorSpaceMap } from ".";
-
-/**
- * Brand-erasing identity helper. Casts a plain `T` value to `ColorChannel<T>`
- * at write sites that compute channels from arithmetic / interpolation. The
- * `ColorChannel<T>` brand on declared fields requires an explicit cast on
- * assignment — this helper makes the intent clear and keeps the line short.
- *
- * Zero runtime cost (identity function; inlined by V8).
- */
-const ch = <T>(v: T): ColorChannel<T> => v as ColorChannel<T>;
+import type { ColorSpaceMap } from ".";
 import { clamp, lerp, scale } from "../../math";
 import {
     COLOR_SPACE_DENORM_UNITS,
     COLOR_SPACE_RANGES,
+    LINEAR_SRGB_TO_LMS,
+    LMS_TO_LINEAR_SRGB,
     LMS_TO_OKLAB_MATRIX,
     LMS_TO_XYZ_MATRIX,
+    OKLAB_TO_LMS_COEFF,
     OKLAB_TO_LMS_MATRIX,
     RGBA_MAX,
     WHITE_POINTS,
@@ -898,64 +892,110 @@ const XYZ_REC2020_MATRIX: Mat3 = invertMat3(REC2020_XYZ_MATRIX);
 // sRGB-linear uses the existing RGB_XYZ_MATRIX (already defined above)
 
 // --- Conversion functions for new color spaces ---
+//
+// E.W1 Lane C — `rgbFamily2xyz` / `xyz2rgbFamily` helpers extract the shared
+// "transfer-decode → matrix-multiply → wrap" shape across the 5 wide-gamut
+// RGB-family classes (LinearSRGB, DisplayP3, AdobeRGB, ProPhotoRGB, Rec2020).
+// Each space differs ONLY in its transfer function and its 3×3 RGB↔XYZ matrix;
+// the rest is identical structurally. Extracting the common shape eliminates
+// 10+ duplicated `transformMat3` invocations and ~40 LoC of mechanical
+// repetition. See `docs/tranches/E/audit/E.W1-lane-c-direct-paths.md`.
 
-export function linearSrgb2xyz({ r, g, b, alpha }: LinearSRGBColor): XYZColor {
-    const [x, y, z] = transformMat3([r, g, b] as Vec3, RGB_XYZ_MATRIX);
+/** Identity transfer (linear-light spaces — no gamma curve). */
+const linearTransfer = (c: number): number => c;
+
+/**
+ * Generic RGB-family → XYZ converter. Decodes each channel via `transferDecode`
+ * (gamma → linear), multiplies by `toXyzMatrix`, returns an XYZColor.
+ *
+ * The 5 wide-gamut family converters reduce to a one-liner each.
+ */
+function rgbFamily2xyz<C extends { r: any; g: any; b: any; alpha: any }>(
+    { r, g, b, alpha }: C,
+    transferDecode: (c: number) => number,
+    toXyzMatrix: Mat3,
+): XYZColor {
+    const linear: Vec3 = [transferDecode(r), transferDecode(g), transferDecode(b)];
+    const [x, y, z] = transformMat3(linear, toXyzMatrix);
     return new XYZColor(x, y, z, alpha);
 }
 
-export function xyz2linearSrgb({ x, y, z, alpha }: XYZColor): LinearSRGBColor {
-    const [r, g, b] = transformMat3([x, y, z] as Vec3, XYZ_RGB_MATRIX);
-    return new LinearSRGBColor(r, g, b, alpha);
+/**
+ * Generic XYZ → RGB-family converter. Multiplies XYZ by `fromXyzMatrix`,
+ * encodes each linear channel via `transferEncode` (linear → gamma), wraps
+ * the result with `wrap(r, g, b, alpha)`.
+ */
+function xyz2rgbFamily<R>(
+    { x, y, z, alpha }: XYZColor,
+    fromXyzMatrix: Mat3,
+    transferEncode: (c: number) => number,
+    wrap: (r: number, g: number, b: number, alpha: number) => R,
+): R {
+    const linear = transformMat3([x, y, z] as Vec3, fromXyzMatrix);
+    return wrap(
+        transferEncode(linear[0]),
+        transferEncode(linear[1]),
+        transferEncode(linear[2]),
+        alpha,
+    );
 }
 
-export function displayP32xyz({ r, g, b, alpha }: DisplayP3Color): XYZColor {
-    // Display P3 uses the same sRGB transfer function
-    const linear: Vec3 = [srgbToLinear(r), srgbToLinear(g), srgbToLinear(b)];
-    const [x, y, z] = transformMat3(linear, DISPLAY_P3_XYZ_MATRIX);
-    return new XYZColor(x, y, z, alpha);
+export function linearSrgb2xyz(color: LinearSRGBColor): XYZColor {
+    return rgbFamily2xyz(color, linearTransfer, RGB_XYZ_MATRIX);
 }
 
-export function xyz2displayP3({ x, y, z, alpha }: XYZColor): DisplayP3Color {
-    const linear = transformMat3([x, y, z] as Vec3, XYZ_DISPLAY_P3_MATRIX);
-    return new DisplayP3Color(linearToSrgb(linear[0]), linearToSrgb(linear[1]), linearToSrgb(linear[2]), alpha);
+export function xyz2linearSrgb(xyz: XYZColor): LinearSRGBColor {
+    return xyz2rgbFamily(xyz, XYZ_RGB_MATRIX, linearTransfer,
+        (r, g, b, a) => new LinearSRGBColor(r, g, b, a));
 }
 
-export function adobeRgb2xyz({ r, g, b, alpha }: AdobeRGBColor): XYZColor {
-    const linear: Vec3 = [adobeRgbToLinear(r), adobeRgbToLinear(g), adobeRgbToLinear(b)];
-    const [x, y, z] = transformMat3(linear, ADOBE_RGB_XYZ_MATRIX);
-    return new XYZColor(x, y, z, alpha);
+export function displayP32xyz(color: DisplayP3Color): XYZColor {
+    // Display P3 uses the same sRGB transfer function.
+    return rgbFamily2xyz(color, srgbToLinear, DISPLAY_P3_XYZ_MATRIX);
 }
 
-export function xyz2adobeRgb({ x, y, z, alpha }: XYZColor): AdobeRGBColor {
-    const linear = transformMat3([x, y, z] as Vec3, XYZ_ADOBE_RGB_MATRIX);
-    return new AdobeRGBColor(linearToAdobeRgb(linear[0]), linearToAdobeRgb(linear[1]), linearToAdobeRgb(linear[2]), alpha);
+export function xyz2displayP3(xyz: XYZColor): DisplayP3Color {
+    return xyz2rgbFamily(xyz, XYZ_DISPLAY_P3_MATRIX, linearToSrgb,
+        (r, g, b, a) => new DisplayP3Color(r, g, b, a));
+}
+
+export function adobeRgb2xyz(color: AdobeRGBColor): XYZColor {
+    return rgbFamily2xyz(color, adobeRgbToLinear, ADOBE_RGB_XYZ_MATRIX);
+}
+
+export function xyz2adobeRgb(xyz: XYZColor): AdobeRGBColor {
+    return xyz2rgbFamily(xyz, XYZ_ADOBE_RGB_MATRIX, linearToAdobeRgb,
+        (r, g, b, a) => new AdobeRGBColor(r, g, b, a));
 }
 
 export function proPhoto2xyz({ r, g, b, alpha }: ProPhotoRGBColor): XYZColor {
+    // ProPhoto is native D50 — apply the family helper to get XYZ-D50, then
+    // adapt to D65 via the Bradford matrix.
     const linear: Vec3 = [proPhotoToLinear(r), proPhotoToLinear(g), proPhotoToLinear(b)];
-    // ProPhoto is native D50 — multiply by D50 matrix, then adapt to D65
     const xyzD50 = transformMat3(linear, PROPHOTO_XYZ_D50_MATRIX);
     const [x, y, z] = transformMat3(xyzD50, WHITE_POINT_D50_D65);
     return new XYZColor(x, y, z, alpha);
 }
 
 export function xyz2proPhoto({ x, y, z, alpha }: XYZColor): ProPhotoRGBColor {
-    // Adapt from D65 to D50, then apply inverse matrix
+    // Adapt from D65 to D50, then apply inverse matrix and encode transfer.
     const xyzD50 = transformMat3([x, y, z] as Vec3, WHITE_POINT_D65_D50);
     const linear = transformMat3(xyzD50, XYZ_D50_PROPHOTO_MATRIX);
-    return new ProPhotoRGBColor(linearToProPhoto(linear[0]), linearToProPhoto(linear[1]), linearToProPhoto(linear[2]), alpha);
+    return new ProPhotoRGBColor(
+        linearToProPhoto(linear[0]),
+        linearToProPhoto(linear[1]),
+        linearToProPhoto(linear[2]),
+        alpha,
+    );
 }
 
-export function rec20202xyz({ r, g, b, alpha }: Rec2020Color): XYZColor {
-    const linear: Vec3 = [rec2020ToLinear(r), rec2020ToLinear(g), rec2020ToLinear(b)];
-    const [x, y, z] = transformMat3(linear, REC2020_XYZ_MATRIX);
-    return new XYZColor(x, y, z, alpha);
+export function rec20202xyz(color: Rec2020Color): XYZColor {
+    return rgbFamily2xyz(color, rec2020ToLinear, REC2020_XYZ_MATRIX);
 }
 
-export function xyz2rec2020({ x, y, z, alpha }: XYZColor): Rec2020Color {
-    const linear = transformMat3([x, y, z] as Vec3, XYZ_REC2020_MATRIX);
-    return new Rec2020Color(linearToRec2020(linear[0]), linearToRec2020(linear[1]), linearToRec2020(linear[2]), alpha);
+export function xyz2rec2020(xyz: XYZColor): Rec2020Color {
+    return xyz2rgbFamily(xyz, XYZ_REC2020_MATRIX, linearToRec2020,
+        (r, g, b, a) => new Rec2020Color(r, g, b, a));
 }
 
 const XYZ_FUNCTIONS: Record<string, { to: (color: any) => XYZColor; from: (color: XYZColor) => any }> = {
@@ -982,9 +1022,225 @@ const XYZ_FUNCTIONS: Record<string, { to: (color: any) => XYZColor; from: (color
     rec2020: { to: rec20202xyz, from: xyz2rec2020 },
 };
 
+// ──────────────────────────────────────────────────────────────────────────────
+// E.W1 Lane C — DIRECT_PATHS table for hot-path conversions.
+//
+// `color2(from, to)` currently routes EVERY conversion through XYZ as a hub.
+// For the highest-frequency CSS interpolation pairs (`oklab↔rgb`, `oklch↔rgb`,
+// `hsl↔rgb`), a direct path skips the XYZ intermediate — saving one matrix
+// multiply + one XYZColor allocation per call. Numerically equivalent to the
+// XYZ-hub path within floating-point epsilon (verified by `test/color-*`).
+//
+// Path composition is the same operations in a different order — the math is
+// associative across the linear stages, and the cube/cbrt non-linearity sits
+// at the LMS layer in both paths.
+//
+// All RGB direct paths route through `gamutMap` to match `xyz2rgb`'s default
+// `correctGamut=true` semantics (callers downstream — `gamutMap` itself, the
+// demo gradient interpolation, `colorUnit2` — rely on this).
+// ──────────────────────────────────────────────────────────────────────────────
+
+type DirectConversion = <T>(color: Color<T>) => Color<T>;
+
+/** Direct OKLab → RGB. Skips XYZColor allocation + one matrix multiply. */
+function directOklabToRgb(oklab: OKLABColor): RGBColor {
+    // Denormalize a, b from [0,1] to OKLab physical range (mirrors oklab2xyz).
+    const a = scale(
+        oklab.a as number, 0, 1,
+        COLOR_SPACE_RANGES.oklab.a.number.min,
+        COLOR_SPACE_RANGES.oklab.a.number.max,
+    );
+    const b = scale(
+        oklab.b as number, 0, 1,
+        COLOR_SPACE_RANGES.oklab.b.number.min,
+        COLOR_SPACE_RANGES.oklab.b.number.max,
+    );
+    const L = oklab.l as number;
+
+    // OKLab → LMS (cube-root domain) via OKLab→LMS coefficient rows.
+    const l_ = L + OKLAB_TO_LMS_COEFF.l[1] * a + OKLAB_TO_LMS_COEFF.l[2] * b;
+    const m_ = L + OKLAB_TO_LMS_COEFF.m[1] * a + OKLAB_TO_LMS_COEFF.m[2] * b;
+    const s_ = L + OKLAB_TO_LMS_COEFF.s[1] * a + OKLAB_TO_LMS_COEFF.s[2] * b;
+
+    // Cube to linear LMS.
+    const lLin = l_ * l_ * l_;
+    const mLin = m_ * m_ * m_;
+    const sLin = s_ * s_ * s_;
+
+    // Linear LMS → linear sRGB (Ottosson's direct matrix; no XYZ intermediate).
+    const rLin =
+        LMS_TO_LINEAR_SRGB[0] * lLin + LMS_TO_LINEAR_SRGB[1] * mLin + LMS_TO_LINEAR_SRGB[2] * sLin;
+    const gLin =
+        LMS_TO_LINEAR_SRGB[3] * lLin + LMS_TO_LINEAR_SRGB[4] * mLin + LMS_TO_LINEAR_SRGB[5] * sLin;
+    const bLin =
+        LMS_TO_LINEAR_SRGB[6] * lLin + LMS_TO_LINEAR_SRGB[7] * mLin + LMS_TO_LINEAR_SRGB[8] * sLin;
+
+    // Linear sRGB → sRGB (transfer encode) — then gamut-map (matches xyz2rgb default).
+    const rgb = gamutMap(new RGBColor(
+        linearToSrgb(rLin), linearToSrgb(gLin), linearToSrgb(bLin), oklab.alpha,
+    ));
+    return new RGBColor(rgb.r, rgb.g, rgb.b, oklab.alpha);
+}
+
+/** Direct RGB → OKLab. Skips XYZColor allocation + one matrix multiply. */
+function directRgbToOklab(rgb: RGBColor): OKLABColor {
+    const rLin = srgbToLinear(rgb.r as number);
+    const gLin = srgbToLinear(rgb.g as number);
+    const bLin = srgbToLinear(rgb.b as number);
+
+    // Linear sRGB → LMS (cube-root domain).
+    const l_ = Math.cbrt(
+        LINEAR_SRGB_TO_LMS[0] * rLin + LINEAR_SRGB_TO_LMS[1] * gLin + LINEAR_SRGB_TO_LMS[2] * bLin,
+    );
+    const m_ = Math.cbrt(
+        LINEAR_SRGB_TO_LMS[3] * rLin + LINEAR_SRGB_TO_LMS[4] * gLin + LINEAR_SRGB_TO_LMS[5] * bLin,
+    );
+    const s_ = Math.cbrt(
+        LINEAR_SRGB_TO_LMS[6] * rLin + LINEAR_SRGB_TO_LMS[7] * gLin + LINEAR_SRGB_TO_LMS[8] * bLin,
+    );
+
+    // LMS → OKLab via the canonical LMS_TO_OKLAB_MATRIX.
+    const l =
+        LMS_TO_OKLAB_MATRIX[0] * l_ + LMS_TO_OKLAB_MATRIX[1] * m_ + LMS_TO_OKLAB_MATRIX[2] * s_;
+    const a =
+        LMS_TO_OKLAB_MATRIX[3] * l_ + LMS_TO_OKLAB_MATRIX[4] * m_ + LMS_TO_OKLAB_MATRIX[5] * s_;
+    const b =
+        LMS_TO_OKLAB_MATRIX[6] * l_ + LMS_TO_OKLAB_MATRIX[7] * m_ + LMS_TO_OKLAB_MATRIX[8] * s_;
+
+    // Normalize a, b to [0,1] (matches xyz2oklab's output range).
+    return new OKLABColor(
+        l,
+        scale(
+            a,
+            COLOR_SPACE_RANGES.oklab.a.number.min,
+            COLOR_SPACE_RANGES.oklab.a.number.max,
+        ),
+        scale(
+            b,
+            COLOR_SPACE_RANGES.oklab.b.number.min,
+            COLOR_SPACE_RANGES.oklab.b.number.max,
+        ),
+        rgb.alpha,
+    );
+}
+
+/** Direct OKLCH → RGB. Polar → Cartesian → direct OKLab→RGB. */
+function directOklchToRgb(oklch: OKLCHColor): RGBColor {
+    // Denormalize c from [0,1] to OKLCh physical range (mirrors oklch2oklab).
+    const c = scale(
+        oklch.c as number, 0, 1,
+        COLOR_SPACE_RANGES.oklch.c.number.min,
+        COLOR_SPACE_RANGES.oklch.c.number.max,
+    );
+    const hRad = (oklch.h as number) * 2 * Math.PI;
+    const a = Math.cos(hRad) * c;
+    const b = Math.sin(hRad) * c;
+
+    // Convert raw Cartesian (a,b) directly through OKLab→LMS→linear sRGB
+    // without rebuilding/renormalizing an OKLABColor instance.
+    const L = oklch.l as number;
+    const l_ = L + OKLAB_TO_LMS_COEFF.l[1] * a + OKLAB_TO_LMS_COEFF.l[2] * b;
+    const m_ = L + OKLAB_TO_LMS_COEFF.m[1] * a + OKLAB_TO_LMS_COEFF.m[2] * b;
+    const s_ = L + OKLAB_TO_LMS_COEFF.s[1] * a + OKLAB_TO_LMS_COEFF.s[2] * b;
+
+    const lLin = l_ * l_ * l_;
+    const mLin = m_ * m_ * m_;
+    const sLin = s_ * s_ * s_;
+
+    const rLin =
+        LMS_TO_LINEAR_SRGB[0] * lLin + LMS_TO_LINEAR_SRGB[1] * mLin + LMS_TO_LINEAR_SRGB[2] * sLin;
+    const gLin =
+        LMS_TO_LINEAR_SRGB[3] * lLin + LMS_TO_LINEAR_SRGB[4] * mLin + LMS_TO_LINEAR_SRGB[5] * sLin;
+    const bLin =
+        LMS_TO_LINEAR_SRGB[6] * lLin + LMS_TO_LINEAR_SRGB[7] * mLin + LMS_TO_LINEAR_SRGB[8] * sLin;
+
+    const rgb = gamutMap(new RGBColor(
+        linearToSrgb(rLin), linearToSrgb(gLin), linearToSrgb(bLin), oklch.alpha,
+    ));
+    return new RGBColor(rgb.r, rgb.g, rgb.b, oklch.alpha);
+}
+
+/** Direct RGB → OKLCH. Direct RGB→OKLab Cartesian → polar (skip OKLABColor wrap). */
+function directRgbToOklch(rgb: RGBColor): OKLCHColor {
+    const rLin = srgbToLinear(rgb.r as number);
+    const gLin = srgbToLinear(rgb.g as number);
+    const bLin = srgbToLinear(rgb.b as number);
+
+    const l_ = Math.cbrt(
+        LINEAR_SRGB_TO_LMS[0] * rLin + LINEAR_SRGB_TO_LMS[1] * gLin + LINEAR_SRGB_TO_LMS[2] * bLin,
+    );
+    const m_ = Math.cbrt(
+        LINEAR_SRGB_TO_LMS[3] * rLin + LINEAR_SRGB_TO_LMS[4] * gLin + LINEAR_SRGB_TO_LMS[5] * bLin,
+    );
+    const s_ = Math.cbrt(
+        LINEAR_SRGB_TO_LMS[6] * rLin + LINEAR_SRGB_TO_LMS[7] * gLin + LINEAR_SRGB_TO_LMS[8] * bLin,
+    );
+
+    const l =
+        LMS_TO_OKLAB_MATRIX[0] * l_ + LMS_TO_OKLAB_MATRIX[1] * m_ + LMS_TO_OKLAB_MATRIX[2] * s_;
+    const a =
+        LMS_TO_OKLAB_MATRIX[3] * l_ + LMS_TO_OKLAB_MATRIX[4] * m_ + LMS_TO_OKLAB_MATRIX[5] * s_;
+    const b =
+        LMS_TO_OKLAB_MATRIX[6] * l_ + LMS_TO_OKLAB_MATRIX[7] * m_ + LMS_TO_OKLAB_MATRIX[8] * s_;
+
+    // Cartesian → polar (mirrors oklab2oklch on raw values).
+    const c = Math.hypot(a, b);
+    let h = Math.atan2(b, a) / (2 * Math.PI);
+    if (h < 0) h += 1;
+
+    return new OKLCHColor(
+        l,
+        scale(
+            c,
+            COLOR_SPACE_RANGES.oklch.c.number.min,
+            COLOR_SPACE_RANGES.oklch.c.number.max,
+        ),
+        h,
+        rgb.alpha,
+    );
+}
+
+/** Direct HSL → RGB. Already a closed-form cylindrical conversion (no XYZ). */
+function directHslToRgb(hsl: HSLColor): RGBColor {
+    // `hsl2rgb` already implements the direct cylindrical conversion (no
+    // XYZ intermediate at all) — the XYZ-hub path adds an unnecessary round
+    // trip. Match `xyz2rgb`'s default by gamut-mapping the result.
+    const rgb = hsl2rgb(hsl);
+    return gamutMap(rgb);
+}
+
+/** Direct RGB → HSL. Already a closed-form cylindrical conversion (no XYZ). */
+function directRgbToHsl(rgb: RGBColor): HSLColor {
+    return rgb2hsl(rgb);
+}
+
+const DIRECT_PATHS: Partial<Record<`${ColorSpace}->${ColorSpace}`, DirectConversion>> = {
+    // OKLab ↔ RGB — skips XYZ + chromatic adaptation. Highest-frequency
+    // interpolation pair in the demo + library hot paths.
+    "oklab->rgb": directOklabToRgb as unknown as DirectConversion,
+    "rgb->oklab": directRgbToOklab as unknown as DirectConversion,
+    // OKLCH ↔ RGB — polar form of OKLab; direct path inlines the polar
+    // conversion + the OKLab→LMS→sRGB chain.
+    "oklch->rgb": directOklchToRgb as unknown as DirectConversion,
+    "rgb->oklch": directRgbToOklch as unknown as DirectConversion,
+    // HSL ↔ RGB — closed-form cylindrical conversion (no XYZ at all).
+    "hsl->rgb": directHslToRgb as unknown as DirectConversion,
+    "rgb->hsl": directRgbToHsl as unknown as DirectConversion,
+};
+
 export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
     if (color.colorSpace === to) {
         return color;
+    }
+
+    // Hot-path shortcut: consult the DIRECT_PATHS table before falling through
+    // to the XYZ-hub dispatch. For the 6 wired pairs, skips a matrix multiply
+    // + one XYZColor allocation per call. Numerically equivalent to the
+    // XYZ-hub path within floating-point epsilon.
+    const directKey = `${color.colorSpace}->${to}` as `${ColorSpace}->${ColorSpace}`;
+    const direct = DIRECT_PATHS[directKey];
+    if (direct) {
+        return direct(color) as unknown as ColorSpaceMap<T>[C];
     }
 
     const fromEntry = XYZ_FUNCTIONS[color.colorSpace];

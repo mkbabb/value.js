@@ -61,16 +61,48 @@ Pill radius (`--radius-pill: 9999px`) is the dock control's signature shape (`--
 
 ## § Motion
 
-Glass-ui's named durations + easings (DESIGN.md §Duration, §Easing) are the rhythmic vocabulary:
+Glass-ui ships two parallel duration token families (DESIGN.md §Duration, §Easing). Pick the family that matches the motion's role:
 
-- Durations: `var(--duration-fast)` (200 ms hover/feedback), `var(--duration-normal)` (300 ms standard), `var(--duration-panel)` (550 ms dock expand).
-- Easings: `var(--ease-standard)` (decel cubic, default), `var(--ease-decelerate)` / `var(--ease-accelerate)` (entry/exit), `var(--spring-snappy)` / `var(--spring-smooth)` (spring physics for transforms).
+**§ Family A — general-purpose `--duration-*`** (tokens.css §1). The everyday vocabulary the demo reaches for ~74 times across `<style scoped>` blocks and inline `:style` bindings:
 
-Demo-side reduced-motion carve-out (animations.css:32-60, B.W1 Lane B): the global `prefers-reduced-motion` guard neutralises all CSS animation + transition durations; a secondary block re-enables 150 ms opacity fades on `[data-state="open"|"closed"]` so reka-ui Dialog/Sheet/Popover state changes still communicate. WebGL RAF loops (GooBlob, aurora) fence on `prefers-reduced-motion` in their composables (see `useMetaballRenderer`); the global CSS guard does not reach them.
+- `var(--duration-instant)` — 100 ms (snappy feedback — dev-overlay button presses).
+- `var(--duration-fast)` — 200 ms (hover/feedback, micro-interactions).
+- `var(--duration-normal)` — 300 ms (standard transitions, entry/exit fades).
+- `var(--duration-slow)` — 450 ms (the GooBlob hover-filter, ColorInput input-mode-flash).
+- `var(--duration-panel)` — 550 ms (dock expand, ColorInput crown-appear).
+- `var(--duration-xl)` / `var(--duration-xxl)` — 1 s / 1.5 s (one-shot affordances).
+- `var(--duration-shimmer-fast)` — 3 s (PaletteDialogHeader's `.admin-golden` golden-shimmer).
+- `var(--duration-shimmer)` — 5 s (long-loop shimmer sweeps).
+- `var(--duration-sparkle)` — 600 ms (the audacious-CTA sparkle micro-event; glass-ui-internal at the demo's scale).
+
+**§ Family B — specialised `--motion-duration-*` / `--motion-delay-*`** (tokens.css §1, AH.W5-e canon). These tokens cluster celebratory + staged-reveal motion at one canon — duration + easing arm together. The demo does **NOT** consume these directly at present because their semantics target speedtest's celebratory SFCs (CompleteBadge disc/ring/check, complete-shimmer, badge-staged-reveal, progress-intake/crescendo, ripple). Filed for future adoption when the demo grows analogous staged-reveal motion:
+
+- `--motion-duration-staged` — 320 ms (paired with `--motion-ease-staged-entrance`).
+- `--motion-duration-complete-shimmer` / `--motion-delay-complete-shimmer` — 2.4 s / 220 ms.
+- `--motion-duration-badge-{disc,ring,check}` / `--motion-delay-badge-{disc,ring,check}` — 420/560/380 ms with 80/220/460 ms delays.
+- `--motion-duration-progress-intake` / `--motion-duration-progress-crescendo` / `--motion-duration-progress-indeterminate` — 220/240/4000 ms.
+- `--motion-duration-ripple` — 340 ms.
+
+The two families coexist by design — Family A is the everyday rhythm (where the demo lives); Family B is the celebratory grammar (reserved for staged-reveal sites the demo doesn't yet author).
+
+**§ Easings.** `var(--ease-standard)` (decel cubic, default), `var(--ease-decelerate)` / `var(--ease-accelerate)` (entry/exit), `var(--spring-snappy)` / `var(--spring-smooth)` / `var(--ease-spring)` (spring physics for transforms). The `--motion-ease-*` aliases (`--motion-ease-standard`, etc.) point at the same curves; the unprefixed names are the consumer-facing surface.
+
+**§ Bespoke literals (KEEP, not migrated).** Some demo animations carry durations that do not exactly match a glass-ui token, and per `feedback_preserve_animations.md` are preserved rather than force-fit:
+
+| Site | Literal | Why kept |
+|---|---|---|
+| `ImageEyedropper.vue:286` | `swatch-pop 0.65s` | bespoke pop curve (overshoot → rest in 4 frames); no canon between `--duration-panel` (0.55 s) and `--duration-xl` (1 s) |
+| `ActionButton.vue:117,120,121` | `action-pulse / action-spin 0.4s` | bespoke flash + spin; sits between `--duration-normal` (0.3 s) and `--duration-slow` (0.45 s) |
+| `PointerDebugOverlay.vue:266` | `blink 0.5s infinite` | bespoke; dev-only debug overlay |
+| `PaletteCard.vue:388` | `golden-text-shimmer 4s` | bespoke; sits between `--duration-shimmer-fast` (3 s) and `--duration-shimmer` (5 s) — paired with the 4-stop gradient's visual rhythm |
+| `useHeightTransition.ts` | `350 ms expand / 250 ms collapse` | bespoke; JS-runtime constants written as inline `style.transition` strings; tuned by hand at B-tranche for palette-card expand/collapse rhythm |
+| `hero-lab.css:290` | `140ms` | bespoke; sub-app entry, between `--duration-instant` and `--duration-fast` |
+
+**§ Reduced-motion carve-out** (animations.css:32-60, B.W1 Lane B): the global `prefers-reduced-motion` guard neutralises all CSS animation + transition durations; a secondary block re-enables 150 ms opacity fades on `[data-state="open"|"closed"]` so reka-ui Dialog/Sheet/Popover state changes still communicate. WebGL RAF loops (GooBlob, aurora) fence on `prefers-reduced-motion` in their composables (see `useMetaballRenderer`); the global CSS guard does not reach them.
 
 Custom keyframes live in `demo/@/styles/animations.css` (`edit-drawer-in`, with a mobile media-query restate at ≤ 639 px — see comment at animations.css:12-16 for the intentional inheritance break) + colocated `<style scoped>` blocks (per-component animations). Shared keyframes (dialog, floating-panel, card-menu, shimmer) come from `@mkbabb/glass-ui/styles/animations.css`.
 
-Canonical motion recipe — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-snappy`, `--spring-smooth`) are reserved for transforms that read physically; PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path.
+**§ Canonical motion recipe** — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-snappy`, `--spring-smooth`) are reserved for transforms that read physically; PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path.
 
 ## § Z-tier
 

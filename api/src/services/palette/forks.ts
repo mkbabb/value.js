@@ -32,6 +32,8 @@ export async function forkPalette(
 ): Promise<ForkOutput> {
     const { sourceSlug, sessionToken, userSlug } = input;
 
+    // Initial source fetch + input validation is read-only and pure — keep
+    // OUTSIDE the transaction so we fail fast (404 / 400) without a session.
     const source = await services.repositories.palettes.findBySlug(sourceSlug);
     if (!source) throw new NotFoundError("Palette not found");
 
@@ -69,28 +71,57 @@ export async function forkPalette(
         versionCount: 1,
     };
 
-    try {
-        await services.repositories.palettes.insert(newDoc);
-    } catch (e) {
-        if ((e as { code?: number })?.code === 11000) {
-            throw new ConflictError("Duplicate slug");
+    // Cross-collection write: insert fork + insert version + bump parent
+    // fork-count. The race window (E-AUDIT-6 §2.4: source deleted between
+    // initial read and `incrementForkCount`) closes here — the transaction
+    // re-reads `source` under session-isolation BEFORE bumping the counter.
+    // If the source is gone, the whole transaction aborts (404) and no
+    // orphaned fork persists.
+    const doc = await services.withTransaction(async (session) => {
+        // Re-verify source still exists inside the transaction. Mongo's
+        // snapshot read-concern guarantees this reflects committed-only
+        // state; a concurrent delete that committed before us sees the
+        // missing slug here and we abort cleanly.
+        const sourceInTxn = await services.repositories.palettes.findBySlug(
+            sourceSlug,
+            session,
+        );
+        if (!sourceInTxn) {
+            throw new NotFoundError("Palette not found");
         }
-        throw e;
-    }
 
-    await createVersionRecord(services, {
-        paletteSlug: forkSlug,
-        name: forkName,
-        colors: sourceColors,
-        authorSlug: userSlug,
-        parentHash: null,
-        forkedFromHash: source.currentHash ?? null,
+        try {
+            await services.repositories.palettes.insert(newDoc, session);
+        } catch (e) {
+            if ((e as { code?: number })?.code === 11000) {
+                throw new ConflictError("Duplicate slug");
+            }
+            throw e;
+        }
+
+        await createVersionRecord(
+            services,
+            {
+                paletteSlug: forkSlug,
+                name: forkName,
+                colors: sourceColors,
+                authorSlug: userSlug,
+                parentHash: null,
+                forkedFromHash: source.currentHash ?? null,
+            },
+            session,
+        );
+
+        await services.repositories.palettes.incrementForkCount(sourceSlug, session);
+
+        const inserted = await services.repositories.palettes.findBySlug(
+            forkSlug,
+            session,
+        );
+        if (!inserted) throw new NotFoundError("Palette missing after insert");
+        return inserted;
     });
 
-    await services.repositories.palettes.incrementForkCount(sourceSlug);
-
-    const doc = await services.repositories.palettes.findBySlug(forkSlug);
-    if (!doc) throw new NotFoundError("Palette missing after insert");
     return { palette: doc as Palette & { _id: unknown } };
 }
 

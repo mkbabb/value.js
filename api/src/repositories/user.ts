@@ -5,14 +5,14 @@
  * method backs the admin users-list view (palettes joined via $lookup).
  */
 
-import type { Collection, Document, Filter } from "mongodb";
+import type { ClientSession, Collection, Document, Filter } from "mongodb";
 import type { User, UserStatus } from "../models.js";
 
 export class UserRepository {
     constructor(private readonly col: Collection<User>) {}
 
-    findBySlug(slug: string): Promise<User | null> {
-        return this.col.findOne({ _id: slug });
+    findBySlug(slug: string, session?: ClientSession): Promise<User | null> {
+        return this.col.findOne({ _id: slug }, session ? { session } : undefined);
     }
 
     async insert(user: User): Promise<void> {
@@ -37,8 +37,10 @@ export class UserRepository {
             .then(() => undefined);
     }
 
-    delete(slug: string): Promise<number> {
-        return this.col.deleteOne({ _id: slug }).then((r) => r.deletedCount);
+    delete(slug: string, session?: ClientSession): Promise<number> {
+        return this.col
+            .deleteOne({ _id: slug }, session ? { session } : undefined)
+            .then((r) => r.deletedCount);
     }
 
     deleteMany(slugs: string[]): Promise<number> {

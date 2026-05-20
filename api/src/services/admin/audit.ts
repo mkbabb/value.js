@@ -12,7 +12,7 @@
 import type { Context } from "hono";
 import type { Filter } from "mongodb";
 import type { AppEnv } from "../../types.js";
-import { escapeRegex } from "../../middleware.js";
+import { escapeRegex } from "../../regex.js";
 import type { AdminAuditEvent } from "../../models.js";
 
 export interface AuditEntryDTO {

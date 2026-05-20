@@ -6,6 +6,7 @@
  * `services.repositories.paletteVersions` or `…palettes`.
  */
 
+import type { ClientSession } from "mongodb";
 import type { Services } from "../../middleware/inject-services.js";
 import type {
     OklabTriple,
@@ -13,7 +14,7 @@ import type {
     PaletteColor,
     PaletteVersion,
 } from "../../models.js";
-import { NotFoundError, OwnershipError } from "../../errors/index.js";
+import { NotFoundError } from "../../errors/index.js";
 import { computeContentHash } from "../../hash.js";
 import { computeOklabColors } from "./oklab.js";
 
@@ -29,22 +30,32 @@ export interface CreateVersionInput {
 /**
  * Idempotent version creation (content-hash dedup). Walks the parent chain
  * to compute `rootHash`/`depth`. Returns the content hash.
+ *
+ * Accepts an optional `session` (E.W2 Lane B) so the call can participate in
+ * a caller's transaction (currently: `forkPalette`'s cross-collection write).
  */
 export async function createVersionRecord(
     services: Services,
     input: CreateVersionInput,
+    session?: ClientSession,
 ): Promise<string> {
     const { paletteSlug, name, colors, authorSlug, parentHash, forkedFromHash } = input;
     const hash = computeContentHash(name, colors);
 
-    const existing = await services.repositories.paletteVersions.findByHash(hash);
+    const existing = await services.repositories.paletteVersions.findByHash(
+        hash,
+        session,
+    );
     if (existing) return hash;
 
     let rootHash = hash;
     let depth = 0;
     const parentRef = parentHash ?? forkedFromHash;
     if (parentRef) {
-        const parent = await services.repositories.paletteVersions.findByHash(parentRef);
+        const parent = await services.repositories.paletteVersions.findByHash(
+            parentRef,
+            session,
+        );
         if (parent) {
             rootHash = parent.rootHash ?? parentRef;
             depth = (parent.depth ?? 0) + 1;
@@ -64,7 +75,7 @@ export async function createVersionRecord(
         depth,
     };
 
-    await services.repositories.paletteVersions.insertIfAbsent(version);
+    await services.repositories.paletteVersions.insertIfAbsent(version, session);
     return hash;
 }
 
@@ -102,7 +113,9 @@ export async function getVersionByHash(
 export interface RevertInput {
     slug: string;
     hash: string;
-    sessionToken: string;
+    // `userSlug` is the authenticated caller's slug. The route's
+    // `requireOwnership` middleware (E.W2 Lane C) guarantees this also owns
+    // the palette — we use it here purely to attribute the new version record.
     userSlug: string | undefined;
 }
 
@@ -114,15 +127,14 @@ export async function revertToVersion(
     services: Services,
     input: RevertInput,
 ): Promise<RevertOutput> {
-    const { slug, hash, sessionToken, userSlug } = input;
+    const { slug, hash, userSlug } = input;
 
+    // Ownership is enforced upstream by `requireOwnership` on the route. We
+    // still re-read here for the parent-hash bookkeeping; a 404 here would
+    // indicate the palette was deleted between middleware and handler
+    // (extremely narrow race).
     const palette = await services.repositories.palettes.findBySlug(slug);
     if (!palette) throw new NotFoundError("Palette not found");
-
-    const isOwner =
-        palette.sessionToken === sessionToken ||
-        (userSlug !== undefined && palette.userSlug === userSlug);
-    if (!isOwner) throw new OwnershipError("Not the owner");
 
     const version = await services.repositories.paletteVersions.findByHash(hash);
     if (!version) throw new NotFoundError("Version not found");

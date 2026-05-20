@@ -77,7 +77,8 @@ defineExpose({ nudge, setMood, currentMood: mood.currentMood });
                 var(--foreground)
             )
     );
-    transition: filter var(--duration-slow, 0.3s) var(--ease-standard, ease);
+    /* E.W4 Lane E: refresh fallback to the canonical `--duration-slow` value (0.45s). */
+    transition: filter var(--duration-slow, 0.45s) var(--ease-standard, ease);
 }
 
 .goo-blob-wrapper:hover {

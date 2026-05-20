@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { setupEnvNoise } from "../fixtures/env-noise";
 
 /**
  * Smoke (D.W5 Lane A): the Mix view renders its pane heading.
@@ -7,17 +8,7 @@ import { test, expect } from "@playwright/test";
 test("mix view renders Mix heading with zero console errors", async ({
     page,
 }) => {
-    const consoleErrors: string[] = [];
-    // Environmental noise filter — see palettes.spec.ts.
-    const isEnvNoise = (text: string) =>
-        /\b(429|503|504)\b|Too Many Requests|Failed to load resource/i.test(text);
-    page.on("console", (msg) => {
-        if (msg.type() === "error" && !isEnvNoise(msg.text()))
-            consoleErrors.push(msg.text());
-    });
-    page.on("pageerror", (err) => {
-        if (!isEnvNoise(err.message)) consoleErrors.push(err.message);
-    });
+    const consoleErrors = setupEnvNoise(page);
 
     await page.goto("/");
 

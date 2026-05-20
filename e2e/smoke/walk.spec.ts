@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { setupEnvNoise } from "./fixtures/env-noise";
 
 /**
  * Smoke (D.W5 Lane A): walk every user-facing view in sequence.
@@ -9,17 +10,7 @@ import { test, expect } from "@playwright/test";
 test("walk all user views sequentially with zero console errors", async ({
     page,
 }) => {
-    const consoleErrors: string[] = [];
-    // Environmental noise filter — see views/palettes.spec.ts.
-    const isEnvNoise = (text: string) =>
-        /\b(429|503|504)\b|Too Many Requests|Failed to load resource/i.test(text);
-    page.on("console", (msg) => {
-        if (msg.type() === "error" && !isEnvNoise(msg.text()))
-            consoleErrors.push(msg.text());
-    });
-    page.on("pageerror", (err) => {
-        if (!isEnvNoise(err.message)) consoleErrors.push(err.message);
-    });
+    const consoleErrors = setupEnvNoise(page);
 
     await page.goto("/");
     const main = page.getByRole("main", { name: "Color tool panes" });

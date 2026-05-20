@@ -346,7 +346,9 @@ function forceReset() {
     font-weight: 600;
     cursor: pointer;
     touch-action: manipulation;
-    transition: filter 0.1s ease, transform 0.1s ease;
+    /* E.W4 Lane E: tokenize to glass-ui canon — `0.1s` = `--duration-instant`. */
+    transition: filter var(--duration-instant) var(--ease-standard),
+                transform var(--duration-instant) var(--ease-standard);
 }
 .debug-btn:hover {
     filter: brightness(1.3);

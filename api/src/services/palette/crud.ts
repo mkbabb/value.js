@@ -1,24 +1,25 @@
 /**
- * Palette CRUD service (D.W2 Lane A).
+ * Palette CRUD service (D.W2 Lane A + E.W2 Lane C).
  *
  * Owns the single-document CRUD operations: get-by-slug, create, patch, delete.
  * The list+mine read-side (heavy pagination/filter logic) lives in
  * `crud-list.ts` and is re-exported from this module so the route layer has
  * a single import point per concern.
  *
- * All DB access goes through repositories on `c.var.services`. Owner checks
- * happen in the service (palette doc is read once, ownership predicate then
- * applied; mirrors the pre-split behaviour). Lane D will move ownership into
- * the `requireOwnership` middleware factory.
+ * All DB access goes through repositories on `c.var.services`. Ownership is
+ * enforced UPSTREAM by the `requireOwnership` middleware on the owner-gated
+ * routes (`PATCH /palettes/:slug`, `DELETE /palettes/:slug`) — see
+ * `routes/palettes/crud.ts`. E.W2 Lane C deleted the inline duplicates that
+ * lived here pre-wiring (the legacy sessionToken equality shim and its
+ * userSlug companion). The route's middleware reads the palette's
+ * `userSlug`, compares it to `c.var.userSlug`, and throws
+ * `OwnershipError`/`NotFoundError` BEFORE the handler runs — so these service
+ * methods are reachable only when ownership already holds.
  */
 
 import type { Services } from "../../middleware/inject-services.js";
 import type { Palette } from "../../models.js";
-import {
-    ConflictError,
-    NotFoundError,
-    OwnershipError,
-} from "../../errors/index.js";
+import { ConflictError, NotFoundError } from "../../errors/index.js";
 import { computeContentHash } from "../../hash.js";
 import { formatPalette, type FormattedPalette } from "../../format/palette.js";
 import type {
@@ -129,7 +130,9 @@ export async function createPalette(
 export interface PatchInput {
     slug: string;
     body: UpdateBody;
-    sessionToken: string;
+    // `userSlug` is the authenticated caller's slug. The route's
+    // `requireOwnership` middleware (E.W2 Lane C) guarantees this is also the
+    // palette's owner — we use it here purely to attribute the version record.
     userSlug: string | undefined;
 }
 
@@ -137,14 +140,14 @@ export async function patchPalette(
     services: Services,
     input: PatchInput,
 ): Promise<FormattedPalette> {
-    const { slug, body, sessionToken, userSlug } = input;
+    const { slug, body, userSlug } = input;
+    // Ownership is enforced by the `requireOwnership` middleware on the route
+    // (E.W2 Lane C). The middleware has already verified the palette exists
+    // and is owned by `c.var.userSlug`; we still re-read here for the patch
+    // payload + content-hash diff. A 404 here would indicate the resource was
+    // deleted between middleware and handler (extremely narrow race).
     const palette = await services.repositories.palettes.findBySlug(slug);
     if (!palette) throw new NotFoundError("Palette not found");
-
-    const isOwner =
-        palette.sessionToken === sessionToken ||
-        (userSlug !== undefined && palette.userSlug === userSlug);
-    if (!isOwner) throw new OwnershipError("Not the owner of this palette");
 
     const $set: Record<string, unknown> = { updatedAt: new Date() };
     if (body.name !== undefined) $set.name = body.name;
@@ -186,22 +189,18 @@ export async function patchPalette(
 
 export interface DeleteInput {
     slug: string;
-    sessionToken: string;
-    userSlug: string | undefined;
 }
 
 export async function deletePalette(
     services: Services,
     input: DeleteInput,
 ): Promise<{ deleted: true }> {
-    const { slug, sessionToken, userSlug } = input;
+    const { slug } = input;
+    // Ownership is enforced by the `requireOwnership` middleware on the route
+    // (E.W2 Lane C). A 404 here would indicate the resource was deleted
+    // between middleware and handler (extremely narrow race).
     const palette = await services.repositories.palettes.findBySlug(slug);
     if (!palette) throw new NotFoundError("Palette not found");
-
-    const isOwner =
-        palette.sessionToken === sessionToken ||
-        (userSlug !== undefined && palette.userSlug === userSlug);
-    if (!isOwner) throw new OwnershipError("Not the owner of this palette");
 
     await services.repositories.palettes.delete(slug);
     await services.repositories.votes.deleteByPaletteSlug(slug);

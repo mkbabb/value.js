@@ -6,28 +6,31 @@ Core value classes, unit definitions, conversion, and normalization.
 
 ```
 units/
-├── index.ts        # 216 loc — core classes
+├── index.ts        # core classes
 │                     ValueUnit<T,U>    — CSS value container (value, unit, superType, property, targets)
 │                     FunctionValue<T,N> — CSS function node (name, values[])
 │                     ValueArray<T>     — ordered value list (extends Array)
 │                     InterpolatedVar<T> — interpolation state (start, stop, value, computed)
-├── constants.ts    # 736 loc — unit definitions
+├── constants.ts    # unit definitions
 │                     LENGTH_UNITS (absolute + relative), TIME_UNITS, ANGLE_UNITS
 │                     FREQUENCY_UNITS, RESOLUTION_UNITS, FLEX_UNITS, PERCENTAGE_UNITS
-│                     STYLE_NAMES — 735+ CSS property names (camelCase)
+│                     STYLE_NAMES — CSS property names (camelCase)
 │                     MatrixValues interface (16 transform components)
-├── utils.ts        # 373 loc — unit conversion + CSS utilities
+├── utils.ts        # unit conversion + CSS utilities
 │                     convertToPixels, convertToDegrees, convertToMs, convertToHz, convertToDPI
 │                     convert2 (generic cross-unit conversion)
 │                     flattenObject / unflattenObject (nested style ↔ flat)
 │                     unpackMatrixValues (matrix/matrix3d decomposition)
 │                     isColorUnit, isCSSStyleName
-├── normalize.ts    # 196 loc — value normalization for interpolation
+├── normalize.ts    # value normalization for interpolation
 │                     normalizeNumericUnits (length/angle/time/resolution → common base)
 │                     normalizeValueUnits (full normalization with color space handling)
 │                     getComputedValue (resolve var/calc from DOM element)
 └── color/          # see color/CLAUDE.md
 ```
+
+> LoC counts intentionally omitted — `wc -l` is the source of truth.
+> Inline numbers drifted across 6 D-wave commits; E.W1 Lane E stripped them.
 
 ## Core classes
 

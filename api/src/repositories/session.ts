@@ -6,7 +6,7 @@
  * for cache-friendly atomic touch.
  */
 
-import type { Collection } from "mongodb";
+import type { ClientSession, Collection } from "mongodb";
 import type { Session } from "../models.js";
 
 export class SessionRepository {
@@ -36,13 +36,29 @@ export class SessionRepository {
         return this.col.deleteOne({ _id: token }).then((r) => r.deletedCount);
     }
 
-    deleteByUserSlug(userSlug: string): Promise<number> {
-        return this.col.deleteMany({ userSlug }).then((r) => r.deletedCount);
+    deleteByUserSlug(userSlug: string, session?: ClientSession): Promise<number> {
+        return this.col
+            .deleteMany({ userSlug }, session ? { session } : undefined)
+            .then((r) => r.deletedCount);
     }
 
     deleteByUserSlugs(userSlugs: string[]): Promise<number> {
         return this.col
             .deleteMany({ userSlug: { $in: userSlugs } })
+            .then((r) => r.deletedCount);
+    }
+
+    /** Delete sessions whose `expiresAt` is earlier than `now`. */
+    deleteExpired(now: Date): Promise<number> {
+        return this.col
+            .deleteMany({ expiresAt: { $lt: now } })
+            .then((r) => r.deletedCount);
+    }
+
+    /** Delete sessions whose `lastSeenAt` is earlier than `threshold`. */
+    deleteStale(threshold: Date): Promise<number> {
+        return this.col
+            .deleteMany({ lastSeenAt: { $lt: threshold } })
             .then((r) => r.deletedCount);
     }
 }
