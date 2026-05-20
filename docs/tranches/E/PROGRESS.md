@@ -113,11 +113,79 @@ E's scope sharpens: every route-forward item now carries an EXPLICIT disposition
 
 No new wave; no scope dropped; the architectural posture (E1 transposition over patching) is preserved.
 
+## 2026-05-20 — E.W0 HEADLINE close (open + `./styles.css` adoption + state-at-open + coord refresh)
+
+### Dispatch + outcomes
+
+Three parallel research+implementation lanes dispatched as `general-purpose` agents under worktree-disjoint file ownership; orchestrator consolidated coordination/Q.md edits.
+
+| Lane | Status | Deliverable |
+|---|---|---|
+| E.W0 Lane A (`./styles.css` adoption) | LANDED | `audit/E.W0-lane-a-styles-adoption.md` + `demo/@/styles/style.css` + `vite.config.ts` |
+| E.W0 Lane B (state-at-open probe) | LANDED | `audit/E.W0-state-at-open.md` |
+| E.W0 Lane C (coord refresh) | LANDED | `audit/E.W0-lane-c-coord-refresh.md` |
+
+### Lane A outcome — glass-ui `./styles.css` adoption + `siblingFsAllowTransient` NARROW decision
+
+- `demo/@/styles/style.css` now imports BOTH `@mkbabb/glass-ui/styles` (Tailwind-source) AND `@mkbabb/glass-ui/styles.css` (SFC-scoped compiled).
+- Verification: post-adoption `dist/gh-pages/assets/index-*.css` carries 196 `data-v-*` SFC-scoped selectors (proves compiled surface bundled); `@font-face` + font-asset URLs unchanged (Tailwind-source surface still active).
+- **`siblingFsAllowTransient`: NARROWED, not retired.** The compiled `dist/glass-ui.css` ships zero `@font-face` and zero `url()` refs (verified: 110 `data-v-*` SFC selectors only). The Tailwind-source `./styles` surface still needs symlink reach for `url("../fonts/fira-code/...woff2")` walking OUT of `node_modules/@mkbabb/glass-ui/src/styles/`. The widening narrows from "consumer-side reciprocal of an unaddressed publisher gap" to "consumer-side reciprocal of a NARROWED publisher gap — font-asset half only."
+- Retirement requires either (a) glass-ui inlining font binaries as base64 in `dist/glass-ui.css`, OR (b) demo dropping `./styles` entirely (forfeits design tokens + `@source` class-scanning). Neither is tranche-E scope; filed as glass-ui-side successor concern.
+- `vite.config.ts` inline comment block replaced to reflect the NARROW posture.
+- `coordination/Q.md §3` updated: `./styles.css` row marked **ADOPTED at E.W0 Lane A**; contract-v2 §2.1 row updated to **NARROWED at E.W0 Lane A** with full rationale.
+
+### Lane B outcome — state-at-open gate matrix + chronically-deferred fold-confirm
+
+E-open gate matrix (post-Lane-A re-verification):
+
+| Gate | Expected | Actual | Verdict |
+|---|---|---|---|
+| `npm run lint` | exit 0 | 0 | PASS |
+| `npx vue-tsc --noEmit` | 126 errors | 126 | PASS |
+| `npx vitest run` | 1582 / 34 | 1582 / 34 | PASS |
+| `npx playwright test` (3 projects) | 21/21 | 21/21 in 18.9s | PASS |
+| `npm run proof:resolution` | GREEN | GREEN | PASS |
+| `npm run build` | clean | clean (dist/value.js 137.60 kB / 40.44 kB gzip) | PASS |
+| L8 microbench median | ≥ 5× | 12.84× | PASS |
+
+DRIFTS (informational, all resolved):
+- `v0.6.0` annotated tag dereferences to `eae8afc` (master-merge commit), not `7ac4ecc` (D.W6 ceremony commit). This is correct — annotated tags placed at merge point; release is intact.
+- `dist/` carries ESM-only (`value.js`); no `value.cjs` (vite.config.ts declares `formats: ["es"]`). Stale framing in CLAUDE.md to reconcile at E.W5 close.
+- `reactivity-instant` 47.60ms slider-keyboard median PASSED ≤ 50ms gate (Lane B initial probe showed 54.30ms outlier; re-run was clean — E.W3 Lane A still addresses the parallel-load methodology).
+
+Chronically-deferred ledger:
+- **A-11 ConfigSliderPane** — RETIRED (verified: imports `@mkbabb/glass-ui/configurator`).
+- **A-14..A-18** — appear closed-via-prior-rewrite; E.W5 close-audit re-verification scheduled.
+- **B-01/B-07 vendor policy** — 126 vue-tsc errors confirmed persistent; routed to E.W4 Lane C.
+- **D-03 smoke-safari** — `playwright.config.ts` has no `smoke-safari` (correct — E.W3 Lane B adds).
+- **AUD-4.7 keyframes.js precept-pin drift** — confirmed at `458c2d1` on divergent tree (cross-repo; tracked).
+
+### Lane C outcome — peer-HEAD reconciliation
+
+Drift detection across all 5 peers:
+
+| Peer | Recorded | Actual | Drift | Severity |
+|---|---|---|---|---|
+| glass-ui | `66e9b8f` | `66e9b8f` | ZERO | — |
+| keyframes.js | `0909177` | `0909177` | ZERO | — |
+| speedtest | `9d22bcdf` | `7d9211fd` | 2 commits | INFORMATIONAL (planning-only, no source) |
+| fourier-analysis | `926ca6a` | `926ca6a` | ZERO | — |
+| precepts (value.js pin) | `68d9b20` | `68d9b20` | ZERO | — |
+| precepts (glass-ui co-pin) | `68d9b20` | `68d9b20` | ZERO | — |
+
+Speedtest drift: `9f3ffca6` §10 dep-lift coordination + `7d9211fd` §11 constellation-wide scope expansion — both `docs(AI):` planning amendments, no source touched. value.js de-coupling at `bab2a6de` (May 8) holds. CW seed at `61079cb1` invariant. `coordination/Q.md §1` (peer-line bump) applied.
+
+All ancillary re-verifications PASS: glass-ui `./styles.css` ship at `9275584` PRESENT; keyframes.js `numeric.ts:159` lerp silent-breakage call site CONFIRMED bit-identical; speedtest value.js-runtime-dep drop at `bab2a6de` STILL HOLDS; fourier-analysis 109-file dirty tree CONFIRMED; precepts upstream no advance.
+
+### E.W0 sub-gate verdict
+
+**PASS** — all 3 lanes closed sub-gates; conjunction holds. The wave gate (`vue-tsc` ≤ 126, `vitest` 1582+, smoke 21/21 across 3 projects, lint exit 0, proof:resolution GREEN, build clean, bench ≥ 5×) all GREEN.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| E.W0 HEADLINE — open + `./styles.css` adoption + state-at-open + coord refresh | planned | — | — | — |
+| E.W0 HEADLINE — open + `./styles.css` adoption + state-at-open + coord refresh | closed | 2026-05-20 | 2026-05-20 | <E.W0-A> + <E.W0-BC> |
 | E.W1 — library architectural transposition (v0.7.0 candidate) | planned | — | — | — |
 | E.W2 — api/ pipeline parity + middleware split + first backend tests | planned | — | — | — |
 | E.W3 — e2e/ coverage expansion + smoke-safari + flake fix | planned | — | — | — |
