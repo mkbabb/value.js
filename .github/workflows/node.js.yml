@@ -7,28 +7,224 @@ on:
         branches: ["master"]
 
 jobs:
-    test:
+    # ─── Build + test matrix (Node 22 + 24) ─────────────────────────────
+    # Per E.W4 Lane B: matrix coverage over the package.json `engines`
+    # floor (>=22) and current LTS (24). Lint, vue-tsc, build, vitest,
+    # api/ backend tests, proof:resolution, bench gate, playwright (5
+    # projects), and CHANGELOG-changed PR-gate all live here so a single
+    # check-name reflects the full health of the branch under each Node.
+    build-and-test:
         runs-on: ubuntu-latest
-        timeout-minutes: 10
+        timeout-minutes: 20
+        strategy:
+            fail-fast: false
+            matrix:
+                node: [22, 24]
         steps:
             - uses: actions/checkout@v4
-            - name: Use Node.js 24
+              with:
+                  # CHANGELOG-changed gate needs origin/master available
+                  # for the merge-base diff.
+                  fetch-depth: 0
+
+            - name: Use Node.js ${{ matrix.node }}
               uses: actions/setup-node@v5
               with:
-                  node-version: 24
+                  node-version: ${{ matrix.node }}
                   cache: "npm"
-            - run: npm ci
-            - run: npm run lint
-            - run: npx vitest run
-            - run: npx playwright install --with-deps chromium
-            - run: npx playwright test --project=smoke --project=smoke-admin --project=smoke-mobile
 
+            - run: npm ci
+
+            # ─── Hygiene gates ──────────────────────────────────────
+            - name: Lint (eslint flat config, --max-warnings=0)
+              run: npm run lint
+
+            # vue-tsc returns exit 1 for the 126 vendored shadcn-vue
+            # errors per VENDOR-POLICY.md (E.W4 Lane C — Option 3:
+            # accept + document). The CI step CAPTURES the count and
+            # asserts count <= 126: a rise FAILS the build; a drop is
+            # informational. Pattern mirrors the bench-gate shape.
+            - name: Typecheck (vue-tsc --noEmit, error count <= 126)
+              run: |
+                  set +e
+                  npx vue-tsc --noEmit 2>&1 | tee vue-tsc-output.txt
+                  set -e
+                  COUNT=$(grep -cE 'error TS' vue-tsc-output.txt || true)
+                  echo "vue-tsc error count: $COUNT"
+                  echo "vue-tsc baseline (per VENDOR-POLICY.md): 126"
+                  if [ "$COUNT" -gt 126 ]; then
+                      echo "::error::vue-tsc errors rose: $COUNT > 126 (regression vs. accepted-noise baseline)"
+                      exit 1
+                  fi
+                  if [ "$COUNT" -lt 126 ]; then
+                      echo "::notice::vue-tsc errors dropped: $COUNT < 126 (informational; consider updating VENDOR-POLICY.md baseline)"
+                  fi
+
+            # ─── Library build verification ─────────────────────────
+            - name: Build library (dist/value.{js,cjs,d.ts})
+              run: npm run build
+
+            - name: Log dist sizes
+              run: ls -la dist/ | head -20
+
+            # ─── Vitest (unit tests) ────────────────────────────────
+            - name: Vitest unit tests
+              run: npx vitest run
+
+            # ─── Backend tests (api/) ───────────────────────────────
+            # mongodb-memory-server runs ephemerally in the runner;
+            # no external Mongo required.
+            - name: Backend tests (api/)
+              run: |
+                  cd api
+                  npm install
+                  npm test
+
+            # ─── Contract-v2 dev-resolution proof ───────────────────
+            # Per D.W1: tracked-in-CI but informational from the
+            # fleet-coordination perspective; GREEN at HEAD so we run
+            # it as a PASS-required gate for visibility.
+            - name: proof:resolution (contract-v2 dev-resolution)
+              run: npm run proof:resolution
+
+            # ─── Bench gate (Lane A) ────────────────────────────────
+            # Runs the three benchmarks sequentially and tees the
+            # combined output for downstream assertion parsing.
+            # Each bench self-asserts its target and exits non-zero
+            # on regression; the explicit `Assert bench gates` step
+            # below provides a visible, named CI assertion (and would
+            # catch parser-output drift even if a bench script's
+            # exit-code path bit-rotted).
+            - name: Run benchmarks (npm run bench)
+              run: npm run bench | tee bench-output.txt
+
+            - name: Assert bench gates (L8 >= 5x, HSL->RGB >= 2x, nameParser >= 5x)
+              run: |
+                  set -euo pipefail
+
+                  # L8 microbench: bench/color-channel-access.mjs
+                  # Output line: "  median speedup:    NN.NN×"
+                  # It runs FIRST in the chain, so head -1 against
+                  # `median speedup:` lines isolates it (the parser
+                  # bench also emits this label as the third entry).
+                  L8_MEDIAN=$(grep -E 'median speedup:[[:space:]]+[0-9.]+' bench-output.txt \
+                      | head -1 \
+                      | grep -oE '[0-9]+\.[0-9]+')
+
+                  # color2 DIRECT_PATHS bench: bench/color2-direct-paths.mjs
+                  # Output line: "  hsl→rgb   median:            NN.NN×    [GATING]"
+                  # Distinct from L8/parser via the [GATING] marker
+                  # (only the canonical hot-path proxy is gated).
+                  DIRECT_MEDIAN=$(grep -E 'hsl.*median:.*\[GATING\]' bench-output.txt \
+                      | head -1 \
+                      | grep -oE '[0-9]+\.[0-9]+' \
+                      | head -1)
+
+                  # nameParser bench: bench/parser-namelookup.mjs
+                  # Output line: "  median speedup:    NN.NN×"
+                  # It runs THIRD; sed -n '2p' against the two
+                  # `median speedup:` lines isolates the parser one.
+                  PARSER_MEDIAN=$(grep -E 'median speedup:[[:space:]]+[0-9.]+' bench-output.txt \
+                      | sed -n '2p' \
+                      | grep -oE '[0-9]+\.[0-9]+')
+
+                  echo "Extracted medians:"
+                  echo "  L8 (color-channel-access):       ${L8_MEDIAN}x  (gate >= 5x)"
+                  echo "  DIRECT_PATHS HSL->RGB:           ${DIRECT_MEDIAN}x  (gate >= 2x)"
+                  echo "  nameParser (parser-namelookup):  ${PARSER_MEDIAN}x  (gate >= 5x)"
+
+                  fail=0
+
+                  if [ -z "${L8_MEDIAN}" ]; then
+                      echo "::error::Could not extract L8 median from bench-output.txt"
+                      fail=1
+                  elif awk -v m="${L8_MEDIAN}" 'BEGIN{exit !(m < 5)}'; then
+                      echo "::error::L8 microbench regressed: ${L8_MEDIAN}x (gate >= 5x)"
+                      fail=1
+                  fi
+
+                  if [ -z "${DIRECT_MEDIAN}" ]; then
+                      echo "::error::Could not extract DIRECT_PATHS HSL->RGB median from bench-output.txt"
+                      fail=1
+                  elif awk -v m="${DIRECT_MEDIAN}" 'BEGIN{exit !(m < 2)}'; then
+                      echo "::error::color2 DIRECT_PATHS HSL->RGB regressed: ${DIRECT_MEDIAN}x (gate >= 2x)"
+                      fail=1
+                  fi
+
+                  if [ -z "${PARSER_MEDIAN}" ]; then
+                      echo "::error::Could not extract nameParser median from bench-output.txt"
+                      fail=1
+                  elif awk -v m="${PARSER_MEDIAN}" 'BEGIN{exit !(m < 5)}'; then
+                      echo "::error::nameParser regressed: ${PARSER_MEDIAN}x (gate >= 5x)"
+                      fail=1
+                  fi
+
+                  if [ "$fail" -ne 0 ]; then
+                      exit 1
+                  fi
+                  echo "All bench gates PASS."
+
+            # ─── Playwright (5 projects: smoke + admin + mobile +
+            #     reactivity + safari) ───────────────────────────────
+            # WebKit added (smoke-safari project per E.W3 Lane B).
+            # The cache key is hashed against package-lock.json so a
+            # Playwright version bump busts the cache automatically.
+            - name: Cache Playwright browsers
+              uses: actions/cache@v4
+              id: playwright-cache
+              with:
+                  path: ~/.cache/ms-playwright
+                  key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+            - name: Install Playwright browsers (chromium + webkit)
+              if: steps.playwright-cache.outputs.cache-hit != 'true'
+              run: npx playwright install --with-deps chromium webkit
+
+            - name: Install Playwright system deps (cache hit)
+              if: steps.playwright-cache.outputs.cache-hit == 'true'
+              run: npx playwright install-deps
+
+            - name: Playwright tests (all 5 projects)
+              run: npx playwright test
+
+            - name: Upload Playwright report
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: playwright-report-node-${{ matrix.node }}
+                  path: playwright-report/
+                  retention-days: 7
+
+            # ─── CHANGELOG-changed gate (PR-only) ───────────────────
+            # Asserts CHANGELOG.md is touched when src/ is touched on
+            # a PR. Skipped on push to master (where the merge commit
+            # carries the prior PR's changeset).
+            - name: CHANGELOG-changed gate (PR-only)
+              if: github.event_name == 'pull_request'
+              run: |
+                  set -euo pipefail
+                  git diff --name-only origin/${{ github.base_ref }}...HEAD > diff-files.txt
+                  echo "Files changed in PR:"
+                  cat diff-files.txt
+                  if grep -q '^src/' diff-files.txt; then
+                      if ! grep -q '^CHANGELOG.md$' diff-files.txt; then
+                          echo "::error::CHANGELOG.md must be updated when src/ is touched"
+                          exit 1
+                      fi
+                      echo "src/ touched; CHANGELOG.md also touched — gate PASS."
+                  else
+                      echo "src/ not touched; CHANGELOG gate skipped."
+                  fi
+
+    # ─── Deploy (gh-pages) — unchanged from pre-E.W4 ────────────────────
+    # Runs after the matrix passes (implicit via `needs: build-and-test`).
     deploy:
+        needs: build-and-test
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - name: Checkout glass-ui (local file: dependency)
+            - name: "Checkout glass-ui (local file: dependency)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/glass-ui

@@ -84,7 +84,8 @@ defineEmits<{
     border-radius: inherit;
     background: linear-gradient(135deg, transparent 20%, oklch(85% 0.15 85deg / 0.4) 40%, oklch(90% 0.12 55deg / 0.6) 50%, oklch(85% 0.15 85deg / 0.4) 60%, transparent 80%);
     background-size: 200% 200%;
-    animation: golden-shimmer 3s ease-in-out infinite;
+    /* E.W4 Lane E: tokenize 3s shimmer to glass-ui canon `--duration-shimmer-fast`. */
+    animation: golden-shimmer var(--duration-shimmer-fast) ease-in-out infinite;
     pointer-events: none;
     mix-blend-mode: overlay;
 }

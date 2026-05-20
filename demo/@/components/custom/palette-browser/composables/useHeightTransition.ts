@@ -1,5 +1,11 @@
-const DEFAULT_EXPAND_DURATION = 350; // var(--duration-slow) = 0.35s
-const DEFAULT_COLLAPSE_DURATION = 250; // var(--duration-normal) = 0.25s
+// E.W4 Lane E: bespoke height-transition durations (no exact glass-ui canon match
+// — 350ms sits between `--duration-normal` 300ms and `--duration-slow` 450ms;
+// 250ms sits between `--duration-fast` 200ms and `--duration-normal` 300ms).
+// Both values were tuned by hand at B-tranche for the palette-card expand/collapse
+// rhythm; kept as JS-runtime constants because `useHeightTransition.ts` writes
+// inline `style.transition` strings that need numeric ms units.
+const DEFAULT_EXPAND_DURATION = 350;
+const DEFAULT_COLLAPSE_DURATION = 250;
 const EXPAND_EASING = "cubic-bezier(0.16, 1, 0.3, 1)"; // matches --ease-out-expo
 const COLLAPSE_EASING = "cubic-bezier(0.4, 0, 0.2, 1)"; // matches --ease-standard
 
