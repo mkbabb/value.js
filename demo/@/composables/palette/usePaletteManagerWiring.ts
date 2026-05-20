@@ -1,11 +1,18 @@
-// usePaletteManagerWiring — extracts the ~72-line usePaletteManager callback
-// bundle from App.vue (Ae-2). Called from App.vue setup; the composable
-// receives every dependency it closes over as explicit arguments.
+// usePaletteManagerWiring — App.vue → usePaletteManager bridge.
+//
+// Two responsibilities:
+//   1. Adapt App.vue's color-picker / view-manager handles into the
+//      `usePaletteManager` deps shape (the original purpose; HARDEN-4 §1.2).
+//   2. Cross-module orchestration watchers (E.W2 Lane D — lifted from
+//      usePaletteManager.ts §195–232 per AUD-5.14). These bridge
+//      auth ↔ view-router ↔ browse ↔ admin ↔ colorQueue and are *wiring*,
+//      not facade-internal coherence.
 //
 // HARDEN-4 §1.2 note: `colorPickerRef` is passed as the REF OBJECT (not
 // `.value`) because the emitAddColor / emitStartEdit retry loops read
 // `colorPickerRef.value` after mount, not at call time.
 
+import { watch } from "vue";
 import type { Ref, ShallowRef } from "vue";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { ColorPicker } from "@components/custom/color-picker";
@@ -14,7 +21,7 @@ import { normalizeColorUnit } from "@src/units/color/normalize";
 import { parseCSSColor } from "@src/parsing/color";
 import type { ValueUnit } from "@src/units";
 import type { Color } from "@src/units/color";
-import { usePaletteManager } from "./usePaletteManager";
+import { usePaletteManager, type PaletteManager } from "./usePaletteManager";
 
 export function usePaletteManagerWiring(
     colorPickerRef: Ref<InstanceType<typeof ColorPicker> | null>,
@@ -22,8 +29,8 @@ export function usePaletteManagerWiring(
     model: ShallowRef<ColorModel>,
     applyColorString: (css: string) => void,
     savedColorStrings: Ref<string[]>,
-) {
-    return usePaletteManager({
+): PaletteManager {
+    const manager = usePaletteManager({
         currentView: viewManager.currentView,
         switchView: viewManager.switchView,
         savedColorStrings,
@@ -104,4 +111,49 @@ export function usePaletteManagerWiring(
             }
         },
     });
+
+    // --- Cross-module orchestration watchers (E.W2 Lane D / AUD-5.14) ---
+    //
+    // Lifted from usePaletteManager.ts §195–232. These four watchers bridge
+    // distinct sub-composables (auth ↔ view-router ↔ browse ↔ admin ↔
+    // colorQueue) and belong in the wiring layer, not the facade.
+
+    // (1) Reload browse palettes when slug changes (always reload if on browse tab)
+    watch(manager.userSlug, () => {
+        if (viewManager.currentView.value === "browse") {
+            manager.loadRemotePalettes();
+        }
+    });
+
+    // (2) Load data when switching to a view (immediate: run on mount too)
+    watch(viewManager.currentView, (view) => {
+        if (view === "browse") {
+            manager.loadRemotePalettes();
+        }
+        if (view === "admin-users" && manager.adminUsers.value.length === 0) {
+            manager.loadAdminUsers();
+        }
+        if (view === "admin-names") {
+            if (manager.adminColorQueue.value.length === 0) manager.loadColorQueue();
+            if (!manager.approvedLoaded.value) manager.loadApprovedColors();
+        }
+    }, { immediate: true });
+
+    // (3) Debounced server-side search: reload browse when search query changes
+    let searchDebounce: ReturnType<typeof setTimeout>;
+    watch(manager.searchQuery, () => {
+        if (viewManager.currentView.value === "browse") {
+            clearTimeout(searchDebounce);
+            searchDebounce = setTimeout(() => manager.loadRemotePalettes(true), 400);
+        }
+    });
+
+    // (4) Hide admin views when admin logs out
+    watch(manager.isAdminAuthenticated, (auth) => {
+        if (!auth && viewManager.currentView.value.startsWith("admin-")) {
+            viewManager.switchView("picker");
+        }
+    });
+
+    return manager;
 }

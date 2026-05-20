@@ -1,4 +1,4 @@
-import { ref, computed, watch, provide } from "vue";
+import { ref, computed, provide } from "vue";
 import type { Ref, InjectionKey } from "vue";
 
 import { usePaletteStore } from "./usePaletteStore";
@@ -11,127 +11,20 @@ import { useColorNameQueue } from "./useColorNameQueue";
 import { useSlugMigration } from "./useSlugMigration";
 import { usePaletteActions } from "./usePaletteActions";
 import { useFilteredList } from "../useFilteredList";
-import { useAdminAudit, type UseAdminAudit } from "./useAdminAudit";
-import { useAdminFlagged, type UseAdminFlagged } from "./useAdminFlagged";
-import { useAdminTags, type UseAdminTags } from "./useAdminTags";
-import { useVersionHistory, type UseVersionHistory } from "./useVersionHistory";
-import { useTagEdit, type UseTagEdit } from "./useTagEdit";
-import type { Palette, PaletteColor } from "@lib/palette/types";
+import { useAdminAudit } from "./useAdminAudit";
+import { useAdminFlagged } from "./useAdminFlagged";
+import { useAdminTags } from "./useAdminTags";
+import { useVersionHistory } from "./useVersionHistory";
+import { useTagEdit } from "./useTagEdit";
 import type { ViewId } from "../useViewManager";
-import type PaletteSlugBar from "@components/custom/palette-browser/PaletteSlugBar.vue";
 
-export interface PaletteManager {
-    // Auth
-    isAdminAuthenticated: Ref<boolean>;
-    userSlug: Ref<string | null>;
-    userLogout: () => Promise<void>;
+// `PaletteManager` is the public contract of this facade. We derive it from
+// the function's return-type rather than re-declaring 100+ members by hand —
+// each sub-composable already owns its own slice of the shape (E.W2 Lane D).
+// The InjectionKey is declared after the function for the same reason.
+export type PaletteManager = ReturnType<typeof usePaletteManager>;
 
-    // Palette store
-    savedPalettes: Ref<Palette[]>;
-    createPalette: (name: string, colors: PaletteColor[]) => Palette;
-    updatePalette: (id: string, patch: Partial<Palette>) => void;
-    deletePalette: (id: string) => void;
-    reorderPalettes: (orderedIds: string[]) => void;
-
-    // Browse
-    remotePalettes: Ref<Palette[]>;
-    browsing: Ref<boolean>;
-    sortLoading: Ref<boolean>;
-    sortMode: Ref<"newest" | "popular" | "most-forked">;
-    statusFilter: Ref<string>;
-    selectedTags: Ref<string[]>;
-    browseError: Ref<string | null>;
-    filteredBrowse: Ref<Palette[]>;
-    loadRemotePalettes: (isSort?: boolean) => Promise<void>;
-    onSortChange: (mode: string) => void;
-    onSaveRemote: (palette: Palette) => void;
-    onDeleteOwned: (palette: Palette) => Promise<{ success: boolean; message: string }>;
-    onVote: (palette: Palette) => void;
-    onRename: (palette: Palette, newName: string) => void;
-
-    // Auth helpers (for actions that need session)
-    ensureUser: () => Promise<string>;
-    ensureSession: () => Promise<void>;
-
-    // Admin users
-    adminUsers: Ref<any[]>;
-    loadingUsers: Ref<boolean>;
-    userSortMode: Ref<"slug" | "newest" | "palettes">;
-    adminUsersPanelRef: Ref<any>;
-    filteredAdminUsers: Ref<any[]>;
-    onUserSortChange: (mode: string) => void;
-    loadAdminUsers: () => Promise<void>;
-    onFeaturePalette: (palette: Palette) => Promise<void>;
-    onAdminDeletePalette: (palette: Palette) => Promise<void>;
-    onAdminDeleteUserPalette: (palette: Palette, ownerSlug: string) => Promise<void>;
-    onDeleteUserPalettes: (userId: string) => Promise<void>;
-    onDeleteUser: (userId: string) => Promise<void>;
-    onPruneEmpty: () => Promise<number>;
-    loadUserPalettes: (slug: string) => Promise<Palette[]>;
-    featurePaletteBySlug: (slug: string) => Promise<void>;
-    deletePaletteAdminBySlug: (slug: string) => Promise<void>;
-
-    // Admin color names
-    adminColorQueue: Ref<any[]>;
-    loadingColorQueue: Ref<boolean>;
-    approvedColors: Ref<any[]>;
-    loadingApproved: Ref<boolean>;
-    approvedLoaded: Ref<boolean>;
-    filteredColorQueue: Ref<any[]>;
-    filteredApproved: Ref<any[]>;
-    loadColorQueue: () => Promise<void>;
-    loadApprovedColors: () => Promise<void>;
-    onApproveColor: (item: any) => Promise<void>;
-    onRejectColor: (item: any) => Promise<void>;
-    onDeleteColor: (item: any) => Promise<void>;
-
-    // Slug migration
-    showMigrateDialog: Ref<boolean>;
-    migrateMode: Ref<"switch" | "regenerate">;
-    slugBarRef: Ref<InstanceType<typeof PaletteSlugBar> | null>;
-    onSlugSwitch: (slug: string, isAdmin: boolean) => void;
-    onRegenerateSlug: () => void;
-    onMigrateRespond: (choice: "publish" | "transfer" | "discard") => Promise<void>;
-
-    // Search & UI
-    searchQuery: Ref<string>;
-    expandedId: Ref<string | null>;
-    filteredSaved: Ref<Palette[]>;
-    searchPlaceholder: Ref<string>;
-
-    // Actions
-    toggleExpand: (id: string) => void;
-    onDelete: (palette: Palette) => void;
-    onPublish: (palette: Palette) => Promise<{ success: boolean; message: string }>;
-    onRenameSaved: (palette: Palette, newName: string) => void;
-    onCurrentPaletteSaved: (name: string, colors: PaletteColor[]) => Promise<void>;
-    onCurrentPaletteUpdated: (id: string, colors: PaletteColor[]) => void;
-    onEditColor: (palette: Palette, colorIndex: number, css: string) => void;
-    onSwatchAddColor: (css: string) => void;
-    commitColorEdit: (paletteId: string, colorIndex: number, newCss: string) => void;
-    showDeleteAllConfirm: Ref<boolean>;
-    onDeleteAllSaved: () => void;
-    onPrune: () => Promise<void>;
-    onDotClick: (cssColorOpaque: string) => void;
-
-    // Emitters — parent must bind these
-    emitApply: (colors: string[]) => void;
-    emitAddColor: (css: string) => void;
-    emitStartEdit: (target: { paletteId: string; colorIndex: number; originalCss: string }) => void;
-    emitSetCurrentColor: (css: string) => void;
-
-    // Sub-object facades (D.W3 Lane B)
-    audit: UseAdminAudit;
-    flagged: UseAdminFlagged;
-    tags: UseAdminTags;
-    versions: UseVersionHistory;
-    tagEdit: UseTagEdit;
-}
-
-export const PALETTE_MANAGER_KEY: InjectionKey<PaletteManager> =
-    Symbol("paletteManager");
-
-export function usePaletteManager(deps: {
+export interface PaletteManagerDeps {
     currentView: Ref<ViewId>;
     switchView: (id: ViewId) => void;
     savedColorStrings: Ref<string[]>;
@@ -139,7 +32,9 @@ export function usePaletteManager(deps: {
     emitAddColor: (css: string) => void;
     emitStartEdit: (target: { paletteId: string; colorIndex: number; originalCss: string }) => void;
     emitSetCurrentColor: (css: string) => void;
-}): PaletteManager {
+}
+
+export function usePaletteManager(deps: PaletteManagerDeps) {
     const { currentView, switchView: depsSwitchView, savedColorStrings, emitApply, emitAddColor, emitStartEdit, emitSetCurrentColor } = deps;
 
     const searchQuery = ref("");
@@ -192,45 +87,6 @@ export function usePaletteManager(deps: {
         emitStartEdit,
     });
 
-    // --- Cross-module orchestration (watchers) ---
-
-    // Reload browse palettes when slug changes (always reload if on browse tab)
-    watch(userSlug, () => {
-        if (currentView.value === "browse") {
-            browse.loadRemotePalettes();
-        }
-    });
-
-    // Load data when switching to a view (immediate: run on mount too)
-    watch(currentView, (view) => {
-        if (view === "browse") {
-            browse.loadRemotePalettes();
-        }
-        if (view === "admin-users" && admin.adminUsers.value.length === 0) {
-            admin.loadAdminUsers();
-        }
-        if (view === "admin-names") {
-            if (colorQueue.adminColorQueue.value.length === 0) colorQueue.loadColorQueue();
-            if (!colorQueue.approvedLoaded.value) colorQueue.loadApprovedColors();
-        }
-    }, { immediate: true });
-
-    // Debounced server-side search: reload browse when search query changes
-    let searchDebounce: ReturnType<typeof setTimeout>;
-    watch(searchQuery, () => {
-        if (currentView.value === "browse") {
-            clearTimeout(searchDebounce);
-            searchDebounce = setTimeout(() => browse.loadRemotePalettes(true), 400);
-        }
-    });
-
-    // Hide admin views when logged out
-    watch(isAdminAuthenticated, (auth) => {
-        if (!auth && currentView.value.startsWith("admin-")) {
-            depsSwitchView("picker");
-        }
-    });
-
     // --- Search UI ---
 
     const searchPlaceholder = computed(() => {
@@ -253,53 +109,34 @@ export function usePaletteManager(deps: {
     }
 
     // --- Assemble facade ---
-
-    const manager: PaletteManager = {
-        // Auth
+    // Sub-composable spreads preserve their full return types; ReturnType<>
+    // inference rebuilds the public contract from these slices.
+    const manager = {
         isAdminAuthenticated,
         userSlug,
         userLogout,
-
-        // Palette store
         savedPalettes,
         createPalette,
         updatePalette,
         deletePalette,
         reorderPalettes,
-
-        // Auth helpers
         ensureUser,
         ensureSession: async () => {
             await session.ensureSession();
         },
-
-        // Browse
         ...browse,
-
-        // Admin users
         ...admin,
-
-        // Admin color names
         ...colorQueue,
-
-        // Slug migration
         ...migration,
-
-        // Actions (includes expandedId, showDeleteAllConfirm)
         ...actions,
         onPrune,
-
-        // Search & UI
         searchQuery,
         filteredSaved,
         searchPlaceholder,
-
-        // Emitters
         emitApply,
         emitAddColor,
         emitStartEdit,
         emitSetCurrentColor,
-
         // Sub-object facades (D.W3 Lane B)
         audit,
         flagged,
@@ -312,3 +149,6 @@ export function usePaletteManager(deps: {
 
     return manager;
 }
+
+export const PALETTE_MANAGER_KEY: InjectionKey<PaletteManager> =
+    Symbol("paletteManager");

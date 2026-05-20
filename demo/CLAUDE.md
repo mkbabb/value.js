@@ -109,8 +109,8 @@ Organised by domain (Mar-2026 restructure) plus root utilities + the D.W3 Lane D
 
 | File | Purpose |
 |---|---|
-| `usePaletteManager.ts` | the canonical facade — exposes `pm.audit`/`pm.flagged`/`pm.tags`/`pm.versions`/`pm.tagEdit` sub-objects (D.W3 Lane B) |
-| `usePaletteManagerWiring.ts` | wires the facade to backend services |
+| `usePaletteManager.ts` | the canonical facade — exposes `pm.audit`/`pm.flagged`/`pm.tags`/`pm.versions`/`pm.tagEdit` sub-objects (D.W3 Lane B); `PaletteManager` type is `ReturnType<typeof usePaletteManager>` (E.W2 Lane D — no hand-maintained interface mirror) |
+| `usePaletteManagerWiring.ts` | App.vue → facade bridge: adapts color-picker / view-manager handles into `usePaletteManager` deps + owns the 4 cross-module orchestration watchers (auth ↔ view-router ↔ browse ↔ admin ↔ colorQueue) lifted at E.W2 Lane D / AUD-5.14 |
 | `useAdminAudit.ts` | audit-log management — exposed as `pm.audit` |
 | `useAdminFlagged.ts` | flagged palette moderation — exposed as `pm.flagged` |
 | `useAdminTags.ts` | tag CRUD — exposed as `pm.tags` |
