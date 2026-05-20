@@ -6,6 +6,7 @@
  * `services.repositories.paletteVersions` or `…palettes`.
  */
 
+import type { ClientSession } from "mongodb";
 import type { Services } from "../../middleware/inject-services.js";
 import type {
     OklabTriple,
@@ -29,22 +30,32 @@ export interface CreateVersionInput {
 /**
  * Idempotent version creation (content-hash dedup). Walks the parent chain
  * to compute `rootHash`/`depth`. Returns the content hash.
+ *
+ * Accepts an optional `session` (E.W2 Lane B) so the call can participate in
+ * a caller's transaction (currently: `forkPalette`'s cross-collection write).
  */
 export async function createVersionRecord(
     services: Services,
     input: CreateVersionInput,
+    session?: ClientSession,
 ): Promise<string> {
     const { paletteSlug, name, colors, authorSlug, parentHash, forkedFromHash } = input;
     const hash = computeContentHash(name, colors);
 
-    const existing = await services.repositories.paletteVersions.findByHash(hash);
+    const existing = await services.repositories.paletteVersions.findByHash(
+        hash,
+        session,
+    );
     if (existing) return hash;
 
     let rootHash = hash;
     let depth = 0;
     const parentRef = parentHash ?? forkedFromHash;
     if (parentRef) {
-        const parent = await services.repositories.paletteVersions.findByHash(parentRef);
+        const parent = await services.repositories.paletteVersions.findByHash(
+            parentRef,
+            session,
+        );
         if (parent) {
             rootHash = parent.rootHash ?? parentRef;
             depth = (parent.depth ?? 0) + 1;
@@ -64,7 +75,7 @@ export async function createVersionRecord(
         depth,
     };
 
-    await services.repositories.paletteVersions.insertIfAbsent(version);
+    await services.repositories.paletteVersions.insertIfAbsent(version, session);
     return hash;
 }
 

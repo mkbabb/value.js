@@ -14,7 +14,8 @@
  */
 
 import type { MiddlewareHandler } from "hono";
-import { getDb } from "../db.js";
+import type { ClientSession, MongoClient, TransactionOptions } from "mongodb";
+import { getClient, getDb } from "../db.js";
 import { makeCollections, type Collections } from "../db/collections.js";
 import { AdminAuditRepository } from "../repositories/adminAudit.js";
 import { FlagRepository } from "../repositories/flag.js";
@@ -38,14 +39,58 @@ export interface Repositories {
     users: UserRepository;
 }
 
+/**
+ * Transactional boundary helper (E.W2 Lane B). Services call this to run a
+ * cross-collection write block inside a single MongoDB transaction. The
+ * callback receives a `ClientSession` which MUST be threaded through every
+ * repository call inside the block; repository methods that participate
+ * accept an optional `session?: ClientSession` argument.
+ *
+ * Lifecycle:
+ *   - Starts a session via `client.startSession()`.
+ *   - Runs `fn(session)` inside `session.withTransaction(...)` — the driver
+ *     handles commit/abort + retry on transient errors (`UnknownTransactionCommitResult` / `TransientTransactionError`).
+ *   - ALWAYS ends the session in a `finally`.
+ *
+ * Requires a replica-set or sharded MongoDB deployment for the transaction
+ * to actually open (single-node `mongod --replSet rs0` works locally). On a
+ * standalone Mongo the driver throws on the first transactional op; this is
+ * a deploy-environment concern documented in `compose.yaml`.
+ */
+export type WithTransaction = <T>(
+    fn: (session: ClientSession) => Promise<T>,
+    options?: TransactionOptions,
+) => Promise<T>;
+
 export interface Services {
     collections: Collections;
     repositories: Repositories;
+    withTransaction: WithTransaction;
 }
 
 let cachedServices: Services | null = null;
 
-function buildServices(collections: Collections): Services {
+function makeWithTransaction(client: MongoClient): WithTransaction {
+    return async <T>(
+        fn: (session: ClientSession) => Promise<T>,
+        options?: TransactionOptions,
+    ): Promise<T> => {
+        const session = client.startSession();
+        try {
+            // `session.withTransaction` re-invokes `fn` on transient errors;
+            // we capture the most recent return value in `result`.
+            let result!: T;
+            await session.withTransaction(async () => {
+                result = await fn(session);
+            }, options);
+            return result;
+        } finally {
+            await session.endSession();
+        }
+    };
+}
+
+function buildServices(collections: Collections, client: MongoClient): Services {
     return {
         collections,
         repositories: {
@@ -59,6 +104,7 @@ function buildServices(collections: Collections): Services {
             adminAudit: new AdminAuditRepository(collections.adminAudit),
             users: new UserRepository(collections.users),
         },
+        withTransaction: makeWithTransaction(client),
     };
 }
 
@@ -67,11 +113,22 @@ export function __resetServicesForTest(): void {
     cachedServices = null;
 }
 
-export const injectServices: MiddlewareHandler = async (c, next) => {
+/**
+ * Build (or return cached) services. Used by both the request-scoped
+ * middleware below and by non-route consumers (cron handler, startup tasks)
+ * that do not have a Hono `Context` (E.W2 Lane A).
+ */
+export async function getServices(): Promise<Services> {
     if (!cachedServices) {
         const db = await getDb();
-        cachedServices = buildServices(makeCollections(db));
+        const client = await getClient();
+        cachedServices = buildServices(makeCollections(db), client);
     }
-    c.set("services", cachedServices);
+    return cachedServices;
+}
+
+export const injectServices: MiddlewareHandler = async (c, next) => {
+    const services = await getServices();
+    c.set("services", services);
     await next();
 };

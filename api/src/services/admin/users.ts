@@ -139,23 +139,38 @@ export async function deleteUser(
     options: { throwIfMissing?: boolean; emit?: boolean } = {},
 ): Promise<DeleteUserResult | null> {
     const { throwIfMissing = true, emit = true } = options;
-    const { users, palettes, votes, flags, sessions } = c.var.services.repositories;
+    const services = c.var.services;
+    const { users, palettes, votes, flags, sessions, adminAudit } =
+        services.repositories;
 
-    const user = await users.findBySlug(slug);
-    if (!user) {
+    // Quick pre-check OUTSIDE the transaction — `throwIfMissing=false` callers
+    // (batch.ts) want a fast skip without paying a session-startup cost. The
+    // canonical check still happens INSIDE the transaction below.
+    const userExists = await users.findBySlug(slug);
+    if (!userExists) {
         if (throwIfMissing) throw new NotFoundError("User not found");
         return null;
     }
 
-    const userPalettes = await palettes.findByUserSlug(slug, 0, 10_000);
-    const paletteSlugs = userPalettes.map((p) => p.slug);
-    if (paletteSlugs.length > 0) {
-        await votes.deleteByPaletteSlugs(paletteSlugs);
-        await flags.deleteByPaletteSlugs(paletteSlugs);
-        await palettes.deleteManyByUserSlug(slug);
-    }
-    await sessions.deleteByUserSlug(slug);
-    await users.delete(slug);
+    // Cascade inside a single transaction (E.W2 Lane B). All-or-nothing: if
+    // any step throws (e.g. transient driver error, write concern timeout),
+    // the user is NOT deleted and the request fails with a 5xx — the client
+    // can retry. Outside-the-transaction `emitAuditEvent` STAYS befitting-
+    // graceful per `events/auditLog.ts` D3 carve-out: an audit-log hiccup
+    // must not roll back a real admin action.
+    const paletteSlugs = await services.withTransaction(async (session) => {
+        const userPalettes = await palettes.findByUserSlug(slug, 0, 10_000, session);
+        const slugs = userPalettes.map((p) => p.slug);
+        if (slugs.length > 0) {
+            await votes.deleteByPaletteSlugs(slugs, session);
+            await flags.deleteByPaletteSlugs(slugs, session);
+            await palettes.deleteManyByUserSlug(slug, session);
+        }
+        await sessions.deleteByUserSlug(slug, session);
+        await adminAudit.deleteByActorSlug(slug, session);
+        await users.delete(slug, session);
+        return slugs;
+    });
 
     if (emit) {
         await emitAuditEvent(c, "delete-user", {

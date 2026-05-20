@@ -12,6 +12,7 @@
  */
 
 import type {
+    ClientSession,
     Collection,
     Filter,
     Sort,
@@ -25,8 +26,8 @@ export class PaletteRepository {
 
     // ---------- reads ----------
 
-    findBySlug(slug: string): Promise<Palette | null> {
-        return this.col.findOne({ slug });
+    findBySlug(slug: string, session?: ClientSession): Promise<Palette | null> {
+        return this.col.findOne({ slug }, session ? { session } : undefined);
     }
 
     findManyByFilter(
@@ -55,9 +56,10 @@ export class PaletteRepository {
         userSlug: string,
         skip: number,
         limit: number,
+        session?: ClientSession,
     ): Promise<Palette[]> {
         return this.col
-            .find({ userSlug })
+            .find({ userSlug }, session ? { session } : undefined)
             .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit)
@@ -81,11 +83,16 @@ export class PaletteRepository {
         return this.col.countDocuments({ forkOf: slug });
     }
 
+    /** All palette slugs — used by cron to detect orphaned vote rows. */
+    listAllSlugs(): Promise<string[]> {
+        return this.col.distinct("slug");
+    }
+
     // ---------- writes ----------
 
     /** Returns the slug of the inserted palette (since slug is unique). */
-    async insert(palette: WithoutId<Palette>): Promise<string> {
-        await this.col.insertOne(palette);
+    async insert(palette: WithoutId<Palette>, session?: ClientSession): Promise<string> {
+        await this.col.insertOne(palette, session ? { session } : undefined);
         return palette.slug;
     }
 
@@ -102,8 +109,10 @@ export class PaletteRepository {
             .then((r) => r.modifiedCount);
     }
 
-    delete(slug: string): Promise<number> {
-        return this.col.deleteOne({ slug }).then((r) => r.deletedCount);
+    delete(slug: string, session?: ClientSession): Promise<number> {
+        return this.col
+            .deleteOne({ slug }, session ? { session } : undefined)
+            .then((r) => r.deletedCount);
     }
 
     deleteManyBySlugs(slugs: string[]): Promise<number> {
@@ -112,14 +121,24 @@ export class PaletteRepository {
             .then((r) => r.deletedCount);
     }
 
-    deleteManyByUserSlug(userSlug: string): Promise<number> {
-        return this.col.deleteMany({ userSlug }).then((r) => r.deletedCount);
+    deleteManyByUserSlug(userSlug: string, session?: ClientSession): Promise<number> {
+        return this.col
+            .deleteMany({ userSlug }, session ? { session } : undefined)
+            .then((r) => r.deletedCount);
     }
 
     /** Gated vote-count increment (D.W2 Lane D F3 — only called after a true insert). */
-    incrementVoteCount(slug: string, delta: 1 | -1): Promise<void> {
+    incrementVoteCount(
+        slug: string,
+        delta: 1 | -1,
+        session?: ClientSession,
+    ): Promise<void> {
         return this.col
-            .updateOne({ slug }, { $inc: { voteCount: delta } })
+            .updateOne(
+                { slug },
+                { $inc: { voteCount: delta } },
+                session ? { session } : undefined,
+            )
             .then(() => undefined);
     }
 
@@ -130,9 +149,13 @@ export class PaletteRepository {
             .then(() => undefined);
     }
 
-    incrementForkCount(slug: string): Promise<void> {
+    incrementForkCount(slug: string, session?: ClientSession): Promise<void> {
         return this.col
-            .updateOne({ slug }, { $inc: { forkCount: 1 } })
+            .updateOne(
+                { slug },
+                { $inc: { forkCount: 1 } },
+                session ? { session } : undefined,
+            )
             .then(() => undefined);
     }
 

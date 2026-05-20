@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import type { Db } from "mongodb";
+import type { UserRepository } from "./repositories/user.js";
 
 const ADJECTIVES = [
     "ancient", "arctic", "astral", "atomic", "azure", "blazing", "bold", "bright",
@@ -89,10 +89,19 @@ export function generateSlug(): string {
     return `${adj}-${verb}-${color}-${animal}`;
 }
 
-export async function generateUniqueSlug(db: Db, maxRetries = 10): Promise<string> {
+/**
+ * Generate a slug guaranteed unique against the users collection.
+ *
+ * Routed through `UserRepository.findBySlug` (E.W2 Lane A) — this module
+ * never touches `db.collection(...)` directly.
+ */
+export async function generateUniqueSlug(
+    users: Pick<UserRepository, "findBySlug">,
+    maxRetries = 10,
+): Promise<string> {
     for (let i = 0; i < maxRetries; i++) {
         const slug = generateSlug();
-        const existing = await db.collection("users").findOne({ _id: slug as any });
+        const existing = await users.findBySlug(slug);
         if (!existing) return slug;
     }
     throw new Error("Failed to generate unique slug after max retries");

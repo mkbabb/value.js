@@ -1,29 +1,34 @@
-import { getDb } from "./db.js";
+/**
+ * Daily cleanup cron (3 AM UTC schedule lives in `index.ts`).
+ *
+ * E.W2 Lane A — migrated from raw `db.collection(...)` calls to the
+ * repository surface. The cron handler has no Hono `Context`, so it pulls
+ * the cached `Services` via the same lazy factory `injectServices` uses
+ * (`middleware/inject-services.ts:getServices`). This keeps one DI graph
+ * across the request-scoped + scheduled-task surfaces.
+ *
+ * Sweeps performed:
+ *   1. Expired sessions     — `sessions.expiresAt < now`.
+ *   2. Stale sessions       — `sessions.lastSeenAt < now − 30d`.
+ *   3. Orphaned vote rows   — votes whose `paletteSlug` no longer exists.
+ */
+
+import { getServices } from "./middleware/inject-services.js";
+
+const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
 
 export async function cleanup(): Promise<void> {
-    const db = await getDb();
+    const { sessions, palettes, votes } = (await getServices()).repositories;
     const now = new Date();
-    const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+    const thirtyDaysAgo = new Date(now.getTime() - THIRTY_DAYS_MS);
 
-    // Remove expired sessions (by expiresAt)
-    const expiredResult = await db
-        .collection("sessions")
-        .deleteMany({ expiresAt: { $lt: now } });
+    const expiredCount = await sessions.deleteExpired(now);
+    const staleCount = await sessions.deleteStale(thirtyDaysAgo);
 
-    // Remove stale sessions (not seen in 30 days, for pre-expiry sessions)
-    const staleResult = await db
-        .collection("sessions")
-        .deleteMany({ lastSeenAt: { $lt: thirtyDaysAgo } });
-
-    // Remove orphaned votes (palette no longer exists)
-    const paletteSlugs = await db
-        .collection("palettes")
-        .distinct("slug");
-    const voteResult = await db
-        .collection("votes")
-        .deleteMany({ paletteSlug: { $nin: paletteSlugs } });
+    const paletteSlugs = await palettes.listAllSlugs();
+    const orphanedVotes = await votes.deleteOrphaned(paletteSlugs);
 
     console.log(
-        `[cron] Cleanup: removed ${expiredResult.deletedCount} expired + ${staleResult.deletedCount} stale sessions, ${voteResult.deletedCount} orphaned votes`,
+        `[cron] Cleanup: removed ${expiredCount} expired + ${staleCount} stale sessions, ${orphanedVotes} orphaned votes`,
     );
 }

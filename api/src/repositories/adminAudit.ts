@@ -5,7 +5,7 @@
  * admin-route refactor calls `emitAuditEvent(c, ...)` which calls this method.
  */
 
-import type { Collection, Filter, WithoutId } from "mongodb";
+import type { ClientSession, Collection, Filter, WithoutId } from "mongodb";
 import type { AdminAuditEvent } from "../models.js";
 
 export class AdminAuditRepository {
@@ -30,5 +30,20 @@ export class AdminAuditRepository {
 
     countByFilter(filter: Filter<AdminAuditEvent>): Promise<number> {
         return this.col.countDocuments(filter);
+    }
+
+    /**
+     * Scrub all audit-trail entries authored by the given actor (E.W2 Lane B
+     * — called from `deleteUser` cascade inside the transactional boundary).
+     * If the deleted user never produced any audit events (the common case
+     * for non-admin users), this is a zero-row no-op.
+     */
+    deleteByActorSlug(
+        actorSlug: string,
+        session?: ClientSession,
+    ): Promise<number> {
+        return this.col
+            .deleteMany({ actorSlug }, session ? { session } : undefined)
+            .then((r) => r.deletedCount);
     }
 }
