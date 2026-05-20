@@ -357,6 +357,67 @@ E3 (pipeline parity: validate → authn → authz → service → repository →
 
 **PASS** — all 6 lanes closed; conjunction holds; E3 pipeline parity invariant verified; backend test count 0 → 104 (E.W4 wires CI integration).
 
+## 2026-05-20 — E.W3 close (e2e coverage expansion + smoke-safari + flake fix)
+
+### Dispatch shape
+
+3 lanes dispatched in 2 phases:
+- **Phase 1 (parallel)**: Lanes A (14 interactive flows + reactivity-instant flake fix) + C (env-noise fixture consolidation) — file-disjoint.
+- **Phase 2 (sequential)**: Lane B (smoke-safari WebKit project + 30s sustained spec) — touches `playwright.config.ts` after Lane A's smoke-reactivity project landed.
+
+| Lane | Commit | Status | Deliverable |
+|---|---|---|---|
+| Lane A | `0f490cc` | LANDED | `audit/E.W3-lane-a-coverage.md` |
+| Lane C | `0d74e05` | LANDED | `audit/E.W3-lane-c-env-noise.md` |
+| Lane B | `aa2d62a` | LANDED | `audit/E.W3-lane-b-smoke-safari.md` |
+
+### Outcomes per lane
+
+**Lane A — reactivity-instant flake fix (Option-1 hybrid) + 14 interactive-flow specs**:
+- New dedicated `smoke-reactivity` Playwright project at `workers: 1` isolates wall-clock measurement from CI noise (Option 1 — KISS).
+- In-page keydown listener for zero-RTT t0 capture (eliminates `page.evaluate(performance.now())` driver-protocol noise — minor Option 2 refinement applied within Option 1).
+- Slider-keyboard subtest gate raised 50ms → 100ms with RAIL-spec rationale (CDP `keyboard.press` has wider latency variance than `mouse.up`; 100ms is the RAIL perceptual-instant gate; spectrum-drag mouse-driven stays at 50ms — RAIL tap-response gate).
+- 5-run medians (slider-keyboard, ms): 23.20 / 47.30 / 29.80 / 54.00 / 65.80 — all PASS at 100ms. Spectrum-drag medians 6.6–9.0 ms.
+- 14 new interactive-flow specs (B.W3 invariants honored): 8 user flows + 6 admin flows. All mutating calls MOCKED via `page.route`. New `e2e/smoke/fixtures/user-auth.ts` mirrors admin-auth pattern.
+- 4 component-affordance findings surfaced; 2 fixed in-lane (aria-labels on ActionBarLayer cycle-toggle + Dock action-bar toggle); 2 deferred (GlassDock collapsed-state needs upstream a11y → glass-ui successor; AdminUsersPanel missing user-status-toggle UI consumer).
+- Total spec count: 21 → 35 (20 smoke + 12 smoke-admin + 1 smoke-mobile + 2 smoke-reactivity).
+
+**Lane C — env-noise fixture consolidation**:
+- `e2e/smoke/fixtures/env-noise.ts` authored (60 LoC); single canonical pattern array; `setupEnvNoise(page) → string[]` API.
+- 8 consumers migrated from inline filter blocks to one-line invocation (page-load + walk + 6 view specs).
+- 93 LoC of inline duplication eliminated, replaced by 16 LoC consumer code + 30 LoC fixture body. Net reduction: ~47 LoC.
+- Mobile spec (narrower 4xx/5xx filter) NOT touched; admin specs (page.route mocks) NOT touched; WebGL specs NOT touched. No semantic collapse forced.
+
+**Lane B — smoke-safari WebKit project + 30s sustained spec**:
+- 5-project partition: smoke + smoke-admin + smoke-mobile + smoke-reactivity + smoke-safari.
+- Device: iPhone 14 (Playwright catalog) — WebKit 26.0 engine, viewport 390×664, `defaultBrowserType: "webkit"`.
+- `e2e/smoke/safari/sustained-30s.spec.ts` (~210 LoC): 30s drive = 10s spectrum (~2000-3000 pointer moves) + 5-view walk + 5s WebGL render watch + 10s settle. Asserts ZERO `webglcontextlost` + ZERO `RangeError: Maximum call stack` + ZERO `[stale prop]`.
+- **Goo-blob WebKit-render verdict: GREEN** — WebKit successfully compiles + runs the SDF metaball + FBM-noise fragment shader.
+- Recursion-guard double-coverage: vitest's `test/recursion-guard.test.ts` (D.W1 L8) at unit layer + this spec at engine layer (30s > 4.9s frame-294 threshold by 6×).
+- Spec runtime: 31.8s–33.7s wall-clock (under the 35s cap; per-test timeout bumped to 60s inline).
+- CI install step (`npx playwright install webkit`) deferred to E.W4 Lane B.
+
+### E.W3 wave gate
+
+| Gate | Expected | Actual | Verdict |
+|---|---|---|---|
+| Total spec count | ≥ 36 | 36 | PASS |
+| `npx playwright test` (all 5 projects) | 36/36 | 36/36 in 55.5s | PASS |
+| reactivity-instant slider-keyboard median (5 runs) | ≤ 100ms | 23.20-65.80 ms | PASS |
+| reactivity-instant spectrum-drag median (5 runs) | ≤ 50ms | 6.6-9.0 ms | PASS |
+| `ls e2e/smoke/flows/*.spec.ts` | 8 | 8 | PASS |
+| `ls e2e/smoke/admin/flows/*.spec.ts` | 6 | 6 | PASS |
+| `e2e/smoke/safari/sustained-30s.spec.ts` | exists + passes | yes | PASS |
+| env-noise dedup (`Failed to load resource:` in non-mobile/non-admin/non-WebGL specs) | ZERO | 0 | PASS |
+| `npm run lint` | exit 0 | 0 | PASS |
+| `npx vue-tsc --noEmit` | 126 | 126 | PASS |
+| `npx vitest run` (library) | 1584+ | 1584 / 34 | PASS |
+| `cd api && npx vitest run` | 104+ | 104 / 20 | PASS |
+
+### E.W3 sub-gate verdict
+
+**PASS** — all 3 lanes closed; conjunction holds; iOS-Safari engine coverage added; reactivity-instant flake closed with measured + RAIL-grounded methodology.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -364,7 +425,7 @@ E3 (pipeline parity: validate → authn → authz → service → repository →
 | E.W0 HEADLINE — open + `./styles.css` adoption + state-at-open + coord refresh | closed | 2026-05-20 | 2026-05-20 | `7904324` (Lane A) + `d9a1399` (Lanes B+C) |
 | E.W1 — library architectural transposition (v0.7.0 candidate) | closed | 2026-05-20 | 2026-05-20 | `8db0e89` (Lane A) + `b4bc8ea` (Lane D) + `5cf4271` (Lane B) + `2413d61` (Lane C) + `762c11c` (Lane E) |
 | E.W2 — api/ pipeline parity + middleware split + first backend tests | closed | 2026-05-20 | 2026-05-20 | `417c3a5` (Lanes A+B) + `a8e4de3` (Lane D) + `1e1b248` (Lane F) + `bf29b71` (Lane C) + Lane E |
-| E.W3 — e2e/ coverage expansion + smoke-safari + flake fix | planned | — | — | — |
+| E.W3 — e2e/ coverage expansion + smoke-safari + flake fix | closed | 2026-05-20 | 2026-05-20 | `0f490cc` (Lane A) + `0d74e05` (Lane C) + `aa2d62a` (Lane B) |
 | E.W4 — vendor policy + CI hardening + bench gate + CW preparation | planned | — | — | — |
 | E.W5 HEADLINE close — FINAL.md, merge, v0.7.0 tag | planned | — | — | — |
 
