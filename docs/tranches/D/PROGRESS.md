@@ -326,6 +326,38 @@ D.W4 gates: vue-tsc 126 / vitest 1582 (34 files) / playwright smoke 3/3 / proof:
 
 D.W4 closes. The demo's styling is now token-bridge-canonical (no magic-literal token reaches), 4 style blocks are component-scoped, brittle selectors are hardened, and DESIGN.md documents the idioms so component authors can write code without grep-archaeology.
 
+## 2026-05-20 — D.W5 execution
+
+D.W5 — Playwright coverage: 3 lanes sequenced **(A ∥ B) → C** (Lanes A + B file-disjoint dispatched in parallel; Lane C the small organizational wrap-up). 3 baseline smoke specs → **21 specs across 3 projects** in 9.6s.
+
+- **Lane A — user-view specs + walk + WebGL + reactivity-instant (`707d1be`, combined with Lane B)**.
+  - 6 view specs at `e2e/smoke/views/` (palettes, browse, extract, generate, gradient, mix) — each ≤ 35 LoC; role/label-only selectors.
+  - `e2e/smoke/walk.spec.ts` — exercises usePaneRouter's component registry by walking all 6 user views + back to picker; 0 console errors throughout.
+  - `e2e/smoke/webgl-atmosphere.spec.ts` + `e2e/smoke/webgl-goo-blob.spec.ts` — 2s warm-up + view-switch probes; no webglcontextlost / [stale prop] console substrings.
+  - **`e2e/smoke/reactivity-instant.spec.ts` (MERGE-GATE-BLOCKING)** — 2 tests: spectrum-drag → docs-pane wall-clock measurement (median **6.80ms** across 5 paths, 7.4× under the 50ms gate); slider-keyboard → component-readout wall-clock (median 21.70ms). REACTIVITY-B's topology verdict is now wall-clock evidenced.
+  - 2 single-line `data-testid` additions (GooBlob.vue + atmosphere canvas).
+  - Env-noise filter added to page-load.spec.ts for shared production palette API rate-limits (4xx/5xx are network conditions, not value.js bugs).
+  - Sub-gate A PASS. Deferred: useEffectCensus dev probe (REACTIVITY-B verified topology; no leak surfaced) + hex-input reactivity test (visibility:hidden at desktop breakpoint; re-targeted to slider-keyboard).
+
+- **Lane B — admin specs + admin-mock fixture (`707d1be`, combined with Lane A)**.
+  - `e2e/smoke/admin/fixtures/admin-auth.ts` — `addInitScript` seeds `localStorage["palette-admin-token"]` BEFORE app boot; `page.route` wildcard returns PaginatedResponse-shaped `{data:[],total:0,limit:50,offset:0}` envelopes for 8 admin endpoint patterns (with the `/admin/tags` Tag[]-directly exception per types.ts contract).
+  - 5 admin-view specs at `e2e/smoke/admin/` + `admin-walk.spec.ts` (moved into `admin/` dir by Lane C for clean partition).
+  - Navigation uses direct hash routes (`page.goto('/#/admin/users')`) rather than dock-toggle UI traversal — same useViewManager → usePaneRouter → AdminPane code path, simpler.
+  - `.last()` / `.first()` selector convention for admin pane content — the pane mounts in both mobile + desktop slots; .last() picks the visible desktop instance at 1280×720. Inline-commented per spec.
+  - The categorical OPPOSITE of W5-C's login-flow mocking (which hung); no live login runs in tests.
+  - Sub-gate B PASS.
+
+- **Lane C — smoke-mobile + 3-project playwright.config + CI (`f374f13`)**.
+  - `e2e/smoke/mobile/page-load-mobile.spec.ts` — Pixel-7 viewport, single boot spec (62 LoC). Asserts mobile pane shell + dock + view-select combobox + zero console errors.
+  - `playwright.config.ts` — 3-project partition: `smoke` (testIgnore `**/admin/**, **/mobile/**`), `smoke-admin` (testDir `./e2e/smoke/admin`), `smoke-mobile` (testDir `./e2e/smoke/mobile` + `devices['Pixel 7']`).
+  - `.github/workflows/node.js.yml` extended: `npx playwright test --project=smoke --project=smoke-admin --project=smoke-mobile`.
+  - iOS-Safari engine note (per D-HARDEN-5 §4): Pixel 7 in Playwright runs Chromium, NOT WebKit. The smoke-mobile spec catches mobile-layout bugs but NOT iOS-Safari engine bugs. A `smoke-safari` WebKit project + 30s sustained spec is filed as a follow-up in `coordination/Q.md §11` for a successor tranche; the iOS-Safari Color/ValueUnit nesting bug class is covered by D7 invariant + the recursion-guard suite.
+  - Sub-gate C PASS.
+
+D.W5 gates: vue-tsc 126 / vitest 1582 (34 files) / **playwright 21/21 green in 9.6s across 3 projects** (3 baseline + 14 Lane A + 6 Lane B + 1 mobile) / proof:resolution GREEN / lint exit 0 / **reactivity-instant 6.80ms median** (≤ 50ms merge gate).
+
+D.W5 closes. The user's directive ("proper, instant reactivity") now has wall-clock empirical evidence; the smoke surface covers every user view + every admin view + WebGL + a mobile viewport probe.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -335,7 +367,7 @@ D.W4 closes. The demo's styling is now token-bridge-canonical (no magic-literal 
 | D.W2 — backend (api/) refactor — god module split + service/repo + fail-explicit | **closed** | 2026-05-19 | 2026-05-20 | `626b107`, `491a5d8`, `b7d7c63`, `ee8bfa4` |
 | D.W3 — frontend cohesion — PaletteDialog split + facade completion + codemod | **closed** | 2026-05-20 | 2026-05-20 | `3359a97`, `4d439bf`, `ea08102`, `cea5e3f` |
 | D.W4 — styling + design-idiom catalog | **closed** | 2026-05-20 | 2026-05-20 | `5674d1f` (Lanes A+B combined — file-disjoint, byte-isomorphic) |
-| D.W5 — Playwright coverage — 3 → ~20 specs across 3 projects | planned | — | — | — |
+| D.W5 — Playwright coverage — 3 → 21 specs across 3 projects | **closed** | 2026-05-20 | 2026-05-20 | `707d1be`, `f374f13` |
 | D.W6 HEADLINE close — FINAL.md, doc drift, coord state | planned | — | — | — |
 
 ## Open dependencies
