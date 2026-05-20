@@ -248,7 +248,7 @@ export const CSSJSON = all(string("{"), regex(/[^{}]+/), string("}")).map(
     },
 );
 
-const ValuesValue: Parser<any> = any(MathFunction, CSSValueUnit.Value, Function_, CSSJSON, CSSString).trim(whitespace);
+const ValuesValue: Parser<any> = any(CSSWideKeyword, MathFunction, CSSValueUnit.Value, Function_, CSSJSON, CSSString).trim(whitespace);
 
 export const CSSValues = {
     Value: ValuesValue,

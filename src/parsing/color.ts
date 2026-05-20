@@ -213,7 +213,7 @@ const componentExpr: Parser<ComponentExpr> = any(
 // --- Color parser helpers ---
 
 const colorOptionalAlpha = (colorSpace: string) => {
-    const name = string(colorSpace).skip(utils.istring("a").opt());
+    const name = utils.istring(colorSpace).skip(utils.istring("a").opt());
 
     const optionalAlpha = any(
         all(colorValue.skip(alphaSep), colorValue),
@@ -235,7 +235,7 @@ const colorOptionalAlpha = (colorSpace: string) => {
 
 /** Build a relative color parser for a given space name (CSS function name). */
 function relativeColorParser(cssName: string, targetSpace: ColorSpace) {
-    return string(cssName)
+    return utils.istring(cssName)
         .skip(utils.istring("a").opt())
         .next(
             all(

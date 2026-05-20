@@ -251,7 +251,7 @@ export { rgb2ColorFilter, cssFiltersToString } from "./units/color/colorFilter";
 export {
     linear, easeInQuad, easeOutQuad, easeInOutQuad,
     easeInCubic, easeOutCubic, easeInOutCubic, smoothStep3,
-    CSSCubicBezier,
+    CSSCubicBezier, solveCubicBezierX,
     easeInBounce, bounceInEase, bounceInEaseHalf, bounceOutEase,
     bounceOutEaseHalf, bounceInOutEase,
     easeInSine, easeOutSine, easeInOutSine,
@@ -260,7 +260,7 @@ export {
     jumpTerms, steppedEase, stepStart, stepEnd,
     cssLinear, bezierPresets, timingFunctions, timingFunctionDescriptions,
 } from "./easing";
-export type { LinearStop } from "./easing";
+export type { LinearStop, TimingFunction } from "./easing";
 
 // Parsing — parsers and parse functions
 export {
@@ -292,7 +292,7 @@ export {
     extractStyleRules,
     extractAnimationOptions,
 } from "./parsing/extract";
-export type { AnimationOptions } from "./parsing/extract";
+export type { CSSAnimationOptions } from "./parsing/extract";
 
 // Animation shorthand parser/serializer
 export {
@@ -319,7 +319,13 @@ export {
 
 export { evaluateMathFunction } from "./parsing/math";
 
-export { CSSColor, parseCSSColor } from "./parsing/color";
+export {
+    CSSColor,
+    parseCSSColor,
+    registerColorNames,
+    clearCustomColorNames,
+    getCustomColorNames,
+} from "./parsing/color";
 
 // Parsing utilities
 export {

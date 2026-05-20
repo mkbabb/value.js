@@ -1,5 +1,5 @@
 import { memoize } from "../utils";
-import type { AnimationOptions } from "./extract";
+import type { CSSAnimationOptions } from "./extract";
 import { parseCSSTime } from "./index";
 
 /**
@@ -110,8 +110,8 @@ const isAnimationName = (token: string): boolean => {
  * Unknown tokens are ignored. Caller decides whether to throw on
  * conflicts.
  */
-const parseSingleAnimation = (input: string): AnimationOptions => {
-    const out: AnimationOptions = {};
+const parseSingleAnimation = (input: string): CSSAnimationOptions => {
+    const out: CSSAnimationOptions = {};
     const tokens = tokeniseShorthand(input);
 
     let timesSeen = 0;
@@ -142,30 +142,30 @@ const parseSingleAnimation = (input: string): AnimationOptions => {
         }
 
         if (DIRECTIONS.has(lower)) {
-            out.direction = lower as NonNullable<AnimationOptions["direction"]>;
+            out.direction = lower as NonNullable<CSSAnimationOptions["direction"]>;
             continue;
         }
 
         if (FILL_MODES.has(lower) && nameAssigned) {
             // `none` is ambiguous between fill-mode and animation-name.
             // Once we've assigned a name, treat `none` as fill-mode.
-            out.fillMode = lower as NonNullable<AnimationOptions["fillMode"]>;
+            out.fillMode = lower as NonNullable<CSSAnimationOptions["fillMode"]>;
             continue;
         }
         if (FILL_MODES.has(lower) && lower !== "none") {
-            out.fillMode = lower as NonNullable<AnimationOptions["fillMode"]>;
+            out.fillMode = lower as NonNullable<CSSAnimationOptions["fillMode"]>;
             continue;
         }
 
         if (COMPOSITIONS.has(lower)) {
             out.composition = lower as NonNullable<
-                AnimationOptions["composition"]
+                CSSAnimationOptions["composition"]
             >;
             continue;
         }
 
         if (PLAY_STATES.has(lower)) {
-            // play-state has no AnimationOptions field; ignored.
+            // play-state has no CSSAnimationOptions field; ignored.
             continue;
         }
 
@@ -198,7 +198,7 @@ const parseSingleAnimation = (input: string): AnimationOptions => {
  * only support a single animation should take `[0]`.
  */
 export const parseAnimationShorthand = memoize(
-    (input: string): AnimationOptions[] => {
+    (input: string): CSSAnimationOptions[] => {
         const segments = splitTopLevelCommas(input);
         return segments.map((seg) => parseSingleAnimation(seg));
     },
@@ -256,7 +256,7 @@ const splitTopLevelCommas = (input: string): string[] => {
  *
  * Fields that are unset are omitted entirely (no `0s` placeholders).
  */
-export const reverseAnimationShorthand = (opts: AnimationOptions): string => {
+export const reverseAnimationShorthand = (opts: CSSAnimationOptions): string => {
     const parts: string[] = [];
     if (opts.duration != null) parts.push(formatTime(opts.duration));
     if (opts.timingFunction != null) parts.push(opts.timingFunction);

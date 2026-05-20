@@ -13,7 +13,7 @@ import type {
  * properties. Renderer-specific options (WAAPI, color space, hue
  * method) are not represented here; consumers extend this type.
  */
-export type AnimationOptions = {
+export type CSSAnimationOptions = {
     name?: string;
     duration?: number; // ms
     delay?: number; // ms
@@ -106,7 +106,7 @@ const tryParseIterationCount = (text: string): number | undefined => {
 };
 
 const applyLonghand = (
-    out: AnimationOptions,
+    out: CSSAnimationOptions,
     name: string,
     valueText: string,
 ): void => {
@@ -143,7 +143,7 @@ const applyLonghand = (
             const lower = v.toLowerCase();
             if (DIRECTION_VALUES.has(lower)) {
                 out.direction = lower as NonNullable<
-                    AnimationOptions["direction"]
+                    CSSAnimationOptions["direction"]
                 >;
             }
             return;
@@ -152,7 +152,7 @@ const applyLonghand = (
             const lower = v.toLowerCase();
             if (FILL_VALUES.has(lower)) {
                 out.fillMode = lower as NonNullable<
-                    AnimationOptions["fillMode"]
+                    CSSAnimationOptions["fillMode"]
                 >;
             }
             return;
@@ -164,7 +164,7 @@ const applyLonghand = (
             const lower = v.toLowerCase();
             if (COMPOSITION_VALUES.has(lower)) {
                 out.composition = lower as NonNullable<
-                    AnimationOptions["composition"]
+                    CSSAnimationOptions["composition"]
                 >;
             }
             return;
@@ -188,8 +188,8 @@ const applyLonghand = (
  */
 export const extractAnimationOptions = (
     s: Stylesheet,
-): AnimationOptions => {
-    const out: AnimationOptions = {};
+): CSSAnimationOptions => {
+    const out: CSSAnimationOptions = {};
     for (const item of s) {
         if (item.kind !== "style") continue;
         for (const decl of item.declarations) {

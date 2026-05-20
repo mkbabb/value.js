@@ -1,5 +1,13 @@
 import { cubicBezier, interpBezier, lerp } from "./math";
 
+/**
+ * A timing function (a.k.a. easing function): maps progress
+ * `t ∈ [0, 1]` to an eased output (typically `∈ [0, 1]`, but easings
+ * such as `bounceInEase` overshoot). Canonical home for the type
+ * (keyframes.js parallel-declares the same shape — keep parity here).
+ */
+export type TimingFunction = (t: number) => number;
+
 export function linear(t: number) {
     return t;
 }
@@ -125,7 +133,7 @@ export function smoothStep3(t: number) {
  * Solve X(t) = x for t using Newton-Raphson with bisection fallback.
  * X(t) = 3(1-t)^2*t*x1 + 3(1-t)*t^2*x2 + t^3
  */
-function solveCubicBezierX(x: number, x1: number, x2: number, epsilon = 1e-6): number {
+export function solveCubicBezierX(x: number, x1: number, x2: number, epsilon = 1e-6): number {
     let t = x; // initial guess
     for (let i = 0; i < 8; i++) {
         const t2 = t * t;
