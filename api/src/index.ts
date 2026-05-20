@@ -13,7 +13,7 @@ import { cleanup } from "./cron.js";
 import { palettes } from "./routes/palettes/index.js";
 import sessions from "./routes/sessions.js";
 import colors from "./routes/colors.js";
-import admin from "./routes/admin.js";
+import admin from "./routes/admin/index.js";
 
 const app = new Hono<AppEnv>();
 
