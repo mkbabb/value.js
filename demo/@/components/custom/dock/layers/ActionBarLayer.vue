@@ -87,8 +87,14 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 
         <div class="dock-separator"></div>
 
-        <!-- Toggle button -->
-        <DockIconButton class="shrink-0" @click="cycleToolbarMode">
+        <!-- Toggle button — E.W3 Lane A added aria-label so the role/label
+             selectors in e2e/smoke/flows/color-propose.spec.ts can drive
+             the actions→input→propose cycle. -->
+        <DockIconButton
+            class="shrink-0"
+            :aria-label="toolbarMode === 'actions' ? 'Open color input' : toolbarMode === 'input' ? (actionBar.canProposeName.value ? 'Propose color name' : 'Close input') : 'Close propose'"
+            @click="cycleToolbarMode"
+        >
             <Transition name="toggle-icon" mode="out-in">
                 <component
                     :is="currentToggleIcon"

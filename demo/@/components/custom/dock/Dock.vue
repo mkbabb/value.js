@@ -138,6 +138,7 @@ watch(
                                     compact
                                     :class="{ 'is-active': actionBarLayerActive }"
                                     title="Action bar"
+                                    aria-label="Toggle action bar"
                                     :aria-pressed="actionBarLayerActive"
                                     :tabindex="hasAnyActionBar ? 0 : -1"
                                     @click="toggleActionBar"
