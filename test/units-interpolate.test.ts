@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { ValueUnit } from "../src/units";
 import type { InterpolatedVar } from "../src/units";
-import { RGBColor, OKLABColor } from "../src/units/color";
+import { RGBColor, OKLABColor, OKLCHColor } from "../src/units/color";
 import {
     lerpColorValue,
     lerpNumericValue,
@@ -306,6 +306,55 @@ describe("Interpolation E2E (normalizeValueUnits → prepareInterpVar → lerpVa
         const b = new ValueUnit(100, "px", ["length", "absolute"]);
         const iv = normalizeValueUnits(a, b);
         expect(iv.computed).toBe(false);
+    });
+
+    // L5 — `lerpColorValue` carries `hueMethod`.
+    //
+    // Pre-fix: `normalizeColorUnits` returned `hueMethod` in a 3-tuple that the
+    // downstream destructure dropped. Animations between
+    // `oklch(50% 0.2 350deg) → oklch(50% 0.2 10deg)` went the long way round
+    // (340° via 180°) instead of CSS Color 4 §12.4's default `shorter`
+    // (20° via 360°→0°).
+    //
+    // Expected midpoint with `shorter` method: 0° (i.e., 360°/0° boundary,
+    // halfway between 350° → 10° wrapping through 0°), NOT 180°.
+    it("L5: oklch 350° → 10° hue interpolates the short way (passes through 0°), not the long way (passes through 180°)", () => {
+        // Construct two oklch endpoints with the same L and C, hues 350° and 10°.
+        const a = new ValueUnit(new OKLCHColor(0.5, 0.2, 350, 1), "color", [
+            "color",
+            "oklch",
+        ]);
+        const b = new ValueUnit(new OKLCHColor(0.5, 0.2, 10, 1), "color", [
+            "color",
+            "oklch",
+        ]);
+        // Interpolate in oklch (cylindrical) so the hue channel is the angle.
+        const iv = normalizeValueUnits(a, b, {
+            colorSpace: "oklch",
+            hueMethod: "shorter",
+        });
+        prepareInterpVar(iv);
+
+        // Verify the producer wrote colorSpace + hueMethod through.
+        expect(iv.colorSpace).toBe("oklch");
+        expect(iv.hueMethod).toBe("shorter");
+
+        const out = lerpValue(0.5, iv)!;
+        const c = out.value as any;
+        const hChannel = typeof c.h === "object" && c.h != null && "value" in c.h ? c.h.value : c.h;
+
+        // Hue is stored in physical degrees [0, 360] after `normalizeColorUnits`'s
+        // inverse=true denormalisation. Short-way midpoint of 350° → 10° is 0°
+        // (or equivalently 360°). Long-way midpoint would be 180°.
+        const distanceFromBoundary = Math.min(
+            Math.abs(hChannel - 0),
+            Math.abs(hChannel - 360),
+        );
+        expect(distanceFromBoundary).toBeLessThan(5);
+
+        // Sanity check: the long-way (linear-lerp) answer would be ~180°; that
+        // would mean the hueMethod carry-through was dropped (the L5 bug).
+        expect(Math.abs(hChannel - 180)).toBeGreaterThan(150);
     });
 });
 

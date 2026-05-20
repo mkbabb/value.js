@@ -51,7 +51,7 @@ import { useOptionalDockContext } from "@mkbabb/glass-ui/dock";
 
 const dock = useOptionalDockContext();
 
-const props = defineProps<{
+const { hoverKey, activeHover } = defineProps<{
     icon: Component;
     hoverKey: string;
     activeHover: string | null;
@@ -71,10 +71,10 @@ const emit = defineEmits<{
     "update:activeHover": [value: string | null];
 }>();
 
-const isOpen = computed(() => props.activeHover === props.hoverKey);
+const isOpen = computed(() => activeHover === hoverKey);
 
 function onHoverOpenChange(v: boolean) {
-    emit("update:activeHover", v ? props.hoverKey : null);
+    emit("update:activeHover", v ? hoverKey : null);
     if (v) {
         dock?.keepOpen();
     } else {

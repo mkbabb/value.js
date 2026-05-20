@@ -25,6 +25,7 @@ import { color2, hex2rgb, kelvin2rgb, mixColors } from "../units/color/utils";
 import type { HueInterpolationMethod } from "../units/color/utils";
 import { convertToDegrees } from "../units/utils";
 import * as utils from "./utils";
+import { memoize } from "../utils";
 import { CSSValueUnit, parseCSSValueUnit } from "./units";
 import { createCalcParser, createMathFunctionParsers, evaluateMathFunction } from "./math";
 
@@ -560,17 +561,28 @@ export function registerColorNames(names: Record<string, string>): void {
     for (const [name, css] of Object.entries(names)) {
         customColorNames.set(name.trim().toLowerCase(), css);
     }
+    // Custom-name registration changes the resolution of unrecognized inputs;
+    // invalidate the memo cache so fallback lookups re-run.
+    parseCSSColor.cache.clear();
 }
 
 export function clearCustomColorNames(): void {
     customColorNames.clear();
+    parseCSSColor.cache.clear();
 }
 
 export function getCustomColorNames(): ReadonlyMap<string, string> {
     return customColorNames;
 }
 
-export function parseCSSColor(input: string): ValueUnit {
+/**
+ * Parse a CSS color string into a `ValueUnit<Color>`. Memoised — the returned
+ * ValueUnit is shared across callers, so callers MUST NOT mutate it. Clone
+ * before mutating if a per-call instance is needed.
+ *
+ * The cache is invalidated by `registerColorNames` and `clearCustomColorNames`.
+ */
+export const parseCSSColor = memoize((input: string): ValueUnit => {
     const result = utils.parseResult(Value, input);
     if (result.status) {
         return result.value;
@@ -585,4 +597,4 @@ export function parseCSSColor(input: string): ValueUnit {
 
     // Re-throw original parse failure
     return utils.tryParse(Value, input);
-}
+});

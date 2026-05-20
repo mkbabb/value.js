@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, nextTick, onMounted } from "vue";
+import { ref, watch, nextTick, onMounted, useTemplateRef } from "vue";
 import { useDark } from "@vueuse/core";
 import { Button } from "@components/ui/button";
 import { Copy, Check } from "lucide-vue-next";
@@ -13,7 +13,7 @@ import githubLight from "highlight.js/styles/github.css?inline";
 
 hljs.registerLanguage("css", css);
 
-const props = defineProps<{
+const { modelValue, coalescedCSS } = defineProps<{
     modelValue: string;
     coalescedCSS: string;
 }>();
@@ -24,7 +24,7 @@ const emit = defineEmits<{
 }>();
 
 const isDark = useDark();
-const editorRef = ref<HTMLElement | null>(null);
+const editorRef = useTemplateRef<HTMLElement>("editorRef");
 const parseError = ref(false);
 const copied = ref(false);
 let isSettingValue = false;
@@ -111,7 +111,7 @@ function onInput() {
 }
 
 // Update editor when model changes from outside
-watch(() => props.modelValue, (newVal) => {
+watch(() => modelValue, (newVal) => {
     if (isSettingValue) return;
     setEditorContent(newVal);
 }, { flush: "post" });
@@ -119,12 +119,12 @@ watch(() => props.modelValue, (newVal) => {
 onMounted(() => {
     ensureTheme();
     if (editorRef.value) {
-        editorRef.value.innerHTML = highlight(props.modelValue);
+        editorRef.value.innerHTML = highlight(modelValue);
     }
 });
 
 async function onCopy() {
-    await copyToClipboard(props.coalescedCSS);
+    await copyToClipboard(coalescedCSS);
     copied.value = true;
     setTimeout(() => { copied.value = false; }, 1500);
 }

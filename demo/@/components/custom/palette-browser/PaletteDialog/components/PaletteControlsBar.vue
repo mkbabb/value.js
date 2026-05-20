@@ -70,7 +70,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted, onBeforeUnmount, nextTick } from "vue";
+import { ref, watch, onMounted, onBeforeUnmount, nextTick, useTemplateRef } from "vue";
 import { TabsList, TabsTrigger } from "@components/ui/tabs";
 import { Shield, ImagePlus } from "lucide-vue-next";
 import { SearchBar } from "@mkbabb/glass-ui/search";
@@ -81,7 +81,20 @@ import UserSortMenu from "@components/custom/palette-browser/UserSortMenu.vue";
 
 import type { Tag } from "@lib/palette/types";
 
-const props = defineProps<{
+const {
+    activeTab,
+    searchPlaceholder,
+    userSlug,
+    cssColorOpaque,
+    hasSavedPalettes,
+    isAdmin,
+    sortMode,
+    statusFilter,
+    selectedTags,
+    availableTags,
+    userSortMode,
+    dialogOpen,
+} = defineProps<{
     activeTab: string;
     searchPlaceholder: string;
     userSlug: string | null;
@@ -110,7 +123,7 @@ defineEmits<{
 const searchModel = defineModel<string>("search", { required: true });
 
 const slugBarRef = ref<InstanceType<typeof PaletteSlugBar> | null>(null);
-const tabsScrollRef = ref<HTMLElement | null>(null);
+const tabsScrollRef = useTemplateRef<HTMLElement>("tabsScrollRef");
 const tabsOverflowing = ref(false);
 
 defineExpose({ slugBarRef });
@@ -124,13 +137,13 @@ function checkTabsOverflow() {
 
 let tabsResizeObserver: ResizeObserver | null = null;
 
-watch(() => props.dialogOpen, (open) => {
+watch(() => dialogOpen, (open) => {
     if (open) {
         nextTick(checkTabsOverflow);
     }
 });
 
-watch(() => props.isAdmin, () => {
+watch(() => isAdmin, () => {
     nextTick(checkTabsOverflow);
 });
 

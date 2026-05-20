@@ -103,7 +103,7 @@ import PaneHeader from "./PaneHeader.vue";
 import type { Palette } from "@lib/palette/types";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
 
-const props = defineProps<{
+const { savedColorStrings } = defineProps<{
     savedColorStrings: string[];
 }>();
 

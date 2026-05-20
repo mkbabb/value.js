@@ -1137,7 +1137,7 @@ export function mixColors(
     // Handle alpha
     const a1 = Number.isNaN(c1.alpha as number) ? (c2.alpha as number) : (c1.alpha as number);
     const a2 = Number.isNaN(c2.alpha as number) ? (c1.alpha as number) : (c2.alpha as number);
-    const resultAlpha = (lerp(p2, a1, a2)) * alphaMultiplier;
+    const resultAlpha = (lerp(a1, a2, p2)) * alphaMultiplier;
 
     // Premultiplied alpha interpolation for non-hue components
     const resultComponents: number[] = [];
@@ -1161,7 +1161,7 @@ export function mixColors(
             // Premultiplied alpha interpolation
             const premul1 = v1 * a1;
             const premul2 = v2 * a2;
-            const mixed = lerp(p2, premul1, premul2);
+            const mixed = lerp(premul1, premul2, p2);
             resultComponents.push(resultAlpha > 0 ? mixed / resultAlpha : 0);
         }
     }

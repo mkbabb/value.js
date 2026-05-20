@@ -86,12 +86,10 @@ import { useImageSampler, type DisplayColorSpace } from "./composables/useImageS
 import { useLoupeCanvas } from "./composables/useLoupeCanvas";
 import { LOUPE_SIZE } from "./constants";
 
-const props = withDefaults(defineProps<{
+const { imageUrl, colorSpace = "hex" } = defineProps<{
     imageUrl: string;
     colorSpace?: DisplayColorSpace | undefined;
-}>(), {
-    colorSpace: "hex",
-});
+}>();
 
 const emit = defineEmits<{
     close: [];
@@ -121,7 +119,7 @@ const sampler = useImageSampler({
         panY: gesture.panY.value,
         zoom: gesture.zoom.value,
     }),
-    colorSpace: () => props.colorSpace,
+    colorSpace: () => colorSpace,
 });
 
 // --- Loupe canvas (draw + visibility/position state) ---
@@ -186,7 +184,7 @@ const loupeStyle = computed(() => ({
 // --- Image loading ---
 
 async function loadAndFit() {
-    await sampler.loadImage(props.imageUrl);
+    await sampler.loadImage(imageUrl);
     await nextTick();
     gesture.fitToViewport();
 }
@@ -232,7 +230,7 @@ onBeforeUnmount(() => {
     sampler.dispose();
 });
 
-watch(() => props.imageUrl, () => { loadAndFit(); });
+watch(() => imageUrl, () => { loadAndFit(); });
 </script>
 
 <style scoped>

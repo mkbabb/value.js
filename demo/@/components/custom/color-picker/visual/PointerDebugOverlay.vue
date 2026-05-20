@@ -98,7 +98,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, inject } from "vue";
+import { ref, computed, inject, useTemplateRef } from "vue";
 import {
     POINTER_DEBUG_KEY,
     type PointerDebugEvent,
@@ -106,7 +106,7 @@ import {
 
 const debug = inject(POINTER_DEBUG_KEY)!;
 const collapsed = ref(true); // start collapsed so it doesn't interfere
-const logRef = ref<HTMLElement>();
+const logRef = useTemplateRef<HTMLElement>("logRef");
 const copied = ref(false);
 
 const reversedEvents = computed(() => [...debug.state.events].reverse());

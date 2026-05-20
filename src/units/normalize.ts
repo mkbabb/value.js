@@ -370,6 +370,11 @@ export function normalizeValueUnits(
         out.start = leftCollapsed;
         out.stop = rightCollapsed;
         out.value = leftCollapsed.clone();
+        // Producer side: carry hueMethod + colorSpace through to the
+        // InterpolatedVar so `lerpColorValue` can dispatch `interpolateHue`
+        // for the hue channel of cylindrical spaces.
+        out.colorSpace = colorSpace as any;
+        if (hueMethod) out.hueMethod = hueMethod;
     }
 
     if (left.unit !== right.unit) {

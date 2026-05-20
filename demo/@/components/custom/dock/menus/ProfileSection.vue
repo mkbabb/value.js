@@ -11,7 +11,7 @@ import {
 import { Avatar, AvatarImage } from "@components/ui/avatar";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
-const props = defineProps<{
+const { cssColorOpaque, linkCopied } = defineProps<{
     cssColorOpaque: string;
     linkCopied: boolean;
 }>();

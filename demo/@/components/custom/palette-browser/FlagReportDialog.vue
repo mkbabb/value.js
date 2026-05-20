@@ -61,7 +61,7 @@ import { Button } from "@components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
 import { Loader2 } from "lucide-vue-next";
 
-const props = defineProps<{
+const { open, paletteName, paletteSlug } = defineProps<{
     open: boolean;
     paletteName: string;
     paletteSlug: string;

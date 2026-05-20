@@ -14,7 +14,13 @@ import type { LeftoverStrategy } from "@lib/palette/mix";
 import type { AcceptableValue } from "reka-ui";
 import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@components/custom/gradient/composables/useGradientModel";
 
-const props = defineProps<{
+const {
+    colorSpace,
+    hueMethod,
+    leftoverStrategy,
+    showLeftoverStrategy,
+    canMix,
+} = defineProps<{
     colorSpace: ColorSpace;
     hueMethod: HueInterpolationMethod;
     leftoverStrategy: LeftoverStrategy;

@@ -81,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, provide, reactive, ref, shallowRef } from "vue";
+import { computed, onMounted, provide, reactive, ref, shallowRef, useTemplateRef } from "vue";
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import { ColorPicker } from "@components/custom/color-picker";
@@ -115,7 +115,7 @@ import "@styles/style.css";
 useGlobalDark();
 
 // --- Template refs ---
-const atmosphereCanvas = ref<HTMLCanvasElement | null>(null);
+const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
 const model = shallowRef<ColorModel>(defaultColorModel);
 
@@ -212,7 +212,6 @@ const auroraConfig = reactive<AuroraConfig>(structuredClone(DEFAULT_AURORA_CONFI
 useAurora(atmosphereCanvas, () => auroraConfig, {
     onInitError: (err) => console.warn("[aurora] init failed:", err),
 });
-provide("auroraConfig", auroraConfig);
 
 // --- Blob config ---
 const blobConfig = reactive({ ...BLOB_CONFIG_DEFAULTS });

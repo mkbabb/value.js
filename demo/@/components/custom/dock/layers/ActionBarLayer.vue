@@ -9,7 +9,7 @@ import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useLayerTransition } from "../composables/useLayerTransition";
 import type { EditTarget } from "@components/custom/color-picker";
 
-const props = defineProps<{
+const { actionBar, editTarget } = defineProps<{
     actionBar: ActionBarContext;
     editTarget: EditTarget | null;
 }>();
@@ -20,7 +20,7 @@ const emit = defineEmits<{
 }>();
 
 // Re-provide COLOR_MODEL_KEY so ColorInput works unchanged
-provide(COLOR_MODEL_KEY, props.actionBar.colorModel);
+provide(COLOR_MODEL_KEY, actionBar.colorModel);
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
@@ -35,7 +35,7 @@ function cycleToolbarMode() {
     if (toolbarMode.value === "actions") {
         toolbarMode.value = "input";
     } else if (toolbarMode.value === "input") {
-        if (props.actionBar.canProposeName.value) {
+        if (actionBar.canProposeName.value) {
             toolbarMode.value = "propose";
         } else {
             toolbarMode.value = "actions";
@@ -47,7 +47,7 @@ function cycleToolbarMode() {
 
 const currentToggleIcon = computed(() => {
     if (toolbarMode.value === "actions") return Type;
-    if (toolbarMode.value === "input") return props.actionBar.canProposeName.value ? Tag : EllipsisVertical;
+    if (toolbarMode.value === "input") return actionBar.canProposeName.value ? Tag : EllipsisVertical;
     return EllipsisVertical;
 });
 

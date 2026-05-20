@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, nextTick, inject } from "vue";
+import { ref, nextTick, inject, useTemplateRef } from "vue";
 import { LogIn, ArrowRight, RefreshCw, X as XIcon, Loader2 } from "lucide-vue-next";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
@@ -11,7 +11,7 @@ const slugEditMode = defineModel<boolean>("active", { default: false });
 const slugInput = ref("");
 const slugSwitching = ref(false);
 const slugError = ref("");
-const slugInputRef = ref<HTMLInputElement | null>(null);
+const slugInputRef = useTemplateRef<HTMLInputElement>("slugInputRef");
 
 function onStartSlugEdit() {
     slugInput.value = "";

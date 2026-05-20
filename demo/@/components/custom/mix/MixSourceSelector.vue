@@ -11,7 +11,12 @@ import PaletteColorStrip from "@components/custom/palette-browser/PaletteColorSt
 import type { Palette } from "@lib/palette/types";
 import type { SelectedColor } from "./composables/useMixingState";
 
-const props = defineProps<{
+const {
+    mode,
+    selectedColors,
+    selectedPalettes,
+    cssColorOpaque,
+} = defineProps<{
     mode: "colors" | "palettes";
     selectedColors: SelectedColor[];
     selectedPalettes: Palette[];
@@ -32,8 +37,8 @@ const savedPalettes = computed(() => pm?.savedPalettes.value ?? []);
 // Source guards: remove needs ≥ 1 remaining, add stops at a sensible upper bound.
 const MIN_COLORS = 1;
 const MAX_COLORS = 12;
-const canRemoveColor = computed(() => props.selectedColors.length > MIN_COLORS);
-const canAddColor = computed(() => props.selectedColors.length < MAX_COLORS);
+const canRemoveColor = computed(() => selectedColors.length > MIN_COLORS);
+const canAddColor = computed(() => selectedColors.length < MAX_COLORS);
 
 const tabOptions = [
     { label: "Colors", value: "colors" },
@@ -45,7 +50,7 @@ function onTabChange(value: string) {
 }
 
 function isPaletteSelected(id: string): boolean {
-    return props.selectedPalettes.some((p) => p.id === id);
+    return selectedPalettes.some((p) => p.id === id);
 }
 
 function togglePalette(palette: Palette) {
@@ -57,8 +62,8 @@ function togglePalette(palette: Palette) {
 }
 
 function addCurrentColor() {
-    if (props.cssColorOpaque) {
-        emit("addColor", props.cssColorOpaque, "picker");
+    if (cssColorOpaque) {
+        emit("addColor", cssColorOpaque, "picker");
     }
 }
 
@@ -69,7 +74,7 @@ const paletteDropdownOpen = ref(false);
 let swatchKeyCounter = 0;
 const swatchKeyMap = new Map<string, number>();
 const swatchKeys = computed(() =>
-    props.selectedColors.map((sc, i) => {
+    selectedColors.map((sc, i) => {
         const mapKey = `${sc.css}::${i}`;
         if (!swatchKeyMap.has(mapKey)) {
             swatchKeyMap.set(mapKey, swatchKeyCounter++);
@@ -78,9 +83,9 @@ const swatchKeys = computed(() =>
     }),
 );
 watch(
-    () => props.selectedColors,
+    () => selectedColors,
     () => {
-        const validKeys = new Set(props.selectedColors.map((sc, i) => `${sc.css}::${i}`));
+        const validKeys = new Set(selectedColors.map((sc, i) => `${sc.css}::${i}`));
         for (const key of swatchKeyMap.keys()) {
             if (!validKeys.has(key)) swatchKeyMap.delete(key);
         }

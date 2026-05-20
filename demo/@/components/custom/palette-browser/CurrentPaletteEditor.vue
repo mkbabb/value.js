@@ -167,12 +167,13 @@ import { WatercolorDot } from "@components/custom/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 
-const props = defineProps<{
-    savedColorStrings: string[];
-    cssColorOpaque: string;
-    savedPaletteCount: number;
-    savedPalettes: Palette[];
-}>();
+const { savedColorStrings, cssColorOpaque, savedPaletteCount, savedPalettes } =
+    defineProps<{
+        savedColorStrings: string[];
+        cssColorOpaque: string;
+        savedPaletteCount: number;
+        savedPalettes: Palette[];
+    }>();
 
 const emit = defineEmits<{
     apply: [colors: string[]];
@@ -204,8 +205,8 @@ const {
     onCurrentSwatchCopy,
     onCurrentSwatchRemove,
 } = useSwatchActions({
-    savedColorStrings: toRef(props, "savedColorStrings"),
-    cssColorOpaque: toRef(props, "cssColorOpaque"),
+    savedColorStrings: toRef(() => savedColorStrings),
+    cssColorOpaque: toRef(() => cssColorOpaque),
     emit,
 });
 
@@ -218,12 +219,12 @@ function colorsFromStrings(colors: string[]): PaletteColor[] {
 }
 
 function saveCurrentPalette() {
-    if (props.savedColorStrings.length === 0) return;
+    if (savedColorStrings.length === 0) return;
     const name =
-        currentPaletteName.value.trim() || `Palette ${props.savedPaletteCount + 1}`;
+        currentPaletteName.value.trim() || `Palette ${savedPaletteCount + 1}`;
 
     // Check for duplicate name
-    const existing = props.savedPalettes.find(
+    const existing = savedPalettes.find(
         (p) => p.name.toLowerCase() === name.toLowerCase(),
     );
     if (existing) {
@@ -231,7 +232,7 @@ function saveCurrentPalette() {
         return;
     }
 
-    emit("saved", name, colorsFromStrings(props.savedColorStrings));
+    emit("saved", name, colorsFromStrings(savedColorStrings));
     currentPaletteName.value = "";
     duplicateTarget.value = null;
     emit("clearCurrent");
@@ -239,7 +240,7 @@ function saveCurrentPalette() {
 
 function confirmUpdatePalette() {
     if (!duplicateTarget.value) return;
-    emit("updated", duplicateTarget.value.id, colorsFromStrings(props.savedColorStrings));
+    emit("updated", duplicateTarget.value.id, colorsFromStrings(savedColorStrings));
     currentPaletteName.value = "";
     duplicateTarget.value = null;
     emit("clearCurrent");

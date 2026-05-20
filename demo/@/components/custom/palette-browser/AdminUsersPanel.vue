@@ -148,7 +148,13 @@ import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import PaletteCard from "./PaletteCard.vue";
 import EmptyState from "./EmptyState.vue";
 
-const props = defineProps<{
+const {
+    users,
+    loading,
+    expandedId,
+    cssColor,
+    totalUsers,
+} = defineProps<{
     users: User[];
     loading: boolean;
     expandedId: string | null;
@@ -175,7 +181,7 @@ const userPalettes = ref<Palette[]>([]);
 const loadingUserPalettes = ref(false);
 const pruning = ref(false);
 
-const emptyCount = computed(() => props.users.filter((u) => !(u.paletteCount ?? 0)).length);
+const emptyCount = computed(() => users.filter((u) => !(u.paletteCount ?? 0)).length);
 
 // Confirmation dialog state
 const confirmOpen = ref(false);

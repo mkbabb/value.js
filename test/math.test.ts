@@ -91,44 +91,44 @@ describe("scale", () => {
 
 describe("lerp", () => {
     it("should return start when t=0", () => {
-        expect(lerp(0, 10, 20)).toBe(10);
-        expect(lerp(0, -5, 5)).toBe(-5);
-        expect(lerp(0, 0, 100)).toBe(0);
+        expect(lerp(10, 20, 0)).toBe(10);
+        expect(lerp(-5, 5, 0)).toBe(-5);
+        expect(lerp(0, 100, 0)).toBe(0);
     });
 
     it("should return end when t=1", () => {
-        expect(lerp(1, 10, 20)).toBe(20);
-        expect(lerp(1, -5, 5)).toBe(5);
-        expect(lerp(1, 0, 100)).toBe(100);
+        expect(lerp(10, 20, 1)).toBe(20);
+        expect(lerp(-5, 5, 1)).toBe(5);
+        expect(lerp(0, 100, 1)).toBe(100);
     });
 
     it("should return midpoint when t=0.5", () => {
-        expect(lerp(0.5, 0, 100)).toBe(50);
-        expect(lerp(0.5, -10, 10)).toBe(0);
-        expect(lerp(0.5, 20, 40)).toBe(30);
+        expect(lerp(0, 100, 0.5)).toBe(50);
+        expect(lerp(-10, 10, 0.5)).toBe(0);
+        expect(lerp(20, 40, 0.5)).toBe(30);
     });
 
     it("should interpolate at arbitrary t values", () => {
-        expect(lerp(0.25, 0, 100)).toBe(25);
-        expect(lerp(0.75, 0, 100)).toBe(75);
-        expect(lerp(0.1, 0, 10)).toBeCloseTo(1);
+        expect(lerp(0, 100, 0.25)).toBe(25);
+        expect(lerp(0, 100, 0.75)).toBe(75);
+        expect(lerp(0, 10, 0.1)).toBeCloseTo(1);
     });
 
     it("should extrapolate beyond [0,1]", () => {
-        expect(lerp(2, 0, 10)).toBe(20);
-        expect(lerp(-1, 0, 10)).toBe(-10);
+        expect(lerp(0, 10, 2)).toBe(20);
+        expect(lerp(0, 10, -1)).toBe(-10);
     });
 
     it("should handle equal start and end", () => {
-        expect(lerp(0.5, 7, 7)).toBe(7);
-        expect(lerp(0, 7, 7)).toBe(7);
-        expect(lerp(1, 7, 7)).toBe(7);
+        expect(lerp(7, 7, 0.5)).toBe(7);
+        expect(lerp(7, 7, 0)).toBe(7);
+        expect(lerp(7, 7, 1)).toBe(7);
     });
 
     it("should handle negative ranges", () => {
-        expect(lerp(0.5, -100, -200)).toBe(-150);
-        expect(lerp(0, -100, -200)).toBe(-100);
-        expect(lerp(1, -100, -200)).toBe(-200);
+        expect(lerp(-100, -200, 0.5)).toBe(-150);
+        expect(lerp(-100, -200, 0)).toBe(-100);
+        expect(lerp(-100, -200, 1)).toBe(-200);
     });
 });
 

@@ -8,7 +8,15 @@ import { inject } from "vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import type { ViewEntry } from "./composables/useDockAdminMode";
 
-const props = defineProps<{
+const {
+    currentView,
+    currentIcon,
+    safeAccent,
+    cssColorOpaque,
+    isAdminMode,
+    isDesktop,
+    viewEntries,
+} = defineProps<{
     currentView: string;
     currentIcon: unknown;
     safeAccent: string;

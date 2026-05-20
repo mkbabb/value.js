@@ -13,6 +13,7 @@ import {
 } from "../units/constants";
 import { CSSColor, parseCSSColor, registerColorNames, clearCustomColorNames, getCustomColorNames } from "./color";
 import * as utils from "./utils";
+import { memoize } from "../utils";
 
 export { CSSColor, parseCSSColor, registerColorNames, clearCustomColorNames, getCustomColorNames };
 
@@ -103,9 +104,14 @@ export const CSSValueUnit = {
     sep,
 };
 
-export function parseCSSValueUnit(input: string): ValueUnit {
+/**
+ * Parse a CSS dimension/value string into a `ValueUnit`. Memoised — the
+ * returned `ValueUnit` is shared across callers, so callers MUST NOT mutate it.
+ * Mirrors the memo contract of the sibling `parseCSSValue`/`parseCSSColor`.
+ */
+export const parseCSSValueUnit = memoize((input: string): ValueUnit => {
     return utils.tryParse(Value, input);
-}
+});
 
 /**
  * Format a millisecond duration as a CSS time string. Emits `<n>s`

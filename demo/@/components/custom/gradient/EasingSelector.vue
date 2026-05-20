@@ -10,7 +10,7 @@ import {
 import { GRADIENT_EASING_NAMES, resolveEasing } from "./composables/useGradientModel";
 import type { AcceptableValue } from "reka-ui";
 
-const props = defineProps<{
+const { modelValue } = defineProps<{
     modelValue: string;
 }>();
 
@@ -19,7 +19,7 @@ const emit = defineEmits<{
 }>();
 
 const curvePoints = computed(() => {
-    const fn = resolveEasing(props.modelValue);
+    const fn = resolveEasing(modelValue);
     const steps = 30;
     const pts: string[] = [];
     for (let i = 0; i <= steps; i++) {

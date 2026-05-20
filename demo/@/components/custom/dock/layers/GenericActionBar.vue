@@ -3,7 +3,7 @@ import { ref } from "vue";
 import ActionButton from "@components/custom/color-picker/controls/ActionButton.vue";
 import type { DockAction } from "@composables/usePaneRouter";
 
-const props = defineProps<{
+const { actions, accentColor } = defineProps<{
     actions: DockAction[];
     accentColor?: string;
 }>();

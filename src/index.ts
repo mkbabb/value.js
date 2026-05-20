@@ -217,6 +217,7 @@ export {
     clamp,
     scale,
     lerp,
+    lerpLegacy,
     logerp,
     deCasteljau,
     cubicBezier,

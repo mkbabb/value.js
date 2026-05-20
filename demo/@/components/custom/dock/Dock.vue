@@ -21,7 +21,12 @@ import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import type { EditTarget } from "@components/custom/color-picker";
 import type { DockActionBar } from "@composables/usePaneRouter";
 
-const props = defineProps<{ linkCopied: boolean; editTarget: EditTarget | null; actionBar?: ActionBarContext | null; genericActionBar?: DockActionBar | null }>();
+const {
+    linkCopied,
+    editTarget,
+    actionBar: actionBarProp,
+    genericActionBar,
+} = defineProps<{ linkCopied: boolean; editTarget: EditTarget | null; actionBar?: ActionBarContext | null; genericActionBar?: DockActionBar | null }>();
 const emit = defineEmits<{ shareLink: []; commitEdit: []; cancelEdit: [] }>();
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
@@ -29,8 +34,8 @@ const safeAccent = inject(SAFE_ACCENT_KEY)!;
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 
-const actionBar = computed(() => props.actionBar ?? null);
-const genericBar = computed(() => props.genericActionBar ?? null);
+const actionBar = computed(() => actionBarProp ?? null);
+const genericBar = computed(() => genericActionBar ?? null);
 const hasAnyActionBar = computed(() => !!actionBar.value || !!genericBar.value);
 
 // ── Admin mode (composable owns isAdminMode, viewEntries, watchers) ──
@@ -59,8 +64,8 @@ const profileMenuOpen = popupModel("profile-menu");
 const mbabbMenuOpen = popupModel("mbabb-menu");
 
 const isDesktop = useMediaQuery("(min-width: 1024px)");
-const mobileEditActive = computed(() => !isDesktop.value && !!props.editTarget);
-const anyEditActive = computed(() => !!props.editTarget);
+const mobileEditActive = computed(() => !isDesktop.value && !!editTarget);
+const anyEditActive = computed(() => !!editTarget);
 const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>('dockRef');
 
 watch(() => dockRef.value?.expanded, (expanded) => { if (!expanded && slugEditMode.value) slugEditMode.value = false; });

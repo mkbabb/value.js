@@ -4,16 +4,16 @@ import { useMixingAnimation } from "./composables/useMixingAnimation";
 import type { AnimationPhase } from "./composables/useMixingState";
 import type { SelectedColor } from "./composables/useMixingState";
 
-const props = defineProps<{
+const { phase, selectedColors } = defineProps<{
     phase: AnimationPhase;
     selectedColors: SelectedColor[];
 }>();
 
 const canvasRef = useTemplateRef<HTMLCanvasElement>("mixCanvas");
 
-const colorList = computed(() => props.selectedColors.map((sc) => sc.css));
+const colorList = computed(() => selectedColors.map((sc) => sc.css));
 
-const phaseRef = computed(() => props.phase);
+const phaseRef = computed(() => phase);
 
 useMixingAnimation(canvasRef, colorList, phaseRef);
 </script>

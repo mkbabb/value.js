@@ -95,7 +95,7 @@ export function cssLinear(stops: LinearStop[]): (t: number) => number {
         if (p0.input === p1.input) return p0.output; // degenerate segment
 
         const segmentT = (t - p0.input) / (p1.input - p0.input);
-        return lerp(segmentT, p0.output, p1.output);
+        return lerp(p0.output, p1.output, segmentT);
     };
 }
 

@@ -17,7 +17,7 @@
 import { computed } from "vue";
 import { BouncyTabs } from "@mkbabb/glass-ui/tabs";
 
-const props = defineProps<{
+const { modelValue, leftLabel, rightLabel } = defineProps<{
     modelValue: 0 | 1;
     leftLabel: string | null;
     rightLabel: string | null;
@@ -28,7 +28,7 @@ const emit = defineEmits<{
 }>();
 
 const tabOptions = computed(() => [
-    { label: props.leftLabel ?? "", value: "0" },
-    { label: props.rightLabel ?? "", value: "1" },
+    { label: leftLabel ?? "", value: "0" },
+    { label: rightLabel ?? "", value: "1" },
 ]);
 </script>

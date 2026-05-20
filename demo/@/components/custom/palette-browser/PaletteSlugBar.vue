@@ -139,7 +139,7 @@ import {
 } from "lucide-vue-next";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 
-const props = defineProps<{
+const { userSlug, cssColorOpaque, hasSavedPalettes, isAdmin } = defineProps<{
     userSlug: string | null;
     cssColorOpaque: string;
     hasSavedPalettes: boolean;
@@ -161,7 +161,7 @@ const slugError = ref("");
 const searchBarRef = ref<InstanceType<typeof SearchBar> | null>(null);
 
 function onCopySlug() {
-    if (props.userSlug) copyToClipboard(props.userSlug);
+    if (userSlug) copyToClipboard(userSlug);
 }
 
 function onStartSlugEdit() {
@@ -199,7 +199,7 @@ async function onSlugSwitch() {
         const normalized = normalizeTokenInput(raw).toLowerCase();
         const isAdmin = !looksLikeSlug(normalized);
 
-        if (looksLikeSlug(normalized) && normalized === props.userSlug) {
+        if (looksLikeSlug(normalized) && normalized === userSlug) {
             slugError.value = "Already signed in as this slug.";
             slugSwitching.value = false;
             return;

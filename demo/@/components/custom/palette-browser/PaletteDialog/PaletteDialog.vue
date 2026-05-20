@@ -198,7 +198,13 @@ import { useDialogOverlayGuards } from "./composables/useDialogOverlayGuards";
 import { usePaletteExport } from "./composables/usePaletteExport";
 import { useDialogBrowseActions } from "./composables/useDialogBrowseActions";
 
-const props = defineProps<{
+const {
+    savedColorStrings,
+    cssColor,
+    cssColorOpaque,
+    editingExit,
+    editingEnter,
+} = defineProps<{
     savedColorStrings: string[];
     cssColor: string;
     cssColorOpaque: string;
@@ -265,7 +271,7 @@ const { onExport } = usePaletteExport();
 
 // --- Dot-click copies the current color ---
 function onDotClick() {
-    copyToClipboard(props.cssColorOpaque);
+    copyToClipboard(cssColorOpaque);
 }
 
 defineExpose({

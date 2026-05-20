@@ -138,7 +138,7 @@ import type { Tag } from "@lib/palette/types";
 import { srgbToOKLab } from "@src/units/color/gamut";
 import { hex2rgb } from "@src/units/color/utils";
 
-const props = defineProps<{
+const { sort, status, selectedTags, availableTags } = defineProps<{
     sort: string;
     status: string;
     selectedTags: string[];
@@ -182,14 +182,14 @@ function applyColorSearchFromPicker(hex: string) {
 
 const activeFilterCount = computed(() => {
     let count = 0;
-    if (props.status) count++;
-    count += props.selectedTags.length;
+    if (status) count++;
+    count += selectedTags.length;
     if (colorSearchActive.value) count++;
     return count;
 });
 
 function toggleTag(name: string) {
-    const current = [...props.selectedTags];
+    const current = [...selectedTags];
     const idx = current.indexOf(name);
     if (idx >= 0) current.splice(idx, 1);
     else current.push(name);

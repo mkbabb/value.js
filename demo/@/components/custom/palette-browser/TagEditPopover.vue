@@ -45,7 +45,7 @@ import { Checkbox } from "@components/ui/checkbox";
 import { Loader2 } from "lucide-vue-next";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
-const props = defineProps<{
+const { open, paletteSlug, currentTags } = defineProps<{
     open: boolean;
     paletteSlug: string;
     currentTags: string[];
@@ -62,18 +62,18 @@ const tagEdit = pm.tagEdit;
 
 async function onToggle(name: string, checked: boolean) {
     const updated = checked
-        ? [...props.currentTags, name]
-        : props.currentTags.filter((t) => t !== name);
+        ? [...currentTags, name]
+        : currentTags.filter((t) => t !== name);
 
     emit("update:tags", updated);
-    await tagEdit.saveTags(props.paletteSlug, updated);
+    await tagEdit.saveTags(paletteSlug, updated);
 }
 
-watch(() => props.open, (isOpen) => {
+watch(() => open, (isOpen) => {
     if (isOpen) tagEdit.loadAllTags();
 });
 
 onMounted(() => {
-    if (props.open) tagEdit.loadAllTags();
+    if (open) tagEdit.loadAllTags();
 });
 </script>

@@ -111,7 +111,7 @@ import { formatTime } from "@lib/dateFormat";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import type { PaletteVersion } from "@lib/palette/types";
 
-const props = defineProps<{
+const { open, paletteSlug, paletteName, currentHash } = defineProps<{
     open: boolean;
     paletteSlug: string;
     paletteName: string;
@@ -133,7 +133,7 @@ const loading = ref(false);
 async function loadVersions(offset = 0) {
     loading.value = true;
     try {
-        const page = await pm.versions.fetchVersions(props.paletteSlug, 20, offset);
+        const page = await pm.versions.fetchVersions(paletteSlug, 20, offset);
         if (!page) return;
         if (offset === 0) {
             versions.value = page.data;
@@ -152,9 +152,9 @@ function loadMore() {
 
 // Load versions when drawer opens
 watch(
-    () => props.open,
+    () => open,
     (isOpen) => {
-        if (isOpen && props.paletteSlug) {
+        if (isOpen && paletteSlug) {
             versions.value = [];
             total.value = 0;
             loadVersions();

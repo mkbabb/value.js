@@ -6,7 +6,7 @@ import { copyToClipboard } from "@mkbabb/glass-ui";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
 import type { MixResult } from "./composables/useMixingState";
 
-const props = defineProps<{
+const { result } = defineProps<{
     result: MixResult;
 }>();
 
@@ -18,9 +18,9 @@ const emit = defineEmits<{
 const copied = ref(false);
 
 async function onCopy() {
-    const text = props.result.type === "color"
-        ? props.result.css ?? ""
-        : props.result.colors?.map((c) => c.css).join(", ") ?? "";
+    const text = result.type === "color"
+        ? result.css ?? ""
+        : result.colors?.map((c) => c.css).join(", ") ?? "";
     await copyToClipboard(text);
     copied.value = true;
     setTimeout(() => { copied.value = false; }, 1500);

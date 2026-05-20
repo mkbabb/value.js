@@ -77,7 +77,7 @@ import UserSortMenu from "@components/custom/palette-browser/UserSortMenu.vue";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 
-const props = defineProps<{
+const { subView } = defineProps<{
     subView: "admin-users" | "admin-names" | "admin-audit" | "admin-flagged" | "admin-tags";
 }>();
 
@@ -85,7 +85,7 @@ const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
 
 const headerTitle = computed(() => {
-    switch (props.subView) {
+    switch (subView) {
         case "admin-users": return "Users";
         case "admin-names": return "Names";
         case "admin-audit": return "Audit Log";
@@ -95,7 +95,7 @@ const headerTitle = computed(() => {
 });
 
 const headerDescription = computed(() => {
-    switch (props.subView) {
+    switch (subView) {
         case "admin-users": return "Manage accounts and permissions.";
         case "admin-names": return "Review and approve color names.";
         case "admin-audit": return "View admin action history.";
@@ -105,7 +105,7 @@ const headerDescription = computed(() => {
 });
 
 const adminCount = computed(() => {
-    switch (props.subView) {
+    switch (subView) {
         case "admin-users": return pm.adminUsers.value.length;
         case "admin-names": return pm.filteredColorQueue.value.length + pm.filteredApproved.value.length;
         default: return null;
