@@ -18,7 +18,7 @@ import type { Filter } from "mongodb";
 import type { AppEnv } from "../../types.js";
 import { NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
-import { escapeRegex } from "../../middleware.js";
+import { escapeRegex } from "../../regex.js";
 import type { Palette, PaletteColor, User, UserStatus } from "../../models.js";
 
 export interface UserListEntry {

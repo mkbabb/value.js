@@ -28,7 +28,7 @@ import {
     ConflictError,
     NotFoundError,
 } from "../../errors/index.js";
-import { hashIP, resolveIP } from "../../middleware.js";
+import { hashIP, resolveIP } from "../../middleware/ip.js";
 import { generateUniqueSlug } from "../../slugWords.js";
 
 /** 7 days — the only place this constant lives. */

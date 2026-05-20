@@ -16,7 +16,7 @@
 import { Hono } from "hono";
 import type { AppEnv } from "../types.js";
 import { ValidationError } from "../errors/index.js";
-import { loginRateLimit, registrationRateLimit } from "../middleware.js";
+import { loginRateLimit, registrationRateLimit } from "../middleware/rate-limit.js";
 import { loginBody } from "../validation/session.js";
 import {
     getMe,

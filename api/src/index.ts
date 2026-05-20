@@ -6,8 +6,11 @@ import "dotenv/config";
 
 import type { AppEnv } from "./types.js";
 import { getDb, closeDb } from "./db.js";
-import { corsHeaders, rateLimit, resolveSession, sanitizeBody } from "./middleware.js";
+import { corsHeaders } from "./middleware/cors.js";
 import { injectServices } from "./middleware/inject-services.js";
+import { rateLimit } from "./middleware/rate-limit.js";
+import { resolveSession } from "./middleware/resolve-session.js";
+import { sanitizeBody } from "./middleware/sanitize-body.js";
 import { toResponseEnvelope } from "./errors/index.js";
 import { cleanup } from "./cron.js";
 import { assertMigrationsApplied } from "./migrations/check.js";

@@ -14,10 +14,16 @@ api/
 │   │   └── collections.ts    # typed Collection<T> accessors (D.W2 Lane C)
 │   ├── models.ts             # typed document shapes for the 9 collections
 │   ├── hash.ts               # computeContentHash (SHA-256 over canonical palette payload)
-│   ├── middleware.ts         # CORS, rateLimit, sanitizeBody, resolveSession, adminAuth, hashIP
-│   ├── middleware/
+│   ├── regex.ts              # escapeRegex (defangs strings before MongoDB $regex)
+│   ├── middleware/           # per-concern files (E.W2 Lane E split of the 279-LoC god module)
 │   │   ├── inject-services.ts    # DI: hangs typed `services` off c.var
-│   │   └── require-ownership.ts  # canonical ownership check (userSlug-only)
+│   │   ├── require-ownership.ts  # canonical ownership check (userSlug-only)
+│   │   ├── cors.ts               # CORS header construction
+│   │   ├── rate-limit.ts         # 4-tier rate limiter (read/write/registration/login)
+│   │   ├── resolve-session.ts    # X-Session-Token → c.var.{sessionToken,userSlug}
+│   │   ├── admin-auth.ts         # Authorization: Bearer ADMIN_TOKEN (timing-safe)
+│   │   ├── sanitize-body.ts      # MongoDB operator-injection guard (reject `$`-keys)
+│   │   └── ip.ts                 # resolveIP + hashIP (trust-proxy-gated)
 │   ├── repositories/         # per-collection data-access (Palette, Vote, Session, User,
 │   │                         #  ProposedName, Tag, Flag, AdminAudit, PaletteVersion)
 │   ├── services/             # business logic, depends on repositories via Services DI

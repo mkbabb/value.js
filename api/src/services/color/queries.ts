@@ -14,7 +14,7 @@
 
 import type { Context } from "hono";
 import type { AppEnv } from "../../types.js";
-import { escapeRegex } from "../../middleware.js";
+import { escapeRegex } from "../../regex.js";
 import type { ProposedName, Tag } from "../../models.js";
 
 export interface ProposedNameDTO {
