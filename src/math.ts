@@ -32,7 +32,10 @@ export function lerp(start: number, end: number, t: number) {
 
 /**
  * @deprecated Legacy `lerp(t, a, b)` ordering. Migrate to `lerp(a, b, t)`.
- * Will be removed in the next tranche.
+ * Will be removed after keyframes.js's `file:`-linked consumer migrates
+ * the single call site at `keyframes.js/src/animation/numeric.ts:159`,
+ * verified by `cd keyframes.js && npm test` passing against master value.js.
+ * See value.js `docs/tranches/E/coordination/Q.md §5`.
  */
 export const lerpLegacy = (t: number, start: number, end: number) =>
     lerp(start, end, t);
