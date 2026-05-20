@@ -1,176 +1,21 @@
 import { ref, computed, type Ref } from "vue";
-import type { Component, InjectionKey } from "vue";
+import type { InjectionKey } from "vue";
 import { useRouter, useRoute } from "vue-router";
+
 import {
-    Palette,
-    Search,
-    Camera,
-    Shield,
-    Tag,
-    Home,
-    Sparkles,
-    Blend,
-    Wand2,
-    Rainbow,
-    ScrollText,
-    Flag,
-    Droplets,
-} from "lucide-vue-next";
+    VIEW_MAP,
+    isViewId,
+    type ViewId,
+    type LeftPane,
+    type RightPane,
+    type PaneConfig,
+} from "./viewSchema";
 
-export type ViewId =
-    | "picker"
-    | "palettes"
-    | "browse"
-    | "extract"
-    | "atmosphere"
-    | "blob"
-    | "mix"
-    | "generate"
-    | "gradient"
-    | "admin-users"
-    | "admin-names"
-    | "admin-audit"
-    | "admin-flagged"
-    | "admin-tags";
-
-export type LeftPane =
-    | "color-picker"
-    | "browse"
-    | "extract"
-    | "atmosphere"
-    | "generate"
-    | "gradient"
-    | "admin-users"
-    | "admin-names"
-    | "admin-audit"
-    | "admin-flagged"
-    | "admin-tags";
-
-export type RightPane = "about" | "palettes" | "mix" | "blob" | null;
-
-export interface PaneConfig {
-    left: LeftPane;
-    right: RightPane;
-    label: string;
-    leftLabel: string;
-    rightLabel: string | null;
-    icon: Component;
-}
-
-const VIEW_MAP: Record<ViewId, PaneConfig> = {
-    picker: {
-        left: "color-picker",
-        right: "about",
-        label: "Home",
-        leftLabel: "Picker",
-        rightLabel: "About",
-        icon: Home,
-    },
-    palettes: {
-        left: "color-picker",
-        right: "palettes",
-        label: "Palettes",
-        leftLabel: "Picker",
-        rightLabel: "Palettes",
-        icon: Palette,
-    },
-    browse: {
-        left: "browse",
-        right: "palettes",
-        label: "Browse",
-        leftLabel: "Browse",
-        rightLabel: "Palettes",
-        icon: Search,
-    },
-    extract: {
-        left: "extract",
-        right: "palettes",
-        label: "Extract",
-        leftLabel: "Extract",
-        rightLabel: "Palettes",
-        icon: Camera,
-    },
-    mix: {
-        left: "color-picker",
-        right: "mix",
-        label: "Mix",
-        leftLabel: "Picker",
-        rightLabel: "Mix",
-        icon: Blend,
-    },
-    generate: {
-        left: "generate",
-        right: "palettes",
-        label: "Generate",
-        leftLabel: "Generate",
-        rightLabel: "Palettes",
-        icon: Wand2,
-    },
-    gradient: {
-        left: "gradient",
-        right: "palettes",
-        label: "Gradient",
-        leftLabel: "Gradient",
-        rightLabel: "Palettes",
-        icon: Rainbow,
-    },
-    atmosphere: {
-        left: "atmosphere",
-        right: null,
-        label: "Atmosphere",
-        leftLabel: "Atmosphere",
-        rightLabel: null,
-        icon: Sparkles,
-    },
-    blob: {
-        left: "color-picker",
-        right: "blob",
-        label: "Blob",
-        leftLabel: "Picker",
-        rightLabel: "Blob",
-        icon: Droplets,
-    },
-    "admin-users": {
-        left: "admin-users",
-        right: "palettes",
-        label: "Users",
-        leftLabel: "Users",
-        rightLabel: "Palettes",
-        icon: Shield,
-    },
-    "admin-names": {
-        left: "admin-names",
-        right: "palettes",
-        label: "Names",
-        leftLabel: "Names",
-        rightLabel: "Palettes",
-        icon: Tag,
-    },
-    "admin-audit": {
-        left: "admin-audit",
-        right: "palettes",
-        label: "Audit Log",
-        leftLabel: "Audit",
-        rightLabel: "Palettes",
-        icon: ScrollText,
-    },
-    "admin-flagged": {
-        left: "admin-flagged",
-        right: "palettes",
-        label: "Flagged",
-        leftLabel: "Flagged",
-        rightLabel: "Palettes",
-        icon: Flag,
-    },
-    "admin-tags": {
-        left: "admin-tags",
-        right: "palettes",
-        label: "Tags",
-        leftLabel: "Tags",
-        rightLabel: "Palettes",
-        icon: Tag,
-    },
-};
+// Re-export the schema types so existing consumers that import from
+// `@composables/useViewManager` continue to resolve cleanly (the schema is
+// the single source of truth; this re-export preserves source-compat with
+// the pre-D.W3-Lane-D import paths).
+export type { ViewId, LeftPane, RightPane, PaneConfig };
 
 export interface ViewManager {
     currentView: Ref<ViewId>;
@@ -197,7 +42,7 @@ export function useViewManager(): ViewManager {
 
     const currentView = computed<ViewId>(() => {
         const name = route.name as string;
-        return (name && name in VIEW_MAP) ? name as ViewId : "picker";
+        return isViewId(name) ? name : "picker";
     });
 
     const previousView = ref<ViewId | null>(null);

@@ -1,12 +1,22 @@
 import { ref, watch } from "vue";
 import type { Ref } from "vue";
 import type { Palette } from "@lib/palette/types";
+import type { ViewId } from "@composables/viewSchema";
 
 /**
  * The 5 in-dialog tabs. The admin views NOT in this union (admin-audit,
  * admin-flagged, admin-tags) render in `AdminPane.vue` and are reached via
  * the dock view-select — see `PaletteControlsBar.vue` for the matching
  * trigger set (D.W3 Lane A).
+ *
+ * "saved" is dialog-internal; the other four ARE `ViewId`s. Per D.W3 Lane D
+ * the `_TabValueShareWithViewId` assertion below catches drift between this
+ * union and the canonical view schema — if anyone removes "browse" / "extract"
+ * / "admin-users" / "admin-names" from `ViewId`, the type system flags it
+ * here. Equally, if anyone re-introduces a stray `admin-audit` / `-flagged`
+ * / `-tags` trigger to the controls bar, they must either add it to this
+ * union (and re-implement the corresponding `<TabsContent>` block — the
+ * shape Lane A removed) or violate the assertion.
  */
 export type TabValue =
     | "saved"
@@ -14,6 +24,17 @@ export type TabValue =
     | "extract"
     | "admin-users"
     | "admin-names";
+
+// Type-level enforcement (D.W3 Lane D): every TabValue except the
+// dialog-internal "saved" MUST be a known ViewId. If this fails, either
+// ViewId drifted or someone added a stray TabValue without a matching
+// route — fix the schema before the dialog.
+type _TabValueShareWithViewId = Exclude<TabValue, "saved"> extends ViewId
+    ? true
+    : never;
+// Materialise the assertion so the compiler runs it.
+const _tabValueShareWithViewId: _TabValueShareWithViewId = true;
+void _tabValueShareWithViewId;
 
 export interface PaletteDialogStateDeps {
     /**
