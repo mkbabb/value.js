@@ -167,12 +167,57 @@ The user's hard requirement ("we MUST have proper, instant, reactivity") and the
 
 No new wave; no scope dropped. The reactivity verdict is empirical-evidence-backed (the 2 required wall-clock primitives gate the merge).
 
+## 2026-05-19 — D.W0 + D.W1 execution
+
+### D.W0 HEADLINE close (1 Lane 0 precept commit + 1 Lane A+B docs commit)
+
+- **Lane 0 — precept submodule advance `3c32fae → 68d9b20`** (`11abd86`).
+  - Pre-flight: glass-ui's local precepts clone carried `68d9b20` but never pushed to upstream; orchestrator pushed `precepts:main` to publish the contract-v2 codification commit (one-time fleet-coordination hygiene; commit content + authorship preserved).
+  - value.js's `docs/precepts` pin advanced to `68d9b20`.
+- **Lane A — state-at-open probe** (folded into `afdfe77`).
+  - vue-tsc 126 / vitest 1409 (26 files) / playwright smoke 3/3 / cold-start boot probe at 1280×800 light: 0 console errors, 0 stale-prop warnings, 0 non-2xx network.
+  - Audit at `audit/D.W0-state-at-open.md`.
+- **Lane B — coord/Q.md refresh confirm** (folded into `afdfe77`).
+  - 5 rows verified; 2 one-line reconciliations applied (§0 header pin state, §3 aurora citation `D-HARDEN-5 §6 → §5`).
+
+D.W0 sub-gates 0 + A + B all PASS.
+
+### D.W1 execution (8 lanes across 4 commits — the v0.6.0 release-blocking wave)
+
+- **L1-L5 contract-v2 alignment** (`73fdabc`).
+  - `package.json exports[\".\"]`: 4-key → 3-key `{types, import, default}`; `development` struck.
+  - `package.json scripts`: added `build:watch` + `proof:resolution`.
+  - `vite.config.ts`: deleted `demoConditions` + 3 callsites; replaced `demoServerFsAllow` with narrow `siblingFsAllowTransient` on dev + hero-lab (consumer-side reciprocal of glass-ui's outstanding `./styles` subpath migration — filed at `coordination/Q.md §3` as a documented transient under invariant D3's "befitting graceful" carve-out).
+  - `scripts/proof-resolution-contract.mjs` ported verbatim from glass-ui `ce5aad8` (366 lines + 2-line attribution header); GREEN fleet-wide.
+  - `coordination/Q.md §9.1` carries the post-W1 fleet-status table.
+- **L6 library barrel + 4 small fixes** (`14d35fa`).
+  - G1-G11 dispositions in `audit/D.W1-library-barrel.md`: SHIP G1 (registerColorNames + clearCustomColorNames + getCustomColorNames) + G11/K5 (solveCubicBezierX); KEEP-INTERNAL G2/G7; DEFER G3/G4/G6/G8/G9/G10 to D.W3/D.W6 with named destinations; DONE G5.
+  - L6 CSSWideKeyword fix: restored to `ValuesValue` in `src/parsing/index.ts`.
+  - L7 case-insensitivity fix: `string(name)` → `istring(name)` for color/math function names (CSS Color L4 + CSS Values 4 ASCII case-insensitivity).
+  - L10 TimingFunction type exported.
+  - L14 nameParser dispatch refactor DEFERRED with reasoning (parse-that's `dispatch` is char-keyed, not name-keyed; modest payoff doesn't justify cross-site cost).
+  - C1 `AnimationOptions` → `CSSAnimationOptions` rename (14 internal sites).
+- **L7 test coverage + lint script + CI step** (`6ca2046`).
+  - 7 new test files (5 src/-WIP coverage + L9 decompose-targeted + L9 colorFilter-spsa): 167 tests, vitest 1409 → 1576 (26 → 33 files).
+  - eslint flat config + `lint` script + CI step + 6 devDependencies.
+  - L13 k-means tune DEFERRED to D.W3 Lane C per the lane's bandwidth-gated posture (explicitly authorized by spec).
+- **L8 Color<T> Map → own-property + 4 hardening primitives** (`059cf72`).
+  - 15 color-space classes flattened: Map storage → own properties; 45 channel-getter/setter pairs deleted.
+  - **Microbenchmark: 11.06× median speedup** vs the ≥ 5× v0.6.0-merge-gate (5-run stability range 8.73× to 14.82×).
+  - 4 hardening primitives: ColorChannel<T> brand (45 declare-applications) + DEV-only `_assertChannel` (production-bundle verified: 0 `import.meta.env.DEV` references in dist/value.js post-DCE) + vitest `recursion-guard.test.ts` (5 named tests incl. 294-frame-replay) + clone() depth-16 ceiling.
+  - vitest 1576 → 1581 (+5 recursion-guard tests).
+  - Bundle: 136.93 kB / 40.15 kB gzip.
+
+D.W1 gates: vue-tsc 126 / vitest 1581 (34 files) / playwright smoke 3/3 / proof:resolution GREEN / lint exit 0 / npm run build clean / L8 microbench 11.06× median (≥ 5×).
+
+D.W1 closes. **The v0.6.0 release gate clears empirically** at `059cf72`.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| D.W0 HEADLINE — open + precept advance + coord refresh | planned | — | — | — |
-| D.W1 — contract-v2 alignment | planned | — | — | — |
+| D.W0 HEADLINE — open + precept advance + coord refresh | **closed** | 2026-05-19 | 2026-05-19 | `11abd86`, `afdfe77` |
+| D.W1 — contract-v2 alignment + library barrel + tests + lint + Color flatten | **closed** | 2026-05-19 | 2026-05-19 | `73fdabc`, `14d35fa`, `6ca2046`, `059cf72` |
 | D.W2 — backend (api/) refactor — god module split + service/repo + fail-explicit | planned | — | — | — |
 | D.W3 — frontend cohesion — PaletteDialog split + facade completion + codemod | planned | — | — | — |
 | D.W4 — styling + design-idiom catalog | planned | — | — | — |
