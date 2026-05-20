@@ -80,17 +80,41 @@ Every finding from the 6 audit lanes lands in a wave, retires with recorded rati
 | AUD-6.11 | `forkPalette` race window (orphaned `forkOf` if source deletes mid-fork) | `E-AUDIT-6 §3` | **E.W2 Lane B** | Folds with the `withTransaction` wiring. |
 | AUD-6.12 | `.prettierrc.json` exists at master HEAD (K4 was prompts/precepts, not Prettier) | `E-AUDIT-6 footnote` | — | Framing correction; no action. |
 
-## §3 — Items NOT folded into E (named destinations, not silent deferrals)
+## §3 — Items NOT folded into E (post-FOLD-round: ROUTE-FORWARD-VERIFIED with E5 3-part escalation)
 
-- **Aurora derive-from-color + blob extirpation** — precept-§10 blocked. glass-ui's post-Q-close window (`ce5aad8..HEAD`) shipped 5 commits; none of the 7 D-filed primitive/blob asks. Routes to a successor tranche post-glass-ui-ship. Algorithm sketch preserved in `research/Dc-aurora.md §3`.
-- **The 7 standing glass-ui primitive/blob gaps + `<Tabs variant="underline">` + `BlobDot` + `deriveAuroraPalette` + the 7 metaball additions** — same routing.
-- **CW (speedtest monorepo workspace transposition)** — value.js is a CONSUMER not author; E reserves E.W4 sub-lane for the workspace-flip opt-in but does not author CW.
-- **The keyframes.js precept-pin drift** (different precepts tree) — file as tracked anomaly; cannot fix from value.js.
-- **The keyframes.js post-v0.6.0 consumption update** — keyframes.js's own schedule.
-- **The ~126 generated shadcn-vue typecheck cluster** — folded as E.W4 vendor-policy lane (which decides regenerate / vendor / accept).
-- **D-05 L13 k-means tune** — optional + bench-gated; routes forward unless E.W2 surfaces measurement evidence.
-- **A-19 gh-pages secrets contention** — tooling/infra; routes forward.
-- **AUD-5.15 `getComputedValue` WeakMap memo key** — P3 perf bench-gated; routes forward.
+Per `audit/E-FOLD-2-3-4-synthesis.md §5`, the original 14-item route-forward list resolved at the E-FOLD round into: 2 NEW-FOLDED + 5 ALREADY-FOLDED + 3 RETIRED + 7 ROUTE-FORWARD-VERIFIED + 0 SKIPPED. The 7 ROUTE-FORWARD-VERIFIED items carry the E5 3-part escalation: (a) systemic blocker, (b) smallest unblock action, (c) re-check trigger.
+
+### ROUTE-FORWARD-VERIFIED items (7) — each with E5 escalation
+
+| # | Item | (a) Blocker | (b) Smallest unblock | (c) Re-check trigger |
+|---|---|---|---|---|
+| RF.1 | metaballs API additions (7): positionSource, pointer input, per-blob opacity, HSV perturbation, context-loss recovery, MetaballCanvas mode="layout", pauseOnHidden | glass-ui authorship; precept-§10 wire-before-retire | file glass-ui audit OR scaffold `demo/@/glass-ui-augmentation/` bridge module (out of E scope) | E.W5 close + at every glass-ui ship |
+| RF.2 | `deriveAuroraPalette` + `deriveAuroraConfig` (algorithm in `research/Dc-aurora.md §3`) | glass-ui authorship | open glass-ui issue/PR with the algorithm sketch | E.W5 close |
+| RF.3 | `BlobDot` primitive (16 `WatercolorDot` instance sites in value.js demo) | glass-ui authorship | file glass-ui audit | E.W5 close |
+| RF.4 | `SelectTrigger size` + `DockSelectTrigger clampLabel` + `TooltipContent variant="mono"` + `Button size="icon-sm"` | glass-ui authorship | demo overrides stay (low priority) | E.W5 close |
+| RF.5 | `<Tabs variant="underline">` provider variant | glass-ui authorship | demo `.underline-tabs` override stays | E.W5 close |
+| RF.6 | Contract-v2 §2.1 residual on `./styles` Tailwind-source (PARTIALLY MITIGATED by glass-ui `9275584`) | structural distribution-model question — Tailwind-source is inherently `src/`-resolved | E.W0 Lane A's `siblingFsAllowTransient` decision OR an authorial transposition (e.g. glass-ui ships Tailwind tokens as a JS module) | post-E.W0 Lane A close |
+| RF.7 | keyframes.js precept-pin drift (`458c2d1` on divergent tree) | cross-repo submodule choice by keyframes.js maintainer | keyframes.js maintainer advances OR documents intent | E.W5 close |
+
+### RETIRED items (3) — the ask was moot per E-FOLD audit
+
+- **D-filed keyframes.js `AnimationOptions → CSSAnimationOptions` rename** — keyframes.js has its OWN internal `AnimationOptions` at `src/animation/constants.ts:73`; doesn't import value.js's. Retired per `E-FOLD-3 §3`.
+- **D-filed keyframes.js `Color.components.get → color.L` migration** — keyframes.js doesn't import `Color` from value.js. Retired per `E-FOLD-3 §3`.
+- **D-filed keyframes.js pin bump to ^0.6.0** — keyframes.js is `file:../value.js`, not a registry pin. Retired per `E-FOLD-3 §3`.
+
+### FOLDED-AT-FOLD items (2) — newly absorbed by E
+
+- **NEW E.W4 Lane F**: keyframes.js consumption-update coordination — the lerp `(t,a,b)→(a,b,t)` silent-breakage at `keyframes.js/src/animation/numeric.ts:159`; `lerpLegacy` retirement DEFERRED with the E5 (a)(b)(c) trigger at `coordination/Q.md §5.3`.
+- **E.W0 Lane A** confirmed: glass-ui `./styles.css` consumption (was already folded at E open per AUD-2.7; the FOLD round confirms).
+
+### Other route-forwards (post-D residuals not in the 14-item set) — E5 escalations
+
+- **Aurora derive-from-color + blob extirpation** — precept-§10 blocked. glass-ui's post-Q-close window (`ce5aad8..HEAD`) shipped 5 commits; none of the 7 D-filed primitive/blob asks. (a) glass-ui authorship; (b) primitive ships in a successor glass-ui tranche; (c) re-check at every glass-ui ship.
+- **CW (speedtest monorepo workspace transposition)** — value.js is a CONSUMER not author; (a) speedtest authorship; (b) speedtest CW seed → W0 dispatch → Phase-2 reaches value.js (1-line `package.json` flip); (c) re-check at speedtest CW W0 dispatch.
+- **The ~126 generated shadcn-vue typecheck cluster** — FOLDED as E.W4 Lane C vendor-policy decision.
+- **D-05 L13 k-means tune** — optional + bench-gated. (a) bench-evidence-gated; (b) reproduce the ≥ 2× speedup in synthesized noisy-photo benchmark; (c) if E.W2 surfaces measurement evidence, fold; else route to a future perf tranche.
+- **A-19 gh-pages secrets contention** — tooling/infra. (a) GitHub Actions deploy-secret config (orchestrator-owned); (b) move to OIDC-based deploy; (c) routes to a future tooling pass.
+- **AUD-5.15 `getComputedValue` WeakMap memo key** — P3 perf bench-gated. (a) bench-evidence-gated; (b) reproduce the speedup; (c) routes to a future perf tranche.
 
 ## §4 — Mandate coverage at E open
 

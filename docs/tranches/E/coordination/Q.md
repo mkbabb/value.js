@@ -79,7 +79,62 @@ Inherits D's `§3` rows. Post-D-close updates:
 | `Color.components.get(...)` → `color.L` migration (v0.6.0 breaking) | NOT done (filed for keyframes.js's schedule) |
 | Precept-pin convergence | Pin at `458c2d1` on a DIVERGENT precepts tree (NOT mkbabb/precepts upstream) per `E-AUDIT-4 §5`. Value.js cannot fix from this side. File as tracked anomaly. |
 
-E does not block on keyframes.js. Value.js's v0.6.0 is published; keyframes.js consumes at its own schedule.
+### §5.1 — v0.6.0 silent breakage (surfaced at E-FOLD round)
+
+The E-FOLD audit (`audit/E-FOLD-2-3-4-synthesis.md §1`) surfaced that value.js's v0.6.0 release SILENTLY BROKE keyframes.js's `file:`-linked consumer:
+
+**Site**: `/Users/mkbabb/Programming/keyframes.js/src/animation/numeric.ts:159-163`
+**Call**:
+```ts
+(this.result as Record<string, number>)[seg.keys[i]!] = lerp(
+    eased,
+    seg.startVals[i]!,
+    seg.stopVals[i]!,
+);
+```
+**Was** (pre-v0.6.0): `lerp(t, a, b)` — produced the interpolated value from `eased` (the t parameter) and `startVals/stopVals` (the endpoints).
+**Now** (v0.6.0): `lerp(a, b, t)` — interprets `eased` as `start`, `startVals` as `end`, `stopVals` as `t` — **produces garbage**.
+
+**Call-site count**: verify by `grep -rn '\blerp(' /Users/mkbabb/Programming/keyframes.js/src/` at E.W4 Lane F dispatch — expect 1 site, escalate if more.
+
+### §5.2 — Migration diff (the consumer-side change)
+
+```diff
+- (this.result as Record<string, number>)[seg.keys[i]!] = lerp(
+-     eased,
+-     seg.startVals[i]!,
+-     seg.stopVals[i]!,
+- );
++ (this.result as Record<string, number>)[seg.keys[i]!] = lerp(
++     seg.startVals[i]!,
++     seg.stopVals[i]!,
++     eased,
++ );
+```
+
+Plus value.js publishes `scripts/migrate-keyframes-js-lerp.mjs` at E.W4 Lane F — a tiny codemod the keyframes.js maintainer can run locally.
+
+### §5.3 — `lerpLegacy` retirement trigger (E5 sharpened escalation)
+
+Per E5: a deferral must record (a) the systemic blocker, (b) the smallest unblock action, (c) the re-check trigger.
+
+- **(a) Blocker**: keyframes.js's `numeric.ts:159` consumer uses the old `lerp(t, a, b)` signature; value.js's v0.6.0 silently breaks it. Removing `lerpLegacy` BEFORE the consumer migrates would compound the breakage.
+- **(b) Smallest unblock**: keyframes.js's maintainer applies the §5.2 diff (or runs the §5.4 codemod). value.js's `lerpLegacy` stays as a transitional safety until then.
+- **(c) Re-check trigger**: `cd /Users/mkbabb/Programming/keyframes.js && npm test` passes against master value.js (the keyframes.js test suite exercises the animation path; success indicates the migration is correctly applied). At that point value.js may delete `lerpLegacy` in its next breaking-change tranche.
+
+**Critical reframing**: E2 ("NO LEGACY CODE") is honored — `lerpLegacy` is not dead code; it has ONE active consumer pattern. The deletion ships AT THE EARLIEST UNBLOCK MOMENT, not arbitrarily in the next tranche.
+
+### §5.4 — Verification protocol
+
+1. Boot `keyframes.js` against current master value.js: `cd /Users/mkbabb/Programming/keyframes.js && npm install && npm test`. Document any failure traces.
+2. Apply the §5.2 diff manually OR run the value.js-published codemod (`scripts/migrate-keyframes-js-lerp.mjs`).
+3. Re-run `npm test`. Expect PASS.
+4. The keyframes.js maintainer commits + pushes the migration.
+5. value.js's NEXT tranche deletes `lerpLegacy` (per (c) trigger above).
+
+E does not block on keyframes.js completing this — Lane F's product is the migration scaffolding + the verification protocol, not the keyframes.js commit itself. The (c) trigger is the gate for the NEXT tranche's `lerpLegacy` removal.
+
+E does not block on keyframes.js. Value.js's v0.6.0 is published; the keyframes.js silent-breakage is now FILED with the explicit migration path; keyframes.js consumes at its own schedule.
 
 ## §6 — fourier-analysis
 

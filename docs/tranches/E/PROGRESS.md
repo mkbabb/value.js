@@ -63,6 +63,56 @@ Plan substrate: `E.md`, `E-PROMPTS.md`, `findings.md`, `audit/E-AUDIT-1..6` (6 a
 - fourier-analysis: `926ca6a` (109-file dirty working tree — Phase-0 CW blocker).
 - v0.6.0 tagged at `7ac4ecc`; merge commit at `eae8afc`.
 
+## 2026-05-20 — E-FOLD round (4-agent parallel + orchestrator synthesis)
+
+### Trigger
+
+User directive: "All route forward should be folded herein — assay the speedtest tranche that's actively executing to ensure no duplication. Deploy 4 agents in parallel."
+
+### Dispatch + outcomes
+
+Four parallel research lanes dispatched. Three hit transient API rate-limits before authoring; the orchestrator executed those directly.
+
+| Lane | Status | Deliverable |
+|---|---|---|
+| E-FOLD-1 (speedtest assay) | LANDED | `audit/E-FOLD-1-speedtest-assay.md` (461 LoC) |
+| E-FOLD-2 (glass-ui ask reclassification) | rate-limited; **executed by orchestrator** | folded into `audit/E-FOLD-2-3-4-synthesis.md` |
+| E-FOLD-3 (keyframes.js ask reclassification) | rate-limited; **executed by orchestrator** | folded into `audit/E-FOLD-2-3-4-synthesis.md` |
+| E-FOLD-4 (comprehensive folding synthesis) | rate-limited; **executed by orchestrator** | the plan-amendment work below |
+
+### Critical finding (E-FOLD §1)
+
+**Value.js's v0.6.0 SILENTLY BROKE keyframes.js's `file:`-linked consumer.** Single site: `keyframes.js/src/animation/numeric.ts:159` — `lerp(eased, startVals, stopVals)` under the v0.6.0 `(a, b, t)` order produces garbage. D's v0.6.0 release plan acknowledged the keyframes.js consumption-update as a post-merge filing; it did NOT measure that the file:-linked consumer breaks silently. E2 ("NO LEGACY CODE") gets a sharpened E5 reframing: `lerpLegacy` is NOT dead code — it has ONE active consumer pattern. The retirement triggers AT THE EARLIEST UNBLOCK MOMENT (keyframes.js's migration confirmation), not in the next tranche unconditionally.
+
+### Folding outcomes
+
+Per the E-FOLD-2-3-4 synthesis (`audit/E-FOLD-2-3-4-synthesis.md §5`):
+
+| Disposition | Count | Examples |
+|---|---|---|
+| FOLDED into E (new) | 2 | NEW E.W4 Lane F (keyframes.js coordination); E.W0 Lane A (`./styles.css` consumption, was already at open) |
+| ALREADY FOLDED at E open | 5 | A-11, A-14..A-18, D-04 nameParser, motion canon, CW prep |
+| RETIRED (ask moot) | 3 | keyframes.js AnimationOptions rename, Color.L migration, pin bump — keyframes.js doesn't import these |
+| ROUTE-FORWARD-VERIFIED with E5 3-part escalation | 7 | 7 standing glass-ui asks + Contract-v2 §2.1 residual + keyframes.js precept-pin drift |
+| SKIPPED (speedtest pre-emption) | 0 | per E-FOLD-1 §7 |
+
+**Total**: 14 → resolved (7 folded + 3 retired + 7 sharpened-escalation + 0 skipped) = 17 disposed (some items decomposed into multiple sub-items).
+
+### Plan amendments
+
+- `E.md §7` — refreshed with the post-FOLD state (FOLDED / RETIRED / ROUTE-FORWARD-VERIFIED buckets).
+- `E.md §8` — points at the FOLD synthesis doc's full disposition.
+- `waves/E.W1.md` Lane A — DEFERS `lerpLegacy` retirement; updates the JSDoc per E5 trigger.
+- `waves/E.W4.md` — adds NEW Lane F (keyframes.js consumption-update coordination + the codemod scaffolding).
+- `coordination/Q.md §5` — adds §5.1 (the v0.6.0 silent breakage finding), §5.2 (the migration diff), §5.3 (the E5 3-part `lerpLegacy` retirement trigger), §5.4 (the verification protocol).
+- This file (PROGRESS.md) — adds this entry.
+
+### Net effect
+
+E's scope sharpens: every route-forward item now carries an EXPLICIT disposition. The cross-repo silent-breakage is surfaced + filed with the smallest unblock action documented. The "NO LEGACY CODE" invariant gets a more nuanced reading via E5 — `lerpLegacy` stays JUST long enough for the consumer migration, then dies AT THE EARLIEST POSSIBLE TRIGGER, not arbitrarily.
+
+No new wave; no scope dropped; the architectural posture (E1 transposition over patching) is preserved.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |

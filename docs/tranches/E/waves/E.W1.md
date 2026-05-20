@@ -10,23 +10,34 @@ The architectural wave per the E-opening directive: "architectural transposition
 
 ### Lane A — Legacy-clean + barrel surface cleanup (breaking — v0.7.0 candidate)
 
-Per `E-AUDIT-5 §8 + §9 items 1, 6, 7 + E-AUDIT-2 AUD-5.1, AUD-5.6, AUD-5.7`:
+Per `E-AUDIT-5 §8 + §9 items 1, 6, 7 + E-AUDIT-2 AUD-5.1, AUD-5.6, AUD-5.7`.
 
-1. **Delete `lerpLegacy`** from `src/math.ts` + the barrel export in `src/index.ts`. Per `E-AUDIT-5 §8`: the lone `@deprecated` in `src/`, zero consumers anywhere. The D.W3 Lane C L11 transition-period justification is moot at v0.7.0.
+**AMENDED at E-FOLD round (per `audit/E-FOLD-2-3-4-synthesis.md §1`)**: `lerpLegacy` deletion DEFERRED. The E-FOLD audit surfaced that the keyframes.js `file:`-linked consumer is SILENTLY BROKEN against v0.6.0 at `keyframes.js/src/animation/numeric.ts:159` — the `lerp(eased, startVals, stopVals)` call produces garbage under the new `(a, b, t)` order. `lerpLegacy` stays until the consumer migrates. The E5 trigger is documented at `coordination/Q.md §5`.
+
+1. **Update `lerpLegacy` JSDoc** to E5-compliant escalation (the lane's only `lerpLegacy` action):
+   ```ts
+   /**
+    * @deprecated Legacy `lerp(t, a, b)` ordering. Migrate to `lerp(a, b, t)`.
+    * Will be removed after keyframes.js's `file:`-linked consumer migrates
+    * the single call site at `keyframes.js/src/animation/numeric.ts:159`,
+    * verified by `cd keyframes.js && npm test` passing against master value.js.
+    * See value.js `docs/tranches/E/coordination/Q.md §5`.
+    */
+   ```
 2. **Move the 51 internal `<from>2<to>` conversion functions behind a `/internal` subpath**. `src/index.ts` currently re-exports 51 conversion helpers (`hex2rgb`, `rgb2hsl`, `xyz2oklab`, etc.) that should be PUBLIC ONLY as `color2<T,C>(value, "from", "to")` + `colorUnit2`. The 51 individual functions move to an internal-only export surface (e.g., `src/units/color/conversions.ts` un-re-exported from `index.ts`, OR a new `@mkbabb/value.js/internal/conversions` subpath that's explicitly experimental).
-   - Decision at lane dispatch: subpath OR un-export? Subpath is more idiomatic if value.js's consumers (keyframes.js, fourier-analysis) need direct access; un-export is cleaner if nothing external consumes them.
+   - Decision at lane dispatch: subpath OR un-export? Subpath is more idiomatic if value.js's consumers need direct access; un-export is cleaner if nothing external consumes them. Per `E-FOLD-3 §3`: keyframes.js does NOT import any of the 51 individual conversion functions — un-export is safe.
 3. **Move `vue-router` to `devDependencies`** in `package.json`. The library doesn't consume vue-router; the demo does. Currently mis-placed as runtime dep.
-4. **Delete dead exports**: `BLACKLISTED_COALESCE_UNITS`, `STRING_UNITS`, `COLOR_UNITS` (the unit-tuple over-exposure per `E-AUDIT-5 §2`).
-5. **Sweep for any other `@deprecated` / `Legacy` / `_old` / aliased-export markers** — none expected per `E-AUDIT-5 §8`, but verify.
+4. **Delete dead exports**: `BLACKLISTED_COALESCE_UNITS`, `STRING_UNITS`, `COLOR_UNITS` (the unit-tuple over-exposure per `E-AUDIT-5 §2`). Per `E-FOLD-3 §3`: keyframes.js does NOT import these — safe to delete.
+5. **Sweep for any other `@deprecated` / `Legacy` / `_old` / aliased-export markers** — `lerpLegacy` is the lone known; verify by grep at lane open.
 
 **Breaking changes for v0.7.0** (record in CHANGELOG.md):
-- `lerpLegacy` removed (zero consumers verified).
 - 51 conversion functions removed from main barrel (route through `color2` + `colorUnit2` OR `/internal/conversions`).
 - `BLACKLISTED_COALESCE_UNITS`, `STRING_UNITS`, `COLOR_UNITS` removed (consumers must declare own constants if needed).
+- **NOT `lerpLegacy`** — deferred to a successor tranche; the trigger is documented at `coordination/Q.md §5`.
 
 **Sub-gate A**:
-- `grep -rn '@deprecated' src/` returns zero.
-- `grep -rn 'lerpLegacy' src/ demo/ test/ api/` returns zero (deletion complete).
+- `grep -rn '@deprecated' src/` returns exactly 1 line — the `lerpLegacy` JSDoc with the updated E5-compliant retirement trigger.
+- `grep -rn 'lerpLegacy' src/ demo/ test/ api/` returns the existing export (deletion DEFERRED per E-FOLD round; trigger at `coordination/Q.md §5`).
 - The 51 internal-conversion functions either un-exported from `src/index.ts` or routed through a `/internal` subpath.
 - `vue-router` in `devDependencies`, not `dependencies`.
 - `npm run proof:resolution` GREEN.

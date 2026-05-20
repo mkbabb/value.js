@@ -1,10 +1,10 @@
-# E.W4 — Vendor policy + CI hardening + benchmark gate + CW preparation + tooling refresh
+# E.W4 — Vendor policy + CI hardening + benchmark gate + CW preparation + tooling refresh + keyframes.js coordination
 
 **Opens after**: E.W3 close.
-**Lanes**: 5 — A (benchmark CI gate), B (CI hardening — vue-tsc + library-build + Node 22 matrix + Playwright browser cache + WebKit project integration), C (vendor policy for generated shadcn-vue cluster), D (CW seed preparation — verify value.js's CW-readiness), E (motion-token canon adoption + Vite 7.3.3 + tooling refresh).
+**Lanes**: 6 — A (benchmark CI gate), B (CI hardening — vue-tsc + library-build + Node 22 matrix + Playwright browser cache + WebKit project integration), C (vendor policy for generated shadcn-vue cluster), D (CW seed preparation — verify value.js's CW-readiness), E (motion-token canon adoption + Vite 7.3.3 + tooling refresh), **F (keyframes.js consumption-update coordination — NEW per E-FOLD round)**.
 **Status**: planned.
 
-The infrastructure + cross-repo coordination wave. Closes 4 chronically-deferred items (B-01 + B-07 vendor policy; D-03 smoke-safari CI integration; D-04 motion canon adoption).
+The infrastructure + cross-repo coordination wave. Closes 4 chronically-deferred items (B-01 + B-07 vendor policy; D-03 smoke-safari CI integration; D-04 motion canon adoption) + the keyframes.js v0.6.0 silent-breakage surfaced at E-FOLD.
 
 ## Scope
 
@@ -111,6 +111,51 @@ Per `E-AUDIT-4 §2 + AUD-4.2, AUD-4.5`. Glass-ui shipped `--motion-duration-*` /
 - All gates green (`build`, `dev`, `gh-pages`, smoke).
 - `coordination/Q.md` and `demo/DESIGN.md` updated.
 
+### Lane F — keyframes.js consumption-update coordination (NEW per E-FOLD round)
+
+Per `audit/E-FOLD-2-3-4-synthesis.md §1, §4`. The E-FOLD audit surfaced that value.js's v0.6.0 release SILENTLY BROKE keyframes.js's `file:`-linked consumer: `keyframes.js/src/animation/numeric.ts:159` calls `lerp(eased, startVals, stopVals)` which under the v0.6.0 `(a, b, t)` order produces garbage outputs.
+
+Per the precept-bound cross-repo boundary, value.js cannot write keyframes.js directly. Per E1 (architectural transposition) + E5 (sharpened deferral), the smallest unblock action is: PUBLISH the migration diff + a verification protocol; KEEP `lerpLegacy` until the consumer migrates.
+
+1. **File the exact migration diff** in `coordination/Q.md §5`:
+   ```diff
+   - // keyframes.js/src/animation/numeric.ts:159-163
+   - (this.result as Record<string, number>)[seg.keys[i]!] = lerp(
+   -     eased,
+   -     seg.startVals[i]!,
+   -     seg.stopVals[i]!,
+   - );
+   + (this.result as Record<string, number>)[seg.keys[i]!] = lerp(
+   +     seg.startVals[i]!,
+   +     seg.stopVals[i]!,
+   +     eased,
+   + );
+   ```
+
+2. **Verify the call site count** — `grep -rn '\blerp(' /Users/mkbabb/Programming/keyframes.js/src/` should return exactly 1 site (the `numeric.ts:159` one). If there are more, enumerate.
+
+3. **Author `scripts/migrate-keyframes-js-lerp.mjs`** in value.js — a tiny codemod the keyframes.js maintainer can run locally:
+   ```mjs
+   #!/usr/bin/env node
+   // Migrates keyframes.js's lerp(t, a, b) → lerp(a, b, t) call sites.
+   // Usage: node scripts/migrate-keyframes-js-lerp.mjs ../keyframes.js
+   ```
+   The codemod uses a conservative regex over the explicit call site shape and asserts before/after parity.
+
+4. **Verification protocol**:
+   - Run `cd /Users/mkbabb/Programming/keyframes.js && npm test` against master value.js — expect FAILURE pre-migration (or document the test gap).
+   - Apply the migration.
+   - Re-run — expect PASS.
+   - Document the protocol in `coordination/Q.md §5`.
+
+5. **Trigger for `lerpLegacy` removal**: this lane's coordination work happens IN E. The actual `lerpLegacy` deletion is the NEXT tranche's work, gated by the keyframes.js-side migration confirmation. Lane F's PRODUCT is the migration scaffolding + the documented unblock, not the keyframes.js write.
+
+**Sub-gate F**:
+- `coordination/Q.md §5` carries the exact migration diff + the call-site count.
+- `scripts/migrate-keyframes-js-lerp.mjs` exists.
+- `lerpLegacy` JSDoc updated to the E5-compliant trigger (verified at E.W1 Lane A close).
+- The verification protocol documented.
+
 ## File bounds
 
 | Lane | Files |
@@ -120,14 +165,16 @@ Per `E-AUDIT-4 §2 + AUD-4.2, AUD-4.5`. Glass-ui shipped `--motion-duration-*` /
 | C | `VENDOR-POLICY.md` (new), `CLAUDE.md` (Conventions section), `demo/@/components/ui/` (if regenerate; else `.gitignore`), `docs/tranches/E/audit/E.W4-vendor-policy.md` (new) |
 | D | `coordination/Q.md §4` (CW readiness verdict), optional `package.json` (if peer-dep migration needed), `docs/tranches/E/audit/E.W4-cw-readiness.md` (new) |
 | E | `demo/@/styles/style.css` (motion-token consumption), various demo SFCs (consumer migrations), `package-lock.json` (Vite 7.3.x), `demo/DESIGN.md` (motion section), `coordination/Q.md §3` (motion-canon row), `docs/tranches/E/audit/E.W4-motion-vite.md` (new) |
+| F | `scripts/migrate-keyframes-js-lerp.mjs` (new), `coordination/Q.md §5` (migration diff + protocol), `docs/tranches/E/audit/E.W4-keyframes-coordination.md` (new) |
 
 ## Gate
 
-The conjunction of sub-gates A + B + C + D + E. Wave-level:
+The conjunction of sub-gates A + B + C + D + E + F. Wave-level:
 - All E gates green (lint, vue-tsc, vitest, smoke 4 projects, build, proof:resolution, bench).
 - CI workflow runs the full matrix (Node 22 + 24, all gates).
 - Vendor policy decision committed.
 - Motion-token canon adopted.
+- Keyframes.js migration scaffolding published; `coordination/Q.md §5` documents the unblock protocol.
 
 ## Verification artefacts
 
@@ -140,6 +187,7 @@ The conjunction of sub-gates A + B + C + D + E. Wave-level:
 - `chore(vendor/w4): vendor policy for generated shadcn-vue cluster (decision: ___)` — Lane C.
 - `docs(coord/w4): CW seed preparation — value.js CW-readiness verdict (E.W4 Lane D)` — Lane D.
 - `feat(demo/w4): adopt @mkbabb/glass-ui motion-token canon + bump Vite to 7.3.x` — Lane E.
+- `feat(coord/w4): keyframes.js consumption-update coordination — migration diff + codemod + protocol (closes E-FOLD-3 finding)` — Lane F.
 
 ## Dependencies
 

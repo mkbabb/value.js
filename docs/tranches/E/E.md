@@ -86,7 +86,7 @@ Each wave spec under `waves/E.W0..E.W5.md` carries per-lane sub-gates, verificat
 - `waves/E.W1.md` — library transposition (5 lanes — legacy-clean + WhitePointColor lift + DIRECT_PATHS + nameParser + type-tidy).
 - `waves/E.W2.md` — api/ pipeline parity (6 lanes — sessions/colors migration + withTransaction + ownership wiring + middleware split + cron/slugWords cleanup + first backend tests).
 - `waves/E.W3.md` — e2e/ coverage + hardening (3 lanes — interactive-flow specs + smoke-safari + flake fix + env-noise fixture).
-- `waves/E.W4.md` — vendor policy + CI + tooling (multiple lanes — vendor policy + bench gate + CI matrix + Vite upgrade + motion canon).
+- `waves/E.W4.md` — vendor policy + CI + tooling + keyframes.js coordination (6 lanes — vendor policy + bench gate + CI matrix + Vite upgrade + motion canon + keyframes.js consumption-update **NEW per E-FOLD round**).
 - `waves/E.W5.md` — close.
 
 ## §5 — File ownership
@@ -108,18 +108,38 @@ Out of E's bounds:
 
 No gate closes on grep or claim alone — every sub-gate names an artefact.
 
-## §7 — Cross-tranche debt
+## §7 — Cross-tranche debt (post-E-FOLD-round)
 
-E inherits D's open `coordination/Q.md §3` rows + refreshes against the post-D peer activity (per `E-AUDIT-4`):
+E inherits D's open `coordination/Q.md §3` rows + refreshes against the post-D peer activity (per `E-AUDIT-4`) + sharpens per the E-FOLD round (per `audit/E-FOLD-2-3-4-synthesis.md §5`):
 
-- **STANDING (glass-ui successor)** — the 7 primitive/blob gaps + `BlobDot` + `deriveAuroraPalette` + `<Tabs variant="underline">`. None shipped in glass-ui's post-Q window.
-- **STANDING (keyframes.js)** — the consumption-update post-v0.6.0 (pin bump + AnimationOptions rename + Color.L migration); the precept-pin drift (different precepts tree).
-- **NEW (speedtest CW)** — the monorepo workspace transposition (E.W4 sub-lane reserves preparation; value.js does not author CW).
-- **MOOT** — the contract-v2 §2.1 keystone gap (PARTIALLY MITIGATED at glass-ui `9275584`; E.W0 verifies the consumption update closes the residual transient).
+**FOLDED into E** (originally route-forward, now active scope):
+- E.W0 Lane A — glass-ui `./styles.css` adoption (closes D contract-v2 §2.1 keystone gap workaround).
+- E.W4 Lane F — **NEW: keyframes.js consumption-update coordination** (the lerp `(t,a,b)→(a,b,t)` silent-breakage at `numeric.ts:159` discovered at E-FOLD; `lerpLegacy` retirement DEFERRED with E5 trigger).
+- E.W4 Lane E — glass-ui motion-token canon adoption (`--motion-duration-*` / `--motion-delay-*` per glass-ui `0124a8b`).
+- E.W4 Lane D — CW preparation (verify value.js's CW-readiness; speedtest authors CW).
 
-## §8 — Finding disposition (zero deferral with sharper escalation)
+**RETIRED at E-FOLD** (the original asks were moot):
+- D-filed keyframes.js `AnimationOptions → CSSAnimationOptions` import rename — keyframes.js has its OWN internal `AnimationOptions`; doesn't import value.js's.
+- D-filed keyframes.js `Color.components.get → color.L` migration — keyframes.js doesn't import `Color` from value.js.
+- D-filed keyframes.js pin bump — keyframes.js is `file:../value.js`, not a registry pin.
 
-`findings.md §2` carries the full 6-audit-to-wave mapping. Every finding lands in an E wave, retires with rationale (and recorded triggering-condition for re-check), or names a cross-repo destination.
+**ROUTE-FORWARD-VERIFIED with E5 sharpened escalation** (cross-repo blocker; the (a)(b)(c) per `findings.md §3`):
+- 7 standing glass-ui primitive/blob asks (metaballs additions, BlobDot, deriveAuroraPalette, SelectTrigger size, DockSelectTrigger clampLabel, TooltipContent variant="mono", Button size="icon-sm", `<Tabs variant="underline">`) — all glass-ui authorship.
+- Contract-v2 §2.1 residual on `./styles` Tailwind-source (PARTIALLY MITIGATED by glass-ui `9275584`; the full closure requires either glass-ui ships Tailwind-source dist-distributable OR the consumer-side widening as documented exception).
+- keyframes.js precept-pin drift (different precepts tree — keyframes.js maintainer choice).
+
+## §8 — Finding disposition (zero deferral with sharper escalation per E5)
+
+`findings.md §2` carries the full 6-audit-to-wave mapping. `findings.md §3` carries the route-forward set with E5 3-part escalations (the (a)(b)(c) schema per `dispatch/AGENT.md §E5`).
+
+Per the E-FOLD round (`audit/E-FOLD-2-3-4-synthesis.md §5`):
+- **Total items at E open** (original `findings.md §3`): 14.
+- **FOLDED into E waves**: 2 NEW + 5 ALREADY-FOLDED = 7.
+- **RETIRED (ask moot)**: 3.
+- **ROUTE-FORWARD-VERIFIED with E5 3-part escalation**: 7.
+- **SKIPPED (speedtest pre-emption)**: 0 (per `audit/E-FOLD-1-speedtest-assay.md §7` — zero high-duplication-risk items vs speedtest's active scope).
+
+Every finding lands in an E wave, retires with rationale, or carries the E5-compliant escalation (blocker / unblock action / re-check trigger).
 
 ## §9 — Mode
 
