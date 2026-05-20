@@ -27,7 +27,8 @@
 
 ### INTERNAL
 
-- (Other E.W1 lanes will append: WhitePointColor<T> lift; DIRECT_PATHS table; keys() cache; type-tidy.)
+- **`WhitePointColor<T>` intermediate class lifted into `Color<T>` base** (`src/units/color/index.ts`). Pre-v0.7.0 the inheritance graph was asymmetric: `OKLABColor extends WhitePointColor<T>` but `OKLCHColor extends Color<T>` directly — the same color family split across two inheritance levels. Post-v0.7.0 the `whitePoint` field lives on `Color<T>` base with a `"D65"` default; LAB and OKLAB override to `"D50"` in their constructors; XYZ inherits the default. `WhitePointColor<T>` was never exported from the barrel — no consumer migration required. L8 microbench held at 10.87× median (≥ 5× gate). (E.W1 Lane B)
+- (Other E.W1 lanes will append: DIRECT_PATHS table; keys() cache; type-tidy.)
 
 ## v0.6.0 — 2026-05-20
 

@@ -40,6 +40,22 @@ export type ColorChannel<T = number> = T & { readonly [__ColorChannel]: true };
 export abstract class Color<T = number> {
     [key: string]: any;
 
+    /**
+     * Reference white point for this color instance.
+     *
+     * E.W1 Lane B (WhitePointColor lift): hoisted from the deleted
+     * `WhitePointColor<T>` intermediate class to the base. Optional with a
+     * D65 default — the historically D50 spaces (`LABColor`, `OKLABColor`)
+     * set `"D50"` explicitly in their constructors; `XYZColor` keeps the
+     * D65 default to mirror its prior `super(…, "D65")` call.
+     *
+     * Subclasses that don't carry a meaningful white point (HSL/HSV/HWB
+     * cylindrical, KelvinColor) leave it as the inherited default; reads
+     * are harmless and the field is monomorphic across all 14 subclasses
+     * (V8 hidden-class stable — verified by `bench/color-channel-access.mjs`).
+     */
+    public whitePoint: WhitePoint = "D65";
+
     constructor(
         public readonly colorSpace: ColorSpace,
         public alpha: T = 1 as T,
@@ -160,23 +176,17 @@ export abstract class Color<T = number> {
     }
 }
 
-class WhitePointColor<T = number> extends Color<T> {
-    constructor(
-        colorSpace: ColorSpace,
-        alpha: T,
-        public whitePoint: WhitePoint,
-    ) {
-        super(colorSpace, alpha);
-    }
-
-    // Abstract override — concrete subclasses override `channels` themselves.
-    get channels(): readonly string[] {
-        return [];
-    }
-}
-
 // ──────────────────────────────────────────────────────────────────────────────
 // 15 color-space subclasses — own-property storage (V8 monomorphic).
+//
+// E.W1 Lane B (WhitePointColor lift): the `WhitePointColor<T>` intermediate
+// class previously sat between Color<T> and the three white-point-bearing
+// subclasses (LAB, OKLAB, XYZ). Its sole purpose was to carry a `whitePoint`
+// field — but that asymmetric inheritance broke the type-level invariant
+// (OKLCH is the cylindrical form of OKLAB yet inherited from Color directly,
+// not the white-point intermediate). `whitePoint` now lives on Color<T> base
+// with a D65 default; LAB/OKLAB override to D50 in their constructors.
+// See `docs/tranches/E/audit/E.W1-lane-b-whitepoint-lift.md`.
 // ──────────────────────────────────────────────────────────────────────────────
 
 const _RGB_CHANNELS = ["r", "g", "b"] as const;
@@ -281,7 +291,7 @@ export class HWBColor<T = number> extends Color<T> {
 }
 
 /** CIE Lab (D50) — perceptual lightness L [0,100], a/b axes [-125,125]. */
-export class LABColor<T = number> extends WhitePointColor<T> {
+export class LABColor<T = number> extends Color<T> {
     declare l: ColorChannel<T>;
     declare a: ColorChannel<T>;
     declare b: ColorChannel<T>;
@@ -291,7 +301,8 @@ export class LABColor<T = number> extends WhitePointColor<T> {
     }
 
     constructor(l?: T, a?: T, b?: T, alpha?: T) {
-        super("lab", alpha as T, "D50");
+        super("lab", alpha as T);
+        this.whitePoint = "D50";
         if (import.meta.env.DEV) {
             Color._assertChannel(l);
             Color._assertChannel(a);
@@ -327,7 +338,7 @@ export class LCHColor<T = number> extends Color<T> {
 }
 
 /** OKLab (D50) — perceptually uniform. L [0,1], a/b [-0.4,0.4]. Björn Ottosson's improvement over CIE Lab. */
-export class OKLABColor<T = number> extends WhitePointColor<T> {
+export class OKLABColor<T = number> extends Color<T> {
     declare l: ColorChannel<T>;
     declare a: ColorChannel<T>;
     declare b: ColorChannel<T>;
@@ -337,7 +348,8 @@ export class OKLABColor<T = number> extends WhitePointColor<T> {
     }
 
     constructor(l?: T, a?: T, b?: T, alpha?: T) {
-        super("oklab", alpha as T, "D50");
+        super("oklab", alpha as T);
+        this.whitePoint = "D50";
         if (import.meta.env.DEV) {
             Color._assertChannel(l);
             Color._assertChannel(a);
@@ -373,7 +385,7 @@ export class OKLCHColor<T = number> extends Color<T> {
 }
 
 /** CIE XYZ (D65) — the connection space hub for all conversions. Unbounded components. */
-export class XYZColor<T = number> extends WhitePointColor<T> {
+export class XYZColor<T = number> extends Color<T> {
     declare x: ColorChannel<T>;
     declare y: ColorChannel<T>;
     declare z: ColorChannel<T>;
@@ -383,7 +395,8 @@ export class XYZColor<T = number> extends WhitePointColor<T> {
     }
 
     constructor(x?: T, y?: T, z?: T, alpha?: T) {
-        super("xyz", alpha as T, "D65");
+        super("xyz", alpha as T);
+        // whitePoint defaults to "D65" on Color<T> base — explicit set elided.
         if (import.meta.env.DEV) {
             Color._assertChannel(x);
             Color._assertChannel(y);
