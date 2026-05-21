@@ -30,20 +30,6 @@ export function lerp(start: number, end: number, t: number) {
     return (1 - t) * start + t * end;
 }
 
-/**
- * @deprecated Legacy `lerp(t, a, b)` ordering. Migrate to `lerp(a, b, t)`.
- * Will be removed after keyframes.js's `file:`-linked consumer migrates
- * its TWO silently-broken call sites (per E.W4 Lane F audit):
- *   - `keyframes.js/src/animation/numeric.ts:159`
- *   - `keyframes.js/src/animation/group.ts:251`
- * Verified by `cd keyframes.js && npm test` passing against master value.js.
- * The migration can be applied via `node scripts/migrate-keyframes-js-lerp.mjs`
- * (idempotent codemod, covers both sites).
- * See value.js `docs/tranches/E/coordination/Q.md §5`.
- */
-export const lerpLegacy = (t: number, start: number, end: number) =>
-    lerp(start, end, t);
-
 // Logarithmic interpolation between two values
 export function logerp(t: number, start: number, end: number) {
     // Prevent division by zero or log(0)
