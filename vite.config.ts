@@ -92,7 +92,7 @@ export default defineConfig((mode) => {
                     fileName: "value",
                     formats: ["es"],
                 },
-                rollupOptions: {
+                rolldownOptions: {
                     external: ["vue", "@mkbabb/parse-that"],
                 },
             },
@@ -139,7 +139,7 @@ export default defineConfig((mode) => {
                 emptyOutDir: true,
                 minify: true,
                 sourcemap: false,
-                rollupOptions: {
+                rolldownOptions: {
                     output: {
                         manualChunks(id) {
                             if (id.includes("node_modules")) {
