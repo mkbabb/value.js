@@ -4,9 +4,51 @@
 
 **Decision (E.W4 Lane C, 2026-05-20)**: ACCEPT + DOCUMENT (Option 3 of three).
 
-### Context
+**Successor lane executed (F.W1 Lane C, 2026-05-21)**: zero-consumer subdir deletion. vue-tsc dropped 118 → 0; 29 subdirs (143 files / 588 KiB) removed. See `docs/tranches/F/audit/F.W1-lane-c-vendor-sweep.md`.
 
-The 126 vue-tsc errors in `demo/@/components/ui/` (post-E.W3) decompose as:
+### Current state (post-F.W1 Lane C)
+
+- **vue-tsc gate: 0 errors** (down from 118 at F.W0 close; down from 126 at E.W4 close).
+- **22 subdirs remain** under `demo/@/components/ui/` — all have authored consumers (see deletion table below).
+- **22 files / 88 KiB** total (down from 165 files / 676 KiB at F.W1 Lane C open).
+
+### Subdirs deleted at F.W1 Lane C (29)
+
+| Subdir | Files | vue-tsc errors | Rationale |
+|--------|------:|---------------:|-----------|
+| accordion | 1 | 0 | zero consumers (only ref: auto-form, also deleted) |
+| alert-dialog | 10 | 6 | zero consumers |
+| aspect-ratio | 2 | 1 | zero consumers |
+| auto-form | 16 | 32 | zero consumers (docs-only refs) |
+| breadcrumb | 8 | 0 | zero consumers |
+| calendar | 13 | 15 | zero consumers (only ref: auto-form, also deleted) |
+| carousel | 8 | 2 | zero consumers |
+| chart | 6 | 4 | zero consumers (only refs: chart-*, all deleted) |
+| chart-area | 2 | 1 | zero consumers |
+| chart-bar | 2 | 1 | zero consumers |
+| chart-donut | 2 | 2 | zero consumers |
+| chart-line | 2 | 1 | zero consumers |
+| command | 1 | 0 | zero consumers |
+| context-menu | 1 | 0 | zero consumers |
+| drawer | 1 | 0 | zero consumers |
+| form | 8 | 1 | zero consumers (only ref: auto-form, also deleted; "ui/forms" matches in input/textarea index.ts re-export from glass-ui, not this dir) |
+| menubar | 16 | 12 | zero consumers |
+| navigation-menu | 9 | 8 | zero consumers |
+| number-field | 1 | 0 | zero consumers |
+| pagination | 6 | 9 | zero consumers |
+| pin-input | 5 | 4 | zero consumers |
+| progress | 1 | 0 | zero consumers |
+| range-calendar | 13 | 15 | zero consumers |
+| resizable | 3 | 2 | zero consumers |
+| tags-input | 1 | 0 | zero consumers |
+| textarea | 1 | 0 | zero consumers (only ref: auto-form, also deleted) |
+| toggle | 1 | 0 | zero consumers |
+| toggle-group | 1 | 0 | zero consumers |
+| v-calendar | 2 | 2 | zero consumers (docs-only ref) |
+
+### Historical context (E.W4 Lane C — superseded by deletion)
+
+The 126 vue-tsc errors in `demo/@/components/ui/` (post-E.W3) decomposed as:
 
 | TS code  | Count | Class                                                    |
 |----------|-------|----------------------------------------------------------|
@@ -50,7 +92,7 @@ npx shadcn-vue@latest add <component-name>
 
 NOT a step in the normal install or CI flow. Run manually only when adding a NEW shadcn-vue component.
 
-### Successor lanes (out of scope for E.W4 Lane C)
+### Successor lanes
 
-- **Delete dead vendored subdirectories** (`auto-form/`, `chart/*`, `v-calendar/`, `range-calendar/`, `pagination/`, `calendar/`, `carousel/` if also unconsumed) — would drop vue-tsc count by ~47 (TS2307) + a portion of TS2379/TS2375 from the same files. Verified at E.W4 Lane C open: no authored demo file imports from these subdirectories. A focused deletion lane could land cleanly; it is filed but NOT pursued here per Lane C's policy-only scope.
+- **F.W1 Lane C (DONE, 2026-05-21)** — deleted 29 zero-consumer subdirs. vue-tsc: 118 → 0. See audit doc in `docs/tranches/F/audit/F.W1-lane-c-vendor-sweep.md`.
 - **Upstream `exactOptionalPropertyTypes`-aware emission in shadcn-vue** — long-tail; not a value.js concern.
