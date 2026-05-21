@@ -160,11 +160,28 @@ export default defineConfig((mode) => {
                 sourcemap: false,
                 rolldownOptions: {
                     output: {
-                        manualChunks(id) {
-                            if (id.includes("node_modules")) {
-                                if (id.includes("katex")) return "vendor-katex";
-                                if (id.includes("highlight")) return "vendor-highlight";
-                            }
+                        // Declarative code-splitting (Rolldown 1.x). Replaces
+                        // the legacy `manualChunks` function-form per the
+                        // deprecation notice in
+                        // node_modules/rolldown/dist/shared/define-config-
+                        // CeKzMIcs.d.mts:784 ("Please use `codeSplitting`
+                        // instead"). Each group's `test` regex captures
+                        // modules under `node_modules/<pkg>/`; matched
+                        // modules are emitted into a chunk whose `[name]`
+                        // placeholder is filled from the group's `name`.
+                        // Path separator is `[\\/]` per Rolldown's Windows
+                        // guidance at d.mts:1050.
+                        codeSplitting: {
+                            groups: [
+                                {
+                                    name: "vendor-katex",
+                                    test: /node_modules[\\/]katex/,
+                                },
+                                {
+                                    name: "vendor-highlight",
+                                    test: /node_modules[\\/]highlight/,
+                                },
+                            ],
                         },
                     },
                 },
