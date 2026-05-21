@@ -48,9 +48,27 @@ F.W2 applies the published codemod against keyframes.js. Per F3:
 2. F.W2 Lane A's dispatch agent runs the codemod against `/Users/mkbabb/Programming/keyframes.js` per the protocol in `dispatch/AGENT.md`.
 3. Outcome captured in §3.3 below at F.W2 close.
 
-### §3.3 — F.W2 outcome (to be filled in at F.W2 close)
+### §3.3 — F.W2 outcome (filled in at F.W2 close 2026-05-21)
 
-(Awaiting F.W2 execution.)
+**Pre-state SHAs**:
+- keyframes.js: `d312517` (clean working tree at F.W2 dispatch; verified).
+- value.js codemod publisher: `f1d2005` (`scripts/migrate-keyframes-js-lerp.mjs`, published at E.W4 Lane F; ZERO drift since publication — verified via `git log --oneline -- scripts/migrate-keyframes-js-lerp.mjs`).
+
+**Post-state SHA**:
+- keyframes.js: `470814e` — `fix(animation): migrate lerp call sites to value.js v0.7.0 (a, b, t) order` (Mike Babb \<mike7400@gmail.com\>); on `master`, LOCAL ONLY (not pushed).
+
+**Migration outcome**:
+- 2 call sites migrated (numeric.ts:159 + group.ts:251), exactly matching F-AUDIT-4 §3 + F.W0 Lane D §2 enumeration.
+- Dry-run summary: `rewritten=2, already-migrated=0, unmatched=0`.
+- Real-apply summary: `rewritten=2, already-migrated=0, unmatched=0` (identical to dry-run).
+- Diff verified: both sites reordered `(t, a, b)` → `(a, b, t)` preserving indentation/`!` non-null assertions/trailing-comma style. 2 files changed, 2 insertions(+), 2 deletions(-).
+- npm test verdict: **PASS** — 15 test files / 218 tests passed (`vitest 4.1.7`, 1.96s).
+
+**Idempotency**: CONFIRMED. Re-run after apply emitted `[already-migrated] src/animation/numeric.ts` + `[already-migrated] src/animation/group.ts`; summary `rewritten=0, already-migrated=2, unmatched=0`; zero additional file modifications (`git status --short` post-re-run showed only the original 2 modified files).
+
+**F2 (c) trigger** ("keyframes.js codemod applied + tests PASS → unblocks F.W3 lerpLegacy delete"): **SATISFIED**.
+
+**Push status**: LOCAL ONLY — user-discretionary push per F.W2.md Lane B step 3 default. The F2 (c) trigger fires on `npm test` PASS (achieved), not on origin push. Maintainer (mike@babb.dev) holds push authority.
 
 ### §3.4 — Precept-pin drift
 
