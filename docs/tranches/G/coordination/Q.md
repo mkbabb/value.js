@@ -13,13 +13,30 @@ Cross-repo manifest at G open. Inherits F's `coordination/Q.md` §7 (F close sum
 
 > **G-AUDIT-4 §7 note**: F close didn't push anybody downstream (33 + 14 + 1 un-pushed commits same as F close); AK is the only peer with active tranche development at G open; CW Phase-2 still gated on un-met quiescence preconditions; the 7+1 glass-ui asks remain orthogonal to AK's surface so don't expect retirement from peer activity.
 
-## §2 — Glass-ui (contraction posture acknowledged; AJ tranche shipped)
+## §2 — Glass-ui (contraction posture acknowledged; AJ tranche shipped; Metaballs RENEGOTIATED)
 
-**Glass-ui drifted +13 commits during F window** (AJ-tranche publisher activity) **+ 0 during G open** (zero drift). The 8 standing primitive/blob asks remain OPEN. Per `audit/G-AUDIT-4 §2.2`, **Metaballs API additions** are **PARTIAL** (AJ-W1-β shipped `positioning="viewport\|local"` + AJ-W4-γ `:duration` — overlapping with but not named the same as the asks).
+**Glass-ui drifted +13 commits during F window** (AJ-tranche publisher activity) **+ 0 during G open** (zero drift). 7 of the 8 standing primitive/blob asks remain OPEN; the Metaballs ask is **partially renegotiated** per user ratification 2026-05-21 (see §2.1).
+
+### §2.1 — Metaballs ask renegotiation (user-ratified 2026-05-21)
+
+Per `audit/G-AUDIT-4 §2.2`: AJ-W1-β shipped `MetaballCanvas` `positioning="viewport|local"` + AJ-W4-γ `:duration`. The user ratified the renegotiation 2026-05-21: AJ's `positioning` + `:duration` props are **ACCEPTED** as fulfilling the original ask's positionSource + duration sub-clauses. The remaining sub-asks are re-scoped as:
+
+| Sub-ask | Status | Note |
+|---|---|---|
+| positionSource (→ `positioning="viewport\|local"`) | **ACCEPTED via AJ-W1-β** | name reconciled to AJ shape |
+| duration (animation timing) | **ACCEPTED via AJ-W4-γ** | name reconciled |
+| pointer input (cursor-tracking blob influence) | OPEN | re-scope to AJ's component-property idiom (e.g., `:pointer-source="\"viewport\""`) |
+| per-blob opacity | OPEN | possibly already a prop in AJ — re-verify at next dispatch |
+| HSV color perturbation | OPEN | core ask remains |
+| WebGL context-loss recovery | OPEN | core ask remains |
+| MetaballCanvas mode="layout" | OPEN (overlaps with `positioning="local"`; needs verification) | possibly subsumed by AJ-W1-β |
+| pauseOnHidden | OPEN | core ask remains |
+
+The re-scoped sub-asks (4-5 items, down from 7) carry forward with the original ask's (c) trigger.
 
 | Ask | G-open verdict | (a) blocker | (b) smallest unblock | (c) re-check trigger |
 |---|---|---|---|---|
-| 1 — Metaballs API additions (positionSource, pointer input, per-blob opacity, HSV perturbation, context-loss recovery, MetaballCanvas mode="layout", pauseOnHidden) | OPEN + **PARTIAL via AJ** (positioning + duration shipped; renegotiation candidate) | glass-ui authorship; potential name reconciliation | glass-ui maintainer ratifies the renegotiation OR ships the asked names verbatim | Re-check at glass-ui's next non-AK tranche-open. **NEW G-action**: relay to user the renegotiation candidate for ratification (see G.md §7 R1). |
+| 1 — Metaballs API additions (RENEGOTIATED at G open — see §2.1) | **PARTIALLY ACCEPTED via AJ** (positioning + duration accepted; sub-asks re-scoped per user ratification 2026-05-21) | glass-ui authorship for the re-scoped sub-asks | glass-ui maintainer ships the re-scoped subset | Re-check at glass-ui's next non-AK tranche-open. |
 | 2 — Aurora `deriveAuroraPalette` + `deriveAuroraConfig` | OPEN | glass-ui authorship | glass-ui maintainer ships the derive helpers | Re-check at glass-ui's next non-AK tranche-open. |
 | 3 — `BlobDot` organic-dot primitive | OPEN (10 `WatercolorDot` instance sites in demo per `audit/G-AUDIT-5 §5`) | glass-ui authorship | glass-ui ships BlobDot | Re-check at glass-ui's next non-AK tranche-open. |
 | 4 — `SelectTrigger size` prop | OPEN | glass-ui authorship | glass-ui ships prop | Re-check at glass-ui's next non-AK tranche-open. |
@@ -115,7 +132,7 @@ Per `audit/G-AUDIT-4 §5`: HEAD `926ca6a`, 109-file dirty tree, TS `^5.8` (no W8
 | 18 | keyframes.js precept-pin drift | E carry → F carry | PEER-AUTHORSHIP | Re-check at keyframes.js maintainer's next submodule-rebase |
 | 19 | keyframes.js peer commit `470814e` push status | F.W2 LOCAL-ONLY | **RATIFICATION REQUESTED** | User decision |
 | 20 | CW Phase-2 activation | E/F/G carry | INFORMATIONAL (speedtest non-consumer per §4.1) | User signal OR speedtest CW Phase-2 ship |
-| 21 | Playwright environmental flake class | F.W4 Lane 6 + G-AUDIT-6 §2 | **RETIRE-MOOT** | (n/a — documented-environmental-class) |
+| 21 | Playwright environmental flake class | F.W4 Lane 6 + G-AUDIT-6 §2 | **RETIRED 2026-05-21** (user-ratified) — documented-environmental-class | (n/a — closed) |
 
 ## §7 — Constellation health summary at G open
 

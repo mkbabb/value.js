@@ -55,11 +55,26 @@ Plan substrate: `G.md`, `G-PROMPTS.md`, `findings.md`, `audit/G-AUDIT-1..6` (6 a
 - `as any` corpus in src/: 36 sites (untracked pre-G; G2 target ≤ 5).
 - `as unknown as` corpus in src/: 11 sites (G.W2 target ≤ 4).
 
+## 2026-05-21 — G.W0 close + user ratification received
+
+User ratification (via AskUserQuestion 4-question response):
+- **Block D (9 FOLD-INTO-G items)**: RATIFIED ALL — proceed to G.W1.
+- **R11 (keyframes.js push)**: LEAVE LOCAL until next keyframes.js work-window.
+- **R1 (glass-ui Metaballs renegotiation)**: RATIFY RENEGOTIATION — AJ's positioning + duration ACCEPTED as fulfilling the relevant sub-clauses; remaining 4-5 sub-asks carry forward at the original ask's (c) trigger. Q.md §2.1 added.
+- **Block E (Playwright env flake class)**: RETIRED — documented-environmental, not actionable.
+
+Implicit acceptance (no objections raised):
+- Block A items 2-8 (glass-ui asks): CARRY-FORWARD with sharpened triggers.
+- Block B items 9-10 (font-inlining + precept-pin): CARRY-FORWARD.
+- Block C (CW Phase-2 informational reframing): ACCEPTED.
+
+G.W0 CLOSED on this ratification. G.W1 dispatches next.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| G.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **in-progress** (awaits user ratification) | 2026-05-21 | — | (this commit) |
+| G.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-21 | 2026-05-21 | `b745c0e` open + `<ratification-commit>` |
 | G.W1 — substrate hygiene + color/utils decomposition | planned | — | — | — |
 | G.W2 — typed strengthening (as-any ≤ 5) | planned | — | — | — |
 | G.W3 — invariant codification + CI/api/e2e hygiene | planned | — | — | — |
