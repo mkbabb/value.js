@@ -2,14 +2,16 @@
 
 Cross-repo manifest at F open. Inherits E's `coordination/Q.md` carry-forward items per F-AUDIT-2; refreshed at peer HEADs per F-AUDIT-4.
 
-## §1 — Peer HEADs at F open (2026-05-20)
+## §1 — Peer HEADs at F open (2026-05-20) / refreshed at F.W0 (2026-05-21)
 
-**This repo (value.js)**: `tranche-f` @ `e1549e0` (post-W8-W12 consumer-lockstep — see `F.md §0`).
-**Peer repo (glass-ui)**: HEAD `5b81866` (drifted +14 commits from E-close `66e9b8f`). Full W8-W12 constellation lockstep + AI-W3-R3 motion-subpath breaking ship to v2.0.0 + DockGroup/ProgressiveSidebar archive (contraction posture per F-AUDIT-4 §1).
-**Peer repo (keyframes.js)**: HEAD `d312517` (drifted +5 commits from E-close `0909177`). W8-γ + W9-phase2 + W10-γ Vite 8 + Rolldown + W12-δ TS 6 + W12-unblocker repairing 2 TS errors. Lerp call sites at `numeric.ts:159` + `group.ts:251` **STILL UNMIGRATED** (per F-AUDIT-4 §3). Precept submodule still on divergent `458c2d1`.
-**Peer repo (speedtest)**: HEAD `30f7f555` (drifted +25+ commits). Tranche AI **CLOSED**. CW seed `61079cb1` invariant; still planning-only + user-gated.
-**Peer repo (fourier-analysis)**: HEAD `926ca6a` (ZERO drift). 109-file dirty tree exact (31 D + 62 M + 16 ??). Phase-0 CW blocker holds.
+**This repo (value.js)**: `tranche-f` @ `188bd6b` (F open commit; off post-W8-W12 master `e1549e0` — see `F.md §0`).
+**Peer repo (glass-ui)**: HEAD `e150e2f` (was `5b81866` at F open; +13 commits during F.W0 window — AJ-tranche publisher activity per F.W0 Lane D §3). Full W8-W12 constellation lockstep + AI-W3-R3 motion-subpath breaking ship to v2.0.0 + DockGroup/ProgressiveSidebar archive (contraction posture per F-AUDIT-4 §1 + F.W0 Lane D §3 — intact post-refresh).
+**Peer repo (keyframes.js)**: HEAD `d312517` (ZERO drift). W8-γ + W9-phase2 + W10-γ Vite 8 + Rolldown + W12-δ TS 6 + W12-unblocker repairing 2 TS errors. Lerp call sites at `numeric.ts:159` + `group.ts:251` **STILL UNMIGRATED** (per F-AUDIT-4 §3 + F.W0 Lane D §2 re-verification: `lerp(eased, startVals[i], stopVals[i])` + `lerp(layer.weight, existing.value, incoming.value)` — both legacy `(t, a, b)`). Working tree CLEAN — F.W2 precondition holds. Precept submodule still on divergent `458c2d1`.
+**Peer repo (speedtest)**: HEAD `5e52d136` (was `30f7f555` at F open; +20 commits during F.W0 window — AJ-tranche consumer adoption + close ceremony). Tranche AI **CLOSED**; tranche AJ also closed during F.W0 window. CW seed `61079cb1` invariant; still planning-only + user-gated.
+**Peer repo (fourier-analysis)**: HEAD `926ca6a` (ZERO drift). 109-file dirty tree exact. Phase-0 CW blocker holds.
 **Shared submodule**: `docs/precepts` at `68d9b20` (ZERO drift across all pins). Value.js + glass-ui co-pinned at upstream HEAD; keyframes.js still on divergent tree; fourier-analysis no submodule.
+
+> **F.W0 Lane D note**: Glass-ui drift between F open and F.W0 is AJ-tranche publisher activity (additive composables — useBreakpoint, useViewportReady; prop/token extensions — Progress crescendo, DialogContent scrim, metaballs duration, MetaballCanvas positioning, MetricRow cascade; motion-token canon expansion; util/cn bugfix). **The contraction posture (DockGroup, ProgressiveSidebar archived) is INTACT.** Speedtest drift is AJ-tranche consumer adoption + close ceremony.
 
 ## §2 — Glass-ui (contraction posture acknowledged)
 
