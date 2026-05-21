@@ -64,21 +64,22 @@ Plan substrate: `F.md`, `F-PROMPTS.md`, `findings.md`, `audit/F-AUDIT-1..6` (6 a
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| F.W0 HEADLINE — open + state-at-open + W8-W12 back-reference + gh-pages unblock + coord refresh | planned | — | — | — |
-| F.W1 — post-W12 transpositions + dead-code sweep | planned | — | — | — |
-| F.W2 — keyframes.js codemod cross-repo apply (F3 boundary exception) | planned | — | — | — |
-| F.W3 — lerpLegacy delete + CI substrate hygiene (v0.8.0 candidate) | planned | — | — | — |
-| F.W4 HEADLINE close — FINAL.md, merge, v0.8.0 tag | planned | — | — | — |
+| F.W0 HEADLINE — open + state-at-open + W8-W12 back-reference + gh-pages unblock + coord refresh | **closed** | 2026-05-21 | 2026-05-21 | `419ce84` Lane A + `bdfecf2` Lanes B+C+D |
+| F.W1 — post-W12 transpositions + dead-code sweep | **closed** | 2026-05-21 | 2026-05-21 | `6c6c0ea` Lane A + `f0d6aab` Lane B + `1401d75` Lane C |
+| F.W2 — keyframes.js codemod cross-repo apply (F3 boundary exception) | **closed** | 2026-05-21 | 2026-05-21 | `df0650c` (value.js record); keyframes.js peer commit `470814e` (LOCAL ONLY) |
+| F.W3 — lerpLegacy delete + CI substrate hygiene (v0.8.0 candidate) | **closed** | 2026-05-21 | 2026-05-21 | `1ead49e` Lane A + `cf42c6c` Lanes B+C+D+E (unified pass on `.github/workflows/node.js.yml`) |
+| F.W4 HEADLINE close — FINAL.md, merge, v0.8.0 tag | **closed** | 2026-05-21 | 2026-05-21 | `56ebb3e` audit (7 close-audit lanes) + `<docs-SHA>` close-ceremony docs + `<release-SHA>` v0.8.0 bump + merge `<merge-SHA>` |
 
-## Open dependencies
+## Open dependencies — STATE AT F CLOSE
 
-- **None on the critical path** — F's value.js-only scope is fully unblocked.
-- F.W2 cross-repo write depends on F3 boundary authorization (explicit per F.md §2) + keyframes.js working tree being clean at F.W2 dispatch.
-- F.W3 lerpLegacy delete depends on F.W2's keyframes.js test verification GREEN.
-- The 7 standing glass-ui primitive/blob asks remain blocked on glass-ui's successor tranche (contraction posture noted).
-- The keyframes.js precept-pin reconciliation remains keyframes.js maintainer authority.
-- The CW Phase-2 activation remains speedtest authority + user-gated.
-- The precept submodule SHA at `68d9b20` — no upstream movement at F open; verify at F.W4 close.
+**F's value.js-only scope is fully landed.** Per F1 invariant, no silent deferrals carried out of F:
+
+- ~~F.W2 cross-repo write depends on F3 boundary authorization~~ — **SATISFIED**. Codemod applied at keyframes.js `470814e`; F3 boundary respected (only the one authorized write).
+- ~~F.W3 lerpLegacy delete depends on F.W2's keyframes.js test verification GREEN~~ — **SATISFIED**. keyframes.js npm test PASS (218/15); F.W3 Lane A delete landed at `1ead49e`.
+- The 7 standing glass-ui primitive/blob asks: **CARRY-FORWARD** to a glass-ui-side successor tranche (contraction posture verified intact at F.W0 Lane D §3 + F.W4 Lane 4); sharpened (c) triggers recorded at `coordination/Q.md §2`.
+- The keyframes.js precept-pin reconciliation: **CARRY-FORWARD** to keyframes.js maintainer authority; sharpened (c) trigger recorded at `coordination/Q.md §3.4`.
+- The CW Phase-2 activation: **CARRY-FORWARD** with TIME-BOUND (c) trigger ("user explicit signal OR speedtest CW Phase-2 ship") recorded at `coordination/Q.md §4`.
+- The precept submodule SHA `68d9b20`: **UNCHANGED** at F close (verified at F.W4 Lane 7 integrity sweep — no upstream advance during F window).
 
 ## Authority
 

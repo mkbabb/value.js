@@ -108,17 +108,42 @@ Per F-AUDIT-4 §4: Speedtest's tranche AI is CLOSED. CW seed at `61079cb1` remai
 
 ## §6 — Constellation health summary
 
-| Health-indicator | At E close | At F open | Verdict |
-|---|---|---|---|
-| Precept upstream HEAD | `68d9b20` | `68d9b20` (no advance) | NEUTRAL |
-| Precept constellation-pin convergence (value.js + glass-ui) | YES | YES | NEUTRAL |
-| Precept pin (keyframes.js) | Divergent `458c2d1` | Divergent `458c2d1` (unchanged) | OPEN (peer-auth) |
-| Contract-v2 dev-resolution | GREEN | GREEN | NEUTRAL |
-| Glass-ui shipping cadence | 14 post-Q-close commits | +14 commits since E close (constellation-coupled) | ACTIVE |
-| Glass-ui primitive expansion | OPEN | OPEN + contraction posture | YELLOW |
-| Keyframes.js post-v0.6.0 consumption update | NOT APPLIED | NOT APPLIED (despite +5 commits) | F.W2 ADDRESSES |
-| Speedtest CW activation | Planning-only | Planning-only + AI tranche CLOSED | NEUTRAL |
-| Fourier-analysis Phase-0 quiescence | UNRESOLVED (109 dirty files) | UNRESOLVED (109 dirty files; ZERO drift) | YELLOW |
+| Health-indicator | At E close | At F open | At F close (2026-05-21) | Verdict |
+|---|---|---|---|---|
+| Precept upstream HEAD | `68d9b20` | `68d9b20` (no advance) | `68d9b20` (no advance in F window) | NEUTRAL |
+| Precept constellation-pin convergence (value.js + glass-ui) | YES | YES | YES (both pin `68d9b20`) | NEUTRAL |
+| Precept pin (keyframes.js) | Divergent `458c2d1` | Divergent `458c2d1` (unchanged) | Divergent `458c2d1` (unchanged) | OPEN (peer-auth — sharpened (c) trigger per §3.4) |
+| Contract-v2 dev-resolution | GREEN | GREEN | GREEN (`npm run proof:resolution` PASS) | NEUTRAL |
+| Contract-v2 §2.1 font-asset residual | OPEN | OPEN | OPEN (glass-ui `dist/glass-ui.css` still ships 0 @font-face) — sharpened (c) trigger per §2 | YELLOW (peer-auth) |
+| Glass-ui shipping cadence | 14 post-Q-close commits | +14 commits since E close (constellation-coupled) | +27 commits since E close (+13 in F window — all AJ-tranche publisher activity per F.W0 Lane D §3) | ACTIVE |
+| Glass-ui primitive expansion | OPEN | OPEN + contraction posture | OPEN + contraction posture INTACT (DockGroup/ProgressiveSidebar still archived; AJ-window activity is additive composables + prop/token extensions) | YELLOW (peer-auth) |
+| Keyframes.js lerp consumer migration | NOT APPLIED | NOT APPLIED (despite +5 commits) | **APPLIED** at peer commit `470814e` (LOCAL ONLY — user-discretionary push) via F.W2 codemod apply; npm test PASS 218/15 | **GREEN** (F2 SATISFIED) |
+| Speedtest CW activation | Planning-only | Planning-only + AI tranche CLOSED | Planning-only + AI tranche CLOSED + AJ tranche CLOSED — CW Phase-2 still user-gated | NEUTRAL |
+| Fourier-analysis Phase-0 quiescence | UNRESOLVED (109 dirty files) | UNRESOLVED (109 dirty files; ZERO drift) | UNRESOLVED (109 dirty files; ZERO drift in F window) | YELLOW |
+| `@deprecated` in value.js `src/` | 1 (lerpLegacy) | 1 (lerpLegacy) | **0** — F2 invariant satisfied (lerpLegacy retired at F.W3 Lane A / `1ead49e`) | **GREEN** |
+| `@ts-ignore` in value.js `src/` | 1 | 1 | **0** — F.W1 Lane A typed `Memoized<T>` wrapper retires the sole site | **GREEN** |
+| value.js `vue-tsc --noEmit` errors | 126 | 120 (post-W12) → 118 (post-F.W0 Lane A) | **0** — F.W1 Lane C vendor sweep deleted all 118 attributable subdirs; F.W3 Lane C CI gate ≤ 0 | **GREEN** |
+| `dist/value.js` bundle size | 141 KB | 125 KB (post-W12 Rolldown) | 124.94 KB (124,936 bytes) — F.W3 Lane E gate ≤ 145 KB | **GREEN** |
+
+## §7 — F close summary (added at F.W4 close ceremony)
+
+**Tranche F closed 2026-05-21**. Branch `tranche-f` (9 wave commits + 3 close-ceremony commits + merge); tagged `v0.8.0`.
+
+### F-thesis verdicts
+
+- **F1 (No deferrals)**: HONORED. 18 inherited entity-level items disposed (FOLD-INTO-F: 4 → all landed; RETIRE-MOOT: 5; PEER-AUTHORSHIP-REQUIRED: 3 → sharpened TIME-BOUND (c) triggers; CARRY-FORWARD-WITH-SHARPER-TRIGGER: 3). Zero silent.
+- **F2 (lerpLegacy retires)**: SATISFIED. `grep '@deprecated' src/` = 0; keyframes.js call sites migrated + npm test PASS.
+- **F3 (cross-repo write boundary)**: HONORED. Exactly 1 cross-repo write (keyframes.js codemod apply); zero other peer-repo writes by F.
+- **F4 (W8-W12 back-reference)**: AUTHORED. `docs/tranches/F/W8-W12-consumer-lockstep.md` (139 LoC) + future-going protocol codification in dispatch/AGENT.md.
+
+### Standing peer-authorship asks — carry-forward state
+
+| Ask | (c) trigger at F close |
+|---|---|
+| 7 glass-ui primitive asks | Re-check at next-tranche-open OR at glass-ui's next non-AJ tranche-open (whichever first); status: contraction posture intact, asks remain OPEN. |
+| Contract-v2 §2.1 font-asset residual | Re-check at glass-ui's `dist/glass-ui.css` next-publish (currently 0 @font-face; until non-zero, residual carries). |
+| keyframes.js precept-pin drift | Re-check at keyframes.js maintainer's next submodule-rebase signal (currently divergent `458c2d1`). |
+| CW Phase-2 activation | Re-check on user explicit signal OR speedtest CW Phase-2 ship. |
 
 ## §7 — Authority
 
