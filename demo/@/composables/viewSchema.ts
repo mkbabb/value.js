@@ -29,7 +29,7 @@ import {
     ScrollText,
     Flag,
     Droplets,
-} from "lucide-vue-next";
+} from "@lucide/vue";
 
 /** Every named view the demo exposes; the route name AND the `VIEW_MAP` key. */
 export type ViewId =

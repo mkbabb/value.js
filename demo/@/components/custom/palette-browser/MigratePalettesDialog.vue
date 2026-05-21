@@ -49,7 +49,7 @@ import {
     DialogTitle,
 } from "@components/ui/dialog";
 import { Button } from "@components/ui/button";
-import { Globe, ArrowRightLeft, SkipForward } from "lucide-vue-next";
+import { Globe, ArrowRightLeft, SkipForward } from "@lucide/vue";
 
 export type MigrateChoice = "publish" | "transfer" | "discard";
 

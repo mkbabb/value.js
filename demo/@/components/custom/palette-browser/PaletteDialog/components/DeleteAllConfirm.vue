@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { Trash2 } from "lucide-vue-next";
+import { Trash2 } from "@lucide/vue";
 import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 
 defineProps<{

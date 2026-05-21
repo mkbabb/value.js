@@ -8,7 +8,7 @@ import {
     SelectValue,
 } from "@components/ui/select";
 import { Slider } from "@components/ui/slider";
-import { Copy } from "lucide-vue-next";
+import { Copy } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import GradientStopEditor from "./GradientStopEditor.vue";
 import EasingSelector from "./EasingSelector.vue";

@@ -37,7 +37,7 @@ import {
     DropdownMenuRadioItem,
     DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
-import { EllipsisVertical, Clock, ArrowDownAZ, Palette } from "lucide-vue-next";
+import { EllipsisVertical, Clock, ArrowDownAZ, Palette } from "@lucide/vue";
 
 defineProps<{
     sort: "slug" | "newest" | "palettes";

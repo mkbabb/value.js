@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowLeft, Shield } from "lucide-vue-next";
+import { ArrowLeft, Shield } from "@lucide/vue";
 import { DockSelectTrigger } from "@mkbabb/glass-ui/dock";
 import {
     Select, SelectContent, SelectGroup, SelectItem, SelectValue,

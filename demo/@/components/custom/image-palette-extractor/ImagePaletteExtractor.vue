@@ -86,7 +86,7 @@
 <script setup lang="ts">
 import { ref, shallowRef, computed, onBeforeUnmount, onMounted, useTemplateRef } from "vue";
 import { TabsContent } from "@components/ui/tabs";
-import { Aperture, Pipette } from "lucide-vue-next";
+import { Aperture, Pipette } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useImageQuantize } from "./composables/useImageQuantize";
 import { usePaletteStore } from "@composables/palette/usePaletteStore";

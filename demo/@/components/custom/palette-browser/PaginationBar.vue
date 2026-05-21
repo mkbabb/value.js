@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { Button } from "@components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-vue-next";
+import { ChevronLeft, ChevronRight } from "@lucide/vue";
 
 defineProps<{
     page: number;

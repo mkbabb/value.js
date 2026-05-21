@@ -31,7 +31,7 @@ import {
     DropdownMenuRadioItem,
     DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
-import { EllipsisVertical, Clock, TrendingUp } from "lucide-vue-next";
+import { EllipsisVertical, Clock, TrendingUp } from "@lucide/vue";
 
 defineProps<{
     sort: "newest" | "popular";

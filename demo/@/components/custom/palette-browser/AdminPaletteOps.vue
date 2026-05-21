@@ -33,7 +33,7 @@
 import { ref } from "vue";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
-import { Award, Trash2 } from "lucide-vue-next";
+import { Award, Trash2 } from "@lucide/vue";
 
 const emit = defineEmits<{
     feature: [slug: string];

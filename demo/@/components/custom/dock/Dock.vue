@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
-import { ChevronDown, Check, Undo2, ArrowLeft, Paintbrush } from "lucide-vue-next";
+import { ChevronDown, Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import { GlassDock, DockLayerGroup, DockLayer } from ".";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@components/custom/watercolor-dot";

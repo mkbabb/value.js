@@ -7,7 +7,7 @@ import {
     SelectValue,
 } from "@components/ui/select";
 import { Button } from "@components/ui/button";
-import { Blend } from "lucide-vue-next";
+import { Blend } from "@lucide/vue";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/utils";
 import type { LeftoverStrategy } from "@lib/palette/mix";

@@ -59,7 +59,7 @@ import {
 } from "@components/ui/dialog";
 import { Button } from "@components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
-import { Loader2 } from "lucide-vue-next";
+import { Loader2 } from "@lucide/vue";
 
 const { open, paletteName, paletteSlug } = defineProps<{
     open: boolean;

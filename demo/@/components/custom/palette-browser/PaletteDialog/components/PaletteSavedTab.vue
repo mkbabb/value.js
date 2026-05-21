@@ -59,7 +59,7 @@
 import { TabsContent } from "@components/ui/tabs";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
-import { Trash2 } from "lucide-vue-next";
+import { Trash2 } from "@lucide/vue";
 
 import CurrentPaletteEditor from "@components/custom/palette-browser/CurrentPaletteEditor.vue";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";

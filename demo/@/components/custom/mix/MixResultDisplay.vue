@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Copy, Check, Save, RotateCcw } from "lucide-vue-next";
+import { Copy, Check, Save, RotateCcw } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { ref, TransitionGroup } from "vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";

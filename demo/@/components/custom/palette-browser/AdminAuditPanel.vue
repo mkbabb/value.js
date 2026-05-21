@@ -69,7 +69,7 @@
 import { inject, onMounted, watch } from "vue";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
-import { Loader2, RefreshCw } from "lucide-vue-next";
+import { Loader2, RefreshCw } from "@lucide/vue";
 import EmptyState from "./EmptyState.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatTime } from "@lib/dateFormat";

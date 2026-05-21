@@ -164,7 +164,7 @@ import {
     TooltipTrigger,
     TooltipContent,
 } from "@components/ui/tooltip";
-import { ArrowRight } from "lucide-vue-next";
+import { ArrowRight } from "@lucide/vue";
 import { Alert, AlertTitle, AlertDescription } from "@components/ui/alert";
 import type { ColorModel } from "..";
 import { colorSpaceInfo, resolveColorSpace } from "..";

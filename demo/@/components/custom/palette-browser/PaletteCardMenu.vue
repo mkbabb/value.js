@@ -170,7 +170,7 @@ import {
     Download,
     Flag,
     Tag,
-} from "lucide-vue-next";
+} from "@lucide/vue";
 
 defineProps<{
     palette: Palette;

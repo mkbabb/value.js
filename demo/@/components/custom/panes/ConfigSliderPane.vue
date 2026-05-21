@@ -16,7 +16,7 @@
 import { Button } from "@components/ui/button";
 import { Card } from "@components/ui/card";
 import { Slider } from "@components/ui/slider";
-import { Copy, RotateCcw } from "lucide-vue-next";
+import { Copy, RotateCcw } from "@lucide/vue";
 import { GlassDock } from "@mkbabb/glass-ui/dock";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
 import PaneHeader from "./PaneHeader.vue";

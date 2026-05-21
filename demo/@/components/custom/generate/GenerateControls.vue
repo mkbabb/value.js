@@ -8,7 +8,7 @@ import {
     SelectValue,
 } from "@components/ui/select";
 import { Slider } from "@components/ui/slider";
-import { RefreshCw } from "lucide-vue-next";
+import { RefreshCw } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import type { Palette } from "@lib/palette/types";

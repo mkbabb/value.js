@@ -136,7 +136,7 @@ import {
     LogIn,
     LogOut,
     RefreshCw,
-} from "lucide-vue-next";
+} from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 
 const { userSlug, cssColorOpaque, hasSavedPalettes, isAdmin } = defineProps<{

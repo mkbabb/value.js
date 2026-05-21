@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, provide, ref, useTemplateRef } from "vue";
-import { EllipsisVertical, Type, Tag } from "lucide-vue-next";
+import { EllipsisVertical, Type, Tag } from "@lucide/vue";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import ActionToolbar from "@components/custom/color-picker/controls/ActionToolbar.vue";

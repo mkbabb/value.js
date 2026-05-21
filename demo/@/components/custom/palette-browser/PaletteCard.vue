@@ -214,7 +214,7 @@ import {
     GripVertical,
     GitFork,
     History,
-} from "lucide-vue-next";
+} from "@lucide/vue";
 import type { PaletteColor } from "@lib/palette/types";
 import type { Palette } from "@lib/palette/types";
 import { getPaletteKind } from "@lib/palette/utils";

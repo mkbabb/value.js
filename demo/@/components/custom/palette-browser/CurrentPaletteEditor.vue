@@ -161,7 +161,7 @@ import {
     Trash2,
     Check,
     Undo2,
-} from "lucide-vue-next";
+} from "@lucide/vue";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";

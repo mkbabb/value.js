@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { Button } from "@components/ui/button";
-import { X } from "lucide-vue-next";
+import { X } from "@lucide/vue";
 
 defineProps<{
     count: number;

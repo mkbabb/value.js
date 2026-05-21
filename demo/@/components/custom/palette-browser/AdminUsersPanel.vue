@@ -142,7 +142,7 @@ import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
-import { Loader2, Trash2, Eraser, RefreshCw } from "lucide-vue-next";
+import { Loader2, Trash2, Eraser, RefreshCw } from "@lucide/vue";
 import type { Palette, User } from "@lib/palette/types";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import PaletteCard from "./PaletteCard.vue";

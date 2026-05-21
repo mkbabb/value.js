@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { inject, watch } from "vue";
 import { Button } from "@components/ui/button";
-import { LogOut } from "lucide-vue-next";
+import { LogOut } from "@lucide/vue";
 
 import AdminAuthGate from "./AdminAuthGate.vue";
 import AdminColorQueue from "./AdminColorQueue.vue";

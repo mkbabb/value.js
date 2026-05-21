@@ -133,7 +133,7 @@ import {
     Award,
     X,
     Loader2,
-} from "lucide-vue-next";
+} from "@lucide/vue";
 import type { Tag } from "@lib/palette/types";
 import { srgbToOKLab } from "@src/units/color/gamut";
 import { hex2rgb } from "@src/units/color/utils";

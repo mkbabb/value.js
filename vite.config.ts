@@ -124,7 +124,7 @@ export default defineConfig((mode) => {
                     "vue",
                     "reka-ui",
                     "@vueuse/core",
-                    "lucide-vue-next",
+                    "@lucide/vue",
                 ],
             },
             plugins: [...defaultPlugins],

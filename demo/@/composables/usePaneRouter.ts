@@ -29,7 +29,7 @@ import {
     Blend,
     Paintbrush,
     Trash2,
-} from "lucide-vue-next";
+} from "@lucide/vue";
 
 // ── DockActionBar types (folded from the retired useDockActionBar.ts — its
 //    DOCK_ACTION_BAR_KEY injection symbol had zero consumers and was dropped) ──

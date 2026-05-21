@@ -57,7 +57,7 @@
 
 <script setup lang="ts">
 import { ref, useTemplateRef } from "vue";
-import { ImagePlus } from "lucide-vue-next";
+import { ImagePlus } from "@lucide/vue";
 
 defineProps<{
     preview: string | null;

@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { watch } from "vue";
-import { CheckCircle2, AlertCircle } from "lucide-vue-next";
+import { CheckCircle2, AlertCircle } from "@lucide/vue";
 
 const props = withDefaults(
     defineProps<{

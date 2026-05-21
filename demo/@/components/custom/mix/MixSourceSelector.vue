@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { inject, computed, watch, ref, TransitionGroup } from "vue";
-import { Plus, X, ChevronDown } from "lucide-vue-next";
+import { Plus, X, ChevronDown } from "@lucide/vue";
 import { BouncyTabs } from "@mkbabb/glass-ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components/ui/collapsible";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";

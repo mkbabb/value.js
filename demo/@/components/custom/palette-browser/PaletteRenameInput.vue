@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted, useTemplateRef } from "vue";
-import { Check, X as XIcon, Pencil } from "lucide-vue-next";
+import { Check, X as XIcon, Pencil } from "@lucide/vue";
 
 const { name } = defineProps<{
     name: string;

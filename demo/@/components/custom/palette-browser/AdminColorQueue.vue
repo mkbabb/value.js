@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { Button } from "@components/ui/button";
-import { Check, Loader2, X as XIcon } from "lucide-vue-next";
+import { Check, Loader2, X as XIcon } from "@lucide/vue";
 import type { ProposedColorName } from "@lib/palette/types";
 import AdminListItem from "./AdminListItem.vue";
 import EmptyState from "./EmptyState.vue";

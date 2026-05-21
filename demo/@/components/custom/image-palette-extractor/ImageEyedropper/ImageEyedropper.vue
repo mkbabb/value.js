@@ -77,7 +77,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, computed, watch, nextTick, useTemplateRef } from "vue";
-import { X, Plus, Check } from "lucide-vue-next";
+import { X, Plus, Check } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
 

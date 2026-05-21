@@ -106,7 +106,7 @@ import {
     SheetTitle,
 } from "@components/ui/sheet";
 import { Button } from "@components/ui/button";
-import { Loader2, RotateCcw } from "lucide-vue-next";
+import { Loader2, RotateCcw } from "@lucide/vue";
 import { formatTime } from "@lib/dateFormat";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import type { PaletteVersion } from "@lib/palette/types";

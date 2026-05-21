@@ -103,7 +103,7 @@
 import { inject, onMounted } from "vue";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
-import { Loader2, RefreshCw, Trash2 } from "lucide-vue-next";
+import { Loader2, RefreshCw, Trash2 } from "@lucide/vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatDate } from "@lib/dateFormat";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";

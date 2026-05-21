@@ -2,7 +2,7 @@
 import { inject } from "vue";
 import {
     Share2, Check, Github, LogIn, LogOut, Copy, RefreshCw, MoreVertical,
-} from "lucide-vue-next";
+} from "@lucide/vue";
 import { DarkModeToggle, useGlobalDark } from "@components/custom/dark-mode-toggle";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,

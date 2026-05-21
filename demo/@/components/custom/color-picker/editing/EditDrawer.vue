@@ -64,7 +64,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import { Check, Undo2 } from "lucide-vue-next";
+import { Check, Undo2 } from "@lucide/vue";
 import { WatercolorDot } from "@components/custom/watercolor-dot";
 import type { EditTarget } from "..";
 import { COLOR_MODEL_KEY } from "../keys";

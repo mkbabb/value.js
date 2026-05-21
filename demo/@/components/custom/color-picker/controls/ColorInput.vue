@@ -113,7 +113,7 @@ import {
     TooltipTrigger,
 } from "@components/ui/tooltip";
 import { Separator } from "@components/ui/separator";
-import { Crown, ArrowRight, Loader2 } from "lucide-vue-next";
+import { Crown, ArrowRight, Loader2 } from "@lucide/vue";
 import { proposeColorName } from "@lib/palette/api";
 import { useSession } from "@composables/auth/useSession";
 import type { EditTarget } from "..";

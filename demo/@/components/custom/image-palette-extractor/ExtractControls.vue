@@ -68,7 +68,7 @@
 </template>
 
 <script setup lang="ts">
-import { Upload, RotateCcw } from "lucide-vue-next";
+import { Upload, RotateCcw } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { Slider } from "@components/ui/slider";
 

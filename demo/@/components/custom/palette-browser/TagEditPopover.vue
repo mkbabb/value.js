@@ -42,7 +42,7 @@
 import { inject, onMounted, watch } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import { Checkbox } from "@components/ui/checkbox";
-import { Loader2 } from "lucide-vue-next";
+import { Loader2 } from "@lucide/vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
 const { open, paletteSlug, currentTags } = defineProps<{

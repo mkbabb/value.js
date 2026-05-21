@@ -78,7 +78,7 @@
 <script setup lang="ts">
 import { inject, onMounted } from "vue";
 import { Button } from "@components/ui/button";
-import { Loader2, Plus, RefreshCw, X } from "lucide-vue-next";
+import { Loader2, Plus, RefreshCw, X } from "@lucide/vue";
 import EmptyState from "./EmptyState.vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 

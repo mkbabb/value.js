@@ -78,7 +78,7 @@ import { ref } from "vue";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
-import { Loader2, Check, X as XIcon, CheckCircle, Clock, Trash2 } from "lucide-vue-next";
+import { Loader2, Check, X as XIcon, CheckCircle, Clock, Trash2 } from "@lucide/vue";
 import type { ProposedColorName } from "@lib/palette/types";
 import AdminListItem from "./AdminListItem.vue";
 import EmptyState from "./EmptyState.vue";

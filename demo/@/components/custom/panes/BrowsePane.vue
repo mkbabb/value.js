@@ -112,7 +112,7 @@
 import { inject, reactive, ref, computed, onMounted } from "vue";
 import { Card } from "@components/ui/card";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
-import { Loader2 } from "lucide-vue-next";
+import { Loader2 } from "@lucide/vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";

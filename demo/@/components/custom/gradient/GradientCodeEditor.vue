@@ -2,7 +2,7 @@
 import { ref, watch, nextTick, onMounted, useTemplateRef } from "vue";
 import { useDark } from "@vueuse/core";
 import { Button } from "@components/ui/button";
-import { Copy, Check } from "lucide-vue-next";
+import { Copy, Check } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { debounce } from "@src/utils";
 

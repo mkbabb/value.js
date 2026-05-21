@@ -64,7 +64,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { Dices, Copy, RotateCcw, Palette, Camera } from "lucide-vue-next";
+import { Dices, Copy, RotateCcw, Palette, Camera } from "@lucide/vue";
 import ActionButton from "./ActionButton.vue";
 
 defineProps<{
