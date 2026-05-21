@@ -99,7 +99,26 @@ export default defineConfig((mode) => {
             esbuild: {
                 drop: ["console", "debugger"],
             },
-            plugins: [...defaultPlugins, dts({ include: ["src/"] })],
+            plugins: [
+                ...defaultPlugins,
+                // Flatten the emitted dts tree so `dist/index.d.ts` lives at
+                // the path package.json `"types"` + `exports["."].types`
+                // claim. vite-plugin-dts infers `publicRoot` from the common
+                // ancestor of the program's source files; with only
+                // `entryRoot` set, the plugin still mirrors the source layout
+                // under `dist/src/`, which breaks every TS consumer with
+                // TS7016. Overriding `compilerOptions.rootDir` anchors
+                // `publicRoot` at `<repo>/src` so the pairing collapses the
+                // tree to a flat `dist/{index,units,parsing,...}` shape —
+                // parallel to the runtime `dist/value.js`.
+                dts({
+                    include: ["src/"],
+                    compilerOptions: {
+                        rootDir: path.resolve(import.meta.dirname, "src"),
+                    },
+                    entryRoot: path.resolve(import.meta.dirname, "src"),
+                }),
+            ],
         };
     } else if (mode.mode === "hero-lab") {
         return {
