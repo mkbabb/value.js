@@ -79,9 +79,9 @@ The 126 vue-tsc errors in `demo/@/components/ui/` (post-E.W3) decomposed as:
 
 ### How we manage
 
-- `vue-tsc --noEmit` is informationally tracked at **126 errors** at E.W4. CI may add a count-only assertion (E.W4 Lane B's potential addition); any rise indicates either (a) a NEW genuine error in authored code, or (b) a shadcn-vue regeneration drift — both warrant investigation.
+- **vue-tsc CI gate baseline: 0** (strict zero-error, hardened at F.W3 Lane C). The CI step in `.github/workflows/node.js.yml` fails the build if `COUNT > 0`. Pre-F.W1 the baseline was 126 (E.W4 — accept + document); F.W1 Lane C deleted 29 zero-consumer subdirs and dropped the count to 0; F.W3 Lane C tightened the gate to match.
 - If the cluster ever regenerates (manual `npx shadcn-vue add ...`), the error count may shift; update this doc + the CI gate together.
-- Lint and the runtime gates remain authoritative for blocking decisions.
+- Lint and the runtime gates remain authoritative for blocking decisions; vue-tsc is now blocking too at the zero-error baseline.
 
 ### Regenerate command (manual; not part of install)
 
@@ -95,4 +95,5 @@ NOT a step in the normal install or CI flow. Run manually only when adding a NEW
 ### Successor lanes
 
 - **F.W1 Lane C (DONE, 2026-05-21)** — deleted 29 zero-consumer subdirs. vue-tsc: 118 → 0. See audit doc in `docs/tranches/F/audit/F.W1-lane-c-vendor-sweep.md`.
+- **F.W3 Lane C (DONE, 2026-05-21)** — CI gate baseline hardened 126 → 0 to match the post-sweep zero-error state. See `docs/tranches/F/audit/F.W3-lane-c-vuetsc-baseline.md`.
 - **Upstream `exactOptionalPropertyTypes`-aware emission in shadcn-vue** — long-tail; not a value.js concern.

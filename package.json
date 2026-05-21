@@ -41,6 +41,7 @@
         "gh-pages": "vite build --mode gh-pages",
         "prepare": "test -f dist/value.js || npm run build",
         "proof:resolution": "node scripts/proof-resolution-contract.mjs",
+        "proof:dts-layout": "node scripts/proof-dts-layout.mjs",
         "codemod:keyframes-lerp": "node scripts/migrate-keyframes-js-lerp.mjs",
         "bench": "node bench/color-channel-access.mjs && node bench/color2-direct-paths.mjs && node bench/parser-namelookup.mjs",
         "typecheck": "vue-tsc --noEmit",
