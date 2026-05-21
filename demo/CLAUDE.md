@@ -18,7 +18,8 @@ demo/
 │   ├── components/
 │   │   ├── custom/           # maintained components — see subtrees below
 │   │   └── ui/               # shadcn-vue (reka-ui) — DO NOT hand-edit;
-│   │                         #   ui/alert is a glass-ui re-export (B.W2); ui/table retired (B.W2)
+│   │                         #   ui/alert is a glass-ui re-export (B.W2); ui/table retired (B.W2);
+│   │                         #   F.W1 Lane C swept 29 zero-consumer subdirs (-588 KiB) — see VENDOR-POLICY.md + docs/tranches/F/audit/F.W1-lane-c-vendor-sweep.md
 │   ├── composables/          # composables — auth/, color/, palette/, root utils + viewSchema.ts + usePaneRouter.ts
 │   ├── lib/palette/          # palette API client, types, constants (CURRENT_PALETTE_ID — D.W3 Lane A), utils
 │   ├── styles/               # style.css (Tailwind v4 @theme tokens + 5 new bridge declarations — D.W4 Lane A)
@@ -142,7 +143,7 @@ The demo imports directly from `@src/` (path alias → `src/`) where library-fac
 - `colorUnit2()` / `normalizeColorUnit()` for space conversion
 - `COLOR_SPACE_RANGES`, `COLOR_SPACE_DENORM_UNITS` for metadata
 - `Color<T>` own-property channel access (D.W1 L8 — read `color.L` not `color.components.get("L")`)
-- `lerp(a, b, t)` canonical arg order (D.W3 Lane C L11); `lerpLegacy(t, a, b)` aliased deprecated
+- `lerp(a, b, t)` canonical arg order (D.W3 Lane C L11). **`lerpLegacy` retired in v0.8.0 (F.W3 Lane A — F2 invariant)**; consumers must migrate to `(a, b, t)`.
 
 Color state: `shallowRef<ColorModel>` + localStorage + URL hash params (bidirectional).
 

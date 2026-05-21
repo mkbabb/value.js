@@ -5,19 +5,20 @@ CSS value unit library: parsing, normalization, interpolation, color space conve
 ## Build
 
 ```
-npm run build        # library → dist/value.js + value.cjs + value.d.ts
+npm run build        # library → dist/value.js (ESM) + dist/*.d.ts (flat layout, W12-unblocker)
 npm run build:watch  # vite build --watch (D.W1 — contract-v2 fleet dev orchestration)
-npm run gh-pages     # demo → dist/
+npm run gh-pages     # demo → dist/gh-pages/ (vendor-katex + vendor-highlight chunks via Rolldown codeSplitting, F.W1 Lane B)
 npm run dev          # dev server (Vite default port)
 ```
 
 ## Test + verify
 
 ```
-npm test                 # vitest (jsdom) — unit suite (~1580+ tests across ~34 files)
-npx playwright test      # smoke / smoke-admin / smoke-mobile (~20+ specs across 3 projects)
+npm test                 # vitest (jsdom) — unit suite (count → per-tranche FINAL.md)
+npx playwright test      # 5 projects: smoke / smoke-admin / smoke-mobile / smoke-reactivity / smoke-safari (count → per-tranche FINAL.md)
 npm run lint             # eslint flat config (D.W1 L7) — exit 0 required
 npm run proof:resolution # contract-v2 dev-resolution proof across the fleet (D.W1)
+npm run proof:dts-layout # flat-dist/ dts emission invariant guard (F.W3 Lane D, W12-unblocker regression guard)
 ```
 
 > Exact test/spec counts belong in per-tranche FINAL.md docs (e.g.
@@ -72,10 +73,12 @@ src/
 
 ```
 test/                     # vitest unit tests
-e2e/smoke/                # playwright smoke suite across 3 projects:
-                          #   smoke (desktop Chromium, incl. reactivity-instant + WebGL)
+e2e/smoke/                # playwright smoke suite across 5 projects:
+                          #   smoke (desktop Chromium, incl. WebGL + view-anchors)
                           #   smoke-admin (admin views via addInitScript mock fixture)
                           #   smoke-mobile (Pixel-7 layout probe)
+                          #   smoke-reactivity (slider-keyboard + spectrum-drag instant-update gates; workers:1)
+                          #   smoke-safari (iPhone-14 WebKit; sustained-30s context-loss probe)
 demo/                     # Vue 3.5 color picker app (reka-ui, Tailwind, @vueuse)
 api/                      # Hono + MongoDB palette API (Docker, Node 22, 9 collections / 27 indexes)
 docs/                     # color-theory.md, gamut-mapping.md
@@ -91,7 +94,7 @@ assets/docs/              # 10 color space reference pages (Vue + KaTeX)
 - Named exports only, no defaults (enables tree-shaking)
 - Color matrices stored row-major (3x3); transform matrices column-major (4x4, CSS convention)
 - Color components normalized to [0,1] internally; denormalized on output
-- See `VENDOR-POLICY.md` for the `demo/@/components/ui/` shadcn-vue vendored-noise policy (accepted-noise; vue-tsc count gated at 126).
+- See `VENDOR-POLICY.md` for the `demo/@/components/ui/` shadcn-vue vendored-noise policy. **Post-F.W1 Lane C**: 29 zero-consumer subdirs swept (165 → 22 files, -588 KiB). **Post-F.W3 Lane C**: vue-tsc CI gate is now **strict-zero (≤ 0 errors)**.
 
 ## Entry point
 

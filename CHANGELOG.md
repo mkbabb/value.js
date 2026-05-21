@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.8.0] — 2026-05-21 (F close)
+
+### BREAKING
+
+- **Removed `lerpLegacy`**. The legacy `lerp(t, a, b)` argument ordering was deprecated in v0.7.0 (canonical `lerp(a, b, t)` introduced at D.W3 Lane C); migration is now mandatory. Consumers using `lerpLegacy` must migrate to `lerp(a, b, t)`. Value.js's published codemod (`scripts/migrate-keyframes-js-lerp.mjs`) handles the keyframes.js-shape migration; manual migration is straightforward for other consumers (swap the first argument with the last two).
+
+### INTERNAL
+
+- W8–W12 consumer LOCKSTEP back-reference doc authored at `docs/tranches/F/W8-W12-consumer-lockstep.md` per F4 invariant.
+- gh-pages chronic closed: 2 dock-menu Github icon refs migrated to inline SVG following W9-C's @lucide/vue rename punt.
+- 3 post-W12 transpositions: typed `Memoized<T>` shape retires the sole `@ts-ignore` in src/; Rolldown declarative `codeSplitting` adopted; 29 zero-consumer shadcn-vue subdirs swept (165 → 22 files, −588 KiB).
+- 5 CI hygiene gates: CHANGELOG-changed gate broadened; vue-tsc baseline lowered to 0; dts-shape invariant guard (`scripts/proof-dts-layout.mjs`); `dist/value.js` bundle-size gate (≤ 145 KB raw); (optional) proof:resolution types-key probe.
+- keyframes.js cross-repo write: applied published lerp codemod against `/Users/mkbabb/Programming/keyframes.js` per F3 invariant (LOCAL-ONLY commit; user-discretionary push).
+
+### DEFERRED → ZERO (per F1)
+
+- All E5 inherited deferrals either landed in F or carry sharpened (c) triggers in `coordination/Q.md`. Standing peer-authorship asks (7 glass-ui primitive asks; contract-v2 §2.1 font-asset residual; keyframes.js precept-pin drift) carry forward with sharpened TIME-BOUND (c) triggers per F1 invariant.
+
+### DEPS
+
+- (No dep drift in F; the W8–W12 lockstep dep-lift happened pre-F open on master `47399c2..e1549e0` — see `docs/tranches/F/W8-W12-consumer-lockstep.md`.)
+
 ## [0.7.0] — 2026-05-20 (E close)
 
 ### BREAKING

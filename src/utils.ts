@@ -101,10 +101,14 @@ export interface MemoizeOptions<T extends (...args: any[]) => any = (...args: an
     shouldCache?: (result: ReturnType<T>, ...args: Parameters<T>) => boolean;
 }
 
+export type Memoized<T extends (...args: any[]) => any> = T & {
+    cache: Map<string, { value: ReturnType<T>; timestamp: number }>;
+};
+
 export function memoize<T extends (...args: any[]) => any>(
     func: T,
     options: MemoizeOptions<T> = {},
-): T & { cache: Map<string, { value: ReturnType<T>; timestamp: number }> } {
+): Memoized<T> {
     const cache = new Map<string, { value: ReturnType<T>; timestamp: number }>();
     const {
         maxCacheSize = Infinity,
@@ -141,12 +145,11 @@ export function memoize<T extends (...args: any[]) => any>(
         }
 
         return result;
-    } as T;
+    } as Memoized<T>;
 
-    // @ts-ignore
     memoized.cache = cache;
 
-    return memoized as any;
+    return memoized;
 }
 
 export const hyphenToCamelCase = (str: string) =>

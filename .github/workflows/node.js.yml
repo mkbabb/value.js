@@ -39,26 +39,18 @@ jobs:
             - name: Lint (eslint flat config, --max-warnings=0)
               run: npm run lint
 
-            # vue-tsc returns exit 1 for the 126 vendored shadcn-vue
-            # errors per VENDOR-POLICY.md (E.W4 Lane C — Option 3:
-            # accept + document). The CI step CAPTURES the count and
-            # asserts count <= 126: a rise FAILS the build; a drop is
-            # informational. Pattern mirrors the bench-gate shape.
-            - name: Typecheck (vue-tsc --noEmit, error count <= 126)
+            # vue-tsc strict-zero gate (post-F.W1 Lane C vendor sweep).
+            # Baseline lowered 126 → 0 after the zero-consumer shadcn-vue
+            # subdir deletion. See VENDOR-POLICY.md + docs/tranches/F/audit/
+            # F.W1-lane-c-vendor-sweep.md + F.W3-lane-c-vuetsc-baseline.md.
+            - name: Assert vue-tsc error count (strict zero gate post-F.W1 Lane C)
               run: |
-                  set +e
-                  npx vue-tsc --noEmit 2>&1 | tee vue-tsc-output.txt
-                  set -e
-                  COUNT=$(grep -cE 'error TS' vue-tsc-output.txt || true)
-                  echo "vue-tsc error count: $COUNT"
-                  echo "vue-tsc baseline (per VENDOR-POLICY.md): 126"
-                  if [ "$COUNT" -gt 126 ]; then
-                      echo "::error::vue-tsc errors rose: $COUNT > 126 (regression vs. accepted-noise baseline)"
+                  COUNT=$(npx vue-tsc --noEmit 2>&1 | grep -c 'error TS' || true)
+                  if [ "$COUNT" -gt 0 ]; then
+                      echo "vue-tsc count rose: $COUNT (gate ≤ 0 post-F.W1 vendor sweep)"
                       exit 1
                   fi
-                  if [ "$COUNT" -lt 126 ]; then
-                      echo "::notice::vue-tsc errors dropped: $COUNT < 126 (informational; consider updating VENDOR-POLICY.md baseline)"
-                  fi
+                  echo "vue-tsc: $COUNT errors (≤ 0 gate PASS)"
 
             # ─── Library build verification ─────────────────────────
             - name: Build library (dist/value.{js,cjs,d.ts})
@@ -66,6 +58,27 @@ jobs:
 
             - name: Log dist sizes
               run: ls -la dist/ | head -20
+
+            # ─── dts layout invariant guard (F.W3 Lane D) ───────────
+            # Post-W12-unblocker (e1549e0) emits flat dist/ dts. Any
+            # regression to dist/src/*.d.ts layout fails CI. See
+            # docs/tranches/F/audit/F.W3-lane-d-dts-invariant.md.
+            - name: Proof — dts layout invariant (W12-unblocker regression guard)
+              run: npm run proof:dts-layout
+
+            # ─── Bundle-size gate (F.W3 Lane E) ─────────────────────
+            # dist/value.js post-F.W1 raw is ~125 KB. Budget: ≤ 145 KB
+            # raw (148480 bytes) with ~20 KB headroom. The stat -c%s
+            # (Linux/Ubuntu CI) || stat -f%z (macOS local) fallback
+            # handles both platforms.
+            - name: Assert dist/value.js size budget (≤ 145 KB raw)
+              run: |
+                  SIZE=$(stat -c%s dist/value.js 2>/dev/null || stat -f%z dist/value.js)
+                  if [ "$SIZE" -gt 148480 ]; then
+                      echo "dist/value.js size budget exceeded: $SIZE bytes (gate ≤ 148480 = 145 KB raw)"
+                      exit 1
+                  fi
+                  echo "dist/value.js size: $SIZE bytes (gate ≤ 148480 PASS)"
 
             # ─── Vitest (unit tests) ────────────────────────────────
             - name: Vitest unit tests
@@ -196,24 +209,21 @@ jobs:
                   retention-days: 7
 
             # ─── CHANGELOG-changed gate (PR-only) ───────────────────
-            # Asserts CHANGELOG.md is touched when src/ is touched on
-            # a PR. Skipped on push to master (where the merge commit
-            # carries the prior PR's changeset).
-            - name: CHANGELOG-changed gate (PR-only)
+            # F.W3 Lane B broadening: per F-AUDIT-6 §5+§7, the W8-W12
+            # dep-only commits slipped through E.W4's `^src/` filter
+            # because package.json / vite/ts config / api/ changes alone
+            # didn't fire it. The pattern below catches src/, top-level
+            # package.json, vite.config.ts, tsconfig.json, and api/
+            # (src/ + package.json). Lockfile-only changes
+            # (package-lock.json) remain excluded — pure
+            # version-resolution updates don't need CHANGELOG entries.
+            # See docs/tranches/F/audit/F.W3-lane-b-changelog-gate.md.
+            - name: Assert CHANGELOG touched when src/, package.json, vite/ts config, or api/ is touched
               if: github.event_name == 'pull_request'
               run: |
-                  set -euo pipefail
-                  git diff --name-only origin/${{ github.base_ref }}...HEAD > diff-files.txt
-                  echo "Files changed in PR:"
-                  cat diff-files.txt
-                  if grep -q '^src/' diff-files.txt; then
-                      if ! grep -q '^CHANGELOG.md$' diff-files.txt; then
-                          echo "::error::CHANGELOG.md must be updated when src/ is touched"
-                          exit 1
-                      fi
-                      echo "src/ touched; CHANGELOG.md also touched — gate PASS."
-                  else
-                      echo "src/ not touched; CHANGELOG gate skipped."
+                  git diff --name-only origin/main...HEAD > diff-files.txt
+                  if grep -qE "^(src/|package\.json$|vite\.config\.ts$|tsconfig\.json$|api/(src/|package\.json$))" diff-files.txt; then
+                      grep -q "^CHANGELOG\.md$" diff-files.txt || (echo "CHANGELOG.md must be updated when src/, package.json, vite.config.ts, tsconfig.json, or api/ source/manifest is touched" && exit 1)
                   fi
 
     # ─── Deploy (gh-pages) — unchanged from pre-E.W4 ────────────────────
