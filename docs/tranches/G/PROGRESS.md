@@ -194,15 +194,49 @@ Domain 1's 8 lanes collapse into one commit (all co-edit package.json + the CI w
 
 G.W3 CLOSED. G.W4 (HEADLINE close — FINAL.md + merge + v0.9.0 tag) dispatches next.
 
+## 2026-05-22 — G.W4 executed + closed (HEADLINE)
+
+Close ceremony. 6 read-only close-audit lanes dispatched in parallel (1,2,3,4,6,7); lane 5 (performance) run by the orchestrator directly to avoid a `dist/` read/write race with lane 4's proof-script probes.
+
+### Close-audit verdicts
+
+| Lane | Verdict | Headline |
+|---|---|---|
+| 1 — plan-vs-actual | ISSUES → resolved | every planned lane landed; flagged the G3 breach + 3 doc items (all fixed in this close) |
+| 2 — substrate-without-consumer | PASS | zero orphans — every G artefact has a live consumer |
+| 3 — doc-drift | inventory | 20 drift items across 6 files → all fixed by the doc-drift remediation |
+| 4 — idiomatic-gestalt | ISSUES → resolved | G1/G2/G4 + all inherited invariants HOLD; flagged the G3 `dispatch.ts` breach |
+| 5 — performance | PASS | bundle 125,496 B (22,984 B headroom); bench L8 11.00× / DIRECT_PATHS 4.49× / nameParser 39.34× |
+| 6 — visual-runtime | PASS (0 real regressions) | 34/34 Chromium specs pass isolated; 2 pre-existing environmental (RM-1 class) |
+| 7 — integrity sweep | PASS | all 18 wave commits orchestrator-authored; zero cross-repo writes; precept `68d9b20`; stash clean |
+
+### G3 breach — caught + remediated in-wave
+
+Lanes 1 + 4 independently found `dispatch.ts` at **391 LoC** — G.W2 Lane B's typed `DIRECT_PATHS` mapped-type had grown it +55 past the ratified G3 ≤ 350 sub-gate; the G.W2 wave gate never re-checked G3. **Adjudication: re-split, not ratify-391** (ratifying would relax the invariant — the forbidden workaround). The `DIRECT_PATHS` table + `DirectPathsTable` mapped-type + `getDirectPath` helper were relocated to `conversions/direct.ts` (their cohesion-honest home alongside the `directXxx` functions). `dispatch.ts` 391 → 312; `direct.ts` 210 → 288 — all 9 modules ≤ 350 (commit `9902036`). Per F1, a documented breach does not ship in FINAL.md.
+
+### Doc-drift remediation
+
+The Lane 3 20-item inventory (2 HIGH, 12 MED, 6 LOW) + Lane 1 discrepancies 3-4 were remediated by a dispatched agent: root `CLAUDE.md` + `src/units/color/CLAUDE.md` color structure blocks (stale `utils.ts` → 9-module reality), `demo/CLAUDE.md` (useBreakpoint), `api/CLAUDE.md` (withTransaction 7-site coverage), `bench/color2-direct-paths.mjs` (5 stale provenance comments), and 3 wave specs. Lane 1 discrepancy 2 (the PROGRESS.md `<ratification-commit>` placeholder) was orchestrator-fixed in this close.
+
+### Close ceremony
+
+`FINAL.md` + `H-SEED.md` authored; `Q.md §7.1` (G-close health) added; `CHANGELOG.md` v0.9.0 entry + G-PUB-3 path fix; `README.md` upgrade section (G-PUB-2) + structure-block fix; `CONTRIBUTING.md` authored (G-PUB-4); `package.json` 0.8.0 → 0.9.0; precept pinned `68d9b20`.
+
+### Pre-merge gate matrix — 21/21 PASS
+
+F's 14 + 7 G-NEW proof gates. Full matrix in `FINAL.md §5`. BREAKING decision: INTERNAL — v0.9.0 carries no BREAKING change.
+
+G.W4 CLOSED. **Tranche G CLOSED** — merged to master `--no-ff`, tagged `v0.9.0`.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| G.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-21 | 2026-05-21 | `b745c0e` open + `<ratification-commit>` |
+| G.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-21 | 2026-05-21 | `b745c0e` `0b9832c` `a2e03de` `704195e` |
 | G.W1 — substrate hygiene + color/utils decomposition | **closed** | 2026-05-22 | 2026-05-22 | `96894eb` `413b47e` `195b834` `27f2183` + close |
 | G.W2 — typed strengthening (as-any ≤ 5) | **closed** | 2026-05-22 | 2026-05-22 | `23ec904` `ef8a80b` `bda584c` `1be6d15` + close |
 | G.W3 — invariant codification + CI/api/e2e hygiene | **closed** | 2026-05-22 | 2026-05-22 | `61314fa` `277e04a` `affbe0e` + close |
-| G.W4 HEADLINE close — FINAL.md, merge, v0.9.0 tag | planned | — | — | — |
+| G.W4 HEADLINE close — FINAL.md, merge, v0.9.0 tag | **closed** | 2026-05-22 | 2026-05-22 | `9902036` + close ceremony + merge |
 
 ## Open dependencies — G OPEN (awaiting ratification)
 

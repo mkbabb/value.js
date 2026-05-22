@@ -202,6 +202,29 @@ Per `audit/G-AUDIT-4 §5`: HEAD `926ca6a`, 109-file dirty tree, TS `^5.8` (no W8
 | value.js `vue-tsc --noEmit` errors | 0 | 0 | GREEN |
 | value.js `dist/value.js` bundle | 124,936 bytes (gate ≤ 148,480) | 124,936 bytes | GREEN |
 
+## §7.1 — Constellation health summary at G close (2026-05-22)
+
+| Health-indicator | G open | G close | Verdict |
+|---|---|---|---|
+| Precept upstream HEAD | `68d9b20` | `68d9b20` (no advance through the G window) | NEUTRAL |
+| Contract-v2 dev-resolution | GREEN | GREEN (+ types-key probe — G.W3 Lane A) | GREEN |
+| value.js `@deprecated` count | 0 | 0 — codified by `proof:no-deprecated` | GREEN |
+| value.js `@ts-ignore` count | 0 | 0 — codified by `proof:no-ts-ignore` | GREEN |
+| value.js `as any` count | 36 (surfaced) | **0** — codified by `proof:as-any-budget` (≤ 5) | GREEN (G2 exceeded) |
+| value.js `as unknown as` count | 11 | 4 — all genuine irreducible boundary casts | GREEN |
+| value.js `color/utils.ts` god-module | 1,430 LoC | DELETED — decomposed into 9 modules ≤ 350 LoC (G3) | GREEN |
+| value.js `vue-tsc --noEmit` errors | 0 | 0 | GREEN |
+| value.js `dist/value.js` bundle | 124,936 bytes | 125,496 bytes (gate ≤ 148,480; 22,984 B headroom) | GREEN |
+| value.js proof-script suite | 2 scripts | 8 scripts (G4 — 6 added) | GREEN |
+| Cross-repo writes in the G window | — | **ZERO** (G.W4 Lane 7) | GREEN |
+| Glass-ui | `e150e2f` | `3822f48` (+5 — glass-ui's own AK-tranche work; `origin` unchanged; not value.js writes) | NEUTRAL |
+| Glass-ui primitive expansion | OPEN (peer-auth) | OPEN (peer-auth) — 8 asks carry forward, sharpened triggers | YELLOW (peer-auth) |
+| Keyframes.js HEAD | `470814e` (LOCAL) | `470814e` (LOCAL — unchanged; R11 = LEAVE LOCAL, user-ratified) | YELLOW (push pending) |
+| Speedtest | AK opened/ratified | AK active; does not consume value.js | NEUTRAL (de-coupled) |
+| Fourier-analysis Phase-0 quiescence | UNRESOLVED (109 dirty) | UNRESOLVED (109 dirty; 0 drift) | YELLOW (chronic) |
+
+G-thesis (type-system completion + architectural decomposition + invariant codification): SATISFIED. Full close report at `docs/tranches/G/FINAL.md`; forward-carry ledger at `docs/tranches/G/H-SEED.md`.
+
 ## §8 — Authority
 
 Pinned: every `audit/G-AUDIT-1..6` deliverable + F's `coordination/Q.md` §7 (F close) + every F wave's audit deliverable + (for G.W2 Lane C BREAKING decision) the dispatch-time read of `src/units/color/index.ts:55` to confirm the `[key: string]: any` index signature is or is not part of the public API surface.
