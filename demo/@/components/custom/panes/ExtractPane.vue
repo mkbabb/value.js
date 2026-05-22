@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, shallowRef, computed, onBeforeUnmount, onMounted, inject } from "vue";
+import { ref, shallowRef, computed, onBeforeUnmount, inject } from "vue";
 import { Card } from "@components/ui/card";
 import { useImageQuantize } from "@components/custom/image-palette-extractor/composables/useImageQuantize";
 import { usePaletteStore } from "@composables/palette/usePaletteStore";
@@ -111,19 +111,8 @@ const chromaWeight = ref(0.5);
 const lastFile = shallowRef<File | null>(null);
 const paletteName = ref("Extracted Palette");
 const eyedropperActive = ref(false);
-const isWide = ref(false);
 
 let debounceTimer: ReturnType<typeof setTimeout> | null = null;
-let mediaQuery: MediaQueryList | null = null;
-
-onMounted(() => {
-    mediaQuery = window.matchMedia("(min-width: 640px)");
-    isWide.value = mediaQuery.matches;
-    const handler = (e: MediaQueryListEvent) => { isWide.value = e.matches; };
-    mediaQuery.addEventListener("change", handler);
-    onBeforeUnmount(() => mediaQuery?.removeEventListener("change", handler));
-});
-
 
 const extractedPalette = computed<Palette | null>(() => {
     if (palette.value.length === 0) return null;

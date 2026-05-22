@@ -1,14 +1,17 @@
-import { ref, reactive, nextTick } from "vue";
+import { ref, reactive, nextTick, computed } from "vue";
+import type { Ref } from "vue";
+import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useLeaveTimer } from "./useLeaveTimer";
-
-const CAN_HOVER = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
 /**
  * Shared hover-timer + floating-panel positioning pattern.
  * Used by PaletteDialog (current swatches) and PaletteCard (expanded swatches).
  */
 export function useHoverPopover(options?: { canHover?: boolean }) {
-    const canHover = options?.canHover ?? CAN_HOVER;
+    const { matches: canHoverMq } = useBreakpoint("(hover: hover)");
+    const canHover: Ref<boolean> = options?.canHover !== undefined
+        ? ref(options.canHover)
+        : computed(() => canHoverMq.value);
 
     const openIndex = ref<number | null>(null);
     const style = reactive({ top: "0px", left: "0px" });
@@ -21,14 +24,14 @@ export function useHoverPopover(options?: { canHover?: boolean }) {
     }
 
     function onHover(index: number, e: PointerEvent) {
-        if (!canHover || e.pointerType === "touch") return;
+        if (!canHover.value || e.pointerType === "touch") return;
         cancelLeave();
         openIndex.value = index;
         nextTick(() => positionPanel(e.currentTarget as Element));
     }
 
     function onLeave() {
-        if (!canHover) return;
+        if (!canHover.value) return;
         leaveTimer.schedule(() => { openIndex.value = null; });
     }
 
