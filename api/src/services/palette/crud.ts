@@ -202,13 +202,22 @@ export async function deletePalette(
     const palette = await services.repositories.palettes.findBySlug(slug);
     if (!palette) throw new NotFoundError("Palette not found");
 
-    await services.repositories.palettes.delete(slug);
-    await services.repositories.votes.deleteByPaletteSlug(slug);
-    await services.repositories.flags.deleteByPaletteSlug(slug);
+    // Cascade inside a single transaction (G.W3 Lane E). All-or-nothing: a
+    // partial failure (transient driver error, write-concern timeout) must
+    // not leave orphaned vote/flag rows pointing at a deleted palette, nor a
+    // stale parent fork-count. Every cross-collection write threads `session`.
+    await services.withTransaction(async (session) => {
+        await services.repositories.palettes.delete(slug, session);
+        await services.repositories.votes.deleteByPaletteSlug(slug, session);
+        await services.repositories.flags.deleteByPaletteSlug(slug, session);
 
-    if (palette.forkOf) {
-        await services.repositories.palettes.decrementForkCount(palette.forkOf);
-    }
+        if (palette.forkOf) {
+            await services.repositories.palettes.decrementForkCount(
+                palette.forkOf,
+                session,
+            );
+        }
+    });
 
     return { deleted: true };
 }

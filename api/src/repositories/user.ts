@@ -25,9 +25,17 @@ export class UserRepository {
             .then(() => undefined);
     }
 
-    setStatusForSlugs(slugs: string[], status: UserStatus): Promise<number> {
+    setStatusForSlugs(
+        slugs: string[],
+        status: UserStatus,
+        session?: ClientSession,
+    ): Promise<number> {
         return this.col
-            .updateMany({ _id: { $in: slugs } }, { $set: { status } })
+            .updateMany(
+                { _id: { $in: slugs } },
+                { $set: { status } },
+                session ? { session } : undefined,
+            )
             .then((r) => r.modifiedCount);
     }
 

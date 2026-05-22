@@ -42,9 +42,15 @@ export class SessionRepository {
             .then((r) => r.deletedCount);
     }
 
-    deleteByUserSlugs(userSlugs: string[]): Promise<number> {
+    deleteByUserSlugs(
+        userSlugs: string[],
+        session?: ClientSession,
+    ): Promise<number> {
         return this.col
-            .deleteMany({ userSlug: { $in: userSlugs } })
+            .deleteMany(
+                { userSlug: { $in: userSlugs } },
+                session ? { session } : undefined,
+            )
             .then((r) => r.deletedCount);
     }
 

@@ -96,16 +96,27 @@ export class PaletteRepository {
         return palette.slug;
     }
 
-    update(slug: string, update: UpdateFilter<Palette>): Promise<void> {
-        return this.col.updateOne({ slug }, update).then(() => undefined);
+    update(
+        slug: string,
+        update: UpdateFilter<Palette>,
+        session?: ClientSession,
+    ): Promise<void> {
+        return this.col
+            .updateOne({ slug }, update, session ? { session } : undefined)
+            .then(() => undefined);
     }
 
     updateManyBySlugs(
         slugs: string[],
         update: UpdateFilter<Palette>,
+        session?: ClientSession,
     ): Promise<number> {
         return this.col
-            .updateMany({ slug: { $in: slugs } }, update)
+            .updateMany(
+                { slug: { $in: slugs } },
+                update,
+                session ? { session } : undefined,
+            )
             .then((r) => r.modifiedCount);
     }
 
@@ -115,9 +126,9 @@ export class PaletteRepository {
             .then((r) => r.deletedCount);
     }
 
-    deleteManyBySlugs(slugs: string[]): Promise<number> {
+    deleteManyBySlugs(slugs: string[], session?: ClientSession): Promise<number> {
         return this.col
-            .deleteMany({ slug: { $in: slugs } })
+            .deleteMany({ slug: { $in: slugs } }, session ? { session } : undefined)
             .then((r) => r.deletedCount);
     }
 
@@ -143,9 +154,13 @@ export class PaletteRepository {
     }
 
     /** Bounded fork-count decrement (only if > 0 — preserves invariant). */
-    decrementForkCount(slug: string): Promise<void> {
+    decrementForkCount(slug: string, session?: ClientSession): Promise<void> {
         return this.col
-            .updateOne({ slug, forkCount: { $gt: 0 } }, { $inc: { forkCount: -1 } })
+            .updateOne(
+                { slug, forkCount: { $gt: 0 } },
+                { $inc: { forkCount: -1 } },
+                session ? { session } : undefined,
+            )
             .then(() => undefined);
     }
 
