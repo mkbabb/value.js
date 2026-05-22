@@ -2,19 +2,23 @@
  * Color-space conversion dispatch + interpolation primitives.
  *
  * `color2()` is the generic any-space → any-space converter. It consults the
- * `DIRECT_PATHS` table for the hot interpolation pairs (oklab/oklch/hsl ↔ rgb;
- * the direct-path functions live in `conversions/direct.ts`) and otherwise
- * routes through XYZ D65 as the hub via `XYZ_FUNCTIONS`.
+ * `DIRECT_PATHS` table for the hot interpolation pairs (oklab/oklch/hsl ↔ rgb)
+ * via the `getDirectPath` lookup — both the table and the direct-path functions
+ * live in `conversions/direct.ts`. Otherwise it routes through XYZ D65 as the
+ * hub via `XYZ_FUNCTIONS`.
  *
  * Also hosts `gamutMap()` (adaptive sRGB gamut wrapper), `interpolateHue()`,
  * `mixColors()` (CSS `color-mix()`), and the `getFormattedColorSpaceRange`
  * range-formatting helper.
  *
  * G.W1 Lane B — extracted from `src/units/color/utils.ts` (G3 decomposition).
+ * G.W4 G3-remediation — `DIRECT_PATHS` table + `DirectPathsTable` mapped-type +
+ *   `getDirectPath` lookup relocated to their cohesion-honest home in
+ *   `conversions/direct.ts` (alongside the `directXxx` functions they route to).
  */
 
 import { Color, RGBColor } from ".";
-import type { ColorSpaceMap, HSLColor, XYZColor } from ".";
+import type { ColorSpaceMap, XYZColor } from ".";
 import { clamp, lerp } from "../../math";
 import { COLOR_SPACE_RANGES, getColorSpaceBound, getColorSpaceDenormUnit } from "./constants";
 import type { ColorSpace } from "./constants";
@@ -45,14 +49,7 @@ import {
     xyz2rec2020,
     xyz2rgb,
 } from "./conversions/xyz-extended";
-import {
-    directHslToRgb,
-    directOklabToRgb,
-    directOklchToRgb,
-    directRgbToHsl,
-    directRgbToOklab,
-    directRgbToOklch,
-} from "./conversions/direct";
+import { getDirectPath } from "./conversions/direct";
 
 export { hex2rgb, rgb2hex };
 export { deltaEOK, isInSRGBGamut, DELTA_E_OK_JND } from "./gamut";
@@ -107,91 +104,15 @@ const XYZ_FUNCTIONS: Record<string, { to: (color: any) => XYZColor; from: (color
 };
 
 // ──────────────────────────────────────────────────────────────────────────────
-// E.W1 Lane C — DIRECT_PATHS table for hot-path conversions.
+// DIRECT_PATHS hot-path table.
 //
-// `color2(from, to)` routes EVERY conversion through XYZ as a hub by default.
-// For the highest-frequency CSS interpolation pairs (`oklab↔rgb`, `oklch↔rgb`,
-// `hsl↔rgb`), a direct path skips the XYZ intermediate — saving one matrix
-// multiply + one XYZColor allocation per call. Numerically equivalent to the
-// XYZ-hub path within floating-point epsilon (verified by `test/color-*`).
-//
-// The direct-path implementations live in `conversions/direct.ts`; this table
-// wires them into `color2()` keyed by the `${from}->${to}` template literal.
+// `color2()` routes EVERY conversion through XYZ as a hub by default. For the
+// highest-frequency CSS interpolation pairs (`oklab↔rgb`, `oklch↔rgb`,
+// `hsl↔rgb`), the `DIRECT_PATHS` table — and its `getDirectPath` lookup — skip
+// the XYZ intermediate. Both the table and the `directXxx` functions it wires
+// live in `conversions/direct.ts` (their cohesion-honest home); `color2()`
+// consults them via the imported `getDirectPath`.
 // ──────────────────────────────────────────────────────────────────────────────
-
-// ── G.W2 Lane B (G-OPP-3) — typed DIRECT_PATHS mapped-type ──
-//
-// `DIRECT_PATHS` is keyed by the `${From}->${To}` template literal. Before
-// G.W2 the table value was a single generic `<T>(c: Color<T>) => Color<T>`,
-// which the narrower per-pair direct functions (e.g. `(c: OKLABColor) =>
-// RGBColor`) could not satisfy — forcing a type-erasing double cast on every
-// one of the 6 entries, plus another on the `color2` dispatch return.
-//
-// `DirectPathsTable` is a mapped type: it distributes over every `${From}->
-// ${To}` key and uses conditional-type inference to derive the EXACT entry
-// signature `(color: ColorSpaceMap<number>[From]) => ColorSpaceMap<number>[To]`
-// per pair. Each direct function's concrete `number`-component signature now
-// matches its slot precisely, so the table type-checks with zero casts.
-//
-// Dispatch is via `getDirectPath` — a typed lookup whose return signature is
-// narrowed by the target space `C`, so `color2` calls it and returns its
-// result without a type-erasing cast. The runtime-keyed lookup needs a single
-// `as` narrowing INSIDE the helper (TS cannot statically pick a table entry
-// from a value-computed template-literal key) — a documented index-narrowing.
-
-/**
- * A `From → To` direct conversion. The direct-path functions operate on
- * numeric channels and build same-arity `number`-component colors, so the
- * component type is concrete `number`.
- */
-type DirectPath<From extends ColorSpace, To extends ColorSpace> = (
-    color: ColorSpaceMap<number>[From],
-) => ColorSpaceMap<number>[To];
-
-/**
- * Distributes over every `${From}->${To}` color-space pair; each entry is the
- * exact `From → To` conversion signature (or absent).
- */
-type DirectPathsTable = {
-    [K in `${ColorSpace}->${ColorSpace}`]?: K extends `${infer From extends ColorSpace}->${infer To extends ColorSpace}`
-        ? DirectPath<From, To>
-        : never;
-};
-
-const DIRECT_PATHS: DirectPathsTable = {
-    // OKLab ↔ RGB — skips XYZ + chromatic adaptation. Highest-frequency
-    // interpolation pair in the demo + library hot paths.
-    "oklab->rgb": directOklabToRgb,
-    "rgb->oklab": directRgbToOklab,
-    // OKLCH ↔ RGB — polar form of OKLab; direct path inlines the polar
-    // conversion + the OKLab→LMS→sRGB chain.
-    "oklch->rgb": directOklchToRgb,
-    "rgb->oklch": directRgbToOklch,
-    // HSL ↔ RGB — closed-form cylindrical conversion (no XYZ at all).
-    "hsl->rgb": directHslToRgb,
-    "rgb->hsl": directRgbToHsl,
-};
-
-/**
- * Typed `DIRECT_PATHS` lookup. Returns the wired direct conversion for
- * `from → to` (or `undefined` when the pair routes through the XYZ hub). The
- * return type is narrowed to the target space `C` so `color2` consumes it
- * cast-free.
- *
- * The `directKey` is composed from runtime values, so TS cannot pick a single
- * `DirectPathsTable` entry statically — the lone `as` re-asserts the table
- * value as the `C`-targeted signature. This is a narrowing assertion, not a
- * type-erasing double cast.
- */
-const getDirectPath = <C extends ColorSpace>(
-    from: ColorSpace,
-    to: C,
-): ((color: Color<number>) => ColorSpaceMap<number>[C]) | undefined => {
-    const directKey = `${from}->${to}` as `${ColorSpace}->${ColorSpace}`;
-    return DIRECT_PATHS[directKey] as
-        | ((color: Color<number>) => ColorSpaceMap<number>[C])
-        | undefined;
-};
 
 export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
     if (color.colorSpace === to) {
