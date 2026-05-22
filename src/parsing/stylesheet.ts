@@ -367,8 +367,10 @@ const keyframesBody = all(
     const rules: KeyframeRule[] = parts[parts.length - 1] as KeyframeRule[];
     const name: string | undefined =
         parts.length === 2 ? (parts[0] as string) : undefined;
-    const out: StylesheetItem = { kind: "keyframes", rules };
-    if (name != null) (out as any).name = name;
+    const out: StylesheetItem =
+        name != null
+            ? { kind: "keyframes", name, rules }
+            : { kind: "keyframes", rules };
     return out;
 });
 

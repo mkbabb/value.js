@@ -79,7 +79,7 @@ const handleTransform = () => {
                 ? TRANSFORM_DIMENSIONS.filter((d) => d !== "z")
                 : TRANSFORM_DIMENSIONS;
 
-        const transformObject: Record<string, any> = {};
+        const transformObject: Record<string, ValueUnit | FunctionValue> = {};
 
         if (dim) {
             const newName = lowerName + dim.toUpperCase();
@@ -90,14 +90,14 @@ const handleTransform = () => {
                 transformObject[newName] = values[0];
             });
         } else {
-            values.forEach((v: any, i: number) => {
+            values.forEach((v: ValueUnit | FunctionValue, i: number) => {
                 const newName = makeTransformName(lowerName, dimensions[i]!);
                 transformObject[newName] = v;
             });
         }
 
         const newValues = Object.entries(transformObject).map(([k, v]) => {
-            return new FunctionValue(k, [v as any]);
+            return new FunctionValue(k, [v]);
         });
 
         return new ValueArray(...newValues);
@@ -200,8 +200,8 @@ const handleGradient = () => {
                     return [dir, ...stops].flat();
                 }
             }),
-    ).map(([name, values]: [string, any[]]) => {
-        return new FunctionValue(name, values as any[]);
+    ).map(([name, values]: [string, (ValueUnit | FunctionValue)[]]) => {
+        return new FunctionValue(name, values);
     });
 
     return linearGradient;

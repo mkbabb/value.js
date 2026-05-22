@@ -39,7 +39,7 @@ export const normalizeColor = (
 
     color.keys().forEach((component) => {
         const channel = color[component];
-        const value = channel instanceof ValueUnit ? channel.value : channel;
+        const value = ValueUnit.unwrapDeep(channel);
         const unit = channel instanceof ValueUnit ? channel.unit : undefined;
 
         color[component] = normalizeColorUnitComponent(
@@ -90,17 +90,23 @@ export const colorUnit2 = <C extends ColorSpace>(
         // Conversion functions pass alpha through as-is, so if the input had
         // ValueUnit<number> components, alpha arrives still wrapped. Without
         // unwrapping, each frame adds a layer: VU<VU<VU<...>>> → stack overflow.
-        let raw: any = value;
-        while (raw instanceof ValueUnit) raw = raw.value;
-        convertedColor[key] = new ValueUnit(raw);
+        // `ValueUnit.unwrapDeep` (G.W2 Lane D) is the codified form of this fix.
+        convertedColor[key] = new ValueUnit(ValueUnit.unwrapDeep(value));
     });
     normalizedColorUnit.value = convertedColor;
 
     normalizedColorUnit.superType![1] = to as string;
 
     return inverse
-        ? (normalizeColorUnit(normalizedColorUnit as ValueUnit<Color<ValueUnit<number>>, "color">, true, true) as any)
-        : normalizedColorUnit as ValueUnit<ColorSpaceMap<ValueUnit<number>>[C], "color">;
+        ? (normalizeColorUnit(
+              normalizedColorUnit as ValueUnit<Color<ValueUnit<number>>, "color">,
+              true,
+              true,
+          ) as ValueUnit<ColorSpaceMap<ValueUnit<number>>[C], "color">)
+        : (normalizedColorUnit as ValueUnit<
+              ColorSpaceMap<ValueUnit<number>>[C],
+              "color"
+          >);
 };
 
 export const normalizeColorUnits = (

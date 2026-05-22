@@ -72,7 +72,7 @@ export const xyz2rgb = (
 
     if (correctGamut) {
         const rgb = gamutMap(new RGBColor(r, g, b, alpha));
-        return new RGBColor(rgb.r, rgb.g, rgb.b, alpha) as any;
+        return new RGBColor(rgb.r, rgb.g, rgb.b, alpha);
     } else {
         return new RGBColor(r, g, b, alpha);
     }

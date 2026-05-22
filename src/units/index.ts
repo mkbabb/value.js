@@ -1,11 +1,15 @@
 export { registerColorNames, clearCustomColorNames, getCustomColorNames } from "../parsing/color";
 import { clone } from "../utils";
 import { BLACKLISTED_COALESCE_UNITS, UNITS } from "./constants";
-import { isColorUnit } from "./utils";
 import type { ColorSpace } from "./color/constants";
 import type { HueInterpolationMethod } from "./color/dispatch";
 
-export class ValueUnit<T = any, U = (typeof UNITS)[number] | string> {
+export class ValueUnit<
+    T = any,
+    // `UNITS` carries an `undefined` sentinel (the "no unit" slot); the unit
+    // *string* type excludes it — `ValueUnit.unit` is already optional (`unit?`).
+    U extends string = Exclude<(typeof UNITS)[number], undefined> | string,
+> {
     constructor(
         public value: T,
         public unit?: U,
@@ -14,6 +18,28 @@ export class ValueUnit<T = any, U = (typeof UNITS)[number] | string> {
         public property?: string,
         public targets?: HTMLElement[],
     ) {}
+
+    /**
+     * Fully unwrap a (possibly nested) `ValueUnit`, returning the innermost
+     * non-`ValueUnit` value.
+     *
+     * **G.W2 Lane D (G-OPP-5)** — codifies the Mar 2026 iOS Safari
+     * stack-overflow fix as a first-class `ValueUnit` primitive. The
+     * `while (raw instanceof ValueUnit) raw = raw.value` idiom was inlined
+     * across the color pipeline + the parser; each inline copy was a place the
+     * `VU<VU<…>>` accumulation guard could silently drift. This static is the
+     * single source of truth — see `test/recursion-guard.test.ts`.
+     *
+     * The conditional return type peels exactly one `ValueUnit` layer at the
+     * type level (`ValueUnit` payloads can themselves be `ValueUnit` only via
+     * the bug class this guards against, so one peel is the honest static
+     * type); at runtime the `while` loop peels every layer.
+     */
+    static unwrapDeep<T>(x: T): T extends ValueUnit<infer V> ? V : T {
+        let raw: unknown = x;
+        while (raw instanceof ValueUnit) raw = raw.value;
+        return raw as T extends ValueUnit<infer V> ? V : T;
+    }
 
     setSubProperty(subProperty: any) {
         this.subProperty = subProperty;
@@ -44,8 +70,8 @@ export class ValueUnit<T = any, U = (typeof UNITS)[number] | string> {
             return `${this.value}`;
         }
 
-        if (isColorUnit(this as any)) {
-            return this.value.toString();
+        if (this.unit === "color") {
+            return `${this.value}`;
         } else if (this.unit === "var") {
             return `var(${this.value})`;
         } else if (this.unit === "calc") {
@@ -78,20 +104,21 @@ export class ValueUnit<T = any, U = (typeof UNITS)[number] | string> {
 
     coalesce(right?: ValueUnit, inplace: boolean = false): ValueUnit<any, any> {
         if (right == null) {
-            return this as any;
+            return this;
         }
-        if (BLACKLISTED_COALESCE_UNITS.includes(this.unit as any)) {
-            return this as any;
+        const blacklisted: readonly string[] = BLACKLISTED_COALESCE_UNITS;
+        if (this.unit != null && blacklisted.includes(this.unit)) {
+            return this;
         }
 
         if (inplace) {
-            this.unit ??= right.unit as any;
+            this.unit ??= right.unit as U;
             this.superType ??= right.superType;
             this.subProperty ??= right.subProperty;
             this.property ??= right.property;
             this.targets ??= right.targets;
 
-            return this as any;
+            return this;
         } else {
             const value = new ValueUnit(
                 clone(this.value),
