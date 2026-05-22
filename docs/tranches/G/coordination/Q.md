@@ -34,9 +34,34 @@ Per `audit/G-AUDIT-4 §2.2`: AJ-W1-β shipped `MetaballCanvas` `positioning="vie
 
 The re-scoped sub-asks (4-5 items, down from 7) carry forward with the original ask's (c) trigger.
 
+### §2.1.1 — Proposed API surfaces for OPEN Metaballs sub-asks (per G-PEER-GLASS-UI FOLD-5, user-ratified 2026-05-21)
+
+For each OPEN Metaballs sub-ask, value.js owns prior-art in `demo/@/components/custom/goo-blob/useMetaballRenderer.ts` and proposes the following shapes to glass-ui authorship as concrete starting points:
+
+| Sub-ask | Proposed API shape |
+|---|---|
+| pointer input | `<MetaballCanvas :pointer-source="\"viewport\" \| \"local\" \| Ref<{x: number; y: number} \| null>" />` — mirror the existing `useBlobPointer.ts` composable surface; allow Ref-form for parent-controlled coordinates. |
+| per-blob opacity | `<Metaball :opacity="0..1" />` on each `<Metaball>` child; default = 1 (unchanged); alpha multiplied with global canvas opacity. |
+| HSV color perturbation | `<Metaball :hsv-perturbation="{ h: number; s: number; v: number }" />` — per-blob delta applied at shader stage; value.js's `useMetaballRenderer.ts` already implements this idiom. |
+| WebGL context-loss recovery | `<MetaballCanvas @context-lost @context-restored />` event emissions + internal auto-reinit on restore; ergonomic default = silent recovery, opt-in handler. |
+| `pauseOnHidden` | `<MetaballCanvas :pause-on-hidden="boolean" />` (default `true`) — RAF loop pauses when `document.visibilityState === "hidden"`; resumes on visibility change. |
+
+These shapes are PROPOSALS only; glass-ui maintainer holds authorship + final shape. They serve as concrete starting points + verify that the un-overlapped sub-asks have well-defined API surfaces (no abandonware semantics).
+
+### §2.1.2 — G-AUDIT-5 §6 stale-finding correction (per G-PEER-GLASS-UI FOLD-3, user-ratified 2026-05-21)
+
+G-AUDIT-5 §6 stated "`MetaballCanvas` is NOT exported (no `./metaballs` subpath in package.json, not in main `src/index.ts` barrel)". This was STALE at G-AUDIT-5 capture time. Verified at G open (peer audit 2026-05-21):
+- `dist/metaballs.js` + `dist/metaballs.d.ts` BOTH exist.
+- `package.json` exports map includes `./metaballs` subpath.
+- `@mkbabb/glass-ui/metaballs` is a LIVE published surface.
+
+The WatercolorDot extirpation gating per F.W4 §12 (G-AUDIT-5 §5 propagation) is therefore **wrong-successor**: BlobDot (a hypothetical organic-dot primitive) ≠ MetaballCanvas (the WebGL metaball substrate). The correct framing:
+- `WatercolorDot` extirpation depends on a `BlobDot` ship by glass-ui — still PEER-AUTHORSHIP-REQUIRED.
+- `useMetaballRenderer.ts` (value.js demo's WebGL2 wrapper) COULD now migrate to consume `@mkbabb/glass-ui/metaballs` directly — but this depends on whether the 4-5 OPEN Metaballs sub-asks (per §2.1) ship first. Until then, the demo's local renderer is the canonical implementation.
+
 | Ask | G-open verdict | (a) blocker | (b) smallest unblock | (c) re-check trigger |
 |---|---|---|---|---|
-| 1 — Metaballs API additions (RENEGOTIATED at G open — see §2.1) | **PARTIALLY ACCEPTED via AJ** (positioning + duration accepted; sub-asks re-scoped per user ratification 2026-05-21) | glass-ui authorship for the re-scoped sub-asks | glass-ui maintainer ships the re-scoped subset | Re-check at glass-ui's next non-AK tranche-open. |
+| 1 — Metaballs API additions (RENEGOTIATED at G open — see §2.1) | **PARTIALLY ACCEPTED via AJ** (positioning + duration accepted; sub-asks re-scoped per user ratification 2026-05-21); **value.js now sole-identified-consumer of `glass-ui/MetaballCanvas`** per G-PEER-SPEEDTEST §2 (speedtest's AK-W5 retired its consumer sites + raised publisher-retirement as AL consideration) | glass-ui authorship for the re-scoped sub-asks; AL ratification of publisher-retirement (value.js becomes deciding consumer voice) | glass-ui maintainer ships the re-scoped subset OR AL ratifies publisher-retirement | **Sharpened**: Re-check at speedtest AL ratification (open/close events) OR glass-ui's next non-AK tranche-open. |
 | 2 — Aurora `deriveAuroraPalette` + `deriveAuroraConfig` | OPEN | glass-ui authorship | glass-ui maintainer ships the derive helpers | Re-check at glass-ui's next non-AK tranche-open. |
 | 3 — `BlobDot` organic-dot primitive | OPEN (10 `WatercolorDot` instance sites in demo per `audit/G-AUDIT-5 §5`) | glass-ui authorship | glass-ui ships BlobDot | Re-check at glass-ui's next non-AK tranche-open. |
 | 4 — `SelectTrigger size` prop | OPEN | glass-ui authorship | glass-ui ships prop | Re-check at glass-ui's next non-AK tranche-open. |
@@ -108,7 +133,28 @@ Per `audit/G-AUDIT-4 §4.3`: **speedtest does NOT consume value.js**. Past coord
 
 Per `audit/G-AUDIT-4 §5`: HEAD `926ca6a`, 109-file dirty tree, TS `^5.8` (no W8-W12 catch-up). 1 commit ahead of origin (`4df1a06a`). Pre-existing chronic; not actionable by G.
 
-## §6 — Aggregate Q.md ledger at G open (after G-AUDIT-2 disposition)
+## §6 — Aggregate Q.md ledger at G open (after G-AUDIT-2 disposition + peer-audit additions)
+
+> **Updated 2026-05-21**: 12 additional FOLD-INTO-G items ratified from peer audits (G-PEER-GLASS-UI + G-PEER-KEYFRAMES-JS + G-PEER-SPEEDTEST). Original 21-row ledger extends to 33 rows.
+
+### §6.A — Peer-audit additions (user-ratified 2026-05-21)
+
+| # | Item | Origin audit | G-disposition | (c) trigger |
+|---|---|---|---|---|
+| P1 | G-PUB-1: add `scripts/migrate-*.mjs` to `files:` + author `proof:codemod-publication.mjs` | G-PEER-KEYFRAMES-JS §4.1 | **FOLD-INTO-G.W3 NEW Lane I** | G.W3 close |
+| P2 | G-PUB-2: README "Upgrading v0.6.x → v0.7+" section | G-PEER-KEYFRAMES-JS §4.2 | **FOLD-INTO-G.W4 close ceremony** | G.W4 close |
+| P3 | G-PUB-3: CHANGELOG.md absolute → relative path fix | G-PEER-KEYFRAMES-JS §4.2 | **FOLD-INTO-G.W4 close ceremony** | G.W4 close |
+| P4 | G-PUB-4: CONTRIBUTING.md / peer-checkout-layout.md devDep rationale | G-PEER-KEYFRAMES-JS §4 | **FOLD-INTO-G.W4 close ceremony** | G.W4 close |
+| P5 | FOLD-1: adopt `@mkbabb/glass-ui/dom` `useBreakpoint` at 4 demo sites | G-PEER-GLASS-UI §5.1 | **FOLD-INTO-G.W2 NEW Lane E** | G.W2 close |
+| P6 | FOLD-2: PaletteSlugBar.vue icon-button shim → `<Button variant="ghost" size="icon">` | G-PEER-GLASS-UI §5.1 | **FOLD-INTO-G.W2 NEW Lane F** | G.W2 close |
+| P7 | FOLD-3: G-AUDIT-5 §6 stale-finding correction (MetaballCanvas IS exported) | G-PEER-GLASS-UI §5.1 | **DONE in G.W0 follow-up** (this Q.md §2.1.2 + below) | G.W0 close |
+| P8 | FOLD-5: publish proposed Metaballs API surfaces | G-PEER-GLASS-UI §5.1 | **DONE in G.W0 follow-up** (this Q.md §2.1.1) | G.W0 close |
+| P9 | FOLD-S1: `proof:no-deep.mjs` (port speedtest AD.W2.T7) | G-PEER-SPEEDTEST §7.1 | **FOLD-INTO-G.W3 NEW Lane J** | G.W3 close |
+| P10 | FOLD-S2: `proof:no-bare-builtins.mjs` for api/src/ (port speedtest) | G-PEER-SPEEDTEST §7.1 | **FOLD-INTO-G.W3 NEW Lane K** | G.W3 close |
+| P11 | FOLD-S3: author `H-SEED.md` predecessor-authored ledger at G close | G-PEER-SPEEDTEST §7.1 | **FOLD-INTO-G.W4 close ceremony** | G.W4 close |
+| P12 | R1 sharpening: AL publisher-retirement (c) trigger added | G-PEER-SPEEDTEST §2 + §7.2 | **DONE** (Q.md §2.1 row 1 + §2.1.2 above) | G.W0 close |
+
+### §6.B — Original Q.md ledger
 
 | # | Item | Origin | G-disposition | (c) trigger |
 |---|---|---|---|---|

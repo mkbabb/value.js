@@ -1,7 +1,7 @@
 # G.W2 — Typed strengthening (`as any` corpus retirement; G2 invariant)
 
 **Opens after**: G.W1 close.
-**Lanes**: 4 — A (G-OPP-2 typed `getColorSpaceBound<C,K>`), B (G-OPP-3 typed `DIRECT_PATHS` mapped-type), C (G-OPP-4 typed `Color<T>` channel accessor; potential BREAKING), D (G-OPP-5 `ValueUnit.unwrapDeep()` static).
+**Lanes**: 6 — A (G-OPP-2 typed `getColorSpaceBound<C,K>`), B (G-OPP-3 typed `DIRECT_PATHS` mapped-type), C (G-OPP-4 typed `Color<T>` channel accessor; potential BREAKING), D (G-OPP-5 `ValueUnit.unwrapDeep()` static), **E (FOLD-1: `useBreakpoint` adoption at 4 demo sites)**, **F (FOLD-2: PaletteSlugBar.vue icon-button shim)**.
 **Status**: planned.
 
 ## Scope
@@ -70,6 +70,33 @@ Strategy:
 - vitest 1584/34 GREEN (especially the recursion-guard suite that exercises iOS Safari nesting protection).
 - vue-tsc 0.
 
+### Lane E (NEW — FOLD-1) — `useBreakpoint` adoption at 4 demo sites
+
+Per `audit/G-PEER-GLASS-UI §5.1 FOLD-1` (user-ratified 2026-05-21): glass-ui's AJ-W shipped `useBreakpoint` composable via `@mkbabb/glass-ui/dom` subpath (LIVE; verified `dist/dom.js` + export map). Adopt at 4 demo sites that currently roll local matchMedia patterns:
+- `demo/@/components/custom/image-palette-extractor/ImagePaletteExtractor.vue:123-131` — replace 9-LoC matchMedia subscribe/teardown with `useBreakpoint("(min-width: 640px)")`.
+- `demo/@/components/custom/panes/ExtractPane.vue:117-125` — identical replacement.
+- `demo/@/components/custom/palette-browser/composables/useHoverPopover.ts:4` — promote stale-snapshot to reactive Ref.
+- `demo/@/components/custom/palette-browser/composables/useCardMenu.ts:5` — same.
+
+Expected delta: ~30 LoC retired across 4 files; the local matchMedia code-paths become a single composable subscription.
+
+**Sub-gate E**:
+- 4 demo sites migrated.
+- vitest 1584/34 GREEN; e2e smoke + smoke-mobile PASS.
+- `npm run gh-pages` clean.
+- `dist/value.js` unchanged (lib not affected).
+
+### Lane F (NEW — FOLD-2) — PaletteSlugBar.vue icon-button shim
+
+Per `audit/G-PEER-GLASS-UI §5.1 FOLD-2` (user-ratified 2026-05-21): the chronic `Button size="icon-sm"` ask (Q.md §2 ask #7) has a live consumer-TODO at `demo/@/components/custom/palette-browser/PaletteSlugBar.vue:16`. The TODO comments out 2 hand-rolled `<button class="p-0.5 rounded-sm ...">` callsites. Migrate the 2 sites to `<Button variant="ghost" size="icon" class="h-6 w-6">` (the closest glass-ui `<Button>` shape; not a perfect match for `icon-sm` but eliminates the hand-rolled HTML).
+
+Update the existing TODO comment to a shim-removal trigger: "TODO: collapse to <Button size='icon-sm'> when glass-ui ships the rung (Q.md ask #7)".
+
+**Sub-gate F**:
+- 2 hand-rolled `<button>` callsites migrated.
+- Existing TODO updated to forward-ref the trigger.
+- Visual regression: smoke-admin PaletteSlugBar visual probe unchanged (verify locally or in CI).
+
 ## File bounds
 
 | Lane | Files |
@@ -78,6 +105,8 @@ Strategy:
 | B | `src/units/color/dispatch.ts`, `audit/G.W2-lane-b-typed-DIRECT_PATHS.md` (new) |
 | C | `src/units/color/index.ts`, `src/units/color/interpolate.ts`, `src/units/color/normalize.ts`, `src/index.ts` (barrel — verify no leakage), `CHANGELOG.md` (if BREAKING), `audit/G.W2-lane-c-color-channel-typing.md` (new) |
 | D | `src/units/index.ts` (ValueUnit class), `src/units/color/normalize.ts` (inline-loop sites), and any other 3-4 sites identified via grep, `audit/G.W2-lane-d-unwrapDeep.md` (new) |
+| E (NEW) | 4 demo files cited above, `audit/G.W2-lane-e-useBreakpoint-adoption.md` (new) |
+| F (NEW) | `demo/@/components/custom/palette-browser/PaletteSlugBar.vue` (2 callsites), `audit/G.W2-lane-f-paletteslugbar-shim.md` (new) |
 
 ## Gate
 

@@ -37,23 +37,30 @@ Close ceremony for tranche G. Mirrors F.W4's shape. v0.9.0 release-blocking wave
 3. **Pin `docs/precepts` SHA** (`68d9b20` if unchanged upstream; document hold otherwise).
 4. **Update `coordination/Q.md` §7** with final state at G close.
 5. **Update root `CLAUDE.md`** — src/units/color/ structure block reflects 7-module split; `as any` budget gate note.
-6. **`demo/CLAUDE.md`** — no expected changes (demo untouched in G).
+6. **`demo/CLAUDE.md`** — adjust for G.W2 Lane E (useBreakpoint adoption) + Lane F (PaletteSlugBar shim).
 7. **`api/CLAUDE.md`** — withTransaction-expansion note (G.W3 Lane E).
 8. **CHANGELOG.md** — v0.9.0 entry per G.W2 Lane C BREAKING decision (lone BREAKING or none).
+9. **(NEW G-PUB-2) `README.md`** — author "Upgrading from v0.6.x → v0.7+" section (6-10 LoC) per `audit/G-PEER-KEYFRAMES-JS §4.2`. Points at CHANGELOG; names the codemod; explains the swap pattern.
+10. **(NEW G-PUB-3) `CHANGELOG.md` line ~13** — replace absolute path `/Users/mkbabb/Programming/keyframes.js` with relative reference `the keyframes.js sibling repo (HEAD 470814e)` per `audit/G-PEER-KEYFRAMES-JS §4.2`.
+11. **(NEW G-PUB-4) `CONTRIBUTING.md`** (or `docs/peer-checkout-layout.md`) — codify the `file:../keyframes.js` devDependency rationale per `audit/G-PEER-KEYFRAMES-JS §4`. Explain cross-repo work-pairing + sibling-cwd codemod-execution assumption.
+12. **(NEW FOLD-S3) `docs/tranches/G/H-SEED.md`** — author predecessor-style forward-carry ledger per `audit/G-PEER-SPEEDTEST §7.1 FOLD-S3` (mirroring speedtest's `AL-SEED.md` shape). 8 sections: tranche-state-at-G-close; carry-forward asks with sharpened triggers; H-target investigation prompts; etc.
 
 ## Merge + release ceremony (v0.9.0)
 
 G ships as **v0.9.0** — minor bump per semver (BREAKING decision at G.W2 Lane C).
 
-### Pre-merge gate matrix (18 items — extends F's 14)
+### Pre-merge gate matrix (21 items — extends F's 14 with 7 G-NEW)
 
-F's 14 + 4 G-NEW:
+F's 14 + 7 G-NEW:
 
 1-14: inherited from F.W4 §"Pre-merge gate matrix".
 15. **G-NEW: `npm run proof:no-deprecated`** GREEN.
 16. **G-NEW: `npm run proof:no-ts-ignore`** GREEN.
 17. **G-NEW: `npm run proof:as-any-budget`** GREEN (count ≤ 5).
 18. **G-NEW: `npm run proof:resolution` extended types-key probe** GREEN.
+19. **G-NEW (G-PUB-1): `npm run proof:codemod-publication`** GREEN — `scripts/migrate-*.mjs` discoverable in `npm pack --dry-run` output.
+20. **G-NEW (FOLD-S1): `npm run proof:no-deep`** GREEN — zero `:deep()` / `::v-deep` in demo/ + src/.
+21. **G-NEW (FOLD-S2): `npm run proof:no-bare-builtins`** GREEN — zero bare built-in imports in api/src/.
 
 ### Merge sequence
 

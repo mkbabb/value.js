@@ -70,6 +70,33 @@ Implicit acceptance (no objections raised):
 
 G.W0 CLOSED on this ratification. G.W1 dispatches next.
 
+## 2026-05-21 — Peer-audit scope expansion (post-ratification)
+
+User issued: "Audit the glass-ui, keyframes.js, and speedtest repo state-what items might we fold therein, or address, too, from hereof."
+
+3 parallel deep-audit agents dispatched (READ-ONLY against peer repos):
+- `audit/G-PEER-GLASS-UI.md` — 14 items surfaced (5 FOLD + 3 CARRY + 3 RAISE-NEW + 3 RETIRE-MOOT).
+- `audit/G-PEER-KEYFRAMES-JS.md` — 12 items (4 FOLD + 3 CARRY + 2 RAISE-NEW + 3 RETIRE-MOOT).
+- `audit/G-PEER-SPEEDTEST.md` — 9 items (3 FOLD + 2 CARRY + 0 RAISE-NEW + 4 INFORMATIONAL).
+
+Total: **35 items**. Critical findings:
+1. **G-AUDIT-5 §6 STALE**: `MetaballCanvas` IS exported via `@mkbabb/glass-ui/metaballs` subpath. WatercolorDot extirpation framing was wrong-successor. Q.md §2.1.2 corrects.
+2. **value.js is sole-identified-consumer of `glass-ui/MetaballCanvas`** — speedtest's AK-W5 retired its consumer sites + AL-SEED raises publisher-retirement as a consideration. Q.md §2.1 row 1 sharpened with AL trigger.
+3. **F's codemod is invisible to npm consumers**: `scripts/` not in `package.json files:` — G-PUB-1 routes to G.W3 Lane I.
+
+User ratification (via second AskUserQuestion 4-question response):
+- **G-PUB cluster (4 items)**: Ratify ALL — G.W3 Lane I (codemod-publication invariant) + G.W4 close ceremony (README upgrade + CHANGELOG path fix + CONTRIBUTING.md devDep rationale).
+- **Glass-ui adoption (4 items)**: Ratify ALL — FOLD-1 useBreakpoint at 4 demo sites (G.W2 Lane E NEW); FOLD-2 PaletteSlugBar shim (G.W2 Lane F NEW); FOLD-3 G-AUDIT-5 stale-finding correction (Q.md §2.1.2 DONE); FOLD-5 publish Metaballs API surfaces (Q.md §2.1.1 DONE).
+- **Speedtest adoption (3 items)**: Ratify ALL — FOLD-S1 proof:no-deep (G.W3 Lane J NEW); FOLD-S2 proof:no-bare-builtins for api/src/ (G.W3 Lane K NEW); FOLD-S3 H-SEED.md predecessor-authored ledger (G.W4 close ceremony NEW).
+- **Q4 (MetaballCanvas sole-consumer posture)**: User clarified ("Hasn't Q already been executing?") — interpreted as confirming the gestalt default of Option 1 (sharpen R1 trigger, await AL decision; Q.md §2.1 row 1 + §2.1.2 DONE).
+
+Scope expansion:
+- G.W0: +2 substrate items (Q.md §2.1.1 + §2.1.2 + §6.A) — DONE.
+- G.W2: +2 lanes (E + F).
+- G.W3: +3 lanes (I + J + K). Now 11 lanes total.
+- G.W4: +4 close-ceremony items (G-PUB-2 README + G-PUB-3 CHANGELOG path + G-PUB-4 CONTRIBUTING + FOLD-S3 H-SEED.md).
+- Pre-merge matrix: 18 → **21 items** (3 new proof gates).
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |

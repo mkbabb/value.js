@@ -108,13 +108,15 @@ All E1-E5 + D1-D7 + precept 30-33 + 9 standing mandates HOLD per `audit/G-AUDIT-
 
 ## §3 — Wave schedule (5 waves)
 
+**Updated 2026-05-21 post-peer-audit ratification**: G scope expanded with 11 additional FOLD-INTO-G items from `audit/G-PEER-GLASS-UI` + `audit/G-PEER-KEYFRAMES-JS` + `audit/G-PEER-SPEEDTEST`. Wave count unchanged (5); lane count increased in W2 (+2), W3 (+3), W4 (+4). Two substrate-level items (FOLD-3 G-AUDIT-5 correction + FOLD-5 Metaballs API surfaces + R1 sharpening) DONE in G.W0 follow-up (`coordination/Q.md §2.1.1-§2.1.2 + §6.A`).
+
 | Wave | Opens after | Headline | Closes on |
 |---|---|---|---|
-| **G.W0 HEADLINE** | open | 6-agent audit + plan substrate + **ratification ask** | All 6 audit docs landed; G substrate authored; user ratification received OR modifications integrated |
+| **G.W0 HEADLINE** | open | 6-agent audit + plan substrate + **ratification ask** + peer-audit ratification + substrate scope expansion | All 6 G-AUDIT docs + 3 G-PEER docs landed; G substrate authored; user ratification received (Block A-E + peer-audit FOLD items); Q.md §2.1.1 + §2.1.2 + §6.A authored |
 | **G.W1** | W0 ratification | substrate hygiene + architectural decomposition | CI-1 `origin/main`→`master` fix; api/CLAUDE.md services drift fix; state-at-G-open captured; color/utils.ts decomposed into 7 modules |
-| **G.W2** | W1 close | typed strengthening (`as any` corpus retirement) | G-OPP-2 typed `getColorSpaceBound`; G-OPP-3 typed `DIRECT_PATHS`; G-OPP-4 typed `Color<T>` channel accessor; G-OPP-5 `ValueUnit.unwrapDeep()`; `as any` count ≤ 5 in src/ |
-| **G.W3** | W2 close | invariant codification + CI/api/e2e hygiene | 4 new proof scripts; API-1 withTransaction expansion; API-2 engines.node; E2E-1 mobile-walk spec; CI-2 npm pack --dry-run |
-| **G.W4 HEADLINE close** | W3 close | strengthened close — FINAL.md, doc drift, coord state, merge to master, **v0.9.0 tag** | 7 close-audit lanes + close-honesty checklist; merge ceremony; v0.9.0 annotated tag |
+| **G.W2** | W1 close | typed strengthening + glass-ui consumer adoption | G-OPP-2/3/4/5 (`as any` corpus ≤ 5); **NEW Lane E**: `useBreakpoint` at 4 demo sites; **NEW Lane F**: PaletteSlugBar `<Button>` shim |
+| **G.W3** | W2 close | invariant codification + CI/api/e2e hygiene + cross-peer adoption | 4 proof scripts + API-1/2 + E2E-1 + CI-2; **NEW Lane I**: codemod-publication invariant (G-PUB-1); **NEW Lane J**: `proof:no-deep.mjs` (FOLD-S1); **NEW Lane K**: `proof:no-bare-builtins.mjs` for api/src/ (FOLD-S2) |
+| **G.W4 HEADLINE close** | W3 close | strengthened close — FINAL.md + H-SEED.md, doc drift, coord state, merge to master, **v0.9.0 tag** | 7 close-audit lanes + close-honesty checklist; **NEW**: README upgrade section (G-PUB-2) + CHANGELOG path fix (G-PUB-3) + CONTRIBUTING.md devDep rationale (G-PUB-4) + predecessor-authored `H-SEED.md` (FOLD-S3); merge ceremony; v0.9.0 annotated tag |
 
 **Critical path: 5 wave-slots** — W0 → W1 → W2 → W3 → W4.
 

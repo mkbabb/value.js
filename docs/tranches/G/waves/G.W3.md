@@ -1,7 +1,7 @@
 # G.W3 — Invariant codification + CI/api/e2e hygiene
 
 **Opens after**: G.W2 close.
-**Lanes**: 8 — A (SCRIPTS-1 types-key probe), B (SCRIPTS-2 proof:no-deprecated), C (SCRIPTS-3 proof:no-ts-ignore), D (SCRIPTS-4 proof:as-any-budget), E (API-1 withTransaction expansion), F (API-2 engines.node), G (E2E-1 mobile-walk spec), H (CI-2 npm pack --dry-run).
+**Lanes**: 11 — A (SCRIPTS-1 types-key probe), B (SCRIPTS-2 proof:no-deprecated), C (SCRIPTS-3 proof:no-ts-ignore), D (SCRIPTS-4 proof:as-any-budget), E (API-1 withTransaction expansion), F (API-2 engines.node), G (E2E-1 mobile-walk spec), H (CI-2 npm pack --dry-run), **I (G-PUB-1 codemod-publication invariant — user-ratified 2026-05-21)**, **J (FOLD-S1 proof:no-deep — port speedtest AD.W2.T7)**, **K (FOLD-S2 proof:no-bare-builtins for api/src/)**.
 **Status**: planned.
 
 ## Scope
@@ -112,6 +112,73 @@ Per `audit/G-AUDIT-6 §3`: add a CI step that runs `npm pack --dry-run --legacy-
 - CI step added post-build.
 - Locally `npm pack --dry-run` shows the expected file set.
 
+### Lane I (NEW — G-PUB-1) — Codemod publication invariant
+
+Per `audit/G-PEER-KEYFRAMES-JS §4.1` (user-ratified 2026-05-21): F.W2's published codemod `scripts/migrate-keyframes-js-lerp.mjs` is **invisible to npm consumers** — `scripts/` is not in `package.json files:` array; `npm pack --dry-run` confirms 150 files in tarball, zero codemod content.
+
+Fix:
+1. Add `"scripts/migrate-*.mjs"` to `package.json files:` array.
+2. Author `scripts/proof-codemod-publication.mjs` — invariant guard that asserts `scripts/migrate-*.mjs` files are in the published tarball (run `npm pack --dry-run --json` and verify the `files[].path` list contains the matching pattern). Exit 0 if matched, exit 1 with diagnostic otherwise.
+3. Wire `proof:codemod-publication` into `package.json scripts` + CI workflow.
+
+**Sub-gate I**:
+- `package.json files:` includes `scripts/migrate-*.mjs`.
+- `npm pack --dry-run --json | jq '.files[].path' | grep migrate-keyframes-js-lerp` returns the codemod file.
+- `npm run proof:codemod-publication` exits 0.
+- CI step wired.
+
+### Lane J (NEW — FOLD-S1) — `proof:no-deep.mjs` gate
+
+Per `audit/G-PEER-SPEEDTEST §7.1 FOLD-S1` (user-ratified 2026-05-21): port speedtest's `scripts/check-deep.mjs` (AD.W2.T7) → `scripts/proof-no-deep.mjs` to gate `:deep()` CSS selector regression across `demo/` + `src/`. value.js inherits the precept but has no CI gate.
+
+```mjs
+#!/usr/bin/env node
+// Codifies the no-:deep() precept across demo/ + src/.
+// Ported from speedtest's scripts/check-deep.mjs (AD.W2.T7).
+import { execSync } from "node:child_process";
+const out = execSync('grep -rn "::v-deep\\|:deep(" demo/ src/ --include="*.vue" --include="*.css" --include="*.scss" || true', { encoding: "utf8" });
+const count = out.trim() ? out.split("\n").length : 0;
+if (count > 0) {
+    console.error(`[proof:no-deep] FAIL — found ${count} :deep() / ::v-deep usage(s):`);
+    console.error(out);
+    process.exit(1);
+}
+console.log("[proof:no-deep] PASS — zero :deep() / ::v-deep in demo/ + src/");
+```
+
+Wire into `package.json scripts` + CI workflow.
+
+**Sub-gate J**:
+- `npm run proof:no-deep` exits 0 at HEAD.
+- CI step wired.
+
+### Lane K (NEW — FOLD-S2) — `proof:no-bare-builtins.mjs` for api/src/
+
+Per `audit/G-PEER-SPEEDTEST §7.1 FOLD-S2` (user-ratified 2026-05-21): port speedtest's `scripts/check-bare-built-ins.mjs` → `scripts/proof-no-bare-builtins.mjs` scoped at `api/src/`. The Hono + Node 22+ stack at api/ has the same fragility class speedtest gates against — bare imports of `fs`, `path`, `crypto`, etc. without the `node:` prefix.
+
+```mjs
+#!/usr/bin/env node
+// Codifies the node:* prefix requirement for built-in imports in api/src/.
+// Ported from speedtest's scripts/check-bare-built-ins.mjs.
+import { execSync } from "node:child_process";
+const BUILTINS = ["fs", "path", "crypto", "url", "os", "stream", "util", "child_process", "http", "https", "events", "querystring", "buffer"];
+const pattern = BUILTINS.map(b => `from ['\"]${b}['\"]`).join("\\|");
+const out = execSync(`grep -rn "${pattern}" api/src/ --include="*.ts" --include="*.mjs" || true`, { encoding: "utf8" });
+const count = out.trim() ? out.split("\n").length : 0;
+if (count > 0) {
+    console.error(`[proof:no-bare-builtins] FAIL — found ${count} bare built-in import(s) in api/src/ (must use node:* prefix):`);
+    console.error(out);
+    process.exit(1);
+}
+console.log("[proof:no-bare-builtins] PASS — zero bare built-in imports in api/src/");
+```
+
+Wire into `package.json scripts` + CI workflow.
+
+**Sub-gate K**:
+- `npm run proof:no-bare-builtins` exits 0 at HEAD.
+- CI step wired.
+
 ## File bounds
 
 | Lane | Files |
@@ -124,6 +191,9 @@ Per `audit/G-AUDIT-6 §3`: add a CI step that runs `npm pack --dry-run --legacy-
 | F | `api/package.json` (engines), `api/package-lock.json` (if drift), `audit/G.W3-lane-f-engines-node.md` (new) |
 | G | `e2e/smoke-mobile/walk.spec.ts` (new), `audit/G.W3-lane-g-mobile-walk.md` (new) |
 | H | `.github/workflows/node.js.yml` (CI step), `audit/G.W3-lane-h-pack-dry-run.md` (new) |
+| I (NEW) | `package.json` (files: + scripts), `scripts/proof-codemod-publication.mjs` (new), `.github/workflows/node.js.yml` (CI step), `audit/G.W3-lane-i-codemod-publication.md` (new) |
+| J (NEW) | `scripts/proof-no-deep.mjs` (new), `package.json` (scripts), `.github/workflows/node.js.yml` (CI step), `audit/G.W3-lane-j-no-deep.md` (new) |
+| K (NEW) | `scripts/proof-no-bare-builtins.mjs` (new), `package.json` (scripts), `.github/workflows/node.js.yml` (CI step), `audit/G.W3-lane-k-no-bare-builtins.md` (new) |
 
 ## Gate
 
