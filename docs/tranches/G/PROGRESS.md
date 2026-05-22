@@ -154,6 +154,46 @@ Lanes C+D's agent owned the G2 gate: after the 4 typed wrappers, an honest repo-
 
 G.W2 CLOSED. G.W3 (invariant codification + CI/api/e2e hygiene) dispatches next.
 
+## 2026-05-22 — G.W3 executed + closed
+
+Invariant codification (G4) + CI/api/e2e hygiene. 11 lanes dispatched as **3 file-disjoint, build-isolated domains in true parallel**: proof-scripts (Lanes A,B,C,D,H,I,J,K) ∥ api (Lanes E,F) ∥ e2e (Lane G). Playwright's webServer is `npx vite` (in-memory dev server, no `dist/` output) — the e2e domain does not build-contend with the library build, so all 3 ran concurrently.
+
+### Lanes
+
+| Lane | Outcome | Commit |
+|---|---|---|
+| A — SCRIPTS-1 proof:resolution types-key probe | extended; negative test confirmed (exit 1 on missing types target) | `61314fa` |
+| B — SCRIPTS-2 proof:no-deprecated | codifies F2; exit 0 at HEAD | `61314fa` |
+| C — SCRIPTS-3 proof:no-ts-ignore | codifies F.W1 Lane A; exit 0 | `61314fa` |
+| D — SCRIPTS-4 proof:as-any-budget | codifies G2 (≤ 5); exit 0 at count 0 | `61314fa` |
+| H — CI-2 npm pack --dry-run | publish-shape regression CI step | `61314fa` |
+| I — G-PUB-1 codemod-publication | `scripts/migrate-*.mjs` added to `files:`; guard asserts it in the tarball | `61314fa` |
+| J — FOLD-S1 proof:no-deep | comment-aware port of speedtest check-deep.mjs | `61314fa` |
+| K — FOLD-S2 proof:no-bare-builtins | api/src/ node:* prefix gate; 71 files scanned | `61314fa` |
+| E — API-1 withTransaction 4-site expansion | deletePalette + revertToVersion + batchPalettes(delete) + batchUsers(suspend); +2 rollback tests | `277e04a` |
+| F — API-2 engines.node | `"node": ">=22"` in api/package.json | `277e04a` |
+| G — E2E-1 mobile-walk spec | 6-step Pixel-7 PaneSegmentedControl + dock walk | `affbe0e` |
+
+Domain 1's 8 lanes collapse into one commit (all co-edit package.json + the CI workflow; F.W3 precedent).
+
+### G4 invariant — 6 codified proof scripts
+
+`proof:no-deprecated`, `proof:no-ts-ignore`, `proof:as-any-budget`, `proof:codemod-publication`, `proof:no-deep`, `proof:no-bare-builtins` authored + `proof:resolution` extended with the types-key probe — all wired into `package.json scripts` + CI post-build steps. The F-thesis invariants (F2 `@deprecated`=0, F.W1 `@ts-ignore`=0) and G2 (`as any`≤5) are now runtime-checkable artefacts, not CI-grep-only.
+
+### Honest-gate correction (Lane J)
+
+`G.W3.md`'s Lane J template used a naive `grep ":deep("` which would FALSE-POSITIVE on 2 narrative `:deep()` mentions in `PaletteCard.vue` comments (documenting the D.W4-retired `:deep(svg)` pattern). Per the "proof scripts must be HONEST" constraint, the agent instead ported speedtest's comment-aware `check-deep.mjs` (`stripBlockComments` for `/* */` + `<!-- -->`). `proof:no-deep` is honestly GREEN at HEAD with zero allowlist — no live `:deep()` violation exists.
+
+### G-PUB-1 — F.W2 codemod now consumer-visible
+
+`npm pack --dry-run` confirms `scripts/migrate-keyframes-js-lerp.mjs` is in the published tarball (was absent — `files:` had been `["dist"]` only). F.W2's published codemod is now discoverable by npm consumers.
+
+### Post-G.W3 wave gate
+
+8 proof scripts exit 0 · vue-tsc 0 · lint 0 · root vitest 1584/34 · api vitest 106/21 (+2 rollback tests, +1 file) · build clean (`dist/value.js` 125.54 kB) · e2e specs 35→36 · workflow YAML parses. Bench unchanged from G.W2 close (G.W3 touched only `scripts/`+`api/`+`e2e/` — zero library-code change): L8 10.55× / DIRECT_PATHS 4.69× / nameParser 41.73×. All PASS.
+
+G.W3 CLOSED. G.W4 (HEADLINE close — FINAL.md + merge + v0.9.0 tag) dispatches next.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
@@ -161,7 +201,7 @@ G.W2 CLOSED. G.W3 (invariant codification + CI/api/e2e hygiene) dispatches next.
 | G.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-21 | 2026-05-21 | `b745c0e` open + `<ratification-commit>` |
 | G.W1 — substrate hygiene + color/utils decomposition | **closed** | 2026-05-22 | 2026-05-22 | `96894eb` `413b47e` `195b834` `27f2183` + close |
 | G.W2 — typed strengthening (as-any ≤ 5) | **closed** | 2026-05-22 | 2026-05-22 | `23ec904` `ef8a80b` `bda584c` `1be6d15` + close |
-| G.W3 — invariant codification + CI/api/e2e hygiene | planned | — | — | — |
+| G.W3 — invariant codification + CI/api/e2e hygiene | **closed** | 2026-05-22 | 2026-05-22 | `61314fa` `277e04a` `affbe0e` + close |
 | G.W4 HEADLINE close — FINAL.md, merge, v0.9.0 tag | planned | — | — | — |
 
 ## Open dependencies — G OPEN (awaiting ratification)
