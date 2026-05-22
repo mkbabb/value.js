@@ -28,8 +28,13 @@ api/
 │   │                         #  ProposedName, Tag, Flag, AdminAudit, PaletteVersion)
 │   ├── services/             # business logic, depends on repositories via Services DI
 │   │   ├── palette/          # crud + crud-list + forks + votes + flags + versions + oklab
-│   │   └── admin/            # colors + palettes + users + impersonate + import + tags +
-│   │                         #  flagged + audit + batch
+│   │   │                     #  (consumed by routes/palettes/)
+│   │   ├── admin/            # colors + palettes + users + impersonate + import + tags +
+│   │   │                     #  flagged + audit + batch (consumed by routes/admin/)
+│   │   ├── color/            # color-name surface: queries (approved + search + tags) +
+│   │   │                     #  proposals (propose) (consumed by routes/colors.ts)
+│   │   └── session/          # auth — register + login + revoke + me
+│   │                         #  (consumed by routes/sessions.ts)
 │   ├── routes/
 │   │   ├── palettes/         # crud + forks + votes + flags + versions (+ index barrel)
 │   │   ├── admin/            # colors + palettes + users + impersonate + tags + flagged +
@@ -69,7 +74,7 @@ validate → authn → authz → service → repository → format → response
 - **validate** — `validation/*.ts` (zod); route handlers throw `ValidationError` on parse failure.
 - **authn** — `resolveSession` middleware reads `X-Session-Token` → sets `sessionToken` + `userSlug` on `c.var`.
 - **authz** — `require-ownership` (palettes) / `adminAuth` (admin); both throw on failure.
-- **service** — `services/{palette,admin}/*.ts`; receives `Services` from `c.var.services`.
+- **service** — `services/{palette,admin,color,session}/*.ts`; receives `Services` from `c.var.services`.
 - **repository** — `repositories/*.ts`; the ONLY layer that calls `db.collection(...)`.
 - **format** — `format/palette.ts`; converts the document shape to the API envelope.
 - **response** — `c.json(...)`; errors thrown anywhere upstream become canonical envelopes via the global `onError → toResponseEnvelope` mapper.
