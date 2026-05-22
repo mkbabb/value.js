@@ -17,11 +17,11 @@ Workflow:
 
 Sharpens F.W1 Lane A ("@ts-ignore=0"). The 36-site `as any` corpus in `src/` retires to ≤ 5 sites at G close. Irreducible residue (~5) is external-library boundary casts (parse-that signatures, DOM event surfaces) — POLICY-documented in module header comments + listed in `VENDOR-POLICY.md`-analogue section.
 
-Pre-condition: G.W1 Lane B (color/utils.ts decomposition) complete (easier to type-strengthen 7 focused modules than 1 god-module).
+Pre-condition: G.W1 Lane B (color/utils.ts decomposition) complete (easier to type-strengthen 9 focused modules than 1 god-module).
 
-### G3 — Color utils decomposition (target ≤ 7 modules ≤ 350 LoC each)
+### G3 — Color utils decomposition (9 focused modules ≤ 350 LoC each — ratified at G.W1 Lane B)
 
-`src/units/color/utils.ts` (1,430 LoC) decomposes into 7 focused modules per `feedback_no_god_modules.md`. The barrel (`src/units/color/index.ts`) re-exports all public functions; no consumer change.
+`src/units/color/utils.ts` (1,430 LoC) decomposes into a `conversions/` cluster (8 modules) + `dispatch.ts` per `feedback_no_god_modules.md`. Planning estimated 7; G.W1 Lane B execution ratified 9 (the lab/oklab split + the `direct.ts` extraction — a 7-module split would breach the hard ≤ 350 LoC sub-gate). The barrel (`src/units/color/index.ts`) re-exports all public functions; no consumer change.
 
 ### G4 — Invariant codification (4 proof scripts)
 

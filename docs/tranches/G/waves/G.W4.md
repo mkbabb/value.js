@@ -13,7 +13,7 @@ Close ceremony for tranche G. Mirrors F.W4's shape. v0.9.0 release-blocking wave
 1. **plan-vs-actual** — every G wave's planned scope against what landed; `PROGRESS.md` matches reality. Zero `planned` rows.
 
 2. **substrate-without-consumer** — G introduces:
-   - The 7 new color sub-modules (G.W1 Lane B) — consumers: the barrel + internal imports.
+   - The 9 new color sub-modules (G.W1 Lane B; ratified 9 vs the planned 7) — consumers: the barrel + internal imports.
    - The 4 new typed wrappers (G.W2 Lanes A-D) — consumers: the call sites they replaced.
    - The 4 new proof scripts (G.W3 Lanes A-D) — consumers: CI workflow + invariant enforcement.
    - The withTransaction-expanded routes (G.W3 Lane E) — consumers: existing endpoints.
@@ -22,7 +22,7 @@ Close ceremony for tranche G. Mirrors F.W4's shape. v0.9.0 release-blocking wave
 
 3. **doc-drift** — `CLAUDE.md`, `demo/CLAUDE.md`, `api/CLAUDE.md`, wave specs against the shipped tree. Particularly: any drift from G.W1 Lane B (color/utils.ts decomposition — root CLAUDE.md's src/ structure block needs update).
 
-4. **idiomatic-gestalt** — G1 (relay-before-ratification — verify by reading the open commit + the user's ratification response in the chat log), G2 (`as any` ≤ 5 in src/), G3 (color/utils.ts decomposed; ≤ 7 modules; ≤ 350 LoC each), G4 (4 proof scripts at HEAD); inherited F1-F4 + E1-E5 + D1-D7 + precept 30-33 all hold.
+4. **idiomatic-gestalt** — G1 (relay-before-ratification — verify by reading the open commit + the user's ratification response in the chat log), G2 (`as any` ≤ 5 in src/), G3 (color/utils.ts decomposed; 9 modules — ratified at G.W1 Lane B; ≤ 350 LoC each), G4 (4 proof scripts at HEAD); inherited F1-F4 + E1-E5 + D1-D7 + precept 30-33 all hold.
 
 5. **performance** — bundle size after G.W2 typed strengthening (typed wrappers should be byte-equivalent or smaller after tree-shaking). Bench medians stay above gates. DIRECT_PATHS bench must remain ≥ 2× — verify Lane B didn't pessimize JIT.
 

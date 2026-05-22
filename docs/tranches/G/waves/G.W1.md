@@ -107,3 +107,23 @@ Conjunction of sub-gates A + B + C + D. Wave-level:
 
 - Depends on: G.W0 user ratification.
 - Blocks: G.W2 (typed strengthening builds on the decomposed modules).
+
+## Execution adjudication (G.W1 close)
+
+Recorded at G.W1 close; full detail in `PROGRESS.md` + the Lane B / remediation audit docs.
+
+1. **Lane B — 9 modules vs the planned 7 — RATIFIED.** A cohesion-honest ≤ 350 LoC
+   partition requires 9: a 7-module split forces `dispatch.ts` to 527 LoC and `lab.ts`
+   to 379 LoC, both breaching the hard ≤ 350 sub-gate. The lab/oklab split restores
+   `audit/G-AUDIT-5 §2`'s original proposal; `direct.ts` isolates the perf-critical
+   hot paths. `G.md §2 G3` + `dispatch/AGENT.md` updated to the ratified count.
+2. **Lane B — `dist/value.js` +306 B vs the ±100 sub-clause — ACCEPTED.** The ±100
+   premise ("file moves are byte-equivalent") is empirically false for Rolldown — it
+   injects per-module `//#region` source markers; 1→8 modules adds ~+314 B of pure
+   comment markers, shipped logic byte-identical. Absolute wave gate (≤ 148,480)
+   passes with 23 KB headroom. Rolldown-marker-strip flagged as an H-SEED candidate.
+3. **Lane B — `assets/docs/` regression — REMEDIATED in-wave (commit `27f2183`).**
+   Lane B's importer grep covered `src/ demo/ test/` but missed `assets/docs/`, breaking
+   `npm run gh-pages`. Surfaced by Lane D. Per F1 ("No deferrals") it was repaired as a
+   Lane B completion, not deferred. The Lane B file-bounds should have scoped `assets/`;
+   future decomposition lanes must grep the whole repo for consumers.

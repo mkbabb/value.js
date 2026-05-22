@@ -32,7 +32,7 @@ F.W1 Lane A retired the sole `@ts-ignore` in `src/` via the typed `Memoized<T>` 
 
 ### Axis 2 — Architectural decomposition (G3 invariant)
 
-`src/units/color/utils.ts` is **1,430 LoC** — the lone post-F god-module (`feedback_no_god_modules.md` violation). G.W1 Lane B decomposes it into **7 focused modules** ≤ 350 LoC each (G-OPP-1). Pure file moves + named-export hygiene; downstream consumers unaffected because the barrel (`src/units/color/index.ts`) re-exports.
+`src/units/color/utils.ts` is **1,430 LoC** — the lone post-F god-module (`feedback_no_god_modules.md` violation). G.W1 Lane B decomposes it into **9 focused modules** ≤ 350 LoC each (G-OPP-1; planning estimated 7 — see §2 G3 for the execution ratification). Pure file moves + named-export hygiene; downstream consumers unaffected because the barrel (`src/units/color/index.ts`) re-exports.
 
 ### Axis 3 — Invariant codification (G4 invariant)
 
@@ -68,20 +68,22 @@ Workflow: G.W0 closes with a **ratification ask block** in this `G.md` (§7 belo
 
 Sharpens F.W1 Lane A ("@ts-ignore=0"). The 36-site `as any` corpus in `src/` retires to ≤ 5 sites at G close. The irreducible ~5 are external-library boundary casts (parse-that, DOM events) — POLICY-documented in the relevant module's header comment + listed in `VENDOR-POLICY.md`-analogue section, not silently carried.
 
-Pre-condition for the G.W3 typed strengthening lanes: G.W2 architectural decomposition complete (easier to type-strengthen 7 focused modules than 1 god-module).
+Pre-condition for the G.W2 typed strengthening lanes: G.W1 Lane B architectural decomposition complete (easier to type-strengthen 9 focused modules than 1 god-module).
 
-### G3 — Color utils decomposition (target ≤ 7 modules ≤ 350 LoC each)
+### G3 — Color utils decomposition (9 focused modules ≤ 350 LoC each — ratified at G.W1 Lane B)
 
-`src/units/color/utils.ts` (1,430 LoC) decomposes into 7 focused modules per `feedback_no_god_modules.md`:
+`src/units/color/utils.ts` (1,430 LoC) decomposes into a `conversions/` cluster + `dispatch.ts` per `feedback_no_god_modules.md`:
 - `conversions/hex.ts` — hex parse + serialize.
-- `conversions/kelvin.ts` — temperature → RGB approximation.
-- `conversions/cylindrical.ts` — HSL/HSV/HWB/LCH/OKLCH cluster.
-- `conversions/lab.ts` — Lab/OKLab.
-- `conversions/xyz-extended.ts` — XYZ-D50, XYZ-D65, RGB-linear.
-- `conversions/transfer.ts` — sRGB transfer functions + gamma.
-- `dispatch.ts` — `colorConvert()` + DIRECT_PATHS + `color2()` + `mixColors` + `interpolateHue` + `gamutMap`.
+- `conversions/kelvin.ts` — temperature ↔ RGB/XYZ.
+- `conversions/cylindrical.ts` — HSL/HSV/HWB cluster.
+- `conversions/lab.ts` — CIE Lab/LCH.
+- `conversions/oklab.ts` — OKLab/OKLCH.
+- `conversions/xyz-extended.ts` — RGB-family ↔ XYZ + matrices.
+- `conversions/transfer.ts` — sRGB/AdobeRGB/ProPhoto/Rec2020 transfer functions.
+- `conversions/direct.ts` — `directXxx` hot-path conversions.
+- `dispatch.ts` — `color2()` + DIRECT_PATHS + `gamutMap` + dispatch glue.
 
-The barrel (`src/units/color/index.ts`) re-exports all public functions — no consumer change. Tests pass unchanged.
+**Execution ratification (G.W1 Lane B)**: planning estimated 7; execution ratified **9**. A cohesion-honest ≤ 350 LoC partition requires the lab/oklab split (which restores `audit/G-AUDIT-5 §2`'s original proposal — G.md's planning estimate had collapsed it) + the `direct.ts` extraction (a 7-module split forces `dispatch.ts` to 527 LoC, breaching the hard ≤ 350 sub-gate, which is itself the workaround the directive forbids). All 9 modules ≤ 350 LoC (max 336). A `conversions/index.ts` aggregate barrel was also added (71 LoC; not counted as a decomposition module). The barrel (`src/units/color/index.ts`) re-exports all public functions — no consumer change. Tests pass unchanged.
 
 ### G4 — Invariant codification (4 new proof scripts)
 

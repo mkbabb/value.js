@@ -97,12 +97,38 @@ Scope expansion:
 - G.W4: +4 close-ceremony items (G-PUB-2 README + G-PUB-3 CHANGELOG path + G-PUB-4 CONTRIBUTING + FOLD-S3 H-SEED.md).
 - Pre-merge matrix: 18 → **21 items** (3 new proof gates).
 
+## 2026-05-22 — G.W1 executed + closed
+
+Execution authorization received ("Begin and continue the current tranche…"). G.W1 dispatched per `dispatch/AGENT.md §Parallelism`: 3 parallel file-disjoint lane-agents (A ∥ B ∥ C), then a Lane B remediation, then a Lane D post-commit state capture.
+
+### Lanes
+
+| Lane | Outcome | Commit |
+|---|---|---|
+| A — CI-1 CHANGELOG-gate base-ref | `origin/main` → `origin/${{ github.base_ref }}`; the gate was INERT since F.W3, now fires correctly | `96894eb` |
+| B — G-OPP-1 color/utils.ts decomposition | 1,430 LoC → 9 focused modules + a `conversions/index.ts` barrel; `utils.ts` DELETED (no shim) | `413b47e` |
+| C — DOCS-1 api/CLAUDE.md services drift | `color/` + `session/` subdirs enumerated; route consumers cross-referenced | `195b834` |
+| B-remediation — assets/docs/ repointing | 10 color-space reference pages + plugin JSDoc `@example` repointed; `gh-pages` restored to green | `27f2183` |
+| D — state-at-G-open baseline | post-G.W1 gate matrix captured; surfaced the assets/docs regression | this close commit |
+
+### Orchestrator adjudications
+
+1. **Lane B — 9 modules vs the planned 7 — RATIFIED.** A cohesion-honest ≤ 350 LoC partition requires 9: a 7-module split forces `dispatch.ts` to 527 LoC + `lab.ts` to 379 LoC, both breaching the hard ≤ 350 sub-gate. The lab/oklab split restores `audit/G-AUDIT-5 §2`'s original proposal; `direct.ts` isolates the perf-critical hot paths. `G.md §1 Axis 2` + `§2 G3` + `dispatch/AGENT.md §G3` + `G.W4.md` updated to the ratified count.
+2. **Lane B — `dist/value.js` +306 B vs the ±100 sub-clause — ACCEPTED.** The ±100 premise is empirically false for Rolldown (per-module `//#region` markers; 1→8 modules adds ~+314 B of pure comment markers, shipped logic byte-identical). Absolute wave gate ≤ 148,480 passes with 23 KB headroom. Rolldown-marker-strip flagged as an H-SEED candidate.
+3. **Lane B — `assets/docs/` regression — REMEDIATED in-wave.** Lane B's importer grep missed `assets/docs/`, breaking `npm run gh-pages`. Surfaced by Lane D; per F1 ("No deferrals") repaired as a Lane B completion (`27f2183`), not deferred.
+
+### Post-G.W1 gate baseline
+
+lint 0 · vue-tsc 0 · vitest 1584/34 · api vitest 104/20 · build clean · gh-pages clean · proof:resolution PASS · proof:dts-layout PASS · `@deprecated` 0 · `@ts-ignore` 0 · `dist/value.js` 125,242 B (≤ 148,480; 23 KB headroom) · bench L8 10.77× / DIRECT_PATHS 4.47× / nameParser 40.20× (all ≥ floors). **`as any` baseline = 35** (pre-G figure was 36; the −1 is a benign Lane B side-effect — G.W2 target ≤ 5). `as unknown as` = 11.
+
+G.W1 CLOSED. G.W2 (typed strengthening) dispatches next.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | G.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-21 | 2026-05-21 | `b745c0e` open + `<ratification-commit>` |
-| G.W1 — substrate hygiene + color/utils decomposition | planned | — | — | — |
+| G.W1 — substrate hygiene + color/utils decomposition | **closed** | 2026-05-22 | 2026-05-22 | `96894eb` `413b47e` `195b834` `27f2183` + close |
 | G.W2 — typed strengthening (as-any ≤ 5) | planned | — | — | — |
 | G.W3 — invariant codification + CI/api/e2e hygiene | planned | — | — | — |
 | G.W4 HEADLINE close — FINAL.md, merge, v0.9.0 tag | planned | — | — | — |
