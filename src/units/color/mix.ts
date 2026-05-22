@@ -10,8 +10,8 @@
 
 import type { Color } from ".";
 import type { ColorSpace } from "./constants";
-import { mixColors } from "./utils";
-import type { HueInterpolationMethod } from "./utils";
+import { mixColors } from "./dispatch";
+import type { HueInterpolationMethod } from "./dispatch";
 
 /**
  * Mix N colors with optional per-color weights.

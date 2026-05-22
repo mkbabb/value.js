@@ -140,27 +140,44 @@ export async function revertToVersion(
     if (!version) throw new NotFoundError("Version not found");
 
     const newHash = computeContentHash(version.name, version.colors);
-    if (userSlug) {
-        await createVersionRecord(services, {
-            paletteSlug: slug,
-            name: version.name,
-            colors: version.colors,
-            authorSlug: userSlug,
-            parentHash: palette.currentHash,
-            forkedFromHash: null,
-        });
-    }
-
     const newOklab: OklabTriple[] = computeOklabColors(version.colors);
-    await services.repositories.palettes.update(slug, {
-        $set: {
-            name: version.name,
-            colors: version.colors,
-            oklabColors: newOklab,
-            currentHash: newHash,
-            updatedAt: new Date(),
-        },
-        $inc: { versionCount: 1 },
+
+    // Revert is a cross-collection write: insert the attribution version
+    // record into `palette_versions` AND mutate the `palettes` document in
+    // bidirectional lock-step (G.W3 Lane E). A partial failure must not
+    // leave an orphaned version record without the corresponding palette
+    // update, nor a palette pointing at a hash whose version row never
+    // committed. `session` threads through both writes.
+    await services.withTransaction(async (session) => {
+        if (userSlug) {
+            await createVersionRecord(
+                services,
+                {
+                    paletteSlug: slug,
+                    name: version.name,
+                    colors: version.colors,
+                    authorSlug: userSlug,
+                    parentHash: palette.currentHash,
+                    forkedFromHash: null,
+                },
+                session,
+            );
+        }
+
+        await services.repositories.palettes.update(
+            slug,
+            {
+                $set: {
+                    name: version.name,
+                    colors: version.colors,
+                    oklabColors: newOklab,
+                    currentHash: newHash,
+                    updatedAt: new Date(),
+                },
+                $inc: { versionCount: 1 },
+            },
+            session,
+        );
     });
 
     const updated = await services.repositories.palettes.findBySlug(slug);

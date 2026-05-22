@@ -1,6 +1,6 @@
 <script setup>
-import { kelvin2rgb, rgb2kelvin } from "@src/units/color/utils?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/utils";
+import { kelvin2rgb, rgb2kelvin } from "@src/units/color/conversions/kelvin?source";
+import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
 import { Katex } from "@components/custom/katex";
 import {
     COLOR_SPACE_DENORM_UNITS,

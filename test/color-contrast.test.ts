@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { computeSafeAccent, safeAccentColor, needsContrastAdjustment, getOklchLightness } from "../src/units/color/contrast";
 import { OKLCHColor, RGBColor, HSLColor } from "../src/units/color";
 import type { Color } from "../src/units/color";
-import { color2 } from "../src/units/color/utils";
+import { color2 } from "../src/units/color/dispatch";
 import { parseCSSColor } from "../src/parsing/color";
 import { colorUnit2 } from "../src/units/color/normalize";
 import type { ValueUnit } from "../src/units";

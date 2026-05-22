@@ -1,7 +1,7 @@
 import { clamp } from "../../math";
 import { ch, OKLCHColor } from ".";
 import type { Color } from ".";
-import { color2 } from "./utils";
+import { color2 } from "./dispatch";
 
 /**
  * Minimum OKLab lightness distance for readable accent text/icons.

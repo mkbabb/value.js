@@ -113,7 +113,7 @@ export type { Vec3, Mat3 } from "./units/color/matrix";
 
 // Color conversion utilities — public surface is `color2` + `colorUnit2`.
 // The 51 individual `<from>2<to>` helpers remain internal to value.js
-// (still imported by `color2`'s dispatch table in `src/units/color/utils.ts`)
+// (still imported by `color2`'s dispatch table in `src/units/color/dispatch.ts`)
 // but are NOT exported from the main barrel.
 export {
     getFormattedColorSpaceRange,
@@ -126,8 +126,8 @@ export {
     safeAccentColor,
     needsContrastAdjustment,
     getOklchLightness,
-} from "./units/color/utils";
-export type { HueInterpolationMethod } from "./units/color/utils";
+} from "./units/color/dispatch";
+export type { HueInterpolationMethod } from "./units/color/dispatch";
 
 // N-color mixing
 export { mixColorsN } from "./units/color/mix";

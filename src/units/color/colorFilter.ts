@@ -1,7 +1,7 @@
 import { clamp } from "../../math";
 import type { RGBColor, HSLColor } from ".";
 import { RGBColor as RGB, HSLColor as HSL } from ".";
-import { rgb2hsl } from "./utils";
+import { rgb2hsl } from "./conversions/cylindrical";
 import type { Vec3, Mat3 } from "./matrix";
 import { transformMat3 } from "./matrix";
 

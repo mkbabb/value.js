@@ -136,8 +136,12 @@ export async function formatCSS(
         import("prettier"),
         import("prettier/plugins/postcss"),
     ]);
-    const fmt = (prettier as any).default ?? prettier;
-    const plugin = (postcss as any).default ?? postcss;
+    // CJS/ESM interop: under some bundler configs a CJS dependency's exports
+    // land under a synthetic `.default`; under others they sit on the namespace
+    // directly. Probe `.default` structurally (no `any` erasure) and fall back.
+    const interopDefault = <M>(mod: M): M => (mod as { default?: M }).default ?? mod;
+    const fmt = interopDefault(prettier);
+    const plugin = interopDefault(postcss);
     return await fmt.format(css, {
         parser: "scss",
         plugins: [plugin],

@@ -13,25 +13,29 @@
             @submit.prevent="onSlugSwitch"
             @keydown.escape.stop="slugEditMode = false"
         >
-            <!-- TODO(glass-ui): migrate to Button size="icon-sm" once shipped (Ad-5) -->
+            <!-- TODO: collapse to <Button size='icon-sm'> when glass-ui ships the rung (Q.md ask #7) -->
             <!-- W5-a11y: icon-only submit / close buttons need accessible names -->
-            <button
+            <Button
                 type="submit"
+                variant="ghost"
+                size="icon"
+                class="h-6 w-6 shrink-0"
                 :disabled="!slugInput.trim() || slugSwitching"
                 :aria-label="slugSwitching ? 'Signing in…' : 'Sign in with slug'"
-                class="p-0.5 rounded-sm hover:bg-accent/50 active:scale-95 active:bg-accent/70 transition-colors duration-fast cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
             >
                 <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin text-muted-foreground" aria-hidden="true" />
                 <ArrowRight v-else class="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
-            </button>
-            <button
+            </Button>
+            <Button
                 type="button"
+                variant="ghost"
+                size="icon"
+                class="h-6 w-6 shrink-0"
                 aria-label="Cancel slug edit"
-                class="p-0.5 rounded-sm hover:bg-accent/50 active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 @click="slugEditMode = false"
             >
                 <XIcon class="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
-            </button>
+            </Button>
         </SearchBar>
 
         <!-- Default mode -->
@@ -125,6 +129,7 @@
 <script setup lang="ts">
 import { ref, nextTick } from "vue";
 import { SearchBar } from "@mkbabb/glass-ui/search";
+import { Button } from "@components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@components/ui/hover-card";
 import {

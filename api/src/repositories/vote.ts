@@ -69,8 +69,13 @@ export class VoteRepository {
         return result.deletedCount > 0;
     }
 
-    deleteByPaletteSlug(paletteSlug: string): Promise<number> {
-        return this.col.deleteMany({ paletteSlug }).then((r) => r.deletedCount);
+    deleteByPaletteSlug(
+        paletteSlug: string,
+        session?: ClientSession,
+    ): Promise<number> {
+        return this.col
+            .deleteMany({ paletteSlug }, session ? { session } : undefined)
+            .then((r) => r.deletedCount);
     }
 
     deleteByPaletteSlugs(

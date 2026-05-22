@@ -84,10 +84,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, shallowRef, computed, onBeforeUnmount, onMounted, useTemplateRef } from "vue";
+import { ref, shallowRef, computed, onBeforeUnmount, useTemplateRef } from "vue";
 import { TabsContent } from "@components/ui/tabs";
 import { Aperture, Pipette } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
+import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useImageQuantize } from "./composables/useImageQuantize";
 import { usePaletteStore } from "@composables/palette/usePaletteStore";
 import type { Palette, PaletteColor } from "@lib/palette/types";
@@ -116,19 +117,10 @@ const chromaWeight = ref(0.5);
 const cameraActive = ref(false);
 const lastFile = shallowRef<File | null>(null);
 const paletteName = ref("Extracted Palette");
-const isWide = ref(false);
+const { matches: isWide } = useBreakpoint("(min-width: 640px)");
 
 let cameraStream: MediaStream | null = null;
 let debounceTimer: ReturnType<typeof setTimeout> | null = null;
-let mediaQuery: MediaQueryList | null = null;
-
-onMounted(() => {
-    mediaQuery = window.matchMedia("(min-width: 640px)");
-    isWide.value = mediaQuery.matches;
-    const handler = (e: MediaQueryListEvent) => { isWide.value = e.matches; };
-    mediaQuery.addEventListener("change", handler);
-    onBeforeUnmount(() => mediaQuery?.removeEventListener("change", handler));
-});
 
 const extractedPalette = computed<Palette | null>(() => {
     if (palette.value.length === 0) return null;

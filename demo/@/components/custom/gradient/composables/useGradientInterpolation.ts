@@ -6,8 +6,8 @@
 import { ref } from "vue";
 import type { Ref } from "vue";
 import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/utils";
-import { mixColors } from "@src/units/color/utils";
+import type { HueInterpolationMethod } from "@src/units/color/dispatch";
+import { mixColors } from "@src/units/color/dispatch";
 import type { Color } from "@src/units/color";
 import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
 

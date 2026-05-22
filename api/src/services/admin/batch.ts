@@ -26,13 +26,21 @@ export async function batchPalettes(
     action: PaletteBatchAction,
     slugs: string[],
 ): Promise<BatchResult> {
-    const { palettes, votes, flags } = c.var.services.repositories;
+    const services = c.var.services;
+    const { palettes, votes, flags } = services.repositories;
     let processed = 0;
 
     if (action === "delete") {
-        processed = await palettes.deleteManyBySlugs(slugs);
-        await votes.deleteByPaletteSlugs(slugs);
-        await flags.deleteByPaletteSlugs(slugs);
+        // Batch deletion is the same orphan-shape as the singular
+        // `deletePalette`, multiplied across N slugs. Wrap the three
+        // cross-collection deletes in one transaction (G.W3 Lane E) so a
+        // partial failure cannot leave orphaned vote/flag rows.
+        processed = await services.withTransaction(async (session) => {
+            const count = await palettes.deleteManyBySlugs(slugs, session);
+            await votes.deleteByPaletteSlugs(slugs, session);
+            await flags.deleteByPaletteSlugs(slugs, session);
+            return count;
+        });
     } else if (action === "feature") {
         processed = await palettes.updateManyBySlugs(slugs, {
             $set: { status: "featured", updatedAt: new Date() },
@@ -55,10 +63,15 @@ export async function batchUsers(
     action: UserBatchAction,
     slugs: string[],
 ): Promise<BatchResult> {
-    const { users, sessions } = c.var.services.repositories;
+    const services = c.var.services;
+    const { users, sessions } = services.repositories;
     let processed = 0;
 
     if (action === "delete") {
+        // Each `deleteUser` is ALREADY transactional (its own cascade runs
+        // inside `withTransaction`); the per-row loop deliberately stays
+        // outside a wrapping transaction so one bad row doesn't roll back
+        // the entire batch (G-AUDIT-6 §1.4).
         for (const slug of slugs) {
             const result = await deleteUser(c, slug, {
                 throwIfMissing: false,
@@ -67,8 +80,19 @@ export async function batchUsers(
             if (result !== null) processed++;
         }
     } else if (action === "suspend") {
-        processed = await users.setStatusForSlugs(slugs, "suspended");
-        await sessions.deleteByUserSlugs(slugs);
+        // Suspend is a cross-collection write: flip user status AND
+        // invalidate the cascading sessions in one transaction (G.W3 Lane
+        // E). A partial failure must not leave a suspended user with a
+        // still-active session token.
+        processed = await services.withTransaction(async (session) => {
+            const count = await users.setStatusForSlugs(
+                slugs,
+                "suspended",
+                session,
+            );
+            await sessions.deleteByUserSlugs(slugs, session);
+            return count;
+        });
     } else {
         // unsuspend
         processed = await users.setStatusForSlugs(slugs, "active");

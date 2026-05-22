@@ -33,14 +33,23 @@ import {
 } from "@mkbabb/value.js";
 ```
 
+## Upgrading
+
+If you are upgrading across a major-feature bump, see [`CHANGELOG.md`](CHANGELOG.md) for the full per-version breaking-change list. The two migrations to be aware of:
+
+- **v0.7.0** — the 51 individual `<from>2<to>` color-conversion functions were removed from the barrel. Replace `import { rgb2hsl } from "@mkbabb/value.js"` with the unified `color2(rgb, "rgb", "hsl")`.
+- **v0.8.0** — `lerpLegacy` was removed; `lerp` takes canonical `(a, b, t)` ordering. The published codemod `scripts/migrate-keyframes-js-lerp.mjs` rewrites the legacy call shape automatically; manual migration is a straightforward argument swap (first argument moves to last).
+
+v0.9.0 carries no breaking changes.
+
 ## Build
 
 ```bash
 npm run build        # library → dist/value.js + value.cjs + value.d.ts
 npm run gh-pages     # demo → dist/
 npm run dev          # dev server (Vite default port)
-npm test             # vitest (1387 tests)
-npm run test:e2e     # playwright (desktop + mobile)
+npm test             # vitest unit suite
+npm run test:e2e     # playwright smoke suite (5 projects)
 ```
 
 ## Structure
@@ -67,7 +76,8 @@ src/
 │       ├── index.ts      # Color<T> base + space classes
 │       ├── constants.ts  # ranges, matrices, white points, named colors
 │       ├── matrix.ts     # Vec3/Mat3 (row-major, replaces gl-matrix)
-│       ├── utils.ts      # conversions via XYZ, mixColors, gamutMap
+│       ├── conversions/  # focused per-family converters (hex, kelvin, lab, …)
+│       ├── dispatch.ts   # color2(), DIRECT_PATHS, gamutMap dispatch
 │       ├── normalize.ts  # color normalization to [0,1], space conversion
 │       ├── gamut.ts      # Ottosson analytical sRGB gamut mapping
 │       └── colorFilter.ts # CSS filter solver (SPSA)

@@ -147,6 +147,8 @@ The demo imports directly from `@src/` (path alias → `src/`) where library-fac
 
 Color state: `shallowRef<ColorModel>` + localStorage + URL hash params (bidirectional).
 
+Breakpoint / hover-capability queries route through glass-ui's `useBreakpoint` (`@mkbabb/glass-ui/dom`) — G.W2 Lane E retired ad-hoc `matchMedia` in `ImagePaletteExtractor.vue`, `ExtractPane.vue`, `useHoverPopover.ts`, `useCardMenu.ts` (4 sites) in favour of it. G.W2 Lane F migrated `PaletteSlugBar.vue`'s hand-rolled `<button>` markup to the glass-ui `<Button>` primitive.
+
 ## Lib palette surface (`@/lib/palette/`)
 
 | File | Purpose |
@@ -180,6 +182,7 @@ Arbitrary `[var(--…)]` callsites → 0. The fix surface:
 - **Facade-sub-object** pattern for cross-cutting state: `pm.audit`/`pm.flagged`/`pm.tags`/`pm.versions`/`pm.tagEdit` instead of flat methods on a 50+-member object.
 - **Injection-key** pattern over prop-drilling for shared color state (`CSS_COLOR_KEY`, `EDIT_TARGET_KEY`, `POINTER_DEBUG_KEY`, `BLOB_CONFIG_KEY`).
 - **viewSchema.ts** is the canonical `ViewId` source — `useViewManager.ts` + `usePaneRouter.ts` + `PaletteDialog/composables/usePaletteDialogState.ts` all consume from it.
+- **Glass-ui-first-class consumption** — primitives like `useBreakpoint` (`@mkbabb/glass-ui/dom`) and the `<Button>` component are consumed from glass-ui, not hand-rolled (G.W2 Lanes E/F; per `feedback_glass_ui_first_class.md`).
 
 ## Build modes
 

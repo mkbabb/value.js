@@ -1,6 +1,9 @@
 import {
     AdobeRGBColor,
     Color,
+    ch,
+    channelOf,
+    setChannel,
     DisplayP3Color,
     HSLColor,
     HSVColor,
@@ -20,9 +23,11 @@ import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that"
 import { FunctionValue, ValueUnit } from "../units";
 import { COLOR_NAMES } from "../units/color/constants";
 import type { ColorSpace } from "../units/color/constants";
+import type { ANGLE_UNITS } from "../units/constants";
 import { normalizeColorUnit } from "../units/color/normalize";
-import { color2, hex2rgb, kelvin2rgb, mixColors } from "../units/color/utils";
-import type { HueInterpolationMethod } from "../units/color/utils";
+import { color2, hex2rgb, mixColors } from "../units/color/dispatch";
+import { kelvin2rgb } from "../units/color/conversions/kelvin";
+import type { HueInterpolationMethod } from "../units/color/dispatch";
 import { convertToDegrees } from "../units/utils";
 import * as utils from "./utils";
 import { memoize } from "../utils";
@@ -41,14 +46,21 @@ const createColorValueUnit = (value: Color<any>) => {
 
 /** Resolve a parsed ValueUnit<Color<ValueUnit>> to a plain Color<number> with normalized [0,1] components. */
 function resolveToPlainColor(colorUnit: ValueUnit): Color<number> {
-    const normalized = normalizeColorUnit(colorUnit as any);
+    // Parser-produced color units always wrap a `Color<ValueUnit<number>>`
+    // (see `createColorValueUnit`) — narrow the generic `ValueUnit` param to
+    // the shape `normalizeColorUnit` requires.
+    const normalized = normalizeColorUnit(
+        colorUnit as ValueUnit<Color<ValueUnit<number>>, "color">,
+    );
     const color = normalized.value;
-    const plain = color.clone();
+    // `clone()` preserves the concrete subclass; the loop below overwrites
+    // every channel slot with the unwrapped numeric value, so the cloned
+    // instance is reinterpreted as a `Color<number>` for the writes.
+    const plain = color.clone() as unknown as Color<number>;
     for (const key of color.keys()) {
-        const v = color[key];
-        (plain as any)[key] = v instanceof ValueUnit ? v.value : v;
+        setChannel(plain, key, ch(ValueUnit.unwrapDeep(channelOf(color, key))));
     }
-    return plain as unknown as Color<number>;
+    return plain;
 }
 
 // --- Phase 5: Relative color syntax helpers ---
@@ -227,7 +239,11 @@ const alphaSep = any(div.trim(whitespace), sep);
 const colorValue: Parser<ValueUnit> = Parser.lazy(() => any(
     CSSValueUnit.Percentage,
     CSSValueUnit.Angle.map((x: ValueUnit) => {
-        const deg = convertToDegrees(x.value, x.unit as any);
+        // `CSSValueUnit.Angle` only produces angle-unit ValueUnits.
+        const deg = convertToDegrees(
+            x.value,
+            x.unit as (typeof ANGLE_UNITS)[number],
+        );
         return new ValueUnit(deg, "deg", ["angle"]);
     }),
     any(utils.number, utils.integer).map((x: number) => new ValueUnit(x)),

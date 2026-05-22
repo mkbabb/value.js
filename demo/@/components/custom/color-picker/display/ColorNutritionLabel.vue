@@ -154,7 +154,7 @@ import {
     COLOR_SPACE_RANGES,
     COLOR_SPACE_DENORM_UNITS,
 } from "@src/units/color/constants";
-import { getFormattedColorSpaceRange } from "@src/units/color/utils";
+import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
 import { Separator } from "@components/ui/separator";
 import { ValueUnit } from "@src/units";
 import { Color } from "@src/units/color";

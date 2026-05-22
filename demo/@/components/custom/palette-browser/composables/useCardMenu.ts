@@ -1,8 +1,13 @@
-import { ref, reactive, nextTick, onUnmounted } from "vue";
+import { ref, reactive, nextTick, computed, onUnmounted } from "vue";
+import type { Ref } from "vue";
+import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useLeaveTimer } from "./useLeaveTimer";
 
 export function useCardMenu(options?: { canHover?: boolean }) {
-    const canHover = options?.canHover ?? (typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches);
+    const { matches: canHoverMq } = useBreakpoint("(hover: hover)");
+    const canHover: Ref<boolean> = options?.canHover !== undefined
+        ? ref(options.canHover)
+        : computed(() => canHoverMq.value);
 
     const menuOpen = ref(false);
     const menuTriggerRef = ref<HTMLElement | null>(null);
@@ -27,14 +32,14 @@ export function useCardMenu(options?: { canHover?: boolean }) {
     }
 
     function onMenuTriggerEnter(e: PointerEvent) {
-        if (!canHover || e.pointerType === "touch") return;
+        if (!canHover.value || e.pointerType === "touch") return;
         cancelMenuLeave();
         menuOpen.value = true;
         nextTick(positionMenu);
     }
 
     function onMenuTriggerLeave(e: PointerEvent) {
-        if (!canHover || e.pointerType === "touch") return;
+        if (!canHover.value || e.pointerType === "touch") return;
         scheduleMenuLeave();
     }
 
@@ -43,7 +48,7 @@ export function useCardMenu(options?: { canHover?: boolean }) {
     }
 
     function onMenuPanelLeave() {
-        if (!canHover) return;
+        if (!canHover.value) return;
         scheduleMenuLeave();
     }
 

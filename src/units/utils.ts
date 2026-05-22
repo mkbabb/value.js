@@ -17,7 +17,7 @@ import {
 import type { MatrixValues } from "./constants";
 
 export function isColorUnit(
-    value: ValueUnit<Color<ValueUnit>>,
+    value: ValueUnit,
 ): value is ValueUnit<Color<ValueUnit>> {
     return value.unit === "color";
 }
@@ -78,12 +78,15 @@ export const flattenObject = (obj: any) => {
     return flat;
 };
 
+/** A dynamically-built nested tree: object nodes keyed by string, array leaves. */
+type UnflattenNode = Record<string, unknown> | unknown[];
+
 export const unflattenObject = (flatObj: Record<string, any[]>): any => {
-    const result = {} as any;
+    const result: Record<string, unknown> = {};
 
     for (const [flatKey, values] of Object.entries(flatObj)) {
         const keys = flatKey.split(".");
-        let current = result;
+        let current: UnflattenNode = result;
 
         for (let i = 0; i < keys.length; i++) {
             const key = keys[i]!;
@@ -96,10 +99,12 @@ export const unflattenObject = (flatObj: Record<string, any[]>): any => {
                     current[key] = values;
                 }
             } else {
-                if (!(key in current)) {
+                if (!Array.isArray(current) && !(key in current)) {
                     current[key] = {};
                 }
-                current = current[key];
+                current = (current as Record<string, unknown>)[
+                    key
+                ] as UnflattenNode;
             }
         }
     }

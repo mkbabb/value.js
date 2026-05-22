@@ -1,6 +1,6 @@
 <script setup>
-import { hsv2hsl, hsl2hsv, hsl2rgb, rgb2hsl } from "@src/units/color/utils?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/utils";
+import { hsv2hsl, hsl2hsv, hsl2rgb, rgb2hsl } from "@src/units/color/conversions/cylindrical?source";
+import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
 import { Katex } from "@components/custom/katex";
 import {
     COLOR_SPACE_DENORM_UNITS,

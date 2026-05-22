@@ -1,11 +1,18 @@
 import { clone } from "../../utils";
 import type { ColorSpace, WhitePoint } from "./constants";
 
+/** Structural guard for any value carrying a `toFixed(digits)` method —
+ *  matches both `number` and `ValueUnit` (the two `T` shapes a channel holds). */
+const hasToFixed = (
+    value: unknown,
+): value is { toFixed(digits: number): string } =>
+    value != null &&
+    typeof (value as { toFixed?: unknown }).toFixed === "function";
+
 const formatNumber = (value: unknown, digits: number = 2): string => {
     if (typeof value === "number" && !Number.isFinite(value)) return "none";
-    return (String((value as any)?.toFixed?.(digits) ?? value))
-        .trim()
-        .replace(/\.0+$/, "");
+    const fixed = hasToFixed(value) ? value.toFixed(digits) : String(value);
+    return fixed.trim().replace(/\.0+$/, "");
 };
 
 const formatColor = <T>(colorSpace: ColorSpace, values: T[], alpha: T) => {
@@ -36,6 +43,43 @@ export type ColorChannel<T = number> = T & { readonly [__ColorChannel]: true };
  */
 export const ch = <T>(v: T): ColorChannel<T> => v as ColorChannel<T>;
 
+// ──────────────────────────────────────────────────────────────────────────────
+// G.W2 Lane C (G-OPP-4) — typed channel accessors.
+// ──────────────────────────────────────────────────────────────────────────────
+// `Color<T>` keeps its `[key: string]: any` index signature for public dynamic
+// access (see the BREAKING-decision verdict on the class). These two helpers are
+// the *internal* typed surface: they localise the single dynamic-index boundary
+// per direction and hand callers a real `ColorChannel<T>` type instead of `any`.
+//
+// `channelOf` reads a channel slot; `setChannel` writes one. Both are zero-cost
+// (a single property access; inlined by V8). The `clone()`/`values()`/
+// `entries()` methods and the `interpolate.ts` + `normalize.ts` pipeline route
+// every channel read/write through these — retiring the untyped index-access
+// pattern repo-wide without re-introducing the wide-`any` leak.
+
+/**
+ * Typed channel read. `key` is any channel name from `color.channels` /
+ * `color.keys()`; the result is the branded `ColorChannel<T>` slot value.
+ *
+ * The lone assertion re-narrows the index-signature read to `ColorChannel<T>` —
+ * a documented index-narrowing at the one dynamic-access boundary, not a
+ * type-erasing double cast.
+ */
+export const channelOf = <T>(color: Color<T>, key: string): ColorChannel<T> =>
+    color[key] as ColorChannel<T>;
+
+/**
+ * Typed channel write. Accepts a `ColorChannel<T>` (use `ch()` to brand a raw
+ * computed value) and assigns it to the named slot.
+ */
+export const setChannel = <T>(
+    color: Color<T>,
+    key: string,
+    value: ColorChannel<T>,
+): void => {
+    color[key] = value;
+};
+
 /**
  * Abstract base class for all CSS color spaces.
  *
@@ -52,6 +96,31 @@ export const ch = <T>(v: T): ColorChannel<T> => v as ColorChannel<T>;
  * are applied on output.
  */
 export abstract class Color<T = number> {
+    /**
+     * Dynamic channel index signature.
+     *
+     * **G.W2 Lane C (G-OPP-4) — BREAKING-decision verdict: KEEP (documented).**
+     *
+     * `Color<T>` is publicly barrel-exported (`src/index.ts`) and the demo
+     * dynamically indexes instances by a runtime `component: string`
+     * (`useColorModel.ts:197,206`, `ComponentSliders.vue:56,178`,
+     * `useSliderGradients.ts:36`). The signature is therefore part of the
+     * observable public surface — dropping it is a BREAKING change.
+     *
+     * It also *cannot* be tightened to a typed `[channel: string]:
+     * ColorChannel<T> | T` form: a TypeScript string index signature requires
+     * **every** declared member to be assignable to it, and `Color<T>` carries
+     * non-channel members (`whitePoint: WhitePoint`, `colorSpace: ColorSpace`,
+     * and the `toString`/`values`/`entries`/… methods) whose types are not
+     * assignable to a channel-value union. `any` is the only index type the
+     * heterogeneous class shape admits.
+     *
+     * The internal pipeline no longer *relies* on this `any` leak, though — the
+     * typed `ch<T>` channel accessors below (`channelOf` / `setChannel`) give
+     * `clone()`/`values()`/`entries()` + `interpolate.ts` + `normalize.ts`
+     * cast-free `ColorChannel<T>`-typed reads/writes. The index signature
+     * survives purely as the public dynamic-access affordance.
+     */
     [key: string]: any;
 
     /**
@@ -94,13 +163,17 @@ export abstract class Color<T = number> {
         }
         // ValueUnit detection via duck-typing — avoids parent-of-parent circular import.
         // Reads .constructor.name and .value.constructor.name to detect VU<VU<...>>.
+        // Structurally typed (`{ constructor; value }`) — no `any` — so the
+        // nested-property reads are checked, not laundered.
+        const vu = value as { constructor?: { name?: string }; value?: unknown };
+        const inner = vu?.value as { constructor?: { name?: string } };
         if (
             value != null &&
             typeof value === "object" &&
-            (value as any).constructor?.name === "ValueUnit" &&
-            (value as any).value != null &&
-            typeof (value as any).value === "object" &&
-            (value as any).value.constructor?.name === "ValueUnit"
+            vu.constructor?.name === "ValueUnit" &&
+            inner != null &&
+            typeof inner === "object" &&
+            inner.constructor?.name === "ValueUnit"
         ) {
             throw new Error(
                 "ValueUnit double-wrap detected: tried to assign ValueUnit<ValueUnit<…>>. " +
@@ -161,7 +234,7 @@ export abstract class Color<T = number> {
             const cloned = new C();
             cloned.alpha = clone(this.alpha);
             for (const k of this.channels) {
-                (cloned as any)[k] = clone((this as any)[k]);
+                setChannel(cloned, k, clone(channelOf(this, k)));
             }
             return cloned;
         } finally {
@@ -192,16 +265,18 @@ export abstract class Color<T = number> {
 
     values(): T[] {
         const out: T[] = [];
-        const ch = this.channels;
-        for (let i = 0; i < ch.length; i++) out.push((this as any)[ch[i]!]);
+        const keys = this.channels;
+        for (let i = 0; i < keys.length; i++) out.push(channelOf(this, keys[i]!));
         out.push(this.alpha);
         return out;
     }
 
     entries(): [string, T][] {
         const out: [string, T][] = [];
-        const ch = this.channels;
-        for (let i = 0; i < ch.length; i++) out.push([ch[i]!, (this as any)[ch[i]!]]);
+        const keys = this.channels;
+        for (let i = 0; i < keys.length; i++) {
+            out.push([keys[i]!, channelOf(this, keys[i]!)]);
+        }
         out.push(["alpha", this.alpha]);
         return out;
     }
@@ -616,3 +691,29 @@ export type ColorSpaceMap<T> = {
     "prophoto-rgb": ProPhotoRGBColor<T>;
     rec2020: Rec2020Color<T>;
 };
+
+// ──────────────────────────────────────────────────────────────────────────────
+// Color-subsystem barrel — conversion dispatch + interpolation surface.
+//
+// G.W1 Lane B (G3 decomposition): the former `color/utils.ts` god-module
+// (1,430 LoC) was split into `conversions/{hex,kelvin,cylindrical,lab,
+// transfer,xyz-extended}.ts` + `dispatch.ts`. This barrel re-exports the
+// public surface so consumers depend on the color subsystem, not on the
+// internal module layout.
+// ──────────────────────────────────────────────────────────────────────────────
+
+export {
+    getFormattedColorSpaceRange,
+    color2,
+    gamutMap,
+    interpolateHue,
+    mixColors,
+    CYLINDRICAL_HUE_COMPONENT,
+    computeSafeAccent,
+    safeAccentColor,
+    needsContrastAdjustment,
+    getOklchLightness,
+    hex2rgb,
+    rgb2hex,
+} from "./dispatch";
+export type { HueInterpolationMethod } from "./dispatch";

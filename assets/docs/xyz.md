@@ -1,7 +1,8 @@
 <script setup>
-import { rgb2xyz, xyz2rgb, xyz2lab, lab2xyz } from "@src/units/color/utils?source";
+import { rgb2xyz, xyz2rgb } from "@src/units/color/conversions/xyz-extended?source";
+import { xyz2lab, lab2xyz } from "@src/units/color/conversions/lab?source";
 import { WHITE_POINT_D65_D50, WHITE_POINT_D50_D65 } from "@src/units/color/constants?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/utils";
+import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
 import { Katex } from "@components/custom/katex";
 import {
     COLOR_SPACE_DENORM_UNITS,

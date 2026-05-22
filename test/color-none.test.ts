@@ -3,7 +3,7 @@ import { parseCSSColor } from "../src/parsing/color";
 import { Color, HSLColor, RGBColor, OKLCHColor } from "../src/units/color";
 import { ValueUnit } from "../src/units";
 import { normalizeColorUnit } from "../src/units/color/normalize";
-import { color2 } from "../src/units/color/utils";
+import { color2 } from "../src/units/color/dispatch";
 
 /** Extract the raw Color from a parsed ValueUnit */
 function getColor(unit: ValueUnit): Color {

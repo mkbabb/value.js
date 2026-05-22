@@ -1,9 +1,10 @@
 import { lerp } from "../math";
 import type { Color } from "./color";
+import { ch, channelOf, setChannel } from "./color";
 import { COMPUTED_UNITS } from "./constants";
 import { ValueUnit, type InterpolatedVar } from "./index";
 import { getComputedValue } from "./normalize";
-import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/utils";
+import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/dispatch";
 
 /**
  * Interpolate a `ValueUnit` whose unit is *computed* (`var`, `calc`,
@@ -27,7 +28,8 @@ export function lerpComputedValue(
     const newStart = getComputedValue(start, target);
     const newStop = getComputedValue(stop, target);
 
-    const newUnit = !COMPUTED_UNITS.includes(newStart.unit as any)
+    const computedUnits: readonly string[] = COMPUTED_UNITS;
+    const newUnit = !computedUnits.includes(newStart.unit ?? "")
         ? newStart.unit
         : newStop.unit;
 
@@ -38,6 +40,14 @@ export function lerpComputedValue(
 }
 
 /**
+ * A `Color` at interpolation time: its channels may be raw `number`s (numeric
+ * pipeline) or `ValueUnit<number>` wrappers (parser-produced colors). Both
+ * shapes flow through `lerpColorValue`; the per-channel `instanceof ValueUnit`
+ * branch dispatches between them.
+ */
+type InterpColor = Color<ValueUnit<number> | number>;
+
+/**
  * Interpolate a colour `ValueUnit` (`unit === "color"`). Walks each
  * channel of the parsed `Color` instance and lerps independently. The
  * surrounding `normalizeColorUnits` step is responsible for putting
@@ -46,8 +56,8 @@ export function lerpComputedValue(
  */
 export function lerpColorValue(
     t: number,
-    iv: InterpolatedVar<Color>,
-): ValueUnit<Color> {
+    iv: InterpolatedVar<InterpColor>,
+): ValueUnit<InterpColor> {
     const { start, stop, value, colorSpace, hueMethod } = iv;
     // Identify the hue channel for cylindrical spaces (hsl/hsv/hwb/lch/oklch).
     // CSS Color 4 §12.4 requires angular interpolation for that component;
@@ -55,10 +65,10 @@ export function lerpColorValue(
     const hueKey = colorSpace ? CYLINDRICAL_HUE_COMPONENT[colorSpace] : undefined;
 
     start.value.keys().forEach((key: string) => {
-        const sv = (start.value as any)[key];
-        const ev = (stop.value as any)[key];
-        const sn = sv instanceof ValueUnit ? sv.value : sv;
-        const en = ev instanceof ValueUnit ? ev.value : ev;
+        const sv = channelOf(start.value, key);
+        const ev = channelOf(stop.value, key);
+        const sn = ValueUnit.unwrapDeep(sv);
+        const en = ValueUnit.unwrapDeep(ev);
         let result: number;
         if (key === hueKey) {
             // `normalizeColorUnits` denormalises back to physical units
@@ -73,11 +83,11 @@ export function lerpColorValue(
             result = lerp(sn, en, t);
         }
 
-        const current = (value.value as any)[key];
+        const current = channelOf(value.value, key);
         if (current instanceof ValueUnit) {
             current.value = result;
         } else {
-            (value.value as any)[key] = result;
+            setChannel(value.value, key, ch(result));
         }
     });
     return value;

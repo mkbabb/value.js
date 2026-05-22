@@ -15,6 +15,7 @@
 
 import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
 import { FunctionValue, ValueUnit } from "../units";
+import type { ANGLE_UNITS } from "../units/constants";
 import { convertToDegrees } from "../units/utils";
 import { istring } from "./utils";
 
@@ -266,8 +267,12 @@ function resolveToRadians(node: any): number | null {
     if (node instanceof ValueUnit) {
         if (typeof node.value !== "number") return null;
         if (node.unit && node.superType?.[0] === "angle") {
-            // Convert to degrees first, then to radians
-            const deg = convertToDegrees(node.value, node.unit as any);
+            // Convert to degrees first, then to radians. The `superType[0] ===
+            // "angle"` guard above establishes `node.unit` is an angle unit.
+            const deg = convertToDegrees(
+                node.value,
+                node.unit as (typeof ANGLE_UNITS)[number],
+            );
             return (deg * Math.PI) / 180;
         }
         // Unitless = radians
