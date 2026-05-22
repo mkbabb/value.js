@@ -1,6 +1,6 @@
 <script setup>
-import { lab2lch, lch2lab } from "@src/units/color/utils?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/utils";
+import { lab2lch, lch2lab } from "@src/units/color/conversions/lab?source";
+import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
 import { Katex } from "@components/custom/katex";
 import {
     COLOR_SPACE_DENORM_UNITS,

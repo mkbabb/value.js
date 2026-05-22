@@ -1,6 +1,6 @@
 <script setup>
-import { xyz2oklab, oklab2xyz } from "@src/units/color/utils?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/utils";
+import { xyz2oklab, oklab2xyz } from "@src/units/color/conversions/oklab?source";
+import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
 import { Katex } from "@components/custom/katex";
 import {
     COLOR_SPACE_DENORM_UNITS,

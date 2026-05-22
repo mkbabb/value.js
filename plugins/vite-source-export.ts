@@ -16,7 +16,7 @@ const QUERY = "?source";
  *
  * @example
  * ```ts
- * import { rgb2hsl, hsl2rgb } from "@src/units/color/utils?source";
+ * import { rgb2hsl, hsl2rgb } from "@src/units/color/conversions/cylindrical?source";
  * // rgb2hsl is an HTML string: '<pre><code class="hljs typescript">...</code></pre>'
  * ```
  */
