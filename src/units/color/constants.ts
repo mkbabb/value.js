@@ -210,6 +210,74 @@ export const COLOR_SPACE_DENORM_UNITS = {
 
 export type ColorSpace = keyof typeof COLOR_SPACE_RANGES;
 
+// ──────────────────────────────────────────────────────────────────────────────
+// G.W2 Lane A (G-OPP-2) — typed color-space range/unit accessors.
+//
+// `COLOR_SPACE_RANGES` + `COLOR_SPACE_DENORM_UNITS` are `as const`, so each
+// per-space record carries its full literal key set. Before G.W2, every
+// `(space, component)` lookup widened to an untyped value — the lookup cast
+// produced an untyped range object, which then leaked through the
+// `{ min, max }` destructures + the `denormUnits` reads.
+//
+// The helpers below replace those untyped lookups: they keep `component` a
+// plain `string` (color components ARE dynamic — sourced from `Color.keys()`
+// or demo `currentColorSpace`) but return a precise `ColorSpaceBound` /
+// `string`. The `Record<...>` assertion inside is the single dynamic-index
+// boundary; callers stay cast-free and fully typed.
+//
+// `ColorComponent<C>` exposes the per-space component key set for callers that
+// DO have a concrete space literal (it collapses to the shared keys under a
+// space union — by design).
+// ──────────────────────────────────────────────────────────────────────────────
+
+export type ColorSpaceRanges = typeof COLOR_SPACE_RANGES;
+export type ColorSpaceDenormUnits = typeof COLOR_SPACE_DENORM_UNITS;
+
+/** Components of a color space (the keys of its range record). */
+export type ColorComponent<C extends ColorSpace> = keyof ColorSpaceRanges[C];
+
+/** A `{ min, max }` bound — the value type of every per-unit range entry. */
+export interface ColorSpaceBound {
+    readonly min: number;
+    readonly max: number;
+}
+
+/**
+ * Typed bound lookup for `(space, component)` at a given unit, with the CSS
+ * `number` fallback. Replaces the former untyped `COLOR_SPACE_RANGES` index
+ * + `ranges[unit] ?? ranges.number` idiom — returns a precise `ColorSpaceBound`
+ * so the `{ min, max }` destructure at every call site is fully typed.
+ */
+export const getColorSpaceBound = (
+    colorSpace: ColorSpace,
+    component: string,
+    unit: string,
+): ColorSpaceBound => {
+    const space = COLOR_SPACE_RANGES[colorSpace] as Record<
+        string,
+        Record<string, ColorSpaceBound | undefined> | undefined
+    >;
+    const ranges = space[component] ?? {};
+    // Every range record carries a `number` entry — guaranteed by the
+    // `COLOR_SPACE_RANGES` shape, so the fallback always resolves.
+    return ranges[unit] ?? (ranges.number as ColorSpaceBound);
+};
+
+/**
+ * Typed denorm-unit lookup for `(space, component)`. Replaces the former
+ * untyped `COLOR_SPACE_DENORM_UNITS` index — returns a precise `string`.
+ */
+export const getColorSpaceDenormUnit = (
+    colorSpace: ColorSpace,
+    component: string,
+): string => {
+    const units = COLOR_SPACE_DENORM_UNITS[colorSpace] as Record<
+        string,
+        string | undefined
+    >;
+    return units[component] ?? "";
+};
+
 // pretty names of the color spaces:
 export const COLOR_SPACE_NAMES = {
     rgb: "RGB",

@@ -16,7 +16,7 @@
 import { Color, RGBColor } from ".";
 import type { ColorSpaceMap, HSLColor, XYZColor } from ".";
 import { clamp, lerp } from "../../math";
-import { COLOR_SPACE_DENORM_UNITS, COLOR_SPACE_RANGES } from "./constants";
+import { COLOR_SPACE_RANGES, getColorSpaceBound, getColorSpaceDenormUnit } from "./constants";
 import type { ColorSpace } from "./constants";
 import { gamutMapSRGB } from "./gamut";
 import { hex2rgb, rgb2hex } from "./conversions/hex";
@@ -67,19 +67,17 @@ export {
 
 export const getFormattedColorSpaceRange = <T extends ColorSpace>(colorSpace: T) => {
     const ranges = COLOR_SPACE_RANGES[colorSpace];
-    const denormUnits = COLOR_SPACE_DENORM_UNITS[colorSpace];
 
-    return Object.entries(ranges).reduce((acc: Record<string, any>, [component, range]) => {
-        const units = (denormUnits as any)[component];
-        let { min, max } = (range as any)[units] ?? (range as any)["number"];
+    const acc: Record<string, { min: string; max: string }> = {};
 
-        min = `${min}${units}`;
-        max = `${max}${units}`;
+    for (const component of Object.keys(ranges)) {
+        const units = getColorSpaceDenormUnit(colorSpace, component);
+        const { min, max } = getColorSpaceBound(colorSpace, component, units);
 
-        acc[component] = { min, max };
+        acc[component] = { min: `${min}${units}`, max: `${max}${units}` };
+    }
 
-        return acc;
-    }, {}) as ColorSpaceMap<{ min: string; max: string }>[T];
+    return acc as ColorSpaceMap<{ min: string; max: string }>[T];
 };
 
 // ── XYZ-hub dispatch table ──
@@ -121,20 +119,78 @@ const XYZ_FUNCTIONS: Record<string, { to: (color: any) => XYZColor; from: (color
 // wires them into `color2()` keyed by the `${from}->${to}` template literal.
 // ──────────────────────────────────────────────────────────────────────────────
 
-type DirectConversion = <T>(color: Color<T>) => Color<T>;
+// ── G.W2 Lane B (G-OPP-3) — typed DIRECT_PATHS mapped-type ──
+//
+// `DIRECT_PATHS` is keyed by the `${From}->${To}` template literal. Before
+// G.W2 the table value was a single generic `<T>(c: Color<T>) => Color<T>`,
+// which the narrower per-pair direct functions (e.g. `(c: OKLABColor) =>
+// RGBColor`) could not satisfy — forcing a type-erasing double cast on every
+// one of the 6 entries, plus another on the `color2` dispatch return.
+//
+// `DirectPathsTable` is a mapped type: it distributes over every `${From}->
+// ${To}` key and uses conditional-type inference to derive the EXACT entry
+// signature `(color: ColorSpaceMap<number>[From]) => ColorSpaceMap<number>[To]`
+// per pair. Each direct function's concrete `number`-component signature now
+// matches its slot precisely, so the table type-checks with zero casts.
+//
+// Dispatch is via `getDirectPath` — a typed lookup whose return signature is
+// narrowed by the target space `C`, so `color2` calls it and returns its
+// result without a type-erasing cast. The runtime-keyed lookup needs a single
+// `as` narrowing INSIDE the helper (TS cannot statically pick a table entry
+// from a value-computed template-literal key) — a documented index-narrowing.
 
-const DIRECT_PATHS: Partial<Record<`${ColorSpace}->${ColorSpace}`, DirectConversion>> = {
+/**
+ * A `From → To` direct conversion. The direct-path functions operate on
+ * numeric channels and build same-arity `number`-component colors, so the
+ * component type is concrete `number`.
+ */
+type DirectPath<From extends ColorSpace, To extends ColorSpace> = (
+    color: ColorSpaceMap<number>[From],
+) => ColorSpaceMap<number>[To];
+
+/**
+ * Distributes over every `${From}->${To}` color-space pair; each entry is the
+ * exact `From → To` conversion signature (or absent).
+ */
+type DirectPathsTable = {
+    [K in `${ColorSpace}->${ColorSpace}`]?: K extends `${infer From extends ColorSpace}->${infer To extends ColorSpace}`
+        ? DirectPath<From, To>
+        : never;
+};
+
+const DIRECT_PATHS: DirectPathsTable = {
     // OKLab ↔ RGB — skips XYZ + chromatic adaptation. Highest-frequency
     // interpolation pair in the demo + library hot paths.
-    "oklab->rgb": directOklabToRgb as unknown as DirectConversion,
-    "rgb->oklab": directRgbToOklab as unknown as DirectConversion,
+    "oklab->rgb": directOklabToRgb,
+    "rgb->oklab": directRgbToOklab,
     // OKLCH ↔ RGB — polar form of OKLab; direct path inlines the polar
     // conversion + the OKLab→LMS→sRGB chain.
-    "oklch->rgb": directOklchToRgb as unknown as DirectConversion,
-    "rgb->oklch": directRgbToOklch as unknown as DirectConversion,
+    "oklch->rgb": directOklchToRgb,
+    "rgb->oklch": directRgbToOklch,
     // HSL ↔ RGB — closed-form cylindrical conversion (no XYZ at all).
-    "hsl->rgb": directHslToRgb as unknown as DirectConversion,
-    "rgb->hsl": directRgbToHsl as unknown as DirectConversion,
+    "hsl->rgb": directHslToRgb,
+    "rgb->hsl": directRgbToHsl,
+};
+
+/**
+ * Typed `DIRECT_PATHS` lookup. Returns the wired direct conversion for
+ * `from → to` (or `undefined` when the pair routes through the XYZ hub). The
+ * return type is narrowed to the target space `C` so `color2` consumes it
+ * cast-free.
+ *
+ * The `directKey` is composed from runtime values, so TS cannot pick a single
+ * `DirectPathsTable` entry statically — the lone `as` re-asserts the table
+ * value as the `C`-targeted signature. This is a narrowing assertion, not a
+ * type-erasing double cast.
+ */
+const getDirectPath = <C extends ColorSpace>(
+    from: ColorSpace,
+    to: C,
+): ((color: Color<number>) => ColorSpaceMap<number>[C]) | undefined => {
+    const directKey = `${from}->${to}` as `${ColorSpace}->${ColorSpace}`;
+    return DIRECT_PATHS[directKey] as
+        | ((color: Color<number>) => ColorSpaceMap<number>[C])
+        | undefined;
 };
 
 export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
@@ -146,10 +202,9 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
     // to the XYZ-hub dispatch. For the 6 wired pairs, skips a matrix multiply
     // + one XYZColor allocation per call. Numerically equivalent to the
     // XYZ-hub path within floating-point epsilon.
-    const directKey = `${color.colorSpace}->${to}` as `${ColorSpace}->${ColorSpace}`;
-    const direct = DIRECT_PATHS[directKey];
+    const direct = getDirectPath<C>(color.colorSpace, to);
     if (direct) {
-        return direct(color) as unknown as ColorSpaceMap<T>[C];
+        return direct(color as Color<number>) as ColorSpaceMap<T>[C];
     }
 
     const fromEntry = XYZ_FUNCTIONS[color.colorSpace];

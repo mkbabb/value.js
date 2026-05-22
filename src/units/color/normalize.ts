@@ -2,32 +2,25 @@ import { Color } from ".";
 import type { ColorSpaceMap } from ".";
 import { ValueUnit } from "..";
 import { scale } from "../../math";
-import { COLOR_SPACE_RANGES, COLOR_SPACE_DENORM_UNITS } from "./constants";
+import { getColorSpaceBound, getColorSpaceDenormUnit } from "./constants";
 import type { ColorSpace } from "./constants";
 import { color2 } from "./dispatch";
 import type { HueInterpolationMethod } from "./dispatch";
 
 export type { HueInterpolationMethod };
 
-const getColorSpaceBounds = (
-    unit: string,
-    colorSpace: ColorSpace,
-    component: string,
-) => {
-    const ranges = (COLOR_SPACE_RANGES[colorSpace] as any)[component];
-    return ranges[unit] ?? ranges.number;
-};
-
 export const normalizeColorUnitComponent = (
     v: number,
-    unit: string,
+    unit: string | undefined,
     colorSpace: ColorSpace,
     component: string,
     inverse: boolean = false,
 ) => {
-    unit = inverse ? (COLOR_SPACE_DENORM_UNITS[colorSpace] as any)[component] : unit;
+    // On the forward path `unit` may be absent (a numeric channel carries no
+    // unit) — `getColorSpaceBound` then falls through to the `number` range.
+    unit = inverse ? getColorSpaceDenormUnit(colorSpace, component) : unit;
 
-    const { min, max } = getColorSpaceBounds(unit, colorSpace, component);
+    const { min, max } = getColorSpaceBound(colorSpace, component, unit ?? "");
 
     const [toMin, toMax, fromMin, fromMax] = inverse
         ? [min, max, 0, 1]
@@ -45,14 +38,13 @@ export const normalizeColor = (
     const colorSpace = color.colorSpace;
 
     color.keys().forEach((component) => {
-        const value =
-            color[component] instanceof ValueUnit
-                ? color[component].value
-                : color[component];
+        const channel = color[component];
+        const value = channel instanceof ValueUnit ? channel.value : channel;
+        const unit = channel instanceof ValueUnit ? channel.unit : undefined;
 
         color[component] = normalizeColorUnitComponent(
             value,
-            color[component]?.unit,
+            unit,
             colorSpace,
             component,
             inverse,
