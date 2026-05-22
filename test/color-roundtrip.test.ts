@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { parseCSSColor } from "../src/parsing/color";
 import { normalizeColorUnit } from "../src/units/color/normalize";
-import * as ColorConversions from "../src/units/color/utils";
+import * as ColorConversions from "../src/units/color/conversions";
 import { Color } from "../src/units/color";
 import { ValueUnit } from "../src/units";
 

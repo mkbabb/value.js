@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { interpolateHue } from "../src/units/color/utils";
-import type { HueInterpolationMethod } from "../src/units/color/utils";
+import { interpolateHue } from "../src/units/color/dispatch";
+import type { HueInterpolationMethod } from "../src/units/color/dispatch";
 
 describe("Hue Interpolation", () => {
     describe("shorter (default)", () => {

@@ -10,7 +10,7 @@ import {
     DELTA_E_OK_JND,
 } from "../src/units/color/gamut";
 import { RGBColor, OKLCHColor } from "../src/units/color";
-import { color2, gamutMap } from "../src/units/color/utils";
+import { color2, gamutMap } from "../src/units/color/dispatch";
 import { scale } from "../src/math";
 import { COLOR_SPACE_RANGES } from "../src/units/color/constants";
 

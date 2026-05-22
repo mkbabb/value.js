@@ -136,7 +136,7 @@ import {
 } from "@lucide/vue";
 import type { Tag } from "@lib/palette/types";
 import { srgbToOKLab } from "@src/units/color/gamut";
-import { hex2rgb } from "@src/units/color/utils";
+import { hex2rgb } from "@src/units/color/conversions/hex";
 
 const { sort, status, selectedTags, availableTags } = defineProps<{
     sort: string;

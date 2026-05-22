@@ -20,9 +20,8 @@ import {
     oklab2xyz,
     oklab2oklch,
     oklch2oklab,
-    color2,
-    gamutMap,
-} from "../src/units/color/utils";
+} from "../src/units/color/conversions";
+import { color2, gamutMap } from "../src/units/color/dispatch";
 import {
     RGBColor,
     HSLColor,

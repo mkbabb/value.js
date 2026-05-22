@@ -12,7 +12,7 @@ import {
 } from "../src/units/color";
 import { ValueUnit } from "../src/units";
 import { normalizeColorUnit } from "../src/units/color/normalize";
-import { color2 } from "../src/units/color/utils";
+import { color2 } from "../src/units/color/dispatch";
 
 function getColor(input: string): Color {
     const unit = parseCSSColor(input);

@@ -11,7 +11,7 @@ import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
 import { ValueUnit } from "@src/units";
 import { parseCSSColor } from "@src/parsing/color";
 import { normalizeColorUnit, colorUnit2 } from "@src/units/color/normalize";
-import { color2 } from "@src/units/color/utils";
+import { color2 } from "@src/units/color/dispatch";
 import { scale } from "@src/math";
 
 /**

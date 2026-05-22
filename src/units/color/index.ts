@@ -616,3 +616,29 @@ export type ColorSpaceMap<T> = {
     "prophoto-rgb": ProPhotoRGBColor<T>;
     rec2020: Rec2020Color<T>;
 };
+
+// ──────────────────────────────────────────────────────────────────────────────
+// Color-subsystem barrel — conversion dispatch + interpolation surface.
+//
+// G.W1 Lane B (G3 decomposition): the former `color/utils.ts` god-module
+// (1,430 LoC) was split into `conversions/{hex,kelvin,cylindrical,lab,
+// transfer,xyz-extended}.ts` + `dispatch.ts`. This barrel re-exports the
+// public surface so consumers depend on the color subsystem, not on the
+// internal module layout.
+// ──────────────────────────────────────────────────────────────────────────────
+
+export {
+    getFormattedColorSpaceRange,
+    color2,
+    gamutMap,
+    interpolateHue,
+    mixColors,
+    CYLINDRICAL_HUE_COMPONENT,
+    computeSafeAccent,
+    safeAccentColor,
+    needsContrastAdjustment,
+    getOklchLightness,
+    hex2rgb,
+    rgb2hex,
+} from "./dispatch";
+export type { HueInterpolationMethod } from "./dispatch";

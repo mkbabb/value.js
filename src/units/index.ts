@@ -3,7 +3,7 @@ import { clone } from "../utils";
 import { BLACKLISTED_COALESCE_UNITS, UNITS } from "./constants";
 import { isColorUnit } from "./utils";
 import type { ColorSpace } from "./color/constants";
-import type { HueInterpolationMethod } from "./color/utils";
+import type { HueInterpolationMethod } from "./color/dispatch";
 
 export class ValueUnit<T = any, U = (typeof UNITS)[number] | string> {
     constructor(

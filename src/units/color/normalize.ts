@@ -4,8 +4,8 @@ import { ValueUnit } from "..";
 import { scale } from "../../math";
 import { COLOR_SPACE_RANGES, COLOR_SPACE_DENORM_UNITS } from "./constants";
 import type { ColorSpace } from "./constants";
-import { color2 } from "./utils";
-import type { HueInterpolationMethod } from "./utils";
+import { color2 } from "./dispatch";
+import type { HueInterpolationMethod } from "./dispatch";
 
 export type { HueInterpolationMethod };
 
