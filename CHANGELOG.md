@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.9.0] — 2026-05-22 (G close)
+
+### INTERNAL
+
+- **`src/units/color/utils.ts` (1,430-LoC god-module) decomposed** into 9 focused modules ≤ 350 LoC each — a `conversions/` cluster (`hex`, `kelvin`, `cylindrical`, `lab`, `oklab`, `transfer`, `xyz-extended`, `direct`) + `dispatch.ts`. The barrel re-exports every public name; no consumer-visible change.
+- **`as any` corpus in `src/` retired 35 → 0** via 4 typed-wrapper transpositions: a typed `getColorSpaceBound`, a typed `DIRECT_PATHS` mapped-type, a typed `Color<T>` channel accessor (`channelOf`/`setChannel`), and the `ValueUnit.unwrapDeep()` static (which codifies the Mar-2026 iOS-Safari nesting fix). Zero cast-laundering — every retirement is a genuine, correct type. The `Color<T>` channel-accessor change ran a BREAKING-decision protocol and resolved INTERNAL (the `[key: string]: any` index signature is structurally retained; the public typed `.l`/`.c`/`.r` API is unchanged).
+- **6 invariant proof scripts codified** — `proof:no-deprecated`, `proof:no-ts-ignore`, `proof:as-any-budget`, `proof:codemod-publication`, `proof:no-deep`, `proof:no-bare-builtins` — plus a `types`-key existence probe added to `proof:resolution`. All wired into CI post-build.
+- **api/**: `withTransaction` expanded from 3 to 7 cross-collection write sites (`deletePalette`, `revertToVersion`, `batchPalettes(delete)`, `batchUsers(suspend)`) with rollback tests; `engines.node` `">=22"` declared.
+- **CI**: the CHANGELOG-changed gate base-ref defect fixed (it referenced `origin/main` and was INERT since F.W3); an `npm pack --dry-run` publish-shape step added; `scripts/migrate-*.mjs` added to `package.json files:` so the published lerp codemod is discoverable by npm consumers.
+- **demo/**: glass-ui's `useBreakpoint` composable adopted at 4 sites (retiring hand-rolled `matchMedia` patterns); PaletteSlugBar hand-rolled buttons migrated to glass-ui `<Button>`.
+- 1 mobile-walk Playwright spec added (e2e 35 → 36 specs).
+
+### DEPS
+
+- No dependency drift in G.
+
 ## [0.8.0] — 2026-05-21 (F close)
 
 ### BREAKING
@@ -12,7 +28,7 @@
 - gh-pages chronic closed: 2 dock-menu Github icon refs migrated to inline SVG following W9-C's @lucide/vue rename punt.
 - 3 post-W12 transpositions: typed `Memoized<T>` shape retires the sole `@ts-ignore` in src/; Rolldown declarative `codeSplitting` adopted; 29 zero-consumer shadcn-vue subdirs swept (165 → 22 files, −588 KiB).
 - 5 CI hygiene gates: CHANGELOG-changed gate broadened; vue-tsc baseline lowered to 0; dts-shape invariant guard (`scripts/proof-dts-layout.mjs`); `dist/value.js` bundle-size gate (≤ 145 KB raw); (optional) proof:resolution types-key probe.
-- keyframes.js cross-repo write: applied published lerp codemod against `/Users/mkbabb/Programming/keyframes.js` per F3 invariant (LOCAL-ONLY commit; user-discretionary push).
+- keyframes.js cross-repo write: applied published lerp codemod against the keyframes.js sibling repo (HEAD `470814e`) per F3 invariant (LOCAL-ONLY commit; user-discretionary push).
 
 ### DEFERRED → ZERO (per F1)
 
