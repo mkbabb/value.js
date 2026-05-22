@@ -63,25 +63,27 @@ const lib = await import(distPath);
 const { color2, HSLColor, OKLABColor, OKLCHColor, RGBColor, XYZColor } = lib;
 const { OKLAB_TO_LMS_MATRIX, LMS_TO_XYZ_MATRIX, transformMat3, gamutMap } = lib;
 
-// ─── Constants inlined verbatim from src/units/color/utils.ts ─────────────
+// ─── Constants inlined verbatim from src/units/color/conversions/* (G.W1 Lane B) ───
 // (a few are not on the public barrel; included here verbatim so the
 //  pre-state mirror compiles standalone.)
 
-// CSS Color 4 sRGB inverse — src/units/color/utils.ts:496.
+// CSS Color 4 sRGB inverse — src/units/color/conversions/xyz-extended.ts:49
+// (XYZ_RGB_MATRIX is now derived as invertMat3(RGB_XYZ_MATRIX), not a literal).
 const XYZ_RGB_MATRIX = [
     3.2409699419045226, -1.5373831775700939, -0.4986107602930034,
     -0.9692436362808796, 1.8759675015077202, 0.04155505740717561,
     0.05563007969699366, -0.20397695888897652, 1.0569715142428786,
 ];
 
-// CSS Color 4 sRGB matrix — src/units/color/utils.ts:490.
+// CSS Color 4 sRGB matrix — src/units/color/conversions/xyz-extended.ts:43.
 const RGB_XYZ_MATRIX = [
     0.41239079926595934, 0.357584339383878, 0.1804807884018343,
     0.21263900587151027, 0.715168678767756, 0.07219231536073371,
     0.01933081871559182, 0.11919477979462598, 0.9505321522496607,
 ];
 
-// sRGB transfer encode — src/units/color/utils.ts:523.
+// sRGB transfer encode — src/units/color/conversions/transfer.ts:38
+// (linearToSrgb; SRGB_GAMMA/OFFSET/SLOPE constants at transfer.ts:14-16).
 const SRGB_GAMMA = 2.4;
 const SRGB_OFFSET = 0.055;
 const SRGB_SLOPE = 12.92;
@@ -108,7 +110,7 @@ function scale(v, fromMin, fromMax, toMin = 0, toMax = 1) {
     return ((v - fromMin) / (fromMax - fromMin)) * (toMax - toMin) + toMin;
 }
 
-// HSL → RGB closed-form (verbatim from src/units/color/utils.ts:322).
+// HSL → RGB closed-form (verbatim from src/units/color/conversions/cylindrical.ts:131).
 function hsl2rgbInline(h, s, l, alpha) {
     const c = (1 - Math.abs(2 * l - 1)) * s;
     const x = c * (1 - Math.abs(((h * 6) % 2) - 1));

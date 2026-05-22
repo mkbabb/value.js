@@ -19,6 +19,12 @@ npx playwright test      # 5 projects: smoke / smoke-admin / smoke-mobile / smok
 npm run lint             # eslint flat config (D.W1 L7) — exit 0 required
 npm run proof:resolution # contract-v2 dev-resolution proof across the fleet (D.W1)
 npm run proof:dts-layout # flat-dist/ dts emission invariant guard (F.W3 Lane D, W12-unblocker regression guard)
+npm run proof:no-deprecated      # zero @deprecated annotations in src/ (G.W3 Lane B — codifies F2)
+npm run proof:no-ts-ignore       # zero @ts-ignore annotations in src/ (G.W3 Lane C)
+npm run proof:as-any-budget      # as any ≤ 5 in src/ (G.W3 Lane D — codifies G2; current count 0)
+npm run proof:codemod-publication # scripts/migrate-*.mjs discoverable in npm pack (G.W3 Lane I)
+npm run proof:no-deep            # zero :deep() / ::v-deep in demo/ + src/ (G.W3 Lane J)
+npm run proof:no-bare-builtins   # node:* prefix required for built-in imports in api/src/ (G.W3 Lane K)
 ```
 
 > Exact test/spec counts belong in per-tranche FINAL.md docs (e.g.
@@ -56,8 +62,9 @@ src/
 │   └── color/            # color system (15 spaces, conversion, gamut mapping)
 │       ├── index.ts      # Color<T> base + 15 space classes + ColorChannel brand + ch<T> helper
 │       ├── constants.ts  # ranges, matrices, white points, named colors
+│       ├── conversions/  # 8 focused {from}2{to} modules (hex, kelvin, cylindrical, lab, oklab, transfer, xyz-extended, direct) + index barrel (G.W1 Lane B)
+│       ├── dispatch.ts   # color2() generic converter, DIRECT_PATHS, gamutMap, interpolateHue, mixColors
 │       ├── matrix.ts     # Vec3/Mat3 math (row-major, f64, replaces gl-matrix)
-│       ├── utils.ts      # conversion functions via XYZ hub, mixColors, gamutMap
 │       ├── normalize.ts  # color normalization to [0,1], space conversion
 │       ├── gamut.ts      # Ottosson analytical sRGB gamut mapping (zero-iteration)
 │       ├── colorFilter.ts # CSS filter solver via SPSA optimization
@@ -94,6 +101,7 @@ assets/docs/              # 10 color space reference pages (Vue + KaTeX)
 - Named exports only, no defaults (enables tree-shaking)
 - Color matrices stored row-major (3x3); transform matrices column-major (4x4, CSS convention)
 - Color components normalized to [0,1] internally; denormalized on output
+- **`as any` budget** — the G2 invariant caps `as any` at ≤ 5 in `src/` (G.W2 retired the corpus to **0**); enforced by `npm run proof:as-any-budget`
 - See `VENDOR-POLICY.md` for the `demo/@/components/ui/` shadcn-vue vendored-noise policy. **Post-F.W1 Lane C**: 29 zero-consumer subdirs swept (165 → 22 files, -588 KiB). **Post-F.W3 Lane C**: vue-tsc CI gate is now **strict-zero (≤ 0 errors)**.
 
 ## Entry point

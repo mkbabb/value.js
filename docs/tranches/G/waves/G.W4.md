@@ -36,7 +36,7 @@ Close ceremony for tranche G. Mirrors F.W4's shape. v0.9.0 release-blocking wave
 2. **Reconcile `PROGRESS.md`**.
 3. **Pin `docs/precepts` SHA** (`68d9b20` if unchanged upstream; document hold otherwise).
 4. **Update `coordination/Q.md` §7** with final state at G close.
-5. **Update root `CLAUDE.md`** — src/units/color/ structure block reflects 7-module split; `as any` budget gate note.
+5. **Update root `CLAUDE.md`** — src/units/color/ structure block reflects the 9-module split; `as any` budget gate note.
 6. **`demo/CLAUDE.md`** — adjust for G.W2 Lane E (useBreakpoint adoption) + Lane F (PaletteSlugBar shim).
 7. **`api/CLAUDE.md`** — withTransaction-expansion note (G.W3 Lane E).
 8. **CHANGELOG.md** — v0.9.0 entry per G.W2 Lane C BREAKING decision (lone BREAKING or none).
@@ -94,7 +94,7 @@ git push origin master --follow-tags
 
 ## Gate
 
-Conjunction of 7 close-audit lanes + close-honesty checklist + 18-item pre-merge gate matrix.
+Conjunction of 7 close-audit lanes + close-honesty checklist + 21-item pre-merge gate matrix.
 
 ## Commit plan
 

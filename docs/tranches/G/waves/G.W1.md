@@ -19,7 +19,7 @@ Fix: replace `origin/main` with `origin/master` (or use `${{ github.base_ref }}`
 - The CHANGELOG-changed gate references the correct base ref.
 - A PR-simulation test would actually fire (verified via local diff comparison).
 
-### Lane B — G-OPP-1: `src/units/color/utils.ts` decomposition (1,430 LoC → 7 modules)
+### Lane B — G-OPP-1: `src/units/color/utils.ts` decomposition (1,430 LoC → 9 modules)
 
 Per `G.md §2 G3` + `audit/G-AUDIT-5 §2`: decompose the lone post-F god-module.
 
@@ -82,7 +82,7 @@ Author `docs/tranches/G/audit/G.W1-state-at-open.md`.
 | Lane | Files |
 |---|---|
 | A | `.github/workflows/node.js.yml` (1-line fix), `audit/G.W1-lane-a-ci-fix.md` (new) |
-| B | `src/units/color/utils.ts` (decomposed → DELETED), `src/units/color/conversions/{hex,kelvin,cylindrical,lab,xyz-extended,transfer}.ts` (new, 6 files), `src/units/color/dispatch.ts` (new), `src/units/color/index.ts` (barrel updates), `src/units/color/normalize.ts` + `src/units/color/gamut.ts` + `src/units/color/mix.ts` (internal import updates), `audit/G.W1-lane-b-color-utils-decomposition.md` (new) |
+| B | `src/units/color/utils.ts` (decomposed → DELETED), `src/units/color/conversions/{hex,kelvin,cylindrical,lab,oklab,transfer,xyz-extended,direct,index}.ts` (new, 9 files), `src/units/color/dispatch.ts` (new), `src/units/color/index.ts` (barrel updates), `src/units/color/normalize.ts` + `src/units/color/gamut.ts` + `src/units/color/mix.ts` (internal import updates), `audit/G.W1-lane-b-color-utils-decomposition.md` (new) |
 | C | `api/CLAUDE.md` (services block update), `audit/G.W1-lane-c-api-claude-md-fix.md` (new) |
 | D | `audit/G.W1-state-at-open.md` (new) |
 
@@ -99,7 +99,7 @@ Conjunction of sub-gates A + B + C + D. Wave-level:
 ## Commit plan
 
 - `fix(ci/w1): correct CHANGELOG-gate base-ref (origin/main → origin/master) — F.W3 Lane B was INERT (G.W1 Lane A)`
-- `refactor(library/w1): decompose src/units/color/utils.ts 1430 → 7 focused modules (G3 invariant; G.W1 Lane B)`
+- `refactor(library/w1): decompose src/units/color/utils.ts 1430 → 9 focused modules (G3 invariant; G.W1 Lane B)`
 - `docs(api/w1): api/CLAUDE.md services/ block enumerate color/ + session/ subdirs (G.W1 Lane C; F.W4 Lane 3 carry-forward)`
 - `docs(tranche-g/w1): state-at-G-open gate-baseline matrix (G.W1 Lane D)`
 

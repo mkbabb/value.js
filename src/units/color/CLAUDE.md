@@ -26,13 +26,24 @@ color/
 │                     Vec3 = [number, number, number]
 │                     Mat3 = 9-element tuple (ROW-MAJOR)
 │                     transformMat3, transposeMat3, multiplyMat3, invertMat3
-├── utils.ts        # all color conversions + interpolation
-│                     100+ conversion functions via XYZ hub
-│                     Transfer functions: srgb, adobeRgb, proPhoto, rec2020
+├── conversions/    # 8 focused {from}2{to} modules + index barrel (G.W1 Lane B)
+│   ├── hex.ts          # hex parse + serialize
+│   ├── kelvin.ts       # temperature → RGB approximation
+│   ├── cylindrical.ts  # HSL/HSV/HWB/LCH/OKLCH cluster (hsl2rgb closed-form)
+│   ├── lab.ts          # Lab ↔ XYZ
+│   ├── oklab.ts        # OKLab ↔ XYZ
+│   ├── transfer.ts     # sRGB/AdobeRGB/ProPhoto/Rec2020 transfer + gamma helpers
+│   ├── xyz-extended.ts # XYZ-D50 / D65 / RGB-linear (RGB↔XYZ matrices)
+│   ├── direct.ts       # DIRECT_PATHS perf-critical chains (OKLab↔LMS↔linear-sRGB)
+│   └── index.ts        # aggregate barrel re-exporting all conversion functions
+├── dispatch.ts     # generic dispatch + interpolation
 │                     color2<T,C>() — generic any-space-to-any-space converter
-│                     mixColors() — CSS color-mix() with premultiplied alpha
-│                     interpolateHue() — shorter/longer/increasing/decreasing methods
+│                     DIRECT_PATHS — performance-critical conversion-path table
+│                     XYZ_FUNCTIONS — per-space XYZ-hub conversion registry
 │                     gamutMap() — adaptive gamut mapping wrapper
+│                     interpolateHue() — shorter/longer/increasing/decreasing methods
+│                     mixColors() — CSS color-mix() with premultiplied alpha
+│                     getFormattedColorSpaceRange, CYLINDRICAL_HUE_COMPONENT
 ├── normalize.ts    # color normalization
 │                     normalizeColorUnit() — ValueUnit<Color> → [0,1] range
 │                     colorUnit2<C>() — convert + normalize color unit to target space
@@ -83,7 +94,7 @@ color/
 
 All conversions route through **XYZ D65** as the hub. D50-native spaces (Lab, OKLab, ProPhoto) use Bradford chromatic adaptation. Direct paths exist for performance-critical chains (OKLab↔LMS↔linear-sRGB).
 
-Naming convention: `{from}2{to}` (e.g., `rgb2hsl`, `xyz2oklab`).
+Naming convention: `{from}2{to}` (e.g., `rgb2hsl`, `xyz2oklab`). Each `{from}2{to}` family lives in its own `conversions/*.ts` module (G.W1 Lane B decomposition); `dispatch.ts` owns `color2()` + the `DIRECT_PATHS` table; `conversions/direct.ts` holds the direct-path implementations.
 
 ## Key patterns
 

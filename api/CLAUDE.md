@@ -79,6 +79,10 @@ validate → authn → authz → service → repository → format → response
 - **format** — `format/palette.ts`; converts the document shape to the API envelope.
 - **response** — `c.json(...)`; errors thrown anywhere upstream become canonical envelopes via the global `onError → toResponseEnvelope` mapper.
 
+### Cross-collection transactions
+
+Cross-collection mutations wrap in `services.withTransaction(async (session) => { ... })`. `makeWithTransaction` is the factory in `middleware/inject-services.ts`, hung off the `Services` DI object. G.W3 Lane E expanded coverage from 3 → **7 sites**: `deleteUser`, `forkPalette`, `toggleVote` (the 3 F-window sites) + `deletePalette`, `revertToVersion`, `batchPalettes(delete)`, `batchUsers(suspend)` (the 4 G.W3 additions).
+
 ## Database (MongoDB)
 
 **9 collections, 27 indexes** (per `src/db.ts`):
