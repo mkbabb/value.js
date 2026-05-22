@@ -104,6 +104,40 @@ jobs:
             - name: proof:resolution (contract-v2 dev-resolution)
               run: npm run proof:resolution
 
+            # ─── Invariant proof-script suite (G.W3) ────────────────
+            # G.W3 codifies F's and G's standing invariants as runtime
+            # proof scripts (G4 invariant). Each script greps/walks the
+            # tree and exits non-zero on regression. All run post-build:
+            # proof:codemod-publication and the npm-pack shape check
+            # inspect publish artifacts; the rest are source scans but
+            # are grouped here for one coherent invariant block. See
+            # docs/tranches/G/audit/G.W3-lane-{a..k}-*.md.
+            - name: Proof — no @deprecated in src/ (F2 invariant; G.W3 Lane B)
+              run: npm run proof:no-deprecated
+
+            - name: Proof — no @ts-ignore in src/ (F.W1 Lane A invariant; G.W3 Lane C)
+              run: npm run proof:no-ts-ignore
+
+            - name: Proof — as-any budget ≤ 5 in src/ (G2 invariant; G.W3 Lane D)
+              run: npm run proof:as-any-budget
+
+            - name: Proof — no :deep() / ::v-deep in demo/ + src/ (G.W3 Lane J)
+              run: npm run proof:no-deep
+
+            - name: Proof — no bare built-in imports in api/src/ (G.W3 Lane K)
+              run: npm run proof:no-bare-builtins
+
+            # ─── Publish-shape regression catch (G.W3 Lanes H + I) ──
+            # `npm pack --dry-run` surfaces the published file set so a
+            # `files:` / `exports` / `dist/` regression fails CI.
+            # proof:codemod-publication asserts scripts/migrate-*.mjs
+            # codemods actually land in the tarball (G-PUB-1).
+            - name: Inspect publish shape (npm pack --dry-run; G.W3 Lane H)
+              run: npm pack --dry-run --legacy-peer-deps
+
+            - name: Proof — codemods published in tarball (G-PUB-1; G.W3 Lane I)
+              run: npm run proof:codemod-publication
+
             # ─── Bench gate (Lane A) ────────────────────────────────
             # Runs the three benchmarks sequentially and tees the
             # combined output for downstream assertion parsing.

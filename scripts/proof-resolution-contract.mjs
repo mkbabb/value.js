@@ -39,6 +39,13 @@
 //   3. Consumer check — every consumer's Vite config file(s) are text-scanned
 //      for `resolve.alias` entries that key on `@mkbabb/*` and whose value
 //      string contains `dist/`. Regex-based static scan — conservative.
+//   4. Types-key existence probe (G.W3 Lane A — F.W3 Lane F successor) — for
+//      THIS repo (value.js, the repo the script ships in), the
+//      `exports["."].types` target must resolve to an actually-emitted file on
+//      disk. A types key that points at a missing file silently breaks
+//      consumer typings; this probe fails closed. Scoped to the local repo
+//      because `dist/` is a build artifact only guaranteed present where the
+//      gate runs.
 //
 // Migration note: the AG glass-ui-core wave rewrites this gate together with
 // glass-ui's own `exports`/`scripts`, so the gate is GREEN for glass-ui at
@@ -319,12 +326,71 @@ function checkConsumerViteConfigs() {
 }
 
 // ---------------------------------------------------------------------------
+// Check 4 — Local types-key existence probe (G.W3 Lane A)
+// ---------------------------------------------------------------------------
+
+/**
+ * Probe that THIS repo's `exports["."].types` target resolves to a real file.
+ *
+ * The publisher-shape check (Check 1) asserts the `types` key is a *string*; it
+ * does NOT assert that string points anywhere real. A stale `types` value — a
+ * renamed dts target, a build that never ran, a flat-vs-nested dts-layout
+ * regression — passes Check 1 but ships broken typings to every consumer.
+ *
+ * This probe is the F.W3 Lane F successor: it resolves the `types` path
+ * relative to the repo root and asserts the file exists on disk. It is scoped
+ * to the local repo (`ROOT`) because `dist/` is a build artifact — siblings'
+ * `dist/` directories are not guaranteed populated when this gate runs.
+ */
+function checkLocalTypesTarget() {
+    const violations = [];
+    const pkgJsonPath = resolve(ROOT, "package.json");
+
+    let parsed;
+    try {
+        parsed = JSON.parse(readFileSync(pkgJsonPath, "utf8"));
+    } catch (e) {
+        return [
+            {
+                repo: "value.js",
+                file: "package.json",
+                line: null,
+                message: `JSON parse error: ${e.message}`,
+            },
+        ];
+    }
+
+    const typesTarget = parsed.exports?.["."]?.types;
+    if (typeof typesTarget !== "string") {
+        // Check 1 already reports the missing/non-string key — don't double-fault.
+        return violations;
+    }
+
+    const resolvedTypes = resolve(ROOT, typesTarget);
+    if (!existsSync(resolvedTypes)) {
+        violations.push({
+            repo: "value.js",
+            file: "package.json",
+            line: null,
+            message: `exports["."].types points at "${typesTarget}" but ${resolvedTypes} does not exist — run \`npm run build\` to emit dts, or correct the types key`,
+        });
+    }
+
+    return violations;
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
 const publisherViolations = checkPublisherPackages();
 const consumerViolations = checkConsumerViteConfigs();
-const allViolations = [...publisherViolations, ...consumerViolations];
+const typesTargetViolations = checkLocalTypesTarget();
+const allViolations = [
+    ...publisherViolations,
+    ...consumerViolations,
+    ...typesTargetViolations,
+];
 
 if (allViolations.length === 0) {
     console.log("[proof:resolution] PASS — contract-v2 dev-resolution contract satisfied across the constellation");
@@ -353,9 +419,19 @@ for (const v of consumerViolations) {
     console.error(`              ${v.message}`);
 }
 
+if (consumerViolations.length > 0) console.error("");
+
+let typesTargetCount = 0;
+for (const v of typesTargetViolations) {
+    typesTargetCount++;
+    const loc = v.line != null ? `:${v.line}` : "";
+    console.error(`  [types-key] ${v.repo}/${v.file}${loc}`);
+    console.error(`              ${v.message}`);
+}
+
 console.error("");
 console.error(
-    `Summary: ${publisherCount} publisher violation(s), ${consumerCount} consumer violation(s).`,
+    `Summary: ${publisherCount} publisher violation(s), ${consumerCount} consumer violation(s), ${typesTargetCount} types-key violation(s).`,
 );
 console.error("");
 console.error("Publisher fix (contract-v2 §2.1/§2.3): collapse every exports entry to the");
