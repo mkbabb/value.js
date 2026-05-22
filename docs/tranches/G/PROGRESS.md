@@ -123,13 +123,44 @@ lint 0 · vue-tsc 0 · vitest 1584/34 · api vitest 104/20 · build clean · gh-
 
 G.W1 CLOSED. G.W2 (typed strengthening) dispatches next.
 
+## 2026-05-22 — G.W2 executed + closed
+
+Typed strengthening (G2 invariant). 6 lanes structured as 2 tracks: Track-1 (`src/` G-OPP Lanes A-D — sequential, they share `dispatch.ts`/`normalize.ts`) + Track-2 (`demo/` FOLD Lanes E-F). The harness `isolation:worktree` bases the worktree off master HEAD, not the working branch — Track-2's first dispatch into a worktree **correctly STOPPED** per the `dispatch/AGENT.md` worktree-base-pinning clause (worktree HEAD `6b3a41b` ≠ `tranche-g`). Track-2 re-ran in the main tree after Track-1; `npm run build` ∥ `npm run gh-pages` contention forced the two tracks sequential.
+
+### Lanes
+
+| Lane | Outcome | Commit |
+|---|---|---|
+| A — G-OPP-2 typed `getColorSpaceBound` | typed bound/denorm-unit helpers in constants.ts; 5 `as any` retired | `23ec904` |
+| B — G-OPP-3 typed `DIRECT_PATHS` mapped-type | `DirectPathsTable` mapped-type; 7 `as unknown as` retired; HSL→RGB bench 4.37× | `23ec904` |
+| C — G-OPP-4 typed `Color<T>` channel accessor | **INTERNAL** decision; typed `channelOf`/`setChannel`; index signature kept (documented); 13 `as any` retired | `ef8a80b` |
+| D — G-OPP-5 `ValueUnit.unwrapDeep()` static | codifies the Mar-2026 iOS-Safari nesting fix; 5 inline loops retired | `ef8a80b` |
+| E — FOLD-1 `useBreakpoint` adoption | 4 demo matchMedia patterns → glass-ui composable; dead `isWide` retired | `bda584c` |
+| F — FOLD-2 PaletteSlugBar Button shim | 2 hand-rolled `<button>` → glass-ui `<Button>`; TODO → shim-removal trigger | `1be6d15` |
+
+A+B and C+D each collapse into one commit (intermingled in shared files; F.W3 precedent; per-lane audit docs preserve evidence).
+
+### G2 invariant — `as any` 35 → 0
+
+Lanes C+D's agent owned the G2 gate: after the 4 typed wrappers, an honest repo-wide sweep retired the full residual corpus (18 sites beyond the wrappers' direct ~25) — readonly-tuple `.includes` widening, recursive `UnflattenNode` typing, a structural `interopDefault` helper for the CJS boundary, etc. **`as any` in `src/` = 0** (G2 target ≤ 5 satisfied at 0; zero cast-laundering). `as unknown as` = 4 (within the ≤ 4 wave gate) — 4 genuine irreducible boundary casts (DOM `CSSStyleDeclaration`, post-runtime-guard narrowing, the XYZ-hub dispatch, a clone-reinterpret), analysed in `audit/G.W2-lane-c-color-channel-typing.md`.
+
+### BREAKING decision (G.W2 Lane C)
+
+**INTERNAL — v0.9.0 carries no BREAKING change.** The `[key: string]: any` index signature on `Color<T>` is KEPT: (a) the demo dynamically indexes `Color` by a runtime component string — removal would be BREAKING; (b) a TS string index signature structurally cannot coexist with `Color<T>`'s heterogeneous members. The dynamic boundary is localized into internal typed `channelOf`/`setChannel` helpers; the public typed `.l`/`.c`/`.r` API is unchanged. v0.9.0 is an INTERNAL-only minor bump (G.W4 CHANGELOG: no BREAKING entry).
+
+### Post-G.W2 wave gate
+
+`as any` 0 · `as unknown as` 4 · `@ts-ignore` 0 · `@deprecated` 0 · vue-tsc 0 · vitest 1584/34 · lint 0 · build clean (`dist/value.js` 125.54 kB ≤ 148,480) · gh-pages clean · proof:resolution + proof:dts-layout PASS · bench L8 10.55× / DIRECT_PATHS HSL→RGB 4.69× / nameParser 41.73× (all ≥ floors). All PASS.
+
+G.W2 CLOSED. G.W3 (invariant codification + CI/api/e2e hygiene) dispatches next.
+
 ## Wave log
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | G.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-21 | 2026-05-21 | `b745c0e` open + `<ratification-commit>` |
 | G.W1 — substrate hygiene + color/utils decomposition | **closed** | 2026-05-22 | 2026-05-22 | `96894eb` `413b47e` `195b834` `27f2183` + close |
-| G.W2 — typed strengthening (as-any ≤ 5) | planned | — | — | — |
+| G.W2 — typed strengthening (as-any ≤ 5) | **closed** | 2026-05-22 | 2026-05-22 | `23ec904` `ef8a80b` `bda584c` `1be6d15` + close |
 | G.W3 — invariant codification + CI/api/e2e hygiene | planned | — | — | — |
 | G.W4 HEADLINE close — FINAL.md, merge, v0.9.0 tag | planned | — | — | — |
 
