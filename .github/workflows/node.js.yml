@@ -23,8 +23,12 @@ jobs:
         steps:
             - uses: actions/checkout@v4
               with:
-                  # CHANGELOG-changed gate needs origin/master available
-                  # for the merge-base diff.
+                  # CHANGELOG-changed gate needs the PR base branch
+                  # (origin/${{ github.base_ref }}) available for the
+                  # merge-base diff. fetch-depth: 0 retrieves full
+                  # history so the symmetric-difference `base...HEAD`
+                  # resolves on PR runs. See docs/tranches/G/audit/
+                  # G.W1-lane-a-ci-fix.md.
                   fetch-depth: 0
 
             - name: Use Node.js ${{ matrix.node }}
@@ -218,10 +222,18 @@ jobs:
             # (package-lock.json) remain excluded — pure
             # version-resolution updates don't need CHANGELOG entries.
             # See docs/tranches/F/audit/F.W3-lane-b-changelog-gate.md.
+            # base-ref is origin/${{ github.base_ref }} — the PR's
+            # actual target branch — NOT a hardcoded `origin/main`.
+            # F.W3 Lane B authored the gate against `origin/main`, but
+            # value.js's default branch is `master`; `origin/main`
+            # never existed, so the gate was INERT on every PR
+            # (G-AUDIT-6 §3.2 / G.W1 Lane A). github.base_ref is always
+            # defined under `if: github.event_name == 'pull_request'`
+            # and stays correct for PRs targeting non-master branches.
             - name: Assert CHANGELOG touched when src/, package.json, vite/ts config, or api/ is touched
               if: github.event_name == 'pull_request'
               run: |
-                  git diff --name-only origin/main...HEAD > diff-files.txt
+                  git diff --name-only "origin/${{ github.base_ref }}...HEAD" > diff-files.txt
                   if grep -qE "^(src/|package\.json$|vite\.config\.ts$|tsconfig\.json$|api/(src/|package\.json$))" diff-files.txt; then
                       grep -q "^CHANGELOG\.md$" diff-files.txt || (echo "CHANGELOG.md must be updated when src/, package.json, vite.config.ts, tsconfig.json, or api/ source/manifest is touched" && exit 1)
                   fi
