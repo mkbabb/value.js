@@ -101,6 +101,49 @@ export function usePointerDebug() {
         lastPointerActivity = performance.now();
     }
 
+    /**
+     * Brute-force pointer-capture reset across the slider DOM. Walks the
+     * spectrum + slider wrappers and calls `releasePointerCapture()` for
+     * every recently-seen pointer id (plus 0..10 for safety). Mirrors the
+     * UI-side "Reset" affordance previously inlined in PointerDebugOverlay,
+     * lifted here at H.W3 Lane B so the composable owns the DOM-walking
+     * recovery path end-to-end (decomposition + co-location).
+     */
+    function forceReleaseAllPointers(): number {
+        forceReleaseAll();
+        if (typeof document === "undefined") return 0;
+
+        // Broad selector to catch reka-ui slider internals too.
+        const els = document.querySelectorAll(
+            ".spectrum-picker, .slider-track, .slider-thumb, [data-reka-collection-item], [data-reka-slider-thumb]",
+        );
+        const wrappers = document.querySelectorAll(
+            ".touch-gate-target, .spectrum-picker",
+        );
+        const allEls = new Set([...els, ...wrappers]);
+
+        // iOS pointer IDs are huge (755613xxx range observed). Try the
+        // recent ids from our event log first, then 0..10 as a safety net.
+        const recentPids = new Set<number>();
+        for (const evt of state.events) {
+            if (evt.pointerId > 0) recentPids.add(evt.pointerId);
+        }
+        for (let pid = 0; pid <= 10; pid++) recentPids.add(pid);
+
+        for (const el of allEls) {
+            for (const pid of recentPids) {
+                try {
+                    (el as HTMLElement).releasePointerCapture(pid);
+                } catch {
+                    /* no capture held */
+                }
+            }
+        }
+        setGauge("lastForceReset", performance.now());
+        log("FORCE_RESET_DONE", -1, null, false, `${allEls.size} els checked`);
+        return allEls.size;
+    }
+
     // --- Global pointer monitoring (only when debug enabled) ---
 
     function isDebugOverlay(el: EventTarget | null): boolean {
@@ -228,6 +271,7 @@ export function usePointerDebug() {
         setGauge,
         clearEvents,
         forceReleaseAll,
+        forceReleaseAllPointers,
     };
 }
 

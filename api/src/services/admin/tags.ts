@@ -67,12 +67,20 @@ export async function createTag(
 }
 
 export async function deleteTag(c: Context<AppEnv>, name: string): Promise<void> {
-    const { tags, palettes } = c.var.services.repositories;
-    const deleted = await tags.deleteByName(name);
-    if (deleted === 0) {
-        throw new NotFoundError("Tag not found");
-    }
-    // Cascade: pull the tag from every palette that carries it
-    await palettes.pullTagFromAll(name);
+    const services = c.var.services;
+    const { tags, palettes } = services.repositories;
+    // Cross-collection write (H.W1 Lane A.2 — H1 invariant): delete the
+    // tag row AND cascade-pull the tag string from every palette that
+    // carries it, in lock-step. A partial failure must not leave a deleted
+    // tag whose name still appears in `palettes[*].tags`, nor a still-
+    // present tag whose name was already pulled from every palette. Post-
+    // txn `emitAuditEvent` stays befitting-graceful per D3.
+    await services.withTransaction(async (session) => {
+        const deleted = await tags.deleteByName(name, session);
+        if (deleted === 0) {
+            throw new NotFoundError("Tag not found");
+        }
+        await palettes.pullTagFromAll(name, session);
+    });
     await emitAuditEvent(c, "delete-tag", { target: `name=${name}` });
 }

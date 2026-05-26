@@ -28,8 +28,14 @@ export class SessionRepository {
         );
     }
 
-    async insert(session: Session): Promise<void> {
-        await this.col.insertOne(session);
+    async insert(
+        session: Session,
+        clientSession?: ClientSession,
+    ): Promise<void> {
+        await this.col.insertOne(
+            session,
+            clientSession ? { session: clientSession } : undefined,
+        );
     }
 
     delete(token: string): Promise<number> {

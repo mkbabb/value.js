@@ -2,9 +2,7 @@ import { useDark } from "@vueuse/core";
 import { onMounted, ref, watch } from "vue";
 import type { ShallowRef } from "vue";
 
-// @ts-ignore
 import darkTheme from "highlight.js/styles/github-dark.css?inline";
-// @ts-ignore
 import lightTheme from "highlight.js/styles/github.css?inline";
 
 import katex from "katex";

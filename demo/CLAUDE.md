@@ -151,14 +151,37 @@ Breakpoint / hover-capability queries route through glass-ui's `useBreakpoint` (
 
 ## Lib palette surface (`@/lib/palette/`)
 
+H.W3 Lane A decomposed the prior 484-LoC `api.ts` into 9 cohesion-honest modules under `api/` (each ≤ 350 LoC; max 110). The original `api.ts` is DELETED (no shim — `@/lib/palette/api` resolves to `api/index.ts` via TypeScript directory-as-module). 14 importers auto-resolved through the barrel; zero explicit consumer rewrites needed.
+
 | File | Purpose |
 |---|---|
-| `api.ts` | palette API client — direct consumers limited to 2 KEEPs (`ColorInput.vue` proposeColorName, `useCustomColorNames.ts` getApprovedColorNames); everything else routes through `usePaletteManager` facade |
+| `api/client.ts` | HTTP transport infra (request + adminRequest + setSessionToken + BASE_URL) — extracted at H.W3 Lane A |
+| `api/sessions.ts` | session lifecycle (create / login / delete / me) |
+| `api/palettes.ts` | user palette CRUD + vote + flag |
+| `api/versions.ts` | versions + forks + provenance (palette history) |
+| `api/colors.ts` | public colour-name + tag listing |
+| `api/admin-palettes.ts` | admin palette moderation + batch + flagged triage |
+| `api/admin-users.ts` | admin user CRUD + lifecycle + batch |
+| `api/admin-colors.ts` | admin colour-proposal queue + admin tag CRUD |
+| `api/admin-audit.ts` | admin audit log |
+| `api/index.ts` | pure barrel re-exporting every public symbol (zero logic) |
 | `types.ts` | TypeScript types |
 | `constants.ts` | `CURRENT_PALETTE_ID` (lifted to canonical at D.W3 Lane A) + other shared constants |
 | `export.ts` | export-format helpers |
 | `mix.ts` | mix helpers |
 | `utils.ts` | slugify + utilities |
+
+Direct-import KEEPs remain 2 (`ColorInput.vue` proposeColorName, `useCustomColorNames.ts` getApprovedColorNames); everything else routes through `usePaletteManager` facade.
+
+## H.W3 Lane B + C sub-component lifts
+
+H.W3 retired 3 god modules / data-bloated files via cohesion-honest sub-component or data-file lifts (all ≤ 400 LoC post-fix):
+
+| File | Pre LoC | Post LoC | Sub-component / data file lifted |
+|---|---|---|---|
+| `custom/color-picker/visual/PointerDebugOverlay.vue` | 449 | 286 | `visual/DebugEventLog.vue` (NEW, 136) — event-log block + `eventClass` helper + log-specific styles |
+| `custom/palette-browser/PaletteCard.vue` | 435 | 388 | `palette-browser/PaletteCardSwatches.vue` (NEW, 96) — expandable-swatches detail block + 8 swatch re-emit events |
+| `custom/color-picker/index.ts` | 376 | 99 | `custom/color-picker/colorSpaceInfo.ts` (NEW, 291) — color space metadata; pure-data; barrel re-exports it transparently |
 
 ## Tailwind v4 token-bridge surface (D.W4 Lane A)
 

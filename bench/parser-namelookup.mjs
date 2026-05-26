@@ -24,7 +24,7 @@
  * Acceptance: post-transposition median speedup ≥ 5× over Node ≥ 20.
  *
  * Source ref:
- *   - docs/tranches/E/waves/E.W1.md Lane D (lines 99-113)
+ *   - docs/tranches/E/waves/E.W1.md §Lane D
  *   - docs/tranches/E/audit/E-AUDIT-5-library-demo-architecture.md §9 item 2
  *   - bench/color-channel-access.mjs (D.W1 L8 reference shape)
  */

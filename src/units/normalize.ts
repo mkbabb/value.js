@@ -106,6 +106,13 @@ const getElementId = (el: HTMLElement): number => {
     return id;
 };
 
+// `CSSStyleDeclaration` is a DOM interface with typed property accessors
+// (`style.color`, `style.transform`, …) but **no** string index signature.
+// `getComputedValue` indexes it with a runtime `prop` string — the only
+// shape that admits that read is `Record<string, string>`. The cast is the
+// policy-documented irreducible-by-DOM-structural-impossibility class
+// (H.md §2 H2; H-AUDIT-5 table row #2 — verdict KEEP). Centralised here so
+// the boundary lives at a single named site rather than at each indexed read.
 const styleRecord = (style: CSSStyleDeclaration): Record<string, string> =>
     style as unknown as Record<string, string>;
 
@@ -312,12 +319,24 @@ export const normalizeNumericUnits = (
 
 // ─── normalizeValueUnits ──────────────────────────────────────────────────
 
-const asColorValueUnit = (value: ValueUnit): Parameters<typeof normalizeColorUnits>[0] => {
-    if (value.unit !== "color") {
-        throw new TypeError("Expected a color ValueUnit.");
-    }
-    return value as unknown as Parameters<typeof normalizeColorUnits>[0];
-};
+/**
+ * Type-predicate narrowing a generic `ValueUnit` to the exact input shape
+ * expected by `normalizeColorUnits` (`ValueUnit<Color<ValueUnit<number>>,
+ * "color">`). The runtime check is the `unit === "color"` discriminant —
+ * the same check the prior `asColorValueUnit` helper bridged, lifted into
+ * the type system so the narrowing flows without a double-cast.
+ *
+ * The inner `Color<ValueUnit<number>>` shape is a producer-side contract:
+ * the parsing pipeline only mints `unit === "color"` `ValueUnit`s with
+ * `Color<ValueUnit<number>>`-typed payloads. The discriminant alone is
+ * the structurally honest narrowing.
+ *
+ * H.W2 Lane C (H-OPP-9): retires the boundary cast at the former line
+ * 319 — see `docs/tranches/H/audit/H.W2-lane-c-type-predicate.md`.
+ */
+const isColorValueUnit = (
+    value: ValueUnit,
+): value is Parameters<typeof normalizeColorUnits>[0] => value.unit === "color";
 
 export type NormalizeValueUnitsOptions = {
     /** Color space for color interpolation. Default: `"oklab"`. */
@@ -357,10 +376,10 @@ export function normalizeValueUnits(
         computed: false,
     };
 
-    if (left.unit === "color" && right.unit === "color") {
+    if (isColorValueUnit(left) && isColorValueUnit(right)) {
         const [leftCollapsed, rightCollapsed] = normalizeColorUnits(
-            asColorValueUnit(left),
-            asColorValueUnit(right),
+            left,
+            right,
             colorSpace,
             false,
             true,

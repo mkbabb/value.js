@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "description": "CSS value units for color, length, angles, & c.",
     "license": "MIT",
     "keywords": [
@@ -46,6 +46,7 @@
         "proof:no-deprecated": "node scripts/proof-no-deprecated.mjs",
         "proof:no-ts-ignore": "node scripts/proof-no-ts-ignore.mjs",
         "proof:as-any-budget": "node scripts/proof-as-any-budget.mjs",
+        "proof:as-unknown-as-budget": "node scripts/proof-as-unknown-as-budget.mjs",
         "proof:codemod-publication": "node scripts/proof-codemod-publication.mjs",
         "proof:no-deep": "node scripts/proof-no-deep.mjs",
         "proof:no-bare-builtins": "node scripts/proof-no-bare-builtins.mjs",

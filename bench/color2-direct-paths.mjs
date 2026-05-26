@@ -34,7 +34,7 @@
  * cannot use a TS loader without extra plumbing).
  *
  * Source ref:
- *   - docs/tranches/E/waves/E.W1.md Lane C (lines 72-97)
+ *   - docs/tranches/E/waves/E.W1.md §Lane C
  *   - docs/tranches/E/audit/E-AUDIT-5-library-demo-architecture.md §9 item 4
  *   - bench/color-channel-access.mjs (D.W1 L8 reference shape)
  *   - bench/parser-namelookup.mjs (E.W1 Lane D reference shape)
@@ -67,7 +67,7 @@ const { OKLAB_TO_LMS_MATRIX, LMS_TO_XYZ_MATRIX, transformMat3, gamutMap } = lib;
 // (a few are not on the public barrel; included here verbatim so the
 //  pre-state mirror compiles standalone.)
 
-// CSS Color 4 sRGB inverse — src/units/color/conversions/xyz-extended.ts:49
+// CSS Color 4 sRGB inverse — src/units/color/conversions/xyz-extended.ts: XYZ_RGB_MATRIX
 // (XYZ_RGB_MATRIX is now derived as invertMat3(RGB_XYZ_MATRIX), not a literal).
 const XYZ_RGB_MATRIX = [
     3.2409699419045226, -1.5373831775700939, -0.4986107602930034,
@@ -75,15 +75,15 @@ const XYZ_RGB_MATRIX = [
     0.05563007969699366, -0.20397695888897652, 1.0569715142428786,
 ];
 
-// CSS Color 4 sRGB matrix — src/units/color/conversions/xyz-extended.ts:43.
+// CSS Color 4 sRGB matrix — src/units/color/conversions/xyz-extended.ts: RGB_XYZ_MATRIX.
 const RGB_XYZ_MATRIX = [
     0.41239079926595934, 0.357584339383878, 0.1804807884018343,
     0.21263900587151027, 0.715168678767756, 0.07219231536073371,
     0.01933081871559182, 0.11919477979462598, 0.9505321522496607,
 ];
 
-// sRGB transfer encode — src/units/color/conversions/transfer.ts:38
-// (linearToSrgb; SRGB_GAMMA/OFFSET/SLOPE constants at transfer.ts:14-16).
+// sRGB transfer encode — src/units/color/conversions/transfer.ts: linearToSrgb
+// (companion srgbToLinear + SRGB_GAMMA/SRGB_OFFSET/SRGB_SLOPE constants in same module).
 const SRGB_GAMMA = 2.4;
 const SRGB_OFFSET = 0.055;
 const SRGB_SLOPE = 12.92;
@@ -110,7 +110,7 @@ function scale(v, fromMin, fromMax, toMin = 0, toMax = 1) {
     return ((v - fromMin) / (fromMax - fromMin)) * (toMax - toMin) + toMin;
 }
 
-// HSL → RGB closed-form (verbatim from src/units/color/conversions/cylindrical.ts:131).
+// HSL → RGB closed-form (verbatim from src/units/color/conversions/cylindrical.ts: hsl2rgb).
 function hsl2rgbInline(h, s, l, alpha) {
     const c = (1 - Math.abs(2 * l - 1)) * s;
     const x = c * (1 - Math.abs(((h * 6) % 2) - 1));

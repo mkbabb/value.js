@@ -1,14 +1,18 @@
 #!/usr/bin/env node
-// Codifies the `node:` prefix requirement for built-in imports in api/src/.
+// Codifies the `node:` prefix requirement for built-in imports across the
+// Node-executed surface: api/src/ + plugins/ + scripts/ + bench/.
 //
 // Ported from speedtest's scripts/check-bare-built-ins.mjs (FOLD-S2). Node 22+
 // resolution accepts both `events` and `node:events`, but the bare form
 // collides with local directory names — a future `api/src/events/` or
-// `api/src/util/` would silently shadow the builtin under bundler resolution.
-// The Hono + Node 22+ stack at api/ shares that fragility class; the
-// disciplined `node:` prefix removes it. G.W3 Lane K installs the gate.
+// `plugins/util/` would silently shadow the builtin under bundler resolution.
+// The Hono + Node 22+ stack at api/ shares that fragility class; the Vite
+// plugin + proof-script + bench surface runs under the same Node ESM loader.
+// The disciplined `node:` prefix removes the shadow risk. G.W3 Lane K
+// installed the gate at api/src/; H.W3 Lane E extends it to its full
+// applicability.
 //
-// Exit 0 → clean; Exit 1 → one or more bare built-in imports in api/src/.
+// Exit 0 → clean; Exit 1 → one or more bare built-in imports in scope.
 //
 // Run: node scripts/proof-no-bare-builtins.mjs
 // npm:  npm run proof:no-bare-builtins
@@ -18,7 +22,13 @@ import { join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = resolve(fileURLToPath(new URL("../", import.meta.url)));
-const SCAN_ROOT = join(ROOT, "api", "src");
+const SCAN_ROOTS = [
+    join(ROOT, "api", "src"),
+    join(ROOT, "plugins"),
+    join(ROOT, "scripts"),
+    join(ROOT, "bench"),
+];
+const SCAN_LABEL = "api/src/ + plugins/ + scripts/ + bench/";
 
 // Built-ins that share names with plausible local dirs/modules. `buffer` is
 // included because `globalThis.Buffer` is the idiomatic access path — an
@@ -61,32 +71,34 @@ function* walkSource(dir) {
 
 const violations = [];
 let scanned = 0;
-for (const file of walkSource(SCAN_ROOT)) {
-    scanned++;
-    const text = readFileSync(file, "utf8");
-    for (const re of PATTERNS) {
-        re.lastIndex = 0;
-        let m;
-        while ((m = re.exec(text)) !== null) {
-            const line = text.slice(0, m.index).split("\n").length;
-            violations.push({
-                file: relative(ROOT, file),
-                line,
-                snippet: m[0].trim(),
-            });
+for (const root of SCAN_ROOTS) {
+    for (const file of walkSource(root)) {
+        scanned++;
+        const text = readFileSync(file, "utf8");
+        for (const re of PATTERNS) {
+            re.lastIndex = 0;
+            let m;
+            while ((m = re.exec(text)) !== null) {
+                const line = text.slice(0, m.index).split("\n").length;
+                violations.push({
+                    file: relative(ROOT, file),
+                    line,
+                    snippet: m[0].trim(),
+                });
+            }
         }
     }
 }
 
 if (violations.length === 0) {
     console.log(
-        `[proof:no-bare-builtins] PASS — scanned ${scanned} file(s) in api/src/; zero bare built-in imports`,
+        `[proof:no-bare-builtins] PASS — scanned ${scanned} file(s) in ${SCAN_LABEL}; zero bare built-in imports`,
     );
     process.exit(0);
 }
 
 console.error(
-    `[proof:no-bare-builtins] FAIL — found ${violations.length} bare built-in import(s) in api/src/ (must use node:* prefix):`,
+    `[proof:no-bare-builtins] FAIL — found ${violations.length} bare built-in import(s) in ${SCAN_LABEL} (must use node:* prefix):`,
 );
 for (const v of violations) console.error(`  ${v.file}:${v.line}  ${v.snippet}`);
 console.error('\nFix: rewrite each as `from "node:<name>"` (e.g. `node:fs`, `node:crypto`).');

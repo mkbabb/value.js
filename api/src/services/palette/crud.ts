@@ -98,24 +98,35 @@ export async function createPalette(
         versionCount: 1,
     };
 
+    // Create is a cross-collection write when `userSlug` is present: insert
+    // the palette row AND its initial version record in lock-step (H.W1 Lane
+    // A — H1 invariant). A partial failure (transient driver error,
+    // write-concern timeout) must not leave an orphan version row pointing
+    // at a palette that never landed, nor a palette whose `currentHash`
+    // doesn't resolve to any version record. Both writes thread `session`.
     try {
-        await services.repositories.palettes.insert(doc);
+        await services.withTransaction(async (session) => {
+            await services.repositories.palettes.insert(doc, session);
+            if (userSlug) {
+                await createVersionRecord(
+                    services,
+                    {
+                        paletteSlug: body.slug,
+                        name: body.name,
+                        colors: body.colors,
+                        authorSlug: userSlug,
+                        parentHash: null,
+                        forkedFromHash: null,
+                    },
+                    session,
+                );
+            }
+        });
     } catch (e) {
         if ((e as { code?: number })?.code === 11000) {
             throw new ConflictError("Duplicate entry");
         }
         throw e;
-    }
-
-    if (userSlug) {
-        await createVersionRecord(services, {
-            paletteSlug: body.slug,
-            name: body.name,
-            colors: body.colors,
-            authorSlug: userSlug,
-            parentHash: null,
-            forkedFromHash: null,
-        });
     }
 
     const saved = await services.repositories.palettes.findBySlug(body.slug);
@@ -165,19 +176,33 @@ export async function patchPalette(
     if (contentChanged) {
         $set.currentHash = newHash;
         $set.versionCount = (palette.versionCount ?? 1) + 1;
-        if (userSlug) {
-            await createVersionRecord(services, {
-                paletteSlug: slug,
-                name: newName,
-                colors: newColors,
-                authorSlug: userSlug,
-                parentHash: palette.currentHash,
-                forkedFromHash: null,
-            });
-        }
     }
 
-    await services.repositories.palettes.update(slug, { $set });
+    // Patch is a cross-collection write when content changes AND the caller
+    // is attributable: insert the new version record AND mutate the palette
+    // document in lock-step (H.W1 Lane A — H1 invariant). A partial failure
+    // must not leave a palette whose `currentHash` points at a version row
+    // that never committed, nor a freshly-inserted version row that the
+    // palette never adopted. When content is unchanged this still runs as a
+    // single-statement transaction — cheap, and keeps the call site uniform.
+    await services.withTransaction(async (session) => {
+        if (contentChanged && userSlug) {
+            await createVersionRecord(
+                services,
+                {
+                    paletteSlug: slug,
+                    name: newName,
+                    colors: newColors,
+                    authorSlug: userSlug,
+                    parentHash: palette.currentHash,
+                    forkedFromHash: null,
+                },
+                session,
+            );
+        }
+        await services.repositories.palettes.update(slug, { $set }, session);
+    });
+
     const updated = await services.repositories.palettes.findBySlug(slug);
     if (!updated) throw new NotFoundError("Palette missing after update");
     return formatPalette(updated as Palette & { _id: unknown });

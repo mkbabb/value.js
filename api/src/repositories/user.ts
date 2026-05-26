@@ -15,13 +15,21 @@ export class UserRepository {
         return this.col.findOne({ _id: slug }, session ? { session } : undefined);
     }
 
-    async insert(user: User): Promise<void> {
-        await this.col.insertOne(user);
+    async insert(user: User, session?: ClientSession): Promise<void> {
+        await this.col.insertOne(user, session ? { session } : undefined);
     }
 
-    setStatus(slug: string, status: UserStatus): Promise<void> {
+    setStatus(
+        slug: string,
+        status: UserStatus,
+        session?: ClientSession,
+    ): Promise<void> {
         return this.col
-            .updateOne({ _id: slug }, { $set: { status } })
+            .updateOne(
+                { _id: slug },
+                { $set: { status } },
+                session ? { session } : undefined,
+            )
             .then(() => undefined);
     }
 
@@ -39,9 +47,17 @@ export class UserRepository {
             .then((r) => r.modifiedCount);
     }
 
-    touchLastSeen(slug: string, when: Date): Promise<void> {
+    touchLastSeen(
+        slug: string,
+        when: Date,
+        session?: ClientSession,
+    ): Promise<void> {
         return this.col
-            .updateOne({ _id: slug }, { $set: { lastSeenAt: when } })
+            .updateOne(
+                { _id: slug },
+                { $set: { lastSeenAt: when } },
+                session ? { session } : undefined,
+            )
             .then(() => undefined);
     }
 
@@ -51,8 +67,13 @@ export class UserRepository {
             .then((r) => r.deletedCount);
     }
 
-    deleteMany(slugs: string[]): Promise<number> {
-        return this.col.deleteMany({ _id: { $in: slugs } }).then((r) => r.deletedCount);
+    deleteMany(slugs: string[], session?: ClientSession): Promise<number> {
+        return this.col
+            .deleteMany(
+                { _id: { $in: slugs } },
+                session ? { session } : undefined,
+            )
+            .then((r) => r.deletedCount);
     }
 
     /**

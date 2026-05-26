@@ -55,7 +55,8 @@ export interface MeResult {
 export async function registerSession(
     c: Context<AppEnv>,
 ): Promise<RegisterResult> {
-    const { users, sessions } = c.var.services.repositories;
+    const services = c.var.services;
+    const { users, sessions } = services.repositories;
 
     const ip = resolveIP(c);
     const ipHash = await hashIP(ip);
@@ -64,19 +65,32 @@ export async function registerSession(
 
     const userSlug = await generateUniqueSlug(users);
 
-    await users.insert({
-        _id: userSlug,
-        createdAt: now,
-        lastSeenAt: now,
-    });
-
-    await sessions.insert({
-        _id: token,
-        ipHash,
-        userSlug,
-        createdAt: now,
-        lastSeenAt: now,
-        expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
+    // Cross-collection write (H.W1 Lane A.2 — H1 invariant): the user row
+    // and its first session insert atomically. A partial failure (driver
+    // hiccup, write-concern timeout) must not leave an orphan user with no
+    // session — both writes thread `session`. `generateUniqueSlug` runs
+    // OUTSIDE the closure because it executes its own reads against the
+    // primary; the txn is scoped to the two writes only.
+    await services.withTransaction(async (session) => {
+        await users.insert(
+            {
+                _id: userSlug,
+                createdAt: now,
+                lastSeenAt: now,
+            },
+            session,
+        );
+        await sessions.insert(
+            {
+                _id: token,
+                ipHash,
+                userSlug,
+                createdAt: now,
+                lastSeenAt: now,
+                expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
+            },
+            session,
+        );
     });
 
     return { token, userSlug };
@@ -86,7 +100,8 @@ export async function loginSession(
     c: Context<AppEnv>,
     input: { slug: string },
 ): Promise<LoginResult> {
-    const { users, sessions } = c.var.services.repositories;
+    const services = c.var.services;
+    const { users, sessions } = services.repositories;
     const { slug } = input;
 
     // Refuse switching to the slug the current session already owns.
@@ -110,16 +125,24 @@ export async function loginSession(
     const token = crypto.randomUUID();
     const now = new Date();
 
-    await sessions.insert({
-        _id: token,
-        ipHash,
-        userSlug: slug,
-        createdAt: now,
-        lastSeenAt: now,
-        expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
+    // Cross-collection write (H.W1 Lane A.2 — H1 invariant): the new
+    // session row and the user's `lastSeenAt` touch must commit atomically.
+    // A partial failure must not leave a live session with a stale
+    // `lastSeenAt`, nor a touched user with no corresponding session.
+    await services.withTransaction(async (txnSession) => {
+        await sessions.insert(
+            {
+                _id: token,
+                ipHash,
+                userSlug: slug,
+                createdAt: now,
+                lastSeenAt: now,
+                expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
+            },
+            txnSession,
+        );
+        await users.touchLastSeen(slug, now, txnSession);
     });
-
-    await users.touchLastSeen(slug, now);
 
     return { token, userSlug: slug };
 }

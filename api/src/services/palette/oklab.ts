@@ -38,11 +38,22 @@ export function cssToOklab(css: string): OklabTriple {
 
     const hexMatch = s.match(/^#([0-9a-f]{3,8})$/);
     if (hexMatch) {
-        const h = hexMatch[1];
+        // The outer regex guarantees the body capture group is present and
+        // non-empty; the destructure is defensive — under
+        // `noUncheckedIndexedAccess` TS can't prove regex semantics, so we
+        // narrow explicitly.
+        const [, h] = hexMatch;
+        if (h === undefined) {
+            throw new ValidationError(`Unsupported hex color: ${css}`);
+        }
         if (h.length === 3) {
-            r = parseInt(h[0] + h[0], 16) / 255;
-            g = parseInt(h[1] + h[1], 16) / 255;
-            b = parseInt(h[2] + h[2], 16) / 255;
+            const [c0, c1, c2] = h;
+            if (c0 === undefined || c1 === undefined || c2 === undefined) {
+                throw new ValidationError(`Unsupported hex color: ${css}`);
+            }
+            r = parseInt(c0 + c0, 16) / 255;
+            g = parseInt(c1 + c1, 16) / 255;
+            b = parseInt(c2 + c2, 16) / 255;
         } else if (h.length === 6 || h.length === 8) {
             r = parseInt(h.slice(0, 2), 16) / 255;
             g = parseInt(h.slice(2, 4), 16) / 255;
@@ -55,9 +66,13 @@ export function cssToOklab(css: string): OklabTriple {
     } else {
         const rgbMatch = s.match(/^rgba?\(\s*(\d+)\s*,?\s*(\d+)\s*,?\s*(\d+)/);
         if (rgbMatch) {
-            r = parseInt(rgbMatch[1]) / 255;
-            g = parseInt(rgbMatch[2]) / 255;
-            b = parseInt(rgbMatch[3]) / 255;
+            const [, rs, gs, bs] = rgbMatch;
+            if (rs === undefined || gs === undefined || bs === undefined) {
+                throw new ValidationError(`Unsupported color format: ${css}`);
+            }
+            r = parseInt(rs) / 255;
+            g = parseInt(gs) / 255;
+            b = parseInt(bs) / 255;
         } else {
             throw new ValidationError(
                 `Unsupported color format: ${css} (the API accepts hex (#rgb/#rrggbb) and rgb()/rgba() only)`,

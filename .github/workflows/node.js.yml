@@ -121,6 +121,9 @@ jobs:
             - name: Proof — as-any budget ≤ 5 in src/ (G2 invariant; G.W3 Lane D)
               run: npm run proof:as-any-budget
 
+            - name: Proof — as-unknown-as budget ≤ 2 in src/ (H2 invariant; H.W2 Lane B)
+              run: npm run proof:as-unknown-as-budget
+
             - name: Proof — no :deep() / ::v-deep in demo/ + src/ (G.W3 Lane J)
               run: npm run proof:no-deep
 

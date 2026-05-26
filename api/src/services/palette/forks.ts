@@ -16,8 +16,8 @@ const SLUG_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
 
 export interface ForkInput {
     sourceSlug: string;
-    name?: string;
-    slug?: string;
+    name?: string | undefined;
+    slug?: string | undefined;
     sessionToken: string;
     userSlug: string;
 }

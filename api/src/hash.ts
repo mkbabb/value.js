@@ -1,10 +1,5 @@
 import { createHash } from "node:crypto";
-
-export interface PaletteColor {
-    css: string;
-    name?: string;
-    position: number;
-}
+import type { PaletteColor } from "./models.js";
 
 /**
  * Compute a deterministic SHA-256 content hash for palette content.

@@ -24,8 +24,8 @@ import type { Palette, PaletteColor, User, UserStatus } from "../../models.js";
 export interface UserListEntry {
     slug: string;
     createdAt: Date;
-    lastSeenAt?: Date;
-    status?: UserStatus;
+    lastSeenAt?: Date | undefined;
+    status?: UserStatus | undefined;
     paletteCount: number;
 }
 
@@ -106,16 +106,25 @@ export async function setUserStatus(
     slug: string,
     status: UserStatus,
 ): Promise<void> {
-    const { users, sessions } = c.var.services.repositories;
+    const services = c.var.services;
+    const { users, sessions } = services.repositories;
     const user = await users.findBySlug(slug);
     if (!user) {
         throw new NotFoundError("User not found");
     }
-    await users.setStatus(slug, status);
-    // Invalidate sessions on suspension
-    if (status === "suspended") {
-        await sessions.deleteByUserSlug(slug);
-    }
+    // Cross-collection write on the suspend branch (H.W1 Lane A.2 — H1
+    // invariant): flip user status AND invalidate cascading sessions in
+    // lock-step. Mirrors `batchUsers(suspend)` at `batch.ts:87` (G.W3 Lane
+    // E). Wrapped unconditionally to keep the call site uniform — the
+    // single-collection `unsuspend` branch runs as a single-statement
+    // transaction (cheap). Post-txn `emitAuditEvent` stays befitting-
+    // graceful per D3.
+    await services.withTransaction(async (session) => {
+        await users.setStatus(slug, status, session);
+        if (status === "suspended") {
+            await sessions.deleteByUserSlug(slug, session);
+        }
+    });
     await emitAuditEvent(c, "set-user-status", { target: `slug=${slug} status=${status}` });
 }
 
@@ -184,18 +193,31 @@ export async function deleteUserPalettes(
     c: Context<AppEnv>,
     slug: string,
 ): Promise<number> {
-    const { users, palettes, votes, flags } = c.var.services.repositories;
+    const services = c.var.services;
+    const { users, palettes, votes, flags } = services.repositories;
     const user = await users.findBySlug(slug);
     if (!user) {
         throw new NotFoundError("User not found");
     }
-    const userPalettes = await palettes.findByUserSlug(slug, 0, 10_000);
-    const paletteSlugs = userPalettes.map((p) => p.slug);
-    if (paletteSlugs.length > 0) {
-        await votes.deleteByPaletteSlugs(paletteSlugs);
-        await flags.deleteByPaletteSlugs(paletteSlugs);
-    }
-    const deletedCount = await palettes.deleteManyByUserSlug(slug);
+    // Cascade inside a single transaction (H.W1 Lane A.2 — H1 invariant).
+    // Mirrors `batchPalettes(delete)` at `batch.ts:38` but scoped by
+    // userSlug. A partial failure must not leave orphaned vote/flag rows
+    // pointing at deleted palettes. Post-txn `emitAuditEvent` stays
+    // befitting-graceful per D3.
+    const deletedCount = await services.withTransaction(async (session) => {
+        const userPalettes = await palettes.findByUserSlug(
+            slug,
+            0,
+            10_000,
+            session,
+        );
+        const paletteSlugs = userPalettes.map((p) => p.slug);
+        if (paletteSlugs.length > 0) {
+            await votes.deleteByPaletteSlugs(paletteSlugs, session);
+            await flags.deleteByPaletteSlugs(paletteSlugs, session);
+        }
+        return palettes.deleteManyByUserSlug(slug, session);
+    });
     await emitAuditEvent(c, "delete-user-palettes", {
         target: `slug=${slug} count=${deletedCount}`,
     });
@@ -203,14 +225,23 @@ export async function deleteUserPalettes(
 }
 
 export async function pruneEmptyUsers(c: Context<AppEnv>): Promise<number> {
-    const { users, sessions } = c.var.services.repositories;
+    const services = c.var.services;
+    const { users, sessions } = services.repositories;
     const slugs = await users.findEmptyUserSlugs();
     if (slugs.length === 0) {
         await emitAuditEvent(c, "prune-empty-users", { target: "count=0" });
         return 0;
     }
-    await sessions.deleteByUserSlugs(slugs);
-    const deleted = await users.deleteMany(slugs);
+    // Cross-collection write (H.W1 Lane A.2 — H1 invariant): delete the
+    // empty-user rows AND invalidate any cascading sessions in lock-step.
+    // A partial failure must not leave live session tokens for users that
+    // have been pruned, nor users without sessions whose slugs are still
+    // claimed in the users collection. Post-txn `emitAuditEvent` stays
+    // befitting-graceful per D3.
+    const deleted = await services.withTransaction(async (session) => {
+        await sessions.deleteByUserSlugs(slugs, session);
+        return users.deleteMany(slugs, session);
+    });
     await emitAuditEvent(c, "prune-empty-users", { target: `count=${deleted}` });
     return deleted;
 }

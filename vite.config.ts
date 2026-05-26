@@ -94,6 +94,21 @@ export default defineConfig((mode) => {
                 },
                 rolldownOptions: {
                     external: ["vue", "@mkbabb/parse-that"],
+                    // H.W4 Lane A — strip per-module `//#region src/...` source-
+                    // navigation markers from `dist/value.js`. Default is
+                    // `'simple'`, which emits one `//#region` + `//#endregion`
+                    // pair per source module (artefact of the G.W1 1→9-module
+                    // color/conversions decomposition; ~+314 B in the published
+                    // bundle). `'none'` attaches no debug information and is
+                    // appropriate for the library build, where the bundled
+                    // output is consumed verbatim by downstream packages and
+                    // source-navigation lives in the sourcemap, not in inline
+                    // comments. See
+                    // `node_modules/rolldown/dist/shared/define-config-
+                    // CeKzMIcs.d.mts:3613-3625` (`AttachDebugOptions`).
+                    experimental: {
+                        attachDebugInfo: "none",
+                    },
                 },
             },
             esbuild: {

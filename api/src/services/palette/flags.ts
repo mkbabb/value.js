@@ -19,7 +19,7 @@ export interface FlagInput {
     paletteSlug: string;
     reporterSlug: string;
     reason: FlagReason;
-    detail?: string;
+    detail?: string | undefined;
 }
 
 export async function flagPalette(

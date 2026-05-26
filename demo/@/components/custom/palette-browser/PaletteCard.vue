@@ -147,55 +147,25 @@
             @leave="onLeave"
             @after-leave="onAfterLeave"
         >
-            <div v-if="expanded" @click.stop class="overflow-hidden">
-                <!-- User slug display -->
-                <div v-if="showSlug && displaySlug" class="px-3 pt-2.5 flex items-center gap-1.5 border-t border-border/15">
-                    <span
-                        class="text-mono-small font-bold px-2 py-0.5 rounded-full border truncate max-w-tooltip"
-                        :style="{ color: safeFirstColor, borderColor: safeFirstColor }"
-                    >{{ displaySlug }}</span>
-                    <!-- W5-a11y: icon-only copy button needs accessible name -->
-                    <button
-                        class="p-0.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-                        :aria-label="`Copy slug ${displaySlug}`"
-                        @click="copyToClipboard(displaySlug)"
-                    >
-                        <Copy class="w-3 h-3 text-muted-foreground" aria-hidden="true" />
-                    </button>
-                </div>
-                <div
-                    class="px-3 pb-3 flex flex-wrap gap-2 items-start pt-3 min-w-0"
-                    :class="!(showSlug && displaySlug) && 'border-t border-border/15'"
-                >
-                    <SwatchHoverMenu
-                        v-for="(color, i) in palette.colors"
-                        :key="`${color.css}-${i}`"
-                        :color="color.css"
-                        :open="openPopoverIndex === i"
-                        :can-hover="canHover"
-                        :floating-style="{ ...floatingStyle, transform: 'translateX(-50%)' }"
-                        :size-class="swatchClass"
-                        @hover="onSwatchHover(i, $event)"
-                        @leave="onSwatchLeave()"
-                        @cancel-leave="cancelSwatchLeave()"
-                        @click="onSwatchClick(i)"
-                        @update:open="(v: boolean) => onPopoverUpdateTouch(v, i)"
-                    >
-                        <template #actions>
-                            <!-- W5-a11y: icon-only buttons need explicit aria-label -->
-                            <button v-if="!palette.isLocal" :aria-label="`Add ${color.css} to current palette`" @click="onPopoverAdd(color.css)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                                <Plus class="w-4 h-4" aria-hidden="true" />
-                            </button>
-                            <button :aria-label="`Edit color ${color.css}`" @click="onPopoverEdit(color, i)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                                <Pencil class="w-4 h-4" aria-hidden="true" />
-                            </button>
-                            <button :aria-label="`Copy color ${color.css}`" @click="onPopoverCopy(color.css)" class="p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                                <Copy class="w-4 h-4" aria-hidden="true" />
-                            </button>
-                        </template>
-                    </SwatchHoverMenu>
-                </div>
-            </div>
+            <PaletteCardSwatches
+                v-if="expanded"
+                :colors="palette.colors"
+                :is-local="palette.isLocal"
+                :display-slug="showSlug ? displaySlug : undefined"
+                :safe-first-color="safeFirstColor"
+                :open-popover-index="openPopoverIndex"
+                :can-hover="canHover"
+                :floating-style="floatingStyle"
+                :swatch-class="swatchClass"
+                @hover="onSwatchHover"
+                @leave="onSwatchLeave()"
+                @cancel-leave="cancelSwatchLeave()"
+                @swatch-click="onSwatchClick"
+                @popover-touch="onPopoverUpdateTouch"
+                @popover-add="onPopoverAdd"
+                @popover-edit="onPopoverEdit"
+                @popover-copy="onPopoverCopy"
+            />
         </Transition>
         </div><!-- /card body -->
     </div>
@@ -205,11 +175,8 @@
 import { ref, computed } from "vue";
 import { Badge } from "@components/ui/badge";
 import {
-    Copy,
     Heart,
     Award,
-    Pencil,
-    Plus,
     MoreHorizontal,
     GripVertical,
     GitFork,
@@ -223,9 +190,9 @@ import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 import { useHoverPopover } from "./composables/useHoverPopover";
 import { useHeightTransition } from "./composables/useHeightTransition";
-import SwatchHoverMenu from "./SwatchHoverMenu.vue";
 import PaletteColorStrip from "./PaletteColorStrip.vue";
 import PaletteCardMenu from "./PaletteCardMenu.vue";
+import PaletteCardSwatches from "./PaletteCardSwatches.vue";
 import PaletteRenameInput from "./PaletteRenameInput.vue";
 import ActionFeedback from "./ActionFeedback.vue";
 
@@ -298,15 +265,6 @@ const {
 
 const menuOpen = ref(false);
 
-function toggleMenu() {
-    menuOpen.value = !menuOpen.value;
-}
-
-function onMenuAction(fn: () => void, _isAdmin?: boolean) {
-    menuOpen.value = false;
-    fn();
-}
-
 const {
     onBeforeEnter,
     onEnter,
@@ -329,9 +287,8 @@ function onRenameSubmit(newName: string) {
 }
 
 function handleMenuAction(action: string) {
-    const adminActions = new Set(["feature", "adminDelete"]);
-    const isAdminAction = adminActions.has(action);
-
+    // `rename` opens an inline input — keep the menu open visually until the
+    // input takes focus; all other actions close the menu immediately.
     const actions: Record<string, () => void> = {
         copyAll: () => copyToClipboard(props.palette.colors.map((c) => c.css).join(", ")),
         publish: () => emit("publish", props.palette),
@@ -352,13 +309,9 @@ function handleMenuAction(action: string) {
     };
 
     const fn = actions[action];
-    if (fn) {
-        if (action === "rename") {
-            fn();
-        } else {
-            onMenuAction(fn, isAdminAction);
-        }
-    }
+    if (!fn) return;
+    if (action !== "rename") menuOpen.value = false;
+    fn();
 }
 
 function onPopoverAdd(css: string) {
