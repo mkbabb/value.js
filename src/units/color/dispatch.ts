@@ -77,9 +77,46 @@ export const getFormattedColorSpaceRange = <T extends ColorSpace>(colorSpace: T)
     return acc as ColorSpaceMap<{ min: string; max: string }>[T];
 };
 
-// ── XYZ-hub dispatch table ──
+// ──────────────────────────────────────────────────────────────────────────────
+// XYZ-hub dispatch table.
+//
+// `color2()` routes every non-direct conversion through XYZ D65 as a hub. The
+// `XYZ_FUNCTIONS` table wires per-space `{ to, from }` converters keyed by
+// `ColorSpace` — `to` lifts the source space into XYZ; `from` lowers XYZ into
+// the target space.
+//
+// H.W2 Lane A (H-OPP-1) — typed `XyzFunctionsTable` mapped-type. The table is
+// keyed by `ColorSpace`. Distributing over the key + capturing the slot type
+// `C` via the conditional-type inference `K extends C ? ... : never` yields the
+// EXACT per-slot `{ to: (Color<number>) => XYZColor; from: (XYZColor) =>
+// Color<number> }` signature per pair, so each conversion function's concrete
+// signature type-checks at its slot cast-free. Mirrors the G.W2 Lane B
+// `DirectPathsTable` precedent (`conversions/direct.ts`).
+// ──────────────────────────────────────────────────────────────────────────────
 
-const XYZ_FUNCTIONS: Record<string, { to: (color: any) => XYZColor; from: (color: XYZColor) => any }> = {
+/**
+ * A pair of `{ to, from }` XYZ-hub converters for color space `C`. `to` lifts a
+ * `C`-typed color into `XYZColor`; `from` lowers `XYZColor` into a `C`-typed
+ * color. Component type is concrete `number` — the dispatch site reads numeric
+ * channels and produces `number`-component colors (matches the per-space
+ * `{from}2xyz` / `xyz2{to}` signatures in `conversions/`).
+ */
+type XyzFunctions<C extends ColorSpace> = {
+    to: (color: ColorSpaceMap<number>[C]) => XYZColor;
+    from: (color: XYZColor) => ColorSpaceMap<number>[C];
+};
+
+/**
+ * Distributes over every `ColorSpace` key; each entry is the exact
+ * `{ to, from }` signature pair for that space, derived by conditional-type
+ * inference. The `xyz` slot resolves to identity `(XYZColor) => XYZColor`
+ * naturally — no special-case needed.
+ */
+type XyzFunctionsTable = {
+    [K in ColorSpace]: K extends ColorSpace ? XyzFunctions<K> : never;
+};
+
+const XYZ_FUNCTIONS: XyzFunctionsTable = {
     rgb: { to: rgb2xyz, from: xyz2rgb },
 
     hsl: { to: hsl2xyz, from: xyz2hsl },
@@ -102,6 +139,34 @@ const XYZ_FUNCTIONS: Record<string, { to: (color: any) => XYZColor; from: (color
     "prophoto-rgb": { to: proPhoto2xyz, from: xyz2proPhoto },
     rec2020: { to: rec20202xyz, from: xyz2rec2020 },
 };
+
+/**
+ * Typed `XYZ_FUNCTIONS` lookup pair. Both mirror the G.W2 Lane B
+ * `getDirectPath` precedent: each is keyed by a runtime value, so TS cannot
+ * statically pick a single `XyzFunctionsTable` slot — a value-keyed read
+ * collapses to the *union* of all per-slot signatures (uncallable on a
+ * single-shape arg). The lone `as` in each helper re-asserts the runtime-keyed
+ * entry as the dispatch-site signature — a documented index-narrowing, not a
+ * type-erasing double cast.
+ *
+ * `getXyzToFn` widens its return-fn input to `Color<number>` rather than the
+ * source-space subclass: the dispatch site only has `Color<T>` statically;
+ * `Color<number>` shares the `[key: string]: any` index signature with every
+ * subclass, so the per-space `{from}2xyz` body's property reads (`{ r, g, b }
+ * = color`) succeed via that overlap, and the runtime `color.colorSpace`
+ * discriminant guarantees the correct subclass is in hand.
+ */
+const getXyzToFn = (
+    from: ColorSpace,
+): ((color: Color<number>) => XYZColor) | undefined =>
+    XYZ_FUNCTIONS[from]?.to as ((color: Color<number>) => XYZColor) | undefined;
+
+const getXyzFromFn = <C extends ColorSpace>(
+    to: C,
+): ((color: XYZColor) => ColorSpaceMap<number>[C]) | undefined =>
+    XYZ_FUNCTIONS[to]?.from as
+        | ((color: XYZColor) => ColorSpaceMap<number>[C])
+        | undefined;
 
 // ──────────────────────────────────────────────────────────────────────────────
 // DIRECT_PATHS hot-path table.
@@ -128,23 +193,18 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
         return direct(color as Color<number>) as ColorSpaceMap<T>[C];
     }
 
-    const fromEntry = XYZ_FUNCTIONS[color.colorSpace];
-    if (!fromEntry) {
+    // XYZ-hub fallback — both halves via the typed lookups above.
+    const toXYZFn = getXyzToFn(color.colorSpace);
+    if (!toXYZFn) {
         throw new Error(`Unknown source color space: "${color.colorSpace}"`);
     }
+    const xyz = toXYZFn(color as Color<number>) as XYZColor<T>;
 
-    const toEntry = XYZ_FUNCTIONS[to as ColorSpace];
-    if (!toEntry) {
+    const fromXYZFn = getXyzFromFn<C>(to);
+    if (!fromXYZFn) {
         throw new Error(`Unknown target color space: "${to}"`);
     }
-
-    const xyz = fromEntry.to(color) as XYZColor<T>;
-
-    const fromXYZFn = toEntry.from as unknown as (
-        color: XYZColor<T>,
-    ) => ColorSpaceMap<T>[C];
-
-    return fromXYZFn(xyz);
+    return fromXYZFn(xyz as XYZColor) as ColorSpaceMap<T>[C];
 }
 
 const GAMUT_EPSILON = 1e-6;
