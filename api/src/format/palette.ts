@@ -32,7 +32,7 @@ export interface FormattedPalette {
     forkCount: number;
     versionCount: number;
     isLocal: false;
-    voted?: boolean;
+    voted?: boolean | undefined;
 }
 
 /**

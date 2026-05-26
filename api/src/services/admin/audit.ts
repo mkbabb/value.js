@@ -19,10 +19,10 @@ export interface AuditEntryDTO {
     id: string;
     timestamp: Date;
     action: string;
-    target?: string;
-    ipHash?: string;
-    actorSlug?: string | null;
-    payload?: Record<string, unknown>;
+    target?: string | undefined;
+    ipHash?: string | undefined;
+    actorSlug?: string | null | undefined;
+    payload?: Record<string, unknown> | undefined;
 }
 
 export interface AuditPage {
@@ -35,10 +35,10 @@ export interface AuditPage {
 export interface AuditQuery {
     limit: number;
     offset: number;
-    action?: string;
-    target?: string;
-    after?: string;
-    before?: string;
+    action?: string | undefined;
+    target?: string | undefined;
+    after?: string | undefined;
+    before?: string | undefined;
 }
 
 function format(doc: AdminAuditEvent & { _id: unknown }): AuditEntryDTO {

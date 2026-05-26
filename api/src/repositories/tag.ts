@@ -2,7 +2,7 @@
  * TagRepository — owns query/write ops for the `tags` collection.
  */
 
-import type { Collection, ObjectId, WithoutId } from "mongodb";
+import type { ClientSession, Collection, ObjectId, WithoutId } from "mongodb";
 import type { Tag } from "../models.js";
 
 export class TagRepository {
@@ -21,7 +21,9 @@ export class TagRepository {
         return result.insertedId;
     }
 
-    deleteByName(name: string): Promise<number> {
-        return this.col.deleteOne({ name }).then((r) => r.deletedCount);
+    deleteByName(name: string, session?: ClientSession): Promise<number> {
+        return this.col
+            .deleteOne({ name }, session ? { session } : undefined)
+            .then((r) => r.deletedCount);
     }
 }

@@ -22,7 +22,7 @@ import type { ProposedNameDTO } from "./queries.js";
 export interface ProposeInput {
     name: string;
     css: string;
-    contributor?: string;
+    contributor?: string | undefined;
 }
 
 export async function proposeColor(

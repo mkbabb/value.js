@@ -44,7 +44,12 @@ export type FlagReason = (typeof FLAG_REASONS)[number];
 
 export interface PaletteColor {
     css: string;
-    name?: string;
+    /**
+     * Optional human-readable name. `undefined` is accepted alongside absent so
+     * zod-parsed inputs (where `.optional()` emits `string | undefined`) flow
+     * through without a normalization step.
+     */
+    name?: string | undefined;
     position: number;
 }
 
@@ -118,10 +123,10 @@ export interface Session {
     /** _id is the session token (uuid). */
     _id: string;
     ipHash: string;
-    userSlug?: string;
+    userSlug?: string | undefined;
     createdAt: Date;
     lastSeenAt: Date;
-    expiresAt?: Date;
+    expiresAt?: Date | undefined;
 }
 
 // ---------------------------------------------------------------
@@ -171,13 +176,13 @@ export interface AdminAuditEvent {
     timestamp: Date;
     action: string;
     /** IP hash of the admin actor; populated by audit middleware. */
-    ipHash?: string;
+    ipHash?: string | undefined;
     /** Free-form target description: "slug=foo", "id=...", etc. */
-    target?: string;
+    target?: string | undefined;
     /** Slug of the admin user (D.W2 evolution). */
-    actorSlug?: string | null;
+    actorSlug?: string | null | undefined;
     /** Structured payload; replaces the stringly-typed `target` for new emits. */
-    payload?: Record<string, unknown>;
+    payload?: Record<string, unknown> | undefined;
 }
 
 // ---------------------------------------------------------------
@@ -188,6 +193,6 @@ export interface User {
     /** _id is the user slug. */
     _id: string;
     createdAt: Date;
-    lastSeenAt?: Date;
-    status?: UserStatus;
+    lastSeenAt?: Date | undefined;
+    status?: UserStatus | undefined;
 }

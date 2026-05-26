@@ -178,9 +178,13 @@ export class PaletteRepository {
      * Remove a tag from every palette that carries it (admin tag-delete cascade).
      * Returns the number of palettes touched.
      */
-    pullTagFromAll(tag: string): Promise<number> {
+    pullTagFromAll(tag: string, session?: ClientSession): Promise<number> {
         return this.col
-            .updateMany({ tags: tag }, { $pull: { tags: tag } })
+            .updateMany(
+                { tags: tag },
+                { $pull: { tags: tag } },
+                session ? { session } : undefined,
+            )
             .then((r) => r.modifiedCount);
     }
 }
