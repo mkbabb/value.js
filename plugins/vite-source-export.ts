@@ -1,5 +1,5 @@
 import type { Plugin } from "vite";
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 
 const QUERY = "?source";
 
