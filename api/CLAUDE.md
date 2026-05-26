@@ -81,7 +81,19 @@ validate → authn → authz → service → repository → format → response
 
 ### Cross-collection transactions
 
-Cross-collection mutations wrap in `services.withTransaction(async (session) => { ... })`. `makeWithTransaction` is the factory in `middleware/inject-services.ts`, hung off the `Services` DI object. G.W3 Lane E expanded coverage from 3 → **7 sites**: `deleteUser`, `forkPalette`, `toggleVote` (the 3 F-window sites) + `deletePalette`, `revertToVersion`, `batchPalettes(delete)`, `batchUsers(suspend)` (the 4 G.W3 additions).
+Cross-collection mutations wrap in `services.withTransaction(async (session) => { ... })`. `makeWithTransaction` is the factory in `middleware/inject-services.ts`, hung off the `Services` DI object.
+
+**Coverage history**: F-window 3 sites → G.W3 Lane E 7 sites → **H.W1 expanded to 16 sites** (the H1 invariant maximalist closure):
+- F-window (3): `deleteUser`, `forkPalette`, `toggleVote`.
+- G.W3 Lane E (+4 = 7): `deletePalette`, `revertToVersion`, `batchPalettes(delete)`, `batchUsers(suspend)`.
+- **H.W1 Lane A (+2 = 9)**: `createPalette`, `patchPalette` (the H-AUDIT-6 §3 defect repair — orphan-version exposure class closed).
+- **H.W1 Lane A.2 in-wave extension (+7 = 16)**: `registerSession`, `loginSession`, `deletePalette` (admin variant), `setUserStatus`, `deleteUserPalettes`, `pruneEmptyUsers`, `deleteTag`.
+
+**Standing reference**: `docs/tranches/H/audit/api-withTransaction-coverage.md` — exhaustive enumeration of every cross-collection write site + its session status (WRAPPED / DEFERRED-WITH-RATIONALE / SINGLE-COLLECTION). The H1 invariant codifier — adding a new cross-collection write site WITHOUT updating this list is itself the regression the invariant guards against. See §5.2 for the reviewer's checklist + §5.4 for the rollback-test convention.
+
+### Strictness (H.W1 Lane B — root parity)
+
+`api/tsconfig.json` matches root strictness as of H.W1. The 4 flags lifted at H.W1 Lane B: `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `verbatimModuleSyntax`, `isolatedModules`. 36 surfaced errors repaired genuinely (zero `@ts-ignore`, zero `as any`, zero `as unknown as` added). Incidental: a latent duplicate `PaletteColor` interface in `src/hash.ts` unified to the canonical `models.ts` source-of-truth.
 
 ## Database (MongoDB)
 
