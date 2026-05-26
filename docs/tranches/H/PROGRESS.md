@@ -58,8 +58,8 @@ Plan substrate: `H.md`, `H-PROMPTS.md`, `findings.md`, `audit/H-AUDIT-1..6` (6 a
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | H.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-22 | 2026-05-26 | `cacdb14` open + close-ratification |
-| H.W1 — api/ cascade-correctness + strictness lift | **closed** | 2026-05-26 | 2026-05-26 | `ef39ad9` Lanes A + A.2 + B impl + (Lane C audit-list commit follows) |
-| H.W2 — type-system completion II (`as unknown as` ≤ 3) | planned | — | — | — |
+| H.W1 — api/ cascade-correctness + strictness lift | **closed** | 2026-05-26 | 2026-05-26 | `ef39ad9` Lanes A + A.2 + B impl + `9c32e7a` Lane C audit-list + PROGRESS |
+| H.W2 — type-system completion II (`as unknown as` ≤ 2; tightened from plan's 3) | **closed** | 2026-05-26 | 2026-05-26 | `62fe15d` Lanes A + C retirements + `(this commit)` Lane B codifier + PROGRESS |
 | H.W3 — demo decomposition + invariant extension | planned | — | — | — |
 | H.W4 — micro-polish + flake mitigation + close docs | planned | — | — | — |
 | H.W5 HEADLINE close — FINAL.md, merge, vN.N.N tag | planned | — | — | — |
@@ -115,6 +115,36 @@ Lane B (api/tsconfig strictness lift to root parity — 4 flags) ran sequentiall
 - (following commit) — Lane C standing reference + PROGRESS.md update.
 
 **Carry-forward at H.W1 close**: NONE. H1 invariant fully closed for the maximalist reading. The 3 remaining DEFERRED entries (D1, D2, D3) all carry defensible documented carve-outs (D1 batchUsers(delete) per-row already-transactional + in-code comment; D2 emitAuditEvent befitting-graceful + comprehensive doc-comment at events/auditLog.ts; D3 impersonate via D2 carve-out).
+
+## 2026-05-26 — H.W2 close (Lanes A + B + C)
+
+H.W2 — type-system completion II (H2 invariant). Three lanes; Lanes A + C dispatched in parallel (file-disjoint: `src/units/color/dispatch.ts` vs `src/units/normalize.ts`); Lane B (the codifier) sequenced after so its budget reflected the actual post-(A+C) count.
+
+**Lane A** — typed `XyzFunctionsTable` mapped-type retires the XYZ-hub fallback cast at `src/units/color/dispatch.ts:143`. Two typed lookup helpers (`getXyzToFn` / `getXyzFromFn`) mirror G.W2 Lane B's `getDirectPath` precedent in `conversions/direct.ts`. Bench gates all GREEN (L8 10.49×, DIRECT_PATHS HSL→RGB 4.19×, nameParser 39.42×).
+
+**Lane C** — type-predicate `isColorValueUnit(value): value is Parameters<typeof normalizeColorUnits>[0]` retires the cast at `src/units/normalize.ts:319` AND removes a dead-helper runtime branch. The duplicated discriminant check at the call sites collapses into the predicate's narrowing — pure code cleanup driven by the type-retirement. `src/units/normalize.ts:117` (DOM `CSSStyleDeclaration` cast) examined + KEPT with a 7-line policy-comment classifying it as the DOM-structural-impossibility irreducible class per H.md §2 H2.
+
+**Budget-tightening adjustment**: H.W2.md anticipated budget = 3 (post-Lane-A count). Lane C retired more than the plan anticipated — the actual post-(A+C) count is **2**. Per the H2 invariant text "budget headroom is zero, count can only be lowered, never raised", **budget = 2** (no headroom, strictest reading). The plan's "≤ 3" is supplanted by the cleaner-than-anticipated outcome.
+
+**Lane B** — `scripts/proof-as-unknown-as-budget.mjs` (75 LoC; sub-60 target missed by header comment + budget-tightening rationale documentation co-located with the enforcement). Mirrors `scripts/proof-as-any-budget.mjs` (G.W3 Lane D) shape exactly. Wired into `package.json scripts` (sibling-adjacent to `proof:as-any-budget`) + `.github/workflows/node.js.yml` proof block (after the existing as-any-budget step).
+
+**Wave-level evidence**:
+- `npm run proof:as-unknown-as-budget` → PASS, exit 0, count = 2 ≤ 2.
+- `grep -rn 'as unknown as' src/ | wc -l` → 2 (was 4 at H open).
+- `npx vitest run` → 1584 / 34 pass.
+- `npx vue-tsc --noEmit` → 0 errors.
+- `npm run build` → exit 0; `dist/value.js` 125,421 B (delta −75 B from H open's 125,496; well under 148,480 ceiling).
+- Bench gates all ≥ floors.
+
+**Remaining 2 `as unknown as` sites** (now policy-documented + codified by `proof:as-unknown-as-budget` CI gate):
+1. `src/units/normalize.ts:117` — DOM-structural-impossibility (CSSStyleDeclaration).
+2. `src/parsing/color.ts:59` — clone-reinterpret (Color<T> generic widening across `.clone()` boundary).
+
+**Commits**:
+- `62fe15d` — Lanes A + C retirements (4 files, +544/−23).
+- (following commit) — Lane B codifier + PROGRESS.md update.
+
+**Carry-forward at H.W2 close**: NONE. H2 invariant fully closed for the maximalist reading with budget tightened to the actual residue.
 
 ## Authority
 
