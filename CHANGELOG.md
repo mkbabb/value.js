@@ -1,5 +1,36 @@
 # Changelog
 
+## [0.10.0] — 2026-05-26 (H close)
+
+### INTERNAL
+
+- **H1 — Cascade-correctness completion**. Cross-collection write sites wrapped in `services.withTransaction(...)` expanded **9 → 16** at H.W1. Lane A repaired the H-AUDIT-6 §3 defect (`createPalette` + `patchPalette` previously wrote across `palettes` + `palette_versions` without a transaction — orphan-version exposure class). The in-wave Lane A.2 extension (per F1 "no deferrals" + H1 maximalist invariant text) added 7 admin-tree wraps: `registerSession`, `loginSession`, admin-variant `deletePalette`, `setUserStatus`, `deleteUserPalettes`, `pruneEmptyUsers`, `deleteTag`. 9 new rollback tests (api vitest 106 → 115). Standing reference `docs/tranches/H/audit/api-withTransaction-coverage.md` enumerates every cross-collection site + its session status — the H1 invariant codifier.
+- **H2 — `as unknown as` corpus retired 4 → 2** in `src/`. Lane A: typed `XyzFunctionsTable` mapped-type at `units/color/dispatch.ts` (mirrors G.W2 Lane B's `DirectPathsTable` precedent). Lane C: type-predicate `isColorValueUnit` at `units/normalize.ts:319` (also removed a dead-helper double-discriminant check). The 2 residual sites are policy-documented irreducibles (`normalize.ts:117` DOM `CSSStyleDeclaration`; `parsing/color.ts:59` clone-reinterpret). Codified by NEW `proof:as-unknown-as-budget` script (budget = 2 — tightened from plan's 3 per the cleaner-than-anticipated outcome).
+- **H3 — No `demo/` god module**. Every `demo/` file (excluding `demo/@/components/ui/` shadcn-vue) is now ≤ 400 LoC. Lane A decomposed `demo/@/lib/palette/api.ts` (484 LoC, 13 sections) → 9 cohesion-honest modules under `api/` (max 110 LoC), with the old `api.ts` DELETED (no shim — directory-as-module resolution). Lane B decomposed `PointerDebugOverlay.vue` (449 → 286) via `DebugEventLog.vue` sub-component lift + `usePointerDebug` composable extraction, and `PaletteCard.vue` (435 → 388) via `PaletteCardSwatches.vue` sub-component lift. Lane C lifted the pure-data `colorSpaceInfo` (291 LoC) out of `color-picker/index.ts` (376 → 99); zero consumer impact (barrel re-export).
+- **H4 — Cross-tree invariant codification**. Three proof-script scope extensions land: `proof:no-ts-ignore` extended `src/` → `src/ + demo/` (with `--exclude-dir=ui` for vendored shadcn); `proof:no-bare-builtins` extended `api/src/` → `api/src/ + plugins/ + scripts/ + bench/`; NEW `proof:as-unknown-as-budget`. Demo `@ts-ignore` retired (2 sites in `useMarkdownHighlighting.ts` via `declare module "*.css?inline"` in `demo/color-picker/vite.d.ts`). `plugins/vite-source-export.ts` `from "fs"` → `from "node:fs"` outlier fixed. **All 9 proof scripts now run at their full applicability.**
+- **api/tsconfig.json lifted to root strictness** at H.W1 Lane B — 4 missing flags added (`noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `verbatimModuleSyntax`, `isolatedModules`). 36 surfaced errors repaired genuinely (zero `@ts-ignore`, zero `as any`, zero `as unknown as` added). Incidental: latent duplicate `PaletteColor` interface in `api/src/hash.ts` unified to canonical `models.ts` source-of-truth.
+- **Rolldown `//#region` markers stripped** from `dist/value.js` via `vite.config.ts` `rolldownOptions.experimental.attachDebugInfo: "none"` (scoped to production only). `dist/value.js` 125,496 B (G close) → **124,130 B** (−1,366 B). 4× the H-SEED ~314 B estimate. Bench gates all GREEN (L8 ≥ 5×, DIRECT_PATHS HSL→RGB ≥ 2×, nameParser ≥ 5×).
+- **Bench provenance hygiene**: 7 line-number references in `bench/color2-direct-paths.mjs` + `bench/parser-namelookup.mjs` repointed from `file:NNN` to `file: <SYMBOL>` (drift-resistant; line numbers churn on every refactor).
+- **E2E reactivity-instant flake mitigation**: `e2e/smoke/reactivity-instant.spec.ts` had TWO 200ms `waitForFunction` double-duty timeouts (the cited slider-keyboard at :198 AND a discovered symmetric spectrum-drag at :95). Outer "alive?" budget widened 200 → 2000ms; perceptual gates (50ms spectrum, 100ms slider) UNCHANGED.
+- **CONTRIBUTING.md + NEW docs/RELEASE.md**: the manual tranche-close publish ceremony is now codified (6 sections — prerequisites, pre-merge gate matrix, ceremony, rollback, cross-repo consumption, authority). NO automation (no `.github/workflows/release.yml`) — manual ceremony preserved per H-AUDIT-6 §3.4 Option (a).
+
+### DEPS
+
+- No dependency drift in H.
+
+### Stats
+
+- vitest: 1584 / 34 (unchanged from G close).
+- api vitest: 115 / 22 (+9 new H.W1 rollback tests; was 106 / 21).
+- e2e specs: 36 (unchanged from G close).
+- 9 proof scripts (was 8 at G close; +1 from H.W2 Lane B `proof:as-unknown-as-budget`; 2 scope-extended at H.W3 Lanes D+E).
+- vue-tsc: 0 errors.
+- `dist/value.js`: 124,130 B (−1,366 B from G close's 125,496 B; ≤ 148,480 B ceiling).
+- `as any` in src/: 0 (unchanged).
+- `as unknown as` in src/: 2 (was 4 at H open; both irreducible per H2 policy).
+- `@ts-ignore` / `@deprecated`: 0 (unchanged).
+- `withTransaction` sites in api/: 16 (was 7 at G close).
+
 ## [0.9.0] — 2026-05-22 (G close)
 
 ### INTERNAL
