@@ -43,12 +43,15 @@ Codemods are **parity-asserting, idempotent, and dry-run-safe** — re-running o
 
 ```bash
 npm install --legacy-peer-deps   # the constellation pins Vite 8; some peers declare Vite ^7
+npx playwright install           # one-time: fetch all browser binaries (chromium + webkit + firefox)
 npm run build                    # library → dist/
 npm run dev                      # demo dev server
 npm test                         # vitest unit suite
 npx playwright test              # e2e smoke suite (5 projects)
 npm run lint                     # eslint flat config — exit 0 required
 ```
+
+`npx playwright install` is a one-time setup step. The e2e smoke suite spans 5 Playwright projects: `smoke` + `smoke-admin` + `smoke-reactivity` run on Chromium, `smoke-mobile` on Pixel-7 Chromium, and `smoke-safari` on iPhone-14 WebKit — so a local full-suite run needs both Chromium and WebKit installed. CI installs the narrower `chromium webkit` pair only (see `.github/workflows/node.js.yml`).
 
 ## Invariant proof scripts
 
@@ -70,3 +73,7 @@ CI runs every proof script post-build. A new structural invariant should be codi
 ## Conventions
 
 See `CLAUDE.md` for the full set. In brief: TypeScript `strict` + `verbatimModuleSyntax` (`import type` for all type-only imports); named exports only (no defaults); `@mkbabb/parse-that` for parsing; color components normalized to `[0,1]` internally; no god modules — focused modules ≤ 350 LoC; CHANGELOG.md must be updated when `src/`, `package.json`, build config, or `api/` source changes.
+
+## Release
+
+Publishing is a manual, tranche-close ceremony — there is no tag-triggered release workflow. For the full publish sequence (version bump, CHANGELOG header, `npm publish --legacy-peer-deps`, tag-push, GitHub release), see `docs/RELEASE.md`.

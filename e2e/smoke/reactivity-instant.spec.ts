@@ -89,9 +89,18 @@ test("spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 pa
 
         // Sub-frame poll INSIDE the page (no Playwright protocol round-trips
         // per check). Returns once the readout text diverges from baseline;
-        // Playwright then captures performance.now() for the delta. If the
-        // chain isn't instant, the 200ms outer timeout fails the test
-        // LOUDLY rather than measuring a spuriously-fast no-op.
+        // Playwright then captures performance.now() for the delta.
+        //
+        // H.W4 Lane C — this wait enforces only the ALIVE? invariant
+        // (does the readout EVER diverge from baseline? — hard fail if
+        // not). The INSTANT? invariant (≤ 50ms median) is enforced by
+        // `expect(median).toBeLessThanOrEqual(50)` below, NOT by this
+        // timeout. The prior 200ms budget conflated host-pressure stalls
+        // (parallel-worker contention, GC) with perceptual-threshold
+        // failures and flaked under load. The 2000ms ceiling here is a
+        // generous "is the reactivity chain wired up at all?" budget —
+        // the perceptual measurement remains the median computed below.
+        // See audit/H.W4-lane-c-reactivity-flake.md.
         await page.waitForFunction(
             (b) => {
                 const el = Array.from(
@@ -103,7 +112,7 @@ test("spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 pa
                 return text !== b;
             },
             baseline,
-            { timeout: 200, polling: "raf" },
+            { timeout: 2000, polling: "raf" },
         );
 
         const t1 = await page.evaluate(() => performance.now());
@@ -195,6 +204,19 @@ test("slider-keyboard → component-readout wall-clock ≤ 100ms median across 3
         // Capture t1 INSIDE the page (same time-domain as t0) the instant
         // the readout text diverges — single protocol round-trip total
         // (the waitForFunction return) vs. the prior two evaluate RTTs.
+        //
+        // H.W4 Lane C — the wait splits TWO invariants:
+        //   1. ALIVE? — does the readout EVER diverge from baseline?
+        //      Generous 2000ms budget; failure here means the reactivity
+        //      chain is broken (hard fail, NOT a perceptual regression).
+        //   2. INSTANT? — is the measured wall-clock delta ≤ 100ms median?
+        //      The 100ms perceptual gate is the `expect(median)` assertion
+        //      below; the wait DOES NOT enforce it.
+        // The prior shape used a single 200ms timeout doing both jobs,
+        // which conflated host-pressure alive-stalls (cause: parallel
+        // worker contention / GC) with perceptual-threshold failures
+        // (cause: actual reactivity lag) and made the spec flaky under
+        // load. See audit/H.W4-lane-c-reactivity-flake.md.
         const delta = await page.waitForFunction(
             (b) => {
                 const el = Array.from(
@@ -209,7 +231,7 @@ test("slider-keyboard → component-readout wall-clock ≤ 100ms median across 3
                 return t0 == null ? false : performance.now() - t0;
             },
             baseline,
-            { timeout: 200, polling: "raf" },
+            { timeout: 2000, polling: "raf" },
         );
 
         deltas.push(await delta.jsonValue() as number);
