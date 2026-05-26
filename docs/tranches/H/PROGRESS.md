@@ -61,8 +61,8 @@ Plan substrate: `H.md`, `H-PROMPTS.md`, `findings.md`, `audit/H-AUDIT-1..6` (6 a
 | H.W1 — api/ cascade-correctness + strictness lift | **closed** | 2026-05-26 | 2026-05-26 | `ef39ad9` Lanes A + A.2 + B impl + `9c32e7a` Lane C audit-list + PROGRESS |
 | H.W2 — type-system completion II (`as unknown as` ≤ 2; tightened from plan's 3) | **closed** | 2026-05-26 | 2026-05-26 | `62fe15d` Lanes A + C retirements + `3b0d933` Lane B codifier + PROGRESS |
 | H.W3 — demo decomposition + invariant extension | **closed** | 2026-05-26 | 2026-05-26 | `f4ba240` Lanes A + B + C (H3 demo decomp) + `da8b68d` Lanes D + E (H4 codification) + `d5d570b` close |
-| H.W4 — micro-polish + flake mitigation + close docs | **closed** | 2026-05-26 | 2026-05-26 | `d8bc2b7` Lanes A + B + C + D + E (combined polish-grade) + (this commit) close |
-| H.W5 HEADLINE close — FINAL.md, merge, vN.N.N tag | planned | — | — | — |
+| H.W4 — micro-polish + flake mitigation + close docs | **closed** | 2026-05-26 | 2026-05-26 | `d8bc2b7` Lanes A + B + C + D + E (combined polish-grade) + `afeda68` close |
+| H.W5 HEADLINE close — FINAL.md, merge, v0.10.0 tag | **closed** | 2026-05-26 | 2026-05-26 | 7 close-audit lanes + FINAL.md + I-SEED + doc-drift fixes + version bump + merge + v0.10.0 tag |
 
 ## Open dependencies — H open (awaiting ratification)
 
@@ -209,6 +209,40 @@ H.W4 — polish-grade transpositions. Five lanes dispatched in full parallel (5-
 **Carry-forward at H.W4 close**: NONE. All polish-grade items landed.
 
 H.W5 close ceremony unblocked.
+
+## 2026-05-26 — H.W5 close ceremony (HEADLINE close)
+
+H.W5 — strengthened close ceremony. Mirrors G.W4's shape.
+
+**7 read-only close-audit lanes** dispatched in parallel (Explore subagent, READ-ONLY):
+
+| Lane | Mission | Verdict |
+|---|---|---|
+| 1 | plan-vs-actual | **PASS** — zero undocumented deviations; in-wave extensions (H.W1 Lane A.2, H.W2 budget tightening 4→2, H.W3 9-modules-not-8, H.W4 Lane C symmetric :95) all documented with precedent |
+| 2 | substrate-without-consumer | **PASS** — 10/11 consumers found; item 9 (api-withTransaction-coverage.md reference in api/CLAUDE.md) wired by the close-ceremony updates in this wave |
+| 3 | doc-drift | **DRIFT** (MEDIUM, doc-only) — 3 docs (root CLAUDE.md, demo/CLAUDE.md, api/CLAUDE.md) require updates — exactly the H.W5 close-ceremony scope; addressed by the doc-update commits in this wave |
+| 4 | idiomatic-gestalt invariant verification | **ALL HOLD** — H1-H4 + G1-G4 + F1-F4 + E1-E5 + D1-D7 + precepts 30-33 verified |
+| 5 | performance | **PASS** — `dist/value.js` 124,130 B (−1,366 B vs G close); L8 10.75× / DIRECT_PATHS HSL→RGB 4.19× / nameParser 40.21× — all ≥ gate floors |
+| 6 | visual-runtime | **CONDITIONAL PASS** — 36 specs; smoke-mobile clean; Lane C code changes verified in place; host-environmental flake on this audit machine (load avg 24.35) classified as RM-1 environmental class explicitly carved out of Lane C scope per H.W4 audit §6.3 — CI environment unaffected |
+| 7 | integrity sweep | **CLEAN** — zero unauthorized git ops; zero cross-repo writes (F3 holds across all 4 siblings); zero agent-attributed commits; precepts pinned at 68d9b20 |
+
+**Close-ceremony writes**:
+
+1. `docs/tranches/H/FINAL.md` — close report citing every H commit, gate evidence, v0.10.0 release surface (no BREAKING), bench medians, 22/22 pre-merge gate matrix, no-cross-repo-writes verdict.
+2. `docs/tranches/H/I-SEED.md` — predecessor-authored forward-carry ledger for tranche I (8 advisory pointers; no I-mandatory items).
+3. `docs/tranches/H/PROGRESS.md` — reconciled (this section).
+4. `docs/tranches/H/coordination/Q.md §7.1` — H close constellation health summary.
+5. `CLAUDE.md` — added `proof:as-unknown-as-budget` to Test+verify; added H2/H3/H4 invariant texts; added `docs/RELEASE.md` reference; extended `proof:no-ts-ignore` + `proof:no-bare-builtins` scope notes.
+6. `demo/CLAUDE.md` — updated `Lib palette surface` to reflect 9-module `api/` directory; added H.W3 Lane B + C sub-component lifts table.
+7. `api/CLAUDE.md` — withTransaction count 7 → 16; standing reference cited; H.W1 Lane B strictness lift documented.
+8. `CHANGELOG.md` — v0.10.0 entry authored (detailed per-axis breakdown + stats).
+9. `package.json` — version `0.9.0` → `0.10.0`.
+
+**Pre-merge gate matrix (22 items — G's 21 + 1 H-NEW)**: 22 / 22 PASS. Full evidence in FINAL.md §5.
+
+**Carry-forward at H.W5 close**: NONE (H thesis fully closed). Advisory pointers for I orchestrator in I-SEED.md.
+
+H ships as **v0.10.0** per Block E ratification (idiomatic semver-minor bump; v1.0.0 deferred as separate marketing/comms decision).
 
 ## Authority
 
