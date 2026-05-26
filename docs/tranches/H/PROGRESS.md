@@ -60,8 +60,8 @@ Plan substrate: `H.md`, `H-PROMPTS.md`, `findings.md`, `audit/H-AUDIT-1..6` (6 a
 | H.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-22 | 2026-05-26 | `cacdb14` open + close-ratification |
 | H.W1 — api/ cascade-correctness + strictness lift | **closed** | 2026-05-26 | 2026-05-26 | `ef39ad9` Lanes A + A.2 + B impl + `9c32e7a` Lane C audit-list + PROGRESS |
 | H.W2 — type-system completion II (`as unknown as` ≤ 2; tightened from plan's 3) | **closed** | 2026-05-26 | 2026-05-26 | `62fe15d` Lanes A + C retirements + `3b0d933` Lane B codifier + PROGRESS |
-| H.W3 — demo decomposition + invariant extension | **closed** | 2026-05-26 | 2026-05-26 | `f4ba240` Lanes A + B + C (H3 demo decomp) + `da8b68d` Lanes D + E (H4 codification) + (this commit) close |
-| H.W4 — micro-polish + flake mitigation + close docs | planned | — | — | — |
+| H.W3 — demo decomposition + invariant extension | **closed** | 2026-05-26 | 2026-05-26 | `f4ba240` Lanes A + B + C (H3 demo decomp) + `da8b68d` Lanes D + E (H4 codification) + `d5d570b` close |
+| H.W4 — micro-polish + flake mitigation + close docs | **closed** | 2026-05-26 | 2026-05-26 | `d8bc2b7` Lanes A + B + C + D + E (combined polish-grade) + (this commit) close |
 | H.W5 HEADLINE close — FINAL.md, merge, vN.N.N tag | planned | — | — | — |
 
 ## Open dependencies — H open (awaiting ratification)
@@ -179,6 +179,36 @@ H.W3 — demo decomposition (H3 invariant) + invariant codification II (H4 invar
 **Carry-forward at H.W3 close**: NONE. H3 fully closed (demo/ god-modules eliminated). H4 fully closed (proof scripts at full applicability for their declared trees).
 
 **Side-note**: Lane C reported a pre-existing `(colorSpaceInfo as any)[space]` at `ComponentSliders.vue:162` (consumer-side; out of Lane C bounds; not src/-scope so G2 doesn't apply; left untouched — `demo/` `as any` ratio is not under the H2/G2 cap). Surfaced as an informational item; not a carry-forward action.
+
+## 2026-05-26 — H.W4 close (Lanes A + B + C + D + E)
+
+H.W4 — polish-grade transpositions. Five lanes dispatched in full parallel (5-way; all file-disjoint). Each lane landed cleanly; per-lane judgment calls all positive (Lane A's −1291 B was 4× the H-SEED estimate, Lane C found a second symmetric flake site at :95 not enumerated in the audit).
+
+**Lane A** — Rolldown `experimental.attachDebugInfo: "none"` strips `//#region` markers from `dist/value.js`. 125,421 → 124,130 B (−1,291 B). Scoped to `mode === "production"` only; gh-pages/hero-lab/dev untouched.
+
+**Lane B** — Bench provenance hygiene: 7 line-number refs (6 in color2-direct-paths, 1 in parser-namelookup) repointed to symbol references. `color-channel-access.mjs` untouched (no `:NNN` refs at lane open). Bench medians unaffected.
+
+**Lane C** — Reactivity-instant flake mitigation: TWO sites (slider-keyboard :198 AND symmetric spectrum-drag :95). Outer "alive?" wait 200ms → 2000ms; perceptual gates (50ms spectrum, 100ms slider) UNCHANGED. `--repeat-each=5 --workers=1` deterministic post-fix.
+
+**Lane D** — `docs/RELEASE.md` (NEW; 6 sections) codifies the manual tranche-close publish ceremony. NO `.github/workflows/release.yml` authored — manual ceremony preserved per H-AUDIT-6 §3.4 Option (a).
+
+**Lane E** — `CONTRIBUTING.md` +6 lines: playwright install quickstart + 5-project topology + new `## Release` section referencing `docs/RELEASE.md`.
+
+**Wave-level evidence**:
+- `npm run build` → exit 0; dist/value.js 124,130 B (Lane A delta).
+- `npx vitest run` → 1584 / 34 pass.
+- `npm run bench` → all gates GREEN (L8 10.45×, color2 HSL→RGB 3.31×, nameParser 55.46×).
+- `npm run lint` → exit 0.
+- `npx playwright test --project=smoke-reactivity --repeat-each=5 --workers=1` → PASS deterministic.
+- All 9 proof scripts exit 0.
+
+**Commits**:
+- `d8bc2b7` — Lanes A + B + C + D + E (11 files, +1075/−12).
+- (this commit) — PROGRESS.md close.
+
+**Carry-forward at H.W4 close**: NONE. All polish-grade items landed.
+
+H.W5 close ceremony unblocked.
 
 ## Authority
 
