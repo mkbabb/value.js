@@ -59,8 +59,8 @@ Plan substrate: `H.md`, `H-PROMPTS.md`, `findings.md`, `audit/H-AUDIT-1..6` (6 a
 |---|---|---|---|---|
 | H.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-22 | 2026-05-26 | `cacdb14` open + close-ratification |
 | H.W1 — api/ cascade-correctness + strictness lift | **closed** | 2026-05-26 | 2026-05-26 | `ef39ad9` Lanes A + A.2 + B impl + `9c32e7a` Lane C audit-list + PROGRESS |
-| H.W2 — type-system completion II (`as unknown as` ≤ 2; tightened from plan's 3) | **closed** | 2026-05-26 | 2026-05-26 | `62fe15d` Lanes A + C retirements + `(this commit)` Lane B codifier + PROGRESS |
-| H.W3 — demo decomposition + invariant extension | planned | — | — | — |
+| H.W2 — type-system completion II (`as unknown as` ≤ 2; tightened from plan's 3) | **closed** | 2026-05-26 | 2026-05-26 | `62fe15d` Lanes A + C retirements + `3b0d933` Lane B codifier + PROGRESS |
+| H.W3 — demo decomposition + invariant extension | **closed** | 2026-05-26 | 2026-05-26 | `f4ba240` Lanes A + B + C (H3 demo decomp) + `da8b68d` Lanes D + E (H4 codification) + (this commit) close |
 | H.W4 — micro-polish + flake mitigation + close docs | planned | — | — | — |
 | H.W5 HEADLINE close — FINAL.md, merge, vN.N.N tag | planned | — | — | — |
 
@@ -145,6 +145,40 @@ H.W2 — type-system completion II (H2 invariant). Three lanes; Lanes A + C disp
 - (following commit) — Lane B codifier + PROGRESS.md update.
 
 **Carry-forward at H.W2 close**: NONE. H2 invariant fully closed for the maximalist reading with budget tightened to the actual residue.
+
+## 2026-05-26 — H.W3 close (Lanes A + B + C + D + E)
+
+H.W3 — demo decomposition (H3 invariant) + invariant codification II (H4 invariant). Five lanes dispatched in parallel (all file-disjoint after the orchestrator surveyed Lane A's 14 importer surface — none overlapped Lane B's PointerDebugOverlay + PaletteCard targets, Lane C's color-picker/index.ts, Lane D's markdown/highlighting, or Lane E's plugins/).
+
+**Lane A** — `demo/@/lib/palette/api.ts` 484 LoC decomposed into **9** cohesion-honest modules (vs plan's 8 — the extra `client.ts` extracts HTTP transport infra that couldn't honestly live inside any single domain module). All ≤ 350 LoC (max 110). Old `api.ts` DELETED (not shimmed). 14 importers auto-resolve through the barrel via TypeScript's directory-as-module resolution; ZERO explicit consumer edits.
+
+**Lane B** — Gap #5 audit found 2 demo/ files > 400 LoC (excluding Lane A's target): `PointerDebugOverlay.vue` 449→286 (extracted `DebugEventLog.vue` 136-LoC sub-component; lifted DOM-walk pointer-capture recovery into `usePointerDebug` composable) and `PaletteCard.vue` 435→388 (extracted `PaletteCardSwatches.vue` 96-LoC sub-component; folded dead `toggleMenu`; inlined single-call-site helper). Zero "cohesion-tight, leave + document" cases.
+
+**Lane C** — `color-picker/index.ts` 376→99 LoC (−277). `colorSpaceInfo` pure-data object lifted to `colorSpaceInfo.ts` (291 LoC). Both consumers already imported via barrel; ZERO consumer impact.
+
+**Lane D** — H4 codification: `proof:no-ts-ignore` extended `src/` → `src/ + demo/` (with `--exclude-dir=ui` for vendored shadcn). 2 `@ts-ignore` annotations in `useMarkdownHighlighting.ts` retired via `declare module "*.css?inline"` in `demo/color-picker/vite.d.ts`.
+
+**Lane E** — H4 codification: `proof:no-bare-builtins` extended `api/src/` → `api/src/ + plugins/ + scripts/ + bench/`. 1 outlier (`plugins/vite-source-export.ts:2`) fixed with `node:fs` prefix.
+
+**Wave-level H3 + H4 evidence**:
+- `find demo/ -name '*.vue' -o -name '*.ts' | xargs wc -l | awk '$1 > 400'` (excluding `demo/@/components/ui/` shadcn-vue) → 0 files (was 3 at H open: palette/api.ts + PointerDebugOverlay + PaletteCard).
+- `npm run proof:no-ts-ignore` → PASS at `src/ + demo/` (exit 0).
+- `npm run proof:no-bare-builtins` → PASS at `api/src/ + plugins/ + scripts/ + bench/` (scanned 86 files; exit 0).
+- `npx vue-tsc --noEmit` → 0 errors.
+- `npx vitest run` → 1584 / 34 pass.
+- `npm run gh-pages` → exit 0.
+- `npm run build` → exit 0.
+- `npm run lint` → exit 0.
+- All 9 proof scripts now exit 0 at their full applicability.
+
+**Commits**:
+- `f4ba240` — H3 demo decomp (Lanes A + B + C). 21 files, +1705/−1009.
+- `da8b68d` — H4 invariant codification (Lanes D + E). 7 files, +378/−35.
+- (this commit) — PROGRESS.md close.
+
+**Carry-forward at H.W3 close**: NONE. H3 fully closed (demo/ god-modules eliminated). H4 fully closed (proof scripts at full applicability for their declared trees).
+
+**Side-note**: Lane C reported a pre-existing `(colorSpaceInfo as any)[space]` at `ComponentSliders.vue:162` (consumer-side; out of Lane C bounds; not src/-scope so G2 doesn't apply; left untouched — `demo/` `as any` ratio is not under the H2/G2 cap). Surfaced as an informational item; not a carry-forward action.
 
 ## Authority
 
