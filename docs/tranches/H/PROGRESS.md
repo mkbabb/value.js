@@ -57,7 +57,7 @@ Plan substrate: `H.md`, `H-PROMPTS.md`, `findings.md`, `audit/H-AUDIT-1..6` (6 a
 
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
-| H.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | in-progress | 2026-05-22 | — | (this open commit) |
+| H.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-22 | 2026-05-26 | `cacdb14` open + close-ratification |
 | H.W1 — api/ cascade-correctness + strictness lift | planned | — | — | — |
 | H.W2 — type-system completion II (`as unknown as` ≤ 3) | planned | — | — | — |
 | H.W3 — demo decomposition + invariant extension | planned | — | — | — |
@@ -77,6 +77,18 @@ Per G1 binding ("Relay all carry-forward items to me for ratification"), the fol
 **Block D** — PEER-AUTHORSHIP carry-forwards under chosen Block-A Option.
 
 **Block E** — release version: v0.10.0 (default, idiomatic semver-minor) vs v1.0.0 (declare stable public API).
+
+## 2026-05-26 — H.W0 close + user ratification received
+
+User ratification (via AskUserQuestion 3-question response):
+
+- **Block A (9 chronic 6-tranche-carry items)**: **Option C+A+D combo** — Propose Metaballs API shapes + brief speedtest AL with value.js's sole-identified-consumer stake (C); carry the 7 other glass-ui asks under sharpened (c) triggers per `coordination/Q.md §2` (A); review for selective retirement at H.W5 close (D). value.js authors the proposed Metaballs sub-ask shapes (already drafted in `docs/tranches/G/coordination/Q.md §2.1.1`) + a brief to speedtest AL surfacing the sole-consumer stake before AL ratifies publisher-retirement. **PEER-AUTHORSHIP remains for shipment.**
+- **Block B+C (16 FOLD-INTO-H lanes)**: **Ratify all 16** — proceed to H.W1 on next "Begin and continue" authorization. Full plan as written.
+- **Block E (release version)**: **v0.10.0** — idiomatic semver-minor bump. The v1.0.0 stability-declaration is deferred (separate marketing/comms decision).
+
+Block D implicit acceptance: PEER-AUTHORSHIP carry-forwards routed under the Block-A Option (C+A+D); status-quo for the remaining peer-asks (contract-v2 font, keyframes.js precept-pin, R11 LEAVE LOCAL).
+
+H.W0 CLOSED on this ratification. **H.W1 awaits explicit user execution authorization** ("Begin and continue the current tranche…" — per the established F+G pattern). Tranche substrate is fully committed at `cacdb14`.
 
 ## Authority
 
