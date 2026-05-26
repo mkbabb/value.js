@@ -58,7 +58,7 @@ Plan substrate: `H.md`, `H-PROMPTS.md`, `findings.md`, `audit/H-AUDIT-1..6` (6 a
 | Wave | Status | Opened | Closed | Commits |
 |---|---|---|---|---|
 | H.W0 HEADLINE — open + 6 audits + plan substrate + ratification ask | **closed** | 2026-05-22 | 2026-05-26 | `cacdb14` open + close-ratification |
-| H.W1 — api/ cascade-correctness + strictness lift | planned | — | — | — |
+| H.W1 — api/ cascade-correctness + strictness lift | **closed** | 2026-05-26 | 2026-05-26 | `ef39ad9` Lanes A + A.2 + B impl + (Lane C audit-list commit follows) |
 | H.W2 — type-system completion II (`as unknown as` ≤ 3) | planned | — | — | — |
 | H.W3 — demo decomposition + invariant extension | planned | — | — | — |
 | H.W4 — micro-polish + flake mitigation + close docs | planned | — | — | — |
@@ -89,6 +89,32 @@ User ratification (via AskUserQuestion 3-question response):
 Block D implicit acceptance: PEER-AUTHORSHIP carry-forwards routed under the Block-A Option (C+A+D); status-quo for the remaining peer-asks (contract-v2 font, keyframes.js precept-pin, R11 LEAVE LOCAL).
 
 H.W0 CLOSED on this ratification. **H.W1 awaits explicit user execution authorization** ("Begin and continue the current tranche…" — per the established F+G pattern). Tranche substrate is fully committed at `cacdb14`.
+
+## 2026-05-26 — H execution authorized (user directive)
+
+User issued the H execution authorization (verbatim from the F+G precedent): "Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead. Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches."
+
+## 2026-05-26 — H.W1 close (Lanes A + A.2 + B + C)
+
+H.W1 dispatched on the execution authorization. Lane A (createPalette + patchPalette withTransaction wraps + 2 rollback tests) + Lane C (exhaustive cross-collection audit-list) ran in parallel. Lane C's exhaustive sweep surfaced **7 additional cross-collection write sites** not enumerated in H-AUDIT-6 §1.4 — same defect class as Lane A's findings.
+
+Per F1 "no deferrals" + the H1 maximalist invariant text ("Every cross-collection write site in api/ uses withTransaction") + the H-opening doctrine ("NO workarounds: idiomatic, gestalt approaches"), the orchestrator adjudicated **Option α (full in-wave fold)** — Lane A.2 was dispatched as an in-wave extension wrapping all 7 surfaced sites (D4-D10) + adding 7 rollback tests + extending 7 repository signatures + updating the standing reference. Precedent: G.W1 Lane B's assets/docs in-wave remediation (committed as `27f2183`) and G.W4's dispatch.ts in-wave LoC remediation (committed as `9902036`).
+
+Lane B (api/tsconfig strictness lift to root parity — 4 flags) ran sequentially after Lanes A + A.2 so the strictness probe saw the final api/ state. 36 surfaced errors repaired genuinely (zero `@ts-ignore`, zero `as any`, zero `as unknown as` added to api/). Incidental finding (JC-2): a latent duplicate `PaletteColor` interface in `api/src/hash.ts` was unified to the canonical `models.ts` source-of-truth — an elegance finding the H thesis predicted.
+
+**Wave-level evidence**:
+- api vitest: 22 files, 115 tests pass (was 21/106 at H open; +1 file + 9 new tests).
+- api `tsc --noEmit`: exit 0 with the 4 new strictness flags active.
+- Root vitest: 1584/34 unchanged (no src/ changes in H.W1).
+- `grep -rn 'services.withTransaction' api/src/services/ | wc -l`: 16 (was 9 at H open).
+- Zero escape-hatches added to api/ corpus.
+- precepts submodule pinned at `68d9b20` (one upstream-drift `f27627e` working-tree reset at execution start).
+
+**Commits**:
+- `ef39ad9` — Lanes A + A.2 + B implementation (22 files, +1255/−130).
+- (following commit) — Lane C standing reference + PROGRESS.md update.
+
+**Carry-forward at H.W1 close**: NONE. H1 invariant fully closed for the maximalist reading. The 3 remaining DEFERRED entries (D1, D2, D3) all carry defensible documented carve-outs (D1 batchUsers(delete) per-row already-transactional + in-code comment; D2 emitAuditEvent befitting-graceful + comprehensive doc-comment at events/auditLog.ts; D3 impersonate via D2 carve-out).
 
 ## Authority
 
