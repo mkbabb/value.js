@@ -33,15 +33,6 @@ import {
 } from "@mkbabb/value.js";
 ```
 
-## Upgrading
-
-If you are upgrading across a major-feature bump, see [`CHANGELOG.md`](CHANGELOG.md) for the full per-version breaking-change list. The two migrations to be aware of:
-
-- **v0.7.0** — the 51 individual `<from>2<to>` color-conversion functions were removed from the barrel. Replace `import { rgb2hsl } from "@mkbabb/value.js"` with the unified `color2(rgb, "rgb", "hsl")`.
-- **v0.8.0** — `lerpLegacy` was removed; `lerp` takes canonical `(a, b, t)` ordering. The published codemod `scripts/migrate-keyframes-js-lerp.mjs` rewrites the legacy call shape automatically; manual migration is a straightforward argument swap (first argument moves to last).
-
-v0.9.0 carries no breaking changes.
-
 ## Build
 
 ```bash
@@ -132,3 +123,12 @@ CSS `matrix()` and `matrix3d()` decomposition per the CSSOM View and CSS Transfo
 - [`@mkbabb/parse-that`](https://github.com/mkbabb/parse-that) — Parser combinators powering the CSS value grammar.
 
 See [`docs/colors/theory.md`](docs/colors/theory.md) for the full bibliography.
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md). The README shape follows the perimeter-level
+[canonical README shape](https://github.com/mkbabb/glass-ui/blob/master/docs/precepts/canonical-readme-shape.md).
+
+## License
+
+[MIT](./LICENSE) © 2026 Mike Babb.

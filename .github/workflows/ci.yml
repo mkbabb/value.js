@@ -1,0 +1,58 @@
+# ci — PR + push-to-master gate matrix for @mkbabb/value.js (G.W5 Sub-wave C).
+#
+# Wires value.js's real package.json scripts: lint → typecheck → build →
+# test → the proof:* invariant suite (G.W3 Lane B..K) → bench gate. The
+# proof scripts grep/walk the tree and exit non-zero on regression; they
+# run post-build because proof:codemod-publication + the dts-layout guard
+# inspect dist/ artifacts.
+#
+# The broader node.js.yml (Node 22/24 matrix + playwright + gh-pages
+# deploy) carries the deploy + e2e surface; this ci.yml is the release-
+# gate-parity check that the release.yml workflow mirrors before publish.
+name: ci
+
+on:
+    pull_request:
+        branches: [master]
+    push:
+        branches: [master]
+
+jobs:
+    gates:
+        runs-on: ubuntu-latest
+        timeout-minutes: 15
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: "npm"
+            - run: npm ci
+            - name: lint
+              run: npm run lint
+            - name: typecheck
+              run: npm run typecheck
+            - name: build
+              run: npm run build
+            - name: test
+              run: npx vitest run
+            - name: proof:dts-layout
+              run: npm run proof:dts-layout
+            - name: proof:resolution
+              run: npm run proof:resolution
+            - name: proof:no-deprecated
+              run: npm run proof:no-deprecated
+            - name: proof:no-ts-ignore
+              run: npm run proof:no-ts-ignore
+            - name: proof:as-any-budget
+              run: npm run proof:as-any-budget
+            - name: proof:as-unknown-as-budget
+              run: npm run proof:as-unknown-as-budget
+            - name: proof:no-deep
+              run: npm run proof:no-deep
+            - name: proof:no-bare-builtins
+              run: npm run proof:no-bare-builtins
+            - name: proof:codemod-publication
+              run: npm run proof:codemod-publication
+            - name: bench
+              run: npm run bench
