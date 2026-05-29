@@ -42,13 +42,14 @@ export async function batchPalettes(
             return count;
         });
     } else if (action === "feature") {
+        // I.W1 dual-write: tier is canonical; status mirrors for backward-compat.
         processed = await palettes.updateManyBySlugs(slugs, {
-            $set: { status: "featured", updatedAt: new Date() },
+            $set: { tier: "featured", status: "featured", updatedAt: new Date() },
         });
     } else {
-        // unfeature
+        // unfeature — tier returns to "standard"; status returns to "published".
         processed = await palettes.updateManyBySlugs(slugs, {
-            $set: { status: "published", updatedAt: new Date() },
+            $set: { tier: "standard", status: "published", updatedAt: new Date() },
         });
     }
 

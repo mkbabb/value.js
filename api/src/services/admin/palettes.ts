@@ -12,11 +12,12 @@ import type { Context } from "hono";
 import type { AppEnv } from "../../types.js";
 import { NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
-import type { PaletteStatus } from "../../models.js";
+import type { PaletteStatus, PaletteTier } from "../../models.js";
 
 export interface FeatureToggleResult {
     slug: string;
     status: PaletteStatus;
+    tier: PaletteTier;
 }
 
 export async function toggleFeature(
@@ -28,12 +29,21 @@ export async function toggleFeature(
     if (!palette) {
         throw new NotFoundError("Palette not found");
     }
-    const newStatus: PaletteStatus =
-        palette.status === "featured" ? "published" : "featured";
+    // I.W1 dual-write: tier is the canonical field; status is computed for
+    // backward-compat. The (visibility, tier) state-machine has 9 tuples;
+    // toggleFeature only swaps tier between "standard" and "featured" within
+    // visibility="public". I.W3 will replace this with an idempotent setter
+    // (POST /palettes/{slug}/feature { featured: true|false }).
+    const newTier: PaletteTier = palette.tier === "featured" ? "standard" : "featured";
+    const newStatus: PaletteStatus = newTier === "featured" ? "featured" : "published";
 
-    await palettes.update(slug, { $set: { status: newStatus, updatedAt: new Date() } });
-    await emitAuditEvent(c, "feature-toggle", { target: `slug=${slug} status=${newStatus}` });
-    return { slug, status: newStatus };
+    await palettes.update(slug, {
+        $set: { tier: newTier, status: newStatus, updatedAt: new Date() },
+    });
+    await emitAuditEvent(c, "feature-toggle", {
+        target: `slug=${slug} tier=${newTier} status=${newStatus}`,
+    });
+    return { slug, status: newStatus, tier: newTier };
 }
 
 export async function deletePalette(c: Context<AppEnv>, slug: string): Promise<void> {

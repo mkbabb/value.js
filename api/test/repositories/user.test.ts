@@ -67,6 +67,8 @@ describe("repository.user", () => {
             sessionToken: null,
             userSlug: "with-palette",
             status: "published",
+            visibility: "public",
+            tier: "standard",
             createdAt: new Date(),
             updatedAt: new Date(),
             currentHash: null,

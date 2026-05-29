@@ -23,7 +23,14 @@ export interface FormattedPalette {
     tags: string[];
     voteCount: number;
     userSlug: string | null;
+    /** Legacy 4-state status; computed from (visibility, tier). Consumers
+     * should prefer `tier === "featured"` over `status === "featured"`.
+     * Retained for backward-compat during I.W1 transition; drop at I.W4. */
     status: Palette["status"];
+    /** I.W1 canonical visibility: `public`/`unlisted`/`private`. */
+    visibility: Palette["visibility"];
+    /** I.W1 canonical curation tier: `standard`/`featured`/`archived`. */
+    tier: Palette["tier"];
     createdAt: Date;
     updatedAt: Date;
     currentHash: string | null;
@@ -70,6 +77,8 @@ export function formatPalette(
         voteCount: rest.voteCount,
         userSlug: rest.userSlug,
         status: rest.status,
+        visibility: rest.visibility,
+        tier: rest.tier,
         createdAt: rest.createdAt,
         updatedAt: rest.updatedAt,
         isLocal: false,

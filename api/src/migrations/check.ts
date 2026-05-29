@@ -50,6 +50,21 @@ const PALETTE_INVARIANTS: Array<{
         // be present — the legacy sessionToken-only path is gone.
         valid: (d) => "userSlug" in d,
     },
+    // I.W1: every palette doc carries the canonical visibility + tier fields.
+    // The legacy `status` field is computed for backward-compat (kept in the
+    // document for the I.W1 transition window; dropped at I.W4).
+    {
+        field: "visibility",
+        valid: (d) =>
+            d.visibility === "public" ||
+            d.visibility === "unlisted" ||
+            d.visibility === "private",
+    },
+    {
+        field: "tier",
+        valid: (d) =>
+            d.tier === "standard" || d.tier === "featured" || d.tier === "archived",
+    },
 ];
 
 export interface MigrationCheckResult {
@@ -70,6 +85,8 @@ export async function checkMigrations(db: Db): Promise<MigrationCheckResult> {
                 currentHash: 1,
                 oklabColors: 1,
                 userSlug: 1,
+                visibility: 1,
+                tier: 1,
             },
         },
     );

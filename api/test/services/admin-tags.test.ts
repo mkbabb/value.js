@@ -63,6 +63,8 @@ describe("service.admin.tags", () => {
             sessionToken: null,
             userSlug: "alice",
             status: "published",
+            visibility: "public",
+            tier: "standard",
             createdAt: new Date(),
             updatedAt: new Date(),
             currentHash: null,

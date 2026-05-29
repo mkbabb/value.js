@@ -29,6 +29,16 @@ import type { ObjectId } from "mongodb";
 export const PALETTE_STATUSES = ["published", "featured", "hidden", "draft"] as const;
 export type PaletteStatus = (typeof PALETTE_STATUSES)[number];
 
+// I.W1 visibility split — CRUD-CONTRACT v2.0.0 §3 binding.
+// `visibility` carries WHO-can-see (orthogonal to admin curation);
+// `tier` carries WHAT-position-in-curation (orthogonal to visibility).
+// The 9-tuple state-machine; legacy `status` is computed from (visibility, tier).
+export const PALETTE_VISIBILITIES = ["public", "unlisted", "private"] as const;
+export type PaletteVisibility = (typeof PALETTE_VISIBILITIES)[number];
+
+export const PALETTE_TIERS = ["standard", "featured", "archived"] as const;
+export type PaletteTier = (typeof PALETTE_TIERS)[number];
+
 export const USER_STATUSES = ["active", "suspended"] as const;
 export type UserStatus = (typeof USER_STATUSES)[number];
 
@@ -73,7 +83,16 @@ export interface Palette {
     /** Legacy ownership shim — replaced by `userSlug` once migration completes. */
     sessionToken: string | null;
     userSlug: string | null;
+    /** Legacy 4-state status field; retained for backward-compat during the
+     * I.W1 transition. Canonical state lives in (visibility, tier). The
+     * `format/palette.ts` formatter exposes both; consumers should prefer
+     * `tier === "featured"` over `status === "featured"`. Drop scheduled at
+     * I.W4 SOTA cleanup after consumer migration. */
     status: PaletteStatus;
+    /** I.W1 canonical visibility (3-state): `public`/`unlisted`/`private`. */
+    visibility: PaletteVisibility;
+    /** I.W1 canonical curation tier (3-state): `standard`/`featured`/`archived`. */
+    tier: PaletteTier;
     createdAt: Date;
     updatedAt: Date;
     /** Content-hash of (name, colors) for version dedup. */

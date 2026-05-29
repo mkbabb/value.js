@@ -85,6 +85,7 @@ export function useAdminUsers(deps: {
                 deps.remotePalettes.value[idx] = {
                     ...existing,
                     status: result.status as "published" | "featured",
+                    tier: result.tier as "standard" | "featured",
                 };
             }
             adminUsersPanelRef.value?.updatePaletteStatus(palette.slug, result.status);

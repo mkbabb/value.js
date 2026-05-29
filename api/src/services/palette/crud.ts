@@ -89,6 +89,8 @@ export async function createPalette(
         sessionToken,
         userSlug,
         status: "published",
+        visibility: "public",
+        tier: "standard",
         createdAt: now,
         updatedAt: now,
         currentHash: contentHash,

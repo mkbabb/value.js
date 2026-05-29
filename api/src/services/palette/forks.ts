@@ -62,6 +62,8 @@ export async function forkPalette(
         sessionToken,
         userSlug,
         status: "published",
+        visibility: "public",
+        tier: "standard",
         createdAt: now,
         updatedAt: now,
         currentHash: contentHash,

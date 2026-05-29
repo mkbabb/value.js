@@ -4,7 +4,7 @@ set -euo pipefail
 # Deploys palette API to mbabb server
 # Usage: ./deploy.sh
 
-SERVER="mbabb@mbabb.fridayinstitute.net"
+SERVER="mbabb@34.197.214.67"
 PORT=1022
 REMOTE_DIR="/home/mbabb/Programming/palette-api"
 
@@ -29,11 +29,11 @@ ssh -p "$PORT" "$SERVER" "cd $REMOTE_DIR && docker compose logs --tail=30 api"
 
 echo ""
 echo "==> Smoke test:"
-STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://mbabb.fi.ncsu.edu/colors/ || true)
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://api.color.babb.dev/palettes || true)
 if [ "$STATUS" = "200" ]; then
-    echo "    GET /colors/ -> $STATUS OK"
+    echo "    GET https://api.color.babb.dev/palettes -> $STATUS OK"
 else
-    echo "    GET /colors/ -> $STATUS (expected 200)"
+    echo "    GET https://api.color.babb.dev/palettes -> $STATUS (expected 200)"
 fi
 
 echo "==> Done."
