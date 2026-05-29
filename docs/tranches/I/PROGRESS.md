@@ -19,7 +19,7 @@ Every wave's row carries (a) a status word from the canonical set, (b) a close t
 | I.W2 — *Soft-delete + grace + restore* | **GREEN** | 2026-05-28 | palettes.deletedAt + GoneError (410); soft DELETE; restore endpoint; reaper cron with PALETTE_GRACE_MS (30d default); listings filter deletedAt:null; admin delete converted to soft; backfill migration ran 10/10 on host; deploy GREEN; smoke probe GREEN; live envelope carries deletedAt:null; 115/115 tests pass; tsc clean. Close record at `audit/W2-soft-delete.md` |
 | I.W3 — *Admin idempotency* | **GREEN** | 2026-05-28 | `setFeatured(c, slug, featured)` replaces `toggleFeature`; `POST /admin/palettes/:slug/feature` body `{featured: boolean}`; idempotent (skip-if-unchanged); audit row per op. Close record at `audit/W3-W4-sota-envelopes.md` |
 | I.W4 — *SOTA envelopes + conformance suite* | **GREEN-partial** | 2026-05-28 | problem+json (RFC 7807) with `application/problem+json` content-type + URN type scheme; ETag + If-Match (412/428); RateLimit-* response headers (success + denial); 119/119 tests pass. **DEFERRED** (folded to fourier-E.W10 δ): Idempotency-Key middleware + per-repo conformance suite. Close record at `audit/W3-W4-sota-envelopes.md` |
-| I.W5 — *Close + cohort coordination* | provisional | — | FINAL.md; cohort closure with fourier-E.W12 |
+| I.W5 — *Close + cohort coordination* | **GREEN** | 2026-05-28 | FINAL.md authored at `FINAL.md`; **Scenario A paired close** with fourier-E.W12 ceremony; T7 12/12 PASS verifies cross-repo conformance at protocol layer; 5 named-residuals booked for I-tail or value.js-J |
 
 ## Log
 
