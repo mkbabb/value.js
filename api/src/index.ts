@@ -69,17 +69,40 @@ app.route("/admin", admin);
 // Health check
 app.get("/", (c) => c.json({ status: "ok", service: "palette-api" }));
 
-// 404 fallback
-app.notFound((c) => c.json({ error: "Not found" }, 404));
+/**
+ * I.W4 SOTA: emit problem+json responses with the correct
+ * `application/problem+json` content-type. Hono's `c.json()` always sets
+ * `application/json`, so we use `new Response(...)` directly for typed errors.
+ */
+function problemResponse(body: unknown, status: number): Response {
+    return new Response(JSON.stringify(body), {
+        status,
+        headers: { "Content-Type": "application/problem+json" },
+    });
+}
 
-// Global error handler — maps ApiError subclasses to the canonical envelope
-// (D.W2 Lane C #3); unrecognised throws become 500/"internal" with operator logs.
+// 404 fallback — I.W4: RFC 7807 problem+json envelope.
+app.notFound((c) =>
+    problemResponse(
+        {
+            type: "urn:palette-api:problem:not_found",
+            title: "Not Found",
+            status: 404,
+            instance: c.req.path,
+        },
+        404,
+    ),
+);
+
+// Global error handler — I.W4 SOTA: RFC 7807 problem+json envelope. Maps
+// ApiError subclasses to typed `urn:palette-api:problem:<code>` URNs;
+// unrecognised throws become 500/"internal" with operator logs.
 app.onError((err, c) => {
-    const { status, body } = toResponseEnvelope(err);
+    const { status, body } = toResponseEnvelope(err, c.req.path);
     if (status >= 500) {
         console.error("[api] unhandled error", err);
     }
-    return c.json(body, status);
+    return problemResponse(body, status);
 });
 
 // --- Start ---

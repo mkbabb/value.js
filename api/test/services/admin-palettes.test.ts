@@ -8,7 +8,7 @@ import {
 } from "../helpers.js";
 import {
     deletePalette as adminDeletePalette,
-    toggleFeature,
+    setFeatured,
 } from "../../src/services/admin/palettes.js";
 import { createPalette } from "../../src/services/palette/crud.js";
 import { NotFoundError } from "../../src/errors/index.js";
@@ -43,17 +43,24 @@ describe("service.admin.palettes", () => {
         });
     });
 
-    it("toggleFeature flips published ↔ featured", async () => {
+    it("setFeatured is idempotent (I.W3) — re-POSTing same body is a no-op", async () => {
         const c = makeFakeContext(services, "admin");
-        const r1 = await toggleFeature(c, "mod");
+        const r1 = await setFeatured(c, "mod", true);
         expect(r1.status).toBe("featured");
-        const r2 = await toggleFeature(c, "mod");
-        expect(r2.status).toBe("published");
+        expect(r1.tier).toBe("featured");
+        // Idempotent: re-posting `featured: true` returns the same state.
+        const r2 = await setFeatured(c, "mod", true);
+        expect(r2.status).toBe("featured");
+        expect(r2.tier).toBe("featured");
+        // Reverse to standard.
+        const r3 = await setFeatured(c, "mod", false);
+        expect(r3.status).toBe("published");
+        expect(r3.tier).toBe("standard");
     });
 
-    it("toggleFeature missing slug throws NotFoundError", async () => {
+    it("setFeatured missing slug throws NotFoundError", async () => {
         const c = makeFakeContext(services, "admin");
-        await expect(toggleFeature(c, "ghost")).rejects.toBeInstanceOf(NotFoundError);
+        await expect(setFeatured(c, "ghost", true)).rejects.toBeInstanceOf(NotFoundError);
     });
 
     it("admin deletePalette soft-deletes + emits audit (I.W2)", async () => {

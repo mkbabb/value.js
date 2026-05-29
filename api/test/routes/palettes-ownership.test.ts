@@ -88,8 +88,9 @@ describe("routes.palettes — requireOwnership middleware (E.W2 Lane C)", () => 
             body: JSON.stringify({ name: "Renamed" }),
         });
         expect(res.status).toBe(401);
-        const body = (await res.json()) as { error: { code: string } };
-        expect(body.error.code).toBe("authentication");
+        // I.W4: problem+json envelope.
+        const body = (await res.json()) as { type: string };
+        expect(body.type).toBe("urn:palette-api:problem:authentication");
     });
 
     it("PATCH /palettes/:slug — 404 when slug doesn't exist", async () => {
@@ -103,8 +104,8 @@ describe("routes.palettes — requireOwnership middleware (E.W2 Lane C)", () => 
             body: JSON.stringify({ name: "Renamed" }),
         });
         expect(res.status).toBe(404);
-        const body = (await res.json()) as { error: { code: string } };
-        expect(body.error.code).toBe("not_found");
+        const body = (await res.json()) as { type: string };
+        expect(body.type).toBe("urn:palette-api:problem:not_found");
     });
 
     it("PATCH /palettes/:slug — 403 OwnershipError when non-owner", async () => {
@@ -118,17 +119,23 @@ describe("routes.palettes — requireOwnership middleware (E.W2 Lane C)", () => 
             body: JSON.stringify({ name: "Stolen" }),
         });
         expect(res.status).toBe(403);
-        const body = (await res.json()) as { error: { code: string } };
-        expect(body.error.code).toBe("ownership");
+        const body = (await res.json()) as { type: string };
+        expect(body.type).toBe("urn:palette-api:problem:ownership");
     });
 
-    it("PATCH /palettes/:slug — 200 when owner matches", async () => {
+    it("PATCH /palettes/:slug — 200 when owner matches (I.W4 If-Match)", async () => {
+        // I.W4: PATCH requires If-Match. Fetch the current resource ETag
+        // via GET, then send it back as If-Match.
+        const get = await app.request("/palettes/alpha", { method: "GET" });
+        const etag = get.headers.get("ETag");
+        expect(etag).not.toBeNull();
         const res = await app.request("/palettes/alpha", {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
                 "X-Test-User-Slug": "alice",
                 "X-Test-Session-Token": "tok-alice",
+                "If-Match": etag ?? "",
             },
             body: JSON.stringify({ name: "Alpha Prime" }),
         });

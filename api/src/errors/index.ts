@@ -74,6 +74,20 @@ export class GoneError extends ApiError {
     }
 }
 
+/** 412 — If-Match header present but didn't match the resource's ETag (I.W4). */
+export class PreconditionFailedError extends ApiError {
+    constructor(message = "If-Match header did not match resource ETag") {
+        super(412, "precondition_failed", message);
+    }
+}
+
+/** 428 — If-Match header missing on a mutation that requires it (I.W4). */
+export class PreconditionRequiredError extends ApiError {
+    constructor(message = "If-Match header is required") {
+        super(428, "precondition_required", message);
+    }
+}
+
 /** 429 — rate-limit exceeded. */
 export class RateLimitError extends ApiError {
     constructor(message = "Rate limit exceeded") {
@@ -88,41 +102,70 @@ export class ConfigurationError extends ApiError {
     }
 }
 
-export interface ErrorEnvelope {
-    error: {
-        code: string;
-        message: string;
-        detail?: unknown;
-    };
+/**
+ * I.W4 SOTA envelopes: RFC 7807 problem+json shape.
+ * https://datatracker.ietf.org/doc/html/rfc7807
+ *
+ *   - `type`     — URI identifying the problem type; SHOULD be `about:blank`
+ *                  for default-unspecified types; we use a `urn:palette-api:`
+ *                  URN scheme for typed errors (one URN per ApiError subclass).
+ *   - `title`    — short, human-readable summary; SHOULD NOT change between
+ *                  occurrences of the same problem type.
+ *   - `status`   — HTTP status code, repeated in the body for client convenience.
+ *   - `detail`   — instance-specific explanation; can be missing.
+ *   - `instance` — URI reference identifying the specific occurrence (often
+ *                  the request path); can be missing.
+ *   - Extensions: any additional fields per problem type (e.g. validation
+ *                  field errors).
+ */
+export interface ProblemDetails {
+    type: string;
+    title: string;
+    status: number;
+    detail?: string;
+    instance?: string;
+    [extension: string]: unknown;
 }
 
 export interface MappedResponse {
     status: ContentfulStatusCode;
-    body: ErrorEnvelope;
+    body: ProblemDetails;
+    contentType: "application/problem+json";
 }
 
+/** Stable per-error-code URN scheme. */
+const PROBLEM_TYPE_URN = "urn:palette-api:problem:";
+
 /**
- * Map any thrown value to a `{ status, body }` pair the global Hono error
- * middleware renders.
+ * Map any thrown value to a `{ status, body, contentType }` triple the
+ * global Hono error middleware renders as `application/problem+json`.
  *
- * - ApiError instances are mapped to their explicit status + code.
- * - Everything else (bare Error, string, undefined, …) becomes a 500 with
- *   code "internal". The caller (the onError middleware) is expected to
- *   `console.error` the raw value so it's visible in operator logs.
+ * - ApiError instances → typed problem+json with `urn:palette-api:problem:<code>` type.
+ * - Everything else → 500 with `urn:palette-api:problem:internal` type.
  */
-export function toResponseEnvelope(err: unknown): MappedResponse {
+export function toResponseEnvelope(err: unknown, instance?: string): MappedResponse {
     if (err instanceof ApiError) {
-        const body: ErrorEnvelope = {
-            error: {
-                code: err.code,
-                message: err.message,
-                ...(err.detail !== undefined ? { detail: err.detail } : {}),
-            },
+        const body: ProblemDetails = {
+            type: `${PROBLEM_TYPE_URN}${err.code}`,
+            title: err.message,
+            status: err.status,
+            ...(err.detail !== undefined ? { detail: String(err.detail) } : {}),
+            ...(instance !== undefined ? { instance } : {}),
+            // Preserve structured detail under `errors` extension (e.g. zod field errors).
+            ...(err.detail !== undefined && typeof err.detail !== "string"
+                ? { errors: err.detail }
+                : {}),
         };
-        return { status: err.status, body };
+        return { status: err.status, body, contentType: "application/problem+json" };
     }
     return {
         status: 500,
-        body: { error: { code: "internal", message: "Internal server error" } },
+        body: {
+            type: `${PROBLEM_TYPE_URN}internal`,
+            title: "Internal server error",
+            status: 500,
+            ...(instance !== undefined ? { instance } : {}),
+        },
+        contentType: "application/problem+json",
     };
 }

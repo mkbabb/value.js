@@ -20,28 +20,35 @@ export interface FeatureToggleResult {
     tier: PaletteTier;
 }
 
-export async function toggleFeature(
+/**
+ * I.W3 idempotent featured setter (CRUD-CONTRACT v2.0.0 §8). Replaces the
+ * pre-I.W3 toggle: `POST /palettes/{slug}/feature` with body `{ featured }`.
+ * Re-posting the same body returns 200 with no state change (idempotent);
+ * an audit row is emitted per call (the operator intent is logged even when
+ * the state-update is a no-op, so admin coordination is auditable).
+ */
+export async function setFeatured(
     c: Context<AppEnv>,
     slug: string,
+    featured: boolean,
 ): Promise<FeatureToggleResult> {
     const { palettes } = c.var.services.repositories;
     const palette = await palettes.findBySlug(slug);
     if (!palette) {
         throw new NotFoundError("Palette not found");
     }
-    // I.W1 dual-write: tier is the canonical field; status is computed for
-    // backward-compat. The (visibility, tier) state-machine has 9 tuples;
-    // toggleFeature only swaps tier between "standard" and "featured" within
-    // visibility="public". I.W3 will replace this with an idempotent setter
-    // (POST /palettes/{slug}/feature { featured: true|false }).
-    const newTier: PaletteTier = palette.tier === "featured" ? "standard" : "featured";
-    const newStatus: PaletteStatus = newTier === "featured" ? "featured" : "published";
+    const newTier: PaletteTier = featured ? "featured" : "standard";
+    const newStatus: PaletteStatus = featured ? "featured" : "published";
 
-    await palettes.update(slug, {
-        $set: { tier: newTier, status: newStatus, updatedAt: new Date() },
-    });
-    await emitAuditEvent(c, "feature-toggle", {
-        target: `slug=${slug} tier=${newTier} status=${newStatus}`,
+    // Idempotent: only write if state changes. Audit row STILL fires (the
+    // operator decision is recorded regardless of state delta).
+    if (palette.tier !== newTier) {
+        await palettes.update(slug, {
+            $set: { tier: newTier, status: newStatus, updatedAt: new Date() },
+        });
+    }
+    await emitAuditEvent(c, "set-featured", {
+        target: `slug=${slug} featured=${featured} tier=${newTier} status=${newStatus}`,
     });
     return { slug, status: newStatus, tier: newTier };
 }

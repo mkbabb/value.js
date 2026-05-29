@@ -20,6 +20,7 @@ import {
 } from "../../validation/palette.js";
 import { AuthenticationError, ValidationError } from "../../errors/index.js";
 import { requireOwnership } from "../../middleware/require-ownership.js";
+import { assertIfMatch, paletteETag } from "../../middleware/etag.js";
 import {
     createPalette,
     deletePalette,
@@ -57,10 +58,14 @@ crudRouter.get("/mine", async (c) => {
     return c.json(result);
 });
 
-// GET /palettes/:slug — single palette
+// GET /palettes/:slug — single palette. I.W4: emits strong ETag.
 crudRouter.get("/:slug", async (c) => {
     const slug = c.req.param("slug");
     const result = await getPaletteBySlug(c.var.services, slug, c.var.userSlug);
+    c.header("ETag", paletteETag({
+        currentHash: result.currentHash,
+        updatedAt: result.updatedAt,
+    }));
     return c.json(result);
 });
 
@@ -95,12 +100,20 @@ const paletteOwnerExtractor = async (
     return palette?.userSlug ?? null;
 };
 
-// PATCH /palettes/:slug — update (owner only; gated by requireOwnership)
+// PATCH /palettes/:slug — update (owner only; gated by requireOwnership).
+// I.W4: If-Match REQUIRED. 428 if absent; 412 if stale.
 crudRouter.patch(
     "/:slug",
     requireOwnership(paletteOwnerExtractor),
     async (c) => {
         const slug = c.req.param("slug");
+        const ifMatch = c.req.header("If-Match");
+
+        // Resolve the current resource ETag before allowing the update.
+        const current = await c.var.services.repositories.palettes.findBySlug(slug);
+        if (current) {
+            assertIfMatch(ifMatch, paletteETag(current));
+        }
 
         const raw = await c.req.json();
         const parsed = updatePaletteBody.safeParse(raw);
@@ -113,6 +126,10 @@ crudRouter.patch(
             body: parsed.data,
             userSlug: c.var.userSlug,
         });
+        c.header("ETag", paletteETag({
+            currentHash: result.currentHash,
+            updatedAt: result.updatedAt,
+        }));
         return c.json(result);
     },
 );
