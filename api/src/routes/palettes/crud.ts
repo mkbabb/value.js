@@ -27,6 +27,7 @@ import {
     listMine,
     listPalettes,
     patchPalette,
+    restorePalette,
 } from "../../services/palette/crud.js";
 
 export const crudRouter = new Hono<AppEnv>();
@@ -116,13 +117,28 @@ crudRouter.patch(
     },
 );
 
-// DELETE /palettes/:slug — delete (owner only; gated by requireOwnership)
+// DELETE /palettes/:slug — soft-delete (owner only; gated by requireOwnership).
+// I.W2: sets `deletedAt: <now>`; the reaper cron hard-deletes after the grace
+// window expires (default 30 days; override via PALETTE_GRACE_MS env).
 crudRouter.delete(
     "/:slug",
     requireOwnership(paletteOwnerExtractor),
     async (c) => {
         const slug = c.req.param("slug");
         const result = await deletePalette(c.var.services, { slug });
+        return c.json(result);
+    },
+);
+
+// POST /palettes/:slug/restore — restore soft-deleted palette (owner only).
+// I.W2: clears `deletedAt`; restores the palette's fork-count contribution
+// to its parent (if any). Idempotent: restoring a live palette is a no-op.
+crudRouter.post(
+    "/:slug/restore",
+    requireOwnership(paletteOwnerExtractor),
+    async (c) => {
+        const slug = c.req.param("slug");
+        const result = await restorePalette(c.var.services, { slug });
         return c.json(result);
     },
 );

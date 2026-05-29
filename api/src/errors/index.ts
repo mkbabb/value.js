@@ -67,6 +67,13 @@ export class ConflictError extends ApiError {
     }
 }
 
+/** 410 — resource soft-deleted, still within grace window (I.W2). */
+export class GoneError extends ApiError {
+    constructor(message = "Resource has been deleted") {
+        super(410, "gone", message);
+    }
+}
+
 /** 429 — rate-limit exceeded. */
 export class RateLimitError extends ApiError {
     constructor(message = "Rate limit exceeded") {

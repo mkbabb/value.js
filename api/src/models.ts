@@ -93,6 +93,10 @@ export interface Palette {
     visibility: PaletteVisibility;
     /** I.W1 canonical curation tier (3-state): `standard`/`featured`/`archived`. */
     tier: PaletteTier;
+    /** I.W2 soft-delete timestamp. `null` means live; a Date means
+     * soft-deleted-within-grace-window (default 30 days). Reaper cron hard-
+     * deletes when (now - deletedAt) > grace. CRUD-CONTRACT v2.0.0 §4. */
+    deletedAt: Date | null;
     createdAt: Date;
     updatedAt: Date;
     /** Content-hash of (name, colors) for version dedup. */

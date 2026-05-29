@@ -65,6 +65,14 @@ const PALETTE_INVARIANTS: Array<{
         valid: (d) =>
             d.tier === "standard" || d.tier === "featured" || d.tier === "archived",
     },
+    // I.W2: every palette doc carries `deletedAt` field. null means live;
+    // a Date means soft-deleted-within-grace. Reaper hard-deletes past grace.
+    {
+        field: "deletedAt",
+        valid: (d) =>
+            "deletedAt" in d &&
+            (d.deletedAt === null || d.deletedAt instanceof Date),
+    },
 ];
 
 export interface MigrationCheckResult {
@@ -87,6 +95,7 @@ export async function checkMigrations(db: Db): Promise<MigrationCheckResult> {
                 userSlug: 1,
                 visibility: 1,
                 tier: 1,
+                deletedAt: 1,
             },
         },
     );

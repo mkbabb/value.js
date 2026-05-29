@@ -79,6 +79,11 @@ export async function listPalettes(
     const filter: Filter<Palette> = {};
     const f = filter as Record<string, unknown>;
 
+    // I.W2: public listings exclude soft-deleted palettes. A doc with
+    // `deletedAt === null` is live; a doc with a Date is within grace OR
+    // about-to-be-reaped. Listings show only live palettes.
+    f.deletedAt = null;
+
     const q = query.q?.trim();
     if (q) f.$text = { $search: q };
 

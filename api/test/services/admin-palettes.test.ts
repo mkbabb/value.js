@@ -56,8 +56,9 @@ describe("service.admin.palettes", () => {
         await expect(toggleFeature(c, "ghost")).rejects.toBeInstanceOf(NotFoundError);
     });
 
-    it("admin deletePalette removes + cascades + emits audit", async () => {
-        // Seed a vote + a flag to verify cascade
+    it("admin deletePalette soft-deletes + emits audit (I.W2)", async () => {
+        // I.W2: admin delete is now soft. Votes + flags remain attached;
+        // the reaper cron cascades them at hard-delete (past grace).
         await services.repositories.votes.upsertIdempotent("bob", "mod");
         await services.repositories.flags.insert({
             paletteSlug: "mod",
@@ -68,8 +69,11 @@ describe("service.admin.palettes", () => {
         });
         const c = makeFakeContext(services, "admin");
         await adminDeletePalette(c, "mod");
-        expect(await services.repositories.palettes.findBySlug("mod")).toBeNull();
-        expect(await services.repositories.votes.findOne("bob", "mod")).toBeNull();
+        const doc = await services.repositories.palettes.findBySlug("mod");
+        expect(doc).not.toBeNull();
+        expect(doc?.deletedAt).toBeInstanceOf(Date);
+        // The vote/flag stay attached until the grace window expires.
+        expect(await services.repositories.votes.findOne("bob", "mod")).not.toBeNull();
         const audit = await services.repositories.adminAudit.findManyByFilter({}, 0, 10);
         expect(audit.find((a) => a.action === "delete-palette")).toBeDefined();
     });

@@ -18,6 +18,7 @@ function makePalette(overrides: Partial<Palette> = {}): Palette {
         status: "published",
         visibility: "public",
         tier: "standard",
+        deletedAt: null,
         createdAt: now,
         updatedAt: now,
         currentHash: "hash-sample",

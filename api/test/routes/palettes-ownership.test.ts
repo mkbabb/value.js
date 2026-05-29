@@ -159,7 +159,11 @@ describe("routes.palettes — requireOwnership middleware (E.W2 Lane C)", () => 
             },
         });
         expect(res.status).toBe(200);
-        expect(await services.repositories.palettes.findBySlug("alpha")).toBeNull();
+        // I.W2: DELETE is soft — the doc carries `deletedAt`; the reaper
+        // hard-deletes past the grace window.
+        const doc = await services.repositories.palettes.findBySlug("alpha");
+        expect(doc).not.toBeNull();
+        expect(doc?.deletedAt).toBeInstanceOf(Date);
     });
 
     // --- POST /:slug/revert ---

@@ -58,8 +58,11 @@ export class PaletteRepository {
         limit: number,
         session?: ClientSession,
     ): Promise<Palette[]> {
+        // I.W2: the owner's "my palettes" listing filters soft-deleted
+        // (deletedAt: null) by default. A future I-wave can expose a
+        // "show-deleted" toggle for restore workflows.
         return this.col
-            .find({ userSlug }, session ? { session } : undefined)
+            .find({ userSlug, deletedAt: null }, session ? { session } : undefined)
             .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit)
@@ -67,12 +70,12 @@ export class PaletteRepository {
     }
 
     countByUserSlug(userSlug: string): Promise<number> {
-        return this.col.countDocuments({ userSlug });
+        return this.col.countDocuments({ userSlug, deletedAt: null });
     }
 
     findForksOf(slug: string, skip: number, limit: number): Promise<Palette[]> {
         return this.col
-            .find({ forkOf: slug })
+            .find({ forkOf: slug, deletedAt: null })
             .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit)
@@ -80,12 +83,21 @@ export class PaletteRepository {
     }
 
     countForksOf(slug: string): Promise<number> {
-        return this.col.countDocuments({ forkOf: slug });
+        return this.col.countDocuments({ forkOf: slug, deletedAt: null });
     }
 
     /** All palette slugs — used by cron to detect orphaned vote rows. */
     listAllSlugs(): Promise<string[]> {
         return this.col.distinct("slug");
+    }
+
+    /** I.W2 reaper: soft-deleted palettes whose grace window has expired.
+     * Returns the slugs + forkOf so the caller can decrement parent fork-counts
+     * (already done at soft-delete; here we just need slug for the cascade). */
+    findPastGrace(cutoff: Date): Promise<Palette[]> {
+        return this.col
+            .find({ deletedAt: { $lt: cutoff } })
+            .toArray();
     }
 
     // ---------- writes ----------

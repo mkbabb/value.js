@@ -31,6 +31,8 @@ export interface FormattedPalette {
     visibility: Palette["visibility"];
     /** I.W1 canonical curation tier: `standard`/`featured`/`archived`. */
     tier: Palette["tier"];
+    /** I.W2 soft-delete timestamp; null means live. */
+    deletedAt: Palette["deletedAt"];
     createdAt: Date;
     updatedAt: Date;
     currentHash: string | null;
@@ -79,6 +81,7 @@ export function formatPalette(
         status: rest.status,
         visibility: rest.visibility,
         tier: rest.tier,
+        deletedAt: rest.deletedAt,
         createdAt: rest.createdAt,
         updatedAt: rest.updatedAt,
         isLocal: false,

@@ -234,34 +234,46 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
         expect(user?.lastSeenAt?.toISOString()).toBe(before.toISOString());
     });
 
-    it("D6 admin deletePalette rolls back palette + votes when flags.deleteByPaletteSlug throws", async () => {
-        // Seed a palette with a linked vote + flag.
+    it("D6 admin deletePalette rolls back soft-delete when fork-count cascade throws (I.W2)", async () => {
+        // I.W2: admin delete is now soft. The transaction sets `deletedAt`
+        // then, if the doc is a fork, decrements the parent's forkCount.
+        // If the cascade decrement throws, deletedAt must also roll back.
         await createPalette(services, {
             body: {
-                name: "DoomedAdmin",
-                slug: "doomed-admin",
-                colors: [{ css: "#ff0000", position: 0 }],
+                name: "ParentAdmin",
+                slug: "parent-admin-pal",
+                colors: [{ css: "#000000", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
+            sessionToken: "tok-parent",
             userSlug: "alice",
         });
-        await services.repositories.votes.upsertIdempotent("alice", "doomed-admin");
-        await services.repositories.flags.insert({
-            paletteSlug: "doomed-admin",
-            reporterSlug: "bob",
-            reason: "spam",
-            detail: null,
+        await services.repositories.palettes.insert({
+            name: "DoomedAdmin",
+            slug: "doomed-admin",
+            colors: [{ css: "#ff0000", position: 0 }],
+            oklabColors: [],
+            tags: [],
+            voteCount: 0,
+            sessionToken: "tok",
+            userSlug: "alice",
+            status: "published",
+            visibility: "public",
+            tier: "standard",
+            deletedAt: null,
             createdAt: new Date(),
+            updatedAt: new Date(),
+            currentHash: null,
+            forkOf: "parent-admin-pal",
+            forkOfHash: null,
+            forkCount: 0,
+            versionCount: 1,
         });
 
-        // Stub the LAST cross-collection write (flags.deleteByPaletteSlug)
-        // to throw AFTER palette.delete + votes.deleteByPaletteSlug have
-        // run inside the open transaction.
-        const realDeleteFlags = services.repositories.flags.deleteByPaletteSlug.bind(
-            services.repositories.flags,
+        const realDecrement = services.repositories.palettes.decrementForkCount.bind(
+            services.repositories.palettes,
         );
-        services.repositories.flags.deleteByPaletteSlug = () => {
+        services.repositories.palettes.decrementForkCount = async () => {
             throw new Error("induced admin cascade failure");
         };
 
@@ -270,19 +282,12 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             "induced admin cascade failure",
         );
 
-        services.repositories.flags.deleteByPaletteSlug = realDeleteFlags;
+        services.repositories.palettes.decrementForkCount = realDecrement;
 
-        // Palette + vote that ran BEFORE the throw must have rolled back.
-        expect(
-            await services.repositories.palettes.findBySlug("doomed-admin"),
-        ).not.toBeNull();
-        expect(
-            await services.repositories.votes.findOne("alice", "doomed-admin"),
-        ).not.toBeNull();
-        const flagsRemaining = await db
-            .collection("flags")
-            .countDocuments({ paletteSlug: "doomed-admin" });
-        expect(flagsRemaining).toBe(1);
+        // The soft-delete must have rolled back — deletedAt is still null.
+        const doomed = await services.repositories.palettes.findBySlug("doomed-admin");
+        expect(doomed).not.toBeNull();
+        expect(doomed?.deletedAt).toBeNull();
     });
 
     it("D7 setUserStatus(suspended) rolls back user status when sessions.deleteByUserSlug throws", async () => {

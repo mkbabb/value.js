@@ -69,6 +69,7 @@ describe("repository.user", () => {
             status: "published",
             visibility: "public",
             tier: "standard",
+            deletedAt: null,
             createdAt: new Date(),
             updatedAt: new Date(),
             currentHash: null,

@@ -19,7 +19,7 @@
 
 import type { Services } from "../../middleware/inject-services.js";
 import type { Palette } from "../../models.js";
-import { ConflictError, NotFoundError } from "../../errors/index.js";
+import { ConflictError, GoneError, NotFoundError } from "../../errors/index.js";
 import { computeContentHash } from "../../hash.js";
 import { formatPalette, type FormattedPalette } from "../../format/palette.js";
 import type {
@@ -48,6 +48,14 @@ export async function getPaletteBySlug(
 ): Promise<FormattedPalette> {
     const doc = await services.repositories.palettes.findBySlug(slug);
     if (!doc) throw new NotFoundError("Palette not found");
+
+    // I.W2: soft-deleted palettes within grace window return 410 Gone with
+    // an explicit `gone` code so consumers can distinguish from 404. After
+    // grace expires, the reaper hard-deletes the doc and findBySlug returns
+    // null → 404 NotFound (the natural state-transition).
+    if (doc.deletedAt !== null && doc.deletedAt !== undefined) {
+        throw new GoneError("Palette has been deleted");
+    }
 
     let voted = false;
     if (currentUserSlug) {
@@ -91,6 +99,7 @@ export async function createPalette(
         status: "published",
         visibility: "public",
         tier: "standard",
+        deletedAt: null,
         createdAt: now,
         updatedAt: now,
         currentHash: contentHash,
@@ -221,7 +230,7 @@ export interface DeleteInput {
 export async function deletePalette(
     services: Services,
     input: DeleteInput,
-): Promise<{ deleted: true }> {
+): Promise<{ deleted: true; deletedAt: Date }> {
     const { slug } = input;
     // Ownership is enforced by the `requireOwnership` middleware on the route
     // (E.W2 Lane C). A 404 here would indicate the resource was deleted
@@ -229,15 +238,22 @@ export async function deletePalette(
     const palette = await services.repositories.palettes.findBySlug(slug);
     if (!palette) throw new NotFoundError("Palette not found");
 
-    // Cascade inside a single transaction (G.W3 Lane E). All-or-nothing: a
-    // partial failure (transient driver error, write-concern timeout) must
-    // not leave orphaned vote/flag rows pointing at a deleted palette, nor a
-    // stale parent fork-count. Every cross-collection write threads `session`.
+    // I.W2 soft-delete: set `deletedAt` rather than hard-removing. The reaper
+    // cron hard-deletes after the grace window expires (default 30 days). The
+    // parent fork-count decrement still fires immediately because consumer
+    // listings filter `deletedAt: null` — a soft-deleted fork should not
+    // count toward its parent's forkCount in the public surface.
+    //
+    // Votes + flags are preserved attached to the slug; they'll be cleaned
+    // up at hard-delete time (the reaper cascade). This matches CRUD-CONTRACT
+    // v2.0.0 §4 cascade-delete-with-grace semantics for non-embedded entities.
+    const deletedAt = new Date();
     await services.withTransaction(async (session) => {
-        await services.repositories.palettes.delete(slug, session);
-        await services.repositories.votes.deleteByPaletteSlug(slug, session);
-        await services.repositories.flags.deleteByPaletteSlug(slug, session);
-
+        await services.repositories.palettes.update(
+            slug,
+            { $set: { deletedAt, updatedAt: deletedAt } },
+            session,
+        );
         if (palette.forkOf) {
             await services.repositories.palettes.decrementForkCount(
                 palette.forkOf,
@@ -246,5 +262,39 @@ export async function deletePalette(
         }
     });
 
-    return { deleted: true };
+    return { deleted: true, deletedAt };
+}
+
+export interface RestoreInput {
+    slug: string;
+}
+
+export async function restorePalette(
+    services: Services,
+    input: RestoreInput,
+): Promise<FormattedPalette> {
+    const { slug } = input;
+    const palette = await services.repositories.palettes.findBySlug(slug);
+    if (!palette) throw new NotFoundError("Palette not found");
+    if (palette.deletedAt === null || palette.deletedAt === undefined) {
+        // Already-live restore is a no-op success (idempotent).
+        return formatPalette(palette as Palette & { _id: unknown });
+    }
+    const now = new Date();
+    await services.withTransaction(async (session) => {
+        await services.repositories.palettes.update(
+            slug,
+            { $set: { deletedAt: null, updatedAt: now } },
+            session,
+        );
+        if (palette.forkOf) {
+            await services.repositories.palettes.incrementForkCount(
+                palette.forkOf,
+                session,
+            );
+        }
+    });
+    const restored = await services.repositories.palettes.findBySlug(slug);
+    if (!restored) throw new NotFoundError("Palette not found");
+    return formatPalette(restored as Palette & { _id: unknown });
 }

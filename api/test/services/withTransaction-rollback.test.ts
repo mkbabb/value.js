@@ -50,35 +50,49 @@ describe("withTransaction rollback (G.W3 Lane E)", () => {
         services = buildServices(db, client);
     });
 
-    it("deletePalette rolls back palette + votes when a later cascade step throws", async () => {
-        // Seed a palette plus a linked vote + flag.
+    it("deletePalette rolls back deletedAt when fork-count cascade throws (I.W2)", async () => {
+        // I.W2: deletePalette is soft. The transaction sets `deletedAt` then,
+        // if the doc is a fork, decrements the parent's forkCount. If the
+        // second step throws, the deletedAt write must also roll back.
+        //
+        // Seed parent + fork to exercise the fork-count cascade.
         await createPalette(services, {
             body: {
-                name: "Doomed",
-                slug: "doomed",
-                colors: [{ css: "#ff0000", position: 0 }],
+                name: "Parent",
+                slug: "parent-pal",
+                colors: [{ css: "#000000", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
+            sessionToken: "tok-parent",
             userSlug: "alice",
         });
-        await services.repositories.votes.upsertIdempotent("alice", "doomed");
-        await services.repositories.flags.insert({
-            paletteSlug: "doomed",
-            reporterSlug: "bob",
-            reason: "spam",
-            detail: null,
+        await services.repositories.palettes.insert({
+            name: "Doomed",
+            slug: "doomed",
+            colors: [{ css: "#ff0000", position: 0 }],
+            oklabColors: [],
+            tags: [],
+            voteCount: 0,
+            sessionToken: "tok",
+            userSlug: "alice",
+            status: "published",
+            visibility: "public",
+            tier: "standard",
+            deletedAt: null,
             createdAt: new Date(),
+            updatedAt: new Date(),
+            currentHash: null,
+            forkOf: "parent-pal",
+            forkOfHash: null,
+            forkCount: 0,
+            versionCount: 1,
         });
 
-        // Force a partial failure: the flag-delete (the THIRD cascade step,
-        // after the palette-delete + vote-delete have already run inside the
-        // open transaction) throws. The transaction must abort.
-        const realDeleteFlags =
-            services.repositories.flags.deleteByPaletteSlug.bind(
-                services.repositories.flags,
-            );
-        services.repositories.flags.deleteByPaletteSlug = () => {
+        // Force the fork-count decrement (the second cascade step) to throw.
+        const realDecrement = services.repositories.palettes.decrementForkCount.bind(
+            services.repositories.palettes,
+        );
+        services.repositories.palettes.decrementForkCount = async () => {
             throw new Error("induced cascade failure");
         };
 
@@ -86,19 +100,12 @@ describe("withTransaction rollback (G.W3 Lane E)", () => {
             "induced cascade failure",
         );
 
-        // Restore the stub so the post-assertions read real state.
-        services.repositories.flags.deleteByPaletteSlug = realDeleteFlags;
+        services.repositories.palettes.decrementForkCount = realDecrement;
 
-        // The palette + vote deletes that ran BEFORE the throw must have
-        // rolled back — nothing was actually removed.
-        expect(
-            await services.repositories.palettes.findBySlug("doomed"),
-        ).not.toBeNull();
-        expect(
-            await services.repositories.votes.findOne("alice", "doomed"),
-        ).not.toBeNull();
-        const flagCount = await services.repositories.flags.countDistinctPalettes();
-        expect(flagCount).toBe(1);
+        // The soft-delete must have rolled back — `deletedAt` is still null.
+        const doomed = await services.repositories.palettes.findBySlug("doomed");
+        expect(doomed).not.toBeNull();
+        expect(doomed?.deletedAt).toBeNull();
     });
 
     it("batchUsers(suspend) rolls back user status when session invalidation throws", async () => {

@@ -54,6 +54,7 @@ export async function importPalettes(
                 status: "published",
                 visibility: "public",
                 tier: "standard",
+                deletedAt: null,
                 createdAt: now,
                 updatedAt: now,
                 currentHash: null,

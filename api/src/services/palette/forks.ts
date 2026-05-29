@@ -64,6 +64,7 @@ export async function forkPalette(
         status: "published",
         visibility: "public",
         tier: "standard",
+        deletedAt: null,
         createdAt: now,
         updatedAt: now,
         currentHash: contentHash,

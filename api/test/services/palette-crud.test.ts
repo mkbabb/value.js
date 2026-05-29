@@ -121,9 +121,10 @@ describe("service.palette.crud", () => {
         expect(versions).toHaveLength(2);
     });
 
-    it("deletePalette removes by slug and cascades", async () => {
-        // Ownership is enforced by the route's `requireOwnership` middleware
-        // (E.W2 Lane C); the service is now slug-only.
+    it("deletePalette soft-deletes by slug (I.W2)", async () => {
+        // I.W2: DELETE is soft (sets deletedAt). The reaper cron hard-deletes
+        // after the grace window (default 30 days). The doc itself is preserved
+        // until reap; consumers see 410 Gone in the meantime.
         await createPalette(services, {
             body: {
                 name: "ToKill",
@@ -136,7 +137,10 @@ describe("service.palette.crud", () => {
         });
         const result = await deletePalette(services, { slug: "kill" });
         expect(result.deleted).toBe(true);
-        expect(await services.repositories.palettes.findBySlug("kill")).toBeNull();
+        expect(result.deletedAt).toBeInstanceOf(Date);
+        const doc = await services.repositories.palettes.findBySlug("kill");
+        expect(doc).not.toBeNull();
+        expect(doc?.deletedAt).toBeInstanceOf(Date);
     });
 
     it("deletePalette throws NotFoundError on missing slug", async () => {
