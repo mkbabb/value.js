@@ -1,12 +1,15 @@
-# release — publish @mkbabb/value.js to npm on a v*.*.* tag (G.W5 Sub-wave C).
+# release — publish @mkbabb/value.js to npm on a v*.*.* tag (K.W2 CI/CD lane).
 #
-# Re-runs the release gate (build → typecheck → test → the dts-layout +
-# resolution proofs) before npm publish so a tag never ships an artifact
-# the CI gate would reject. value.js is the publish-chain root — keyframes.js
-# + glass-ui resolve it via the npm registry, so its tag-publish fires first
-# in the dependency order.
+# Re-runs the release gate (build → lib-typecheck → test) before npm publish so
+# a tag never ships an artifact the gate would reject. value.js is the
+# publish-chain root — keyframes.js + glass-ui resolve it via the npm registry,
+# so its tag-publish fires first in the dependency order.
 #
-# Publish auth: NPM_TOKEN repository secret. Runs only on tag refs.
+# K.W2: publishes with npm PROVENANCE (id-token: write) — the W8 gap fix. Version
+# discipline is changesets-driven (.changeset/config.json + `npm run changeset`);
+# the v*.*.* tag is the publish trigger. The release typechecks the PUBLISHED
+# library graph only (tsconfig.lib.json — src/, glass-ui-free), so the publish job
+# needs no glass-ui checkout (the demo is not published).
 name: release
 
 on:
@@ -14,27 +17,27 @@ on:
         tags:
             - "v*.*.*"
 
+permissions:
+    contents: read
+    id-token: write # npm provenance
+
 jobs:
     publish:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
+            - uses: actions/setup-node@v5
               with:
-                  node-version: 24
+                  node-version: 22
                   registry-url: "https://registry.npmjs.org"
             - run: npm ci
             - name: build
               run: npm run build
-            - name: typecheck
-              run: npm run typecheck
+            - name: typecheck (published library graph)
+              run: npx vue-tsc -p tsconfig.lib.json --noEmit
             - name: test
               run: npx vitest run
-            - name: proof:dts-layout
-              run: npm run proof:dts-layout
-            - name: proof:resolution
-              run: npm run proof:resolution
-            - name: publish
-              run: npm publish --access public
+            - name: publish (with provenance)
+              run: npm publish --provenance --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

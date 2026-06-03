@@ -56,9 +56,8 @@ api/
 ├── package.json              # hono, mongodb, node-cron, dotenv, zod
 ├── tsconfig.json             # strict, ES2022, Node16 modules
 ├── Dockerfile                # multi-stage Node 22-alpine build
-├── compose.yaml              # api + mongo services, health checks
-├── deploy.sh                 # rsync + docker compose up on remote
-├── apache-vhost.conf         # /colors/ → localhost:3100 reverse proxy
+├── compose.yaml              # api + mongo (rs0) services, health checks; loopback 127.0.0.1:8130:3000
+├── apache-vhost.conf         # api.color.babb.dev → 127.0.0.1:8130 (spine TLS terminator)
 ├── .env.example              # MONGODB_URI, ADMIN_TOKEN, ALLOWED_ORIGINS, PORT
 └── .dockerignore
 ```
@@ -201,8 +200,14 @@ All admin actions require `Authorization: Bearer {ADMIN_TOKEN}` AND emit an `adm
 5. `serve(...)` — start HTTP listener
 6. Install `SIGTERM` / `SIGINT` handlers (5s grace; `.close()` → `closeDb()` → exit)
 
-## Deployment
+## Deployment (DEC-9 — babb.dev spine, NO rsync)
 
-- **Production URL**: `https://mbabb.fi.ncsu.edu/colors/`
-- **Server**: Docker Compose (api + mongo) on port 3100
-- **Deploy**: `bash deploy.sh` — rsync → SSH → `docker compose up -d --build` → smoke test
+- **Production URL**: `https://api.color.babb.dev` (the babb.dev spine; the demo
+  frontend is `https://color.babb.dev` on Cloudflare Pages)
+- **Server**: Docker Compose (api + mongo, replica-set `rs0`) bound loopback-only
+  `127.0.0.1:8130:3000`, fronted by the spine's single Apache TLS terminator
+- **Deploy**: `scripts/deploy.sh api` (repo root) — git-push → adnanh/webhook
+  (`deploy.babb.dev/hooks/value-js`, HMAC, `ref==master`) → on-host git-pull →
+  `docker compose up` → bounded `/` health-gate. **No rsync, no SSH** (the old
+  `api/deploy.sh` rsync outlier + the `mbabb.fi.ncsu.edu/colors/` :3100 NCSU
+  topology were retired at K.W2 / DEC-9).

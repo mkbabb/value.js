@@ -1,0 +1,19 @@
+{
+    "//": "Lighthouse CI budget gate (K.W2 CI/CD lane — closes the W8 M5.2 zero-instrumented-runs gap). Soft-launch in ci.yml (continue-on-error) for a baseline-capture wave, then flip to hard-fail. Core Web Vitals floor per UNIFIED-CICD §1 stage 6: CLS ≤ 0.1, LCP ≤ 2.5s, INP ≤ 200ms, TBT ≤ 300ms.",
+    "ci": {
+        "collect": {
+            "staticDistDir": "./dist/gh-pages",
+            "numberOfRuns": 3
+        },
+        "assert": {
+            "assertions": {
+                "categories:performance": ["warn", { "minScore": 0.5 }],
+                "categories:accessibility": ["error", { "minScore": 0.9 }],
+                "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+                "largest-contentful-paint": ["error", { "maxNumericValue": 2500 }],
+                "interaction-to-next-paint": ["error", { "maxNumericValue": 200 }],
+                "total-blocking-time": ["error", { "maxNumericValue": 300 }]
+            }
+        }
+    }
+}
