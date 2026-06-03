@@ -177,6 +177,8 @@ deploy/CI (parallel, independent) ; CRUD tests (parallel) ; modern-web parity
 - **DEC-6 · `proof:*` stays DIVERGENT (Q6, 2026-06-03).** value.js retired its grep fleet (structural enforcement); glass-ui keeps + hardens its own (it guards a published public surface — VT-name collisions, phantom classes, cross-repo resolution — failure modes a leaf app lacks). Ratified-correct; no reconciliation; no action on glass-ui AS.W2.
 - **DEC-7 · speedtest creds stay SEPARATE (Q7, 2026-06-03).** The `cred-consolidate` 5-tranche carry is **KILLED** (keep-separate); creds are not consolidated. AT-W-CLOSE records the terminal KILL-the-carry.
 
+- **DEC-8 · slides font stays as-is (Q-followup, 2026-06-03, user).** "The font for slides should not change, it's good as it stands." The slides Fraunces self-host (B.W5) + the axes-inert finding + R42↑ are **CANCELLED for slides**; slides keeps its current CDN Fraunces and does NOT consume the glass-ui self-hosted face. The glass-ui Fraunces ask still ships — consumers narrow to **value.js + words** (≥2, gate still met). slides B.W4 type-ladder utility-dedup proceeds only if font-neutral.
+
 ## §7 — Progress log
 
 - **2026-06-02** — doc authored (orchestration spine). value.js critiques screenshot-confirmed (C1 dock · C2 aurora-sky-default · C3 blob over-large/mis-placed/tiny-satellites). Wave 0 launching.
