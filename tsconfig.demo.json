@@ -35,7 +35,8 @@
             "@composables/*": ["./demo/@/composables/*"],
             "@assets/*": ["./assets/*"],
             "vue": ["./node_modules/vue"],
-            "@vue/*": ["./node_modules/@vue/*"]
+            "@vue/*": ["./node_modules/@vue/*"],
+            "@mkbabb/value.js": ["./src/index.ts"]
         }
     },
     // `src/vite-env.d.ts` carries `/// <reference types="vite/client" />`

@@ -27,6 +27,14 @@ const defaultOptions = {
             "@lib": path.resolve(import.meta.dirname, "demo/@/lib"),
             "@composables": path.resolve(import.meta.dirname, "demo/@/composables"),
             "@assets": path.resolve(import.meta.dirname, "assets"),
+            // inv-K-2 (K.W2c): glass-ui's aurora color path now consumes the
+            // value.js canonical core via `@mkbabb/value.js`. When the demo
+            // source-resolves glass-ui (serve mode), that bare import must point
+            // at THIS repo's own source — a package never installs itself, so
+            // there is no `node_modules/@mkbabb/value.js` to walk up to. Alias it
+            // to `src/` for a single local instance (the demo also imports
+            // value.js via `@src`; both resolve to the same source).
+            "@mkbabb/value.js": path.resolve(import.meta.dirname, "src/index.ts"),
         },
         // The symlinked `@mkbabb/glass-ui` ships its own nested `vue` in
         // node_modules. Without dedupe the demo loads two Vue instances —
