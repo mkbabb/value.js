@@ -709,11 +709,14 @@ export {
     interpolateHue,
     mixColors,
     CYLINDRICAL_HUE_COMPONENT,
-    computeSafeAccent,
-    safeAccentColor,
-    needsContrastAdjustment,
-    getOklchLightness,
     hex2rgb,
     rgb2hex,
 } from "./dispatch";
 export type { HueInterpolationMethod } from "./dispatch";
+// OKLab contrast helpers — sourced directly from contrast.ts (K.W2e).
+export {
+    computeSafeAccent,
+    safeAccentColor,
+    needsContrastAdjustment,
+    getOklchLightness,
+} from "./contrast";

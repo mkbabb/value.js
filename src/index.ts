@@ -122,12 +122,16 @@ export {
     interpolateHue,
     mixColors,
     CYLINDRICAL_HUE_COMPONENT,
+} from "./units/color/dispatch";
+export type { HueInterpolationMethod } from "./units/color/dispatch";
+// OKLab contrast helpers — defined in contrast.ts (K.W2e: no longer re-exported
+// through dispatch.ts, which kept it over the G3 ≤350 cap).
+export {
     computeSafeAccent,
     safeAccentColor,
     needsContrastAdjustment,
     getOklchLightness,
-} from "./units/color/dispatch";
-export type { HueInterpolationMethod } from "./units/color/dispatch";
+} from "./units/color/contrast";
 
 // N-color mixing
 export { mixColorsN } from "./units/color/mix";

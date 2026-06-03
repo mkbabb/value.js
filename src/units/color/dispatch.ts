@@ -9,12 +9,8 @@
  *
  * Also hosts `gamutMap()` (adaptive sRGB gamut wrapper), `interpolateHue()`,
  * `mixColors()` (CSS `color-mix()`), and the `getFormattedColorSpaceRange`
- * range-formatting helper.
- *
- * G.W1 Lane B — extracted from `src/units/color/utils.ts` (G3 decomposition).
- * G.W4 G3-remediation — `DIRECT_PATHS` table + `DirectPathsTable` mapped-type +
- *   `getDirectPath` lookup relocated to their cohesion-honest home in
- *   `conversions/direct.ts` (alongside the `directXxx` functions they route to).
+ * range-formatting helper. The `DIRECT_PATHS` table + `DirectPathsTable`
+ * mapped-type + `getDirectPath` lookup live in `conversions/direct.ts` (G.W4).
  */
 
 import { Color, RGBColor } from ".";
@@ -53,12 +49,6 @@ import { getDirectPath } from "./conversions/direct";
 
 export { hex2rgb, rgb2hex };
 export { deltaEOK, isInSRGBGamut, DELTA_E_OK_JND } from "./gamut";
-export {
-    computeSafeAccent,
-    safeAccentColor,
-    needsContrastAdjustment,
-    getOklchLightness,
-} from "./contrast";
 
 // ── Color-space range formatting ──
 
@@ -83,15 +73,9 @@ export const getFormattedColorSpaceRange = <T extends ColorSpace>(colorSpace: T)
 // `color2()` routes every non-direct conversion through XYZ D65 as a hub. The
 // `XYZ_FUNCTIONS` table wires per-space `{ to, from }` converters keyed by
 // `ColorSpace` — `to` lifts the source space into XYZ; `from` lowers XYZ into
-// the target space.
-//
-// H.W2 Lane A (H-OPP-1) — typed `XyzFunctionsTable` mapped-type. The table is
-// keyed by `ColorSpace`. Distributing over the key + capturing the slot type
-// `C` via the conditional-type inference `K extends C ? ... : never` yields the
-// EXACT per-slot `{ to: (Color<number>) => XYZColor; from: (XYZColor) =>
-// Color<number> }` signature per pair, so each conversion function's concrete
-// signature type-checks at its slot cast-free. Mirrors the G.W2 Lane B
-// `DirectPathsTable` precedent (`conversions/direct.ts`).
+// the target space. The typed `XyzFunctionsTable` mapped-type derives the exact
+// per-slot signature so each converter type-checks at its slot cast-free
+// (mirrors the `DirectPathsTable` precedent in `conversions/direct.ts`).
 // ──────────────────────────────────────────────────────────────────────────────
 
 /**
@@ -141,20 +125,13 @@ const XYZ_FUNCTIONS: XyzFunctionsTable = {
 };
 
 /**
- * Typed `XYZ_FUNCTIONS` lookup pair. Both mirror the G.W2 Lane B
- * `getDirectPath` precedent: each is keyed by a runtime value, so TS cannot
- * statically pick a single `XyzFunctionsTable` slot — a value-keyed read
- * collapses to the *union* of all per-slot signatures (uncallable on a
- * single-shape arg). The lone `as` in each helper re-asserts the runtime-keyed
- * entry as the dispatch-site signature — a documented index-narrowing, not a
- * type-erasing double cast.
- *
- * `getXyzToFn` widens its return-fn input to `Color<number>` rather than the
- * source-space subclass: the dispatch site only has `Color<T>` statically;
- * `Color<number>` shares the `[key: string]: any` index signature with every
- * subclass, so the per-space `{from}2xyz` body's property reads (`{ r, g, b }
- * = color`) succeed via that overlap, and the runtime `color.colorSpace`
- * discriminant guarantees the correct subclass is in hand.
+ * Typed `XYZ_FUNCTIONS` lookup pair (mirrors the `getDirectPath` precedent). A
+ * value-keyed read collapses to the *union* of all per-slot signatures; the lone
+ * `as` in each helper re-asserts the entry as the dispatch-site signature — a
+ * documented index-narrowing, not a type-erasing double cast. `getXyzToFn`
+ * widens its fn input to `Color<number>` (shared `[key: string]: any` index
+ * signature), and the runtime `color.colorSpace` discriminant guarantees the
+ * correct subclass is in hand.
  */
 const getXyzToFn = (
     from: ColorSpace,
