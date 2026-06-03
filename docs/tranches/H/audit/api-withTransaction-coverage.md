@@ -54,7 +54,7 @@ For every candidate site:
 | `services/palette/crud.ts` | 108 | `createPalette` | H.W1 Lane A.1 |
 | `services/palette/crud.ts` | 188 | `patchPalette` | H.W1 Lane A.1 |
 | `services/palette/crud.ts` | 234 | `deletePalette` (user-facing) | G.W3 Lane E |
-| `services/palette/forks.ts` | 80 | `forkPalette` | E.W2 Lane B |
+| `services/palette/forks.ts` | 50 | `remixPalette` (was `forkPalette`; `forkPalette` now delegates) | E.W2 Lane B; J.W2 rename+atomDiff |
 | `services/palette/versions.ts` | 151 | `revertToVersion` | G.W3 Lane E |
 | `services/palette/votes.ts` | 45 | `toggleVote` | E.W2 Lane B |
 | `services/admin/palettes.ts` | 49 | `deletePalette` (admin variant — D6) | **H.W1 Lane A.2** |
@@ -76,7 +76,7 @@ The 16 cross-collection write sites that wrap their multi-collection mutation in
 | # | File:line | Function | Collections touched | Wave landed | Rollback test? |
 |---|---|---|---|---|---|
 | 1 | `services/admin/users.ts:170` | `deleteUser` | `palettes` + `votes` + `flags` + `sessions` + `adminAudit` + `users` | E.W2 Lane B | Pattern-covered (G.W3 §3); no dedicated test (representative pair only) |
-| 2 | `services/palette/forks.ts:80` | `forkPalette` | `palettes` (insert + parent fork-count `$inc`) + `paletteVersions` | E.W2 Lane B | Pattern-covered (G.W3 §3) |
+| 2 | `services/palette/forks.ts:50` (txn at :109) | `remixPalette` (`forkPalette` delegates — fork = remix-with-empty-diff, ONE path) | `palettes` (insert + parent fork-count `$inc`) + `paletteVersions` (now carries the J.W2 `atomDiff` edge payload — SAME collection, no new store, inv-J-2) | E.W2 Lane B; **J.W2 rename** | Pattern-covered (G.W3 §3); `palette-remix.test.ts` asserts the recorded edge + parent fork-count bump |
 | 3 | `services/palette/votes.ts:45` | `toggleVote` | `votes` (upsert/delete) + `palettes` (gated `$inc voteCount`) | E.W2 Lane B | Pattern-covered (G.W3 §3) |
 | 4 | `services/palette/crud.ts:234` | `deletePalette` (user-facing) | `palettes` + `votes` + `flags` + `palettes` (parent `decrementForkCount` when `forkOf`) | G.W3 Lane E | **YES** — `withTransaction-rollback.test.ts` "rolls back palette + votes when a later cascade step throws" |
 | 5 | `services/palette/versions.ts:151` | `revertToVersion` | `paletteVersions` (via `createVersionRecord`) + `palettes` (update + `$inc versionCount`) | G.W3 Lane E | Pattern-covered (G.W3 §3) |

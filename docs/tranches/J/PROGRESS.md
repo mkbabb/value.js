@@ -2,6 +2,8 @@
 
 Updated at every wave boundary. Reconciled against reality at J.W5 close.
 
+> **2026-06-02 — cohort CORE EXECUTED + GREEN.** J was re-activated by the constellation (`CONSTELLATION.md §3/§4`) as the value.js half of the WAVE-D cohort with fourier-J, and the atom-diff + publish CORE shipped green (api 140/25, tsc clean, eslint 0). See **`FINAL.md`** for the close record. W3 (demo render) + W4 (Idempotency store) booked with E5 triggers; the cohort closes paired with fourier-J. See [[tranche-j-executed]] in memory + `J.md` banner.
+
 ## Goal of this log
 
 Record what *actually happened* at each wave of value.js-J — the WAVE-D (palette-side) author of the constellation REMIX pattern, cohort peer to fourier-J — so the close ceremony can reconcile claim against artefact without archaeology.
@@ -14,12 +16,12 @@ Every wave's row carries (a) a status word from the canonical set, (b) a close t
 
 | Wave | Disposition | Status | Closed at | Notes |
 |---|---|---|---|---|
-| J.W0 — *Open + 6-agent audit + chronic-deferred ledger* | DEV (audit) | **PLANNED** | — | Re-confirm A–I green at HEAD; baseline the existing fork/version/provenance/hash machinery; **re-check VAL-9 / VAL-1 ≥2-consumer triggers** against glass-ui's AQ aurora/spring state; intake the I-tail deferral ledger (Idempotency-Key store, conformance suite); book the G5 WebMCP adjacency. |
-| J.W1 — *The CORE spec (palette remix + atom-diff)* | DEV (design) | **PLANNED** | — | `design/J.W1-palette-remix.md`: atom-set-hash, `remixPalette`, diff-bearing edge, `/diff?from=` contract, CSS Custom Highlight render, fourier-J parameterization seam. **The DEV/IMPL boundary.** VAL-9 + VAL-1 ship-or-book verdicts recorded. |
-| J.W2 — *WAVE-D core (palette atom-diff) + BrowsePane perf* | IMPL | **BLOCKED** (on W1 + ratification) | — | `forkPalette → remixPalette`; `POST /:slug/remix`; `GET /:slug/diff?from={hash}`; `PaletteVersion.atomDiff` edge; atom-set-hash in formatter; diff-symmetry + dedup conformance probe. Folded perf: `scheduler.yield()` + `content-visibility` on BrowsePane. |
-| J.W3 — *Diff-viewer consumer (CSS Custom Highlight)* | IMPL | **BLOCKED** (on W2) | — | Demo palette-detail renders atom-diff via `CSS.highlights` ranges; ≤20 LOC wrapper-span fallback; diff `role`/`aria` swatch-list leaf. |
-| J.W4 — *VAL-9 / VAL-1 ship-or-book + I-tail conformance close* | IMPL | **BLOCKED** (on W0 re-gate) | — | VAL-9 emitter ships IFF ≥2-consumer; VAL-1 LUT ships IFF glass-ui `deriveAurora()` + 2nd consumer; Idempotency-Key replay store; per-repo conformance suite green. |
-| J.W5 — *Close + WAVE-D cohort coordination* | DEV (close) | **BLOCKED** (on W2–W4) | — | `FINAL.md`; paired-close OR named-successor with fourier-J; cross-repo `/diff` envelope parity; overfitting audit. |
+| J.W0 — *Reconcile + terminal verdicts* | DEV (audit) | **GREEN** | 2026-06-02 | Tree reconciled (BUILD not reconcile — `diff.ts`/`atomdiff`/`remix`/`publish`/filter absent). Verdicts: **VAL-9 KILL** · **VAL-1 BOOK+kill-date** · **CH-6 → K.W3** (`FINAL.md §2`). Baseline api 119/22 green. |
+| J.W1 — *CORE spec → reconciled to canonical contracts* | DEV (design) | **GREEN** | 2026-06-02 | `design/J.W1-palette-remix.md` was the substrate; reconciled to the canonical `atomdiff` name + the four-field `{fromHash,toHash,ops,identical}` envelope (binds to fourier `J-diff-shape §3/§4` + `J.W1c §6`). |
+| J.W2 — *WAVE-D atom-diff CORE + publish* | IMPL | **GREEN** | 2026-06-02 | `lib/crud/atomdiff.ts`; `remixPalette` (fork delegates); `POST /:slug/remix`; `GET /:slug/diff` (ETag, 304, **422** divergent-chain); `PaletteVersion.atomDiff`; `atomSetHash` in formatter. **+ W1c publish**: `POST /:slug/{publish,unpublish}` (inv-I-2 first live caller) + the **[P0]** `visibility:"public"` filter + derived `published`. 21 new tests, all green. |
+| J.W3 — *Diff-viewer consumer (CSS Custom Highlight)* | IMPL | **BOOKED** | — | Backend `/diff` shipped + green. Demo render gated on demo-green (= K.W2; demo build RED on glass-ui dist coupling at HEAD). E5 trigger: `FINAL.md §3`. |
+| J.W4 — *VAL ship-or-book + Idempotency store* | IMPL | **GREEN-partial** | 2026-06-02 | VAL verdicts recorded (W0, §2). Idempotency-Key replay store **BOOKED** (optional per J.W1c §5.5 — If-Match + same-row no-op already give publish idempotency). Per-repo conformance suite = the diff + publish probes (shipped). |
+| J.W5 — *Close + WAVE-D cohort* | DEV (close) | **GREEN** | 2026-06-02 | `FINAL.md` authored; value.js-J green + parity-ready (asserts vs `J-diff-shape §3/§4`). Cohort closes **paired with fourier-J** (lead verifies cross-repo envelope parity, `CONSTELLATION.md §6`). |
 
 Canonical status set: PLANNED · BLOCKED · IN-PROGRESS · GREEN · GREEN-partial · BOOKED (for the binary-gated VAL items) · REFUTED.
 

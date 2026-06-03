@@ -7,6 +7,14 @@
 **Authored seed**: `docs/constellation/next/audit/A3-fourier-valuejs.md §5.2` (the value.js-J sketch) + §4 (the CRUD/REMIX gap as the WAVE-D NEED).
 **Mode**: planning-only at open. W0 audit + W1 design are DEV; W2+ are IMPL and dispatch only after the W0 ≥2-consumer re-gate verdict + user ratification.
 
+> **STATUS as of 2026-06-02: cohort CORE EXECUTED + GREEN (re-activated by the constellation).** The arc, in order:
+>
+> 1. **Authored planning-only**, then **retired via supersede-and-fold** at the K.W0 ratification gate (the user re-prioritized toward cross-repo glass-ui cohesion → K).
+> 2. **Re-activated by `CONSTELLATION.md`** (the fourier hub's orchestration manifest, authored 2026-06-02). §3/§4 bind value.js to a **live cohort-J arm** — the atom-diff + publish — synchronized with **fourier-J** via the canonical repo-neutral shape doc `fourier-analysis/docs/tranches/J/design/J-diff-shape.md`. This is the only synchronized cross-repo work; it is owed and **supersedes the local retirement for the cohort CORE** (the broader glass-ui scope stays in K).
+> 3. **EXECUTED** (this session, the §4 value.js arm; see `FINAL.md`): **W0** terminal verdicts (VAL-9 KILL · VAL-1 BOOK+kill-date · CH-6 → K.W3); **W2 atom-diff** (`api/src/lib/crud/atomdiff.ts` · `remixPalette` · `POST /:slug/remix` · `GET /:slug/diff`); **W1c publish** (`POST /:slug/{publish,unpublish}` + the [P0] `visibility:"public"` filter). **GREEN**: api vitest 140/25, `tsc` clean, eslint 0; the `/diff` envelope is asserted against `J-diff-shape §3/§4` and publish against `J.W1c §6` (adversarially verified — 8/8 + 9/9). inv-16 held (zero non-value.js writes; zero library `src/` edits).
+>
+> **Disposition**: the REMIX CORE spec (`design/J.W1-palette-remix.md`) was the build substrate (reconciled to the canonical `atomdiff` name + four-field envelope at build time). **Residuals BOOKED** (E5 triggers, see `FINAL.md §3`): J.W3 demo CSS-Custom-Highlight diff render (gated on demo-green = K.W2); J.W4 Idempotency-Key replay store (optional per J.W1c §5.5). The cohort closes **paired with fourier-J** (the lead verifies cross-repo envelope parity). The broader glass-ui mandates (goo-blob lift, aurora-derive, primitives) remain K's. Authority: `CONSTELLATION.md §3/§4` + the 2026-06-02 user mandate.
+
 ## §0 — Goal criterion and completion criterion (paired)
 
 **Goal criterion (the aim).** value.js-I closed CRUD-CONTRACT v2 conformance: the palette-server ships fork + version-DAG + provenance + revert. It does NOT ship an **atom-diff** layer — `/provenance` answers "who did this descend from", not "*what changed* between this and its parent". J adds the REMIX + atom-diff layer (the WAVE-D headline) and re-gates the two chronically-deferred foundational edges (VAL-9, VAL-1) that have survived G→H→I unexecuted, then closes the I-tail conformance deferrals.
