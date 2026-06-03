@@ -16,6 +16,7 @@ import type {
 } from "../../models.js";
 import { NotFoundError } from "../../errors/index.js";
 import { computeContentHash } from "../../hash.js";
+import type { AtomDiffOp } from "../../lib/crud/atomdiff.js";
 import { computeOklabColors } from "./oklab.js";
 
 export interface CreateVersionInput {
@@ -25,6 +26,9 @@ export interface CreateVersionInput {
     authorSlug: string;
     parentHash: string | null;
     forkedFromHash: string | null;
+    /** J.W2 — the recorded atom-diff from the parent to this version. Omit/null
+     * for a root version (no parent). Persisted on the version edge (inv-J-2). */
+    atomDiff?: AtomDiffOp[] | null;
 }
 
 /**
@@ -73,6 +77,7 @@ export async function createVersionRecord(
         createdAt: new Date(),
         rootHash,
         depth,
+        atomDiff: input.atomDiff ?? null,
     };
 
     await services.repositories.paletteVersions.insertIfAbsent(version, session);

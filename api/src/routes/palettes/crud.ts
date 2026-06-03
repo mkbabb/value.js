@@ -91,7 +91,7 @@ crudRouter.post("/", async (c) => {
 // Owner-extractor shared by PATCH + DELETE — reads the palette's `userSlug`.
 // Returns `null` to signal "not found" (middleware → 404); the caller's
 // `userSlug` must match for the request to proceed (middleware → 403).
-const paletteOwnerExtractor = async (
+export const paletteOwnerExtractor = async (
     c: Parameters<Parameters<typeof requireOwnership>[0]>[0],
 ): Promise<string | null> => {
     const palette = await c.var.services.repositories.palettes.findBySlug(

@@ -13,9 +13,9 @@
  */
 
 import type { Palette } from "../models.js";
+import { computeAtomSetHash } from "../hash.js";
 
 export interface FormattedPalette {
-    id: string;
     name: string;
     slug: string;
     colors: Palette["colors"];
@@ -40,6 +40,12 @@ export interface FormattedPalette {
     forkOfHash: string | null;
     forkCount: number;
     versionCount: number;
+    /** J.W1c derived convenience: true ⟺ visibility === "public". NEVER a
+     * persisted column — computed read-time from the visibility enum. */
+    published: boolean;
+    /** J.W2 atom-set-hash — the colors-only, order-independent fingerprint
+     * (dedup hint + the `/diff` envelope's hash basis). */
+    atomSetHash: string;
     isLocal: false;
     voted?: boolean | undefined;
 }
@@ -65,7 +71,6 @@ export function formatPalette(
     // defaults were silent compensation for the in-flight migration window
     // and are no longer needed.
     return {
-        id: String(_id),
         name: rest.name,
         slug: rest.slug,
         colors: rest.colors,
@@ -84,6 +89,8 @@ export function formatPalette(
         deletedAt: rest.deletedAt,
         createdAt: rest.createdAt,
         updatedAt: rest.updatedAt,
+        published: rest.visibility === "public",
+        atomSetHash: computeAtomSetHash(rest.colors),
         isLocal: false,
         voted: votedSlugs ? votedSlugs.has(rest.slug) : undefined,
     };

@@ -100,6 +100,18 @@ export async function listPalettes(
 
     if (query.userSlug) f.userSlug = query.userSlug;
 
+    // I.W1 visibility (J.W2 [P0] fix): the public browse shows ONLY `public`
+    // palettes — before this clause `private`/`unlisted` palettes LEAKED into
+    // the public list, which made the publish op substrate-without-a-consumer.
+    // An owner filtering by their OWN userSlug sees all their visibilities;
+    // anonymous + other users see only the target's public palettes. (`/mine`
+    // is a separate path — `listMine` — and is intentionally unaffected.)
+    const viewingOwn =
+        query.userSlug !== undefined && query.userSlug === currentUserSlug;
+    if (!viewingOwn) {
+        f.visibility = "public";
+    }
+
     const cursor = decodeCursor(query.cursor);
     if (cursor && useCursor) {
         if (sortParam === "popular" && cursor.voteCount != null) {

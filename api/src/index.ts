@@ -7,6 +7,7 @@ import "dotenv/config";
 import type { AppEnv } from "./types.js";
 import { getDb, closeDb } from "./db.js";
 import { corsHeaders } from "./middleware/cors.js";
+import { idempotency } from "./middleware/idempotency.js";
 import { injectServices } from "./middleware/inject-services.js";
 import { rateLimit } from "./middleware/rate-limit.js";
 import { resolveSession } from "./middleware/resolve-session.js";
@@ -58,6 +59,12 @@ app.use("*", injectServices);
 
 // Session resolution
 app.use("*", resolveSession);
+
+// Idempotency-Key replay store (K.W2). Runs AFTER injectServices (so it can
+// reach c.var.services if ever Mongo-backed) and AFTER resolveSession (the
+// replay key is scoped by sessionToken/userSlug). Opt-in: a no-op when the
+// header is absent.
+app.use("*", idempotency);
 
 // --- Routes ---
 

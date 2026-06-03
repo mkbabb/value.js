@@ -71,27 +71,46 @@ export function publishPalette(palette: {
     return request("/palettes", {
         method: "POST",
         body: JSON.stringify(palette),
+        // K.W2: a fresh idempotency key collapses a double-submit (e.g. a
+        // network retry) into a single create on the API replay store.
+        idempotencyKey: crypto.randomUUID(),
     });
 }
 
+/**
+ * PATCH a palette. The API REQUIRES `If-Match` on PATCH (428 if absent) per
+ * CRUD-CONTRACT v2 §5, so callers MUST pass the captured ETag derived from a
+ * prior read — see `paletteETag()`. `ifMatch: "*"` is accepted by the API as
+ * a "match any current resource" escape hatch (RFC 7232) when the caller has
+ * no captured validator.
+ */
 export function updatePalette(
     slug: string,
     update: { name?: string; colors?: PaletteColor[]; tags?: string[] },
+    ifMatch: string,
 ): Promise<Palette> {
     return request(`/palettes/${encodeURIComponent(slug)}`, {
         method: "PATCH",
         body: JSON.stringify(update),
+        ifMatch,
     });
 }
 
-export function renamePalette(slug: string, name: string): Promise<Palette> {
-    return updatePalette(slug, { name });
+export function renamePalette(
+    slug: string,
+    name: string,
+    ifMatch: string,
+): Promise<Palette> {
+    return updatePalette(slug, { name }, ifMatch);
 }
 
 export function votePalette(
     slug: string,
 ): Promise<{ voted: boolean; voteCount: number }> {
-    return request(`/palettes/${encodeURIComponent(slug)}/vote`, { method: "POST" });
+    return request(`/palettes/${encodeURIComponent(slug)}/vote`, {
+        method: "POST",
+        idempotencyKey: crypto.randomUUID(),
+    });
 }
 
 export function deletePaletteUser(slug: string): Promise<{ deleted: boolean }> {
@@ -106,5 +125,21 @@ export function flagPalette(
     return request(`/palettes/${encodeURIComponent(slug)}/flag`, {
         method: "POST",
         body: JSON.stringify({ reason, detail }),
+        idempotencyKey: crypto.randomUUID(),
     });
+}
+
+/**
+ * Derive the strong ETag for a palette from its at-rest fields, mirroring the
+ * API's `paletteETag()` (`api/src/middleware/etag.ts`): the `currentHash` when
+ * present, else the `updatedAt` ISO timestamp, double-quoted per RFC 7232.
+ * Used by PATCH callers to supply the required `If-Match` validator without an
+ * extra round-trip when they already hold the palette object.
+ */
+export function paletteETag(palette: {
+    currentHash?: string;
+    updatedAt: string;
+}): string {
+    const value = palette.currentHash ?? palette.updatedAt;
+    return `"${value}"`;
 }

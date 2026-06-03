@@ -21,6 +21,7 @@
  */
 
 import type { ObjectId } from "mongodb";
+import type { AtomDiffOp } from "./lib/crud/atomdiff.js";
 
 // ---------------------------------------------------------------
 // Status enums
@@ -126,6 +127,12 @@ export interface PaletteVersion {
     createdAt: Date;
     rootHash: string;
     depth: number;
+    /** J.W2 — the recorded atom-diff from this version's parent
+     * (`parentHash ?? forkedFromHash`) to THIS version. `null` for a root
+     * version (no parent). The diff-bearing provenance edge. Optional for
+     * read-compat with pre-J version rows (no field → read as absent). inv-J-2:
+     * a JSON payload on the existing edge — no new collection. */
+    atomDiff?: AtomDiffOp[] | null;
 }
 
 // ---------------------------------------------------------------

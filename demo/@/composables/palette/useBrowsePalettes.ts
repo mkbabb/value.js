@@ -7,6 +7,7 @@ import {
     votePalette,
     renamePalette,
     deletePaletteUser,
+    paletteETag,
 } from "@lib/palette/api";
 import type { Palette } from "@lib/palette/types";
 
@@ -109,7 +110,13 @@ export function useBrowsePalettes(deps: {
     async function onRename(palette: Palette, newName: string) {
         try {
             await session.ensureSession();
-            const updated = await renamePalette(palette.slug, newName);
+            // K.W2: PATCH REQUIRES If-Match — derive the validator from the
+            // palette we already hold (currentHash, else updatedAt).
+            const updated = await renamePalette(
+                palette.slug,
+                newName,
+                paletteETag(palette),
+            );
             const idx = remotePalettes.value.findIndex((p) => p.slug === palette.slug);
             const existing = remotePalettes.value[idx];
             if (idx !== -1 && existing) {

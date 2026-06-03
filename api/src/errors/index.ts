@@ -81,6 +81,16 @@ export class PreconditionFailedError extends ApiError {
     }
 }
 
+/** 422 — request well-formed but semantically unprocessable: e.g. a `/diff`
+ * across two versions on DIVERGENT branches (the inv-J-1 single-parent chain
+ * guard), or a malformed visibility target (the inv-I-2 transition guard).
+ * Distinct from 400, which is for malformed/absent request params. */
+export class UnprocessableEntityError extends ApiError {
+    constructor(message: string, detail?: unknown) {
+        super(422, "unprocessable", message, detail);
+    }
+}
+
 /** 428 — If-Match header missing on a mutation that requires it (I.W4). */
 export class PreconditionRequiredError extends ApiError {
     constructor(message = "If-Match header is required") {

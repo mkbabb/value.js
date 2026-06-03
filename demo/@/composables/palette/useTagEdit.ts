@@ -49,7 +49,11 @@ export function useTagEdit(): UseTagEdit {
         tags: string[],
     ): Promise<Palette | undefined> {
         try {
-            return await updatePalette(slug, { tags });
+            // K.W2: PATCH REQUIRES If-Match (428 if absent). The tag-edit popover
+            // holds only the slug + current tags, not the palette's ETag fields,
+            // so we use the RFC 7232 match-any escape hatch (`"*"`). A captured
+            // validator would be preferable; the popover has no read to derive it.
+            return await updatePalette(slug, { tags }, "*");
         } catch (e) {
             console.warn("Failed to update tags:", e);
             return undefined;

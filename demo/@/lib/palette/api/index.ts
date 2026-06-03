@@ -38,6 +38,7 @@ export {
     votePalette,
     deletePaletteUser,
     flagPalette,
+    paletteETag,
 } from "./palettes";
 
 export {

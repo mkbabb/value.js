@@ -76,48 +76,9 @@ services:
         max-size: "10m"
         max-file: "5"
 
-  backup:
-    image: mongo:8
-    volumes:
-      - mongo-backups:/backups
-      - ./scripts/backup.sh:/usr/local/bin/backup.sh:ro
-    environment:
-      MONGO_HOST: "mongo"
-      MONGO_PORT: "27017"
-      MONGO_DB: "palette-db"
-      BACKUP_RETAIN_DAYS: "14"
-    entrypoint: ["/bin/bash", "/usr/local/bin/backup.sh"]
-    depends_on:
-      mongo:
-        condition: service_healthy
-    restart: unless-stopped
-    networks:
-      - internal
-    # Security hardening
-    read_only: true
-    tmpfs:
-      - /tmp:noexec,nosuid,size=512m
-    security_opt:
-      - no-new-privileges:true
-    cap_drop:
-      - ALL
-    # Resource limits
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-          cpus: "0.5"
-    # Log rotation
-    logging:
-      driver: json-file
-      options:
-        max-size: "5m"
-        max-file: "3"
-
 networks:
   internal:
     driver: bridge
 
 volumes:
   mongo-data:
-  mongo-backups:

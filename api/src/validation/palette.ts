@@ -63,6 +63,18 @@ export const forkPaletteBody = z
     })
     .default({});
 
+// J.W2 remix: a fork that carries an optional new color-bag. `colors` ABSENT →
+// a plain fork (empty atom-diff); PRESENT → the server diffs against the source
+// and records the atom-diff on the child version edge. `fork` is `remix` with
+// no colors — one code path.
+export const remixPaletteBody = z
+    .object({
+        name: paletteNameSchema.optional(),
+        slug: slugSchema.optional(),
+        colors: colorsArraySchema.optional(),
+    })
+    .default({});
+
 export const revertPaletteBody = z.object({
     hash: z.string().min(1),
 });
