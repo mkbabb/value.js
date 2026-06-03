@@ -1,34 +1,33 @@
-# Execution order + per-session prompts (2026-06-03)
+# Execution — per-tranche recap + session prompts (2026-06-03)
 
-Lean dispatch for the 6 open Claude Code sessions. Each session executes its tranche **in totality** per its own committed docs (which carry all grounded detail — DEC-1..8, P9, file:line, dispositions); the prompts add ONLY the cross-repo serial position no single repo's doc can know.
+For the 6 open Claude Code sessions: **value.js · glass-ui · slides · fourier · keyframes.js · speedtest**. Each executes its tranche **in totality** from its committed docs (which carry all detail + DEC-1..9). Decisions baked: DEC-1 configurator RIGHT+fix-void · DEC-2 publish-not-file · DEC-3 no-mascot · DEC-4 friday separate · DEC-5 color.babb.dev · DEC-6 proof divergent · DEC-7 creds separate · DEC-8 slides font stays · DEC-9 CI/CD (words single-home friday via words.babb.dev, speedtest off babb.dev, no-rsync, branch=master+parameterize, publish=changesets).
 
-## Two hard gates (DEC-1/Q1 — publish-gated, no `file:`)
-**keyframes `3.0.0`** and **glass-ui `3.2.0`** must PUBLISH before consumers adopt.
+## Two hard gates
+**keyframes `3.0.0`** + **glass-ui `3.2.0`** PUBLISH before consumers adopt.
 
 ## Order
-- **T0 (parallel, no wait):** keyframes (→pub 3.0.0) ‖ glass-ui (→pub 3.2.0) ‖ value.js (K.W2) ‖ slides (B.W0–W2) ‖ fourier (dev.sh-P0 + J.W2) ‖ muster (K.W3 local).
-- **T1 (after both roots publish):** value.js K.W4/W5 ‖ fourier J.W5–W7 ‖ muster token-adopt ‖ slides B.W3–W5.
-- **T2 (after value.js v1.0.0):** glass-ui Metaballs+BlobDot ‖ value.js blob-lift + L.
+**T0 (parallel):** keyframes(→pub 3.0.0) ‖ glass-ui(→pub 3.2.0) ‖ value.js K.W2 ‖ slides B.W0–W2 ‖ fourier dev.sh-P0+J.W2 ‖ speedtest AT-R1. **T1 (after both roots publish):** value.js K.W4/W5 ‖ fourier J.W5–W7 ‖ slides B.W3–W4 ‖ speedtest AT-R2. **T2 (after value.js v1.0.0):** glass-ui Metaballs+BlobDot ‖ value.js blob-lift + L.
+
+## What each tranche does (recap)
+- **keyframes.js (A) — root:** EasingResolvable; the **exported RAFPlayback PRM gate** (default-on — roots the constellation PRM-RAF epidemic); scheduler.yield in tick; WAAPI linear() spring; LoAF; README posture. Cut **3.0.0** (semver-correct barrel split) + changesets + `--provenance`. Publishes first → unblocks the dep-cohort (sudoku/bbnf).
+- **glass-ui (AS) — root:** **P9** (build-independent component-utilities → fixes the constellation silent-no-op + the square configurator; round ConfiguratorLayer content); the primitives (Configurator `asideSide`+token default-RIGHT, `deriveAuroraFromColor`, `useTextHighlight`, self-hosted Fraunces face, `vt.ready` hardening, `--dock-fg-on-aurora`+`as`/`asChild`, motion-safe Spinner/Pulse); inherit the keyframes PRM gate in `/motion`; new DataTable/Tabs/SortableList a11y. Keep `proof:*` (DEC-6). Publish **3.2.0** + changesets/`--provenance`.
+- **value.js (K→L) — babb.dev/api.color:** K.W2 substrate green + CRUD test + dock `transition:all` strip + blob C3 local fix; K.W4 aurora-derive (deriveAurora 2nd-consumer gate) + contrast guard; K.W5 modern-web + Fraunces + `:user-invalid` + inherited PRM; **v1.0.0** at K.W6; then blob-LIFT + tranche L (api excision). CI/deploy: babb.dev spine, git-pull (no rsync), unified ci.yml + lighthouse/axe gate.
+- **fourier (J) — babb.dev/api.fourier, reference impl:** P0 dev.sh bash-3.2 fix; J.W2 remix/publish WRITE side; J.W5 compose the empty-state **void** (configurator stays RIGHT) + epicycle PRM + cross-page VT + trail taper + adopt P9 (rounds free) + `useTextHighlight`; **J.W6 = the instrumented-gate pilot** (real axe+Lighthouse); J.W7 CSP.
+- **slides (B) — friday.institute exemplar:** B.W0–W2 responsive reflow (kill 0.29 letterbox) + dark-dock + `<360` collapse + declarative; B.W3–W4 adopt glass-ui `/deck` + home↔deck VT. **Font stays (DEC-8).** Branch→`master` + parameterize the deploy-gate (DEC-9). PRM-gate the constellation RAF.
+- **speedtest (AT) — friday.institute (NOT babb.dev):** AT-R1 dial **CLS 0.3228** fix (revert-layer) + needle spring; AT-R2 VT completion re-founding (after glass-ui `vt.ready`) + mobile-blank-card; **add CI from zero** + wire the existing `lighthouserc.json` into the unified lighthouse+axe gate — **passing it lifts the SUM-1 freeze (DEC-9)**; adopt `deriveAurora` (gauge, 2nd consumer) + `@container`.
 
 ## Prompts
+**① keyframes.js** *(root)* > Execute tranche A in full per `docs/tranches/A/` (incl. the `3.0.0` re-release + the exported `RAFPlayback` PRM gate + changesets/`--provenance`). Publish 3.0.0 first. Gate on green CI.
 
-**① keyframes.js** — *serial root, publish first*
-> Execute tranche A in full per `docs/tranches/A/` (incl. the `3.0.0` semver-correct re-release + the `RAFPlayback` PRM gate). Publish 3.0.0 before the dep-cohort bumps. Gate on green CI.
+**② glass-ui** *(root)* > Execute AS in full per `docs/tranches/AS/` (incl. `design/AS.W5-constellation-primitives.md` §6 P9 first). Publish 3.2.0 first (+ `--provenance`/changesets; keep `proof:*` per DEC-6). Gate on the AS gate fleet.
 
-**② glass-ui** — *serial root, publish first*
-> Execute AS in full per `docs/tranches/AS/` (incl. `design/AS.W5-constellation-primitives.md` §6 **P9 first**). Publish 3.2.0 before consumers adopt. Gate on the AS gate fleet.
+**③ value.js** > Execute tranche K in full per `docs/tranches/K/`. K.W2 now; K.W4/W5 after glass-ui 3.2.0 + keyframes 3.0.0. CI/deploy = babb.dev spine, `api.color.babb.dev`, git-pull (DEC-9), unified `ci.yml` + lighthouse/axe gate. Gate on vue-tsc 0 + Playwright green vs no backend.
 
-**③ value.js**
-> Execute tranche K in full per `docs/tranches/K/`. K.W2 starts now; K.W4/W5 adopt after glass-ui 3.2.0 + keyframes 3.0.0 publish. Gate on vue-tsc 0 + 5-project Playwright green vs no backend.
+**④ fourier-analysis** > Execute tranche J in full per `docs/tranches/J/`. dev.sh-P0 + J.W2 now; J.W5–W7 after glass-ui 3.2.0. You're the instrumented-gate pilot (J.W6). Deploy = babb.dev spine (`api.fourier.babb.dev`). Gate on green CI incl. e2e.
 
-**④ fourier-analysis**
-> Execute tranche J in full per `docs/tranches/J/`. The `dev.sh` P0 + J.W2 start now; J.W5–W7 adopt after glass-ui 3.2.0. Gate on green CI incl. the e2e arm.
+**⑤ slides** > Execute tranche B in full per `docs/tranches/B/`. B.W0–W2 now (the `/deck` prerequisite); B.W3–W4 after glass-ui `/deck`+3.2.0. Font stays (DEC-8); branch→`master`+parameterize (DEC-9). Deploy = friday.institute CF Pages. Gate on typecheck+build.
 
-**⑤ slides**
-> Execute tranche B in full per `docs/tranches/B/`. B.W0–W2 start now (the `/deck` extraction prerequisite); B.W3–W5 adopt after glass-ui ships `/deck` + 3.2.0. Gate on typecheck+build, deploy-on-green.
+**⑥ speedtest** > Execute tranche AT in full per `docs/tranches/AT/`. AT-R1 dial-CLS now; AT-R2 after glass-ui `vt.ready` hardening. Add CI from zero + wire your `lighthouserc.json` into the unified lighthouse+axe gate — passing it lifts the SUM-1 freeze (DEC-9; stay frozen until). Deploy = friday.institute (NOT babb.dev). Gate on the budget + green CI.
 
-**⑥ muster**
-> Execute K.W3 in full per `docs/tranches/K/`. Starts now; the upstream token re-point adopts after glass-ui 3.2.0. Gate on CLS≤0.05 + 107-spec + axe-24/0.
-
-## No-session repos (book to a session or the dep-cohort)
-- **sudoku** (P0 blank) — rides the keyframes 3.0.0 cohort. **bbnf** (latent P0) — glass-ui+keyframes bump. **words** (SW P0), **speedtest** (AT), **deploy** (ζ.5–ζ.10 + the instrumented gate) — each per its committed audit doc.
+## No-session repos (book / cohort)
+sudoku (P0 blank — rides keyframes 3.0.0) · bbnf (glass-ui+keyframes bump, mascot PRM) · words (**babb.dev** — `words.babb.dev` + `api.words.babb.dev`, mbabb server, `:8110` spine; re-point `deploy.sh` off friday; SW P0; CI from zero) · muster (K.W3, local-only) · deploy (ζ.5–ζ.10 — owns the unified standard).
