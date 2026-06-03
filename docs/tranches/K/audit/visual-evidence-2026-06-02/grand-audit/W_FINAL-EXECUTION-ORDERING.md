@@ -114,3 +114,30 @@ Authoring is complete + reconciled. The following are **execution / commits**, e
 - Local dev servers (value.js :9001, glass-ui :5210, slides :5220, bbnf :5230, muster :5176) left up for before/after recapture — tear down at close.
 - Real **Lighthouse** runs (need the CLI + apps up) — booked at execution; the perf defects (CLS roots, bundle, font preloads) are code-grounded now.
 - **precepts** submodule sync (the visual-evidence π-lane + the dev.sh standard) — gated on committing the precept SPEC first.
+
+---
+
+## §6 — W8 deep-dive deltas (2026-06-03 — folds `DEEP-FINDINGS.md`, 148 net-new rows)
+
+The 12-agent deep-dive over the LIVE local deployments adds these to the run-plan (full per-repo net-new + the §D fold-map live in `DEEP-FINDINGS.md`):
+
+**3 P0 runtime breaks (live-grounded) — fix FIRST in their repos:**
+- **sudoku `:5250` renders BLANK** — 4 imports of `Animation`/`CSSKeyframesAnimation` moved off the keyframes top-level barrel (2.2.0 split). [sudoku; M1 elevated P1→**P0**]
+- **fourier `scripts/dev.sh` self-shuts** — negative array subscript under bash 3.2.57 (the `PIDS` bug). [fourier + the dev.sh standard]
+- **words service-worker install fails in prod** (inferred) — atomic `cache.addAll()` rejects on a hashed/missing asset → the offline layer is dead. [words]
+
+**keyframes dep-drift is a SEMVER VIOLATION, not staleness.** 2.2.0 shipped the value.js-free barrel split (`Animation` → engine chunk) as a MINOR — a breaking change. → **re-release as 3.0.0** + type-only dts; a **NEW K.W6 dep-cohort / version-reconciliation wave** bumps every consumer (sudoku P0, bbnf latent-P0) in lockstep.
+
+**PRM-on-JS/canvas-RAF epidemic — NEW constellation lane.** The CSS PRM guard covers only CSS animations; **~40 JS/canvas RAF loops across all 9 repos are ungated** (fourier 5+, keyframes 7, bbnf 15, sudoku 4, words 5, muster 4, value.js 4, glass-ui 3). **Root fix (one owner): a PRM gate in keyframes' shared `RAFPlayback` (default-honor TRUE) → glass-ui `/motion` inherits → every consumer's loops gate for free.** Owner = keyframes.js; propagator = glass-ui `/motion`; consumers adopt. Supersedes the scattered per-repo PRM rows.
+
+**Frozen-spinner (~40 sites).** `animation-iteration-count:1` freezes `animate-spin` into a static "is-it-hung?" icon (value.js 28, fourier 10, glass-ui 2). → glass-ui ships a motion-safe Spinner/Pulse-breath recipe; consumers replace raw `animate-spin`.
+
+**P9 utility-distribution gap is constellation-wide (corroborated).** 5 OTHER consumer surfaces silently no-op the same way (muster MetricCell glass-wash + dead `--duration-fast` fallbacks, fourier stale-3.1.0, bbnf vendored-2.0.0, value.js `--ring` never re-derived). P9's build-independent-CSS ship repairs all.
+
+**Form/interactive a11y — ~25 hand-rolled controls lack keyboard+aria, incl. glass-ui's OWN DataTable / Tabs / SortableList.** → 3 NEW glass-ui a11y waves + a bbnf editor-a11y pass.
+
+**ZERO instrumented measurement runs (the honesty finding).** Every CLS/INP/contrast magnitude in the whole audit is eyeball/grep-derived — never measured. → promote fourier's J.W6 axe item to a **constellation-wide instrumented gate** (real Lighthouse + axe-core in CI, per the dev-deploy CI-parity standard); the booked "real Lighthouse" becomes a binding gate.
+
+**5 NEW lanes** added to the schedules: glass-ui {Data, Tabs, SortableList} a11y · K.W6 dep-cohort/version-reconciliation · bbnf editor-a11y · the constellation instrumented-gate.
+
+> Net effect on ordering: the **3 P0 breaks** jump to the front of their repos' WAVE 1; the **keyframes 3.0.0 re-release + dep-cohort** becomes a serial root alongside glass-ui AS (consumers bump in lockstep); the **PRM-RAF lane** is owned by keyframes (default-on) and inherited via glass-ui; the **instrumented-gate** is a deploy/CI-parity prerequisite that makes every prior magnitude claim measurable.
