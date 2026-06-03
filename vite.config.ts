@@ -38,11 +38,14 @@ const defaultOptions = {
 };
 
 // Contract-v2 (docs/precepts/cross-repo-dev-resolution.md §1.2, §2):
-// bare `@mkbabb/*` specifiers resolve through the sibling's `exports` map to
-// `dist/` via the `file:` symlink in `node_modules`; the sibling's
-// `build:watch` keeps `dist/` fresh under dev-orchestration. Consumer-side
-// `resolve.conditions` widening is struck — Vite's defaults (`module`,
-// `browser`, `default`) resolve the published surface in every demo mode.
+// bare `@mkbabb/*` specifiers resolve through the sibling's `exports` map via
+// the `file:` symlink in `node_modules`. K.W2 (inv-K-4) added a `development`
+// export condition to glass-ui (→ its live `src/`); Vite's built-in serve
+// default applies `development`, so the demo `serve` modes now source-resolve
+// glass-ui (build-state independent, cohort-/HMR-friendly), while `build` modes
+// (`production` condition) resolve the published `dist/` surface. No
+// consumer-side `resolve.conditions` override is used (it would REPLACE Vite's
+// default list). See the inv-K-4 note below.
 //
 // `server.fs.allow` widening: NARROWED at E.W0 Lane A (post-glass-ui-9275584
 // `./styles.css` adoption) — see `docs/tranches/E/audit/E.W0-lane-a-styles-
@@ -72,6 +75,18 @@ const defaultOptions = {
 // forfeit the design-system tokens + Tailwind `@source` class-scanning).
 // Neither is appropriate scope for tranche E; filed as a successor concern.
 const siblingFsAllowTransient = [path.resolve(import.meta.dirname, "..")];
+
+// inv-K-4 (K.W2) — cross-repo source resolution is handled by glass-ui's
+// `development` export condition (added K.W2) + Vite's built-in serve/build
+// condition default: Vite applies `development` in `serve` and `production` in
+// `build`, so the demo resolves `@mkbabb/glass-ui` from the sibling's live
+// `src/` in dev (cohort/HMR against source, build-state independent) and from
+// the published `dist/` surface for the gh-pages deploy artifact — no explicit
+// `resolve.conditions` override needed (overriding would REPLACE Vite's default
+// list and risk other packages' resolution). The CSS `@import
+// "@mkbabb/glass-ui/styles*"` keys carry no `development` variant, so they stay
+// on the Tailwind-source/dist surface either way. The published library build
+// (`production` mode) imports glass-ui never (inv-K-1).
 
 const defaultPlugins = [
     sourceExportPlugin(),
@@ -127,6 +142,12 @@ export default defineConfig((mode) => {
                 // tree to a flat `dist/{index,units,parsing,...}` shape —
                 // parallel to the runtime `dist/value.js`.
                 dts({
+                    // K.W2 tsconfig split: the root `tsconfig.json` is now a
+                    // thin solution file (`files: []` + references), which
+                    // starves vite-plugin-dts of source files. Point it at the
+                    // PUBLISHED library program (`src/` only) so the dts program
+                    // sees the same source set the runtime bundle does.
+                    tsconfigPath: path.resolve(import.meta.dirname, "tsconfig.lib.json"),
                     include: ["src/"],
                     compilerOptions: {
                         rootDir: path.resolve(import.meta.dirname, "src"),

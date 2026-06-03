@@ -1,0 +1,13 @@
+// The PUBLISHED library program (inv-K-1, inv-K-4 — K.W2).
+//
+// `src/` only. Carries NO `@mkbabb/glass-ui` resolution path and NO
+// `customConditions` — glass-ui is structurally ABSENT from this program, so a
+// `src/` file importing `@mkbabb/glass-ui` fails to resolve a module the program
+// can see and the typecheck itself becomes the proof of the acyclic topology
+// (no `value.js(lib) → glass-ui` edge). The binding K.W2 gate is:
+//   `vue-tsc -p tsconfig.lib.json --noEmit`  GREEN with glass-ui's dist DELETED.
+// The library typecheck is therefore independent of glass-ui's build state.
+{
+    "extends": "./tsconfig.base.json",
+    "include": ["src/"]
+}

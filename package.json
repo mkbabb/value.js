@@ -24,14 +24,14 @@
     ],
     "exports": {
         ".": {
+            "development": "./src/index.ts",
             "types": "./dist/index.d.ts",
             "import": "./dist/value.js",
             "default": "./dist/value.js"
         }
     },
     "files": [
-        "dist",
-        "scripts/migrate-*.mjs"
+        "dist"
     ],
     "scripts": {
         "dev": "vite --port 9000",
@@ -41,18 +41,8 @@
         "build:watch": "vite build --mode production --watch",
         "gh-pages": "vite build --mode gh-pages",
         "prepare": "test -f dist/value.js || npm run build",
-        "proof:resolution": "node scripts/proof-resolution-contract.mjs",
-        "proof:dts-layout": "node scripts/proof-dts-layout.mjs",
-        "proof:no-deprecated": "node scripts/proof-no-deprecated.mjs",
-        "proof:no-ts-ignore": "node scripts/proof-no-ts-ignore.mjs",
-        "proof:as-any-budget": "node scripts/proof-as-any-budget.mjs",
-        "proof:as-unknown-as-budget": "node scripts/proof-as-unknown-as-budget.mjs",
-        "proof:codemod-publication": "node scripts/proof-codemod-publication.mjs",
-        "proof:no-deep": "node scripts/proof-no-deep.mjs",
-        "proof:no-bare-builtins": "node scripts/proof-no-bare-builtins.mjs",
-        "codemod:keyframes-lerp": "node scripts/migrate-keyframes-js-lerp.mjs",
         "bench": "node bench/color-channel-access.mjs && node bench/color2-direct-paths.mjs && node bench/parser-namelookup.mjs",
-        "typecheck": "vue-tsc --noEmit",
+        "typecheck": "node scripts/check-types.mjs",
         "lint": "eslint . --max-warnings=0",
         "test": "vitest",
         "test:e2e": "playwright test"

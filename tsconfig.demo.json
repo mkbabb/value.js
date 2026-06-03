@@ -1,0 +1,47 @@
+// The demo program (inv-K-1 / inv-K-4 — K.W2).
+//
+// `demo/` only. Resolves the value.js library through the `@src/*` path and
+// `@mkbabb/glass-ui` from SOURCE via the `development` export condition
+// (`customConditions`), symmetric with the Vite `resolve.conditions` in
+// `vite.config.ts` (`demoResolve`). Source-resolution is build-state
+// INDEPENDENT (inv-K-4): the demo typecheck reads glass-ui's live `src/`, green
+// whether glass-ui's `dist/` is fresh, stale, or deleted — which it provably is
+// (glass-ui's dist `.d.ts` churns under its own active development; relying on
+// it for TS is the coupling K removes).
+//
+// THE ERROR-SCOPING CONTRACT. Source-resolution pulls glass-ui's `src/` into
+// this program, so vue-tsc also reports glass-ui's OWN internal diagnostics
+// (~164 under value.js's stricter `exactOptionalPropertyTypes` /
+// `noUncheckedIndexedAccess` floor, which glass-ui does not enforce on itself —
+// a `.ts` dependency has no `.d.ts` trust boundary to skip-check). value.js's
+// OWN demo code is type-clean against glass-ui source (0 `demo/` errors). The
+// K.W2 gate (`scripts/check-types.mjs`, the `typecheck` script) therefore counts
+// only value.js-OWNED errors (`src/` + `demo/`) and excludes `../glass-ui/`
+// paths — glass-ui-source cleanliness under the strict floor is glass-ui's CI's
+// responsibility, not value.js's, and is not per-file maskable here.
+//
+// This is the ONLY value.js program that may see glass-ui; the library program
+// (tsconfig.lib.json) never does (inv-K-1 — structurally glass-ui-free).
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "customConditions": ["development"],
+        "paths": {
+            "@src/*": ["./src/*"],
+            "@styles/*": ["./demo/@/styles/*"],
+            "@components/*": ["./demo/@/components/*"],
+            "@utils/*": ["./demo/@/utils/*"],
+            "@lib/*": ["./demo/@/lib/*"],
+            "@composables/*": ["./demo/@/composables/*"],
+            "@assets/*": ["./assets/*"],
+            "vue": ["./node_modules/vue"],
+            "@vue/*": ["./node_modules/@vue/*"]
+        }
+    },
+    // `src/vite-env.d.ts` carries `/// <reference types="vite/client" />`
+    // (typing `import.meta.env`, `*.css`, `*?worker`) + the `*.vue`/`*.bbnf?raw`
+    // ambient module declarations. The pre-split unified program included it via
+    // `src/`; the demo graph needs it for the value.js `src/` modules it pulls in
+    // through `@src/*` and for its own Vite-specific imports.
+    "include": ["demo/", "src/vite-env.d.ts"]
+}

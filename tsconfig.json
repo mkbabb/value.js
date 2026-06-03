@@ -1,30 +1,16 @@
+// Solution/aggregator (K.W2 — inv-K-1 structural split).
+//
+// The unified `include: ["src/", "demo/"]` was split into two programs so the
+// PUBLISHED library graph (tsconfig.lib.json, `src/` only) is glass-ui-free by
+// construction, while the demo graph (tsconfig.demo.json, `demo/`) resolves
+// glass-ui from source. This root only references the two leaves for editor /
+// `--build` ergonomics; the binding gates run each leaf with `-p … --noEmit`
+// (see the `typecheck` script). No `compilerOptions`/`include` live here — they
+// moved to tsconfig.base.json + the two leaves.
 {
-    "compilerOptions": {
-        "target": "ES2022",
-        "module": "ESNext",
-        "moduleResolution": "bundler",
-        "lib": ["ES2023", "DOM", "DOM.Iterable"],
-        "strict": true,
-        "verbatimModuleSyntax": true,
-        "resolveJsonModule": true,
-        "noUncheckedIndexedAccess": true,
-        "exactOptionalPropertyTypes": true,
-        "isolatedModules": true,
-        "useDefineForClassFields": true,
-        "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true,
-        "noEmit": true,
-        "paths": {
-            "@src/*": ["./src/*"],
-            "@styles/*": ["./demo/@/styles/*"],
-            "@components/*": ["./demo/@/components/*"],
-            "@utils/*": ["./demo/@/utils/*"],
-            "@lib/*": ["./demo/@/lib/*"],
-            "@composables/*": ["./demo/@/composables/*"],
-            "@assets/*": ["./assets/*"],
-            "vue": ["./node_modules/vue"],
-            "@vue/*": ["./node_modules/@vue/*"]
-        }
-    },
-    "include": ["src/", "demo/"]
+    "files": [],
+    "references": [
+        { "path": "./tsconfig.lib.json" },
+        { "path": "./tsconfig.demo.json" }
+    ]
 }
