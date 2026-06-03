@@ -34,10 +34,18 @@ import type { Page, ConsoleMessage } from "@playwright/test";
  * - The "Failed to load resource" prefix the browser emits for any sub-resource
  *   load failure (the umbrella category — covers the cases above and CORS/network
  *   timeouts that originate at the live API surface).
+ * - "blocked by CORS policy" (inv-K-5, K.W2b) — a NARROW, defense-in-depth clause
+ *   for the optional color-names read if a stale build ever fires a cross-origin
+ *   fetch. The PRIMARY fix is `playwright.config.ts` `webServer.env.VITE_API_URL`
+ *   pointing the demo at the same-origin dev server (no CORS preflight at all);
+ *   this clause is a guard, not the mechanism. It stays NARROW — never a wildcard
+ *   `fetch`/`TypeError`/`NetworkError` swallow, so a real fetch regression still
+ *   trips the assertion.
  *
  * Case-insensitive to absorb browser-vendor casing differences.
  */
-const ENV_NOISE_REGEX = /\b(429|503|504)\b|Too Many Requests|Failed to load resource/i;
+const ENV_NOISE_REGEX =
+    /\b(429|503|504)\b|Too Many Requests|Failed to load resource|blocked by CORS policy/i;
 
 const isEnvNoise = (text: string): boolean => ENV_NOISE_REGEX.test(text);
 

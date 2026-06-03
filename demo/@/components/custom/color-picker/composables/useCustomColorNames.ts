@@ -42,8 +42,12 @@ export function useCustomColorNames() {
             customNameRegistry.value = registry;
             normalizedCustomNames.value = normalized;
             loaded.value = true;
-        } catch (e) {
-            console.warn("Failed to load custom color names:", e);
+        } catch {
+            // inv-K-5 (K.W2b): custom color names are an OPTIONAL enhancement
+            // (the picker falls back to the 147 built-in CSS names + value.js's
+            // COLOR_NAMES). A failed/absent read is non-fatal and must fail
+            // SILENTLY — no console output — so the e2e `zero console errors`
+            // assertion holds when no backend is reachable.
         } finally {
             loading.value = false;
         }

@@ -43,6 +43,14 @@ export default defineConfig({
         command: "npx vite --port 8090",
         port: 8090,
         reuseExistingServer: !process.env.CI,
+        // inv-K-5 (K.W2b): point the demo's palette-API base at the SAME-ORIGIN
+        // dev server so no production `api.color.babb.dev` fetch fires under e2e
+        // (that cross-origin request is CORS-refused for localhost and the
+        // preflight error trips the `zero console errors` assertion). Same-origin
+        // optional reads (`/colors/approved`) fall back to the SPA 200; other
+        // reads 404 same-origin (already absorbed by setupEnvNoise). The demo's
+        // production default (`api.color.babb.dev`) is unchanged for real builds.
+        env: { VITE_API_URL: "http://localhost:8090" },
     },
     projects: [
         {

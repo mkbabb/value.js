@@ -36,12 +36,24 @@ const defaultOptions = {
             // value.js via `@src`; both resolve to the same source).
             "@mkbabb/value.js": path.resolve(import.meta.dirname, "src/index.ts"),
         },
-        // The symlinked `@mkbabb/glass-ui` ships its own nested `vue` in
-        // node_modules. Without dedupe the demo loads two Vue instances —
-        // two reactivity systems, broken cross-package provide/inject.
-        // glass-ui declares `vue` as a peerDependency, so the host's copy is
-        // the intended single instance.
-        dedupe: ["vue"],
+        // The symlinked `@mkbabb/glass-ui` ships its own nested `vue` +
+        // `reka-ui` in node_modules. Without dedupe the demo loads two Vue
+        // instances — two reactivity systems, broken cross-package
+        // provide/inject, and (K.W2, post source-resolution) a
+        // Teleport-patch crash (`insertBefore` NotFoundError) when a
+        // source-resolved glass-ui component (e.g. the dock Select dropdown)
+        // mounts its portal against a split `@vue/runtime-*` internal. Deduping
+        // the full `@vue/*` family + `reka-ui` collapses every cross-package
+        // import to the host's single instance. glass-ui declares these as
+        // peerDependencies, so the host copy is the intended one.
+        dedupe: [
+            "vue",
+            "@vue/runtime-core",
+            "@vue/runtime-dom",
+            "@vue/reactivity",
+            "@vue/shared",
+            "reka-ui",
+        ],
     },
 };
 
