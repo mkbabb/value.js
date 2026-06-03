@@ -196,6 +196,48 @@ describe("K.W2 conformance — Idempotency-Key replay", () => {
         expect(total).toBe(2);
     });
 
+    it("a thrown error response is NOT cached — same key re-executes, never replays the error", async () => {
+        // K.W2 adversarial-review regression guard. Hono's onError maps a thrown
+        // ApiError to a 4xx response BEFORE next() returns, so c.res is the error
+        // response. The middleware must capture ONLY 2xx — else a transient
+        // 409/503 would be replayed for the whole 24h window under that key.
+        const errHeaders = {
+            ...owner,
+            "Content-Type": "application/json",
+            "Idempotency-Key": "err-key",
+        };
+        // Seed the slug so a same-slug create conflicts.
+        const seed = await app.request("/palettes", {
+            method: "POST",
+            headers: { ...owner, "Content-Type": "application/json" },
+            body: createBody("dup"),
+        });
+        expect(seed.status).toBe(201);
+
+        // First conflicting create under err-key → an error response (>= 400).
+        const e1 = await app.request("/palettes", {
+            method: "POST",
+            headers: errHeaders,
+            body: createBody("dup"),
+        });
+        expect(e1.status).toBeGreaterThanOrEqual(400);
+        expect(e1.headers.get("Idempotency-Replayed")).toBeNull();
+
+        // Same key again → must RE-EXECUTE (same error), NOT replay a cached one.
+        const e2 = await app.request("/palettes", {
+            method: "POST",
+            headers: errHeaders,
+            body: createBody("dup"),
+        });
+        expect(e2.status).toBe(e1.status);
+        // The decisive assertion: no replay marker ⇒ the error was never cached.
+        expect(e2.headers.get("Idempotency-Replayed")).toBeNull();
+
+        // The error path created no extra document.
+        const count = await db.collection("palettes").countDocuments({ slug: "dup" });
+        expect(count).toBe(1);
+    });
+
     it("key is scoped per session — a different session does NOT replay another's result", async () => {
         const key = "shared-key";
         const aliceHeaders = {

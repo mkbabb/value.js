@@ -189,4 +189,29 @@ export default [
             "prefer-const": "off",
         },
     },
+    {
+        // inv-K-1 (K.W2) — STRUCTURAL enforcement of the acyclic color topology.
+        // The published library (`src/`) imports glass-ui NEVER; the edge is
+        // glass-ui → value.js(lib), never the reverse. The `tsconfig.lib` split
+        // only makes a `src/`→glass-ui import UNTYPED while glass-ui's dist is
+        // absent (it resolves to dist when present) — so the typecheck alone is
+        // build-state-dependent. This lint rule makes the ban deterministic and
+        // build-state-independent (caught by the K.W2 adversarial review). The
+        // demo (`demo/`) may import glass-ui freely; only the library may not.
+        files: ["src/**/*.ts"],
+        rules: {
+            "no-restricted-imports": [
+                "error",
+                {
+                    patterns: [
+                        {
+                            group: ["@mkbabb/glass-ui", "@mkbabb/glass-ui/*"],
+                            message:
+                                "inv-K-1: the value.js LIBRARY (src/) must never import glass-ui — the topology is glass-ui → value.js(lib), one direction, no cycle.",
+                        },
+                    ],
+                },
+            ],
+        },
+    },
 ];

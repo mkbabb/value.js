@@ -1,12 +1,15 @@
 // The PUBLISHED library program (inv-K-1, inv-K-4 — K.W2).
 //
 // `src/` only. Carries NO `@mkbabb/glass-ui` resolution path and NO
-// `customConditions` — glass-ui is structurally ABSENT from this program, so a
-// `src/` file importing `@mkbabb/glass-ui` fails to resolve a module the program
-// can see and the typecheck itself becomes the proof of the acyclic topology
-// (no `value.js(lib) → glass-ui` edge). The binding K.W2 gate is:
-//   `vue-tsc -p tsconfig.lib.json --noEmit`  GREEN with glass-ui's dist DELETED.
-// The library typecheck is therefore independent of glass-ui's build state.
+// `customConditions`. A `src/`→glass-ui import is UNTYPED here only while
+// glass-ui's `dist/.d.ts` is absent (with dist present it resolves to
+// dist/glass-ui.js) — so the typecheck alone is build-state-DEPENDENT, NOT a
+// structural proof. The STRUCTURAL inv-K-1 enforcement is the eslint
+// `no-restricted-imports` ban on `@mkbabb/glass-ui` under `src/`
+// (eslint.config.js) — deterministic and build-state-independent. This gate
+// stays as the value.js-side typecheck:
+//   `vue-tsc -p tsconfig.lib.json --noEmit`  GREEN (and 0 with glass-ui dist
+//   deleted — proving the library typecheck never depends on glass-ui's build).
 {
     "extends": "./tsconfig.base.json",
     "include": ["src/"]

@@ -20,10 +20,22 @@
 import { spawnSync } from "node:child_process";
 
 const ERROR_RE = /error TS\d+/;
-// A value.js-owned diagnostic line starts with a repo-relative path
-// (`src/...`, `demo/...`) — NOT an absolute/sibling path like
-// `../glass-ui/...` or `/Users/.../glass-ui/...`.
+// A foreign diagnostic is one whose FILE PATH is glass-ui or node_modules —
+// `../glass-ui/...`, `/Users/.../glass-ui/...`, etc.
 const FOREIGN_RE = /glass-ui[/\\]|node_modules[/\\]/;
+
+// Extract the FILE PATH from a vue-tsc diagnostic line and decide ownership from
+// the path ALONE — never the message. A vue-tsc error reads
+// `path(line,col): error TSxxxx: message`. Matching FOREIGN_RE against the whole
+// line would wrongly drop a real value.js error whose MESSAGE quotes a glass-ui
+// subpath (e.g. `demo/…(3,27): error TS2305: Module '@mkbabb/glass-ui/dock' has
+// no exported member 'X'`) — the dominant demo import form. (Caught by the K.W2
+// adversarial review.)
+function isForeign(line) {
+    const m = line.match(/^(.+?)\(\d+,\d+\):\s+error TS/);
+    const file = m ? m[1] : line; // unparseable → treat the whole line as the path
+    return FOREIGN_RE.test(file);
+}
 
 function runProgram(project, { countForeign }) {
     const res = spawnSync(
@@ -35,7 +47,7 @@ function runProgram(project, { countForeign }) {
     const errorLines = out
         .split("\n")
         .filter((l) => ERROR_RE.test(l))
-        .filter((l) => (countForeign ? true : !FOREIGN_RE.test(l)));
+        .filter((l) => (countForeign ? true : !isForeign(l)));
     return errorLines;
 }
 
