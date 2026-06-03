@@ -9,7 +9,8 @@
 | **K.W0** — Open + six-lane audit | DEV (audit) | **CLOSED** (2026-06-02) | Audit + request-coverage + adversarial verification done; `K.md` authored + revised; **3 ratification gates RESOLVED** (below) |
 | **K.W1** — Design | DEV (design) | **CLOSED** (2026-06-02) | **5** CORE specs authored + reviewed PASS (`design/K.W1-{cross-repo-topology,primitive-lift,aurora-derive,modern-web-router,visual-evidence-protocol}.md`), GROUNDED in real value.js + glass-ui code — drift-corrections folded (see "K.W1 grounding corrections" below) |
 | **K.W2** — Substrate restoration + acyclic topology | IMPL (cross-repo) | **CLOSED** (2026-06-03) | **All gates GREEN** — see "K.W2 execution record" below. vue-tsc 0 *with glass-ui dist deleted* (inv-K-4 build-state independence proven) · inv-K-1 src/ glass-ui = 0 · glass-ui OKLab dedup + 1e-6 equivalence canary 6/6 (inv-K-2) · value.js peerDep · inv-K-5 page-load console-clean vs no backend · dispatch.ts 349 ≤350 · api-lane (idempotency + conformance 22/22 + id-removal) · unified CI/CD + lighthouse/axe + DEC-9 deploy + provenance · dev.sh/deploy.sh micro-lane (f) |
-| **K.W3** — glass-ui-first consummation | IMPL (cross-repo) | **BOOKED** (E5 trigger below) | goo-blob + WatercolorDot lift + 8/4 asks + ui/ shims + sortable. Deferred: 2-session scale (D1 OKLCh shader port is verification-heavy) + the demo-consumption path needs the source-resolution dual-instance posture settled (the booked dock-Select issue is the canary) + W4/W5 it would unblock are themselves blocked on keyframes 3.0.0 (absent). |
+| **K.W2.5** — Resolution-architecture transposition (NEW) | IMPL (cross-repo, corrective) | **SPECCED** (2026-06-03 post-W2 audit) — awaits user ratification + IMPL. **Reverses `inv-K-4` mechanism-A (a contract-v2 precept violation that fails glass-ui `proof:resolution`) → mechanism-C by deletion** (dist-resolution + `build:watch` JS+dts freshness; retire the 4 band-aids; refresh reka-ui; keep the tsconfig split). Binding: `design/K.W2.5-resolution-transposition.md`. Lands first; dissolves the dock-Select reka-skew. |
+| **K.W3** — glass-ui-first consummation (RE-SPECCED) | IMPL (cross-repo) | **SPECCED** — `design/K.W3-respec-*.md`. Re-shaped for **published-dist consumption** (W3a glass-ui-author→publish-3.2.0; W3b value.js-consume-from-dist) + the `parseCSSColor` typing root-fix (value.js 0.11.0, lands here, deleting a 10+-site cast surface) + the J.W3 PaletteDiff fired-orphan. Dispatch after K.W2.5-green. |
 | **K.W4** — Aurora-derive + VAL-1 | IMPL | **BOOKED** | gated on glass-ui 3.2.0 (K.W3) + keyframes 3.0.0 (absent — at 2.2.0). The glass-ui `deriveAuroraPalette` builds on the K.W2 post-dedup color.ts (now landed). VAL-1 ship-or-kill at K.W4 close. |
 | **K.W5** — Modern-web parity + router | IMPL | **BOOKED** | gated (per user) on glass-ui 3.2.0 + keyframes 3.0.0. The vue-router 4→5 bump pairs with keyframes' ESM-major; the Tabs-underline `@layer`/`light-dark()` levers ride glass-ui 3.2.0 asks. |
 | **K.W6** — Close | DEV (close) | **BLOCKED** on W3–W5 | 7-lane ceremony · π visual-runtime · v1.0.0 verdict · cohort close |
@@ -52,6 +53,35 @@
 - **dock view-select dropdown** (16 view-switching e2e specs) — pre-existing (fails under BOTH dist- and source-resolution; predates K.W2), orthogonal to the color topology. Root cause: the dock's collapsed summary-layer (`Dock.vue:200`) stacks over the combobox in headless + the glass-ui `DockSelectTrigger`↔demo-reka-ui Select context (reka-ui skew demo 2.8.2 / glass-ui 2.9.7). *Trigger*: a dedicated dock-interaction fix — make the summary layer `pointer-events:none` + the full layer focus-reachable when collapsed (likely a glass-ui GlassDock cohort fix), and/or align the demo's reka-ui to `^2.9`; re-check at K.W5 (the dock Popover lane) or a focused lane.
 - **K.W3** (goo-blob/WatercolorDot lift + asks + sortable) — *Trigger*: a 2-session window for the D1 OKLCh shader port + settling the demo-consumption source-resolution dual-instance posture (consume glass-ui dist 3.2.0, OR resolve the reka-ui skew). The K.W2 substrate (peerDep, post-dedup color.ts, the shared-core boundary) is the green foundation it builds on.
 - **K.W4 / K.W5** — gated on glass-ui 3.2.0 (K.W3) + keyframes 3.0.0 (absent, at 2.2.0). Not dispatchable this session.
+
+## Post-W2 deep audit (2026-06-03) — tranche perfected, NO implementation
+
+A three-wave, 6-agent-per-wave audit (W1 diagnostic → W2 solution-design → W3
+adversarial-grounding) audited the **executed** K.W2 + the remaining plan + the live
+cohort. Synthesis + the canonical DAG: **`audit/path-forward-2026-06-03-postW2.md`**.
+
+- **The headline finding (gate-grounded):** K.W2's `inv-K-4` mechanism-A (the
+  `development` export condition) is a **contract-v2 precept violation** — it FAILS
+  glass-ui's own `proof:resolution` gate on both repos and is the **root cause** of the
+  dual-instance fragility (the dock-Select blocker booked above is downstream of it).
+  The reka-ui "skew" is a **single stale 2.8.2 install**, not two instances. The
+  gestalt: **mechanism-C by deletion** (restore dist-resolution + `build:watch`),
+  specced as the NEW corrective lane **K.W2.5**. **Continuation of K** (a mechanism
+  swap; the inv-K-1 split + inv-K-2 dedup + api-lane + dispatch + CI/CD stand).
+- **The re-specced waves** (all on the contract-v2-clean substrate):
+  `design/K.W2.5-resolution-transposition.md`, `design/K.W3-respec-*.md`,
+  `design/K.W4-respec-*.md`, `design/K.W5-respec-*.md`,
+  `coordination/cohort-glassui-3.2.0-keyframes-3.0.0.md`.
+- **Publish spine (acyclic):** value.js 0.11.0 (the `parseCSSColor` typing root-fix)
+  → glass-ui 3.2.0 (cut against it) → value.js K.W3b/K.W4 consume the 3.2.0 dist.
+- **W3 keystone correction:** glass-ui `build:watch` is JS-only; the cohort must make
+  the watch emit dts (the dist-resolved typecheck depends on it). The dock fix is an
+  `:inert`-predicate realignment, NOT new CSS (that already ships). The demo `Palette`
+  union simplifies to `id?:` + guards. VAL-9 = KILLED (struck). J.W3 PaletteDiff →
+  re-homed to K.W3.
+- **glass-ui-session coordination:** STRIP — revert only the `development` exports-half
+  of `6d3e151` (keep the inv-K-2 dedup); glass-ui ships 3.2.0 contract-v2-clean. No
+  tug-of-war (value.js is revoking mechanism-A in K.W2.5).
 
 ## Carry-forward ledger (folded into K — see `K.md §7`)
 
