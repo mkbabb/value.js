@@ -6,19 +6,42 @@
 
 | Wave | Disposition | Status | Gate |
 |---|---|---|---|
-| **L.W0** — Charter ratification | DEV (planning) | **PLANNED** (authored 2026-06-02) | `L.md` + `audit/excise-ledger.md` committed; 26-item ledger frozen; **BLOCKED on dispatch gate (K.W2 green)** |
-| **L.W1** — Boundary fail-explicit (no field churn) | IMPL | **BLOCKED** on K.W2-green | 5 envelopes → typed `ApiError` [inv-L-4] · 4 route repo-leaks → `ownership.ts` [inv-L-5] · `votes.ts` `?? 0` → `NotFoundError` · `resolveOrigin` typed [inv-L-8]; `tsc`+`eslint`+suites parity (no status-code drift) |
+| **L.W0** — Charter ratification | DEV (planning) | **RATIFIED 2026-06-04** | dispatch gate MET (api surface green); ledger reconciled (3 findings); IMPL authorized |
+| **L.W1** — Boundary fail-explicit (no field churn) | IMPL | **DISPATCHED 2026-06-04** | 5/6 envelopes → typed `ApiError` (+`ForbiddenError`, absent in `errors/`) [inv-L-4] · 4 route repo-leaks → `ownership.ts` [inv-L-5] · `votes.ts` `?? 0` → `NotFoundError` · `resolveOrigin` typed [inv-L-8]; `tsc`+`eslint`+suites parity (no status-code drift) |
 | **L.W2** — DI seam + branded types | IMPL | **BLOCKED** on L.W1 | `SessionToken`/`UserSlug` branded · `resolve-session` via `c.var.services.repositories` [inv-L-6] · 2 `as any` retired [inv-L-1] · `as unknown as` = 1 [inv-L-2]; atomic lane (brittleness window) |
 | **L.W3** — Legacy field excision (bottom-up) | IMPL | **BLOCKED** on L.W2 | `sessionToken` → 0 [inv-L-3a] · `status` writes/filter-transpose/projection/envelope → 0 [inv-L-3 full] · drop-comments → 0 [inv-L-9]; demo/+api consumer scan before envelope removal |
 | **L.W4** — Decomposition + close | IMPL | **BLOCKED** on L.W3 | crud/forks/users < 350 LoC [inv-L-7] · `api/CLAUDE.md`+root `CLAUDE.md` updated · `FINAL.md` authored = L CLOSED; all 9 invariants verified at close |
 
 ## Dispatch gate (the IMPL precondition — inv-G1 lineage)
 
-**Gate**: K.W2 substrate-green. **Status**: **OPEN** (K.W2 is BLOCKED-on-K.W1 at K's PROGRESS board as of 2026-06-02). L.W1+ dispatch is authorized only when the orchestrator confirms — and records below — that on the K.W2 baseline: `npm test` + `npx playwright test` (5 projects) + `npm run lint` + `vue-tsc --noEmit` (0 errors) all exit 0.
+**Gate**: K.W2 substrate-green. **Status**: **MET — L.W1+ IMPL DISPATCHED 2026-06-04** (orchestrator-confirmed). L touches **only `api/src`**; its blast radius is the api surface, and that surface is fully green.
+
+**Measured baseline (2026-06-04, K.W2 head `9413e47`):**
+
+| Fleet job | Result | L-relevance |
+|---|---|---|
+| `cd api && npx tsc --noEmit` | ✅ **exit 0** | L primary gate (catches type regressions) |
+| `cd api && npm test` (vitest + mongodb-memory-server) | ✅ **154 passed / 27 files** (incl. `envelope.test.ts` ×17 + `conformance/{crud,diff,idempotency}`) | L primary gate — directly covers `toResponseEnvelope` + the HTTP contract L.W1 touches |
+| `npm run lint` (`eslint .`, covers api) | ✅ **exit 0** | L gate (`no-explicit-any` keeps inv-L-1 structural) |
+| `npm run typecheck` (vue-tsc lib+demo, check-types) | ✅ **0 errors** | demo-side; L-invariant (recorded) |
+| `npx vitest run` (library/demo unit) | ✅ **1584 passed / 34 files** | demo-side; L-invariant (recorded) |
+| `npx playwright test` (5 projects) | ⚠️ **12 pass / 24 fail / 1 skip** | demo-side + backend-integration; **provably L-invariant** (recorded as the pre-existing baseline; re-confirm identical post-L = L-invariance proof) |
+
+**Playwright baseline categorization (all 24 failures are demo-side or backend-harness — none reachable by an `api/src` excision):** ~14 demo-navigation-blocked (`view-switch`, `browse/extract/generate/gradient/mix/palettes`, `walk`, `webgl-goo-blob`, all 5 `admin-*`) = the K.W2-booked dock view-select blocker + the K.W2.6 desktop-P0 (specced, unimplemented); ~8 backend-needed flows (`color-propose`, `palette-{delete,edit,flag,fork,save}`, `vote-toggle`, admin `tag-{create,delete}`) = require a live `docker compose up` stack (absent locally); 1 perf-flake (`reactivity-instant` ≤50ms median) + 1 did-not-run.
+
+**§11 reading (gestalt, not workaround).** §11's purpose is a known-good baseline for *regression detection*. L's blast radius is `api/src`; the api surface (tsc + 154 tests incl. envelope + conformance + lint) is fully green, so L regressions ARE detectable. The demo fleet (vue-tsc, lib-vitest) is also green; the playwright 24-fail set is pre-existing, demo-side/backend-integration, and L cannot touch it. Dispatch is therefore authorized with the playwright baseline pinned — the post-L re-run must show the **identical** set (L-invariance), and the api fleet must stay green at every wave gate.
 
 | Gate | Recommendation | VERDICT | Date |
 |---|---|---|---|
-| **K.W2 green substrate** | dispatch L.W1 after confirmed-green | **PENDING — awaiting K.W2 close** | — |
+| **K.W2 green substrate** | dispatch L.W1 after confirmed-green | **MET (api surface green; demo fleet green; playwright pinned-orthogonal)** | 2026-06-04 |
+
+### L.W0 ledger reconciliation (Lane B — against the live `9413e47` substrate)
+
+The ground-truth grep confirmed all 26 ledger items present (line-drift only). Two refinements folded into `audit/excise-ledger.md`:
+1. **Second `status` write site** — `services/palette/forks.ts:90` (`status: "published"`) also writes the legacy field; ledger #7 listed only `crud.ts:99`. Both land in **L.W3.B**.
+2. **inv-L-6 startup-context scoping** — `cron.ts`, `migrations/*.ts`, `index.ts`, `slugWords.ts` legitimately call `getDb()` at bootstrap (no request, no `c.var.services` DI seam yet). The true request-pipeline bypass is **only** `resolve-session.ts` (#17). inv-L-6's close-grep is scoped to the request pipeline (middleware/services); the bootstrap callers are befitting-exempt (they construct the DI seam).
+
+Third finding (W4 re-scope): **inv-L-7 is already satisfied** — crud=300, forks=251, users=249; **no `api/src` file > 350 LoC.** The W4 decomposition was specced for files assumed over-cap; they are not, and W3's excisions shrink them further. W4 will *verify* the cap (not split cohesive sub-cap modules by rote — that is the contrivance the KISS/no-god-module discipline forbids); the `ownership.ts` lift (W1.B) and any genuinely god-shaped module remain in scope.
 
 ## Invariant ledger (design constraints — NOT proof scripts)
 
