@@ -7,12 +7,16 @@
 
 import type { ClientSession, Collection, Document, Filter } from "mongodb";
 import type { User, UserStatus } from "../models.js";
+import { asUserSlug } from "../models.js";
 
 export class UserRepository {
     constructor(private readonly col: Collection<User>) {}
 
     findBySlug(slug: string, session?: ClientSession): Promise<User | null> {
-        return this.col.findOne({ _id: slug }, session ? { session } : undefined);
+        return this.col.findOne(
+            { _id: asUserSlug(slug) },
+            session ? { session } : undefined,
+        );
     }
 
     async insert(user: User, session?: ClientSession): Promise<void> {
@@ -26,7 +30,7 @@ export class UserRepository {
     ): Promise<void> {
         return this.col
             .updateOne(
-                { _id: slug },
+                { _id: asUserSlug(slug) },
                 { $set: { status } },
                 session ? { session } : undefined,
             )
@@ -40,7 +44,7 @@ export class UserRepository {
     ): Promise<number> {
         return this.col
             .updateMany(
-                { _id: { $in: slugs } },
+                { _id: { $in: slugs.map(asUserSlug) } },
                 { $set: { status } },
                 session ? { session } : undefined,
             )
@@ -54,7 +58,7 @@ export class UserRepository {
     ): Promise<void> {
         return this.col
             .updateOne(
-                { _id: slug },
+                { _id: asUserSlug(slug) },
                 { $set: { lastSeenAt: when } },
                 session ? { session } : undefined,
             )
@@ -63,14 +67,14 @@ export class UserRepository {
 
     delete(slug: string, session?: ClientSession): Promise<number> {
         return this.col
-            .deleteOne({ _id: slug }, session ? { session } : undefined)
+            .deleteOne({ _id: asUserSlug(slug) }, session ? { session } : undefined)
             .then((r) => r.deletedCount);
     }
 
     deleteMany(slugs: string[], session?: ClientSession): Promise<number> {
         return this.col
             .deleteMany(
-                { _id: { $in: slugs } },
+                { _id: { $in: slugs.map(asUserSlug) } },
                 session ? { session } : undefined,
             )
             .then((r) => r.deletedCount);

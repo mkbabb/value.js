@@ -1,19 +1,21 @@
 /**
  * SessionRepository — owns all query/write ops for the `sessions` collection.
  *
- * Session `_id` is the session token (uuid). The `findAndTouch` method
- * mirrors the `findOneAndUpdate` pattern used in `middleware.ts:resolveSession`
- * for cache-friendly atomic touch.
+ * Session `_id` is the session token (uuid), branded `SessionToken` at the
+ * model boundary (L.W2). The `findAndTouch` method IS the session-validation
+ * read `middleware/resolve-session.ts` consumes via the DI seam — an atomic
+ * find + `lastSeenAt` touch.
  */
 
 import type { ClientSession, Collection } from "mongodb";
 import type { Session } from "../models.js";
+import { asSessionToken } from "../models.js";
 
 export class SessionRepository {
     constructor(private readonly col: Collection<Session>) {}
 
     findByToken(token: string): Promise<Session | null> {
-        return this.col.findOne({ _id: token });
+        return this.col.findOne({ _id: asSessionToken(token) });
     }
 
     /**
@@ -22,7 +24,7 @@ export class SessionRepository {
      */
     findAndTouch(token: string): Promise<Session | null> {
         return this.col.findOneAndUpdate(
-            { _id: token, expiresAt: { $gt: new Date() } },
+            { _id: asSessionToken(token), expiresAt: { $gt: new Date() } },
             { $set: { lastSeenAt: new Date() } },
             { returnDocument: "after" },
         );
@@ -39,7 +41,9 @@ export class SessionRepository {
     }
 
     delete(token: string): Promise<number> {
-        return this.col.deleteOne({ _id: token }).then((r) => r.deletedCount);
+        return this.col
+            .deleteOne({ _id: asSessionToken(token) })
+            .then((r) => r.deletedCount);
     }
 
     deleteByUserSlug(userSlug: string, session?: ClientSession): Promise<number> {

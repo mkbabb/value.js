@@ -29,6 +29,7 @@ import {
 } from "../helpers.js";
 import { createPalette, deletePalette } from "../../src/services/palette/crud.js";
 import { batchUsers } from "../../src/services/admin/batch.js";
+import { asSessionToken, asUserSlug } from "../../src/models.js";
 import type { Services } from "../../src/middleware/inject-services.js";
 
 describe("withTransaction rollback (G.W3 Lane E)", () => {
@@ -111,12 +112,12 @@ describe("withTransaction rollback (G.W3 Lane E)", () => {
     it("batchUsers(suspend) rolls back user status when session invalidation throws", async () => {
         // Seed an active user plus an active session.
         await services.repositories.users.insert({
-            _id: "alice",
+            _id: asUserSlug("alice"),
             createdAt: new Date(),
             status: "active",
         });
         await services.repositories.sessions.insert({
-            _id: "tok-1",
+            _id: asSessionToken("tok-1"),
             ipHash: "ip",
             userSlug: "alice",
             createdAt: new Date(),

@@ -3,10 +3,11 @@ import type { MongoClient, Db } from "mongodb";
 import { cleanCollections, connect } from "../helpers.js";
 import { UserRepository } from "../../src/repositories/user.js";
 import type { Palette, User } from "../../src/models.js";
+import { asUserSlug } from "../../src/models.js";
 
 function makeUser(overrides: Partial<User> = {}): User {
     return {
-        _id: "alice",
+        _id: asUserSlug("alice"),
         createdAt: new Date(),
         ...overrides,
     };
@@ -31,20 +32,20 @@ describe("repository.user", () => {
     });
 
     it("insert + findBySlug round-trip", async () => {
-        await repo.insert(makeUser({ _id: "alice" }));
+        await repo.insert(makeUser({ _id: asUserSlug("alice") }));
         const found = await repo.findBySlug("alice");
         expect(found).not.toBeNull();
         expect(found?._id).toBe("alice");
     });
 
     it("setStatus persists the new status", async () => {
-        await repo.insert(makeUser({ _id: "alice", status: "active" }));
+        await repo.insert(makeUser({ _id: asUserSlug("alice"), status: "active" }));
         await repo.setStatus("alice", "suspended");
         expect((await repo.findBySlug("alice"))?.status).toBe("suspended");
     });
 
     it("touchLastSeen updates the timestamp", async () => {
-        await repo.insert(makeUser({ _id: "alice" }));
+        await repo.insert(makeUser({ _id: asUserSlug("alice") }));
         const t = new Date("2026-01-01T00:00:00Z");
         await repo.touchLastSeen("alice", t);
         const found = await repo.findBySlug("alice");
@@ -52,9 +53,9 @@ describe("repository.user", () => {
     });
 
     it("findEmptyUserSlugs returns only users with zero palettes", async () => {
-        await repo.insert(makeUser({ _id: "with-palette" }));
-        await repo.insert(makeUser({ _id: "empty-1" }));
-        await repo.insert(makeUser({ _id: "empty-2" }));
+        await repo.insert(makeUser({ _id: asUserSlug("with-palette") }));
+        await repo.insert(makeUser({ _id: asUserSlug("empty-1") }));
+        await repo.insert(makeUser({ _id: asUserSlug("empty-2") }));
 
         const palettes = db.collection<Palette>("palettes");
         await palettes.insertOne({
@@ -84,9 +85,9 @@ describe("repository.user", () => {
     });
 
     it("deleteMany cascades across multiple slugs", async () => {
-        await repo.insert(makeUser({ _id: "u1" }));
-        await repo.insert(makeUser({ _id: "u2" }));
-        await repo.insert(makeUser({ _id: "u3" }));
+        await repo.insert(makeUser({ _id: asUserSlug("u1") }));
+        await repo.insert(makeUser({ _id: asUserSlug("u2") }));
+        await repo.insert(makeUser({ _id: asUserSlug("u3") }));
         expect(await repo.deleteMany(["u1", "u2"])).toBe(2);
         expect(await repo.findBySlug("u3")).not.toBeNull();
     });

@@ -42,6 +42,7 @@ import {
     setUserStatus,
 } from "../../src/services/admin/users.js";
 import { deleteTag } from "../../src/services/admin/tags.js";
+import { asSessionToken, asUserSlug } from "../../src/models.js";
 import type { AppEnv } from "../../src/types.js";
 import type { Services } from "../../src/middleware/inject-services.js";
 
@@ -200,7 +201,7 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
         // Seed an existing user whose lastSeenAt we'll track.
         const before = new Date("2025-01-01T00:00:00Z");
         await services.repositories.users.insert({
-            _id: "alice",
+            _id: asUserSlug("alice"),
             createdAt: before,
             lastSeenAt: before,
         });
@@ -293,13 +294,13 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
     it("D7 setUserStatus(suspended) rolls back user status when sessions.deleteByUserSlug throws", async () => {
         // Seed an active user plus a live session.
         await services.repositories.users.insert({
-            _id: "alice",
+            _id: asUserSlug("alice"),
             createdAt: new Date(),
             lastSeenAt: new Date(),
             status: "active",
         });
         await services.repositories.sessions.insert({
-            _id: "tok-1",
+            _id: asSessionToken("tok-1"),
             ipHash: "ip",
             userSlug: "alice",
             createdAt: new Date(),
@@ -336,7 +337,7 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
     it("D8 deleteUserPalettes rolls back vote + flag cascade when palettes.deleteManyByUserSlug throws", async () => {
         // Seed a user with one palette + associated vote + flag.
         await services.repositories.users.insert({
-            _id: "alice",
+            _id: asUserSlug("alice"),
             createdAt: new Date(),
             lastSeenAt: new Date(),
         });
@@ -396,12 +397,12 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
     it("D9 pruneEmptyUsers rolls back sessions.deleteByUserSlugs when users.deleteMany throws", async () => {
         // Seed an empty user (no palettes) plus an associated session.
         await services.repositories.users.insert({
-            _id: "ghost",
+            _id: asUserSlug("ghost"),
             createdAt: new Date(),
             lastSeenAt: new Date(),
         });
         await services.repositories.sessions.insert({
-            _id: "tok-ghost",
+            _id: asSessionToken("tok-ghost"),
             ipHash: "ip",
             userSlug: "ghost",
             createdAt: new Date(),

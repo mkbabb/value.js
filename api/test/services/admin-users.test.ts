@@ -14,6 +14,7 @@ import {
 } from "../../src/services/admin/users.js";
 import { createPalette } from "../../src/services/palette/crud.js";
 import { NotFoundError } from "../../src/errors/index.js";
+import { asSessionToken, asUserSlug } from "../../src/models.js";
 import type { Services } from "../../src/middleware/inject-services.js";
 
 describe("service.admin.users", () => {
@@ -37,7 +38,7 @@ describe("service.admin.users", () => {
 
     it("listUsers paginates + counts; empty match works", async () => {
         await services.repositories.users.insert({
-            _id: "alice",
+            _id: asUserSlug("alice"),
             createdAt: new Date(),
         });
         const c = makeFakeContext(services, "admin");
@@ -48,12 +49,12 @@ describe("service.admin.users", () => {
 
     it("setUserStatus suspended invalidates sessions for that user", async () => {
         await services.repositories.users.insert({
-            _id: "alice",
+            _id: asUserSlug("alice"),
             createdAt: new Date(),
             status: "active",
         });
         await services.repositories.sessions.insert({
-            _id: "tok-1",
+            _id: asSessionToken("tok-1"),
             ipHash: "ip",
             userSlug: "alice",
             createdAt: new Date(),
@@ -76,7 +77,7 @@ describe("service.admin.users", () => {
 
     it("deleteUser cascades palettes/votes/flags/sessions", async () => {
         await services.repositories.users.insert({
-            _id: "alice",
+            _id: asUserSlug("alice"),
             createdAt: new Date(),
         });
         await createPalette(services, {
@@ -91,7 +92,7 @@ describe("service.admin.users", () => {
         });
         await services.repositories.votes.upsertIdempotent("alice", "p1");
         await services.repositories.sessions.insert({
-            _id: "s",
+            _id: asSessionToken("s"),
             ipHash: "ip",
             userSlug: "alice",
             createdAt: new Date(),
@@ -107,11 +108,11 @@ describe("service.admin.users", () => {
 
     it("pruneEmptyUsers deletes users with zero palettes", async () => {
         await services.repositories.users.insert({
-            _id: "empty",
+            _id: asUserSlug("empty"),
             createdAt: new Date(),
         });
         await services.repositories.users.insert({
-            _id: "with-palette",
+            _id: asUserSlug("with-palette"),
             createdAt: new Date(),
         });
         await createPalette(services, {

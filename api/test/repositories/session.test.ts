@@ -3,10 +3,11 @@ import type { MongoClient, Db } from "mongodb";
 import { cleanCollections, connect } from "../helpers.js";
 import { SessionRepository } from "../../src/repositories/session.js";
 import type { Session } from "../../src/models.js";
+import { asSessionToken } from "../../src/models.js";
 
 function makeSession(overrides: Partial<Session> = {}): Session {
     return {
-        _id: "token-1",
+        _id: asSessionToken("token-1"),
         ipHash: "ip-hash",
         userSlug: "alice",
         createdAt: new Date(),
@@ -35,7 +36,7 @@ describe("repository.session", () => {
     });
 
     it("insert + findByToken round-trip", async () => {
-        await repo.insert(makeSession({ _id: "tok-a" }));
+        await repo.insert(makeSession({ _id: asSessionToken("tok-a") }));
         const found = await repo.findByToken("tok-a");
         expect(found?.userSlug).toBe("alice");
     });
@@ -43,7 +44,7 @@ describe("repository.session", () => {
     it("findAndTouch returns null for expired tokens", async () => {
         await repo.insert(
             makeSession({
-                _id: "tok-expired",
+                _id: asSessionToken("tok-expired"),
                 expiresAt: new Date(Date.now() - 1000),
             }),
         );
@@ -53,25 +54,25 @@ describe("repository.session", () => {
 
     it("findAndTouch updates lastSeenAt for live tokens", async () => {
         const past = new Date(Date.now() - 60 * 1000);
-        await repo.insert(makeSession({ _id: "tok-live", lastSeenAt: past }));
+        await repo.insert(makeSession({ _id: asSessionToken("tok-live"), lastSeenAt: past }));
         const touched = await repo.findAndTouch("tok-live");
         expect(touched).not.toBeNull();
         expect(touched!.lastSeenAt.getTime()).toBeGreaterThan(past.getTime());
     });
 
     it("delete removes by token; deleteByUserSlug cascades for one user", async () => {
-        await repo.insert(makeSession({ _id: "t-a", userSlug: "alice" }));
-        await repo.insert(makeSession({ _id: "t-b", userSlug: "alice" }));
-        await repo.insert(makeSession({ _id: "t-c", userSlug: "bob" }));
+        await repo.insert(makeSession({ _id: asSessionToken("t-a"), userSlug: "alice" }));
+        await repo.insert(makeSession({ _id: asSessionToken("t-b"), userSlug: "alice" }));
+        await repo.insert(makeSession({ _id: asSessionToken("t-c"), userSlug: "bob" }));
         expect(await repo.delete("t-a")).toBe(1);
         expect(await repo.deleteByUserSlug("alice")).toBe(1);
         expect(await repo.findByToken("t-c")).not.toBeNull();
     });
 
     it("deleteByUserSlugs cascades across multiple users", async () => {
-        await repo.insert(makeSession({ _id: "t-1", userSlug: "u1" }));
-        await repo.insert(makeSession({ _id: "t-2", userSlug: "u2" }));
-        await repo.insert(makeSession({ _id: "t-3", userSlug: "u3" }));
+        await repo.insert(makeSession({ _id: asSessionToken("t-1"), userSlug: "u1" }));
+        await repo.insert(makeSession({ _id: asSessionToken("t-2"), userSlug: "u2" }));
+        await repo.insert(makeSession({ _id: asSessionToken("t-3"), userSlug: "u3" }));
         const removed = await repo.deleteByUserSlugs(["u1", "u2"]);
         expect(removed).toBe(2);
         expect(await repo.findByToken("t-3")).not.toBeNull();

@@ -16,6 +16,7 @@ import type { AppEnv } from "../../types.js";
 import { NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
 import { hashIP, resolveIP } from "../../middleware/ip.js";
+import { asSessionToken } from "../../models.js";
 
 export interface ImpersonateResult {
     token: string;
@@ -39,7 +40,9 @@ export async function impersonate(
     const now = new Date();
 
     await sessions.insert({
-        _id: token,
+        // Construction mint: the freshly generated uuid becomes this new
+        // session's branded `_id`.
+        _id: asSessionToken(token),
         ipHash,
         userSlug: targetSlug,
         createdAt: now,

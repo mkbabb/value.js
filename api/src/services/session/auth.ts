@@ -29,6 +29,7 @@ import {
     NotFoundError,
 } from "../../errors/index.js";
 import { hashIP, resolveIP } from "../../middleware/ip.js";
+import { asSessionToken, asUserSlug } from "../../models.js";
 import { generateUniqueSlug } from "../../slugWords.js";
 
 /** 7 days — the only place this constant lives. */
@@ -74,7 +75,9 @@ export async function registerSession(
     await services.withTransaction(async (session) => {
         await users.insert(
             {
-                _id: userSlug,
+                // Construction mint: the freshly generated slug becomes this
+                // new user's branded `_id`.
+                _id: asUserSlug(userSlug),
                 createdAt: now,
                 lastSeenAt: now,
             },
@@ -82,7 +85,9 @@ export async function registerSession(
         );
         await sessions.insert(
             {
-                _id: token,
+                // Construction mint: the freshly generated uuid becomes this
+                // new session's branded `_id`.
+                _id: asSessionToken(token),
                 ipHash,
                 userSlug,
                 createdAt: now,
@@ -132,7 +137,9 @@ export async function loginSession(
     await services.withTransaction(async (txnSession) => {
         await sessions.insert(
             {
-                _id: token,
+                // Construction mint: the freshly generated uuid becomes this
+                // new session's branded `_id`.
+                _id: asSessionToken(token),
                 ipHash,
                 userSlug: slug,
                 createdAt: now,

@@ -55,7 +55,7 @@ app.use("*", rateLimit);
 app.use("*", sanitizeBody);
 
 // DI: hang typed `services` off c.var (D.W2 Lane C — D-HARDEN-3 §2.2).
-// Must run BEFORE resolveSession so the latter (when migrated) can use repositories.
+// Must run BEFORE resolveSession, which reads repositories off the seam (L.W2).
 app.use("*", injectServices);
 
 // Session resolution
