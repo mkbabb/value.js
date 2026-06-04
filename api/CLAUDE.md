@@ -9,7 +9,7 @@ api/
 ├── src/
 │   ├── index.ts              # Hono app, middleware stack, route mounting, cron, SIGTERM shutdown
 │   ├── types.ts              # AppEnv (session token + userSlug + services context vars)
-│   ├── db.ts                 # MongoDB singleton + closeDb; 27 indexes across 9 collections
+│   ├── db.ts                 # MongoDB singleton + closeDb; 26 indexes across 9 collections
 │   ├── db/
 │   │   └── collections.ts    # typed Collection<T> accessors (D.W2 Lane C)
 │   ├── models.ts             # typed document shapes for the 9 collections
@@ -94,13 +94,23 @@ Cross-collection mutations wrap in `services.withTransaction(async (session) => 
 
 `api/tsconfig.json` matches root strictness as of H.W1. The 4 flags lifted at H.W1 Lane B: `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `verbatimModuleSyntax`, `isolatedModules`. 36 surfaced errors repaired genuinely (zero `@ts-ignore`, zero `as any`, zero `as unknown as` added). Incidental: a latent duplicate `PaletteColor` interface in `src/hash.ts` unified to the canonical `models.ts` source-of-truth.
 
+### L invariants (tranche L — the `api/src` fastidious-closure)
+
+`api/src` holds the same invariant discipline `src/` does. Enforced **structurally** (branded types + `tsc` + `eslint` + the excision itself), verified at close by a human-run review/grep — no committed `proof:*` script (that idiom is retired). The standing constraints (`docs/tranches/L/L.md §2`):
+
+- **`as any` = 0; `as unknown as` = 1** — the lone irreducible is the `@hono/node-server` `server.close()` handle at `index.ts` (a third-party type-stub gap, policy-commented). The 2 former `resolve-session.ts` ObjectId casts were retired at the model boundary by the branded `SessionToken`/`UserSlug` nominal types (`models.ts`): `Session._id`/`User._id` carry the brand, minted once via `asSessionToken`/`asUserSlug` at the repository filter boundary + genuine construction sites.
+- **No legacy palette fields** — neither `sessionToken` (the legacy ownership shim; `userSlug` is the sole canonical owner) nor the 4-state `status` field exists in `api/src`. Canonical curation state is `(visibility, tier)`; the list filter takes `visibility`/`tier` query params. (The session-AUTH `c.var.sessionToken` is a DISTINCT live mechanism — unrelated to the deleted palette field.)
+- **Typed errors, no ad-hoc envelopes** — every failure throws an `ApiError` subclass routed through `onError → toResponseEnvelope` (canonical `application/problem+json`); no `c.json({ error … })` in `middleware/` or `routes/`.
+- **The boundary holds** — routes call services, never `c.var.services.repositories.*` directly (ownership/ETag reads live in `services/palette/ownership.ts`); only `repositories/` + the inject-services factory call `getDb()`/`db.collection()` (the request pipeline never bypasses the DI seam).
+- **God-module cap** — no `api/src` file exceeds 350 LoC.
+
 ## Database (MongoDB)
 
-**9 collections, 27 indexes** (per `src/db.ts`):
+**9 collections, 26 indexes** (per `src/db.ts`):
 
 | Collection | Indexes |
 |------------|---------|
-| `palettes` | `slug` (unique), `createdAt`, `voteCount+createdAt`, `status`, `userSlug+createdAt`, `tags`, `forkOf`, `forkCount+createdAt`, `name` (text) |
+| `palettes` | `slug` (unique), `createdAt`, `voteCount+createdAt`, `userSlug+createdAt`, `tags`, `forkOf`, `forkCount+createdAt`, `name` (text) |
 | `palette_versions` | `paletteSlug+createdAt`, `forkedFromHash`, `rootHash`, `authorSlug+createdAt` |
 | `votes` | `userSlug+paletteSlug` (unique), `paletteSlug` |
 | `sessions` | `lastSeenAt`, `expiresAt` |

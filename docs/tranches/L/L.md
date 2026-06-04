@@ -15,7 +15,7 @@
 
 1. `sessionToken` appears nowhere in `api/src` — field, write, strip, or doc-comment. `userSlug` is the sole canonical owner; the `migrations/check.ts` probe requires `userSlug` (it already does) with the legacy-path comment removed.
 2. The 4-state `status` field appears nowhere in `api/src` — no read, write, filter, projection, envelope, or validation schema. Canonical curation state is `(visibility, tier)`; the one load-bearing filter site (`crud-list.ts`) is *transposed* to a `(visibility, tier)` filter, not deleted.
-3. `as any` count in `api/src` is **0**; `as unknown as` count is **1** (the policy-documented `@hono/node-server` `.close()` irreducible at `index.ts:173`).
+3. `as any` count in `api/src` is **0**; `as unknown as` count is **1** (the policy-documented `@hono/node-server` `.close()` irreducible at `index.ts:181`).
 4. No ad-hoc `c.json({ error … })` envelope survives in `api/src/middleware/` or `api/src/routes/` — every failure throws a typed `ApiError` routed through `onError → toResponseEnvelope`.
 5. No route handler in `api/src/routes/` accesses `c.var.services.repositories.*` — the repository boundary is owned exclusively by the services layer.
 6. No `getDb()`/`db.collection()` call outside `api/src/repositories/` and the inject-services factory — the `resolve-session.ts` DI-bypass is closed.
@@ -46,7 +46,7 @@ L inherits the `src/` invariant regime (the `as any`/`as unknown as` budgets, no
 
 - **inv-L-1 — api `as any` is zero.** Zero `as any` in `api/src`. The branded-types transposition retires the only 2 (`resolve-session.ts:35,47`); thereafter `eslint`'s `no-explicit-any` rule keeps it at zero structurally. *Verified at close by* `eslint` exit 0 + a `grep -rn 'as any' api/src` returning 0 in review.
 
-- **inv-L-2 — api `as unknown as` ≤ 1.** At most one `as unknown as` in `api/` — the `@hono/node-server` `.close()` irreducible at `index.ts:173` (the library's `serve()` return type omits the `.close()` the underlying `http.Server` runtime provides; a third-party type-stub gap, not domain logic). *Verified at close by* a `grep` confirming the single hit is `index.ts` and carries its policy comment.
+- **inv-L-2 — api `as unknown as` ≤ 1.** At most one `as unknown as` in `api/` — the `@hono/node-server` `.close()` irreducible at `index.ts:181` (the library's `serve()` return type omits the `.close()` the underlying `http.Server` runtime provides; a third-party type-stub gap, not domain logic). *Verified at close by* a `grep` confirming the single hit is `index.ts` and carries its policy comment.
 
 - **inv-L-3 — no legacy palette fields.** Neither `sessionToken` nor the 4-state `status` appears anywhere in `api/src` — field, write, filter, projection, envelope, or validation schema. Canonical ownership is `userSlug`; canonical curation state is `(visibility, tier)`. *Enforced structurally*: the fields are deleted from `models.ts`, so `tsc` rejects any surviving read/write at compile time (the deletion is itself the enforcement). *Verified at close by* `grep -rn 'sessionToken' api/src` → 0 and a palette-`status` read/write/filter/projection scan → 0.
 
@@ -107,7 +107,7 @@ The decomposition LoC targets are in `audit/excise-ledger.md`'s companion plan. 
 
 - **L.W0**: `L.md` + `audit/excise-ledger.md` authored + reviewed; the 26-item ledger frozen against the live K.W2 substrate; **dispatch gate (K.W2 green) recorded as the IMPL precondition.**
 - **L.W1**: zero `c.json({ error` in middleware + routes (inv-L-4); zero `services.repositories` in routes (inv-L-5); `resolveOrigin` structurally typed (inv-L-8); `votes.ts` throws `NotFoundError` on in-txn null; `tsc` + `eslint` + vitest + playwright exit 0 with **no HTTP-status-code drift** (the thrown-error codes match the prior literal 503/401/403/400).
-- **L.W2**: `SessionToken`/`UserSlug` branded; `resolve-session.ts` reads via `c.var.services.repositories` (inv-L-6); zero raw `db.collection`/`getDb` outside `repositories/` + the factory; `as any` = 0 (inv-L-1); `as unknown as` = 1, the policy-documented `index.ts:173` (inv-L-2); `tsc` exit 0; suites parity.
+- **L.W2**: `SessionToken`/`UserSlug` branded; `resolve-session.ts` reads via `c.var.services.repositories` (inv-L-6); zero raw `db.collection`/`getDb` outside `repositories/` + the factory; `as any` = 0 (inv-L-1); `as unknown as` = 1, the policy-documented `index.ts:181` (inv-L-2); `tsc` exit 0; suites parity.
 - **L.W3**: `sessionToken` grep → 0; palette-`status` read/write/filter/projection/envelope/validation scan → 0 (inv-L-3); no deferral-comment residue (inv-L-9); the `crud-list.ts` filter is a working `(visibility, tier)` transposition (vitest list-filter test green); **the demo/ + api consumer scan confirmed no `.status` reader before envelope removal**; suites parity.
 - **L.W4**: no `api/src` file > 350 LoC (inv-L-7); `api/CLAUDE.md` + root `CLAUDE.md` cite the L invariants; all 9 invariants verified at close (the human-run grep checks pass); full vitest + 5-project playwright + `eslint` exit 0; `FINAL.md` authored with authoritative counts.
 

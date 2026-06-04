@@ -17,16 +17,11 @@ npm run dev          # dev server (Vite default port)
 npm test                 # vitest (jsdom) — unit suite (count → per-tranche FINAL.md)
 npx playwright test      # 5 projects: smoke / smoke-admin / smoke-mobile / smoke-reactivity / smoke-safari (count → per-tranche FINAL.md)
 npm run lint             # eslint flat config (D.W1 L7) — exit 0 required
-npm run proof:resolution # contract-v2 dev-resolution proof across the fleet (D.W1)
-npm run proof:dts-layout # flat-dist/ dts emission invariant guard (F.W3 Lane D, W12-unblocker regression guard)
-npm run proof:no-deprecated      # zero @deprecated annotations in src/ (G.W3 Lane B — codifies F2)
-npm run proof:no-ts-ignore       # zero @ts-ignore annotations in src/ + demo/ (G.W3 Lane C; demo-extended at H.W3 Lane D)
-npm run proof:as-any-budget      # as any ≤ 5 in src/ (G.W3 Lane D — codifies G2; current count 0)
-npm run proof:as-unknown-as-budget # as unknown as ≤ 2 in src/ (H.W2 Lane B — codifies H2; current count 2 — DOM-structural + clone-reinterpret irreducibles)
-npm run proof:codemod-publication # scripts/migrate-*.mjs discoverable in npm pack (G.W3 Lane I)
-npm run proof:no-deep            # zero :deep() / ::v-deep in demo/ + src/ (G.W3 Lane J)
-npm run proof:no-bare-builtins   # node:* prefix required for built-in imports in api/src/ + plugins/ + scripts/ + bench/ (G.W3 Lane K; scope-extended at H.W3 Lane E)
+npm run typecheck        # vue-tsc --noEmit (library + demo); api typecheck: cd api && npx tsc --noEmit
 ```
+
+> The grep-based `proof:*` invariant scripts (G/H-era) were retired as overfit;
+> the disciplines they guarded stand by the type system + eslint + review.
 
 > Exact test/spec counts belong in per-tranche FINAL.md docs (e.g.
 > `docs/tranches/E/FINAL.md`). Numbers inlined here drift each wave; the
@@ -102,12 +97,11 @@ assets/docs/              # 10 color space reference pages (Vue + KaTeX)
 - Named exports only, no defaults (enables tree-shaking)
 - Color matrices stored row-major (3x3); transform matrices column-major (4x4, CSS convention)
 - Color components normalized to [0,1] internally; denormalized on output
-- **`as any` budget** — the G2 invariant caps `as any` at ≤ 5 in `src/` (G.W2 retired the corpus to **0**); enforced by `npm run proof:as-any-budget`
-- **`as unknown as` budget** — the H2 invariant caps `as unknown as` at ≤ 2 in `src/` (H.W2 retired the corpus from 4 to 2 — typed `XyzFunctionsTable` mapped-type at `units/color/dispatch.ts` + type-predicate `isColorValueUnit` at `units/normalize.ts:319`); remaining 2 are policy-documented irreducibles (DOM `CSSStyleDeclaration` at `normalize.ts:117`; clone-reinterpret at `parsing/color.ts:59`); enforced by `npm run proof:as-unknown-as-budget`
-- **No `demo/` god module** — the H3 invariant caps every `demo/` file (excluding shadcn-vue at `demo/@/components/ui/`) at ≤ 400 LoC; H.W3 Lane A decomposed `demo/@/lib/palette/api.ts` (484 LoC) → 9 cohesion-honest modules under `api/`; H.W3 Lane B decomposed `PointerDebugOverlay.vue` (449) and `PaletteCard.vue` (435) via sub-component lifts
-- **Cross-tree proof codification** — H4 extends `proof:no-ts-ignore` to `src/ + demo/` (H.W3 Lane D) and `proof:no-bare-builtins` to `api/src/ + plugins/ + scripts/ + bench/` (H.W3 Lane E); `proof:as-unknown-as-budget` is NEW (H.W2 Lane B)
+- **Minimize `as any` / `as unknown as`** — prefer typed narrowing + branded nominal types. `src/` holds **0** `as any` and **2** policy-documented `as unknown as` irreducibles (DOM `CSSStyleDeclaration` at `normalize.ts:117`; clone-reinterpret at `parsing/color.ts:59`). `api/src` holds the same discipline (tranche L): **0** `as any`, **1** `as unknown as` (the `@hono/node-server` `server.close()` handle at `index.ts`); the 2 former `resolve-session.ts` ObjectId casts were retired by the branded `SessionToken`/`UserSlug` nominal types on `Session._id`/`User._id`. The discipline stands by the type system + review, not by a grep budget-script.
+- **No `demo/` god module** — every `demo/` file (excluding shadcn-vue at `demo/@/components/ui/`) stays ≤ 400 LoC; H.W3 decomposed `demo/@/lib/palette/api.ts` (484 LoC) → 9 modules, `PointerDebugOverlay.vue` (449) and `PaletteCard.vue` (435) via sub-component lifts
 - **Cascade-correctness** — the H1 invariant requires every cross-collection write site in `api/` wrapped in `services.withTransaction(...)` with `session` threaded through; H.W1 expanded 9 → 16 wrapped sites + authored the standing reference `docs/tranches/H/audit/api-withTransaction-coverage.md`
-- See `VENDOR-POLICY.md` for the `demo/@/components/ui/` shadcn-vue vendored-noise policy. **Post-F.W1 Lane C**: 29 zero-consumer subdirs swept (165 → 22 files, -588 KiB). **Post-F.W3 Lane C**: vue-tsc CI gate is now **strict-zero (≤ 0 errors)**.
+- **`api/src` boundary closure (tranche L)** — every failure throws a typed `ApiError` (no ad-hoc `c.json({ error })`); routes call services, never `repositories.*` directly (ownership/ETag reads in `services/palette/ownership.ts`); only `repositories/` + the inject-services factory touch raw `db`; no legacy palette fields (`sessionToken`/4-state `status` excised — canonical state is `(visibility, tier)`); no `api/src` file > 350 LoC. See `docs/tranches/L/L.md §2` + `FINAL.md`.
+- The `demo/@/components/ui/` shadcn-vue tree is vendored noise (excluded from the god-module cap). **Post-F.W1 Lane C**: 29 zero-consumer subdirs swept (165 → 22 files, -588 KiB). **Post-F.W3 Lane C**: vue-tsc CI gate is **strict-zero (≤ 0 errors)**.
 - See `docs/RELEASE.md` for the manual tranche-close publish ceremony (authored H.W4 Lane D).
 
 ## Entry point
