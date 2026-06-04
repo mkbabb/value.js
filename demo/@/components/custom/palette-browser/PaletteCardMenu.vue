@@ -128,9 +128,9 @@
                     Admin
                 </DropdownMenuLabel>
                 <DropdownMenuItem class="gap-2 cursor-pointer" @click="$emit('action', 'feature')">
-                    <Star v-if="(palette.tier ?? palette.status) !== 'featured'" class="h-4 w-4" />
+                    <Star v-if="palette.tier !== 'featured'" class="h-4 w-4" />
                     <StarOff v-else class="h-4 w-4" />
-                    {{ (palette.tier ?? palette.status) === 'featured' ? 'Unfeature' : 'Feature' }}
+                    {{ palette.tier === 'featured' ? 'Unfeature' : 'Feature' }}
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     class="gap-2 cursor-pointer text-destructive focus:text-destructive"

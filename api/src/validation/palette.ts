@@ -10,7 +10,7 @@
  */
 
 import { z } from "zod";
-import { FLAG_REASONS, PALETTE_STATUSES } from "../models.js";
+import { FLAG_REASONS, PALETTE_VISIBILITIES, PALETTE_TIERS } from "../models.js";
 
 // ---------------------------------------------------------------
 // Re-used field schemas
@@ -94,7 +94,8 @@ export const listPalettesQuery = z.object({
     cursor: z.string().optional(),
     sort: z.enum(["newest", "popular", "most-forked"]).optional(),
     q: z.string().min(1).optional(),
-    status: z.string().optional(),
+    visibility: z.enum([...PALETTE_VISIBILITIES]).optional(),
+    tier: z.enum([...PALETTE_TIERS]).optional(),
     tags: z.string().optional(),
     userSlug: z.string().optional(),
     colorL: z.coerce.number().optional(),
@@ -107,9 +108,3 @@ export const paginationQuery = z.object({
     limit: z.coerce.number().int().min(1).max(100).optional(),
     offset: z.coerce.number().int().min(0).optional(),
 });
-
-// ---------------------------------------------------------------
-// Status enum (for admin batch payloads)
-// ---------------------------------------------------------------
-
-export const paletteStatusSchema = z.enum(PALETTE_STATUSES);

@@ -84,11 +84,10 @@ export function useAdminUsers(deps: {
             if (idx !== -1 && existing) {
                 deps.remotePalettes.value[idx] = {
                     ...existing,
-                    status: result.status as "published" | "featured",
-                    tier: result.tier as "standard" | "featured",
+                    tier: result.tier as "standard" | "featured" | "archived",
                 };
             }
-            adminUsersPanelRef.value?.updatePaletteStatus(palette.slug, result.status);
+            adminUsersPanelRef.value?.updatePaletteTier(palette.slug, result.tier);
         } catch (e: any) {
             console.warn("Failed to feature palette:", e?.message);
         }

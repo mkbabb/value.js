@@ -34,7 +34,7 @@
                     :title="palette.name"
                     @click.stop="editableName && startRenaming()"
                 >{{ palette.name }}</span>
-                <Badge v-if="(palette.tier ?? palette.status) === 'featured'" variant="outline" class="featured-badge text-mono-small shrink-0 gap-1 border-gold text-gold">
+                <Badge v-if="palette.tier === 'featured'" variant="outline" class="featured-badge text-mono-small shrink-0 gap-1 border-gold text-gold">
                     <!-- Wrapper class lets the scoped `.featured-badge__icon`
                          selector style the icon without :deep(svg) reach. -->
                     <span class="featured-badge__icon inline-flex">

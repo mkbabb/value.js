@@ -65,7 +65,6 @@ describe("routes.palettes publish/unpublish + visibility filter (J.W1c)", () => 
         app = buildTestApp(services);
         await createPalette(services, {
             body: { name: "P", slug: "p", colors: COLORS, tags: [] },
-            sessionToken: "tok-alice",
             userSlug: "alice",
         });
     });
@@ -110,6 +109,57 @@ describe("routes.palettes publish/unpublish + visibility filter (J.W1c)", () => 
         });
         res = await app.request("/palettes", { method: "GET" });
         expect(((await res.json()) as ListBody).data.some((x) => x.slug === "p")).toBe(true);
+    });
+
+    it("tier=featured filters the public list to featured palettes only", async () => {
+        // `p` is created with tier "standard". Add a featured sibling.
+        await createPalette(services, {
+            body: { name: "F", slug: "feat", colors: COLORS, tags: [] },
+            userSlug: "alice",
+        });
+        await services.repositories.palettes.update("feat", {
+            $set: { tier: "featured" },
+        });
+
+        const all = await app.request("/palettes", { method: "GET" });
+        const allSlugs = ((await all.json()) as ListBody).data.map((x) => x.slug);
+        expect(allSlugs).toEqual(expect.arrayContaining(["p", "feat"]));
+
+        const featured = await app.request("/palettes?tier=featured", { method: "GET" });
+        const featSlugs = ((await featured.json()) as ListBody).data.map((x) => x.slug);
+        expect(featSlugs).toContain("feat");
+        expect(featSlugs).not.toContain("p");
+    });
+
+    it("visibility param is honored when viewing OWN, ignored (forced public) when not", async () => {
+        // Make `p` private, add a public sibling owned by alice.
+        await app.request("/palettes/p/unpublish", {
+            method: "POST",
+            headers: { ...owner, "If-Match": "*" },
+        });
+        await createPalette(services, {
+            body: { name: "Pub", slug: "pub", colors: COLORS, tags: [] },
+            userSlug: "alice",
+        });
+
+        // Owner narrows to visibility=private → sees only the private one.
+        const ownPrivate = await app.request(
+            "/palettes?userSlug=alice&visibility=private",
+            { method: "GET", headers: owner },
+        );
+        const ownPrivSlugs = ((await ownPrivate.json()) as ListBody).data.map((x) => x.slug);
+        expect(ownPrivSlugs).toContain("p");
+        expect(ownPrivSlugs).not.toContain("pub");
+
+        // Anon requesting visibility=private → param ignored, forced public →
+        // sees only the public sibling, never the private one.
+        const anon = await app.request(
+            "/palettes?userSlug=alice&visibility=private",
+            { method: "GET" },
+        );
+        const anonSlugs = ((await anon.json()) as ListBody).data.map((x) => x.slug);
+        expect(anonSlugs).toContain("pub");
+        expect(anonSlugs).not.toContain("p");
     });
 
     it("an owner viewing their OWN palettes sees their private ones; others don't", async () => {

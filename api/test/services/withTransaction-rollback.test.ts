@@ -64,7 +64,6 @@ describe("withTransaction rollback (G.W3 Lane E)", () => {
                 colors: [{ css: "#000000", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok-parent",
             userSlug: "alice",
         });
         await services.repositories.palettes.insert({
@@ -74,9 +73,7 @@ describe("withTransaction rollback (G.W3 Lane E)", () => {
             oklabColors: [],
             tags: [],
             voteCount: 0,
-            sessionToken: "tok",
             userSlug: "alice",
-            status: "published",
             visibility: "public",
             tier: "standard",
             deletedAt: null,

@@ -121,7 +121,6 @@ describe("J.W2 conformance — /diff envelope + atom-diff algebra", () => {
     it("GET /:slug/diff returns EXACTLY {fromHash,toHash,ops,identical} — no set-hash redundancy", async () => {
         await createPalette(services, {
             body: { name: "p", slug: "p", colors: C1, tags: [] },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         const v1 = computeContentHash("p", C1);
@@ -155,7 +154,6 @@ describe("J.W2 conformance — /diff envelope + atom-diff algebra", () => {
     it("the diff carries an immutable-pair ETag; If-None-Match → 304", async () => {
         await createPalette(services, {
             body: { name: "p", slug: "p", colors: C1, tags: [] },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         const v1 = computeContentHash("p", C1);
@@ -178,7 +176,6 @@ describe("J.W2 conformance — /diff envelope + atom-diff algebra", () => {
     it("identical versions diff to empty + identical:true", async () => {
         await createPalette(services, {
             body: { name: "p", slug: "p", colors: C1, tags: [] },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         const v1 = computeContentHash("p", C1);
@@ -193,7 +190,6 @@ describe("J.W2 conformance — /diff envelope + atom-diff algebra", () => {
     it("404 when `from` is not a version of the palette", async () => {
         await createPalette(services, {
             body: { name: "p", slug: "p", colors: C1, tags: [] },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         const res = await app.request(`/palettes/p/diff?from=deadbeef`, {
@@ -205,7 +201,6 @@ describe("J.W2 conformance — /diff envelope + atom-diff algebra", () => {
     it("422 when `from` and `to` are on divergent branches (inv-J-1 chain guard)", async () => {
         await createPalette(services, {
             body: { name: "p", slug: "p", colors: C1, tags: [] },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         const v1 = computeContentHash("p", C1);

@@ -86,7 +86,6 @@ crudRouter.post("/", async (c) => {
 
     const result = await createPalette(c.var.services, {
         body: parsed.data,
-        sessionToken,
         userSlug: c.var.userSlug ?? null,
     });
     return c.json(result, 201);

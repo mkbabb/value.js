@@ -47,11 +47,11 @@
         <SearchBar v-model="searchModel" :placeholder="searchPlaceholder">
             <SearchFilterBar v-if="activeTab === 'browse'"
                 :sort="sortMode"
-                :status="statusFilter"
+                :tier="tierFilter"
                 :selected-tags="selectedTags"
                 :available-tags="availableTags"
                 @update:sort="$emit('sortChange', $event)"
-                @update:status="$emit('statusChange', $event)"
+                @update:tier="$emit('tierChange', $event)"
                 @update:selected-tags="$emit('tagsChange', $event)"
                 @clear-filters="$emit('clearFilters')"
             />
@@ -89,7 +89,7 @@ const {
     hasSavedPalettes,
     isAdmin,
     sortMode,
-    statusFilter,
+    tierFilter,
     selectedTags,
     availableTags,
     userSortMode,
@@ -102,7 +102,7 @@ const {
     hasSavedPalettes: boolean;
     isAdmin: boolean;
     sortMode: "newest" | "popular" | "most-forked";
-    statusFilter: string;
+    tierFilter: string;
     selectedTags: string[];
     availableTags: Tag[];
     userSortMode: "slug" | "newest" | "palettes";
@@ -114,7 +114,7 @@ defineEmits<{
     regenerate: [];
     logout: [];
     sortChange: [mode: string];
-    statusChange: [status: string];
+    tierChange: [tier: string];
     tagsChange: [tags: string[]];
     clearFilters: [];
     userSortChange: [mode: string];

@@ -41,7 +41,6 @@ export async function getDb(): Promise<Db> {
         db.collection("palettes").createIndex({ slug: 1 }, { unique: true }),
         db.collection("palettes").createIndex({ createdAt: -1 }),
         db.collection("palettes").createIndex({ voteCount: -1, createdAt: -1 }),
-        db.collection("palettes").createIndex({ status: 1 }),
         db.collection("palettes").createIndex({ userSlug: 1, createdAt: -1 }),
         db.collection("palettes").createIndex({ tags: 1 }),
         db.collection("palettes").createIndex({ forkOf: 1 }),

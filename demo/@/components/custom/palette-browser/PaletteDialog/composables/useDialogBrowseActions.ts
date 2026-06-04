@@ -8,8 +8,8 @@
  *    and prepend to `remotePalettes`.
  *  - Revert (`onRevert`): delegate to `modalStack.onRevert` with the
  *    `remotePalettes`-update callback wired in.
- *  - Browse filter handlers (`onStatusChange` / `onTagsChange` /
- *    `onClearFilters`): mutate `pm.statusFilter` / `pm.selectedTags` and
+ *  - Browse filter handlers (`onTierChange` / `onTagsChange` /
+ *    `onClearFilters`): mutate `pm.tierFilter` / `pm.selectedTags` and
  *    reload remote palettes.
  *
  * The composable accepts the facade slice it touches + the modal-stack
@@ -47,8 +47,8 @@ export function useDialogBrowseActions(deps: DialogBrowseActionsDeps) {
         });
     }
 
-    function onStatusChange(status: string) {
-        pm.statusFilter.value = status;
+    function onTierChange(tier: string) {
+        pm.tierFilter.value = tier;
         pm.loadRemotePalettes(true);
     }
 
@@ -58,7 +58,7 @@ export function useDialogBrowseActions(deps: DialogBrowseActionsDeps) {
     }
 
     function onClearFilters() {
-        pm.statusFilter.value = "";
+        pm.tierFilter.value = "";
         pm.selectedTags.value = [];
         pm.loadRemotePalettes(true);
     }
@@ -66,7 +66,7 @@ export function useDialogBrowseActions(deps: DialogBrowseActionsDeps) {
     return {
         onFork,
         onRevert,
-        onStatusChange,
+        onTierChange,
         onTagsChange,
         onClearFilters,
     };

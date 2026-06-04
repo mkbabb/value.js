@@ -55,7 +55,6 @@ forksRouter.post("/:slug/fork", async (c) => {
         sourceSlug,
         name: parsed.data.name,
         slug: parsed.data.slug,
-        sessionToken,
         userSlug,
     });
     return c.json(formatPalette(palette as Palette & { _id: unknown }), 201);
@@ -92,7 +91,6 @@ forksRouter.post("/:slug/remix", async (c) => {
         name: parsed.data.name,
         slug: parsed.data.slug,
         colors: parsed.data.colors,
-        sessionToken,
         userSlug,
     });
     const formatted = formatPalette(palette as Palette & { _id: unknown });

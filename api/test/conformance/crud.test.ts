@@ -64,7 +64,6 @@ const FORMATTED_PALETTE_KEYS = [
     "oklabColors",
     "published",
     "slug",
-    "status",
     "tags",
     "tier",
     "updatedAt",

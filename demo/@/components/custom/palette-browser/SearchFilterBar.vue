@@ -27,10 +27,10 @@
                         </RadioGroup>
                     </div>
 
-                    <!-- Status -->
+                    <!-- Curation tier -->
                     <div class="filter-section">
-                        <div class="section-label">Status</div>
-                        <RadioGroup :model-value="status" @update:model-value="(v) => $emit('update:status', String(v))">
+                        <div class="section-label">Tier</div>
+                        <RadioGroup :model-value="tier" @update:model-value="(v) => $emit('update:tier', String(v))">
                             <label class="filter-option">
                                 <RadioGroupItem value="" class="shrink-0" />
                                 <span>All</span>
@@ -138,16 +138,16 @@ import type { Tag } from "@lib/palette/types";
 import { srgbToOKLab } from "@src/units/color/gamut";
 import { hex2rgb } from "@src/units/color/conversions/hex";
 
-const { sort, status, selectedTags, availableTags } = defineProps<{
+const { sort, tier, selectedTags, availableTags } = defineProps<{
     sort: string;
-    status: string;
+    tier: string;
     selectedTags: string[];
     availableTags: Tag[];
 }>();
 
 const emit = defineEmits<{
     "update:sort": [value: string];
-    "update:status": [value: string];
+    "update:tier": [value: string];
     "update:selectedTags": [value: string[]];
     clearFilters: [];
     colorSearch: [L: number, a: number, b: number];
@@ -182,7 +182,7 @@ function applyColorSearchFromPicker(hex: string) {
 
 const activeFilterCount = computed(() => {
     let count = 0;
-    if (status) count++;
+    if (tier) count++;
     count += selectedTags.length;
     if (colorSearchActive.value) count++;
     return count;

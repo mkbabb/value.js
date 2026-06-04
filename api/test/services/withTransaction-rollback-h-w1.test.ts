@@ -86,7 +86,6 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
                     colors: [{ css: "#ff0000", position: 0 }],
                     tags: [],
                 },
-                sessionToken: "tok",
                 userSlug: "alice",
             }),
         ).rejects.toThrow("induced version-insert failure");
@@ -113,7 +112,6 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
                 colors: [{ css: "#ff0000", position: 0 }],
                 tags: ["red"],
             },
-            sessionToken: "tok",
             userSlug: "alice",
         });
 
@@ -246,7 +244,6 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
                 colors: [{ css: "#000000", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok-parent",
             userSlug: "alice",
         });
         await services.repositories.palettes.insert({
@@ -256,9 +253,7 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             oklabColors: [],
             tags: [],
             voteCount: 0,
-            sessionToken: "tok",
             userSlug: "alice",
-            status: "published",
             visibility: "public",
             tier: "standard",
             deletedAt: null,
@@ -348,7 +343,6 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
                 colors: [{ css: "#ff0000", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         await services.repositories.votes.upsertIdempotent(
@@ -451,7 +445,6 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
                 colors: [{ css: "#ff0000", position: 0 }],
                 tags: ["vintage"],
             },
-            sessionToken: "tok",
             userSlug: "alice",
         });
 

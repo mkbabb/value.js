@@ -34,7 +34,6 @@ describe("service.palette.votes", () => {
                 colors: [{ css: "#fff", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
             userSlug: "owner",
         });
     });

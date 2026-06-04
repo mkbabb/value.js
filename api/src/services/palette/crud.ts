@@ -9,9 +9,8 @@
  * All DB access goes through repositories on `c.var.services`. Ownership is
  * enforced UPSTREAM by the `requireOwnership` middleware on the owner-gated
  * routes (`PATCH /palettes/:slug`, `DELETE /palettes/:slug`) — see
- * `routes/palettes/crud.ts`. E.W2 Lane C deleted the inline duplicates that
- * lived here pre-wiring (the legacy sessionToken equality shim and its
- * userSlug companion). The route's middleware reads the palette's
+ * `routes/palettes/crud.ts`. E.W2 Lane C deleted the inline ownership
+ * duplicates that lived here pre-wiring. The route's middleware reads the palette's
  * `userSlug`, compares it to `c.var.userSlug`, and throws
  * `OwnershipError`/`NotFoundError` BEFORE the handler runs — so these service
  * methods are reachable only when ownership already holds.
@@ -74,7 +73,6 @@ export async function getPaletteBySlug(
 
 export interface CreateInput {
     body: CreateBody;
-    sessionToken: string;
     userSlug: string | null;
 }
 
@@ -82,7 +80,7 @@ export async function createPalette(
     services: Services,
     input: CreateInput,
 ): Promise<FormattedPalette> {
-    const { body, sessionToken, userSlug } = input;
+    const { body, userSlug } = input;
     const now = new Date();
     const contentHash = computeContentHash(body.name, body.colors);
     const oklabColors = computeOklabColors(body.colors);
@@ -94,9 +92,7 @@ export async function createPalette(
         oklabColors,
         tags: body.tags ?? [],
         voteCount: 0,
-        sessionToken,
         userSlug,
-        status: "published",
         visibility: "public",
         tier: "standard",
         deletedAt: null,

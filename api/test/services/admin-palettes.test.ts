@@ -38,7 +38,6 @@ describe("service.admin.palettes", () => {
                 colors: [{ css: "#fff", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
             userSlug: "alice",
         });
     });
@@ -46,15 +45,12 @@ describe("service.admin.palettes", () => {
     it("setFeatured is idempotent (I.W3) — re-POSTing same body is a no-op", async () => {
         const c = makeFakeContext(services, "admin");
         const r1 = await setFeatured(c, "mod", true);
-        expect(r1.status).toBe("featured");
         expect(r1.tier).toBe("featured");
         // Idempotent: re-posting `featured: true` returns the same state.
         const r2 = await setFeatured(c, "mod", true);
-        expect(r2.status).toBe("featured");
         expect(r2.tier).toBe("featured");
         // Reverse to standard.
         const r3 = await setFeatured(c, "mod", false);
-        expect(r3.status).toBe("published");
         expect(r3.tier).toBe("standard");
     });
 

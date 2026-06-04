@@ -73,7 +73,7 @@ export interface UserPaletteEntry {
     name: string;
     slug: string;
     colors: PaletteColor[];
-    status: Palette["status"];
+    tier: Palette["tier"];
     voteCount: number;
     createdAt: Date;
     updatedAt: Date;
@@ -93,7 +93,7 @@ export async function listUserPalettes(
             name: doc.name,
             slug: doc.slug,
             colors: doc.colors,
-            status: doc.status,
+            tier: doc.tier,
             voteCount: doc.voteCount,
             createdAt: doc.createdAt,
             updatedAt: doc.updatedAt,

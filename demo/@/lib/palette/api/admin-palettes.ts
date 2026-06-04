@@ -19,7 +19,7 @@ import { adminRequest } from "./client";
 export function featurePalette(
     token: string,
     slug: string,
-): Promise<{ slug: string; status: string; tier: string }> {
+): Promise<{ slug: string; tier: string }> {
     return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}/feature`, token, {
         method: "POST",
     });

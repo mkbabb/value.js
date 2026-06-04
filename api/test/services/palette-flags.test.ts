@@ -37,7 +37,6 @@ describe("service.palette.flags", () => {
                 colors: [{ css: "#fff", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
             userSlug: "owner",
         });
     });

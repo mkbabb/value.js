@@ -37,7 +37,6 @@ describe("service.palette.forks", () => {
                 colors: [{ css: "#ff0000", position: 0 }],
                 tags: ["warm"],
             },
-            sessionToken: "tok-root",
             userSlug: "alice",
         });
     });
@@ -46,7 +45,6 @@ describe("service.palette.forks", () => {
         const result = await forkPalette(services, {
             sourceSlug: "root",
             slug: "root-clone",
-            sessionToken: "tok-clone",
             userSlug: "bob",
         });
         expect(result.palette.slug).toBe("root-clone");
@@ -58,7 +56,6 @@ describe("service.palette.forks", () => {
         await expect(
             forkPalette(services, {
                 sourceSlug: "ghost",
-                sessionToken: "tok",
                 userSlug: "alice",
             }),
         ).rejects.toBeInstanceOf(NotFoundError);
@@ -69,7 +66,6 @@ describe("service.palette.forks", () => {
             forkPalette(services, {
                 sourceSlug: "root",
                 slug: "BAD SLUG!",
-                sessionToken: "tok",
                 userSlug: "alice",
             }),
         ).rejects.toBeInstanceOf(ValidationError);
@@ -79,13 +75,11 @@ describe("service.palette.forks", () => {
         await forkPalette(services, {
             sourceSlug: "root",
             slug: "fork-a",
-            sessionToken: "tok",
             userSlug: "bob",
         });
         await forkPalette(services, {
             sourceSlug: "root",
             slug: "fork-b",
-            sessionToken: "tok",
             userSlug: "carol",
         });
         const result = await listForks(services, "root", 0, 10);
@@ -97,7 +91,6 @@ describe("service.palette.forks", () => {
         await forkPalette(services, {
             sourceSlug: "root",
             slug: "child",
-            sessionToken: "tok",
             userSlug: "bob",
         });
         const chain = await getProvenance(services, "child");

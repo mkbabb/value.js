@@ -36,7 +36,6 @@ describe("service.palette.ownership", () => {
                     colors: [{ css: "#ff0000", position: 0 }],
                     tags: [],
                 },
-                sessionToken: "tok",
                 userSlug: "alice",
             });
             expect(await getOwnerSlug(services, "owned")).toBe("alice");
@@ -56,7 +55,6 @@ describe("service.palette.ownership", () => {
                     colors: [{ css: "#00ff00", position: 0 }],
                     tags: [],
                 },
-                sessionToken: "tok",
                 userSlug: "bob",
             });
             const data = await getPaletteETagData(services, "etagged");

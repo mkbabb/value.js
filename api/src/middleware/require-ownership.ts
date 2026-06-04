@@ -1,6 +1,6 @@
 /**
- * `requireOwnership` middleware factory (D.W2 Lane C #6 — replaces the F2
- * `sessionToken === sessionToken` ownership shim per D-HARDEN-3 §3 F2).
+ * `requireOwnership` middleware factory (D.W2 Lane C #6 — the canonical
+ * `userSlug`-based ownership check per D-HARDEN-3 §3 F2).
  *
  * Usage (post-Lane-A wiring):
  *   palettes.delete(

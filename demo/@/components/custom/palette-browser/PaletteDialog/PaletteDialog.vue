@@ -38,7 +38,7 @@
                         :has-saved-palettes="pm.savedPalettes.value.length > 0"
                         :is-admin="pm.isAdminAuthenticated.value"
                         :sort-mode="pm.sortMode.value"
-                        :status-filter="pm.statusFilter.value"
+                        :tier-filter="pm.tierFilter.value"
                         :selected-tags="pm.selectedTags.value"
                         :available-tags="pm.tagEdit.allTags.value"
                         :user-sort-mode="pm.userSortMode.value"
@@ -47,7 +47,7 @@
                         @regenerate="pm.onRegenerateSlug"
                         @logout="pm.userLogout"
                         @sort-change="pm.onSortChange"
-                        @status-change="onStatusChange"
+                        @tier-change="onTierChange"
                         @tags-change="onTagsChange"
                         @clear-filters="onClearFilters"
                         @user-sort-change="pm.onUserSortChange"
@@ -263,7 +263,7 @@ watch(activeTab, (tab) => {
 pm.tagEdit.loadAllTags();
 
 // --- Browse-side actions (fork / revert / filter handlers) ---
-const { onFork, onRevert, onStatusChange, onTagsChange, onClearFilters } =
+const { onFork, onRevert, onTierChange, onTagsChange, onClearFilters } =
     useDialogBrowseActions({ pm, modalStack });
 
 // --- Export dispatch (format → downloadExport) ---

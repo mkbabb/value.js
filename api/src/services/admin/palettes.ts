@@ -12,11 +12,10 @@ import type { Context } from "hono";
 import type { AppEnv } from "../../types.js";
 import { NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
-import type { PaletteStatus, PaletteTier } from "../../models.js";
+import type { PaletteTier } from "../../models.js";
 
 export interface FeatureToggleResult {
     slug: string;
-    status: PaletteStatus;
     tier: PaletteTier;
 }
 
@@ -38,19 +37,18 @@ export async function setFeatured(
         throw new NotFoundError("Palette not found");
     }
     const newTier: PaletteTier = featured ? "featured" : "standard";
-    const newStatus: PaletteStatus = featured ? "featured" : "published";
 
     // Idempotent: only write if state changes. Audit row STILL fires (the
     // operator decision is recorded regardless of state delta).
     if (palette.tier !== newTier) {
         await palettes.update(slug, {
-            $set: { tier: newTier, status: newStatus, updatedAt: new Date() },
+            $set: { tier: newTier, updatedAt: new Date() },
         });
     }
     await emitAuditEvent(c, "set-featured", {
-        target: `slug=${slug} featured=${featured} tier=${newTier} status=${newStatus}`,
+        target: `slug=${slug} featured=${featured} tier=${newTier}`,
     });
-    return { slug, status: newStatus, tier: newTier };
+    return { slug, tier: newTier };
 }
 
 export async function deletePalette(c: Context<AppEnv>, slug: string): Promise<void> {

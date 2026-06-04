@@ -11,8 +11,8 @@
  * visibility mutation on the SAME `{slug}` row. It NEVER creates a new document
  * — the only write verb is `$set` on `{slug}`, a SINGLE-collection write (so it
  * is deliberately NOT wrapped in `withTransaction` and is NOT a cross-collection
- * H1 site). It touches `visibility` + `updatedAt` ONLY — never `tier`,
- * `status`, or `deletedAt` (§5.4 orthogonality).
+ * H1 site). It touches `visibility` + `updatedAt` ONLY — never `tier` or
+ * `deletedAt` (§5.4 orthogonality).
  */
 
 import type { Palette, PaletteVisibility } from "../../models.js";

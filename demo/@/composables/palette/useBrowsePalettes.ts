@@ -24,7 +24,7 @@ export function useBrowsePalettes(deps: {
     const browseError = ref<string | null>(null);
 
     // Filter state — set externally by PaletteDialog
-    const statusFilter = ref("");
+    const tierFilter = ref("");
     const selectedTags = ref<string[]>([]);
 
     const filteredBrowse = useFilteredList(remotePalettes, deps.searchQuery, (p, q) =>
@@ -48,7 +48,7 @@ export function useBrowsePalettes(deps: {
                 offset: 0,
                 sort: sortMode.value,
                 ...(q.length >= 2 ? { q } : {}),
-                ...(statusFilter.value ? { status: statusFilter.value } : {}),
+                ...(tierFilter.value ? { tier: tierFilter.value } : {}),
                 ...(selectedTags.value.length > 0
                     ? { tags: selectedTags.value }
                     : {}),
@@ -136,7 +136,7 @@ export function useBrowsePalettes(deps: {
         sortLoading,
         sortMode,
         browseError,
-        statusFilter,
+        tierFilter,
         selectedTags,
         filteredBrowse,
         loadRemotePalettes,

@@ -24,7 +24,7 @@ test("admin feature palette POSTs /admin/palettes/<slug>/feature", async ({ page
                     voteCount: 0,
                     voted: false,
                     isLocal: false,
-                    status: "published",
+                    tier: "standard",
                 }],
                 total: 1,
                 limit: 50,
@@ -37,7 +37,7 @@ test("admin feature palette POSTs /admin/palettes/<slug>/feature", async ({ page
         return route.fulfill({
             status: 200,
             contentType: "application/json",
-            body: JSON.stringify({ status: "featured" }),
+            body: JSON.stringify({ slug: "ew3-feature-target", tier: "featured" }),
         });
     });
 

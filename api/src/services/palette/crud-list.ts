@@ -87,11 +87,7 @@ export async function listPalettes(
     const q = query.q?.trim();
     if (q) f.$text = { $search: q };
 
-    if (query.status) {
-        const statuses = query.status.split(",").map((s) => s.trim()).filter(Boolean);
-        if (statuses.length === 1) f.status = statuses[0];
-        else if (statuses.length > 1) f.status = { $in: statuses };
-    }
+    if (query.tier) f.tier = query.tier;
 
     if (query.tags) {
         const tags = query.tags.split(",").map((t) => t.trim()).filter(Boolean);
@@ -108,7 +104,13 @@ export async function listPalettes(
     // is a separate path — `listMine` — and is intentionally unaffected.)
     const viewingOwn =
         query.userSlug !== undefined && query.userSlug === currentUserSlug;
-    if (!viewingOwn) {
+    if (viewingOwn) {
+        // An owner may narrow to a specific visibility; absent the param they
+        // see all of their own visibilities.
+        if (query.visibility) f.visibility = query.visibility;
+    } else {
+        // Forced public for anon / other users — the `visibility` param is
+        // ignored here (it cannot widen a foreign view past `public`).
         f.visibility = "public";
     }
 

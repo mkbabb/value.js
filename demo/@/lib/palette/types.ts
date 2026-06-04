@@ -17,9 +17,6 @@ export interface Palette {
     isLocal: boolean;
     voted?: boolean;
     voteCount?: number;
-    /** Legacy 4-state status; retained for backward-compat during I.W1
-     * transition. Consumers should prefer `tier === "featured"`. */
-    status?: "published" | "featured";
     /** I.W1 canonical visibility (3-state). */
     visibility?: "public" | "unlisted" | "private";
     /** I.W1 canonical curation tier (3-state). */

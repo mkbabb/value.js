@@ -87,7 +87,6 @@ describe("service.admin.users", () => {
                 colors: [{ css: "#fff", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         await services.repositories.votes.upsertIdempotent("alice", "p1");
@@ -122,7 +121,6 @@ describe("service.admin.users", () => {
                 colors: [{ css: "#fff", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
             userSlug: "with-palette",
         });
         const c = makeFakeContext(services, "admin");

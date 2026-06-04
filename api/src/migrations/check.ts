@@ -5,9 +5,9 @@
  *   - every `palettes` document carries `voteCount`, `tags`, `forkCount`,
  *     `currentHash`, `oklabColors` (the fields previously defaulted via `??`
  *     in `format/palette.ts`).
- *   - every `palettes` document carries a `userSlug` (the legacy
- *     `sessionToken` ownership shim is excised — Lane C's
- *     `require-ownership` middleware reads `userSlug` only).
+ *   - every `palettes` document carries a `userSlug` (the canonical
+ *     ownership read — Lane C's `require-ownership` middleware reads
+ *     `userSlug` only).
  *
  * Runs at startup, after `getDb()` resolves and BEFORE the server begins
  * accepting connections. On violation: logs the offending slug + the missing
@@ -47,12 +47,10 @@ const PALETTE_INVARIANTS: Array<{
     {
         field: "userSlug",
         // userSlug may be null (anonymous palette pre-suspension) but must
-        // be present — the legacy sessionToken-only path is gone.
+        // be present — it is the canonical ownership field.
         valid: (d) => "userSlug" in d,
     },
     // I.W1: every palette doc carries the canonical visibility + tier fields.
-    // The legacy `status` field is computed for backward-compat (kept in the
-    // document for the I.W1 transition window; dropped at I.W4).
     {
         field: "visibility",
         valid: (d) =>

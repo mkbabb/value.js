@@ -23,7 +23,7 @@ export interface ListPalettesOptions {
     cursor?: string;
     sort?: "newest" | "popular" | "most-forked";
     q?: string;
-    status?: string;
+    tier?: string;
     tags?: string[];
     userSlug?: string;
     colorL?: number;
@@ -41,7 +41,7 @@ export function listPalettes(
     if (opts.cursor) params.set("cursor", opts.cursor);
     if (opts.sort) params.set("sort", opts.sort);
     if (opts.q) params.set("q", opts.q);
-    if (opts.status) params.set("status", opts.status);
+    if (opts.tier) params.set("tier", opts.tier);
     if (opts.tags?.length) params.set("tags", opts.tags.join(","));
     if (opts.userSlug) params.set("userSlug", opts.userSlug);
     if (opts.colorL != null) params.set("colorL", String(opts.colorL));

@@ -37,7 +37,6 @@ describe("service.palette.crud", () => {
                 colors: [{ css: "#ff0000", position: 0 }],
                 tags: ["warm"],
             },
-            sessionToken: "tok-1",
             userSlug: "alice",
         });
         expect(result.slug).toBe("sunset");
@@ -61,13 +60,11 @@ describe("service.palette.crud", () => {
         };
         await createPalette(services, {
             body,
-            sessionToken: "tok-1",
             userSlug: "alice",
         });
         await expect(
             createPalette(services, {
                 body,
-                sessionToken: "tok-2",
                 userSlug: "bob",
             }),
         ).rejects.toBeInstanceOf(ConflictError);
@@ -81,7 +78,6 @@ describe("service.palette.crud", () => {
                 colors: [{ css: "#ff0000", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         const got = await getPaletteBySlug(services, "x", "alice");
@@ -104,7 +100,6 @@ describe("service.palette.crud", () => {
                 colors: [{ css: "#ff0000", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         const updated = await patchPalette(services, {
@@ -132,7 +127,6 @@ describe("service.palette.crud", () => {
                 colors: [{ css: "#000", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         const result = await deletePalette(services, { slug: "kill" });

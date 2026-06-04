@@ -23,10 +23,6 @@ export interface FormattedPalette {
     tags: string[];
     voteCount: number;
     userSlug: string | null;
-    /** Legacy 4-state status; computed from (visibility, tier). Consumers
-     * should prefer `tier === "featured"` over `status === "featured"`.
-     * Retained for backward-compat during I.W1 transition; drop at I.W4. */
-    status: Palette["status"];
     /** I.W1 canonical visibility: `public`/`unlisted`/`private`. */
     visibility: Palette["visibility"];
     /** I.W1 canonical curation tier: `standard`/`featured`/`archived`. */
@@ -62,9 +58,6 @@ export function formatPalette(
     votedSlugs?: Set<string>,
 ): FormattedPalette {
     const { _id, ...rest } = doc;
-    // `sessionToken` is a legacy ownership shim — strip from the response.
-    const restWithoutSessionToken = { ...rest } as Partial<Palette>;
-    delete restWithoutSessionToken.sessionToken;
 
     // Lane D F1: every field below is guaranteed-present by the
     // `assertMigrationsApplied` smoke probe at startup. The previous `??`
@@ -83,7 +76,6 @@ export function formatPalette(
         oklabColors: rest.oklabColors,
         voteCount: rest.voteCount,
         userSlug: rest.userSlug,
-        status: rest.status,
         visibility: rest.visibility,
         tier: rest.tier,
         deletedAt: rest.deletedAt,

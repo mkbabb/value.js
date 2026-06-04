@@ -281,13 +281,13 @@ function removeUserPalette(paletteSlug: string) {
     userPalettes.value = userPalettes.value.filter((p) => p.slug !== paletteSlug);
 }
 
-function updatePaletteStatus(paletteSlug: string, status: string) {
+function updatePaletteTier(paletteSlug: string, tier: string) {
     const idx = userPalettes.value.findIndex((p) => p.slug === paletteSlug);
     const existing = userPalettes.value[idx];
     if (idx !== -1 && existing) {
         userPalettes.value[idx] = {
             ...existing,
-            status: status as "published" | "featured",
+            tier: tier as "standard" | "featured" | "archived",
         };
     }
 }
@@ -299,6 +299,6 @@ function clearUserPalettes(slug: string) {
     }
 }
 
-defineExpose({ removeUserPalette, updatePaletteStatus, clearUserPalettes, onPruneDone, userPalettes });
+defineExpose({ removeUserPalette, updatePaletteTier, clearUserPalettes, onPruneDone, userPalettes });
 </script>
 

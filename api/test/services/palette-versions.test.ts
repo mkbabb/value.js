@@ -64,7 +64,6 @@ describe("service.palette.versions", () => {
                 colors: [{ css: "#ff0000", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok",
             userSlug: "alice",
         });
         await patchPalette(services, {

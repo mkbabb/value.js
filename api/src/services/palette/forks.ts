@@ -23,7 +23,6 @@ export interface RemixInput {
      * remix payload; the server diffs it against the source's colors and
      * records the atom-diff on the child version edge. */
     colors?: PaletteColor[] | undefined;
-    sessionToken: string;
     userSlug: string;
 }
 
@@ -51,7 +50,7 @@ export async function remixPalette(
     services: Services,
     input: RemixInput,
 ): Promise<RemixOutput> {
-    const { sourceSlug, sessionToken, userSlug } = input;
+    const { sourceSlug, userSlug } = input;
 
     // Source fetch + input validation is read-only and pure — keep OUTSIDE the
     // transaction so we fail fast (404 / 400) without a session.
@@ -85,9 +84,7 @@ export async function remixPalette(
         oklabColors: computeOklabColors(targetColors),
         tags: source.tags ?? [],
         voteCount: 0,
-        sessionToken,
         userSlug,
-        status: "published",
         visibility: "public",
         tier: "standard",
         deletedAt: null,
@@ -163,7 +160,6 @@ export interface ForkInput {
     sourceSlug: string;
     name?: string | undefined;
     slug?: string | undefined;
-    sessionToken: string;
     userSlug: string;
 }
 
@@ -186,7 +182,6 @@ export async function forkPalette(
         name: input.name,
         slug: input.slug,
         colors: undefined,
-        sessionToken: input.sessionToken,
         userSlug: input.userSlug,
     });
     return { palette };

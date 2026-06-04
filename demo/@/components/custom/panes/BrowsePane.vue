@@ -8,11 +8,11 @@
             >
                 <SearchFilterBar
                     :sort="pm.sortMode.value"
-                    :status="pm.statusFilter.value"
+                    :tier="pm.tierFilter.value"
                     :selected-tags="pm.selectedTags.value"
                     :available-tags="availableTags"
                     @update:sort="pm.onSortChange"
-                    @update:status="onStatusChange"
+                    @update:tier="onTierChange"
                     @update:selected-tags="onTagsChange"
                     @clear-filters="onClearFilters"
                     @color-search="onColorSearch"
@@ -240,8 +240,8 @@ const { onExport } = usePaletteExport();
 
 // --- Filters ---
 
-function onStatusChange(status: string) {
-    pm.statusFilter.value = status;
+function onTierChange(tier: string) {
+    pm.tierFilter.value = tier;
     pm.loadRemotePalettes(true);
 }
 
@@ -251,7 +251,7 @@ function onTagsChange(tags: string[]) {
 }
 
 function onClearFilters() {
-    pm.statusFilter.value = "";
+    pm.tierFilter.value = "";
     pm.selectedTags.value = [];
     colorSearchParams.value = null;
     pm.loadRemotePalettes(true);

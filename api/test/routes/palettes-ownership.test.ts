@@ -74,7 +74,6 @@ describe("routes.palettes — requireOwnership middleware (E.W2 Lane C)", () => 
                 colors: [{ css: "#fff", position: 0 }],
                 tags: [],
             },
-            sessionToken: "tok-alice",
             userSlug: "alice",
         });
     });

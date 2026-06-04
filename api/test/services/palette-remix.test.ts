@@ -45,7 +45,6 @@ describe("service.palette.remixPalette", () => {
         services = buildServices(db, client);
         await createPalette(services, {
             body: { name: "source", slug: "source", colors: SOURCE, tags: ["warm"] },
-            sessionToken: "tok-alice",
             userSlug: "alice",
         });
     });
@@ -55,7 +54,6 @@ describe("service.palette.remixPalette", () => {
             sourceSlug: "source",
             slug: "source-remixed",
             colors: REMIXED,
-            sessionToken: "tok-bob",
             userSlug: "bob",
         });
 
@@ -82,7 +80,6 @@ describe("service.palette.remixPalette", () => {
         const { palette } = await forkPalette(services, {
             sourceSlug: "source",
             slug: "source-fork",
-            sessionToken: "tok-bob",
             userSlug: "bob",
         });
         expect(palette.colors).toEqual(SOURCE);
@@ -100,7 +97,6 @@ describe("service.palette.remixPalette", () => {
         const { atomDiff } = await remixPalette(services, {
             sourceSlug: "source",
             slug: "source-noop",
-            sessionToken: "tok-bob",
             userSlug: "bob",
         });
         expect(atomDiff).toEqual([]);
