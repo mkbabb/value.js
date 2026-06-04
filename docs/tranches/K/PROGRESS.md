@@ -83,6 +83,32 @@ cohort. Synthesis + the canonical DAG: **`audit/path-forward-2026-06-03-postW2.m
   of `6d3e151` (keep the inv-K-2 dedup); glass-ui ships 3.2.0 contract-v2-clean. No
   tug-of-war (value.js is revoking mechanism-A in K.W2.5).
 
+## Visual-grounded audit round (2026-06-04) — the screenshot session, NOT deferred
+
+Per the "screenshot session of every page, now" mandate: an **84-capture instrumented
+session** (every view × 3 viewports × light/dark, `audit/visual-evidence-2026-06-04/`
++ `DELTA.md`) fed **two serial 6-agent workflows** (visual audit → synthesis). It
+confirmed the doc-only verdict AND surfaced a P0 only the pixels could reveal.
+
+- **NEW P0 — `K.W2.6` Desktop pane-visibility** (`design/K.W2.6-desktop-pane-visibility.md`):
+  desktop secondary-view panels render off-screen-left/blank (mobile fine). **Live-
+  reproduced** root cause = a **Tailwind v4 `@source` emission gap** (`App.vue`'s
+  `lg:*` pane-visibility utilities never generated → base `hidden` wins). The grand-
+  audit P9 class, in the app shell. Fix = `@source` directive. Lands after K.W2.5,
+  before K.W3.
+- **C2/C3/C1 confirmed in pixels:** aurora palette-blind static Sky (→K.W4, the glass-ui
+  session has already authored `deriveAurora`); blob footprint mismatch — satellite
+  visible, "0×0" refuted (→K.W3); dock collapsed-not-absent at desktop (→glass-ui W-D).
+  The `/atmosphere` "live" footer is provably false (→K.W4 copy-fix).
+- **π visual-runtime lane SPECCED + grounded** (`design/K.W6-pi-visual-runtime.md`): the
+  84 captures are the K-open baseline; binding K.W6 assertions = aurora re-tint hue-shift,
+  blob present/positioned, desktop-panel-in-viewport, distinct-view-content, dock
+  focus-reachable, WCAG-AA contrast. `/tmp/capture.mjs` → `scripts/capture-visual-runtime.mjs`.
+- **Strengths to guard:** Fraunces typography (not generic-AI), dark-mode parity, the
+  inv-K-5 degraded-backend surface, banding-free spectrum (inv-K-2 intact).
+- Wave DAG shape UNCHANGED (acyclic; serial publish spine intact); the screenshot-session
+  mandate is SATISFIED. Continuation of K. Synthesis: `audit/path-forward-2026-06-03-postW2.md §9`.
+
 ## Carry-forward ledger (folded into K — see `K.md §7`)
 
 Chronic: aurora-derive (→W4) · blob-extirpation (→W3) · VAL-1 (→W4) · 8 glass-ui asks (→W3) · demo `as any` budget (→W5/close). Booked: VAL-9 · WebMCP/G2/G4 · passkeys · cron-txn / dispatch-LoC / bench-script monitors. I-tail (per J-disposition): Idempotency store · conformance suite · id-field removal · per-call-site ifMatch/idempotencyKey.

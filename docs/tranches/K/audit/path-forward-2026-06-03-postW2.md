@@ -226,3 +226,67 @@ W3–W6) is gated on user ratification of this synthesis + the per-wave specs (i
 L's dispatch-gate is amended to "after **K.W2.5**-green." Authority: the 2026-06-03
 audit mandate ("6-agent deep audit; ameliorate all issues in calculated
 workflow-waves; full wave specification; fold deferred; no implementation").
+
+---
+
+## §9 — Visual-round addendum (2026-06-04) — the screenshot session + its findings
+
+A second audit round (per the "screenshot session of every page, now not deferred"
+mandate) ran **two serial 6-agent workflows** over an **84-capture instrumented
+screenshot session** (every view × 3 viewports × light/dark —
+`audit/visual-evidence-2026-06-04/DELTA.md`). It confirmed the doc-only verdict and
+**found a P0 only the pixels + a live CSSOM reproduction could reveal.**
+
+**The headline new finding — desktop view-switching is fundamentally broken (P0).**
+Every secondary view (browse/extract/generate/gradient/mix/palettes/admin-users) at
+desktop 1280 renders its content panel **off-screen-left** (a ~40px sliver) and at
+1440 fully **blank**, while *mobile renders perfectly*. **Root cause, live-reproduced
+(booted the dev server, drove Playwright, walked the CSSOM):** a **Tailwind v4
+`@source`-scan emission gap** — `App.vue`'s `lg:flex`/`lg:block`/`lg:hidden` pane-
+visibility utilities are **never generated** (App.vue is a sibling subtree outside
+Tailwind v4's auto-detected source root), so base `hidden` wins → `display:none` on
+the desktop panes while the mobile slot leaks. It is the **same class as the
+grand-audit's P9**, now confirmed in the app shell. **Proven:** injecting the 3
+missing rules restores the centered dual-pane. Fix = an explicit `@source` directive
+(the idiomatic Tailwind-v4 close, not a per-class hack) + a defense-in-depth media-
+query hardening + a CI emission-probe. **New lane: `design/K.W2.6-desktop-pane-
+visibility.md`** — lands **after K.W2.5, before K.W3**, so all downstream visual gates
+run on a correct layout.
+
+**Visual confirmations (the chronic mandates, now pixel-grounded):**
+- **C2 aurora palette-blindness — CONFIRMED.** Static blue "Sky", identical in all 84
+  captures, while the color is pink. The aurora-from-color chronic is *visibly* open
+  → **K.W4** (`design/K.W4-aurora-derive-visual-refinement.md`). The glass-ui session
+  has **already authored `deriveAurora`** (a different name+signature than the spec's
+  `deriveAuroraPalette` — the K.W4 refinement reconciles to the shipped one). The
+  `/atmosphere` stub footer "the background atmosphere itself is live" is **provably
+  false** → corrected in the K.W4 AuroraPane rebuild.
+- **C3 blob footprint — CONFIRMED** (desktop speck / mobile clip; the satellite is
+  visible — the "0×0" doc-fear is **refuted**). The real defect is the
+  footprint==render-resolution contract (a two-file size split + ambiguous grid
+  intrinsic width + absolute-overflow detach) → **K.W3**
+  (`design/K.W3-blob-footprint-refinement.md`).
+- **C1 dock — refined:** not "absent" at desktop, **collapsed** (`Dock.vue:93
+  :start-collapsed="isDesktop"`; capture-missed). The headless-open bug stands →
+  glass-ui W-D; green re-verify at K.W3.
+- **D6 view-routing fallthrough** (palettes/mix ≡ picker) is partly expected (shared
+  left pane) and compounded by the D5 clip → covered by **K.W5** VIEW_MAP single-source.
+
+**Strengths to guard at close (the positive π baseline):** distinctive Fraunces
+typography (not generic-AI), faithful dark-mode chrome parity, the correct inv-K-5
+degraded-backend surface, and a banding-free spectrum (inv-K-2 intact).
+
+**The π visual-runtime lane is now SPECCED + grounded** in these captures
+(`design/K.W6-pi-visual-runtime.md`): the 84 captures are the **K-open baseline**; the
+14-view affected-page set supersedes the 5-slug placeholder; the binding K.W6 close
+assertions are the aurora re-tint `readPixels` hue-shift (C2), the blob
+present/positioned/rasterized probe (C3), the **desktop-panel-in-viewport** probe
+(D5), the distinct-view-content probe (D6), the dock focus-reachability (D7), and
+WCAG-AA panel-text-over-aurora contrast; `/tmp/capture.mjs` is promoted to
+`scripts/capture-visual-runtime.mjs`.
+
+**Wave schedule amendment:** the §2 DAG shape is **unchanged** (acyclic; serial
+publish spine intact). Additions: **K.W2.6** (the new desktop-pane lane, between
+K.W2.5 and K.W3); the K.W3/K.W4 visual refinements above; the K.W6 π lane is now
+binding with the desktop-centering + distinct-view-content + dock-present assertions.
+The screenshot-session mandate is **SATISFIED**.
