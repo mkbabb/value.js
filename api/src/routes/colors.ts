@@ -3,7 +3,7 @@
  *
  * Closes the two-speed-backend deviation D recorded (per `E-AUDIT-3 §3.2` +
  * `E-AUDIT-6 §10 top-1`). The legacy implementation carried 8 raw `db.collection`
- * sites + 6 ad-hoc `c.json({ error })` envelopes + inline validation; this
+ * sites + 6 ad-hoc error envelopes + inline validation; this
  * rewrite obeys `validate → authn → authz → service → repository → format →
  * response` per `api/CLAUDE.md`.
  *

@@ -24,8 +24,9 @@ const app = new Hono<AppEnv>();
 
 // --- Global middleware ---
 
-// CORS — resolve origin from request header
-function resolveOrigin(c: any): string {
+// CORS — resolve origin from request header. The minimal structural type
+// (inv-L-8) makes the contract explicit without importing Hono's `Context`.
+function resolveOrigin(c: { req: { header: (name: string) => string | undefined } }): string {
     return c.req.header("Origin") ?? "";
 }
 

@@ -59,7 +59,10 @@ export async function toggleVote(
                 slug,
                 session,
             );
-            return { voted: false, voteCount: after?.voteCount ?? 0 };
+            // In-txn re-read: a null here means the palette vanished mid-txn —
+            // a real invariant break, not a default-to-zero.
+            if (!after) throw new NotFoundError("Palette disappeared during vote");
+            return { voted: false, voteCount: after.voteCount };
         }
 
         // Step 2: no existing vote — idempotent upsert; only `$inc` on true insert.
@@ -76,6 +79,9 @@ export async function toggleVote(
             );
         }
         const after = await services.repositories.palettes.findBySlug(slug, session);
-        return { voted: true, voteCount: after?.voteCount ?? 0 };
+        // In-txn re-read: a null here means the palette vanished mid-txn —
+        // a real invariant break, not a default-to-zero.
+        if (!after) throw new NotFoundError("Palette disappeared during vote");
+        return { voted: true, voteCount: after.voteCount };
     });
 }

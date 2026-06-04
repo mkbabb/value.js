@@ -10,6 +10,7 @@
  */
 
 import { type MiddlewareHandler } from "hono";
+import { ValidationError } from "../errors/index.js";
 
 /** Recursively check for keys starting with `$` in parsed JSON body. */
 function hasDollarKeys(obj: unknown): boolean {
@@ -27,13 +28,20 @@ export const sanitizeBody: MiddlewareHandler = async (c, next) => {
     if (method === "POST" || method === "PATCH" || method === "PUT") {
         const contentType = c.req.header("Content-Type") ?? "";
         if (contentType.includes("application/json")) {
+            // Parse inside the try so ONLY a malformed-JSON error is caught
+            // (that path is downstream zod's job, befitting-keep). The $-key
+            // detection + throw runs after the try so the catch can never
+            // swallow the ValidationError we raise on injection.
+            let body: unknown;
+            let parsed = false;
             try {
-                const body = await c.req.json();
-                if (hasDollarKeys(body)) {
-                    return c.json({ error: "Invalid input" }, 400);
-                }
+                body = await c.req.json();
+                parsed = true;
             } catch {
                 // Malformed JSON — let downstream handlers deal with it.
+            }
+            if (parsed && hasDollarKeys(body)) {
+                throw new ValidationError("Invalid input");
             }
         }
     }

@@ -12,6 +12,7 @@ import {
     AuthenticationError,
     ConfigurationError,
     ConflictError,
+    ForbiddenError,
     GoneError,
     NotFoundError,
     OwnershipError,
@@ -50,6 +51,13 @@ describe("toResponseEnvelope — RFC 7807 problem+json shape (I.W4)", () => {
         const result = toResponseEnvelope(new OwnershipError("not owner"));
         expect(result.status).toBe(403);
         expect(result.body.type).toBe(`${URN}ownership`);
+    });
+
+    it("ForbiddenError → 403 + type=urn:palette-api:problem:forbidden", () => {
+        const result = toResponseEnvelope(new ForbiddenError());
+        expect(result.status).toBe(403);
+        expect(result.body.type).toBe(`${URN}forbidden`);
+        expect(result.body.title).toBe("Forbidden");
     });
 
     it("NotFoundError → 404 + type=urn:palette-api:problem:not_found", () => {

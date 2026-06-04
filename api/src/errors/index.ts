@@ -53,6 +53,14 @@ export class OwnershipError extends ApiError {
     }
 }
 
+/** 403 — request forbidden (e.g. invalid admin bearer token), distinct from
+ * `OwnershipError`'s session-owner-mismatch semantic. */
+export class ForbiddenError extends ApiError {
+    constructor(message = "Forbidden") {
+        super(403, "forbidden", message);
+    }
+}
+
 /** 404 — resource not found. */
 export class NotFoundError extends ApiError {
     constructor(message: string) {

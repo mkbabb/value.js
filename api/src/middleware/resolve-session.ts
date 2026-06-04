@@ -20,6 +20,7 @@
 import { type MiddlewareHandler } from "hono";
 import { getDb } from "../db.js";
 import { LRU } from "../cache/lru.js";
+import { OwnershipError } from "../errors/index.js";
 
 const SUSPENDED_CACHE_TTL_MS = 60_000;
 const SUSPENDED_CACHE_CAP = 10_000;
@@ -53,7 +54,7 @@ export const resolveSession: MiddlewareHandler = async (c, next) => {
                     }
                 }
                 if (isSuspended) {
-                    return c.json({ error: "Account suspended" }, 403);
+                    throw new OwnershipError("Account suspended");
                 }
                 c.set("userSlug", session.userSlug);
             }

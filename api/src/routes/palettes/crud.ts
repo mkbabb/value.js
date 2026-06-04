@@ -30,6 +30,10 @@ import {
     patchPalette,
     restorePalette,
 } from "../../services/palette/crud.js";
+import {
+    getOwnerSlug,
+    getPaletteETagData,
+} from "../../services/palette/ownership.js";
 
 export const crudRouter = new Hono<AppEnv>();
 
@@ -88,16 +92,14 @@ crudRouter.post("/", async (c) => {
     return c.json(result, 201);
 });
 
-// Owner-extractor shared by PATCH + DELETE — reads the palette's `userSlug`.
-// Returns `null` to signal "not found" (middleware → 404); the caller's
-// `userSlug` must match for the request to proceed (middleware → 403).
+// Owner-extractor shared by PATCH + DELETE — reads the palette's `userSlug`
+// via the service-owned `getOwnerSlug` (inv-L-5: routes never reach into the
+// repository). Returns `null` to signal "not found" (middleware → 404); the
+// caller's `userSlug` must match for the request to proceed (middleware → 403).
 export const paletteOwnerExtractor = async (
     c: Parameters<Parameters<typeof requireOwnership>[0]>[0],
 ): Promise<string | null> => {
-    const palette = await c.var.services.repositories.palettes.findBySlug(
-        c.req.param("slug"),
-    );
-    return palette?.userSlug ?? null;
+    return getOwnerSlug(c.var.services, c.req.param("slug"));
 };
 
 // PATCH /palettes/:slug — update (owner only; gated by requireOwnership).
@@ -109,8 +111,12 @@ crudRouter.patch(
         const slug = c.req.param("slug");
         const ifMatch = c.req.header("If-Match");
 
-        // Resolve the current resource ETag before allowing the update.
-        const current = await c.var.services.repositories.palettes.findBySlug(slug);
+        // Resolve the current resource ETag before allowing the update. This
+        // route pre-check is the SINGLE pre-write optimistic-concurrency check:
+        // it fast-fails a stale If-Match. `patchPalette` performs no in-txn ETag
+        // re-validation, so a concurrent write between this read and the service
+        // write is not fenced — an accepted narrow TOCTOU window (ledger #16).
+        const current = await getPaletteETagData(c.var.services, slug);
         if (current) {
             assertIfMatch(ifMatch, paletteETag(current));
         }

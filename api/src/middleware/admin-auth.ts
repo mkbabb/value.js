@@ -14,22 +14,27 @@
 
 import { timingSafeEqual } from "node:crypto";
 import { type MiddlewareHandler } from "hono";
+import {
+    AuthenticationError,
+    ConfigurationError,
+    ForbiddenError,
+} from "../errors/index.js";
 
 export const adminAuth: MiddlewareHandler = async (c, next) => {
     const token = process.env.ADMIN_TOKEN;
     if (!token) {
-        return c.json({ error: "Admin not configured" }, 503);
+        throw new ConfigurationError("Admin not configured");
     }
     const auth = c.req.header("Authorization");
     if (!auth) {
-        return c.json({ error: "Unauthorized" }, 401);
+        throw new AuthenticationError("Unauthorized");
     }
     const expected = `Bearer ${token}`;
     if (auth.length !== expected.length) {
-        return c.json({ error: "Forbidden" }, 403);
+        throw new ForbiddenError();
     }
     if (!timingSafeEqual(Buffer.from(auth), Buffer.from(expected))) {
-        return c.json({ error: "Forbidden" }, 403);
+        throw new ForbiddenError();
     }
     await next();
 };

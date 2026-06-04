@@ -21,6 +21,7 @@ import {
     listVersions,
     revertToVersion,
 } from "../../services/palette/versions.js";
+import { getOwnerSlug } from "../../services/palette/ownership.js";
 
 export const versionsRouter = new Hono<AppEnv>();
 
@@ -50,12 +51,7 @@ versionsRouter.get("/:slug/versions/:hash", async (c) => {
 
 versionsRouter.post(
     "/:slug/revert",
-    requireOwnership(async (c) => {
-        const palette = await c.var.services.repositories.palettes.findBySlug(
-            c.req.param("slug"),
-        );
-        return palette?.userSlug ?? null;
-    }),
+    requireOwnership((c) => getOwnerSlug(c.var.services, c.req.param("slug"))),
     async (c) => {
         const slug = c.req.param("slug");
 
