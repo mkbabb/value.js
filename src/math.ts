@@ -30,6 +30,35 @@ export function lerp(start: number, end: number, t: number) {
     return (1 - t) * start + t * end;
 }
 
+/**
+ * SoA (struct-of-arrays) bulk lerp (Wave D2). Interpolates `K` numeric channels
+ * in one flat loop over contiguous `Float64Array`s, writing into a caller-owned
+ * `out` buffer — eliminating the AoS pointer-chase and the per-channel closure
+ * dispatch of K independent `{value}` carriers.
+ *
+ * This is the carrier primitive a numeric-animation SoA substrate adopts; it is
+ * pixel-identical to K independent `lerp()` calls. MEASURE-FIRST (the charter's
+ * land bar): it is SLOWER at K=1 and BITES from K≥2 — measured on this machine
+ * (bench/numeric-soa.mjs) at 1.56× (K=2) → 4.25× (K=64), so callers should use
+ * it only for multi-channel (K≥2) frames. D1 monomorphization is NOT shipped (a
+ * measured non-win, r-interpolation-carrier).
+ *
+ * `start`, `stop`, `out` must share the same length; only `out` is written.
+ */
+export function lerpArray(
+    start: Float64Array,
+    stop: Float64Array,
+    t: number,
+    out: Float64Array,
+): Float64Array {
+    const n = start.length;
+    const u = 1 - t;
+    for (let i = 0; i < n; i++) {
+        out[i] = u * start[i]! + t * stop[i]!;
+    }
+    return out;
+}
+
 // Logarithmic interpolation between two values
 export function logerp(t: number, start: number, end: number) {
     // Prevent division by zero or log(0)

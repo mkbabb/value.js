@@ -12,6 +12,7 @@ import { convertToPixels } from "../src/units/utils";
 import { OKLABColor, RGBColor } from "../src/units/color";
 import { normalizeValueUnits } from "../src/units/normalize";
 import { prepareInterpVar, lerpColorValue } from "../src/units/interpolate";
+import { lerp, lerpArray } from "../src/math";
 
 /**
  * Tranche-F cross-repo handoff — falsifiable gates locking each landed wave.
@@ -261,4 +262,44 @@ describe("Wave B3 — frozen color-channel plan is byte-identical to the walk", 
             }
         });
     }
+});
+
+describe("Wave D2 — SoA lerpArray primitive (pixel-identical to K lerps)", () => {
+    // The SoA carrier primitive: a flat loop over Float64Arrays must be
+    // bit-for-bit equal to K independent scalar lerp() calls. (The perf win is
+    // K-gated — measured in bench/numeric-soa.mjs; the contract here is purely
+    // the value identity.)
+    it("matches scalar lerp across K channels and t samples", () => {
+        for (const K of [1, 2, 5, 16, 64]) {
+            const start = new Float64Array(K);
+            const stop = new Float64Array(K);
+            const out = new Float64Array(K);
+            for (let i = 0; i < K; i++) {
+                start[i] = Math.sin(i) * 100;
+                stop[i] = Math.cos(i) * 50 - 25;
+            }
+            for (let k = 0; k <= 20; k++) {
+                const t = k / 20;
+                lerpArray(start, stop, t, out);
+                for (let i = 0; i < K; i++) {
+                    assert.strictEqual(
+                        out[i],
+                        lerp(start[i]!, stop[i]!, t),
+                        `K=${K} ch=${i} t=${t}`,
+                    );
+                }
+            }
+        }
+    });
+
+    it("returns the out buffer and writes only out", () => {
+        const start = Float64Array.of(0, 10);
+        const stop = Float64Array.of(100, 20);
+        const out = new Float64Array(2);
+        const ret = lerpArray(start, stop, 0.5, out);
+        assert.strictEqual(ret, out);
+        assert.deepEqual([...out], [50, 15]);
+        assert.deepEqual([...start], [0, 10]); // inputs untouched
+        assert.deepEqual([...stop], [100, 20]);
+    });
 });
