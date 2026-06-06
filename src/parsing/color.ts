@@ -19,7 +19,7 @@ import {
     Rec2020Color,
     XYZColor,
 } from "../units/color";
-import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
+import { Parser, all, any, dispatch, regex, string, whitespace } from "@mkbabb/parse-that";
 import { FunctionValue, ValueUnit } from "../units";
 import { COLOR_NAMES } from "../units/color/constants";
 import type { ColorSpace } from "../units/color/constants";
@@ -552,23 +552,45 @@ const nameParser: Parser<ValueUnit> = namedColorIdent.chain((x: string) => {
 });
 
 // --- Main CSSColor Value parser ---
+//
+// A1 transposition (vj-parser-aug §2.1): the 14-way speculative `any(...)` fork
+// is replaced with an O(1) first-char `dispatch(table)`. Each functional-color
+// family discriminates on its first character (`#`→hex, digit→kelvin, `r`→rgb,
+// `o`→oklab/oklch, `h`→hsl/hsv/hwb, `l`→lab/lch, `c`→color-mix/color(),
+// `x`→xyz). Named colors span ALL letters, so every letter bucket retains a
+// trailing `nameParser` fallback and unlisted letters default to `nameParser` —
+// preserving byte-identical output to the old in-order `any()` (the dispatch
+// reaches the SAME parser the `any()` would, with the same per-bucket priority).
+// The discriminating letter buckets: each functional family, with `nameParser`
+// retained last so a same-first-letter named color (e.g. `red`, `orange`,
+// `coral`, `hotpink`, `lavender`, `xyzname`) still resolves — byte-identical to
+// the old in-order `any()` per-bucket priority.
+const letterBuckets: Record<string, Parser<ValueUnit>> = {
+    c: any(colorMix, colorFunction, nameParser),
+    r: any(rgbParser, nameParser),
+    h: any(hslParser, hsvParser, hwbParser, nameParser),
+    l: any(labParser, lchParser, nameParser),
+    o: any(oklabParser, oklchParser, nameParser),
+    x: any(xyzParser, nameParser),
+};
+const dispatchTable: Record<string, Parser<ValueUnit>> = {
+    "#": hex,
+    "0-9": kelvin,
+    "+": kelvin,
+    "-": kelvin,
+    ".": kelvin,
+};
+// Map every ASCII letter (both cases): a discriminating letter routes through
+// its family bucket; every other letter starts only named colors → `nameParser`.
+for (let cc = 97; cc <= 122; cc++) {
+    const lower = String.fromCharCode(cc);
+    const upper = lower.toUpperCase();
+    const bucket = letterBuckets[lower] ?? nameParser;
+    dispatchTable[lower] = bucket;
+    dispatchTable[upper] = bucket;
+}
 
-const Value: Parser<ValueUnit> = any(
-    colorMix,
-    colorFunction,
-    hex,
-    kelvin,
-    rgbParser,
-    hslParser,
-    hsvParser,
-    hwbParser,
-    labParser,
-    lchParser,
-    oklabParser,
-    oklchParser,
-    xyzParser,
-    nameParser,
-).trim(whitespace);
+const Value: Parser<ValueUnit> = dispatch(dispatchTable).trim(whitespace);
 
 export const CSSColor = {
     Value,
