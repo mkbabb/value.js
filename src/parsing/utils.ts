@@ -7,6 +7,33 @@ export const istring = (str: string) => {
     return regex(re);
 };
 
+/** Maximal run of identifier characters — the unit token. */
+const unitToken = regex(/[a-zA-Z]+/);
+
+/**
+ * Maximal-munch unit classifier. Consumes the longest identifier-shaped token
+ * and succeeds ONLY when the whole token (case-insensitively) is a member of
+ * `units`; otherwise the parser fails.
+ *
+ * This replaces `any(...units.map(istring))`, which was order-dependent and —
+ * because `istring` compiles a non-anchored RegExp re-flagged sticky `y` by
+ * parse-that — matched a unit as a *prefix* of the continuation: `100vhx`
+ * tokenized `vh` and silently dropped the trailing `x`, and a unit that was a
+ * prefix of a later-declared one would shadow it. Maximal-munch over the full
+ * token removes both hazards (vj-parser-aug §2.2). The canonical declared
+ * spelling is returned so output is byte-identical for every valid unit.
+ */
+export const unitParser = (units: readonly string[]): Parser<string> => {
+    // Lower-cased token -> canonical declared spelling.
+    const lut = new Map<string, string>();
+    for (const u of units) lut.set(u.toLowerCase(), u);
+
+    return unitToken.chain((token: string) => {
+        const canonical = lut.get(token.toLowerCase());
+        return canonical != null ? succeed(canonical) : fail(`unit:${token}`);
+    });
+};
+
 export const identifier = regex(/-?[a-zA-Z][a-zA-Z0-9-]*/);
 
 export const none = istring("none");

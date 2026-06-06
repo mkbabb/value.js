@@ -17,12 +17,13 @@ import { memoize } from "../utils";
 
 export { CSSColor, parseCSSColor, registerColorNames, clearCustomColorNames, getCustomColorNames };
 
-const lengthUnit = any(...LENGTH_UNITS.map(utils.istring));
-const angleUnit = any(...ANGLE_UNITS.map(utils.istring));
-const timeUnit = any(...TIME_UNITS.map(utils.istring));
-const frequencyUnit = any(...FREQUENCY_UNITS.map(utils.istring));
-const resolutionUnit = any(...RESOLUTION_UNITS.map(utils.istring));
-const flexUnit = any(...FLEX_UNITS.map(utils.istring));
+const lengthUnit = utils.unitParser(LENGTH_UNITS);
+const angleUnit = utils.unitParser(ANGLE_UNITS);
+const timeUnit = utils.unitParser(TIME_UNITS);
+const frequencyUnit = utils.unitParser(FREQUENCY_UNITS);
+const resolutionUnit = utils.unitParser(RESOLUTION_UNITS);
+const flexUnit = utils.unitParser(FLEX_UNITS);
+// `%` is a single non-identifier glyph with no prefix/boundary hazard.
 const percentageUnit = any(...PERCENTAGE_UNITS.map(utils.istring));
 
 const comma = string(",");
