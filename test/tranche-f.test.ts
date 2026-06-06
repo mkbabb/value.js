@@ -1,8 +1,9 @@
 import { assert, describe, expect, it } from "vitest";
-import { CSSValueUnit } from "../src/parsing/units";
+import { CSSValueUnit, parseCSSColor } from "../src/parsing/units";
 import { parseResult } from "../src/parsing/utils";
 import { RELATIVE_LENGTH_UNITS } from "../src/units/constants";
 import { convertToPixels } from "../src/units/utils";
+import { OKLABColor, RGBColor } from "../src/units/color";
 
 /**
  * Tranche-F cross-repo handoff — falsifiable gates locking each landed wave.
@@ -127,5 +128,34 @@ describe("Wave C5 — convertToPixels length-unit coverage (silent wrong-pixel b
         } finally {
             restoreViewport();
         }
+    });
+});
+
+describe("Wave B1b — formatColor omits `/ alpha` at alpha=1 (CSS Color 4 canonical)", () => {
+    // formatColor unconditionally emitted ` / ${alpha}` — an opaque oklab(...)
+    // serialized as `oklab(... / 1)`, ~4 wasted chars the browser re-parses and
+    // a divergence from the canonical opaque form.
+
+    it("opaque colors serialize without the `/ 1` clause", () => {
+        expect(new OKLABColor(0.54, 0.096, -0.093, 1).toString()).toBe(
+            "oklab(0.54 0.096 -0.093)",
+        );
+        expect(new RGBColor(255, 128, 0, 1).toString()).toBe("rgb(255 128 0)");
+        // toFormattedString routes through the same choke point.
+        expect(new RGBColor(1, 2, 3, 1).toFormattedString(2)).toBe("rgb(1 2 3)");
+    });
+
+    it("non-opaque colors still emit the `/ alpha` clause", () => {
+        expect(new RGBColor(255, 128, 0, 0.5).toString()).toBe(
+            "rgb(255 128 0 / 0.5)",
+        );
+        expect(new OKLABColor(0.5, 0, 0, 0).toString()).toBe("oklab(0.5 0 0 / 0)");
+    });
+
+    it("opaque emission round-trips back to alpha=1", () => {
+        const emitted = new OKLABColor(0.54, 0.096, -0.093, 1).toString();
+        const parsed = parseCSSColor(emitted);
+        const color = parsed.value as OKLABColor;
+        assert.equal(Number(color.alpha), 1, "round-tripped opaque alpha must be 1");
     });
 });

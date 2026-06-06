@@ -44,8 +44,10 @@ describe("RGBColor", () => {
     });
 
     it("should produce correct toString output", () => {
+        // Opaque colors omit the `/ 1` clause per CSS Color 4 §4 canonical form
+        // (Wave B1b).
         const c = new RGBColor(255, 128, 0, 1);
-        expect(c.toString()).toBe("rgb(255 128 0 / 1)");
+        expect(c.toString()).toBe("rgb(255 128 0)");
     });
 
     it("should produce correct toFormattedString output", () => {
@@ -283,9 +285,10 @@ describe("OKLABColor", () => {
     });
 
     it("should produce correct toString and toFormattedString", () => {
+        // Opaque colors omit the `/ 1` clause (Wave B1b).
         const c = new OKLABColor(0.93, 0.03, 0.01, 1);
-        expect(c.toString()).toBe("oklab(0.93 0.03 0.01 / 1)");
-        expect(c.toFormattedString(1)).toBe("oklab(0.9 0 0 / 1)");
+        expect(c.toString()).toBe("oklab(0.93 0.03 0.01)");
+        expect(c.toFormattedString(1)).toBe("oklab(0.9 0 0)");
     });
 
     it("should clone independently", () => {
@@ -433,8 +436,8 @@ describe("Color base class behavior (via RGBColor)", () => {
 
     it("toFormattedString should strip trailing zeros", () => {
         const c = new RGBColor(1.0, 2.0, 3.0, 1.0);
-        // 1.00 -> "1", 2.00 -> "2", etc.
-        expect(c.toFormattedString(2)).toBe("rgb(1 2 3 / 1)");
+        // 1.00 -> "1", 2.00 -> "2", etc.; opaque omits `/ 1` (Wave B1b).
+        expect(c.toFormattedString(2)).toBe("rgb(1 2 3)");
     });
 
     it("toFormattedString should respect digit precision", () => {

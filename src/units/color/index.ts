@@ -16,6 +16,16 @@ const formatNumber = (value: unknown, digits: number = 2): string => {
 };
 
 const formatColor = <T>(colorSpace: ColorSpace, values: T[], alpha: T) => {
+    // Emit the `/ alpha` clause only when the color is NOT opaque. CSS Color 4
+    // §4 makes the alpha clause optional and UAs canonicalize an opaque color
+    // without it; emitting `/ 1` on every keyframe wastes ~4 chars the browser
+    // re-parses and diverges from the canonical opaque form. `alpha` may arrive
+    // as a number, a ValueUnit (numeric valueOf), or a pre-formatted string
+    // ("1" / "0.5" / "none"); `Number(alpha) === 1` is opaque, "none" → NaN is
+    // kept (vj-color-interp-aug §2.4 / Wave B1b).
+    if (Number(alpha) === 1) {
+        return `${colorSpace}(${values.join(" ")})`;
+    }
     return `${colorSpace}(${values.join(" ")} / ${alpha})`;
 };
 

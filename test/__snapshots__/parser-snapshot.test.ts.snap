@@ -328,13 +328,13 @@ exports[`BBNF Equivalence: parseCSSTime > parseCSSTime("2s") = 2000 1`] = `2000`
 
 exports[`BBNF Equivalence: parseCSSTime > parseCSSTime("100ms") = 100 1`] = `100`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#000") 1`] = `"rgb(0 0 0 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#000") 1`] = `"rgb(0 0 0)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#00ff00ff") 1`] = `"rgb(0 255 0 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#00ff00ff") 1`] = `"rgb(0 255 0)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#ff0000") 1`] = `"rgb(255 0 0 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#ff0000") 1`] = `"rgb(255 0 0)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#ffffff") 1`] = `"rgb(255 255 255 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("#ffffff") 1`] = `"rgb(255 255 255)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("/") 1`] = `
 {
@@ -595,47 +595,47 @@ exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("500ms") 1`] = `
 }
 `;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("6500K") 1`] = `"rgb(1 0.9965101328455601 0.9805565033048651 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("6500K") 1`] = `"rgb(1 0.9965101328455601 0.9805565033048651)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("aquamarine") 1`] = `"rgb(127 255 212 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("aquamarine") 1`] = `"rgb(127 255 212)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("blue") 1`] = `"rgb(0 0 255 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("blue") 1`] = `"rgb(0 0 255)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("calc(50px + 50px)") 1`] = `"calc(50px + 50px)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("calc(100% - 20px)") 1`] = `"calc(100% - 20px)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(display-p3 1 0 0)") 1`] = `"display-p3(1 0 0 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(display-p3 1 0 0)") 1`] = `"display-p3(1 0 0)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb 1 0 0)") 1`] = `"rgb(255 0 0 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb 1 0 0)") 1`] = `"rgb(255 0 0)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb-linear 0.5 0.5 0.5)") 1`] = `"srgb-linear(0.5 0.5 0.5 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb-linear 0.5 0.5 0.5)") 1`] = `"srgb-linear(0.5 0.5 0.5)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in hsl, hsl(0, 100%, 50%), hsl(120, 100%, 50%))") 1`] = `"hsl(0.16666666666666674 1 0.5 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in hsl, hsl(0, 100%, 50%), hsl(120, 100%, 50%))") 1`] = `"hsl(0.16666666666666674 1 0.5)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in oklab, red, blue)") 1`] = `"oklab(0.5399845437103836 0.6202537990615136 0.3839488210522569 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in oklab, red, blue)") 1`] = `"oklab(0.5399845437103836 0.6202537990615136 0.3839488210522569)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in oklch, red 30%, blue 70%)") 1`] = `"oklch(0.5047962148568498 0.5931101212608852 0.8377960504402855 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in oklch, red 30%, blue 70%)") 1`] = `"oklch(0.5047962148568498 0.5931101212608852 0.8377960504402855)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("cubic-bezier(0.25, 0.1, 0.25, 1)") 1`] = `"cubic-bezier(0.25, 0.1, 0.25, 1)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsl(120, 50%, 50%)") 1`] = `"hsl(120 50% 50% / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsl(120, 50%, 50%)") 1`] = `"hsl(120 50% 50%)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsl(120deg 50% 50%)") 1`] = `"hsl(120deg 50% 50% / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsl(120deg 50% 50%)") 1`] = `"hsl(120deg 50% 50%)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsla(0, 100%, 50%, 1)") 1`] = `"hsl(0 100% 50% / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsla(0, 100%, 50%, 1)") 1`] = `"hsl(0 100% 50%)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsv(0, 100%, 100%)") 1`] = `"hsv(0 100% 100% / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hsv(0, 100%, 100%)") 1`] = `"hsv(0 100% 100%)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hwb(120, 10%, 20%)") 1`] = `"hwb(120 10% 20% / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("hwb(120, 10%, 20%)") 1`] = `"hwb(120 10% 20%)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("lab(50, 20, -30)") 1`] = `"lab(50 20 -30 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("lab(50, 20, -30)") 1`] = `"lab(50 20 -30)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("lch(50, 30, 120)") 1`] = `"lch(50 30 120 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("lch(50, 30, 120)") 1`] = `"lch(50 30 120)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("linear-gradient(90deg, #000, #fff)") 1`] = `"linear-gradient(90deg, rgb(0 0 0 / 1), rgb(255 255 255 / 1))"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("linear-gradient(90deg, #000, #fff)") 1`] = `"linear-gradient(90deg, rgb(0 0 0), rgb(255 255 255))"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("linear-gradient(to right, red, blue)") 1`] = `"linear-gradient(90deg, rgb(255 0 0 / 1), rgb(0 0 255 / 1))"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("linear-gradient(to right, red, blue)") 1`] = `"linear-gradient(90deg, rgb(255 0 0), rgb(0 0 255))"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("none") 1`] = `
 {
@@ -646,15 +646,15 @@ exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("none") 1`] = `
 }
 `;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("oklab(0.5, 0.1, -0.1)") 1`] = `"oklab(0.5 0.1 -0.1 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("oklab(0.5, 0.1, -0.1)") 1`] = `"oklab(0.5 0.1 -0.1)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("oklch(0.7, 0.15, 180)") 1`] = `"oklch(0.7 0.15 180 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("oklch(0.7, 0.15, 180)") 1`] = `"oklch(0.7 0.15 180)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("red") 1`] = `"rgb(255 0 0 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("red") 1`] = `"rgb(255 0 0)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rgb(0 128 255 / 0.8)") 1`] = `"rgb(0 128 255 / 0.8)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rgb(255, 0, 0)") 1`] = `"rgb(255 0 0 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rgb(255, 0, 0)") 1`] = `"rgb(255 0 0)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rgba(0, 255, 0, 0.5)") 1`] = `"rgb(0 255 0 / 0.5)"`;
 
@@ -688,7 +688,7 @@ exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("var(--x)") 1`] = `
 }
 `;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("xyz(0.5, 0.5, 0.5)") 1`] = `"xyz(0.5 0.5 0.5 / 1)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("xyz(0.5, 0.5, 0.5)") 1`] = `"xyz(0.5 0.5 0.5)"`;
 
 exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("/") 1`] = `
 {
