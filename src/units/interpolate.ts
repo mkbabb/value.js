@@ -48,6 +48,21 @@ export function lerpComputedValue(
 type InterpColor = Color<ValueUnit<number> | number>;
 
 /**
+ * Frozen per-frame color-channel plan (B3). Built once at `prepareInterpVar`;
+ * drives `lerpColorValue`'s closure-free hot loop. Parallel arrays (a light SoA)
+ * indexed by channel position: the unwrapped start/stop numbers, the hue
+ * channel index (or -1), the destination ValueUnit ref per channel (or null
+ * when the destination slot is a raw number written via `setChannel`).
+ */
+export type ColorChannelPlan = {
+    keys: readonly string[];
+    startN: Float64Array;
+    stopN: Float64Array;
+    hueIndex: number;
+    dstVU: (ValueUnit<number> | null)[];
+};
+
+/**
  * Interpolate a colour `ValueUnit` (`unit === "color"`). Walks each
  * channel of the parsed `Color` instance and lerps independently. The
  * surrounding `normalizeColorUnits` step is responsible for putting
@@ -58,10 +73,37 @@ export function lerpColorValue(
     t: number,
     iv: InterpolatedVar<InterpColor>,
 ): ValueUnit<InterpColor> {
-    const { start, stop, value, colorSpace, hueMethod } = iv;
-    // Identify the hue channel for cylindrical spaces (hsl/hsv/hwb/lch/oklch).
-    // CSS Color 4 §12.4 requires angular interpolation for that component;
-    // other components stay on linear `lerp`.
+    const { value, _colorPlan, hueMethod } = iv;
+
+    // B3 fast path — a closure-free flat loop over the frozen channel plan
+    // (built once at `prepareInterpVar`). The start/stop channels are FIXED
+    // endpoints, so their unwrapped numbers, the hue index, and the
+    // destination accessor are all invariant for the iv's life. The per-frame
+    // `keys()`/`forEach`-closure/`unwrapDeep`/dynamic-index churn the old path
+    // re-paid every frame collapses to indexed numeric reads (vj-color-interp-aug
+    // §2.2; the color twin of the D2 SoA discipline). Byte-identical output.
+    if (_colorPlan) {
+        const { keys, startN, stopN, hueIndex, dstVU } = _colorPlan;
+        const dstColor = value.value;
+        for (let i = 0; i < keys.length; i++) {
+            const s = startN[i]!;
+            const e = stopN[i]!;
+            // Hue start/stop are pre-divided into the [0,1] domain that
+            // `interpolateHue` expects (B5: the ÷360 is folded into the plan);
+            // only the ×360 back to degrees remains per frame.
+            const result =
+                i === hueIndex
+                    ? interpolateHue(s, e, t, hueMethod) * 360
+                    : lerp(s, e, t);
+            const cur = dstVU[i];
+            if (cur != null) cur.value = result;
+            else setChannel(dstColor, keys[i] as string, ch(result));
+        }
+        return value;
+    }
+
+    // Fallback — externally constructed iv with no prepared plan.
+    const { start, stop, colorSpace } = iv;
     const hueKey = colorSpace ? CYLINDRICAL_HUE_COMPONENT[colorSpace] : undefined;
 
     start.value.keys().forEach((key: string) => {
@@ -146,5 +188,48 @@ export function prepareInterpVar(iv: InterpolatedVar<any>): InterpolatedVar<any>
         : iv.start.unit === "color"
           ? (lerpColorValue as (t: number, iv: InterpolatedVar<any>) => ValueUnit<any>)
           : lerpNumericValue;
+    if (!iv.computed && iv.start.unit === "color") {
+        iv._colorPlan = buildColorChannelPlan(iv as InterpolatedVar<InterpColor>);
+    }
     return iv;
+}
+
+/**
+ * Freeze the per-frame color-channel walk into a flat numeric plan (B3). The
+ * start/stop channels are fixed endpoints, so their unwrapped numbers, the hue
+ * index, and the destination accessor never change across frames — precompute
+ * them once here so `lerpColorValue`'s hot loop is closure- and
+ * `unwrapDeep`-free. Mirrors the `_lerp` predispatch already on the iv.
+ */
+function buildColorChannelPlan(
+    iv: InterpolatedVar<InterpColor>,
+): ColorChannelPlan {
+    const { start, stop, value, colorSpace } = iv;
+    const hueKey = colorSpace ? CYLINDRICAL_HUE_COMPONENT[colorSpace] : undefined;
+
+    const keys = start.value.keys();
+    const n = keys.length;
+    const startN = new Float64Array(n);
+    const stopN = new Float64Array(n);
+    const dstVU = new Array<ValueUnit<number> | null>(n).fill(null);
+    let hueIndex = -1;
+
+    for (let i = 0; i < n; i++) {
+        const key = keys[i] as string;
+        const sn = ValueUnit.unwrapDeep(channelOf(start.value, key));
+        const en = ValueUnit.unwrapDeep(channelOf(stop.value, key));
+        if (key === hueKey) {
+            hueIndex = i;
+            // Pre-divide hue into the [0,1] domain interpolateHue expects (B5).
+            startN[i] = sn / 360;
+            stopN[i] = en / 360;
+        } else {
+            startN[i] = sn;
+            stopN[i] = en;
+        }
+        const cur = channelOf(value.value, key);
+        dstVU[i] = cur instanceof ValueUnit ? (cur as ValueUnit<number>) : null;
+    }
+
+    return { keys, startN, stopN, hueIndex, dstVU };
 }

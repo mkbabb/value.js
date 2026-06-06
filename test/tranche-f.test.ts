@@ -10,6 +10,8 @@ import { parseResult } from "../src/parsing/utils";
 import { RELATIVE_LENGTH_UNITS } from "../src/units/constants";
 import { convertToPixels } from "../src/units/utils";
 import { OKLABColor, RGBColor } from "../src/units/color";
+import { normalizeValueUnits } from "../src/units/normalize";
+import { prepareInterpVar, lerpColorValue } from "../src/units/interpolate";
 
 /**
  * Tranche-F cross-repo handoff — falsifiable gates locking each landed wave.
@@ -206,4 +208,57 @@ describe("Wave F7 — no console.error on the custom-color-name path", () => {
         const v = parseCSSColor("red");
         assert.equal(v.unit, "color");
     });
+});
+
+describe("Wave B3 — frozen color-channel plan is byte-identical to the walk", () => {
+    // prepareInterpVar builds a frozen channel plan so the per-frame
+    // lerpColorValue loop is closure-/keys()-/unwrapDeep-free. The fast (plan)
+    // path must produce output deep-equal to the fallback (unplanned) walk.
+
+    const cases: Array<[string, string, string]> = [
+        ["oklch(0.7 0.15 30)", "oklch(0.4 0.2 280)", "oklch"],
+        ["oklab(0.5 0.1 -0.1)", "oklab(0.8 -0.05 0.12)", "oklab"],
+        ["hsl(20 80% 40%)", "hsl(300 50% 70%)", "hsl"],
+    ];
+
+    for (const [a, b, space] of cases) {
+        it(`plan == fallback for ${space}`, () => {
+            const A = parseCSSColor(a);
+            const B = parseCSSColor(b);
+            const ivPlan = normalizeValueUnits(A, B, {
+                colorSpace: space,
+            } as never);
+            prepareInterpVar(ivPlan);
+            assert.isDefined(
+                (ivPlan as { _colorPlan?: unknown })._colorPlan,
+                "a prepared color iv must carry a _colorPlan",
+            );
+
+            const ivFallback = normalizeValueUnits(A, B, {
+                colorSpace: space,
+            } as never) as { _colorPlan?: unknown; _lerp?: unknown };
+            delete ivFallback._colorPlan; // force the fallback walk
+            delete ivFallback._lerp;
+
+            for (let k = 0; k <= 50; k++) {
+                const t = k / 50;
+                const planned = (
+                    lerpColorValue(t, ivPlan as never).value as { valueOf(): unknown[] }
+                ).valueOf();
+                const walked = (
+                    lerpColorValue(t, ivFallback as never).value as {
+                        valueOf(): unknown[];
+                    }
+                ).valueOf();
+                for (let i = 0; i < planned.length; i++) {
+                    assert.closeTo(
+                        Number(planned[i]),
+                        Number(walked[i]),
+                        1e-12,
+                        `${space} t=${t} channel=${i}`,
+                    );
+                }
+            }
+        });
+    }
 });

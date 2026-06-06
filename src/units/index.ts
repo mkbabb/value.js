@@ -3,6 +3,7 @@ import { clone } from "../utils";
 import { BLACKLISTED_COALESCE_UNITS, UNITS } from "./constants";
 import type { ColorSpace } from "./color/constants";
 import type { HueInterpolationMethod } from "./color/dispatch";
+import type { ColorChannelPlan } from "./interpolate";
 
 export class ValueUnit<
     T = any,
@@ -264,4 +265,12 @@ export type InterpolatedVar<T> = {
      * runtime dispatch in `lerpValue` will resolve at call time.
      */
     _lerp?: (t: number, iv: InterpolatedVar<any>) => ValueUnit<any>;
+
+    /**
+     * Frozen color-channel plan set by `prepareInterpVar` for color ivs (B3).
+     * Drives the closure-free per-frame loop in `lerpColorValue`; absent for
+     * non-color ivs and externally constructed colors (which take the fallback
+     * walk). Typed loosely here to avoid a cycle with `interpolate.ts`.
+     */
+    _colorPlan?: ColorChannelPlan;
 };
