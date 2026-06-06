@@ -634,16 +634,25 @@ export function getCustomColorNames(): ReadonlyMap<string, string> {
 // src/parsing/index.ts.
 export const parseCSSColor = memoize(
     (input: string): ValueUnit => {
+        // F7 — try the custom-name map BEFORE the speculative rich parse.
+        // The rich parser fails on a registered custom name, and parse-that's
+        // top-level `parseState` fires `console.error(state.toString())` on
+        // that expected failure — a per-parse console-I/O leak on every custom
+        // color name. A `Map.get` first elides it (bounded, iso: when no custom
+        // names are registered the map is empty and this is a no-op, so the
+        // rich parser still resolves built-ins exactly as before).
+        // (vj-parser-aug §2.3 fix (b).)
+        if (customColorNames.size > 0) {
+            const key = input.trim().toLowerCase();
+            const resolved = customColorNames.get(key);
+            if (resolved) {
+                return utils.tryParse(Value, resolved);
+            }
+        }
+
         const result = utils.parseResult(Value, input);
         if (result.status) {
             return result.value;
-        }
-
-        // Fallback: check custom color names
-        const key = input.trim().toLowerCase();
-        const resolved = customColorNames.get(key);
-        if (resolved) {
-            return utils.tryParse(Value, resolved);
         }
 
         // Re-throw original parse failure

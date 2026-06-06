@@ -1,5 +1,11 @@
-import { assert, describe, expect, it } from "vitest";
-import { CSSValueUnit, parseCSSColor } from "../src/parsing/units";
+import { afterEach, assert, beforeEach, describe, expect, it, vi } from "vitest";
+import { enableDiagnostics, disableDiagnostics } from "@mkbabb/parse-that";
+import {
+    CSSValueUnit,
+    parseCSSColor,
+    registerColorNames,
+    clearCustomColorNames,
+} from "../src/parsing/units";
 import { parseResult } from "../src/parsing/utils";
 import { RELATIVE_LENGTH_UNITS } from "../src/units/constants";
 import { convertToPixels } from "../src/units/utils";
@@ -157,5 +163,47 @@ describe("Wave B1b — formatColor omits `/ alpha` at alpha=1 (CSS Color 4 canon
         const parsed = parseCSSColor(emitted);
         const color = parsed.value as OKLABColor;
         assert.equal(Number(color.alpha), 1, "round-tripped opaque alpha must be 1");
+    });
+});
+
+describe("Wave F7 — no console.error on the custom-color-name path", () => {
+    // parseCSSColor ran the rich parser FIRST, so a registered custom name
+    // always failed the rich parse, and parse-that's top-level parseState fires
+    // console.error(state.toString()) on that expected failure (when diagnostics
+    // are on). Reordering to try the name map first elides the leak.
+
+    let errorSpy: ReturnType<typeof vi.spyOn>;
+
+    beforeEach(() => {
+        clearCustomColorNames();
+        parseCSSColor.cache.clear();
+        enableDiagnostics();
+        errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    });
+    afterEach(() => {
+        errorSpy.mockRestore();
+        disableDiagnostics();
+        clearCustomColorNames();
+        parseCSSColor.cache.clear();
+    });
+
+    it("resolves a registered custom name with zero console.error", () => {
+        registerColorNames({ mybrandcolor: "#abcdef" });
+        parseCSSColor.cache.clear();
+        const v = parseCSSColor("mybrandcolor");
+        assert.equal(v.unit, "color", "custom name must resolve to a color");
+        assert.equal(
+            errorSpy.mock.calls.length,
+            0,
+            "the custom-name path must not emit console.error",
+        );
+    });
+
+    it("built-in named colors still resolve via the rich parser (iso)", () => {
+        registerColorNames({ mybrandcolor: "#abcdef" });
+        parseCSSColor.cache.clear();
+        // `red` is a built-in — the empty-collision custom map must not shadow it.
+        const v = parseCSSColor("red");
+        assert.equal(v.unit, "color");
     });
 });
