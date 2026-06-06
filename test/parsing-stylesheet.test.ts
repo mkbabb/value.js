@@ -137,6 +137,32 @@ describe("parseCSSStylesheet — @property", () => {
         const item = s[0] as Extract<(typeof s)[number], { kind: "property" }>;
         expect(item.descriptor.syntax).toBe("<length>");
     });
+
+    // Wave F4 — CLOSED by verification. value.js stores the raw quote-stripped
+    // syntax string, NOT a re-serialized AST, so complex syntax (multipliers,
+    // unions, the universal token) survives byte-exact. This is the lossless
+    // round-trip kf relies on when feeding descriptor.syntax to
+    // CSS.registerProperty(). (vj-units-compute-aug §5; handoff §2.)
+    it("preserves complex syntax strings byte-exact (multipliers / unions / *)", () => {
+        // Valid CSS @property syntax forms: the universal "*", typed tokens
+        // with the `+` (space-list) / `#` (comma-list) multipliers, and `|`
+        // unions of types and custom idents. (Note: `{n,m}` quantifiers are
+        // value-definition syntax, NOT part of the @property descriptor grammar.)
+        for (const syntax of [
+            "<color>+",
+            "<length> | <percentage>",
+            "<length>+ | <percentage>#",
+            "<image>#",
+            "*",
+            "small | medium | large",
+        ]) {
+            const s = parseCSSStylesheet(
+                `@property --x { syntax: "${syntax}"; inherits: false; }`,
+            );
+            const item = s[0] as Extract<(typeof s)[number], { kind: "property" }>;
+            expect(item.descriptor.syntax).toBe(syntax);
+        }
+    });
 });
 
 describe("parseCSSStylesheet — unknown at-rules", () => {
