@@ -41,6 +41,11 @@ export {
     getComputedValue,
     normalizeNumericUnits,
     normalizeValueUnits,
+    // Layout-epoch invalidation (Wave C7) — the resize bust for the computed
+    // endpoint cache (C1). Auto-installed on `window.resize`; also callable
+    // from a consumer's ResizeObserver / manually.
+    bumpLayoutEpoch,
+    getLayoutEpoch,
 } from "./units/normalize";
 export type { NormalizeValueUnitsOptions } from "./units/normalize";
 

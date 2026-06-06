@@ -117,16 +117,22 @@ export function memoize<T extends (...args: any[]) => any>(
         shouldCache,
     } = options;
 
+    // C4 (tranche-F Wave C) — `ttl === Infinity` fast path. When no TTL is set
+    // (the common case: `getComputedValue`, the parse caches) the
+    // `now - timestamp <= ttl` guard is a tautology and the `Date.now()` read
+    // on every hit is dead work. Hoist the predicate once and skip the clock
+    // read on the hot path; the timestamp stored is then irrelevant (0).
+    const hasTtl = ttl !== Infinity;
+
     const memoized = function (
         this: ThisParameterType<T>,
         ...args: Parameters<T>
     ): ReturnType<T> {
         const key = keyFn.apply(this, args);
-        const now = Date.now();
 
         if (cache.has(key)) {
             const cached = cache.get(key)!;
-            if (now - cached.timestamp <= ttl) {
+            if (!hasTtl || Date.now() - cached.timestamp <= ttl) {
                 return cached.value;
             } else {
                 cache.delete(key);
@@ -136,7 +142,7 @@ export function memoize<T extends (...args: any[]) => any>(
         const result = func.apply(this, args);
 
         if (!shouldCache || shouldCache(result, ...args)) {
-            cache.set(key, { value: result, timestamp: now });
+            cache.set(key, { value: result, timestamp: hasTtl ? Date.now() : 0 });
 
             if (cache.size > maxCacheSize) {
                 const oldestKey = cache.keys().next().value!;

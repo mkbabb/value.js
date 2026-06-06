@@ -273,4 +273,30 @@ export type InterpolatedVar<T> = {
      * walk). Typed loosely here to avoid a cycle with `interpolate.ts`.
      */
     _colorPlan?: ColorChannelPlan;
+
+    /**
+     * Resolved computed-endpoint cache set by `lerpComputedValue` for computed
+     * ivs (C1, tranche-F Wave C). A computed leaf (`var`/`calc`) re-resolves
+     * BOTH endpoints against the live box every frame — but the resolved pair
+     * is invariant while the layout epoch is stable, so the first frame after a
+     * (re)resolve stamps `(startN, stopN, unit, target, epoch)` here and every
+     * later frame collapses to a bare `lerp(startN, stopN, t)`. Invalidated
+     * when the target changes or the layout epoch advances (resize). Absent for
+     * non-computed ivs. Typed loosely to avoid a cycle with `interpolate.ts`.
+     */
+    _computedCache?: ComputedEndpointCache;
+};
+
+/**
+ * The resolved-endpoint cache stamped on a computed `InterpolatedVar` (C1).
+ * `target` and `epoch` are the invalidation keys: a steady frame whose live
+ * target and layout epoch both match the stamp serves `startN`/`stopN`/`unit`
+ * directly; any mismatch re-resolves both endpoints and re-stamps.
+ */
+export type ComputedEndpointCache = {
+    startN: number;
+    stopN: number;
+    unit: string | undefined;
+    target: HTMLElement;
+    epoch: number;
 };

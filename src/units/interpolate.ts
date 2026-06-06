@@ -3,7 +3,7 @@ import type { Color } from "./color";
 import { ch, channelOf, setChannel } from "./color";
 import { COMPUTED_UNITS } from "./constants";
 import { ValueUnit, type InterpolatedVar } from "./index";
-import { getComputedValue } from "./normalize";
+import { getComputedValue, getLayoutEpoch } from "./normalize";
 import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/dispatch";
 
 /**
@@ -12,12 +12,22 @@ import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/dispatch";
  * element's live computed style and lerping the resulting numeric
  * values.
  *
+ * C1 (tranche-F Wave C) — the endpoint cache. The resolved
+ * `(startN, stopN, unit)` pair is invariant while the layout epoch is
+ * stable, so it is cached on the iv (`_computedCache`) the first frame
+ * and every later steady frame collapses to a bare
+ * `lerp(startN, stopN, t)` — no `getComputedValue` memo call, no
+ * `value.toString()`, no forced reflow. The cache busts when the live
+ * target changes or the layout epoch advances (resize → `bumpLayoutEpoch`).
+ * Pixel-identical while the epoch is stable.
+ *
  * Mutates and returns the `value` field of the InterpolatedVar.
  */
 export function lerpComputedValue(
     t: number,
-    { start, stop, value }: InterpolatedVar<any>,
+    iv: InterpolatedVar<any>,
 ): ValueUnit<any> {
+    const { start, stop, value } = iv;
     const target = start.targets?.[0] ?? stop.targets?.[0];
     if (!target) {
         throw new Error(
@@ -25,16 +35,38 @@ export function lerpComputedValue(
         );
     }
 
-    const newStart = getComputedValue(start, target);
-    const newStop = getComputedValue(stop, target);
+    const epoch = getLayoutEpoch();
+    let cache = iv._computedCache;
 
-    const computedUnits: readonly string[] = COMPUTED_UNITS;
-    const newUnit = !computedUnits.includes(newStart.unit ?? "")
-        ? newStart.unit
-        : newStop.unit;
+    // Fast path — the resolved endpoints are still valid (same target, same
+    // layout epoch). Collapse to a bare lerp; this is the steady state.
+    if (
+        cache === undefined ||
+        cache.target !== target ||
+        cache.epoch !== epoch
+    ) {
+        // Cold / invalidated — resolve both endpoints against the live box and
+        // (re)stamp the cache. Paid once per (target, epoch), not per frame.
+        const newStart = getComputedValue(start, target);
+        const newStop = getComputedValue(stop, target);
 
-    value.value = lerp(newStart.value, newStop.value, t);
-    value.unit = newUnit;
+        const computedUnits: readonly string[] = COMPUTED_UNITS;
+        const newUnit = !computedUnits.includes(newStart.unit ?? "")
+            ? newStart.unit
+            : newStop.unit;
+
+        cache = {
+            startN: newStart.value as number,
+            stopN: newStop.value as number,
+            unit: newUnit as string | undefined,
+            target,
+            epoch,
+        };
+        iv._computedCache = cache;
+        value.unit = cache.unit;
+    }
+
+    value.value = lerp(cache.startN, cache.stopN, t);
 
     return value;
 }

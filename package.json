@@ -41,7 +41,7 @@
         "build:watch": "vite build --mode production --watch",
         "gh-pages": "vite build --mode gh-pages",
         "prepare": "test -f dist/value.js || npm run build",
-        "bench": "node bench/color-channel-access.mjs && node bench/color2-direct-paths.mjs && node bench/parser-namelookup.mjs",
+        "bench": "node bench/color-channel-access.mjs && node bench/color2-direct-paths.mjs && node bench/parser-namelookup.mjs && node bench/computed-endpoint.mjs",
         "typecheck": "node scripts/check-types.mjs",
         "lint": "eslint . --max-warnings=0",
         "test": "vitest",

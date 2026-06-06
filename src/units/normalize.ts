@@ -106,6 +106,26 @@ const getElementId = (el: HTMLElement): number => {
     return id;
 };
 
+// ─── Stable ValueUnit identity for memoization (C2) ───────────────────────
+//
+// The `getComputedValue` memo previously keyed on `value.toString()`, which
+// re-SERIALISES the ValueUnit on *every* hit (two full `calc(…)`/`var(…)`
+// concats per leaf per frame) to retrieve an O(1)-invariant pair. The
+// endpoint ValueUnits (`start`/`stop`) are FIXED for an InterpolatedVar's
+// life — only `value` is mutated per frame — so a per-instance monotonic id
+// is a stable, content-equivalent key that pays zero string work on a hit.
+// WeakMap-keyed so a retired ValueUnit doesn't pin GC (mirrors getElementId).
+const valueUnitIdMap = new WeakMap<ValueUnit, number>();
+let nextValueUnitId = 0;
+const getValueUnitId = (value: ValueUnit): number => {
+    let id = valueUnitIdMap.get(value);
+    if (id === undefined) {
+        id = nextValueUnitId++;
+        valueUnitIdMap.set(value, id);
+    }
+    return id;
+};
+
 // `CSSStyleDeclaration` is a DOM interface with typed property accessors
 // (`style.color`, `style.transform`, …) but **no** string index signature.
 // `getComputedValue` indexes it with a runtime `prop` string — the only
@@ -115,6 +135,58 @@ const getElementId = (el: HTMLElement): number => {
 // the boundary lives at a single named site rather than at each indexed read.
 const styleRecord = (style: CSSStyleDeclaration): Record<string, string> =>
     style as unknown as Record<string, string>;
+
+// ─── Layout epoch (C7) ────────────────────────────────────────────────────
+//
+// A computed-unit resolution (`vh`, `cqw`, `calc(100cqw - 100%)`, …) is
+// invariant *while the layout is stable* — the only event that changes the
+// resolved pixel value is a viewport/container resize. So the endpoint cache
+// (C1) and the `getComputedValue` memo can serve a cached pair for the whole
+// life of a steady animation; a resize bumps a monotonic generation counter
+// and stamps every later cache entry with the new epoch, so a stale entry is
+// re-resolved on next use.
+//
+// The counter is process-global and read on the hot path; bumping it is the
+// O(1) invalidation that makes the C1 cache safe. Consumers wire a resize
+// signal to `bumpLayoutEpoch()` (auto-installed on `window.resize` below when
+// a DOM is present; also callable manually, e.g. from a ResizeObserver).
+
+let layoutEpoch = 0;
+
+/** The current layout-epoch generation. Bumped on resize. */
+export const getLayoutEpoch = (): number => layoutEpoch;
+
+/**
+ * Invalidate every layout-epoch-stamped cache (the C1 endpoint cache and the
+ * `getComputedValue` memo) by advancing the generation counter. Call on any
+ * event that changes a computed-unit resolution — a viewport `resize`, a
+ * container `ResizeObserver` callback, a writing-mode flip, etc. Cheap (one
+ * integer increment + one memo clear); the next computed frame re-resolves.
+ */
+export const bumpLayoutEpoch = (): number => {
+    layoutEpoch++;
+    // Bust the memo too: its entries are stamped only implicitly (by content
+    // identity), so a resize must clear them or they'd serve pre-resize px for
+    // the page's life (the C7 staleness the audit names). The C1 endpoint cache
+    // self-invalidates via the epoch stamp; the memo is shared/unstamped, so we
+    // clear it wholesale here.
+    getComputedValue.cache.clear();
+    return layoutEpoch;
+};
+
+// Auto-install the resize signal once, when a live `window` is present. Guarded
+// so SSR / node / repeated module eval don't double-bind or throw. Consumers
+// in non-DOM hosts (or with their own ResizeObserver) can ignore this and call
+// `bumpLayoutEpoch()` directly.
+let resizeInstalled = false;
+const installResizeEpoch = (): void => {
+    if (resizeInstalled) return;
+    if (typeof window === "undefined" || typeof window.addEventListener !== "function")
+        return;
+    resizeInstalled = true;
+    window.addEventListener("resize", () => bumpLayoutEpoch(), { passive: true });
+};
+installResizeEpoch();
 
 // ─── getComputedValue ─────────────────────────────────────────────────────
 
@@ -192,8 +264,12 @@ export const getComputedValue = memoize(
         return get().coalesce(value);
     },
     {
+        // C2 (tranche-F Wave C) — key on a per-instance stable id, NOT
+        // `value.toString()`. The endpoint ValueUnits are fixed for an iv's
+        // life, so the id is a content-equivalent key that costs one WeakMap
+        // probe instead of a full `calc(…)`/`var(…)` re-serialisation per hit.
         keyFn: (value: ValueUnit, target?: HTMLElement) =>
-            `${value.toString()}-${target ? getElementId(target) : "null"}`,
+            `${getValueUnitId(value)}-${target ? getElementId(target) : "null"}`,
         // Layout-dependent units (`vh`, `cqw`, etc.) resolve to 0
         // when the element is outside the live tree (e.g. inside a
         // detached DocumentFragment). Don't cache those reads.
