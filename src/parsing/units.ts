@@ -114,6 +114,19 @@ export const CSSValueUnit = {
 // src/parsing/index.ts.
 export const parseCSSValueUnit = memoize(
     (input: string): ValueUnit => {
+        // Empty-input contract (the keyframes.js I.W0 B1/B5 seam, paired with
+        // the consumer's compile-seam guard). An empty/whitespace input is a
+        // LEGITIMATE transient — the read-back of an UNSET `var(--x)`
+        // (`getComputedStyle(...).getPropertyValue` of an undefined custom
+        // property returns `""`), or a property sampled before it is wired —
+        // NOT a malformed value. Resolve it to a typed-empty IDENTITY
+        // `ValueUnit` (value 0, no unit: it contributes NO change to an
+        // interpolation, leaving that axis unchanged) rather than the cryptic,
+        // un-typed `Parse error at offset 0: "......"` that `tryParse` raises on
+        // the empty string. Empty in → typed-empty out, never a throw.
+        if (input == null || input.trim() === "") {
+            return new ValueUnit(0);
+        }
         return utils.tryParse(Value, input);
     },
     { keyFn: (input: string) => input },
