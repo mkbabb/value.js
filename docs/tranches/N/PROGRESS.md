@@ -47,6 +47,7 @@ ratification** of this charter + the supersede-M decision (`N.md §0`).
 | Gates at HEAD | vitest 1607/36 ✓ · lint ✓ · api tsc ✓ · api 161/28 ✓ · lib build ✓ · **typecheck ✗ 91** (1 own TS2307 + 16 TS7006 + 74 TS7016 from the dts-less local glass-ui dist; K1 corrected the transient "3") · **e2e 0-passed-of-37 ✗** (boot-break) | B1/B2/K1 |
 | Session TTL | 7d mint (`auth.ts:36`) vs the 30d contract → the 30d cron arm is dead code | D2/K2/K3 |
 | `forkOfHash` | **live on the wire** (`format/palette.ts:74`) — D4's delete-claim refuted; only the 3 `palette_versions` *indexes* are write-only | K1 |
+| glass-ui abrogations | full re-alias/retire census + the standing pin-bump sweep (inv-N-10) | `audit/abrogation-ledger.md` |
 
 ## Dispatch gate
 
