@@ -19,7 +19,7 @@ demo/
 │   │   ├── custom/           # maintained components — see subtrees below
 │   │   └── ui/               # shadcn-vue (reka-ui) — DO NOT hand-edit;
 │   │                         #   ui/alert is a glass-ui re-export (B.W2); ui/table retired (B.W2);
-│   │                         #   F.W1 Lane C swept 29 zero-consumer subdirs (-588 KiB) — see VENDOR-POLICY.md + docs/tranches/F/audit/F.W1-lane-c-vendor-sweep.md
+│   │                         #   F.W1 Lane C swept 29 zero-consumer subdirs (-588 KiB) — see docs/tranches/F/audit/F.W1-lane-c-vendor-sweep.md
 │   ├── composables/          # composables — auth/, color/, palette/, root utils + viewSchema.ts + usePaneRouter.ts
 │   ├── lib/palette/          # palette API client, types, constants (CURRENT_PALETTE_ID — D.W3 Lane A), utils
 │   ├── styles/               # style.css (Tailwind v4 @theme tokens + 5 new bridge declarations — D.W4 Lane A)
