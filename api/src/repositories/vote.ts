@@ -91,13 +91,23 @@ export class VoteRepository {
     }
 
     /**
-     * Delete vote rows whose `paletteSlug` is NOT in `validSlugs` — the cron
-     * orphan-cleanup primitive. `validSlugs` is the authoritative palette
-     * inventory at the time of the sweep.
+     * Delete vote rows whose `paletteSlug` is NOT in `validSlugs` AND that were
+     * cast before `before` — the cron orphan-cleanup primitive. `validSlugs`
+     * is the authoritative palette inventory snapshot taken at `before` (the
+     * sweep-start timestamp).
+     *
+     * The `createdAt < before` bound closes a TOCTOU: a palette created (and
+     * voted on) AFTER the `validSlugs` snapshot is absent from that snapshot,
+     * but its votes carry `createdAt >= before`, so they fall outside this
+     * filter and are never reaped as "orphaned" (N.W3.A). Only votes that both
+     * point at a now-missing slug AND predate the snapshot are genuine orphans.
      */
-    deleteOrphaned(validSlugs: string[]): Promise<number> {
+    deleteOrphaned(validSlugs: string[], before: Date): Promise<number> {
         return this.col
-            .deleteMany({ paletteSlug: { $nin: validSlugs } })
+            .deleteMany({
+                paletteSlug: { $nin: validSlugs },
+                createdAt: { $lt: before },
+            })
             .then((r) => r.deletedCount);
     }
 }

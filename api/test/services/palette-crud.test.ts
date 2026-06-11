@@ -6,9 +6,35 @@ import {
     deletePalette,
     getPaletteBySlug,
     patchPalette,
+    restorePalette,
 } from "../../src/services/palette/crud.js";
 import { ConflictError, NotFoundError } from "../../src/errors/index.js";
 import type { Services } from "../../src/middleware/inject-services.js";
+import type { Palette } from "../../src/models.js";
+
+function makePalette(overrides: Partial<Palette> = {}): Palette {
+    const now = new Date();
+    return {
+        name: "Sample",
+        slug: "sample",
+        colors: [{ css: "#ff0000", position: 0 }],
+        oklabColors: [{ L: 0.6, a: 0.2, b: 0.1 }],
+        tags: [],
+        voteCount: 0,
+        userSlug: null,
+        visibility: "public",
+        tier: "standard",
+        deletedAt: null,
+        createdAt: now,
+        updatedAt: now,
+        currentHash: "hash-sample",
+        forkOf: null,
+        forkOfHash: null,
+        forkCount: 0,
+        versionCount: 1,
+        ...overrides,
+    };
+}
 
 describe("service.palette.crud", () => {
     let client: MongoClient;
@@ -141,5 +167,37 @@ describe("service.palette.crud", () => {
         await expect(
             deletePalette(services, { slug: "ghost" }),
         ).rejects.toBeInstanceOf(NotFoundError);
+    });
+
+    it("restorePalette recomputes parent forkCount from live forks (N.W3.J)", async () => {
+        // Construct a desynced state: the parent's stored forkCount is 5 but it
+        // has only ONE soft-deleted fork (zero live forks). The old restore
+        // path blind-incremented (5 → 6, inflating the public count); the
+        // recompute sets it to the live-fork truth (1, the just-restored fork).
+        await services.repositories.palettes.insert(
+            makePalette({ slug: "parent", forkCount: 5 }),
+        );
+        await services.repositories.palettes.insert(
+            makePalette({
+                slug: "child-fork",
+                forkOf: "parent",
+                deletedAt: new Date(),
+            }),
+        );
+
+        const restored = await restorePalette(services, { slug: "child-fork" });
+        expect(restored.deletedAt).toBeNull();
+
+        const parent = await services.repositories.palettes.findBySlug("parent");
+        // Exactly one live fork now → forkCount must be 1, NOT the blind 5+1=6.
+        expect(parent?.forkCount).toBe(1);
+    });
+
+    it("restorePalette of an already-live palette is an idempotent no-op", async () => {
+        await services.repositories.palettes.insert(
+            makePalette({ slug: "live-one", forkCount: 0 }),
+        );
+        const result = await restorePalette(services, { slug: "live-one" });
+        expect(result.deletedAt).toBeNull();
     });
 });

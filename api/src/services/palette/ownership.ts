@@ -1,47 +1,44 @@
 /**
- * Palette ownership + ETag service (L.W1 Lane B — inv-L-5).
+ * Palette ownership + ETag service (L.W1 Lane B — inv-L-5; N.W3.E read-fold).
  *
- * Lifts the two route-layer repository reads that reached past the service
- * wall straight into `repositories.palettes.findBySlug` (the inv-L-5 leak) into
- * service-owned helpers. Routes call these; the repository stays behind the
+ * Lifts the route-layer repository read that reached past the service wall
+ * straight into `repositories.palettes.findBySlug` (the inv-L-5 leak) into a
+ * service-owned helper. Routes call this; the repository stays behind the
  * `validate → authn → authz → SERVICE → repository` boundary.
  *
- * Both helpers mirror the prior inline reads EXACTLY (same repository method,
- * same filter, same null-on-missing semantic) so no HTTP status code or branch
- * changes — they are a pure transposition, not a behaviour change.
+ * N.W3.E — the ownership extractor now returns the WHOLE palette it reads
+ * (`getOwnedPalette`) so the owner-gated routes can reuse that single document
+ * for the ETag pre-check AND the service write, instead of re-reading the same
+ * slug 3× before the write. The PATCH read-amplification collapses 4 → 2: one
+ * read here (stashed on `c.var.palette`), one post-write re-read in the
+ * service for the fresh envelope. The legacy single-purpose `getOwnerSlug` /
+ * `getPaletteETagData` helpers are retired — there is one read, one doc.
  */
 
+import type { WithId } from "mongodb";
 import type { Palette } from "../../models.js";
 import type { Services } from "../../middleware/inject-services.js";
 
 /**
- * Owner-slug for `requireOwnership`: the palette's `userSlug`, or `null` when
- * the palette does not exist (the middleware maps null → 404; a mismatch
- * against the caller's `userSlug` → 403). Soft-deleted/visibility semantics are
- * untouched — `findBySlug` carries no liveness filter, exactly as the prior
- * inline extractor did.
- */
-export async function getOwnerSlug(
-    services: Services,
-    slug: string,
-): Promise<string | null> {
-    const palette = await services.repositories.palettes.findBySlug(slug);
-    return palette?.userSlug ?? null;
-}
-
-/**
- * ETag inputs (`currentHash` + `updatedAt`) for the route-level If-Match
- * pre-check, or `null` when the palette does not exist (the caller skips the
- * guard and the request proceeds straight to the service write).
+ * The full palette for the owner-gated routes, or `null` when it does not
+ * exist (the `requireOwnership` middleware maps null → 404; a `userSlug`
+ * mismatch → 403). This is the SINGLE pre-write read of the resource: the
+ * route stashes the returned doc on `c.var.palette` and the ETag pre-check +
+ * the service write both reuse it, so the request reads the palette exactly
+ * once before writing (N.W3.E).
  *
- * This read backs the SINGLE pre-write optimistic-concurrency check. Neither
- * `patchPalette` nor `setVisibility` re-validates the ETag inside its write, so
- * a concurrent write between this read and the service write is not fenced — an
- * accepted narrow TOCTOU window (ledger #16).
+ * `findBySlug` carries no liveness filter — soft-deleted/visibility semantics
+ * are untouched, exactly as the prior inline extractor read.
+ *
+ * Note on the accepted narrow TOCTOU (ledger #16): neither `patchPalette` nor
+ * `setVisibility` re-validates the ETag inside its write, so a concurrent
+ * write between this read and the service write is not fenced. Folding the
+ * three former reads into this one does not change that window's nature — the
+ * optimistic-concurrency check remains a single pre-write validator.
  */
-export async function getPaletteETagData(
+export async function getOwnedPalette(
     services: Services,
     slug: string,
-): Promise<Pick<Palette, "currentHash" | "updatedAt"> | null> {
+): Promise<WithId<Palette> | null> {
     return services.repositories.palettes.findBySlug(slug);
 }

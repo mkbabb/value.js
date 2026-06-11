@@ -82,11 +82,12 @@ validate → authn → authz → service → repository → format → response
 
 Cross-collection mutations wrap in `services.withTransaction(async (session) => { ... })`. `makeWithTransaction` is the factory in `middleware/inject-services.ts`, hung off the `Services` DI object.
 
-**Coverage history**: F-window 3 sites → G.W3 Lane E 7 sites → **H.W1 expanded to 16 sites** (the H1 invariant maximalist closure):
+**Coverage history**: F-window 3 sites → G.W3 Lane E 7 sites → H.W1 16 sites → **N.W3.B right-sized to 14 sites**:
 - F-window (3): `deleteUser`, `forkPalette`, `toggleVote`.
 - G.W3 Lane E (+4 = 7): `deletePalette`, `revertToVersion`, `batchPalettes(delete)`, `batchUsers(suspend)`.
 - **H.W1 Lane A (+2 = 9)**: `createPalette`, `patchPalette` (the H-AUDIT-6 §3 defect repair — orphan-version exposure class closed).
 - **H.W1 Lane A.2 in-wave extension (+7 = 16)**: `registerSession`, `loginSession`, `deletePalette` (admin variant), `setUserStatus`, `deleteUserPalettes`, `pruneEmptyUsers`, `deleteTag`.
+- **N.W3.B right-sizing (−4 + the cron reaper census = 14)**: dropped `toggleVote` (unique-index anchor + document-atomic `$inc`; advisory count), `registerSession`/`loginSession` (benign orphan reaped by `pruneEmptyUsers` / advisory `lastSeenAt`), `restorePalette` (single-collection; recompute self-heals). H1 still binds — no cross-collection referential write was unwrapped. The cron reaper hard-delete (`cron.ts:47`, `palettes`+`votes`+`flags`) is now counted in the WRAPPED census. See `docs/tranches/H/audit/api-withTransaction-coverage.md §3.3`.
 
 **Standing reference**: `docs/tranches/H/audit/api-withTransaction-coverage.md` — exhaustive enumeration of every cross-collection write site + its session status (WRAPPED / DEFERRED-WITH-RATIONALE / SINGLE-COLLECTION). The H1 invariant codifier — adding a new cross-collection write site WITHOUT updating this list is itself the regression the invariant guards against. See §5.2 for the reviewer's checklist + §5.4 for the rollback-test convention.
 

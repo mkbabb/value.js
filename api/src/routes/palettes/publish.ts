@@ -18,7 +18,6 @@ import { requireOwnership } from "../../middleware/require-ownership.js";
 import { paletteOwnerExtractor } from "./crud.js";
 import { assertIfMatch, paletteETag } from "../../middleware/etag.js";
 import { setVisibility } from "../../services/palette/visibility.js";
-import { getPaletteETagData } from "../../services/palette/ownership.js";
 
 export const publishRouter = new Hono<AppEnv>();
 
@@ -27,12 +26,15 @@ function flipVisibility(target: "public" | "private") {
         const slug = c.req.param("slug");
 
         // If-Match guard (the PATCH precedent): a single pre-write optimistic-
-        // concurrency check. `setVisibility` performs NO in-txn ETag re-
-        // validation (it is single-collection, deliberately un-wrapped), so a
-        // concurrent write between this read and the service write is not
-        // fenced — an accepted narrow TOCTOU window (ledger #16).
+        // concurrency check. The `requireOwnership` extractor already read the
+        // palette and stashed it on `c.var.palette` (N.W3.E) — reuse that doc
+        // for the ETag pre-check instead of re-reading the slug. `setVisibility`
+        // performs NO in-txn ETag re-validation (it is single-collection,
+        // deliberately un-wrapped), so a concurrent write between this read and
+        // the service write is not fenced — an accepted narrow TOCTOU window
+        // (ledger #16).
         const ifMatch = c.req.header("If-Match");
-        const current = await getPaletteETagData(c.var.services, slug);
+        const current = c.var.palette;
         if (current) {
             assertIfMatch(ifMatch, paletteETag(current));
         }

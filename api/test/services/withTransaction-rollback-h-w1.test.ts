@@ -168,11 +168,22 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
     // to throw; the assertion is that none of the earlier writes persist.
     // -----------------------------------------------------------------
 
-    it("D4 registerSession rolls back user.insert when sessions.insert throws", async () => {
-        // Stub the SECOND write in the txn (sessions.insert) — by the
-        // time it runs, users.insert has already executed inside the
-        // open transaction. The user row must roll back; no orphan user
-        // is left behind.
+    // -----------------------------------------------------------------
+    // N.W3.B — registerSession + loginSession were RIGHT-SIZED OUT of the
+    // transaction. The two writes in each are NOT a cross-collection
+    // referential invariant: the failure leaves a BENIGN, self-healing
+    // orphan (an empty user reaped by `pruneEmptyUsers`; an advisory
+    // `lastSeenAt` that converges on the next request). The former D4/D5
+    // rollback specs are re-authored here to assert the new contract:
+    // the first write PERSISTS on a second-write failure (no rollback),
+    // and the orphan is exactly what `pruneEmptyUsers` cleans up.
+    // -----------------------------------------------------------------
+
+    it("N.W3.B registerSession leaves a benign orphan user when sessions.insert throws (no txn rollback; prune-empty reaps it)", async () => {
+        // The user insert runs FIRST, then the session insert. With the
+        // transaction removed, a session-insert failure leaves the user
+        // row in place — an orphan indistinguishable from a registered-
+        // then-never-saved user.
         const realSessionsInsert = services.repositories.sessions.insert.bind(
             services.repositories.sessions,
         );
@@ -187,15 +198,20 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
 
         services.repositories.sessions.insert = realSessionsInsert;
 
-        // No user document persisted — the txn aborted and rolled back
-        // the prior users.insert.
+        // The user row PERSISTS (no rollback) but no session landed.
         const userCount = await db.collection("users").countDocuments({});
-        expect(userCount).toBe(0);
+        expect(userCount).toBe(1);
         const sessionCount = await db.collection("sessions").countDocuments({});
         expect(sessionCount).toBe(0);
+
+        // The orphan is benign: `pruneEmptyUsers` (the standing sweep)
+        // reaps it — zero palettes ⇒ deleted.
+        const pruned = await pruneEmptyUsers(c);
+        expect(pruned).toBe(1);
+        expect(await db.collection("users").countDocuments({})).toBe(0);
     });
 
-    it("D5 loginSession rolls back sessions.insert when users.touchLastSeen throws", async () => {
+    it("N.W3.B loginSession persists the session even when users.touchLastSeen throws (no txn rollback; lastSeenAt is advisory)", async () => {
         // Seed an existing user whose lastSeenAt we'll track.
         const before = new Date("2025-01-01T00:00:00Z");
         await services.repositories.users.insert({
@@ -204,10 +220,9 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             lastSeenAt: before,
         });
 
-        // Stub the SECOND write (users.touchLastSeen) to throw AFTER
-        // sessions.insert has run inside the open transaction. The
-        // session insert must roll back AND the user's lastSeenAt must
-        // remain at its pre-call value.
+        // The session insert runs FIRST, then the lastSeenAt touch. With
+        // the transaction removed, a touch failure leaves the live session
+        // in place — `lastSeenAt` is advisory presence metadata.
         const realTouchLastSeen = services.repositories.users.touchLastSeen.bind(
             services.repositories.users,
         );
@@ -222,13 +237,12 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
 
         services.repositories.users.touchLastSeen = realTouchLastSeen;
 
-        // No session document persisted — the txn aborted and rolled
-        // back the prior sessions.insert.
+        // The session PERSISTS (no rollback) — a usable login token landed.
         const sessionCount = await db.collection("sessions").countDocuments({});
-        expect(sessionCount).toBe(0);
+        expect(sessionCount).toBe(1);
 
-        // The user's lastSeenAt is unchanged from its seeded value
-        // (the touch attempt was inside the aborted txn).
+        // The user's lastSeenAt is unchanged from its seeded value (the
+        // touch threw); it is advisory and converges on the next request.
         const user = await services.repositories.users.findBySlug("alice");
         expect(user?.lastSeenAt?.toISOString()).toBe(before.toISOString());
     });

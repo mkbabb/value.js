@@ -101,6 +101,14 @@ describe("repository.palette", () => {
         expect((await repo.findBySlug("zero"))?.forkCount).toBe(0);
     });
 
+    it("setForkCount writes an absolute value (restore recompute primitive)", async () => {
+        await repo.insert(makePalette({ slug: "drift", forkCount: 7 }));
+        await repo.setForkCount("drift", 2);
+        expect((await repo.findBySlug("drift"))?.forkCount).toBe(2);
+        await repo.setForkCount("drift", 0);
+        expect((await repo.findBySlug("drift"))?.forkCount).toBe(0);
+    });
+
     it("delete removes the document; deleteManyByUserSlug cascades", async () => {
         await repo.insert(makePalette({ slug: "del-1", userSlug: "u" }));
         await repo.insert(makePalette({ slug: "del-2", userSlug: "u" }));

@@ -3,7 +3,17 @@
 **Status**: STANDING REFERENCE — codifies the H1 invariant.
 **Authored**: 2026-05-26 (H.W1 Lane C, post-Lane-A landing).
 **Updated**: 2026-05-26 (H.W1 Lane A.2 — D4-D10 wrapped per option-α adjudication).
+**Updated**: 2026-06-11 (N.W3.B — transaction right-sizing: 18 sites → 14; the 4 benign / single-collection sites dropped, each justified below in §3.3).
 **HEAD at authoring**: `tranche-h` @ `a12a71d` + Lane A.1 + Lane A.2 working-tree.
+
+> **N.W3.B right-sizing (2026-06-11).** The H1 invariant binds **cross-collection**
+> writes only. Four of the 18 wrapped sites were right-sized OUT because their
+> non-atomic outcome is benign + self-healing (NOT a cross-collection referential
+> break): `toggleVote`, `registerSession`, `loginSession`, `restorePalette`. Each
+> drop is justified in §3.3. The live count is now **14** (`grep -rn
+> 'services.withTransaction(' api/src/ | grep -v comment` = 14: 13 in `services/`
+> + 1 in `cron.ts`). The §1.4 / §2 tables below are updated to the 14-site truth.
+> H1 still binds: **every cross-collection write KEEPS its transaction.**
 **H1 invariant** (verbatim from `docs/tranches/H/H.md §2 H1`):
 > Every cross-collection write site in `api/` uses `services.withTransaction(async (session) => { ... })` and threads `session` through every repository call inside the block. The defect found at `createPalette` + `patchPalette` (H-AUDIT-6) is repaired; a standing `audit/api-withTransaction-coverage.md` enumerates every cross-collection write + its session status, becoming the future-reference that prevents the class of regression.
 
@@ -44,55 +54,55 @@ For every candidate site:
 
 ### §1.4 — Authoritative grep at HEAD
 
-`grep -rn 'services.withTransaction' api/src/services/` at HEAD (post-Lane-A.2) returns **the following 16 invocation lines** (excluding the helper-definition lines in `middleware/inject-services.ts` and the comment refs):
+`grep -rn 'services.withTransaction(' api/src/` at HEAD (post-N.W3.B) returns **the following 14 invocation lines** across `services/` (13) + `cron.ts` (1), excluding the helper-definition lines in `middleware/inject-services.ts` and the comment refs:
 
-| Invocation file | Line | Function context | Wave landed |
-|---|---|---|---|
-| `services/admin/users.ts` | 170 | `deleteUser` | E.W2 Lane B |
-| `services/admin/batch.ts` | 38 | `batchPalettes(delete)` | G.W3 Lane E |
-| `services/admin/batch.ts` | 87 | `batchUsers(suspend)` | G.W3 Lane E |
-| `services/palette/crud.ts` | 108 | `createPalette` | H.W1 Lane A.1 |
-| `services/palette/crud.ts` | 188 | `patchPalette` | H.W1 Lane A.1 |
-| `services/palette/crud.ts` | 234 | `deletePalette` (user-facing) | G.W3 Lane E |
-| `services/palette/forks.ts` | 50 | `remixPalette` (was `forkPalette`; `forkPalette` now delegates) | E.W2 Lane B; J.W2 rename+atomDiff |
-| `services/palette/versions.ts` | 151 | `revertToVersion` | G.W3 Lane E |
-| `services/palette/votes.ts` | 45 | `toggleVote` | E.W2 Lane B |
-| `services/admin/palettes.ts` | 49 | `deletePalette` (admin variant — D6) | **H.W1 Lane A.2** |
-| `services/admin/users.ts` | 122 | `setUserStatus` (D7) | **H.W1 Lane A.2** |
-| `services/admin/users.ts` | 207 | `deleteUserPalettes` (D8) | **H.W1 Lane A.2** |
-| `services/admin/users.ts` | 241 | `pruneEmptyUsers` (D9) | **H.W1 Lane A.2** |
-| `services/admin/tags.ts` | 78 | `deleteTag` (D10) | **H.W1 Lane A.2** |
-| `services/session/auth.ts` | 74 | `registerSession` (D4) | **H.W1 Lane A.2** |
-| `services/session/auth.ts` | 132 | `loginSession` (D5) | **H.W1 Lane A.2** |
+| Invocation file | Line | Function context | Wave landed | Collections |
+|---|---|---|---|---|
+| `cron.ts` | 47 | `cleanup` (reaper hard-delete) | I.W2 | `palettes`+`votes`+`flags` |
+| `services/admin/users.ts` | 169 | `deleteUser` | E.W2 Lane B | multi |
+| `services/admin/batch.ts` | 38 | `batchPalettes(delete)` | G.W3 Lane E | `palettes`+`votes`+`flags` |
+| `services/admin/batch.ts` | 87 | `batchUsers(suspend)` | G.W3 Lane E | `users`+`sessions` |
+| `services/palette/crud.ts` | 116 | `createPalette` | H.W1 Lane A.1 | `palettes`+`palette_versions` |
+| `services/palette/crud.ts` | 203 | `patchPalette` | H.W1 Lane A.1 | `palettes`+`palette_versions` |
+| `services/palette/crud.ts` | 255 | `deletePalette` (user-facing) | G.W3 Lane E | `palettes`† |
+| `services/palette/forks.ts` | 107 | `remixPalette` (was `forkPalette`; `forkPalette` now delegates) | E.W2 Lane B; J.W2 rename+atomDiff | `palettes`+`palette_versions` |
+| `services/palette/versions.ts` | 156 | `revertToVersion` | G.W3 Lane E | `palette_versions`+`palettes` |
+| `services/admin/palettes.ts` | 66 | `deletePalette` (admin variant — D6) | **H.W1 Lane A.2** | `palettes`† |
+| `services/admin/users.ts` | 121 | `setUserStatus` (D7) | **H.W1 Lane A.2** | `users`+`sessions` |
+| `services/admin/users.ts` | 206 | `deleteUserPalettes` (D8) | **H.W1 Lane A.2** | `palettes`+`votes`+`flags` |
+| `services/admin/users.ts` | 240 | `pruneEmptyUsers` (D9) | **H.W1 Lane A.2** | `sessions`+`users` |
+| `services/admin/tags.ts` | 79 | `deleteTag` (D10) | **H.W1 Lane A.2** | `tags`+`palettes` |
 
-= **16 invocations at post-Lane-A.2 HEAD** (matching the §2 WRAPPED table count).
+= **14 invocations at post-N.W3.B HEAD** (matching the §2 KEPT table count).
+
+† **`deletePalette` (user + admin) are SINGLE-collection** (the soft-delete `update` + the parent `decrementForkCount` both write `palettes`), so H1 does not *bind* them — they are KEPT for the two-document atomicity (the parent fork-count must roll back with the soft-delete) the dedicated rollback tests assert. A deliberate "wrap iff the two-doc outcome is referentially meaningful" judgment, recorded so the classification is not mistaken for an H1 over-application.
+
+**Right-sized OUT at N.W3.B (formerly WRAPPED, now §3.3):** `toggleVote`, `registerSession`, `loginSession`, `restorePalette`. See §3.3 for the per-site justification.
 
 ---
 
 ## §2 — WRAPPED sites
 
-The 16 cross-collection write sites that wrap their multi-collection mutation in `services.withTransaction(async (session) => { ... })`, with `session` threaded through every internal repository call.
+The **14 KEPT** sites that wrap their multi-document mutation in `services.withTransaction(async (session) => { ... })`, with `session` threaded through every internal repository call. (Post-N.W3.B: the 4 benign / single-collection sites — `toggleVote`, `registerSession`, `loginSession`, `restorePalette` — were right-sized OUT; see §3.3. Line numbers below reflect post-N.W3.B HEAD.)
 
 | # | File:line | Function | Collections touched | Wave landed | Rollback test? |
 |---|---|---|---|---|---|
-| 1 | `services/admin/users.ts:170` | `deleteUser` | `palettes` + `votes` + `flags` + `sessions` + `adminAudit` + `users` | E.W2 Lane B | Pattern-covered (G.W3 §3); no dedicated test (representative pair only) |
-| 2 | `services/palette/forks.ts:50` (txn at :109) | `remixPalette` (`forkPalette` delegates — fork = remix-with-empty-diff, ONE path) | `palettes` (insert + parent fork-count `$inc`) + `paletteVersions` (now carries the J.W2 `atomDiff` edge payload — SAME collection, no new store, inv-J-2) | E.W2 Lane B; **J.W2 rename** | Pattern-covered (G.W3 §3); `palette-remix.test.ts` asserts the recorded edge + parent fork-count bump |
-| 3 | `services/palette/votes.ts:45` | `toggleVote` | `votes` (upsert/delete) + `palettes` (gated `$inc voteCount`) | E.W2 Lane B | Pattern-covered (G.W3 §3) |
-| 4 | `services/palette/crud.ts:234` | `deletePalette` (user-facing) | `palettes` + `votes` + `flags` + `palettes` (parent `decrementForkCount` when `forkOf`) | G.W3 Lane E | **YES** — `withTransaction-rollback.test.ts` "rolls back palette + votes when a later cascade step throws" |
-| 5 | `services/palette/versions.ts:151` | `revertToVersion` | `paletteVersions` (via `createVersionRecord`) + `palettes` (update + `$inc versionCount`) | G.W3 Lane E | Pattern-covered (G.W3 §3) |
-| 6 | `services/admin/batch.ts:38` | `batchPalettes(delete)` | `palettes` + `votes` + `flags` | G.W3 Lane E | Pattern-covered (G.W3 §3) |
-| 7 | `services/admin/batch.ts:87` | `batchUsers(suspend)` | `users` (status flip) + `sessions` (cascade-invalidate) | G.W3 Lane E | **YES** — `withTransaction-rollback.test.ts` "rolls back user status when session invalidation throws" |
-| 8 | `services/palette/crud.ts:108` | `createPalette` | `palettes` (insert) + `paletteVersions` (via `createVersionRecord`, when `userSlug` present) | **H.W1 Lane A.1** | **YES** — `withTransaction-rollback-h-w1.test.ts` "createPalette rolls back palette + version when createVersionRecord throws" |
-| 9 | `services/palette/crud.ts:188` | `patchPalette` | `palettes` (update + `currentHash` bookkeeping) + `paletteVersions` (via `createVersionRecord`, when content-hash changes AND `userSlug` present) | **H.W1 Lane A.1** | **YES** — `withTransaction-rollback-h-w1.test.ts` "patchPalette rolls back palette mutation + version when createVersionRecord throws" |
-| 10 | `services/admin/palettes.ts:49` | `deletePalette` (admin variant — D6) | `palettes` + `votes` + `flags` (+ post-txn `admin_audit` per D2 carve-out) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D6 admin deletePalette rolls back palette + votes when flags.deleteByPaletteSlug throws" |
-| 11 | `services/admin/users.ts:122` | `setUserStatus` (D7 — wrapped unconditionally for call-site uniformity; only the `suspended` branch is multi-collection) | `users` (setStatus) + `sessions` (deleteByUserSlug on suspend branch) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D7 setUserStatus(suspended) rolls back user status when sessions.deleteByUserSlug throws" |
-| 12 | `services/admin/users.ts:207` | `deleteUserPalettes` (D8) | `palettes` (deleteManyByUserSlug) + `votes` (deleteByPaletteSlugs) + `flags` (deleteByPaletteSlugs) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D8 deleteUserPalettes rolls back vote + flag cascade when palettes.deleteManyByUserSlug throws" |
-| 13 | `services/admin/users.ts:241` | `pruneEmptyUsers` (D9) | `sessions` (deleteByUserSlugs) + `users` (deleteMany) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D9 pruneEmptyUsers rolls back sessions.deleteByUserSlugs when users.deleteMany throws" |
-| 14 | `services/admin/tags.ts:78` | `deleteTag` (D10) | `tags` (deleteByName) + `palettes` (pullTagFromAll cascade) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D10 deleteTag rolls back tags.deleteByName when palettes.pullTagFromAll throws" |
-| 15 | `services/session/auth.ts:74` | `registerSession` (D4) | `users` (insert) + `sessions` (insert) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D4 registerSession rolls back user.insert when sessions.insert throws" |
-| 16 | `services/session/auth.ts:132` | `loginSession` (D5) | `sessions` (insert) + `users` (touchLastSeen) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D5 loginSession rolls back sessions.insert when users.touchLastSeen throws" |
+| 1 | `services/admin/users.ts:169` | `deleteUser` | `palettes` + `votes` + `flags` + `sessions` + `adminAudit` + `users` | E.W2 Lane B | Pattern-covered (G.W3 §3); no dedicated test (representative pair only) |
+| 2 | `services/palette/forks.ts:107` | `remixPalette` (`forkPalette` delegates — fork = remix-with-empty-diff, ONE path) | `palettes` (insert + parent fork-count `$inc`) + `paletteVersions` (carries the J.W2 `atomDiff` edge payload — SAME collection, no new store, inv-J-2) | E.W2 Lane B; **J.W2 rename** | Pattern-covered (G.W3 §3); `palette-remix.test.ts` asserts the recorded edge + parent fork-count bump |
+| 3 | `services/palette/crud.ts:255` | `deletePalette` (user-facing) | `palettes` (soft-delete `update` + parent `decrementForkCount` when `forkOf`) — SINGLE-collection, KEPT for the two-doc atomicity | G.W3 Lane E | **YES** — `withTransaction-rollback.test.ts` "rolls back deletedAt when fork-count cascade throws" |
+| 4 | `services/palette/versions.ts:156` | `revertToVersion` | `paletteVersions` (via `createVersionRecord`) + `palettes` (update + `$inc versionCount`) | G.W3 Lane E | Pattern-covered (G.W3 §3) |
+| 5 | `services/admin/batch.ts:38` | `batchPalettes(delete)` | `palettes` + `votes` + `flags` | G.W3 Lane E | Pattern-covered (G.W3 §3) |
+| 6 | `services/admin/batch.ts:87` | `batchUsers(suspend)` | `users` (status flip) + `sessions` (cascade-invalidate) | G.W3 Lane E | **YES** — `withTransaction-rollback.test.ts` "rolls back user status when session invalidation throws" |
+| 7 | `services/palette/crud.ts:116` | `createPalette` | `palettes` (insert) + `paletteVersions` (via `createVersionRecord`, when `userSlug` present) | **H.W1 Lane A.1** | **YES** — `withTransaction-rollback-h-w1.test.ts` "createPalette rolls back palette + version when createVersionRecord throws" |
+| 8 | `services/palette/crud.ts:203` | `patchPalette` | `palettes` (update + `currentHash` bookkeeping) + `paletteVersions` (via `createVersionRecord`, when content-hash changes AND `userSlug` present) | **H.W1 Lane A.1** | **YES** — `withTransaction-rollback-h-w1.test.ts` "patchPalette rolls back palette mutation + version when createVersionRecord throws" |
+| 9 | `services/admin/palettes.ts:66` | `deletePalette` (admin variant — D6) | `palettes` (soft-delete `update` + parent `decrementForkCount`) — SINGLE-collection, KEPT for the two-doc atomicity (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D6 admin deletePalette rolls back soft-delete when fork-count cascade throws" |
+| 10 | `services/admin/users.ts:121` | `setUserStatus` (D7 — wrapped unconditionally for call-site uniformity; only the `suspended` branch is multi-collection) | `users` (setStatus) + `sessions` (deleteByUserSlug on suspend branch) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D7 setUserStatus(suspended) rolls back user status when sessions.deleteByUserSlug throws" |
+| 11 | `services/admin/users.ts:206` | `deleteUserPalettes` (D8) | `palettes` (deleteManyByUserSlug) + `votes` (deleteByPaletteSlugs) + `flags` (deleteByPaletteSlugs) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D8 deleteUserPalettes rolls back vote + flag cascade when palettes.deleteManyByUserSlug throws" |
+| 12 | `services/admin/users.ts:240` | `pruneEmptyUsers` (D9) | `sessions` (deleteByUserSlugs) + `users` (deleteMany) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D9 pruneEmptyUsers rolls back sessions.deleteByUserSlugs when users.deleteMany throws" |
+| 13 | `services/admin/tags.ts:79` | `deleteTag` (D10) | `tags` (deleteByName) + `palettes` (pullTagFromAll cascade) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D10 deleteTag rolls back tags.deleteByName when palettes.pullTagFromAll throws" |
+| 14 | `cron.ts:47` | `cleanup` (reaper hard-delete loop) | `palettes` (delete) + `votes` (deleteByPaletteSlug) + `flags` (deleteByPaletteSlug) | I.W2 | Pattern-covered (same cascade shape as user `deletePalette`) |
 
-**Invariant verification** (at post-Lane-A.2 HEAD):
+**Invariant verification** (at post-N.W3.B HEAD):
 - Every `withTransaction` callback receives `session: ClientSession` as its argument.
 - Every repository call inside each block passes `session` as its final argument. (Verified by reading each function body; an un-threaded repository call inside a `withTransaction` block is the only way a wrapped site can silently regress, and grep + Read is the prescribed enforcement.)
 - Repository method signatures support `session?: ClientSession` for every method reached from a wrapped block; the inventory of session-aware methods is in G.W3 Lane E `§2` (extended by E.W2 Lane B's original 3 sites; H.W1 Lane A.1 added no new session-aware methods). **H.W1 Lane A.2 extended 7 repository methods** to accept `session?: ClientSession` (see `H.W1-lane-a2-d4-d10-withTransaction-extension.md §3` for the full list).
@@ -125,6 +135,30 @@ These are cross-collection write sites in services that do NOT carry an explicit
 - D3 — **rationale-DEFENDED-via-carveout** (impersonate's only secondary write is the D2 audit).
 - D4-D10 — **WRAPPED in §2** (H.W1 Lane A.2 — see `H.W1-lane-a2-d4-d10-withTransaction-extension.md`). No longer relay items.
 
+### §3.3 — RIGHT-SIZED OUT at N.W3.B (2026-06-11)
+
+Four sites that were WRAPPED through H but whose transaction bought no real
+invariant — their non-atomic outcome is **benign + self-healing**, NOT a
+cross-collection referential break. H1 binds cross-collection writes; these are
+either single-collection or carry a recoverable orphan that a standing sweep
+reaps. Each is now un-wrapped, with the rationale codified here (the standing
+reference) + an in-code comment at the site. **The H1 invariant is unaffected:
+no cross-collection referential write was unwrapped.** Coverage tests:
+`test/services/txn-right-sizing.test.ts` asserts each opens ZERO transactions
+while a representative KEPT site still opens one.
+
+| # | File:line | Function | Was | Why droppable (justified-each) | In-code comment? |
+|---|---|---|---|---|---|
+| R1 | `services/palette/votes.ts` `toggleVote` | row 3 | The unique `(userSlug, paletteSlug)` index is the correctness anchor — it makes the delete-or-upsert idempotent and its true-insert/true-delete signal gates the `$inc`, which is **document-atomic without a session**. The transaction only added snapshot-isolation on the returned `voteCount` re-read — but that count is ADVISORY UI state, not an invariant; an off-by-one for one response self-heals on the next read. `findOneAndIncrementVoteCount` folds the `$inc` + re-read into one round-trip. | **YES** — `votes.ts` header doc-comment. |
+| R2 | `services/session/auth.ts` `registerSession` | row 15 | The two writes (`users.insert` then `sessions.insert`) are NOT a referential invariant: a partial failure leaves an orphan `users` row with no session, **indistinguishable from a registered-then-never-saved user** and already reaped by `pruneEmptyUsers`. The session insert runs AFTER the user insert so a live session always names an existing user. | **YES** — `auth.ts:registerSession` comment. |
+| R3 | `services/session/auth.ts` `loginSession` | row 16 | The session insert + the `lastSeenAt` touch are NOT a referential invariant: `lastSeenAt` is **advisory presence metadata** that converges on the next request. The session insert runs FIRST so the user is never touched for a session that failed to land. (Mirrors R2's benign-orphan reasoning — "wrap iff the non-atomic outcome is a cross-collection referential break, not a recoverable orphan.") | **YES** — `auth.ts:loginSession` comment. |
+| R4 | `services/palette/crud.ts` `restorePalette` | (sibling-landed N.W3.J path) | **SINGLE-collection** — every write touches only `palettes` (the doc's `deletedAt` clear + the parent's fork-count recompute). H1 does not bind. The `setForkCount` recompute is itself the heal: it writes the counted-from-truth value (`countForksOf`), so the parent's `forkCount` converges to its live-fork count on every restore regardless of interleaving — no transactional isolation required. | **YES** — `crud.ts:restorePalette` comment. |
+
+**The former D4/D5 rollback specs** in `withTransaction-rollback-h-w1.test.ts`
+were re-authored to assert the NEW contract (the first write PERSISTS on a
+second-write failure; the orphan is exactly what `pruneEmptyUsers` reaps) — they
+are now the N.W3.B benign-orphan witnesses, not rollback witnesses.
+
 ---
 
 ## §4 — SINGLE-COLLECTION sites (excluded from §2 / §3 — listed for traceability)
@@ -153,7 +187,8 @@ These services contain writes but only touch ONE collection (modulo the D2 audit
 
 | File:line | Function | Collections | Disposition |
 |---|---|---|---|
-| `api/src/cron.ts:20-34` | `cleanup` (daily cron) | `sessions` (deleteExpired + deleteStale) + `palettes` (read only — `listAllSlugs`) + `votes` (deleteOrphaned) | OUT OF SCOPE for this audit (file is `api/src/cron.ts`, not `services/`). Functionally cross-collection (sessions + votes are written; palettes is read-only for the orphan-detection). The cron deliberately does NOT wrap: each sweep is independently idempotent (the next nightly run re-applies any failed delete), and the orphan-vote sweep depends on a stable palettes snapshot. **Suggested as a future-traceability item** — if H.W4 or a later wave revisits cron transactional semantics, append a §4.2 entry here. |
+| `api/src/cron.ts:47` | `cleanup` — the **reaper hard-delete loop** | `palettes` (delete) + `votes` (deleteByPaletteSlug) + `flags` (deleteByPaletteSlug), per expired palette | **WRAPPED — promoted to §2 row 14 at N.W3.B.** This per-palette cascade IS a cross-collection write and IS already wrapped (`cron.ts:47`); listing it in §2 makes the census honest (the I.W2-era classification of cron as wholesale "out of scope" predated the reaper's transactional cascade). |
+| `api/src/cron.ts:55-56` | `cleanup` — the orphan-vote sweep | `palettes` (read-only `listAllSlugs`) + `votes` (deleteOrphaned) | OUT OF SCOPE — NOT a cross-collection *write* (palettes is read-only). The N.W3.A `createdAt < sweepStart` bound closes its TOCTOU; the sweep is intentionally un-sessioned (a single bounded `$nin` deleteMany, idempotent across nightly runs). Session expiry is no longer swept here at all — the `sessions.expiresAt` TTL index (N.W3.I) discharges it in the DB engine. |
 
 ### §4.3 — Repositories (`api/src/repositories/**/*.ts`)
 
@@ -252,8 +287,20 @@ The H.W1 wave gate requires (per `docs/tranches/H/waves/H.W1.md §Gate`):
 
 ### §6.3 — H1 invariant codifier status
 
-**At post-Lane-A.2 HEAD: H1 invariant is FULLY CLOSED for the maximalist reading.** The 16 sites listed in §2 satisfy "every cross-collection write site in `api/` uses `services.withTransaction(async (session) => { ... })`". The 3 §3 DEFERRED entries (D1, D2, D3) are rationale-DEFENDED carve-outs — D1 is the per-row batch-delete loop (existing in-code comment cites G-AUDIT-6 §1.4), D2 is the audit-log befitting-graceful carve-out (existing comment block at `events/auditLog.ts:1-13`), D3 is impersonate (only secondary write is D2-class).
+**At post-Lane-A.2 HEAD (historical): H1 was FULLY CLOSED for the maximalist
+reading** with 16 wrapped sites. **At post-N.W3.B HEAD (2026-06-11): the count
+is right-sized to 14** (§2). H1 itself is unchanged — it binds **cross-collection**
+writes, and **every cross-collection referential write still wraps**. The 4
+right-sized-out sites (§3.3) were either single-collection (`restorePalette`) or
+carried only a benign, self-healing orphan (`toggleVote`, `registerSession`,
+`loginSession`) — none was a cross-collection referential write. The 3 §3
+DEFERRED entries (D1, D2, D3) remain rationale-DEFENDED carve-outs.
 
-**Closure invariant**: `grep -rn 'services.withTransaction' api/src/services/ | wc -l` returns 16 — equal to the §2 WRAPPED row count. Any future cross-collection write site MUST land in §2 with a wrap, in §3 with a defended carve-out, or in §4 with a single-collection classification — the §5 methodology is the runtime-enforceable shape of the H1 invariant in code-review.
+**Closure invariant**: `grep -rn 'services.withTransaction(' api/src/ | grep -v
+comment` returns **14** — equal to the §2 KEPT row count (13 in `services/` + 1
+reaper in `cron.ts`). Any future cross-collection write site MUST land in §2
+with a wrap, in §3 with a defended carve-out (§3.1/§3.2) or a justified
+right-size (§3.3), or in §4 with a single-collection classification — the §5
+methodology is the runtime-enforceable shape of the H1 invariant in code-review.
 
 This document is updated at every wave that touches the cross-collection write surface.

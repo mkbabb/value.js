@@ -32,8 +32,17 @@ import { hashIP, resolveIP } from "../../middleware/ip.js";
 import { asSessionToken, asUserSlug } from "../../models.js";
 import { generateUniqueSlug } from "../../slugWords.js";
 
-/** 7 days — the only place this constant lives. */
-const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+/**
+ * 30 days — the only place this constant lives.
+ *
+ * This is the documented cross-repo session contract (CRUD-CONTRACT §6:
+ * `session_ttl_days = 30`). A session is minted with `expiresAt = createdAt +
+ * SESSION_TTL_MS` and the value is never extended; the `sessions.expiresAt` TTL
+ * index (`db.ts`, `expireAfterSeconds: 0`) is what discharges §6's "the cron
+ * hard-deletes sessions where expires_at < now()" — the DB engine does it, so
+ * there is no application-level session sweep (N.W3.C/I reconcile).
+ */
+const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 
 /** Constant-time delay (ms) padding the login response. */
 const LOGIN_CONSTANT_DELAY_MS = 200;
@@ -66,36 +75,32 @@ export async function registerSession(
 
     const userSlug = await generateUniqueSlug(users);
 
-    // Cross-collection write (H.W1 Lane A.2 — H1 invariant): the user row
-    // and its first session insert atomically. A partial failure (driver
-    // hiccup, write-concern timeout) must not leave an orphan user with no
-    // session — both writes thread `session`. `generateUniqueSlug` runs
-    // OUTSIDE the closure because it executes its own reads against the
-    // primary; the txn is scoped to the two writes only.
-    await services.withTransaction(async (session) => {
-        await users.insert(
-            {
-                // Construction mint: the freshly generated slug becomes this
-                // new user's branded `_id`.
-                _id: asUserSlug(userSlug),
-                createdAt: now,
-                lastSeenAt: now,
-            },
-            session,
-        );
-        await sessions.insert(
-            {
-                // Construction mint: the freshly generated uuid becomes this
-                // new session's branded `_id`.
-                _id: asSessionToken(token),
-                ipHash,
-                userSlug,
-                createdAt: now,
-                lastSeenAt: now,
-                expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
-            },
-            session,
-        );
+    // N.W3.B — no transaction. The two writes (user row, then its first
+    // session) are NOT a cross-collection referential invariant: a partial
+    // failure between them leaves an orphan `users` row with no session, which
+    // is INDISTINGUISHABLE from a registered-then-never-saved user and is
+    // already reaped by `pruneEmptyUsers`. The non-atomic outcome is benign +
+    // self-healing, so the replica-set transaction bought nothing here (unlike
+    // `createPalette`/`remix`/`revert`, where a partial write is a real
+    // referential break — a version row pointing at a palette that never
+    // landed). The session insert runs AFTER the user insert so the live
+    // session always names an existing user.
+    await users.insert({
+        // Construction mint: the freshly generated slug becomes this new
+        // user's branded `_id`.
+        _id: asUserSlug(userSlug),
+        createdAt: now,
+        lastSeenAt: now,
+    });
+    await sessions.insert({
+        // Construction mint: the freshly generated uuid becomes this new
+        // session's branded `_id`.
+        _id: asSessionToken(token),
+        ipHash,
+        userSlug,
+        createdAt: now,
+        lastSeenAt: now,
+        expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
     });
 
     return { token, userSlug };
@@ -130,26 +135,24 @@ export async function loginSession(
     const token = crypto.randomUUID();
     const now = new Date();
 
-    // Cross-collection write (H.W1 Lane A.2 — H1 invariant): the new
-    // session row and the user's `lastSeenAt` touch must commit atomically.
-    // A partial failure must not leave a live session with a stale
-    // `lastSeenAt`, nor a touched user with no corresponding session.
-    await services.withTransaction(async (txnSession) => {
-        await sessions.insert(
-            {
-                // Construction mint: the freshly generated uuid becomes this
-                // new session's branded `_id`.
-                _id: asSessionToken(token),
-                ipHash,
-                userSlug: slug,
-                createdAt: now,
-                lastSeenAt: now,
-                expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
-            },
-            txnSession,
-        );
-        await users.touchLastSeen(slug, now, txnSession);
+    // N.W3.B — no transaction. The session insert + the `lastSeenAt` touch are
+    // NOT a referential invariant: `lastSeenAt` is advisory presence metadata,
+    // so a session that lands without its touch (or a touch without its
+    // session, on the inverse failure) is harmless and self-heals on the next
+    // request. The session insert runs FIRST so the user is never touched for
+    // a session that failed to land. This mirrors `registerSession`'s
+    // benign-orphan reasoning — neither outcome is a cross-collection break.
+    await sessions.insert({
+        // Construction mint: the freshly generated uuid becomes this new
+        // session's branded `_id`.
+        _id: asSessionToken(token),
+        ipHash,
+        userSlug: slug,
+        createdAt: now,
+        lastSeenAt: now,
+        expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
     });
+    await users.touchLastSeen(slug, now);
 
     return { token, userSlug: slug };
 }

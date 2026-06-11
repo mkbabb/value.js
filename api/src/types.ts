@@ -1,4 +1,6 @@
+import type { WithId } from "mongodb";
 import type { Services } from "./middleware/inject-services.js";
+import type { Palette } from "./models.js";
 
 export type AppEnv = {
     Variables: {
@@ -11,5 +13,14 @@ export type AppEnv = {
          * The middleware constructs `Services` once per worker (lazy).
          */
         services: Services;
+        /**
+         * The owner-gated palette, stashed by the `requireOwnership` extractor
+         * (N.W3.E). On `PATCH`/`DELETE`/`restore`/`revert` the ownership read
+         * already fetched the full document; stashing it here lets the route's
+         * ETag pre-check + the service write reuse it instead of re-reading the
+         * same slug — the PATCH read-amplification collapse (4 → 2). Present
+         * only on routes mounted behind `requireOwnership(paletteOwnerExtractor)`.
+         */
+        palette: WithId<Palette> | undefined;
     };
 };

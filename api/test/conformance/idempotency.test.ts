@@ -110,9 +110,9 @@ describe("K.W2 conformance — Idempotency-Key replay", () => {
         expect(count).toBe(1);
     });
 
-    it("replay short-circuits the handler even when the second body differs", async () => {
-        // The key — not the body — is the idempotency token. A retry that
-        // (e.g.) double-encoded its payload must STILL replay the first result.
+    it("same key + SAME body → verbatim replay; the handler runs once", async () => {
+        // The body-hash matches, so the second POST replays the first result
+        // (the slug-q document) and creates no second row.
         const key = "test-key-bbb";
         const headers = {
             ...owner,
@@ -127,15 +127,50 @@ describe("K.W2 conformance — Idempotency-Key replay", () => {
         });
         expect(first.status).toBe(201);
 
-        // Same key, DIFFERENT slug in the body — must replay the first (slug q),
-        // and must NOT create a second document.
+        const second = await app.request("/palettes", {
+            method: "POST",
+            headers,
+            body: createBody("q"),
+        });
+        expect(second.status).toBe(201);
+        expect(second.headers.get("Idempotency-Replayed")).toBe("true");
+        const body = (await second.json()) as { slug: string };
+        expect(body.slug).toBe("q");
+        const qCount = await db.collection("palettes").countDocuments({ slug: "q" });
+        expect(qCount).toBe(1);
+    });
+
+    it("same key + DIFFERENT body → 409 urn:contract:idempotency-replay-conflict (CS3.2)", async () => {
+        // N.W3.G: the Idempotency-Key is a promise that THIS operation runs at
+        // most once. Reusing the key for a genuinely different payload is a
+        // client bug — surfaced as a loud 409, NOT a silent replay of the wrong
+        // result (the prior behaviour, which violated CS3.2).
+        const key = "test-key-conflict";
+        const headers = {
+            ...owner,
+            "Content-Type": "application/json",
+            "Idempotency-Key": key,
+        };
+
+        const first = await app.request("/palettes", {
+            method: "POST",
+            headers,
+            body: createBody("q"),
+        });
+        expect(first.status).toBe(201);
+
+        // Same key, DIFFERENT slug in the body → 409 problem+json conflict.
         const second = await app.request("/palettes", {
             method: "POST",
             headers,
             body: createBody("q-different"),
         });
-        const body = (await second.json()) as { slug: string };
-        expect(body.slug).toBe("q"); // the replayed original, not "q-different"
+        expect(second.status).toBe(409);
+        const body = (await second.json()) as { type: string };
+        expect(body.type).toBe("urn:contract:idempotency-replay-conflict");
+        // No document for the conflicting payload, and the replay marker is
+        // absent (the conflict is a throw, not a cached-error replay).
+        expect(second.headers.get("Idempotency-Replayed")).toBeNull();
         const qDiff = await db
             .collection("palettes")
             .countDocuments({ slug: "q-different" });

@@ -89,11 +89,14 @@ function problemResponse(body: unknown, status: number): Response {
     });
 }
 
-// 404 fallback — I.W4: RFC 7807 problem+json envelope.
+// 404 fallback — I.W4: RFC 7807 problem+json envelope. N.W3.H: the type URI
+// binds the shared contract catalog (`urn:contract:not-found`), matching the
+// `NotFoundError` class so an unmatched route and a typed 404 are legible as
+// the same contract problem type.
 app.notFound((c) =>
     problemResponse(
         {
-            type: "urn:palette-api:problem:not_found",
+            type: "urn:contract:not-found",
             title: "Not Found",
             status: 404,
             instance: c.req.path,
@@ -103,8 +106,9 @@ app.notFound((c) =>
 );
 
 // Global error handler — I.W4 SOTA: RFC 7807 problem+json envelope. Maps
-// ApiError subclasses to typed `urn:palette-api:problem:<code>` URNs;
-// unrecognised throws become 500/"internal" with operator logs.
+// ApiError subclasses to their shared-contract `urn:contract:<kebab>` URNs
+// (N.W3.H convergence); unrecognised throws become 500 with the
+// `urn:palette-api:problem:internal` sentinel + operator logs.
 app.onError((err, c) => {
     const { status, body } = toResponseEnvelope(err, c.req.path);
     if (status >= 500) {

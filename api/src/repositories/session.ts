@@ -64,17 +64,9 @@ export class SessionRepository {
             .then((r) => r.deletedCount);
     }
 
-    /** Delete sessions whose `expiresAt` is earlier than `now`. */
-    deleteExpired(now: Date): Promise<number> {
-        return this.col
-            .deleteMany({ expiresAt: { $lt: now } })
-            .then((r) => r.deletedCount);
-    }
-
-    /** Delete sessions whose `lastSeenAt` is earlier than `threshold`. */
-    deleteStale(threshold: Date): Promise<number> {
-        return this.col
-            .deleteMany({ lastSeenAt: { $lt: threshold } })
-            .then((r) => r.deletedCount);
-    }
+    // Note: there is no application-level expiry/stale sweep. Sessions are
+    // reaped by the `sessions.expiresAt` TTL index (`db.ts`,
+    // `expireAfterSeconds: 0`) at their 30-day mint horizon (CRUD-CONTRACT §6).
+    // The former `deleteExpired`/`deleteStale` methods + their cron arms were
+    // dead once the TTL index landed (N.W3.C/I).
 }

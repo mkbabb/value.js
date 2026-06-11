@@ -138,7 +138,7 @@ describe("K.W2 conformance — CRUD-CONTRACT v2 envelope shape", () => {
         const res = await app.request("/palettes/ghost", { method: "GET" });
         expect(res.status).toBe(404);
         const body = (await res.json()) as { type: string };
-        expect(body.type).toBe("urn:palette-api:problem:not_found");
+        expect(body.type).toBe("urn:contract:not-found");
     });
 
     // ---- PATCH (If-Match contract) ----
@@ -152,7 +152,7 @@ describe("K.W2 conformance — CRUD-CONTRACT v2 envelope shape", () => {
         });
         expect(res.status).toBe(428);
         const body = (await res.json()) as { type: string };
-        expect(body.type).toBe("urn:palette-api:problem:precondition_required");
+        expect(body.type).toBe("urn:contract:precondition-required");
     });
 
     it("PATCH /palettes/:slug → 412 when If-Match is stale", async () => {
@@ -164,7 +164,7 @@ describe("K.W2 conformance — CRUD-CONTRACT v2 envelope shape", () => {
         });
         expect(res.status).toBe(412);
         const body = (await res.json()) as { type: string };
-        expect(body.type).toBe("urn:palette-api:problem:precondition_failed");
+        expect(body.type).toBe("urn:contract:etag-mismatch");
     });
 
     it("PATCH /palettes/:slug → 200 + envelope + fresh ETag when If-Match matches", async () => {

@@ -30,10 +30,7 @@ import {
     patchPalette,
     restorePalette,
 } from "../../services/palette/crud.js";
-import {
-    getOwnerSlug,
-    getPaletteETagData,
-} from "../../services/palette/ownership.js";
+import { getOwnedPalette } from "../../services/palette/ownership.js";
 
 export const crudRouter = new Hono<AppEnv>();
 
@@ -91,14 +88,18 @@ crudRouter.post("/", async (c) => {
     return c.json(result, 201);
 });
 
-// Owner-extractor shared by PATCH + DELETE — reads the palette's `userSlug`
-// via the service-owned `getOwnerSlug` (inv-L-5: routes never reach into the
-// repository). Returns `null` to signal "not found" (middleware → 404); the
-// caller's `userSlug` must match for the request to proceed (middleware → 403).
+// Owner-extractor shared by PATCH + DELETE + restore — reads the FULL palette
+// via the service-owned `getOwnedPalette` (inv-L-5: routes never reach into
+// the repository) and STASHES it on `c.var.palette` so the gated handler can
+// reuse that single read for the ETag pre-check + the service write (N.W3.E:
+// PATCH read-amplification 4 → 2). Returns `null` to signal "not found"
+// (middleware → 404); the caller's `userSlug` must match (middleware → 403).
 export const paletteOwnerExtractor = async (
     c: Parameters<Parameters<typeof requireOwnership>[0]>[0],
 ): Promise<string | null> => {
-    return getOwnerSlug(c.var.services, c.req.param("slug"));
+    const palette = await getOwnedPalette(c.var.services, c.req.param("slug"));
+    c.set("palette", palette ?? undefined);
+    return palette?.userSlug ?? null;
 };
 
 // PATCH /palettes/:slug — update (owner only; gated by requireOwnership).
@@ -110,12 +111,14 @@ crudRouter.patch(
         const slug = c.req.param("slug");
         const ifMatch = c.req.header("If-Match");
 
-        // Resolve the current resource ETag before allowing the update. This
-        // route pre-check is the SINGLE pre-write optimistic-concurrency check:
-        // it fast-fails a stale If-Match. `patchPalette` performs no in-txn ETag
-        // re-validation, so a concurrent write between this read and the service
-        // write is not fenced — an accepted narrow TOCTOU window (ledger #16).
-        const current = await getPaletteETagData(c.var.services, slug);
+        // The `requireOwnership` extractor already read the palette and stashed
+        // it on `c.var.palette` (N.W3.E) — reuse that doc for the ETag
+        // pre-check instead of re-reading the slug. This route pre-check is the
+        // SINGLE pre-write optimistic-concurrency check: it fast-fails a stale
+        // If-Match. `patchPalette` performs no in-txn ETag re-validation, so a
+        // concurrent write between this read and the service write is not
+        // fenced — an accepted narrow TOCTOU window (ledger #16).
+        const current = c.var.palette;
         if (current) {
             assertIfMatch(ifMatch, paletteETag(current));
         }
@@ -130,6 +133,9 @@ crudRouter.patch(
             slug,
             body: parsed.data,
             userSlug: c.var.userSlug,
+            // The middleware-read palette — `patchPalette` reuses it for the
+            // content-hash diff instead of a third read of the same slug.
+            palette: current,
         });
         c.header("ETag", paletteETag({
             currentHash: result.currentHash,

@@ -16,6 +16,7 @@
  * methods are reachable only when ownership already holds.
  */
 
+import type { WithId } from "mongodb";
 import type { Services } from "../../middleware/inject-services.js";
 import type { Palette } from "../../models.js";
 import { ConflictError, GoneError, NotFoundError } from "../../errors/index.js";
@@ -152,6 +153,11 @@ export interface PatchInput {
     // `requireOwnership` middleware (E.W2 Lane C) guarantees this is also the
     // palette's owner — we use it here purely to attribute the version record.
     userSlug: string | undefined;
+    // The pre-read palette, supplied by the route's `requireOwnership`
+    // extractor (N.W3.E). When present the service reuses it for the content-
+    // hash diff instead of re-reading the slug — the PATCH read-amplification
+    // collapse. Optional so direct service callers (tests) still work.
+    palette?: WithId<Palette> | undefined;
 }
 
 export async function patchPalette(
@@ -160,11 +166,13 @@ export async function patchPalette(
 ): Promise<FormattedPalette> {
     const { slug, body, userSlug } = input;
     // Ownership is enforced by the `requireOwnership` middleware on the route
-    // (E.W2 Lane C). The middleware has already verified the palette exists
-    // and is owned by `c.var.userSlug`; we still re-read here for the patch
-    // payload + content-hash diff. A 404 here would indicate the resource was
+    // (E.W2 Lane C). The middleware already read the palette and threads it in
+    // via `input.palette` (N.W3.E) — we reuse it for the content-hash diff
+    // instead of a redundant re-read. Direct service callers that omit it fall
+    // back to a single read. A null here would indicate the resource was
     // deleted between middleware and handler (extremely narrow race).
-    const palette = await services.repositories.palettes.findBySlug(slug);
+    const palette =
+        input.palette ?? (await services.repositories.palettes.findBySlug(slug));
     if (!palette) throw new NotFoundError("Palette not found");
 
     const $set: Record<string, unknown> = { updatedAt: new Date() };
@@ -277,19 +285,24 @@ export async function restorePalette(
         return formatPalette(palette);
     }
     const now = new Date();
-    await services.withTransaction(async (session) => {
-        await services.repositories.palettes.update(
-            slug,
-            { $set: { deletedAt: null, updatedAt: now } },
-            session,
-        );
-        if (palette.forkOf) {
-            await services.repositories.palettes.incrementForkCount(
-                palette.forkOf,
-                session,
-            );
-        }
+    // N.W3.B — no transaction. Restore is SINGLE-collection: every write here
+    // touches only `palettes` (the doc's own `deletedAt` clear + the parent's
+    // fork-count recompute), so the H1 cross-collection invariant does not
+    // bind. The recompute is itself the heal: `setForkCount` writes the
+    // counted-from-truth value (N.W3.J), so the parent's `forkCount` converges
+    // to its live-fork count on every restore regardless of interleaving — no
+    // transactional isolation required. The clear runs BEFORE the recount so
+    // `countForksOf` (which filters `deletedAt: null`) includes this
+    // just-restored fork.
+    await services.repositories.palettes.update(slug, {
+        $set: { deletedAt: null, updatedAt: now },
     });
+    if (palette.forkOf) {
+        const liveForks = await services.repositories.palettes.countForksOf(
+            palette.forkOf,
+        );
+        await services.repositories.palettes.setForkCount(palette.forkOf, liveForks);
+    }
     const restored = await services.repositories.palettes.findBySlug(slug);
     if (!restored) throw new NotFoundError("Palette not found");
     return formatPalette(restored);

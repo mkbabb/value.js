@@ -87,9 +87,9 @@ describe("routes.palettes — requireOwnership middleware (E.W2 Lane C)", () => 
             body: JSON.stringify({ name: "Renamed" }),
         });
         expect(res.status).toBe(401);
-        // I.W4: problem+json envelope.
+        // I.W4: problem+json envelope. N.W3.H: contract URN.
         const body = (await res.json()) as { type: string };
-        expect(body.type).toBe("urn:palette-api:problem:authentication");
+        expect(body.type).toBe("urn:contract:session-invalid");
     });
 
     it("PATCH /palettes/:slug — 404 when slug doesn't exist", async () => {
@@ -104,7 +104,7 @@ describe("routes.palettes — requireOwnership middleware (E.W2 Lane C)", () => 
         });
         expect(res.status).toBe(404);
         const body = (await res.json()) as { type: string };
-        expect(body.type).toBe("urn:palette-api:problem:not_found");
+        expect(body.type).toBe("urn:contract:not-found");
     });
 
     it("PATCH /palettes/:slug — 403 OwnershipError when non-owner", async () => {
@@ -119,7 +119,7 @@ describe("routes.palettes — requireOwnership middleware (E.W2 Lane C)", () => 
         });
         expect(res.status).toBe(403);
         const body = (await res.json()) as { type: string };
-        expect(body.type).toBe("urn:palette-api:problem:ownership");
+        expect(body.type).toBe("urn:contract:not-owner");
     });
 
     it("PATCH /palettes/:slug — 200 when owner matches (I.W4 If-Match)", async () => {

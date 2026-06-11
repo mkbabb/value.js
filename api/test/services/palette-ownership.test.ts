@@ -2,10 +2,7 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
 import { createPalette } from "../../src/services/palette/crud.js";
-import {
-    getOwnerSlug,
-    getPaletteETagData,
-} from "../../src/services/palette/ownership.js";
+import { getOwnedPalette } from "../../src/services/palette/ownership.js";
 import type { Services } from "../../src/middleware/inject-services.js";
 
 describe("service.palette.ownership", () => {
@@ -27,8 +24,13 @@ describe("service.palette.ownership", () => {
         services = buildServices(db, client);
     });
 
-    describe("getOwnerSlug", () => {
-        it("returns the palette's userSlug when it exists", async () => {
+    // N.W3.E — the ownership read returns the WHOLE palette (one read, one
+    // doc) so the owner-gated routes reuse it for both the ETag pre-check and
+    // the service write. The former `getOwnerSlug` / `getPaletteETagData`
+    // single-purpose helpers are retired; this single read carries the owner
+    // slug AND the ETag inputs (`currentHash` + `updatedAt`).
+    describe("getOwnedPalette", () => {
+        it("returns the full palette (owner slug + ETag inputs) when it exists", async () => {
             await createPalette(services, {
                 body: {
                     name: "Owned",
@@ -38,33 +40,17 @@ describe("service.palette.ownership", () => {
                 },
                 userSlug: "alice",
             });
-            expect(await getOwnerSlug(services, "owned")).toBe("alice");
+            const palette = await getOwnedPalette(services, "owned");
+            expect(palette).not.toBeNull();
+            // Owner slug — backs the `requireOwnership` 403/404 decision.
+            expect(palette?.userSlug).toBe("alice");
+            // ETag inputs — back the route's If-Match pre-check.
+            expect(typeof palette?.currentHash).toBe("string");
+            expect(palette?.updatedAt).toBeInstanceOf(Date);
         });
 
         it("returns null when the palette does not exist (→ middleware 404)", async () => {
-            expect(await getOwnerSlug(services, "ghost")).toBeNull();
-        });
-    });
-
-    describe("getPaletteETagData", () => {
-        it("returns the currentHash + updatedAt for an existing palette", async () => {
-            await createPalette(services, {
-                body: {
-                    name: "Etagged",
-                    slug: "etagged",
-                    colors: [{ css: "#00ff00", position: 0 }],
-                    tags: [],
-                },
-                userSlug: "bob",
-            });
-            const data = await getPaletteETagData(services, "etagged");
-            expect(data).not.toBeNull();
-            expect(typeof data?.currentHash).toBe("string");
-            expect(data?.updatedAt).toBeInstanceOf(Date);
-        });
-
-        it("returns null when the palette does not exist (caller skips the guard)", async () => {
-            expect(await getPaletteETagData(services, "ghost")).toBeNull();
+            expect(await getOwnedPalette(services, "ghost")).toBeNull();
         });
     });
 });

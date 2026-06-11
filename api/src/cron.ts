@@ -8,11 +8,15 @@
  * across the request-scoped + scheduled-task surfaces.
  *
  * Sweeps performed:
- *   1. Expired sessions     — `sessions.expiresAt < now`.
- *   2. Stale sessions       — `sessions.lastSeenAt < now − 30d`.
- *   3. Orphaned vote rows   — votes whose `paletteSlug` no longer exists.
- *   4. I.W2 reaper          — palettes with `deletedAt < now − GRACE` get
+ *   1. I.W2 reaper          — palettes with `deletedAt < now − GRACE` get
  *                             hard-deleted (cascade votes/flags).
+ *   2. Orphaned vote rows   — votes whose `paletteSlug` no longer exists AND
+ *                             that predate the sweep snapshot (TOCTOU-safe).
+ *
+ * Session expiry is NOT swept here: the `sessions.expiresAt` TTL index
+ * (`db.ts`, `expireAfterSeconds: 0`) reaps each session at its 30-day mint
+ * horizon — this is CRUD-CONTRACT §6's "the cron hard-deletes sessions where
+ * expires_at < now()", discharged by the DB engine (N.W3.C/I).
  */
 
 import { getServices } from "./middleware/inject-services.js";
@@ -25,13 +29,14 @@ const PALETTE_GRACE_MS = process.env.PALETTE_GRACE_MS
 
 export async function cleanup(): Promise<void> {
     const services = await getServices();
-    const { sessions, palettes, votes, flags } = services.repositories;
-    const now = new Date();
-    const thirtyDaysAgo = new Date(now.getTime() - THIRTY_DAYS_MS);
-    const graceCutoff = new Date(now.getTime() - PALETTE_GRACE_MS);
-
-    const expiredCount = await sessions.deleteExpired(now);
-    const staleCount = await sessions.deleteStale(thirtyDaysAgo);
+    const { palettes, votes, flags } = services.repositories;
+    // `sweepStart` is captured BEFORE any read so the orphan-vote `$nin`
+    // snapshot and its `createdAt < sweepStart` boundary are mutually
+    // consistent: a palette (and its votes) created after this instant is
+    // absent from `listAllSlugs()` but its votes also fall outside the
+    // `createdAt < sweepStart` window, so they are never reaped as orphaned.
+    const sweepStart = new Date();
+    const graceCutoff = new Date(sweepStart.getTime() - PALETTE_GRACE_MS);
 
     // I.W2 reaper: hard-delete palettes whose grace window has expired. The
     // findPastGrace + transactional hard-delete (with cascade votes/flags) is
@@ -48,9 +53,9 @@ export async function cleanup(): Promise<void> {
     }
 
     const paletteSlugs = await palettes.listAllSlugs();
-    const orphanedVotes = await votes.deleteOrphaned(paletteSlugs);
+    const orphanedVotes = await votes.deleteOrphaned(paletteSlugs, sweepStart);
 
     console.log(
-        `[cron] Cleanup: removed ${expiredCount} expired + ${staleCount} stale sessions, ${reaped} grace-expired palettes, ${orphanedVotes} orphaned votes`,
+        `[cron] Cleanup: removed ${reaped} grace-expired palettes, ${orphanedVotes} orphaned votes`,
     );
 }
