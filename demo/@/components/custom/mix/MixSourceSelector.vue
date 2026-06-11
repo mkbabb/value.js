@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject, computed, watch, ref, TransitionGroup } from "vue";
 import { Plus, X, ChevronDown } from "@lucide/vue";
-import { BouncyTabs } from "@mkbabb/glass-ui/tabs";
+import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components/ui/collapsible";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
@@ -45,8 +45,12 @@ const tabOptions = [
     { label: "Palettes", value: "palettes" },
 ];
 
-function onTabChange(value: string) {
-    emit("update:mode", value as "colors" | "palettes");
+function onTabChange(value: string | string[]) {
+    // Single-select tabs always emit a string; guard the union honestly.
+    const next = Array.isArray(value) ? value[0] : value;
+    if (next === "colors" || next === "palettes") {
+        emit("update:mode", next);
+    }
 }
 
 function isPaletteSelected(id: string): boolean {
@@ -97,7 +101,7 @@ watch(
     <div class="flex flex-col gap-3">
         <!-- Bouncy segmented control -->
         <div class="flex items-center justify-center pb-1">
-            <BouncyTabs
+            <SegmentedTabs
                 variant="pill"
                 :options="tabOptions"
                 :model-value="mode"

@@ -3,19 +3,19 @@
         v-if="leftLabel && rightLabel"
         class="flex items-center justify-center gap-0 px-4 pb-2"
     >
-        <BouncyTabs
+        <SegmentedTabs
             variant="pill"
             :options="tabOptions"
             :model-value="String(modelValue)"
             class="font-display"
-            @update:model-value="(v: string) => emit('update:modelValue', Number(v) as 0 | 1)"
+            @update:model-value="(v) => emit('update:modelValue', Number(v) as 0 | 1)"
         />
     </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { BouncyTabs } from "@mkbabb/glass-ui/tabs";
+import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 
 const { modelValue, leftLabel, rightLabel } = defineProps<{
     modelValue: 0 | 1;

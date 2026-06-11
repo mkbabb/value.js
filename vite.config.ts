@@ -27,25 +27,37 @@ const defaultOptions = {
             "@lib": path.resolve(import.meta.dirname, "demo/@/lib"),
             "@composables": path.resolve(import.meta.dirname, "demo/@/composables"),
             "@assets": path.resolve(import.meta.dirname, "assets"),
-            // inv-K-2 (K.W2c): glass-ui's aurora color path now consumes the
-            // value.js canonical core via `@mkbabb/value.js`. When the demo
-            // source-resolves glass-ui (serve mode), that bare import must point
-            // at THIS repo's own source — a package never installs itself, so
-            // there is no `node_modules/@mkbabb/value.js` to walk up to. Alias it
-            // to `src/` for a single local instance (the demo also imports
-            // value.js via `@src`; both resolve to the same source).
-            "@mkbabb/value.js": path.resolve(import.meta.dirname, "src/index.ts"),
+            // inv-K-2 / mechanism-C (N.W1.C): glass-ui's aurora color path
+            // consumes the value.js canonical core via the bare
+            // `@mkbabb/value.js` specifier. glass-ui's published `dist/`
+            // (aurora.js, color-*.js) imports those symbols by that name; under
+            // dist-resolution (N.W1.C) the demo resolves glass-ui from its dist,
+            // so those imports must point at THIS repo's own published surface.
+            // A package never installs itself — there is no
+            // `node_modules/@mkbabb/value.js` to walk up to — so we alias the
+            // bare specifier to value.js's OWN `dist/value.js`. This makes the
+            // whole graph consume ONE consistent published value.js surface
+            // (the demo's own `@src` imports + glass-ui's `@mkbabb/value.js`
+            // imports both land on the same library, dist for glass-ui's path).
+            // Repointed src→dist at N.W1.C (the K.W2.5 mechanism-C remainder):
+            // dist-resolution everywhere, kept fresh by `build:watch` (dev.sh).
+            "@mkbabb/value.js": path.resolve(import.meta.dirname, "dist/value.js"),
         },
-        // The symlinked `@mkbabb/glass-ui` ships its own nested `vue` +
-        // `reka-ui` in node_modules. Without dedupe the demo loads two Vue
-        // instances — two reactivity systems, broken cross-package
-        // provide/inject, and (K.W2, post source-resolution) a
-        // Teleport-patch crash (`insertBefore` NotFoundError) when a
-        // source-resolved glass-ui component (e.g. the dock Select dropdown)
-        // mounts its portal against a split `@vue/runtime-*` internal. Deduping
-        // the full `@vue/*` family + `reka-ui` collapses every cross-package
-        // import to the host's single instance. glass-ui declares these as
-        // peerDependencies, so the host copy is the intended one.
+        // glass-ui's published `dist/` externalizes `vue` + `reka-ui` (it
+        // imports them by bare specifier) but its symlinked package ALSO ships
+        // its own nested `vue` + `reka-ui` under `node_modules`. Without dedupe
+        // those externalized bare imports resolve to glass-ui's NESTED copies
+        // while the demo's own imports resolve to the host copies — two Vue
+        // reactivity systems + two reka-ui instances (broken cross-package
+        // provide/inject, a Teleport-patch `insertBefore` NotFoundError when a
+        // glass-ui portal mounts against a split `@vue/runtime-*` internal).
+        // Deduping the full `@vue/*` family + `reka-ui` collapses every
+        // cross-package import to the host's single instance. glass-ui declares
+        // these as peerDependencies, so the host copy is the intended one. This
+        // is the structural guarantee that the dist-resolution posture
+        // (N.W1.C / mechanism-C) yields a single externalized vue/reka instance
+        // — load-bearing for the gh-pages build, NOT a source-resolution
+        // band-aid (it is the half that MAKES dist-resolution single-instance).
         dedupe: [
             "vue",
             "@vue/runtime-core",
@@ -57,56 +69,43 @@ const defaultOptions = {
     },
 };
 
-// Contract-v2 (docs/precepts/cross-repo-dev-resolution.md §1.2, §2):
-// bare `@mkbabb/*` specifiers resolve through the sibling's `exports` map via
-// the `file:` symlink in `node_modules`. K.W2 (inv-K-4) added a `development`
-// export condition to glass-ui (→ its live `src/`); Vite's built-in serve
-// default applies `development`, so the demo `serve` modes now source-resolve
-// glass-ui (build-state independent, cohort-/HMR-friendly), while `build` modes
-// (`production` condition) resolve the published `dist/` surface. No
-// consumer-side `resolve.conditions` override is used (it would REPLACE Vite's
-// default list). See the inv-K-4 note below.
+// Cross-repo resolution (N.W1.C / mechanism-C, supersedes the K.W2 inv-K-4
+// `development`-condition posture): bare `@mkbabb/glass-ui` specifiers resolve
+// through the sibling's `exports` map via the `file:` symlink in
+// `node_modules`. The `development` export condition K.W2 introduced was a
+// contract-v2 precept violation (it source-resolved glass-ui and caused the
+// dual-instance fragility); it was abrogated constellation-wide. glass-ui's
+// `exports` map now carries ONLY `{types, import, default}` (all → `dist/`), so
+// the demo resolves glass-ui from its published `dist/` surface in every mode —
+// no `customConditions`/`resolve.conditions` override, no source-resolution.
+// During co-development the dist is kept fresh by `build:watch`
+// (`dev.sh SIBLING_WATCH_BUILDS=(../glass-ui)`); there is no mid-edit source
+// consumption at any hop. The published value.js library build (`production`
+// mode) imports glass-ui NEVER (inv-K-1, eslint-enforced).
 //
-// `server.fs.allow` widening: NARROWED at E.W0 Lane A (post-glass-ui-9275584
-// `./styles.css` adoption) — see `docs/tranches/E/audit/E.W0-lane-a-styles-
-// adoption.md`. Glass-ui now ships TWO orthogonal style surfaces:
+// `server.fs.allow` widening: load-bearing for FONT-ASSET resolution off the
+// Tailwind-source `./styles` surface (NARROWED at E.W0 Lane A; see
+// `docs/tranches/E/audit/E.W0-lane-a-styles-adoption.md`). glass-ui ships TWO
+// orthogonal style surfaces:
 //
-//   `./styles`     — Tailwind-source (src/styles/index.css): tokens,
+//   `./styles`     — Tailwind-source (dist/styles/index.css): tokens,
 //                    typography (@font-face + url("../fonts/...woff2")),
 //                    theme.css @theme aliases, utilities, @source directive.
-//                    Consumer's Tailwind compiler processes this; structurally
-//                    `src/`, cannot be pre-compiled without losing semantics.
+//                    The consumer's Tailwind compiler processes this surface.
 //   `./styles.css` — SFC-scoped compiled (dist/glass-ui.css): data-v-* scoped
 //                    component CSS. Zero @font-face, zero url() refs.
 //
-// The compiled `./styles.css` surface ABSORBS the SFC-scoped contract-v2
-// component-CSS gap, but the Tailwind-source `./styles` surface still ships
-// `@font-face` declarations whose `url("../fonts/fira-code/...woff2")` refs
-// are resolved RELATIVE to `node_modules/@mkbabb/glass-ui/src/styles/` — i.e.
-// they walk OUT of the symlinked package into glass-ui's repo-root `fonts/`
-// directory. That walk is the residual reason `server.fs.allow` must reach
-// glass-ui's parent (`path.resolve(__dirname, "..")`). The widening is now
-// the consumer-side reciprocal of a NARROWED publisher-side gap — only
-// font-asset resolution remains; the SFC-scoped component-CSS half is
-// closed. Retiring this entirely requires either (a) glass-ui inlining the
-// font binaries as base64 data URLs in `dist/glass-ui.css` and exporting the
-// `@font-face` declarations through the compiled surface, or (b) the demo
-// dropping the Tailwind-source `./styles` import entirely (which would
-// forfeit the design-system tokens + Tailwind `@source` class-scanning).
-// Neither is appropriate scope for tranche E; filed as a successor concern.
+// The Tailwind-source `./styles` surface ships `@font-face` declarations whose
+// `url("../fonts/fira-code/...woff2")` refs resolve RELATIVE to the symlinked
+// `dist/styles/` — they walk OUT of the package into glass-ui's repo-root
+// `fonts/` directory. That walk is why `server.fs.allow` must reach glass-ui's
+// parent (`path.resolve(__dirname, "..")`). This is NOT a source-resolution
+// band-aid (the SFC-scoped component-CSS half closed at E.W0); only font-asset
+// resolution remains. Retiring it entirely requires glass-ui to inline the
+// fonts as data URLs in the compiled surface, or the demo to drop the
+// Tailwind-source `./styles` import (forfeiting the design-system tokens +
+// Tailwind `@source` class-scanning) — a glass-ui-owned successor concern.
 const siblingFsAllowTransient = [path.resolve(import.meta.dirname, "..")];
-
-// inv-K-4 (K.W2) — cross-repo source resolution is handled by glass-ui's
-// `development` export condition (added K.W2) + Vite's built-in serve/build
-// condition default: Vite applies `development` in `serve` and `production` in
-// `build`, so the demo resolves `@mkbabb/glass-ui` from the sibling's live
-// `src/` in dev (cohort/HMR against source, build-state independent) and from
-// the published `dist/` surface for the gh-pages deploy artifact — no explicit
-// `resolve.conditions` override needed (overriding would REPLACE Vite's default
-// list and risk other packages' resolution). The CSS `@import
-// "@mkbabb/glass-ui/styles*"` keys carry no `development` variant, so they stay
-// on the Tailwind-source/dist surface either way. The published library build
-// (`production` mode) imports glass-ui never (inv-K-1).
 
 const defaultPlugins = [
     sourceExportPlugin(),

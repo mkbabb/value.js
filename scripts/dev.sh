@@ -34,7 +34,21 @@ MONGO_PORT=27017
 MONGO_DB="palette-db"
 DEV_MONGO_DIR="$ROOT/.dev/mongo"
 MONGO_READY_TIMEOUT_S=20
-SIBLING_WATCH_BUILDS=()               # value.js is the root publisher; no on-disk @mkbabb siblings
+# The `file:`-linked `@mkbabb/*` siblings the demo consumes from their published
+# `dist/` (N.W1.C / mechanism-C: dist-resolution everywhere, kept fresh by each
+# sibling's `build:watch` during co-development — no mid-edit source consumption
+# at any hop). Each pair is `<repo-dir>:<dist entry artefact>` — the artefact is
+# the file the sibling's `exports["."].import` resolves to, used both as the
+# cold-checkout missing-`dist/` probe and as the first-pass completion gate.
+# glass-ui's dist also imports `@mkbabb/value.js` (aurora/color paths); that bare
+# specifier is aliased to value.js's OWN `dist/value.js` in vite.config.ts, so
+# value.js's own `build:watch` keeps that surface fresh too (started below,
+# alongside the demo — value.js is the root publisher, not a sibling of itself).
+SIBLING_WATCH_BUILDS=(
+    "../glass-ui:dist/glass-ui.js"
+)
+SIBLING_FIRST_PASS_TIMEOUT_S=120
+WATCH_BUILD_GATE_TARGETS=()
 DEV_DIR="$ROOT/.dev"; mkdir -p "$DEV_DIR"
 LOG_DIR="$DEV_DIR/logs"; mkdir -p "$LOG_DIR"
 
@@ -112,6 +126,95 @@ cleanup() {
     rm -f "$DEV_DIR"/*.ports 2>/dev/null || true
     wait 2>/dev/null || true
     exit 0
+}
+
+# ── Sibling watch-builds (N.W1.C / mechanism-C: dist-resolution + build:watch) ─
+# Keep each `file:`-linked @mkbabb/* sibling's published `dist/` fresh while the
+# demo runs against it, so there is never mid-edit SOURCE consumption — the demo
+# always resolves a complete, built dist surface. Mirrors the constellation dev.sh.
+ensure_sibling_watch_builds() {
+    local entry
+    for entry in ${SIBLING_WATCH_BUILDS[@]+"${SIBLING_WATCH_BUILDS[@]}"}; do
+        local sib_path="${entry%%:*}"
+        local sib_artefact="${entry##*:}"
+        local sib_abs="$ROOT/$sib_path"
+        local sib_name="${sib_path##*/}"
+
+        # A sibling installed from npm (not `file:`-linked) has no repo on disk —
+        # nothing to watch-build; the published `dist/` is already in
+        # node_modules. Skip cleanly.
+        if [[ ! -d "$sib_abs" ]]; then
+            note "sibling not present at $sib_abs — skip watch-build"
+            continue
+        fi
+
+        # Cold-checkout recovery: if `dist/` has no entry artefact yet, run a
+        # one-shot `build` first so vite never starts against a half-written
+        # `dist/`; the watcher then takes over from a complete tree.
+        if [[ ! -f "$sib_abs/$sib_artefact" ]]; then
+            log "$sib_name dist missing — one-shot build before watch..."
+            ( cd "$sib_abs" && npm run build 2>&1 | sed "s|^|[$sib_name] |" ) || \
+                die "build failed at $sib_path — fix the sibling before retrying" 6
+        fi
+
+        log "starting $sib_name watch-build..."
+        # Subshell-wrapped so $! is the subshell, not the pipeline tail `sed` —
+        # kill_tree then walks the whole `vite build --watch` tree.
+        ( cd "$sib_abs" && npm run build:watch 2>&1 | sed "s|^|[$sib_name] |" ) 2>/dev/null &
+        track "$!"
+
+        # First-pass gate keys on the entry artefact's mtime advancing past the
+        # watcher's spawn instant: `vite build --watch` re-emits the artefact at
+        # the end of every pass, so a newer mtime is an unambiguous
+        # "this pass finished writing" signal.
+        WATCH_BUILD_GATE_TARGETS+=("$sib_name:$sib_abs/$sib_artefact:$(date +%s)")
+    done
+}
+
+# Block until every spawned watcher has completed one full build pass (the entry
+# artefact's mtime has advanced past the watcher's spawn instant), so vite never
+# races a half-written sibling `dist/`. Mirrors the "wait for backend port to
+# bind before starting frontend" gate.
+wait_sibling_first_pass() {
+    local target
+    # `${arr[@]+…}` guard — bash 3.2 (macOS system bash) trips `set -u` on an
+    # empty-array `[@]` expansion.
+    for target in ${WATCH_BUILD_GATE_TARGETS[@]+"${WATCH_BUILD_GATE_TARGETS[@]}"}; do
+        local sib_name="${target%%:*}"
+        local rest="${target#*:}"
+        local artefact="${rest%:*}"
+        local spawned_at="${rest##*:}"
+
+        local deadline=$((SECONDS + SIBLING_FIRST_PASS_TIMEOUT_S)) mtime
+        while [[ $SECONDS -lt $deadline ]]; do
+            # `stat -f %m` (BSD) — the macOS-native mtime read; dev.sh is a
+            # macOS-workstation script (system bash 3.2, BSD coreutils).
+            mtime=$(stat -f %m "$artefact" 2>/dev/null || echo 0)
+            if [[ "$mtime" -gt "$spawned_at" ]]; then
+                log "$sib_name watch-build first pass complete"
+                break
+            fi
+            sleep 0.5
+        done
+        if [[ $SECONDS -ge $deadline ]]; then
+            note "$sib_name watch-build first pass did not complete within ${SIBLING_FIRST_PASS_TIMEOUT_S}s — vite will start anyway (first paint may resolve a stale $sib_name dist/)"
+        fi
+    done
+}
+
+# value.js's OWN `dist/value.js` is consumed by glass-ui's dist via the
+# `@mkbabb/value.js` self-alias (vite.config.ts). value.js is the root publisher,
+# not a sibling of itself, so its watch is started directly here rather than
+# through SIBLING_WATCH_BUILDS.
+start_self_watch_build() {
+    [[ -f "$ROOT/dist/value.js" ]] || {
+        log "value.js dist missing — one-shot library build before watch..."
+        ( cd "$ROOT" && npm run build 2>&1 | sed 's|^|[value.js] |' ) || \
+            die "value.js library build failed — fix before retrying" 1
+    }
+    log "starting value.js library watch-build (keeps dist/value.js fresh for glass-ui's dist)..."
+    ( cd "$ROOT" && npm run build:watch 2>&1 | sed 's|^|[value.js] |' ) 2>/dev/null &
+    track "$!"
 }
 
 # ── Mongo: docker-preferred single-node REPLICA SET → native fallback → fail ──
@@ -208,8 +311,15 @@ cmd_up() {
     FRONTEND_PORT=$(find_free_port "frontend" "${FRONTEND_PORT:-$FRONTEND_PORT_DEFAULT}" "$BACKEND_PORT")
     export BACKEND_PORT FRONTEND_PORT
     { echo "$BACKEND_PORT"; echo "$FRONTEND_PORT"; } > "$DEV_DIR/value-js.ports"
+    # Keep the consumed dist surfaces fresh BEFORE vite starts (mechanism-C):
+    # value.js's own dist (the self-alias glass-ui's dist imports) + glass-ui's
+    # dist (the demo's design system). Both watch-build; wait for the first pass
+    # so the dev server never paints against a half-written dist/.
+    start_self_watch_build
+    ensure_sibling_watch_builds
     start_backend
     wait_port_bound "api" "$BACKEND_PORT"
+    wait_sibling_first_pass
     start_frontend
     cat <<EOF
 

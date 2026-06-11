@@ -3,24 +3,33 @@
         :key="animationKey"
         class="grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 items-center stagger-children"
     >
-            <!-- Label sidebar — spans all component rows -->
-            <GlassCarousel
-                orientation="vertical"
-                :expanded="true"
-                class="self-stretch"
+            <!-- Channel label rail — a vertical, click-to-scroll, active-highlighted
+                 channel index. The picker's primary navigational affordance; a static
+                 3–5 item column, so it is a semantic tablist (not a carousel). -->
+            <div
+                role="tablist"
+                aria-orientation="vertical"
+                aria-label="Color channels"
+                class="channel-rail self-stretch flex flex-col items-center justify-around"
                 :style="{ gridRow: `1 / ${componentEntries.length + 1}`, gridColumn: '1' }"
             >
                 <TooltipProvider :delay-duration="300">
                     <Tooltip v-for="[component] in componentEntries" :key="component">
                         <TooltipTrigger as-child>
-                            <GlassCarouselItem
-                                :active="activeComponent === component"
-                                class="font-display text-subheading italic"
+                            <button
+                                :ref="(el: any) => { if (el) railItemEls[component] = el as HTMLButtonElement }"
+                                type="button"
+                                role="tab"
+                                :aria-selected="activeComponent === component"
+                                :tabindex="railTabIndex(component)"
+                                :aria-label="`${component} channel`"
+                                class="channel-rail-item font-display text-subheading italic"
                                 :style="{ color: labelColor(component) }"
                                 @click="scrollToSlider(component)"
+                                @keydown="onRailKeydown($event, component)"
                             >
                                 {{ componentLabel(component) }}
-                            </GlassCarouselItem>
+                            </button>
                         </TooltipTrigger>
                         <TooltipContent side="left" class="max-w-56">
                             <p class="font-display text-small font-semibold">{{ componentDescription(component) }}</p>
@@ -28,7 +37,7 @@
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
-            </GlassCarousel>
+            </div>
 
             <!-- Sliders — one per row, column 2 -->
             <div
@@ -114,7 +123,6 @@ import {
     SliderThumb,
     SliderTrack,
 } from "reka-ui";
-import { GlassCarousel, GlassCarouselItem } from "@mkbabb/glass-ui/glass-carousel";
 import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
 import { useTouchGate } from "@mkbabb/glass-ui";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
@@ -189,6 +197,50 @@ function scrollToSlider(component: string) {
     activeComponent.value = component;
     const el = sliderWrapperEls.value[component];
     el?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+// --- Channel rail: tablist keyboard navigation (roving tabindex) ---
+const railItemEls = ref<Record<string, HTMLButtonElement>>({});
+
+// Roving tabindex: the selected tab is the single tab-stop; if none is selected
+// yet, the first channel is the entry point.
+function railTabIndex(component: string): number {
+    const components = componentEntries.value.map(([c]) => c);
+    const selected = activeComponent.value ?? components[0];
+    return component === selected ? 0 : -1;
+}
+
+// Arrow-key navigation: Up/Down move along the vertical rail (with wrap),
+// Home/End jump to the ends. Selecting a channel scrolls its slider into view
+// and moves focus — the WAI-ARIA "selection follows focus" tablist idiom.
+function onRailKeydown(e: KeyboardEvent, component: string) {
+    const components = componentEntries.value.map(([c]) => c);
+    const i = components.indexOf(component);
+    if (i === -1) return;
+
+    let next: string | undefined;
+    switch (e.key) {
+        case "ArrowDown":
+        case "ArrowRight":
+            next = components[(i + 1) % components.length];
+            break;
+        case "ArrowUp":
+        case "ArrowLeft":
+            next = components[(i - 1 + components.length) % components.length];
+            break;
+        case "Home":
+            next = components[0];
+            break;
+        case "End":
+            next = components[components.length - 1];
+            break;
+        default:
+            return;
+    }
+    if (next === undefined) return;
+    e.preventDefault();
+    scrollToSlider(next);
+    railItemEls.value[next]?.focus();
 }
 
 // Touch gate check — reuse the same detection as spectrum
@@ -328,6 +380,39 @@ onUnmounted(() => {
 .touch-gate-active .slider-thumb {
     background-color: var(--background);
     border-color: var(--foreground);
+}
+
+/* Channel label rail (N.W1.A — replaces the non-existent GlassCarousel).
+ * A vertical tablist: per-channel display-font letters in the live channel
+ * color, with an active-channel highlight, hover lift, and a roving
+ * keyboard focus ring. The carousel primitive was a category error (C1 P0-2);
+ * the rail is a static 3–5 item navigational index. */
+.channel-rail-item {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    line-height: 1;
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    opacity: 0.6;
+    transition:
+        opacity var(--duration-normal) var(--ease-standard),
+        transform var(--duration-fast) var(--ease-standard),
+        background-color var(--duration-normal) var(--ease-standard);
+}
+.channel-rail-item:hover {
+    opacity: 0.85;
+    transform: scale(1.08);
+}
+.channel-rail-item[aria-selected="true"] {
+    opacity: 1;
+    background-color: color-mix(in srgb, var(--foreground) 8%, transparent);
+}
+.channel-rail-item:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--foreground) 50%, transparent);
+    outline-offset: 1px;
+    opacity: 1;
 }
 </style>
 

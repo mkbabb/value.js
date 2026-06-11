@@ -1,31 +1,29 @@
-// The demo program (inv-K-1 / inv-K-4 — K.W2).
+// The demo program (inv-K-1 — K.W2 split; N.W1.C mechanism-C resolution).
 //
 // `demo/` only. Resolves the value.js library through the `@src/*` path and
-// `@mkbabb/glass-ui` from SOURCE via the `development` export condition
-// (`customConditions`), symmetric with the Vite `resolve.conditions` in
-// `vite.config.ts` (`demoResolve`). Source-resolution is build-state
-// INDEPENDENT (inv-K-4): the demo typecheck reads glass-ui's live `src/`, green
-// whether glass-ui's `dist/` is fresh, stale, or deleted — which it provably is
-// (glass-ui's dist `.d.ts` churns under its own active development; relying on
-// it for TS is the coupling K removes).
+// `@mkbabb/glass-ui` from its published `dist/` surface (N.W1.C / mechanism-C —
+// the `development` source-resolution condition was abrogated constellation-
+// wide; glass-ui's `exports` map carries only `{types, import, default}` → all
+// `dist/`). Dist-resolution gives a real `.d.ts` trust boundary: glass-ui's
+// declaration files are skip-checked (`skipLibCheck`, tsconfig.base.json), so
+// vue-tsc reports glass-ui's own internal diagnostics NEVER — the demo
+// typecheck sees ZERO foreign errors and needs no error-scoping filter. This is
+// why `npm run typecheck` is now the plain direct `vue-tsc -p` gate (the K.W2
+// `scripts/check-types.mjs` foreign-error filter was retired at N.W1.C; under
+// source-resolution it masked ~164 glass-ui-source diagnostics, which the dist
+// trust boundary now eliminates structurally).
 //
-// THE ERROR-SCOPING CONTRACT. Source-resolution pulls glass-ui's `src/` into
-// this program, so vue-tsc also reports glass-ui's OWN internal diagnostics
-// (~164 under value.js's stricter `exactOptionalPropertyTypes` /
-// `noUncheckedIndexedAccess` floor, which glass-ui does not enforce on itself —
-// a `.ts` dependency has no `.d.ts` trust boundary to skip-check). value.js's
-// OWN demo code is type-clean against glass-ui source (0 `demo/` errors). The
-// K.W2 gate (`scripts/check-types.mjs`, the `typecheck` script) therefore counts
-// only value.js-OWNED errors (`src/` + `demo/`) and excludes `../glass-ui/`
-// paths — glass-ui-source cleanliness under the strict floor is glass-ui's CI's
-// responsibility, not value.js's, and is not per-file maskable here.
+// glass-ui's published `dist/` imports the value.js core by the bare
+// `@mkbabb/value.js` specifier (aurora/color paths, inv-K-2); a package never
+// installs itself, so the demo aliases that specifier to value.js's own
+// published `dist/value.js` (mirroring the Vite alias in `vite.config.ts`) for
+// one consistent published surface.
 //
 // This is the ONLY value.js program that may see glass-ui; the library program
 // (tsconfig.lib.json) never does (inv-K-1 — structurally glass-ui-free).
 {
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
-        "customConditions": ["development"],
         "paths": {
             "@src/*": ["./src/*"],
             "@styles/*": ["./demo/@/styles/*"],
@@ -36,7 +34,7 @@
             "@assets/*": ["./assets/*"],
             "vue": ["./node_modules/vue"],
             "@vue/*": ["./node_modules/@vue/*"],
-            "@mkbabb/value.js": ["./src/index.ts"]
+            "@mkbabb/value.js": ["./dist/index.d.ts"]
         }
     },
     // `src/vite-env.d.ts` carries `/// <reference types="vite/client" />`

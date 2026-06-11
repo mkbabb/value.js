@@ -43,7 +43,7 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - name: "Checkout glass-ui (file: workspace dep, resolved from source — inv-K-4)"
+            - name: "Checkout glass-ui (file: workspace dep — N.W1.C resolves it from dist)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/glass-ui
@@ -55,24 +55,53 @@ jobs:
                   node-version: ${{ matrix.node }}
                   cache: "npm"
 
+            # glass-ui's dist/ is a gitignored build artefact — a fresh checkout
+            # ships ZERO dist (no .d.ts, no CSS, no .js). N.W1.C repointed the
+            # demo to resolve glass-ui from its dist (mechanism-C), and the
+            # ledger §4 step-3 makes a dts-complete dist the W1 precondition for
+            # the typecheck/boot-smoke/abrogation gates. So we MUST build it from
+            # source here (a clean full rebuild: js + dts + css). 74 of the 91
+            # HEAD errors N restored from were this dist's absence.
+            - name: Build glass-ui dist (the dts/css/js W1 precondition)
+              run: |
+                  cd ../glass-ui
+                  npm ci
+                  npm run build
+
             - run: npm ci
 
             # ── 1 · lint ────────────────────────────────────────────────────
             - name: Lint (eslint flat config, --max-warnings=0)
               run: npm run lint
 
-            # ── 2 · typecheck ───────────────────────────────────────────────
-            # `npm run typecheck` = node scripts/check-types.mjs: the value.js-
-            # scoped gate over the tsconfig.lib/demo split (inv-K-1/K-4). It is
-            # 0 even with glass-ui's dist deleted (it resolves glass-ui from
-            # source and excludes glass-ui-internal diagnostics — glass-ui's CI
-            # owns those). NOT `vue-tsc -b`: there is no composite-references
-            # build; the leaves run via `-p … --noEmit` inside the script.
-            - name: Typecheck (value.js lib + demo — split-scoped)
+            # ── 2 · typecheck (blocking — inv-N-1) ──────────────────────────
+            # `npm run typecheck` = the plain direct two-leaf gate
+            # `vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p
+            # tsconfig.demo.json --noEmit` (N.W1.C retired the
+            # scripts/check-types.mjs foreign-error filter — under
+            # dist-resolution glass-ui resolves from its `dist/*.d.ts`, which
+            # `skipLibCheck` skips, so the demo program reports zero
+            # glass-ui-internal diagnostics and the filter was dead weight).
+            # MEANINGFUL ONLY against a dts-complete glass-ui dist — the
+            # checkout above must be a clean full rebuild (74 of the 91 HEAD
+            # errors N restored from were that dist's absence). This is the
+            # ledger §4 step-3 sweep gate, made structurally blocking here.
+            - name: Typecheck (value.js lib + demo — blocking, inv-N-1)
               run: npm run typecheck
 
             - name: Typecheck (api/ — its own Node16 tsconfig)
               run: cd api && npm ci && npx tsc --noEmit
+
+            # ── 2b · abrogation sweep (blocking — inv-N-10) ─────────────────
+            # The ledger §4 steps 1–2: (1) every `@mkbabb/glass-ui/<subpath>`
+            # import specifier in demo/ must resolve to a live exports entry
+            # (a sibling subpath rename — e.g. the `glass-carousel` boot-fatal —
+            # is caught at the diff); (2) glass-ui's `.retired-classes.txt`
+            # manifest is grepped against demo/ class usage (a retired CSS class
+            # silently no-ops — the P9 failure mode — so the manifest is the
+            # only signal). Cheap; runs every push, not just at pin-bump.
+            - name: Abrogation sweep (exports map + retired classes — inv-N-10)
+              run: npm run abrogation-sweep
 
             # ── 3 · build + size budget ─────────────────────────────────────
             - name: Build library (dist/value.{js,d.ts})
@@ -172,7 +201,7 @@ jobs:
             - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
-            - name: "Checkout glass-ui (demo build resolves it)"
+            - name: "Checkout glass-ui (demo build resolves it from dist)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/glass-ui
@@ -181,6 +210,11 @@ jobs:
               with:
                   node-version: 22
                   cache: "npm"
+            - name: Build glass-ui dist (gh-pages needs its full CSS dist)
+              run: |
+                  cd ../glass-ui
+                  npm ci
+                  npm run build
             - run: npm ci
             - name: Build demo SPA (gh-pages mode → dist/gh-pages)
               run: npm run gh-pages
@@ -191,3 +225,45 @@ jobs:
                   configPath: ./lighthouserc.json
                   uploadArtifacts: true
                   temporaryPublicStorage: true
+
+    # ── 7 · boot-smoke (BLOCKING — inv-N-1 boot-truth) ──────────────────────
+    # The white-screen-class defeat: boots the demo dev server on a COLD vite
+    # dep-optimizer cache (`vite --force`) and asserts the app mounts (the
+    # `role="main"` pane-shell landmark) with a console clean of value.js-origin
+    # errors. A sibling glass-ui rename that types `any` under the dts-less
+    # `file:` symlink + a warm dep-optimizer cache silently white-screens the
+    # live demo while vitest/lint/typecheck all stay green — this gate runs the
+    # real runtime path, cold, and fails loud. Standalone node script (NOT a
+    # playwright spec; e2e/** is the 5-project suite's, owned separately).
+    boot-smoke:
+        runs-on: ubuntu-latest
+        needs: build-and-test
+        timeout-minutes: 15
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+            - name: "Checkout glass-ui (demo resolves it from dist)"
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/glass-ui
+                  path: ../glass-ui
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: 22
+                  cache: "npm"
+            - name: Build glass-ui dist (the dts/css/js boot precondition)
+              run: |
+                  cd ../glass-ui
+                  npm ci
+                  npm run build
+            - run: npm ci
+            # The demo self-aliases `@mkbabb/value.js` → dist/value.js
+            # (vite.config.ts, mechanism-C), so the library dist must exist
+            # before the dev server can resolve the graph.
+            - name: Build value.js dist (the self-alias target)
+              run: npm run build
+            - name: Install Playwright (chromium)
+              run: npx playwright install --with-deps chromium
+            - name: Boot-smoke (cold dep-optimizer cache, headless mount + console-clean)
+              run: npm run boot-smoke
