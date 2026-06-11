@@ -1,8 +1,11 @@
 # N — PROGRESS
 
-**Status board.** N is **planning-only at open** (authored 2026-06-11 from the 32+5-lane deep
-audit; evidence base at `audit/lanes/`). N.W1–N.W9 are IMPL, **hard-blocked on explicit user
-ratification** of this charter + the supersede-M decision (`N.md §0`).
+**Status board.** N was **RATIFIED 2026-06-11** (explicit user dispatch: "Begin and continue the
+current tranche… completed the plan IN TOTALITY"). N.W1–N.W9 are IMPL, now executing. Round
+structure: R1 = W1 ∥ W2.A ∥ W7.A · R2 = W3 ∥ W5 ∥ W7.B · R3 = W2.BC ∥ W4 → W7.C (0.12.0) ·
+R4 = W6 · R5 = W8 → W9. The W1 precondition (dts-complete glass-ui dist) was **met at dispatch**
+— glass-ui's own watch now emits d.ts (551 files, fresh 2026-06-11 17:52); HEAD typecheck
+against it = **3 errors** (exactly the 3 re-aliased import sites), not 91.
 
 ## Wave status
 
@@ -51,5 +54,7 @@ ratification** of this charter + the supersede-M decision (`N.md §0`).
 
 ## Dispatch gate
 
-**Gate**: explicit user ratification of the charter + supersede-M. **Status**: **OPEN**.
-On ratification, N.W1 dispatches first; W2/W3/W4/W7 may dispatch beside it.
+**Gate**: explicit user ratification of the charter + supersede-M. **Status**: **CLOSED —
+RATIFIED 2026-06-11**. N.W1 dispatched first (R1) with W2.A and W7.A beside it; glass-ui
+3.13.0 remains uncut at dispatch → the W9 registry pin holds as the chartered
+BOOK-with-trigger (the pin is the gate, not the work).
