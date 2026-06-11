@@ -9,12 +9,12 @@
  */
 
 import type { Context } from "hono";
-import type { Document } from "mongodb";
 import type { AppEnv } from "../../types.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
+import type { FlaggedPalette } from "../../repositories/flag.js";
 
 export interface FlaggedListPage {
-    data: Document[];
+    data: FlaggedPalette[];
     total: number;
     limit: number;
     offset: number;

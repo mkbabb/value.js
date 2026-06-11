@@ -5,9 +5,25 @@
  * method backs the admin users-list view (palettes joined via $lookup).
  */
 
-import type { ClientSession, Collection, Document, Filter } from "mongodb";
+import type { ClientSession, Collection, Filter } from "mongodb";
 import type { User, UserStatus } from "../models.js";
 import { asUserSlug } from "../models.js";
+
+/**
+ * Shape of one row emitted by `aggregateUsersWithPaletteCount`'s `$project`
+ * stage. The pipeline renames `_id` → `slug` and computes `paletteCount` via a
+ * `$lookup` + `$size`, so the row no longer carries the raw `User` `_id`; this
+ * interface is the typed boundary the service consumes directly (no field-wise
+ * re-assertion). `lastSeenAt`/`status` are `$project`-projected straight from
+ * the `User` document, so they keep that document's optionality.
+ */
+export interface UserWithPaletteCount {
+    slug: string;
+    createdAt: Date;
+    lastSeenAt?: Date | undefined;
+    status?: UserStatus | undefined;
+    paletteCount: number;
+}
 
 export class UserRepository {
     constructor(private readonly col: Collection<User>) {}
@@ -88,9 +104,9 @@ export class UserRepository {
         match: Filter<User>,
         skip: number,
         limit: number,
-    ): Promise<Document[]> {
+    ): Promise<UserWithPaletteCount[]> {
         return this.col
-            .aggregate([
+            .aggregate<UserWithPaletteCount>([
                 { $match: match },
                 { $sort: { createdAt: -1 } },
                 { $skip: skip },
@@ -124,8 +140,11 @@ export class UserRepository {
      * Find users with zero palettes (prune-empty admin op). Returns slugs only.
      */
     async findEmptyUserSlugs(): Promise<string[]> {
+        // The `$project: { _id: 1 }` stage emits only the user `_id`, which is
+        // the slug (`User._id: UserSlug`). Type the pipeline output explicitly
+        // so the slug flows through without a per-row re-assertion.
         const rows = await this.col
-            .aggregate([
+            .aggregate<Pick<User, "_id">>([
                 {
                     $lookup: {
                         from: "palettes",
@@ -138,6 +157,6 @@ export class UserRepository {
                 { $project: { _id: 1 } },
             ])
             .toArray();
-        return rows.map((row) => row._id as string);
+        return rows.map((row) => row._id);
     }
 }

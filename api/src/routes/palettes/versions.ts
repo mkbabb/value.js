@@ -15,7 +15,6 @@ import {
 import { ValidationError } from "../../errors/index.js";
 import { requireOwnership } from "../../middleware/require-ownership.js";
 import { formatPalette } from "../../format/palette.js";
-import type { Palette } from "../../models.js";
 import {
     getVersionByHash,
     listVersions,
@@ -66,6 +65,6 @@ versionsRouter.post(
             hash: parsed.data.hash,
             userSlug: c.var.userSlug,
         });
-        return c.json(formatPalette(palette as Palette & { _id: unknown }));
+        return c.json(formatPalette(palette));
     },
 );

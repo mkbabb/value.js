@@ -10,6 +10,7 @@
  */
 
 import type { Context } from "hono";
+import type { WithId } from "mongodb";
 import type { AppEnv } from "../../types.js";
 import { ConflictError, NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
@@ -28,7 +29,7 @@ export interface CreateTagResult {
     category: string;
 }
 
-function format(tag: Tag & { _id: unknown }): TagDTO {
+function format(tag: WithId<Tag>): TagDTO {
     return {
         id: String(tag._id),
         name: tag.name,
@@ -40,7 +41,7 @@ function format(tag: Tag & { _id: unknown }): TagDTO {
 export async function listTags(c: Context<AppEnv>): Promise<TagDTO[]> {
     const { tags } = c.var.services.repositories;
     const rows = await tags.findAllSorted();
-    return rows.map((t) => format(t as Tag & { _id: unknown }));
+    return rows.map((t) => format(t));
 }
 
 export async function createTag(

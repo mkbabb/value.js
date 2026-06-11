@@ -12,6 +12,7 @@
  * startup probe, not silently defaulted here.
  */
 
+import type { WithId } from "mongodb";
 import type { Palette } from "../models.js";
 import { computeAtomSetHash } from "../hash.js";
 
@@ -49,12 +50,13 @@ export interface FormattedPalette {
 /**
  * Format a palette document for API response.
  *
- * @param doc - the Palette document (with the driver-supplied `_id`)
+ * @param doc - the Palette document (with the driver-supplied `_id`) as returned
+ *   by the repository read boundary (`WithId<Palette>`).
  * @param votedSlugs - optional set of paletteSlugs the current user has voted on;
  *   when supplied, `voted` is set to true/false; when omitted, `voted` is undefined.
  */
 export function formatPalette(
-    doc: Palette & { _id: unknown },
+    doc: WithId<Palette>,
     votedSlugs?: Set<string>,
 ): FormattedPalette {
     const { _id, ...rest } = doc;

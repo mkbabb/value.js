@@ -16,7 +16,6 @@ import {
     AuthenticationError,
     ConflictError,
 } from "../../errors/index.js";
-import type { ProposedName } from "../../models.js";
 import type { ProposedNameDTO } from "./queries.js";
 
 export interface ProposeInput {
@@ -73,14 +72,13 @@ export async function proposeColor(
             approvedAt: null,
         };
     }
-    const typed = doc as ProposedName & { _id: unknown };
     return {
-        id: String(typed._id),
-        name: typed.name,
-        css: typed.css,
-        status: typed.status,
-        contributor: typed.contributor,
-        createdAt: typed.createdAt,
-        approvedAt: typed.approvedAt,
+        id: String(doc._id),
+        name: doc.name,
+        css: doc.css,
+        status: doc.status,
+        contributor: doc.contributor,
+        createdAt: doc.createdAt,
+        approvedAt: doc.approvedAt,
     };
 }

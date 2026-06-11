@@ -5,17 +5,17 @@
  * reads) and the admin moderation queue (status: "proposed" + transitions).
  */
 
-import type { Collection, Filter, ObjectId, Sort, WithoutId } from "mongodb";
+import type { Collection, Filter, ObjectId, Sort, WithId, WithoutId } from "mongodb";
 import type { ProposedName, ProposedNameStatus } from "../models.js";
 
 export class ProposedNameRepository {
     constructor(private readonly col: Collection<ProposedName>) {}
 
-    findById(id: ObjectId): Promise<ProposedName | null> {
+    findById(id: ObjectId): Promise<WithId<ProposedName> | null> {
         return this.col.findOne({ _id: id });
     }
 
-    findByName(name: string): Promise<ProposedName | null> {
+    findByName(name: string): Promise<WithId<ProposedName> | null> {
         return this.col.findOne({ name });
     }
 
@@ -23,7 +23,7 @@ export class ProposedNameRepository {
         status: ProposedNameStatus,
         skip: number,
         limit: number,
-    ): Promise<ProposedName[]> {
+    ): Promise<WithId<ProposedName>[]> {
         const sort: Sort = status === "approved" ? { name: 1 } : { createdAt: -1 };
         return this.col
             .find({ status })
@@ -41,7 +41,7 @@ export class ProposedNameRepository {
         filter: Filter<ProposedName>,
         skip: number,
         limit: number,
-    ): Promise<ProposedName[]> {
+    ): Promise<WithId<ProposedName>[]> {
         return this.col.find(filter).skip(skip).limit(limit).toArray();
     }
 
@@ -49,7 +49,7 @@ export class ProposedNameRepository {
      * Text-search on the (name, css) compound text index defined in
      * `api/src/db.ts:53-56`. Returns the highest-scoring results first.
      */
-    searchText(query: string, limit: number): Promise<ProposedName[]> {
+    searchText(query: string, limit: number): Promise<WithId<ProposedName>[]> {
         return this.col
             .find(
                 { status: "approved", $text: { $search: query } },

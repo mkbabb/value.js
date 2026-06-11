@@ -10,7 +10,7 @@
  */
 
 import type { Context } from "hono";
-import type { Filter } from "mongodb";
+import type { Filter, WithId } from "mongodb";
 import type { AppEnv } from "../../types.js";
 import { escapeRegex } from "../../regex.js";
 import type { AdminAuditEvent } from "../../models.js";
@@ -41,7 +41,7 @@ export interface AuditQuery {
     before?: string | undefined;
 }
 
-function format(doc: AdminAuditEvent & { _id: unknown }): AuditEntryDTO {
+function format(doc: WithId<AdminAuditEvent>): AuditEntryDTO {
     return {
         id: String(doc._id),
         timestamp: doc.timestamp,
@@ -79,7 +79,7 @@ export async function listAudit(
     ]);
 
     return {
-        data: rows.map((r) => format(r as AdminAuditEvent & { _id: unknown })),
+        data: rows.map((r) => format(r)),
         total,
         limit: query.limit,
         offset: query.offset,

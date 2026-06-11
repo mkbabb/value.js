@@ -57,12 +57,14 @@ export async function listUsers(
         users.countByFilter(match),
     ]);
 
+    // The repository types the `$project` output as `UserWithPaletteCount`,
+    // which is structurally `UserListEntry` — no field-wise re-assertion.
     const data: UserListEntry[] = rows.map((row) => ({
-        slug: row.slug as string,
-        createdAt: row.createdAt as Date,
-        lastSeenAt: row.lastSeenAt as Date | undefined,
-        status: row.status as UserStatus | undefined,
-        paletteCount: (row.paletteCount as number) ?? 0,
+        slug: row.slug,
+        createdAt: row.createdAt,
+        lastSeenAt: row.lastSeenAt,
+        status: row.status,
+        paletteCount: row.paletteCount,
     }));
 
     return { data, total, limit, offset };
@@ -86,19 +88,16 @@ export async function listUserPalettes(
     const { palettes } = c.var.services.repositories;
     // Use a wide window — the original route had no pagination here.
     const rows = await palettes.findByUserSlug(slug, 0, 1000);
-    return rows.map((p) => {
-        const doc = p as Palette & { _id: unknown };
-        return {
-            id: String(doc._id),
-            name: doc.name,
-            slug: doc.slug,
-            colors: doc.colors,
-            tier: doc.tier,
-            voteCount: doc.voteCount,
-            createdAt: doc.createdAt,
-            updatedAt: doc.updatedAt,
-        };
-    });
+    return rows.map((doc) => ({
+        id: String(doc._id),
+        name: doc.name,
+        slug: doc.slug,
+        colors: doc.colors,
+        tier: doc.tier,
+        voteCount: doc.voteCount,
+        createdAt: doc.createdAt,
+        updatedAt: doc.updatedAt,
+    }));
 }
 
 export async function setUserStatus(

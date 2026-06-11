@@ -6,7 +6,7 @@
  * `services.repositories.paletteVersions` or `…palettes`.
  */
 
-import type { ClientSession } from "mongodb";
+import type { ClientSession, WithId } from "mongodb";
 import type { Services } from "../../middleware/inject-services.js";
 import type {
     OklabTriple,
@@ -125,7 +125,7 @@ export interface RevertInput {
 }
 
 export interface RevertOutput {
-    palette: Palette & { _id: unknown };
+    palette: WithId<Palette>;
 }
 
 export async function revertToVersion(
@@ -187,5 +187,5 @@ export async function revertToVersion(
 
     const updated = await services.repositories.palettes.findBySlug(slug);
     if (!updated) throw new NotFoundError("Palette not found after revert");
-    return { palette: updated as Palette & { _id: unknown } };
+    return { palette: updated };
 }

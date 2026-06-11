@@ -15,7 +15,7 @@
  * `deletedAt` (§5.4 orthogonality).
  */
 
-import type { Palette, PaletteVisibility } from "../../models.js";
+import type { PaletteVisibility } from "../../models.js";
 import { PALETTE_VISIBILITIES } from "../../models.js";
 import type { Services } from "../../middleware/inject-services.js";
 import { GoneError, NotFoundError, UnprocessableEntityError } from "../../errors/index.js";
@@ -73,7 +73,7 @@ export async function setVisibility(
 
     if (palette.visibility === target) {
         // Idempotent no-op: already at target. Same row, no new document.
-        return formatPalette(palette as Palette & { _id: unknown });
+        return formatPalette(palette);
     }
 
     await services.repositories.palettes.update(slug, {
@@ -82,5 +82,5 @@ export async function setVisibility(
 
     const updated = await services.repositories.palettes.findBySlug(slug);
     if (!updated) throw new NotFoundError("Palette not found after publish");
-    return formatPalette(updated as Palette & { _id: unknown });
+    return formatPalette(updated);
 }

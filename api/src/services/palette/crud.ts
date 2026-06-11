@@ -62,7 +62,7 @@ export async function getPaletteBySlug(
         voted = vote !== null;
     }
 
-    const result = formatPalette(doc as Palette & { _id: unknown });
+    const result = formatPalette(doc);
     result.voted = voted;
     return result;
 }
@@ -138,7 +138,7 @@ export async function createPalette(
 
     const saved = await services.repositories.palettes.findBySlug(body.slug);
     if (!saved) throw new NotFoundError("Palette missing after insert");
-    return formatPalette(saved as Palette & { _id: unknown });
+    return formatPalette(saved);
 }
 
 // ---------------------------------------------------------------
@@ -212,7 +212,7 @@ export async function patchPalette(
 
     const updated = await services.repositories.palettes.findBySlug(slug);
     if (!updated) throw new NotFoundError("Palette missing after update");
-    return formatPalette(updated as Palette & { _id: unknown });
+    return formatPalette(updated);
 }
 
 // ---------------------------------------------------------------
@@ -274,7 +274,7 @@ export async function restorePalette(
     if (!palette) throw new NotFoundError("Palette not found");
     if (palette.deletedAt === null || palette.deletedAt === undefined) {
         // Already-live restore is a no-op success (idempotent).
-        return formatPalette(palette as Palette & { _id: unknown });
+        return formatPalette(palette);
     }
     const now = new Date();
     await services.withTransaction(async (session) => {
@@ -292,5 +292,5 @@ export async function restorePalette(
     });
     const restored = await services.repositories.palettes.findBySlug(slug);
     if (!restored) throw new NotFoundError("Palette not found");
-    return formatPalette(restored as Palette & { _id: unknown });
+    return formatPalette(restored);
 }

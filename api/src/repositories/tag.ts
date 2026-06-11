@@ -2,17 +2,17 @@
  * TagRepository — owns query/write ops for the `tags` collection.
  */
 
-import type { ClientSession, Collection, ObjectId, WithoutId } from "mongodb";
+import type { ClientSession, Collection, ObjectId, WithId, WithoutId } from "mongodb";
 import type { Tag } from "../models.js";
 
 export class TagRepository {
     constructor(private readonly col: Collection<Tag>) {}
 
-    findAllSorted(): Promise<Tag[]> {
+    findAllSorted(): Promise<WithId<Tag>[]> {
         return this.col.find().sort({ name: 1 }).toArray();
     }
 
-    findByName(name: string): Promise<Tag | null> {
+    findByName(name: string): Promise<WithId<Tag> | null> {
         return this.col.findOne({ name });
     }
 

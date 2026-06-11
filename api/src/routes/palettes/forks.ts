@@ -15,7 +15,6 @@ import {
 } from "../../validation/palette.js";
 import { AuthenticationError, ValidationError } from "../../errors/index.js";
 import { formatPalette } from "../../format/palette.js";
-import type { Palette } from "../../models.js";
 import {
     forkPalette,
     getProvenance,
@@ -57,7 +56,7 @@ forksRouter.post("/:slug/fork", async (c) => {
         slug: parsed.data.slug,
         userSlug,
     });
-    return c.json(formatPalette(palette as Palette & { _id: unknown }), 201);
+    return c.json(formatPalette(palette), 201);
 });
 
 // POST /:slug/remix — fork + a recorded atom-diff (J.W2). Body (all optional):
@@ -93,7 +92,7 @@ forksRouter.post("/:slug/remix", async (c) => {
         colors: parsed.data.colors,
         userSlug,
     });
-    const formatted = formatPalette(palette as Palette & { _id: unknown });
+    const formatted = formatPalette(palette);
     return c.json({ ...formatted, remixedFrom, atomDiff }, 201);
 });
 
@@ -108,7 +107,7 @@ forksRouter.get("/:slug/forks", async (c) => {
 
     const { data, total } = await listForks(c.var.services, slug, offset, limit);
     return c.json({
-        data: data.map((r) => formatPalette(r as Palette & { _id: unknown })),
+        data: data.map((r) => formatPalette(r)),
         total,
         limit,
         offset,

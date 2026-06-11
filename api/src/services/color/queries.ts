@@ -13,6 +13,7 @@
  */
 
 import type { Context } from "hono";
+import type { WithId } from "mongodb";
 import type { AppEnv } from "../../types.js";
 import { escapeRegex } from "../../regex.js";
 import type { ProposedName, Tag } from "../../models.js";
@@ -45,7 +46,7 @@ export interface TagDTO {
 }
 
 function formatProposedName(
-    doc: ProposedName & { _id: unknown },
+    doc: WithId<ProposedName>,
 ): ProposedNameDTO {
     return {
         id: String(doc._id),
@@ -58,7 +59,7 @@ function formatProposedName(
     };
 }
 
-function formatTag(tag: Tag & { _id: unknown }): TagDTO {
+function formatTag(tag: WithId<Tag>): TagDTO {
     return {
         id: String(tag._id),
         name: tag.name,
@@ -77,9 +78,7 @@ export async function listApprovedColors(
         proposedNames.countByStatus("approved"),
     ]);
     return {
-        data: results.map((r) =>
-            formatProposedName(r as ProposedName & { _id: unknown }),
-        ),
+        data: results.map((r) => formatProposedName(r)),
         total,
         limit,
         offset,
@@ -99,9 +98,8 @@ export async function searchApprovedColors(
     // Fallback: regex on (name, css) for the remaining slots — preserves the
     // pre-migration behaviour where text-search misses (e.g. short tokens,
     // partial matches) are filled in by case-insensitive substring matches.
-    const collected = new Map<string, ProposedName & { _id: unknown }>();
-    for (const r of textResults) {
-        const doc = r as ProposedName & { _id: unknown };
+    const collected = new Map<string, WithId<ProposedName>>();
+    for (const doc of textResults) {
         collected.set(String(doc._id), doc);
         if (collected.size >= limit) break;
     }
@@ -120,9 +118,8 @@ export async function searchApprovedColors(
             0,
             remaining + 5,
         );
-        for (const r of regexResults) {
+        for (const doc of regexResults) {
             if (collected.size >= limit) break;
-            const doc = r as ProposedName & { _id: unknown };
             const id = String(doc._id);
             if (collected.has(id)) continue;
             collected.set(id, doc);
@@ -137,5 +134,5 @@ export async function searchApprovedColors(
 export async function listColorTags(c: Context<AppEnv>): Promise<TagDTO[]> {
     const { tags } = c.var.services.repositories;
     const rows = await tags.findAllSorted();
-    return rows.map((t) => formatTag(t as Tag & { _id: unknown }));
+    return rows.map((t) => formatTag(t));
 }

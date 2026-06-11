@@ -5,6 +5,7 @@
  * list-forks, provenance-chain.
  */
 
+import type { WithId } from "mongodb";
 import type { Services } from "../../middleware/inject-services.js";
 import type { Palette, PaletteColor } from "../../models.js";
 import { ConflictError, NotFoundError, ValidationError } from "../../errors/index.js";
@@ -27,7 +28,7 @@ export interface RemixInput {
 }
 
 export interface RemixOutput {
-    palette: Palette & { _id: unknown };
+    palette: WithId<Palette>;
     /** The recorded source→child atom-diff (empty for a plain fork). */
     atomDiff: AtomDiffOp[];
     /** The provenance edge source: the slug + content-hash forked from. */
@@ -150,7 +151,7 @@ export async function remixPalette(
     });
 
     return {
-        palette: doc as Palette & { _id: unknown },
+        palette: doc,
         atomDiff,
         remixedFrom: { slug: sourceSlug, hash: source.currentHash ?? null },
     };
@@ -164,7 +165,7 @@ export interface ForkInput {
 }
 
 export interface ForkOutput {
-    palette: Palette & { _id: unknown };
+    palette: WithId<Palette>;
 }
 
 /**
@@ -188,7 +189,7 @@ export async function forkPalette(
 }
 
 export interface ForkListResult {
-    data: (Palette & { _id: unknown })[];
+    data: WithId<Palette>[];
     total: number;
 }
 
@@ -203,7 +204,7 @@ export async function listForks(
         services.repositories.palettes.countForksOf(slug),
     ]);
     return {
-        data: data as (Palette & { _id: unknown })[],
+        data,
         total,
     };
 }

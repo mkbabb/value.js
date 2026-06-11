@@ -17,6 +17,7 @@ import type {
     Filter,
     Sort,
     UpdateFilter,
+    WithId,
     WithoutId,
 } from "mongodb";
 import type { Palette } from "../models.js";
@@ -26,7 +27,7 @@ export class PaletteRepository {
 
     // ---------- reads ----------
 
-    findBySlug(slug: string, session?: ClientSession): Promise<Palette | null> {
+    findBySlug(slug: string, session?: ClientSession): Promise<WithId<Palette> | null> {
         return this.col.findOne({ slug }, session ? { session } : undefined);
     }
 
@@ -35,7 +36,7 @@ export class PaletteRepository {
         sort: Sort,
         skip: number,
         limit: number,
-    ): Promise<Palette[]> {
+    ): Promise<WithId<Palette>[]> {
         return this.col.find(filter).sort(sort).skip(skip).limit(limit).toArray();
     }
 
@@ -44,7 +45,7 @@ export class PaletteRepository {
         filter: Filter<Palette>,
         sort: Sort,
         limit: number,
-    ): Promise<Palette[]> {
+    ): Promise<WithId<Palette>[]> {
         return this.col.find(filter).sort(sort).limit(limit + 1).toArray();
     }
 
@@ -57,7 +58,7 @@ export class PaletteRepository {
         skip: number,
         limit: number,
         session?: ClientSession,
-    ): Promise<Palette[]> {
+    ): Promise<WithId<Palette>[]> {
         // I.W2: the owner's "my palettes" listing filters soft-deleted
         // (deletedAt: null) by default. A future I-wave can expose a
         // "show-deleted" toggle for restore workflows.
@@ -73,7 +74,7 @@ export class PaletteRepository {
         return this.col.countDocuments({ userSlug, deletedAt: null });
     }
 
-    findForksOf(slug: string, skip: number, limit: number): Promise<Palette[]> {
+    findForksOf(slug: string, skip: number, limit: number): Promise<WithId<Palette>[]> {
         return this.col
             .find({ forkOf: slug, deletedAt: null })
             .sort({ createdAt: -1 })
@@ -94,7 +95,7 @@ export class PaletteRepository {
     /** I.W2 reaper: soft-deleted palettes whose grace window has expired.
      * Returns the slugs + forkOf so the caller can decrement parent fork-counts
      * (already done at soft-delete; here we just need slug for the cascade). */
-    findPastGrace(cutoff: Date): Promise<Palette[]> {
+    findPastGrace(cutoff: Date): Promise<WithId<Palette>[]> {
         return this.col
             .find({ deletedAt: { $lt: cutoff } })
             .toArray();

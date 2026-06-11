@@ -5,7 +5,7 @@
  * admin-route refactor calls `emitAuditEvent(c, ...)` which calls this method.
  */
 
-import type { ClientSession, Collection, Filter, WithoutId } from "mongodb";
+import type { ClientSession, Collection, Filter, WithId, WithoutId } from "mongodb";
 import type { AdminAuditEvent } from "../models.js";
 
 export class AdminAuditRepository {
@@ -19,7 +19,7 @@ export class AdminAuditRepository {
         filter: Filter<AdminAuditEvent>,
         skip: number,
         limit: number,
-    ): Promise<AdminAuditEvent[]> {
+    ): Promise<WithId<AdminAuditEvent>[]> {
         return this.col
             .find(filter)
             .sort({ timestamp: -1 })

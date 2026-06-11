@@ -3,8 +3,41 @@
  * the flagged-palettes aggregation used by the admin moderation queue.
  */
 
-import type { ClientSession, Collection, Document, WithoutId } from "mongodb";
-import type { Flag } from "../models.js";
+import type { ClientSession, Collection, WithoutId } from "mongodb";
+import type { Flag, Palette } from "../models.js";
+
+/** One flag report as embedded by the `$group.$push` stage. */
+export interface FlaggedReport {
+    reporterSlug: string;
+    reason: Flag["reason"];
+    detail: string | null;
+    createdAt: Date;
+}
+
+/**
+ * Shape of one row emitted by `aggregateFlaggedPalettes`' `$project` stage:
+ * flags grouped by `paletteSlug`, with the source palette joined via
+ * `$lookup` + `$unwind` (`preserveNullAndEmptyArrays` → `palette` is absent
+ * when the slug has no live palette row). The `$project` selects the named
+ * `palette.*` subset, so this is the typed boundary the service consumes.
+ */
+export interface FlaggedPalette {
+    paletteSlug: string;
+    flagCount: number;
+    flags: FlaggedReport[];
+    palette?:
+        | Pick<
+              Palette,
+              | "name"
+              | "slug"
+              | "colors"
+              | "userSlug"
+              | "visibility"
+              | "tier"
+              | "createdAt"
+          >
+        | undefined;
+}
 
 export class FlagRepository {
     constructor(private readonly col: Collection<Flag>) {}
@@ -39,9 +72,9 @@ export class FlagRepository {
      * paginate. Returns the raw aggregation pipeline output — the service
      * layer formats it.
      */
-    aggregateFlaggedPalettes(skip: number, limit: number): Promise<Document[]> {
+    aggregateFlaggedPalettes(skip: number, limit: number): Promise<FlaggedPalette[]> {
         return this.col
-            .aggregate([
+            .aggregate<FlaggedPalette>([
                 {
                     $group: {
                         _id: "$paletteSlug",
@@ -89,9 +122,14 @@ export class FlagRepository {
     }
 
     async countDistinctPalettes(): Promise<number> {
+        // `$count` emits a single `{ total: number }` row (or zero rows on an
+        // empty collection); type the pipeline output so no cast is needed.
         const result = await this.col
-            .aggregate([{ $group: { _id: "$paletteSlug" } }, { $count: "total" }])
+            .aggregate<{ total: number }>([
+                { $group: { _id: "$paletteSlug" } },
+                { $count: "total" },
+            ])
             .toArray();
-        return (result[0]?.total as number | undefined) ?? 0;
+        return result[0]?.total ?? 0;
     }
 }

@@ -151,8 +151,8 @@ export async function listPalettes(
     }
 
     let nextCursor: string | undefined;
-    if (hasMore && results.length > 0) {
-        const last = results[results.length - 1] as Palette & { _id: unknown };
+    const last = results.at(-1);
+    if (hasMore && last) {
         nextCursor = encodeCursor({
             _id: String(last._id),
             createdAt: last.createdAt.toISOString(),
@@ -161,7 +161,7 @@ export async function listPalettes(
         });
     }
 
-    let data = results.map((r) => formatPalette(r as Palette & { _id: unknown }, votedSlugs));
+    let data = results.map((r) => formatPalette(r, votedSlugs));
 
     if (
         query.colorL !== undefined &&
@@ -218,7 +218,7 @@ export async function listMine(
         services.repositories.palettes.countByUserSlug(userSlug),
     ]);
     return {
-        data: results.map((r) => formatPalette(r as Palette & { _id: unknown })),
+        data: results.map((r) => formatPalette(r)),
         total,
         limit: clampedLimit,
         offset: clampedOffset,

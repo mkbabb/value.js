@@ -13,6 +13,7 @@
 
 import type { Context } from "hono";
 import { ObjectId } from "mongodb";
+import type { WithId } from "mongodb";
 import type { AppEnv } from "../../types.js";
 import { NotFoundError, ValidationError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
@@ -35,7 +36,7 @@ export interface ListPage {
     offset: number;
 }
 
-function format(doc: ProposedName & { _id: unknown }): ProposedNameDTO {
+function format(doc: WithId<ProposedName>): ProposedNameDTO {
     return {
         id: String(doc._id),
         name: doc.name,
@@ -66,7 +67,7 @@ export async function listByStatus(
         proposedNames.findByStatus(status, offset, limit),
         proposedNames.countByStatus(status),
     ]);
-    return { data: results.map((r) => format(r as ProposedName & { _id: unknown })), total, limit, offset };
+    return { data: results.map((r) => format(r)), total, limit, offset };
 }
 
 export async function deleteColor(c: Context<AppEnv>, id: string): Promise<void> {
