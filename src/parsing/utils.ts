@@ -57,6 +57,56 @@ export function fail(message: string): Parser<never> {
 }
 
 /**
+ * A structured parse diagnostic (VJ-F2 / F10, tranche-N W7). The csstree
+ * `onParseError`-shaped record a consumer (keyframes.js
+ * `ResolvedKeyframes.diagnostics`) surfaces instead of value.js's historical
+ * silent-swallow / `console.error`. Emitted on a failed (or partial) parse.
+ */
+export interface ParseDiagnostic {
+    /** A human-readable summary of where + why the parse derailed. */
+    message: string;
+    /** The byte offset at which the parse failed (the furthest reach). */
+    offset: number;
+    /** 1-based line / 0-based column of `offset` within `input`. */
+    line: number;
+    column: number;
+    /** The parser names/descriptions expected at the failure point, if known. */
+    expected?: string[];
+    /** The full input string the parse ran against. */
+    input: string;
+}
+
+/** A pluggable diagnostics sink. Called once per failed parse with the record. */
+export type OnParseError = (diagnostic: ParseDiagnostic) => void;
+
+/**
+ * Build the structured diagnostic for a failed `ParserState`. Uses the
+ * `furthest` reach (the deepest offset any branch consumed to) when available —
+ * it pinpoints the derail far better than the top-level `offset` for an `any`
+ * dispatch — and the `expected` set parse-that records there.
+ */
+function buildDiagnostic(
+    state: { offset: number; furthest?: number; expected?: string[];
+        getLineAndColumn?: (offset?: number) => { line: number; column: number } },
+    input: string,
+): ParseDiagnostic {
+    const offset = state.furthest ?? state.offset;
+    const start = Math.max(0, offset - 8);
+    const end = Math.min(input.length, offset + 8);
+    const context = input.slice(start, end);
+    const lc = state.getLineAndColumn?.(offset) ?? { line: 1, column: offset };
+    return {
+        message: `Parse error at offset ${offset}: "...${context}..."`,
+        offset,
+        line: lc.line,
+        column: lc.column,
+        // Only attach `expected` when parse-that recorded it (exactOptional).
+        ...(state.expected ? { expected: state.expected } : {}),
+        input,
+    };
+}
+
+/**
  * Try to parse; return the result or throw on failure.
  * Equivalent to Parsimmon's `.tryParse()`.
  *
@@ -64,17 +114,22 @@ export function fail(message: string): Parser<never> {
  * the failure offset) so callers — particularly the demo's color-picker
  * error toasts — can pinpoint where the parse derailed. (E.W1 Lane D /
  * E-AUDIT-5 §9 item 11.)
+ *
+ * When an `onParseError` sink is supplied (VJ-F2), the structured diagnostic is
+ * emitted to it BEFORE the throw — a consumer can collect diagnostics without
+ * try/catching every parse, and the throw still happens for the existing
+ * fail-loud contract.
  */
-export function tryParse<T>(parser: Parser<T>, input: string): T {
+export function tryParse<T>(
+    parser: Parser<T>,
+    input: string,
+    onParseError?: OnParseError,
+): T {
     const state = parser.parseState(input);
     if (state.isError) {
-        const offset = state.offset;
-        const start = Math.max(0, offset - 8);
-        const end = Math.min(input.length, offset + 8);
-        const context = input.slice(start, end);
-        throw new Error(
-            `Parse error at offset ${offset}: "...${context}..."`,
-        );
+        const diagnostic = buildDiagnostic(state, input);
+        onParseError?.(diagnostic);
+        throw new Error(diagnostic.message);
     }
     return state.value;
 }
@@ -82,8 +137,19 @@ export function tryParse<T>(parser: Parser<T>, input: string): T {
 /**
  * Parse and return a result object with `.status` and `.value`.
  * Equivalent to Parsimmon's `.parse()` return shape.
+ *
+ * When an `onParseError` sink is supplied (VJ-F2), a failed parse emits the
+ * structured diagnostic to it (a successful parse emits nothing); the
+ * `{status, value}` shape is unchanged so existing callers are unaffected.
  */
-export function parseResult<T>(parser: Parser<T>, input: string): { status: boolean; value: T } {
+export function parseResult<T>(
+    parser: Parser<T>,
+    input: string,
+    onParseError?: OnParseError,
+): { status: boolean; value: T } {
     const state = parser.parseState(input);
+    if (state.isError && onParseError) {
+        onParseError(buildDiagnostic(state, input));
+    }
     return { status: !state.isError, value: state.value };
 }

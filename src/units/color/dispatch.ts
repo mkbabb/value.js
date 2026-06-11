@@ -13,10 +13,15 @@
  * mapped-type + `getDirectPath` lookup live in `conversions/direct.ts` (G.W4).
  */
 
-import { Color, RGBColor } from ".";
+import { Color, OKLCHColor, RGBColor } from ".";
 import type { ColorSpaceMap, XYZColor } from ".";
 import { clamp, lerp } from "../../math";
-import { COLOR_SPACE_RANGES, getColorSpaceBound, getColorSpaceDenormUnit } from "./constants";
+import {
+    COLOR_SPACE_RANGES,
+    COLOR_SYNTAX_FAMILY,
+    getColorSpaceBound,
+    getColorSpaceDenormUnit,
+} from "./constants";
 import type { ColorSpace } from "./constants";
 import { gamutMapSRGB } from "./gamut";
 import { hex2rgb, rgb2hex } from "./conversions/hex";
@@ -186,32 +191,119 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
 
 const GAMUT_EPSILON = 1e-6;
 
-export function gamutMap<C extends Color>(color: C): C {
-    const rgb = color2(color, "rgb") as RGBColor;
+/**
+ * The RGB-family egress spaces whose gamut is the unit `[0,1]³` box in their own
+ * coordinates. `gamutMap(color, targetSpace)` maps to the *target* space's gamut
+ * — a `display-p3` animation stays in P3, sRGB-clipped only on an sRGB egress
+ * (N.W7.A B4). The analytical Ottosson path (`gamutMapSRGB`) is sRGB-fit, so a
+ * non-sRGB egress uses the numeric OKLCh-chroma reduction below.
+ */
+const RGB_GAMUT_SPACES: ReadonlySet<ColorSpace> = new Set<ColorSpace>([
+    "rgb",
+    "srgb-linear",
+    "display-p3",
+    "a98-rgb",
+    "prophoto-rgb",
+    "rec2020",
+]);
+
+/** Are this space's (already-converted) `r,g,b` channels within `[0,1]³`±eps? */
+const rgbInGamut = (r: number, g: number, b: number, eps: number): boolean =>
+    r >= -eps && r <= 1 + eps &&
+    g >= -eps && g <= 1 + eps &&
+    b >= -eps && b <= 1 + eps;
+
+// Numeric egress gamut-map for the wide-gamut RGB spaces (B4). The analytical
+// Ottosson map is sRGB-specific (its polynomial coefficients are sRGB-fit), so a
+// `display-p3`/`rec2020`/… egress reduces chroma in OKLCh toward the egress
+// boundary — the CSS Color 4 §13.2 reference strategy: hold L + H, binary-search
+// the largest in-gamut chroma, then clamp the residual. Hue is preserved exactly.
+const CHROMA_SEARCH_STEPS = 24; // 2^-24 ≈ 6e-8 chroma resolution — sub-JND.
+
+function gamutMapToRgbSpace<C extends Color>(color: C, target: ColorSpace): C {
+    // OKLCh working copy (normalized: L,c,h ∈ [0,1]). Reducing `c` desaturates.
+    const oklch = color2(color, "oklch");
+    const L = oklch.l as number;
+    const H = oklch.h as number;
+    const cHigh = oklch.c as number;
+    const alpha = color.alpha;
+
+    const probe = (c: number): { r: number; g: number; b: number } => {
+        const candidate = new OKLCHColor(L, c, H, alpha);
+        const rgb = color2(candidate, target);
+        return { r: rgb.r as number, g: rgb.g as number, b: rgb.b as number };
+    };
+
+    // Binary-search the largest chroma that stays inside the egress gamut.
+    let lo = 0;
+    let hi = cHigh;
+    for (let i = 0; i < CHROMA_SEARCH_STEPS; i++) {
+        const mid = (lo + hi) / 2;
+        const { r, g, b } = probe(mid);
+        if (rgbInGamut(r, g, b, GAMUT_EPSILON)) lo = mid;
+        else hi = mid;
+    }
+
+    // Emit at the in-gamut chroma, clamping residual FP overshoot to the box.
+    const mapped = new OKLCHColor(L, lo, H, alpha);
+    const rgb = color2(mapped, target);
+    const clamped = new (rgb.constructor as new (...a: number[]) => Color)(
+        clamp(rgb.r as number, 0, 1),
+        clamp(rgb.g as number, 0, 1),
+        clamp(rgb.b as number, 0, 1),
+        alpha as number,
+    );
+    return color2(clamped, color.colorSpace) as C;
+}
+
+/**
+ * Gamut-map a color into the `targetSpace`'s gamut (default sRGB).
+ *
+ * The default (`targetSpace="rgb"`) is the historical sRGB behavior — the
+ * zero-iteration Ottosson analytical map. A wide-gamut egress (`display-p3`,
+ * `rec2020`, `a98-rgb`, `prophoto-rgb`, `srgb-linear`) maps to *that* space's
+ * gamut instead, so a P3-only color stays saturated in P3 and is only
+ * sRGB-clipped on an sRGB egress (N.W7.A B4). An in-target-gamut color is
+ * identical under either mapping — the common path is unchanged.
+ */
+export function gamutMap<C extends Color>(
+    color: C,
+    targetSpace: ColorSpace = "rgb",
+): C {
+    const target: ColorSpace = RGB_GAMUT_SPACES.has(targetSpace)
+        ? targetSpace
+        : "rgb";
+
+    const egress = color2(color, target);
 
     // Replace NaN ("none" keyword per CSS Color 4) with 0 for gamut purposes
-    const r = Number.isNaN(rgb.r as number) ? 0 : rgb.r;
-    const g = Number.isNaN(rgb.g as number) ? 0 : rgb.g;
-    const b = Number.isNaN(rgb.b as number) ? 0 : rgb.b;
+    const r = Number.isNaN(egress.r as number) ? 0 : (egress.r as number);
+    const g = Number.isNaN(egress.g as number) ? 0 : (egress.g as number);
+    const b = Number.isNaN(egress.b as number) ? 0 : (egress.b as number);
 
     // Strictly in gamut — pass through
     if (r >= 0 && r <= 1 && g >= 0 && g <= 1 && b >= 0 && b <= 1) {
         return color;
     }
 
-    // Within epsilon of gamut — just clamp (avoids OKLab round-trip for tiny FP errors)
-    if (
-        r >= -GAMUT_EPSILON && r <= 1 + GAMUT_EPSILON &&
-        g >= -GAMUT_EPSILON && g <= 1 + GAMUT_EPSILON &&
-        b >= -GAMUT_EPSILON && b <= 1 + GAMUT_EPSILON
-    ) {
-        const clamped = new RGBColor(clamp(r, 0, 1), clamp(g, 0, 1), clamp(b, 0, 1), color.alpha);
+    // Within epsilon of gamut — just clamp (avoids the OKLab round-trip for
+    // tiny FP errors). Clamp in the egress coordinates, then convert back.
+    if (rgbInGamut(r, g, b, GAMUT_EPSILON)) {
+        const EgressClass = egress.constructor as new (...a: number[]) => Color;
+        const clamped = new EgressClass(
+            clamp(r, 0, 1), clamp(g, 0, 1), clamp(b, 0, 1), color.alpha as number,
+        );
         return color2(clamped, color.colorSpace) as C;
     }
 
-    const [sR, sG, sB] = gamutMapSRGB(r, g, b);
-    const mappedRGB = new RGBColor(sR, sG, sB, color.alpha);
-    return color2(mappedRGB, color.colorSpace) as C;
+    // sRGB egress — the analytical Ottosson map (zero-iteration). Wide-gamut
+    // egress — the numeric OKLCh-chroma reduction toward the egress boundary.
+    if (target === "rgb") {
+        const [sR, sG, sB] = gamutMapSRGB(r, g, b);
+        const mappedRGB = new RGBColor(sR, sG, sB, color.alpha);
+        return color2(mappedRGB, color.colorSpace) as C;
+    }
+    return gamutMapToRgbSpace(color, target);
 }
 
 // --- Phase 2: Hue interpolation ---
@@ -225,6 +317,28 @@ export const CYLINDRICAL_HUE_COMPONENT: Partial<Record<ColorSpace, string>> = {
     lch: "h",
     oklch: "h",
 };
+
+/**
+ * The WAAPI `<color-interpolation-method>` keyword for a target interp space
+ * (N.W7.A B2 — the value.js half of the WAAPI color lift). Pairs with
+ * `Color.toAnimationString(digits, outputSpace)`: the serializer emits a color
+ * in the space's syntax family, and this produces the matching interp-method
+ * keyword string a consumer (keyframes.js) hands to `KeyframeEffect` /
+ * `easing`-adjacent APIs.
+ *
+ * For a polar space the hue-interpolation method is appended
+ * (`oklch shorter hue`); legacy families have no interp keyword (sRGB is the
+ * implicit default for `rgb()`/`hsl()`), so this returns `undefined` for them —
+ * the legacy syntax family already pins sRGB interp without an explicit keyword.
+ */
+export function cssColorInterpKeyword(
+    space: ColorSpace,
+    hueMethod: HueInterpolationMethod = "shorter",
+): string | undefined {
+    if (COLOR_SYNTAX_FAMILY[space] === "legacy") return undefined;
+    const hueComponent = CYLINDRICAL_HUE_COMPONENT[space];
+    return hueComponent != null ? `${space} ${hueMethod} hue` : space;
+}
 
 /**
  * Interpolate between two hue values using the given method.

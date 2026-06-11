@@ -211,6 +211,68 @@ export const COLOR_SPACE_DENORM_UNITS = {
 export type ColorSpace = keyof typeof COLOR_SPACE_RANGES;
 
 // ──────────────────────────────────────────────────────────────────────────────
+// N.W7.A B2 — CSS color-syntax-family classification.
+//
+// The WAAPI implicit interpolation space is chosen by a keyframe color's
+// *syntax family*, NOT by a settable property (CSS Color 4 §12 + the corrected
+// emit-space rule, `r-color-l4-l5 §3`): the legacy comma forms (`rgb()`/`hsl()`/
+// `hwb()`) interpolate in sRGB; every non-legacy functional syntax interpolates
+// in OKLab. `toAnimationString(digits, outputSpace)` (B1/B2) reads this table to
+// emit a color in a syntax family whose *implicit* interp space equals the
+// caller's request — so a default `oklab` request emits a non-legacy family even
+// when the stored color was authored `rgb(...)`.
+//
+// `COLOR_SYNTAX_FAMILY` tags each `ColorSpace` `"legacy"` (sRGB interp) or
+// `"non-legacy"` (OKLab interp). `COLOR_FUNCTION_FORM` tags the *serialized
+// shape*: `"named"` spaces emit `name(c1 c2 c3)`; `"color"` spaces emit the
+// CSS-valid `color(<space> c1 c2 c3)` wrapper (CSS Color 4 §10 — the bare
+// `display-p3(...)` form is not valid CSS).
+// ──────────────────────────────────────────────────────────────────────────────
+
+/** A color is interpolated in sRGB iff its keyframe syntax is a legacy family. */
+export type ColorSyntaxFamily = "legacy" | "non-legacy";
+
+export const COLOR_SYNTAX_FAMILY: Record<ColorSpace, ColorSyntaxFamily> = {
+    rgb: "legacy",
+    hsl: "legacy",
+    hwb: "legacy",
+    hsv: "non-legacy",
+    lab: "non-legacy",
+    lch: "non-legacy",
+    oklab: "non-legacy",
+    oklch: "non-legacy",
+    xyz: "non-legacy",
+    kelvin: "non-legacy",
+    "srgb-linear": "non-legacy",
+    "display-p3": "non-legacy",
+    "a98-rgb": "non-legacy",
+    "prophoto-rgb": "non-legacy",
+    rec2020: "non-legacy",
+};
+
+/** How a color space serializes: a bare `name(...)` vs a `color(name ...)` wrap. */
+export type ColorFunctionForm = "named" | "color";
+
+export const COLOR_FUNCTION_FORM: Record<ColorSpace, ColorFunctionForm> = {
+    rgb: "named",
+    hsl: "named",
+    hwb: "named",
+    hsv: "named",
+    lab: "named",
+    lch: "named",
+    oklab: "named",
+    oklch: "named",
+    // CSS `color()` predefined / xyz spaces — the bare-name form is invalid CSS.
+    xyz: "color",
+    kelvin: "named",
+    "srgb-linear": "color",
+    "display-p3": "color",
+    "a98-rgb": "color",
+    "prophoto-rgb": "color",
+    rec2020: "color",
+};
+
+// ──────────────────────────────────────────────────────────────────────────────
 // G.W2 Lane A (G-OPP-2) — typed color-space range/unit accessors.
 //
 // `COLOR_SPACE_RANGES` + `COLOR_SPACE_DENORM_UNITS` are `as const`, so each

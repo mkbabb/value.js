@@ -22,6 +22,7 @@ export type { MatrixValues } from "./units/constants";
 // Unit utilities
 export {
     isColorUnit,
+    functionIdentityValue,
     flattenObject,
     unflattenObject,
     unflattenObjectToString,
@@ -35,6 +36,7 @@ export {
     convertToDPI,
     convert2,
 } from "./units/utils";
+export { FUNCTION_IDENTITY } from "./units/constants";
 
 // Unit normalization
 export {
@@ -90,6 +92,8 @@ export {
     ALPHA_DENORM_UNIT,
     COLOR_SPACE_DENORM_UNITS,
     COLOR_SPACE_NAMES,
+    COLOR_SYNTAX_FAMILY,
+    COLOR_FUNCTION_FORM,
     WHITE_POINT_D65,
     WHITE_POINT_D50,
     WHITE_POINT_D65_D50,
@@ -105,7 +109,12 @@ export {
     GAMUT_SECTOR_COEFFICIENTS,
     COLOR_NAMES,
 } from "./units/color/constants";
-export type { ColorSpace, WhitePoint } from "./units/color/constants";
+export type {
+    ColorSpace,
+    WhitePoint,
+    ColorSyntaxFamily,
+    ColorFunctionForm,
+} from "./units/color/constants";
 
 // Color matrix math
 export {
@@ -126,6 +135,7 @@ export {
     gamutMap,
     interpolateHue,
     mixColors,
+    cssColorInterpKeyword,
     CYLINDRICAL_HUE_COMPONENT,
 } from "./units/color/dispatch";
 export type { HueInterpolationMethod } from "./units/color/dispatch";
@@ -218,6 +228,10 @@ export {
 } from "./easing";
 export type { LinearStop, TimingFunction } from "./easing";
 
+// Easing parsers (CSS Easing Functions Level 1 + Level 2)
+export { parseLinearStops, parseSteps } from "./parsing/easing";
+export type { JumpTerm, StepsArgs } from "./parsing/easing";
+
 // Parsing — parsers and parse functions
 export {
     CSS_WIDE_KEYWORDS,
@@ -295,6 +309,8 @@ export {
     tryParse,
     parseResult,
 } from "./parsing/utils";
+// Structured parse diagnostics (VJ-F2 — the pluggable error sink)
+export type { ParseDiagnostic, OnParseError } from "./parsing/utils";
 
 // Color quantization
 export { quantizePixels, dominantColor } from "./quantize";
@@ -314,3 +330,7 @@ export type {
     Vec4,
     Mat4,
 } from "./transform/decompose";
+
+// Path-geometry sampler (VJ-F1 — DOM-free getTotalLength / getPointAtLength)
+export { PathGeometry, getTotalLength, getPointAtLength } from "./transform/path";
+export type { Point, PathSample } from "./transform/path";

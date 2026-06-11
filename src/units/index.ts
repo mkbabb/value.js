@@ -71,7 +71,11 @@ export class ValueUnit<
             return `${this.value}`;
         }
 
-        if (this.unit === "color") {
+        if (this.unit === "color" || this.unit === "color-keyword") {
+            // `color-keyword` is the VJ-3 deferred-resolution sentinel
+            // (`currentColor` / `light-dark(...)`): serialize the wrapped value
+            // verbatim so the sentinel survives a parse → serialize round-trip
+            // un-baked, exactly like a resolved `color`.
             return `${this.value}`;
         } else if (this.unit === "var") {
             return `var(${this.value})`;

@@ -290,8 +290,8 @@ describe("memoize", () => {
         expect(fn).toHaveBeenCalledTimes(2);
     });
 
-    describe("maxCacheSize", () => {
-        it("should evict the oldest entry when maxCacheSize is exceeded", () => {
+    describe("maxCacheSize (LRU — F3 / VJ-F6)", () => {
+        it("should evict the least-recently-used entry when maxCacheSize is exceeded", () => {
             const fn = vi.fn((x: number) => x * 10);
             const memoized = memoize(fn, { maxCacheSize: 2 });
 
@@ -299,7 +299,8 @@ describe("memoize", () => {
             memoized(2); // cache: {"1", "2"}
             expect(memoized.cache.size).toBe(2);
 
-            memoized(3); // cache size exceeds 2, evicts oldest ("1") -> cache: {"2", "3"}
+            // No key was touched, so LRU head is the oldest insert ("1").
+            memoized(3); // evicts LRU ("1") -> cache: {"2", "3"}
             expect(memoized.cache.size).toBe(2);
 
             // Argument 3 should still be cached (no recompute)
@@ -316,6 +317,37 @@ describe("memoize", () => {
             fn.mockClear();
             memoized(1);
             expect(fn).toHaveBeenCalledTimes(1);
+        });
+
+        it("should promote a touched key so it survives a flood (LRU, not FIFO)", () => {
+            const fn = vi.fn((x: number) => x * 2);
+            const memoized = memoize(fn, { maxCacheSize: 2 });
+
+            memoized(1); // {"1"}
+            memoized(2); // {"1","2"}
+            memoized(1); // HIT — promote "1" to most-recently-used -> order {"2","1"}
+            memoized(3); // evict LRU ("2", NOT "1") -> {"1","3"}
+
+            expect(memoized.cache.has("1")).toBe(true); // survived (LRU); FIFO would drop it
+            expect(memoized.cache.has("2")).toBe(false); // evicted as least-recently-used
+            expect(memoized.cache.has("3")).toBe(true);
+            expect(memoized.cache.size).toBe(2);
+        });
+
+        it("a cache hit reorders but does not change size", () => {
+            const fn = (x: number) => x + 1;
+            const memoized = memoize(fn, { maxCacheSize: 3 });
+            memoized(1);
+            memoized(2);
+            expect(memoized.cache.size).toBe(2);
+            memoized(1); // hit — promote, size unchanged
+            expect(memoized.cache.size).toBe(2);
+            // The promoted key is now at the tail: insert two more and the
+            // un-touched "2" evicts before the touched "1".
+            memoized(3);
+            memoized(4); // size 4 > 3 after insert -> evict LRU head ("2")
+            expect(memoized.cache.has("1")).toBe(true);
+            expect(memoized.cache.has("2")).toBe(false);
         });
     });
 

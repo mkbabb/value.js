@@ -551,6 +551,45 @@ const nameParser: Parser<ValueUnit> = namedColorIdent.chain((x: string) => {
     return utils.fail(`Invalid color name: ${x}`);
 });
 
+// --- Late-bound color keyword / function sentinels (VJ-3) ---
+//
+// `currentColor` and `light-dark()` are colors whose RESOLUTION is deferred to
+// the consumer's render seam — `currentColor` resolves against the target's
+// inherited `color`, `light-dark()` against the target's own `color-scheme`.
+// They must NOT bake to a fixed RGB triple at parse time, or that per-target
+// resolution is lost. So they parse to typed *sentinels* that survive
+// parse → normalize → serialize verbatim:
+//   currentColor      → ValueUnit("currentColor", "color-keyword")
+//   light-dark(a, b)  → ValueUnit(FunctionValue("light-dark", [a, b]), "color-keyword")
+// The `"color-keyword"` superType lets a normalize/interpolation pass recognise
+// the sentinel and skip RGB conversion; the consumer (keyframes.js) substitutes
+// the resolved color per target at frame-prep.
+
+const CURRENT_COLOR_KEYWORD = "currentColor" as const;
+
+// `currentColor` (CSS Color 4 §6.3) — case-insensitive keyword, canonical
+// camelCase spelling preserved on output so the round-trip is byte-stable.
+const currentColorParser: Parser<ValueUnit> = utils
+    .istring(CURRENT_COLOR_KEYWORD)
+    .map(() => new ValueUnit(CURRENT_COLOR_KEYWORD, "color-keyword", ["color"]));
+
+// `light-dark( <color> , <color> )` (CSS Color 5). Both arms are full colors;
+// reference the top-level `Value` parser lazily (it is defined below). The two
+// resolved color ValueUnits ride inside a `FunctionValue` sentinel so the
+// per-scheme pick is deferred to the consumer.
+const lightDarkParser: Parser<ValueUnit> = utils.istring("light-dark").next(
+    all(
+        Parser.lazy(() => Value).skip(sep),
+        Parser.lazy(() => Value),
+    )
+        .trim(whitespace)
+        .wrap(lparen, rparen)
+        .map(([light, dark]: [ValueUnit, ValueUnit]) => {
+            const fn = new FunctionValue("light-dark", [light, dark]);
+            return new ValueUnit(fn, "color-keyword", ["color"]);
+        }),
+);
+
 // --- Main CSSColor Value parser ---
 //
 // A1 transposition (vj-parser-aug §2.1): the 14-way speculative `any(...)` fork
@@ -565,11 +604,17 @@ const nameParser: Parser<ValueUnit> = namedColorIdent.chain((x: string) => {
 // retained last so a same-first-letter named color (e.g. `red`, `orange`,
 // `coral`, `hotpink`, `lavender`, `xyzname`) still resolves — byte-identical to
 // the old in-order `any()` per-bucket priority.
+// The `currentColor` keyword and `light-dark()` sentinels (VJ-3) join their
+// first-letter buckets ahead of `nameParser` — `currentColor` would otherwise
+// be consumed by the broad named-color identifier regex and rejected on the
+// COLOR_NAMES miss. Both are more specific than the named-color fallback, so
+// they sit between the functional families and `nameParser`, preserving the
+// byte-identical resolution of every currently-parsing input.
 const letterBuckets: Record<string, Parser<ValueUnit>> = {
-    c: any(colorMix, colorFunction, nameParser),
+    c: any(currentColorParser, colorMix, colorFunction, nameParser),
     r: any(rgbParser, nameParser),
     h: any(hslParser, hsvParser, hwbParser, nameParser),
-    l: any(labParser, lchParser, nameParser),
+    l: any(labParser, lchParser, lightDarkParser, nameParser),
     o: any(oklabParser, oklchParser, nameParser),
     x: any(xyzParser, nameParser),
 };

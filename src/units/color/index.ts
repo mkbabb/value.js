@@ -1,5 +1,18 @@
 import { clone } from "../../utils";
+import { scale } from "../../math";
+import { COLOR_FUNCTION_FORM, getColorSpaceBound } from "./constants";
 import type { ColorSpace, WhitePoint } from "./constants";
+// Call-time-only imports — `color2` (space conversion) + `gamutMap` (egress
+// gamut, B4) are referenced solely inside the apply-path serializer's body,
+// never at module-eval, so the index↔dispatch cycle resolves through ES
+// live-bindings at call time. Deliberately NOT importing the `units/index`
+// barrel (`ValueUnit`) or `./normalize` here: `units/index` re-exports
+// `parsing/color` at its top, which captures the color classes — importing it
+// from THIS module (first in the color subgraph's eval) would read those classes
+// before they are declared. The channel-unwrap below is duck-typed instead (the
+// established `_assertChannel` idiom), and the [0,1] scaling is inlined via
+// `scale` + `getColorSpaceBound`.
+import { color2, gamutMap } from "./dispatch";
 
 /** Structural guard for any value carrying a `toFixed(digits)` method —
  *  matches both `number` and `ValueUnit` (the two `T` shapes a channel holds). */
@@ -15,6 +28,21 @@ const formatNumber = (value: unknown, digits: number = 2): string => {
     return fixed.trim().replace(/\.0+$/, "");
 };
 
+// N.W7.A B1 — the compact apply-path number formatter. Unlike `formatNumber`
+// (which keeps partial trailing zeros for the canonical/round-trip forms), the
+// apply path strips ALL trailing fractional zeros — `digits` is a precision
+// CEILING, so `0.700`→`0.7`, `0.50`→`0.5`, `255.0`→`255` — to hit the ≤~28-char
+// budget the keyframes apply loop wants per frame (the whole B1 point). 4–5
+// sig-figs is sub-JND (`DELTA_E_OK_JND`), so the truncation is perceptually free.
+const formatAnimationNumber = (value: number, digits: number): string => {
+    if (Number.isNaN(value)) return "none";
+    const fixed = value.toFixed(digits);
+    // Drop a trailing `.` + zeros, then a bare trailing `.` (e.g. `1.` → `1`).
+    return fixed.includes(".")
+        ? fixed.replace(/0+$/, "").replace(/\.$/, "")
+        : fixed;
+};
+
 const formatColor = <T>(colorSpace: ColorSpace, values: T[], alpha: T) => {
     // Emit the `/ alpha` clause only when the color is NOT opaque. CSS Color 4
     // §4 makes the alpha clause optional and UAs canonicalize an opaque color
@@ -27,6 +55,130 @@ const formatColor = <T>(colorSpace: ColorSpace, values: T[], alpha: T) => {
         return `${colorSpace}(${values.join(" ")})`;
     }
     return `${colorSpace}(${values.join(" ")} / ${alpha})`;
+};
+
+// N.W7.A B1/B2 — the apply-path color serializer.
+//
+// `toString`/`toFormattedString` are the canonical/round-trip serializers (the
+// historical `xyz(…)` / `display-p3(…)` bare forms there are kept — the test
+// corpus + the demo round-trip through them). `toAnimationString` is a separate,
+// CSS-valid apply-path serializer: it wraps `color()`-predefined + xyz spaces in
+// the spec `color(<space> …)` form so a UA can parse the emitted keyframe value
+// (B2 — output-space emit), and writes channels into a reused module scratch so
+// the per-frame call allocates no channel array (B1 — zero-alloc).
+
+// Module-scoped scratch buffer (B1 zero-alloc). value.js is consumed in a
+// single-threaded rAF loop and `formatNumber` never re-enters color serialize,
+// so a shared buffer is re-entrancy-safe: it is fully written and joined before
+// any nested call could observe it. The buffer grows once to the widest color
+// arity (3 channels) and is reused thereafter.
+const ANIMATION_SCRATCH: string[] = [];
+
+const formatAnimationColor = (
+    colorSpace: ColorSpace,
+    channelCount: number,
+    alpha: string,
+): string => {
+    // Join only the live prefix of the scratch — `slice` would re-allocate, so
+    // the body is assembled from the first `channelCount` slots directly.
+    let channels = ANIMATION_SCRATCH[0]!;
+    for (let i = 1; i < channelCount; i++) channels += " " + ANIMATION_SCRATCH[i]!;
+
+    const body = COLOR_FUNCTION_FORM[colorSpace] === "color"
+        ? `color(${colorSpace} ${channels}`
+        : `${colorSpace}(${channels}`;
+
+    // The single alpha choke point (B1b) — omit `/ 1` at full opacity.
+    return Number(alpha) === 1 ? `${body})` : `${body} / ${alpha})`;
+};
+
+/**
+ * The duck-typed shape a parsed channel may hold: a `ValueUnit`-like wrapper
+ * carrying a numeric `value` + an optional `unit`. Detected structurally (no
+ * `ValueUnit` class import — the `_assertChannel` idiom) to keep this module out
+ * of the `units/index` → `parsing/color` eval cycle.
+ */
+const asChannelWrapper = (
+    v: unknown,
+): { value: number; unit?: string } | undefined => {
+    if (
+        v != null &&
+        typeof v === "object" &&
+        (v as { constructor?: { name?: string } }).constructor?.name ===
+            "ValueUnit"
+    ) {
+        return v as { value: number; unit?: string };
+    }
+    return undefined;
+};
+
+/**
+ * Convert a `Color` into another color space, returning a `Color<number>` whose
+ * channels are in the compact CSS **number** domain of the target space (N.W7.A
+ * B2 helper).
+ *
+ * `color2`'s converters are **normalized [0,1]** in AND out (see
+ * `conversions/*.ts`), so this mirrors `colorUnit2`'s discipline:
+ *   1. normalize-in — each channel scales to [0,1]. A bare number (a computed
+ *      denorm color: L [0,1], a/b physical, rgb [0,255], hue degrees) reads
+ *      against the source space's `number` range; a parsed `ValueUnit` reads
+ *      against the range its own unit selects (`oklab(70% …)` ⇒ `%` ⇒ [0,100]).
+ *   2. `color2` to the egress space.
+ *   3. (B4) when the egress is RGB-family, map into that egress's *own* gamut —
+ *      the wide-gamut family converters in `conversions/xyz-extended.ts` do not
+ *      clip, so a P3 emit stays in P3 rather than spilling out-of-[0,1].
+ *   4. denormalize-out — scale [0,1] back to the target's CSS `number` domain
+ *      (`getColorSpaceBound(to, k, "number")`). The number form (no `%`/`deg`
+ *      suffix) is the apply-path canonical — `toString`/`toFormattedString` emit
+ *      the same number channels.
+ */
+const EMIT_GAMUT_SPACES: ReadonlySet<ColorSpace> = new Set<ColorSpace>([
+    "rgb",
+    "srgb-linear",
+    "display-p3",
+    "a98-rgb",
+    "prophoto-rgb",
+    "rec2020",
+]);
+
+const convertColorSpaceDenorm = <T>(
+    color: Color<T>,
+    to: ColorSpace,
+): Color<number> => {
+    const from = color.colorSpace;
+
+    // (1) Normalize each channel to [0,1] for `color2`. The channel is read
+    // through the dynamic index signature (`[key: string]: any`); a parsed
+    // `ValueUnit` is detected structurally, a computed color is a raw number.
+    const normalized = color.clone();
+    for (const k of normalized.channels) {
+        const channel = color[k];
+        const wrapper = asChannelWrapper(channel);
+        const raw = wrapper ? wrapper.value : (channel as number);
+        // A ValueUnit's unit selects the source range; a bare number is the CSS
+        // `number` domain (unit "") — never the denorm `%` unit, which would
+        // mis-scale a [0,1] `l`.
+        const unit = wrapper ? wrapper.unit ?? "" : "";
+        const { min, max } = getColorSpaceBound(from, k, unit);
+        normalized[k] = scale(raw, min, max, 0, 1);
+    }
+
+    // `color2` returns `ColorSpaceMap<T>[C]`; from here the channels are pure
+    // numbers (step 4 writes numbers), so the result is a `Color<number>`.
+    let converted = color2(normalized, to) as Color<number>;
+
+    // (3, B4) map into the egress space's own gamut when the egress is RGB-family.
+    if (EMIT_GAMUT_SPACES.has(to)) {
+        converted = gamutMap(converted, to);
+    }
+
+    // (4) Denormalize [0,1] → the compact CSS number domain for `to`.
+    for (const k of converted.channels) {
+        const { min, max } = getColorSpaceBound(to, k, "number");
+        converted[k] = scale(converted[k] as number, 0, 1, min, max);
+    }
+
+    return converted;
 };
 
 // ──────────────────────────────────────────────────────────────────────────────
@@ -215,6 +367,68 @@ export abstract class Color<T = number> {
             .map((value) => formatNumber(value, digits));
         const alpha = formatNumber(this.alpha, digits);
         return formatColor(this.colorSpace, values, alpha);
+    }
+
+    /**
+     * The apply-path color serializer (N.W7.A B1 + B2).
+     *
+     * Emits a compact (`digits`-precision) **CSS-valid** color string for the
+     * keyframes apply path. Two halves:
+     *
+     * **B1 — zero-alloc.** Channels are written into a reused module scratch
+     * buffer (`ANIMATION_SCRATCH`) rather than `values().slice().map()`, so a
+     * per-frame call allocates no channel array. The alpha clause routes through
+     * the single B1b choke point (`formatAnimationColor`) — `/ 1` is omitted at
+     * full opacity. `none`/NaN channels serialize as `"none"`.
+     *
+     * **B2 — output-space emit (the corrected emit-space rule).**
+     * `<color-interpolation-method>` is a CSS data type, not a settable property;
+     * for a WAAPI keyframe the UA picks the interp space *implicitly* from the
+     * value's syntax family (CSS Color 4 §12). So `outputSpace` requests the
+     * interp space and the serializer emits the color **in a syntax family whose
+     * implicit interp space equals the request**:
+     *   - a non-legacy request (`oklab` default, `oklch`, `display-p3`, …) emits
+     *     that space's non-legacy syntax — even if the color was authored
+     *     `rgb(...)` — so the UA interpolates in the requested space;
+     *   - a legacy `srgb`/`rgb` request emits the legacy `rgb(...)` form (the
+     *     correct family for explicit-sRGB / gradient / `color-mix` contexts).
+     *
+     * `toString` / `toFormattedString` stay the canonical round-trip
+     * serializers; this is the separate apply-path emitter.
+     */
+    toAnimationString(digits: number = 4, outputSpace?: ColorSpace): string {
+        // B2 — resolve the requested emit space. `srgb` is the legacy-sRGB
+        // request alias for the internal `rgb` space (the request keyword the
+        // WAAPI consumer speaks); absent → emit in the color's own space.
+        const requested: ColorSpace | undefined =
+            outputSpace === ("srgb" as ColorSpace) ? "rgb" : outputSpace;
+
+        // No conversion when the request matches the color's own space (or is
+        // absent) — emit `this` verbatim; else convert via the B2 helper. Both
+        // branches expose channels through the base `Color` index signature, so
+        // the unified type is `Color<unknown>` (channels read via `Number(…)`).
+        const emit: Color<unknown> =
+            requested != null && requested !== this.colorSpace
+                ? convertColorSpaceDenorm(this, requested)
+                : this;
+
+        const space = emit.colorSpace;
+        const channels = emit.channels;
+
+        // B1 — write each channel into the shared scratch (no intermediate
+        // array). `Number(channel)` coerces both a raw number and a parsed
+        // `ValueUnit` (numeric `valueOf`) in the no-convert path; `none`/NaN
+        // serializes as the CSS `none` keyword (`formatAnimationNumber`).
+        for (let i = 0; i < channels.length; i++) {
+            ANIMATION_SCRATCH[i] = formatAnimationNumber(
+                Number(emit[channels[i]!]),
+                digits,
+            );
+        }
+
+        const alpha = formatAnimationNumber(Number(emit.alpha), digits);
+
+        return formatAnimationColor(space, channels.length, alpha);
     }
 
     valueOf(): T[] {
@@ -718,6 +932,7 @@ export {
     gamutMap,
     interpolateHue,
     mixColors,
+    cssColorInterpKeyword,
     CYLINDRICAL_HUE_COMPONENT,
     hex2rgb,
     rgb2hex,

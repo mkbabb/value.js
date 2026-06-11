@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
     isColorUnit,
+    functionIdentityValue,
     convertToPixels,
     convertToDegrees,
     convertToMs,
@@ -8,6 +9,7 @@ import {
     convert2,
     flattenObject,
     unflattenObject,
+    unflattenObjectToString,
     unpackMatrixValues,
 } from "../src/units/utils";
 import { ValueUnit, FunctionValue } from "../src/units";
@@ -254,5 +256,115 @@ describe("unpackMatrixValues", () => {
         expect(() => unpackMatrixValues(fv)).toThrow(
             "Input must be a matrix or matrix3d value",
         );
+    });
+});
+
+describe("functionIdentityValue (MCI-5 — identity-aware arity pad)", () => {
+    it("returns the CSS multiplier identity 1 for brightness/contrast/saturate", () => {
+        expect(functionIdentityValue("brightness")!.toString()).toBe("1");
+        expect(functionIdentityValue("contrast")!.toString()).toBe("1");
+        expect(functionIdentityValue("saturate")!.toString()).toBe("1");
+        expect(functionIdentityValue("opacity")!.toString()).toBe("1");
+    });
+
+    it("returns the proportion identity 0 for grayscale/sepia/invert", () => {
+        expect(functionIdentityValue("grayscale")!.toString()).toBe("0");
+        expect(functionIdentityValue("sepia")!.toString()).toBe("0");
+        expect(functionIdentityValue("invert")!.toString()).toBe("0");
+    });
+
+    it("carries the dimension: blur is 0px, hue-rotate is 0deg", () => {
+        expect(functionIdentityValue("blur")!.toString()).toBe("0px");
+        expect(functionIdentityValue("hue-rotate")!.toString()).toBe("0deg");
+    });
+
+    it("returns transform identities: scale 1, translate 0px, rotate/skew 0deg", () => {
+        expect(functionIdentityValue("scale")!.toString()).toBe("1");
+        expect(functionIdentityValue("scaleX")!.toString()).toBe("1");
+        expect(functionIdentityValue("translate")!.toString()).toBe("0px");
+        expect(functionIdentityValue("translateY")!.toString()).toBe("0px");
+        expect(functionIdentityValue("rotate")!.toString()).toBe("0deg");
+        expect(functionIdentityValue("skewX")!.toString()).toBe("0deg");
+    });
+
+    it("returns a ValueUnit whose unit + superType match a parsed sibling", () => {
+        const blur = functionIdentityValue("blur")!;
+        expect(blur).toBeInstanceOf(ValueUnit);
+        expect(blur.value).toBe(0);
+        expect(blur.unit).toBe("px");
+        // Mirrors the parser's length leaf superType so normalizeValueUnits
+        // reconciles the padded slot with the present sibling.
+        expect(blur.superType).toEqual(["length", "absolute"]);
+
+        const hueRot = functionIdentityValue("hue-rotate")!;
+        expect(hueRot.unit).toBe("deg");
+        expect(hueRot.superType).toEqual(["angle"]);
+
+        const brightness = functionIdentityValue("brightness")!;
+        expect(brightness.unit).toBeUndefined();
+        expect(brightness.superType).toBeUndefined();
+    });
+
+    it("returns undefined for a function with no single-scalar identity", () => {
+        // The pad falls back to its prior ValueUnit(0) for these — no worse than
+        // pre-MCI-5.
+        expect(functionIdentityValue("drop-shadow")).toBeUndefined();
+        expect(functionIdentityValue("perspective")).toBeUndefined();
+        expect(functionIdentityValue("totally-made-up")).toBeUndefined();
+    });
+
+    it("the brightness identity holds 1 at t=0 when padded then lerped", () => {
+        // The witnessed gap: a bare ValueUnit(0) resolves 0 (black) at t=0; the
+        // identity pad holds 1. Lerp brightness identity (1) -> 2 and assert the
+        // endpoints directly (the value-domain half of the kf MCI-5 flip).
+        const identity = functionIdentityValue("brightness")!;
+        const start = Number(identity.value); // 1
+        const stop = 2;
+        const at = (t: number) => (1 - t) * start + t * stop;
+        expect(at(0)).toBe(1); // holds the no-op identity at t=0, NOT 0
+        expect(at(1)).toBe(2);
+    });
+});
+
+describe("unflattenObjectToString (VJ-F4 — buffer-reusing serialize)", () => {
+    it("serializes a nested flat key into a CSS function shorthand", () => {
+        const flat = { transform: [["10px"]], "transform.translateX": [["10px"]] };
+        const out = unflattenObjectToString(flat);
+        expect(out.transform).toContain("translateX(10px)");
+    });
+
+    it("writes into a caller-supplied reuse target (returns the same object)", () => {
+        const flat = { filter: [["blur(4px)"]], "filter.brightness": [[2]] };
+        const reuse: Record<string, string> = {};
+        const out = unflattenObjectToString(flat, reuse);
+        expect(out).toBe(reuse); // wrote into the supplied map
+    });
+
+    it("is byte-identical with vs without the reuse target (isomorphism)", () => {
+        const flat = {
+            transform: [["10px"]],
+            "transform.translateX": [["10px"]],
+            "transform.rotate": [["45deg"]],
+        };
+        const fresh = unflattenObjectToString(flat);
+        const reuse: Record<string, string> = {};
+        const reused = unflattenObjectToString(flat, reuse);
+        expect(reused).toEqual(fresh);
+    });
+
+    it("clears a stale key from a prior frame on reuse", () => {
+        const reuse: Record<string, string> = {};
+        unflattenObjectToString({ "transform.scale": [[2]] }, reuse);
+        expect(reuse).toHaveProperty("transform");
+        // A second frame with a DIFFERENT top-level key must not leak the first.
+        unflattenObjectToString({ "filter.blur": [["4px"]] }, reuse);
+        expect(reuse).not.toHaveProperty("transform");
+        expect(reuse).toHaveProperty("filter");
+    });
+
+    it("preserves the single-key (no-nesting) value.toString() shape", () => {
+        const flat = { opacity: [0.5] };
+        const out = unflattenObjectToString(flat);
+        expect(out.opacity).toBe("0.5");
     });
 });

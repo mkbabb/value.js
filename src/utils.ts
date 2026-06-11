@@ -124,6 +124,13 @@ export function memoize<T extends (...args: any[]) => any>(
     // read on the hot path; the timestamp stored is then irrelevant (0).
     const hasTtl = ttl !== Infinity;
 
+    // F3 / VJ-F6 (tranche-N W7) — LRU eviction. A `Map` preserves insertion
+    // order, and `cache.keys().next().value` yields the *first-inserted* key.
+    // FIFO drops that key outright; LRU instead promotes a key to most-recent
+    // on every hit (delete + re-set re-appends it to the tail), so the head is
+    // always the least-recently-*used* key. Under a flood that exceeds the
+    // bound, a hot (recently-touched) key survives where FIFO would evict it.
+    // Promotion is independent of the C4 no-clock path — it only reorders.
     const memoized = function (
         this: ThisParameterType<T>,
         ...args: Parameters<T>
@@ -133,6 +140,11 @@ export function memoize<T extends (...args: any[]) => any>(
         if (cache.has(key)) {
             const cached = cache.get(key)!;
             if (!hasTtl || Date.now() - cached.timestamp <= ttl) {
+                // LRU promote: re-insert so the entry moves to the tail
+                // (most-recently-used). A bare read leaves it at its old
+                // position and FIFO would evict it despite being hot.
+                cache.delete(key);
+                cache.set(key, cached);
                 return cached.value;
             } else {
                 cache.delete(key);
@@ -145,8 +157,10 @@ export function memoize<T extends (...args: any[]) => any>(
             cache.set(key, { value: result, timestamp: hasTtl ? Date.now() : 0 });
 
             if (cache.size > maxCacheSize) {
-                const oldestKey = cache.keys().next().value!;
-                cache.delete(oldestKey);
+                // The head of a `Map` is the least-recently-used key (every hit
+                // promoted its key to the tail above).
+                const lruKey = cache.keys().next().value!;
+                cache.delete(lruKey);
             }
         }
 

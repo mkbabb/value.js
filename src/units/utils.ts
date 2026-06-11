@@ -6,6 +6,7 @@ import {
     ABSOLUTE_LENGTH_UNITS,
     ANGLE_UNITS,
     FREQUENCY_UNITS,
+    FUNCTION_IDENTITY,
     LENGTH_UNITS,
     PERCENTAGE_UNITS,
     RELATIVE_LENGTH_UNITS,
@@ -20,6 +21,65 @@ export function isColorUnit(
     value: ValueUnit,
 ): value is ValueUnit<Color<ValueUnit>> {
     return value.unit === "color";
+}
+
+/**
+ * The `superType` a parsed leaf of `unit` carries, mirroring the dimension
+ * parsers in `src/parsing/units.ts` (length → `["length", "absolute"|"relative"]`,
+ * angle → `["angle"]`, unitless → `undefined`). Used by `functionIdentityValue`
+ * so a synthesised identity reconciles with a real parsed sibling in
+ * `normalizeValueUnits`.
+ */
+function superTypeForUnit(unit?: string): string[] | undefined {
+    if (unit == null) return undefined;
+    if ((LENGTH_UNITS as readonly string[]).includes(unit)) {
+        const kind = (ABSOLUTE_LENGTH_UNITS as readonly string[]).includes(unit)
+            ? "absolute"
+            : (RELATIVE_LENGTH_UNITS as readonly string[]).includes(unit)
+              ? "relative"
+              : undefined;
+        return kind ? ["length", kind] : ["length"];
+    }
+    if ((ANGLE_UNITS as readonly string[]).includes(unit)) return ["angle"];
+    if ((TIME_UNITS as readonly string[]).includes(unit)) return ["time"];
+    if ((PERCENTAGE_UNITS as readonly string[]).includes(unit)) return ["percentage"];
+    return undefined;
+}
+
+/**
+ * The CSS identity `ValueUnit` for a `<filter-function>` / `<transform-function>`
+ * argument slot, by function name (MCI-5, tranche-N W7).
+ *
+ * The value-domain knowledge value.js owns so an interpolation arity pad is
+ * **identity-aware**: when one endpoint has more functions than the other
+ * (`filter: blur(4px)` vs `blur(4px) brightness(2)`), the shorter side's absent
+ * slot must be padded with `brightness(1)`, NOT `new ValueUnit(0)` — so the slot
+ * lerps `1 → 2` and holds the no-op `1` at `t=0` instead of `0` (black). The
+ * synthesised leaf carries the function's identity unit (`hue-rotate` → `0deg`,
+ * `blur` → `0px`, `brightness` → unitless `1`) and the matching `superType`, so
+ * `normalizeValueUnits` reconciles it with the present sibling.
+ *
+ * Returns `undefined` for a function with no single-scalar identity (custom /
+ * unknown, or composites like `drop-shadow`/`perspective`); the caller (the
+ * keyframes pad) falls back to its prior `new ValueUnit(0)` behaviour, so an
+ * unknown function is no worse off than before MCI-5.
+ *
+ * `argIndex` is accepted for symmetry with multi-argument functions but is
+ * currently unused: every supported function's positional arguments share one
+ * identity scalar (`scale(1, 1)`, `translate(0, 0)`).
+ */
+export function functionIdentityValue(
+    name: string,
+    argIndex?: number,
+): ValueUnit<number> | undefined {
+    void argIndex; // accepted for symmetry; every supported fn shares one identity
+    const identity = FUNCTION_IDENTITY[name];
+    if (identity == null) return undefined;
+    return new ValueUnit<number>(
+        identity.value,
+        identity.unit,
+        superTypeForUnit(identity.unit),
+    );
 }
 
 export const flattenObject = (obj: any) => {
@@ -112,10 +172,32 @@ export const unflattenObject = (flatObj: Record<string, any[]>): any => {
     return result;
 };
 
+/**
+ * Serialize a flat `{ "transform.translateX": [...] }` map back into the CSS
+ * shorthand strings keyed by top-level property (`{ transform: "translateX(…)" }`).
+ *
+ * VJ-F4 / F8 (tranche-N W7) — buffer-reuse. The per-frame serialize is the real
+ * garbage the W7 perf strand chased: a fresh `result` object plus the per-key
+ * `left(`/`)`right` string churn. The optional `out` argument lets the caller
+ * supply a reuse target that is **cleared and re-filled** in place, so a steady
+ * rAF loop allocates no fresh object per frame. The output is byte-identical to
+ * the no-arg form (the demo + keyframes serialize path round-trips through this
+ * — the `.trim()` and leading-space join are preserved exactly); the reuse path
+ * is purely opt-in via the second arg.
+ */
 export const unflattenObjectToString = (
     flatObj: Record<string, any[]>,
+    out?: Record<string, string>,
 ): Record<string, string> => {
-    const result = {} as Record<string, string>;
+    const result = out ?? ({} as Record<string, string>);
+
+    // Clear a supplied reuse target so a stale key from a prior frame cannot
+    // leak through. Own enumerable keys only — mirrors a fresh `{}`.
+    if (out) {
+        for (const k of Object.keys(out)) {
+            delete out[k];
+        }
+    }
 
     for (const [flatKey, values] of Object.entries(flatObj)) {
         const keys = flatKey.split(".");

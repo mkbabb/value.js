@@ -26,7 +26,7 @@ const insertRandomWhitespace = (str: string) => {
 // The parsable unit strings (exclude meta-units that are not directly parsable)
 const PARSABLE_UNITS = UNITS.filter(
     (u): u is string =>
-        u != null && u !== "" && !["var", "calc", "string", "color"].includes(u),
+        u != null && u !== "" && !["var", "calc", "string", "color", "color-keyword"].includes(u),
 );
 
 describe("CSSColor", () => {
