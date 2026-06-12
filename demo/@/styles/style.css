@@ -1,5 +1,34 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+/*
+ * EXPLICIT demo-source scan (N.W2.B — the desktop-pane-visibility P0 fix).
+ *
+ * The load-bearing responsive display utilities `lg:flex` / `lg:block` /
+ * `lg:hidden` (+ `sm:max-w-lg`) live ONLY on App.vue's pane wrappers
+ * (`demo/color-picker/App.vue:33,44,57`). They toggle the desktop dual-pane
+ * vs. mobile single-slot layout: with them unemitted the base `hidden` wins on
+ * both desktop wrappers (→ `display:none` ≥1024px) and the mobile slot leaks
+ * onto desktop — the secondary panes blank above ~1024px (K.W2.6 §2,
+ * audit/lanes/C9.md §1.1).
+ *
+ * Tailwind v4 auto-detection roots its scan at the GIT REPOSITORY ROOT and
+ * prunes `.gitignore` matches; that *happens* to cover App.vue today, but the
+ * coverage is implicit — it silently evaporates outside a git checkout, or if
+ * `demo/` is ever gitignored, exactly the P9 phantom-utility failure mode
+ * (inv-N-7). The two `@source` directives below (declared after the glass-ui
+ * `@import`s) make the demo-author tree's scan EXPLICIT and git-independent.
+ * The paths resolve relative to THIS file (`demo/@/styles/`): `../../color-picker`
+ * reaches the App.vue shell, `..` reaches the `@/` component/composable tree.
+ * Scoped to the authored CODE files by extension (`{vue,ts,html}`) so the
+ * sibling `.css` files (this one + animations.css/utils.css) — which are NOT
+ * content templates — stay out of the candidate-extraction set.
+ *
+ * The CI emission probe (.github/workflows/ci.yml → scripts/css-emission-probe.mjs)
+ * asserts the witness utilities survive the build, so a future scan regression
+ * fails loud instead of shipping a blank desktop.
+ */
+
 /*
  * Glass-ui imports the two orthogonal distribution surfaces glass-ui ships
  * (post-9275584 — E.W0 Lane A adoption, closes contract-v2 §2.1 keystone gap):
@@ -23,6 +52,13 @@
 @import "@mkbabb/glass-ui/styles";
 @import "@mkbabb/glass-ui/styles.css";
 @import "./animations.css";
+
+/* The explicit demo-source scan (see the header block) — declared AFTER the
+ * glass-ui `@import`s so its `@utility` registrations (text-mono-small &c.,
+ * consumed by `.slug-pill`'s `@apply` below) are in scope before any candidate
+ * extraction runs. */
+@source "../../color-picker/**/*.{vue,ts,html}";
+@source "../**/*.{vue,ts,html}";
 
 @theme {
     --font-display: "Fraunces", serif;

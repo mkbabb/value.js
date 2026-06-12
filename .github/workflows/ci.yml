@@ -218,10 +218,20 @@ jobs:
                   path: playwright-report/
                   retention-days: 7
 
-    # ── 6 · lighthouse + axe budget (soft-launch — the W8 headline gap) ─────
-    # REQUIRED-but-soft: continue-on-error prints the budgets for a baseline-
-    # capture wave, then flip to hard-fail. Closes M5.2 (zero instrumented runs).
-    lighthouse:
+    # ── 6 · gh-pages build → CSS emission probe (BLOCKING) + lighthouse (soft) ─
+    # Builds the demo SPA once, then runs two gates on that ONE artifact:
+    #   · css-emission-probe (BLOCKING, inv-N-7 / N.W2.B) — asserts the
+    #     desktop-pane-visibility witness utilities (lg:flex/lg:block/lg:hidden +
+    #     sm:max-w-lg, used ONLY on App.vue's pane wrappers) survive into the
+    #     emitted CSS under their breakpoints. If the demo's explicit `@source`
+    #     scan ever stops covering App.vue, those utilities silently no-op and
+    #     the secondary panes blank ≥1024px (K.W2.6 / C9 §1.1 P0). This is the
+    #     P9 phantom-utility failure mode killed for the build-output side: a
+    #     scan regression fails CI here instead of shipping a blank desktop.
+    #   · lighthouse + axe (soft-launch — the W8 headline gap, M5.2): REQUIRED-
+    #     but-soft (continue-on-error) prints the budgets for a baseline-capture
+    #     wave, then flips to hard-fail.
+    gh-pages:
         runs-on: ubuntu-latest
         needs: build-and-test
         timeout-minutes: 15
@@ -246,6 +256,10 @@ jobs:
             - run: npm ci
             - name: Build demo SPA (gh-pages mode → dist/gh-pages)
               run: npm run gh-pages
+            # BLOCKING gate (inv-N-7 / N.W2.B): the desktop-pane witnesses must
+            # survive into dist/gh-pages CSS. Runs on the just-built artifact.
+            - name: CSS emission probe (desktop-pane witnesses — blocking, inv-N-7)
+              run: npm run css-emission-probe
             - name: Lighthouse CI (budget gate, soft-launch)
               continue-on-error: true
               uses: treosh/lighthouse-ci-action@v12

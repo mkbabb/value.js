@@ -46,7 +46,8 @@
         "test": "vitest",
         "test:e2e": "playwright test",
         "boot-smoke": "node scripts/boot-smoke.mjs",
-        "abrogation-sweep": "node scripts/abrogation-sweep.mjs"
+        "abrogation-sweep": "node scripts/abrogation-sweep.mjs",
+        "css-emission-probe": "node scripts/css-emission-probe.mjs"
     },
     "repository": {
         "type": "git",
