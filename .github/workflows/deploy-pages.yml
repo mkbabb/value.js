@@ -1,0 +1,106 @@
+# deploy-pages.yml — color.babb.dev's deploy-of-record (the constellation
+# CF-Pages spine; N.W4.F / Ask 5 / DEC-5).
+#
+# color.babb.dev is a Cloudflare Pages project (`color` → color-enw.pages.dev),
+# deployed via wrangler — NOT GitHub Pages. The `npm run gh-pages` script name is
+# a historical artefact (it builds the demo SPA to dist/gh-pages); the SITE ships
+# to Cloudflare Pages, which is where the DNS for color.babb.dev points. The
+# matching api origin (api.color.babb.dev) ships separately via the babb.dev
+# spine webhook (scripts/deploy.sh api) — this workflow is the DEMO half only.
+#
+# GREEN-CI-GATED (the constellation verified-deploy-of-record idiom): it triggers
+# on the `CI` workflow *completing* and deploys ONLY when that same-SHA run is
+# GREEN, on a master push. A red CI → the deploy job's `if` is false → the SPA
+# does NOT ship. Every green-CI master push DEPLOYS — no path filter (a master
+# push should always re-ship the live site). `workflow_dispatch` allows a manual
+# re-ship.
+#
+# SECRET DISCIPLINE: CLOUDFLARE_API_TOKEN (Pages:Edit + Read) + CLOUDFLARE_ACCOUNT_ID
+# are GH Actions repo secrets, consumed via ${{ secrets.* }}, never inlined/echoed.
+#
+# FIRST-RUN NOTE: the `color` CF Pages project ALREADY EXISTS (verified via
+# `wrangler pages project list`: color → color-enw.pages.dev / color.babb.dev),
+# so no first-run project creation is needed — wrangler deploys into it. (Were it
+# absent, `wrangler pages deploy` creates the named project on first push.)
+name: deploy-pages
+
+on:
+    workflow_run:
+        # Must match the `name:` of .github/workflows/ci.yml exactly.
+        workflows: ["CI"]
+        types: [completed]
+    workflow_dispatch: {}
+
+concurrency:
+    group: deploy-pages-${{ github.event.workflow_run.head_sha || github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+
+jobs:
+    deploy:
+        name: build demo + ship → Cloudflare Pages
+        # Deploy on a manual dispatch, OR whenever the `CI` workflow finishes
+        # GREEN on a master PUSH. The triple gate (conclusion == success AND
+        # head_branch == master AND event == push) is the idiomatic
+        # verified-deploy shape: a red CI, a non-master branch, or a non-push
+        # trigger (e.g. a PR run) never ships the live site.
+        if: >-
+            github.event_name == 'workflow_dispatch' ||
+            (github.event.workflow_run.conclusion == 'success' &&
+             github.event.workflow_run.head_branch == 'master' &&
+             github.event.workflow_run.event == 'push')
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        steps:
+            - uses: actions/checkout@v5
+              with:
+                  # Build the EXACT SHA that CI proved green (not the branch tip,
+                  # which could have advanced). On manual dispatch this is unset →
+                  # falls back to the dispatched ref.
+                  ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+                  fetch-depth: 0
+            # The demo consumes @mkbabb/glass-ui via `file:../glass-ui` (N.md §3:
+            # held through W5; the registry pin lands at inv-N-6 / W9). So the
+            # sibling must be checked out and its dist built BEFORE `npm ci` /
+            # the demo build — the SAME precondition the CI `lighthouse` +
+            # `boot-smoke` jobs satisfy. (The library itself imports glass-ui
+            # NEVER — inv-K-1 — but the DEMO does.)
+            - name: "Checkout glass-ui (demo resolves it from dist)"
+              uses: actions/checkout@v5
+              with:
+                  repository: mkbabb/glass-ui
+                  path: ../glass-ui
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+                  cache: "npm"
+            - name: Build glass-ui dist (gh-pages needs its full CSS dist)
+              run: |
+                  cd ../glass-ui
+                  npm ci
+                  npm run build
+            - name: npm ci
+              run: npm ci
+            # The demo self-aliases `@mkbabb/value.js` → dist/value.js
+            # (vite.config.ts, mechanism-C), so the library dist must exist before
+            # the gh-pages build resolves the graph.
+            - name: Build value.js dist (the self-alias target)
+              run: npm run build
+            - name: Build demo SPA (gh-pages mode → dist/gh-pages)
+              run: npm run gh-pages
+            - name: Deploy to Cloudflare Pages
+              uses: cloudflare/wrangler-action@v3
+              with:
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  # The demo build output dir is dist/gh-pages (vite.config.ts
+                  # gh-pages mode outDir). `--branch=main` is the CF Pages
+                  # production branch; `--commit-dirty=true` lets a clean CI
+                  # checkout deploy without a dirty-tree warning.
+                  command: >-
+                      pages deploy dist/gh-pages
+                      --project-name=color
+                      --branch=main
+                      --commit-dirty=true
