@@ -34,6 +34,44 @@ import { defineConfig, devices } from "@playwright/test";
  * once E.W4 Lane B lands the `npx playwright install webkit` step.
  */
 
+/**
+ * N.W2 (W1.D-closure) — software-WebGL channel + launch args for the Chromium
+ * projects. Two coupled findings, both established by live boot probes:
+ *
+ * 1 · RENDERER STABILITY. The demo mounts two live WebGL2 surfaces (the
+ *     goo-blob hero canvas + the aurora atmosphere). Under headless Chromium's
+ *     *default* GPU path these crash the renderer a few hundred ms after mount:
+ *     the page emits a silent `close` (no console error, no pageerror — a
+ *     renderer-process death, not a JS throw), which detaches every locator and
+ *     times out every spec downstream of the first assertion. This is why the
+ *     prior W1.D run saw "white-screen-shaped" failures everywhere once boot was
+ *     otherwise green. `--use-gl=angle --use-angle=swiftshader` routes WebGL2
+ *     through ANGLE's SwiftShader software rasteriser — real, conformant WebGL2
+ *     (so the context-loss probes still exercise the true code path) but stable
+ *     headless. `--enable-unsafe-swiftshader` clears the Chromium 137+
+ *     deprecation gate that otherwise refuses swiftshader-for-WebGL.
+ *
+ * 2 · CLEAN TEARDOWN. Playwright's default `chrome-headless-shell` binary, when
+ *     swiftshader is forced, hangs on `browserContext.close()` — the software
+ *     GPU process never exits, so teardown eats the full 30s test budget and
+ *     fails every test even when the BODY passed (probed: body green + alive 3s,
+ *     yet "Tearing down context exceeded the test timeout"). The full Chromium
+ *     build (`channel: "chromium"`, new-headless mode) tears the GPU process
+ *     down cleanly. So the Chromium projects pin BOTH `channel: "chromium"` and
+ *     the swiftshader args (probed: stable AND teardown-clean → pass).
+ *
+ * The WebKit `smoke-safari` project takes neither (WebKit has its own GL stack
+ * and ignores Chromium channel/flags).
+ */
+const WEBGL_CHANNEL = "chromium" as const;
+const SWIFTSHADER_LAUNCH = {
+    args: [
+        "--use-gl=angle",
+        "--use-angle=swiftshader",
+        "--enable-unsafe-swiftshader",
+    ],
+};
+
 export default defineConfig({
     testDir: "./e2e",
     retries: process.env.CI ? 2 : 0,
@@ -68,8 +106,10 @@ export default defineConfig({
             use: {
                 baseURL: "http://localhost:8090",
                 browserName: "chromium",
+                channel: WEBGL_CHANNEL,
                 headless: true,
                 viewport: { width: 1280, height: 720 },
+                launchOptions: SWIFTSHADER_LAUNCH,
             },
         },
         {
@@ -78,8 +118,10 @@ export default defineConfig({
             use: {
                 baseURL: "http://localhost:8090",
                 browserName: "chromium",
+                channel: WEBGL_CHANNEL,
                 headless: true,
                 viewport: { width: 1280, height: 720 },
+                launchOptions: SWIFTSHADER_LAUNCH,
             },
         },
         {
@@ -88,7 +130,9 @@ export default defineConfig({
             use: {
                 ...devices["Pixel 7"],
                 baseURL: "http://localhost:8090",
+                channel: WEBGL_CHANNEL,
                 headless: true,
+                launchOptions: SWIFTSHADER_LAUNCH,
             },
         },
         {
@@ -106,8 +150,10 @@ export default defineConfig({
             use: {
                 baseURL: "http://localhost:8090",
                 browserName: "chromium",
+                channel: WEBGL_CHANNEL,
                 headless: true,
                 viewport: { width: 1280, height: 720 },
+                launchOptions: SWIFTSHADER_LAUNCH,
             },
         },
         {

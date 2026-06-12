@@ -6,7 +6,6 @@
 
 import { computed } from "vue";
 import type { ComputedRef } from "vue";
-import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/dispatch";
 import { mixColors } from "@src/units/color/dispatch";
 import { parseCSSValue } from "@src/parsing";
@@ -19,12 +18,6 @@ import type {
     GradientStop,
     GradientInterval,
 } from "./useGradientModel";
-
-// ── Helpers ──
-
-function resolveColor(css: string, space: ColorSpace) {
-    return cssToRawColor(css, space);
-}
 
 // ── Serialization ──
 
@@ -79,8 +72,8 @@ export function serializeCoalescedGradient(model: GradientModelState): string {
         const s1 = stops[i + 1]!;
         const easing = intervals[i]?.easingFn ?? linear;
 
-        const c0 = resolveColor(s0.cssColor, interpolationSpace);
-        const c1 = resolveColor(s1.cssColor, interpolationSpace);
+        const c0 = cssToRawColor(s0.cssColor, interpolationSpace);
+        const c1 = cssToRawColor(s1.cssColor, interpolationSpace);
 
         if (!c0 || !c1) continue;
 

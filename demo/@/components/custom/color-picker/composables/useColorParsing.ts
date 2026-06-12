@@ -2,8 +2,7 @@ import { ref, type ShallowRef, type Ref, type ComputedRef } from "vue";
 import { debounce } from "@src/utils";
 import { generateSingleColor } from "./useColorGeneration";
 import { parseCSSColor } from "@src/parsing/color";
-import { ValueUnit } from "@src/units";
-import { Color } from "@src/units/color";
+import type { ParsedColorUnit } from "@src/parsing/color";
 import type { ColorSpace } from "@src/units/color/constants";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 import type { ColorModel } from "@components/custom/color-picker";
@@ -20,24 +19,24 @@ export function useColorParsing(deps: {
 }) {
     const { model, updateModel, stableHue, currentColorSpace } = deps;
 
-    const getColorSpace = (color: ValueUnit<Color<ValueUnit<number>>, "color">) => {
+    const getColorSpace = (color: ParsedColorUnit) => {
         return color.value.colorSpace as ColorSpace;
     };
 
     const parseAndNormalizeColor = (value: string) => {
-        let color: ValueUnit<Color<ValueUnit<number>>, "color">;
+        let color: ParsedColorUnit;
         try {
             value = value.trim().toLowerCase();
-            color = parseCSSColor(value) as ValueUnit<Color<ValueUnit<number>>, "color">;
+            color = parseCSSColor(value);
         } catch (e) {
             console.warn("[useColorModel] Invalid color:", value, e);
-            color = parseCSSColor(DEFAULT_COLOR) as ValueUnit<Color<ValueUnit<number>>, "color">;
+            color = parseCSSColor(DEFAULT_COLOR);
         }
         return normalizeColorUnit(color);
     };
 
     const setCurrentColor = (
-        color: ValueUnit<Color<ValueUnit<number>>, "color">,
+        color: ParsedColorUnit,
         colorSpace?: DisplayColorSpace,
         fromSpectrum?: boolean,
     ) => {
@@ -85,7 +84,7 @@ export function useColorParsing(deps: {
             if (!newVal || newVal === prevInvalidParsedValue) return;
 
             // Parse directly -- throws on invalid input (no silent fallback)
-            const parsed = parseCSSColor(newVal) as ValueUnit<Color<ValueUnit<number>>, "color">;
+            const parsed = parseCSSColor(newVal);
             const normalized = normalizeColorUnit(parsed);
 
             if (normalized?.value?.toString() === model?.value?.color?.value?.toString()) {
@@ -140,7 +139,7 @@ export function useColorParsing(deps: {
 
     const generateRandomColor = (
         colorSpace: DisplayColorSpace,
-    ): ValueUnit<Color<ValueUnit<number>>, "color"> => {
+    ): ParsedColorUnit => {
         // Generate a pleasing random color using OKLCh-constrained generation
         const css = generateSingleColor("vibrant");
         const parsed = parseAndNormalizeColor(css);

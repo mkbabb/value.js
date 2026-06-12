@@ -19,8 +19,6 @@ import type { ColorPicker } from "@components/custom/color-picker";
 import type { ViewManager } from "@composables/useViewManager";
 import { normalizeColorUnit } from "@src/units/color/normalize";
 import { parseCSSColor } from "@src/parsing/color";
-import type { ValueUnit } from "@src/units";
-import type { Color } from "@src/units/color";
 import { usePaletteManager, type PaletteManager } from "./usePaletteManager";
 
 export function usePaletteManagerWiring(
@@ -53,9 +51,7 @@ export function usePaletteManagerWiring(
             try {
                 const parsed = parseCSSColor(css);
                 if (!parsed) return;
-                const normalized = normalizeColorUnit(
-                    parsed as ValueUnit<Color<ValueUnit<number>>, "color">,
-                );
+                const normalized = normalizeColorUnit(parsed);
                 const newStr = normalizeColorUnit(normalized, true, false).value.toFormattedString(2);
 
                 const savedColors = [...model.value.savedColors];

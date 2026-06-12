@@ -1,8 +1,7 @@
-import type { ValueUnit } from "@src/units";
-import type { Color } from "@src/units/color";
 import type { ColorSpace } from "@src/units/color/constants";
 import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
 import { parseCSSColor } from "@src/parsing/color";
+import type { ParsedColorUnit } from "@src/parsing/color";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 
 export { default as ColorPicker } from "./ColorPicker.vue";
@@ -29,16 +28,16 @@ export function resolveColorSpace(space: DisplayColorSpace): ColorSpace {
 
 export type ColorModel = {
     selectedColorSpace: DisplayColorSpace;
-    color: ValueUnit<Color<ValueUnit<number>>, "color">;
+    color: ParsedColorUnit;
     inputColor: string;
-    savedColors: Array<ValueUnit<Color<ValueUnit<number>>, "color"> | any>;
+    savedColors: Array<ParsedColorUnit | any>;
 };
 
 const DEFAULT_INPUT_COLOR = "lab(92% 88.8 20 / 82.70%)";
 const DEFAULT_COLOR_SPACE: ColorSpace = "oklch";
 
 export function createDefaultColorModel(): ColorModel {
-    const parsed = parseCSSColor(DEFAULT_INPUT_COLOR) as ValueUnit<Color<ValueUnit<number>>, "color">;
+    const parsed = parseCSSColor(DEFAULT_INPUT_COLOR);
     const color = colorUnit2(normalizeColorUnit(parsed), DEFAULT_COLOR_SPACE, true, false, false);
     return {
         selectedColorSpace: DEFAULT_COLOR_SPACE,
@@ -56,7 +55,7 @@ export const CSS_NATIVE_SPACES: ReadonlySet<string> = new Set([
 
 /** Convert a normalized rgb color (components in [0,1]) to a hex string. */
 export function colorToHexString(
-    color: ValueUnit<Color<ValueUnit<number>>, "color">,
+    color: ParsedColorUnit,
 ): string {
     const rgb = colorUnit2(color, "rgb", true, false, false);
     const denorm = normalizeColorUnit(rgb, true, false);
@@ -69,7 +68,7 @@ export function colorToHexString(
 }
 
 export function toCSSColorString(
-    color: ValueUnit<Color<ValueUnit<number>>, "color">,
+    color: ParsedColorUnit,
     digits: number = 2,
 ): string {
     if (CSS_NATIVE_SPACES.has(color.value.colorSpace)) {

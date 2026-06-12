@@ -10,8 +10,6 @@ import {
 } from "@components/custom/color-picker";
 import { normalizeColorUnit, colorUnit2 } from "@src/units/color/normalize";
 import { parseCSSColor } from "@src/parsing/color";
-import type { ValueUnit } from "@src/units";
-import type { Color } from "@src/units/color";
 import { debounce } from "@src/utils";
 
 export function useAppColorModel(model: ShallowRef<ColorModel>) {
@@ -49,9 +47,7 @@ export function useAppColorModel(model: ShallowRef<ColorModel>) {
     /** Parse a CSS string and apply it to the model. */
     const applyColorString = (css: string) => {
         try {
-            const parsed = normalizeColorUnit(
-                parseCSSColor(css) as ValueUnit<Color<ValueUnit<number>>, "color">,
-            );
+            const parsed = normalizeColorUnit(parseCSSColor(css));
             const resolvedSpace = model.value.selectedColorSpace === "hex" ? "rgb" : model.value.selectedColorSpace;
             const color = colorUnit2(parsed, resolvedSpace, true, false, false);
             const inputColor = model.value.selectedColorSpace === "hex"

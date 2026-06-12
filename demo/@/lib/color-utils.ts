@@ -22,7 +22,7 @@ export function cssToRawColor(css: string, space: ColorSpace): Color<number> | n
     const parsed = parseCSSColor(css);
     if (!parsed) return null;
 
-    const unit = normalizeColorUnit(parsed as any);
+    const unit = normalizeColorUnit(parsed);
     const converted = colorUnit2(unit, space, true, false, false);
     const color = converted.value;
 
@@ -34,11 +34,26 @@ export function cssToRawColor(css: string, space: ColorSpace): Color<number> | n
         rawValues.push(v instanceof ValueUnit ? v.value : (v as number));
     }
     const alpha = color.alpha instanceof ValueUnit
-        ? (color.alpha as any).value
+        ? color.alpha.value
         : (color.alpha as number);
 
     const Ctor = color.constructor as new (...args: any[]) => Color<number>;
     return new Ctor(...rawValues, alpha);
+}
+
+/**
+ * Resolve any CSS color string to an 8-bit sRGB `[r, g, b]` triple (each
+ * channel in `[0, 255]`). Library-backed: routes through `cssToRawColor` (the
+ * single CSS-color→RGB resolution path — inv-N-3), so all 15 color spaces +
+ * named colors resolve natively, with **zero DOM** (no hidden `<div>` +
+ * `getComputedStyle`, no canvas `getImageData`). Returns a mid-grey fallback on
+ * parse failure to match the prior resolver's behaviour.
+ */
+export function cssToRgb255(css: string): [number, number, number] {
+    const rgb = cssToRawColor(css, "rgb");
+    if (!rgb) return [128, 128, 128];
+    const to255 = (v: number) => Math.round(Math.min(1, Math.max(0, v)) * 255);
+    return [to255(rgb.r as number), to255(rgb.g as number), to255(rgb.b as number)];
 }
 
 /**

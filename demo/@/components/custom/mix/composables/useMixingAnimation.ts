@@ -14,6 +14,8 @@
 
 import { watch, onBeforeUnmount } from "vue";
 import type { Ref } from "vue";
+import { lerp } from "@src/math";
+import { cssToRgb255 } from "@lib/color-utils";
 import type { AnimationPhase } from "./useMixingState";
 
 interface FillSection {
@@ -23,21 +25,6 @@ interface FillSection {
     progress: number;
     alpha: number;
     entryDelay: number;
-}
-
-function cssToRgb(css: string): [number, number, number] {
-    if (typeof document === "undefined") return [128, 128, 128];
-    const el = document.createElement("div");
-    el.style.color = css;
-    el.style.display = "none";
-    document.body.appendChild(el);
-    const computed = getComputedStyle(el).color;
-    document.body.removeChild(el);
-    const match = computed.match(/\d+/g);
-    if (match && match.length >= 3) {
-        return [parseInt(match[0]!), parseInt(match[1]!), parseInt(match[2]!)];
-    }
-    return [128, 128, 128];
 }
 
 function rgba(r: number, g: number, b: number, a: number): string {
@@ -50,10 +37,6 @@ function easeOutCubic(t: number): number {
 
 function easeInQuad(t: number): number {
     return t * t;
-}
-
-function lerp(a: number, b: number, t: number): number {
-    return a + (b - a) * t;
 }
 
 // Random corner assignment: distribute sections to different corners
@@ -78,7 +61,7 @@ export function useMixingAnimation(
         return colors.map((css, i) => {
             const corner = CORNERS[i % CORNERS.length]!;
             return {
-                color: cssToRgb(css),
+                color: cssToRgb255(css),
                 originX: corner[0],
                 originY: corner[1],
                 progress: 0,

@@ -34,7 +34,25 @@ import { memoize } from "../utils";
 import { CSSValueUnit, parseCSSValueUnit } from "./units";
 import { createCalcParser, createMathFunctionParsers, evaluateMathFunction } from "./math";
 
-const createColorValueUnit = (value: Color<any>) => {
+/**
+ * The typed currency of the color-parse boundary. A `parseCSSColor` /
+ * `CSSColor.Value` result is a `ValueUnit` carrying a `Color` whose channels are
+ * `ValueUnit<number>` — the exact shape `normalizeColorUnit` / `colorUnit2`
+ * consume. Parsers construct the inner `Color` with raw numbers, but the whole
+ * color pipeline reads channels through `ValueUnit.unwrapDeep` (tolerating both
+ * `number` and `ValueUnit<number>`), so this is the canonical boundary type the
+ * pipeline speaks. Typing the parser annotation to it (rather than the bare
+ * `ValueUnit<any>`) lets every consumer drop the hand-narrowing cast.
+ *
+ * NOTE: `currentColor` / `light-dark()` resolve to deferred `"color-keyword"`
+ * sentinels (a `ValueUnit<string | FunctionValue>`); those ride the same parser
+ * and are structurally `ValueUnit`. Demo consumers feed the result straight into
+ * `normalizeColorUnit` (the color path); the sentinel survives verbatim for the
+ * keyframes.js render seam (it never reaches `normalizeColorUnit`).
+ */
+export type ParsedColorUnit = ValueUnit<Color<ValueUnit<number>>, "color">;
+
+const createColorValueUnit = (value: Color<any>): ParsedColorUnit => {
     return new ValueUnit(
         value,
         "color",
@@ -610,6 +628,11 @@ const lightDarkParser: Parser<ValueUnit> = utils.istring("light-dark").next(
 // COLOR_NAMES miss. Both are more specific than the named-color fallback, so
 // they sit between the functional families and `nameParser`, preserving the
 // byte-identical resolution of every currently-parsing input.
+// The bucket parsers are heterogeneous: the functional-color families and
+// `nameParser` produce a `ParsedColorUnit` (`"color"`), while the `currentColor`
+// / `light-dark()` sentinels produce a deferred `"color-keyword"` unit (a
+// `ValueUnit<string | FunctionValue>`). `any()` unifies them to the bare
+// `ValueUnit`, so the tables are typed at that width.
 const letterBuckets: Record<string, Parser<ValueUnit>> = {
     c: any(currentColorParser, colorMix, colorFunction, nameParser),
     r: any(rgbParser, nameParser),
@@ -635,7 +658,17 @@ for (let cc = 97; cc <= 122; cc++) {
     dispatchTable[upper] = bucket;
 }
 
-const Value: Parser<ValueUnit> = dispatch(dispatchTable).trim(whitespace);
+// The parse boundary's typed contract. `dispatch(...)` returns `Parser<ValueUnit>`
+// (the heterogeneous bucket width above), but EVERY color-producing arm builds
+// its payload through `createColorValueUnit` — which returns `ParsedColorUnit` by
+// construction — and the named-color arm resolves a color string the same way.
+// The deferred `"color-keyword"` sentinels (`currentColor` / `light-dark()`) ride
+// the same parser as the one out-of-band variant; they survive verbatim for the
+// keyframes.js render seam and never reach `normalizeColorUnit`. Narrowing the
+// boundary here — codifying that parser-construction invariant once — is what
+// lets every consumer drop the hand-written `as ValueUnit<Color<…>, "color">`
+// cast (N.W2.C; the same invariant `resolveToPlainColor` above already asserts).
+const Value = dispatch(dispatchTable).trim(whitespace) as Parser<ParsedColorUnit>;
 
 export const CSSColor = {
     Value,
@@ -698,7 +731,7 @@ export function getCustomColorNames(): ReadonlyMap<string, string> {
 // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see comment in
 // src/parsing/index.ts.
 export const parseCSSColor = memoize(
-    (input: string): ValueUnit => {
+    (input: string): ParsedColorUnit => {
         // F7 — try the custom-name map BEFORE the speculative rich parse.
         // The rich parser fails on a registered custom name. Historically (≤
         // parse-that 0.8.2) the top-level `parseState` fired

@@ -302,6 +302,7 @@ export {
     clearCustomColorNames,
     getCustomColorNames,
 } from "./parsing/color";
+export type { ParsedColorUnit } from "./parsing/color";
 
 // Parsing utilities
 export {

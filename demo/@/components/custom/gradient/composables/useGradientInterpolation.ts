@@ -8,7 +8,6 @@ import type { Ref } from "vue";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/dispatch";
 import { mixColors } from "@src/units/color/dispatch";
-import type { Color } from "@src/units/color";
 import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
 
 // ── Shared interpolation constants (used by Gradient + Mix views) ──
@@ -34,13 +33,12 @@ export const HUE_INTERPOLATION_METHODS: { value: HueInterpolationMethod; label: 
 
 // ── Helpers ──
 
-export function resolveColor(css: string, space: ColorSpace): Color<number> | null {
-    return cssToRawColor(css, space);
-}
-
 /**
  * Mix two CSS colors at ratio `t` (0 = c0, 1 = c1) in the given space.
  * Returns the CSS string of the mixed color, or null on failure.
+ *
+ * Both endpoints resolve through `cssToRawColor` — the single library-backed
+ * CSS-color→RGB resolution path (inv-N-3).
  */
 export function interpolateStopColors(
     css0: string,
@@ -49,8 +47,8 @@ export function interpolateStopColors(
     space: ColorSpace,
     hueMethod: HueInterpolationMethod,
 ): string | null {
-    const c0 = resolveColor(css0, space);
-    const c1 = resolveColor(css1, space);
+    const c0 = cssToRawColor(css0, space);
+    const c1 = cssToRawColor(css1, space);
     if (!c0 || !c1) return null;
     const mixed = mixColors(c0, c1, 1 - t, t, space, hueMethod);
     return rawColorToCSS(mixed);

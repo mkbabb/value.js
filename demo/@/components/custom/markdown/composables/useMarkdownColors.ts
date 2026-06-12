@@ -3,8 +3,6 @@ import { computed } from "vue";
 import { parseCSSColor } from "@src/parsing/color";
 import { computeSafeAccent } from "@src/units/color/contrast";
 import { colorUnit2 } from "@src/units/color/normalize";
-import type { ValueUnit } from "@src/units";
-import type { Color } from "@src/units/color";
 
 const BG_LIGHTNESS_DARK = 0.15;
 const BG_LIGHTNESS_LIGHT = 0.97;
@@ -21,7 +19,7 @@ export function useMarkdownColors(cssColor: () => string | undefined) {
         if (!colorStr) return {};
 
         try {
-            const parsed = parseCSSColor(colorStr) as ValueUnit<Color<ValueUnit<number>>, "color"> | null;
+            const parsed = parseCSSColor(colorStr);
             if (!parsed) return {};
 
             // Normalize to [0,1] then convert to OKLCH

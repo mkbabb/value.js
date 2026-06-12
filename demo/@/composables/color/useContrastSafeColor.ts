@@ -4,8 +4,6 @@ import { colorUnit2 } from "@src/units/color/normalize";
 import { computeSafeAccent } from "@src/units/color/contrast";
 import { parseCSSColor } from "@src/parsing/color";
 import type { ColorModel } from "@components/custom/color-picker";
-import type { ValueUnit } from "@src/units";
-import type { Color } from "@src/units/color";
 
 /**
  * Background lightness constants (OKLab L) for the app's light/dark themes.
@@ -77,7 +75,7 @@ export function useContrastSafeColor(
  */
 function safeAccentFromCss(css: string, bgL: number): string {
     try {
-        const parsed = parseCSSColor(css) as ValueUnit<Color<ValueUnit<number>>, "color"> | null;
+        const parsed = parseCSSColor(css);
         if (!parsed) return css;
 
         // parsed has physical values — normalize first, then convert

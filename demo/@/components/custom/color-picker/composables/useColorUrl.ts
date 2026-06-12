@@ -5,8 +5,6 @@ import type { ColorModel } from "@components/custom/color-picker";
 import type { DisplayColorSpace } from "@components/custom/color-picker";
 import { toCSSColorString, resolveColorSpace, colorToHexString } from "@components/custom/color-picker";
 import { parseCSSColor } from "@src/parsing/color";
-import { ValueUnit } from "@src/units";
-import type { Color } from "@src/units/color";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
 import { NORMALIZED_COLOR_NAMES } from "./useColorModel";
@@ -33,7 +31,7 @@ export function useColorUrl(options: {
 
         try {
             const displaySpace = space as DisplayColorSpace;
-            const parsed = parseCSSColor(color) as ValueUnit<Color<ValueUnit<number>>, "color">;
+            const parsed = parseCSSColor(color);
             const normalized = normalizeColorUnit(parsed);
             const converted = colorUnit2(normalized, resolveColorSpace(displaySpace), true, false, false);
 

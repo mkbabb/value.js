@@ -12,8 +12,6 @@ import { ref, type Ref } from "vue";
 import type { ColorSpace } from "@src/units/color/constants";
 import { parseCSSColor } from "@src/parsing/color";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
-import type { ValueUnit } from "@src/units";
-import type { Color } from "@src/units/color";
 
 export type DisplayColorSpace = ColorSpace | "hex";
 
@@ -47,7 +45,7 @@ export function useImageSampler(deps: ImageSamplerDeps) {
             const parsed = parseCSSColor(hex);
             if (!parsed) return hex;
             const converted = colorUnit2(
-                parsed as ValueUnit<Color<ValueUnit<number>>, "color">,
+                parsed,
                 space,
                 false,
                 false,

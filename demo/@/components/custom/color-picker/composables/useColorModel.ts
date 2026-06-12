@@ -2,8 +2,8 @@ import { computed, ref, shallowRef, watch, type Ref, type ShallowRef, type Writa
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { debounce } from "@src/utils";
 import { parseCSSColor } from "@src/parsing/color";
+import type { ParsedColorUnit } from "@src/parsing/color";
 import { ValueUnit } from "@src/units";
-import { Color } from "@src/units/color";
 import type { ColorSpace } from "@src/units/color/constants";
 import {
     COLOR_SPACE_RANGES,
@@ -26,7 +26,7 @@ const DIGITS = 2;
 // Normalize built-in COLOR_NAMES to XYZ formatted strings (module-level, computed once)
 export const NORMALIZED_COLOR_NAMES = Object.entries(COLOR_NAMES).reduce(
     (acc, [name, color]) => {
-        const parsedColor = parseCSSColor(color) as ValueUnit<Color<ValueUnit<number>>, "color">;
+        const parsedColor = parseCSSColor(color);
         const xyz = colorUnit2(parsedColor, "xyz", false, false, false);
         acc[name] = xyz.value.toFormattedString(DIGITS);
         return acc;
@@ -107,7 +107,7 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
         return color;
     });
 
-    const getColorSpace = (color: ValueUnit<Color<ValueUnit<number>>, "color">) => {
+    const getColorSpace = (color: ParsedColorUnit) => {
         return color.value.colorSpace as ColorSpace;
     };
 
@@ -170,7 +170,7 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
     };
 
     const formatForSelectedDisplaySpace = (
-        color: ValueUnit<Color<ValueUnit<number>>, "color">,
+        color: ParsedColorUnit,
     ) => {
         if (model.value.selectedColorSpace === "hex") {
             return colorToHexString(color);
