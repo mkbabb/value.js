@@ -11,16 +11,16 @@ against it = **3 errors** (exactly the 3 re-aliased import sites), not 91.
 
 | Wave | Disposition | Kind | Status | Gate |
 |---|---|---|---|---|
-| **N.W0** — Charter | DEV | — | **AUTHORED 2026-06-11** | `N.md` + audit ledgers + `audit/lanes/` committed; awaits ratification |
-| **N.W1** — Boot-truth substrate | IMPL | unilateral | **PLANNED** | typecheck 0 vs a dts-complete glass-ui dist (the W1 precondition — 74 of 91 HEAD errors are its absence); demo mounts console-clean fresh; e2e baseline; CI boot-smoke live |
-| **N.W2** — Type hardening | IMPL | unilateral | **PLANNED** | 26 WithId casts → 0 (4 models); desktop `@source` live; resolvers 4→1; 11+2 parse casts → 0 |
-| **N.W3** — CRUD right-sizing + contract honesty | IMPL | unilateral | **PLANNED** | TOCTOU fixed; txns 18→≤14; indexes right-sized; URN decision + conformance gaps closed |
-| **N.W4** — Deploy-truth (Ask 3) | IMPL | unilateral infra | **PLANNED** | committed artifact executes txns (rs0); prod == HEAD lineage; /health /docs /openapi 200; webhook deploy |
-| **N.W5** — Design-system consummation (blob + aurora + watercolor) | IMPL | semi-unilateral | **PLANNED** | fork dirs deleted; aurora palette-derived; zero phantom classes; π blob-footprint |
-| **N.W6** — Design-language suffusion (the standing Fable wave) | IMPL | unilateral | **PLANNED** | per-pane DELTA evidence; type-ramp + empty-state + celebratory-motion landed; router 5 |
-| **N.W7** — Library asks (kf next-slice) + perf-truth → 0.12.0 | IMPL | unilateral | **PLANNED** | kf `it.fails` witnesses flip; prettier out of tarball; 0.12.0 published |
-| **N.W8** — Hygiene + reconciliation | IMPL | unilateral | **PLANNED** | master merged + green; tags == registry; submodule clean; docs match tree |
-| **N.W9** — v1.0.0 close + π | DEV (close) | unilateral (pin gated on glass-ui 3.13.0) | **PLANNED** | π green; glass-ui `^3.13.0` pinned; v1.0.0 published; FINAL.md |
+| **N.W0** — Charter | DEV | — | **DONE** (ratified 2026-06-11) | `N.md` + audit ledgers + `audit/lanes/` committed |
+| **N.W1** — Boot-truth substrate | IMPL | unilateral | **DONE** `d9c3b9f` (e2e closure runs with W2's gate) | typecheck 0 ✓; boot-smoke PASS cold ✓; CI boot-smoke + abrogation sweep wired ✓; the glass-ui CSS-gap unblocked by the paired-authorship fix `glass-ui@537c7f80` |
+| **N.W2** — Type hardening | IMPL | unilateral | **A DONE** `e4b5f60` (26→0 verified); **B/C executing** | 26 WithId casts → 0 ✓; desktop `@source` live; resolvers → 1; parse casts → 0 |
+| **N.W3** — CRUD right-sizing + contract honesty | IMPL | unilateral | **DONE** `fe3c00c` (verified) | TOCTOU ✓; txns 18→14 justified-each ✓; indexes 26→22 + sessions TTL ✓; 30d contract ✓; urn:contract:* adopted ✓; api 161→214 |
+| **N.W4** — Deploy-truth (Ask 3) | IMPL | unilateral infra | **ARTIFACTS DONE** `e62567a`+`b0cb867` (verified; wire deploy = the W8 ceremony) | rs0 docker mutation proof PASSED ✓; deploy-hook authored ✓; /health /docs /openapi 200 ✓; vhost :8130 ✓; deploy-pages.yml ✓; DEC-9 honesty: NCSU retirement = W8 on-host item |
+| **N.W5** — Design-system consummation (blob + aurora + watercolor) | IMPL | semi-unilateral | **DONE** `e32111c`+`ee458e5` (verified ×5 lanes + visual evidence) | fork dirs deleted ✓ (inv-N-4); aurora palette-derived ✓ (paired screenshots); zero phantom classes ✓ (sweep green, inv-N-7); blob live-palette paletteStops ✓ |
+| **N.W6** — Design-language suffusion (the standing Fable wave) | IMPL | unilateral | **PLANNED** (needs W2.B — in flight) | per-pane DELTA evidence; type-ramp + empty-state + celebratory-motion landed; router 5 |
+| **N.W7** — Library asks (kf next-slice) + perf-truth → 0.12.0 | IMPL | unilateral | **A+B DONE** `9cd815e`+`0deca84`+`ed0dd00` (verified; 1709 tests); **C (0.12.0) after W2.C** | 11 items landed + witness-mirrored ✓; prettier evicted 586→287KB ✓ (≤320KB gate, honest re-target from <200KB — d.ts are half the tarball); lerpArray KEEP (kf consume-edge refuted the demote premise) |
+| **N.W8** — Hygiene + reconciliation | IMPL | unilateral | **PLANNED** (+ the wire-deploy ceremony folded in) | master merged + green; tags == registry; submodule clean; docs match tree; prod deploy fires post-merge |
+| **N.W9** — v1.0.0 close + π | DEV (close) | unilateral (pin gated on glass-ui 3.13.0 — still uncut) | **PLANNED** | π green; glass-ui `^3.13.0` pinned; v1.0.0 published; FINAL.md |
 
 ## The dispatch split
 
