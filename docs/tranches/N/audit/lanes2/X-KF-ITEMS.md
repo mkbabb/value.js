@@ -1,8 +1,14 @@
-# Lane X-KF-ITEMS — the keyframes.js tranche items, AUTHORED
+# Lane X-KF-ITEMS — the keyframes.js tranche items, AUTHORED (+ verification pass)
 
 **Fleet:** second N-tranche deep-audit (lanes2). **Phase:** tranche development only — docs-only;
 the ONE sanctioned cross-repo write executed. **Date:** 2026-06-12. **Branch:**
 `tranche-f-handoff` @ `199fd15` + 0.12.0 published.
+
+**THIS-SESSION VERIFICATION PASS (the third over this lane's artifacts):** every load-bearing
+file:line in the authored `VALUEJS-N2-ASKS.md` was re-grounded against the LIVE value.js + kf
+trees (not inherited from the prior passes). Verdict: the doc's structure, dispositions, and
+phasing all STAND; **four citation imprecisions found and FIXED in the kf doc this session**
+(see §5 below). The X-KF matrix's own re-verification (`X-KF.md` preamble) is corroborated.
 
 **Deliverable (authored, uncommitted by design):**
 `/Users/mkbabb/Programming/keyframes.js/docs/tranches/K/VALUEJS-N2-ASKS.md` — the value.js
@@ -26,8 +32,9 @@ BOTH trees (every file:line in the authored doc re-verified this session, not in
    (`kf/package.json:178`).
 2. **The re-pin + witness-flip slate** — 12 rows, each producer↔seam↔flip exact:
    - MCI-5 (the ONE live witness): `functionIdentityValue` (`src/units/utils.ts:71`) →
-     kf `padToLength` (`kf/src/animation/utils.ts:316` `new ValueUnit(0)` — re-verified live);
-     flips `interpolate-anything.test.ts:256` + removes the positive control `:271-277`.
+     kf `padToLength` (`kf/src/animation/utils.ts:317` `new ValueUnit(0)` — re-verified live
+     this session; the prior `:316` was off by one); flips `interpolate-anything.test.ts:256`
+     + removes the positive control `:271-277`.
      Wiring caution recorded: the pad site needs the absent function's NAME in scope.
    - E1/E2/VJ-3/B1/B2/B4 consume edges per `W7C.md` (cited as the brief required), with the
      E1 **contract deltas** no prior doc recorded: value.js `parseLinearStops` takes the FULL
@@ -65,8 +72,10 @@ BOTH trees (every file:line in the authored doc re-verified this session, not in
   retirement proceeds on the composition.
 - **VJ-2 ≡ VJ-F1? (X-KF §3.2 "verify")** → **YES for the sampler half, including orient**:
   `PathGeometry.sampleAtLength` returns point + tangent angle for `rotate: auto`
-  (`src/transform/path.ts:478,508`, `PathSample.angle` `:29-31`). The MorphSVG SHAPE-interp
-  product half remains kf's own L work, gated on nothing value.js-side.
+  (`src/transform/path.ts:478,512` — class + method, re-grounded this session;
+  `PathSample.angle` `:30-31`; standalone `getTotalLength`/`getPointAtLength` `:551,560`).
+  The MorphSVG SHAPE-interp product half remains kf's own L work, gated on nothing
+  value.js-side.
 
 ## §3 — Discoveries beyond the brief (for the N re-divination)
 
@@ -91,3 +100,48 @@ Docs-only (zero code edits, both trees); the kf write confined to the sanctioned
 duplication of K's specs (the doc indexes K's own dispositions and fills only the inbound
 census they await); LEAN per the proof-idiom-retired feedback. No browser work needed — this
 lane is source/doc-mapping; no screenshots emitted.
+
+## §5 — The verification log (this session's pass over the authored artifacts)
+
+Every file:line below was re-run against the live trees this session. **VERIFIED EXACT** (no
+change): value.js `package.json:3` 0.12.0 + `:65` parse-that `^0.9.0`; `src/units/utils.ts:71`
+`functionIdentityValue`; `units/constants.ts:128` `FUNCTION_IDENTITY`; barrel `index.ts`
+`:25,:39,:144,:172,:191,:222-239,:276,:320,:342`; `parsing/easing.ts:78` `parseLinearStops` +
+`:132` `parseSteps`; `units/color/index.ts:399` `toAnimationString`; `units/color/dispatch.ts`
+`:269` `gamutMap` + `:334` `cssColorInterpKeyword`; `units/color/constants.ts:235,256`
+`COLOR_SYNTAX_FAMILY`/`COLOR_FUNCTION_FORM`; `units/utils.ts:188` `unflattenObjectToString`;
+`parsing/utils.ts:65,80` `ParseDiagnostic`/`OnParseError`; `parsing/color.ts:572` the VJ-3
+sentinel section. kf-side: `package.json:178-179` (parse-that `^0.9.0`, value.js `^0.11.2`);
+the shim `src/animation/utils.ts:106-131` (inner-string input, `undefined` fall-through,
+`stops.length >= 2` floor — all three contract-delta claims TRUE in source);
+`test/interpolate-anything.test.ts:256` `it.fails` + the `:271-277` positive control (the
+test's own comments say "FLIPS RED → remove this wrapper" — matching the doc's convention;
+`K.W1.md:554`'s "flipping GREEN" is the loose inner-assertion phrasing, the test source is
+authoritative); `serialize-from-template.test.ts:143` SEAM-4 stays `it.fails`;
+`adapter.ts:18` `ResolvedKeyframes` with NO `diagnostics` field; `K.md:59` the `^0.11.2` hold;
+`K.W1.md:550-556` the DL-K21 re-pin-re-confirm clause; kf `PROGRESS.md` DL-K17/K18/K20 rows;
+`K.W4.md:343,590` `ChromeDock.vue:200` (spring/chrome, NOT the easing canvas); the donor trio +
+`easingGroups.ts` on disk with `EasingSelect.vue:29` `max-h-[var(--easing-dropdown-max-h)]`
+(the exact U8 mechanism); `W7C.md` cut facts (registry-verified publish, vitest 1709/41,
+295,294 B). N-side anchors: `PROGRESS.md` N.W7 A+B DONE + C published; `N.md` N.W6.C
+"easing-curve as the gradient pane's hero motif" (the under-scoped half U27 upgrades).
+
+**FOUR CITATION FIXES applied to `VALUEJS-N2-ASKS.md` this session** (all precision, none
+structural):
+1. Row 1 pad seam: `src/animation/utils.ts:316` → **`:317`** (the `out.push(new ValueUnit(0))`
+   line, off by one).
+2. Row 8 kf seam: `src/utils.ts:203` → **`src/animation/utils.ts:203`** — kf has NO
+   `src/utils.ts`; DL-K18's bare `utils.ts:203` shorthand resolves to the animation module.
+   Value.js half tightened `:125-165` → `:97-165` (the `{maxCacheSize}` option at `:97`,
+   default `:114`, eviction `:159`).
+3. Row 9 sampler: `path.ts:478,508` → **`:478,512`** (`PathGeometry` class / `sampleAtLength`
+   method); `PathSample.angle` `:29-31` → `:30-31`; standalone fns `:551,560` added.
+4. Row 2 grammar grounding: the bare "spec-conformant" ≥1-stop claim re-grounded on the
+   Level-2 grammar (`<linear-stop>#`, `sepBy(comma, 1)` at `parsing/easing.ts:56-57`) with
+   semantic resolution explicitly `cssLinear`'s — so the kf owner reads the delta as a
+   parser-level fact, not a behavioral promise.
+   Row 6 disambiguated: `constants.ts:235,256` → `units/color/constants.ts:235,256`.
+
+**Standing note for the X-KF matrix (not edited — another lane's report):** `X-KF.md §2.1`
+carries the same stale `kf/src/animation/utils.ts:316` (now `:317`); harmless, superseded by
+the corrected kf doc.

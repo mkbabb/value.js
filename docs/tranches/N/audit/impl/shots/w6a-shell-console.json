@@ -1,0 +1,142 @@
+{
+  "picker": [
+    "[warning] [.WebGL-0x13400515400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[warning] [.WebGL-0x13400515400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "picker-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "palettes": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "palettes-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "browse": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED",
+    "[error] Access to fetch at 'https://api.color.babb.dev/palettes?limit=50&offset=0&sort=newest' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check:",
+    "[error] Failed to load resource: net::ERR_FAILED",
+    "[warning] Failed to load remote palettes: TypeError: Failed to fetch\n    at fetchWithRateLimitRetry (http://localhost:9405/@fs/Users/mkbabb/Programming/value.js/demo/@/lib/palette/api/client.ts:40:21)\n    at request (http://localh",
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/tags' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-",
+    "[error] Failed to load resource: net::ERR_FAILED",
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/tags' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "browse-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED",
+    "[error] Access to fetch at 'https://api.color.babb.dev/palettes?limit=50&offset=0&sort=newest' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check:",
+    "[error] Failed to load resource: net::ERR_FAILED",
+    "[warning] Failed to load remote palettes: TypeError: Failed to fetch\n    at fetchWithRateLimitRetry (http://localhost:9405/@fs/Users/mkbabb/Programming/value.js/demo/@/lib/palette/api/client.ts:40:21)\n    at request (http://localh",
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/tags' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-",
+    "[error] Failed to load resource: net::ERR_FAILED",
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/tags' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Allow-",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "extract": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "extract-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "mix": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "mix-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "generate": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "generate-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "gradient": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "gradient-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "atmosphere": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "atmosphere-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "blob": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "blob-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "admin-users": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "admin-users-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "admin-names": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "admin-names-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "admin-audit": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "admin-audit-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "admin-flagged": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "admin-flagged-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "admin-tags": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "admin-tags-mobile": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "shell-interactions": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "shell-actionbar": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ],
+  "shell-mobile-menu": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9405' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The 'Access-Control-Al",
+    "[error] Failed to load resource: net::ERR_FAILED"
+  ]
+}

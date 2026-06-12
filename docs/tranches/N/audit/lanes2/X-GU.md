@@ -130,3 +130,100 @@ The matrix yields **eight glass-ui asks** — items BA does NOT cover that value
 - Read in full: `BA.md`, `EXECUTION-DAG.md`, `PROGRESS.md`, and the wave specs `W-DOCK-SECTIONS`, `W-DOCK-MORPH-INSITU`, `W-DOCK-GEOMETRY`, `W-SURFACE-AXIS`, `W-CONFIG-CHASSIS`, `W-GLASS-CAL`, `W-GOO-REDRESS`, `W-DARK-MATERIAL` (head), `W-NO-GRAY`, `W-FADING-SCROLL` (head), `W-TABS` (head), `W-DEMO-AFFORDANCES` (head), `W-MENU-GLASS` (head), `W-STAGE` (grep-targeted on aurora). Grep-swept all 30 wave specs for watercolor / collision-scroll / slider / easing-picker. Verified the glass-ui 3.13.0 exports manifest + the `watercolor-dot`/`slider`/`select` source dirs. Cross-checked keyframes K (`K.md` + waves) for an easing-picker push into glass-ui — confirmed absent (K consumes glass-ui published, `inv-16`).
 - NOT done: live browser grounding of U33/U7/U8 (a sibling lane holds the exclusive chrome-devtools profile; the running profile refuses a second/isolated instance). The overlap map is documentary — grounded against the binding wave specs, which is the correct evidence for a tranche-development overlap matrix. The live aurora/dropdown behaviour is the design/blob/aurora/dropdown lanes' province; this lane hands them the X-GU-A1/D2 asks to confirm.
 - This lane implements nothing and writes no glass-ui file (`inv-16`). The asks are filed for the BA roster via the cohort channel.
+
+---
+
+## §5 — SECOND-FLEET VERIFICATION ADDENDUM (2026-06-12, lane X-GU re-run)
+
+The X-GU lane was re-dispatched in the second fleet. This addendum is an independent re-walk of
+the BA wave specs (all 29 read or grep-swept) reconciled against the §0–§4 matrix above. **The
+matrix STANDS — every verdict re-confirmed.** Two material additions + one correction follow; they
+do not overturn a single row, they SHARPEN the four HIGH asks with primary cross-repo evidence the
+original walk pre-dated.
+
+### §5.1 — The load-bearing new evidence: kf `VALUEJS-N2-ASKS.md §4` (the easing-editor three-way ownership)
+
+The original walk filed **X-GU-H1** (easing-picker, U27) and **X-GU-D2** (bounded scrolling dropdown,
+U8) as "authored by neither sibling." That is now CONFIRMED with a primary cite the original lacked:
+keyframes' **`../keyframes.js/docs/tranches/K/VALUEJS-N2-ASKS.md §4`** (authored 2026-06-12 by this
+very value.js N fleet's X-KF-ITEMS lane, left uncommitted for the kf owner) states **verbatim**:
+
+> *"Neither kf's K nor glass-ui's BA schedules the publish… the glass-ui tranche item is seeded by
+> value.js N's fleet on the glass-ui side."*
+
+and records the **three-way ownership** that X-GU-ITEMS must encode in X-GU-H1:
+- **value.js KEEPS the curve MATH** — `CSSCubicBezier`, `bezierPresets`, `timingFunctions`,
+  `timingFunctionDescriptions`, `cssLinear`+`parseLinearStops`, `steppedEase`+`parseSteps`
+  (`value.js/src/index.ts:226-238`). The published editor CONSUMES these.
+- **kf DONATES the editor trio + CEDES it on the glass-ui publish** — `EasingEditor.vue`
+  (composition root) + `EasingCurveCanvas.vue` (editable bezier canvas) + `EasingSelect.vue`
+  (the **grouped dropdown, 10 families, per-curve SVG previews,
+  `max-h-[var(--easing-dropdown-max-h)]` bounded scroll — the EXACT U8 mechanism**) +
+  `easingGroups.ts`. The three demo-local SFCs delete in the same motion the published primitive
+  is consumed (kf's net-deletion idiom).
+- **kf KEEPS spring/decay math + PLAYBACK** (the progress dot driven by kf's own `anim.t`; the
+  published primitive takes progress as a prop). `useDragCapture` stays kf's — glass-ui
+  re-expresses the pointer math in its own drag idiom.
+- **glass-ui OWNS the published editor component** — and **BA's `BezierEditor.vue`/`StepsEditor`
+  should fold INTO the published primitive, not stay a fourth demo-only fork** (BA's own
+  `BezierEditor.vue` header credits the kf chassis).
+
+**Consequence for X-GU-ITEMS:** X-GU-H1 (easing editor) and X-GU-D2 (bounded scrolling dropdown,
+U8) are **the SAME publish** — U8's reference mechanism IS `EasingSelect`'s
+`max-h-[var(--easing-dropdown-max-h)]` bounded scroll, which ships as part of the easing-editor
+primitive. The original matrix filed them as two asks; they collapse to ONE glass-ui publish (the
+easing editor), with the dropdown-collision contract as its `EasingSelect` half. This is the single
+sharpest correction the second fleet adds.
+
+### §5.2 — Correction: the §3 ask count is EIGHT, but the pin-gate is the binding decision
+
+The §3 census lists eight asks; the second-fleet re-walk concurs on all eight (A1 aurora-probe, B1
+`uSatColor[]`, D1 font-parity, D2 bounded-dropdown, D3 spring-clock-confirm, E1/E2 slider,
+F1 watercolor-ghost, H1 easing-picker). **No ninth surfaced.** The matrix's coverage is complete.
+The one decision that dominates all eight: **the BA cut is 4.0.0, and N's inv-N-6 pins `^3.13.0`**
+(§3 headline 3). Re-confirmed against `BA.md` (H4 DECIDED → 4.0.0) and `EXECUTION-DAG.md §0`. **For
+the COVERED set (U1 gray/dark, U3 blob renderer, U6 dock springs, U16 dock sizing, U20 skeleton,
+U23 dropdown jerk, U7 menu-row, U13 veil) to reach the value.js demo, N must re-pin to `^4.0.0`** —
+a major, requiring the inv-N-10 abrogation sweep against BA's substantial retired-set (`btn-audacious`,
+Dialog `variant`, tabs `segmented`/overflow/multi-select, `ui/Tabs` public, `GlassUnderline`/
+`/underline`, the `.scroll-fade-*` utilities). **N's v1.0.0 design close is incoherent against
+3.13.0; the load-bearing N charter decision this lane surfaces is: re-pin the close to `^4.0.0`.**
+
+### §5.3 — Re-confirmations (no change, recorded for the synthesis lane)
+
+- **No Slider-PRIMITIVE wave in BA** — re-confirmed by grep across all 29 specs: the Slider appears
+  ONLY as a consumer (W-CONFIG-CHASSIS width contract, W-GLASS-CAL fenced thumb-halo, W-DARK-MATERIAL
+  `--primary` range-fill). The §1 verdict that `./slider` is ALREADY a first-class export at 3.13.0
+  (so U15 is largely satisfied) stands; the remaining U20-spectrum/U28-thickness asks (E1/E2) are the
+  only producer deltas, both small/verify-at-consume.
+- **W-GOO-REDRESS fence-locks `metaball.frag`** — re-confirmed (`BA.W-GOO-REDRESS.md` Do-NOT-touch:
+  the fence is open ONLY for the `uSmoothK` upload seam + the JS orbit atoms; the in-shader color is
+  excluded). So `uSatColor[]` (B1, the U3 "satellites = shades of current color") genuinely cannot
+  ride W-GOO-REDRESS — it needs a wave that opens the color-uniform fence. Confirms B1 stays open.
+- **W-MENU-GLASS reaches `select/SelectItem`** (one of the 13 CVA consumers) — re-confirmed
+  (`BA.W-MENU-GLASS.md` §0: the 13-SFC fan includes `select/SelectItem`). So U7's glass-quiet register
+  is covered; only the font-size-tracks-trigger contract (D1) is the residual.
+- **W-DEMO-AFFORDANCES's curve-picker is explicitly DEMO-LOCAL** — re-confirmed (the Triumvirate
+  Dispatch fences it OUT of becoming a `SegmentedTabs` variant: "the recommended path is a DEMO-LOCAL
+  chip rack"). So it is NOT the portable easing primitive U27 needs — H1 stays a net-new publish.
+
+### §5.4 — Headline for the synthesis lane (second-fleet, unchanged in substance)
+
+1. **BA is the producer fix for ~16 of 33 user findings.** At those rows N's job is "consume the BA
+   4.0.0 cut," not author. (§3 headline 1, re-confirmed.)
+2. **The spring-clock architectural root** (`springLinearStops` discards response → every CSS spring
+   consumer drags a dead tail) is the single highest-leverage cross-repo fix — W-GLASS-CAL.3 fixes
+   U6/U12/U23 for all consumers at once. (§3 headline 2, re-confirmed.)
+3. **Re-pin N to `^4.0.0`, not `^3.13.0`** — the binding charter decision. (§3 headline 3 + §5.2.)
+4. **The eight absent asks** — A1/B1/D1/D2/D3/E1/E2/F1/H1 — with **D2+H1 now collapsed to ONE
+   easing-editor publish** (the kf donor / value.js math / glass-ui component three-way; §5.1). These
+   are the X-GU-ITEMS authoring slate; value.js writes none (inv-16), they ride the cohort channel.
+5. **U10 (LAB→RGB) is value.js's OWN library** — no producer can fix it for us. (§3 headline 5,
+   re-confirmed.)
+
+**Live grounding note (second fleet):** the shared chrome-devtools profile was again held by sibling
+lanes; an isolated context was refused by the running profile (same constraint as the first walk).
+The overlap matrix is documentary, grounded against the binding BA wave specs (file:line) + the kf
+`VALUEJS-N2-ASKS.md` cross-repo cite — the correct evidence base for a tranche-development overlap
+map. The live U33-aurora-movement / U7-U8-dropdown grounding is handed to the design lanes via the
+A1/D2 asks (which the kf §4 cite now corroborates).
