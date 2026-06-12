@@ -31,16 +31,20 @@ test("admin tag delete DELETEs /admin/tags/<name>", async ({ page }) => {
     // Wait for the tag pill to render (the GET /admin/tags fulfilment is
     // async; the delete button is `opacity-0` group-hover-revealed but
     // present in the DOM once the parent pill mounts — wait on the pill
-    // text rather than the button's visibility).
-    await expect(page.getByText("ew3-doomed").last()).toBeVisible();
-    // The delete button has `focus-visible:opacity-100` — focusing it
-    // unhides without needing a hover synthesis. dispatchEvent('click')
-    // via Playwright's `dispatchEvent` API bypasses the visibility
-    // check entirely (vs. real `click()` which actionability-waits) and
-    // fires the synthetic event the @click handler responds to.
+    // text rather than the button's visibility). The Tags panel mounts in
+    // both layout slots (the off-breakpoint copy is `display:none`), so
+    // target the visible-pane pill by its rendered visibility rather than a
+    // positional `.last()`.
+    await expect(page.getByText("ew3-doomed").filter({ visible: true })).toBeVisible();
+    // The delete button is `opacity-0` group-hover-revealed (still a real,
+    // visible box in the rendered pane — Playwright treats opacity:0 as
+    // visible). The off-breakpoint pane's copy is `display:none` (zero box),
+    // so `{ visible: true }` resolves the visible-pane button. dispatchEvent
+    // fires the synthetic click the @click handler responds to without an
+    // actionability hover synthesis.
     await page
         .getByRole("button", { name: "Delete tag ew3-doomed" })
-        .last()
+        .filter({ visible: true })
         .dispatchEvent("click");
     await expect.poll(() => deleteCalled).toBe(true);
 });

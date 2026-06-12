@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { setupEnvNoise } from "./fixtures/env-noise";
+import { openView } from "./fixtures/dock";
 
 /**
  * Smoke (D.W5 Lane A): walk every user-facing view in sequence.
@@ -16,7 +17,6 @@ test("walk all user views sequentially with zero console errors", async ({
     const main = page.getByRole("main", { name: "Color tool panes" });
     await expect(main).toBeVisible();
 
-    const viewSelect = page.getByRole("combobox", { name: "Select view" });
     const views = [
         "Palettes",
         "Browse",
@@ -26,14 +26,12 @@ test("walk all user views sequentially with zero console errors", async ({
         "Mix",
     ];
     for (const name of views) {
-        await viewSelect.click({ force: true });
-        await page.getByRole("option", { name, exact: true }).click();
+        await openView(page, name);
         // Main landmark must remain visible across the transition.
         await expect(main).toBeVisible();
     }
     // Return to the picker (label "Home" per VIEW_MAP).
-    await viewSelect.click({ force: true });
-    await page.getByRole("option", { name: "Home", exact: true }).click();
+    await openView(page, "Home");
     await expect(main).toBeVisible();
 
     expect(consoleErrors).toEqual([]);

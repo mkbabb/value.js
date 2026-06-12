@@ -33,6 +33,19 @@ const PAGINATED = JSON.stringify({ data: [], total: 0, limit: 50, offset: 0 });
 const SESSION_BODY = JSON.stringify({ token: FAKE_TOKEN, userSlug: FAKE_SLUG });
 const ME_BODY = JSON.stringify({ userSlug: FAKE_SLUG, slug: FAKE_SLUG });
 
+/**
+ * True for the palette REST API surface — the `/palettes` path component and
+ * its sub-paths — but never the demo's own Vite source modules (e.g.
+ * `/@fs/.../demo/@/lib/palette/api/palettes.ts`, the H.W3 api.ts split). The
+ * REST path has no Vite source namespace and no module extension; the source
+ * module lives under `/@fs/`, `/@id/`, or `/node_modules/` and ends in `.ts`.
+ */
+const isPaletteApi = (url: URL): boolean => {
+    if (/\/(@fs|@id|@vite|node_modules)\//.test(url.pathname)) return false;
+    if (/\.(ts|tsx|js|mjs|cjs|jsx|vue|css)$/.test(url.pathname)) return false;
+    return /(^|\/)palettes(\/|$)/.test(url.pathname);
+};
+
 export const userTest = base.extend({
     page: async ({ page }, use) => {
         // 1. Seed user creds BEFORE any page script runs. useUserAuth's
@@ -81,7 +94,17 @@ export const userTest = base.extend({
         //    `/colors/approved`, `/colors/search`, `/colors/tags`.
         //    Each per-spec fixture may override individual routes to
         //    fulfill a mutate endpoint with a custom shape.
-        await page.route("**/palettes**", (route) =>
+        //
+        //    NOTE: the glob must NOT swallow the demo's own Vite source
+        //    module `/@fs/.../demo/@/lib/palette/api/palettes.ts` (the
+        //    H.W3 api.ts decomposition created that path). A `**/palettes**`
+        //    glob matched it and fulfilled the JS module with a JSON body,
+        //    so the browser failed the module load ("Expected a
+        //    JavaScript-or-Wasm module script") and the app never booted.
+        //    Match the API endpoint by its path component only — the
+        //    `/palettes` REST path, never a `.ts`/`.vue` source module under
+        //    a Vite `/@fs/`, `/@id/`, or `/node_modules/` namespace.
+        await page.route(isPaletteApi, (route) =>
             route.fulfill({
                 status: 200,
                 contentType: "application/json",

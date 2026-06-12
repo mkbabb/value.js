@@ -1,4 +1,5 @@
 import { test, expect, devices } from "@playwright/test";
+import { openView } from "../fixtures/dock";
 
 /**
  * G.W3 Lane G — E2E-1: Pixel-7 mobile-walk spec.
@@ -136,10 +137,7 @@ test("mobile walk: segmented control toggles panes + view-select re-routes", asy
     // runs a `Transition mode="out-in"` and is verified separately by the
     // toggle steps above; here we assert the control, the dock's own
     // surface, which is what this lane targets.
-    const viewSelect = page.getByRole("combobox", { name: "Select view" });
-    await expect(viewSelect).toBeVisible();
-    await viewSelect.click({ force: true });
-    await page.getByRole("option", { name: "Mix", exact: true }).click();
+    await openView(page, "Mix");
 
     // `nav`-scoped — the Mix pane carries its own "Mix" content button.
     const mixTab = nav.getByRole("button", { name: "Mix", exact: true });

@@ -1,13 +1,15 @@
 import { test, expect } from "@playwright/test";
+import { openView } from "./fixtures/dock";
 
 /**
  * Smoke: the dock view-select switches panes.
  * Switches to the "Palettes" view, asserts the Palettes pane heading
  * ("My Palettes") becomes visible. Role/label-based selectors only.
  *
- * Note: the dock's collapsed-summary layer overlays the view-select
- * trigger and intercepts the synthetic pointer event; `force` dispatches
- * the click straight to the combobox (the reka-ui Select still opens).
+ * The open is the real-user idiom (`openView`): the desktop dock boots
+ * expanded (N.W5 Defect-B), so the `Select view` combobox is reachable on
+ * first paint and a REAL click opens it — no `force:true` (which reka-ui 2.9
+ * ignores).
  */
 test("dock view-select switches to the Palettes pane", async ({ page }) => {
     await page.goto("/");
@@ -15,11 +17,7 @@ test("dock view-select switches to the Palettes pane", async ({ page }) => {
         page.getByRole("main", { name: "Color tool panes" }),
     ).toBeVisible();
 
-    const viewSelect = page.getByRole("combobox", { name: "Select view" });
-    await expect(viewSelect).toBeVisible();
-
-    await viewSelect.click({ force: true });
-    await page.getByRole("option", { name: "Palettes", exact: true }).click();
+    await openView(page, "Palettes");
 
     await expect(
         page.getByRole("heading", { name: "My Palettes" }),

@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
+import { openView } from "../fixtures/dock";
 
 /**
  * Smoke (D.W5 Lane A): the Generate view renders the preset Select control
@@ -12,9 +13,7 @@ test("generate view renders preset Select with zero console errors", async ({
 
     await page.goto("/");
 
-    const viewSelect = page.getByRole("combobox", { name: "Select view" });
-    await viewSelect.click({ force: true });
-    await page.getByRole("option", { name: "Generate", exact: true }).click();
+    await openView(page, "Generate");
 
     const main = page.getByRole("main", { name: "Color tool panes" });
     await expect(

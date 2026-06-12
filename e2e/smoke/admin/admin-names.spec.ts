@@ -13,11 +13,16 @@ test("admin-names view renders SearchBar + zero console errors", async ({ page }
     await page.goto("/#/admin/names");
 
     await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
-    // The pane mounts in BOTH mobile (`lg:hidden`) + desktop slots; the
-    // mobile copy renders first in DOM, so `.last()` picks the visible
-    // desktop one at the 1280×720 smoke viewport.
-    await expect(page.getByRole("heading", { name: "Names" }).last()).toBeVisible();
-    await expect(page.getByPlaceholder(/Search color names/i).last()).toBeVisible();
+    // The pane mounts in both layout slots; the off-breakpoint copy is
+    // `display:none` inside `.pane-wrapper.hidden`. DOM order across the
+    // responsive wrappers is not stable, so target the actually-visible copy
+    // by its rendered visibility rather than a positional `.last()`.
+    await expect(
+        page.getByRole("heading", { name: "Names" }).filter({ visible: true }),
+    ).toBeVisible();
+    await expect(
+        page.getByPlaceholder(/Search color names/i).filter({ visible: true }),
+    ).toBeVisible();
 
     expect(consoleErrors).toEqual([]);
 });

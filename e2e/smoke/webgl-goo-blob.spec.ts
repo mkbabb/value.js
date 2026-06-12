@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { openView } from "./fixtures/dock";
 
 /**
  * Smoke (D.W5 Lane A): goo-blob canvas survives a view switch.
@@ -41,13 +42,10 @@ test("goo-blob canvas survives view switch without webglcontextlost", async ({
     await expect(page.getByTestId("goo-blob-canvas").last()).toBeAttached();
 
     // Switch away → switch back. Exercises unmount/remount.
-    const viewSelect = page.getByRole("combobox", { name: "Select view" });
-    await viewSelect.click({ force: true });
-    await page.getByRole("option", { name: "Browse", exact: true }).click();
+    await openView(page, "Browse");
     await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
 
-    await viewSelect.click({ force: true });
-    await page.getByRole("option", { name: "Home", exact: true }).click();
+    await openView(page, "Home");
     await expect(page.getByTestId("goo-blob-canvas").last()).toBeAttached();
 
     // Quick post-mount warm-up — let one renderer tick land.

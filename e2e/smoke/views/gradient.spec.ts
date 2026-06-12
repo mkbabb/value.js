@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
+import { openView } from "../fixtures/dock";
 
 /**
  * Smoke (D.W5 Lane A): the Gradient view renders the visualizer's
@@ -12,9 +13,7 @@ test("gradient view renders direction slider with zero console errors", async ({
 
     await page.goto("/");
 
-    const viewSelect = page.getByRole("combobox", { name: "Select view" });
-    await viewSelect.click({ force: true });
-    await page.getByRole("option", { name: "Gradient", exact: true }).click();
+    await openView(page, "Gradient");
 
     const main = page.getByRole("main", { name: "Color tool panes" });
     // The pane mounts in two layout slots (mobile + desktop); only one is

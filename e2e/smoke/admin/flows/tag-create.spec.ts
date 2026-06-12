@@ -27,9 +27,15 @@ test("admin tag create POSTs /admin/tags with name+category", async ({ page }) =
     await page.goto("/#/admin/tags");
     const main = page.getByRole("main", { name: "Color tool panes" });
     await expect(main).toBeVisible();
-    await main.getByPlaceholder("Tag name...").last().fill("ew3-tag");
-    await main.getByPlaceholder("Category...").last().fill("ew3-cat");
-    await main.getByRole("button", { name: "Create tag" }).last().click();
+    // The Tags panel mounts in both layout slots (the off-breakpoint copy is
+    // `display:none`); target the visible copy's controls rather than `.last()`
+    // (DOM order across the responsive wrappers is not stable).
+    await main.getByPlaceholder("Tag name...").filter({ visible: true }).fill("ew3-tag");
+    await main.getByPlaceholder("Category...").filter({ visible: true }).fill("ew3-cat");
+    await main
+        .getByRole("button", { name: "Create tag" })
+        .filter({ visible: true })
+        .click();
     await expect.poll(() => postBody?.name).toBe("ew3-tag");
     expect(postBody?.category).toBe("ew3-cat");
 });

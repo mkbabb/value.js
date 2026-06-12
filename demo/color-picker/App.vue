@@ -4,6 +4,7 @@
         <canvas
             ref="atmosphereCanvas"
             class="absolute inset-0 w-full h-full pointer-events-none"
+            :style="auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined"
             aria-hidden="true"
             data-testid="atmosphere-canvas"
         />
@@ -101,7 +102,14 @@ import { usePaneRouter } from "@composables/usePaneRouter";
 import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
 import { useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import { useAurora, resolveAtoms, deriveAurora, type AuroraAtoms } from "@mkbabb/glass-ui/aurora";
+import {
+    useAurora,
+    resolveAtoms,
+    deriveAurora,
+    resolveRenderMode,
+    paletteToCssGradient,
+    type AuroraAtoms,
+} from "@mkbabb/glass-ui/aurora";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@components/custom/panes/keys";
 
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/goo-blob";
@@ -225,9 +233,33 @@ provide(AURORA_ATOMS_KEY, auroraAtoms);
 // `resolveAtoms` is TOTAL for the numeric atoms, but it derives the palette via
 // `deriveAurora(seed)`, which THROWS on an un-parseable seed — so the seed write
 // below is the one validated boundary, and this getter stays throw-free.
-useAurora(atmosphereCanvas, () => resolveAtoms(auroraAtoms), {
-    onInitError: (err) => console.warn("[aurora] init failed:", err),
-});
+// Adaptive substrate (glass-ui's `resolveRenderMode("auto")`): on a low-power or
+// SOFTWARE-WebGL device (SwiftShader / llvmpipe / MS Basic Render — the GPU-
+// blocklisted path) this resolves to `"css"`, so `useAurora` NEVER arms the
+// full-viewport WebGL2 surface. A full-viewport software-rastered GL layer makes
+// every pointer-driven composite stall the renderer's input ack — the page goes
+// unresponsive under interaction (the N.W5 Defect-A hang, reproduced live; the
+// same severe jank a blocklisted-GPU user feels). On those devices the atmosphere
+// paints via the cheap CSS-gradient placeholder below (a complete render of the
+// same derived palette) instead. Resolved ONCE at setup (a mount-time device tier).
+const auroraRenderMode = resolveRenderMode("auto");
+
+useAurora(
+    atmosphereCanvas,
+    () => resolveAtoms(auroraAtoms),
+    { onInitError: (err) => console.warn("[aurora] init failed:", err) },
+    { renderMode: auroraRenderMode },
+);
+
+// The CSS-gradient fallback for the `"css"` substrate — the same derived palette
+// `resolveAtoms` feeds the WebGL field, rendered as a static linear gradient (the
+// `<Aurora>` placeholder idiom, glass-ui's `paletteToCssGradient`). Empty on the
+// `"webgl"` path so the canvas owns the paint; on `"css"` it is the atmosphere.
+const auroraCssGradient = computed(() =>
+    auroraRenderMode === "css"
+        ? paletteToCssGradient(resolveAtoms(auroraAtoms).palette)
+        : undefined,
+);
 
 // The picker→atmosphere seed: every colour change re-seeds the derived palette.
 // `cssColorOpaque` is always a value.js-serialised colour, so the guard never

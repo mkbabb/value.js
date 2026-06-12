@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { openView } from "../fixtures/dock";
 
 /**
  * E.W3 Lane B — iOS-Safari sustained-30s smoke (the D-03 follow-up).
@@ -167,7 +168,6 @@ test("iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zer
     // exercises `usePaneRouter`'s component registry under transition
     // load — any leaked watcher, missing dispose, or stale-prop write
     // would fire a `[stale prop]` console error during one of the swaps.
-    const viewSelect = page.getByRole("combobox", { name: "Select view" });
     const viewSequence = [
         "Palettes",
         "Mix",
@@ -176,14 +176,12 @@ test("iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zer
         "Generate",
     ] as const;
     for (const name of viewSequence) {
-        await viewSelect.click({ force: true });
-        await page.getByRole("option", { name, exact: true }).click();
+        await openView(page, name);
         await expect(main).toBeVisible();
     }
     // Return to Home (the picker view) so the goo-blob canvas is mounted
     // for the WebGL-render-watch step.
-    await viewSelect.click({ force: true });
-    await page.getByRole("option", { name: "Home", exact: true }).click();
+    await openView(page, "Home");
     await expect(main).toBeVisible();
     await expect(page.getByTestId("goo-blob-canvas").last()).toBeAttached();
 

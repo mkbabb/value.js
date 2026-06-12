@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
+import { openView } from "../fixtures/dock";
 
 /**
  * Smoke (D.W5 Lane A): the Extract view renders the image drop-zone
@@ -12,9 +13,7 @@ test("extract view renders drop-zone with zero console errors", async ({
 
     await page.goto("/");
 
-    const viewSelect = page.getByRole("combobox", { name: "Select view" });
-    await viewSelect.click({ force: true });
-    await page.getByRole("option", { name: "Extract", exact: true }).click();
+    await openView(page, "Extract");
 
     const main = page.getByRole("main", { name: "Color tool panes" });
     await expect(

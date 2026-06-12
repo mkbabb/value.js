@@ -90,7 +90,7 @@ watch(
 <template>
     <div class="fixed top-dock-inset inset-x-0 z-dock flex items-center justify-center pointer-events-none">
         <div class="pointer-events-auto">
-            <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="isDesktop" :fit-content="true" :always-expanded="!isDesktop">
+            <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="false" :fit-content="true" :always-expanded="!isDesktop">
                 <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
                     <!-- Mobile edit layer -->
                     <DockLayer id="mobile-edit" class="justify-center">

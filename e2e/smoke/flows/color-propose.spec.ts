@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { expandDock } from "../fixtures/dock";
 
 /**
  * E.W3 Lane A flow #8 — color-propose (propose-mode cycle smoke).
@@ -27,12 +28,13 @@ test("propose cycle reaches 'Propose color name' state for an unnamed color", as
 }) => {
     await page.goto("/?color=%23abcdef");
     await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
-    // Expand the collapsed dock (idiomatic from view-switch.spec).
-    await page.getByRole("combobox", { name: "Select view" }).click({ force: true });
-    await page.keyboard.press("Escape");
-    // Toggle action bar → cycle to input → cycle to propose.
-    await page.getByRole("button", { name: "Toggle action bar" }).click({ force: true });
-    await page.getByRole("button", { name: "Open color input" }).click({ force: true });
+    // Ensure the dock is expanded (desktop boots expanded post-N.W5 Defect-B;
+    // `expandDock` is a no-op then, and clicks the pill on any collapsed viewport).
+    await expandDock(page);
+    // Toggle action bar → cycle to input → cycle to propose (real clicks — the
+    // controls are reachable on the expanded dock; no `force:true`).
+    await page.getByRole("button", { name: "Toggle action bar" }).click();
+    await page.getByRole("button", { name: "Open color input" }).click();
     // The toggle label flips to "Propose color name" iff
     // canProposeName=true AND the input sub-layer is active — the
     // assertion that the cycle reached the propose state.

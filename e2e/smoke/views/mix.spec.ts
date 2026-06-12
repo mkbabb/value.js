@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
+import { openView } from "../fixtures/dock";
 
 /**
  * Smoke (D.W5 Lane A): the Mix view renders its pane heading.
@@ -12,9 +13,7 @@ test("mix view renders Mix heading with zero console errors", async ({
 
     await page.goto("/");
 
-    const viewSelect = page.getByRole("combobox", { name: "Select view" });
-    await viewSelect.click({ force: true });
-    await page.getByRole("option", { name: "Mix", exact: true }).click();
+    await openView(page, "Mix");
 
     const main = page.getByRole("main", { name: "Color tool panes" });
     await expect(
