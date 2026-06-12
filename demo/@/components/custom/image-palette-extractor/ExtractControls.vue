@@ -34,7 +34,7 @@
                 <Upload class="w-5 h-5 transition-colors" />
             </DockIconButton>
 
-            <div class="dock-separator" />
+            <DockSeparator />
 
             <!-- Chroma weight slider -->
             <div class="flex items-center gap-1.5 flex-1 min-w-0">
@@ -53,7 +53,7 @@
                 <span class="fira-code text-micro text-muted-foreground tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
             </div>
 
-            <div class="dock-separator" />
+            <DockSeparator />
 
             <DockIconButton
                 :disabled="disabled || !hasImage"
@@ -69,7 +69,7 @@
 
 <script setup lang="ts">
 import { Upload, RotateCcw } from "@lucide/vue";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
+import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { Slider } from "@components/ui/slider";
 
 defineProps<{

@@ -2,7 +2,7 @@
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
 import { ChevronDown, Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import { GlassDock, DockLayerGroup, DockLayer } from ".";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
+import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
 import GenericActionBar from "./layers/GenericActionBar.vue";
@@ -97,7 +97,7 @@ watch(
                         <WatercolorDot v-if="editTarget" :color="editTarget.originalCss" tag="div" class="w-7 h-7 shrink-0 opacity-50" seed="edit-original" />
                         <span class="text-muted-foreground text-caption">&rarr;</span>
                         <WatercolorDot :color="cssColorOpaque" tag="div" class="w-7 h-7 shrink-0" seed="edit-new" />
-                        <div class="dock-separator"></div>
+                        <DockSeparator />
                         <DockIconButton title="Save edit" @click="emit('commitEdit')"><Check class="w-5 h-5" :style="{ color: safeAccent }" /></DockIconButton>
                         <DockIconButton title="Cancel edit" @click="emit('cancelEdit')"><Undo2 class="w-5 h-5" /></DockIconButton>
                     </DockLayer>
@@ -110,7 +110,7 @@ watch(
                     <!-- Action bar layer -->
                     <DockLayer v-if="hasAnyActionBar" id="action-bar">
                         <DockIconButton class="shrink-0" title="Back" @click="actionBarLayerActive = false"><ArrowLeft class="w-6 h-6" /></DockIconButton>
-                        <div class="dock-separator"></div>
+                        <DockSeparator />
                         <ActionBarLayer v-if="actionBar" :action-bar="actionBar" :edit-target="editTarget" @open-palette="onActionBarOpenPalette" @open-extract="onActionBarOpenExtract" />
                         <GenericActionBar v-else-if="genericBar" :actions="genericBar.actions.value" :accent-color="genericBar.accentColor ?? safeAccent" />
                     </DockLayer>
@@ -131,7 +131,7 @@ watch(
                         />
 
                         <!-- Action bar toggle -->
-                        <div v-if="hasAnyActionBar" class="dock-separator"></div>
+                        <DockSeparator v-if="hasAnyActionBar" />
                         <div class="action-bar-toggle-slot" :class="{ 'is-visible': hasAnyActionBar }">
                             <div class="action-bar-toggle-inner">
                                 <DockIconButton
@@ -158,7 +158,7 @@ watch(
 
                         <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner) -->
                         <template v-if="viewManager.currentConfig.value.right !== null">
-                            <div class="dock-separator lg:hidden"></div>
+                            <DockSeparator class="lg:hidden" />
                             <div class="lg:hidden">
                                 <PaneSegmentedControl
                                     :model-value="viewManager.mobilePaneIndex.value"
@@ -170,7 +170,7 @@ watch(
                         </template>
 
                         <!-- Mobile overflow menu -->
-                        <div class="dock-separator lg:hidden"></div>
+                        <DockSeparator class="lg:hidden" />
                         <MobileMenuDropdown
                             v-model:open="mobileMenuOpen"
                             :css-color-opaque="safeAccent"

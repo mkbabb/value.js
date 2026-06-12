@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, nextTick, inject, useTemplateRef } from "vue";
 import { LogIn, ArrowRight, RefreshCw, X as XIcon, Loader2 } from "@lucide/vue";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
+import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 
@@ -95,7 +95,7 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
         </DockIconButton>
     </form>
 
-    <div class="dock-separator"></div>
+    <DockSeparator />
 
     <DockIconButton
         compact

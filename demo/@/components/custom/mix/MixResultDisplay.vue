@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Copy, Check, Save, RotateCcw } from "@lucide/vue";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
+import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { ref, TransitionGroup } from "vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
@@ -93,7 +93,7 @@ async function onCopy() {
             >
                 <Save class="w-5 h-5" />
             </DockIconButton>
-            <div class="dock-separator" />
+            <DockSeparator />
             <DockIconButton
                 compact
                 title="Reset"

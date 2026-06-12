@@ -5,8 +5,7 @@ import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@components/custom/color-picke
 import type { ActionBarContext } from "@components/custom/color-picker/keys";
 import ActionToolbar from "@components/custom/color-picker/controls/ActionToolbar.vue";
 import ColorInput from "@components/custom/color-picker/controls/ColorInput.vue";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
-import { useLayerTransition } from "../composables/useLayerTransition";
+import { DockIconButton, DockSeparator, useLayerTransition } from "@mkbabb/glass-ui/dock";
 import type { EditTarget } from "@components/custom/color-picker";
 
 const { actionBar, editTarget } = defineProps<{
@@ -52,10 +51,26 @@ const currentToggleIcon = computed(() => {
 });
 
 // ── Sub-layer transition (actions ↔ input) ──
+// glass-ui's `useLayerTransition` owns the size-morph + crossfade off ONE spring
+// scalar (`--dock-morph-t`); it exposes the post-swap `currentLayer` + the fading
+// `leavingLayer` refs. The per-id class/inert packaging the consumer template needs
+// is the same binding glass-ui's own DockLayerGroup applies — derived here so the
+// two call sites (`actions`/`input`) stay a single v-bind.
 const subLayerGridEl = useTemplateRef<HTMLElement>("subLayerGridEl");
 const activeSubLayer = computed(() => (showInput.value ? "input" : "actions"));
-const { layerProps: subLayerProps, onTransitionEnd: onSubLayerTransitionEnd } =
-    useLayerTransition({ containerEl: subLayerGridEl, activeLayer: activeSubLayer });
+const {
+    currentLayer: currentSubLayer,
+    leavingLayer: leavingSubLayer,
+    onTransitionEnd: onSubLayerTransitionEnd,
+} = useLayerTransition({ containerEl: subLayerGridEl, activeLayer: activeSubLayer });
+
+function subLayerProps(id: "actions" | "input") {
+    const isActive = currentSubLayer.value === id;
+    return {
+        class: ["dock-layer", { "is-active": isActive, "is-leaving": leavingSubLayer.value === id }],
+        inert: isActive ? undefined : true,
+    };
+}
 
 defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </script>
@@ -85,7 +100,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
             />
         </div>
 
-        <div class="dock-separator"></div>
+        <DockSeparator />
 
         <!-- Toggle button — E.W3 Lane A added aria-label so the role/label
              selectors in e2e/smoke/flows/color-propose.spec.ts can drive

@@ -7,7 +7,7 @@
                     <X class="w-4 h-4 transition-[transform,color]" />
                 </DockIconButton>
 
-                <div class="dock-separator" />
+                <DockSeparator />
 
                 <!-- Sampled color swatch + label -->
                 <WatercolorDot
@@ -78,7 +78,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, computed, watch, nextTick, useTemplateRef } from "vue";
 import { X, Plus, Check } from "@lucide/vue";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
+import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 
 import { useInertiaGesture } from "../composables/useInertiaGesture";

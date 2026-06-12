@@ -3,6 +3,7 @@ import { inject } from "vue";
 import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle,
 } from "@lucide/vue";
+import { DockSeparator } from "@mkbabb/glass-ui/dock";
 import { DarkModeToggle, useGlobalDark } from "@components/custom/dark-mode-toggle";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
@@ -32,7 +33,7 @@ const { toggleDark } = useGlobalDark();
 <template>
     <!-- Desktop-only: user/login section -->
     <div class="hidden lg:flex items-center gap-1">
-        <div class="dock-separator"></div>
+        <DockSeparator />
 
         <!-- Logged in: "Account" button with dropdown -->
         <template v-if="pm.userSlug.value">
@@ -88,7 +89,7 @@ const { toggleDark } = useGlobalDark();
             </button>
         </template>
 
-        <div class="dock-separator"></div>
+        <DockSeparator />
     </div>
 
     <!-- @mbabb menu -->
