@@ -4,10 +4,19 @@ services:
     ports:
       - "127.0.0.1:8130:3000"
     environment:
-      MONGODB_URI: "mongodb://mongo:27017/palette-db"
+      # directConnection=true: a single-node replica set advertises its member
+      # host (`mongo:27017`) in the hello/isMaster reply; without this the driver
+      # tries to reach that advertised host directly and can stall on first
+      # connect. directConnection pins the driver to this one seed — the correct
+      # idiom for a one-node rs0 (transactions still work: rs0 IS a replica set).
+      MONGODB_URI: "mongodb://mongo:27017/palette-db?replicaSet=rs0&directConnection=true"
       ADMIN_TOKEN: "${ADMIN_TOKEN}"
       ALLOWED_ORIGINS: "${ALLOWED_ORIGINS:-}"
       PORT: "3000"
+      # Deployed-code lineage stamp surfaced by GET /health (N.W4.D). The
+      # deploy-hook exports DEPLOY_COMMIT_SHA before `up -d`; absent (local) it
+      # falls through to "dev" in the app.
+      DEPLOY_COMMIT_SHA: "${DEPLOY_COMMIT_SHA:-dev}"
     depends_on:
       mongo:
         condition: service_healthy
@@ -31,9 +40,11 @@ services:
         reservations:
           memory: 128M
           cpus: "0.25"
-    # Healthcheck
+    # Healthcheck — probes /health (liveness + a live mongo ping), the
+    # dedicated route, not the bare root (N.W4.D). A Mongo outage flips /health
+    # to 503 so the container is marked unhealthy.
     healthcheck:
-      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -47,14 +58,36 @@ services:
 
   mongo:
     image: mongo:8
+    # Single-node replica set `rs0` — the transactions P0 (N.W4.A). The 14
+    # `withTransaction` sites require a replica-set deployment; a standalone
+    # `mongod` rejects `session.startTransaction()`. One node IS a valid
+    # replica set, so this is the minimal correct artifact (no extra members,
+    # no arbiter). The healthcheck below performs the one-shot `rs.initiate`
+    # idempotently, so the COMMITTED compose can execute every transaction.
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
     volumes:
       - mongo-data:/data/db
     healthcheck:
-      test: mongosh --eval "db.adminCommand('ping')"
+      # rs.initiate is the standard single-node-rs init idiom run from the
+      # healthcheck (no separate sidecar): try to read the rs status; if the
+      # set is not yet initialised, initiate it. Idempotent — once a primary
+      # exists, `rs.status().ok` is 1 and the catch arm never fires. The check
+      # only reports healthy once a PRIMARY is elected, which is exactly the
+      # condition the api's `depends_on: service_healthy` must wait for before
+      # it opens a transaction-capable connection.
+      test:
+        - "CMD-SHELL"
+        - >
+          mongosh --quiet --eval '
+            try { rs.status().ok }
+            catch (e) {
+              rs.initiate({ _id: "rs0", members: [{ _id: 0, host: "mongo:27017" }] }).ok
+            }
+          ' | grep -q 1
       interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 20s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
     restart: unless-stopped
     networks:
       - internal

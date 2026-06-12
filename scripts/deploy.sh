@@ -27,7 +27,10 @@ die() { err "$1"; exit "${2:-1}"; }
 
 # ── Constellation endpoints (the D-era normalized topology) ───────────────────
 WEBHOOK_URL="${WEBHOOK_URL:-https://deploy.babb.dev/hooks/value-js}"
-API_HEALTH_URL="${API_HEALTH_URL:-https://api.color.babb.dev/palettes}"
+# N.W4.D: gate the dedicated /health route (liveness + mongo ping), not the
+# content-serving /palettes list. /health is the constellation contract endpoint
+# the on-host deploy-hook also gates on.
+API_HEALTH_URL="${API_HEALTH_URL:-https://api.color.babb.dev/health}"
 GATE_RETRIES="${GATE_RETRIES:-12}"
 GATE_INTERVAL="${GATE_INTERVAL:-5}"
 

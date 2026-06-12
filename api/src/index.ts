@@ -19,6 +19,7 @@ import { palettes } from "./routes/palettes/index.js";
 import sessions from "./routes/sessions.js";
 import colors from "./routes/colors.js";
 import admin from "./routes/admin/index.js";
+import { meta } from "./routes/meta.js";
 
 const app = new Hono<AppEnv>();
 
@@ -74,8 +75,11 @@ app.route("/sessions", sessions);
 app.route("/colors", colors);
 app.route("/admin", admin);
 
-// Health check
+// Liveness sentinel (the bare root). The richer /health (mongo ping + lineage
+// stamp), /docs, and /openapi.json live in the meta router (N.W4.D — the
+// constellation 4-endpoint vhost contract / inv-22-color).
 app.get("/", (c) => c.json({ status: "ok", service: "palette-api" }));
+app.route("/", meta);
 
 /**
  * I.W4 SOTA: emit problem+json responses with the correct
