@@ -1,0 +1,606 @@
+- generic [ref=e2] [box=0,0,1440,900]:
+  - navigation "Application navigation" [box=16,95,1408,0]:
+    - generic [ref=e6] [cursor=pointer] [box=700,16,40,40]:
+      - generic [ref=e816] [box=759,16,184,40]:
+        - button [ref=e817] [box=759,20,32,32]:
+          - img [ref=e818] [box=763,24,24,24]
+        - button [ref=e821] [box=797,20,32,32]:
+          - img [ref=e822] [box=801,24,24,24]
+        - button [ref=e825] [box=835,20,32,32]:
+          - img [ref=e826] [box=839,24,24,24]
+        - button [ref=e829] [box=873,20,32,32]:
+          - img [ref=e830] [box=877,24,24,24]
+        - button [ref=e836] [box=911,20,32,32]:
+          - img [ref=e837] [box=915,24,24,24]
+      - generic [ref=e34] [box=694,20,261,32]:
+        - combobox "Select view" [ref=e35] [box=694,20,106,32]:
+          - img [ref=e840] [box=702,24,24,24]
+          - generic [box=730,24,46,23]: Home
+          - img [ref=e39] [box=780,30,12,12]
+        - separator [ref=e843] [box=812,22,1,28]
+        - button "Toggle action bar" [ref=e44] [box=825,20,84,32]:
+          - img [ref=e45] [box=829,24,24,24]
+          - generic [ref=e127] [box=853,24,40,23]: Tools
+          - img [ref=e50] [box=893,30,12,12]
+        - button "Menu" [ref=e53] [box=915,20,40,32]:
+          - img [ref=e54] [box=923,24,24,24]
+      - img [ref=e130] [box=729,30,12,12]
+  - main "Color tool panes" [ref=e58] [box=16,95,1408,774]:
+    - generic [ref=e59] [box=220,95,1000,774]:
+      - generic [ref=e62] [box=228,162,480,638]:
+        - generic [ref=e63] [box=229,163,478,194]:
+          - combobox "Select color space" [ref=e64] [box=241,223,94,52]:
+            - generic [box=253,231,54,36]: Lab
+            - img [ref=e65] [box=307,241,16,16]
+          - heading "92%, 88.8, 20" [level=3] [ref=e67] [box=241,281,143,76]:
+            - generic [ref=e68] [box=241,281,66,40]:
+              - textbox "l component value" [ref=e69] [box=241,276,40,46]
+              - text: "%,"
+            - generic [ref=e70] [box=241,321,80,36]:
+              - textbox "a component value" [ref=e71] [box=241,316,70,46]
+              - text: ","
+            - textbox "b component value" [ref=e73] [box=329,316,40,46]
+        - generic [ref=e76] [box=241,357,454,427]:
+          - img "Color spectrum, saturation 16%, lightness 100%" [ref=e77] [box=241,357,454,224]
+          - generic [ref=e78] [box=241,593,454,191]:
+            - tablist "Color channels" [ref=e79] [box=241,593,26,191]:
+              - tab "l channel" [ref=e80] [cursor=pointer] [box=242,605,24,24]: L
+              - tab "a channel" [ref=e81] [cursor=pointer] [box=241,652,26,24]: A
+              - tab "b channel" [ref=e82] [cursor=pointer] [box=241,700,26,24]: B
+              - tab "alpha channel" [ref=e83] [cursor=pointer] [box=241,748,26,24]: A
+            - generic [ref=e84] [box=275,593,420,45]:
+              - generic [ref=e85] [box=275,593,420,19]: (0% - 100%)
+              - slider "L channel" [ref=e90] [box=650,614,12,24]
+            - generic [ref=e91] [box=275,642,420,45]:
+              - generic [ref=e92] [box=275,642,420,19]: (-125 - 125)
+              - slider "A channel" [ref=e97] [box=624,662,12,24]
+            - generic [ref=e98] [box=275,690,420,45]:
+              - generic [ref=e99] [box=275,690,420,19]: (-125 - 125)
+              - slider "B channel" [ref=e104] [box=512,711,12,24]
+            - generic [ref=e105] [box=275,739,420,45]:
+              - generic [ref=e106] [box=275,739,420,19]: (0% - 100%)
+              - slider "ALPHA channel" [ref=e111] [box=612,760,12,24]
+      - generic [ref=e136] [box=732,95,480,774]:
+        - generic [ref=e137] [box=733,96,478,128]:
+          - heading "About the color spaces," [level=3] [ref=e138] [box=749,112,446,83]:
+            - text: About the color spaces,
+            - combobox "Select color space" [ref=e139] [box=749,143,94,52]:
+              - generic [box=761,151,54,36]: Lab
+              - img [ref=e140] [box=815,161,16,16]
+          - paragraph [ref=e143] [box=749,197,446,19]: The math, the science, the art, the beauty of color spaces.
+        - separator [ref=e144] [box=733,223,478,1]
+        - generic [ref=e146] [box=745,224,454,1150]:
+          - alert [ref=e147] [box=745,224,454,93]:
+            - generic [ref=e148] [box=762,237,420,25]: Definition
+            - generic [ref=e149] [box=762,264,420,40]: The L*a*b* color space is a three-dimensional color model designed to be perceptually uniform and device-independent.
+          - separator [ref=e150] [box=745,333,454,1]
+          - generic [ref=e151] [box=745,350,454,208]:
+            - heading "Basic Information" [level=2] [ref=e152] [box=745,350,454,31]
+            - generic [ref=e153] [box=745,389,454,170]:
+              - generic [ref=e154] [box=745,389,223,23]: "Type:"
+              - generic [ref=e155] [box=976,389,223,23]: Perceptual
+              - generic [ref=e156] [box=745,420,223,23]: "Device Dependency:"
+              - generic [ref=e157] [box=976,420,223,23]: Device-independent
+              - generic [ref=e158] [box=745,451,223,46]: "White Point:"
+              - generic [ref=e159] [box=976,451,223,46]: Variable (typically D50 or D65)
+              - generic [ref=e160] [box=745,504,223,23]: "Gamut:"
+              - generic [ref=e161] [box=976,504,223,23]: Unlimited
+              - generic [ref=e162] [box=745,535,223,23]: "Created:"
+              - generic [ref=e163] [box=976,535,223,23]: "1976"
+          - separator [ref=e164] [box=745,574,454,1]
+          - generic [ref=e165] [box=745,591,454,164]:
+            - heading "Components" [level=2] [ref=e166] [box=745,591,454,31]
+            - generic [ref=e167] [box=745,630,454,126]:
+              - generic [ref=e168] [box=745,630,141,55]:
+                - generic [ref=e169] [box=745,630,141,28]: L* (Lightness)
+                - generic [ref=e170] [box=745,662,141,23]: 0% to 100%
+              - generic [ref=e171] [box=902,630,141,55]:
+                - generic [ref=e172] [box=902,630,141,28]: a* (Green-Red)
+                - generic [ref=e173] [box=902,662,141,23]: "-125 to 125"
+              - generic [ref=e174] [box=1058,630,141,55]:
+                - generic [ref=e175] [box=1058,630,141,28]: b* (Blue-Yellow)
+                - generic [ref=e176] [box=1058,662,141,23]: "-125 to 125"
+              - generic [ref=e177] [box=745,701,141,55]:
+                - generic [ref=e178] [box=745,701,141,28]: alpha
+                - generic [ref=e179] [box=745,733,141,23]: 0% to 100%
+          - separator [ref=e180] [box=745,772,454,1]
+          - generic [ref=e181] [box=745,789,454,123]:
+            - heading "Key Properties" [level=2] [ref=e182] [box=745,789,454,31]
+            - generic [ref=e183] [box=745,827,454,85]:
+              - generic [ref=e184] [box=745,827,223,23]: "Perceptual Uniformity:"
+              - generic [ref=e185] [box=976,827,223,23]: "Yes"
+              - generic [ref=e186] [box=745,858,223,23]: "Hue Linearity:"
+              - generic [ref=e187] [box=976,858,223,23]: "No"
+              - generic [ref=e188] [box=745,889,223,23]: "Lightness Separation:"
+              - generic [ref=e189] [box=976,889,223,23]: "Yes"
+          - separator [ref=e190] [box=745,928,454,1]
+          - generic [ref=e191] [box=745,945,454,258]:
+            - heading "Conversion Graph" [level=2] [ref=e192] [box=745,945,454,31]
+            - generic [ref=e193] [box=745,991,454,212]:
+              - generic [ref=e194] [cursor=pointer] [box=745,991,159,60]:
+                - generic [ref=e195] [box=757,1003,49,36]: Lab
+                - img [ref=e196] [box=810,1009,24,24]
+                - generic [ref=e198] [box=838,1003,54,36]: XYZ
+              - generic [ref=e199] [cursor=pointer] [box=920,991,156,60]:
+                - generic [ref=e200] [box=932,1003,49,36]: Lab
+                - img [ref=e201] [box=984,1009,24,24]
+                - generic [ref=e203] [box=1012,1003,52,36]: LCh
+              - generic [ref=e204] [cursor=pointer] [box=745,1067,267,60]:
+                - generic [ref=e205] [box=757,1079,49,36]: Lab
+                - img [ref=e206] [box=810,1085,24,24]
+                - generic [ref=e208] [box=838,1079,54,36]: XYZ
+                - img [ref=e209] [box=896,1085,24,24]
+                - generic [ref=e211] [box=924,1079,77,36]: OKLab
+              - generic [ref=e212] [cursor=pointer] [box=745,1143,268,60]:
+                - generic [ref=e213] [box=757,1155,49,36]: Lab
+                - img [ref=e214] [box=810,1161,24,24]
+                - generic [ref=e216] [box=838,1155,52,36]: LCh
+                - img [ref=e217] [box=893,1161,24,24]
+                - generic [ref=e219] [box=921,1155,80,36]: OKLCh
+          - separator [ref=e220] [box=745,1219,454,1]
+          - generic [ref=e221] [box=745,1236,454,138]:
+            - heading "Usage" [level=2] [ref=e222] [box=745,1236,454,31]
+            - generic [ref=e223] [box=745,1275,454,100]:
+              - generic [ref=e224] [box=745,1275,454,46]: "Common Applications: Color management, Image processing, Color difference calculations"
+              - generic [ref=e225] [box=745,1329,454,46]: "Industries: Printing, Textile, Paint manufacturing, Color research"
+        - separator [ref=e226] [box=733,1375,478,1]
+        - generic [ref=e227] [box=733,1376,478,5679]:
+          - heading "Detailed Guide" [level=2] [ref=e228] [box=745,1376,454,40]
+          - generic [ref=e230] [box=745,1439,454,5615]:
+            - heading "Attributes" [level=3] [ref=e231] [box=745,1439,454,28]
+            - list [ref=e232] [box=745,1467,454,84]:
+              - listitem [ref=e233] [box=745,1467,454,28]:
+                - math [ref=e236] [box=745,1477,23,11]:
+                  - generic [ref=e238] [box=745,1477,23,11]:
+                    - generic [ref=e239] [box=745,1477,9,11]: L
+                    - generic [ref=e240] [box=757,1480,9,7]: ∗
+                - text: ": Lightness (0% to 100%)"
+              - listitem [ref=e241] [box=745,1495,454,28]:
+                - math [ref=e244] [box=745,1508,23,8]:
+                  - generic [ref=e246] [box=745,1508,23,8]:
+                    - generic [ref=e247] [box=745,1508,9,8]: a
+                    - generic [ref=e248] [box=757,1508,9,7]: ∗
+                - text: ": Green-Red axis (-125 to 125)"
+              - listitem [ref=e249] [box=745,1523,454,28]:
+                - math [ref=e252] [box=745,1532,22,11]:
+                  - generic [ref=e254] [box=745,1532,22,11]:
+                    - generic [ref=e255] [box=745,1532,8,11]: b
+                    - generic [ref=e256] [box=756,1536,9,7]: ∗
+                - text: ": Blue-Yellow axis (-125 to 125)"
+            - heading "Historical Context" [level=3] [ref=e257] [box=745,1551,454,28]
+            - paragraph [ref=e258] [box=745,1579,454,196]:
+              - text: Standardized by the CIE in 1976,
+              - mark [ref=e259] [box=996,1583,28,20]: Lab
+              - text: was designed to be
+              - strong [ref=e260] [box=745,1611,151,20]: perceptually uniform
+              - text: "—equal distances in the space should correspond to equal perceived color differences. It’s device-independent:"
+              - mark [ref=e261] [box=847,1667,28,20]: Lab
+              - text: describes
+              - emphasis [ref=e262] [box=956,1667,35,20]: what
+              - text: a color looks like, not how a particular device produces it. For decades it’s been the workhorse of color management, ICC profiles, and industrial colorimetry.
+            - separator [ref=e263] [box=745,1775,454,1]
+            - heading "Key Characteristics" [level=2] [ref=e264] [box=745,1776,454,28]
+            - list [ref=e265] [box=745,1804,454,196]:
+              - listitem [ref=e266] [box=745,1804,454,84]:
+                - strong [ref=e267] [box=745,1808,158,20]: Perceptual uniformity
+                - text: ": the founding goal. Largely successful, though the blue-purple region exhibits more error than Ottosson’s OKLab."
+              - listitem [ref=e268] [box=745,1888,454,56]:
+                - strong [ref=e269] [box=745,1892,162,20]: Device independence
+                - text: ":"
+                - mark [ref=e270] [box=916,1892,28,20]: Lab
+                - text: values are defined relative to a standard illuminant, not a particular display or printer.
+              - listitem [ref=e271] [box=745,1944,454,56]:
+                - strong [ref=e272] [box=745,1948,148,20]: Separated lightness
+                - text: ":"
+                - math [ref=e275] [box=903,1954,23,11]:
+                  - generic [ref=e277] [box=903,1954,23,11]:
+                    - generic [ref=e278] [box=903,1954,9,11]: L
+                    - generic [ref=e279] [box=915,1957,9,7]: ∗
+                - text: is orthogonal to the chromatic axes, enabling brightness adjustment without hue shift.
+            - heading "Advantages" [level=3] [ref=e280] [box=745,2000,454,28]
+            - list [ref=e281] [box=745,2028,454,196]:
+              - listitem [ref=e282] [box=745,2028,454,28]: Perceptually uniform (the CIE 1976 definition)
+              - listitem [ref=e283] [box=745,2056,454,56]: Device-independent—the standard for cross-media color communication
+              - listitem [ref=e284] [box=745,2112,454,56]: Covers all perceivable colors (gamut exceeds any physical display)
+              - listitem [ref=e285] [box=745,2168,454,56]: Delta-E calculations (color difference metrics) are native to this space
+            - heading "Disadvantages" [level=3] [ref=e286] [box=745,2224,454,28]
+            - list [ref=e287] [box=745,2252,454,168]:
+              - listitem [ref=e288] [box=745,2252,454,56]:
+                - text: Computationally heavier than RGB conversions (piecewise
+                - math [ref=e291] [box=745,2289,26,15]:
+                  - generic [ref=e293] [box=745,2289,26,15]:
+                    - generic [ref=e294] [box=745,2289,9,11]: f
+                    - generic [ref=e295] [box=754,2289,6,15]: (
+                    - generic [ref=e296] [box=760,2291,5,10]: t
+                    - generic [ref=e297] [box=765,2289,6,15]: )
+                - text: function)
+              - listitem [ref=e298] [box=745,2308,454,56]:
+                - text: Not directly displayable—out-of-gamut
+                - mark [ref=e299] [box=1034,2312,28,20]: Lab
+                - text: values must be mapped to sRGB or similar
+              - listitem [ref=e300] [box=745,2364,454,56]:
+                - text: Unintuitive for manual color selection (what does
+                - math [ref=e303] [box=1111,2374,78,10]:
+                  - generic [ref=e305] [box=1111,2374,78,10]:
+                    - generic [ref=e306] [box=1111,2377,9,8]: a
+                    - generic [ref=e307] [box=1122,2377,9,7]: ∗
+                    - generic [ref=e308] [box=1138,2378,12,4]: =
+                    - generic [ref=e309] [box=1158,2380,12,1]: −
+                    - generic [ref=e310] [box=1173,2374,16,10]: "40"
+                - emphasis [ref=e311] [box=745,2396,31,20]: look
+                - text: like?)
+            - heading "White Points" [level=3] [ref=e312] [box=745,2420,454,28]
+            - list [ref=e313] [box=745,2448,454,112]:
+              - listitem [ref=e314] [box=745,2448,454,56]:
+                - strong [ref=e315] [box=745,2452,31,20]: D50
+                - text: ": graphic arts, printing, ICC profile standard."
+                - mark [ref=e316] [box=1105,2452,28,20]: Lab
+                - text: ’s default illuminant.
+              - listitem [ref=e317] [box=745,2504,454,56]:
+                - strong [ref=e318] [box=745,2508,31,20]: D65
+                - text: ": average daylight, digital imaging. Used by sRGB and Display P3."
+            - paragraph [ref=e319] [box=745,2560,454,56]:
+              - text: Conversions between D50 and D65 use
+              - strong [ref=e320] [box=745,2564,443,48]: Bradford chromatic adaptation
+              - text: .
+            - separator [ref=e321] [box=745,2616,454,1]
+            - heading "Color Model" [level=2] [ref=e322] [box=745,2617,454,28]
+            - heading "Components" [level=3] [ref=e323] [box=745,2645,454,28]
+            - list [ref=e324] [box=745,2673,454,84]:
+              - listitem [ref=e325] [box=745,2673,454,28]:
+                - paragraph [ref=e326] [box=745,2673,454,28]:
+                  - strong [ref=e327] [box=745,2677,111,20]:
+                    - math [ref=e330] [box=745,2683,23,11]:
+                      - generic [ref=e332] [box=745,2683,23,11]:
+                        - generic [ref=e333] [box=745,2683,9,11]: L
+                        - generic [ref=e334] [box=757,2686,9,7]: ∗
+                    - text: (Lightness)
+                  - text: ":"
+                  - math [ref=e337] [box=865,2681,243,15]:
+                    - generic [ref=e339] [box=865,2681,243,15]:
+                      - generic [ref=e340] [box=865,2681,16,12]:
+                        - generic [ref=e341] [box=865,2683,9,11]: L
+                        - generic [ref=e342] [box=874,2681,6,5]: ∗
+                      - generic [ref=e343] [box=885,2687,12,4]: =
+                      - generic [ref=e344] [box=901,2683,8,10]: "0"
+                      - generic [ref=e345] [box=909,2682,72,15]: (black) to
+                      - generic [ref=e346] [box=981,2683,24,10]: "100"
+                      - generic [ref=e347] [box=1005,2682,103,15]: (diffuse white)
+              - listitem [ref=e348] [box=745,2701,454,28]:
+                - paragraph [ref=e349] [box=745,2701,454,28]:
+                  - strong [ref=e350] [box=745,2705,156,20]:
+                    - math [ref=e353] [box=745,2714,23,8]:
+                      - generic [ref=e355] [box=745,2714,23,8]:
+                        - generic [ref=e356] [box=745,2714,9,8]: a
+                        - generic [ref=e357] [box=757,2714,9,7]: ∗
+                    - text: (Green-Red axis)
+                  - text: ":"
+                  - math [ref=e360] [box=911,2710,198,16]:
+                    - generic [ref=e362] [box=911,2710,198,16]:
+                      - generic [ref=e363] [box=911,2710,16,11]:
+                        - generic [ref=e364] [box=911,2714,9,8]: a
+                        - generic [ref=e365] [box=919,2710,6,5]: ∗
+                      - generic [ref=e366] [box=931,2713,12,9]: <
+                      - generic [ref=e367] [box=947,2711,8,10]: "0"
+                      - generic [ref=e368] [box=954,2710,74,16]: (green) to
+                      - generic [ref=e369] [box=1028,2710,16,11]:
+                        - generic [ref=e370] [box=1028,2714,9,8]: a
+                        - generic [ref=e371] [box=1037,2710,6,5]: ∗
+                      - generic [ref=e372] [box=1048,2713,12,9]: ">"
+                      - generic [ref=e373] [box=1064,2711,8,10]: "0"
+                      - generic [ref=e374] [box=1072,2710,37,15]: (red)
+              - listitem [ref=e375] [box=745,2729,454,28]:
+                - paragraph [ref=e376] [box=745,2729,454,28]:
+                  - strong [ref=e377] [box=745,2733,160,20]:
+                    - math [ref=e380] [box=745,2738,22,11]:
+                      - generic [ref=e382] [box=745,2738,22,11]:
+                        - generic [ref=e383] [box=745,2738,8,11]: b
+                        - generic [ref=e384] [box=756,2742,9,7]: ∗
+                    - text: (Blue-Yellow axis)
+                  - text: ":"
+                  - math [ref=e387] [box=914,2737,211,17]:
+                    - generic [ref=e389] [box=914,2737,211,17]:
+                      - generic [ref=e390] [box=914,2737,15,13]:
+                        - generic [ref=e391] [box=914,2738,8,11]: b
+                        - generic [ref=e392] [box=922,2737,6,5]: ∗
+                      - generic [ref=e393] [box=933,2741,12,9]: <
+                      - generic [ref=e394] [box=949,2739,8,10]: "0"
+                      - generic [ref=e395] [box=957,2738,65,15]: (blue) to
+                      - generic [ref=e396] [box=1023,2737,15,13]:
+                        - generic [ref=e397] [box=1023,2738,8,11]: b
+                        - generic [ref=e398] [box=1031,2737,6,5]: ∗
+                      - generic [ref=e399] [box=1042,2741,12,9]: ">"
+                      - generic [ref=e400] [box=1058,2739,8,10]: "0"
+                      - generic [ref=e401] [box=1066,2738,60,16]: (yellow)
+            - heading "Representation" [level=3] [ref=e402] [box=745,2757,454,28]
+            - paragraph [ref=e403] [box=745,2785,454,112]:
+              - text: A three-dimensional Cartesian space.
+              - math [ref=e406] [box=1029,2795,23,11]:
+                - generic [ref=e408] [box=1029,2795,23,11]:
+                  - generic [ref=e409] [box=1029,2795,9,11]: L
+                  - generic [ref=e410] [box=1041,2798,9,7]: ∗
+              - text: is the vertical axis; the
+              - math [ref=e413] [box=773,2826,23,8]:
+                - generic [ref=e415] [box=773,2826,23,8]:
+                  - generic [ref=e416] [box=773,2826,9,8]: a
+                  - generic [ref=e417] [box=785,2826,9,7]: ∗
+              - text: /
+              - math [ref=e420] [box=800,2822,22,11]:
+                - generic [ref=e422] [box=800,2822,22,11]:
+                  - generic [ref=e423] [box=800,2822,8,11]: b
+                  - generic [ref=e424] [box=811,2826,9,7]: ∗
+              - text: plane describes chromaticity at each lightness level. The cylindrical variant (LCh) converts
+              - math [ref=e427] [box=1070,2854,23,8]:
+                - generic [ref=e429] [box=1070,2854,23,8]:
+                  - generic [ref=e430] [box=1070,2854,9,8]: a
+                  - generic [ref=e431] [box=1082,2854,9,7]: ∗
+              - text: ","
+              - math [ref=e434] [box=1098,2850,22,11]:
+                - generic [ref=e436] [box=1098,2850,22,11]:
+                  - generic [ref=e437] [box=1098,2850,8,11]: b
+                  - generic [ref=e438] [box=1109,2854,9,7]: ∗
+              - text: to polar coordinates—chroma and hue.
+            - separator [ref=e439] [box=745,2897,454,1]
+            - heading "Color Conversions" [level=2] [ref=e440] [box=745,2898,454,28]
+            - heading "XYZ to Lab" [level=3] [ref=e441] [box=745,2926,454,28]:
+              - text: XYZ to
+              - mark [ref=e442] [box=801,2930,28,20]: Lab
+            - paragraph [ref=e443] [box=745,2954,454,84]: "Normalize XYZ by the reference white point, apply a piecewise function that approximates a cube root, then scale into L*a*b*:"
+            - math [ref=e446] [box=745,3038,156,50]:
+              - generic [ref=e448] [box=745,3038,156,50]:
+                - generic [ref=e449] [box=745,3056,9,11]: f
+                - generic [ref=e450] [box=754,3055,6,15]: (
+                - generic [ref=e451] [box=760,3057,5,10]: t
+                - generic [ref=e452] [box=765,3055,6,15]: )
+                - generic [ref=e453] [box=776,3061,12,4]: =
+                - generic [ref=e454] [box=791,3038,109,50]:
+                  - generic [ref=e455] [box=791,3038,10,50]: "{"
+                  - generic [ref=e456] [box=801,3040,100,46]:
+                    - generic [ref=e457] [box=801,3040,100,20]:
+                      - generic [ref=e460] [box=805,3040,26,20]:
+                        - generic [ref=e461] [box=819,3043,5,10]: t
+                        - generic [ref=e462] [box=806,3044,4,6]: "3"
+                      - generic [ref=e465] [box=852,3043,32,10]:
+                        - generic [ref=e466] [box=852,3043,5,10]: t
+                        - generic [ref=e467] [box=861,3044,12,9]: ">"
+                        - generic [ref=e468] [box=877,3045,7,8]: ϵ
+                    - generic [ref=e469] [box=801,3060,100,26]:
+                      - generic [ref=e472] [box=801,3060,34,26]:
+                        - generic [ref=e473] [box=801,3060,34,8]:
+                          - generic [ref=e474] [box=801,3062,6,5]: κ
+                          - generic [ref=e475] [box=807,3060,4,7]: t
+                          - generic [ref=e476] [box=813,3061,8,7]: +
+                          - generic [ref=e477] [box=824,3060,11,7]: "16"
+                        - generic [ref=e478] [box=810,3079,17,7]: "116"
+                      - generic [ref=e481] [box=835,3065,66,11]: otherwise
+            - math [ref=e484] [box=745,3088,564,38]:
+              - generic [ref=e486] [box=745,3088,564,38]:
+                - generic [ref=e487] [box=745,3099,16,12]:
+                  - generic [ref=e488] [box=745,3100,9,11]: L
+                  - generic [ref=e489] [box=754,3099,6,5]: ∗
+                - generic [ref=e490] [box=765,3105,12,4]: =
+                - generic [ref=e491] [box=781,3101,24,11]: "116"
+                - generic [ref=e492] [box=805,3099,9,11]: f
+                - text: ⁣
+                - generic [ref=e493] [box=814,3088,37,38]:
+                  - generic [ref=e494] [box=814,3088,10,38]: (
+                  - generic [ref=e495] [box=824,3090,17,34]:
+                    - generic [ref=e496] [box=828,3090,10,11]: "Y"
+                    - generic [ref=e497] [box=824,3111,17,14]:
+                      - generic [ref=e498] [box=824,3111,10,11]: "Y"
+                      - generic [ref=e499] [box=834,3119,6,5]: "n"
+                  - generic [ref=e500] [box=841,3088,10,38]: )
+                - generic [ref=e501] [box=855,3106,12,1]: −
+                - generic [ref=e502] [box=870,3101,16,11]: "16"
+                - generic [ref=e503] [box=886,3109,4,4]: ","
+                - generic [ref=e504] [box=908,3100,16,11]:
+                  - generic [ref=e505] [box=908,3103,9,8]: a
+                  - generic [ref=e506] [box=917,3100,6,5]: ∗
+                - generic [ref=e507] [box=928,3105,12,4]: =
+                - generic [ref=e508] [box=944,3101,24,10]: "500"
+                - generic [ref=e509] [box=968,3088,130,38]:
+                  - generic [ref=e510] [box=968,3088,9,38]: "["
+                  - generic [ref=e511] [box=977,3099,9,11]: f
+                  - text: ⁣
+                  - generic [ref=e512] [box=986,3088,37,38]:
+                    - generic [ref=e513] [box=986,3088,10,38]: (
+                    - generic [ref=e514] [box=997,3090,17,34]:
+                      - generic [ref=e515] [box=1000,3090,10,11]: X
+                      - generic [ref=e516] [box=997,3111,17,14]:
+                        - generic [ref=e517] [box=997,3111,10,11]: X
+                        - generic [ref=e518] [box=1007,3119,6,5]: "n"
+                    - generic [ref=e519] [box=1014,3088,10,38]: )
+                  - generic [ref=e520] [box=1027,3106,12,1]: −
+                  - generic [ref=e521] [box=1042,3099,9,11]: f
+                  - text: ⁣
+                  - generic [ref=e522] [box=1052,3088,37,38]:
+                    - generic [ref=e523] [box=1052,3088,10,38]: (
+                    - generic [ref=e524] [box=1062,3090,17,34]:
+                      - generic [ref=e525] [box=1065,3090,10,11]: "Y"
+                      - generic [ref=e526] [box=1062,3111,17,14]:
+                        - generic [ref=e527] [box=1062,3111,10,11]: "Y"
+                        - generic [ref=e528] [box=1072,3119,6,5]: "n"
+                    - generic [ref=e529] [box=1079,3088,10,38]: )
+                  - generic [ref=e530] [box=1089,3088,9,38]: "]"
+                - generic [ref=e531] [box=1098,3109,4,4]: ","
+                - generic [ref=e532] [box=1121,3098,15,13]:
+                  - generic [ref=e533] [box=1121,3100,8,11]: b
+                  - generic [ref=e534] [box=1129,3098,6,5]: ∗
+                - generic [ref=e535] [box=1140,3105,12,4]: =
+                - generic [ref=e536] [box=1156,3101,24,10]: "200"
+                - generic [ref=e537] [box=1180,3088,130,38]:
+                  - generic [ref=e538] [box=1180,3088,9,38]: "["
+                  - generic [ref=e539] [box=1189,3099,9,11]: f
+                  - text: ⁣
+                  - generic [ref=e540] [box=1198,3088,37,38]:
+                    - generic [ref=e541] [box=1198,3088,10,38]: (
+                    - generic [ref=e542] [box=1208,3090,17,34]:
+                      - generic [ref=e543] [box=1212,3090,10,11]: "Y"
+                      - generic [ref=e544] [box=1208,3111,17,14]:
+                        - generic [ref=e545] [box=1208,3111,10,11]: "Y"
+                        - generic [ref=e546] [box=1218,3119,6,5]: "n"
+                    - generic [ref=e547] [box=1225,3088,10,38]: )
+                  - generic [ref=e548] [box=1239,3106,12,1]: −
+                  - generic [ref=e549] [box=1254,3099,9,11]: f
+                  - text: ⁣
+                  - generic [ref=e550] [box=1263,3088,37,38]:
+                    - generic [ref=e551] [box=1263,3088,10,38]: (
+                    - generic [ref=e552] [box=1273,3090,17,34]:
+                      - generic [ref=e553] [box=1277,3090,10,11]: Z
+                      - generic [ref=e554] [box=1273,3111,17,14]:
+                        - generic [ref=e555] [box=1273,3111,10,11]: Z
+                        - generic [ref=e556] [box=1283,3119,6,5]: "n"
+                    - generic [ref=e557] [box=1290,3088,10,38]: )
+                  - generic [ref=e558] [box=1300,3088,9,38]: "]"
+            - paragraph [ref=e559] [box=745,3126,454,30]:
+              - text: where
+              - math [ref=e562] [box=795,3130,55,26]:
+                - generic [ref=e564] [box=795,3130,55,26]:
+                  - generic [ref=e565] [box=795,3139,7,8]: ϵ
+                  - generic [ref=e566] [box=806,3140,12,4]: =
+                  - generic [ref=e568] [box=822,3130,28,26]:
+                    - generic [ref=e569] [box=828,3130,17,7]: "216"
+                    - generic [ref=e570] [box=822,3148,28,7]: "24389"
+              - text: and
+              - math [ref=e573] [box=887,3130,56,26]:
+                - generic [ref=e575] [box=887,3130,56,26]:
+                  - generic [ref=e576] [box=887,3139,8,8]: κ
+                  - generic [ref=e577] [box=900,3140,12,4]: =
+                  - generic [ref=e579] [box=916,3130,28,26]:
+                    - generic [ref=e580] [box=916,3130,28,7]: "24389"
+                    - generic [ref=e581] [box=924,3148,11,7]: "27"
+              - text: .
+            - code [ref=e584] [box=745,3159,739,1309]:
+              - text: function xyz2lab(
+              - generic [ref=e585] [box=908,3159,451,21]: "xyz: XYZColor, toWhitePoint: WhitePoint = \"D50\""
+              - text: "): LABColor { const labFunction = ("
+              - generic [ref=e586] [box=985,3187,125,21]: "value: number"
+              - text: ") => value > LAB_EPSILON ? Math.cbrt(value) : (LAB_KAPPA * value + LAB_OFFSET) / LAB_SCALE_L; const whitePoint = WHITE_POINTS[toWhitePoint]; const [x, y, z] = xyzToD50(xyz); // Normalize XYZ values relative to the given white point const xr = x / whitePoint[0], yr = y / whitePoint[1], zr = z / whitePoint[2]; const fx = labFunction(xr), fy = labFunction(yr), fz = labFunction(zr); // Calculate L*, a*, and b* values const l = LAB_SCALE_L * fy - LAB_OFFSET; // L* = 116 * f(Y/Yn) - 16 const a = LAB_SCALE_A * (fx - fy); // a* = 500 * [f(X/Xn) - f(Y/Yn)] const b = LAB_SCALE_B * (fy - fz); // b* = 200 * [f(Y/Yn) - f(Z/Zn)] const lab = new LABColor( scale( l, COLOR_SPACE_RANGES.lab.l.number.min, COLOR_SPACE_RANGES.lab.l.number.max, ), scale( a, COLOR_SPACE_RANGES.lab.a.number.min, COLOR_SPACE_RANGES.lab.a.number.max, ), scale( b, COLOR_SPACE_RANGES.lab.b.number.min, COLOR_SPACE_RANGES.lab.b.number.max, ), xyz.alpha, ); lab.whitePoint = toWhitePoint; return lab; }"
+            - heading "Lab to XYZ" [level=3] [ref=e587] [box=745,4472,454,28]:
+              - mark [ref=e588] [box=745,4476,28,20]: Lab
+              - text: to XYZ
+            - paragraph [ref=e589] [box=745,4500,454,84]: "Invert the L*a*b* formulas—recover the normalized XYZ ratios, apply the inverse piecewise function, then scale by the white point:"
+            - math [ref=e592] [box=745,4584,320,34]:
+              - generic [ref=e594] [box=745,4584,320,34]:
+                - generic [ref=e595] [box=745,4596,16,17]:
+                  - generic [ref=e596] [box=745,4596,9,11]: f
+                  - generic [ref=e597] [box=754,4605,6,8]: "y"
+                - generic [ref=e598] [box=765,4601,12,4]: =
+                - generic [ref=e599] [box=781,4585,50,33]:
+                  - generic [ref=e600] [box=781,4585,50,13]:
+                    - generic [ref=e601] [box=781,4585,16,12]:
+                      - generic [ref=e602] [box=781,4586,9,11]: L
+                      - generic [ref=e603] [box=790,4585,6,5]: ∗
+                    - generic [ref=e604] [box=800,4588,12,10]: +
+                    - generic [ref=e605] [box=815,4587,16,11]: "16"
+                  - generic [ref=e606] [box=794,4607,24,11]: "116"
+                - generic [ref=e607] [box=831,4605,4,4]: ","
+                - generic [ref=e608] [box=854,4596,16,15]:
+                  - generic [ref=e609] [box=854,4596,9,11]: f
+                  - generic [ref=e610] [box=863,4605,6,5]: x
+                - generic [ref=e611] [box=874,4601,12,4]: =
+                - generic [ref=e612] [box=890,4586,24,32]:
+                  - generic [ref=e613] [box=894,4586,16,11]:
+                    - generic [ref=e614] [box=894,4589,9,8]: a
+                    - generic [ref=e615] [box=903,4586,6,5]: ∗
+                  - generic [ref=e616] [box=890,4607,24,10]: "500"
+                - generic [ref=e617] [box=918,4598,12,10]: +
+                - generic [ref=e618] [box=933,4596,16,17]:
+                  - generic [ref=e619] [box=933,4596,9,11]: f
+                  - generic [ref=e620] [box=942,4605,6,8]: "y"
+                - generic [ref=e621] [box=948,4605,4,4]: ","
+                - generic [ref=e622] [box=971,4596,15,15]:
+                  - generic [ref=e623] [box=971,4596,9,11]: f
+                  - generic [ref=e624] [box=980,4605,6,5]: z
+                - generic [ref=e625] [box=991,4601,12,4]: =
+                - generic [ref=e626] [box=1007,4596,16,17]:
+                  - generic [ref=e627] [box=1007,4596,9,11]: f
+                  - generic [ref=e628] [box=1016,4605,6,8]: "y"
+                - generic [ref=e629] [box=1026,4602,12,1]: −
+                - generic [ref=e630] [box=1041,4584,24,34]:
+                  - generic [ref=e631] [box=1045,4584,15,13]:
+                    - generic [ref=e632] [box=1045,4586,8,11]: b
+                    - generic [ref=e633] [box=1054,4584,6,5]: ∗
+                  - generic [ref=e634] [box=1041,4607,24,10]: "200"
+            - math [ref=e637] [box=745,4623,368,21]:
+              - generic [ref=e639] [box=745,4623,368,21]:
+                - generic [ref=e640] [box=745,4628,10,11]: X
+                - generic [ref=e641] [box=760,4632,12,4]: =
+                - generic [ref=e642] [box=776,4628,17,14]:
+                  - generic [ref=e643] [box=776,4628,10,11]: X
+                  - generic [ref=e644] [box=786,4636,6,5]: "n"
+                - generic [ref=e645] [box=795,4633,5,2]: ⋅
+                - generic [ref=e646] [box=803,4623,23,15]:
+                  - generic [ref=e647] [box=803,4627,9,11]: f
+                  - generic [ref=e648] [box=812,4623,14,7]:
+                    - generic [ref=e649] [box=812,4627,8,1]: −
+                    - generic [ref=e650] [box=820,4623,6,7]: "1"
+                - generic [ref=e651] [box=826,4626,6,15]: (
+                - generic [ref=e652] [box=832,4627,16,15]:
+                  - generic [ref=e653] [box=832,4627,9,11]: f
+                  - generic [ref=e654] [box=841,4636,6,5]: x
+                - generic [ref=e655] [box=848,4626,6,15]: )
+                - generic [ref=e656] [box=854,4636,4,4]: ","
+                - generic [ref=e657] [box=876,4628,10,11]: "Y"
+                - generic [ref=e658] [box=891,4632,12,4]: =
+                - generic [ref=e659] [box=907,4628,17,14]:
+                  - generic [ref=e660] [box=907,4628,10,11]: "Y"
+                  - generic [ref=e661] [box=916,4636,6,5]: "n"
+                - generic [ref=e662] [box=926,4633,5,2]: ⋅
+                - generic [ref=e663] [box=933,4623,23,15]:
+                  - generic [ref=e664] [box=933,4627,9,11]: f
+                  - generic [ref=e665] [box=942,4623,14,7]:
+                    - generic [ref=e666] [box=942,4627,8,1]: −
+                    - generic [ref=e667] [box=951,4623,6,7]: "1"
+                - generic [ref=e668] [box=957,4626,6,15]: (
+                - generic [ref=e669] [box=962,4627,16,17]:
+                  - generic [ref=e670] [box=962,4627,9,11]: f
+                  - generic [ref=e671] [box=972,4636,6,8]: "y"
+                - generic [ref=e672] [box=978,4626,6,15]: )
+                - generic [ref=e673] [box=984,4636,4,4]: ","
+                - generic [ref=e674] [box=1006,4628,10,11]: Z
+                - generic [ref=e675] [box=1020,4632,12,4]: =
+                - generic [ref=e676] [box=1036,4628,17,14]:
+                  - generic [ref=e677] [box=1036,4628,10,11]: Z
+                  - generic [ref=e678] [box=1046,4636,6,5]: "n"
+                - generic [ref=e679] [box=1056,4633,5,2]: ⋅
+                - generic [ref=e680] [box=1063,4623,23,15]:
+                  - generic [ref=e681] [box=1063,4627,9,11]: f
+                  - generic [ref=e682] [box=1072,4623,14,7]:
+                    - generic [ref=e683] [box=1072,4627,8,1]: −
+                    - generic [ref=e684] [box=1080,4623,6,7]: "1"
+                - generic [ref=e685] [box=1087,4626,6,15]: (
+                - generic [ref=e686] [box=1092,4627,15,15]:
+                  - generic [ref=e687] [box=1092,4627,9,11]: f
+                  - generic [ref=e688] [box=1102,4636,6,5]: z
+                - generic [ref=e689] [box=1108,4626,6,15]: )
+            - code [ref=e692] [box=745,4649,720,2065]:
+              - text: function lab2xyz(
+              - generic [ref=e693] [box=908,4649,125,21]: "lab: LABColor"
+              - text: "): XYZColor { const labFunctionXZ = ("
+              - generic [ref=e694] [box=1004,4677,125,21]: "value: number"
+              - text: ") => value > LAB_EPSILON_3 ? value ** 3 : (LAB_SCALE_L * value - LAB_OFFSET) / LAB_KAPPA; const labFunctionY = ("
+              - generic [ref=e695] [box=995,4817,125,21]: "value: number"
+              - text: ") => value > LAB_KAPPA_EPSILON ? ((value + LAB_OFFSET) / LAB_SCALE_L) ** 3 : value / LAB_KAPPA; const whitePoint = WHITE_POINTS[lab.whitePoint]; let { l, a, b, alpha } = lab; l = ch( scale( l, 0, 1, COLOR_SPACE_RANGES.lab.l.number.min, COLOR_SPACE_RANGES.lab.l.number.max, ), ); a = ch( scale( a, 0, 1, COLOR_SPACE_RANGES.lab.a.number.min, COLOR_SPACE_RANGES.lab.a.number.max, ), ); b = ch( scale( b, 0, 1, COLOR_SPACE_RANGES.lab.b.number.min, COLOR_SPACE_RANGES.lab.b.number.max, ), ); // Inverse of the xyz2lab function const fy = (l + LAB_OFFSET) / LAB_SCALE_L; // f(Y/Yn) = (L* + 16) / 116 const fx = a / LAB_SCALE_A + fy; // f(X/Xn) = a* / 500 + f(Y/Yn) const fz = fy - b / LAB_SCALE_B; // f(Z/Zn) = f(Y/Yn) - b* / 200 // Apply the inverse lab function to each value const [xr, yr, zr] = [ labFunctionXZ(fx), labFunctionY(l), labFunctionXZ(fz), ]; // Denormalize XYZ values relative to the given white point let x = xr * whitePoint[0], y = yr * whitePoint[1], z = zr * whitePoint[2]; const xyz = new XYZColor(x, y, z, alpha); xyz.whitePoint = lab.whitePoint; // All XYZ outputs are relative to D65: [x, y, z] = xyzToD65(xyz); xyz.whitePoint = \"D65\"; xyz.x = ch(x); xyz.y = ch(y); xyz.z = ch(z); return xyz; }"
+            - separator [ref=e696] [box=745,6718,454,1]
+            - heading "Applications" [level=2] [ref=e697] [box=745,6719,454,28]
+            - list [ref=e698] [box=745,6747,454,308]:
+              - listitem [ref=e699] [box=745,6747,454,56]:
+                - strong [ref=e700] [box=745,6751,173,20]: ICC color management
+                - text: ": the internal representation for color profiles and device-independent color communication."
+              - listitem [ref=e701] [box=745,6803,454,84]:
+                - strong [ref=e702] [box=745,6807,148,20]: Delta-E calculations
+                - text: ": industrial quality control (textiles, paint, manufacturing) relies on"
+                - mark [ref=e703] [box=930,6835,28,20]: Lab
+                - text: "-based color difference formulas."
+              - listitem [ref=e704] [box=745,6887,454,56]:
+                - strong [ref=e705] [box=745,6891,133,20]: Image processing
+                - text: ": operations like sharpening and blurring benefit from the perceptual uniformity."
+              - listitem [ref=e706] [box=745,6943,454,56]:
+                - strong [ref=e707] [box=745,6947,118,20]: Print production
+                - text: ": gamut mapping between CMYK and RGB passes through"
+                - mark [ref=e708] [box=865,6975,28,20]: Lab
+                - text: .
+              - listitem [ref=e709] [box=745,6999,454,56]:
+                - strong [ref=e710] [box=745,7003,154,20]: Scientific colorimetry
+                - text: ": the standard coordinate system for color measurement and analysis."

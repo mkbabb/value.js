@@ -1,0 +1,103 @@
+- generic [box=0,0,1440,900]:
+  - generic [box=0,0,1440,900]:
+    - generic [ref=e9] [box=589,20,261,32]:
+      - generic [ref=e10] [box=654,16,184,40]:
+        - button [ref=e11] [cursor=pointer] [box=654,20,32,32]:
+          - img [ref=e12] [box=658,24,24,24]
+        - button [ref=e15] [cursor=pointer] [box=692,20,32,32]:
+          - img [ref=e16] [box=696,24,24,24]
+        - button [ref=e19] [cursor=pointer] [box=730,20,32,32]:
+          - img [ref=e20] [box=734,24,24,24]
+        - button [ref=e23] [cursor=pointer] [box=768,20,32,32]:
+          - img [ref=e24] [box=772,24,24,24]
+        - button [ref=e30] [cursor=pointer] [box=806,20,32,32]:
+          - img [ref=e31] [box=810,24,24,24]
+      - generic [ref=e34] [box=589,20,261,32]:
+        - combobox [expanded] [active] [ref=e115] [cursor=pointer] [box=584,18,117,35]:
+          - img [ref=e36] [box=593,22,26,26]
+          - generic [box=624,23,51,25]: Home
+          - img [ref=e39] [box=679,29,13,13]
+        - separator [ref=e41] [box=707,22,1,28]
+        - button [ref=e116] [cursor=pointer] [box=720,20,84,32]:
+          - img [ref=e45] [box=724,24,24,24]
+          - generic [ref=e49] [box=748,24,40,23]: Tools
+          - img [ref=e50] [box=789,30,12,12]
+        - button [ref=e117] [cursor=pointer] [box=811,20,40,32]:
+          - img [ref=e54] [box=819,24,24,24]
+    - main [box=16,126,1408,710]:
+      - generic [box=220,126,1000,710]:
+        - generic [box=220,126,496,710]:
+          - generic [box=228,126,480,710]:
+            - generic [box=228,126,480,710]:
+              - generic [box=229,127,478,242]:
+                - combobox [box=241,211,94,52]:
+                  - generic [box=253,219,54,36]: Lab
+                  - img [box=307,229,16,16]
+                - heading [level=3] [box=241,269,143,76]:
+                  - generic [box=241,269,66,40]:
+                    - textbox [box=241,264,40,46]
+                    - text: "%,"
+                  - generic [box=241,309,80,36]:
+                    - textbox [box=241,304,70,46]
+                    - text: ","
+                  - generic [box=329,309,40,36]:
+                    - textbox [box=329,304,40,46]
+              - generic [box=229,369,478,467]:
+                - generic [box=241,393,454,427]:
+                  - img [box=241,393,454,224]
+                  - generic [box=241,629,454,191]:
+                    - tablist [box=241,629,26,191]:
+                      - tab [box=242,641,24,24]: L
+                      - tab [box=241,688,26,24]: A
+                      - tab [box=241,736,26,24]: B
+                      - tab [box=241,784,26,24]: A
+                    - generic [box=275,629,420,45]:
+                      - generic [box=275,629,420,19]: (0% - 100%)
+                      - generic [box=275,650,420,24]:
+                        - generic [box=275,650,420,24]:
+                          - slider [box=650,650,12,24]
+                    - generic [box=275,678,420,45]:
+                      - generic [box=275,678,420,19]: (-125 - 125)
+                      - generic [box=275,698,420,24]:
+                        - generic [box=275,698,420,24]:
+                          - slider [box=624,698,12,24]
+                    - generic [box=275,726,420,45]:
+                      - generic [box=275,726,420,19]: (-125 - 125)
+                      - generic [box=275,747,420,24]:
+                        - generic [box=275,747,420,24]:
+                          - slider [box=512,747,12,24]
+                    - generic [box=275,775,420,45]:
+                      - generic [box=275,775,420,19]: (0% - 100%)
+                      - generic [box=275,796,420,24]:
+                        - generic [box=275,796,420,24]:
+                          - slider [box=612,796,12,24]
+  - listbox [ref=e118] [box=546,57,192,263]:
+    - group [ref=e119] [box=551,62,182,253]:
+      - option "Home" [selected] [ref=e120] [box=555,66,174,35]:
+        - generic [ref=e123] [box=565,72,86,23]:
+          - img [ref=e125] [box=581,75,16,16]
+          - generic [ref=e128] [box=605,72,46,23]: Home
+      - option "Palettes" [ref=e129] [box=555,101,174,35]:
+        - generic [ref=e132] [box=565,107,102,23]:
+          - img [ref=e134] [box=581,110,16,16]
+          - generic [ref=e140] [box=605,107,62,23]: Palettes
+      - option "Browse" [ref=e141] [box=555,136,174,35]:
+        - generic [ref=e144] [box=565,142,97,23]:
+          - img [ref=e146] [box=581,145,16,16]
+          - generic [ref=e149] [box=605,142,57,23]: Browse
+      - option "Extract" [ref=e150] [box=555,171,174,35]:
+        - generic [ref=e153] [box=565,177,94,23]:
+          - img [ref=e155] [box=581,180,16,16]
+          - generic [ref=e158] [box=605,177,54,23]: Extract
+      - option "Mix" [ref=e159] [box=555,206,174,35]:
+        - generic [ref=e162] [box=565,212,67,23]:
+          - img [ref=e164] [box=581,215,16,16]
+          - generic [ref=e167] [box=605,212,27,23]: Mix
+      - option "Generate" [ref=e168] [box=555,241,174,35]:
+        - generic [ref=e171] [box=565,247,112,23]:
+          - img [ref=e173] [box=581,250,16,16]
+          - generic [ref=e176] [box=605,247,72,23]: Generate
+      - option "Gradient" [ref=e177] [box=555,276,174,35]:
+        - generic [ref=e180] [box=565,282,106,23]:
+          - img [ref=e182] [box=581,285,16,16]
+          - generic [ref=e186] [box=605,282,66,23]: Gradient

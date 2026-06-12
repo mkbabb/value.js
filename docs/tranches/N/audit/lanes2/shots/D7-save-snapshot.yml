@@ -1,0 +1,92 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - navigation "Application navigation":
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - button [ref=e11] [cursor=pointer]:
+            - img [ref=e12]
+          - button [ref=e15] [cursor=pointer]:
+            - img [ref=e16]
+          - button [ref=e19] [cursor=pointer]:
+            - img [ref=e20]
+          - button [ref=e23] [cursor=pointer]:
+            - img [ref=e24]
+          - button [ref=e30] [cursor=pointer]:
+            - img [ref=e31]
+        - generic [ref=e34]:
+          - combobox "Select view" [ref=e35] [cursor=pointer]:
+            - img [ref=e36]
+            - img [ref=e42]
+          - separator [ref=e44]
+          - button "Toggle action bar" [ref=e47] [cursor=pointer]:
+            - img [ref=e48]
+            - img [ref=e52]
+          - separator [ref=e54]
+          - group [ref=e57]:
+            - button "Picker" [ref=e59] [cursor=pointer]
+            - button "Palettes" [pressed] [ref=e60] [cursor=pointer]
+          - separator [ref=e61]
+          - button "Menu" [ref=e63] [cursor=pointer]:
+            - img [ref=e64]
+    - main "Color tool panes" [ref=e68]:
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - heading "My Palettes 3" [level=3] [ref=e124]:
+            - text: My Palettes
+            - generic [ref=e125]: "3"
+          - paragraph [ref=e127]: Save, organize, and share your colors.
+        - generic [ref=e128]:
+          - generic [ref=e129]:
+            - img [ref=e130]
+            - textbox "Search palettes..." [ref=e133]
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - generic [ref=e136]:
+                - generic [ref=e137]: Current Palette
+                - generic [ref=e224]: 1 colors
+              - generic [ref=e138]:
+                - button "Color swatch lab(92% 88.80000000000001 20 / 100%)" [ref=e226] [cursor=pointer]
+                - button "Add current color lab(92% 88.80 20 / 100%) to palette" [active] [ref=e140] [cursor=pointer]:
+                  - img [ref=e141]
+              - generic [ref=e227]:
+                - textbox "Palette 4" [ref=e228]
+                - button [ref=e229] [cursor=pointer]:
+                  - img
+            - generic [ref=e144]:
+              - generic [ref=e145]: 3 palettes
+              - button [ref=e147] [cursor=pointer]:
+                - img
+            - list [ref=e148]:
+              - 'article "Palette: Sunset Sorbet" [ref=e149] [cursor=pointer]':
+                - generic [ref=e157]:
+                  - generic [ref=e158]:
+                    - img [ref=e159]
+                    - generic "Sunset Sorbet" [ref=e166]
+                    - generic [ref=e167]: "5"
+                    - generic [ref=e168]: warm
+                    - generic [ref=e169]: pastel
+                  - button "Palette menu" [ref=e171]:
+                    - img [ref=e172]
+              - 'article "Palette: Tidepool" [ref=e176] [cursor=pointer]':
+                - generic [ref=e183]:
+                  - generic [ref=e184]:
+                    - img [ref=e185]
+                    - generic "Tidepool" [ref=e192]
+                    - generic [ref=e193]: "4"
+                  - button "Palette menu" [ref=e195]:
+                    - img [ref=e196]
+              - 'article "Palette: Moss & Clay" [ref=e200] [cursor=pointer]':
+                - generic [ref=e207]:
+                  - generic [ref=e208]:
+                    - img [ref=e209]
+                    - generic "Moss & Clay" [ref=e216]
+                    - generic [ref=e217]: "4"
+                  - button "Palette menu" [ref=e219]:
+                    - img [ref=e220]
+  - generic [ref=e230]:
+    - button [ref=e231] [cursor=pointer]:
+      - img [ref=e232]
+    - button [ref=e235] [cursor=pointer]:
+      - img [ref=e236]
+    - button [ref=e239] [cursor=pointer]:
+      - img [ref=e240]

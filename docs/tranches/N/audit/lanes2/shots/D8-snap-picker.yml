@@ -1,0 +1,60 @@
+- generic [ref=e2] [box=0,0,1440,900]:
+  - navigation "Application navigation" [box=16,162,1408,0]:
+    - generic [ref=e9] [box=589,20,261,32]:
+      - generic [ref=e10] [box=654,16,184,40]:
+        - button [ref=e11] [cursor=pointer] [box=654,20,32,32]:
+          - img [ref=e12] [box=658,24,24,24]
+        - button [ref=e15] [cursor=pointer] [box=692,20,32,32]:
+          - img [ref=e16] [box=696,24,24,24]
+        - button [ref=e19] [cursor=pointer] [box=730,20,32,32]:
+          - img [ref=e20] [box=734,24,24,24]
+        - button [ref=e23] [cursor=pointer] [box=768,20,32,32]:
+          - img [ref=e24] [box=772,24,24,24]
+        - button [ref=e30] [cursor=pointer] [box=806,20,32,32]:
+          - img [ref=e31] [box=810,24,24,24]
+      - generic [ref=e34] [box=589,20,261,32]:
+        - combobox "Select view" [ref=e35] [cursor=pointer] [box=589,20,106,32]:
+          - img [ref=e36] [box=597,24,24,24]
+          - generic [box=625,24,46,23]: Home
+          - img [ref=e39] [box=675,30,12,12]
+        - separator [ref=e41] [box=707,22,1,28]
+        - button "Toggle action bar" [ref=e44] [cursor=pointer] [box=720,20,84,32]:
+          - img [ref=e45] [box=724,24,24,24]
+          - generic [ref=e49] [box=748,24,40,23]: Tools
+          - img [ref=e50] [box=789,30,12,12]
+        - button "Menu" [ref=e53] [cursor=pointer] [box=811,20,40,32]:
+          - img [ref=e54] [box=819,24,24,24]
+  - main "Color tool panes" [ref=e58] [box=16,162,1408,638]:
+    - generic [ref=e62] [box=228,162,480,638]:
+      - generic [ref=e63] [box=229,163,478,194]:
+        - combobox "Select color space" [ref=e64] [box=241,223,94,52]:
+          - generic [box=253,231,54,36]: Lab
+          - img [ref=e65] [box=307,241,16,16]
+        - heading "92%, 88.8, 20" [level=3] [ref=e67] [box=241,281,143,76]:
+          - generic [ref=e68] [box=241,281,66,40]:
+            - textbox "l component value" [ref=e69] [box=241,276,40,46]
+            - text: "%,"
+          - generic [ref=e70] [box=241,321,80,36]:
+            - textbox "a component value" [ref=e71] [box=241,316,70,46]
+            - text: ","
+          - textbox "b component value" [ref=e73] [box=329,316,40,46]
+      - generic [ref=e76] [box=241,357,454,427]:
+        - img "Color spectrum, saturation 16%, lightness 100%" [ref=e77] [box=241,357,454,224]
+        - generic [ref=e78] [box=241,593,454,191]:
+          - tablist "Color channels" [ref=e79] [box=241,593,26,191]:
+            - tab "l channel" [ref=e80] [cursor=pointer] [box=242,605,24,24]: L
+            - tab "a channel" [ref=e81] [cursor=pointer] [box=241,652,26,24]: A
+            - tab "b channel" [ref=e82] [cursor=pointer] [box=241,700,26,24]: B
+            - tab "alpha channel" [ref=e83] [cursor=pointer] [box=241,748,26,24]: A
+          - generic [ref=e84] [box=275,593,420,45]:
+            - generic [ref=e85] [box=275,593,420,19]: (0% - 100%)
+            - slider "L channel" [ref=e90] [box=650,614,12,24]
+          - generic [ref=e91] [box=275,642,420,45]:
+            - generic [ref=e92] [box=275,642,420,19]: (-125 - 125)
+            - slider "A channel" [ref=e97] [box=624,662,12,24]
+          - generic [ref=e98] [box=275,690,420,45]:
+            - generic [ref=e99] [box=275,690,420,19]: (-125 - 125)
+            - slider "B channel" [ref=e104] [box=512,711,12,24]
+          - generic [ref=e105] [box=275,739,420,45]:
+            - generic [ref=e106] [box=275,739,420,19]: (0% - 100%)
+            - slider "ALPHA channel" [ref=e111] [box=612,760,12,24]

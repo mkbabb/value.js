@@ -1,0 +1,63 @@
+- generic [ref=e2]:
+  - navigation "Application navigation":
+    - generic [ref=e9]:
+      - generic [ref=e236]:
+        - button [ref=e237] [cursor=pointer]:
+          - img [ref=e238]
+        - button [ref=e241] [cursor=pointer]:
+          - img [ref=e242]
+        - button [ref=e245] [cursor=pointer]:
+          - img [ref=e246]
+        - button [ref=e249] [cursor=pointer]:
+          - img [ref=e250]
+        - button [ref=e256] [cursor=pointer]:
+          - img [ref=e257]
+      - generic [ref=e10]:
+        - combobox "Select view" [ref=e11] [cursor=pointer]:
+          - img [ref=e225]
+          - img [ref=e16]
+        - separator [ref=e260]
+        - button "Toggle action bar" [ref=e21] [cursor=pointer]:
+          - img [ref=e22]
+          - img [ref=e27]
+        - separator [ref=e152]
+        - group [ref=e155]:
+          - button "Picker" [pressed] [ref=e261] [cursor=pointer]
+          - button "Palettes" [ref=e158] [cursor=pointer]
+        - separator [ref=e159]
+        - button "Menu" [ref=e30] [cursor=pointer]:
+          - img [ref=e31]
+  - main "Color tool panes" [ref=e35]:
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - combobox "Select color space" [ref=e41]:
+          - generic: Lab
+          - img [ref=e42]
+        - heading "92%, 88.8, 20" [level=3] [ref=e44]:
+          - generic [ref=e45]:
+            - textbox "l component value" [ref=e46]
+            - text: "%,"
+          - generic [ref=e47]:
+            - textbox "a component value" [ref=e48]
+            - text: ","
+          - textbox "b component value" [ref=e50]
+      - generic [ref=e54]:
+        - img "Color spectrum, saturation 16%, lightness 100%" [ref=e55]
+        - generic [ref=e56]:
+          - tablist "Color channels" [ref=e57]:
+            - tab "l channel" [ref=e58] [cursor=pointer]: L
+            - tab "a channel" [ref=e59] [cursor=pointer]: A
+            - tab "b channel" [ref=e60] [cursor=pointer]: B
+            - tab "alpha channel" [ref=e61] [cursor=pointer]: A
+          - generic [ref=e62]:
+            - generic [ref=e63]: (0% - 100%)
+            - slider "L channel" [ref=e68]
+          - generic [ref=e69]:
+            - generic [ref=e70]: (-125 - 125)
+            - slider "A channel" [ref=e75]
+          - generic [ref=e76]:
+            - generic [ref=e77]: (-125 - 125)
+            - slider "B channel" [ref=e82]
+          - generic [ref=e83]:
+            - generic [ref=e84]: (0% - 100%)
+            - slider "ALPHA channel" [ref=e89]
