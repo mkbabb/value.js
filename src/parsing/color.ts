@@ -650,6 +650,20 @@ export const CSSColor = {
 
 const customColorNames = new Map<string, string>();
 
+/**
+ * Register custom color names that `parseCSSColor` resolves to their CSS value.
+ * Names are matched case-insensitively (trimmed + lowercased on both register
+ * and lookup).
+ *
+ * PRECEDENCE — custom names SHADOW built-in CSS color names (N.W7.B-F7). When a
+ * registered name collides with a built-in (e.g. `registerColorNames({ red:
+ * "#00ff00" })` then `parseCSSColor("red")`), the **custom** value wins — `red`
+ * resolves to green. This is by design: the map is consulted before the rich
+ * parser, so a registered name always takes precedence over the spec name it
+ * collides with. To restore the built-in, `clearCustomColorNames()` (or
+ * re-register the name to its canonical value). Names with no built-in
+ * collision simply extend the recognised set.
+ */
 export function registerColorNames(names: Record<string, string>): void {
     for (const [name, css] of Object.entries(names)) {
         customColorNames.set(name.trim().toLowerCase(), css);
@@ -674,18 +688,29 @@ export function getCustomColorNames(): ReadonlyMap<string, string> {
  * before mutating if a per-call instance is needed.
  *
  * The cache is invalidated by `registerColorNames` and `clearCustomColorNames`.
+ *
+ * PRECEDENCE (N.W7.B-F7): a registered custom name SHADOWS the built-in CSS
+ * color name it collides with — the custom-name map is consulted before the
+ * rich parser, so a registered `red` wins over the spec `red`. See
+ * `registerColorNames`. When the registry is empty the map branch is a no-op
+ * and built-ins resolve through the rich parser exactly as before.
  */
 // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see comment in
 // src/parsing/index.ts.
 export const parseCSSColor = memoize(
     (input: string): ValueUnit => {
         // F7 — try the custom-name map BEFORE the speculative rich parse.
-        // The rich parser fails on a registered custom name, and parse-that's
-        // top-level `parseState` fires `console.error(state.toString())` on
-        // that expected failure — a per-parse console-I/O leak on every custom
-        // color name. A `Map.get` first elides it (bounded, iso: when no custom
-        // names are registered the map is empty and this is a no-op, so the
-        // rich parser still resolves built-ins exactly as before).
+        // The rich parser fails on a registered custom name. Historically (≤
+        // parse-that 0.8.2) the top-level `parseState` fired
+        // `console.error(state.toString())` on that expected failure — a
+        // per-parse console-I/O leak on every custom color name. The
+        // N.W7.B `^0.9` re-pin closes that leak structurally (diagnostics are
+        // OFF by default in parse-that 0.9.0 and only emit to console under an
+        // explicit `enableDiagnostics()` value.js never calls), but the map-first
+        // ordering is retained as a genuine optimization: it elides a doomed
+        // speculative parse for every registered name (bounded, iso: when no
+        // custom names are registered the map is empty and this is a no-op, so
+        // the rich parser still resolves built-ins exactly as before).
         // (vj-parser-aug §2.3 fix (b).)
         if (customColorNames.size > 0) {
             const key = input.trim().toLowerCase();

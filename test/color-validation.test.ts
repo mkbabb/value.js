@@ -1,5 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { parseCSSColor } from "../src/parsing/units";
+import { registerColorNames, clearCustomColorNames } from "../src/parsing/color";
 import { normalizeColorUnit, colorUnit2 } from "../src/units/color/normalize";
 import type { ColorSpace } from "../src/units/color/constants";
 import type { Color } from "../src/units/color";
@@ -470,6 +471,40 @@ describe("Color Validation — Full Refactor Test", () => {
             expect(Number.isNaN(r)).toBe(true);
             expect(g).toBeCloseTo(255, 0);
             expect(b).toBeCloseTo(0, 0);
+        });
+
+        it("a failed color parse writes NOTHING to console (F9 leak closed at parse-that ^0.9)", () => {
+            // The W7 row names "the parse-that console.error diagnostic leak".
+            // At parse-that ≤0.8.2 a failed top-level parse fired
+            // `console.error(state.toString())` — a per-parse console-I/O leak on
+            // every rejected color (and a per-parse leak on every registered
+            // custom name, pre-F7). parse-that 0.9.0 makes diagnostics OFF by
+            // default (console emission only under an explicit
+            // `enableDiagnostics()` the library never calls), so the library is
+            // console-silent on parse failure; structured diagnostics flow only
+            // through the explicit `OnParseError` sink (diagnostics-sink.test.ts).
+            const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+            const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+            const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+            try {
+                // Non-custom rejected inputs (the rich parser fails + rethrows).
+                expect(() => parseCSSColor("100")).toThrow();
+                expect(() => parseCSSColor("notacolor")).toThrow();
+                // Custom-name path (F7): a registered name resolves without a
+                // doomed speculative parse, and an unregistered miss still
+                // rethrows — neither path may touch the console.
+                registerColorNames({ brandblue: "#0000ff" });
+                expect(parseCSSColor("brandblue").unit).toBe("color");
+                expect(() => parseCSSColor("notregistered")).toThrow();
+            } finally {
+                clearCustomColorNames();
+                errSpy.mockRestore();
+                logSpy.mockRestore();
+                warnSpy.mockRestore();
+            }
+            expect(errSpy).not.toHaveBeenCalled();
+            expect(logSpy).not.toHaveBeenCalled();
+            expect(warnSpy).not.toHaveBeenCalled();
         });
 
         it("hex shorthand and longhand produce identical RGB", () => {

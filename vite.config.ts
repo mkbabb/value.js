@@ -127,7 +127,21 @@ export default defineConfig((mode) => {
                     formats: ["es"],
                 },
                 rolldownOptions: {
-                    external: ["vue", "@mkbabb/parse-that"],
+                    // `prettier` is externalized (N.W7.B): the `formatCSS` lazy
+                    // wrapper (`parsing/serialize.ts`) dynamic-imports
+                    // `prettier` + `prettier/plugins/postcss`. Without this,
+                    // Rolldown bundles Prettier's standalone+postcss (~304 KB
+                    // raw / 52% of the unpacked tarball — E3 F-1) into
+                    // `dist/postcss-*.js` + `dist/standalone-*.js`; every
+                    // consumer ships it, and a `formatCSS` user gets a copy
+                    // that can't dedup against their own Prettier. Externalized,
+                    // the dynamic `import("prettier")` resolves to the
+                    // consumer's own install. `prettier` is declared an OPTIONAL
+                    // peerDependency (package.json `peerDependenciesMeta`), so a
+                    // non-`formatCSS` consumer never installs it and pays zero
+                    // ship-weight; a `formatCSS` consumer (e.g. keyframes.js,
+                    // which already depends on prettier) supplies their own.
+                    external: ["vue", "@mkbabb/parse-that", /^prettier(\/.*)?$/],
                     // H.W4 Lane A — strip per-module `//#region src/...` source-
                     // navigation markers from `dist/value.js`. Default is
                     // `'simple'`, which emits one `//#region` + `//#endregion`

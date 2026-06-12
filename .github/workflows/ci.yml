@@ -110,7 +110,11 @@ jobs:
             - name: Log dist sizes
               run: ls -la dist/ | head -20
 
-            # dist/value.js post-K raw ~124 KB. Budget ≤ 145 KB (148480 bytes).
+            # dist/value.js post-W7.A raw ~137 KB. Budget ≤ 145 KB (148480 bytes).
+            # This guards the JS CORE against bloat; it is structurally blind to
+            # re-bundled vendor (the prettier chunks lived in SEPARATE dist/*.js
+            # files, not value.js — E3 F-1/F-4). The whole-tarball gate below is
+            # the structural backstop.
             - name: Assert dist/value.js size budget (≤ 145 KB raw)
               run: |
                   SIZE=$(stat -c%s dist/value.js 2>/dev/null || stat -f%z dist/value.js)
@@ -119,6 +123,30 @@ jobs:
                       exit 1
                   fi
                   echo "dist/value.js size: $SIZE bytes (≤ 148480 PASS)"
+
+            # WHOLE-TARBALL gate (N.W7.B) — measures the PUBLISHED package's
+            # `unpackedSize` via `npm pack --dry-run --json`, the structural
+            # backstop the per-file `dist/value.js` gate cannot be (E3 F-4).
+            # Pre-N.W7.B the tarball was 560.7 KB unpacked — 303.6 KB (54%) of it
+            # BUNDLED PRETTIER emitted into `dist/postcss-*.js` + `dist/standalone-*.js`
+            # by the `formatCSS` dynamic import, invisible to the value.js-only
+            # gate. N.W7.B externalized prettier (vite.config `external` + optional
+            # peerDependency), dropping the tarball to ~283 KB (136.8 KB JS core +
+            # 134.1 KB necessary flat-layout `.d.ts` + README). The < 200 KB
+            # aspiration (E3's pre-W7.A estimate) is below the legitimate floor —
+            # the dts is the W12-unblocker published type surface, not evictable
+            # junk. The 320 KB threshold blocks a prettier-class re-bundling
+            # regression (a return would push the tarball back past 580 KB) with
+            # honest headroom over the real payload.
+            - name: Assert published tarball size budget (npm pack unpackedSize ≤ 320 KB)
+              run: |
+                  SIZE=$(npm pack --dry-run --json --legacy-peer-deps 2>/dev/null | node -e "let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{process.stdout.write(String(JSON.parse(d)[0].unpackedSize))})")
+                  GATE=327680
+                  if [ "$SIZE" -gt "$GATE" ]; then
+                      echo "published tarball unpackedSize exceeded: $SIZE bytes (gate ≤ $GATE = 320 KB) — a re-bundled vendor dependency (e.g. prettier) likely slipped into dist/"
+                      exit 1
+                  fi
+                  echo "published tarball unpackedSize: $SIZE bytes (≤ $GATE PASS)"
 
             # ── 4 · test ────────────────────────────────────────────────────
             - name: Vitest (unit suite)

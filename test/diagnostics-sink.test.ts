@@ -57,19 +57,30 @@ describe("diagnostics sink (VJ-F2 — structured parse-error channel)", () => {
         expect(() => tryParse(number, "bad")).toThrow();
     });
 
-    it("surfaces the expected-parser set for a multi-token grammar", () => {
-        // A parser that consumes a digit run then requires a literal 'px'. The
-        // `expected` set names what the grammar required at the derail — the
-        // structured value a consumer surfaces ("expected px"). NOTE: at the
-        // pinned parse-that 0.8.2, `furthest`/`offset` roll back to 0 on a
-        // `.then()` failure (the deep-reach offset sharpens at the W7.B `^0.9`
-        // re-pin, recon §8/§13); the `expected` set is reliable today.
+    it("reports the deep-reach offset on a multi-token .then() failure (sharpened at ^0.9)", () => {
+        // A parser that consumes a digit run then requires a literal 'px',
+        // applied to "100qq": the digits parse, then `px` fails at offset 3.
+        //
+        // SHARPENED at the N.W7.B `^0.9` re-pin (recon §8/§13): at parse-that
+        // 0.8.2 `furthest`/`offset` rolled back to 0 on a `.then()` failure, so
+        // the diagnostic pointed at the START of the input — useless for a deep
+        // grammar. parse-that 0.9.0 threads a per-parse `furthest` reach, so the
+        // diagnostic now pinpoints the actual derail (offset 3, column 3). This
+        // test LOCKS the sharpening: the offset must be 3, not 0.
         const dimension = regex(/\d+/).then(regex(/px/));
         const seen: ParseDiagnostic[] = [];
         parseResult(dimension, "100qq", (d) => seen.push(d));
         expect(seen).toHaveLength(1);
-        expect(seen[0]!.expected).toContain("/px/");
-        expect(typeof seen[0]!.offset).toBe("number");
+        expect(seen[0]!.offset).toBe(3);
+        expect(seen[0]!.column).toBe(3);
+
+        // The `expected` label set (parse-that's collected-diagnostics extras)
+        // is populated ONLY under an explicit `enableDiagnostics()`, which
+        // value.js deliberately never calls — enabling it makes parse-that print
+        // the derail to the console (the historical F9 console-spew leak). The
+        // library stays console-silent on parse failure (the test below proves
+        // it), so `expected` is intentionally absent from the structured record.
+        expect(seen[0]!.expected).toBeUndefined();
     });
 
     it("does not write to console.error on a failed parse", () => {
