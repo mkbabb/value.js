@@ -163,7 +163,7 @@ import {
     Undo2,
 } from "@lucide/vue";
 import type { Palette, PaletteColor } from "@lib/palette/types";
-import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 

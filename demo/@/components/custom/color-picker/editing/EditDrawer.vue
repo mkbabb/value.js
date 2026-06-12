@@ -65,7 +65,7 @@ import {
     TooltipTrigger,
 } from "@components/ui/tooltip";
 import { Check, Undo2 } from "@lucide/vue";
-import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import type { EditTarget } from "..";
 import { COLOR_MODEL_KEY } from "../keys";
 

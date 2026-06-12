@@ -34,7 +34,7 @@
 import { computed, inject, onUnmounted, ref, useTemplateRef, watch } from "vue";
 import { clamp } from "@src/math";
 import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
-import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { useTouchGate } from "@mkbabb/glass-ui";
 import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
 import { COLOR_MODEL_KEY } from "../keys";
@@ -271,7 +271,8 @@ onUnmounted(() => {
     height: 1.75rem;
     border: 2px solid var(--dot-border, var(--background));
     box-shadow: var(--shadow-sm);
-    filter: url(#watercolor-filter);
+    /* The wet-edge filter is the WatercolorDot's own internalised per-instance
+       <filter> (glass-ui superset) — no global #watercolor-filter override here. */
     &:hover {
         transform: none;
     }

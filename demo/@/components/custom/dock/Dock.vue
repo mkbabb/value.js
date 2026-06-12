@@ -3,7 +3,7 @@ import { computed, inject, ref, watch, useTemplateRef } from "vue";
 import { ChevronDown, Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import { GlassDock, DockLayerGroup, DockLayer } from ".";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
-import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
 import GenericActionBar from "./layers/GenericActionBar.vue";
 import SlugEditLayer from "./layers/SlugEditLayer.vue";

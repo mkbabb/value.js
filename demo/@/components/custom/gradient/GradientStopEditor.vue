@@ -106,7 +106,7 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
         <!-- Gradient bar with draggable handles -->
         <div
             ref="barRef"
-            :class="['relative h-10 rounded-lg glass-subtle select-none touch-none', draggingId ? 'cursor-grabbing' : 'cursor-crosshair']"
+            :class="['relative h-10 rounded-lg glass-wash select-none touch-none', draggingId ? 'cursor-grabbing' : 'cursor-crosshair']"
             :style="{ background: coalescedCSS }"
             @pointerdown="onBarPointerDown"
             @pointermove="onBarPointerMove"

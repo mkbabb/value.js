@@ -9,9 +9,9 @@
 // the row primitive. The section-group wrapper and the floating copy/reset dock
 // remain demo-local (they are thin structural shells, not the row primitive).
 //
-// AuroraPane is a W0 "under rework" stub — it delegates directly to this
-// component with empty sections, keeping its informational message.
-// BlobPane continues to pass its full SECTIONS array.
+// Both AuroraPane and BlobPane pass their full SECTIONS arrays. AuroraPane
+// (rebuilt at N.W5.B) additionally drives the default slot with its enum-atom
+// Select rows (harmony / arrangement / medium / motion) above the sliders.
 
 import { Button } from "@components/ui/button";
 import { Card } from "@components/ui/card";
@@ -22,7 +22,8 @@ import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
 import PaneHeader from "./PaneHeader.vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 
-/** A single slider definition inside a section. */
+/** A single slider definition inside a section. `key` may be a dot-path
+ *  (e.g. `geometry.bodyRadius`) addressing a nested config atom. */
 export interface SliderDef {
     key: string;
     label: string;
@@ -50,8 +51,34 @@ const { config, sections, defaults, title, description } = defineProps<{
     description?: string;
 }>();
 
+// Dot-path access so the same generic pane drives both a flat config and a
+// nested-atom config (e.g. the blob's 8-atom `geometry.bodyRadius`). A plain
+// key with no `.` reads/writes the top level exactly as before.
+function readPath(obj: Record<string, unknown>, path: string): unknown {
+    let cur: unknown = obj;
+    for (const seg of path.split(".")) {
+        if (cur == null || typeof cur !== "object") return undefined;
+        cur = (cur as Record<string, unknown>)[seg];
+    }
+    return cur;
+}
+
+function writePath(obj: Record<string, unknown>, path: string, value: unknown) {
+    const segs = path.split(".");
+    let cur = obj;
+    for (let i = 0; i < segs.length - 1; i++) {
+        cur = cur[segs[i]!] as Record<string, unknown>;
+    }
+    cur[segs[segs.length - 1]!] = value;
+}
+
+/** Read a slider value by dot-path — exposed to the template. */
+function read(key: string): number {
+    return readPath(config, key) as number;
+}
+
 function update(key: string, value: number) {
-    config[key] = value;
+    writePath(config, key, value);
 }
 
 function fmt(v: number): string {
@@ -59,15 +86,11 @@ function fmt(v: number): string {
 }
 
 async function copyAsJson() {
-    const snapshot: Record<string, unknown> = {};
-    for (const k of Object.keys(defaults)) {
-        snapshot[k] = config[k];
-    }
-    await copyToClipboard(JSON.stringify(snapshot, null, 2));
+    await copyToClipboard(JSON.stringify(config, null, 2));
 }
 
 function resetDefaults() {
-    Object.assign(config, defaults);
+    Object.assign(config, structuredClone(defaults));
 }
 </script>
 
@@ -108,13 +131,13 @@ function resetDefaults() {
                                 <div class="flex items-center justify-between">
                                     <span class="section-label normal-case tracking-normal">{{ def.label }}</span>
                                     <span class="section-label normal-case tracking-normal tabular-nums">
-                                        {{ fmt(config[def.key] as number) }}
+                                        {{ fmt(read(def.key)) }}
                                     </span>
                                 </div>
                                 <Slider
                                     :aria-label="def.label"
                                     variant="spectrum"
-                                    :model-value="[config[def.key] as number]"
+                                    :model-value="[read(def.key)]"
                                     :min="def.min"
                                     :max="def.max"
                                     :step="def.step"

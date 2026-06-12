@@ -7,6 +7,7 @@
                     :color="cssColorOpaque"
                     class="w-[7rem]"
                     @click="onBlobClick"
+                    @mouseenter="gooBlobRef?.setMood('curious')"
                 />
             </TooltipTrigger>
             <TooltipContent class="fira-code">
@@ -17,15 +18,21 @@
 </template>
 
 <script setup lang="ts">
-import { inject, useTemplateRef, watch, ref, onUnmounted } from "vue";
+import { inject, useTemplateRef } from "vue";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import { GooBlob } from "@components/custom/goo-blob";
+import { GooBlob } from "@mkbabb/glass-ui/goo-blob";
 import { COLOR_MODEL_KEY } from "../keys";
+
+// Thin consumer of glass-ui's GooBlob. The component owns its own autonomic
+// mood arc (the {valence,arousal} circumplex settles back to idle/sleepy on its
+// own demand-driven update loop) — HeroBlob only nudges the expressive moments
+// the picker UX cares about: a hover reads as curious, a click reads as happy.
+// No bespoke FSM, no idle timers, no rapid-change heuristic left behind.
 
 const { cssColorOpaque, denormalizedCurrentColor } = inject(COLOR_MODEL_KEY)!;
 
@@ -33,59 +40,11 @@ const emit = defineEmits<{ click: [] }>();
 
 const gooBlobRef = useTemplateRef<InstanceType<typeof GooBlob>>("gooBlobRef");
 
-// --- Mood triggers ---
-
-let idleTimer: ReturnType<typeof setTimeout> | null = null;
-let moodResetTimer: ReturnType<typeof setTimeout> | null = null;
-const colorChangeTimestamps: number[] = [];
-
-function resetIdleTimer() {
-    if (idleTimer) clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => {
-        gooBlobRef.value?.setMood("sleepy");
-    }, 15000);
-}
-
-function cancelMoodAfter(ms: number) {
-    if (moodResetTimer) clearTimeout(moodResetTimer);
-    moodResetTimer = setTimeout(() => {
-        gooBlobRef.value?.setMood("idle");
-        resetIdleTimer();
-    }, ms);
-}
-
 function onBlobClick() {
     emit("click");
     gooBlobRef.value?.setMood("happy");
     gooBlobRef.value?.nudge();
-    cancelMoodAfter(3000);
-    resetIdleTimer();
 }
-
-// Rapid color changes → excited
-watch(cssColorOpaque, () => {
-    resetIdleTimer();
-    const now = Date.now();
-    colorChangeTimestamps.push(now);
-    // Keep only last 2 seconds
-    while (
-        colorChangeTimestamps.length > 0 &&
-        now - (colorChangeTimestamps[0] ?? now) > 2000
-    ) {
-        colorChangeTimestamps.shift();
-    }
-    if (colorChangeTimestamps.length > 3) {
-        gooBlobRef.value?.setMood("excited");
-        cancelMoodAfter(4000);
-    }
-});
-
-resetIdleTimer();
-
-onUnmounted(() => {
-    if (idleTimer) clearTimeout(idleTimer);
-    if (moodResetTimer) clearTimeout(moodResetTimer);
-});
 
 function nudgeSatellites() {
     gooBlobRef.value?.nudge();

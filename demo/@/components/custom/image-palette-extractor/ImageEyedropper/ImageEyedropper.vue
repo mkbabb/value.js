@@ -79,7 +79,7 @@
 import { ref, onMounted, onBeforeUnmount, computed, watch, nextTick, useTemplateRef } from "vue";
 import { X, Plus, Check } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
-import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 
 import { useInertiaGesture } from "../composables/useInertiaGesture";
 import { useImageSampler, type DisplayColorSpace } from "./composables/useImageSampler";

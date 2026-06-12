@@ -52,7 +52,7 @@
 
 <script setup lang="ts">
 import { DialogTitle, DialogDescription } from "@components/ui/dialog";
-import { WatercolorDot } from "@components/custom/watercolor-dot";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 
 defineProps<{
     cssColor: string;
@@ -90,19 +90,7 @@ defineEmits<{
     mix-blend-mode: overlay;
 }
 
-/* Pastel rainbow gradient for palette title */
-.pastel-rainbow-text {
-    background-image: linear-gradient(
-        to right,
-        oklch(75% 0.18 0deg),
-        oklch(82% 0.16 60deg),
-        oklch(85% 0.17 130deg),
-        oklch(78% 0.14 200deg),
-        oklch(72% 0.18 270deg),
-        oklch(75% 0.16 330deg)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+/* `.pastel-rainbow-text` lifted to the shared @styles/utils.css recipe at
+ * N.W5.E — scoped here could never reach its PalettesPane / DockViewSelect
+ * consumers (inv-N-7). */
 </style>

@@ -24,11 +24,11 @@
  * Exit codes: 0 = both halves clean; non-zero = any dead subpath or any
  * surviving retired-class consumer (the offending sites are printed).
  *
- * KNOWN EXPECTED RED (N-open, do NOT silence): the retired-classes half hits
- * `glass-elevated` at MixResultDisplay.vue (chartered to N.W5.E → glass-floating)
- * and `glass-subtle` in the gradient editors (this sweep surfaced it — see the
- * W1.B lane report; also N.W5.E). The sweep is correct to be red here; the fix
- * is a downstream wave's, never a weakening of this gate.
+ * History: at N-open this sweep was deliberately RED on `glass-elevated` +
+ * `glass-subtle` ×2 (it surfaced the latter — see the W1.B lane report);
+ * N.W5.E extirpated all three and the sweep has been green since. If it
+ * reds again, the fix is always at the consuming site or the upstream
+ * manifest — never a weakening of this gate.
  */
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, resolve, relative, extname } from "node:path";

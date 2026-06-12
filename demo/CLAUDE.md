@@ -75,15 +75,15 @@ Organised into `controls/`, `display/`, `editing/`, `visual/`, `composables/` su
 | Subtree | Purpose |
 |---|---|
 | `dock/` | top-dock + dock-menus + layers (Mar-2026 rename from `top-dock/`); `GlassDock.vue` lives here |
-| `goo-blob/` | **WebGL2 metaball blob** (Apr-2026); `useMetaballRenderer.ts` (`cssColorToRgb` memoised 256-entry cap, D.W3 Lane C); `useBlobMood`, `useBlobPointer`, `useBlobSatellites`; `BlobConfig` reactive via `BLOB_CONFIG_KEY`; consumes glass-ui pending — extirpation routes to a successor tranche post-glass-ui-ship |
+| ~~`goo-blob/`~~ | **DELETED (N.W5.A)** — the 1270-LoC flat-HSV fork is extirpated; the hero blob now consumes `@mkbabb/glass-ui/goo-blob` (the OKLCh lit-glass superset). `GooBlob`/`BLOB_CONFIG_KEY`/`BLOB_CONFIG_DEFAULTS` import from glass-ui; the live picker palette flows `deriveBlobPalette → config.color.paletteStops` ("the palette made flesh", App.vue). BlobPane re-authored against the 8-atom nested config |
 | `gradient/` | gradient editing + `composables/` |
 | `mix/` | color mixing + `composables/` |
 | `generate/` | palette generation |
 | `markdown/` | dynamic .md loader with KaTeX + highlight.js |
 | `katex/` | standalone KaTeX renderer |
 | `panes/` | pane shell + header (consumes `usePaneRouter` registry) |
-| `svg-filters/` | reusable SVG filter defs |
-| `watercolor-dot/` | organic blob button — extirpation routes to successor tranche (BlobDot ship pending) |
+| ~~`svg-filters/`~~ | **DELETED (N.W5.C)** — its sole content was the global `<filter id="watercolor-filter">`; the watercolor-dot fork was its only structural consumer and the consumed glass-ui dot internalises a per-instance filter, so the global def + its `App.vue` mount are gone (the global-filter risk dies with the fork, inv-N-9) |
+| ~~`watercolor-dot/`~~ | **DELETED (N.W5.C)** — the SVG/CSS fork is extirpated; all 9 consumers import `{ WatercolorDot }` from `@mkbabb/glass-ui/watercolor-dot` (the superset: per-instance internalised filter, PRM-gated, identical prop shape). The fork's dormant un-gated RAF morph dies with it |
 | `dark-mode-toggle/` | animated sun/moon SVG toggle |
 
 ## Composables (`@/composables/`)

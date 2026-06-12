@@ -25,3 +25,41 @@
     -webkit-line-clamp: 1;
     line-clamp: 1;
 }
+
+/* Pastel rainbow gradient text — the celebratory title treatment for the
+ * palettes surface (the PalettesPane heading, the dock view-select entry, the
+ * PaletteDialog header). Lifted out of PaletteDialogHeader.vue's scoped style
+ * at N.W5.E (inv-N-7): a scoped rule could never reach its two other consumers
+ * (PalettesPane.vue, DockViewSelect.vue), so the class silently no-op'd there.
+ * Now one shared recipe resolves at every site. */
+.pastel-rainbow-text {
+    background-image: linear-gradient(
+        to right,
+        oklch(75% 0.18 0deg),
+        oklch(82% 0.16 60deg),
+        oklch(85% 0.17 130deg),
+        oklch(78% 0.14 200deg),
+        oklch(72% 0.18 270deg),
+        oklch(75% 0.16 330deg)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Dashed inset well — the recessed container that collects an in-progress set
+ * of colors (the mix "Selected" tray, the current-palette editor). Both sites
+ * used `.dashed-well` as a never-defined phantom (inv-N-7); this mints the
+ * intended affordance in house tokens: a dashed-bordered, faintly-recessed
+ * column that visually groups its swatch row + label, echoing the dashed
+ * add-swatch button each well already contains. */
+.dashed-well {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding: 0.75rem;
+    border: 1.5px dashed color-mix(in srgb, var(--border) 80%, transparent);
+    border-radius: var(--radius-card);
+    background: color-mix(in srgb, var(--muted) 35%, transparent);
+    box-shadow: inset 0 1px 3px color-mix(in srgb, var(--shadow-color) 6%, transparent);
+}

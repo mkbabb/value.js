@@ -3,7 +3,7 @@ import { Copy, Check, Save, RotateCcw } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { ref, TransitionGroup } from "vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import type { MixResult } from "./composables/useMixingState";
 
 const { result } = defineProps<{
@@ -28,7 +28,7 @@ async function onCopy() {
 </script>
 
 <template>
-    <div class="flex flex-col gap-3 p-4 rounded-xl glass-elevated">
+    <div class="flex flex-col gap-3 p-4 rounded-xl glass-floating">
         <span class="font-display text-caption font-bold text-muted-foreground uppercase tracking-wide">Result</span>
 
         <!-- Single color result -->

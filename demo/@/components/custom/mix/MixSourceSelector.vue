@@ -4,7 +4,7 @@ import { Plus, X, ChevronDown } from "@lucide/vue";
 import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components/ui/collapsible";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import WatercolorDot from "@components/custom/watercolor-dot/WatercolorDot.vue";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
 import PaletteColorStrip from "@components/custom/palette-browser/PaletteColorStrip.vue";
