@@ -176,50 +176,60 @@ export function lerpNumericValue(
     return value;
 }
 
+/** The interpolation dispatch function for an `InterpolatedVar`. */
+type LerpFn = (t: number, iv: InterpolatedVar<any>) => ValueUnit<any>;
+
+/**
+ * Resolve the per-kind interpolation function for an `InterpolatedVar` from its
+ * shape — the *single* dispatch decision tree, consumed by both the predispatch
+ * (`prepareInterpVar` stamps the result as `_lerp`) and the runtime fallback
+ * (`lerpValue` calls it when no `_lerp` is present). Collapsing the formerly
+ * duplicated decision (E1.N5 — the predispatch tree mirrored an inline fallback
+ * with a divergent branch order) keeps the two paths provably in lock-step:
+ *
+ *   - **computed** (`var`/`calc`/`vh`…) → `lerpComputedValue`. Checked FIRST: a
+ *     computed leaf can also carry `unit === "color"` shapes downstream, and the
+ *     computed resolution is the governing dispatch.
+ *   - **color** (`unit === "color"`) → `lerpColorValue`.
+ *   - **numeric** (both endpoints already `number`-typed) → `lerpNumericValue`.
+ *   - otherwise → `undefined` (no interpolation; the iv's `value` is returned
+ *     verbatim — the externally-constructed escape hatch).
+ */
+function resolveLerpFn(iv: InterpolatedVar<any>): LerpFn | undefined {
+    if (iv.computed) return lerpComputedValue;
+    if (iv.start.unit === "color") return lerpColorValue as LerpFn;
+    if (typeof iv.start.value === "number" && typeof iv.stop.value === "number")
+        return lerpNumericValue as LerpFn;
+    return undefined;
+}
+
 /**
  * Interpolate any `InterpolatedVar` at progress `t`.
  *
  * Uses a pre-resolved dispatch function (`_lerp`) when the
- * InterpolatedVar was created via `prepareInterpVar` — avoids three
- * sequential type checks per call in hot paths. Falls back to
- * runtime dispatch for externally constructed values.
+ * InterpolatedVar was created via `prepareInterpVar` — avoids the
+ * `resolveLerpFn` decision per call in hot paths. Falls back to
+ * runtime dispatch (the SAME `resolveLerpFn`) for externally
+ * constructed values; an unmatched shape returns `iv.value` verbatim.
  */
 export function lerpValue(
     t: number,
     iv: InterpolatedVar<any>,
 ): ValueUnit<any> | undefined {
-    if (iv._lerp) {
-        return iv._lerp(t, iv);
-    }
-
-    const { start, stop, computed } = iv;
-    if (typeof start.value === "number" && typeof stop.value === "number") {
-        iv.value.value = lerp(start.value, stop.value, t);
-        return iv.value;
-    }
-    if (start.unit === "color") {
-        return lerpColorValue(t, iv as InterpolatedVar<Color>);
-    }
-    if (computed) {
-        return lerpComputedValue(t, iv);
-    }
-    return iv.value;
+    const fn = iv._lerp ?? resolveLerpFn(iv);
+    return fn ? fn(t, iv) : iv.value;
 }
 
 /**
  * Pre-resolve the interpolation dispatch function on an
  * `InterpolatedVar`. Sets a hidden `_lerp` property used by
- * `lerpValue`'s fast path.
+ * `lerpValue`'s fast path (via the shared `resolveLerpFn`).
  *
  * Call once per InterpolatedVar after `normalizeValueUnits`; the
  * dispatch is invariant for the lifetime of the InterpolatedVar.
  */
 export function prepareInterpVar(iv: InterpolatedVar<any>): InterpolatedVar<any> {
-    iv._lerp = iv.computed
-        ? lerpComputedValue
-        : iv.start.unit === "color"
-          ? (lerpColorValue as (t: number, iv: InterpolatedVar<any>) => ValueUnit<any>)
-          : lerpNumericValue;
+    iv._lerp = resolveLerpFn(iv) ?? lerpNumericValue;
     if (!iv.computed && iv.start.unit === "color") {
         iv._colorPlan = buildColorChannelPlan(iv as InterpolatedVar<InterpColor>);
     }

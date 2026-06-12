@@ -36,12 +36,24 @@ export function lerp(start: number, end: number, t: number) {
  * `out` buffer — eliminating the AoS pointer-chase and the per-channel closure
  * dispatch of K independent `{value}` carriers.
  *
- * This is the carrier primitive a numeric-animation SoA substrate adopts; it is
- * pixel-identical to K independent `lerp()` calls. MEASURE-FIRST (the charter's
- * land bar): it is SLOWER at K=1 and BITES from K≥2 — measured on this machine
- * (bench/numeric-soa.mjs) at 1.56× (K=2) → 4.25× (K=64), so callers should use
- * it only for multi-channel (K≥2) frames. D1 monomorphization is NOT shipped (a
- * measured non-win, r-interpolation-carrier).
+ * **This is a *consumer-facing* SoA carrier, not an internal interpolation
+ * primitive.** value.js's own multi-channel paths cannot adopt it: the color
+ * path (`lerpColorValue`) has a per-channel hue special-case + heterogeneous
+ * destination writes, and `interpolateDecomposed` is a one-shot. The substrate
+ * that *does* consume it is **keyframes.js** — its `FrameCompiler` packs every
+ * plain-numeric channel of a compiled segment into parallel `Float64Array`s and
+ * drives one `lerpArray` call per playhead sample (the J.W6 S2 ADOPT; the
+ * consume-edge contract is locked by `keyframes.js/test/lerparray-adopt.test.ts`
+ * — API + `(1-t)·from + t·to` semantics + a K=8 cube-transform equivalence
+ * witness). So `lerpArray` is NOT an orphan: it generalized to the downstream
+ * animation engine it was built for, not to value.js's own interp loops. The
+ * N.W7.B perf-truth lane's verdict is therefore KEEP-and-document (E1.N1).
+ *
+ * It is pixel-identical to K independent `lerp()` calls. MEASURE-FIRST (the
+ * charter's land bar): SLOWER at K=1, BITES from K≥2 — measured on this machine
+ * (bench/numeric-soa.mjs) at 1.56× (K=2) → 4.25× (K=64), so callers use it only
+ * for multi-channel (K≥2) frames. D1 monomorphization is NOT shipped (a measured
+ * non-win, r-interpolation-carrier).
  *
  * `start`, `stop`, `out` must share the same length; only `out` is written.
  */

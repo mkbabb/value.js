@@ -154,6 +154,39 @@ describe("lerpValue — runtime dispatch (no _lerp set)", () => {
         const out = lerpValue(0.5, iv);
         expect(out).toBe(iv.value);
     });
+
+    // N.W7.B-E1.N5 — predispatch/fallback dedup: the runtime fallback in
+    // `lerpValue` (no `_lerp`) and the `prepareInterpVar` predispatch now consult
+    // ONE `resolveLerpFn` decision tree, so a prepared iv and an unprepared clone
+    // must produce byte-identical output for every kind. This guards that the
+    // collapse never lets the two paths drift.
+    it("prepared and unprepared paths agree across numeric/color kinds", () => {
+        const makeNumeric = (): InterpolatedVar<number> => ({
+            start: new ValueUnit(10, "px"),
+            stop: new ValueUnit(30, "px"),
+            value: new ValueUnit(10, "px"),
+            computed: false,
+        });
+        const makeColor = (): InterpolatedVar<RGBColor<number>> => ({
+            start: new ValueUnit(new RGBColor<number>(0, 0, 0, 1), "color"),
+            stop: new ValueUnit(new RGBColor<number>(80, 120, 200, 1), "color"),
+            value: new ValueUnit(new RGBColor<number>(0, 0, 0, 1), "color"),
+            computed: false,
+        });
+
+        for (const t of [0, 0.25, 0.5, 0.75, 1]) {
+            const numU = lerpValue(t, makeNumeric())!.value as number;
+            const numP = lerpValue(t, prepareInterpVar(makeNumeric()))!.value as number;
+            expect(numP).toBe(numU);
+
+            const colU = lerpValue(t, makeColor())!.value as RGBColor<number>;
+            const colP = lerpValue(t, prepareInterpVar(makeColor()))!
+                .value as RGBColor<number>;
+            expect(colP.r).toBeCloseTo(colU.r as number, 10);
+            expect(colP.g).toBeCloseTo(colU.g as number, 10);
+            expect(colP.b).toBeCloseTo(colU.b as number, 10);
+        }
+    });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────

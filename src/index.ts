@@ -43,11 +43,17 @@ export {
     getComputedValue,
     normalizeNumericUnits,
     normalizeValueUnits,
-    // Layout-epoch invalidation (Wave C7) — the resize bust for the computed
-    // endpoint cache (C1). Auto-installed on `window.resize`; also callable
-    // from a consumer's ResizeObserver / manually.
+    // Computed-endpoint-cache invalidation (Wave C7 + N.W7.B-B3.F1). The single
+    // bust for BOTH staleness classes the computed cache (C1) is subject to:
+    // (1) layout change — viewport `resize` (auto-installed), a container
+    // `ResizeObserver` (consumer-wired), a writing-mode flip; and (2) `var()`
+    // custom-property mutation mid-animation (theme/token switch). Auto-installed
+    // on `window.resize`; consumers MUST call it manually for container resizes
+    // and imperative var() writes. See `bumpLayoutEpoch`'s doc.
     bumpLayoutEpoch,
     getLayoutEpoch,
+    // The LRU ceiling for the computed-endpoint memo (N.W7.B-B3.F2).
+    COMPUTED_MEMO_MAX_ENTRIES,
 } from "./units/normalize";
 export type { NormalizeValueUnitsOptions } from "./units/normalize";
 

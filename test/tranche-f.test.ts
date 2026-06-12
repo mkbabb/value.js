@@ -205,9 +205,55 @@ describe("Wave F7 — no console.error on the custom-color-name path", () => {
     it("built-in named colors still resolve via the rich parser (iso)", () => {
         registerColorNames({ mybrandcolor: "#abcdef" });
         parseCSSColor.cache.clear();
-        // `red` is a built-in — the empty-collision custom map must not shadow it.
+        // `red` is a built-in — a NON-colliding custom map must not shadow it.
         const v = parseCSSColor("red");
         assert.equal(v.unit, "color");
+    });
+
+    // N.W7.B-F7 — the collision case the F-handoff left untested (B3 F4): a
+    // custom name that collides with a BUILT-IN shadows it (custom wins). The
+    // map is consulted before the rich parser, so the registered value is
+    // returned and the built-in is masked until clearCustomColorNames().
+    it("a custom name SHADOWS the built-in it collides with (precedence)", () => {
+        // Baseline: built-in `red` is pure red.
+        clearCustomColorNames();
+        parseCSSColor.cache.clear();
+        const builtinRed = parseCSSColor("red");
+        const rgbBuiltin = (builtinRed.value as { r: number; g: number; b: number });
+        assert.equal(builtinRed.unit, "color");
+
+        // Register `red → #00ff00` (green) and re-parse `red`.
+        registerColorNames({ red: "#00ff00" });
+        parseCSSColor.cache.clear();
+        const shadowed = parseCSSColor("red");
+        const rgb = shadowed.value as { r: number; g: number; b: number };
+        // Custom shadows built-in: `red` now resolves to green, NOT the spec red.
+        assert.equal(shadowed.unit, "color");
+        assert.notDeepEqual(
+            { r: rgb.r, g: rgb.g, b: rgb.b },
+            { r: rgbBuiltin.r, g: rgbBuiltin.g, b: rgbBuiltin.b },
+            "the registered custom `red` must shadow the built-in",
+        );
+        // green: g channel dominant, r ≈ 0.
+        assert.ok(
+            (rgb.g as number) > (rgb.r as number),
+            "shadowed `red` resolves to the registered green",
+        );
+
+        // Case-insensitive shadowing: `RED` hits the same lowercased key.
+        parseCSSColor.cache.clear();
+        const upper = parseCSSColor("RED").value as { r: number; g: number; b: number };
+        assert.ok((upper.g as number) > (upper.r as number));
+
+        // Clearing the registry restores the built-in.
+        clearCustomColorNames();
+        parseCSSColor.cache.clear();
+        const restored = parseCSSColor("red").value as { r: number; g: number; b: number };
+        assert.deepEqual(
+            { r: restored.r, g: restored.g, b: restored.b },
+            { r: rgbBuiltin.r, g: rgbBuiltin.g, b: rgbBuiltin.b },
+            "clearCustomColorNames restores the built-in `red`",
+        );
     });
 });
 

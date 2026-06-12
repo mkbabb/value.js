@@ -147,3 +147,53 @@ lane. My gates ran green against that combined worktree, so the work composes.
 - **B3 F9 / E1 F9 console-leak**: closed; no longer a carry.
 - The `lerpArray` orphan demotion + endpoint-cache (B3 F1/F2/F7) + DIRECT_PATHS rationalization
   (E3 F-3) remain the broader W7.B perf-truth lane's items — untouched here.
+
+## W7.B Verification
+
+**Verifier**: N.W7.B verification lane · **Date**: 2026-06-11 · **Substrate**: `0deca84`
+
+### Gate results (independent run)
+
+| Gate | Command | Result |
+|---|---|---|
+| Unit suite | `npx vitest run` | **1709 passed, 41 files** — delta +6 vs W7B-dist baseline of 1703 (W7B-perf lane added F1/F2/LRU + F7 collision tests) |
+| Build | `npm run build` | green, `dist/value.js 140.12 kB` |
+| Lint | `npm run lint` | exit 0, 0 warnings |
+| Typecheck | `npm run typecheck` | exit 0, 0 errors (lib + demo) |
+| Pack size | `npm pack --dry-run --json \| python3 -c "…unpackedSize"` | **294029 bytes (287.1 KB) — PASS (gate ≤ 327680 B = 320 KB)** |
+| ESM smoke | `node --input-type=module -e "import('./dist/value.js').then(…)"` | `function function` — both `parseCSSValue` and `mixColors` are functions |
+
+### Adversarial checks
+
+**prettier absent from dist** — `grep -ri prettier dist/` returns exactly one line in `dist/value.js`
+(the dynamic `import("prettier")` specifier at line 4040) and one line in `dist/parsing/serialize.d.ts`
+(the JSDoc for `formatCSS`). No bundled prettier source. PASS.
+
+**parse-that resolves 0.9.x** — `package-lock.json` line 1700:
+`"resolved": "https://registry.npmjs.org/@mkbabb/parse-that/-/parse-that-0.9.0.tgz"` — PASS.
+
+**CI size gate reads `npm pack unpackedSize`** — `.github/workflows/ci.yml` step
+"Assert published tarball size budget (npm pack unpackedSize ≤ 320 KB)" confirmed present and wired
+correctly (`GATE=327680`, exits non-zero when `SIZE -gt GATE`). PASS.
+
+**lerpArray decision: KEEP, named consume-edge verified** — `src/index.ts:191` exports `lerpArray`;
+`src/math.ts:45–48` docstring names keyframes.js's `FrameCompiler` SoA path (J.W6 S2 ADOPT) as the
+real downstream consumer and explains why value.js's own interp loops cannot adopt it. The rationale
+in `W7B-perf.md §1` is consistent with the code. PASS.
+
+**B3 endpoint-cache regression tests — all four items named**:
+- F1 var()-staleness: `test/computed-endpoint-cache.test.ts` describe `N.W7.B-B3.F1`, test
+  "a var() mutation mid-animation serves stale endpoints UNTIL bumpLayoutEpoch()"
+- F1 container-resize staleness: same describe, test "a container-resize bump re-resolves a computed leaf"
+- F2 LRU-bounded memo: describe `N.W7.B-B3.F2`, tests "flooding distinct computed leaves never exceeds
+  the LRU ceiling" + "a recently-used leaf survives a flood of cold leaves (LRU, not FIFO)"
+- F7 stale docstring: covered by the stable-id tests in the C2 suite + the F2 LRU tests (per W7B-perf.md §2)
+
+All four: PASS.
+
+**F7 custom-name-shadows-built-in doc + test** — `test/tranche-f.test.ts:217` "a custom name SHADOWS
+the built-in it collides with (precedence)" is present. PASS.
+
+### No src edits required
+
+All gates green on first run. No trivial test-only fixes needed. Lane is clean.

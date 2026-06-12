@@ -4,7 +4,12 @@ import type { InterpolatedVar } from "../src/units";
 import { lerpComputedValue, prepareInterpVar } from "../src/units/interpolate";
 import * as normalize from "../src/units/normalize";
 
-const { bumpLayoutEpoch, getComputedValue, getLayoutEpoch } = normalize;
+const {
+    bumpLayoutEpoch,
+    getComputedValue,
+    getLayoutEpoch,
+    COMPUTED_MEMO_MAX_ENTRIES,
+} = normalize;
 
 /**
  * Tranche-F Wave C — the computed-unit endpoint cache (C1) + its stable-id
@@ -174,5 +179,133 @@ describe("Wave C1/C2/C4/C7 — computed-unit endpoint cache", () => {
         // read the clock at all.
         expect(dateSpy).not.toHaveBeenCalled();
         dateSpy.mockRestore();
+    });
+});
+
+// ──────────────────────────────────────────────────────────────────────────
+// N.W7.B-B3 — endpoint-cache staleness + growth fixes.
+//
+// The Tranche-F computed-endpoint cache (C1/C2/C7) shipped with three audited
+// hazards (lane B3 F1/F2/F7): a `var()`-mutation staleness the resize-only
+// epoch model does not close, an unbounded memo the C2 per-instance key opened,
+// and a stale docstring. These gates lock the fixes.
+// ──────────────────────────────────────────────────────────────────────────
+
+describe("N.W7.B-B3.F1 — var()/container staleness is closed by bumpLayoutEpoch", () => {
+    let el: HTMLElement;
+    beforeEach(() => {
+        bumpLayoutEpoch();
+        getComputedValue.cache.clear();
+        el = document.createElement("div");
+        document.body.appendChild(el);
+    });
+    afterEach(() => el.remove());
+
+    // BITES: without a bumpLayoutEpoch() after the var() write, the cached
+    // (target, epoch) stamp still matches → lerpComputedValue serves the
+    // pre-mutation endpoints (50, not 150). Calling bumpLayoutEpoch() re-resolves.
+    it("a var() mutation mid-animation serves stale endpoints UNTIL bumpLayoutEpoch()", () => {
+        el.style.setProperty("--start", "0px");
+        el.style.setProperty("--stop", "100px");
+        const start = new ValueUnit("--start", "var");
+        const stop = new ValueUnit("--stop", "var");
+        start.setTargets([el]);
+        stop.setTargets([el]);
+        const iv: InterpolatedVar<unknown> = {
+            start,
+            stop,
+            value: start.clone(),
+            computed: true,
+        };
+        prepareInterpVar(iv);
+
+        // Warm the cache: mid = lerp(0, 100, 0.5) = 50.
+        expect(lerpComputedValue(0.5, iv).value).toBe(50);
+
+        // Imperatively reassign the custom property — a theme/token switch.
+        // This is NOT a layout event; the epoch is unchanged, so the cache is
+        // (by contract) stale until the consumer invalidates.
+        el.style.setProperty("--stop", "300px");
+        expect(lerpComputedValue(0.5, iv).value).toBe(50); // stale — documented
+
+        // The documented escape hatch: bump the epoch after an imperative
+        // var() write (the B3.F1 contract). Now the next frame re-resolves.
+        bumpLayoutEpoch();
+        expect(lerpComputedValue(0.5, iv).value).toBe(150); // lerp(0, 300, 0.5)
+    });
+
+    // A container resize (ResizeObserver) is the same invalidation surface as a
+    // window resize, but value.js has no element handle to auto-wire it — the
+    // consumer routes its observer to bumpLayoutEpoch(). Lock that it busts.
+    it("a container-resize bump re-resolves a computed leaf", () => {
+        el.style.setProperty("--w", "100px");
+        const v = new ValueUnit("--w", "var");
+        v.setTargets([el]);
+        const iv: InterpolatedVar<unknown> = {
+            start: v,
+            stop: v,
+            value: v.clone(),
+            computed: true,
+        };
+        prepareInterpVar(iv);
+        expect(lerpComputedValue(1, iv).value).toBe(100);
+
+        // The container "resized": its tracked custom length changed. A
+        // ResizeObserver callback wired to bumpLayoutEpoch() busts the cache.
+        el.style.setProperty("--w", "250px");
+        bumpLayoutEpoch();
+        expect(lerpComputedValue(1, iv).value).toBe(250);
+    });
+});
+
+describe("N.W7.B-B3.F2 — the computed-endpoint memo is bounded (LRU)", () => {
+    let el: HTMLElement;
+    beforeEach(() => {
+        bumpLayoutEpoch();
+        getComputedValue.cache.clear();
+        el = document.createElement("div");
+        document.body.appendChild(el);
+    });
+    afterEach(() => el.remove());
+
+    // BITES: with maxCacheSize removed from getComputedValue's memo options the
+    // cache grows unboundedly (size === N) and this assertion fails.
+    it("flooding distinct computed leaves never exceeds the LRU ceiling", () => {
+        el.style.setProperty("--x", "1px");
+        // Far exceed the ceiling with distinct ValueUnit instances (the C2
+        // per-instance key means each is a unique memo entry, the exact
+        // long-lived-SPA leak shape).
+        const N = COMPUTED_MEMO_MAX_ENTRIES + 500;
+        for (let i = 0; i < N; i++) {
+            const leaf = new ValueUnit("--x", "var");
+            getComputedValue(leaf, el);
+        }
+        expect(getComputedValue.cache.size).toBeLessThanOrEqual(
+            COMPUTED_MEMO_MAX_ENTRIES,
+        );
+    });
+
+    // The LRU (not FIFO) discipline: a hot leaf re-touched every iteration must
+    // survive a flood of cold one-shot leaves that exceeds the bound.
+    it("a recently-used leaf survives a flood of cold leaves (LRU, not FIFO)", () => {
+        el.style.setProperty("--hot", "42px");
+        const hot = new ValueUnit("--hot", "var");
+        hot.setTargets([el]);
+        getComputedValue(hot, el); // seed the hot entry
+
+        const cold = COMPUTED_MEMO_MAX_ENTRIES + 100;
+        for (let i = 0; i < cold; i++) {
+            const leaf = new ValueUnit("--x", "var");
+            getComputedValue(leaf, el);
+            // Re-touch the hot key every iteration → LRU-promoted to the tail,
+            // never the eviction head.
+            getComputedValue(hot, el);
+        }
+        // The hot key is still resident: its resolve is served from cache (the
+        // cache holds its key), so a fresh spy sees zero new resolves for it.
+        const sizeBefore = getComputedValue.cache.size;
+        getComputedValue(hot, el);
+        expect(getComputedValue.cache.size).toBe(sizeBefore); // hit, no growth
+        expect(getComputedValue(hot, el).value).toBe(42);
     });
 });

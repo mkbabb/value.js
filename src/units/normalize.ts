@@ -158,10 +158,22 @@ export const getLayoutEpoch = (): number => layoutEpoch;
 
 /**
  * Invalidate every layout-epoch-stamped cache (the C1 endpoint cache and the
- * `getComputedValue` memo) by advancing the generation counter. Call on any
- * event that changes a computed-unit resolution — a viewport `resize`, a
- * container `ResizeObserver` callback, a writing-mode flip, etc. Cheap (one
- * integer increment + one memo clear); the next computed frame re-resolves.
+ * `getComputedValue` memo) by advancing the generation counter, AND clear the
+ * memo wholesale. This is the single invalidation primitive for **both** classes
+ * of computed-unit staleness (N.W7.B-B3.F1):
+ *
+ *   1. **Layout change** — a viewport `resize` (auto-installed below), a
+ *      *container* `ResizeObserver` callback (NOT auto-wired — value.js has no
+ *      element handle; the consumer wires its own observer to this), a
+ *      writing-mode flip, a font load, etc. These change `vh`/`cqw`/`em`/… px.
+ *   2. **`var()` mutation** — a custom-property reassignment mid-animation (a
+ *      theme switch, a JS-driven design token). This is NOT a layout event and
+ *      does NOT bump the epoch on its own, so a consumer driving custom
+ *      properties imperatively MUST call this after the write or the cache
+ *      serves the pre-mutation value for the rest of the epoch.
+ *
+ * Cheap (one integer increment + one memo clear); the next computed frame
+ * re-resolves both endpoints against the live box.
  */
 export const bumpLayoutEpoch = (): number => {
     layoutEpoch++;
@@ -190,11 +202,36 @@ installResizeEpoch();
 
 // ─── getComputedValue ─────────────────────────────────────────────────────
 
+// N.W7.B-B3.F2 — the LRU bound for the `getComputedValue` memo. A computed
+// animation's concurrent working set is its live computed leaves (one entry per
+// (endpoint ValueUnit, element) pair); a complex page animating hundreds of
+// computed properties across dozens of elements stays well under this. The cap
+// only bites the pathological long-lived-SPA accumulation the C2 per-instance
+// key opened (retired-iv leaves that never re-resolve), evicting the
+// least-recently-used. Exported so a consumer can reason about (or in tests,
+// assert against) the ceiling.
+export const COMPUTED_MEMO_MAX_ENTRIES = 4096;
+
 /**
  * Resolve a computed CSS value (`var()`, `calc()`, or other
  * deferred-evaluation unit) against a target element by writing it
  * into the target's inline style and reading back the computed
- * style. Memoised by `(value.toString(), element-id)`.
+ * style.
+ *
+ * Memoised by `(value-unit-instance-id, element-id)` (C2 / N.W7.B-B3.F7) —
+ * NOT `value.toString()`. The endpoint `ValueUnit`s are fixed for an
+ * `InterpolatedVar`'s life, so a per-instance monotonic id (WeakMap-assigned,
+ * GC-safe) is a content-equivalent key that pays one `WeakMap` probe per hit
+ * instead of a full `calc(…)`/`var(…)` re-serialisation.
+ *
+ * The memo is **bounded** (`maxCacheSize`, LRU eviction — N.W7.B-B3.F2). The
+ * C2 per-instance key means N short-lived computed `ValueUnit`s would otherwise
+ * leave N permanent entries (a long-lived SPA re-creating interpolation vars
+ * per cycle leaks one entry per leaf per cycle), since the string-keyed `Map`
+ * entry outlives the GC'd `ValueUnit`. The bound caps that at
+ * `COMPUTED_MEMO_MAX_ENTRIES`, evicting the least-recently-used leaf — far
+ * above any realistic concurrent computed-leaf working set, so a steady
+ * animation never evicts a live endpoint.
  *
  * For `calc()` values whose `subProperty` names a transform axis
  * (`translateX`, `scaleY`, etc.), the round-trip yields a `matrix()`
@@ -204,6 +241,15 @@ installResizeEpoch();
  * Caching is suppressed when the target is disconnected — layout
  * units (`vh`, `cqw`, etc.) resolve to 0 outside the live tree, so
  * caching that value would poison later reads.
+ *
+ * STALENESS CONTRACT (N.W7.B-B3.F1): this memo (and the C1 endpoint cache it
+ * feeds) is keyed on `(instance, element, layoutEpoch)`. A computed-unit
+ * resolution changes ONLY on (i) a viewport/container resize or (ii) a
+ * `var()` custom-property reassignment (theme switch, JS-driven token). Neither
+ * fires automatically except the auto-installed `window.resize`. A consumer
+ * that mutates a custom property mid-animation, or resizes a *container* under
+ * a `ResizeObserver`, MUST call `bumpLayoutEpoch()` to invalidate — see its
+ * doc. Without that, a stale endpoint is served for the rest of the epoch.
  */
 export const getComputedValue = memoize(
     (value: ValueUnit, target?: HTMLElement) => {
@@ -264,6 +310,16 @@ export const getComputedValue = memoize(
         return get().coalesce(value);
     },
     {
+        // N.W7.B-B3.F2 — bound the memo with the W7.A LRU. The C2 per-instance
+        // key means distinct-but-content-equal ValueUnits no longer dedup, so an
+        // unbounded memo grew one permanent string-keyed entry per leaf per
+        // animation cycle (the WeakMap lets the ValueUnit GC, but the Map entry
+        // — keyed on the string id, not the object — persists). The LRU caps the
+        // entry count and evicts the least-recently-used leaf; the cap is far
+        // above any realistic concurrent computed-leaf working set, so a steady
+        // animation re-touches (and thus LRU-promotes) its live endpoints every
+        // frame and never evicts them — only retired leaves age out.
+        maxCacheSize: COMPUTED_MEMO_MAX_ENTRIES,
         // C2 (tranche-F Wave C) — key on a per-instance stable id, NOT
         // `value.toString()`. The endpoint ValueUnits are fixed for an iv's
         // life, so the id is a content-equivalent key that costs one WeakMap
