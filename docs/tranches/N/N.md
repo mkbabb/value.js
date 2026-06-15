@@ -135,7 +135,10 @@ Remaining version moves (N-owned unless noted):
    cut, but glass-ui's BA tranche (greenlit, executing) cuts 4.0.0 carrying the U-fix mass —
    the pin target is now THE BA CUT, discharged at N.W18.]**
 2. **Drop the phantom `@mkbabb/keyframes.js` devDep** (value.js imports it nowhere — E6).
-3. **0.12.0** cuts after N.W7 (the library-asks wave); **v1.0.0** at N.W9 close.
+3. **0.12.0** cuts after N.W7 (the library-asks wave); **0.13.0** cuts after the second-block
+   library wave **N.W11 (color-SOTA) + N.W11.D (`sampleColorRamp`) + N.W11′ (scroll grammar)** —
+   `0.13.0 = N.W11 + N.W11.D + N.W11′`, the grammar fold ratified 2026-06-15 (RATIFIED §4 sub-block;
+   `EXECUTION-ORCHESTRATION.md §3` / `GRAMMAR-FOLD.md`); **v1.0.0** at the N.W9′ close.
 
 ---
 
@@ -161,6 +164,47 @@ after W0 (api lanes don't need the demo). W5 needs W1 + a clean local glass-ui d
 — may run beside W2–W6. W8 anytime after W1; the master-merge waits for green. W9 closes
 (registry pin gated on glass-ui's 3.13.0 cut — the ONE cross-repo wait, and it gates only the
 final pin, not the work).
+
+### §4.1 — The second block: N.W10–N.W18, re-sequenced W8′/W9′ — **RATIFIED 2026-06-15**
+
+The dead N.W6 (died un-implemented) was re-divined by the 2026-06-12 user audit (LEDGER U1–U33)
+into the second-block wave set, planned in **`WAVES-2.md`** and orchestrated into a forward run by
+**`EXECUTION-ORCHESTRATION.md`**. That block — **all of it** — is **RATIFIED 2026-06-15** (the
+WAVES-2 second block PLANNED→RATIFIED; the grammar fold of `EXECUTION-ORCHESTRATION.md §3` /
+`GRAMMAR-FOLD.md` ratified into N's library track). Every per-wave spec at `waves/N.W10..N.W18.md`
++ `N.W11-prime.md` + `N.W8-prime.md` + `N.W9-prime.md` carries the matching **RATIFIED** stamp.
+
+| Wave | Disp. | Kind | One line | Spec | Cut |
+|---|---|---|---|---|---|
+| **N.W10 — Functional truth + the cascade kill** | IMPL | unilateral | U9 reset · U33 aurora-motion · the save data-loss P0 · the kC placebo · the CSS-cascade substrate kill (U11 root) + single-mount — the gate-opener | `waves/N.W10.md` | — |
+| **N.W11 — Library color-SOTA (U10)** | IMPL | unilateral (library) | gamut-map re-anchor + §13.2 oracle + wide-gamut egress; **lane D = `sampleColorRamp`** (the perceptual ramp fold, VJ.W2 — composes the shipped color kernels) | `waves/N.W11.md` | **0.13.0** |
+| **N.W11′ — Scroll-grammar library wave (VJ.W1)** | IMPL | unilateral (library) | the ONE genuine net-new grammar: the `CSSTimelineOptions` scroll-timeline typed extractor + inverse serializer (a NEW `src/parsing/scroll-timeline.ts`); born-RED against the kf-K.W9 consume edge | `waves/N.W11-prime.md` | **0.13.0** |
+| **N.W12 — THE GRAND HIERARCHY (D6)** | IMPL | Fable | font root · accent axis · dark ladder · container-query layout clamp · depth-grammar laws · ramp + φ tokens (the design keystone) | `waves/N.W12.md` | — |
+| **N.W13 — CONTROLS** | IMPL | split (Fable) | sliders/dropdowns/rail/pills/clip + the a11y cluster (size-axis · Select bound/rung = BA interims, die at W18) | `waves/N.W13.md` | — |
+| **N.W14 — CARDS** | IMPL | split (Fable) | PaletteCard first-class · depth-grammar applied · glassy skeletons · empty-state CTAs (watercolor-ghost = BA interim) | `waves/N.W14.md` | — |
+| **N.W15 — PERF** | IMPL | split | idle-floor · reflows · reactivity · bundles + the U6/U16 dock-morph verify harness (born-RED until BA A-1) | `waves/N.W15.md` | — |
+| **N.W16 — PER-PANE** | IMPL | unilateral (Fable) | picker hero · gradient+easing · mix (inv-N-9 closes) · extract · docs + the modern-web carry | `waves/N.W16.md` | — |
+| **N.W17 — SHELL + MOTION + POPS** | IMPL | unilateral (Fable) | dock scale · 14→3 transition families · view-select moment · celebration · nomenclature | `waves/N.W17.md` | — |
+| **N.W18 — Cross-repo consume-on-their-land** | IMPL | cross-repo | the BA-cut re-pin + the inv-N-10 abrogation sweep + adopt sweep · easing-configurator consume · kf/fourier coordination (**gated on the BA cut**) | `waves/N.W18.md` | — |
+| **N.W8′ — Hygiene + reconciliation (re-seq)** | IMPL | unilateral | master-merge + the wire-deploy ceremony + doc-truth (R4 exact lists) | `waves/N.W8-prime.md` | — |
+| **N.W9′ — v1.0.0 close + π (re-seq)** | DEV (close) | unilateral | v1.0.0 + π + FINAL.md; the pin discharged by W18 (target = the BA cut) | `waves/N.W9-prime.md` | **v1.0.0** |
+
+**The grammar fold (ratified into N's library track).** VJ.W2 `sampleColorRamp` and VJ.W1 the
+scroll-timeline grammar — the two genuine net-new value.js grammars kf-K.W9/K.W10 gate on, which
+N.W18.C originally only "recorded for the post-N successor" — are **folded into N's R2 library
+track**, NOT deferred to a post-N tranche. `sampleColorRamp` rides as **N.W11.D** (a 4th lane of
+the color-SOTA wave, ~S-effort over the kernels N.W11.A/B/C already touch); the scroll grammar
+rides as the sibling wave **N.W11′** (different substrate — `parsing/`). Both ship in **0.13.0**,
+un-blocking kf-K.W9 (scroll-as-CSS) + K.W10 (compiler CC-2 oklab densify) within the constellation
+beat. The acyclic spine holds: value.js publishes 0.13.0, kf-K consumes one tranche behind — a
+PUBLISHED-consume edge, born-RED downstream, never a `file:` link or vendored copy.
+
+**Second-block DAG** (`WAVES-2.md §2`, `EXECUTION-ORCHESTRATION.md §2`): **R1** N.W10 (the
+gate-opener — the cascade kill is the substrate for every later design gate) → **R2** N.W11 +
+N.W11.D + N.W11′ (library, → 0.13.0) ∥ N.W12 (the grand hierarchy keystone) → **R3** N.W13 ∥ N.W14
+∥ N.W15 ∥ N.W16 ∥ N.W17 (the design body) → **R4** N.W18 (the BA-cut consume, the ONE cross-repo
+wait) → **R5** N.W8′ → N.W9′ (close at v1.0.0). The library track (N.W11 + N.W11.D + N.W11′) is
+BA-independent and parallelizes with the entire design body.
 
 ---
 

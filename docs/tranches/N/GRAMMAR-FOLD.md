@@ -1,5 +1,16 @@
 # N — GRAMMAR-FOLD: the two kf-dispatched grammar wave specs, developed to executable depth
 
+**Status: RATIFIED 2026-06-15, folded into N.W11.D + N.W11′.** The grammar fold is ratified into
+N's R2 library track: VJ.W2 `sampleColorRamp` lands as **N.W11.D** (a 4th lane of the color-SOTA
+wave); VJ.W1 the scroll-timeline grammar lands as the sibling wave **N.W11′**. Both ship in
+**0.13.0**, un-blocking kf-K.W9 (scroll-as-CSS) + K.W10 (compiler CC-2 oklab densify) one tranche
+behind — a PUBLISHED-consume edge, never a `file:` link or vendored copy. The canonical board now
+carries the fold: `N.md §3`/§4.1, `PROGRESS.md` (the N.W11.D/N.W11′ rows), `WAVES-2.md §1`. The
+per-wave specs `waves/N.W11.md` (lane D) + `waves/N.W11-prime.md` are the executable specs; PART I
+and PART II below are their developed substrate (the producer signatures, the born-RED gates, the
+consume cadence). The §3 dispatch-gate fallback (a post-N Tranche O) was NOT elected — the fold is
+the ratified path.
+
 **Provenance:** the kf-K frontier fold dispatched two net-new value.js grammars on **2026-06-15**
 (the mirror of `../keyframes.js/docs/tranches/K/KF-TO-VALUEJS-GRAMMAR-ASKS.md` + `K/L-SEED.md §7`).
 This document develops `EXECUTION-ORCHESTRATION.md §3` (THE GRAMMAR FOLD — the recommendation to fold
@@ -8,11 +19,12 @@ depth**: the producer signatures value.js ships, the born-RED gates (value.js-si
 symbol is ABSENT at 0.12.0, GREEN on ship), the kf-K K.W9/K.W10 consume edges + the acyclic cadence,
 the MEASURE-FIRST note where perf is claimed, and the slot into N (N.W11.D / N.W11′, the 0.13.0 cut).
 
-**This is a PROPOSAL awaiting the user's ratification.** It does NOT re-author the canonical board
-(`N.md` the charter, `WAVES-2.md` the second block, `PROGRESS.md`). It develops §3 to the depth a
-wave-section author can lift verbatim. The dispatch gate (§3 below) ratifies the fold OR elects the
-named fallback — a tight library-only **post-N Tranche O** (VJ.W1 + VJ.W2 + any VJ-ledger residue).
-DOCS ONLY — nothing implemented; this is tranche development, not implementation.
+**This fold is RATIFIED (2026-06-15)** and integrated into the canonical board (`N.md §3`/§4.1,
+`WAVES-2.md §1`, `PROGRESS.md` — the N.W11.D/N.W11′ rows). This document develops §3 to the depth a
+wave-section author can lift verbatim; the executable specs are `waves/N.W11.md` (lane D) +
+`waves/N.W11-prime.md`. The §3 dispatch gate offered a named fallback — a tight library-only
+**post-N Tranche O** (VJ.W1 + VJ.W2 + any VJ-ledger residue) — which was NOT elected; the fold is
+the ratified path. DOCS ONLY — nothing implemented; this is tranche development, not implementation.
 
 **Spec idiom:** matches `N.md §4` (§-structured, hard-gate-per-wave, file:line-grounded) and
 `WAVES-2.md` (the per-lane table + the hard gate). Every claim cites a value.js `src/` file:line, the
@@ -596,20 +608,20 @@ cycle: value.js → kf (grammar); kf → glass-ui (spring); no back-edge.
 
 ---
 
-# §dispatch-gate — what awaits the user (the only blocker for this fold)
+# §dispatch-gate — RATIFIED (2026-06-15); the one remaining edge is the publish
 
-| Gate | What it unblocks | Owner |
-|---|---|---|
-| **Ratify the grammar fold (THIS doc / `EXECUTION-ORCHESTRATION.md §3`)** | N.W11.D (`sampleColorRamp`) + N.W11′ (scroll grammar) → 0.13.0 → un-blocks kf-K.W9 (scroll, clause b) + K.W10 (densify, clause d) | **user** |
-| **OR elect the post-N Tranche O fallback** | the SAME two grammars, library-only, dispatched the moment N's library track is free; the kf consume edge is identical (lights on whichever cut publishes) | **user** |
+| Gate | What it unblocks | Owner | State |
+|---|---|---|---|
+| **Ratify the grammar fold (THIS doc / `EXECUTION-ORCHESTRATION.md §3`)** | N.W11.D (`sampleColorRamp`) + N.W11′ (scroll grammar) → 0.13.0 → un-blocks kf-K.W9 (scroll, clause b) + K.W10 (densify, clause d) | **user** | **RATIFIED 2026-06-15** |
+| ~~OR elect the post-N Tranche O fallback~~ | the same two grammars, library-only | **user** | **NOT elected** — the fold is the ratified path |
 
-**The decision is binary:** ratify the fold (the better constellation move — value.js + keyframes
-advance together in the same beat, as they did at 0.12.0) OR elect the named **post-N Tranche O**
-(the heavier path; the fallback). Either way, the kf-K born-RED consume edges (K.W9 clause b, K.W10
-clause d) are written against the recorded absence TODAY and light on whichever cut publishes the
-producer. Nothing here is implemented; this is the executable spec, awaiting the one ratification
-above. The `animation-trigger` sub-item (§II.3.E) is the clean Tranche-O candidate EVEN under the
-fold, if the scroll-timeline core cut is time-boxed to 0.13.0.
+**The decision is made:** the fold is RATIFIED (the better constellation move — value.js + keyframes
+advance together in the same beat, as they did at 0.12.0); the named **post-N Tranche O** fallback was
+NOT elected. The kf-K born-RED consume edges (K.W9 clause b, K.W10 clause d) are written against the
+recorded absence TODAY and light on the 0.13.0 publish. Nothing here is implemented; the work
+dispatches on the orchestrator's round-by-round fan-out (`EXECUTION-ORCHESTRATION.md §2`, R2's library
+track). The `animation-trigger` sub-item (§II.3.E) remains a clean time-box candidate WITHIN the fold —
+deferrable to a later cut if the scroll-timeline core is time-boxed to 0.13.0 — not a separate tranche.
 
 ---
 
@@ -622,8 +634,8 @@ document develops `EXECUTION-ORCHESTRATION.md §3` to executable depth: each car
 signature, its born-RED gate (both absences re-verified ZERO at 0.12.0), its kf-K consume edge
 (K.W10's CC-2 densify, K.W9's scroll round-trip) and the acyclic one-beat-behind cadence, the
 MEASURE-FIRST note for VJ.W2 (it reuses kernels — bench, don't assert), and the slot into N
-(N.W11.D the color-cut lane, N.W11′ the grammar sibling, both → 0.13.0). The fold is the recommended
-move — value.js and keyframes advance together in the same beat — with a tight library-only post-N
-Tranche O as the named fallback if N is judged too large to absorb them; the kf consume edge is
-identical either way. This is a PROPOSAL: the dispatch gate ratifies the fold OR elects Tranche O.
-DOCS ONLY — nothing is implemented; the work dispatches on the user's ratification.
+(N.W11.D the color-cut lane, N.W11′ the grammar sibling, both → 0.13.0). The fold is the RATIFIED
+path (2026-06-15) — value.js and keyframes advance together in the same beat; the named fallback (a
+tight library-only post-N Tranche O) was NOT elected. The kf consume edge is identical either way:
+born-RED-absent at 0.12.0, lighting on the 0.13.0 publish. DOCS ONLY — nothing is implemented; the
+work dispatches on the orchestrator's round-by-round fan-out per `EXECUTION-ORCHESTRATION.md §2`.

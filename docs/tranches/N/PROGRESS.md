@@ -26,25 +26,30 @@ against it = **3 errors** (exactly the 3 re-aliased import sites), not 91.
 
 The 2026-06-12 user audit (LEDGER U1–U33, OUTRANKS all priors) re-opened the design surface the
 dead W6 was chartered to fix; the second fleet (lanes2, R1–R4 · D1–D8 · U-* · L-* · X-*)
-grounded every finding and `WAVES-2.md` re-divined the remainder. **All PLANNED; dispatch gates
-on explicit user ratification of the WAVES-2 revision.** W8/W9 re-sequence AFTER this block
+grounded every finding and `WAVES-2.md` re-divined the remainder. **RATIFIED 2026-06-15** (the
+WAVES-2 second block PLANNED→RATIFIED; the grammar fold of `EXECUTION-ORCHESTRATION.md §3` /
+`GRAMMAR-FOLD.md` ratified into N's library track — `sampleColorRamp` = N.W11.D, the scroll
+grammar = N.W11′, both → 0.13.0). Every per-wave spec at `waves/N.W*.md` carries the matching
+RATIFIED stamp; the rows below pointer to those specs. W8/W9 re-sequence AFTER this block
 (W8′ absorbs the wire-deploy ceremony; W9′'s pin target moved 3.13.0 → the BA cut).
 Note: W2.B's emission fix is in-tree and correct — the live desktop kill is the **unlayered
 glass-ui dist CSS cascade** (D8-1, U11's true root), owned by N.W10.D.
 
-| Wave | One line | Status | Blocked-on-BA? |
-|---|---|---|---|
-| **N.W10** | Functional truth: U9 reset · U33 aurora-motion · save data-loss P0 · kC placebo · the cascade kill (U11) + single-mount | **PLANNED** | no |
-| **N.W11** | Library color-SOTA (U10): gamut-map re-anchor + §13.2 oracle + wide-gamut egress | **PLANNED** | no |
-| **N.W12** | THE GRAND HIERARCHY (D6): font root · accent axis · dark ladder · layout clamp · depth laws · ramp + φ tokens | **PLANNED** | gray-token half free at pin |
-| **N.W13** | CONTROLS: sliders/dropdowns/rail/pills/clip + a11y | **PLANNED** | size-axis, Select bound/rung |
-| **N.W14** | CARDS: PaletteCard first-class · depth applied · glassy skeletons · empty-state CTAs | **PLANNED** | watercolor-ghost |
-| **N.W15** | PERF: idle-floor · reflows · reactivity · bundles + the U6/U16 morph harness (born-RED) | **PLANNED** | dock FLIP A-1 et al. |
-| **N.W16** | PER-PANE: picker hero · gradient+easing · mix (inv-N-9 closes) · extract · docs · modern-web carry | **PLANNED** | easing-configurator → W18 |
-| **N.W17** | SHELL + MOTION + POPS: dock scale · 14→3 families · view-select · celebration · nomenclature | **PLANNED** | spring-clock refines at pin |
-| **N.W18** | Cross-repo consume-at-pin: the BA-cut re-pin + adopt sweep · easing-configurator · kf/fourier | **PLANNED** | **gated on the BA cut** |
-| **N.W8′** | (re-seq) Hygiene + reconciliation + **the wire-deploy ceremony** + doc-truth (R4 exact lists) | **PLANNED** | no |
-| **N.W9′** | (re-seq) v1.0.0 close + π + FINAL.md (pin discharged by W18) | **PLANNED** | pin = the BA cut |
+| Wave | One line | Status | Spec | Blocked-on-BA? |
+|---|---|---|---|---|
+| **N.W10** | Functional truth: U9 reset · U33 aurora-motion · save data-loss P0 · kC placebo · the cascade kill (U11) + single-mount | **RATIFIED** | `waves/N.W10.md` | no |
+| **N.W11** | Library color-SOTA (U10): gamut-map re-anchor + §13.2 oracle + wide-gamut egress (**+ lane D `sampleColorRamp`**) → **0.13.0** | **RATIFIED** | `waves/N.W11.md` | no |
+| **N.W11.D** | `sampleColorRamp(from,to,n,{space,hueMethod})` — the perceptual ramp fold (VJ.W2); lane D of N.W11, composes the shipped color kernels; un-blocks kf-K.W10 CC-2 densify | **RATIFIED** | `waves/N.W11.md` §lane D · `GRAMMAR-FOLD.md` PART I | no |
+| **N.W11′** | The scroll-grammar library wave (VJ.W1): the `CSSTimelineOptions` typed extractor + inverse serializer (NEW `parsing/scroll-timeline.ts`); the ONE genuine net-new grammar; → **0.13.0**; un-blocks kf-K.W9 | **RATIFIED** | `waves/N.W11-prime.md` · `GRAMMAR-FOLD.md` PART II | no |
+| **N.W12** | THE GRAND HIERARCHY (D6): font root · accent axis · dark ladder · layout clamp · depth laws · ramp + φ tokens | **RATIFIED** | `waves/N.W12.md` | gray-token half free at pin |
+| **N.W13** | CONTROLS: sliders/dropdowns/rail/pills/clip + a11y | **RATIFIED** | `waves/N.W13.md` | size-axis, Select bound/rung |
+| **N.W14** | CARDS: PaletteCard first-class · depth applied · glassy skeletons · empty-state CTAs | **RATIFIED** | `waves/N.W14.md` | watercolor-ghost |
+| **N.W15** | PERF: idle-floor · reflows · reactivity · bundles + the U6/U16 morph harness (born-RED) | **RATIFIED** | `waves/N.W15.md` | dock FLIP A-1 et al. |
+| **N.W16** | PER-PANE: picker hero · gradient+easing · mix (inv-N-9 closes) · extract · docs · modern-web carry | **RATIFIED** | `waves/N.W16.md` | easing-configurator → W18 |
+| **N.W17** | SHELL + MOTION + POPS: dock scale · 14→3 families · view-select · celebration · nomenclature | **RATIFIED** | `waves/N.W17.md` | spring-clock refines at pin |
+| **N.W18** | Cross-repo consume-at-pin: the BA-cut re-pin + adopt sweep · easing-configurator · kf/fourier | **RATIFIED** | `waves/N.W18.md` | **gated on the BA cut** |
+| **N.W8′** | (re-seq) Hygiene + reconciliation + **the wire-deploy ceremony** + doc-truth (R4 exact lists) | **RATIFIED** | `waves/N.W8-prime.md` | no |
+| **N.W9′** | (re-seq) v1.0.0 close + π + FINAL.md (pin discharged by W18) | **RATIFIED** | `waves/N.W9-prime.md` | pin = the BA cut |
 
 ## The dispatch split
 
@@ -80,7 +85,16 @@ glass-ui dist CSS cascade** (D8-1, U11's true root), owned by N.W10.D.
 
 ## Dispatch gate
 
-**Gate**: explicit user ratification of the charter + supersede-M. **Status**: **CLOSED —
-RATIFIED 2026-06-11**. N.W1 dispatched first (R1) with W2.A and W7.A beside it; glass-ui
+**Gate (first block)**: explicit user ratification of the charter + supersede-M. **Status**:
+**CLOSED — RATIFIED 2026-06-11**. N.W1 dispatched first (R1) with W2.A and W7.A beside it; glass-ui
 3.13.0 remains uncut at dispatch → the W9 registry pin holds as the chartered
 BOOK-with-trigger (the pin is the gate, not the work).
+
+**Gate (second block + the grammar fold)**: explicit user ratification of the WAVES-2 revision +
+the `EXECUTION-ORCHESTRATION.md §3` / `GRAMMAR-FOLD.md` grammar fold. **Status**: **CLOSED —
+RATIFIED 2026-06-15**. N.W10–N.W18 + the re-sequenced W8′/W9′ flip PLANNED→RATIFIED; `sampleColorRamp`
+(N.W11.D) + the scroll grammar (N.W11′) fold into N's R2 library track → **0.13.0**, un-blocking
+kf-K.W9/K.W10 one beat behind. Dispatch runs in the §2 round structure (R1 N.W10 gate-opener → R2
+library + keystone → R3 design body → R4 BA-consume → R5 close); the ONE remaining cross-repo wait
+is glass-ui's BA 4.0.0 cut, gating only N.W18 + the N.W9′ registry pin (the pin is the gate, not
+the work).

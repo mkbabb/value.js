@@ -1,5 +1,14 @@
 # N — EXECUTION-ORCHESTRATION: the value.js forward run-plan + the K-grammar fold + the constellation cadence
 
+**Status: RATIFIED 2026-06-15.** Both dispatch gates this plan named (§5) are satisfied: the
+**WAVES-2 second block** is RATIFIED (PLANNED→RATIFIED across `N.md §4.1`, `PROGRESS.md`,
+`WAVES-2.md`), and **the grammar fold (§3)** is RATIFIED into N's R2 library track —
+`sampleColorRamp` = N.W11.D, the scroll-timeline grammar = N.W11′, both → **0.13.0** (the post-N
+Tranche O fallback was NOT elected). The forward arc (§1) and the round structure (§2) are the
+ratified run-order; the one remaining cross-repo wait is the glass-ui BA 4.0.0 cut, gating only
+N.W18 + the N.W9′ registry pin. DOCS ONLY — nothing is implemented; each wave still dispatches on
+the orchestrator's round-by-round fan-out per §2.
+
 **Provenance:** authored 2026-06-15 by the constellation orchestrator (the kf arm, cross-repo
 hand-off — the mirror of `../keyframes.js/docs/tranches/K/VALUEJS-N2-ASKS.md` and
 `KF-TO-VALUEJS-GRAMMAR-ASKS.md`). This doc does NOT re-author `N.md` (the charter) or `WAVES-2.md`
@@ -9,9 +18,11 @@ DOCS ONLY — nothing is implemented; every wave still dispatches on explicit us
 
 **Why this doc exists:** N is a large two-block tranche targeting v1.0.0 (`N.md`, `PROGRESS.md`).
 The first block (W1–W7) is implemented and shipped 0.12.0; the second block (WAVES-2 W10–W18) is
-developed but un-ratified; and a third concern — the kf-K frontier fold (2026-06-15) — dispatched
-two net-new value.js grammars (VJ.W1 scroll-timeline, VJ.W2 `sampleColorRamp`) that N.W18.C only
-"recorded for the post-N successor." This plan orchestrates ALL of it into one forward arc.
+**developed and RATIFIED (2026-06-15)**; and a third concern — the kf-K frontier fold (2026-06-15) —
+dispatched two net-new value.js grammars (VJ.W1 scroll-timeline, VJ.W2 `sampleColorRamp`) that
+N.W18.C originally only "recorded for the post-N successor" and that this plan **folds into N's
+library track (N.W11.D / N.W11′, RATIFIED — §3)**. This plan orchestrates ALL of it into one
+forward arc.
 
 ---
 
@@ -22,8 +33,8 @@ two net-new value.js grammars (VJ.W1 scroll-timeline, VJ.W2 `sampleColorRamp`) t
 | **First block** | N.W0–N.W7 | **LANDED** — W0 charter ratified; W1 boot-truth, W2.A types, W3 CRUD, W4 deploy-artifacts, W5 design-system consume, W7 library-asks all DONE; **0.12.0 PUBLISHED** (W7). Residue: W2.BC executing; W4 wire-deploy → W8′ ceremony. |
 | **First block tail** | N.W8/W9 | **RE-SEQUENCED** → W8′ (hygiene + wire-deploy + doc-truth) / W9′ (v1.0.0 + π + FINAL), AFTER the second block. |
 | **W6 (the dead wave)** | — | **SUPERSEDED** — died un-implemented; re-divined into W10–W18 by the 2026-06-12 user audit (U1–U33). |
-| **Second block** | N.W10–N.W18 | **DEVELOPED, UN-RATIFIED** — the 33-finding repair; `WAVES-2.md`. **Dispatch gates on user ratification of the WAVES-2 revision.** |
-| **Post-N grammar** | VJ.W1 / VJ.W2 | **RECORDED, UN-SCHEDULED** (N.W18.C) — the two genuine net-new grammars kf-K's Band-II W9/W10 gate on. THIS plan folds them into N's library track (§3). |
+| **Second block** | N.W10–N.W18 | **DEVELOPED + RATIFIED (2026-06-15)** — the 33-finding repair; `WAVES-2.md`. The WAVES-2 revision was user-ratified; the waves dispatch on the §2 round-by-round fan-out. |
+| **The grammar fold** | VJ.W2 / VJ.W1 → N.W11.D / N.W11′ | **RATIFIED (2026-06-15)** — folded into N's R2 library track (the post-N Tranche O fallback was NOT elected); `sampleColorRamp` = N.W11.D, the scroll grammar = N.W11′, both → 0.13.0 (§3). |
 
 **The constellation snapshot (2026-06-15, orchestrator-verified):**
 - **value.js** `0.12.0` published (the RIPE edges `lerpArray`/`deltaEOK`/`reverseAnimationShorthand` + the N2 witness-flip slate all live); on `tranche-f-handoff`, not yet merged to master (W8′.A).
@@ -150,18 +161,19 @@ constellation is moving.
 
 ---
 
-## §5 — THE DISPATCH GATES (what awaits the user — the only blockers)
+## §5 — THE DISPATCH GATES (the two user gates RATIFIED; one cross-repo wait remains)
 
-| Gate | What it unblocks | Owner |
-|---|---|---|
-| **Ratify the WAVES-2 second block** | N.W10–N.W18 dispatch (the 33-finding repair; the save-P0; the cascade kill) — the bulk of value.js's remaining v1.0.0 work | **user** (the explicit WAVES-2 ratification N's PROGRESS gates on) |
-| **Ratify the grammar fold (§3)** | N.W11.D (`sampleColorRamp`) + N.W11′ (scroll grammar) → 0.13.0 → un-blocks kf-K.W9/K.W10 | **user** (or the post-N Tranche O fallback) |
-| **glass-ui BA 4.0.0 cut** | N.W18 + N.W9′ (the v1.0.0 pin) | glass-ui's BA tranche (LIVE, on track — Batch 4 closed) |
+| Gate | What it unblocks | Owner | State |
+|---|---|---|---|
+| **Ratify the WAVES-2 second block** | N.W10–N.W18 dispatch (the 33-finding repair; the save-P0; the cascade kill) — the bulk of value.js's remaining v1.0.0 work | **user** (the explicit WAVES-2 ratification N's PROGRESS gates on) | **RATIFIED 2026-06-15** |
+| **Ratify the grammar fold (§3)** | N.W11.D (`sampleColorRamp`) + N.W11′ (scroll grammar) → 0.13.0 → un-blocks kf-K.W9/K.W10 | **user** (the post-N Tranche O fallback was NOT elected) | **RATIFIED 2026-06-15** |
+| **glass-ui BA 4.0.0 cut** | N.W18 + N.W9′ (the v1.0.0 pin) | glass-ui's BA tranche (LIVE, on track — Batch 4 closed) | the ONE remaining wait |
 
-**On ratification, the run is fully orchestratable** in the round structure of §2 (R1 gate-opener
-→ R2 library+keystone → R3 design body → R4 BA-consume → R5 close), with the grammar folded into
-R2's library track. Nothing here is implemented; this is the executable plan, awaiting the two
-ratifications above.
+**The two user gates are RATIFIED (2026-06-15); the run is fully orchestratable** in the round
+structure of §2 (R1 gate-opener → R2 library+keystone → R3 design body → R4 BA-consume → R5 close),
+with the grammar folded into R2's library track. The only remaining blocker is the glass-ui BA
+4.0.0 cut, gating only N.W18 + the N.W9′ registry pin (the pin is the gate, not the work). Nothing
+here is implemented; this is the ratified executable plan.
 
 ---
 
