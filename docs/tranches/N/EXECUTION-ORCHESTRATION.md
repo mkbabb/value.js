@@ -91,6 +91,8 @@ class.
 
 ## §3 — THE GRAMMAR FOLD (the recommended orchestration — symmetric to the kf-K fold)
 
+> **→ developed to executable depth in `GRAMMAR-FOLD.md`** (the two producer signatures, the born-RED gates, the K.W9/K.W10 consume cadence, the slot table, the dispatch gate). This § states the recommendation; that doc is the spec.
+
 kf-K's frontier fold dispatched two grammars to "value.js's post-N successor" (`N.W18.C`,
 `KF-TO-VALUEJS-GRAMMAR-ASKS.md`). **Recommendation: do not defer them to a post-N tranche — fold
 them into N's library track, shipping in 0.13.0.** The case mirrors the kf-K fold exactly:
