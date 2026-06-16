@@ -154,8 +154,9 @@ export {
     getOklchLightness,
 } from "./units/color/contrast";
 
-// N-color mixing
-export { mixColorsN } from "./units/color/mix";
+// N-color mixing + the perceptual N-stop ramp sampler (N.W11.D)
+export { mixColorsN, sampleColorRamp } from "./units/color/mix";
+export type { SampleRampOptions } from "./units/color/mix";
 
 // Color normalization
 export {
@@ -275,6 +276,36 @@ export {
     parseAnimationShorthand,
     reverseAnimationShorthand,
 } from "./parsing/animation-shorthand";
+
+// Scroll-driven-animation VALUE grammar (N.W11′ — the CSSTimelineOptions typed
+// extractor + inverse serializer over animation-timeline / -range /
+// timeline-scope / animation-trigger)
+export {
+    parseAnimationTimeline,
+    parseAnimationRange,
+    parseAnimationRangeBoundary,
+    parseTimelineScope,
+    parseAnimationTrigger,
+    extractTimelineOptions,
+    serializeAnimationTimeline,
+    serializeAnimationRange,
+    serializeTimelineScope,
+    serializeAnimationTrigger,
+    serializeTimelineOptions,
+} from "./parsing/scroll-timeline";
+export type {
+    CSSTimelineOptions,
+    AnimationTimelineValue,
+    AnimationRangeValue,
+    AnimationTriggerValue,
+    RangeBoundary,
+    RangePhase,
+    ViewInset,
+    TimelineScopeValue,
+    ScrollerKeyword,
+    TimelineAxis,
+    TriggerType,
+} from "./parsing/scroll-timeline";
 
 // Stylesheet serialiser + Prettier wrapper
 export {

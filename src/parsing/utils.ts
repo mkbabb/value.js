@@ -38,6 +38,59 @@ export const identifier = regex(/-?[a-zA-Z][a-zA-Z0-9-]*/);
 
 export const none = istring("none");
 
+/**
+ * Split a property-level `#`-list value on its top-level commas, respecting
+ * nested parens (so `scroll(root block)` stays one segment) and string literals.
+ *
+ * Promoted here (N.W11′ D2) from `animation-shorthand.ts`'s local — shared by
+ * the `animation` shorthand splitter AND the scroll-timeline `#`-list grammars
+ * (`animation-timeline` / `animation-range` / `timeline-scope`). KISS: one
+ * paren/string-aware splitter, not a second copy.
+ */
+export const splitTopLevelCommas = (input: string): string[] => {
+    const out: string[] = [];
+    let buf = "";
+    let depth = 0;
+    let inString: string | null = null;
+    for (let i = 0; i < input.length; i++) {
+        const ch = input[i]!;
+        if (inString) {
+            if (ch === "\\" && i + 1 < input.length) {
+                buf += ch + input[++i]!;
+                continue;
+            }
+            if (ch === inString) inString = null;
+            buf += ch;
+            continue;
+        }
+        if (ch === '"' || ch === "'") {
+            inString = ch;
+            buf += ch;
+            continue;
+        }
+        if (ch === "(") {
+            depth++;
+            buf += ch;
+            continue;
+        }
+        if (ch === ")") {
+            depth--;
+            buf += ch;
+            continue;
+        }
+        if (ch === "," && depth === 0) {
+            const t = buf.trim();
+            if (t.length > 0) out.push(t);
+            buf = "";
+            continue;
+        }
+        buf += ch;
+    }
+    const t = buf.trim();
+    if (t.length > 0) out.push(t);
+    return out;
+};
+
 export const integer = regex(/-?\d+/).map(Number);
 
 export const number = regex(/-?(?:(0|[1-9]\d*)(\.\d+)?|\.\d+)([eE][+-]?\d+)?/).map(Number);

@@ -1,5 +1,111 @@
 # Changelog
 
+## [0.13.0] — 2026-06-16 (N · the kf-K-dispatched grammar fold — N.W11.D + N.W11′)
+
+The two net-new grammars the keyframes.js-K frontier dispatched (`GRAMMAR-FOLD.md`,
+ratified 2026-06-15), shipped jointly in the N R2 library track. Both were
+born-RED at 0.12.0 (the symbols were absent across `src/` and `dist/`); they
+resolve and their gate laws hold at this cut. Library-only — zero demo coupling,
+zero glass-ui BA gate.
+
+### LIBRARY
+
+- **N.W11.D — `sampleColorRamp(from, to, n, opts)`** (`src/units/color/mix.ts`,
+  re-exported `src/index.ts`). The INVERSE SIBLING of `mixColorsN`: where
+  `mixColorsN` folds N colors → 1, `sampleColorRamp` expands 2 colors → N
+  evenly-spaced perceptual stops. A COMPOSITION over the already-shipped color
+  kernels — `mixColors` (the per-step perceptual lerp; premultiplied alpha, NaN
+  propagation, and the cylindrical `hueMethod` hue path all inherited) +
+  `gamutMap`/`gamutMapOKLab` (the per-stop sRGB egress, so no stop silently
+  clips). ZERO new color science. The `space` conversion is HOISTED out of the
+  per-stop loop (the ramp pays it 2×, not 2n×). `SampleRampOptions`:
+  `{ space?, hueMethod?, endpoints?: "inclusive"|"exclusive", gamutMap? }`;
+  `n ≥ 2` (throws otherwise, mirroring `mixColorsN`'s empty-input throw).
+  Oracle suite (`test/color-ramp.test.ts`, 13 tests): monotone deltaEOK spacing
+  (every step within ±20% of the mean), in-gamut egress at every stop (incl.
+  out-of-gamut endpoints), hue-method fidelity (`"longer"` traverses the long
+  arc; `"shorter"` does not — the path bare two-stop `@keyframes` cannot encode),
+  and identity-exact inclusive endpoints. Un-blocks kf-K.W10's CC-2 oklab
+  densify (`proof:compile-replay-equal` clause (d)).
+- **N.W11′ — the `CSSTimelineOptions` scroll-VALUE grammar** (NEW
+  `src/parsing/scroll-timeline.ts`, re-exported `src/index.ts`). The ONE genuine
+  net-new grammar of N: a typed parser + inverse serializer over the
+  `animation-timeline` / `animation-range` (+ `-start`/`-end`) / `timeline-scope`
+  property values (plus the forward-looking `animation-trigger` sub-item),
+  authored in the `parsing/easing.ts` parser-combinator idiom beside
+  `parsing/extract.ts`. The division-of-labour law is held verbatim — the parser
+  emits the typed options AS-WRITTEN (the named-timeline ref as a `<dashed-ident>`
+  string, `auto`/`none` as themselves, the range-phase keyword + the
+  `<length-percentage>` offset verbatim); it resolves no DOM defaults and no px
+  offsets (that is the kf `ScrollScene` driver's job — value.js owns VALUES, kf
+  owns TIME). Public surface: `parseAnimationTimeline` / `parseAnimationRange` /
+  `parseAnimationRangeBoundary` / `parseTimelineScope` / `parseAnimationTrigger`
+  + `extractTimelineOptions` (the stylesheet-aggregate, mirror of
+  `extractAnimationOptions`) + `serializeAnimationTimeline` /
+  `serializeAnimationRange` / `serializeTimelineScope` / `serializeAnimationTrigger`
+  / `serializeTimelineOptions` (the inverse, mirror of `reverseAnimationShorthand`)
+  + the typed value families (`CSSTimelineOptions`, `AnimationTimelineValue`,
+  `AnimationRangeValue`, `AnimationTriggerValue`, `RangeBoundary`, `RangePhase`,
+  `ViewInset`, `TimelineScopeValue`, `ScrollerKeyword`, `TimelineAxis`,
+  `TriggerType`). The round-trip law `serialize(parse(s)) === s` (canonical form)
+  is the gate core (`test/scroll-timeline.test.ts`, 55 tests). Fail-loud rides
+  the shipped `tryParse` + `OnParseError`/`ParseDiagnostic` sink (N.W7). The
+  order-free `[<axis> || <scroller>]` pair (the one combinator `easing.ts` has no
+  precedent for) is parsed token-then-classify and canonicalizes to
+  `<scroller> <axis>`. Un-blocks kf-K.W9's scroll-as-CSS parse round-trip
+  (`proof:scroll-roundtrip` clause (b)).
+
+### INTERNAL
+
+- **`splitTopLevelCommas` promoted to `parsing/utils.ts`** (N.W11′ D2) — the
+  paren/string-aware top-level `#`-list splitter, formerly local to
+  `parsing/animation-shorthand.ts`, is now a shared export consumed by both the
+  `animation` shorthand splitter and the scroll-timeline `#`-list grammars. Pure
+  move, no behavior change (the 25 `parsing-animation-shorthand` tests stay green).
+
+### NOTES (value.js stylesheet-parser limitations surfaced, not in scope to fix here)
+
+- The stylesheet parser comma-joins function args (a `scroll(root block)`
+  declaration value round-trips through `Declaration.value.toString()` as
+  `scroll(root, block)`); `extractTimelineOptions` tolerates the comma form.
+- A property-level `#`-list declaration value (`timeline-scope: --a, --b`) is
+  truncated to its first segment by the stylesheet parser's `ValueArray`. The
+  per-property `parseTimelineScope` handles the FULL comma-list correctly (it is
+  the primitive kf-K.W9 consumes for a single declaration string); the aggregate
+  extractor gets what the stylesheet preserves.
+
+### Stats
+
+- vitest: **1777** (was 1584 at H close; +68 from the two new oracle suites —
+  `color-ramp.test.ts` 13, `scroll-timeline.test.ts` 55 — plus the 0.11/0.12
+  growth between cuts). 43 test files.
+- vue-tsc: 0 errors (`tsconfig.lib.json`).
+- `dist/value.js`: 145,809 B (≤ 148,480 B ceiling).
+- Born-RED probes inverted: `grep -rc sampleColorRamp src/ dist/` and
+  `grep -rscE "CSSTimelineOptions|parseAnimationTimeline" src/` now nonzero
+  (both were ZERO at 0.12.0); all 24 new symbols (12 functions + 12 types)
+  present in `dist/value.js` + the `dist/index.d.ts` roll-up.
+
+## [0.12.0] — 2026-06 (N.W7 library wave)
+
+- N.W7 library wave: 11 keyframes.js next-slice items, parse-that `^0.9`, the
+  Prettier eviction, `parseCSSColor` root typing; the structured
+  `ParseDiagnostic`/`OnParseError` diagnostics sink. (Released at commit
+  `3f4f0ed`; the CHANGELOG entry is reconstructed here from the release commit.)
+
+## [0.11.2] — 2026-06 (Tranche I dependency)
+
+- `parseCSSValueUnit` empty-input contract (the keyframes.js Tranche I B1
+  dependency). (Released at commit `0cb5dd2`.)
+
+## [0.11.0] — 2026-06 (Tranche F hand-off)
+
+- The Tranche F performance hand-off: A2 maximal-munch unit classifier, the
+  computed-unit endpoint cache, the SoA `lerpArray` primitive, the frozen
+  color-channel plan (B3/B5), `formatColor` alpha-clause omission (B1b), the
+  O(1) first-char `dispatch()` color fork (A1), and the relative-length
+  no-op resolution (C5). (Released at commit `e8cc1fb`.)
+
 ## [0.10.0] — 2026-05-26 (H close)
 
 ### INTERNAL

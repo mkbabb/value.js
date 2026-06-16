@@ -10,7 +10,7 @@
 
 import type { Color } from ".";
 import type { ColorSpace } from "./constants";
-import { mixColors } from "./dispatch";
+import { color2, gamutMap, mixColors } from "./dispatch";
 import type { HueInterpolationMethod } from "./dispatch";
 
 /**
@@ -78,4 +78,107 @@ export function mixColorsN(
     }
 
     return result;
+}
+
+// ── sampleColorRamp — the perceptual N-stop ramp sampler ──────────────────────
+//
+// The INVERSE SIBLING of `mixColorsN`: `mixColorsN` folds N colors → 1;
+// `sampleColorRamp` expands 2 colors → N evenly-spaced perceptual stops. It is a
+// COMPOSITION over already-shipped color kernels — `mixColors` (the per-step
+// perceptual lerp, premul-alpha/NaN/hue all inherited) + `gamutMapOKLab` (the
+// per-stop egress so no stop silently sRGB-clips). ZERO new color science.
+// (value.js owns VALUES — the perceptual color science; keyframes.js K.W10 owns
+// TIME — how many stops, where in the keyframe timeline. GRAMMAR-FOLD §I.)
+
+/** Options for {@link sampleColorRamp}. */
+export interface SampleRampOptions {
+    /** Interpolation space; default `"oklab"`. `"oklch"` for cylindrical hue paths. */
+    space?: ColorSpace;
+    /** Cylindrical hue path; default `"shorter"` (the parameter bare two-stop
+     *  `@keyframes` cannot encode — the thing the ramp exists to bake). */
+    hueMethod?: HueInterpolationMethod;
+    /** `"inclusive"` (default) — n stops INCLUDING from & to; `"exclusive"` —
+     *  n stops at the bin centers `(i+0.5)/n` (endpoints not emitted). */
+    endpoints?: "inclusive" | "exclusive";
+    /** When true (default) each emitted stop is mapped in-sRGB-gamut via
+     *  {@link gamutMapOKLab}, so no stop silently clips. */
+    gamutMap?: boolean;
+}
+
+/**
+ * Map a single ramp stop into the sRGB gamut, re-emitting in the ramp's
+ * interpolation `space`.
+ *
+ * Routes through `gamutMap(stop, "rgb")` — the Color→Color egress kernel
+ * (`dispatch.ts:269`) that (a) passes a strictly in-gamut stop through UNCHANGED
+ * (so the endpoints survive identity-exact, gate clause 5), and (b) for an
+ * out-of-gamut stop runs the Ottosson `gamutMapOKLab` map (`gamut.ts:247`) with
+ * exact hue preservation. The ramp inherits whatever cusp/α policy that kernel
+ * owns — if N.W11.A re-anchors the gamut policy, every ramp stop improves with
+ * zero change here.
+ */
+function gamutMapStop(stop: Color, space: ColorSpace): Color {
+    const mapped = gamutMap(stop, "rgb");
+    return mapped.colorSpace === space
+        ? mapped
+        : (color2(mapped, space) as Color);
+}
+
+/**
+ * Sample an N-stop perceptual ramp interpolating `from` → `to` in `space`.
+ *
+ * Returns `n` colors. With `endpoints:"inclusive"` (default) `stop[0]` is `from`
+ * and `stop[n-1]` is `to`, with `n-2` evenly-spaced interior stops at
+ * `t = i/(n-1)`; with `"exclusive"` the stops sit at the bin centers
+ * `t = (i+0.5)/n`. Each stop is the `mixColors` perceptual lerp at its `t`
+ * (premultiplied alpha, NaN propagation, and the `hueMethod` cylindrical hue
+ * path all inherited from `mixColors`) and, when `gamutMap` is true (default),
+ * mapped in-sRGB-gamut via `gamutMapOKLab`.
+ *
+ * @param from  start `Color` (the same shape `mixColors`/`mixColorsN` accept).
+ * @param to    end `Color`.
+ * @param n     stop count; `n ≥ 2` (throws otherwise — mirrors `mixColorsN`'s
+ *              empty-input throw). `n = 2` returns the gamut-mapped endpoints.
+ * @param opts  {@link SampleRampOptions}.
+ * @returns     `Color[]` of length `n`, each in the interpolation `space`.
+ *
+ * @example
+ * sampleColorRamp(red, blue, 8, { space: "oklch", hueMethod: "longer" })
+ * // → 8 stops tracing the LONG hue arc (through green/yellow) — the path
+ * //   bare two-stop `@keyframes` cannot encode.
+ */
+export function sampleColorRamp(
+    from: Color,
+    to: Color,
+    n: number,
+    opts: SampleRampOptions = {},
+): Color[] {
+    const {
+        space = "oklab",
+        hueMethod = "shorter",
+        endpoints = "inclusive",
+        gamutMap = true,
+    } = opts;
+
+    if (n < 2) {
+        throw new Error(`sampleColorRamp requires n ≥ 2, got ${n}`);
+    }
+
+    // Hoist the space conversion OUT of the per-stop loop: `mixColors` re-converts
+    // both endpoints every call, so a naive ramp pays the conversion 2n×. By
+    // lifting both endpoints into `space` ONCE, each per-stop `mixColors` finds
+    // its inputs already in `space` (its `color2` short-circuits on a same-space
+    // input — dispatch.ts:165) and the ramp pays the conversion only 2×.
+    const a = color2(from, space) as Color;
+    const b = color2(to, space) as Color;
+
+    const out: Color[] = new Array(n);
+    for (let i = 0; i < n; i++) {
+        const t =
+            endpoints === "inclusive" ? i / (n - 1) : (i + 0.5) / n;
+        let stop = mixColors(a, b, 1 - t, t, space, hueMethod);
+        if (gamutMap) stop = gamutMapStop(stop, space);
+        out[i] = stop;
+    }
+    return out;
 }

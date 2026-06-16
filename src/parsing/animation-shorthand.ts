@@ -1,6 +1,7 @@
 import { memoize } from "../utils";
 import type { CSSAnimationOptions } from "./extract";
 import { parseCSSTime } from "./index";
+import { splitTopLevelCommas } from "./utils";
 
 /**
  * Tokenise the value of an `animation` shorthand declaration into
@@ -206,50 +207,6 @@ export const parseAnimationShorthand = memoize(
     // comment in src/parsing/index.ts.
     { keyFn: (input: string) => input },
 );
-
-const splitTopLevelCommas = (input: string): string[] => {
-    const out: string[] = [];
-    let buf = "";
-    let depth = 0;
-    let inString: string | null = null;
-    for (let i = 0; i < input.length; i++) {
-        const ch = input[i]!;
-        if (inString) {
-            if (ch === "\\" && i + 1 < input.length) {
-                buf += ch + input[++i]!;
-                continue;
-            }
-            if (ch === inString) inString = null;
-            buf += ch;
-            continue;
-        }
-        if (ch === '"' || ch === "'") {
-            inString = ch;
-            buf += ch;
-            continue;
-        }
-        if (ch === "(") {
-            depth++;
-            buf += ch;
-            continue;
-        }
-        if (ch === ")") {
-            depth--;
-            buf += ch;
-            continue;
-        }
-        if (ch === "," && depth === 0) {
-            const t = buf.trim();
-            if (t.length > 0) out.push(t);
-            buf = "";
-            continue;
-        }
-        buf += ch;
-    }
-    const t = buf.trim();
-    if (t.length > 0) out.push(t);
-    return out;
-};
 
 /**
  * Reverse: emit a single `animation` shorthand string from an options
