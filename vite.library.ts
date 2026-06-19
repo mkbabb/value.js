@@ -42,9 +42,16 @@ export function libraryEntries(rootDir: string): Record<string, string> {
     return { ...curated, ...batched };
 }
 
-/** `index` → the legacy `value.js` filename (BC); every other entry → `<name>.js`. */
+/** `index` → the legacy `value.js` filename (BC); every subpath entry →
+ *  `subpaths/<name>.js`. The subpaths/ prefix is LOAD-BEARING: a flat
+ *  `dist/units.js` chunk SHADOWS the mirrored-source `dist/units/` directory, so
+ *  the root `index.d.ts`'s `export { ValueUnit } from './units'` would resolve to
+ *  the (type-less) chunk instead of `dist/units/index.d.ts` — collapsing
+ *  ValueUnit/FunctionValue/ValueArray to `any` (and breaking `instanceof`
+ *  narrowing) in every consumer. Emitting subpath chunks under `dist/subpaths/`
+ *  (where their `.d.ts` already live) removes the collision. */
 export function libraryFileName(_format: string, entryName: string): string {
-    return entryName === "index" ? "value.js" : `${entryName}.js`;
+    return entryName === "index" ? "value.js" : `subpaths/${entryName}.js`;
 }
 
 /**

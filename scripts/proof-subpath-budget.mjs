@@ -122,29 +122,29 @@ await record(
     },
 );
 
-// C2 — built dist/color.js transitive closure has zero "parse-that" refs.
-await record("C2", "dist/color.js closure is parse-that-free", () => {
-    assert(existsSync(resolve(root, "dist/color.js")), "dist/color.js missing — run `npm run build` first");
+// C2 — built dist/subpaths/color.js transitive closure has zero "parse-that" refs.
+await record("C2", "dist/subpaths/color.js closure is parse-that-free", () => {
+    assert(existsSync(resolve(root, "dist/subpaths/color.js")), "dist/subpaths/color.js missing — run `npm run build` first");
     assert(
-        !PARSETHAT_RE.test(distClosureText("color.js")),
-        "dist/color.js closure references @mkbabb/parse-that — the edge is NOT severed",
+        !PARSETHAT_RE.test(distClosureText("subpaths/color.js")),
+        "dist/subpaths/color.js closure references @mkbabb/parse-that — the edge is NOT severed",
     );
 });
 
-// C3 — built dist/color.js closure is grammar-free (no parser entry symbols).
-await record("C3", "dist/color.js closure is @keyframes-grammar-free", () => {
+// C3 — built dist/subpaths/color.js closure is grammar-free (no parser entry symbols).
+await record("C3", "dist/subpaths/color.js closure is @keyframes-grammar-free", () => {
     assert(
-        !GRAMMAR_SYMBOL_RE.test(distClosureText("color.js")),
-        "dist/color.js closure references grammar entry symbols (parseCSSValue / parseCSSStylesheet / parseCSSColor / @keyframes)",
+        !GRAMMAR_SYMBOL_RE.test(distClosureText("subpaths/color.js")),
+        "dist/subpaths/color.js closure references grammar entry symbols (parseCSSValue / parseCSSStylesheet / parseCSSColor / @keyframes)",
     );
 });
 
-// C4 — dist/units.js closure is parse-that-free (the O.W1 S1 guarantee).
-await record("C4", "dist/units.js closure is parse-that-free", () => {
-    assert(existsSync(resolve(root, "dist/units.js")), "dist/units.js missing");
+// C4 — dist/subpaths/units.js closure is parse-that-free (the O.W1 S1 guarantee).
+await record("C4", "dist/subpaths/units.js closure is parse-that-free", () => {
+    assert(existsSync(resolve(root, "dist/subpaths/units.js")), "dist/subpaths/units.js missing");
     assert(
-        !PARSETHAT_RE.test(distClosureText("units.js")),
-        "dist/units.js closure references parse-that",
+        !PARSETHAT_RE.test(distClosureText("subpaths/units.js")),
+        "dist/subpaths/units.js closure references parse-that",
     );
 });
 
@@ -195,11 +195,11 @@ await record("C7", "dist/subpaths/color.d.ts exists and declares Color", () => {
 
 // C8 — math/transform/quantize chunks are parse-that-free too.
 for (const chunk of ["math", "transform", "quantize"]) {
-    await record(`C8.${chunk}`, `dist/${chunk}.js closure is parse-that-free`, () => {
-        assert(existsSync(resolve(root, `dist/${chunk}.js`)), `dist/${chunk}.js missing`);
+    await record(`C8.${chunk}`, `dist/subpaths/${chunk}.js closure is parse-that-free`, () => {
+        assert(existsSync(resolve(root, `dist/subpaths/${chunk}.js`)), `dist/subpaths/${chunk}.js missing`);
         assert(
-            !PARSETHAT_RE.test(distClosureText(`${chunk}.js`)),
-            `dist/${chunk}.js closure references parse-that`,
+            !PARSETHAT_RE.test(distClosureText(`subpaths/${chunk}.js`)),
+            `dist/subpaths/${chunk}.js closure references parse-that`,
         );
     });
 }

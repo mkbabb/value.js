@@ -3,7 +3,7 @@
 //
 // THE REAL OBSERVABLE: a per-frame wide-gamut `gamutMap` egress call allocates
 // N Color objects, pressuring the GC in the rAF loop. The gate counts REAL
-// constructor invocations through the BUILT `dist/color.js` (the O.W2 ./color
+// constructor invocations through the BUILT `dist/subpaths/color.js` (the O.W2 ./color
 // subpath) — NOT a source-grep. A rewrite that re-introduces a per-iteration
 // Color allocation by any mechanism fails C1/C2 on the runtime count.
 //
@@ -32,7 +32,7 @@ import { existsSync } from "node:fs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
-const distColor = resolve(root, "dist/color.js");
+const distColor = resolve(root, "dist/subpaths/color.js");
 
 console.log("proof:gamut-alloc — runtime Color-alloc count on the gamut-map hot path\n");
 
@@ -44,7 +44,7 @@ const record = (id, label, ok, detail) => {
 };
 
 if (!existsSync(distColor)) {
-    console.log("  FAIL  C0  dist/color.js missing — run `npm run build` first");
+    console.log("  FAIL  C0  dist/subpaths/color.js missing — run `npm run build` first");
     process.exit(1);
 }
 

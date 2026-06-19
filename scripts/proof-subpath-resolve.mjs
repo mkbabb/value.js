@@ -72,7 +72,7 @@ await record("R2", "every exports target resolves to a real file", () => {
 
 // R3 — importing the built ./color yields Color (+ the color-name registry).
 await record("R3", "built ./color exports Color + registerColorNames", async () => {
-    const m = await import(resolve(root, "dist/color.js"));
+    const m = await import(resolve(root, "dist/subpaths/color.js"));
     assert(typeof m.Color === "function", "./color did not export Color");
     assert(
         typeof m.registerColorNames === "function",
@@ -83,7 +83,7 @@ await record("R3", "built ./color exports Color + registerColorNames", async () 
 
 // R4 — importing the built ./math yields a math fn.
 await record("R4", "built ./math exports lerp/clamp/scale", async () => {
-    const m = await import(resolve(root, "dist/math.js"));
+    const m = await import(resolve(root, "dist/subpaths/math.js"));
     for (const fn of ["lerp", "clamp", "scale"]) {
         assert(typeof m[fn] === "function", `./math did not export ${fn}`);
     }
@@ -92,9 +92,9 @@ await record("R4", "built ./math exports lerp/clamp/scale", async () => {
 
 // R5 — ./units and ./parsing import without throwing + carry key symbols.
 await record("R5", "built ./units + ./parsing resolve their key symbols", async () => {
-    const u = await import(resolve(root, "dist/units.js"));
+    const u = await import(resolve(root, "dist/subpaths/units.js"));
     assert(typeof u.ValueUnit === "function", "./units lost ValueUnit");
-    const p = await import(resolve(root, "dist/parsing.js"));
+    const p = await import(resolve(root, "dist/subpaths/parsing.js"));
     assert(typeof p.parseCSSValue === "function", "./parsing lost parseCSSValue");
 });
 

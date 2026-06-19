@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "CSS value units for color, length, angles, & c.",
     "license": "MIT",
     "keywords": [
@@ -30,38 +30,38 @@
         },
         "./color": {
             "types": "./dist/subpaths/color.d.ts",
-            "import": "./dist/color.js",
-            "default": "./dist/color.js"
+            "import": "./dist/subpaths/color.js",
+            "default": "./dist/subpaths/color.js"
         },
         "./parsing": {
             "types": "./dist/subpaths/parsing.d.ts",
-            "import": "./dist/parsing.js",
-            "default": "./dist/parsing.js"
+            "import": "./dist/subpaths/parsing.js",
+            "default": "./dist/subpaths/parsing.js"
         },
         "./math": {
             "types": "./dist/subpaths/math.d.ts",
-            "import": "./dist/math.js",
-            "default": "./dist/math.js"
+            "import": "./dist/subpaths/math.js",
+            "default": "./dist/subpaths/math.js"
         },
         "./easing": {
             "types": "./dist/subpaths/easing.d.ts",
-            "import": "./dist/easing.js",
-            "default": "./dist/easing.js"
+            "import": "./dist/subpaths/easing.js",
+            "default": "./dist/subpaths/easing.js"
         },
         "./transform": {
             "types": "./dist/subpaths/transform.d.ts",
-            "import": "./dist/transform.js",
-            "default": "./dist/transform.js"
+            "import": "./dist/subpaths/transform.js",
+            "default": "./dist/subpaths/transform.js"
         },
         "./units": {
             "types": "./dist/subpaths/units.d.ts",
-            "import": "./dist/units.js",
-            "default": "./dist/units.js"
+            "import": "./dist/subpaths/units.js",
+            "default": "./dist/subpaths/units.js"
         },
         "./quantize": {
             "types": "./dist/subpaths/quantize.d.ts",
-            "import": "./dist/quantize.js",
-            "default": "./dist/quantize.js"
+            "import": "./dist/subpaths/quantize.js",
+            "default": "./dist/subpaths/quantize.js"
         }
     },
     "files": [
@@ -104,7 +104,8 @@
     },
     "homepage": "https://github.com/mkbabb/value.js#readme",
     "dependencies": {
-        "@mkbabb/parse-that": "^0.11.0"
+        "@mkbabb/parse-that": "^0.11.0",
+        "@mkbabb/value.js": "^1.0.1"
     },
     "peerDependencies": {
         "prettier": "^3.0.0"
