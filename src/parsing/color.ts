@@ -23,6 +23,13 @@ import { Parser, all, any, dispatch, regex, string, whitespace } from "@mkbabb/p
 import { FunctionValue, ValueUnit } from "../units";
 import { COLOR_NAMES } from "../units/color/constants";
 import type { ColorSpace } from "../units/color/constants";
+import {
+    clearCustomColorNames,
+    getCustomColorNames,
+    getCustomColorNamesMap,
+    onColorNamesChange,
+    registerColorNames,
+} from "../units/color/color-names";
 import type { ANGLE_UNITS } from "../units/constants";
 import { normalizeColorUnit } from "../units/color/normalize";
 import { color2, hex2rgb, mixColors } from "../units/color/dispatch";
@@ -680,40 +687,26 @@ export const CSSColor = {
 };
 
 // --- Runtime custom color name registry ---
-
-const customColorNames = new Map<string, string>();
-
-/**
- * Register custom color names that `parseCSSColor` resolves to their CSS value.
- * Names are matched case-insensitively (trimmed + lowercased on both register
- * and lookup).
- *
- * PRECEDENCE — custom names SHADOW built-in CSS color names (N.W7.B-F7). When a
- * registered name collides with a built-in (e.g. `registerColorNames({ red:
- * "#00ff00" })` then `parseCSSColor("red")`), the **custom** value wins — `red`
- * resolves to green. This is by design: the map is consulted before the rich
- * parser, so a registered name always takes precedence over the spec name it
- * collides with. To restore the built-in, `clearCustomColorNames()` (or
- * re-register the name to its canonical value). Names with no built-in
- * collision simply extend the recognised set.
- */
-export function registerColorNames(names: Record<string, string>): void {
-    for (const [name, css] of Object.entries(names)) {
-        customColorNames.set(name.trim().toLowerCase(), css);
-    }
-    // Custom-name registration changes the resolution of unrecognized inputs;
-    // invalidate the memo cache so fallback lookups re-run.
+//
+// The registry MAP + the register/clear/get functions live in the parse-that-
+// free `units/color/color-names.ts` module (O.W1 S1 — the edge severance). The
+// only coupling the registry had to THIS parser — invalidating `parseCSSColor`'s
+// memo cache when names mutate — is inverted via the `onColorNamesChange`
+// subscription: we register the cache-clear below; the registry notifies WITHOUT
+// importing the parser. `registerColorNames` / `clearCustomColorNames` /
+// `getCustomColorNames` are re-exported here verbatim so the monolithic `.`
+// barrel surface is byte-identical (it always re-exported them from
+// `parsing/color`).
+//
+// Wire the memo invalidation: when custom names change, clear the parse cache so
+// fallback lookups (and any newly-shadowed built-in) re-resolve.
+onColorNamesChange(() => {
     parseCSSColor.cache.clear();
-}
+});
 
-export function clearCustomColorNames(): void {
-    customColorNames.clear();
-    parseCSSColor.cache.clear();
-}
-
-export function getCustomColorNames(): ReadonlyMap<string, string> {
-    return customColorNames;
-}
+// Re-export the registry surface verbatim so the monolithic `.` barrel (which
+// imports these three from `./parsing/color`) is byte-identical post-severance.
+export { registerColorNames, clearCustomColorNames, getCustomColorNames };
 
 /**
  * Parse a CSS color string into a `ValueUnit<Color>`. Memoised — the returned
@@ -745,6 +738,7 @@ export const parseCSSColor = memoize(
         // custom names are registered the map is empty and this is a no-op, so
         // the rich parser still resolves built-ins exactly as before).
         // (vj-parser-aug §2.3 fix (b).)
+        const customColorNames = getCustomColorNamesMap();
         if (customColorNames.size > 0) {
             const key = input.trim().toLowerCase();
             const resolved = customColorNames.get(key);

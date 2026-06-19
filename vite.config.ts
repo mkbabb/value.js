@@ -11,6 +11,12 @@ import Markdown from "unplugin-vue-markdown/vite";
 
 import { sourceExportPlugin } from "./plugins/vite-source-export";
 
+import {
+    libraryEntries,
+    libraryExternal,
+    libraryFileName,
+} from "./vite.library";
+
 const defaultOptions = {
     css: {
         postcss: {
@@ -121,9 +127,13 @@ export default defineConfig((mode) => {
             build: {
                 minify: true,
                 lib: {
-                    entry: path.resolve(import.meta.dirname, "src/index.ts"),
-                    name: "Value",
-                    fileName: "value",
+                    // O.W2 S1 — the multi-entry map (the glass-ui pattern):
+                    // `index` → dist/value.js (the "." monolith, BC-preserved)
+                    // + the 7 subpath barrels → dist/<name>.js. Each entry emits
+                    // one ES chunk; the non-parsing chunks are parse-that-free by
+                    // graph construction (O.W1 S1).
+                    entry: libraryEntries(import.meta.dirname),
+                    fileName: libraryFileName,
                     formats: ["es"],
                 },
                 rolldownOptions: {
@@ -141,7 +151,7 @@ export default defineConfig((mode) => {
                     // non-`formatCSS` consumer never installs it and pays zero
                     // ship-weight; a `formatCSS` consumer (e.g. keyframes.js,
                     // which already depends on prettier) supplies their own.
-                    external: ["vue", "@mkbabb/parse-that", /^prettier(\/.*)?$/],
+                    external: libraryExternal,
                     // H.W4 Lane A — strip per-module `//#region src/...` source-
                     // navigation markers from `dist/value.js`. Default is
                     // `'simple'`, which emits one `//#region` + `//#endregion`

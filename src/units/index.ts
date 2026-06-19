@@ -1,4 +1,12 @@
-export { registerColorNames, clearCustomColorNames, getCustomColorNames } from "../parsing/color";
+// O.W1 S1 — re-export the color-name registry from the parse-that-FREE
+// `units/color/color-names.ts` (formerly from `../parsing/color`, which dragged
+// the entire @keyframes grammar + parse-that into the units subgraph). The
+// observable surface is unchanged; the import graph is now grammar-clean.
+export {
+    registerColorNames,
+    clearCustomColorNames,
+    getCustomColorNames,
+} from "./color/color-names";
 import { clone } from "../utils";
 import { BLACKLISTED_COALESCE_UNITS, UNITS } from "./constants";
 import type { ColorSpace } from "./color/constants";

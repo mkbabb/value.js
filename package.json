@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "0.13.1",
+    "version": "0.14.0",
     "description": "CSS value units for color, length, angles, & c.",
     "license": "MIT",
     "keywords": [
@@ -27,6 +27,41 @@
             "types": "./dist/index.d.ts",
             "import": "./dist/value.js",
             "default": "./dist/value.js"
+        },
+        "./color": {
+            "types": "./dist/subpaths/color.d.ts",
+            "import": "./dist/color.js",
+            "default": "./dist/color.js"
+        },
+        "./parsing": {
+            "types": "./dist/subpaths/parsing.d.ts",
+            "import": "./dist/parsing.js",
+            "default": "./dist/parsing.js"
+        },
+        "./math": {
+            "types": "./dist/subpaths/math.d.ts",
+            "import": "./dist/math.js",
+            "default": "./dist/math.js"
+        },
+        "./easing": {
+            "types": "./dist/subpaths/easing.d.ts",
+            "import": "./dist/easing.js",
+            "default": "./dist/easing.js"
+        },
+        "./transform": {
+            "types": "./dist/subpaths/transform.d.ts",
+            "import": "./dist/transform.js",
+            "default": "./dist/transform.js"
+        },
+        "./units": {
+            "types": "./dist/subpaths/units.d.ts",
+            "import": "./dist/units.js",
+            "default": "./dist/units.js"
+        },
+        "./quantize": {
+            "types": "./dist/subpaths/quantize.d.ts",
+            "import": "./dist/quantize.js",
+            "default": "./dist/quantize.js"
         }
     },
     "files": [
@@ -48,7 +83,9 @@
         "boot-smoke": "node scripts/boot-smoke.mjs",
         "abrogation-sweep": "node scripts/abrogation-sweep.mjs",
         "css-emission-probe": "node scripts/css-emission-probe.mjs",
-        "proof:css-parity": "node scripts/proof-css-parity.mjs"
+        "proof:css-parity": "node scripts/proof-css-parity.mjs",
+        "proof:subpath-budget": "node scripts/proof-subpath-budget.mjs",
+        "proof:subpath-resolve": "node scripts/proof-subpath-resolve.mjs"
     },
     "repository": {
         "type": "git",
@@ -63,7 +100,7 @@
     },
     "homepage": "https://github.com/mkbabb/value.js#readme",
     "dependencies": {
-        "@mkbabb/parse-that": "^0.9.0"
+        "@mkbabb/parse-that": "^0.11.0"
     },
     "peerDependencies": {
         "prettier": "^3.0.0"
