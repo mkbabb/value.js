@@ -227,6 +227,24 @@ export class FunctionValue<T = any, N extends string = string> {
             }
             return `${this.name}(${stops.join(", ")})`;
         }
+        // CSS Color 4 `color()` function notation (O.W5 S5): the colorspace and
+        // its components are SPACE-separated, not comma-separated —
+        // `color(in oklch 0.5 0.1 200)` / `color(srgb 1 0 0 / 0.5)`. The generic
+        // comma-join corrupts this into `color(in, oklch, …)` which, while
+        // self-idempotent, is non-canonical and fails the C5 round-trip intent.
+        // The `oklch()`/`lch()`/`lab()` colours are parsed by the Color parser
+        // (already space-separated); only the `color(...)` wrapper reaches here.
+        if (this.name === "color") {
+            return `${this.name}(${this.values.map((v) => v.toString()).join(" ")})`;
+        }
+        // CSS named-function serialization audit (O.W5 S5) — CONFIRMED-CORRECT
+        // under the default comma-join:
+        //   cubic-bezier(0.42, 0, 0.58, 1)   — four comma-separated args
+        //   steps(4, end)                    — count + keyword, comma-separated
+        //   spring(1, 100, 10, 0)            — four plain-number args (O.W5 S3)
+        //   linear-gradient(90deg, …)        — direction + stops, comma-separated
+        // Special-cased above: calc infix, if() `:`/`;`, linear() hint-spacing,
+        // color() colorspace-spacing.
         return `${this.name}(${this.values.map((v) => v.toString()).join(", ")})`;
     }
 

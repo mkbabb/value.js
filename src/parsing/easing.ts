@@ -1,6 +1,7 @@
 import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
 import type { LinearStop } from "../easing";
 import { jumpTerms } from "../easing";
+import { FunctionValue, ValueUnit } from "../units";
 import * as utils from "./utils";
 
 /**
@@ -137,4 +138,158 @@ export function parseSteps(input: string): StepsArgs {
         );
     }
     return args;
+}
+
+// ─── spring() — moderate-supersede easing (O.W5 S3 / D6) ───────────────────
+//
+// `spring(<mass>, <stiffness>, <damping>, <velocity>)` is NOT native CSS as of
+// 2026-06; the CSSWG `spring()` proposal is not shipped in any browser. value.js
+// MODERATE-SUPERSEDES it: it PARSES + ROUND-TRIPS the author-side `spring(...)`
+// syntax, and LOWERS to a standard `linear()` for browser consumption via the
+// closed-form spring ODE (`lowerSpringEasing`). No new wrapper type — the parsed
+// node is a plain `FunctionValue("spring", [mass, stiffness, damping, velocity])`
+// whose `toString()` re-emits `spring(1, 100, 10, 0)` via the generic comma-join.
+
+const springArg: Parser<number> = utils.number.trim(whitespace);
+
+const springFunction: Parser<FunctionValue> = utils.istring("spring").next(
+    all(
+        springArg,
+        comma.next(springArg),
+        comma.next(springArg),
+        comma.next(springArg),
+    )
+        .trim(whitespace)
+        .wrap(lparen, rparen)
+        .map(([mass, stiffness, damping, velocity]: number[]) => {
+            return new FunctionValue("spring", [
+                new ValueUnit(mass),
+                new ValueUnit(stiffness),
+                new ValueUnit(damping),
+                new ValueUnit(velocity),
+            ]);
+        }),
+);
+
+/**
+ * Parse `spring(<mass>, <stiffness>, <damping>, <velocity>)` into a typed
+ * `FunctionValue("spring", [...])`. The four args are plain numbers; the node
+ * round-trips as author syntax (`toString()` → `"spring(1, 100, 10, 0)"`). To
+ * emit browser-consumable CSS, lower it via {@link lowerSpringEasing}.
+ *
+ * @example
+ * parseSpring("spring(1, 100, 10, 0)")
+ * // → FunctionValue("spring", [VU(1), VU(100), VU(10), VU(0)])
+ */
+export function parseSpring(input: string): FunctionValue {
+    return utils.tryParse(springFunction, input);
+}
+
+/**
+ * Closed-form analytic position of a unit-target spring at time `t` (seconds).
+ *
+ * Solves `m·x'' + c·x' + k·x = 0` for the displacement `x(t)` from rest, where
+ * the spring starts at displacement `x0 = -1` (i.e. position 0, target 1) with
+ * initial velocity `v0 = velocity`. Returns the POSITION `1 + x(t)` so it rises
+ * from 0 toward 1. This is the SAME closed form `SpringProgress.evaluateAt` uses
+ * in keyframes.js (underdamped decaying sinusoid / critical / overdamped two-mode),
+ * reproduced here to avoid a circular kf → value.js dependency.
+ *
+ * @param mass `m` — inertia (> 0).
+ * @param stiffness `k` — spring constant (> 0).
+ * @param damping `c` — damping coefficient (≥ 0).
+ * @param velocity `v0` — initial velocity in position-units/second.
+ * @param t time in seconds.
+ */
+function springPositionAt(
+    mass: number,
+    stiffness: number,
+    damping: number,
+    velocity: number,
+    t: number,
+): number {
+    const w = Math.sqrt(stiffness / mass); // ω₀ = √(k/m)
+    const z = damping / (2 * Math.sqrt(stiffness * mass)); // ζ = c / (2√(km))
+    const x0 = -1; // start at position 0, target 1 → displacement -1
+    const v0 = velocity;
+
+    let xRel: number;
+    if (z < 1) {
+        // Underdamped: decaying sinusoid.
+        const wd = w * Math.sqrt(1 - z * z);
+        const decay = Math.exp(-z * w * t);
+        const A = x0;
+        const B = (v0 + z * w * x0) / wd;
+        xRel = decay * (A * Math.cos(wd * t) + B * Math.sin(wd * t));
+    } else if (z === 1) {
+        // Critically damped.
+        const decay = Math.exp(-w * t);
+        const A = x0;
+        const B = v0 + w * x0;
+        xRel = decay * (A + B * t);
+    } else {
+        // Overdamped: two real roots of r² + 2ζω r + ω² = 0.
+        const disc = w * Math.sqrt(z * z - 1);
+        const r1 = -z * w + disc;
+        const r2 = -z * w - disc;
+        const A = (v0 - r2 * x0) / (r1 - r2);
+        const B = x0 - A;
+        xRel = A * Math.exp(r1 * t) + B * Math.exp(r2 * t);
+    }
+    return 1 + xRel; // position = target + displacement
+}
+
+/**
+ * Lower a `spring(mass, stiffness, damping, velocity)` to a CSS `linear()`
+ * timing-function string with `steps` evenly-spaced interior stops (plus the
+ * exact `0` start and `1` end), suitable for `animation-timing-function`.
+ *
+ * PURE — no DOM, no rAF, no kf dependency. The time span is sampled up to a
+ * settle horizon (≈ where the envelope `exp(-ζωt)` has decayed below 0.1%),
+ * capped to keep the string bounded; the resulting curve rises (and, for an
+ * underdamped spring, overshoots past 1 then settles) toward `1` at 100%.
+ * Overshoot values > 1 are honored by CSS `linear()` natively.
+ *
+ * The emitted string itself parses + round-trips through `parseCSSValue`
+ * (self-idempotent): `parseCSSValue(lowerSpringEasing(...)).toString()` equals
+ * the lowered string.
+ *
+ * @example
+ * lowerSpringEasing(1, 100, 10, 0, 16)
+ * // → "linear(0, 0.0123 6.25%, …, 1)"
+ */
+export function lowerSpringEasing(
+    mass: number,
+    stiffness: number,
+    damping: number,
+    velocity: number,
+    steps: number = 16,
+): string {
+    if (mass <= 0 || stiffness <= 0) {
+        throw new Error(
+            `spring() requires mass > 0 and stiffness > 0, got mass=${mass}, stiffness=${stiffness}`,
+        );
+    }
+    const w = Math.sqrt(stiffness / mass);
+    const z = damping / (2 * Math.sqrt(stiffness * mass));
+    // Settle horizon: the envelope decays as exp(-ζω t) (or exp(-ω t) at ζ≥1).
+    // ln(1000) ≈ 6.9 → envelope below ~0.1%. Guard ζ→0 (undamped never settles)
+    // with a fixed cap.
+    const decayRate = z > 0 ? z * w : w;
+    const duration =
+        decayRate > 0 ? Math.min(Math.log(1000) / decayRate, 100 / w) : 10;
+
+    const stops: string[] = ["0"];
+    for (let i = 1; i <= steps; i++) {
+        const frac = i / (steps + 1);
+        const t = frac * duration;
+        const v = springPositionAt(mass, stiffness, damping, velocity, t);
+        const pct = frac * 100;
+        // Trim trailing zeros for a compact, stable canonical form.
+        const vStr = Number(v.toFixed(5)).toString();
+        const pStr = Number(pct.toFixed(3)).toString();
+        stops.push(`${vStr} ${pStr}%`);
+    }
+    stops.push("1");
+    return `linear(${stops.join(", ")})`;
 }

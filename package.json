@@ -87,7 +87,8 @@
         "proof:subpath-budget": "node scripts/proof-subpath-budget.mjs",
         "proof:subpath-resolve": "node scripts/proof-subpath-resolve.mjs",
         "proof:gamut-alloc": "node scripts/proof-gamut-alloc.mjs",
-        "proof:grammar-2026": "vitest run test/grammar-2026-atrules.test.ts test/grammar-2026-values.test.ts"
+        "proof:grammar-2026": "vitest run test/grammar-2026-atrules.test.ts test/grammar-2026-values.test.ts",
+        "proof:round-trip-idempotent": "node scripts/proof-round-trip-idempotent.mjs"
     },
     "repository": {
         "type": "git",

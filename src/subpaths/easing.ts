@@ -24,5 +24,5 @@ export {
 export type { LinearStop, TimingFunction } from "../easing";
 
 // CSS Easing Functions L1 + L2 parsers (parse-that)
-export { parseLinearStops, parseSteps } from "../parsing/easing";
+export { parseLinearStops, parseSteps, parseSpring, lowerSpringEasing } from "../parsing/easing";
 export type { JumpTerm, StepsArgs } from "../parsing/easing";
