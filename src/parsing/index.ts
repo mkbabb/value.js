@@ -1,4 +1,4 @@
-import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
+import { Parser, all, any, dispatch, regex, string, whitespace } from "@mkbabb/parse-that";
 import { FunctionValue, ValueArray, ValueUnit } from "../units";
 
 import * as utils from "./utils";
@@ -356,17 +356,92 @@ const CSSWideKeyword: Parser<ValueUnit> = any(
 
 export const CSSString = regex(/[^\(\)\{\}\s,;]+/).map((x: string) => new ValueUnit(x));
 
-const Function_: Parser<any> = any(
-    handleTransform(),
-    handleVar(),
-    handleIf(),
-    MathFunction,
-    handleGradient(),
-    handleCubicBezier(),
-    handleFunc().map(([name, values]: [string, any]) => {
-        return new FunctionValue(name, values);
-    }),
+// ─────────────────────────────────────────────────────────────────────────────
+// O.W6 S3 — first-character `dispatch()` for the function-name hot path.
+//
+// The old `Function_` was `any(transform, var, if, math, gradient, cubicBezier,
+// generic)` — six sequential alternatives tried in order for EVERY function
+// token, a megamorphic IC (≈30 function names arrive at one `any()` site). The
+// `dispatch()` primitive from parse-that (a 128-entry `Int8Array` char-code LUT)
+// routes by the FIRST CHARACTER in O(1), then runs a much smaller per-char `any()`
+// of only the parsers whose name could begin with that char.
+//
+// IDENTICAL-RESULT discipline: each per-char bucket preserves the ORIGINAL chain
+// order of the parsers it contains, and the generic fallback is ALWAYS last —
+// exactly as in the old `any()`. A parser that cannot match (wrong case, wrong
+// name) simply fails inside the bucket, in the same relative position it occupied
+// in the old chain, so the routing is byte-identical. Over-inclusion is harmless
+// (a failing alternative is skipped); under-inclusion would change results, so
+// each bucket is the EXACT superset of original-order parsers that can start with
+// its char. The generic fallback is registered across the whole `a-z`/`A-Z`/`-`
+// first-char space (so an arbitrary `foo(...)` still routes to the generic), then
+// the specific letters override with their richer bucket.
+//
+// First char → which top-level parsers can begin with it (original order:
+// transform, var, if, math, gradient, cubicBezier, generic):
+//   t → translate*                                   : transform, generic
+//   v → var                                          : var, generic
+//   i → if, infinity(const)                          : if, math, generic
+//   c → calc/clamp/cos, conic-grad, cubic-bezier     : math, gradient, cubicBezier, generic
+//   l → log, linear-gradient                         : math, gradient, generic
+//   r → rotate, round/rem, radial-grad               : transform, math, gradient, generic
+//   s → scale/skew, sign/sin/sqrt                    : transform, math, generic
+//   m → min/max/mod                                  : math, generic
+//   a → abs/asin/acos/atan/atan2                     : math, generic
+//   p → pow, pi(const)                               : math, generic
+//   h → hypot                                        : math, generic
+//   e → exp, e(const)                                : math, generic
+//   n → NaN(const)                                   : math, generic
+//   - → -infinity(const)                             : math, generic
+//   (every other ident-start char)                   : generic
+// Both lowercase and uppercase first-chars are registered: the case-insensitive
+// (`istring`-based) parsers match either case; the case-sensitive ones (`var`,
+// `cubic-bezier`) simply fail on an uppercase head and fall through to generic —
+// IDENTICAL to the old chain.
+// ─────────────────────────────────────────────────────────────────────────────
+const fnTransform = handleTransform();
+const fnVar = handleVar();
+const fnIf = handleIf();
+const fnMath = MathFunction;
+const fnGradient = handleGradient();
+const fnCubicBezier = handleCubicBezier();
+const fnGeneric: Parser<any> = handleFunc().map(
+    ([name, values]: [string, any]) => new FunctionValue(name, values),
 );
+
+// Per-char buckets (original chain order preserved; generic always last).
+const bucketT = any(fnTransform, fnGeneric);
+const bucketV = any(fnVar, fnGeneric);
+const bucketI = any(fnIf, fnMath, fnGeneric);
+const bucketC = any(fnMath, fnGradient, fnCubicBezier, fnGeneric);
+const bucketL = any(fnMath, fnGradient, fnGeneric);
+const bucketR = any(fnTransform, fnMath, fnGradient, fnGeneric);
+const bucketS = any(fnTransform, fnMath, fnGeneric);
+const bucketMath = any(fnMath, fnGeneric); // m, a, p, h, e, n, -
+
+// Insertion order matters: the broad `a-z`/`A-Z`/`-` generic ranges are
+// registered FIRST, then the specific letters override (a later single-char
+// table key overwrites the range slot — verified against parse-that's dispatch).
+const Function_: Parser<any> = dispatch({
+    // generic fallback across the entire identifier-start space
+    "a-z": fnGeneric,
+    "A-Z": fnGeneric,
+    // specific first-char buckets (lowercase + uppercase)
+    "-": bucketMath, // -infinity(const) — math before generic
+    tT: bucketT,
+    vV: bucketV,
+    iI: bucketI,
+    cC: bucketC,
+    lL: bucketL,
+    rR: bucketR,
+    sS: bucketS,
+    mM: bucketMath,
+    aA: bucketMath,
+    pP: bucketMath,
+    hH: bucketMath,
+    eE: bucketMath,
+    nN: bucketMath,
+});
 
 const Value: Parser<any> = any(CSSWideKeyword, CSSValueUnit.Value, Function_, CSSString).trim(whitespace);
 

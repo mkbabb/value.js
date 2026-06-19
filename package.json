@@ -88,7 +88,8 @@
         "proof:subpath-resolve": "node scripts/proof-subpath-resolve.mjs",
         "proof:gamut-alloc": "node scripts/proof-gamut-alloc.mjs",
         "proof:grammar-2026": "vitest run test/grammar-2026-atrules.test.ts test/grammar-2026-values.test.ts",
-        "proof:round-trip-idempotent": "node scripts/proof-round-trip-idempotent.mjs"
+        "proof:round-trip-idempotent": "node scripts/proof-round-trip-idempotent.mjs",
+        "proof:perf-target": "node scripts/proof-perf-target.mjs"
     },
     "repository": {
         "type": "git",

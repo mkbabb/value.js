@@ -1,6 +1,157 @@
 import { Parser, regex, string } from "@mkbabb/parse-that";
 import type { ParserState } from "@mkbabb/parse-that";
 
+// ─────────────────────────────────────────────────────────────────────────────
+// O.W6 S2 — monolithic byte-loop scanners (the parse-that CSS-parser HARVEST).
+//
+// The technique (NOT the grammar) is harvested from parse-that's CSS parser
+// (`scanIdent` / `scanNumber` byte-loops over `charCodeAt`), retired by
+// parse-that A.W1. These INTERNAL scanners replace the `regex(...)` ident/number
+// combinators in the value-parser hot path. They are byte-for-byte equivalent to
+// the regexes they replace — the 1871-test suite + the identical-parse oracle are
+// the proof. NOT exported on the public surface.
+//
+// Both scanners are ANCHORED at `pos` (no leading-whitespace skip) — identical to
+// parse-that's sticky/anchored `regex` — and return the END OFFSET of the maximal
+// matched token, or `pos` itself when no token matches (the caller reads `==pos`
+// as "no match").
+// ─────────────────────────────────────────────────────────────────────────────
+
+const CC_MINUS = 45; // '-'
+const CC_DOT = 46; // '.'
+const CC_0 = 48;
+const CC_9 = 57;
+const CC_e = 101; // 'e'
+const CC_E = 69; // 'E'
+const CC_PLUS = 43; // '+'
+
+function isDigit(c: number): boolean {
+    return c >= CC_0 && c <= CC_9;
+}
+
+function isAsciiLetter(c: number): boolean {
+    return (c >= 65 && c <= 90) || (c >= 97 && c <= 122);
+}
+
+function isIdentContinue(c: number): boolean {
+    // [a-zA-Z0-9-]
+    return isAsciiLetter(c) || isDigit(c) || c === CC_MINUS;
+}
+
+/**
+ * Scan a maximal identifier token at `pos`. Byte-loop replacement for
+ * `the ident regex` — an optional leading `-`, a required
+ * ASCII letter, then a maximal run of `[a-zA-Z0-9-]`.
+ *
+ * @returns the end offset of the token, or `pos` if no identifier is present.
+ */
+export function scanIdentFast(src: string, pos: number): number {
+    const len = src.length;
+    let i = pos;
+    if (i < len && src.charCodeAt(i) === CC_MINUS) i++; // optional leading '-'
+    // A letter MUST follow (the optional '-' alone is not an identifier).
+    if (i >= len || !isAsciiLetter(src.charCodeAt(i))) return pos;
+    i++;
+    while (i < len && isIdentContinue(src.charCodeAt(i))) i++;
+    return i;
+}
+
+/**
+ * Scan a numeric literal at `pos`. Byte-loop replacement for
+ * `regex(/-?(?:(0|[1-9]\d*)(\.\d+)?|\.\d+)([eE][+-]?\d+)?/)` — an optional `-`,
+ * an integer part of either `0` (single) or `[1-9]\d*` with an optional `.\d+`
+ * fraction, OR a bare `.\d+`, then an optional `[eE][+-]?\d+` exponent.
+ *
+ * The leading-zero rule matters: `007` tokenizes only `0`, `00.5` only `0` —
+ * the byte loop reproduces this exactly (the `(0|[1-9]\d*)` alternation).
+ *
+ * @returns the end offset of the literal, or `pos` if no number is present.
+ */
+export function scanNumberFast(src: string, pos: number): number {
+    const len = src.length;
+    let i = pos;
+    if (i < len && src.charCodeAt(i) === CC_MINUS) i++; // optional leading '-'
+
+    const c = i < len ? src.charCodeAt(i) : -1;
+    if (isDigit(c)) {
+        if (c === CC_0) {
+            // `(0|...)` — a leading 0 is a SINGLE 0 (no further int digits).
+            i++;
+        } else {
+            // `[1-9]\d*`
+            i++;
+            while (i < len && isDigit(src.charCodeAt(i))) i++;
+        }
+        // optional `.\d+` fraction (requires ≥1 digit after the dot).
+        if (i < len && src.charCodeAt(i) === CC_DOT) {
+            let j = i + 1;
+            let frac = false;
+            while (j < len && isDigit(src.charCodeAt(j))) {
+                j++;
+                frac = true;
+            }
+            if (frac) i = j; // `1.` with no trailing digit stays at the dot
+        }
+    } else if (c === CC_DOT) {
+        // bare `.\d+`
+        let j = i + 1;
+        let frac = false;
+        while (j < len && isDigit(src.charCodeAt(j))) {
+            j++;
+            frac = true;
+        }
+        if (!frac) return pos; // a lone '.' (or '-.') is not a number
+        i = j;
+    } else {
+        return pos; // no digit, no leading dot — not a number
+    }
+
+    // optional `[eE][+-]?\d+` exponent.
+    if (i < len) {
+        const e = src.charCodeAt(i);
+        if (e === CC_e || e === CC_E) {
+            let j = i + 1;
+            if (j < len) {
+                const sign = src.charCodeAt(j);
+                if (sign === CC_PLUS || sign === CC_MINUS) j++;
+            }
+            let exp = false;
+            let k = j;
+            while (k < len && isDigit(src.charCodeAt(k))) {
+                k++;
+                exp = true;
+            }
+            if (exp) i = k; // a bare `e`/`e+` with no digits is not consumed
+        }
+    }
+
+    return i;
+}
+
+/**
+ * A `Parser<string>` over `scanIdentFast` — the byte-loop twin of
+ * `the ident regex`. Anchored at the current offset; succeeds
+ * with the matched substring or fails (no token).
+ */
+const identFastParser = new Parser<string>((state: ParserState<any>) => {
+    const end = scanIdentFast(state.src, state.offset);
+    if (end === state.offset) return state.err(undefined as never, 0);
+    return state.ok(state.src.slice(state.offset, end), end - state.offset);
+});
+
+/**
+ * A `Parser<number>` over `scanNumberFast` — the byte-loop twin of the numeric
+ * regex, mapped through `Number`. Anchored at the current offset.
+ */
+const numberFastParser = new Parser<number>((state: ParserState<any>) => {
+    const end = scanNumberFast(state.src, state.offset);
+    if (end === state.offset) return state.err(undefined as never, 0);
+    return state.ok(
+        Number(state.src.slice(state.offset, end)),
+        end - state.offset,
+    );
+});
+
 /** Case-insensitive string match. Returns the matched portion of the input. */
 export const istring = (str: string) => {
     const re = new RegExp(str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
@@ -34,7 +185,10 @@ export const unitParser = (units: readonly string[]): Parser<string> => {
     });
 };
 
-export const identifier = regex(/-?[a-zA-Z][a-zA-Z0-9-]*/);
+// O.W6 S2 — byte-loop scanner replaces the regex on the hot path (the function-
+// name dispatch in `handleFunc`). Identical tokenization to
+// `the ident regex`.
+export const identifier = identFastParser;
 
 export const none = istring("none");
 
@@ -93,7 +247,11 @@ export const splitTopLevelCommas = (input: string): string[] => {
 
 export const integer = regex(/-?\d+/).map(Number);
 
-export const number = regex(/-?(?:(0|[1-9]\d*)(\.\d+)?|\.\d+)([eE][+-]?\d+)?/).map(Number);
+// O.W6 S2 — byte-loop scanner replaces the numeric regex on the hot path
+// (`CSSValueUnit.Number` and every `all(number, unit)` dimension). Identical
+// tokenization to `regex(/-?(?:(0|[1-9]\d*)(\.\d+)?|\.\d+)([eE][+-]?\d+)?/)`,
+// already mapped through `Number`.
+export const number = numberFastParser;
 
 /** Parser that always succeeds with the given value without consuming input. */
 export function succeed<T>(value: T): Parser<T> {
