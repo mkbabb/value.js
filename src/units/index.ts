@@ -15,9 +15,13 @@ import type { ColorChannelPlan } from "./interpolate";
 
 export class ValueUnit<
     T = any,
-    // `UNITS` carries an `undefined` sentinel (the "no unit" slot); the unit
-    // *string* type excludes it — `ValueUnit.unit` is already optional (`unit?`).
-    U extends string = Exclude<(typeof UNITS)[number], undefined> | string,
+    // The default is `string` (the unit is a string; `ValueUnit.unit` is already
+    // optional, `unit?`). It was once `Exclude<(typeof UNITS)[number], undefined>
+    // | string` — functionally identical to `string` (the literal union is
+    // subsumed) but a cross-package `typeof UNITS` VALUE-query that the O subpath-
+    // split .d.ts emission could not resolve in a consumer, collapsing `ValueUnit`
+    // (and `instanceof` narrowing of it) to `any` downstream. KISS: just `string`.
+    U extends string = string,
 > {
     constructor(
         public value: T,
