@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "0.14.0",
+    "version": "0.15.0",
     "description": "CSS value units for color, length, angles, & c.",
     "license": "MIT",
     "keywords": [
@@ -86,7 +86,8 @@
         "proof:css-parity": "node scripts/proof-css-parity.mjs",
         "proof:subpath-budget": "node scripts/proof-subpath-budget.mjs",
         "proof:subpath-resolve": "node scripts/proof-subpath-resolve.mjs",
-        "proof:gamut-alloc": "node scripts/proof-gamut-alloc.mjs"
+        "proof:gamut-alloc": "node scripts/proof-gamut-alloc.mjs",
+        "proof:grammar-2026": "vitest run test/grammar-2026-atrules.test.ts test/grammar-2026-values.test.ts"
     },
     "repository": {
         "type": "git",

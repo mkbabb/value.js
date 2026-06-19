@@ -722,12 +722,11 @@ const scopeBody: Parser<StylesheetItem> = all(
     const children = parts[parts.length - 1] as StylesheetItem[];
     const head = parts.slice(0, parts.length - 1) as string[][];
     const item: StylesheetItem = { kind: "scope", children };
-    if (head.length === 2) {
-        item.root = head[0];
-        item.limit = head[1];
-    } else if (head.length === 1) {
-        item.root = head[0];
-    }
+    // head is [] (no prelude), [root], or [root, limit]. Truthy-guard each so
+    // the optional root?/limit? fields stay string[] under exactOptionalPropertyTypes.
+    const [root, limit] = head;
+    if (root) item.root = root;
+    if (limit) item.limit = limit;
     return item;
 });
 
