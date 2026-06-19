@@ -85,7 +85,8 @@
         "css-emission-probe": "node scripts/css-emission-probe.mjs",
         "proof:css-parity": "node scripts/proof-css-parity.mjs",
         "proof:subpath-budget": "node scripts/proof-subpath-budget.mjs",
-        "proof:subpath-resolve": "node scripts/proof-subpath-resolve.mjs"
+        "proof:subpath-resolve": "node scripts/proof-subpath-resolve.mjs",
+        "proof:gamut-alloc": "node scripts/proof-gamut-alloc.mjs"
     },
     "repository": {
         "type": "git",

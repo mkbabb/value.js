@@ -9,7 +9,7 @@ import {
     deltaEOK,
     DELTA_E_OK_JND,
 } from "../src/units/color/gamut";
-import { RGBColor, OKLCHColor } from "../src/units/color";
+import { RGBColor, OKLCHColor, OKLABColor, DisplayP3Color } from "../src/units/color";
 import { color2, gamutMap } from "../src/units/color/dispatch";
 import { scale } from "../src/math";
 import { COLOR_SPACE_RANGES } from "../src/units/color/constants";
@@ -255,6 +255,55 @@ describe("gamutMap (public API)", () => {
         const original = new RGBColor(1.5, 0.5, 0.5, 0.77);
         const mapped = gamutMap(original);
         expect(mapped.alpha).toBeCloseTo(0.77, 2);
+    });
+});
+
+describe("wide-gamut egress (O.W3 zero-alloc path)", () => {
+    it("maps a far-out-of-gamut display-p3 color into the P3 box", () => {
+        const original = new DisplayP3Color(1.2, 0.3, 0.5, 1);
+        const mapped = gamutMap(original, "display-p3");
+        const p3 = color2(mapped, "display-p3") as DisplayP3Color;
+        for (const ch of [p3.r, p3.g, p3.b] as number[]) {
+            expect(ch).toBeGreaterThanOrEqual(-1e-6);
+            expect(ch).toBeLessThanOrEqual(1 + 1e-6);
+        }
+    });
+
+    it("preserves hue under the OKLCh chroma-reduction bisection", () => {
+        const original = new DisplayP3Color(1.2, 0.3, 0.5, 1);
+        const beforeH = (color2(original, "oklch") as OKLCHColor).h as number;
+        const mapped = gamutMap(original, "display-p3");
+        const afterH = (color2(mapped, "oklch") as OKLCHColor).h as number;
+        const hueDiff = Math.abs(beforeH - afterH);
+        expect(Math.min(hueDiff, 1 - hueDiff) * 360).toBeLessThan(2);
+    });
+
+    it("JND early-exit: a mildly-OOG color clamps within DELTA_E_OK_JND of the full map", () => {
+        // r=1.001 — out of the P3 box by FP arithmetic, but sub-JND from a clamp.
+        const original = new DisplayP3Color(1.001, 0.999, 0.998, 1);
+        const mapped = gamutMap(original, "display-p3");
+
+        // The mapped result must be in gamut...
+        const p3 = color2(mapped, "display-p3") as DisplayP3Color;
+        for (const ch of [p3.r, p3.g, p3.b] as number[]) {
+            expect(ch).toBeGreaterThanOrEqual(-1e-6);
+            expect(ch).toBeLessThanOrEqual(1 + 1e-6);
+        }
+
+        // ...and perceptually indistinguishable (< JND in OKLab) from the source.
+        const a = color2(original, "oklab") as OKLABColor;
+        const b = color2(mapped, "oklab") as OKLABColor;
+        const dE = deltaEOK(
+            a.l as number, a.a as number, a.b as number,
+            b.l as number, b.a as number, b.b as number,
+        );
+        expect(dE).toBeLessThan(DELTA_E_OK_JND);
+    });
+
+    it("preserves alpha through the wide-gamut egress", () => {
+        const original = new DisplayP3Color(0.9, 1.4, 0.1, 0.42);
+        const mapped = gamutMap(original, "display-p3");
+        expect(mapped.alpha).toBeCloseTo(0.42, 6);
     });
 });
 

@@ -25,6 +25,22 @@ export function transformMat3(v: Vec3, m: Mat3): Vec3 {
     ];
 }
 
+/**
+ * Out-param variant of {@link transformMat3} (O.W3 zero-alloc): writes `M * v`
+ * into the caller-owned `out` buffer and returns it — no tuple allocation per
+ * call. `out` may alias neither `v` nor itself mid-write, so the three input
+ * components are read into locals first (safe even when `out === v`).
+ */
+export function transformMat3Into(v: Vec3, m: Mat3, out: Vec3): Vec3 {
+    const x = v[0];
+    const y = v[1];
+    const z = v[2];
+    out[0] = m[0] * x + m[1] * y + m[2] * z;
+    out[1] = m[3] * x + m[4] * y + m[5] * z;
+    out[2] = m[6] * x + m[7] * y + m[8] * z;
+    return out;
+}
+
 /** Transpose a Mat3 (row-major → row-major transpose) */
 export function transposeMat3(m: Mat3): Mat3 {
     return [

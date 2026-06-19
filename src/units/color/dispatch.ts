@@ -13,7 +13,7 @@
  * mapped-type + `getDirectPath` lookup live in `conversions/direct.ts` (G.W4).
  */
 
-import { Color, OKLCHColor, RGBColor } from ".";
+import { ch, Color, OKLCHColor, RGBColor } from ".";
 import type { ColorSpaceMap, XYZColor } from ".";
 import { clamp, lerp } from "../../math";
 import {
@@ -23,7 +23,7 @@ import {
     getColorSpaceDenormUnit,
 } from "./constants";
 import type { ColorSpace } from "./constants";
-import { gamutMapSRGB } from "./gamut";
+import { deltaEOK, DELTA_E_OK_JND, gamutMapSRGB } from "./gamut";
 import { hex2rgb, rgb2hex } from "./conversions/hex";
 import { kelvin2xyz, xyz2kelvin } from "./conversions/kelvin";
 import {
@@ -220,38 +220,56 @@ const rgbInGamut = (r: number, g: number, b: number, eps: number): boolean =>
 // the largest in-gamut chroma, then clamp the residual. Hue is preserved exactly.
 const CHROMA_SEARCH_STEPS = 24; // 2^-24 ≈ 6e-8 chroma resolution — sub-JND.
 
+// Module-scoped scratch OKLCHColor reused across every bisection step (O.W3
+// zero-alloc). The per-step `new OKLCHColor(L, c, H, alpha)` allocation is the
+// dominant GC pressure on the wide-gamut rAF egress path — one reused object
+// replaces 24+ per call. Re-entrancy-safe: `gamutMapToRgbSpace` is single-pass,
+// never re-enters itself, and the scratch is fully written (L,c,h,alpha) before
+// each `color2()` read — the same single-threaded argument the conversion-layer
+// scratch buffers rely on. Lazily constructed on first call (not at module load)
+// so it never trips the bundle's class-initialization ordering.
+let _scratchProbe: OKLCHColor | undefined;
+
 function gamutMapToRgbSpace<C extends Color>(color: C, target: ColorSpace): C {
+    const probe = (_scratchProbe ??= new OKLCHColor(0, 0, 0, 1));
     // OKLCh working copy (normalized: L,c,h ∈ [0,1]). Reducing `c` desaturates.
     const oklch = color2(color, "oklch");
     const L = oklch.l as number;
     const H = oklch.h as number;
     const cHigh = oklch.c as number;
-    const alpha = color.alpha;
+    const alpha = color.alpha as number;
 
-    const probe = (c: number): { r: number; g: number; b: number } => {
-        const candidate = new OKLCHColor(L, c, H, alpha);
-        const rgb = color2(candidate, target);
-        return { r: rgb.r as number, g: rgb.g as number, b: rgb.b as number };
-    };
+    // Hoist the invariant probe scalars out of the loop body; only `c` varies
+    // per step. The scratch OKLCHColor is mutated in place (no per-step alloc),
+    // then converted once via `color2`. The conversion result IS one allocation
+    // per step — eliminating it requires a `color2Into` out-param (deferred,
+    // O.W5 scope per the wave spec); the loop-body OKLCHColor alloc is gone.
+    probe.l = ch(L);
+    probe.h = ch(H);
+    probe.alpha = alpha;
 
     // Binary-search the largest chroma that stays inside the egress gamut.
     let lo = 0;
     let hi = cHigh;
     for (let i = 0; i < CHROMA_SEARCH_STEPS; i++) {
         const mid = (lo + hi) / 2;
-        const { r, g, b } = probe(mid);
-        if (rgbInGamut(r, g, b, GAMUT_EPSILON)) lo = mid;
-        else hi = mid;
+        probe.c = ch(mid);
+        const rgb = color2(probe, target);
+        if (rgbInGamut(rgb.r as number, rgb.g as number, rgb.b as number, GAMUT_EPSILON)) {
+            lo = mid;
+        } else {
+            hi = mid;
+        }
     }
 
     // Emit at the in-gamut chroma, clamping residual FP overshoot to the box.
-    const mapped = new OKLCHColor(L, lo, H, alpha);
-    const rgb = color2(mapped, target);
+    probe.c = ch(lo);
+    const rgb = color2(probe, target);
     const clamped = new (rgb.constructor as new (...a: number[]) => Color)(
         clamp(rgb.r as number, 0, 1),
         clamp(rgb.g as number, 0, 1),
         clamp(rgb.b as number, 0, 1),
-        alpha as number,
+        alpha,
     );
     return color2(clamped, color.colorSpace) as C;
 }
@@ -296,13 +314,36 @@ export function gamutMap<C extends Color>(
         return color2(clamped, color.colorSpace) as C;
     }
 
-    // sRGB egress — the analytical Ottosson map (zero-iteration). Wide-gamut
-    // egress — the numeric OKLCh-chroma reduction toward the egress boundary.
+    // sRGB egress — the analytical Ottosson map (zero-iteration).
     if (target === "rgb") {
         const [sR, sG, sB] = gamutMapSRGB(r, g, b);
         const mappedRGB = new RGBColor(sR, sG, sB, color.alpha);
         return color2(mappedRGB, color.colorSpace) as C;
     }
+
+    // Wide-gamut egress — the numeric OKLCh-chroma reduction toward the egress
+    // boundary. Before the (24-step) bisection, a JND early-exit (CSS Color 4
+    // §13.2 local-MINDE break): if the color is only slightly out-of-gamut, the
+    // box-clamped version is perceptually identical (ΔE_OK < JND ≈ 0.02 — below
+    // the human discrimination threshold), so the full chroma reduction would
+    // converge to a result indistinguishable from the clamp. Clamp directly and
+    // skip the bisection — eliminating ~100 Color allocs on the FP-overshoot case
+    // typical of wide-gamut color arithmetic.
+    const EgressClass = egress.constructor as new (...a: number[]) => Color;
+    const clamped = new EgressClass(
+        clamp(r, 0, 1), clamp(g, 0, 1), clamp(b, 0, 1), color.alpha as number,
+    );
+    const srcOKLab = color2(color, "oklab");
+    const clampedOKLab = color2(clamped, "oklab");
+    if (
+        deltaEOK(
+            srcOKLab.l as number, srcOKLab.a as number, srcOKLab.b as number,
+            clampedOKLab.l as number, clampedOKLab.a as number, clampedOKLab.b as number,
+        ) < DELTA_E_OK_JND
+    ) {
+        return color2(clamped, color.colorSpace) as C;
+    }
+
     return gamutMapToRgbSpace(color, target);
 }
 

@@ -10,7 +10,7 @@
  */
 
 import type { Vec3 } from "../matrix";
-import { transformMat3 } from "../matrix";
+import { transformMat3Into } from "../matrix";
 import { ch, LABColor, OKLABColor, OKLCHColor, XYZColor } from "..";
 import { scale } from "../../../math";
 import {
@@ -21,6 +21,17 @@ import {
     XYZ_TO_LMS_MATRIX,
 } from "../constants";
 import { lab2xyz, xyz2lab } from "./lab";
+
+// ── Module-scoped scratch Vec3 buffers (O.W3 zero-alloc) ──
+//
+// `oklab2xyz` / `xyz2oklab` are leaf functions on the XYZ-hub rAF hot path; they
+// never re-enter themselves and never sub-call anything that touches these
+// buffers. Single-threaded JS makes the in-place reuse re-entrancy-safe (the same
+// argument the `ANIMATION_SCRATCH` string buffer in `units/color/index.ts`
+// relies on). Each function fully populates its scratch before the next stage
+// reads it, so a write in `oklab2xyz` cannot leak into `xyz2oklab`.
+const _scratchA: Vec3 = [0, 0, 0];
+const _scratchB: Vec3 = [0, 0, 0];
 
 // ── OKLab ↔ XYZ ──
 
@@ -41,30 +52,43 @@ export function oklab2xyz({ l, a, b, alpha }: OKLABColor): XYZColor {
         COLOR_SPACE_RANGES.oklab.b.number.max,
     ));
 
-    // Convert OKLab to LMS
-    const lms = transformMat3([l, a, b] as Vec3, OKLAB_TO_LMS_MATRIX);
+    // Convert OKLab to LMS (into _scratchA — zero tuple allocs)
+    _scratchA[0] = l;
+    _scratchA[1] = a;
+    _scratchA[2] = b;
+    transformMat3Into(_scratchA, OKLAB_TO_LMS_MATRIX, _scratchB);
 
-    // Apply non-linearity (LMS to linear LMS)
-    const lmsLinear: Vec3 = [lms[0] * lms[0] * lms[0], lms[1] * lms[1] * lms[1], lms[2] * lms[2] * lms[2]];
+    // Apply non-linearity (LMS to linear LMS) — cube in place
+    _scratchB[0] = _scratchB[0] * _scratchB[0] * _scratchB[0];
+    _scratchB[1] = _scratchB[1] * _scratchB[1] * _scratchB[1];
+    _scratchB[2] = _scratchB[2] * _scratchB[2] * _scratchB[2];
 
     // Convert linear LMS to XYZ
-    const [x, y, z] = transformMat3(lmsLinear, LMS_TO_XYZ_MATRIX);
+    transformMat3Into(_scratchB, LMS_TO_XYZ_MATRIX, _scratchA);
 
-    return new XYZColor(x, y, z, alpha);
+    return new XYZColor(_scratchA[0], _scratchA[1], _scratchA[2], alpha);
 }
 
 // Input and output values in range [0, 1]
 export function xyz2oklab(xyz: XYZColor): OKLABColor {
     const { x, y, z } = xyz;
 
-    // Convert XYZ to linear LMS
-    const lmsLinear = transformMat3([x, y, z] as Vec3, XYZ_TO_LMS_MATRIX);
+    // Convert XYZ to linear LMS (into _scratchA — zero tuple allocs)
+    _scratchA[0] = x;
+    _scratchA[1] = y;
+    _scratchA[2] = z;
+    transformMat3Into(_scratchA, XYZ_TO_LMS_MATRIX, _scratchB);
 
-    // Apply non-linearity (linear LMS to LMS)
-    const lms: Vec3 = [Math.cbrt(lmsLinear[0]), Math.cbrt(lmsLinear[1]), Math.cbrt(lmsLinear[2])];
+    // Apply non-linearity (linear LMS to LMS) — cube-root in place
+    _scratchB[0] = Math.cbrt(_scratchB[0]);
+    _scratchB[1] = Math.cbrt(_scratchB[1]);
+    _scratchB[2] = Math.cbrt(_scratchB[2]);
 
     // Convert LMS to OKLab
-    const [l, a, b] = transformMat3(lms, LMS_TO_OKLAB_MATRIX);
+    transformMat3Into(_scratchB, LMS_TO_OKLAB_MATRIX, _scratchA);
+    const l = _scratchA[0];
+    const a = _scratchA[1];
+    const b = _scratchA[2];
 
     return new OKLABColor(
         l,
