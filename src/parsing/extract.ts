@@ -5,6 +5,7 @@ import type {
     KeyframeRule,
     PropertyDescriptor,
     Stylesheet,
+    StylesheetItem,
 } from "./stylesheet";
 
 /**
@@ -31,20 +32,49 @@ export type CSSAnimationOptions = {
  * blocks are keyed by the empty string. When two `@keyframes` rules
  * share a name, their rule lists are concatenated (CSS cascade order).
  */
+// Any item kind that carries a `children` sub-stylesheet (O.W4 S8/S10/S11/S9):
+// `@layer`/`@media`/`@container`/`@supports` (kind:"unknown"), `@scope`,
+// `@starting-style`, and nested `style` rules. The depth-walk recurses into
+// every such container so a `@keyframes` nested at any depth is reachable —
+// THE kf-critical fix (`@layer base { @keyframes fade { … } }`).
+const itemChildren = (item: StylesheetItem): StylesheetItem[] | undefined => {
+    switch (item.kind) {
+        case "unknown":
+        case "style":
+            return item.children;
+        case "scope":
+        case "starting-style":
+            return item.children;
+        default:
+            return undefined;
+    }
+};
+
+const collectKeyframes = (
+    items: Stylesheet,
+    out: Map<string, KeyframeRule[]>,
+): void => {
+    for (const item of items) {
+        if (item.kind === "keyframes") {
+            const key = item.name ?? "";
+            const existing = out.get(key);
+            if (existing) {
+                existing.push(...item.rules);
+            } else {
+                out.set(key, [...item.rules]);
+            }
+            continue;
+        }
+        const children = itemChildren(item);
+        if (children && children.length > 0) collectKeyframes(children, out);
+    }
+};
+
 export const extractKeyframes = (
     s: Stylesheet,
 ): Map<string, KeyframeRule[]> => {
     const out = new Map<string, KeyframeRule[]>();
-    for (const item of s) {
-        if (item.kind !== "keyframes") continue;
-        const key = item.name ?? "";
-        const existing = out.get(key);
-        if (existing) {
-            existing.push(...item.rules);
-        } else {
-            out.set(key, [...item.rules]);
-        }
-    }
+    collectKeyframes(s, out);
     return out;
 };
 

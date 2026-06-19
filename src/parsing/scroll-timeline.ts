@@ -1,6 +1,12 @@
 import { all, any, regex, string, whitespace } from "@mkbabb/parse-that";
 import type { Parser } from "@mkbabb/parse-that";
-import type { Declaration, Stylesheet } from "./stylesheet";
+import type {
+    Declaration,
+    ScrollTimelineDescriptor,
+    Stylesheet,
+    StylesheetItem,
+    ViewTimelineDescriptor,
+} from "./stylesheet";
 import * as utils from "./utils";
 import { splitTopLevelCommas } from "./utils";
 import type { OnParseError } from "./utils";
@@ -86,10 +92,21 @@ export type AnimationTriggerValue = {
  * appear.
  */
 export interface CSSTimelineOptions {
-    timeline?: AnimationTimelineValue; // animation-timeline
+    timeline?: AnimationTimelineValue; // animation-timeline (single)
+    timelines?: AnimationTimelineValue[]; // animation-timeline #-list (O.W4b S2)
     range?: AnimationRangeValue; // animation-range (+ -start/-end longhands)
     timelineScope?: TimelineScopeValue; // timeline-scope
     trigger?: AnimationTriggerValue; // animation-trigger (forward-looking)
+}
+
+/**
+ * Registry of the named timelines declared by `@scroll-timeline` /
+ * `@view-timeline` at-rules (O.W4b S3). The kf `scroll-scene.ts` consumer
+ * resolves a named `animation-timeline: --my-tl` reference against this.
+ */
+export interface NamedTimelineRegistry {
+    scroll: Map<string, ScrollTimelineDescriptor>;
+    view: Map<string, ViewTimelineDescriptor>;
 }
 
 // ── Combinator primitives (the easing.ts vocabulary, reused verbatim) ─────────
@@ -258,6 +275,22 @@ export function parseAnimationTimeline(
     onParseError?: OnParseError,
 ): AnimationTimelineValue {
     return utils.tryParse(animationTimeline.trim(ws), input, onParseError);
+}
+
+/**
+ * Parse an `animation-timeline` property value as a `#`-list — comma-separated
+ * `<single-animation-timeline>` values, one per sub-animation (O.W4b S2).
+ *
+ * @example
+ * parseAnimationTimelineList("scroll(root), --main-tl, none")
+ * // → [{ kind: "scroll", scroller: "root" }, { kind: "name", name: "--main-tl" }, { kind: "none" }]
+ */
+export function parseAnimationTimelineList(
+    input: string,
+    onParseError?: OnParseError,
+): AnimationTimelineValue[] {
+    const segments = splitTopLevelCommas(input.trim());
+    return segments.map((s) => parseAnimationTimeline(s.trim(), onParseError));
 }
 
 // ── Lane C — animation-range / -start / -end ──────────────────────────────────
@@ -525,9 +558,18 @@ const applyTimelineLonghand = (
 ): void => {
     const v = valueText.trim();
     switch (name) {
-        case "animation-timeline":
-            out.timeline = parseAnimationTimeline(v);
+        case "animation-timeline": {
+            // The `#`-list form (multiple timelines) — store the list AND the
+            // first as the single-timeline shorthand (BC) (O.W4b S2).
+            if (splitTopLevelCommas(v).length > 1) {
+                const list = parseAnimationTimelineList(v);
+                out.timelines = list;
+                if (list[0] != null) out.timeline = list[0];
+            } else {
+                out.timeline = parseAnimationTimeline(v);
+            }
             return;
+        }
         case "animation-range":
             out.range = parseAnimationRange(v);
             return;
@@ -557,13 +599,69 @@ const applyTimelineLonghand = (
  * `extractAnimationOptions` (`extract.ts:189`); later declarations override
  * earlier (CSS cascade).
  */
-export function extractTimelineOptions(s: Stylesheet): CSSTimelineOptions {
-    const out: CSSTimelineOptions = {};
-    for (const item of s) {
-        if (item.kind !== "style") continue;
-        for (const decl of item.declarations as Declaration[]) {
-            applyTimelineLonghand(out, decl.name, decl.value.toString());
+// Recursive walk: style-rule declarations merge in cascade order, and the
+// walker descends into `children` of nested style rules and the container
+// at-rules (`@layer`/`@media`/`@supports` → kind:"unknown", `@scope`,
+// `@starting-style`) so a `timeline-scope`/`animation-timeline` declaration
+// nested inside one is found (O.W4b S4 — depends on O.W4 S8's `children`).
+const walkTimelineOptions = (
+    items: Stylesheet,
+    out: CSSTimelineOptions,
+): void => {
+    for (const item of items) {
+        if (item.kind === "style") {
+            for (const decl of item.declarations as Declaration[]) {
+                applyTimelineLonghand(out, decl.name, decl.value.toString());
+            }
+            if (item.children) walkTimelineOptions(item.children, out);
+            continue;
+        }
+        if (
+            (item.kind === "unknown" ||
+                item.kind === "scope" ||
+                item.kind === "starting-style") &&
+            "children" in item &&
+            item.children
+        ) {
+            walkTimelineOptions(item.children, out);
         }
     }
+};
+
+export function extractTimelineOptions(s: Stylesheet): CSSTimelineOptions {
+    const out: CSSTimelineOptions = {};
+    walkTimelineOptions(s, out);
+    return out;
+}
+
+/**
+ * Build the named-timeline registry from `@scroll-timeline` / `@view-timeline`
+ * at-rules in the stylesheet (O.W4b S3). Walks top-level items (timeline
+ * registrations are top-level at-rules).
+ */
+export function extractNamedTimelines(s: Stylesheet): NamedTimelineRegistry {
+    const out: NamedTimelineRegistry = {
+        scroll: new Map(),
+        view: new Map(),
+    };
+    const visit = (items: StylesheetItem[]): void => {
+        for (const item of items) {
+            if (item.kind === "scroll-timeline") {
+                out.scroll.set(item.name, item.descriptor);
+            } else if (item.kind === "view-timeline") {
+                out.view.set(item.name, item.descriptor);
+            } else if (
+                (item.kind === "unknown" ||
+                    item.kind === "scope" ||
+                    item.kind === "starting-style" ||
+                    item.kind === "style") &&
+                "children" in item &&
+                item.children
+            ) {
+                visit(item.children);
+            }
+        }
+    };
+    visit(s);
     return out;
 }

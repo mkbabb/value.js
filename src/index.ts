@@ -260,6 +260,10 @@ export type {
     KeyframeSelector,
     Declaration,
     PropertyDescriptor,
+    CustomFunctionDescriptor,
+    CustomFunctionParameter,
+    ScrollTimelineDescriptor,
+    ViewTimelineDescriptor,
 } from "./parsing/stylesheet";
 
 // Stylesheet extractors
@@ -282,11 +286,13 @@ export {
 // timeline-scope / animation-trigger)
 export {
     parseAnimationTimeline,
+    parseAnimationTimelineList,
     parseAnimationRange,
     parseAnimationRangeBoundary,
     parseTimelineScope,
     parseAnimationTrigger,
     extractTimelineOptions,
+    extractNamedTimelines,
     serializeAnimationTimeline,
     serializeAnimationRange,
     serializeTimelineScope,
@@ -295,6 +301,7 @@ export {
 } from "./parsing/scroll-timeline";
 export type {
     CSSTimelineOptions,
+    NamedTimelineRegistry,
     AnimationTimelineValue,
     AnimationRangeValue,
     AnimationTriggerValue,

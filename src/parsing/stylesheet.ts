@@ -40,9 +40,65 @@ export type PropertyDescriptor = {
     initialValue?: ValueArray;
 };
 
+// CSS Functions and Mixins Level 1 (O.W4 S7): `@function --name(params) { result }`.
+export type CustomFunctionParameter = {
+    name: string; // a <dashed-ident>, e.g. "--x"
+    type?: string; // the <syntax> declaration, e.g. "<length>" (VERBATIM)
+    defaultValue?: string; // the optional default, VERBATIM
+};
+
+export type CustomFunctionDescriptor = {
+    parameters?: CustomFunctionParameter[];
+    result?: ValueArray; // the `result:` descriptor, hoisted
+    declarations?: Declaration[]; // any other local declarations
+};
+
+// CSS Scroll-Driven Animations Level 1 (O.W4b S3): named-timeline registration
+// at-rules. Descriptor blocks are declaration lists; the `source`/`subject`
+// `selector(...)` notation is captured VERBATIM (division-of-labour law).
+export type ScrollTimelineDescriptor = {
+    source?: string; // "auto" | "selector(...)" | raw token, VERBATIM
+    orientation?: string; // block | inline | x | y | ... VERBATIM
+};
+
+export type ViewTimelineDescriptor = {
+    subject?: string; // "auto" | "selector(...)" | raw token, VERBATIM
+    axis?: string; // block | inline | x | y | ... VERBATIM
+    inset?: string; // raw <length-percentage>{1,2}, VERBATIM
+};
+
 export type StylesheetItem =
     | { kind: "keyframes"; name?: string; rules: KeyframeRule[] }
     | { kind: "property"; name: string; descriptor: PropertyDescriptor }
+    | {
+          kind: "function";
+          name: string; // the <dashed-ident> function name, e.g. "--double"
+          descriptor: CustomFunctionDescriptor;
+      }
+    | {
+          // CSS Cascading and Inheritance Level 6 (O.W4 S10): `@scope (root) to
+          // (limit) { ... }`. The block body is a recursively-parsed stylesheet.
+          kind: "scope";
+          root?: string[]; // the (<scope-start>) selector list
+          limit?: string[]; // the to (<scope-end>) selector list
+          children: StylesheetItem[];
+      }
+    | {
+          // CSS Transitions Level 2 (O.W4 S11): `@starting-style { ... }`.
+          kind: "starting-style";
+          children: StylesheetItem[];
+      }
+    | {
+          // CSS Scroll-Driven Animations Level 1 (O.W4b S3).
+          kind: "scroll-timeline";
+          name: string; // the <dashed-ident> name, e.g. "--my-tl"
+          descriptor: ScrollTimelineDescriptor;
+      }
+    | {
+          kind: "view-timeline";
+          name: string;
+          descriptor: ViewTimelineDescriptor;
+      }
     | {
           kind: "style";
           selectors: string[];
@@ -56,7 +112,13 @@ export type StylesheetItem =
           kind: "unknown";
           atName: string;
           prelude: string;
+          // Semicolon form (`@layer base;`) keeps `body: null`. For block-body
+          // at-rules (`@layer base { ... }`, `@media`, `@container`, `@supports`,
+          // …) the block is recursively parsed into `children` (O.W4 S8) and
+          // `body` is `undefined`. Existing consumers reading `body` still see
+          // `null` for the semicolon form; `children` is additive + optional.
           body: string | null;
+          children?: StylesheetItem[];
       };
 
 export type Stylesheet = StylesheetItem[];
@@ -193,8 +255,14 @@ const declarationValueText: Parser<string> = balancedText((input, i) => {
     return false;
 });
 
+// A selector list never contains a top-level `;` — that delimits a preceding
+// declaration. Stopping at `;` lets `styleRule` FAIL (and fall through to
+// `declaration`) when the block content is actually `color: blue; .b { … }`:
+// without the `;` stop the scanner greedily swallows `color: blue; .b` as a
+// single (bogus) selector (O.W4 S9 — the CSS-Nesting declaration-before-rule
+// disambiguation).
 const selectorListText: Parser<string> = balancedText(
-    (input, i) => input[i] === "{",
+    (input, i) => input[i] === "{" || input[i] === ";",
 );
 
 const blockBody: Parser<string> = balancedText(
@@ -514,25 +582,212 @@ const styleRule: Parser<StylesheetItem> = all(
         },
     );
 
-// Unknown at-rule body — captured opaquely (e.g. `@media`, `@supports`,
-// `@layer`, `@font-face`, `@import`). Inner @keyframes inside such
-// blocks aren't recursively extracted; callers wanting that can
-// re-parse `body`.
+// ─── Recursive at-rule bodies (O.W4 S8) ───────────────────────────────────
+//
+// `stylesheetItem` / `stylesheet` are defined LATER in this module (after the
+// `atRule` dispatcher below). A bare reference here is a temporal-dead-zone
+// ReferenceError. `Parser.lazy(() => ...)` defers resolution until runtime,
+// when `stylesheetItem` exists — the established forward-ref idiom (math.ts:49).
+const lazyStylesheetItems: Parser<StylesheetItem[]> = Parser.lazy(() =>
+    stylesheetItem.many().trim(ws),
+);
+
+// A recursively-parsed block body: `{ <stylesheet-items> }`. Nested rules and
+// at-rules become typed children — so `@layer base { @keyframes fade { … } }`
+// exposes the `@keyframes` to `extractKeyframes`'s depth-walk (the kf-critical
+// fix).
+const recursiveBlock: Parser<StylesheetItem[]> = lazyStylesheetItems.wrap(
+    lcurly.trim(ws),
+    rcurly.trim(ws),
+);
+
+// Unknown at-rule body — `@media`, `@supports`, `@layer`, `@container`, … and
+// any at-rule without a dedicated typed arm. The semicolon form (`@layer a;`)
+// keeps `body: null`; the block form parses RECURSIVELY into `children` (O.W4
+// S8) so nested typed rules (incl. `@keyframes`) are reachable.
 const unknownBody = (atName: string): Parser<StylesheetItem> =>
     all(
         atRulePrelude.map((s: string) => s.trim()),
         any(
-            semi.map(() => null as string | null),
-            blockBody.wrap(lcurly.trim(ws), rcurly.trim(ws)),
+            semi.map(() => ({ kind: "semi" as const })),
+            recursiveBlock.map((children) => ({
+                kind: "block" as const,
+                children,
+            })),
         ),
     ).map(
-        ([prelude, body]: [string, string | null]): StylesheetItem => ({
-            kind: "unknown",
-            atName,
-            prelude,
-            body,
-        }),
+        ([prelude, bodyPart]): StylesheetItem =>
+            bodyPart.kind === "semi"
+                ? { kind: "unknown", atName, prelude, body: null }
+                : {
+                      kind: "unknown",
+                      atName,
+                      prelude,
+                      body: null,
+                      children: bodyPart.children,
+                  },
     );
+
+// ─── @function (O.W4 S7) ───────────────────────────────────────────────────
+//
+// `@function --name(<param>: <syntax> [: <default>]?, …) { result: <value>; … }`.
+// The parameter list and the declaration block are captured; `result:` is
+// hoisted into the descriptor (CSS Functions L1 §4.4 — a special descriptor).
+
+const parseFunctionParameters = (raw: string): CustomFunctionParameter[] => {
+    const trimmed = raw.trim();
+    if (trimmed.length === 0) return [];
+    return splitSelectorList(trimmed).map((segment) => {
+        // `--x: <length>: 0` → name "--x", type "<length>", default "0".
+        const colonIdx = segment.indexOf(":");
+        if (colonIdx === -1) {
+            return { name: segment.trim() };
+        }
+        const name = segment.slice(0, colonIdx).trim();
+        const rest = segment.slice(colonIdx + 1).trim();
+        // A second top-level colon separates <syntax> from the default value.
+        const defaultIdx = rest.indexOf(":");
+        const param: CustomFunctionParameter = { name };
+        if (defaultIdx === -1) {
+            if (rest.length > 0) param.type = rest;
+        } else {
+            const type = rest.slice(0, defaultIdx).trim();
+            const def = rest.slice(defaultIdx + 1).trim();
+            if (type.length > 0) param.type = type;
+            if (def.length > 0) param.defaultValue = def;
+        }
+        return param;
+    });
+};
+
+const buildFunctionDescriptor = (
+    paramsRaw: string,
+    declarations: Declaration[],
+): CustomFunctionDescriptor => {
+    const desc: CustomFunctionDescriptor = {};
+    const parameters = parseFunctionParameters(paramsRaw);
+    if (parameters.length > 0) desc.parameters = parameters;
+    const localDecls: Declaration[] = [];
+    for (const d of declarations) {
+        if (d.name === "result") {
+            desc.result = d.value;
+        } else {
+            localDecls.push(d);
+        }
+    }
+    if (localDecls.length > 0) desc.declarations = localDecls;
+    return desc;
+};
+
+// The parenthesised parameter list — captured VERBATIM via the balanced-text
+// scanner, then split by `parseFunctionParameters`.
+const functionParamList: Parser<string> = balancedText(
+    (input, i) => input[i] === ")",
+).wrap(lparen.trim(ws), rparen.trim(ws));
+
+// Function body, run AFTER the `@function` keyword.
+const functionBody: Parser<StylesheetItem> = all(
+    customPropertyName.trim(ws),
+    functionParamList.trim(ws),
+    declarationList.trim(ws).wrap(lcurly.trim(ws), rcurly.trim(ws)),
+).map(
+    ([name, paramsRaw, decls]: [
+        string,
+        string,
+        Declaration[],
+    ]): StylesheetItem => ({
+        kind: "function",
+        name,
+        descriptor: buildFunctionDescriptor(paramsRaw, decls),
+    }),
+);
+
+// ─── @scope (O.W4 S10) ─────────────────────────────────────────────────────
+//
+// `@scope (<scope-start>) to (<scope-end>) { <rules> }` — both selector lists
+// optional. Body parsed recursively (so a nested `@keyframes` is reachable).
+
+const parenSelectorList: Parser<string[]> = balancedText(
+    (input, i) => input[i] === ")",
+)
+    .wrap(lparen, rparen)
+    .map((s: string) => splitSelectorList(s));
+
+const scopeBody: Parser<StylesheetItem> = all(
+    parenSelectorList.trim(ws).opt(),
+    utils.istring("to").trim(ws).next(parenSelectorList.trim(ws)).opt(),
+    recursiveBlock.trim(ws),
+).map((parts: any[]): StylesheetItem => {
+    // `all()` compacts `.opt()` misses, so detect by tail (children is last).
+    const children = parts[parts.length - 1] as StylesheetItem[];
+    const head = parts.slice(0, parts.length - 1) as string[][];
+    const item: StylesheetItem = { kind: "scope", children };
+    if (head.length === 2) {
+        item.root = head[0];
+        item.limit = head[1];
+    } else if (head.length === 1) {
+        item.root = head[0];
+    }
+    return item;
+});
+
+// ─── @starting-style (O.W4 S11) ────────────────────────────────────────────
+
+const startingStyleBody: Parser<StylesheetItem> = recursiveBlock
+    .trim(ws)
+    .map((children: StylesheetItem[]): StylesheetItem => ({
+        kind: "starting-style",
+        children,
+    }));
+
+// ─── @scroll-timeline / @view-timeline (O.W4b S3) ──────────────────────────
+
+const buildScrollTimelineDescriptor = (
+    declarations: Declaration[],
+): ScrollTimelineDescriptor => {
+    const desc: ScrollTimelineDescriptor = {};
+    for (const d of declarations) {
+        const v = d.value.toString().trim();
+        if (d.name === "source") desc.source = v;
+        else if (d.name === "orientation") desc.orientation = v;
+    }
+    return desc;
+};
+
+const buildViewTimelineDescriptor = (
+    declarations: Declaration[],
+): ViewTimelineDescriptor => {
+    const desc: ViewTimelineDescriptor = {};
+    for (const d of declarations) {
+        const v = d.value.toString().trim();
+        if (d.name === "subject") desc.subject = v;
+        else if (d.name === "axis") desc.axis = v;
+        else if (d.name === "inset") desc.inset = v;
+    }
+    return desc;
+};
+
+const scrollTimelineBody: Parser<StylesheetItem> = all(
+    customPropertyName.trim(ws),
+    declarationList.trim(ws).wrap(lcurly.trim(ws), rcurly.trim(ws)),
+).map(
+    ([name, decls]: [string, Declaration[]]): StylesheetItem => ({
+        kind: "scroll-timeline",
+        name,
+        descriptor: buildScrollTimelineDescriptor(decls),
+    }),
+);
+
+const viewTimelineBody: Parser<StylesheetItem> = all(
+    customPropertyName.trim(ws),
+    declarationList.trim(ws).wrap(lcurly.trim(ws), rcurly.trim(ws)),
+).map(
+    ([name, decls]: [string, Declaration[]]): StylesheetItem => ({
+        kind: "view-timeline",
+        name,
+        descriptor: buildViewTimelineDescriptor(decls),
+    }),
+);
 
 // At-rule dispatcher: consume `@<name>`, then route to the matching
 // body parser. This avoids backtracking — each at-rule has exactly
@@ -543,6 +798,11 @@ const atRule: Parser<StylesheetItem> = at
         const lower = name.toLowerCase();
         if (lower === "keyframes") return keyframesBody;
         if (lower === "property") return propertyBody;
+        if (lower === "function") return functionBody;
+        if (lower === "scope") return scopeBody;
+        if (lower === "starting-style") return startingStyleBody;
+        if (lower === "scroll-timeline") return scrollTimelineBody;
+        if (lower === "view-timeline") return viewTimelineBody;
         return unknownBody(lower);
     });
 

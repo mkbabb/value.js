@@ -175,15 +175,24 @@ describe("parseCSSStylesheet — unknown at-rules", () => {
         expect(item.body).toBeNull();
     });
 
-    it("captures @media as unknown with body", () => {
+    it("captures @media as unknown with recursively-parsed children (O.W4 S8)", () => {
         const s = parseCSSStylesheet(
             "@media (min-width: 600px) { .a { color: red; } }",
         );
         const item = s[0] as Extract<(typeof s)[number], { kind: "unknown" }>;
         expect(item.kind).toBe("unknown");
         expect(item.atName).toBe("media");
-        expect(item.body).not.toBeNull();
-        expect(item.body).toContain(".a");
+        // O.W4 S8: block at-rule bodies are no longer opaque strings — they parse
+        // recursively into typed `children`. `body` is null for the block form;
+        // the nested `.a` style rule is a typed child.
+        expect(item.body).toBeNull();
+        expect(item.children).toBeDefined();
+        expect(item.children).toHaveLength(1);
+        const child = item.children![0]!;
+        expect(child.kind).toBe("style");
+        if (child.kind === "style") {
+            expect(child.selectors).toEqual([".a"]);
+        }
     });
 
     it("captures @layer", () => {
