@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "0.13.0",
+    "version": "0.13.1",
     "description": "CSS value units for color, length, angles, & c.",
     "license": "MIT",
     "keywords": [
@@ -47,7 +47,8 @@
         "test:e2e": "playwright test",
         "boot-smoke": "node scripts/boot-smoke.mjs",
         "abrogation-sweep": "node scripts/abrogation-sweep.mjs",
-        "css-emission-probe": "node scripts/css-emission-probe.mjs"
+        "css-emission-probe": "node scripts/css-emission-probe.mjs",
+        "proof:css-parity": "node scripts/proof-css-parity.mjs"
     },
     "repository": {
         "type": "git",

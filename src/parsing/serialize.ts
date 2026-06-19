@@ -73,12 +73,24 @@ const serializeStyle = (item: {
     kind: "style";
     selectors: string[];
     declarations: Declaration[];
+    children?: StylesheetItem[];
 }): string => {
     const sels = item.selectors.join(", ");
-    const decls = item.declarations
-        .map((d) => `  ${serializeDeclaration(d)};`)
-        .join("\n");
-    return `${sels} {\n${decls}\n}`;
+    const lines: string[] = item.declarations.map(
+        (d) => `  ${serializeDeclaration(d)};`,
+    );
+    // CSS Nesting L1 (O.W0): emit nested rules after the declarations, indented
+    // one level so the block round-trips through parseCSSStylesheet.
+    if (item.children && item.children.length > 0) {
+        for (const child of item.children) {
+            const nested = serializeStylesheetItem(child)
+                .split("\n")
+                .map((l) => (l.length > 0 ? `  ${l}` : l))
+                .join("\n");
+            lines.push(nested);
+        }
+    }
+    return `${sels} {\n${lines.join("\n")}\n}`;
 };
 
 const serializeUnknown = (item: {

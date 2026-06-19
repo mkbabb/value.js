@@ -185,24 +185,32 @@ const handleGradient = () => {
         return [first, ...rest];
     });
 
-    const linearGradient = all(
-        name,
+    // D8 (O.W0): the body is built from TWO explicit `any()` branches rather
+    // than `any(...).skip(comma).opt()` + `all()`. The `opt()` pattern returned
+    // `undefined` for the direction-absent case, and parse-that `all()` silently
+    // drops `undefined` from its result tuple — collapsing `[undefined, stops]`
+    // to `[stops]`, which mis-assigned `dir = stops` and made the no-direction
+    // branch unreachable, so `[dir, ...stops].flat()` threw `stops is not
+    // iterable`. Two fully-specified branches never produce `undefined`, so the
+    // drop-undefined footgun cannot fire. This is the value.js-side localized fix
+    // (NOT a parse-that all() semantics change).
+    const gradientBody = any(
+        // branch 1: direction-first (angle OR side-or-corner, comma, then stops)
         all(
-            any(fromAngle, direction).skip(comma).opt(),
+            any(fromAngle, direction).skip(comma.trim(whitespace)),
             colorStopList,
-        )
-            .trim(whitespace)
-            .wrap(lparen, rparen)
-            .map(([dir, stops]: [any, any]) => {
-                if (!dir) {
-                    return [stops];
-                } else {
-                    return [dir, ...stops].flat();
-                }
-            }),
-    ).map(([name, values]: [string, (ValueUnit | FunctionValue)[]]) => {
-        return new FunctionValue(name, values);
-    });
+        ).map(([dir, stops]: [any, any[]]) => [dir, ...stops].flat()),
+        // branch 2: stops-only (no direction)
+        colorStopList.map((stops: any[]) => stops.flat()),
+    )
+        .trim(whitespace)
+        .wrap(lparen, rparen);
+
+    const linearGradient = all(name, gradientBody).map(
+        ([name, values]: [string, (ValueUnit | FunctionValue)[]]) => {
+            return new FunctionValue(name, values);
+        },
+    );
 
     return linearGradient;
 };

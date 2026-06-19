@@ -47,6 +47,10 @@ export type StylesheetItem =
           kind: "style";
           selectors: string[];
           declarations: Declaration[];
+          // CSS Nesting L1 (O.W0): qualified rules / at-rules nested inside this
+          // style rule's body. Optional + only present when non-empty so the
+          // non-nested shape is byte-identical to pre-O.W0.
+          children?: StylesheetItem[];
       }
     | {
           kind: "unknown";
@@ -453,16 +457,62 @@ const splitSelectorList = (text: string): string[] => {
     return out;
 };
 
+// CSS Nesting L1 (O.W0): a style rule body is no longer declarations-only. It
+// is a mix of declarations and NESTED qualified rules / at-rules. We tag each
+// item so the `.map` can partition declarations from children. `styleBlockItem`
+// is mutually recursive with `styleRule` (a nested rule is itself a style rule),
+// so it goes through `Parser.lazy`.
+type StyleBlockItem =
+    | { t: "decl"; d: Declaration }
+    | { t: "child"; c: StylesheetItem };
+
+const styleBlockItem: Parser<StyleBlockItem> = Parser.lazy(() =>
+    any(
+        // A nested qualified rule or at-rule. Attempted BEFORE `declaration`
+        // because a selector like `.b { … }` would otherwise be mis-consumed as a
+        // (malformed) declaration name. `atRule`/`styleRule` only succeed on real
+        // nested rules, so a plain `color: red;` still falls through to `declaration`.
+        any(atRule, styleRule).map(
+            (c: StylesheetItem): StyleBlockItem => ({ t: "child", c }),
+        ),
+        declaration.map((d: Declaration): StyleBlockItem => ({ t: "decl", d })),
+    ),
+);
+
+const styleBlockContent: Parser<{
+    declarations: Declaration[];
+    children: StylesheetItem[];
+}> = styleBlockItem.many().map((items: StyleBlockItem[]) => {
+    const declarations: Declaration[] = [];
+    const children: StylesheetItem[] = [];
+    for (const item of items) {
+        if (item.t === "decl") declarations.push(item.d);
+        else children.push(item.c);
+    }
+    return { declarations, children };
+});
+
 const styleRule: Parser<StylesheetItem> = all(
     selectorListText,
-    declarationList.trim(ws).wrap(lcurly.trim(ws), rcurly.trim(ws)),
+    styleBlockContent.trim(ws).wrap(lcurly.trim(ws), rcurly.trim(ws)),
 )
     .trim(ws)
-    .map(([selectorText, declarations]: [string, Declaration[]]) => ({
-        kind: "style" as const,
-        selectors: splitSelectorList(selectorText),
-        declarations,
-    }));
+    .map(
+        ([selectorText, body]: [
+            string,
+            { declarations: Declaration[]; children: StylesheetItem[] },
+        ]): StylesheetItem => {
+            const item: StylesheetItem = {
+                kind: "style" as const,
+                selectors: splitSelectorList(selectorText),
+                declarations: body.declarations,
+            };
+            // Keep the non-nested shape byte-identical: only attach `children`
+            // when there actually are nested rules.
+            if (body.children.length > 0) item.children = body.children;
+            return item;
+        },
+    );
 
 // Unknown at-rule body — captured opaquely (e.g. `@media`, `@supports`,
 // `@layer`, `@font-face`, `@import`). Inner @keyframes inside such

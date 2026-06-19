@@ -181,6 +181,24 @@ export class FunctionValue<T = any, N extends string = string> {
         ) {
             return `${this.values[0]!.toString()} ${this.name} ${this.values[1]!.toString()}`;
         }
+        // CSS Easing L2: linear() position-hints are SPACE-separated from their
+        // stop value (`0.5 50%`), not comma-separated. The parser flattens stops
+        // and their percentage hints into a single value list; re-group here so a
+        // hint (`unit === "%"`) attaches to the preceding stop with a space, and
+        // distinct stops join with ", ".
+        if (this.name === "linear") {
+            const stops: string[] = [];
+            for (const v of this.values) {
+                const isHint =
+                    v instanceof ValueUnit && (v as ValueUnit).unit === "%";
+                if (isHint && stops.length > 0) {
+                    stops[stops.length - 1] += ` ${v.toString()}`;
+                } else {
+                    stops.push(v.toString());
+                }
+            }
+            return `${this.name}(${stops.join(", ")})`;
+        }
         return `${this.name}(${this.values.map((v) => v.toString()).join(", ")})`;
     }
 
