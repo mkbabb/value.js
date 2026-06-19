@@ -79,11 +79,21 @@ export class ValueUnit<
             return `${this.value}`;
         }
 
-        if (this.unit === "color" || this.unit === "color-keyword") {
+        if (
+            this.unit === "color" ||
+            this.unit === "color-keyword" ||
+            this.unit === "system-color"
+        ) {
             // `color-keyword` is the VJ-3 deferred-resolution sentinel
             // (`currentColor` / `light-dark(...)`): serialize the wrapped value
             // verbatim so the sentinel survives a parse → serialize round-trip
             // un-baked, exactly like a resolved `color`.
+            //
+            // `system-color` (O.W4 S12) is the analogous deferred sentinel for
+            // UA system color keywords (`Canvas`, `ButtonText`, …): the value is
+            // the keyword name itself (canonical CamelCase), emitted VERBATIM so
+            // `ValueUnit("Canvas", "system-color").toString()` === `"Canvas"`.
+            // value.js never resolves it to an RGB triple (rendering concern).
             return `${this.value}`;
         } else if (this.unit === "var") {
             return `var(${this.value})`;
@@ -194,6 +204,16 @@ export class FunctionValue<T = any, N extends string = string> {
         // and their percentage hints into a single value list; re-group here so a
         // hint (`unit === "%"`) attaches to the preceding stop with a space, and
         // distinct stops join with ", ".
+        // CSS Values L5 `if()` (O.W4 S6): the inline conditional is NOT a
+        // comma-separated arg list — it is `if(<cond>: <value>; else: <value>)`.
+        // The parser captures three VERBATIM clauses [condition, value, else];
+        // re-emit them in the spec's `:`/`;` syntax so the serialized form
+        // re-parses to the SAME FunctionValue (C17 round-trip). The generic
+        // comma-join would drop the `:`/`;` structure and fail to re-parse.
+        if (this.name === "if" && this.values.length === 3) {
+            const [cond, value, els] = this.values;
+            return `if(${cond!.toString()}: ${value!.toString()}; else: ${els!.toString()})`;
+        }
         if (this.name === "linear") {
             const stops: string[] = [];
             for (const v of this.values) {

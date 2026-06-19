@@ -576,6 +576,51 @@ const nameParser: Parser<ValueUnit> = namedColorIdent.chain((x: string) => {
     return utils.fail(`Invalid color name: ${x}`);
 });
 
+// --- System colors (CSS Color Level 4 §6.2 + legacy CSS Color 3 §4.5) ---
+//
+// O.W4 S12. System color keywords (`Canvas`, `ButtonText`, `GrayText`, …)
+// previously fell through to the bare `CSSString` ValueUnit (`unit: undefined`,
+// no `"system-color"` tag), so a consumer could not distinguish `Canvas` (a UA
+// system color) from an arbitrary unknown identifier. The cure tags them with a
+// dedicated `"system-color"` unit.
+//
+// Scope (division-of-labour law): value.js does NOT resolve a system color to an
+// RGB triple at parse time — that is a rendering / environment concern. The
+// parser emits the keyword VERBATIM (original casing preserved) under the
+// `"system-color"` tag; the consumer (a browser / keyframes.js render seam)
+// resolves it against the live UA theme. The serialized form is byte-stable:
+// `ValueUnit("Canvas", "system-color").toString()` === `"Canvas"` (see the
+// dedicated `system-color` arm in `units/index.ts`'s `ValueUnit.toString`).
+const SYSTEM_COLOR_NAMES = [
+    // CSS Color 4 §6.2
+    "Canvas", "CanvasText", "LinkText", "VisitedText", "ActiveText",
+    "ButtonFace", "ButtonText", "ButtonBorder", "Field", "FieldText",
+    "Highlight", "HighlightText", "SelectedItem", "SelectedItemText",
+    "Mark", "MarkText", "GrayText", "AccentColor", "AccentColorText",
+    // Legacy / deprecated CSS Color 3 §4.5 set
+    "ActiveBorder", "ActiveCaption", "AppWorkspace", "Background",
+    "ButtonHighlight", "ButtonShadow", "CaptionText", "InactiveBorder",
+    "InactiveCaption", "InactiveCaptionText", "InfoBackground", "InfoText",
+    "Menu", "MenuText", "Scrollbar", "ThreeDDarkShadow", "ThreeDFace",
+    "ThreeDHighlight", "ThreeDLightShadow", "ThreeDShadow", "Window",
+    "WindowFrame", "WindowText",
+] as const;
+
+// Lower-cased token -> canonical (spec-cased) spelling. System colors are
+// case-insensitive per spec, but the canonical CamelCase spelling is preserved
+// on output for a byte-stable round-trip.
+const SYSTEM_COLOR_LUT: ReadonlyMap<string, string> = new Map(
+    SYSTEM_COLOR_NAMES.map((n) => [n.toLowerCase(), n]),
+);
+
+const systemColorParser: Parser<ValueUnit> = namedColorIdent.chain((x: string) => {
+    const canonical = SYSTEM_COLOR_LUT.get(x.toLowerCase());
+    if (canonical != null) {
+        return utils.succeed(new ValueUnit(canonical, "system-color", ["color"]));
+    }
+    return utils.fail(`Not a system color: ${x}`);
+});
+
 // --- Late-bound color keyword / function sentinels (VJ-3) ---
 //
 // `currentColor` and `light-dark()` are colors whose RESOLUTION is deferred to
@@ -640,13 +685,21 @@ const lightDarkParser: Parser<ValueUnit> = utils.istring("light-dark").next(
 // / `light-dark()` sentinels produce a deferred `"color-keyword"` unit (a
 // `ValueUnit<string | FunctionValue>`). `any()` unifies them to the bare
 // `ValueUnit`, so the tables are typed at that width.
+// O.W4 S12: the system-color arm sits AFTER the named-color fallback in every
+// bucket. A bare identifier is first tried as a CSS named color (`red`,
+// `lavender`, …); only on the named-color miss is it tried as a system color
+// (`Canvas`, `ButtonText`, …). The two name spaces are disjoint (no CSS named
+// color collides with a system color keyword), so the ordering is observationally
+// equivalent to either precedence — but named-first preserves byte-identical
+// resolution of every currently-parsing named color.
+const namedThenSystem = any(nameParser, systemColorParser);
 const letterBuckets: Record<string, Parser<ValueUnit>> = {
-    c: any(currentColorParser, colorMix, colorFunction, nameParser),
-    r: any(rgbParser, nameParser),
-    h: any(hslParser, hsvParser, hwbParser, nameParser),
-    l: any(labParser, lchParser, lightDarkParser, nameParser),
-    o: any(oklabParser, oklchParser, nameParser),
-    x: any(xyzParser, nameParser),
+    c: any(currentColorParser, colorMix, colorFunction, namedThenSystem),
+    r: any(rgbParser, namedThenSystem),
+    h: any(hslParser, hsvParser, hwbParser, namedThenSystem),
+    l: any(labParser, lchParser, lightDarkParser, namedThenSystem),
+    o: any(oklabParser, oklchParser, namedThenSystem),
+    x: any(xyzParser, namedThenSystem),
 };
 const dispatchTable: Record<string, Parser<ValueUnit>> = {
     "#": hex,
@@ -656,11 +709,12 @@ const dispatchTable: Record<string, Parser<ValueUnit>> = {
     ".": kelvin,
 };
 // Map every ASCII letter (both cases): a discriminating letter routes through
-// its family bucket; every other letter starts only named colors → `nameParser`.
+// its family bucket; every other letter starts a named color → system color
+// fallback (`namedThenSystem`).
 for (let cc = 97; cc <= 122; cc++) {
     const lower = String.fromCharCode(cc);
     const upper = lower.toUpperCase();
-    const bucket = letterBuckets[lower] ?? nameParser;
+    const bucket = letterBuckets[lower] ?? namedThenSystem;
     dispatchTable[lower] = bucket;
     dispatchTable[upper] = bucket;
 }

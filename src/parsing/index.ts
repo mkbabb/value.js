@@ -221,6 +221,133 @@ const handleCubicBezier = () => {
     });
 };
 
+// --- if() inline conditional (CSS Values Level 5) — O.W4 S6 ---
+//
+// `if(<condition>: <value>; else: <value>)` is NOT a standard comma-separated
+// argument list: each branch is a `<condition>: <value>` pair, branches are
+// `;`-separated, and the condition (`style(--theme: dark)`, `media(...)`,
+// `supports(...)`) is itself function-shaped with its own internal `:` and `,`.
+// The generic `handleFunc()` `FunctionArgs` grammar (comma/whitespace-separated
+// `Value`s) cannot represent this — on today's tree `if(...)` collapses to the
+// opaque `CSSString` ValueUnit `"if"` (the body is dropped entirely).
+//
+// Division-of-labour law (scroll-timeline.ts:24-25): value.js does NOT evaluate
+// the condition or resolve the result. It captures each clause as RAW VERBATIM
+// TEXT and emits `FunctionValue("if", [conditionString, valueString, elseString])`.
+// The consumer (a browser, or a future keyframes.js conditional layer) resolves
+// the condition against a live computed style at render time.
+//
+// The body scan balances parentheses so a nested `if()` (or any paren-bearing
+// condition like `style(--t: dark)`) inside a branch does not confuse the outer
+// `)` terminator. Splitting on `;` / `:` is likewise top-level only (depth 0),
+// so the `:` inside `style(--theme: dark)` stays part of the condition text.
+
+/** A captured if() clause: `condition` is null for the `else` branch. */
+type IfClause = { condition: string | null; value: string };
+
+/**
+ * Scan an `if()` body string into ordered clauses. Splits on top-level `;`
+ * (branch separator) then on the first top-level `:` (condition/value
+ * separator). `else` is the well-known condition keyword whose `condition`
+ * is recorded as null. Parens/brackets/braces are balanced so delimiters
+ * nested inside a condition function are not split points.
+ */
+const splitIfClauses = (body: string): IfClause[] => {
+    const branches: string[] = [];
+    let depth = 0;
+    let buf = "";
+    for (let i = 0; i < body.length; i++) {
+        const c = body[i]!;
+        if (c === "(" || c === "[" || c === "{") depth++;
+        else if (c === ")" || c === "]" || c === "}") depth--;
+        if (c === ";" && depth === 0) {
+            branches.push(buf);
+            buf = "";
+        } else {
+            buf += c;
+        }
+    }
+    if (buf.trim() !== "") branches.push(buf);
+
+    return branches.map((branch) => {
+        // Find the first top-level ':' splitting condition from value.
+        let d = 0;
+        let colon = -1;
+        for (let i = 0; i < branch.length; i++) {
+            const c = branch[i]!;
+            if (c === "(" || c === "[" || c === "{") d++;
+            else if (c === ")" || c === "]" || c === "}") d--;
+            else if (c === ":" && d === 0) {
+                colon = i;
+                break;
+            }
+        }
+        if (colon < 0) {
+            // No condition separator — treat the whole branch as a bare value
+            // (defensive; the grammar always pairs condition:value or else:value).
+            return { condition: null, value: branch.trim() };
+        }
+        const condRaw = branch.slice(0, colon).trim();
+        const value = branch.slice(colon + 1).trim();
+        const condition = condRaw.toLowerCase() === "else" ? null : condRaw;
+        return { condition, value };
+    });
+};
+
+/**
+ * `if(` body `)` — a custom-scan parser. Matches the `if(` token (case-
+ * insensitive), captures the balanced-paren body up to the matching `)`, and
+ * emits `FunctionValue("if", [conditionString, valueString, elseString])`.
+ *
+ * The emitted children are bare `ValueUnit`s carrying the VERBATIM clause text
+ * (unit `"string"`) so the FunctionValue round-trips through `toString()`:
+ * `if(<cond>, <value>, <else>)`. The reconstructed serialized form uses the
+ * FunctionValue comma-join — it is the structurally-faithful echo of the parsed
+ * clauses, not a byte-copy of the original `:`/`;` source syntax (the gate's
+ * C17 round-trip re-parses the serialized form to the SAME FunctionValue, which
+ * is the invariant that matters: no structural loss).
+ */
+const handleIf = (): Parser<FunctionValue> => {
+    const scanBody: Parser<string> = new Parser((state) => {
+        const { src, offset } = state;
+        // Expect the opening paren immediately at offset.
+        if (src[offset] !== "(") {
+            return state.err(undefined, offset);
+        }
+        let depth = 0;
+        let i = offset;
+        for (; i < src.length; i++) {
+            const c = src[i]!;
+            if (c === "(") depth++;
+            else if (c === ")") {
+                depth--;
+                if (depth === 0) break;
+            }
+        }
+        if (depth !== 0 || src[i] !== ")") {
+            // Unbalanced — not a well-formed if().
+            return state.err(undefined, offset);
+        }
+        const body = src.slice(offset + 1, i);
+        // Consume through the closing ')'.
+        return state.ok(body, i + 1);
+    });
+
+    return utils.istring("if").next(scanBody).map((body: string) => {
+        const clauses = splitIfClauses(body);
+        const consequent = clauses.find((c) => c.condition !== null);
+        const elseClause = clauses.find((c) => c.condition === null);
+        const conditionStr = consequent?.condition ?? "";
+        const valueStr = consequent?.value ?? "";
+        const elseStr = elseClause?.value ?? "";
+        return new FunctionValue("if", [
+            new ValueUnit(conditionStr, "string"),
+            new ValueUnit(valueStr, "string"),
+            new ValueUnit(elseStr, "string"),
+        ]);
+    });
+};
+
 export const CSS_WIDE_KEYWORDS = ["inherit", "initial", "unset", "revert", "revert-layer"] as const;
 
 const CSSWideKeyword: Parser<ValueUnit> = any(
@@ -232,6 +359,7 @@ export const CSSString = regex(/[^\(\)\{\}\s,;]+/).map((x: string) => new ValueU
 const Function_: Parser<any> = any(
     handleTransform(),
     handleVar(),
+    handleIf(),
     MathFunction,
     handleGradient(),
     handleCubicBezier(),
