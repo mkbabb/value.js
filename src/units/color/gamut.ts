@@ -9,11 +9,15 @@
  */
 
 import {
+    COLOR_SPACE_RANGES,
     GAMUT_SECTOR_COEFFICIENTS,
     LINEAR_SRGB_TO_LMS,
     LMS_TO_LINEAR_SRGB,
+    LMS_TO_XYZ_MATRIX,
     OKLAB_TO_LMS_COEFF,
+    OKLAB_TO_LMS_MATRIX,
 } from "./constants";
+import { scale } from "../../math";
 
 // ── sRGB transfer functions (inlined to avoid circular dep with utils.ts) ──
 
@@ -344,4 +348,61 @@ export function oklabToRgb255(L: number, a: number, b: number): [number, number,
         Math.round(clamp(linearToSrgb(gLin), 0, 1) * 255),
         Math.round(clamp(linearToSrgb(bLin), 0, 1) * 255),
     ];
+}
+
+// ── Zero-alloc OKLCH → XYZ-D65 tuple (VJ-P1 color2Into support) ──
+//
+// The bit-faithful tuple form of `conversions/oklab.ts` `oklch2xyz`
+// (= `oklab2xyz(oklch2oklab(oklch))`) — same arithmetic, no intermediate
+// OKLABColor/XYZColor wrapper allocation. It is the OKLCH→hub leg of the
+// `color2Into` egress path: the `gamutMapToRgbSpace` bisection probe is always
+// OKLCH, so writing its XYZ-hub coordinates into a caller-owned scratch (rather
+// than allocating an OKLABColor *and* an XYZColor per bisection step) removes the
+// two per-step intermediate allocs the 24-step loop otherwise churns.
+//
+// FAITHFULNESS (the C3 golden is bit-stable): the operations mirror
+// `oklch2oklab` then `oklab2xyz` exactly — including the [0,1]↔physical-range
+// `scale` round-trip on a,b — so the result is identical to the wrapper path
+// modulo no floating-point reordering. Inputs are NORMALIZED OKLCH (l,c,h ∈
+// [0,1], as the dispatch hands them); the output is raw XYZ-D65.
+//
+// `out` is a caller-owned 3-tuple (never the source) written in place + returned.
+export function oklchToXYZTuple(
+    l: number,
+    c: number,
+    h: number,
+    out: [number, number, number],
+): [number, number, number] {
+    // oklch2oklab: denormalize c → [0,0.5]; polar → Cartesian (raw a,b).
+    const cDenorm = scale(c, 0, 1, COLOR_SPACE_RANGES.oklch.c.number.min, COLOR_SPACE_RANGES.oklch.c.number.max);
+    const hRad = h * 2 * Math.PI;
+    const aRaw = Math.cos(hRad) * cDenorm;
+    const bRaw = Math.sin(hRad) * cDenorm;
+
+    // The OKLABColor wrapper would normalize a,b → [0,1] and `oklab2xyz` would
+    // immediately denormalize them back to the raw range — a round-trip that is
+    // arithmetically the identity but carries a tiny FP signature. Replay it so
+    // the XYZ output is bit-identical to the wrapper path (the C3 golden).
+    const a = scale(
+        scale(aRaw, COLOR_SPACE_RANGES.oklab.a.number.min, COLOR_SPACE_RANGES.oklab.a.number.max),
+        0, 1, COLOR_SPACE_RANGES.oklab.a.number.min, COLOR_SPACE_RANGES.oklab.a.number.max,
+    );
+    const b = scale(
+        scale(bRaw, COLOR_SPACE_RANGES.oklab.b.number.min, COLOR_SPACE_RANGES.oklab.b.number.max),
+        0, 1, COLOR_SPACE_RANGES.oklab.b.number.min, COLOR_SPACE_RANGES.oklab.b.number.max,
+    );
+
+    // oklab2xyz: [l,a,b] → LMS (cube-root domain) → cube → XYZ.
+    const lLms = OKLAB_TO_LMS_MATRIX[0] * l + OKLAB_TO_LMS_MATRIX[1] * a + OKLAB_TO_LMS_MATRIX[2] * b;
+    const mLms = OKLAB_TO_LMS_MATRIX[3] * l + OKLAB_TO_LMS_MATRIX[4] * a + OKLAB_TO_LMS_MATRIX[5] * b;
+    const sLms = OKLAB_TO_LMS_MATRIX[6] * l + OKLAB_TO_LMS_MATRIX[7] * a + OKLAB_TO_LMS_MATRIX[8] * b;
+
+    const lLin = lLms * lLms * lLms;
+    const mLin = mLms * mLms * mLms;
+    const sLin = sLms * sLms * sLms;
+
+    out[0] = LMS_TO_XYZ_MATRIX[0] * lLin + LMS_TO_XYZ_MATRIX[1] * mLin + LMS_TO_XYZ_MATRIX[2] * sLin;
+    out[1] = LMS_TO_XYZ_MATRIX[3] * lLin + LMS_TO_XYZ_MATRIX[4] * mLin + LMS_TO_XYZ_MATRIX[5] * sLin;
+    out[2] = LMS_TO_XYZ_MATRIX[6] * lLin + LMS_TO_XYZ_MATRIX[7] * mLin + LMS_TO_XYZ_MATRIX[8] * sLin;
+    return out;
 }

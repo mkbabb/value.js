@@ -929,6 +929,7 @@ export type ColorSpaceMap<T> = {
 export {
     getFormattedColorSpaceRange,
     color2,
+    color2Into,
     gamutMap,
     interpolateHue,
     mixColors,

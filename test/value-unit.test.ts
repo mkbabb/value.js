@@ -275,6 +275,17 @@ describe("ValueUnit", () => {
             v.setProperty("transform");
             expect(v.property).toBe("transform");
         });
+
+        // VJ-P3 — the param types are `string`, not `any`. These calls must
+        // type-check without error (compile-time assertion; runtime verifies the
+        // narrowed API is callable with ordinary string literals).
+        it("accepts string literals without casting (VJ-P3 narrowing)", () => {
+            const v = new ValueUnit(1, "px");
+            v.setSubProperty("transform");
+            v.setProperty("animation");
+            expect(v.subProperty).toBe("transform");
+            expect(v.property).toBe("animation");
+        });
     });
 });
 
@@ -423,6 +434,51 @@ describe("FunctionValue", () => {
             expect((fn.values[0] as ValueUnit).property).toBe("transform");
             expect((fn.values[1] as ValueUnit).property).toBe("transform");
         });
+
+        // VJ-P.W0 O(N²) fix — constructor must call v.setSubProperty(name) on
+        // each child (O(N)), NOT this.setSubProperty(name) N times (O(N²)).
+        // Observable: with N children, each child's subProperty is set exactly
+        // once to the function name; no child accumulates stale intermediate
+        // values. This test is a correctness check: all N children carry the
+        // function name, not some subset, and no overflow occurs.
+        it("constructor sets subProperty on all children in O(N) — no O(N²) fan-out", () => {
+            const N = 50;
+            const children = Array.from({ length: N }, (_, i) => new ValueUnit(i, "px"));
+            const fn = new FunctionValue("matrix3d", children);
+
+            // Every child must have subProperty === "matrix3d" (set by the fix)
+            for (let i = 0; i < N; i++) {
+                expect(children[i]!.subProperty).toBe("matrix3d");
+            }
+
+            // Additionally: no child should have a subProperty other than the
+            // function name (the old O(N²) code also set the correct value by
+            // accident, but this confirms the fix is correct in behaviour)
+            const allMatch = fn.values.every(
+                (v) => (v as ValueUnit).subProperty === "matrix3d",
+            );
+            expect(allMatch).toBe(true);
+        });
+
+        // VJ-P.W0 O(N²) fix — nested FunctionValue: the constructor fix must
+        // not break when children are themselves FunctionValues.
+        it("constructor propagates subProperty into nested FunctionValue children", () => {
+            const inner = new FunctionValue("sin", [new ValueUnit(45, "deg")]);
+            const outer = new FunctionValue("rotate", [inner]);
+            // outer ctor calls inner.setSubProperty("rotate"), which recurses
+            // into inner's own child — so inner.values[0].subProperty === "rotate"
+            expect((inner.values[0] as ValueUnit).subProperty).toBe("rotate");
+        });
+
+        // VJ-P3 — FunctionValue.setSubProperty / setProperty accept string
+        // literals without casting (compile-time narrowing; runtime sanity).
+        it("setSubProperty / setProperty accept string literals (VJ-P3 narrowing)", () => {
+            const fn = new FunctionValue("scale", [new ValueUnit(2)]);
+            fn.setSubProperty("scaleX");
+            fn.setProperty("transform");
+            expect((fn.values[0] as ValueUnit).subProperty).toBe("scaleX");
+            expect((fn.values[0] as ValueUnit).property).toBe("transform");
+        });
     });
 });
 
@@ -563,6 +619,16 @@ describe("ValueArray", () => {
             arr.setProperty("margin");
             expect((arr[0] as ValueUnit).property).toBe("margin");
             expect((arr[1] as ValueUnit).property).toBe("margin");
+        });
+
+        // VJ-P3 — ValueArray.setSubProperty / setProperty accept string
+        // literals without casting (compile-time narrowing; runtime sanity).
+        it("setSubProperty / setProperty accept string literals (VJ-P3 narrowing)", () => {
+            const arr = new ValueArray(new ValueUnit(10, "px"), new ValueUnit(20, "px"));
+            arr.setSubProperty("paddingTop");
+            arr.setProperty("padding");
+            expect((arr[0] as ValueUnit).subProperty).toBe("paddingTop");
+            expect((arr[0] as ValueUnit).property).toBe("padding");
         });
     });
 

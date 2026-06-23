@@ -477,6 +477,64 @@ export const parseCSSValue = memoize(
     { keyFn: (input: string) => input },
 );
 
+// ─── parseCSSSubValue (VJ-L3) ──────────────────────────────────────────────
+//
+// A typed re-entry parser for a single CSS *sub-value* string — one keyframe
+// value, a transform list, a color, a length. It internalizes the exact
+// `any(CSSFunction.FunctionArgs, CSSValues.Value)` composition that a consumer
+// (keyframes.js' `tryParseLeaves`) previously hand-rolled by reaching past
+// value.js into `@mkbabb/parse-that` for the `any` combinator. Same-realm here,
+// so no cross-realm `as any` cast is needed.
+//
+// FunctionArgs MUST be tried FIRST (the V4 truncation trap): the shipped
+// `parseCSSValue` (= `tryParse(ValuesValue)`) parses only the FIRST sub-value
+// of a multi-function list — `parseCSSValue("scale(2) rotate(45deg)")` yields
+// just `scaleX/Y/Z(2)`, DROPPING `rotate`. `FunctionArgs` is a whitespace/comma
+// `sepBy(Value)`, so it consumes the WHOLE list and always wraps in a
+// `ValueArray` (even for a bare `"10px"`) — which is exactly the uniform shape a
+// flatten-to-leaves consumer expects. The ordering is therefore load-bearing,
+// not incidental.
+//
+// `opts.subProperty` threads the property context onto each parsed leaf
+// (mirroring the consumer's pre-parse `v.setSubProperty(childKey)`), so a
+// downstream DOM-computed resolution can pair the value with its property.
+
+export type ParseCSSSubValueOptions = {
+    /** Property context stamped onto every parsed leaf (e.g. "transform"). */
+    subProperty?: string;
+};
+
+/**
+ * Parse one CSS sub-value string into value.js' `ValueUnit | ValueArray |
+ * FunctionValue` tree, internalizing the `FunctionArgs`-FIRST composition.
+ *
+ * Unlike {@link parseCSSValue} (single-value, truncates a multi-function list),
+ * this consumes the FULL whitespace/comma-separated list — `"scale(2)
+ * rotate(45deg)"` round-trips to the complete `ValueArray`, never the truncated
+ * first function. A bare scalar (`"10px"`) is wrapped in a one-element
+ * `ValueArray` for a uniform downstream shape.
+ *
+ * @param value the raw CSS sub-value source
+ * @param opts.subProperty optional property name stamped onto every leaf
+ */
+export function parseCSSSubValue(
+    value: string,
+    opts?: ParseCSSSubValueOptions,
+): ValueUnit | ValueArray | FunctionValue {
+    const subProperty = opts?.subProperty;
+    const functionArgs =
+        subProperty == null
+            ? CSSFunction.FunctionArgs
+            : CSSFunction.FunctionArgs.map((v: ValueArray) => {
+                  v.setSubProperty(subProperty);
+                  return v;
+              });
+    return utils.tryParse(
+        any(functionArgs, ValuesValue),
+        value,
+    ) as ValueUnit | ValueArray | FunctionValue;
+}
+
 export const parseCSSPercent = memoize(
     (input: string | number): number =>
         utils.tryParse(CSSValueUnit.Percentage, String(input)).valueOf(),

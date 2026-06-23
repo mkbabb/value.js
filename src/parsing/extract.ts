@@ -1,6 +1,7 @@
 import { parseAnimationShorthand } from "./animation-shorthand";
 import { parseCSSTime } from "./index";
 import type {
+    CustomFunctionDescriptor,
     Declaration,
     KeyframeRule,
     PropertyDescriptor,
@@ -92,6 +93,39 @@ export const extractProperties = (
         if (item.kind !== "property") continue;
         out.set(item.name, item.descriptor);
     }
+    return out;
+};
+
+// ─── extractFunctions (VJ-CSS1) ────────────────────────────────────────────
+
+/**
+ * Index every `@function --name(...) { ... }` registration (CSS Functions and
+ * Mixins Level 1 — parsed at `stylesheet.ts` into `{ kind: "function" }`) by its
+ * `<dashed-ident>` name. Mirrors {@link extractProperties}, but depth-walks the
+ * container at-rules (`@layer` / `@media` / `@container` / `@supports`, `@scope`,
+ * `@starting-style`, nested style rules) — exactly as {@link extractKeyframes}
+ * does — so a `@function` nested at any depth is reachable. Later registrations
+ * override earlier ones (CSS cascade order).
+ */
+const collectFunctions = (
+    items: Stylesheet,
+    out: Map<string, CustomFunctionDescriptor>,
+): void => {
+    for (const item of items) {
+        if (item.kind === "function") {
+            out.set(item.name, item.descriptor);
+            continue;
+        }
+        const children = itemChildren(item);
+        if (children && children.length > 0) collectFunctions(children, out);
+    }
+};
+
+export const extractFunctions = (
+    s: Stylesheet,
+): Map<string, CustomFunctionDescriptor> => {
+    const out = new Map<string, CustomFunctionDescriptor>();
+    collectFunctions(s, out);
     return out;
 };
 

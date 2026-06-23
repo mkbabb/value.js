@@ -247,9 +247,11 @@ export {
     CSSJSON,
     CSSValues,
     parseCSSValue,
+    parseCSSSubValue,
     parseCSSPercent,
     parseCSSTime,
 } from "./parsing";
+export type { ParseCSSSubValueOptions } from "./parsing";
 
 // Stylesheet AST — full CSS at-rule + qualified-rule parsing
 export { parseCSSStylesheet } from "./parsing/stylesheet";
@@ -270,6 +272,7 @@ export type {
 export {
     extractKeyframes,
     extractProperties,
+    extractFunctions,
     extractStyleRules,
     extractAnimationOptions,
 } from "./parsing/extract";

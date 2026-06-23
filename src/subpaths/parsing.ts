@@ -21,9 +21,11 @@ export {
     CSSJSON,
     CSSValues,
     parseCSSValue,
+    parseCSSSubValue,
     parseCSSPercent,
     parseCSSTime,
 } from "../parsing";
+export type { ParseCSSSubValueOptions } from "../parsing";
 
 // Stylesheet AST
 export { parseCSSStylesheet } from "../parsing/stylesheet";
@@ -34,12 +36,15 @@ export type {
     KeyframeSelector,
     Declaration,
     PropertyDescriptor,
+    CustomFunctionDescriptor,
+    CustomFunctionParameter,
 } from "../parsing/stylesheet";
 
 // Stylesheet extractors
 export {
     extractKeyframes,
     extractProperties,
+    extractFunctions,
     extractStyleRules,
     extractAnimationOptions,
 } from "../parsing/extract";

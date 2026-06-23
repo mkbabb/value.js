@@ -54,11 +54,11 @@ export class ValueUnit<
         return raw as T extends ValueUnit<infer V> ? V : T;
     }
 
-    setSubProperty(subProperty: any) {
+    setSubProperty(subProperty: string) {
         this.subProperty = subProperty;
     }
 
-    setProperty(property: any) {
+    setProperty(property: string) {
         this.property = property;
     }
 
@@ -166,16 +166,21 @@ export class FunctionValue<T = any, N extends string = string> {
         public name: N,
         public values: Array<ValueUnit<T> | FunctionValue<T>>,
     ) {
+        // VJ-P.W0 O(N²) fix: call setSubProperty on each child value, not on
+        // `this` (which would walk all N values N times). Each child gets the
+        // function name as its subProperty in O(N). The previous
+        // `values.forEach((v) => { this.setSubProperty(name); })` called the
+        // container-level propagator N times, yielding O(N²) writes.
         values.forEach((v) => {
-            this.setSubProperty(name);
+            v.setSubProperty(name);
         });
     }
 
-    setSubProperty(subProperty: any) {
+    setSubProperty(subProperty: string) {
         this.values.forEach((v) => v.setSubProperty(subProperty));
     }
 
-    setProperty(property: any) {
+    setProperty(property: string) {
         this.values.forEach((v) => v.setProperty(property));
     }
 
@@ -271,11 +276,11 @@ export class ValueArray<T = any> extends Array<ValueUnit<T> | FunctionValue<T>> 
         super(...args);
     }
 
-    setSubProperty(subProperty: any) {
+    setSubProperty(subProperty: string) {
         this.forEach((v) => v.setSubProperty(subProperty));
     }
 
-    setProperty(property: any) {
+    setProperty(property: string) {
         this.forEach((v) => v.setProperty(property));
     }
 

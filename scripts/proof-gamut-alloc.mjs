@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// proof:gamut-alloc — value.js O.W3 gate (born-RED, MEASURE-FIRST).
+// proof:gamut-alloc — value.js O.W3 → P (VJ-P1) gate (born-RED, MEASURE-FIRST).
 //
 // THE REAL OBSERVABLE: a per-frame wide-gamut `gamutMap` egress call allocates
 // N Color objects, pressuring the GC in the rAF loop. The gate counts REAL
@@ -15,16 +15,29 @@
 //                                                              sees allocations —
 //                                                              not a vacuous 0)
 //
-// The cure (scratch OKLCHColor in the bisection + transformMat3Into Vec3 reuse +
-// JND early-exit) eliminates the 24 per-step `new OKLCHColor(...)` loop allocs:
+// O.W3 cure (scratch OKLCHColor in the bisection + transformMat3Into Vec3 reuse +
+// JND early-exit) eliminated the 24 per-step `new OKLCHColor(...)` loop allocs:
+//   gamutMap(display-p3 OOG)  N_O.W3 ≈ 84 allocs/call
 //
-//   gamutMap(display-p3 OOG)  N_CURED ≈ 84 allocs/call
-//   gamutMap(mild-OOG, JND)   N_CURED ≈  6 allocs/call (bisection skipped)
+// VJ-P1 cure (this tranche — the `color2Into` out-param): the bisection probe
+// is always OKLCH, so `color2Into` routes the OKLCH→XYZ hub leg through an
+// in-place tuple (`gamut.ts oklchToXYZTuple`) + a single module-scoped scratch
+// XYZColor, and the 24-step loop reuses ONE egress scratch. This eliminates the
+// per-step `oklch2xyz` intermediate boxing — the OKLABColor + XYZColor allocated
+// inside each `color2` (2 allocs/step × 24 = 48):
 //
-// The residual ~84 are the per-step `color2` XYZ-hub conversion intermediates,
-// whose elimination needs a `color2Into` out-param (deferred to O.W5 per the
-// wave spec). The gate threshold N_TARGET = 90 proves the loop-OKLCHColor
-// elimination held with margin while NOT over-claiming the deferred O.W5 win.
+//   gamutMap(display-p3 OOG)  N_VJP1 = 37 allocs/call   (MEASURED on the built
+//                                                        color2Into branch — NOT a
+//                                                        guessed floor)
+//   gamutMap(mild-OOG, JND)   N_VJP1 =  5 allocs/call   (bisection skipped)
+//
+// The residual 37 are the per-step EGRESS wrappers (e.g. `new DisplayP3Color`,
+// 1/step ≈ 28/call) plus the setup/emit conversions. Eliminating the egress
+// wrapper too would require an out-param on the per-space XYZ→RGB-family
+// converters (which own the private wide-gamut matrices in `conversions/
+// xyz-extended.ts`) — a deeper converter-layer rewrite, not the VJ-P1 hub-leg
+// cure. The gate threshold N_TARGET = 40 (= measured 37 + a small margin) proves
+// the hub-intermediate elimination held while NOT over-claiming the egress tail.
 
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
@@ -84,9 +97,9 @@ const allocsOnce = (fn) => {
     return allocCount;
 };
 
-// ── Thresholds (derived from the recorded baseline) ──
+// ── Thresholds (derived from the recorded baseline + the MEASURED VJ-P1 cure) ──
 const N_BASELINE = 104; // measured pre-cure (the gate-can-see-allocs witness)
-const N_TARGET = 90; // < baseline by the 24-alloc loop elimination, with margin
+const N_TARGET = 40; // VJ-P1: measured 37 (color2Into hub-leg cure) + small margin
 const N_JND_MAX = 12; // the JND fast-path must skip the bisection entirely
 const RAMP_MAX = 64; // sampleColorRamp(16) budget (unchanged by O.W3)
 const EPSILON = 1e-6;
@@ -118,14 +131,14 @@ record(
     n1 > 0 ? undefined : "alloc count is 0 — the counter is blind (vacuous gate)",
 );
 
-// ── C2 — the cure reduced the alloc count below the loop-elimination target ──
+// ── C2 — the VJ-P1 color2Into cure reduced the alloc count below N_TARGET ──
 record(
     "C2-cured",
     `gamutMap(display-p3 OOG) ${n1} allocs/call <= N_TARGET=${N_TARGET}`,
     n1 <= N_TARGET,
     n1 <= N_TARGET
-        ? `eliminated the 24 per-step OKLCHColor allocs (baseline ${N_BASELINE} -> ${n1})`
-        : `still ${n1} > ${N_TARGET} — the loop allocates per step`,
+        ? `VJ-P1 color2Into eliminated the per-step OKLABColor+XYZColor hub intermediates (baseline ${N_BASELINE} -> ${n1})`
+        : `still ${n1} > ${N_TARGET} — the per-step hub conversion allocates`,
 );
 
 // ── C2b — the JND early-exit skips the bisection for mild OOG ──

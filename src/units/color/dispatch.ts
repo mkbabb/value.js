@@ -13,8 +13,8 @@
  * mapped-type + `getDirectPath` lookup live in `conversions/direct.ts` (G.W4).
  */
 
-import { ch, Color, OKLCHColor, RGBColor } from ".";
-import type { ColorSpaceMap, XYZColor } from ".";
+import { ch, channelOf, Color, OKLCHColor, RGBColor, setChannel, XYZColor } from ".";
+import type { ColorSpaceMap } from ".";
 import { clamp, lerp } from "../../math";
 import {
     COLOR_SPACE_RANGES,
@@ -23,7 +23,7 @@ import {
     getColorSpaceDenormUnit,
 } from "./constants";
 import type { ColorSpace } from "./constants";
-import { deltaEOK, DELTA_E_OK_JND, gamutMapSRGB } from "./gamut";
+import { deltaEOK, DELTA_E_OK_JND, gamutMapSRGB, oklchToXYZTuple } from "./gamut";
 import { hex2rgb, rgb2hex } from "./conversions/hex";
 import { kelvin2xyz, xyz2kelvin } from "./conversions/kelvin";
 import {
@@ -189,6 +189,100 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
     return fromXYZFn(xyz as XYZColor) as ColorSpaceMap<T>[C];
 }
 
+/** Copy every channel of `src` (including alpha) into `out` and return `out`. */
+function copyChannelsInto<T>(src: Color<T>, out: Color<T>): Color<T> {
+    const keys = src.channels;
+    for (let i = 0; i < keys.length; i++) {
+        const k = keys[i]!;
+        setChannel(out, k, ch(channelOf(src, k)));
+    }
+    out.alpha = src.alpha;
+    return out;
+}
+
+// Module-scoped XYZ-hub scratch for the `color2Into` OKLCH fast path. The
+// bisection probe is always OKLCH, so its hub coordinates are written here in
+// place (zero alloc) rather than allocating an OKLABColor + an XYZColor per
+// step. Re-entrancy-safe by the same single-threaded argument the conversion
+// scratch buffers rely on — fully written before each egress read. Lazily
+// constructed so it never trips the bundle's class-initialization ordering.
+let _color2IntoXyzScratch: XYZColor | undefined;
+const _color2IntoXyzTuple: [number, number, number] = [0, 0, 0];
+
+/**
+ * Out-param variant of {@link color2} (VJ-P1 zero-alloc, mirroring
+ * `matrix.ts` `transformMat3Into`): converts `src` into color space `to` and
+ * writes the resulting channels into the caller-owned `out` Color, returning
+ * `out`. The headline win is the gamut-bisection egress (`gamutMapToRgbSpace`):
+ * the 24-step loop reuses ONE egress scratch + this hub scratch, so the per-step
+ * intermediate `OKLABColor`/`XYZColor` boxing that the wrapper-allocating
+ * `color2` churns is eliminated.
+ *
+ * `out` MUST be a caller-owned scratch in the **target** space (its `channels`
+ * are what receive the egress) and MUST NOT alias `src` — the OKLCH fast path
+ * reads `src`'s channels into the hub scratch before any `out` write, but a
+ * source-aliased `out` would corrupt a same-space copy. The single-threaded
+ * re-entrancy argument documented on `color2`/`gamutMapToRgbSpace` applies.
+ *
+ * Behaviour matches `color2` bit-for-bit (the OKLCH leg replays the wrapper
+ * path's `scale` round-trip — see `gamut.ts oklchToXYZTuple`).
+ */
+export function color2Into<T, C extends ColorSpace>(
+    src: Color<T>,
+    to: C,
+    out: ColorSpaceMap<T>[C],
+): ColorSpaceMap<T>[C] {
+    // Same space — a channel copy (no conversion, no allocation).
+    if (src.colorSpace === to) {
+        return copyChannelsInto(src, out as Color<T>) as ColorSpaceMap<T>[C];
+    }
+
+    // Mirror `color2`'s dispatch ORDER so the result is bit-identical to it. The
+    // 6 DIRECT_PATHS pairs (oklab/oklch/hsl ↔ rgb) take a different — but equally
+    // valid — arithmetic route than the XYZ hub, so they must be honoured here
+    // too; routing them through the hub would diverge in the last FP digits. The
+    // gamut-bisection egress is always a WIDE-gamut RGB space (display-p3, …),
+    // which has NO direct path, so the OKLCH zero-alloc fast path below is what
+    // the per-frame hot path actually rides.
+    const direct = getDirectPath<C>(src.colorSpace, to);
+    if (direct) {
+        const converted = direct(src as Color<number>) as unknown as Color<T>;
+        return copyChannelsInto(converted, out as Color<T>) as ColorSpaceMap<T>[C];
+    }
+
+    // OKLCH source fast path (the gamut-bisection probe) — only reached for the
+    // non-direct (wide-gamut) egress targets. Route the OKLCH→XYZ hub leg through
+    // the in-place tuple + a scratch XYZColor (no per-step OKLABColor/XYZColor
+    // alloc), then egress XYZ→target and copy into `out`. The egress wrapper is
+    // the sole residual alloc; the dominant per-step boxing is gone.
+    if (src.colorSpace === "oklch") {
+        const oklch = src as Color<number>;
+        const xyz = (_color2IntoXyzScratch ??= new XYZColor(0, 0, 0, 1));
+        oklchToXYZTuple(
+            oklch.l as number,
+            oklch.c as number,
+            oklch.h as number,
+            _color2IntoXyzTuple,
+        );
+        xyz.x = ch(_color2IntoXyzTuple[0]);
+        xyz.y = ch(_color2IntoXyzTuple[1]);
+        xyz.z = ch(_color2IntoXyzTuple[2]);
+        xyz.alpha = src.alpha as number;
+
+        const fromXYZFn = getXyzFromFn<C>(to);
+        if (!fromXYZFn) {
+            throw new Error(`Unknown target color space: "${to}"`);
+        }
+        const egress = fromXYZFn(xyz) as unknown as Color<T>;
+        return copyChannelsInto(egress, out as Color<T>) as ColorSpaceMap<T>[C];
+    }
+
+    // General fallback — delegate to `color2`'s XYZ-hub (correct for every pair)
+    // and copy its result into `out`. Off the gamut hot path.
+    const converted = color2(src, to) as unknown as Color<T>;
+    return copyChannelsInto(converted, out as Color<T>) as ColorSpaceMap<T>[C];
+}
+
 const GAMUT_EPSILON = 1e-6;
 
 /**
@@ -240,13 +334,23 @@ function gamutMapToRgbSpace<C extends Color>(color: C, target: ColorSpace): C {
     const alpha = color.alpha as number;
 
     // Hoist the invariant probe scalars out of the loop body; only `c` varies
-    // per step. The scratch OKLCHColor is mutated in place (no per-step alloc),
-    // then converted once via `color2`. The conversion result IS one allocation
-    // per step — eliminating it requires a `color2Into` out-param (deferred,
-    // O.W5 scope per the wave spec); the loop-body OKLCHColor alloc is gone.
+    // per step. The scratch OKLCHColor is mutated in place (no per-step alloc).
+    // The per-step conversion now routes through `color2Into` (VJ-P1): it reuses
+    // a single egress scratch + an OKLCH→XYZ hub scratch, so neither the egress
+    // wrapper nor the OKLABColor/XYZColor hub intermediates are re-allocated per
+    // step — the deferred O.W5 alloc tail is closed.
     probe.l = ch(L);
     probe.h = ch(H);
     probe.alpha = alpha;
+
+    // Seed a single egress scratch in the target space from the first probe
+    // conversion; every subsequent step reuses it via `color2Into` — the
+    // VJ-P1 zero-alloc cure. `color2Into`'s OKLCH fast path routes the OKLCH→XYZ
+    // hub leg through its own in-place tuple + scratch XYZColor, so the per-step
+    // intermediate OKLABColor + XYZColor boxing (2 allocs/step) is eliminated;
+    // the egress wrapper is reused across all 24 steps (1 alloc total, not 24).
+    probe.c = ch((0 + cHigh) / 2);
+    const egress = color2(probe, target) as ColorSpaceMap<number>[ColorSpace];
 
     // Binary-search the largest chroma that stays inside the egress gamut.
     let lo = 0;
@@ -254,7 +358,7 @@ function gamutMapToRgbSpace<C extends Color>(color: C, target: ColorSpace): C {
     for (let i = 0; i < CHROMA_SEARCH_STEPS; i++) {
         const mid = (lo + hi) / 2;
         probe.c = ch(mid);
-        const rgb = color2(probe, target);
+        const rgb = color2Into(probe, target, egress);
         if (rgbInGamut(rgb.r as number, rgb.g as number, rgb.b as number, GAMUT_EPSILON)) {
             lo = mid;
         } else {
@@ -264,7 +368,7 @@ function gamutMapToRgbSpace<C extends Color>(color: C, target: ColorSpace): C {
 
     // Emit at the in-gamut chroma, clamping residual FP overshoot to the box.
     probe.c = ch(lo);
-    const rgb = color2(probe, target);
+    const rgb = color2Into(probe, target, egress);
     const clamped = new (rgb.constructor as new (...a: number[]) => Color)(
         clamp(rgb.r as number, 0, 1),
         clamp(rgb.g as number, 0, 1),
