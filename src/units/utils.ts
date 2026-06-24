@@ -85,15 +85,33 @@ export function functionIdentityValue(
 export const flattenObject = (obj: any) => {
     const flat: Record<string, any> = {};
 
-    const flatten = (obj: any, parentKey: string | undefined = undefined) => {
+    // VJ-Q4 (1.2.0) — thread the enclosing CSS-function name down the recursion
+    // so each flattened leaf is stamped with its `fnName` (the `scale` of
+    // `scale(2)`). A `ValueUnit` leaf carries the name of the NEAREST enclosing
+    // `FunctionValue`. `calc()` is atomic (no descent), so its leaf carries
+    // `"calc"`. This is the `clone()`-stable provenance the keyframes.js S8
+    // terminal reads (retiring the WeakMap + the restamp ceremony).
+    const flatten = (
+        obj: any,
+        parentKey: string | undefined = undefined,
+        fnName: string | undefined = undefined,
+    ) => {
         if (Array.isArray(obj)) {
-            obj.forEach((v, i) => flatten(v, parentKey));
+            obj.forEach((v) => flatten(v, parentKey, fnName));
             return;
         } else if (obj instanceof FunctionValue) {
             // Treat calc() as an atomic computed value — don't decompose the expression
             if (obj.name === "calc") {
                 const innerExpr = obj.values.map((v) => v.toString()).join(", ");
-                const calcUnit = new ValueUnit(innerExpr, "calc");
+                const calcUnit = new ValueUnit(
+                    innerExpr,
+                    "calc",
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    obj.name,
+                );
                 const key = parentKey ?? "calc";
                 if (flat[key] == null) {
                     flat[key] = new ValueArray();
@@ -113,13 +131,17 @@ export const flattenObject = (obj: any) => {
                 }
             }
 
-            obj.values.forEach((v, i) => flatten(v, newKey));
+            // Descend with THIS function's name as the leaves' `fnName`.
+            obj.values.forEach((v) => flatten(v, newKey, obj.name));
 
             return;
         } else if (isObject(obj)) {
             for (const [key, value] of Object.entries(obj)) {
                 const currentKey = parentKey ? `${parentKey}.${key}` : key;
-                flatten(value, currentKey);
+                // A plain-object descent crosses no function boundary — reset
+                // `fnName` (the enclosing function context does not carry across
+                // a nested object key).
+                flatten(value, currentKey, undefined);
             }
             return;
         }
@@ -127,6 +149,13 @@ export const flattenObject = (obj: any) => {
         const key = parentKey!;
         if (flat[key] == null) {
             flat[key] = new ValueArray();
+        }
+
+        // Stamp the enclosing function name onto the leaf (VJ-Q4). When the leaf
+        // is a `ValueUnit` lacking its own `fnName`, inherit the enclosing one;
+        // a leaf that already carries a name (a pre-stamped clone) keeps it.
+        if (fnName !== undefined && obj instanceof ValueUnit && obj.fnName === undefined) {
+            obj.fnName = fnName;
         }
 
         flat[key].push(obj);

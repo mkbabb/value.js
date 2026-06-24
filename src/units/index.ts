@@ -11,7 +11,7 @@ import { clone } from "../utils";
 import { BLACKLISTED_COALESCE_UNITS, UNITS } from "./constants";
 import type { ColorSpace } from "./color/constants";
 import type { HueInterpolationMethod } from "./color/dispatch";
-import type { ColorChannelPlan } from "./interpolate";
+import type { ColorInterpPlan } from "./interpolate";
 
 export class ValueUnit<
     T = any,
@@ -30,6 +30,15 @@ export class ValueUnit<
         public subProperty?: string,
         public property?: string,
         public targets?: HTMLElement[],
+        // VJ-Q4 (1.2.0) — the enclosing CSS-function NAME for a flattened leaf
+        // (the `scale` of `scale(2)`). `flattenObject` stamps it from the
+        // enclosing `FunctionValue.name`; `clone()` preserves it. This is the
+        // `clone()`-stable provenance carrier that retires the keyframes.js S8
+        // WeakMap `FN_NAME_MAP` + clone-restamp ceremony (the leaf survives
+        // `clone()` WITH its function name, so the consumer reads `u.fnName`
+        // directly). `subProperty` cannot double as the carrier — it is clobbered
+        // by `parseCSSSubValue` with the child key.
+        public fnName?: string,
     ) {}
 
     /**
@@ -124,6 +133,12 @@ export class ValueUnit<
             clone(this.superType),
             this.subProperty,
             this.property,
+            // `targets` is intentionally NOT cloned (DOM nodes are not deep-
+            // copyable; the historical clone omitted them).
+            undefined,
+            // VJ-Q4 (1.2.0) — preserve the function-name provenance across the
+            // clone so a flattened leaf survives `clone()` WITH its `fnName`.
+            this.fnName,
         );
 
         return value;
@@ -144,6 +159,9 @@ export class ValueUnit<
             this.subProperty ??= right.subProperty;
             this.property ??= right.property;
             this.targets ??= right.targets;
+            // VJ-Q4 — inherit the function-name provenance from `right` when
+            // unset (the flatten/restamp coalesce path keeps `fnName`).
+            this.fnName ??= right.fnName;
 
             return this;
         } else {
@@ -154,6 +172,7 @@ export class ValueUnit<
                 this.subProperty ?? right.subProperty,
                 this.property ?? right.property,
                 this.targets ?? right.targets,
+                this.fnName ?? right.fnName,
             );
 
             return value;
@@ -213,15 +232,30 @@ export class FunctionValue<T = any, N extends string = string> {
         // and their percentage hints into a single value list; re-group here so a
         // hint (`unit === "%"`) attaches to the preceding stop with a space, and
         // distinct stops join with ", ".
-        // CSS Values L5 `if()` (O.W4 S6): the inline conditional is NOT a
-        // comma-separated arg list — it is `if(<cond>: <value>; else: <value>)`.
-        // The parser captures three VERBATIM clauses [condition, value, else];
-        // re-emit them in the spec's `:`/`;` syntax so the serialized form
-        // re-parses to the SAME FunctionValue (C17 round-trip). The generic
-        // comma-join would drop the `:`/`;` structure and fail to re-parse.
-        if (this.name === "if" && this.values.length === 3) {
-            const [cond, value, els] = this.values;
-            return `if(${cond!.toString()}: ${value!.toString()}; else: ${els!.toString()})`;
+        // CSS Values L5 `if()` (O.W4 S6 + VJ-Q7 1.2.0 multibranch): the inline
+        // conditional is NOT a comma-separated arg list — it is
+        // `if(<cond>: <value>; <cond>: <value>; …; else: <value>)`. The parser
+        // captures the FULL ordered clause list as a flat
+        // `[condition, value, condition, value, …, elseValue]` pair list (VJ-Q7);
+        // re-emit it in the spec's `:`/`;` syntax so the serialized form
+        // re-parses to the SAME FunctionValue (C17 round-trip). An ODD trailing
+        // slot is the `else` value (it has no condition). The generic comma-join
+        // would drop the `:`/`;` structure and fail to re-parse.
+        if (this.name === "if" && this.values.length >= 3) {
+            const clauses: string[] = [];
+            const vals = this.values;
+            let i = 0;
+            // Each [condition, value] pair → `<cond>: <value>`. The list has an
+            // even count of paired entries followed by an optional lone `else`
+            // value (odd total). Walk pairs until at most one slot remains.
+            for (; i + 1 < vals.length; i += 2) {
+                clauses.push(`${vals[i]!.toString()}: ${vals[i + 1]!.toString()}`);
+            }
+            // A lone trailing slot is the `else` value.
+            if (i < vals.length) {
+                clauses.push(`else: ${vals[i]!.toString()}`);
+            }
+            return `if(${clauses.join("; ")})`;
         }
         if (this.name === "linear") {
             const stops: string[] = [];
@@ -349,7 +383,7 @@ export type InterpolatedVar<T> = {
      * non-color ivs and externally constructed colors (which take the fallback
      * walk). Typed loosely here to avoid a cycle with `interpolate.ts`.
      */
-    _colorPlan?: ColorChannelPlan;
+    _colorPlan?: ColorInterpPlan;
 
     /**
      * Resolved computed-endpoint cache set by `lerpComputedValue` for computed

@@ -44,6 +44,16 @@ const formatAnimationNumber = (value: number, digits: number): string => {
 };
 
 const formatColor = <T>(colorSpace: ColorSpace, values: T[], alpha: T) => {
+    // VJ-Q9 (1.2.0) S2 — preserve the CSS `color(<space> …)` function wrapper on
+    // round-trip. The `color()`-predefined spaces (display-p3, rec2020, a98-rgb,
+    // prophoto-rgb, srgb-linear, xyz) tagged `"color"` in `COLOR_FUNCTION_FORM`
+    // are INVALID CSS in the bare `display-p3(…)` form; they must serialize as
+    // `color(display-p3 …)` so `parseCSSValue(color(display-p3 1 0 0)).toString()`
+    // round-trips verbatim (it was dropping to the bare `display-p3(1 0 0)`).
+    // The `"named"` spaces (rgb/hsl/oklch/…) keep their bare `name(…)` form.
+    const wrap = COLOR_FUNCTION_FORM[colorSpace] === "color";
+    const head = wrap ? `color(${colorSpace} ` : `${colorSpace}(`;
+
     // Emit the `/ alpha` clause only when the color is NOT opaque. CSS Color 4
     // §4 makes the alpha clause optional and UAs canonicalize an opaque color
     // without it; emitting `/ 1` on every keyframe wastes ~4 chars the browser
@@ -52,9 +62,9 @@ const formatColor = <T>(colorSpace: ColorSpace, values: T[], alpha: T) => {
     // ("1" / "0.5" / "none"); `Number(alpha) === 1` is opaque, "none" → NaN is
     // kept (vj-color-interp-aug §2.4 / Wave B1b).
     if (Number(alpha) === 1) {
-        return `${colorSpace}(${values.join(" ")})`;
+        return `${head}${values.join(" ")})`;
     }
-    return `${colorSpace}(${values.join(" ")} / ${alpha})`;
+    return `${head}${values.join(" ")} / ${alpha})`;
 };
 
 // N.W7.A B1/B2 — the apply-path color serializer.
@@ -351,13 +361,16 @@ export abstract class Color<T = number> {
     private static readonly CLONE_DEPTH_LIMIT = 16;
 
     toString(): string {
+        // VJ-Q9 (1.2.0) S1 — a powerless `none` channel (CSS Color 4 — a
+        // `<number>`-or-`none` value) must round-trip as `none`, NEVER `NaN`.
+        // The channel may be a bare `number` OR a `ValueUnit<number>` wrapper
+        // (a parsed color's channels are wrapped); `Number(v)` coerces both, so
+        // the NaN test catches the wrapped-NaN case the prior `typeof v ===
+        // "number"` guard missed (which leaked `oklch(0.6 NaN 200)`).
         const values = this.values().slice(0, -1).map((v) =>
-            typeof v === "number" && Number.isNaN(v) ? "none" : v,
+            Number.isNaN(Number(v)) ? "none" : v,
         );
-        const alpha =
-            typeof this.alpha === "number" && Number.isNaN(this.alpha as number)
-                ? "none"
-                : this.alpha;
+        const alpha = Number.isNaN(Number(this.alpha)) ? "none" : this.alpha;
         return formatColor(this.colorSpace, values, alpha);
     }
 

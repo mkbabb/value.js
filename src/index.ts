@@ -141,6 +141,8 @@ export {
     gamutMap,
     interpolateHue,
     mixColors,
+    // VJ-Q3 (1.2.0) — the `mixColorsInto` out-param twin.
+    mixColorsInto,
     cssColorInterpKeyword,
     CYLINDRICAL_HUE_COMPONENT,
 } from "./units/color/dispatch";
@@ -158,9 +160,19 @@ export {
     contrastColor,
 } from "./units/color/contrast";
 
-// N-color mixing + the perceptual N-stop ramp sampler (N.W11.D)
-export { mixColorsN, sampleColorRamp } from "./units/color/mix";
+// N-color mixing + the perceptual N-stop ramp sampler (N.W11.D) + the
+// single-`t` array-free sampler (VJ-Q3, 1.2.0).
+export { mixColorsN, sampleColorRamp, sampleColorRampAt } from "./units/color/mix";
 export type { SampleRampOptions } from "./units/color/mix";
+
+// VJ-Q8 (1.2.0) — the SoA color-channel layout the keyframes.js compositor folds
+// the boxed color tail through (the Float64 oklab-channel plan + buffer fold).
+export {
+    buildColorChannelPlan,
+    packColorChannels,
+    lerpColorChannels,
+} from "./units/color-soa";
+export type { ColorChannelPlan } from "./units/color-soa";
 
 // Color normalization
 export {
@@ -281,6 +293,16 @@ export {
     extractAnimationOptions,
 } from "./parsing/extract";
 export type { CSSAnimationOptions } from "./parsing/extract";
+
+// VJ-Q6 (1.2.0) — the `<syntax>` validator on the resolve path (the @function
+// typed-arg coercion consumer; kf inlines call args through this, not a re-
+// authored checker).
+export {
+    validateSyntax,
+    coerceToSyntax,
+    parseSyntaxDescriptor,
+} from "./parsing/syntax";
+export type { SyntaxComponentName } from "./parsing/syntax";
 
 // Animation shorthand parser/serializer
 export {

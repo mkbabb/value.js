@@ -86,21 +86,25 @@ export {
     gamutMap,
     interpolateHue,
     mixColors,
+    mixColorsInto,
     cssColorInterpKeyword,
     CYLINDRICAL_HUE_COMPONENT,
 } from "../units/color/dispatch";
 export type { HueInterpolationMethod } from "../units/color/dispatch";
 
-// OKLab contrast helpers
+// OKLab contrast helpers + the VJ-Q1 (1.1.1) WCAG `contrast-color()` leaf.
 export {
     computeSafeAccent,
     safeAccentColor,
     needsContrastAdjustment,
     getOklchLightness,
+    wcagRelativeLuminance,
+    wcagContrastRatio,
+    contrastColor,
 } from "../units/color/contrast";
 
-// N-color mixing + the perceptual N-stop ramp sampler
-export { mixColorsN, sampleColorRamp } from "../units/color/mix";
+// N-color mixing + the perceptual N-stop ramp sampler + the single-`t` sampler.
+export { mixColorsN, sampleColorRamp, sampleColorRampAt } from "../units/color/mix";
 export type { SampleRampOptions } from "../units/color/mix";
 
 // Color normalization

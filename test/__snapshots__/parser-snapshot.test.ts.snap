@@ -605,11 +605,11 @@ exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("calc(50px + 50px)") 1`
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("calc(100% - 20px)") 1`] = `"calc(100% - 20px)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(display-p3 1 0 0)") 1`] = `"display-p3(1 0 0)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(display-p3 1 0 0)") 1`] = `"color(display-p3 1 0 0)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb 1 0 0)") 1`] = `"rgb(255 0 0)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb-linear 0.5 0.5 0.5)") 1`] = `"srgb-linear(0.5 0.5 0.5)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb-linear 0.5 0.5 0.5)") 1`] = `"color(srgb-linear 0.5 0.5 0.5)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in hsl, hsl(0, 100%, 50%), hsl(120, 100%, 50%))") 1`] = `"hsl(0.16666666666666674 1 0.5)"`;
 
@@ -688,7 +688,7 @@ exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("var(--x)") 1`] = `
 }
 `;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("xyz(0.5, 0.5, 0.5)") 1`] = `"xyz(0.5 0.5 0.5)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("xyz(0.5, 0.5, 0.5)") 1`] = `"color(xyz 0.5 0.5 0.5)"`;
 
 exports[`BBNF Equivalence: parseCSSValueUnit > parseCSSValueUnit("/") 1`] = `
 {

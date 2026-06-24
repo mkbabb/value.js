@@ -334,17 +334,32 @@ const handleIf = (): Parser<FunctionValue> => {
     });
 
     return utils.istring("if").next(scanBody).map((body: string) => {
+        // VJ-Q7 (1.2.0) — emit the FULL ordered clause list, NOT the lossy
+        // first-consequent + first-else collapse. `splitIfClauses` already
+        // computes every ordered clause; flatten them into a
+        // `[condition, value, condition, value, …, elseValue]` pair list (the
+        // layout the keyframes.js `resolveIf` walk consumes — the cross-repo
+        // contract specified in KF-TO-VALUEJS-Q.md VJ-Q7). The final `else`
+        // clause contributes a lone trailing value (no condition). A 2-branch
+        // `if(<cond>: <v>; else: <e>)` still emits exactly `[cond, v, e]`, so the
+        // common case is byte-identical to the prior collapse.
         const clauses = splitIfClauses(body);
-        const consequent = clauses.find((c) => c.condition !== null);
-        const elseClause = clauses.find((c) => c.condition === null);
-        const conditionStr = consequent?.condition ?? "";
-        const valueStr = consequent?.value ?? "";
-        const elseStr = elseClause?.value ?? "";
-        return new FunctionValue("if", [
-            new ValueUnit(conditionStr, "string"),
-            new ValueUnit(valueStr, "string"),
-            new ValueUnit(elseStr, "string"),
-        ]);
+        const values: ValueUnit[] = [];
+        for (const c of clauses) {
+            if (c.condition !== null) {
+                values.push(new ValueUnit(c.condition, "string"));
+            }
+            values.push(new ValueUnit(c.value, "string"));
+        }
+        // Defensive: an empty/garbled body yields the historical 3-slot shape.
+        if (values.length === 0) {
+            values.push(
+                new ValueUnit("", "string"),
+                new ValueUnit("", "string"),
+                new ValueUnit("", "string"),
+            );
+        }
+        return new FunctionValue("if", values);
     });
 };
 
@@ -408,6 +423,13 @@ const fnCubicBezier = handleCubicBezier();
 const fnGeneric: Parser<any> = handleFunc().map(
     ([name, values]: [string, any]) => new FunctionValue(name, values),
 );
+// VJ-Q6 (1.2.0) — the DASHED-FUNCTION call arm. `--ident(args)` (a CSS Mixins L1
+// @function CALL site) parses to `FunctionValue('--ident', [args])` via the
+// dashed-ident name scanner (`scanIdentFast` rejects the second dash, so the
+// generic `fnGeneric` could not reach it). Same producer shape as `fnGeneric`.
+const fnDashed: Parser<any> = handleFunc(utils.dashedIdentifier).map(
+    ([name, values]: [string, any]) => new FunctionValue(name, values),
+);
 
 // Per-char buckets (original chain order preserved; generic always last).
 const bucketT = any(fnTransform, fnGeneric);
@@ -417,7 +439,12 @@ const bucketC = any(fnMath, fnGradient, fnCubicBezier, fnGeneric);
 const bucketL = any(fnMath, fnGradient, fnGeneric);
 const bucketR = any(fnTransform, fnMath, fnGradient, fnGeneric);
 const bucketS = any(fnTransform, fnMath, fnGeneric);
-const bucketMath = any(fnMath, fnGeneric); // m, a, p, h, e, n, -
+const bucketMath = any(fnMath, fnGeneric); // m, a, p, h, e, n
+// The `-` first-char bucket: try the dashed-function CALL arm (`--ident(...)`)
+// BEFORE math (`-infinity` etc.) and generic. `fnMath`/`fnGeneric` reject a
+// double-dash name, so trying `fnDashed` first is non-regressive for `-`-prefixed
+// math constants (they have a single leading dash; `fnDashed` requires two).
+const bucketDash = any(fnDashed, fnMath, fnGeneric); // --ident(args), -infinity
 
 // Insertion order matters: the broad `a-z`/`A-Z`/`-` generic ranges are
 // registered FIRST, then the specific letters override (a later single-char
@@ -427,7 +454,7 @@ const Function_: Parser<any> = dispatch({
     "a-z": fnGeneric,
     "A-Z": fnGeneric,
     // specific first-char buckets (lowercase + uppercase)
-    "-": bucketMath, // -infinity(const) — math before generic
+    "-": bucketDash, // --ident(args) call arm, then -infinity(const) math, then generic
     tT: bucketT,
     vV: bucketV,
     iI: bucketI,

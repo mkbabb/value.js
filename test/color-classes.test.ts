@@ -348,8 +348,11 @@ describe("XYZColor", () => {
     });
 
     it("should produce correct toString", () => {
+        // VJ-Q9 (1.2.0) S2: the `color()`-predefined spaces (xyz, display-p3, …)
+        // serialize with the CSS-valid `color(<space> …)` wrapper — the bare
+        // `xyz(…)` form is invalid CSS and dropped the wrapper on round-trip.
         const c = new XYZColor(0.5, 0.6, 0.7, 0.8);
-        expect(c.toString()).toBe("xyz(0.5 0.6 0.7 / 0.8)");
+        expect(c.toString()).toBe("color(xyz 0.5 0.6 0.7 / 0.8)");
     });
 
     it("should clone independently", () => {

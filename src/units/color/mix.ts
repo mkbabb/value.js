@@ -182,3 +182,45 @@ export function sampleColorRamp(
     }
     return out;
 }
+
+/**
+ * Sample a SINGLE perceptual ramp stop at parameter `t ∈ [0, 1]` — the
+ * array-free, single-`t` sibling of {@link sampleColorRamp} (VJ-Q3, 1.2.0).
+ *
+ * `sampleColorRamp(from, to, n)[i]` rebuilds the WHOLE n-stop ramp (each stop a
+ * `mixColors` + a `gamutMap`) — O(n) — even when a consumer needs ONE stop at a
+ * known `t` (the keyframes.js `compile-color.ts` ΔE-proof inner loop called it
+ * once per midpoint, paying the full n-stop rebuild per probe). `sampleColorRampAt`
+ * computes exactly the stop at `t`, so the consumer hoists the ramp OUT of the
+ * inner loop. The result is BIT-EXACT to the corresponding `sampleColorRamp`
+ * stop: `sampleColorRampAt(a, b, i/(n-1)) === sampleColorRamp(a, b, n)[i]` (it
+ * shares the same `space`-hoist, `mixColors(1-t, t)` call, and `gamutMapStop`).
+ *
+ * @param from  start `Color`.
+ * @param to    end `Color`.
+ * @param t     ramp parameter in `[0, 1]` (`0` → `from`, `1` → `to`).
+ * @param opts  {@link SampleRampOptions} (the `endpoints` field is ignored — `t`
+ *              is the explicit parameter; `space`/`hueMethod`/`gamutMap` apply).
+ * @returns     a single `Color` in the interpolation `space`.
+ */
+export function sampleColorRampAt(
+    from: Color,
+    to: Color,
+    t: number,
+    opts: SampleRampOptions = {},
+): Color {
+    const {
+        space = "oklab",
+        hueMethod = "shorter",
+        gamutMap = true,
+    } = opts;
+
+    // Mirror `sampleColorRamp`'s space-hoist so a single stop is bit-identical to
+    // the corresponding indexed stop (the `color2` short-circuits same-space).
+    const a = color2(from, space) as Color;
+    const b = color2(to, space) as Color;
+
+    let stop = mixColors(a, b, 1 - t, t, space, hueMethod);
+    if (gamutMap) stop = gamutMapStop(stop, space);
+    return stop;
+}

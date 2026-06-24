@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "CSS value units for color, length, angles, & c.",
     "license": "MIT",
     "keywords": [
@@ -75,7 +75,7 @@
         "build:watch": "vite build --mode production --watch",
         "gh-pages": "vite build --mode gh-pages",
         "prepare": "test -f dist/value.js || npm run build",
-        "bench": "node bench/color-channel-access.mjs && node bench/color2-direct-paths.mjs && node bench/parser-namelookup.mjs && node bench/computed-endpoint.mjs",
+        "bench": "node bench/color-channel-access.mjs && node bench/color2-direct-paths.mjs && node bench/parser-namelookup.mjs && node bench/computed-endpoint.mjs && node bench/color-soa-fold.mjs",
         "typecheck": "vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit",
         "lint": "eslint . --max-warnings=0",
         "test": "vitest",
@@ -89,6 +89,9 @@
         "proof:contrast-color": "node scripts/proof-contrast-color.mjs",
         "proof:gamut-alloc": "node scripts/proof-gamut-alloc.mjs",
         "proof:grammar-2026": "vitest run test/grammar-2026-atrules.test.ts test/grammar-2026-values.test.ts",
+        "proof:serialize-fidelity": "node scripts/proof-serialize-fidelity.mjs",
+        "proof:grammar-q": "node scripts/proof-grammar-q.mjs",
+        "proof:color-arch-q": "node scripts/proof-color-arch-q.mjs",
         "proof:round-trip-idempotent": "node scripts/proof-round-trip-idempotent.mjs",
         "proof:perf-target": "node scripts/proof-perf-target.mjs",
         "proof:progress-honesty": "node scripts/proof-progress-honesty.mjs"

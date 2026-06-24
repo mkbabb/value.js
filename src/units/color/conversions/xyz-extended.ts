@@ -14,15 +14,18 @@
  */
 
 import type { Mat3, Vec3 } from "../matrix";
-import { invertMat3, transformMat3 } from "../matrix";
+import { invertMat3, transformMat3, transformMat3Into } from "../matrix";
 import {
     AdobeRGBColor,
+    Color,
     DisplayP3Color,
     LinearSRGBColor,
     ProPhotoRGBColor,
     Rec2020Color,
     RGBColor,
     XYZColor,
+    ch,
+    setChannel,
 } from "..";
 import { WHITE_POINT_D50_D65, WHITE_POINT_D65_D50 } from "../constants";
 import {
@@ -217,4 +220,78 @@ export function rec20202xyz(color: Rec2020Color): XYZColor {
 export function xyz2rec2020(xyz: XYZColor): Rec2020Color {
     return xyz2rgbFamily(xyz, XYZ_REC2020_MATRIX, linearToRec2020,
         (r, g, b, a) => new Rec2020Color(r, g, b, a));
+}
+
+// ── VJ-Q2 (1.2.0) — the egress-converter OUT-PARAM family ──
+//
+// The gamut-bisection hot path (`gamutMapToRgbSpace`) ran ~28 per-step egress
+// allocs/call because each `color2Into` step wrapped its result in a FRESH
+// `new <Space>Color(...)` (via `xyz2rgbFamily`'s `wrap` callback) that
+// `copyChannelsInto` immediately discarded. These `*Into` companions write the
+// converted channels DIRECTLY into a caller-owned `out` color through a single
+// module-scoped `Vec3` scratch (`transformMat3Into`), so the per-step egress
+// wrapper is eliminated. The math is byte-identical to `xyz2rgbFamily` (same
+// matrix multiply, same transfer encode, same channel order) — gate-asserted.
+//
+// ALIASING CONTRACT: `out` MUST be caller-owned and MUST NOT alias the XYZ hub
+// scratch nor the source. `gamutMapToRgbSpace` owns a dedicated egress scratch
+// (`color2Into`'s OKLCH fast path routes through this family). The module `Vec3`
+// scratch is single-pass safe (the converters never re-enter themselves — the
+// same single-threaded argument the existing conversion-layer scratches rely on).
+const _xyzFamilyVec: Vec3 = [0, 0, 0];
+
+/**
+ * Generic XYZ → RGB-family OUT-PARAM converter. The zero-alloc twin of
+ * {@link xyz2rgbFamily}: writes `transferEncode(M·xyz)` into `out`'s r/g/b/alpha
+ * channels (via `setChannel`/`ch`, mirroring `color2Into`'s discipline) and
+ * returns `out`. No wrapper allocation, no tuple allocation. `out` is typed
+ * `Color<number>` so the per-space `*Into` companions share one body.
+ */
+function xyz2rgbFamilyInto(
+    { x, y, z, alpha }: XYZColor,
+    fromXyzMatrix: Mat3,
+    transferEncode: (c: number) => number,
+    out: Color<number>,
+): Color<number> {
+    _xyzFamilyVec[0] = x as number;
+    _xyzFamilyVec[1] = y as number;
+    _xyzFamilyVec[2] = z as number;
+    const linear = transformMat3Into(_xyzFamilyVec, fromXyzMatrix, _xyzFamilyVec);
+    setChannel(out, "r", ch(transferEncode(linear[0])));
+    setChannel(out, "g", ch(transferEncode(linear[1])));
+    setChannel(out, "b", ch(transferEncode(linear[2])));
+    out.alpha = ch(alpha as number);
+    return out;
+}
+
+export function xyz2linearSrgbInto(xyz: XYZColor, out: Color<number>): Color<number> {
+    return xyz2rgbFamilyInto(xyz, XYZ_RGB_MATRIX, linearTransfer, out);
+}
+
+export function xyz2displayP3Into(xyz: XYZColor, out: Color<number>): Color<number> {
+    return xyz2rgbFamilyInto(xyz, XYZ_DISPLAY_P3_MATRIX, linearToSrgb, out);
+}
+
+export function xyz2adobeRgbInto(xyz: XYZColor, out: Color<number>): Color<number> {
+    return xyz2rgbFamilyInto(xyz, XYZ_ADOBE_RGB_MATRIX, linearToAdobeRgb, out);
+}
+
+export function xyz2rec2020Into(xyz: XYZColor, out: Color<number>): Color<number> {
+    return xyz2rgbFamilyInto(xyz, XYZ_REC2020_MATRIX, linearToRec2020, out);
+}
+
+// ProPhoto is native D50 — the D65→D50 adaptation makes it a two-matrix path, so
+// it does not fold into the single-matrix `xyz2rgbFamilyInto`. Its `Into` variant
+// reuses the module scratch across both multiplies + writes into `out`.
+export function xyz2proPhotoInto({ x, y, z, alpha }: XYZColor, out: Color<number>): Color<number> {
+    _xyzFamilyVec[0] = x as number;
+    _xyzFamilyVec[1] = y as number;
+    _xyzFamilyVec[2] = z as number;
+    transformMat3Into(_xyzFamilyVec, WHITE_POINT_D65_D50, _xyzFamilyVec);
+    const linear = transformMat3Into(_xyzFamilyVec, XYZ_D50_PROPHOTO_MATRIX, _xyzFamilyVec);
+    setChannel(out, "r", ch(linearToProPhoto(linear[0])));
+    setChannel(out, "g", ch(linearToProPhoto(linear[1])));
+    setChannel(out, "b", ch(linearToProPhoto(linear[2])));
+    out.alpha = ch(alpha as number);
+    return out;
 }

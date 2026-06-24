@@ -49,6 +49,12 @@ import {
     xyz2proPhoto,
     xyz2rec2020,
     xyz2rgb,
+    // VJ-Q2 (1.2.0) — the egress out-param family.
+    xyz2adobeRgbInto,
+    xyz2displayP3Into,
+    xyz2linearSrgbInto,
+    xyz2proPhotoInto,
+    xyz2rec2020Into,
 } from "./conversions/xyz-extended";
 import { getDirectPath } from "./conversions/direct";
 
@@ -149,6 +155,28 @@ const getXyzFromFn = <C extends ColorSpace>(
     XYZ_FUNCTIONS[to]?.from as
         | ((color: XYZColor) => ColorSpaceMap<number>[C])
         | undefined;
+
+// ── VJ-Q2 (1.2.0) — the egress OUT-PARAM registry ──
+//
+// The XYZ→RGB-family `*Into` companions, keyed by the egress space. Used by
+// `color2Into`'s OKLCH fast path: instead of `fromXYZFn(xyz)` (a fresh per-step
+// wrapper that `copyChannelsInto` discarded — the dominant ~28 allocs/call on
+// the gamut-bisection hot path), the egress converts DIRECTLY into the
+// caller-owned `out`. Only the wide-gamut RGB-family spaces (the gamut-bisection
+// egress targets) have an `Into` form; every other egress falls back to the
+// wrapper path (off the hot path). The math is byte-identical to the wrapper
+// form (`proof:gamut-alloc` C3-epsilon + `color-into.test.ts` assert this).
+type XyzIntoFn = (xyz: XYZColor, out: Color<number>) => Color<number>;
+const XYZ_FROM_INTO: Partial<Record<ColorSpace, XyzIntoFn>> = {
+    "srgb-linear": xyz2linearSrgbInto as XyzIntoFn,
+    "display-p3": xyz2displayP3Into as XyzIntoFn,
+    "a98-rgb": xyz2adobeRgbInto as XyzIntoFn,
+    "prophoto-rgb": xyz2proPhotoInto as XyzIntoFn,
+    rec2020: xyz2rec2020Into as XyzIntoFn,
+};
+
+const getXyzFromIntoFn = (to: ColorSpace): XyzIntoFn | undefined =>
+    XYZ_FROM_INTO[to];
 
 // ──────────────────────────────────────────────────────────────────────────────
 // DIRECT_PATHS hot-path table.
@@ -269,6 +297,15 @@ export function color2Into<T, C extends ColorSpace>(
         xyz.z = ch(_color2IntoXyzTuple[2]);
         xyz.alpha = src.alpha as number;
 
+        // VJ-Q2 (1.2.0): the wide-gamut egress converts DIRECTLY into `out` via
+        // the `*Into` companion (no per-step wrapper alloc). For the rare
+        // egress targets without an `Into` form, fall back to the wrapper +
+        // `copyChannelsInto` (off the gamut hot path).
+        const fromXYZIntoFn = getXyzFromIntoFn(to);
+        if (fromXYZIntoFn) {
+            fromXYZIntoFn(xyz, out as unknown as Color<number>);
+            return out;
+        }
         const fromXYZFn = getXyzFromFn<C>(to);
         if (!fromXYZFn) {
             throw new Error(`Unknown target color space: "${to}"`);
@@ -324,6 +361,13 @@ const CHROMA_SEARCH_STEPS = 24; // 2^-24 ≈ 6e-8 chroma resolution — sub-JND.
 // so it never trips the bundle's class-initialization ordering.
 let _scratchProbe: OKLCHColor | undefined;
 
+// VJ-Q2 (1.2.0) S2 — a per-egress-space scratch color, reused across calls so the
+// SEED egress conversion (`color2Into(probe, target, …)`) allocates ZERO wrappers
+// (the prior `color2(probe, target)` seed allocated one egress wrapper + its XYZ/
+// OKLab hub intermediates per call). Single-pass safe: `gamutMapToRgbSpace` never
+// re-enters itself and the scratch is fully overwritten before each read.
+const _egressScratch: Partial<Record<ColorSpace, Color<number>>> = {};
+
 function gamutMapToRgbSpace<C extends Color>(color: C, target: ColorSpace): C {
     const probe = (_scratchProbe ??= new OKLCHColor(0, 0, 0, 1));
     // OKLCh working copy (normalized: L,c,h ∈ [0,1]). Reducing `c` desaturates.
@@ -350,7 +394,20 @@ function gamutMapToRgbSpace<C extends Color>(color: C, target: ColorSpace): C {
     // intermediate OKLABColor + XYZColor boxing (2 allocs/step) is eliminated;
     // the egress wrapper is reused across all 24 steps (1 alloc total, not 24).
     probe.c = ch((0 + cHigh) / 2);
-    const egress = color2(probe, target) as ColorSpaceMap<number>[ColorSpace];
+    // Seed the per-space egress scratch ONCE (lazily); subsequent calls reuse it
+    // via `color2Into` — no per-call seed wrapper alloc (VJ-Q2 S2). The first
+    // seed for a never-seen target space pays one `color2` wrapper; every call
+    // thereafter is zero-alloc on the seed.
+    // `target` is a runtime `ColorSpace` (not a literal), so the egress scratch
+    // is typed at the `Color<number>` width; the per-call `color2Into` writes
+    // into it in-place (the concrete RGB-family subclass is fixed by `target`).
+    let egress = _egressScratch[target] as Color<number> | undefined;
+    if (egress === undefined) {
+        egress = color2(probe, target) as Color<number>;
+        _egressScratch[target] = egress;
+    } else {
+        color2Into(probe, target, egress as ColorSpaceMap<number>[ColorSpace]);
+    }
 
     // Binary-search the largest chroma that stays inside the egress gamut.
     let lo = 0;
@@ -358,7 +415,11 @@ function gamutMapToRgbSpace<C extends Color>(color: C, target: ColorSpace): C {
     for (let i = 0; i < CHROMA_SEARCH_STEPS; i++) {
         const mid = (lo + hi) / 2;
         probe.c = ch(mid);
-        const rgb = color2Into(probe, target, egress);
+        const rgb = color2Into(
+            probe,
+            target,
+            egress as ColorSpaceMap<number>[ColorSpace],
+        ) as Color<number>;
         if (rgbInGamut(rgb.r as number, rgb.g as number, rgb.b as number, GAMUT_EPSILON)) {
             lo = mid;
         } else {
@@ -368,7 +429,11 @@ function gamutMapToRgbSpace<C extends Color>(color: C, target: ColorSpace): C {
 
     // Emit at the in-gamut chroma, clamping residual FP overshoot to the box.
     probe.c = ch(lo);
-    const rgb = color2Into(probe, target, egress);
+    const rgb = color2Into(
+        probe,
+        target,
+        egress as ColorSpaceMap<number>[ColorSpace],
+    ) as Color<number>;
     const clamped = new (rgb.constructor as new (...a: number[]) => Color)(
         clamp(rgb.r as number, 0, 1),
         clamp(rgb.g as number, 0, 1),
@@ -605,4 +670,91 @@ export function mixColors(
     const result = new ResultClass(...resultComponents, resultAlpha);
 
     return result;
+}
+
+// VJ-Q3 (1.2.0) — the `mixColorsInto` OUT-PARAM twin of `mixColors`.
+//
+// `mixColors` allocates a `resultComponents:number[]` array, a `keys.filter()`
+// array per call, AND constructs via the variadic spread
+// `new ResultClass(...resultComponents, resultAlpha)` — a monomorphic-ctor
+// megamorphic-spread deopt. `mixColorsInto` writes each channel DIRECTLY into a
+// caller-owned `out` (which MUST already be in the interpolation `space`) via
+// `setChannel`, killing both arrays + the spread. Arithmetic is byte-identical to
+// `mixColors` (same premultiplied-alpha + hue-interpolation math).
+//
+// CONTRACT: `out.colorSpace === space` and `out` is caller-owned (never aliasing
+// `c1Src`/`c2Src`'s converted forms). The caller hoists `out` across a ramp/loop.
+const _mixIntoScratchC1: Partial<Record<ColorSpace, Color<number>>> = {};
+const _mixIntoScratchC2: Partial<Record<ColorSpace, Color<number>>> = {};
+
+export function mixColorsInto(
+    col1: Color,
+    col2: Color,
+    p1: number,
+    p2: number,
+    space: ColorSpace,
+    hueMethod: HueInterpolationMethod,
+    out: Color<number>,
+): Color<number> {
+    // Convert both endpoints into the interpolation space using per-space
+    // module scratches (no per-call endpoint wrapper alloc on the hot loop).
+    let c1 = _mixIntoScratchC1[space] as Color<number> | undefined;
+    if (c1 === undefined) {
+        c1 = color2(col1, space) as Color<number>;
+        _mixIntoScratchC1[space] = c1;
+    } else {
+        color2Into(col1, space, c1 as ColorSpaceMap<number>[ColorSpace]);
+    }
+    let c2 = _mixIntoScratchC2[space] as Color<number> | undefined;
+    if (c2 === undefined) {
+        c2 = color2(col2, space) as Color<number>;
+        _mixIntoScratchC2[space] = c2;
+    } else {
+        color2Into(col2, space, c2 as ColorSpaceMap<number>[ColorSpace]);
+    }
+
+    if (p1 < 0) p1 = 0;
+    if (p2 < 0) p2 = 0;
+
+    const sum = p1 + p2;
+    if (sum === 0) {
+        p1 = 0.5;
+        p2 = 0.5;
+    } else if (sum !== 1) {
+        p1 = p1 / sum;
+        p2 = p2 / sum;
+    }
+
+    const alphaMultiplier = Math.min(sum, 1);
+    const hueComponent = CYLINDRICAL_HUE_COMPONENT[space];
+
+    const a1 = Number.isNaN(c1.alpha as number) ? (c2.alpha as number) : (c1.alpha as number);
+    const a2 = Number.isNaN(c2.alpha as number) ? (c1.alpha as number) : (c2.alpha as number);
+    const resultAlpha = lerp(a1, a2, p2) * alphaMultiplier;
+
+    // `channels` is the frozen channels-without-alpha list (no filter alloc).
+    const channels = c1.channels;
+    for (let i = 0; i < channels.length; i++) {
+        const key = channels[i]!;
+        let v1 = c1[key] as number;
+        let v2 = c2[key] as number;
+
+        if (Number.isNaN(v1) && Number.isNaN(v2)) {
+            setChannel(out, key, ch(0));
+            continue;
+        }
+        if (Number.isNaN(v1)) v1 = v2;
+        if (Number.isNaN(v2)) v2 = v1;
+
+        if (key === hueComponent) {
+            setChannel(out, key, ch(interpolateHue(v1, v2, p2, hueMethod)));
+        } else {
+            const premul1 = v1 * a1;
+            const premul2 = v2 * a2;
+            const mixed = lerp(premul1, premul2, p2);
+            setChannel(out, key, ch(resultAlpha > 0 ? mixed / resultAlpha : 0));
+        }
+    }
+    out.alpha = resultAlpha;
+    return out;
 }

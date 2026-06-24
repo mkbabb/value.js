@@ -6,12 +6,20 @@ export const isObject = (value: any) => {
 
 export function clone(obj: any): any {
     if (isObject(obj)) {
-        return Object.entries(obj)
-            .map(([k, v]) => [k, clone(v)])
-            .reduce((acc: Record<string, any>, [k, v]) => {
-                acc[k] = v;
-                return acc;
-            }, {});
+        // VJ-Q3 (1.2.0) — the DIRECT structural clone. The prior
+        // `Object.entries().map().reduce()` form allocated THREE arrays + a
+        // reduce-closure PER object level (the engine of every `ValueUnit`/
+        // `FunctionValue.clone` on the flatten/restamp hot path). A single
+        // `for…in` write into a fresh literal copies the fields by name with
+        // ZERO intermediate arrays — bit-identical output (own enumerable keys,
+        // deep-cloned values), strictly fewer allocations.
+        const out: Record<string, any> = {};
+        for (const k in obj) {
+            if (Object.prototype.hasOwnProperty.call(obj, k)) {
+                out[k] = clone(obj[k]);
+            }
+        }
+        return out;
     } else if (obj != null && typeof obj.clone === "function") {
         return obj.clone();
     } else if (Array.isArray(obj)) {

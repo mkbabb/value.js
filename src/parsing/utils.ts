@@ -190,6 +190,47 @@ export const unitParser = (units: readonly string[]): Parser<string> => {
 // `the ident regex`.
 export const identifier = identFastParser;
 
+/**
+ * VJ-Q6 (1.2.0) — scan a CSS DASHED-IDENT custom-function name at `pos`: two
+ * REQUIRED leading dashes `--`, then at least one ident-continue char
+ * (`[a-zA-Z0-9-]`). `scanIdentFast` REJECTS the second dash (it accepts at most
+ * one leading `-` then requires a letter), so the `--ident(args)` custom-function
+ * CALL site dropped to a verbatim string. This scanner accepts the
+ * custom-property-function ident so the call parses to a `FunctionValue`.
+ *
+ * @returns the end offset of the `--ident` token, or `pos` if absent.
+ */
+export function scanDashedIdentFast(src: string, pos: number): number {
+    const len = src.length;
+    let i = pos;
+    // Require exactly the `--` prefix.
+    if (i + 1 >= len) return pos;
+    if (src.charCodeAt(i) !== CC_MINUS || src.charCodeAt(i + 1) !== CC_MINUS) {
+        return pos;
+    }
+    i += 2;
+    // At least one ident-continue char must follow the `--`.
+    if (i >= len || !isIdentContinue(src.charCodeAt(i))) return pos;
+    i++;
+    while (i < len && isIdentContinue(src.charCodeAt(i))) i++;
+    return i;
+}
+
+/**
+ * A `Parser<string>` over {@link scanDashedIdentFast} — anchored at the current
+ * offset; succeeds with the matched `--ident` substring or fails (no token).
+ */
+export const dashedIdentifier = new Parser<string>(
+    (state: ParserState<any>) => {
+        const end = scanDashedIdentFast(state.src, state.offset);
+        if (end === state.offset) return state.err(undefined as never, 0);
+        return state.ok(
+            state.src.slice(state.offset, end),
+            end - state.offset,
+        );
+    },
+);
+
 export const none = istring("none");
 
 /**

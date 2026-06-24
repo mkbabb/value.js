@@ -50,6 +50,14 @@ export {
 } from "../parsing/extract";
 export type { CSSAnimationOptions } from "../parsing/extract";
 
+// VJ-Q6 (1.2.0) — the `<syntax>` validator on the resolve path.
+export {
+    validateSyntax,
+    coerceToSyntax,
+    parseSyntaxDescriptor,
+} from "../parsing/syntax";
+export type { SyntaxComponentName } from "../parsing/syntax";
+
 // Animation shorthand parser/serializer
 export {
     parseAnimationShorthand,

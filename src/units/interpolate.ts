@@ -80,13 +80,19 @@ export function lerpComputedValue(
 type InterpColor = Color<ValueUnit<number> | number>;
 
 /**
- * Frozen per-frame color-channel plan (B3). Built once at `prepareInterpVar`;
- * drives `lerpColorValue`'s closure-free hot loop. Parallel arrays (a light SoA)
- * indexed by channel position: the unwrapped start/stop numbers, the hue
- * channel index (or -1), the destination ValueUnit ref per channel (or null
- * when the destination slot is a raw number written via `setChannel`).
+ * Frozen per-frame color-INTERPOLATION plan (B3). Built once at
+ * `prepareInterpVar`; drives `lerpColorValue`'s closure-free hot loop. Parallel
+ * arrays (a light SoA) indexed by channel position: the unwrapped start/stop
+ * numbers, the hue channel index (or -1), the destination ValueUnit ref per
+ * channel (or null when the destination slot is a raw number written via
+ * `setChannel`).
+ *
+ * Renamed `ColorChannelPlan → ColorInterpPlan` at VJ-Q8 (1.2.0) to free the
+ * `ColorChannelPlan` name for the PUBLIC compositor SoA layout (`color-soa.ts`)
+ * the keyframes.js SoA compositor consumes — a DIFFERENT structure (a reusable
+ * `(Color → channel offsets)` layout, not this per-iv endpoint cache).
  */
-export type ColorChannelPlan = {
+export type ColorInterpPlan = {
     keys: readonly string[];
     startN: Float64Array;
     stopN: Float64Array;
@@ -231,7 +237,7 @@ export function lerpValue(
 export function prepareInterpVar(iv: InterpolatedVar<any>): InterpolatedVar<any> {
     iv._lerp = resolveLerpFn(iv) ?? lerpNumericValue;
     if (!iv.computed && iv.start.unit === "color") {
-        iv._colorPlan = buildColorChannelPlan(iv as InterpolatedVar<InterpColor>);
+        iv._colorPlan = buildColorInterpPlan(iv as InterpolatedVar<InterpColor>);
     }
     return iv;
 }
@@ -243,9 +249,9 @@ export function prepareInterpVar(iv: InterpolatedVar<any>): InterpolatedVar<any>
  * them once here so `lerpColorValue`'s hot loop is closure- and
  * `unwrapDeep`-free. Mirrors the `_lerp` predispatch already on the iv.
  */
-function buildColorChannelPlan(
+function buildColorInterpPlan(
     iv: InterpolatedVar<InterpColor>,
-): ColorChannelPlan {
+): ColorInterpPlan {
     const { start, stop, value, colorSpace } = iv;
     const hueKey = colorSpace ? CYLINDRICAL_HUE_COMPONENT[colorSpace] : undefined;
 

@@ -1,5 +1,108 @@
 # Changelog
 
+## [1.2.0] — 2026-06-23 (Q · the perf + grammar + provenance minor — VJ-Q2…Q9)
+
+The keyframes.js **Tranche Q** dispatch's 1.2.0 family (`KF-TO-VALUEJS-Q.md`):
+the perf color-arch out-param family, two grammar arms, the `clone()`-stable leaf
+provenance, the `/math` subpath contract hold, the SoA color-channel layout, and
+the serialization-fidelity fix. All BC-additive. Every item carries a born-RED
+gate verified to bite the unfixed tree.
+
+### LIBRARY — perf (color-arch out-params)
+
+- **VJ-Q2 — the egress-converter OUT-PARAM family** (`conversions/xyz-extended.ts`
+  + `units/color/dispatch.ts`). `xyz2rgbFamilyInto` + the per-space `*Into`
+  companions (`xyz2displayP3Into` / `xyz2rec2020Into` / `xyz2adobeRgbInto` /
+  `xyz2linearSrgbInto` / `xyz2proPhotoInto`), routed by a `getXyzFromIntoFn`
+  registry, write the egress channels DIRECTLY into `color2Into`'s caller-owned
+  `out` scratch via `transformMat3Into` + `setChannel` — eliminating the ~28
+  per-step `new <Space>Color(...)` wrappers the gamut bisection discarded. S2
+  additionally seeds the bisection egress from a per-space module scratch (reused
+  across calls). The wide-gamut `gamutMap(display-p3 OOG)` hot path drops
+  **37 → 9 allocs/call** (MEASURED), bit-identical output (the DROPPED VJ-P1
+  second half, redressed under no-deferral). Gate: `proof:gamut-alloc`
+  (`N_TARGET` re-baselined 40 → 11).
+- **VJ-Q3 — `mixColorsInto` + `sampleColorRampAt` + the structural clone.**
+  `mixColorsInto` (`dispatch.ts`) writes channels via `setChannel` into a
+  caller-owned `out`, killing `mixColors`'s `resultComponents` array + the
+  `keys.filter()` array + the variadic-spread ctor deopt (bit-exact).
+  `sampleColorRampAt(from, to, t, opts)` (`mix.ts`) is the array-free single-`t`
+  sibling of `sampleColorRamp` — bit-exact to the indexed stop
+  (`sampleColorRampAt(a,b,i/(n-1)) === sampleColorRamp(a,b,n)[i]`), so consumers
+  hoist the ramp out of an inner loop. The `clone()` util (`src/utils.ts`) drops
+  the `Object.entries().map().reduce()` three-array-per-level form for a direct
+  `for…in` structural copy. Gate: `proof:color-arch-q` C1/C2.
+
+### LIBRARY — grammar
+
+- **VJ-Q6 — the dashed-function CALL arm.** `--ident(args)` parses to
+  `FunctionValue('--ident', [args])` (`parsing/utils.ts scanDashedIdentFast` +
+  `dashedIdentifier`; wired into the `-` dispatch bucket in `parsing/index.ts`).
+  1.1.0 dropped it to a verbatim string because `scanIdentFast` rejects the
+  second dash; the new scanner accepts the `--`-prefixed custom-function ident.
+  Plus the **`<syntax>` validator** (`parsing/syntax.ts`: `validateSyntax`,
+  `coerceToSyntax`, `parseSyntaxDescriptor`) — value.js's CSS Properties & Values
+  L1 component-type checker is now exposed on the resolve path for the CSS
+  Functions & Mixins L1 typed-arg coercion (the consumer inlines call args through
+  it, not a re-authored checker). Gate: `proof:grammar-q` C1–C3.
+- **VJ-Q7 — `if()` multibranch.** `handleIf` emits the FULL ordered clause list
+  (`splitIfClauses` already computed it) as a flat
+  `[condition, value, condition, value, …, elseValue]` pair list — NOT the prior
+  lossy first-consequent + first-else collapse (which dropped every middle
+  branch). The `FunctionValue.toString()` `if` serializer generalizes to the
+  N-branch `<cond>: <value>; …; else: <value>` form (round-trip stable). The
+  common 2-branch form is byte-identical to the prior 3-slot shape. Gate:
+  `proof:grammar-q` C4/C5.
+
+### LIBRARY — provenance + layout
+
+- **VJ-Q4 — `flatLeaf .fnName`.** A 7th optional ctor field `fnName?: string` on
+  `ValueUnit`, preserved by `clone()` + `coalesce`, stamped by `flattenObject`
+  from the enclosing `FunctionValue.name`. The `clone()`-stable function-name
+  carrier that retires the keyframes.js S8 WeakMap `FN_NAME_MAP` + clone-restamp
+  ceremony (the consumer reads `u.fnName` directly). `subProperty` could not
+  double as the carrier (clobbered by `parseCSSSubValue`). Gate:
+  `proof:color-arch-q` C3.
+- **VJ-Q8 — the `ColorChannelPlan` SoA layout** (NEW `units/color-soa.ts`,
+  MEASURE-FIRST → **BUILD**). `buildColorChannelPlan` (a reusable `(Color →
+  channel offsets)` Float64 oklab/oklch layout) + `packColorChannels` +
+  `lerpColorChannels` (a closure-free buffer fold, hue slot routed through
+  `interpolateHue`) — the layout the keyframes.js SoA compositor folds the boxed
+  color tail through. value.js-side measure (`bench/color-soa-fold.mjs`): the
+  Float64 fold is ~5× faster than the boxed per-element `Color` lerp over K=64
+  leaves; bit-exact to it (the kf-side Amdahl authorization is the consumer's
+  grounding gate). The internal per-iv interpolation cache was renamed
+  `ColorChannelPlan → ColorInterpPlan` to free the public name. Gate:
+  `proof:color-arch-q` C4.
+
+### LIBRARY — serialization fidelity
+
+- **VJ-Q9 — none-channel + `color()`-wrapper round-trip** (`units/color/index.ts`).
+  S1: `Color.toString()` now coerces each channel via `Number(v)` before the NaN
+  check, so a powerless `none` channel held as `ValueUnit<NaN>` serializes as
+  `none`, not `NaN` (`oklch(0.6 none 200)` round-trips verbatim). S2: `formatColor`
+  honors `COLOR_FUNCTION_FORM` to emit the CSS-valid `color(<space> …)` wrapper for
+  the predefined `color()` spaces (display-p3 / rec2020 / a98-rgb / prophoto-rgb /
+  srgb-linear / xyz) — the bare `display-p3(…)` form was invalid CSS and dropped
+  the wrapper on round-trip. Gate: `proof:serialize-fidelity`. (The
+  `color-classes`/`parser-snapshot` corpus that codified the bare form was updated
+  to the round-trip-faithful wrapper form.)
+
+### LIBRARY — contract hold
+
+- **VJ-Q5 — the `/math` subpath stays `parse-that`-free across 1.2.0.** Confirmed
+  via the existing `proof:subpath-budget` (C8 — the math chunk is parse-that-free)
+  + `proof:subpath-resolve` (R4 — `@mkbabb/value.js/math` resolves
+  `lerp`/`clamp`/`scale`); the built `math.js` imports ONE `math-*.js` chunk (zero
+  grammar, zero parse-that). A contract hold, not a new build.
+
+### GATES
+
+- New: `proof:serialize-fidelity` (VJ-Q9), `proof:grammar-q` (VJ-Q6 + VJ-Q7),
+  `proof:color-arch-q` (VJ-Q3 + VJ-Q4 + VJ-Q8) — wired to `npm run proof:*`.
+  `proof:gamut-alloc` `N_TARGET` re-baselined to the measured VJ-Q2 residual.
+  `bench/color-soa-fold.mjs` added to `npm run bench`.
+
 ## [1.1.1] — 2026-06-23 (Q · VJ-Q1 — the `contrast-color()` library-LEADS catch-up)
 
 The ONE platform-parity gap the keyframes.js **Tranche Q** dispatch
