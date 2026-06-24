@@ -945,4 +945,8 @@ export {
     safeAccentColor,
     needsContrastAdjustment,
     getOklchLightness,
+    // VJ-Q1 (1.1.1) — WCAG 2.x relative-luminance + `contrast-color()` leaf.
+    wcagRelativeLuminance,
+    wcagContrastRatio,
+    contrastColor,
 } from "./contrast";

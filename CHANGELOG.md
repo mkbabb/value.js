@@ -1,5 +1,54 @@
 # Changelog
 
+## [1.1.1] — 2026-06-23 (Q · VJ-Q1 — the `contrast-color()` library-LEADS catch-up)
+
+The ONE platform-parity gap the keyframes.js **Tranche Q** dispatch
+(`KF-TO-VALUEJS-Q.md`, VJ-Q1) named: `contrast-color()` was the FIRST CSS feature
+value.js trailed the platform on (Baseline April 2026), inverting the
+library-LEADS precept. This PATCH closes it. parse-that re-pinned `^0.13.0`
+(transparent — the deleted `thenMap`/`fuse` had zero value.js consumers; the full
+suite stays green).
+
+### LIBRARY
+
+- **VJ-Q1 — `contrast-color(<color>)` (CSS Color L7) eager evaluation**
+  (`src/units/color/contrast.ts`, re-exported from `src/index.ts` +
+  `src/units/color/index.ts`; the parser arm in `src/parsing/color.ts`). A NET-NEW
+  WCAG 2.x leaf — `wcagRelativeLuminance(color)` (the linear-light sRGB luminance
+  `0.2126·R + 0.7152·G + 0.0722·B`, computed via `color2(color, "srgb-linear")` so
+  the cross-space transform AND the gamma decode are one step) + `wcagContrastRatio(a, b)`
+  (`(L1 + 0.05) / (L2 + 0.05)`, range [1, 21]) + `contrastColor(color)` (the
+  maximally-contrasting black/white). This is DISTINCT from the OKLab-lightness
+  `computeSafeAccent`/`safeAccentColor` accent helpers — the WCAG metric picks a
+  different endpoint near the contrast boundary (a `#767676` mid-gray resolves to
+  black under WCAG; the OKLab-L metric would mispick). The leaf accepts a
+  PUBLIC-domain `Color` (RGB in [0,255], as `new RGBColor(255,…)` / `parseCSSColor`
+  produce) and normalizes internally. The `contrast-color()` parse arm joins the
+  `c` color-dispatch bucket and resolves EAGERLY to ONE concrete `Color` (mirroring
+  the `color-mix()` combinator), so `parseCSSValue('contrast-color(red)')` is now a
+  `Color` (`rgb(0 0 0)`), NOT the opaque `FunctionValue` it was at 1.1.0. kf inherits
+  the resolved color transparently under its existing `^1.1.0` caret.
+
+### NO-LEGACY
+
+- **The dead CSS Color L6 `color-contrast(... vs ...)` grammar stub** was retired
+  from `src/parsing/grammars/css-color.bbnf` (the never-shipped L6 `colorContrast`
+  rule + its dangling `color` rule reference), replaced by the `contrastColor` L7
+  rule. The `.bbnf` is a documentation grammar (the live parser is hand-rolled
+  combinators), so the delete is parse-path-inert; only the new L7 arm changes
+  behavior.
+
+### GATE
+
+- **`proof:contrast-color`** (NEW, born-RED — `scripts/proof-contrast-color.mjs`,
+  wired to `npm run proof:contrast-color`). Exercises the BUILT `dist/value.js`:
+  C1 the born-RED witness (`contrast-color(red)` is a concrete `Color`, not an
+  opaque `FunctionValue`), C2 the WCAG endpoint picks (DISTINCT from the OKLab-L
+  metric at the `#767676` crossover), C3 the WCAG leaf math (L(white)=1, L(black)=0,
+  ratio=21), C4 the dead L6 stub is gone. Verified RED on the unfixed tree
+  (plant-a-failure: reverting the L7 arm re-opaques the value + restores the stub →
+  C1/C2/C4 red).
+
 ## [0.13.0] — 2026-06-16 (N · the kf-K-dispatched grammar fold — N.W11.D + N.W11′)
 
 The two net-new grammars the keyframes.js-K frontier dispatched (`GRAMMAR-FOLD.md`,

@@ -18,6 +18,7 @@ import {
     RGBColor,
     Rec2020Color,
     XYZColor,
+    contrastColor as contrastColorEval,
 } from "../units/color";
 import { Parser, all, any, dispatch, regex, string, whitespace } from "@mkbabb/parse-that";
 import { FunctionValue, ValueUnit } from "../units";
@@ -498,6 +499,39 @@ const colorMix: Parser<ValueUnit> = utils
         return createColorValueUnit(mixed);
     });
 
+// --- CSS Color 5 `contrast-color()` (L7, Baseline April 2026) — VJ-Q1 ---
+//
+// `contrast-color(<color>)` resolves EAGERLY to the maximally-contrasting of
+// black/white against the argument, per the WCAG 2.x contrast ratio. It mirrors
+// the `colorMix` combinator above: parse one `<color>`, resolve it to a plain
+// `Color`, evaluate to ONE concrete `Color`, and wrap it through
+// `createColorValueUnit`. kf inherits the resolved `Color` transparently (no kf
+// API change); the Phase-2 resolve pass can lower `if(...)` over the result.
+const contrastColorFn: Parser<ValueUnit> = utils
+    .istring("contrast-color")
+    .next(
+        Parser.lazy(() => CSSColor.Value)
+            .trim(whitespace)
+            .wrap(lparen, rparen),
+    )
+    .map((colorUnit: ValueUnit) => {
+        // The WCAG leaf accepts a PUBLIC-domain color (it normalizes internally)
+        // and reads each channel's `ValueUnit.unit` to pick the right per-space
+        // bound (e.g. the `%` on HSL s/l). Pass the parsed color's value with its
+        // `ValueUnit` channels INTACT — do NOT pre-unwrap to bare numbers (that
+        // strips the `%` unit and mis-normalizes HSL/LAB), and do NOT
+        // `resolveToPlainColor` (that double-normalizes). `contrastColorEval`
+        // returns the public-domain black/white endpoint.
+        // `parsed` carries `ValueUnit<number>` channels; the leaf normalizes via
+        // `normalizeColor` (which `ValueUnit.unwrapDeep`s each channel and reads
+        // its `%`/unit), so the wrapped form is the correct input — cast through
+        // `unknown` (the same boundary `resolveToPlainColor` asserts).
+        const parsed = (colorUnit as ParsedColorUnit).value;
+        return createColorValueUnit(
+            contrastColorEval(parsed as unknown as Color),
+        );
+    });
+
 // --- CSS color() function ---
 
 const colorFunctionSpaces = any(
@@ -694,7 +728,13 @@ const lightDarkParser: Parser<ValueUnit> = utils.istring("light-dark").next(
 // resolution of every currently-parsing named color.
 const namedThenSystem = any(nameParser, systemColorParser);
 const letterBuckets: Record<string, Parser<ValueUnit>> = {
-    c: any(currentColorParser, colorMix, colorFunction, namedThenSystem),
+    c: any(
+        currentColorParser,
+        colorMix,
+        contrastColorFn,
+        colorFunction,
+        namedThenSystem,
+    ),
     r: any(rgbParser, namedThenSystem),
     h: any(hslParser, hsvParser, hwbParser, namedThenSystem),
     l: any(labParser, lchParser, lightDarkParser, namedThenSystem),

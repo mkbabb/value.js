@@ -188,3 +188,80 @@ describe("CSS string safe accent path (parseCSSColor → colorUnit2 → computeS
         expect(safe.L).toBeGreaterThan(0.4);
     });
 });
+
+// VJ-Q1 (1.1.1) — WCAG 2.x relative-luminance + the `contrast-color()` L7 arm.
+import {
+    wcagRelativeLuminance,
+    wcagContrastRatio,
+    contrastColor,
+} from "../src/units/color/contrast";
+import { parseCSSValue } from "../src/parsing";
+
+describe("WCAG relative-luminance + contrast-ratio leaf (VJ-Q1)", () => {
+    it("L(white) === 1, L(black) === 0", () => {
+        expect(wcagRelativeLuminance(new RGBColor(255, 255, 255, 1))).toBeCloseTo(1, 9);
+        expect(wcagRelativeLuminance(new RGBColor(0, 0, 0, 1))).toBeCloseTo(0, 9);
+    });
+
+    it("L(red) === 0.2126 (the sRGB R coefficient — pure primary)", () => {
+        expect(wcagRelativeLuminance(new RGBColor(255, 0, 0, 1))).toBeCloseTo(0.2126, 6);
+    });
+
+    it("L(green primary) === 0.7152, L(blue primary) === 0.0722", () => {
+        expect(wcagRelativeLuminance(new RGBColor(0, 255, 0, 1))).toBeCloseTo(0.7152, 6);
+        expect(wcagRelativeLuminance(new RGBColor(0, 0, 255, 1))).toBeCloseTo(0.0722, 6);
+    });
+
+    it("ratio(white, black) === 21 (the max WCAG ratio), order-independent", () => {
+        const w = new RGBColor(255, 255, 255, 1);
+        const k = new RGBColor(0, 0, 0, 1);
+        expect(wcagContrastRatio(w, k)).toBeCloseTo(21, 9);
+        expect(wcagContrastRatio(k, w)).toBeCloseTo(21, 9);
+    });
+
+    it("ratio(x, x) === 1 (identical luminance)", () => {
+        const r = new RGBColor(120, 80, 200, 1);
+        expect(wcagContrastRatio(r, r)).toBeCloseTo(1, 9);
+    });
+
+    it("converts non-sRGB colors before measuring (normalized OKLCH input)", () => {
+        // The leaf speaks the NORMALIZED [0,1] color domain: a NORMALIZED
+        // OKLCH white (L=1) reads near-1 luminance, near-black reads near-0.
+        expect(wcagRelativeLuminance(new OKLCHColor(1, 0, 0, 1) as Color)).toBeCloseTo(1, 4);
+        expect(wcagRelativeLuminance(new OKLCHColor(0, 0, 0, 1) as Color)).toBeCloseTo(0, 4);
+    });
+});
+
+describe("contrastColor leaf (VJ-Q1)", () => {
+    it("picks black against light, white against dark", () => {
+        expect(contrastColor(new RGBColor(255, 255, 255, 1)).toString()).toBe("rgb(0 0 0)");
+        expect(contrastColor(new RGBColor(0, 0, 0, 1)).toString()).toBe("rgb(255 255 255)");
+        expect(contrastColor(new RGBColor(255, 0, 0, 1)).toString()).toBe("rgb(0 0 0)"); // red lum 0.21 → black wins
+        expect(contrastColor(new RGBColor(0, 0, 128, 1)).toString()).toBe("rgb(255 255 255)"); // navy → white
+        expect(contrastColor(new RGBColor(255, 255, 0, 1)).toString()).toBe("rgb(0 0 0)"); // yellow → black
+    });
+
+    it("uses the WCAG metric (not OKLab L) near the crossover", () => {
+        // #767676 sRGB ≈ 0.4627; WCAG luminance ≈ 0.185 > crossover 0.179 → black.
+        expect(contrastColor(new RGBColor(0x76, 0x76, 0x76, 1)).toString()).toBe("rgb(0 0 0)");
+    });
+});
+
+describe("contrast-color() parse arm (VJ-Q1 — eager Color resolution)", () => {
+    it("parseCSSValue('contrast-color(red)') is a concrete Color, not an opaque FunctionValue", () => {
+        const v = parseCSSValue("contrast-color(red)");
+        expect((v as ValueUnit).unit).toBe("color");
+        expect(v.toString()).toBe("rgb(0 0 0)");
+    });
+
+    it("resolves nested color functions in the argument", () => {
+        const v = parseCSSValue("contrast-color(color-mix(in oklab, red, blue))");
+        expect((v as ValueUnit).unit).toBe("color");
+        expect(["rgb(0 0 0)", "rgb(255 255 255)"]).toContain(v.toString());
+    });
+
+    it("parseCSSColor('contrast-color(white)') resolves to black", () => {
+        const v = parseCSSValue("contrast-color(white)");
+        expect(v.toString()).toBe("rgb(0 0 0)");
+    });
+});

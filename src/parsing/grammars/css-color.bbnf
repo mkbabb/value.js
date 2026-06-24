@@ -92,13 +92,12 @@ colorMix = "color-mix" << "(",
 
 lightDark = "light-dark" << "(" , color , "," , color << ")" ;
 
-// --- color-contrast() (CSS Color Level 6 / experimental) ---
-// Picks the color from a list with highest/sufficient contrast against a base
+// --- contrast-color() (CSS Color Level 5 / Baseline April 2026) — VJ-Q1 ---
+// Resolves eagerly to the maximally-contrasting black/white against the argument
+// (WCAG 2.x relative-luminance + contrast-ratio). The never-shipped Level 6
+// `color-contrast(... vs ...)` legacy stub it replaced was retired (no-legacy).
 
-colorContrast = "color-contrast" << "(",
-    color , "vs" , color , ("," , color)* ,
-    ("to" , ("AA" | "AA-large" | "AAA" | number))?
-    << ")" ;
+contrastColor = "contrast-color" << "(" , color << ")" ;
 
 // --- Named colors (CSS Color Level 4 §6.1) ---
 // 148 named colors — structural matching only; semantic lookup in combinator layer
@@ -131,6 +130,6 @@ kelvin = number , "k" ;
 // Priority order: functional forms first, then hex, then names.
 // Relative colors and named/system colors require semantic resolution.
 
-color = colorMix | colorContrast | lightDark | colorFn
+color = colorMix | contrastColor | lightDark | colorFn
       | relativeColor | colorFunction
       | hex | kelvin | systemColor | namedColor ;

@@ -101,20 +101,25 @@ describe("O.W4 grammar-2026 — value functions + color (G2 lane)", () => {
         });
     });
 
-    // --- S4 contrast-color(): ALREADY GREEN via generic handleFunc ---
+    // --- S4 contrast-color(): VJ-Q1 (1.1.1) — EAGER-evaluated to a concrete
+    // Color (CSS Color L7, Baseline April 2026). The Tranche-O placeholder
+    // asserted the opaque-FunctionValue fall-through (TO-VERIFY browser support);
+    // the library-LEADS catch-up now resolves it to the maximally-contrasting
+    // black/white per the WCAG 2.x contrast ratio. The never-shipped L6
+    // `contrast-color(<c> vs <c>+)` comparison form was retired (no-legacy).
 
-    describe("C7 — contrast-color() (S4, TO-VERIFY browser support — parse only)", () => {
-        it("parses contrast-color(white) to FunctionValue('contrast-color')", () => {
+    describe("C7 — contrast-color() (VJ-Q1, L7 — eager Color resolution)", () => {
+        it("resolves contrast-color(white) to a concrete Color (black), not an opaque FunctionValue", () => {
             const r = parseCSSValue("contrast-color(white)");
-            expect(r).toBeInstanceOf(FunctionValue);
-            expect((r as FunctionValue).name).toBe("contrast-color");
-            // VERBATIM: no computed contrast value is asserted (rendering concern).
+            expect(r).not.toBeInstanceOf(FunctionValue);
+            expect((r as ValueUnit).unit).toBe("color");
+            expect(r.toString()).toBe("rgb(0 0 0)");
         });
 
-        it("parses the explicit comparison form contrast-color(#123456 vs black white)", () => {
-            const r = parseCSSValue("contrast-color(#123456 vs black white)");
-            expect(r).toBeInstanceOf(FunctionValue);
-            expect((r as FunctionValue).name).toBe("contrast-color");
+        it("resolves contrast-color(black) to white", () => {
+            expect(parseCSSValue("contrast-color(black)").toString()).toBe(
+                "rgb(255 255 255)",
+            );
         });
     });
 
@@ -291,11 +296,15 @@ describe("O.W4 grammar-2026 — value functions + color (G2 lane)", () => {
             expect(serialized).toContain("light-dark(");
         });
 
-        it("contrast-color() round-trips to the same FunctionValue", () => {
+        it("contrast-color() resolves eagerly to a concrete Color that round-trips (VJ-Q1)", () => {
+            // VJ-Q1: contrast-color() is EAGER — it resolves to a concrete black/
+            // white Color at parse time, so the serialized form is that resolved
+            // color (`rgb(0 0 0)`), which round-trips to the same color (NOT the
+            // verbatim `contrast-color(...)` FunctionValue the L6 placeholder kept).
             const { serialized, second } = reparseEquals("contrast-color(white)");
-            expect(second).toBeInstanceOf(FunctionValue);
-            expect((second as FunctionValue).name).toBe("contrast-color");
-            expect(serialized).toContain("contrast-color(");
+            expect(second).not.toBeInstanceOf(FunctionValue);
+            expect((second as ValueUnit).unit).toBe("color");
+            expect(serialized).toBe("rgb(0 0 0)");
         });
 
         it("sibling-index() round-trips to the same FunctionValue", () => {

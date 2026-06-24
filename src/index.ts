@@ -152,6 +152,10 @@ export {
     safeAccentColor,
     needsContrastAdjustment,
     getOklchLightness,
+    // VJ-Q1 (1.1.1) — WCAG 2.x relative-luminance + `contrast-color()` leaf.
+    wcagRelativeLuminance,
+    wcagContrastRatio,
+    contrastColor,
 } from "./units/color/contrast";
 
 // N-color mixing + the perceptual N-stop ramp sampler (N.W11.D)
