@@ -33,9 +33,10 @@ import {
 } from "../units/color/color-names";
 import type { ANGLE_UNITS } from "../units/constants";
 import { normalizeColorUnit } from "../units/color/normalize";
-import { color2, hex2rgb, mixColors } from "../units/color/dispatch";
+import { color2, hex2rgb } from "../units/color/dispatch";
+import { mixColors } from "../units/color/mix";
 import { kelvin2rgb } from "../units/color/conversions/kelvin";
-import type { HueInterpolationMethod } from "../units/color/dispatch";
+import type { HueInterpolationMethod } from "../units/color/mix";
 import { convertToDegrees } from "../units/utils";
 import * as utils from "./utils";
 import { memoize } from "../utils";

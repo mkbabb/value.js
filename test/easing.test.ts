@@ -166,6 +166,68 @@ describe("easing functions", () => {
                 }
             }
         });
+
+        // R.W1.4 — the tightened preset table (easings.net + exact ⅓-handles).
+        // The numeric floor the R.W4 EasingPicker migration consumes: worst-case
+        // deviation from the analytic curve is sub-JND, and the pure polynomial
+        // curves are represented EXACTLY (audit/pass2/easing-disposition.md §1.4).
+        const bezOf = (name: keyof typeof bezierPresets): ((x: number) => number) =>
+            CSSCubicBezier(...(bezierPresets[name] as [number, number, number, number]));
+
+        const maxDeviation = (
+            bez: (x: number) => number,
+            fn: (t: number) => number,
+        ): number => {
+            let max = 0;
+            for (let i = 0; i <= 2000; i++) {
+                const t = i / 2000;
+                max = Math.max(max, Math.abs(bez(t) - fn(t)));
+            }
+            return max;
+        };
+
+        it("R-2 — smooth-step-3 is the exact Hermite ⅓-handle bezier", () => {
+            expect(bezierPresets["smooth-step-3"]).toEqual([1 / 3, 0, 2 / 3, 1]);
+            expect(maxDeviation(bezOf("smooth-step-3"), smoothStep3)).toBeLessThan(1e-6);
+        });
+
+        it("R-3 — the four pure in/out quad and cubic rows are EXACT", () => {
+            const exact: [keyof typeof bezierPresets, (t: number) => number][] = [
+                ["ease-in-quad", easeInQuad],
+                ["ease-out-quad", easeOutQuad],
+                ["ease-in-cubic", easeInCubic],
+                ["ease-out-cubic", easeOutCubic],
+            ];
+            for (const [name, fn] of exact) {
+                expect(maxDeviation(bezOf(name), fn), name).toBeLessThan(1e-6);
+            }
+        });
+
+        it("R-3 — the 15 tightened rows track their analytic curves at ≤ 0.0387 (sub-JND)", () => {
+            const analytic: [keyof typeof bezierPresets, (t: number) => number][] = [
+                ["ease-in-sine", easeInSine],
+                ["ease-out-sine", easeOutSine],
+                ["ease-in-out-sine", easeInOutSine],
+                ["ease-in-quad", easeInQuad],
+                ["ease-out-quad", easeOutQuad],
+                ["ease-in-out-quad", easeInOutQuad],
+                ["ease-in-cubic", easeInCubic],
+                ["ease-out-cubic", easeOutCubic],
+                ["ease-in-out-cubic", easeInOutCubic],
+                ["ease-in-expo", easeInExpo],
+                ["ease-out-expo", easeOutExpo],
+                ["ease-in-out-expo", easeInOutExpo],
+                ["ease-in-circ", easeInCirc],
+                ["ease-out-circ", easeOutCirc],
+                ["ease-in-out-circ", easeInOutCirc],
+            ];
+            let globalMax = 0;
+            for (const [name, fn] of analytic) {
+                globalMax = Math.max(globalMax, maxDeviation(bezOf(name), fn));
+            }
+            // §1.4: the worst tightened row is ease-in-out-circ at 0.0387.
+            expect(globalMax).toBeLessThan(0.0388);
+        });
     });
 
     describe("timingFunctions", () => {

@@ -944,14 +944,17 @@ export {
     color2,
     color2Into,
     gamutMap,
+    hex2rgb,
+    rgb2hex,
+} from "./dispatch";
+// K-DISP (R.W1.6) — the hue/mix cluster is now sourced from mix.ts.
+export {
     interpolateHue,
     mixColors,
     cssColorInterpKeyword,
     CYLINDRICAL_HUE_COMPONENT,
-    hex2rgb,
-    rgb2hex,
-} from "./dispatch";
-export type { HueInterpolationMethod } from "./dispatch";
+} from "./mix";
+export type { HueInterpolationMethod } from "./mix";
 // OKLab contrast helpers — sourced directly from contrast.ts (K.W2e).
 export {
     computeSafeAccent,

@@ -43,8 +43,8 @@ export type PropertyDescriptor = {
 // CSS Functions and Mixins Level 1 (O.W4 S7): `@function --name(params) { result }`.
 export type CustomFunctionParameter = {
     name: string; // a <dashed-ident>, e.g. "--x"
-    type?: string; // the <syntax> declaration, e.g. "<length>" (VERBATIM)
-    defaultValue?: string; // the optional default, VERBATIM
+    syntax?: string; // the <css-type> declaration, e.g. "<length>" (VERBATIM)
+    default?: string; // the optional default value, VERBATIM
 };
 
 export type CustomFunctionDescriptor = {
@@ -630,31 +630,66 @@ const unknownBody = (atName: string): Parser<StylesheetItem> =>
 
 // ─── @function (O.W4 S7) ───────────────────────────────────────────────────
 //
-// `@function --name(<param>: <syntax> [: <default>]?, …) { result: <value>; … }`.
-// The parameter list and the declaration block are captured; `result:` is
-// hoisted into the descriptor (CSS Functions L1 §4.4 — a special descriptor).
+// `@function --name(<param>, …) { result: <value>; … }`, where each
+// `<function-parameter> = <custom-property-name> <css-type>? [ : <default-value> ]?`
+// (CSS Functions & Mixins L1 §3.1). The parameter list and the declaration
+// block are captured; `result:` is hoisted into the descriptor (a special
+// descriptor, §4.4).
+
+// Index of the first TOP-LEVEL colon (depth 0, outside strings) in `text` — the
+// `<default-value>` introducer. Colons nested in `type( … )` / `url( a:b )` or a
+// string are skipped. `-1` when there is no default. Mirrors the depth-tracking
+// of `splitSelectorList` (which already isolated each segment at top-level commas).
+const topLevelColonIndex = (text: string): number => {
+    let depth = 0;
+    let inString: string | null = null;
+    for (let i = 0; i < text.length; i++) {
+        const ch = text[i]!;
+        if (inString) {
+            if (ch === "\\" && i + 1 < text.length) {
+                i++;
+                continue;
+            }
+            if (ch === inString) inString = null;
+            continue;
+        }
+        if (ch === '"' || ch === "'") {
+            inString = ch;
+            continue;
+        }
+        if (ch === "(" || ch === "[") {
+            depth++;
+            continue;
+        }
+        if (ch === ")" || ch === "]") {
+            depth--;
+            continue;
+        }
+        if (ch === ":" && depth === 0) return i;
+    }
+    return -1;
+};
 
 const parseFunctionParameters = (raw: string): CustomFunctionParameter[] => {
     const trimmed = raw.trim();
     if (trimmed.length === 0) return [];
     return splitSelectorList(trimmed).map((segment) => {
-        // `--x: <length>: 0` → name "--x", type "<length>", default "0".
-        const colonIdx = segment.indexOf(":");
-        if (colonIdx === -1) {
-            return { name: segment.trim() };
-        }
-        const name = segment.slice(0, colonIdx).trim();
-        const rest = segment.slice(colonIdx + 1).trim();
-        // A second top-level colon separates <syntax> from the default value.
-        const defaultIdx = rest.indexOf(":");
+        // `<custom-property-name> <css-type>? [ : <default-value> ]?`. The single
+        // top-level colon introduces the default; the `<css-type>` follows the
+        // name by WHITESPACE. `--x <length>: 0px` → name "--x", syntax
+        // "<length>", default "0px".
+        const colonIdx = topLevelColonIndex(segment);
+        const decl = (colonIdx === -1 ? segment : segment.slice(0, colonIdx)).trim();
+        // Split the declaration head into <custom-property-name> + optional
+        // <css-type> at the FIRST run of whitespace.
+        const wsIdx = decl.search(/\s/);
+        const name = wsIdx === -1 ? decl : decl.slice(0, wsIdx).trim();
+        const syntax = wsIdx === -1 ? "" : decl.slice(wsIdx).trim();
         const param: CustomFunctionParameter = { name };
-        if (defaultIdx === -1) {
-            if (rest.length > 0) param.type = rest;
-        } else {
-            const type = rest.slice(0, defaultIdx).trim();
-            const def = rest.slice(defaultIdx + 1).trim();
-            if (type.length > 0) param.type = type;
-            if (def.length > 0) param.defaultValue = def;
+        if (syntax.length > 0) param.syntax = syntax;
+        if (colonIdx !== -1) {
+            const def = segment.slice(colonIdx + 1).trim();
+            if (def.length > 0) param.default = def;
         }
         return param;
     });

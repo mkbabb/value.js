@@ -25,8 +25,8 @@
 
 import { lerp } from "../math";
 import type { Color } from "./color";
-import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/dispatch";
-import type { HueInterpolationMethod } from "./color/dispatch";
+import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/mix";
+import type { HueInterpolationMethod } from "./color/mix";
 
 /**
  * The SoA layout plan for a single color leaf: the ordered channel keys (incl.

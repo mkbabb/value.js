@@ -84,13 +84,16 @@ export {
     getFormattedColorSpaceRange,
     color2,
     gamutMap,
+} from "../units/color/dispatch";
+// K-DISP (R.W1.6) — the hue/mix cluster now lives in mix.ts.
+export {
     interpolateHue,
     mixColors,
     mixColorsInto,
     cssColorInterpKeyword,
     CYLINDRICAL_HUE_COMPONENT,
-} from "../units/color/dispatch";
-export type { HueInterpolationMethod } from "../units/color/dispatch";
+} from "../units/color/mix";
+export type { HueInterpolationMethod } from "../units/color/mix";
 
 // OKLab contrast helpers + the VJ-Q1 (1.1.1) WCAG `contrast-color()` leaf.
 export {
@@ -106,6 +109,15 @@ export {
 // N-color mixing + the perceptual N-stop ramp sampler + the single-`t` sampler.
 export { mixColorsN, sampleColorRamp, sampleColorRampAt } from "../units/color/mix";
 export type { SampleRampOptions } from "../units/color/mix";
+
+// Gamut-boundary sampler (R.W1.5) — the wide-RGB sRGB-excess contour.
+export { sampleGamutBoundary, sampleGamutBoundaryInto } from "../units/color/boundary";
+export type {
+    GamutBoundary,
+    GamutBoundaryTarget,
+    GamutBoundaryMode,
+    SampleGamutBoundaryOptions,
+} from "../units/color/boundary";
 
 // Color normalization
 export {
@@ -132,6 +144,17 @@ export {
     rawOklchToOklab,
     oklabToRgb255,
 } from "../units/color/gamut";
+
+// Perceptual color-difference metrics (R.W1.6 · R-3)
+export { deltaE2000, deltaEITP, xyzToICtCp } from "../units/color/difference";
+
+// OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
+export {
+    okhslToSrgb,
+    srgbToOkhsl,
+    okhsvToSrgb,
+    srgbToOkhsv,
+} from "../units/color/okhsl";
 
 // Color filter solver
 export { rgb2ColorFilter, cssFiltersToString } from "../units/color/colorFilter";
