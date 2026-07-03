@@ -96,7 +96,6 @@ The two families coexist by design — Family A is the everyday rhythm (where th
 | `PointerDebugOverlay.vue:266` | `blink 0.5s infinite` | bespoke; dev-only debug overlay |
 | `PaletteCard.vue:388` | `golden-text-shimmer 4s` | bespoke; sits between `--duration-shimmer-fast` (3 s) and `--duration-shimmer` (5 s) — paired with the 4-stop gradient's visual rhythm |
 | `useHeightTransition.ts` | `350 ms expand / 250 ms collapse` | bespoke; JS-runtime constants written as inline `style.transition` strings; tuned by hand at B-tranche for palette-card expand/collapse rhythm |
-| `hero-lab.css:290` | `140ms` | bespoke; sub-app entry, between `--duration-instant` and `--duration-fast` |
 
 **§ Reduced-motion carve-out** (animations.css:32-60, B.W1 Lane B): the global `prefers-reduced-motion` guard neutralises all CSS animation + transition durations; a secondary block re-enables 150 ms opacity fades on `[data-state="open"|"closed"]` so reka-ui Dialog/Sheet/Popover state changes still communicate. WebGL RAF loops (GooBlob, aurora) fence on `prefers-reduced-motion` in their composables (see `useMetaballRenderer`); the global CSS guard does not reach them.
 
@@ -149,7 +148,7 @@ Consumer sites (post-D.W4 Lane A surfaces these as utilities — `top-dock-inset
 | `--content-max-h` | `.pane-container` (style.css:127) | `max-h-[var(--content-max-h)]` |
 | `--dock-total` | `.app-layout` padding (style.css:105) | direct CSS, not a utility |
 
-`hero-lab.css` (demo/hero-lab/) ships its own layout system for the interactive demo viewport (`hero-panel`, `hero-panel__title-row`, `hero-panel__viewport`). It is the exemplary visual-hierarchy reference (B.W2 Lane B claim verified: type-clean + reduced-motion-correct across all 4 RAF render loops).
+The pane-shell layout (`panes/PaneHeader.vue` + `.pane-container` / `.app-layout` in `style.css`, driven by the `--desktop-pane-max-w` / `--dock-inset` tokens above) is the live visual-hierarchy reference for the app viewport: a title-row + scroll-faded content region that every pane (`BrowsePane`, `ExtractPane`, `MixPane`, …) composes. It is type-clean and reduced-motion-correct (the WebGL RAF loops fence on `prefers-reduced-motion` in their composables — see the §Reduced-motion carve-out above).
 
 ## § Idioms NOT used (anti-patterns)
 
