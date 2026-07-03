@@ -145,7 +145,7 @@ watch(
                     <!-- Add current color swatch -->
                     <button
                         key="__add__"
-                        class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch border-2 border-dashed border-primary/30 bg-primary/5 flex items-center justify-center hover:scale-110 hover:border-primary/60 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
+                        class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer border-2 border-dashed border-primary/30 bg-primary/5 flex items-center justify-center hover:scale-110 hover:border-primary/60 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
                         :disabled="!canAddColor || undefined"
                         @click="addCurrentColor"
                     >
