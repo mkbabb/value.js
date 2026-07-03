@@ -116,6 +116,132 @@ describe("J.W2 conformance — /diff envelope + atom-diff algebra", () => {
         for (const o of ops) expect(["added", "removed", "changed"]).toContain(o.op);
     });
 
+    // ---- the 5 wire-envelope SHAPE-fixture rows (J-diff-shape §3/§4) ----
+    //
+    // Transcribed against `J-diff-shape.md` §3 (the canonical `AtomOp` +
+    // `DiffResponse` shapes) + §4 (the TS-camel casing column) — NOT against
+    // fourier's output (§6 BINDING: each repo's probe binds to the shape doc,
+    // never cross-asserts the sibling). Each row's `atomValues` payload is
+    // value.js's OWN `PaletteColor` schema (`{css, name?, position}`, §1 layer
+    // 2) and is asserted PER-REPO against that schema only — never cross-
+    // asserted against fourier's config-atom values. Byte-parity is struck
+    // permanently (float-repr `1.0`↔`"1"`, negative zero, and the structurally
+    // different set-hash constructions are irreducible): these rows assert
+    // SHAPE, not bytes. Driven through the pure `diffAtoms` algebra — the
+    // seam-independent core (§3.1) — so they are isolation-crisp (no sibling
+    // checkout, no route, no wire).
+    const shapeRows: {
+        name: string;
+        before: PaletteColor[];
+        after: PaletteColor[];
+        assert: (ops: AtomDiffOp[]) => void;
+    }[] = [
+        {
+            // §2.1 + §3.1 — a scalar atom change at a fixed slot emits EXACTLY
+            // one `changed` op carrying BOTH `before` and `after`.
+            name: "changed-scalar",
+            before: [{ css: "#ff0000", name: "red", position: 0 }],
+            after: [{ css: "#cc0000", name: "crimson", position: 0 }],
+            assert: (ops) => {
+                expect(ops).toHaveLength(1);
+                const [op] = ops;
+                expect(op.op).toBe("changed");
+                expect(op.atomKey).toBe(0);
+                expect(op.before).toBeDefined();
+                expect(op.after).toBeDefined();
+                // value.js's own atom schema (§1 layer 2) — per-repo only.
+                expect(op.before).toEqual({ css: "#ff0000", name: "red", position: 0 });
+                expect(op.after).toEqual({ css: "#cc0000", name: "crimson", position: 0 });
+            },
+        },
+        {
+            // §3.1 presence rule — an `added` op has ONLY `after`; `before` is
+            // ABSENT (the key is missing), never present-and-null.
+            name: "added-before-absent",
+            before: [{ css: "#ff0000", name: "red", position: 0 }],
+            after: [
+                { css: "#ff0000", name: "red", position: 0 },
+                { css: "#0000ff", name: "blue", position: 1 },
+            ],
+            assert: (ops) => {
+                expect(ops).toHaveLength(1);
+                const [op] = ops;
+                expect(op.op).toBe("added");
+                expect(op.atomKey).toBe(1);
+                expect(op.after).toBeDefined();
+                expect(op.before).toBeUndefined();
+                expect("before" in op).toBe(false); // absent, never null
+            },
+        },
+        {
+            // §3.1 presence rule — a `removed` op has ONLY `before`; `after` is
+            // ABSENT, never present-and-null.
+            name: "removed-after-absent",
+            before: [
+                { css: "#ff0000", name: "red", position: 0 },
+                { css: "#0000ff", name: "blue", position: 1 },
+            ],
+            after: [{ css: "#ff0000", name: "red", position: 0 }],
+            assert: (ops) => {
+                expect(ops).toHaveLength(1);
+                const [op] = ops;
+                expect(op.op).toBe("removed");
+                expect(op.atomKey).toBe(1);
+                expect(op.before).toBeDefined();
+                expect(op.after).toBeUndefined();
+                expect("after" in op).toBe(false); // absent, never null
+            },
+        },
+        {
+            // §3.2 — identical sets ⇒ `ops` is the EMPTY ARRAY (never null,
+            // never omitted) and `identical == (ops.length == 0)`.
+            name: "identical-empty-ops",
+            before: [
+                { css: "#ff0000", name: "red", position: 0 },
+                { css: "#00ff00", name: "green", position: 1 },
+            ],
+            after: [
+                { css: "#ff0000", name: "red", position: 0 },
+                { css: "#00ff00", name: "green", position: 1 },
+            ],
+            assert: (ops) => {
+                expect(Array.isArray(ops)).toBe(true);
+                expect(ops).toEqual([]);
+                // the §2.4 convenience predicate the envelope exposes.
+                const identical = ops.length === 0;
+                expect(identical).toBe(true);
+            },
+        },
+        {
+            // §2.1 — the op vocabulary is the CLOSED triple; there is NO `moved`
+            // op. A pure re-order (same atoms, swapped slots) degrades to
+            // `changed` ops keyed by position — it never emits `moved`.
+            name: "reorder-degrades-to-changed",
+            before: [
+                { css: "#ff0000", name: "red", position: 0 },
+                { css: "#0000ff", name: "blue", position: 1 },
+            ],
+            after: [
+                { css: "#0000ff", name: "blue", position: 0 },
+                { css: "#ff0000", name: "red", position: 1 },
+            ],
+            assert: (ops) => {
+                const kinds: string[] = ops.map((o) => o.op);
+                for (const k of kinds) expect(["added", "removed", "changed"]).toContain(k);
+                expect(kinds).not.toContain("moved"); // the closed triple — no fourth
+                // the swap surfaces as changed-at-slot, not a move.
+                expect(ops.every((o) => o.op === "changed")).toBe(true);
+                expect(ops.map((o) => o.atomKey).sort()).toEqual([0, 1]);
+            },
+        },
+    ];
+
+    for (const row of shapeRows) {
+        it(`wire-envelope shape · ${row.name} (J-diff-shape §3/§4)`, () => {
+            row.assert(diffAtoms(row.before, row.after));
+        });
+    }
+
     // ---- the WIRE envelope, via the route (§3.2 + §4) ----
 
     it("GET /:slug/diff returns EXACTLY {fromHash,toHash,ops,identical} — no set-hash redundancy", async () => {
