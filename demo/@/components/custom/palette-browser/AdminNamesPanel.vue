@@ -75,7 +75,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
+import { TabsRoot as Tabs, TabsContent, TabsList, TabsTrigger } from "reka-ui";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { Loader2, Check, X as XIcon, CheckCircle, Clock, Trash2 } from "@lucide/vue";

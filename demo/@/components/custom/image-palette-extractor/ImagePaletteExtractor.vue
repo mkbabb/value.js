@@ -85,7 +85,7 @@
 
 <script setup lang="ts">
 import { ref, shallowRef, computed, onBeforeUnmount, useTemplateRef } from "vue";
-import { TabsContent } from "@components/ui/tabs";
+import { TabsContent } from "reka-ui";
 import { Aperture, Pipette } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";

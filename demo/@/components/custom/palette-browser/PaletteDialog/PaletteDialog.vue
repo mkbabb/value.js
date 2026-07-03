@@ -176,7 +176,7 @@
 import { inject, ref, watch } from "vue";
 import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import { Dialog, DialogScrollContent } from "@components/ui/dialog";
-import { Tabs } from "@components/ui/tabs";
+import { TabsRoot as Tabs } from "reka-ui";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";

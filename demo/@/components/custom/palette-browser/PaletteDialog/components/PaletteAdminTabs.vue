@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { TabsContent } from "@components/ui/tabs";
+import { TabsContent } from "reka-ui";
 import AdminUsersPanel from "@components/custom/palette-browser/AdminUsersPanel.vue";
 import AdminNamesPanel from "@components/custom/palette-browser/AdminNamesPanel.vue";
 import type { Palette, ProposedColorName, User } from "@lib/palette/types";

@@ -71,7 +71,7 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted, onBeforeUnmount, nextTick, useTemplateRef } from "vue";
-import { TabsList, TabsTrigger } from "@components/ui/tabs";
+import { TabsList, TabsTrigger } from "reka-ui";
 import { Shield, ImagePlus } from "@lucide/vue";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 

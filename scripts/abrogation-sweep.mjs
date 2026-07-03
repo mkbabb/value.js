@@ -5,11 +5,17 @@
  * Two of the structural defeats from the abrogation ledger (§4), cheap enough
  * to run on every CI push, run at every glass-ui pin/dist move:
  *
- *   1 · EXPORTS-MAP DIFF — every `@mkbabb/glass-ui/<subpath>` import specifier
- *       used across demo/ must resolve to a live entry in the installed
- *       glass-ui `package.json#exports`. A sibling subpath rename/removal (e.g.
- *       the `glass-carousel` boot-fatal — a subpath no published version ever
- *       shipped) is caught HERE, at the diff, before it dead-imports the demo.
+ *   1 · EXPORTS-MAP DIFF + NAMED-EXPORT CHECK — two orthogonal drift axes:
+ *       (A) every `@mkbabb/glass-ui/<subpath>` import specifier used across
+ *       demo/ must resolve to a live entry in the installed glass-ui
+ *       `package.json#exports` (a subpath rename/removal — e.g. the
+ *       `glass-carousel` boot-fatal — is caught HERE); AND (B) every named
+ *       runtime binding imported/re-exported from a LIVE specifier must exist
+ *       in that dist module's actual export set. Axis B closes the §6
+ *       blind-spot: a REMOVED named export (the Tabs→SegmentedTabs drift) is a
+ *       live specifier but a dead binding, so axis A alone stays green while
+ *       gh-pages LINK-fails. The check reads the ground truth (`Object.keys` of
+ *       the resolved module) and trips before the build does.
  *
  *   2 · RETIRED-CLASSES SWEEP — every class name in glass-ui's upstream
  *       abrogation manifest (`.retired-classes.txt`) is grepped against demo/
@@ -63,8 +69,21 @@ function collectFiles(dir, acc = []) {
 const demoFiles = collectFiles(DEMO_DIR);
 let failed = false;
 
-// ── Half 1 · exports-map diff ────────────────────────────────────────────────
-function exportsMapDiff() {
+// ── Half 1 · exports-map diff + named-export check ───────────────────────────
+// Two orthogonal drift axes are closed here (the abrogation ledger §6):
+//   A · SPECIFIER resolution — every `@mkbabb/glass-ui[/sub]` specifier must
+//       resolve to a live entry in the installed exports map (a subpath
+//       rename/removal is caught HERE).
+//   B · NAMED-EXPORT existence — every named runtime binding imported OR
+//       re-exported from a LIVE glass-ui specifier must actually exist in that
+//       dist module's export set. A removed named export (the Tabs→SegmentedTabs
+//       drift: the shim re-exports `Tabs`/`TabsList`/`TabsTrigger`/`TabsContent`
+//       from a barrel that no longer exports them) is a valid `.` specifier but
+//       a dead binding — precisely the abrogation axis A blind-spots. The check
+//       reads the GROUND TRUTH (`Object.keys` of the dynamically-imported
+//       module, not a static parse guess) and trips at grep+resolve time,
+//       BEFORE the gh-pages LINK phase fails on it.
+async function exportsMapDiff() {
     const pkg = JSON.parse(readFileSync(GLASS_UI_PKG, "utf8"));
     const exportsMap = pkg.exports ?? {};
     // Live subpath keys: drop the wildcard "*" entries to compare exactly; a
@@ -73,6 +92,12 @@ function exportsMapDiff() {
     const wildcardPrefixes = Object.keys(exportsMap)
         .filter((k) => k.endsWith("/*"))
         .map((k) => k.slice(0, -1)); // "./fonts/" for "./fonts/*"
+
+    const isLiveSpec = (spec) => {
+        const sub = spec.slice("@mkbabb/glass-ui".length); // "" or "/tabs"
+        const key = sub === "" ? "." : `.${sub}`;
+        return exactKeys.has(key) || wildcardPrefixes.some((p) => key.startsWith(p));
+    };
 
     // Match `@mkbabb/glass-ui[/<subpath>]` ONLY where it sits inside a quoted
     // string — the syntactic position of every real module specifier (ESM
@@ -84,7 +109,16 @@ function exportsMapDiff() {
     const SPEC_RE =
         /["'`]@mkbabb\/glass-ui(\/[A-Za-z0-9._/-]+)?["'`]/g;
 
-    const dead = []; // { spec, file, line }
+    // Axis B — named-binding statements: `import`/`export … { … } from
+    // "@mkbabb/glass-ui[/sub]"`. Group 1 marks a WHOLE-clause `type` (an
+    // `import type { … }` / `export type { … }` re-export — type-only, no
+    // runtime binding, skipped). Group 2 is the brace list; `[^}]` spans
+    // newlines so a multi-line list is captured whole. Group 3 is the specifier.
+    const NAMED_RE =
+        /(?:import|export)\s+(type\s+)?\{([^}]*)\}\s*from\s*["'`](@mkbabb\/glass-ui(?:\/[A-Za-z0-9._/-]+)?)["'`]/g;
+
+    const dead = []; // { spec, file, line }  — axis A
+    const namedUses = []; // { spec, binding, file, line }  — axis B
     for (const file of demoFiles) {
         const text = readFileSync(file, "utf8");
         const lines = text.split("\n");
@@ -94,11 +128,7 @@ function exportsMapDiff() {
             while ((m = SPEC_RE.exec(lineText)) !== null) {
                 const sub = m[1] ?? ""; // "/dock" or ""
                 const spec = `@mkbabb/glass-ui${sub}`;
-                const key = sub === "" ? "." : `.${sub}`;
-                const live =
-                    exactKeys.has(key) ||
-                    wildcardPrefixes.some((p) => key.startsWith(p));
-                if (!live) {
+                if (!isLiveSpec(spec)) {
                     dead.push({
                         spec,
                         file: relative(REPO_ROOT, file),
@@ -107,6 +137,28 @@ function exportsMapDiff() {
                 }
             }
         });
+        // Axis-B scan runs over the WHOLE file text (a named statement may span
+        // lines); the statement's start line is recovered by counting newlines.
+        let nm;
+        NAMED_RE.lastIndex = 0;
+        while ((nm = NAMED_RE.exec(text)) !== null) {
+            if (nm[1]) continue; // whole-clause `type` re-export — no runtime binding
+            const spec = nm[3];
+            const line = text.slice(0, nm.index).split("\n").length;
+            for (const raw of nm[2].split(",")) {
+                const s = raw.trim();
+                if (!s) continue; // trailing comma / empty
+                if (/^type\s/.test(s)) continue; // inline `type X` — type-only
+                const binding = s.split(/\s+as\s+/)[0].trim(); // source name (pre-`as`)
+                if (binding)
+                    namedUses.push({
+                        spec,
+                        binding,
+                        file: relative(REPO_ROOT, file),
+                        line,
+                    });
+            }
+        }
     }
 
     // De-dup identical (spec,file,line) tuples (a spec can appear twice/line).
@@ -126,6 +178,37 @@ function exportsMapDiff() {
         console.error(`  ✗ ${uniqueDead.length} dead subpath import(s):`);
         for (const d of uniqueDead)
             console.error(`      ${d.file}:${d.line}  →  ${d.spec}  (no exports entry)`);
+    }
+
+    // Axis B — resolve each LIVE specifier ONCE (cached) to its module and read
+    // the ground-truth export set; a dead specifier is already reported above
+    // (and cannot be imported), so it is skipped here.
+    const exportSetCache = new Map();
+    const exportSetOf = async (spec) => {
+        if (!exportSetCache.has(spec))
+            exportSetCache.set(spec, new Set(Object.keys(await import(spec))));
+        return exportSetCache.get(spec);
+    };
+
+    const deadNamed = [];
+    for (const use of namedUses) {
+        if (!isLiveSpec(use.spec)) continue;
+        const set = await exportSetOf(use.spec);
+        if (!set.has(use.binding)) deadNamed.push(use);
+    }
+
+    console.log(
+        `\n── named-export check (${namedUses.length} bindings across ${exportSetCache.size} live glass-ui module(s)) ──`,
+    );
+    if (deadNamed.length === 0) {
+        console.log("  ✓ every named glass-ui import/re-export resolves to a live export");
+    } else {
+        failed = true;
+        console.error(`  ✗ ${deadNamed.length} dead named binding(s):`);
+        for (const d of deadNamed)
+            console.error(
+                `      ${d.file}:${d.line}  →  { ${d.binding} } from "${d.spec}"  (not exported)`,
+            );
     }
 }
 
@@ -184,7 +267,7 @@ function retiredClassesSweep() {
     }
 }
 
-exportsMapDiff();
+await exportsMapDiff();
 retiredClassesSweep();
 
 if (failed) {

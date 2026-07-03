@@ -56,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { TabsContent } from "@components/ui/tabs";
+import { TabsContent } from "reka-ui";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { Trash2 } from "@lucide/vue";
