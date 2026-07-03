@@ -123,7 +123,7 @@ import FlagReportDialog from "@components/custom/palette-browser/FlagReportDialo
 import TagEditPopover from "@components/custom/palette-browser/TagEditPopover.vue";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
-import type { Palette } from "@lib/palette/types";
+import type { Palette, Tag } from "@lib/palette/types";
 import { deltaEOK } from "@src/units/color/gamut";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
 
@@ -132,7 +132,16 @@ const pm = inject(PALETTE_MANAGER_KEY)!;
 
 const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
 // D.W3 Lane B: shared tag catalog via pm.tagEdit (was: local getTags fetch)
-const availableTags = computed(() => pm.tagEdit.allTags.value);
+// X9: coerce to an Array. `allTags` is typed `Tag[]` but the `/colors/tags`
+// read can resolve an object-shaped payload; a non-array reaching the
+// `availableTags: Tag[]` prop fires Vue's "Expected Array, got Object" prop
+// warning (the repeated tags-warn). This computed guarantees an array.
+const availableTags = computed<Tag[]>(() => {
+    // The declared type is `Tag[]`, but the `/colors/tags` read can resolve an
+    // object-shaped payload at runtime; widen so the non-array branch is real.
+    const tags = pm.tagEdit.allTags.value as Tag[] | Record<string, Tag>;
+    return Array.isArray(tags) ? tags : Object.values(tags);
+});
 
 onMounted(() => {
     pm.tagEdit.loadAllTags();
