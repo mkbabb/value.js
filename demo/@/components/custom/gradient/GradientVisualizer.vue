@@ -20,7 +20,7 @@ import {
 } from "./composables/useGradientModel";
 import type { GradientType } from "./composables/useGradientModel";
 import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/dispatch";
+import type { HueInterpolationMethod } from "@src/units/color/mix";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import type { AcceptableValue } from "reka-ui";
 

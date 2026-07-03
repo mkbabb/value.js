@@ -6,7 +6,7 @@
 import { ref, computed } from "vue";
 import type { Ref } from "vue";
 import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/dispatch";
+import type { HueInterpolationMethod } from "@src/units/color/mix";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import type { LeftoverStrategy } from "@lib/palette/mix";
 import { mixPalettes } from "@lib/palette/mix";

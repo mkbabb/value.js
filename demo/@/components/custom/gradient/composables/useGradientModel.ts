@@ -9,7 +9,7 @@
 
 import { ref, computed, watch } from "vue";
 import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/dispatch";
+import type { HueInterpolationMethod } from "@src/units/color/mix";
 import { timingFunctions, linear } from "@src/easing";
 import { useGradientInterpolation } from "./useGradientInterpolation";
 import { useGradientCSS, parseGradientCSS } from "./useGradientCSS";

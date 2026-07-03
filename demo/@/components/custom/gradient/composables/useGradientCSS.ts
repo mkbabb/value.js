@@ -6,8 +6,8 @@
 
 import { computed } from "vue";
 import type { ComputedRef } from "vue";
-import type { HueInterpolationMethod } from "@src/units/color/dispatch";
-import { mixColors } from "@src/units/color/dispatch";
+import type { HueInterpolationMethod } from "@src/units/color/mix";
+import { mixColors } from "@src/units/color/mix";
 import { parseCSSValue } from "@src/parsing";
 import { linear } from "@src/easing";
 import { FunctionValue, ValueUnit } from "@src/units";

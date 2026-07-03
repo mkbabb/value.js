@@ -9,7 +9,7 @@ import {
 import { Button } from "@components/ui/button";
 import { Blend } from "@lucide/vue";
 import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/dispatch";
+import type { HueInterpolationMethod } from "@src/units/color/mix";
 import type { LeftoverStrategy } from "@lib/palette/mix";
 import type { AcceptableValue } from "reka-ui";
 import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@components/custom/gradient/composables/useGradientModel";
