@@ -133,6 +133,17 @@ export {
     oklabToRgb255,
 } from "../units/color/gamut";
 
+// Perceptual color-difference metrics (R.W1.6 · R-3)
+export { deltaE2000, deltaEITP, xyzToICtCp } from "../units/color/difference";
+
+// OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
+export {
+    okhslToSrgb,
+    srgbToOkhsl,
+    okhsvToSrgb,
+    srgbToOkhsv,
+} from "../units/color/okhsl";
+
 // Color filter solver
 export { rgb2ColorFilter, cssFiltersToString } from "../units/color/colorFilter";
 
