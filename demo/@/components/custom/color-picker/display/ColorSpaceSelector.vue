@@ -1,6 +1,5 @@
 <template>
     <Select
-        :ref="(el) => { emit('update:selectRef', el); }"
         v-model:open="openModel"
         :model-value="modelValue"
         @update:model-value="
@@ -63,6 +62,5 @@ const openModel = defineModel<boolean>("open", { required: true });
 
 const emit = defineEmits<{
     "update:modelValue": [value: string];
-    "update:selectRef": [el: any];
 }>();
 </script>

@@ -8,7 +8,6 @@
                     v-model:open="selectedColorSpaceOpen"
                     :css-color="cssColor"
                     @update:model-value="(colorSpace: any) => updateModel({ selectedColorSpace: colorSpace })"
-                    @update:select-ref="(el: any) => { selectedColorSpaceRef = el; }"
                 />
 
                 <ColorComponentDisplay
@@ -136,17 +135,11 @@ function onComponentInput(text: string, component: string) {
 
 // --- Color space selector ---
 
+// Outside-dismiss is handled natively by reka-ui's Select (a proper popover);
+// no custom document listener — one against the trigger element would treat the
+// portaled SelectContent as "outside" and close the dropdown on pointerdown
+// before an option can be selected (the dead-control root).
 const selectedColorSpaceOpen = ref(false);
-const selectedColorSpaceRef = ref<any>(null);
-
-// Close color space dropdown on any outside interaction
-function onDocumentPointerDown(e: PointerEvent) {
-    if (!selectedColorSpaceOpen.value) return;
-    const selectEl = selectedColorSpaceRef.value?.$el ?? selectedColorSpaceRef.value;
-    if (selectEl && !selectEl.contains(e.target as Node)) {
-        selectedColorSpaceOpen.value = false;
-    }
-}
 
 // --- Keyboard shortcuts ---
 
@@ -269,12 +262,10 @@ watch(
 
 onMounted(() => {
     window.addEventListener("keydown", handleKeydown);
-    document.addEventListener("pointerdown", onDocumentPointerDown, true);
 });
 
 onUnmounted(() => {
     window.removeEventListener("keydown", handleKeydown);
-    document.removeEventListener("pointerdown", onDocumentPointerDown, true);
     if (parseAndSetColorDebounced.cancel) parseAndSetColorDebounced.cancel();
     if (updateColorComponentDebounced.cancel) updateColorComponentDebounced.cancel();
 });
