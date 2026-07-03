@@ -16,3 +16,9 @@ test-results/
 .wrangler/
 *.png
 !demo/**/*.png
+
+# probe / audit scratch — future deposits self-ignore (R.W0-5)
+.w6a-audit*.mjs
+*-dataurl.txt
+$OUT
+mix-*-snapshot.md
