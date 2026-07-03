@@ -5,7 +5,7 @@ import { scale } from "../../math";
 import { getColorSpaceBound, getColorSpaceDenormUnit } from "./constants";
 import type { ColorSpace } from "./constants";
 import { color2 } from "./dispatch";
-import type { HueInterpolationMethod } from "./dispatch";
+import type { HueInterpolationMethod } from "./mix";
 
 export type { HueInterpolationMethod };
 

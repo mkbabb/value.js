@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { parseCSSColor } from "../src/parsing/color";
 import { Color, RGBColor, OKLABColor } from "../src/units/color";
 import { ValueUnit } from "../src/units";
-import { mixColors } from "../src/units/color/dispatch";
+import { mixColors } from "../src/units/color/mix";
 
 /** Extract plain numeric Color from a ValueUnit<Color> */
 function getColor(input: string): Color<number> {

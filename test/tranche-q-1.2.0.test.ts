@@ -13,7 +13,7 @@ import {
 import {
     mixColors,
     mixColorsInto,
-} from "../src/units/color/dispatch";
+} from "../src/units/color/mix";
 import {
     sampleColorRamp,
     sampleColorRampAt,

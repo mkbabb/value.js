@@ -4,7 +4,7 @@ import { ch, channelOf, setChannel } from "./color";
 import { COMPUTED_UNITS } from "./constants";
 import { ValueUnit, type InterpolatedVar } from "./index";
 import { getComputedValue, getLayoutEpoch } from "./normalize";
-import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/dispatch";
+import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/mix";
 
 /**
  * Interpolate a `ValueUnit` whose unit is *computed* (`var`, `calc`,

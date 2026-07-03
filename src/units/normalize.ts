@@ -4,7 +4,7 @@ import type { InterpolatedVar } from ".";
 import { parseCSSValueUnit } from "../parsing/units";
 import { memoize } from "../utils";
 import type { ColorSpace } from "./color/constants";
-import type { HueInterpolationMethod } from "./color/dispatch";
+import type { HueInterpolationMethod } from "./color/mix";
 import { normalizeColorUnits } from "./color/normalize";
 import {
     ANGLE_UNITS,

@@ -139,14 +139,18 @@ export {
     getFormattedColorSpaceRange,
     color2,
     gamutMap,
+} from "./units/color/dispatch";
+// K-DISP (R.W1.6) — the hue-interpolation + color-mixing cluster now lives in
+// its cohesion-honest home, mix.ts (real decomposition of dispatch.ts).
+export {
     interpolateHue,
     mixColors,
     // VJ-Q3 (1.2.0) — the `mixColorsInto` out-param twin.
     mixColorsInto,
     cssColorInterpKeyword,
     CYLINDRICAL_HUE_COMPONENT,
-} from "./units/color/dispatch";
-export type { HueInterpolationMethod } from "./units/color/dispatch";
+} from "./units/color/mix";
+export type { HueInterpolationMethod } from "./units/color/mix";
 // OKLab contrast helpers — defined in contrast.ts (K.W2e: no longer re-exported
 // through dispatch.ts, which kept it over the G3 ≤350 cap).
 export {

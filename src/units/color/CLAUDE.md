@@ -36,14 +36,12 @@ color/
 │   ├── xyz-extended.ts # XYZ-D50 / D65 / RGB-linear (RGB↔XYZ matrices)
 │   ├── direct.ts       # DIRECT_PATHS perf-critical chains (OKLab↔LMS↔linear-sRGB)
 │   └── index.ts        # aggregate barrel re-exporting all conversion functions
-├── dispatch.ts     # generic dispatch + interpolation
-│                     color2<T,C>() — generic any-space-to-any-space converter
+├── dispatch.ts     # generic conversion dispatch core
+│                     color2<T,C>() / color2Into() — any-space-to-any-space converter
 │                     DIRECT_PATHS — performance-critical conversion-path table
 │                     XYZ_FUNCTIONS — per-space XYZ-hub conversion registry
 │                     gamutMap() — adaptive gamut mapping wrapper
-│                     interpolateHue() — shorter/longer/increasing/decreasing methods
-│                     mixColors() — CSS color-mix() with premultiplied alpha
-│                     getFormattedColorSpaceRange, CYLINDRICAL_HUE_COMPONENT
+│                     getFormattedColorSpaceRange
 ├── normalize.ts    # color normalization
 │                     normalizeColorUnit() — ValueUnit<Color> → [0,1] range
 │                     colorUnit2<C>() — convert + normalize color unit to target space
@@ -63,7 +61,13 @@ color/
 │                     computeSafeAccent() — lightness-shift away from background
 │                     safeAccentColor() — Color → contrast-safe OKLCHColor
 │                     needsContrastAdjustment(), getOklchLightness()
-└── mix.ts          # N-color mix() helpers (CSS color-mix() with arbitrary stop counts)
+├── difference.ts   # perceptual ΔE metrics — deltaE2000 (CIEDE2000),
+│                     deltaEITP + xyzToICtCp (BT.2100/BT.2124 ICtCp)
+├── okhsl.ts        # OKHSL/OKHSV perceptual pickers (Ottosson; reuse gamut cusp math)
+└── mix.ts          # color-mixing + hue interpolation (K-DISP home):
+                      interpolateHue, CYLINDRICAL_HUE_COMPONENT, mixColors,
+                      mixColorsInto, cssColorInterpKeyword, HueInterpolationMethod,
+                      mixColorsN, sampleColorRamp/At (CSS color-mix() + N-stop ramps)
 ```
 
 > LoC counts intentionally omitted — `wc -l` is the source of truth.
