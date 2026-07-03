@@ -46,7 +46,18 @@ export function useViewManager(): ViewManager {
     });
 
     const previousView = ref<ViewId | null>(null);
-    const mobilePaneIndex = ref<0 | 1>(0);
+    // X8: seed the mobile pane index from the COLD-loaded view so a direct
+    // `#/palettes` (or `#/mix`) hash boot hydrates the ADDRESSED pane into the
+    // visible slot. `switchView` sets this on navigation, but a cold hash boot
+    // never calls `switchView`, so the index stayed pinned at 0 and the direct-
+    // linked pane cold-mounted into the hidden slot (the X8 residual).
+    const initialView = currentView.value;
+    const mobilePaneIndex = ref<0 | 1>(
+        VIEW_MAP[initialView].right !== null &&
+        (initialView === "palettes" || initialView === "mix")
+            ? 1
+            : 0,
+    );
 
     const currentConfig = computed(() => VIEW_MAP[currentView.value]);
 
