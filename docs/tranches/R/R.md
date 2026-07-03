@@ -27,6 +27,12 @@ becomes R.W7 in-wave work, in the W7 gate — not a standing action). No `src/`,
 > RATIFIED-2026-07-03 — this charter amended throughout to the ratified outcomes (owner pass,
 > verbatim intent: "hero lab is to be deleted. no ncsu alias. for all other items, fold and use
 > your best judgment given our no workarounds discipline.").
+>
+> AMENDED-2026-07-03 — §3.3 books reconciled per `audit/coordination/COORDINATION-ANALYSIS.md`
+> §3.2 items 1–2: the parse-that `^1.0.0` re-pin row retargeted S.H2→**S.H4** with widened verify
+> (span-absence + the 4 `.chain()` sites + chainError-retired + falsy-seed-fix-verify), and a new
+> **color2Into currency** book row added (closes kf fold row 46 at the re-pin). §4 also gains the
+> third R.W1 dispatch letter (`letters/FOURIER-NOTE.md`) per §3.2 item 3.
 
 **Goal criterion.** The library's perceptual head is settled and published as an honest 2.0.0;
 the demo boots cold-cache, builds, and behaves; the picker becomes the editorial instrument the
@@ -214,7 +220,8 @@ No R wave gate reads any row of this table. Each row fires on its named trigger,
 |---|---|---|
 | **D8-1 no-shim verify** | glass-ui rebuilds dist with `layer(components)` (ask dispatched to the live BG agent at pass-2 time) | Re-run the 1440 dual-pane probe against the rebuilt `file:` dist; confirm `visibleCount 2` with no `!important`; retire the shim knowledge from the gate wording |
 | **glass-ui 5.0.0 adopt event** | the BG/BH joint cut | Re-point `App.vue:115` `/goo-blob`→`/blob`; walk the by-name subpath table (GAP-3, incl. `/easing` + `/tabs`); consume `uSatColor[]` if it rode the cut (GAP-1); re-verify aurora-metal tunes; **U6: verify the dock-fission surfaces** (the born-RED dock-morph gate re-anchored here); verify producer blob PRM/single-canvas (GAP-4) |
-| **parse-that `^1.0.0` re-pin** | kf S.H2 publishes the 1.0.0 cut | Re-pin, full suite re-verify (0 `*Span` consumers — API-safe). Wait, don't pre-pin |
+| **parse-that `^1.0.0` re-pin** | kf **S.H4** publishes the 1.0.0 cut (H1+H2 in one cut) | Re-pin `^1.0.0` as a distinct value.js publish. Verify = span-absence (0 `*Span` consumers, confirmed) **+ the 4 `.chain()` sites** (`stylesheet.ts:796`, `parsing/utils.ts:182`, `color.ts:599,650`) — 1.0.0 also retires `chainError` (value.js passes 0) and FIXES `chain()` falsy-seed semantics (value.js seeds non-falsy; verify, don't assume). Wait, don't pre-pin |
+| **color2Into currency through the parse-that re-pin** | kf S.H4/S3 dispositions fold row 46 via the value.js suite green against the re-pinned 1.0.0 | Keep `color2Into` + its suite green through the `^1.0.0` re-pin so kf's row-46 gate closes without firing its named exit |
 | **vue-router 4→5** (K-W5RT) | stable vue-router 5 | Migrate then |
 | **S.H3 Pratt consume-edge** | parse-that presents the sketch | Design-review the `math.ts` calc() transposition; ratify or decline |
 | **CH-10 / CH-13 / R8-23 spec-gated grammar longhands** | as previously recorded | Unchanged carries |
@@ -240,8 +247,9 @@ assertion sweep) · `extractFunctions` fresh-build `.d.ts` regression guard (alr
 since 1.1.0 — no restore) · `bezierPresets` rows (smooth-step-3 exact + tightened 15, Q12) ·
 boundary API (`sampleGamutBoundary`/`Into` + companions + matrix internal exports + post-α
 goldens) · OKHSL/OKHSV · ΔE-2000/ΔE-ITP · K-DISP · `/easing` 5-export stability guard ·
-(`Color.try()` if trivial, else book) · **publish 2.0.0** + dispatch the kf re-pin letter and the
-glass-ui peer-floor note (`^1.0.0`→`^2.0.0`).
+(`Color.try()` if trivial, else book) · **publish 2.0.0** + dispatch the three letters — the kf
+re-pin letter, the glass-ui peer-floor note (`^1.0.0`→`^2.0.0`), and the fourier peer-floor note
+(`letters/FOURIER-NOTE.md`; `^0.13.0`→`^2.0.0`, consumed surface unaffected).
 
 **Deferred to S+ with recorded rationale**: R-4 raytrace N-gamut map (depends on R-1 settling
 policy) · R-8 gamut-relative spaces (**killed as a mechanism** by pass-2 measurement — c1 is the

@@ -4,14 +4,19 @@
 **Opens after**: R.W0 (runs parallel with R.W2 / R.W6). R.W3 requires this wave — the overlay consumes the *published* boundary API atop the *settled* gamut policy.
 **Spec of record**: `SYNTHESIS-v2.md §3 R.W1` (items 1–7) + `§9` (the kf/parse-that slate; kf = `@mkbabb/keyframes.js`) · `PASS3-VERDICT.md §1` (the KF-1 **5-file** head-truth amendment).
 **Agents**: 1 serial — §Ordering is load-bearing (the α change moves the JND locus; goldens generate after it), so the wave runs as one ordered lane.
-**Hard gate**: composite (§Hard gate) — oracle suites green · KF-1 gate vector green · fresh-build `.d.ts` assertion · goldens locked post-α · vitest 1940+/1940+ · 2.0.0 published · both letters written.
+**Hard gate**: composite (§Hard gate) — oracle suites green · KF-1 gate vector green · fresh-build `.d.ts` assertion · goldens locked post-α · vitest 1940+/1940+ · 2.0.0 published · the three dispatch letters written.
 **Status**: DISPATCHABLE (RATIFIED-2026-07-03 — Q7 ratified at **α=1.0** (item 1 is now a decision record, not a head); Q12's R-3 tightening RATIFIED (item 4 lands)).
+
+> AMENDED-2026-07-03 — R.W1.7 gains a **third** dispatch letter (`letters/FOURIER-NOTE.md`) and the
+> hard-gate wording moves "both dispatch letters"→"the three dispatch letters"; the §BOOKS
+> parse-that re-pin trigger reconciles S.H2→**S.H4** with widened verify — per
+> `audit/coordination/COORDINATION-ANALYSIS.md` §3.2 items 1 + 3.
 
 ---
 
 ## §Goal criterion
 
-The library ships one honest major: the washed-out gamut mapping is cured at its constant (U10), the `parseFunctionParameters` grammar bug dies with its rename (KF-1 — kf's `normalizeParam` shim becomes fully deletable), the gamut-boundary sampler becomes public API so the R.W3 instrument consumes a registry export rather than forked math, and the perceptual slate (OKHSL/OKHSV, ΔE-2000/ΔE-ITP, K-DISP) lands. 2.0.0 publishes with both dispatch letters written.
+The library ships one honest major: the washed-out gamut mapping is cured at its constant (U10), the `parseFunctionParameters` grammar bug dies with its rename (KF-1 — kf's `normalizeParam` shim becomes fully deletable), the gamut-boundary sampler becomes public API so the R.W3 instrument consumes a registry export rather than forked math, and the perceptual slate (OKHSL/OKHSV, ΔE-2000/ΔE-ITP, K-DISP) lands. 2.0.0 publishes with the three dispatch letters written.
 
 ## §Completion criterion
 
@@ -126,17 +131,18 @@ export function sampleGamutBoundaryInto(hueDeg: number, target: GamutBoundaryTar
 - **`Color.try()`** — only if trivial; else BOOK it (books-never-gates: a BOOK is a trigger-bound follow-up, recorded and serviced when its trigger fires — never a close-blocking gate).
 - **R8-24 `<syntax>` validator row** — verified shipped in 1.2.0; **closed**, no work (recorded here for zero-drop traceability).
 
-### R.W1.7 · Publish 2.0.0 + the two dispatch letters
+### R.W1.7 · Publish 2.0.0 + the three dispatch letters
 
-- **Goal**: one honest major carries the three behavior-visible changes; both downstream consumers get their dispatch letters.
-- **Mechanism**: publish 2.0.0, then author the kf KF-1 letter + the glass-ui peer-floor note, per below.
+- **Goal**: one honest major carries the three behavior-visible changes; all three downstream consumers get their dispatch letters.
+- **Mechanism**: publish 2.0.0, then author the kf KF-1 letter + the glass-ui peer-floor note + the fourier peer-floor note, per below.
 - **Files**: `package.json` (version) · `docs/tranches/R/letters/`.
-- **Sub-gate**: 2.0.0 on the registry; both letters written.
+- **Sub-gate**: 2.0.0 on the registry; the three dispatch letters written.
 
 The major is carried by the **field rename** (unambiguous BC break on a published descriptor) + the **gamut-policy output change** + the **preset-row tightening** — semver honesty (the keyframes-2.2.0 lesson): one clean major, not euphemistic minors dragging a lingering shim. Then:
 
 - **The kf KF-1 letter** (`SYNTHESIS-v2.md §9`): kf deletes `normalizeParam` + `NormalizedParam` + `VJS_PARAM_BUG_MAX` (every recovery arm maps to a direct field read — `kf1-grammar.md §5`'s case map), simplifies `coerceArg`'s bug arm, re-pins `^2.0.0`, reads `.name`/`.syntax`/`.default` directly. The S7 lifecycle completes.
 - **The glass-ui peer-floor note** (`§8.6`): glass-ui's peerDependencies floor is currently `^1.0.0` (verified) and must ride to `^2.0.0` at this cut; RECORD the `/easing` 5-export contract (guarded here by item 6's test); note `bezierPresets` gains a row + 15 tightened rows that flow into `EasingPicker` through the externalized import with zero glass-ui work.
+- **The fourier peer-floor note** (`letters/FOURIER-NOTE.md`; COORDINATION-ANALYSIS §3.2 item 3): value.js 2.0.0 published — fourier's consumed surface (`easeInOutSine`, `timingFunctions`, `mixColorsN`, `safeAccentColor`, `sampleColorRamp`) is **unaffected** by the 2.0.0 renames (they touch the `@property`/KF-1 descriptor grammar only); bump `^0.13.0`→`^2.0.0` to receive it (the caret otherwise freezes at 0.13.x). Also: `sampleColorRamp` already ships (since ≤1.2.0) — fourier's M.W7 "book for 0.13.0" is **dischargeable on adopt**.
 
 ---
 
@@ -164,7 +170,7 @@ Do NOT touch: `demo/`, `api/`, `docs/precepts/`, `../glass-ui`, `../keyframes.js
 
 ## §Hard gate (verbatim per SYNTHESIS-v2 §3 R.W1)
 
-§13.2 oracle suite green vs browser refs; tiered-bound guard row green (`ΔL < 0.09` on the `C∈{0.37,0.40}` corpus); KF-1 gate vector green (`--x <length>: 0px` → `{name:"--x", syntax:"<length>", default:"0px"}`); `extractFunctions` present in a **fresh-build** `.d.ts`; boundary goldens locked post-α; full vitest green (head expectation: **1940+/1940+** — the 5-file KF-1 lands clean); 2.0.0 published; both dispatch letters written.
+§13.2 oracle suite green vs browser refs; tiered-bound guard row green (`ΔL < 0.09` on the `C∈{0.37,0.40}` corpus); KF-1 gate vector green (`--x <length>: 0px` → `{name:"--x", syntax:"<length>", default:"0px"}`); `extractFunctions` present in a **fresh-build** `.d.ts`; boundary goldens locked post-α; full vitest green (head expectation: **1940+/1940+** — the 5-file KF-1 lands clean); 2.0.0 published; the three dispatch letters written.
 
 ## §Format + lint cadence
 
@@ -172,7 +178,7 @@ Do NOT touch: `demo/`, `api/`, `docs/precepts/`, `../glass-ui`, `../keyframes.js
 
 ## §Verification artefacts
 
-Saved at close (cited in `PROGRESS.md`): the full vitest summary (1940+/1940+); the KF-1 gate-vector test output; the fresh-build `.d.ts` assertion output; the locked boundary goldens; the `bench/gamut-boundary.mjs` output (the number rides to R/FINAL.md); the 2.0.0 registry publish record; the two letter paths; per-unit commit hashes.
+Saved at close (cited in `PROGRESS.md`): the full vitest summary (1940+/1940+); the KF-1 gate-vector test output; the fresh-build `.d.ts` assertion output; the locked boundary goldens; the `bench/gamut-boundary.mjs` output (the number rides to R/FINAL.md); the 2.0.0 registry publish record; the three letter paths; per-unit commit hashes.
 
 ## §Commit plan
 
@@ -185,7 +191,7 @@ Serial, per §Ordering: the α-tune + oracle/guard tests (R.W1.1); the KF-1 5-fi
 
 ## §BOOKS opened/serviced by this wave (books-never-gates)
 
-- **parse-that `^1.0.0` re-pin** — fires on kf S.H2's cut; do not pre-pin (KF-2).
+- **parse-that `^1.0.0` re-pin** — fires on kf **S.H4**'s cut (H1+H2 in one 1.0.0); verify = span-absence + the 4 `.chain()` sites (chainError retired, falsy-seed fix — verify, don't assume); do not pre-pin (KF-2).
 - **S.H3 Pratt consume-edge** — design review when parse-that presents the sketch; `math.ts` calc() is the ratifying consume-edge (KF-6).
 - **`Color.try()`** — if item 6 finds it non-trivial.
 - KF-5 (parse-that S.H1 packrat) — no action; transparent win at the next re-pin.
