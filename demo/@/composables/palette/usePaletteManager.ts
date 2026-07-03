@@ -77,7 +77,6 @@ export function usePaletteManager(deps: PaletteManagerDeps) {
     // --- Palette actions (publish, edit, delete, expand) ---
     const actions = usePaletteActions({
         savedPalettes,
-        remotePalettes: browse.remotePalettes,
         savedColorStrings,
         createPalette,
         updatePalette,

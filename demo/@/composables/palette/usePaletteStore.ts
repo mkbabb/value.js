@@ -28,8 +28,14 @@ export function usePaletteStore() {
         },
     });
 
+    // K-PALID: a "saved" palette is a LOCAL palette that carries its local store
+    // key. The type predicate encodes the store invariant — every stored local
+    // palette is minted an `id` (`createPalette` / `addPublishedPalette`) — so
+    // downstream consumers read `id` as a definite `string` with no coercion.
     const savedPalettes = computed(() =>
-        store.value.palettes.filter((p) => p.isLocal),
+        store.value.palettes.filter(
+            (p): p is Palette & { id: string } => p.isLocal && p.id != null,
+        ),
     );
 
     const publishedPalettes = computed(() =>
@@ -111,7 +117,16 @@ export function usePaletteStore() {
         // Also check slug to avoid exact duplicates
         const slugExists = store.value.palettes.some((p) => p.slug === palette.slug);
         if (!slugExists) {
-            store.value.palettes.unshift({ ...palette, isLocal: true });
+            // K-PALID: absorbing a remote palette (slug-identified, NO server
+            // `id`) into the local store makes a NEW local palette — it must be
+            // minted a local store key so the local-store invariant "every
+            // stored palette has an `id`" holds. The remote original keeps being
+            // slug-identified in `remotePalettes`; this is a distinct local copy.
+            store.value.palettes.unshift({
+                ...palette,
+                id: palette.id ?? crypto.randomUUID(),
+                isLocal: true,
+            });
         }
     }
 
@@ -122,9 +137,10 @@ export function usePaletteStore() {
             const p = map.get(id);
             if (p) reordered.push(p);
         }
-        // Append any palettes not in the ordered list
+        // Append any palettes not in the ordered list (a palette with no local
+        // `id` is definitionally not in `orderedIds` → appended).
         for (const p of store.value.palettes) {
-            if (!orderedIds.includes(p.id)) reordered.push(p);
+            if (p.id == null || !orderedIds.includes(p.id)) reordered.push(p);
         }
         store.value.palettes = reordered;
     }

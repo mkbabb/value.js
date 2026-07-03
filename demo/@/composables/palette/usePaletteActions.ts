@@ -8,8 +8,8 @@ import { CURRENT_PALETTE_ID } from "@lib/palette/constants";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 
 export function usePaletteActions(deps: {
-    savedPalettes: Ref<Palette[]>;
-    remotePalettes: Ref<Palette[]>;
+    // K-PALID: saved palettes are local + carry their store key (`id: string`).
+    savedPalettes: Ref<(Palette & { id: string })[]>;
     savedColorStrings: Ref<string[]>;
     createPalette: (name: string, colors: PaletteColor[]) => Palette;
     updatePalette: (id: string, patch: Partial<Palette>) => void;
@@ -29,6 +29,11 @@ export function usePaletteActions(deps: {
     }
 
     function onDelete(palette: Palette) {
+        // K-PALID: `onDelete` fires on a SAVED (local) palette — its local store
+        // key is guaranteed present. The guard makes the local-only precondition
+        // explicit (a remote palette, which has no local `id`, is not in the
+        // store to delete).
+        if (palette.id == null) return;
         deps.deletePalette(palette.id);
     }
 
@@ -53,6 +58,7 @@ export function usePaletteActions(deps: {
     }
 
     function onRenameSaved(palette: Palette, newName: string) {
+        if (palette.id == null) return;
         deps.updatePalette(palette.id, { name: newName });
     }
 
@@ -65,7 +71,9 @@ export function usePaletteActions(deps: {
         // ensureUser()` here inverted the contract: on an unreachable backend it
         // threw before `createPalette` ran and the palette was silently destroyed.
         const palette = deps.createPalette(name, colors);
-        expandedId.value = palette.id;
+        // `createPalette` always mints a local `id`; the guard satisfies the
+        // honest optional type without a coercion.
+        if (palette.id != null) expandedId.value = palette.id;
     }
 
     function onCurrentPaletteUpdated(id: string, colors: PaletteColor[]) {
@@ -78,6 +86,13 @@ export function usePaletteActions(deps: {
     }
 
     function onEditColor(palette: Palette, colorIndex: number, css: string) {
+        // K-PALID: in-place swatch editing writes through the LOCAL store
+        // (`commitColorEdit` → `deps.updatePalette`), so it is meaningful only
+        // for palettes that live in the store (a local `id`). A remote palette
+        // has no local `id` and is not store-backed — editing it in place was a
+        // no-op that keyed the store on `undefined`. Own that honestly: only a
+        // local palette starts an edit here.
+        if (palette.id == null) return;
         deps.emitStartEdit({ paletteId: palette.id, colorIndex, originalCss: css });
     }
 
@@ -91,9 +106,12 @@ export function usePaletteActions(deps: {
             return;
         }
 
-        const palette =
-            deps.savedPalettes.value.find((p) => p.id === paletteId) ??
-            deps.remotePalettes.value.find((p) => p.id === paletteId);
+        // K-PALID: `commitColorEdit` writes through the LOCAL store, so it
+        // resolves against saved (local) palettes by their local `id` only. The
+        // former `remotePalettes.find((p) => p.id === paletteId)` fallback was
+        // dishonest — remote palettes have NO `id`, so it matched the first
+        // remote by `undefined` and then no-op'd the store write.
+        const palette = deps.savedPalettes.value.find((p) => p.id === paletteId);
         if (!palette) return;
 
         const oldCss = palette.colors[colorIndex]?.css;

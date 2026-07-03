@@ -52,13 +52,15 @@ export function useMixingState() {
         selectedColors.value = selectedColors.value.filter((_, i) => i !== index);
     }
 
+    // K-PALID: mix selection keys on `slug` (the universal palette identity),
+    // never the local-only `id`.
     function addPalette(palette: Palette) {
-        if (selectedPalettes.value.some((p) => p.id === palette.id)) return;
+        if (selectedPalettes.value.some((p) => p.slug === palette.slug)) return;
         selectedPalettes.value = [...selectedPalettes.value, palette];
     }
 
-    function removePalette(id: string) {
-        selectedPalettes.value = selectedPalettes.value.filter((p) => p.id !== id);
+    function removePalette(slug: string) {
+        selectedPalettes.value = selectedPalettes.value.filter((p) => p.slug !== slug);
     }
 
     function startMix() {

@@ -98,11 +98,11 @@
                             v-for="palette in userPalettes"
                             :key="palette.slug"
                             :palette="palette"
-                            :expanded="expandedId === palette.id"
+                            :expanded="expandedId === palette.slug"
                             :css-color="cssColor"
                             is-admin
                             show-slug
-                            @click="emit('toggleExpand', palette.id)"
+                            @click="emit('toggleExpand', palette.slug)"
                             @feature="(p) => emit('feature', p)"
                             @admin-delete="emit('adminDeleteUserPalette', $event, user.slug)"
                         />

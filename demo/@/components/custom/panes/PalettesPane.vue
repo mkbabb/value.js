@@ -139,7 +139,11 @@ useSortable(sortableEl, pm.filteredSaved.value, {
 
 async function onPublish(palette: Palette) {
     const result = await pm.onPublish(palette);
-    const card = cardRefs[palette.id];
+    // K-PALID: the feedback card is registered under the local store key; a
+    // palette with no local `id` has no card to address.
+    const id = palette.id;
+    if (id == null) return;
+    const card = cardRefs[id];
     if (card) {
         card.showFeedback(result.message, result.success ? "success" : "error");
     }

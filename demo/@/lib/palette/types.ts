@@ -5,7 +5,19 @@ export interface PaletteColor {
 }
 
 export interface Palette {
-    id: string;
+    /**
+     * The demo-LOCAL store key — client-minted (`crypto.randomUUID()` or a
+     * `gen-`/`mix-`/`__extracted__` temp prefix), present **iff** `isLocal`.
+     *
+     * K-PALID id-honesty (R.W2): the server is slug-identified end to end and
+     * emits NO `id` (see `api/src/format/palette.ts` — `formatPalette` strips
+     * `_id` and returns a slug-keyed body). A remote palette therefore has NO
+     * `id`; declaring it `string` was a type-lie that let a client-minted local
+     * key masquerade as a persisted server id. `id` is now honestly optional:
+     * `isLocal === true` ⟹ `id` present; a remote palette (`isLocal === false`)
+     * is identified by `slug` alone.
+     */
+    id?: string;
     name: string;
     slug: string;
     userSlug?: string;

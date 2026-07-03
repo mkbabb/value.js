@@ -28,7 +28,7 @@ const emit = defineEmits<{
     addColor: [css: string, source: string];
     removeColor: [index: number];
     addPalette: [palette: Palette];
-    removePalette: [id: string];
+    removePalette: [slug: string];
 }>();
 
 const pm = inject(PALETTE_MANAGER_KEY);
@@ -53,13 +53,15 @@ function onTabChange(value: string | string[]) {
     }
 }
 
-function isPaletteSelected(id: string): boolean {
-    return selectedPalettes.some((p) => p.id === id);
+// K-PALID: mix selection keys on `slug` — the universal palette identity
+// present on every palette (local + remote), never the local-only `id`.
+function isPaletteSelected(slug: string): boolean {
+    return selectedPalettes.some((p) => p.slug === slug);
 }
 
 function togglePalette(palette: Palette) {
-    if (isPaletteSelected(palette.id)) {
-        emit("removePalette", palette.id);
+    if (isPaletteSelected(palette.slug)) {
+        emit("removePalette", palette.slug);
     } else {
         emit("addPalette", palette);
     }
@@ -169,7 +171,7 @@ watch(
                     <div class="flex flex-col gap-2 pt-2">
                         <div
                             v-for="palette in savedPalettes"
-                            :key="palette.id"
+                            :key="palette.slug"
                             class="rounded-card border border-border/30 overflow-hidden"
                         >
                             <!-- Compact palette header with color strip + name -->
@@ -189,7 +191,7 @@ watch(
                                     class="w-8 h-8 shrink-0 cursor-pointer"
                                     :title="color.css"
                                     :aria-label="`Add color ${color.css} from ${palette.name}`"
-                                    :seed="`palette-${palette.id}-${ci}`"
+                                    :seed="`palette-${palette.slug}-${ci}`"
                                     @click="emit('addColor', color.css, palette.name)"
                                 />
                             </div>
@@ -205,13 +207,13 @@ watch(
             <!-- W5-a11y: native <button> for keyboard reach + aria-pressed for selection state -->
             <button
                 v-for="palette in savedPalettes"
-                :key="palette.id"
+                :key="palette.slug"
                 type="button"
-                :aria-pressed="isPaletteSelected(palette.id)"
-                :aria-label="`${isPaletteSelected(palette.id) ? 'Deselect' : 'Select'} palette ${palette.name}`"
+                :aria-pressed="isPaletteSelected(palette.slug)"
+                :aria-label="`${isPaletteSelected(palette.slug) ? 'Deselect' : 'Select'} palette ${palette.name}`"
                 :class="[
                     'cursor-pointer transition-all rounded-card w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40',
-                    isPaletteSelected(palette.id)
+                    isPaletteSelected(palette.slug)
                         ? 'ring-2 ring-primary ring-offset-2 ring-offset-background'
                         : 'opacity-75 hover:opacity-100',
                 ]"

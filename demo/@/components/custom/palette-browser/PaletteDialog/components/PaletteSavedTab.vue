@@ -69,8 +69,9 @@ import type { Palette, PaletteColor } from "@lib/palette/types";
 defineProps<{
     savedColorStrings: string[];
     cssColorOpaque: string;
-    savedPalettes: Palette[];
-    filteredSaved: Palette[];
+    // K-PALID: saved palettes are local + carry their store key (`id: string`).
+    savedPalettes: (Palette & { id: string })[];
+    filteredSaved: (Palette & { id: string })[];
     expandedId: string | null;
 }>();
 

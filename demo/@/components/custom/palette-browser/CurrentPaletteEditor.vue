@@ -239,8 +239,11 @@ function saveCurrentPalette() {
 }
 
 function confirmUpdatePalette() {
-    if (!duplicateTarget.value) return;
-    emit("updated", duplicateTarget.value.id, colorsFromStrings(savedColorStrings));
+    // K-PALID: `duplicateTarget` is an existing LOCAL (store) palette — its
+    // store key drives the update. Guard the honest optional `id`.
+    const id = duplicateTarget.value?.id;
+    if (id == null) return;
+    emit("updated", id, colorsFromStrings(savedColorStrings));
     currentPaletteName.value = "";
     duplicateTarget.value = null;
     emit("clearCurrent");
