@@ -30,8 +30,17 @@
                 currentConfig.right !== null && 'pane-container--dual',
             ]"
         >
+            <!-- X6: single-mount by breakpoint. Only ONE breakpoint's slots are
+                 MOUNTED at a time (v-if, not display-toggle), so exactly one live
+                 picker — and thus one live goo-blob WebGL2 context — exists at any
+                 viewport. The prior always-in-DOM display-toggle kept a hidden-
+                 but-LIVE second picker (the mobile slot at desktop, the desktop
+                 slots at mobile), doubling the WebGL contexts + the reactive
+                 subtree. The lg:* display classes are RETAINED untouched (the
+                 D8-1 cascade is producer-owned; never demo-cured here). -->
+
             <!-- Mobile: single pane slot (below lg) -->
-            <div class="lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
+            <div v-if="!isDesktop" class="lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
                 <PaneSlot
                     :component="mobile.component"
                     :component-key="mobile.key"
@@ -41,32 +50,34 @@
                 />
             </div>
 
-            <!-- Desktop: left pane (lg+) -->
-            <div class="pane-wrapper hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
-                <PaneSlot
-                    :component="desktopLeft.component"
-                    :component-key="desktopLeft.key"
-                    :component-props="desktopLeft.props"
-                    :on-mount="onDesktopLeftMount"
-                    :transition-name="viewManager.ready.value ? 'pane-left' : ''"
-                    :max="6"
-                />
-            </div>
+            <template v-else>
+                <!-- Desktop: left pane (lg+) -->
+                <div class="pane-wrapper hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
+                    <PaneSlot
+                        :component="desktopLeft.component"
+                        :component-key="desktopLeft.key"
+                        :component-props="desktopLeft.props"
+                        :on-mount="onDesktopLeftMount"
+                        :transition-name="viewManager.ready.value ? 'pane-left' : ''"
+                        :max="6"
+                    />
+                </div>
 
-            <!-- Desktop: right pane (lg+) — always in DOM to preserve KeepAlive scroll position -->
-            <div
-                class="pane-wrapper hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
-                :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
-            >
-                <PaneSlot
-                    :component="desktopRight.component"
-                    :component-key="desktopRight.key"
-                    :component-props="desktopRight.props"
-                    :on-mount="onDesktopRightMount"
-                    :transition-name="viewManager.ready.value ? 'pane-right' : ''"
-                    :max="3"
-                />
-            </div>
+                <!-- Desktop: right pane (lg+) — always in DOM to preserve KeepAlive scroll position -->
+                <div
+                    class="pane-wrapper hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+                    :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
+                >
+                    <PaneSlot
+                        :component="desktopRight.component"
+                        :component-key="desktopRight.key"
+                        :component-props="desktopRight.props"
+                        :on-mount="onDesktopRightMount"
+                        :transition-name="viewManager.ready.value ? 'pane-right' : ''"
+                        :max="3"
+                    />
+                </div>
+            </template>
         </div>
         </main>
     </div>
@@ -102,6 +113,7 @@ import { usePaneRouter } from "@composables/usePaneRouter";
 import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
 import { useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { copyToClipboard } from "@mkbabb/glass-ui";
+import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import {
     useAurora,
     resolveAtoms,
@@ -150,6 +162,10 @@ provide(SAFE_ACCENT_KEY, safeAccentCss);
 const viewManager = useViewManager();
 provide(VIEW_MANAGER_KEY, viewManager);
 const currentConfig = computed(() => viewManager.currentConfig.value);
+
+// X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px). Drives the
+// single-mount v-if so only one breakpoint's pane slots are live at a time.
+const { matches: isDesktop } = useBreakpoint("(min-width: 1024px)");
 
 // --- Pane action refs ---
 // Populated by the onMount callbacks on the desktop PaneSlots; the action bar
