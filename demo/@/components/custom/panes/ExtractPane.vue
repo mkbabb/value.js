@@ -142,7 +142,7 @@ const kSliderGradient = computed(() => {
 
 function runQuantize() {
     if (lastFile.value) {
-        quantizeFromFile(lastFile.value, colorCount.value);
+        quantizeFromFile(lastFile.value, colorCount.value, chromaWeight.value);
     }
 }
 

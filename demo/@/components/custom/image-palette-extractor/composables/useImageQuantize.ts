@@ -88,17 +88,26 @@ export function useImageQuantize() {
         });
     }
 
-    async function quantizeFromFile(file: File, k: number): Promise<QuantizedColor[]> {
+    // kC: `chromaWeight` (the OKLab distance-metric chroma bias, `QuantizeOptions.chromaWeight`)
+    // is threaded through into the worker options so the extractor's chroma-weight
+    // control actually perturbs the quantization. The library already consumes it
+    // (`src/quantize/index.ts:141`); the demo previously forwarded only `{ k }`,
+    // making the control a placebo. `chromaWeight` is omitted from the options when
+    // undefined so it never clobbers the library `DEFAULTS` (`{ ...DEFAULTS, ...opts }`).
+    const buildOptions = (k: number, chromaWeight?: number): Partial<QuantizeOptions> =>
+        chromaWeight === undefined ? { k } : { k, chromaWeight };
+
+    async function quantizeFromFile(file: File, k: number, chromaWeight?: number): Promise<QuantizedColor[]> {
         const { pixels, width, height } = await imageFileToPixels(file);
-        return runQuantize(pixels, width, height, { k });
+        return runQuantize(pixels, width, height, buildOptions(k, chromaWeight));
     }
 
-    async function quantizeFromCanvas(canvas: HTMLCanvasElement, k: number): Promise<QuantizedColor[]> {
+    async function quantizeFromCanvas(canvas: HTMLCanvasElement, k: number, chromaWeight?: number): Promise<QuantizedColor[]> {
         const { pixels, width, height } = canvasToPixels(canvas);
-        return runQuantize(pixels, width, height, { k });
+        return runQuantize(pixels, width, height, buildOptions(k, chromaWeight));
     }
 
-    async function quantizeFromCamera(k: number): Promise<{ palette: QuantizedColor[]; stop: () => void }> {
+    async function quantizeFromCamera(k: number, chromaWeight?: number): Promise<{ palette: QuantizedColor[]; stop: () => void }> {
         const stream = await navigator.mediaDevices.getUserMedia({
             video: { facingMode: "environment", width: { ideal: 640 }, height: { ideal: 480 } },
         });
@@ -121,7 +130,7 @@ export function useImageQuantize() {
         ctx.drawImage(video, 0, 0);
 
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const result = await runQuantize(imageData.data, canvas.width, canvas.height, { k });
+        const result = await runQuantize(imageData.data, canvas.width, canvas.height, buildOptions(k, chromaWeight));
 
         const stop = () => {
             stream.getTracks().forEach((t) => t.stop());
