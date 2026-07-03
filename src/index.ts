@@ -169,6 +169,15 @@ export {
 export { mixColorsN, sampleColorRamp, sampleColorRampAt } from "./units/color/mix";
 export type { SampleRampOptions } from "./units/color/mix";
 
+// Gamut-boundary sampler (R.W1.5) — the wide-RGB sRGB-excess contour.
+export { sampleGamutBoundary, sampleGamutBoundaryInto } from "./units/color/boundary";
+export type {
+    GamutBoundary,
+    GamutBoundaryTarget,
+    GamutBoundaryMode,
+    SampleGamutBoundaryOptions,
+} from "./units/color/boundary";
+
 // VJ-Q8 (1.2.0) — the SoA color-channel layout the keyframes.js compositor folds
 // the boxed color tail through (the Float64 oklab-channel plan + buffer fold).
 export {

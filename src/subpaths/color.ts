@@ -110,6 +110,15 @@ export {
 export { mixColorsN, sampleColorRamp, sampleColorRampAt } from "../units/color/mix";
 export type { SampleRampOptions } from "../units/color/mix";
 
+// Gamut-boundary sampler (R.W1.5) — the wide-RGB sRGB-excess contour.
+export { sampleGamutBoundary, sampleGamutBoundaryInto } from "../units/color/boundary";
+export type {
+    GamutBoundary,
+    GamutBoundaryTarget,
+    GamutBoundaryMode,
+    SampleGamutBoundaryOptions,
+} from "../units/color/boundary";
+
 // Color normalization
 export {
     normalizeColorUnitComponent,

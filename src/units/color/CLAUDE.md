@@ -61,6 +61,8 @@ color/
 │                     computeSafeAccent() — lightness-shift away from background
 │                     safeAccentColor() — Color → contrast-safe OKLCHColor
 │                     needsContrastAdjustment(), getOklchLightness()
+├── boundary.ts     # sampleGamutBoundary/Into — the wide-RGB sRGB-excess
+│                     contour of an HSV plate (R.W1.5); zero-alloc Into twin
 ├── difference.ts   # perceptual ΔE metrics — deltaE2000 (CIEDE2000),
 │                     deltaEITP + xyzToICtCp (BT.2100/BT.2124 ICtCp)
 ├── okhsl.ts        # OKHSL/OKHSV perceptual pickers (Ottosson; reuse gamut cusp math)

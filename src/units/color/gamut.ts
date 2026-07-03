@@ -283,6 +283,109 @@ export function gamutMapOKLab(
     return [L_mapped, C_mapped * a_, C_mapped * b_];
 }
 
+// ── R.W1.5 (boundary-api §5) — the zero-alloc Into companions ──
+//
+// `srgbToOKLabInto` / `gamutMapOKLabInto` are the out-param twins of
+// `srgbToOKLab` / `gamutMapOKLab` — byte-identical arithmetic, no per-call tuple
+// or cusp-object allocation, so the gamut-boundary sampler's inner field is
+// honestly zero-alloc. They are consumed only by `boundary.ts` and are kept OUT
+// of every barrel until a public consumer is named. Single-threaded re-entrancy
+// (the module scratches are fully written before any read) — the same argument
+// the `color2Into` / `xyz2rgbFamilyInto` scratches rely on.
+
+// Shared linear-sRGB scratch for the in-line `oklabToLinearSRGB` (avoids the
+// 3-tuple return). Written then immediately read within one call; the two
+// sequential uses inside `gamutMapOKLabInto` (in-gamut probe, then cusp) never
+// overlap.
+const _oklabLinScratch: [number, number, number] = [0, 0, 0];
+
+/** Out-param `oklabToLinearSRGB` — same 9 multiplies, no tuple allocation. */
+function oklabToLinearSRGBInto(
+    L: number, a: number, b: number,
+    out: [number, number, number],
+): [number, number, number] {
+    const l_ = L + OKLAB_TO_LMS_COEFF.l[1] * a + OKLAB_TO_LMS_COEFF.l[2] * b;
+    const m_ = L + OKLAB_TO_LMS_COEFF.m[1] * a + OKLAB_TO_LMS_COEFF.m[2] * b;
+    const s_ = L + OKLAB_TO_LMS_COEFF.s[1] * a + OKLAB_TO_LMS_COEFF.s[2] * b;
+    const l = l_ * l_ * l_;
+    const m = m_ * m_ * m_;
+    const s = s_ * s_ * s_;
+    out[0] = LMS_TO_LINEAR_SRGB[0] * l + LMS_TO_LINEAR_SRGB[1] * m + LMS_TO_LINEAR_SRGB[2] * s;
+    out[1] = LMS_TO_LINEAR_SRGB[3] * l + LMS_TO_LINEAR_SRGB[4] * m + LMS_TO_LINEAR_SRGB[5] * s;
+    out[2] = LMS_TO_LINEAR_SRGB[6] * l + LMS_TO_LINEAR_SRGB[7] * m + LMS_TO_LINEAR_SRGB[8] * s;
+    return out;
+}
+
+// Module-scoped cusp scratch — replaces `findCusp`'s per-call `{L, C}` alloc.
+const _cuspScratch: { L: number; C: number } = { L: 0, C: 0 };
+
+/** Out-param `findCusp` — writes into `_cuspScratch`; identical to `findCusp`. */
+function findCuspInto(a_: number, b_: number): { L: number; C: number } {
+    const S_cusp = computeMaxSaturation(a_, b_);
+    oklabToLinearSRGBInto(1, S_cusp * a_, S_cusp * b_, _oklabLinScratch);
+    const L_cusp = Math.cbrt(
+        1 / Math.max(_oklabLinScratch[0], _oklabLinScratch[1], _oklabLinScratch[2]),
+    );
+    _cuspScratch.L = L_cusp;
+    _cuspScratch.C = L_cusp * S_cusp;
+    return _cuspScratch;
+}
+
+/** Out-param twin of {@link srgbToOKLab} — writes (L,a,b) into `out`. */
+export function srgbToOKLabInto(
+    r: number, g: number, b: number,
+    out: [number, number, number],
+): [number, number, number] {
+    const rLin = srgbToLinear(r);
+    const gLin = srgbToLinear(g);
+    const bLin = srgbToLinear(b);
+
+    const l_ = Math.cbrt(LINEAR_SRGB_TO_LMS[0] * rLin + LINEAR_SRGB_TO_LMS[1] * gLin + LINEAR_SRGB_TO_LMS[2] * bLin);
+    const m_ = Math.cbrt(LINEAR_SRGB_TO_LMS[3] * rLin + LINEAR_SRGB_TO_LMS[4] * gLin + LINEAR_SRGB_TO_LMS[5] * bLin);
+    const s_ = Math.cbrt(LINEAR_SRGB_TO_LMS[6] * rLin + LINEAR_SRGB_TO_LMS[7] * gLin + LINEAR_SRGB_TO_LMS[8] * bLin);
+
+    out[0] = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_;
+    out[1] = 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_;
+    out[2] = 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086757660 * s_;
+    return out;
+}
+
+/**
+ * Out-param twin of {@link gamutMapOKLab} — byte-identical math (the in-gamut
+ * early-out copies L,a,b through; the OOG path reuses `_cuspScratch` via
+ * `findCuspInto`, exactly as `gamutMapOKLab` calls `findCusp`). No allocation.
+ */
+export function gamutMapOKLabInto(
+    L: number, a: number, b: number,
+    out: [number, number, number],
+): [number, number, number] {
+    const lin = oklabToLinearSRGBInto(L, a, b, _oklabLinScratch);
+    if (isInSRGBGamut(lin[0], lin[1], lin[2])) {
+        out[0] = L; out[1] = a; out[2] = b;
+        return out;
+    }
+
+    const C = Math.max(GAMUT_EPS, Math.sqrt(a * a + b * b));
+    const a_ = a / C;
+    const b_ = b / C;
+
+    const cusp = findCuspInto(a_, b_);
+
+    const Ld = L - 0.5;
+    const e1 = 0.5 + Math.abs(Ld) + GAMUT_ALPHA * C;
+    const L0 = 0.5 * (1 + Math.sign(Ld) * (e1 - Math.sqrt(e1 * e1 - 2 * Math.abs(Ld))));
+
+    const t = findGamutIntersection(a_, b_, L, C, L0, cusp);
+
+    const L_mapped = L0 * (1 - t) + t * L;
+    const C_mapped = t * C;
+
+    out[0] = L_mapped;
+    out[1] = C_mapped * a_;
+    out[2] = C_mapped * b_;
+    return out;
+}
+
 /**
  * Convert sRGB (possibly out-of-gamut) to raw OKLab.
  * Uses the direct linear sRGB → LMS path.
