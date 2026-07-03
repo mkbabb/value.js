@@ -168,6 +168,14 @@ const onInputFocus = () => {
 };
 const onInputBlur = () => {
     inputIsFocused.value = false;
+    // U9: repaint the canonical current colour on blur so uncommitted/invalid
+    // typed text never lingers. A dock-triggered reset blurs the field first, so
+    // this is the path that makes the contenteditable repaint unconditionally to
+    // the (reset) model value — the `formattedCurrentColor` watch skips repaint
+    // while focused, leaving stale text without this snap-back.
+    if (!proposeMode && inputColorRef.value) {
+        inputColorRef.value.innerText = formattedCurrentColor.value;
+    }
 };
 const onInputInput = (e: Event) => {
     const text = (e.target as HTMLElement).innerText;
