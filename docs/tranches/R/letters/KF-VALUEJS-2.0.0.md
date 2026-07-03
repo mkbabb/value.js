@@ -57,11 +57,11 @@ This gate ("kf deletes `normalizeParam` and re-pins") was **unreachable** under 
 
 The pass-2 "`extractFunctions` is dist-only, a fresh build drops it" finding was **FALSE** — a stale-worktree artifact (the measuring lane sat at 1.0.2). The symbol is in committed source since 1.1.0: `src/parsing/extract.ts:124`, re-exported at `src/index.ts:291` + `src/subpaths/parsing.ts:47`; a fresh build keeps it. value.js landed a fresh-build `.d.ts` regression assertion at R.W1 as a lock against future barrel drift. **Your consumed symbol is safe; the `^2.0.0` re-pin resolves everything in this letter.**
 
-## §4 — The standing slate (KF-2..KF-6, verbatim from SYNTHESIS-v2 §9 — books + records, no immediate kf action)
+## §4 — The standing slate (KF-2..KF-6, verbatim from SYNTHESIS-v2 §9 — books + records; a book is a recorded follow-up bound to a named trigger, never a gate; no immediate kf action)
 
 | # | Item | R action |
 |---|---|---|
-| KF-2 | parse-that `^0.13.0` pin | Current — no action. Book the `^1.0.0` re-pin on kf S.H2's cut. Do not pre-pin. |
+| KF-2 | parse-that `^0.13.0` pin | Current — no action. Book the `^1.0.0` re-pin on kf S.H2's cut (the parse-that `^1.0.0` cut the re-pin waits on). Do not pre-pin. |
 | KF-3 | glass-ui `/easing` × 5 value.js exports | Export-stability guard test at R.W1 (value.js-side: `CSSCubicBezier`, `steppedEase`, `bezierPresets`, `jumpTerms`, `parseSteps`); recorded as a standing contract in the glass-ui relay letter (§8.6). |
 | KF-4 | `/math` subpath importmap sensitivity (kf DM-13) | RELEASE.md doc line at R.W0 (W0-8/W0-12): the `/math` leaf is a load-bearing externalization target — keyframes' dist imports `clamp`/`lerpArray`/`scale` from it; it must never break; non-npm hosts must map it. The R.W2 boot cure exists precisely because this consumer is live. (Your devDep standing in value.js's demo graph is KEPT + recorded — the "phantom devDep" claim is refuted.) |
 | KF-5 | parse-that S.H1 packrat-arming | No action — transparent GC win inherited at the next re-pin. |

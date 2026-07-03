@@ -9,7 +9,7 @@
 
 ## 1 · GAP-1 — `uSatColor[]` (C-1 / BA-VJS-5) — **HIGH, escalated: the hard ask**
 
-The ONE tranche-N ask that never shipped, now **three silent slips** deep: booked "4.x" at W-GOO-REDRESS arm B; out of BB W-VIZ-SUITE; absent after BG WS5's blob rebuild (`grep uSatColor dist/` = 0). value.js's hero blob (`demo/color-picker/App.vue:115`) cannot derive satellite shades without it — the U3 residual stays open on value.js's books until this lands.
+The ONE tranche-N ask that never shipped, now **three silent slips** deep: booked "4.x" (a book — a recorded follow-up bound to a named trigger, never a gate) at W-GOO-REDRESS arm B; out of BB W-VIZ-SUITE; absent after BG WS5's blob rebuild (`grep uSatColor dist/` = 0). value.js's hero blob (`demo/color-picker/App.vue:115`) cannot derive satellite shades without it — the U3 residual stays open on value.js's books until this lands.
 
 **The hard ask** *(posture **RATIFIED 2026-07-03** by the value.js owner — Q8: the hard ask, not a soft re-book; a soft re-book invites the fourth silent slip)*: **either ride the 5.0.0 blob rebuild as the natural rider, or re-book with an explicit named owner and cut.** A reply that names neither is a decline; say so explicitly and value.js will re-plan the hero blob without it.
 

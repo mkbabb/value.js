@@ -4,7 +4,9 @@
 **Spec of record**: `docs/frontend-design/color-picker.md` **as amended at R.W0 item W0-1** (the overlay-amendment packet P1–P10 merged, incl. the pass-3 P8 `:140` clause). The treatment carries the design mass — aesthetic direction, audit, refinements, the one unforgettable moment, verdict reconciliation, implementation plan. **This wave doc ORCHESTRATES: sequencing, gates, consume anchors. It does not re-author design prose**; where an item below names a design beat, the treatment's section is the binding text.
 **Opens after**: R.W1 (the overlay consumes the *published* `sampleGamutBoundary` from the 2.0.0 cut, atop the ratified Q7 α=1.0 policy — goldens are post-α) **and** R.W2 (design lands on a working substrate: cold-cache boot green, Tabs→SegmentedTabs migrated, e2e green). Runs parallel to nothing; R.W4 opens after it (`SYNTHESIS-v2.md §3.2`; R.W5 KILLED at the 2026-07-03 ratification — the gap kept).
 **Discipline**: Fable design lane under the frontend-design skill; the editorial-instrument register (`SYNTHESIS-v2.md §2`) is settled — execute it, don't re-litigate it.
-**Status**: DISPATCHABLE (RATIFIED-2026-07-03 — **Q11 RATIFIED: lens = display-p3 with keyed override** (B5); the Q-table is closed, `R.md §12`).
+**Agents**: 1, serial across lanes A→E (the Fable design lane). The wave is a single agent unit; the §Goal criterion / §Completion criterion pair below is its unit-level Goal/Sub-gate pair.
+**Hard gate**: Fraunces resolves via `document.fonts.check` · slider thumb tracks the model under keyboard drive · the orchestrated open shows in `document.getAnimations()` · ComponentSliders ≤400 LoC · focus rings on every keyboard control · the fresh w6a-class probe runs RED pre-wave, GREEN post-wave · the overlay riders.
+**Status**: planned / DISPATCHABLE (RATIFIED-2026-07-03 — **Q11 RATIFIED: lens = display-p3 with keyed override** (B5); the Q-table is closed, `R.md §12`).
 
 ---
 
@@ -14,7 +16,11 @@ One wave turns the flagship picker into the instrument the treatment specifies: 
 
 ## §Goal criterion
 
-R.W3 succeeds when the picker page reads as the treatment's editorial instrument — a color-science atlas plate with the wide-gamut truth line breathing on the kept HSL square — and every control on it is a glass-ui consume, not a demo fork. The one unforgettable thing (the amended P7: red/magenta flood, blue clears the plate, the `p3 ⊣` detent you *feel*) renders at first paint under the ratified display-p3 lens (Q11). Completion is the §Hard gate below; a wave whose gates pass but whose plate still reads as generic furniture closes `complete_with_misses` with the taste deficit recorded for the user-review packet.
+R.W3 succeeds when the picker page reads as the treatment's editorial instrument — a color-science atlas plate with the wide-gamut truth line breathing on the kept HSL square — and every control on it is a glass-ui consume, not a demo fork. The one unforgettable thing (the amended P7: red/magenta flood, blue clears the plate, the `p3 ⊣` detent you *feel*) renders at first paint under the ratified display-p3 lens (Q11).
+
+## §Completion criterion
+
+The §Hard gate below — clauses (a)–(f) plus the overlay riders — with the §Verification artefacts archived. A wave whose gates pass but whose plate still reads as generic furniture closes `complete_with_misses` with the taste deficit recorded for the user-review packet.
 
 ---
 
@@ -50,7 +56,7 @@ A precedes everything (the N.W12 lesson: type/chroma work is invisible until the
 | B1 | Four ink/paper tokens in `style.css :root`: `--gamut-edge`/`--gamut-hatch` + `-paper` pair (P3, verbatim) | `demo/@/styles/style.css` `:root` | single-ink hatch disappears on dark/saturated substrate (prototype-proven) |
 | B2 | **2D-canvas overlay** stacked on the KEPT HSL square: strokes the ΔE>JND contour of the wide lens, dual-ink hatched margin, clear-plate caption. **Consumes `sampleGamutBoundary(hueDeg, target, {columns, mode})` from the published 2.0.0 cut — the demo owns paint, NEVER math** (no matrix re-derivation, no in-demo gamut mapping). clip-path = no-canvas fallback; WebGL rejected on the record | base square KEPT `SpectrumCanvas.vue:208-224`; rAF gate `:94-105`; API per `boundary-api.md` (result `{points, count, oogTopFrac}`; `count=0` ⇔ plate-clear) | the one unforgettable thing (P1/P7); perf proven ≈0.3 ms/frame, ~7× inside the <2 ms budget |
 | B3 | **Luma ink-regime flip at 0.5 via the shared `spectrumDotStyle` helper — share the function, never copy the constant** | `SpectrumCanvas.vue:226-243` (luma `:231`, flip `:232-233`) | instrument coherence: contour ink and dot border must never disagree about the same region (overlay-amendment §4.1) |
-| B4 | **Threshold detent** at the JND contour + target-named `p3 ⊣` micro-label (detent = dot **and model** hold ~6px then release; outbound only; no contour ⇒ no detent; label animation PRM-gated; contour position still tracks hue under PRM — state, not decoration) | P6/P9; crossing detection reuses the render pass's boundary samples — zero new geometry | the treatment's only tactile beat, physics corrected |
+| B4 | **Threshold detent** at the JND contour + target-named `p3 ⊣` micro-label (detent = dot **and model** hold ~6px then release; outbound only; no contour ⇒ no detent; label animation PRM-gated (PRM — `prefers-reduced-motion`); contour position still tracks hue under PRM — state, not decoration) | P6/P9; crossing detection reuses the render pass's boundary samples — zero new geometry | the treatment's only tactile beat, physics corrected |
 | B5 | **Lens policy — Q11 RATIFIED 2026-07-03: display-p3 with keyed override** (default lens display-p3; lens follows `selectedColorSpace` only when wide-RGB; caption always names the lens: `GAMUT LENS — DISPLAY-P3 / SRGB`; empty-state caption `p3 Δ < JND — plate clear`, final copy at implementation per overlay-amendment §6) | `demo/@/components/custom/color-picker/index.ts:37` (`DEFAULT_COLOR_SPACE = "oklch"` — why keyed-only never renders the signature) | **Q11 RATIFIED.** Keyed-only (Option A) was rejected — it demotes the signature to an easter egg and overrules the packet on the record |
 | B6 | On-plate datum = the contour's innermost point (9px ink crosshair); cusp readout lives in the caption (`cusp L 0.968 C 0.211`) | P7 | the cusp always projects to the square's (1,1) corner — vacuous as a position |
 | B7 | Treatment merge-pass nit: fix the stale `spectrumDotStyle:230-235` cite at `color-picker.md:110` → `:226-243` | overlay-amendment §7 footnote (flagged there for this wave's merge pass) | doc-truth |
@@ -72,7 +78,7 @@ Lane B is the **O.W7 gamut-truth half**: the same `gamutMapOKLab`/JND computatio
 | # | Item | Anchors | Why |
 |---|---|---|---|
 | D1 | **Readout rhythm**: int/frac/unit span split, `tnum` tabular figures, small-caps unit (treatment TYPOGRAPHY-1); hero-number scale per the display ramp with the card-lock law applied (the A6 law's *application* — slider drag min→max changes NO card rect) | `ColorComponentDisplay.vue`; N.W16.md Lane A D1-1 (the `ch`-reservation table) | U31 (hero numbers, card must not resize) · U2 (not strictly columnar) |
-| D2 | **Picker-hero composition**: the blob placed absolutely top-right of the picker card (material hero, corner-break), numbers as the typographic hero — the dual-hero diagonal | N.W16.md Lane A D1-4; `HeroBlob.vue` | U30b. (The blob's *color-derive* + satellite asks are R.W2/U3 + the GAP-1 BOOK — not this lane) |
+| D2 | **Picker-hero composition**: the blob placed absolutely top-right of the picker card (material hero, corner-break), numbers as the typographic hero — the dual-hero diagonal | N.W16.md Lane A D1-4; `HeroBlob.vue` | U30b. (The blob's *color-derive* + satellite asks are R.W2/U3 + the GAP-1 BOOK — a book is a recorded follow-up bound to a named trigger, never a gate — not this lane) |
 
 ### Lane E — the motion three-beat
 
@@ -93,6 +99,35 @@ Lane B is the **O.W7 gamut-truth half**: the same `gamutMapOKLab`/JND computatio
 - **(f)** **re-author a w6a-equivalent probe against the cured substrate** as the falsifiable before/after oracle — a computed-truth probe (CSSOM/screenshot class) driving the built demo, capturing the pre-wave state RED and the post-wave state GREEN. The discarded W0-2 scratch (`.w6a-audit*.mjs`) encoded the technique; **the files stay dead** — the probe is authored fresh, never resurrected from git.
 
 Overlay-specific completion riders (from the packet, inside the same gate): the contour renders at first paint under the ratified lens with the caption naming it; `count=0` renders clear + caption (no NaN sentinels, no phantom stroke); the detent fires outbound-only and not at all on a clear plate; overlay ink-regime flips exactly where the dot's border regime flips.
+
+## §Triumvirate dispatch
+
+A triumvirate (the mandatory research + plan-augment + redress escalation; `ORCHESTRATION.md §Triumvirate Auto-Triggers`) fires on: any file-bound expansion beyond §File bounds — notably any new `src/` export need, which is a scope reveal (mid-wave dilation beyond the declared bounds, `SPEC.md §"Scope Reveal"`) per §Hand-off; any §Hard gate clause failing non-local-edit-recoverably (the (a) font root, the (f) probe); the third iteration of any overlay/detent diagnostic loop.
+
+## §File bounds + disjointness
+
+| Surface | Access |
+|---|---|
+| `demo/**` (picker components, styles, composables) | modify |
+| `demo/DESIGN.md` (§Depth + §Type — the A5/A6 law mints) | modify |
+| `docs/frontend-design/color-picker.md` (the B7 cite fix only) | modify |
+| `docs/tranches/R/` (PROGRESS + this spec at close) | modify |
+
+Do NOT touch: `src/**` (consume-only — `sampleGamutBoundary` is the only math seam), `api/**`, `docs/precepts/**`, the vendored `demo/@/components/ui/` tree. Single writer, one agent unit: disjointness holds trivially; no worktree plan.
+
+## §Format + lint cadence
+
+`npm run lint` + `npm run typecheck` + `npm test` after each lane batch (A, then B, then C/D/E) and before close; `npx playwright test` before close.
+
+## §Verification artefacts
+
+- The paired π captures (π — the visual-runtime audit lane, run before/after per `SPEC.md §"The π visual-runtime lane"`): baseline at wave open, close at wave end, ≥3 viewports, light + dark, archived at `docs/tranches/R/audit/R.W3-visual-runtime/{baseline,close}/` with a per-page `DELTA.md`; animation-timing samples on every modified state-toggle (the E1/E2 beats, the B4 detent); contrast-vs-background measurement on the new interactive surfaces; hero-blob canvas present/positioned assertion (DOM-rect + non-empty-pixel — the disappearing-blob regression class).
+- The gate-(f) probe outputs: the pre-wave RED and post-wave GREEN runs.
+- The ComponentSliders LoC count; per-lane close commit hashes recorded in `PROGRESS.md`.
+
+## §Commit plan + dependencies
+
+Per-lane integration commits (A keystone → B overlay → C/D/E), each scope naming the owned surface; a doc/status commit at close (PROGRESS + this spec + the B7 cite fix). **Depends on**: R.W1 (the 2.0.0 cut) + R.W2 (the working substrate). **Blocks**: R.W4 (suffusion — consumes the mint + laws).
 
 ---
 

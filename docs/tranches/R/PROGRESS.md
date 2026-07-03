@@ -32,11 +32,11 @@ riders) and **two FLIPPED**:
 ## Round structure
 
 ```
-round 0:  R.W0
-round 1:  R.W1 ∥ R.W2 ∥ R.W6
-round 2:  R.W3            (requires W1 + W2)
-round 3:  R.W4
-round 4:  R.W7            (requires W4 + W6)
+round 0:  R.W0 substrate
+round 1:  R.W1 gamut+perceptual ∥ R.W2 functional truth ∥ R.W6 twin-tie
+round 2:  R.W3 the instrument     (requires W1 + W2)
+round 3:  R.W4 suffusion
+round 4:  R.W7 wire + close       (requires W4 + W6)
 ```
 
 *(W5 KILLED at the 2026-07-03 ratification — W4 → W7 directly; the wave-letter gap is kept

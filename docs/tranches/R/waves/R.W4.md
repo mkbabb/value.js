@@ -2,9 +2,11 @@
 
 **Name**: W4 — Suffusion (cards + shell + panes)
 **Spec posture**: no single treatment governs this wave; it *suffuses* the R.W3 keystone (fonts, accent axis, depth laws, `--card-edge` mint, card-lock law) across the rest of the demo, and executes two ratified consume packets: the easing model change (`docs/tranches/R/audit/pass2/easing-disposition.md` — the binding record) and the Parse-Lab fuse (`SYNTHESIS-v2.md §2.3`). Where an item is a design beat, the N-era residual docs (`docs/tranches/N/waves/N.W14.md`, `N.W16.md`, `N.W17.md`) are the checklists — consult, don't re-derive.
-**Opens after**: R.W3 (consumes its mint + laws + accent axis). Runs parallel to nothing (R.W5 KILLED at the 2026-07-03 ratification; **W4 → W7 directly**). Requires R.W1's 2.0.0 for the `/easing` consume (the `smooth-step-3` preset row — Rider 1, required — and the tightened 15 rows — Rider 2, Q12-ratified — ship there; `easing-disposition.md §2.2`).
+**Opens after**: R.W3 (consumes its mint + laws + accent axis). Runs parallel to nothing (R.W5 KILLED at the 2026-07-03 ratification; **W4 → W7 (wire + close) directly**). Requires R.W1's 2.0.0 for the `/easing` consume (the `smooth-step-3` preset row — Rider 1, required — and the tightened 15 rows — Rider 2, Q12-ratified — ship there; `easing-disposition.md §2.2`).
 **Discipline**: Fable design lane; glass-ui-first-class (variants/primitives live in the producer; the demo consumes); no-backwards-compat (forks die at the consume, no shims).
-**Status**: DISPATCHABLE (RATIFIED-2026-07-03 — **Q10 RATIFIED**: Parse-Lab fused into ColorInput; **Q12 RATIFIED**: steps mode allowed (this wave's half; the preset-tightening half lands at R.W1)).
+**Agents**: 1, serial across lanes A→F (the Fable design lane). The wave is a single agent unit; the §Goal criterion / §Completion criterion pair below is its unit-level Goal/Sub-gate pair.
+**Hard gate**: transition families ≤3 on the built demo · both forks deleted with the running gradient pane on `<EasingPicker>` · `demo/` ≤400 LoC everywhere · a11y snapshot parity · the easing-consume riders.
+**Status**: planned / DISPATCHABLE (RATIFIED-2026-07-03 — **Q10 RATIFIED**: Parse-Lab fused into ColorInput; **Q12 RATIFIED**: steps mode allowed (this wave's half; the preset-tightening half lands at R.W1)).
 
 ---
 
@@ -14,7 +16,11 @@ One wave carries the keystone's grammar to every surface the picker wave didn't 
 
 ## §Goal criterion
 
-R.W4 succeeds when the demo reads as ONE system beyond the picker: every card sits on the codified depth grammar with glassy hairlines and shimmer skeletons; every empty state invites instead of apologizing; motion speaks three families, not twelve; the gradient pane's easing area is the first-class glass-ui picker seeded from value.js's own preset table; and the input field echoes the same gamut verdict the R.W3 overlay draws. Completion is the §Hard gate; a pass with surviving fork LoC or a fourth transition family is not a pass.
+R.W4 succeeds when the demo reads as ONE system beyond the picker: every card sits on the codified depth grammar with glassy hairlines and shimmer skeletons; every empty state invites instead of apologizing; motion speaks three families, not twelve; the gradient pane's easing area is the first-class glass-ui picker seeded from value.js's own preset table; and the input field echoes the same gamut verdict the R.W3 overlay draws.
+
+## §Completion criterion
+
+The §Hard gate below — clauses (a)–(d) plus the easing-consume riders — with the §Verification artefacts archived. A pass with surviving fork LoC or a fourth transition family is not a pass.
 
 ---
 
@@ -35,7 +41,7 @@ R.W4 succeeds when the demo reads as ONE system beyond the picker: every card si
 |---|---|---|---|
 | B1 | **12→3 transition families**: inventory every pane/card/dock transition, collapse onto three named families (enter/exit · morph · celebration), each on system tokens (`--duration-*`, `--spring-*`); standardize the pane/card nomenclature the families key on | `demo/@/styles/animations.css` + pane transition sites | U12 (transitions not smooth; nomenclature) — feeds gate clause (a) |
 | B2 | **Per-view accent**: each view keys a hue off the R.W3 `--accent-live` axis so navigation reads chromatically — one resolver path, zero bespoke color math | view schema + shell styles | the N.W17 per-view half |
-| B3 | **View-select moment**: the dock's view switch becomes a designed beat (scale/settle on the three-family grammar) — *within the current dock surface*: the dock-morph gate is re-anchored on the BG dock-fission surface, a BOOK, never this wave's scope | dock menu components | the N.W17 view-select half; U16's transition-family half (its dock-*sizing* half rides the U6 BOOK) |
+| B3 | **View-select moment**: the dock's view switch becomes a designed beat (scale/settle on the three-family grammar) — *within the current dock surface*: the dock-morph gate is re-anchored on the BG dock-fission surface, a BOOK (a book — a recorded follow-up bound to a named trigger, never a gate), never this wave's scope | dock menu components | the N.W17 view-select half; U16's transition-family half (its dock-*sizing* half rides the U6 BOOK) |
 
 ### Lane C — docs φ-ladder
 
@@ -82,6 +88,35 @@ R.W4 succeeds when the demo reads as ONE system beyond the picker: every card si
 - **(d)** **a11y snapshot parity** — the axe/snapshot pass over the touched views shows no regression against the pre-wave baseline; the easing picker and the fused ColorInput are keyboard-reachable.
 
 Easing-consume completion riders (inside the same gate): all 24 gradient easing names selectable in the picker on the built demo; a `steps(n)` interval renders banded and serializes round-trip; `parseGradientCSS` of a coalesced output still seeds `linear` intervals.
+
+## §Triumvirate dispatch
+
+A triumvirate (the mandatory research + plan-augment + redress escalation; `ORCHESTRATION.md §Triumvirate Auto-Triggers`) fires on: any file-bound expansion beyond §File bounds — notably any new library export the Parse-Lab fuse discovers it needs, which is a scope reveal (mid-wave dilation beyond the declared bounds) per §Hand-off; any §Hard gate clause failing non-local-edit-recoverably (a transition inventory that will not collapse to three, a fork whose consume breaks the gradient pane); the third iteration of any diagnostic loop on the transition-family inventory or the T20 collapse.
+
+## §File bounds + disjointness
+
+| Surface | Access |
+|---|---|
+| `demo/**` (panes, cards, shell styles, gradient composables, ColorInput) | modify |
+| `assets/docs/` page styles + `Markdown.vue` region (the C1 φ-ladder) | modify |
+| `EasingSelector.vue` (the D2 fork death) + the `ExtractPane`/`ImagePaletteExtractor` dup shell (the E2 collapse) | delete / modify-carve |
+| `docs/tranches/R/` (PROGRESS + this spec at close) | modify |
+
+Do NOT touch: `src/**` (R.W1 owns the export surface — Parse-Lab needs zero new exports), `api/**`, `docs/precepts/**`, the vendored `demo/@/components/ui/` tree, the R.W3-owned mints (`--card-edge`, depth laws, card-lock law — consume only). Single writer, one agent unit: disjointness holds trivially; no worktree plan.
+
+## §Format + lint cadence
+
+`npm run lint` + `npm run typecheck` + `npm test` after each lane batch and before close; `npx playwright test` before close (the a11y gate (d) rides the e2e pass).
+
+## §Verification artefacts
+
+- The paired π captures (π — the visual-runtime audit lane, run before/after per `SPEC.md §"The π visual-runtime lane"`): baseline at wave open, close at wave end, ≥3 viewports, light + dark, archived at `docs/tranches/R/audit/R.W4-visual-runtime/{baseline,close}/` with a per-page `DELTA.md` over every touched view; animation-timing samples on the collapsed transition families and the view-select beat; contrast measurement on the new interactive surfaces (empty-state CTAs, the easing picker, the fused ColorInput); present/positioned assertion (DOM-rect + non-empty-pixel) on every WebGL/canvas surface in a touched view.
+- Deletion proofs: `EasingSelector.vue` absent from the tree; the trigger-font override gone at `ColorSpaceSelector.vue`.
+- The a11y baseline + post-wave snapshot backing gate (d); the `demo/` LoC table backing gate (c); close commit hashes in `PROGRESS.md`.
+
+## §Commit plan + dependencies
+
+Per-lane integration commits; each fork death commits paired with its consume in the same commit family (no-backwards-compat — no interim shim state on the record); a doc/status commit at close. **Depends on**: R.W3 (the keystone mints) + R.W1 (the 2.0.0 `/easing` rows). **Blocks**: R.W7 (wire + close).
 
 ---
 

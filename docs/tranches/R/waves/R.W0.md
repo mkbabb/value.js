@@ -3,6 +3,8 @@
 **Name**: W0 — Substrate (hygiene + truth)
 **Opens after**: owner ratification of the Q-table (`audit/pass2/PASS3-VERDICT.md §3`). W0 is the DAG root; R.W1 / R.W2 / R.W6 all open on its close (`SYNTHESIS-v2.md §3.2`).
 **Spec of record**: `docs/tranches/R/audit/pass2/SYNTHESIS-v2.md §3 R.W0` · authoritative inventory `docs/tranches/R/audit/pass2/w0-truth.md §c` (every row re-verified against the live tree 2026-07-02).
+**Agents**: 1 serial — the work order is one mechanical session; each row's Disposition + Gate columns are that row's paired goal/completion criteria (item-level).
+**Hard gate**: composite (§Hard gate) — clean `git status` · `git tag` == registry (≥ v0.6.0) · `master` carries 1.2.0 · P/Q/N records exist · docs spot-check true · worktrees cleaned.
 **Status**: DISPATCHABLE (RATIFIED-2026-07-03 — Q4 ratified as speced; Q3 closed on the record; the Q1 FLIP makes W0-1 `color-picker.md`-only — `hero-lab.md` was deleted at ratification, owner order).
 
 ---
@@ -17,7 +19,7 @@ The composite gate below verifies from `git status`, `git tag`, the registry lis
 
 ---
 
-## §Work order (W0-1..W0-14 — the full inventory; verify-steps live per w0-truth §c)
+## §Scope — the work order (W0-1..W0-14, the full inventory; verify-steps live per w0-truth §c)
 
 | # | Item | Verify-step (done, live) | Disposition | Gate |
 |---|---|---|---|---|
@@ -48,6 +50,36 @@ The composite gate below verifies from `git status`, `git tag`, the registry lis
 
 ---
 
+## §Triumvirate dispatch
+
+A triumvirate (research + plan-augment + redress, per `ORCHESTRATION.md §Triumvirate Auto-Triggers`) is mandatory — never a solo redispatch — on:
+
+- **bounds expansion**: any fix requiring a `src/`, `demo/`, or `api/` code write invalidates this docs+git-hygiene wave (scope reveal, per `SPEC.md §Scope Reveal`);
+- **non-local gate failures**: a retro-tag whose cited publish commit fails verification against the registry (the W0-9 table premise), or a `tranche-q`→master merge (W0-10) that conflicts rather than fast-forwarding the 3 commits;
+- **loop halt**: the third iteration of any diagnostic loop on the submodule resolution (W0-7) halts and routes.
+
+## §File bounds · disjointness · worktrees
+
+| Path | Access |
+|---|---|
+| `docs/frontend-design/color-picker.md` | commit + amend (W0-1) |
+| `.gitignore` | modify (W0-5) |
+| `CONTRIBUTING.md`, `VENDOR-POLICY.md` | delete (W0-6) |
+| `docs/precepts` (submodule) | resolve inside + gitlink bump (W0-7) |
+| `CLAUDE.md`, `docs/RELEASE.md` | modify (W0-8/W0-12) |
+| `docs/tranches/{P,Q,N}/FINAL.md` | create (W0-11) |
+
+Do NOT touch: `src/`, `demo/`, `api/`, the R audit records. Untracked-scratch discards (W0-2..W0-4) and the tag/merge/worktree git ops write no tracked paths. Single writer — no sibling worktrees (`WAVE_SPEC.md §4b` binds only when more than one agent writes); disjointness is trivial.
+
+## §Agent unit
+
+### R.W0.1 the tree-truth work order
+
+- **Goal**: per §Goal criterion — the tree tells the truth before any R work stands on it.
+- **Mechanism**: the W0-1..W0-14 work order above, each row's verify-step re-run live per `w0-truth §c`.
+- **Files**: per §File bounds.
+- **Sub-gate**: every row's Gate column holds; composite per §Hard gate.
+
 ## §Ratification rows riding this wave
 
 - **Q4 — RATIFIED 2026-07-03 as speced** (pin policy, encoded here): **keep `file:../glass-ui` + `file:../keyframes.js` deliberately** and RECORD it in CLAUDE.md at W0-12 — registry pins during active co-development are theater ("3.13.0" and "BA 4.0.0" both went stale before mattering); the protecting discipline is the adopt-event BOOKS + the by-name MIGRATION tables + **`boot-smoke` cold** as the named-export drift catch-all. The alternative (registry-pin at 5.0.0) makes every glass-ui break an explicit version event at the price of twice-disproven pin staleness. W0-8's KEEP is the same policy applied to the peer-provision chain.
@@ -56,6 +88,23 @@ The composite gate below verifies from `git status`, `git tag`, the registry lis
 ## §Hard gate (composite — verbatim per SYNTHESIS-v2 §3 R.W0)
 
 Clean `git status`; `master` carries 1.2.0; `git tag` == registry (≥ v0.6.0); P/Q/N records exist; `color-picker.md` committed + amended (hero-lab.md deleted at ratification — its absence is part of the clean-status check); keyframes devDep kept + recorded; docs spot-check true; pass-2 evidence hoisted (already done — verify tracked) + worktrees cleaned.
+
+## §Format + lint cadence
+
+Docs+git-hygiene wave: `git diff --check` before each commit; the available document checks at close. One full `npm run lint` + `npm test` pass before the master merge (W0-10) confirms the merged tree lands green.
+
+## §Verification artefacts
+
+Saved at close (cited in `PROGRESS.md`): per-row commit hashes; the `git tag -n1` capture vs the registry version list (W0-9); the empty `git status --porcelain` capture; the post-cleanup `git worktree list` capture (W0-14); the three FINAL.md paths (W0-11).
+
+## §Commit plan
+
+W0-1 lands as two commits (the treatment, then the P1–P10 amendment packet); one hygiene commit covers the discards + the `.gitignore` class (W0-2..W0-5); the proof-purge deletion commit (W0-6); the submodule resolve + gitlink bump (W0-7); one docs-truth commit (W0-8 + W0-12); the P/Q/N records commit (W0-11); W0-9/W0-10/W0-14 are git ops (tags, merge, worktree removal), not tracked-file commits; a doc/status commit closes the wave.
+
+## §Dependencies
+
+- **Depends on**: owner ratification of the Q-table (2026-07-03).
+- **Blocks**: R.W1 / R.W2 / R.W6 (the DAG root); R.W3 via the amended treatment (W0-1's second commit).
 
 ## §Evidence packets consumed
 

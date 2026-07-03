@@ -35,7 +35,13 @@ zero live external gates at any point.
 
 **Completion criterion.** Every wave gate in §3 verifies by artifact (build output, focused test
 output, runtime observation, probe re-run, or document reconciliation); 2.0.0 published; the §10
-ledger reconciles item-by-item in `FINAL.md`; master merged + tagged.
+ledger reconciles item-by-item in `FINAL.md`; master merged + tagged. `FINAL.md` also reconciles
+each wave's goal criterion against the landed work: gates-pass with goal-unmet closes
+`complete_with_misses`, not `complete`.
+
+**Brittleness window**: none. Every wave closes green (the 2.0.0 renames land with their in-wave
+test sweep); any wave that must transiently break the tree declares the precepts
+`SPEC.md §Brittleness Window` YAML block before dispatch.
 
 ---
 
@@ -169,8 +175,9 @@ for what already exists).
 
 ## §3 — The wave slate
 
-Each wave's item table (file:line anchors, sub-gates, evidence pointers) lives in its wave doc.
-This charter binds the shape; the wave docs bind the work.
+Each wave's paired goal criterion + completion criterion, agent roster, and item table (file:line
+anchors, sub-gates, evidence pointers) live in its wave doc; the Doc column below is that
+cross-reference. This charter binds the shape; the wave docs bind the work.
 
 | Wave | Title | Doc | Publishes | Gate summary |
 |---|---|---|---|---|
@@ -274,7 +281,9 @@ forbids cross-asserting outputs) — the fixture asserts **shape**. The three na
 
 ## §10 — Zero-drop fold ledger (every item → exactly one home; transcribed in full from SYNTHESIS-v2 §10)
 
-`FINAL.md` reconciles against this table row by row.
+`FINAL.md` reconciles against this table row by row. The rows compress to enumerated IDs by
+design: this ledger is the routing index; each ID's WHAT + WHY (mechanism, anchor, rationale)
+lives in the owning wave doc's item table, so a row reads with its wave doc open.
 
 | Item(s) | Home |
 |---|---|
@@ -282,7 +291,7 @@ forbids cross-asserting outputs) — the fixture asserts **shape**. The three na
 | U10 policy (Q7) + §13.2 oracle + tiered-bound lock · KF-1 grammar-fix + rename · **extractFunctions fresh-build `.d.ts` guard** (already in source, no restore) · bezierPresets rows (smooth-step-3 + tightened 15) · **boundary API + Into companions + matrix internal exports + goldens** · OKHSL/OKHSV · ΔE-2000/ΔE-ITP · K-DISP · `/easing` guard · R8-24 `<syntax>` validator row (verified shipped in 1.2.0 — closed) · 2.0.0 publish + dispatch letters | **R.W1** |
 | Boot fix (exports-map alias) · **Tabs → SegmentedTabs migration** · **abrogation-sweep named-export tripwire** · dual-pane internal confirm (external no-shim BOOKED) · U9 · U33-motion · mix-RAF PRM · watercolor-swatch consume-or-delete · X6/X8/X9 · kill-list · K-W3DIFF/K-PALID/K-INV5 · save-P0/kC rows · **hero-lab artifact deletion (Q1 FLIP 2026-07-03: `demo/hero-lab/` tree + vite hero-lab mode branch + `dev:hero-lab`/`build:hero-lab` scripts)** | **R.W2** |
 | U1 U2 U7 U13 U14 U15 U17 U19 U21 U23 U24 U26 U28 U29 U30a U30b U31 U32 (picker-bearing U-rows) · **U8 bounded-Select consume (named)** · ComponentSliders lift (R8-14) · O.W7 gamut-truth half · overlay signature (consumes R.W1's API) · lens = display-p3 with keyed override (Q11 **RATIFIED** 2026-07-03) | **R.W3** |
-| U4 U5 U12 U16 U18 U20 U22 U25 · U27-consume via `/easing` (EasingPicker; 24/24 names; §1.4 substitution record; steps allowed per Q12, **RATIFIED** 2026-07-03) · T19/T20/T21 · O.W7 Parse-Lab half (fused into ColorInput per Q10, **RATIFIED**) · glass-ui §5 self-owed retirements (EasingSelector fork, trigger-font override, Skeleton glass) | **R.W4** |
+| U4 U5 U12 U16 U18 U20 U22 U25 (the card/shell/pane-bearing U-rows) · U27-consume via `/easing` (EasingPicker; 24/24 names; §1.4 substitution record; steps allowed per Q12, **RATIFIED** 2026-07-03) · T19/T20/T21 · O.W7 Parse-Lab half (fused into ColorInput per Q10, **RATIFIED**) · glass-ui §5 self-owed retirements (EasingSelector fork, trigger-font override, Skeleton glass) | **R.W4** |
 | hero-lab treatment (full; boundary/path assignment binding) | **KILLED at ratification** (2026-07-03, owner order — Q1 FLIP: not slipped, deleted; the interpolation-path signature dies with it, absorbed by NO other wave; the gradient pane covers interpolation as existing scope) |
 | 5 shape-fixture rows inline in `diff.test.ts` · contract-currency invariant · in-tree contract-of-record note · canonical_digest option · FN-1..7 paired-authoring | **R.W6** |
 | Wire-deploy (X1/X3 + **X2 in-wave per the Q2 FLIP 2026-07-03** + X5 fold + X4 record) · relay letter §8 (7 items) · FINAL.md · merge + tag | **R.W7** |

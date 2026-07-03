@@ -1,9 +1,11 @@
 # R.W6 — TWIN-TIE (CRUD union + fourier pairing; independent of the demo lanes)
 
 **Name**: W6 — Twin-tie (the CRUD-union LEAVE verdict made durable)
-**Opens after**: R.W0 (runs parallel with R.W1 / R.W2 — no demo-lane dependency). R.W7 requires this wave.
+**Opens after**: R.W0 (substrate; runs parallel with R.W1 / R.W2 — no demo-lane dependency). R.W7 (wire + close) requires this wave.
 **Spec of record**: `SYNTHESIS-v2.md §3 R.W6` (the M4-rescoped charter) + `§5` (the CRUD-union LEAVE verdict) + `§6` (the fourier-N charter) · `dispatch-homes.md PART A` (the Q9 resolution: A.0 decisive fact, A.1 fixture home, A.2 doc home, A.3 rescope wording).
-**Status**: DISPATCHABLE (RATIFIED-2026-07-03 — no owner Q-row gated this wave; Q9 is RESOLVED on the record: fixture-inline / doc-stays-put / pointer→FN-7; `PASS3-VERDICT.md §3` closed-rows line).
+**Agents**: 1, serial (value.js-tree writes), plus the one sanctioned fourier-tree paired-authoring write (item 4). The wave is a single agent unit; the §Goal criterion / §Completion criterion pair below is its unit-level Goal/Sub-gate pair.
+**Hard gate**: the 5 inline shape rows green with no sibling checkout · the contract-of-record note present · the contract-currency invariant recorded · gates on nothing outside this repo.
+**Status**: planned / DISPATCHABLE (RATIFIED-2026-07-03 — no owner Q-row gated this wave; Q9 is RESOLVED on the record: fixture-inline / doc-stays-put / pointer→FN-7; `PASS3-VERDICT.md §3` closed-rows line).
 
 ---
 
@@ -47,7 +49,7 @@ One line in the R docs (this section IS that note, and `R/FINAL.md` carries it f
 
 > **Contract of record**: `fourier-analysis/docs/tranches/J/design/J-diff-shape.md` **§3/§4** is the bilateral wire-envelope contract for the CRUD twins. value.js binds to it **by transcription** (zero cross-repo reads — dispatch-homes A.0, verified): `api/test/conformance/diff.test.ts:5-6` cites it as the source of rules; the probe's assertions re-encode §3/§4 locally.
 
-The doc stays physically where it is. The **CONSTELLATION.md pointer** that elevates it at the constellation index is a **fourier-tree write** (`CONSTELLATION.md` exists only at `fourier-analysis/docs/constellation/CONSTELLATION.md`; authoring it from an R lane would breach read-only-main-trees) — it **books to FN-7 alongside the relocation co-decision** (M4). Neither is an R.W6 deliverable; this note de-urgents both.
+The doc stays physically where it is. The **CONSTELLATION.md pointer** that elevates it at the constellation index is a **fourier-tree write** (`CONSTELLATION.md` exists only at `fourier-analysis/docs/constellation/CONSTELLATION.md`; authoring it from an R lane would breach read-only-main-trees) — it **books to FN-7 alongside the relocation co-decision** (M4; a book — a recorded follow-up bound to a named trigger, never a gate). Neither is an R.W6 deliverable; this note de-urgents both.
 
 ### 4 · The fourier-N charter — paired-authoring work (fourier-tree write, at this wave)
 
@@ -82,6 +84,37 @@ If parity holds under value.js's own schema, adopt fourier's `canonical_digest` 
 - **Gates on nothing outside this repo.**
 
 The struck framing stays dead: "shape + byte-parity" does not appear in any gate — byte-parity is impossible AND contract-forbidden (§5; dispatch-homes A.3).
+
+The π visual-runtime lane (the paired before/after visual probe binding for visual-shipping waves) is SKIPPED: this wave is backend/doc-only — api conformance rows, records, and the paired-authored charter; no demo surface changes. This paragraph is the wave-spec skip justification `SPEC.md §"The π visual-runtime lane"` requires.
+
+## §Triumvirate dispatch
+
+A triumvirate (the mandatory research + plan-augment + redress escalation; `ORCHESTRATION.md §Triumvirate Auto-Triggers`) fires on: any file-bound expansion beyond §File bounds (in particular any pressure to change `atomdiff.ts`/`hash.ts` semantics rather than assert their shape — that re-opens the twin question, per item 2); any fixture row that cannot go green without a cross-repo read (a violation of the A.0 decisive fact, not a local edit); the third iteration of any parity-diagnostic loop under item 5.
+
+## §File bounds + disjointness
+
+| Surface | Access |
+|---|---|
+| `api/test/conformance/diff.test.ts` (the 5 inline rows) | modify |
+| `api/src/hash.ts` (item 5, optional adoption only) | modify |
+| `docs/tranches/R/` (this spec's records + the PROGRESS close entry) | modify |
+| `fourier-analysis/docs/tranches/N/` (item 4 — the sanctioned paired-authoring write; fourier owns execution) | create |
+
+Do NOT touch: `api/src/lib/crud/atomdiff.ts`, `api/src/models.ts`, `src/**`, `demo/**`, `docs/precepts/**`, anything else in the fourier tree. Single writer, one agent unit: disjointness holds trivially; no worktree plan.
+
+## §Format + lint cadence
+
+The api suite after the fixture rows land and before close: `cd api && npx tsc --noEmit` + the api vitest run (in an isolated clone, proving the no-sibling-checkout condition); `git diff --check` on the doc writes.
+
+## §Verification artefacts
+
+- The 5-row green test output from the isolated-clone run (the no-sibling-checkout proof).
+- The charter file path in the fourier tree (item 4 delivery evidence).
+- The `PROGRESS.md` close entry carrying the contract-currency invariant text (item 2) and the contract-of-record note (item 3); close commit hashes.
+
+## §Commit plan + dependencies
+
+One api-test commit (the fixture rows), one records/doc commit at close (+ the optional item-5 `hash.ts` adoption commit if taken); the fourier-tree charter lands under fourier's own commit conventions, orchestrator-authored (cross-repo pushes are never agent-authored). **Depends on**: R.W0 (substrate). **Blocks**: R.W7 (wire + close).
 
 ## §BOOKS opened/serviced by this wave (books, NEVER gates)
 
