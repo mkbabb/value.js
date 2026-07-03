@@ -1,4 +1,5 @@
 import { ref, onBeforeUnmount, watch, type Ref } from "vue";
+import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 
 export interface InertiaGestureOptions {
     /** Content dimensions (image native size) */
@@ -26,6 +27,15 @@ export function useInertiaGesture(
 
     const maxZoom = options.maxZoom ?? 10;
     const friction = options.friction ?? 0.92;
+
+    // PRM gate (the demo's standing prefers-reduced-motion discipline — no
+    // ungated rAF): momentum coasting is decorative MOTION. Under reduced-motion
+    // the inertia loop is not armed at all; the pan SNAPS to rest at the release
+    // position instead of animating to a stop (the drag itself is direct
+    // manipulation and stays live — only the post-release coast is skipped).
+    const { matches: prefersReducedMotion } = useBreakpoint(
+        "(prefers-reduced-motion: reduce)",
+    );
 
     let fitZoom = 1;
 
@@ -95,6 +105,13 @@ export function useInertiaGesture(
 
     function startInertia() {
         cancelAnimationFrame(inertiaRaf);
+        if (prefersReducedMotion.value) {
+            // PRM: snap to rest — no coast loop. Zero the velocity so a later
+            // resume does not inherit stale momentum.
+            velocityX = 0;
+            velocityY = 0;
+            return;
+        }
         const step = () => {
             if (Math.abs(velocityX) < 0.5 && Math.abs(velocityY) < 0.5) {
                 velocityX = 0;
