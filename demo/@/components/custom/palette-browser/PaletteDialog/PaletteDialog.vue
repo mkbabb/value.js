@@ -195,7 +195,7 @@ import { ImagePaletteExtractor } from "@components/custom/image-palette-extracto
 import { usePaletteDialogState } from "./composables/usePaletteDialogState";
 import { useDialogModalStack } from "./composables/useDialogModalStack";
 import { useDialogOverlayGuards } from "./composables/useDialogOverlayGuards";
-import { usePaletteExport } from "./composables/usePaletteExport";
+import { usePaletteExport } from "@composables/palette/usePaletteExport";
 import { useDialogBrowseActions } from "./composables/useDialogBrowseActions";
 
 const {
