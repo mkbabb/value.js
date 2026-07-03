@@ -14,6 +14,7 @@
 
 import { watch, onBeforeUnmount } from "vue";
 import type { Ref } from "vue";
+import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { lerp } from "@src/math";
 import { cssToRgb255 } from "@lib/color-utils";
 import type { AnimationPhase } from "./useMixingState";
@@ -51,6 +52,15 @@ export function useMixingAnimation(
     let sections: FillSection[] = [];
     let phaseStartTime = 0;
     let running = false;
+
+    // mix-RAF PRM gate: the multi-section fill is decorative MOTION. Under
+    // prefers-reduced-motion the loop is not armed at all (the demo's standing
+    // PRM discipline — no ungated rAF). The phase machine (`useMixingState`) is
+    // setTimeout-driven and advances to "done" independently, so the result
+    // swatch still reveals; only the animated canvas is skipped.
+    const { matches: prefersReducedMotion } = useBreakpoint(
+        "(prefers-reduced-motion: reduce)",
+    );
 
     const FILL_DURATION = 1800;
     const SUFFUSE_DURATION = 600;
@@ -193,6 +203,7 @@ export function useMixingAnimation(
         sections = createSections(colorCSSList.value);
         phaseStartTime = performance.now();
         running = true;
+        if (prefersReducedMotion.value) return; // PRM: skip the decorative loop
         frame = requestAnimationFrame(render);
     }
 
