@@ -51,7 +51,7 @@ never a gate. R.W6 and R.W7 gate on nothing outside this repo.
 
 | Wave | Title | Doc | Round | Status | Publishes |
 |---|---|---|---|---|---|
-| **R.W0** | SUBSTRATE — hygiene + truth (W0-1..W0-14) | `waves/R.W0.md` | 0 | **DISPATCHABLE** | — |
+| **R.W0** | SUBSTRATE — hygiene + truth (W0-1..W0-14) | `waves/R.W0.md` | 0 | **CLOSED** (2026-07-03) | — |
 | **R.W1** | GAMUT + PERCEPTUAL — U10 head (Q7), KF-1 **5-file**, boundary API, presets, OKHSL/OKHSV, ΔE, K-DISP | `waves/R.W1.md` | 1 | **DISPATCHABLE** | **2.0.0** |
 | **R.W2** | FUNCTIONAL TRUTH — boot cure, Tabs→SegmentedTabs, N.W10 rows, PRM, hero-lab artifact deletion (Q1), kill-list | `waves/R.W2.md` | 1 | **DISPATCHABLE** | — |
 | **R.W3** | THE INSTRUMENT — picker keystone; spec = amended `color-picker.md` | `waves/R.W3.md` | 2 | **DISPATCHABLE** | — |
@@ -112,3 +112,44 @@ never a gate. R.W6 and R.W7 gate on nothing outside this repo.
 | 2026-07-02 | Pass-3 certification: **CONVERGED 100/100** (trajectory 87.8/84 → 93.2/88 → 100/100); `SYNTHESIS-v2.md` amended-at-pass-3 is the ratified-ready spec; worktree reports hoisted + seeds preserved |
 | 2026-07-02 | Tranche R corpus authored: `R.md` charter + this board + `waves/R.W0.md`..`waves/R.W7.md`; **dispatch gate OPEN** awaiting the 8-row owner ratification |
 | 2026-07-03 | **OWNER RATIFICATION — dispatch gate CLOSED; all waves DISPATCHABLE.** Six rows ratified as speced (Q4/Q7/Q8/Q10/Q11/Q12); **Q1 FLIPPED** (hero-lab KILLED entirely: `waves/R.W5.md` + `docs/frontend-design/hero-lab.md` deleted; app-artifact deletion folded into R.W2; W5 gap kept as the record; W4 → W7 directly); **Q2 FLIPPED** (X2 NCSU-alias retirement = R.W7 in-wave item, in the W7 gate). Corpus amended everywhere the outcomes bind. |
+| 2026-07-03 | **R.W0 CLOSED.** All 14 rows executed serially; composite hard gate green. `color-picker.md` committed + P1–P10 overlay-amendment merged (the R.W3 spec of record); probe scratch discarded + `.gitignore` class minted; CONTRIBUTING/VENDOR-POLICY proof-purge tail committed; `docs/precepts` submodule resolved by REVERT (the 2 local edits were a superseded draft — origin/main already canonizes the paired-before/after π doctrine fuller, and 63240e6 can't ff origin/main; committing would be an out-of-band lineage publish); CLAUDE.md parse-that ^0.13.0 + §3.4 pin policy; RELEASE.md KF-4 `/math` leaf; P/Q/N FINAL.md authored; 10 annotated retro-tags minted (registry == tags ≥ v0.6.0, 0 missing); `tranche-q` fast-forwarded onto master (master carries 1.2.0); 5 stale worktrees + 5 lane branches removed; master + tranche-q + tags pushed to origin. See §Verification artefacts (R.W0). |
+
+---
+
+## §Verification artefacts (R.W0 — captured at close 2026-07-03)
+
+**Per-row commit hashes** (row → hash → evidence):
+
+| Row | Disposition | Hash / git-op |
+|---|---|---|
+| W0-1 (a) | commit `color-picker.md` as-is | `aace524` |
+| W0-1 (b) | merge P1–P10 overlay-amendment (R.W3 spec of record) | `8f1d8e7` |
+| W0-2..5 | discard 9 scratch files + mint `.gitignore` probe class | `6ce7236` |
+| W0-6 | `git rm` CONTRIBUTING.md + VENDOR-POLICY.md (proof-purge tail) | `de6428d` |
+| W0-7 | submodule resolved by REVERT (superseded draft; no gitlink bump) | *(no commit — `m docs/precepts` cleared by revert)* |
+| W0-8 + W0-12 | doc-truth: parse-that ^0.13.0 + §3.4 pin policy + RELEASE KF-4 `/math` | `cb986e6` |
+| W0-11 | author lean P/Q/N FINAL.md | `e68b720` |
+| W0-9 | 10 annotated retro-tags (git op) | tags `v0.11.2`..`v1.0.2` |
+| W0-10 | fast-forward merge tranche-q → master (git op) | master → `e68b720` |
+| W0-13 | no action — w6 shots corpus `*.png`-gitignored | n/a |
+| W0-14 | remove 5 stale worktrees + 5 lane branches (git op) | — |
+| close | this PROGRESS.md status commit | *(this commit)* |
+
+**Lint + test (pre-merge gate, on the merged tree):** `npm run lint` exit 0 (eslint `--max-warnings=0`, clean); `npm test` **51 files / 1934 tests all passed** (matches the ledger baseline at `e80b359`).
+
+**`git tag -n1` vs registry (W0-9):** every npm-registry version ≥ v0.6.0 (16 versions: v0.10.0, v0.11.0, v0.11.1, v0.11.2, v0.12.0, v0.13.0, v0.13.1, v0.14.0, v0.15.0, v0.16.0, v1.0.0, v1.0.1, v1.0.2, v1.1.0, v1.1.1, v1.2.0) carries a matching annotated git tag — **0 missing**. Pre-modernization carve-out recorded: registry `0.1.0`–`0.5.1` = **11 versions** intentionally untagged individually, under the single `pre-modernization` tag. Local tag set == origin tag set (verified identical).
+
+**`git status --porcelain` at close:** empty (clean tree).
+
+**`git worktree list` post-cleanup:** `/Users/mkbabb/Programming/value.js  e68b720 [tranche-q]` — main tree only, zero lane worktrees.
+
+**Three FINAL.md paths:** `docs/tranches/P/FINAL.md` · `docs/tranches/Q/FINAL.md` · `docs/tranches/N/FINAL.md`.
+
+**Master merge:** FAST-FORWARD (`15b0382..e68b720`, no merge commit); `git show master:package.json` → `"version": "1.2.0"`; all P/Q + 10 retro-tags resolve on master's history. Pushed: `origin/master` = `origin/tranche-q` = `e68b720`.
+
+**Recorded live-tree drifts (never silently reconciled — process lesson 3, R.md §13.3):**
+
+1. **W0-10 master-merge depth: 3 → 8 → 14.** The `w0-truth.md` inventory pinned `master..tranche-q` at **3** commits (`23d1a91`/`fd3c7ce`/`e80b359`). At wave-start it was **8** (the 5 R-docs-corpus commits `947dc9b`/`8169956`/`5480952`/`9098417`/`951a617` were authored after the inventory). At the merge it was **14** (+ the 6 R.W0 commits). The fast-forward heals all 14 and the tag/branch skew in one move; all three figures on the record.
+2. **W0-14 stale worktrees: 5, not 3.** The inventory named **three** pass-2 lane worktrees (`wf_d9a4e4d9-899-{1,2,3}`). `git worktree list` showed **FIVE** — those three plus `wf_a8d3e05b-52e-{11,12}` (same class, an earlier fleet at `15b0382`). All five removed `--force` + pruned, and their five orphaned `worktree-wf_*` lane branches deleted. The 5-vs-3 delta on the record.
+
+**Submodule (W0-7) decision + rationale:** the 2 uncommitted edits inside `docs/precepts` (`instructions/LESSONS-LEARNED.md` blob-regression π lesson; `instructions/tranche/SPEC.md` "Before/after + compare-at-close" section) are substantive precept content **but superseded**: the submodule's `origin/main` (13 commits ahead of the stale detached base `63240e6`) already canonizes a fuller version of the identical doctrine (`8ccf9f4` "Before/after capture — every page, paired, scripted" + DELTA.md + occlusion gate + WebGL present-assertion; `0c03de8` LESSONS updates). Committing the local drafts would (i) require a divergent push (`63240e6` cannot fast-forward `origin/main`), violating the precepts repo's own invariant-11 "no out-of-band lineage publish", and (ii) duplicate content already upstream. **Resolution: REVERT** — clears `m docs/precepts`, loses no knowledge (canonical form lives upstream), gitlink unchanged at `63240e6` per W0-7's narrow scope.
