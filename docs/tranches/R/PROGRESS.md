@@ -1,14 +1,23 @@
 # R — PROGRESS
 
-**Status board.** R is in **DEVELOPMENT** — the convergence loop is CLOSED (pass-3 CONVERGED
-100/100, `audit/pass2/PASS3-VERDICT.md`), the charter + wave docs are authored, and **all waves
-are PLANNED** with zero implementation commits.
+**Status board.** R is **RATIFIED** — the convergence loop is CLOSED (pass-3 CONVERGED
+100/100, `audit/pass2/PASS3-VERDICT.md`), the charter + wave docs are authored and amended to
+the ratified outcomes, and **all waves are DISPATCHABLE** with zero implementation commits.
 
-**Dispatch gate: OPEN.** Wave execution dispatches on **owner ratification of the 8 open Q rows**
-(`R.md` §12 / PASS3-VERDICT §3 — Q1, Q2, Q4, Q7, Q8, Q10, Q11, Q12, each speced at its
-recommended default, "ratify or flip"). Only **Q7** gates library *output* (the 2.0.0
-`GAMUT_ALPHA`); Q11/Q12 gate R.W3/R.W4 details; the rest are posture/scheduling. A ~4-minute
-pass over 8 rows unblocks everything.
+**Dispatch gate: CLOSED — RATIFIED 2026-07-03.** The owner pass resolved all 8 open Q rows
+(`R.md` §12): **six ratified as speced** (Q4 file:-deps · Q7 `GAMUT_ALPHA = 1.0` · Q8 hard-ask ·
+Q10 Parse-Lab fused into ColorInput · Q11 display-p3 lens with keyed override · Q12 both easing
+riders) and **two FLIPPED**:
+
+- **Q1 FLIP — hero-lab KILLED entirely** (owner order, not slipped): `waves/R.W5.md` deleted;
+  `docs/frontend-design/hero-lab.md` deleted (was untracked); the app artifacts (`demo/hero-lab/`
+  tree, the vite hero-lab mode branch, the `dev:hero-lab`/`build:hero-lab` scripts) fold into
+  R.W2 as a deletion item. The W5 numbering gap is kept — it documents the kill. The picker does
+  NOT absorb hero-lab scope.
+- **Q2 FLIP — X2 NCSU-alias retirement becomes R.W7 in-wave work** (maintainer-on-host, in the
+  W7 gate) — not a standing action.
+
+> RATIFIED-2026-07-03 provenance: board amended to the ratified outcomes.
 
 **Substrate (verified 2026-07-02):**
 - Branch `tranche-q` @ `e80b359`, value.js **1.2.0**. Master-merge debt: 3 commits
@@ -26,9 +35,12 @@ pass over 8 rows unblocks everything.
 round 0:  R.W0
 round 1:  R.W1 ∥ R.W2 ∥ R.W6
 round 2:  R.W3            (requires W1 + W2)
-round 3:  R.W4 ∥ R.W5     (W5 slippable to S per Q1)
-round 4:  R.W7            (requires W4 + W6, + W5 if not slipped)
+round 3:  R.W4
+round 4:  R.W7            (requires W4 + W6)
 ```
+
+*(W5 KILLED at the 2026-07-03 ratification — W4 → W7 directly; the wave-letter gap is kept
+deliberately as the record of the kill. Do not renumber.)*
 
 The one external edge — the D8-1 no-shim render bar — is a BOOK riding an already-dispatched ask,
 never a gate. R.W6 and R.W7 gate on nothing outside this repo.
@@ -39,14 +51,14 @@ never a gate. R.W6 and R.W7 gate on nothing outside this repo.
 
 | Wave | Title | Doc | Round | Status | Publishes |
 |---|---|---|---|---|---|
-| **R.W0** | SUBSTRATE — hygiene + truth (W0-1..W0-14) | `waves/R.W0.md` | 0 | **PLANNED** | — |
-| **R.W1** | GAMUT + PERCEPTUAL — U10 head (Q7), KF-1 **5-file**, boundary API, presets, OKHSL/OKHSV, ΔE, K-DISP | `waves/R.W1.md` | 1 | **PLANNED** | **2.0.0** |
-| **R.W2** | FUNCTIONAL TRUTH — boot cure, Tabs→SegmentedTabs, N.W10 rows, PRM, kill-list | `waves/R.W2.md` | 1 | **PLANNED** | — |
-| **R.W3** | THE INSTRUMENT — picker keystone; spec = amended `color-picker.md` | `waves/R.W3.md` | 2 | **PLANNED** | — |
-| **R.W4** | SUFFUSION — cards + shell + panes; `/easing` consume; Parse-Lab-as-input | `waves/R.W4.md` | 3 | **PLANNED** | — |
-| **R.W5** | OBSERVATORY — hero-lab (slippable to S per Q1) | `waves/R.W5.md` | 3 | **PLANNED** | — |
-| **R.W6** | TWIN-TIE — 5 inline fixture rows, contract-currency invariant, FN-1..7 | `waves/R.W6.md` | 1 | **PLANNED** | — |
-| **R.W7** | WIRE + CLOSE — X1/X3 deploy, relay letter, FINAL.md, merge + tag | `waves/R.W7.md` | 4 | **PLANNED** | — |
+| **R.W0** | SUBSTRATE — hygiene + truth (W0-1..W0-14) | `waves/R.W0.md` | 0 | **DISPATCHABLE** | — |
+| **R.W1** | GAMUT + PERCEPTUAL — U10 head (Q7), KF-1 **5-file**, boundary API, presets, OKHSL/OKHSV, ΔE, K-DISP | `waves/R.W1.md` | 1 | **DISPATCHABLE** | **2.0.0** |
+| **R.W2** | FUNCTIONAL TRUTH — boot cure, Tabs→SegmentedTabs, N.W10 rows, PRM, hero-lab artifact deletion (Q1), kill-list | `waves/R.W2.md` | 1 | **DISPATCHABLE** | — |
+| **R.W3** | THE INSTRUMENT — picker keystone; spec = amended `color-picker.md` | `waves/R.W3.md` | 2 | **DISPATCHABLE** | — |
+| **R.W4** | SUFFUSION — cards + shell + panes; `/easing` consume; Parse-Lab-as-input | `waves/R.W4.md` | 3 | **DISPATCHABLE** | — |
+| ~~R.W5~~ | **KILLED** — hero-lab deleted (owner order, Q1 FLIP at the 2026-07-03 ratification; treatment + wave doc + app artifacts; gap kept) | *(deleted)* | — | **KILLED** | — |
+| **R.W6** | TWIN-TIE — 5 inline fixture rows, contract-currency invariant, FN-1..7 | `waves/R.W6.md` | 1 | **DISPATCHABLE** | — |
+| **R.W7** | WIRE + CLOSE — X1/X3 deploy, X2 alias retirement (in-wave, Q2 FLIP), relay letter, FINAL.md, merge + tag | `waves/R.W7.md` | 4 | **DISPATCHABLE** | — |
 
 ---
 
@@ -99,3 +111,4 @@ never a gate. R.W6 and R.W7 gate on nothing outside this repo.
 |---|---|
 | 2026-07-02 | Pass-3 certification: **CONVERGED 100/100** (trajectory 87.8/84 → 93.2/88 → 100/100); `SYNTHESIS-v2.md` amended-at-pass-3 is the ratified-ready spec; worktree reports hoisted + seeds preserved |
 | 2026-07-02 | Tranche R corpus authored: `R.md` charter + this board + `waves/R.W0.md`..`waves/R.W7.md`; **dispatch gate OPEN** awaiting the 8-row owner ratification |
+| 2026-07-03 | **OWNER RATIFICATION — dispatch gate CLOSED; all waves DISPATCHABLE.** Six rows ratified as speced (Q4/Q7/Q8/Q10/Q11/Q12); **Q1 FLIPPED** (hero-lab KILLED entirely: `waves/R.W5.md` + `docs/frontend-design/hero-lab.md` deleted; app-artifact deletion folded into R.W2; W5 gap kept as the record; W4 → W7 directly); **Q2 FLIPPED** (X2 NCSU-alias retirement = R.W7 in-wave item, in the W7 gate). Corpus amended everywhere the outcomes bind. |

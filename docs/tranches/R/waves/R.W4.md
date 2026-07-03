@@ -2,9 +2,9 @@
 
 **Name**: W4 — Suffusion (cards + shell + panes)
 **Spec posture**: no single treatment governs this wave; it *suffuses* the R.W3 keystone (fonts, accent axis, depth laws, `--card-edge` mint, card-lock law) across the rest of the demo, and executes two ratified consume packets: the easing model change (`docs/tranches/R/audit/pass2/easing-disposition.md` — the binding record) and the Parse-Lab fuse (`SYNTHESIS-v2.md §2.3`). Where an item is a design beat, the N-era residual docs (`docs/tranches/N/waves/N.W14.md`, `N.W16.md`, `N.W17.md`) are the checklists — consult, don't re-derive.
-**Opens after**: R.W3 (consumes its mint + laws + accent axis). Runs parallel to R.W5. Requires R.W1's 2.0.0 for the `/easing` consume (the `smooth-step-3` preset row — Rider 1, required — and the tightened 15 rows — Rider 2, Q12-ratified — ship there; `easing-disposition.md §2.2`).
+**Opens after**: R.W3 (consumes its mint + laws + accent axis). Runs parallel to nothing (R.W5 KILLED at the 2026-07-03 ratification; **W4 → W7 directly**). Requires R.W1's 2.0.0 for the `/easing` consume (the `smooth-step-3` preset row — Rider 1, required — and the tightened 15 rows — Rider 2, Q12-ratified — ship there; `easing-disposition.md §2.2`).
 **Discipline**: Fable design lane; glass-ui-first-class (variants/primitives live in the producer; the demo consumes); no-backwards-compat (forks die at the consume, no shims).
-**Status**: SPECED (tranche development). Ratification rows owned here: **Q10** and **Q12** (the steps-mode half; Q12's preset-tightening half lands at R.W1).
+**Status**: DISPATCHABLE (RATIFIED-2026-07-03 — **Q10 RATIFIED**: Parse-Lab fused into ColorInput; **Q12 RATIFIED**: steps mode allowed (this wave's half; the preset-tightening half lands at R.W1)).
 
 ---
 
@@ -52,7 +52,7 @@ R.W4 succeeds when the demo reads as ONE system beyond the picker: every card si
 | D3 | **`parseGradientCSS`'s linear-reset maps to the `linear` preset seed unchanged** — no persisted artifact anywhere names a transcendental easing (`easing-disposition §1.6`); the blast radius is live-editing only | `useGradientCSS.ts:206-210` | semantics preserved by construction |
 | D4 | **`resolveEasing` + `GRADIENT_EASING_NAMES` become deletable — grep at consume time** (delete on zero remaining consumers) | `useGradientModel.ts:56-88` | the fork's private catalogue dies with it |
 | D5 | **Zero names drop — 24/24 persist** as presets sourced from value.js's own `bezierPresets` (the picker's catalogue IS that table; `smooth-step-3` ships exact at R.W1). The numeric-substitution record (15/24 analytic → canonical bezier, sub-JND under the ratified Rider 2) is `easing-disposition.md §1.4` — cite it in the wave close, don't restate it | `src/easing.ts:334-373` (2.0.0); glass-ui `useEasingPicker.ts:117` | the "13-of-24 drop" premise is REFUTED on the record (`SYNTHESIS-v2.md §0.3`) |
-| D6 | **Steps mode ALLOWED in gradient intervals — Q12, speced at the recommended default**: banded gradients are a design tool; the coalescing serializer handles any `(t)=>number` unchanged. Pinnable via the picker's `mode` prop if taste says no | `useGradientCSS.ts:82-89`; `EasingPicker.vue:52-53` | **Q12 — ratify or flip** (this wave owns the steps half; the preset-tightening half is R.W1's, same row) |
+| D6 | **Steps mode ALLOWED in gradient intervals — Q12 RATIFIED 2026-07-03**: banded gradients are a design tool; the coalescing serializer handles any `(t)=>number` unchanged. Pinnable via the picker's `mode` prop if taste says no | `useGradientCSS.ts:82-89`; `EasingPicker.vue:52-53` | **Q12 RATIFIED** (this wave owns the steps half; the preset-tightening half is R.W1's, same row) |
 | D7 | **Book `/easing` into the GAP-3 5.0.0 subpath-rename watch** — the consume adds a 17th glass-ui specifier; it joins the by-name MIGRATION table the relay letter demands | `SYNTHESIS-v2.md §8.3` | a BOOK entry authored here, verified at the 5.0.0 adopt event |
 
 ### Lane E — extract + input (N.W16 Lane D residual + the O.W7 Parse-Lab half)
@@ -62,7 +62,7 @@ R.W4 succeeds when the demo reads as ONE system beyond the picker: every card si
 | E1 | **T19 population/dominance surfacing**: the extract pane threads the quantizer's `population`/dominance end-to-end — dominant hero swatch (max-population from the RETURNED palette, no second worker call), population-proportional strip, the audacious stat | `panes/ExtractPane.vue`; `PaletteColorStrip.vue`; N.W16.md Lane D D3-5 | the quantizer computes a perceptual story the pane discards |
 | E2 | **T20 dup-shell collapse**: `ExtractPane`↔`ImagePaletteExtractor` (~90% duplicate) → one workbench with unified capabilities; the pane becomes a thin shell | `ExtractPane.vue` / `ImagePaletteExtractor.vue`; N.W16.md D3-6 | consumption ≠ non-duplication; the god-module cap likes it too |
 | E3 | **T21 EditDrawer delete**: the mounted-but-`display:none` dead UI goes | `ColorPicker.vue` (`<EditDrawer>` mount) | dead UI is a lie in the tree |
-| E4 | **Parse-Lab fused into ColorInput — Q10, speced at the recommended default**: the input gains the AST echo + the **gamut-verdict echo** — the same `deltaEOK`/`gamutMapOKLab`/`DELTA_E_OK_JND` computation the R.W3 overlay draws, so the drawn contour and the typed verdict can never disagree about "visible clipping." **Zero new library exports** (public since O.W2: `src/subpaths/color.ts:120-134`). A detached teaching pane is contrivance until arbitrary-`parseCSSValue` teaching demand is demonstrated | `ColorInput` + `useColorParsing` | **Q10 — ratify or flip.** The O.W7 Parse-Lab half; KISS |
+| E4 | **Parse-Lab fused into ColorInput — Q10 RATIFIED 2026-07-03**: the input gains the AST echo + the **gamut-verdict echo** — the same `deltaEOK`/`gamutMapOKLab`/`DELTA_E_OK_JND` computation the R.W3 overlay draws, so the drawn contour and the typed verdict can never disagree about "visible clipping." **Zero new library exports** (public since O.W2: `src/subpaths/color.ts:120-134`). A detached teaching pane is contrivance until arbitrary-`parseCSSValue` teaching demand is demonstrated | `ColorInput` + `useColorParsing` | **Q10 RATIFIED.** The O.W7 Parse-Lab half; KISS |
 
 ### Lane F — the glass-ui §5 self-owed retirements (the fork-death ledger this wave clears)
 
@@ -98,7 +98,7 @@ Easing-consume completion riders (inside the same gate): all 24 gradient easing 
 - **Consumes, never re-mints**: `--card-edge`, the depth laws, the card-lock law, `--accent-live` are R.W3-owned; the preset rows are R.W1-owned. Any missing producer surface is a relay-letter item (R.W7 §8), never a demo fork.
 - **The easing substitution record is the packet**: `easing-disposition.md §1.4` is the per-name mapping of record; the wave close cites it (preserve-animations honored — moved, recorded, nothing silent).
 - **Parse-Lab needs zero new exports** — if implementation discovers otherwise, that is a scope-reveal → triumvirate, not an inline barrel edit (R.W1 owns the export surface).
-- R.W5 runs parallel; no shared write surfaces (hero-lab is a standalone sub-app).
+- No parallel design wave (R.W5 KILLED at the 2026-07-03 ratification — hero-lab deleted, owner order; its scope is absorbed by NO lane here).
 
 ## §Evidence packets consumed
 

@@ -3,7 +3,7 @@
 **Name**: W1 — Gamut + perceptual (the 2.0.0 cut)
 **Opens after**: R.W0 (runs parallel with R.W2 / R.W6). R.W3 requires this wave — the overlay consumes the *published* boundary API atop the *settled* gamut policy.
 **Spec of record**: `SYNTHESIS-v2.md §3 R.W1` (items 1–7) + `§9` (the kf/parse-that slate) · `PASS3-VERDICT.md §1` (the KF-1 **5-file** head-truth amendment).
-**Status**: SPECED — Q7 gates item 1's constant (the only Q-row gating library *output*); Q12's R-3 half gates item 4's tightening.
+**Status**: DISPATCHABLE (RATIFIED-2026-07-03 — Q7 ratified at **α=1.0** (item 1 is now a decision record, not a head); Q12's R-3 tightening RATIFIED (item 4 lands)).
 
 ---
 
@@ -23,14 +23,13 @@ The α change (item 1) moves `gamutMapOKLab`'s OOG output, which **moves the JND
 
 ## §Items
 
-### 1 · U10 gamut policy — the Q7 head, then one constant
+### 1 · U10 gamut policy — **DECISION RECORD (Q7 RATIFIED 2026-07-03): `GAMUT_ALPHA = 1.0`**, then one constant
 
-**Q7 — ratify or flip** (the only row gating library output). The α-tune family won on the extended 164-color corpus: hue held **0.000° mean AND max**; MINDE §13.2 rejected (34.7° max hue drift + ≈6.5× cost — survives as *test oracle* only); gamut-relative rejected (c1 const-L clip = 27% retention, worse than the 34% defect; c2 byte-identical to full-cusp, ΔL max 0.405). Two ratifiable settings (`gamut-bound.md §7`), both fully costed:
+**Q7 RATIFIED at α=1.0 — the genuine cure.** The α-tune family won on the extended 164-color corpus: hue held **0.000° mean AND max**; MINDE §13.2 rejected (34.7° max hue drift + ≈6.5× cost — survives as *test oracle* only); gamut-relative rejected (c1 const-L clip = 27% retention, worse than the 34% defect; c2 byte-identical to full-cusp, ΔL max 0.405). The ratified setting (`gamut-bound.md §7`):
 
-| Option | Setting | Pro | Con |
-|---|---|---|---|
-| **A (speced default)** | `GAMUT_ALPHA = 1.0` | oracle-vivid pink `lab(92% 88.8 20)` → `rgb(255,167,180)` (39% retention — the U10 "land between"); hue-exact; cost ≈1.0× (free); always 4.9× under full-cusp's collateral | worst-case ΔL **0.050** at realistic chroma (C≤0.32), **0.083** at authored super-gamut chroma (C≥0.37 dark-L — above any real gamut's cusp); misses the strict `<0.05` gate |
-| B (gate-strict fallback) | `GAMUT_ALPHA = 0.35` | worst-case ΔL <0.05 everywhere | pink lands 30% (`rgb(255,185,194)`) — weakly satisfying the U10 oracle; on the steep part of the return curve (under-cured) |
+**`GAMUT_ALPHA = 1.0`** — oracle-vivid pink `lab(92% 88.8 20)` → `rgb(255,167,180)` (39% retention — the U10 "land between"); hue-exact; cost ≈1.0× (free); always 4.9× under full-cusp's collateral. Tiered bound: worst-case ΔL **0.050** at realistic chroma (C≤0.32), **0.083** at authored super-gamut chroma (C≥0.37 dark-L — above any real gamut's cusp).
+
+**Rejected gate-strict alternative (recorded)**: `GAMUT_ALPHA = 0.35` held ΔL <0.05 everywhere but under-cured — pink landed at 30% (`rgb(255,185,194)`), weakly satisfying the U10 oracle, on the steep part of the return curve. Rejected at the 2026-07-03 ratification in favor of the genuine cure.
 
 The exact change: **`src/units/color/gamut.ts:242`** (`GAMUT_ALPHA`) + the two doc strings (**`gamut.ts:5-6`**, **`:246`** — pass-1's `:247` was off-by-one). Ship the **tiered bound**, never "<0.05"; the pass-1 "natural knee" claim is refuted — it is a diminishing-returns **elbow** (light-retention climbs monotonically through α=2.0). An L-asymmetric α stays rejected as contrivance (recorded, `SYNTHESIS-v2.md §2.4`).
 
@@ -61,9 +60,9 @@ The symbol is in source since 1.1.0 (`23d1a91`): `src/parsing/extract.ts:124`, r
 ### 4 · `bezierPresets` rows (easing-disposition riders; the R.W4 migration's numeric floor)
 
 - **R-2 (required)**: add `"smooth-step-3": [1/3, 0, 2/3, 1]` to `bezierPresets` (`src/easing.ts:334-373`) — **EXACT** (maxΔ 0.0000 over 2001 samples; the Hermite ⅓-handle identity); completes **24/24** name preservation for the R.W4 EasingPicker consume. One line; flows into the picker's preset menu through the externalized import with zero glass-ui work.
-- **R-3 — Q12, ratify or flip** (speced default: **RATIFY**): tighten the 15 approximated rows to the easings.net + exact-⅓-handle table (`easing-disposition.md §1.4` right column) — converts the R.W4 migration's worst case from **2.9× JND to sub-JND** (0.1923→0.0387 max deviation); 4 rows become exact. Blast radius: no in-tree consumer reads the changed rows (`timingFunctions` reads only the unchanged `ease`×4 + `back`×3, `easing.ts:495-501`; kf does not import `bezierPresets`; bbnf-buddy reads name-membership only and is semver-fenced at `^0.10.0`). Behavior-visible on a published export → **rides this major**. Declining leaves a recorded 2.9×-JND worst case on circ/expo.
+- **R-3 — Q12 RATIFIED 2026-07-03** (rides this wave): tighten the 15 approximated rows to the easings.net + exact-⅓-handle table (`easing-disposition.md §1.4` right column) — converts the R.W4 migration's worst case from **2.9× JND to sub-JND** (0.1923→0.0387 max deviation); 4 rows become exact. Blast radius: no in-tree consumer reads the changed rows (`timingFunctions` reads only the unchanged `ease`×4 + `back`×3, `easing.ts:495-501`; kf does not import `bezierPresets`; bbnf-buddy reads name-membership only and is semver-fenced at `^0.10.0`). Behavior-visible on a published export → **rides this major**. Declining leaves a recorded 2.9×-JND worst case on circ/expo.
 
-(Q12's R-4 half — steps mode in gradient intervals — is an R.W4 consume-time call; it costs nothing here.)
+(Q12's R-4 half — steps mode in gradient intervals — is R.W4's, RATIFIED same row; it costs nothing here.)
 
 ### 5 · Boundary API (`boundary-api.md`, verbatim — the R.W3 instrument's math)
 

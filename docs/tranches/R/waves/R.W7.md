@@ -1,15 +1,15 @@
 # R.W7 — WIRE + CLOSE (the deploy ceremony + relay dispatches + FINAL.md; gates on nothing outside this repo)
 
 **Name**: W7 — Wire + close
-**Opens after**: R.W4 + R.W6 (+ R.W5 only if not slipped per Q1 — `SYNTHESIS-v2.md §3.2`).
+**Opens after**: R.W4 + R.W6 (R.W5 KILLED at the 2026-07-03 ratification — Q1 FLIP; **W4 → W7 directly**).
 **Spec of record**: `SYNTHESIS-v2.md §3 R.W7` + `§8` (the relay letter) + `§9` (the kf/parse-that slate, dispatched at R.W1) · `PASS3-VERDICT.md §3` (Q2) + `§4` (the process lessons FINAL.md folds).
-**Status**: SPECED — Q2 governs item 2's posture (X2); Q8's ratified posture rides inside the already-authored relay letter.
+**Status**: DISPATCHABLE (RATIFIED-2026-07-03 — **Q2 FLIPPED**: X2 is an in-wave item and the §Hard gate includes it; **Q8 RATIFIED**: the hard-ask posture rides inside the already-authored relay letter).
 
 ---
 
 ## §Charter
 
-Prod serves I-era code; the deploy ceremony N.W8′ speced never fired. This wave fires the wire (X1/X3), records the human-at-host op honestly (X2 per Q2), folds the rollback knowledge into the runbook (X5) with the X4 decision on the record, dispatches the standing letters, and closes the tranche — FINAL.md, merge, tag. The close wave **gates on nothing outside this repo**: every cross-repo wait is already a BOOK with a named trigger.
+Prod serves I-era code; the deploy ceremony N.W8′ speced never fired. This wave fires the wire (X1/X3), retires the NCSU alias in-wave (X2 — the Q2 FLIP, 2026-07-03: owner order "no ncsu alias"), folds the rollback knowledge into the runbook (X5) with the X4 decision on the record, dispatches the standing letters, and closes the tranche — FINAL.md, merge, tag. The close wave **gates on nothing outside this repo**: every cross-repo wait is already a BOOK with a named trigger. (X2 is maintainer-on-host — inside this repo's maintainership, not an external wait.)
 
 ## §Goal criterion
 
@@ -17,7 +17,7 @@ The tranche is closed with the wire honest: production serves HEAD-lineage api c
 
 ## §Completion criterion
 
-The §Hard gate below — X2 is explicitly NOT in it (per the Q2 speced default).
+The §Hard gate below — X2 IS in it (the Q2 FLIP, RATIFIED-2026-07-03).
 
 ---
 
@@ -27,9 +27,9 @@ The §Hard gate below — X2 is explicitly NOT in it (per the Q2 speced default)
 
 Fire the prod deploy: HEAD-lineage api via `scripts/deploy.sh api` over the committed `api/compose.yaml` rs0 artefact + `scripts/deploy-hook.sh` (the N-P0-3 carry: the compose-no-rs0 = txns-throw defect was cured in-tree; prod still runs I-era code until this fires). Post-deploy verification: the deployed api answers with current-lineage behavior (spot-probe an R-era surface — e.g. the `/diff` envelope the R.W6 rows assert — against `mbabb.fi.ncsu.edu/colors/`).
 
-### 2 · X2 — NCSU-alias retirement (**Q2 — ratify or flip**)
+### 2 · X2 — NCSU-alias retirement (**Q2 FLIPPED at the 2026-07-03 ratification: in-wave work, in the gate**)
 
-A maintainer **on-host** op (DEC-9 honesty). **Speced at the recommended default: a standing maintainer action, NOT an R.W7 gate** — gate this wave only on X1/X3; fire X2 inside W7 if the maintainer is at the keyboard. The alternative (gating W7 on X2) makes the close wave wait on a human-at-host op — the exact class of external wait this tranche's close-wave discipline exists to forbid. Record the standing action in `R/FINAL.md`'s handoff either way.
+A maintainer **on-host** op (DEC-9 honesty), now **R.W7 in-wave work by owner order** ("no ncsu alias"): retire the NCSU alias during this wave, maintainer at the keyboard, and record the retirement in `R/FINAL.md`. The speced default (a standing action outside the gate) was FLIPPED — the alias does not outlive the tranche. The W7 gate includes X2 (§Hard gate).
 
 ### 3 · X3 — the first CF-Pages wire run
 
@@ -54,15 +54,16 @@ Author `docs/tranches/R/FINAL.md`: the per-wave gate table (evidence-backed, mis
 ## §Hard gate (verbatim per SYNTHESIS-v2 §3 R.W7)
 
 - **Prod serves current** (X1 fired + spot-probe green).
+- **X2 fired: the NCSU alias is retired** (the Q2 FLIP, RATIFIED-2026-07-03 — maintainer-on-host, in-wave; the retirement recorded in FINAL.md).
 - **Relay letters dispatched** (glass-ui §8 letter sent; kf §9 slate confirmed-dispatched).
 - **FINAL.md authored** (gate table + books + lessons + counts).
 - **master merged, tagged.**
 - X3's wire run green (fires on the merge; verified before close).
-- **Gates on nothing outside this repo.** X2 is not a gate (Q2 speced default); no gate waits on glass-ui landing D8-1, on kf consuming the letter, or on fourier-N opening.
+- **Gates on nothing outside this repo.** X2 is maintainer-on-host — this repo's own maintainership, not an external wait; no gate waits on glass-ui landing D8-1, on kf consuming the letter, or on fourier-N opening.
 
 ## §BOOKS opened/serviced by this wave (books, NEVER gates)
 
-- **X2 NCSU-alias retirement** — becomes a standing maintainer action at close (Q2 default); fires whenever the maintainer is on-host.
+- *(X2 is NOT a book — the Q2 FLIP at the 2026-07-03 ratification made it in-wave work, item 2, in the §Hard gate.)*
 - **D8-1 no-shim verify** — if the glass-ui `layer(components)` dist has not landed by close, the book stays open past R with the relay letter carrying the ask; the trigger is unchanged (the next `file:../glass-ui` dist rebuild carrying it).
 - **The §3.3 book table** carries forward intact into FINAL.md — glass-ui 5.0.0 adopt event (goo-blob→blob re-point, GAP-3 subpath walk, uSatColor consume, aurora-metal re-verify, U6 dock-fission verify), parse-that `^1.0.0` re-pin, K-W5RT vue-router 5, S.H3 Pratt consume-edge, CH-10/CH-13/R8-23 spec-gated longhands, FN-7 co-decision + CONSTELLATION.md pointer.
 
@@ -72,4 +73,4 @@ Author `docs/tranches/R/FINAL.md`: the per-wave gate table (evidence-backed, mis
 
 ## §Hand-off
 
-Tranche S (or the next letter) receives: the open books table; any Q1-slipped R.W5; any gate-miss with its named successor. glass-ui receives the relay letter; kf's letter is already in flight from R.W1. The constellation receives a value.js at 2.0.0, deployed, with the demo buildable and the twin-tie durable.
+Tranche S (or the next letter) receives: the open books table; any gate-miss with its named successor. (No R.W5 hand-off — hero-lab was KILLED at ratification, not slipped.) glass-ui receives the relay letter; kf's letter is already in flight from R.W1. The constellation receives a value.js at 2.0.0, deployed, with the demo buildable and the twin-tie durable.

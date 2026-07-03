@@ -3,9 +3,10 @@
 **Tranche letter**: R — value.js's fourteenth tranche (arc A..Q → R). The tranche that picks up
 everything N-death dropped: the demo's functional P0s, the design keystone the ratified-but-dead
 N.W10–W18 block promised, the gamut-policy head O.W6 scoped out, the KF-1 grammar defect, the
-CRUD twin-tie, and the wire-deploy close — 7 waves, functional-truth before design, treatments
-as specs, every cross-repo wait a BOOK with a named trigger, and a close wave that gates on
-nothing outside this repo.
+CRUD twin-tie, and the wire-deploy close — 6 waves (the W5 slot KILLED at the 2026-07-03
+ratification; the numbering keeps the gap — the gap documents the kill), functional-truth before
+design, the treatment as spec, every cross-repo wait a BOOK with a named trigger, and a close
+wave that gates on nothing outside this repo.
 
 **Substrate**: branch `tranche-q` @ `e80b359` (value.js **1.2.0**). Siblings: glass-ui 4.2.0
 `file:`-dep (BG executing → 5.0.0) · keyframes.js 5.1.0 · parse-that 0.13.0 · fourier-analysis
@@ -16,9 +17,16 @@ and governing. This charter distills it; where the two could ever diverge, **the
 The certification record: `audit/pass2/PASS3-VERDICT.md` (CONVERGED 100/100; its §1 head-truth
 note amends KF-1 to a **5-file** change; its §3 is the owner Q-table this charter's §12 encodes).
 
-**Mode**: **DEVELOPMENT — charter + wave docs only.** No `src/`, `demo/`, or `api/` edits until
-dispatch. Dispatch gates on **owner ratification of the 8 open Q rows** (§12) — a ~4-minute pass;
-only Q7 gates library *output*, Q11/Q12 gate R.W3/R.W4 details, the rest are posture/scheduling.
+**Mode**: **RATIFIED 2026-07-03 — all waves DISPATCHABLE.** The owner pass resolved all 8 open
+Q rows (§12): six ratified as speced; two **FLIPPED** — **Q1** (hero-lab KILLED entirely, not
+slipped: treatment file deleted, `waves/R.W5.md` deleted, the app artifacts fold into R.W2 as a
+deletion item; the W5 numbering gap stands as the record) and **Q2** (X2 NCSU-alias retirement
+becomes R.W7 in-wave work, in the W7 gate — not a standing action). No `src/`, `demo/`, or
+`api/` edits preceded ratification.
+
+> RATIFIED-2026-07-03 — this charter amended throughout to the ratified outcomes (owner pass,
+> verbatim intent: "hero lab is to be deleted. no ncsu alias. for all other items, fold and use
+> your best judgment given our no workarounds discipline.").
 
 **Goal criterion.** The library's perceptual head is settled and published as an honest 2.0.0;
 the demo boots cold-cache, builds, and behaves; the picker becomes the editorial instrument the
@@ -52,8 +60,9 @@ O/P/Q perfected the library and left everything else where N-death dropped it. T
 N.W10–W18 demo block is three weeks dead and its central premise — *interim now, consume at the
 BA 4.0.0 pin* — died twice: value.js floats on `file:../glass-ui` at 4.2.0 (no pin to discharge),
 and the producer fixes the interims were waiting for already shipped. R's structural answer:
-**7 waves, functional-truth before design, treatments as specs, every cross-repo wait a BOOK with
-a named trigger, and the close wave gates on nothing outside this repo.**
+**6 waves (W5 killed at ratification, gap kept), functional-truth before design, the treatment as
+spec, every cross-repo wait a BOOK with a named trigger, and the close wave gates on nothing
+outside this repo.**
 
 The convergence loop moved four answers before ratification (SYNTHESIS-v2 §0, condensed):
 
@@ -138,9 +147,13 @@ cheaply per frame), so the design signature and the engine's identity are the sa
   via the shared `spectrumDotStyle` helper, `SpectrumCanvas.vue:231-233` — share the function,
   never copy the constant); lens default per **Q11**. Perf proven: ≈0.3 ms/frame, ~7× inside the
   <2 ms budget.
-- **`docs/frontend-design/hero-lab.md` → AMEND + ADOPT; second priority, slippable (Q1).** One
-  binding amend: **the picker owns the gamut BOUNDARY; hero-lab owns the interpolation PATH**
-  (the sRGB↔oklch grey-death toggle). Two pages must not both claim the perceptual-truth reveal.
+- **`docs/frontend-design/hero-lab.md` → KILLED at ratification (2026-07-03, owner order; Q1
+  FLIPPED from AMEND+ADOPT).** The treatment file is deleted (it was untracked — never committed);
+  `waves/R.W5.md` is deleted; the hero-lab APP artifacts (`demo/hero-lab/` tree, the
+  `vite.config.ts` hero-lab mode branch, the `dev:hero-lab`/`build:hero-lab` scripts) die as an
+  R.W2 deletion item. **The picker does NOT absorb hero-lab scope** — the interpolation-PATH
+  signature dies with the page (no smuggling into R.W3/R.W4); the gradient pane already covers
+  interpolation as existing scope.
 - **O.W7 (Parse-Lab + gamut-truth) → FUSE, don't bolt on.** One `gamutMapOKLab`/JND computation
   feeds the square overlay (output side) and the ColorInput gamut-verdict echo (parse side) —
   zero new exports needed (`deltaEOK`/`gamutMapOKLab`/`DELTA_E_OK_JND` public since O.W2). A
@@ -161,27 +174,29 @@ This charter binds the shape; the wave docs bind the work.
 
 | Wave | Title | Doc | Publishes | Gate summary |
 |---|---|---|---|---|
-| **R.W0** | SUBSTRATE — hygiene + truth (W0-1..W0-14) | `waves/R.W0.md` | — | clean `git status`; master carries 1.2.0; tags == registry ≥ v0.6.0; P/Q/N records exist; treatments committed + amended; docs true |
+| **R.W0** | SUBSTRATE — hygiene + truth (W0-1..W0-14; W0-1 = `color-picker.md`-only per the Q1 FLIP) | `waves/R.W0.md` | — | clean `git status`; master carries 1.2.0; tags == registry ≥ v0.6.0; P/Q/N records exist; `color-picker.md` committed + amended; docs true |
 | **R.W1** | GAMUT + PERCEPTUAL — the U10 head, KF-1 (5-file), boundary API, presets, OKHSL/OKHSV, ΔE-2000/ITP, K-DISP | `waves/R.W1.md` | **2.0.0** | §13.2 oracle suite green; tiered-bound guard row; KF-1 gate vector; fresh-build `.d.ts` guard; boundary goldens locked post-α; vitest green; letters dispatched |
-| **R.W2** | FUNCTIONAL TRUTH — boot cure, Tabs→SegmentedTabs, N.W10 rows, PRM, kill-list | `waves/R.W2.md` | — | cold-cache boot clean; gh-pages + hero-lab `✓ built`; e2e 5-project green; 1440 root confirmed in-tree; zero ungated rAF (no-shim bar EXTERNAL-booked) |
+| **R.W2** | FUNCTIONAL TRUTH — boot cure, Tabs→SegmentedTabs, N.W10 rows, PRM, hero-lab artifact deletion (Q1), kill-list | `waves/R.W2.md` | — | cold-cache boot clean; gh-pages `✓ built`; e2e 5-project green; 1440 root confirmed in-tree; zero ungated rAF (no-shim bar EXTERNAL-booked); hero-lab artifacts gone (tree + config + scripts) |
 | **R.W3** | THE INSTRUMENT — picker keystone; spec = amended `color-picker.md` | `waves/R.W3.md` | — | Fraunces loads; thumb paints live color under keyboard; orchestrated open observable; ComponentSliders ≤400 LoC; w6a-equivalent probe re-authored |
 | **R.W4** | SUFFUSION — cards + shell + panes; `/easing` consume; Parse-Lab-as-input | `waves/R.W4.md` | — | transition families ≤3; both forks deleted; `demo/` ≤400 LoC everywhere; a11y snapshot parity |
-| **R.W5** | OBSERVATORY — hero-lab; slippable to S (Q1) | `waves/R.W5.md` | — | fonts load; page gradients interpolate in oklch; the toggle kills the grey |
+| ~~R.W5~~ | **KILLED at ratification 2026-07-03** (Q1 FLIP, owner order: hero-lab deleted — treatment, wave doc, and app artifacts; the numbering gap stands as the record) | *(deleted)* | — | — |
 | **R.W6** | TWIN-TIE — 5 inline fixture rows, contract-currency invariant, FN-1..7 paired-authoring | `waves/R.W6.md` | — | `diff.test.ts` inline rows green with no sibling checkout; in-tree contract-of-record note present; **gates on nothing outside this repo** |
-| **R.W7** | WIRE + CLOSE — deploy HEAD api (X1), CF-Pages (X3), relay letter, FINAL.md | `waves/R.W7.md` | — | prod serves current; relay letters dispatched; FINAL.md authored; master merged, tagged; **gates on nothing outside this repo** |
+| **R.W7** | WIRE + CLOSE — deploy HEAD api (X1), NCSU-alias retirement (X2, in-wave per the Q2 FLIP), CF-Pages (X3), relay letter, FINAL.md | `waves/R.W7.md` | — | prod serves current; **X2 fired (alias retired)**; relay letters dispatched; FINAL.md authored; master merged, tagged; **gates on nothing outside this repo** (X2 is maintainer-on-host, not an external wait) |
 
 ### §3.2 DAG
 
 ```
 R.W0 ──┬── R.W1 (library, 2.0.0) ───┐
-       ├── R.W2 (functional) ───────┼── R.W3 (picker) ──┬── R.W4 (suffusion) ──┐
-       └── R.W6 (twin-tie) ─────────┘                   └── R.W5 (hero-lab)* ──┼── R.W7 (close)
-                                                         *slippable to S       ┘
+       ├── R.W2 (functional) ───────┼── R.W3 (picker) ── R.W4 (suffusion) ──┬── R.W7 (close)
+       └── R.W6 (twin-tie) ─────────┴───────────────────────────────────────┘
 ```
 
+*(W5 KILLED at ratification 2026-07-03 — the wave-letter gap is kept deliberately; it documents
+the kill. Do not renumber.)*
+
 W1/W2/W6 run parallel after W0. W3 requires W1 (the overlay consumes the published boundary API
-atop the settled policy) + W2 (design on a working substrate). W4/W5 parallel after W3. W7
-requires W4 + W6 (+ W5 if not slipped). The one external edge — the D8-1 no-shim render bar — is
+atop the settled policy) + W2 (design on a working substrate). W4 follows W3; W7 requires
+W4 + W6 — **W4 → W7 directly**. The one external edge — the D8-1 no-shim render bar — is
 a BOOK riding an already-dispatched ask, never a gate.
 
 ### §3.3 Booked cross-repo events (BOOKS — books, never gates)
@@ -198,10 +213,10 @@ No R wave gate reads any row of this table. Each row fires on its named trigger,
 | **CH-10 / CH-13 / R8-23 spec-gated grammar longhands** | as previously recorded | Unchanged carries |
 | **fourier FN-7 doc-relocation co-decision + CONSTELLATION.md pointer** | fourier-N execution | Co-decide the contract-doc neutral home **and author the CONSTELLATION.md pointer** (both fourier-tree writes); value.js's in-tree contract-of-record note holds the binding in the interim |
 
-### §3.4 The pin policy (Q4 — ratify or flip; decide once, record forever)
+### §3.4 The pin policy (Q4 — **RATIFIED 2026-07-03 as speced**; decided once, recorded forever)
 
-**SPECED: keep `file:../glass-ui` (and `file:../keyframes.js`) deliberately, and RECORD it in
-CLAUDE.md at R.W0.** The constellation is a paired-authorship monorepo-in-spirit; a registry pin
+**RATIFIED: keep `file:../glass-ui` (and `file:../keyframes.js`) deliberately, and RECORD it in
+CLAUDE.md at R.W0 (W0-12).** The constellation is a paired-authorship monorepo-in-spirit; a registry pin
 during active co-development is theater that goes stale the day it's written (as "3.13.0" and
 "BA 4.0.0" both proved). The discipline that actually protects value.js is the **adopt-event
 book** + the by-name MIGRATION tables the relay letter demands + **`boot-smoke` cold** as the
@@ -212,7 +227,7 @@ policy applied to the peer-provision chain (W0-8).
 
 ## §4 — The library slate (R.W1 summary + defers + do-NOTs)
 
-**In R** (detail in `waves/R.W1.md`): U10 policy (Q7 head) + §13.2 oracle + tiered-bound lock ·
+**In R** (detail in `waves/R.W1.md`): U10 policy (Q7 RATIFIED 2026-07-03: `GAMUT_ALPHA = 1.0`) + §13.2 oracle + tiered-bound lock ·
 KF-1 grammar-fix + rename (**5-file**: `seeds/kf1.patch` + the `parsing-extract-functions.test.ts:36`
 assertion sweep) · `extractFunctions` fresh-build `.d.ts` regression guard (already in source
 since 1.1.0 — no restore) · `bezierPresets` rows (smooth-step-3 exact + tightened 15, Q12) ·
@@ -263,14 +278,14 @@ forbids cross-asserting outputs) — the fixture asserts **shape**. The three na
 
 | Item(s) | Home |
 |---|---|
-| W0-1..W0-14 (treatments + amendment packet · scratch discard · gitignore class · CONTRIBUTING/VENDOR rm · precepts submodule · keyframes devDep **KEEP** · retro-tags ×10 · master-merge · P/Q/N records · doc-truth + pin-policy record · report hoisting) | **R.W0** |
+| W0-1..W0-14 (W0-1 = **`color-picker.md` only** + amendment packet — the hero-lab.md half KILLED at ratification 2026-07-03 (Q1 FLIP; file deleted, never committed) · scratch discard · gitignore class · CONTRIBUTING/VENDOR rm · precepts submodule · keyframes devDep **KEEP** · retro-tags ×10 · master-merge · P/Q/N records · doc-truth + pin-policy record · report hoisting) | **R.W0** |
 | U10 policy (Q7) + §13.2 oracle + tiered-bound lock · KF-1 grammar-fix + rename · **extractFunctions fresh-build `.d.ts` guard** (already in source, no restore) · bezierPresets rows (smooth-step-3 + tightened 15) · **boundary API + Into companions + matrix internal exports + goldens** · OKHSL/OKHSV · ΔE-2000/ΔE-ITP · K-DISP · `/easing` guard · R8-24 `<syntax>` validator row (verified shipped in 1.2.0 — closed) · 2.0.0 publish + dispatch letters | **R.W1** |
-| Boot fix (exports-map alias) · **Tabs → SegmentedTabs migration** · **abrogation-sweep named-export tripwire** · dual-pane internal confirm (external no-shim BOOKED) · U9 · U33-motion · mix-RAF PRM · watercolor-swatch consume-or-delete · X6/X8/X9 · kill-list · K-W3DIFF/K-PALID/K-INV5 · save-P0/kC rows | **R.W2** |
-| U1 U2 U7 U13 U14 U15 U17 U19 U21 U23 U24 U26 U28 U29 U30a U30b U31 U32 (picker-bearing U-rows) · **U8 bounded-Select consume (named)** · ComponentSliders lift (R8-14) · O.W7 gamut-truth half · overlay signature (consumes R.W1's API) · lens ratification (Q11) | **R.W3** |
-| U4 U5 U12 U16 U18 U20 U22 U25 · U27-consume via `/easing` (EasingPicker; 24/24 names; §1.4 substitution record; steps allowed per Q12) · T19/T20/T21 · O.W7 Parse-Lab half · glass-ui §5 self-owed retirements (EasingSelector fork, trigger-font override, Skeleton glass) | **R.W4** |
-| hero-lab treatment (full; boundary/path assignment binding) | **R.W5** (slippable) |
+| Boot fix (exports-map alias) · **Tabs → SegmentedTabs migration** · **abrogation-sweep named-export tripwire** · dual-pane internal confirm (external no-shim BOOKED) · U9 · U33-motion · mix-RAF PRM · watercolor-swatch consume-or-delete · X6/X8/X9 · kill-list · K-W3DIFF/K-PALID/K-INV5 · save-P0/kC rows · **hero-lab artifact deletion (Q1 FLIP 2026-07-03: `demo/hero-lab/` tree + vite hero-lab mode branch + `dev:hero-lab`/`build:hero-lab` scripts)** | **R.W2** |
+| U1 U2 U7 U13 U14 U15 U17 U19 U21 U23 U24 U26 U28 U29 U30a U30b U31 U32 (picker-bearing U-rows) · **U8 bounded-Select consume (named)** · ComponentSliders lift (R8-14) · O.W7 gamut-truth half · overlay signature (consumes R.W1's API) · lens = display-p3 with keyed override (Q11 **RATIFIED** 2026-07-03) | **R.W3** |
+| U4 U5 U12 U16 U18 U20 U22 U25 · U27-consume via `/easing` (EasingPicker; 24/24 names; §1.4 substitution record; steps allowed per Q12, **RATIFIED** 2026-07-03) · T19/T20/T21 · O.W7 Parse-Lab half (fused into ColorInput per Q10, **RATIFIED**) · glass-ui §5 self-owed retirements (EasingSelector fork, trigger-font override, Skeleton glass) | **R.W4** |
+| hero-lab treatment (full; boundary/path assignment binding) | **KILLED at ratification** (2026-07-03, owner order — Q1 FLIP: not slipped, deleted; the interpolation-path signature dies with it, absorbed by NO other wave; the gradient pane covers interpolation as existing scope) |
 | 5 shape-fixture rows inline in `diff.test.ts` · contract-currency invariant · in-tree contract-of-record note · canonical_digest option · FN-1..7 paired-authoring | **R.W6** |
-| Wire-deploy (X1/X3 + X2 per Q2 + X5 fold + X4 record) · relay letter §8 (7 items) · FINAL.md · merge + tag | **R.W7** |
+| Wire-deploy (X1/X3 + **X2 in-wave per the Q2 FLIP 2026-07-03** + X5 fold + X4 record) · relay letter §8 (7 items) · FINAL.md · merge + tag | **R.W7** |
 | **D8-1 no-shim verify** (ask already dispatched) · **U6 dock-fission verify at 5.0.0 (named)** · U3-uSatColor consume · goo-blob→blob · GAP-3 subpath table (+`/easing`, +`/tabs`) · aurora-metal verify · parse-that 1.0.0 re-pin · K-W5RT router-5 · S.H3 Pratt · CH-10 · CH-13 · R8-23 timeline longhands · FN-7 co-decision (+ CONSTELLATION.md pointer) · R-4/5/6/7/8/10 library defers | **BOOKS** (§3.3 + §4) |
 | R8-18 fourier conformance-matrix corrections + fourier-web pin bump | carry, fourier-owned (named in the FN charter) |
 | R8-19 kf-side BOOKs (MCI-5 pad, P3-keyframe, light-dark per-target) | carry, kf-owned |
@@ -279,12 +294,14 @@ forbids cross-asserting outputs) — the fixture asserts **shape**. The three na
 
 ---
 
-## §12 — Ratification table (Q1–Q12): the dispatch instrument
+## §12 — Ratification table (Q1–Q12): **CLOSED — owner pass 2026-07-03**
 
-Every data-armed question is ANSWERED or RESOLVED on the record; the 8 OPEN rows are pure
-owner-preference calls, each speced at its recommended default. **Ratifying the defaults as-speced
-is one word; flipping any row is one edit to this table + the owning wave doc. Never silently
-decided; never left unspecified.**
+Every data-armed question was ANSWERED or RESOLVED on the record; the 8 open rows were ratified
+by the owner on **2026-07-03** (verbatim intent: *"hero lab is to be deleted. no ncsu alias. for
+all other items, fold and use your best judgment given our no workarounds discipline."*). Six
+rows ratified at the speced default; **two FLIPPED** — Q1 (hero-lab KILLED entirely) and Q2
+(NCSU-alias retirement folded into R.W7 as in-wave work). Nothing was silently decided; the
+flips are recorded here and in every doc they bind.
 
 **Closed rows (no owner action):**
 
@@ -295,18 +312,18 @@ decided; never left unspecified.**
 | Q6 | The 2.0.0 major | **ANSWERED** | **Bundle**: grammar fix + rename + gamut policy + preset tightening in one honest 2.0.0 at R.W1 (the keyframes-2.2.0 semver lesson). Split documented as a scheduling contingency only. |
 | Q9 | Contract-doc + fixture homes | **RESOLVED** | Fixture inline in `diff.test.ts`, read locally (zero cross-repo reads verified); doc stays put; in-tree contract-of-record note; CONSTELLATION.md pointer + relocation booked to FN-7. |
 
-**Open rows (RATIFICATION — each speced at the recommended default; ratify or flip):**
+**Ratified rows (owner pass 2026-07-03 — outcomes on the record):**
 
-| Q | Question | SPECED value (the recommended default) | Cost of the alternative |
-|---|---|---|---|
-| **Q1 — ratify or flip** | hero-lab placement | **Keep in-R as the slippable R.W5** — nothing depends on it; it slips free at any point. | Slipping now merely re-letters the same work; no dependency breaks either way. |
-| **Q2 — ratify or flip** | Wire-deploy X2 (NCSU-alias retirement, maintainer on-host op) | **Standing maintainer action**; gate R.W7 only on X1/X3 — fire X2 inside W7 if the maintainer is at the keyboard. | Gating W7 on X2 makes the close wave wait on a human-at-host op. |
-| **Q4 — ratify or flip** | Pin policy | **Keep `file:` deps deliberately** + adopt-event books + `boot-smoke` cold as the drift catch-all; record in CLAUDE.md (§3.4). | Registry-pin at 5.0.0 makes every glass-ui break an explicit version event, at the price of twice-disproven pin staleness. |
-| **Q7 — ratify or flip** | Gamut α (**the only row gating library output** — 2.0.0's `GAMUT_ALPHA`, `gamut.ts:242`) | **α=1.0** — oracle-vivid pink `rgb(255,167,180)` (39% retention), hue-exact (0.000°), free (≈1.0×), 4.9× under full-cusp collateral; tiered bound ΔL 0.050 realistic-gamut / 0.083 authored-super-gamut. | α=0.35 is gate-strict (ΔL <0.05 everywhere) but under-cures: pink lands at 30% retention — weakly satisfying the U10 oracle. |
-| **Q8 — ratify or flip** | `uSatColor[]` escalation (three silent glass-ui slips) | **Hard ask in the relay letter** — ride the 5.0.0 blob rebuild as the natural rider, or name an owner explicitly. | A soft re-book invites the fourth silent slip; the U3 hero-blob residual stays open. |
-| **Q10 — ratify or flip** | Parse-Lab | **Fuse into ColorInput** (AST + gamut-verdict echo) — zero new library exports needed; KISS. | A detached pane is contrivance until arbitrary-`parseCSSValue` teaching demand is demonstrated. |
-| **Q11 — ratify or flip** | Overlay default lens | **B-with-override**: default lens display-p3, captioned on the plate (`GAMUT LENS — DISPLAY-P3 / SRGB`); lens follows `selectedColorSpace` only when wide-RGB. | Keyed-only (Option A) never renders the signature at first paint (the shipped default space is `oklch`) — adopting it overrules the packet on the record. Strict-B is a minor variant. |
-| **Q12 — ratify or flip** | Easing riders | **Ratify both**: R-3 tighten the 15 approximated `bezierPresets` rows (makes the R.W4 migration sub-JND — worst 0.1923→0.0387); R-4 allow steps mode in gradient intervals (banded gradients are a design tool; pinnable via the picker's `mode` prop). | Declining R-3 leaves a recorded 2.9×-JND worst case on circ/expo; declining R-4 pins `mode` and loses a tool. |
+| Q | Question | OUTCOME (2026-07-03) |
+|---|---|---|
+| **Q1 — FLIPPED** | hero-lab placement | **KILLED ENTIRELY, not slipped** (owner order: "hero lab is to be deleted"). `waves/R.W5.md` deleted; `docs/frontend-design/hero-lab.md` deleted (untracked — removed); W0-1 becomes `color-picker.md`-only; the app artifacts (`demo/hero-lab/` tree · the `vite.config.ts` hero-lab mode branch · the `dev:hero-lab`/`build:hero-lab` scripts) fold into **R.W2 as a deletion item** (NO legacy code); the R.W2 gate drops `build:hero-lab` (gh-pages only); DAG: **W4 → W7 directly**, the W5 numbering gap kept — the gap documents the kill. **The picker does NOT absorb hero-lab scope**: the interpolation-path signature dies with it; the gradient pane already covers interpolation as existing scope. |
+| **Q2 — FLIPPED** | Wire-deploy X2 (NCSU-alias retirement, maintainer on-host op) | **RETIRED as R.W7 in-wave work** (owner order: "no ncsu alias"). X2 becomes an R.W7 item, maintainer-on-host, and the **W7 gate includes it** — not a standing action. |
+| **Q4 — RATIFIED** | Pin policy | Default stands: **keep `file:` deps deliberately** + adopt-event books + `boot-smoke` cold as the drift catch-all; **record in CLAUDE.md at W0-12** (§3.4). |
+| **Q7 — RATIFIED** | Gamut α (the only row gating library output — 2.0.0's `GAMUT_ALPHA`, `gamut.ts:242`) | **`GAMUT_ALPHA = 1.0`** — the genuine cure: oracle-vivid pink `rgb(255,167,180)` (39% retention), hue-exact (0.000°), free (≈1.0×), 4.9× under full-cusp collateral; ship the tiered bound (ΔL 0.050 realistic / 0.083 authored-super-gamut). **α=0.35 recorded as the rejected gate-strict alternative** (under-cures: pink at 30%). The two-option table collapses to this decision record (`waves/R.W1.md` item 1). |
+| **Q8 — RATIFIED** | `uSatColor[]` escalation (three silent glass-ui slips) | **Hard-ask posture in the relay letter** — ride the 5.0.0 blob rebuild as the natural rider, or name an owner explicitly; a reply naming neither is a decline. |
+| **Q10 — RATIFIED** | Parse-Lab | **Fused into ColorInput** (AST + gamut-verdict echo) — zero new library exports; KISS. The detached pane stays dead. |
+| **Q11 — RATIFIED** | Overlay default lens | **display-p3 with keyed override** (B-with-override): default lens display-p3, captioned on the plate (`GAMUT LENS — DISPLAY-P3 / SRGB`); lens follows `selectedColorSpace` only when wide-RGB. |
+| **Q12 — RATIFIED** | Easing riders | **Both riders ratified**: R-3 preset tightening rides R.W1 (15 rows sub-JND — worst 0.1923→0.0387); R-4 steps mode allowed in gradient intervals (banded gradients are a design tool; pinnable via the picker's `mode` prop). |
 
 ---
 
@@ -349,4 +366,5 @@ by inspection** (explicit named exports; no `export *` leak path); (3) prophoto-
 goldens are net-new — the property suite is the safety net; (4) the D8-1 landing window — if the
 BG cut stalls past R.W3's start, the design wave proceeds on the internally-confirmed defect
 record with the book still open (never a gate); (5) Q7 interacts with the boundary goldens —
-whichever α ratifies, the goldens regenerate after it (sequencing locked in `waves/R.W1.md`).
+α=1.0 RATIFIED (2026-07-03); the goldens regenerate after the α change lands (sequencing locked
+in `waves/R.W1.md`).

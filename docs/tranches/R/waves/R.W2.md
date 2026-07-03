@@ -3,7 +3,7 @@
 **Name**: W2 — Functional truth (the demo P0 sweep)
 **Opens after**: R.W0 (runs parallel with R.W1 / R.W6). R.W3 requires this wave — design lands on a working substrate, never atop a shim.
 **Spec of record**: `SYNTHESIS-v2.md §3 R.W2` · gate split per `dispatch-homes.md B.2` · boot proof per `boot-blast-radius.md`.
-**Status**: SPECED — no Q-row gates this wave.
+**Status**: DISPATCHABLE (RATIFIED-2026-07-03). The Q1 FLIP folds the **hero-lab artifact deletion** into this wave (item 6) and drops `build:hero-lab` from the gate (gh-pages only).
 
 ---
 
@@ -65,11 +65,23 @@ Extend **`scripts/abrogation-sweep.mjs`** half-1 (`:84-109`): for each `import {
 | **K-W3DIFF** | PaletteDiff render (the chronic K→M→N.W6→R modern-web carry) | land the diff render |
 | **K-PALID** | palette id-honesty (same carry chain) | land the id-honesty fix |
 
+### 6 · Hero-lab artifact deletion (Q1 FLIP — owner order, RATIFIED-2026-07-03; NO legacy code)
+
+Hero-lab was KILLED entirely at ratification (not slipped): the treatment (`docs/frontend-design/hero-lab.md`) and the wave doc (`waves/R.W5.md`) are already deleted from the corpus; this wave deletes the APP artifacts. Verified live at `e80b359` — exactly these exist, nothing else (no e2e/CI/scripts references grep-verified):
+
+| Artifact | Live cite (verified 2026-07-03) | Action |
+|---|---|---|
+| `demo/hero-lab/` tree | `App.vue` · `components/` · `hero-lab.css` · `index.html` · `lib/` | **DELETE the tree** |
+| vite hero-lab mode branch | `vite.config.ts:202-229` — the `} else if (mode.mode === "hero-lab") {` branch (root `./demo/hero-lab/`, outDir `./dist/hero-lab`) | **DELETE the branch** |
+| npm scripts | `package.json:72` `"dev:hero-lab": "vite --mode hero-lab --port 9010"` · `package.json:74` `"build:hero-lab": "vite build --mode hero-lab"` | **DELETE both** |
+
+The picker does NOT absorb hero-lab scope — the interpolation-path signature dies with the page (the gradient pane already covers interpolation as existing scope). The pass-2 all-4-modes boot proof (`boot-blast-radius.md`) remains valid historical evidence; post-deletion the live vite modes are production / gh-pages / dev.
+
 ---
 
 ## §Hard gate (verbatim per SYNTHESIS-v2 §3 R.W2)
 
-Demo boots **cold-cache** clean (`boot-smoke --force`); `npm run gh-pages` + `npm run build:hero-lab` reach `✓ built`; e2e 5-project suite green; the 1440 defect + root confirmed in-tree; zero ungated rAF; zero phantom classes. **The no-shim render bar is EXTERNAL-booked** (short window — BG is live and the fix is mechanical) — a BOOK, never a gate.
+Demo boots **cold-cache** clean (`boot-smoke --force`); `npm run gh-pages` reaches `✓ built` (`build:hero-lab` dropped from the gate — the Q1 FLIP, RATIFIED-2026-07-03; the pass-2 all-4-modes proof stands as historical evidence); **hero-lab artifacts gone** (item 6: `demo/hero-lab/` absent, no hero-lab branch in `vite.config.ts`, no `*:hero-lab` scripts in `package.json`, grep-zero); e2e 5-project suite green; the 1440 defect + root confirmed in-tree; zero ungated rAF; zero phantom classes. **The no-shim render bar is EXTERNAL-booked** (short window — BG is live and the fix is mechanical) — a BOOK, never a gate.
 
 ## §No-workaround prohibitions (binding)
 

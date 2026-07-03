@@ -3,7 +3,7 @@
 **Name**: W6 — Twin-tie (the CRUD-union LEAVE verdict made durable)
 **Opens after**: R.W0 (runs parallel with R.W1 / R.W2 — no demo-lane dependency). R.W7 requires this wave.
 **Spec of record**: `SYNTHESIS-v2.md §3 R.W6` (the M4-rescoped charter) + `§5` (the CRUD-union LEAVE verdict) + `§6` (the fourier-N charter) · `dispatch-homes.md PART A` (the Q9 resolution: A.0 decisive fact, A.1 fixture home, A.2 doc home, A.3 rescope wording).
-**Status**: SPECED — no owner Q-row gates this wave (Q9 is RESOLVED on the record: fixture-inline / doc-stays-put / pointer→FN-7; `PASS3-VERDICT.md §3` closed-rows line).
+**Status**: DISPATCHABLE (RATIFIED-2026-07-03 — no owner Q-row gated this wave; Q9 is RESOLVED on the record: fixture-inline / doc-stays-put / pointer→FN-7; `PASS3-VERDICT.md §3` closed-rows line).
 
 ---
 
