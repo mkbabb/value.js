@@ -2,8 +2,11 @@
  * Analytical sRGB gamut mapping based on Bjorn Ottosson's ok_color.h
  * https://bottosson.github.io/posts/gamutclipping/
  *
- * Strategy: adaptive L0 (alpha=0.05) — deterministic, zero-iteration,
- * perceptually correct in OKLab with exact hue preservation.
+ * Strategy: adaptive L0 (alpha=1.0) — deterministic, zero-iteration,
+ * perceptually correct in OKLab with exact hue preservation. The anchor
+ * chroma-pull (alpha·C) lets light-saturated out-of-gamut colors keep their
+ * vividness instead of washing toward mid-lightness (the U10 cure); it is
+ * self-limited (exact at L=0.5) and hue-exact by construction.
  *
  * MIT License — Copyright (c) 2021 Bjorn Ottosson
  */
@@ -239,11 +242,11 @@ export function findGamutIntersection(
 }
 
 const GAMUT_EPS = 0.00001;
-const GAMUT_ALPHA = 0.05;
+const GAMUT_ALPHA = 1.0; // R.W1 U10 (Q7 RATIFIED): un-wash light-saturated colors; self-limited at L=0.5, hue-exact.
 
 /**
  * Core gamut mapping in raw OKLab space.
- * Adaptive L0 strategy (alpha=0.05) — preserves hue exactly.
+ * Adaptive L0 strategy (alpha=1.0) — preserves hue exactly.
  *
  * Input/output: raw OKLab (L ∈ [0,1], a,b ∈ [-0.4,0.4]).
  * Returns the mapped (L, a, b) tuple.
