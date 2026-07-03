@@ -190,6 +190,8 @@ After publishing, `file:`-pinned consumers (notably `keyframes.js`) may need to 
 
 Cross-repo writes by value.js maintainers stay narrowly bounded per the F3 invariant: **value.js does not write into consumer repos** except through published codemods invoked locally by the consumer, or under explicit user authorization (e.g. F-window's keyframes.js codemod application — `LOCAL-ONLY commit; user-discretionary push`).
 
+**KF-4 — `/math` is a load-bearing externalization leaf.** `@mkbabb/keyframes.js`'s dist consumes value.js's `/math` subpath directly (`import { clamp, lerpArray, scale } from "@mkbabb/value.js/math"`), and glass-ui peer-requires keyframes — so the demo build graph (demo → glass-ui `/dock`(×16)/`/motion`/`/aurora`/`/goo-blob` → keyframes → value.js `/math`) depends on `/math` resolving. **The `/math` subpath must never break its export shape**, and any non-npm host (a `file:`-linked or vendored build) **must map `@mkbabb/value.js/math` to `dist/math.js`** in its resolver config — the exports map is the source of truth for that mapping. A prefix-rewrite alias that mangles the subpath to `dist/value.js/math` is the R.W2 boot-cascade root cause; array-form anchored-regex aliases mirroring the exports map are the cure.
+
 ---
 
 ## §6 — Authority

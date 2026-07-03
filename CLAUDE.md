@@ -110,8 +110,13 @@ assets/docs/              # 10 color space reference pages (Vue + KaTeX)
 
 ## Dependencies
 
-- **Runtime**: `@mkbabb/parse-that@^0.7.0`
+- **Runtime**: `@mkbabb/parse-that@^0.13.0`
 - **Dev**: vite, vue, typescript, vitest, playwright, reka-ui, @vueuse/core, tailwindcss, katex
+- **Sibling `file:` deps**: `@mkbabb/glass-ui: file:../glass-ui`, `@mkbabb/keyframes.js: file:../keyframes.js` (kept deliberately — see §3.4 pin policy). The keyframes devDep is NOT phantom: it is the demo build's provision of glass-ui's `@mkbabb/keyframes.js` peerDependency `^5.0.0`, and keyframes' dist is a live transitive consumer of value.js's own `/math` subpath (`clamp`/`lerpArray`/`scale`).
+
+### §3.4 Pin policy (Q4 — RATIFIED 2026-07-03)
+
+**Keep `file:../glass-ui` and `file:../keyframes.js` deliberately.** The constellation is a paired-authorship monorepo-in-spirit; a registry pin during active co-development is theater that goes stale the day it's written ("3.13.0" and "BA 4.0.0" both proved this). The disciplines that actually protect value.js are the **adopt-event books** (each sibling major cut is an explicit booked event), the **by-name MIGRATION tables** the relay letters demand, and **`boot-smoke` cold** as the catch-all for named-export drift (the Tabs class of failure). The alternative — registry-pinning at 5.0.0 — makes every sibling break an explicit version event at the price of twice-disproven pin staleness. The keyframes devDep KEEP (above) is the same policy applied to the peer-provision chain.
 
 ## Path aliases (tsconfig)
 
