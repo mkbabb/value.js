@@ -232,34 +232,6 @@ export default defineConfig((mode) => {
                 }),
             ],
         };
-    } else if (mode.mode === "hero-lab") {
-        return {
-            ...defaultOptions,
-            base: "./",
-            root: "./demo/hero-lab/",
-            build:
-                mode.command === "build"
-                    ? {
-                          outDir: path.resolve(import.meta.dirname, "./dist/hero-lab"),
-                          emptyOutDir: true,
-                          minify: true,
-                          sourcemap: false,
-                      }
-                    : undefined,
-            server: {
-                host: true,
-                fs: { allow: siblingFsAllowTransient },
-            },
-            optimizeDeps: {
-                include: [
-                    "vue",
-                    "reka-ui",
-                    "@vueuse/core",
-                    "@lucide/vue",
-                ],
-            },
-            plugins: [...defaultPlugins],
-        };
     } else if (mode.mode === "gh-pages") {
         return {
             ...defaultOptions,
