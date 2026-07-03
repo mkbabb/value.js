@@ -56,8 +56,14 @@ export function usePaletteActions(deps: {
         deps.updatePalette(palette.id, { name: newName });
     }
 
-    async function onCurrentPaletteSaved(name: string, colors: PaletteColor[]) {
-        await ensureUser();
+    function onCurrentPaletteSaved(name: string, colors: PaletteColor[]) {
+        // save-P0 (local-first inversion): a save is a local, destructive
+        // gesture — `createPalette` must run UNCONDITIONALLY so a save with the
+        // backend down loses zero data. `ensureUser()` (a network act that
+        // throws when the backend is unreachable) is deferred to publish, where
+        // `onPublish` already guards it in a try/catch. The prior `await
+        // ensureUser()` here inverted the contract: on an unreachable backend it
+        // threw before `createPalette` ran and the palette was silently destroyed.
         const palette = deps.createPalette(name, colors);
         expandedId.value = palette.id;
     }
