@@ -25,7 +25,12 @@ const roundTrips = (css: string): void => {
 };
 
 describe("O.W4 S7 — @function typed (C10)", () => {
-    const css = "@function --double(--x: <length>) { result: calc(var(--x) * 2); }";
+    // CSS Functions & Mixins L1 §3.1:
+    //   <function-parameter> = <custom-property-name> <css-type>? [ : <default-value> ]?
+    // The <css-type> follows the name by WHITESPACE; the default is introduced
+    // by a single top-level colon.
+    const css =
+        "@function --double(--x <length>) { result: calc(var(--x) * 2); }";
 
     it("C10 — parses to kind:function with name + descriptor", () => {
         const s = parseCSSStylesheet(css);
@@ -35,7 +40,7 @@ describe("O.W4 S7 — @function typed (C10)", () => {
         if (item.kind !== "function") throw new Error("not a function");
         expect(item.name).toBe("--double");
         expect(item.descriptor.parameters).toEqual([
-            { name: "--x", type: "<length>" },
+            { name: "--x", syntax: "<length>" },
         ]);
         // `result:` is hoisted into the descriptor (not a general declaration).
         expect(item.descriptor.result).toBeDefined();
@@ -43,19 +48,88 @@ describe("O.W4 S7 — @function typed (C10)", () => {
         expect(item.descriptor.declarations).toBeUndefined();
     });
 
-    it("C10 — parameter default value is captured", () => {
+    it("C10 — the KF-1 spec vector: --x <length>: 0px", () => {
         const s = parseCSSStylesheet(
-            "@function --f(--a: <number>: 1) { result: var(--a); }",
+            "@function --f(--x <length>: 0px) { result: var(--x); }",
         );
         const item = s[0]!;
         if (item.kind !== "function") throw new Error("not a function");
         expect(item.descriptor.parameters).toEqual([
-            { name: "--a", type: "<number>", defaultValue: "1" },
+            { name: "--x", syntax: "<length>", default: "0px" },
+        ]);
+    });
+
+    it("C10 — no type, no default: bare --x", () => {
+        const s = parseCSSStylesheet(
+            "@function --f(--x) { result: var(--x); }",
+        );
+        const item = s[0]!;
+        if (item.kind !== "function") throw new Error("not a function");
+        expect(item.descriptor.parameters).toEqual([{ name: "--x" }]);
+    });
+
+    it("C10 — type, no default: --x <length>", () => {
+        const s = parseCSSStylesheet(
+            "@function --f(--x <length>) { result: var(--x); }",
+        );
+        const item = s[0]!;
+        if (item.kind !== "function") throw new Error("not a function");
+        expect(item.descriptor.parameters).toEqual([
+            { name: "--x", syntax: "<length>" },
+        ]);
+    });
+
+    it("C10 — default, no type: --x: 0px", () => {
+        const s = parseCSSStylesheet(
+            "@function --f(--x: 0px) { result: var(--x); }",
+        );
+        const item = s[0]!;
+        if (item.kind !== "function") throw new Error("not a function");
+        expect(item.descriptor.parameters).toEqual([
+            { name: "--x", default: "0px" },
+        ]);
+    });
+
+    it("C10 — comma-nested default: var(--y, 1px) survives the split", () => {
+        const s = parseCSSStylesheet(
+            "@function --f(--x <length>: var(--y, 1px)) { result: var(--x); }",
+        );
+        const item = s[0]!;
+        if (item.kind !== "function") throw new Error("not a function");
+        expect(item.descriptor.parameters).toEqual([
+            { name: "--x", syntax: "<length>", default: "var(--y, 1px)" },
+        ]);
+    });
+
+    it("C10 — type() css-type notation carries no phantom default", () => {
+        const s = parseCSSStylesheet(
+            "@function --f(--x type(<length>)) { result: var(--x); }",
+        );
+        const item = s[0]!;
+        if (item.kind !== "function") throw new Error("not a function");
+        expect(item.descriptor.parameters).toEqual([
+            { name: "--x", syntax: "type(<length>)" },
+        ]);
+    });
+
+    it("C10 — multiple params, mixed shapes", () => {
+        const s = parseCSSStylesheet(
+            "@function --f(--x <length>: 0px, --y <color>: red, --z) { result: var(--x); }",
+        );
+        const item = s[0]!;
+        if (item.kind !== "function") throw new Error("not a function");
+        expect(item.descriptor.parameters).toEqual([
+            { name: "--x", syntax: "<length>", default: "0px" },
+            { name: "--y", syntax: "<color>", default: "red" },
+            { name: "--z" },
         ]);
     });
 
     it("C17 — @function round-trips", () => {
         roundTrips(css);
+        roundTrips(
+            "@function --f(--x <length>: var(--y, 1px), --z <color>) { result: var(--x); }",
+        );
     });
 });
 

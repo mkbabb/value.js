@@ -24,8 +24,10 @@ describe("extractFunctions — VJ-CSS1", () => {
     });
 
     it("indexes a top-level @function by its dashed-ident name", () => {
+        // CSS Functions & Mixins L1 §3.1 spec form: the <css-type> follows the
+        // name by WHITESPACE (a colon would instead introduce a <default-value>).
         const s = parseCSSStylesheet(
-            "@function --double(--x: <number>) { result: calc(var(--x) * 2); }",
+            "@function --double(--x <number>) { result: calc(var(--x) * 2); }",
         );
         const fns = extractFunctions(s);
         expect(fns.size).toBe(1);
@@ -33,7 +35,7 @@ describe("extractFunctions — VJ-CSS1", () => {
         expect(desc).toBeDefined();
         expect(desc!.parameters).toHaveLength(1);
         expect(desc!.parameters![0]!.name).toBe("--x");
-        expect(desc!.parameters![0]!.type).toBe("<number>");
+        expect(desc!.parameters![0]!.syntax).toBe("<number>");
         expect(desc!.result).toBeDefined();
     });
 
