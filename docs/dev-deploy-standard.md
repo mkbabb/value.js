@@ -466,3 +466,112 @@ Frontends ship `scripts/deploy.sh` wrapping the CF Pages recipe. Libraries
 publish to npm from CI on a `v*.*.*` tag (never from a dev machine). The
 two-tier env contract is enforced by compose shell-expansion: dev
 `${VAR:-sentinel}`, prod `${VAR:?msg}`.
+
+---
+
+## §6 — Rollback runbook (R.W7 X5)
+
+Two independently-deployable surfaces, two rollbacks. Written so a stranger can
+follow it. Each half first recaps its **forward** path (so the inverse is
+legible), then gives the rollback in order of preference.
+
+### §6.1 — api (`api.color.babb.dev`): re-point prod at the previous lineage
+
+**Forward path recap.** The api deploys when a real GitHub **push to `master`**
+fires the adnanh/webhook at `deploy.babb.dev/hooks/value-js` (HMAC-verified,
+`ref==master`), which runs `scripts/deploy-hook.sh` **on the spine host** inside
+the git checkout `/srv/constellation/palette-api`. The hook does
+`git fetch → git reset --hard origin/master → docker compose -f api/compose.yaml
+build → up -d`, then health-gates `http://127.0.0.1:8130/health`. It records the
+last-known-green SHA at `/opt/deploy/palette-last-green`. Two properties matter
+for rollback: **(a) `master` IS the wire** — the hook always resets to
+`origin/master`, so nothing outside master's tip stays deployed past the next
+push; **(b) a manual webhook `POST` cannot trigger a deploy** — the receiver
+returns `Hook not found.` to an unsigned poke (verified R.W7); only a real,
+HMAC-signed GitHub push event to `master` fires it.
+
+**Automatic rollback is already built in.** If a freshly-deployed SHA fails the
+health gate, the hook resets to `/opt/deploy/palette-last-green`, rebuilds,
+brings up, and re-gates — no operator action. This runbook is the **manual**
+rollback: a deploy that went GREEN but is behaviourally bad.
+
+**Preferred — forward-fix via `master` (no SSH, keeps `master == the wire`):**
+
+1. On `master`, revert the offending change: `git revert <bad-sha>` (or
+   `git revert -m 1 <bad-merge-sha>` for a merge). Resolve, commit.
+2. `git push origin master`. The push re-fires the webhook; the hook advances
+   prod to the reverted tip and the health gate confirms green.
+3. Verify the wire: `curl -s https://api.color.babb.dev/health` shows
+   `"status":"ok"` and `"commit":"<reverted-sha>"` (the lineage stamp the api
+   emits — `meta.ts` reads `DEPLOY_COMMIT_SHA`).
+
+**Break-glass — on-host manual pin (SSH + sudo/deploy-user on the spine host):**
+use ONLY when `master` can't be pushed (e.g. CI is broken) and prod must be
+pinned NOW.
+
+1. SSH to the spine host; `cd /srv/constellation/palette-api`.
+2. Pick the target — the recorded green is `cat /opt/deploy/palette-last-green`.
+3. `git fetch origin && git reset --hard <good-sha>`. (Fail loud on a dirty
+   tree — reconcile it first; the hook's `assert_clean_tree` refuses a dirty
+   reset for exactly this reason.)
+4. `DEPLOY_COMMIT_SHA=<good-sha> docker compose -f api/compose.yaml build && \
+   DEPLOY_COMMIT_SHA=<good-sha> docker compose -f api/compose.yaml up -d`.
+5. Health-gate by hand: `curl -s http://127.0.0.1:8130/health` returns
+   `{"status":"ok",...,"commit":"<good-sha>"}`.
+6. Record the pin so the next auto-rollback target is correct:
+   `echo <good-sha> > /opt/deploy/palette-last-green`.
+
+> **Caveat (break-glass only):** an on-host manual pin makes the checkout
+> diverge from `origin/master`; the very next master push will
+> `reset --hard origin/master` OVER the pin. Always follow a break-glass pin
+> with the forward-fix revert on `master` so the wire and `master` reconcile.
+
+### §6.2 — frontend (`color.babb.dev`, CF Pages): re-run at a prior ref
+
+**Forward path recap.** The demo ships to the Cloudflare Pages project `color`
+(production branch `main`) from `.github/workflows/deploy-pages.yml`, which fires
+when the `CI` workflow completes GREEN on a `master` **push** (it checks out the
+exact green `head_sha`, rebuilds glass-ui + value.js dist + the demo, and ships)
+OR on a manual `workflow_dispatch`. `scripts/deploy.sh frontend` is the same
+recipe run by hand from a dev machine.
+
+**Fastest — CF deployment rollback (no rebuild; re-promotes a retained build):**
+
+- List past deployments: `npx wrangler pages deployment list --project-name color`.
+- Roll back from the Cloudflare dashboard: Pages → `color` → Deployments → pick
+  the known-good one → **"Rollback to this deployment"**. This re-promotes the
+  already-built artifact instantly. (There is no reliable first-class `wrangler`
+  rollback verb across versions; the dashboard promote is the dependable path.)
+
+**Re-ship a prior ref — `workflow_dispatch` (rebuilds from source):**
+
+- `gh workflow run deploy-pages.yml --ref <ref>`. On dispatch the workflow
+  checks out `github.sha` (the dispatched ref — pass a tag or SHA), rebuilds, and
+  ships to `color`/`main`. Use this to re-ship exactly a prior source state.
+
+**Local break-glass — wrangler from a checkout** (needs `CLOUDFLARE_API_TOKEN` +
+`CLOUDFLARE_ACCOUNT_ID` in the environment):
+
+- `git checkout <good-ref>`; ensure `../glass-ui` dist is built
+  (`cd ../glass-ui && npm ci && npm run build`); `npm run build && npm run
+  gh-pages`; `scripts/deploy.sh frontend`. This is `deploy.sh`'s frontend arm by
+  hand.
+
+---
+
+## §7 — OpenAPI: table-vs-source authority (R.W7 X4 decision record)
+
+The authoritative source of the api's wire surface is **`api/src/routes/**` — the
+actual Hono routers** — NOT the OpenAPI document. `GET /openapi.json` (and
+`GET /docs`) are generated at module load from the hand-kept flat `ROUTES` table
+in `api/src/routes/meta-routes.ts`; that table carries **no behaviour**, so it can
+never diverge from the wire at runtime — only from the routers in source, a drift
+that **code review (not tooling)** catches. The chain of authority is therefore:
+routers (source of truth) → the `ROUTES` table (a hand-maintained projection) →
+`/openapi.json` + `/docs` (mechanically derived from the table). We deliberately
+do NOT invert this — the spec is not generated from route-registration reflection,
+and the spec is not treated as the contract. The KISS choice (N.W4.D) was a static
+table with no new framework dependency, accepting a review-caught table/source
+drift risk in exchange for zero runtime drift and zero added surface. **Decision:
+`api/src/routes/**` is authoritative; `/openapi.json` is a faithful-by-review
+artifact, not the contract.**
