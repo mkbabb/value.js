@@ -201,6 +201,23 @@ Custom keyframes live in `demo/@/styles/animations.css` (`edit-drawer-in`, with 
 
 **§ Canonical motion recipe** — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-snappy`, `--spring-smooth`) are reserved for transforms that read physically; PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path.
 
+**§ Pane-swap transition mode — NOT `out-in` (dev-vs-build divergence).** The
+per-slot `<Transition>` in `panes/PaneSlot.vue` uses the DEFAULT (simultaneous)
+mode, deliberately. Under `vite` DEV, Vue 3.5's `mode="out-in"` machinery fails
+to re-mount the incoming pane after the outgoing pane's leave transition
+completes — its internal `afterLeave → instance.update()` re-render never fires,
+so the slot strands on a bare comment placeholder indefinitely (the incoming
+component's `setup` — even a synchronous, non-async one — is never invoked). The
+production build (`gh-pages` + preview) schedules the same handoff correctly, so
+the defect was **dev-only and silent** (green build screenshots, red live dev):
+the R.W3 close blocker. This is the general lesson worth carrying: a
+`vite build`-only verification can pass while `vite` dev is broken — the honest
+instrument is the committed dev `webServer` posture, and it must stay dev. The
+default mode mounts the incoming pane immediately and cross-fades the two slides
+(the Lane-E space-switch intent), identical in dev and build; the slots stay
+height-bounded (`min-h-0` + `--content-max-h`) so the brief co-mount never jumps
+the layout. See `docs/tranches/R/audit/R.W3-visual-runtime/DELTA.md`.
+
 ## § Z-tier
 
 All z-index reaches route through glass-ui's `--z-*` tokens (DESIGN.md §Z-Index Stack):
