@@ -94,6 +94,9 @@
                 </TooltipProvider>
             </div>
         </TransitionGroup>
+        <!-- K-INV5 degraded affordance: the save surface names its state
+             when the backend is down — the palette still saves locally. -->
+        <ApiOfflineChip v-if="savedColorStrings.length > 0" class="self-start" />
         <div
             v-if="savedColorStrings.length > 0"
             class="flex items-center gap-2"
@@ -165,6 +168,7 @@ import {
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
+import ApiOfflineChip from "./ApiOfflineChip.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 
 const { savedColorStrings, cssColorOpaque, savedPaletteCount, savedPalettes } =
