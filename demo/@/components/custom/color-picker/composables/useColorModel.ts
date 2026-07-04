@@ -131,6 +131,8 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
         parseAndSetColorDebounced,
         parseError,
         generateRandomColor,
+        astEcho,
+        gamutVerdict,
     } = useColorParsing({ model, updateModel, stableHue, currentColorSpace });
 
     const {
@@ -274,6 +276,8 @@ export function useColorModel(externalModel: ShallowRef<ColorModel> | WritableCo
         parseAndSetColorDebounced,
         parseError,
         applyExternalColor,
+        astEcho,
+        gamutVerdict,
 
         // Random
         generateRandomColor,

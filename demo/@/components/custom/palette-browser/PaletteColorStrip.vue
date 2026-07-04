@@ -18,20 +18,45 @@
             :style="{
                 backgroundColor: color.css,
                 [orientation === 'vertical' ? 'height' : 'width']:
-                    `${Math.max(100 / colors.length, 0.5)}%`,
+                    `${segmentPcts[i] ?? 0}%`,
             }"
         ></div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import type { PaletteColor } from "@lib/palette/types";
 
-withDefaults(
-    defineProps<{
-        colors: PaletteColor[];
-        orientation?: "horizontal" | "vertical";
-    }>(),
-    { orientation: "horizontal" },
-);
+const {
+    colors,
+    orientation = "horizontal",
+    weights = undefined,
+} = defineProps<{
+    colors: PaletteColor[];
+    orientation?: "horizontal" | "vertical";
+    /** Optional per-segment weights (e.g. quantizer populations — T19).
+     *  Segments size proportionally with an 8% floor so small clusters stay
+     *  legible; absent → equal widths (the pre-T19 behavior). */
+    weights?: number[];
+}>();
+
+/** The 8% legibility floor for weighted segments. */
+const WEIGHT_FLOOR = 0.08;
+
+const segmentPcts = computed<number[]>(() => {
+    const n = colors.length;
+    if (n === 0) return [];
+    if (weights && weights.length === n) {
+        const total = weights.reduce((sum, w) => sum + Math.max(w, 0), 0);
+        if (total > 0) {
+            const floored = weights.map((w) =>
+                Math.max(Math.max(w, 0) / total, WEIGHT_FLOOR),
+            );
+            const flooredTotal = floored.reduce((sum, x) => sum + x, 0);
+            return floored.map((x) => (x / flooredTotal) * 100);
+        }
+    }
+    return colors.map(() => Math.max(100 / n, 0.5));
+});
 </script>

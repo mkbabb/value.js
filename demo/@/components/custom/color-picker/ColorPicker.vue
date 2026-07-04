@@ -62,12 +62,9 @@
             </CardContent>
         </Card>
 
-        <EditDrawer
-            :edit-target="editTarget"
-            @commit="commitEdit"
-            @cancel="cancelEdit"
-        />
-
+        <!-- T21 (R.W4 Lane E): the mounted-but-display:none EditDrawer is
+             DELETED — the edit UX lives in the dock; the commit/cancel state
+             machine below stays (keyboard + dock consumers). -->
         <PointerDebugOverlay />
     </div>
 </template>
@@ -101,7 +98,6 @@ import { copyToClipboard } from "@mkbabb/glass-ui";
 import HeroBlob from "./visual/HeroBlob.vue";
 import SpectrumCanvas from "./controls/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders.vue";
-import EditDrawer from "./editing/EditDrawer.vue";
 import PointerDebugOverlay from "./visual/PointerDebugOverlay.vue";
 
 const model = defineModel<ColorModel>({ required: true });

@@ -76,9 +76,9 @@
                         @edit-color="pm.onEditColor"
                     />
 
-                    <!-- Extract from image tab -->
+                    <!-- Extract from image tab (T20: the workbench injects
+                         CSS_COLOR_KEY itself; no prop thread needed) -->
                     <ImagePaletteExtractor
-                        :css-color-opaque="cssColorOpaque"
                         @apply="(colors) => emit('apply', colors)"
                         @add-color="(css) => emit('addColor', css)"
                     />
