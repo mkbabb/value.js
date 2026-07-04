@@ -1,0 +1,8 @@
+GREEN  I4-sliders-loc  ComponentSliders.vue = 368 LoC (cap 400)
+GREEN  I2-orchestrated-open  getAnimations @350ms: plate-land=true field-paint-in=true stagger=true
+GREEN  I1-thumb-token-feed  thumb bg lab(92 88.8 20) → lab(94 88.8 20) across 20 ArrowRight steps
+GREEN  I5-card-lock  card rect [16,121,695,721] → End [16,121,695,721] → Home [16,121,695,721] → End [16,121,695,721]
+GREEN  I3-focus-rings  10 in-picker tab stops inspected · ringless: none
+GREEN  I2r-prm-absent  PRM reduce: open-beat animations present = none
+
+PROBE: 6/6 GREEN

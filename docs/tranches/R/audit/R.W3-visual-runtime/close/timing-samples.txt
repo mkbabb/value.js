@@ -1,0 +1,24 @@
+R.W3 close — animation-timing samples (built demo @ vite preview :4179, Chromium, 1280×800 + 1440×900)
+
+E1 — the orchestrated open (PRM no-preference), document.getAnimations() @ ~350–400ms after load:
+  plate-land        delay=0ms    duration=560ms   (easing --spring-snappy; box-shadow casts in)
+  field-paint-in    delay=180ms  duration=420ms   (opacity + background-size 120%→100%)
+  stagger-child-in  delay=360ms +40ms/child (360,400,440,480,520) duration=300ms (--stagger-base=360ms during the open breath only)
+  PRM reduce: zero open-beat animations in getAnimations() (global 0.01ms guard + no-preference gating).
+
+E2 — space-switch plate cross-fade (PRM no-preference):
+  oklch→display-p3 : .plate-crossfade snapshot canvas 566×224, plate-crossfade-out duration=300ms (--duration-normal), teardown ≤ ~280ms after fade
+  →lab             : 566×224 snapshot, same envelope
+  →oklch           : 566×224 snapshot, same envelope
+  Zero page errors across consecutive switches; snapshot copy verified pre-rAF (always OLD geometry).
+  PRM reduce: no snapshot mounted (hard swap; contour still tracks state).
+
+B4 — threshold detent (lane-B beat, re-sampled at close; hue ≈ lab(92% 88.8 20), lens display-p3):
+  vertical outbound drag at s=0.86, v 0.45→0.89 in 1%-height steps @16ms:
+  dot top% trace ...7.0, 6.0, 5.5, 5.5, 5.5, 2.0  → hold ≈ 3 frames ≈ 4.5–6px of pointer travel at the JND contour, then release + catch-up
+  detent label "p3 ⊣" visible 5 frames during the hold; outbound-only (no hold on the inbound leg).
+
+K-INV5 — availability latch (dev origin, CORS-dead backend):
+  1 doomed request per cold session (/colors/approved trips the latch);
+  0 further API requests across browse→palettes→browse navigation while latched;
+  chip "backend offline — saved locally" renders on the populated save surface.

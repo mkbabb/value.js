@@ -69,8 +69,13 @@ wherever live numeric values render at display scale:
    and unit swaps re-ink the SAME box instead of re-flowing the row. No
    `flex-wrap` on a locked readout row.
 
-The law is codified here; the picker readout's application (int/frac/unit span
-split, the per-space `ch` table) lands with the readout-rhythm lane (R.W3 Lane D).
+The law is codified here; the picker readout's application LANDED at R.W3
+Lane D — int/frac/unit span split + declared `tabular-nums` in
+`ColorComponentDisplay.vue`, the static per-space `ch` table at
+`color-picker/readoutReservation.ts` (derived at module scope from
+`COLOR_SPACE_RANGES`; no runtime measurement), atomic `nowrap` cells + a
+2-line block lock. Verified by the close probe: End/Home/End keyboard sweeps
+leave the card rect byte-identical.
 
 ## § Surfaces
 
