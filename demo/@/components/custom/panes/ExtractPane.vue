@@ -54,7 +54,18 @@
                         @rename="onRename"
                         @add-color="(css) => pm.emitAddColor(css)"
                     />
-                    <PaletteCardSkeleton v-else-if="!isProcessing" key="shadow" :count="colorCount" />
+                    <!-- The undeveloped plate (R.W4 Lane A / A4): the shimmer
+                         bones ARE the specimen ghost; a Fira plate label makes
+                         the empty state read as an invitation, not a stall. -->
+                    <div v-else-if="!isProcessing" key="shadow" class="flex flex-col gap-1.5">
+                        <p
+                            v-if="!previewDataUrl"
+                            class="text-mono-caption uppercase tracking-[0.18em] text-muted-foreground/70 text-center"
+                        >
+                            · undeveloped plate — feed it an image ·
+                        </p>
+                        <PaletteCardSkeleton :count="colorCount" />
+                    </div>
                 </Transition>
             </div>
         </Card>

@@ -33,7 +33,7 @@
                 :can-hover="canHover"
                 :floating-style="currentFloatingStyle"
                 size-class="w-11 h-11 sm:w-12 sm:h-12"
-                :swatch-extra-class="isSwatchEditing(i) ? 'swatch-editing' : undefined"
+                :ghost="isSwatchEditing(i)"
                 @hover="onCurrentSwatchHover(i, $event)"
                 @leave="onCurrentSwatchLeave()"
                 @cancel-leave="cancelCurrentSwatchLeave()"
@@ -56,7 +56,9 @@
                     <Transition name="edit-overlay">
                         <div v-if="isSwatchEditing(i)" class="edit-overlay glass-floating hidden lg:flex">
                             <div class="flex items-center gap-2">
-                                <WatercolorDot :color="color" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 opacity-50 grayscale-[0.4] swatch-cutout" :seed="'edit-from-' + i" />
+                                <!-- The FROM slot reads as the shipped ghost variant — the
+                                     seeded dashed silhouette (A3, U22) — not an outline fork. -->
+                                <WatercolorDot :color="color" variant="ghost" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-from-' + i" />
                                 <span class="text-muted-foreground text-caption">&rarr;</span>
                                 <WatercolorDot :color="cssColorOpaque" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-to-' + i" />
                             </div>
@@ -79,13 +81,20 @@
                     <Tooltip>
                         <TooltipTrigger as-child>
                             <!-- W5-a11y: tooltip provides name but aria-label ensures AT reads it -->
-                            <button
-                                class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center hover:scale-110 hover:border-primary/60 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                            <!-- R.W4 Lane A / A3 (U18): the add-slot is the shipped
+                                 WatercolorDot ghost — the seeded dashed silhouette the
+                                 committed swatch will fill — seeded by the LIVE color. -->
+                            <WatercolorDot
+                                :color="cssColorOpaque"
+                                variant="ghost"
+                                tag="button"
+                                seed="add-current-slot"
+                                class="add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer hover:scale-110 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                                 :aria-label="`Add current color ${cssColorOpaque} to palette`"
                                 @click="addCurrentColor"
                             >
-                                <Plus class="w-5 h-5 text-primary/40" aria-hidden="true" />
-                            </button>
+                                <Plus class="w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
+                            </WatercolorDot>
                         </TooltipTrigger>
                         <TooltipContent class="text-mono-small">
                             Add current color ({{ cssColorOpaque }})
@@ -297,21 +306,16 @@ function confirmUpdatePalette() {
 </style>
 
 <style scoped>
-/* Editing swatch — dashed outline + grayed out */
-.swatch-editing {
-    outline: 2px dashed color-mix(in srgb, var(--foreground) 30%, transparent);
-    outline-offset: 2px;
-    opacity: 0.4;
-    filter: grayscale(0.5);
-    transition: opacity var(--duration-normal) var(--ease-standard),
-                filter var(--duration-normal) var(--ease-standard);
-}
+/* R.W4 Lane A / A3 (U18/U22): the former `.swatch-editing` dashed-outline +
+ * `.swatch-cutout` forks are DELETED — the being-edited slot and the edit
+ * overlay's FROM slot now consume the glass-ui WatercolorDot ghost variant
+ * (the seeded dashed silhouette; one shape source, producer-owned). */
 
-/* Cutout effect on the FROM swatch in the edit overlay */
-.swatch-cutout {
-    outline: 2px dashed color-mix(in srgb, var(--foreground) 30%, transparent);
-    outline-offset: -2px;
-    box-shadow: inset 0 2px 8px color-mix(in srgb, var(--shadow-color) 15%, transparent);
+/* The add-slot ghost hosts a centred Plus glyph in its default slot. */
+.add-slot-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Edit overlay — anchored so the FROM swatch aligns exactly over the original */

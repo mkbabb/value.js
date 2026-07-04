@@ -45,7 +45,7 @@
             <div
                 v-for="user in users"
                 :key="user.slug"
-                class="rounded-md border border-border overflow-hidden"
+                class="rounded-md border border-card-edge overflow-hidden"
             >
                 <!-- User header row -->
                 <div

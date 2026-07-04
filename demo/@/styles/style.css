@@ -90,6 +90,13 @@
     --min-width-menu:         var(--menu-min-w);
     --spacing-dock-inset:     var(--dock-inset);
     --shadow-card-hover:      var(--shadow-cartoon-hover);
+
+    /* ── The hairline bridge (R.W4 Lane A / A1) ──
+     * Surfaces the R.W3 `--card-edge` mint (:root below — owned THERE, this is
+     * a pure consume) as a Tailwind color key so every Z2 in-plate card writes
+     * the first-class `border-card-edge` utility instead of a magic
+     * `border-[var(--card-edge)]` reach (DESIGN.md §Idioms NOT used). */
+    --color-card-edge: var(--card-edge);
 }
 
 /* Project tokens (layout, surfaces).

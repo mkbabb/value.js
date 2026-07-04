@@ -24,7 +24,7 @@
             <div v-else class="grid gap-2">
                 <AdminListItem v-for="item in pendingItems" :key="item.id">
                     <template #swatch>
-                        <div class="w-8 h-8 rounded-full border border-border" :style="{ backgroundColor: item.css }" />
+                        <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
                     </template>
                     <template #content>
                         <!-- primary line -->
@@ -53,7 +53,7 @@
             <div v-else class="grid gap-2">
                 <AdminListItem v-for="item in approvedItems" :key="item.id">
                     <template #swatch>
-                        <div class="w-8 h-8 rounded-full border border-border" :style="{ backgroundColor: item.css }" />
+                        <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
                     </template>
                     <template #content>
                         <!-- primary line -->

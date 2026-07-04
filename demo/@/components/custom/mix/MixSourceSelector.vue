@@ -144,15 +144,22 @@ watch(
                         </button>
                     </div>
 
-                    <!-- Add current color swatch -->
-                    <button
+                    <!-- Add current color swatch — the shipped WatercolorDot
+                         ghost (R.W4 Lane A / A3, U18): the seeded dashed
+                         silhouette the next selection will fill. -->
+                    <WatercolorDot
                         key="__add__"
-                        class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer border-2 border-dashed border-primary/30 bg-primary/5 flex items-center justify-center hover:scale-110 hover:border-primary/60 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
+                        :color="cssColorOpaque ?? 'var(--muted-foreground)'"
+                        variant="ghost"
+                        tag="button"
+                        seed="mix-add-slot"
+                        class="add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer hover:scale-110 active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
+                        aria-label="Add current color to the mix"
                         :disabled="!canAddColor || undefined"
                         @click="addCurrentColor"
                     >
-                        <Plus class="w-5 h-5 text-primary/40" />
-                    </button>
+                        <Plus class="w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
+                    </WatercolorDot>
                 </TransitionGroup>
             </div>
 
@@ -231,3 +238,12 @@ watch(
         </template>
     </div>
 </template>
+
+<style scoped>
+/* R.W4 Lane A / A3 — the add-slot ghost hosts a centred Plus glyph. */
+.add-slot-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>

@@ -10,19 +10,29 @@
              PalettesPane reads `$el` for useSortable — a fragment root resolves
              $el to the comment node, not the <div>. -->
         <slot />
-        <p
+        <!-- R.W4 Lane A / A4: the designed specimen-plate invitation replaces
+             the former grey italic mono apology. -->
+        <EmptyState
             v-if="empty"
-            class="text-center text-muted-foreground py-8 fira-code text-mono-small italic"
+            :message="emptyText"
+            :eyebrow="emptyEyebrow"
+            :hint="emptyHint"
         >
-            {{ emptyText }}
-        </p>
+            <template v-if="$slots.emptyAction" #action>
+                <slot name="emptyAction" />
+            </template>
+        </EmptyState>
     </div>
 </template>
 
 <script setup lang="ts">
+import EmptyState from "./EmptyState.vue";
+
 defineProps<{
     empty?: boolean;
     emptyText?: string;
+    emptyEyebrow?: string;
+    emptyHint?: string;
     gridClass?: string;
 }>();
 </script>

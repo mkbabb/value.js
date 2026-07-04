@@ -28,25 +28,32 @@
                     <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
                 </div>
 
-                <!-- Error with retry -->
-                <div
+                <!-- Error with retry — the same specimen-plate register as the
+                     empty state (R.W4 Lane A / A4): a designed state, not an
+                     apology; the retry CTA rides the action slot. -->
+                <EmptyState
                     v-else-if="pm.browseError.value && displayedBrowse.length === 0"
-                    class="flex flex-col items-center justify-center gap-2 min-h-[120px]"
+                    eyebrow="· signal lost ·"
+                    :message="pm.browseError.value"
+                    hint="The community wall lives on the palette API."
                 >
-                    <span class="text-mono-small text-muted-foreground">{{ pm.browseError.value }}</span>
-                    <DockIconButton
-                        compact
-                        class="text-mono-small text-primary"
-                        @click="pm.loadRemotePalettes()"
-                    >
-                        Tap to retry
-                    </DockIconButton>
-                </div>
+                    <template #action>
+                        <DockIconButton
+                            compact
+                            class="text-mono-small text-primary"
+                            @click="pm.loadRemotePalettes()"
+                        >
+                            Tap to retry
+                        </DockIconButton>
+                    </template>
+                </EmptyState>
 
                 <PaletteCardGrid
                     v-else
                     :empty="displayedBrowse.length === 0"
-                    empty-text="No published palettes found."
+                    empty-eyebrow="· the commons ·"
+                    empty-text="No published palettes here yet."
+                    empty-hint="Publish one from My Palettes and start the wall."
                     :grid-class="pm.sortLoading.value ? 'opacity-50' : ''"
                 >
                     <PaletteCard
@@ -117,6 +124,7 @@ import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
+import EmptyState from "@components/custom/palette-browser/EmptyState.vue";
 import SearchFilterBar from "@components/custom/palette-browser/SearchFilterBar.vue";
 import VersionHistoryDrawer from "@components/custom/palette-browser/VersionHistoryDrawer.vue";
 import FlagReportDialog from "@components/custom/palette-browser/FlagReportDialog.vue";

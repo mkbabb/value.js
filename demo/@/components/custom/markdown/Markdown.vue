@@ -1,9 +1,10 @@
 <template>
+    <!-- R.W4 Lane A / A2 (U20): glass shimmer bones, not opaque pulse blocks. -->
     <div v-if="isLoading" class="flex items-center space-x-4 h-full">
-        <Skeleton class="h-12 w-12 rounded-full" />
+        <Skeleton surface="glass" variant="shimmer" class="h-12 w-12 rounded-full" />
         <div class="space-y-2">
-            <Skeleton class="h-4 w-full" />
-            <Skeleton class="h-4 w-full" />
+            <Skeleton surface="glass" variant="shimmer" class="h-4 w-full" />
+            <Skeleton surface="glass" variant="shimmer" class="h-4 w-full" />
         </div>
     </div>
 

@@ -46,7 +46,9 @@
                 <PaletteCardGrid
                     ref="sortableGridRef"
                     :empty="pm.filteredSaved.value.length === 0"
-                    empty-text="No saved palettes yet. Add colors above, then save."
+                    empty-eyebrow="· empty plate ·"
+                    empty-text="No saved palettes yet."
+                    empty-hint="Add colors above, then save the set."
                 >
                     <PaletteCard
                         v-for="palette in pm.filteredSaved.value"

@@ -16,7 +16,16 @@
                     :class="['shrink-0 transition-transform', swatchPulse ? 'swatch-pulse' : 'w-7 h-7']"
                     @animationend="swatchPulse = false"
                 />
-                <div v-else class="w-7 h-7 shrink-0 rounded-full border-2 border-dashed border-muted-foreground/30" />
+                <!-- Not-yet-sampled slot — the shipped ghost variant (A3, U18):
+                     the seeded silhouette the sampled color will fill. -->
+                <WatercolorDot
+                    v-else
+                    color="var(--muted-foreground)"
+                    variant="ghost"
+                    tag="div"
+                    seed="eyedropper-empty"
+                    class="w-7 h-7 shrink-0"
+                />
 
                 <span class="text-mono-small text-muted-foreground truncate select-all">
                     {{ formattedColor ?? 'Tap to sample' }}

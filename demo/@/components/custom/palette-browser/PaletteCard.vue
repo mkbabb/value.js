@@ -4,7 +4,11 @@
          the correct pattern for a card container that also houses nested interactive elements. -->
     <div
         :class="[
-            'group rounded-card border border-border bg-card overflow-hidden transition-shadow hover:shadow-card-hover cursor-pointer',
+            // Z2 in-plate card (DESIGN.md §Depth): the --card-edge hairline
+            // (consumed via the border-card-edge bridge), the chip-scale
+            // cartoon rung at rest, and a law-3 hover that DEEPENS the same
+            // voice (sm → md) instead of lurching from none to the full rung.
+            'group rounded-card border border-card-edge bg-card overflow-hidden shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
         role="article"

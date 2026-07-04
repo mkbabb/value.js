@@ -29,7 +29,7 @@
         <div
             v-for="item in flagged.items.value"
             :key="item.paletteSlug"
-            class="rounded-md border border-border overflow-hidden"
+            class="rounded-md border border-card-edge overflow-hidden"
         >
             <!-- Palette header row -->
             <div class="flex items-center gap-3 px-3 py-2.5">

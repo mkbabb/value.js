@@ -9,7 +9,7 @@
             <AdminListItem v-for="item in queue" :key="item.id">
                 <template #swatch>
                     <!-- Ag-13: swatch sized as 8×8 leading visual -->
-                    <div class="w-8 h-8 rounded-full border border-border" :style="{ backgroundColor: item.css }" />
+                    <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
                 </template>
                 <template #content>
                     <!-- Ag-13: primary/secondary hierarchy -->

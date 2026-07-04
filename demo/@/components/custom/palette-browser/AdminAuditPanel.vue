@@ -34,7 +34,7 @@
         <div
             v-for="entry in audit.entries.value"
             :key="entry.id"
-            class="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border transition-colors duration-fast hover:bg-accent/50"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge transition-colors duration-fast hover:bg-accent/50"
         >
             <div class="flex flex-col gap-0.5 min-w-0 flex-1">
                 <!-- primary line: action badge + timestamp -->
