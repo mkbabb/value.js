@@ -159,15 +159,20 @@ jobs:
             # 134.1 KB necessary flat-layout `.d.ts` + README). The < 200 KB
             # aspiration (E3's pre-W7.A estimate) is below the legitimate floor —
             # the dts is the W12-unblocker published type surface, not evictable
-            # junk. The 320 KB threshold blocks a prettier-class re-bundling
-            # regression (a return would push the tarball back past 580 KB) with
-            # honest headroom over the real payload.
-            - name: Assert published tarball size budget (npm pack unpackedSize ≤ 320 KB)
+            # junk.
+            # RE-DERIVED at R.W7 (the 2.0.0 surface): measured unpackedSize
+            # 396,155 B (386.9 KB), 77 files, ZERO vendor chunks (verified: no
+            # postcss/standalone/prettier paths) — the growth over the K-era
+            # 320 KB gate is the legitimate 2.0.0 perceptual slate (boundary/
+            # okhsl/difference modules + their flat .d.ts + subpath chunks).
+            # Gate 440 KB: ~13% headroom over the real payload; a prettier-class
+            # re-bundle (+~300 KB) still trips it instantly.
+            - name: Assert published tarball size budget (npm pack unpackedSize ≤ 440 KB)
               run: |
                   SIZE=$(npm pack --dry-run --json --legacy-peer-deps 2>/dev/null | node -e "let d='';process.stdin.on('data',c=>d+=c).on('end',()=>{process.stdout.write(String(JSON.parse(d)[0].unpackedSize))})")
-                  GATE=327680
+                  GATE=450560
                   if [ "$SIZE" -gt "$GATE" ]; then
-                      echo "published tarball unpackedSize exceeded: $SIZE bytes (gate ≤ $GATE = 320 KB) — a re-bundled vendor dependency (e.g. prettier) likely slipped into dist/"
+                      echo "published tarball unpackedSize exceeded: $SIZE bytes (gate ≤ $GATE = 440 KB) — a re-bundled vendor dependency (e.g. prettier) likely slipped into dist/"
                       exit 1
                   fi
                   echo "published tarball unpackedSize: $SIZE bytes (≤ $GATE PASS)"
