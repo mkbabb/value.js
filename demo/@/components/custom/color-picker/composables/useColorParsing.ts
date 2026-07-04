@@ -4,6 +4,7 @@ import { generateSingleColor } from "./useColorGeneration";
 import { parseCSSColor } from "@src/parsing/color";
 import type { ParsedColorUnit } from "@src/parsing/color";
 import type { ColorSpace } from "@src/units/color/constants";
+import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 import { deltaEOK, gamutMapOKLab, DELTA_E_OK_JND } from "@src/units/color/gamut";
 import type { ColorModel } from "@components/custom/color-picker";
@@ -187,10 +188,16 @@ export function useColorParsing(deps: {
         const color = model.value.color;
         if (!color?.value) return null;
         try {
-            const ok = colorUnit2(color, "oklab", true, true, false);
-            const L = ok.value.l.value;
-            const a = ok.value.a.value;
-            const b = ok.value.b.value;
+            // Normalized [0,1] channels → RAW OKLab via the library's own
+            // number ranges (the gamut functions take raw OKLab; the display
+            // denorm would hand back l as a 0–100 percentage).
+            const ok = colorUnit2(color, "oklab", true, false, false);
+            const { l: lr, a: ar, b: br } = COLOR_SPACE_RANGES.oklab;
+            const raw = (n: number, r: { min: number; max: number }) =>
+                r.min + n * (r.max - r.min);
+            const L = raw(ok.value.l.value, lr.number);
+            const a = raw(ok.value.a.value, ar.number);
+            const b = raw(ok.value.b.value, br.number);
             if (![L, a, b].every((v) => Number.isFinite(v))) return null;
             const [mL, mA, mB] = gamutMapOKLab(L, a, b);
             const delta = deltaEOK(L, a, b, mL, mA, mB);
