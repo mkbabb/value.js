@@ -1,0 +1,114 @@
+{
+  "capturedAt": "2026-07-04T01:06:52.959Z",
+  "base": "http://localhost:4179",
+  "shots": [
+    {
+      "file": "picker--mobile-390x844--light.png",
+      "view": "picker",
+      "viewport": "mobile-390x844",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient--mobile-390x844--light.png",
+      "view": "gradient",
+      "viewport": "mobile-390x844",
+      "scheme": "light"
+    },
+    {
+      "file": "browse--mobile-390x844--light.png",
+      "view": "browse",
+      "viewport": "mobile-390x844",
+      "scheme": "light"
+    },
+    {
+      "file": "picker--mobile-390x844--dark.png",
+      "view": "picker",
+      "viewport": "mobile-390x844",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient--mobile-390x844--dark.png",
+      "view": "gradient",
+      "viewport": "mobile-390x844",
+      "scheme": "dark"
+    },
+    {
+      "file": "browse--mobile-390x844--dark.png",
+      "view": "browse",
+      "viewport": "mobile-390x844",
+      "scheme": "dark"
+    },
+    {
+      "file": "picker--laptop-1280x800--light.png",
+      "view": "picker",
+      "viewport": "laptop-1280x800",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient--laptop-1280x800--light.png",
+      "view": "gradient",
+      "viewport": "laptop-1280x800",
+      "scheme": "light"
+    },
+    {
+      "file": "browse--laptop-1280x800--light.png",
+      "view": "browse",
+      "viewport": "laptop-1280x800",
+      "scheme": "light"
+    },
+    {
+      "file": "picker--laptop-1280x800--dark.png",
+      "view": "picker",
+      "viewport": "laptop-1280x800",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient--laptop-1280x800--dark.png",
+      "view": "gradient",
+      "viewport": "laptop-1280x800",
+      "scheme": "dark"
+    },
+    {
+      "file": "browse--laptop-1280x800--dark.png",
+      "view": "browse",
+      "viewport": "laptop-1280x800",
+      "scheme": "dark"
+    },
+    {
+      "file": "picker--wide-1440x900--light.png",
+      "view": "picker",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient--wide-1440x900--light.png",
+      "view": "gradient",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "browse--wide-1440x900--light.png",
+      "view": "browse",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "picker--wide-1440x900--dark.png",
+      "view": "picker",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient--wide-1440x900--dark.png",
+      "view": "gradient",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "browse--wide-1440x900--dark.png",
+      "view": "browse",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    }
+  ]
+}
