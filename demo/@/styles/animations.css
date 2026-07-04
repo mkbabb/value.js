@@ -54,6 +54,126 @@
 }
 
 /* -----------------------------------------------------------------------
+ * THE THREE MOTION FAMILIES (R.W4 Lane B / B1 — U12)
+ *
+ * Every Vue <Transition>/<TransitionGroup> in the demo keys exactly ONE of
+ * three named families; a fourth name is a defect (gate (a), R.W4 §Hard
+ * gate). The family owns the CURVE + TOKEN pairing; a consuming site may
+ * parameterise only GEOMETRY through the `--vj-*` custom properties (set on
+ * the transitioning element or an ancestor — custom props inherit). The
+ * standing inventory + per-site mapping lives at
+ * docs/tranches/R/audit/R.W4-visual-runtime/transition-inventory.md.
+ *
+ *   vj-enter     — a surface ARRIVES or DEPARTS (panes, overlays, drawers,
+ *                  toolbars, list items). Spring-smooth entrance, accelerate
+ *                  exit. Geometry: --vj-enter-x/-y/-rot/-scale/-opacity.
+ *   vj-morph     — ONE surface, NEW content (in-place swaps: results, icon
+ *                  cycles, slug bar, rename reveal). Snappy spring, fast
+ *                  fades; optional height morph via --vj-morph-collapse/
+ *                  -expanded. Geometry: --vj-morph-x/-y/-scale (+ mirrored
+ *                  exit via --vj-morph-exit-x/-y).
+ *   vj-celebrate — a ONE-SHOT feedback beat (saved!, error pop). Bouncy
+ *                  spring entrance, quick retire. Geometry:
+ *                  --vj-celebrate-x/-y/-scale (+ collapse/expanded).
+ *
+ * The global prefers-reduced-motion guard below neutralises all three.
+ * ----------------------------------------------------------------------- */
+
+/* ── Family 1 · enter/exit ── */
+.vj-enter-enter-active {
+    transition:
+        opacity var(--duration-normal) var(--ease-decelerate),
+        transform var(--spring-smooth-duration) var(--spring-smooth);
+}
+.vj-enter-leave-active {
+    transition:
+        opacity var(--duration-fast) var(--ease-accelerate),
+        transform var(--duration-normal) var(--ease-accelerate);
+}
+.vj-enter-enter-from,
+.vj-enter-leave-to {
+    opacity: var(--vj-enter-opacity, 0);
+    transform: translate(var(--vj-enter-x, 0px), var(--vj-enter-y, 0.5rem))
+        rotate(var(--vj-enter-rot, 0deg)) scale(var(--vj-enter-scale, 1));
+}
+.vj-enter-move {
+    transition: transform var(--spring-smooth-duration) var(--spring-smooth);
+}
+
+/* ── Family 2 · morph ── */
+.vj-morph-enter-active {
+    transition:
+        opacity var(--duration-fast) var(--ease-decelerate),
+        transform var(--spring-snappy-duration) var(--spring-snappy),
+        max-height var(--duration-normal) var(--ease-decelerate);
+    overflow: hidden;
+}
+.vj-morph-leave-active {
+    transition:
+        opacity var(--duration-fast) var(--ease-accelerate),
+        transform var(--duration-fast) var(--ease-accelerate),
+        max-height var(--duration-fast) var(--ease-accelerate);
+    overflow: hidden;
+}
+.vj-morph-enter-from {
+    opacity: 0;
+    transform: translate(var(--vj-morph-x, 0px), var(--vj-morph-y, 0.25rem))
+        scale(var(--vj-morph-scale, 0.97));
+    max-height: var(--vj-morph-collapse, none);
+}
+.vj-morph-leave-to {
+    opacity: 0;
+    transform: translate(
+            var(--vj-morph-exit-x, calc(-1 * var(--vj-morph-x, 0px))),
+            var(--vj-morph-exit-y, calc(-1 * var(--vj-morph-y, 0.25rem)))
+        )
+        scale(var(--vj-morph-scale, 0.97));
+    max-height: var(--vj-morph-collapse, none);
+}
+.vj-morph-enter-to,
+.vj-morph-leave-from {
+    max-height: var(--vj-morph-expanded, none);
+}
+.vj-morph-move {
+    transition: transform var(--spring-snappy-duration) var(--spring-snappy);
+}
+
+/* ── Family 3 · celebration ── */
+.vj-celebrate-enter-active {
+    transition:
+        opacity var(--duration-fast) var(--ease-decelerate),
+        transform var(--spring-bouncy-duration) var(--spring-bouncy),
+        max-height var(--duration-normal) var(--ease-decelerate);
+    overflow: hidden;
+}
+.vj-celebrate-leave-active {
+    transition:
+        opacity var(--duration-fast) var(--ease-accelerate),
+        transform var(--duration-fast) var(--ease-accelerate),
+        max-height var(--duration-fast) var(--ease-accelerate);
+    overflow: hidden;
+}
+.vj-celebrate-enter-from,
+.vj-celebrate-leave-to {
+    opacity: 0;
+    transform: translate(var(--vj-celebrate-x, 0px), var(--vj-celebrate-y, 0px))
+        scale(var(--vj-celebrate-scale, 0.9));
+    max-height: var(--vj-celebrate-collapse, none);
+}
+.vj-celebrate-enter-to,
+.vj-celebrate-leave-from {
+    max-height: var(--vj-celebrate-expanded, none);
+}
+
+/* The view-select settle beat (B3) — the dock body confirms a view switch
+ * with a one-shot morph-family settle (snappy spring, scale only). */
+@keyframes vj-settle {
+    0% { transform: scale(1); }
+    35% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* -----------------------------------------------------------------------
  * Global prefers-reduced-motion guard
  * Neutralises CSS keyframe animations and transitions app-wide for users
  * who have requested reduced motion in their OS/browser settings.

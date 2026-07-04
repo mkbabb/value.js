@@ -54,12 +54,21 @@ const pm = inject(PALETTE_MANAGER_KEY)!;
             class="text-small font-display font-normal [&>span]:line-clamp-none"
             :style="{ '--dock-ring': safeAccent }"
         >
-            <component
-                :is="currentIcon"
-                class="w-6 h-6 shrink-0"
-                :class="isAdminMode && 'gold-shimmer-icon'"
-                :style="isAdminMode ? {} : { color: safeAccent }"
-            />
+            <!-- The view-select moment (R.W4 Lane B / B3): the trigger icon
+                 swaps on the morph family (scale-settle beat), and reads the
+                 per-view accent (B2 — var(--accent-view), the ONE resolver). -->
+            <Transition name="vj-morph" mode="out-in">
+                <component
+                    :is="currentIcon"
+                    :key="currentView"
+                    class="w-6 h-6 shrink-0"
+                    :class="isAdminMode && 'gold-shimmer-icon'"
+                    :style="[
+                        { '--vj-morph-scale': '0.6', '--vj-morph-y': '0px' },
+                        isAdminMode ? {} : { color: 'var(--accent-view)' },
+                    ]"
+                />
+            </Transition>
             <SelectValue v-if="isDesktop" />
         </DockSelectTrigger>
         <!-- B.W1: kept wider than --menu-min-w — long view-option labels need the space -->

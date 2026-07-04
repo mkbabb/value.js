@@ -120,9 +120,9 @@ watch(
                     <span v-if="selectedColors.length > 0" class="text-mono-small text-muted-foreground">{{ selectedColors.length }} colors</span>
                 </div>
                 <TransitionGroup
-                    name="swatch-item"
+                    name="vj-enter"
                     tag="div"
-                    class="flex items-center gap-2.5 flex-wrap"
+                    class="swatch-row flex items-center gap-2.5 flex-wrap"
                 >
                     <div
                         v-for="(sc, i) in selectedColors"

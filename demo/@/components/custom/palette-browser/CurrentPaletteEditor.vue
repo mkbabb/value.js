@@ -21,9 +21,9 @@
             >
         </div>
         <TransitionGroup
-            name="swatch-item"
+            name="vj-enter"
             tag="div"
-            class="flex items-center gap-2.5 flex-wrap"
+            class="swatch-row flex items-center gap-2.5 flex-wrap"
         >
             <SwatchHoverMenu
                 v-for="(color, i) in savedColorStrings"
@@ -53,7 +53,7 @@
                     </button>
                 </template>
                 <template #overlay>
-                    <Transition name="edit-overlay">
+                    <Transition name="vj-enter">
                         <div v-if="isSwatchEditing(i)" class="edit-overlay glass-floating hidden lg:flex">
                             <div class="flex items-center gap-2">
                                 <!-- The FROM slot reads as the shipped ghost variant — the
@@ -263,48 +263,6 @@ function confirmUpdatePalette() {
 }
 </script>
 
-<style>
-/* Swatch add/remove animation (TransitionGroup) — unscoped for Vue Transition classes */
-.swatch-item-enter-active,
-.swatch-item-leave-active {
-    transition: opacity var(--duration-normal) var(--ease-standard),
-                transform var(--duration-normal) var(--ease-standard);
-}
-.swatch-item-enter-from {
-    opacity: 0;
-    transform: scale(0);
-}
-.swatch-item-leave-to {
-    opacity: 0;
-    transform: scale(0);
-}
-.swatch-item-leave-active {
-    position: absolute;
-}
-.swatch-item-move {
-    transition: transform var(--duration-normal) var(--ease-standard);
-}
-
-.edit-overlay-enter-active {
-    transition: opacity var(--duration-normal) var(--ease-standard),
-                transform var(--duration-slow) var(--ease-dock);
-}
-.edit-overlay-leave-active {
-    transition: opacity var(--duration-fast) var(--ease-standard),
-                transform var(--duration-fast) var(--ease-standard);
-}
-.edit-overlay-enter-from {
-    opacity: 0;
-    transform: scale(0.5);
-    transform-origin: top left;
-}
-.edit-overlay-leave-to {
-    opacity: 0;
-    transform: scale(0.8);
-    transform-origin: top left;
-}
-</style>
-
 <style scoped>
 /* R.W4 Lane A / A3 (U18/U22): the former `.swatch-editing` dashed-outline +
  * `.swatch-cutout` forks are DELETED — the being-edited slot and the edit
@@ -318,8 +276,14 @@ function confirmUpdatePalette() {
     justify-content: center;
 }
 
-/* Edit overlay — anchored so the FROM swatch aligns exactly over the original */
+/* Edit overlay — anchored so the FROM swatch aligns exactly over the original.
+ * vj-enter geometry: grows from its top-left anchor; the explicit vars also
+ * OVERRIDE the .swatch-row list geometry it would otherwise inherit. */
 .edit-overlay {
+    --vj-enter-x: 0px;
+    --vj-enter-y: 0px;
+    --vj-enter-scale: 0.5;
+    transform-origin: top left;
     position: absolute;
     top: 0;
     left: 0;

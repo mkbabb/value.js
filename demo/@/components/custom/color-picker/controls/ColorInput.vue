@@ -75,8 +75,9 @@
                         <ArrowRight class="w-4 h-4" :style="{ stroke: safeAccent }" />
                     </button>
 
-                    <!-- Parse error popover -->
-                    <Transition name="error-pop">
+                    <!-- Parse error popover — celebration family (a one-shot
+                         feedback beat; geometry vars live on .error-badge). -->
+                    <Transition name="vj-celebrate">
                         <span v-if="parseError && !proposeMode" class="error-badge"
                             >not a valid color</span
                         >
@@ -350,25 +351,10 @@ defineExpose({
     white-space: nowrap;
     pointer-events: none;
     font-family: var(--font-sans);
-}
-
-.error-pop-enter-active {
-    transition:
-        opacity var(--duration-fast) var(--ease-standard),
-        transform var(--duration-fast) var(--ease-standard);
-}
-.error-pop-leave-active {
-    transition:
-        opacity var(--duration-slow) var(--ease-standard),
-        transform var(--duration-slow) var(--ease-standard);
-}
-.error-pop-enter-from {
-    opacity: 0;
-    transform: translateY(-50%) scale(0.85);
-}
-.error-pop-leave-to {
-    opacity: 0;
-    transform: translateY(-50%) scale(0.85);
+    /* vj-celebrate geometry: the badge rests at translateY(-50%), so the
+       from-state matches it (pure pop, no positional jump). */
+    --vj-celebrate-y: -50%;
+    --vj-celebrate-scale: 0.85;
 }
 
 /* Crown indicator animation */

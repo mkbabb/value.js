@@ -1,7 +1,7 @@
 <template>
     <div class="flex items-center gap-1.5 mb-2 pt-0.5 relative min-h-9">
         <!-- Edit mode: slug input form -->
-        <Transition name="slug-bar-swap" mode="out-in">
+        <Transition name="vj-morph" mode="out-in">
         <SearchBar
             v-if="slugEditMode"
             ref="searchBarRef"
@@ -239,20 +239,5 @@ defineExpose({ slugEditMode, setError, resetEditMode });
 <style scoped>
 @reference "../../../styles/style.css";
 
-.slug-bar-swap-enter-active {
-    transition: opacity var(--duration-normal) var(--ease-decelerate),
-                transform var(--duration-normal) var(--ease-spring);
-}
-.slug-bar-swap-leave-active {
-    transition: opacity var(--duration-fast) var(--ease-accelerate),
-                transform var(--duration-fast) var(--ease-accelerate);
-}
-.slug-bar-swap-enter-from {
-    opacity: 0;
-    transform: translateY(-4px) scale(0.97);
-}
-.slug-bar-swap-leave-to {
-    opacity: 0;
-    transform: translateY(4px) scale(0.97);
-}
+/* slug swap rides the morph family (R.W4 B1) — default geometry. */
 </style>

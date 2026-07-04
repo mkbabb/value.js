@@ -1,6 +1,6 @@
 <template>
     <Teleport to="body">
-        <Transition name="edit-drawer">
+        <Transition name="vj-enter">
             <div v-if="editTarget" class="edit-drawer glass-quiet p-4 flex flex-col gap-3 items-center">
                 <p class="text-mono-small text-muted-foreground uppercase tracking-wider">Editing color</p>
                 <div class="flex items-center justify-center gap-2">
@@ -82,24 +82,20 @@ const emit = defineEmits<{
 </script>
 
 <style>
-/* Edit drawer enter/leave transition */
-.edit-drawer-enter-active,
-.edit-drawer-leave-active {
-    transition: opacity var(--duration-normal) var(--ease-standard),
-                transform var(--duration-normal) var(--ease-standard);
-}
+/* enter/exit family geometry (R.W4 B1): desktop peeks in from the left at
+ * its own translateY(-50%) centring; mobile scales up at dead centre. The
+ * media-query swaps GEOMETRY VARS only — the curve stays family-owned. */
 @media (min-width: 640px) {
-    .edit-drawer-enter-from,
-    .edit-drawer-leave-to {
-        opacity: 0;
-        transform: translateX(-100%) translateY(-50%);
+    .edit-drawer {
+        --vj-enter-x: -100%;
+        --vj-enter-y: -50%;
     }
 }
 @media (max-width: 639px) {
-    .edit-drawer-enter-from,
-    .edit-drawer-leave-to {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.85);
+    .edit-drawer {
+        --vj-enter-x: -50%;
+        --vj-enter-y: -50%;
+        --vj-enter-scale: 0.85;
     }
 }
 </style>

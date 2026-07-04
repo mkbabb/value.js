@@ -40,7 +40,7 @@
                 </div>
 
                 <!-- Extracted palette or shadow placeholder -->
-                <Transition name="fade-slide" mode="out-in">
+                <Transition name="vj-morph" mode="out-in">
                     <PaletteCard
                         v-if="extractedPalette && !isProcessing"
                         key="extracted"

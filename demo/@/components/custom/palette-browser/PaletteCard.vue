@@ -124,10 +124,12 @@
             </div>
         </div>
 
-        <!-- Inline rename input -->
-        <Transition name="rename-slide">
+        <!-- Inline rename input — morph family with a height morph (the row
+             unfurls in place; geometry vars on .rename-morph below). -->
+        <Transition name="vj-morph">
             <PaletteRenameInput
                 v-if="renaming"
+                class="rename-morph"
                 :name="palette.name"
                 @submit="onRenameSubmit"
                 @cancel="renaming = false"
@@ -359,34 +361,12 @@ function onPopoverCopy(css: string) {
     50% { background-position: 100% 50%; }
 }
 
-/* Rename input slide-in / slide-out */
-.rename-slide-enter-active {
-    transition: opacity var(--duration-normal) var(--ease-decelerate),
-                transform var(--duration-normal) var(--ease-spring),
-                max-height var(--duration-normal) var(--ease-decelerate);
-    overflow: hidden;
-}
-.rename-slide-leave-active {
-    transition: opacity var(--duration-fast) var(--ease-accelerate),
-                transform var(--duration-fast) var(--ease-accelerate),
-                max-height var(--duration-fast) var(--ease-accelerate);
-    overflow: hidden;
-}
-.rename-slide-enter-from {
-    opacity: 0;
-    /* B.W1-C: --animation-slide-md was a phantom token (never defined) — calc()
-       invalidated the transform. Replaced with literal 0.5rem "md" slide offset. */
-    transform: translateY(-0.5rem);
-    max-height: 0;
-}
-.rename-slide-enter-to,
-.rename-slide-leave-from {
-    max-height: 3rem;
-}
-.rename-slide-leave-to {
-    opacity: 0;
-    /* B.W1-C: see .rename-slide-enter-from — phantom --animation-slide-md → literal. */
-    transform: translateY(-0.5rem);
-    max-height: 0;
+/* vj-morph geometry for the rename unfurl: drops in from above (enter and
+ * exit share the -0.5rem offset) with the family height morph. */
+.rename-morph {
+    --vj-morph-y: -0.5rem;
+    --vj-morph-exit-y: -0.5rem;
+    --vj-morph-collapse: 0px;
+    --vj-morph-expanded: 3rem;
 }
 </style>

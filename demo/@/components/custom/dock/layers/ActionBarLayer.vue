@@ -110,7 +110,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
             :aria-label="toolbarMode === 'actions' ? 'Open color input' : toolbarMode === 'input' ? (actionBar.canProposeName.value ? 'Propose color name' : 'Close input') : 'Close propose'"
             @click="cycleToolbarMode"
         >
-            <Transition name="toggle-icon" mode="out-in">
+            <Transition name="vj-morph" mode="out-in">
                 <component
                     :is="currentToggleIcon"
                     :key="toolbarMode"
@@ -129,18 +129,9 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
     stroke: var(--toggle-hover-color);
 }
 
-/* Toggle icon transition */
-.toggle-icon-enter-active,
-.toggle-icon-leave-active {
-    transition: opacity var(--duration-fast) var(--ease-standard),
-                transform var(--duration-fast) var(--ease-standard);
-}
-.toggle-icon-enter-from {
-    opacity: 0;
-    transform: scale(0.7);
-}
-.toggle-icon-leave-to {
-    opacity: 0;
-    transform: scale(0.7);
+/* Toggle icon rides the morph family — scale-only geometry. */
+.toggle-btn {
+    --vj-morph-scale: 0.7;
+    --vj-morph-y: 0px;
 }
 </style>

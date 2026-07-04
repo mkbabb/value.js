@@ -9,7 +9,8 @@
                 · {{ emptyCount }} empty
             </span>
             <div class="flex-1" />
-            <Transition name="fade">
+            <!-- celebration family: a one-shot action-result beat. -->
+            <Transition name="vj-celebrate">
                 <span v-if="pruneResult" class="text-mono-small text-muted-foreground italic">
                     {{ pruneResult }}
                 </span>

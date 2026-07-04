@@ -9,7 +9,7 @@
                     <ImageDropZone class="flex-1 min-h-0 sm:max-h-[min(400px,50dvh)]" :preview="previewDataUrl" @file="onFile" />
 
                     <!-- Camera viewfinder -->
-                    <Transition name="fade-slide">
+                    <Transition name="vj-enter">
                         <div v-if="cameraActive" class="relative rounded-panel overflow-hidden bg-black shrink-0">
                             <video
                                 ref="videoRef"
@@ -56,7 +56,7 @@
                     </div>
 
                     <!-- Extracted palette as PaletteCard -->
-                    <Transition name="fade-slide">
+                    <Transition name="vj-enter">
                         <PaletteCard
                             v-if="extractedPalette && !isProcessing"
                             :palette="extractedPalette"

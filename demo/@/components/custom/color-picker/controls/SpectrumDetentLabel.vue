@@ -3,7 +3,7 @@
          Appear/fade is a CSS transition (neutralised by the global
          prefers-reduced-motion guard); the detent itself is drag physics —
          state, not decoration. -->
-    <Transition name="detent-fade">
+    <Transition name="vj-enter">
         <span
             v-if="visible"
             :class="['detent-label', flip && 'detent-label--flip']"
@@ -34,6 +34,9 @@ defineProps<{
 .detent-label {
     position: absolute;
     transform: translate(0.9rem, 0.9rem);
+    /* vj-enter geometry pinned to the REST transform → pure opacity fade. */
+    --vj-enter-x: 0.9rem;
+    --vj-enter-y: 0.9rem;
     font-family: var(--font-mono);
     font-size: 0.6875rem;
     line-height: 1;
@@ -48,16 +51,7 @@ defineProps<{
 
 .detent-label--flip {
     transform: translate(calc(-100% - 0.9rem), 0.9rem);
+    --vj-enter-x: calc(-100% - 0.9rem);
 }
 
-/* Appear/fade rides a plain transition: the global reduced-motion guard
- * (animations.css) neutralises it, so the label is PRM-gated by construction. */
-.detent-fade-enter-active,
-.detent-fade-leave-active {
-    transition: opacity var(--duration-fast, 120ms) var(--ease-standard);
-}
-.detent-fade-enter-from,
-.detent-fade-leave-to {
-    opacity: 0;
-}
 </style>

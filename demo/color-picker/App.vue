@@ -42,32 +42,32 @@
             <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
                  makes it a size container so in-card `cqi` sizing resolves on
                  every slot (R.W3 Lane A / A4). -->
-            <div v-if="!isDesktop" class="pane-wrapper pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
+            <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
                 <PaneSlot
                     :component="mobile.component"
                     :component-key="mobile.key"
                     :component-props="mobile.props"
-                    :transition-name="viewManager.ready.value ? 'pane-left' : ''"
+                    :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
                     :max="5"
                 />
             </div>
 
             <template v-else>
                 <!-- Desktop: left pane (lg+) -->
-                <div class="pane-wrapper hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
+                <div class="pane-wrapper pane-wrapper--left hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
                     <PaneSlot
                         :component="desktopLeft.component"
                         :component-key="desktopLeft.key"
                         :component-props="desktopLeft.props"
                         :on-mount="onDesktopLeftMount"
-                        :transition-name="viewManager.ready.value ? 'pane-left' : ''"
+                        :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
                         :max="6"
                     />
                 </div>
 
                 <!-- Desktop: right pane (lg+) — always in DOM to preserve KeepAlive scroll position -->
                 <div
-                    class="pane-wrapper hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+                    class="pane-wrapper pane-wrapper--right hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
                     :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
                 >
                     <PaneSlot
@@ -75,7 +75,7 @@
                         :component-key="desktopRight.key"
                         :component-props="desktopRight.props"
                         :on-mount="onDesktopRightMount"
-                        :transition-name="viewManager.ready.value ? 'pane-right' : ''"
+                        :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
                         :max="3"
                     />
                 </div>
@@ -178,6 +178,20 @@ watch(
 const viewManager = useViewManager();
 provide(VIEW_MANAGER_KEY, viewManager);
 const currentConfig = computed(() => viewManager.currentConfig.value);
+
+// --- The per-view accent (R.W4 Lane B / B2) ---
+// THE one resolver path: each view's schema-declared hue shift lands on the
+// `--view-hue-shift` root token; style.css derives `--accent-view` from the
+// R.W3 `--accent-live` axis via CSS relative color (zero JS color math), and
+// `--primary` rides it — so navigation reads chromatically everywhere the
+// interactive layer paints.
+watch(
+    () => currentConfig.value.accentHueShift,
+    (deg) => {
+        document.documentElement.style.setProperty("--view-hue-shift", String(deg ?? 0));
+    },
+    { immediate: true },
+);
 
 // X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px), now guarded
 // by the aspect law (R.W3 Lane A / A4): a portrait tablet ≥ 1024px wide runs
@@ -364,43 +378,26 @@ onMounted(() => { loadCustomColorNames(); });
     opacity: 0;
 }
 
-/* ── Pane slide — shared enter/leave with CSS variable direction ── */
-.pane-slide-enter-active {
-    transition: transform var(--duration-slow) var(--spring-snappy);
-}
-.pane-slide-leave-active {
-    transition: transform var(--duration-normal) var(--ease-out);
-}
-.pane-slide-enter-from,
-.pane-slide-leave-to {
-    transform: translateX(var(--pane-slide-dir, -110%)) rotate(var(--pane-slide-rot, -2deg));
-}
+</style>
 
-/* ── Left pane transitions ── */
-.pane-left-enter-active {
-    transition: transform var(--duration-slow) var(--spring-snappy);
-}
-.pane-left-leave-active {
-    transition: transform var(--duration-normal) var(--ease-out);
-}
-.pane-left-enter-from {
+<style>
+/* ── Pane swap — the enter/exit family (R.W4 Lane B / B1) ──
+ * The former pane-slide/pane-left/pane-right trio collapsed onto `vj-enter`
+ * (animations.css); these DIRECT-CHILD geometry overrides carry only the
+ * pane slots' off-canvas slide + cartoon-swagger rotate, opacity pinned
+ * (the swap reads as travel, not a fade). Direct-child (`>`) on purpose:
+ * an inherited `--vj-enter-*` var would leak the pane geometry into
+ * nested in-pane transitions. Unscoped on purpose: the pane root carries
+ * PaneSlot's scope id, not App's. The PaneSlot <Transition> stays DEFAULT
+ * mode (the R.W3 dev-safe simultaneous cross-slide — DESIGN.md §Motion). */
+.pane-wrapper--left > .vj-enter-enter-from,
+.pane-wrapper--left > .vj-enter-leave-to {
+    opacity: 1;
     transform: translateX(-110%) rotate(-2deg);
 }
-.pane-left-leave-to {
-    transform: translateX(-110%) rotate(-2deg);
-}
-
-/* ── Right pane transitions ── */
-.pane-right-enter-active {
-    transition: transform var(--duration-slow) var(--spring-snappy);
-}
-.pane-right-leave-active {
-    transition: transform var(--duration-normal) var(--ease-out);
-}
-.pane-right-enter-from {
-    transform: translateX(110%) rotate(2deg);
-}
-.pane-right-leave-to {
+.pane-wrapper--right > .vj-enter-enter-from,
+.pane-wrapper--right > .vj-enter-leave-to {
+    opacity: 1;
     transform: translateX(110%) rotate(2deg);
 }
 </style>

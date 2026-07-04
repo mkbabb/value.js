@@ -73,6 +73,16 @@ export interface PaneConfig {
     leftLabel: string;
     rightLabel: string | null;
     icon: Component;
+    /**
+     * R.W4 Lane B / B2 — the per-view accent: an OKLCh HUE ROTATION (deg)
+     * applied to the R.W3 `--accent-live` axis via the CSS relative-color
+     * derivation in style.css (`--accent-view`). Pure data; ONE resolver
+     * path (App.vue writes `--view-hue-shift`), zero bespoke color math.
+     * The nine primary views are proportioned around the wheel in 40°
+     * steps in dock order; admin views stay at 0° — admin identity is the
+     * gold accent, not a hue turn.
+     */
+    accentHueShift: number;
 }
 
 /**
@@ -88,6 +98,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Picker",
         rightLabel: "About",
         icon: Home,
+        accentHueShift: 0,
     },
     palettes: {
         left: "color-picker",
@@ -96,6 +107,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Picker",
         rightLabel: "Palettes",
         icon: Palette,
+        accentHueShift: 40,
     },
     browse: {
         left: "browse",
@@ -104,6 +116,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Browse",
         rightLabel: "Palettes",
         icon: Search,
+        accentHueShift: 80,
     },
     extract: {
         left: "extract",
@@ -112,6 +125,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Extract",
         rightLabel: "Palettes",
         icon: Camera,
+        accentHueShift: 120,
     },
     mix: {
         left: "color-picker",
@@ -120,6 +134,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Picker",
         rightLabel: "Mix",
         icon: Blend,
+        accentHueShift: 160,
     },
     generate: {
         left: "generate",
@@ -128,6 +143,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Generate",
         rightLabel: "Palettes",
         icon: Wand2,
+        accentHueShift: 200,
     },
     gradient: {
         left: "gradient",
@@ -136,6 +152,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Gradient",
         rightLabel: "Palettes",
         icon: Rainbow,
+        accentHueShift: 240,
     },
     atmosphere: {
         left: "atmosphere",
@@ -144,6 +161,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Atmosphere",
         rightLabel: null,
         icon: Sparkles,
+        accentHueShift: 280,
     },
     blob: {
         left: "color-picker",
@@ -152,6 +170,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Picker",
         rightLabel: "Blob",
         icon: Droplets,
+        accentHueShift: 320,
     },
     "admin-users": {
         left: "admin-users",
@@ -160,6 +179,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Users",
         rightLabel: "Palettes",
         icon: Shield,
+        accentHueShift: 0,
     },
     "admin-names": {
         left: "admin-names",
@@ -168,6 +188,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Names",
         rightLabel: "Palettes",
         icon: Tag,
+        accentHueShift: 0,
     },
     "admin-audit": {
         left: "admin-audit",
@@ -176,6 +197,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Audit",
         rightLabel: "Palettes",
         icon: ScrollText,
+        accentHueShift: 0,
     },
     "admin-flagged": {
         left: "admin-flagged",
@@ -184,6 +206,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Flagged",
         rightLabel: "Palettes",
         icon: Flag,
+        accentHueShift: 0,
     },
     "admin-tags": {
         left: "admin-tags",
@@ -192,6 +215,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         leftLabel: "Tags",
         rightLabel: "Palettes",
         icon: Tag,
+        accentHueShift: 0,
     },
 };
 

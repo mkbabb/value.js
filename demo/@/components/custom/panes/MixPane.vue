@@ -104,7 +104,7 @@ defineExpose({ clearSelection, startMix, copyResult });
                 </div>
 
                 <!-- Result -->
-                <Transition name="pop" mode="out-in">
+                <Transition name="vj-morph" mode="out-in">
                     <MixResultDisplay
                         v-if="mixResult && animationPhase === 'done'"
                         :result="mixResult"

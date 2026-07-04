@@ -115,6 +115,20 @@
  * pins at the top rather than floating with the content — the one accepted
  * visual delta of Proposal B.
  */
+/* The per-view accent hue turn (R.W4 Lane B / B2): registering the custom
+ * property gives it a real <angle> type, which is what makes the `:root`
+ * `transition: --view-hue-shift …` interpolate — navigation SWEEPS the
+ * interactive layer to the new view's hue. PRM: the global reduced-motion
+ * guard (animations.css) neutralises the transition like any other. */
+@property --view-hue-shift {
+    /* UNITLESS degrees: relative-color channel keywords (`h`) resolve as
+     * <number>s, so the shift must be a <number> too — an <angle> inside the
+     * calc() would invalidate the whole derivation at computed-value time. */
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
 :root {
     /* ── Project theme tokens ──
      * These override glass-ui defaults for project-specific aesthetics.
@@ -144,10 +158,26 @@
      * EXISTING `--glass-tint-source`/`--glass-tint-strength` knob (no new
      * surface, no demo-local glass recipe). */
     --accent-live: oklch(0.632 0.214 13.5);
-    --primary: var(--accent-live);
+
+    /* ── The per-view accent (R.W4 Lane B / B2 — navigation reads
+     * chromatically). `--accent-view` DERIVES from the R.W3 `--accent-live`
+     * axis (a pure consume — the mint stays R.W3-owned) by rotating OKLCh hue
+     * per view; L and C are preserved, so the contrast guard the live accent
+     * carries survives the turn. ONE resolver path: viewSchema.ts declares
+     * each view's `accentHueShift`; App.vue writes `--view-hue-shift`; this
+     * relative-color derivation is the only color math. The registered
+     * @property (below :root) makes the hue turn ANIMATABLE — the interactive
+     * layer sweeps to the new view's hue instead of snapping. `--primary`
+     * rides the view accent (picker's shift is 0°, so the picker view is
+     * byte-identical to the R.W3 axis); the glass frost keeps reading
+     * `--accent-live` (the plate temperature stays the picked color). */
+    --view-hue-shift: 0; /* unitless deg — see the @property registration */
+    --accent-view: oklch(from var(--accent-live) l c calc(h + var(--view-hue-shift)));
+    --primary: var(--accent-view);
     --primary-foreground: var(--background);
     --glass-tint-source: var(--accent-live);
     --glass-tint-strength: 4%;
+    transition: --view-hue-shift var(--duration-panel) var(--ease-standard);
 
     /* ── The accent-aware focus register (R.W3 Lane C / C5, D8) ──
      * glass-ui's `--focus-ring-shadow` recipe reads ONE retint knob
