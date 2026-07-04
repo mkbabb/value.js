@@ -62,9 +62,19 @@ const probe = await page.evaluate(() => {
         el.remove();
         return out;
     };
+    // computed colors may serialize as oklch()/color() — rasterize to honest
+    // sRGB through a 1×1 canvas (the same trick the demo's shader resolver uses)
+    const cvs = document.createElement("canvas");
+    cvs.width = cvs.height = 1;
+    const cctx = cvs.getContext("2d", { willReadFrequently: true });
     const rgb = (s) => {
-        const m = s.match(/rgba?\(([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/);
-        return m ? [Number(m[1]), Number(m[2]), Number(m[3])] : null;
+        if (!s) return null;
+        cctx.clearRect(0, 0, 1, 1);
+        cctx.fillStyle = "#000";
+        cctx.fillStyle = s; // invalid strings leave #000; fine for spread=0
+        cctx.fillRect(0, 0, 1, 1);
+        const d = cctx.getImageData(0, 0, 1, 1).data;
+        return [d[0], d[1], d[2]];
     };
     const spread = (c) => (c ? Math.max(...c) - Math.min(...c) : 0);
 

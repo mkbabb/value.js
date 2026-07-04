@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-full max-w-3xl lg:max-w-desktop-pane mx-auto h-full min-w-0">
+    <div class="relative w-full mx-auto h-full min-w-0">
         <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
             <PaneHeader description="Pull palettes from any image.">Extract</PaneHeader>
             <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6 pt-2">

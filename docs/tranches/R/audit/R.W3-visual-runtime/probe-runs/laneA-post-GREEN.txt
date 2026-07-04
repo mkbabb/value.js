@@ -1,0 +1,5 @@
+GREEN  K1-font-root  fonts.check(Fraunces)=true · .font-display=[Fraunces, serif] · --font-stack-display→[Fraunces] · realJakarta=true
+GREEN  K2-accent-axis  --accent-live="oklch(0.620 0.2725 9.8)" → oklch(0.62 0.2725 9.8) (spread 254) · --primary → spread 254
+GREEN  K3-container-clamp  --pane-max="44rem" · container max-width=1408px · self-clamps=0 · shell width=695px
+
+PROBE: ALL GREEN

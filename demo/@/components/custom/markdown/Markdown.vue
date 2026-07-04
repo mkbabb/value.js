@@ -7,11 +7,15 @@
         </div>
     </div>
 
-    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper font-display" :style="mdColorVars">
+    <!-- The docs BODY reads in the body voice (three-voice law, R.W3 Lane A /
+         A1 — the former blanket `font-display` would flip whole documents to
+         Fraunces once the font root resolves a real face; headings opt into
+         the display voice in the scoped styles below). -->
+    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper" :style="mdColorVars">
         <component :is="markdownContent" />
     </div>
 
-    <div class="font-display" v-else>
+    <div v-else>
         <Alert>
             <AlertTitle class="text-4xl">Oh snap...</AlertTitle>
             <AlertDescription>
@@ -88,8 +92,10 @@ onUpdated(() => {
     > h4,
     > h5,
     > h6 {
-        @apply font-bold pb-1 pt-4;
+        /* Headings are display rungs — Fraunces (three-voice law). */
+        @apply font-display font-bold pb-1 pt-4;
         @apply first:pt-0 scroll-m-20;
+        font-optical-sizing: auto;
         transition: color var(--duration-slow) var(--ease-standard);
     }
 

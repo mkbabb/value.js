@@ -1,7 +1,13 @@
 <template>
-    <div class="pane-shell flex flex-col relative min-w-0 w-full max-w-md sm:max-w-lg lg:max-w-desktop-pane mx-auto h-auto max-h-full">
+    <!-- The shell never self-clamps (R.W3 Lane A / A4 — the grid owns the
+         clamp via the .pane-container min() formula; the mobile slot wrapper
+         owns the sub-lg width). -->
+    <div class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full">
         <Card tier="resting" class="flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
-<CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-3 sm:px-6 min-w-0 overflow-visible grid grid-cols-3 grid-rows-[auto_auto] gap-x-3 items-start">
+            <!-- The header is a DISPLAY surface (space title + hero numbers →
+                 Fraunces); horizontal padding rides `cqi` against the pane-slot
+                 container, not viewport breakpoints (R.W3 Lane A / A4). -->
+            <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible grid grid-cols-3 grid-rows-[auto_auto] gap-x-3 items-start">
                 <ColorSpaceSelector
                     class="col-start-1 row-start-1"
                     :model-value="model.selectedColorSpace"
@@ -21,7 +27,10 @@
                 <HeroBlob ref="heroBlobRef" class="col-start-2 col-span-2 row-span-2 justify-self-end" @click="onHeroBlobClick()" />
             </CardHeader>
 
-            <CardContent class="z-1 font-display flex flex-col w-full px-3 sm:px-6 pt-3 pb-4 sm:pb-5 min-w-0 lg:flex-1 lg:min-h-0">
+            <!-- The content region is the CONTROLS zone — body voice, never a
+                 blanket display face (the three-voice law, R.W3 Lane A / A1;
+                 the channel-rail letters opt into `font-display` themselves). -->
+            <CardContent class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0">
                 <div class="flex flex-col gap-3">
                     <SpectrumCanvas />
                     <ComponentSliders />

@@ -39,8 +39,10 @@
                  subtree. The lg:* display classes are RETAINED untouched (the
                  D8-1 cascade is producer-owned; never demo-cured here). -->
 
-            <!-- Mobile: single pane slot (below lg) -->
-            <div v-if="!isDesktop" class="lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
+            <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
+                 makes it a size container so in-card `cqi` sizing resolves on
+                 every slot (R.W3 Lane A / A4). -->
+            <div v-if="!isDesktop" class="pane-wrapper pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
                 <PaneSlot
                     :component="mobile.component"
                     :component-key="mobile.key"
@@ -158,14 +160,33 @@ provide(CSS_COLOR_KEY, cssColorOpaque);
 const { safeAccentCss } = useContrastSafeColor(model, cssColorOpaque);
 provide(SAFE_ACCENT_KEY, safeAccentCss);
 
+// --- The accent axis (R.W3 Lane A / A2) ---
+// Mirror the contrast-guarded live color onto the `--accent-live` root token —
+// the SAME library `safeAccentColor` computation SAFE_ACCENT_KEY provides (ONE
+// color-resolution path, inv-N-3; no bespoke resolver). style.css re-points
+// `--primary` and the glass frost's `--glass-tint-source` onto it, so the
+// interactive layer and the plate temperature speak the picked color.
+watch(
+    safeAccentCss,
+    (css) => {
+        document.documentElement.style.setProperty("--accent-live", css);
+    },
+    { immediate: true },
+);
+
 // --- View manager ---
 const viewManager = useViewManager();
 provide(VIEW_MANAGER_KEY, viewManager);
 const currentConfig = computed(() => viewManager.currentConfig.value);
 
-// X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px). Drives the
+// X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px), now guarded
+// by the aspect law (R.W3 Lane A / A4): a portrait tablet ≥ 1024px wide runs
+// the single-slot mobile grammar — the JS mount condition and the CSS dual
+// grid share one compound query, so they can never disagree. Drives the
 // single-mount v-if so only one breakpoint's pane slots are live at a time.
-const { matches: isDesktop } = useBreakpoint("(min-width: 1024px)");
+const { matches: isDesktop } = useBreakpoint(
+    "(min-width: 1024px) and (min-aspect-ratio: 1.1)",
+);
 
 // --- Pane action refs ---
 // Populated by the onMount callbacks on the desktop PaneSlots; the action bar

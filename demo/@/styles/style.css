@@ -51,6 +51,11 @@
  */
 @import "@mkbabb/glass-ui/styles";
 @import "@mkbabb/glass-ui/styles.css";
+/* The brand font corpus (R.W3 Lane A / A1 — U1-fonts): real Plus Jakarta Sans +
+ * Fira Code woff2 faces (base64, variable-weight). Deliberately split off the
+ * critical `./styles` path by the producer; without this third import only the
+ * metric-compat *Fallback* faces ship and the body voice paints system-ui. */
+@import "@mkbabb/glass-ui/styles/fonts";
 @import "./animations.css";
 
 /* The explicit demo-source scan (see the header block) — declared AFTER the
@@ -61,21 +66,26 @@
 @source "../**/*.{vue,ts,html}";
 
 @theme {
-    --font-display: "Fraunces", serif;
-    --font-serif: "Fraunces", serif;
-    --font-mono: "Fira Code", monospace;
+    /* The dead `--font-display`/`--font-serif`/`--font-mono` re-declarations are
+     * DELETED (R.W3 Lane A / A1): re-pinning the Tailwind theme keys only moved
+     * the runtime var, never what glass-ui's own compiled display rungs paint —
+     * the `@theme inline` split-brain. The display voice is now cured at the
+     * SOURCE token (`--font-stack-display`, `:root` below); the mono/serif keys
+     * resolve through glass-ui's bridges (`--font-mono` → --font-stack-mono →
+     * Fira Code; `--font-serif` → --font-stack-text → Jakarta, the body voice —
+     * the three-voice law reserves Fraunces for display rungs only). */
 
     --color-gold: #D4AF37;
     --color-gold-light: #F5E6A3;
 
     /* ── Demo-local layout token bridges (D.W4 Lane A) ──
      * Surface the demo's :root layout tokens as Tailwind utility keys so
-     * consumers write `max-w-desktop-pane`, `min-w-menu`, `top-dock-inset`
-     * instead of `max-w-[var(--desktop-pane-max-w)]` etc.
+     * consumers write `min-w-menu`, `top-dock-inset` instead of
+     * `min-w-[var(--menu-min-w)]` etc.
      * Glass-ui already bridges --z-index-*, --transition-duration-*, --radius-*,
      * --shadow-card, --ease-* (see node_modules/@mkbabb/glass-ui … theme.css).
-     * These four bridges are the demo-local additions. */
-    --max-width-desktop-pane: var(--desktop-pane-max-w);
+     * (The `max-w-desktop-pane` bridge died with the self-clamp fork at R.W3
+     * Lane A — the grid owns the clamp; see the pane clamp ladder in :root.) */
     --max-width-tooltip:      12.5rem;
     --min-width-menu:         var(--menu-min-w);
     --spacing-dock-inset:     var(--dock-inset);
@@ -103,6 +113,41 @@
      * These override glass-ui defaults for project-specific aesthetics.
      */
 
+    /* ── The font root (R.W3 Lane A / A1 — the three-voice law) ──
+     * Fraunces is the atlas/display voice; Plus Jakarta Sans the body voice;
+     * Fira Code the readout/annotation voice. The override lands on the SOURCE
+     * token glass-ui's `@theme` bridge inlines (`--font-stack-display`), so
+     * every `.font-display` / `.text-display-*` rung — glass-ui-compiled and
+     * demo-authored alike — resolves Fraunces BY CONSTRUCTION (never via the
+     * dead `--font-display` runtime var, never via `!important` overrides).
+     * Fraunces' single brand source is the Google Fonts <link> in
+     * demo/color-picker/index.html (the glass-ui corpus carries no Fraunces);
+     * Jakarta + Fira load as real faces from the corpus import above. */
+    --font-stack-display: "Fraunces", serif;
+
+    /* ── The accent axis (R.W3 Lane A / A2 — the app's chromatic voice) ──
+     * `--accent-live` is the contrast-guarded LIVE picked color, written by
+     * App.vue from the library `safeAccentColor` path (the same SAFE_ACCENT_KEY
+     * computation the dock consumes — ONE color-resolution path, inv-N-3).
+     * The value below is only the pre-hydration fallback: chromatically true to
+     * the default picked color (lab(92% 88.8 20)), guarded to the light-scheme
+     * lightness so first paint is never ink. `--primary` re-points onto it —
+     * the interactive layer speaks the picked color, not `--foreground` — and
+     * the glass frost carries the live temperature at low strength through the
+     * EXISTING `--glass-tint-source`/`--glass-tint-strength` knob (no new
+     * surface, no demo-local glass recipe). */
+    --accent-live: oklch(0.632 0.214 13.5);
+    --primary: var(--accent-live);
+    --primary-foreground: var(--background);
+    --glass-tint-source: var(--accent-live);
+    --glass-tint-strength: 4%;
+
+    /* ── The hairline mint (R.W3 Lane A / A5 — depth law 4, glassy hairlines) ──
+     * ONE `--card-edge` mint, owned here; R.W4 is a pure consumer. Every card
+     * hairline mixes from `--foreground` so it stays in-house in both schemes —
+     * never an opaque foreign-hue border. See demo/DESIGN.md §Depth. */
+    --card-edge: color-mix(in oklab, var(--foreground) 12%, transparent);
+
     --shadow-color: var(--foreground);
 
     /* PROJECT OVERRIDE: the demo's identity surface shadow is a bold pop-art
@@ -129,8 +174,17 @@
     --dock-gap: 1rem;
     --dock-total: calc(var(--dock-inset) + var(--dock-h) + var(--dock-gap));
     --content-max-h: calc(100dvh - var(--dock-total) - 1rem);
-    --desktop-pane-max-w: 30rem;
-    --desktop-pane-gap: 0.5rem;
+
+    /* ── The pane clamp ladder (R.W3 Lane A / A4 — U32) ──
+     * The cards GROW then clamp, handled generally: `--pane-min` is the floor
+     * (the former frozen 480px card size), `--pane-max` the per-card ceiling,
+     * `--pane-gap` a fluid φ-stepped gutter. The GRID owns the clamp via the
+     * `min()` container formula below — pane shells never self-clamp (the 10
+     * `lg:max-w-desktop-pane` forks are deleted; shells are `w-full` only).
+     * No per-width media staircase. */
+    --pane-min: 30rem;
+    --pane-max: 44rem;
+    --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
     --menu-min-w: 11rem;
@@ -142,8 +196,13 @@
     --app-padding-x: 1rem;
 }
 
-/* Desktop: tighter dock margins */
-@media (min-width: 1024px) {
+/* Desktop: tighter dock margins.
+ * The aspect law (R.W3 Lane A / A4): the desktop grammar — tighter dock,
+ * capped content height, the dual grid below — fires on width AND landscape.
+ * A portrait tablet ≥ 1024px wide runs the single-slot mobile grammar with the
+ * relaxed dvh-based `--content-max-h` (the D6-03 portrait pathology: two
+ * columns marooned mid-screen on a 1080×1750 slab). */
+@media (min-width: 1024px) and (min-aspect-ratio: 1.1) {
     :root {
         --dock-inset: 0.5rem;
         --dock-gap: 0.5rem;
@@ -154,7 +213,6 @@
 @media (min-aspect-ratio: 21 / 9) {
     :root {
         --content-max-h: clamp(30rem, 62dvh, 38rem);
-        --desktop-pane-gap: 0.75rem;
     }
 }
 
@@ -191,36 +249,67 @@
     grid-template-columns: 1fr;
     gap: 1rem;
     width: 100%;
-    /* The `* 2` on --app-padding-x accommodates .app-layout's horizontal
-     * padding on both sides; coupling is now explicit (D.W4 Lane A §5.3). */
-    max-width: calc(var(--desktop-pane-max-w) * 2 + var(--desktop-pane-gap) + var(--app-padding-x) * 2);
+    /* The GRID owns the clamp (R.W3 Lane A / A4 — U32, "handled generally"):
+     * the container grows fluidly with the viewport (minus .app-layout's
+     * horizontal padding, both sides) and clamps at two max-size cards plus
+     * the gutter (≈ 1434px). Equal columns always; no shell self-clamps. */
+    max-width: min(
+        calc(100vw - var(--app-padding-x) * 2),
+        calc(var(--pane-max) * 2 + var(--pane-gap))
+    );
     margin: 0 auto;
     position: relative;
     max-height: var(--content-max-h);
     min-height: 0;
 }
-@media (min-width: 1024px) {
-    .pane-container {
-        gap: var(--desktop-pane-gap);
-    }
-    .pane-container--dual {
-        grid-template-columns: 1fr 1fr;
+
+/* The pane slots are size containers: in-card sizing rides `cqi` (container
+ * queries — structurally immune to the viewport-variant kill class), never
+ * `vw`. Display type rungs are the named exception (viewport-fluid clamps). */
+.pane-wrapper {
+    container-type: inline-size;
+}
+
+/* The aspect-law display exception (R.W3 Lane A / A4 — the D6-03 portrait
+ * pathology): the `lg:hidden` display witness on the mobile slot is width-only
+ * (CI emission-probe-pinned — scripts/css-emission-probe.mjs), but App.vue's
+ * mount condition is width AND landscape. On the portrait band (≥ 1024px wide,
+ * aspect < 1.1) the MOBILE slot is the mounted one, so its flex display
+ * re-engages here over the width-only utility (unlayered rule → wins the
+ * layered utility by cascade, no !important). */
+@media (min-width: 1024px) and (aspect-ratio < 1.1) {
+    .pane-slot-mobile {
+        display: flex;
     }
 }
 
-/* PROJECT OVERRIDE: dark palette tuned for this demo's color-picker context.
- * glass-ui dark defaults differ (e.g. --shadow: hsl(0 0% 10%) vs 45% here for
- * lighter cartoon shadows; --popover: hsl(224 71% 4%) vs 50% 10% here for
- * warmer, less saturated popover backgrounds). */
+/* The dual grid fires on width AND landscape (the aspect law — see the
+ * desktop :root block above; portrait keeps the single-column grammar). */
+@media (min-width: 1024px) and (min-aspect-ratio: 1.1) {
+    .pane-container {
+        gap: var(--pane-gap);
+    }
+    .pane-container--dual {
+        /* Equal columns always (the kept 1fr↔1fr invariant), with the floor
+         * explicit: no card ever renders below `--pane-min` (the former frozen
+         * size) on the dual grid. */
+        grid-template-columns: repeat(2, minmax(var(--pane-min), 1fr));
+    }
+}
+
+/* PROJECT OVERRIDE: dark-mode shadow tuning only (R.W3 Lane A / A3).
+ * The dark COLOR ladder is glass-ui 4.2's stepped warm dark-material ladder
+ * (page L4 → card L16 → hover L22 → border L34, hue 24–34 throughout) —
+ * consumed as shipped. The demo's former hue-217/224 `--popover`/`--border`/
+ * `--input` re-pins were the LONE cool hues in the warm house (U26's "foreign
+ * hue" navy hairline) and FOUGHT the producer's ladder; they are deleted, not
+ * retuned — zero borders compute in the 200–240 navy band. */
 .dark {
     /* Lighter cartoon shadows in dark mode; --shadow-card / --shadow-card-hover
      * resolve through these via the var() reference set in :root. */
     --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 50%, transparent);
     --shadow-cartoon-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 55%, transparent);
 
-    --popover: hsl(224 50% 10%);
-    --border: hsl(217.2 32.6% 18%);
-    --input: hsl(217.2 32.6% 17.5%);
     --shadow: hsl(0 0% 45%);
 }
 
