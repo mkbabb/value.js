@@ -61,7 +61,10 @@
                                     class="specimen-dot shrink-0"
                                     :class="modelValue === space ? '' : 'specimen-dot-idle'"
                                 />
-                                <span class="fira-code text-mono-caption lowercase opacity-60 truncate">
+                                <span
+                                    v-if="colorModel"
+                                    class="fira-code text-mono-caption lowercase opacity-60 truncate"
+                                >
                                     {{ specimenFor(space as DisplayColorSpace) }}
                                 </span>
                                 <span class="fira-code text-mono-caption opacity-40 ml-auto pl-2">{{ pad(i + 1) }}</span>
@@ -100,7 +103,11 @@ const props = defineProps<{
 }>();
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
-const { model } = inject(COLOR_MODEL_KEY)!;
+
+// OPTIONAL color-model injection (D1-3): inside the picker the specimen rows
+// carry the live per-space conversion; hosts outside the provider (AboutPane)
+// render the catalog without the conversion line.
+const colorModel = inject(COLOR_MODEL_KEY, null);
 
 const openModel = defineModel<boolean>("open", { required: true });
 
@@ -119,10 +126,11 @@ const pad = (n: number) => String(n).padStart(2, "0");
 // The specimen line: the LIVE color read through each catalog space —
 // computed only while the dropdown renders (SelectContent unmounts closed).
 function specimenFor(space: DisplayColorSpace): string {
+    if (!colorModel) return "";
     try {
-        if (space === "hex") return colorToHexString(model.value.color);
+        if (space === "hex") return colorToHexString(colorModel.model.value.color);
         const converted = colorUnit2(
-            model.value.color,
+            colorModel.model.value.color,
             resolveColorSpace(space),
             true,
             false,

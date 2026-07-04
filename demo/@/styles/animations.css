@@ -36,17 +36,21 @@
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* R.W3 Lane E / E1: `--stagger-base` lets an orchestrator push the whole
+ * cascade later in a timeline (the picker's plate-land → field paint-in →
+ * channel stagger three-beat sets it for the opening breath only); unset it
+ * resolves to 0ms and the utility behaves exactly as before. */
 @media (prefers-reduced-motion: no-preference) {
     .stagger-children > * {
         animation: stagger-child-in var(--duration-normal) var(--ease-standard) both;
     }
-    .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
-    .stagger-children > *:nth-child(2) { animation-delay: 40ms; }
-    .stagger-children > *:nth-child(3) { animation-delay: 80ms; }
-    .stagger-children > *:nth-child(4) { animation-delay: 120ms; }
-    .stagger-children > *:nth-child(5) { animation-delay: 160ms; }
-    .stagger-children > *:nth-child(6) { animation-delay: 200ms; }
-    .stagger-children > *:nth-child(n + 7) { animation-delay: 240ms; }
+    .stagger-children > *:nth-child(1) { animation-delay: calc(var(--stagger-base, 0ms) + 0ms); }
+    .stagger-children > *:nth-child(2) { animation-delay: calc(var(--stagger-base, 0ms) + 40ms); }
+    .stagger-children > *:nth-child(3) { animation-delay: calc(var(--stagger-base, 0ms) + 80ms); }
+    .stagger-children > *:nth-child(4) { animation-delay: calc(var(--stagger-base, 0ms) + 120ms); }
+    .stagger-children > *:nth-child(5) { animation-delay: calc(var(--stagger-base, 0ms) + 160ms); }
+    .stagger-children > *:nth-child(6) { animation-delay: calc(var(--stagger-base, 0ms) + 200ms); }
+    .stagger-children > *:nth-child(n + 7) { animation-delay: calc(var(--stagger-base, 0ms) + 240ms); }
 }
 
 /* -----------------------------------------------------------------------

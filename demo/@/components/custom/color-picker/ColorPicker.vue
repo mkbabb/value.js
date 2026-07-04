@@ -46,7 +46,15 @@
             <!-- The content region is the CONTROLS zone — body voice, never a
                  blanket display face (the three-voice law, R.W3 Lane A / A1;
                  the channel-rail letters opt into `font-display` themselves). -->
-            <CardContent class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0">
+            <!-- R.W3 Lane E / E1 — beat three of the orchestrated open: during
+                 the opening breath only, `--stagger-base` pushes the channel
+                 cascade after plate-land (beat one, below) + the field's
+                 paint-in (beat two, SpectrumCanvas). Space-change re-fires of
+                 `.stagger-children` see the var unset → 0ms, exactly as before. -->
+            <CardContent
+                class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
+                :style="plateOpening ? { '--stagger-base': '360ms' } : undefined"
+            >
                 <div class="flex flex-col gap-3">
                     <SpectrumCanvas />
                     <ComponentSliders />
@@ -283,10 +291,18 @@ watch(
     { immediate: true },
 );
 
+// --- The orchestrated open (R.W3 Lane E / E1) ---
+// One breath, three beats: plate-land (560ms, the cartoon shadow casting in)
+// → field paint-in (+180ms, SpectrumCanvas) → the channel stagger (+360ms
+// via --stagger-base above). The flag drops after the breath so space-change
+// stagger re-fires run undelayed.
+const plateOpening = ref(true);
+
 // --- Lifecycle ---
 
 onMounted(() => {
     window.addEventListener("keydown", handleKeydown);
+    window.setTimeout(() => { plateOpening.value = false; }, 1200);
 });
 
 onUnmounted(() => {
@@ -303,5 +319,27 @@ onUnmounted(() => {
     transition:
         margin var(--duration-normal) var(--ease-standard),
         transform var(--duration-normal) var(--ease-standard);
+}
+
+/* R.W3 Lane E / E1 — beat one: the plate placement (treatment §MOTION-1).
+ * The specimen plate is PLACED — it settles in with a slight rotation and
+ * the cartoon shadow CASTS IN as it lands (the editorial signature in
+ * motion). Reuses --spring-snappy + --shadow-cartoon; PRM-gated whole. */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes plate-land {
+        from {
+            opacity: 0;
+            transform: translateY(-12px) rotate(-0.6deg);
+            box-shadow: 0 0 0 0 transparent;
+        }
+        to {
+            opacity: 1;
+            transform: none;
+            box-shadow: var(--shadow-cartoon);
+        }
+    }
+    .pane-shell > :first-child {
+        animation: plate-land 560ms var(--spring-snappy) both;
+    }
 }
 </style>

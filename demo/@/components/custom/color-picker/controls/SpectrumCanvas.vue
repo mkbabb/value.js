@@ -38,6 +38,16 @@
                 aria-hidden="true"
             ></div>
 
+            <!-- E2: the space-switch cross-fade — the OLD plate's contour
+                 pixels fade out above the redrawn live overlay (two stacked
+                 perceptual plates, one breath; PRM: never mounted). -->
+            <canvas
+                v-if="crossfade.active.value"
+                :ref="(el: any) => { crossfade.snapshotCanvasRef.value = el as HTMLCanvasElement | null }"
+                class="gamut-overlay plate-crossfade"
+                aria-hidden="true"
+            ></canvas>
+
             <WatercolorDot
                 :color="cssColorOpaque"
                 animate
@@ -73,7 +83,8 @@ import { useTouchGate } from "@mkbabb/glass-ui";
 import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
 import { useGamutOverlay } from "../composables/useGamutOverlay";
 import { useGamutDetent } from "../composables/useGamutDetent";
-import { spectrumFieldIsLight } from "../spectrumLuma";
+import { useSpectrumCrossfade } from "../composables/useSpectrumCrossfade";
+import { useSpectrumPlateStyle } from "../composables/useSpectrumPlateStyle";
 import SpectrumPlateCaption from "./SpectrumPlateCaption.vue";
 import SpectrumDetentLabel from "./SpectrumDetentLabel.vue";
 import { COLOR_MODEL_KEY } from "../keys";
@@ -135,6 +146,13 @@ const {
 });
 
 const detent = useGamutDetent({ contourVAt, hasContour });
+
+// E2 — the space-switch plate cross-fade (the Q11 lens override hands this
+// a real geometry change: wide-RGB selection redraws the contour).
+const crossfade = useSpectrumCrossfade({
+    selectedColorSpace,
+    overlayCanvasRef,
+});
 
 // Pointer capture tracking
 let capturedPointerId: number | null = null;
@@ -283,51 +301,10 @@ const dotPos = computed(() => {
     };
 });
 
-// W5-a11y: reactive description of the picker's current 2D position.
-// HSV s/v are 0–1 fractions; rendered as rounded percent.
-const spectrumAriaLabel = computed(() => {
-    const sPct = Math.round(dotPos.value.s * 100);
-    const vPct = Math.round(dotPos.value.v * 100);
-    return `Color spectrum, saturation ${sPct}%, lightness ${vPct}%`;
-});
-
-const spectrumStyle = computed(() => {
-    const { h } = HSVCurrentColor.value.value;
-    const hClamped = clamp(h.value, 0, 1);
-
-    const shadowStr = cssColorOpaque.value;
-
-    return {
-        background: `
-        linear-gradient(to top, #000, transparent),
-        linear-gradient(to right, #fff, hsl(${hClamped * 360}deg, 100%, 50%))
-      `,
-        "--spectrum-shadow": shadowStr,
-        touchAction: spectrumGate.isTouchDevice
-            ? (spectrumGate.isActive.value ? "none" : "pan-y")
-            : "none",
-    };
-});
-
-const spectrumDotStyle = computed(() => {
-    const { s: sClamped, v: vClamped } = dotPos.value;
-
-    // B3: the border regime reads the SHARED plate-luma helper — the same
-    // predicate the overlay's contour/hatch ink flips on (one function, one
-    // threshold; never a copied constant).
-    const light = spectrumFieldIsLight(sClamped, vClamped);
-    const borderAlpha = light ? 0.8 : 0.9;
-    const borderColor = light
-        ? `rgba(0, 0, 0, ${borderAlpha})`
-        : `rgba(255, 255, 255, ${borderAlpha})`;
-
-    return {
-        left: `${100 * sClamped}%`,
-        top: `${100 * (1 - vClamped)}%`,
-        backgroundColor: cssColorOpaque.value,
-        "--dot-border": borderColor,
-    };
-});
+// Plate presentation (style + dot needle + aria) — colocated composable
+// (R.W3 Lane E cohesion lift; the B3 shared-luma regime lives there).
+const { spectrumAriaLabel, spectrumStyle, spectrumDotStyle } =
+    useSpectrumPlateStyle({ HSVCurrentColor, cssColorOpaque, dotPos, spectrumGate });
 
 onUnmounted(() => {
     releaseCapture();
@@ -349,6 +326,35 @@ onUnmounted(() => {
     overflow: visible;
     &:hover {
         box-shadow: 8px 8px 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black);
+    }
+}
+
+/* R.W3 Lane E / E1 — beat two: the field paints in ~180ms after the plate
+ * lands (opacity + a background 120%→100% settle — the gradients breathe
+ * into register). One-shot on mount; PRM-gated whole. */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes field-paint-in {
+        from {
+            opacity: 0;
+            background-size: 120% 120%, 120% 120%;
+        }
+        to {
+            opacity: 1;
+            background-size: 100% 100%, 100% 100%;
+        }
+    }
+    .spectrum-picker {
+        animation: field-paint-in 420ms var(--ease-standard) 180ms both;
+    }
+
+    /* E2 — the old plate fading off the new one (mounted only per switch;
+     * never under PRM — the composable skips the snapshot entirely). */
+    @keyframes plate-crossfade-out {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+    .plate-crossfade {
+        animation: plate-crossfade-out var(--duration-normal) var(--ease-standard) both;
     }
 }
 
