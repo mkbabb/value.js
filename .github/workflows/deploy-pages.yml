@@ -108,18 +108,20 @@ jobs:
               run: npm run build
             - name: Build demo SPA (gh-pages mode → dist/gh-pages)
               run: npm run gh-pages
+            # Plain wrangler invocation (R.W7 X3): the wrangler-action's npx
+            # under the nested workingDirectory refused to fetch wrangler
+            # non-interactively ("no YES option"). `npx --yes` + native env
+            # auth is the explicit, magic-free equivalent.
             - name: Deploy to Cloudflare Pages
-              uses: cloudflare/wrangler-action@v3
-              with:
-                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  workingDirectory: value.js
-                  # The demo build output dir is dist/gh-pages (vite.config.ts
-                  # gh-pages mode outDir). `--branch=main` is the CF Pages
-                  # production branch; `--commit-dirty=true` lets a clean CI
-                  # checkout deploy without a dirty-tree warning.
-                  command: >-
-                      pages deploy dist/gh-pages
-                      --project-name=color
-                      --branch=main
-                      --commit-dirty=true
+              env:
+                  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+              # The demo build output dir is dist/gh-pages (vite.config.ts
+              # gh-pages mode outDir). `--branch=main` is the CF Pages
+              # production branch; `--commit-dirty=true` lets a clean CI
+              # checkout deploy without a dirty-tree warning.
+              run: >-
+                  npx --yes wrangler@4 pages deploy dist/gh-pages
+                  --project-name=color
+                  --branch=main
+                  --commit-dirty=true
