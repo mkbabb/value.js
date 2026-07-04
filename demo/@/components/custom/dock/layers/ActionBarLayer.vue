@@ -58,11 +58,8 @@ const currentToggleIcon = computed(() => {
 // two call sites (`actions`/`input`) stay a single v-bind.
 const subLayerGridEl = useTemplateRef<HTMLElement>("subLayerGridEl");
 const activeSubLayer = computed(() => (showInput.value ? "input" : "actions"));
-const {
-    currentLayer: currentSubLayer,
-    leavingLayer: leavingSubLayer,
-    onTransitionEnd: onSubLayerTransitionEnd,
-} = useLayerTransition({ containerEl: subLayerGridEl, activeLayer: activeSubLayer });
+const { currentLayer: currentSubLayer, leavingLayer: leavingSubLayer } =
+    useLayerTransition({ containerEl: subLayerGridEl, activeLayer: activeSubLayer });
 
 function subLayerProps(id: "actions" | "input") {
     const isActive = currentSubLayer.value === id;
@@ -77,7 +74,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 
 <template>
     <div class="flex items-center gap-0 min-w-0">
-        <div ref="subLayerGridEl" class="dock-layer-grid flex-1" @transitionend="onSubLayerTransitionEnd">
+        <div ref="subLayerGridEl" class="dock-layer-grid flex-1">
             <ActionToolbar
                 ref="actionToolbarRef"
                 v-bind="subLayerProps('actions')"
