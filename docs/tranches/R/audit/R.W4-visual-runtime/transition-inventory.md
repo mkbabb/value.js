@@ -21,7 +21,7 @@ from-state override — geometry only, never curve/duration).
 | 7 | `eyedropper-fade` | ImageEyedropper overlay | opacity-only 300/200ms | **enter/exit** (`--vj-enter-y: 0`) |
 | 8 | `error-pop` | ColorInput parse-error badge | scale 0.85 @ translateY(−50%) | **celebration** (vars on `.error-badge`) |
 | 9 | `detent-fade` | SpectrumDetentLabel | opacity-only fast | **enter/exit** (vars pinned to the rest transform → pure fade) |
-| 10 | `edit-drawer` | EditDrawer (mounted-but-`display:none`; the T21/E3 delete pends) | media-split slide/scale keyframe pair | **enter/exit** (media-query geometry vars) |
+| 10 | `edit-drawer` | EditDrawer — **DELETED at Lane E (T21/E3, 65ba2c6)**; the row is historical | media-split slide/scale keyframe pair | (site gone — deletion, not a family) |
 | 11 | `slug-bar-swap` | PaletteSlugBar | ±4px + scale 0.97 | **morph** (family defaults) |
 | 12 | `feedback-slide` | ActionFeedback (saved!/error chip) | opacity + max-height unfurl | **celebration** (collapse/expanded vars) |
 | 13 | `swatch-item` (TransitionGroup) | CurrentPaletteEditor, MixSourceSelector, MixResultDisplay | scale 0↔1 + move + absolute-leave | **enter/exit** (the shared `.swatch-row` recipe, utils.css; `vj-enter-move`) |

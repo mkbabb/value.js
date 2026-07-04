@@ -1,0 +1,25 @@
+- main "Color tool panes":
+  - heading "Extract" [level=3]
+  - paragraph: Pull palettes from any image.
+  - button "Upload image, click to browse or drop an image here":
+    - img
+    - text: Drop an image or click to browse
+  - text: "5"
+  - slider "Number of colors"
+  - button "Upload image":
+    - img
+  - separator
+  - text: kC
+  - slider "Chroma weight"
+  - text: "0.5"
+  - separator
+  - button "Reset" [disabled]:
+    - img
+  - heading "My Palettes" [level=3]
+  - paragraph: Save, organize, and share your colors.
+  - img
+  - textbox "Search palettes..."
+  - text: Start a new palette
+  - button "Add current color lab(92% 88.80 20 / 100%) to palette"
+  - list:
+    - paragraph: No saved palettes yet. Add colors above, then save.
