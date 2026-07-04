@@ -148,6 +148,24 @@
      * never an opaque foreign-hue border. See demo/DESIGN.md §Depth. */
     --card-edge: color-mix(in oklab, var(--foreground) 12%, transparent);
 
+    /* ── The gamut ink/paper pairs (R.W3 Lane B / B1 — out-of-gamut as a
+     * designed state, treatment §COLOR clause 1 verbatim). The overlay's
+     * truth-line contour + visibly-clipped hatch must stay legible over EVERY
+     * (s,v) region of the spectrum plate — a single-ink hatch disappears on
+     * dark/saturated substrate (prototype-proven) — so the vocabulary is an
+     * ink pair (from --foreground) and a paper pair (from --background),
+     * applied per contour segment by the field's own luma (the shared
+     * spectrumLuma helper, flip at 0.5). The overlay canvas resolves all four
+     * via a computed-style probe; the hatch is drawn twice, registered. */
+    --gamut-edge:        color-mix(in oklab, var(--foreground) 28%, transparent);
+    --gamut-hatch:       repeating-linear-gradient(45deg,
+                           transparent 0 5px,
+                           color-mix(in oklab, var(--foreground) 9%, transparent) 5px 6px);
+    --gamut-edge-paper:  color-mix(in oklab, var(--background) 50%, transparent);
+    --gamut-hatch-paper: repeating-linear-gradient(45deg,
+                           transparent 0 5px,
+                           color-mix(in oklab, var(--background) 12%, transparent) 5px 6px);
+
     --shadow-color: var(--foreground);
 
     /* PROJECT OVERRIDE: the demo's identity surface shadow is a bold pop-art

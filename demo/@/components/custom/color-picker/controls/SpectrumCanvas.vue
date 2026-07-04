@@ -1,33 +1,79 @@
 <template>
-    <!-- W5-a11y: 2D saturation×lightness picker — not a linear slider,
-         so role="img" with a reactive descriptive label, not role="slider". -->
-    <div
-        ref="spectrumRef"
-        role="img"
-        :aria-label="spectrumAriaLabel"
-        :class="[
-            'spectrum-picker flex w-full h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] lg:max-h-none cursor-crosshair relative touch-gate-target',
-            spectrumGate.isActive.value && 'touch-gate-active',
-        ]"
-        :style="spectrumStyle"
-        @pointerdown="handleSpectrumDown"
-        @pointermove="handleSpectrumMove"
-        @pointerup="handleSpectrumUp"
-        @pointercancel="handleSpectrumCancel"
-        @lostpointercapture="onLostPointerCapture"
-        @touchmove.passive="spectrumGate.handleScrollCheck($event)"
-        @touchend.passive="spectrumGate.handleTouchEnd()"
-    >
-        <WatercolorDot
-            :color="cssColorOpaque"
-            animate
-            :cycle-duration="2000"
-            :range="[15, 85]"
-            tag="div"
-            class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-            :style="spectrumDotStyle"
-        />
-    </div>
+    <!-- The plate is a captioned figure (R.W3 Lane B): the KEPT HSL square,
+         the gamut-truth overlay drawn on top, and an atlas-style caption that
+         names the instrument's lens (Q11: display-p3 with keyed override). -->
+    <figure class="m-0 min-w-0 w-full flex flex-col">
+        <!-- W5-a11y: 2D saturation×lightness picker — not a linear slider,
+             so role="img" with a reactive descriptive label, not role="slider". -->
+        <div
+            ref="spectrumRef"
+            role="img"
+            :aria-label="spectrumAriaLabel"
+            :class="[
+                'spectrum-picker flex w-full h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] lg:max-h-none cursor-crosshair relative touch-gate-target',
+                spectrumGate.isActive.value && 'touch-gate-active',
+            ]"
+            :style="spectrumStyle"
+            @pointerdown="handleSpectrumDown"
+            @pointermove="handleSpectrumMove"
+            @pointerup="handleSpectrumUp"
+            @pointercancel="handleSpectrumCancel"
+            @lostpointercapture="onLostPointerCapture"
+            @touchmove.passive="spectrumGate.handleScrollCheck($event)"
+            @touchend.passive="spectrumGate.handleTouchEnd()"
+        >
+            <!-- The wide-gamut truth line: engine geometry, demo paint.
+                 2D canvas (dual-ink, luma-adaptive); clip-path div is the
+                 no-canvas fallback (single-ink, degraded-honest). -->
+            <canvas
+                v-if="canvasOk"
+                ref="overlayCanvasRef"
+                class="gamut-overlay"
+                aria-hidden="true"
+            ></canvas>
+            <div
+                v-else
+                class="gamut-overlay gamut-overlay-fallback"
+                :style="fallbackStyle"
+                aria-hidden="true"
+            ></div>
+
+            <WatercolorDot
+                :color="cssColorOpaque"
+                animate
+                :cycle-duration="2000"
+                :range="[15, 85]"
+                tag="div"
+                class="spectrum-dot absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                :style="spectrumDotStyle"
+            />
+
+            <!-- B4: the lens-named micro-label, surfaced for the detent's
+                 duration. Appear/fade is a CSS transition (neutralised by the
+                 global prefers-reduced-motion guard); the detent itself is
+                 drag physics — state, not decoration. -->
+            <Transition name="detent-fade">
+                <span
+                    v-if="detent.holding.value"
+                    :class="[
+                        'detent-label',
+                        dotPos.s > 0.85 && 'detent-label--flip',
+                    ]"
+                    :style="detentLabelStyle"
+                    aria-hidden="true"
+                    >{{ lensShort }} ⊣</span
+                >
+            </Transition>
+        </div>
+
+        <!-- The plate caption: the instrument names its lens like a plate
+             names its illuminant; the readout carries the breathing numbers
+             (cusp) — or states the clear plate as a measurement. -->
+        <figcaption class="plate-caption">
+            <span>{{ lensCaption }}</span>
+            <span>{{ plateReadout }}</span>
+        </figcaption>
+    </figure>
 </template>
 
 <script setup lang="ts">
@@ -37,6 +83,9 @@ import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { useTouchGate } from "@mkbabb/glass-ui";
 import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
+import { useGamutOverlay } from "../composables/useGamutOverlay";
+import { useGamutDetent } from "../composables/useGamutDetent";
+import { spectrumFieldIsLight } from "../spectrumLuma";
 import { COLOR_MODEL_KEY } from "../keys";
 
 const {
@@ -51,6 +100,7 @@ const debug = inject(POINTER_DEBUG_KEY)!;
 const spectrumGate = useTouchGate();
 const isDragging = ref(false);
 const spectrumRef = useTemplateRef<HTMLElement>("spectrumRef");
+const overlayCanvasRef = useTemplateRef<HTMLCanvasElement>("overlayCanvasRef");
 
 // Raw spectrum coords to avoid HSV roundtrip jitter.
 // Persists after mouseup so the dot stays where the user placed it.
@@ -70,6 +120,31 @@ watch(
         rawV.value = null;
     },
 );
+
+// ── The gamut-truth overlay (R.W3 Lane B — engine geometry, demo paint) ────
+
+const hueDeg = computed(
+    () => clamp(HSVCurrentColor.value.value.h.value, 0, 1) * 360,
+);
+const selectedColorSpace = computed(() => model.value.selectedColorSpace);
+
+const {
+    lensShort,
+    lensCaption,
+    plateReadout,
+    canvasOk,
+    fallbackStyle,
+    contourVAt,
+    hasContour,
+} = useGamutOverlay({
+    hueDeg,
+    selectedColorSpace,
+    hostRef: spectrumRef,
+    canvasRef: overlayCanvasRef,
+    onDrawCost: (ms) => debug.setGauge("gamut.drawMs", Math.round(ms * 1000) / 1000),
+});
+
+const detent = useGamutDetent({ contourVAt, hasContour });
 
 // Pointer capture tracking
 let capturedPointerId: number | null = null;
@@ -104,7 +179,10 @@ const scheduleSpectrumUpdate = (event: PointerEvent) => {
     }
 };
 
-const updateSpectrumColor = (coords: { clientX: number; clientY: number }) => {
+const updateSpectrumColor = (
+    coords: { clientX: number; clientY: number },
+    isDown = false,
+) => {
     if (!spectrumRef.value) return;
     const rect = spectrumRef.value.getBoundingClientRect();
     if (rect.width === 0 || rect.height === 0) return;
@@ -115,13 +193,20 @@ const updateSpectrumColor = (coords: { clientX: number; clientY: number }) => {
     const s = clamp(x / rect.width, 0, 1);
     const v = clamp(1 - y / rect.height, 0, 1);
 
-    rawS.value = s;
-    rawV.value = v;
+    // B4: the threshold detent — dot AND model hold at the JND contour for
+    // ~6px of outbound travel, then release (inbound free; no contour ⇒ no
+    // detent). The filtered point is what the model takes: the resistance
+    // is real, not a cosmetic lag.
+    if (isDown) detent.begin(s, v);
+    const pt = detent.apply(s, v, rect.width, rect.height);
+
+    rawS.value = pt.s;
+    rawV.value = pt.v;
     spectrumIsSource = true;
 
     const hsv = HSVCurrentColor.value.clone();
-    hsv.value.s.value = s;
-    hsv.value.v.value = v;
+    hsv.value.s.value = pt.s;
+    hsv.value.v.value = pt.v;
 
     setCurrentColor(hsv, model.value.selectedColorSpace, true);
 };
@@ -150,7 +235,7 @@ const handleSpectrumDown = (event: PointerEvent) => {
     debug.setGauge("spec.isDragging", true);
     debug.setGauge("spec.capturedPid", event.pointerId);
 
-    updateSpectrumColor({ clientX: event.clientX, clientY: event.clientY });
+    updateSpectrumColor({ clientX: event.clientX, clientY: event.clientY }, true);
 };
 
 const handleSpectrumMove = (event: PointerEvent) => {
@@ -194,14 +279,25 @@ const stopDragging = () => {
         spectrumRafId = null;
     }
     isDragging.value = false;
+    detent.end();
 };
+
+// The dot's plate position: raw spectrum coords when the square is the
+// source, the model's HSV otherwise. Shared by the aria label, the dot
+// style, and the detent label.
+const dotPos = computed(() => {
+    const { s, v } = HSVCurrentColor.value.value;
+    return {
+        s: rawS.value ?? clamp(s.value, 0, 1),
+        v: rawV.value ?? clamp(v.value, 0, 1),
+    };
+});
 
 // W5-a11y: reactive description of the picker's current 2D position.
 // HSV s/v are 0–1 fractions; rendered as rounded percent.
 const spectrumAriaLabel = computed(() => {
-    const { s, v } = HSVCurrentColor.value.value;
-    const sPct = Math.round((rawS.value ?? clamp(s.value, 0, 1)) * 100);
-    const vPct = Math.round((rawV.value ?? clamp(v.value, 0, 1)) * 100);
+    const sPct = Math.round(dotPos.value.s * 100);
+    const vPct = Math.round(dotPos.value.v * 100);
     return `Color spectrum, saturation ${sPct}%, lightness ${vPct}%`;
 });
 
@@ -224,13 +320,14 @@ const spectrumStyle = computed(() => {
 });
 
 const spectrumDotStyle = computed(() => {
-    const { s, v } = HSVCurrentColor.value.value;
-    const sClamped = rawS.value ?? clamp(s.value, 0, 1);
-    const vClamped = rawV.value ?? clamp(v.value, 0, 1);
+    const { s: sClamped, v: vClamped } = dotPos.value;
 
-    const luma = vClamped * (1 - sClamped * 0.5);
-    const borderAlpha = luma > 0.5 ? 0.8 : 0.9;
-    const borderColor = luma > 0.5
+    // B3: the border regime reads the SHARED plate-luma helper — the same
+    // predicate the overlay's contour/hatch ink flips on (one function, one
+    // threshold; never a copied constant).
+    const light = spectrumFieldIsLight(sClamped, vClamped);
+    const borderAlpha = light ? 0.8 : 0.9;
+    const borderColor = light
         ? `rgba(0, 0, 0, ${borderAlpha})`
         : `rgba(255, 255, 255, ${borderAlpha})`;
 
@@ -238,9 +335,14 @@ const spectrumDotStyle = computed(() => {
         left: `${100 * sClamped}%`,
         top: `${100 * (1 - vClamped)}%`,
         backgroundColor: cssColorOpaque.value,
-        '--dot-border': borderColor,
+        "--dot-border": borderColor,
     };
 });
+
+const detentLabelStyle = computed(() => ({
+    left: `${100 * dotPos.value.s}%`,
+    top: `${100 * (1 - dotPos.value.v)}%`,
+}));
 
 onUnmounted(() => {
     releaseCapture();
@@ -265,6 +367,24 @@ onUnmounted(() => {
     }
 }
 
+/* The overlay layer: absolutely stacked on the KEPT square, never a pointer
+ * target — the drag gesture is untouched. border-radius: inherit clips the
+ * canvas to the plate's corners. */
+.gamut-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+/* No-canvas fallback: the OOG margin as a clip-path'd single-ink hatch
+ * (the token itself paints the tile). */
+.gamut-overlay-fallback {
+    background: var(--gamut-hatch);
+}
+
 .spectrum-dot {
     position: absolute;
     width: 1.75rem;
@@ -276,5 +396,60 @@ onUnmounted(() => {
     &:hover {
         transform: none;
     }
+}
+
+/* B4: the detent micro-label — Fira Code, lens-named, a paper chip so the
+ * tick reads over any field region. Painted above the dot by DOM order.
+ * The contour lives near the TOP edge, so the label falls BELOW the cursor
+ * (never off-plate); near the right edge it flips to the cursor's left. */
+.detent-label {
+    position: absolute;
+    transform: translate(0.9rem, 0.9rem);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 0.1875rem 0.375rem;
+    border-radius: var(--radius-sm);
+    color: var(--foreground);
+    background: color-mix(in oklab, var(--background) 82%, transparent);
+    border: 1px solid var(--gamut-edge);
+    pointer-events: none;
+}
+
+.detent-label--flip {
+    transform: translate(calc(-100% - 0.9rem), 0.9rem);
+}
+
+/* Appear/fade rides a plain transition: the global reduced-motion guard
+ * (animations.css) neutralises it, so the label is PRM-gated by construction. */
+.detent-fade-enter-active,
+.detent-fade-leave-active {
+    transition: opacity var(--duration-fast, 120ms) var(--ease-standard);
+}
+.detent-fade-enter-from,
+.detent-fade-leave-to {
+    opacity: 0;
+}
+
+/* The plate caption: the annotation voice (Fira Code), all-small-caps — the
+ * atlas-caption register shared with the space title's catalog eyebrow. */
+.plate-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    margin-top: 0.4375rem;
+    padding-inline: 0.125rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    line-height: 1.4;
+    letter-spacing: 0.09em;
+    font-variant-caps: all-small-caps;
+    font-feature-settings: "tnum" 1;
+    color: var(--muted-foreground);
+    white-space: nowrap;
+    user-select: none;
 }
 </style>
