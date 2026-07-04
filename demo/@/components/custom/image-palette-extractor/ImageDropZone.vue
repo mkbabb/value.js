@@ -28,7 +28,8 @@
             @change="onFileSelected"
         />
 
-        <Transition name="fade" mode="out-in">
+        <!-- morph family: one zone, new content (placeholder ↔ preview). -->
+        <Transition name="vj-morph" mode="out-in">
             <img
                 v-if="preview"
                 :key="preview"

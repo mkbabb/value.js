@@ -1,10 +1,12 @@
-import { ref, type ShallowRef, type Ref, type ComputedRef } from "vue";
+import { computed, ref, type ShallowRef, type Ref, type ComputedRef } from "vue";
 import { debounce } from "@src/utils";
 import { generateSingleColor } from "./useColorGeneration";
 import { parseCSSColor } from "@src/parsing/color";
 import type { ParsedColorUnit } from "@src/parsing/color";
 import type { ColorSpace } from "@src/units/color/constants";
+import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
+import { deltaEOK, gamutMapOKLab, DELTA_E_OK_JND } from "@src/units/color/gamut";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { DisplayColorSpace } from "@components/custom/color-picker";
 import { resolveColorSpace } from "@components/custom/color-picker";
@@ -135,6 +137,80 @@ export function useColorParsing(deps: {
 
     const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000, false);
 
+    // ── The Parse-Lab echo (R.W4 Lane E / E4 — Q10 RATIFIED 2026-07-03) ──
+    //
+    // The input's AST echo + gamut-verdict echo. The verdict runs the SAME
+    // deltaEOK / gamutMapOKLab / DELTA_E_OK_JND computation the R.W3 plate
+    // overlay draws (`useGamutOverlay` → `sampleGamutBoundary`'s `jnd` mode),
+    // so the drawn contour and the typed verdict can never disagree about
+    // what "visible clipping" means. Zero new library exports — all three
+    // are public since O.W2.
+
+    /** The parsed structure: space + per-channel readout (the AST echo). */
+    const astEcho = computed<{ space: string; parts: string[] } | null>(() => {
+        const color = model.value.color;
+        if (!color?.value) return null;
+        try {
+            const space = color.value.colorSpace as ColorSpace;
+            // Denormalize (inverse) for human-readable channel numbers; the
+            // model color itself is normalized and stays untouched (clone).
+            const denorm = colorUnit2(color, space, true, true, false);
+            const c = denorm.value as unknown as Record<
+                string,
+                { value: unknown; unit?: unknown } | undefined
+            > & { channels: readonly string[]; alpha?: { value?: unknown } | number };
+            const parts = c.channels.map((key) => {
+                const vu = c[key];
+                const v = vu?.value;
+                const unit =
+                    vu?.unit && vu.unit !== "number" ? String(vu.unit) : "";
+                const num =
+                    typeof v === "number" ? Number(v.toFixed(3)) : String(v);
+                return `${key} ${num}${unit}`;
+            });
+            const alphaRaw =
+                typeof c.alpha === "number" ? c.alpha : c.alpha?.value;
+            if (typeof alphaRaw === "number" && alphaRaw < 1) {
+                parts.push(`α ${Number(alphaRaw.toFixed(3))}`);
+            }
+            return { space, parts };
+        } catch {
+            return null;
+        }
+    });
+
+    /** The typed gamut verdict — Δ of the sRGB gamut-mapped twin vs the JND. */
+    const gamutVerdict = computed<{
+        delta: number;
+        jndRatio: number;
+        clips: boolean;
+    } | null>(() => {
+        const color = model.value.color;
+        if (!color?.value) return null;
+        try {
+            // Normalized [0,1] channels → RAW OKLab via the library's own
+            // number ranges (the gamut functions take raw OKLab; the display
+            // denorm would hand back l as a 0–100 percentage).
+            const ok = colorUnit2(color, "oklab", true, false, false);
+            const { l: lr, a: ar, b: br } = COLOR_SPACE_RANGES.oklab;
+            const raw = (n: number, r: { min: number; max: number }) =>
+                r.min + n * (r.max - r.min);
+            const L = raw(ok.value.l.value, lr.number);
+            const a = raw(ok.value.a.value, ar.number);
+            const b = raw(ok.value.b.value, br.number);
+            if (![L, a, b].every((v) => Number.isFinite(v))) return null;
+            const [mL, mA, mB] = gamutMapOKLab(L, a, b);
+            const delta = deltaEOK(L, a, b, mL, mA, mB);
+            return {
+                delta,
+                jndRatio: delta / DELTA_E_OK_JND,
+                clips: delta > DELTA_E_OK_JND,
+            };
+        } catch {
+            return null;
+        }
+    });
+
     // --- Random color ---
 
     const generateRandomColor = (
@@ -161,5 +237,7 @@ export function useColorParsing(deps: {
         parseAndSetColorDebounced,
         parseError,
         generateRandomColor,
+        astEcho,
+        gamutVerdict,
     };
 }

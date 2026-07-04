@@ -122,8 +122,8 @@ function deepEqualItem(a: StylesheetItem, b: StylesheetItem): boolean {
                 ap.every(
                     (p, i) =>
                         p.name === bp[i]!.name &&
-                        (p.type ?? "") === (bp[i]!.type ?? "") &&
-                        (p.defaultValue ?? "") === (bp[i]!.defaultValue ?? ""),
+                        (p.syntax ?? "") === (bp[i]!.syntax ?? "") &&
+                        (p.default ?? "") === (bp[i]!.default ?? ""),
                 );
             const resEq =
                 (a.descriptor.result ? normValue(a.descriptor.result) : "") ===

@@ -8,21 +8,74 @@ Tokens live in two places, in this cascade order (style.css:1-4):
 
 1. `@import "tailwindcss"` → `@import "tw-animate-css"` → `@import "@mkbabb/glass-ui/styles"` — glass-ui ships the full contract surface (durations, easings, z-tiers, radii, shadows, glass tiers, type scale, layout/sizing — see glass-ui DESIGN.md §Token Architecture). Consume by name, not by re-declaring.
 2. `@import "./animations.css"` — project-specific keyframes + `prefers-reduced-motion` carve-out.
-3. `:root` in `style.css` (lines 31-67) — the demo's narrow override surface. Five overrides ship: `--shadow-cartoon` / `--shadow-cartoon-hover` (heavier rung, 44-47), `--shadow-card` routed through cartoon (46-47), `--select-font` / `--dropdown-menu-font` pinned to mono (51-52), seven layout tokens (55-66), the `.dark` re-pin (143-153). Add new project tokens here under a commented rationale; do NOT spin up a parallel `design-idioms.css` (see § Idioms NOT used).
+3. `:root` in `style.css` — the demo's narrow override surface: the font root (`--font-stack-display` → Fraunces — the SOURCE cure, R.W3 Lane A), the accent axis (`--accent-live` + the `--primary` re-point + the glass tint feed), the `--card-edge` hairline mint (§ Depth), `--shadow-cartoon` / `--shadow-cartoon-hover` (heavier rung) with `--shadow-card` routed through cartoon, `--select-font` / `--dropdown-menu-font` pinned to mono, the layout tokens (§ Layout), and the `.dark` shadow re-pin. Add new project tokens here under a commented rationale; do NOT spin up a parallel `design-idioms.css` (see § Idioms NOT used).
 
-## § Type scale
+## § Type
 
-Three voices, all wired in `@theme` (style.css:6-13):
+### The three-voice law (NORMATIVE — R.W3 Lane A)
 
-- `--font-display: "Fraunces", serif` — display headings + dock labels + the dropdown chrome. Glass-ui's variable-font `WONK` / `SOFT` axes apply via `.text-display-*` utilities (glass-ui DESIGN.md §Typography → Semantic typography classes).
-- `--font-serif: "Fraunces", serif` — body voice is aliased to Fraunces (the demo collapses serif voice into display Fraunces rather than running glass-ui's Computer Modern Serif).
-- `--font-mono: "Fira Code", monospace` — code, admin labels, numeric readouts. The `--select-font` + `--dropdown-menu-font` overrides (style.css:51-52) pin Select + DropdownMenu triggers to mono so numeric values read cleanly.
+Three voices, one source each. The display voice is cured at the SOURCE token
+glass-ui's `@theme` bridge inlines — `:root { --font-stack-display: "Fraunces", serif }`
+(style.css §font root) — so every `.font-display` / `.text-display-*` rung,
+glass-ui-compiled and demo-authored alike, resolves Fraunces by construction.
+The demo's former `@theme` re-declarations of `--font-display`/`--font-serif`/
+`--font-mono` were the split-brain (they moved the runtime var, never what the
+compiled utilities paint) and are deleted.
 
-Use glass-ui's named utilities — `.text-display`, `.text-title`, `.text-heading`, `.text-prose`, `.text-body`, `.text-mono-small`, `.text-mono-caption`, `.section-label` — instead of raw `text-2xl` etc. The φ-ratio scale (glass-ui DESIGN.md §Typography → Size tokens) is the canonical step ladder. Project-specific font aliases (`utils.css:4-11`) expose `.fraunces` + `.fira-code` for one-off opt-in (markdown code, the picker's component readout).
+- **Fraunces — the atlas/display voice.** Display rungs ONLY: `.text-display-*`,
+  `.font-display`, pane titles, the space-title plate caption, markdown headings,
+  section headings. The variable axes (`opsz` 9–144, `WONK`/`SOFT`) apply via the
+  glass-ui utilities. Fraunces' single brand source is the Google Fonts `<link>`
+  in `demo/color-picker/index.html`. **Never** on body/control text; italics
+  never on control text.
+- **Plus Jakarta Sans — the body voice.** Everything unmarked: prose, controls,
+  labels, list rows. Real faces load from the corpus import
+  (`@import "@mkbabb/glass-ui/styles/fonts"` — without it only the metric
+  fallback ships and the body paints system-ui). `--font-serif` resolves to the
+  body voice via the glass-ui bridge (the demo no longer aliases serif→Fraunces).
+- **Fira Code — the readout/annotation voice.** Numeric readouts, code, admin
+  labels, plate captions/eyebrows. `--select-font` + `--dropdown-menu-font`
+  pin Select + DropdownMenu triggers to mono so numeric values read cleanly.
+
+**Prohibitions**: no `!important` family overrides; no serif-fallback rung
+accepted as a cure (a Times-painted display rung is a defect, not a degrade);
+no blanket `font-display` on body containers (the markdown wrapper and the
+nutrition label carry the body voice; their headings opt into display).
+
+Use glass-ui's named utilities — `.text-display-*`, `.text-title`, `.text-heading`,
+`.text-prose`, `.text-body`, `.text-mono-small`, `.text-mono-caption`,
+`.section-label` — instead of raw `text-2xl` etc. The φ-ratio scale (glass-ui
+DESIGN.md §Typography → Size tokens) is the canonical step ladder; display rungs
+are viewport-fluid `clamp()`s by design (no `sm:` responsive type pairs).
+Project-specific font aliases (`utils.css:4-11`) expose `.fraunces` + `.fira-code`
+for one-off opt-in (markdown code, the picker's component readout).
 
 The `.section-subtitle` recipe (utils.css:18-27) is a single-line caption variant of glass-ui's `.section-label` with muted half-opacity + line-clamp — consumed by the gradient / mix / generate control bars.
 
-**Demo-specific exception**: `ColorComponentDisplay.vue` (demo/@/components/custom/color-picker/display/) renders the large component-value readout via `<CardTitle class="text-4xl">` with conditional `.fira-code` on monospace components. This is the one tile that escapes the named-class register because the readout is the visual hero of the picker pane; it stays a literal `text-4xl` per W3 verdict.
+### The card-lock law (NORMATIVE — R.W3 Lane A / A6, U31)
+
+Hero/readout numbers may be as audacious as the display ramp allows, but **a
+value change may never move the card**: dragging any component slider from min
+to max changes NO containing card rect (±0px). Two mechanisms, both required
+wherever live numeric values render at display scale:
+
+1. **Tabular figures** — `font-variant-numeric: tabular-nums` (or
+   `font-feature-settings: "tnum" 1`) on every live numeric readout, so digit
+   swaps are width-stable. Fira Code is tabular by default; Fraunces is NOT —
+   a Fraunces-set number MUST declare `tabular-nums`.
+2. **`ch` worst-case reservation** — the readout's container reserves the
+   widest legal rendering of its format up front (e.g. a `-125.0`-class channel
+   reserves `min-width: 7ch` at its own font), so sign flips, added decimals,
+   and unit swaps re-ink the SAME box instead of re-flowing the row. No
+   `flex-wrap` on a locked readout row.
+
+The law is codified here; the picker readout's application LANDED at R.W3
+Lane D — int/frac/unit span split + declared `tabular-nums` in
+`ColorComponentDisplay.vue`, the static per-space `ch` table at
+`color-picker/readoutReservation.ts` (derived at module scope from
+`COLOR_SPACE_RANGES`; no runtime measurement), atomic `nowrap` cells + a
+2-line block lock. Verified by the close probe: End/Home/End keyboard sweeps
+leave the card rect byte-identical.
 
 ## § Surfaces
 
@@ -35,6 +88,51 @@ Glass-ui ships a 5-rung tier ladder (glass-ui DESIGN.md §Glass Surfaces): wash 
 `.input-bar` is the one non-tier glass surface in use (PaletteRenameInput.vue). It is glass-ui's input-chrome recipe (glass-ui DESIGN.md §Glass Surfaces → Convenience shorthands), kept verbatim.
 
 Decision rule: a pane shell that scrolls → `tier="wash" :shadow="false" :grain="false"`; a non-scrolling content card → `tier="resting"`; a floating overlay over either → `.glass-floating` direct utility. The cartoon-shadow rung (see § Shadows) is the shared envelope, so all three read as the same material at different elevations.
+
+## § Depth (NORMATIVE — R.W3 Lane A / A5; the laws R.W4 applies fleet-wide)
+
+Every rendered surface holds exactly ONE rank. The rank decides its shadow,
+hairline, and rounding — never ad-hoc per component.
+
+### The Z-rank table
+
+| Rank | Role | Material | Shadow | Hairline |
+|---|---|---|---|---|
+| **Z0** | The page: aurora + graticule substrate | atmosphere (no surface) | none | none |
+| **Z1** | Plates: pane shells, the picker card | glass `resting` / `wash` | the cartoon rung (`--shadow-card`), plates only | the glass tier's built-in `--glass-border-accent` |
+| **Z1v** | Veils: config/overlay panes that read *through* | glass veil tier | none | glass border |
+| **Z2** | In-plate cards: palette cards, swatch tiles, chips | flat/quiet on the plate | `--shadow-cartoon-sm/md` (chip scale) or none | `--card-edge` |
+| **Z3** | Protagonists: ≤ 1 per pane (the hero blob, a featured card) | material hero | the full cartoon rung | per material |
+| **Z4** | Floating chrome: popovers, dialogs, dock, toolbars | glass `floating`/`overlay` | the glass tier's own shadow | glass border |
+
+### The six laws
+
+1. **One shadow voice.** The cartoon offset (`--shadow-cartoon` rungs) is the
+   only drop-shadow language. No element ever carries BOTH a cartoon offset and
+   a soft/inset ring (the U24 "extreme" = stacking both).
+2. **The cartoon budget.** Per pane at rest: plates (Z1) + at most ONE
+   protagonist (Z3) cast the full cartoon rung. Dual views ≤ 3 full-rung casters
+   total. Chip-scale rungs (`--shadow-cartoon-sm/md`) don't count against the
+   budget but obey law 1.
+3. **Hover lifts never lurch.** A hover may deepen the SAME shadow
+   (`--shadow-card` → `--shadow-card-hover`) and translate ≤ 2px; it never
+   changes shadow voice, rounding, or layout size.
+4. **Hairlines are glassy.** In-house edges only: glass tiers use their built-in
+   `--glass-border-accent`; opaque/flat cards use the ONE mint —
+   `--card-edge: color-mix(in oklab, var(--foreground) 12%, transparent)`
+   (style.css `:root`, owned here; R.W4 consumes, never re-mints). Never an
+   opaque foreign-hue border (the retired hue-217 navy `--border` fork was the
+   canonical violation).
+5. **Windows are veil.** A surface you read *through* (config overlays,
+   scrims) is the veil tier — translucent, shadowless; it never fakes depth
+   with a drop shadow.
+6. **Z-tiers are never faked by shadows.** Stacking order routes through the
+   `--z-*` tokens (§ Z-tier); a bigger shadow is never used to *imply* a higher
+   layer. Shadow says material; z-index says order.
+
+The picker-bearing surface (the `tier="resting"` picker Card) is the reference
+application: `rounded-card` rounding, the cartoon rung via `--shadow-card`, the
+glass tier's hairline — one rank, one voice, one edge.
 
 ## § Shadows
 
@@ -96,13 +194,29 @@ The two families coexist by design — Family A is the everyday rhythm (where th
 | `PointerDebugOverlay.vue:266` | `blink 0.5s infinite` | bespoke; dev-only debug overlay |
 | `PaletteCard.vue:388` | `golden-text-shimmer 4s` | bespoke; sits between `--duration-shimmer-fast` (3 s) and `--duration-shimmer` (5 s) — paired with the 4-stop gradient's visual rhythm |
 | `useHeightTransition.ts` | `350 ms expand / 250 ms collapse` | bespoke; JS-runtime constants written as inline `style.transition` strings; tuned by hand at B-tranche for palette-card expand/collapse rhythm |
-| `hero-lab.css:290` | `140ms` | bespoke; sub-app entry, between `--duration-instant` and `--duration-fast` |
 
 **§ Reduced-motion carve-out** (animations.css:32-60, B.W1 Lane B): the global `prefers-reduced-motion` guard neutralises all CSS animation + transition durations; a secondary block re-enables 150 ms opacity fades on `[data-state="open"|"closed"]` so reka-ui Dialog/Sheet/Popover state changes still communicate. WebGL RAF loops (GooBlob, aurora) fence on `prefers-reduced-motion` in their composables (see `useMetaballRenderer`); the global CSS guard does not reach them.
 
 Custom keyframes live in `demo/@/styles/animations.css` (`edit-drawer-in`, with a mobile media-query restate at ≤ 639 px — see comment at animations.css:12-16 for the intentional inheritance break) + colocated `<style scoped>` blocks (per-component animations). Shared keyframes (dialog, floating-panel, card-menu, shimmer) come from `@mkbabb/glass-ui/styles/animations.css`.
 
 **§ Canonical motion recipe** — when in doubt, reach for `var(--duration-normal) var(--ease-standard)` on a transition; for entry-from-rest use `--ease-decelerate`, for exit-to-rest use `--ease-accelerate`. Spring curves (`--spring-snappy`, `--spring-smooth`) are reserved for transforms that read physically; PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path.
+
+**§ Pane-swap transition mode — NOT `out-in` (dev-vs-build divergence).** The
+per-slot `<Transition>` in `panes/PaneSlot.vue` uses the DEFAULT (simultaneous)
+mode, deliberately. Under `vite` DEV, Vue 3.5's `mode="out-in"` machinery fails
+to re-mount the incoming pane after the outgoing pane's leave transition
+completes — its internal `afterLeave → instance.update()` re-render never fires,
+so the slot strands on a bare comment placeholder indefinitely (the incoming
+component's `setup` — even a synchronous, non-async one — is never invoked). The
+production build (`gh-pages` + preview) schedules the same handoff correctly, so
+the defect was **dev-only and silent** (green build screenshots, red live dev):
+the R.W3 close blocker. This is the general lesson worth carrying: a
+`vite build`-only verification can pass while `vite` dev is broken — the honest
+instrument is the committed dev `webServer` posture, and it must stay dev. The
+default mode mounts the incoming pane immediately and cross-fades the two slides
+(the Lane-E space-switch intent), identical in dev and build; the slots stay
+height-bounded (`min-h-0` + `--content-max-h`) so the brief co-mount never jumps
+the layout. See `docs/tranches/R/audit/R.W3-visual-runtime/DELTA.md`.
 
 ## § Z-tier
 
@@ -118,12 +232,18 @@ Zero numeric `z-[NN]` literals in custom components post-D.W4 Lane A (the two `z
 
 ## § Color
 
-OKLab-driven throughout — the picker, the gradient interpolation, the harmony generator. Glass-ui's color tokens (`--background`, `--foreground`, `--card`, `--primary`, `--muted-foreground`, `--border`, etc.) are the surface contract; the demo adds two accent tokens (style.css:11-12):
+OKLab-driven throughout — the picker, the gradient interpolation, the harmony generator. Glass-ui's color tokens (`--background`, `--foreground`, `--card`, `--muted-foreground`, `--border`, etc.) are the surface contract.
 
-- `--color-gold: #D4AF37` — the admin-mode + featured-palette accent. Animated gold-text-shimmer (PaletteCard.vue) uses a 4-stop gradient cycling through `--color-gold` ↔ `--color-gold-light`. The dock's admin-mode toggle (Dock.vue), the featured-badge stroke (PaletteCard), and the profile slug pill (ProfileSection.vue) all reach for the same token.
+**The accent axis (R.W3 Lane A / A2).** `--accent-live` is the contrast-guarded LIVE picked color — written onto `:root` by App.vue from the library `safeAccentColor` path (the SAME computation `SAFE_ACCENT_KEY` provides; ONE color-resolution path, never a bespoke resolver). `--primary` re-points onto it (the interactive layer speaks the picked color, not ink) with `--primary-foreground: var(--background)` as the guarded pair, and the glass frost carries the live temperature at low strength through glass-ui's existing `--glass-tint-source` / `--glass-tint-strength` knob (4%; no parallel tint surface). The `:root` literal is only the pre-hydration fallback.
+
+**The gamut ink/paper pairs (R.W3 Lane B / B1).** Out-of-gamut is a designed state: `--gamut-edge`/`--gamut-hatch` (ink, from `--foreground`) and `--gamut-edge-paper`/`--gamut-hatch-paper` (paper, from `--background`) in `style.css :root` are the truth-line overlay's whole vocabulary — a 28%-alpha hairline and a 9%/12% hatch, applied per contour segment by the field's own luma through the shared `spectrumLuma` helper (flip at 0.5, the same predicate as the WatercolorDot border — one function, never a copied constant). Measurement chrome only: the overlay reads in ink + the live color, never gold, never the crayons.
+
+Demo accent tokens (style.css `@theme`):
+
+- `--color-gold: #D4AF37` — the admin-mode + featured-palette accent. Animated gold-text-shimmer (PaletteCard.vue) uses a 4-stop gradient cycling through `--color-gold` ↔ `--color-gold-light`. The dock's admin-mode toggle (Dock.vue), the featured-badge stroke (PaletteCard), and the profile slug pill (ProfileSection.vue) all reach for the same token. Gold stays OUT of the measurement chrome (overlay/readout/thumbs — those read in ink + the live color).
 - `--color-gold-light: #F5E6A3` — shimmer counterpoint, only consumed by the gold-text-shimmer keyframe.
 
-Dark-mode color overrides (style.css:143-153, marked PROJECT OVERRIDE) re-pin `--popover`, `--border`, `--input`, `--shadow` for the color-picker context — glass-ui's dark defaults run cooler / more saturated; the demo's overrides run warmer to keep the cartoon-shadow language legible against the dark substrate.
+**The dark ladder (R.W3 Lane A / A3).** The dark COLOR ladder is glass-ui 4.2's stepped warm dark-material ladder (page L4 → card/popover L16 → hover L22 → border L34, hue 24–36 throughout), consumed as shipped. The demo's former hue-217/224 `--popover`/`--border`/`--input` re-pins — the lone cool hues in the warm house — are DELETED, not retuned; zero dark borders compute in the 200–240 navy band. The only surviving `.dark` overrides are shadow-family (`--shadow-cartoon*` lightened, `--shadow`), which keep the cartoon language legible on the dark substrate.
 
 Harmony patterns ship in `useColorGeneration.ts` (demo/@/components/custom/color-picker/composables/): analogous (±30°), complementary (180°), split-complementary (base + 150° + 210°), tetradic, triadic, monochromatic, golden, random. Hues generated in OKLCh, jittered in L/C, rendered through glass-ui's color contract.
 
@@ -136,20 +256,24 @@ Layout tokens (style.css:55-66, all `:root`):
 - `--dock-inset` (1rem mobile, 0.5rem ≥1024 px) — the dock's pin offset.
 - `--dock-h` / `--dock-gap` / `--dock-total` — the vertical band the dock occupies.
 - `--content-max-h: calc(100dvh - var(--dock-total) - 1rem)` — the cap on the pane container; the `100dvh` keeps the math mobile-safe (URL bar collapse).
-- `--desktop-pane-max-w: 30rem` + `--desktop-pane-gap` — the dual-pane grid sizing, consumed at ≥ 1024 px via `lg:max-w-[var(--desktop-pane-max-w)]` (every pane shell).
+- `--pane-min: 30rem` / `--pane-max: 44rem` / `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)` — the pane clamp ladder (R.W3 Lane A / A4). The GRID owns the clamp: `.pane-container` is `max-width: min(100vw − 2·--app-padding-x, 2·--pane-max + --pane-gap)` and the dual grid is `repeat(2, minmax(var(--pane-min), 1fr))` — cards grow fluidly 1024→1536 then clamp, equal columns always. **Pane shells never self-clamp** (`w-full` only; the 10 `lg:max-w-desktop-pane` forks are deleted). No per-width media staircase.
 - `--menu-min-w: 11rem` — shared dropdown/select panel width (collapsed from 5 ad-hoc widths at A.W7).
 
-Consumer sites (post-D.W4 Lane A surfaces these as utilities — `top-dock-inset`, `max-w-pane`, `min-w-menu` etc.):
+**The aspect law.** The desktop grammar (dual grid, tight dock, capped content height) fires on `(min-width: 1024px) and (min-aspect-ratio: 1.1)` — width AND landscape. A portrait tablet ≥ 1024px wide runs the single-slot mobile grammar; App.vue's `isDesktop` breakpoint shares the same compound query so JS mount and CSS grid can never disagree (the `.pane-slot-mobile` exception rule covers the CI-pinned width-only `lg:hidden` witness on the portrait band).
+
+**Container queries.** The pane slot wrappers (`.pane-wrapper`) are `container-type: inline-size`; in-card sizing rides `cqi` (e.g. the picker card's `px-[clamp(0.75rem,4cqi,1.5rem)]` gutters), never `vw` — structurally immune to the viewport-variant kill class. Display type rungs are the named exception (viewport-fluid `clamp()`s by design).
+
+Consumer sites (post-D.W4 Lane A surfaces these as utilities — `top-dock-inset`, `min-w-menu` etc.):
 
 | Token | Consumed at | Idiom |
 |---|---|---|
 | `--dock-inset` | `Dock.vue` (the fixed dock pin) | `top-[var(--dock-inset)]` |
-| `--desktop-pane-max-w` | every pane shell + ColorPicker.vue | `lg:max-w-[var(--desktop-pane-max-w)]` |
+| `--pane-min` / `--pane-max` / `--pane-gap` | `.pane-container` (style.css) | direct CSS — the grid owns the clamp |
 | `--menu-min-w` | every DropdownMenuContent + SelectContent | `min-w-[var(--menu-min-w)]` |
-| `--content-max-h` | `.pane-container` (style.css:127) | `max-h-[var(--content-max-h)]` |
-| `--dock-total` | `.app-layout` padding (style.css:105) | direct CSS, not a utility |
+| `--content-max-h` | `.pane-container` (style.css) | `max-h-[var(--content-max-h)]` |
+| `--dock-total` | `.app-layout` padding (style.css) | direct CSS, not a utility |
 
-`hero-lab.css` (demo/hero-lab/) ships its own layout system for the interactive demo viewport (`hero-panel`, `hero-panel__title-row`, `hero-panel__viewport`). It is the exemplary visual-hierarchy reference (B.W2 Lane B claim verified: type-clean + reduced-motion-correct across all 4 RAF render loops).
+The pane-shell layout (`panes/PaneHeader.vue` + `.pane-container` / `.app-layout` in `style.css`, driven by the pane clamp ladder + `--dock-inset` tokens above) is the live visual-hierarchy reference for the app viewport: a title-row + scroll-faded content region that every pane (`BrowsePane`, `ExtractPane`, `MixPane`, …) composes. It is type-clean and reduced-motion-correct (the WebGL RAF loops fence on `prefers-reduced-motion` in their composables — see the §Reduced-motion carve-out above).
 
 ## § Idioms NOT used (anti-patterns)
 

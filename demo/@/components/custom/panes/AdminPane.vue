@@ -1,5 +1,5 @@
 <template>
-    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full max-w-3xl lg:max-w-desktop-pane mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader :description="headerDescription">
             {{ headerTitle }}
             <Badge v-if="adminCount != null" variant="secondary" class="text-mono-small ml-2">{{ adminCount }}</Badge>

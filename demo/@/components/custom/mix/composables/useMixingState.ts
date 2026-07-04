@@ -6,7 +6,7 @@
 import { ref, computed } from "vue";
 import type { Ref } from "vue";
 import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/dispatch";
+import type { HueInterpolationMethod } from "@src/units/color/mix";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import type { LeftoverStrategy } from "@lib/palette/mix";
 import { mixPalettes } from "@lib/palette/mix";
@@ -52,13 +52,15 @@ export function useMixingState() {
         selectedColors.value = selectedColors.value.filter((_, i) => i !== index);
     }
 
+    // K-PALID: mix selection keys on `slug` (the universal palette identity),
+    // never the local-only `id`.
     function addPalette(palette: Palette) {
-        if (selectedPalettes.value.some((p) => p.id === palette.id)) return;
+        if (selectedPalettes.value.some((p) => p.slug === palette.slug)) return;
         selectedPalettes.value = [...selectedPalettes.value, palette];
     }
 
-    function removePalette(id: string) {
-        selectedPalettes.value = selectedPalettes.value.filter((p) => p.id !== id);
+    function removePalette(slug: string) {
+        selectedPalettes.value = selectedPalettes.value.filter((p) => p.slug !== slug);
     }
 
     function startMix() {

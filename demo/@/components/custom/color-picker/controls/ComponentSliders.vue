@@ -56,79 +56,66 @@
                         sliderGates[component]?.isActive.value ? 'touch-gate-active' : '',
                     ]"
                 >
-                    <SliderRoot
-                        :min="0"
-                        :max="1"
-                        :step="0.001"
-                        class="relative flex w-full select-none items-center"
-                        :style="{ touchAction: spectrumGateIsTouchDevice ? (sliderGates[component]?.isActive.value ? 'none' : 'pan-y') : undefined }"
-                        :model-value="[model.color.value[component].value]"
-                        @update:model-value="
-                            (payload: number[] | undefined) => {
-                                const v = payload?.[0];
-                                if (v === undefined) return;
-                                updateColorComponent(v, component, true);
-                                activeComponent = component;
-                            }
-                        "
-                    >
-                        <SliderTrack
-                            class="slider-track relative h-6 w-full grow overflow-hidden rounded-full transition-shadow"
-                            :style="{
-                                background: componentsSlidersStyle[component]
-                                    ? `linear-gradient(to right, ${componentsSlidersStyle[component].join(', ')})`
-                                    : undefined,
-                            }"
-                        >
-                            <SliderRange class="absolute h-full bg-transparent" />
-                        </SliderTrack>
-                        <TooltipProvider
-                            :skip-delay-duration="0"
-                            :delay-duration="100"
-                        >
-                            <Tooltip>
-                                <TooltipTrigger as-child>
-                                    <SliderThumb
-                                        :aria-label="`${component.toUpperCase()} channel`"
-                                        class="slider-thumb block h-full w-3 rounded-full border-2 border-gray-200 bg-transparent transition-colors focus-visible:outline-none"
-                                    />
-                                </TooltipTrigger>
-                                <!-- A.W4: mono TooltipContent recipe — root fix pending glass-ui TooltipContent variant="mono" (coordination/Q.md §3) -->
-                                <TooltipContent class="fira-code">
-                                    {{
-                                        denormalizedCurrentColor.value[
-                                            component
-                                        ].toFixed(2)
-                                    }}
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
-                    </SliderRoot>
+                    <!-- R.W3 Lane C / C1: the raw-reka fork is DELETED onto the
+                         glass-ui spectrum slider. The demo owns three producer
+                         token feeds only — the perceptual ramp (track), the LIVE
+                         color (thumb fill), and the value-aware needle ink
+                         (thumb border + notch, via the shared plate-luma helper,
+                         B3). Geometry, a11y, focus ring are the producer's. -->
+                    <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
+                        <Tooltip>
+                            <TooltipTrigger as-child>
+                                <Slider
+                                    :aria-label="`${component.toUpperCase()} channel`"
+                                    variant="spectrum"
+                                    :min="0"
+                                    :max="1"
+                                    :step="0.001"
+                                    class="channel-slider"
+                                    :model-value="[model.color.value[component].value]"
+                                    :style="sliderVars(component)"
+                                    @update:model-value="
+                                        (payload: number[] | undefined) => {
+                                            const v = payload?.[0];
+                                            if (v === undefined) return;
+                                            updateColorComponent(v, component, true);
+                                            activeComponent = component;
+                                        }
+                                    "
+                                />
+                            </TooltipTrigger>
+                            <!-- A.W4: mono TooltipContent recipe — root fix pending glass-ui TooltipContent variant="mono" (coordination/Q.md §3) -->
+                            <TooltipContent class="fira-code">
+                                {{
+                                    denormalizedCurrentColor.value[
+                                        component
+                                    ].toFixed(2)
+                                }}
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                 </div>
             </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, watch, nextTick, onMounted, onUnmounted } from "vue";
+import { computed, inject, ref, watch } from "vue";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import {
-    SliderRange,
-    SliderRoot,
-    SliderThumb,
-    SliderTrack,
-} from "reka-ui";
+import { Slider } from "@components/ui/slider";
 import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
-import { useTouchGate } from "@mkbabb/glass-ui";
+import { clamp } from "@src/math";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 import { colorSpaceInfo } from "../index";
 import type { DisplayColorSpace } from "../index";
+import { spectrumFieldIsLight } from "../spectrumLuma";
 import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
+import { useSliderTouchGates } from "../composables/useSliderTouchGates";
 import { COLOR_MODEL_KEY } from "../keys";
 
 const {
@@ -137,6 +124,8 @@ const {
     currentColorSpace,
     currentColorRanges,
     componentsSlidersStyle,
+    cssColorOpaque,
+    HSVCurrentColor,
     updateColorComponent,
 } = inject(COLOR_MODEL_KEY)!;
 
@@ -192,6 +181,34 @@ function labelColor(component: string): string {
     return safeCss(css);
 }
 
+// The needle's ink regime reads the SHARED plate-luma helper (B3 — one
+// function, one threshold): the ramp color under the thumb IS the live color,
+// so the thumb border, the WatercolorDot border, and the overlay contour ink
+// can never disagree about the same color.
+const thumbInk = computed(() => {
+    const { s, v } = HSVCurrentColor.value.value;
+    return spectrumFieldIsLight(clamp(s.value, 0, 1), clamp(v.value, 0, 1))
+        ? "rgba(0, 0, 0, 0.8)"
+        : "rgba(255, 255, 255, 0.9)";
+});
+
+// Producer token feed for the glass-ui spectrum slider: the perceptual ramp
+// on the track, the LIVE color on the thumb, the value-aware needle ink on
+// the border. Touch-action rides the same gate as the spectrum plate.
+function sliderVars(component: string): Record<string, string | undefined> {
+    const stops = componentsSlidersStyle.value[component];
+    return {
+        "--slider-track-bg": stops
+            ? `linear-gradient(to right, ${stops.join(", ")})`
+            : undefined,
+        "--slider-thumb-bg": cssColorOpaque.value,
+        "--slider-thumb-border-color": thumbInk.value,
+        touchAction: spectrumGateIsTouchDevice
+            ? (sliderGates[component]?.isActive.value ? "none" : "pan-y")
+            : undefined,
+    };
+}
+
 // Scroll-to behavior when label is clicked
 function scrollToSlider(component: string) {
     activeComponent.value = component;
@@ -243,105 +260,13 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
     railItemEls.value[next]?.focus();
 }
 
-// Touch gate check — reuse the same detection as spectrum
-const spectrumGateIsTouchDevice = typeof window !== "undefined" && "ontouchstart" in window;
-
-// Slider touch gates — one per component across all color spaces
-const ALL_COMPONENTS = new Set(
-    Object.values(COLOR_SPACE_RANGES).flatMap((ranges) => Object.keys(ranges)),
-);
-const sliderGates: Record<string, ReturnType<typeof useTouchGate>> = {};
-for (const comp of ALL_COMPONENTS) {
-    sliderGates[comp] = useTouchGate();
-}
-const sliderWrapperEls = ref<Record<string, HTMLElement>>({});
-
-// Capture-phase listeners on slider wrappers to intercept reka-ui's pointerdown.
-// Only re-attach when color space changes (not on every reactive tick).
-let listenerCleanups: (() => void)[] = [];
-
-function attachSliderListeners() {
-    // Clean up old listeners first
-    listenerCleanups.forEach((fn) => fn());
-    listenerCleanups = [];
-
-    for (const [component, el] of Object.entries(sliderWrapperEls.value)) {
-        const gate = sliderGates[component];
-        if (!gate || !el) continue;
-
-        const onPointerDown = (e: PointerEvent) => {
-            debug.logEvent(e, `sl:${component}:down`);
-            debug.setGauge(`sl.${component}.gate`, gate.isActive.value);
-            if (!gate.isTouchDevice) return;
-            if (!gate.isActive.value) {
-                e.stopPropagation();
-                gate.handleTouchStart(el, e.clientY);
-                debug.log(`sl:${component}:gate-block`, e.pointerId, e.target, false);
-            } else {
-                gate.resetTimer();
-            }
-        };
-        const onTouchMove = (e: TouchEvent) => {
-            gate.handleScrollCheck(e);
-        };
-        const onTouchEnd = () => {
-            gate.handleTouchEnd();
-        };
-
-        const onPointerCancel = (e: PointerEvent) => {
-            debug.logEvent(e, `sl:${component}:cancel`);
-            const target = e.target as HTMLElement;
-            const hadCapture = target?.hasPointerCapture?.(e.pointerId) ?? false;
-            debug.log(`sl:${component}:cancel-release`, e.pointerId, e.target, hadCapture, hadCapture ? "released" : "no-cap");
-            try { target.releasePointerCapture(e.pointerId); } catch {}
-        };
-        const onLostPointerCapture = (e: Event) => {
-            debug.log(`sl:${component}:lostcap`, (e as PointerEvent).pointerId ?? -1, e.target, false);
-            gate.resetTimer();
-        };
-
-        el.addEventListener("pointerdown", onPointerDown, { capture: true });
-        el.addEventListener("touchmove", onTouchMove, { passive: true });
-        el.addEventListener("touchend", onTouchEnd, { passive: true });
-        el.addEventListener("pointercancel", onPointerCancel);
-        el.addEventListener("lostpointercapture", onLostPointerCapture);
-
-        listenerCleanups.push(() => {
-            el.removeEventListener("pointerdown", onPointerDown, { capture: true });
-            el.removeEventListener("touchmove", onTouchMove);
-            el.removeEventListener("touchend", onTouchEnd);
-            el.removeEventListener("pointercancel", onPointerCancel);
-            el.removeEventListener("lostpointercapture", onLostPointerCapture);
-        });
-    }
-}
-
-// Re-attach listeners when color space changes (which re-renders the slider list)
-watch(currentColorSpace, () => {
-    nextTick(attachSliderListeners);
-}, { immediate: true });
-
-// Document-level safety net: force-release pointer capture on any element
-// that still holds it after pointercancel.
-function onDocPointerCancel(e: PointerEvent) {
-    const t = e.target as HTMLElement;
-    const hasCap = t?.hasPointerCapture?.(e.pointerId) ?? false;
-    if (hasCap) {
-        debug.log("doc:cancel-release", e.pointerId, e.target, true, "force-released");
-        try { t.releasePointerCapture(e.pointerId); } catch {}
-    } else {
-        debug.logEvent(e, "doc:cancel");
-    }
-}
-
-onMounted(() => {
-    document.addEventListener("pointercancel", onDocPointerCancel);
-});
-onUnmounted(() => {
-    document.removeEventListener("pointercancel", onDocPointerCancel);
-    listenerCleanups.forEach((fn) => fn());
-    listenerCleanups = [];
-});
+// Touch-gate cluster — the capture-phase wrapper listeners + iOS pointer-
+// capture leak recovery live in the colocated composable (R.W3 Lane C lift).
+const {
+    isTouchDevice: spectrumGateIsTouchDevice,
+    sliderGates,
+    sliderWrapperEls,
+} = useSliderTouchGates({ currentColorSpace, debug });
 </script>
 
 <style>
@@ -410,9 +335,33 @@ onUnmounted(() => {
     background-color: color-mix(in srgb, var(--foreground) 8%, transparent);
 }
 .channel-rail-item:focus-visible {
-    outline: 2px solid color-mix(in srgb, var(--foreground) 50%, transparent);
-    outline-offset: 1px;
+    /* R.W3 Lane C / C5: the accent-aware house focus register (the
+       `--focus-ring-shadow` recipe reads `--focus-ring-color`, re-pointed to
+       `--accent-live` at the demo root) — never a bespoke gray outline. */
+    outline: none;
+    box-shadow: var(--focus-ring-shadow);
     opacity: 1;
+}
+
+/* R.W3 Lane C / C1 — the instrument-needle notch (treatment § MICRO-1).
+ * A 1px center hairline on the glass-ui spectrum thumb, inked by the SAME
+ * value-aware `--slider-thumb-border-color` feed as the border, so needle,
+ * ring, and dot always agree about the live color's regime. */
+.channel-slider .slider-thumb {
+    position: relative;
+    transition: background-color var(--duration-fast) var(--ease-standard),
+        border-color var(--duration-fast) var(--ease-standard);
+}
+.channel-slider .slider-thumb::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1px;
+    height: 42%;
+    transform: translate(-50%, -50%);
+    background: var(--slider-thumb-border-color, var(--gamut-edge));
+    pointer-events: none;
 }
 </style>
 

@@ -1,0 +1,17 @@
+- main "Color tool panes":
+  - heading "Browse" [level=3]
+  - paragraph: Discover palettes from the community.
+  - img
+  - textbox "Search palettes..."
+  - button "Filters":
+    - img
+  - text: Failed to load palettes
+  - button "Tap to retry"
+  - heading "My Palettes" [level=3]
+  - paragraph: Save, organize, and share your colors.
+  - img
+  - textbox "Search palettes..."
+  - text: Start a new palette
+  - button "Add current color lab(92% 88.80 20 / 100%) to palette"
+  - list:
+    - paragraph: No saved palettes yet. Add colors above, then save.

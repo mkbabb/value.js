@@ -24,7 +24,7 @@
             <div v-else class="grid gap-2">
                 <AdminListItem v-for="item in pendingItems" :key="item.id">
                     <template #swatch>
-                        <div class="w-8 h-8 rounded-full border border-border" :style="{ backgroundColor: item.css }" />
+                        <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
                     </template>
                     <template #content>
                         <!-- primary line -->
@@ -53,7 +53,7 @@
             <div v-else class="grid gap-2">
                 <AdminListItem v-for="item in approvedItems" :key="item.id">
                     <template #swatch>
-                        <div class="w-8 h-8 rounded-full border border-border" :style="{ backgroundColor: item.css }" />
+                        <div class="w-8 h-8 rounded-full border border-card-edge" :style="{ backgroundColor: item.css }" />
                     </template>
                     <template #content>
                         <!-- primary line -->
@@ -75,7 +75,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
+import { TabsRoot as Tabs, TabsContent, TabsList, TabsTrigger } from "reka-ui";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { Loader2, Check, X as XIcon, CheckCircle, Clock, Trash2 } from "@lucide/vue";

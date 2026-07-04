@@ -30,43 +30,56 @@
                 currentConfig.right !== null && 'pane-container--dual',
             ]"
         >
-            <!-- Mobile: single pane slot (below lg) -->
-            <div class="lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
+            <!-- X6: single-mount by breakpoint. Only ONE breakpoint's slots are
+                 MOUNTED at a time (v-if, not display-toggle), so exactly one live
+                 picker — and thus one live goo-blob WebGL2 context — exists at any
+                 viewport. The prior always-in-DOM display-toggle kept a hidden-
+                 but-LIVE second picker (the mobile slot at desktop, the desktop
+                 slots at mobile), doubling the WebGL contexts + the reactive
+                 subtree. The lg:* display classes are RETAINED untouched (the
+                 D8-1 cascade is producer-owned; never demo-cured here). -->
+
+            <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
+                 makes it a size container so in-card `cqi` sizing resolves on
+                 every slot (R.W3 Lane A / A4). -->
+            <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
                 <PaneSlot
                     :component="mobile.component"
                     :component-key="mobile.key"
                     :component-props="mobile.props"
-                    :transition-name="viewManager.ready.value ? 'pane-left' : ''"
+                    :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
                     :max="5"
                 />
             </div>
 
-            <!-- Desktop: left pane (lg+) -->
-            <div class="pane-wrapper hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
-                <PaneSlot
-                    :component="desktopLeft.component"
-                    :component-key="desktopLeft.key"
-                    :component-props="desktopLeft.props"
-                    :on-mount="onDesktopLeftMount"
-                    :transition-name="viewManager.ready.value ? 'pane-left' : ''"
-                    :max="6"
-                />
-            </div>
+            <template v-else>
+                <!-- Desktop: left pane (lg+) -->
+                <div class="pane-wrapper pane-wrapper--left hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
+                    <PaneSlot
+                        :component="desktopLeft.component"
+                        :component-key="desktopLeft.key"
+                        :component-props="desktopLeft.props"
+                        :on-mount="onDesktopLeftMount"
+                        :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
+                        :max="6"
+                    />
+                </div>
 
-            <!-- Desktop: right pane (lg+) — always in DOM to preserve KeepAlive scroll position -->
-            <div
-                class="pane-wrapper hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
-                :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
-            >
-                <PaneSlot
-                    :component="desktopRight.component"
-                    :component-key="desktopRight.key"
-                    :component-props="desktopRight.props"
-                    :on-mount="onDesktopRightMount"
-                    :transition-name="viewManager.ready.value ? 'pane-right' : ''"
-                    :max="3"
-                />
-            </div>
+                <!-- Desktop: right pane (lg+) — always in DOM to preserve KeepAlive scroll position -->
+                <div
+                    class="pane-wrapper pane-wrapper--right hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+                    :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
+                >
+                    <PaneSlot
+                        :component="desktopRight.component"
+                        :component-key="desktopRight.key"
+                        :component-props="desktopRight.props"
+                        :on-mount="onDesktopRightMount"
+                        :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
+                        :max="3"
+                    />
+                </div>
+            </template>
         </div>
         </main>
     </div>
@@ -81,7 +94,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, provide, reactive, ref, shallowRef, useTemplateRef, watch } from "vue";
+import { computed, onMounted, provide, ref, shallowRef, useTemplateRef, watch } from "vue";
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import { ColorPicker } from "@components/custom/color-picker";
@@ -102,18 +115,8 @@ import { usePaneRouter } from "@composables/usePaneRouter";
 import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
 import { useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import {
-    useAurora,
-    resolveAtoms,
-    deriveAurora,
-    resolveRenderMode,
-    paletteToCssGradient,
-    type AuroraAtoms,
-} from "@mkbabb/glass-ui/aurora";
-import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@components/custom/panes/keys";
-
-import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/goo-blob";
-import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
+import { useBreakpoint } from "@mkbabb/glass-ui/dom";
+import { useAtmosphere } from "@composables/color/useAtmosphere";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -146,10 +149,47 @@ provide(CSS_COLOR_KEY, cssColorOpaque);
 const { safeAccentCss } = useContrastSafeColor(model, cssColorOpaque);
 provide(SAFE_ACCENT_KEY, safeAccentCss);
 
+// --- The accent axis (R.W3 Lane A / A2) ---
+// Mirror the contrast-guarded live color onto the `--accent-live` root token —
+// the SAME library `safeAccentColor` computation SAFE_ACCENT_KEY provides (ONE
+// color-resolution path, inv-N-3; no bespoke resolver). style.css re-points
+// `--primary` and the glass frost's `--glass-tint-source` onto it, so the
+// interactive layer and the plate temperature speak the picked color.
+watch(
+    safeAccentCss,
+    (css) => {
+        document.documentElement.style.setProperty("--accent-live", css);
+    },
+    { immediate: true },
+);
+
 // --- View manager ---
 const viewManager = useViewManager();
 provide(VIEW_MANAGER_KEY, viewManager);
 const currentConfig = computed(() => viewManager.currentConfig.value);
+
+// --- The per-view accent (R.W4 Lane B / B2) ---
+// THE one resolver path: each view's schema-declared hue shift lands on the
+// `--view-hue-shift` root token; style.css derives `--accent-view` from the
+// R.W3 `--accent-live` axis via CSS relative color (zero JS color math), and
+// `--primary` rides it — so navigation reads chromatically everywhere the
+// interactive layer paints.
+watch(
+    () => currentConfig.value.accentHueShift,
+    (deg) => {
+        document.documentElement.style.setProperty("--view-hue-shift", String(deg ?? 0));
+    },
+    { immediate: true },
+);
+
+// X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px), now guarded
+// by the aspect law (R.W3 Lane A / A4): a portrait tablet ≥ 1024px wide runs
+// the single-slot mobile grammar — the JS mount condition and the CSS dual
+// grid share one compound query, so they can never disagree. Drives the
+// single-mount v-if so only one breakpoint's pane slots are live at a time.
+const { matches: isDesktop } = useBreakpoint(
+    "(min-width: 1024px) and (min-aspect-ratio: 1.1)",
+);
 
 // --- Pane action refs ---
 // Populated by the onMount callbacks on the desktop PaneSlots; the action bar
@@ -213,97 +253,11 @@ const shareLink = async () => {
 useColorUrl({ model, updateModel });
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
-// --- Aurora atmosphere — THE palette made atmosphere (N.W5.B) ---
-// The full-viewport background now ANSWERS the picker. We drive glass-ui's
-// `AuroraAtoms` door — the ≤7-knob consumer-facing surface — whose `seed` atom
-// derives the atmosphere's OKLCh palette via `deriveAurora` (glass-ui composes
-// it inside `resolveAtoms`). The live picker colour flows into `auroraAtoms.seed`
-// below, so the background tracks the chosen colour instead of the static cyan
-// "Sky" default it was frozen on (the ~10-tranche oldest mandate, CH-2 / VAL-1).
-//
-// AuroraPane (provided `AURORA_ATOMS_KEY`) tunes the SHAPE of the atmosphere —
-// harmony, colour energy, zones, noise, medium, motion — while the seed stays
-// the picker's. `resolveAtoms(atoms)` clamps every atom into a valid in-range
-// `AuroraConfig`; `useAurora` deep-watches the getter, so any atom edit (slider
-// drag OR a seed change) re-derives + re-uploads the uniforms for free.
-const auroraAtoms = reactive<AuroraAtoms>(structuredClone(DEFAULT_AURORA_ATOMS));
-provide(AURORA_ATOMS_KEY, auroraAtoms);
-// The config source MUST NOT throw inside useAurora's deep-watch: a thrown getter
-// dead-faults the reactive effect (the white-screen class inv-N-1 forbids).
-// `resolveAtoms` is TOTAL for the numeric atoms, but it derives the palette via
-// `deriveAurora(seed)`, which THROWS on an un-parseable seed — so the seed write
-// below is the one validated boundary, and this getter stays throw-free.
-// Adaptive substrate (glass-ui's `resolveRenderMode("auto")`): on a low-power or
-// SOFTWARE-WebGL device (SwiftShader / llvmpipe / MS Basic Render — the GPU-
-// blocklisted path) this resolves to `"css"`, so `useAurora` NEVER arms the
-// full-viewport WebGL2 surface. A full-viewport software-rastered GL layer makes
-// every pointer-driven composite stall the renderer's input ack — the page goes
-// unresponsive under interaction (the N.W5 Defect-A hang, reproduced live; the
-// same severe jank a blocklisted-GPU user feels). On those devices the atmosphere
-// paints via the cheap CSS-gradient placeholder below (a complete render of the
-// same derived palette) instead. Resolved ONCE at setup (a mount-time device tier).
-const auroraRenderMode = resolveRenderMode("auto");
-
-useAurora(
-    atmosphereCanvas,
-    () => resolveAtoms(auroraAtoms),
-    { onInitError: (err) => console.warn("[aurora] init failed:", err) },
-    { renderMode: auroraRenderMode },
-);
-
-// The CSS-gradient fallback for the `"css"` substrate — the same derived palette
-// `resolveAtoms` feeds the WebGL field, rendered as a static linear gradient (the
-// `<Aurora>` placeholder idiom, glass-ui's `paletteToCssGradient`). Empty on the
-// `"webgl"` path so the canvas owns the paint; on `"css"` it is the atmosphere.
-const auroraCssGradient = computed(() =>
-    auroraRenderMode === "css"
-        ? paletteToCssGradient(resolveAtoms(auroraAtoms).palette)
-        : undefined,
-);
-
-// The picker→atmosphere seed: every colour change re-seeds the derived palette.
-// `cssColorOpaque` is always a value.js-serialised colour, so the guard never
-// fires in practice — but a transient un-parseable string must leave the LAST
-// GOOD seed in place (never reach the getter), so the atmosphere never flashes
-// empty and the deep-watch never dead-faults (mirrors the blob watch's guard).
-watch(
-    cssColorOpaque,
-    (css) => {
-        try {
-            deriveAurora(css); // probe: throws iff the seed is un-parseable
-            auroraAtoms.seed = css;
-        } catch {
-            // keep the last good seed
-        }
-    },
-    { immediate: true },
-);
-
-// --- Blob config ---
-// The 8-atom nested config — structuredClone so the reactive copy owns deep
-// atoms (the aurora precedent above does the same for its nested config).
-const blobConfig = reactive(structuredClone(BLOB_CONFIG_DEFAULTS));
-provide(BLOB_CONFIG_KEY, blobConfig);
-
-// --- Live-palette coupling — the hero blob IS the palette made flesh ---
-// The active picker color seeds a harmonious OKLCh ramp (≤4 stops) that flows
-// straight into the blob's spatial multi-stop color field. glass-ui's GooBlob
-// deep-watches `config.color.paletteStops`, so a colour change repaints free.
-watch(
-    cssColorOpaque,
-    (css) => {
-        try {
-            blobConfig.color.paletteStops = deriveBlobPalette(css, {
-                stopCount: 4,
-                harmony: "analogous",
-                chromaCeiling: 0.16,
-            }).map(oklchStopToHex);
-        } catch {
-            // A transient un-parseable colour string leaves the last good ramp.
-        }
-    },
-    { immediate: true },
-);
+// --- Atmosphere: aurora + hero-blob palette coupling (N.W5.B) ---
+// The full region (atoms, render-mode tiering, seed guards, blob ramp) lives
+// in useAtmosphere (lifted at R.W4 close, gate-(c) cap); it provides
+// AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on this component's scope.
+const { auroraCssGradient } = useAtmosphere(atmosphereCanvas, cssColorOpaque);
 
 onMounted(() => { loadCustomColorNames(); });
 </script>
@@ -327,43 +281,26 @@ onMounted(() => { loadCustomColorNames(); });
     opacity: 0;
 }
 
-/* ── Pane slide — shared enter/leave with CSS variable direction ── */
-.pane-slide-enter-active {
-    transition: transform var(--duration-slow) var(--spring-snappy);
-}
-.pane-slide-leave-active {
-    transition: transform var(--duration-normal) var(--ease-out);
-}
-.pane-slide-enter-from,
-.pane-slide-leave-to {
-    transform: translateX(var(--pane-slide-dir, -110%)) rotate(var(--pane-slide-rot, -2deg));
-}
+</style>
 
-/* ── Left pane transitions ── */
-.pane-left-enter-active {
-    transition: transform var(--duration-slow) var(--spring-snappy);
-}
-.pane-left-leave-active {
-    transition: transform var(--duration-normal) var(--ease-out);
-}
-.pane-left-enter-from {
+<style>
+/* ── Pane swap — the enter/exit family (R.W4 Lane B / B1) ──
+ * The former pane-slide/pane-left/pane-right trio collapsed onto `vj-enter`
+ * (animations.css); these DIRECT-CHILD geometry overrides carry only the
+ * pane slots' off-canvas slide + cartoon-swagger rotate, opacity pinned
+ * (the swap reads as travel, not a fade). Direct-child (`>`) on purpose:
+ * an inherited `--vj-enter-*` var would leak the pane geometry into
+ * nested in-pane transitions. Unscoped on purpose: the pane root carries
+ * PaneSlot's scope id, not App's. The PaneSlot <Transition> stays DEFAULT
+ * mode (the R.W3 dev-safe simultaneous cross-slide — DESIGN.md §Motion). */
+.pane-wrapper--left > .vj-enter-enter-from,
+.pane-wrapper--left > .vj-enter-leave-to {
+    opacity: 1;
     transform: translateX(-110%) rotate(-2deg);
 }
-.pane-left-leave-to {
-    transform: translateX(-110%) rotate(-2deg);
-}
-
-/* ── Right pane transitions ── */
-.pane-right-enter-active {
-    transition: transform var(--duration-slow) var(--spring-snappy);
-}
-.pane-right-leave-active {
-    transition: transform var(--duration-normal) var(--ease-out);
-}
-.pane-right-enter-from {
-    transform: translateX(110%) rotate(2deg);
-}
-.pane-right-leave-to {
+.pane-wrapper--right > .vj-enter-enter-from,
+.pane-wrapper--right > .vj-enter-leave-to {
+    opacity: 1;
     transform: translateX(110%) rotate(2deg);
 }
 </style>

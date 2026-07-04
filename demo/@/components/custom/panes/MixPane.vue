@@ -57,7 +57,7 @@ defineExpose({ clearSelection, startMix, copyResult });
 </script>
 
 <template>
-    <div class="relative w-full max-w-3xl lg:max-w-desktop-pane mx-auto h-full min-w-0">
+    <div class="relative w-full mx-auto h-full min-w-0">
         <Card tier="wash" :shadow="false" :grain="false" class="relative pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
             <!-- Animation canvas overlay -->
             <MixAnimationCanvas
@@ -104,7 +104,7 @@ defineExpose({ clearSelection, startMix, copyResult });
                 </div>
 
                 <!-- Result -->
-                <Transition name="pop" mode="out-in">
+                <Transition name="vj-morph" mode="out-in">
                     <MixResultDisplay
                         v-if="mixResult && animationPhase === 'done'"
                         :result="mixResult"

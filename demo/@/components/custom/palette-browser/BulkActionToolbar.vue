@@ -1,12 +1,6 @@
 <template>
-    <Transition
-        enter-active-class="transition-all duration-fast ease-decelerate"
-        enter-from-class="translate-y-2 opacity-0"
-        enter-to-class="translate-y-0 opacity-100"
-        leave-active-class="transition-all duration-instant ease-accelerate"
-        leave-from-class="translate-y-0 opacity-100"
-        leave-to-class="translate-y-2 opacity-0"
-    >
+    <!-- enter/exit family — default geometry (rise from 0.5rem). -->
+    <Transition name="vj-enter">
         <div
             v-if="count > 0"
             class="glass-floating sticky bottom-2 z-popover mx-auto flex w-fit items-center gap-2 rounded-panel px-4 py-2"

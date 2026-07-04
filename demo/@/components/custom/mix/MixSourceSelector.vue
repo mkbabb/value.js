@@ -28,7 +28,7 @@ const emit = defineEmits<{
     addColor: [css: string, source: string];
     removeColor: [index: number];
     addPalette: [palette: Palette];
-    removePalette: [id: string];
+    removePalette: [slug: string];
 }>();
 
 const pm = inject(PALETTE_MANAGER_KEY);
@@ -53,13 +53,15 @@ function onTabChange(value: string | string[]) {
     }
 }
 
-function isPaletteSelected(id: string): boolean {
-    return selectedPalettes.some((p) => p.id === id);
+// K-PALID: mix selection keys on `slug` — the universal palette identity
+// present on every palette (local + remote), never the local-only `id`.
+function isPaletteSelected(slug: string): boolean {
+    return selectedPalettes.some((p) => p.slug === slug);
 }
 
 function togglePalette(palette: Palette) {
-    if (isPaletteSelected(palette.id)) {
-        emit("removePalette", palette.id);
+    if (isPaletteSelected(palette.slug)) {
+        emit("removePalette", palette.slug);
     } else {
         emit("addPalette", palette);
     }
@@ -118,9 +120,9 @@ watch(
                     <span v-if="selectedColors.length > 0" class="text-mono-small text-muted-foreground">{{ selectedColors.length }} colors</span>
                 </div>
                 <TransitionGroup
-                    name="swatch-item"
+                    name="vj-enter"
                     tag="div"
-                    class="flex items-center gap-2.5 flex-wrap"
+                    class="swatch-row flex items-center gap-2.5 flex-wrap"
                 >
                     <div
                         v-for="(sc, i) in selectedColors"
@@ -142,15 +144,22 @@ watch(
                         </button>
                     </div>
 
-                    <!-- Add current color swatch -->
-                    <button
+                    <!-- Add current color swatch — the shipped WatercolorDot
+                         ghost (R.W4 Lane A / A3, U18): the seeded dashed
+                         silhouette the next selection will fill. -->
+                    <WatercolorDot
                         key="__add__"
-                        class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch border-2 border-dashed border-primary/30 bg-primary/5 flex items-center justify-center hover:scale-110 hover:border-primary/60 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
+                        :color="cssColorOpaque ?? 'var(--muted-foreground)'"
+                        variant="ghost"
+                        tag="button"
+                        seed="mix-add-slot"
+                        class="add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer hover:scale-110 active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none"
+                        aria-label="Add current color to the mix"
                         :disabled="!canAddColor || undefined"
                         @click="addCurrentColor"
                     >
-                        <Plus class="w-5 h-5 text-primary/40" />
-                    </button>
+                        <Plus class="w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
+                    </WatercolorDot>
                 </TransitionGroup>
             </div>
 
@@ -169,7 +178,7 @@ watch(
                     <div class="flex flex-col gap-2 pt-2">
                         <div
                             v-for="palette in savedPalettes"
-                            :key="palette.id"
+                            :key="palette.slug"
                             class="rounded-card border border-border/30 overflow-hidden"
                         >
                             <!-- Compact palette header with color strip + name -->
@@ -189,7 +198,7 @@ watch(
                                     class="w-8 h-8 shrink-0 cursor-pointer"
                                     :title="color.css"
                                     :aria-label="`Add color ${color.css} from ${palette.name}`"
-                                    :seed="`palette-${palette.id}-${ci}`"
+                                    :seed="`palette-${palette.slug}-${ci}`"
                                     @click="emit('addColor', color.css, palette.name)"
                                 />
                             </div>
@@ -205,13 +214,13 @@ watch(
             <!-- W5-a11y: native <button> for keyboard reach + aria-pressed for selection state -->
             <button
                 v-for="palette in savedPalettes"
-                :key="palette.id"
+                :key="palette.slug"
                 type="button"
-                :aria-pressed="isPaletteSelected(palette.id)"
-                :aria-label="`${isPaletteSelected(palette.id) ? 'Deselect' : 'Select'} palette ${palette.name}`"
+                :aria-pressed="isPaletteSelected(palette.slug)"
+                :aria-label="`${isPaletteSelected(palette.slug) ? 'Deselect' : 'Select'} palette ${palette.name}`"
                 :class="[
                     'cursor-pointer transition-all rounded-card w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40',
-                    isPaletteSelected(palette.id)
+                    isPaletteSelected(palette.slug)
                         ? 'ring-2 ring-primary ring-offset-2 ring-offset-background'
                         : 'opacity-75 hover:opacity-100',
                 ]"
@@ -229,3 +238,12 @@ watch(
         </template>
     </div>
 </template>
+
+<style scoped>
+/* R.W4 Lane A / A3 — the add-slot ghost hosts a centred Plus glyph. */
+.add-slot-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>

@@ -75,8 +75,9 @@
                         <ArrowRight class="w-4 h-4" :style="{ stroke: safeAccent }" />
                     </button>
 
-                    <!-- Parse error popover -->
-                    <Transition name="error-pop">
+                    <!-- Parse error popover — celebration family (a one-shot
+                         feedback beat; geometry vars live on .error-badge). -->
+                    <Transition name="vj-celebrate">
                         <span v-if="parseError && !proposeMode" class="error-badge"
                             >not a valid color</span
                         >
@@ -94,6 +95,10 @@
                 <div class="fira-code w-full flex justify-center">
                     {{ denormalizedCurrentColor.value.toFormattedString() }}
                 </div>
+
+                <!-- E4 (Q10): the Parse-Lab echo (AST + gamut verdict). -->
+                <Separator class="my-2" />
+                <ParseEchoReadout />
             </HoverCardContent>
         </HoverCard>
     </div>
@@ -114,6 +119,7 @@ import {
 } from "@components/ui/tooltip";
 import { Separator } from "@components/ui/separator";
 import { Crown, ArrowRight, Loader2 } from "@lucide/vue";
+import ParseEchoReadout from "./ParseEchoReadout.vue";
 import { proposeColorName } from "@lib/palette/api";
 import { useSession } from "@composables/auth/useSession";
 import type { EditTarget } from "..";
@@ -168,6 +174,14 @@ const onInputFocus = () => {
 };
 const onInputBlur = () => {
     inputIsFocused.value = false;
+    // U9: repaint the canonical current colour on blur so uncommitted/invalid
+    // typed text never lingers. A dock-triggered reset blurs the field first, so
+    // this is the path that makes the contenteditable repaint unconditionally to
+    // the (reset) model value — the `formattedCurrentColor` watch skips repaint
+    // while focused, leaving stale text without this snap-back.
+    if (!proposeMode && inputColorRef.value) {
+        inputColorRef.value.innerText = formattedCurrentColor.value;
+    }
 };
 const onInputInput = (e: Event) => {
     const text = (e.target as HTMLElement).innerText;
@@ -342,25 +356,10 @@ defineExpose({
     white-space: nowrap;
     pointer-events: none;
     font-family: var(--font-sans);
-}
-
-.error-pop-enter-active {
-    transition:
-        opacity var(--duration-fast) var(--ease-standard),
-        transform var(--duration-fast) var(--ease-standard);
-}
-.error-pop-leave-active {
-    transition:
-        opacity var(--duration-slow) var(--ease-standard),
-        transform var(--duration-slow) var(--ease-standard);
-}
-.error-pop-enter-from {
-    opacity: 0;
-    transform: translateY(-50%) scale(0.85);
-}
-.error-pop-leave-to {
-    opacity: 0;
-    transform: translateY(-50%) scale(0.85);
+    /* vj-celebrate geometry: the badge rests at translateY(-50%), so the
+       from-state matches it (pure pop, no positional jump). */
+    --vj-celebrate-y: -50%;
+    --vj-celebrate-scale: 0.85;
 }
 
 /* Crown indicator animation */

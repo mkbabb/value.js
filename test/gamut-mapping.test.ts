@@ -6,10 +6,11 @@ import {
     isInSRGBGamut,
     oklabToLinearSRGB,
     gamutMapOKLab,
+    rawOklchToOklab,
     deltaEOK,
     DELTA_E_OK_JND,
 } from "../src/units/color/gamut";
-import { RGBColor, OKLCHColor, OKLABColor, DisplayP3Color } from "../src/units/color";
+import { RGBColor, OKLCHColor, OKLABColor, DisplayP3Color, LABColor } from "../src/units/color";
 import { color2, gamutMap } from "../src/units/color/dispatch";
 import { scale } from "../src/math";
 import { COLOR_SPACE_RANGES } from "../src/units/color/constants";
@@ -393,5 +394,114 @@ describe("quality — hard colors", () => {
         expect(rgb.g).toBeLessThanOrEqual(1);
         expect(rgb.b).toBeGreaterThanOrEqual(0);
         expect(rgb.b).toBeLessThanOrEqual(1);
+    });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// R.W1.1 — the U10 gamut cure (GAMUT_ALPHA = 1.0, Q7 RATIFIED 2026-07-03).
+//
+// The adaptive-L0 anchor pulls out-of-gamut light-saturated colors along their
+// constant-hue ray toward a vivid in-gamut point instead of washing them toward
+// mid-lightness. These oracles LOCK the cured behaviour (they would fail under
+// the pre-cure α=0.05 wash) and the tiered ΔL safety bound the α=1.0 setting
+// ships with (audit/pass2/gamut-bound.md §2.2/§7).
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Round a normalized [0,1] sRGB channel to an 8-bit component. */
+const to255 = (ch: number): number => Math.round(ch * 255);
+
+/** The 8-bit sRGB triple of a gamut-mapped color. */
+const mappedRgb255 = (c: OKLCHColor | LABColor): [number, number, number] => {
+    const rgb = color2(gamutMap(c), "rgb") as RGBColor;
+    return [to255(rgb.r as number), to255(rgb.g as number), to255(rgb.b as number)];
+};
+
+/** Denormalize an OKLCh raw chroma (0…0.4) into the normalized component. */
+const oklchC = (raw: number): number =>
+    scale(raw, COLOR_SPACE_RANGES.oklch.c.number.min, COLOR_SPACE_RANGES.oklch.c.number.max);
+
+describe("U10 gamut cure — the α=1.0 oracle (R.W1.1)", () => {
+    it("the pink oracle: lab(92% 88.8 20) → rgb(255,167,180) — the vivid 'land between'", () => {
+        // The U10 head oracle. Browser MINDE lands this super-gamut pink pale;
+        // the α=1.0 anchor lands it VIVID at the ratified reference (39% chroma
+        // retention). Exact 8-bit target per gamut-bound.md §2.3/§7.
+        const pink = new LABColor(
+            0.92, // L: 92% of [0,100]
+            (88.8 + 125) / 250, // a: +88.8 in [-125,125]
+            (20 + 125) / 250, // b: +20 in [-125,125]
+            1,
+        );
+        expect(mappedRgb255(pink)).toEqual([255, 167, 180]);
+    });
+
+    // The far-OOG light regression corpus — the pathology class U10 names. Each
+    // input sits well beyond sRGB; the cure must land it in-gamut, hue-EXACT,
+    // and vivid. The 8-bit triples are goldens locked post-α (they move if the
+    // constant drifts) — the pre-cure wash produced markedly paler values.
+    const corpus: {
+        name: string;
+        L: number;
+        cRaw: number;
+        hueDeg: number;
+        rgb255: [number, number, number];
+    }[] = [
+        { name: "light-pink", L: 0.92, cRaw: 0.2, hueDeg: 20, rgb255: [255, 173, 172] },
+        { name: "saturated-yellow", L: 0.9, cRaw: 0.4, hueDeg: 110, rgb255: [188, 189, 0] },
+        { name: "light-cyan", L: 0.85, cRaw: 0.2, hueDeg: 195, rgb255: [0, 218, 219] },
+    ];
+
+    for (const { name, L, cRaw, hueDeg, rgb255 } of corpus) {
+        it(`far-OOG ${name} lands in-gamut, hue-exact, and vivid`, () => {
+            const original = new OKLCHColor(L, oklchC(cRaw), hueDeg / 360, 1);
+            const mapped = gamutMap(original);
+
+            // In gamut.
+            const rgb = color2(mapped, "rgb") as RGBColor;
+            for (const ch of [rgb.r, rgb.g, rgb.b] as number[]) {
+                expect(ch).toBeGreaterThanOrEqual(0);
+                expect(ch).toBeLessThanOrEqual(1);
+            }
+
+            // Hue held exactly (the α-tune moves only along the constant-hue ray).
+            const lch = color2(mapped, "oklch") as OKLCHColor;
+            const hueDiff = Math.abs((lch.h as number) * 360 - hueDeg);
+            expect(Math.min(hueDiff, 360 - hueDiff)).toBeLessThan(0.5);
+
+            // The vivid golden (regression lock).
+            expect([to255(rgb.r as number), to255(rgb.g as number), to255(rgb.b as number)]).toEqual(rgb255);
+        });
+    }
+});
+
+describe("U10 tiered-bound guard (R.W1.1)", () => {
+    // The mid/dark guard band from gamut-bound.md §2.2: C∈{0.37,0.40} (authored
+    // super-gamut chroma — above every real gamut's cusp) × L∈{0.30,0.35,0.50,
+    // 0.65} × 12 hues. The α=1.0 self-limiting anchor holds worst-case ΔL under
+    // the tiered bound. The lock is < 0.09 (NOT the false "<0.05"): the true
+    // worst case is 0.083 at (L0.30, C0.40, H210).
+    const GUARD_L = [0.3, 0.35, 0.5, 0.65];
+
+    it("authored super-gamut chroma C∈{0.37,0.40}: worst-case ΔL < 0.09", () => {
+        let maxDL = 0;
+        for (const cRaw of [0.37, 0.4]) {
+            for (const L of GUARD_L) {
+                for (let hueDeg = 0; hueDeg < 360; hueDeg += 30) {
+                    const [Li, ai, bi] = rawOklchToOklab(L, cRaw, hueDeg);
+                    const [Lm] = gamutMapOKLab(Li, ai, bi);
+                    maxDL = Math.max(maxDL, Math.abs(Lm - L));
+                }
+            }
+        }
+        expect(maxDL).toBeLessThan(0.09);
+    });
+
+    it("the self-limiting anchor is exact at L=0.50 (ΔL = 0)", () => {
+        for (const cRaw of [0.37, 0.4]) {
+            for (let hueDeg = 0; hueDeg < 360; hueDeg += 30) {
+                const [Li, ai, bi] = rawOklchToOklab(0.5, cRaw, hueDeg);
+                const [Lm] = gamutMapOKLab(Li, ai, bi);
+                expect(Lm).toBeCloseTo(0.5, 10);
+            }
+        }
     });
 });

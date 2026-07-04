@@ -41,15 +41,20 @@ import {
 } from "./transfer";
 import { gamutMap } from "../dispatch";
 
+// The six per-space RGB↔XYZ matrices below are PACKAGE-INTERNAL exports
+// (R.W1.5 boundary-api §4): visible to `boundary.ts` (which composes the wide→
+// sRGB matrices the gamut-boundary sampler needs) but added to NO barrel — the
+// public color surface stays geometry-only; the dispatch layer owns conversions.
+//
 // Constants for RGB to XYZ conversion (row-major)
 // The literal values are the mathematical matrix in row-major order.
-const RGB_XYZ_MATRIX: Mat3 = [
+export const RGB_XYZ_MATRIX: Mat3 = [
     0.41239079926595934, 0.357584339383878, 0.1804807884018343,
     0.21263900587151027, 0.715168678767756, 0.07219231536073371,
     0.01933081871559182, 0.11919477979462598, 0.9505321522496607,
 ];
 
-const XYZ_RGB_MATRIX: Mat3 = invertMat3(RGB_XYZ_MATRIX);
+export const XYZ_RGB_MATRIX: Mat3 = invertMat3(RGB_XYZ_MATRIX);
 
 export function rgb2xyz({ r, g, b, alpha }: RGBColor): XYZColor {
     // Convert sRGB values to linear RGB
@@ -85,7 +90,7 @@ export const xyz2rgb = (
 // (from CSS Color 4 spec, row-major)
 
 // Display P3 to XYZ D65
-const DISPLAY_P3_XYZ_MATRIX: Mat3 = [
+export const DISPLAY_P3_XYZ_MATRIX: Mat3 = [
     0.4865709486482162, 0.26566769316909306, 0.1982172852343625,
     0.22897456406974884, 0.6917385218365064, 0.079286914093745,
     0, 0.04511338185890264, 1.043944368900976,
@@ -93,7 +98,7 @@ const DISPLAY_P3_XYZ_MATRIX: Mat3 = [
 const XYZ_DISPLAY_P3_MATRIX: Mat3 = invertMat3(DISPLAY_P3_XYZ_MATRIX);
 
 // Adobe RGB (1998) to XYZ D65
-const ADOBE_RGB_XYZ_MATRIX: Mat3 = [
+export const ADOBE_RGB_XYZ_MATRIX: Mat3 = [
     0.5766690429101305, 0.1855582379065463, 0.1882286462349947,
     0.29734497525053605, 0.6273635662554661, 0.07529145849399788,
     0.02703136138641234, 0.07068885253582723, 0.9913375368376388,
@@ -101,7 +106,7 @@ const ADOBE_RGB_XYZ_MATRIX: Mat3 = [
 const XYZ_ADOBE_RGB_MATRIX: Mat3 = invertMat3(ADOBE_RGB_XYZ_MATRIX);
 
 // ProPhoto RGB to XYZ D50 (note: D50 native, needs chromatic adaptation)
-const PROPHOTO_XYZ_D50_MATRIX: Mat3 = [
+export const PROPHOTO_XYZ_D50_MATRIX: Mat3 = [
     0.7977604896723027, 0.13518583717574031, 0.0313493495815248,
     0.2880711282292934, 0.7118432178101014, 0.00008565396060525902,
     0, 0, 0.8251046025104602,
@@ -109,7 +114,7 @@ const PROPHOTO_XYZ_D50_MATRIX: Mat3 = [
 const XYZ_D50_PROPHOTO_MATRIX: Mat3 = invertMat3(PROPHOTO_XYZ_D50_MATRIX);
 
 // Rec. 2020 to XYZ D65
-const REC2020_XYZ_MATRIX: Mat3 = [
+export const REC2020_XYZ_MATRIX: Mat3 = [
     0.6369580483012914, 0.14461690358620832, 0.1688809751641721,
     0.2627002120112671, 0.6779980715188708, 0.05930171646986196,
     0, 0.028072693049087428, 1.0609850577107909,

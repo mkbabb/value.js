@@ -1,0 +1,213 @@
+- main "Color tool panes":
+  - combobox "Select color space": Lab
+  - heading "92.0 % 88.8 20.0" [level=3]:
+    - textbox "l component value"
+    - text: "%"
+    - textbox "a component value"
+    - textbox "b component value"
+  - figure "gamut lens — display-p3 / srgb cusp l 0.629 c 0.256":
+    - img "Color spectrum, saturation 35%, lightness 100%"
+    - text: gamut lens — display-p3 / srgb cusp l 0.629 c 0.256
+  - tablist "Color channels":
+    - tab "l channel": L
+    - tab "a channel": A
+    - tab "b channel": B
+    - tab "alpha channel": A
+  - text: (0% - 100%)
+  - slider "L channel"
+  - text: (-125 - 125)
+  - slider "A channel"
+  - text: (-125 - 125)
+  - slider "B channel"
+  - text: (0% - 100%)
+  - slider "ALPHA channel"
+  - heading "About the color spaces," [level=3]:
+    - text: About the color spaces,
+    - combobox "Select color space": Lab
+  - paragraph: The math, the science, the art, the beauty of color spaces.
+  - separator
+  - alert: Definition The L*a*b* color space is a three-dimensional color model designed to be perceptually uniform and device-independent.
+  - separator
+  - heading "Basic Information" [level=2]
+  - text: "Type: Perceptual Device Dependency: Device-independent White Point: Variable (typically D50 or D65) Gamut: Unlimited Created: 1976"
+  - separator
+  - heading "Components" [level=2]
+  - text: L* (Lightness) 0% to 100% a* (Green-Red) -125 to 125 b* (Blue-Yellow) -125 to 125 alpha 0% to 100%
+  - separator
+  - heading "Key Properties" [level=2]
+  - text: "Perceptual Uniformity: Yes Hue Linearity: No Lightness Separation: Yes"
+  - separator
+  - heading "Conversion Graph" [level=2]
+  - text: Lab
+  - img
+  - text: XYZ Lab
+  - img
+  - text: LCh Lab
+  - img
+  - text: XYZ
+  - img
+  - text: OKLab Lab
+  - img
+  - text: LCh
+  - img
+  - text: OKLCh
+  - separator
+  - heading "Usage" [level=2]
+  - text: "Common Applications: Color management, Image processing, Color difference calculations Industries: Printing, Textile, Paint manufacturing, Color research"
+  - separator
+  - heading "Detailed Guide" [level=2]
+  - heading "Attributes" [level=3]
+  - list:
+    - listitem:
+      - math: L ∗
+      - text: ": Lightness (0% to 100%)"
+    - listitem:
+      - math: a ∗
+      - text: ": Green-Red axis (-125 to 125)"
+    - listitem:
+      - math: b ∗
+      - text: ": Blue-Yellow axis (-125 to 125)"
+  - heading "Historical Context" [level=3]
+  - paragraph:
+    - text: Standardized by the CIE in 1976,
+    - mark: Lab
+    - text: was designed to be
+    - strong: perceptually uniform
+    - text: "—equal distances in the space should correspond to equal perceived color differences. It’s device-independent:"
+    - mark: Lab
+    - text: describes
+    - emphasis: what
+    - text: a color looks like, not how a particular device produces it. For decades it’s been the workhorse of color management, ICC profiles, and industrial colorimetry.
+  - separator
+  - heading "Key Characteristics" [level=2]
+  - list:
+    - listitem:
+      - strong: Perceptual uniformity
+      - text: ": the founding goal. Largely successful, though the blue-purple region exhibits more error than Ottosson’s OKLab."
+    - listitem:
+      - strong: Device independence
+      - text: ":"
+      - mark: Lab
+      - text: values are defined relative to a standard illuminant, not a particular display or printer.
+    - listitem:
+      - strong: Separated lightness
+      - text: ":"
+      - math: L ∗
+      - text: is orthogonal to the chromatic axes, enabling brightness adjustment without hue shift.
+  - heading "Advantages" [level=3]
+  - list:
+    - listitem: Perceptually uniform (the CIE 1976 definition)
+    - listitem: Device-independent—the standard for cross-media color communication
+    - listitem: Covers all perceivable colors (gamut exceeds any physical display)
+    - listitem: Delta-E calculations (color difference metrics) are native to this space
+  - heading "Disadvantages" [level=3]
+  - list:
+    - listitem:
+      - text: Computationally heavier than RGB conversions (piecewise
+      - math: f ( t )
+      - text: function)
+    - listitem:
+      - text: Not directly displayable—out-of-gamut
+      - mark: Lab
+      - text: values must be mapped to sRGB or similar
+    - listitem:
+      - text: Unintuitive for manual color selection (what does
+      - math: a ∗ = − 40
+      - emphasis: look
+      - text: like?)
+  - heading "White Points" [level=3]
+  - list:
+    - listitem:
+      - strong: D50
+      - text: ": graphic arts, printing, ICC profile standard."
+      - mark: Lab
+      - text: ’s default illuminant.
+    - listitem:
+      - strong: D65
+      - text: ": average daylight, digital imaging. Used by sRGB and Display P3."
+  - paragraph:
+    - text: Conversions between D50 and D65 use
+    - strong: Bradford chromatic adaptation
+    - text: .
+  - separator
+  - heading "Color Model" [level=2]
+  - heading "Components" [level=3]
+  - list:
+    - listitem:
+      - paragraph:
+        - strong:
+          - math: L ∗
+          - text: (Lightness)
+        - text: ":"
+        - math: L ∗ = 0 (black) to 100 (diffuse white)
+    - listitem:
+      - paragraph:
+        - strong:
+          - math: a ∗
+          - text: (Green-Red axis)
+        - text: ":"
+        - math: a ∗ < 0 (green) to a ∗ > 0 (red)
+    - listitem:
+      - paragraph:
+        - strong:
+          - math: b ∗
+          - text: (Blue-Yellow axis)
+        - text: ":"
+        - math: b ∗ < 0 (blue) to b ∗ > 0 (yellow)
+  - heading "Representation" [level=3]
+  - paragraph:
+    - text: A three-dimensional Cartesian space.
+    - math: L ∗
+    - text: is the vertical axis; the
+    - math: a ∗
+    - text: /
+    - math: b ∗
+    - text: plane describes chromaticity at each lightness level. The cylindrical variant (LCh) converts
+    - math: a ∗
+    - text: ","
+    - math: b ∗
+    - text: to polar coordinates—chroma and hue.
+  - separator
+  - heading "Color Conversions" [level=2]
+  - heading "XYZ to Lab" [level=3]:
+    - text: XYZ to
+    - mark: Lab
+  - paragraph: "Normalize XYZ by the reference white point, apply a piecewise function that approximates a cube root, then scale into L*a*b*:"
+  - math: "f ( t ) = { t 3 t > ϵ κ t + 16 116 otherwise"
+  - math: L ∗ = 116 f ⁣ ( Y Y n ) − 16 , a ∗ = 500 [ f ⁣ ( X X n ) − f ⁣ ( Y Y n ) ] , b ∗ = 200 [ f ⁣ ( Y Y n ) − f ⁣ ( Z Z n ) ]
+  - paragraph:
+    - text: where
+    - math: ϵ = 216 24389
+    - text: and
+    - math: κ = 24389 27
+    - text: .
+  - code: "function xyz2lab(xyz: XYZColor, toWhitePoint: WhitePoint = \"D50\"): LABColor { const labFunction = (value: number) => value > LAB_EPSILON ? Math.cbrt(value) : (LAB_KAPPA * value + LAB_OFFSET) / LAB_SCALE_L; const whitePoint = WHITE_POINTS[toWhitePoint]; const [x, y, z] = xyzToD50(xyz); // Normalize XYZ values relative to the given white point const xr = x / whitePoint[0], yr = y / whitePoint[1], zr = z / whitePoint[2]; const fx = labFunction(xr), fy = labFunction(yr), fz = labFunction(zr); // Calculate L*, a*, and b* values const l = LAB_SCALE_L * fy - LAB_OFFSET; // L* = 116 * f(Y/Yn) - 16 const a = LAB_SCALE_A * (fx - fy); // a* = 500 * [f(X/Xn) - f(Y/Yn)] const b = LAB_SCALE_B * (fy - fz); // b* = 200 * [f(Y/Yn) - f(Z/Zn)] const lab = new LABColor( scale( l, COLOR_SPACE_RANGES.lab.l.number.min, COLOR_SPACE_RANGES.lab.l.number.max, ), scale( a, COLOR_SPACE_RANGES.lab.a.number.min, COLOR_SPACE_RANGES.lab.a.number.max, ), scale( b, COLOR_SPACE_RANGES.lab.b.number.min, COLOR_SPACE_RANGES.lab.b.number.max, ), xyz.alpha, ); lab.whitePoint = toWhitePoint; return lab; }"
+  - heading "Lab to XYZ" [level=3]:
+    - mark: Lab
+    - text: to XYZ
+  - paragraph: "Invert the L*a*b* formulas—recover the normalized XYZ ratios, apply the inverse piecewise function, then scale by the white point:"
+  - math: f y = L ∗ + 16 116 , f x = a ∗ 500 + f y , f z = f y − b ∗ 200
+  - math: X = X n ⋅ f − 1 ( f x ) , Y = Y n ⋅ f − 1 ( f y ) , Z = Z n ⋅ f − 1 ( f z )
+  - code: "function lab2xyz(lab: LABColor): XYZColor { const labFunctionXZ = (value: number) => value > LAB_EPSILON_3 ? value ** 3 : (LAB_SCALE_L * value - LAB_OFFSET) / LAB_KAPPA; const labFunctionY = (value: number) => value > LAB_KAPPA_EPSILON ? ((value + LAB_OFFSET) / LAB_SCALE_L) ** 3 : value / LAB_KAPPA; const whitePoint = WHITE_POINTS[lab.whitePoint]; let { l, a, b, alpha } = lab; l = ch( scale( l, 0, 1, COLOR_SPACE_RANGES.lab.l.number.min, COLOR_SPACE_RANGES.lab.l.number.max, ), ); a = ch( scale( a, 0, 1, COLOR_SPACE_RANGES.lab.a.number.min, COLOR_SPACE_RANGES.lab.a.number.max, ), ); b = ch( scale( b, 0, 1, COLOR_SPACE_RANGES.lab.b.number.min, COLOR_SPACE_RANGES.lab.b.number.max, ), ); // Inverse of the xyz2lab function const fy = (l + LAB_OFFSET) / LAB_SCALE_L; // f(Y/Yn) = (L* + 16) / 116 const fx = a / LAB_SCALE_A + fy; // f(X/Xn) = a* / 500 + f(Y/Yn) const fz = fy - b / LAB_SCALE_B; // f(Z/Zn) = f(Y/Yn) - b* / 200 // Apply the inverse lab function to each value const [xr, yr, zr] = [ labFunctionXZ(fx), labFunctionY(l), labFunctionXZ(fz), ]; // Denormalize XYZ values relative to the given white point let x = xr * whitePoint[0], y = yr * whitePoint[1], z = zr * whitePoint[2]; const xyz = new XYZColor(x, y, z, alpha); xyz.whitePoint = lab.whitePoint; // All XYZ outputs are relative to D65: [x, y, z] = xyzToD65(xyz); xyz.whitePoint = \"D65\"; xyz.x = ch(x); xyz.y = ch(y); xyz.z = ch(z); return xyz; }"
+  - separator
+  - heading "Applications" [level=2]
+  - list:
+    - listitem:
+      - strong: ICC color management
+      - text: ": the internal representation for color profiles and device-independent color communication."
+    - listitem:
+      - strong: Delta-E calculations
+      - text: ": industrial quality control (textiles, paint, manufacturing) relies on"
+      - mark: Lab
+      - text: "-based color difference formulas."
+    - listitem:
+      - strong: Image processing
+      - text: ": operations like sharpening and blurring benefit from the perceptual uniformity."
+    - listitem:
+      - strong: Print production
+      - text: ": gamut mapping between CMYK and RGB passes through"
+      - mark: Lab
+      - text: .
+    - listitem:
+      - strong: Scientific colorimetry
+      - text: ": the standard coordinate system for color measurement and analysis."

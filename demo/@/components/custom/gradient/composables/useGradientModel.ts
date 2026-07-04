@@ -9,15 +9,15 @@
 
 import { ref, computed, watch } from "vue";
 import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/dispatch";
-import { timingFunctions, linear } from "@src/easing";
+import type { HueInterpolationMethod } from "@src/units/color/mix";
+import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
 import { useGradientInterpolation } from "./useGradientInterpolation";
-import { useGradientCSS, parseGradientCSS } from "./useGradientCSS";
+import { useGradientCSS, parseGradientCSS, linearInterval } from "./useGradientCSS";
 
 // ── Re-exports (preserve public API surface) ──
 
 export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "./useGradientInterpolation";
-export { serializeGradient, serializeCoalescedGradient, parseGradientCSS } from "./useGradientCSS";
+export { serializeGradient, serializeCoalescedGradient, parseGradientCSS, linearInterval } from "./useGradientCSS";
 
 // ── Types ──
 
@@ -27,10 +27,16 @@ export interface GradientStop {
     position: number; // 0–100%
 }
 
-export interface GradientInterval {
-    easingName: string;
-    easingFn: (t: number) => number;
-}
+/**
+ * A gradient interval carries the <EasingPicker> payload (the R.W4 `/easing`
+ * consume — easing-disposition.md §2.3): the re-parseable CSS literal + the
+ * live value.js callable, plus the raw picker params for re-seeding. The
+ * former `{easingName, easingFn}` name-catalogue shape (and its private
+ * `GRADIENT_EASING_NAMES`/`resolveEasing` catalogue) died with the
+ * EasingSelector fork — the picker's preset menu IS value.js `bezierPresets`.
+ */
+export type GradientInterval = Pick<EasingPickerValue, "css" | "fn"> &
+    Partial<Pick<EasingPickerValue, "mode" | "points" | "steps" | "term">>;
 
 export type GradientType = "linear" | "radial" | "conic";
 
@@ -51,42 +57,6 @@ function uid(): string {
     return `stop-${++nextId}-${Date.now().toString(36)}`;
 }
 
-// ── Easing lookup ──
-
-/** Subset of timingFunctions suitable for gradient intervals (no stepped). */
-export const GRADIENT_EASING_NAMES = [
-    "linear",
-    "ease",
-    "ease-in",
-    "ease-out",
-    "ease-in-out",
-    "ease-in-quad",
-    "ease-out-quad",
-    "ease-in-out-quad",
-    "ease-in-cubic",
-    "ease-out-cubic",
-    "ease-in-out-cubic",
-    "ease-in-sine",
-    "ease-out-sine",
-    "ease-in-out-sine",
-    "ease-in-circ",
-    "ease-out-circ",
-    "ease-in-out-circ",
-    "ease-in-expo",
-    "ease-out-expo",
-    "ease-in-out-expo",
-    "ease-in-back",
-    "ease-out-back",
-    "ease-in-out-back",
-    "smooth-step-3",
-] as const;
-
-export function resolveEasing(name: string): (t: number) => number {
-    const fn = (timingFunctions as Record<string, any>)[name];
-    if (typeof fn === "function") return fn as (t: number) => number;
-    return linear;
-}
-
 // ── Composable ──
 
 export function useGradientModel() {
@@ -99,9 +69,7 @@ export function useGradientModel() {
         { id: uid(), cssColor: "oklch(0.75 0.15 145)", position: 0 },
         { id: uid(), cssColor: "oklch(0.65 0.18 265)", position: 100 },
     ]);
-    const intervals = ref<GradientInterval[]>([
-        { easingName: "linear", easingFn: linear },
-    ]);
+    const intervals = ref<GradientInterval[]>([linearInterval()]);
 
     // ── Interpolation sub-composable ──
     const { interpolationSpace, hueMethod, resolution } = useGradientInterpolation();
@@ -112,7 +80,7 @@ export function useGradientModel() {
         (len) => {
             const needed = Math.max(0, len - 1);
             while (intervals.value.length < needed) {
-                intervals.value.push({ easingName: "linear", easingFn: linear });
+                intervals.value.push(linearInterval());
             }
             if (intervals.value.length > needed) {
                 intervals.value.length = needed;
@@ -152,12 +120,12 @@ export function useGradientModel() {
         );
     }
 
-    function updateInterval(index: number, easingName: string) {
+    /** Store the picker's authored-curve payload on the interval. */
+    function updateInterval(index: number, value: EasingPickerValue) {
         if (index < 0 || index >= intervals.value.length) return;
+        const { mode, css, fn, points, steps, term } = value;
         intervals.value = intervals.value.map((iv, i) =>
-            i === index
-                ? { easingName, easingFn: resolveEasing(easingName) }
-                : iv,
+            i === index ? { mode, css, fn, points, steps, term } : iv,
         );
     }
 

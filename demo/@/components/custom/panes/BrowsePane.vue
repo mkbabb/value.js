@@ -1,5 +1,5 @@
 <template>
-    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full max-w-3xl lg:max-w-desktop-pane mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Discover palettes from the community.">Browse</PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <SearchBar
@@ -28,25 +28,32 @@
                     <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
                 </div>
 
-                <!-- Error with retry -->
-                <div
+                <!-- Error with retry — the same specimen-plate register as the
+                     empty state (R.W4 Lane A / A4): a designed state, not an
+                     apology; the retry CTA rides the action slot. -->
+                <EmptyState
                     v-else-if="pm.browseError.value && displayedBrowse.length === 0"
-                    class="flex flex-col items-center justify-center gap-2 min-h-[120px]"
+                    eyebrow="· signal lost ·"
+                    :message="pm.browseError.value"
+                    hint="The community wall lives on the palette API."
                 >
-                    <span class="text-mono-small text-muted-foreground">{{ pm.browseError.value }}</span>
-                    <DockIconButton
-                        compact
-                        class="text-mono-small text-primary"
-                        @click="pm.loadRemotePalettes()"
-                    >
-                        Tap to retry
-                    </DockIconButton>
-                </div>
+                    <template #action>
+                        <DockIconButton
+                            compact
+                            class="text-mono-small text-primary"
+                            @click="pm.loadRemotePalettes()"
+                        >
+                            Tap to retry
+                        </DockIconButton>
+                    </template>
+                </EmptyState>
 
                 <PaletteCardGrid
                     v-else
                     :empty="displayedBrowse.length === 0"
-                    empty-text="No published palettes found."
+                    empty-eyebrow="· the commons ·"
+                    empty-text="No published palettes here yet."
+                    empty-hint="Publish one from My Palettes and start the wall."
                     :grid-class="pm.sortLoading.value ? 'opacity-50' : ''"
                 >
                     <PaletteCard
@@ -117,13 +124,14 @@ import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
+import EmptyState from "@components/custom/palette-browser/EmptyState.vue";
 import SearchFilterBar from "@components/custom/palette-browser/SearchFilterBar.vue";
 import VersionHistoryDrawer from "@components/custom/palette-browser/VersionHistoryDrawer.vue";
 import FlagReportDialog from "@components/custom/palette-browser/FlagReportDialog.vue";
 import TagEditPopover from "@components/custom/palette-browser/TagEditPopover.vue";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
-import type { Palette } from "@lib/palette/types";
+import type { Palette, Tag } from "@lib/palette/types";
 import { deltaEOK } from "@src/units/color/gamut";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
 
@@ -132,7 +140,16 @@ const pm = inject(PALETTE_MANAGER_KEY)!;
 
 const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
 // D.W3 Lane B: shared tag catalog via pm.tagEdit (was: local getTags fetch)
-const availableTags = computed(() => pm.tagEdit.allTags.value);
+// X9: coerce to an Array. `allTags` is typed `Tag[]` but the `/colors/tags`
+// read can resolve an object-shaped payload; a non-array reaching the
+// `availableTags: Tag[]` prop fires Vue's "Expected Array, got Object" prop
+// warning (the repeated tags-warn). This computed guarantees an array.
+const availableTags = computed<Tag[]>(() => {
+    // The declared type is `Tag[]`, but the `/colors/tags` read can resolve an
+    // object-shaped payload at runtime; widen so the non-array branch is real.
+    const tags = pm.tagEdit.allTags.value as Tag[] | Record<string, Tag>;
+    return Array.isArray(tags) ? tags : Object.values(tags);
+});
 
 onMounted(() => {
     pm.tagEdit.loadAllTags();

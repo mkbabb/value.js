@@ -24,6 +24,12 @@
  */
 
 import { ApiProblem, readRateLimitResetSeconds } from "./api-problem.js";
+import {
+    assertApiAttemptAllowed,
+    markApiReachable,
+    markApiUnreachable,
+    ApiUnavailableError,
+} from "./availability.js";
 
 const DEFAULT_REMOTE_API_URL = "https://api.color.babb.dev";
 export const BASE_URL = import.meta.env.VITE_API_URL ?? DEFAULT_REMOTE_API_URL;
@@ -45,8 +51,22 @@ async function fetchWithRateLimitRetry(
     input: string,
     init: RequestInit,
 ): Promise<Response> {
+    // K-INV5: the availability latch gates every transport attempt — inside
+    // the cooldown of a tripped latch this throws ApiUnavailableError
+    // synchronously (no repeated doomed requests, no CORS console noise).
+    assertApiAttemptAllowed();
     for (let attempt = 0; ; attempt++) {
-        const res = await fetch(input, init);
+        let res: Response;
+        try {
+            res = await fetch(input, init);
+        } catch {
+            // NETWORK-level failure (backend unreachable / CORS-dead) — never
+            // an HTTP status. Trip the latch; surfaces degrade to local-only.
+            markApiUnreachable();
+            throw new ApiUnavailableError();
+        }
+        // Any HTTP response means the backend was reached.
+        markApiReachable();
         if (res.status !== 429 || attempt >= MAX_RATE_LIMIT_RETRIES) return res;
         const reset = readRateLimitResetSeconds(res);
         const waitSec = Math.min(reset ?? 2 ** attempt, MAX_RATE_LIMIT_RESET_SECONDS);

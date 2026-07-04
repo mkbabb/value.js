@@ -1,0 +1,34 @@
+- main "Color tool panes":
+  - combobox "Select color space": Lab
+  - heading "92.0 % 88.8 20.0" [level=3]:
+    - textbox "l component value"
+    - text: "%"
+    - textbox "a component value"
+    - textbox "b component value"
+  - figure "gamut lens — display-p3 / srgb cusp l 0.629 c 0.256":
+    - img "Color spectrum, saturation 35%, lightness 100%"
+    - text: gamut lens — display-p3 / srgb cusp l 0.629 c 0.256
+  - tablist "Color channels":
+    - tab "l channel": L
+    - tab "a channel": A
+    - tab "b channel": B
+    - tab "alpha channel": A
+  - text: (0% - 100%)
+  - slider "L channel"
+  - text: (-125 - 125)
+  - slider "A channel"
+  - text: (-125 - 125)
+  - slider "B channel"
+  - text: (0% - 100%)
+  - slider "ALPHA channel"
+  - heading "My Palettes" [level=3]
+  - paragraph: Save, organize, and share your colors.
+  - img
+  - textbox "Search palettes..."
+  - text: Start a new palette
+  - button "Add current color lab(92% 88.80 20 / 100%) to palette"
+  - list:
+    - status:
+      - paragraph: · empty plate ·
+      - paragraph: No saved palettes yet.
+      - paragraph: Add colors above, then save the set.

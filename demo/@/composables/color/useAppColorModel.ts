@@ -41,7 +41,19 @@ export function useAppColorModel(model: ShallowRef<ColorModel>) {
     };
 
     const resetToDefaults = () => {
-        model.value = createDefaultColorModel();
+        const fresh = createDefaultColorModel();
+        model.value = fresh;
+        // U9: a reset is an explicit user act, not a typing cadence — flush the
+        // FULL default into the persisted store SYNCHRONOUSLY and cancel any
+        // pending debounced write, so the store cannot lag the model by the
+        // 200 ms window (the reset-desync root: the store kept the pre-reset
+        // value until the next debounce tick, and a reload in that window
+        // restored the OLD colour — "reset does not work").
+        syncColorToStorage.cancel();
+        colorStore.value.inputColor = fresh.inputColor;
+        colorStore.value.savedColors = fresh.savedColors.map((c) =>
+            normalizeColorUnit(c as any, true, false).toString(),
+        );
     };
 
     /** Parse a CSS string and apply it to the model. */

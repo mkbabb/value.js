@@ -13,6 +13,7 @@
             <PopoverTrigger as-child>
                 <WatercolorDot
                     :color="color"
+                    :variant="ghost ? 'ghost' : 'solid'"
                     tag="button"
                     :aria-label="`Color swatch ${color}`"
                     :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
@@ -27,6 +28,7 @@
         <template v-else>
             <WatercolorDot
                 :color="color"
+                :variant="ghost ? 'ghost' : 'solid'"
                 tag="button"
                 :aria-label="`Color swatch ${color}`"
                 :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
@@ -71,6 +73,10 @@ withDefaults(
         floatingStyle?: CSSProperties | undefined;
         sizeClass?: string | undefined;
         swatchExtraClass?: string | undefined;
+        /** R.W4 Lane A / A3 (U18/U22): render the swatch as the glass-ui
+         *  ghost variant — the seeded dashed silhouette — for placeholder /
+         *  being-edited slots. One shape source; no dashed-outline fork. */
+        ghost?: boolean | undefined;
     }>(),
     {
         sizeClass: "w-9 h-9 sm:w-10 sm:h-10",

@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import path from "path";
+import { readFileSync } from "fs";
 
 import Vue from "@vitejs/plugin-vue";
 
@@ -17,6 +18,46 @@ import {
     libraryFileName,
 } from "./vite.library";
 
+// value.js self-alias set, GENERATED from this repo's OWN `package.json#exports`
+// — the single source of truth (the same idiom `scripts/abrogation-sweep.mjs`
+// uses to read glass-ui's exports map). Why the demo aliases value.js to
+// itself at all: glass-ui's + keyframes.js's PUBLISHED `dist/` import value.js
+// by bare + subpath specifiers (`@mkbabb/value.js`, and keyframes'
+// `@mkbabb/value.js/math` — new in the S/O subpath era). Under dist-resolution
+// (N.W1.C) the demo consumes those siblings from their `dist/`, so those
+// value.js imports must land on THIS repo's freshly-built surface — NOT on the
+// stale registry self-install (`node_modules/@mkbabb/value.js@1.0.2`, a real
+// tarball dir that npm materializes from the `^1.0.2` self-dep) whose graph
+// predates the subpath cut. The alias's TRUE job is to OVERRIDE that stale
+// self-install and point every value.js specifier — the demo's own AND every
+// sibling's — at ONE consistent freshly-built published surface.
+//
+// GENERATED (not hand-rolled) so the alias set can never drift from the exports
+// map: add/rename a subpath in `package.json#exports` and the alias follows.
+// Each entry is an ANCHORED regex (`^…$`), which makes resolution
+// order-independent and — critically — subpath-safe. The prior object-form
+// STRING alias was a prefix rewrite (`@rollup/plugin-alias` matches a string
+// find as exact OR `find + "/…"`), so `@mkbabb/value.js/math` rewrote to
+// `dist/value.js/math` — a path INTO the `dist/value.js` FILE → "Not a
+// directory" → the R-era demo boot break. Anchored regexes cannot prefix-match,
+// so the bare `.` entry never swallows a subpath specifier.
+const VALUE_JS_PKG = JSON.parse(
+    readFileSync(path.resolve(import.meta.dirname, "package.json"), "utf8"),
+) as { exports: Record<string, { import: string }> };
+
+const valueJsSelfAlias = Object.entries(VALUE_JS_PKG.exports).map(
+    ([subpath, conditions]) => {
+        // "." → "@mkbabb/value.js"; "./math" → "@mkbabb/value.js/math".
+        const specifier =
+            "@mkbabb/value.js" + (subpath === "." ? "" : subpath.slice(1));
+        const escaped = specifier.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        return {
+            find: new RegExp(`^${escaped}$`),
+            replacement: path.resolve(import.meta.dirname, conditions.import),
+        };
+    },
+);
+
 const defaultOptions = {
     css: {
         postcss: {
@@ -25,30 +66,22 @@ const defaultOptions = {
     },
 
     resolve: {
-        alias: {
-            "@src": path.resolve(import.meta.dirname, "src"),
-            "@styles": path.resolve(import.meta.dirname, "demo/@/styles"),
-            "@components": path.resolve(import.meta.dirname, "demo/@/components"),
-            "@utils": path.resolve(import.meta.dirname, "demo/@/utils"),
-            "@lib": path.resolve(import.meta.dirname, "demo/@/lib"),
-            "@composables": path.resolve(import.meta.dirname, "demo/@/composables"),
-            "@assets": path.resolve(import.meta.dirname, "assets"),
-            // inv-K-2 / mechanism-C (N.W1.C): glass-ui's aurora color path
-            // consumes the value.js canonical core via the bare
-            // `@mkbabb/value.js` specifier. glass-ui's published `dist/`
-            // (aurora.js, color-*.js) imports those symbols by that name; under
-            // dist-resolution (N.W1.C) the demo resolves glass-ui from its dist,
-            // so those imports must point at THIS repo's own published surface.
-            // A package never installs itself — there is no
-            // `node_modules/@mkbabb/value.js` to walk up to — so we alias the
-            // bare specifier to value.js's OWN `dist/value.js`. This makes the
-            // whole graph consume ONE consistent published value.js surface
-            // (the demo's own `@src` imports + glass-ui's `@mkbabb/value.js`
-            // imports both land on the same library, dist for glass-ui's path).
-            // Repointed src→dist at N.W1.C (the K.W2.5 mechanism-C remainder):
-            // dist-resolution everywhere, kept fresh by `build:watch` (dev.sh).
-            "@mkbabb/value.js": path.resolve(import.meta.dirname, "dist/value.js"),
-        },
+        // Array form (not object form): the value.js self-aliases MUST be
+        // anchored-regex finds (see `valueJsSelfAlias` above — object-form
+        // string aliases are prefix rewrites and mangle the `/math` subpath).
+        // The `@…`-prefixed demo aliases stay STRING finds precisely BECAUSE
+        // `@rollup/plugin-alias` prefix-matches strings — `@src/foo/bar` must
+        // resolve, and a string find (exact OR `find + "/…"`) is exactly that.
+        alias: [
+            { find: "@src", replacement: path.resolve(import.meta.dirname, "src") },
+            { find: "@styles", replacement: path.resolve(import.meta.dirname, "demo/@/styles") },
+            { find: "@components", replacement: path.resolve(import.meta.dirname, "demo/@/components") },
+            { find: "@utils", replacement: path.resolve(import.meta.dirname, "demo/@/utils") },
+            { find: "@lib", replacement: path.resolve(import.meta.dirname, "demo/@/lib") },
+            { find: "@composables", replacement: path.resolve(import.meta.dirname, "demo/@/composables") },
+            { find: "@assets", replacement: path.resolve(import.meta.dirname, "assets") },
+            ...valueJsSelfAlias,
+        ],
         // glass-ui's published `dist/` externalizes `vue` + `reka-ui` (it
         // imports them by bare specifier) but its symlinked package ALSO ships
         // its own nested `vue` + `reka-ui` under `node_modules`. Without dedupe
@@ -198,34 +231,6 @@ export default defineConfig((mode) => {
                     entryRoot: path.resolve(import.meta.dirname, "src"),
                 }),
             ],
-        };
-    } else if (mode.mode === "hero-lab") {
-        return {
-            ...defaultOptions,
-            base: "./",
-            root: "./demo/hero-lab/",
-            build:
-                mode.command === "build"
-                    ? {
-                          outDir: path.resolve(import.meta.dirname, "./dist/hero-lab"),
-                          emptyOutDir: true,
-                          minify: true,
-                          sourcemap: false,
-                      }
-                    : undefined,
-            server: {
-                host: true,
-                fs: { allow: siblingFsAllowTransient },
-            },
-            optimizeDeps: {
-                include: [
-                    "vue",
-                    "reka-ui",
-                    "@vueuse/core",
-                    "@lucide/vue",
-                ],
-            },
-            plugins: [...defaultPlugins],
         };
     } else if (mode.mode === "gh-pages") {
         return {

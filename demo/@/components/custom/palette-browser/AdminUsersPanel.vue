@@ -9,7 +9,8 @@
                 · {{ emptyCount }} empty
             </span>
             <div class="flex-1" />
-            <Transition name="fade">
+            <!-- celebration family: a one-shot action-result beat. -->
+            <Transition name="vj-celebrate">
                 <span v-if="pruneResult" class="text-mono-small text-muted-foreground italic">
                     {{ pruneResult }}
                 </span>
@@ -40,11 +41,12 @@
         <div v-if="loading" class="flex items-center justify-center py-8">
             <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
         </div>
-        <template v-else>
+        <EmptyState v-else-if="users.length === 0" message="No users found." />
+        <div v-else class="grid gap-3">
             <div
                 v-for="user in users"
                 :key="user.slug"
-                class="rounded-md border border-border overflow-hidden"
+                class="rounded-md border border-card-edge overflow-hidden"
             >
                 <!-- User header row -->
                 <div
@@ -98,19 +100,18 @@
                             v-for="palette in userPalettes"
                             :key="palette.slug"
                             :palette="palette"
-                            :expanded="expandedId === palette.id"
+                            :expanded="expandedId === palette.slug"
                             :css-color="cssColor"
                             is-admin
                             show-slug
-                            @click="emit('toggleExpand', palette.id)"
+                            @click="emit('toggleExpand', palette.slug)"
                             @feature="(p) => emit('feature', p)"
                             @admin-delete="emit('adminDeleteUserPalette', $event, user.slug)"
                         />
                     </div>
                 </div>
             </div>
-            <EmptyState v-if="users.length === 0" message="No users found." />
-        </template>
+        </div>
 
         <!-- Confirmation dialog -->
         <ConfirmDialog

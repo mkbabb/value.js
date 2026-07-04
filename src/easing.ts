@@ -322,14 +322,21 @@ export function stepEnd() {
  * function expressible as a bezier curve. The CSS spec only defines the
  * four "standard" keywords (ease, ease-in, ease-out, ease-in-out), but
  * the sine/quad/cubic/expo/circ/back families used throughout the
- * animation ecosystem have well-known bezier approximations — these are
- * the values popularised by Robert Penner and shipped by libraries like
- * GSAP, anime.js, and the Material Design curves.
+ * animation ecosystem have well-known bezier forms.
+ *
+ * The sine/quad/cubic/expo/circ rows carry the *best* canonical curves
+ * (R.W1.4): the easings.net constants and the four exact ⅓-handle
+ * identities. A cubic-bezier with x-handles at ⅓ and ⅔ has x(t)=t
+ * identically (the Bernstein weights telescope), so the pure in/out quad
+ * and cubic curves — and `smooth-step-3` (the Hermite `t²(3−2t)`) — are
+ * represented EXACTLY, not approximated. The worst remaining deviation is
+ * 0.0387 (ease-in-out-circ), sub-JND on realistic gradients
+ * (audit/pass2/easing-disposition.md §1.4).
  *
  * Keeping all of these in value.js means every consumer (keyframes.js,
- * bbnf-buddy, future editors) can ask "is this name a bezier curve?"
- * and "what are its control points?" from one source of truth, rather
- * than hand-rolling parallel tables.
+ * bbnf-buddy, glass-ui's EasingPicker, future editors) can ask "is this
+ * name a bezier curve?" and "what are its control points?" from one
+ * source of truth, rather than hand-rolling parallel tables.
  */
 export const bezierPresets = {
     // Linear — trivially expressible as a bezier
@@ -341,30 +348,33 @@ export const bezierPresets = {
     "ease-out": [0, 0, 0.58, 1],
     "ease-in-out": [0.42, 0, 0.58, 1],
 
+    // Smooth step (Hermite `t²(3−2t)`) — EXACT via the ⅓-handle identity
+    "smooth-step-3": [1 / 3, 0, 2 / 3, 1],
+
     // Sine
-    "ease-in-sine": [0.47, 0, 0.745, 0.715],
-    "ease-out-sine": [0.39, 0.575, 0.565, 1],
-    "ease-in-out-sine": [0.445, 0.05, 0.55, 0.95],
+    "ease-in-sine": [0.12, 0, 0.39, 0],
+    "ease-out-sine": [0.61, 1, 0.88, 1],
+    "ease-in-out-sine": [0.37, 0, 0.63, 1],
 
-    // Quad
-    "ease-in-quad": [0.55, 0.085, 0.68, 0.53],
-    "ease-out-quad": [0.25, 0.46, 0.45, 0.94],
-    "ease-in-out-quad": [0.455, 0.03, 0.515, 0.955],
+    // Quad — pure in/out are EXACT (⅓-handle identity)
+    "ease-in-quad": [1 / 3, 0, 2 / 3, 1 / 3],
+    "ease-out-quad": [1 / 3, 2 / 3, 2 / 3, 1],
+    "ease-in-out-quad": [0.45, 0, 0.55, 1],
 
-    // Cubic
-    "ease-in-cubic": [0.55, 0.055, 0.675, 0.19],
-    "ease-out-cubic": [0.215, 0.61, 0.355, 1],
-    "ease-in-out-cubic": [0.645, 0.045, 0.355, 1],
+    // Cubic — pure in/out are EXACT (⅓-handle identity)
+    "ease-in-cubic": [1 / 3, 0, 2 / 3, 0],
+    "ease-out-cubic": [1 / 3, 1, 2 / 3, 1],
+    "ease-in-out-cubic": [0.65, 0, 0.35, 1],
 
     // Expo
-    "ease-in-expo": [0.95, 0.05, 0.795, 0.035],
-    "ease-out-expo": [0.19, 1, 0.22, 1],
-    "ease-in-out-expo": [1, 0, 0, 1],
+    "ease-in-expo": [0.7, 0, 0.84, 0],
+    "ease-out-expo": [0.16, 1, 0.3, 1],
+    "ease-in-out-expo": [0.87, 0, 0.13, 1],
 
     // Circ
-    "ease-in-circ": [0.6, 0.04, 0.98, 0.335],
-    "ease-out-circ": [0.075, 0.82, 0.165, 1],
-    "ease-in-out-circ": [0.785, 0.135, 0.15, 0.86],
+    "ease-in-circ": [0.55, 0, 1, 0.45],
+    "ease-out-circ": [0, 0.55, 0.45, 1],
+    "ease-in-out-circ": [0.85, 0, 0.15, 1],
 
     // Back (overshoot)
     "ease-in-back": [0.6, -0.28, 0.735, 0.045],

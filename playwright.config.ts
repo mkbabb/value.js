@@ -74,6 +74,24 @@ const SWIFTSHADER_LAUNCH = {
 
 export default defineConfig({
     testDir: "./e2e",
+    // R.W2 — DETERMINISM: one worker for the whole suite (was: host default of
+    // 2+). The demo mounts live software-GL WebGL2 surfaces (the goo-blob hero
+    // + the aurora atmosphere) on EVERY page, all served by a SINGLE vite dev
+    // server. Under 2+ parallel workers those concurrent swiftshader contexts
+    // plus the dev-server's on-navigation transform bursts thrash the sandboxed
+    // CPU, so first-paint / render assertions time out nondeterministically —
+    // a DIFFERENT set of specs reddens each run (observed: color-space-switching,
+    // admin-walk, palette-feature, color-approve/reject). Serialising removes a
+    // harness-induced contention that a real single-browser user never
+    // experiences; it masks NO product defect — a genuine defect fails
+    // identically at any worker count (cf. the color-space dead-control bug,
+    // which reproduced deterministically at workers:1 and was root-fixed, not
+    // hidden). This generalises the E.W3 `smoke-reactivity` workers:1 rationale
+    // (parallel host-CPU contention corrupts the run) from the one wall-clock
+    // project to the whole WebGL-heavy suite. The dev server stays the substrate
+    // (the runtime product is byte-identical to what a user drives); the
+    // production bundle is separately proven by the hard-gate `gh-pages ✓ built`.
+    workers: 1,
     retries: process.env.CI ? 2 : 0,
     timeout: 30000,
     expect: { timeout: 8000 },

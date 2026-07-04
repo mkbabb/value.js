@@ -58,8 +58,24 @@
     flex-direction: column;
     gap: 0.625rem;
     padding: 0.75rem;
-    border: 1.5px dashed color-mix(in srgb, var(--border) 80%, transparent);
+    /* R.W4 Lane A / A1 — hairline law 4: the well's dashed edge reads the ONE
+     * `--card-edge` mint (in-house, scheme-stable), never a `--border` fork. */
+    border: 1.5px dashed var(--card-edge);
     border-radius: var(--radius-card);
     background: color-mix(in srgb, var(--muted) 35%, transparent);
     box-shadow: inset 0 1px 3px color-mix(in srgb, var(--shadow-color) 6%, transparent);
+}
+
+/* Swatch-row list idiom (R.W4 Lane B / B1) — shared by the three swatch
+ * TransitionGroups (CurrentPaletteEditor, MixSourceSelector,
+ * MixResultDisplay): dots pop in/out on the enter/exit family with
+ * scale-only geometry, neighbours reflow on the family move class, and the
+ * leaving dot is lifted out of flow so the row closes smoothly. A shared
+ * recipe (3 consumers) per DESIGN.md's global-utility rule. */
+.swatch-row {
+    --vj-enter-y: 0px;
+    --vj-enter-scale: 0;
+}
+.swatch-row > .vj-enter-leave-active {
+    position: absolute;
 }

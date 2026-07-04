@@ -1,42 +1,82 @@
 <template>
-    <Select
-        :ref="(el) => { emit('update:selectRef', el); }"
-        v-model:open="openModel"
-        :model-value="modelValue"
-        @update:model-value="
-            (colorSpace: any) => {
-                emit('update:modelValue', colorSpace);
-                openModel = false;
-            }
-        "
-    >
-        <SelectTrigger
-            aria-label="Select color space"
-            variant="ghost"
-            :style="{ color: safeAccent, fontFamily: 'var(--font-display)' }"
-            class="w-fit h-fit italic text-title sm:text-display tracking-tight p-0 m-0 pb-1 self-end focus:outline-none select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block"
+    <!-- R.W3 Lane C / C4 — the U13 veil capsule: the color-space section sits
+         in a hairline veil capsule via the glass-ui veil tier (`veil-surface`
+         + its own `--veil-border` knob) — no bespoke surface recipe. -->
+    <div class="space-capsule veil-surface w-fit max-w-full min-w-0">
+        <!-- C2 — the catalog-caption eyebrow (treatment TYPOGRAPHY-2): a Fira
+             Code small-caps plate caption indexing the active space among the
+             catalog, so the switch reads as a catalog entry. -->
+        <span class="space-eyebrow fira-code" aria-hidden="true">
+            color space — {{ pad(activeIndex + 1) }} / {{ pad(spaceEntries.length) }}
+        </span>
+        <Select
+            v-model:open="openModel"
+            :model-value="modelValue"
+            @update:model-value="
+                (colorSpace: any) => {
+                    emit('update:modelValue', colorSpace);
+                    openModel = false;
+                }
+            "
         >
-            <SelectValue class="w-full" />
-        </SelectTrigger>
-        <SelectContent>
-            <SelectGroup class="fira-code">
-                <SelectItem
-                    class="pl-7 pr-3 py-1.5 text-prose"
-                    v-for="[space, name] in Object.entries(DISPLAY_COLOR_SPACE_NAMES)"
-                    :value="space"
-                    hide-indicator
-                >
-                    <span class="flex items-center gap-2">
+            <!-- C2 — the audacious rung: the producer's font-rung prop scales
+                 trigger + value off the ONE documented lever (glass-ui 4.2.0);
+                 the local `text-title sm:text-display` pair is dead. R.W4 F2:
+                 the trigger-level fontFamily override is RETIRED — the display
+                 face rides the CardHeader's `font-display` surface + the
+                 cloned specimen-row class; the producer rung carries size. -->
+            <SelectTrigger
+                aria-label="Select color space"
+                variant="ghost"
+                size="audacious"
+                :style="{ color: safeAccent }"
+                class="space-trigger w-fit h-fit italic tracking-tight p-0 m-0 pb-1 select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block"
+            >
+                <SelectValue class="w-full" />
+            </SelectTrigger>
+            <!-- C3 — U8: the producer's SelectContent bounds itself on-page
+                 (`--select-content-max-h` × popper available-height) and
+                 scrolls within; rows are SPECIMEN entries — display-face name,
+                 live per-space conversion, WatercolorDot swatch (N.W16 D1-3). -->
+            <SelectContent align="start">
+                <SelectGroup>
+                    <SelectItem
+                        v-for="([space, name], i) in spaceEntries"
+                        :key="space"
+                        :value="space"
+                        hide-indicator
+                        class="pl-3 pr-4 py-2"
+                    >
+                        <!-- Default slot = SelectItemText: the display-face
+                             name ONLY (reka's SelectValue clones this node
+                             into the trigger — the swatch/index/conversion
+                             must stay in the #description row). -->
                         <span
-                            class="inline-block w-2 h-2 rounded-full shrink-0 transition-colors"
-                            :style="{ backgroundColor: modelValue === space ? cssColor : 'transparent' }"
-                        ></span>
-                        <span :class="modelValue === space ? 'font-semibold' : ''">{{ name }}</span>
-                    </span>
-                </SelectItem>
-            </SelectGroup>
-        </SelectContent>
-    </Select>
+                            class="font-display italic text-title leading-tight"
+                            :class="modelValue === space ? 'font-semibold' : ''"
+                        >{{ name }}</span>
+                        <template #description>
+                            <span class="flex items-center gap-2 min-w-0 max-w-[16rem]">
+                                <WatercolorDot
+                                    tag="div"
+                                    :color="cssColor"
+                                    class="specimen-dot shrink-0"
+                                    :class="modelValue === space ? '' : 'specimen-dot-idle'"
+                                />
+                                <span
+                                    v-if="colorModel"
+                                    class="fira-code text-mono-caption lowercase opacity-60 truncate"
+                                >
+                                    {{ specimenFor(space as DisplayColorSpace) }}
+                                </span>
+                                <span class="fira-code text-mono-caption opacity-40 ml-auto pl-2">{{ pad(i + 1) }}</span>
+                            </span>
+                        </template>
+                    </SelectItem>
+                </SelectGroup>
+            </SelectContent>
+        </Select>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -48,21 +88,97 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@components/ui/select";
-import { inject } from "vue";
-import { DISPLAY_COLOR_SPACE_NAMES } from "..";
-import { SAFE_ACCENT_KEY } from "../keys";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import { computed, inject } from "vue";
+import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
+import {
+    DISPLAY_COLOR_SPACE_NAMES,
+    colorToHexString,
+    resolveColorSpace,
+} from "..";
+import type { DisplayColorSpace } from "..";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../keys";
 
-defineProps<{
+const props = defineProps<{
     modelValue: string;
     cssColor: string;
 }>();
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
 
+// OPTIONAL color-model injection (D1-3): inside the picker the specimen rows
+// carry the live per-space conversion; hosts outside the provider (AboutPane)
+// render the catalog without the conversion line.
+const colorModel = inject(COLOR_MODEL_KEY, null);
+
 const openModel = defineModel<boolean>("open", { required: true });
 
 const emit = defineEmits<{
     "update:modelValue": [value: string];
-    "update:selectRef": [el: any];
 }>();
+
+const spaceEntries = Object.entries(DISPLAY_COLOR_SPACE_NAMES);
+
+const activeIndex = computed(() =>
+    Math.max(0, spaceEntries.findIndex(([space]) => space === props.modelValue)),
+);
+
+const pad = (n: number) => String(n).padStart(2, "0");
+
+// The specimen line: the LIVE color read through each catalog space —
+// computed only while the dropdown renders (SelectContent unmounts closed).
+function specimenFor(space: DisplayColorSpace): string {
+    if (!colorModel) return "";
+    try {
+        if (space === "hex") return colorToHexString(colorModel.model.value.color);
+        const converted = colorUnit2(
+            colorModel.model.value.color,
+            resolveColorSpace(space),
+            true,
+            false,
+            false,
+        );
+        return normalizeColorUnit(converted, true, false).value.toFormattedString(2);
+    } catch {
+        return "—";
+    }
+}
 </script>
+
+<style scoped>
+/* The capsule owns only the veil tier's documented knobs — hairline border +
+ * capsule radius — plus its own padding rhythm. Never a parallel recipe. */
+.space-capsule {
+    --veil-border: 1px solid var(--card-edge);
+    border-radius: var(--radius-pill);
+    padding: 0.5rem 1.25rem 0.375rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.space-eyebrow {
+    font-variant: small-caps;
+    letter-spacing: 0.08em;
+    font-size: var(--type-mono-caption, 0.6875rem);
+    line-height: 1.2;
+    opacity: 0.55;
+}
+
+/* C5 — the accent-aware house focus register on the trigger (the ghost
+ * variant strips the control chrome; the ring must stay visible). */
+.space-trigger:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring-shadow);
+    border-radius: var(--radius-md);
+}
+
+.specimen-dot {
+    width: 0.875rem;
+    height: 0.875rem;
+    display: inline-block;
+}
+.specimen-dot-idle {
+    opacity: 0.35;
+}
+</style>

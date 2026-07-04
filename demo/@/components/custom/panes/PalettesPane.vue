@@ -1,5 +1,5 @@
 <template>
-    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full max-w-3xl lg:max-w-desktop-pane mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Save, organize, and share your colors.">
             <span class="capitalize pastel-rainbow-text">My Palettes</span>
             <Badge v-if="pm.savedPalettes.value.length > 0" variant="secondary" class="text-mono-small ml-2">{{ pm.savedPalettes.value.length }}</Badge>
@@ -35,7 +35,7 @@
                     <div class="flex-1" />
                     <Button
                         variant="destructive"
-                        size="icon"
+                        icon-only
                         class="h-7 w-7 rounded-full cursor-pointer"
                         @click="pm.showDeleteAllConfirm.value = true"
                     >
@@ -46,7 +46,9 @@
                 <PaletteCardGrid
                     ref="sortableGridRef"
                     :empty="pm.filteredSaved.value.length === 0"
-                    empty-text="No saved palettes yet. Add colors above, then save."
+                    empty-eyebrow="· empty plate ·"
+                    empty-text="No saved palettes yet."
+                    empty-hint="Add colors above, then save the set."
                 >
                     <PaletteCard
                         v-for="palette in pm.filteredSaved.value"
@@ -139,7 +141,11 @@ useSortable(sortableEl, pm.filteredSaved.value, {
 
 async function onPublish(palette: Palette) {
     const result = await pm.onPublish(palette);
-    const card = cardRefs[palette.id];
+    // K-PALID: the feedback card is registered under the local store key; a
+    // palette with no local `id` has no card to address.
+    const id = palette.id;
+    if (id == null) return;
+    const card = cardRefs[id];
     if (card) {
         card.showFeedback(result.message, result.success ? "success" : "error");
     }

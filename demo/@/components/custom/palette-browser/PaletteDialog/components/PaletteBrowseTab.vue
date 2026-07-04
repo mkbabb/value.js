@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { TabsContent } from "@components/ui/tabs";
+import { TabsContent } from "reka-ui";
 import { Loader2 } from "@lucide/vue";
 
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";

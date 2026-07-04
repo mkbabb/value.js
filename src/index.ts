@@ -139,14 +139,18 @@ export {
     getFormattedColorSpaceRange,
     color2,
     gamutMap,
+} from "./units/color/dispatch";
+// K-DISP (R.W1.6) — the hue-interpolation + color-mixing cluster now lives in
+// its cohesion-honest home, mix.ts (real decomposition of dispatch.ts).
+export {
     interpolateHue,
     mixColors,
     // VJ-Q3 (1.2.0) — the `mixColorsInto` out-param twin.
     mixColorsInto,
     cssColorInterpKeyword,
     CYLINDRICAL_HUE_COMPONENT,
-} from "./units/color/dispatch";
-export type { HueInterpolationMethod } from "./units/color/dispatch";
+} from "./units/color/mix";
+export type { HueInterpolationMethod } from "./units/color/mix";
 // OKLab contrast helpers — defined in contrast.ts (K.W2e: no longer re-exported
 // through dispatch.ts, which kept it over the G3 ≤350 cap).
 export {
@@ -164,6 +168,15 @@ export {
 // single-`t` array-free sampler (VJ-Q3, 1.2.0).
 export { mixColorsN, sampleColorRamp, sampleColorRampAt } from "./units/color/mix";
 export type { SampleRampOptions } from "./units/color/mix";
+
+// Gamut-boundary sampler (R.W1.5) — the wide-RGB sRGB-excess contour.
+export { sampleGamutBoundary, sampleGamutBoundaryInto } from "./units/color/boundary";
+export type {
+    GamutBoundary,
+    GamutBoundaryTarget,
+    GamutBoundaryMode,
+    SampleGamutBoundaryOptions,
+} from "./units/color/boundary";
 
 // VJ-Q8 (1.2.0) — the SoA color-channel layout the keyframes.js compositor folds
 // the boxed color tail through (the Float64 oklab-channel plan + buffer fold).
@@ -199,6 +212,17 @@ export {
     rawOklchToOklab,
     oklabToRgb255,
 } from "./units/color/gamut";
+
+// Perceptual color-difference metrics (R.W1.6 · R-3)
+export { deltaE2000, deltaEITP, xyzToICtCp } from "./units/color/difference";
+
+// OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
+export {
+    okhslToSrgb,
+    srgbToOkhsl,
+    okhsvToSrgb,
+    srgbToOkhsv,
+} from "./units/color/okhsl";
 
 // Math utilities
 export {

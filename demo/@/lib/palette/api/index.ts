@@ -13,6 +13,7 @@
  *
  * Sub-module map:
  *   - client.ts          — `request` / `adminRequest` / `setSessionToken` / `BASE_URL`
+ *   - availability.ts    — the K-INV5 availability latch (`apiAvailability`)
  *   - sessions.ts        — session lifecycle (create/login/delete/me)
  *   - palettes.ts        — user palette CRUD + vote + flag
  *   - versions.ts        — versions + forks + provenance
@@ -24,6 +25,12 @@
  */
 
 export { setSessionToken, BASE_URL } from "./client";
+
+export {
+    type ApiAvailability,
+    apiAvailability,
+    ApiUnavailableError,
+} from "./availability";
 
 export { createSession, loginWithSlug, deleteSession, getMe } from "./sessions";
 

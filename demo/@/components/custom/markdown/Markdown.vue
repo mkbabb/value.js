@@ -1,17 +1,22 @@
 <template>
+    <!-- R.W4 Lane A / A2 (U20): glass shimmer bones, not opaque pulse blocks. -->
     <div v-if="isLoading" class="flex items-center space-x-4 h-full">
-        <Skeleton class="h-12 w-12 rounded-full" />
+        <Skeleton surface="glass" variant="shimmer" class="h-12 w-12 rounded-full" />
         <div class="space-y-2">
-            <Skeleton class="h-4 w-full" />
-            <Skeleton class="h-4 w-full" />
+            <Skeleton surface="glass" variant="shimmer" class="h-4 w-full" />
+            <Skeleton surface="glass" variant="shimmer" class="h-4 w-full" />
         </div>
     </div>
 
-    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper font-display" :style="mdColorVars">
+    <!-- The docs BODY reads in the body voice (three-voice law, R.W3 Lane A /
+         A1 — the former blanket `font-display` would flip whole documents to
+         Fraunces once the font root resolves a real face; headings opt into
+         the display voice in the scoped styles below). -->
+    <div v-else-if="currentDoc" ref="markdownDiv" class="markdown-wrapper" :style="mdColorVars">
         <component :is="markdownContent" />
     </div>
 
-    <div class="font-display" v-else>
+    <div v-else>
         <Alert>
             <AlertTitle class="text-4xl">Oh snap...</AlertTitle>
             <AlertDescription>
@@ -68,38 +73,86 @@ onUpdated(() => {
 <style scoped>
 @reference "../../../styles/style.css";
 
+/* ─────────────────────────────────────────────────────────────────────────
+ * R.W4 Lane C / C1 (U4 · U5) — the φ ladder + the dead-reach cure.
+ *
+ * TWO things happened here. (1) THE CURE: the typography rules below were
+ * silently DEAD for every element inside the compiled .md component — a
+ * scoped selector suffixes its LAST compound with this component's
+ * data-v attribute, and the md component's inner h2/p/ul elements never
+ * carry it (only its ROOT .markdown-body div does, as a child-component
+ * root). Every content rule now routes through `:deep()` — a legitimate
+ * reach into CONTENT we compile ourselves, not a shadcn internal
+ * (DESIGN.md §Idioms NOT used prohibits the latter). (2) THE LADDER:
+ * sectional rhythm comes from one golden-ratio spacing ladder — margins,
+ * divider padding, indents all read φ rungs, never ad-hoc steps.
+ * ───────────────────────────────────────────────────────────────────── */
+.markdown-wrapper {
+    /* The φ ladder: 1rem base, neighbours a factor of φ ≈ 1.618 apart. */
+    --phi-0: 0.382rem; /* base ÷ φ² */
+    --phi-1: 0.618rem; /* base ÷ φ  */
+    --phi-2: 1rem;     /* base      */
+    --phi-3: 1.618rem; /* base × φ  */
+    --phi-4: 2.618rem; /* base × φ² */
+}
+
 .markdown-body {
     @apply text-base leading-7;
     @apply p-0 m-0;
     @apply max-w-full;
+}
 
+.markdown-wrapper :deep(.markdown-body) {
     /* Skip layout/paint for off-screen sections (KaTeX formulas, code blocks) */
     > *:not(:first-child) {
         content-visibility: auto;
         contain-intrinsic-size: auto 200px;
     }
-}
 
-.markdown-wrapper > .markdown-body {
-    /* Direct child headings */
+    /* Direct child headings — display rungs, Fraunces (three-voice law).
+     * The φ rhythm: a heading binds TIGHTER to the content it introduces
+     * (small margin-below) than to the section it closes (large margin-
+     * above) — the U4 definition↔content gap, cured structurally. */
     > h1,
     > h2,
     > h3,
     > h4,
     > h5,
     > h6 {
-        @apply font-bold pb-1 pt-4;
-        @apply first:pt-0 scroll-m-20;
+        @apply font-display font-bold scroll-m-20;
+        margin-top: var(--phi-4);
+        margin-bottom: var(--phi-2);
+        font-optical-sizing: auto;
         transition: color var(--duration-slow) var(--ease-standard);
     }
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child,
+    > h4:first-child,
+    > h5:first-child,
+    > h6:first-child {
+        margin-top: 0;
+    }
 
-    /* Consecutive headings — collapse the top padding of the second one */
+    > h3,
+    > h4 {
+        margin-top: var(--phi-3);
+        margin-bottom: var(--phi-1);
+    }
+
+    > h5,
+    > h6 {
+        margin-top: var(--phi-2);
+        margin-bottom: var(--phi-0);
+    }
+
+    /* Consecutive headings — collapse the second one's section-gap. */
     > h1 + h2, > h1 + h3, > h1 + h4, > h1 + h5, > h1 + h6,
     > h2 + h3, > h2 + h4, > h2 + h5, > h2 + h6,
     > h3 + h4, > h3 + h5, > h3 + h6,
     > h4 + h5, > h4 + h6,
     > h5 + h6 {
-        @apply pt-1;
+        margin-top: var(--phi-1);
     }
 
     > h1 {
@@ -138,20 +191,22 @@ onUpdated(() => {
 
     /* Direct child paragraphs */
     > p {
-        @apply mb-4 leading-7;
+        @apply leading-7;
+        margin-bottom: var(--phi-2);
     }
 }
 
-.markdown-wrapper > .markdown-body {
+.markdown-wrapper :deep(.markdown-body) {
     /* Links */
     a {
         @apply text-primary hover:underline transition-colors duration-fast;
     }
 
-    /* Lists */
+    /* Lists — the φ indent + the list↔content rhythm (U5). */
     ul,
     ol {
-        @apply mb-4 pl-8;
+        margin-bottom: var(--phi-2);
+        padding-left: var(--phi-4);
     }
 
     ul {
@@ -163,18 +218,21 @@ onUpdated(() => {
     }
 
     li {
-        @apply mb-2;
+        margin-bottom: var(--phi-0);
 
         > ul,
         > ol {
-            @apply mt-2 mb-0;
+            margin-top: var(--phi-0);
+            margin-bottom: 0;
         }
     }
 
     /* Code blocks */
     /* rounded-2xl: documented exception (content element, not a surface) — W3-conventions */
     pre {
-        @apply bg-muted rounded-2xl p-4 mb-4 overflow-x-auto;
+        @apply bg-muted rounded-2xl overflow-x-auto;
+        padding: var(--phi-2);
+        margin-bottom: var(--phi-3);
     }
 
     code {
@@ -189,17 +247,21 @@ onUpdated(() => {
 
     /* Blockquotes */
     blockquote {
-        @apply border-l-4 border-border pl-4 italic my-4 text-muted-foreground;
+        @apply border-l-4 border-border italic text-muted-foreground;
+        padding-left: var(--phi-3);
+        margin-block: var(--phi-3);
     }
 
     /* Tables */
     table {
-        @apply w-full border-collapse mb-4;
+        @apply w-full border-collapse;
+        margin-bottom: var(--phi-3);
     }
 
     th,
     td {
-        @apply border border-border px-4 py-2;
+        @apply border border-border;
+        padding: var(--phi-1) var(--phi-2);
     }
 
     th {
@@ -209,7 +271,8 @@ onUpdated(() => {
     /* Images */
     /* rounded-2xl: documented exception (content element, not a surface) — W3-conventions */
     img {
-        @apply max-w-full h-auto rounded-2xl my-4 mx-auto;
+        @apply max-w-full h-auto rounded-2xl mx-auto;
+        margin-block: var(--phi-3);
     }
 
     /* Inline math — add breathing room between formulas and surrounding text */
@@ -221,27 +284,32 @@ onUpdated(() => {
     /* KaTeX display math blocks — rendered by <Katex> Vue component */
     > div.inline-block:has(> .katex) {
         display: block;
-        @apply py-2 pl-6 my-1 overflow-x-auto;
+        @apply overflow-x-auto;
+        padding: var(--phi-1) 0 var(--phi-1) var(--phi-3);
+        margin-block: var(--phi-1);
     }
 
-    /* Horizontal rule */
+    /* Horizontal rule — the section divider carries even φ air (U5). */
     hr {
-        @apply my-4 border-t;
+        @apply border-t;
+        margin-block: var(--phi-4);
         border-color: var(--md-color-h2, var(--border));
         opacity: 0.3;
     }
 
-    /* Definition lists */
+    /* Definition lists — the definition binds to its content (U4). */
     dl {
-        @apply mb-4;
+        margin-bottom: var(--phi-3);
     }
 
     dt {
-        @apply font-bold mb-1;
+        @apply font-bold;
+        margin-bottom: var(--phi-0);
     }
 
     dd {
-        @apply pl-4 mb-4;
+        padding-left: var(--phi-3);
+        margin-bottom: var(--phi-2);
     }
 
     /* Task lists */
@@ -259,7 +327,9 @@ onUpdated(() => {
 
     /* Callouts or admonitions */
     .callout {
-        @apply bg-muted border-l-4 border-primary p-4 mb-4 rounded-r-2xl;
+        @apply bg-muted border-l-4 border-primary rounded-r-2xl;
+        padding: var(--phi-2);
+        margin-bottom: var(--phi-3);
 
         &.warning {
             @apply border-yellow-500 dark:border-yellow-400;
@@ -272,7 +342,9 @@ onUpdated(() => {
 
     /* Footnotes */
     .footnotes {
-        @apply mt-8 pt-4 border-t border-border;
+        @apply border-t border-border;
+        margin-top: var(--phi-4);
+        padding-top: var(--phi-3);
 
         ol {
             @apply text-sm;

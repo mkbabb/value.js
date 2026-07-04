@@ -1,6 +1,7 @@
 <template>
-    <Transition name="eyedropper-fade" @after-enter="onTransitionEnd">
-        <div class="absolute inset-0 z-popover flex flex-col bg-card/75 backdrop-blur-sm rounded-panel overflow-hidden">
+    <!-- enter/exit family — opacity-only geometry (--vj-enter-y pinned to 0). -->
+    <Transition name="vj-enter" @after-enter="onTransitionEnd">
+        <div class="absolute inset-0 z-popover flex flex-col bg-card/75 backdrop-blur-sm rounded-panel overflow-hidden" style="--vj-enter-y: 0px">
             <!-- Top bar -->
             <div class="flex items-center gap-2 px-3 py-2 shrink-0" :style="{ '--hover-color': sampledColor ?? '' }">
                 <DockIconButton class="eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">
@@ -16,7 +17,16 @@
                     :class="['shrink-0 transition-transform', swatchPulse ? 'swatch-pulse' : 'w-7 h-7']"
                     @animationend="swatchPulse = false"
                 />
-                <div v-else class="w-7 h-7 shrink-0 rounded-full border-2 border-dashed border-muted-foreground/30" />
+                <!-- Not-yet-sampled slot — the shipped ghost variant (A3, U18):
+                     the seeded silhouette the sampled color will fill. -->
+                <WatercolorDot
+                    v-else
+                    color="var(--muted-foreground)"
+                    variant="ghost"
+                    tag="div"
+                    seed="eyedropper-empty"
+                    class="w-7 h-7 shrink-0"
+                />
 
                 <span class="text-mono-small text-muted-foreground truncate select-all">
                     {{ formattedColor ?? 'Tap to sample' }}
@@ -242,18 +252,6 @@ watch(() => imageUrl, () => { loadAndFit(); });
 }
 .eyedropper-canvas.no-transition {
     transition: none;
-}
-
-/* Enter/exit transition — OPACITY ONLY */
-.eyedropper-fade-enter-active {
-    transition: opacity var(--duration-normal) var(--ease-decelerate);
-}
-.eyedropper-fade-leave-active {
-    transition: opacity var(--duration-fast) var(--ease-accelerate);
-}
-.eyedropper-fade-enter-from,
-.eyedropper-fade-leave-to {
-    opacity: 0;
 }
 
 /* Loupe */

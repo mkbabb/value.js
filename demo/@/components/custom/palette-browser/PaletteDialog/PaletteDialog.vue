@@ -76,9 +76,9 @@
                         @edit-color="pm.onEditColor"
                     />
 
-                    <!-- Extract from image tab -->
+                    <!-- Extract from image tab (T20: the workbench injects
+                         CSS_COLOR_KEY itself; no prop thread needed) -->
                     <ImagePaletteExtractor
-                        :css-color-opaque="cssColorOpaque"
                         @apply="(colors) => emit('apply', colors)"
                         @add-color="(css) => emit('addColor', css)"
                     />
@@ -176,7 +176,7 @@
 import { inject, ref, watch } from "vue";
 import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import { Dialog, DialogScrollContent } from "@components/ui/dialog";
-import { Tabs } from "@components/ui/tabs";
+import { TabsRoot as Tabs } from "reka-ui";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
@@ -195,7 +195,7 @@ import { ImagePaletteExtractor } from "@components/custom/image-palette-extracto
 import { usePaletteDialogState } from "./composables/usePaletteDialogState";
 import { useDialogModalStack } from "./composables/useDialogModalStack";
 import { useDialogOverlayGuards } from "./composables/useDialogOverlayGuards";
-import { usePaletteExport } from "./composables/usePaletteExport";
+import { usePaletteExport } from "@composables/palette/usePaletteExport";
 import { useDialogBrowseActions } from "./composables/useDialogBrowseActions";
 
 const {

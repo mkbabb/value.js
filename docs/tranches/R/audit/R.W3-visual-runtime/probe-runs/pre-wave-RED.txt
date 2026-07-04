@@ -1,0 +1,5 @@
+RED    K1-font-root  fonts.check(Fraunces)=true · .font-display=[Fraunces, serif] · --font-stack-display→[Plus Jakarta Sans] · realJakarta=true
+RED    K2-accent-axis  --accent-live="(absent)" → n/a (spread 0) · --primary → spread 5
+RED    K3-container-clamp  --pane-max="(absent)" · container max-width=1000px · self-clamps=2 · shell width=480px
+
+PROBE: 3/3 RED

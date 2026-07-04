@@ -32,7 +32,7 @@ async function onCopy() {
         <span class="font-display text-caption font-bold text-muted-foreground uppercase tracking-wide">Result</span>
 
         <!-- Single color result -->
-        <Transition name="pop" mode="out-in">
+        <Transition name="vj-morph" mode="out-in">
             <template v-if="result.type === 'color' && result.css">
                 <div class="flex items-center gap-3">
                     <WatercolorDot
@@ -51,9 +51,9 @@ async function onCopy() {
         <!-- Palette result -->
         <template v-if="result.type === 'palette' && result.colors">
             <TransitionGroup
-                name="swatch-item"
+                name="vj-enter"
                 tag="div"
-                class="flex flex-wrap gap-2"
+                class="swatch-row flex flex-wrap gap-2"
             >
                 <WatercolorDot
                     v-for="(color, i) in result.colors"

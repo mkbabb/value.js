@@ -21,9 +21,9 @@
             >
         </div>
         <TransitionGroup
-            name="swatch-item"
+            name="vj-enter"
             tag="div"
-            class="flex items-center gap-2.5 flex-wrap"
+            class="swatch-row flex items-center gap-2.5 flex-wrap"
         >
             <SwatchHoverMenu
                 v-for="(color, i) in savedColorStrings"
@@ -33,7 +33,7 @@
                 :can-hover="canHover"
                 :floating-style="currentFloatingStyle"
                 size-class="w-11 h-11 sm:w-12 sm:h-12"
-                :swatch-extra-class="isSwatchEditing(i) ? 'swatch-editing' : undefined"
+                :ghost="isSwatchEditing(i)"
                 @hover="onCurrentSwatchHover(i, $event)"
                 @leave="onCurrentSwatchLeave()"
                 @cancel-leave="cancelCurrentSwatchLeave()"
@@ -53,10 +53,12 @@
                     </button>
                 </template>
                 <template #overlay>
-                    <Transition name="edit-overlay">
+                    <Transition name="vj-enter">
                         <div v-if="isSwatchEditing(i)" class="edit-overlay glass-floating hidden lg:flex">
                             <div class="flex items-center gap-2">
-                                <WatercolorDot :color="color" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 opacity-50 grayscale-[0.4] swatch-cutout" :seed="'edit-from-' + i" />
+                                <!-- The FROM slot reads as the shipped ghost variant — the
+                                     seeded dashed silhouette (A3, U22) — not an outline fork. -->
+                                <WatercolorDot :color="color" variant="ghost" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-from-' + i" />
                                 <span class="text-muted-foreground text-caption">&rarr;</span>
                                 <WatercolorDot :color="cssColorOpaque" tag="div" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" :seed="'edit-to-' + i" />
                             </div>
@@ -79,13 +81,20 @@
                     <Tooltip>
                         <TooltipTrigger as-child>
                             <!-- W5-a11y: tooltip provides name but aria-label ensures AT reads it -->
-                            <button
-                                class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center hover:scale-110 hover:border-primary/60 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                            <!-- R.W4 Lane A / A3 (U18): the add-slot is the shipped
+                                 WatercolorDot ghost — the seeded dashed silhouette the
+                                 committed swatch will fill — seeded by the LIVE color. -->
+                            <WatercolorDot
+                                :color="cssColorOpaque"
+                                variant="ghost"
+                                tag="button"
+                                seed="add-current-slot"
+                                class="add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer hover:scale-110 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                                 :aria-label="`Add current color ${cssColorOpaque} to palette`"
                                 @click="addCurrentColor"
                             >
-                                <Plus class="w-5 h-5 text-primary/40" aria-hidden="true" />
-                            </button>
+                                <Plus class="w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
+                            </WatercolorDot>
                         </TooltipTrigger>
                         <TooltipContent class="text-mono-small">
                             Add current color ({{ cssColorOpaque }})
@@ -94,6 +103,9 @@
                 </TooltipProvider>
             </div>
         </TransitionGroup>
+        <!-- K-INV5 degraded affordance: the save surface names its state
+             when the backend is down — the palette still saves locally. -->
+        <ApiOfflineChip v-if="savedColorStrings.length > 0" class="self-start" />
         <div
             v-if="savedColorStrings.length > 0"
             class="flex items-center gap-2"
@@ -108,7 +120,7 @@
             />
             <Button
                 variant="outline"
-                size="icon"
+                icon-only
                 class="h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
                 :disabled="savedColorStrings.length === 0"
                 @click="saveCurrentPalette"
@@ -165,6 +177,7 @@ import {
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
+import ApiOfflineChip from "./ApiOfflineChip.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 
 const { savedColorStrings, cssColorOpaque, savedPaletteCount, savedPalettes } =
@@ -239,76 +252,38 @@ function saveCurrentPalette() {
 }
 
 function confirmUpdatePalette() {
-    if (!duplicateTarget.value) return;
-    emit("updated", duplicateTarget.value.id, colorsFromStrings(savedColorStrings));
+    // K-PALID: `duplicateTarget` is an existing LOCAL (store) palette — its
+    // store key drives the update. Guard the honest optional `id`.
+    const id = duplicateTarget.value?.id;
+    if (id == null) return;
+    emit("updated", id, colorsFromStrings(savedColorStrings));
     currentPaletteName.value = "";
     duplicateTarget.value = null;
     emit("clearCurrent");
 }
 </script>
 
-<style>
-/* Swatch add/remove animation (TransitionGroup) — unscoped for Vue Transition classes */
-.swatch-item-enter-active,
-.swatch-item-leave-active {
-    transition: opacity var(--duration-normal) var(--ease-standard),
-                transform var(--duration-normal) var(--ease-standard);
-}
-.swatch-item-enter-from {
-    opacity: 0;
-    transform: scale(0);
-}
-.swatch-item-leave-to {
-    opacity: 0;
-    transform: scale(0);
-}
-.swatch-item-leave-active {
-    position: absolute;
-}
-.swatch-item-move {
-    transition: transform var(--duration-normal) var(--ease-standard);
-}
-
-.edit-overlay-enter-active {
-    transition: opacity var(--duration-normal) var(--ease-standard),
-                transform var(--duration-slow) var(--ease-dock);
-}
-.edit-overlay-leave-active {
-    transition: opacity var(--duration-fast) var(--ease-standard),
-                transform var(--duration-fast) var(--ease-standard);
-}
-.edit-overlay-enter-from {
-    opacity: 0;
-    transform: scale(0.5);
-    transform-origin: top left;
-}
-.edit-overlay-leave-to {
-    opacity: 0;
-    transform: scale(0.8);
-    transform-origin: top left;
-}
-</style>
-
 <style scoped>
-/* Editing swatch — dashed outline + grayed out */
-.swatch-editing {
-    outline: 2px dashed color-mix(in srgb, var(--foreground) 30%, transparent);
-    outline-offset: 2px;
-    opacity: 0.4;
-    filter: grayscale(0.5);
-    transition: opacity var(--duration-normal) var(--ease-standard),
-                filter var(--duration-normal) var(--ease-standard);
+/* R.W4 Lane A / A3 (U18/U22): the former `.swatch-editing` dashed-outline +
+ * `.swatch-cutout` forks are DELETED — the being-edited slot and the edit
+ * overlay's FROM slot now consume the glass-ui WatercolorDot ghost variant
+ * (the seeded dashed silhouette; one shape source, producer-owned). */
+
+/* The add-slot ghost hosts a centred Plus glyph in its default slot. */
+.add-slot-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Cutout effect on the FROM swatch in the edit overlay */
-.swatch-cutout {
-    outline: 2px dashed color-mix(in srgb, var(--foreground) 30%, transparent);
-    outline-offset: -2px;
-    box-shadow: inset 0 2px 8px color-mix(in srgb, var(--shadow-color) 15%, transparent);
-}
-
-/* Edit overlay — anchored so the FROM swatch aligns exactly over the original */
+/* Edit overlay — anchored so the FROM swatch aligns exactly over the original.
+ * vj-enter geometry: grows from its top-left anchor; the explicit vars also
+ * OVERRIDE the .swatch-row list geometry it would otherwise inherit. */
 .edit-overlay {
+    --vj-enter-x: 0px;
+    --vj-enter-y: 0px;
+    --vj-enter-scale: 0.5;
+    transform-origin: top left;
     position: absolute;
     top: 0;
     left: 0;

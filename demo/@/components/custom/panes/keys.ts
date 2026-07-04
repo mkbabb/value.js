@@ -21,9 +21,12 @@ export const AURORA_ATOMS_KEY: InjectionKey<AuroraAtoms> = Symbol("aurora-atoms"
  */
 export const DEFAULT_AURORA_ATOMS: AuroraAtoms = {
     harmony: "analogous",
-    colorEnergy: 0.55,
-    zones: { count: 4, arrangement: "composed" },
+    colorEnergy: 0.7,
+    zones: { count: 5, arrangement: "composed" },
     noise: 0.5,
     medium: { kind: "smooth" },
-    motion: "breathing",
+    // U33: the TRUE root of "background aurora does not move" — `breathing`
+    // zeroes spatial drift (the field pulses in place at most). `drifting` is
+    // the spatial-drift register that actually moves the atmosphere over time.
+    motion: "drifting",
 };

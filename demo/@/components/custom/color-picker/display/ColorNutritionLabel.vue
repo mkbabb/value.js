@@ -1,5 +1,7 @@
 <template>
-    <div class="w-full font-display grid grid-cols-1 gap-4 relative">
+    <!-- Body voice by default (three-voice law, R.W3 Lane A / A1): the atlas-plate
+         DATA reads in Jakarta; only the section headings below are display rungs. -->
+    <div class="w-full grid grid-cols-1 gap-4 relative">
         <Alert class="m-0 bg-muted/50 dark:bg-muted/30 border-border/30 rounded-card">
             <AlertTitle>Definition</AlertTitle>
             <AlertDescription>
@@ -10,7 +12,7 @@
         <Separator />
 
         <section>
-            <h2 class="text-subheading mb-2">
+            <h2 class="font-display text-subheading mb-2">
                 Basic Information
             </h2>
             <div class="grid grid-cols-2 gap-2 text-small">
@@ -32,7 +34,7 @@
         <Separator />
 
         <section>
-            <h2 class="text-subheading mb-2">
+            <h2 class="font-display text-subheading mb-2">
                 Components
             </h2>
             <div class="grid grid-cols-3 gap-4 text-small">
@@ -59,7 +61,7 @@
         <Separator />
 
         <section>
-            <h2 class="text-subheading mb-2">
+            <h2 class="font-display text-subheading mb-2">
                 Key Properties
             </h2>
             <div class="grid grid-cols-2 gap-2 text-small">
@@ -81,7 +83,7 @@
         <Separator />
 
         <section class="space-y-4">
-            <h2 class="text-subheading">
+            <h2 class="font-display text-subheading">
                 Conversion Graph
             </h2>
             <div class="flex flex-wrap gap-4">
@@ -128,7 +130,7 @@
         <Separator />
 
         <section>
-            <h2 class="text-subheading mb-2">Usage</h2>
+            <h2 class="font-display text-subheading mb-2">Usage</h2>
             <div class="space-y-2 text-small">
                 <div>
                     <span class="italic">Common Applications: </span>

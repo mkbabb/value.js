@@ -21,14 +21,22 @@
                 Save
             </DropdownMenuItem>
 
-            <!-- Publish (saved only) -->
+            <!-- Publish (saved only). K-INV5: a tripped availability latch
+                 disables the doomed action and NAMES the degraded state
+                 in-register (small-caps annotation, not a toast). -->
             <DropdownMenuItem
                 v-if="paletteKind === 'saved'"
                 class="gap-2 cursor-pointer"
+                :disabled="apiOffline"
                 @click="$emit('action', 'publish')"
             >
                 <Globe class="h-4 w-4" />
                 Publish
+                <span
+                    v-if="apiOffline"
+                    class="ml-auto fira-code text-mono-caption opacity-55 tracking-wide"
+                    style="font-variant: small-caps"
+                >offline</span>
             </DropdownMenuItem>
 
             <!-- Fork/remix (remote palettes) -->
@@ -145,8 +153,10 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import type { Palette } from "@lib/palette/types";
 import type { PaletteKind } from "@lib/palette/utils";
+import { apiAvailability } from "@lib/palette/api";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -179,6 +189,9 @@ defineProps<{
     isOwned?: boolean | undefined;
     isAdmin?: boolean | undefined;
 }>();
+
+// K-INV5: the publish action reads the availability latch.
+const apiOffline = computed(() => apiAvailability.value === "unavailable");
 
 defineEmits<{
     action: [action: string];

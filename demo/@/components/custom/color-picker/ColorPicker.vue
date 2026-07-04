@@ -1,28 +1,60 @@
 <template>
-    <div class="pane-shell flex flex-col relative min-w-0 w-full max-w-md sm:max-w-lg lg:max-w-desktop-pane mx-auto h-auto max-h-full">
-        <Card tier="resting" class="flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
-<CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-3 sm:px-6 min-w-0 overflow-visible grid grid-cols-3 grid-rows-[auto_auto] gap-x-3 items-start">
+    <!-- The shell never self-clamps (R.W3 Lane A / A4 — the grid owns the
+         clamp via the .pane-container min() formula; the mobile slot wrapper
+         owns the sub-lg width). -->
+    <div class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full">
+        <Card tier="resting" class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
+            <!-- R.W3 Lane D / D2 — the dual-hero diagonal (U30b, N.W16 D1-4):
+                 the blob is the MATERIAL hero, absolutely top-right on the
+                 relative Card (corner-break at lg, where overflow is visible;
+                 tucked inside the clipped mobile card), out of the header
+                 grid entirely. The numbers are the TYPOGRAPHIC hero on the
+                 reading axis below-left — never the same channel at the same
+                 position. -->
+            <!-- The deep negative inset is calibrated to the GooBlob canvas:
+                 the visible metaball body sits inset ~25% within its square
+                 canvas, so a true corner-break needs the canvas well past the
+                 card edge. -->
+            <HeroBlob
+                ref="heroBlobRef"
+                class="absolute z-20 top-0 right-0 lg:-top-14 lg:-right-12"
+                @click="onHeroBlobClick()"
+            />
+
+            <!-- The header is a DISPLAY surface (space title + hero numbers →
+                 Fraunces); horizontal padding rides `cqi` against the pane-slot
+                 container, not viewport breakpoints (R.W3 Lane A / A4). The
+                 static right padding is the blob's footprint RESERVATION
+                 (D1-4: by construction, never a measured nudge). -->
+            <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full pl-[clamp(0.75rem,4cqi,1.5rem)] pr-24 lg:pr-36 min-w-0 overflow-visible flex flex-col gap-y-1 items-start">
                 <ColorSpaceSelector
-                    class="col-start-1 row-start-1"
                     :model-value="model.selectedColorSpace"
                     v-model:open="selectedColorSpaceOpen"
                     :css-color="cssColor"
                     @update:model-value="(colorSpace: any) => updateModel({ selectedColorSpace: colorSpace })"
-                    @update:select-ref="(el: any) => { selectedColorSpaceRef = el; }"
                 />
 
                 <ColorComponentDisplay
-                    class="col-start-1 row-start-2"
                     :color-components="colorComponents"
                     :formatted="currentColorComponentsFormatted"
+                    :space="model.selectedColorSpace"
                     @update="(v, c) => updateColorComponentDebounced(v, c)"
                     @input="onComponentInput"
                 />
-
-                <HeroBlob ref="heroBlobRef" class="col-start-2 col-span-2 row-span-2 justify-self-end" @click="onHeroBlobClick()" />
             </CardHeader>
 
-            <CardContent class="z-1 font-display flex flex-col w-full px-3 sm:px-6 pt-3 pb-4 sm:pb-5 min-w-0 lg:flex-1 lg:min-h-0">
+            <!-- The content region is the CONTROLS zone — body voice, never a
+                 blanket display face (the three-voice law, R.W3 Lane A / A1;
+                 the channel-rail letters opt into `font-display` themselves). -->
+            <!-- R.W3 Lane E / E1 — beat three of the orchestrated open: during
+                 the opening breath only, `--stagger-base` pushes the channel
+                 cascade after plate-land (beat one, below) + the field's
+                 paint-in (beat two, SpectrumCanvas). Space-change re-fires of
+                 `.stagger-children` see the var unset → 0ms, exactly as before. -->
+            <CardContent
+                class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
+                :style="plateOpening ? { '--stagger-base': '360ms' } : undefined"
+            >
                 <div class="flex flex-col gap-3">
                     <SpectrumCanvas />
                     <ComponentSliders />
@@ -30,12 +62,9 @@
             </CardContent>
         </Card>
 
-        <EditDrawer
-            :edit-target="editTarget"
-            @commit="commitEdit"
-            @cancel="cancelEdit"
-        />
-
+        <!-- T21 (R.W4 Lane E): the mounted-but-display:none EditDrawer is
+             DELETED — the edit UX lives in the dock; the commit/cancel state
+             machine below stays (keyboard + dock consumers). -->
         <PointerDebugOverlay />
     </div>
 </template>
@@ -69,7 +98,6 @@ import { copyToClipboard } from "@mkbabb/glass-ui";
 import HeroBlob from "./visual/HeroBlob.vue";
 import SpectrumCanvas from "./controls/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders.vue";
-import EditDrawer from "./editing/EditDrawer.vue";
 import PointerDebugOverlay from "./visual/PointerDebugOverlay.vue";
 
 const model = defineModel<ColorModel>({ required: true });
@@ -136,17 +164,11 @@ function onComponentInput(text: string, component: string) {
 
 // --- Color space selector ---
 
+// Outside-dismiss is handled natively by reka-ui's Select (a proper popover);
+// no custom document listener — one against the trigger element would treat the
+// portaled SelectContent as "outside" and close the dropdown on pointerdown
+// before an option can be selected (the dead-control root).
 const selectedColorSpaceOpen = ref(false);
-const selectedColorSpaceRef = ref<any>(null);
-
-// Close color space dropdown on any outside interaction
-function onDocumentPointerDown(e: PointerEvent) {
-    if (!selectedColorSpaceOpen.value) return;
-    const selectEl = selectedColorSpaceRef.value?.$el ?? selectedColorSpaceRef.value;
-    if (selectEl && !selectEl.contains(e.target as Node)) {
-        selectedColorSpaceOpen.value = false;
-    }
-}
 
 // --- Keyboard shortcuts ---
 
@@ -265,16 +287,22 @@ watch(
     { immediate: true },
 );
 
+// --- The orchestrated open (R.W3 Lane E / E1) ---
+// One breath, three beats: plate-land (560ms, the cartoon shadow casting in)
+// → field paint-in (+180ms, SpectrumCanvas) → the channel stagger (+360ms
+// via --stagger-base above). The flag drops after the breath so space-change
+// stagger re-fires run undelayed.
+const plateOpening = ref(true);
+
 // --- Lifecycle ---
 
 onMounted(() => {
     window.addEventListener("keydown", handleKeydown);
-    document.addEventListener("pointerdown", onDocumentPointerDown, true);
+    window.setTimeout(() => { plateOpening.value = false; }, 1200);
 });
 
 onUnmounted(() => {
     window.removeEventListener("keydown", handleKeydown);
-    document.removeEventListener("pointerdown", onDocumentPointerDown, true);
     if (parseAndSetColorDebounced.cancel) parseAndSetColorDebounced.cancel();
     if (updateColorComponentDebounced.cancel) updateColorComponentDebounced.cancel();
 });
@@ -287,5 +315,27 @@ onUnmounted(() => {
     transition:
         margin var(--duration-normal) var(--ease-standard),
         transform var(--duration-normal) var(--ease-standard);
+}
+
+/* R.W3 Lane E / E1 — beat one: the plate placement (treatment §MOTION-1).
+ * The specimen plate is PLACED — it settles in with a slight rotation and
+ * the cartoon shadow CASTS IN as it lands (the editorial signature in
+ * motion). Reuses --spring-snappy + --shadow-cartoon; PRM-gated whole. */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes plate-land {
+        from {
+            opacity: 0;
+            transform: translateY(-12px) rotate(-0.6deg);
+            box-shadow: 0 0 0 0 transparent;
+        }
+        to {
+            opacity: 1;
+            transform: none;
+            box-shadow: var(--shadow-cartoon);
+        }
+    }
+    .pane-shell > :first-child {
+        animation: plate-land 560ms var(--spring-snappy) both;
+    }
 }
 </style>

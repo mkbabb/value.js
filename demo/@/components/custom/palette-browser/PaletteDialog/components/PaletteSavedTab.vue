@@ -25,7 +25,7 @@
                     <div class="flex-1" />
                     <Button
                         variant="destructive"
-                        size="icon"
+                        icon-only
                         class="h-7 w-7 rounded-full cursor-pointer"
                         @click="$emit('deleteAll')"
                     >
@@ -56,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { TabsContent } from "@components/ui/tabs";
+import { TabsContent } from "reka-ui";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { Trash2 } from "@lucide/vue";
@@ -69,8 +69,9 @@ import type { Palette, PaletteColor } from "@lib/palette/types";
 defineProps<{
     savedColorStrings: string[];
     cssColorOpaque: string;
-    savedPalettes: Palette[];
-    filteredSaved: Palette[];
+    // K-PALID: saved palettes are local + carry their store key (`id: string`).
+    savedPalettes: (Palette & { id: string })[];
+    filteredSaved: (Palette & { id: string })[];
     expandedId: string | null;
 }>();
 

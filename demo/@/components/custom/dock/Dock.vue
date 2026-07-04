@@ -75,6 +75,20 @@ watch(isAnyOpen, (open) => { if (open) dockRef.value?.keepOpen(); else dockRef.v
 // ── Layer dispatch (inlined from the retired useDockLayers — gate (c): the
 //    immediate watch reads live reactive deps, so call order does not matter) ──
 const activeLayer = ref("main");
+
+// ── The view-select moment (R.W4 Lane B / B3) — within the CURRENT dock
+//    surface only (the dock-morph gate rides the U6 BOOK, not this wave):
+//    a one-shot morph-family settle (vj-settle keyframe, snappy spring) on
+//    the dock body confirms every view switch. The rAF re-arm lets rapid
+//    switches restart the beat; @animationend clears it. ──
+const dockSettle = ref(false);
+watch(
+    () => viewManager.currentView.value,
+    () => {
+        dockSettle.value = false;
+        requestAnimationFrame(() => { dockSettle.value = true; });
+    },
+);
 watch(
     [mobileEditActive, slugEditMode, actionBarLayerActive],
     () => {
@@ -89,7 +103,11 @@ watch(
 
 <template>
     <div class="fixed top-dock-inset inset-x-0 z-dock flex items-center justify-center pointer-events-none">
-        <div class="pointer-events-auto">
+        <div
+            class="pointer-events-auto"
+            :class="dockSettle && 'dock-settle'"
+            @animationend.self="dockSettle = false"
+        >
             <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="false" :fit-content="true" :always-expanded="!isDesktop">
                 <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
                     <!-- Mobile edit layer -->
@@ -193,11 +211,21 @@ watch(
                     </DockLayer>
                 </DockLayerGroup>
 
-                <!-- Collapsed state -->
+                <!-- Collapsed state — the icon+label pair swaps on the morph
+                     family, keyed by view (B3); the icon reads the per-view
+                     accent (B2). -->
                 <template #collapsed>
                     <WatercolorDot :color="cssColorOpaque" tag="div" class="w-6 h-6 shrink-0" seed="top-dock" />
-                    <component :is="viewManager.currentConfig.value.icon" class="w-5 h-5 shrink-0 sm:hidden" :style="{ color: safeAccent }" />
-                    <span class="text-base font-display text-foreground whitespace-nowrap hidden sm:inline">{{ viewManager.currentConfig.value.label }}</span>
+                    <Transition name="vj-morph" mode="out-in">
+                        <span
+                            :key="viewManager.currentView.value"
+                            class="inline-flex items-center gap-1.5 min-w-0"
+                            style="--vj-morph-scale: 0.8; --vj-morph-y: 0px"
+                        >
+                            <component :is="viewManager.currentConfig.value.icon" class="w-5 h-5 shrink-0 sm:hidden" :style="{ color: 'var(--accent-view)' }" />
+                            <span class="text-base font-display text-foreground whitespace-nowrap hidden sm:inline">{{ viewManager.currentConfig.value.label }}</span>
+                        </span>
+                    </Transition>
                     <ChevronDown class="w-3 h-3 text-muted-foreground shrink-0" />
                 </template>
             </GlassDock>
@@ -208,6 +236,12 @@ watch(
 <style scoped>
 @reference "../../../styles/style.css";
 .gold-shimmer-icon { color: var(--color-gold); filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent)); }
+
+/* The B3 settle beat — the vj-settle keyframe lives in animations.css
+   (keyframes are global); the class is dock-local. */
+.dock-settle {
+    animation: vj-settle var(--spring-snappy-duration) var(--spring-snappy);
+}
 
 /* Action-bar toggle slot: animates between 0 and content width via the
    grid-template-columns 0fr → 1fr pattern (no max-width clipping).

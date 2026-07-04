@@ -1,6 +1,6 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "description": "CSS value units for color, length, angles, & c.",
     "license": "MIT",
     "keywords": [
@@ -69,9 +69,7 @@
     ],
     "scripts": {
         "dev": "vite --port 9000",
-        "dev:hero-lab": "vite --mode hero-lab --port 9010",
         "build": "vite build --mode production",
-        "build:hero-lab": "vite build --mode hero-lab",
         "build:watch": "vite build --mode production --watch",
         "gh-pages": "vite build --mode gh-pages",
         "prepare": "test -f dist/value.js || npm run build",

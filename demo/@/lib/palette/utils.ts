@@ -21,6 +21,11 @@ const TEMP_ID_PREFIXES = ["gen-", "__extracted__", "mix-"];
 
 export function getPaletteKind(palette: Palette): PaletteKind {
     if (!palette.isLocal) return "remote";
-    if (TEMP_ID_PREFIXES.some((p) => palette.id.startsWith(p))) return "temporary";
+    // K-PALID: a local palette always carries an `id`; the temp prefixes mark
+    // the ephemeral (gen/mix/extracted) locals apart from the saved ones.
+    const id = palette.id;
+    if (id != null && TEMP_ID_PREFIXES.some((p) => id.startsWith(p))) {
+        return "temporary";
+    }
     return "saved";
 }

@@ -10,7 +10,7 @@ export {
 import { clone } from "../utils";
 import { BLACKLISTED_COALESCE_UNITS, UNITS } from "./constants";
 import type { ColorSpace } from "./color/constants";
-import type { HueInterpolationMethod } from "./color/dispatch";
+import type { HueInterpolationMethod } from "./color/mix";
 import type { ColorInterpPlan } from "./interpolate";
 
 export class ValueUnit<

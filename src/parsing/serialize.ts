@@ -131,9 +131,11 @@ const serializeFunction = (item: {
 }): string => {
     const params = (item.descriptor.parameters ?? [])
         .map((p) => {
+            // `<custom-property-name> <css-type>? [ : <default-value> ]?` — the
+            // <css-type> follows the name by whitespace; the default by a colon.
             let s = p.name;
-            if (p.type !== undefined) s += `: ${p.type}`;
-            if (p.defaultValue !== undefined) s += `: ${p.defaultValue}`;
+            if (p.syntax !== undefined) s += ` ${p.syntax}`;
+            if (p.default !== undefined) s += `: ${p.default}`;
             return s;
         })
         .join(", ");

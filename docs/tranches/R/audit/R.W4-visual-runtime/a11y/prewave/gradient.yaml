@@ -1,0 +1,34 @@
+- main "Color tool panes":
+  - heading "Gradient" [level=3]
+  - paragraph: Build gradients with per-interval easing and CSS output.
+  - button "Gradient stop at 0%" [disabled]
+  - button "Gradient stop at 100%" [disabled]
+  - paragraph: Double-click to add · Right-click to remove · Drag to reposition
+  - separator
+  - heading "Interpolation" [level=3]
+  - text: Type Left-to-right or angled
+  - combobox: Linear
+  - text: Space Perceptual, hue-preserving
+  - combobox: OKLCh
+  - text: Hue Nearest arc
+  - combobox: Shorter
+  - text: Direction 90°
+  - slider "Gradient direction"
+  - separator
+  - heading "Easing" [level=3]
+  - text: 1 → 2
+  - combobox "Easing function": Linear
+  - img
+  - separator
+  - heading "CSS" [level=3]
+  - button "Copy CSS":
+    - img
+  - text: linear-gradient(90deg, oklch(0.75 0.15 145) 0.0%, oklch(0.65 0.18 265) 100.0%)
+  - heading "My Palettes" [level=3]
+  - paragraph: Save, organize, and share your colors.
+  - img
+  - textbox "Search palettes..."
+  - text: Start a new palette
+  - button "Add current color lab(92% 88.80 20 / 100%) to palette"
+  - list:
+    - paragraph: No saved palettes yet. Add colors above, then save.

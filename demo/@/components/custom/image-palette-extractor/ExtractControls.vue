@@ -34,6 +34,15 @@
                 <Upload class="w-5 h-5 transition-colors" />
             </DockIconButton>
 
+            <!-- Camera capture (T20 — the unified workbench capability) -->
+            <DockIconButton
+                title="Open camera"
+                :style="{ '--btn-hover-color': cssColor }"
+                @click="$emit('camera')"
+            >
+                <Camera class="w-5 h-5 transition-colors" />
+            </DockIconButton>
+
             <DockSeparator />
 
             <!-- Chroma weight slider -->
@@ -68,7 +77,7 @@
 </template>
 
 <script setup lang="ts">
-import { Upload, RotateCcw } from "@lucide/vue";
+import { Upload, Camera, RotateCcw } from "@lucide/vue";
 import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { Slider } from "@components/ui/slider";
 
@@ -85,6 +94,7 @@ defineEmits<{
     "update:k": [value: number];
     "update:chromaWeight": [value: number];
     upload: [];
+    camera: [];
     reset: [];
 }>();
 </script>

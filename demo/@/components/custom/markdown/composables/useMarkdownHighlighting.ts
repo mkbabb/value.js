@@ -76,7 +76,12 @@ function renderKatex(container: HTMLElement | null) {
 
     Array.from(container.querySelectorAll("code")).forEach((block: HTMLElement) => {
         if (!block.className) {
-            const expression = block.innerText.trim();
+            // textContent, NOT innerText: innerText is layout-aware and
+            // returns "" inside `content-visibility: auto` subtrees that the
+            // engine is currently skipping (the R.W4 C1 cure activated that
+            // rule — it was scope-dead before), which rendered empty KaTeX
+            // for every off-screen expression. textContent is layout-free.
+            const expression = block.textContent?.trim() ?? "";
 
             const katexElement = document.createElement("div");
             katexElement.style.display = "inline-block";
