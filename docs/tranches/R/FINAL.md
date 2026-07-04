@@ -68,10 +68,11 @@ Every `R.md §10` row → its landing or its book. Nothing silently dropped.
 - **`git stash list`** — **EMPTY** ✓ (close-blocking condition met).
 - **`git worktree list`** — main tree only (`/Users/mkbabb/Programming/value.js
   825bd58 [tranche-q]`); zero lane worktrees.
-- Working tree at sweep: 3 modified demo files
-  (`Markdown.vue` / `useMarkdownHighlighting.ts` / `AboutPane.vue`) present at
-  session start — session-local WIP outside this lane's writes; left untouched
-  and excluded from this lane's commits.
+- **`git status --porcelain`** at sweep: **EMPTY** (clean tree). A stale
+  session-start snapshot listed 3 modified demo files
+  (`Markdown.vue` / `useMarkdownHighlighting.ts` / `AboutPane.vue`); the live
+  tree shows them committed at the R.W4 Lane-C landing (`17383a6`) — recorded
+  per lesson 3 (drift on the record, live tree wins).
 
 **Verdict: ι CLEAN.** Zero unauthorized mutations; the one recorded incident
 was reverted in full and is on the record above.
