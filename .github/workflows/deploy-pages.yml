@@ -53,6 +53,12 @@ jobs:
              github.event.workflow_run.event == 'push')
         runs-on: ubuntu-latest
         timeout-minutes: 20
+        # NESTED-WORKSPACE LAYOUT (R.W7 X3 first-wire finding): actions/checkout
+        # refuses paths outside $GITHUB_WORKSPACE, so the repo nests at ./value.js
+        # with the `file:` siblings beside it (./glass-ui, ./keyframes.js).
+        defaults:
+            run:
+                working-directory: value.js
         steps:
             - uses: actions/checkout@v5
               with:
@@ -61,24 +67,35 @@ jobs:
                   # falls back to the dispatched ref.
                   ref: ${{ github.event.workflow_run.head_sha || github.sha }}
                   fetch-depth: 0
-            # The demo consumes @mkbabb/glass-ui via `file:../glass-ui` (N.md §3:
-            # held through W5; the registry pin lands at inv-N-6 / W9). So the
-            # sibling must be checked out and its dist built BEFORE `npm ci` /
-            # the demo build — the SAME precondition the CI `lighthouse` +
-            # `boot-smoke` jobs satisfy. (The library itself imports glass-ui
-            # NEVER — inv-K-1 — but the DEMO does.)
+                  path: value.js
+            # The demo consumes @mkbabb/glass-ui via `file:../glass-ui` (kept
+            # deliberately — the §3.4 pin policy, Q4 RATIFIED). So the siblings
+            # must be checked out and their dists built BEFORE `npm ci` / the
+            # demo build — the SAME precondition the CI jobs satisfy. (The
+            # library itself imports glass-ui NEVER — inv-K-1 — but the DEMO does.)
             - name: "Checkout glass-ui (demo resolves it from dist)"
               uses: actions/checkout@v5
               with:
                   repository: mkbabb/glass-ui
-                  path: ../glass-ui
+                  path: glass-ui
+            - name: "Checkout keyframes.js (file: workspace dep)"
+              uses: actions/checkout@v5
+              with:
+                  repository: mkbabb/keyframes.js
+                  path: keyframes.js
             - uses: actions/setup-node@v5
               with:
                   node-version: 24
                   cache: "npm"
+                  cache-dependency-path: value.js/package-lock.json
             - name: Build glass-ui dist (gh-pages needs its full CSS dist)
+              working-directory: glass-ui
               run: |
-                  cd ../glass-ui
+                  npm ci
+                  npm run build
+            - name: Build keyframes.js dist (the demo bundle resolves it via glass-ui's peer)
+              working-directory: keyframes.js
+              run: |
                   npm ci
                   npm run build
             - name: npm ci
@@ -95,6 +112,7 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  workingDirectory: value.js
                   # The demo build output dir is dist/gh-pages (vite.config.ts
                   # gh-pages mode outDir). `--branch=main` is the CF Pages
                   # production branch; `--commit-dirty=true` lets a clean CI

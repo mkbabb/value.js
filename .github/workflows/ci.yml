@@ -38,22 +38,40 @@ jobs:
             fail-fast: false
             matrix:
                 node: [22, 24]
+        # NESTED-WORKSPACE LAYOUT (R.W7 X3 first-wire finding): actions/checkout
+        # refuses paths outside $GITHUB_WORKSPACE ("Repository path ... is not
+        # under ..."), so the old `path: ../glass-ui` sibling checkout is fatal
+        # on current runners. The repo checks out NESTED at ./value.js with the
+        # `file:` siblings beside it (./glass-ui, ./keyframes.js) — the
+        # package.json `file:../glass-ui` / `file:../keyframes.js` deps then
+        # resolve inside the workspace. All run steps default into value.js/.
+        defaults:
+            run:
+                working-directory: value.js
         steps:
             - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
+                  path: value.js
 
             - name: "Checkout glass-ui (file: workspace dep — N.W1.C resolves it from dist)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/glass-ui
-                  path: ../glass-ui
+                  path: glass-ui
+
+            - name: "Checkout keyframes.js (file: workspace dep — provisions glass-ui's keyframes peer; its dist is a live /math consumer, KF-4)"
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/keyframes.js
+                  path: keyframes.js
 
             - name: Use Node.js ${{ matrix.node }}
               uses: actions/setup-node@v5
               with:
                   node-version: ${{ matrix.node }}
                   cache: "npm"
+                  cache-dependency-path: value.js/package-lock.json
 
             # glass-ui's dist/ is a gitignored build artefact — a fresh checkout
             # ships ZERO dist (no .d.ts, no CSS, no .js). N.W1.C repointed the
@@ -63,8 +81,14 @@ jobs:
             # source here (a clean full rebuild: js + dts + css). 74 of the 91
             # HEAD errors N restored from were this dist's absence.
             - name: Build glass-ui dist (the dts/css/js W1 precondition)
+              working-directory: glass-ui
               run: |
-                  cd ../glass-ui
+                  npm ci
+                  npm run build
+
+            - name: Build keyframes.js dist (the demo runtime graph imports it via glass-ui's peer)
+              working-directory: keyframes.js
+              run: |
                   npm ci
                   npm run build
 
@@ -186,7 +210,7 @@ jobs:
               id: playwright-cache
               with:
                   path: ~/.cache/ms-playwright
-                  key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+                  key: playwright-${{ runner.os }}-${{ hashFiles('value.js/package-lock.json') }}
 
             - name: Install Playwright (chromium)
               if: steps.playwright-cache.outputs.cache-hit != 'true'
@@ -215,7 +239,7 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   name: playwright-report-node-${{ matrix.node }}
-                  path: playwright-report/
+                  path: value.js/playwright-report/
                   retention-days: 7
 
     # ── 6 · gh-pages build → CSS emission probe (BLOCKING) + lighthouse (soft) ─
@@ -235,22 +259,37 @@ jobs:
         runs-on: ubuntu-latest
         needs: build-and-test
         timeout-minutes: 15
+        defaults:
+            run:
+                working-directory: value.js
         steps:
             - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
+                  path: value.js
             - name: "Checkout glass-ui (demo build resolves it from dist)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/glass-ui
-                  path: ../glass-ui
+                  path: glass-ui
+            - name: "Checkout keyframes.js (file: workspace dep)"
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/keyframes.js
+                  path: keyframes.js
             - uses: actions/setup-node@v5
               with:
                   node-version: 22
                   cache: "npm"
+                  cache-dependency-path: value.js/package-lock.json
             - name: Build glass-ui dist (gh-pages needs its full CSS dist)
+              working-directory: glass-ui
               run: |
-                  cd ../glass-ui
+                  npm ci
+                  npm run build
+            - name: Build keyframes.js dist (the demo bundle resolves it via glass-ui's peer)
+              working-directory: keyframes.js
+              run: |
                   npm ci
                   npm run build
             - run: npm ci
@@ -264,7 +303,10 @@ jobs:
               continue-on-error: true
               uses: treosh/lighthouse-ci-action@v12
               with:
-                  configPath: ./lighthouserc.json
+                  # Nested layout: the config (and its staticDistDir) lives under
+                  # value.js/. Soft-launch (continue-on-error) — path drift here
+                  # never blocks the ladder.
+                  configPath: ./value.js/lighthouserc.json
                   uploadArtifacts: true
                   temporaryPublicStorage: true
 
@@ -281,22 +323,37 @@ jobs:
         runs-on: ubuntu-latest
         needs: build-and-test
         timeout-minutes: 15
+        defaults:
+            run:
+                working-directory: value.js
         steps:
             - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
+                  path: value.js
             - name: "Checkout glass-ui (demo resolves it from dist)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/glass-ui
-                  path: ../glass-ui
+                  path: glass-ui
+            - name: "Checkout keyframes.js (file: workspace dep)"
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/keyframes.js
+                  path: keyframes.js
             - uses: actions/setup-node@v5
               with:
                   node-version: 22
                   cache: "npm"
+                  cache-dependency-path: value.js/package-lock.json
             - name: Build glass-ui dist (the dts/css/js boot precondition)
+              working-directory: glass-ui
               run: |
-                  cd ../glass-ui
+                  npm ci
+                  npm run build
+            - name: Build keyframes.js dist (the cold boot links the whole runtime graph)
+              working-directory: keyframes.js
+              run: |
                   npm ci
                   npm run build
             - run: npm ci
