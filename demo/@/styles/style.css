@@ -142,6 +142,16 @@
     --glass-tint-source: var(--accent-live);
     --glass-tint-strength: 4%;
 
+    /* ── The accent-aware focus register (R.W3 Lane C / C5, D8) ──
+     * glass-ui's `--focus-ring-shadow` recipe reads ONE retint knob
+     * (`--focus-ring-color`, its sole reader — scale-paper.css). Re-point it
+     * onto the accent axis so every keyboard focus ring — slider thumbs,
+     * select triggers, rail items, readout cells — paints the live picked
+     * color's contrast-guarded voice instead of neutral ink. The `.dark` arm
+     * re-pins the same knob below (glass-ui's dark arm would otherwise win
+     * the cascade back to gray). */
+    --focus-ring-color: var(--accent-live);
+
     /* ── The hairline mint (R.W3 Lane A / A5 — depth law 4, glassy hairlines) ──
      * ONE `--card-edge` mint, owned here; R.W4 is a pure consumer. Every card
      * hairline mixes from `--foreground` so it stays in-house in both schemes —
@@ -329,6 +339,11 @@
     --shadow-cartoon-hover: 10px 10px 0px 0px color-mix(in srgb, var(--shadow-color) 55%, transparent);
 
     --shadow: hsl(0 0% 45%);
+
+    /* The accent-aware focus register holds in dark (R.W3 Lane C / C5):
+     * glass-ui's dark arm re-declares --focus-ring-color to warm gray; re-pin
+     * it to the accent axis (`--accent-live` is contrast-guarded per scheme). */
+    --focus-ring-color: var(--accent-live);
 }
 
 /* Underline tab variant — active tab gets a colored bottom border.
