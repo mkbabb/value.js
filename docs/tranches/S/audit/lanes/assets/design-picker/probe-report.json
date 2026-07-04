@@ -1,0 +1,329 @@
+{
+  "errors": [
+    "[error] Access to fetch at 'https://api.color.babb.dev/colors/approved' from origin 'http://localhost:9000' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: Th",
+    "[error] Failed to load resource: net::ERR_FAILED",
+    "[warning] No available adapters.",
+    "[warning] [.WebGL-0x10c005aae00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[warning] [.WebGL-0x10c005aae00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+    "[warning] No available adapters.",
+    "[warning] No available adapters."
+  ],
+  "light": {
+    "capsules": [
+      {
+        "rect": {
+          "x": 41,
+          "y": 134,
+          "w": 181,
+          "h": 104
+        },
+        "bg": "oklab(0.861653 0.00535633 0.0124605 / 0.54)",
+        "backdrop": "blur(8px) saturate(1.4) brightness(1.02)",
+        "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+        "radius": "9999px",
+        "padding": "8px 20px 6px",
+        "eyebrowText": "color space — 06 / 16",
+        "triggerFont": "Fraunces, serif",
+        "triggerSize": "41.888px",
+        "triggerColor": "oklch(0.62 0.2725 9.8)"
+      },
+      {
+        "rect": {
+          "x": 754,
+          "y": 143,
+          "w": 181,
+          "h": 91
+        },
+        "bg": "oklab(0.861653 0.00535633 0.0124605 / 0.54)",
+        "backdrop": "blur(8px) saturate(1.4) brightness(1.02)",
+        "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+        "radius": "9999px",
+        "padding": "8px 20px 6px",
+        "eyebrowText": "color space — 06 / 16",
+        "triggerFont": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui",
+        "triggerSize": "41.888px",
+        "triggerColor": "oklch(0.62 0.2725 9.8)"
+      }
+    ],
+    "readout": {
+      "rect": {
+        "x": 41,
+        "y": 242,
+        "w": 525,
+        "h": 119
+      },
+      "fontSize": "53.28px",
+      "minHeight": "119.347px",
+      "lineHeight": "59.6736px",
+      "cells": [
+        {
+          "text": "92.0%,",
+          "minW": "5ch",
+          "w": 169,
+          "top": 242,
+          "left": 41,
+          "right": 210
+        },
+        {
+          "text": "88.8,",
+          "minW": "6ch",
+          "w": 203,
+          "top": 242,
+          "left": 222,
+          "right": 425
+        },
+        {
+          "text": "20.0",
+          "minW": "6ch",
+          "w": 203,
+          "top": 302,
+          "left": 41,
+          "right": 244
+        }
+      ],
+      "wrapped": true,
+      "headerRect": {
+        "x": 41,
+        "y": 242,
+        "w": 525,
+        "h": 119
+      },
+      "headerPadRight": "0px",
+      "headerPadLeft": "0px",
+      "deadRightPx": 141
+    },
+    "sliders": [
+      {
+        "aria": "L channel",
+        "thumb": {
+          "rect": {
+            "x": 626,
+            "y": 651,
+            "w": 12,
+            "h": 24
+          },
+          "bg": "lab(92 88.8 20)",
+          "border": "2px solid rgba(0, 0, 0, 0.8)",
+          "borderWidth": "2px",
+          "borderColor": "rgba(0, 0, 0, 0.8)",
+          "radius": "6.4px",
+          "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+        },
+        "trackH": 24,
+        "vars": {
+          "thumbBg": "lab(92% 88.80 20 / 100%)",
+          "thumbBorder": "rgba(0, 0, 0, 0.8)"
+        }
+      },
+      {
+        "aria": "A channel",
+        "thumb": {
+          "rect": {
+            "x": 587,
+            "y": 700,
+            "w": 12,
+            "h": 24
+          },
+          "bg": "lab(92 88.8 20)",
+          "border": "2px solid rgba(0, 0, 0, 0.8)",
+          "borderWidth": "2px",
+          "borderColor": "rgba(0, 0, 0, 0.8)",
+          "radius": "6.4px",
+          "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+        },
+        "trackH": 24,
+        "vars": {
+          "thumbBg": "lab(92% 88.80 20 / 100%)",
+          "thumbBorder": "rgba(0, 0, 0, 0.8)"
+        }
+      },
+      {
+        "aria": "B channel",
+        "thumb": {
+          "rect": {
+            "x": 422,
+            "y": 748,
+            "w": 12,
+            "h": 24
+          },
+          "bg": "lab(92 88.8 20)",
+          "border": "2px solid rgba(0, 0, 0, 0.8)",
+          "borderWidth": "2px",
+          "borderColor": "rgba(0, 0, 0, 0.8)",
+          "radius": "6.4px",
+          "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+        },
+        "trackH": 24,
+        "vars": {
+          "thumbBg": "lab(92% 88.80 20 / 100%)",
+          "thumbBorder": "rgba(0, 0, 0, 0.8)"
+        }
+      },
+      {
+        "aria": "ALPHA channel",
+        "thumb": {
+          "rect": {
+            "x": 570,
+            "y": 797,
+            "w": 12,
+            "h": 24
+          },
+          "bg": "lab(92 88.8 20)",
+          "border": "2px solid rgba(0, 0, 0, 0.8)",
+          "borderWidth": "2px",
+          "borderColor": "rgba(0, 0, 0, 0.8)",
+          "radius": "6.4px",
+          "shadow": "color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+        },
+        "trackH": 24,
+        "vars": {
+          "thumbBg": "lab(92% 88.80 20 / 100%)",
+          "thumbBorder": "rgba(0, 0, 0, 0.8)"
+        }
+      }
+    ],
+    "rail": {
+      "rect": {
+        "x": 41,
+        "y": 630,
+        "w": 26,
+        "h": 191
+      },
+      "items": [
+        {
+          "text": "L",
+          "color": "oklch(0.62 0.2725 9.8)",
+          "opacity": "0.6",
+          "fontSize": "20.352px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "selected": "false",
+          "rect": {
+            "x": 42,
+            "y": 642,
+            "w": 24,
+            "h": 24
+          }
+        },
+        {
+          "text": "A",
+          "color": "oklch(0.62 0.3074 8.6)",
+          "opacity": "0.6",
+          "fontSize": "20.352px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "selected": "false",
+          "rect": {
+            "x": 41,
+            "y": 690,
+            "w": 25,
+            "h": 24
+          }
+        },
+        {
+          "text": "B",
+          "color": "oklch(0.62 0.2731 12.3)",
+          "opacity": "0.6",
+          "fontSize": "20.352px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "selected": "false",
+          "rect": {
+            "x": 41,
+            "y": 737,
+            "w": 26,
+            "h": 24
+          }
+        },
+        {
+          "text": "A",
+          "color": "oklch(0.62 0.2725 9.8)",
+          "opacity": "0.6",
+          "fontSize": "20.352px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "selected": "false",
+          "rect": {
+            "x": 41,
+            "y": 785,
+            "w": 25,
+            "h": 24
+          }
+        }
+      ]
+    },
+    "captions": [
+      {
+        "cls": "plate-caption",
+        "text": "gamut lens — display-p3 / srgbcusp l 0.629 c 0.256"
+      },
+      {
+        "cls": "font-normal text-caption italic opacity-50 pl-1",
+        "text": "(0% - 100%)"
+      },
+      {
+        "cls": "font-normal text-caption italic opacity-50 pl-1",
+        "text": "(-125 - 125)"
+      },
+      {
+        "cls": "font-normal text-caption italic opacity-50 pl-1",
+        "text": "(-125 - 125)"
+      },
+      {
+        "cls": "font-normal text-caption italic opacity-50 pl-1",
+        "text": "(0% - 100%)"
+      }
+    ],
+    "spectrumSiblings": [
+      {
+        "tag": "DIV",
+        "cls": "goo-blob-wrapper w-24 lg:w-[11rem]",
+        "text": ""
+      }
+    ],
+    "thumbHoverShadow": "color(srgb 0.11 0.098 0.09 / 0.08) 0px 0px 0px 4px, color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px"
+  },
+  "dark": {
+    "thumb": {
+      "bg": "lab(92 88.8 20)",
+      "borderColor": "rgba(0, 0, 0, 0.8)",
+      "borderWidth": "2px"
+    },
+    "capsuleBg": "oklab(0.37705 0.00994941 0.0169059 / 0.6136)"
+  },
+  "mobile": {
+    "readoutWrapped": true,
+    "cells": [
+      {
+        "text": "92.0%,",
+        "top": 273
+      },
+      {
+        "text": "88.8,",
+        "top": 273
+      },
+      {
+        "text": "20.0",
+        "top": 309
+      }
+    ],
+    "capsuleW": 181,
+    "viewportW": 390
+  },
+  "gradient": {
+    "stopHandles": [
+      {
+        "cls": "absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visi",
+        "w": "20px",
+        "h": "20px",
+        "border": "2px solid oklab(0.999994 0.0000455677 0.0000200868 / 0.8)",
+        "transform": "matrix(1, 0, 0, 1, -10, -10)"
+      },
+      {
+        "cls": "absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visi",
+        "w": "20px",
+        "h": "20px",
+        "border": "2px solid oklab(0.999994 0.0000455677 0.0000200868 / 0.8)",
+        "transform": "matrix(1, 0, 0, 1, -10, -10)"
+      }
+    ],
+    "count": 2,
+    "hoverTransform": "matrix(1, 0, 0, 1, -10, -10)"
+  }
+}

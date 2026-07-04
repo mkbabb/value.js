@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.1] — 2026-07-04 (the parse-that `^1.0.0` re-pin — the booked post-R follow-on, kf-executed)
+
+The R.md §4 book row ("parse-that `^1.0.0` re-pin", trigger: kf S.H4 publishes
+the 1.0.0 cut) EXECUTED — by the keyframes.js S impl drive under its
+owner-granted publish authorization, per this repo's own booked recipe (the
+letter+book mechanism; the hand-back letter:
+`docs/tranches/R/letters/KF-EXECUTED-THE-REPIN-2.0.1.md`). No surface change —
+dependency-only.
+
+- `@mkbabb/parse-that` `^0.13.0` → `^1.0.0` (the S.H1+S.H2 payload: the packrat
+  `PACKRAT_ARMED` arming rides in transparently — KF-5's "transparent GC win";
+  the `*Span` surface + `chainError` were deleted upstream).
+- The WIDENED VERIFY, all green against the re-pinned build: span-absence
+  (0 `*Span` consumers in src/), the `chainError` 0-caller scan (0 hits),
+  the 4 live `.chain()` sites exercised through the FULL suite (58 files /
+  1998 tests — `chain()`'s falsy-seed fix verified-not-assumed by the green
+  run), `tsc` 0, `vite build` 0, `proof:css-parity` 0, and `color2Into`'s
+  suite green (the kf fold-row-46 currency commitment holds).
+
 ## [1.2.0] — 2026-06-23 (Q · the perf + grammar + provenance minor — VJ-Q2…Q9)
 
 The keyframes.js **Tranche Q** dispatch's 1.2.0 family (`KF-TO-VALUEJS-Q.md`):
