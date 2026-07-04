@@ -2,7 +2,7 @@
     <div class="flex items-center gap-1.5">
         <Popover>
             <PopoverTrigger as-child>
-                <Button variant="ghost" size="icon" aria-label="Filters" class="relative h-8 w-8">
+                <Button variant="ghost" icon-only aria-label="Filters" class="relative h-8 w-8">
                     <EllipsisVertical class="h-4 w-4 text-muted-foreground" />
                     <span
                         v-if="activeFilterCount > 0"

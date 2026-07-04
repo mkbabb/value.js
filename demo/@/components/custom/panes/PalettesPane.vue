@@ -35,7 +35,7 @@
                     <div class="flex-1" />
                     <Button
                         variant="destructive"
-                        size="icon"
+                        icon-only
                         class="h-7 w-7 rounded-full cursor-pointer"
                         @click="pm.showDeleteAllConfirm.value = true"
                     >

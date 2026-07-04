@@ -108,7 +108,7 @@
             />
             <Button
                 variant="outline"
-                size="icon"
+                icon-only
                 class="h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
                 :disabled="savedColorStrings.length === 0"
                 @click="saveCurrentPalette"

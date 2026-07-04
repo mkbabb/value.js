@@ -18,7 +18,7 @@
             <Button
                 type="submit"
                 variant="ghost"
-                size="icon"
+                icon-only
                 class="h-6 w-6 shrink-0"
                 :disabled="!slugInput.trim() || slugSwitching"
                 :aria-label="slugSwitching ? 'Signing in…' : 'Sign in with slug'"
@@ -29,7 +29,7 @@
             <Button
                 type="button"
                 variant="ghost"
-                size="icon"
+                icon-only
                 class="h-6 w-6 shrink-0"
                 aria-label="Cancel slug edit"
                 @click="slugEditMode = false"
