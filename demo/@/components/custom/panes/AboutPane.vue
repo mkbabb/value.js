@@ -17,14 +17,17 @@
 
         <Separator />
 
-        <CardContent class="px-3 sm:px-6">
+        <!-- R.W4 Lane C / C1 (U5): consistent sectional + divider padding from
+             the φ ladder — every section clears its Separator by φ (1.618rem),
+             the guide closes at φ² (2.618rem). -->
+        <CardContent class="px-3 sm:px-6 py-[1.618rem]">
             <ColorNutritionLabel class="w-full p-0 m-0" v-model="model" />
         </CardContent>
 
         <Separator />
 
-        <CardContent class="px-3 sm:px-6 pb-6">
-            <h2 class="font-display text-title mb-6">Detailed Guide</h2>
+        <CardContent class="px-3 sm:px-6 pt-[1.618rem] pb-[2.618rem]">
+            <h2 class="font-display text-title mb-[1.618rem]">Detailed Guide</h2>
             <Markdown
                 v-if="activeMarkdownModule"
                 :key="model.selectedColorSpace"
