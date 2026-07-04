@@ -65,5 +65,23 @@ disables with an in-register annotation. My-Palettes composition unchanged.
 | (c) orchestrated open in getAnimations / absent under PRM | I2 + I2r | GREEN |
 | (d) ComponentSliders ≤ 400 LoC | I4 (368) | GREEN |
 | (e) focus ring on every keyboard control | I3 (10/10) | GREEN |
-| (f) fresh probe RED→GREEN | `probe-runs/pre-wave-RED.txt` (3/3 RED) → `laneA-post-GREEN.txt` + `lanesCDE-post-GREEN.txt` (6/6 GREEN) | GREEN |
+| (f) fresh probe RED→GREEN | keystone: `probe-runs/pre-wave-RED.txt` → `laneA-post-GREEN.txt`; instrument: `probe-runs/pre-wave-RED-instrument.txt` → `lanesCDE-post-GREEN.txt` | GREEN |
 | overlay riders | first-paint contour + caption, clear-plate, outbound-only detent, shared ink regime | GREEN (Lane B `lane-b/EVIDENCE.md` + the B4 sample above) |
+
+**Falsification provenance (gate-(f), corrected).** The two probes have DIFFERENT
+provenance and the earlier ledger conflated them. `probe-keystone.mjs` (Lane A —
+K1/K2/K3) is a genuine **born-RED live** oracle: its 3/3 RED in
+`probe-runs/pre-wave-RED.txt` was captured live against the pre-wave tree before
+Lane A landed. `probe-instrument.mjs` (clauses b/c/d/e + I5 + I2r) was authored at
+the CLOSE commit (`31723ea`) and had **no live pre-wave capture**; its
+falsification is **retroactive** — captured 2026-07-04 by running the close-commit
+probe against a worktree at `b2544c3` (dev-served, node_modules+dist symlinked),
+recorded verbatim in `probe-runs/pre-wave-RED-instrument.txt`. That run is **4/6
+RED**: the four hard-gate clauses **b/c/d/e (I1/I2/I3/I4)** are genuine
+retroactively-falsified oracles (RED at b2544c3 by construction — the Lane C/D/E
+features are absent). The remaining two clauses run **GREEN at b2544c3** and are
+therefore **standing regression guards, never falsified oracles**: **I5** (card-lock
+— the pre-wave readout already held the card rect stable, so its D1/U31 reflow was
+not present to falsify) and **I2r** (PRM-absent — a negative assertion, vacuously
+green while the open-beat animations do not exist). Post-wave both probes are 3/3 +
+6/6 GREEN (`laneA-post-GREEN.txt`, `lanesCDE-post-GREEN.txt`).

@@ -1,0 +1,31 @@
+# probe-instrument.mjs — RETROACTIVE pre-wave capture (gate-(f) record repair)
+#
+# Provenance: probe-instrument.mjs was authored at the R.W3 CLOSE commit
+# (31723ea) and never had a live born-RED capture (unlike probe-keystone,
+# whose 3/3 RED in pre-wave-RED.txt is genuine/live). This file is that
+# missing capture, produced RETROACTIVELY: the close-commit probe run
+# against the PRE-WAVE tree — a git worktree checked out at b2544c3 (R.W2
+# close), dev-served (vite) with node_modules + dist symlinked from the main
+# repo. Captured 2026-07-04.
+#
+# Verdict: 4/6 clauses falsify RED at b2544c3. The four HARD-GATE clauses
+# b/c/d/e (I1 thumb-token-feed, I2 orchestrated-open, I3 focus-rings, I4
+# sliders-LoC) are genuine born-RED oracles — each RED here by construction
+# (the Lane C/D/E features they assert do not exist pre-wave). The other two
+# clauses run GREEN pre-wave and are therefore STANDING REGRESSION GUARDS,
+# NOT falsified oracles: I5 (card-lock) — b2544c3's readout already held the
+# card rect stable under keyboard drive (480x669), so the D1/U31 reflow it
+# guards was not present pre-wave; and I2r (PRM-absent) — a NEGATIVE assertion
+# that is vacuously GREEN when the open-beat animations are absent (they are,
+# pre-wave). Honesty over appearance: only b/c/d/e are the retroactively-
+# falsified oracles.
+#
+# --- verbatim run output (node probe-instrument.mjs http://localhost:8091) ---
+RED    I4-sliders-loc  ComponentSliders.vue = 419 LoC (cap 400)
+RED    I2-orchestrated-open  getAnimations @350ms: plate-land=false field-paint-in=false stagger=true
+RED    I1-thumb-token-feed  thumb bg rgba(0, 0, 0, 0) → rgba(0, 0, 0, 0) across 20 ArrowRight steps
+GREEN  I5-card-lock  card rect [228,147,480,669] → End [228,147,480,669] → Home [228,147,480,669] → End [228,147,480,669]
+RED    I3-focus-rings  10 in-picker tab stops inspected · ringless: span[l component value], span[a component value], span[b component value], span[L channel], span[A channel], span[B channel], span[ALPHA channel]
+GREEN  I2r-prm-absent  PRM reduce: open-beat animations present = none
+
+PROBE: 2/6 GREEN · 4 RED
