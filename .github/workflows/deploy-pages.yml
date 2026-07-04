@@ -73,10 +73,11 @@ jobs:
             # must be checked out and their dists built BEFORE `npm ci` / the
             # demo build — the SAME precondition the CI jobs satisfy. (The
             # library itself imports glass-ui NEVER — inv-K-1 — but the DEMO does.)
-            - name: "Checkout glass-ui (demo resolves it from dist)"
+            - name: "Checkout glass-ui @ tranche/BG (the D8-1-cured live tree; un-pin at the 5.0.0 master landing)"
               uses: actions/checkout@v5
               with:
                   repository: mkbabb/glass-ui
+                  ref: tranche/BG
                   path: glass-ui
             - name: "Checkout keyframes.js (file: workspace dep)"
               uses: actions/checkout@v5

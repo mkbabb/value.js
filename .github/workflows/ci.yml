@@ -54,10 +54,18 @@ jobs:
                   fetch-depth: 0
                   path: value.js
 
-            - name: "Checkout glass-ui (file: workspace dep — N.W1.C resolves it from dist)"
+            # REF PIN (R.W7 X3, BOOKED un-pin): the demo REQUIRES the D8-1
+            # layer(components) emission cure, which lives on glass-ui's live
+            # tranche/BG branch — their master is the 4.2.0-era tree WITHOUT it
+            # (proven: a master-built dist white-screens the page-load gate).
+            # CI must consume the SAME producer tree local dev consumes
+            # (file:../glass-ui tracks tranche/BG). UN-PIN to default when the
+            # 5.0.0 cut lands on their master (the glass-ui adopt-event book).
+            - name: "Checkout glass-ui @ tranche/BG (file: workspace dep — the D8-1-cured live tree)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/glass-ui
+                  ref: tranche/BG
                   path: glass-ui
 
             - name: "Checkout keyframes.js (file: workspace dep — provisions glass-ui's keyframes peer; its dist is a live /math consumer, KF-4)"
@@ -66,12 +74,13 @@ jobs:
                   repository: mkbabb/keyframes.js
                   path: keyframes.js
 
-            - name: Use Node.js ${{ matrix.node }}
+            # The sibling dists build under Node 24 — the producers' own build
+            # env (glass-ui master's lockfile is npm-11-valid but npm-10-refused;
+            # the matrix below tests VALUE.JS under 22/24, not the producers).
+            - name: Use Node 24 (the producers' build env)
               uses: actions/setup-node@v5
               with:
-                  node-version: ${{ matrix.node }}
-                  cache: "npm"
-                  cache-dependency-path: value.js/package-lock.json
+                  node-version: 24
 
             # glass-ui's dist/ is a gitignored build artefact — a fresh checkout
             # ships ZERO dist (no .d.ts, no CSS, no .js). N.W1.C repointed the
@@ -91,6 +100,13 @@ jobs:
               run: |
                   npm ci
                   npm run build
+
+            - name: Use Node.js ${{ matrix.node }} (the value.js ladder)
+              uses: actions/setup-node@v5
+              with:
+                  node-version: ${{ matrix.node }}
+                  cache: "npm"
+                  cache-dependency-path: value.js/package-lock.json
 
             - run: npm ci
 
@@ -272,21 +288,21 @@ jobs:
               with:
                   fetch-depth: 0
                   path: value.js
-            - name: "Checkout glass-ui (demo build resolves it from dist)"
+            - name: "Checkout glass-ui @ tranche/BG (the D8-1-cured live tree; un-pin at the 5.0.0 master landing)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/glass-ui
+                  ref: tranche/BG
                   path: glass-ui
             - name: "Checkout keyframes.js (file: workspace dep)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/keyframes.js
                   path: keyframes.js
-            - uses: actions/setup-node@v5
+            - name: Use Node 24 (the producers' build env)
+              uses: actions/setup-node@v5
               with:
-                  node-version: 22
-                  cache: "npm"
-                  cache-dependency-path: value.js/package-lock.json
+                  node-version: 24
             - name: Build glass-ui dist (gh-pages needs its full CSS dist)
               working-directory: glass-ui
               run: |
@@ -297,6 +313,12 @@ jobs:
               run: |
                   npm ci
                   npm run build
+            - name: Use Node 22 (the value.js ladder)
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 22
+                  cache: "npm"
+                  cache-dependency-path: value.js/package-lock.json
             - run: npm ci
             - name: Build demo SPA (gh-pages mode → dist/gh-pages)
               run: npm run gh-pages
@@ -336,21 +358,21 @@ jobs:
               with:
                   fetch-depth: 0
                   path: value.js
-            - name: "Checkout glass-ui (demo resolves it from dist)"
+            - name: "Checkout glass-ui @ tranche/BG (the D8-1-cured live tree; un-pin at the 5.0.0 master landing)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/glass-ui
+                  ref: tranche/BG
                   path: glass-ui
             - name: "Checkout keyframes.js (file: workspace dep)"
               uses: actions/checkout@v4
               with:
                   repository: mkbabb/keyframes.js
                   path: keyframes.js
-            - uses: actions/setup-node@v5
+            - name: Use Node 24 (the producers' build env)
+              uses: actions/setup-node@v5
               with:
-                  node-version: 22
-                  cache: "npm"
-                  cache-dependency-path: value.js/package-lock.json
+                  node-version: 24
             - name: Build glass-ui dist (the dts/css/js boot precondition)
               working-directory: glass-ui
               run: |
@@ -361,6 +383,12 @@ jobs:
               run: |
                   npm ci
                   npm run build
+            - name: Use Node 22 (the value.js ladder)
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 22
+                  cache: "npm"
+                  cache-dependency-path: value.js/package-lock.json
             - run: npm ci
             # The demo self-aliases `@mkbabb/value.js` → dist/value.js
             # (vite.config.ts, mechanism-C), so the library dist must exist
