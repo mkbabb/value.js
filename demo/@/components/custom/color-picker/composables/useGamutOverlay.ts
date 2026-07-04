@@ -7,22 +7,14 @@
  * `sampleGamutBoundary` (the JND contour of the active wide lens over the HSV
  * plate); no matrix is re-derived, no gamut mapping happens here. One seed
  * allocation on setup; every subsequent hue/lens/theme/resize frame rides the
- * zero-alloc `sampleGamutBoundaryInto` twin.
+ * zero-alloc `sampleGamutBoundaryInto` twin. The canvas work itself lives in
+ * `../gamutOverlayPaint.ts` — this composable owns the lens, the boundary
+ * lifecycle, the caption readouts, and WHEN to draw.
  *
  * Lens policy (B5 — Q11 RATIFIED 2026-07-03): default lens display-p3; the
  * lens follows `selectedColorSpace` only when that space is wide-RGB
  * (display-p3 / a98-rgb / prophoto-rgb / rec2020). The plate caption always
  * names the lens — an instrument states its conditions.
- *
- * Ink discipline (B1/B3): the contour hairline + clipped-margin hatch draw
- * from the four `--gamut-*` tokens (style.css :root), applied per segment by
- * the field's own luma through the SHARED `spectrumLuma` helper — the
- * dark-voiced pair over light field, the light-voiced pair over dark field,
- * the regime flipping exactly where the WatercolorDot's border flips. In the
- * light scheme that is literally "ink pair over light field, paper pair over
- * dark" (the treatment's clause); in the dark scheme the resolved voices swap
- * roles so the contrast law holds — the flip LOCATION (the shared 0.5) is the
- * invariant, never a second constant.
  *
  * PRM: the hatch PHASE (the decorative drift) freezes under
  * `prefers-reduced-motion: reduce`; the contour position still tracks hue —
@@ -50,18 +42,15 @@ import type {
 import { findCusp, srgbToOKLab } from "@src/units/color/gamut";
 import { hsl2rgb } from "@src/units/color/conversions/cylindrical";
 import { HSLColor } from "@src/units/color";
+import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
 import {
-    cancelAnimationFrame,
-    requestAnimationFrame,
-} from "@src/utils";
-import { spectrumFieldIsLight } from "../spectrumLuma";
+    createInkProbe,
+    paintGamutBoundary,
+    type ResolvedInks,
+} from "../gamutOverlayPaint";
 import type { DisplayColorSpace } from "..";
 
 const COLUMNS = 96; // the validated geometry default (boundary-api §2)
-const DPR_CAP = 2;
-const HATCH_PERIOD = 6; // CSS px, perpendicular — the token's 5px+1px tile
-const HATCH_DRIFT_PERIODS = 2; // hatch phase periods per full hue turn
-const CROSSHAIR_R = 4.5; // 9px ink crosshair (B6)
 
 const WIDE_RGB_LENSES: ReadonlySet<string> = new Set([
     "display-p3",
@@ -77,13 +66,6 @@ const LENS_SHORT: Record<GamutBoundaryTarget, string> = {
     "prophoto-rgb": "prophoto",
     rec2020: "rec2020",
 };
-
-interface ResolvedInks {
-    edgeInk: string;
-    edgePaper: string;
-    hatchInk: string | null; // null ⇒ gradient-stop parse failed (degraded)
-    hatchPaper: string | null;
-}
 
 export interface UseGamutOverlayOptions {
     /** Plate hue in degrees [0, 360]. */
@@ -198,124 +180,17 @@ export function useGamutOverlay(opts: UseGamutOverlayOptions) {
             document.documentElement.classList.contains("dark"),
     );
 
-    // Token probe — the canvas resolves the four `--gamut-*` tokens via a
-    // computed-style probe (treatment §COLOR clause 1); cached per scheme.
-    let probeEl: HTMLSpanElement | null = null;
+    // The ink probe (gamutOverlayPaint) — resolved colors cached per scheme.
+    let probe: ReturnType<typeof createInkProbe> | null = null;
     let inkCache: ResolvedInks | null = null;
     let inkCacheDark: boolean | null = null;
 
-    function extractGradientStop(gradient: string): string | null {
-        // Computed `repeating-linear-gradient(45deg, transparent 0 5px, C 5px 6px)`
-        // with C fully resolved; pick the first non-transparent color function.
-        const colors = gradient.match(
-            /(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\((?:[^()]|\([^()]*\))*\)/g,
-        );
-        if (!colors) return null;
-        for (const c of colors) {
-            if (/^rgba\(0,\s*0,\s*0,\s*0\)$/.test(c)) continue; // transparent
-            if (/\/\s*0\)\s*$/.test(c)) continue; // `… / 0)` zero-alpha
-            return c;
-        }
-        return null;
-    }
-
-    function resolveInks(host: HTMLElement): ResolvedInks {
+    function inks(host: HTMLElement): ResolvedInks {
         if (inkCache && inkCacheDark === isDark.value) return inkCache;
-        if (!probeEl) {
-            probeEl = document.createElement("span");
-            probeEl.setAttribute("aria-hidden", "true");
-            probeEl.style.cssText =
-                "position:absolute;visibility:hidden;pointer-events:none;width:0;height:0;";
-            host.appendChild(probeEl);
-        }
-        probeEl.style.color = "var(--gamut-edge)";
-        probeEl.style.backgroundColor = "var(--gamut-edge-paper)";
-        probeEl.style.backgroundImage =
-            "var(--gamut-hatch), var(--gamut-hatch-paper)";
-        const cs = getComputedStyle(probeEl);
-        const images = cs.backgroundImage.split(/(?=repeating-linear-gradient\()/);
-        inkCache = {
-            edgeInk: cs.color,
-            edgePaper: cs.backgroundColor,
-            hatchInk: images[0] ? extractGradientStop(images[0]) : null,
-            hatchPaper: images[1] ? extractGradientStop(images[1]) : null,
-        };
+        probe ??= createInkProbe(host);
+        inkCache = probe.resolve();
         inkCacheDark = isDark.value;
         return inkCache;
-    }
-
-    // ── Paint ────────────────────────────────────────────────────────────────
-    const toX = (s: number, w: number) => s * w;
-    const toY = (v: number, h: number) => (1 - v) * h;
-
-    /** The visibly-clipped margin: contour → top-right corner → top edge. */
-    function oogRegionPath(w: number, h: number): Path2D {
-        const p = new Path2D();
-        p.moveTo(toX(pt(0), w), toY(pt(1), h));
-        for (let i = 1; i < boundary.count; i++) {
-            p.lineTo(toX(pt(2 * i), w), toY(pt(2 * i + 1), h));
-        }
-        p.lineTo(w, 0);
-        p.closePath();
-        return p;
-    }
-
-    /**
-     * The luma-flip height at saturation `s`, found by bisecting the SHARED
-     * luma model (share the function, never copy the constant — B3).
-     */
-    function flipVAt(s: number): number {
-        if (!spectrumFieldIsLight(s, 1)) return 1;
-        let lo = 0;
-        let hi = 1;
-        for (let i = 0; i < 16; i++) {
-            const mid = (lo + hi) / 2;
-            if (spectrumFieldIsLight(s, mid)) hi = mid;
-            else lo = mid;
-        }
-        return (lo + hi) / 2;
-    }
-
-    /** Light-field / dark-field regime regions, split on the shared flip. */
-    function regimeRegionPath(w: number, h: number, light: boolean): Path2D {
-        const p = new Path2D();
-        const cols = 32;
-        p.moveTo(0, toY(flipVAt(0), h));
-        for (let j = 1; j <= cols; j++) {
-            const s = j / cols;
-            p.lineTo(toX(s, w), toY(flipVAt(s), h));
-        }
-        if (light) {
-            p.lineTo(w, 0);
-            p.lineTo(0, 0);
-        } else {
-            p.lineTo(w, h);
-            p.lineTo(0, h);
-        }
-        p.closePath();
-        return p;
-    }
-
-    function drawHatch(
-        c: CanvasRenderingContext2D,
-        w: number,
-        h: number,
-        phase: number,
-        style: string,
-    ) {
-        const step = HATCH_PERIOD * Math.SQRT2;
-        c.strokeStyle = style;
-        c.lineWidth = 1;
-        c.beginPath();
-        for (
-            let x = -h - step + ((phase % step) + step) % step;
-            x < w + step;
-            x += step
-        ) {
-            c.moveTo(x, 0);
-            c.lineTo(x + h, h);
-        }
-        c.stroke();
     }
 
     // Host size cached from the ResizeObserver — the draw path must never
@@ -323,113 +198,6 @@ export function useGamutOverlay(opts: UseGamutOverlayOptions) {
     // styles every frame turns a 1 ms draw into a 13 ms one, measured).
     let hostW = 0;
     let hostH = 0;
-
-    function paint(host: HTMLElement, canvas: HTMLCanvasElement) {
-        if (!ctx) return;
-        const w = hostW;
-        const h = hostH;
-        if (w === 0 || h === 0) return;
-        const dpr = Math.min(window.devicePixelRatio || 1, DPR_CAP);
-        const W = Math.round(w * dpr);
-        const H = Math.round(h * dpr);
-        if (canvas.width !== W) canvas.width = W;
-        if (canvas.height !== H) canvas.height = H;
-
-        const c = ctx;
-        c.setTransform(dpr, 0, 0, dpr, 0, 0);
-        c.clearRect(0, 0, w, h);
-
-        // count === 0 ⇒ the plate is clear: no stroke, no sentinel — the
-        // caption alone states the fact (the blue-absence beat).
-        if (boundary.count === 0) return;
-
-        const inks = resolveInks(host);
-
-        // Scheme-aware pairing: the dark-voiced pair contrasts on light field.
-        const dark = isDark.value;
-        const lightFieldEdge = dark ? inks.edgePaper : inks.edgeInk;
-        const darkFieldEdge = dark ? inks.edgeInk : inks.edgePaper;
-        const lightFieldHatch = dark ? inks.hatchPaper : inks.hatchInk;
-        const darkFieldHatch = dark ? inks.hatchInk : inks.hatchPaper;
-
-        const oog = oogRegionPath(w, h);
-        const lightRegion = regimeRegionPath(w, h, true);
-        const darkRegion = regimeRegionPath(w, h, false);
-
-        // (c) the registered dual hatch — drawn twice, same line geometry,
-        // each pass clipped to (clipped margin ∩ luma regime).
-        const phase = prmReduce.value
-            ? 0
-            : (opts.hueDeg.value / 360) *
-              HATCH_DRIFT_PERIODS *
-              HATCH_PERIOD *
-              Math.SQRT2;
-        for (const [region, ink, edge] of [
-            [lightRegion, lightFieldHatch, lightFieldEdge],
-            [darkRegion, darkFieldHatch, darkFieldEdge],
-        ] as const) {
-            c.save();
-            c.clip(oog);
-            c.clip(region);
-            if (ink) {
-                drawHatch(c, w, h, phase, ink);
-            } else {
-                // Degraded probe-parse fallback: hatch in the edge ink, faint.
-                c.globalAlpha = 0.35;
-                drawHatch(c, w, h, phase, edge);
-            }
-            c.restore();
-        }
-
-        // (b) the JND contour as a device-pixel hairline, dual-ink per
-        // segment by the SHARED luma regime at the segment midpoint.
-        const lightPath = new Path2D();
-        const darkPath = new Path2D();
-        for (let i = 1; i < boundary.count; i++) {
-            const s0 = pt(2 * (i - 1));
-            const v0 = pt(2 * (i - 1) + 1);
-            const s1 = pt(2 * i);
-            const v1 = pt(2 * i + 1);
-            const path = spectrumFieldIsLight((s0 + s1) / 2, (v0 + v1) / 2)
-                ? lightPath
-                : darkPath;
-            path.moveTo(toX(s0, w), toY(v0, h));
-            path.lineTo(toX(s1, w), toY(v1, h));
-        }
-        c.lineWidth = 1 / dpr; // a device-pixel hairline
-        c.lineCap = "round";
-        c.strokeStyle = lightFieldEdge;
-        c.stroke(lightPath);
-        c.strokeStyle = darkFieldEdge;
-        c.stroke(darkPath);
-
-        // (B6) the on-plate datum: a 9px ink crosshair at the contour's
-        // innermost point (min s+v — consumer-side scan, boundary-api §9).
-        let minIdx = 0;
-        let minSum = Infinity;
-        for (let i = 0; i < boundary.count; i++) {
-            const sum = pt(2 * i) + pt(2 * i + 1);
-            if (sum < minSum) {
-                minSum = sum;
-                minIdx = i;
-            }
-        }
-        const dx = toX(pt(2 * minIdx), w);
-        const dy = toY(pt(2 * minIdx + 1), h);
-        const datum = new Path2D();
-        datum.moveTo(dx - CROSSHAIR_R, dy);
-        datum.lineTo(dx + CROSSHAIR_R, dy);
-        datum.moveTo(dx, dy - CROSSHAIR_R);
-        datum.lineTo(dx, dy + CROSSHAIR_R);
-        c.lineWidth = 1;
-        c.strokeStyle = spectrumFieldIsLight(pt(2 * minIdx), pt(2 * minIdx + 1))
-            ? lightFieldEdge
-            : darkFieldEdge;
-        // Stroked twice: the datum reads a step firmer than the hairline
-        // while staying inside the token's ink (no fifth token).
-        c.stroke(datum);
-        c.stroke(datum);
-    }
 
     // ── The clip-path no-canvas fallback (single-ink, degraded-honest) ──────
     const fallbackStyle = computed(() => {
@@ -453,7 +221,16 @@ export function useGamutOverlay(opts: UseGamutOverlayOptions) {
         resample();
         const host = opts.hostRef.value;
         const canvas = opts.canvasRef.value;
-        if (host && canvas && canvasOk.value) paint(host, canvas);
+        if (host && canvas && ctx && canvasOk.value) {
+            paintGamutBoundary(ctx, canvas, boundary, {
+                width: hostW,
+                height: hostH,
+                inks: inks(host),
+                isDark: isDark.value,
+                hueDeg: opts.hueDeg.value,
+                reduceMotion: prmReduce.value,
+            });
+        }
         const dt = performance.now() - t0;
         opts.onDrawCost?.(dt);
         try {
@@ -515,8 +292,8 @@ export function useGamutOverlay(opts: UseGamutOverlayOptions) {
         }
         resizeObs?.disconnect();
         classObs?.disconnect();
-        probeEl?.remove();
-        probeEl = null;
+        probe?.dispose();
+        probe = null;
     });
 
     return {

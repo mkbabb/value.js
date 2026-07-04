@@ -48,31 +48,19 @@
                 :style="spectrumDotStyle"
             />
 
-            <!-- B4: the lens-named micro-label, surfaced for the detent's
-                 duration. Appear/fade is a CSS transition (neutralised by the
-                 global prefers-reduced-motion guard); the detent itself is
-                 drag physics — state, not decoration. -->
-            <Transition name="detent-fade">
-                <span
-                    v-if="detent.holding.value"
-                    :class="[
-                        'detent-label',
-                        dotPos.s > 0.85 && 'detent-label--flip',
-                    ]"
-                    :style="detentLabelStyle"
-                    aria-hidden="true"
-                    >{{ lensShort }} ⊣</span
-                >
-            </Transition>
+            <SpectrumDetentLabel
+                :visible="detent.holding.value"
+                :text="lensShort"
+                :left="`${100 * dotPos.s}%`"
+                :top="`${100 * (1 - dotPos.v)}%`"
+                :flip="dotPos.s > 0.85"
+            />
         </div>
 
-        <!-- The plate caption: the instrument names its lens like a plate
-             names its illuminant; the readout carries the breathing numbers
-             (cusp) — or states the clear plate as a measurement. -->
-        <figcaption class="plate-caption">
-            <span>{{ lensCaption }}</span>
-            <span>{{ plateReadout }}</span>
-        </figcaption>
+        <SpectrumPlateCaption
+            :lens-caption="lensCaption"
+            :plate-readout="plateReadout"
+        />
     </figure>
 </template>
 
@@ -86,6 +74,8 @@ import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
 import { useGamutOverlay } from "../composables/useGamutOverlay";
 import { useGamutDetent } from "../composables/useGamutDetent";
 import { spectrumFieldIsLight } from "../spectrumLuma";
+import SpectrumPlateCaption from "./SpectrumPlateCaption.vue";
+import SpectrumDetentLabel from "./SpectrumDetentLabel.vue";
 import { COLOR_MODEL_KEY } from "../keys";
 
 const {
@@ -339,11 +329,6 @@ const spectrumDotStyle = computed(() => {
     };
 });
 
-const detentLabelStyle = computed(() => ({
-    left: `${100 * dotPos.value.s}%`,
-    top: `${100 * (1 - dotPos.value.v)}%`,
-}));
-
 onUnmounted(() => {
     releaseCapture();
     if (spectrumRafId !== null) {
@@ -398,58 +383,4 @@ onUnmounted(() => {
     }
 }
 
-/* B4: the detent micro-label — Fira Code, lens-named, a paper chip so the
- * tick reads over any field region. Painted above the dot by DOM order.
- * The contour lives near the TOP edge, so the label falls BELOW the cursor
- * (never off-plate); near the right edge it flips to the cursor's left. */
-.detent-label {
-    position: absolute;
-    transform: translate(0.9rem, 0.9rem);
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    line-height: 1;
-    white-space: nowrap;
-    padding: 0.1875rem 0.375rem;
-    border-radius: var(--radius-sm);
-    color: var(--foreground);
-    background: color-mix(in oklab, var(--background) 82%, transparent);
-    border: 1px solid var(--gamut-edge);
-    pointer-events: none;
-}
-
-.detent-label--flip {
-    transform: translate(calc(-100% - 0.9rem), 0.9rem);
-}
-
-/* Appear/fade rides a plain transition: the global reduced-motion guard
- * (animations.css) neutralises it, so the label is PRM-gated by construction. */
-.detent-fade-enter-active,
-.detent-fade-leave-active {
-    transition: opacity var(--duration-fast, 120ms) var(--ease-standard);
-}
-.detent-fade-enter-from,
-.detent-fade-leave-to {
-    opacity: 0;
-}
-
-/* The plate caption: the annotation voice (Fira Code), all-small-caps — the
- * atlas-caption register shared with the space title's catalog eyebrow. */
-.plate-caption {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    column-gap: 1rem;
-    margin-top: 0.4375rem;
-    padding-inline: 0.125rem;
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    line-height: 1.4;
-    letter-spacing: 0.09em;
-    font-variant-caps: all-small-caps;
-    font-feature-settings: "tnum" 1;
-    color: var(--muted-foreground);
-    white-space: nowrap;
-    user-select: none;
-}
 </style>
