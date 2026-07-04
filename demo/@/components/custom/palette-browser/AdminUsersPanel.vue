@@ -40,7 +40,8 @@
         <div v-if="loading" class="flex items-center justify-center py-8">
             <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
         </div>
-        <template v-else>
+        <EmptyState v-else-if="users.length === 0" message="No users found." />
+        <div v-else class="grid gap-3">
             <div
                 v-for="user in users"
                 :key="user.slug"
@@ -109,8 +110,7 @@
                     </div>
                 </div>
             </div>
-            <EmptyState v-if="users.length === 0" message="No users found." />
-        </template>
+        </div>
 
         <!-- Confirmation dialog -->
         <ConfirmDialog
