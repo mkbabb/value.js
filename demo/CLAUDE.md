@@ -32,14 +32,14 @@ Post-Mar-2026 restructure + B + D consolidations. Each subtree is colocated (com
 
 ### color-picker/
 
-Organised into `controls/`, `display/`, `editing/`, `visual/`, `composables/` subdirs (Mar-2026 restructure).
+Organised into `controls/`, `display/`, `visual/`, `composables/` subdirs (Mar-2026 restructure; the `editing/` subdir died at R.W4 — T21 deleted the dead `EditDrawer`, `ActionToolbar` moved to `controls/`). Top-level helpers: `spectrumLuma.ts` (the ONE luma ink-regime function), `gamutOverlayPaint.ts`, `readoutReservation.ts`, `colorSpaceInfo.ts` (R.W3).
 
 | Subdir | Highlights |
 |---|---|
 | `ColorPicker.vue` | top-level shell |
 | `controls/` | `ColorInput`, `ComponentSliders` (has `pointercancel`/`lostpointercapture` for reka-ui slider pointer-capture leaks), space selector |
 | `display/` | `ColorNutritionLabel`, copy actions |
-| `editing/` | `EditDrawer`, `ActionToolbar`, `ActionButton` |
+| `controls/` (cont.) | `ActionToolbar` (ex-`editing/`; `EditDrawer` deleted at R.W4 T21 — dead UI) |
 | `visual/` | `SpectrumCanvas`, `HeroBlob`, `PointerDebugOverlay` (dev-only, injected via `POINTER_DEBUG_KEY`) |
 | `composables/` | `useColorModel`, `useColorParsing`, `useSliderGradients`, `useColorNameResolution`, `useColorUrl`, `useCustomColorNames` (named KEEP: directly imports `@lib/palette/api`), `usePointerDebug`, `useHoverPopover`, `useTouchGate`, etc. |
 | `keys.ts` | `CSS_COLOR_KEY`, `EDIT_TARGET_KEY`, `POINTER_DEBUG_KEY` injection keys (provide/inject pattern) |
@@ -65,10 +65,11 @@ Organised into `controls/`, `display/`, `editing/`, `visual/`, `composables/` su
 
 | File | Purpose |
 |---|---|
-| `ImagePaletteExtractor.vue` | shell |
+| `ExtractWorkbench.vue` + `useExtractSession.ts` | **the ONE workbench** (R.W4 T20 collapsed the ~90%-duplicate `ExtractPane`↔`ImagePaletteExtractor` dup-shell; the pane is a thin shell) |
+| `ImagePaletteExtractor.vue` | thin shell over the workbench |
 | `ImageEyedropper/` | **Colocated split** (D.W3 Lane A; was a single ~400-LoC component pre-split) |
 | `ExtractControls.vue`, `ImageDropZone.vue` | controls |
-| `composables/` | extraction helpers |
+| `composables/`, `useImageQuantize.ts`, `useInertiaGesture.ts` | extraction helpers (quantize threads `chromaWeight` — R.W2 kC; inertia rAF is PRM-gated) |
 
 ### Other subtrees
 
