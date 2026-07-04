@@ -1,20 +1,28 @@
 <template>
-    <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
-        <Tooltip>
-            <TooltipTrigger as-child>
-                <GooBlob
-                    ref="gooBlobRef"
-                    :color="cssColorOpaque"
-                    class="w-[7rem]"
-                    @click="onBlobClick"
-                    @mouseenter="gooBlobRef?.setMood('curious')"
-                />
-            </TooltipTrigger>
-            <TooltipContent class="fira-code">
-                {{ denormalizedCurrentColor.value.toFormattedString() }}
-            </TooltipContent>
-        </Tooltip>
-    </TooltipProvider>
+    <!-- Explicit root: the caller's class (grid/absolute placement) lands
+         here, never on the renderless TooltipProvider. -->
+    <div>
+        <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
+            <Tooltip>
+                <TooltipTrigger as-child>
+                    <!-- R.W3 Lane D / D2: the material hero's scale (N.W16
+                         D1-4 — `w-[11rem]` at the lg corner-break; a tucked
+                         w-24 puck on the clipped mobile card). Position is
+                         the caller's. -->
+                    <GooBlob
+                        ref="gooBlobRef"
+                        :color="cssColorOpaque"
+                        class="w-24 lg:w-[11rem]"
+                        @click="onBlobClick"
+                        @mouseenter="gooBlobRef?.setMood('curious')"
+                    />
+                </TooltipTrigger>
+                <TooltipContent class="fira-code">
+                    {{ denormalizedCurrentColor.value.toFormattedString() }}
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+    </div>
 </template>
 
 <script setup lang="ts">

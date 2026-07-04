@@ -45,22 +45,26 @@
                         hide-indicator
                         class="pl-3 pr-4 py-2"
                     >
-                        <span class="flex items-center gap-2.5 min-w-0">
-                            <WatercolorDot
-                                tag="div"
-                                :color="cssColor"
-                                class="specimen-dot shrink-0"
-                                :class="modelValue === space ? '' : 'specimen-dot-idle'"
-                            />
-                            <span
-                                class="font-display italic text-title leading-tight truncate"
-                                :class="modelValue === space ? 'font-semibold' : ''"
-                            >{{ name }}</span>
-                            <span class="fira-code text-mono-caption opacity-40 ml-auto pl-3">{{ pad(i + 1) }}</span>
-                        </span>
+                        <!-- Default slot = SelectItemText: the display-face
+                             name ONLY (reka's SelectValue clones this node
+                             into the trigger — the swatch/index/conversion
+                             must stay in the #description row). -->
+                        <span
+                            class="font-display italic text-title leading-tight"
+                            :class="modelValue === space ? 'font-semibold' : ''"
+                        >{{ name }}</span>
                         <template #description>
-                            <span class="fira-code text-mono-caption opacity-60 block truncate max-w-[16rem]">
-                                {{ specimenFor(space as DisplayColorSpace) }}
+                            <span class="flex items-center gap-2 min-w-0 max-w-[16rem]">
+                                <WatercolorDot
+                                    tag="div"
+                                    :color="cssColor"
+                                    class="specimen-dot shrink-0"
+                                    :class="modelValue === space ? '' : 'specimen-dot-idle'"
+                                />
+                                <span class="fira-code text-mono-caption lowercase opacity-60 truncate">
+                                    {{ specimenFor(space as DisplayColorSpace) }}
+                                </span>
+                                <span class="fira-code text-mono-caption opacity-40 ml-auto pl-2">{{ pad(i + 1) }}</span>
                             </span>
                         </template>
                     </SelectItem>

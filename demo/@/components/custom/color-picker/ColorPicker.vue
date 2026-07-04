@@ -3,13 +3,31 @@
          clamp via the .pane-container min() formula; the mobile slot wrapper
          owns the sub-lg width). -->
     <div class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full">
-        <Card tier="resting" class="flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
+        <Card tier="resting" class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
+            <!-- R.W3 Lane D / D2 — the dual-hero diagonal (U30b, N.W16 D1-4):
+                 the blob is the MATERIAL hero, absolutely top-right on the
+                 relative Card (corner-break at lg, where overflow is visible;
+                 tucked inside the clipped mobile card), out of the header
+                 grid entirely. The numbers are the TYPOGRAPHIC hero on the
+                 reading axis below-left — never the same channel at the same
+                 position. -->
+            <!-- The deep negative inset is calibrated to the GooBlob canvas:
+                 the visible metaball body sits inset ~25% within its square
+                 canvas, so a true corner-break needs the canvas well past the
+                 card edge. -->
+            <HeroBlob
+                ref="heroBlobRef"
+                class="absolute z-20 top-0 right-0 lg:-top-14 lg:-right-12"
+                @click="onHeroBlobClick()"
+            />
+
             <!-- The header is a DISPLAY surface (space title + hero numbers →
                  Fraunces); horizontal padding rides `cqi` against the pane-slot
-                 container, not viewport breakpoints (R.W3 Lane A / A4). -->
-            <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible grid grid-cols-3 grid-rows-[auto_auto] gap-x-3 items-start">
+                 container, not viewport breakpoints (R.W3 Lane A / A4). The
+                 static right padding is the blob's footprint RESERVATION
+                 (D1-4: by construction, never a measured nudge). -->
+            <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full pl-[clamp(0.75rem,4cqi,1.5rem)] pr-24 lg:pr-36 min-w-0 overflow-visible flex flex-col gap-y-1 items-start">
                 <ColorSpaceSelector
-                    class="col-start-1 row-start-1"
                     :model-value="model.selectedColorSpace"
                     v-model:open="selectedColorSpaceOpen"
                     :css-color="cssColor"
@@ -17,14 +35,12 @@
                 />
 
                 <ColorComponentDisplay
-                    class="col-start-1 row-start-2"
                     :color-components="colorComponents"
                     :formatted="currentColorComponentsFormatted"
+                    :space="model.selectedColorSpace"
                     @update="(v, c) => updateColorComponentDebounced(v, c)"
                     @input="onComponentInput"
                 />
-
-                <HeroBlob ref="heroBlobRef" class="col-start-2 col-span-2 row-span-2 justify-self-end" @click="onHeroBlobClick()" />
             </CardHeader>
 
             <!-- The content region is the CONTROLS zone — body voice, never a
