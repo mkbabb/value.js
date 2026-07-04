@@ -21,13 +21,15 @@
         >
             <!-- C2 — the audacious rung: the producer's font-rung prop scales
                  trigger + value off the ONE documented lever (glass-ui 4.2.0);
-                 the local `text-title sm:text-display` pair is dead. The
-                 fontFamily override below is OBSERVED here, retired at R.W4. -->
+                 the local `text-title sm:text-display` pair is dead. R.W4 F2:
+                 the trigger-level fontFamily override is RETIRED — the display
+                 face rides the CardHeader's `font-display` surface + the
+                 cloned specimen-row class; the producer rung carries size. -->
             <SelectTrigger
                 aria-label="Select color space"
                 variant="ghost"
                 size="audacious"
-                :style="{ color: safeAccent, fontFamily: 'var(--font-display)' }"
+                :style="{ color: safeAccent }"
                 class="space-trigger w-fit h-fit italic tracking-tight p-0 m-0 pb-1 select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block"
             >
                 <SelectValue class="w-full" />
