@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject } from "vue";
+import { computed, inject, ref } from "vue";
 import {
     Select,
     SelectContent,
@@ -8,10 +8,12 @@ import {
     SelectValue,
 } from "@components/ui/select";
 import { Slider } from "@components/ui/slider";
-import { Copy } from "@lucide/vue";
+import { Copy, ChevronDown } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
+import { EasingPicker } from "@mkbabb/glass-ui/easing";
+import type { EasingPickerMode, EasingPickerValue } from "@mkbabb/glass-ui/easing";
+import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import GradientStopEditor from "./GradientStopEditor.vue";
-import EasingSelector from "./EasingSelector.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
 import {
     useGradientModel,
@@ -61,7 +63,14 @@ function onStopPositionUpdate(id: string, position: number) {
 }
 
 function onParseCSS(css: string) {
-    applyCSS(css);
+    // A successful parse re-seeds every interval to the `linear` preset
+    // (easing-disposition §1.6/D3). Bump the epoch so the alive picker
+    // instances remount re-seeded `linear` — the drawn curve and the
+    // interval's live fn must never disagree after a reset.
+    if (applyCSS(css)) {
+        easingEpoch.value++;
+        intervalModes.value = {};
+    }
 }
 
 function seedFromPalette() {
@@ -82,7 +91,7 @@ function resetGradient() {
 }
 
 const intervalPairs = computed(() => {
-    const pairs: { index: number; label: string; easingName: string }[] = [];
+    const pairs: { index: number; label: string; css: string }[] = [];
     for (let i = 0; i < intervals.value.length; i++) {
         const s0 = stops.value[i];
         const s1 = stops.value[i + 1];
@@ -90,11 +99,48 @@ const intervalPairs = computed(() => {
         pairs.push({
             index: i,
             label: `${i + 1} → ${i + 2}`,
-            easingName: intervals.value[i]!.easingName,
+            css: intervals.value[i]!.css,
         });
     }
     return pairs;
 });
+
+// ── The easing accordion (R.W4 Lane D / D2 — the `/easing` consume) ──
+// One specimen row per interval; the OPEN row seats the glass-ui
+// <EasingPicker> (curve math 100% value.js — CSSCubicBezier / steppedEase
+// through the producer's composable). Instances stay ALIVE (v-show, never
+// v-if) so an authored curve is never re-seeded away by a row toggle — the
+// drawn curve and the interval's live fn cannot disagree. The one legitimate
+// re-seed is a model-wide reset (a successful CSS parse), keyed by epoch.
+const openInterval = ref<number | null>(0);
+const easingEpoch = ref(0);
+
+function toggleInterval(index: number) {
+    openInterval.value = openInterval.value === index ? null : index;
+}
+
+// Q12 (RATIFIED): steps mode is ALLOWED — banded gradients are a design
+// tool. The mode rides the picker's `mode` prop, toggled per interval.
+const intervalModes = ref<Record<number, EasingPickerMode>>({});
+const EASING_MODE_OPTIONS = [
+    { label: "Curve", value: "bezier" },
+    { label: "Steps", value: "steps" },
+];
+
+function intervalMode(index: number): EasingPickerMode {
+    return intervalModes.value[index] ?? "bezier";
+}
+
+function onModeChange(index: number, value: string | string[]) {
+    const next = Array.isArray(value) ? value[0] : value;
+    if (next === "bezier" || next === "steps") {
+        intervalModes.value = { ...intervalModes.value, [index]: next };
+    }
+}
+
+function onIntervalAuthored(index: number, value: EasingPickerValue | undefined) {
+    if (value) updateInterval(index, value);
+}
 
 const activeTypeDesc = computed(() =>
     GRADIENT_TYPES.find((t) => t.value === type.value)?.description ?? "",
@@ -204,20 +250,55 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) direction = v[0]; }" />
         </div>
 
-        <!-- ── Easing ── -->
+        <!-- ── Easing (R.W4 Lane D — the glass-ui <EasingPicker> consume) ── -->
         <template v-if="intervalPairs.length > 0">
             <hr class="border-border" />
             <h3 class="font-display text-subheading text-muted-foreground">Easing</h3>
-            <div
-                v-for="pair in intervalPairs"
-                :key="pair.index"
-                class="flex items-center gap-2"
-            >
-                <span class="text-mono-small text-muted-foreground w-10 shrink-0">{{ pair.label }}</span>
-                <EasingSelector
-                    :model-value="pair.easingName"
-                    @update:model-value="(v) => updateInterval(pair.index, v)"
-                />
+            <div class="flex flex-col gap-2">
+                <!-- Z2 in-plate specimen rows: flat on the plate, --card-edge
+                     hairline, no shadow (DESIGN.md § Depth). -->
+                <div
+                    v-for="pair in intervalPairs"
+                    :key="`${pair.index}:${easingEpoch}`"
+                    class="rounded-card border border-card-edge overflow-hidden"
+                >
+                    <button
+                        type="button"
+                        class="interval-head w-full flex items-center gap-3 px-3 py-2 text-left cursor-pointer"
+                        :aria-expanded="openInterval === pair.index"
+                        :aria-controls="`easing-interval-${pair.index}`"
+                        @click="toggleInterval(pair.index)"
+                    >
+                        <span class="fira-code text-mono-small text-muted-foreground shrink-0">{{ pair.label }}</span>
+                        <code class="fira-code text-mono-caption text-muted-foreground/70 truncate flex-1 min-w-0">{{ pair.css }}</code>
+                        <ChevronDown
+                            class="w-4 h-4 shrink-0 text-muted-foreground transition-transform"
+                            :class="openInterval === pair.index ? 'rotate-180' : ''"
+                            aria-hidden="true"
+                        />
+                    </button>
+                    <div
+                        v-show="openInterval === pair.index"
+                        :id="`easing-interval-${pair.index}`"
+                        class="px-3 pb-3 flex flex-col gap-3"
+                    >
+                        <div class="flex justify-start">
+                            <SegmentedTabs
+                                variant="pill"
+                                :options="EASING_MODE_OPTIONS"
+                                :model-value="intervalMode(pair.index)"
+                                aria-label="Easing mode"
+                                @update:model-value="(v: string | string[]) => onModeChange(pair.index, v)"
+                            />
+                        </div>
+                        <EasingPicker
+                            :mode="intervalMode(pair.index)"
+                            preset="linear"
+                            :label="`Easing curve ${pair.label}`"
+                            @update:model-value="(v: EasingPickerValue | undefined) => onIntervalAuthored(pair.index, v)"
+                        />
+                    </div>
+                </div>
             </div>
         </template>
 
@@ -236,3 +317,18 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         />
     </div>
 </template>
+
+<style scoped>
+/* The specimen-row head: a whisper hover + the house focus register (the
+ * accent-aware ring the keystone mints — never a bespoke outline). */
+.interval-head {
+    transition: background-color var(--duration-fast) var(--ease-standard);
+}
+.interval-head:hover {
+    background-color: color-mix(in oklab, var(--foreground) 4%, transparent);
+}
+.interval-head:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring-shadow);
+}
+</style>

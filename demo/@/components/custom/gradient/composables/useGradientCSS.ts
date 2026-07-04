@@ -19,6 +19,24 @@ import type {
     GradientInterval,
 } from "./useGradientModel";
 
+// ── The linear interval seed ──
+//
+// The R.W4 `/easing` consume (easing-disposition.md §2.3): an interval carries
+// the picker payload `{css, fn}`. The linear seed is byte-identical to what
+// glass-ui's <EasingPicker> emits when seeded `:preset="linear"` (value.js
+// `bezierPresets.linear = [0, 0, 1, 1]`), so a parsed-then-edited interval and
+// a freshly-seeded picker can never disagree about "linear".
+
+/** The `linear` preset seed — the default easing for every interval. */
+export function linearInterval(): GradientInterval {
+    return {
+        mode: "bezier",
+        css: "cubic-bezier(0, 0, 1, 1)",
+        fn: linear,
+        points: [0, 0, 1, 1],
+    };
+}
+
 // ── Serialization ──
 
 /**
@@ -70,7 +88,7 @@ export function serializeCoalescedGradient(model: GradientModelState): string {
     for (let i = 0; i < stops.length - 1; i++) {
         const s0 = stops[i]!;
         const s1 = stops[i + 1]!;
-        const easing = intervals[i]?.easingFn ?? linear;
+        const easing = intervals[i]?.fn ?? linear;
 
         const c0 = cssToRawColor(s0.cssColor, interpolationSpace);
         const c1 = cssToRawColor(s1.cssColor, interpolationSpace);
@@ -203,10 +221,12 @@ export function parseGradientCSS(css: string): Partial<GradientModelState> | nul
             }
         }
 
-        // Create default intervals (linear easing between each pair)
+        // Create default intervals — every parsed interval seeds the `linear`
+        // preset (easing-disposition §1.6: no persisted artifact names an
+        // easing; the catalogue is a live-editing affordance).
         const intervals: GradientInterval[] = [];
         for (let j = 0; j < Math.max(0, stops.length - 1); j++) {
-            intervals.push({ easingName: "linear", easingFn: linear });
+            intervals.push(linearInterval());
         }
 
         return { type, direction, stops, intervals };

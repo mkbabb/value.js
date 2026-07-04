@@ -128,6 +128,20 @@ Per-lane integration commits; each fork death commits paired with its consume in
 | **U6 dock-fission verify** | the BG/BH 5.0.0 dock-fission surfaces | the dock-morph gate re-anchored there; W4's B3 styles the *current* dock only |
 | **U16 dock-sizing half** | same event | rides U6; the transition-family half closes here |
 
+**D7 BOOK entry (AUTHORED at the Lane-D consume, 2026-07-04)** — `@mkbabb/glass-ui/easing`
+joined the demo's consumed-specifier set at the D2 consume (`GradientVisualizer.vue`
+imports `EasingPicker` + the `EasingPickerMode`/`EasingPickerValue` types;
+`useGradientModel.ts` imports the `EasingPickerValue` type). The demo's distinct
+glass-ui specifier inventory at the consume (grep 2026-07-04, `demo/**` +
+`vite.config.ts`): the bare root + 15 component/util subpaths (`aurora`, `color`,
+`configurator`, `confirm-dialog`, `controls`, `dark`, `dock`, `dom`, **`easing`**
+(NEW), `forms`, `goo-blob`, `search`, `tabs`, `watercolor-dot`, `styles`) + the
+style-side `styles.css`/`styles/fonts` entries — `/easing` is the 17th distinct
+specifier the 5.0.0 by-name MIGRATION table must carry. **Verify at the GAP-3
+5.0.0 adopt event**: the relay letter's MIGRATION table names `/easing` (old →
+new specifier by name); `boot-smoke` cold catches any named-export drift
+(`EasingPicker`, `EasingConfigurator`, `useEasingPicker`, the value types).
+
 ## §Hand-off (binding boundaries)
 
 - **Consumes, never re-mints**: `--card-edge`, the depth laws, the card-lock law, `--accent-live` are R.W3-owned; the preset rows are R.W1-owned. Any missing producer surface is a relay-letter item (R.W7 §8), never a demo fork.
