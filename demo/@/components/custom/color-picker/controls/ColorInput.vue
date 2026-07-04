@@ -96,31 +96,9 @@
                     {{ denormalizedCurrentColor.value.toFormattedString() }}
                 </div>
 
-                <!-- E4 (Q10): the Parse-Lab echo — the parsed structure + the
-                     typed gamut verdict, in the plate-caption voice. The
-                     verdict is the SAME deltaEOK/gamutMapOKLab/JND computation
-                     the spectrum overlay draws — they cannot disagree. -->
-                <template v-if="astEcho || gamutVerdict">
-                    <Separator class="my-2" />
-                    <div class="fira-code text-mono-small flex flex-col items-center gap-1">
-                        <div v-if="astEcho" class="flex flex-wrap justify-center gap-x-2 gap-y-0.5">
-                            <span class="uppercase tracking-[0.14em] text-muted-foreground/70">{{ astEcho.space }}</span>
-                            <span
-                                v-for="part in astEcho.parts"
-                                :key="part"
-                                class="text-muted-foreground whitespace-nowrap"
-                                >{{ part }}</span
-                            >
-                        </div>
-                        <div v-if="gamutVerdict" class="gamut-verdict" :data-clips="gamutVerdict.clips">
-                            <template v-if="gamutVerdict.clips">
-                                clips in srgb — Δ {{ gamutVerdict.delta.toFixed(3) }} ≈
-                                {{ gamutVerdict.jndRatio.toFixed(1) }}× jnd
-                            </template>
-                            <template v-else>in srgb — Δ &lt; jnd</template>
-                        </div>
-                    </div>
-                </template>
+                <!-- E4 (Q10): the Parse-Lab echo (AST + gamut verdict). -->
+                <Separator class="my-2" />
+                <ParseEchoReadout />
             </HoverCardContent>
         </HoverCard>
     </div>
@@ -141,6 +119,7 @@ import {
 } from "@components/ui/tooltip";
 import { Separator } from "@components/ui/separator";
 import { Crown, ArrowRight, Loader2 } from "@lucide/vue";
+import ParseEchoReadout from "./ParseEchoReadout.vue";
 import { proposeColorName } from "@lib/palette/api";
 import { useSession } from "@composables/auth/useSession";
 import type { EditTarget } from "..";
@@ -164,8 +143,6 @@ const {
     parseError,
     updateModel,
     copyToClipboard,
-    astEcho,
-    gamutVerdict,
     DIGITS,
 } = inject(COLOR_MODEL_KEY)!;
 
@@ -322,15 +299,6 @@ defineExpose({
 
 .color-input-error {
     box-shadow: 0 0 0 2px color-mix(in srgb, var(--destructive) 25%, transparent);
-}
-
-/* E4 — the gamut-verdict voice: quiet when in gamut, amber-leaning when the
- * typed color clips visibly in sRGB (the plate-caption register). */
-.gamut-verdict {
-    color: var(--muted-foreground);
-}
-.gamut-verdict[data-clips="true"] {
-    color: color-mix(in oklab, var(--foreground) 35%, var(--color-gold, orange));
 }
 
 .color-input-mode-flash {
