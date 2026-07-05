@@ -19,6 +19,54 @@ dependency-only.
   run), `tsc` 0, `vite build` 0, `proof:css-parity` 0, and `color2Into`'s
   suite green (the kf fold-row-46 currency commitment holds).
 
+## [2.0.0] — 2026-07-03 (R · the gamut + perceptual major — the R.W1 cut)
+
+The one honest major of tranche R: every output-changing row bundled into a
+single 2.0.0 (the keyframes-2.2.0 semver lesson applied — never dribble
+output-changes across minors). Published `96f124d`, annotated tag `v2.0.0`,
+`dist-tags.latest=2.0.0`; independent verifier 12/12; vitest 1996/1996 (56
+files). The R corpus (`docs/tranches/R/`) is the authoritative record; this
+entry is the CHANGELOG transcription the 2.0.1 hand-back letter explicitly left
+to a successor tranche (S.W0 W0-5).
+
+### LIBRARY — output-changing (the reason it is a major)
+
+- **`GAMUT_ALPHA` 0.05 → 1.0** (`units/color/gamut.ts`) — the washed-out
+  gamut-mapping cure (U10/Q7). Out-of-gamut colors now retain chroma: the oracle
+  super-gamut pink `lab(92% 88.8 20)` maps to `rgb(255,167,180)` (39% chroma
+  retention, hue-exact) instead of the prior desaturated wash. Every conversion
+  through the gamut mapper shifts output for OOG inputs — the semver-major
+  trigger. Tiered lightness guard (ΔL 0.0834 < 0.09).
+- **ΔE-2000** (14 Sharma reference vectors) + **ΔE-ITP / ICtCp** (`difference.ts`)
+  — new perceptual color-difference metrics.
+- **OKHSL / OKHSV** color spaces (`okhsl.ts`, reusing the OKLab cusp math).
+- **bezierPresets** tightened — smooth-step-3 exact; 15 presets re-fit (max
+  deviation 0.0387).
+
+### LIBRARY — additive API
+
+- **Gamut-boundary sampler is now public**: `sampleGamutBoundary` /
+  `sampleGamutBoundaryInto` + 4 types (`units/color/boundary.ts`), goldens locked
+  @ 1e-3. Consumers get a registry export instead of forked math; the matrices
+  stay package-internal (zero `.d.ts` leak).
+
+### LIBRARY — grammar + internal
+
+- **KF-1 grammar fix + rename** (`parseFunctionParameters`): the
+  `@property`-descriptor parse now yields `{name, syntax, default}` (was the
+  spec-violating `--x <length>: 0px` shape). This lets keyframes.js delete its
+  `normalizeParam` / `NormalizedParam` / `VJS_PARAM_BUG_MAX` recovery shim and
+  read the fields directly.
+- **K-DISP decomposition** — `units/color/dispatch.ts` 760 → 522 LoC; the
+  hue/mix cluster lifted to `mix.ts` (subpath barrels byte-identical).
+- `/easing` 5-export stability guard; `extractFunctions` fresh-build `.d.ts` lock
+  (`test/dts-published-surface.test.ts`).
+
+### Cross-repo (dispatched inside the cut)
+
+- keyframes.js KF-1 re-pin letter (kf `9a0f6cb`); fourier peer-floor note
+  (fourier `cd26c65`).
+
 ## [1.2.0] — 2026-06-23 (Q · the perf + grammar + provenance minor — VJ-Q2…Q9)
 
 The keyframes.js **Tranche Q** dispatch's 1.2.0 family (`KF-TO-VALUEJS-Q.md`):
