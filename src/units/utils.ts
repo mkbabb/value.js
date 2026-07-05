@@ -301,9 +301,14 @@ export const unpackMatrixValues = (value: FunctionValue): MatrixValues => {
             scaleY: values[3] ?? 1,
             translateX: values[4] ?? 0,
             translateY: values[5] ?? 0,
+            // A 2D `matrix()` is planar — the ONLY rotation it can encode is the
+            // in-plane rotateZ. The prior code derived rotateY/rotateX from the
+            // same `a`/`b`/`c`/`d` cells via atan2, emitting nonsense
+            // out-of-plane angles for a purely planar transform (lib-core P2-5).
+            // The two out-of-plane rotations are identically 0.
             rotateZ: Math.atan2(values[1] ?? 0, values[0] ?? 1),
-            rotateY: Math.atan2(-(values[2] ?? 0), values[0] ?? 1),
-            rotateX: Math.atan2(values[1] ?? 0, values[3] ?? 1),
+            rotateY: 0,
+            rotateX: 0,
         };
     } else if (name === "matrix3d") {
         if (values.length === 4) {

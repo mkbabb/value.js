@@ -221,6 +221,26 @@ describe("unpackMatrixValues", () => {
         expect(result.skewY).toBe(0);
     });
 
+    it("emits 0 for the out-of-plane rotations of a 2D rotation matrix (lib-core P2-5)", () => {
+        // matrix(cos, sin, -sin, cos, 0, 0) — a pure 45° in-plane rotation.
+        // A 2D matrix is planar: only rotateZ is defined. The pre-fix branch
+        // derived nonsense rotateX/rotateY (both ≈ π/4) via atan2 off the same
+        // a/b/c/d cells; both MUST be identically 0 now.
+        const c = Math.SQRT1_2; // cos 45° = sin 45° = √2/2
+        const fv = new FunctionValue("matrix", [
+            new ValueUnit(c),
+            new ValueUnit(c),
+            new ValueUnit(-c),
+            new ValueUnit(c),
+            new ValueUnit(0),
+            new ValueUnit(0),
+        ]);
+        const result = unpackMatrixValues(fv);
+        expect(result.rotateZ).toBeCloseTo(Math.PI / 4, 12);
+        expect(result.rotateX).toBe(0);
+        expect(result.rotateY).toBe(0);
+    });
+
     it("should unpack a 3D matrix (16 values)", () => {
         // Identity matrix3d
         const values = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
