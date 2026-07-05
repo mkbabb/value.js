@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { computeSafeAccent, safeAccentColor, needsContrastAdjustment, getOklchLightness } from "../src/units/color/contrast";
+import { computeSafeAccent, safeAccentColor, safeAccentCssString, needsContrastAdjustment, getOklchLightness } from "../src/units/color/contrast";
 import { OKLCHColor, RGBColor, HSLColor } from "../src/units/color";
 import type { Color } from "../src/units/color";
 import { color2 } from "../src/units/color/dispatch";
@@ -105,6 +105,71 @@ describe("safeAccentColor", () => {
         const color = new OKLCHColor(0.1, 0.15, 200, 0.5);
         const safe = safeAccentColor(color, 0.15);
         expect(safe.alpha).toBe(0.5);
+    });
+});
+
+describe("safeAccentCssString (S.W1-6 — the demo-consumed CSS accent surface)", () => {
+    // OKLab L of the app's light/dark surfaces (mirrors useContrastSafeColor.ts).
+    const LIGHT_BG = 0.97;
+    const DARK_BG = 0.15;
+
+    // Parse the leading L channel out of an `oklch(L C H[ / a])` string.
+    const parseOklchL = (css: string): number => {
+        const m = css.match(/^oklch\(\s*([0-9.]+)/);
+        expect(m).not.toBeNull();
+        return Number(m![1]);
+    };
+
+    it("light-mode near-white pick: the guard FIRES (the P2-1 case)", () => {
+        // NORMALIZED near-white OKLCH — L≈0.95 sits only 0.02 below the L≈0.97
+        // light surface, deep inside the 0.35 min-contrast band. The audit's live
+        // finding was that the accent stayed the unguarded near-white; here the
+        // src surface MUST push L down to ~0.62 (0.97 − 0.35).
+        const nearWhite = new OKLCHColor(0.95, 0.04, 0.0556, 1);
+        const css = safeAccentCssString(nearWhite, LIGHT_BG);
+
+        expect(css).toMatch(/^oklch\(/);
+        const L = parseOklchL(css);
+        expect(L).toBeLessThan(0.95); // guard actually fired (not the raw pick)
+        expect(L).toBeLessThanOrEqual(LIGHT_BG - 0.35 * 0.8); // ≤ 0.69
+        expect(L).toBeCloseTo(0.62, 2); // 0.97 − 0.35
+    });
+
+    it("light-mode near-white RGB pick fires too (normalized-domain input)", () => {
+        // The demo picker holds a NORMALIZED color; a near-white RGB routes
+        // through color2→oklch and must be guarded identically.
+        const nearWhiteRgb = new RGBColor(0.98, 0.98, 0.95, 1);
+        const css = safeAccentCssString(nearWhiteRgb, LIGHT_BG);
+
+        expect(css).toMatch(/^oklch\(/);
+        expect(parseOklchL(css)).toBeLessThan(0.7);
+    });
+
+    it("denorm rides the library range table — H in degrees, C in [0,0.5]", () => {
+        // Normalized H=0.5 → 180°, C=0.2 → 0.10; NOT the raw normalized 0.5 / 0.2.
+        // This is the retirement of the demo's hand-coded `C*0.5` / `H*360`.
+        const mid = new OKLCHColor(0.5, 0.2, 0.5, 1);
+        const css = safeAccentCssString(mid, LIGHT_BG); // L=0.5 is far from 0.97 → no shift
+        const m = css.match(/^oklch\(\s*([0-9.]+)\s+([0-9.]+)\s+([0-9.]+)\)$/);
+        expect(m).not.toBeNull();
+        expect(Number(m![1])).toBeCloseTo(0.5, 5); // L identity
+        expect(Number(m![2])).toBeCloseTo(0.1, 5); // C 0.2 × 0.5
+        expect(Number(m![3])).toBeCloseTo(180, 3); // H 0.5 × 360
+    });
+
+    it("no-op guard re-expresses a sufficient-contrast pick as oklch", () => {
+        // Mid-lightness on dark bg has ample contrast → unchanged L, still oklch.
+        const mid = new OKLCHColor(0.6, 0.2, 0.7, 1);
+        const css = safeAccentCssString(mid, DARK_BG);
+        expect(css).toMatch(/^oklch\(/);
+        expect(parseOklchL(css)).toBeCloseTo(0.6, 5);
+    });
+
+    it("carries alpha through: a translucent pick emits the `/ a` clause", () => {
+        const translucent = new OKLCHColor(0.6, 0.2, 0.7, 0.5);
+        const css = safeAccentCssString(translucent, DARK_BG);
+        expect(css).toContain("/ 0.5");
+        expect(css).toMatch(/\)$/);
     });
 });
 

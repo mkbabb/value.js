@@ -156,6 +156,9 @@ export type { HueInterpolationMethod } from "./units/color/mix";
 export {
     computeSafeAccent,
     safeAccentColor,
+    // S.W1-6 — the CSS-string accent surface the demo consumes (retires the
+    // hand-denorm `C*0.5`/`H*360` blocks in useContrastSafeColor.ts).
+    safeAccentCssString,
     needsContrastAdjustment,
     getOklchLightness,
     // VJ-Q1 (1.1.1) — WCAG 2.x relative-luminance + `contrast-color()` leaf.

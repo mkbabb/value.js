@@ -99,6 +99,8 @@ export type { HueInterpolationMethod } from "../units/color/mix";
 export {
     computeSafeAccent,
     safeAccentColor,
+    // S.W1-6 — the CSS-string accent surface the demo consumes.
+    safeAccentCssString,
     needsContrastAdjustment,
     getOklchLightness,
     wcagRelativeLuminance,
