@@ -87,10 +87,10 @@ type InterpColor = Color<ValueUnit<number> | number>;
  * channel (or null when the destination slot is a raw number written via
  * `setChannel`).
  *
- * Renamed `ColorChannelPlan → ColorInterpPlan` at VJ-Q8 (1.2.0) to free the
- * `ColorChannelPlan` name for the PUBLIC compositor SoA layout (`color-soa.ts`)
- * the keyframes.js SoA compositor consumes — a DIFFERENT structure (a reusable
- * `(Color → channel offsets)` layout, not this per-iv endpoint cache).
+ * Named `ColorInterpPlan` (renamed from `ColorChannelPlan` at VJ-Q8): a
+ * per-iv endpoint cache. The former public `color-soa.ts` SoA layout that once
+ * shared the `ColorChannelPlan` name was EXCISED at S.W1 (3.0.0) as an orphan
+ * export — its named keyframes.js compositor consumer never adopted it.
  */
 export type ColorInterpPlan = {
     keys: readonly string[];

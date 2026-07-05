@@ -181,15 +181,6 @@ export type {
     SampleGamutBoundaryOptions,
 } from "./units/color/boundary";
 
-// VJ-Q8 (1.2.0) — the SoA color-channel layout the keyframes.js compositor folds
-// the boxed color tail through (the Float64 oklab-channel plan + buffer fold).
-export {
-    buildColorChannelPlan,
-    packColorChannels,
-    lerpColorChannels,
-} from "./units/color-soa";
-export type { ColorChannelPlan } from "./units/color-soa";
-
 // Color normalization
 export {
     normalizeColorUnitComponent,
