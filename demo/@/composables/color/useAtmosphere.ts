@@ -34,7 +34,13 @@ import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
 
 export function useAtmosphere(
     atmosphereCanvas: Readonly<ShallowRef<HTMLCanvasElement | null>>,
-    cssColorOpaque: ComputedRef<string>,
+    // W3-1 (S.W3): the rAF-COALESCED opaque colour (`pipeline.cssColorOpaqueFrame`),
+    // NOT the synchronous `cssColorOpaque`. Both atmosphere derives below (the
+    // aurora seed + the blob palette) are heavy per-change work — coalescing the
+    // source to one republish per animation frame collapses a 60×/s slider drag
+    // to one derive/frame (the tranche's #1 perf fix, perf-transitions P0-1).
+    // The seed still tracks (S-18): the last colour of every frame wins.
+    atmosphereColor: ComputedRef<string>,
 ) {
     // The config source MUST NOT throw inside useAurora's deep-watch: a thrown
     // getter dead-faults the reactive effect (the white-screen class inv-N-1
@@ -75,14 +81,14 @@ export function useAtmosphere(
             : undefined,
     );
 
-    // The picker→atmosphere seed: every colour change re-seeds the derived
-    // palette. `cssColorOpaque` is always a value.js-serialised colour, so the
-    // guard never fires in practice — but a transient un-parseable string must
-    // leave the LAST GOOD seed in place (never reach the getter), so the
+    // The picker→atmosphere seed: every (coalesced) colour change re-seeds the
+    // derived palette. `atmosphereColor` is always a value.js-serialised colour,
+    // so the guard never fires in practice — but a transient un-parseable string
+    // must leave the LAST GOOD seed in place (never reach the getter), so the
     // atmosphere never flashes empty and the deep-watch never dead-faults
     // (mirrors the blob watch's guard).
     watch(
-        cssColorOpaque,
+        atmosphereColor,
         (css) => {
             try {
                 deriveAurora(css); // probe: throws iff the seed is un-parseable
@@ -106,7 +112,7 @@ export function useAtmosphere(
     // GooBlob deep-watches `config.color.paletteStops`, so a colour change
     // repaints free.
     watch(
-        cssColorOpaque,
+        atmosphereColor,
         (css) => {
             try {
                 blobConfig.color.paletteStops = deriveBlobPalette(css, {

@@ -151,6 +151,9 @@ const pipeline = useColorPipeline(model);
 const {
     cssColor,
     cssColorOpaque,
+    // W3-1 (S.W3): the rAF-coalesced opaque colour — one derive per frame for
+    // the atmosphere fan-out (aurora seed + blob palette + --accent-live).
+    cssColorOpaqueFrame,
     savedColorStrings,
     resetToDefaults,
     applyColorString,
@@ -172,7 +175,11 @@ const onEditTargetChange = (et: EditTarget | null) => { activeEditTarget.value =
 provide(EDIT_TARGET_KEY, activeEditTarget);
 provide(CSS_COLOR_KEY, cssColorOpaque);
 
-const { safeAccentCss } = useContrastSafeColor(cssColorOpaque);
+// W3-1 (S.W3): the accent axis is part of the coalesced atmosphere fan-out, so
+// the contrast solve runs off the rAF-coalesced colour (one solve/frame under a
+// drag) — the `--accent-live` write below inherits the same cadence. The picker
+// keeps the synchronous `cssColorOpaque` via CSS_COLOR_KEY above.
+const { safeAccentCss } = useContrastSafeColor(cssColorOpaqueFrame);
 provide(SAFE_ACCENT_KEY, safeAccentCss);
 
 // --- The accent axis (R.W3 Lane A / A2) ---
@@ -289,7 +296,9 @@ const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 // The full region (atoms, render-mode tiering, seed guards, blob ramp) lives
 // in useAtmosphere (lifted at R.W4 close, gate-(c) cap); it provides
 // AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on this component's scope.
-const { auroraCssGradient } = useAtmosphere(atmosphereCanvas, cssColorOpaque);
+// W3-1 (S.W3): pass the rAF-coalesced colour — the aurora seed + blob palette
+// derives fire once per frame, not 60×/s under a slider drag.
+const { auroraCssGradient } = useAtmosphere(atmosphereCanvas, cssColorOpaqueFrame);
 
 onMounted(() => { loadCustomColorNames(); });
 </script>
