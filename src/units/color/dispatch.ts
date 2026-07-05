@@ -84,35 +84,24 @@ export const getFormattedColorSpaceRange = <T extends ColorSpace>(colorSpace: T)
     return acc as ColorSpaceMap<{ min: string; max: string }>[T];
 };
 
-// ──────────────────────────────────────────────────────────────────────────────
-// XYZ-hub dispatch table.
-//
-// `color2()` routes every non-direct conversion through XYZ D65 as a hub. The
-// `XYZ_FUNCTIONS` table wires per-space `{ to, from }` converters keyed by
-// `ColorSpace` — `to` lifts the source space into XYZ; `from` lowers XYZ into
-// the target space. The typed `XyzFunctionsTable` mapped-type derives the exact
-// per-slot signature so each converter type-checks at its slot cast-free
-// (mirrors the `DirectPathsTable` precedent in `conversions/direct.ts`).
-// ──────────────────────────────────────────────────────────────────────────────
+// ── XYZ-hub dispatch table ──
+// `color2()` routes every non-direct conversion through XYZ D65. `XYZ_FUNCTIONS`
+// wires per-space `{ to, from }` converters keyed by `ColorSpace` (`to` lifts
+// into XYZ, `from` lowers back); the typed `XyzFunctionsTable` mapped-type gives
+// each slot its exact signature cast-free (mirrors `conversions/direct.ts`).
 
 /**
- * A pair of `{ to, from }` XYZ-hub converters for color space `C`. `to` lifts a
- * `C`-typed color into `XYZColor`; `from` lowers `XYZColor` into a `C`-typed
- * color. Component type is concrete `number` — the dispatch site reads numeric
- * channels and produces `number`-component colors (matches the per-space
- * `{from}2xyz` / `xyz2{to}` signatures in `conversions/`).
+ * A `{ to, from }` XYZ-hub converter pair for space `C` — `to` lifts `C` into
+ * `XYZColor`, `from` lowers it back. Component type is `number` (the dispatch
+ * site reads numeric channels), matching the `conversions/` signatures.
  */
 type XyzFunctions<C extends ColorSpace> = {
     to: (color: ColorSpaceMap<number>[C]) => XYZColor;
     from: (color: XYZColor) => ColorSpaceMap<number>[C];
 };
 
-/**
- * Distributes over every `ColorSpace` key; each entry is the exact
- * `{ to, from }` signature pair for that space, derived by conditional-type
- * inference. The `xyz` slot resolves to identity `(XYZColor) => XYZColor`
- * naturally — no special-case needed.
- */
+/** Per-`ColorSpace` `{ to, from }` pairs by conditional-type inference; the
+ *  `xyz` slot resolves to identity naturally. */
 type XyzFunctionsTable = {
     [K in ColorSpace]: K extends ColorSpace ? XyzFunctions<K> : never;
 };
@@ -142,13 +131,11 @@ const XYZ_FUNCTIONS: XyzFunctionsTable = {
 };
 
 /**
- * Typed `XYZ_FUNCTIONS` lookup pair (mirrors the `getDirectPath` precedent). A
- * value-keyed read collapses to the *union* of all per-slot signatures; the lone
- * `as` in each helper re-asserts the entry as the dispatch-site signature — a
- * documented index-narrowing, not a type-erasing double cast. `getXyzToFn`
- * widens its fn input to `Color<number>` (shared `[key: string]: any` index
- * signature), and the runtime `color.colorSpace` discriminant guarantees the
- * correct subclass is in hand.
+ * Typed `XYZ_FUNCTIONS` lookups (mirrors `getDirectPath`). A value-keyed read
+ * collapses to the union of per-slot signatures; the lone `as` re-asserts the
+ * dispatch-site signature — a documented index-narrowing, NOT a type-erasing
+ * double cast. The runtime `color.colorSpace` discriminant guarantees the
+ * correct subclass.
  */
 const getXyzToFn = (
     from: ColorSpace,
@@ -163,15 +150,12 @@ const getXyzFromFn = <C extends ColorSpace>(
         | undefined;
 
 // ── VJ-Q2 (1.2.0) — the egress OUT-PARAM registry ──
-//
-// The XYZ→RGB-family `*Into` companions, keyed by the egress space. Used by
-// `color2Into`'s OKLCH fast path: instead of `fromXYZFn(xyz)` (a fresh per-step
-// wrapper that `copyChannelsInto` discarded — the dominant ~28 allocs/call on
-// the gamut-bisection hot path), the egress converts DIRECTLY into the
-// caller-owned `out`. Only the wide-gamut RGB-family spaces (the gamut-bisection
-// egress targets) have an `Into` form; every other egress falls back to the
-// wrapper path (off the hot path). The math is byte-identical to the wrapper
-// form (`proof:gamut-alloc` C3-epsilon + `color-into.test.ts` assert this).
+// The XYZ→RGB-family `*Into` companions, keyed by egress space. `color2Into`'s
+// OKLCH fast path converts DIRECTLY into the caller's `out` — vs a per-step
+// wrapper `copyChannelsInto` discarded (the dominant ~28 allocs/call on the
+// gamut-bisection hot path). Only wide-gamut RGB spaces have an `Into` form;
+// others fall back to the wrapper (off the hot path). Byte-identical math
+// (`color-into.test.ts`).
 type XyzIntoFn = (xyz: XYZColor, out: Color<number>) => Color<number>;
 const XYZ_FROM_INTO: Partial<Record<ColorSpace, XyzIntoFn>> = {
     "srgb-linear": xyz2linearSrgbInto as XyzIntoFn,
@@ -184,16 +168,11 @@ const XYZ_FROM_INTO: Partial<Record<ColorSpace, XyzIntoFn>> = {
 const getXyzFromIntoFn = (to: ColorSpace): XyzIntoFn | undefined =>
     XYZ_FROM_INTO[to];
 
-// ──────────────────────────────────────────────────────────────────────────────
-// DIRECT_PATHS hot-path table.
-//
-// `color2()` routes EVERY conversion through XYZ as a hub by default. For the
-// highest-frequency CSS interpolation pairs (`oklab↔rgb`, `oklch↔rgb`,
-// `hsl↔rgb`), the `DIRECT_PATHS` table — and its `getDirectPath` lookup — skip
-// the XYZ intermediate. Both the table and the `directXxx` functions it wires
-// live in `conversions/direct.ts` (their cohesion-honest home); `color2()`
+// ── DIRECT_PATHS hot-path table ──
+// For the highest-frequency CSS interpolation pairs (`oklab↔rgb`, `oklch↔rgb`,
+// `hsl↔rgb`), `DIRECT_PATHS` + its `getDirectPath` lookup skip the XYZ hub. The
+// table + `directXxx` functions live in `conversions/direct.ts`; `color2()`
 // consults them via the imported `getDirectPath`.
-// ──────────────────────────────────────────────────────────────────────────────
 
 export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
     if (color.colorSpace === to) {
