@@ -29,7 +29,7 @@ import {
     registerColorNames,
 } from "../units/color/color-names";
 import type { ANGLE_UNITS } from "../units/constants";
-import { color2, hex2rgb } from "../units/color/dispatch";
+import { hex2rgb } from "../units/color/dispatch";
 import { mixColors } from "../units/color/mix";
 import { kelvin2rgb } from "../units/color/conversions/kelvin";
 import type { HueInterpolationMethod } from "../units/color/mix";
@@ -37,7 +37,6 @@ import { convertToDegrees } from "../units/utils";
 import * as utils from "./utils";
 import { memoize } from "../utils";
 import { CSSValueUnit, parseCSSValueUnit } from "./units";
-import { createCalcParser, createMathFunctionParsers, evaluateMathFunction } from "./math";
 
 // ─── Boundary currency (W1-8 leaf-lift → color-unit.ts) ────────────────────
 //
@@ -51,138 +50,17 @@ import {
     resolveToPlainColor,
 } from "./color-unit";
 import type { ParsedColorUnit } from "./color-unit";
+import { resolveRelativeColor } from "./relative-color";
+import type { ComponentExpr } from "./relative-color";
 
 export type { ParsedColorUnit };
 
-// --- Phase 5: Relative color syntax helpers ---
-
-type ComponentExpr =
-    | { type: "ref"; name: string }
-    | { type: "calc"; expr: string }
-    | { type: "literal"; value: number }
-    | { type: "none" };
-
-/** Component names for each target color space. */
-const COLOR_SPACE_COMPONENTS: Record<string, string[]> = {
-    rgb: ["r", "g", "b"],
-    hsl: ["h", "s", "l"],
-    hwb: ["h", "w", "b"],
-    lab: ["l", "a", "b"],
-    lch: ["l", "c", "h"],
-    oklab: ["l", "a", "b"],
-    oklch: ["l", "c", "h"],
-    xyz: ["x", "y", "z"],
-    "srgb-linear": ["r", "g", "b"],
-    "display-p3": ["r", "g", "b"],
-    "a98-rgb": ["r", "g", "b"],
-    "prophoto-rgb": ["r", "g", "b"],
-    rec2020: ["r", "g", "b"],
-};
-
-/**
- * Internal calc-expression parser, built on top of the same `createCalcParser`
- * surface used by `parseCSSValue`. Accepts a bare arithmetic expression (the
- * inside of a `calc(...)` already-substituted with numeric bindings) and
- * returns the parsed AST (`FunctionValue | ValueUnit`).
- *
- * Invariant D6: no `new Function`, no `eval`. The math AST is evaluated via
- * the library's published `evaluateMathFunction` surface.
- *
- * Lazy initialization via a closure — `CSSValueUnit` is in a circular module
- * relationship with this file (units.ts ↔ color.ts), so the parser pair must
- * be created after both modules finish initialising.
- */
-let _relativeCalcExpr: ReturnType<typeof createCalcParser> | null = null;
-function getRelativeCalcExpr() {
-    if (_relativeCalcExpr) return _relativeCalcExpr;
-    const { mathFunction } = createMathFunctionParsers(CSSValueUnit.Value);
-    _relativeCalcExpr = createCalcParser(CSSValueUnit.Value, mathFunction);
-    return _relativeCalcExpr;
-}
-
-/**
- * Evaluate the bare arithmetic body of a relative-color `calc(...)` expression
- * (e.g. `"r * 0.5 + 0.3"`) after numeric binding substitution. Routes through
- * the library's `evaluateMathFunction` rather than `new Function`.
- *
- * Throws on parse / evaluation failure — relative color syntax should fail at
- * the validation boundary, not silently return NaN.
- */
-function evaluateRelativeCalc(expr: string): number {
-    const ast = utils.tryParse(getRelativeCalcExpr(), expr);
-    if (ast instanceof ValueUnit) {
-        return ast.value as number;
-    }
-    if (ast instanceof FunctionValue) {
-        const result = evaluateMathFunction(ast);
-        if (result == null || typeof result.value !== "number") {
-            throw new Error(`Could not evaluate calc expression: ${expr}`);
-        }
-        return result.value;
-    }
-    throw new Error(`Could not evaluate calc expression: ${expr}`);
-}
-
-function resolveExpr(expr: ComponentExpr, bindings: Record<string, number>): number {
-    switch (expr.type) {
-        case "ref":
-            return bindings[expr.name] ?? 0;
-        case "literal":
-            return expr.value;
-        case "none":
-            return NaN;
-        case "calc": {
-            let s = expr.expr;
-            // Substitute longer names first (alpha before a)
-            const keys = Object.keys(bindings).sort((a, b) => b.length - a.length);
-            for (const k of keys) {
-                s = s.replace(new RegExp(`\\b${k}\\b`, "g"), String(bindings[k]));
-            }
-            return evaluateRelativeCalc(s);
-        }
-    }
-}
-
-function resolveRelativeColor(
-    originUnit: ValueUnit,
-    targetSpace: ColorSpace,
-    componentExprs: ComponentExpr[],
-    alphaExpr: ComponentExpr | undefined,
-): ValueUnit {
-    // Normalize origin color to plain [0,1] values, then convert to target space
-    const plainOrigin = resolveToPlainColor(originUnit);
-    const converted = color2(plainOrigin, targetSpace);
-
-    // Build bindings from the converted color
-    const bindings: Record<string, number> = {};
-    for (const [key, val] of converted.entries()) {
-        bindings[key] = val as number;
-    }
-
-    // Resolve each component expression
-    const values = componentExprs.map((expr) => resolveExpr(expr, bindings));
-    const alpha = alphaExpr ? resolveExpr(alphaExpr, bindings) : (bindings.alpha ?? 1);
-
-    // Create result color
-    const CONSTRUCTORS: Record<string, new (...args: any[]) => Color> = {
-        rgb: RGBColor,
-        hsl: HSLColor,
-        hwb: HWBColor,
-        lab: LABColor,
-        lch: LCHColor,
-        oklab: OKLABColor,
-        oklch: OKLCHColor,
-        xyz: XYZColor,
-        "srgb-linear": LinearSRGBColor,
-        "display-p3": DisplayP3Color,
-        "a98-rgb": AdobeRGBColor,
-        "prophoto-rgb": ProPhotoRGBColor,
-        rec2020: Rec2020Color,
-    };
-    const Ctor = CONSTRUCTORS[targetSpace] ?? RGBColor;
-    const result = new Ctor(...(values as [number, number, number]), alpha);
-    return createColorValueUnit(result);
-}
+// --- Relative color syntax (CSS Color L5) ---
+//
+// The semantic RESOLUTION helpers — `ComponentExpr`, `resolveRelativeColor`, and
+// the lazily-built calc sub-parser — lift to the leaf `relative-color.ts`
+// (W1-8). The `relativeColorParser` combinator below stays here (it references
+// the recursive `CSSColor.Value`) and calls `resolveRelativeColor` from the leaf.
 
 /** CSS color-mix() space name to internal ColorSpace mapping. */
 const COLOR_MIX_SPACE_MAP: Record<string, ColorSpace> = {
