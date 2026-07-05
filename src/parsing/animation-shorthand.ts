@@ -1,61 +1,23 @@
 import { memoize } from "../utils";
 import type { CSSAnimationOptions } from "./extract";
 import { parseCSSTime } from "./index";
-import { PARSE_MEMO_MAX_ENTRIES, splitTopLevelCommas } from "./utils";
+import {
+    BRACKETS_ROUND,
+    PARSE_MEMO_MAX_ENTRIES,
+    splitTopLevel,
+    splitTopLevelCommas,
+} from "./utils";
 
 /**
- * Tokenise the value of an `animation` shorthand declaration into
- * top-level whitespace-separated tokens, respecting nested parens
- * (so `cubic-bezier(0.1, 0.7, 1, 0.1)` stays one token) and string
- * literals.
+ * Tokenise the value of an `animation` shorthand declaration into top-level
+ * whitespace-separated tokens, respecting nested parens (so
+ * `cubic-bezier(0.1, 0.7, 1, 0.1)` stays one token) and string literals. W1-8
+ * (lib-parsing F-5): the shared `splitTopLevel` scanner, split on whitespace,
+ * tracking parens only — no longer a hand-rolled twin two lines below the
+ * `splitTopLevelCommas` import.
  */
-const tokeniseShorthand = (input: string): string[] => {
-    const tokens: string[] = [];
-    let buf = "";
-    let depth = 0;
-    let inString: string | null = null;
-
-    const flush = () => {
-        const t = buf.trim();
-        if (t.length > 0) tokens.push(t);
-        buf = "";
-    };
-
-    for (let i = 0; i < input.length; i++) {
-        const ch = input[i]!;
-        if (inString) {
-            if (ch === "\\" && i + 1 < input.length) {
-                buf += ch + input[++i]!;
-                continue;
-            }
-            if (ch === inString) inString = null;
-            buf += ch;
-            continue;
-        }
-        if (ch === '"' || ch === "'") {
-            inString = ch;
-            buf += ch;
-            continue;
-        }
-        if (ch === "(") {
-            depth++;
-            buf += ch;
-            continue;
-        }
-        if (ch === ")") {
-            depth--;
-            buf += ch;
-            continue;
-        }
-        if (depth === 0 && /\s/.test(ch)) {
-            flush();
-            continue;
-        }
-        buf += ch;
-    }
-    flush();
-    return tokens;
-};
+const tokeniseShorthand = (input: string): string[] =>
+    splitTopLevel(input, (ch) => /\s/.test(ch), { brackets: BRACKETS_ROUND });
 
 const TIME_RE = /^-?(?:\d+\.?\d*|\.\d+)(?:s|ms)$/i;
 const NUMBER_RE = /^\d+\.?\d*$/;

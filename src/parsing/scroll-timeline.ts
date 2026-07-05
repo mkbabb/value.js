@@ -427,27 +427,18 @@ export function parseAnimationTrigger(
 
 /**
  * Split a trigger value into top-level tokens, keeping `scroll(...)`/`view(...)`
- * whole. A small paren-aware whitespace tokeniser (the trigger layer mixes a
- * keyword + a parenthesised timeline + a range on one line).
+ * whole (the trigger layer mixes a keyword + a parenthesised timeline + a range
+ * on one line). W1-8 (lib-parsing F-5): the shared `splitTopLevel` scanner, split
+ * on whitespace, tracking parens only. This tokeniser is deliberately NOT
+ * string-aware (the trigger grammar carries no string literals) and does NOT trim
+ * — `strings: false, trim: false` reproduce the original byte-for-byte.
  */
-const splitTopLevelTriggerTokens = (input: string): string[] => {
-    const tokens: string[] = [];
-    let buf = "";
-    let depth = 0;
-    for (let i = 0; i < input.length; i++) {
-        const ch = input[i]!;
-        if (ch === "(") depth++;
-        if (ch === ")") depth--;
-        if (depth === 0 && /\s/.test(ch)) {
-            if (buf.length > 0) tokens.push(buf);
-            buf = "";
-            continue;
-        }
-        buf += ch;
-    }
-    if (buf.length > 0) tokens.push(buf);
-    return tokens;
-};
+const splitTopLevelTriggerTokens = (input: string): string[] =>
+    utils.splitTopLevel(input, (ch) => /\s/.test(ch), {
+        brackets: utils.BRACKETS_ROUND,
+        strings: false,
+        trim: false,
+    });
 
 // ── Lane E — the inverse serializers (typed → CSS) ────────────────────────────
 //

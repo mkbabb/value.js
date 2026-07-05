@@ -155,96 +155,15 @@ const stripCSSComments = (input: string): string =>
 
 // ─── Balanced text scanners ───────────────────────────────────────────────
 //
-// Declaration values, selector lists, and unknown at-rule bodies all
-// need to scan ahead while respecting nested braces, parens, brackets,
-// and string literals. parse-that's combinators don't compose well
-// for this, so we use raw Parser instances that walk the input.
-
-type StopPredicate = (input: string, i: number, depth: number) => boolean;
-
-const balancedText = (stop: StopPredicate): Parser<string> =>
-    new Parser((state) => {
-        const input = state.src;
-        const start = state.offset;
-        let i = start;
-        let parenDepth = 0;
-        let brackDepth = 0;
-        let curlyDepth = 0;
-        let inString: string | null = null;
-
-        while (i < input.length) {
-            const ch = input[i]!;
-
-            if (inString) {
-                if (ch === "\\" && i + 1 < input.length) {
-                    i += 2;
-                    continue;
-                }
-                if (ch === inString) {
-                    inString = null;
-                }
-                i++;
-                continue;
-            }
-
-            if (ch === '"' || ch === "'") {
-                inString = ch;
-                i++;
-                continue;
-            }
-
-            // Check stop predicate at depth 0 BEFORE handling brackets,
-            // so a stop char like `{` for at-rule preludes can fire
-            // before being consumed as a depth-opener.
-            if (
-                parenDepth === 0 &&
-                brackDepth === 0 &&
-                curlyDepth === 0 &&
-                stop(input, i, 0)
-            ) {
-                break;
-            }
-
-            if (ch === "(") {
-                parenDepth++;
-                i++;
-                continue;
-            }
-            if (ch === ")") {
-                if (parenDepth === 0) break;
-                parenDepth--;
-                i++;
-                continue;
-            }
-            if (ch === "[") {
-                brackDepth++;
-                i++;
-                continue;
-            }
-            if (ch === "]") {
-                if (brackDepth === 0) break;
-                brackDepth--;
-                i++;
-                continue;
-            }
-            if (ch === "{") {
-                curlyDepth++;
-                i++;
-                continue;
-            }
-            if (ch === "}") {
-                if (curlyDepth === 0) break;
-                curlyDepth--;
-                i++;
-                continue;
-            }
-
-            i++;
-        }
-
-        const text = input.slice(start, i);
-        return state.ok(text, i - start);
-    });
+// Declaration values, selector lists, and unknown at-rule bodies all need to
+// scan ahead while respecting nested braces, parens, brackets, and string
+// literals. parse-that's combinators don't compose well for this, so we use a
+// raw balanced-text scanner. W1-8 (lib-parsing F-5): `balancedText` + its
+// `StopPredicate` moved to `parsing/utils.ts` as the ONE shared scanner every
+// site in the directory now builds on (its `stopOnUnbalancedClose` reproduces
+// the "stray close ends the scan" break). Aliased locally so the six call sites
+// below read unchanged.
+const balancedText = utils.balancedText;
 
 const declarationValueText: Parser<string> = balancedText((input, i) => {
     const ch = input[i]!;
@@ -480,50 +399,12 @@ const propertyBody = all(
 
 // ─── Style rule (qualified rule) ──────────────────────────────────────────
 
-const splitSelectorList = (text: string): string[] => {
-    // Comma-split respecting nested parens/brackets/strings.
-    const out: string[] = [];
-    let depth = 0;
-    let inString: string | null = null;
-    let buf = "";
-    for (let i = 0; i < text.length; i++) {
-        const ch = text[i]!;
-        if (inString) {
-            if (ch === "\\" && i + 1 < text.length) {
-                buf += ch + text[++i]!;
-                continue;
-            }
-            if (ch === inString) inString = null;
-            buf += ch;
-            continue;
-        }
-        if (ch === '"' || ch === "'") {
-            inString = ch;
-            buf += ch;
-            continue;
-        }
-        if (ch === "(" || ch === "[") {
-            depth++;
-            buf += ch;
-            continue;
-        }
-        if (ch === ")" || ch === "]") {
-            depth--;
-            buf += ch;
-            continue;
-        }
-        if (ch === "," && depth === 0) {
-            const s = buf.trim();
-            if (s.length > 0) out.push(s);
-            buf = "";
-            continue;
-        }
-        buf += ch;
-    }
-    const s = buf.trim();
-    if (s.length > 0) out.push(s);
-    return out;
-};
+// W1-8 (lib-parsing F-5): comma-split respecting nested parens/brackets/strings
+// — the shared `splitTopLevel` scanner, tracking `()`+`[]` (no `{}`).
+const splitSelectorList = (text: string): string[] =>
+    utils.splitTopLevel(text, (ch) => ch === ",", {
+        brackets: utils.BRACKETS_ROUND_SQUARE,
+    });
 
 // CSS Nesting L1 (O.W0): a style rule body is no longer declarations-only. It
 // is a mix of declarations and NESTED qualified rules / at-rules. We tag each
@@ -638,37 +519,12 @@ const unknownBody = (atName: string): Parser<StylesheetItem> =>
 
 // Index of the first TOP-LEVEL colon (depth 0, outside strings) in `text` — the
 // `<default-value>` introducer. Colons nested in `type( … )` / `url( a:b )` or a
-// string are skipped. `-1` when there is no default. Mirrors the depth-tracking
-// of `splitSelectorList` (which already isolated each segment at top-level commas).
-const topLevelColonIndex = (text: string): number => {
-    let depth = 0;
-    let inString: string | null = null;
-    for (let i = 0; i < text.length; i++) {
-        const ch = text[i]!;
-        if (inString) {
-            if (ch === "\\" && i + 1 < text.length) {
-                i++;
-                continue;
-            }
-            if (ch === inString) inString = null;
-            continue;
-        }
-        if (ch === '"' || ch === "'") {
-            inString = ch;
-            continue;
-        }
-        if (ch === "(" || ch === "[") {
-            depth++;
-            continue;
-        }
-        if (ch === ")" || ch === "]") {
-            depth--;
-            continue;
-        }
-        if (ch === ":" && depth === 0) return i;
-    }
-    return -1;
-};
+// string are skipped. `-1` when there is no default. W1-8 (lib-parsing F-5): the
+// shared `findTopLevel` scanner, tracking `()`+`[]` (matching `splitSelectorList`).
+const topLevelColonIndex = (text: string): number =>
+    utils.findTopLevel(text, (ch) => ch === ":", {
+        brackets: utils.BRACKETS_ROUND_SQUARE,
+    });
 
 const parseFunctionParameters = (raw: string): CustomFunctionParameter[] => {
     const trimmed = raw.trim();

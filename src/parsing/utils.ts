@@ -246,58 +246,230 @@ export const dashedIdentifier = new Parser<string>(
 
 export const none = istring("none");
 
+// ─────────────────────────────────────────────────────────────────────────────
+// W1-8 (S.W1 · lib-parsing F-3/F-5) — the ONE shared balanced-text scanner.
+//
+// The identical escape-aware, string-toggling, bracket-depth-tracking character
+// loop was hand-rolled SEVEN times across the parsing layer (this file's
+// comma-split, `stylesheet.ts`'s `balancedText` + selector-list + top-level-colon,
+// `animation-shorthand.ts`'s whitespace tokenise, `scroll-timeline.ts`'s trigger
+// tokenise, `index.ts`'s if()-clause split). `balancedText`'s `StopPredicate`
+// design was already the most general of the seven; it now lives here and every
+// top-level splitter / finder / scanner is a thin call over `walkBalanced` — each
+// site expresses only which brackets it tracks and its stop predicate. Behavior
+// is byte-preserved per site (the bracket sets, string-awareness, trim/keep-empty
+// semantics of each original are reproduced by options, verified by the suite).
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Which bracket pairs a balanced scan tracks toward depth. */
+export interface BracketSet {
+    /** `(` `)` */
+    round?: boolean;
+    /** `[` `]` */
+    square?: boolean;
+    /** `{` `}` */
+    curly?: boolean;
+}
+
+/** Track `(` `)` only — the animation / scroll-timeline token splitters. */
+export const BRACKETS_ROUND: BracketSet = { round: true };
+/** Track `(` `)` and `[` `]` — selector lists + function-parameter scans. */
+export const BRACKETS_ROUND_SQUARE: BracketSet = { round: true, square: true };
+/** Track all three pairs — declaration values, at-rule bodies, if() bodies. */
+export const BRACKETS_ALL: BracketSet = { round: true, square: true, curly: true };
+
+export interface BalancedWalkOptions {
+    /** Offset to start the walk at (default 0). */
+    start?: number;
+    /**
+     * Bracket pairs to track; omitted → all three. When an object IS provided,
+     * its unlisted pairs are NOT tracked (treated as ordinary characters) — so
+     * `{ round: true }` tracks parens only, exactly like the original splitters.
+     */
+    brackets?: BracketSet;
+    /** Track `"`/`'` string literals with `\` escapes (default true). */
+    strings?: boolean;
+    /**
+     * Halt when a tracked close bracket underflows depth 0 — `balancedText`'s
+     * "a stray `}`/`)` ends this value" behavior. Off for the splitters, whose
+     * hand-rolled originals let depth run negative on unbalanced input.
+     */
+    stopOnUnbalancedClose?: boolean;
+}
+
+/**
+ * The shared balanced-text engine. Walk `input` from `start`, tracking bracket
+ * depth over the enabled pairs and (optionally) string literals. At every
+ * TOP-LEVEL character (every tracked depth 0, outside a string) — tested BEFORE
+ * the character is consumed as a bracket, so a stop char that is also a bracket
+ * opener fires first — invoke `atTop(i)`; return `true` to halt. Returns the
+ * index the walk halted at (an `atTop` stop, a `stopOnUnbalancedClose` underflow,
+ * or `input.length`).
+ */
+export function walkBalanced(
+    input: string,
+    atTop: (i: number) => boolean,
+    opts: BalancedWalkOptions = {},
+): number {
+    const strings = opts.strings ?? true;
+    const b = opts.brackets;
+    const round = b ? b.round === true : true;
+    const square = b ? b.square === true : true;
+    const curly = b ? b.curly === true : true;
+    const stopUnbalanced = opts.stopOnUnbalancedClose ?? false;
+
+    let paren = 0;
+    let brack = 0;
+    let curlyD = 0;
+    let inString: string | null = null;
+
+    let i = opts.start ?? 0;
+    for (; i < input.length; i++) {
+        const ch = input[i]!;
+
+        if (strings && inString) {
+            if (ch === "\\" && i + 1 < input.length) {
+                i++; // skip the escaped char (net +2 with the loop increment)
+                continue;
+            }
+            if (ch === inString) inString = null;
+            continue;
+        }
+        if (strings && (ch === '"' || ch === "'")) {
+            inString = ch;
+            continue;
+        }
+
+        if (paren === 0 && brack === 0 && curlyD === 0 && atTop(i)) {
+            return i;
+        }
+
+        if (round && ch === "(") paren++;
+        else if (round && ch === ")") {
+            if (paren === 0 && stopUnbalanced) return i;
+            paren--; // may run negative (splitters) — matches the originals
+        } else if (square && ch === "[") brack++;
+        else if (square && ch === "]") {
+            if (brack === 0 && stopUnbalanced) return i;
+            brack--;
+        } else if (curly && ch === "{") curlyD++;
+        else if (curly && ch === "}") {
+            if (curlyD === 0 && stopUnbalanced) return i;
+            curlyD--;
+        }
+    }
+    return i;
+}
+
+export interface TopLevelSplitOptions extends BalancedWalkOptions {
+    /** Trim each segment (default true). */
+    trim?: boolean;
+    /** Keep empty segments instead of dropping them (default false). */
+    keepEmpty?: boolean;
+}
+
+const pushSegment = (
+    out: string[],
+    seg: string,
+    trim: boolean,
+    keepEmpty: boolean,
+): void => {
+    const s = trim ? seg.trim() : seg;
+    if (keepEmpty || s.length > 0) out.push(s);
+};
+
+/**
+ * Split `input` on every TOP-LEVEL character matched by `isDelim` (one at bracket
+ * depth 0, outside a string). The delimiter is dropped. Segments are trimmed and
+ * empties dropped by default; the string content of each segment is sliced
+ * verbatim from `input`, so escapes inside a literal are preserved.
+ */
+export function splitTopLevel(
+    input: string,
+    isDelim: (ch: string) => boolean,
+    opts: TopLevelSplitOptions = {},
+): string[] {
+    const trim = opts.trim ?? true;
+    const keepEmpty = opts.keepEmpty ?? false;
+    const out: string[] = [];
+    let segStart = opts.start ?? 0;
+    walkBalanced(
+        input,
+        (i) => {
+            if (isDelim(input[i]!)) {
+                pushSegment(out, input.slice(segStart, i), trim, keepEmpty);
+                segStart = i + 1;
+            }
+            return false; // visit every delimiter — never halt early
+        },
+        opts,
+    );
+    pushSegment(out, input.slice(segStart), trim, keepEmpty);
+    return out;
+}
+
+/**
+ * The index of the FIRST top-level character matched by `isDelim`, or `-1`. Same
+ * depth/string bookkeeping as {@link splitTopLevel}.
+ */
+export function findTopLevel(
+    input: string,
+    isDelim: (ch: string) => boolean,
+    opts: BalancedWalkOptions = {},
+): number {
+    let found = -1;
+    walkBalanced(
+        input,
+        (i) => {
+            if (isDelim(input[i]!)) {
+                found = i;
+                return true;
+            }
+            return false;
+        },
+        opts,
+    );
+    return found;
+}
+
+/**
+ * A stop predicate for {@link balancedText}: return `true` to end the scan at
+ * `i`. `depth` is always 0 — the predicate is only consulted at top level.
+ */
+export type StopPredicate = (input: string, i: number, depth: number) => boolean;
+
+/**
+ * A `Parser<string>` consuming the maximal run of input up to the first
+ * top-level position where `stop` fires (or a stray close bracket, or end of
+ * input), tracking `()`/`[]`/`{}` depth and string literals. The declaration
+ * value / selector-list / at-rule-prelude / function-parameter scanner — moved
+ * here from `stylesheet.ts` (W1-8 · F-5) as the one balanced scanner every site
+ * shares. `stopOnUnbalancedClose` reproduces the original's "stray close ends
+ * the scan" break; the stop predicate is checked before bracket consumption.
+ */
+export const balancedText = (stop: StopPredicate): Parser<string> =>
+    new Parser((state: ParserState<any>) => {
+        const start = state.offset;
+        const end = walkBalanced(state.src, (i) => stop(state.src, i, 0), {
+            start,
+            brackets: BRACKETS_ALL,
+            strings: true,
+            stopOnUnbalancedClose: true,
+        });
+        return state.ok(state.src.slice(start, end), end - start);
+    });
+
 /**
  * Split a property-level `#`-list value on its top-level commas, respecting
  * nested parens (so `scroll(root block)` stays one segment) and string literals.
  *
  * Promoted here (N.W11′ D2) from `animation-shorthand.ts`'s local — shared by
  * the `animation` shorthand splitter AND the scroll-timeline `#`-list grammars
- * (`animation-timeline` / `animation-range` / `timeline-scope`). KISS: one
- * paren/string-aware splitter, not a second copy.
+ * (`animation-timeline` / `animation-range` / `timeline-scope`). W1-8: now a thin
+ * call over the shared {@link splitTopLevel} (parens only, string-aware).
  */
-export const splitTopLevelCommas = (input: string): string[] => {
-    const out: string[] = [];
-    let buf = "";
-    let depth = 0;
-    let inString: string | null = null;
-    for (let i = 0; i < input.length; i++) {
-        const ch = input[i]!;
-        if (inString) {
-            if (ch === "\\" && i + 1 < input.length) {
-                buf += ch + input[++i]!;
-                continue;
-            }
-            if (ch === inString) inString = null;
-            buf += ch;
-            continue;
-        }
-        if (ch === '"' || ch === "'") {
-            inString = ch;
-            buf += ch;
-            continue;
-        }
-        if (ch === "(") {
-            depth++;
-            buf += ch;
-            continue;
-        }
-        if (ch === ")") {
-            depth--;
-            buf += ch;
-            continue;
-        }
-        if (ch === "," && depth === 0) {
-            const t = buf.trim();
-            if (t.length > 0) out.push(t);
-            buf = "";
-            continue;
-        }
-        buf += ch;
-    }
-    const t = buf.trim();
-    if (t.length > 0) out.push(t);
-    return out;
-};
+export const splitTopLevelCommas = (input: string): string[] =>
+    splitTopLevel(input, (ch) => ch === ",", { brackets: BRACKETS_ROUND });
 
 export const integer = regex(/-?\d+/).map(Number);
 
