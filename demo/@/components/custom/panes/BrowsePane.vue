@@ -134,6 +134,7 @@ import PaneHeader from "./PaneHeader.vue";
 import type { Palette, Tag } from "@lib/palette/types";
 import { deltaEOK } from "@src/units/color/gamut";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
+import { useDialogBrowseActions } from "@components/custom/palette-browser/PaletteDialog/composables/useDialogBrowseActions";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
@@ -173,28 +174,20 @@ async function onDeleteOwned(palette: Palette) {
     }
 }
 
-// --- Fork / Remix ---
-
-async function onFork(palette: Palette) {
-    try {
-        await pm.ensureUser();
-        await pm.ensureSession();
-        const forked = await pm.versions.fork(palette.slug);
-        if (!forked) return;
-        pm.remotePalettes.value = [forked, ...pm.remotePalettes.value];
-        // Update fork count on source
-        const idx = pm.remotePalettes.value.findIndex((p) => p.slug === palette.slug);
-        const source = pm.remotePalettes.value[idx];
-        if (idx >= 0 && source) {
-            pm.remotePalettes.value[idx] = {
-                ...source,
-                forkCount: (source.forkCount ?? 0) + 1,
-            };
-        }
-    } catch (e) {
-        console.warn("Failed to remix palette:", e);
-    }
-}
+// --- Fork / Remix + browse filters ---
+// S.W2 W2-5 (F1/F2): the ONE host-agnostic composable — no hand-rolled second
+// copy. A failed remix routes through the same card feedback onSave/onDeleteOwned
+// use; the fork-count increment lives in the shared fn.
+const {
+    onFork,
+    onTierChange,
+    onTagsChange,
+    onClearFilters: clearBrowseFilters,
+} = useDialogBrowseActions({
+    pm,
+    onForkError: (palette, message) =>
+        cardRefs[palette.slug]?.showFeedback(message, "error"),
+});
 
 // --- Version history ---
 
@@ -256,22 +249,11 @@ function onTagsUpdated(tags: string[]) {
 const { onExport } = usePaletteExport();
 
 // --- Filters ---
-
-function onTierChange(tier: string) {
-    pm.tierFilter.value = tier;
-    pm.loadRemotePalettes(true);
-}
-
-function onTagsChange(tags: string[]) {
-    pm.selectedTags.value = tags;
-    pm.loadRemotePalettes(true);
-}
-
+// onTierChange / onTagsChange come straight from the shared composable;
+// onClearFilters wraps it to ALSO drop the pane-local color-search params.
 function onClearFilters() {
-    pm.tierFilter.value = "";
-    pm.selectedTags.value = [];
+    clearBrowseFilters();
     colorSearchParams.value = null;
-    pm.loadRemotePalettes(true);
 }
 
 // --- Color search ---
