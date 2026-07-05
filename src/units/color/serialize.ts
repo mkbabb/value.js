@@ -21,10 +21,8 @@
 import { scale } from "../../math";
 import { COLOR_FUNCTION_FORM, getColorSpaceBound } from "./constants";
 import type { ColorSpace } from "./constants";
-// Type-only (erased) — `Color` is declared in `index.ts` at this lift; the very
-// next lift (base.ts + spaces.ts) repoints this to `./base`. No runtime edge
-// either way (this module stays a leaf).
-import type { Color } from ".";
+// Type-only (erased) — no runtime edge, so this module stays a leaf.
+import type { Color } from "./base";
 
 /** Structural guard for any value carrying a `toFixed(digits)` method —
  *  matches both `number` and `ValueUnit` (the two `T` shapes a channel holds). */
