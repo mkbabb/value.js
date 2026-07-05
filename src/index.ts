@@ -89,6 +89,8 @@ export {
     AdobeRGBColor,
     ProPhotoRGBColor,
     Rec2020Color,
+    ICtCpColor,
+    JzazbzColor,
 } from "./units/color";
 export type { ColorSpaceMap } from "./units/color";
 

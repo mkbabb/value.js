@@ -34,6 +34,8 @@ export {
     AdobeRGBColor,
     ProPhotoRGBColor,
     Rec2020Color,
+    ICtCpColor,
+    JzazbzColor,
 } from "./spaces";
 export type { ColorSpaceMap } from "./spaces";
 

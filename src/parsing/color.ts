@@ -5,6 +5,8 @@ import {
     HSLColor,
     HSVColor,
     HWBColor,
+    ICtCpColor,
+    JzazbzColor,
     KelvinColor,
     LABColor,
     LCHColor,
@@ -252,6 +254,21 @@ const xyzParser: Parser<ValueUnit> = any(
     colorOptionalAlpha("xyz").map(([x, y, z, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
         createColorValueUnit(new XYZColor(x, y, z, alpha)),
     ),
+);
+
+// HDR perceptual spaces (S.W1 remediation, 3.1.0). Non-CSS-native, so they parse
+// the bare functional form `ictcp(I Ct Cp [/ a])` / `jzazbz(Jz az bz [/ a])` (the
+// CSS Color HDR draft syntax) via `colorOptionalAlpha` — the same combinator the
+// non-CSS-native `hsv(…)` precedent uses. No relative-color arm (HSV has none
+// either; the component-ref regex does not carry ICtCp/Jzazbz channel names).
+const ictcpParser: Parser<ValueUnit> = colorOptionalAlpha("ictcp").map(
+    ([i, ct, cp, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new ICtCpColor(i, ct, cp, alpha)),
+);
+
+const jzazbzParser: Parser<ValueUnit> = colorOptionalAlpha("jzazbz").map(
+    ([jz, az, bz, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new JzazbzColor(jz, az, bz, alpha)),
 );
 
 // --- color-mix() parser ---
@@ -583,6 +600,11 @@ const letterBuckets: Record<string, Parser<ValueUnit>> = {
     l: any(labParser, lchParser, lightDarkParser, namedThenSystem),
     o: any(oklabParser, oklchParser, namedThenSystem),
     x: any(xyzParser, namedThenSystem),
+    // `ictcp(…)` sits ahead of the `i…` named colors (indianred/indigo/ivory);
+    // `jzazbz(…)` has no `j…` named-color collision but keeps the fallback for
+    // uniformity (S.W1 remediation, 3.1.0).
+    i: any(ictcpParser, namedThenSystem),
+    j: any(jzazbzParser, namedThenSystem),
 };
 const dispatchTable: Record<string, Parser<ValueUnit>> = {
     "#": hex,

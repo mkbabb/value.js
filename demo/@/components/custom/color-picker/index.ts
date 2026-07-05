@@ -95,4 +95,6 @@ export const DISPLAY_COLOR_SPACE_NAMES: Record<DisplayColorSpace, string> = {
     "a98-rgb": "Adobe RGB",
     "prophoto-rgb": "ProPhoto RGB",
     rec2020: "Rec. 2020",
+    ictcp: "ICtCp",
+    jzazbz: "Jzazbz",
 };

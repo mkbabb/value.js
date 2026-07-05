@@ -266,6 +266,60 @@ export const colorSpaceInfo = {
         notes: "Represents the color of an ideal black-body radiator at a given temperature. Useful for describing the color of light sources.",
     },
 
+    ictcp: {
+        name: "ICtCp (ITU-R BT.2100)",
+        type: "Perceptual / opponent (HDR)",
+        definition:
+            "An HDR-ready perceptual space (ITU-R BT.2100) derived from LMS cone responses through the PQ transfer function. I encodes intensity; Ct and Cp are the tritanopic and protanopic opponent axes.",
+        deviceDependency: "Device-independent",
+        created: "2016",
+        whitePoint: "D65",
+        gamut: "Wide (HDR / Rec. 2020 signals)",
+        components: ["Intensity (I)", "Ct (tritan)", "Cp (protan)"],
+        perceptualUniformity: "Yes",
+        hueLinearity: "Yes",
+        lightnessSeparation: "Yes",
+        applications: [
+            "HDR mastering",
+            "Broadcast color difference (ΔE-ITP)",
+            "Dolby Vision",
+        ],
+        industries: ["Broadcast", "Film", "HDR display"],
+        conversions: [
+            ["ICtCp", "XYZ"],
+            ["ICtCp", "XYZ", "RGB"],
+            ["ICtCp", "XYZ", "OKLab"],
+        ],
+        notes: "The space behind ΔE-ITP (BT.2124). Purpose-built for HDR and wide-gamut signals; one ICtCp unit ≈ one JND.",
+    },
+
+    jzazbz: {
+        name: "Jzazbz (Safdar 2017)",
+        type: "Perceptual / opponent (HDR)",
+        definition:
+            "A perceptually-uniform space (Safdar, Kim, Luo, Cui & Melgosa, 2017) for image signals spanning HDR and wide gamut. Jz is lightness; az and bz are the red-green and yellow-blue opponent axes.",
+        deviceDependency: "Device-independent",
+        created: "2017",
+        whitePoint: "D65",
+        gamut: "Wide (HDR / wide-gamut)",
+        components: ["Lightness (Jz)", "az (red-green)", "bz (yellow-blue)"],
+        perceptualUniformity: "Yes",
+        hueLinearity: "Yes",
+        lightnessSeparation: "Yes",
+        applications: [
+            "HDR image processing",
+            "Gamut mapping",
+            "Color-difference metrics",
+        ],
+        industries: ["Imaging science", "HDR display", "Color management"],
+        conversions: [
+            ["Jzazbz", "XYZ"],
+            ["Jzazbz", "XYZ", "RGB"],
+            ["Jzazbz", "XYZ", "OKLab"],
+        ],
+        notes: "Improves on CIELAB's hue-linearity and lightness uniformity across a far larger luminance range; greys are near- (not perfectly) achromatic by design.",
+    },
+
     hex: {
         name: "Hex (Hexadecimal RGB)",
         type: "Encoding of RGB",

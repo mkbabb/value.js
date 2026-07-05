@@ -61,6 +61,8 @@ import {
     xyz2proPhotoInto,
     xyz2rec2020Into,
 } from "./conversions/xyz-extended";
+import { ictcp2xyz, xyz2ictcp } from "./conversions/ictcp";
+import { jzazbz2xyz, xyz2jzazbz } from "./conversions/jzazbz";
 import { getDirectPath } from "./conversions/direct";
 import { registerColorConverters } from "./serialize";
 
@@ -128,6 +130,10 @@ const XYZ_FUNCTIONS: XyzFunctionsTable = {
     "a98-rgb": { to: adobeRgb2xyz, from: xyz2adobeRgb },
     "prophoto-rgb": { to: proPhoto2xyz, from: xyz2proPhoto },
     rec2020: { to: rec20202xyz, from: xyz2rec2020 },
+
+    // HDR perceptual spaces (S.W1 remediation, 3.1.0 — Q9 + widening).
+    ictcp: { to: ictcp2xyz, from: xyz2ictcp },
+    jzazbz: { to: jzazbz2xyz, from: xyz2jzazbz },
 };
 
 /**

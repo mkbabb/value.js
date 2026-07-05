@@ -183,11 +183,43 @@ net-zero, `517f452`). The `logerp` reorder is complete: **zero t-first call site
 3. round() spec-legal (carve-around comment retired) · extract depth-walk · fail()→mergeErrorState — **MET**.
 4. All 7 memoize caches bounded — **MET** (`67ce6fa`).
 5. W1-6 exports exist + consumed by tests (sampleOKLChSliceBoundary · resolveEasing · safeAccentCssString ·
-   ICtCp + color2Into currency) — **MET** (built surface + tests green).
+   ICtCp + color2Into currency) — **CORRECTED: NOT MET at 3.0.0 → MET at 3.1.0.** The
+   `sampleOKLChSliceBoundary` / `resolveEasing` / `safeAccentCssString` surfaces were real. The
+   **ICtCp clause was FALSE**: 3.0.0 shipped the `xyzToICtCp` / `ictcpToXYZ` transform pair ONLY
+   — there was NO `ICtCpColor` subclass, NO `color2()` dispatch arm, NO `color2Into` currency
+   through ICtCp, NO parsing. The independent 11-row gate (S.W1 REMEDIATION) caught this as a
+   row-5 FAIL. The full space was built + published at **3.1.0** (`ICtCpColor` + dispatch +
+   `color2Into` + `ictcp(…)` parsing; `test/color-hdr-spaces.test.ts`).
 6. W1-10 raytrace agrees with the Ottosson oracle within tolerance; divergences documented — **MET** (`60bb64e`).
-7. W1-11 Jzazbz roundtrip goldens + color2Into currency — **MET** (`73bc05e`).
+7. W1-11 Jzazbz roundtrip goldens + color2Into currency — **CORRECTED: NOT MET at 3.0.0 → MET at
+   3.1.0.** 3.0.0 shipped the `xyzToJzazbz` / `jzazbzToXYZ` transform pair + its independent-oracle
+   goldens (`73bc05e`, `color-jzazbz.test.ts`) — the math is correct and kept. But the **`color2Into`
+   currency clause was FALSE**: there was NO `JzazbzColor` space, so there was no dispatch to run
+   currency THROUGH. The independent gate caught this as a row-7 FAIL. The full space (`JzazbzColor`
+   + dispatch + `color2Into` currency + `jzazbz(…)` parsing) was built + published at **3.1.0**.
 8. logerp reorder, ALL consumers migrated at root (zero t-first), NO compat shim — **MET** (§5).
 9. Fresh `.d.ts` guard + post-W1 cap check per the census cohesion verdict (ledger rows recorded, not
    missed — incl. the near-guaranteed `units/utils.ts` + the new `parsing/utils.ts`) — **MET** (§1/§3).
 10. PT-E dispatched — **MET** (§4).
-11. lint 0 · typecheck 0 · test green · build clean — **MET** (§1).
+11. lint 0 · typecheck 0 · test green · build clean — **MET** (§1) (re-verified at the 3.1.0 head:
+    lint 0 · typecheck 0 lib+demo · vitest 2096/2096 · fresh build + `.d.ts` guard green with
+    `ICtCpColor`/`JzazbzColor` present in `dist/units/color/spaces.d.ts`).
+
+---
+
+## §7 Process blemish (recorded — the R discipline exists for exactly this)
+
+**The 3.0.0 publish lane certified rows 5 and 7 it had not verified.** It marked the ICtCp
+`color2()`/`color2Into` clause (row 5) and the Jzazbz `color2Into` clause (row 7) **MET** while the
+tree carried only the conversion-function pairs — no space classes, no dispatch arms, no parsing.
+The dishonesty propagated into three published artefacts: this doc's §6 (now corrected above), the
+`[3.0.0]` CHANGELOG entry (now corrected in place), and the annotated `v3.0.0` tag message
+(**immutable — published tags are never moved; the CHANGELOG correction is the honest record**).
+
+The gate that caught it was the **independent 11-row S.W1 gate** run AFTER publish — precisely the
+R-tranche discipline (a verifier that never certifies a row it has not itself exercised). Lesson,
+booked for the S.W-close sweep: **a "MET" on an integration row (space class + dispatch + currency)
+must cite a test that drives the integrated surface, not the underlying primitive** — a passing
+`xyzToICtCp` golden is NOT evidence that `color2(_, "ictcp")` dispatches. The remediation added
+`test/color-hdr-spaces.test.ts` as that missing integration evidence, and published **3.1.0**
+(commit + annotated tag `v3.1.0`) carrying the completed spaces.

@@ -30,6 +30,9 @@ const _LAB_CHANNELS = ["l", "a", "b"] as const;
 const _LCH_CHANNELS = ["l", "c", "h"] as const;
 const _XYZ_CHANNELS = ["x", "y", "z"] as const;
 const _KELVIN_CHANNELS = ["kelvin"] as const;
+// S.W1 remediation (3.1.0) — the two HDR perceptual spaces (Q9 + widening).
+const _ICTCP_CHANNELS = ["i", "ct", "cp"] as const;
+const _JZAZBZ_CHANNELS = ["jz", "az", "bz"] as const;
 
 // E.W1 Lane C — channel-keys-with-alpha tuples cached per subclass shape.
 // Static-per-subclass pattern avoids per-instance copies AND per-call
@@ -43,6 +46,8 @@ const _LAB_KEYS_A = ["l", "a", "b", "alpha"] as const;
 const _LCH_KEYS_A = ["l", "c", "h", "alpha"] as const;
 const _XYZ_KEYS_A = ["x", "y", "z", "alpha"] as const;
 const _KELVIN_KEYS_A = ["kelvin", "alpha"] as const;
+const _ICTCP_KEYS_A = ["i", "ct", "cp", "alpha"] as const;
+const _JZAZBZ_KEYS_A = ["jz", "az", "bz", "alpha"] as const;
 
 /** sRGB color space — the web's default. Components: r, g, b in [0,255] denormalized. D65 white point, ~2.2 gamma. */
 export class RGBColor<T = number> extends Color<T> {
@@ -401,6 +406,65 @@ export class Rec2020Color<T = number> extends Color<T> {
     }
 }
 
+/**
+ * ICtCp (ITU-R BT.2100) — the HDR-ready perceptual space. I (PQ-lightness)
+ * [0,1], Ct (tritanopic) / Cp (protanopic) opponent axes ~[-0.5,0.5]. Shares the
+ * BT.2100 transform + PQ constants that already ship inside `deltaEITP`
+ * (`difference.ts`); the space wrapper (`conversions/ictcp.ts`) reuses them.
+ * S.W1 remediation (3.1.0 — Q9).
+ */
+export class ICtCpColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _ICTCP_KEYS_A;
+    declare i: ColorChannel<T>;
+    declare ct: ColorChannel<T>;
+    declare cp: ColorChannel<T>;
+
+    get channels(): readonly string[] {
+        return _ICTCP_CHANNELS;
+    }
+
+    constructor(i?: T, ct?: T, cp?: T, alpha?: T) {
+        super("ictcp", alpha as T);
+        if (import.meta.env.DEV) {
+            Color._assertChannel(i);
+            Color._assertChannel(ct);
+            Color._assertChannel(cp);
+        }
+        this.i = i as ColorChannel<T>;
+        this.ct = ct as ColorChannel<T>;
+        this.cp = cp as ColorChannel<T>;
+    }
+}
+
+/**
+ * Jzazbz (Safdar, Kim, Luo, Cui, Melgosa 2017) — a perceptually-uniform HDR/
+ * wide-gamut space. Jz (lightness) [0,~0.222], az (red-green) / bz (yellow-blue)
+ * opponent axes ~[-0.5,0.5]. NET-NEW PQ-variant transfer math
+ * (`conversions/jzazbz.ts`). S.W1 remediation (3.1.0 — Q9 widening, W1-11).
+ */
+export class JzazbzColor<T = number> extends Color<T> {
+    static readonly channelKeysWithAlpha = _JZAZBZ_KEYS_A;
+    declare jz: ColorChannel<T>;
+    declare az: ColorChannel<T>;
+    declare bz: ColorChannel<T>;
+
+    get channels(): readonly string[] {
+        return _JZAZBZ_CHANNELS;
+    }
+
+    constructor(jz?: T, az?: T, bz?: T, alpha?: T) {
+        super("jzazbz", alpha as T);
+        if (import.meta.env.DEV) {
+            Color._assertChannel(jz);
+            Color._assertChannel(az);
+            Color._assertChannel(bz);
+        }
+        this.jz = jz as ColorChannel<T>;
+        this.az = az as ColorChannel<T>;
+        this.bz = bz as ColorChannel<T>;
+    }
+}
+
 export type ColorSpaceMap<T> = {
     rgb: RGBColor<T>;
     hsl: HSLColor<T>;
@@ -417,4 +481,6 @@ export type ColorSpaceMap<T> = {
     "a98-rgb": AdobeRGBColor<T>;
     "prophoto-rgb": ProPhotoRGBColor<T>;
     rec2020: Rec2020Color<T>;
+    ictcp: ICtCpColor<T>;
+    jzazbz: JzazbzColor<T>;
 };

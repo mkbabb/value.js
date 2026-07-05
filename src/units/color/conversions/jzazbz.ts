@@ -24,6 +24,9 @@
 
 import type { Mat3 } from "../matrix";
 import { invertMat3, transformMat3 } from "../matrix";
+import { JzazbzColor, XYZColor } from "..";
+import { scale } from "../../../math";
+import { COLOR_SPACE_RANGES } from "../constants";
 
 // ── constants (Safdar 2017) ──
 const JZ_B = 1.15;
@@ -107,4 +110,35 @@ export function jzazbzToXYZ(Jz: number, az: number, bz: number): [number, number
     const Xa = (Xm + (JZ_B - 1) * Zm) / JZ_B;
     const Ya = (Ym + (JZ_G - 1) * Xa) / JZ_G;
     return [Xa / JZ_YW, Ya / JZ_YW, Zm / JZ_YW];
+}
+
+// ── `color2()`-dispatch Color wrappers (S.W1 remediation, 3.1.0) ────────────
+//
+// The thin space wrapper the `XYZ_FUNCTIONS` hub keys by — adapting the raw
+// `[number,number,number]` transforms above to the `{ to, from }` XYZColor
+// signature, applying the [0,1] ⇄ physical normalization every conversion module
+// honours (see `oklab.ts` / `conversions/ictcp.ts`). The XYZ hub carries relative
+// physical XYZ (D65, Y=1 — exactly what `xyzToJzazbz` consumes); JzazbzColor
+// carries [0,1]-normalized channels against `COLOR_SPACE_RANGES.jzazbz`.
+
+const JR = COLOR_SPACE_RANGES.jzazbz;
+
+/** XYZ (relative, Y=1) → Jzazbz. Physical [Jz,az,bz] normalized to [0,1]. */
+export function xyz2jzazbz(xyz: XYZColor): JzazbzColor {
+    const [Jz, az, bz] = xyzToJzazbz(xyz.x, xyz.y, xyz.z);
+    return new JzazbzColor(
+        scale(Jz, JR.jz.number.min, JR.jz.number.max),
+        scale(az, JR.az.number.min, JR.az.number.max),
+        scale(bz, JR.bz.number.min, JR.bz.number.max),
+        xyz.alpha,
+    );
+}
+
+/** Jzazbz → XYZ (relative, Y=1). [0,1] channels denormalized to physical. */
+export function jzazbz2xyz(color: JzazbzColor): XYZColor {
+    const Jz = scale(color.jz, 0, 1, JR.jz.number.min, JR.jz.number.max);
+    const az = scale(color.az, 0, 1, JR.az.number.min, JR.az.number.max);
+    const bz = scale(color.bz, 0, 1, JR.bz.number.min, JR.bz.number.max);
+    const [x, y, z] = jzazbzToXYZ(Jz, az, bz);
+    return new XYZColor(x, y, z, color.alpha);
 }

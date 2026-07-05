@@ -1,5 +1,38 @@
 # Changelog
 
+## [3.1.0] — 2026-07-05 (S.W1 · remediation — ICtCp + Jzazbz land as FULL spaces; the 3.0.0 record corrected)
+
+The honest completion of the S perceptual slate. The 3.0.0 cut shipped ICtCp (W1-6/Q9) and Jzazbz
+(W1-11) as conversion-function **pairs only** — the transforms are excellent and independently
+oracled — but the ratified mandate (Q9) and the S.W1 hard gate (rows 5+7) require **full spaces**:
+`Color` subclasses + `color2()` dispatch + `color2Into` currency + parsing + serialization. The
+independent 11-row gate caught the shortfall (rows 5+7 FAIL); worse, the published 3.0.0 CHANGELOG,
+the `v3.0.0` tag message, and `audit/w1-close-artefacts.md §6` all **claimed** the full integration
+— a dishonest record. This release completes the spaces and corrects the [3.0.0] entry above to its
+true scope (the pushed `v3.0.0` tag is immutable and left untouched — the CHANGELOG correction is
+the honest record).
+
+Additive (a semver MINOR — new public API, no breaks):
+
+- **`ICtCpColor` full space** (ITU-R BT.2100) — the `Color<T>` subclass (channels `i` / `ct` /
+  `cp`), the `color2()` XYZ-hub dispatch arm (reusing the 3.0.0 `xyzToICtCp` / `ictcpToXYZ`
+  transforms via `conversions/ictcp.ts`), `color2Into` currency, `ictcp(I Ct Cp / a)` parsing (the
+  CSS Color HDR draft functional syntax; the `hsv(…)` non-CSS-native precedent), and
+  serialization. Ranges: `i ∈ [0,1]`, `ct`/`cp ∈ [-0.5,0.5]` physical.
+- **`JzazbzColor` full space** (Safdar 2017) — the `Color<T>` subclass (channels `jz` / `az` /
+  `bz`), the dispatch arm (`conversions/jzazbz.ts` wrappers over the shipped `xyzToJzazbz` /
+  `jzazbzToXYZ`), `color2Into` currency, `jzazbz(Jz az bz / a)` parsing, serialization. Ranges:
+  `jz ∈ [0,0.222]` (the colorjs `xyz-abs-d65` convention — D65 media white lands at
+  `Jz≈0.2220652`, so the bound normalizes white to ~1), `az`/`bz ∈ [-0.5,0.5]` physical.
+- Both spaces join `ColorSpaceMap<T>`, `COLOR_SPACE_RANGES`, `COLOR_SPACE_DENORM_UNITS`,
+  `COLOR_SYNTAX_FAMILY` (non-legacy), `COLOR_FUNCTION_FORM` (bare `named`), and `COLOR_SPACE_NAMES`;
+  exported from the top-level barrel. New suite `test/color-hdr-spaces.test.ts` (16 tests):
+  dispatch-wiring vs the raw oracle, `rgb→space→rgb` roundtrips (≤1e-9), `color2Into` currency
+  through both, parse + serialize.
+- **Demo**: the two spaces become legitimate picker options — `DISPLAY_COLOR_SPACE_NAMES` +
+  `colorSpaceInfo` metadata rows added (the OKHSL/OKHSV precedent: new spaces JOIN the instrument;
+  the selector enumerates `DISPLAY_COLOR_SPACE_NAMES` so they appear automatically).
+
 ## [3.0.0] — 2026-07-05 (S.W1 · the library major — near-black srgb cure + parsing P0s + two public-surface breaks + the perceptual slate)
 
 The one honest major of tranche S's round 1 (`docs/tranches/S/waves/S.W1.md`; RATIFIED
@@ -39,11 +72,19 @@ output-changing for near-black). Every breaking + output-changing row bundled in
 
 ### LIBRARY — additive API (the S perceptual slate)
 
-- **ICtCp color space** (Q9) — full space class + parsing + `color2()` dispatch + `color2Into`
-  currency + roundtrip goldens (the matrix math already shipped inside `deltaEITP`; the cheapest
-  net-new space).
-- **Jzazbz color space** (Q9 widening, W1-11) — full space class + its NET-NEW PQ-variant
-  transfer math + parsing + dispatch + roundtrip goldens + `color2Into` currency.
+- **ICtCp perceptual transforms** (Q9) — the BT.2100/BT.2124 `xyzToICtCp` / `ictcpToXYZ`
+  conversion pair (the matrix math already ships inside `deltaEITP`) + independent-oracle
+  roundtrip goldens (`test/color-difference.test.ts`).
+  - **CORRECTED (record-honesty patch, see [3.1.0]):** 3.0.0 shipped the **conversion pair
+    ONLY**. The original entry claimed "full space class + parsing + `color2()` dispatch +
+    `color2Into` currency" — that was **false**: the `ICtCpColor` subclass, the dispatch arm, the
+    parsing, and the `color2Into` currency did **not** land in 3.0.0 and were caught FAILING the
+    S.W1 11-row gate (rows 5+7). The full space was completed and published at **[3.1.0]**.
+- **Jzazbz perceptual transforms** (Q9 widening, W1-11) — the NET-NEW PQ-variant `xyzToJzazbz` /
+  `jzazbzToXYZ` conversion pair (Safdar 2017; its own PQ exponent set) + independent-oracle
+  goldens (`test/color-jzazbz.test.ts`).
+  - **CORRECTED (same patch):** 3.0.0 shipped the **conversion pair ONLY**; the `JzazbzColor`
+    space class + dispatch + parsing + `color2Into` currency were completed at **[3.1.0]**.
 - **Raytrace gamut map** (R-4 DISCHARGED, W1-10) — `units/color/gamut-raytrace.ts`, the
   exact-boundary reference; tested against the Ottosson analytical mapper as the ORACLE
   (agreement within stated tolerance on the shared domain; the divergences documented — that they

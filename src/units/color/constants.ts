@@ -113,6 +113,28 @@ export const COLOR_SPACE_RANGES = {
         b: UNIT_RANGE,
         alpha: ALPHA_RANGE,
     },
+    // ICtCp (BT.2100) — S.W1-6/Q9 remediation (3.1.0). Physical coordinates:
+    // I ∈ [0,1] (PQ-lightness), Ct/Cp ∈ ~[-0.5,0.5] (tritan/protan opponent
+    // axes). The `%` views mirror the oklab a/b convention ([-100,100] ↔ the
+    // physical opponent span). The forward wrapper (`conversions/ictcp.ts`)
+    // normalizes physical → [0,1] against these exact bounds; the inverse
+    // denormalizes back, so the roundtrip is bound-consistent by construction.
+    ictcp: {
+        i: { "%": ALPHA_RANGE["%"], number: ALPHA_RANGE.number },
+        ct: { number: { min: -0.5, max: 0.5 }, "%": { min: -100, max: 100 } },
+        cp: { number: { min: -0.5, max: 0.5 }, "%": { min: -100, max: 100 } },
+        alpha: ALPHA_RANGE,
+    },
+    // Jzazbz (Safdar 2017) — S.W1-11/Q9 remediation (3.1.0). Physical
+    // coordinates: Jz ∈ [0,0.222] (the colorjs `xyz-abs-d65` convention — D65
+    // media white lands at Jz≈0.2220652, so the bound normalizes white to ~1),
+    // az/bz ∈ ~[-0.5,0.5] (red-green / yellow-blue opponent axes).
+    jzazbz: {
+        jz: { "%": ALPHA_RANGE["%"], number: { min: 0, max: 0.222 } },
+        az: { number: { min: -0.5, max: 0.5 }, "%": { min: -100, max: 100 } },
+        bz: { number: { min: -0.5, max: 0.5 }, "%": { min: -100, max: 100 } },
+        alpha: ALPHA_RANGE,
+    },
 } as const;
 
 export const ALPHA_DENORM_UNIT = "%";
@@ -206,6 +228,21 @@ export const COLOR_SPACE_DENORM_UNITS = {
         b: "",
         alpha: ALPHA_DENORM_UNIT,
     },
+    // ICtCp / Jzazbz emit their true physical coordinates (bare numbers, unit
+    // "") — a reader of `ictcp(0.58 0 0)` / `jzazbz(0.222 -0.0002 -0.0001)` sees
+    // the actual I/Ct/Cp / Jz/az/bz, not a % re-scale (S.W1 remediation, 3.1.0).
+    ictcp: {
+        i: "",
+        ct: "",
+        cp: "",
+        alpha: ALPHA_DENORM_UNIT,
+    },
+    jzazbz: {
+        jz: "",
+        az: "",
+        bz: "",
+        alpha: ALPHA_DENORM_UNIT,
+    },
 } as const;
 
 export type ColorSpace = keyof typeof COLOR_SPACE_RANGES;
@@ -248,6 +285,10 @@ export const COLOR_SYNTAX_FAMILY: Record<ColorSpace, ColorSyntaxFamily> = {
     "a98-rgb": "non-legacy",
     "prophoto-rgb": "non-legacy",
     rec2020: "non-legacy",
+    // Experimental HDR perceptual spaces — non-legacy (OKLab interp), matching
+    // every other functional non-sRGB family.
+    ictcp: "non-legacy",
+    jzazbz: "non-legacy",
 };
 
 /** How a color space serializes: a bare `name(...)` vs a `color(name ...)` wrap. */
@@ -270,6 +311,10 @@ export const COLOR_FUNCTION_FORM: Record<ColorSpace, ColorFunctionForm> = {
     "a98-rgb": "color",
     "prophoto-rgb": "color",
     rec2020: "color",
+    // Bare functional form `ictcp(…)` / `jzazbz(…)` (the CSS Color HDR draft
+    // syntax; mirrors the `hsv(…)` non-CSS-native precedent).
+    ictcp: "named",
+    jzazbz: "named",
 };
 
 // ──────────────────────────────────────────────────────────────────────────────
@@ -357,6 +402,8 @@ export const COLOR_SPACE_NAMES = {
     "a98-rgb": "Adobe RGB",
     "prophoto-rgb": "ProPhoto RGB",
     rec2020: "Rec. 2020",
+    ictcp: "ICtCp",
+    jzazbz: "Jzazbz",
 } as const;
 
 // From CIE 15:2004 table T.3
