@@ -141,15 +141,31 @@ export function createMathFunctionParsers(valueParser: Parser<any>) {
         istring("to-zero"),
     ).trim(whitespace);
 
+    // W1-2 (S.W1 · lib-parsing F-1): the `<rounding-strategy>` is OPTIONAL per
+    // spec (`css-values.bbnf:72`), so `round(25px, 5px)` is spec-legal. The old
+    // `roundStrategy.skip(comma).opt()` as the FIRST tuple position hit parse-that
+    // `all()`'s drop-undefined footgun: when the strategy was omitted, `all()`
+    // returned `[argsArray]` (length 1) instead of `[undefined, argsArray]`, so
+    // the destructure bound `args = undefined` and `[strategyVal, ...args]` threw
+    // "args is not iterable". The cure is the two-branch idiom already proven at
+    // `index.ts`'s `gradientBody` (D8/O.W0): two fully-specified `any()` branches
+    // never let `undefined` enter an `all()` tuple, so the footgun cannot fire.
     const roundFn = istring("round")
         .next(
-            all(
-                roundStrategy.skip(comma.trim(whitespace)).opt(),
-                calcArgList,
+            any(
+                // branch 1: explicit <rounding-strategy>, comma, then A, B
+                all(
+                    roundStrategy.skip(comma.trim(whitespace)),
+                    calcArgList,
+                ),
+                // branch 2: strategy OMITTED (spec-legal) — defaults to "nearest"
+                calcArgList.map(
+                    (args: any[]): [string, any[]] => ["nearest", args],
+                ),
             ).wrap(lparen, rparen),
         )
-        .map(([strategy, args]: [string | undefined, any[]]) => {
-            const strategyVal = new ValueUnit(strategy ?? "nearest", "string");
+        .map(([strategy, args]: [string, any[]]) => {
+            const strategyVal = new ValueUnit(strategy, "string");
             return new FunctionValue("round", [strategyVal, ...args]);
         });
 

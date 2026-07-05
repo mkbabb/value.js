@@ -7,13 +7,12 @@
 // gated by the sibling G1 lane over `parseCSSStylesheet`).
 //
 // VERIFY-BEFORE-FOLD ledger (observed on today's tree BEFORE the cure):
-//   C1  round(<A>,<B>) — STRATEGY-OMITTED form `round(25px, 5px)` THROWS
-//        ("args is not iterable", math.ts:153) on today's tree. The math
-//        roster's `round()` is only green for the EXPLICIT-strategy form
-//        (`round(nearest, 25px, 5px)`), which the 57 math-functions tests all
-//        use. math.ts is owned by another lane; this gate exercises round()
-//        via its GREEN explicit-strategy form and records the omitted-form bug
-//        as a known divergence (see the test annotation + the lane risk note).
+//   C1  round(<A>,<B>) — BOTH forms GREEN. The STRATEGY-OMITTED form
+//        `round(25px, 5px)` is spec-legal (`<rounding-strategy>` is optional,
+//        `css-values.bbnf:72`) and now parses (S.W1 W1-2 · lib-parsing F-1: the
+//        two-branch idiom in `math.ts` cures the old `all()` drop-undefined
+//        crash "args is not iterable"). The known-divergence carve-around is
+//        RETIRED — the omitted form is asserted below alongside the explicit one.
 //   C2  mod(18, 5)        — ALREADY GREEN (FunctionValue "mod")
 //   C3  abs(-5px)         — ALREADY GREEN (FunctionValue "abs")
 //   C4  color-mix(...)    — ALREADY GREEN (typed Color ValueUnit, unit "color")
@@ -36,15 +35,35 @@ import { FunctionValue, ValueUnit } from "../src/units";
 describe("O.W4 grammar-2026 — value functions + color (G2 lane)", () => {
     // --- S1 math roster: ALREADY GREEN (gate-only round-trip) ---
 
-    describe("C1 — round() (S1, already-green roster)", () => {
-        // The strategy-omitted form `round(25px, 5px)` is broken in the math
-        // lane (math.ts:153 throws on the dropped optional strategy). round()
-        // is gated here via its GREEN explicit-strategy form — the same form
-        // the 57 math-functions tests exercise.
+    describe("C1 — round() (S1)", () => {
         it("parses round(nearest, 25px, 5px) to FunctionValue('round')", () => {
             const r = parseCSSValue("round(nearest, 25px, 5px)");
             expect(r).toBeInstanceOf(FunctionValue);
             expect((r as FunctionValue).name).toBe("round");
+        });
+
+        // W1-2 (S.W1 · lib-parsing F-1): the OPTIONAL-strategy form is
+        // spec-legal and MUST parse — the old crash ("args is not iterable")
+        // is cured by the two-branch idiom in `math.ts`. The omitted strategy
+        // defaults to "nearest", so the two forms are structurally identical.
+        it("parses the strategy-OMITTED form round(25px, 5px) (spec-legal)", () => {
+            const r = parseCSSValue("round(25px, 5px)");
+            expect(r).toBeInstanceOf(FunctionValue);
+            const fn = r as FunctionValue;
+            expect(fn.name).toBe("round");
+            // strategy defaults to "nearest" (first arg), then the two operands.
+            const strategy = fn.values[0] as ValueUnit;
+            expect(strategy).toBeInstanceOf(ValueUnit);
+            expect(strategy.value).toBe("nearest");
+            expect(fn.values).toHaveLength(3);
+        });
+
+        it("the omitted and explicit forms parse to the same structure", () => {
+            const omitted = parseCSSValue("round(25px, 5px)") as FunctionValue;
+            const explicit = parseCSSValue(
+                "round(nearest, 25px, 5px)",
+            ) as FunctionValue;
+            expect(omitted.toString()).toBe(explicit.toString());
         });
     });
 
