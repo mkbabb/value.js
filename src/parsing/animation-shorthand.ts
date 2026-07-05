@@ -1,6 +1,7 @@
 import { memoize } from "../utils";
 import type { CSSAnimationOptions } from "./extract";
 import { parseCSSTime } from "./index";
+import { reverseCSSIterationCount } from "./units";
 import {
     BRACKETS_ROUND,
     PARSE_MEMO_MAX_ENTRIES,
@@ -184,11 +185,10 @@ export const reverseAnimationShorthand = (opts: CSSAnimationOptions): string => 
     if (opts.timingFunction != null) parts.push(opts.timingFunction);
     if (opts.delay != null) parts.push(formatTime(opts.delay));
     if (opts.iterationCount != null) {
-        parts.push(
-            opts.iterationCount === Infinity
-                ? "infinite"
-                : String(opts.iterationCount),
-        );
+        // Route through the published `reverseCSSIterationCount` rather than
+        // re-inlining its identical `Infinity → "infinite"` branch (DRY — it was
+        // a dead export whose logic was duplicated here; legacy-sweep-src P1).
+        parts.push(reverseCSSIterationCount(opts.iterationCount));
     }
     if (opts.direction != null) parts.push(opts.direction);
     if (opts.fillMode != null) parts.push(opts.fillMode);
