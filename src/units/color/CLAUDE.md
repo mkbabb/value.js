@@ -21,7 +21,9 @@ color/
 │                     Chromatic adaptation matrices (D65↔D50, Bradford)
 │                     XYZ↔LMS, LMS↔OKLab, RGB↔XYZ matrices (all 15 spaces)
 │                     GAMUT_SECTOR_COEFFICIENTS (Red/Green/Blue polynomial k0-k4)
-│                     COLOR_NAMES — 147 CSS named + 5 custom colors
+├── color-names.ts  # COLOR_NAMES (147 CSS named + 5 custom colors) data table
+│                     (S.W1 W1-8 lift out of constants.ts) + the runtime custom
+│                     color-name registry (registerColorNames/clear/get — O.W1 S1)
 ├── matrix.ts       # 3x3 matrix math (replaces gl-matrix)
 │                     Vec3 = [number, number, number]
 │                     Mat3 = 9-element tuple (ROW-MAJOR)

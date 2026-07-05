@@ -61,7 +61,6 @@ export {
     LINEAR_SRGB_TO_LMS,
     OKLAB_TO_LMS_COEFF,
     GAMUT_SECTOR_COEFFICIENTS,
-    COLOR_NAMES,
 } from "../units/color/constants";
 export type {
     ColorSpace,
@@ -176,8 +175,10 @@ export {
 // Color filter solver
 export { rgb2ColorFilter, cssFiltersToString } from "../units/color/colorFilter";
 
-// The runtime custom color-name registry (parse-that-free home — O.W1 S1)
+// The color-name data table + the runtime custom-name registry (parse-that-free
+// home — O.W1 S1; COLOR_NAMES joined it in S.W1 W1-8's data lift).
 export {
+    COLOR_NAMES,
     registerColorNames,
     clearCustomColorNames,
     getCustomColorNames,

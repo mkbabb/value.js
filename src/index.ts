@@ -118,8 +118,9 @@ export {
     LINEAR_SRGB_TO_LMS,
     OKLAB_TO_LMS_COEFF,
     GAMUT_SECTOR_COEFFICIENTS,
-    COLOR_NAMES,
 } from "./units/color/constants";
+// COLOR_NAMES — the CSS named-color data table (S.W1 W1-8 lift → color-names.ts).
+export { COLOR_NAMES } from "./units/color/color-names";
 export type {
     ColorSpace,
     WhitePoint,

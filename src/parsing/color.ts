@@ -22,7 +22,7 @@ import {
 } from "../units/color";
 import { Parser, all, any, dispatch, regex, string, whitespace } from "@mkbabb/parse-that";
 import { FunctionValue, ValueUnit } from "../units";
-import { COLOR_NAMES } from "../units/color/constants";
+import { COLOR_NAMES } from "../units/color/color-names";
 import type { ColorSpace } from "../units/color/constants";
 import {
     clearCustomColorNames,
