@@ -5,9 +5,12 @@
          tabular figures — and a slider drag from min to max changes NO
          containing card rect: every cell reserves its worst-case `ch` width
          from the static readoutReservation table, cells are atomic (nowrap),
-         and the block locks two lines of height. -->
+         and the block locks the SPACE'S own worst-case line count (S.W4-2 —
+         the same table's static derivation; 1 for every space in today's
+         catalog — never a blanket 2). -->
     <CardTitle
         class="readout flex h-fit w-full m-0 p-0 gap-x-3 flex-wrap items-baseline font-display focus-visible:outline-none"
+        :style="{ '--readout-lines': lineCount }"
     >
         <template
             v-for="([component], ix) in colorComponents"
@@ -48,8 +51,9 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import { CardTitle } from "@components/ui/card";
-import { readoutCh } from "../readoutReservation";
+import { readoutCh, readoutLineCount } from "../readoutReservation";
 
 export interface ComponentFormat {
     value: number | string;
@@ -57,12 +61,21 @@ export interface ComponentFormat {
     monospace?: boolean;
 }
 
-const { formatted } = defineProps<{
+const { formatted, colorComponents, space } = defineProps<{
     colorComponents: [string, any][];
     formatted: Record<string, ComponentFormat>;
     /** The active display space — keys the `ch`-reservation table. */
     space: string;
 }>();
+
+/** The per-space line lock (S.W4-2) — the reservation table's own static
+ *  derivation, bound as `--readout-lines` for the min-height calc. */
+const lineCount = computed(() =>
+    readoutLineCount(
+        space,
+        colorComponents.map(([component]) => component),
+    ),
+);
 
 const emit = defineEmits<{
     update: [value: number, component: string];
@@ -86,15 +99,29 @@ function figParts(component: string): { int: string; frac: string } {
 </script>
 
 <style scoped>
-/* The hero-number register: the display ramp's φ^(5/2) rung, Fraunces voice,
- * DECLARED tabular figures (Fraunces is not tabular by default — card-lock
- * law mechanism 1), and the 2-line block lock so wrap count is a constant of
- * the space, never of the value. */
+/* The hero-number register: the display ramp, Fraunces voice, DECLARED
+ * tabular figures (Fraunces is not tabular by default — card-lock law
+ * mechanism 1), and the per-space line lock so wrap count is a constant of
+ * the space, never of the value.
+ *
+ * The `cqi` display rung (S.W4-2 / S-19, the P1-1 third lever): the hero
+ * rides the pane-slot container, not the viewport — font ∝ container width
+ * means the line's capacity IN CH is a near-constant of the composition
+ * (~20ch; full derivation in readoutReservation.ts), so one-line Lab is a
+ * structural guarantee across the whole band, not a lucky viewport. Capped
+ * by the --type-display-2 token (wide panes), floored at the display-1
+ * rung's own 1.618rem floor so the voice never drops below the display
+ * register. This narrows the "display rungs are viewport-fluid" exception
+ * (style.css §pane-wrapper) for the one display surface that must MEASURE:
+ * an instrument readout broken-lined mid-figure is a hierarchy defect. */
 .readout {
-    font-size: var(--type-display-2);
+    font-size: min(var(--type-display-2), max(7.2cqi, 1.618rem));
     line-height: 1.12;
     font-variant-numeric: tabular-nums lining-nums;
-    min-height: calc(2 * 1.12em);
+    /* The per-space lock (S.W4-2): `--readout-lines` is the space's own
+     * worst-case line count from the static reservation table — never a
+     * blanket 2 (the blank second line under hex was P1-1's pathology). */
+    min-height: calc(var(--readout-lines, 1) * 1.12em);
     font-weight: 400;
 }
 

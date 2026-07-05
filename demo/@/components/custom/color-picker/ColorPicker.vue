@@ -23,16 +23,26 @@
 
             <!-- The header is a DISPLAY surface (space title + hero numbers →
                  Fraunces); horizontal padding rides `cqi` against the pane-slot
-                 container, not viewport breakpoints (R.W3 Lane A / A4). The
-                 static right padding is the blob's footprint RESERVATION
-                 (D1-4: by construction, never a measured nudge). -->
-            <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full pl-[clamp(0.75rem,4cqi,1.5rem)] pr-24 lg:pr-36 min-w-0 overflow-visible flex flex-col gap-y-1 items-start">
-                <ColorSpaceSelector
-                    :model-value="model.selectedColorSpace"
-                    v-model:open="selectedColorSpaceOpen"
-                    :css-color="cssColor"
-                    @update:model-value="(colorSpace: any) => updateModel({ selectedColorSpace: colorSpace })"
-                />
+                 container, not viewport breakpoints (R.W3 Lane A / A4) — and is
+                 symmetric now that the blob reservation lives on the title row
+                 alone (S.W4-2 / S-19). -->
+            <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col gap-y-1 items-start">
+                <!-- Title row: the blob's static footprint RESERVATION (D1-4:
+                     by construction, never a measured nudge) is scoped HERE.
+                     The blob's canvas occupies the title band only (y ≈
+                     −56…120 at lg; it never descends into the readout row),
+                     so only the title pays for the corner-break — the hero
+                     numbers below span the FULL header width and Lab inks
+                     ONE line at the desktop rung (S.W4-2 / S-19;
+                     design-picker P1-1). -->
+                <div class="w-full min-w-0 pr-24 lg:pr-36">
+                    <ColorSpaceSelector
+                        :model-value="model.selectedColorSpace"
+                        v-model:open="selectedColorSpaceOpen"
+                        :css-color="cssColor"
+                        @update:model-value="(colorSpace: any) => updateModel({ selectedColorSpace: colorSpace })"
+                    />
+                </div>
 
                 <ColorComponentDisplay
                     :color-components="colorComponents"
