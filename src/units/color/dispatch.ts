@@ -62,6 +62,7 @@ import {
     xyz2rec2020Into,
 } from "./conversions/xyz-extended";
 import { getDirectPath } from "./conversions/direct";
+import { registerColorConverters } from "./serialize";
 
 export { hex2rgb, rgb2hex };
 export { deltaEOK, isInSRGBGamut, DELTA_E_OK_JND } from "./gamut";
@@ -520,3 +521,13 @@ export function gamutMap<C extends Color>(
 
     return gamutMapToRgbSpace(color, target);
 }
+
+// S.W1 W1-8 — wire the apply-path serializer's late-bound space converters.
+// `serialize.ts` stays a LEAF (no static `./dispatch` import) so `base.ts` can
+// import it without re-forming the dispatch → spaces eval cycle that TDZs the
+// subclass `extends Color`; the registration closes the loop at dispatch's own
+// module eval — long before any runtime `toAnimationString(_, outputSpace)`.
+registerColorConverters(
+    color2 as (color: Color<number>, to: ColorSpace) => Color<number>,
+    gamutMap as (color: Color<number>, to: ColorSpace) => Color<number>,
+);
