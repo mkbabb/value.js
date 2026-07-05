@@ -817,7 +817,7 @@ export { registerColorNames, clearCustomColorNames, getCustomColorNames };
  * and built-ins resolve through the rich parser exactly as before.
  */
 // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see comment in
-// src/parsing/index.ts.
+// src/parsing/index.ts. maxCacheSize (W1-5): see PARSE_MEMO_MAX_ENTRIES.
 export const parseCSSColor = memoize(
     (input: string): ParsedColorUnit => {
         // F7 — try the custom-name map BEFORE the speculative rich parse.
@@ -850,5 +850,5 @@ export const parseCSSColor = memoize(
         // Re-throw original parse failure
         return utils.tryParse(Value, input);
     },
-    { keyFn: (input: string) => input },
+    { keyFn: (input: string) => input, maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES },
 );

@@ -859,6 +859,6 @@ export const parseCSSStylesheet = memoize(
     (input: string): Stylesheet =>
         utils.tryParse(stylesheet, stripCSSComments(input)),
     // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see
-    // comment in src/parsing/index.ts.
-    { keyFn: (input: string) => input },
+    // comment in src/parsing/index.ts. maxCacheSize (W1-5): bound the cache.
+    { keyFn: (input: string) => input, maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES },
 );

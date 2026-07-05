@@ -1,6 +1,19 @@
 import { mergeErrorState, Parser, regex, string } from "@mkbabb/parse-that";
 import type { ParserState } from "@mkbabb/parse-that";
 
+// W1-5 (S.W1 · perf-general §4 / lib-parsing F-6) — the shared LRU bound for the
+// parsing layer's memoized public entry points (`parseCSSValue`, `parseCSSColor`,
+// `parseCSSValueUnit`, `parseCSSPercent`, `parseCSSTime`, `parseCSSStylesheet`,
+// `parseAnimationShorthand`). Every one keyed on the raw input string, so a
+// sustained interactive session (slider/spectrum drag, gradient editing) emits a
+// stream of near-unique high-precision decimal strings — each a permanent,
+// never-evicted `Map` key without a bound. The `memoize()` LRU machinery
+// (`src/utils.ts`) already exists; this caps worst-case memory deterministically,
+// mirroring `normalize.ts`'s `COMPUTED_MEMO_MAX_ENTRIES = 4096` precedent (a few
+// thousand entries is generous for a CSS-value cache; a hot key survives a flood
+// under LRU where FIFO would evict it).
+export const PARSE_MEMO_MAX_ENTRIES = 4096;
+
 // ─────────────────────────────────────────────────────────────────────────────
 // O.W6 S2 — monolithic byte-loop scanners (the parse-that CSS-parser HARVEST).
 //

@@ -1,7 +1,7 @@
 import { memoize } from "../utils";
 import type { CSSAnimationOptions } from "./extract";
 import { parseCSSTime } from "./index";
-import { splitTopLevelCommas } from "./utils";
+import { PARSE_MEMO_MAX_ENTRIES, splitTopLevelCommas } from "./utils";
 
 /**
  * Tokenise the value of an `animation` shorthand declaration into
@@ -204,8 +204,8 @@ export const parseAnimationShorthand = memoize(
         return segments.map((seg) => parseSingleAnimation(seg));
     },
     // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see
-    // comment in src/parsing/index.ts.
-    { keyFn: (input: string) => input },
+    // comment in src/parsing/index.ts. maxCacheSize (W1-5): bound the cache.
+    { keyFn: (input: string) => input, maxCacheSize: PARSE_MEMO_MAX_ENTRIES },
 );
 
 /**

@@ -501,7 +501,8 @@ export const parseCSSValue = memoize(
     (input: string): ValueUnit | FunctionValue => {
         return utils.tryParse(ValuesValue, input);
     },
-    { keyFn: (input: string) => input },
+    // maxCacheSize (W1-5): bound the cache — see PARSE_MEMO_MAX_ENTRIES.
+    { keyFn: (input: string) => input, maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES },
 );
 
 // ─── parseCSSSubValue (VJ-L3) ──────────────────────────────────────────────
@@ -565,7 +566,10 @@ export function parseCSSSubValue(
 export const parseCSSPercent = memoize(
     (input: string | number): number =>
         utils.tryParse(CSSValueUnit.Percentage, String(input)).valueOf(),
-    { keyFn: (input: string | number) => String(input) },
+    {
+        keyFn: (input: string | number) => String(input),
+        maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES,
+    },
 );
 
 export const parseCSSTime = memoize(
@@ -583,5 +587,6 @@ export const parseCSSTime = memoize(
             input,
         ) as number;
     },
-    { keyFn: (input: string) => input },
+    // maxCacheSize (W1-5): bound the cache — see PARSE_MEMO_MAX_ENTRIES.
+    { keyFn: (input: string) => input, maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES },
 );

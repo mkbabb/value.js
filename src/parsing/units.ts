@@ -111,7 +111,7 @@ export const CSSValueUnit = {
  * Mirrors the memo contract of the sibling `parseCSSValue`/`parseCSSColor`.
  */
 // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see comment in
-// src/parsing/index.ts.
+// src/parsing/index.ts. maxCacheSize (W1-5): see PARSE_MEMO_MAX_ENTRIES.
 export const parseCSSValueUnit = memoize(
     (input: string): ValueUnit => {
         // Empty-input contract (the keyframes.js I.W0 B1/B5 seam, paired with
@@ -129,7 +129,7 @@ export const parseCSSValueUnit = memoize(
         }
         return utils.tryParse(Value, input);
     },
-    { keyFn: (input: string) => input },
+    { keyFn: (input: string) => input, maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES },
 );
 
 /**
