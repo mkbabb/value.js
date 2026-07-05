@@ -52,6 +52,18 @@ const CONSOLE_FAIL_SUBSTRINGS = [
     "webglcontextlost",
     "RangeError: Maximum call stack",
     "[stale prop]",
+    // S.W0 W0-2(c) — the shader-compile oracle (safari-truth §4 P0). The aurora
+    // WebGL2 shader fails to COMPILE on WebKit's stricter GLSL-ES validator
+    // (ANGLE/Chromium is lenient), surfaced verbatim as
+    // `[aurora] init failed: Error: [Aurora] shader compile failed: …`. The
+    // prior 3-substring guard only watched context-loss / stack-overflow /
+    // stale-prop, so this exact P0 sailed through green. Both substrings are
+    // keyed to the `[aurora]`/`[glass-ui]` deferred-init `onInitError` prefixes
+    // (a WebGL producer that cannot compile its shader is never a healthy
+    // frame). This is the oracle, NOT a shim: the defect is glass-ui's (L1); the
+    // gate makes it VISIBLE. Never widen a noise allow-list to swallow it.
+    "shader compile failed",
+    "init failed",
 ] as const;
 
 const matchesFailure = (text: string): boolean =>
