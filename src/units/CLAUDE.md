@@ -17,8 +17,13 @@ units/
 │                     MatrixValues interface (16 transform components)
 ├── style-names.ts  # STYLE_NAMES — CSS property names (camelCase) data table
 │                     (S.W1 W1-8 data-module split out of constants.ts)
+├── dom-metrics.ts  # DOM/layout pixel-resolution helpers (S.W1 W1-8 split)
+│                     findQueryContainer, isVerticalWritingMode, HANDLED_RELATIVE_UNITS
+│                     convertViewportUnitToPixels (sv*/lv*/dv*/vi/vb)
+│                     convertFontMetricUnitToPixels (cap/ic/lh/rlh)
 ├── utils.ts        # unit conversion + CSS utilities
-│                     convertToPixels, convertToDegrees, convertToMs, convertToHz, convertToDPI
+│                     convertToPixels (imports dom-metrics helpers), convertAbsoluteUnitToPixels
+│                     convertToDegrees, convertToMs, convertToHz, convertToDPI
 │                     convert2 (generic cross-unit conversion)
 │                     flattenObject / unflattenObject (nested style ↔ flat)
 │                     unpackMatrixValues (matrix/matrix3d decomposition)
