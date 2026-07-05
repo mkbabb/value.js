@@ -124,10 +124,14 @@ watch(
                     tag="div"
                     class="swatch-row flex items-center gap-2.5 flex-wrap"
                 >
+                    <!-- data-mix-source/-color: the convergence animation lifts
+                         a pigment drop from each chip's real position (W3-6). -->
                     <div
                         v-for="(sc, i) in selectedColors"
                         :key="swatchKeys[i]"
                         class="group relative"
+                        data-mix-source
+                        :data-mix-color="sc.css"
                     >
                         <WatercolorDot
                             :color="sc.css"
@@ -218,6 +222,10 @@ watch(
                 type="button"
                 :aria-pressed="isPaletteSelected(palette.slug)"
                 :aria-label="`${isPaletteSelected(palette.slug) ? 'Deselect' : 'Select'} palette ${palette.name}`"
+                :data-mix-source="isPaletteSelected(palette.slug) ? '' : undefined"
+                :data-mix-colors="isPaletteSelected(palette.slug)
+                    ? JSON.stringify(palette.colors.slice(0, 4).map((c) => c.css))
+                    : undefined"
                 :class="[
                     'cursor-pointer transition-all rounded-card w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40',
                     isPaletteSelected(palette.slug)

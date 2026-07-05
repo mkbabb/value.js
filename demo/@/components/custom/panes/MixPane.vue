@@ -30,6 +30,7 @@ const {
     addPalette,
     removePalette,
     startMix,
+    settleMix,
     reset,
     clearSelection,
 } = useMixingState();
@@ -59,10 +60,16 @@ defineExpose({ clearSelection, startMix, copyResult });
 <template>
     <div class="relative w-full mx-auto h-full min-w-0">
         <Card tier="wash" :shadow="false" :grain="false" class="relative pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
-            <!-- Animation canvas overlay -->
+            <!-- The mix convergence overlay (S.W3-6 / Q10): drops from the
+                 selected chips arc to the result plate's awaiting well. Its
+                 rAF timeline is the ONE clock; @settled is the phase
+                 machine's only forward edge. -->
             <MixAnimationCanvas
                 :phase="animationPhase"
-                :selected-colors="selectedColors"
+                :result="mixResult"
+                :space="colorSpace"
+                :hue-method="hueMethod"
+                @settled="settleMix"
             />
 
             <PaneHeader description="Mix colors and palettes together.">
@@ -92,22 +99,15 @@ defineExpose({ clearSelection, startMix, copyResult });
                     @mix="startMix"
                 />
 
-                <!-- Mixing animation indicator -->
-                <div
-                    v-if="animationPhase !== 'idle' && animationPhase !== 'done'"
-                    class="flex items-center gap-2 justify-center py-4"
-                >
-                    <div class="w-5 h-5 rounded-full border-2 border-muted-foreground/30 border-t-primary animate-spin" />
-                    <span class="text-mono-small text-muted-foreground">
-                        {{ animationPhase === 'gathering' ? 'Gathering…' : animationPhase === 'mixing' ? 'Mixing…' : 'Revealing…' }}
-                    </span>
-                </div>
-
-                <!-- Result -->
+                <!-- Result plate — mounts GHOSTED the moment the mix starts
+                     (the announced destination the convergence lands on);
+                     inks in on the canvas clock's settle. No spinner row:
+                     the animation IS the progress (Q10). -->
                 <Transition name="vj-morph" mode="out-in">
                     <MixResultDisplay
-                        v-if="mixResult && animationPhase === 'done'"
+                        v-if="mixResult"
                         :result="mixResult"
+                        :ghost="animationPhase === 'mixing'"
                         @save="onSave"
                         @reset="reset"
                     />
