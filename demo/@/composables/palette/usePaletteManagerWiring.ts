@@ -28,6 +28,33 @@ export function usePaletteManagerWiring(
     applyColorString: (css: string) => void,
     savedColorStrings: Ref<string[]>,
 ): PaletteManager {
+    // S.W2 W2-6: a BOUNDED retry for the "colorPickerRef not yet mounted" race.
+    // The former self-rescheduling 50ms polls had no cap, deadline, or give-up
+    // path — a permanently-absent picker (a future layout, a ref regression) left
+    // a closure looping forever. Cap at a ~2s deadline, then log once and stop.
+    const PICKER_WAIT_ATTEMPTS = 40; // 40 × 50ms ≈ 2s
+    function whenColorPickerReady(
+        run: (picker: NonNullable<typeof colorPickerRef.value>) => void,
+        label: string,
+    ): void {
+        let attempts = 0;
+        const poll = () => {
+            const picker = colorPickerRef.value;
+            if (picker) {
+                run(picker);
+                return;
+            }
+            if (attempts++ >= PICKER_WAIT_ATTEMPTS) {
+                console.warn(
+                    `[usePaletteManagerWiring] gave up waiting for the color picker to mount (${label}).`,
+                );
+                return;
+            }
+            setTimeout(poll, 50);
+        };
+        poll();
+    }
+
     const manager = usePaletteManager({
         currentView: viewManager.currentView,
         switchView: viewManager.switchView,
@@ -72,14 +99,7 @@ export function usePaletteManagerWiring(
                     model.value = { ...model.value, savedColors };
                 }
             } catch {
-                const tryAdd = () => {
-                    if (colorPickerRef.value) {
-                        colorPickerRef.value.onPaletteAddColor(css);
-                    } else {
-                        setTimeout(tryAdd, 50);
-                    }
-                };
-                tryAdd();
+                whenColorPickerReady((picker) => picker.onPaletteAddColor(css), "addColor");
             }
         },
 
@@ -89,14 +109,11 @@ export function usePaletteManagerWiring(
                 viewManager.switchView("palettes");
             }
             viewManager.mobilePaneIndex.value = 0;
-            const tryStartEdit = () => {
-                if (colorPickerRef.value) {
-                    colorPickerRef.value.onStartEdit(target);
-                } else {
-                    setTimeout(tryStartEdit, 50);
-                }
-            };
-            setTimeout(tryStartEdit, 50);
+            // Defer the first check one tick so the pane switch can mount the picker.
+            setTimeout(
+                () => whenColorPickerReady((picker) => picker.onStartEdit(target), "startEdit"),
+                50,
+            );
         },
 
         emitSetCurrentColor: (css: string) => {

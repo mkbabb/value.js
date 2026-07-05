@@ -2,7 +2,7 @@ import { ref, readonly } from "vue";
 import { registerColorNames, clearCustomColorNames } from "@src/parsing/color";
 import { parseCSSColor } from "@src/parsing/color";
 import { colorUnit2 } from "@src/units/color/normalize";
-import { getApprovedColorNames } from "@lib/palette/api";
+import { getApprovedColorNames, ApiUnavailableError } from "@lib/palette/api";
 import type { ProposedColorName } from "@lib/palette/types";
 
 const DIGITS = 2;
@@ -42,12 +42,23 @@ export function useCustomColorNames() {
             customNameRegistry.value = registry;
             normalizedCustomNames.value = normalized;
             loaded.value = true;
-        } catch {
+        } catch (e) {
             // inv-K-5 (K.W2b): custom color names are an OPTIONAL enhancement
             // (the picker falls back to the 147 built-in CSS names + value.js's
             // COLOR_NAMES). A failed/absent read is non-fatal and must fail
-            // SILENTLY — no console output — so the e2e `zero console errors`
-            // assertion holds when no backend is reachable.
+            // SILENTLY in production — no console output — so the e2e `zero
+            // console errors` assertion holds when no backend is reachable.
+            //
+            // S.W2 W2-6: but a *code* defect in the registration loop above (a
+            // response-shape change, a registerColorNames/Map bug) must not hide
+            // behind the same undiagnosable silence. In DEV only, and only for a
+            // throw that is NOT the expected backend-absence signal, emit a
+            // console.debug (never an error/warn — the e2e gate stays clean).
+            const isBackendAbsence =
+                e instanceof ApiUnavailableError || e instanceof TypeError;
+            if (import.meta.env.DEV && !isBackendAbsence) {
+                console.debug("[useCustomColorNames] color-name load failed (not backend-absence):", e);
+            }
         } finally {
             loading.value = false;
         }

@@ -1,6 +1,7 @@
 import { ref, type Ref, type ComputedRef } from "vue";
 import { useSession } from "../auth/useSession";
 import { publishPalette } from "@lib/palette/api";
+import { ApiProblem } from "@lib/palette/api/api-problem";
 import type { Palette } from "@lib/palette/types";
 import type PaletteSlugBar from "@components/custom/palette-browser/PaletteSlugBar.vue";
 
@@ -73,12 +74,17 @@ export function useSlugMigration(deps: {
         try {
             await deps.userLogin(value);
             setActiveTab("saved");
-        } catch (e: any) {
-            const msg = e?.message ?? "";
-            if (msg.includes("409")) slugBarRef.value?.setError("Already signed in as this slug.");
-            else if (msg.includes("404")) slugBarRef.value?.setError("Slug not found.");
-            else if (msg.includes("429")) slugBarRef.value?.setError("Too many attempts.");
-            else slugBarRef.value?.setError(msg || "Login failed");
+        } catch (e) {
+            // S.W2 W2-6: branch on the typed `ApiProblem.status`, not `.message`
+            // substrings — the server titles ("Already logged in as this user",
+            // "User not found", "Rate limit exceeded") never contain "409"/"404"/
+            // "429", so those branches matched nothing and the authored copy below
+            // never showed.
+            const status = e instanceof ApiProblem ? e.status : undefined;
+            if (status === 409) slugBarRef.value?.setError("Already signed in as this slug.");
+            else if (status === 404) slugBarRef.value?.setError("Slug not found.");
+            else if (status === 429) slugBarRef.value?.setError("Too many attempts.");
+            else slugBarRef.value?.setError((e instanceof Error ? e.message : "") || "Login failed");
         }
     }
 
