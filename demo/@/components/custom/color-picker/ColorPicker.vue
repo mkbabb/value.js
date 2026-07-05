@@ -63,7 +63,7 @@
                  `.stagger-children` see the var unset → 0ms, exactly as before. -->
             <CardContent
                 class="z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,3.5cqi,1.25rem)] min-w-0 lg:flex-1 lg:min-h-0"
-                :style="plateOpening ? { '--stagger-base': '360ms' } : undefined"
+                :style="plateOpening ? { '--stagger-base': '220ms' } : undefined"
             >
                 <div class="flex flex-col gap-3">
                     <SpectrumCanvas />
@@ -312,10 +312,12 @@ watch(
     { immediate: true },
 );
 
-// --- The orchestrated open (R.W3 Lane E / E1) ---
-// One breath, three beats: plate-land (560ms, the cartoon shadow casting in)
-// → field paint-in (+180ms, SpectrumCanvas) → the channel stagger (+360ms
-// via --stagger-base above). The flag drops after the breath so space-change
+// --- The orchestrated open (R.W3 Lane E / E1; retimed S.W3-5) ---
+// One breath, three beats, trimmed to a ~0.85s total (was 1.1–1.2s — the S-9
+// taste pass: a TOOL's fresh-mount breath, not a marketing splash): plate-land
+// (440ms, the cartoon shadow casting in) → field paint-in (SpectrumCanvas) →
+// the channel stagger (+220ms via --stagger-base above). The flag drops at
+// 850ms — after the last channel lands (~760ms), 90ms slack — so space-change
 // stagger re-fires run undelayed.
 const plateOpening = ref(true);
 
@@ -323,7 +325,7 @@ const plateOpening = ref(true);
 
 onMounted(() => {
     window.addEventListener("keydown", handleKeydown);
-    window.setTimeout(() => { plateOpening.value = false; }, 1200);
+    window.setTimeout(() => { plateOpening.value = false; }, 850);
 });
 
 onUnmounted(() => {
@@ -360,7 +362,7 @@ onUnmounted(() => {
         }
     }
     .pane-shell > :first-child {
-        animation: plate-land 560ms var(--spring-snappy) both;
+        animation: plate-land 440ms var(--spring-snappy) both;
     }
 }
 </style>

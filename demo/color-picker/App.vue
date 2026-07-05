@@ -371,4 +371,18 @@ onMounted(() => { loadCustomColorNames(); });
 .pane-wrapper--right > .vj-enter-leave-active {
     will-change: transform;
 }
+
+/* W3-5 (S.W3 · view-swap spring retune): the pane ENTER travel rode the
+ * `--spring-smooth-duration` 0.45s settle (§6.2 baseline); re-time it to
+ * `--duration-normal` (0.3s) here — SCOPED to the pane wrappers so the shared
+ * vj-enter family (overlays, toolbars, list items) is untouched. The spring
+ * CURVE (`--spring-smooth`) is kept; only its clock tightens. The leave side
+ * already ran at `--duration-normal` (animations.css), so the swap is
+ * symmetric ~0.3s now. */
+.pane-wrapper--left > .vj-enter-enter-active,
+.pane-wrapper--right > .vj-enter-enter-active {
+    transition:
+        opacity var(--duration-normal) var(--ease-decelerate),
+        transform var(--duration-normal) var(--spring-smooth);
+}
 </style>

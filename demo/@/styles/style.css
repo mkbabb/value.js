@@ -109,6 +109,16 @@
     --spacing-dock-inset:     var(--dock-inset);
     --shadow-card-hover:      var(--shadow-cartoon-hover);
 
+    /* ── The bare-utility transition default (S.W3-5) ──
+     * Tailwind v4's un-modified `transition` / `transition-*` utilities fall
+     * back to a hard-coded 150ms `cubic-bezier(0.4,0,0.2,1)`. The 21-file
+     * bare-utility census (motion-animation-inventory §5) inherits that
+     * untokened default. Alias it at the `@theme` ROOT to the house motion
+     * tokens so every un-tuned `transition` utility speaks the app's fast
+     * duration + standard ease by construction — no per-callsite modifier. */
+    --default-transition-duration:         var(--duration-fast);
+    --default-transition-timing-function:  var(--ease-standard);
+
     /* ── The hairline bridge (R.W4 Lane A / A1) ──
      * Surfaces the R.W3 `--card-edge` mint (:root below — owned THERE, this is
      * a pure consume) as a Tailwind color key so every Z2 in-plate card writes
