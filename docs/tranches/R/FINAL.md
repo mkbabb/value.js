@@ -24,7 +24,7 @@
 | **R.W4** suffusion | **complete** (2026-07-04) | Verifier: gate (a)–(d) + easing riders + E-lane clauses ALL PASS, **taste MET** (screenshot-corroborated); `audit/R.W4-visual-runtime/close/DELTA.md`: 17→3 transition families (inventory at `transition-inventory.md`), both forks deleted grep-zero, demo/ ≤400 LoC over-cap 0 (`9675ef3`), a11y parity additive-only; `/easing` consume 24/24 names + Q12 steps banded round-trip (`probe-w4.mjs` 13/13); E4 raw-OKLab verdict bug caught in-lane and cured `337f254` (Δ was inflated ~500×); suites: vitest 1998/1998 · playwright 38/38 · lint 0 · vue-tsc 0 · boot cold PASS | Goal met: the keystone's grammar suffused to every surface; both remaining demo forks dead by consume, not workaround | EasingPicker preset SelectTrigger accessible-name defect (producer-owned; combobox announces only "linear") → **relay letter item** (§8; fires at the glass-ui fix) |
 | ~~R.W5~~ | **KILLED** | Q1 FLIP at ratification (owner order) — `waves/R.W5.md` + `docs/frontend-design/hero-lab.md` deleted; app artifacts deleted at R.W2 `9ed9175` | Not a miss: killed, never slipped; the gap documents the kill | — |
 | **R.W6** twin-tie | **complete** (2026-07-03) | 5 wire-envelope shape rows inline (`7351297`, merge `8a2a617`), transcribed against `J-diff-shape.md §3/§4`, shape-not-bytes; **isolated-clone proof**: no sibling checkout, diff rows 14/14 + full api suite 37 files / 224 green; `cd api && tsc --noEmit` 0; contract-currency invariant recorded (`waves/R.W6.md §2` + the W6 close entry); FN charter reconciled + FN-5-before-M.W10 rider delivered (fourier `cd26c65`) | Goal met: the twin-tie is durable inside value.js's own tree, zero cross-repo reads; `canonical_digest` SKIPPED **sanctioned** (adoption = stored-hash migration, not parity); the three named twin divergences left un-unified by design | FN-7 + FN-6 → **BOOKS** (fourier-owned, by design — not misses) |
-| **R.W7** wire + close | **in-close** (this document) | X5+X4 landed `825bd58` (`docs/dev-deploy-standard.md §6/§7`); relay letter finalized + cascade-vjs response authored (this wave's letters commit); FINAL.md = this document; full verify set at HEAD: lint 0 · typecheck 0 (lib+demo, api) · vitest **1998/1998** (58 files) · playwright — §6; ι sweep clean (§3); π reconciliation clean (§4) | Goal reconciliation at the merge ceremony: **X1 prod deploy, X2 alias retirement, X3 Pages wire run, master merge + tag are orchestrator/maintainer acts that fire AT/AFTER the merge** — recorded PENDING below (§7) with live-probe evidence; the close-synthesis half is complete | X1 → PENDING-ON-MERGE · X2 → PENDING (maintainer-on-host) · X3 → PENDING-ON-MERGE — all three inside this wave's own ceremony, amended here when fired; no cross-tranche deferral |
+| **R.W7** wire + close | **complete_with_misses** (2026-07-04; X3 GREEN + first-ever CI green; X1/X2 = maintainer-on-host residuals, §7) | X5+X4 landed `825bd58` (`docs/dev-deploy-standard.md §6/§7`); relay letter finalized + cascade-vjs response authored (this wave's letters commit); FINAL.md = this document; full verify set at HEAD: lint 0 · typecheck 0 (lib+demo, api) · vitest **1998/1998** (58 files) · playwright — §6; ι sweep clean (§3); π reconciliation clean (§4) | Goal reconciliation at the merge ceremony: **X1 prod deploy, X2 alias retirement, X3 Pages wire run, master merge + tag are orchestrator/maintainer acts that fire AT/AFTER the merge** — recorded PENDING below (§7) with live-probe evidence; the close-synthesis half is complete | X1 → PENDING-ON-MERGE · X2 → PENDING (maintainer-on-host) · X3 → PENDING-ON-MERGE — all three inside this wave's own ceremony, amended here when fired; no cross-tranche deferral |
 
 ---
 
@@ -153,26 +153,48 @@ owed) — its π obligation is this reconciliation.
   `docs/dev-deploy-standard.md §7`): `api/src/routes/**` is authoritative; the
   `ROUTES` table + `/openapi.json` are a faithful-by-review projection, not
   the contract.
-- **X1 — prod deploy: PENDING-ON-MERGE.** Close-synthesis live probes
-  (2026-07-04): `https://api.color.babb.dev/` answers
-  `{"status":"ok","service":"palette-api"}` but `/health`, `/openapi.json`,
-  and `/palettes/:slug/diff` all return the typed 404 problem envelope —
-  prod serves **pre-N (I-era) lineage** (the `/health` meta route landed at
-  `e62567a`, N-era). Because the deploy hook resets to `origin/master`
-  (`ref==master` gated, HMAC-verified — the wire IS master), X1 completes at
-  the master push in the orchestrator's merge ceremony; the post-deploy spot
-  probe (`/health` lineage stamp + the `/diff` envelope) amends this row.
+- **X1 — prod deploy: FIRED-AND-BLOCKED-ON-HOST (maintainer-on-host residual,
+  amended 2026-07-04).** The master pushes fired (`bdba8fc`..`f9b1810`), but the
+  babb.dev deploy webhook is **dead on the host** — the runbook's probe stands
+  (`POST deploy.babb.dev/hooks/value-js` → `Hook not found.`, 404) and the
+  post-push probe confirms prod still serves I-era lineage (`/health` 404).
+  **Maintainer instructions**: on the babb.dev spine host, either re-register
+  the `value-js` hook in the webhook daemon config, or run
+  `scripts/deploy-hook.sh` directly at `/srv/constellation/palette-api`
+  (resets to `origin/master`, builds, brings up the rs0 compose). The
+  post-deploy spot probe = `/health` lineage stamp 200 + the `/diff` envelope.
+  Named successor: the maintainer at the host; verified by S.W0's api rider.
 - **X2 — NCSU-alias retirement (Q2 FLIP, in the W7 gate): PENDING,
-  maintainer-on-host.** Close-synthesis probe: `mbabb.fi.ncsu.edu/colors/`
-  still answers with the palette-api body (HTTP 200) — the alias is live.
-  The retirement is an on-host op by owner order ("no ncsu alias"); the
-  maintainer fires it at the ceremony and this row is amended with the
-  retirement observation (the alias URL going dark).
-- **X3 — first CF-Pages wire run: PENDING-ON-MERGE.** `deploy-pages.yml`
-  fires on the CI-green master push; the orchestrator records the run id/URL,
-  its green status, and the served R-era demo (first deployable demo since
-  the Tabs drift — the R.W2 boot cure + migration made gh-pages buildable
-  against glass-ui 4.2.0).
+  maintainer-on-host (unreachable off-campus — amended 2026-07-04).**
+  `mbabb.fi.ncsu.edu/colors/` still answers (HTTP 200, same palette-api body);
+  SSH to the host **times out off-campus** (port 22, NCSU firewall).
+  **Maintainer instructions** (per `api/apache-vhost.conf:19-27`): on NCSU VPN
+  or on-campus, SSH to `mbabb.fi.ncsu.edu` with sudo, remove the `/colors/`
+  reverse-proxy `<Location>` block from the Apache vhost, `apachectl
+  configtest`, `systemctl reload apache2`; let the DNS/cert lapse. Sequenced
+  after X1 confirms `color.babb.dev`+`api.color.babb.dev` serve HEAD lineage.
+  Named successor: the maintainer on the NCSU network; booked in S §7.3.
+- **X3 — first CF-Pages wire run: GREEN (amended 2026-07-04).** Run
+  **28723903374** (`workflow_dispatch` @ master `f9b1810`) → **success, 2m26s**;
+  `https://color.babb.dev/` serves the fresh R-era build (hashed bundle
+  `assets/index-DuifQ5gI.js` — the first deployable demo since the Tabs drift).
+  The road there was the first-wire chronicle CH-14a predicted, **six rungs,
+  each root-cured**: (1) `actions/checkout` refuses `../`-sibling paths on
+  current runners → the nested-workspace layout (`c5aa091`); (2) glass-ui
+  master's lockfile out-of-sync → same-day producer cure (our escalation →
+  their `99009e2a`, + `tranche/BG` pushed to origin); (3) the tarball budget
+  honestly re-derived for the 2.0.0 surface (320→440 KB, zero vendor chunks
+  verified, `a5dbf1e`); (4) CI's glass-ui@master tree lacked the D8-1 cure →
+  checkouts pinned to `tranche/BG` + sibling builds under Node 24 (`102b37b`;
+  un-pin booked at the 5.0.0 master landing); (5) a LIVE producer abrogation
+  caught by the fresh build — `onTransitionEnd` deleted from
+  `useLayerTransition` at BG tip, masked locally by a stale dist — consume
+  migrated (`b5f94bc`); (6) the CF secrets never mirrored to GitHub (the
+  never-fired wire hid it) — set from the repo's own `.env`, and the
+  wrangler-action's non-interactive npx refusal replaced with an explicit
+  `npx --yes wrangler@4` step (`f9b1810`). **CI itself went green for the
+  first time in the unified workflow's history** (run 28722062107, 15m36s,
+  full ladder, both node legs).
 
 ---
 
@@ -247,10 +269,28 @@ re-verifies the fourier twin and updates CONFORMANCE-MATRIX.**
 
 ---
 
-## §11 — Close ceremony record (the orchestrator amends)
+## §11 — Close ceremony record (amended 2026-07-04)
 
-- Master merge: — *(pending; merges green or not at all — the §6 counts are the pre-merge green evidence)*
-- Annotated tag at the close commit: — *(pending)*
-- X3 wire run id/URL + green status: — *(pending)*
-- X1 post-deploy spot-probe (`/health` lineage stamp + `/diff` envelope): — *(pending)*
-- X2 alias-retirement observation: — *(pending)*
+- Master merge: **FIRED** — `bdba8fc` (`merge(R · close)`, `--no-ff`, 200 files
+  +10,203/−4,222), then the X3 wire-fix fast-forwards through `f9b1810`;
+  `tranche-q` kept ff-synced throughout.
+- Annotated tag at the close commit: **`tranche-r-close`** at `bdba8fc`, pushed.
+- X3 wire run: **28723903374 → SUCCESS (2m26s)**; `color.babb.dev` serves the
+  R-era bundle (`assets/index-DuifQ5gI.js`). CI first-green: run 28722062107.
+  The six-rung chronicle is §7 X3.
+- X1 post-deploy spot-probe: **NOT FIRED** — the host webhook is dead
+  (`Hook not found.`); maintainer-on-host instructions in §7 X1.
+- X2 alias-retirement observation: **NOT FIRED** — host unreachable off-campus;
+  maintainer instructions in §7 X2. Both X1/X2 are this repo's own
+  maintainership (never external waits); the wave closes
+  **complete_with_misses** with these two as the named residuals.
+- ι addendum (post-`825bd58` window): the live **keyframes drive executed the
+  booked parse-that `^1.0.0` re-pin as value.js 2.0.1** (`a7eabcc`; hand-back
+  letter `letters/KF-EXECUTED-THE-REPIN-2.0.1.md`) — the §5 books
+  "parse-that re-pin @ kf S.H4" and "color2Into currency" are **DISCHARGED
+  cross-instance** by the letter+book mechanism, widened verify green
+  (1998/58 + tsc + build + css-parity + color2Into). **Scoping blemish
+  recorded**: that commit swept the whole dirty tree (the in-flight S audit
+  lanes + five root-level scratch JPEGs) instead of scoping its paths; the
+  scratch was relocated at `4963f33`; no content harm. Cross-instance commits
+  into this repo must path-scope — carried as an S process lesson.
