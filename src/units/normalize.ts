@@ -486,9 +486,15 @@ export type NormalizeValueUnitsOptions = {
  *   selects the cylindrical hue interpolation strategy.
  * - Mixed units (e.g. `10px` ↔ `1em`): collapsed via
  *   `normalizeNumericUnits` to a common base unit.
- * - Computed units (`var`, `calc`, `vh`, `cqw`, etc.): left as-is and
- *   marked `computed: true`. The actual numeric resolution happens
- *   later in `lerpComputedValue` against a live target.
+ * - Computed units (`var`, `calc` — `COMPUTED_UNITS` is these two ONLY):
+ *   left as-is and marked `computed: true`; the numeric resolution is
+ *   deferred to `lerpComputedValue` against a live target. Viewport /
+ *   container units (`vh`, `vw`, `cqw`, …) are NOT deferred: a same-unit
+ *   `vh→vh` pair lerps symbolically (resize-safe), while a mixed `vh→px`
+ *   pair resolves `vh` eagerly to px here and does NOT track resize. (The
+ *   docstring claimed these were `computed`/deferred — corrected at S.W1
+ *   per lib-core-value-audit P2-1; wiring them through the computed path
+ *   is a deferred behavior decision, not taken here.)
  */
 export function normalizeValueUnits(
     left: ValueUnit,

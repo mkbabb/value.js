@@ -7,10 +7,11 @@ import { getComputedValue, getLayoutEpoch } from "./normalize";
 import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/mix";
 
 /**
- * Interpolate a `ValueUnit` whose unit is *computed* (`var`, `calc`,
- * `vh`, `vw`, etc.) by resolving both endpoints against a target
- * element's live computed style and lerping the resulting numeric
- * values.
+ * Interpolate a `ValueUnit` whose unit is *computed* (`var` or `calc` —
+ * the only two members of `COMPUTED_UNITS`) by resolving both endpoints
+ * against a target element's live computed style and lerping the resulting
+ * numeric values. Viewport/container units (`vh`, `vw`, `cqw`, …) do NOT
+ * reach this path — they are not marked computed (lib-core-value-audit P2-1).
  *
  * C1 (tranche-F Wave C) — the endpoint cache. The resolved
  * `(startN, stopN, unit)` pair is invariant while the layout epoch is
