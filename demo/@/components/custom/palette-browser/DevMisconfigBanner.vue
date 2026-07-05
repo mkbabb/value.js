@@ -27,10 +27,15 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { apiAvailability } from "@lib/palette/api";
+import { useApiClient } from "@lib/palette/api/useApiClient";
 
 const isDev = import.meta.env.DEV;
-const misconfigured = computed(() => apiAvailability.value === "misconfigured");
+// S.W2 W2-4: read the availability latch through the injected api-client seam,
+// not a hard module-singleton import. This banner mounts under App.vue's
+// provideApiClient() root, so inject resolves (mirrors ApiOfflineChip /
+// PaletteCardMenu, the already-migrated siblings).
+const { availability } = useApiClient();
+const misconfigured = computed(() => availability.value === "misconfigured");
 </script>
 
 <style scoped>
