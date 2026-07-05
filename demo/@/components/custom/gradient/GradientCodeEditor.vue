@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, watch, nextTick, onMounted, useTemplateRef } from "vue";
-import { useDark } from "@vueuse/core";
 import { Button } from "@components/ui/button";
 import { Copy, Check } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
@@ -8,10 +7,14 @@ import { debounce } from "@src/utils";
 
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
-import githubDark from "highlight.js/styles/github-dark.css?inline";
-import githubLight from "highlight.js/styles/github.css?inline";
 
 hljs.registerLanguage("css", css);
+
+// Token ink comes from the house hljs theme (`@styles/hljs.css` — S.W4-8:
+// crayon primaries, Fira, dark via `.dark`), consumed through the `.hljs`
+// class on the editor below. The former GitHub-css imports + the
+// `#hljs-gradient-theme` head-injection swap (a second injection idiom and
+// a second dark store) are dead — the theme is static CSS, one source.
 
 const { modelValue, coalescedCSS } = defineProps<{
     modelValue: string;
@@ -23,29 +26,10 @@ const emit = defineEmits<{
     "parse": [css: string];
 }>();
 
-const isDark = useDark();
 const editorRef = useTemplateRef<HTMLElement>("editorRef");
 const parseError = ref(false);
 const copied = ref(false);
 let isSettingValue = false;
-
-let hljsStyleEl: HTMLStyleElement | null = null;
-
-function ensureTheme() {
-    if (!hljsStyleEl) {
-        const existing = document.head.querySelector("#hljs-gradient-theme");
-        if (existing) {
-            hljsStyleEl = existing as HTMLStyleElement;
-        } else {
-            hljsStyleEl = document.createElement("style");
-            hljsStyleEl.id = "hljs-gradient-theme";
-            document.head.appendChild(hljsStyleEl);
-        }
-    }
-    hljsStyleEl.textContent = isDark.value ? githubDark : githubLight;
-}
-
-watch(isDark, ensureTheme);
 
 function highlight(code: string): string {
     try {
@@ -117,7 +101,6 @@ watch(() => modelValue, (newVal) => {
 }, { flush: "post" });
 
 onMounted(() => {
-    ensureTheme();
     if (editorRef.value) {
         editorRef.value.innerHTML = highlight(modelValue);
     }

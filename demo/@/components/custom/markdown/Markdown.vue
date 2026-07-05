@@ -85,17 +85,11 @@ onUpdated(() => {
  * reach into CONTENT we compile ourselves, not a shadcn internal
  * (DESIGN.md §Idioms NOT used prohibits the latter). (2) THE LADDER:
  * sectional rhythm comes from one golden-ratio spacing ladder — margins,
- * divider padding, indents all read φ rungs, never ad-hoc steps.
+ * divider padding, indents all read φ rungs, never ad-hoc steps. The
+ * `--phi-*` rungs themselves live in `style.css :root` (S.W4-8 promotion —
+ * they were private to this wrapper while AboutPane re-hardcoded the same
+ * values as arbitrary literals; one ladder, both consumers now).
  * ───────────────────────────────────────────────────────────────────── */
-.markdown-wrapper {
-    /* The φ ladder: 1rem base, neighbours a factor of φ ≈ 1.618 apart. */
-    --phi-0: 0.382rem; /* base ÷ φ² */
-    --phi-1: 0.618rem; /* base ÷ φ  */
-    --phi-2: 1rem;     /* base      */
-    --phi-3: 1.618rem; /* base × φ  */
-    --phi-4: 2.618rem; /* base × φ² */
-}
-
 .markdown-body {
     @apply text-base leading-7;
     @apply p-0 m-0;

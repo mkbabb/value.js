@@ -28,15 +28,23 @@
 
         <!-- R.W4 Lane C / C1 (U5): consistent sectional + divider padding from
              the φ ladder — every section clears its Separator by φ (1.618rem),
-             the guide closes at φ² (2.618rem). -->
-        <CardContent class="px-3 sm:px-6 py-[1.618rem]">
+             the guide closes at φ² (2.618rem). S.W4-8: the rungs read the
+             promoted `--phi-*` tokens via the style.css spacing bridges,
+             never re-hardcoded arbitrary literals — and at SIDE tier
+             (`pt-*`/`pb-*`), never the `py-*` axis: CardContent carries its
+             own `pt-(--card-pad-section-gap) pb-(--card-pad-block)` defaults
+             and glass-ui's slim `cn` does not conflict-resolve, so an axis
+             utility sorts earlier and silently LOSES the cascade (the former
+             `py-[1.618rem]` here never painted — the card's cqi default did;
+             the W4 seed-rider-2 clause, generalized). -->
+        <CardContent class="px-3 sm:px-6 pt-phi-3 pb-phi-3">
             <ColorNutritionLabel class="w-full p-0 m-0" v-model="model" />
         </CardContent>
 
         <Separator />
 
-        <CardContent class="px-3 sm:px-6 pt-[1.618rem] pb-[2.618rem]">
-            <h2 class="font-display text-title mb-[1.618rem]">Detailed Guide</h2>
+        <CardContent class="px-3 sm:px-6 pt-phi-3 pb-phi-4">
+            <h2 class="font-display text-title mb-phi-3">Detailed Guide</h2>
             <Markdown
                 v-if="activeMarkdownModule"
                 :key="model.selectedColorSpace"

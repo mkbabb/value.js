@@ -70,6 +70,11 @@
  * producer concern — see the census artefact's producer-letter record. */
 /*__GLASS_FONTS_DEFERRED__*/
 @import "./animations.css";
+/* The house code-plate ink (S.W4-8): ONE hljs token theme — crayon primaries
+ * proportioned, Fira, dark via `.dark` — consumed by the docs' build-time
+ * TypeScript plates AND the gradient pane's live CSS editor. The former
+ * GitHub-css imports + per-component head-injection swaps are dead. */
+@import "./hljs.css";
 
 /* The explicit demo-source scan (see the header block) — declared AFTER the
  * glass-ui `@import`s so its `@utility` registrations (text-mono-small &c.,
@@ -110,6 +115,17 @@
      * the first-class `border-card-edge` utility instead of a magic
      * `border-[var(--card-edge)]` reach (DESIGN.md §Idioms NOT used). */
     --color-card-edge: var(--card-edge);
+
+    /* ── The φ-ladder spacing bridges (S.W4-8) ──
+     * Surface the :root φ rungs (owned below) as Tailwind spacing keys so
+     * consumers write `py-phi-3` / `pb-phi-4`, never `py-[1.618rem]`
+     * arbitrary literals (AboutPane's former re-hardcode of the ladder —
+     * design-docs-about P3). */
+    --spacing-phi-0: var(--phi-0);
+    --spacing-phi-1: var(--phi-1);
+    --spacing-phi-2: var(--phi-2);
+    --spacing-phi-3: var(--phi-3);
+    --spacing-phi-4: var(--phi-4);
 }
 
 /* Project tokens (layout, surfaces).
@@ -275,6 +291,17 @@
      * and .pane-container's `max-width: calc(… + 2rem)`. Both now read this
      * token so the coupling is explicit and survives a future tightening. */
     --app-padding-x: 1rem;
+
+    /* ── The φ ladder (S.W4-8 — promoted from Markdown.vue's private scoped
+     * block; design-docs-about P3). 1rem base, neighbours a factor of
+     * φ ≈ 1.618 apart. The docs body rhythm (Markdown.vue) AND the About
+     * pane's sectional padding read the same rungs — one ladder, never a
+     * re-hardcoded arbitrary value. */
+    --phi-0: 0.382rem; /* base ÷ φ² */
+    --phi-1: 0.618rem; /* base ÷ φ  */
+    --phi-2: 1rem; /*     base      */
+    --phi-3: 1.618rem; /* base × φ  */
+    --phi-4: 2.618rem; /* base × φ² */
 }
 
 /* Desktop: tighter dock margins.

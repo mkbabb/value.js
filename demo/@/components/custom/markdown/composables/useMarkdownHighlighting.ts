@@ -1,9 +1,4 @@
-import { useDark } from "@vueuse/core";
-import { onMounted, ref, watch } from "vue";
 import type { ShallowRef } from "vue";
-
-import darkTheme from "highlight.js/styles/github-dark.css?inline";
-import lightTheme from "highlight.js/styles/github.css?inline";
 
 /**
  * Wraps occurrences of `colorSpaceName` in `<mark>` tags inside the markdown body.
@@ -71,39 +66,26 @@ function highlightColorSpaceName(
 }
 
 /**
- * Manages highlight.js theme switching (light/dark) and color-space-name
- * marking.
+ * Color-space-name marking for the markdown body.
  *
- * Code blocks are pre-formatted and pre-highlighted at build time by
- * the vite-source-export plugin — no runtime highlight.js core needed.
+ * Code blocks are pre-formatted and pre-highlighted at build time by the
+ * vite-source-export plugin — no runtime highlight.js core needed — and
+ * their ink is the static house hljs token theme (`@styles/hljs.css`:
+ * crayon primaries, Fira, dark via `.dark`). S.W4-8 killed this
+ * composable's former GitHub-css head-injection swap AND its private
+ * vueuse `useDark` instance with it (one of three parallel dark stores;
+ * one wrong-theme first paint was observed live — design-docs-about
+ * P2-2/P2-5). No dark consumer remains here: the theme is pure CSS, so
+ * the ONE app dark store (glass-ui `useGlobalDark`, App.vue) is the only
+ * scheme authority.
  */
 export function useMarkdownHighlighting(
     markdownDiv: Readonly<ShallowRef<HTMLElement | null>>,
     colorSpaceName: () => string | undefined,
 ) {
-    const isDark = useDark({ disableTransition: false });
-    const styleEl = ref<HTMLStyleElement | null>(null);
-
-    const changeCodeTheme = () => {
-        const theme = isDark.value ? darkTheme : lightTheme;
-
-        if (!styleEl.value) {
-            styleEl.value = document.createElement("style");
-            document.head.appendChild(styleEl.value);
-        }
-
-        styleEl.value.innerHTML = theme;
-    };
-
     const applyHighlighting = () => {
         highlightColorSpaceName(markdownDiv.value, colorSpaceName());
     };
-
-    watch(isDark, changeCodeTheme);
-
-    onMounted(() => {
-        changeCodeTheme();
-    });
 
     return {
         applyHighlighting,
