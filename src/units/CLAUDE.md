@@ -31,7 +31,10 @@ units/
 ├── normalize.ts    # value normalization for interpolation
 │                     normalizeNumericUnits (length/angle/time/resolution → common base)
 │                     normalizeValueUnits (full normalization with color space handling)
-│                     getComputedValue (resolve var/calc from DOM element)
+├── layout-cache.ts # computed-value resolution + layout-epoch cache (S.W1 W1-8 split)
+│                     getComputedValue (resolve var/calc from DOM element, memoized)
+│                     getLayoutEpoch / bumpLayoutEpoch (resize/var() invalidation)
+│                     COMPUTED_MEMO_MAX_ENTRIES (LRU ceiling) + styleRecord DOM boundary
 └── color/          # see color/CLAUDE.md
 ```
 

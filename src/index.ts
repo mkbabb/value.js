@@ -41,9 +41,14 @@ export { FUNCTION_IDENTITY } from "./units/constants";
 
 // Unit normalization
 export {
-    getComputedValue,
     normalizeNumericUnits,
     normalizeValueUnits,
+} from "./units/normalize";
+export type { NormalizeValueUnitsOptions } from "./units/normalize";
+// Computed-value resolution + its layout-epoch cache (S.W1 W1-8 split →
+// units/layout-cache.ts).
+export {
+    getComputedValue,
     // Computed-endpoint-cache invalidation (Wave C7 + N.W7.B-B3.F1). The single
     // bust for BOTH staleness classes the computed cache (C1) is subject to:
     // (1) layout change — viewport `resize` (auto-installed), a container
@@ -55,8 +60,7 @@ export {
     getLayoutEpoch,
     // The LRU ceiling for the computed-endpoint memo (N.W7.B-B3.F2).
     COMPUTED_MEMO_MAX_ENTRIES,
-} from "./units/normalize";
-export type { NormalizeValueUnitsOptions } from "./units/normalize";
+} from "./units/layout-cache";
 
 // Value-level interpolation
 export {

@@ -3,7 +3,7 @@ import type { Color } from "./color";
 import { ch, channelOf, setChannel } from "./color";
 import { COMPUTED_UNITS } from "./constants";
 import { ValueUnit, type InterpolatedVar } from "./index";
-import { getComputedValue, getLayoutEpoch } from "./normalize";
+import { getComputedValue, getLayoutEpoch } from "./layout-cache";
 import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/mix";
 
 /**

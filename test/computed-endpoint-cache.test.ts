@@ -2,14 +2,15 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ValueUnit } from "../src/units";
 import type { InterpolatedVar } from "../src/units";
 import { lerpComputedValue, prepareInterpVar } from "../src/units/interpolate";
-import * as normalize from "../src/units/normalize";
+// S.W1 W1-8: getComputedValue + its layout-epoch cache moved to layout-cache.ts.
+import * as layoutCache from "../src/units/layout-cache";
 
 const {
     bumpLayoutEpoch,
     getComputedValue,
     getLayoutEpoch,
     COMPUTED_MEMO_MAX_ENTRIES,
-} = normalize;
+} = layoutCache;
 
 /**
  * Tranche-F Wave C — the computed-unit endpoint cache (C1) + its stable-id
@@ -61,7 +62,7 @@ describe("Wave C1/C2/C4/C7 — computed-unit endpoint cache", () => {
         getComputedValue.cache.clear();
         el = document.createElement("div");
         document.body.appendChild(el);
-        resolveSpy = vi.spyOn(normalize, "getComputedValue");
+        resolveSpy = vi.spyOn(layoutCache, "getComputedValue");
     });
 
     afterEach(() => {
