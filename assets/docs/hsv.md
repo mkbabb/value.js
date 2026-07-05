@@ -31,17 +31,17 @@ The model is cylindrical: hue is an angle around the wheel, saturation is radial
 ### Components
 
 1. **`H` (Hue)**:
-   `H = 0 \text{ to } 1 \text{ (representing 0° to 360°)}`
+   <Katex expression="H = 0 \text{ to } 1 \text{ (representing 0° to 360°)}" :display-mode="false" />
 
    Position on the color wheel. `0` and `1` both map to red.
 
 2. **`S` (Saturation)**:
-   `S = 0 \text{ (grayscale) to } 1 \text{ (fully saturated color)}`
+   <Katex expression="S = 0 \text{ (grayscale) to } 1 \text{ (fully saturated color)}" :display-mode="false" />
 
    Purity of the color. At `S=0`, the result is grayscale regardless of hue.
 
 3. **`V` (Value)**:
-   `V = 0 \text{ (black) to } 1 \text{ (full brightness)}`
+   <Katex expression="V = 0 \text{ (black) to } 1 \text{ (full brightness)}" :display-mode="false" />
 
    Brightness. **`V=0` is always black**, no matter what hue or saturation are set to.
 

@@ -5,8 +5,6 @@ import type { ShallowRef } from "vue";
 import darkTheme from "highlight.js/styles/github-dark.css?inline";
 import lightTheme from "highlight.js/styles/github.css?inline";
 
-import katex from "katex";
-
 /**
  * Wraps occurrences of `colorSpaceName` in `<mark>` tags inside the markdown body.
  */
@@ -35,10 +33,14 @@ function highlightColorSpaceName(
             if (!parent) return NodeFilter.FILTER_REJECT;
             if (parent.closest("pre, code, mark, script, .katex"))
                 return NodeFilter.FILTER_REJECT;
-            if (pattern.test(node.textContent ?? "")) return NodeFilter.FILTER_ACCEPT;
-            /* Reset regex lastIndex */
+            /* The `g`-flagged pattern is stateful across acceptNode calls:
+             * reset lastIndex on BOTH sides of the test so neither an accept
+             * nor a reject leaves a stale offset that skips the next text
+             * node's first match (design-docs-about.md P3). */
             pattern.lastIndex = 0;
-            return NodeFilter.FILTER_REJECT;
+            const matched = pattern.test(node.textContent ?? "");
+            pattern.lastIndex = 0;
+            return matched ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
         },
     });
 
@@ -69,37 +71,8 @@ function highlightColorSpaceName(
 }
 
 /**
- * Renders inline KaTeX expressions from `<code>` elements without a class.
- */
-function renderKatex(container: HTMLElement | null) {
-    if (!container) return;
-
-    Array.from(container.querySelectorAll("code")).forEach((block: HTMLElement) => {
-        if (!block.className) {
-            // textContent, NOT innerText: innerText is layout-aware and
-            // returns "" inside `content-visibility: auto` subtrees that the
-            // engine is currently skipping (the R.W4 C1 cure activated that
-            // rule — it was scope-dead before), which rendered empty KaTeX
-            // for every off-screen expression. textContent is layout-free.
-            const expression = block.textContent?.trim() ?? "";
-
-            const katexElement = document.createElement("div");
-            katexElement.style.display = "inline-block";
-
-            block.replaceWith(katexElement);
-
-            katex.render(expression, katexElement, {
-                throwOnError: false,
-                displayMode: false,
-                output: "mathml",
-            });
-        }
-    });
-}
-
-/**
- * Manages highlight.js theme switching (light/dark), KaTeX rendering,
- * and color-space-name marking.
+ * Manages highlight.js theme switching (light/dark) and color-space-name
+ * marking.
  *
  * Code blocks are pre-formatted and pre-highlighted at build time by
  * the vite-source-export plugin — no runtime highlight.js core needed.
@@ -123,7 +96,6 @@ export function useMarkdownHighlighting(
     };
 
     const applyHighlighting = () => {
-        renderKatex(markdownDiv.value);
         highlightColorSpaceName(markdownDiv.value, colorSpaceName());
     };
 
