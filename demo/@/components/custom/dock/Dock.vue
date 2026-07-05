@@ -235,7 +235,6 @@ watch(
 
 <style scoped>
 @reference "../../../styles/style.css";
-.gold-shimmer-icon { color: var(--color-gold); filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent)); }
 
 /* The B3 settle beat — the vj-settle keyframe lives in animations.css
    (keyframes are global); the class is dock-local. */

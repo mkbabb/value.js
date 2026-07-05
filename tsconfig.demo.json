@@ -38,8 +38,8 @@
         }
     },
     // `src/vite-env.d.ts` carries `/// <reference types="vite/client" />`
-    // (typing `import.meta.env`, `*.css`, `*?worker`) + the `*.vue`/`*.bbnf?raw`
-    // ambient module declarations. The pre-split unified program included it via
+    // (typing `import.meta.env`, `*.css`, `*?worker`) + the `*.vue`
+    // ambient module declaration. The pre-split unified program included it via
     // `src/`; the demo graph needs it for the value.js `src/` modules it pulls in
     // through `@src/*` and for its own Vite-specific imports.
     "include": ["demo/", "src/vite-env.d.ts"]

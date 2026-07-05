@@ -18,12 +18,13 @@
 //        near-boundary case `contrast-color(gray)` resolves via the WCAG ratio,
 //        not the OKLab L distance (a wrong-metric reuse would red here).
 //   C3 — the WCAG leaf math: L(white)=1, L(black)=0, ratio(white,black)=21.
-//   C4 — the dead CSS Color L6 `color-contrast()` stub is GONE from the grammar
-//        (no-legacy: no `colorContrast` rule, no dangling `color` reference).
+//
+// (S.W0 W0-6: the former C4 — a documentation-consistency check on the dead
+// BBNF grammar surface under src/parsing/grammars/ — was retired with that
+// surface. C1–C3 exercise the REAL parser over dist/value.js and stay.)
 
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
-import { readFileSync } from "node:fs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
@@ -120,30 +121,6 @@ record(
         assert(Math.abs(wcagContrastRatio(white, black) - 21) < 1e-9, "ratio(white,black) != 21");
         // contrastColor leaf is reachable + correct on a public-domain color.
         assert(contrastColor(parseCSSColor("red").value).toString() === "rgb(0 0 0)", "contrastColor(red) != black");
-    },
-);
-
-// ── C4 — the dead L6 `color-contrast()` stub is gone (no-legacy) ──
-record(
-    "C4",
-    "the dead CSS Color L6 color-contrast() grammar stub is removed (no dangling reference)",
-    () => {
-        const bbnf = readFileSync(
-            resolve(repoRoot, "src/parsing/grammars/css-color.bbnf"),
-            "utf8",
-        );
-        assert(
-            !/^\s*colorContrast\s*=/m.test(bbnf),
-            "the dead `colorContrast =` rule still exists in css-color.bbnf",
-        );
-        assert(
-            !/\bcolorContrast\b/.test(bbnf.replace(/\/\/.*$/gm, "")),
-            "a dangling `colorContrast` reference remains in css-color.bbnf (the color rule)",
-        );
-        assert(
-            /\bcontrastColor\s*=/.test(bbnf),
-            "the new `contrastColor =` L7 rule is not present in css-color.bbnf",
-        );
     },
 );
 

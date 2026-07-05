@@ -11,7 +11,7 @@
 //     in tests + composables; would generate >100 churn-only diffs.
 //   - `@typescript-eslint/no-empty-object-type` / `@typescript-eslint/no-unsafe-function-type`
 //     — appears in tests for type assertions; not worth gating on.
-//   - `no-irregular-whitespace` — bbnf grammars + tests use non-ASCII separators intentionally.
+//   - `no-irregular-whitespace` — tests use non-ASCII separators intentionally.
 //   - `prefer-const` — same as no-unused-vars rationale.
 //   - `no-prototype-builtins`, `no-useless-escape`, `no-empty`, `no-control-regex` —
 //     parser code uses these patterns intentionally.
@@ -45,7 +45,6 @@ export default [
             "demo/**/dist/**",
             "api/**/dist/**",
             "api/node_modules/**",
-            "**/*.bbnf",
             "**/*.glsl",
             "**/*.md",
         ],

@@ -45,7 +45,7 @@ src/
 ├── math.ts               # lerp, bezier, clamp, scale, deCasteljau
 ├── easing.ts             # CSS timing functions (30+ named, cubic-bezier, stepped, linear())
 ├── utils.ts              # clone, memoize, debounce, RAF, case conversion
-├── vite-env.d.ts         # Vite module declarations (.bbnf?raw, .vue)
+├── vite-env.d.ts         # Vite module declarations (.vue)
 ├── parsing/              # parse-that combinators for CSS values
 │   ├── index.ts          # top-level: parseCSSValue, gradients, transforms, var(), calc()
 │   ├── units.ts          # dimension parsers: length, angle, time, frequency, resolution, flex, %
@@ -55,10 +55,7 @@ src/
 │   ├── animation-shorthand.ts  # animation/transition shorthand parsing
 │   ├── extract.ts        # value extraction helpers
 │   ├── serialize.ts      # value serialization
-│   ├── stylesheet.ts     # stylesheet-level parsing
-│   └── grammars/         # BBNF spec grammars (used in equivalence tests)
-│       ├── css-values.bbnf
-│       └── css-color.bbnf
+│   └── stylesheet.ts     # stylesheet-level parsing
 ├── units/                # core value classes + unit definitions
 │   ├── index.ts          # ValueUnit, FunctionValue, ValueArray classes
 │   ├── constants.ts      # unit arrays, STYLE_NAMES (CSS properties), MatrixValues

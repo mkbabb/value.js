@@ -64,7 +64,6 @@
 import { inject, computed } from "vue";
 import { Card } from "@components/ui/card";
 import { Badge } from "@components/ui/badge";
-import { Shield, Tag } from "@lucide/vue";
 
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
