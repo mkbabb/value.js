@@ -11,11 +11,11 @@ import {
     PERCENTAGE_UNITS,
     RELATIVE_LENGTH_UNITS,
     RESOLUTION_UNITS,
-    STYLE_NAMES,
     TIME_UNITS,
     UNITS,
 } from "./constants";
 import type { MatrixValues } from "./constants";
+import { STYLE_NAMES } from "./style-names";
 
 export function isColorUnit(
     value: ValueUnit,

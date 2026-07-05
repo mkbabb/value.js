@@ -14,8 +14,9 @@ units/
 ├── constants.ts    # unit definitions
 │                     LENGTH_UNITS (absolute + relative), TIME_UNITS, ANGLE_UNITS
 │                     FREQUENCY_UNITS, RESOLUTION_UNITS, FLEX_UNITS, PERCENTAGE_UNITS
-│                     STYLE_NAMES — CSS property names (camelCase)
 │                     MatrixValues interface (16 transform components)
+├── style-names.ts  # STYLE_NAMES — CSS property names (camelCase) data table
+│                     (S.W1 W1-8 data-module split out of constants.ts)
 ├── utils.ts        # unit conversion + CSS utilities
 │                     convertToPixels, convertToDegrees, convertToMs, convertToHz, convertToDPI
 │                     convert2 (generic cross-unit conversion)

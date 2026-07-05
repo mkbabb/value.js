@@ -15,9 +15,10 @@ export {
     FLEX_UNITS,
     COMPUTED_UNITS,
     UNITS,
-    STYLE_NAMES,
 } from "./units/constants";
 export type { MatrixValues } from "./units/constants";
+// STYLE_NAMES — the CSS property-name data table (S.W1 W1-8 data-module split).
+export { STYLE_NAMES } from "./units/style-names";
 
 // Unit utilities
 export {
