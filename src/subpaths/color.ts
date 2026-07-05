@@ -160,8 +160,10 @@ export {
     gamutMapSRGBRaytrace,
 } from "../units/color/gamut-raytrace";
 
-// Perceptual color-difference metrics (R.W1.6 · R-3)
-export { deltaE2000, deltaEITP, xyzToICtCp } from "../units/color/difference";
+// Perceptual color-difference metrics (R.W1.6 · R-3) + ICtCp round-trip
+// (S.W1-6 · Q9: ictcpToXYZ inverse) + Jzazbz transform (S.W1-11 · Q9 widening).
+export { deltaE2000, deltaEITP, xyzToICtCp, ictcpToXYZ } from "../units/color/difference";
+export { xyzToJzazbz, jzazbzToXYZ } from "../units/color/conversions/jzazbz";
 
 // OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
 export {

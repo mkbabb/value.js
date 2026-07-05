@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { deltaE2000, deltaEITP, xyzToICtCp } from "../src/units/color/difference";
+import { deltaE2000, deltaEITP, xyzToICtCp, ictcpToXYZ } from "../src/units/color/difference";
 
 // ── ΔE-2000 — validated against the Sharma, Wu & Dalal (2005) reference table.
 //    Each row: [L1,a1,b1, L2,a2,b2, ΔE00]. These are THE canonical vectors used
@@ -99,5 +99,56 @@ describe("ICtCp (BT.2100) + ΔE-ITP (BT.2124)", () => {
         expect(iOnly).toBeCloseTo(72, 10);
         expect(cpOnly).toBeCloseTo(72, 10);
         expect(ctOnly).toBeCloseTo(36, 10);
+    });
+});
+
+// ── ICtCp inverse (S.W1-6 · Q9) — the ICtCp perceptual round-trip. ───────────
+// The inverse math is validated against the independent
+// `scratchpad/perceptual_oracle.py` (a from-scratch BT.2100 transcription, NOT
+// value.js): ICtCp→XYZ reproduces the forward's input to ~1e-14.
+const XYZ_GREEN: [number, number, number] = [
+    0.357584339383878, 0.715168678767756, 0.11919477979462598,
+];
+const XYZ_BLUE: [number, number, number] = [
+    0.1804807884018343, 0.07219231536073371, 0.9505321522496607,
+];
+
+describe("ICtCp inverse (ictcpToXYZ) — the perceptual round-trip (S.W1-6)", () => {
+    it("ictcpToXYZ ∘ xyzToICtCp is identity for every real color (≤1e-12)", () => {
+        for (const xyz of [XYZ_WHITE, XYZ_RED, XYZ_GREEN, XYZ_BLUE]) {
+            const back = ictcpToXYZ(...xyzToICtCp(...xyz));
+            expect(back[0]).toBeCloseTo(xyz[0], 12);
+            expect(back[1]).toBeCloseTo(xyz[1], 12);
+            expect(back[2]).toBeCloseTo(xyz[2], 12);
+        }
+        // Non-primary + a grey ramp.
+        for (const Y of [0.05, 0.2, 0.5, 0.9]) {
+            const xyz: [number, number, number] = [
+                XYZ_WHITE[0] * Y, XYZ_WHITE[1] * Y, XYZ_WHITE[2] * Y,
+            ];
+            const back = ictcpToXYZ(...xyzToICtCp(...xyz));
+            expect(back[0]).toBeCloseTo(xyz[0], 12);
+            expect(back[1]).toBeCloseTo(xyz[1], 12);
+            expect(back[2]).toBeCloseTo(xyz[2], 12);
+        }
+    });
+
+    it("inverts culori's published red ICtCp golden back to XYZ_RED", () => {
+        // The exact ICtCp culori goldens (see the forward test above) → XYZ_RED.
+        const back = ictcpToXYZ(0.4278802843622844, -0.11570435976969046, 0.27872894737532694);
+        expect(back[0]).toBeCloseTo(XYZ_RED[0], 10);
+        expect(back[1]).toBeCloseTo(XYZ_RED[1], 10);
+        expect(back[2]).toBeCloseTo(XYZ_RED[2], 10);
+    });
+
+    it("xyzToICtCp ∘ ictcpToXYZ is identity for in-range ICtCp", () => {
+        // Round-trip in the OTHER direction, seeding from valid (real-color) ICtCp.
+        for (const seed of [XYZ_RED, XYZ_GREEN, XYZ_BLUE]) {
+            const ic = xyzToICtCp(...seed);
+            const back = xyzToICtCp(...ictcpToXYZ(...ic));
+            expect(back[0]).toBeCloseTo(ic[0], 12);
+            expect(back[1]).toBeCloseTo(ic[1], 12);
+            expect(back[2]).toBeCloseTo(ic[2], 12);
+        }
     });
 });

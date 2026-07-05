@@ -17,7 +17,15 @@
  * All three are PURE numeric functions — no `Color` plumbing, no space registry
  * churn — mirroring `deltaEOK`'s raw-argument style so quantize / gamut callers
  * compose them over coordinates they already hold.
+ *
+ * S.W1-6 adds `ictcpToXYZ` — the INVERSE of `xyzToICtCp`, the second half of the
+ * ICtCp perceptual round-trip (Q9). It lifts the SAME BT.2100 matrices +
+ * PQ constants the forward already ships (per the ratification's "lift, don't
+ * re-derive"), inverting them via the library's own `invertMat3`.
  */
+
+import type { Mat3 } from "./matrix";
+import { invertMat3, transformMat3 } from "./matrix";
 
 // ── ΔE-2000 (CIEDE2000) ─────────────────────────────────────────────────────
 
@@ -168,6 +176,55 @@ export function xyzToICtCp(x: number, y: number, z: number): [number, number, nu
     const Cp = 4.378173828125 * l - 4.24560546875 * m - 0.132568359375 * s;
 
     return [I, Ct, Cp];
+}
+
+// ── ICtCp → XYZ inverse (S.W1-6, Q9 — the ICtCp perceptual round-trip) ───────
+//
+// The exact inverse of {@link xyzToICtCp}: the two BT.2100 matrices the forward
+// applies inline, materialised as row-major `Mat3` constants and inverted with
+// the library's `invertMat3` (no re-derived coefficients). The forward clamps
+// negative absolute values to 0 (the `Math.max`/`pqEncode` guards), so the
+// round-trip is exact only for non-negative XYZ (every real color); for those it
+// reproduces the input to ~1e-14 (validated in `color-difference.test.ts`
+// against the independent `scratchpad/perceptual_oracle.py`).
+
+/** XYZ(abs)→LMS crosstalk (BT.2100) — the forward's inline matrix, materialised. */
+const XYZ_TO_LMS_ICTCP: Mat3 = [
+    0.3592832590121217, 0.6976051147779502, -0.0358915932320289,
+    -0.1920808463704995, 1.1004767970374323, 0.0753748658519118,
+    0.0070797844607477, 0.0748396662186366, 0.8433265453898765,
+];
+const LMS_TO_XYZ_ICTCP: Mat3 = invertMat3(XYZ_TO_LMS_ICTCP);
+
+/** LMS'→ICtCp (BT.2100 integer/4096 coefficients) — the forward's inline matrix. */
+const LMSP_TO_ICTCP: Mat3 = [
+    0.5, 0.5, 0,
+    1.61376953125, -3.323486328125, 1.709716796875,
+    4.378173828125, -4.24560546875, -0.132568359375,
+];
+const ICTCP_TO_LMSP: Mat3 = invertMat3(LMSP_TO_ICTCP);
+
+/** PQ (Perceptual Quantizer) EOTF — signal [0,1] → absolute luminance [0,1e4].
+ *  The exact inverse of {@link pqEncode}: solve `N^(1/m2) = (c1+c2·c)/(1+c3·c)`
+ *  for `c`, then `v = 1e4·c^(1/m1)`. */
+function pqDecode(N: number): number {
+    const p = Math.max(N, 0) ** (1 / PQ_M2);
+    const num = Math.max(p - PQ_C1, 0);
+    const den = PQ_C2 - PQ_C3 * p;
+    return 1e4 * (num / den) ** (1 / PQ_M1);
+}
+
+/**
+ * Convert ICtCp (BT.2100 `[I, Ct, Cp]`, as {@link xyzToICtCp} produces) back to
+ * relative XYZ (D65, media white Y=1 — the library's `XYZColor` coordinates).
+ * The exact inverse of {@link xyzToICtCp} for non-negative XYZ.
+ */
+export function ictcpToXYZ(I: number, Ct: number, Cp: number): [number, number, number] {
+    // ICtCp → LMS' → (PQ decode) absolute LMS → absolute XYZ → relative XYZ.
+    const [lp, mp, sp] = transformMat3([I, Ct, Cp], ICTCP_TO_LMSP);
+    const lms: [number, number, number] = [pqDecode(lp), pqDecode(mp), pqDecode(sp)];
+    const [ax, ay, az] = transformMat3(lms, LMS_TO_XYZ_ICTCP);
+    return [ax / ITP_YW, ay / ITP_YW, az / ITP_YW];
 }
 
 /**

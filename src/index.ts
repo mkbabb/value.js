@@ -217,7 +217,10 @@ export {
 } from "./units/color/gamut";
 
 // Perceptual color-difference metrics (R.W1.6 · R-3)
-export { deltaE2000, deltaEITP, xyzToICtCp } from "./units/color/difference";
+// + ICtCp round-trip (S.W1-6 · Q9): `ictcpToXYZ` is the inverse of `xyzToICtCp`.
+export { deltaE2000, deltaEITP, xyzToICtCp, ictcpToXYZ } from "./units/color/difference";
+// Jzazbz perceptual transform (S.W1-11 · Q9 widening — net-new PQ-variant math).
+export { xyzToJzazbz, jzazbzToXYZ } from "./units/color/conversions/jzazbz";
 
 // OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
 export {
