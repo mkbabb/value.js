@@ -11,6 +11,7 @@ import tailwindcss from "@tailwindcss/postcss";
 import Markdown from "unplugin-vue-markdown/vite";
 
 import { sourceExportPlugin } from "./plugins/vite-source-export";
+import { deferGlassFonts } from "./plugins/vite-defer-glass-fonts";
 
 import {
     libraryEntries,
@@ -270,7 +271,7 @@ export default defineConfig((mode) => {
                     },
                 },
             },
-            plugins: [...defaultPlugins],
+            plugins: [...defaultPlugins, deferGlassFonts()],
         };
     } else {
         // Dev mode: serve the demo app with HMR
@@ -282,7 +283,7 @@ export default defineConfig((mode) => {
                 fs: { allow: siblingFsAllowTransient },
             },
             optimizeDeps: {},
-            plugins: [...defaultPlugins],
+            plugins: [...defaultPlugins, deferGlassFonts()],
         };
     }
 });

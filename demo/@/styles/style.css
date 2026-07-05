@@ -53,9 +53,22 @@
 @import "@mkbabb/glass-ui/styles.css";
 /* The brand font corpus (R.W3 Lane A / A1 — U1-fonts): real Plus Jakarta Sans +
  * Fira Code woff2 faces (base64, variable-weight). Deliberately split off the
- * critical `./styles` path by the producer; without this third import only the
- * metric-compat *Fallback* faces ship and the body voice paints system-ui. */
-@import "@mkbabb/glass-ui/styles/fonts";
+ * critical `./styles` path by the producer; the metric-compat *Fallback* faces
+ * (ascent-override/size-adjust) ship in that critical `./styles` surface, so the
+ * body/mono voices paint correct-METRIC glyphs at first paint even before the
+ * real faces arrive — zero layout shift when they swap in.
+ *
+ * S.W3-9 (CSS critical-path diet): the corpus is base64 woff2 worth ~102 KB gzip
+ * — the ENTIRE render-blocking overage over the ≤120 KB gate (everything else
+ * render-blocking is ~86 KB gzip, already under). It is therefore DEFERRED off
+ * the critical `<link>`: the `deferGlassFonts` vite plugin (plugins/vite-defer-
+ * glass-fonts.ts) replaces the marker below with the real `@import` in DEV (dev
+ * is not gate-measured; render-blocking there is faithful) and, in the BUILD,
+ * emits the corpus as a standalone hashed asset loaded via a non-blocking
+ * `<link media=print onload=…>` (the same idiom index.html uses for Fraunces).
+ * The critical/deferred split of glass-ui's `./styles` MONOLITH itself is a
+ * producer concern — see the census artefact's producer-letter record. */
+/*__GLASS_FONTS_DEFERRED__*/
 @import "./animations.css";
 
 /* The explicit demo-source scan (see the header block) — declared AFTER the
