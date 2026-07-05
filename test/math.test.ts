@@ -133,42 +133,50 @@ describe("lerp", () => {
 });
 
 describe("logerp", () => {
+    // Canonical (start, end, t) — reordered from the pre-3.0.0 (t, start, end)
+    // to match `lerp`'s t-last signature (S.W1 / Q2 reorder).
     it("should return start when t=0", () => {
-        expect(logerp(0, 1, 100)).toBeCloseTo(1);
-        expect(logerp(0, 10, 1000)).toBeCloseTo(10);
+        expect(logerp(1, 100, 0)).toBeCloseTo(1);
+        expect(logerp(10, 1000, 0)).toBeCloseTo(10);
     });
 
     it("should return end when t=1", () => {
-        expect(logerp(1, 1, 100)).toBeCloseTo(100);
-        expect(logerp(1, 10, 1000)).toBeCloseTo(1000);
+        expect(logerp(1, 100, 1)).toBeCloseTo(100);
+        expect(logerp(10, 1000, 1)).toBeCloseTo(1000);
     });
 
     it("should return geometric mean when t=0.5", () => {
         // geometric mean of 1 and 100 = 10
-        expect(logerp(0.5, 1, 100)).toBeCloseTo(10);
+        expect(logerp(1, 100, 0.5)).toBeCloseTo(10);
         // geometric mean of 4 and 16 = 8
-        expect(logerp(0.5, 4, 16)).toBeCloseTo(8);
+        expect(logerp(4, 16, 0.5)).toBeCloseTo(8);
     });
 
     it("should handle start=0 by substituting a small epsilon", () => {
         // When start is 0, it is replaced with 1e-9
-        const result = logerp(0, 0, 100);
+        const result = logerp(0, 100, 0);
         expect(result).toBeCloseTo(1e-9);
-        const resultEnd = logerp(1, 0, 100);
+        const resultEnd = logerp(0, 100, 1);
         expect(resultEnd).toBeCloseTo(100);
     });
 
     it("should interpolate logarithmically at arbitrary t values", () => {
-        // logerp(0.25, 1, 10000) = 1 * (10000/1)^0.25 = 10
-        expect(logerp(0.25, 1, 10000)).toBeCloseTo(10);
-        // logerp(0.75, 1, 10000) = 1 * (10000/1)^0.75 = 1000
-        expect(logerp(0.75, 1, 10000)).toBeCloseTo(1000);
+        // logerp(1, 10000, 0.25) = 1 * (10000/1)^0.25 = 10
+        expect(logerp(1, 10000, 0.25)).toBeCloseTo(10);
+        // logerp(1, 10000, 0.75) = 1 * (10000/1)^0.75 = 1000
+        expect(logerp(1, 10000, 0.75)).toBeCloseTo(1000);
     });
 
     it("should handle equal start and end", () => {
-        expect(logerp(0, 5, 5)).toBeCloseTo(5);
-        expect(logerp(0.5, 5, 5)).toBeCloseTo(5);
-        expect(logerp(1, 5, 5)).toBeCloseTo(5);
+        expect(logerp(5, 5, 0)).toBeCloseTo(5);
+        expect(logerp(5, 5, 0.5)).toBeCloseTo(5);
+        expect(logerp(5, 5, 1)).toBeCloseTo(5);
+    });
+
+    it("reads naturally against its t-last `lerp` sibling (S.W1 reorder)", () => {
+        // The cured footgun: value-pair first, parameter last.
+        // logerp(10, 20, 0.5) = 10 * (20/10)^0.5 = 10·√2 ≈ 14.142
+        expect(logerp(10, 20, 0.5)).toBeCloseTo(14.142, 3);
     });
 });
 

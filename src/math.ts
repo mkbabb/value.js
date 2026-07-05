@@ -71,8 +71,11 @@ export function lerpArray(
     return out;
 }
 
-// Logarithmic interpolation between two values
-export function logerp(t: number, start: number, end: number) {
+// Logarithmic (geometric) interpolation between two values.
+// Canonical (a, b, t) — value-pair first, parameter last, mirroring `lerp`.
+// The pre-3.0.0 order was `logerp(t, start, end)`; the t-first form was a
+// public-surface footgun against its t-last `lerp` sibling (S.W1 / Q2 reorder).
+export function logerp(start: number, end: number, t: number) {
     // Prevent division by zero or log(0)
     start = start === 0 ? 1e-9 : start;
     // Interpolate in logarithmic space
