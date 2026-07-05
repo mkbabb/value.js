@@ -48,7 +48,7 @@ W2-7 LAST in W2; single-writer on `ColorPicker.vue` in round 2 (W4-2 first, W3-4
 | Wave | Title | Doc | Round | Status | Publishes |
 |---|---|---|---|---|---|
 | **S.W0** | SUBSTRATE — dev truth + oracle floor + hygiene (W0-1..W0-9; +W0-8 blob genesis, +W0-9 dep ledger at ratification) | `waves/S.W0.md` | 0 | **CLOSED 2026-07-05 (with-misses)** — 8-row gate 7 PASS + 1 MISS-RECORDED (CI-log deferral) | — |
-| **S.W1** | LIBRARY — the 3.0.0 wave (W1-1..W1-11; +W1-10 raytrace, +W1-11 Jzazbz at ratification) | `waves/S.W1.md` | 1 | **CLOSED 2026-07-05** — 3.0.0 published (`dist-tags.latest=3.0.0`, tag `v3.0.0`); 11-row hard gate ALL MET (`audit/w1-close-artefacts.md`) | **3.0.0** |
+| **S.W1** | LIBRARY — the 3.0.0 wave (W1-1..W1-11; +W1-10 raytrace, +W1-11 Jzazbz at ratification) | `waves/S.W1.md` | 1 | **IN REMEDIATION 2026-07-05** — 3.0.0 published (tag `v3.0.0`, honest MIGRATION table) but the independent gate returned **BLOCKED 9/11**: rows 5/7 FAIL — ICtCp/Jzazbz shipped as conversion pairs only while the CHANGELOG/close-artefacts claimed full spaces (the publish lane certified rows it had not verified). Remediation in flight: full space classes + parsing + dispatch + currency → 3.1.0 + record correction → re-gate | 3.0.0 → 3.1.0 |
 | **S.W2** | ARCHITECTURAL TRANSPOSITION — the spine (W2-1..W2-9) | `waves/S.W2.md` | 1 | **CLOSED 2026-07-05** — 10-row gate ALL PASS after 2 remediation steps (`audit/w2-close-artefacts.md`) | — |
 | **S.W3** | PERFORMANCE — budgets as gates (W3-1..W3-9) | `waves/S.W3.md` | 2 | **PENDING** (⊣ W1 + W2) | — |
 | **S.W4** | THE INSTRUMENT, REFINED — Fable: picker + docs/About (W4-1..W4-8) | `waves/S.W4.md` | 2 | **PENDING** (⊣ W1 + W2) | — |
