@@ -82,7 +82,7 @@ export function usePaletteManagerWiring(
                 const newStr = normalizeColorUnit(normalized, true, false).value.toFormattedString(2);
 
                 const savedColors = [...model.value.savedColors];
-                const existingIdx = savedColors.findIndex((c: any) => {
+                const existingIdx = savedColors.findIndex((c) => {
                     try {
                         return normalizeColorUnit(c, true, false).value.toFormattedString(2) === newStr;
                     } catch { return false; }
@@ -91,7 +91,7 @@ export function usePaletteManagerWiring(
                 if (existingIdx >= 0) {
                     if (existingIdx > 0) {
                         const [existing] = savedColors.splice(existingIdx, 1);
-                        savedColors.unshift(existing);
+                        if (existing) savedColors.unshift(existing);
                         model.value = { ...model.value, savedColors };
                     }
                 } else {

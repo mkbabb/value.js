@@ -28,6 +28,20 @@ const DIGITS = 2;
 const COLOR_STORE_KEY = "color-picker";
 
 /**
+ * The persisted color-state projection (S.W2 W2-6). localStorage round-trips
+ * SERIALIZED display strings — `inputColor` and each saved color as a parseable
+ * string — never the live `ParsedColorUnit` graph. Typing the store to this
+ * projection (not the runtime `ColorModel`) is the honest source-of-truth: it is
+ * exactly why the store write-throughs below hand `string[]` to `savedColors`,
+ * cast-free. The former `Array<ParsedColorUnit | any>` model type let the store
+ * masquerade as `ColorModel` and hid this string↔unit boundary behind `as any`.
+ */
+interface PersistedColorState {
+    inputColor: string;
+    savedColors: string[];
+}
+
+/**
  * useColorPipeline — the ONE color-state spine (S.W2 · W2-1). Merges the former
  * App.vue→useAppColorModel + ColorPicker→useColorModel graph onto ONE composable
  * owning: ONE model (the App-owned ShallowRef, consumed directly — the picker's
@@ -49,7 +63,10 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         /* private-mode */
     }
 
-    const colorStore = useStorage(COLOR_STORE_KEY, defaultColorModel);
+    const colorStore = useStorage<PersistedColorState>(COLOR_STORE_KEY, {
+        inputColor: defaultColorModel.inputColor,
+        savedColors: [],
+    });
 
     // The sentinel — NOT a copy — distinguishes a self-originated write (slider/
     // component edit, which carries hue explicitly) from an external one (URL
@@ -166,8 +183,8 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     // --- Saved colors (canonical: the picker's per-space formatted twin) ---
     const savedColorStrings = computed(() =>
         model.value.savedColors
-            .filter((c: any) => c instanceof ValueUnit)
-            .map((c: any) => {
+            .filter((c) => c instanceof ValueUnit)
+            .map((c) => {
                 const normalized = CSS_NATIVE_SPACES.has(c.value.colorSpace)
                     ? normalizeColorUnit(c, true, false)
                     : colorUnit2(c, "oklch", true, true, false);
@@ -229,7 +246,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         const savedColors = [...model.value.savedColors];
         const currentStr = toCSSColorString(model.value.color);
         const alreadyExists = savedColors.some(
-            (c: any) => c instanceof ValueUnit && toCSSColorString(c) === currentStr,
+            (c) => c instanceof ValueUnit && toCSSColorString(c) === currentStr,
         );
         if (alreadyExists) return;
         try {
@@ -249,7 +266,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
                     return null;
                 }
             })
-            .filter(Boolean) as typeof model.value.savedColors;
+            .filter((c): c is ParsedColorUnit => c !== null);
         updateModel({ savedColors: parsed });
     }
     // --- App-level entry points (folded from useAppColorModel) ---
@@ -260,7 +277,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         syncColorToStorage.cancel();
         colorStore.value.inputColor = fresh.inputColor;
         colorStore.value.savedColors = fresh.savedColors.map((c) =>
-            normalizeColorUnit(c as any, true, false).toString(),
+            normalizeColorUnit(c, true, false).toString(),
         );
     };
 
@@ -297,7 +314,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
                         return null;
                     }
                 })
-                .filter(Boolean) as typeof model.value.savedColors;
+                .filter((c): c is ParsedColorUnit => c !== null);
             if (parsed.length) updateModel({ savedColors: parsed });
         }
         return restored;
@@ -338,7 +355,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         () => model.value.savedColors,
         (colors) => {
             colorStore.value.savedColors = colors.map((c) =>
-                normalizeColorUnit(c as any, true, false).toString(),
+                normalizeColorUnit(c, true, false).toString(),
             );
         },
     );

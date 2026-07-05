@@ -30,7 +30,7 @@ export type ColorModel = {
     selectedColorSpace: DisplayColorSpace;
     color: ParsedColorUnit;
     inputColor: string;
-    savedColors: Array<ParsedColorUnit | any>;
+    savedColors: ParsedColorUnit[];
 };
 
 const DEFAULT_INPUT_COLOR = "lab(92% 88.8 20 / 82.70%)";
