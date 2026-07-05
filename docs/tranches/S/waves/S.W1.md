@@ -3,6 +3,7 @@
 **Name**: W1 — Library (the 2.1.0 wave)
 **Opens after**: S.W0 (runs parallel with S.W2 — round 1; intra-round ordering below is binding).
 **Spec of record**: `audit/SYNTHESIS.md §3.3` (items W1-1..W1-9 + gate riders) · §4 library slate · Q2/Q3/Q9 outcomes from `S.md §12`.
+**On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: ≤4 parallel by file-family (color / parsing / core / god-module), with two sequencing laws: **W1-6's `safeAccentCssString` is the wave's FIRST landing** (a one-function patch W2-2 waits on) and **W1-8's `stylesheet.ts`/`color.ts` decompositions are sequenced LAST** (recursive-grammar risk; do not split under time pressure).
 **Hard gate**: composite (§Hard gate) — 2.1.0 published + tagged · vitest green incl. NEW dark-band + independent-oracle regressions · okhsl dodged band reinstated · caches bounded · cap-check per the census cohesion verdict · PT-E dispatched.
 **Status**: PENDING-RATIFICATION.

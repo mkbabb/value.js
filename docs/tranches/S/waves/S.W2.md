@@ -3,6 +3,7 @@
 **Name**: W2 — Architectural transposition (the color-state spine + DI seams + api unification)
 **Opens after**: S.W0 (runs parallel with S.W1 — round 1; W2-2 and W2-7 are sequenced LAST, and W2-2 dispatches only after W1-6's `safeAccentCssString` exists in the tree).
 **Spec of record**: `audit/SYNTHESIS.md §5` (items W2-1..W2-9 + the wave gate) · §3.4 · doctrine: elegance/simplicity/performance; the graph becomes data instead of watch-registration order; idiomatic Vue 3.5 provide/inject and plain `Services`-in functions — **no framework invention** (KISS; `feedback_kiss_no_contrivance`).
+**On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: ≤4 parallel (pipeline / DI+composables / api / router), W2-2 + W2-7 sequenced LAST.
 **Hard gate**: composite (§Hard gate) — the SYNTHESIS §5 wave gate verbatim: URL-color e2e (URL wins) · grep gates (0 direct `apiAvailability` imports, 0 `Context` params under `services/`, 0 `savedColors` casts) · typecheck + suites green · no new file >400 LoC.
 **Status**: PENDING-RATIFICATION.

@@ -3,6 +3,7 @@
 **Name**: W8 — The glass-ui 5.0.0 adopt event
 **Opens after**: **the BG/BH joint cut** (trigger-gated — slots into whatever round is current when it fires; NOT on the critical path; books never gates). Ratification is still a precondition: the trigger may fire early, the wave dispatches only post-ratification.
 **Spec of record**: `audit/SYNTHESIS.md §3.10` (the walk, from `glassui-consume-map §5`) · the producer's by-name MIGRATION table (BH.B4e) · `letters/GLASSUI-S-ASKS.md` (the verify-at-cut rows + the producer-gap rows fired by W6/W7).
+**On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: 1 serial (a mechanical, verified walk — the adopt-event book pattern; a triumvirate on any non-mechanical surprise).
 **Hard gate**: composite (§Hard gate) — the by-name MIGRATION walk green (typecheck 0, `boot-smoke` cold, e2e 5-project) · local shadcn slider/input DELETED onto `/slider` + `/forms` · CI un-pinned from `tranche/BG` at the master landing.
 **Status**: PENDING-RATIFICATION + TRIGGER-GATED (the BG/BH joint cut).

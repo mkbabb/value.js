@@ -3,6 +3,7 @@
 **Name**: W9 — Close (verification act, not paperwork act)
 **Opens after**: S.W7 (and every non-trigger-gated wave closed; S.W8's book state is recorded as-is).
 **Spec of record**: `audit/SYNTHESIS.md §3.11` · the `S.md §10` zero-drop ledger · the `S.md §7` books table · §6.2 budget re-run · the precepts close discipline (`SPEC.md`).
+**On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: 1–2 serial (reconciliation + the spec-status recheck lane).
 **Hard gate**: composite (§Hard gate) — every §10 ledger row reconciled with evidence cites · every open book re-verified against the live world · repo-wide sweeps re-run · FINAL.md authored · master merged + tagged.
 **Status**: PENDING-RATIFICATION.

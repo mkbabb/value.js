@@ -3,6 +3,7 @@
 **Name**: W0 — Substrate (dev truth + oracle floor + hygiene)
 **Opens after**: tranche ratification (`S.md §12`). Round 0 — everything else opens after this wave.
 **Spec of record**: `audit/SYNTHESIS.md §3.2` (items W0-1..W0-7) · oracle slate §6.1 · book discharges per `deferred-books-census`.
+**On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: 1 serial (W0-1..W0-7 in item order; W0-3's prod probes are read-only and may interleave). No parallel writers.
 **Hard gate**: composite (§Hard gate) — `npm run dev` round-trips palettes locally · smoke-safari in CI · Lighthouse hard-fail · record-only discharges written · hygiene landed with clean `git status`.
 **Status**: PENDING-RATIFICATION.

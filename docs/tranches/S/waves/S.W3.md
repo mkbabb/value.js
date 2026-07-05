@@ -3,6 +3,7 @@
 **Name**: W3 — Performance (the §6.2 budget regime)
 **Opens after**: S.W1 + S.W2 (round 2; runs parallel with S.W4). Round-2 single-writer law: W4-2's `ColorPicker.vue` header re-composition lands FIRST; W3-4 rebases its pane-swap hunks atop it.
 **Spec of record**: `audit/SYNTHESIS.md §3.5` (items W3-1..W3-9) · §6.2 budgets (transcribed below) · §6.1 P1 oracle rows (frame-budget specs land with this wave).
+**On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: ≤4 parallel (fan-out+blob / shell-payload+motion / mix / CSS-diet), path-disjoint per §File bounds.
 **Hard gate**: composite (§Hard gate) — the §6.2 budgets green on the built bundle: drag p50 ≤20ms · view-switch first frame ≤100ms · JS eager ≤280KB gzip · render-blocking CSS ≤120KB gzip · 0 ungated idle rAF · π before/after motion captures archived.
 **Status**: PENDING-RATIFICATION.

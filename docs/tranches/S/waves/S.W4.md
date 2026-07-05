@@ -3,6 +3,7 @@
 **Name**: W4 — The instrument, refined (picker + docs/About)
 **Opens after**: S.W1 + S.W2 (round 2; runs parallel with S.W3). Round-2 single-writer law: **W4-2's `ColorPicker.vue` header re-composition lands FIRST**; W3-4 rebases atop it.
 **Spec of record**: `audit/SYNTHESIS.md §3.6` (items W4-1..W4-8) · §2 design-POV continuity (the editorial instrument CARRIES; excision and consistency against the standing register) · Q4/Q5/Q6 outcomes from `S.md §12`.
+**On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: ≤6 — Fable + frontend-design lanes (title+register / header / thumbs+rail / docs pipeline / code-plate), π paired baseline/close archive, taste bar reviewed by a NON-authoring agent.
 **Hard gate**: composite (§Hard gate) — π paired archive: capsule gone, both hosts identical, Lab readout one line at 1440; all 11 docs pages complete snippets (build-failing guard); inline-code chips restored; non-authoring taste review.
 **Status**: PENDING-RATIFICATION.

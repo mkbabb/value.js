@@ -3,6 +3,7 @@
 **Name**: W7 — Dock + shell (the wax seal + one chromatic voice)
 **Opens after**: S.W1 + S.W3 (its only dependency edges) — enters at round 4, **after BOTH round-3 lanes (W5 ∥ W6) close: a round barrier, NOT a W5/W6→W7 edge** (`S.md §3.1`, verbatim).
 **Spec of record**: `audit/SYNTHESIS.md §3.9` (items W7-1..W7-7 + the verification preamble) · the §7.1 hard-gate map (L4 → W7-3) · Q4 outcome from `S.md §12`.
+**On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: ≤4 — Fable + frontend-design (seal / mobile-fit / accents+luma / furniture+dedup), π archives light/dark × collapsed/expanded.
 **Hard gate**: composite (§Hard gate) — collapsed dock renders dot + inked icon (no text/chevron) at every viewport · 390px overflow trigger reachable · all 9 view accents ≥3:1 post-gamut-map incl. achromatic picks · view-switch beat sequenced · π quadrant confirms the seal↔trigger handoff.
 **Status**: PENDING-RATIFICATION.

@@ -184,7 +184,7 @@ verified glass-ui HEAD) · `letters/PARSE-THAT-PT-E.md` (dispatched at W1-9) ·
 
 ---
 
-## §10 — Zero-drop fold ledger (SYNTHESIS §9, transcribed; FINAL.md reconciles row-by-row)
+## §10 — Zero-drop fold ledger (SYNTHESIS §9, distilled — every DISPOSITION preserved intact; FINAL.md reconciles row-by-row)
 
 ### §10.1 S-1..S-24 (anchor items per SYNTHESIS §1)
 

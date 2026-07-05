@@ -3,6 +3,7 @@
 **Name**: W6 — Atmosphere + hero (aurora truth + blob redress)
 **Opens after**: S.W2 (+ round-2 close; round 3 — runs parallel with S.W5). Boot-seed integrity rides the pipeline (W2-1).
 **Spec of record**: `audit/SYNTHESIS.md §3.8` (items W6-1..W6-6) · §0.6/§0.7 (REDRESS not reinvent; the four-defect aurora composite, wiring INTACT) · the §7.1 hard-gate map (L2 → W6-2/W6-3; L1 → W6-5) · Q7 outcome from `S.md §12`.
+**On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: ≤4 — Fable + frontend-design (seed+scheme / derive / blob / safari+config), π archives light/dark × cold/live.
 **Hard gate**: composite (§Hard gate) — cold-load e2e at a URL color paints the derived field first frame, light + dark · dark L band ≤0.42 (L2-hedged per the hard-gate map) · ≥2 distinct satellite beads (producer-cut-hedged) · π archives light/dark × cold/live.
 **Status**: PENDING-RATIFICATION.

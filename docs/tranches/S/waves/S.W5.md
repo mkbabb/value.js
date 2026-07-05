@@ -3,6 +3,7 @@
 **Name**: W5 — Suffusion II (the remaining panes on-register)
 **Opens after**: S.W1 + S.W3 (round 3; runs parallel with S.W6).
 **Spec of record**: `audit/SYNTHESIS.md §3.7` (items W5-1..W5-13 + the lane structure) · §2 recalibrations (copy register, fail-explicit, one ink for type) · Q1/Q4/Q6 outcomes from `S.md §12`.
+**On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: ≤6 total — the three-lane structure below (the R.W4 precedent applied); each lane independently gated; Fable + frontend-design; π archives per page.
 **Hard gate**: composite (§Hard gate) — π paired archives per page · the three `Loader2` browse sites dead · zero hand-rolled `<input>` · gradient round-trip atomic + explicit-failure · admin populated-fixture specs green · per-item gates.
 **Status**: PENDING-RATIFICATION.
