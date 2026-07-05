@@ -219,7 +219,11 @@ export function findGamutIntersection(
 }
 
 const GAMUT_EPS = 0.00001;
-const GAMUT_ALPHA = 1.0; // R.W1 U10 (Q7 RATIFIED): un-wash light-saturated colors; self-limited at L=0.5, hue-exact.
+// R.W1 U10 (Q7 RATIFIED): un-wash light-saturated colors; self-limited at L=0.5,
+// hue-exact. Exported (S.W1-10) so the raytrace mapper shares the IDENTICAL
+// adaptive-L0 anchor — the two differ ONLY in how they locate the boundary
+// crossing along that shared ray, never in the ray itself.
+export const GAMUT_ALPHA = 1.0;
 
 /**
  * Core gamut mapping in raw OKLab space.

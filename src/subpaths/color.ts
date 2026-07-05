@@ -152,6 +152,13 @@ export {
     rawOklchToOklab,
     oklabToRgb255,
 } from "../units/color/gamut";
+// Raytrace gamut map (S.W1-10 · R-4) — the EXACT-boundary reference twin of the
+// analytical map above (validation surface; agrees within ΔE-OK < 1e-3, lands
+// strictly on the sRGB surface where the analytical leaves a ~1e-4 residual).
+export {
+    gamutMapOKLabRaytrace,
+    gamutMapSRGBRaytrace,
+} from "../units/color/gamut-raytrace";
 
 // Perceptual color-difference metrics (R.W1.6 · R-3)
 export { deltaE2000, deltaEITP, xyzToICtCp } from "../units/color/difference";
