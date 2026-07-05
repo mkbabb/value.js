@@ -1,5 +1,5 @@
 import { parseCSSColor } from "@src/parsing/color";
-import { COLOR_NAMES } from "@src/units/color/constants";
+import { COLOR_NAMES } from "@src/units/color/color-names";
 import { colorUnit2 } from "@src/units/color/normalize";
 
 const DIGITS = 2;
