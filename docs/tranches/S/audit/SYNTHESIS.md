@@ -5,6 +5,7 @@
 **Corpus**: the 33 audit lanes at `docs/tranches/S/audit/lanes/*.md` (each cited below by slug), `docs/tranches/R/{R.md,FINAL.md}`, the precepts corpus (`docs/precepts/instructions/`), the owner's S-1..S-24 findings ledger.
 **Binding disciplines**: cross-lane contradictions resolved against the LIVE tree before elevation (R lesson 1) · producer-owned items route to letters/adopt-books, never demo forks (S-21) · books never gates · paired goal/completion at tranche + wave + item level · NO legacy/workarounds/fallbacks · Fable + frontend-design for all design waves · π paired visual archives on every visual wave · LEAN authoring.
 **AMENDED-AT-PASS-2** (2026-07-04, the S pass-2 amender): all 13 pass-1 mustFix discharged + every dissent dispositioned (§11); pass-1 record at `audit/PASS1-VERDICT.md`. Substantive amendments: W1-8 widened to the census's full SPLIT-WORTHY set; the eager-load budget restated as two owned gates (new W3-9); S.W5 laned; W4-1/W7-1 re-specced at treatment depth; L1 provenance re-pinned to the verified HEAD; the NCSU-alias retirement booked (§7.3); Q4 FLIPPED to EXCISE.
+**AMENDED-AT-PASS-3** (2026-07-04, the S pass-3 discharger): pass-2 scored mean 95.7 / min 92 with 2 residual mustFix, both discharged — the W1-8 cap-exception clause now also names `units/utils.ts` (§3.3 gate riders) and the W7-1 morph clause is reframed as design intent with every exists-today claim live-verified against glass-ui HEAD `c03ab942` + the demo tree (§3.9); both pass-2 dissents folded (L2 atom-naming disambiguation, L1 dispatch-time re-stamp corollary), 0 rejected; pass-3 record at §11 (the pass-2 verdict was delivered in-orchestration — no PASS2-VERDICT.md exists on disk; §11's pass-3 block is the durable record).
 
 ---
 
@@ -201,10 +202,14 @@ regressions; the okhsl dodged sweep band reinstated; parse caches bounded; PT-E 
 
 Gate riders: fresh-build `.d.ts` guard; `color2Into` currency through any new space; boundary
 goldens untouched by the srgb fix except the expected near-black fixtures (enumerate the moved
-fixtures in the commit message — never silently regolden); **post-W1 cap check** (pass-2): no
-`src/` file >500 LoC (the cap both god-module lanes invoke) — if the sequenced-LAST parsing
-decompositions are deliberately stopped short, the cap exception is RECORDED at wave close as a
-ledger row, never a silent miss.
+fixtures in the commit message — never silently regolden); **post-W1 cap check** (pass-2;
+exception clause completed at pass 3): no `src/` file >500 LoC (the cap both god-module lanes
+invoke) — if the sequenced-LAST parsing decompositions (`stylesheet.ts`/`color.ts`) are
+deliberately stopped short, OR `units/utils.ts` remains over-cap after its enumerated W1-8 lift
+(the ~140-LoC DOM block out of 722 leaves ≈582 — over-cap BY CONSTRUCTION while the
+flatten/unflatten root-fold stays the recorded deferred decision, so this row fires unless that
+fold is separately taken up), the cap exception is RECORDED at wave close as a ledger row, never
+a silent miss.
 
 ### §3.4 S.W2 — ARCHITECTURAL TRANSPOSITION (the spine) — detail in §5
 
@@ -323,7 +328,7 @@ for this finding class — a design decision, not an exemption from close-time v
 
 | # | Item | Anchors | Evidence lane |
 |---|---|---|---|
-| W7-1 | **The wax seal** (S-8): WatercolorDot in the live color filling the circle + the view icon inked over it (ink/foreground — the dot IS the accent, per the lane's own ruling that `--accent-view` is wrong for the ICON), `vj-morph` keyed by view; label span + chevron DELETED, icon un-gated from `sm:hidden`; gold treatment when `isAdminMode` (the collapsed dock currently carries zero admin identity). **Chromatic reconciliation with W7-4 — the morph clause** (pass-2; the seal and the expanded trigger speak different sources, so the collapse/expand morph gets a DESIGNED handoff, never an accidental hue slide): the seal carries the view hue as its hairline RIM — the ring the trigger already wears (`--dock-ring` → `--accent-view`) — while the wax (the dot fill) stays LIVE and the icon stays ink. Across the `vj-morph`, the rim is the continuity carrier: it grows into the expanded trigger's `--accent-view` ring, one hue held the whole way; the live-color wax exits WITH the seal under the morph's cross-fade and re-appears only where live accent legitimately speaks (Tools/Login chrome, per W7-4's voice map). No single element ever animates live→view-hue. The light/dark × collapsed/expanded π quadrant (Completion) confirms the handoff reads intentional | `Dock.vue:217-230` | design-dock-shell P0-1; design-admin F-5; legacy-sweep-components F5 |
+| W7-1 | **The wax seal** (S-8): WatercolorDot in the live color filling the circle + the view icon inked over it (ink/foreground — the dot IS the accent, per the lane's own ruling that `--accent-view` is wrong for the ICON), `vj-morph` keyed by view; label span + chevron DELETED, icon un-gated from `sm:hidden`; gold treatment when `isAdminMode` (the collapsed dock currently carries zero admin identity). **Chromatic reconciliation with W7-4 — the morph clause** (pass-2; reframed as design intent at pass 3, existing-surface claims live-verified; the seal and the expanded trigger speak different sources, so the collapse/expand morph gets a DESIGNED handoff, never an accidental hue slide): the seal's hairline rim ADOPTS `--accent-view` — the continuity carrier the expanded trigger's ring will ALSO wear under W7-4. What exists TODAY, verified against the live trees (glass-ui HEAD `c03ab942`): the demo sets `--dock-ring` to the LIVE safeAccent on the trigger (`DockViewSelect.vue:55`), but that custom property has NO consumer anywhere in the producer src or dist — the trigger ring is itself to-be-built (the demo seam re-wired to `--accent-view` + the producer consume verified or asked), not an existing surface; the collapsed dot already paints the live color (`Dock.vue:218`), and the collapsed icon currently paints `--accent-view` (`Dock.vue:225`) — the ink-icon ruling above retires that. The DESIGN: the wax (the dot fill) keeps speaking live, the icon moves to ink, and across the `vj-morph` the rim is the continuity carrier — it is designed to grow into the expanded trigger's `--accent-view` ring, one hue held the whole way; the live-color wax exits WITH the seal under the morph's cross-fade and re-appears only where live accent legitimately speaks (Tools/Login chrome, per W7-4's voice map). No single element ever animates live→view-hue. The light/dark × collapsed/expanded π quadrant (Completion) confirms the handoff reads intentional | `Dock.vue:217-230` | design-dock-shell P0-1; design-admin F-5; legacy-sweep-components F5 |
 | W7-2 | **Mobile dock fit** (S-7): the main-layer composition cut at <sm (segmented control icon-or-shorter as a root-level variant; a separator pair dropped); the ⋮ overflow trigger (dark toggle + share) back inside the aperture; producer ask — `dock-scroll-x` overflow must fail visibly, never silently clip (letter L13); `clampLabel` RE-ESCALATED as a hard ask (7+ tranches; the Ad-18 workaround must not spread) | `Dock.vue:137-211`; `DockViewSelect.vue:49-51` | design-dock-shell P0-2; glassui-consume-map F1 |
 | W7-3 | **Luma truth** (the P0-3 coin flip): producer cure — the backdrop sampler must never resolve luma 0 from an unreadable WebGL canvas (letter L4); demo threads `backgroundCanvas` consistently; NO consumer shim. This finding contaminates S-20 and every dark-legibility report — re-verify those π archives after the cure; an L4 miss in-window → record + re-verify at W8 (§7.1 hard-gate map) | glass-ui `useGlassBackdropLuminance` | design-dock-shell P0-3 |
 | W7-4 | **Gamut-guarded per-view accents** (the eat-your-own-dogfood fix): rotate hue THEN gamut-map to the cusp + re-guard L via the library (`gamut.ts` + `contrast.ts`), written as 9 static tokens per accent change; low-C floor so the axis survives achromatic picks (today mix 2.74:1, generate 2.77:1 fail the 3:1 graphics floor; all 9 rotations collapse to one gray at C≈0); ONE dock voice — trigger speaks `--accent-view`, menu items speak THEIR OWN view hues (the menu becomes the navigation's color-wheel legend), Tools/Login stay live-accent; the rainbow menu one-off dies (with Q4) | `style.css:166-177`; `DockViewSelect.vue:55,87,97` | design-dock-shell P1-4/-5 |
@@ -452,8 +457,8 @@ gate re-baselining is recorded, never silent (R lesson 3).
 
 | L# | Ask | Severity | Ground |
 |---|---|---|---|
-| L1 | **WebKit aurora shader compile** — 3 GLSL defects, **verified live at HEAD `a633784f`; provenance spans `5cf8e8f0`..`BG.W-AUR-METAL-FINISH`** (pass-2 re-pin: the metal-finish work widened `structureTensorField` vec3→vec4 for the `.w` metal-gradient lane, so two of the three defects are introduced/widened by the LATER work — inspect the CURRENT tree, not the older commit): `flat` reserved-keyword local (`metal-medium.glsl.ts:103`); stale `vec3` forward decl of `structureTensorField` (`flow.glsl.ts:20`) against the `vec4` definition (`mediums.glsl.ts:43`); `vec4`→`vec3` assign (`brush.glsl.ts:330`). Every Safari user has only ever seen the CSS fallback. + a WebKit GLSL compile-smoke gate in glass-ui CI | **P0** | safari-truth |
-| L2 | **AuroraAtoms door**: `scheme` (+`lBand`) atom threaded `resolveAtoms→deriveAurora` (the levers exist, the door doesn't); `hueSpread` + a cross-stop chroma-variance atom | P1 | aurora-derive; design-blob-atmosphere G-1 |
+| L1 | **WebKit aurora shader compile** — 3 GLSL defects, **verified live at HEAD `a633784f`; provenance spans `5cf8e8f0`..`BG.W-AUR-METAL-FINISH`** (pass-2 re-pin: the metal-finish work widened `structureTensorField` vec3→vec4 for the `.w` metal-gradient lane, so two of the three defects are introduced/widened by the LATER work — inspect the CURRENT tree, not the older commit): `flat` reserved-keyword local (`metal-medium.glsl.ts:103`); stale `vec3` forward decl of `structureTensorField` (`flow.glsl.ts:20`) against the `vec4` definition (`mediums.glsl.ts:43`); `vec4`→`vec3` assign (`brush.glsl.ts:330`). Every Safari user has only ever seen the CSS fallback. + a WebKit GLSL compile-smoke gate in glass-ui CI. **Dispatch-time corollary** (pass-3): the dispatching agent re-stamps the verified HEAD at dispatch — `a633784f` was the pass-2 stamp; the producer moves daily (glass-ui stood at `c03ab942` when pass 3 amended this spec) | **P0** | safari-truth |
+| L2 | **AuroraAtoms door**: a lightness-scheme (+`lBand`) atom threaded `resolveAtoms→deriveAurora` (the levers exist — `deriveAurora` already carries `scheme:"light"\|"dark"` + `lBand`, `color.ts:168/:174` — the door doesn't); `hueSpread` + a cross-stop chroma-variance atom. **Naming** (pass-3): NOT bare `scheme` — the atoms door already speaks "scheme" for the HUE axis (`harmony` is documented as "the hue scheme", `atoms.ts:106-107`); `lightnessScheme`/`lBand` suggested so the two axes stay unambiguous — the final name is the producer's call | P1 | aurora-derive; design-blob-atmosphere G-1 |
 | L3 | **`useWatercolorBlob` zombie rAF** → rebuild on the library's own `useRAFLoop` (`pauseWhenHidden` + PRM are first-class there; the animate-mode tick runs forever, invisible under PRM) | **P0** | perf-general §3b |
 | L4 | **Backdrop-luma truth**: never resolve luma 0 from an unreadable WebGL canvas — hold the declarative bucket or fail explicitly (the light shell coin-flips to mud today) | **P0** | design-dock-shell P0-3 |
 | L5 | **Blob redress**: single-full-cost-GPU-surface policy (aurora↔blob backend coordination — the Safari dual-WebGL2 vector); scale-aware deformation ceiling (±35%/frame measured churn); satellites-at-rest (no-park-while-count>0 or visible-orbit rest pose) + the cross-engine satellites-missing regression; canvas DPR scaling; exported HERO preset; arousal-scales-orbit; chord-dent verify. (`uSatColor[]` F9.R1 already NAMED-OWNER+CUT — verify at W8, no re-ask) | P0/P1 | blob-greenfield §5/§6; safari-truth P1 |
@@ -667,3 +672,25 @@ was either folded (cheap) or absorbed by a mustFix cure.
 - **feasibility/W3-3 threshold coordination** — FOLDED: N-vs-sampling-window note on W3-3.
 - **evidence/W1-2 line range** — FIXED: cite tightened to `index.ts:197-205`.
 - **evidence/lane HEAD-currency** — FOLDED: §10 lesson 3 corollary (spot-re-verify at wave-open).
+
+## §11a — Pass-3 dispositions (2026-07-04)
+
+Pass-2 scored mean 95.7 / min 92 with exactly 2 residual mustFix + 2 cheap dissents. The pass-2
+verdict was delivered in-orchestration (no `PASS2-VERDICT.md` on disk — this block is the durable
+record; `PASS1-VERDICT.md` remains the pass-1 record).
+
+### mustFix (2/2 discharged)
+
+| # | Critic · defect | Cure landed at |
+|---|---|---|
+| 1 | completeness(96) · the §3.3 W1-8 cap-check was internally inconsistent for `units/utils.ts`: the enumerated lift extracts only the ~140-LoC DOM block (722 − 140 ≈ 582, still >500) while the exception clause named only `stylesheet.ts`/`color.ts` — a guaranteed silent miss | §3.3 gate riders: the cap-exception clause now ALSO names `units/utils.ts` (the deferred flatten/unflatten root-fold as the stated reason), symmetric to the stylesheet.ts/color.ts treatment — the ledger row fires by construction, never silently |
+| 2 | evidence(92) · the §3.9 W7-1 morph clause asserted producer/trigger surfaces as present-tense fact ("the ring the trigger already wears (`--dock-ring` → `--accent-view`)", the rim "grows into…") | §3.9 W7-1 reframed with design-intent verbs (the rim ADOPTS `--accent-view`; it "is designed to grow into" the trigger's ring); every exists-today claim live-verified at pass 3 (glass-ui HEAD `c03ab942`: `--dock-ring` has NO consumer in producer src or dist — the demo sets it to LIVE safeAccent at `DockViewSelect.vue:55`; the collapsed dot is live at `Dock.vue:218`; the collapsed icon paints `--accent-view` at `Dock.vue:225`) and cited, or reworded as to-be-built |
+
+### Dissents (2/2 folded, 0 rejected)
+
+- **L2 atom naming vs the existing hue-"scheme" language** — FOLDED: §7.1 L2 now flags bare
+  `scheme` as ambiguous against the atoms door's `harmony` ("the hue scheme", `atoms.ts:106-107`,
+  verified live) and suggests `lightnessScheme`/`lBand`; the final name stays the producer's call.
+- **L1 dispatch-time currency** — FOLDED: §7.1 L1 gains the corollary — the dispatching agent
+  re-stamps the verified HEAD at dispatch; `a633784f` was the pass-2 stamp (glass-ui stood at
+  `c03ab942` when pass 3 amended this spec).
