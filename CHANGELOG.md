@@ -1,5 +1,107 @@
 # Changelog
 
+## [3.0.0] — 2026-07-05 (S.W1 · the library major — near-black srgb cure + parsing P0s + two public-surface breaks + the perceptual slate)
+
+The one honest major of tranche S's round 1 (`docs/tranches/S/waves/S.W1.md`; RATIFIED
+2026-07-05, `audit/RATIFICATION-2026-07-05.md §2.1` — re-stamped from 2.1.0 because the Q2
+`logerp` reorder + Q3 `color-soa.ts` excision are public-API breaks, and the srgb cure is
+output-changing for near-black). Every breaking + output-changing row bundled into a single
+3.0.0 (the keyframes-2.2.0 semver lesson: never dribble breaks across minors).
+
+### BREAKING — the by-name MIGRATION table
+
+| Symbol / behavior | 2.x | 3.0.0 | Migration |
+|---|---|---|---|
+| `logerp(t, start, end)` | t-**first** | `logerp(start, end, t)` — t-**last**, matching `lerp` (Q2 FLIP) | reorder the three arguments at every call site; **NO compat shim, NO deprecation alias** |
+| `buildColorChannelPlan` · `packColorChannels` · `lerpColorChannels` · type `ColorChannelPlan` (`color-soa.ts`) | public exports | **REMOVED** — orphan API, phantom keyframes.js consumer, zero real consumers (Q3 EXCISE) | no replacement; `interpolate.ts`'s internal `ColorInterpPlan` is a different, non-public structure |
+| `@mkbabb/value.js` self-dependency in `dependencies` (`^1.0.2`) | present | **REMOVED** (W0-9 excision, routed to this cut) | none — no real consumer relied on value.js self-depending; the entry forced a stale nested `node_modules/@mkbabb/value.js@1.0.2` self-install that `vite.config.ts`'s self-alias existed only to override, and was harmful to published consumers (nested stale major) |
+| `srgbToLinear` near-black decode | encoded 1..10/255 decoded on the power branch (~3.2× too bright) | decode on the **linear** branch (`c/12.92`), IEC 61966-2-1-correct | OUTPUT-CHANGING for ≤10/255 (encoded) only — see below; no signature change |
+
+### LIBRARY — output-changing (the near-black srgb decode cure — the booked defect, W1-1)
+
+- **`srgbToLinear` decode-threshold fix** (`units/color/conversions/transfer.ts`). The DECODE
+  branch now pivots on the ENCODED-axis threshold `SRGB_TRANSITION` (0.04045), not the
+  linear-axis 0.0031308. The encoded 8-bit dark band 1..10/255 (all in [0.0031308, 0.04045])
+  previously mis-routed through the power branch, decoding near-black ~3.2× too bright; it now
+  decodes on the linear branch.
+  - **Pixel-output-changing for ≤10/255 (encoded) ONLY.** At n=1/255, neutral `XYZ.Y` moves
+    **9.837e-4 → 3.035e-4**. Hand-computed dark-band goldens, from an INDEPENDENT IEC 61966-2-1
+    transfer + Rec.709/D65 matrix oracle (never the library as its own oracle): n=1 →
+    `0.00030352698354883757` … n=10 → `0.003035269835488375`
+    (`test/srgb-transfer-darkband.test.ts`).
+  - `gamut.ts`'s inline `srgbToLinear` twin **DELETED** (DRY; `transfer.ts` is a 0-import leaf —
+    the "circular dep" justification was stale). `gamut.ts` now imports the single canonical
+    transfer.
+  - **Regoldened fixtures: NONE.** The existing boundary goldens never sample ≤10/255; the cure
+    adds NEW hand-computed dark-band goldens + a non-circular self-inverse roundtrip test
+    (identity as oracle) instead of moving any fixture. The okhsl dodged dark+saturated corner is
+    **reinstated** — the transfer pair is now mutually invertible across that band.
+
+### LIBRARY — additive API (the S perceptual slate)
+
+- **ICtCp color space** (Q9) — full space class + parsing + `color2()` dispatch + `color2Into`
+  currency + roundtrip goldens (the matrix math already shipped inside `deltaEITP`; the cheapest
+  net-new space).
+- **Jzazbz color space** (Q9 widening, W1-11) — full space class + its NET-NEW PQ-variant
+  transfer math + parsing + dispatch + roundtrip goldens + `color2Into` currency.
+- **Raytrace gamut map** (R-4 DISCHARGED, W1-10) — `units/color/gamut-raytrace.ts`, the
+  exact-boundary reference; tested against the Ottosson analytical mapper as the ORACLE
+  (agreement within stated tolerance on the shared domain; the divergences documented — that they
+  exist is the point).
+- **`sampleOKLChSliceBoundary(hue, columns)`** — the L×C sRGB cusp polyline (downstream never
+  re-derives gamut geometry).
+- **`resolveEasing(string → TimingFunction)`** — the canonical string→easing resolver the
+  constellation can converge on (the KF courtesy note records the home).
+- **`safeAccentCssString`** — gamut-guarded accent stringification (retires the demo's hand-denorm
+  blocks; W2-2 consumes it).
+
+### LIBRARY — parsing P0s + value hygiene
+
+- `round()` optional-strategy no longer crashes on spec-legal CSS (W1-2; the carve-around test
+  comment retired).
+- `extractStyleRules` / `extractAnimationOptions` now **DEPTH-WALK** container at-rules
+  (@media / @layer / @container / @supports / @scope / @starting-style) + CSS-Nesting child rules
+  — previously they returned only top-level rules and silently DROPPED nested ones (W1-3). A
+  behavior-observable bugfix: consumers relying on top-level-only results now also receive the
+  nested rules.
+- `fail(message)` reaches `mergeErrorState` (3 authored messages were discarded) + `.eof()` swap
+  in `stylesheet.ts` (W1-4).
+- All **7 unbounded memoize caches** now carry a `maxCacheSize` bound (the code-provable
+  drag-time memory-growth vector) (W1-5).
+- `reverseCSSIterationCount` wired to its inline twin (dead export kept, now live) ·
+  `unpackMatrixValues` 2D-branch fix (a planar `matrix()` now returns 0 for the two out-of-plane
+  rotations, was nonsense atan2-derived) · `ch`-unit explicit `getContext` null-narrow (kills the
+  masking catch) · `flattenObject` O(N²)→O(N) · `toFixed` trailing-zero consistency · vh/cqw
+  docstring truth (W1-7).
+
+### LIBRARY — structural (god-module round, cohesion-driven — no LoC-chop splits)
+
+- `color/index.ts` 968 → **71-LoC barrel**: `Color` base → `base.ts`, the 15 space subclasses →
+  `spaces.ts`, apply-path serializers → `serialize.ts`.
+- `units/constants.ts` → `STYLE_NAMES` data table lifted to `units/style-names.ts`;
+  `color/constants.ts` → `COLOR_NAMES` lifted to `color/color-names.ts` (both back to their
+  definition cores).
+- `units/utils.ts` → DOM/layout unit resolvers to `units/dom-metrics.ts`; `units/normalize.ts` →
+  layout-epoch cache to `units/layout-cache.ts` (the one documented `as unknown as` travels with
+  it; `src/` stays at 8, CLAUDE.md's regenerable count).
+- 7 hand-rolled scanners consolidated onto one shared balanced-text primitive in `parsing/utils.ts`.
+- `stylesheet.ts` / `color.ts` recursive-grammar spines: AST + separable leaves lifted
+  (`stylesheet-types.ts`, `color-unit.ts`, `relative-color.ts`), the mutually-recursive cores
+  **deliberately stopped short** (cap-check ledger rows recorded, not silently missed).
+- `dispatch.ts` comment-diet (NO structural split — cohesive runtime).
+
+### Cross-repo (dispatched inside the cut)
+
+- **parse-that PT-E** ask letter (`docs/tranches/S/letters/PARSE-THAT-PT-E.md`): scoped per-parse
+  diagnostics (HIGH) · combinator-inference tightening (MED) · Pratt-stays-dormant on the record.
+- **keyframes.js courtesy note** (`docs/tranches/S/letters/KF-COURTESY.md`): the canonical
+  `resolveEasing` home.
+
+### Deliberately NOT done (recorded)
+
+R-8 gamut-relative spaces (KILLED) · sibling-index/count · device-cmyk · ICC · R-7 HCT/CAM16 ·
+the Pratt calc() 2-tier transposition (KEEP-DORMANT — not pulled forward).
+
 ## [2.0.1] — 2026-07-04 (the parse-that `^1.0.0` re-pin — the booked post-R follow-on, kf-executed)
 
 The R.md §4 book row ("parse-that `^1.0.0` re-pin", trigger: kf S.H4 publishes
