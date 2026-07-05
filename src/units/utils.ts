@@ -117,7 +117,6 @@ export const flattenObject = (obj: any) => {
                     flat[key] = new ValueArray();
                 }
                 flat[key].push(calcUnit);
-                flat[key] = flat[key].flat();
                 return;
             }
 
@@ -159,10 +158,17 @@ export const flattenObject = (obj: any) => {
         }
 
         flat[key].push(obj);
-        flat[key] = flat[key].flat();
     };
 
     flatten(obj);
+
+    // Flatten each accumulated ValueArray ONCE, after the walk (S.W1 W1-7). The
+    // prior per-leaf `.flat()` inside the recursion re-copied the whole array on
+    // every push — O(N²) for a property accruing N leaves. One pass here is
+    // output-identical (leaves are ValueUnits, never nested arrays) and O(N).
+    for (const key of Object.keys(flat)) {
+        flat[key] = flat[key].flat();
+    }
 
     return flat;
 };

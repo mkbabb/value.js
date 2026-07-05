@@ -199,6 +199,20 @@ describe("flattenObject and unflattenObject", () => {
         expect(unflat.x.y).toEqual([10]);
         expect(unflat.x.z).toEqual([20]);
     });
+
+    it("accumulates every leaf of a multi-arg function into one flat ValueArray (O(N) flatten)", () => {
+        // A property accruing N leaves must land as an ordered flat array — the
+        // O(N²)→O(N) flatten-after-loop fix (S.W1 W1-7) must be output-identical.
+        const fv = new FunctionValue("translate", [
+            new ValueUnit(10, "px", ["length", "absolute"]),
+            new ValueUnit(20, "px", ["length", "absolute"]),
+            new ValueUnit(30, "px", ["length", "absolute"]),
+        ]);
+        const flat = flattenObject({ transform: fv });
+        const leaves = flat["transform.translate"];
+        expect(leaves).toHaveLength(3);
+        expect(leaves.map((v: ValueUnit) => v.toString())).toEqual(["10px", "20px", "30px"]);
+    });
 });
 
 describe("unpackMatrixValues", () => {
