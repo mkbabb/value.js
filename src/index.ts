@@ -269,11 +269,15 @@ export {
     easeInExpo, easeOutExpo, easeInOutExpo,
     jumpTerms, steppedEase, stepStart, stepEnd,
     cssLinear, bezierPresets, timingFunctions, timingFunctionDescriptions,
+    resolveEasing,
 } from "./easing";
 export type { LinearStop, TimingFunction } from "./easing";
 
 // Easing parsers (CSS Easing Functions Level 1 + Level 2)
-export { parseLinearStops, parseSteps, parseSpring, lowerSpringEasing } from "./parsing/easing";
+export {
+    parseLinearStops, parseSteps, parseSpring, lowerSpringEasing,
+    resolveEasingFunction,
+} from "./parsing/easing";
 export type { JumpTerm, StepsArgs } from "./parsing/easing";
 
 // Parsing — parsers and parse functions

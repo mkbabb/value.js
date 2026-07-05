@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { parseLinearStops, parseSteps } from "../src/parsing/easing";
+import {
+    parseLinearStops,
+    parseSteps,
+    resolveEasingFunction,
+} from "../src/parsing/easing";
 import { cssLinear, steppedEase } from "../src/easing";
 
 describe("parseLinearStops (E1 — CSS Easing L2 linear())", () => {
@@ -145,5 +149,25 @@ describe("parseSteps (E2 — CSS Easing L1 steps())", () => {
 
     it("rejects an empty steps()", () => {
         expect(() => parseSteps("steps()")).toThrow();
+    });
+});
+
+describe("resolveEasingFunction (W1-6 — the parse-that hook, spring-aware)", () => {
+    it("lowers spring(...) to an evaluable rising TimingFunction", () => {
+        const f = resolveEasingFunction("spring(1, 100, 10, 0)");
+        expect(f(0)).toBeCloseTo(0, 6); // lowered linear() starts at 0
+        expect(f(1)).toBeCloseTo(1, 6); // …and settles at 1
+    });
+
+    it("delegates every non-spring form to the canonical resolveEasing", () => {
+        expect(resolveEasingFunction("ease-in-out")(0)).toBeCloseTo(0, 6);
+        expect(resolveEasingFunction("ease-in-out")(1)).toBeCloseTo(1, 6);
+        expect(resolveEasingFunction("steps(4)")(1)).toBeCloseTo(1, 12);
+        expect(resolveEasingFunction("linear(0, 1)")(0.5)).toBeCloseTo(0.5, 12);
+        expect(resolveEasingFunction("cubic-bezier(0, 0, 1, 1)")(0.5)).toBeCloseTo(0.5, 6);
+    });
+
+    it("throws on an unrecognised non-spring string (via the delegate)", () => {
+        expect(() => resolveEasingFunction("not-an-easing")).toThrow(/unrecognised/);
     });
 });

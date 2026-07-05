@@ -1,6 +1,6 @@
 import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
-import type { LinearStop } from "../easing";
-import { jumpTerms } from "../easing";
+import type { LinearStop, TimingFunction } from "../easing";
+import { cssLinear, jumpTerms, resolveEasing } from "../easing";
 import { FunctionValue, ValueUnit } from "../units";
 import * as utils from "./utils";
 
@@ -292,4 +292,33 @@ export function lowerSpringEasing(
     }
     stops.push("1");
     return `linear(${stops.join(", ")})`;
+}
+
+/**
+ * Full-fidelity easing-string resolver — the parse-that HOOK for the canonical
+ * dependency-free {@link resolveEasing} (src/easing.ts, W1-6). Extends the core
+ * resolver with `spring(mass, stiffness, damping, velocity)`, which value.js
+ * MODERATE-SUPERSEDES by LOWERING to a `linear()` staircase
+ * ({@link lowerSpringEasing}) — a form the parse-that-free core cannot handle.
+ * Every other easing string (named catalogue, `cubic-bezier()`, `steps()`,
+ * `linear()`) delegates to the core resolver unchanged.
+ *
+ * @example
+ * resolveEasingFunction("spring(1, 100, 10, 0)")(0) // → 0
+ * resolveEasingFunction("ease-in-out")              // delegates to resolveEasing
+ */
+export function resolveEasingFunction(input: string): TimingFunction {
+    const raw = input.trim();
+    if (/^spring\s*\(/i.test(raw)) {
+        const fn = parseSpring(raw);
+        const [mass, stiffness, damping, velocity] = fn.values.map((v) =>
+            Number(v.valueOf()),
+        );
+        return cssLinear(
+            parseLinearStops(
+                lowerSpringEasing(mass!, stiffness!, damping!, velocity!),
+            ),
+        );
+    }
+    return resolveEasing(raw);
 }
