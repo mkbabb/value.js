@@ -1,5 +1,4 @@
 import { computed, ref, watch, type ShallowRef } from "vue";
-import { useStorage } from "@vueuse/core";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { debounce } from "@src/utils";
 import type { ParsedColorUnit } from "@src/parsing/color";
@@ -14,7 +13,6 @@ import {
 import type { ColorModel } from "@components/custom/color-picker";
 import {
     createDefaultColorModel,
-    defaultColorModel,
     toCSSColorString,
     colorToHexString,
     CSS_NATIVE_SPACES,
@@ -23,23 +21,9 @@ import {
 import { useColorParsing } from "@components/custom/color-picker/composables/useColorParsing";
 import { useSliderGradients } from "@components/custom/color-picker/composables/useSliderGradients";
 import { useColorNameResolution } from "@components/custom/color-picker/composables/useColorNameResolution";
+import { useColorPersistence } from "./useColorPersistence";
 
 const DIGITS = 2;
-const COLOR_STORE_KEY = "color-picker";
-
-/**
- * The persisted color-state projection (S.W2 W2-6). localStorage round-trips
- * SERIALIZED display strings — `inputColor` and each saved color as a parseable
- * string — never the live `ParsedColorUnit` graph. Typing the store to this
- * projection (not the runtime `ColorModel`) is the honest source-of-truth: it is
- * exactly why the store write-throughs below hand `string[]` to `savedColors`,
- * cast-free. The former `Array<ParsedColorUnit | any>` model type let the store
- * masquerade as `ColorModel` and hid this string↔unit boundary behind `as any`.
- */
-interface PersistedColorState {
-    inputColor: string;
-    savedColors: string[];
-}
 
 /**
  * useColorPipeline — the ONE color-state spine (S.W2 · W2-1). Merges the former
@@ -53,21 +37,6 @@ interface PersistedColorState {
  * localStorage→model restore below, gated behind URL-wins).
  */
 export function useColorPipeline(model: ShallowRef<ColorModel>) {
-    // Capture whether a persisted color-state exists BEFORE useStorage seeds the
-    // default — the restore only fires for a genuine prior session (a fresh cold
-    // load with no URL color keeps the default).
-    let hadPersistedColor = false;
-    try {
-        hadPersistedColor = localStorage.getItem(COLOR_STORE_KEY) !== null;
-    } catch {
-        /* private-mode */
-    }
-
-    const colorStore = useStorage<PersistedColorState>(COLOR_STORE_KEY, {
-        inputColor: defaultColorModel.inputColor,
-        savedColors: [],
-    });
-
     // The sentinel — NOT a copy — distinguishes a self-originated write (slider/
     // component edit, which carries hue explicitly) from an external one (URL
     // load, palette apply, reset, which must refresh the stable hue).
@@ -160,6 +129,17 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         astEcho,
         gamutVerdict,
     } = useColorParsing({ model, updateModel, stableHue, currentColorSpace });
+
+    // Persistence collaborator (S.W2 gate row 6): localStorage store + restore +
+    // write-through, lifted to a sibling to hold the spine ≤ 400 LoC. The
+    // pipeline stays the ONE spine; `restoreFromStorage` re-exports unchanged.
+    const { restoreFromStorage, resetStorage } = useColorPersistence({
+        model,
+        updateModel,
+        parseAndSetColor,
+        parseAndNormalizeColor,
+        cssColor,
+    });
 
     const {
         componentsSlidersStyle,
@@ -274,11 +254,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     const resetToDefaults = () => {
         const fresh = createDefaultColorModel();
         model.value = fresh; // external-origin: stableHue watch refreshes from it
-        syncColorToStorage.cancel();
-        colorStore.value.inputColor = fresh.inputColor;
-        colorStore.value.savedColors = fresh.savedColors.map((c) =>
-            normalizeColorUnit(c, true, false).toString(),
-        );
+        resetStorage(fresh); // cancel pending write + seed the fresh projection
     };
 
     const applyColorString = (css: string) => {
@@ -291,33 +267,6 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         } catch {
             /* ignore parse errors */
         }
-    };
-
-    // Persistence precedence: URL-hash-wins-on-load (App applies the URL first);
-    // when the hash carries no color, App calls this to restore the last session.
-    // `parseAndSetColor` detects the space AND refreshes stableHue.
-    const restoreFromStorage = (): boolean => {
-        if (!hadPersistedColor) return false;
-        let restored = false;
-        const storedInput = colorStore.value.inputColor;
-        if (typeof storedInput === "string" && storedInput.trim()) {
-            parseAndSetColor(storedInput);
-            restored = true;
-        }
-        const storedSaved = colorStore.value.savedColors;
-        if (Array.isArray(storedSaved) && storedSaved.length) {
-            const parsed = storedSaved
-                .map((s) => {
-                    try {
-                        return parseAndNormalizeColor(String(s));
-                    } catch {
-                        return null;
-                    }
-                })
-                .filter((c): c is ParsedColorUnit => c !== null);
-            if (parsed.length) updateModel({ savedColors: parsed });
-        }
-        return restored;
     };
 
     // The ONE applyTokens sink (color-derived root tokens): flash-free page-load
@@ -335,30 +284,6 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     };
 
     watch(cssColorOpaque, (c) => applyTokens(c), { immediate: true });
-
-    // --- Storage write-through (persist a PARSEABLE display string) ---
-
-    const syncColorToStorage = debounce(
-        () => {
-            colorStore.value.inputColor = cssColor.value;
-        },
-        200,
-        false,
-    );
-
-    watch(
-        () => model.value.color,
-        () => syncColorToStorage(),
-    );
-
-    watch(
-        () => model.value.savedColors,
-        (colors) => {
-            colorStore.value.savedColors = colors.map((c) =>
-                normalizeColorUnit(c, true, false).toString(),
-            );
-        },
-    );
 
     return {
         // Model
