@@ -35,4 +35,35 @@ Delivered with a 1440-class screenshot of the Lab picker plate at the current fu
 
 ## §2 Implementation record
 
-(appended by the implementing lane)
+**Landed 2026-07-05** (implementing lane, browser-verified at 1440×900 light + dark).
+
+- **Chosen values**: `--pane-max: 44rem → 32rem` (**~27% off** — "about 1/3 smaller,
+  maybe a bit less"); `--pane-min: 30rem → 25rem` (below the new ceiling; the dual-grid
+  `minmax()` floor semantics kept). Grid clamp comment arithmetic updated:
+  two max cards + gutter ≈ **1050px** (32rem × 2 + 1.618rem), was ≈ 1434px.
+- **The why (candidates tried by eye, dev :9010, Lab dual-pane)**:
+  - *44rem (before)*: cards ≈ 670px each, container ≈ 1434px at 1440 — the spectrum
+    plate a ~2.9:1 banner, sliders runways, ~20px of page margin. The complaint, confirmed.
+  - *32rem (chosen)*: cards 512px, container 1042px — ~200px of real margin each side at
+    1440; the plate drops to ~2.1:1 and reads as an instrument card; sliders proportionate;
+    the About card's Components row ("a* (Green-Red)" / "b* (Blue-Yellow)") holds one line.
+  - *30rem (tried, rejected)*: cards 480px — the picker is fine but the About card starts
+    strangling: the Components labels wrap **mid-word** ("a* (Green-\nRed)"). The extra
+    2rem buys exactly that legibility; 32rem is the tightest width that doesn't cost it.
+- **Readout lock verify (W4-2 reservation table)**: all catalog spaces probed live at the
+  new 512px pane — lab, oklch, oklab, **ictcp**, **jzazbz**, xyz, lch, hsl — every one
+  `lockedLines 1 = actualLines 1` (readout height 38px = min-height 38px, font 33.8px).
+  The `cqi` constancy holds as designed: **no reservation-constant tuning**;
+  `READOUT_LINE_CAPACITY_CH = 20` stands (new-band arithmetic: 512px → 20.1ch,
+  400px → 20.1ch). Only the derivation comment's worked examples in
+  `readoutReservation.ts` were updated from the stale 704/480 band.
+- **Other verifies**: portrait 1080×1750 — single-slot grammar intact (one mounted
+  mobile slot, `display:flex`, 512px, centered); mobile 390×844 — untouched (358px wide,
+  `max-w-md`/448px clamp governs, the ruling's mobile carve-out holds); dark 1440 —
+  warm dark-material cards at the same 512px geometry, no overflow.
+- **Suites**: eslint 0 · vue-tsc (lib + demo) 0 · vitest **2096/2096** ·
+  playwright `smoke` **27/27** (dual-pane-1440 + page-load included) ·
+  `smoke-reactivity` **2/2**. **Zero e2e assertion updates needed** — no spec asserts
+  the old pixel geometry (dual-pane-1440 asserts pane *visibility* + cascade root).
+- **Files**: `demo/@/styles/style.css` (token block + two comment sites),
+  `demo/@/components/custom/color-picker/readoutReservation.ts` (comment only), this doc.

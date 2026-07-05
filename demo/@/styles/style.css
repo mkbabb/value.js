@@ -254,14 +254,17 @@
     --content-max-h: calc(100dvh - var(--dock-total) - 1rem);
 
     /* ── The pane clamp ladder (R.W3 Lane A / A4 — U32) ──
-     * The cards GROW then clamp, handled generally: `--pane-min` is the floor
-     * (the former frozen 480px card size), `--pane-max` the per-card ceiling,
-     * `--pane-gap` a fluid φ-stepped gutter. The GRID owns the clamp via the
-     * `min()` container formula below — pane shells never self-clamp (the 10
-     * `lg:max-w-desktop-pane` forks are deleted; shells are `w-full` only).
-     * No per-width media staircase. */
-    --pane-min: 30rem;
-    --pane-max: 44rem;
+     * The cards GROW then clamp, handled generally: `--pane-min` is the floor,
+     * `--pane-max` the per-card ceiling, `--pane-gap` a fluid φ-stepped gutter.
+     * The GRID owns the clamp via the `min()` container formula below — pane
+     * shells never self-clamp (the 10 `lg:max-w-desktop-pane` forks are
+     * deleted; shells are `w-full` only). No per-width media staircase.
+     * OWNER RULING 2026-07-05 (card-width): 44rem → 32rem (~27% off — "about
+     * 1/3 smaller, maybe a bit less"); the floor drops 30rem → 25rem to stay
+     * below the new ceiling. 32rem over 30rem by eye: at 30rem the About
+     * card's Components labels wrap mid-word ("a* (Green-Red)" breaks). */
+    --pane-min: 25rem;
+    --pane-max: 32rem;
     --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
@@ -330,7 +333,8 @@
     /* The GRID owns the clamp (R.W3 Lane A / A4 — U32, "handled generally"):
      * the container grows fluidly with the viewport (minus .app-layout's
      * horizontal padding, both sides) and clamps at two max-size cards plus
-     * the gutter (≈ 1434px). Equal columns always; no shell self-clamps. */
+     * the gutter (≈ 1050px — 32rem × 2 + 1.618rem, the 2026-07-05 owner-ruling
+     * clamp). Equal columns always; no shell self-clamps. */
     max-width: min(
         calc(100vw - var(--app-padding-x) * 2),
         calc(var(--pane-max) * 2 + var(--pane-gap))
@@ -369,8 +373,8 @@
     }
     .pane-container--dual {
         /* Equal columns always (the kept 1fr↔1fr invariant), with the floor
-         * explicit: no card ever renders below `--pane-min` (the former frozen
-         * size) on the dual grid. */
+         * explicit: no card ever renders below `--pane-min` on the dual
+         * grid. */
         grid-template-columns: repeat(2, minmax(var(--pane-min), 1fr));
     }
 }

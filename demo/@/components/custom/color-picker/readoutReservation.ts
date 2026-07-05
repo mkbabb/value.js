@@ -69,10 +69,13 @@ export function readoutCh(space: string, component: string): number {
  * band, the width IN CH is a near-constant of the composition — that
  * constancy is the point of the rung. With Fraunces' declared tabular
  * advance ≈ 0.635em (the S-audit's own measure: a 33.83px `ch` at the
- * 53.28px token cap — design-picker P1-1):
- *   · C = 704px (--pane-max):   (704 − 48)   / (0.635 × 50.7)  ≈ 20.4ch
- *   · C = 480px (--pane-min):   (480 − 38.4) / (0.635 × 34.56) ≈ 20.1ch
+ * 53.28px token cap — design-picker P1-1), at the 2026-07-05 owner-ruling
+ * clamp (--pane-max 32rem / --pane-min 25rem):
+ *   · C = 512px (--pane-max):   (512 − 41)   / (0.635 × 36.86) ≈ 20.1ch
+ *   · C = 400px (--pane-min):   (400 − 32)   / (0.635 × 28.8)  ≈ 20.1ch
  *   · C = 358px (390px phone):  (358 − 28.6) / (0.635 × 25.9)  ≈ 20.0ch
+ * (Verified live at the narrowing: all catalog spaces — Lab/OKLCh/ICtCp/
+ * Jzazbz included — hold their locked line count at 512px panes.)
  * 20 is the band floor. The widest catalog line (lab: 5 + 6 + 6 + two gaps
  * ≈ 18.5ch) fits with ~1.5ch to spare — headroom for the value-dependent
  * comma/unit slop the cell reservations don't cover.
