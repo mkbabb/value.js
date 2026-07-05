@@ -43,18 +43,27 @@
                  makes it a size container so in-card `cqi` sizing resolves on
                  every slot (R.W3 Lane A / A4). -->
             <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
+                <!-- W3-4 (S.W3): KeepAlive :max right-sized to the 9 non-admin
+                     views. The mobile slot cycles both left+right panes, so it
+                     caches the common (non-admin) surface without evicting a
+                     hot pane; the 5 admin views' panes fall off the LRU rather
+                     than permanently bloating the cache. -->
                 <PaneSlot
                     :component="mobile.component"
                     :component-key="mobile.key"
                     :component-props="mobile.props"
                     :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
-                    :max="5"
+                    :max="9"
                 />
             </div>
 
             <template v-else>
                 <!-- Desktop: left pane (lg+) -->
                 <div class="pane-wrapper pane-wrapper--left hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
+                    <!-- W3-4 (S.W3): :max = the 6 distinct non-admin LEFT panes
+                         (color-picker · browse · extract · atmosphere · generate
+                         · gradient) — already right-sized; admin left panes fall
+                         off the LRU rather than bloating the cache. -->
                     <PaneSlot
                         :component="desktopLeft.component"
                         :component-key="desktopLeft.key"
@@ -70,13 +79,17 @@
                     class="pane-wrapper pane-wrapper--right hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
                     :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
                 >
+                    <!-- W3-4 (S.W3): :max = the 4 distinct non-admin RIGHT panes
+                         (about · palettes · mix · blob) — every admin view uses
+                         right="palettes" (already cached), so no non-admin right
+                         pane is ever evicted. Was 3 (under-sized → evicted one). -->
                     <PaneSlot
                         :component="desktopRight.component"
                         :component-key="desktopRight.key"
                         :component-props="desktopRight.props"
                         :on-mount="onDesktopRightMount"
                         :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
-                        :max="3"
+                        :max="4"
                     />
                 </div>
             </template>
@@ -306,20 +319,23 @@ onMounted(() => { loadCustomColorNames(); });
 <style scoped>
 @reference "../../demo/@/styles/style.css";
 
-/* Smooth layout transitions for pane wrappers */
-.pane-wrapper {
-    transition: height var(--duration-slow) var(--ease-standard),
-                margin var(--duration-slow) var(--ease-standard),
-                padding var(--duration-slow) var(--ease-standard);
-}
+/* W3-4 (S.W3 · pane-swap payload): the former height/margin/padding transition
+   on .pane-wrapper is DELETED. Layout properties never animate on a pane swap
+   (the grid owns the box geometry; the swap reads through the vj-enter TRANSFORM
+   family). Co-transitioning height/margin/padding forced a layout + paint on
+   every frame of every swap — the P1 layout-thrash (perf-transitions P1-2). The
+   pane geometry rides transform/opacity only now. */
 
 /* Ghost pane: always in DOM to preserve scroll-timeline state, but invisible
-   and non-interactive. Replaces the former inline 5-property style hack. */
+   and non-interactive. content-visibility:auto (W3-4) additionally drops the
+   parked subtree from layout + paint while it sits ghosted — the KeepAlive
+   scroll state is preserved, the render cost is not paid. */
 .pane-wrapper--ghost {
     visibility: hidden;
     position: absolute;
     pointer-events: none;
     opacity: 0;
+    content-visibility: auto;
 }
 
 </style>
@@ -343,5 +359,16 @@ onMounted(() => { loadCustomColorNames(); });
 .pane-wrapper--right > .vj-enter-leave-to {
     opacity: 1;
     transform: translateX(110%) rotate(2deg);
+}
+
+/* W3-4 (S.W3): promote the pane to its own compositor layer for the DURATION
+ * of the enter/leave transition ONLY (`*-active`) — never a standing
+ * `will-change` layer (a persistent one costs memory + defeats the point). The
+ * browser drops the hint the moment the transition class is removed. */
+.pane-wrapper--left > .vj-enter-enter-active,
+.pane-wrapper--left > .vj-enter-leave-active,
+.pane-wrapper--right > .vj-enter-enter-active,
+.pane-wrapper--right > .vj-enter-leave-active {
+    will-change: transform;
 }
 </style>

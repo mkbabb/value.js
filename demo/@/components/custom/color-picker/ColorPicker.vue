@@ -337,9 +337,9 @@ onUnmounted(() => {
 @reference "../../../styles/style.css";
 
 .pane-shell {
-    transition:
-        margin var(--duration-normal) var(--ease-standard),
-        transform var(--duration-normal) var(--ease-standard);
+    /* W3-4 (S.W3): the `margin` layout-property transition is DELETED — margin
+       morphs forced a reflow every frame of the swap. Transform only now. */
+    transition: transform var(--duration-normal) var(--ease-standard);
 }
 
 /* R.W3 Lane E / E1 — beat one: the plate placement (treatment §MOTION-1).
