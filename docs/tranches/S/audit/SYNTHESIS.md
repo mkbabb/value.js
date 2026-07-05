@@ -6,6 +6,7 @@
 **Binding disciplines**: cross-lane contradictions resolved against the LIVE tree before elevation (R lesson 1) · producer-owned items route to letters/adopt-books, never demo forks (S-21) · books never gates · paired goal/completion at tranche + wave + item level · NO legacy/workarounds/fallbacks · Fable + frontend-design for all design waves · π paired visual archives on every visual wave · LEAN authoring.
 **AMENDED-AT-PASS-2** (2026-07-04, the S pass-2 amender): all 13 pass-1 mustFix discharged + every dissent dispositioned (§11); pass-1 record at `audit/PASS1-VERDICT.md`. Substantive amendments: W1-8 widened to the census's full SPLIT-WORTHY set; the eager-load budget restated as two owned gates (new W3-9); S.W5 laned; W4-1/W7-1 re-specced at treatment depth; L1 provenance re-pinned to the verified HEAD; the NCSU-alias retirement booked (§7.3); Q4 FLIPPED to EXCISE.
 **AMENDED-AT-PASS-3** (2026-07-04, the S pass-3 discharger): pass-2 scored mean 95.7 / min 92 with 2 residual mustFix, both discharged — the W1-8 cap-exception clause now also names `units/utils.ts` (§3.3 gate riders) and the W7-1 morph clause is reframed as design intent with every exists-today claim live-verified against glass-ui HEAD `c03ab942` + the demo tree (§3.9); both pass-2 dissents folded (L2 atom-naming disambiguation, L1 dispatch-time re-stamp corollary), 0 rejected; pass-3 record at §11 (the pass-2 verdict was delivered in-orchestration — no PASS2-VERDICT.md exists on disk; §11's pass-3 block is the durable record).
+**AMENDED-AT-PASS-4** (2026-07-04, the S pass-4 discharger): pass-3 scored mean 99.5 / min 97 with 1 residual mustFix (cert-completeness), discharged — the §3.3 W1-8 cap-check bar restated so the census cohesion verdict GOVERNS (the nine non-SPLIT-WORTHY over-500 files named accepted-by-verdict, LoC + verdicts verified against god-module-dry-census §1; `easing.ts`'s booked W1-6 growth noted so the wave-close check can neither false-alarm nor silently miss); all 3 cosmetic dissents folded (the `units/utils.ts` exception flattened to the near-guaranteed-ledger-row form; W6-2's atom phrasing aligned to L2's `lightnessScheme` disambiguation; the §3.1 round-table diagram redrawn so no stroke reads as a W6→W7 dependency), 0 rejected; pass-4 record at §11b (the pass-3 verdict was delivered in-orchestration — no PASS3-VERDICT.md exists on disk; §11b is the durable record).
 
 ---
 
@@ -143,8 +144,11 @@ What RECALIBRATES:
 ### §3.1 DAG + rounds
 
 ```
-S.W0 ──┬── S.W1 (library, 2.1.0) ──┬── S.W3 (perf) ──┬── S.W5 (suffusion II) ──┬── S.W7 (dock+shell) ── S.W9 (close)
-       └── S.W2 (transposition) ───┴── S.W4 (picker+docs) ─┴── S.W6 (atmosphere+hero) ┘
+S.W0 ──┬── S.W1 (library, 2.1.0) ──┬── S.W3 (perf) ──┬── S.W5 (suffusion II)
+       └── S.W2 (transposition) ───┴── S.W4 (picker+docs) ─┴── S.W6 (atmosphere+hero)
+
+S.W7 (dock+shell) ⊣ S.W1 + S.W3 (its only dependency edges) — enters at round 4, after BOTH
+round-3 lanes (W5 ∥ W6) close: a round barrier, NOT a W5/W6→W7 edge ── S.W9 (close)
 S.W8 (5.0.0 ADOPT) — trigger-gated on the glass-ui BG/BH cut; slots into whatever round is
 current when it fires; NOT on the critical path (books never gates).
 ```
@@ -203,13 +207,23 @@ regressions; the okhsl dodged sweep band reinstated; parse caches bounded; PT-E 
 Gate riders: fresh-build `.d.ts` guard; `color2Into` currency through any new space; boundary
 goldens untouched by the srgb fix except the expected near-black fixtures (enumerate the moved
 fixtures in the commit message — never silently regolden); **post-W1 cap check** (pass-2;
-exception clause completed at pass 3): no `src/` file >500 LoC (the cap both god-module lanes
-invoke) — if the sequenced-LAST parsing decompositions (`stylesheet.ts`/`color.ts`) are
-deliberately stopped short, OR `units/utils.ts` remains over-cap after its enumerated W1-8 lift
-(the ~140-LoC DOM block out of 722 leaves ≈582 — over-cap BY CONSTRUCTION while the
-flatten/unflatten root-fold stays the recorded deferred decision, so this row fires unless that
-fold is separately taken up), the cap exception is RECORDED at wave close as a ledger row, never
-a silent miss.
+exception clause completed at pass 3; bar restated at pass 4 — the census cohesion verdict
+GOVERNS, the raw LoC number does not): **no SPLIT-WORTHY `src/` file remains over-cap (>500 LoC)
+without a recorded ledger row.** Two rows fire by construction: the sequenced-LAST parsing
+decompositions (`stylesheet.ts`/`color.ts`) if deliberately stopped short, and `units/utils.ts`,
+whose enumerated W1-8 lift (the ~140-LoC DOM block out of 722) leaves ≈582 — over-cap BY
+CONSTRUCTION while the flatten/unflatten root-fold stays the recorded deferred decision, so it
+is a near-guaranteed ledger row at wave close (only a separately-taken-up root-fold retires it).
+The census's NOT-god-module / No-split files stay **accepted-over-500 by verdict, not by
+exception** — no ledger row, no alarm: `scroll-timeline.ts` 667 · `parsing/index.ts` 587 ·
+`transform/path.ts` 562 · `transform/decompose.ts` 541 · `color/dispatch.ts` 522 · `easing.ts`
+515 · `gamut.ts` 514 · `parsing/math.ts` 509 · `color/constants.ts` 613 (LoC + verdicts
+transcribed from god-module-dry-census §1; `color/constants.ts` additionally sheds `COLOR_NAMES`
+via W1-8's data lift and may land under-cap — either standing is verdict-clean). Note for the
+wave-close check: `easing.ts` is EXPECTED to grow under W1-6 (`resolveEasing` lands there) — an
+over-500 reading at close is the standing verdict plus booked growth, neither a false alarm nor
+a silent miss; only a fresh census re-verdict (cohesion, not count) could flip it to
+SPLIT-WORTHY.
 
 ### §3.4 S.W2 — ARCHITECTURAL TRANSPOSITION (the spine) — detail in §5
 
@@ -309,7 +323,7 @@ gate); π archives light/dark × cold/live.
 | # | Item | Anchors | Evidence lane |
 |---|---|---|---|
 | W6-1 | **Cold-boot seed integrity** (S-18 anchor): fix the normalized-persistence corruption (`syncColorToStorage` persists the NORMALIZED unit's string — re-parsed as CSS it is the stale hot-pink the user sees every cold load); the first aurora frame derives from the boot color or nothing paints; `--saved-bg` becomes the derived base stop (boot → first frame is one material). Rides W2-1's precedence fix (the URL-clobber half) | `useAppColorModel.ts:74-78`; `useAtmosphere.ts:84-95` | design-blob-atmosphere P0-1; state-color P0-1 |
-| W6-2 | **Scheme threading** (dark truth): consumer passes `useGlobalDark` → the atoms door once G-1 lands (letter L2 — `AuroraAtoms` lacks a `scheme` atom; `deriveAurora`'s `scheme`/`lBand` levers already exist and are dead code from the door); the dark L band `[0.18,0.42]` becomes reachable; interim: no demo shim (no-workarounds — the producer fix is the fix); an L2 miss in-window → record + re-verify at W8 (§7.1 hard-gate map — the wave still closes) | `atoms.ts:102-139` (producer); `useAtmosphere.ts:60-65` | aurora-derive P1; design-admin F-3; design-blob-atmosphere P0-2 |
+| W6-2 | **Scheme threading** (dark truth): consumer passes `useGlobalDark` → the atoms door once G-1 lands (letter L2 — `AuroraAtoms` lacks a lightness-scheme atom, suggested `lightnessScheme` (+`lBand`), NOT bare `scheme`: the atoms door already speaks "scheme" for the HUE axis, and L2 is the naming authority — the final name is the producer's call; `deriveAurora`'s internal `scheme`/`lBand` levers already exist and are dead code from the door); the dark L band `[0.18,0.42]` becomes reachable; interim: no demo shim (no-workarounds — the producer fix is the fix); an L2 miss in-window → record + re-verify at W8 (§7.1 hard-gate map — the wave still closes) | `atoms.ts:102-139` (producer); `useAtmosphere.ts:60-65` | aurora-derive P1; design-admin F-3; design-blob-atmosphere P0-2 |
 | W6-3 | **Field derivation richness** (S-18's H/C half): chroma-adaptive hue spread (24°+40°·(1−C/0.3), clamp [24°,64°]) · C bell with an 0.04 floor (no dead-gray zones; neutral seeds stay alive) · scheme-banded L · richer default harmony (design call in-wave) · the CSS element layers CAPPED AT FOUR (three exist; the dock halo is the ONLY net-new; any 5th is excised); `hueSpread`/chroma-variance atoms = letter L2 | `keys.ts:22-33`; §3 brief in design-blob-atmosphere | aurora-derive P1; design-blob-atmosphere §3 |
 | W6-4 | **Blob hero redress, demo half** (S-4 anchor — REDRESS, not reinvent): footprint `clamp(9rem,18cqi,13rem)`, visible bead ≥96px; corner-break placement LAW owned by the pane slot (bead center on the radius origin, ≥40% overflow, nothing paints over it — kills the About-card burial with zero z hacks); mobile all-or-nothing per Q7; ramp ceiling tracks the picked C (the 0.16 ceiling literally cannot show the advertised ink); mood FSM KEPT and bound to real app moments (scrub→excited, save→happy drip, idle→sleepy-as-contained-pose); PRM = static single-frame render. Producer halves (satellites-at-rest, scale-aware deformation, single-GPU-surface policy, HERO preset, chord-dent, DPR, `uSatColor[]`) = letter L5 + the W8 consume | `HeroBlob.vue:15`; `ColorPicker.vue:18-22`; `useAtmosphere.ts:100,112-116` | blob-greenfield-tech §5; design-blob-atmosphere §2 |
 | W6-5 | **Safari verification**: the missing WebKit blob repro stood up on `smoke-safari` (the literal spazz was NOT reproducible on desktop Chrome; the dual-WebGL2-contention hypothesis needs the WebKit vehicle); aurora re-verify post-L1 shader cure; the centroid-in-wrapper spazz assertion | `smoke-safari` project | blob-greenfield S-blob-5; safari-truth |
@@ -694,3 +708,27 @@ record; `PASS1-VERDICT.md` remains the pass-1 record).
 - **L1 dispatch-time currency** — FOLDED: §7.1 L1 gains the corollary — the dispatching agent
   re-stamps the verified HEAD at dispatch; `a633784f` was the pass-2 stamp (glass-ui stood at
   `c03ab942` when pass 3 amended this spec).
+
+## §11b — Pass-4 dispositions (2026-07-04)
+
+Pass-3 scored mean 99.5 / min 97 with exactly 1 residual mustFix + 3 cosmetic dissents. The
+pass-3 verdict was delivered in-orchestration (no `PASS3-VERDICT.md` on disk — this block is the
+durable record; `PASS1-VERDICT.md` remains the pass-1 record).
+
+### mustFix (1/1 discharged)
+
+| # | Critic · defect | Cure landed at |
+|---|---|---|
+| 1 | cert-completeness(97) · the §3.3 W1-8 cap-check still read as a bare `>500 LoC` sweep, leaving the census's nine accepted-over-500 non-SPLIT-WORTHY files formally in violation — nine spurious exception rows or nine silent misses at every wave close | §3.3 gate riders restated so the census cohesion verdict GOVERNS: no SPLIT-WORTHY `src/` file remains over-cap without a recorded ledger row; the nine No-split files (`scroll-timeline.ts` 667 · `parsing/index.ts` 587 · `transform/path.ts` 562 · `transform/decompose.ts` 541 · `color/dispatch.ts` 522 · `easing.ts` 515 · `gamut.ts` 514 · `parsing/math.ts` 509 · `color/constants.ts` 613 — LoC + verdicts re-verified against god-module-dry-census §1 before transcription) named **accepted-over-500 by verdict, not by exception**; `easing.ts`'s EXPECTED growth under W1-6 (`resolveEasing` lands there) noted so the wave-close check neither false-alarms on booked growth nor silently misses a genuine re-verdict |
+
+### Dissents (3/3 folded, 0 rejected)
+
+- **`units/utils.ts` exception wording** — FOLDED: the conditional "fires unless that fold is
+  separately taken up" flattened to the flat near-guaranteed-ledger-row form (§3.3 — the row
+  fires by construction; only a separately-taken-up root-fold retires it).
+- **W6-2 backticked `scheme` vs L2's disambiguation** — FOLDED: W6-2 now speaks
+  lightness-scheme / `lightnessScheme` (+`lBand`) and cross-refs L2 as the naming authority
+  (bare `scheme` stays reserved for the atoms door's hue axis; final name the producer's call).
+- **§3.1 merge-stroke ambiguity** — FOLDED: the round-table diagram redrawn — W7 sits on its own
+  line carrying its true dependency edges (⊣ S.W1 + S.W3) with the round-3 close named as a
+  barrier, so no stroke can be misread as a W6→W7 dependency.
