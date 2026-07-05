@@ -238,8 +238,13 @@ const emit = defineEmits<{
     export: [palette: Palette, format: string];
 }>();
 
+// S.W2 W2-9: a palette with zero colors is a real, reachable state (a
+// freshly-created palette before any swatch). This neutral mid-gray is the
+// designed empty-state swatch, named rather than an inline magic literal.
+const EMPTY_PALETTE_SWATCH = "#888";
+
 const kind = computed<PaletteKind>(() => getPaletteKind(props.palette));
-const firstColor = computed(() => props.palette.colors[0]?.css ?? props.cssColor ?? '#888');
+const firstColor = computed(() => props.palette.colors[0]?.css ?? props.cssColor ?? EMPTY_PALETTE_SWATCH);
 
 const { safeCss } = useSafeAccentFn();
 const safeFirstColor = computed(() => safeCss(firstColor.value));

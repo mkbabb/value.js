@@ -3,8 +3,8 @@ import { ValueUnit } from "@src/units";
 import { Color } from "@src/units/color";
 import type { ColorSpace } from "@src/units/color/constants";
 import {
-    COLOR_SPACE_DENORM_UNITS,
-    COLOR_SPACE_RANGES,
+    getColorSpaceBound,
+    getColorSpaceDenormUnit,
 } from "@src/units/color/constants";
 import { normalizeColorUnit } from "@src/units/color/normalize";
 import type { ColorModel } from "@components/custom/color-picker";
@@ -78,9 +78,10 @@ export function useSliderGradients(deps: {
 
     const currentColorRanges = computed(() => {
         return model.value.color.value.keys().reduce((acc: Record<string, string>, key: string) => {
-            const unit = (COLOR_SPACE_DENORM_UNITS as any)[currentColorSpace.value][key];
-            const range = (COLOR_SPACE_RANGES as any)[currentColorSpace.value][key];
-            const { min, max } = range[unit] ?? range["number"];
+            // S.W2 W2-9: the typed `ColorSpace`-keyed accessors (G.W2 Lane A)
+            // retire the former `(… as any)[space][key]` string-indexed lookups.
+            const unit = getColorSpaceDenormUnit(currentColorSpace.value, key);
+            const { min, max } = getColorSpaceBound(currentColorSpace.value, key, unit);
             acc[key] = `(${min}${unit} - ${max}${unit})`;
             return acc;
         }, {});

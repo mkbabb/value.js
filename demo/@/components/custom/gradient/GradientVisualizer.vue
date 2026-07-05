@@ -9,6 +9,7 @@ import {
 } from "@components/ui/select";
 import { Slider } from "@components/ui/slider";
 import { Copy, ChevronDown } from "@lucide/vue";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { EasingPicker } from "@mkbabb/glass-ui/easing";
 import type { EasingPickerMode, EasingPickerValue } from "@mkbabb/glass-ui/easing";
@@ -153,7 +154,6 @@ const activeHueDesc = computed(() =>
 );
 
 async function copyCSS() {
-    const { copyToClipboard } = await import("@mkbabb/glass-ui");
     await copyToClipboard(coalescedCSS.value);
 }
 

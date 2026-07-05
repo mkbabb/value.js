@@ -9,6 +9,7 @@ import MixAnimationCanvas from "@components/custom/mix/MixAnimationCanvas.vue";
 import { useMixingState } from "@components/custom/mix/composables/useMixingState";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import type { PaletteColor } from "@lib/palette/types";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
@@ -46,7 +47,6 @@ function onSave() {
 
 async function copyResult() {
     if (!mixResult.value) return;
-    const { copyToClipboard } = await import("@mkbabb/glass-ui");
     const text = mixResult.value.type === "color"
         ? mixResult.value.css ?? ""
         : mixResult.value.colors?.map((c) => c.css).join(", ") ?? "";

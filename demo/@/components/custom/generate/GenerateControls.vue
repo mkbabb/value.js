@@ -9,6 +9,7 @@ import {
 } from "@components/ui/select";
 import { Slider } from "@components/ui/slider";
 import { RefreshCw } from "@lucide/vue";
+import { copyToClipboard } from "@mkbabb/glass-ui";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import type { Palette } from "@lib/palette/types";
@@ -68,7 +69,6 @@ function onRename(_palette: Palette, newName: string) {
 }
 
 async function copyColors() {
-    const { copyToClipboard } = await import("@mkbabb/glass-ui");
     await copyToClipboard(palette.value.join(", "));
 }
 
