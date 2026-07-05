@@ -139,4 +139,76 @@ healthy — the problem is entirely the eager shell (§2) + the monolithic CSS (
 
 ---
 
-*AFTER numbers (post W3-2 JS deferral + W3-9 CSS split) append below at execution/close.*
+---
+
+## §8 — AFTER (W3-2 JS deferral executed + W3-9 CSS split landed)
+
+**Measured at**: `tranche-q` post-`52c5fd4` (W3-1/W3-3/W3-6/W3-9 landed) + this lane's
+W3-2 HeroBlob deferral. `npm run gh-pages` clean; gzip level 6; same eager-set method
+as the BEFORE census.
+
+| Gate | BEFORE (`3549147`) | AFTER (committed) | Ceiling (barrel-decoupled, measured) | Gate | Verdict |
+|---|---|---|---|---|---|
+| **JS eager** gzip | 345.0 KiB | **345.4 KiB** | **313.1 KiB** | ≤ 280 KiB | **RE-BASELINE — gate unreachable by demo deferral (see §9)** |
+| **Render-blocking CSS** gzip | 184.2 KiB | **85.0 KiB** | — | ≤ 120 KiB | **MET** (W3-9, `7c3c597`) |
+| Eager cold-load (JS+CSS) gzip | 529.1 KiB | **430.4 KiB** | — | measured | recorded (−98.7 KiB, all CSS) |
+
+The CSS half is CLOSED (W3-9 deferred the 98 KiB glass-font corpus off the critical
+`<link>` via `media=print onload`; the render-blocking sheet is now 85.0 KiB). The JS
+half is the open gate — **owned arithmetic below**.
+
+## §9 — W3-2 JS: the owned arithmetic (why the demo deferral cannot reach ≤280)
+
+**The demo lever landed.** `HeroBlob` (ColorPicker.vue) is now a `defineAsyncComponent`
+mounted behind `useIdleReady` (glass-ui's published `scheduleAfterFirstPaint` idiom,
+`@mkbabb/glass-ui/dom`). This defers the WebGL2 metaball init EXECUTION past the first
+post-paint idle tick (the S-4 / blob-idle first-paint win) and is the consumer-ready
+half of the code-split.
+
+**But it frees ~0 eager BYTES against the current tree (345.0 → 345.4).** Root cause,
+measured decisively (a throwaway build with the goo-blob barrel import removed from the
+eager path): the 33.1 KiB metaball graph (`GooBlob` component + `useMetaballRenderer` +
+shaders + mood/pointer/satellite FSMs) is anchored into the eager `index` chunk **not**
+by `HeroBlob` (now async) but by **`useAtmosphere.ts`'s eager barrel import** of
+`@mkbabb/glass-ui/goo-blob` for `BLOB_CONFIG_KEY` + `BLOB_CONFIG_DEFAULTS` (needed at App
+setup for the synchronous `provide`). glass-ui's `sideEffects: ["*.css"]` + `GooBlob.vue`'s
+own scoped `<style>` (a `*.css` side-effect) make the barrel non-tree-shakeable: importing
+even one lightweight constant keeps the whole `GooBlob.vue` re-export in the eager chunk.
+
+- **With the barrel decoupled** (the throwaway measure): eager `index` 196.8 → 164.5 KiB,
+  a `goo-blob-*.js` lazy chunk of **33.1 KiB** splits out, eager JS TOTAL → **313.1 KiB**.
+- **313.1 is STILL 33.1 KiB over the ≤280 gate.** Even the maximal barrel-decoupled cut
+  does not reach 280 — the census's BEFORE warning (§4.1) is confirmed by measurement:
+  the truly demo-owned deferrable JS is dominated by the vendor shared surface (109.4 KiB,
+  PROHIBITED lever) + the value.js `src/` color subpath (31.9 KiB, off-bounds this wave) +
+  the demo App shell, none of which deferral can move under 280 without either a prohibited
+  glass-ui pre-bundle or an off-bounds `src/` cut.
+
+### ⚠ Re-baseline on record + producer letter (§No-workaround · §Triumvirate)
+
+Per §Triumvirate "non-local gate failures" (the ≤280KB JS gate unreachable by deferral
+alone = a re-baseline event, never a silent miss) and §No-workaround (no silent
+re-baselining):
+
+1. **RE-BASELINE (on record)**: the ≤280 KiB JS gate is **not reachable by demo-owned
+   deferral** at tranche-q. The demo lever (HeroBlob async) is landed; the residual
+   65 KiB gap is 33 KiB producer-barrel anchor + 32 KiB that no in-bounds lever touches
+   (vendor-prohibited + src-off-bounds + irreducible App shell). This is recorded, not
+   silently dropped; S.W9 re-runs the gate and carries the standing verdict.
+
+2. **PRODUCER LETTER (L16-adjacent, `@mkbabb/glass-ui`)**: the `@mkbabb/glass-ui/goo-blob`
+   barrel couples the lightweight provisioning constants (`BLOB_CONFIG_KEY`,
+   `BLOB_CONFIG_DEFAULTS` — from `./types`) with the heavyweight `GooBlob` component in one
+   non-splittable published surface. A consumer that only provisions the blob config (the
+   demo's `useAtmosphere` synchronous `provide`) is forced to anchor the entire renderer
+   eagerly. **Ask**: publish a light `@mkbabb/glass-ui/goo-blob/config` (or `/tokens`)
+   subpath exporting just the InjectionKey + defaults, so consumers can provision without
+   dragging `GooBlob.vue` (+ its scoped-`<style>` `*.css` side-effect) into the eager
+   graph. With that subpath consumed, the demo drops to 313.1 KiB with zero further demo
+   change (the HeroBlob async split is already consumer-ready). Route per §Triumvirate;
+   NEVER a demo patch of the producer barrel.
+
+**Not touched** (honesty clause, §No-workaround): `PointerDebugOverlay` (dev-only,
+~0 production bytes — not a budget lever); the vendor shared surface (no glass-ui
+pre-bundle — K.W2.5 lesson); the value.js `color-utils`+`dispatch` (`src/`-owned,
+off-bounds this wave).

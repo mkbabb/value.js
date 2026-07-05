@@ -16,7 +16,7 @@
                  canvas, so a true corner-break needs the canvas well past the
                  card edge. -->
             <HeroBlob
-                ref="heroBlobRef"
+                v-if="blobReady"
                 class="absolute z-20 top-0 right-0 lg:-top-14 lg:-right-12"
                 @click="onHeroBlobClick()"
             />
@@ -85,6 +85,7 @@ import ColorSpaceSelector from "./display/ColorSpaceSelector.vue";
 import ColorComponentDisplay from "./display/ColorComponentDisplay.vue";
 import {
     computed,
+    defineAsyncComponent,
     inject,
     onMounted,
     onUnmounted,
@@ -94,6 +95,7 @@ import {
     watch,
 } from "vue";
 import { useMagicKeys } from "@vueuse/core";
+import { useIdleReady } from "@mkbabb/glass-ui/dom";
 import type { ColorModel, EditTarget } from ".";
 import { toCSSColorString, resolveColorSpace } from ".";
 import { COLOR_MODEL_KEY } from "./keys";
@@ -104,7 +106,6 @@ import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
 
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import HeroBlob from "./visual/HeroBlob.vue";
 import SpectrumCanvas from "./controls/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders.vue";
 import PointerDebugOverlay from "./visual/PointerDebugOverlay.vue";
@@ -113,6 +114,18 @@ const emit = defineEmits<{
     reset: [];
     "update:editTarget": [target: EditTarget | null];
 }>();
+
+// --- W3-2 (S.W3 · S-23 eager-shell deferral) ---
+// HeroBlob wraps glass-ui's GooBlob — the WebGL2 metaball renderer + shaders +
+// mood/pointer/satellite FSMs. That graph bundles into the demo's eager
+// `index` chunk (ColorPicker is the SOLE eager importer of the goo-blob
+// COMPONENT surface). Loading it async splits the whole metaball graph out of
+// the cold-load JS; `useIdleReady` (the glass-ui-first `scheduleAfterFirstPaint`
+// idiom, `@mkbabb/glass-ui/dom`) then mounts it behind the first post-paint
+// idle tick. The blob's footprint is reserved by construction (S.W4-2), so the
+// deferred mount causes no layout shift.
+const HeroBlob = defineAsyncComponent(() => import("./visual/HeroBlob.vue"));
+const { ready: blobReady } = useIdleReady();
 
 // --- Color model: inject the ONE pipeline (S.W2 · W2-1 transposition) ---
 // The former `defineModel` + local `useColorModel` shallowRef copy are gone.
