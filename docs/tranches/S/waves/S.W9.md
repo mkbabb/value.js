@@ -6,7 +6,7 @@
 **On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: 1–2 serial (reconciliation + the spec-status recheck lane).
 **Hard gate**: composite (§Hard gate) — every §10 ledger row reconciled with evidence cites · every open book re-verified against the live world · repo-wide sweeps re-run · FINAL.md authored · master merged + tagged.
-**Status**: PENDING-RATIFICATION.
+**Status**: PENDING (RATIFIED 2026-07-05; gated on S.W7 + all non-trigger waves closed).
 
 ---
 
@@ -81,7 +81,8 @@ row — the close wave does not silently patch), `../glass-ui`, `docs/precepts/`
 4. The §6.2 budgets re-run green on the built bundle (or drift recorded on the row).
 5. The S oracle slate green at close: smoke-safari in CI · hard Lighthouse · frame budgets ·
    the π matrix reviewed by a NON-authoring agent.
-6. 2.1.0 published + tagged (verified standing from W1); master merged + tranche tag pushed;
+6. 3.0.0 published + tagged (verified standing from W1, incl. the by-name MIGRATION table);
+   master merged + tranche tag pushed;
    clean `git status`; `git worktree list` = main tree only.
 7. `npm run lint` 0 · `npm run typecheck` 0 · `npm test` green · e2e 5-project green ·
    `npm run gh-pages` ✓ built.
@@ -129,7 +130,8 @@ The full wave-close artefact set (W0–W8) · `S.md §10` ledger · `S.md §7` b
 
 ## §Hand-off
 
-The successor tranche opens on: the handed books table (incl. any unfired W8 trigger, X1/X2
-residuals, the Q2 `logerp` 3.0.0 book), the process-lessons ledger (`S.md §13`), and the
+The successor tranche opens on: the handed books table (incl. any unfired W8 trigger and the
+X1/X2 residuals — the Q2 `logerp` book no longer exists: the ratification FLIP landed the
+reorder in-wave at W1-7 on the 3.0.0 cut), the process-lessons ledger (`S.md §13`), and the
 standing oracle slate (smoke-safari CI, hard Lighthouse, frame budgets, the π matrix) as its
 inherited floor.

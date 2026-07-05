@@ -2,11 +2,11 @@
 
 **Name**: W2 — Architectural transposition (the color-state spine + DI seams + api unification)
 **Opens after**: S.W0 (runs parallel with S.W1 — round 1; W2-2 and W2-7 are sequenced LAST, and W2-2 dispatches only after W1-6's `safeAccentCssString` exists in the tree).
-**Spec of record**: `audit/SYNTHESIS.md §5` (items W2-1..W2-9 + the wave gate) · §3.4 · doctrine: elegance/simplicity/performance; the graph becomes data instead of watch-registration order; idiomatic Vue 3.5 provide/inject and plain `Services`-in functions — **no framework invention** (KISS; `feedback_kiss_no_contrivance`).
+**Spec of record**: `audit/SYNTHESIS.md §5` (items W2-1..W2-9 + the wave gate) · §3.4 · the `audit/seeds/SEEDS.md` w2 riders (folded below, binding on W2-1) · doctrine: elegance/simplicity/performance; the graph becomes data instead of watch-registration order; idiomatic Vue 3.5 provide/inject and plain `Services`-in functions — **no framework invention** (KISS; `feedback_kiss_no_contrivance`).
 **On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: ≤4 parallel (pipeline / DI+composables / api / router), W2-2 + W2-7 sequenced LAST.
-**Hard gate**: composite (§Hard gate) — the SYNTHESIS §5 wave gate verbatim: URL-color e2e (URL wins) · grep gates (0 direct `apiAvailability` imports, 0 `Context` params under `services/`, 0 `savedColors` casts) · typecheck + suites green · no new file >400 LoC.
-**Status**: PENDING-RATIFICATION.
+**Hard gate**: composite (§Hard gate) — the SYNTHESIS §5 wave gate verbatim: URL-color e2e (URL wins) · grep gates (0 direct `apiAvailability` imports, 0 `Context` params under `services/`, 0 `savedColors` casts) · typecheck + suites green · no new file >400 LoC · the palettes-pane display check (seed rider 4).
+**Status**: PENDING (RATIFIED 2026-07-05; gated on S.W0 + W1-6's first landing for W2-2).
 
 ---
 
@@ -29,7 +29,7 @@ typecheck + suites green. (SYNTHESIS §3.4 Completion, verbatim.)
 
 | # | Item | Anchors | Evidence lane |
 |---|---|---|---|
-| W2-1 | **`useColorPipeline`**: ONE model (the picker's second `shallowRef` copy retired or reduced to a pure injected consumer — resolve the `defineModel` staleness at the source, per no-backwards-compat); ONE derivation set (`cssColor`/`cssColorOpaque`/`savedColorStrings`/`safeAccentCss` — deleting the byte-identical `cssColorOpaque` twin and the DIVERGED `savedColorStrings` twin); **persistence precedence declared: URL-hash-wins-on-load**, localStorage the fallback only when the hash carries no color (the P0: shared links are non-authoritative today — localStorage clobbers AND rewrites the hash); one `applyTokens` sink for the 4 root-token writes; keep the composable ≤400 LoC | `useColorModel.ts:39-65,69-108,154-163`; `useAppColorModel.ts:18-37,74-91`; `App.vue:131-177` | state-color-pipeline P0-1/P1-1/-2/-3/P2-2 §3 |
+| W2-1 | **`useColorPipeline`**: ONE model (the picker's second `shallowRef` copy retired or reduced to a pure injected consumer — resolve the `defineModel` staleness at the source, per no-backwards-compat); ONE derivation set (`cssColor`/`cssColorOpaque`/`savedColorStrings`/`safeAccentCss` — deleting the byte-identical `cssColorOpaque` twin and the DIVERGED `savedColorStrings` twin); **persistence precedence declared: URL-hash-wins-on-load**, localStorage the fallback only when the hash carries no color (the P0: shared links are non-authoritative today — localStorage clobbers AND rewrites the hash); one `applyTokens` sink for the 4 root-token writes; keep the composable ≤400 LoC. **The four SEEDS.md w2 riders below are BINDING on this item** (the seed proved the transposition VIABLE_WITH_AMENDMENTS: the `defineModel` staleness IS resolvable at source; `stableHue` preserved bit-for-bit) | `useColorModel.ts:39-65,69-108,154-163`; `useAppColorModel.ts:18-37,74-91`; `App.vue:131-177`; `keys.ts` (injected key/ActionBarContext type); `usePaneRouter.ts` (dead model-prop wiring); the `NORMALIZED_COLOR_NAMES` relocation (2 importers) — the last three per seed rider 2 | state-color-pipeline P0-1/P1-1/-2/-3/P2-2 §3; SEEDS.md w2-usecolorpipeline |
 | W2-2 | **src-side accent stringification**: both hand-denorm blocks (`C*0.5`, `H*360` magic literals) replaced by W1-6's `safeAccentCssString`; verify+fix the light-mode near-white contrast-guard miss (P2-1: the guard demonstrably did not fire on the default pick). **Sequenced LAST in W2** — consumes W1-6's export (intra-round ordering, `S.md §3.1`) | `useContrastSafeColor.ts:34-59,82-93` | state-color P1-4/P2-1 |
 | W2-3 | **`Normalized`/`Display` brand evaluation** (the E4 class): 24+30 callsites track norm/denorm by positional booleans; a phantom brand (the `ColorChannel` precedent) retires the class. Evaluate + decide in-wave; land if the diff stays mechanical | `normalize.ts:57,73` | state-color P1-4 |
 | W2-4 | **`useApiClient()` + `API_CLIENT_KEY`**: one provider owning `{request, adminRequest, sessionToken(ref), availability, baseUrl}`; the 3 module singletons collapse behind the SAME seam color-state uses; the 2 direct `apiAvailability` importers inject; quantize worker gains an optional `workerFactory` param | `client.ts:35-37`; `availability.ts:26`; `ApiOfflineChip.vue:15`; `PaletteCardMenu.vue:159`; `useImageQuantize.ts:11-14` | architecture-di §3/§6 |
@@ -38,6 +38,23 @@ typecheck + suites green. (SYNTHESIS §3.4 Completion, verbatim.)
 | W2-7 | **vue-router 4→5** (the fired book): migrate per W0-7's scope probe. **Sequenced LAST in W2** (`S.md §3.1`); a disproportionate probe result de-scopes to a book per Q11's objective bound without stalling the wave's other closures | `demo/package.json:167` | deferred-books-census §2 |
 | W2-8 | **api service-signature unification**: all 30 `Context`-taking fns across `services/{admin,color,session}` → `fn(services: Services, actor, …)`; routes pass `c.var.services` + the resolved actor; mirrors the `palette/*` tier that already proves the shape. Mechanical; the single largest boundary win | `services/color/proposals.ts:31`; `services/admin/users.ts:45,108,150` et al. | architecture-di §2d/§6 |
 | W2-9 | **Copy hoists + typed accessors**: the 3 dynamic `copyToClipboard` imports hoisted static; a typed `ColorSpace`-keyed accessor retires the `as any` lookups in `useSliderGradients`; the `'#888'` empty-palette literal named | legacy-sweep-components F7/F8/F10 | legacy-sweep-demo-components |
+
+### Seed riders (SEEDS.md w2-usecolorpipeline, folded at ratification — binding on W2-1)
+
+1. **`applyTokens` ∧ ≤400-LoC are in tension**: the seed's merged composable held 397 LoC only
+   because 2 of the "4 root-token writes" (`--accent-live`, `--view-hue-shift`) stayed
+   App-scoped (they read `useContrastSafeColor`/viewManager, not the color model). Amended: one
+   `applyTokens` sink for the COLOR-MODEL-DERIVED root-token writes; the other two stay
+   App-scoped, OR unify into a sibling `useColorTokens` with the ≤400 cap applying per-file.
+2. **The anchor list under-counted the blast radius**: `keys.ts` (injected key/ActionBarContext
+   type), `usePaneRouter.ts` (dead model-prop wiring), and the `NORMALIZED_COLOR_NAMES`
+   relocation (2 importers) are appended to the W2-1 anchor cell above.
+3. **Persistence-premise correction**: localStorage (`color-picker`) is WRITE-ONLY today — no
+   boot restore exists, so there is no clobber to demote; the work is to ADD a
+   localStorage→model restore gated behind URL-wins, sequenced with W6-1.
+4. **The `savedColorStrings` twins diverge in OUTPUT** and the loser feeds the palettes pane:
+   the canonical formula is the per-space `toFormattedString` version (recommended); a
+   palettes-pane display check joins the wave gate (§Hard gate).
 
 ## §Triumvirate dispatch
 
@@ -72,9 +89,12 @@ path-disjoint; parallel agents in sibling worktrees cut from the wave head.
 ## §Hard gate (SYNTHESIS §5 wave gate, verbatim)
 
 A URL-color e2e (cold load with populated localStorage → the URL color WINS, field + accent +
-readout agree); grep gates — 0 direct `apiAvailability` imports, 0 `Context` params under
+readout agree; the localStorage restore is the NEW path seed rider 3 names — added, gated
+behind URL-wins); grep gates — 0 direct `apiAvailability` imports, 0 `Context` params under
 `services/`, 0 `savedColors` casts; typecheck + vitest + e2e green; no new file >400 LoC.
-Plus: `cd api && npx tsc --noEmit` 0; api suite green (224/224 baseline holds).
+Plus: `cd api && npx tsc --noEmit` 0; api suite green (224/224 baseline holds); the
+palettes-pane display check green (the canonical `savedColorStrings` formula feeds it — seed
+rider 4).
 
 ## §No-workaround prohibitions (binding)
 

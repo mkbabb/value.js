@@ -6,7 +6,7 @@
 **On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the S.md charter clause, restated here so the rule is self-evident in-file).
 **Agents**: 1 serial (a mechanical, verified walk — the adopt-event book pattern; a triumvirate on any non-mechanical surprise).
 **Hard gate**: composite (§Hard gate) — the by-name MIGRATION walk green (typecheck 0, `boot-smoke` cold, e2e 5-project) · local shadcn slider/input DELETED onto `/slider` + `/forms` · CI un-pinned from `tranche/BG` at the master landing.
-**Status**: PENDING-RATIFICATION + TRIGGER-GATED (the BG/BH joint cut).
+**Status**: PENDING (RATIFIED 2026-07-05) + TRIGGER-GATED (the BG/BH joint cut).
 
 ---
 
@@ -26,7 +26,11 @@ landing. (SYNTHESIS §3.10 Completion, verbatim.)
 
 The walk (from `glassui-consume-map §5` — the demo consumes **18** specifiers, not the relay's
 17; `/styles/fonts` is the unnamed 18th, letter L12 files the addendum before BH.B4e authors the
-203-row table): `goo-blob`→`/blob` (3 files, symbols byte-identical) · `density`→`size` prop
+203-row table): `goo-blob`→`/blob` **+ the GooBlob→`Blob` component rename** (owner-ratified,
+RATIFICATION §2.2.3 — component name, subpath, types, CSS seams land producer-side at the
+5.0.0 cut; the demo's consumer surface migrates BY NAME, NO alias kept; the original "3 files,
+symbols byte-identical" claim predates the rename — re-walk those sites per the MIGRATION
+table) · `density`→`size` prop
 walk · bare `--ring` grep → `--focus-ring-color` · `/slider` + `/forms#Input` adopt +
 local-shadcn deletion (kills S-2/S-16/S-17 at the true root; verify the spectrum special case,
 WS4-11) · `uSatColor[]`/`bodyLightness`/`lightnessFloor` consume + any interim satellite
@@ -55,7 +59,7 @@ Mandatory on:
 
 | Surface | Files | Access |
 |---|---|---|
-| specifier walk | every `@mkbabb/glass-ui` import site in `demo/` (per the MIGRATION table) | modify |
+| specifier walk | every `@mkbabb/glass-ui` import site in `demo/` (per the MIGRATION table; incl. the GooBlob→`Blob` rename sites — by name, no alias) | modify |
 | local shadcn deletion | `demo/@/components/ui/slider/**` · `demo/@/components/ui/input/**` (onto `/slider` + `/forms#Input`) | delete |
 | satellite consume | `HeroBlob.vue` / blob config (`uSatColor[]` et al.; interim fallbacks deleted — none should exist) | modify |
 | CI un-pin | `.github/workflows/ci.yml` (the `tranche/BG` checkout pin → master, AT the master landing) | modify |

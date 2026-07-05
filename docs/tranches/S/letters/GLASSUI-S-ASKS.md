@@ -1,7 +1,11 @@
-# GLASSUI-S-ASKS — the value.js Tranche S letter (16 items, L1..L16)
+# GLASSUI-S-ASKS — the value.js Tranche S letter (18 items, L1..L18)
 
 **To**: the glass-ui BG/BH inbox (`tranche/BG` live → 5.0.0). **From**: value.js Tranche S.
-**Provenance**: `value.js docs/tranches/S/audit/SYNTHESIS.md §7.1` (converged spec, pass-4).
+**Provenance**: `value.js docs/tranches/S/audit/SYNTHESIS.md §7.1` (converged spec, pass-4) +
+the 2026-07-05 ratification fold (`audit/RATIFICATION-2026-07-05.md §3`: L17 Blob rename; the
+L5 upgrade to joint co-rebuild + the Q7 full-presence constraint) + the `audit/seeds/SEEDS.md`
+producer findings (L18 Select chevron; the L5 pointer-shaping append).
+**Verified glass-ui HEAD**: `<RE-STAMP AT DISPATCH>` — the dispatcher stamps it.
 **Status**: AUTHORED, dispatch-ready — **dispatched at S ratification** (early: the L1/L2/L4
 hard-gate-mapped items need the maximum producer window before S rounds 3–4; **L12 is
 time-sensitive** — before BH.B4e authors the 203-row MIGRATION table). The live-agent
@@ -18,7 +22,7 @@ relay item 8, de-shadcn, dock-shrink WS2-10) are VERIFY-AT-CUT rows, not re-asks
 
 ---
 
-## The asks (SYNTHESIS §7.1, transcribed verbatim)
+## The asks (SYNTHESIS §7.1, transcribed verbatim; L5 amended + L17/L18 added at the 2026-07-05 ratification fold)
 
 | L# | Ask | Severity | Ground |
 |---|---|---|---|
@@ -26,7 +30,7 @@ relay item 8, de-shadcn, dock-shrink WS2-10) are VERIFY-AT-CUT rows, not re-asks
 | L2 | **AuroraAtoms door**: a lightness-scheme (+`lBand`) atom threaded `resolveAtoms→deriveAurora` (the levers exist — `deriveAurora` already carries `scheme:"light"\|"dark"` + `lBand`, `color.ts:168/:174` — the door doesn't); `hueSpread` + a cross-stop chroma-variance atom. **Naming**: NOT bare `scheme` — the atoms door already speaks "scheme" for the HUE axis (`harmony` is documented as "the hue scheme", `atoms.ts:106-107`); `lightnessScheme`/`lBand` suggested so the two axes stay unambiguous — the final name is the producer's call | P1 | aurora-derive; design-blob-atmosphere G-1 |
 | L3 | **`useWatercolorBlob` zombie rAF** → rebuild on the library's own `useRAFLoop` (`pauseWhenHidden` + PRM are first-class there; the animate-mode tick runs forever, invisible under PRM) | **P0** | perf-general §3b |
 | L4 | **Backdrop-luma truth**: never resolve luma 0 from an unreadable WebGL canvas — hold the declarative bucket or fail explicitly (the light shell coin-flips to mud today) | **P0** | design-dock-shell P0-3 |
-| L5 | **Blob redress**: single-full-cost-GPU-surface policy (aurora↔blob backend coordination — the Safari dual-WebGL2 vector); scale-aware deformation ceiling (±35%/frame measured churn); satellites-at-rest (no-park-while-count>0 or visible-orbit rest pose) + the cross-engine satellites-missing regression; canvas DPR scaling; exported HERO preset; arousal-scales-orbit; chord-dent verify. (`uSatColor[]` F9.R1 already NAMED-OWNER+CUT — verify at W8, no re-ask) | P0/P1 | blob-greenfield §5/§6; safari-truth P1 |
+| L5 | **Blob first-principles co-rebuild** (UPGRADED at ratification from "redress asks" — owner Q7 ruling: "re-built from first principles, starting with a SOTA assay and archaeological survey"; grounded in the W0-8 genesis brief `docs/tranches/S/audit/blob-genesis.md`, shared ground for both repos — the producer owns the ENGINE, value.js owns the consumer contract): the standing asks carry into the rebuild — single-full-cost-GPU-surface policy (aurora↔blob backend coordination — the Safari dual-WebGL2 vector); scale-aware deformation ceiling (±35%/frame measured churn); satellites-at-rest (no-park-while-count>0 or visible-orbit rest pose) + the cross-engine satellites-missing regression; canvas DPR scaling; exported HERO preset (the demo's visible-bead ≥96px gate is conditioned on it — SEEDS w6 rider 3); arousal-scales-orbit; chord-dent verify. **Producer-visible constraint (Q7 FLIP)**: the blob is PRESENT at every viewport — the perf envelope on MOBILE GPUs is a real requirement, not a nice-to-have. **Pointer-shaping append (SEEDS, net-new)**: the GooBlob ROOT square (canvas `pointer-events:none`, root `auto`) intercepts sibling-card clicks in the corner-break composition (hit-test at (770,150) resolves to the goo-blob root over the About card) and offers a ghost copy-affordance on dead corners; no clean consumer cure (clip-path would clip the satellite overscan paint) — ask: SDF-shaped hit-testing or a root pointer-events seam. (`uSatColor[]` F9.R1 already NAMED-OWNER+CUT — verify at W8, no re-ask; GAP-1 dist-confirmed absent at 4.2.0/tranche-BG) | P0/P1 | blob-greenfield §5/§6; safari-truth P1; RATIFICATION §2.2/§3; SEEDS.md w6 |
 | L6 | **Slider**: `--slider-thumb-border-w` token (default 1.5px); spectrum hover recipe (scale 1.06 + `--surface-tint-15` + `cursor:grab`); spectrum-without-bg fails loudly; Button-primary-over-wash verify (the Mix verb reads permanently disabled) | P1 | design-picker W-C; design-extract F5/F8b |
 | L7 | **EasingPicker v2**: `btn-pill`×`glass-btn` co-occurrence fix (the library's own docs name this exact defect); travel-dot rest state; the loop seam landed (kf Oscillator or minimal); curve-glyph preset menu; PRM gate; MOTION_CURVES README truth. (a11y label already relay item 8) | P0(defect)/P1 | design-gradient P0-2/P2-20; motion §4 |
 | L8 | **`clampLabel` on DockSelectTrigger — RE-ESCALATED as a hard ask** (named owner + cut; 7+ tranches, 4th booking; the Ad-18 workaround must not spread) | P1 | glassui-consume-map F1 |
@@ -38,6 +42,8 @@ relay item 8, de-shadcn, dock-shrink WS2-10) are VERIFY-AT-CUT rows, not re-asks
 | L14 | `ConfiguratorRow` label API (consumers can't double-label) + crayon-register Slider variant | P2 | design-blob-atmosphere G-5 |
 | L15 | Gold/admin shimmer: evaluate ONE producer primitive for the 3 demo recipes (only if it clears the ≥2-consumer bar) | P2 | god-module §2.2 |
 | L16 | `backdrop-filter` `-webkit-` prefix: pick one policy across the 10 stylesheets (2 prefix, 8 don't) | P2 | safari-truth |
+| L17 | **GooBlob → `Blob` rename** (owner-ratified 2026-07-05, by-name): component name, subpath (`/goo-blob` → `/blob` — the R-era GAP-2 rename table already anticipated it), types, CSS seams. Lands at the 5.0.0 cut; value.js consumes at W8 (adopt-event); the demo's consumer surface migrates by name, NO alias kept | P1 | RATIFICATION §2.2.3 |
+| L18 | **Select chevron rotation is dead code** (net-new, found by the w4 prototype seed): `SelectTrigger.vue:138` `[&[data-state=open]]:rotate-180` targets an attribute reka's SelectIcon never carries — no glass-ui Select consumer has ever had a rotating caret (verified live on two consumers). Fix keys off the trigger's own state (e.g. `in-data-[state=open]:rotate-180`). Repairs every consumer including the dock view-select; the value.js demo carries a marker-commented consumer utility only until it ships (W4-1 seed rider 1) | P1 | SEEDS.md w4-title-component |
 
 ---
 

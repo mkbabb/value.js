@@ -2,12 +2,13 @@
 
 **To**: @mkbabb/keyframes.js. **From**: value.js Tranche S.
 **Provenance**: `value.js docs/tranches/S/audit/SYNTHESIS.md §7.2`.
-**Status**: AUTHORED — dispatched with the S.W1 **2.1.0** cut. **No ask** — a courtesy record.
+**Status**: AUTHORED — dispatched with the S.W1 **3.0.0** cut (re-stamped from 2.1.0 per
+`audit/RATIFICATION-2026-07-05.md §2.1`). **No ask** — a courtesy record.
 
 ---
 
 1. **value.js now hosts the canonical `resolveEasing(string → TimingFunction)`** (lands at
-   S.W1 item W1-6, published in 2.1.0) — the one-true string→easing resolver the constellation
+   S.W1 item W1-6, published in 3.0.0) — the one-true string→easing resolver the constellation
    can converge on eventually. No action requested now; a convergence book is recorded on the
    value.js side (`S.md §7`: trigger = kf's next easing-surface touch). When that touch comes,
    consider consuming rather than re-authoring.

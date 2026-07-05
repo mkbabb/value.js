@@ -3,7 +3,7 @@
 **Tranche letter**: S — value.js's fifteenth tranche (arc A..R → S). R built the instrument and
 published 2.0.0/2.0.1; the owner then probed it live and filed 24 findings the R gates were
 structurally blind to. The 33-lane fleet root-caused all 24 against the live tree. S is the
-tranche that fixes the oracles first, cures the library's booked defect at 2.1.0, collapses the
+tranche that fixes the oracles first, cures the library's booked defect at 3.0.0, collapses the
 color-state spine to ONE explicit graph, turns the measured perf numbers into hard budgets, and
 carries four Fable design waves of excision-and-consistency — with the blob REDRESSED (not
 reinvented), the aurora's four-defect composite cured at its roots (not rewired), and Safari made
@@ -22,19 +22,20 @@ self-contained and governing. This charter distills it; where the two could ever
 spec wins.** The convergence record: `audit/CONVERGENCE.md` (4 passes, 86/72 → 95.7/92 →
 99.5/97 → **100/98·zero-mustFix — CONVERGED**; the 33-lane audit corpus at `audit/lanes/`).
 
-**Mode**: **DEVELOPMENT COMPLETE — dispatch gate OPEN, awaiting the §12 owner ratification.**
-No wave dispatches before ratification (`CONVERGENCE.md`'s closing directive). No `src/`,
-`demo/`, or `api/` edits precede ratification.
+**Mode**: **RATIFIED 2026-07-05 — dispatch OPEN.** The owner ruled on all 11 §12 rows; the
+encoding of record is `audit/RATIFICATION-2026-07-05.md` (§0 verbatim owner text wins), with the
+`audit/seeds/SEEDS.md` riders folded into the wave docs. Waves dispatch per the §3.1 DAG.
 
 **Goal criterion.** The app the owner probed on 2026-07-04 — with its 24 findings — becomes the
 app those findings describe as intended: every finding landed at its root or explicitly
-booked/killed with rationale; the library at 2.1.0 with the dark-band defect cured; the spine one
+booked/killed with rationale; the library at 3.0.0 with the dark-band defect cured; the spine one
 explicit graph; performance inside numeric budgets; Safari a first-class verified target.
-(SYNTHESIS §0, verbatim.)
+(SYNTHESIS §0, verbatim; 2.1.0→3.0.0 per `audit/RATIFICATION-2026-07-05.md §2.1`.)
 
 **Completion criterion.** `FINAL.md` reconciles §10's zero-drop ledger row-by-row; all wave
 gates evidence-backed; the S oracle slate (smoke-safari in CI, hard Lighthouse, frame budgets,
-π matrix) green at close; 2.1.0 published + tagged; master merged. (SYNTHESIS §0, verbatim.)
+π matrix) green at close; 3.0.0 published + tagged; master merged. (SYNTHESIS §0, verbatim;
+2.1.0→3.0.0 per `audit/RATIFICATION-2026-07-05.md §2.1`.)
 
 **Brittleness window**: none declared. Every wave closes green; any wave that must transiently
 break the tree declares the precepts `SPEC.md §Brittleness Window` YAML block before dispatch.
@@ -67,9 +68,10 @@ records (`PASS1-VERDICT.md` is the only on-disk verdict file).
 
 1. **Fix the oracles first** (S.W0): smoke-safari into CI, Lighthouse hard, canvas-appearance
    assertions, the standing π matrix — S's own work cannot ship invisible regressions again.
-2. **One library wave** (S.W1 → **2.1.0**): the booked `srgbToLinear` defect fires on this minor
+2. **One library wave** (S.W1 → **3.0.0**): the booked `srgbToLinear` defect fires on this cut
    by its own trigger; plus the parsing P0s, cache bounds, and the two src surfaces the design
-   waves consume.
+   waves consume — and, per the 2026-07-05 ratification, the `logerp` reorder (Q2), the raytrace
+   gamut map (Q8 → W1-10), and Jzazbz (Q9 → W1-11).
 3. **One architectural-transposition wave** (S.W2): ~11 scattered watchers / 2 model copies /
    2 unordered persistence channels → ONE explicit `useColorPipeline` graph; `useApiClient` DI
    seam; the api service layer onto `Services`-in. KISS — no framework invention.
@@ -79,7 +81,11 @@ records (`PASS1-VERDICT.md` is the only on-disk verdict file).
    S.W7 dock+shell) — excision and consistency, not reinvention.
 6. **The blob is NOT reinvented** (SYNTHESIS §0.6): the engine is a mature glass-ui producer
    component; value.js's half is consume/config/placement; the producer redress is letter L5 +
-   the W8 adopt consume.
+   the W8 adopt consume. **Q7 ruling 2026-07-05 amends this**: the blob IS re-built from first
+   principles — as a JOINT effort grounded in the W0-8 genesis brief (SOTA assay + archaeological
+   survey → `audit/blob-genesis.md`); glass-ui owns the engine (L5 upgraded to co-rebuild),
+   value.js owns the consumer contract + compositional law; full presence at EVERY viewport
+   (`audit/RATIFICATION-2026-07-05.md §2.2`).
 7. **The aurora is NOT rewired** (SYNTHESIS §0.7): S-18 decomposes into FOUR compounding defects
    with the wiring provably INTACT — boot truth + precedence + scheme + tuning + the producer
    Safari shader fix (L1). On Safari the WebGL aurora has never run at all.
@@ -102,8 +108,8 @@ cross-reference. This charter binds the shape; the wave docs bind the work; the 
 
 | Wave | Title | Doc | Publishes | Gate summary |
 |---|---|---|---|---|
-| **S.W0** | SUBSTRATE — dev truth + oracle floor + hygiene (W0-1..W0-7) | `waves/S.W0.md` | — | `npm run dev` round-trips palettes locally; smoke-safari in CI; Lighthouse hard; book discharges recorded; clean `git status` |
-| **S.W1** | LIBRARY — the 2.1.0 wave (S-24; W1-1..W1-9) | `waves/S.W1.md` | **2.1.0** | vitest green incl. dark-band + independent-oracle regressions; okhsl dodged band reinstated; caches bounded; cap-check per the census verdict; PT-E dispatched |
+| **S.W0** | SUBSTRATE — dev truth + oracle floor + hygiene (W0-1..W0-9; W0-8 blob genesis + W0-9 dependency ledger added at ratification) | `waves/S.W0.md` | — | `npm run dev` round-trips palettes locally; smoke-safari in CI; Lighthouse hard; book discharges recorded; clean `git status` |
+| **S.W1** | LIBRARY — the 3.0.0 wave (S-24; W1-1..W1-11; W1-10 raytrace + W1-11 Jzazbz added at ratification) | `waves/S.W1.md` | **3.0.0** | vitest green incl. dark-band + independent-oracle regressions; okhsl dodged band reinstated; caches bounded; cap-check per the census verdict; by-name MIGRATION table; PT-E dispatched |
 | **S.W2** | ARCHITECTURAL TRANSPOSITION — the spine (W2-1..W2-9) | `waves/S.W2.md` | — | URL-color e2e (URL wins); 0 direct `apiAvailability` imports; 0 `Context` params under `services/`; vue-router 5; no new file >400 LoC |
 | **S.W3** | PERFORMANCE — budgets as gates (W3-1..W3-9) | `waves/S.W3.md` | — | §6.2 budgets green on the built bundle: drag p50 ≤20ms · view-switch first frame ≤100ms · JS eager ≤280KB · render-blocking CSS ≤120KB · 0 ungated idle rAF |
 | **S.W4** | THE INSTRUMENT, REFINED — Fable: picker + docs/About (W4-1..W4-8) | `waves/S.W4.md` | — | π paired archive: capsule gone, hosts identical, Lab one line at 1440; 11 docs pages complete snippets (build-failing guard); non-authoring taste review |
@@ -116,7 +122,7 @@ cross-reference. This charter binds the shape; the wave docs bind the work; the 
 ### §3.1 DAG + rounds (SYNTHESIS §3.1, verbatim)
 
 ```
-S.W0 ──┬── S.W1 (library, 2.1.0) ──┬── S.W3 (perf) ──┬── S.W5 (suffusion II)
+S.W0 ──┬── S.W1 (library, 3.0.0) ──┬── S.W3 (perf) ──┬── S.W5 (suffusion II)
        └── S.W2 (transposition) ───┴── S.W4 (picker+docs) ─┴── S.W6 (atmosphere+hero)
 
 S.W7 (dock+shell) ⊣ S.W1 + S.W3 (its only dependency edges) — enters at round 4, after BOTH
@@ -140,10 +146,13 @@ atop it — the two fleets never hold simultaneous open diffs against the same f
 
 ### §3.2 The library / api / parse-that slate (SYNTHESIS §4)
 
-**Library (S.W1 → 2.1.0)**: the publish note must name the srgb fix as output-changing for
-near-black (≤2/255, 8-bit 1..10 band) and enumerate the regoldened fixtures. ICtCp rides Q9.
+**Library (S.W1 → 3.0.0)**: the publish note must name the srgb fix as output-changing for
+near-black (≤2/255, 8-bit 1..10 band), enumerate the regoldened fixtures, and ship the by-name
+breaking-change MIGRATION table (RATIFICATION §2.1: `logerp` signature · `color-soa` removal ·
+any W0-9 public-surface excision). ICtCp + Jzazbz ride Q9 (RATIFIED-WIDENED → W1-6/W1-11); the
+R-4 raytrace builds per Q8's FLIP (→ W1-10).
 **Deliberately NOT done**: R-8 gamut-relative spaces (KILLED, stands) · sibling-index/count,
-device-cmyk, ICC (recorded non-goals) · R-7 HCT/CAM16 (no demand) · R-4 raytrace (Q8) · Pratt
+device-cmyk, ICC (recorded non-goals) · R-7 HCT/CAM16 (no demand) · Pratt
 calc() transposition (do NOT pull forward). **api**: W2-8 service unification, W5-13 CRUD truth,
 W0-3 X1 verify — no api re-architecture beyond the split-brain cure (`api-crud-audit` §0:
 224/224; H1 14/14; L boundary holds). **parse-that**: 1.0.0 consumption verified clean;
@@ -161,15 +170,15 @@ explicit record-the-miss fallback (L1/L2/L4; see `letters/GLASSUI-S-ASKS.md`).
 |---|---|---|
 | glass-ui 5.0.0 adopt event | the BG/BH joint cut | **→ S.W8** (trigger-gated wave; §3.10 walk) |
 | CI checkout un-pin from `tranche/BG` | the 5.0.0 master landing | KEEP-BOOKED (the R.W7 `102b37b` book carries) |
-| `srgbToLinear` decode defect | next output-changing minor | **FIRES at S.W1** (2.1.0) |
+| `srgbToLinear` decode defect | next output-changing minor | **FIRES at S.W1** (3.0.0) |
 | vue-router 4→5 (K-W5RT) | stable v5 — **FIRED 2026-05-28** | **FOLDED → W2-7** |
 | parse-that `^1.0.0` re-pin · color2Into currency · D8-1 watch-line | — | **DISCHARGED** (W0-4 records; census §1) |
-| R-6 ICtCp | "after ΔE-ITP shares the math" — **CLEARED** | **FOLDS → W1-6** per Q9 (Jzazbz stays deferred — unrelated math) |
+| R-6 ICtCp | "after ΔE-ITP shares the math" — **CLEARED** | **FOLDS → W1-6** per Q9 (Q9 RATIFIED-WIDENED 2026-07-05: Jzazbz builds too → W1-11) |
 | `Color.try()` | demand for a non-throwing parse | KEEP-BOOKED; soft demand signal recorded (11 demo try-wraps) — does not clear the bar |
 | K-W3DIFF PaletteDiff render | first version-compare surface | KEEP-BOOKED; alt-exit (stop persisting `atomDiff`) decided with Q1's outcome at W5-13 |
 | S.H3 Pratt consume-edge | parse-that presents the sketch | KEEP-DORMANT — do NOT pull forward (parse-that-audit §4.3) |
 | CH-10 · CH-13 · R8-23 · R-5 · R-10 | as recorded | KEEP-BOOKED; **spec-status recheck lane at S.W9** (the "~late-2026" guess is mid-window, never live-verified) |
-| R-4 raytrace N-gamut | UNBLOCKED (R-1 settled) but demand-less | KEEP-BOOKED per Q8 |
+| R-4 raytrace N-gamut | UNBLOCKED (R-1 settled) but demand-less | **DISCHARGED-BY-RATIFICATION** (Q8 FLIP 2026-07-05 "Build now": builds at W1-10, the Ottosson analytical mapper as test oracle — `audit/RATIFICATION-2026-07-05.md §2.3`) |
 | FN-7 doc-relocation | fourier-N execution | KEEP-BOOKED (de-urgented; in-tree note holds) |
 | `usePaletteStore` schema migration | first `version` bump past 1 | NEW BOOK (silent reset-to-empty is a latent landmine; legacy-sweep-composables P3) |
 | S-3 letter-rail producer variant | the dock-fission DECIDE wave's landed rail lacks it | NEW BOOK (only if W4-5's SegmentedTabs re-home proves insufficient) |
@@ -178,9 +187,10 @@ explicit record-the-miss fallback (L1/L2/L4; see `letters/GLASSUI-S-ASKS.md`).
 | **X2 — NCSU-alias retirement** (owner order "no ncsu alias"; R.W7 residue — the alias still answered 200 at R close) | **maintainer on the NCSU VPN / on-campus** (SSH to `mbabb.fi.ncsu.edu` times out off-campus — a named human trigger, not a wait) | CARRIED from R (SYNTHESIS §7.3 row is the directive's explicit home). Exact on-host op, per `api/apache-vhost.conf:19-27`: remove the `mbabb.fi.ncsu.edu/colors/` proxy block + let its DNS/cert lapse, AFTER confirming `color.babb.dev` serves HEAD lineage (W0-3's probe). Verification = the alias URL going dark (non-200); the observation amends this row + R/FINAL.md's X2 record. W0-3 re-probes the alias each time it runs — while it answers 200, this book stays OPEN |
 
 **Cross-repo dispatches** (SYNTHESIS §7.1/§7.2; letters authored, dispatch-ready):
-`letters/GLASSUI-S-ASKS.md` (L1..L16 — dispatched at ratification; the dispatcher re-stamps the
-verified glass-ui HEAD) · `letters/PARSE-THAT-PT-E.md` (dispatched at W1-9) ·
-`letters/KF-COURTESY.md` (courtesy; dispatched with W1's 2.1.0 cut). **fourier**: nothing new.
+`letters/GLASSUI-S-ASKS.md` (L1..L18 — L17 `Blob` rename + L18 Select chevron + the L5
+co-rebuild upgrade folded at the 2026-07-05 ratification; dispatched at ratification — NOW DUE;
+the dispatcher re-stamps the verified glass-ui HEAD) · `letters/PARSE-THAT-PT-E.md` (dispatched at W1-9) ·
+`letters/KF-COURTESY.md` (courtesy; dispatched with W1's 3.0.0 cut). **fourier**: nothing new.
 
 ---
 
@@ -244,26 +254,26 @@ OVERRIDDEN: none. KILLS carried: R-8 mechanism · sibling-index/count · device-
 
 ---
 
-## §12 — Q-TABLE (SYNTHESIS §8, transcribed — the owner-ratification gate; data-armed; recommended defaults)
+## §12 — Q-TABLE (SYNTHESIS §8 — **RATIFIED 2026-07-05 — dispatch gate CLOSED; encoding: `audit/RATIFICATION-2026-07-05.md`**)
 
-**Mode: DEVELOPMENT COMPLETE — dispatch gate OPEN awaiting ratification.** Every row below goes
-to the owner; six carry recommended defaults ratifiable as speced; nothing dispatches until this
-table closes. (Q4's EXCISE and Q11's YES-in-S already carry pass-2 flips inside the loop — they
-remain owner rows regardless.)
+The owner ruled on all eleven rows 2026-07-05; the §0 verbatim rulings live in the encoding doc
+and win over everything. Six defaults ratified as speced; five rulings flip or amplify. The
+Disposition column is the per-row record; the Recommended-default column stands as the
+historical recommendation. (Q4's EXCISE and Q11's YES-in-S carried pass-2 flips inside the loop.)
 
-| Q | Question | Data | Recommended default |
-|---|---|---|---|
-| Q1 | **Palette visibility intent**: wire `publish`/`unpublish` + a visibility affordance, or excise the unreachable 3-state machine? | Every demo-created palette is permanently `public`; `unlisted` has ZERO write sites; the verb pair is built + 11-test-green but has no client wrapper; the demo's `publishPalette` is actually create (api-crud F-4/F-2) | **WIRE** — one wrapper + a card-menu visibility control; rename the create-wrapper in the same pass. Excise only if "public-only forever" is the actual product stance |
-| Q2 | **`logerp` arg-order**: reorder t-last to match `lerp` (breaking) or comment-fix now + book the reorder? | `logerp(10,20,.5)` silently returns ≈0; the "Canonical (a,b,t)" comment is violated by its own file; a reorder is semver-major (lib-core P1-2) | **Comment-fix + document now; BOOK the reorder for 3.0.0** (don't force a major for one signature) |
-| Q3 | **`color-soa.ts`**: excise the orphan public API or keep gated? | Shipped in 2.0.0 for a kf consumer that never adopted it (0 hits in kf src/dist); its own doc names an unmet grounding gate; internal interp has its own SoA plan (lib-core P1-1) | **EXCISE at 2.1.0** with the zero-consumer evidence recorded — the constellation is the whole consumer universe and it's empty; re-introduce only behind a real kf consume-edge |
-| Q4 | **The rainbow heading recipe** (3 consumers: `PalettesPane.vue:4` "My Palettes", `DockViewSelect.vue:97` — dies with W7-4 regardless, `PaletteDialogHeader.vue:37`): excise, or re-derive from `--accent-live`? | Fixed pastel ramp ≈1.1-1.5:1 contrast in light; ignores the accent axis; the page's only rainbow moment (design-browse); **and W4-7 lands in this SAME tranche unifying all 9 pane titles to the ink display voice — a re-derived ramp would keep exactly ONE title a chromatic exception among 8 ink siblings** | **EXCISE** (pass-2 FLIP from RE-DERIVE, on register coherence with W4-7/W4-8: letterforms speak one ink; hue-variation belongs to color-data surfaces — dots, ramps, palette strips — never to type; the browse lane's own option (a)). The 3-stop analogous `oklch(from var(--accent-live)…)` ramp stays ON RECORD as the owner's alternative if the moment must survive — relocated to a color-data surface, never a title |
-| Q5 | **Pane titles adopt the display voice** (three-voice-law amendment; one `PaneHeader.vue:3` site, 9 panes) | Both design lanes independently converged; today the largest text on Browse/Palettes speaks Jakarta while smaller elements speak Fraunces — the hierarchy reads inverted | **YES** |
-| Q6 | **Empty-state copy register**: where does the specimen-plate annotation class survive? | User ruled the extract plate copy superfluous; "· EMPTY PLATE ·" prints twice simultaneously; the eyebrow grammar is also "one of the best moments on the page" (browse) | Survives ONLY on true empty/error states, per-context eyebrows, never as a second invitation and never duplicated on-screen |
-| Q7 | **Blob on mobile**: full presence (~7rem, corner-breaking) or absent at <lg? | The current `w-24` puck is a clipped smudge (canvas overflows the 390px viewport); the design brief names the middle forbidden (design-blob-atmosphere §2) | **ABSENT at <lg** — perf + the evidence; full presence ≥lg at the grown footprint |
-| Q8 | **R-4 raytrace gamut map**: build now that its R-1 dependency settled? | Unblocked but zero demand signal in the S ledger or demo code (census §4) | **KEEP-BOOKED** — don't build without demand |
-| Q9 | **Promote ICtCp to a public color space at 2.1.0?** | The matrix math (XYZ→LMS crosstalk, PQ, LMS′→ICtCp) already shipped inside `deltaEITP` at 2.0.0; only the class + parsing + dispatch wrapper remain — "the cheapest net-new space value.js has ever added" (census §4) | **YES** — fold into W1-6; Jzazbz stays deferred (unrelated math) |
-| Q10 | **Mix animation**: re-author ≤1.2s Safari-true, or keep the 2.9s choreography with the clock fixed? | The current pour uses WebKit-unsupported `ctx.filter` (silent degradation), jump-cuts at ~40% visual completion every mix, gates an instant computation behind 2.9s, and converges on nowhere (design-extract F6; motion §3) | **RE-AUTHOR** ≤1.2s, one clock, reveal lands at the result plate |
-| Q11 | **vue-router 5 in S?** | The trigger fired 2026-05-28 (now 5.1.0 `latest`); 8-tranche-old book; surface scan found no obvious blockers but a real scope probe hasn't run (census §2) | **YES, in S** — W0-7 scopes, W2-7 lands (sequenced LAST in W2, §3.1). **Objective de-scope bound**: the probe finding >1 breaking-change class requiring non-mechanical rewrites (typed routes / data loaders / memory-history semantics) OR an estimated migration diff >300 LoC books it instead; under both bounds it lands |
+| Q | Question | Data | Recommended default | Disposition (RATIFIED 2026-07-05) |
+|---|---|---|---|---|
+| Q1 | **Palette visibility intent**: wire `publish`/`unpublish` + a visibility affordance, or excise the unreachable 3-state machine? | Every demo-created palette is permanently `public`; `unlisted` has ZERO write sites; the verb pair is built + 11-test-green but has no client wrapper; the demo's `publishPalette` is actually create (api-crud F-4/F-2) | **WIRE** — one wrapper + a card-menu visibility control; rename the create-wrapper in the same pass. Excise only if "public-only forever" is the actual product stance | **RATIFIED-AS-SPECED (WIRE)** — "Full idiomatic wiring": the full affordance in one pass; a minimal-stub wiring is barred (→ W5-13) |
+| Q2 | **`logerp` arg-order**: reorder t-last to match `lerp` (breaking) or comment-fix now + book the reorder? | `logerp(10,20,.5)` silently returns ≈0; the "Canonical (a,b,t)" comment is violated by its own file; a reorder is semver-major (lib-core P1-2) | **Comment-fix + document now; BOOK the reorder for 3.0.0** (don't force a major for one signature) | **FLIP** — "fix now. Breaking changes are fine: always.": the reorder lands at W1 NOW, all consumers migrated at root, no shim; cascade: the W1 cut → **3.0.0** (§2.1); the §13 standing precept minted (§2.5) |
+| Q3 | **`color-soa.ts`**: excise the orphan public API or keep gated? | Shipped in 2.0.0 for a kf consumer that never adopted it (0 hits in kf src/dist); its own doc names an unmet grounding gate; internal interp has its own SoA plan (lib-core P1-1) | **EXCISE at 3.0.0** (re-stamped per RATIFICATION §2.1) with the zero-consumer evidence recorded — the constellation is the whole consumer universe and it's empty; re-introduce only behind a real kf consume-edge | **RATIFIED-AS-SPECED (EXCISE), BROADENED** — "all legacy code and dependencies": + the W0-9 dependency-excision ledger (§2.4) |
+| Q4 | **The rainbow heading recipe** (3 consumers: `PalettesPane.vue:4` "My Palettes", `DockViewSelect.vue:97` — dies with W7-4 regardless, `PaletteDialogHeader.vue:37`): excise, or re-derive from `--accent-live`? | Fixed pastel ramp ≈1.1-1.5:1 contrast in light; ignores the accent axis; the page's only rainbow moment (design-browse); **and W4-7 lands in this SAME tranche unifying all 9 pane titles to the ink display voice — a re-derived ramp would keep exactly ONE title a chromatic exception among 8 ink siblings** | **EXCISE** (pass-2 FLIP from RE-DERIVE, on register coherence with W4-7/W4-8: letterforms speak one ink; hue-variation belongs to color-data surfaces — dots, ramps, palette strips — never to type; the browse lane's own option (a)). The 3-stop analogous `oklch(from var(--accent-live)…)` ramp stays ON RECORD as the owner's alternative if the moment must survive — relocated to a color-data surface, never a title | **RATIFIED-AS-SPECED** — EXCISE; the `--accent-live` ramp alternative NOT taken |
+| Q5 | **Pane titles adopt the display voice** (three-voice-law amendment; one `PaneHeader.vue:3` site, 9 panes) | Both design lanes independently converged; today the largest text on Browse/Palettes speaks Jakarta while smaller elements speak Fraunces — the hierarchy reads inverted | **YES** | **RATIFIED-AS-SPECED** — YES (→ W4-7) |
+| Q6 | **Empty-state copy register**: where does the specimen-plate annotation class survive? | User ruled the extract plate copy superfluous; "· EMPTY PLATE ·" prints twice simultaneously; the eyebrow grammar is also "one of the best moments on the page" (browse) | Survives ONLY on true empty/error states, per-context eyebrows, never as a second invitation and never duplicated on-screen | **RATIFIED-AS-SPECED, NARROWED** — "Only on true empty": TRUE EMPTY states only; error states drop from the default's "empty/error" and speak the plain register |
+| Q7 | **Blob on mobile**: full presence (~7rem, corner-breaking) or absent at <lg? | The current `w-24` puck is a clipped smudge (canvas overflows the 390px viewport); the design brief names the middle forbidden (design-blob-atmosphere §2) | **ABSENT at <lg** — perf + the evidence; full presence ≥lg at the grown footprint | **FLIP + AMPLIFIED + PRODUCER RENAME** — full presence at EVERY viewport (the <lg law is NEW W6 design scope, perf a hard gate); W0-8 blob genesis (SOTA assay + archaeological survey → `audit/blob-genesis.md`, feeds the JOINT rebuild); GooBlob→`Blob` producer rename (letter; W8 adopt) (§2.2) |
+| Q8 | **R-4 raytrace gamut map**: build now that its R-1 dependency settled? | Unblocked but zero demand signal in the S ledger or demo code (census §4) | **KEEP-BOOKED** — don't build without demand | **FLIP** — "Build now": builds at W1-10, the Ottosson analytical mapper as test oracle; the R-4 book discharged by construction (§2.3) |
+| Q9 | **Promote ICtCp to a public color space at 3.0.0?** (re-stamped per RATIFICATION §2.1) | The matrix math (XYZ→LMS crosstalk, PQ, LMS′→ICtCp) already shipped inside `deltaEITP` at 2.0.0; only the class + parsing + dispatch wrapper remain — "the cheapest net-new space value.js has ever added" (census §4) | **YES** — fold into W1-6; Jzazbz stays deferred (unrelated math) | **RATIFIED-AS-SPECED + WIDENED** — "Yes. Jzazbz is to be implemented, too.": ICtCp at W1-6; Jzazbz ADDED at W1-11 (full space class + parsing + dispatch + tests; PQ-variant transfer math is net-new — scoped honestly) (§2.3) |
+| Q10 | **Mix animation**: re-author ≤1.2s Safari-true, or keep the 2.9s choreography with the clock fixed? | The current pour uses WebKit-unsupported `ctx.filter` (silent degradation), jump-cuts at ~40% visual completion every mix, gates an instant computation behind 2.9s, and converges on nowhere (design-extract F6; motion §3) | **RE-AUTHOR** ≤1.2s, one clock, reveal lands at the result plate | **RATIFIED-AS-SPECED, AMPLIFIED** — first-principles RE-WORK: the pour choreography REPLACED, not repaired; intent (the animation narrates the mix) + beauty as a GATE; Safari-true by construction, NO fallback path; the ≤1.2s/one-clock gates stand |
+| Q11 | **vue-router 5 in S?** | The trigger fired 2026-05-28 (now 5.1.0 `latest`); 8-tranche-old book; surface scan found no obvious blockers but a real scope probe hasn't run (census §2) | **YES, in S** — W0-7 scopes, W2-7 lands (sequenced LAST in W2, §3.1). **Objective de-scope bound**: the probe finding >1 breaking-change class requiring non-mechanical rewrites (typed routes / data loaders / memory-history semantics) OR an estimated migration diff >300 LoC books it instead; under both bounds it lands | **RATIFIED-AS-SPECED** — YES-in-S (W0-7 scopes, W2-7 lands LAST in W2); the objective de-scope bound stands as written |
 
 ---
 
@@ -298,3 +308,7 @@ remain owner rows regardless.)
    by a live-tree check — `--dock-ring` has zero consumers at glass-ui HEAD).
 10. **Census claims inherit into specs verbatim, so census imprecision propagates** (the utils.ts
     "only DOM code" case) — spot-verify inherited claims at the clause that consumes them.
+11. **"Breaking changes are fine: always."** (the Q2 ruling — standing precept, RATIFICATION
+    §2.5): when correctness and API honesty call for a break, CUT THE MAJOR; booking a
+    known-wrong surface forward out of version timidity is the anti-pattern. Semver discipline
+    itself is unchanged — breaks are still majors, majors are still cheap.
