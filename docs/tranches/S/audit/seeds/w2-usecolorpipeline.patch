@@ -1,0 +1,528 @@
+diff --git a/demo/@/components/custom/color-picker/ColorPicker.vue b/demo/@/components/custom/color-picker/ColorPicker.vue
+index 98a2bf7..19cc824 100644
+--- a/demo/@/components/custom/color-picker/ColorPicker.vue
++++ b/demo/@/components/custom/color-picker/ColorPicker.vue
+@@ -84,7 +84,6 @@ import {
+     watch,
+ } from "vue";
+ import { useMagicKeys } from "@vueuse/core";
+-import { useColorModel } from "./composables/useColorModel";
+ import type { ColorModel, EditTarget } from ".";
+ import { toCSSColorString, resolveColorSpace } from ".";
+ import { COLOR_MODEL_KEY } from "./keys";
+@@ -100,16 +99,18 @@ import SpectrumCanvas from "./controls/SpectrumCanvas.vue";
+ import ComponentSliders from "./controls/ComponentSliders.vue";
+ import PointerDebugOverlay from "./visual/PointerDebugOverlay.vue";
+ 
+-const model = defineModel<ColorModel>({ required: true });
+ const emit = defineEmits<{
+     reset: [];
+     "update:editTarget": [target: EditTarget | null];
+ }>();
+ 
+-// --- Color model composable + provide ---
+-
+-const colorModel = useColorModel(model);
+-provide(COLOR_MODEL_KEY, colorModel);
++// --- Color model: inject the ONE pipeline (S.W2 · W2-1 transposition) ---
++// The former `defineModel` + local `useColorModel` shallowRef copy are gone.
++// App owns the model and provides the merged pipeline; the picker is a pure
++// injected consumer. `model` is the App-owned ShallowRef itself — writes land
++// synchronously (no prop→emit round-trip → no read-after-write staleness).
++const colorModel = inject(COLOR_MODEL_KEY)!;
++const { model } = colorModel;
+ 
+ const pointerDebug = usePointerDebug();
+ provide(POINTER_DEBUG_KEY, pointerDebug);
+diff --git a/demo/@/components/custom/color-picker/keys.ts b/demo/@/components/custom/color-picker/keys.ts
+index d1ec2c6..f2db674 100644
+--- a/demo/@/components/custom/color-picker/keys.ts
++++ b/demo/@/components/custom/color-picker/keys.ts
+@@ -1,8 +1,10 @@
+ import type { ComputedRef, InjectionKey, Ref, ShallowRef } from "vue";
+-import type { UseColorModelReturn } from "./composables/useColorModel";
++// S.W2 · W2-1 transposition: the injected color-state shape is now the merged
++// pipeline's return (superset of the former useColorModel + useAppColorModel).
++import type { UseColorPipelineReturn } from "@composables/color/useColorPipeline";
+ import type { EditTarget } from ".";
+ 
+-export const COLOR_MODEL_KEY: InjectionKey<UseColorModelReturn> = Symbol("COLOR_MODEL_KEY");
++export const COLOR_MODEL_KEY: InjectionKey<UseColorPipelineReturn> = Symbol("COLOR_MODEL_KEY");
+ export const CSS_COLOR_KEY: InjectionKey<ComputedRef<string>> = Symbol("CSS_COLOR_KEY");
+ export const SAFE_ACCENT_KEY: InjectionKey<ComputedRef<string>> = Symbol("SAFE_ACCENT_KEY");
+ export const EDIT_TARGET_KEY: InjectionKey<ShallowRef<EditTarget | null>> = Symbol("EDIT_TARGET_KEY");
+@@ -13,7 +15,7 @@ export interface ActionBarContext {
+     isEditing: Ref<boolean>;
+     canProposeName: ComputedRef<boolean>;
+     paletteActive: ComputedRef<boolean>;
+-    colorModel: UseColorModelReturn;
++    colorModel: UseColorPipelineReturn;
+     reset: () => void;
+     copy: () => void;
+     random: () => void;
+diff --git a/demo/@/composables/color/useColorPipeline.ts b/demo/@/composables/color/useColorPipeline.ts
+new file mode 100644
+index 0000000..5f52732
+--- /dev/null
++++ b/demo/@/composables/color/useColorPipeline.ts
+@@ -0,0 +1,397 @@
++import {
++    computed,
++    ref,
++    watch,
++    type ShallowRef,
++} from "vue";
++import { useStorage } from "@vueuse/core";
++import { copyToClipboard } from "@mkbabb/glass-ui";
++import { debounce } from "@src/utils";
++import type { ParsedColorUnit } from "@src/parsing/color";
++import { ValueUnit } from "@src/units";
++import type { ColorSpace } from "@src/units/color/constants";
++import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
++import {
++    colorUnit2,
++    normalizeColorUnit,
++    normalizeColorUnitComponent,
++} from "@src/units/color/normalize";
++import type { ColorModel } from "@components/custom/color-picker";
++import {
++    createDefaultColorModel,
++    defaultColorModel,
++    toCSSColorString,
++    colorToHexString,
++    CSS_NATIVE_SPACES,
++    resolveColorSpace,
++} from "@components/custom/color-picker";
++
++import { useColorParsing } from "@components/custom/color-picker/composables/useColorParsing";
++import { useSliderGradients } from "@components/custom/color-picker/composables/useSliderGradients";
++import { useColorNameResolution } from "@components/custom/color-picker/composables/useColorNameResolution";
++
++const DIGITS = 2;
++
++/**
++ * useColorPipeline — the ONE color-state spine (S.W2 · W2-1). Transposes the
++ * former two-composable graph (App.vue→useAppColorModel + ColorPicker→
++ * useColorModel, each with its own derivation set + a local shallowRef copy)
++ * onto ONE composable that owns:
++ *   - ONE model: the App-owned `ShallowRef<ColorModel>`, consumed DIRECTLY. The
++ *     picker's second `shallowRef` copy is GONE; the `defineModel` round-trip it
++ *     existed to defeat (WritableComputedRef → async parent emit → stale
++ *     read-after-write) is resolved AT THE SOURCE — the picker INJECTS this
++ *     pipeline, so writes land on the shared ref synchronously (no round-trip).
++ *   - ONE derivation set: cssColor / cssColorOpaque / savedColorStrings (the
++ *     byte-identical + diverged twins deleted — this is canonical).
++ *   - the stableHue source-of-truth invariant, preserved bit-for-bit (below).
++ *   - ONE `applyTokens` sink for the color-derived root-token writes.
++ */
++export function useColorPipeline(model: ShallowRef<ColorModel>) {
++    const colorStore = useStorage("color-picker", defaultColorModel);
++
++    // --- Internal vs external write discriminator ---
++    // The sentinel — NOT the copy — is what distinguishes a self-originated
++    // write (slider/component edit) from an external one (URL load, palette
++    // apply, reset). The former carries the hue explicitly; the latter must
++    // refresh the stable hue. This idiom is unchanged from useColorModel; only
++    // the second shallowRef copy it used to sit beside is removed.
++    let lastWrittenModel: ColorModel | null = null;
++
++    const updateModel = (patch: Partial<ColorModel>) => {
++        const next = { ...model.value, ...patch };
++        lastWrittenModel = next;
++        model.value = next; // the ONE ref — synchronous; derivations recompute now
++    };
++
++    // --- Stable HSV hue (the invariant) ---
++    // oklch→HSV roundtrips lose hue at low chroma (atan2(0,0)=0). stableHue is
++    // the hue source-of-truth; it is refreshed ONLY on external-origin color
++    // changes, gated by s*v>0.01, and set explicitly by hue-drags.
++    const initHsv = colorUnit2(model.value.color, "hsv", true, false, false);
++    const stableHue = ref(initHsv.value.h.value);
++
++    watch(
++        () => model.value,
++        (m) => {
++            if (m === lastWrittenModel) return; // skip self-originated writes
++            if (!m.color) return;
++            try {
++                const hsv = colorUnit2(m.color, "hsv", true, false, false);
++                const s = hsv.value.s.value;
++                const v = hsv.value.v.value;
++                if (s * v > 0.01) {
++                    stableHue.value = hsv.value.h.value;
++                }
++            } catch {
++                /* ignore */
++            }
++        },
++    );
++
++    // --- Derived colors (ONE set) ---
++
++    const denormalizedCurrentColor = computed(() =>
++        normalizeColorUnit(model.value.color, true, false),
++    );
++
++    const cssColor = computed(() => {
++        if (CSS_NATIVE_SPACES.has(model.value.color.value.colorSpace)) {
++            return denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
++        }
++        return toCSSColorString(model.value.color);
++    });
++
++    const cssColorOpaque = computed(() => {
++        if (CSS_NATIVE_SPACES.has(model.value.color.value.colorSpace)) {
++            const denorm = denormalizedCurrentColor.value;
++            const c = denorm.clone() as typeof denorm;
++            c.value.alpha.value = 100;
++            return c.value.toFormattedString(DIGITS);
++        }
++        const c = model.value.color.clone();
++        c.value.alpha.value = 1;
++        return toCSSColorString(c);
++    });
++
++    const HSVCurrentColor = computed(() => {
++        const hsv = colorUnit2(model.value.color, "hsv", true, false, false);
++        hsv.value.h.value = stableHue.value;
++        return hsv;
++    });
++
++    const currentColorOpaque = computed(() => {
++        const denorm = denormalizedCurrentColor.value;
++        const color = denorm.clone() as typeof denorm;
++        color.value.alpha.value = 100;
++        return color;
++    });
++
++    const currentColorSpace = computed(() =>
++        resolveColorSpace(model.value.selectedColorSpace),
++    );
++
++    const colorComponents = computed(() => {
++        if (model.value.selectedColorSpace === "hex") {
++            return [["hex", 0]] as [string, any][];
++        }
++        return Object.entries(COLOR_SPACE_RANGES[currentColorSpace.value]).filter(
++            ([key]) => key !== "alpha",
++        );
++    });
++
++    // --- Delegated composables (identical wiring to useColorModel) ---
++
++    const {
++        parseAndNormalizeColor,
++        setCurrentColor,
++        parseAndSetColor,
++        parseAndSetColorDebounced,
++        parseError,
++        generateRandomColor,
++        astEcho,
++        gamutVerdict,
++    } = useColorParsing({ model, updateModel, stableHue, currentColorSpace });
++
++    const {
++        componentsSlidersStyle,
++        currentColorComponentsFormatted,
++        currentColorRanges,
++    } = useSliderGradients({
++        model,
++        currentColorOpaque,
++        currentColorSpace,
++        stableHue,
++        denormalizedCurrentColor,
++    });
++
++    const {
++        formattedCurrentColor,
++        savedColorLabel,
++        currentColorMeta,
++        crownKey,
++        canProposeName,
++    } = useColorNameResolution({ model, denormalizedCurrentColor, currentColorSpace });
++
++    // --- Saved colors (canonical: the picker's per-space formatted twin) ---
++
++    const savedColorStrings = computed(() =>
++        model.value.savedColors
++            .filter((c: any) => c instanceof ValueUnit)
++            .map((c: any) => {
++                const normalized = CSS_NATIVE_SPACES.has(c.value.colorSpace)
++                    ? normalizeColorUnit(c, true, false)
++                    : colorUnit2(c, "oklch", true, true, false);
++                return normalized.value.toFormattedString(DIGITS);
++            }),
++    );
++
++    // --- Component / space mutation ---
++
++    const updateToColorSpace = (to: ColorSpace) => {
++        const color = colorUnit2(model.value.color, to, true, false, false);
++        setCurrentColor(color, model.value.selectedColorSpace);
++    };
++
++    const formatForSelectedDisplaySpace = (color: ParsedColorUnit) => {
++        if (model.value.selectedColorSpace === "hex") {
++            return colorToHexString(color);
++        }
++        return normalizeColorUnit(color, true, false).value.toFormattedString(DIGITS);
++    };
++
++    const applyExternalColor = (cssColor: string) => {
++        const parsed = parseAndNormalizeColor(cssColor);
++        const resolved = resolveColorSpace(model.value.selectedColorSpace);
++        const converted = colorUnit2(parsed, resolved, true, false, false);
++        setCurrentColor(parsed, model.value.selectedColorSpace);
++        updateModel({ inputColor: formatForSelectedDisplaySpace(converted) });
++    };
++
++    const updateColorComponent = (
++        value: number,
++        component: string,
++        normalized: boolean = false,
++    ) => {
++        if (Number.isNaN(value) || !Number.isFinite(value)) return;
++        const color = model.value.color.clone();
++        if (normalized) {
++            color.value[component].value = value;
++        } else {
++            const normalizedValue = normalizeColorUnitComponent(
++                value,
++                denormalizedCurrentColor.value.value[component].unit,
++                currentColorSpace.value,
++                component,
++                false,
++            );
++            color.value[component].value = normalizedValue.value;
++        }
++        updateModel({ color });
++
++        if (component === "h" || component === "hue") {
++            const hsv = colorUnit2(color, "hsv", true, false, false);
++            stableHue.value = hsv.value.h.value;
++        }
++    };
++
++    const updateColorComponentDebounced = debounce(updateColorComponent, 500);
++
++    // --- Palette handlers ---
++
++    function onPaletteAddColor(cssColor: string) {
++        const savedColors = [...model.value.savedColors];
++        const currentStr = toCSSColorString(model.value.color);
++        const alreadyExists = savedColors.some(
++            (c: any) => c instanceof ValueUnit && toCSSColorString(c) === currentStr,
++        );
++        if (alreadyExists) return;
++        try {
++            savedColors.push(parseAndNormalizeColor(cssColor));
++            updateModel({ savedColors });
++        } catch {
++            /* ignore */
++        }
++    }
++
++    function onPaletteApply(colors: string[]) {
++        const parsed = colors
++            .map((css) => {
++                try {
++                    return parseAndNormalizeColor(css);
++                } catch {
++                    return null;
++                }
++            })
++            .filter(Boolean) as typeof model.value.savedColors;
++        updateModel({ savedColors: parsed });
++    }
++
++    // --- App-level entry points (folded from useAppColorModel) ---
++
++    const resetToDefaults = () => {
++        const fresh = createDefaultColorModel();
++        model.value = fresh; // external-origin: stableHue watch refreshes from it
++        syncColorToStorage.cancel();
++        colorStore.value.inputColor = fresh.inputColor;
++        colorStore.value.savedColors = fresh.savedColors.map((c) =>
++            normalizeColorUnit(c as any, true, false).toString(),
++        );
++    };
++
++    const applyColorString = (css: string) => {
++        try {
++            const parsed = parseAndNormalizeColor(css);
++            const resolved = resolveColorSpace(model.value.selectedColorSpace);
++            const color = colorUnit2(parsed, resolved, true, false, false);
++            const inputColor = formatForSelectedDisplaySpace(color);
++            updateModel({ color, inputColor });
++        } catch {
++            /* ignore parse errors */
++        }
++    };
++
++    // --- The ONE applyTokens sink (color-derived root tokens) ---
++    // The flash-free page-load background persistence + the live background
++    // reset. (The --accent-live and --view-hue-shift writes remain App-scoped:
++    // they read useContrastSafeColor / viewManager, not this model — the wave
++    // folds those in when W2-2's safeAccentCssString lands. See report §Learnings.)
++    const applyTokens = (opaque: string) => {
++        try {
++            localStorage.setItem("color-picker-bg", opaque);
++        } catch {
++            /* private-mode */
++        }
++        document.documentElement.style.background = "";
++        document.body.style.background = "";
++    };
++
++    watch(cssColorOpaque, (c) => applyTokens(c), { immediate: true });
++
++    // --- Storage write-through (unchanged from useAppColorModel) ---
++
++    const syncColorToStorage = debounce(
++        (color: any) => {
++            colorStore.value.inputColor = color?.toString() ?? "";
++        },
++        200,
++        false,
++    );
++
++    watch(
++        () => model.value.color,
++        (color) => syncColorToStorage(color),
++    );
++
++    watch(
++        () => model.value.savedColors,
++        (colors) => {
++            colorStore.value.savedColors = colors.map((c) =>
++                normalizeColorUnit(c as any, true, false).toString(),
++            );
++        },
++    );
++
++    return {
++        // Model
++        model,
++        updateModel,
++
++        // Derived colors (ONE set)
++        denormalizedCurrentColor,
++        cssColor,
++        cssColorOpaque,
++        HSVCurrentColor,
++        stableHue,
++        currentColorOpaque,
++        currentColorSpace,
++        colorComponents,
++
++        // Name resolution
++        formattedCurrentColor,
++        savedColorLabel,
++        currentColorMeta,
++        crownKey,
++        canProposeName,
++
++        // Saved colors
++        savedColorStrings,
++        onPaletteAddColor,
++        onPaletteApply,
++
++        // Parsing / setting
++        parseAndNormalizeColor,
++        setCurrentColor,
++        parseAndSetColor,
++        parseAndSetColorDebounced,
++        parseError,
++        applyExternalColor,
++        applyColorString,
++        astEcho,
++        gamutVerdict,
++
++        // Random
++        generateRandomColor,
++
++        // Slider styles
++        componentsSlidersStyle,
++        currentColorComponentsFormatted,
++        currentColorRanges,
++
++        // Component updates
++        updateToColorSpace,
++        updateColorComponent,
++        updateColorComponentDebounced,
++
++        // App-level entry points
++        resetToDefaults,
++
++        // Clipboard
++        copyToClipboard,
++
++        // Constants
++        DIGITS,
++    };
++}
++
++export type UseColorPipelineReturn = ReturnType<typeof useColorPipeline>;
+diff --git a/demo/@/composables/usePaneRouter.ts b/demo/@/composables/usePaneRouter.ts
+index 673d6d6..d8fa279 100644
+--- a/demo/@/composables/usePaneRouter.ts
++++ b/demo/@/composables/usePaneRouter.ts
+@@ -126,10 +126,11 @@ export function usePaneRouter(
+      *  resolve the same way — one path). */
+     function leftProps(name: string): Record<string, unknown> {
+         if (name === "color-picker") {
++            // S.W2 · W2-1: the picker no longer takes the model as a prop — it
++            // injects the ONE pipeline (COLOR_MODEL_KEY) App provides. Only its
++            // edit/reset emits remain wired here.
+             return {
+                 class: "picker-shell w-full",
+-                modelValue: model.value,
+-                "onUpdate:modelValue": (v: ColorModel) => deps.updateModel(v),
+                 "onUpdate:editTarget": deps.onEditTargetChange,
+                 onReset: deps.resetToDefaults,
+             };
+diff --git a/demo/color-picker/App.vue b/demo/color-picker/App.vue
+index 06726c8..4972bb6 100644
+--- a/demo/color-picker/App.vue
++++ b/demo/color-picker/App.vue
+@@ -98,7 +98,7 @@ import { computed, onMounted, provide, ref, shallowRef, useTemplateRef, watch }
+ 
+ import type { ColorModel, EditTarget } from "@components/custom/color-picker";
+ import { ColorPicker } from "@components/custom/color-picker";
+-import { CSS_COLOR_KEY, SAFE_ACCENT_KEY, EDIT_TARGET_KEY } from "@components/custom/color-picker/keys";
++import { CSS_COLOR_KEY, SAFE_ACCENT_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
+ import { useContrastSafeColor } from "@composables/color/useContrastSafeColor";
+ 
+ import { Dock } from "@components/custom/dock";
+@@ -110,7 +110,7 @@ import { useCustomColorNames } from "@components/custom/color-picker/composables
+ import { useColorUrl } from "@components/custom/color-picker/composables/useColorUrl";
+ 
+ import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
+-import { useAppColorModel } from "@composables/color/useAppColorModel";
++import { useColorPipeline } from "@composables/color/useColorPipeline";
+ import { usePaneRouter } from "@composables/usePaneRouter";
+ import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
+ import { useGlobalDark } from "@components/custom/dark-mode-toggle";
+@@ -130,7 +130,11 @@ const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
+ const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
+ const model = shallowRef<ColorModel>(defaultColorModel);
+ 
+-// --- Color model ---
++// --- Color model — the ONE pipeline (S.W2 · W2-1) ---
++// One composable owns the model + one derivation set + storage + the token
++// sink. Provided via COLOR_MODEL_KEY so the picker subtree consumes it directly
++// (no defineModel round-trip, no second shallowRef copy). See useColorPipeline.
++const pipeline = useColorPipeline(model);
+ const {
+     cssColor,
+     cssColorOpaque,
+@@ -138,7 +142,8 @@ const {
+     updateModel,
+     resetToDefaults,
+     applyColorString,
+-} = useAppColorModel(model);
++} = pipeline;
++provide(COLOR_MODEL_KEY, pipeline);
+ 
+ // --- Edit target ---
+ const activeEditTarget = shallowRef<EditTarget | null>(null);

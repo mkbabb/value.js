@@ -1,0 +1,348 @@
+diff --git a/CLAUDE.md b/CLAUDE.md
+index 6a8a0de..f0a85e4 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -8,9 +8,19 @@ CSS value unit library: parsing, normalization, interpolation, color space conve
+ npm run build        # library → dist/value.js (ESM) + dist/*.d.ts (flat layout, W12-unblocker)
+ npm run build:watch  # vite build --watch (D.W1 — contract-v2 fleet dev orchestration)
+ npm run gh-pages     # demo → dist/gh-pages/ (vendor-katex + vendor-highlight chunks via Rolldown codeSplitting, F.W1 Lane B)
+-npm run dev          # dev server (Vite default port)
++npm run dev          # HONEST full local stack (S.W0 W0-1): scripts/dev.sh up — local api + mongo rs0 + VITE_API_URL wired + dev CORS. Palette features round-trip out of the box.
++npm run dev:web-only # frontend ONLY (bare vite :9000). No backend: palette/API features CORS-die against prod; the UI surfaces an explicit "dev misconfigured" state, never a silent prod fallback.
+ ```
+ 
++> `npm run dev` boots the full stack because the demo's palette API needs a
++> CORS-permissive local backend. Bare vite with no `VITE_API_URL` targets the
++> cross-origin prod api (`api.color.babb.dev`), whose allow-list excludes
++> localhost — every palette request preflight-dies. Rather than mislabel that as
++> "backend offline", the demo detects the precondition (unset `VITE_API_URL` +
++> loopback origin + cross-origin BASE_URL) and enters a designed `misconfigured`
++> state (loud console error + a distinct UI chip). **REJECTED**: adding localhost
++> to prod `ALLOWED_ORIGINS` — dev must not target prod (api-broken-rootcause).
++
+ ## Test + verify
+ 
+ ```
+diff --git a/demo/@/components/custom/palette-browser/ApiOfflineChip.vue b/demo/@/components/custom/palette-browser/ApiOfflineChip.vue
+index 7d49c5e..fde118b 100644
+--- a/demo/@/components/custom/palette-browser/ApiOfflineChip.vue
++++ b/demo/@/components/custom/palette-browser/ApiOfflineChip.vue
+@@ -3,8 +3,24 @@
+          state in the instrument's own register — a Fira Code small-caps
+          annotation chip with a hairline ink edge and a slow status pulse —
+          never an apologetic toast. Self-gating: renders nothing while the
+-         backend is reachable. -->
+-    <span v-if="offline" role="status" class="api-offline-chip fira-code">
++         backend is reachable.
++
++         S.W0 W0-1: the `misconfigured` state is a DISTINCT, louder register
++         (a filled warning dot + an actionable dev message), never conflated
++         with the honest "backend offline — saved locally" degraded state. -->
++    <span
++        v-if="misconfigured"
++        role="alert"
++        class="api-offline-chip api-misconfig-chip fira-code"
++    >
++        <span class="misconfig-dot" aria-hidden="true"></span>
++        dev misconfigured — run `npm run dev`
++    </span>
++    <span
++        v-else-if="offline"
++        role="status"
++        class="api-offline-chip fira-code"
++    >
+         <span class="offline-dot" aria-hidden="true"></span>
+         backend offline — saved locally
+     </span>
+@@ -15,6 +31,7 @@ import { computed } from "vue";
+ import { apiAvailability } from "@lib/palette/api";
+ 
+ const offline = computed(() => apiAvailability.value === "unavailable");
++const misconfigured = computed(() => apiAvailability.value === "misconfigured");
+ </script>
+ 
+ <style scoped>
+@@ -43,12 +60,28 @@ const offline = computed(() => apiAvailability.value === "unavailable");
+     background: transparent;
+ }
+ 
++/* The misconfig register: a warning ink, a FILLED lamp — a deliberate,
++   attention-owning state, distinct from the muted "no signal" ring. */
++.api-misconfig-chip {
++    color: var(--destructive, oklch(0.58 0.19 25));
++    border-color: color-mix(in oklab, var(--destructive, oklch(0.58 0.19 25)) 55%, transparent);
++    background: color-mix(in oklab, var(--destructive, oklch(0.58 0.19 25)) 12%, transparent);
++}
++
++.misconfig-dot {
++    width: 0.4rem;
++    height: 0.4rem;
++    border-radius: var(--radius-pill);
++    background: currentColor;
++}
++
+ @media (prefers-reduced-motion: no-preference) {
+     @keyframes offline-dot-pulse {
+         0%, 100% { opacity: 1; }
+         50% { opacity: 0.35; }
+     }
+-    .offline-dot {
++    .offline-dot,
++    .misconfig-dot {
+         animation: offline-dot-pulse 2.4s var(--ease-standard) infinite;
+     }
+ }
+diff --git a/demo/@/lib/palette/api/availability.ts b/demo/@/lib/palette/api/availability.ts
+index 3e11406..a29e75a 100644
+--- a/demo/@/lib/palette/api/availability.ts
++++ b/demo/@/lib/palette/api/availability.ts
+@@ -16,11 +16,32 @@
+  *     state in the instrument's register, never an apologetic toast).
+  *
+  * `VITE_API_URL` stays: it is idiomatic test-endpoint DI (adjudicated).
++ *
++ * ── S.W0 W0-1 (S-11.C) — origin-honest dev-misconfig ─────────────────────────
++ * The `unavailable` latch cannot distinguish a CORS refusal from a network-down
++ * at the fetch layer (browser security collapses both to a bare rejection). So
++ * bare `npm run dev:web-only` on a loopback page with no `VITE_API_URL` targets
++ * the cross-origin PROD api (`api.color.babb.dev`), whose CORS allow-list
++ * excludes localhost → every request preflight-dies and the latch MISLABELS the
++ * cause as "backend unreachable — working locally". That is the silent
++ * prod-target footgun (api-broken-rootcause S-11).
++ *
++ * The cure is to detect the *precondition* up front — `VITE_API_URL` UNSET **and**
++ * a loopback page origin **and** a cross-origin resolved BASE_URL — and enter a
++ * DISTINCT, designed `misconfigured` state that fails LOUD (never the generic
++ * degraded affordance). It never fires in production (prod runs on
++ * `color.babb.dev`, not a loopback host) and never fires when `VITE_API_URL` is
++ * set (an explicit endpoint means the operator owns the target). The honest fix
++ * it names is `npm run dev` (the full local stack via `scripts/dev.sh up`).
+  */
+ 
+ import { ref, type Ref } from "vue";
+ 
+-export type ApiAvailability = "unknown" | "available" | "unavailable";
++export type ApiAvailability =
++    | "unknown"
++    | "available"
++    | "unavailable"
++    | "misconfigured";
+ 
+ /** Reactive availability cell — read by the degraded-state affordances. */
+ export const apiAvailability: Ref<ApiAvailability> = ref("unknown");
+@@ -39,8 +60,113 @@ const RETRY_COOLDOWN_MS = 30_000;
+ 
+ let unavailableSince = 0;
+ 
++// ── Origin-honest dev-misconfig (S.W0 W0-1) ──────────────────────────────────
++
++/** The concrete misconfig facts, retained so the loud error can name them. */
++interface MisconfigDetail {
++    pageOrigin: string;
++    baseUrl: string;
++}
++
++let misconfigDetail: MisconfigDetail | null = null;
++
++/** Loopback hosts a dev server binds — the pages that CORS-die against prod. */
++export function isLoopbackHost(hostname: string): boolean {
++    return (
++        hostname === "localhost" ||
++        hostname === "127.0.0.1" ||
++        hostname === "::1" ||
++        hostname === "[::1]" ||
++        hostname.endsWith(".localhost")
++    );
++}
++
++/** True when `baseUrl` resolves to a different origin than the page. */
++function isCrossOrigin(baseUrl: string, pageOrigin: string): boolean {
++    try {
++        // Absolute baseUrl ignores the base; a relative/proxied baseUrl (e.g.
++        // "/api") resolves against the page origin → same-origin → honest.
++        return new URL(baseUrl, pageOrigin).origin !== pageOrigin;
++    } catch {
++        return false;
++    }
++}
++
++export interface DevMisconfigInputs {
++    /** Whether `VITE_API_URL` was explicitly set (operator owns the endpoint). */
++    viteApiUrlSet: boolean;
++    /** The resolved API base URL the client will target. */
++    baseUrl: string;
++    /** The page origin the client runs in (e.g. `http://localhost:9000`). */
++    pageOrigin: string;
++    /** The page hostname (e.g. `localhost`). */
++    pageHostname: string;
++}
++
++/**
++ * The origin-honest dev-misconfig precondition (S-11.C): `VITE_API_URL` UNSET
++ * **and** a loopback page **and** a cross-origin resolved BASE_URL. That triad
++ * is the exact silent prod-target footgun — a loopback dev page pointed at the
++ * cross-origin prod api whose CORS excludes localhost. Pure + total for testing.
++ */
++export function detectDevMisconfig(i: DevMisconfigInputs): boolean {
++    if (i.viteApiUrlSet) return false; // explicit endpoint — not our call
++    if (!isLoopbackHost(i.pageHostname)) return false; // never fires in prod
++    return isCrossOrigin(i.baseUrl, i.pageOrigin);
++}
++
++/** The loud, actionable message — shared by the console warning + the error. */
++export function devMisconfigMessage(detail: MisconfigDetail | null): string {
++    const origin = detail?.pageOrigin ?? "this loopback page";
++    const base = detail?.baseUrl ?? "the production API";
++    return (
++        `value.js dev is MISCONFIGURED: ${origin} has no VITE_API_URL and is ` +
++        `targeting the cross-origin production API (${base}), whose CORS ` +
++        `allow-list excludes localhost — every palette request will be blocked. ` +
++        `Run \`npm run dev\` (the full local stack via scripts/dev.sh up) instead ` +
++        `of \`npm run dev:web-only\`, or set VITE_API_URL to a reachable, ` +
++        `CORS-permissive backend. This is a dev-config error, NOT "backend offline".`
++    );
++}
++
++/**
++ * Thrown when a transport call is short-circuited because dev is pointed at the
++ * cross-origin prod api with no local backend — a designed, loud state distinct
++ * from `ApiUnavailableError` (which means an actually-unreachable backend).
++ */
++export class DevMisconfigError extends Error {
++    override readonly name = "DevMisconfigError";
++
++    constructor() {
++        super(devMisconfigMessage(misconfigDetail));
++    }
++}
++
++/**
++ * Resolve the dev-config truth once, at client init, BEFORE any fetch can trip
++ * the latch. If the silent prod-target precondition holds, enter the designed
++ * `misconfigured` state and warn LOUD. Idempotent + browser-guarded (a no-op in
++ * SSR / non-DOM unit contexts). `baseUrl` is owned by the client (client.ts:35).
++ */
++export function initApiEnvironment(baseUrl: string): void {
++    if (typeof window === "undefined") return; // SSR / non-DOM test context
++    const inputs: DevMisconfigInputs = {
++        viteApiUrlSet: Boolean(import.meta.env.VITE_API_URL),
++        baseUrl,
++        pageOrigin: window.location.origin,
++        pageHostname: window.location.hostname,
++    };
++    if (!detectDevMisconfig(inputs)) return;
++    misconfigDetail = { pageOrigin: inputs.pageOrigin, baseUrl };
++    apiAvailability.value = "misconfigured";
++    // Loud, dev-facing: developers live in the console. Never swallowed.
++    console.error(`[value.js] ${devMisconfigMessage(misconfigDetail)}`);
++}
++
+ /** Trip the latch: a network-level transport failure was observed. */
+ export function markApiUnreachable(): void {
++    // A designed misconfig is NOT an unreachable backend — never mislabel it.
++    if (apiAvailability.value === "misconfigured") return;
+     unavailableSince = Date.now();
+     apiAvailability.value = "unavailable";
+ }
+@@ -53,11 +179,16 @@ export function markApiReachable(): void {
+ }
+ 
+ /**
+- * Gate a transport attempt. Inside the cooldown window of a tripped latch,
+- * throws `ApiUnavailableError` synchronously (the no-repeated-doomed-requests
+- * clause); past the window, lets ONE probe through.
++ * Gate a transport attempt. In the designed `misconfigured` state, throw a loud
++ * `DevMisconfigError` synchronously (no request is issued, the state never
++ * degrades to the misleading `unavailable`). Otherwise: inside the cooldown
++ * window of a tripped latch, throw `ApiUnavailableError`; past the window, let
++ * ONE probe through.
+  */
+ export function assertApiAttemptAllowed(): void {
++    if (apiAvailability.value === "misconfigured") {
++        throw new DevMisconfigError();
++    }
+     if (apiAvailability.value !== "unavailable") return;
+     if (Date.now() - unavailableSince >= RETRY_COOLDOWN_MS) return;
+     throw new ApiUnavailableError();
+diff --git a/demo/@/lib/palette/api/client.ts b/demo/@/lib/palette/api/client.ts
+index 4c3b691..dedc356 100644
+--- a/demo/@/lib/palette/api/client.ts
++++ b/demo/@/lib/palette/api/client.ts
+@@ -29,11 +29,18 @@ import {
+     markApiReachable,
+     markApiUnreachable,
+     ApiUnavailableError,
++    initApiEnvironment,
+ } from "./availability.js";
+ 
+ const DEFAULT_REMOTE_API_URL = "https://api.color.babb.dev";
+ export const BASE_URL = import.meta.env.VITE_API_URL ?? DEFAULT_REMOTE_API_URL;
+ 
++// S.W0 W0-1: resolve the dev-config truth ONCE, before any fetch can trip the
++// latch. Surfaces the designed `misconfigured` state (loud) when this is the
++// silent prod-target footgun — a loopback dev page with no VITE_API_URL aimed
++// at the cross-origin prod api. A no-op in production (non-loopback origin).
++initApiEnvironment(BASE_URL);
++
+ let sessionToken: string | null = null;
+ 
+ export function setSessionToken(token: string | null) {
+diff --git a/demo/@/lib/palette/api/index.ts b/demo/@/lib/palette/api/index.ts
+index b803669..5ac8468 100644
+--- a/demo/@/lib/palette/api/index.ts
++++ b/demo/@/lib/palette/api/index.ts
+@@ -30,6 +30,8 @@ export {
+     type ApiAvailability,
+     apiAvailability,
+     ApiUnavailableError,
++    DevMisconfigError,
++    devMisconfigMessage,
+ } from "./availability";
+ 
+ export { createSession, loginWithSlug, deleteSession, getMe } from "./sessions";
+diff --git a/demo/CLAUDE.md b/demo/CLAUDE.md
+index 583e06a..ed7735c 100644
+--- a/demo/CLAUDE.md
++++ b/demo/CLAUDE.md
+@@ -210,7 +210,26 @@ Arbitrary `[var(--…)]` callsites → 0. The fix surface:
+ 
+ ## Build modes
+ 
+-- `npm run dev` — dev server with HMR (root: `demo/color-picker/`)
++- `npm run dev` — **HONEST full local stack** (S.W0 W0-1): delegates to `scripts/dev.sh up` (local api + mongo rs0 + `VITE_API_URL` wired + dev CORS). Palette/API features round-trip out of the box. HMR (root: `demo/color-picker/`).
++- `npm run dev:web-only` — frontend ONLY (bare vite `:9000`, no backend). Palette/API features CORS-die against prod; the demo surfaces an explicit `misconfigured` state instead of silently pointing at prod.
+ - `npm run gh-pages` — production demo build → `dist/` (manual chunks: katex, prettier, highlight.js)
+ - `npm run build` — library build only (doesn't build demo)
+ - `npm run build:watch` — library watch (D.W1 — contract-v2 fleet dev orchestration)
++
++### The dev-backend honesty contract (S.W0 W0-1 · S-11)
++
++`@/lib/palette/api/availability.ts` owns the origin-honest failure path. At client
++init (`client.ts` module load, `initApiEnvironment(BASE_URL)`) it resolves the
++dev-config truth ONCE, before any fetch:
++
++- If `VITE_API_URL` is UNSET **and** the page is a loopback origin **and** the
++  resolved `BASE_URL` is cross-origin (the silent prod-target footgun), it enters
++  the designed `apiAvailability = "misconfigured"` state, logs a loud actionable
++  `console.error`, and every transport call throws `DevMisconfigError` (a distinct
++  loud error, never the `ApiUnavailableError` "working locally" degradation).
++- It **never fires in production** (prod runs on `color.babb.dev`, not loopback)
++  and **never fires when `VITE_API_URL` is set** (the operator owns that endpoint).
++
++`ApiOfflineChip.vue` renders the `misconfigured` register distinctly (a filled
++warning lamp + `dev misconfigured — run \`npm run dev\``) from the honest
++`unavailable` "backend offline — saved locally" state.
+diff --git a/package.json b/package.json
+index 0932ec5..6eb0cf4 100644
+--- a/package.json
++++ b/package.json
+@@ -68,7 +68,8 @@
+         "dist"
+     ],
+     "scripts": {
+-        "dev": "vite --port 9000",
++        "dev": "scripts/dev.sh up",
++        "dev:web-only": "vite --port 9000",
+         "build": "vite build --mode production",
+         "build:watch": "vite build --mode production --watch",
+         "gh-pages": "vite build --mode gh-pages",
