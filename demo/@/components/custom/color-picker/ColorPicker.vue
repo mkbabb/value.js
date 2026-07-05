@@ -84,7 +84,6 @@ import {
     watch,
 } from "vue";
 import { useMagicKeys } from "@vueuse/core";
-import { useColorModel } from "./composables/useColorModel";
 import type { ColorModel, EditTarget } from ".";
 import { toCSSColorString, resolveColorSpace } from ".";
 import { COLOR_MODEL_KEY } from "./keys";
@@ -100,16 +99,19 @@ import SpectrumCanvas from "./controls/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders.vue";
 import PointerDebugOverlay from "./visual/PointerDebugOverlay.vue";
 
-const model = defineModel<ColorModel>({ required: true });
 const emit = defineEmits<{
     reset: [];
     "update:editTarget": [target: EditTarget | null];
 }>();
 
-// --- Color model composable + provide ---
-
-const colorModel = useColorModel(model);
-provide(COLOR_MODEL_KEY, colorModel);
+// --- Color model: inject the ONE pipeline (S.W2 · W2-1 transposition) ---
+// The former `defineModel` + local `useColorModel` shallowRef copy are gone.
+// App owns the model and provides the merged pipeline via COLOR_MODEL_KEY; the
+// picker is a pure injected consumer. `model` is the App-owned ShallowRef, so
+// writes land synchronously (no prop→emit round-trip → no read-after-write
+// staleness). Descendant controls inject the same key from App's provide.
+const colorModel = inject(COLOR_MODEL_KEY)!;
+const { model } = colorModel;
 
 const pointerDebug = usePointerDebug();
 provide(POINTER_DEBUG_KEY, pointerDebug);

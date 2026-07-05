@@ -104,7 +104,7 @@ import { computed, onMounted, provide, ref, shallowRef, useTemplateRef, watch } 
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import { ColorPicker } from "@components/custom/color-picker";
-import { CSS_COLOR_KEY, SAFE_ACCENT_KEY, EDIT_TARGET_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY, SAFE_ACCENT_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
 import { useContrastSafeColor } from "@composables/color/useContrastSafeColor";
 
 import { Dock } from "@components/custom/dock";
@@ -117,7 +117,7 @@ import { useCustomColorNames } from "@components/custom/color-picker/composables
 import { useColorUrl } from "@components/custom/color-picker/composables/useColorUrl";
 
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
-import { useAppColorModel } from "@composables/color/useAppColorModel";
+import { useColorPipeline } from "@composables/color/useColorPipeline";
 import { usePaneRouter } from "@composables/usePaneRouter";
 import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
 import { useGlobalDark } from "@components/custom/dark-mode-toggle";
@@ -137,15 +137,28 @@ const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
 const model = shallowRef<ColorModel>(defaultColorModel);
 
-// --- Color model ---
+// --- Color model — the ONE pipeline (S.W2 · W2-1) ---
+// One composable owns the model + one derivation set + storage + the token sink.
+// Provided via COLOR_MODEL_KEY so the picker subtree (and the dock's re-provide)
+// consume it directly — no defineModel round-trip, no second shallowRef copy.
+const pipeline = useColorPipeline(model);
 const {
     cssColor,
     cssColorOpaque,
     savedColorStrings,
-    updateModel,
     resetToDefaults,
     applyColorString,
-} = useAppColorModel(model);
+    restoreFromStorage,
+} = pipeline;
+provide(COLOR_MODEL_KEY, pipeline);
+
+// External-origin model writes (URL load): assigning model.value directly — NOT
+// via pipeline.updateModel — leaves the pipeline's stableHue watch to refresh the
+// hue from the incoming color (updateModel marks self-originated edits, which the
+// watch skips). Mirrors the former useAppColorModel.updateModel semantics.
+const patchModelExternal = (patch: Partial<ColorModel>) => {
+    model.value = { ...model.value, ...patch };
+};
 
 // --- Edit target ---
 const activeEditTarget = shallowRef<EditTarget | null>(null);
@@ -256,8 +269,14 @@ const shareLink = async () => {
     }
 };
 
-// --- URL sync + custom color names ---
-useColorUrl({ model, updateModel });
+// --- URL sync + persistence precedence (S.W2 · W2-1) ---
+// URL-hash-wins-on-load: useColorUrl applies the hash color first and reports
+// whether it did. Only when the hash carries NO color does the pipeline restore
+// the last session from localStorage (the fallback, gated behind URL-wins).
+const { appliedFromUrl } = useColorUrl({ model, updateModel: patchModelExternal });
+if (!appliedFromUrl) restoreFromStorage();
+
+// --- Custom color names ---
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
 // --- Atmosphere: aurora + hero-blob palette coupling (N.W5.B) ---
