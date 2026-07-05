@@ -18,6 +18,16 @@ const selectedId = defineModel<string | null>("selectedId", { default: null });
 
 const barRef = useTemplateRef<HTMLDivElement>("barRef");
 const draggingId = ref<string | null>(null);
+// S.W4 / W4-3: hover state for the handle scale — the inline `transform`
+// shadows any `hover:` class utility, so hover must be modeled here and
+// folded into the same inline expression.
+const hoveredId = ref<string | null>(null);
+
+// Handle scale ladder: selected/dragging (1.25) > hover (1.1) > rest (1).
+function handleScale(id: string): number {
+    if (selectedId.value === id || draggingId.value === id) return 1.25;
+    return hoveredId.value === id ? 1.1 : 1;
+}
 
 // A stop is removable only when more than 2 stops exist; matches onHandleContextMenu guard.
 const removable = computed(() => stops.length > 2);
@@ -121,7 +131,7 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
                 :data-stop-id="stop.id"
                 :aria-label="`Gradient stop at ${Math.round(stop.position)}%`"
                 :aria-disabled="!removable"
-                class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring hover:scale-110 aria-disabled:opacity-50"
+                class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring aria-disabled:opacity-50"
                 :class="[
                     selectedId === stop.id
                         ? 'border-white ring-2 ring-primary z-popover'
@@ -131,13 +141,19 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
                     left: `${stop.position}%`,
                     backgroundColor: stop.cssColor,
                     boxShadow: 'var(--shadow-sm)',
-                    transform: `translate(-50%, -50%) scale(${selectedId === stop.id || draggingId === stop.id ? 1.25 : 1})`,
+                    /* S.W4 / W4-3: the hover scale rides the INLINE transform —
+                       the `hover:scale-110` utility was DEAD, shadowed by this
+                       inline `transform` (inline style always outranks the
+                       class). Selected/dragging (1.25) outranks hover (1.1). */
+                    transform: `translate(-50%, -50%) scale(${handleScale(stop.id)})`,
                     transition: 'box-shadow var(--duration-fast) var(--ease-standard), transform var(--duration-normal) var(--ease-spring)',
                 }"
                 @pointerdown="(e) => onHandlePointerDown(e, stop.id)"
                 @pointermove="onHandlePointerMove"
                 @pointerup="onHandlePointerUp"
                 @pointercancel="onHandlePointerUp"
+                @pointerenter="hoveredId = stop.id"
+                @pointerleave="hoveredId = null"
                 @contextmenu="(e) => onHandleContextMenu(e, stop.id)"
             />
         </div>
