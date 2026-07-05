@@ -541,22 +541,27 @@ export function convertToPixels(
         );
         value = (value / 100) * parentValue;
     } else if (unit === "ch" && element) {
-        // ch = width of "0" glyph; approximate via canvas when available
+        // ch = width of "0" glyph; approximate via canvas when available.
         const fontSize = parseFloat(getComputedStyle(element).fontSize) || 16;
-        if (typeof OffscreenCanvas !== "undefined" || typeof document !== "undefined") {
-            try {
-                const canvas =
-                    typeof OffscreenCanvas !== "undefined"
-                        ? new OffscreenCanvas(1, 1)
-                        : document.createElement("canvas");
-                const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-                ctx.font = `${fontSize}px ${getComputedStyle(element).fontFamily}`;
-                const zeroWidth = ctx.measureText("0").width;
-                value *= zeroWidth > 0 ? zeroWidth : fontSize * 0.5;
-            } catch {
-                value *= fontSize * 0.5;
-            }
+        // `getContext("2d")` is genuinely nullable (a headless/jsdom target, or
+        // a browser that declines a 2D context, returns null). Narrow it
+        // EXPLICITLY — the prior `as CanvasRenderingContext2D` asserted non-null,
+        // then a blanket `catch {}` two lines later silently folded the resulting
+        // null-deref into the same fallback as "measurement unavailable"
+        // (legacy-sweep-src P2). Each `getContext` call is on one concrete class,
+        // so no cast is needed.
+        let ctx: CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D | null = null;
+        if (typeof OffscreenCanvas !== "undefined") {
+            ctx = new OffscreenCanvas(1, 1).getContext("2d");
+        } else if (typeof document !== "undefined") {
+            ctx = document.createElement("canvas").getContext("2d");
+        }
+        if (ctx) {
+            ctx.font = `${fontSize}px ${getComputedStyle(element).fontFamily}`;
+            const zeroWidth = ctx.measureText("0").width;
+            value *= zeroWidth > 0 ? zeroWidth : fontSize * 0.5;
         } else {
+            // No 2D context available — fall back to the x-height approximation.
             value *= fontSize * 0.5;
         }
     } else if (unit === "ex" && element) {
