@@ -5,6 +5,15 @@
         :grain="false"
         class="about-card pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
     >
+        <!-- S.W4 W4-1 (the S-1 parity half): the de-capsuled selector inlines
+             into the title as ONE display-voice line. Its specimen rows read
+             the ONE App-provided pipeline (COLOR_MODEL_KEY, App.vue:
+             `provide(COLOR_MODEL_KEY, pipeline)`) — ambient since S.W2's
+             transposition — so About renders the live per-space conversions
+             identically to the picker with NO second provider here (a local
+             `useColorPipeline(model)` would double-instantiate the spine:
+             a second storage writer + token sink against the W2-1 ONE-pipeline
+             law). Both hosts get the W4-1 grammar verbatim (S-21). -->
         <PaneHeader description="The math, the science, the art, the beauty of color spaces.">
             About the color spaces,
             <ColorSpaceSelector
