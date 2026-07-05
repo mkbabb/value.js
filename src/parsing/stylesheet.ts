@@ -844,14 +844,14 @@ const atRule: Parser<StylesheetItem> = at
 
 const stylesheetItem: Parser<StylesheetItem> = any(atRule, styleRule).trim(ws);
 
-const stylesheet: Parser<Stylesheet> = stylesheetItem.many().trim(ws).skip(
-    new Parser((state) => {
-        // require full input consumption — silent partial parses
-        // hide bugs in the grammar.
-        if (state.offset >= state.src.length) return state.ok(null, 0);
-        return state.err(undefined as never, 0);
-    }),
-);
+// W1-4 (S.W1 · lib-parsing F-9): `.eof()` replaces the hand-rolled
+// full-consumption check. `Parser.prototype.eof()` (= `.skip(eof())`) still
+// requires the whole input to be consumed — a silent partial parse hides
+// grammar bugs — but fails through `mergeErrorState(state, "<end of input>")`
+// AND attaches a named "trailing-content" suggestion, strictly richer
+// diagnostics than the silent hand-rolled `state.err(undefined, 0)`, for less
+// code. The parsed `Stylesheet` value passes through `.skip()` unchanged.
+const stylesheet: Parser<Stylesheet> = stylesheetItem.many().trim(ws).eof();
 
 // ─── Public API ───────────────────────────────────────────────────────────
 

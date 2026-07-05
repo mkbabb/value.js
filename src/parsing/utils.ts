@@ -1,4 +1,4 @@
-import { Parser, regex, string } from "@mkbabb/parse-that";
+import { mergeErrorState, Parser, regex, string } from "@mkbabb/parse-that";
 import type { ParserState } from "@mkbabb/parse-that";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -301,9 +301,20 @@ export function succeed<T>(value: T): Parser<T> {
     });
 }
 
-/** Parser that always fails with the given message. */
+/**
+ * Parser that always fails, routing `message` into parse-that's diagnostic
+ * channel (W1-4 · lib-parsing F-4). Previously the `message` argument was dead
+ * code — `state.err()` has no message parameter, so the three authored fail
+ * messages (`Invalid color name: …`, `Not a system color: …`, `unit:…`) were
+ * silently thrown away, and every failure surfaced only the generic
+ * "Parse error at offset N" context. `mergeErrorState(state, message)` advances
+ * the furthest-reach (so the failure offset is honestly reported even with
+ * diagnostics off — value.js's default) and records `message` in
+ * `state.expected` when a consumer opts in via parse-that's `enableDiagnostics`.
+ */
 export function fail(message: string): Parser<never> {
     return new Parser<never>((state: ParserState<any>) => {
+        mergeErrorState(state, message);
         return state.err(undefined as never, 0);
     });
 }

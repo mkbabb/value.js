@@ -1,11 +1,13 @@
 import { describe, expect, it, vi } from "vitest";
-import { regex } from "@mkbabb/parse-that";
+import { disableDiagnostics, enableDiagnostics, regex } from "@mkbabb/parse-that";
 import {
+    fail,
     tryParse,
     parseResult,
     number,
     type ParseDiagnostic,
 } from "../src/parsing/utils";
+import { parseCSSStylesheet } from "../src/parsing/stylesheet";
 
 describe("diagnostics sink (VJ-F2 — structured parse-error channel)", () => {
     it("emits a structured diagnostic to the sink on a failed tryParse", () => {
@@ -91,5 +93,52 @@ describe("diagnostics sink (VJ-F2 — structured parse-error channel)", () => {
             spy.mockRestore();
         }
         expect(spy).not.toHaveBeenCalled();
+    });
+});
+
+describe("W1-4 (lib-parsing F-4) — fail(message) reaches the diagnostic channel", () => {
+    it("advances the furthest-reach even with diagnostics OFF (value.js default)", () => {
+        // Under the default policy `expected` stays absent (console-silent), but
+        // the failure OFFSET must be honest: `fail()` now merges the error state,
+        // so a fail at a consumed offset reports that offset, not 0.
+        const seen: ParseDiagnostic[] = [];
+        const consumeThenFail = regex(/\d+/).then(fail("boom after digits"));
+        parseResult(consumeThenFail, "123", (d) => seen.push(d));
+        expect(seen).toHaveLength(1);
+        expect(seen[0]!.offset).toBe(3);
+        // Console-silent by default: message is NOT leaked to `expected`.
+        expect(seen[0]!.expected).toBeUndefined();
+    });
+
+    it("surfaces the authored message in `expected` under enableDiagnostics", () => {
+        // Opt-in consumers (parse-that enableDiagnostics) now see the specific
+        // authored message instead of the generic context — the F-4 cure.
+        // enableDiagnostics re-arms parse-that's console emission, so suppress it.
+        enableDiagnostics();
+        const spy = vi.spyOn(console, "error").mockImplementation(() => {});
+        try {
+            const seen: ParseDiagnostic[] = [];
+            parseResult(fail("Invalid color name: mauvey"), "mauvey", (d) =>
+                seen.push(d),
+            );
+            expect(seen).toHaveLength(1);
+            expect(seen[0]!.expected).toContain("Invalid color name: mauvey");
+        } finally {
+            disableDiagnostics();
+            spy.mockRestore();
+        }
+    });
+});
+
+describe("W1-4 (lib-parsing F-9) — the .eof() swap keeps full-consumption", () => {
+    it("rejects trailing content after a valid rule (partial parse still fails)", () => {
+        expect(() =>
+            parseCSSStylesheet(".a { color: red; } %%% not-css %%%"),
+        ).toThrow();
+    });
+
+    it("still parses a fully-consumed stylesheet", () => {
+        const s = parseCSSStylesheet(".a { color: red; } .b { color: blue; }");
+        expect(s).toHaveLength(2);
     });
 });
