@@ -7,7 +7,7 @@ import type {
     PropertyDescriptor,
     Stylesheet,
     StylesheetItem,
-} from "./stylesheet";
+} from "./stylesheet-types";
 
 /**
  * Animation options as expressed in CSS — a CSS-spec subset shared by

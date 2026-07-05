@@ -6,7 +6,7 @@ import type {
     Stylesheet,
     StylesheetItem,
     ViewTimelineDescriptor,
-} from "./stylesheet";
+} from "./stylesheet-types";
 import * as utils from "./utils";
 import { splitTopLevelCommas } from "./utils";
 import type { OnParseError } from "./utils";
