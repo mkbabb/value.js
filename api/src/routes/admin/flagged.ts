@@ -26,13 +26,13 @@ function parsePagination(c: Context<AppEnv>): { limit: number; offset: number } 
 // GET /admin/flagged — list flagged palettes with flag counts
 router.get("/flagged", async (c) => {
     const { limit, offset } = parsePagination(c);
-    const page = await listFlagged(c, limit, offset);
+    const page = await listFlagged(c.var.services, limit, offset);
     return c.json(page);
 });
 
 // DELETE /admin/flags/:paletteSlug — dismiss all flags for a palette
 router.delete("/flags/:paletteSlug", async (c) => {
-    const result = await dismissFlags(c, c.req.param("paletteSlug"));
+    const result = await dismissFlags(c.var.services, c.var.userSlug, c.req.param("paletteSlug"));
     return c.json(result);
 });
 

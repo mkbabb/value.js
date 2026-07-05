@@ -16,6 +16,7 @@
 import { Hono } from "hono";
 import type { AppEnv } from "../types.js";
 import { ValidationError } from "../errors/index.js";
+import { hashIP, resolveIP } from "../middleware/ip.js";
 import { loginRateLimit, registrationRateLimit } from "../middleware/rate-limit.js";
 import { loginBody } from "../validation/session.js";
 import {
@@ -29,7 +30,8 @@ const sessions = new Hono<AppEnv>();
 
 // POST /sessions — register a new user + session
 sessions.post("/", registrationRateLimit, async (c) => {
-    const result = await registerSession(c);
+    const ipHash = await hashIP(resolveIP(c));
+    const result = await registerSession(c.var.services, ipHash);
     return c.json(result, 201);
 });
 
@@ -40,19 +42,22 @@ sessions.post("/login", loginRateLimit, async (c) => {
     if (!parsed.success) {
         throw new ValidationError("Invalid login body", parsed.error.format());
     }
-    const result = await loginSession(c, { slug: parsed.data.slug });
+    const ipHash = await hashIP(resolveIP(c));
+    const result = await loginSession(c.var.services, c.var.userSlug, ipHash, {
+        slug: parsed.data.slug,
+    });
     return c.json(result);
 });
 
 // DELETE /sessions — revoke current session
 sessions.delete("/", async (c) => {
-    const result = await revokeSession(c);
+    const result = await revokeSession(c.var.services, c.var.sessionToken);
     return c.json(result);
 });
 
 // GET /sessions/me — current user info
 sessions.get("/me", async (c) => {
-    const result = await getMe(c);
+    const result = await getMe(c.var.services, c.var.userSlug);
     return c.json(result);
 });
 

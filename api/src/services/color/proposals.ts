@@ -4,14 +4,13 @@
  * Owns the write-side of the public color-name surface:
  *   - POST /colors/propose  → submit a new color name (status="proposed")
  *
- * All DB access routes through `c.var.services.repositories.proposedNames`.
+ * All DB access routes through `services.repositories.proposedNames`.
  * The duplicate-name check is layered (pre-check + 11000-recovery) — the
  * unique index on `proposed_names.name` is authoritative; the pre-check
  * short-circuits the common-case for a cleaner error envelope.
  */
 
-import type { Context } from "hono";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import {
     AuthenticationError,
     ConflictError,
@@ -25,13 +24,13 @@ export interface ProposeInput {
 }
 
 export async function proposeColor(
-    c: Context<AppEnv>,
+    services: Services,
+    sessionToken: string | undefined,
     input: ProposeInput,
 ): Promise<ProposedNameDTO> {
-    const sessionToken = c.var.sessionToken;
     if (!sessionToken) throw new AuthenticationError("Session token required");
 
-    const { proposedNames } = c.var.services.repositories;
+    const { proposedNames } = services.repositories;
 
     const existing = await proposedNames.findByName(input.name);
     if (existing) {

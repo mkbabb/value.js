@@ -9,9 +9,8 @@
  * All admin actions emit a typed audit event via `emitAuditEvent`.
  */
 
-import type { Context } from "hono";
 import type { WithId } from "mongodb";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import { ConflictError, NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
 import type { Tag } from "../../models.js";
@@ -38,25 +37,28 @@ function format(tag: WithId<Tag>): TagDTO {
     };
 }
 
-export async function listTags(c: Context<AppEnv>): Promise<TagDTO[]> {
-    const { tags } = c.var.services.repositories;
+export async function listTags(services: Services): Promise<TagDTO[]> {
+    const { tags } = services.repositories;
     const rows = await tags.findAllSorted();
     return rows.map((t) => format(t));
 }
 
 export async function createTag(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
     name: string,
     category: string,
 ): Promise<CreateTagResult> {
-    const { tags } = c.var.services.repositories;
+    const { tags } = services.repositories;
     try {
         const id = await tags.insert({
             name,
             category,
             createdAt: new Date(),
         });
-        await emitAuditEvent(c, "create-tag", { target: `name=${name} category=${category}` });
+        await emitAuditEvent(services, actorSlug, "create-tag", {
+            target: `name=${name} category=${category}`,
+        });
         return { id: id.toString(), name, category };
     } catch (e: unknown) {
         const code = (e as { code?: number } | undefined)?.code;
@@ -67,8 +69,11 @@ export async function createTag(
     }
 }
 
-export async function deleteTag(c: Context<AppEnv>, name: string): Promise<void> {
-    const services = c.var.services;
+export async function deleteTag(
+    services: Services,
+    actorSlug: string | undefined,
+    name: string,
+): Promise<void> {
     const { tags, palettes } = services.repositories;
     // Cross-collection write (H.W1 Lane A.2 — H1 invariant): delete the
     // tag row AND cascade-pull the tag string from every palette that
@@ -83,5 +88,5 @@ export async function deleteTag(c: Context<AppEnv>, name: string): Promise<void>
         }
         await palettes.pullTagFromAll(name, session);
     });
-    await emitAuditEvent(c, "delete-tag", { target: `name=${name}` });
+    await emitAuditEvent(services, actorSlug, "delete-tag", { target: `name=${name}` });
 }

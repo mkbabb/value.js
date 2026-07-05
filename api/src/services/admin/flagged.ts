@@ -8,8 +8,7 @@
  * Emits an audit event on dismissal (the list is a read — no audit).
  */
 
-import type { Context } from "hono";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
 import type { FlaggedPalette } from "../../repositories/flag.js";
 
@@ -21,11 +20,11 @@ export interface FlaggedListPage {
 }
 
 export async function listFlagged(
-    c: Context<AppEnv>,
+    services: Services,
     limit: number,
     offset: number,
 ): Promise<FlaggedListPage> {
-    const { flags } = c.var.services.repositories;
+    const { flags } = services.repositories;
     const [data, total] = await Promise.all([
         flags.aggregateFlaggedPalettes(offset, limit),
         flags.countDistinctPalettes(),
@@ -38,12 +37,13 @@ export interface DismissResult {
 }
 
 export async function dismissFlags(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
     paletteSlug: string,
 ): Promise<DismissResult> {
-    const { flags } = c.var.services.repositories;
+    const { flags } = services.repositories;
     const dismissed = await flags.deleteByPaletteSlug(paletteSlug);
-    await emitAuditEvent(c, "dismiss-flags", {
+    await emitAuditEvent(services, actorSlug, "dismiss-flags", {
         target: `paletteSlug=${paletteSlug} count=${dismissed}`,
     });
     return { dismissed };

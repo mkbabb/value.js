@@ -8,8 +8,7 @@
  * All admin actions emit a typed audit event via `emitAuditEvent`.
  */
 
-import type { Context } from "hono";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import { NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
 import type { PaletteTier } from "../../models.js";
@@ -27,11 +26,12 @@ export interface FeatureToggleResult {
  * the state-update is a no-op, so admin coordination is auditable).
  */
 export async function setFeatured(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
     slug: string,
     featured: boolean,
 ): Promise<FeatureToggleResult> {
-    const { palettes } = c.var.services.repositories;
+    const { palettes } = services.repositories;
     const palette = await palettes.findBySlug(slug);
     if (!palette) {
         throw new NotFoundError("Palette not found");
@@ -45,14 +45,17 @@ export async function setFeatured(
             $set: { tier: newTier, updatedAt: new Date() },
         });
     }
-    await emitAuditEvent(c, "set-featured", {
+    await emitAuditEvent(services, actorSlug, "set-featured", {
         target: `slug=${slug} featured=${featured} tier=${newTier}`,
     });
     return { slug, tier: newTier };
 }
 
-export async function deletePalette(c: Context<AppEnv>, slug: string): Promise<void> {
-    const services = c.var.services;
+export async function deletePalette(
+    services: Services,
+    actorSlug: string | undefined,
+    slug: string,
+): Promise<void> {
     const { palettes } = services.repositories;
     // I.W2: admin delete is now soft (sets deletedAt). The reaper cron
     // hard-deletes after the grace window (default 30 days). This matches the
@@ -73,5 +76,5 @@ export async function deletePalette(c: Context<AppEnv>, slug: string): Promise<v
             await palettes.decrementForkCount(palette.forkOf, session);
         }
     });
-    await emitAuditEvent(c, "delete-palette", { target: `slug=${slug}` });
+    await emitAuditEvent(services, actorSlug, "delete-palette", { target: `slug=${slug}` });
 }

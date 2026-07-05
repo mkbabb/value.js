@@ -9,9 +9,8 @@
  * reads would be infinite. The original route also did not emit.
  */
 
-import type { Context } from "hono";
 import type { Filter, WithId } from "mongodb";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import { escapeRegex } from "../../regex.js";
 import type { AdminAuditEvent } from "../../models.js";
 
@@ -54,10 +53,10 @@ function format(doc: WithId<AdminAuditEvent>): AuditEntryDTO {
 }
 
 export async function listAudit(
-    c: Context<AppEnv>,
+    services: Services,
     query: AuditQuery,
 ): Promise<AuditPage> {
-    const { adminAudit } = c.var.services.repositories;
+    const { adminAudit } = services.repositories;
     const filter: Filter<AdminAuditEvent> = {};
     if (query.action) filter.action = query.action;
     if (query.target) {

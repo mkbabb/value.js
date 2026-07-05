@@ -34,32 +34,32 @@ function parsePagination(c: Context<AppEnv>): { limit: number; offset: number } 
 // GET /admin/queue — list proposed-status names
 router.get("/queue", async (c) => {
     const { limit, offset } = parsePagination(c);
-    const page = await listByStatus(c, "proposed", limit, offset);
+    const page = await listByStatus(c.var.services, "proposed", limit, offset);
     return c.json(page);
 });
 
 // GET /admin/colors/approved — list approved-status names
 router.get("/colors/approved", async (c) => {
     const { limit, offset } = parsePagination(c);
-    const page = await listByStatus(c, "approved", limit, offset);
+    const page = await listByStatus(c.var.services, "approved", limit, offset);
     return c.json(page);
 });
 
 // DELETE /admin/colors/:id — delete a color name (any status)
 router.delete("/colors/:id", async (c) => {
-    await deleteColor(c, c.req.param("id"));
+    await deleteColor(c.var.services, c.var.userSlug, c.req.param("id"));
     return c.json({ deleted: true });
 });
 
 // POST /admin/colors/:id/approve
 router.post("/colors/:id/approve", async (c) => {
-    await approveColor(c, c.req.param("id"));
+    await approveColor(c.var.services, c.var.userSlug, c.req.param("id"));
     return c.json({ approved: true });
 });
 
 // POST /admin/colors/:id/reject
 router.post("/colors/:id/reject", async (c) => {
-    await rejectColor(c, c.req.param("id"));
+    await rejectColor(c.var.services, c.var.userSlug, c.req.param("id"));
     return c.json({ rejected: true });
 });
 

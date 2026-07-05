@@ -1,11 +1,6 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
-import {
-    buildServices,
-    cleanCollections,
-    connect,
-    makeFakeContext,
-} from "../helpers.js";
+import { buildServices, cleanCollections, connect } from "../helpers.js";
 import {
     deleteUser,
     listUsers,
@@ -41,8 +36,7 @@ describe("service.admin.users", () => {
             _id: asUserSlug("alice"),
             createdAt: new Date(),
         });
-        const c = makeFakeContext(services, "admin");
-        const page = await listUsers(c, 10, 0, undefined);
+        const page = await listUsers(services, 10, 0, undefined);
         expect(page.total).toBe(1);
         expect(page.data[0].slug).toBe("alice");
     });
@@ -61,18 +55,16 @@ describe("service.admin.users", () => {
             lastSeenAt: new Date(),
             expiresAt: new Date(Date.now() + 1000),
         });
-        const c = makeFakeContext(services, "admin");
-        await setUserStatus(c, "alice", "suspended");
+        await setUserStatus(services, "admin", "alice", "suspended");
         const user = await services.repositories.users.findBySlug("alice");
         expect(user?.status).toBe("suspended");
         expect(await services.repositories.sessions.findByToken("tok-1")).toBeNull();
     });
 
     it("setUserStatus missing user throws NotFoundError", async () => {
-        const c = makeFakeContext(services, "admin");
-        await expect(setUserStatus(c, "ghost", "suspended")).rejects.toBeInstanceOf(
-            NotFoundError,
-        );
+        await expect(
+            setUserStatus(services, "admin", "ghost", "suspended"),
+        ).rejects.toBeInstanceOf(NotFoundError);
     });
 
     it("deleteUser cascades palettes/votes/flags/sessions", async () => {
@@ -98,8 +90,7 @@ describe("service.admin.users", () => {
             lastSeenAt: new Date(),
             expiresAt: new Date(Date.now() + 1000),
         });
-        const c = makeFakeContext(services, "admin");
-        const result = await deleteUser(c, "alice");
+        const result = await deleteUser(services, "admin", "alice");
         expect(result?.palettesDeleted).toBe(1);
         expect(await services.repositories.users.findBySlug("alice")).toBeNull();
         expect(await services.repositories.palettes.findBySlug("p1")).toBeNull();
@@ -123,8 +114,7 @@ describe("service.admin.users", () => {
             },
             userSlug: "with-palette",
         });
-        const c = makeFakeContext(services, "admin");
-        const deleted = await pruneEmptyUsers(c);
+        const deleted = await pruneEmptyUsers(services, "admin");
         expect(deleted).toBe(1);
         expect(await services.repositories.users.findBySlug("empty")).toBeNull();
         expect(await services.repositories.users.findBySlug("with-palette")).not.toBeNull();

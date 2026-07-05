@@ -13,9 +13,8 @@
  * All admin actions emit a typed audit event via `emitAuditEvent`.
  */
 
-import type { Context } from "hono";
 import type { Filter } from "mongodb";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import { NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
 import { escapeRegex } from "../../regex.js";
@@ -37,12 +36,12 @@ export interface UserListPage {
 }
 
 export async function listUsers(
-    c: Context<AppEnv>,
+    services: Services,
     limit: number,
     offset: number,
     q: string | undefined,
 ): Promise<UserListPage> {
-    const { users } = c.var.services.repositories;
+    const { users } = services.repositories;
     const match: Filter<User> = {};
     if (q && q.length > 0) {
         // _id is the slug — regex search against it
@@ -82,10 +81,10 @@ export interface UserPaletteEntry {
 }
 
 export async function listUserPalettes(
-    c: Context<AppEnv>,
+    services: Services,
     slug: string,
 ): Promise<UserPaletteEntry[]> {
-    const { palettes } = c.var.services.repositories;
+    const { palettes } = services.repositories;
     // Use a wide window — the original route had no pagination here.
     const rows = await palettes.findByUserSlug(slug, 0, 1000);
     return rows.map((doc) => ({
@@ -101,11 +100,11 @@ export async function listUserPalettes(
 }
 
 export async function setUserStatus(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
     slug: string,
     status: UserStatus,
 ): Promise<void> {
-    const services = c.var.services;
     const { users, sessions } = services.repositories;
     const user = await users.findBySlug(slug);
     if (!user) {
@@ -124,7 +123,9 @@ export async function setUserStatus(
             await sessions.deleteByUserSlug(slug, session);
         }
     });
-    await emitAuditEvent(c, "set-user-status", { target: `slug=${slug} status=${status}` });
+    await emitAuditEvent(services, actorSlug, "set-user-status", {
+        target: `slug=${slug} status=${status}`,
+    });
 }
 
 export interface DeleteUserResult {
@@ -142,12 +143,12 @@ export interface DeleteUserResult {
  * does not exist — used by `batch` to skip absent slugs.
  */
 export async function deleteUser(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
     slug: string,
     options: { throwIfMissing?: boolean; emit?: boolean } = {},
 ): Promise<DeleteUserResult | null> {
     const { throwIfMissing = true, emit = true } = options;
-    const services = c.var.services;
     const { users, palettes, votes, flags, sessions, adminAudit } =
         services.repositories;
 
@@ -181,7 +182,7 @@ export async function deleteUser(
     });
 
     if (emit) {
-        await emitAuditEvent(c, "delete-user", {
+        await emitAuditEvent(services, actorSlug, "delete-user", {
             target: `slug=${slug} palettes=${paletteSlugs.length}`,
         });
     }
@@ -189,10 +190,10 @@ export async function deleteUser(
 }
 
 export async function deleteUserPalettes(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
     slug: string,
 ): Promise<number> {
-    const services = c.var.services;
     const { users, palettes, votes, flags } = services.repositories;
     const user = await users.findBySlug(slug);
     if (!user) {
@@ -217,18 +218,20 @@ export async function deleteUserPalettes(
         }
         return palettes.deleteManyByUserSlug(slug, session);
     });
-    await emitAuditEvent(c, "delete-user-palettes", {
+    await emitAuditEvent(services, actorSlug, "delete-user-palettes", {
         target: `slug=${slug} count=${deletedCount}`,
     });
     return deletedCount;
 }
 
-export async function pruneEmptyUsers(c: Context<AppEnv>): Promise<number> {
-    const services = c.var.services;
+export async function pruneEmptyUsers(
+    services: Services,
+    actorSlug: string | undefined,
+): Promise<number> {
     const { users, sessions } = services.repositories;
     const slugs = await users.findEmptyUserSlugs();
     if (slugs.length === 0) {
-        await emitAuditEvent(c, "prune-empty-users", { target: "count=0" });
+        await emitAuditEvent(services, actorSlug, "prune-empty-users", { target: "count=0" });
         return 0;
     }
     // Cross-collection write (H.W1 Lane A.2 — H1 invariant): delete the
@@ -241,7 +244,7 @@ export async function pruneEmptyUsers(c: Context<AppEnv>): Promise<number> {
         await sessions.deleteByUserSlugs(slugs, session);
         return users.deleteMany(slugs, session);
     });
-    await emitAuditEvent(c, "prune-empty-users", { target: `count=${deleted}` });
+    await emitAuditEvent(services, actorSlug, "prune-empty-users", { target: `count=${deleted}` });
     return deleted;
 }
 

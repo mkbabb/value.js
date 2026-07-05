@@ -1,11 +1,6 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
-import {
-    buildServices,
-    cleanCollections,
-    connect,
-    makeFakeContext,
-} from "../helpers.js";
+import { buildServices, cleanCollections, connect } from "../helpers.js";
 import {
     deletePalette as adminDeletePalette,
     setFeatured,
@@ -43,20 +38,20 @@ describe("service.admin.palettes", () => {
     });
 
     it("setFeatured is idempotent (I.W3) — re-POSTing same body is a no-op", async () => {
-        const c = makeFakeContext(services, "admin");
-        const r1 = await setFeatured(c, "mod", true);
+        const r1 = await setFeatured(services, "admin", "mod", true);
         expect(r1.tier).toBe("featured");
         // Idempotent: re-posting `featured: true` returns the same state.
-        const r2 = await setFeatured(c, "mod", true);
+        const r2 = await setFeatured(services, "admin", "mod", true);
         expect(r2.tier).toBe("featured");
         // Reverse to standard.
-        const r3 = await setFeatured(c, "mod", false);
+        const r3 = await setFeatured(services, "admin", "mod", false);
         expect(r3.tier).toBe("standard");
     });
 
     it("setFeatured missing slug throws NotFoundError", async () => {
-        const c = makeFakeContext(services, "admin");
-        await expect(setFeatured(c, "ghost", true)).rejects.toBeInstanceOf(NotFoundError);
+        await expect(
+            setFeatured(services, "admin", "ghost", true),
+        ).rejects.toBeInstanceOf(NotFoundError);
     });
 
     it("admin deletePalette soft-deletes + emits audit (I.W2)", async () => {
@@ -70,8 +65,7 @@ describe("service.admin.palettes", () => {
             detail: null,
             createdAt: new Date(),
         });
-        const c = makeFakeContext(services, "admin");
-        await adminDeletePalette(c, "mod");
+        await adminDeletePalette(services, "admin", "mod");
         const doc = await services.repositories.palettes.findBySlug("mod");
         expect(doc).not.toBeNull();
         expect(doc?.deletedAt).toBeInstanceOf(Date);
@@ -82,9 +76,8 @@ describe("service.admin.palettes", () => {
     });
 
     it("admin deletePalette missing slug throws NotFoundError", async () => {
-        const c = makeFakeContext(services, "admin");
-        await expect(adminDeletePalette(c, "ghost")).rejects.toBeInstanceOf(
-            NotFoundError,
-        );
+        await expect(
+            adminDeletePalette(services, "admin", "ghost"),
+        ).rejects.toBeInstanceOf(NotFoundError);
     });
 });

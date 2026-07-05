@@ -8,14 +8,16 @@
  * route. Lane D may revisit expiry policy alongside the F2 ownership work.
  *
  * Emits a typed audit event via `emitAuditEvent`.
+ *
+ * W2-8 — `ipHash` is resolved by the ROUTE (which holds the raw Hono
+ * `Context` for `resolveIP`) and passed in as a plain string; the service
+ * itself never touches `Context`.
  */
 
 import crypto from "node:crypto";
-import type { Context } from "hono";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import { NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
-import { hashIP, resolveIP } from "../../middleware/ip.js";
 import { asSessionToken } from "../../models.js";
 
 export interface ImpersonateResult {
@@ -24,18 +26,18 @@ export interface ImpersonateResult {
 }
 
 export async function impersonate(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
+    ipHash: string,
     targetSlug: string,
 ): Promise<ImpersonateResult> {
-    const { users, sessions } = c.var.services.repositories;
+    const { users, sessions } = services.repositories;
 
     const user = await users.findBySlug(targetSlug);
     if (!user) {
         throw new NotFoundError("User not found");
     }
 
-    const ip = resolveIP(c);
-    const ipHash = await hashIP(ip);
     const token = crypto.randomUUID();
     const now = new Date();
 
@@ -49,6 +51,6 @@ export async function impersonate(
         lastSeenAt: now,
     });
 
-    await emitAuditEvent(c, "impersonate", { target: `slug=${targetSlug}` });
+    await emitAuditEvent(services, actorSlug, "impersonate", { target: `slug=${targetSlug}` });
     return { token, userSlug: targetSlug };
 }

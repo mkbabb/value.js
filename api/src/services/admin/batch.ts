@@ -9,8 +9,7 @@
  * route's `batch-<action>-<entity>` action naming.
  */
 
-import type { Context } from "hono";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
 import { deleteUser } from "./users.js";
 
@@ -22,11 +21,11 @@ export interface BatchResult {
 }
 
 export async function batchPalettes(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
     action: PaletteBatchAction,
     slugs: string[],
 ): Promise<BatchResult> {
-    const services = c.var.services;
     const { palettes, votes, flags } = services.repositories;
     let processed = 0;
 
@@ -52,18 +51,18 @@ export async function batchPalettes(
         });
     }
 
-    await emitAuditEvent(c, `batch-${action}-palettes`, {
+    await emitAuditEvent(services, actorSlug, `batch-${action}-palettes`, {
         target: `count=${processed} slugs=${slugs.join(",")}`,
     });
     return { processed };
 }
 
 export async function batchUsers(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
     action: UserBatchAction,
     slugs: string[],
 ): Promise<BatchResult> {
-    const services = c.var.services;
     const { users, sessions } = services.repositories;
     let processed = 0;
 
@@ -73,7 +72,7 @@ export async function batchUsers(
         // outside a wrapping transaction so one bad row doesn't roll back
         // the entire batch (G-AUDIT-6 §1.4).
         for (const slug of slugs) {
-            const result = await deleteUser(c, slug, {
+            const result = await deleteUser(services, actorSlug, slug, {
                 throwIfMissing: false,
                 emit: false,
             });
@@ -98,7 +97,7 @@ export async function batchUsers(
         processed = await users.setStatusForSlugs(slugs, "active");
     }
 
-    await emitAuditEvent(c, `batch-${action}-users`, {
+    await emitAuditEvent(services, actorSlug, `batch-${action}-users`, {
         target: `count=${processed} slugs=${slugs.join(",")}`,
     });
     return { processed };

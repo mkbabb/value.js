@@ -16,7 +16,12 @@ router.post("/batch/palettes", async (c) => {
     if (!parsed.success) {
         throw new ValidationError("Invalid batch palettes body", parsed.error.format());
     }
-    const result = await batchPalettes(c, parsed.data.action, parsed.data.slugs);
+    const result = await batchPalettes(
+        c.var.services,
+        c.var.userSlug,
+        parsed.data.action,
+        parsed.data.slugs,
+    );
     return c.json(result);
 });
 
@@ -26,7 +31,12 @@ router.post("/batch/users", async (c) => {
     if (!parsed.success) {
         throw new ValidationError("Invalid batch users body", parsed.error.format());
     }
-    const result = await batchUsers(c, parsed.data.action, parsed.data.slugs);
+    const result = await batchUsers(
+        c.var.services,
+        c.var.userSlug,
+        parsed.data.action,
+        parsed.data.slugs,
+    );
     return c.json(result);
 });
 

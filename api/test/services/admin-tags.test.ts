@@ -1,11 +1,6 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
-import {
-    buildServices,
-    cleanCollections,
-    connect,
-    makeFakeContext,
-} from "../helpers.js";
+import { buildServices, cleanCollections, connect } from "../helpers.js";
 import {
     createTag,
     deleteTag,
@@ -37,22 +32,21 @@ describe("service.admin.tags", () => {
     });
 
     it("createTag inserts + listTags returns sorted", async () => {
-        const c = makeFakeContext(services, "admin");
-        await createTag(c, "zeta", "temp");
-        await createTag(c, "alpha", "mood");
-        const rows = await listTags(c);
+        await createTag(services, "admin", "zeta", "temp");
+        await createTag(services, "admin", "alpha", "mood");
+        const rows = await listTags(services);
         expect(rows.map((t) => t.name)).toEqual(["alpha", "zeta"]);
     });
 
     it("createTag duplicate raises ConflictError", async () => {
-        const c = makeFakeContext(services, "admin");
-        await createTag(c, "dup", "x");
-        await expect(createTag(c, "dup", "y")).rejects.toBeInstanceOf(ConflictError);
+        await createTag(services, "admin", "dup", "x");
+        await expect(
+            createTag(services, "admin", "dup", "y"),
+        ).rejects.toBeInstanceOf(ConflictError);
     });
 
     it("deleteTag cascades $pull from palettes that carry it", async () => {
-        const c = makeFakeContext(services, "admin");
-        await createTag(c, "delme", "x");
+        await createTag(services, "admin", "delme", "x");
         await services.repositories.palettes.insert({
             name: "p",
             slug: "p",
@@ -72,13 +66,14 @@ describe("service.admin.tags", () => {
             forkCount: 0,
             versionCount: 1,
         });
-        await deleteTag(c, "delme");
+        await deleteTag(services, "admin", "delme");
         const palette = await services.repositories.palettes.findBySlug("p");
         expect(palette?.tags).toEqual(["keep"]);
     });
 
     it("deleteTag missing tag throws NotFoundError", async () => {
-        const c = makeFakeContext(services, "admin");
-        await expect(deleteTag(c, "ghost")).rejects.toBeInstanceOf(NotFoundError);
+        await expect(
+            deleteTag(services, "admin", "ghost"),
+        ).rejects.toBeInstanceOf(NotFoundError);
     });
 });
