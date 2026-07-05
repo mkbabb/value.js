@@ -1,9 +1,6 @@
 import {
     AdobeRGBColor,
     Color,
-    ch,
-    channelOf,
-    setChannel,
     DisplayP3Color,
     HSLColor,
     HSVColor,
@@ -32,7 +29,6 @@ import {
     registerColorNames,
 } from "../units/color/color-names";
 import type { ANGLE_UNITS } from "../units/constants";
-import { normalizeColorUnit } from "../units/color/normalize";
 import { color2, hex2rgb } from "../units/color/dispatch";
 import { mixColors } from "../units/color/mix";
 import { kelvin2rgb } from "../units/color/conversions/kelvin";
@@ -43,52 +39,20 @@ import { memoize } from "../utils";
 import { CSSValueUnit, parseCSSValueUnit } from "./units";
 import { createCalcParser, createMathFunctionParsers, evaluateMathFunction } from "./math";
 
-/**
- * The typed currency of the color-parse boundary. A `parseCSSColor` /
- * `CSSColor.Value` result is a `ValueUnit` carrying a `Color` whose channels are
- * `ValueUnit<number>` — the exact shape `normalizeColorUnit` / `colorUnit2`
- * consume. Parsers construct the inner `Color` with raw numbers, but the whole
- * color pipeline reads channels through `ValueUnit.unwrapDeep` (tolerating both
- * `number` and `ValueUnit<number>`), so this is the canonical boundary type the
- * pipeline speaks. Typing the parser annotation to it (rather than the bare
- * `ValueUnit<any>`) lets every consumer drop the hand-narrowing cast.
- *
- * NOTE: `currentColor` / `light-dark()` resolve to deferred `"color-keyword"`
- * sentinels (a `ValueUnit<string | FunctionValue>`); those ride the same parser
- * and are structurally `ValueUnit`. Demo consumers feed the result straight into
- * `normalizeColorUnit` (the color path); the sentinel survives verbatim for the
- * keyframes.js render seam (it never reaches `normalizeColorUnit`).
- */
-export type ParsedColorUnit = ValueUnit<Color<ValueUnit<number>>, "color">;
+// ─── Boundary currency (W1-8 leaf-lift → color-unit.ts) ────────────────────
+//
+// `ParsedColorUnit` (the color-parse boundary type), `createColorValueUnit`, and
+// `resolveToPlainColor` are the currency every color arm trades in — not parser
+// combinators — so they lift to the leaf `color-unit.ts`. Re-export
+// `ParsedColorUnit` verbatim so the `./parsing/color` surface (the `index.ts` +
+// `subpaths/parsing.ts` barrels) stays byte-identical.
+import {
+    createColorValueUnit,
+    resolveToPlainColor,
+} from "./color-unit";
+import type { ParsedColorUnit } from "./color-unit";
 
-const createColorValueUnit = (value: Color<any>): ParsedColorUnit => {
-    return new ValueUnit(
-        value,
-        "color",
-        ["color", value.colorSpace],
-        undefined,
-        "color",
-    );
-};
-
-/** Resolve a parsed ValueUnit<Color<ValueUnit>> to a plain Color<number> with normalized [0,1] components. */
-function resolveToPlainColor(colorUnit: ValueUnit): Color<number> {
-    // Parser-produced color units always wrap a `Color<ValueUnit<number>>`
-    // (see `createColorValueUnit`) — narrow the generic `ValueUnit` param to
-    // the shape `normalizeColorUnit` requires.
-    const normalized = normalizeColorUnit(
-        colorUnit as ValueUnit<Color<ValueUnit<number>>, "color">,
-    );
-    const color = normalized.value;
-    // `clone()` preserves the concrete subclass; the loop below overwrites
-    // every channel slot with the unwrapped numeric value, so the cloned
-    // instance is reinterpreted as a `Color<number>` for the writes.
-    const plain = color.clone() as unknown as Color<number>;
-    for (const key of color.keys()) {
-        setChannel(plain, key, ch(ValueUnit.unwrapDeep(channelOf(color, key))));
-    }
-    return plain;
-}
+export type { ParsedColorUnit };
 
 // --- Phase 5: Relative color syntax helpers ---
 
