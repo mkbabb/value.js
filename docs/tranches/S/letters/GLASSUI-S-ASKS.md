@@ -5,7 +5,9 @@
 the 2026-07-05 ratification fold (`audit/RATIFICATION-2026-07-05.md §3`: L17 Blob rename; the
 L5 upgrade to joint co-rebuild + the Q7 full-presence constraint) + the `audit/seeds/SEEDS.md`
 producer findings (L18 Select chevron; the L5 pointer-shaping append).
-**Verified glass-ui HEAD**: `<RE-STAMP AT DISPATCH>` — the dispatcher stamps it.
+**Verified glass-ui HEAD**: `6dce9b5b` (branch `tranche/BG`, 4.2.0; stamped at dispatch
+2026-07-05 — L1's three defect sites re-verified live at this HEAD, see the dispatch stamp §
+below; the recon stamp `f5c3ff4b` aged out in under an hour, proving the corollary's point).
 **Status**: AUTHORED, dispatch-ready — **dispatched at S ratification** (early: the L1/L2/L4
 hard-gate-mapped items need the maximum producer window before S rounds 3–4; **L12 is
 time-sensitive** — before BH.B4e authors the 203-row MIGRATION table). The live-agent
@@ -59,3 +61,38 @@ gates (books never gates). Every other letter item is off every wave's critical 
 
 `uSatColor[]` (F9.R1, named-owner+cut) · EasingPicker a11y (relay item 8) · de-shadcn ·
 dock-shrink WS2-10 · aurora-metal re-verify · U6 dock-fission · GAP-4 blob perf.
+
+---
+
+## Dispatch stamp — 2026-07-05, HEAD `6dce9b5b` (tranche/BG)
+
+**L1 re-verification (the HEAD-stamp corollary, executed)**: the aurora tree MOVED
+(`glass-aurora/shaders/` → `aurora/constants/shaders/`) but all three defects stand at
+identical line numbers, verified live at `6dce9b5b`:
+`aurora/constants/shaders/metal-medium.glsl.ts:103` (`vec3 flat = …` — reserved keyword) ·
+`aurora/constants/shaders/flow.glsl.ts:20` (`vec3 structureTensorField` forward decl) vs
+`aurora/constants/shaders/mediums.glsl.ts:43` (`vec4 structureTensorField` definition) ·
+`aurora/constants/shaders/brush.glsl.ts:330` (`vec3 tf = structureTensorField(…)` — vec4→vec3
+assign). **The letter's L1 path citations read through this stamp** — inspect the CURRENT tree.
+
+**Producer-side recon folded at dispatch** (read-only assay of this repo, 2026-07-05):
+
+1. **L17 REOPENS a committed ruling — flagged honestly**: your `967cd25e` reply to the R relay
+   ruled "the SUBPATH renames goo-blob → blob; the SYMBOLS STAY." The owner's 2026-07-05
+   ratification orders the SYMBOL rename too (verbatim: *"We're going to rename it to 'Blob' as
+   well--this will need to be changed in glass-ui."*). Owner word supersedes; `BLOB_CONFIG_*`
+   already speak BLOB; R14/B2.1-swap + the B4e MIGRATION row are the natural vehicles.
+   **Sequencing**: must land before WS12's export-surface regen freezes the rename window;
+   `MIGRATION.md` still has zero 5.0.0 content, so the L12 addendum window is also still open.
+2. **L5 co-rebuild aligns with your own books**: WS5-02 already rebuilt the blob once
+   (PARTIAL — rename unaddressed); `RESEARCH.md:139` ratifies WebGL2 single-pass 2D-SDF as the
+   PERMANENT floor with WebGPU NOT warranted; `BG.W-VIZ-SUBSTRATE-DELETE2` books the WGPU-twin
+   delete. The second-generation rebuild = collapse to the single WebGL2 SDF engine (drains the
+   529-LoC `metaball.wgsl` ratchet baseline), with **F9.R1 (`W-BLOB-SATELLITE-SHADE`, PENDING)
+   as the sanctioned home** for `uSatColor[]` + `bodyLightness`/`lightnessFloor` + the
+   anchor-bias residual + the pointer-shaping ask. GAP-4 perf (single-canvas, IO/hidden/PRM) is
+   LANDED — the rebuild must not regress it; value.js re-verifies at our W8 adopt.
+3. **The genesis brief is the shared ground**: value.js S.W0-8 authors
+   `docs/tranches/S/audit/blob-genesis.md` (archaeology of every implementation hitherto + SOTA
+   assay + the joint contract sketch); it will be relayed into this inbox when it lands —
+   nothing here gates on it.
