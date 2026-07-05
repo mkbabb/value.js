@@ -1,6 +1,9 @@
 <template>
     <div class="pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header backdrop-blur-md bg-card/60">
-        <h3 class="pane-header-title text-heading"><slot /></h3>
+        <!-- Q5 (S.W4 W4-7): the pane title speaks the DISPLAY voice — the ONE
+             site; all 9 panes inherit. The three-voice law's hierarchy fix:
+             the largest text on a pane must not speak the body sans. -->
+        <h3 class="pane-header-title font-display text-heading"><slot /></h3>
         <div v-if="description" class="pane-header-desc-wrap">
             <p class="text-caption text-muted-foreground">{{ description }}</p>
         </div>
