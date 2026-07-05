@@ -120,6 +120,7 @@ import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { useColorPipeline } from "@composables/color/useColorPipeline";
 import { usePaneRouter } from "@composables/usePaneRouter";
 import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
+import { provideApiClient } from "@lib/palette/api/useApiClient";
 import { useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
@@ -131,6 +132,11 @@ import "@styles/style.css";
 // --- Dark mode: initialize global dark state eagerly so the user's saved
 //     preference takes effect before the Dock profile menu mounts. ---
 useGlobalDark();
+
+// --- API client DI seam (S.W2 W2-4) ---
+// ONE provider for {request, adminRequest, sessionToken, availability, baseUrl};
+// the degraded-state affordances inject it instead of importing the singletons.
+provideApiClient();
 
 // --- Template refs ---
 const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");

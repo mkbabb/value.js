@@ -156,7 +156,7 @@
 import { computed } from "vue";
 import type { Palette } from "@lib/palette/types";
 import type { PaletteKind } from "@lib/palette/utils";
-import { apiAvailability } from "@lib/palette/api";
+import { useApiClient } from "@lib/palette/api/useApiClient";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -190,8 +190,10 @@ defineProps<{
     isAdmin?: boolean | undefined;
 }>();
 
-// K-INV5: the publish action reads the availability latch.
-const apiOffline = computed(() => apiAvailability.value === "unavailable");
+// K-INV5: the publish action reads the availability latch — through the
+// injected api-client seam (S.W2 W2-4), not a hard module-singleton import.
+const { availability } = useApiClient();
+const apiOffline = computed(() => availability.value === "unavailable");
 
 defineEmits<{
     action: [action: string];

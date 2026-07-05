@@ -23,6 +23,7 @@
  * point at the correct production backend.
  */
 
+import { ref, type Ref } from "vue";
 import { ApiProblem, readRateLimitResetSeconds } from "./api-problem.js";
 import {
     assertApiAttemptAllowed,
@@ -41,10 +42,15 @@ export const BASE_URL = import.meta.env.VITE_API_URL ?? DEFAULT_REMOTE_API_URL;
 // at the cross-origin prod api. A no-op in production (non-loopback origin).
 initApiEnvironment(BASE_URL);
 
-let sessionToken: string | null = null;
+// S.W2 W2-4: the session-token cell is a real `ref` (not a bare module `let`)
+// so the `useApiClient()` DI seam can re-expose it reactively — the SAME
+// provide/inject discipline color-state uses. This module stays the single
+// source of truth: `request()` reads `sessionTokenRef.value` and the auth
+// composables drive it via `setSessionToken`.
+export const sessionTokenRef: Ref<string | null> = ref(null);
 
 export function setSessionToken(token: string | null) {
-    sessionToken = token;
+    sessionTokenRef.value = token;
 }
 
 const MAX_RATE_LIMIT_RETRIES = 2;
@@ -93,8 +99,8 @@ export async function request<T>(path: string, init?: RequestOptions): Promise<T
         "Content-Type": "application/json",
         ...(init?.headers as Record<string, string>),
     };
-    if (sessionToken) {
-        headers["X-Session-Token"] = sessionToken;
+    if (sessionTokenRef.value) {
+        headers["X-Session-Token"] = sessionTokenRef.value;
     }
     if (init?.ifMatch) {
         headers["If-Match"] = init.ifMatch;
@@ -108,7 +114,7 @@ export async function request<T>(path: string, init?: RequestOptions): Promise<T
     });
     if (!res.ok) {
         if (res.status === 401) {
-            sessionToken = null;
+            sessionTokenRef.value = null;
         }
         // I.W4 SOTA: typed ApiProblem from application/problem+json; falls
         // back to about:blank + statusText for non-problem+json responses.

@@ -28,10 +28,13 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { apiAvailability } from "@lib/palette/api";
+import { useApiClient } from "@lib/palette/api/useApiClient";
 
-const offline = computed(() => apiAvailability.value === "unavailable");
-const misconfigured = computed(() => apiAvailability.value === "misconfigured");
+// S.W2 W2-4: read the availability latch through the injected api-client seam,
+// not a hard module-singleton import.
+const { availability } = useApiClient();
+const offline = computed(() => availability.value === "unavailable");
+const misconfigured = computed(() => availability.value === "misconfigured");
 </script>
 
 <style scoped>
