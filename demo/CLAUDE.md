@@ -210,7 +210,26 @@ Arbitrary `[var(--…)]` callsites → 0. The fix surface:
 
 ## Build modes
 
-- `npm run dev` — dev server with HMR (root: `demo/color-picker/`)
+- `npm run dev` — **HONEST full local stack** (S.W0 W0-1): delegates to `scripts/dev.sh up` (local api + mongo rs0 + `VITE_API_URL` wired + dev CORS). Palette/API features round-trip out of the box. HMR (root: `demo/color-picker/`).
+- `npm run dev:web-only` — frontend ONLY (bare vite `:9000`, no backend). Palette/API features CORS-die against prod; the demo surfaces an explicit `misconfigured` state instead of silently pointing at prod.
 - `npm run gh-pages` — production demo build → `dist/` (manual chunks: katex, prettier, highlight.js)
 - `npm run build` — library build only (doesn't build demo)
 - `npm run build:watch` — library watch (D.W1 — contract-v2 fleet dev orchestration)
+
+### The dev-backend honesty contract (S.W0 W0-1 · S-11)
+
+`@/lib/palette/api/availability.ts` owns the origin-honest failure path. At client
+init (`client.ts` module load, `initApiEnvironment(BASE_URL)`) it resolves the
+dev-config truth ONCE, before any fetch:
+
+- If `VITE_API_URL` is UNSET **and** the page is a loopback origin **and** the
+  resolved `BASE_URL` is cross-origin (the silent prod-target footgun), it enters
+  the designed `apiAvailability = "misconfigured"` state, logs a loud actionable
+  `console.error`, and every transport call throws `DevMisconfigError` (a distinct
+  loud error, never the `ApiUnavailableError` "working locally" degradation).
+- It **never fires in production** (prod runs on `color.babb.dev`, not loopback)
+  and **never fires when `VITE_API_URL` is set** (the operator owns that endpoint).
+
+`ApiOfflineChip.vue` renders the `misconfigured` register distinctly (a filled
+warning lamp + `dev misconfigured — run \`npm run dev\``) from the honest
+`unavailable` "backend offline — saved locally" state.

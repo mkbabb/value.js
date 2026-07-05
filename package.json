@@ -68,7 +68,9 @@
         "dist"
     ],
     "scripts": {
-        "dev": "vite --port 9000",
+        "dev": "scripts/dev.sh up",
+        "predev:web-only": "test -f dist/value.js || npm run build",
+        "dev:web-only": "vite --port 9000",
         "build": "vite build --mode production",
         "build:watch": "vite build --mode production --watch",
         "gh-pages": "vite build --mode gh-pages",

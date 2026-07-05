@@ -10,6 +10,8 @@ _*
 !test/__snapshots__/
 dist/
 test-results/
+# scripts/dev.sh (npm run dev) runtime scratch — mongo dbpath, logs, .ports
+.dev/
 .claude/
 .playwright-mcp/
 .env.local

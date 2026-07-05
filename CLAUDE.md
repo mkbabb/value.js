@@ -8,8 +8,18 @@ CSS value unit library: parsing, normalization, interpolation, color space conve
 npm run build        # library → dist/value.js (ESM) + dist/*.d.ts (flat layout, W12-unblocker)
 npm run build:watch  # vite build --watch (D.W1 — contract-v2 fleet dev orchestration)
 npm run gh-pages     # demo → dist/gh-pages/ (vendor-katex + vendor-highlight chunks via Rolldown codeSplitting, F.W1 Lane B)
-npm run dev          # dev server (Vite default port)
+npm run dev          # HONEST full local stack (S.W0 W0-1): scripts/dev.sh up — local api + mongo rs0 + VITE_API_URL wired + dev CORS. Palette features round-trip out of the box.
+npm run dev:web-only # frontend ONLY (bare vite :9000). No backend: palette/API features CORS-die against prod; the UI surfaces an explicit "dev misconfigured" state, never a silent prod fallback.
 ```
+
+> `npm run dev` boots the full stack because the demo's palette API needs a
+> CORS-permissive local backend. Bare vite with no `VITE_API_URL` targets the
+> cross-origin prod api (`api.color.babb.dev`), whose allow-list excludes
+> localhost — every palette request preflight-dies. Rather than mislabel that as
+> "backend offline", the demo detects the precondition (unset `VITE_API_URL` +
+> loopback origin + cross-origin BASE_URL) and enters a designed `misconfigured`
+> state (loud console error + a distinct UI chip). **REJECTED**: adding localhost
+> to prod `ALLOWED_ORIGINS` — dev must not target prod (api-broken-rootcause).
 
 ## Test + verify
 

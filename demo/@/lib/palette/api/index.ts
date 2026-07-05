@@ -30,6 +30,8 @@ export {
     type ApiAvailability,
     apiAvailability,
     ApiUnavailableError,
+    DevMisconfigError,
+    devMisconfigMessage,
 } from "./availability";
 
 export { createSession, loginWithSlug, deleteSession, getMe } from "./sessions";

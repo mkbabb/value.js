@@ -84,6 +84,12 @@
         </main>
     </div>
 
+    <!-- S.W0 W0-1 (seed rider 1): always-mounted dev-misconfig banner. Inert
+         in production + whenever VITE_API_URL is set (e2e / boot-smoke); only
+         paints when bare `dev:web-only` silently targets the cross-origin prod
+         api. -->
+    <DevMisconfigBanner />
+
     <!-- Global modals -->
     <MigratePalettesDialog
         v-model:open="paletteManager.showMigrateDialog.value"
@@ -103,6 +109,7 @@ import { useContrastSafeColor } from "@composables/color/useContrastSafeColor";
 
 import { Dock } from "@components/custom/dock";
 import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
+import DevMisconfigBanner from "@components/custom/palette-browser/DevMisconfigBanner.vue";
 import PaneSlot from "@components/custom/panes/PaneSlot.vue";
 
 import { defaultColorModel } from "@components/custom/color-picker";

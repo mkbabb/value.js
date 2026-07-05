@@ -29,10 +29,17 @@ import {
     markApiReachable,
     markApiUnreachable,
     ApiUnavailableError,
+    initApiEnvironment,
 } from "./availability.js";
 
 const DEFAULT_REMOTE_API_URL = "https://api.color.babb.dev";
 export const BASE_URL = import.meta.env.VITE_API_URL ?? DEFAULT_REMOTE_API_URL;
+
+// S.W0 W0-1: resolve the dev-config truth ONCE, before any fetch can trip the
+// latch. Surfaces the designed `misconfigured` state (loud) when this is the
+// silent prod-target footgun — a loopback dev page with no VITE_API_URL aimed
+// at the cross-origin prod api. A no-op in production (non-loopback origin).
+initApiEnvironment(BASE_URL);
 
 let sessionToken: string | null = null;
 
