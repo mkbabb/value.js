@@ -238,3 +238,78 @@ describe("extractAnimationOptions", () => {
         expect(result.direction).toBeUndefined();
     });
 });
+
+// ─────────────────────────────────────────────────────────────────────────────
+// W1-3 (lib-parsing F-2) — depth-walk: nested at-rules must not silently return
+// empty. Before the fix, both extractStyleRules and extractAnimationOptions were
+// flat top-level scans; a rule nested in @media/@layer/@container/@supports or a
+// CSS-Nesting parent returned `[]` / `{}` with zero signal.
+// ─────────────────────────────────────────────────────────────────────────────
+
+describe("extractStyleRules — nested at-rule depth-walk (W1-3)", () => {
+    it("finds a rule nested inside @media", () => {
+        const s = parseCSSStylesheet(
+            "@media (min-width: 600px) { .foo { color: red; } }",
+        );
+        const result = extractStyleRules(s);
+        expect(result).toHaveLength(1);
+        expect(result[0]!.selectors).toEqual([".foo"]);
+        expect(result[0]!.declarations).toHaveLength(1);
+    });
+
+    it("finds a rule nested inside @layer", () => {
+        const s = parseCSSStylesheet(
+            "@layer base { .a { color: red; } .b { color: blue; } }",
+        );
+        const result = extractStyleRules(s);
+        expect(result.map((r) => r.selectors[0])).toEqual([".a", ".b"]);
+    });
+
+    it("finds CSS-Nesting child rules alongside the parent", () => {
+        const s = parseCSSStylesheet(
+            ".card { color: red; .title { color: blue; } }",
+        );
+        const result = extractStyleRules(s);
+        const selectors = result.map((r) => r.selectors[0]);
+        expect(selectors).toContain(".card");
+        expect(selectors).toContain(".title");
+    });
+
+    it("collects top-level AND nested rules in document order", () => {
+        const s = parseCSSStylesheet(
+            ".a { color: red; } @media screen { .b { color: blue; } } .c { color: green; }",
+        );
+        const result = extractStyleRules(s);
+        expect(result.map((r) => r.selectors[0])).toEqual([".a", ".b", ".c"]);
+    });
+});
+
+describe("extractAnimationOptions — nested at-rule depth-walk (W1-3)", () => {
+    it("finds animation longhands nested inside @media", () => {
+        const s = parseCSSStylesheet(
+            "@media (min-width: 600px) { .foo { animation-duration: 1s; animation-name: spin; } }",
+        );
+        const result = extractAnimationOptions(s);
+        expect(result.duration).toBe(1000);
+        expect(result.name).toBe("spin");
+    });
+
+    it("finds the animation shorthand nested inside @media (the F-2 repro)", () => {
+        const s = parseCSSStylesheet(
+            "@media (min-width: 600px) { .foo { animation: spin 1s linear infinite; } }",
+        );
+        const result = extractAnimationOptions(s);
+        expect(result.name).toBe("spin");
+        expect(result.duration).toBe(1000);
+        expect(result.timingFunction).toBe("linear");
+        expect(result.iterationCount).toBe(Infinity);
+    });
+
+    it("finds animation longhands on a CSS-Nesting child rule", () => {
+        const s = parseCSSStylesheet(
+            ".card { color: red; &:hover { animation-duration: 250ms; } }",
+        );
+        const result = extractAnimationOptions(s);
+        expect(result.duration).toBe(250);
+    });
+});
