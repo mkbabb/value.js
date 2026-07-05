@@ -172,7 +172,7 @@ const onEditTargetChange = (et: EditTarget | null) => { activeEditTarget.value =
 provide(EDIT_TARGET_KEY, activeEditTarget);
 provide(CSS_COLOR_KEY, cssColorOpaque);
 
-const { safeAccentCss } = useContrastSafeColor(model, cssColorOpaque);
+const { safeAccentCss } = useContrastSafeColor(cssColorOpaque);
 provide(SAFE_ACCENT_KEY, safeAccentCss);
 
 // --- The accent axis (R.W3 Lane A / A2) ---
