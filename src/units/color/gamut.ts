@@ -276,8 +276,11 @@ export function gamutMapOKLab(
 // overlap.
 const _oklabLinScratch: [number, number, number] = [0, 0, 0];
 
-/** Out-param `oklabToLinearSRGB` — same 9 multiplies, no tuple allocation. */
-function oklabToLinearSRGBInto(
+/** Out-param `oklabToLinearSRGB` — same 9 multiplies, no tuple allocation.
+ *  Package-internal export (S.W1-6): the OKLCh-slice boundary sampler in
+ *  `boundary.ts` bisects raw-OKLab chroma through it with zero per-step alloc.
+ *  In no barrel — the public color surface stays geometry-only. */
+export function oklabToLinearSRGBInto(
     L: number, a: number, b: number,
     out: [number, number, number],
 ): [number, number, number] {

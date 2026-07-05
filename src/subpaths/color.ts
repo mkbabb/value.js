@@ -120,6 +120,12 @@ export type {
     GamutBoundaryMode,
     SampleGamutBoundaryOptions,
 } from "../units/color/boundary";
+// OKLCh slice boundary (S.W1-6) — the L×C sRGB cusp polyline (S.W5-8 consumes).
+export {
+    sampleOKLChSliceBoundary,
+    sampleOKLChSliceBoundaryInto,
+} from "../units/color/boundary";
+export type { OKLChSliceBoundary } from "../units/color/boundary";
 
 // Color normalization
 export {
