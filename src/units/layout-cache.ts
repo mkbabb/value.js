@@ -12,8 +12,9 @@ import { unpackMatrixValues } from "./utils";
 // its auto-installed `window.resize` signal, the LRU ceiling, and the matrix
 // sub-property decode getComputedValue rides). This is the DOM-round-trip
 // computed-unit machinery; `normalize.ts` keeps the pure numeric/color
-// endpoint normalization. The documented `as unknown as` irreducible (the
-// CSSStyleDeclaration no-string-index class — CLAUDE.md ledger) travels here.
+// endpoint normalization. The documented irreducible DOM cast (the
+// CSSStyleDeclaration no-string-index class — CLAUDE.md ledger) travels here
+// too (the `styleRecord` boundary below).
 // ─── Matrix sub-property handling for getComputedValue ────────────────────
 //
 // When a `calc()` value is set on a transform sub-property

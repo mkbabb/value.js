@@ -507,6 +507,6 @@ export function gamutMap<C extends Color>(
 // subclass `extends Color`; the registration closes the loop at dispatch's own
 // module eval — long before any runtime `toAnimationString(_, outputSpace)`.
 registerColorConverters(
-    color2 as (color: Color<number>, to: ColorSpace) => Color<number>,
-    gamutMap as (color: Color<number>, to: ColorSpace) => Color<number>,
+    color2 as (color: Color<unknown>, to: ColorSpace) => Color<number>,
+    gamutMap as (color: Color<unknown>, to: ColorSpace) => Color<number>,
 );

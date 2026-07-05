@@ -154,7 +154,10 @@ const asChannelWrapper = (
 // So `dispatch.ts` REGISTERS the two converters at its module eval; by the time
 // any `toAnimationString(_, outputSpace)` runs at runtime the registration has
 // long since happened (dispatch is always evaluated by every public entry).
-type ColorConvertFn = (color: Color<number>, to: ColorSpace) => Color<number>;
+// `Color<unknown>` input (not `Color<number>`) so the caller passes a cloned
+// `Color<T>` without an erasure cast — the runtime channels are provably numeric
+// after the normalize-in loop, but TS can't thread T through the shared slot.
+type ColorConvertFn = (color: Color<unknown>, to: ColorSpace) => Color<number>;
 let _color2: ColorConvertFn | undefined;
 let _gamutMap: ColorConvertFn | undefined;
 
@@ -228,7 +231,7 @@ export const convertColorSpaceDenorm = <T>(
     }
 
     // `color2` returns a normalized `Color<number>`; step 4 writes numbers.
-    let converted = _color2(normalized as unknown as Color<number>, to);
+    let converted = _color2(normalized, to);
 
     // (3, B4) map into the egress space's own gamut when the egress is RGB-family.
     if (EMIT_GAMUT_SPACES.has(to)) {
