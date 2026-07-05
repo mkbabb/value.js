@@ -41,7 +41,7 @@ Organised into `controls/`, `display/`, `visual/`, `composables/` subdirs (Mar-2
 | `display/` | `ColorNutritionLabel`, copy actions |
 | `controls/` (cont.) | `ActionToolbar` (ex-`editing/`; `EditDrawer` deleted at R.W4 T21 — dead UI) |
 | `visual/` | `SpectrumCanvas`, `HeroBlob`, `PointerDebugOverlay` (dev-only, injected via `POINTER_DEBUG_KEY`) |
-| `composables/` | `useColorModel`, `useColorParsing`, `useSliderGradients`, `useColorNameResolution`, `useColorUrl`, `useCustomColorNames` (named KEEP: directly imports `@lib/palette/api`), `usePointerDebug`, `useHoverPopover`, `useTouchGate`, etc. |
+| `composables/` | `useColorParsing`, `useSliderGradients`, `useColorNameResolution`, `useColorUrl`, `useCustomColorNames` (named KEEP: directly imports `@lib/palette/api`), `usePointerDebug`, `useHoverPopover`, `useTouchGate`, etc. (the color spine itself is the App-owned `useColorPipeline` — `composables/color/`, S.W2 — injected into the picker, which no longer owns a second copy) |
 | `keys.ts` | `CSS_COLOR_KEY`, `EDIT_TARGET_KEY`, `POINTER_DEBUG_KEY` injection keys (provide/inject pattern) |
 
 `cssColorOpaque` is injected via `CSS_COLOR_KEY` (not prop-drilled). `activeEditTarget` via `EDIT_TARGET_KEY`.
@@ -104,7 +104,7 @@ Organised by domain (Mar-2026 restructure) plus root utilities + the D.W3 Lane D
 
 | File | Purpose |
 |---|---|
-| `useAppColorModel.ts` | App-level color state bridge |
+| `useColorPipeline.ts` | the ONE color-state spine (S.W2 · W2-1) — merges the former `useAppColorModel` + `useColorModel` graph onto one App-owned composable; injected by the picker |
 | `useContrastSafeColor.ts` | contrast-safe color helpers |
 
 ### `palette/`
