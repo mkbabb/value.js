@@ -20,14 +20,24 @@ const SRGB_LINEAR_TRANSITION = SRGB_TRANSITION / SRGB_SLOPE; // sRGB linear tran
 
 /** Convert an sRGB channel to linear-light sRGB. */
 export function srgbToLinear(channel: number): number {
-    // sRGB uses a piecewise function:
+    // sRGB uses a piecewise function (IEC 61966-2-1):
     // - A linear portion for low values (below the transition point)
     // - A power function for higher values
-    // This accounts for the non-linear perception of brightness by human eyes
+    // This accounts for the non-linear perception of brightness by human eyes.
+    //
+    // The DECODE branch pivots on the ENCODED-axis threshold `SRGB_TRANSITION`
+    // (0.04045), NOT the linear-axis `SRGB_LINEAR_TRANSITION` (0.0031308): the
+    // input is a gamma-encoded channel, so the piecewise cut is tested against
+    // the encoded threshold. (The historical `<= SRGB_LINEAR_TRANSITION` guard
+    // mis-routed the encoded 8-bit dark band 1..10/255 — all in
+    // [0.0031308, 0.04045] — through the power branch, decoding near-black too
+    // bright: the booked `srgbToLinear` decode defect. `linearToSrgb` below is
+    // the mirror — its ENCODE branch correctly pivots on the linear-axis
+    // `SRGB_LINEAR_TRANSITION`.)
     const sign = channel < 0 ? -1 : 1;
     const abs = channel * sign;
 
-    if (abs <= SRGB_LINEAR_TRANSITION) {
+    if (abs <= SRGB_TRANSITION) {
         return channel / SRGB_SLOPE;
     } else {
         return sign * ((abs + SRGB_OFFSET) / (1 + SRGB_OFFSET)) ** SRGB_GAMMA;

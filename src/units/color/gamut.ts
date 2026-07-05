@@ -20,37 +20,14 @@ import {
     OKLAB_TO_LMS_COEFF,
     OKLAB_TO_LMS_MATRIX,
 } from "./constants";
-import { scale } from "../../math";
-
-// ── sRGB transfer functions (inlined to avoid circular dep with utils.ts) ──
-
-const SRGB_GAMMA = 2.4;
-const SRGB_OFFSET = 0.055;
-const SRGB_SLOPE = 12.92;
-const SRGB_TRANSITION = 0.04045;
-const SRGB_LINEAR_TRANSITION = SRGB_TRANSITION / SRGB_SLOPE;
-
-function srgbToLinear(channel: number): number {
-    const sign = channel < 0 ? -1 : 1;
-    const abs = channel * sign;
-    if (abs <= SRGB_LINEAR_TRANSITION) {
-        return channel / SRGB_SLOPE;
-    }
-    return sign * ((abs + SRGB_OFFSET) / (1 + SRGB_OFFSET)) ** SRGB_GAMMA;
-}
-
-function linearToSrgb(channel: number): number {
-    const sign = channel < 0 ? -1 : 1;
-    const abs = channel * sign;
-    if (abs <= SRGB_LINEAR_TRANSITION) {
-        return channel * SRGB_SLOPE;
-    }
-    return sign * ((1 + SRGB_OFFSET) * abs ** (1 / SRGB_GAMMA) - SRGB_OFFSET);
-}
-
-function clamp(value: number, min: number, max: number): number {
-    return Math.min(Math.max(value, min), max);
-}
+import { clamp, scale } from "../../math";
+// The sRGB transfer pair is sourced from the `conversions/transfer.ts` leaf
+// (S.W1-1 DRY cure). The former inline twin here duplicated the pair with the
+// SAME decode-threshold defect; the "circular dep with utils.ts" justification
+// for the copy went stale when the G.W1 Lane B decomposition made `transfer.ts`
+// a zero-import leaf — importing it introduces no cycle. `clamp` likewise folds
+// onto `../../math` (already the home of `scale`, imported above).
+import { linearToSrgb, srgbToLinear } from "./conversions/transfer";
 
 // ── Public API ──
 
