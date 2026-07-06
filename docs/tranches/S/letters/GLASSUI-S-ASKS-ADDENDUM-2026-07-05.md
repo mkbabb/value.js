@@ -85,3 +85,21 @@ the unprefixed leg — likely a cssnano/lightningcss vendor-prefix-collapse sett
 dist pipeline. Companion ask for the same surface: a `--slider-track-checker` seam under
 `--slider-track-bg` (the transparency ground's proper long-term home — the L6/W8 `/slider`
 consume letter carries both).
+
+## A7 — the aurora arm-gap replay defect (every consumer cold load renders a stale config)
+
+(Appended 2026-07-06.) `useAurora.ts:262` — `createAurora(canvas, getCfg(), …)` snapshots the
+config at MOUNT; the config deep-watch (`:228`) wires only inside `armRuntime()` (post
+idle-arm) with **no immediate replay**. Any config hydration landing in the construction→arm
+gap is silently dropped — and URL/seed hydration ALWAYS lands there, so every cold load
+renders the consumer's pre-hydration DEFAULT config until the first in-session change (on
+value.js: the default hot-pink ramp for ANY URL seed — user-visible on color.babb.dev; our
+owner caught it as "a flat pink field for a green seed"). The css-substrate arm is unaffected
+(it consumes the live palette); only the armed-GPU arm has the gap. Demo-side retrigger =
+synthetic atoms mutation = contrivance, rejected — the fix is one honest replay:
+`inst.update(getCfg())` after `inst.arm()`, or `immediate: true` on the post-arm watch. Our
+record: value.js `docs/tranches/S/audit/w6-producer-gap-rows.md §GAP-ARM` + the full
+forensics in `audit/OWNER-RULING-2026-07-05-variance-webbing.md §2.1` (evidence: `--saved-bg`
+settles the derived seed while the armed canvas samples flat `rgb(240,150,160)` across
+reloads; an in-session change flips it instantly — the post-arm watch is healthy). Standing
+hedge: re-verified at the S.W8 adopt.
