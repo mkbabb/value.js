@@ -23,9 +23,11 @@ gates-pass-goal-unmet closes `complete_with_misses`, never `complete`.
 > removed + 8 `wf_*` branches deleted (5 seed + 3 dead-lane orphans) + 2 symlink litters swept —
 > `git worktree list` = main tree only; `git status --porcelain` empty. The W0 CI-log deferral
 > discharged: the first master-targeting CI run is **`28828848774`**
-> (https://github.com/mkbabb/value.js/actions/runs/28828848774), terminal conclusion recorded at
-> `w9-close-probes.md §c.4`. The merged-tree suite re-run (lint 0 · typecheck 0 · vitest
-> 2158/2158 · e2e 66/66 across 6 projects · gh-pages built) is the authoritative green.
+> (https://github.com/mkbabb/value.js/actions/runs/28828848774) — auto-cancelled by GH
+> concurrency when the captures commit pushed, so the authoritative run rolls forward to the
+> latest `master`-HEAD run (`w9-close-probes.md §c.4` — the full mechanic + the deploy-skip
+> record). The merged-tree suite re-run (lint 0 · typecheck 0 · vitest 2158/2158 · e2e 66/66
+> across 6 projects · gh-pages built) is the authoritative green; CI is captured, not re-gated.
 
 ---
 

@@ -441,15 +441,23 @@ proof (the `ci.yml` fires only on master push/PR):
   created `2026-07-06T22:54:51Z`.
 - **URL**: https://github.com/mkbabb/value.js/actions/runs/28828848774
 - **Jobs**: `build-and-test (22)` + `build-and-test (24)` (Node 22 / Node 24 matrix).
-- **Status at capture**: `in_progress` (both matrix jobs `build-and-test (22)` +
-  `build-and-test (24)` running ~7 min in, as of the captures commit). The run typically takes
-  ~15 min (the R-close run `28724465123` was 15m46s) — its terminal conclusion post-dates this
-  commit; it is watched to terminal by the orchestrator and, if not amended here, is observable
-  at the run URL by the successor. **A red from env-gaps is a RECORD, not a close blocker** —
-  the merged-tree local suite in §c.1 (lint 0 · typecheck 0 · vitest 2158/2158 · e2e 66/66 ·
-  gh-pages built) is the authoritative green, and per `waves/S.W9.md` step 3 the CI run status
-  is *captured*, not re-gated. The downstream `deploy-pages` workflow (CF-Pages
-  `color.babb.dev`, owner-authorized) triggers on this run's `workflow_run` completion.
+- **Terminal conclusion of run `28828848774`: `cancelled`** — and the *why* is a mechanical
+  record, not a red: this merge-commit run was **auto-cancelled by GitHub Actions concurrency**
+  when the ceremony-captures commit (`3afde6c`, the very commit that first bore this §c.4
+  record) pushed to `master` ~1 min later. A newer push to the same branch cancels the older
+  in-progress run. The `deploy-pages` triggered by this run's completion therefore correctly
+  **`skipped`** (run `28829079578` — deploy is conditioned on CI success, not cancellation).
+- **The authoritative CI run rolls forward to `master` HEAD.** After the captures commit the
+  live run is on `3afde6c` (run `28829064701`, CI, `in_progress` at this correction). **No
+  further ceremony-docs push follows this one** — precisely so the concurrency chain terminates
+  and the latest `master`-HEAD run is allowed to complete and fire the owner-authorized
+  `deploy-pages` (CF-Pages `color.babb.dev`). The successor observes the terminal conclusion of
+  the latest `master` CI run at
+  https://github.com/mkbabb/value.js/actions?query=branch%3Amaster.
+- **This does not gate the close.** Per `waves/S.W9.md` step 3 the CI run status is *captured*,
+  not re-gated; a red-from-env-gaps (or a concurrency `cancelled`) is a RECORD. The authoritative
+  green is the merged-tree local suite in §c.1 (lint 0 · typecheck 0 · vitest 2158/2158 · e2e
+  66/66 across 6 projects · gh-pages built), re-run cold on `tranche-q@4a166c9` = the merged tree.
 - **Note**: this docs-capture commit itself lands on `master` and fires a *second* CI run (a
   docs-only push + its `deploy-pages` follow-on); it is the informational follow-up, not the
   close-gate run (the R-close precedent — the FINAL docs commit records the earlier run).
