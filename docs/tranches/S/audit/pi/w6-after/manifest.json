@@ -1,0 +1,164 @@
+{
+  "capturedAt": "2026-07-06T03:29:21.003Z",
+  "base": "http://localhost:4877",
+  "coldUrl": "/#/picker?space=oklch&color=oklch(0.72%200.19%20145)",
+  "targetColor": "oklch(0.72 0.19 145)",
+  "viewports": [
+    {
+      "name": "wide-1440x900",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "mobile-390x844",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "schemes": [
+    "light",
+    "dark"
+  ],
+  "quadrants": [
+    {
+      "key": "wide-1440x900--light",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "cold": [
+        "frame-t0000.png",
+        "frame-t0016.png",
+        "frame-t0033.png",
+        "frame-t0050.png",
+        "frame-t0080.png",
+        "frame-t0120.png",
+        "frame-t0180.png",
+        "frame-t0260.png",
+        "frame-t0380.png",
+        "frame-t0550.png",
+        "frame-t0800.png",
+        "frame-t1200.png",
+        "frame-t1800.png"
+      ],
+      "live": "live/wide-1440x900--light.png",
+      "blob": {
+        "footprint": "blob/wide-1440x900--light/footprint.png",
+        "placement": "blob/wide-1440x900--light/placement.png",
+        "frames": [
+          "blob/wide-1440x900--light/satellite-t0000.png",
+          "blob/wide-1440x900--light/satellite-t0500.png",
+          "blob/wide-1440x900--light/satellite-t1000.png",
+          "blob/wide-1440x900--light/satellite-t1500.png",
+          "blob/wide-1440x900--light/satellite-t2000.png"
+        ]
+      },
+      "status": "ok",
+      "note": "",
+      "video": "cold/wide-1440x900--light/wide-1440x900--light.webm"
+    },
+    {
+      "key": "wide-1440x900--dark",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "cold": [
+        "frame-t0000.png",
+        "frame-t0016.png",
+        "frame-t0033.png",
+        "frame-t0050.png",
+        "frame-t0080.png",
+        "frame-t0120.png",
+        "frame-t0180.png",
+        "frame-t0260.png",
+        "frame-t0380.png",
+        "frame-t0550.png",
+        "frame-t0800.png",
+        "frame-t1200.png",
+        "frame-t1800.png"
+      ],
+      "live": "live/wide-1440x900--dark.png",
+      "blob": {
+        "footprint": "blob/wide-1440x900--dark/footprint.png",
+        "placement": "blob/wide-1440x900--dark/placement.png",
+        "frames": [
+          "blob/wide-1440x900--dark/satellite-t0000.png",
+          "blob/wide-1440x900--dark/satellite-t0500.png",
+          "blob/wide-1440x900--dark/satellite-t1000.png",
+          "blob/wide-1440x900--dark/satellite-t1500.png",
+          "blob/wide-1440x900--dark/satellite-t2000.png"
+        ]
+      },
+      "status": "ok",
+      "note": "",
+      "video": "cold/wide-1440x900--dark/wide-1440x900--dark.webm"
+    },
+    {
+      "key": "mobile-390x844--light",
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "cold": [
+        "frame-t0000.png",
+        "frame-t0016.png",
+        "frame-t0033.png",
+        "frame-t0050.png",
+        "frame-t0080.png",
+        "frame-t0120.png",
+        "frame-t0180.png",
+        "frame-t0260.png",
+        "frame-t0380.png",
+        "frame-t0550.png",
+        "frame-t0800.png",
+        "frame-t1200.png",
+        "frame-t1800.png"
+      ],
+      "live": "live/mobile-390x844--light.png",
+      "blob": {
+        "footprint": "blob/mobile-390x844--light/footprint.png",
+        "placement": "blob/mobile-390x844--light/placement.png",
+        "frames": [
+          "blob/mobile-390x844--light/satellite-t0000.png",
+          "blob/mobile-390x844--light/satellite-t0500.png",
+          "blob/mobile-390x844--light/satellite-t1000.png",
+          "blob/mobile-390x844--light/satellite-t1500.png",
+          "blob/mobile-390x844--light/satellite-t2000.png"
+        ]
+      },
+      "status": "ok",
+      "note": "",
+      "video": "cold/mobile-390x844--light/mobile-390x844--light.webm"
+    },
+    {
+      "key": "mobile-390x844--dark",
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "cold": [
+        "frame-t0000.png",
+        "frame-t0016.png",
+        "frame-t0033.png",
+        "frame-t0050.png",
+        "frame-t0080.png",
+        "frame-t0120.png",
+        "frame-t0180.png",
+        "frame-t0260.png",
+        "frame-t0380.png",
+        "frame-t0550.png",
+        "frame-t0800.png",
+        "frame-t1200.png",
+        "frame-t1800.png"
+      ],
+      "live": "live/mobile-390x844--dark.png",
+      "blob": {
+        "footprint": "blob/mobile-390x844--dark/footprint.png",
+        "placement": "blob/mobile-390x844--dark/placement.png",
+        "frames": [
+          "blob/mobile-390x844--dark/satellite-t0000.png",
+          "blob/mobile-390x844--dark/satellite-t0500.png",
+          "blob/mobile-390x844--dark/satellite-t1000.png",
+          "blob/mobile-390x844--dark/satellite-t1500.png",
+          "blob/mobile-390x844--dark/satellite-t2000.png"
+        ]
+      },
+      "status": "ok",
+      "note": "",
+      "video": "cold/mobile-390x844--dark/mobile-390x844--dark.webm"
+    }
+  ]
+}
