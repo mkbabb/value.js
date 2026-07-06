@@ -21,6 +21,19 @@
             <div v-if="loadingPending" class="grid gap-2" aria-label="Loading pending proposals">
                 <AdminListSkeleton v-for="i in 3" :key="i" />
             </div>
+            <!-- W5-5 (F-2): error ≠ empty — plain register (Q6). -->
+            <EmptyState
+                v-else-if="pendingError"
+                variant="error"
+                message="The proposal queue is unreachable."
+                :detail="pendingError"
+            >
+                <template #action>
+                    <Button variant="outline" size="sm" class="font-display" @click="emit('retryPending')">
+                        Retry
+                    </Button>
+                </template>
+            </EmptyState>
             <EmptyState v-else-if="pendingItems.length === 0" eyebrow="· queue clear ·" message="No pending proposals." />
             <div v-else class="grid gap-2">
                 <AdminListItem v-for="item in pendingItems" :key="item.id">
@@ -50,6 +63,19 @@
             <div v-if="loadingApproved" class="grid gap-2" aria-label="Loading approved names">
                 <AdminListSkeleton v-for="i in 3" :key="i" />
             </div>
+            <!-- W5-5 (F-2): error ≠ empty — plain register (Q6). -->
+            <EmptyState
+                v-else-if="approvedError"
+                variant="error"
+                message="The approved list is unreachable."
+                :detail="approvedError"
+            >
+                <template #action>
+                    <Button variant="outline" size="sm" class="font-display" @click="emit('retryApproved')">
+                        Retry
+                    </Button>
+                </template>
+            </EmptyState>
             <EmptyState v-else-if="approvedItems.length === 0" eyebrow="· none approved yet ·" message="No approved color names." />
             <div v-else class="grid gap-2">
                 <AdminListItem v-for="item in approvedItems" :key="item.id">
@@ -85,11 +111,14 @@ import AdminListItem from "./AdminListItem.vue";
 import EmptyState from "./EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 
-defineProps<{
+const { pendingError = null, approvedError = null } = defineProps<{
     pendingItems: ProposedColorName[];
     approvedItems: ProposedColorName[];
     loadingPending: boolean;
     loadingApproved: boolean;
+    /** W5-5 (F-2): surfaced load failures — error ≠ empty. */
+    pendingError?: string | null;
+    approvedError?: string | null;
     cssColorOpaque: string;
 }>();
 
@@ -97,6 +126,8 @@ const emit = defineEmits<{
     approve: [item: ProposedColorName];
     reject: [item: ProposedColorName];
     delete: [item: ProposedColorName];
+    retryPending: [];
+    retryApproved: [];
 }>();
 
 const namesTab = ref<"pending" | "approved">("pending");

@@ -64,7 +64,21 @@
             />
         </div>
 
-        <!-- Empty -->
+        <!-- W5-5 (F-2, the P0 case): error ≠ empty — plain register (Q6). -->
+        <EmptyState
+            v-else-if="tagsApi.loadError.value"
+            variant="error"
+            message="The tag ledger is unreachable."
+            :detail="tagsApi.loadError.value"
+        >
+            <template #action>
+                <Button variant="outline" size="sm" class="font-display" @click="tagsApi.loadTags()">
+                    Retry
+                </Button>
+            </template>
+        </EmptyState>
+
+        <!-- Empty (TRUE empty — the specimen annotation survives, Q6) -->
         <EmptyState v-else-if="tagsApi.tags.value.length === 0" eyebrow="· no tags minted ·" message="No tags yet." />
 
         <!-- Tag list grouped by category -->

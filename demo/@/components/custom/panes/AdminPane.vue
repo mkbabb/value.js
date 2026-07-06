@@ -23,6 +23,7 @@
                 ref="adminUsersPanelRef"
                 :users="pm.filteredAdminUsers.value"
                 :loading="pm.loadingUsers.value"
+                :load-error="pm.usersLoadError.value"
                 :expanded-id="pm.expandedId.value"
                 :css-color="cssColorOpaque"
                 :total-users="pm.adminUsers.value.length"
@@ -42,10 +43,14 @@
                 :approved-items="pm.filteredApproved.value"
                 :loading-pending="pm.loadingColorQueue.value"
                 :loading-approved="pm.loadingApproved.value"
+                :pending-error="pm.queueLoadError.value"
+                :approved-error="pm.approvedLoadError.value"
                 :css-color-opaque="cssColorOpaque"
                 @approve="pm.onApproveColor"
                 @reject="pm.onRejectColor"
                 @delete="pm.onDeleteColor"
+                @retry-pending="pm.loadColorQueue"
+                @retry-approved="pm.loadApprovedColors"
             />
 
             <!-- Audit log sub-view -->

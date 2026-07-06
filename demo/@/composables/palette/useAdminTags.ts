@@ -15,6 +15,8 @@ import { useAdminAuth } from "../auth/useAdminAuth";
 export interface UseAdminTags {
     tags: Ref<Tag[]>;
     loading: Ref<boolean>;
+    /** W5-5 (F-2): load failure, surfaced — error ≠ empty at the panel. */
+    loadError: Ref<string | null>;
     creating: Ref<boolean>;
     newName: Ref<string>;
     newCategory: Ref<string>;
@@ -29,6 +31,7 @@ export function useAdminTags(): UseAdminTags {
 
     const tags = ref<Tag[]>([]);
     const loading = ref(false);
+    const loadError = ref<string | null>(null);
     const creating = ref(false);
     const newName = ref("");
     const newCategory = ref("");
@@ -49,7 +52,10 @@ export function useAdminTags(): UseAdminTags {
         loading.value = true;
         try {
             tags.value = await getAdminTags(token);
-        } catch (e) {
+            loadError.value = null;
+        } catch (e: any) {
+            // W5-5 (F-2): a dead backend must never read as "no tags yet".
+            loadError.value = e?.message ?? "Backend unreachable";
             console.warn("Failed to load tags:", e);
         } finally {
             loading.value = false;
@@ -92,6 +98,7 @@ export function useAdminTags(): UseAdminTags {
     return {
         tags,
         loading,
+        loadError,
         creating,
         newName,
         newCategory,

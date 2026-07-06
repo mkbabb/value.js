@@ -20,6 +20,9 @@ export function useColorNameQueue(deps: {
     const approvedColors = ref<ProposedColorName[]>([]);
     const loadingApproved = ref(false);
     const approvedLoaded = ref(false);
+    // W5-5 (F-2): load failures, surfaced — error ≠ empty at the panel.
+    const queueLoadError = ref<string | null>(null);
+    const approvedLoadError = ref<string | null>(null);
 
     const filteredColorQueue = useFilteredList(adminColorQueue, deps.searchQuery, (item, q) =>
         item.name.toLowerCase().includes(q) || item.css.toLowerCase().includes(q),
@@ -36,7 +39,9 @@ export function useColorNameQueue(deps: {
         try {
             const res = await getAdminQueue(token);
             adminColorQueue.value = res.data;
+            queueLoadError.value = null;
         } catch (e: any) {
+            queueLoadError.value = e?.message ?? "Backend unreachable";
             console.warn("Failed to load color queue:", e?.message);
         } finally {
             loadingColorQueue.value = false;
@@ -51,7 +56,9 @@ export function useColorNameQueue(deps: {
             const res = await getApprovedColorNamesAdmin(token);
             approvedColors.value = res.data;
             approvedLoaded.value = true;
+            approvedLoadError.value = null;
         } catch (e: any) {
+            approvedLoadError.value = e?.message ?? "Backend unreachable";
             console.warn("Failed to load approved colors:", e?.message);
         } finally {
             loadingApproved.value = false;
@@ -100,6 +107,8 @@ export function useColorNameQueue(deps: {
         approvedColors,
         loadingApproved,
         approvedLoaded,
+        queueLoadError,
+        approvedLoadError,
         filteredColorQueue,
         filteredApproved,
         loadColorQueue,

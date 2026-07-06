@@ -33,7 +33,22 @@
             <AdminListSkeleton v-for="i in 3" :key="i" />
         </div>
 
-        <!-- Empty -->
+        <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never
+             costumes as a clear ledger. Plain register (Q6). -->
+        <EmptyState
+            v-else-if="audit.loadError.value"
+            variant="error"
+            message="The ledger is unreachable."
+            :detail="audit.loadError.value"
+        >
+            <template #action>
+                <Button variant="outline" size="sm" class="font-display" @click="audit.loadAuditLog()">
+                    Retry
+                </Button>
+            </template>
+        </EmptyState>
+
+        <!-- Empty (TRUE empty — the specimen annotation survives, Q6) -->
         <EmptyState v-else-if="audit.entries.value.length === 0" eyebrow="· ledger clear ·" message="No audit entries found." />
 
         <!-- Entries — Ag-13: primary (action+time) / secondary (target) hierarchy -->

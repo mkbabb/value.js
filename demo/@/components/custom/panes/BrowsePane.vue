@@ -35,23 +35,26 @@
                     />
                 </div>
 
-                <!-- Error with retry — the same specimen-plate register as the
-                     empty state (R.W4 Lane A / A4): a designed state, not an
-                     apology; the retry CTA rides the action slot. -->
+                <!-- W5-5: error ≠ empty — the PLAIN register (Q6: the
+                     "· signal lost ·" annotation is dead; error plates drop
+                     the specimen conceit). The raw machine string moves to
+                     the Fira detail line; Retry is a real Button, device-
+                     neutral, no dock atom mis-planted in a pane body. -->
                 <EmptyState
                     v-else-if="pm.browseError.value && displayedBrowse.length === 0"
-                    eyebrow="· signal lost ·"
-                    :message="pm.browseError.value"
-                    hint="The community wall lives on the palette API."
+                    variant="error"
+                    message="The commons is unreachable."
+                    :detail="pm.browseError.value"
                 >
                     <template #action>
-                        <DockIconButton
-                            compact
-                            class="text-mono-small text-primary"
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            class="font-display"
                             @click="pm.loadRemotePalettes()"
                         >
-                            Tap to retry
-                        </DockIconButton>
+                            Retry
+                        </Button>
                     </template>
                 </EmptyState>
 
@@ -128,7 +131,7 @@
 <script setup lang="ts">
 import { inject, reactive, ref, computed, onMounted } from "vue";
 import { Card } from "@components/ui/card";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
+import { Button } from "@components/ui/button";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";

@@ -17,6 +17,21 @@
             <AdminListSkeleton v-for="i in 2" :key="i" />
         </div>
 
+        <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never
+             costumes as a clear moderation queue. Plain register (Q6). -->
+        <EmptyState
+            v-else-if="flagged.loadError.value"
+            variant="error"
+            message="The flag queue is unreachable."
+            :detail="flagged.loadError.value"
+        >
+            <template #action>
+                <Button variant="outline" size="sm" class="font-display" @click="flagged.loadFlagged()">
+                    Retry
+                </Button>
+            </template>
+        </EmptyState>
+
         <!-- W5-5 / F-11: the one panel that defected from the specimen-plate
              empty grammar (a grey italic apology) joins the register. -->
         <EmptyState
@@ -47,7 +62,15 @@
                     <span class="text-subheading truncate">
                         {{ item.palette?.name ?? item.paletteSlug }}
                     </span>
-                    <span v-if="item.palette?.userSlug" class="text-mono-caption text-muted-foreground truncate">
+                    <!-- W5-5 (F-11): a null palette is a DELETED palette —
+                         say so in the K-INV5 small-caps annotation register,
+                         never a silent bare slug with an empty strip. -->
+                    <span
+                        v-if="!item.palette"
+                        class="fira-code text-mono-caption text-muted-foreground opacity-70 tracking-wide"
+                        style="font-variant: small-caps"
+                    >palette deleted</span>
+                    <span v-else-if="item.palette.userSlug" class="text-mono-caption text-muted-foreground truncate">
                         {{ item.palette.userSlug }}
                     </span>
                 </div>

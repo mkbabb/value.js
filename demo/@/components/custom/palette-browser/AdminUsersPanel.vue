@@ -43,7 +43,21 @@
         <div v-if="loading" class="grid gap-3" aria-label="Loading users">
             <AdminListSkeleton v-for="i in 3" :key="i" />
         </div>
-        <EmptyState v-else-if="users.length === 0" message="No users found." />
+        <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never
+             costumes as an empty roster. Plain register (Q6). -->
+        <EmptyState
+            v-else-if="loadError"
+            variant="error"
+            message="The roster is unreachable."
+            :detail="loadError"
+        >
+            <template #action>
+                <Button variant="outline" size="sm" class="font-display" @click="emit('refresh')">
+                    Retry
+                </Button>
+            </template>
+        </EmptyState>
+        <EmptyState v-else-if="users.length === 0" eyebrow="· roster clear ·" message="No users found." />
         <div v-else class="grid gap-3">
             <div
                 v-for="user in users"
@@ -96,7 +110,7 @@
                     <div v-if="loadingUserPalettes" class="grid gap-2" aria-label="Loading palettes">
                         <AdminListSkeleton v-for="i in 2" :key="i" />
                     </div>
-                    <EmptyState v-else-if="userPalettes.length === 0" message="No palettes." />
+                    <EmptyState v-else-if="userPalettes.length === 0" eyebrow="· none pinned ·" message="No palettes." />
                     <div v-else class="grid gap-2">
                         <PaletteCard
                             v-for="palette in userPalettes"
@@ -155,12 +169,15 @@ import AdminListSkeleton from "./AdminListSkeleton.vue";
 const {
     users,
     loading,
+    loadError = null,
     expandedId,
     cssColor,
     totalUsers,
 } = defineProps<{
     users: User[];
     loading: boolean;
+    /** W5-5 (F-2): the surfaced load failure — error ≠ empty. */
+    loadError?: string | null;
     expandedId: string | null;
     cssColor: string;
     totalUsers: number;
