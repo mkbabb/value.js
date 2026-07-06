@@ -29,8 +29,12 @@
                     <DialogTitle
                         class="font-display text-title sm:text-display-2 font-black tracking-tight"
                     >
+                        <!-- S.W7-7: the admin headline consumes the producer's
+                             ONE gold register (glass-ui `.gold-shimmer`); the
+                             local static `.admin-golden-text` gradient fork is
+                             retired. -->
                         <template v-if="isAdminAuthenticated">
-                            Admin <span class="uppercase admin-golden-text">Palettes</span>
+                            Admin <span class="uppercase gold-shimmer">Palettes</span>
                         </template>
                         <template v-else>
                             <!-- S.W5-7 (Q4 EXCISE): ink, not candy ramp. -->
@@ -65,14 +69,14 @@ defineEmits<{
 </script>
 
 <style scoped>
-/* Admin golden shimmer */
-.admin-golden-text {
-    background-image: linear-gradient(to right, var(--color-gold), var(--color-gold-light), var(--color-gold));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
+/* Admin golden shimmer — S.W7-7 (god-module census §2.2, one gold voice):
+ * the TEXT half consumes glass-ui's `.gold-shimmer` register (template);
+ * the BOX sheen below keeps its distinct overlay geometry but rides the
+ * producer's `metal-shimmer-sweep` keyframe — the former `golden-shimmer`
+ * keyframe was NEVER DEFINED anywhere in the tree (a silent no-op since
+ * the E.W4 tokenize pass; verified by grep over demo + glass-ui src/dist),
+ * so this is a defined-or-removed cure via the ONE producer clock, not a
+ * new demo keyframe. */
 .admin-golden {
     position: relative;
 }
@@ -83,10 +87,13 @@ defineEmits<{
     border-radius: inherit;
     background: linear-gradient(135deg, transparent 20%, oklch(85% 0.15 85deg / 0.4) 40%, oklch(90% 0.12 55deg / 0.6) 50%, oklch(85% 0.15 85deg / 0.4) 60%, transparent 80%);
     background-size: 200% 200%;
-    /* E.W4 Lane E: tokenize 3s shimmer to glass-ui canon `--duration-shimmer-fast`. */
-    animation: golden-shimmer var(--duration-shimmer-fast) ease-in-out infinite;
     pointer-events: none;
     mix-blend-mode: overlay;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .admin-golden::after {
+        animation: metal-shimmer-sweep var(--duration-shimmer-fast) ease-in-out infinite;
+    }
 }
 
 /* `.pastel-rainbow-text` EXCISED at S.W5-7 (Q4 RATIFIED EXCISE) — the

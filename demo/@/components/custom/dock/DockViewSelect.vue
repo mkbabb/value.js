@@ -140,11 +140,9 @@ function entryAccent(id: string): string {
 </template>
 
 <style scoped>
-/* Admin golden icon — matches the class used in Dock.vue collapsed slot */
-.gold-shimmer-icon {
-    color: var(--color-gold);
-    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent));
-}
+/* `.gold-shimmer-icon` lives in @styles/utils.css (S.W7-7 — the byte-identical
+ * scoped twin this file carried is retired; ONE global recipe, god-module
+ * census §2.1). */
 
 /* W7-4 — the BOUNDED view-switch hue sweep (the W3-7 §2 mechanism, form A):
  * the <color>-registered `--accent-view` transitions on THIS trigger scope

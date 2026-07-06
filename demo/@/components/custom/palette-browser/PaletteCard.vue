@@ -51,7 +51,11 @@
                     :title="palette.name"
                     @click.stop="editableName && startRenaming()"
                 >{{ palette.name }}</span>
-                <Badge v-if="palette.tier === 'featured'" variant="outline" class="featured-badge text-mono-small shrink-0 gap-1 border-gold text-gold">
+                <!-- S.W7-7: the featured badge's gold TEXT shimmer consumes the
+                     producer's ONE metal register (glass-ui `.gold-shimmer` —
+                     gradient-clip + metal-shimmer-sweep, PRM-gated); the local
+                     `golden-text-shimmer` keyframe fork is retired. -->
+                <Badge v-if="palette.tier === 'featured'" variant="outline" class="featured-badge gold-shimmer text-mono-small shrink-0 gap-1 border-gold">
                     <!-- Wrapper class lets the scoped `.featured-badge__icon`
                          selector style the icon without :deep(svg) reach. -->
                     <span class="featured-badge__icon inline-flex">
@@ -365,14 +369,13 @@ function onPopoverCopy(css: string) {
 </script>
 
 <style scoped>
+/* S.W7-7 (god-module census §2.2): the badge's gold text shimmer is the
+ * producer's `.gold-shimmer` metal register (see the template class); this
+ * scoped block keeps only what the register doesn't own — the outline hue
+ * and the icon ink. The local `golden-text-shimmer` keyframe fork is
+ * retired onto glass-ui's `metal-shimmer-sweep` (moved, not lost). */
 .featured-badge {
-    background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light), var(--color-gold), var(--color-gold-light), var(--color-gold));
-    background-size: 300% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     border-color: var(--color-gold);
-    animation: golden-text-shimmer 4s var(--ease-standard) infinite;
 }
 /* Featured-badge icon — selector-stable replacement for the prior
  * `.featured-badge :deep(svg)` reach (D.W4 Lane A §3). The wrapper span
@@ -382,11 +385,6 @@ function onPopoverCopy(css: string) {
 .featured-badge__icon svg {
     stroke: var(--color-gold);
     filter: drop-shadow(0 0 1px color-mix(in srgb, var(--color-gold) 40%, transparent));
-}
-
-@keyframes golden-text-shimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
 }
 
 /* vj-morph geometry for the rename unfurl: drops in from above (enter and
