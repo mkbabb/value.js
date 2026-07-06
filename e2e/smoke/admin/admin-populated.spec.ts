@@ -70,13 +70,13 @@ test.describe("names moderation at 390px (F-1)", () => {
         await expect(approve).toHaveCount(QUEUE.length);
         await expect(reject).toHaveCount(QUEUE.length);
 
-        // The F-1 fence proper: every action button INSIDE the 390px viewport.
+        // The F-1 fence proper: every action button FULLY inside the 390px
+        // viewport (ratio 1 — a half-clipped button is still an inoperable
+        // one). toBeInViewport retries, so the pane entrance transition
+        // settles before the measurement counts.
         for (const locator of [approve, reject]) {
             for (const button of await locator.all()) {
-                const box = await button.boundingBox();
-                expect(box).not.toBeNull();
-                expect(box!.x).toBeGreaterThanOrEqual(0);
-                expect(box!.x + box!.width).toBeLessThanOrEqual(391);
+                await expect(button).toBeInViewport({ ratio: 1 });
             }
         }
 
