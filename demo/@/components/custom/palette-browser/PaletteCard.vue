@@ -12,17 +12,23 @@
             // backdrop blur, so the pane plate reads through instead of the
             // opaque cream punching a hole in it. PaletteCardSkeleton +
             // .dashed-well speak the same shell by construction.
-            'group rounded-card border border-card-edge bg-card/75 backdrop-blur-sm overflow-hidden shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
+            // NO overflow-hidden (S.W5-10 / S-15-A): a card-level radius clip
+            // rasterizes 1-bit at compositing-layer bounds (the stair-stepped
+            // strip corner in the owner's shot); the strip clips its OWN
+            // corners below — an interior clip keeps normal AA.
+            'group rounded-card border border-card-edge bg-card/75 backdrop-blur-sm shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
         role="article"
         :aria-label="`Palette: ${palette.name}`"
         @click="$emit('click')"
     >
-        <!-- Color strip -->
+        <!-- Color strip — the card's only full-bleed child; it carries the
+             corner radius itself now that the card no longer clips. -->
         <PaletteColorStrip
             :colors="palette.colors"
             :orientation="layout === 'aside' ? 'vertical' : 'horizontal'"
+            :class="layout === 'aside' ? 'rounded-l-card' : 'rounded-t-card'"
         />
 
         <!-- Card body (flex-1 in aside layout so it sits next to the vertical strip) -->
