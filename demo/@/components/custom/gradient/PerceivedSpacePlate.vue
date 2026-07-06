@@ -55,7 +55,7 @@ let probe: ReturnType<typeof createInkProbe> | null = null;
 let inks: ResolvedInks | null = null;
 let classObs: MutationObserver | null = null;
 
-// ── The low-res field raster (repainted only on hue/size change) ──
+// ── The device-resolution field raster (repainted on hue/size/dpr change) ──
 const fieldCanvas = document.createElement("canvas");
 let fieldKey = "";
 
@@ -82,13 +82,13 @@ function paint() {
         probe ??= createInkProbe(host);
         inks = probe.resolve();
     }
-    const key = `${hue}:${width}x${height}`;
+    const dpr = Math.min(window.devicePixelRatio || 1, DPR_CAP);
+    const key = `${hue}:${width}x${height}@${dpr}`;
     if (fieldKey !== key) {
-        paintSliceField(fieldCanvas, width, height, hue, boundary);
+        paintSliceField(fieldCanvas, width, height, dpr, hue, boundary);
         fieldKey = key;
     }
 
-    const dpr = Math.min(window.devicePixelRatio || 1, DPR_CAP);
     paintPerceivedSpacePlate(canvas, {
         width,
         height,

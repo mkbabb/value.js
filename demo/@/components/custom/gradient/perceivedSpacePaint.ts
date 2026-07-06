@@ -23,7 +23,7 @@ import type { OKLChSliceBoundary } from "@src/units/color/boundary";
 import { linearToSrgb } from "@src/units/color/conversions/transfer";
 import { oklabToLinearSRGBInto } from "@src/units/color/gamut";
 import type { Vec3 } from "@src/units/color/matrix";
-import { drawHatch } from "@lib/gamut-ink";
+import { drawHatch, drawSecondNet } from "@lib/gamut-ink";
 import type { ResolvedInks } from "@lib/gamut-ink";
 import type { RampPoint, StopPoint } from "./composables/usePerceivedRamp";
 
@@ -36,10 +36,12 @@ import type { RampPoint, StopPoint } from "./composables/usePerceivedRamp";
  */
 export const PLATE_C_MAX = 0.4;
 
-/** Field raster ceiling (CSS px). Full CSS resolution — a half-res raster
- * showed a visible staircase where the contour runs nearly horizontal (the
- * tongue tip) that the 1.5px boundary stroke could not cover (π after-shot).
- * ~58k px per repaint, and the field repaints only on hue/size change. */
+/** Field raster ceiling (CSS px; rastered at ×dpr device resolution — the
+ * owner rider's no-1x-upscaling clause). Full resolution because a half-res
+ * raster showed a visible staircase where the contour runs nearly horizontal
+ * (the tongue tip) that the 1.5px boundary stroke could not cover (π
+ * after-shot). ~232k px per repaint at dpr 2, and the field repaints only on
+ * hue/size/dpr change. */
 const FIELD_MAX_W = 640;
 const FIELD_MAX_H = 256;
 
@@ -61,19 +63,21 @@ function boundaryCAt(boundary: OKLChSliceBoundary, l: number): number {
 }
 
 /**
- * Paint the in-gamut slice field into an offscreen raster (low-res; the
- * caller upscales). Out-of-gamut pixels stay transparent — the plate's
- * paper ground shows through and carries the hatch.
+ * Paint the in-gamut slice field into an offscreen raster at DEVICE
+ * resolution (CSS size × the caller's capped dpr — device-pixel-crisp at
+ * retina, never a 1x raster upscaled). Out-of-gamut pixels stay transparent —
+ * the plate's paper ground shows through and carries the hatch.
  */
 export function paintSliceField(
     field: HTMLCanvasElement,
     cssW: number,
     cssH: number,
+    dpr: number,
     hueDeg: number,
     boundary: OKLChSliceBoundary,
 ): void {
-    const w = Math.max(2, Math.min(FIELD_MAX_W, Math.round(cssW)));
-    const h = Math.max(2, Math.min(FIELD_MAX_H, Math.round(cssH)));
+    const w = Math.max(2, Math.round(Math.min(FIELD_MAX_W, cssW) * dpr));
+    const h = Math.max(2, Math.round(Math.min(FIELD_MAX_H, cssH) * dpr));
     field.width = w;
     field.height = h;
     const ctx = field.getContext("2d");
@@ -142,7 +146,7 @@ export interface PlatePaintOptions {
     dpr: number;
     hueDeg: number;
     boundary: OKLChSliceBoundary;
-    /** The pre-painted low-res field raster (paintSliceField). */
+    /** The pre-painted device-resolution field raster (paintSliceField). */
     field: HTMLCanvasElement;
     inks: ResolvedInks;
     points: RampPoint[];
@@ -167,7 +171,8 @@ export function paintPerceivedSpacePlate(
     c.setTransform(dpr, 0, 0, dpr, 0, 0);
     c.clearRect(0, 0, w, h);
 
-    // 1 — the in-gamut color field (upscaled smooth; edge covered by stroke).
+    // 1 — the in-gamut color field (device-resolution raster mapped 1:1 onto
+    //     the dpr-scaled store; smoothing only engages past the raster cap).
     c.imageSmoothingEnabled = true;
     c.drawImage(o.field, 0, 0, w, h);
 
@@ -209,42 +214,31 @@ export function paintPerceivedSpacePlate(
 
     // 4 — the trajectory: the coalesced ramp inked into the slice. In-gamut
     //     runs are solid ink; sRGB-excess runs (wide interpolation spaces)
-    //     carry the SECOND net — a registered paper-under-ink dashed pair.
+    //     carry the SECOND net — the facility's registered paper-under-ink
+    //     dashed pair (`drawSecondNet`, @lib/gamut-ink — never a local copy).
     const pts = o.points;
     if (pts.length >= 2) {
         c.lineJoin = "round";
         c.lineCap = "round";
+        const inPath = new Path2D();
+        const outPath = new Path2D();
+        let hasOut = false;
         for (let i = 0; i < pts.length - 1; i++) {
             const p0 = pts[i]!;
             const p1 = pts[i + 1]!;
             const out = !p0.inSRGB || !p1.inSRGB;
-            const x0 = toX(p0.c, w);
-            const y0 = toY(p0.l, h);
-            const x1 = toX(p1.c, w);
-            const y1 = toY(p1.l, h);
-
-            if (out && o.inks.edgePaper) {
-                c.strokeStyle = o.inks.edgePaper;
-                c.lineWidth = 3.5;
-                c.setLineDash([]);
-                c.beginPath();
-                c.moveTo(x0, y0);
-                c.lineTo(x1, y1);
-                c.stroke();
-                c.strokeStyle = o.inks.edgeInk;
-                c.lineWidth = 1.5;
-                c.setLineDash([3, 3]);
-            } else {
-                c.strokeStyle = o.inks.edgeInk;
-                c.lineWidth = 2;
-                c.setLineDash([]);
-            }
-            c.beginPath();
-            c.moveTo(x0, y0);
-            c.lineTo(x1, y1);
-            c.stroke();
+            const path = out ? outPath : inPath;
+            hasOut ||= out;
+            path.moveTo(toX(p0.c, w), toY(p0.l, h));
+            path.lineTo(toX(p1.c, w), toY(p1.l, h));
         }
+        c.strokeStyle = o.inks.edgeInk;
+        c.lineWidth = 2;
         c.setLineDash([]);
+        c.stroke(inPath);
+        if (hasOut) {
+            drawSecondNet(c, outPath, o.inks.edgeInk, o.inks.edgePaper);
+        }
     }
 
     // 5 — stop beads ON the path (fill = the stop's own color; ring ink by

@@ -24,7 +24,7 @@
  */
 
 import type { GamutBoundary } from "@src/units/color/boundary";
-import { DPR_CAP, drawHatch, HATCH_PERIOD } from "@lib/gamut-ink";
+import { DPR_CAP, drawHatch, HATCH_STEP } from "@lib/gamut-ink";
 import type { ResolvedInks } from "@lib/gamut-ink";
 import { spectrumFieldIsLight } from "./spectrumLuma";
 
@@ -145,7 +145,7 @@ export function paintGamutBoundary(
     // each pass clipped to (clipped margin ∩ luma regime).
     const phase = o.reduceMotion
         ? 0
-        : (o.hueDeg / 360) * HATCH_DRIFT_PERIODS * HATCH_PERIOD * Math.SQRT2;
+        : (o.hueDeg / 360) * HATCH_DRIFT_PERIODS * HATCH_STEP;
     for (const [region, ink, edge] of [
         [lightRegion, lightFieldHatch, lightFieldEdge],
         [darkRegion, darkFieldHatch, darkFieldEdge],
