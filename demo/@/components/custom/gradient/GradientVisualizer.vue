@@ -166,7 +166,13 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <!-- W5-a11y: preview swatch is decorative -->
         <div
             class="h-20 sm:h-24 rounded-card border border-card-edge bg-card overflow-hidden shadow-card"
-            :style="{ background: coalescedCSS }"
+            :style="{
+                /* S owner-ruling 2026-07-05: the `--alpha-checker` ground
+                   layers UNDER the gradient — translucent stops read as
+                   transparency instead of blending into the card surface.
+                   Fully-opaque gradients cover it; nothing changes there. */
+                background: `${coalescedCSS}, var(--alpha-checker)`,
+            }"
             aria-hidden="true"
             role="presentation"
         />

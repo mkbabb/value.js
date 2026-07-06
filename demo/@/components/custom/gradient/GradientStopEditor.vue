@@ -117,7 +117,12 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
         <div
             ref="barRef"
             :class="['relative h-10 rounded-lg glass-wash select-none touch-none', draggingId ? 'cursor-grabbing' : 'cursor-crosshair']"
-            :style="{ background: coalescedCSS }"
+            :style="{
+                /* S owner-ruling 2026-07-05: the house `--alpha-checker`
+                   ground layers UNDER the gradient, so translucent stops
+                   read as transparency, not as a wash over the pane glass. */
+                background: `${coalescedCSS}, var(--alpha-checker)`,
+            }"
             @pointerdown="onBarPointerDown"
             @pointermove="onBarPointerMove"
             @pointerup="onBarPointerUp"
@@ -139,7 +144,11 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
                 ]"
                 :style="{
                     left: `${stop.position}%`,
-                    backgroundColor: stop.cssColor,
+                    /* S owner-ruling 2026-07-05: the stop well paints its
+                       color as a layer OVER the `--alpha-checker` ground
+                       (background-color would sit UNDER background-image,
+                       so the color rides a const-color gradient layer). */
+                    background: `linear-gradient(${stop.cssColor}, ${stop.cssColor}), var(--alpha-checker)`,
                     boxShadow: 'var(--shadow-sm)',
                     /* S.W4 / W4-3: the hover scale rides the INLINE transform —
                        the `hover:scale-110` utility was DEAD, shadowed by this

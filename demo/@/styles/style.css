@@ -252,6 +252,22 @@
                            transparent 0 5px,
                            color-mix(in oklab, var(--background) 12%, transparent) 5px 6px);
 
+    /* ── The alpha transparency checker (S owner-ruling 2026-07-05) ──
+     * ONE recipe, one home: the idiomatic transparency ground every alpha-
+     * carrying ramp/well composes UNDER its color layer via the background
+     * shorthand — `background: <ramp>, var(--alpha-checker)`. 8px squares
+     * (16px tile), two-tone in the house neutrals: --background + a quiet
+     * --foreground mix, so both schemes stay in-material by construction
+     * (dark gets a dark checker, never a white flash). The token carries its
+     * own position/size — it is a complete background LAYER; compose it via
+     * `background:`, not `background-image:`. Consumers: the picker's alpha
+     * slider track (ComponentSliders), the gradient editor bar + stop wells
+     * (GradientStopEditor). */
+    --alpha-checker: repeating-conic-gradient(
+            color-mix(in oklab, var(--foreground) 14%, var(--background)) 0% 25%,
+            var(--background) 0% 50%
+        ) left top / 16px 16px;
+
     --shadow-color: var(--foreground);
 
     /* PROJECT OVERRIDE: the demo's identity surface shadow is a bold pop-art
@@ -445,6 +461,23 @@
 .underline-tabs button[role="tab"][data-state="active"] {
     border-bottom: 2px solid var(--active-tab-color, var(--primary));
     border-radius: 0;
+}
+
+/* MARKER (S owner-ruling 2026-07-05, alpha-checker lane): restatement of
+ * glass-ui's OWN spectrum-range rule, which its SOURCE declares (Slider.vue —
+ * `background: transparent; backdrop-filter: none; -webkit-backdrop-filter:
+ * none; box-shadow: none`) but whose DIST minification drops the UNPREFIXED
+ * `backdrop-filter: none` leg, keeping only `-webkit-backdrop-filter: none`.
+ * Chromium does not implement the -webkit- alias (computed reads empty), so
+ * in Chrome the `.glass-liquid-fill` register's backdrop blur stays LIVE on
+ * every spectrum range — washing the track under it (it blurred the ramps
+ * before; it liquefied the alpha checker into a flat wash, which is how it
+ * was caught). NOT a fork — a byte-level restatement of producer intent,
+ * scoped to the exact producer selector. Retire when the glass-ui dist keeps
+ * the unprefixed leg (reported; the W8 /slider consume is the checkpoint). */
+.glass-slider[data-variant="spectrum"] .slider-range {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 /* D.W4 Lane A: .palette-tab-content (data-state cascade) colocated into
