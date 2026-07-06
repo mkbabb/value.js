@@ -49,3 +49,11 @@ half (see the W6-7 commit).
 - Orphan field-floor dark arm / damping → producer F2.R1 (ADDENDUM A1).
 - The `alpha` muted-ink rung (~1.5:1 both ways) → producer F2.R1 (ADDENDUM A2).
 - Title-ink-vs-plate-luminance → W7-3's accent system.
+
+## GAP-L5 (satellite/bead — mirrored from the `d843ae7` commit body at wave close)
+
+The visible-bead ≥96px gate + the satellite-show half of W6-4 are CONDITIONED on the producer
+L5 HERO preset (+ `uSatColor[]`/satellites-at-rest), absent at glass-ui 4.2.0/tranche-BG.
+The demo-geometry halves (footprint clamp, corner-break law, Q7 full presence, C-tracking
+ramp, mood FSM, PRM static frame) all LANDED; the producer halves re-verify at the S.W8 adopt
+walk alongside GAP-L2 above.
