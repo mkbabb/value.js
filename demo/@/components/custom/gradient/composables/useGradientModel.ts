@@ -12,14 +12,16 @@ import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/mix";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
 import { useGradientInterpolation } from "./useGradientInterpolation";
-import { useGradientCSS, parseGradientCSS, linearInterval } from "./useGradientCSS";
-import type { GradientParseResult } from "./useGradientCSS";
+import { useGradientCSS, linearInterval } from "./useGradientCSS";
+import { parseGradientCSS } from "./gradientParse";
+import type { GradientParseResult } from "./gradientParse";
 
 // ── Re-exports (preserve public API surface) ──
 
 export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "./useGradientInterpolation";
-export { serializeGradient, serializeCoalescedGradient, parseGradientCSS, linearInterval } from "./useGradientCSS";
-export type { GradientParseResult, ParsedGradientModel } from "./useGradientCSS";
+export { serializeGradient, serializeCoalescedGradient, linearInterval } from "./useGradientCSS";
+export { parseGradientCSS } from "./gradientParse";
+export type { GradientParseResult, ParsedGradientModel } from "./gradientParse";
 
 // ── Types ──
 

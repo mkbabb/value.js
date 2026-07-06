@@ -7,10 +7,8 @@
  */
 
 import { describe, expect, it } from "vitest";
-import {
-    parseGradientCSS,
-    serializeGradient,
-} from "../demo/@/components/custom/gradient/composables/useGradientCSS";
+import { parseGradientCSS } from "../demo/@/components/custom/gradient/composables/gradientParse";
+import { serializeGradient } from "../demo/@/components/custom/gradient/composables/useGradientCSS";
 
 function expectOk(css: string) {
     const res = parseGradientCSS(css);
