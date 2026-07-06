@@ -360,3 +360,109 @@ CH-13/R8-23/R-5/R-10** (all KEEP-BOOKED; no fired trigger at 2026-07). Plus the 
 Doc-truth drift noted for the FINAL/doc-truth commit (not reconciled here): CLAUDE.md
 "5 projects" is now **6** (smoke-perf added at W3); `waves/S.W9.md §Hard gate 7` "e2e 5-project"
 likewise. Both are the smoke-perf standing oracle, added at W3.
+
+---
+
+## §ceremony — the S close ceremony (fired 2026-07-06 by the orchestrator)
+
+The verification act above discharged the reconciliation; this section records the mechanical
+close ceremony (`waves/S.W9.md §Commit plan` · `docs/RELEASE.md §3`). It is appended **after**
+FINAL.md, per the FINAL.md header note that reserved the merge/tag/worktree-cleanup for the
+orchestrator.
+
+### §c.1 — Final suite on the merged-tree candidate (tranche-q @ `4a166c9`)
+
+The merge is a `--no-ff` of `tranche-q` into `master`, and `tranche-q` is **166 ahead / 0
+behind** `master` — so the merged tree is bit-for-bit `tranche-q`'s tree, and the suite re-run
+on `tranche-q @ 4a166c9` **is** the merged-tree-candidate run. Re-driven end-to-end
+2026-07-06 (not carried from the W7 head this time — the e2e 6-project suite was re-run cold):
+
+| Gate | Command | Result |
+|---|---|---|
+| lint | `npm run lint` (`eslint . --max-warnings=0`) | **0** (exit 0) |
+| typecheck | `npm run typecheck` (vue-tsc lib + demo) | **0** (exit 0) |
+| unit | `npx vitest run` | **2158 / 2158** passed · **68 files** (exit 0) |
+| gh-pages | `npm run gh-pages` (`vite build --mode gh-pages`) | **built** (exit 0, `✓ built`) |
+| e2e | `npx playwright test` (6 projects) | **66 / 66** passed (exit 0; smoke · smoke-admin · smoke-mobile · smoke-reactivity · smoke-safari · smoke-perf — the safari sustained-30s + smoke-perf frame-budget gates green on this run) |
+
+No red. The ceremony proceeds (no paperwork close over a red probe — none present).
+
+### §c.2 — Worktree hygiene (`waves/S.W9.md` step 2)
+
+FINAL.md's header note named the 5 stale `wf_01c28a82-3c2-*` seed-fleet worktrees at `7cd45c4`
+as pre-ceremony debris. The live sweep found those **plus** 3 orphaned dead-lane branches and
+symlink litter:
+
+- **Removed (registered worktrees)**: `.claude/worktrees/wf_01c28a82-3c2-{1,2,3,4,5}` — all at
+  `7cd45c4` (= master/R-close, 0 unique commits) — via `git worktree remove --force` +
+  `git worktree prune`.
+- **Deleted branches (8, all `wf_*`, all merged / 0 unique commits vs master)**:
+  `worktree-wf_01c28a82-3c2-{1..5}` (the seed set) + `worktree-wf_45c5309a-78d-{2,3,4}` (dead-lane
+  orphans whose worktrees were already gone — branch-only litter). Each verified
+  `git rev-list --count master..<branch> == 0` **before** deletion (the unmerged-with-unique-
+  commits = record guard; none qualified).
+- **Symlink litter removed**: `.claude/worktrees/glass-ui` → `/Users/mkbabb/Programming/glass-ui`
+  and `.claude/worktrees/keyframes.js` → `/Users/mkbabb/Programming/keyframes.js` (convenience
+  symlinks that only served the now-removed lane worktrees' `file:../glass-ui`/`../keyframes.js`
+  resolution; `rm` on a symlink removes the link, never the sibling repo).
+- **Preserved (out of the named `wf_*` scope, conservative)**: the `worktree-palette-deploy`
+  branch (`34a4df5`, a pre-R ancestor, 0 unique commits, non-`wf`, dated Feb-25) + its leftover
+  `.claude/worktrees/palette-deploy/` dir — **not** a registered git worktree (absent from
+  `git worktree list --porcelain` and `.git/worktrees/`), so it does not affect the end-state
+  criterion. Left untouched rather than delete a non-scoped branch.
+
+**End state**: `git worktree list` = the main tree only:
+
+```
+/Users/mkbabb/Programming/value.js  4a6b62b [master]
+```
+
+### §c.3 — The merge, the tag, the pushes
+
+- **Merge** (`--no-ff`, `master` `7cd45c4` ← `tranche-q` `4a166c9`), **no conflicts**:
+  - merge commit **`4a6b62b5eeba5257715b01d25dc72a1c61b26e13`**
+  - parents: `7cd45c4` (master / R-close) + `4a166c9` (tranche-q / S FINAL)
+  - message: `merge(tranche-s): S CLOSE — complete_with_misses: oracle floor + 3.0.0/3.1.0
+    one-color-spine + budgets-as-gates + four Fable waves; 2 RED PROBES named (RP-1 cured,
+    RP-2 JS-eager re-baseline)`
+- **Tag** (annotated): **`tranche-s-close`** → tag object `5bb2d59` → merge commit `4a6b62b`.
+  Message carries the FINAL verdict (`complete_with_misses`) + the publishes (3.0.0/`v3.0.0`
+  immutable · 3.1.0/`v3.1.0` `dist-tags.latest`) + the 23-book hand-off count.
+- **Push**: `git push origin master --follow-tags` → `7cd45c4..4a6b62b  master -> master` +
+  `[new tag] tranche-s-close`. `git push origin tranche-q` → `Everything up-to-date`
+  (`origin/tranche-q` already at `4a166c9`).
+
+### §c.4 — CI on master (the W0 CI-log deferral discharges here)
+
+The merge push is the **first master-targeting CI run** — the W0 gate's deferred workflow-log
+proof (the `ci.yml` fires only on master push/PR):
+
+- **Run**: `28828848774` — workflow **CI** (`node.js.yml`), event `push`, headSha `4a6b62b`,
+  created `2026-07-06T22:54:51Z`.
+- **URL**: https://github.com/mkbabb/value.js/actions/runs/28828848774
+- **Jobs**: `build-and-test (22)` + `build-and-test (24)` (Node 22 / Node 24 matrix).
+- **Status at capture**: `in_progress` (both matrix jobs `build-and-test (22)` +
+  `build-and-test (24)` running ~7 min in, as of the captures commit). The run typically takes
+  ~15 min (the R-close run `28724465123` was 15m46s) — its terminal conclusion post-dates this
+  commit; it is watched to terminal by the orchestrator and, if not amended here, is observable
+  at the run URL by the successor. **A red from env-gaps is a RECORD, not a close blocker** —
+  the merged-tree local suite in §c.1 (lint 0 · typecheck 0 · vitest 2158/2158 · e2e 66/66 ·
+  gh-pages built) is the authoritative green, and per `waves/S.W9.md` step 3 the CI run status
+  is *captured*, not re-gated. The downstream `deploy-pages` workflow (CF-Pages
+  `color.babb.dev`, owner-authorized) triggers on this run's `workflow_run` completion.
+- **Note**: this docs-capture commit itself lands on `master` and fires a *second* CI run (a
+  docs-only push + its `deploy-pages` follow-on); it is the informational follow-up, not the
+  close-gate run (the R-close precedent — the FINAL docs commit records the earlier run).
+
+### §c.5 — Post-ceremony state captures
+
+- `git status --porcelain`: **empty** (clean working tree).
+- `git worktree list`: **main tree only** (§c.2 block above).
+- Remote refs after push:
+  - `refs/heads/master` → `4a6b62b`
+  - `refs/heads/tranche-q` → `4a166c9`
+  - `refs/tags/tranche-s-close` → `5bb2d59` (→ `4a6b62b`)
+
+**Tranche S is closed.** The successor opens on the FINAL.md §5 books table (S.W8 glass-ui
+5.0.0 adopt un-fired + the producer-gap rows + X1/X2 residuals), the §7 process lessons, and
+the §6 standing oracle slate as its inherited floor.
