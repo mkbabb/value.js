@@ -214,3 +214,35 @@ header the band sits in.
 | About dark band + hard edge | `PaneHeader.vue:2` sticky `bg-card/60 backdrop-blur-md` rectangle ending at its box edge, over the field-floor hot zone | demo | wave item: scroll-gated band alpha on the existing `--pane-scroll` timeline + bottom feather |
 | Label contrast loss | light dark-mode ink over the wash-lifted plate (2.6:1 hot zone); residual muted-rung 1.5:1 both ways; title ink grammar keys on mode not plate | joint | cured by artifact-1 fix; muted rung → producer F2.R1; title ink → demo follow-up |
 | Corner aliasing | fractional-pixel card y (230.445/115.5) + demo 0-blur 8px cartoon stamp arc + Chromium backdrop-clip AA over 4 concentric arcs | joint (demo levers; platform floor) | demo wave item: integer-snap pane centering; stamp feather optional; no producer ask |
+
+---
+
+## ADDENDUM — W6-8 RE-MEASURE (2026-07-05, post-landing)
+
+`data-paper-field` LANDED on the body (the field plane host — it paints the
+`--saved-bg` derived ground, hosts the aurora canvas AND every teleported
+overlay, so portaled dialog cards read the gate too). Verified by this doc's
+own T1 method inverted (same build, paired attribute toggle): with the
+attribute present, every probed glass card computes `background-image: none`
+— **the amber wash is DEAD**; removing it restores the wash. The gate is now
+standing e2e (`e2e/smoke/atmosphere-cold-load.spec.ts`, paper-field test).
+
+Contrast rows re-measured, probe method faithful (WCAG, computed ink vs
+median plate pixel of the row's box; dark-warm state `.dark` +
+`lab(32% 18 42)`, 1440×900, DPR 1; substrate = the CSS-placeholder field
+under headless software GL — recorded):
+
+| Sample | wash ON (paired toggle) | wash OFF (landed) |
+|---|---|---|
+| Basic-Information value column (ellipse core) | 1.90:1 | **3.98:1** |
+| picker readout row | 5.94:1 | **7.81:1** |
+
+The readout row corroborates the original probe's shape (6.15 → 7.65 there;
+5.94 → 7.81 here). The hot zone gains +2.08 points from the wash kill — more
+than the ~1.0–1.6 band this doc measured — but lands at 3.98:1, short of the
+4.23 the original T1 saw, because the W6-3-amplified LIGHT-BAND field now
+shines through the cured glass in dark mode: the dark L band `[0.18, 0.42]`
+is the letter-L2 atoms-door gap (`audit/w6-producer-gap-rows.md`), and the
+row re-verifies at the S.W8 adopt with the band. Residuals stay routed as
+above: dark-arm damping + the `alpha` muted rung → producer F2.R1 (ADDENDUM
+A1/A2); the title-ink grammar → W7-3.

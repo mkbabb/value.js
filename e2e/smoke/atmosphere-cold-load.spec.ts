@@ -22,6 +22,10 @@ import {
  * The entrance rider (owner ruling 2026-07-05 §1.1) is asserted at its
  * settle point: the canvas arrives fully present (`opacity: 1` via the
  * `atmosphere-canvas--arrived` derive-in; immediate under PRM/css-substrate).
+ *
+ * W6-8 (card-lighting forensics artifact 1) rides here too: the body carries
+ * the `data-paper-field` contract, so the producer's orphan amber field-floor
+ * is switched OFF on every glass card (the forensics T1 toggle, made durable).
  */
 
 const URL_GREEN = "oklch(0.72 0.19 145)"; // the π-baseline vivid green (hue 145)
@@ -73,8 +77,8 @@ for (const scheme of ["light", "dark"] as const) {
             STALE_BOOT_BG,
         );
         // Green-family read: the derived ramp of an H≈145 seed keeps green
-        // dominant in its base stop (split-complementary walks the flanks on
-        // LATER stops; the base anchors the seed family).
+        // dominant in its base stop (the W6-3 triad walk is SEED-ANCHORED at
+        // stop 0; the 120° partners land on LATER stops).
         const [r, g, b] = [1, 3, 5].map((i) =>
             parseInt(bg.slice(i, i + 2), 16),
         );
@@ -106,3 +110,33 @@ for (const scheme of ["light", "dark"] as const) {
         );
     });
 }
+
+test("the body carries the paper-field contract — no orphan amber field-floor on glass cards", async ({
+    page,
+}) => {
+    await page.goto("/#/?space=oklch&color=" + encodeURIComponent(URL_GREEN));
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+
+    // The field plane host: body paints the derived ground, hosts the aurora
+    // canvas AND every teleported overlay — the one global [data-paper-field].
+    expect(
+        await page.evaluate(() => document.body.hasAttribute("data-paper-field")),
+    ).toBe(true);
+
+    // Forensics T1, made durable: under the field ancestor the producer's
+    // presence-behind gate zeroes the orphan warm radial pair on every glass
+    // card (portaled or not) — no card paints its own interior lamp.
+    const cardBackgrounds = await page.evaluate(() =>
+        Array.from(
+            document.querySelectorAll(
+                '[data-slot="card"][data-surface="glass"]:not(.paper-grid)',
+            ),
+        ).map((el) => getComputedStyle(el).backgroundImage),
+    );
+    expect(cardBackgrounds.length).toBeGreaterThan(0);
+    for (const bgImage of cardBackgrounds) {
+        expect(bgImage, "orphan field-floor radial must be OFF").not.toContain(
+            "radial-gradient",
+        );
+    }
+});
