@@ -22,13 +22,13 @@
             </Button>
         </div>
 
-        <!-- Loading -->
-        <div v-if="audit.loading.value" class="flex items-center justify-center py-8">
-            <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />
+        <!-- W5-1 + F-13: entries load as row shadows, one grammar. -->
+        <div v-if="audit.loading.value" class="grid gap-2" aria-label="Loading audit log">
+            <AdminListSkeleton v-for="i in 3" :key="i" />
         </div>
 
         <!-- Empty -->
-        <EmptyState v-else-if="audit.entries.value.length === 0" message="No audit entries found." />
+        <EmptyState v-else-if="audit.entries.value.length === 0" eyebrow="· ledger clear ·" message="No audit entries found." />
 
         <!-- Entries — Ag-13: primary (action+time) / secondary (target) hierarchy -->
         <div
@@ -69,8 +69,9 @@
 import { inject, onMounted, watch } from "vue";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
-import { Loader2, RefreshCw } from "@lucide/vue";
+import { RefreshCw } from "@lucide/vue";
 import EmptyState from "./EmptyState.vue";
+import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatTime } from "@lib/dateFormat";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";

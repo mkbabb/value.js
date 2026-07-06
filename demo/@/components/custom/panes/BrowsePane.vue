@@ -21,11 +21,18 @@
             </SearchBar>
 
             <div class="grid gap-3 pb-3">
+                <!-- W5-1 (S-10): the wall loads as DEVELOPING PLATES — the
+                     palette-card shadow grammar, never a generic spinner. -->
                 <div
                     v-if="pm.browsing.value"
-                    class="flex items-center justify-center min-h-[120px]"
+                    class="grid grid-cols-1 gap-3"
+                    aria-label="Loading palettes"
                 >
-                    <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
+                    <PaletteCardSkeleton
+                        v-for="i in SKELETON_COUNT"
+                        :key="i"
+                        variant="developing"
+                    />
                 </div>
 
                 <!-- Error with retry — the same specimen-plate register as the
@@ -54,7 +61,10 @@
                     empty-eyebrow="· the commons ·"
                     empty-text="No published palettes here yet."
                     empty-hint="Publish one from My Palettes and start the wall."
-                    :grid-class="pm.sortLoading.value ? 'opacity-50' : ''"
+                    :grid-class="
+                        'transition-opacity duration-fast ' +
+                        (pm.sortLoading.value ? 'opacity-50' : '')
+                    "
                 >
                     <PaletteCard
                         v-for="palette in displayedBrowse"
@@ -119,11 +129,11 @@
 import { inject, reactive, ref, computed, onMounted } from "vue";
 import { Card } from "@components/ui/card";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
-import { Loader2 } from "@lucide/vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
+import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
 import EmptyState from "@components/custom/palette-browser/EmptyState.vue";
 import SearchFilterBar from "@components/custom/palette-browser/SearchFilterBar.vue";
 import VersionHistoryDrawer from "@components/custom/palette-browser/VersionHistoryDrawer.vue";
@@ -138,6 +148,11 @@ import { useDialogBrowseActions } from "@components/custom/palette-browser/Palet
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
+
+// W5-1: the developing-wall shadow count — a handful of plates reads as "the
+// wall is developing" without paying 50 shimmer surfaces of compositor work
+// (the K.WP P1-4 lesson).
+const SKELETON_COUNT = 4;
 
 const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
 // D.W3 Lane B: shared tag catalog via pm.tagEdit (was: local getTags fetch)

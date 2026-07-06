@@ -48,6 +48,35 @@ const PAGE1: Palette[] = Array.from({ length: PAGE1_COUNT }, (_, i) => makePalet
 const PAGE2: Palette[] = Array.from({ length: PAGE2_COUNT }, (_, i) => makePalette(i + 1, 2));
 
 /**
+ * S.W5-1 — the DELAYED-ROUTE fixture: hold `GET /palettes` open for
+ * `delayMs` before fulfilling page 1, so a spec can pin the mid-fetch
+ * loading state (the developing-plate skeletons) on screen and assert on it
+ * deterministically — the state otherwise lives in a narrow network-timing
+ * window no spec could reach (e2e-coverage-gaps §S-10 row).
+ */
+export async function routeBrowsePalettesDelayed(
+    page: Page,
+    delayMs: number,
+): Promise<void> {
+    await page.route(
+        (url) =>
+            !/\/(@fs|@id|@vite|node_modules)\//.test(url.pathname) &&
+            !/\.\w+$/.test(url.pathname) &&
+            /(^|\/)palettes(\/|$)/.test(url.pathname),
+        async (route) => {
+            await new Promise((r) => setTimeout(r, delayMs));
+            return route
+                .fulfill({
+                    status: 200,
+                    contentType: "application/json",
+                    body: JSON.stringify({ data: PAGE1, nextCursor: null, hasMore: false }),
+                })
+                .catch(() => {}); // page may have closed mid-delay
+        },
+    );
+}
+
+/**
  * Route `GET /palettes` to the two keyset pages. Scoped to the REST path only
  * (never the demo's own `/@fs/.../api/palettes.ts` Vite source module), mirroring
  * the existing `views/browse.spec.ts` guard.

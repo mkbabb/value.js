@@ -39,13 +39,26 @@
             </Button>
         </div>
 
-        <!-- Loading -->
-        <div v-if="tagsApi.loading.value" class="flex items-center justify-center py-8">
-            <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />
+        <!-- W5-1 + F-13: tag chips load as chip-shaped shadows in the ONE
+             loading-ink register — never a centered generic spinner. -->
+        <div
+            v-if="tagsApi.loading.value"
+            class="skeleton-ink-register flex flex-wrap gap-1.5"
+            role="status"
+            aria-label="Loading tags"
+        >
+            <Skeleton
+                v-for="i in 5"
+                :key="i"
+                surface="glass"
+                variant="breath"
+                class="h-7 rounded-full"
+                :class="i % 2 ? 'w-20' : 'w-14'"
+            />
         </div>
 
         <!-- Empty -->
-        <EmptyState v-else-if="tagsApi.tags.value.length === 0" message="No tags yet." />
+        <EmptyState v-else-if="tagsApi.tags.value.length === 0" eyebrow="· no tags minted ·" message="No tags yet." />
 
         <!-- Tag list grouped by category -->
         <div v-else class="flex flex-col gap-4">
@@ -78,7 +91,8 @@
 <script setup lang="ts">
 import { inject, onMounted } from "vue";
 import { Button } from "@components/ui/button";
-import { Loader2, Plus, RefreshCw, X } from "@lucide/vue";
+import { Skeleton } from "@components/ui/skeleton";
+import { Plus, RefreshCw, X } from "@lucide/vue";
 import EmptyState from "./EmptyState.vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 

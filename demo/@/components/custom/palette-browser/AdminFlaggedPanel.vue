@@ -12,18 +12,18 @@
             </Button>
         </div>
 
-        <!-- Loading -->
-        <div v-if="flagged.loading.value" class="flex items-center justify-center py-8">
-            <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />
+        <!-- W5-1 + F-13: flagged rows load as row shadows, one grammar. -->
+        <div v-if="flagged.loading.value" class="grid gap-2" aria-label="Loading flagged palettes">
+            <AdminListSkeleton v-for="i in 2" :key="i" />
         </div>
 
-        <!-- Empty -->
-        <div
+        <!-- W5-5 / F-11: the one panel that defected from the specimen-plate
+             empty grammar (a grey italic apology) joins the register. -->
+        <EmptyState
             v-else-if="flagged.items.value.length === 0"
-            class="py-8 text-center text-mono-small italic text-muted-foreground"
-        >
-            No flagged palettes.
-        </div>
+            eyebrow="· nothing flagged ·"
+            message="No flagged palettes."
+        />
 
         <!-- Flagged items -->
         <div
@@ -103,7 +103,9 @@
 import { inject, onMounted } from "vue";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
-import { Loader2, RefreshCw, Trash2 } from "@lucide/vue";
+import { RefreshCw, Trash2 } from "@lucide/vue";
+import EmptyState from "./EmptyState.vue";
+import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatDate } from "@lib/dateFormat";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";

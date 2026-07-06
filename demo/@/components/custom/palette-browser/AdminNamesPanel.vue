@@ -17,10 +17,11 @@
         </TabsList>
 
         <TabsContent value="pending" class="mt-3">
-            <div v-if="loadingPending" class="flex items-center justify-center py-6">
-                <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
+            <!-- W5-1 + F-13: the queue loads as row shadows, one grammar. -->
+            <div v-if="loadingPending" class="grid gap-2" aria-label="Loading pending proposals">
+                <AdminListSkeleton v-for="i in 3" :key="i" />
             </div>
-            <EmptyState v-else-if="pendingItems.length === 0" message="No pending proposals." />
+            <EmptyState v-else-if="pendingItems.length === 0" eyebrow="· queue clear ·" message="No pending proposals." />
             <div v-else class="grid gap-2">
                 <AdminListItem v-for="item in pendingItems" :key="item.id">
                     <template #swatch>
@@ -46,10 +47,10 @@
         </TabsContent>
 
         <TabsContent value="approved" class="mt-3">
-            <div v-if="loadingApproved" class="flex items-center justify-center py-6">
-                <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
+            <div v-if="loadingApproved" class="grid gap-2" aria-label="Loading approved names">
+                <AdminListSkeleton v-for="i in 3" :key="i" />
             </div>
-            <EmptyState v-else-if="approvedItems.length === 0" message="No approved color names." />
+            <EmptyState v-else-if="approvedItems.length === 0" eyebrow="· none approved yet ·" message="No approved color names." />
             <div v-else class="grid gap-2">
                 <AdminListItem v-for="item in approvedItems" :key="item.id">
                     <template #swatch>
@@ -78,10 +79,11 @@ import { ref } from "vue";
 import { TabsRoot as Tabs, TabsContent, TabsList, TabsTrigger } from "reka-ui";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
-import { Loader2, Check, X as XIcon, CheckCircle, Clock, Trash2 } from "@lucide/vue";
+import { Check, X as XIcon, CheckCircle, Clock, Trash2 } from "@lucide/vue";
 import type { ProposedColorName } from "@lib/palette/types";
 import AdminListItem from "./AdminListItem.vue";
 import EmptyState from "./EmptyState.vue";
+import AdminListSkeleton from "./AdminListSkeleton.vue";
 
 defineProps<{
     pendingItems: ProposedColorName[];

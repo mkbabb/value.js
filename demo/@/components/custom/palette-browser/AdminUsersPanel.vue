@@ -38,8 +38,10 @@
             </Button>
         </div>
 
-        <div v-if="loading" class="flex items-center justify-center py-8">
-            <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
+        <!-- W5-1 + F-13: rows load as row-shaped shadows in the ONE loading
+             grammar — never a centered generic spinner. -->
+        <div v-if="loading" class="grid gap-3" aria-label="Loading users">
+            <AdminListSkeleton v-for="i in 3" :key="i" />
         </div>
         <EmptyState v-else-if="users.length === 0" message="No users found." />
         <div v-else class="grid gap-3">
@@ -91,8 +93,8 @@
                 </div>
                 <!-- Expandable user palettes -->
                 <div v-if="expandedUserSlug === user.slug" class="border-t border-border bg-muted/30 px-3 py-3">
-                    <div v-if="loadingUserPalettes" class="flex items-center justify-center py-4">
-                        <Loader2 class="w-4 h-4 animate-spin text-muted-foreground" />
+                    <div v-if="loadingUserPalettes" class="grid gap-2" aria-label="Loading palettes">
+                        <AdminListSkeleton v-for="i in 2" :key="i" />
                     </div>
                     <EmptyState v-else-if="userPalettes.length === 0" message="No palettes." />
                     <div v-else class="grid gap-2">
@@ -148,6 +150,7 @@ import type { Palette, User } from "@lib/palette/types";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import PaletteCard from "./PaletteCard.vue";
 import EmptyState from "./EmptyState.vue";
+import AdminListSkeleton from "./AdminListSkeleton.vue";
 
 const {
     users,

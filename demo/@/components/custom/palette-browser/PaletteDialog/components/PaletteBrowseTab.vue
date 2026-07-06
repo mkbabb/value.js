@@ -1,19 +1,25 @@
 <template>
     <TabsContent value="browse" class="mt-0 w-full palette-tab-content" force-mount>
             <div class="grid gap-3 pb-3">
+                <!-- W5-1 (S-10): the dialog wall loads in the same
+                     developing-plate grammar as BrowsePane — no spinner. -->
                 <div
                     v-if="browsing"
-                    class="flex items-center justify-center min-h-[120px]"
+                    class="grid grid-cols-1 gap-3"
+                    aria-label="Loading palettes"
                 >
-                    <Loader2
-                        class="w-5 h-5 animate-spin text-muted-foreground"
-                    />
+                    <PaletteCardSkeleton v-for="i in 4" :key="i" variant="developing" />
                 </div>
                 <PaletteCardGrid
                     v-else
                     :empty="filteredBrowse.length === 0"
-                    empty-text="No published palettes found."
-                    :grid-class="sortLoading ? 'opacity-50' : ''"
+                    empty-eyebrow="· the commons ·"
+                    empty-text="No published palettes here yet."
+                    empty-hint="Publish one from My Palettes and start the wall."
+                    :grid-class="
+                        'transition-opacity duration-fast ' +
+                        (sortLoading ? 'opacity-50' : '')
+                    "
                 >
                     <PaletteCard
                         v-for="palette in filteredBrowse"
@@ -47,13 +53,11 @@
                     class="h-4"
                 />
 
-                <!-- Loading more indicator -->
-                <div
-                    v-if="loadingMore"
-                    class="flex items-center justify-center py-3"
-                >
-                    <Loader2 class="w-4 h-4 animate-spin text-muted-foreground" />
-                    <span class="ml-2 text-caption text-muted-foreground">Loading more...</span>
+                <!-- W5-1: loading-more appends developing plates in place of
+                     the former spinner + caption row — the next page arrives
+                     in the same shape it will render. -->
+                <div v-if="loadingMore" class="grid grid-cols-1 gap-3" aria-label="Loading more palettes">
+                    <PaletteCardSkeleton v-for="i in 2" :key="i" variant="developing" />
                 </div>
             </div>
     </TabsContent>
@@ -61,10 +65,10 @@
 
 <script setup lang="ts">
 import { TabsContent } from "reka-ui";
-import { Loader2 } from "@lucide/vue";
 
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
+import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
 import type { Palette } from "@lib/palette/types";
 
 defineProps<{
