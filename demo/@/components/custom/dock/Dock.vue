@@ -213,22 +213,34 @@ watch(
                     </DockLayer>
                 </DockLayerGroup>
 
-                <!-- Collapsed state — the icon+label pair swaps on the morph
-                     family, keyed by view (B3); the icon reads the per-view
-                     accent (B2). -->
+                <!-- Collapsed state — the WAX SEAL (S.W7 W7-1 / S-8): the
+                     WatercolorDot in the LIVE color fills the producer's
+                     collapsed circle (the wax speaks live — the dot IS the
+                     accent); the current view's icon is INKED over it in
+                     `--seal-ink` (the W7-4 resolver's 10th token, WCAG-derived
+                     from the wax — never `--accent-view`), swapping on the
+                     morph family keyed by view: the old impression lifts off,
+                     the next stamp presses in. The hairline die-rim adopts
+                     `--accent-view` — the continuity carrier designed to grow
+                     into the expanded trigger's ring (W7-4's `--dock-ring`
+                     seam). NO text, NO chevron; gold rim + gold ink under
+                     admin. MORPH LAW: the wax exits WITH the seal under the
+                     producer's collapse↔expand cross-fade — no element ever
+                     animates live→view-hue. -->
                 <template #collapsed>
-                    <WatercolorDot :color="cssColorOpaque" tag="div" class="w-6 h-6 shrink-0" seed="top-dock" />
-                    <Transition name="vj-morph" mode="out-in">
-                        <span
-                            :key="viewManager.currentView.value"
-                            class="inline-flex items-center gap-1.5 min-w-0"
-                            style="--vj-morph-scale: 0.8; --vj-morph-y: 0px"
-                        >
-                            <component :is="viewManager.currentConfig.value.icon" class="w-5 h-5 shrink-0 sm:hidden" :style="{ color: 'var(--accent-view)' }" />
-                            <span class="text-base font-display text-foreground whitespace-nowrap hidden sm:inline">{{ viewManager.currentConfig.value.label }}</span>
-                        </span>
-                    </Transition>
-                    <ChevronDown class="w-3 h-3 text-muted-foreground shrink-0" />
+                    <div class="dock-seal" :class="{ 'dock-seal--admin': isAdminMode }">
+                        <WatercolorDot :color="cssColorOpaque" tag="div" class="dock-seal-wax" seed="top-dock">
+                            <Transition name="vj-morph" mode="out-in">
+                                <component
+                                    :is="viewManager.currentConfig.value.icon"
+                                    :key="viewManager.currentView.value"
+                                    class="dock-seal-ink"
+                                    :class="isAdminMode && 'gold-shimmer-icon'"
+                                    style="--vj-morph-scale: 1.25; --vj-morph-y: 0px"
+                                />
+                            </Transition>
+                        </WatercolorDot>
+                    </div>
                 </template>
             </GlassDock>
         </div>
@@ -266,5 +278,48 @@ watch(
     min-width: 0;
     display: flex;
     align-items: center;
+}
+
+/* ── The wax seal (S.W7 W7-1) ────────────────────────────────────────────
+   The collapsed dock IS the seal: wax (WatercolorDot, live color) filling
+   the producer's collapsed circle (glass-ui pins the summary pane square,
+   aspect-ratio 1 — density.css/morph.css), the view icon inked over it,
+   and a hairline circular die-rim in --accent-view (the continuity
+   carrier the expanded trigger's --dock-ring seam adopts under W7-4). The
+   seal is a FIXED-INTRINSIC-SIZE composition (block 100% / aspect 1): the
+   collapsed morph endpoint becomes VIEW-INVARIANT — no per-view text
+   width, nothing to re-measure, nothing to clip (the P0-1 "Ho" cure). All
+   motion is transform/opacity-only: the producer's compositor
+   expand↔collapse morph outside, the vj-morph stamp swap inside; PRM
+   degrades the swap to a cross-fade via the existing two-tier guard. */
+.dock-seal {
+    block-size: 100%;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    padding: 2px;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklab, var(--accent-view) 60%, transparent);
+}
+.dock-seal--admin {
+    border-color: color-mix(in oklab, var(--color-gold) 75%, transparent);
+}
+.dock-seal-wax {
+    inline-size: 100%;
+    block-size: 100%;
+    display: grid;
+    place-items: center;
+    /* The ink regime: the wax sets the icon's INHERITED ink — the ONE
+       `--seal-ink` token useViewAccents resolves from the wax color via the
+       library's WCAG contrast-color leaf (the SEEDS.md w7 rider, absorbed at
+       W7-4; no CSS lightness literal). Icon-in-slot means the host's
+       watercolor filter displaces wax+ink as one object; setting the color
+       on the WAX (inherited by the icon) lets the admin gold-shimmer-icon
+       class (direct color) win without a specificity fight. */
+    color: var(--seal-ink, var(--foreground));
+}
+.dock-seal-ink {
+    inline-size: 55%;
+    block-size: 55%;
 }
 </style>

@@ -73,6 +73,17 @@
     box-shadow: var(--shadow-cartoon-sm);
 }
 
+/* The gold ADMIN-identity icon ink (S.W7-1 consume / W7-7 dedup home) — the
+ * ONE demo-side gold icon recipe, lifted here because its consumers span
+ * components (the Dock.vue wax-seal ink + DockViewSelect's trigger/menu
+ * icons; scoped copies were byte-identical twins, god-module census §2.1).
+ * The fuller "ONE gold/admin shimmer primitive" consolidation stays the
+ * filed glass-ui letter L15 ask. */
+.gold-shimmer-icon {
+    color: var(--color-gold);
+    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent));
+}
+
 /* Swatch-row list idiom (R.W4 Lane B / B1) — shared by the three swatch
  * TransitionGroups (CurrentPaletteEditor, MixSourceSelector,
  * MixResultDisplay): dots pop in/out on the enter/exit family with
