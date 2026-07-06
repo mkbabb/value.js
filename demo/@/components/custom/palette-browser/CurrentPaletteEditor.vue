@@ -14,10 +14,11 @@
                         : "Start a new palette"
                 }}
             </span>
+            <!-- S.W5-7: singular form — "1 color", never "1 colors". -->
             <span
                 v-if="savedColorStrings.length > 0"
                 class="text-mono-small text-muted-foreground"
-                >{{ savedColorStrings.length }} colors</span
+                >{{ savedColorStrings.length }} color{{ savedColorStrings.length !== 1 ? "s" : "" }}</span
             >
         </div>
         <TransitionGroup

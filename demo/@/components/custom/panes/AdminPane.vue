@@ -111,7 +111,9 @@ const headerDescription = computed(() => {
 const adminCount = computed(() => {
     switch (subView) {
         case "admin-users": return pm.adminUsers.value.length;
-        case "admin-names": return pm.filteredColorQueue.value.length + pm.filteredApproved.value.length;
+        // S.W5-7 (F-12): the header badge is the ACTIONABLE queue — the old
+        // pending+approved sum matched neither visible list.
+        case "admin-names": return pm.filteredColorQueue.value.length;
         default: return null;
     }
 });

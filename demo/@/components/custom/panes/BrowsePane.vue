@@ -2,9 +2,11 @@
     <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Discover palettes from the community.">Browse</PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
+            <!-- S.W5-7: the twin placeholder is scoped — this one searches
+                 the public wall. -->
             <SearchBar
                 v-model="pm.searchQuery.value"
-                placeholder="Search palettes..."
+                placeholder="Search the commons..."
             >
                 <SearchFilterBar
                     :sort="pm.sortMode.value"

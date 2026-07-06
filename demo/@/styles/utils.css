@@ -26,26 +26,12 @@
     line-clamp: 1;
 }
 
-/* Pastel rainbow gradient text — the celebratory title treatment for the
- * palettes surface (the PalettesPane heading, the dock view-select entry, the
- * PaletteDialog header). Lifted out of PaletteDialogHeader.vue's scoped style
- * at N.W5.E (inv-N-7): a scoped rule could never reach its two other consumers
- * (PalettesPane.vue, DockViewSelect.vue), so the class silently no-op'd there.
- * Now one shared recipe resolves at every site. */
-.pastel-rainbow-text {
-    background-image: linear-gradient(
-        to right,
-        oklch(75% 0.18 0deg),
-        oklch(82% 0.16 60deg),
-        oklch(85% 0.17 130deg),
-        oklch(78% 0.14 200deg),
-        oklch(72% 0.18 270deg),
-        oklch(75% 0.16 330deg)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+/* `.pastel-rainbow-text` EXCISED (S.W5-7 · Q4 RATIFIED EXCISE 2026-07-05;
+ * the `--accent-live` ramp alternative NOT taken): the fixed six-hue candy
+ * ramp failed contrast at every stop over the light header wash (≈1.1–1.5:1),
+ * ignored the per-view accent axis, and was the page's only rainbow moment —
+ * decoration, not information. The three consumers (PalettesPane heading,
+ * DockViewSelect palettes entry, PaletteDialog header) speak ink. */
 
 /* The ONE loading-ink recipe (S.W5 Lane A / W5-1 — the `ec1b200` register,
  * modernized): every skeleton surface in the app reads this single muted-ink

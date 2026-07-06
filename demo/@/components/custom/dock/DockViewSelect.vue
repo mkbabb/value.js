@@ -92,10 +92,9 @@ const pm = inject(PALETTE_MANAGER_KEY)!;
                             :style="currentView === entry.id ? { color: isAdminMode ? 'var(--color-gold)' : safeAccent } : {}"
                             :class="currentView !== entry.id ? 'text-muted-foreground' : ''"
                         />
-                        <span :class="[
-                            currentView === entry.id ? 'font-semibold' : '',
-                            entry.id === 'palettes' ? 'pastel-rainbow-text' : '',
-                        ]">{{ entry.label }}</span>
+                        <!-- S.W5-7 (Q4 EXCISE): the palettes entry speaks ink
+                             like every sibling — the rainbow recipe is dead. -->
+                        <span :class="currentView === entry.id ? 'font-semibold' : ''">{{ entry.label }}</span>
                     </span>
                 </SelectItem>
 

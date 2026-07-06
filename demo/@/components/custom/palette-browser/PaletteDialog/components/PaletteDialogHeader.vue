@@ -33,10 +33,9 @@
                             Admin <span class="uppercase admin-golden-text">Palettes</span>
                         </template>
                         <template v-else>
+                            <!-- S.W5-7 (Q4 EXCISE): ink, not candy ramp. -->
                             Color
-                            <span class="uppercase pastel-rainbow-text"
-                                >Palettes</span
-                            >
+                            <span class="uppercase">Palettes</span>
                         </template>
                     </DialogTitle>
                     <DialogDescription
@@ -90,7 +89,6 @@ defineEmits<{
     mix-blend-mode: overlay;
 }
 
-/* `.pastel-rainbow-text` lifted to the shared @styles/utils.css recipe at
- * N.W5.E — scoped here could never reach its PalettesPane / DockViewSelect
- * consumers (inv-N-7). */
+/* `.pastel-rainbow-text` EXCISED at S.W5-7 (Q4 RATIFIED EXCISE) — the
+ * title speaks ink; see @styles/utils.css for the excise record. */
 </style>

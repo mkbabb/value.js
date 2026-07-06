@@ -36,7 +36,10 @@
                     v-if="draggable"
                     class="drag-handle w-4 h-4 text-muted-foreground/40 shrink-0 cursor-grab active:cursor-grabbing"
                 />
+                <!-- S.W5-7: the title hides while the rename input is open —
+                     never the same string twice on one card. -->
                 <span
+                    v-if="!renaming"
                     class="text-subheading line-clamp-2 sm:line-clamp-1"
                     :class="editableName && 'cursor-text hover:underline decoration-dashed underline-offset-4'"
                     :title="palette.name"

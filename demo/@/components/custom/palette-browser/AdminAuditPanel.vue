@@ -21,7 +21,11 @@
                 class="flex-1 min-w-[6rem] font-mono"
             />
             <div class="flex-1" />
-            <span class="text-mono-small text-muted-foreground">{{ audit.total.value }}</span>
+            <!-- S.W5-7: the naked count gains its unit, matching the
+                 labeled counts everywhere else ("5 users", "2 flagged"). -->
+            <span class="text-mono-small text-muted-foreground">
+                {{ audit.total.value }} entr{{ audit.total.value === 1 ? "y" : "ies" }}
+            </span>
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
             <Button variant="outline" size="sm" class="h-7 px-2" aria-label="Refresh audit log" @click="audit.loadAuditLog()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
