@@ -1,13 +1,16 @@
 # S — PROGRESS
 
-**Status board.** S is **RATIFIED 2026-07-05 — dispatch OPEN.** The owner ruled on all 11
-`S.md §12` rows; the encoding of record is `audit/RATIFICATION-2026-07-05.md` (§0 verbatim
-owner text wins), with the 14 `audit/seeds/SEEDS.md` riders folded into the wave docs and the
-2 producer findings folded into the glass-ui letter (L17/L18). The convergence loop is CLOSED
-(4 passes, **100/98·zero-mustFix CONVERGED**, `audit/CONVERGENCE.md`); **zero implementation
-commits exist**. The governing specification is `audit/SYNTHESIS.md` (AMENDED-AT-PASS-4 + tail)
-as amended BY the ratification encoding + SEEDS riders; where any corpus doc could diverge,
-**the spec (as so amended) wins**.
+**Status board.** S is **CLOSED 2026-07-06 — `complete_with_misses`** (`FINAL.md` is the close
+of record: per-wave verdicts, the zero-drop reconciliation, the successor books table; the
+close verification acts are `audit/w9-close-probes.md` + `audit/w9-pi-review.md`). S.W8's
+trigger never fired — the 5.0.0 adopt hands to the successor via FINAL §5. Historical header:
+S was RATIFIED 2026-07-05 (all 11 `S.md §12` rows; encoding `audit/RATIFICATION-2026-07-05.md`,
+§0 verbatim owner text wins), with the 14 `audit/seeds/SEEDS.md` riders folded into the wave
+docs and the 2 producer findings folded into the glass-ui letter (L17/L18). The convergence
+loop CLOSED at 4 passes (**100/98·zero-mustFix CONVERGED**, `audit/CONVERGENCE.md`). The
+governing specification is `audit/SYNTHESIS.md` (AMENDED-AT-PASS-4 + tail) as amended BY the
+ratification encoding + SEEDS riders; where any corpus doc could diverge, **the spec (as so
+amended) wins**.
 
 **Dispatch gate: the §12 ratification gate is CLOSED; waves dispatch per the §3.1 DAG** (each
 wave gated on its DAG deps only). The GLASSUI-S-ASKS letter dispatches now (at-ratification
@@ -55,8 +58,8 @@ W2-7 LAST in W2; single-writer on `ColorPicker.vue` in round 2 (W4-2 first, W3-4
 | **S.W5** | SUFFUSION II — Fable: browse/palettes/extract/mix/generate/gradient/admin (3 lanes + A2) | `waves/S.W5.md` | 3 | **CLOSED 2026-07-06** — gate 7/8 PASS + the row-8 cap breach cured same-day (`035b02c`: App.vue 432→398 via the `useAtmosphereBoot` lift, PaletteCard 402→400; the false compliance claim append-corrected); per-lane π archives `pi/w5{a,b,c}-{before,after}/`; suites 2145/2145 · e2e 66/66 | — |
 | **S.W6** | ATMOSPHERE + HERO — Fable: aurora + blob (W6-1..W6-8; Q7 full-presence + W0-8 genesis consume + the 2026-07-05 riders) | `waves/S.W6.md` | 3 | **CLOSED 2026-07-05 (with-misses)** — 5 PASS + 4 MISS-RECORDED (GAP-L2 · GAP-L5 · row-9 residual routes · the mid-gate owner recalibration, tuning pass dispatched); zero FAIL | — |
 | **S.W7** | DOCK + SHELL — Fable: wax seal + accent system (W7-1..W7-7) | `waves/S.W7.md` | 4 | **CLOSED 2026-07-06 (with-misses)** — 7/7 rows PASS; the one MISS = the PRM-expand defect ROOT-CAUSED producer-side (gap-row); handoff review: INTENTIONAL (rim ≡ ring, one custom property); L4 producer cure VERIFIED LANDED | — |
-| **S.W8** | THE 5.0.0 ADOPT EVENT (+ the GooBlob→`Blob` rename consume) | `waves/S.W8.md` | trigger | **PENDING + TRIGGER-GATED** (the BG/BH joint cut) | — |
-| **S.W9** | CLOSE | `waves/S.W9.md` | close | **PENDING** (⊣ W7 + all non-trigger waves) | — |
+| **S.W8** | THE 5.0.0 ADOPT EVENT (+ the GooBlob→`Blob` rename consume) | `waves/S.W8.md` | trigger | **NOT FIRED at S close** (2026-07-06: registry `latest=4.2.0`, no v5 tag) — handed to the successor via `FINAL.md §5` | — |
+| **S.W9** | CLOSE | `waves/S.W9.md` | close | **CLOSED 2026-07-06 (with-misses)** — §10 ledger zero-drop, books re-verified live, sweeps re-run, budgets re-measured (RP-1 cured same-day `2522656`; RP-2 = the standing JS-eager re-baseline); π review COHERES_WITH_NOTES; `FINAL.md` authored | — |
 
 ---
 

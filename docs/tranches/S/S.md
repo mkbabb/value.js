@@ -22,9 +22,12 @@ self-contained and governing. This charter distills it; where the two could ever
 spec wins.** The convergence record: `audit/CONVERGENCE.md` (4 passes, 86/72 → 95.7/92 →
 99.5/97 → **100/98·zero-mustFix — CONVERGED**; the 33-lane audit corpus at `audit/lanes/`).
 
-**Mode**: **RATIFIED 2026-07-05 — dispatch OPEN.** The owner ruled on all 11 §12 rows; the
-encoding of record is `audit/RATIFICATION-2026-07-05.md` (§0 verbatim owner text wins), with the
-`audit/seeds/SEEDS.md` riders folded into the wave docs. Waves dispatch per the §3.1 DAG.
+**Mode**: **CLOSED 2026-07-06 — `complete_with_misses`** (`FINAL.md` is the close of record:
+per-wave verdicts §1, the zero-drop reconciliation §2, the successor books table §5 — the S.W8
+adopt trigger never fired and hands intact; the X1/X2 + GAP-ARM residuals are FINAL §8).
+Ratified 2026-07-05 — the owner ruled on all 11 §12 rows; the encoding of record is
+`audit/RATIFICATION-2026-07-05.md` (§0 verbatim owner text wins), with the
+`audit/seeds/SEEDS.md` riders folded into the wave docs. Waves dispatched per the §3.1 DAG.
 
 **Goal criterion.** The app the owner probed on 2026-07-04 — with its 24 findings — becomes the
 app those findings describe as intended: every finding landed at its root or explicitly
