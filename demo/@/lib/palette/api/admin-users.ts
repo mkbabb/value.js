@@ -1,20 +1,22 @@
 /**
  * Admin user-management endpoints.
  *
- * Three cohering admin concerns over the user corpus:
- *   - **CRUD + status**: list, fetch palettes-by-user, set status, delete
- *   - **Lifecycle helpers**: impersonate, prune-empty, bulk-import palettes
- *   - **Batch**: multi-user delete/suspend/unsuspend
+ * Two cohering admin concerns over the user corpus:
+ *   - **CRUD**: list, fetch palettes-by-user, delete (+ delete-all-palettes)
+ *   - **Lifecycle helpers**: impersonate, prune-empty
  *
  * H.W3 Lane A — extracted from `api.ts §ADMIN — USERS` + `§ADMIN — BATCH
- * ACTIONS` (user half).
+ * ACTIONS` (user half). W5-13 · F-5: `setUserStatus`, `importPalettes`,
+ * `batchUserAction` deleted — wired wrappers with zero UI consumers
+ * (`setUserStatus` was self-documented dead since E.W3). The server routes
+ * remain; the affordances re-add their wrapper when built.
  */
 
 import type { Palette, User, PaginatedResponse } from "../types";
 
 import { adminRequest } from "./client";
 
-// ---- CRUD + status ----------------------------------------------------------
+// ---- CRUD -------------------------------------------------------------------
 
 export function listUsers(
     token: string,
@@ -32,17 +34,6 @@ export function listUsers(
 
 export function getUserPalettes(token: string, slug: string): Promise<Palette[]> {
     return adminRequest(`/admin/users/${encodeURIComponent(slug)}/palettes`, token);
-}
-
-export function setUserStatus(
-    token: string,
-    slug: string,
-    status: "active" | "suspended",
-): Promise<{ slug: string; status: string }> {
-    return adminRequest(`/admin/users/${encodeURIComponent(slug)}/status`, token, {
-        method: "POST",
-        body: JSON.stringify({ status }),
-    });
 }
 
 export function deleteUser(
@@ -77,32 +68,4 @@ export function impersonateUser(
 
 export function pruneEmptyUsers(token: string): Promise<{ pruned: number }> {
     return adminRequest("/admin/users/prune-empty", token, { method: "POST" });
-}
-
-export function importPalettes(
-    token: string,
-    slug: string,
-    palettes: {
-        name: string;
-        slug: string;
-        colors: { css: string; name?: string; position: number }[];
-    }[],
-): Promise<{ imported: number; errors: string[] }> {
-    return adminRequest(`/admin/users/${encodeURIComponent(slug)}/import`, token, {
-        method: "POST",
-        body: JSON.stringify({ palettes }),
-    });
-}
-
-// ---- Batch actions ----------------------------------------------------------
-
-export function batchUserAction(
-    token: string,
-    action: "delete" | "suspend" | "unsuspend",
-    slugs: string[],
-): Promise<{ processed: number }> {
-    return adminRequest("/admin/batch/users", token, {
-        method: "POST",
-        body: JSON.stringify({ action, slugs }),
-    });
 }

@@ -3,9 +3,10 @@
  *
  * Anonymous-first session model: `createSession` mints a new user + token;
  * `loginWithSlug` rehydrates an existing one; `deleteSession` invalidates
- * server-side; `getMe` echoes the active session's user-slug + createdAt.
+ * server-side.
  *
- * H.W3 Lane A — extracted from `api.ts §SESSIONS`.
+ * H.W3 Lane A — extracted from `api.ts §SESSIONS`. W5-13 · F-5: `getMe`
+ * (`GET /sessions/me`) deleted — a wired wrapper with zero UI consumers.
  */
 
 import { request } from "./client";
@@ -25,8 +26,4 @@ export function loginWithSlug(
 
 export function deleteSession(): Promise<{ ok: boolean }> {
     return request("/sessions", { method: "DELETE" });
-}
-
-export function getMe(): Promise<{ userSlug: string; createdAt: string }> {
-    return request("/sessions/me");
 }

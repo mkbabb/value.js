@@ -1,6 +1,6 @@
 import { ref, type Ref, type ComputedRef } from "vue";
 import { useSession } from "../auth/useSession";
-import { publishPalette } from "@lib/palette/api";
+import { createAndSavePalette } from "@lib/palette/api";
 import { ApiProblem } from "@lib/palette/api/api-problem";
 import type { Palette } from "@lib/palette/types";
 import type PaletteSlugBar from "@components/custom/palette-browser/PaletteSlugBar.vue";
@@ -34,7 +34,7 @@ export function useSlugMigration(deps: {
             await session.ensureSession();
             for (const palette of deps.savedPalettes.value) {
                 try {
-                    await publishPalette({
+                    await createAndSavePalette({
                         name: palette.name,
                         slug: palette.slug,
                         colors: palette.colors,

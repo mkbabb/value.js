@@ -24,13 +24,6 @@ export function getApprovedColorNames(
     return request(`/colors/approved${qs ? `?${qs}` : ""}`);
 }
 
-export function searchColorNames(
-    q: string,
-    limit = 10,
-): Promise<{ data: ProposedColorName[] }> {
-    return request(`/colors/search?q=${encodeURIComponent(q)}&limit=${limit}`);
-}
-
 export function getTags(): Promise<Tag[]> {
     return request("/colors/tags");
 }

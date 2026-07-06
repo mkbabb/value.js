@@ -33,6 +33,20 @@ export interface Palette {
     visibility?: "public" | "unlisted" | "private";
     /** I.W1 canonical curation tier (3-state). */
     tier?: "standard" | "featured" | "archived";
+    /**
+     * J.W1c derived convenience emitted by the API (`formatPalette`): true ⟺
+     * `visibility === "public"`. NEVER a persisted column — computed read-time.
+     * W5-13 · F-7: typed here so consumers get compile-time coverage instead of
+     * implicit-`any`-shaped access through an untyped wire field.
+     */
+    published?: boolean;
+    /** I.W2 soft-delete timestamp (ISO); `null`/absent means live (F-7). */
+    deletedAt?: string | null;
+    /**
+     * J.W2 atom-set-hash — the colors-only, order-independent fingerprint
+     * (dedup hint + the `/diff` envelope's hash basis), emitted by the API (F-7).
+     */
+    atomSetHash?: string;
     // Versioning
     currentHash?: string;
     versionCount?: number;
