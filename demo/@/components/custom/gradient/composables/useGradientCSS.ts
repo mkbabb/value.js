@@ -25,7 +25,8 @@ import type { Color } from "@src/units/color";
 import { mixColors } from "@src/units/color/mix";
 import { parseCSSValue } from "@src/parsing";
 import { parseCSSColor } from "@src/parsing/color";
-import { linear } from "@src/easing";
+import { linear, resolveEasing } from "@src/easing";
+import type { TimingFunction } from "@src/easing";
 import { ValueUnit } from "@src/units";
 import { convertToDegrees } from "@src/units/utils";
 import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
@@ -60,6 +61,33 @@ export function linearInterval(): GradientInterval {
         fn: linear,
         points: [0, 0, 1, 1],
     };
+}
+
+// ── The easing resolver (W5-9: the W1-6 `resolveEasing` consume) ──
+//
+// The interval's `css` LITERAL is the persisted truth; the picker's `fn`
+// payload is a transient cache. Any interval whose fn is absent resolves
+// through the library's canonical string→TimingFunction resolver — the demo
+// never re-derives curve math from the literal.
+
+const resolvedEasingCache = new Map<string, TimingFunction>();
+
+/** The interval's live timing function: `fn` cache, else `resolveEasing(css)`. */
+export function easingFnOf(interval: GradientInterval | undefined): TimingFunction {
+    if (!interval) return linear;
+    if (interval.fn) return interval.fn;
+    const cached = resolvedEasingCache.get(interval.css);
+    if (cached) return cached;
+    try {
+        const fn = resolveEasing(interval.css);
+        resolvedEasingCache.set(interval.css, fn);
+        return fn;
+    } catch (err) {
+        // Interval literals are internally minted (picker / linearInterval),
+        // so this is a defect signal, not a user state — say so, loudly.
+        console.warn(`easingFnOf: unresolvable easing literal "${interval.css}"`, err);
+        return linear;
+    }
 }
 
 // ── Serialization ──
@@ -117,7 +145,7 @@ export function sampleCoalescedStops(model: GradientModelState): CoalescedSample
     for (let i = 0; i < stops.length - 1; i++) {
         const s0 = stops[i]!;
         const s1 = stops[i + 1]!;
-        const easing = intervals[i]?.fn ?? linear;
+        const easing = easingFnOf(intervals[i]);
 
         const c0 = cssToRawColor(s0.cssColor, interpolationSpace);
         const c1 = cssToRawColor(s1.cssColor, interpolationSpace);
@@ -137,6 +165,40 @@ export function sampleCoalescedStops(model: GradientModelState): CoalescedSample
     }
 
     return out;
+}
+
+/**
+ * ONE interval's eased ramp, normalized to a full-width strip (W5-9 / P1-5:
+ * the easing row's "ball" — what `steps(4, end)` does to green→blue, visible
+ * in-row). Rides the SAME sampling law as the rendered gradient, so the
+ * strip shows the interval exactly as the gradient will render it.
+ */
+export function serializeIntervalRamp(
+    model: GradientModelState,
+    index: number,
+): string | null {
+    const s0 = model.stops[index];
+    const s1 = model.stops[index + 1];
+    if (!s0 || !s1) return null;
+
+    const sub: GradientModelState = {
+        type: "linear",
+        direction: 90,
+        stops: [
+            { ...s0, position: 0 },
+            { ...s1, position: 100 },
+        ],
+        intervals: [model.intervals[index] ?? linearInterval()],
+        interpolationSpace: model.interpolationSpace,
+        hueMethod: model.hueMethod,
+    };
+    const samples = sampleCoalescedStops(sub);
+    if (samples.length === 0) return null;
+
+    const parts = samples.map(
+        (s) => `${rawColorToCSS(s.color)} ${s.position.toFixed(2)}%`,
+    );
+    return `linear-gradient(90deg, ${parts.join(", ")})`;
 }
 
 /**

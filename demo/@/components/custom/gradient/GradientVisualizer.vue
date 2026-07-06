@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, inject, ref } from "vue";
+import { computed, inject, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { useMediaQuery } from "@vueuse/core";
 import {
     Select,
     SelectContent,
@@ -25,7 +26,7 @@ import {
 import type { GradientType } from "./composables/useGradientModel";
 import { interpolateStopColors } from "./composables/useGradientInterpolation";
 import { usePerceivedRamp } from "./composables/usePerceivedRamp";
-import { linear } from "@src/easing";
+import { easingFnOf, serializeIntervalRamp } from "./composables/useGradientCSS";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/mix";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
@@ -79,7 +80,7 @@ function colorAtPosition(position: number): string | null {
         if (position < s0.position || position > s1.position) continue;
         const span = s1.position - s0.position;
         const t = span > 0 ? (position - s0.position) / span : 0;
-        const easedT = (intervals.value[i]?.fn ?? linear)(t);
+        const easedT = easingFnOf(intervals.value[i])(t);
         return interpolateStopColors(
             s0.cssColor,
             s1.cssColor,
@@ -158,9 +159,64 @@ const intervalPairs = computed(() => {
 const openInterval = ref<number | null>(0);
 const easingEpoch = ref(0);
 
-function toggleInterval(index: number) {
-    openInterval.value = openInterval.value === index ? null : index;
+// The open row's live ramp strip (W5-9 / P1-5): the interval's own eased
+// ramp, sampled by the ONE law the rendered gradient uses — the row shows
+// what its curve does to ITS two colors without leaving the row.
+const openIntervalRamp = computed<string | null>(() =>
+    openInterval.value === null
+        ? null
+        : serializeIntervalRamp(modelState.value, openInterval.value),
+);
+
+// ── Auto-trace on open (W5-9): the row demonstrates itself ──
+// The picker's travel affordance is its public play button; glass-ui does
+// not defineExpose(playTravel) (producer-gap recorded on the L7 letter row),
+// so the demo drives the affordance itself — found by its accessible text,
+// PRM-gated, and a silent no-op if the L7 v2 reshapes the control.
+const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+const intervalBodyEls = new Map<number, HTMLElement>();
+let traceTimer: ReturnType<typeof setTimeout> | null = null;
+
+function setIntervalBodyEl(index: number, el: unknown) {
+    if (el instanceof HTMLElement) intervalBodyEls.set(index, el);
+    else intervalBodyEls.delete(index);
 }
+
+function autoTrace(index: number) {
+    if (prefersReducedMotion.value) return;
+    void nextTick(() => {
+        if (traceTimer !== null) clearTimeout(traceTimer);
+        // Let the row-open reveal land before the dot starts its run.
+        traceTimer = setTimeout(() => {
+            traceTimer = null;
+            if (openInterval.value !== index) return;
+            const host = intervalBodyEls.get(index);
+            const btn = host
+                ? Array.from(host.querySelectorAll("button")).find((b) =>
+                      /trace the curve|climb the staircase/i.test(
+                          b.textContent ?? "",
+                      ),
+                  )
+                : undefined;
+            btn?.click();
+        }, 180);
+    });
+}
+
+function toggleInterval(index: number) {
+    const opening = openInterval.value !== index;
+    openInterval.value = opening ? index : null;
+    if (opening) autoTrace(index);
+}
+
+onMounted(() => {
+    // First-row auto-trace on open: the pane arrives demonstrating itself.
+    if (openInterval.value !== null) autoTrace(openInterval.value);
+});
+
+onBeforeUnmount(() => {
+    if (traceTimer !== null) clearTimeout(traceTimer);
+});
 
 // Q12 (RATIFIED): steps mode is ALLOWED — banded gradients are a design
 // tool. The mode rides the picker's `mode` prop, toggled per interval.
@@ -326,8 +382,19 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                     <div
                         v-show="openInterval === pair.index"
                         :id="`easing-interval-${pair.index}`"
+                        :ref="(el) => setIntervalBodyEl(pair.index, el)"
                         class="px-3 pb-3 flex flex-col gap-3"
                     >
+                        <!-- The interval's live ramp (W5-9): the row's "ball" —
+                             its curve applied to ITS two colors, sampled by
+                             the same law the gradient renders with. -->
+                        <div
+                            v-if="openInterval === pair.index && openIntervalRamp"
+                            class="h-5 rounded-md border border-card-edge"
+                            :style="{ background: `${openIntervalRamp}, var(--alpha-checker)` }"
+                            role="img"
+                            :aria-label="`Eased ramp for interval ${pair.label}`"
+                        />
                         <div class="flex justify-start">
                             <SegmentedTabs
                                 variant="pill"
