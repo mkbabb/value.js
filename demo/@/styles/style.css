@@ -498,7 +498,13 @@
         border-color: var(--border);
     }
     body {
-        background-color: var(--background);
+        /* W6-1 (S.W6): the body ground IS the atmosphere's derived BASE stop
+         * (`--saved-bg`, written by useAtmosphere's boot-material sink + the
+         * index.html boot script) — boot background → first aurora frame is
+         * ONE material, no theme-paper flash between the fouc-guard ground
+         * and the canvas arrival. First-ever visits (no persisted material)
+         * fall back to the theme paper. */
+        background-color: var(--saved-bg, var(--background));
         color: var(--foreground);
     }
 }

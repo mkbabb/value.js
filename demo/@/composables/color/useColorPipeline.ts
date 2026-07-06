@@ -32,9 +32,11 @@ const DIGITS = 2;
  * second shallowRef copy + its defineModel round-trip are GONE, the picker
  * INJECTS this); ONE derivation set (cssColor / cssColorOpaque / the canonical
  * per-space savedColorStrings — seed rider 4, twins deleted); the stableHue
- * invariant preserved bit-for-bit; ONE applyTokens sink for color-derived root
- * tokens; and declared persistence precedence (URL-hash-wins-on-load, else the
- * localStorage→model restore below, gated behind URL-wins).
+ * invariant preserved bit-for-bit; and declared persistence precedence
+ * (URL-hash-wins-on-load, else the localStorage→model restore below, gated
+ * behind URL-wins). The boot-material sink (`--saved-bg`/`color-picker-bg`)
+ * moved to useAtmosphere at W6-1 — it carries the DERIVED field base stop,
+ * which only the atmosphere owns.
  */
 export function useColorPipeline(model: ShallowRef<ColorModel>) {
     // The sentinel — NOT a copy — distinguishes a self-originated write (slider/
@@ -269,21 +271,16 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         }
     };
 
-    // The ONE applyTokens sink (color-derived root tokens): flash-free page-load
-    // background persistence + the live-background reset. (--accent-live and
-    // --view-hue-shift stay App-scoped — they read contrast/view state, seed
-    // rider 1.)
-    const applyTokens = (opaque: string) => {
-        try {
-            localStorage.setItem("color-picker-bg", opaque);
-        } catch {
-            /* private-mode */
-        }
-        document.documentElement.style.background = "";
-        document.body.style.background = "";
-    };
-
-    watch(cssColorOpaque, (c) => applyTokens(c), { immediate: true });
+    // W6-1 (S.W6): the former applyTokens sink is GONE from the pipeline. It
+    // persisted the RAW opaque pick to `color-picker-bg` — the boot↔field
+    // material mismatch behind the load darkening/lightening snap (the ground
+    // painted the pick, the first aurora frame painted the derived field). The
+    // boot material is now owned by useAtmosphere: `--saved-bg` + the
+    // `color-picker-bg` persistence carry the derived BASE stop, so boot →
+    // first frame is ONE material. The inline-background clears died with the
+    // index.html boot script's inline writes (the fouc-guard `--saved-bg` rule
+    // is the one pre-hydration ground now). (--accent-live and --view-hue-shift
+    // stay App-scoped — they read contrast/view state, seed rider 1.)
 
     // --- W3-1 (S.W3): rAF-coalesce the colour → atmosphere fan-out ---
     // The atmosphere fan-out — the aurora seed derive + the blob-palette derive

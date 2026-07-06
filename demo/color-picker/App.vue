@@ -1,9 +1,14 @@
 <template>
     <div class="app-layout">
-        <!-- W5-a11y: decorative aurora canvas — hidden from AT -->
+        <!-- W5-a11y: decorative aurora canvas — hidden from AT.
+             W6-1 entrance (owner ruling §1.1): the canvas derive-fades in over
+             the SAME-material `--saved-bg` ground once the field is drawable
+             (`auroraArrived` — the producer's own `isArmed` cross-fade idiom),
+             so the load carries no dark→light/light→dark snap. -->
         <canvas
             ref="atmosphereCanvas"
-            class="absolute inset-0 w-full h-full pointer-events-none"
+            class="atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none"
+            :class="auroraArrived && 'atmosphere-canvas--arrived'"
             :style="auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined"
             aria-hidden="true"
             data-testid="atmosphere-canvas"
@@ -311,7 +316,11 @@ const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 // AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on this component's scope.
 // W3-1 (S.W3): pass the rAF-coalesced colour — the aurora seed + blob palette
 // derives fire once per frame, not 60×/s under a slider drag.
-const { auroraCssGradient } = useAtmosphere(atmosphereCanvas, cssColorOpaqueFrame);
+// W6-1 entrance: `auroraArrived` keys the canvas derive-in (template class).
+const { auroraCssGradient, auroraArrived } = useAtmosphere(
+    atmosphereCanvas,
+    cssColorOpaqueFrame,
+);
 
 onMounted(() => { loadCustomColorNames(); });
 </script>
@@ -325,6 +334,29 @@ onMounted(() => { loadCustomColorNames(); });
    family). Co-transitioning height/margin/padding forced a layout + paint on
    every frame of every swap — the P1 layout-thrash (perf-transitions P1-2). The
    pane geometry rides transform/opacity only now. */
+
+/* ── W6-1 · the atmosphere ARRIVAL (owner ruling 2026-07-05 §1.1) ──
+   The canvas eases in over the `--saved-bg` derived-base ground once the
+   field is drawable (`isArmed` — the producer's own Aurora.vue cross-fade
+   idiom; immediate on the `"css"` placeholder substrate). Ground and field
+   are ONE material (the base stop IS the field's deepest stop), so the
+   entrance reads as the field texturing in from its own base — never an
+   explicit dark→light/light→dark snap. House slow register + decelerate
+   ease; W3-2's idle-deferral mechanics are untouched (this designs the
+   arrival, it does not revert the deferral). */
+.atmosphere-canvas {
+    opacity: 0;
+    transition: opacity var(--duration-slow, 0.45s) var(--ease-decelerate);
+}
+.atmosphere-canvas--arrived {
+    opacity: 1;
+}
+/* PRM-honest: reduce → no fade, the field is a static state change. */
+@media (prefers-reduced-motion: reduce) {
+    .atmosphere-canvas {
+        transition: none;
+    }
+}
 
 /* Ghost pane: always in DOM to preserve scroll-timeline state, but invisible
    and non-interactive. content-visibility:auto (W3-4) additionally drops the

@@ -28,6 +28,7 @@ import {
     paletteToCssGradient,
     type AuroraAtoms,
 } from "@mkbabb/glass-ui/aurora";
+import { debounce } from "@src/utils";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@components/custom/panes/keys";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/goo-blob";
 import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
@@ -63,12 +64,18 @@ export function useAtmosphere(
     // (a mount-time device tier).
     const auroraRenderMode = resolveRenderMode("auto");
 
-    useAurora(
+    const aurora = useAurora(
         atmosphereCanvas,
         () => resolveAtoms(auroraAtoms),
         { onInitError: (err) => console.warn("[aurora] init failed:", err) },
         { renderMode: auroraRenderMode },
     );
+
+    // The resolved derived palette — ONE computed shared by the CSS-gradient
+    // fallback below AND the W6-1 boot-material sink. Recomputes at most once
+    // per frame under a drag (the seed is the rAF-coalesced colour), so the
+    // extra `resolveAtoms` here stays off the per-event hot path.
+    const resolvedPalette = computed(() => resolveAtoms(auroraAtoms).palette);
 
     // The CSS-gradient fallback for the `"css"` substrate — the same derived
     // palette `resolveAtoms` feeds the WebGL field, rendered as a static
@@ -77,8 +84,54 @@ export function useAtmosphere(
     // the paint; on `"css"` it is the atmosphere.
     const auroraCssGradient = computed(() =>
         auroraRenderMode === "css"
-            ? paletteToCssGradient(resolveAtoms(auroraAtoms).palette)
+            ? paletteToCssGradient(resolvedPalette.value)
             : undefined,
+    );
+
+    // --- W6-1 (S.W6 · S-18): the boot-material sink — `--saved-bg` IS the
+    // derived BASE stop, never the raw picked colour. The pre-hydration ground
+    // (index.html's fouc-guard + style.css's body rule) and the field's own
+    // deepest stop are then ONE material: boot background → first aurora frame
+    // reads as the field texturing in over its own base, not a colour snap.
+    // Ownership note: this sink MOVED here from useColorPipeline's applyTokens
+    // (which persisted the raw opaque pick — the boot↔field material mismatch
+    // the owner saw as the load darkening). One writer: the atmosphere owns
+    // the boot material because it owns the derived field.
+    const persistBootMaterial = debounce(
+        (css: string) => {
+            try {
+                localStorage.setItem("color-picker-bg", css);
+            } catch {
+                /* private-mode */
+            }
+        },
+        200,
+        false,
+    );
+    watch(
+        () => resolvedPalette.value[0],
+        (base) => {
+            if (!base) return;
+            const css = oklchStopToHex(base);
+            // Live var first (the body ground tracks the field in-session),
+            // then the debounced cold-boot persistence (mirrors the colour
+            // store's 200ms write-through cadence).
+            document.documentElement.style.setProperty("--saved-bg", css);
+            persistBootMaterial(css);
+        },
+        { immediate: true },
+    );
+
+    // --- W6-1 entrance rider (owner ruling 2026-07-05 §1.1): the ARRIVAL is
+    // designed, not a snap. The producer's own idiom (`Aurora.vue`) keys a
+    // cross-fade on `isArmed`; the demo consumes the same signal — App.vue
+    // eases the canvas in over the SAME-material ground once the field is
+    // drawable. On the `"css"` substrate the static gradient placeholder IS
+    // a complete render, so it arrives immediately (no WebGL arming to wait
+    // for). PRM honesty lives in App.vue's CSS (reduce → no transition, a
+    // static state change).
+    const auroraArrived = computed(
+        () => auroraRenderMode === "css" || aurora.isArmed.value,
     );
 
     // The picker→atmosphere seed: every (coalesced) colour change re-seeds the
@@ -127,5 +180,5 @@ export function useAtmosphere(
         { immediate: true },
     );
 
-    return { auroraCssGradient };
+    return { auroraCssGradient, auroraArrived };
 }
