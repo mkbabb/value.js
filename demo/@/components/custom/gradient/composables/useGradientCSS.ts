@@ -21,6 +21,7 @@
 
 import { computed } from "vue";
 import type { ComputedRef } from "vue";
+import type { Color } from "@src/units/color";
 import { mixColors } from "@src/units/color/mix";
 import { parseCSSValue } from "@src/parsing";
 import { parseCSSColor } from "@src/parsing/color";
@@ -90,29 +91,24 @@ export function serializeGradient(model: GradientModelState): string {
     return `${typeName}(${parts.join(", ")})`;
 }
 
+/** One eased sub-stop of the coalesced ramp (position 0–100). */
+export interface CoalescedSample {
+    position: number;
+    /** The mixed raw color (normalized [0,1]) in `model.interpolationSpace`. */
+    color: Color<number>;
+}
+
 /**
- * Serialize a coalesced gradient — many intermediate stops that bake in
- * per-interval easing. This is the CSS that actually renders the gradient.
+ * The ONE sampling law (S.W5-8): eased sub-stops along the ramp, consumed by
+ * BOTH the coalesced serializer (below) and the perceived-space plate's
+ * trajectory/rungs (`usePerceivedRamp`) — the render and the instrument can
+ * never disagree about what the ramp does.
  */
-export function serializeCoalescedGradient(model: GradientModelState): string {
-    const typeName = `${model.type}-gradient`;
-    const parts: string[] = [];
-
-    if (model.type === "linear" && model.direction !== 180) {
-        parts.push(`${model.direction}deg`);
-    } else if (model.type === "conic") {
-        parts.push(`from ${model.direction}deg`);
-    }
-
+export function sampleCoalescedStops(model: GradientModelState): CoalescedSample[] {
     const { stops, intervals, interpolationSpace, hueMethod } = model;
+    if (stops.length < 2) return [];
 
-    if (stops.length === 0) {
-        return `${typeName}(transparent, transparent)`;
-    }
-    if (stops.length === 1) {
-        return `${typeName}(${stops[0]!.cssColor}, ${stops[0]!.cssColor})`;
-    }
-
+    const out: CoalescedSample[] = [];
     const stepsPerInterval = Math.max(
         2,
         Math.round(COALESCE_RESOLUTION / (stops.length - 1)),
@@ -136,8 +132,38 @@ export function serializeCoalescedGradient(model: GradientModelState): string {
             const pos = s0.position + t * posRange;
 
             const mixed = mixColors(c0, c1, 1 - easedT, easedT, interpolationSpace, hueMethod);
-            parts.push(`${rawColorToCSS(mixed)} ${pos.toFixed(2)}%`);
+            out.push({ position: pos, color: mixed });
         }
+    }
+
+    return out;
+}
+
+/**
+ * Serialize a coalesced gradient — many intermediate stops that bake in
+ * per-interval easing. This is the CSS that actually renders the gradient.
+ */
+export function serializeCoalescedGradient(model: GradientModelState): string {
+    const typeName = `${model.type}-gradient`;
+    const parts: string[] = [];
+
+    if (model.type === "linear" && model.direction !== 180) {
+        parts.push(`${model.direction}deg`);
+    } else if (model.type === "conic") {
+        parts.push(`from ${model.direction}deg`);
+    }
+
+    const { stops } = model;
+
+    if (stops.length === 0) {
+        return `${typeName}(transparent, transparent)`;
+    }
+    if (stops.length === 1) {
+        return `${typeName}(${stops[0]!.cssColor}, ${stops[0]!.cssColor})`;
+    }
+
+    for (const sample of sampleCoalescedStops(model)) {
+        parts.push(`${rawColorToCSS(sample.color)} ${sample.position.toFixed(2)}%`);
     }
 
     return `${typeName}(${parts.join(", ")})`;

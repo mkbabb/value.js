@@ -16,77 +16,23 @@
  * is literally the treatment's "ink pair over light field, paper pair over
  * dark"; in the dark scheme the resolved voices swap roles so the contrast
  * law holds. The flip LOCATION is the invariant.
+ *
+ * The ink probe + hatch painter live at the netting idiom's ONE home,
+ * `@lib/gamut-ink` (S.W5-8 lift) — this module re-exports them for its
+ * composable (`useGamutOverlay`) and keeps only the spectrum-plate-specific
+ * boundary paint.
  */
 
 import type { GamutBoundary } from "@src/units/color/boundary";
+import { DPR_CAP, drawHatch, HATCH_PERIOD } from "@lib/gamut-ink";
+import type { ResolvedInks } from "@lib/gamut-ink";
 import { spectrumFieldIsLight } from "./spectrumLuma";
 
-export const DPR_CAP = 2;
-const HATCH_PERIOD = 6; // CSS px, perpendicular — the token's 5px+1px tile
+export { createInkProbe, DPR_CAP } from "@lib/gamut-ink";
+export type { ResolvedInks } from "@lib/gamut-ink";
+
 const HATCH_DRIFT_PERIODS = 2; // hatch phase periods per full hue turn
 const CROSSHAIR_R = 4.5; // 9px ink crosshair (B6)
-
-export interface ResolvedInks {
-    edgeInk: string;
-    edgePaper: string;
-    hatchInk: string | null; // null ⇒ gradient-stop parse failed (degraded)
-    hatchPaper: string | null;
-}
-
-/**
- * The token probe: a hidden span in the plate's own cascade whose computed
- * style resolves the four `--gamut-*` tokens (color-mix and all) to concrete
- * colors the canvas can ink with. Caller caches per scheme.
- */
-export function createInkProbe(host: HTMLElement) {
-    let probeEl: HTMLSpanElement | null = null;
-
-    function extractGradientStop(gradient: string): string | null {
-        // Computed `repeating-linear-gradient(45deg, transparent 0 5px, C 5px 6px)`
-        // with C fully resolved; pick the first non-transparent color function.
-        const colors = gradient.match(
-            /(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\((?:[^()]|\([^()]*\))*\)/g,
-        );
-        if (!colors) return null;
-        for (const c of colors) {
-            if (/^rgba\(0,\s*0,\s*0,\s*0\)$/.test(c)) continue; // transparent
-            if (/\/\s*0\)\s*$/.test(c)) continue; // `… / 0)` zero-alpha
-            return c;
-        }
-        return null;
-    }
-
-    function resolve(): ResolvedInks {
-        if (!probeEl) {
-            probeEl = document.createElement("span");
-            probeEl.setAttribute("aria-hidden", "true");
-            probeEl.style.cssText =
-                "position:absolute;visibility:hidden;pointer-events:none;width:0;height:0;";
-            host.appendChild(probeEl);
-        }
-        probeEl.style.color = "var(--gamut-edge)";
-        probeEl.style.backgroundColor = "var(--gamut-edge-paper)";
-        probeEl.style.backgroundImage =
-            "var(--gamut-hatch), var(--gamut-hatch-paper)";
-        const cs = getComputedStyle(probeEl);
-        const images = cs.backgroundImage.split(
-            /(?=repeating-linear-gradient\()/,
-        );
-        return {
-            edgeInk: cs.color,
-            edgePaper: cs.backgroundColor,
-            hatchInk: images[0] ? extractGradientStop(images[0]) : null,
-            hatchPaper: images[1] ? extractGradientStop(images[1]) : null,
-        };
-    }
-
-    function dispose() {
-        probeEl?.remove();
-        probeEl = null;
-    }
-
-    return { resolve, dispose };
-}
 
 // ── Geometry → canvas paths ──────────────────────────────────────────────────
 
@@ -142,28 +88,6 @@ function regimeRegionPath(w: number, h: number, light: boolean): Path2D {
     }
     p.closePath();
     return p;
-}
-
-function drawHatch(
-    c: CanvasRenderingContext2D,
-    w: number,
-    h: number,
-    phase: number,
-    style: string,
-) {
-    const step = HATCH_PERIOD * Math.SQRT2;
-    c.strokeStyle = style;
-    c.lineWidth = 1;
-    c.beginPath();
-    for (
-        let x = -h - step + ((phase % step) + step) % step;
-        x < w + step;
-        x += step
-    ) {
-        c.moveTo(x, 0);
-        c.lineTo(x + h, h);
-    }
-    c.stroke();
 }
 
 export interface PaintOptions {

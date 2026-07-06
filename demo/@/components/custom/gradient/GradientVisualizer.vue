@@ -16,6 +16,7 @@ import type { EasingPickerMode, EasingPickerValue } from "@mkbabb/glass-ui/easin
 import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import GradientStopEditor from "./GradientStopEditor.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
+import PerceivedSpacePlate from "./PerceivedSpacePlate.vue";
 import {
     useGradientModel,
     INTERPOLATION_SPACES,
@@ -23,6 +24,7 @@ import {
 } from "./composables/useGradientModel";
 import type { GradientType } from "./composables/useGradientModel";
 import { interpolateStopColors } from "./composables/useGradientInterpolation";
+import { usePerceivedRamp } from "./composables/usePerceivedRamp";
 import { linear } from "@src/easing";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/mix";
@@ -38,6 +40,7 @@ const {
     intervals,
     interpolationSpace,
     hueMethod,
+    modelState,
     coalescedCSS,
     simpleCSS,
     addStop,
@@ -49,6 +52,9 @@ const {
 } = useGradientModel();
 
 const selectedStopId = defineModel<string | null>("selectedStopId", { default: null });
+
+// ── The perceived-space projection (W5-8): plate trajectory + rail rungs ──
+const ramp = usePerceivedRamp(modelState, selectedStopId);
 
 const GRADIENT_TYPES: { value: GradientType; label: string; description: string }[] = [
     { value: "linear", label: "Linear", description: "Left-to-right or angled" },
@@ -198,25 +204,22 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
 <template>
     <div class="flex flex-col gap-5">
-        <!-- Hero: Gradient preview (decorative visual) + stop editor -->
-        <!-- W5-a11y: preview swatch is decorative -->
-        <div
-            class="h-20 sm:h-24 rounded-card border border-card-edge bg-card overflow-hidden shadow-card"
-            :style="{
-                /* S owner-ruling 2026-07-05: the `--alpha-checker` ground
-                   layers UNDER the gradient — translucent stops read as
-                   transparency instead of blending into the card surface.
-                   Fully-opaque gradients cover it; nothing changes there. */
-                background: `${coalescedCSS}, var(--alpha-checker)`,
-            }"
-            aria-hidden="true"
-            role="presentation"
+        <!-- Hero: the perceived-space plate (W5-8). The old aria-hidden
+             preview swatch is DISSOLVED (P2-16 — it duplicated the editing
+             rail below): the rail renders the gradient itself; the plate
+             renders what the ramp DOES in perceptual space. -->
+        <PerceivedSpacePlate
+            :points="ramp.points.value"
+            :stop-points="ramp.stopPoints.value"
+            :hue="ramp.runningHue.value"
+            :selected-id="selectedStopId"
         />
 
         <GradientStopEditor
             :stops="stops"
             :coalesced-c-s-s="coalescedCSS"
             :color-at="colorAtPosition"
+            :rungs="ramp.rungs.value"
             v-model:selected-id="selectedStopId"
             @update:position="onStopPositionUpdate"
             @add="onAddStop"

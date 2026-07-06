@@ -3,11 +3,18 @@ import { ref, computed, useTemplateRef } from "vue";
 import { X } from "@lucide/vue";
 import type { GradientStop } from "./composables/useGradientModel";
 
-const { stops, coalescedCSS, colorAt = undefined } = defineProps<{
+const { stops, coalescedCSS, colorAt = undefined, rungs = undefined } = defineProps<{
     stops: GradientStop[];
     coalescedCSS: string;
     /** Ramp color at a position (0–100) — previews the ghost + seeds adds. */
     colorAt?: (position: number) => string | null;
+    /**
+     * iso-ΔE_OK rung positions (0–100) from `usePerceivedRamp` (W5-8):
+     * equal perceptual arc-length ticks — bunched rungs = fast perceptual
+     * change, open rungs = a flat zone; a steps() interval reads as
+     * rung-free bands with clusters at the risers.
+     */
+    rungs?: number[];
 }>();
 
 const emit = defineEmits<{
@@ -245,6 +252,22 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
             >
                 <X class="w-3.5 h-3.5" aria-hidden="true" />
             </button>
+        </div>
+
+        <!-- The iso-ΔE_OK rung row (W5-8): perceptual pacing as visible
+             netting on the editing rail, mapped to the same inset track as
+             the handles so rungs, beads and handles agree on the axis. -->
+        <div
+            v-if="rungs && rungs.length"
+            class="relative h-1.5"
+            aria-hidden="true"
+        >
+            <span
+                v-for="(r, i) in rungs"
+                :key="i"
+                class="absolute top-0 w-px h-full bg-muted-foreground/50"
+                :style="{ left: handleLeft(r) }"
+            />
         </div>
     </div>
 </template>
