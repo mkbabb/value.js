@@ -208,10 +208,8 @@ import {
     GitFork,
     History,
 } from "@lucide/vue";
-import type { PaletteColor } from "@lib/palette/types";
-import type { Palette } from "@lib/palette/types";
-import { getPaletteKind } from "@lib/palette/utils";
-import type { PaletteKind } from "@lib/palette/utils";
+import type { Palette, PaletteColor } from "@lib/palette/types";
+import { getPaletteKind, type PaletteKind } from "@lib/palette/utils";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 import { useHoverPopover } from "./composables/useHoverPopover";

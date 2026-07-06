@@ -122,12 +122,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, provide, ref, shallowRef, useTemplateRef, watch } from "vue";
+import { computed, onMounted, provide, ref, shallowRef, useTemplateRef } from "vue";
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import { ColorPicker } from "@components/custom/color-picker";
-import { CSS_COLOR_KEY, SAFE_ACCENT_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
-import { useContrastSafeColor } from "@composables/color/useContrastSafeColor";
+import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
 
 import { Dock } from "@components/custom/dock";
 import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
@@ -146,7 +145,7 @@ import { provideApiClient } from "@lib/palette/api/useApiClient";
 import { useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import { useAtmosphere } from "@composables/color/useAtmosphere";
+import { useAtmosphereBoot } from "@composables/color/useAtmosphereBoot";
 import { useDevicePixelSnap } from "@composables/useDevicePixelSnap";
 
 import "@styles/utils.css";
@@ -205,44 +204,23 @@ const onEditTargetChange = (et: EditTarget | null) => { activeEditTarget.value =
 provide(EDIT_TARGET_KEY, activeEditTarget);
 provide(CSS_COLOR_KEY, cssColorOpaque);
 
-// W3-1 (S.W3): the accent axis is part of the coalesced atmosphere fan-out, so
-// the contrast solve runs off the rAF-coalesced colour (one solve/frame under a
-// drag) — the `--accent-live` write below inherits the same cadence. The picker
-// keeps the synchronous `cssColorOpaque` via CSS_COLOR_KEY above.
-const { safeAccentCss } = useContrastSafeColor(cssColorOpaqueFrame);
-provide(SAFE_ACCENT_KEY, safeAccentCss);
-
-// --- The accent axis (R.W3 Lane A / A2) ---
-// Mirror the contrast-guarded live color onto the `--accent-live` root token —
-// the SAME library `safeAccentColor` computation SAFE_ACCENT_KEY provides (ONE
-// color-resolution path, inv-N-3; no bespoke resolver). style.css re-points
-// `--primary` and the glass frost's `--glass-tint-source` onto it, so the
-// interactive layer and the plate temperature speak the picked color.
-watch(
-    safeAccentCss,
-    (css) => {
-        document.documentElement.style.setProperty("--accent-live", css);
-    },
-    { immediate: true },
-);
-
 // --- View manager ---
 const viewManager = useViewManager();
 provide(VIEW_MANAGER_KEY, viewManager);
 const currentConfig = computed(() => viewManager.currentConfig.value);
 
-// --- The per-view accent (R.W4 Lane B / B2) ---
-// THE one resolver path: each view's schema-declared hue shift lands on the
-// `--view-hue-shift` root token; style.css derives `--accent-view` from the
-// R.W3 `--accent-live` axis via CSS relative color (zero JS color math), and
-// `--primary` rides it — so navigation reads chromatically everywhere the
-// interactive layer paints.
-watch(
-    () => currentConfig.value.accentHueShift,
-    (deg) => {
-        document.documentElement.style.setProperty("--view-hue-shift", String(deg ?? 0));
-    },
-    { immediate: true },
+// --- Atmosphere boot (S.W5 · row-8 cap cure) ---
+// The three document-root atmosphere/entrance side-effects — the R.W3
+// `--accent-live` accent axis, the R.W4 `--view-hue-shift` per-view accent, and
+// the N.W5.B aurora + hero-blob region — live in one composable. It provides
+// SAFE_ACCENT_KEY + AURORA_ATOMS_KEY + BLOB_CONFIG_KEY; App keeps only the canvas
+// mount + the picker's synchronous CSS_COLOR_KEY provide above. Seeded by the
+// rAF-coalesced colour (W3-1). W6-1 entrance: `auroraArrived` keys the canvas
+// derive-in (template class).
+const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
+    atmosphereCanvas,
+    cssColorOpaqueFrame,
+    currentConfig,
 );
 
 // X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px), now guarded
@@ -321,18 +299,6 @@ if (!appliedFromUrl) restoreFromStorage();
 
 // --- Custom color names ---
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
-
-// --- Atmosphere: aurora + hero-blob palette coupling (N.W5.B) ---
-// The full region (atoms, render-mode tiering, seed guards, blob ramp) lives
-// in useAtmosphere (lifted at R.W4 close, gate-(c) cap); it provides
-// AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on this component's scope.
-// W3-1 (S.W3): pass the rAF-coalesced colour — the aurora seed + blob palette
-// derives fire once per frame, not 60×/s under a slider drag.
-// W6-1 entrance: `auroraArrived` keys the canvas derive-in (template class).
-const { auroraCssGradient, auroraArrived } = useAtmosphere(
-    atmosphereCanvas,
-    cssColorOpaqueFrame,
-);
 
 onMounted(() => { loadCustomColorNames(); });
 </script>
