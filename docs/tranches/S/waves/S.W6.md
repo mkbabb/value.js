@@ -38,6 +38,20 @@ cold/live. (SYNTHESIS §3.8 Completion, verbatim.)
 | W6-4 | **Blob hero redress, demo half** (S-4 anchor — the demo half stays consume/config/placement; Q7's first-principles rebuild is the JOINT producer path: L5 co-rebuild grounded in the W0-8 genesis brief, which this item CONSUMES): footprint **`clamp(11rem,26cqi,13rem)`** (seed rider 1, corrected by live measurement — 18cqi of the real 695px pane = 125px, so the old 9rem floor bound at 144px, a SHRINK from the shipped 176px; the 13rem cap needs a 1156px pane that never exists on the dual grid); visible bead ≥96px **conditioned on the L5 HERO preset landing** (seed rider 3: ~94px consumer ceiling at the 26cqi footprint without starving the satellite ring — an in-window producer miss is RECORDED as the wave's producer-gap row and re-verifies at W8, the same hedge shape the satellite gate carries); corner-break placement LAW owned by the pane slot (bead center on the radius origin with **≥25% overflow per broken edge** — seed rider 2: the ≥40% clause is jointly unsatisfiable with center-on-radius-origin (geometric max ≈ (R−r)/2R; measured 25–27% live) — OR relocate the center to the card corner POINT if ≥40% is the wanted composition, a design call in-wave (the more detached look); nothing paints over it — kills the About-card burial with zero z hacks); **full presence at EVERY viewport per Q7's FLIP** (RATIFIED 2026-07-05: the <lg presence law is NEW design scope — footprint, placement, overflow discipline, GL lifecycle DESIGNED, not toggled — with perf as a HARD gate; the seed's mount-gate rider is OBSOLETE-as-cure (it implemented absence); its findings carry as constraints: the 390px clipped-smudge overflow, and hidden-but-mounted holds a LIVE GL context); ramp ceiling tracks the picked C (the 0.16 ceiling literally cannot show the advertised ink); mood FSM KEPT and bound to real app moments (scrub→excited, save→happy drip, idle→sleepy-as-contained-pose); PRM = static single-frame render. Producer halves (satellites-at-rest, scale-aware deformation, single-GPU-surface policy, HERO preset, chord-dent, DPR, `uSatColor[]` — GAP-1 now dist-confirmed: absent at glass-ui 4.2.0/tranche-BG, consumer-impossible, stays L5) = letter L5 + the W8 consume | `HeroBlob.vue:15`; `ColorPicker.vue:18-22`; `useAtmosphere.ts:100,112-116`; `audit/blob-genesis.md` (W0-8) | blob-greenfield-tech §5; design-blob-atmosphere §2; SEEDS.md w6-blob-redress; RATIFICATION §2.2 |
 | W6-5 | **Safari verification**: the missing WebKit blob repro stood up on `smoke-safari` (the literal spazz was NOT reproducible on desktop Chrome; the dual-WebGL2-contention hypothesis needs the WebKit vehicle); aurora re-verify post-L1 shader cure; the centroid-in-wrapper spazz assertion | `smoke-safari` project | blob-greenfield S-blob-5; safari-truth |
 | W6-6 | **Config-pane redress**: `ConfigSliderPane` single-label (the doubled sans+mono rows), the floating action pill un-occluded, readouts paired with labels; crayon Slider variant + ConfiguratorRow label API = letter L14 | `ConfigSliderPane.vue` | design-blob-atmosphere P1-7 |
+| W6-7 | **Pointer-reactive atmosphere** (NEW — owner ruling 2026-07-05, `audit/OWNER-RULING-2026-07-05-aurora.md` §1.3): the mouse influences the field (parallax/attraction/local bloom — design call in-wave, PRM-honest); ONE pointer grammar across backdrop + hero (must not fight the blob's pointer choreography); demo consume half only — if the producer aurora exposes no pointer door, the L19 letter ask stands with the standing hedge (in-window miss → producer-gap row, re-verify at W8); NO engine fork | `useAtmosphere.ts` · the aurora consume surface | OWNER-RULING-2026-07-05-aurora; ADDENDUM L19 |
+| W6-8 | **The card field-floor integration** (NEW — forensics `audit/card-lighting-forensics-2026-07-05.md` artifact 1, the owner's "light source within the card"): mount `data-paper-field` on the demo's aurora plane (the one-attribute demo half — the producer's field-floor fallback gate at their `cards.css:121-126` then disarms the orphan amber radials that today paint on EVERY glass card with no dark arm); after landing, RE-MEASURE the artifact-3 contrast rows (the hot-zone 2.61:1 → expected ≥4.2:1); residuals route: alpha muted rung + the dark-arm damping = ADDENDUM (producer F2.R1 home); the W4-1 title-ink-vs-plate-luminance follow-up → W7-3's accent system (cross-ref, recorded) | the aurora plane mount point (App/atmosphere root) | card-lighting-forensics-2026-07-05 |
+
+### Post-ratification owner-ruling riders (2026-07-05, binding — `audit/OWNER-RULING-2026-07-05-aurora.md`, §0 verbatim wins)
+
+1. **W6-1 entrance clause**: the "boot → first frame is one material" law EXTENDS to the
+   entrance — no explicit dark→light/light→dark snap at load. W3-2's idle-deferral mechanics
+   STAY (the perf gate holds); the ARRIVAL is designed (derive-in on the house motion grammar,
+   PRM-honest). A designed entrance, never a reverted deferral.
+2. **W6-3 amplification**: the field must read as STRONG presence with visibly GREATER derived
+   C and H variance off the pick — "subtle, though, but with more noticeable" (variance ≠
+   noise; the derive-tuning triumvirate halt still binds). The producer variance atoms
+   (`hueSpread`/chroma) were already L2 — the ruling is their amplification-by-owner
+   (ADDENDUM dispatch).
 
 ## §Triumvirate dispatch
 
@@ -85,6 +99,14 @@ Parallel units in sibling worktrees cut from the wave head.
    aurora re-verified post-L1 (or the L1 producer-gap row recorded).
 6. π archives light/dark × cold/live.
 7. `npm run lint` 0 · `npm run typecheck` 0 · `npm test` green · e2e 5-project green.
+8. **(2026-07-05 riders)** The entrance carries no explicit load snap (W6-1 clause — capture in
+   the cold-load π pair); the field reads STRONG with visibly greater C/H variance, subtle in
+   register (W6-3 amplification — the π DELTA names it); W6-7 pointer-reactivity landed (one
+   pointer grammar) or the L19 producer-gap row recorded.
+9. **(forensics)** The in-card amber wash is DEAD on every glass card, light + dark (W6-8's
+   `data-paper-field` landed — verify by the forensics doc's own T1 toggle method); the
+   contrast rows re-measured (hot zone ≥4.2:1); the two producer residuals + the W7-3 ink
+   cross-ref recorded, never shimmed.
 
 ## §No-workaround prohibitions (binding)
 
