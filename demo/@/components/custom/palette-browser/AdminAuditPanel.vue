@@ -67,8 +67,9 @@
                         {{ formatTime(entry.timestamp) }}
                     </span>
                 </div>
-                <!-- secondary line: target -->
-                <span class="text-caption text-muted-foreground truncate">
+                <!-- secondary line: target — a machine string is a READOUT:
+                     Fira, never italic display type (W5-12 / F-9). -->
+                <span class="text-mono-small text-muted-foreground truncate">
                     {{ entry.target }}
                 </span>
             </div>

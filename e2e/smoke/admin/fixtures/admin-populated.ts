@@ -83,9 +83,20 @@ const AUDIT: AuditEntry[] = [
     { id: "a3", timestamp: NOW, action: "flag.dismiss", target: "neon-haze-1b2c", ipHash: "ip-b2c0" },
 ];
 
-const QUEUE: ProposedColorName[] = [
+export const QUEUE: ProposedColorName[] = [
     { id: "c1", name: "Wax Seal", css: "oklch(0.52 0.18 25)", status: "proposed", contributor: "azure-fox-01", createdAt: NOW },
     { id: "c2", name: "Field Floor", css: "oklch(0.74 0.06 120)", status: "proposed", contributor: "crimson-owl-77", createdAt: NOW },
+    // S.W5-12 (F-1 fence): the min-width-chain stressor — an un-breakable
+    // long name + a wide function css literal, the exact string class that
+    // pushed approve/reject ~250px off-card at 390px pre-fix.
+    {
+        id: "c3",
+        name: "A Very Long Proposed Color Name That Stresses The Row Min-Width Chain Well Past Any Phone Viewport",
+        css: "color(display-p3 0.23456 0.71234 0.41234 / 0.98765)",
+        status: "proposed",
+        contributor: "verdant-mole-33",
+        createdAt: NOW,
+    },
 ];
 
 const TAGS: Tag[] = [

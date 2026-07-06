@@ -73,33 +73,42 @@
                     @click="user.paletteCount ? toggleUserExpand(user.slug) : undefined"
                 >
                     <div class="flex-1 min-w-0 flex items-center gap-2">
-                        <!-- Ag-11: slug-pill class replaces copy-pasted cluster -->
+                        <!-- Ag-11: slug-pill class replaces copy-pasted cluster.
+                             W5-12 (F-13): tail-priority truncation — the head
+                             ellipsizes, the last chars (the identity-bearing
+                             suffix) never do, so two prune candidates stay
+                             distinguishable on a phone. -->
                         <span
-                            class="slug-pill truncate"
+                            class="slug-pill flex items-baseline min-w-0 max-w-full"
                             :style="{ color: safeAccent, borderColor: safeAccent }"
-                        >{{ user.slug }}</span>
+                            :title="user.slug"
+                        ><span class="truncate min-w-0">{{ slugHead(user.slug) }}</span><span class="shrink-0">{{ slugTail(user.slug) }}</span></span>
                         <Badge variant="secondary" class="text-mono-small shrink-0">
                             {{ user.paletteCount ?? 0 }}
                         </Badge>
                     </div>
                     <div class="flex items-center gap-1.5 shrink-0" @click.stop>
+                        <!-- W5-12 (F-8): the disabled delete on 0-palette
+                             users is DROPPED (superfluous furniture), and the
+                             per-row destructive is quieted to ink-at-rest —
+                             red arrives on hover/focus, never as 5 resting
+                             beacons down the list. -->
                         <Button
+                            v-if="user.paletteCount"
                             variant="outline"
                             size="sm"
                             class="h-7 px-2 cursor-pointer font-display text-caption"
-                            :disabled="!user.paletteCount"
-                            @click="onDeletePalettesClick($event, user.slug)"
+                            @click="onDeletePalettesClick(user.slug)"
                         >
                             <Trash2 class="w-3 h-3 mr-1" />
                             Palettes
                         </Button>
-                        <!-- W5-a11y: icon-only destructive button needs accessible name -->
                         <Button
-                            variant="destructive"
+                            variant="ghost"
                             size="sm"
-                            class="h-7 px-2 cursor-pointer font-display text-caption"
+                            class="h-7 px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
                             :aria-label="`Delete user ${user.slug}`"
-                            @click="onDeleteUserClick($event, user.slug)"
+                            @click="onDeleteUserClick(user.slug)"
                         >
                             <Trash2 class="w-3 h-3" aria-hidden="true" />
                         </Button>
@@ -204,6 +213,17 @@ const pruning = ref(false);
 
 const emptyCount = computed(() => users.filter((u) => !(u.paletteCount ?? 0)).length);
 
+// W5-12 (F-13): tail-priority slug split — the last 6 chars carry the
+// distinguishing suffix (prune candidates read `…-33` vs `…-77`, never two
+// identical `empty-ghost…` stubs).
+const SLUG_TAIL = 6;
+function slugHead(slug: string): string {
+    return slug.length > SLUG_TAIL ? slug.slice(0, -SLUG_TAIL) : slug;
+}
+function slugTail(slug: string): string {
+    return slug.length > SLUG_TAIL ? slug.slice(-SLUG_TAIL) : "";
+}
+
 // Confirmation dialog state
 const confirmOpen = ref(false);
 const confirmTitle = ref("");
@@ -253,11 +273,11 @@ function onPruneDone(count: number) {
     setTimeout(() => { pruneResult.value = null; }, 3000);
 }
 
-function onDeletePalettesClick(event: MouseEvent, slug: string) {
-    if (event.shiftKey) {
-        emit("deleteUserPalettes", slug);
-        return;
-    }
+// W5-12 (F-8): the shift-click confirm bypass is EXCISED — an invisible,
+// undocumented, un-undoable fast path on the two most destructive actions
+// in the app (a shift-clicking power user and a shift-holding accident were
+// the same event). No special-case danger affordances (§No-workaround).
+function onDeletePalettesClick(slug: string) {
     showConfirm({
         title: "Delete all palettes?",
         description: "This will permanently delete all palettes for",
@@ -268,11 +288,7 @@ function onDeletePalettesClick(event: MouseEvent, slug: string) {
     });
 }
 
-function onDeleteUserClick(event: MouseEvent, slug: string) {
-    if (event.shiftKey) {
-        emit("deleteUser", slug);
-        return;
-    }
+function onDeleteUserClick(slug: string) {
     showConfirm({
         title: "Delete user?",
         description: "This will permanently delete user",

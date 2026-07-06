@@ -47,9 +47,13 @@ export function useDockAdminMode(options: UseDockAdminModeOptions): UseDockAdmin
         }
     }
 
-    // Sync admin mode with current view
+    // Sync admin mode with current view. S.W5-12 (F-12): the watch is
+    // SYMMETRIC over adminViews — landing on EITHER tuning pane
+    // (atmosphere/blob) flips admin mode, matching their membership in the
+    // admin view list (the old atmosphere-only check made two same-class
+    // views behave differently).
     watch(() => viewManager.currentView.value, (view) => {
-        if (view.startsWith("admin-") || view === "atmosphere") {
+        if (adminViews.includes(view)) {
             isAdminMode.value = true;
         }
     });

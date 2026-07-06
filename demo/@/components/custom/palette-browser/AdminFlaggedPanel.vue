@@ -80,12 +80,21 @@
                 </Badge>
 
                 <div class="flex items-center gap-1 shrink-0">
-                    <!-- Ag-1: text-xs → text-caption (caption role) -->
-                    <Button variant="outline" size="sm" class="h-7 px-2 text-caption" @click="flagged.dismiss(item.paletteSlug)">
+                    <!-- W5-12 (F-8): the pair weighted asymmetrically — the
+                         labeled neutral Dismiss is the primary affordance;
+                         the delete is a QUIET icon (ink at rest, red only on
+                         hover/focus), never its equal-weight red twin. -->
+                    <Button variant="outline" size="sm" class="h-7 px-2 text-caption font-display" @click="flagged.dismiss(item.paletteSlug)">
                         Dismiss
                     </Button>
-                    <Button variant="destructive" size="sm" class="h-7 px-2" @click="flagged.deletePalette(item.paletteSlug)">
-                        <Trash2 class="h-3 w-3" />
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        class="h-7 px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                        :aria-label="`Delete palette ${item.palette?.name ?? item.paletteSlug}`"
+                        @click="flagged.deletePalette(item.paletteSlug)"
+                    >
+                        <Trash2 class="h-3 w-3" aria-hidden="true" />
                     </Button>
                 </div>
             </div>
