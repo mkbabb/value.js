@@ -104,13 +104,15 @@ const { toggleDark } = useGlobalDark();
     <div class="hidden lg:flex items-center">
         <DropdownMenu v-model:open="mbabbMenuOpen">
             <DropdownMenuTrigger as-child>
-                <!-- S.W5-4: hand-rolled trigger → glass-ui Button ghost.
-                     Casing class kept verbatim — W7-6 owns the @mbabb
-                     register fix. -->
+                <!-- S.W7-6 (design-dock-shell P1-8): the @mbabb WORDMARK, not a
+                     section eyebrow — text-mono-small is the non-transforming
+                     mono rung (the former text-mono-caption is glass-ui's
+                     eyebrow utility: mono·caption·UPPERCASE, which shouted
+                     "@MBABB" as generic labelware). Lowercase is the mark. -->
                 <Button
                     variant="ghost"
                     size="xs"
-                    class="text-mono-caption text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap"
+                    class="text-mono-small text-foreground/70 hover:text-foreground hover:underline underline-offset-4 whitespace-nowrap"
                 >
                     @mbabb
                 </Button>

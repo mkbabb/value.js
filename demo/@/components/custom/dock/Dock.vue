@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
-import { ChevronDown, Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
+import { ArrowRight, Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import { GlassDock, DockLayerGroup, DockLayer } from ".";
 import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
@@ -45,6 +45,26 @@ const { isAdminMode, viewEntries, onViewChange } = useDockAdminMode({ viewManage
 const actionBarLayerActive = ref(false);
 function toggleActionBar() { actionBarLayerActive.value = !actionBarLayerActive.value; }
 watch(hasAnyActionBar, (has) => { if (!has) actionBarLayerActive.value = false; });
+
+// S.W7-6 (P1-9.3 — the Tools load-order flicker): the toggle-slot's 0fr↔1fr
+// grow transition must fire only on GENUINE runtime toggles, never on the
+// app's boot composition. The pane mounts a beat after the dock (W3-4's
+// deferred mount), so its action-bar context arrives ~170ms in — the slot
+// visibly GREW the pill on EVERY load (measured 0→36→82→86px over ~380ms,
+// three consecutive loads). The first presence now PAINTS seated (transition
+// unarmed), then the transition arms one frame later for real mid-session
+// presence changes.
+const actionBarSlotLive = ref(false);
+watch(
+    hasAnyActionBar,
+    (has) => {
+        if (!has || actionBarSlotLive.value) return;
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => { actionBarSlotLive.value = true; });
+        });
+    },
+    { immediate: true },
+);
 // gate (b): watchers that reach dockRef stay in the SFC
 watch(actionBarLayerActive, (active) => { if (active) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
 function onActionBarOpenPalette() { viewManager.switchView(viewManager.currentView.value === "palettes" ? "picker" : "palettes"); }
@@ -154,7 +174,7 @@ watch(
                              trailing chevron are desktop furniture; below sm the
                              aperture (312px at 390w) holds controls only. -->
                         <DockSeparator v-if="hasAnyActionBar" class="hidden lg:block" />
-                        <div class="action-bar-toggle-slot" :class="{ 'is-visible': hasAnyActionBar }">
+                        <div class="action-bar-toggle-slot" :class="{ 'is-visible': hasAnyActionBar, 'is-live': actionBarSlotLive }">
                             <div class="action-bar-toggle-inner">
                                 <DockIconButton
                                     compact
@@ -173,7 +193,14 @@ watch(
                                     <span v-if="isDesktop" class="text-small font-display" :style="{ color: genericBar?.accentColor ?? safeAccent }">
                                         {{ genericBar?.label ?? 'Tools' }}
                                     </span>
-                                    <ChevronDown class="w-3 h-3 text-muted-foreground hidden lg:block" />
+                                    <!-- S.W7-6 (P1-9.2): the layer-swap AFFORDANCE —
+                                         ArrowRight mirrors the ArrowLeft back-button
+                                         inside the action-bar layer (one enter/exit
+                                         motif). The former ChevronDown promised a
+                                         dropdown this button never opens (the
+                                         chevron-that-isn't); Tools SWAPS the dock
+                                         layer, so it wears the layer grammar. -->
+                                    <ArrowRight class="w-3 h-3 text-muted-foreground hidden lg:block" />
                                 </DockIconButton>
                             </div>
                         </div>
@@ -260,11 +287,17 @@ watch(
 
 /* Action-bar toggle slot: animates between 0 and content width via the
    grid-template-columns 0fr → 1fr pattern (no max-width clipping).
-   Merged in from the retired DockMainLayer.vue. */
+   Merged in from the retired DockMainLayer.vue.
+   S.W7-6: the transition arms only once `.is-live` sets (one frame AFTER the
+   first presence painted) — the boot-composition appearance seats instantly;
+   only genuine mid-session presence toggles animate. */
 .action-bar-toggle-slot {
     display: grid;
     grid-template-columns: 0fr;
     opacity: 0;
+}
+
+.action-bar-toggle-slot.is-live {
     transition:
         grid-template-columns var(--duration-normal) var(--ease-standard),
         opacity var(--duration-normal) var(--ease-standard);
