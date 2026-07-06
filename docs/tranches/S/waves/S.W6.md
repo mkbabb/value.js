@@ -51,7 +51,11 @@ cold/live. (SYNTHESIS §3.8 Completion, verbatim.)
    C and H variance off the pick — "subtle, though, but with more noticeable" (variance ≠
    noise; the derive-tuning triumvirate halt still binds). The producer variance atoms
    (`hueSpread`/chroma) were already L2 — the ruling is their amplification-by-owner
-   (ADDENDUM dispatch).
+   (ADDENDUM dispatch). **RECALIBRATION (2026-07-05 late, owner —
+   `audit/OWNER-RULING-2026-07-05-variance-webbing.md` §1.1, supersedes the landing)**: the
+   landed variance reads "a bit too strong" — pull C/H variance back toward subtle while
+   keeping the STRONG presence; the gate's row 8 judges against THIS calibrated bar; an
+   overshoot at gate time is remediated as a sanctioned owner-tuning pass (π-recorded).
 
 ## §Triumvirate dispatch
 
