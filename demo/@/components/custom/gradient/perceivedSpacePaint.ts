@@ -36,10 +36,12 @@ import type { RampPoint, StopPoint } from "./composables/usePerceivedRamp";
  */
 export const PLATE_C_MAX = 0.4;
 
-/** Field raster ceiling (CSS px) — the smooth field upscales cleanly; the
- * boundary STROKE at full resolution keeps the instrument edge crisp. */
-const FIELD_MAX_W = 288;
-const FIELD_MAX_H = 128;
+/** Field raster ceiling (CSS px). Full CSS resolution — a half-res raster
+ * showed a visible staircase where the contour runs nearly horizontal (the
+ * tongue tip) that the 1.5px boundary stroke could not cover (π after-shot).
+ * ~58k px per repaint, and the field repaints only on hue/size change. */
+const FIELD_MAX_W = 640;
+const FIELD_MAX_H = 256;
 
 const _lin: Vec3 = [0, 0, 0];
 
@@ -70,8 +72,8 @@ export function paintSliceField(
     hueDeg: number,
     boundary: OKLChSliceBoundary,
 ): void {
-    const w = Math.max(2, Math.min(FIELD_MAX_W, Math.round(cssW / 2)));
-    const h = Math.max(2, Math.min(FIELD_MAX_H, Math.round(cssH / 2)));
+    const w = Math.max(2, Math.min(FIELD_MAX_W, Math.round(cssW)));
+    const h = Math.max(2, Math.min(FIELD_MAX_H, Math.round(cssH)));
     field.width = w;
     field.height = h;
     const ctx = field.getContext("2d");
