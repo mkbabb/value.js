@@ -50,6 +50,36 @@ half (see the W6-7 commit).
 - The `alpha` muted-ink rung (~1.5:1 both ways) → producer F2.R1 (ADDENDUM A2).
 - Title-ink-vs-plate-luminance → W7-3's accent system.
 
+## GAP-ARM (aurora cold-load arm-gap — the config deep-watch misses the hydration seed)
+
+**Status: REAL producer DEFECT, found 2026-07-06 by the variance pull-back lane's
+STEP-0 probe ("a flat pink field for a green seed" — REPRODUCED). No demo shim
+authored (retriggering the watch needs a synthetic atoms mutation — contrivance).**
+
+Probe (READ-ONLY, `../glass-ui` source): `useAurora.ts` constructs the runtime
+with a mount-time config snapshot (`createAurora(canvas, getCfg(), …)`,
+`src/components/custom/aurora/composables/useAurora.ts:262`) and wires the
+config deep-watch ONLY inside `armRuntime()` — after the deferred
+idle-callback arm — with no immediate replay
+(`useAurora.ts:228`: `stopWatch = watch(getCfg, (next) => inst?.update(next),
+{ deep: true })`). Every config change landing in the construction→arm gap is
+DROPPED. The demo's URL-wins seed hydration always lands in that gap, so every
+cold load renders the atmosphere from the pre-hydration DEFAULT pick
+(`lab(92% 88.8 20 / 82.70%)` hot-pink) until the first in-session color change.
+Verified live: `--saved-bg`/`resolvedPalette` (JS side) track the URL seed ✓;
+the armed WebGPU canvas paints the default-pink ramp across reloads ✗; an
+in-session seed change updates the canvas immediately ✓ (post-arm watch healthy).
+S-18 ("the field ANSWERS the picker") is broken on every cold load.
+
+Fix (producer, one line class): replay the live config at arm —
+`inst.update(getCfg())` immediately after `inst.arm()` in `armRuntime()`, or
+wire the deep-watch with `{ immediate: true }`. Re-verify at the S.W8 adopt
+walk with a cold-load canvas-pixel probe (the css-placeholder arm is NOT
+affected — it consumes the always-live `resolvedPalette`, which is why the W6
+headless π gate saw the correct derived palette).
+
+Full forensics: `OWNER-RULING-2026-07-05-variance-webbing.md §2.1`.
+
 ## GAP-L5 (satellite/bead — mirrored from the `d843ae7` commit body at wave close)
 
 The visible-bead ≥96px gate + the satellite-show half of W6-4 are CONDITIONED on the producer
