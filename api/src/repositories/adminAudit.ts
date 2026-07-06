@@ -1,8 +1,9 @@
 /**
  * AdminAuditRepository — owns query/write ops for the `admin_audit` collection.
  *
- * The `insert` method is the canonical sink for `events/auditLog.ts`. Lane B's
- * admin-route refactor calls `emitAuditEvent(c, ...)` which calls this method.
+ * The `insert` method is the canonical sink for `events/auditLog.ts`. Admin
+ * services call `emitAuditEvent(services, actorSlug, ...)` which calls this
+ * method.
  */
 
 import type { ClientSession, Collection, Filter, WithId, WithoutId } from "mongodb";

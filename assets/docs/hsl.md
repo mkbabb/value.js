@@ -50,15 +50,15 @@ HSL was developed in the 1970s as part of computer graphics research—an attemp
 ### Components
 
 1. **`H` (Hue)**:
-   `H = 0° \text{ to } 360°` (normalized to 0–1)
+   <Katex expression="H = 0^\circ \text{ to } 360^\circ" :display-mode="false" /> (normalized to 0–1)
 
    The color wheel: 0°/360° red, 60° yellow, 120° green, 180° cyan, 240° blue, 300° magenta.
 
 2. **`S` (Saturation)**:
-   `S = 0 \text{ (grayscale) to } 1 \text{ (fully saturated)}`
+   <Katex expression="S = 0 \text{ (grayscale) to } 1 \text{ (fully saturated)}" :display-mode="false" />
 
 3. **`L` (Lightness)**:
-   `L = 0 \text{ (black) to } 1 \text{ (white)}`
+   <Katex expression="L = 0 \text{ (black) to } 1 \text{ (white)}" :display-mode="false" />
 
    0.5 is the "pure" color—fully saturated at medium brightness.
 

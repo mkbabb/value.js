@@ -1,13 +1,12 @@
 import {
     AdobeRGBColor,
     Color,
-    ch,
-    channelOf,
-    setChannel,
     DisplayP3Color,
     HSLColor,
     HSVColor,
     HWBColor,
+    ICtCpColor,
+    JzazbzColor,
     KelvinColor,
     LABColor,
     LCHColor,
@@ -22,7 +21,7 @@ import {
 } from "../units/color";
 import { Parser, all, any, dispatch, regex, string, whitespace } from "@mkbabb/parse-that";
 import { FunctionValue, ValueUnit } from "../units";
-import { COLOR_NAMES } from "../units/color/constants";
+import { COLOR_NAMES } from "../units/color/color-names";
 import type { ColorSpace } from "../units/color/constants";
 import {
     clearCustomColorNames,
@@ -32,8 +31,7 @@ import {
     registerColorNames,
 } from "../units/color/color-names";
 import type { ANGLE_UNITS } from "../units/constants";
-import { normalizeColorUnit } from "../units/color/normalize";
-import { color2, hex2rgb } from "../units/color/dispatch";
+import { hex2rgb } from "../units/color/dispatch";
 import { mixColors } from "../units/color/mix";
 import { kelvin2rgb } from "../units/color/conversions/kelvin";
 import type { HueInterpolationMethod } from "../units/color/mix";
@@ -41,184 +39,30 @@ import { convertToDegrees } from "../units/utils";
 import * as utils from "./utils";
 import { memoize } from "../utils";
 import { CSSValueUnit, parseCSSValueUnit } from "./units";
-import { createCalcParser, createMathFunctionParsers, evaluateMathFunction } from "./math";
 
-/**
- * The typed currency of the color-parse boundary. A `parseCSSColor` /
- * `CSSColor.Value` result is a `ValueUnit` carrying a `Color` whose channels are
- * `ValueUnit<number>` — the exact shape `normalizeColorUnit` / `colorUnit2`
- * consume. Parsers construct the inner `Color` with raw numbers, but the whole
- * color pipeline reads channels through `ValueUnit.unwrapDeep` (tolerating both
- * `number` and `ValueUnit<number>`), so this is the canonical boundary type the
- * pipeline speaks. Typing the parser annotation to it (rather than the bare
- * `ValueUnit<any>`) lets every consumer drop the hand-narrowing cast.
- *
- * NOTE: `currentColor` / `light-dark()` resolve to deferred `"color-keyword"`
- * sentinels (a `ValueUnit<string | FunctionValue>`); those ride the same parser
- * and are structurally `ValueUnit`. Demo consumers feed the result straight into
- * `normalizeColorUnit` (the color path); the sentinel survives verbatim for the
- * keyframes.js render seam (it never reaches `normalizeColorUnit`).
- */
-export type ParsedColorUnit = ValueUnit<Color<ValueUnit<number>>, "color">;
+// ─── Boundary currency (W1-8 leaf-lift → color-unit.ts) ────────────────────
+//
+// `ParsedColorUnit` (the color-parse boundary type), `createColorValueUnit`, and
+// `resolveToPlainColor` are the currency every color arm trades in — not parser
+// combinators — so they lift to the leaf `color-unit.ts`. Re-export
+// `ParsedColorUnit` verbatim so the `./parsing/color` surface (the `index.ts` +
+// `subpaths/parsing.ts` barrels) stays byte-identical.
+import {
+    createColorValueUnit,
+    resolveToPlainColor,
+} from "./color-unit";
+import type { ParsedColorUnit } from "./color-unit";
+import { resolveRelativeColor } from "./relative-color";
+import type { ComponentExpr } from "./relative-color";
 
-const createColorValueUnit = (value: Color<any>): ParsedColorUnit => {
-    return new ValueUnit(
-        value,
-        "color",
-        ["color", value.colorSpace],
-        undefined,
-        "color",
-    );
-};
+export type { ParsedColorUnit };
 
-/** Resolve a parsed ValueUnit<Color<ValueUnit>> to a plain Color<number> with normalized [0,1] components. */
-function resolveToPlainColor(colorUnit: ValueUnit): Color<number> {
-    // Parser-produced color units always wrap a `Color<ValueUnit<number>>`
-    // (see `createColorValueUnit`) — narrow the generic `ValueUnit` param to
-    // the shape `normalizeColorUnit` requires.
-    const normalized = normalizeColorUnit(
-        colorUnit as ValueUnit<Color<ValueUnit<number>>, "color">,
-    );
-    const color = normalized.value;
-    // `clone()` preserves the concrete subclass; the loop below overwrites
-    // every channel slot with the unwrapped numeric value, so the cloned
-    // instance is reinterpreted as a `Color<number>` for the writes.
-    const plain = color.clone() as unknown as Color<number>;
-    for (const key of color.keys()) {
-        setChannel(plain, key, ch(ValueUnit.unwrapDeep(channelOf(color, key))));
-    }
-    return plain;
-}
-
-// --- Phase 5: Relative color syntax helpers ---
-
-type ComponentExpr =
-    | { type: "ref"; name: string }
-    | { type: "calc"; expr: string }
-    | { type: "literal"; value: number }
-    | { type: "none" };
-
-/** Component names for each target color space. */
-const COLOR_SPACE_COMPONENTS: Record<string, string[]> = {
-    rgb: ["r", "g", "b"],
-    hsl: ["h", "s", "l"],
-    hwb: ["h", "w", "b"],
-    lab: ["l", "a", "b"],
-    lch: ["l", "c", "h"],
-    oklab: ["l", "a", "b"],
-    oklch: ["l", "c", "h"],
-    xyz: ["x", "y", "z"],
-    "srgb-linear": ["r", "g", "b"],
-    "display-p3": ["r", "g", "b"],
-    "a98-rgb": ["r", "g", "b"],
-    "prophoto-rgb": ["r", "g", "b"],
-    rec2020: ["r", "g", "b"],
-};
-
-/**
- * Internal calc-expression parser, built on top of the same `createCalcParser`
- * surface used by `parseCSSValue`. Accepts a bare arithmetic expression (the
- * inside of a `calc(...)` already-substituted with numeric bindings) and
- * returns the parsed AST (`FunctionValue | ValueUnit`).
- *
- * Invariant D6: no `new Function`, no `eval`. The math AST is evaluated via
- * the library's published `evaluateMathFunction` surface.
- *
- * Lazy initialization via a closure — `CSSValueUnit` is in a circular module
- * relationship with this file (units.ts ↔ color.ts), so the parser pair must
- * be created after both modules finish initialising.
- */
-let _relativeCalcExpr: ReturnType<typeof createCalcParser> | null = null;
-function getRelativeCalcExpr() {
-    if (_relativeCalcExpr) return _relativeCalcExpr;
-    const { mathFunction } = createMathFunctionParsers(CSSValueUnit.Value);
-    _relativeCalcExpr = createCalcParser(CSSValueUnit.Value, mathFunction);
-    return _relativeCalcExpr;
-}
-
-/**
- * Evaluate the bare arithmetic body of a relative-color `calc(...)` expression
- * (e.g. `"r * 0.5 + 0.3"`) after numeric binding substitution. Routes through
- * the library's `evaluateMathFunction` rather than `new Function`.
- *
- * Throws on parse / evaluation failure — relative color syntax should fail at
- * the validation boundary, not silently return NaN.
- */
-function evaluateRelativeCalc(expr: string): number {
-    const ast = utils.tryParse(getRelativeCalcExpr(), expr);
-    if (ast instanceof ValueUnit) {
-        return ast.value as number;
-    }
-    if (ast instanceof FunctionValue) {
-        const result = evaluateMathFunction(ast);
-        if (result == null || typeof result.value !== "number") {
-            throw new Error(`Could not evaluate calc expression: ${expr}`);
-        }
-        return result.value;
-    }
-    throw new Error(`Could not evaluate calc expression: ${expr}`);
-}
-
-function resolveExpr(expr: ComponentExpr, bindings: Record<string, number>): number {
-    switch (expr.type) {
-        case "ref":
-            return bindings[expr.name] ?? 0;
-        case "literal":
-            return expr.value;
-        case "none":
-            return NaN;
-        case "calc": {
-            let s = expr.expr;
-            // Substitute longer names first (alpha before a)
-            const keys = Object.keys(bindings).sort((a, b) => b.length - a.length);
-            for (const k of keys) {
-                s = s.replace(new RegExp(`\\b${k}\\b`, "g"), String(bindings[k]));
-            }
-            return evaluateRelativeCalc(s);
-        }
-    }
-}
-
-function resolveRelativeColor(
-    originUnit: ValueUnit,
-    targetSpace: ColorSpace,
-    componentExprs: ComponentExpr[],
-    alphaExpr: ComponentExpr | undefined,
-): ValueUnit {
-    // Normalize origin color to plain [0,1] values, then convert to target space
-    const plainOrigin = resolveToPlainColor(originUnit);
-    const converted = color2(plainOrigin, targetSpace);
-
-    // Build bindings from the converted color
-    const bindings: Record<string, number> = {};
-    for (const [key, val] of converted.entries()) {
-        bindings[key] = val as number;
-    }
-
-    // Resolve each component expression
-    const values = componentExprs.map((expr) => resolveExpr(expr, bindings));
-    const alpha = alphaExpr ? resolveExpr(alphaExpr, bindings) : (bindings.alpha ?? 1);
-
-    // Create result color
-    const CONSTRUCTORS: Record<string, new (...args: any[]) => Color> = {
-        rgb: RGBColor,
-        hsl: HSLColor,
-        hwb: HWBColor,
-        lab: LABColor,
-        lch: LCHColor,
-        oklab: OKLABColor,
-        oklch: OKLCHColor,
-        xyz: XYZColor,
-        "srgb-linear": LinearSRGBColor,
-        "display-p3": DisplayP3Color,
-        "a98-rgb": AdobeRGBColor,
-        "prophoto-rgb": ProPhotoRGBColor,
-        rec2020: Rec2020Color,
-    };
-    const Ctor = CONSTRUCTORS[targetSpace] ?? RGBColor;
-    const result = new Ctor(...(values as [number, number, number]), alpha);
-    return createColorValueUnit(result);
-}
+// --- Relative color syntax (CSS Color L5) ---
+//
+// The semantic RESOLUTION helpers — `ComponentExpr`, `resolveRelativeColor`, and
+// the lazily-built calc sub-parser — lift to the leaf `relative-color.ts`
+// (W1-8). The `relativeColorParser` combinator below stays here (it references
+// the recursive `CSSColor.Value`) and calls `resolveRelativeColor` from the leaf.
 
 /** CSS color-mix() space name to internal ColorSpace mapping. */
 const COLOR_MIX_SPACE_MAP: Record<string, ColorSpace> = {
@@ -410,6 +254,21 @@ const xyzParser: Parser<ValueUnit> = any(
     colorOptionalAlpha("xyz").map(([x, y, z, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
         createColorValueUnit(new XYZColor(x, y, z, alpha)),
     ),
+);
+
+// HDR perceptual spaces (S.W1 remediation, 3.1.0). Non-CSS-native, so they parse
+// the bare functional form `ictcp(I Ct Cp [/ a])` / `jzazbz(Jz az bz [/ a])` (the
+// CSS Color HDR draft syntax) via `colorOptionalAlpha` — the same combinator the
+// non-CSS-native `hsv(…)` precedent uses. No relative-color arm (HSV has none
+// either; the component-ref regex does not carry ICtCp/Jzazbz channel names).
+const ictcpParser: Parser<ValueUnit> = colorOptionalAlpha("ictcp").map(
+    ([i, ct, cp, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new ICtCpColor(i, ct, cp, alpha)),
+);
+
+const jzazbzParser: Parser<ValueUnit> = colorOptionalAlpha("jzazbz").map(
+    ([jz, az, bz, alpha]: [ValueUnit, ValueUnit, ValueUnit, ValueUnit]) =>
+        createColorValueUnit(new JzazbzColor(jz, az, bz, alpha)),
 );
 
 // --- color-mix() parser ---
@@ -741,6 +600,11 @@ const letterBuckets: Record<string, Parser<ValueUnit>> = {
     l: any(labParser, lchParser, lightDarkParser, namedThenSystem),
     o: any(oklabParser, oklchParser, namedThenSystem),
     x: any(xyzParser, namedThenSystem),
+    // `ictcp(…)` sits ahead of the `i…` named colors (indianred/indigo/ivory);
+    // `jzazbz(…)` has no `j…` named-color collision but keeps the fallback for
+    // uniformity (S.W1 remediation, 3.1.0).
+    i: any(ictcpParser, namedThenSystem),
+    j: any(jzazbzParser, namedThenSystem),
 };
 const dispatchTable: Record<string, Parser<ValueUnit>> = {
     "#": hex,
@@ -817,7 +681,7 @@ export { registerColorNames, clearCustomColorNames, getCustomColorNames };
  * and built-ins resolve through the rich parser exactly as before.
  */
 // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see comment in
-// src/parsing/index.ts.
+// src/parsing/index.ts. maxCacheSize (W1-5): see PARSE_MEMO_MAX_ENTRIES.
 export const parseCSSColor = memoize(
     (input: string): ParsedColorUnit => {
         // F7 — try the custom-name map BEFORE the speculative rich parse.
@@ -850,5 +714,5 @@ export const parseCSSColor = memoize(
         // Re-throw original parse failure
         return utils.tryParse(Value, input);
     },
-    { keyFn: (input: string) => input },
+    { keyFn: (input: string) => input, maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES },
 );

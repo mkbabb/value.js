@@ -2,33 +2,58 @@
     <div class="grid gap-3 pb-3">
         <!-- Toolbar -->
         <div class="flex items-center gap-2 flex-wrap">
-            <input
+            <!-- S.W5-3 (S-17/F-7): the glass-ui Input pill, sm rung — the
+                 hand-rolled square chrome under the SearchBar pills is dead. -->
+            <Input
                 v-model="audit.actionFilter.value"
                 type="text"
+                size="sm"
                 placeholder="Action..."
-                class="h-7 w-28 rounded-input border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                aria-label="Filter by action"
+                class="w-32 font-mono"
             />
-            <input
+            <Input
                 v-model="audit.targetFilter.value"
                 type="text"
+                size="sm"
                 placeholder="Target..."
-                class="h-7 flex-1 min-w-[6rem] rounded-input border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                aria-label="Filter by target"
+                class="flex-1 min-w-[6rem] font-mono"
             />
             <div class="flex-1" />
-            <span class="text-mono-small text-muted-foreground">{{ audit.total.value }}</span>
+            <!-- S.W5-7: the naked count gains its unit, matching the
+                 labeled counts everywhere else ("5 users", "2 flagged"). -->
+            <span class="text-mono-small text-muted-foreground">
+                {{ audit.total.value }} entr{{ audit.total.value === 1 ? "y" : "ies" }}
+            </span>
             <!-- W5-a11y: icon-only refresh button needs accessible name -->
             <Button variant="outline" size="sm" class="h-7 px-2" aria-label="Refresh audit log" @click="audit.loadAuditLog()">
                 <RefreshCw class="h-3 w-3" aria-hidden="true" />
             </Button>
         </div>
 
-        <!-- Loading -->
-        <div v-if="audit.loading.value" class="flex items-center justify-center py-8">
-            <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />
+        <!-- W5-1 + F-13: entries load as row shadows, one grammar. -->
+        <div v-if="audit.loading.value" class="grid gap-2" aria-label="Loading audit log">
+            <AdminListSkeleton v-for="i in 3" :key="i" />
         </div>
 
-        <!-- Empty -->
-        <EmptyState v-else-if="audit.entries.value.length === 0" message="No audit entries found." />
+        <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never
+             costumes as a clear ledger. Plain register (Q6). -->
+        <EmptyState
+            v-else-if="audit.loadError.value"
+            variant="error"
+            message="The ledger is unreachable."
+            :detail="audit.loadError.value"
+        >
+            <template #action>
+                <Button variant="outline" size="sm" class="font-display" @click="audit.loadAuditLog()">
+                    Retry
+                </Button>
+            </template>
+        </EmptyState>
+
+        <!-- Empty (TRUE empty — the specimen annotation survives, Q6) -->
+        <EmptyState v-else-if="audit.entries.value.length === 0" eyebrow="· ledger clear ·" message="No audit entries found." />
 
         <!-- Entries — Ag-13: primary (action+time) / secondary (target) hierarchy -->
         <div
@@ -46,8 +71,9 @@
                         {{ formatTime(entry.timestamp) }}
                     </span>
                 </div>
-                <!-- secondary line: target -->
-                <span class="text-caption text-muted-foreground truncate">
+                <!-- secondary line: target — a machine string is a READOUT:
+                     Fira, never italic display type (W5-12 / F-9). -->
+                <span class="text-mono-small text-muted-foreground truncate">
                     {{ entry.target }}
                 </span>
             </div>
@@ -68,9 +94,11 @@
 <script setup lang="ts">
 import { inject, onMounted, watch } from "vue";
 import { Button } from "@components/ui/button";
+import { Input } from "@components/ui/input";
 import { Badge } from "@components/ui/badge";
-import { Loader2, RefreshCw } from "@lucide/vue";
+import { RefreshCw } from "@lucide/vue";
 import EmptyState from "./EmptyState.vue";
+import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatTime } from "@lib/dateFormat";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";

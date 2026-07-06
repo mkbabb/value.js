@@ -95,19 +95,35 @@ export default defineConfig({
     retries: process.env.CI ? 2 : 0,
     timeout: 30000,
     expect: { timeout: 8000 },
-    webServer: {
-        command: "npx vite --port 8090",
-        port: 8090,
-        reuseExistingServer: !process.env.CI,
-        // inv-K-5 (K.W2b): point the demo's palette-API base at the SAME-ORIGIN
-        // dev server so no production `api.color.babb.dev` fetch fires under e2e
-        // (that cross-origin request is CORS-refused for localhost and the
-        // preflight error trips the `zero console errors` assertion). Same-origin
-        // optional reads (`/colors/approved`) fall back to the SPA 200; other
-        // reads 404 same-origin (already absorbed by setupEnvNoise). The demo's
-        // production default (`api.color.babb.dev`) is unchanged for real builds.
-        env: { VITE_API_URL: "http://localhost:8090" },
-    },
+    webServer: [
+        {
+            command: "npx vite --port 8090",
+            port: 8090,
+            reuseExistingServer: !process.env.CI,
+            // inv-K-5 (K.W2b): point the demo's palette-API base at the SAME-ORIGIN
+            // dev server so no production `api.color.babb.dev` fetch fires under e2e
+            // (that cross-origin request is CORS-refused for localhost and the
+            // preflight error trips the `zero console errors` assertion). Same-origin
+            // optional reads (`/colors/approved`) fall back to the SPA 200; other
+            // reads 404 same-origin (already absorbed by setupEnvNoise). The demo's
+            // production default (`api.color.babb.dev`) is unchanged for real builds.
+            env: { VITE_API_URL: "http://localhost:8090" },
+        },
+        {
+            // S.W3 ORACLE — the BUILT-bundle server for `smoke-perf`. The §6.2
+            // frame budgets are BUILT-bundle numbers; a dev-server measurement
+            // is a corrupting substitution (Vite's on-demand transform charges a
+            // one-time ~1s task on the first view-switch that the pre-built lazy
+            // chunks do not — see e2e/smoke/perf/serve-built.mjs). Serves
+            // dist/gh-pages on :8091 (building it first if absent). Only the
+            // smoke-perf project targets this origin; the other projects ignore
+            // it (they pay only the ~fast static-server startup).
+            command: "node e2e/smoke/perf/serve-built.mjs",
+            port: 8091,
+            reuseExistingServer: !process.env.CI,
+            timeout: 180_000, // allows a cold gh-pages build on a fresh tree
+        },
+    ],
     projects: [
         {
             name: "smoke",
@@ -119,6 +135,7 @@ export default defineConfig({
                 "**/admin/**",
                 "**/mobile/**",
                 "**/safari/**",
+                "**/perf/**",
                 "**/reactivity-instant.spec.ts",
             ],
             use: {
@@ -167,6 +184,38 @@ export default defineConfig({
             workers: 1,
             use: {
                 baseURL: "http://localhost:8090",
+                browserName: "chromium",
+                channel: WEBGL_CHANNEL,
+                headless: true,
+                viewport: { width: 1280, height: 720 },
+                launchOptions: SWIFTSHADER_LAUNCH,
+            },
+        },
+        {
+            // S.W3 ORACLE — transition-family frame-budget project. The three
+            // §6.2 frame-budget specs (slider-drag / view-switch / idle picker)
+            // measure rAF inter-frame deltas + long-task durations, so — like
+            // smoke-reactivity — they are timing-sensitive and pinned to
+            // workers:1 (project-level), isolating the measurement floor from
+            // sibling-spec host-CPU contention (the E.W3 Lane A precedent).
+            //
+            // The specs are RENDERER-AWARE: this project forces SwiftShader
+            // (the suite-wide headless-stability requirement), so they take the
+            // software-GL branch — asserting engine-robust regression ceilings +
+            // the cross-engine §6.2 rows, while LOGGING the measured p50/p95/
+            // first-frame against the raw §6.2 gate every run. The authoritative
+            // §6.2 numeric gate is the built-bundle real-GPU wave-close
+            // measurement (docs/tranches/S/audit/w3-frame-budget-measure.md) —
+            // the specs assert those exact numbers on the real-GPU branch. This
+            // is a recorded caveat, never a silent re-baseline (S.W3.md
+            // §No-workaround; R lesson 3). See e2e/smoke/perf/frame-budget.ts.
+            name: "smoke-perf",
+            testDir: "./e2e/smoke/perf",
+            workers: 1,
+            use: {
+                // The BUILT bundle (:8091), not the dev server — the §6.2 gates
+                // are built-bundle numbers (see the webServer note above).
+                baseURL: "http://localhost:8091",
                 browserName: "chromium",
                 channel: WEBGL_CHANNEL,
                 headless: true,

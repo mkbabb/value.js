@@ -23,8 +23,9 @@ test("palettes view renders SearchBar + heading with zero console errors", async
     // `display:none` inside `.pane-wrapper.hidden`); DOM order is not stable
     // across the responsive wrappers, so target the actually-visible copy by
     // its rendered visibility rather than a positional `.last()`.
+    // S.W5-7 de-twinned the placeholder pair — this pane owns YOUR list.
     await expect(
-        main.getByPlaceholder("Search palettes...").filter({ visible: true }),
+        main.getByPlaceholder("Search your palettes...").filter({ visible: true }),
     ).toBeVisible();
 
     expect(consoleErrors).toEqual([]);

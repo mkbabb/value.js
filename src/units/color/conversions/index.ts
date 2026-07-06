@@ -69,3 +69,8 @@ export {
     rec20202xyz,
     xyz2rec2020,
 } from "./xyz-extended";
+// HDR perceptual spaces — the `color2()`-dispatch Color wrappers (S.W1
+// remediation, 3.1.0). The raw `[number,number,number]` transforms live in
+// `../difference` (ICtCp) + `./jzazbz` (Jzazbz).
+export { xyz2ictcp, ictcp2xyz } from "./ictcp";
+export { xyz2jzazbz, jzazbz2xyz } from "./jzazbz";

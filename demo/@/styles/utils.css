@@ -26,25 +26,25 @@
     line-clamp: 1;
 }
 
-/* Pastel rainbow gradient text — the celebratory title treatment for the
- * palettes surface (the PalettesPane heading, the dock view-select entry, the
- * PaletteDialog header). Lifted out of PaletteDialogHeader.vue's scoped style
- * at N.W5.E (inv-N-7): a scoped rule could never reach its two other consumers
- * (PalettesPane.vue, DockViewSelect.vue), so the class silently no-op'd there.
- * Now one shared recipe resolves at every site. */
-.pastel-rainbow-text {
-    background-image: linear-gradient(
-        to right,
-        oklch(75% 0.18 0deg),
-        oklch(82% 0.16 60deg),
-        oklch(85% 0.17 130deg),
-        oklch(78% 0.14 200deg),
-        oklch(72% 0.18 270deg),
-        oklch(75% 0.16 330deg)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* `.pastel-rainbow-text` EXCISED (S.W5-7 · Q4 RATIFIED EXCISE 2026-07-05;
+ * the `--accent-live` ramp alternative NOT taken): the fixed six-hue candy
+ * ramp failed contrast at every stop over the light header wash (≈1.1–1.5:1),
+ * ignored the per-view accent axis, and was the page's only rainbow moment —
+ * decoration, not information. The three consumers (PalettesPane heading,
+ * DockViewSelect palettes entry, PaletteDialog header) speak ink. */
+
+/* The ONE loading-ink recipe (S.W5 Lane A / W5-1 — the `ec1b200` register,
+ * modernized): every skeleton surface in the app reads this single muted-ink
+ * family through glass-ui's `--skeleton-glass-bg` seam — one `color-mix`,
+ * both schemes (the muted tokens are scheme-tuned by the producer), opaque
+ * enough to read as SHADOW against the field, never as content. The
+ * `--skeleton-shimmer-tint` line is the letter-L9 producer seam (the sheen
+ * joins the same ink family once glass-ui's `::after` reads it). Consumers:
+ * PaletteCardSkeleton, AdminListSkeleton, the admin tag-chip shadows. */
+.skeleton-ink-register {
+    --skeleton-ink: color-mix(in oklab, var(--muted-foreground) 22%, var(--muted));
+    --skeleton-glass-bg: var(--skeleton-ink);
+    --skeleton-shimmer-tint: color-mix(in srgb, var(--muted-foreground) 24%, transparent);
 }
 
 /* Dashed inset well — the recessed container that collects an in-progress set
@@ -62,8 +62,26 @@
      * `--card-edge` mint (in-house, scheme-stable), never a `--border` fork. */
     border: 1.5px dashed var(--card-edge);
     border-radius: var(--radius-card);
-    background: color-mix(in srgb, var(--muted) 35%, transparent);
-    box-shadow: inset 0 1px 3px color-mix(in srgb, var(--shadow-color) 6%, transparent);
+    /* S.W5-2 (S-20): the well joins the ONE card species — the same
+     * bg-card/75 glass base + chip-scale cartoon rung as PaletteCard and
+     * PaletteCardSkeleton. The dashed edge ALONE carries the in-progress
+     * semantics ("the same card, unpinned"); the recessed-tray fork
+     * (muted wash + inset shadow) is dead. */
+    background: color-mix(in srgb, var(--card) 75%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-cartoon-sm);
+}
+
+/* The gold ADMIN-identity icon ink (S.W7-1 consume / W7-7 dedup home) — the
+ * ONE demo-side gold icon recipe, lifted here because its consumers span
+ * components (the Dock.vue wax-seal ink + DockViewSelect's trigger/menu
+ * icons; scoped copies were byte-identical twins, god-module census §2.1).
+ * The fuller "ONE gold/admin shimmer primitive" consolidation stays the
+ * filed glass-ui letter L15 ask. */
+.gold-shimmer-icon {
+    color: var(--color-gold);
+    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent));
 }
 
 /* Swatch-row list idiom (R.W4 Lane B / B1) — shared by the three swatch

@@ -21,6 +21,8 @@ export function useAdminUsers(deps: {
 
     const adminUsers = ref<User[]>([]);
     const loadingUsers = ref(false);
+    // W5-5 (F-2): load failure, surfaced — error ≠ empty at the panel.
+    const usersLoadError = ref<string | null>(null);
     const userSortMode = ref<"slug" | "newest" | "palettes">("newest");
     const adminUsersPanelRef = ref<InstanceType<typeof AdminUsersPanel> | null>(null);
 
@@ -56,7 +58,10 @@ export function useAdminUsers(deps: {
         try {
             const res = await listUsers(token, 50);
             adminUsers.value = res.data;
-        } catch (e) {
+            usersLoadError.value = null;
+        } catch (e: any) {
+            // W5-5 (F-2): a dead backend must never read as "No users found."
+            usersLoadError.value = e?.message ?? "Backend unreachable";
             console.warn("Failed to load users:", e);
         } finally {
             loadingUsers.value = false;
@@ -196,6 +201,7 @@ export function useAdminUsers(deps: {
     return {
         adminUsers,
         loadingUsers,
+        usersLoadError,
         userSortMode,
         adminUsersPanelRef,
         filteredAdminUsers,

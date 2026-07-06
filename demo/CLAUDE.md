@@ -41,7 +41,7 @@ Organised into `controls/`, `display/`, `visual/`, `composables/` subdirs (Mar-2
 | `display/` | `ColorNutritionLabel`, copy actions |
 | `controls/` (cont.) | `ActionToolbar` (ex-`editing/`; `EditDrawer` deleted at R.W4 T21 — dead UI) |
 | `visual/` | `SpectrumCanvas`, `HeroBlob`, `PointerDebugOverlay` (dev-only, injected via `POINTER_DEBUG_KEY`) |
-| `composables/` | `useColorModel`, `useColorParsing`, `useSliderGradients`, `useColorNameResolution`, `useColorUrl`, `useCustomColorNames` (named KEEP: directly imports `@lib/palette/api`), `usePointerDebug`, `useHoverPopover`, `useTouchGate`, etc. |
+| `composables/` | `useColorParsing`, `useSliderGradients`, `useColorNameResolution`, `useColorUrl`, `useCustomColorNames` (named KEEP: directly imports `@lib/palette/api`), `usePointerDebug`, `useHoverPopover`, `useTouchGate`, etc. (the color spine itself is the App-owned `useColorPipeline` — `composables/color/`, S.W2 — injected into the picker, which no longer owns a second copy) |
 | `keys.ts` | `CSS_COLOR_KEY`, `EDIT_TARGET_KEY`, `POINTER_DEBUG_KEY` injection keys (provide/inject pattern) |
 
 `cssColorOpaque` is injected via `CSS_COLOR_KEY` (not prop-drilled). `activeEditTarget` via `EDIT_TARGET_KEY`.
@@ -53,7 +53,7 @@ Organised into `controls/`, `display/`, `visual/`, `composables/` subdirs (Mar-2
 | `PaletteDialog/` | **Colocated dir** (D.W3 Lane A; was a single ~650-LoC god module pre-split). Contains `PaletteDialog.vue` shell + `components/` (6 SFCs: `PaletteAdminTabs`, `PaletteBrowseTab`, `PaletteControlsBar`, `PaletteDialogHeader`, `PaletteSavedTab`, `DeleteAllConfirm`) + `composables/` (5 composables: `usePaletteDialogState` with type-level enforcement assertion, `useDialogBrowseActions`, `useDialogModalStack`, `useDialogOverlayGuards`, `usePaletteExport`) + `constants.ts` |
 | `PaletteCard.vue` + `PaletteCardGrid.vue` + `PaletteCardMenu.vue` + `PaletteCardSkeleton.vue` + `PaletteColorStrip.vue` | palette display tiles |
 | `CurrentPaletteEditor.vue` | swatch grid, add/save/duplicate |
-| `AdminPanel.vue` + `AdminNamesPanel.vue` + `AdminUsersPanel.vue` + `AdminFlaggedPanel.vue` + `AdminTagsPanel.vue` + `AdminAuditPanel.vue` + `AdminColorQueue.vue` + `AdminAuthGate.vue` + `AdminPaletteOps.vue` + `AdminListItem.vue` | admin panel components — consume `pm.audit`/`pm.flagged`/`pm.tags` sub-objects of the palette-manager facade |
+| `AdminNamesPanel.vue` + `AdminUsersPanel.vue` + `AdminFlaggedPanel.vue` + `AdminTagsPanel.vue` + `AdminAuditPanel.vue` + `AdminListItem.vue` | admin panel components (pane-era) — consume `pm.audit`/`pm.flagged`/`pm.tags` sub-objects of the palette-manager facade. The dialog-era `AdminPanel` + `AdminAuthGate` + `AdminColorQueue` + `AdminPaletteOps` quartet (zero importers; one a DRY twin of the pending-names list) was excised S.W0 W0-6 |
 | `MigratePalettesDialog.vue`, `FlagReportDialog.vue` | dialogs |
 | `PaletteSlugBar.vue`, `PaletteRenameInput.vue` | slug editing |
 | `SortFilterMenu.vue`, `UserSortMenu.vue`, `SearchFilterBar.vue`, `SwatchHoverMenu.vue` | filtering UI |
@@ -104,7 +104,7 @@ Organised by domain (Mar-2026 restructure) plus root utilities + the D.W3 Lane D
 
 | File | Purpose |
 |---|---|
-| `useAppColorModel.ts` | App-level color state bridge |
+| `useColorPipeline.ts` | the ONE color-state spine (S.W2 · W2-1) — merges the former `useAppColorModel` + `useColorModel` graph onto one App-owned composable; injected by the picker |
 | `useContrastSafeColor.ts` | contrast-safe color helpers |
 
 ### `palette/`
@@ -210,7 +210,26 @@ Arbitrary `[var(--…)]` callsites → 0. The fix surface:
 
 ## Build modes
 
-- `npm run dev` — dev server with HMR (root: `demo/color-picker/`)
+- `npm run dev` — **HONEST full local stack** (S.W0 W0-1): delegates to `scripts/dev.sh up` (local api + mongo rs0 + `VITE_API_URL` wired + dev CORS). Palette/API features round-trip out of the box. HMR (root: `demo/color-picker/`).
+- `npm run dev:web-only` — frontend ONLY (bare vite `:9000`, no backend). Palette/API features CORS-die against prod; the demo surfaces an explicit `misconfigured` state instead of silently pointing at prod.
 - `npm run gh-pages` — production demo build → `dist/` (manual chunks: katex, prettier, highlight.js)
 - `npm run build` — library build only (doesn't build demo)
 - `npm run build:watch` — library watch (D.W1 — contract-v2 fleet dev orchestration)
+
+### The dev-backend honesty contract (S.W0 W0-1 · S-11)
+
+`@/lib/palette/api/availability.ts` owns the origin-honest failure path. At client
+init (`client.ts` module load, `initApiEnvironment(BASE_URL)`) it resolves the
+dev-config truth ONCE, before any fetch:
+
+- If `VITE_API_URL` is UNSET **and** the page is a loopback origin **and** the
+  resolved `BASE_URL` is cross-origin (the silent prod-target footgun), it enters
+  the designed `apiAvailability = "misconfigured"` state, logs a loud actionable
+  `console.error`, and every transport call throws `DevMisconfigError` (a distinct
+  loud error, never the `ApiUnavailableError` "working locally" degradation).
+- It **never fires in production** (prod runs on `color.babb.dev`, not loopback)
+  and **never fires when `VITE_API_URL` is set** (the operator owns that endpoint).
+
+`ApiOfflineChip.vue` renders the `misconfigured` register distinctly (a filled
+warning lamp + `dev misconfigured — run \`npm run dev\``) from the honest
+`unavailable` "backend offline — saved locally" state.

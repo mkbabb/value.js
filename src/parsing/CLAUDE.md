@@ -32,10 +32,7 @@ parsing/
 ├── animation-shorthand.ts  # animation / transition shorthand expansion
 ├── extract.ts        # stylesheet → keyframes / properties / rules
 ├── serialize.ts      # stylesheet AST → string + prettier wrapper
-├── stylesheet.ts     # full CSS at-rule + qualified-rule parsing
-└── grammars/         # BBNF spec grammars (documentation only, not executed at runtime)
-    ├── css-values.bbnf   # CSS Values Level 4 structural grammar
-    └── css-color.bbnf    # CSS Color Level 4 structural grammar
+└── stylesheet.ts     # full CSS at-rule + qualified-rule parsing
 ```
 
 > LoC counts intentionally omitted — `wc -l` is the source of truth.
@@ -65,7 +62,6 @@ Circular dependency between `units.ts` ↔ `color.ts` is broken by `Parser.lazy(
 - `Parser.lazy()` breaks circular references (color ↔ units, calc ↔ math functions)
 - Top-level parse functions are memoized via `utils.memoize()`
 - Two error modes: `tryParse()` throws; `parseResult()` returns `{status, value}`
-- BBNF grammars document the CSS spec structure; the TypeScript combinators implement the semantics
 
 ## Public API
 

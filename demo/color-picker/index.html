@@ -45,14 +45,16 @@
                 var dark = stored === 'dark' || (!stored && prefersDark);
                 if (dark) document.documentElement.classList.add('dark');
                 s.colorScheme = dark ? 'dark' : 'light';
+                // W6-1 (S.W6): `color-picker-bg` carries the DERIVED aurora
+                // base stop (useAtmosphere's boot-material sink), never the
+                // raw picked color — the pre-hydration ground and the first
+                // aurora frame are ONE material. The var is the ONE write:
+                // the fouc-guard rule above + style.css's body rule both read
+                // `--saved-bg`, so no inline background (nothing to clear
+                // post-hydration, no DOMContentLoaded re-apply race).
                 var bg = localStorage.getItem('color-picker-bg');
                 if (bg) {
-                    s.background = bg;
                     s.setProperty('--saved-bg', bg);
-                    // Also set on body once it exists, so Tailwind base styles don't flash
-                    document.addEventListener('DOMContentLoaded', function() {
-                        document.body.style.background = bg;
-                    }, { once: true });
                 }
             })();
         </script>
@@ -68,5 +70,14 @@
         </script>
     </head>
 
-    <body class="relative" id="app"></body>
+    <!-- W6-8 (S.W6 · card-lighting forensics artifact 1): the body IS the
+         atmosphere/field plane host — it paints the `--saved-bg` derived
+         ground and contains the aurora canvas AND every teleported overlay.
+         `data-paper-field` is glass-ui's field contract: under this ancestor,
+         the producer's orphan-card warm field-floor fallback (cards.css
+         presence-behind gate) switches OFF, so every glass card — portaled
+         dialogs included — reads the REAL atmosphere through the glass instead
+         of painting its own interior amber lamp. One attribute; no local glass
+         recipe. -->
+    <body class="relative" id="app" data-paper-field></body>
 </html>

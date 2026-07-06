@@ -513,3 +513,131 @@ export const timingFunctions = {
     "step-start": stepStart,
     "step-end": stepEnd,
 } as const;
+
+// ─── resolveEasing — the canonical string → TimingFunction resolver (W1-6) ───
+//
+// value.js owns every PART of the easing surface (the named catalogue, the
+// bezier presets, `cssLinear`, `steppedEase`, `CSSCubicBezier`) but historically
+// NOT the one-call resolver that maps an arbitrary easing STRING to an evaluable
+// `TimingFunction`. keyframes.js + glass-ui each re-derived it against value's
+// set; W1-6 hoists ONE canonical resolver here so they converge on it.
+//
+// DEPENDENCY-FREE by design: the functional forms are parsed with small inline
+// scanners (no parse-that), so a consumer can adopt the resolver without pulling
+// the parser-combinator runtime. The full-fidelity parse-that variant (adding
+// `spring(...)` lowering) is the `resolveEasingFunction` HOOK in
+// `src/parsing/easing.ts`.
+
+/** Split the comma-separated args of a `name( … )` easing head into raw tokens. */
+function parseEasingArgs(input: string, fnName: string): string[] {
+    const open = input.indexOf("(");
+    if (open < 0 || !input.endsWith(")")) {
+        throw new Error(`resolveEasing: malformed ${fnName}: "${input}"`);
+    }
+    const inner = input.slice(open + 1, -1).trim();
+    return inner.length === 0 ? [] : inner.split(",").map((s) => s.trim());
+}
+
+function resolveCubicBezier(input: string): TimingFunction {
+    const nums = parseEasingArgs(input, "cubic-bezier").map(Number);
+    if (nums.length !== 4 || nums.some((n) => !Number.isFinite(n))) {
+        throw new Error(`resolveEasing: cubic-bezier() needs 4 numbers, got "${input}"`);
+    }
+    return CSSCubicBezier(nums[0]!, nums[1]!, nums[2]!, nums[3]!);
+}
+
+function resolveStepsString(input: string): TimingFunction {
+    const args = parseEasingArgs(input, "steps");
+    if (args.length < 1 || args.length > 2) {
+        throw new Error(`resolveEasing: steps() takes 1 or 2 arguments, got "${input}"`);
+    }
+    const count = Number(args[0]);
+    if (!Number.isInteger(count) || count < 1) {
+        throw new Error(
+            `resolveEasing: steps() count must be a positive integer, got "${args[0]}"`,
+        );
+    }
+    let jumpTerm: (typeof jumpTerms)[number] = "jump-end";
+    if (args[1] != null) {
+        const jt = args[1].toLowerCase();
+        if (!(jumpTerms as readonly string[]).includes(jt)) {
+            throw new Error(`resolveEasing: unknown steps() position "${args[1]}"`);
+        }
+        jumpTerm = jt as (typeof jumpTerms)[number];
+    }
+    return steppedEase(count, jumpTerm);
+}
+
+function resolveLinearString(input: string): TimingFunction {
+    const args = parseEasingArgs(input, "linear");
+    if (args.length === 0) {
+        throw new Error(`resolveEasing: linear() needs at least one stop, got "${input}"`);
+    }
+    const stops: LinearStop[] = [];
+    for (const seg of args) {
+        const toks = seg.split(/\s+/).filter((t) => t.length > 0);
+        const output = Number(toks[0]);
+        if (!Number.isFinite(output)) {
+            throw new Error(`resolveEasing: malformed linear() stop "${seg}"`);
+        }
+        if (toks.length === 1) {
+            stops.push({ output });
+        } else {
+            // 1 or 2 percentage positions; two positions describe a flat segment
+            // (the same output held across [pos1, pos2] — mirrors `parseLinearStops`).
+            for (let i = 1; i < toks.length; i++) {
+                const pct = Number(toks[i]!.replace("%", ""));
+                if (!Number.isFinite(pct)) {
+                    throw new Error(`resolveEasing: malformed linear() position "${toks[i]}"`);
+                }
+                stops.push({ output, input: pct });
+            }
+        }
+    }
+    return cssLinear(stops);
+}
+
+/**
+ * Resolve an arbitrary CSS easing STRING to an evaluable {@link TimingFunction}
+ * — the single canonical resolver value.js owns (W1-6). Accepts:
+ *
+ *   - a NAMED catalogue key: any `timingFunctions` name, hyphenated
+ *     (`"ease-in-out"`, `"smooth-step-3"`) or camelCase (`"easeInQuad"`),
+ *     plus `"step-start"` / `"step-end"`;
+ *   - `cubic-bezier(x1, y1, x2, y2)`;
+ *   - `steps(<count>[, <jump-position>])`;
+ *   - `linear(<stop-list>)` (CSS Easing L2, incl. two-percentage flat segments).
+ *
+ * DEPENDENCY-FREE (no parse-that) so keyframes.js + glass-ui converge on it. For
+ * `spring(...)` support use `resolveEasingFunction` from `parsing/easing.ts`.
+ *
+ * Throws on an unrecognised string — NEVER silently degrades to `linear`.
+ */
+export function resolveEasing(input: string): TimingFunction {
+    const raw = input.trim();
+    const lower = raw.toLowerCase();
+
+    // Functional forms (a `name( … )` head).
+    if (lower.startsWith("cubic-bezier(")) return resolveCubicBezier(raw);
+    if (lower.startsWith("steps(")) return resolveStepsString(raw);
+    if (lower.startsWith("linear(")) return resolveLinearString(raw);
+
+    // The two zero-arg step FACTORIES in the catalogue must be CALLED to yield a
+    // TimingFunction; the bare `steps` keyword is not a standalone easing.
+    if (lower === "step-start") return stepStart();
+    if (lower === "step-end") return stepEnd();
+    if (lower === "steps") {
+        throw new Error(`resolveEasing: "steps" requires arguments, e.g. steps(4)`);
+    }
+
+    // Named catalogue: camelCase keys match case-SENSITIVELY (`easeInQuad`); the
+    // hyphenated CSS keys match case-insensitively (`Ease-In` → `ease-in`).
+    const named =
+        (timingFunctions as Record<string, unknown>)[raw] ??
+        (timingFunctions as Record<string, unknown>)[lower];
+    if (typeof named === "function") {
+        return named as TimingFunction;
+    }
+
+    throw new Error(`resolveEasing: unrecognised easing "${input}"`);
+}

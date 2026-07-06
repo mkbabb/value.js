@@ -126,10 +126,11 @@ export function usePaneRouter(
      *  resolve the same way — one path). */
     function leftProps(name: string): Record<string, unknown> {
         if (name === "color-picker") {
+            // S.W2 · W2-1: the picker no longer takes the model as a prop — it
+            // injects the ONE pipeline (COLOR_MODEL_KEY) App provides. Only its
+            // edit/reset emits remain wired here.
             return {
                 class: "picker-shell w-full",
-                modelValue: model.value,
-                "onUpdate:modelValue": (v: ColorModel) => deps.updateModel(v),
                 "onUpdate:editTarget": deps.onEditTargetChange,
                 onReset: deps.resetToDefaults,
             };

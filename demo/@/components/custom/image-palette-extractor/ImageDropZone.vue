@@ -1,13 +1,17 @@
 <template>
     <!-- W5-a11y: role="button" + tabindex + keyboard activation so the drop zone is reachable via keyboard -->
+    <!-- S.W5-6 · F4: the specimen never lies — no veil over the field. The
+         affordance lives at the EDGE: border ink on hover, a crosshair cursor
+         when the click samples, and a corner Fira tag. -->
     <div
         :class="[
-            'relative rounded-panel border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center overflow-hidden',
+            'group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden',
             'min-h-[140px]',
+            preview && disableClick ? 'cursor-crosshair' : 'cursor-pointer',
             dragging
                 ? 'border-primary bg-primary/10 scale-[1.01]'
                 : preview
-                    ? 'border-transparent bg-primary/5 hover:bg-primary/10'
+                    ? 'border-transparent hover:border-primary/50 bg-primary/5'
                     : 'border-primary/30 bg-primary/5 hover:border-primary/50 hover:bg-primary/10',
         ]"
         :style="{ transitionDuration: 'var(--duration-normal)', transitionTimingFunction: 'var(--ease-standard)' }"
@@ -45,14 +49,14 @@
             </div>
         </Transition>
 
-        <!-- Replace overlay on hover -->
-        <div
+        <!-- Corner Fira tag — the edge affordance (never a wash over the
+             specimen): a tiny chip that inks in on hover/focus. -->
+        <span
             v-if="preview"
-            class="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 hover:opacity-100 transition-opacity"
+            class="absolute bottom-1.5 right-1.5 rounded-sm bg-background/85 px-1.5 py-0.5 text-mono-caption uppercase tracking-[0.18em] text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
             :style="{ transitionDuration: 'var(--duration-fast)' }"
-        >
-            <span class="text-mono-small text-muted-foreground">{{ disableClick ? 'Click to sample colors' : 'Click or drop to replace' }}</span>
-        </div>
+            aria-hidden="true"
+        >{{ disableClick ? 'sample' : 'replace' }}</span>
     </div>
 </template>
 

@@ -225,21 +225,28 @@ jobs:
                   [ "$fail" -eq 0 ] && echo "All bench gates PASS."
                   exit $fail
 
-            # ── 5 · playwright (chromium gate; the full 5-project suite is local) ─
+            # ── 5 · playwright (chromium gate + smoke-safari WebKit; the full
+            #        5-project suite is local) ─────────────────────────────────
             - name: Cache Playwright browsers
               uses: actions/cache@v4
               id: playwright-cache
               with:
                   path: ~/.cache/ms-playwright
-                  key: playwright-${{ runner.os }}-${{ hashFiles('value.js/package-lock.json') }}
+                  # `webkit` in the key (S.W0 W0-2a): invalidates the old
+                  # chromium-only cache so a fresh cache carries BOTH engines.
+                  key: playwright-webkit-${{ runner.os }}-${{ hashFiles('value.js/package-lock.json') }}
 
-            - name: Install Playwright (chromium)
+            - name: Install Playwright (chromium + webkit — W0-2a smoke-safari in CI)
               if: steps.playwright-cache.outputs.cache-hit != 'true'
-              run: npx playwright install --with-deps chromium
+              run: npx playwright install --with-deps chromium webkit
 
-            - name: Install Playwright system deps (cache hit)
+            - name: Install Playwright system deps + ensure webkit (cache hit)
               if: steps.playwright-cache.outputs.cache-hit == 'true'
-              run: npx playwright install-deps chromium
+              # `install webkit` is idempotent — a no-op when the binary is
+              # already cached, and backfills it if a pre-webkit cache is hit.
+              run: |
+                  npx playwright install-deps chromium webkit
+                  npx playwright install webkit
 
             # HARD gate: the inv-K-5 evidence — the demo boots with ZERO console
             # errors against NO backend (VITE_API_URL -> same-origin dev server).
@@ -254,6 +261,22 @@ jobs:
             - name: Playwright — full smoke project (soft-launch)
               continue-on-error: true
               run: npx playwright test --project=smoke
+
+            # S.W0 W0-2(a): smoke-safari (WebKit) NOW RUNS IN CI — the S-22 gap
+            # (the project existed since E.W3; CI never passed --project=smoke-
+            # safari, so no Safari-only bug could be observed at all).
+            # SOFT (continue-on-error) by DESIGN: the aurora WebGL2 shader fails
+            # to COMPILE on WebKit's strict GLSL-ES validator (safari-truth §P0)
+            # — a KNOWN-LIVE glass-ui PRODUCER defect value.js is prohibited from
+            # shimming (the L1 no-workaround rule). The sustained-30s spec now
+            # guards the shader-compile substrings (W0-2c), so this step SURFACES
+            # the defect in the uploaded report without wedging the value.js
+            # ladder on a foreign-tree fix. FLIP to hard-fail at the glass-ui
+            # adopt-event once the shader defect lands (mirrors the tranche/BG
+            # un-pin book above).
+            - name: Playwright — smoke-safari (WebKit, soft — surfaces the L1 aurora-shader P0)
+              continue-on-error: true
+              run: npx playwright test --project=smoke-safari
 
             - name: Upload Playwright report
               if: always()
@@ -326,8 +349,13 @@ jobs:
             # survive into dist/gh-pages CSS. Runs on the just-built artifact.
             - name: CSS emission probe (desktop-pane witnesses — blocking, inv-N-7)
               run: npm run css-emission-probe
-            - name: Lighthouse CI (budget gate, soft-launch)
-              continue-on-error: true
+            # S.W0 W0-2(b): Lighthouse is now HARD (the M5.2 soft-launch flip).
+            # `continue-on-error` removed → the lighthouserc.json `error`-level
+            # assertions (the captured CWV baseline: CLS ≤ 0.1, LCP ≤ 2.5s,
+            # INP ≤ 200ms, TBT ≤ 300ms, a11y ≥ 0.9) now BLOCK the ladder. A
+            # first-paint perf/CLS regression on the just-built gh-pages artifact
+            # reddens CI instead of shipping (e2e-coverage-gaps §4 P0 item 2).
+            - name: Lighthouse CI (budget gate — HARD, W0-2b)
               uses: treosh/lighthouse-ci-action@v12
               with:
                   # Nested layout: the config (and its staticDistDir) lives under

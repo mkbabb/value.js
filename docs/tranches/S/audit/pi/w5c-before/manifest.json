@@ -1,0 +1,177 @@
+{
+  "capturedAt": "2026-07-06T02:07:47.718Z",
+  "base": "http://127.0.0.1:4188",
+  "shots": [
+    {
+      "file": "gradient-top--mobile-390x844--light.png",
+      "shot": "gradient-top",
+      "viewport": "mobile-390x844",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient-stop-sel--mobile-390x844--light.png",
+      "shot": "gradient-stop-sel",
+      "viewport": "mobile-390x844",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient-top--mobile-390x844--dark.png",
+      "shot": "gradient-top",
+      "viewport": "mobile-390x844",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient-stop-sel--mobile-390x844--dark.png",
+      "shot": "gradient-stop-sel",
+      "viewport": "mobile-390x844",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient-top--laptop-1024x768--light.png",
+      "shot": "gradient-top",
+      "viewport": "laptop-1024x768",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient-easing--laptop-1024x768--light.png",
+      "shot": "gradient-easing",
+      "viewport": "laptop-1024x768",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient-top--laptop-1024x768--dark.png",
+      "shot": "gradient-top",
+      "viewport": "laptop-1024x768",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient-easing--laptop-1024x768--dark.png",
+      "shot": "gradient-easing",
+      "viewport": "laptop-1024x768",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient-top--wide-1440x900--light.png",
+      "shot": "gradient-top",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient-easing--wide-1440x900--light.png",
+      "shot": "gradient-easing",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient-stop-sel--wide-1440x900--light.png",
+      "shot": "gradient-stop-sel",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient-editor-bad--wide-1440x900--light.png",
+      "shot": "gradient-editor-bad",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient-radial-bad--wide-1440x900--light.png",
+      "shot": "gradient-radial-bad",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "picker-corner--wide-1440x900--light.png",
+      "shot": "picker-corner",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "gradient-top--wide-1440x900--dark.png",
+      "shot": "gradient-top",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient-easing--wide-1440x900--dark.png",
+      "shot": "gradient-easing",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient-stop-sel--wide-1440x900--dark.png",
+      "shot": "gradient-stop-sel",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient-editor-bad--wide-1440x900--dark.png",
+      "shot": "gradient-editor-bad",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "gradient-radial-bad--wide-1440x900--dark.png",
+      "shot": "gradient-radial-bad",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "picker-corner--wide-1440x900--dark.png",
+      "shot": "picker-corner",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    }
+  ],
+  "cardGeometry": [
+    {
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "y": 91,
+      "height": 741,
+      "x": 16,
+      "width": 358
+    },
+    {
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "y": 91,
+      "height": 741,
+      "x": 16,
+      "width": 358
+    },
+    {
+      "viewport": "laptop-1024x768",
+      "scheme": "light",
+      "y": 85.265625,
+      "height": 660.46875,
+      "x": 16,
+      "width": 489.59375
+    },
+    {
+      "viewport": "laptop-1024x768",
+      "scheme": "dark",
+      "y": 85.265625,
+      "height": 660.46875,
+      "x": 16,
+      "width": 489.59375
+    },
+    {
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "y": 94.5,
+      "height": 774,
+      "x": 199,
+      "width": 512
+    },
+    {
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "y": 94.5,
+      "height": 774,
+      "x": 199,
+      "width": 512
+    }
+  ],
+  "video": "gradient-interactions.webm"
+}

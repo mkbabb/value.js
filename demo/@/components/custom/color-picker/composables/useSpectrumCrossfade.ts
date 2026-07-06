@@ -18,6 +18,7 @@
  */
 
 import { nextTick, ref, watch, type Ref, type WatchSource } from "vue";
+import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 
 const FADE_MS = 280; // --duration-normal (240ms) + teardown slack
 
@@ -30,9 +31,16 @@ export function useSpectrumCrossfade(opts: {
     const snapshotCanvasRef = ref<HTMLCanvasElement | null>(null);
     let teardown: ReturnType<typeof setTimeout> | null = null;
 
+    // W3-8 (S.W3 · RAF/PRM discipline): the reactive, SSR-safe glass-ui
+    // breakpoint replaces the ad-hoc `window.matchMedia(...)` PRM probe (the one
+    // stray site — god-module §2.4). One shared listener, no per-switch
+    // MediaQueryList churn, no `typeof window` guard.
+    const { matches: prefersReducedMotion } = useBreakpoint(
+        "(prefers-reduced-motion: reduce)",
+    );
+
     watch(opts.selectedColorSpace, () => {
-        if (typeof window === "undefined") return;
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (prefersReducedMotion.value) return;
 
         const src = opts.overlayCanvasRef.value;
         if (!src || src.width === 0 || src.height === 0) return;

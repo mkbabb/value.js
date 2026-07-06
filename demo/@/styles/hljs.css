@@ -1,0 +1,102 @@
+/*
+ * ── The house code-plate ink (S.W4-8 · design-gradient P1-8 · design-docs-about P2-2) ──
+ *
+ * ONE hljs token theme for every code surface — the docs pages' build-time
+ * TypeScript plates (plugins/vite-source-export.ts emits
+ * `<pre class="hljs typescript">`) and the gradient pane's live CSS editor
+ * (GradientCodeEditor.vue). It replaces the wholesale GitHub css imports
+ * (a white paper card in light, a #0d1117 navy plate in dark — foreign
+ * surface, foreign brand palette) and kills the per-component-family
+ * <style> head-injection swap: dark rides `.dark` like every other token,
+ * no JS theme store, no runtime css string.
+ *
+ * Register: INK ONLY. The theme paints no background — the surface belongs
+ * to the plate (Markdown.vue's `pre`, the editor's glass wash), never to
+ * the grammar. Crayon primaries PROPORTIONED: the body of the code stays
+ * ink; the crayons land only where grammar earns them (keywords red,
+ * entities blue, strings green, numbers ochre); comments recede to the
+ * muted voice. The mono voice is Fira (`--font-stack-mono`, the
+ * three-voice law).
+ */
+
+:root {
+    --code-ink: var(--foreground);
+    --code-comment: var(--muted-foreground);
+    /* The four crayons, guarded for the light parchment field. */
+    --code-keyword: oklch(0.51 0.19 27); /* crayon red   */
+    --code-entity: oklch(0.47 0.14 262); /* crayon blue  */
+    --code-string: oklch(0.51 0.13 145); /* crayon green */
+    --code-number: oklch(0.55 0.12 78); /* crayon ochre */
+}
+
+.dark {
+    /* The same four crayons, lifted for the dark chocolate field. */
+    --code-keyword: oklch(0.75 0.15 27);
+    --code-entity: oklch(0.76 0.11 262);
+    --code-string: oklch(0.77 0.11 148);
+    --code-number: oklch(0.8 0.11 85);
+}
+
+.hljs {
+    color: var(--code-ink);
+    background: transparent;
+    font-family: var(--font-stack-mono);
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: var(--code-comment);
+    font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-doctag,
+.hljs-meta {
+    color: var(--code-keyword);
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.function_,
+.hljs-built_in,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-selector-pseudo,
+.hljs-attribute {
+    color: var(--code-entity);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition {
+    color: var(--code-string);
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-symbol {
+    color: var(--code-number);
+}
+
+/* The proportion clause: attrs, params, variables, operators, punctuation
+ * all stay ink — the crayons are accents, never a rainbow. */
+.hljs-attr,
+.hljs-params,
+.hljs-property,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-operator,
+.hljs-punctuation,
+.hljs-subst {
+    color: var(--code-ink);
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: 700;
+}

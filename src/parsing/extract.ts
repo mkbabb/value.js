@@ -7,7 +7,7 @@ import type {
     PropertyDescriptor,
     Stylesheet,
     StylesheetItem,
-} from "./stylesheet";
+} from "./stylesheet-types";
 
 /**
  * Animation options as expressed in CSS — a CSS-spec subset shared by
@@ -131,15 +131,37 @@ export const extractFunctions = (
 
 // ─── extractStyleRules ────────────────────────────────────────────────────
 
-/** Return every top-level qualified rule (`.foo { ... }`). */
+/**
+ * Return every qualified rule (`.foo { ... }`) in the stylesheet — depth-walking
+ * the container at-rules (`@layer` / `@media` / `@container` / `@supports`,
+ * `@scope`, `@starting-style`) and CSS-Nesting child rules exactly as
+ * {@link extractKeyframes} / {@link extractFunctions} do (W1-3 · lib-parsing
+ * F-2). Before the depth-walk this was a flat top-level scan, so a rule nested
+ * in any container at-rule returned a SILENT empty — the "silent handling" shape
+ * the project precepts forbid, when the correct recursion already existed one
+ * function away. Rules are returned in document (traversal) order.
+ */
+const collectStyleRules = (
+    items: Stylesheet,
+    out: { selectors: string[]; declarations: Declaration[] }[],
+): void => {
+    for (const item of items) {
+        if (item.kind === "style") {
+            out.push({
+                selectors: item.selectors,
+                declarations: item.declarations,
+            });
+        }
+        const children = itemChildren(item);
+        if (children && children.length > 0) collectStyleRules(children, out);
+    }
+};
+
 export const extractStyleRules = (
     s: Stylesheet,
 ): { selectors: string[]; declarations: Declaration[] }[] => {
     const out: { selectors: string[]; declarations: Declaration[] }[] = [];
-    for (const item of s) {
-        if (item.kind !== "style") continue;
-        out.push({ selectors: item.selectors, declarations: item.declarations });
-    }
+    collectStyleRules(s, out);
     return out;
 };
 
@@ -236,9 +258,29 @@ const applyLonghand = (
     }
 };
 
+const collectAnimationLonghands = (
+    items: Stylesheet,
+    out: CSSAnimationOptions,
+): void => {
+    for (const item of items) {
+        if (item.kind === "style") {
+            for (const decl of item.declarations) {
+                applyLonghand(out, decl.name, decl.value.toString());
+            }
+        }
+        const children = itemChildren(item);
+        if (children && children.length > 0) {
+            collectAnimationLonghands(children, out);
+        }
+    }
+};
+
 /**
- * Walk the stylesheet's top-level style rules and merge every
- * recognised `animation-*` longhand into a single options object.
+ * Walk every style rule in the stylesheet — depth-walking the container at-rules
+ * and CSS-Nesting children (W1-3 · lib-parsing F-2), exactly as
+ * {@link extractKeyframes} does — and merge every recognised `animation-*`
+ * longhand into a single options object. Before the depth-walk a rule nested in
+ * `@media` / `@layer` / a nesting parent returned a SILENT empty `{}`.
  *
  * Shorthand `animation: ...` is handled by `parseAnimationShorthand`
  * (a separate entry) — we don't re-tokenise it here. If a style rule
@@ -254,11 +296,6 @@ export const extractAnimationOptions = (
     s: Stylesheet,
 ): CSSAnimationOptions => {
     const out: CSSAnimationOptions = {};
-    for (const item of s) {
-        if (item.kind !== "style") continue;
-        for (const decl of item.declarations) {
-            applyLonghand(out, decl.name, decl.value.toString());
-        }
-    }
+    collectAnimationLonghands(s, out);
     return out;
 };

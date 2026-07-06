@@ -3,7 +3,7 @@ import { ref, computed, type Ref } from "vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useSession } from "../auth/useSession";
 import { useUserAuth } from "../auth/useUserAuth";
-import { publishPalette } from "@lib/palette/api";
+import { createAndSavePalette } from "@lib/palette/api";
 import { CURRENT_PALETTE_ID } from "@lib/palette/constants";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 
@@ -45,7 +45,7 @@ export function usePaletteActions(deps: {
             return { success: false, message: "Failed to create session" };
         }
         try {
-            await publishPalette({
+            await createAndSavePalette({
                 name: palette.name,
                 slug: palette.slug,
                 colors: palette.colors,

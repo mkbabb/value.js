@@ -1,5 +1,6 @@
 import { ref, onBeforeUnmount, watch, type Ref } from "vue";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
+import { useRAFLoop } from "@mkbabb/glass-ui/motion-core";
 
 export interface InertiaGestureOptions {
     /** Content dimensions (image native size) */
@@ -55,7 +56,6 @@ export function useInertiaGesture(
     let velocityX = 0;
     let velocityY = 0;
     let lastMoveTime = 0;
-    let inertiaRaf = 0;
 
     // --- Helpers ---
 
@@ -103,19 +103,20 @@ export function useInertiaGesture(
 
     // --- Inertia animation ---
 
-    function startInertia() {
-        cancelAnimationFrame(inertiaRaf);
-        if (prefersReducedMotion.value) {
-            // PRM: snap to rest — no coast loop. Zero the velocity so a later
-            // resume does not inherit stale momentum.
-            velocityX = 0;
-            velocityY = 0;
-            return;
-        }
-        const step = () => {
+    // W3-8 (S.W3 · RAF discipline, god-module §2.4): the momentum coast rides
+    // glass-ui's `useRAFLoop` (`@mkbabb/glass-ui/motion-core`) instead of a
+    // hand-rolled requestAnimationFrame chain — `pauseWhenHidden` freezes the
+    // coast on a hidden/background tab (the §2.4 perf cost this migration cures)
+    // and its frame-count timeline resumes cleanly. `respectReducedMotion` is
+    // FALSE on the host: this composable owns the PRM decision in `startInertia`
+    // (snap to rest, never coast), so the loop's own auto-pause must never
+    // strand a half-glide mid-pan.
+    const inertiaLoop = useRAFLoop(
+        () => {
             if (Math.abs(velocityX) < 0.5 && Math.abs(velocityY) < 0.5) {
                 velocityX = 0;
                 velocityY = 0;
+                inertiaLoop.stop();
                 return;
             }
             panX.value += velocityX;
@@ -123,13 +124,25 @@ export function useInertiaGesture(
             velocityX *= friction;
             velocityY *= friction;
             clampPan();
-            inertiaRaf = requestAnimationFrame(step);
-        };
-        inertiaRaf = requestAnimationFrame(step);
+        },
+        { immediate: false, pauseWhenHidden: true, respectReducedMotion: false },
+    );
+
+    function startInertia() {
+        inertiaLoop.stop();
+        if (prefersReducedMotion.value) {
+            // PRM: snap to rest — no coast loop. Zero the velocity so a later
+            // resume does not inherit stale momentum.
+            velocityX = 0;
+            velocityY = 0;
+            return;
+        }
+        // start() resets the host's frame/elapsed counters and arms delivery.
+        inertiaLoop.start();
     }
 
     function stopInertia() {
-        cancelAnimationFrame(inertiaRaf);
+        inertiaLoop.stop();
         velocityX = 0;
         velocityY = 0;
     }
@@ -142,7 +155,11 @@ export function useInertiaGesture(
         const rect = el.getBoundingClientRect();
         const { width: cw, height: ch } = options.contentSize();
         if (!cw || !ch || !rect.width || !rect.height) return;
-        const fit = Math.min(rect.width / cw, rect.height / ch, 1);
+        // S.W5-6 · F13: the plate is the event — fit fills the viewport in
+        // BOTH directions (a small specimen scales UP, aspect preserved),
+        // clamped to the gesture's own maxZoom. The former `…, 1)` cap left
+        // small images floating small in a mostly-empty overlay.
+        const fit = Math.min(rect.width / cw, rect.height / ch, maxZoom);
         fitZoom = fit;
         zoom.value = fit;
         panX.value = (rect.width - cw * fit) / 2;
@@ -345,7 +362,9 @@ export function useInertiaGesture(
     onBeforeUnmount(() => {
         if (elementRef.value) unbind(elementRef.value);
         resizeObserver?.disconnect();
-        cancelAnimationFrame(inertiaRaf);
+        // useRAFLoop auto-disposes on scope teardown; this belt-and-suspenders
+        // stop also halts an in-flight coast if the viewport unmounts mid-glide.
+        inertiaLoop.stop();
     });
 
     return {

@@ -101,6 +101,7 @@
                         @add-color="pm.onSwatchAddColor"
                         @feature="pm.onFeaturePalette"
                         @admin-delete="pm.onAdminDeletePalette"
+                        @set-visibility="pm.onSetVisibility"
                         @fork="onFork"
                         @versions="modalStack.openVersions"
                         @flag="modalStack.openFlag"

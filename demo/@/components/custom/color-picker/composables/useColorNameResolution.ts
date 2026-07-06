@@ -8,7 +8,7 @@ import { useCustomColorNames } from "./useCustomColorNames";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { DisplayColorSpace } from "@components/custom/color-picker";
 import { colorToHexString } from "@components/custom/color-picker";
-import { NORMALIZED_COLOR_NAMES } from "./useColorModel";
+import { NORMALIZED_COLOR_NAMES } from "./normalizedColorNames";
 
 const DIGITS = 2;
 

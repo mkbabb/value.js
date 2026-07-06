@@ -8,7 +8,7 @@ import type {
     Stylesheet,
     StylesheetItem,
     ViewTimelineDescriptor,
-} from "./stylesheet";
+} from "./stylesheet-types";
 
 // ─── Single-node serialisers ──────────────────────────────────────────────
 

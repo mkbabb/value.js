@@ -199,6 +199,20 @@ describe("flattenObject and unflattenObject", () => {
         expect(unflat.x.y).toEqual([10]);
         expect(unflat.x.z).toEqual([20]);
     });
+
+    it("accumulates every leaf of a multi-arg function into one flat ValueArray (O(N) flatten)", () => {
+        // A property accruing N leaves must land as an ordered flat array — the
+        // O(N²)→O(N) flatten-after-loop fix (S.W1 W1-7) must be output-identical.
+        const fv = new FunctionValue("translate", [
+            new ValueUnit(10, "px", ["length", "absolute"]),
+            new ValueUnit(20, "px", ["length", "absolute"]),
+            new ValueUnit(30, "px", ["length", "absolute"]),
+        ]);
+        const flat = flattenObject({ transform: fv });
+        const leaves = flat["transform.translate"];
+        expect(leaves).toHaveLength(3);
+        expect(leaves.map((v: ValueUnit) => v.toString())).toEqual(["10px", "20px", "30px"]);
+    });
 });
 
 describe("unpackMatrixValues", () => {
@@ -219,6 +233,26 @@ describe("unpackMatrixValues", () => {
         expect(result.translateY).toBe(20);
         expect(result.skewX).toBe(0);
         expect(result.skewY).toBe(0);
+    });
+
+    it("emits 0 for the out-of-plane rotations of a 2D rotation matrix (lib-core P2-5)", () => {
+        // matrix(cos, sin, -sin, cos, 0, 0) — a pure 45° in-plane rotation.
+        // A 2D matrix is planar: only rotateZ is defined. The pre-fix branch
+        // derived nonsense rotateX/rotateY (both ≈ π/4) via atan2 off the same
+        // a/b/c/d cells; both MUST be identically 0 now.
+        const c = Math.SQRT1_2; // cos 45° = sin 45° = √2/2
+        const fv = new FunctionValue("matrix", [
+            new ValueUnit(c),
+            new ValueUnit(c),
+            new ValueUnit(-c),
+            new ValueUnit(c),
+            new ValueUnit(0),
+            new ValueUnit(0),
+        ]);
+        const result = unpackMatrixValues(fv);
+        expect(result.rotateZ).toBeCloseTo(Math.PI / 4, 12);
+        expect(result.rotateX).toBe(0);
+        expect(result.rotateY).toBe(0);
     });
 
     it("should unpack a 3D matrix (16 values)", () => {

@@ -14,10 +14,11 @@
                         : "Start a new palette"
                 }}
             </span>
+            <!-- S.W5-7: singular form — "1 color", never "1 colors". -->
             <span
                 v-if="savedColorStrings.length > 0"
                 class="text-mono-small text-muted-foreground"
-                >{{ savedColorStrings.length }} colors</span
+                >{{ savedColorStrings.length }} color{{ savedColorStrings.length !== 1 ? "s" : "" }}</span
             >
         </div>
         <TransitionGroup
@@ -110,12 +111,17 @@
             v-if="savedColorStrings.length > 0"
             class="flex items-center gap-2"
         >
+            <!-- S.W5-3 (S-17): the producer Input speaks unmodified — the
+                 per-instance override list (pill-strip, opaque bg, halved
+                 border, SUPPRESSED focus ring — an a11y regression) is dead.
+                 Only layout survives. -->
             <Input
                 v-model="currentPaletteName"
                 :placeholder="
                     'Palette ' + (savedPaletteCount + 1)
                 "
-                class="text-mono-small h-8 flex-1 rounded-input bg-background border-border/50 focus-visible:ring-0 focus-visible:ring-offset-0"
+                size="sm"
+                class="flex-1"
                 @keydown.enter="saveCurrentPalette"
             />
             <Button

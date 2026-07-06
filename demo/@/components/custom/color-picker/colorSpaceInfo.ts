@@ -1,9 +1,11 @@
 /**
- * Color-space metadata table — per-space documentation (name, type, definition,
+ * Color-space metadata table — per-space documentation (name, definition,
  * white point, gamut, components, perceptual properties, applications,
  * industries, conversion chains, notes) used by the demo's color-space
  * tooltips (`ComponentSliders.vue`) and the nutrition label
- * (`ColorNutritionLabel.vue`).
+ * (`ColorNutritionLabel.vue`). The former `type` field died at S.W4-8
+ * (design-docs-about P2-7): it restated each space's `definition` in
+ * shorthand and the nutrition label rendered both, one screen apart.
  *
  * Pure data; no runtime dependencies. Lifted from `index.ts` at H.W3 Lane C
  * (per `docs/tranches/H/audit/H-AUDIT-5-architecture.md §demo` —
@@ -15,7 +17,6 @@
 export const colorSpaceInfo = {
     rgb: {
         name: "CIE RGB (Red, Green, Blue)",
-        type: "Additive",
         created: "1931",
         definition:
             "A color space based on the additive mixture of red, green, and blue light.",
@@ -39,7 +40,6 @@ export const colorSpaceInfo = {
 
     hsl: {
         name: "HSL (Hue, Saturation, Lightness)",
-        type: "Cylindrical representation of RGB",
         definition:
             "A cylindrical representation of the RGB color space, with a focus on human perception.",
         created: "1978",
@@ -67,7 +67,6 @@ export const colorSpaceInfo = {
 
     hsv: {
         name: "HSV (Hue, Saturation, Value)",
-        type: "Cylindrical representation of RGB",
         definition:
             "A cylindrical representation of the RGB color space, with a focus on perceptual uniformity.",
         created: "1978",
@@ -93,7 +92,6 @@ export const colorSpaceInfo = {
 
     hwb: {
         name: "HWB (Hue, Whiteness, Blackness)",
-        type: "Cylindrical representation of RGB",
         definition:
             "A cylindrical representation of the RGB color space, using Whiteness and Blackness instead of Saturation and Lightness.",
         created: "1978",
@@ -116,7 +114,6 @@ export const colorSpaceInfo = {
 
     lab: {
         name: "Lab (CIELAB)",
-        type: "Perceptual",
         definition:
             "The L*a*b* color space is a three-dimensional color model designed to be perceptually uniform and device-independent.",
         deviceDependency: "Device-independent",
@@ -144,7 +141,6 @@ export const colorSpaceInfo = {
 
     lch: {
         name: "LCh (Lightness, Chroma, hue)",
-        type: "Cylindrical representation of Lab",
         definition: "A cylindrical representation of the Lab color space.",
         deviceDependency: "Device-independent",
         created: "1976",
@@ -165,7 +161,6 @@ export const colorSpaceInfo = {
 
     oklab: {
         name: "OKLab",
-        type: "Perceptual",
         definition:
             "A perceptually uniform color space designed to be more intuitive than CIELAB.",
         deviceDependency: "Device-independent",
@@ -192,7 +187,6 @@ export const colorSpaceInfo = {
 
     oklch: {
         name: "OKLCh",
-        type: "Cylindrical representation of OKLab",
         definition: "A cylindrical representation of the OKLab color space.",
         deviceDependency: "Device-independent",
         created: "2019",
@@ -214,7 +208,6 @@ export const colorSpaceInfo = {
 
     xyz: {
         name: "XYZ",
-        type: "Absolute",
         definition:
             "The CIE 1931 XYZ color space is a device-independent color space based on human color perception.",
         deviceDependency: "Device-independent",
@@ -246,7 +239,6 @@ export const colorSpaceInfo = {
 
     kelvin: {
         name: "Kelvin (Color Temperature)",
-        type: "Physical",
         definition:
             "The Kelvin color space represents the color of an ideal black-body radiator at a given temperature.",
         deviceDependency: "Device-independent",
@@ -266,9 +258,60 @@ export const colorSpaceInfo = {
         notes: "Represents the color of an ideal black-body radiator at a given temperature. Useful for describing the color of light sources.",
     },
 
+    ictcp: {
+        name: "ICtCp (ITU-R BT.2100)",
+        definition:
+            "An HDR-ready perceptual space (ITU-R BT.2100) derived from LMS cone responses through the PQ transfer function. I encodes intensity; Ct and Cp are the tritanopic and protanopic opponent axes.",
+        deviceDependency: "Device-independent",
+        created: "2016",
+        whitePoint: "D65",
+        gamut: "Wide (HDR / Rec. 2020 signals)",
+        components: ["Intensity (I)", "Ct (tritan)", "Cp (protan)"],
+        perceptualUniformity: "Yes",
+        hueLinearity: "Yes",
+        lightnessSeparation: "Yes",
+        applications: [
+            "HDR mastering",
+            "Broadcast color difference (ΔE-ITP)",
+            "Dolby Vision",
+        ],
+        industries: ["Broadcast", "Film", "HDR display"],
+        conversions: [
+            ["ICtCp", "XYZ"],
+            ["ICtCp", "XYZ", "RGB"],
+            ["ICtCp", "XYZ", "OKLab"],
+        ],
+        notes: "The space behind ΔE-ITP (BT.2124). Purpose-built for HDR and wide-gamut signals; one ICtCp unit ≈ one JND.",
+    },
+
+    jzazbz: {
+        name: "Jzazbz (Safdar 2017)",
+        definition:
+            "A perceptually-uniform space (Safdar, Kim, Luo, Cui & Melgosa, 2017) for image signals spanning HDR and wide gamut. Jz is lightness; az and bz are the red-green and yellow-blue opponent axes.",
+        deviceDependency: "Device-independent",
+        created: "2017",
+        whitePoint: "D65",
+        gamut: "Wide (HDR / wide-gamut)",
+        components: ["Lightness (Jz)", "az (red-green)", "bz (yellow-blue)"],
+        perceptualUniformity: "Yes",
+        hueLinearity: "Yes",
+        lightnessSeparation: "Yes",
+        applications: [
+            "HDR image processing",
+            "Gamut mapping",
+            "Color-difference metrics",
+        ],
+        industries: ["Imaging science", "HDR display", "Color management"],
+        conversions: [
+            ["Jzazbz", "XYZ"],
+            ["Jzazbz", "XYZ", "RGB"],
+            ["Jzazbz", "XYZ", "OKLab"],
+        ],
+        notes: "Improves on CIELAB's hue-linearity and lightness uniformity across a far larger luminance range; greys are near- (not perfectly) achromatic by design.",
+    },
+
     hex: {
         name: "Hex (Hexadecimal RGB)",
-        type: "Encoding of RGB",
         definition:
             "A compact hexadecimal notation for sRGB colors, widely used in web design and CSS. Each pair of hex digits encodes a red, green, or blue channel (0-255).",
         deviceDependency: "Device-dependent (same as RGB)",

@@ -1,21 +1,28 @@
 <script setup lang="ts">
-import { useTemplateRef, computed } from "vue";
+import { useTemplateRef, toRef } from "vue";
+import type { ColorSpace } from "@src/units/color/constants";
+import type { HueInterpolationMethod } from "@src/units/color/mix";
 import { useMixingAnimation } from "./composables/useMixingAnimation";
-import type { AnimationPhase } from "./composables/useMixingState";
-import type { SelectedColor } from "./composables/useMixingState";
+import type { AnimationPhase, MixResult } from "./composables/useMixingState";
 
-const { phase, selectedColors } = defineProps<{
+const { phase, result, space, hueMethod } = defineProps<{
     phase: AnimationPhase;
-    selectedColors: SelectedColor[];
+    result: MixResult | null;
+    space: ColorSpace;
+    hueMethod: HueInterpolationMethod;
 }>();
+
+// The ONE clock's completion event — the phase machine's only forward edge.
+const emit = defineEmits<{ settled: [] }>();
 
 const canvasRef = useTemplateRef<HTMLCanvasElement>("mixCanvas");
 
-const colorList = computed(() => selectedColors.map((sc) => sc.css));
-
-const phaseRef = computed(() => phase);
-
-useMixingAnimation(canvasRef, colorList, phaseRef);
+useMixingAnimation(canvasRef, toRef(() => phase), {
+    result: toRef(() => result),
+    space: toRef(() => space),
+    hueMethod: toRef(() => hueMethod),
+    onSettled: () => emit("settled"),
+});
 </script>
 
 <template>

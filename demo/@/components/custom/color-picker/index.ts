@@ -30,7 +30,7 @@ export type ColorModel = {
     selectedColorSpace: DisplayColorSpace;
     color: ParsedColorUnit;
     inputColor: string;
-    savedColors: Array<ParsedColorUnit | any>;
+    savedColors: ParsedColorUnit[];
 };
 
 const DEFAULT_INPUT_COLOR = "lab(92% 88.8 20 / 82.70%)";
@@ -95,4 +95,6 @@ export const DISPLAY_COLOR_SPACE_NAMES: Record<DisplayColorSpace, string> = {
     "a98-rgb": "Adobe RGB",
     "prophoto-rgb": "ProPhoto RGB",
     rec2020: "Rec. 2020",
+    ictcp: "ICtCp",
+    jzazbz: "Jzazbz",
 };

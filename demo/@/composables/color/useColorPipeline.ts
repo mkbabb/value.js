@@ -1,0 +1,383 @@
+import { computed, onScopeDispose, ref, watch, type ShallowRef } from "vue";
+import { copyToClipboard } from "@mkbabb/glass-ui";
+import { debounce } from "@src/utils";
+import type { ParsedColorUnit } from "@src/parsing/color";
+import { ValueUnit } from "@src/units";
+import type { ColorSpace } from "@src/units/color/constants";
+import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
+import {
+    colorUnit2,
+    normalizeColorUnit,
+    normalizeColorUnitComponent,
+} from "@src/units/color/normalize";
+import type { ColorModel } from "@components/custom/color-picker";
+import {
+    createDefaultColorModel,
+    toCSSColorString,
+    colorToHexString,
+    CSS_NATIVE_SPACES,
+    resolveColorSpace,
+} from "@components/custom/color-picker";
+import { useColorParsing } from "@components/custom/color-picker/composables/useColorParsing";
+import { useSliderGradients } from "@components/custom/color-picker/composables/useSliderGradients";
+import { useColorNameResolution } from "@components/custom/color-picker/composables/useColorNameResolution";
+import { useColorPersistence } from "./useColorPersistence";
+
+const DIGITS = 2;
+
+/**
+ * useColorPipeline — the ONE color-state spine (S.W2 · W2-1). Merges the former
+ * App.vue→useAppColorModel + ColorPicker→useColorModel graph onto ONE composable
+ * owning: ONE model (the App-owned ShallowRef, consumed directly — the picker's
+ * second shallowRef copy + its defineModel round-trip are GONE, the picker
+ * INJECTS this); ONE derivation set (cssColor / cssColorOpaque / the canonical
+ * per-space savedColorStrings — seed rider 4, twins deleted); the stableHue
+ * invariant preserved bit-for-bit; and declared persistence precedence
+ * (URL-hash-wins-on-load, else the localStorage→model restore below, gated
+ * behind URL-wins). The boot-material sink (`--saved-bg`/`color-picker-bg`)
+ * moved to useAtmosphere at W6-1 — it carries the DERIVED field base stop,
+ * which only the atmosphere owns.
+ */
+export function useColorPipeline(model: ShallowRef<ColorModel>) {
+    // The sentinel — NOT a copy — distinguishes a self-originated write (slider/
+    // component edit, which carries hue explicitly) from an external one (URL
+    // load, palette apply, reset, which must refresh the stable hue).
+    let lastWrittenModel: ColorModel | null = null;
+
+    const updateModel = (patch: Partial<ColorModel>) => {
+        const next = { ...model.value, ...patch };
+        lastWrittenModel = next;
+        model.value = next; // the ONE ref — synchronous; derivations recompute now
+    };
+
+    // Stable HSV hue: oklch→HSV loses hue at low chroma (atan2(0,0)=0). stableHue
+    // is the hue source-of-truth; refreshed only on external color changes.
+    const initHsv = colorUnit2(model.value.color, "hsv", true, false, false);
+    const stableHue = ref(initHsv.value.h.value);
+
+    watch(
+        () => model.value,
+        (m) => {
+            if (m === lastWrittenModel) return; // skip self-originated writes
+            if (!m.color) return;
+            try {
+                const hsv = colorUnit2(m.color, "hsv", true, false, false);
+                const s = hsv.value.s.value;
+                const v = hsv.value.v.value;
+                if (s * v > 0.01) stableHue.value = hsv.value.h.value;
+            } catch {
+                /* ignore */
+            }
+        },
+    );
+
+    // --- Derived colors (ONE set) ---
+    const denormalizedCurrentColor = computed(() =>
+        normalizeColorUnit(model.value.color, true, false),
+    );
+
+    const cssColor = computed(() => {
+        if (CSS_NATIVE_SPACES.has(model.value.color.value.colorSpace)) {
+            return denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
+        }
+        return toCSSColorString(model.value.color);
+    });
+
+    const cssColorOpaque = computed(() => {
+        if (CSS_NATIVE_SPACES.has(model.value.color.value.colorSpace)) {
+            const denorm = denormalizedCurrentColor.value;
+            const c = denorm.clone() as typeof denorm;
+            c.value.alpha.value = 100;
+            return c.value.toFormattedString(DIGITS);
+        }
+        const c = model.value.color.clone();
+        c.value.alpha.value = 1;
+        return toCSSColorString(c);
+    });
+
+    const HSVCurrentColor = computed(() => {
+        const hsv = colorUnit2(model.value.color, "hsv", true, false, false);
+        hsv.value.h.value = stableHue.value;
+        return hsv;
+    });
+
+    const currentColorOpaque = computed(() => {
+        const denorm = denormalizedCurrentColor.value;
+        const color = denorm.clone() as typeof denorm;
+        color.value.alpha.value = 100;
+        return color;
+    });
+
+    const currentColorSpace = computed(() =>
+        resolveColorSpace(model.value.selectedColorSpace),
+    );
+
+    const colorComponents = computed(() => {
+        if (model.value.selectedColorSpace === "hex") {
+            return [["hex", 0]] as [string, any][];
+        }
+        return Object.entries(COLOR_SPACE_RANGES[currentColorSpace.value]).filter(
+            ([key]) => key !== "alpha",
+        );
+    });
+    // --- Delegated composables (identical wiring to the former useColorModel) ---
+    const {
+        parseAndNormalizeColor,
+        setCurrentColor,
+        parseAndSetColor,
+        parseAndSetColorDebounced,
+        parseError,
+        generateRandomColor,
+        astEcho,
+        gamutVerdict,
+    } = useColorParsing({ model, updateModel, stableHue, currentColorSpace });
+
+    // Persistence collaborator (S.W2 gate row 6): localStorage store + restore +
+    // write-through, lifted to a sibling to hold the spine ≤ 400 LoC. The
+    // pipeline stays the ONE spine; `restoreFromStorage` re-exports unchanged.
+    const { restoreFromStorage, resetStorage } = useColorPersistence({
+        model,
+        updateModel,
+        parseAndSetColor,
+        parseAndNormalizeColor,
+        cssColor,
+    });
+
+    const {
+        componentsSlidersStyle,
+        currentColorComponentsFormatted,
+        currentColorRanges,
+    } = useSliderGradients({
+        model,
+        currentColorOpaque,
+        currentColorSpace,
+        stableHue,
+        denormalizedCurrentColor,
+    });
+
+    const {
+        formattedCurrentColor,
+        savedColorLabel,
+        currentColorMeta,
+        crownKey,
+        canProposeName,
+    } = useColorNameResolution({ model, denormalizedCurrentColor, currentColorSpace });
+    // --- Saved colors (canonical: the picker's per-space formatted twin) ---
+    const savedColorStrings = computed(() =>
+        model.value.savedColors
+            .filter((c) => c instanceof ValueUnit)
+            .map((c) => {
+                const normalized = CSS_NATIVE_SPACES.has(c.value.colorSpace)
+                    ? normalizeColorUnit(c, true, false)
+                    : colorUnit2(c, "oklch", true, true, false);
+                return normalized.value.toFormattedString(DIGITS);
+            }),
+    );
+    // --- Component / space mutation ---
+    const updateToColorSpace = (to: ColorSpace) => {
+        const color = colorUnit2(model.value.color, to, true, false, false);
+        setCurrentColor(color, model.value.selectedColorSpace);
+    };
+
+    const formatForSelectedDisplaySpace = (color: ParsedColorUnit) => {
+        if (model.value.selectedColorSpace === "hex") {
+            return colorToHexString(color);
+        }
+        return normalizeColorUnit(color, true, false).value.toFormattedString(DIGITS);
+    };
+
+    const applyExternalColor = (cssColor: string) => {
+        const parsed = parseAndNormalizeColor(cssColor);
+        const resolved = resolveColorSpace(model.value.selectedColorSpace);
+        const converted = colorUnit2(parsed, resolved, true, false, false);
+        setCurrentColor(parsed, model.value.selectedColorSpace);
+        updateModel({ inputColor: formatForSelectedDisplaySpace(converted) });
+    };
+
+    const updateColorComponent = (
+        value: number,
+        component: string,
+        normalized: boolean = false,
+    ) => {
+        if (Number.isNaN(value) || !Number.isFinite(value)) return;
+        const color = model.value.color.clone();
+        if (normalized) {
+            color.value[component].value = value;
+        } else {
+            const normalizedValue = normalizeColorUnitComponent(
+                value,
+                denormalizedCurrentColor.value.value[component].unit,
+                currentColorSpace.value,
+                component,
+                false,
+            );
+            color.value[component].value = normalizedValue.value;
+        }
+        updateModel({ color });
+
+        if (component === "h" || component === "hue") {
+            const hsv = colorUnit2(color, "hsv", true, false, false);
+            stableHue.value = hsv.value.h.value;
+        }
+    };
+
+    const updateColorComponentDebounced = debounce(updateColorComponent, 500);
+    // --- Palette handlers ---
+
+    function onPaletteAddColor(cssColor: string) {
+        const savedColors = [...model.value.savedColors];
+        const currentStr = toCSSColorString(model.value.color);
+        const alreadyExists = savedColors.some(
+            (c) => c instanceof ValueUnit && toCSSColorString(c) === currentStr,
+        );
+        if (alreadyExists) return;
+        try {
+            savedColors.push(parseAndNormalizeColor(cssColor));
+            updateModel({ savedColors });
+        } catch {
+            /* ignore */
+        }
+    }
+
+    function onPaletteApply(colors: string[]) {
+        const parsed = colors
+            .map((css) => {
+                try {
+                    return parseAndNormalizeColor(css);
+                } catch {
+                    return null;
+                }
+            })
+            .filter((c): c is ParsedColorUnit => c !== null);
+        updateModel({ savedColors: parsed });
+    }
+    // --- App-level entry points (folded from useAppColorModel) ---
+
+    const resetToDefaults = () => {
+        const fresh = createDefaultColorModel();
+        model.value = fresh; // external-origin: stableHue watch refreshes from it
+        resetStorage(fresh); // cancel pending write + seed the fresh projection
+    };
+
+    const applyColorString = (css: string) => {
+        try {
+            const parsed = parseAndNormalizeColor(css);
+            const resolved = resolveColorSpace(model.value.selectedColorSpace);
+            const color = colorUnit2(parsed, resolved, true, false, false);
+            const inputColor = formatForSelectedDisplaySpace(color);
+            updateModel({ color, inputColor });
+        } catch {
+            /* ignore parse errors */
+        }
+    };
+
+    // W6-1 (S.W6): the former applyTokens sink is GONE from the pipeline. It
+    // persisted the RAW opaque pick to `color-picker-bg` — the boot↔field
+    // material mismatch behind the load darkening/lightening snap (the ground
+    // painted the pick, the first aurora frame painted the derived field). The
+    // boot material is now owned by useAtmosphere: `--saved-bg` + the
+    // `color-picker-bg` persistence carry the derived BASE stop, so boot →
+    // first frame is ONE material. The inline-background clears died with the
+    // index.html boot script's inline writes (the fouc-guard `--saved-bg` rule
+    // is the one pre-hydration ground now). (--accent-live and the W7-4
+    // per-view accent tokens stay App-scoped — they read contrast/view
+    // state, seed rider 1.)
+
+    // --- W3-1 (S.W3): rAF-coalesce the colour → atmosphere fan-out ---
+    // The atmosphere fan-out — the aurora seed derive + the blob-palette derive
+    // (both in useAtmosphere) + the `--accent-live` contrast solve (App) — is
+    // the tranche's #1 perf cost (perf-transitions P0-1): three heavy derives
+    // (≈16 gamut-maps + a parse + an OKLab contrast solve) fired SYNCHRONOUSLY
+    // on EVERY `cssColorOpaque` change, i.e. 60×/s under a slider drag → the
+    // ~20fps / 31-of-44-janked collapse. This republishes the LATEST opaque
+    // colour AT MOST ONCE per animation frame; the atmosphere consumers read
+    // THIS signal (never the synchronous `cssColorOpaque`), so each drag frame's
+    // intermediate colours collapse to ONE derive. The picker's own instant
+    // surfaces (readout, tooltip, spectrum) keep the synchronous `cssColorOpaque`
+    // — only the atmosphere coalesces.
+    //
+    // S-18 (the aurora seed tracks the picked colour) is PRESERVED bit-for-bit:
+    // the LAST colour of every frame wins, so a settled drag lands its TERMINAL
+    // colour on the next frame and the seed still tracks — coalescing drops the
+    // intermediate colours, never the terminal one. Seeded with the current
+    // value so the FIRST paint derives synchronously (no atmosphere flash).
+    const opaqueFrameLatest = ref(cssColorOpaque.value);
+    let atmosphereFrame: number | null = null;
+    const publishOpaqueFrame = () => {
+        atmosphereFrame = null;
+        opaqueFrameLatest.value = cssColorOpaque.value; // latest-of-frame wins
+    };
+    watch(cssColorOpaque, () => {
+        if (atmosphereFrame !== null) return; // one derive already scheduled this frame
+        if (typeof requestAnimationFrame !== "function") {
+            publishOpaqueFrame(); // non-rAF env (SSR): republish synchronously
+            return;
+        }
+        atmosphereFrame = requestAnimationFrame(publishOpaqueFrame);
+    });
+    onScopeDispose(() => {
+        if (atmosphereFrame !== null && typeof cancelAnimationFrame === "function") {
+            cancelAnimationFrame(atmosphereFrame);
+        }
+    });
+    // The coalesced projection the atmosphere fan-out consumes (a ComputedRef so
+    // it drops into the existing `ComputedRef<string>` consumer signatures).
+    const cssColorOpaqueFrame = computed(() => opaqueFrameLatest.value);
+
+    return {
+        // Model
+        model,
+        updateModel,
+        // Derived colors (ONE set)
+        denormalizedCurrentColor,
+        cssColor,
+        cssColorOpaque,
+        // W3-1: the rAF-coalesced opaque colour the atmosphere fan-out consumes
+        // (aurora seed + blob palette + --accent-live) — one derive per frame.
+        cssColorOpaqueFrame,
+        HSVCurrentColor,
+        stableHue,
+        currentColorOpaque,
+        currentColorSpace,
+        colorComponents,
+        // Name resolution
+        formattedCurrentColor,
+        savedColorLabel,
+        currentColorMeta,
+        crownKey,
+        canProposeName,
+        // Saved colors
+        savedColorStrings,
+        onPaletteAddColor,
+        onPaletteApply,
+        // Parsing / setting
+        parseAndNormalizeColor,
+        setCurrentColor,
+        parseAndSetColor,
+        parseAndSetColorDebounced,
+        parseError,
+        applyExternalColor,
+        applyColorString,
+        astEcho,
+        gamutVerdict,
+        // Random
+        generateRandomColor,
+        // Slider styles
+        componentsSlidersStyle,
+        currentColorComponentsFormatted,
+        currentColorRanges,
+        // Component updates
+        updateToColorSpace,
+        updateColorComponent,
+        updateColorComponentDebounced,
+        // App-level entry points
+        resetToDefaults,
+        restoreFromStorage,
+        // Clipboard
+        copyToClipboard,
+        // Constants
+        DIGITS,
+    };
+}
+
+export type UseColorPipelineReturn = ReturnType<typeof useColorPipeline>;

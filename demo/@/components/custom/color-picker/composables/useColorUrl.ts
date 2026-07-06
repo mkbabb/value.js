@@ -7,7 +7,7 @@ import { toCSSColorString, resolveColorSpace, colorToHexString } from "@componen
 import { parseCSSColor } from "@src/parsing/color";
 import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
 import { debounce } from "@src/utils";
-import { NORMALIZED_COLOR_NAMES } from "./useColorModel";
+import { NORMALIZED_COLOR_NAMES } from "./normalizedColorNames";
 
 export function useColorUrl(options: {
     model: ShallowRef<ColorModel>;
@@ -73,8 +73,10 @@ export function useColorUrl(options: {
         router.replace({ query: { ...route.query, space, color } });
     }, 300, false);
 
-    // Initial load
-    applyUrlToModel();
+    // Initial load — URL-hash-wins-on-load. The result declares the persistence
+    // precedence to the caller: when the hash carries no color, the caller falls
+    // back to the localStorage→model restore (S.W2 · W2-1).
+    const appliedFromUrl = applyUrlToModel();
 
     // Back/forward navigation
     watch(
@@ -87,4 +89,6 @@ export function useColorUrl(options: {
         [() => model.value.selectedColorSpace, () => model.value.color],
         () => syncModelToUrl(),
     );
+
+    return { appliedFromUrl };
 }

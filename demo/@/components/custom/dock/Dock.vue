@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
-import { ChevronDown, Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
+import { ArrowRight, Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import { GlassDock, DockLayerGroup, DockLayer } from ".";
 import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
@@ -45,6 +45,26 @@ const { isAdminMode, viewEntries, onViewChange } = useDockAdminMode({ viewManage
 const actionBarLayerActive = ref(false);
 function toggleActionBar() { actionBarLayerActive.value = !actionBarLayerActive.value; }
 watch(hasAnyActionBar, (has) => { if (!has) actionBarLayerActive.value = false; });
+
+// S.W7-6 (P1-9.3 — the Tools load-order flicker): the toggle-slot's 0fr↔1fr
+// grow transition must fire only on GENUINE runtime toggles, never on the
+// app's boot composition. The pane mounts a beat after the dock (W3-4's
+// deferred mount), so its action-bar context arrives ~170ms in — the slot
+// visibly GREW the pill on EVERY load (measured 0→36→82→86px over ~380ms,
+// three consecutive loads). The first presence now PAINTS seated (transition
+// unarmed), then the transition arms one frame later for real mid-session
+// presence changes.
+const actionBarSlotLive = ref(false);
+watch(
+    hasAnyActionBar,
+    (has) => {
+        if (!has || actionBarSlotLive.value) return;
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => { actionBarSlotLive.value = true; });
+        });
+    },
+    { immediate: true },
+);
 // gate (b): watchers that reach dockRef stay in the SFC
 watch(actionBarLayerActive, (active) => { if (active) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
 function onActionBarOpenPalette() { viewManager.switchView(viewManager.currentView.value === "palettes" ? "picker" : "palettes"); }
@@ -136,21 +156,25 @@ watch(
                     <!-- Main navigation layer (inlined — was the passthrough DockMainLayer.vue) -->
                     <DockLayer id="main">
                         <!-- View selector — gate (a): viewSelectOpen comes from the single mutex above -->
+                        <!-- W7-4 (ONE dock voice): the view-select speaks the
+                             gamut-guarded `--accent-view` tokens exclusively —
+                             the live-accent props are gone (that voice stays
+                             on Tools/Login, the app chrome). -->
                         <DockViewSelect
                             v-model:open="viewSelectOpen"
                             :current-view="viewManager.currentView.value"
                             :current-icon="viewManager.currentConfig.value.icon"
-                            :safe-accent="safeAccent"
-                            :css-color-opaque="cssColorOpaque"
                             :is-admin-mode="isAdminMode"
                             :is-desktop="isDesktop"
                             :view-entries="viewEntries"
                             @update:model-value="onViewChange"
                         />
 
-                        <!-- Action bar toggle -->
-                        <DockSeparator v-if="hasAnyActionBar" />
-                        <div class="action-bar-toggle-slot" :class="{ 'is-visible': hasAnyActionBar }">
+                        <!-- Action bar toggle — S.W7-2: the separator and the
+                             trailing chevron are desktop furniture; below sm the
+                             aperture (312px at 390w) holds controls only. -->
+                        <DockSeparator v-if="hasAnyActionBar" class="hidden lg:block" />
+                        <div class="action-bar-toggle-slot" :class="{ 'is-visible': hasAnyActionBar, 'is-live': actionBarSlotLive }">
                             <div class="action-bar-toggle-inner">
                                 <DockIconButton
                                     compact
@@ -169,26 +193,33 @@ watch(
                                     <span v-if="isDesktop" class="text-small font-display" :style="{ color: genericBar?.accentColor ?? safeAccent }">
                                         {{ genericBar?.label ?? 'Tools' }}
                                     </span>
-                                    <ChevronDown class="w-3 h-3 text-muted-foreground" />
+                                    <!-- S.W7-6 (P1-9.2): the layer-swap AFFORDANCE —
+                                         ArrowRight mirrors the ArrowLeft back-button
+                                         inside the action-bar layer (one enter/exit
+                                         motif). The former ChevronDown promised a
+                                         dropdown this button never opens (the
+                                         chevron-that-isn't); Tools SWAPS the dock
+                                         layer, so it wears the layer grammar. -->
+                                    <ArrowRight class="w-3 h-3 text-muted-foreground hidden lg:block" />
                                 </DockIconButton>
                             </div>
                         </div>
 
-                        <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner) -->
-                        <template v-if="viewManager.currentConfig.value.right !== null">
-                            <DockSeparator class="lg:hidden" />
-                            <div class="lg:hidden">
-                                <PaneSegmentedControl
-                                    :model-value="viewManager.mobilePaneIndex.value"
-                                    :left-label="viewManager.currentConfig.value.leftLabel ?? ''"
-                                    :right-label="viewManager.currentConfig.value.rightLabel ?? ''"
-                                    @update:model-value="(v) => viewManager.mobilePaneIndex.value = v"
-                                />
-                            </div>
-                        </template>
+                        <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner).
+                             S.W7-2: the mobile separator PAIR is dropped (four vertical bars
+                             in a 312px aperture was furniture crowding the ⋮ trigger out of
+                             the pill — design-dock-shell P0-2); the control compacts at its
+                             own root below sm. -->
+                        <div v-if="viewManager.currentConfig.value.right !== null" class="lg:hidden">
+                            <PaneSegmentedControl
+                                :model-value="viewManager.mobilePaneIndex.value"
+                                :left-label="viewManager.currentConfig.value.leftLabel ?? ''"
+                                :right-label="viewManager.currentConfig.value.rightLabel ?? ''"
+                                @update:model-value="(v) => viewManager.mobilePaneIndex.value = v"
+                            />
+                        </div>
 
                         <!-- Mobile overflow menu -->
-                        <DockSeparator class="lg:hidden" />
                         <MobileMenuDropdown
                             v-model:open="mobileMenuOpen"
                             :css-color-opaque="safeAccent"
@@ -211,22 +242,34 @@ watch(
                     </DockLayer>
                 </DockLayerGroup>
 
-                <!-- Collapsed state — the icon+label pair swaps on the morph
-                     family, keyed by view (B3); the icon reads the per-view
-                     accent (B2). -->
+                <!-- Collapsed state — the WAX SEAL (S.W7 W7-1 / S-8): the
+                     WatercolorDot in the LIVE color fills the producer's
+                     collapsed circle (the wax speaks live — the dot IS the
+                     accent); the current view's icon is INKED over it in
+                     `--seal-ink` (the W7-4 resolver's 10th token, WCAG-derived
+                     from the wax — never `--accent-view`), swapping on the
+                     morph family keyed by view: the old impression lifts off,
+                     the next stamp presses in. The hairline die-rim adopts
+                     `--accent-view` — the continuity carrier designed to grow
+                     into the expanded trigger's ring (W7-4's `--dock-ring`
+                     seam). NO text, NO chevron; gold rim + gold ink under
+                     admin. MORPH LAW: the wax exits WITH the seal under the
+                     producer's collapse↔expand cross-fade — no element ever
+                     animates live→view-hue. -->
                 <template #collapsed>
-                    <WatercolorDot :color="cssColorOpaque" tag="div" class="w-6 h-6 shrink-0" seed="top-dock" />
-                    <Transition name="vj-morph" mode="out-in">
-                        <span
-                            :key="viewManager.currentView.value"
-                            class="inline-flex items-center gap-1.5 min-w-0"
-                            style="--vj-morph-scale: 0.8; --vj-morph-y: 0px"
-                        >
-                            <component :is="viewManager.currentConfig.value.icon" class="w-5 h-5 shrink-0 sm:hidden" :style="{ color: 'var(--accent-view)' }" />
-                            <span class="text-base font-display text-foreground whitespace-nowrap hidden sm:inline">{{ viewManager.currentConfig.value.label }}</span>
-                        </span>
-                    </Transition>
-                    <ChevronDown class="w-3 h-3 text-muted-foreground shrink-0" />
+                    <div class="dock-seal" :class="{ 'dock-seal--admin': isAdminMode }">
+                        <WatercolorDot :color="cssColorOpaque" tag="div" class="dock-seal-wax" seed="top-dock">
+                            <Transition name="vj-morph" mode="out-in">
+                                <component
+                                    :is="viewManager.currentConfig.value.icon"
+                                    :key="viewManager.currentView.value"
+                                    class="dock-seal-ink"
+                                    :class="isAdminMode && 'gold-shimmer-icon'"
+                                    style="--vj-morph-scale: 1.25; --vj-morph-y: 0px"
+                                />
+                            </Transition>
+                        </WatercolorDot>
+                    </div>
                 </template>
             </GlassDock>
         </div>
@@ -235,7 +278,6 @@ watch(
 
 <style scoped>
 @reference "../../../styles/style.css";
-.gold-shimmer-icon { color: var(--color-gold); filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent)); }
 
 /* The B3 settle beat — the vj-settle keyframe lives in animations.css
    (keyframes are global); the class is dock-local. */
@@ -245,11 +287,17 @@ watch(
 
 /* Action-bar toggle slot: animates between 0 and content width via the
    grid-template-columns 0fr → 1fr pattern (no max-width clipping).
-   Merged in from the retired DockMainLayer.vue. */
+   Merged in from the retired DockMainLayer.vue.
+   S.W7-6: the transition arms only once `.is-live` sets (one frame AFTER the
+   first presence painted) — the boot-composition appearance seats instantly;
+   only genuine mid-session presence toggles animate. */
 .action-bar-toggle-slot {
     display: grid;
     grid-template-columns: 0fr;
     opacity: 0;
+}
+
+.action-bar-toggle-slot.is-live {
     transition:
         grid-template-columns var(--duration-normal) var(--ease-standard),
         opacity var(--duration-normal) var(--ease-standard);
@@ -265,5 +313,48 @@ watch(
     min-width: 0;
     display: flex;
     align-items: center;
+}
+
+/* ── The wax seal (S.W7 W7-1) ────────────────────────────────────────────
+   The collapsed dock IS the seal: wax (WatercolorDot, live color) filling
+   the producer's collapsed circle (glass-ui pins the summary pane square,
+   aspect-ratio 1 — density.css/morph.css), the view icon inked over it,
+   and a hairline circular die-rim in --accent-view (the continuity
+   carrier the expanded trigger's --dock-ring seam adopts under W7-4). The
+   seal is a FIXED-INTRINSIC-SIZE composition (block 100% / aspect 1): the
+   collapsed morph endpoint becomes VIEW-INVARIANT — no per-view text
+   width, nothing to re-measure, nothing to clip (the P0-1 "Ho" cure). All
+   motion is transform/opacity-only: the producer's compositor
+   expand↔collapse morph outside, the vj-morph stamp swap inside; PRM
+   degrades the swap to a cross-fade via the existing two-tier guard. */
+.dock-seal {
+    block-size: 100%;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    padding: 2px;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklab, var(--accent-view) 60%, transparent);
+}
+.dock-seal--admin {
+    border-color: color-mix(in oklab, var(--color-gold) 75%, transparent);
+}
+.dock-seal-wax {
+    inline-size: 100%;
+    block-size: 100%;
+    display: grid;
+    place-items: center;
+    /* The ink regime: the wax sets the icon's INHERITED ink — the ONE
+       `--seal-ink` token useViewAccents resolves from the wax color via the
+       library's WCAG contrast-color leaf (the SEEDS.md w7 rider, absorbed at
+       W7-4; no CSS lightness literal). Icon-in-slot means the host's
+       watercolor filter displaces wax+ink as one object; setting the color
+       on the WAX (inherited by the icon) lets the admin gold-shimmer-icon
+       class (direct color) win without a specificity fight. */
+    color: var(--seal-ink, var(--foreground));
+}
+.dock-seal-ink {
+    inline-size: 55%;
+    block-size: 55%;
 }
 </style>

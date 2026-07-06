@@ -20,19 +20,12 @@
  */
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
-import type { Context } from "hono";
 import type { MongoClient, Db } from "mongodb";
-import {
-    buildServices,
-    cleanCollections,
-    connect,
-    makeFakeContext,
-} from "../helpers.js";
+import { buildServices, cleanCollections, connect } from "../helpers.js";
 import { createPalette, restorePalette, deletePalette } from "../../src/services/palette/crud.js";
 import { toggleVote } from "../../src/services/palette/votes.js";
 import { registerSession, loginSession } from "../../src/services/session/auth.js";
 import { asUserSlug } from "../../src/models.js";
-import type { AppEnv } from "../../src/types.js";
 import type { Services } from "../../src/middleware/inject-services.js";
 
 /** Wrap `services.withTransaction` with a call counter; returns a getter. */
@@ -82,9 +75,8 @@ describe("transaction right-sizing (N.W3.B)", () => {
     });
 
     it("registerSession opens NO transaction (benign orphan user)", async () => {
-        const c = makeFakeContext(services) as Context<AppEnv>;
         const txns = spyOnWithTransaction(services);
-        const result = await registerSession(c);
+        const result = await registerSession(services, "test-ip-hash");
         expect(result.userSlug).toBeTruthy();
         expect(result.token).toBeTruthy();
         expect(txns()).toBe(0);
@@ -99,9 +91,10 @@ describe("transaction right-sizing (N.W3.B)", () => {
             createdAt: new Date(),
             lastSeenAt: new Date("2025-01-01T00:00:00Z"),
         });
-        const c = makeFakeContext(services) as Context<AppEnv>;
         const txns = spyOnWithTransaction(services);
-        const result = await loginSession(c, { slug: "alice" });
+        const result = await loginSession(services, undefined, "test-ip-hash", {
+            slug: "alice",
+        });
         expect(result.userSlug).toBe("alice");
         expect(txns()).toBe(0);
         expect(await db.collection("sessions").countDocuments({})).toBe(1);

@@ -1,0 +1,276 @@
+{
+  "capturedAt": "2026-07-06T03:07:26.673Z",
+  "base": "http://127.0.0.1:4189",
+  "shots": [
+    {
+      "file": "extract-empty--wide-1440x900--light.png",
+      "shot": "extract-empty",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "extract-developed--wide-1440x900--light.png",
+      "shot": "extract-developed",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "extract-hover--wide-1440x900--light.png",
+      "shot": "extract-hover",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "extract-eyedropper--wide-1440x900--light.png",
+      "shot": "extract-eyedropper",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "generate-rest--wide-1440x900--light.png",
+      "shot": "generate-rest",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "mix-empty--wide-1440x900--light.png",
+      "shot": "mix-empty",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "mix-selected--wide-1440x900--light.png",
+      "shot": "mix-selected",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "mix-palettes-tab--wide-1440x900--light.png",
+      "shot": "mix-palettes-tab",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "mix-result--wide-1440x900--light.png",
+      "shot": "mix-result",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "extract-empty--wide-1440x900--dark.png",
+      "shot": "extract-empty",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "extract-developed--wide-1440x900--dark.png",
+      "shot": "extract-developed",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "extract-hover--wide-1440x900--dark.png",
+      "shot": "extract-hover",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "extract-eyedropper--wide-1440x900--dark.png",
+      "shot": "extract-eyedropper",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "generate-rest--wide-1440x900--dark.png",
+      "shot": "generate-rest",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "mix-empty--wide-1440x900--dark.png",
+      "shot": "mix-empty",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "mix-selected--wide-1440x900--dark.png",
+      "shot": "mix-selected",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "mix-palettes-tab--wide-1440x900--dark.png",
+      "shot": "mix-palettes-tab",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "mix-result--wide-1440x900--dark.png",
+      "shot": "mix-result",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "extract-empty--mobile-390x844--light.png",
+      "shot": "extract-empty",
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "extract-developed--mobile-390x844--light.png",
+      "shot": "extract-developed",
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "extract-hover--mobile-390x844--light.png",
+      "shot": "extract-hover",
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "extract-eyedropper--mobile-390x844--light.png",
+      "shot": "extract-eyedropper",
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "generate-rest--mobile-390x844--light.png",
+      "shot": "generate-rest",
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "mix-empty--mobile-390x844--light.png",
+      "shot": "mix-empty",
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "mix-selected--mobile-390x844--light.png",
+      "shot": "mix-selected",
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "mix-palettes-tab--mobile-390x844--light.png",
+      "shot": "mix-palettes-tab",
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "mix-result--mobile-390x844--light.png",
+      "shot": "mix-result",
+      "viewport": "mobile-390x844",
+      "scheme": "light",
+      "status": "ok"
+    },
+    {
+      "file": "extract-empty--mobile-390x844--dark.png",
+      "shot": "extract-empty",
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "extract-developed--mobile-390x844--dark.png",
+      "shot": "extract-developed",
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "extract-hover--mobile-390x844--dark.png",
+      "shot": "extract-hover",
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "extract-eyedropper--mobile-390x844--dark.png",
+      "shot": "extract-eyedropper",
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "generate-rest--mobile-390x844--dark.png",
+      "shot": "generate-rest",
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "mix-empty--mobile-390x844--dark.png",
+      "shot": "mix-empty",
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "mix-selected--mobile-390x844--dark.png",
+      "shot": "mix-selected",
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "mix-palettes-tab--mobile-390x844--dark.png",
+      "shot": "mix-palettes-tab",
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "status": "ok"
+    },
+    {
+      "file": "mix-result--mobile-390x844--dark.png",
+      "shot": "mix-result",
+      "viewport": "mobile-390x844",
+      "scheme": "dark",
+      "status": "ok"
+    }
+  ],
+  "motion": {
+    "frames": [
+      "frame-00-pre-run.png",
+      "frame-01-converge-t0000.png",
+      "frame-02-converge-t0080.png",
+      "frame-03-converge-t0160.png",
+      "frame-04-converge-t0260.png",
+      "frame-05-converge-t0400.png",
+      "frame-06-converge-t0600.png",
+      "frame-07-converge-t0850.png",
+      "frame-08-converge-t1150.png",
+      "frame-09-converge-t1500.png",
+      "frame-10-settled.png"
+    ],
+    "status": "ok",
+    "note": "",
+    "video": "mix-motion/mix-motion.webm"
+  }
+}

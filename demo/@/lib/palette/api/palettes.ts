@@ -11,7 +11,6 @@
 import type {
     Palette,
     PaletteColor,
-    PaginatedResponse,
     CursorPaginatedResponse,
 } from "../types";
 
@@ -19,7 +18,6 @@ import { request } from "./client";
 
 export interface ListPalettesOptions {
     limit?: number;
-    offset?: number;
     cursor?: string;
     sort?: "newest" | "popular" | "most-forked";
     q?: string;
@@ -32,12 +30,17 @@ export interface ListPalettesOptions {
     colorRadius?: number;
 }
 
+/**
+ * List the public community wall. `GET /palettes` is keyset-cursor-only since
+ * N.W3.D — it returns `{ data, nextCursor, hasMore }`. Pass `cursor` (the
+ * `nextCursor` of a prior page) to advance; the pre-N.W3.D `offset` param was
+ * dead plumbing (the route stopped reading it) and is gone (W5-13 · F-8).
+ */
 export function listPalettes(
     opts: ListPalettesOptions = {},
-): Promise<PaginatedResponse<Palette> | CursorPaginatedResponse<Palette>> {
+): Promise<CursorPaginatedResponse<Palette>> {
     const params = new URLSearchParams();
     if (opts.limit) params.set("limit", String(opts.limit));
-    if (opts.offset != null && !opts.cursor) params.set("offset", String(opts.offset));
     if (opts.cursor) params.set("cursor", opts.cursor);
     if (opts.sort) params.set("sort", opts.sort);
     if (opts.q) params.set("q", opts.q);
@@ -51,18 +54,19 @@ export function listPalettes(
     return request(`/palettes?${params}`);
 }
 
-export function getMyPalettes(
-    limit = 20,
-    offset = 0,
-): Promise<PaginatedResponse<Palette>> {
-    return request(`/palettes/mine?limit=${limit}&offset=${offset}`);
-}
-
 export function getPalette(slug: string): Promise<Palette> {
     return request(`/palettes/${encodeURIComponent(slug)}`);
 }
 
-export function publishPalette(palette: {
+/**
+ * Create a palette on the server (`POST /palettes`). NOT the visibility verb —
+ * the create endpoint mints a fresh `public` palette in one step.
+ *
+ * W5-13 · F-2: renamed from `publishPalette` to end the naming collision with
+ * the real `POST /:slug/publish` visibility-flip verb (now `publishPalette`
+ * below). Two same-named-different-meaning "publish" concepts no longer coexist.
+ */
+export function createAndSavePalette(palette: {
     name: string;
     slug: string;
     colors: PaletteColor[];
@@ -102,6 +106,35 @@ export function renamePalette(
     ifMatch: string,
 ): Promise<Palette> {
     return updatePalette(slug, { name }, ifMatch);
+}
+
+/**
+ * Publish a palette — flip `visibility` to `public` (`POST /:slug/publish`).
+ *
+ * W5-13 · F-4 (Q1 WIRE): the intention-revealing visibility verb, distinct from
+ * `createAndSavePalette` (create). Owner-gated + If-Match-guarded exactly like
+ * PATCH: the route runs `assertIfMatch` against the held palette (428 absent /
+ * 412 stale), so callers MUST pass the captured ETag — derive it with
+ * `paletteETag(palette)`. Idempotent in-place `$set` on the same row; returns
+ * the updated palette envelope.
+ */
+export function publishPalette(slug: string, ifMatch: string): Promise<Palette> {
+    return request(`/palettes/${encodeURIComponent(slug)}/publish`, {
+        method: "POST",
+        ifMatch,
+    });
+}
+
+/**
+ * Unpublish a palette — flip `visibility` to `private` (`POST /:slug/unpublish`).
+ * The `unlisted` middle state is untouched (the flip only toggles public
+ * membership). Owner-gated + If-Match-guarded; see `publishPalette`.
+ */
+export function unpublishPalette(slug: string, ifMatch: string): Promise<Palette> {
+    return request(`/palettes/${encodeURIComponent(slug)}/unpublish`, {
+        method: "POST",
+        ifMatch,
+    });
 }
 
 export function votePalette(

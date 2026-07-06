@@ -24,14 +24,19 @@ router.post("/palettes/:slug/feature", async (c) => {
             parsed.error.format(),
         );
     }
-    const result = await setFeatured(c, c.req.param("slug"), parsed.data.featured);
+    const result = await setFeatured(
+        c.var.services,
+        c.var.userSlug,
+        c.req.param("slug"),
+        parsed.data.featured,
+    );
     return c.json(result);
 });
 
 // DELETE /admin/palettes/:slug — I.W2: soft-delete (sets deletedAt;
 // reaper hard-deletes past the grace window).
 router.delete("/palettes/:slug", async (c) => {
-    await deletePalette(c, c.req.param("slug"));
+    await deletePalette(c.var.services, c.var.userSlug, c.req.param("slug"));
     return c.json({ deleted: true });
 });
 

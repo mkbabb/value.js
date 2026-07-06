@@ -122,7 +122,16 @@ export class ValueUnit<
     }
 
     toFixed(fractionDigits: number = 2) {
-        const value = Number(this.value).toFixed(fractionDigits).replace(/\.0+$/, "");
+        // Trim trailing zeros CONSISTENTLY. The prior `/\.0+$/` stripped a
+        // fraction only when it was ALL zeros (`15.00`→`15`) but kept a partial
+        // trailing zero (`15.50` stayed `15.50`) — a surprising split
+        // (lib-core-value-audit P2-6). Strip trailing zeros in the fractional
+        // part, then a bare dangling `.`, guarding the integer part (`fractionDigits=0`
+        // yields no dot, so trailing integer zeros are never touched).
+        let value = Number(this.value).toFixed(fractionDigits);
+        if (value.includes(".")) {
+            value = value.replace(/0+$/, "").replace(/\.$/, "");
+        }
         return new ValueUnit(value).coalesce(this, true).toString();
     }
 

@@ -2,9 +2,11 @@
     <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Discover palettes from the community.">Browse</PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
+            <!-- S.W5-7: the twin placeholder is scoped — this one searches
+                 the public wall. -->
             <SearchBar
                 v-model="pm.searchQuery.value"
-                placeholder="Search palettes..."
+                placeholder="Search the commons..."
             >
                 <SearchFilterBar
                     :sort="pm.sortMode.value"
@@ -21,30 +23,40 @@
             </SearchBar>
 
             <div class="grid gap-3 pb-3">
+                <!-- W5-1 (S-10): the wall loads as DEVELOPING PLATES — the
+                     palette-card shadow grammar, never a generic spinner. -->
                 <div
                     v-if="pm.browsing.value"
-                    class="flex items-center justify-center min-h-[120px]"
+                    class="grid grid-cols-1 gap-3"
+                    aria-label="Loading palettes"
                 >
-                    <Loader2 class="w-5 h-5 animate-spin text-muted-foreground" />
+                    <PaletteCardSkeleton
+                        v-for="i in SKELETON_COUNT"
+                        :key="i"
+                        variant="developing"
+                    />
                 </div>
 
-                <!-- Error with retry — the same specimen-plate register as the
-                     empty state (R.W4 Lane A / A4): a designed state, not an
-                     apology; the retry CTA rides the action slot. -->
+                <!-- W5-5: error ≠ empty — the PLAIN register (Q6: the
+                     "· signal lost ·" annotation is dead; error plates drop
+                     the specimen conceit). The raw machine string moves to
+                     the Fira detail line; Retry is a real Button, device-
+                     neutral, no dock atom mis-planted in a pane body. -->
                 <EmptyState
                     v-else-if="pm.browseError.value && displayedBrowse.length === 0"
-                    eyebrow="· signal lost ·"
-                    :message="pm.browseError.value"
-                    hint="The community wall lives on the palette API."
+                    variant="error"
+                    message="The commons is unreachable."
+                    :detail="pm.browseError.value"
                 >
                     <template #action>
-                        <DockIconButton
-                            compact
-                            class="text-mono-small text-primary"
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            class="font-display"
                             @click="pm.loadRemotePalettes()"
                         >
-                            Tap to retry
-                        </DockIconButton>
+                            Retry
+                        </Button>
                     </template>
                 </EmptyState>
 
@@ -54,7 +66,10 @@
                     empty-eyebrow="· the commons ·"
                     empty-text="No published palettes here yet."
                     empty-hint="Publish one from My Palettes and start the wall."
-                    :grid-class="pm.sortLoading.value ? 'opacity-50' : ''"
+                    :grid-class="
+                        'transition-opacity duration-fast ' +
+                        (pm.sortLoading.value ? 'opacity-50' : '')
+                    "
                 >
                     <PaletteCard
                         v-for="palette in displayedBrowse"
@@ -75,6 +90,7 @@
                         @add-color="(css) => pm.onSwatchAddColor(css)"
                         @feature="(p) => pm.onFeaturePalette(p)"
                         @admin-delete="(p) => pm.onAdminDeletePalette(p)"
+                        @set-visibility="onSetVisibility"
                         @fork="(p) => onFork(p)"
                         @versions="(p) => onVersions(p)"
                         @flag="(p) => onFlag(p)"
@@ -82,6 +98,31 @@
                         @edit-tags="(p) => onEditTags(p)"
                     />
                 </PaletteCardGrid>
+
+                <!-- S.W5 · the LOAD-MORE trigger (W5-13's data seam, this
+                     lane's affordance): the wall pages past the 50-cap. The
+                     next page arrives as developing plates (the W5-1
+                     grammar); the button retires when the cursor exhausts. -->
+                <div
+                    v-if="pm.loadingMore.value"
+                    class="grid grid-cols-1 gap-3"
+                    aria-label="Loading more palettes"
+                >
+                    <PaletteCardSkeleton v-for="i in 2" :key="i" variant="developing" />
+                </div>
+                <div
+                    v-else-if="pm.hasMore.value && !pm.browsing.value && !pm.browseError.value"
+                    class="flex justify-center pt-1 pb-2"
+                >
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        class="font-display"
+                        @click="pm.loadMoreRemotePalettes()"
+                    >
+                        More from the commons
+                    </Button>
+                </div>
             </div>
         </div>
         <!-- These components portal themselves via reka-ui (Sheet/Dialog) -->
@@ -118,12 +159,12 @@
 <script setup lang="ts">
 import { inject, reactive, ref, computed, onMounted } from "vue";
 import { Card } from "@components/ui/card";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
-import { Loader2 } from "@lucide/vue";
+import { Button } from "@components/ui/button";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
+import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
 import EmptyState from "@components/custom/palette-browser/EmptyState.vue";
 import SearchFilterBar from "@components/custom/palette-browser/SearchFilterBar.vue";
 import VersionHistoryDrawer from "@components/custom/palette-browser/VersionHistoryDrawer.vue";
@@ -134,9 +175,15 @@ import PaneHeader from "./PaneHeader.vue";
 import type { Palette, Tag } from "@lib/palette/types";
 import { deltaEOK } from "@src/units/color/gamut";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
+import { useDialogBrowseActions } from "@components/custom/palette-browser/PaletteDialog/composables/useDialogBrowseActions";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
+
+// W5-1: the developing-wall shadow count — a handful of plates reads as "the
+// wall is developing" without paying 50 shimmer surfaces of compositor work
+// (the K.WP P1-4 lesson).
+const SKELETON_COUNT = 4;
 
 const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
 // D.W3 Lane B: shared tag catalog via pm.tagEdit (was: local getTags fetch)
@@ -173,28 +220,28 @@ async function onDeleteOwned(palette: Palette) {
     }
 }
 
-// --- Fork / Remix ---
-
-async function onFork(palette: Palette) {
-    try {
-        await pm.ensureUser();
-        await pm.ensureSession();
-        const forked = await pm.versions.fork(palette.slug);
-        if (!forked) return;
-        pm.remotePalettes.value = [forked, ...pm.remotePalettes.value];
-        // Update fork count on source
-        const idx = pm.remotePalettes.value.findIndex((p) => p.slug === palette.slug);
-        const source = pm.remotePalettes.value[idx];
-        if (idx >= 0 && source) {
-            pm.remotePalettes.value[idx] = {
-                ...source,
-                forkCount: (source.forkCount ?? 0) + 1,
-            };
-        }
-    } catch (e) {
-        console.warn("Failed to remix palette:", e);
-    }
+// Q1 (S.W5): the card-menu visibility flip — pm.onSetVisibility updates the
+// browse row in place; the verdict rides the same card feedback rail as
+// save/delete.
+async function onSetVisibility(palette: Palette, visibility: "public" | "private") {
+    const result = await pm.onSetVisibility(palette, visibility);
+    cardRefs[palette.slug]?.showFeedback(result.message, result.success ? "success" : "error");
 }
+
+// --- Fork / Remix + browse filters ---
+// S.W2 W2-5 (F1/F2): the ONE host-agnostic composable — no hand-rolled second
+// copy. A failed remix routes through the same card feedback onSave/onDeleteOwned
+// use; the fork-count increment lives in the shared fn.
+const {
+    onFork,
+    onTierChange,
+    onTagsChange,
+    onClearFilters: clearBrowseFilters,
+} = useDialogBrowseActions({
+    pm,
+    onForkError: (palette, message) =>
+        cardRefs[palette.slug]?.showFeedback(message, "error"),
+});
 
 // --- Version history ---
 
@@ -256,22 +303,11 @@ function onTagsUpdated(tags: string[]) {
 const { onExport } = usePaletteExport();
 
 // --- Filters ---
-
-function onTierChange(tier: string) {
-    pm.tierFilter.value = tier;
-    pm.loadRemotePalettes(true);
-}
-
-function onTagsChange(tags: string[]) {
-    pm.selectedTags.value = tags;
-    pm.loadRemotePalettes(true);
-}
-
+// onTierChange / onTagsChange come straight from the shared composable;
+// onClearFilters wraps it to ALSO drop the pane-local color-search params.
 function onClearFilters() {
-    pm.tierFilter.value = "";
-    pm.selectedTags.value = [];
+    clearBrowseFilters();
     colorSearchParams.value = null;
-    pm.loadRemotePalettes(true);
 }
 
 // --- Color search ---

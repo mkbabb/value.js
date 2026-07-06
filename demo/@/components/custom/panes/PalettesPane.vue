@@ -1,13 +1,17 @@
 <template>
     <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+        <!-- S.W5-7 (Q4 EXCISE): the heading joins every other pane title —
+             ink, display voice; the palette-ness is carried by the cards. -->
         <PaneHeader description="Save, organize, and share your colors.">
-            <span class="capitalize pastel-rainbow-text">My Palettes</span>
+            <span class="capitalize">My Palettes</span>
             <Badge v-if="pm.savedPalettes.value.length > 0" variant="secondary" class="text-mono-small ml-2">{{ pm.savedPalettes.value.length }}</Badge>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
+            <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
+                 side-by-side panes) is scoped — this one owns YOUR list. -->
             <SearchBar
                 v-model="pm.searchQuery.value"
-                placeholder="Search palettes..."
+                placeholder="Search your palettes..."
             />
 
             <!-- Current palette + saved list -->
@@ -27,19 +31,22 @@
                     @clear-current="pm.emitApply([])"
                 />
 
-                <!-- Saved palettes toolbar -->
-                <div v-if="pm.savedPalettes.value.length > 0" class="flex items-center gap-2">
-                    <span class="text-mono-small text-muted-foreground">
-                        {{ pm.savedPalettes.value.length }} palette{{ pm.savedPalettes.value.length !== 1 ? 's' : '' }}
-                    </span>
-                    <div class="flex-1" />
+                <!-- Saved palettes toolbar. S.W5-7: the "{n} palettes" line
+                     is excised (the header Badge is the canonical count —
+                     it existed only to left-balance this button), and the
+                     delete-all trigger is DEMOTED from an always-red beacon
+                     (the highest-chroma element on the pane guarding its
+                     rarest action) to a quiet ghost — red on hover/focus. -->
+                <div v-if="pm.savedPalettes.value.length > 0" class="flex items-center justify-end">
                     <Button
-                        variant="destructive"
+                        variant="ghost"
                         icon-only
-                        class="h-7 w-7 rounded-full cursor-pointer"
+                        size="xs"
+                        class="cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                        aria-label="Delete all saved palettes"
                         @click="pm.showDeleteAllConfirm.value = true"
                     >
-                        <Trash2 class="w-3.5 h-3.5" />
+                        <Trash2 class="w-3.5 h-3.5" aria-hidden="true" />
                     </Button>
                 </div>
 

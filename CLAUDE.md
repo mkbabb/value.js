@@ -8,8 +8,18 @@ CSS value unit library: parsing, normalization, interpolation, color space conve
 npm run build        # library → dist/value.js (ESM) + dist/*.d.ts (flat layout, W12-unblocker)
 npm run build:watch  # vite build --watch (D.W1 — contract-v2 fleet dev orchestration)
 npm run gh-pages     # demo → dist/gh-pages/ (vendor-katex + vendor-highlight chunks via Rolldown codeSplitting, F.W1 Lane B)
-npm run dev          # dev server (Vite default port)
+npm run dev          # HONEST full local stack (S.W0 W0-1): scripts/dev.sh up — local api + mongo rs0 + VITE_API_URL wired + dev CORS. Palette features round-trip out of the box.
+npm run dev:web-only # frontend ONLY (bare vite :9000). No backend: palette/API features CORS-die against prod; the UI surfaces an explicit "dev misconfigured" state, never a silent prod fallback.
 ```
+
+> `npm run dev` boots the full stack because the demo's palette API needs a
+> CORS-permissive local backend. Bare vite with no `VITE_API_URL` targets the
+> cross-origin prod api (`api.color.babb.dev`), whose allow-list excludes
+> localhost — every palette request preflight-dies. Rather than mislabel that as
+> "backend offline", the demo detects the precondition (unset `VITE_API_URL` +
+> loopback origin + cross-origin BASE_URL) and enters a designed `misconfigured`
+> state (loud console error + a distinct UI chip). **REJECTED**: adding localhost
+> to prod `ALLOWED_ORIGINS` — dev must not target prod (api-broken-rootcause).
 
 ## Test + verify
 
@@ -35,7 +45,7 @@ src/
 ├── math.ts               # lerp, bezier, clamp, scale, deCasteljau
 ├── easing.ts             # CSS timing functions (30+ named, cubic-bezier, stepped, linear())
 ├── utils.ts              # clone, memoize, debounce, RAF, case conversion
-├── vite-env.d.ts         # Vite module declarations (.bbnf?raw, .vue)
+├── vite-env.d.ts         # Vite module declarations (.vue)
 ├── parsing/              # parse-that combinators for CSS values
 │   ├── index.ts          # top-level: parseCSSValue, gradients, transforms, var(), calc()
 │   ├── units.ts          # dimension parsers: length, angle, time, frequency, resolution, flex, %
@@ -45,15 +55,15 @@ src/
 │   ├── animation-shorthand.ts  # animation/transition shorthand parsing
 │   ├── extract.ts        # value extraction helpers
 │   ├── serialize.ts      # value serialization
-│   ├── stylesheet.ts     # stylesheet-level parsing
-│   └── grammars/         # BBNF spec grammars (used in equivalence tests)
-│       ├── css-values.bbnf
-│       └── css-color.bbnf
+│   └── stylesheet.ts     # stylesheet-level parsing
 ├── units/                # core value classes + unit definitions
 │   ├── index.ts          # ValueUnit, FunctionValue, ValueArray classes
-│   ├── constants.ts      # unit arrays, STYLE_NAMES (CSS properties), MatrixValues
+│   ├── constants.ts      # unit arrays, MatrixValues
+│   ├── style-names.ts    # STYLE_NAMES (CSS property-name data table, W1-8 split)
 │   ├── utils.ts          # unit conversion (px, deg, ms, Hz, dpi), flatten/unflatten
+│   ├── dom-metrics.ts    # DOM/layout pixel-resolution helpers (viewport/font/cq, W1-8)
 │   ├── normalize.ts      # value normalization + interpolation setup
+│   ├── layout-cache.ts   # getComputedValue + layout-epoch memo (W1-8 split)
 │   ├── interpolate.ts    # value interpolation
 │   └── color/            # color system (15 spaces, conversion, gamut mapping)
 │       ├── index.ts      # Color<T> base + 15 space classes + ColorChannel brand + ch<T> helper
@@ -97,7 +107,7 @@ assets/docs/              # 10 color space reference pages (Vue + KaTeX)
 - Named exports only, no defaults (enables tree-shaking)
 - Color matrices stored row-major (3x3); transform matrices column-major (4x4, CSS convention)
 - Color components normalized to [0,1] internally; denormalized on output
-- **Minimize `as any` / `as unknown as`** — prefer typed narrowing + branded nominal types. `src/` holds **0** `as any` and **2** policy-documented `as unknown as` irreducibles (DOM `CSSStyleDeclaration` at `normalize.ts:117`; clone-reinterpret at `parsing/color.ts:59`). `api/src` holds the same discipline (tranche L): **0** `as any`, **1** `as unknown as` (the `@hono/node-server` `server.close()` handle at `index.ts`); the 2 former `resolve-session.ts` ObjectId casts were retired by the branded `SessionToken`/`UserSlug` nominal types on `Session._id`/`User._id`. The discipline stands by the type system + review, not by a grep budget-script.
+- **Minimize `as any` / `as unknown as`** — prefer typed narrowing + branded nominal types. `src/` holds **0** `as any`. The `as unknown as` sites are all ONE accepted, irreducible erasure class — `Color<T>` generic-component-type erasure where the runtime is provably `Color<number>` but TypeScript can't thread it through a shared dispatch/leaf (`dispatch.ts` `color2Into`, `contrast.ts`, `parsing/color.ts`), plus the DOM `CSSStyleDeclaration` no-string-index class (`units/layout-cache.ts`, the `styleRecord` boundary — moved there from `normalize.ts` in S.W1 W1-8's layout-cache lift) — each carrying a load-bearing inline comment. The **count is regenerable, not hardcoded** (the LoC-precept pattern — a hardcoded number drifts every wave a generic-dispatch leaf lands): `grep -rn 'as unknown as' src/ | wc -l` is the source of truth (8 at tranche S; the 6 beyond the 2 originally-documented DOM/clone-reinterpret sites arrived with tranche Q's WCAG leaf + zero-alloc `color2Into` fast path, all the same class). `api/src` holds the same discipline (tranche L): **0** `as any`, **1** `as unknown as` (the `@hono/node-server` `server.close()` handle at `index.ts`); the 2 former `resolve-session.ts` ObjectId casts were retired by the branded `SessionToken`/`UserSlug` nominal types on `Session._id`/`User._id`. The discipline stands by the type system + review, not by a grep budget-script.
 - **No `demo/` god module** — every `demo/` file (excluding shadcn-vue at `demo/@/components/ui/`) stays ≤ 400 LoC; H.W3 decomposed `demo/@/lib/palette/api.ts` (484 LoC) → 9 modules, `PointerDebugOverlay.vue` (449) and `PaletteCard.vue` (435) via sub-component lifts
 - **Cascade-correctness** — the H1 invariant requires every cross-collection write site in `api/` wrapped in `services.withTransaction(...)` with `session` threaded through; H.W1 expanded 9 → 16 wrapped sites + authored the standing reference `docs/tranches/H/audit/api-withTransaction-coverage.md`
 - **`api/src` boundary closure (tranche L)** — every failure throws a typed `ApiError` (no ad-hoc `c.json({ error })`); routes call services, never `repositories.*` directly (ownership/ETag reads in `services/palette/ownership.ts`); only `repositories/` + the inject-services factory touch raw `db`; no legacy palette fields (`sessionToken`/4-state `status` excised — canonical state is `(visibility, tier)`); no `api/src` file > 350 LoC. See `docs/tranches/L/L.md §2` + `FINAL.md`.
@@ -110,7 +120,7 @@ assets/docs/              # 10 color space reference pages (Vue + KaTeX)
 
 ## Dependencies
 
-- **Runtime**: `@mkbabb/parse-that@^0.13.0`
+- **Runtime**: `@mkbabb/parse-that@^1.0.0` (the R-booked re-pin, shipped 2.0.1 `a7eabcc`; W0-4 discharged)
 - **Dev**: vite, vue, typescript, vitest, playwright, reka-ui, @vueuse/core, tailwindcss, katex
 - **Sibling `file:` deps**: `@mkbabb/glass-ui: file:../glass-ui`, `@mkbabb/keyframes.js: file:../keyframes.js` (kept deliberately — see §3.4 pin policy). The keyframes devDep is NOT phantom: it is the demo build's provision of glass-ui's `@mkbabb/keyframes.js` peerDependency `^5.0.0`, and keyframes' dist is a live transitive consumer of value.js's own `/math` subpath (`clamp`/`lerpArray`/`scale`).
 

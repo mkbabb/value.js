@@ -5,11 +5,14 @@
             @submit.prevent="onSubmit"
         >
             <Pencil class="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+            <!-- S.W5-3 (S-17): the field consumes the producer's
+                 `.input-bar-field` recipe (font/placeholder/flex all
+                 producer-owned) instead of hand-forking it class by class. -->
             <input
                 ref="inputRef"
                 v-model="localName"
                 placeholder="Palette name..."
-                class="text-mono-small bg-transparent border-none outline-none flex-1 min-w-0 placeholder:text-muted-foreground/50"
+                class="input-bar-field"
                 @keydown.escape.stop="$emit('cancel')"
             />
             <button

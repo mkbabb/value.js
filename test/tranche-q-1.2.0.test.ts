@@ -18,13 +18,7 @@ import {
     sampleColorRamp,
     sampleColorRampAt,
 } from "../src/units/color/mix";
-import {
-    buildColorChannelPlan,
-    packColorChannels,
-    lerpColorChannels,
-} from "../src/units/color-soa";
 import { OKLABColor, OKLCHColor, RGBColor } from "../src/units/color";
-import { lerp } from "../src/math";
 
 // ── VJ-Q4 (1.2.0) — flatLeaf .fnName ──
 describe("VJ-Q4 — ValueUnit.fnName provenance", () => {
@@ -192,58 +186,5 @@ describe("VJ-Q3 — mixColorsInto + sampleColorRampAt out-params", () => {
                 expect(Math.abs(Number(ramp[i]![k]) - Number(at[k]))).toBeLessThan(1e-12);
             }
         }
-    });
-});
-
-// ── VJ-Q8 (1.2.0) — ColorChannelPlan + lerpColorChannels ──
-describe("VJ-Q8 — SoA color-channel fold", () => {
-    it("oklab SoA fold is bit-exact vs per-element Color lerp", () => {
-        const K = 4;
-        const starts = Array.from({ length: K }, (_, i) => new OKLABColor(0.3 + i * 0.05, 0.1, -0.05, 1));
-        const stops = Array.from({ length: K }, (_, i) => new OKLABColor(0.8 - i * 0.05, -0.1, 0.05, 0.8));
-        const plan = buildColorChannelPlan(starts[0]!);
-        expect(plan.stride).toBe(4);
-        expect(plan.hueIndex).toBe(-1);
-        const sB = new Float64Array(K * plan.stride);
-        const eB = new Float64Array(K * plan.stride);
-        const oB = new Float64Array(K * plan.stride);
-        for (let k = 0; k < K; k++) {
-            packColorChannels(starts[k]!, plan, sB, k);
-            packColorChannels(stops[k]!, plan, eB, k);
-        }
-        for (const t of [0, 0.25, 0.5, 0.73, 1]) {
-            lerpColorChannels(t, sB, eB, oB, plan);
-            for (let k = 0; k < K; k++) {
-                const s = starts[k]!;
-                const e = stops[k]!;
-                const ref = [
-                    lerp(+s.l, +e.l, t),
-                    lerp(+s.a, +e.a, t),
-                    lerp(+s.b, +e.b, t),
-                    lerp(+s.alpha, +e.alpha, t),
-                ];
-                for (let c = 0; c < plan.stride; c++) {
-                    expect(Math.abs(oB[k * plan.stride + c]! - ref[c]!)).toBeLessThan(1e-12);
-                }
-            }
-        }
-    });
-
-    it("oklch plan flags the hue channel and folds it through interpolateHue", () => {
-        const s = new OKLCHColor(0.6, 0.2, 30, 1);
-        const e = new OKLCHColor(0.4, 0.3, 300, 1);
-        const plan = buildColorChannelPlan(s);
-        expect(plan.hueIndex).toBe(2);
-        const sB = new Float64Array(plan.stride);
-        const eB = new Float64Array(plan.stride);
-        const oB = new Float64Array(plan.stride);
-        packColorChannels(s, plan, sB, 0);
-        packColorChannels(e, plan, eB, 0);
-        lerpColorChannels(0.5, sB, eB, oB, plan);
-        // L,C lerp linearly; H is in [0,360].
-        expect(oB[0]).toBeCloseTo(lerp(0.6, 0.4, 0.5), 12);
-        expect(oB[1]).toBeCloseTo(lerp(0.2, 0.3, 0.5), 12);
-        expect(oB[2]).toBeGreaterThanOrEqual(0);
-        expect(oB[2]).toBeLessThanOrEqual(360);
     });
 });

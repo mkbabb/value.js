@@ -7,7 +7,7 @@
  *   - revoke   (DELETE /sessions)       → deletes current session
  *   - me       (GET /sessions/me)       → current user info
  *
- * All DB access routes through `c.var.services.repositories.{users,sessions}`.
+ * All DB access routes through `services.repositories.{users,sessions}`.
  * Errors throw typed `ApiError` subclasses; the global `onError` middleware
  * maps to the canonical envelope.
  *
@@ -18,17 +18,19 @@
  * the timing-attack signal between "valid slug / user not found" and
  * "valid slug / user exists" branches. Preserved verbatim from the legacy
  * route (`routes/sessions.ts:62` pre-migration).
+ *
+ * W2-8 — `ipHash` is resolved by the ROUTE (which holds the raw Hono
+ * `Context` for `resolveIP`) and threaded in as a plain string; these
+ * functions never touch `Context` themselves.
  */
 
 import crypto from "node:crypto";
-import type { Context } from "hono";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import {
     AuthenticationError,
     ConflictError,
     NotFoundError,
 } from "../../errors/index.js";
-import { hashIP, resolveIP } from "../../middleware/ip.js";
 import { asSessionToken, asUserSlug } from "../../models.js";
 import { generateUniqueSlug } from "../../slugWords.js";
 
@@ -63,13 +65,11 @@ export interface MeResult {
 }
 
 export async function registerSession(
-    c: Context<AppEnv>,
+    services: Services,
+    ipHash: string,
 ): Promise<RegisterResult> {
-    const services = c.var.services;
     const { users, sessions } = services.repositories;
 
-    const ip = resolveIP(c);
-    const ipHash = await hashIP(ip);
     const token = crypto.randomUUID();
     const now = new Date();
 
@@ -107,16 +107,16 @@ export async function registerSession(
 }
 
 export async function loginSession(
-    c: Context<AppEnv>,
+    services: Services,
+    currentUserSlug: string | undefined,
+    ipHash: string,
     input: { slug: string },
 ): Promise<LoginResult> {
-    const services = c.var.services;
     const { users, sessions } = services.repositories;
     const { slug } = input;
 
     // Refuse switching to the slug the current session already owns.
-    const currentSlug = c.var.userSlug;
-    if (currentSlug && currentSlug === slug) {
+    if (currentUserSlug && currentUserSlug === slug) {
         await sleep(LOGIN_CONSTANT_DELAY_MS);
         throw new ConflictError("Already logged in as this user");
     }
@@ -130,8 +130,6 @@ export async function loginSession(
         throw new NotFoundError("User not found");
     }
 
-    const ip = resolveIP(c);
-    const ipHash = await hashIP(ip);
     const token = crypto.randomUUID();
     const now = new Date();
 
@@ -157,20 +155,24 @@ export async function loginSession(
     return { token, userSlug: slug };
 }
 
-export async function revokeSession(c: Context<AppEnv>): Promise<{ ok: true }> {
-    const token = c.var.sessionToken;
-    if (!token) throw new AuthenticationError("Not authenticated");
+export async function revokeSession(
+    services: Services,
+    sessionToken: string | undefined,
+): Promise<{ ok: true }> {
+    if (!sessionToken) throw new AuthenticationError("Not authenticated");
 
-    const { sessions } = c.var.services.repositories;
-    await sessions.delete(token);
+    const { sessions } = services.repositories;
+    await sessions.delete(sessionToken);
     return { ok: true };
 }
 
-export async function getMe(c: Context<AppEnv>): Promise<MeResult> {
-    const userSlug = c.var.userSlug;
+export async function getMe(
+    services: Services,
+    userSlug: string | undefined,
+): Promise<MeResult> {
     if (!userSlug) throw new AuthenticationError("Not authenticated");
 
-    const { users } = c.var.services.repositories;
+    const { users } = services.repositories;
     const user = await users.findBySlug(userSlug);
     if (!user) throw new NotFoundError("User not found");
 

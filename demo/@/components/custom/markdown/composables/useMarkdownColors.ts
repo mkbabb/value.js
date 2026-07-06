@@ -1,4 +1,4 @@
-import { useDark } from "@vueuse/core";
+import { useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { computed } from "vue";
 import { parseCSSColor } from "@src/parsing/color";
 import { computeSafeAccent } from "@src/units/color/contrast";
@@ -12,7 +12,11 @@ const BG_LIGHTNESS_LIGHT = 0.97;
  * Returns a computed ref of style variables keyed by `--md-color-*`.
  */
 export function useMarkdownColors(cssColor: () => string | undefined) {
-    const isDark = useDark({ disableTransition: false });
+    // The ONE app dark store (glass-ui useGlobalDark singleton — the same
+    // instance App.vue constructs). S.W4-8 retired this composable's private
+    // vueuse useDark: parallel stores raced the initial scheme resolution
+    // (design-docs-about P2-5's observed wrong-theme paint).
+    const { isDark } = useGlobalDark();
 
     const mdColorVars = computed(() => {
         const colorStr = cssColor();
@@ -39,10 +43,22 @@ export function useMarkdownColors(cssColor: () => string | undefined) {
             // Boost chroma slightly for headings
             const headingC = Math.max(denormC, 0.08);
 
+            // S.W4-8 — the register boundary: letterforms speak ONE ink.
+            // The safe accent is minted once (the h2 rung, full strength);
+            // the h3/h4 rung derives by mixing toward the body ink at φ⁻¹ —
+            // an L/C step down the SAME hue, never a hue spin. (The former
+            // +40°/+20° per-level rotation painted sibling headings cyan and
+            // green simultaneously — a rainbow sampler, not one accent
+            // voice. Hue-variation belongs to color-DATA surfaces, never
+            // type — design-docs-about P2-3.) The oklab mix against the
+            // scheme's neutral foreground lowers C and moves L toward ink,
+            // correctly in BOTH schemes, with no second color minted.
+            const accent = `oklch(${denormL} ${headingC} ${denormH})`;
+
             return {
-                "--md-color-h2": `oklch(${denormL} ${headingC} ${denormH})`,
-                "--md-color-h3": `oklch(${denormL} ${headingC} ${(denormH + 40) % 360})`,
-                "--md-color-accent": `oklch(${denormL} ${headingC} ${(denormH + 20) % 360})`,
+                "--md-color-h2": accent,
+                "--md-color-h3": `color-mix(in oklab, ${accent} 61.8%, var(--foreground))`,
+                "--md-color-accent": accent,
             } as Record<string, string>;
         } catch {
             return {};

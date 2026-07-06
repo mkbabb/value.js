@@ -26,7 +26,7 @@ router.get("/audit", async (c) => {
     const limit = Math.max(1, Math.min(parsed.data.limit ?? 20, 100));
     const offset = Math.max(0, parsed.data.offset ?? 0);
 
-    const page = await listAudit(c, {
+    const page = await listAudit(c.var.services, {
         limit,
         offset,
         action: parsed.data.action,

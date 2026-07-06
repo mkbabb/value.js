@@ -10,6 +10,7 @@ import {
     easeInExpo, easeOutExpo, easeInOutExpo,
     jumpTerms, steppedEase, stepStart, stepEnd,
     bezierPresets, timingFunctions,
+    resolveEasing,
 } from "../src/easing";
 
 const namedEasings = {
@@ -265,5 +266,63 @@ describe("easing functions", () => {
                 "start", "end", "both",
             ]);
         });
+    });
+});
+
+describe("resolveEasing (W1-6 — canonical string → TimingFunction)", () => {
+    it("resolves hyphenated named catalogue keys", () => {
+        expect(resolveEasing("linear")(0.5)).toBeCloseTo(0.5, 12);
+        expect(resolveEasing("ease-in-quad")(0.5)).toBeCloseTo(0.25, 12);
+        expect(resolveEasing("smooth-step-3")(0.5)).toBeCloseTo(0.5, 12);
+    });
+
+    it("resolves camelCase named keys (case-sensitive) + is case-insensitive on hyphenated keys", () => {
+        expect(resolveEasing("easeInQuad")(0.5)).toBeCloseTo(0.25, 12);
+        expect(resolveEasing("Ease-In-Out")(0)).toBeCloseTo(0, 6);
+        expect(resolveEasing("EASE-IN-OUT")(1)).toBeCloseTo(1, 6);
+    });
+
+    it("resolves cubic-bezier(...)", () => {
+        const f = resolveEasing("cubic-bezier(0.42, 0, 0.58, 1)");
+        expect(f(0)).toBeCloseTo(0, 6);
+        expect(f(1)).toBeCloseTo(1, 6);
+        // Identity handles → x(t)=t: the linear bezier is exactly linear.
+        expect(resolveEasing("cubic-bezier(0, 0, 1, 1)")(0.5)).toBeCloseTo(0.5, 6);
+    });
+
+    it("resolves steps(...) with and without an explicit jump position", () => {
+        expect(resolveEasing("steps(4, jump-end)")(0.5)).toBeCloseTo(0.5, 12);
+        expect(resolveEasing("steps(4)")(1)).toBeCloseTo(1, 12);
+        expect(resolveEasing("steps(2, jump-start)")(0.01)).toBeCloseTo(0.5, 12);
+    });
+
+    it("resolves the step-start / step-end factory keywords", () => {
+        expect(resolveEasing("step-start")(0)).toBe(0);
+        expect(resolveEasing("step-start")(0.01)).toBe(1);
+        expect(resolveEasing("step-end")(0.99)).toBe(0);
+        expect(resolveEasing("step-end")(1)).toBe(1);
+    });
+
+    it("resolves linear(...) including a two-percentage flat segment", () => {
+        expect(resolveEasing("linear(0, 1)")(0.5)).toBeCloseTo(0.5, 12);
+        const flat = resolveEasing("linear(0, 0.5 25% 75%, 1)");
+        expect(flat(0.5)).toBeCloseTo(0.5, 12); // held flat across 25%–75%
+        expect(flat(0)).toBeCloseTo(0, 12);
+        expect(flat(1)).toBeCloseTo(1, 12);
+    });
+
+    it("agrees with the raw timingFunctions catalogue for a sampled key", () => {
+        const ref = timingFunctions["ease-in-out-cubic"];
+        const got = resolveEasing("ease-in-out-cubic");
+        for (const t of [0, 0.2, 0.5, 0.8, 1]) {
+            expect(got(t)).toBeCloseTo(ref(t), 12);
+        }
+    });
+
+    it("throws on an unrecognised string — never silently degrades to linear", () => {
+        expect(() => resolveEasing("not-an-easing")).toThrow(/unrecognised/);
+        expect(() => resolveEasing("steps")).toThrow(/requires arguments/);
+        expect(() => resolveEasing("cubic-bezier(1, 2, 3)")).toThrow(/4 numbers/);
+        expect(() => resolveEasing("steps(0)")).toThrow(/positive integer/);
     });
 });

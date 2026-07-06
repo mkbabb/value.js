@@ -32,7 +32,17 @@ function canvasToPixels(canvas: HTMLCanvasElement): { pixels: Uint8ClampedArray;
     return { pixels: imageData.data, width: canvas.width, height: canvas.height };
 }
 
-export function useImageQuantize() {
+export interface ImageQuantizeOptions {
+    /**
+     * S.W2 W2-4: injectable worker construction. Defaults to the `?worker`
+     * import; tests + a Safari-worker fallback can swap a fake/pooled factory.
+     */
+    workerFactory?: () => Worker;
+}
+
+export function useImageQuantize(options?: ImageQuantizeOptions) {
+    const workerFactory = options?.workerFactory ?? createWorker;
+
     const palette = shallowRef<QuantizedColor[]>([]);
     const isProcessing = ref(false);
     const error = ref<string | null>(null);
@@ -43,7 +53,7 @@ export function useImageQuantize() {
 
     function getWorker(): Worker {
         if (!worker) {
-            worker = createWorker();
+            worker = workerFactory();
             worker.onmessage = (e: MessageEvent<QuantizeWorkerResponse>) => {
                 if (e.data.type === "result") {
                     palette.value = e.data.palette ?? [];

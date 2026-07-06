@@ -14,10 +14,16 @@ units/
 ├── constants.ts    # unit definitions
 │                     LENGTH_UNITS (absolute + relative), TIME_UNITS, ANGLE_UNITS
 │                     FREQUENCY_UNITS, RESOLUTION_UNITS, FLEX_UNITS, PERCENTAGE_UNITS
-│                     STYLE_NAMES — CSS property names (camelCase)
 │                     MatrixValues interface (16 transform components)
+├── style-names.ts  # STYLE_NAMES — CSS property names (camelCase) data table
+│                     (S.W1 W1-8 data-module split out of constants.ts)
+├── dom-metrics.ts  # DOM/layout pixel-resolution helpers (S.W1 W1-8 split)
+│                     findQueryContainer, isVerticalWritingMode, HANDLED_RELATIVE_UNITS
+│                     convertViewportUnitToPixels (sv*/lv*/dv*/vi/vb)
+│                     convertFontMetricUnitToPixels (cap/ic/lh/rlh)
 ├── utils.ts        # unit conversion + CSS utilities
-│                     convertToPixels, convertToDegrees, convertToMs, convertToHz, convertToDPI
+│                     convertToPixels (imports dom-metrics helpers), convertAbsoluteUnitToPixels
+│                     convertToDegrees, convertToMs, convertToHz, convertToDPI
 │                     convert2 (generic cross-unit conversion)
 │                     flattenObject / unflattenObject (nested style ↔ flat)
 │                     unpackMatrixValues (matrix/matrix3d decomposition)
@@ -25,7 +31,10 @@ units/
 ├── normalize.ts    # value normalization for interpolation
 │                     normalizeNumericUnits (length/angle/time/resolution → common base)
 │                     normalizeValueUnits (full normalization with color space handling)
-│                     getComputedValue (resolve var/calc from DOM element)
+├── layout-cache.ts # computed-value resolution + layout-epoch cache (S.W1 W1-8 split)
+│                     getComputedValue (resolve var/calc from DOM element, memoized)
+│                     getLayoutEpoch / bumpLayoutEpoch (resize/var() invalidation)
+│                     COMPUTED_MEMO_MAX_ENTRIES (LRU ceiling) + styleRecord DOM boundary
 └── color/          # see color/CLAUDE.md
 ```
 

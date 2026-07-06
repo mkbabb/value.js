@@ -61,7 +61,6 @@ export {
     LINEAR_SRGB_TO_LMS,
     OKLAB_TO_LMS_COEFF,
     GAMUT_SECTOR_COEFFICIENTS,
-    COLOR_NAMES,
 } from "../units/color/constants";
 export type {
     ColorSpace,
@@ -99,6 +98,8 @@ export type { HueInterpolationMethod } from "../units/color/mix";
 export {
     computeSafeAccent,
     safeAccentColor,
+    // S.W1-6 — the CSS-string accent surface the demo consumes.
+    safeAccentCssString,
     needsContrastAdjustment,
     getOklchLightness,
     wcagRelativeLuminance,
@@ -118,6 +119,12 @@ export type {
     GamutBoundaryMode,
     SampleGamutBoundaryOptions,
 } from "../units/color/boundary";
+// OKLCh slice boundary (S.W1-6) — the L×C sRGB cusp polyline (S.W5-8 consumes).
+export {
+    sampleOKLChSliceBoundary,
+    sampleOKLChSliceBoundaryInto,
+} from "../units/color/boundary";
+export type { OKLChSliceBoundary } from "../units/color/boundary";
 
 // Color normalization
 export {
@@ -144,9 +151,18 @@ export {
     rawOklchToOklab,
     oklabToRgb255,
 } from "../units/color/gamut";
+// Raytrace gamut map (S.W1-10 · R-4) — the EXACT-boundary reference twin of the
+// analytical map above (validation surface; agrees within ΔE-OK < 1e-3, lands
+// strictly on the sRGB surface where the analytical leaves a ~1e-4 residual).
+export {
+    gamutMapOKLabRaytrace,
+    gamutMapSRGBRaytrace,
+} from "../units/color/gamut-raytrace";
 
-// Perceptual color-difference metrics (R.W1.6 · R-3)
-export { deltaE2000, deltaEITP, xyzToICtCp } from "../units/color/difference";
+// Perceptual color-difference metrics (R.W1.6 · R-3) + ICtCp round-trip
+// (S.W1-6 · Q9: ictcpToXYZ inverse) + Jzazbz transform (S.W1-11 · Q9 widening).
+export { deltaE2000, deltaEITP, xyzToICtCp, ictcpToXYZ } from "../units/color/difference";
+export { xyzToJzazbz, jzazbzToXYZ } from "../units/color/conversions/jzazbz";
 
 // OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
 export {
@@ -159,8 +175,10 @@ export {
 // Color filter solver
 export { rgb2ColorFilter, cssFiltersToString } from "../units/color/colorFilter";
 
-// The runtime custom color-name registry (parse-that-free home — O.W1 S1)
+// The color-name data table + the runtime custom-name registry (parse-that-free
+// home — O.W1 S1; COLOR_NAMES joined it in S.W1 W1-8's data lift).
 export {
+    COLOR_NAMES,
     registerColorNames,
     clearCustomColorNames,
     getCustomColorNames,

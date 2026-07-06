@@ -185,22 +185,36 @@ function labelColor(component: string): string {
 // function, one threshold): the ramp color under the thumb IS the live color,
 // so the thumb border, the WatercolorDot border, and the overlay contour ink
 // can never disagree about the same color.
+// S.W4 / W4-3 (S-2/S-16): the ink alphas softened — the black leg dropped
+// 0.8→0.55 (a near-opaque black ring read as a foreign hard edge on light
+// ramps), the white leg 0.9→0.8. The needle stays value-aware; only its
+// weight quiets. The producer halves (border-width token, hover recipe,
+// spectrum-without-bg loud failure) are letter L6; root `/slider` consume
+// lands at W8.
 const thumbInk = computed(() => {
     const { s, v } = HSVCurrentColor.value.value;
     return spectrumFieldIsLight(clamp(s.value, 0, 1), clamp(v.value, 0, 1))
-        ? "rgba(0, 0, 0, 0.8)"
-        : "rgba(255, 255, 255, 0.9)";
+        ? "rgba(0, 0, 0, 0.55)"
+        : "rgba(255, 255, 255, 0.8)";
 });
 
 // Producer token feed for the glass-ui spectrum slider: the perceptual ramp
 // on the track, the LIVE color on the thumb, the value-aware needle ink on
 // the border. Touch-action rides the same gate as the spectrum plate.
+// S owner-ruling 2026-07-05: the ALPHA row's ramp (which honestly ramps
+// `… / 0` → `… / 1`) composes the house `--alpha-checker` ground UNDER it —
+// the transparent end reveals the checker instead of the pane glass. Pure
+// token feed through the producer's own `--slider-track-bg` seam (the track
+// paints `background: var(--slider-track-bg, …)`, and the background
+// shorthand accepts the layered value) — no producer override, no fork.
 function sliderVars(component: string): Record<string, string | undefined> {
     const stops = componentsSlidersStyle.value[component];
+    const ramp = stops ? `linear-gradient(to right, ${stops.join(", ")})` : undefined;
     return {
-        "--slider-track-bg": stops
-            ? `linear-gradient(to right, ${stops.join(", ")})`
-            : undefined,
+        "--slider-track-bg":
+            ramp && component === "alpha"
+                ? `${ramp}, var(--alpha-checker)`
+                : ramp,
         "--slider-thumb-bg": cssColorOpaque.value,
         "--slider-thumb-border-color": thumbInk.value,
         touchAction: spectrumGateIsTouchDevice

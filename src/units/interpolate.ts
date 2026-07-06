@@ -3,14 +3,15 @@ import type { Color } from "./color";
 import { ch, channelOf, setChannel } from "./color";
 import { COMPUTED_UNITS } from "./constants";
 import { ValueUnit, type InterpolatedVar } from "./index";
-import { getComputedValue, getLayoutEpoch } from "./normalize";
+import { getComputedValue, getLayoutEpoch } from "./layout-cache";
 import { CYLINDRICAL_HUE_COMPONENT, interpolateHue } from "./color/mix";
 
 /**
- * Interpolate a `ValueUnit` whose unit is *computed* (`var`, `calc`,
- * `vh`, `vw`, etc.) by resolving both endpoints against a target
- * element's live computed style and lerping the resulting numeric
- * values.
+ * Interpolate a `ValueUnit` whose unit is *computed* (`var` or `calc` —
+ * the only two members of `COMPUTED_UNITS`) by resolving both endpoints
+ * against a target element's live computed style and lerping the resulting
+ * numeric values. Viewport/container units (`vh`, `vw`, `cqw`, …) do NOT
+ * reach this path — they are not marked computed (lib-core-value-audit P2-1).
  *
  * C1 (tranche-F Wave C) — the endpoint cache. The resolved
  * `(startN, stopN, unit)` pair is invariant while the layout epoch is
@@ -87,10 +88,10 @@ type InterpColor = Color<ValueUnit<number> | number>;
  * channel (or null when the destination slot is a raw number written via
  * `setChannel`).
  *
- * Renamed `ColorChannelPlan → ColorInterpPlan` at VJ-Q8 (1.2.0) to free the
- * `ColorChannelPlan` name for the PUBLIC compositor SoA layout (`color-soa.ts`)
- * the keyframes.js SoA compositor consumes — a DIFFERENT structure (a reusable
- * `(Color → channel offsets)` layout, not this per-iv endpoint cache).
+ * Named `ColorInterpPlan` (renamed from `ColorChannelPlan` at VJ-Q8): a
+ * per-iv endpoint cache. The former public `color-soa.ts` SoA layout that once
+ * shared the `ColorChannelPlan` name was EXCISED at S.W1 (3.0.0) as an orphan
+ * export — its named keyframes.js compositor consumer never adopted it.
  */
 export type ColorInterpPlan = {
     keys: readonly string[];

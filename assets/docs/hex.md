@@ -61,7 +61,7 @@ Each pair of hex digits encodes a value from 0 to 255. The conversion from a two
 
 <Katex expression="V = 16 \cdot d_1 + d_0" />
 
-where `d_1` is the high nibble and `d_0` is the low nibble, each in `\{0\text{–}9, A\text{–}F\}`.
+where `d_1` is the high nibble and `d_0` is the low nibble, each in <Katex expression="\{0\text{–}9, A\text{–}F\}" :display-mode="false" />.
 
 The reverse—decimal to hex:
 

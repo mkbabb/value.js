@@ -57,13 +57,13 @@ Conversions between D50 and D65 use **Bradford chromatic adaptation**.
 ### Components
 
 1. **`L*` (Lightness)**:
-   `L^* = 0 \text{ (black) to } 100 \text{ (diffuse white)}`
+   <Katex expression="L^* = 0 \text{ (black) to } 100 \text{ (diffuse white)}" :display-mode="false" />
 
 2. **`a*` (Green-Red axis)**:
-   `a^* < 0 \text{ (green) to } a^* > 0 \text{ (red)}`
+   <Katex expression="a^* < 0 \text{ (green) to } a^* > 0 \text{ (red)}" :display-mode="false" />
 
 3. **`b*` (Blue-Yellow axis)**:
-   `b^* < 0 \text{ (blue) to } b^* > 0 \text{ (yellow)}`
+   <Katex expression="b^* < 0 \text{ (blue) to } b^* > 0 \text{ (yellow)}" :display-mode="false" />
 
 ### Representation
 

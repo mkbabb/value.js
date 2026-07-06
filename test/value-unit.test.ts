@@ -230,6 +230,19 @@ describe("ValueUnit", () => {
             const v = new ValueUnit(42.999, "%");
             expect(v.toFixed(1)).toBe("43%");
         });
+
+        it("trims a PARTIAL trailing zero consistently (S.W1 W1-7)", () => {
+            // Pre-fix, `15.50` kept its trailing zero while `15.00` collapsed to
+            // `15` — a surprising split. Both fractional forms now trim uniformly.
+            expect(new ValueUnit(15.5, "px").toFixed(2)).toBe("15.5px");
+            expect(new ValueUnit(15.001, "px").toFixed(2)).toBe("15px");
+        });
+
+        it("never trims trailing zeros from the integer part (fractionDigits=0)", () => {
+            // With no fractional digits there is no dot, so `100`/`1050` are safe.
+            expect(new ValueUnit(100, "px").toFixed(0)).toBe("100px");
+            expect(new ValueUnit(1050, "px").toFixed(0)).toBe("1050px");
+        });
     });
 
     // ---- setValue -----------------------------------------------------------

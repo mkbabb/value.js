@@ -1,0 +1,142 @@
+{
+  "capturedAt": "2026-07-06T20:04:10.170Z",
+  "base": "http://localhost:4933",
+  "shots": [
+    {
+      "file": "collapsed--wide-1440x900--light.png",
+      "state": "collapsed",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "collapsed--wide-1440x900--dark.png",
+      "state": "collapsed",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "expanded-view-select--wide-1440x900--light.png",
+      "state": "expanded-view-select-open",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "expanded-view-select--wide-1440x900--dark.png",
+      "state": "expanded-view-select-open",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "expanded-view-select--mobile-390x844--light.png",
+      "state": "expanded-view-select-open",
+      "viewport": "mobile-390x844",
+      "scheme": "light"
+    },
+    {
+      "file": "expanded-view-select--mobile-390x844--dark.png",
+      "state": "expanded-view-select-open",
+      "viewport": "mobile-390x844",
+      "scheme": "dark"
+    },
+    {
+      "file": "furniture-rest--wide-1440x900--light.png",
+      "state": "furniture-rest",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "furniture-mbabb-open--wide-1440x900--light.png",
+      "state": "furniture-mbabb-open",
+      "viewport": "wide-1440x900",
+      "scheme": "light"
+    },
+    {
+      "file": "furniture-rest--wide-1440x900--dark.png",
+      "state": "furniture-rest",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "furniture-mbabb-open--wide-1440x900--dark.png",
+      "state": "furniture-mbabb-open",
+      "viewport": "wide-1440x900",
+      "scheme": "dark"
+    },
+    {
+      "file": "prm-mount--wide-1440x900--light.png",
+      "state": "prm-mount",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "boundingBox": {
+        "x": 698,
+        "y": 8,
+        "width": 44,
+        "height": 64
+      }
+    },
+    {
+      "file": "prm-collapsed--wide-1440x900--light.png",
+      "state": "prm-collapsed",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "boundingBox": {
+        "x": 691,
+        "y": 8,
+        "width": 58,
+        "height": 58
+      }
+    },
+    {
+      "file": "prm-stuck-after-tap--wide-1440x900--light.png",
+      "state": "prm-stuck-after-tap",
+      "viewport": "wide-1440x900",
+      "scheme": "light",
+      "boundingBox": {
+        "x": 698,
+        "y": 8,
+        "width": 44,
+        "height": 64
+      },
+      "dockClass": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline",
+      "note": "defect: class reads 'expanded' but the box width stays near the collapsed size (~44-58px) — never reaches the ~447px expanded width the same tap reaches under normal motion"
+    },
+    {
+      "file": "prm-mount--wide-1440x900--dark.png",
+      "state": "prm-mount",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "boundingBox": {
+        "x": 698,
+        "y": 8,
+        "width": 44,
+        "height": 64
+      }
+    },
+    {
+      "file": "prm-collapsed--wide-1440x900--dark.png",
+      "state": "prm-collapsed",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "boundingBox": {
+        "x": 691,
+        "y": 8,
+        "width": 58,
+        "height": 58
+      }
+    },
+    {
+      "file": "prm-stuck-after-tap--wide-1440x900--dark.png",
+      "state": "prm-stuck-after-tap",
+      "viewport": "wide-1440x900",
+      "scheme": "dark",
+      "boundingBox": {
+        "x": 698,
+        "y": 8,
+        "width": 44,
+        "height": 64
+      },
+      "dockClass": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline",
+      "note": "defect: class reads 'expanded' but the box width stays near the collapsed size (~44-58px) — never reaches the ~447px expanded width the same tap reaches under normal motion"
+    }
+  ]
+}

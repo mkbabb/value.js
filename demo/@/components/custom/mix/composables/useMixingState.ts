@@ -1,10 +1,21 @@
 /**
  * Mixing state machine — manages the workflow of selecting colors/palettes,
- * performing the mix, animating, and displaying results.
+ * performing the mix, and displaying results.
+ *
+ * ONE-CLOCK LAW (S.W3-6 / Q10): this machine owns NO timers. The mix
+ * choreography's single clock lives in `useMixingAnimation` (the canvas
+ * timeline); this machine only advances on its completion event:
+ *
+ *   idle ──startMix()──▶ mixing ──settleMix() (the canvas's onSettled)──▶ done
+ *
+ * The result is computed synchronously at `startMix` (the math is instant);
+ * `mixing` is purely the narration window — the convergence animation — and
+ * `done` is the inked-in plate. Under prefers-reduced-motion the animation
+ * composable fires its completion event immediately, so the result appears
+ * with zero dead time.
  */
 
 import { ref, computed } from "vue";
-import type { Ref } from "vue";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/mix";
 import type { Palette, PaletteColor } from "@lib/palette/types";
@@ -27,7 +38,7 @@ export interface MixResult {
     colors?: PaletteColor[];
 }
 
-export type AnimationPhase = "idle" | "gathering" | "mixing" | "revealing" | "done";
+export type AnimationPhase = "idle" | "mixing" | "done";
 
 export function useMixingState() {
     const mode = ref<"colors" | "palettes">("colors");
@@ -63,46 +74,41 @@ export function useMixingState() {
         selectedPalettes.value = selectedPalettes.value.filter((p) => p.slug !== slug);
     }
 
+    /**
+     * Compute the mix synchronously and open the narration window. The phase
+     * lands in `done` only when the animation's completion event calls
+     * `settleMix()` — never on a timer here.
+     */
     function startMix() {
         if (!canMix.value) return;
+        // Re-entry guard: the convergence is in flight; the animation clock
+        // owns the window until it settles.
+        if (animationPhase.value === "mixing") return;
 
-        animationPhase.value = "gathering";
-
-        // Compute immediately (the animation runs in parallel)
         if (mode.value === "colors") {
             const colors = selectedColors.value
                 .map((sc) => cssToRawColor(sc.css, colorSpace.value))
                 .filter((c): c is Color<number> => c !== null);
 
-            if (colors.length < 2) {
-                animationPhase.value = "idle";
-                return;
-            }
+            if (colors.length < 2) return;
 
             const mixed = mixColorsN(colors, undefined, colorSpace.value, hueMethod.value);
-            const css = rawColorToCSS(mixed);
-
-            // Schedule animation phases
-            setTimeout(() => { animationPhase.value = "mixing"; }, 800);
-            setTimeout(() => {
-                animationPhase.value = "revealing";
-                mixResult.value = { type: "color", css };
-            }, 2300);
-            setTimeout(() => { animationPhase.value = "done"; }, 2900);
+            mixResult.value = { type: "color", css: rawColorToCSS(mixed) };
         } else {
             const resultColors = mixPalettes(selectedPalettes.value, {
                 space: colorSpace.value,
                 hueMethod: hueMethod.value,
                 leftoverStrategy: leftoverStrategy.value,
             });
-
-            setTimeout(() => { animationPhase.value = "mixing"; }, 800);
-            setTimeout(() => {
-                animationPhase.value = "revealing";
-                mixResult.value = { type: "palette", colors: resultColors };
-            }, 2300);
-            setTimeout(() => { animationPhase.value = "done"; }, 2900);
+            mixResult.value = { type: "palette", colors: resultColors };
         }
+
+        animationPhase.value = "mixing";
+    }
+
+    /** The animation's completion event — the ONE clock's single downstream edge. */
+    function settleMix() {
+        if (animationPhase.value === "mixing") animationPhase.value = "done";
     }
 
     function reset() {
@@ -131,6 +137,7 @@ export function useMixingState() {
         addPalette,
         removePalette,
         startMix,
+        settleMix,
         reset,
         clearSelection,
     };

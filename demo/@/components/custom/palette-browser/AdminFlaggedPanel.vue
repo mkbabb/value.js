@@ -12,18 +12,33 @@
             </Button>
         </div>
 
-        <!-- Loading -->
-        <div v-if="flagged.loading.value" class="flex items-center justify-center py-8">
-            <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />
+        <!-- W5-1 + F-13: flagged rows load as row shadows, one grammar. -->
+        <div v-if="flagged.loading.value" class="grid gap-2" aria-label="Loading flagged palettes">
+            <AdminListSkeleton v-for="i in 2" :key="i" />
         </div>
 
-        <!-- Empty -->
-        <div
-            v-else-if="flagged.items.value.length === 0"
-            class="py-8 text-center text-mono-small italic text-muted-foreground"
+        <!-- W5-5 (F-2, the P0 case): error ≠ empty — a dead backend never
+             costumes as a clear moderation queue. Plain register (Q6). -->
+        <EmptyState
+            v-else-if="flagged.loadError.value"
+            variant="error"
+            message="The flag queue is unreachable."
+            :detail="flagged.loadError.value"
         >
-            No flagged palettes.
-        </div>
+            <template #action>
+                <Button variant="outline" size="sm" class="font-display" @click="flagged.loadFlagged()">
+                    Retry
+                </Button>
+            </template>
+        </EmptyState>
+
+        <!-- W5-5 / F-11: the one panel that defected from the specimen-plate
+             empty grammar (a grey italic apology) joins the register. -->
+        <EmptyState
+            v-else-if="flagged.items.value.length === 0"
+            eyebrow="· nothing flagged ·"
+            message="No flagged palettes."
+        />
 
         <!-- Flagged items -->
         <div
@@ -47,7 +62,15 @@
                     <span class="text-subheading truncate">
                         {{ item.palette?.name ?? item.paletteSlug }}
                     </span>
-                    <span v-if="item.palette?.userSlug" class="text-mono-caption text-muted-foreground truncate">
+                    <!-- W5-5 (F-11): a null palette is a DELETED palette —
+                         say so in the K-INV5 small-caps annotation register,
+                         never a silent bare slug with an empty strip. -->
+                    <span
+                        v-if="!item.palette"
+                        class="fira-code text-mono-caption text-muted-foreground opacity-70 tracking-wide"
+                        style="font-variant: small-caps"
+                    >palette deleted</span>
+                    <span v-else-if="item.palette.userSlug" class="text-mono-caption text-muted-foreground truncate">
                         {{ item.palette.userSlug }}
                     </span>
                 </div>
@@ -57,12 +80,21 @@
                 </Badge>
 
                 <div class="flex items-center gap-1 shrink-0">
-                    <!-- Ag-1: text-xs → text-caption (caption role) -->
-                    <Button variant="outline" size="sm" class="h-7 px-2 text-caption" @click="flagged.dismiss(item.paletteSlug)">
+                    <!-- W5-12 (F-8): the pair weighted asymmetrically — the
+                         labeled neutral Dismiss is the primary affordance;
+                         the delete is a QUIET icon (ink at rest, red only on
+                         hover/focus), never its equal-weight red twin. -->
+                    <Button variant="outline" size="sm" class="h-7 px-2 text-caption font-display" @click="flagged.dismiss(item.paletteSlug)">
                         Dismiss
                     </Button>
-                    <Button variant="destructive" size="sm" class="h-7 px-2" @click="flagged.deletePalette(item.paletteSlug)">
-                        <Trash2 class="h-3 w-3" />
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        class="h-7 px-2 cursor-pointer text-muted-foreground hover:text-destructive focus-visible:text-destructive hover:bg-destructive/10"
+                        :aria-label="`Delete palette ${item.palette?.name ?? item.paletteSlug}`"
+                        @click="flagged.deletePalette(item.paletteSlug)"
+                    >
+                        <Trash2 class="h-3 w-3" aria-hidden="true" />
                     </Button>
                 </div>
             </div>
@@ -103,7 +135,9 @@
 import { inject, onMounted } from "vue";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
-import { Loader2, RefreshCw, Trash2 } from "@lucide/vue";
+import { RefreshCw, Trash2 } from "@lucide/vue";
+import EmptyState from "./EmptyState.vue";
+import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatDate } from "@lib/dateFormat";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";

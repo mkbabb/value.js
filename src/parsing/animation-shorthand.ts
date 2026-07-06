@@ -1,61 +1,24 @@
 import { memoize } from "../utils";
 import type { CSSAnimationOptions } from "./extract";
 import { parseCSSTime } from "./index";
-import { splitTopLevelCommas } from "./utils";
+import { reverseCSSIterationCount } from "./units";
+import {
+    BRACKETS_ROUND,
+    PARSE_MEMO_MAX_ENTRIES,
+    splitTopLevel,
+    splitTopLevelCommas,
+} from "./utils";
 
 /**
- * Tokenise the value of an `animation` shorthand declaration into
- * top-level whitespace-separated tokens, respecting nested parens
- * (so `cubic-bezier(0.1, 0.7, 1, 0.1)` stays one token) and string
- * literals.
+ * Tokenise the value of an `animation` shorthand declaration into top-level
+ * whitespace-separated tokens, respecting nested parens (so
+ * `cubic-bezier(0.1, 0.7, 1, 0.1)` stays one token) and string literals. W1-8
+ * (lib-parsing F-5): the shared `splitTopLevel` scanner, split on whitespace,
+ * tracking parens only — no longer a hand-rolled twin two lines below the
+ * `splitTopLevelCommas` import.
  */
-const tokeniseShorthand = (input: string): string[] => {
-    const tokens: string[] = [];
-    let buf = "";
-    let depth = 0;
-    let inString: string | null = null;
-
-    const flush = () => {
-        const t = buf.trim();
-        if (t.length > 0) tokens.push(t);
-        buf = "";
-    };
-
-    for (let i = 0; i < input.length; i++) {
-        const ch = input[i]!;
-        if (inString) {
-            if (ch === "\\" && i + 1 < input.length) {
-                buf += ch + input[++i]!;
-                continue;
-            }
-            if (ch === inString) inString = null;
-            buf += ch;
-            continue;
-        }
-        if (ch === '"' || ch === "'") {
-            inString = ch;
-            buf += ch;
-            continue;
-        }
-        if (ch === "(") {
-            depth++;
-            buf += ch;
-            continue;
-        }
-        if (ch === ")") {
-            depth--;
-            buf += ch;
-            continue;
-        }
-        if (depth === 0 && /\s/.test(ch)) {
-            flush();
-            continue;
-        }
-        buf += ch;
-    }
-    flush();
-    return tokens;
-};
+const tokeniseShorthand = (input: string): string[] =>
+    splitTopLevel(input, (ch) => /\s/.test(ch), { brackets: BRACKETS_ROUND });
 
 const TIME_RE = /^-?(?:\d+\.?\d*|\.\d+)(?:s|ms)$/i;
 const NUMBER_RE = /^\d+\.?\d*$/;
@@ -204,8 +167,8 @@ export const parseAnimationShorthand = memoize(
         return segments.map((seg) => parseSingleAnimation(seg));
     },
     // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see
-    // comment in src/parsing/index.ts.
-    { keyFn: (input: string) => input },
+    // comment in src/parsing/index.ts. maxCacheSize (W1-5): bound the cache.
+    { keyFn: (input: string) => input, maxCacheSize: PARSE_MEMO_MAX_ENTRIES },
 );
 
 /**
@@ -222,11 +185,10 @@ export const reverseAnimationShorthand = (opts: CSSAnimationOptions): string => 
     if (opts.timingFunction != null) parts.push(opts.timingFunction);
     if (opts.delay != null) parts.push(formatTime(opts.delay));
     if (opts.iterationCount != null) {
-        parts.push(
-            opts.iterationCount === Infinity
-                ? "infinite"
-                : String(opts.iterationCount),
-        );
+        // Route through the published `reverseCSSIterationCount` rather than
+        // re-inlining its identical `Infinity → "infinite"` branch (DRY — it was
+        // a dead export whose logic was duplicated here; legacy-sweep-src P1).
+        parts.push(reverseCSSIterationCount(opts.iterationCount));
     }
     if (opts.direction != null) parts.push(opts.direction);
     if (opts.fillMode != null) parts.push(opts.fillMode);

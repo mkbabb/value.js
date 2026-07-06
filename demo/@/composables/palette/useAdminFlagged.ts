@@ -25,6 +25,8 @@ export interface UseAdminFlagged {
     page: Ref<number>;
     pageSize: number;
     loading: Ref<boolean>;
+    /** W5-5 (F-2): load failure, surfaced — error ≠ empty at the panel. */
+    loadError: Ref<string | null>;
     pageCount: Ref<number>;
     hasNext: Ref<boolean>;
     hasPrev: Ref<boolean>;
@@ -48,6 +50,7 @@ export function useAdminFlagged(): UseAdminFlagged {
     const page = ref(1);
     const pageSize = 20;
     const loading = ref(false);
+    const loadError = ref<string | null>(null);
 
     const pageCount = computed(() => Math.max(1, Math.ceil(total.value / pageSize)));
     const hasNext = computed(() => page.value < pageCount.value);
@@ -65,7 +68,10 @@ export function useAdminFlagged(): UseAdminFlagged {
             );
             items.value = res.data;
             total.value = res.total;
-        } catch (e) {
+            loadError.value = null;
+        } catch (e: any) {
+            // W5-5 (F-2): a dead backend must never read as a clear queue.
+            loadError.value = e?.message ?? "Backend unreachable";
             console.warn("Failed to load flagged palettes:", e);
         } finally {
             loading.value = false;
@@ -130,6 +136,7 @@ export function useAdminFlagged(): UseAdminFlagged {
         page,
         pageSize,
         loading,
+        loadError,
         pageCount,
         hasNext,
         hasPrev,

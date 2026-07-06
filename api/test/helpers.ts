@@ -1,19 +1,19 @@
 /**
  * Shared test helpers — connect to the ephemeral MongoDB (via
- * `TEST_MONGODB_URI` from `setup.ts`), build a typed `Services` object
- * around the repositories, and provide a minimal fake Hono `Context` shim
- * for service methods that take a `Context<AppEnv>` argument.
+ * `TEST_MONGODB_URI` from `setup.ts`) and build a typed `Services` object
+ * around the repositories.
  *
  * Design:
  * - `connect()` returns a `MongoClient` + `Db` pair; the caller is
  *   responsible for `client.close()` in `afterAll`.
  * - `buildServices(db)` wires the repositories the same way
  *   `middleware/inject-services.ts` does in production.
- * - `makeFakeContext(services, userSlug?)` returns a minimal object that
- *   satisfies the `Context<AppEnv>` shape used by admin services
- *   (`c.var.services`, `c.var.userSlug`). It deliberately does NOT implement
- *   the full Hono Context surface — admin service methods only ever read
- *   from `c.var.*`.
+ *
+ * W2-8 — the `Services`-in service-signature unification retired the
+ * `makeFakeContext` Hono `Context` shim: every `services/{admin,color,
+ * session}` function now takes `services` + plain identity args directly,
+ * so tests pass those values (e.g. `"admin"` as an actor slug) with no
+ * synthetic `Context` object needed.
  */
 
 import {
@@ -22,8 +22,6 @@ import {
     type Db,
     type TransactionOptions,
 } from "mongodb";
-import type { Context } from "hono";
-import type { AppEnv } from "../src/types.js";
 import {
     type Services,
     type Repositories,
@@ -105,31 +103,6 @@ export function buildServices(db: Db, client?: MongoClient): Services {
               );
           };
     return { collections, repositories, withTransaction };
-}
-
-/**
- * Minimal `Context<AppEnv>` stand-in: admin services only read
- * `c.var.services` and `c.var.userSlug`. We avoid faking the entire Hono
- * Context surface (which is broad + version-fragile).
- */
-export function makeFakeContext(
-    services: Services,
-    userSlug?: string,
-): Context<AppEnv> {
-    const vars: Record<string, unknown> = {
-        services,
-        userSlug,
-    };
-    const fake = {
-        var: vars,
-        get(key: string): unknown {
-            return vars[key];
-        },
-        set(key: string, value: unknown): void {
-            vars[key] = value;
-        },
-    };
-    return fake as unknown as Context<AppEnv>;
 }
 
 /** Wipe every collection — used in beforeEach hooks to guarantee isolation. */

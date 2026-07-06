@@ -19,12 +19,20 @@ const cfg = inject(BLOB_CONFIG_KEY)!;
 // Compile-time guard: every dot-path below addresses a real numeric atom on the
 // nested BlobConfig. A typo or an abrogated key fails typecheck here rather than
 // silently no-op'ing a slider (the abrogation-silencer the ledger §4 forbids).
-// The `-?` strips the optional modifier during derivation: `BlobConfig.morphT?`
-// is an OPTIONAL number, and a homomorphic mapped type preserves that `?` — so
-// indexing the mapped result by `keyof BlobConfig` would inject `undefined` into
-// the union (an optional-property access yields `T | undefined`), and
-// `string | undefined` is not assignable to `SliderDef.key: string`. Stripping
-// the modifier at the derivation root keeps every member a bare string dot-path.
+//
+// The `-?` strips the optional modifier during derivation. A homomorphic mapped
+// type PRESERVES `?`, so indexing the mapped result injects `undefined` into the
+// union for every optional member (an optional-property access yields
+// `T | undefined`), and `string | undefined` is not assignable to
+// `SliderDef.key: string`. The modifier must be stripped at BOTH levels:
+//   - OUTER (`[A in keyof BlobConfig]-?`): `BlobConfig.morphT?` is a top-level
+//     optional number.
+//   - INNER (`[K in keyof BlobConfig[A]]-?`): glass-ui's atoms now carry OPTIONAL
+//     nested members too (`BlobColor.satelliteColors?: string[]`, `MetaballSource`-
+//     adjacent options) — the producer's live tranche/BG surface grew them under
+//     us. Without the inner `-?`, `satelliteColors?` leaks `undefined` into the
+//     `color.*` branch and re-poisons every SliderDef. Both strips keep every
+//     member a bare string dot-path.
 type NumericAtomPath = {
     [A in keyof BlobConfig]-?: BlobConfig[A] extends number
         ? A & string
@@ -32,7 +40,7 @@ type NumericAtomPath = {
           ? never
           : BlobConfig[A] extends object
             ? {
-                  [K in keyof BlobConfig[A]]: BlobConfig[A][K] extends number
+                  [K in keyof BlobConfig[A]]-?: BlobConfig[A][K] extends number
                       ? `${A & string}.${K & string}`
                       : never;
               }[keyof BlobConfig[A]]

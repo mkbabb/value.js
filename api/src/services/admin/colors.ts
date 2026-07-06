@@ -11,10 +11,9 @@
  * All admin actions emit a typed audit event via `emitAuditEvent`.
  */
 
-import type { Context } from "hono";
 import { ObjectId } from "mongodb";
 import type { WithId } from "mongodb";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import { NotFoundError, ValidationError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
 import type { ProposedName, ProposedNameStatus } from "../../models.js";
@@ -57,12 +56,12 @@ function parseObjectId(raw: string): ObjectId {
 }
 
 export async function listByStatus(
-    c: Context<AppEnv>,
+    services: Services,
     status: ProposedNameStatus,
     limit: number,
     offset: number,
 ): Promise<ListPage> {
-    const { proposedNames } = c.var.services.repositories;
+    const { proposedNames } = services.repositories;
     const [results, total] = await Promise.all([
         proposedNames.findByStatus(status, offset, limit),
         proposedNames.countByStatus(status),
@@ -70,34 +69,46 @@ export async function listByStatus(
     return { data: results.map((r) => format(r)), total, limit, offset };
 }
 
-export async function deleteColor(c: Context<AppEnv>, id: string): Promise<void> {
+export async function deleteColor(
+    services: Services,
+    actorSlug: string | undefined,
+    id: string,
+): Promise<void> {
     const objectId = parseObjectId(id);
-    const { proposedNames } = c.var.services.repositories;
+    const { proposedNames } = services.repositories;
     const deleted = await proposedNames.delete(objectId);
     if (deleted === 0) {
         throw new NotFoundError("Color name not found");
     }
-    await emitAuditEvent(c, "delete-color", { target: `id=${id}` });
+    await emitAuditEvent(services, actorSlug, "delete-color", { target: `id=${id}` });
 }
 
-export async function approveColor(c: Context<AppEnv>, id: string): Promise<void> {
+export async function approveColor(
+    services: Services,
+    actorSlug: string | undefined,
+    id: string,
+): Promise<void> {
     const objectId = parseObjectId(id);
-    const { proposedNames } = c.var.services.repositories;
+    const { proposedNames } = services.repositories;
     const ok = await proposedNames.transitionStatus(objectId, "proposed", "approved", {
         approvedAt: new Date(),
     });
     if (!ok) {
         throw new NotFoundError("Proposed name not found or already processed");
     }
-    await emitAuditEvent(c, "approve-color", { target: `id=${id}` });
+    await emitAuditEvent(services, actorSlug, "approve-color", { target: `id=${id}` });
 }
 
-export async function rejectColor(c: Context<AppEnv>, id: string): Promise<void> {
+export async function rejectColor(
+    services: Services,
+    actorSlug: string | undefined,
+    id: string,
+): Promise<void> {
     const objectId = parseObjectId(id);
-    const { proposedNames } = c.var.services.repositories;
+    const { proposedNames } = services.repositories;
     const ok = await proposedNames.transitionStatus(objectId, "proposed", "rejected");
     if (!ok) {
         throw new NotFoundError("Proposed name not found or already processed");
     }
-    await emitAuditEvent(c, "reject-color", { target: `id=${id}` });
+    await emitAuditEvent(services, actorSlug, "reject-color", { target: `id=${id}` });
 }

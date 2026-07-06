@@ -272,3 +272,28 @@ All findings are demo-composable/CSS-level or glass-ui-producer; none require
 `CSSCubicBezier`, `steppedEase`, `lerp`/`easing.ts` — is correctly consumed
 wherever checked; S-24's library-core angle turned up clean on this lane's
 pass, consistent with `perf-transitions.md` P2-2's verdict).
+
+---
+
+## §10 — W9-close disposition (the M6 docs-patch row, APPLIED)
+
+**Applied 2026-07-06 at S.W9 close** (`audit/w9-close-probes.md §6`). The M6 candidate item
+asked for an inventory patch adding "the mix beat + the right-pane ghost-fade to
+`transition-inventory.md`'s §3 non-Transition mapping table." That target
+(`docs/tranches/R/audit/R.W4-visual-runtime/transition-inventory.md`) is **R-closed history**
+and outside the S.W9 file bounds, so it is NOT edited; the current motion truth is recorded
+here instead, in the S corpus. The underlying findings landed in the S waves — the R-inventory
+§3 gap is therefore **superseded**, not merely documented:
+
+| M-item | §-ref | S disposition (landed) |
+|---|---|---|
+| **M1** — mix phase-clock unify + kill spinner | §3 (P0-M) | **CONSUMED by W3-6 / Q10 first-principles REPLACE** (`5c700fe`): the two-clock mismatch is gone — one clock, `mixStage.ts MIX_CONVERGE_MS = 900`, total ≤1.2 s (`useMixingAnimation.ts` "the phase machine owns no timers"), the redundant `animate-spin` spinner removed. The original R-inventory "add the 2.9 s mix beat" content is MOOT (the beat was re-authored) |
+| **M3** — Tailwind bare-utility → app tokens at `@theme` root | §5, §9#3 | **LANDED** at the DRY root: `demo/@/styles/style.css:119-120` sets `--default-transition-duration: var(--duration-fast)` + `--default-transition-timing-function: var(--ease-standard)`. Every bare `transition*` utility (incl. the App.vue `duration-200` right-pane ghost-fade + the GradientVisualizer chevron) now inherits the app's motion tokens — the §5 "21-file blind spot" is cured at the root with zero per-site chase. The right-pane ghost-fade M6 wanted to itemize is now token-wired, not un-tracked |
+| **M4** — dock hover-morph off `--duration-panel` | §2, §9#1 | **producer-owned** → letter L13 (glass-ui shared token); rides the W8 adopt |
+| **M5** — pane-wrapper transform/opacity only | §6 | retuned at **W3-4/W3-5** (`d45a5bb`/`3824b95` — pane-swap payload defer + spring 0.45→0.3 s) |
+| **M2** — EasingPicker loop seam, PRM-gated | §4 (S-13) | demo half LANDED at **W5-9** (`a83a074`); the producer `loop` seam + `defineExpose(playTravel)` is **letter L7** (open producer rider, `w9-close-probes.md §2/§6`) |
+| **M6** — inventory patch | §3, §5 | **this section** — applied in-bounds; the R-inventory §3 mapping gap is superseded by M1 (mix re-authored) + M3 (bare-utility tokenized at root) |
+
+Net: the motion-truth blind spots this lane found are cured in-tree (M1 re-authored, M3
+tokenized at the `@theme` root, M5 retuned); the residual asks are producer-side (M2→L7,
+M4→L13), riding the un-fired S.W8 adopt. No R-closed doc was edited.

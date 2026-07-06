@@ -1,12 +1,19 @@
 <template>
     <div class="app-layout">
-        <!-- W5-a11y: decorative aurora canvas — hidden from AT -->
+        <!-- W5-a11y: decorative aurora canvas — hidden from AT. W6-1 entrance
+             (owner ruling §1.1): the canvas derive-fades in over the
+             SAME-material `--saved-bg` ground once the field is drawable
+             (`auroraArrived`), so the load carries no dark→light snap. W7-3: the
+             `data-glass-field-canvas` stamp threads the live field to samplers —
+             the full luma-truth rationale lives with useAtmosphereBoot. -->
         <canvas
             ref="atmosphereCanvas"
-            class="absolute inset-0 w-full h-full pointer-events-none"
+            class="atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none"
+            :class="auroraArrived && 'atmosphere-canvas--arrived'"
             :style="auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined"
             aria-hidden="true"
             data-testid="atmosphere-canvas"
+            data-glass-field-canvas
         />
         <!-- W5-a11y: nav landmark for the dock -->
         <nav aria-label="Application navigation">
@@ -23,8 +30,12 @@
 
         <!-- W5-a11y: main landmark for pane content -->
         <main class="pane-main" aria-label="Color tool panes">
-        <!-- Two-pane grid -->
+        <!-- Two-pane grid. `paneContainer` feeds the S.W5-10 device-pixel
+             snap (card-lighting-forensics artifact 4): the flex-centering
+             remainder is nudged off fractional device pixels so the card
+             corner arcs rasterize ON the pixel grid. -->
         <div
+            ref="paneContainer"
             :class="[
                 'pane-container',
                 currentConfig.right !== null && 'pane-container--dual',
@@ -43,18 +54,27 @@
                  makes it a size container so in-card `cqi` sizing resolves on
                  every slot (R.W3 Lane A / A4). -->
             <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
+                <!-- W3-4 (S.W3): KeepAlive :max right-sized to the 9 non-admin
+                     views. The mobile slot cycles both left+right panes, so it
+                     caches the common (non-admin) surface without evicting a
+                     hot pane; the 5 admin views' panes fall off the LRU rather
+                     than permanently bloating the cache. -->
                 <PaneSlot
                     :component="mobile.component"
                     :component-key="mobile.key"
                     :component-props="mobile.props"
                     :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
-                    :max="5"
+                    :max="9"
                 />
             </div>
 
             <template v-else>
                 <!-- Desktop: left pane (lg+) -->
                 <div class="pane-wrapper pane-wrapper--left hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
+                    <!-- W3-4 (S.W3): :max = the 6 distinct non-admin LEFT panes
+                         (color-picker · browse · extract · atmosphere · generate
+                         · gradient) — already right-sized; admin left panes fall
+                         off the LRU rather than bloating the cache. -->
                     <PaneSlot
                         :component="desktopLeft.component"
                         :component-key="desktopLeft.key"
@@ -70,19 +90,29 @@
                     class="pane-wrapper pane-wrapper--right hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
                     :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
                 >
+                    <!-- W3-4 (S.W3): :max = the 4 distinct non-admin RIGHT panes
+                         (about · palettes · mix · blob) — every admin view uses
+                         right="palettes" (already cached), so no non-admin right
+                         pane is ever evicted. Was 3 (under-sized → evicted one). -->
                     <PaneSlot
                         :component="desktopRight.component"
                         :component-key="desktopRight.key"
                         :component-props="desktopRight.props"
                         :on-mount="onDesktopRightMount"
                         :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
-                        :max="3"
+                        :max="4"
                     />
                 </div>
             </template>
         </div>
         </main>
     </div>
+
+    <!-- S.W0 W0-1 (seed rider 1): always-mounted dev-misconfig banner. Inert
+         in production + whenever VITE_API_URL is set (e2e / boot-smoke); only
+         paints when bare `dev:web-only` silently targets the cross-origin prod
+         api. -->
+    <DevMisconfigBanner />
 
     <!-- Global modals -->
     <MigratePalettesDialog
@@ -94,15 +124,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, provide, ref, shallowRef, useTemplateRef, watch } from "vue";
+import { computed, onMounted, provide, ref, shallowRef, useTemplateRef } from "vue";
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import { ColorPicker } from "@components/custom/color-picker";
-import { CSS_COLOR_KEY, SAFE_ACCENT_KEY, EDIT_TARGET_KEY } from "@components/custom/color-picker/keys";
-import { useContrastSafeColor } from "@composables/color/useContrastSafeColor";
+import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
 
 import { Dock } from "@components/custom/dock";
 import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
+import DevMisconfigBanner from "@components/custom/palette-browser/DevMisconfigBanner.vue";
 import PaneSlot from "@components/custom/panes/PaneSlot.vue";
 
 import { defaultColorModel } from "@components/custom/color-picker";
@@ -110,13 +140,15 @@ import { useCustomColorNames } from "@components/custom/color-picker/composables
 import { useColorUrl } from "@components/custom/color-picker/composables/useColorUrl";
 
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
-import { useAppColorModel } from "@composables/color/useAppColorModel";
+import { useColorPipeline } from "@composables/color/useColorPipeline";
 import { usePaneRouter } from "@composables/usePaneRouter";
 import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
+import { provideApiClient } from "@lib/palette/api/useApiClient";
 import { useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import { useAtmosphere } from "@composables/color/useAtmosphere";
+import { useAtmosphereBoot } from "@composables/color/useAtmosphereBoot";
+import { useDevicePixelSnap } from "@composables/useDevicePixelSnap";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -125,20 +157,48 @@ import "@styles/style.css";
 //     preference takes effect before the Dock profile menu mounts. ---
 useGlobalDark();
 
+// --- API client DI seam (S.W2 W2-4) ---
+// ONE provider for {request, adminRequest, sessionToken, availability, baseUrl};
+// the degraded-state affordances inject it instead of importing the singletons.
+provideApiClient();
+
 // --- Template refs ---
 const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
 const model = shallowRef<ColorModel>(defaultColorModel);
 
-// --- Color model ---
+// --- S.W5-10 (card-lighting-forensics artifact 4): integer-snap the pane
+//     centering — the flex remainder parks card corner arcs on fractional
+//     device pixels (picker y=230.445… measured), which reads as stepped
+//     corner AA under Chromium's backdrop-clip. Paint-only relative nudge. ---
+const paneContainer = useTemplateRef<HTMLDivElement>("paneContainer");
+useDevicePixelSnap(paneContainer);
+
+// --- Color model — the ONE pipeline (S.W2 · W2-1) ---
+// One composable owns the model + one derivation set + storage + the token sink.
+// Provided via COLOR_MODEL_KEY so the picker subtree (and the dock's re-provide)
+// consume it directly — no defineModel round-trip, no second shallowRef copy.
+const pipeline = useColorPipeline(model);
 const {
     cssColor,
     cssColorOpaque,
+    // W3-1 (S.W3): the rAF-coalesced opaque colour — one derive per frame for
+    // the atmosphere fan-out (aurora seed + blob palette + --accent-live).
+    cssColorOpaqueFrame,
     savedColorStrings,
-    updateModel,
     resetToDefaults,
     applyColorString,
-} = useAppColorModel(model);
+    restoreFromStorage,
+} = pipeline;
+provide(COLOR_MODEL_KEY, pipeline);
+
+// External-origin model writes (URL load): assigning model.value directly — NOT
+// via pipeline.updateModel — leaves the pipeline's stableHue watch to refresh the
+// hue from the incoming color (updateModel marks self-originated edits, which the
+// watch skips). Mirrors the former useAppColorModel.updateModel semantics.
+const patchModelExternal = (patch: Partial<ColorModel>) => {
+    model.value = { ...model.value, ...patch };
+};
 
 // --- Edit target ---
 const activeEditTarget = shallowRef<EditTarget | null>(null);
@@ -146,40 +206,22 @@ const onEditTargetChange = (et: EditTarget | null) => { activeEditTarget.value =
 provide(EDIT_TARGET_KEY, activeEditTarget);
 provide(CSS_COLOR_KEY, cssColorOpaque);
 
-const { safeAccentCss } = useContrastSafeColor(model, cssColorOpaque);
-provide(SAFE_ACCENT_KEY, safeAccentCss);
-
-// --- The accent axis (R.W3 Lane A / A2) ---
-// Mirror the contrast-guarded live color onto the `--accent-live` root token —
-// the SAME library `safeAccentColor` computation SAFE_ACCENT_KEY provides (ONE
-// color-resolution path, inv-N-3; no bespoke resolver). style.css re-points
-// `--primary` and the glass frost's `--glass-tint-source` onto it, so the
-// interactive layer and the plate temperature speak the picked color.
-watch(
-    safeAccentCss,
-    (css) => {
-        document.documentElement.style.setProperty("--accent-live", css);
-    },
-    { immediate: true },
-);
-
 // --- View manager ---
 const viewManager = useViewManager();
 provide(VIEW_MANAGER_KEY, viewManager);
 const currentConfig = computed(() => viewManager.currentConfig.value);
 
-// --- The per-view accent (R.W4 Lane B / B2) ---
-// THE one resolver path: each view's schema-declared hue shift lands on the
-// `--view-hue-shift` root token; style.css derives `--accent-view` from the
-// R.W3 `--accent-live` axis via CSS relative color (zero JS color math), and
-// `--primary` rides it — so navigation reads chromatically everywhere the
-// interactive layer paints.
-watch(
-    () => currentConfig.value.accentHueShift,
-    (deg) => {
-        document.documentElement.style.setProperty("--view-hue-shift", String(deg ?? 0));
-    },
-    { immediate: true },
+// --- Atmosphere boot (S.W5 · row-8 cap cure) ---
+// All three document-root atmosphere/entrance side-effects (`--accent-live`
+// accent axis, per-view accent tokens, aurora + hero-blob) and their provides
+// (SAFE_ACCENT_KEY + AURORA_ATOMS_KEY + BLOB_CONFIG_KEY) live in one composable
+// — see useAtmosphereBoot's header. App keeps only the canvas mount + the
+// CSS_COLOR_KEY provide above; seeded by the rAF-coalesced colour (W3-1),
+// `auroraArrived` keys the W6-1 canvas derive-in.
+const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
+    atmosphereCanvas,
+    cssColorOpaqueFrame,
+    currentConfig,
 );
 
 // X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px), now guarded
@@ -249,15 +291,15 @@ const shareLink = async () => {
     }
 };
 
-// --- URL sync + custom color names ---
-useColorUrl({ model, updateModel });
-const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
+// --- URL sync + persistence precedence (S.W2 · W2-1) ---
+// URL-hash-wins-on-load: useColorUrl applies the hash color first and reports
+// whether it did. Only when the hash carries NO color does the pipeline restore
+// the last session from localStorage (the fallback, gated behind URL-wins).
+const { appliedFromUrl } = useColorUrl({ model, updateModel: patchModelExternal });
+if (!appliedFromUrl) restoreFromStorage();
 
-// --- Atmosphere: aurora + hero-blob palette coupling (N.W5.B) ---
-// The full region (atoms, render-mode tiering, seed guards, blob ramp) lives
-// in useAtmosphere (lifted at R.W4 close, gate-(c) cap); it provides
-// AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on this component's scope.
-const { auroraCssGradient } = useAtmosphere(atmosphereCanvas, cssColorOpaque);
+// --- Custom color names ---
+const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
 
 onMounted(() => { loadCustomColorNames(); });
 </script>
@@ -265,20 +307,46 @@ onMounted(() => { loadCustomColorNames(); });
 <style scoped>
 @reference "../../demo/@/styles/style.css";
 
-/* Smooth layout transitions for pane wrappers */
-.pane-wrapper {
-    transition: height var(--duration-slow) var(--ease-standard),
-                margin var(--duration-slow) var(--ease-standard),
-                padding var(--duration-slow) var(--ease-standard);
+/* W3-4 (S.W3 · pane-swap payload): the former height/margin/padding transition
+   on .pane-wrapper is DELETED. Layout properties never animate on a pane swap
+   (the grid owns the box geometry; the swap reads through the vj-enter TRANSFORM
+   family). Co-transitioning height/margin/padding forced a layout + paint on
+   every frame of every swap — the P1 layout-thrash (perf-transitions P1-2). The
+   pane geometry rides transform/opacity only now. */
+
+/* ── W6-1 · the atmosphere ARRIVAL (owner ruling 2026-07-05 §1.1) ──
+   The canvas eases in over the `--saved-bg` derived-base ground once the
+   field is drawable (`isArmed` — the producer's own Aurora.vue cross-fade
+   idiom; immediate on the `"css"` placeholder substrate). Ground and field
+   are ONE material (the base stop IS the field's deepest stop), so the
+   entrance reads as the field texturing in from its own base — never an
+   explicit dark→light/light→dark snap. House slow register + decelerate
+   ease; W3-2's idle-deferral mechanics are untouched (this designs the
+   arrival, it does not revert the deferral). */
+.atmosphere-canvas {
+    opacity: 0;
+    transition: opacity var(--duration-slow, 0.45s) var(--ease-decelerate);
+}
+.atmosphere-canvas--arrived {
+    opacity: 1;
+}
+/* PRM-honest: reduce → no fade, the field is a static state change. */
+@media (prefers-reduced-motion: reduce) {
+    .atmosphere-canvas {
+        transition: none;
+    }
 }
 
 /* Ghost pane: always in DOM to preserve scroll-timeline state, but invisible
-   and non-interactive. Replaces the former inline 5-property style hack. */
+   and non-interactive. content-visibility:auto (W3-4) additionally drops the
+   parked subtree from layout + paint while it sits ghosted — the KeepAlive
+   scroll state is preserved, the render cost is not paid. */
 .pane-wrapper--ghost {
     visibility: hidden;
     position: absolute;
     pointer-events: none;
     opacity: 0;
+    content-visibility: auto;
 }
 
 </style>
@@ -302,5 +370,30 @@ onMounted(() => { loadCustomColorNames(); });
 .pane-wrapper--right > .vj-enter-leave-to {
     opacity: 1;
     transform: translateX(110%) rotate(2deg);
+}
+
+/* W3-4 (S.W3): promote the pane to its own compositor layer for the DURATION
+ * of the enter/leave transition ONLY (`*-active`) — never a standing
+ * `will-change` layer (a persistent one costs memory + defeats the point). The
+ * browser drops the hint the moment the transition class is removed. */
+.pane-wrapper--left > .vj-enter-enter-active,
+.pane-wrapper--left > .vj-enter-leave-active,
+.pane-wrapper--right > .vj-enter-enter-active,
+.pane-wrapper--right > .vj-enter-leave-active {
+    will-change: transform;
+}
+
+/* W3-5 (S.W3 · view-swap spring retune): the pane ENTER travel rode the
+ * `--spring-smooth-duration` 0.45s settle (§6.2 baseline); re-time it to
+ * `--duration-normal` (0.3s) here — SCOPED to the pane wrappers so the shared
+ * vj-enter family (overlays, toolbars, list items) is untouched. The spring
+ * CURVE (`--spring-smooth`) is kept; only its clock tightens. The leave side
+ * already ran at `--duration-normal` (animations.css), so the swap is
+ * symmetric ~0.3s now. */
+.pane-wrapper--left > .vj-enter-enter-active,
+.pane-wrapper--right > .vj-enter-enter-active {
+    transition:
+        opacity var(--duration-normal) var(--ease-decelerate),
+        transform var(--duration-normal) var(--spring-smooth);
 }
 </style>

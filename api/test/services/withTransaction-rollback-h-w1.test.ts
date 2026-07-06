@@ -22,14 +22,8 @@
  */
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
-import type { Context } from "hono";
 import type { MongoClient, Db } from "mongodb";
-import {
-    buildServices,
-    cleanCollections,
-    connect,
-    makeFakeContext,
-} from "../helpers.js";
+import { buildServices, cleanCollections, connect } from "../helpers.js";
 import { createPalette, patchPalette } from "../../src/services/palette/crud.js";
 import {
     loginSession,
@@ -43,7 +37,6 @@ import {
 } from "../../src/services/admin/users.js";
 import { deleteTag } from "../../src/services/admin/tags.js";
 import { asSessionToken, asUserSlug } from "../../src/models.js";
-import type { AppEnv } from "../../src/types.js";
 import type { Services } from "../../src/middleware/inject-services.js";
 
 describe("withTransaction rollback (H.W1 Lane A)", () => {
@@ -191,10 +184,9 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             throw new Error("induced session-insert failure");
         };
 
-        const c = makeFakeContext(services);
-        await expect(registerSession(c)).rejects.toThrow(
-            "induced session-insert failure",
-        );
+        await expect(
+            registerSession(services, "test-ip-hash"),
+        ).rejects.toThrow("induced session-insert failure");
 
         services.repositories.sessions.insert = realSessionsInsert;
 
@@ -206,7 +198,7 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
 
         // The orphan is benign: `pruneEmptyUsers` (the standing sweep)
         // reaps it — zero palettes ⇒ deleted.
-        const pruned = await pruneEmptyUsers(c);
+        const pruned = await pruneEmptyUsers(services, undefined);
         expect(pruned).toBe(1);
         expect(await db.collection("users").countDocuments({})).toBe(0);
     });
@@ -230,10 +222,9 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             throw new Error("induced touchLastSeen failure");
         };
 
-        const c = makeFakeContext(services);
-        await expect(loginSession(c, { slug: "alice" })).rejects.toThrow(
-            "induced touchLastSeen failure",
-        );
+        await expect(
+            loginSession(services, undefined, "test-ip-hash", { slug: "alice" }),
+        ).rejects.toThrow("induced touchLastSeen failure");
 
         services.repositories.users.touchLastSeen = realTouchLastSeen;
 
@@ -287,10 +278,9 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             throw new Error("induced admin cascade failure");
         };
 
-        const c = makeFakeContext(services, "admin");
-        await expect(adminDeletePalette(c, "doomed-admin")).rejects.toThrow(
-            "induced admin cascade failure",
-        );
+        await expect(
+            adminDeletePalette(services, "admin", "doomed-admin"),
+        ).rejects.toThrow("induced admin cascade failure");
 
         services.repositories.palettes.decrementForkCount = realDecrement;
 
@@ -327,10 +317,9 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             throw new Error("induced session-cascade failure");
         };
 
-        const c = makeFakeContext(services, "admin");
-        await expect(setUserStatus(c, "alice", "suspended")).rejects.toThrow(
-            "induced session-cascade failure",
-        );
+        await expect(
+            setUserStatus(services, "admin", "alice", "suspended"),
+        ).rejects.toThrow("induced session-cascade failure");
 
         services.repositories.sessions.deleteByUserSlug = realDeleteByUserSlug;
 
@@ -381,10 +370,9 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             throw new Error("induced palette-delete failure");
         };
 
-        const c = makeFakeContext(services, "admin");
-        await expect(deleteUserPalettes(c, "alice")).rejects.toThrow(
-            "induced palette-delete failure",
-        );
+        await expect(
+            deleteUserPalettes(services, "admin", "alice"),
+        ).rejects.toThrow("induced palette-delete failure");
 
         services.repositories.palettes.deleteManyByUserSlug = realDeleteMany;
 
@@ -428,10 +416,9 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             throw new Error("induced user-delete failure");
         };
 
-        const c = makeFakeContext(services, "admin");
-        await expect(pruneEmptyUsers(c)).rejects.toThrow(
-            "induced user-delete failure",
-        );
+        await expect(
+            pruneEmptyUsers(services, "admin"),
+        ).rejects.toThrow("induced user-delete failure");
 
         services.repositories.users.deleteMany = realDeleteMany;
 
@@ -471,10 +458,9 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             throw new Error("induced tag-cascade failure");
         };
 
-        const c = makeFakeContext(services, "admin") as Context<AppEnv>;
-        await expect(deleteTag(c, "vintage")).rejects.toThrow(
-            "induced tag-cascade failure",
-        );
+        await expect(
+            deleteTag(services, "admin", "vintage"),
+        ).rejects.toThrow("induced tag-cascade failure");
 
         services.repositories.palettes.pullTagFromAll = realPullTag;
 

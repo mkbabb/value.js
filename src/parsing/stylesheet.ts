@@ -12,116 +12,39 @@ import { CSSValues } from "./index";
 import { CSSValueUnit } from "./units";
 import * as utils from "./utils";
 
-// ─── Public types ─────────────────────────────────────────────────────────
+// ─── Public AST types ─────────────────────────────────────────────────────
+//
+// The parser's output-shape contract lives in the leaf `stylesheet-types.ts`
+// (W1-8 · god-module-dry-census): the `extract.ts` / `serialize.ts` /
+// `scroll-timeline.ts` siblings consume ONLY these types, never the parser
+// combinators, so the AST contract is a separable surface. Imported here for
+// the parsers' own annotations AND re-exported verbatim so the `./stylesheet`
+// import surface (e.g. the `subpaths/parsing.ts` barrel) is byte-identical.
+import type {
+    CustomFunctionDescriptor,
+    CustomFunctionParameter,
+    Declaration,
+    KeyframeRule,
+    KeyframeSelector,
+    PropertyDescriptor,
+    ScrollTimelineDescriptor,
+    Stylesheet,
+    StylesheetItem,
+    ViewTimelineDescriptor,
+} from "./stylesheet-types";
 
-export type Declaration = {
-    name: string; // CSS-faithful: "background-color" or "--my-prop"
-    value: ValueArray;
-    important: boolean;
+export type {
+    CustomFunctionDescriptor,
+    CustomFunctionParameter,
+    Declaration,
+    KeyframeRule,
+    KeyframeSelector,
+    PropertyDescriptor,
+    ScrollTimelineDescriptor,
+    Stylesheet,
+    StylesheetItem,
+    ViewTimelineDescriptor,
 };
-
-export type KeyframeSelector =
-    | { kind: "percent"; value: number }
-    | {
-          kind: "named";
-          name: "entry" | "exit" | "cover" | "contain";
-      };
-
-export type KeyframeRule = {
-    selectors: KeyframeSelector[];
-    declarations: Declaration[];
-    timingFunction?: string; // hoisted from animation-timing-function
-    composition?: "replace" | "add" | "accumulate";
-};
-
-export type PropertyDescriptor = {
-    syntax?: string;
-    inherits?: boolean;
-    initialValue?: ValueArray;
-};
-
-// CSS Functions and Mixins Level 1 (O.W4 S7): `@function --name(params) { result }`.
-export type CustomFunctionParameter = {
-    name: string; // a <dashed-ident>, e.g. "--x"
-    syntax?: string; // the <css-type> declaration, e.g. "<length>" (VERBATIM)
-    default?: string; // the optional default value, VERBATIM
-};
-
-export type CustomFunctionDescriptor = {
-    parameters?: CustomFunctionParameter[];
-    result?: ValueArray; // the `result:` descriptor, hoisted
-    declarations?: Declaration[]; // any other local declarations
-};
-
-// CSS Scroll-Driven Animations Level 1 (O.W4b S3): named-timeline registration
-// at-rules. Descriptor blocks are declaration lists; the `source`/`subject`
-// `selector(...)` notation is captured VERBATIM (division-of-labour law).
-export type ScrollTimelineDescriptor = {
-    source?: string; // "auto" | "selector(...)" | raw token, VERBATIM
-    orientation?: string; // block | inline | x | y | ... VERBATIM
-};
-
-export type ViewTimelineDescriptor = {
-    subject?: string; // "auto" | "selector(...)" | raw token, VERBATIM
-    axis?: string; // block | inline | x | y | ... VERBATIM
-    inset?: string; // raw <length-percentage>{1,2}, VERBATIM
-};
-
-export type StylesheetItem =
-    | { kind: "keyframes"; name?: string; rules: KeyframeRule[] }
-    | { kind: "property"; name: string; descriptor: PropertyDescriptor }
-    | {
-          kind: "function";
-          name: string; // the <dashed-ident> function name, e.g. "--double"
-          descriptor: CustomFunctionDescriptor;
-      }
-    | {
-          // CSS Cascading and Inheritance Level 6 (O.W4 S10): `@scope (root) to
-          // (limit) { ... }`. The block body is a recursively-parsed stylesheet.
-          kind: "scope";
-          root?: string[]; // the (<scope-start>) selector list
-          limit?: string[]; // the to (<scope-end>) selector list
-          children: StylesheetItem[];
-      }
-    | {
-          // CSS Transitions Level 2 (O.W4 S11): `@starting-style { ... }`.
-          kind: "starting-style";
-          children: StylesheetItem[];
-      }
-    | {
-          // CSS Scroll-Driven Animations Level 1 (O.W4b S3).
-          kind: "scroll-timeline";
-          name: string; // the <dashed-ident> name, e.g. "--my-tl"
-          descriptor: ScrollTimelineDescriptor;
-      }
-    | {
-          kind: "view-timeline";
-          name: string;
-          descriptor: ViewTimelineDescriptor;
-      }
-    | {
-          kind: "style";
-          selectors: string[];
-          declarations: Declaration[];
-          // CSS Nesting L1 (O.W0): qualified rules / at-rules nested inside this
-          // style rule's body. Optional + only present when non-empty so the
-          // non-nested shape is byte-identical to pre-O.W0.
-          children?: StylesheetItem[];
-      }
-    | {
-          kind: "unknown";
-          atName: string;
-          prelude: string;
-          // Semicolon form (`@layer base;`) keeps `body: null`. For block-body
-          // at-rules (`@layer base { ... }`, `@media`, `@container`, `@supports`,
-          // …) the block is recursively parsed into `children` (O.W4 S8) and
-          // `body` is `undefined`. Existing consumers reading `body` still see
-          // `null` for the semicolon form; `children` is additive + optional.
-          body: string | null;
-          children?: StylesheetItem[];
-      };
-
-export type Stylesheet = StylesheetItem[];
 
 // ─── Primitives ───────────────────────────────────────────────────────────
 
@@ -155,96 +78,15 @@ const stripCSSComments = (input: string): string =>
 
 // ─── Balanced text scanners ───────────────────────────────────────────────
 //
-// Declaration values, selector lists, and unknown at-rule bodies all
-// need to scan ahead while respecting nested braces, parens, brackets,
-// and string literals. parse-that's combinators don't compose well
-// for this, so we use raw Parser instances that walk the input.
-
-type StopPredicate = (input: string, i: number, depth: number) => boolean;
-
-const balancedText = (stop: StopPredicate): Parser<string> =>
-    new Parser((state) => {
-        const input = state.src;
-        const start = state.offset;
-        let i = start;
-        let parenDepth = 0;
-        let brackDepth = 0;
-        let curlyDepth = 0;
-        let inString: string | null = null;
-
-        while (i < input.length) {
-            const ch = input[i]!;
-
-            if (inString) {
-                if (ch === "\\" && i + 1 < input.length) {
-                    i += 2;
-                    continue;
-                }
-                if (ch === inString) {
-                    inString = null;
-                }
-                i++;
-                continue;
-            }
-
-            if (ch === '"' || ch === "'") {
-                inString = ch;
-                i++;
-                continue;
-            }
-
-            // Check stop predicate at depth 0 BEFORE handling brackets,
-            // so a stop char like `{` for at-rule preludes can fire
-            // before being consumed as a depth-opener.
-            if (
-                parenDepth === 0 &&
-                brackDepth === 0 &&
-                curlyDepth === 0 &&
-                stop(input, i, 0)
-            ) {
-                break;
-            }
-
-            if (ch === "(") {
-                parenDepth++;
-                i++;
-                continue;
-            }
-            if (ch === ")") {
-                if (parenDepth === 0) break;
-                parenDepth--;
-                i++;
-                continue;
-            }
-            if (ch === "[") {
-                brackDepth++;
-                i++;
-                continue;
-            }
-            if (ch === "]") {
-                if (brackDepth === 0) break;
-                brackDepth--;
-                i++;
-                continue;
-            }
-            if (ch === "{") {
-                curlyDepth++;
-                i++;
-                continue;
-            }
-            if (ch === "}") {
-                if (curlyDepth === 0) break;
-                curlyDepth--;
-                i++;
-                continue;
-            }
-
-            i++;
-        }
-
-        const text = input.slice(start, i);
-        return state.ok(text, i - start);
-    });
+// Declaration values, selector lists, and unknown at-rule bodies all need to
+// scan ahead while respecting nested braces, parens, brackets, and string
+// literals. parse-that's combinators don't compose well for this, so we use a
+// raw balanced-text scanner. W1-8 (lib-parsing F-5): `balancedText` + its
+// `StopPredicate` moved to `parsing/utils.ts` as the ONE shared scanner every
+// site in the directory now builds on (its `stopOnUnbalancedClose` reproduces
+// the "stray close ends the scan" break). Aliased locally so the six call sites
+// below read unchanged.
+const balancedText = utils.balancedText;
 
 const declarationValueText: Parser<string> = balancedText((input, i) => {
     const ch = input[i]!;
@@ -480,50 +322,12 @@ const propertyBody = all(
 
 // ─── Style rule (qualified rule) ──────────────────────────────────────────
 
-const splitSelectorList = (text: string): string[] => {
-    // Comma-split respecting nested parens/brackets/strings.
-    const out: string[] = [];
-    let depth = 0;
-    let inString: string | null = null;
-    let buf = "";
-    for (let i = 0; i < text.length; i++) {
-        const ch = text[i]!;
-        if (inString) {
-            if (ch === "\\" && i + 1 < text.length) {
-                buf += ch + text[++i]!;
-                continue;
-            }
-            if (ch === inString) inString = null;
-            buf += ch;
-            continue;
-        }
-        if (ch === '"' || ch === "'") {
-            inString = ch;
-            buf += ch;
-            continue;
-        }
-        if (ch === "(" || ch === "[") {
-            depth++;
-            buf += ch;
-            continue;
-        }
-        if (ch === ")" || ch === "]") {
-            depth--;
-            buf += ch;
-            continue;
-        }
-        if (ch === "," && depth === 0) {
-            const s = buf.trim();
-            if (s.length > 0) out.push(s);
-            buf = "";
-            continue;
-        }
-        buf += ch;
-    }
-    const s = buf.trim();
-    if (s.length > 0) out.push(s);
-    return out;
-};
+// W1-8 (lib-parsing F-5): comma-split respecting nested parens/brackets/strings
+// — the shared `splitTopLevel` scanner, tracking `()`+`[]` (no `{}`).
+const splitSelectorList = (text: string): string[] =>
+    utils.splitTopLevel(text, (ch) => ch === ",", {
+        brackets: utils.BRACKETS_ROUND_SQUARE,
+    });
 
 // CSS Nesting L1 (O.W0): a style rule body is no longer declarations-only. It
 // is a mix of declarations and NESTED qualified rules / at-rules. We tag each
@@ -638,37 +442,12 @@ const unknownBody = (atName: string): Parser<StylesheetItem> =>
 
 // Index of the first TOP-LEVEL colon (depth 0, outside strings) in `text` — the
 // `<default-value>` introducer. Colons nested in `type( … )` / `url( a:b )` or a
-// string are skipped. `-1` when there is no default. Mirrors the depth-tracking
-// of `splitSelectorList` (which already isolated each segment at top-level commas).
-const topLevelColonIndex = (text: string): number => {
-    let depth = 0;
-    let inString: string | null = null;
-    for (let i = 0; i < text.length; i++) {
-        const ch = text[i]!;
-        if (inString) {
-            if (ch === "\\" && i + 1 < text.length) {
-                i++;
-                continue;
-            }
-            if (ch === inString) inString = null;
-            continue;
-        }
-        if (ch === '"' || ch === "'") {
-            inString = ch;
-            continue;
-        }
-        if (ch === "(" || ch === "[") {
-            depth++;
-            continue;
-        }
-        if (ch === ")" || ch === "]") {
-            depth--;
-            continue;
-        }
-        if (ch === ":" && depth === 0) return i;
-    }
-    return -1;
-};
+// string are skipped. `-1` when there is no default. W1-8 (lib-parsing F-5): the
+// shared `findTopLevel` scanner, tracking `()`+`[]` (matching `splitSelectorList`).
+const topLevelColonIndex = (text: string): number =>
+    utils.findTopLevel(text, (ch) => ch === ":", {
+        brackets: utils.BRACKETS_ROUND_SQUARE,
+    });
 
 const parseFunctionParameters = (raw: string): CustomFunctionParameter[] => {
     const trimmed = raw.trim();
@@ -844,14 +623,14 @@ const atRule: Parser<StylesheetItem> = at
 
 const stylesheetItem: Parser<StylesheetItem> = any(atRule, styleRule).trim(ws);
 
-const stylesheet: Parser<Stylesheet> = stylesheetItem.many().trim(ws).skip(
-    new Parser((state) => {
-        // require full input consumption — silent partial parses
-        // hide bugs in the grammar.
-        if (state.offset >= state.src.length) return state.ok(null, 0);
-        return state.err(undefined as never, 0);
-    }),
-);
+// W1-4 (S.W1 · lib-parsing F-9): `.eof()` replaces the hand-rolled
+// full-consumption check. `Parser.prototype.eof()` (= `.skip(eof())`) still
+// requires the whole input to be consumed — a silent partial parse hides
+// grammar bugs — but fails through `mergeErrorState(state, "<end of input>")`
+// AND attaches a named "trailing-content" suggestion, strictly richer
+// diagnostics than the silent hand-rolled `state.err(undefined, 0)`, for less
+// code. The parsed `Stylesheet` value passes through `.skip()` unchanged.
+const stylesheet: Parser<Stylesheet> = stylesheetItem.many().trim(ws).eof();
 
 // ─── Public API ───────────────────────────────────────────────────────────
 
@@ -859,6 +638,6 @@ export const parseCSSStylesheet = memoize(
     (input: string): Stylesheet =>
         utils.tryParse(stylesheet, stripCSSComments(input)),
     // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): see
-    // comment in src/parsing/index.ts.
-    { keyFn: (input: string) => input },
+    // comment in src/parsing/index.ts. maxCacheSize (W1-5): bound the cache.
+    { keyFn: (input: string) => input, maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES },
 );

@@ -253,35 +253,29 @@ type IfClause = { condition: string | null; value: string };
  * nested inside a condition function are not split points.
  */
 const splitIfClauses = (body: string): IfClause[] => {
-    const branches: string[] = [];
-    let depth = 0;
-    let buf = "";
-    for (let i = 0; i < body.length; i++) {
-        const c = body[i]!;
-        if (c === "(" || c === "[" || c === "{") depth++;
-        else if (c === ")" || c === "]" || c === "}") depth--;
-        if (c === ";" && depth === 0) {
-            branches.push(buf);
-            buf = "";
-        } else {
-            buf += c;
-        }
+    // W1-8 (lib-parsing F-5): the two hand-rolled scan loops here (the `;` split
+    // and the first-top-level-`:` find, which duplicated the walk WITHIN this one
+    // function) are now the shared `splitTopLevel` / `findTopLevel`, tracking all
+    // three bracket pairs and — matching the originals — NOT string-aware (an if()
+    // body carries no string literals). The originals kept empty mid-branches raw
+    // and dropped only a trailing whitespace-only branch; `keepEmpty: true` +
+    // `trim: false` + the trailing-empty pop reproduce that asymmetry exactly.
+    const branches = utils.splitTopLevel(body, (c) => c === ";", {
+        brackets: utils.BRACKETS_ALL,
+        strings: false,
+        trim: false,
+        keepEmpty: true,
+    });
+    if (branches.length > 0 && branches[branches.length - 1]!.trim() === "") {
+        branches.pop();
     }
-    if (buf.trim() !== "") branches.push(buf);
 
     return branches.map((branch) => {
-        // Find the first top-level ':' splitting condition from value.
-        let d = 0;
-        let colon = -1;
-        for (let i = 0; i < branch.length; i++) {
-            const c = branch[i]!;
-            if (c === "(" || c === "[" || c === "{") d++;
-            else if (c === ")" || c === "]" || c === "}") d--;
-            else if (c === ":" && d === 0) {
-                colon = i;
-                break;
-            }
-        }
+        // First top-level ':' splitting condition from value (same bracket set).
+        const colon = utils.findTopLevel(branch, (c) => c === ":", {
+            brackets: utils.BRACKETS_ALL,
+            strings: false,
+        });
         if (colon < 0) {
             // No condition separator — treat the whole branch as a bare value
             // (defensive; the grammar always pairs condition:value or else:value).
@@ -501,7 +495,8 @@ export const parseCSSValue = memoize(
     (input: string): ValueUnit | FunctionValue => {
         return utils.tryParse(ValuesValue, input);
     },
-    { keyFn: (input: string) => input },
+    // maxCacheSize (W1-5): bound the cache — see PARSE_MEMO_MAX_ENTRIES.
+    { keyFn: (input: string) => input, maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES },
 );
 
 // ─── parseCSSSubValue (VJ-L3) ──────────────────────────────────────────────
@@ -565,7 +560,10 @@ export function parseCSSSubValue(
 export const parseCSSPercent = memoize(
     (input: string | number): number =>
         utils.tryParse(CSSValueUnit.Percentage, String(input)).valueOf(),
-    { keyFn: (input: string | number) => String(input) },
+    {
+        keyFn: (input: string | number) => String(input),
+        maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES,
+    },
 );
 
 export const parseCSSTime = memoize(
@@ -583,5 +581,6 @@ export const parseCSSTime = memoize(
             input,
         ) as number;
     },
-    { keyFn: (input: string) => input },
+    // maxCacheSize (W1-5): bound the cache — see PARSE_MEMO_MAX_ENTRIES.
+    { keyFn: (input: string) => input, maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES },
 );

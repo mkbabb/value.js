@@ -21,12 +21,7 @@
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
-import {
-    buildServices,
-    cleanCollections,
-    connect,
-    makeFakeContext,
-} from "../helpers.js";
+import { buildServices, cleanCollections, connect } from "../helpers.js";
 import { createPalette, deletePalette } from "../../src/services/palette/crud.js";
 import { batchUsers } from "../../src/services/admin/batch.js";
 import { asSessionToken, asUserSlug } from "../../src/models.js";
@@ -132,9 +127,8 @@ describe("withTransaction rollback (G.W3 Lane E)", () => {
             throw new Error("induced session-cascade failure");
         };
 
-        const c = makeFakeContext(services, "admin");
         await expect(
-            batchUsers(c, "suspend", ["alice"]),
+            batchUsers(services, "admin", "suspend", ["alice"]),
         ).rejects.toThrow("induced session-cascade failure");
 
         services.repositories.sessions.deleteByUserSlugs = realDeleteSessions;

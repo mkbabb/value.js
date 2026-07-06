@@ -19,7 +19,11 @@ export interface UseTagEdit {
     loading: Ref<boolean>;
     loaded: Ref<boolean>;
     loadAllTags: (force?: boolean) => Promise<void>;
-    saveTags: (slug: string, tags: string[]) => Promise<Palette | undefined>;
+    saveTags: (
+        slug: string,
+        tags: string[],
+        ifMatch?: string,
+    ) => Promise<Palette | undefined>;
 }
 
 export function useTagEdit(): UseTagEdit {
@@ -47,13 +51,15 @@ export function useTagEdit(): UseTagEdit {
     async function saveTags(
         slug: string,
         tags: string[],
+        ifMatch = "*",
     ): Promise<Palette | undefined> {
         try {
-            // K.W2: PATCH REQUIRES If-Match (428 if absent). The tag-edit popover
-            // holds only the slug + current tags, not the palette's ETag fields,
-            // so we use the RFC 7232 match-any escape hatch (`"*"`). A captured
-            // validator would be preferable; the popover has no read to derive it.
-            return await updatePalette(slug, { tags }, "*");
+            // K.W2: PATCH REQUIRES If-Match (428 if absent). W5-13 · F-9: the
+            // caller now threads a CAPTURED validator (`paletteETag(palette)`)
+            // when it holds the palette — closing the two-tab lost-update window.
+            // The `"*"` RFC 7232 match-any default remains the fallback for the
+            // rare caller with no palette in hand.
+            return await updatePalette(slug, { tags }, ifMatch);
         } catch (e) {
             console.warn("Failed to update tags:", e);
             return undefined;

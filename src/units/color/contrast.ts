@@ -1,6 +1,7 @@
-import { clamp } from "../../math";
+import { clamp, scale } from "../../math";
 import { ch, OKLCHColor, RGBColor, LinearSRGBColor } from ".";
 import type { Color } from ".";
+import { getColorSpaceBound } from "./constants";
 import { color2 } from "./dispatch";
 import { normalizeColor } from "./normalize";
 
@@ -202,4 +203,54 @@ export function safeAccentColor(
     oklch.h = ch(safe.H);
 
     return oklch;
+}
+
+/**
+ * The contrast-safe accent as a ready-to-apply CSS `oklch(…)` string — the
+ * string-returning companion to {@link safeAccentColor}, and the surface the
+ * demo consumes so NO norm/denorm math lives in the app (S.W1-6). It retires the
+ * hand-rolled `C * 0.5` / `H * 360` magic-literal denorm blocks in the demo's
+ * `useContrastSafeColor.ts`: the denorm ranges are carried by the library
+ * (`getColorSpaceBound`), never hardcoded at the callsite.
+ *
+ * DOMAIN CONTRACT: `color` is a NORMALIZED-domain `Color` — every channel in
+ * [0,1] (RGB in [0,1], OKLCH L/C/H all in [0,1]), exactly as the demo's picker
+ * model holds it and as {@link safeAccentColor} consumes (which converts through
+ * `color2(color, "oklch")` — itself normalized-in/out). The guard runs in that
+ * normalized OKLCH domain (see {@link computeSafeAccent}); each channel is then
+ * denormalized to its CSS number domain THROUGH THE LIBRARY'S OWN RANGE TABLE
+ * (`getColorSpaceBound("oklch", …, "number")`: L identity, C → [0, 0.5],
+ * H → [0, 360]) — the exact mapping the demo hardcoded, now sourced from the
+ * library. This mirrors the denorm-out step of `convertColorSpaceDenorm`.
+ *
+ * The result is ALWAYS an `oklch(…)` string with the guard applied (a no-op
+ * guard simply re-expresses the input color in oklch). Alpha rides through: an
+ * opaque color emits the bare 3-component form, a translucent one emits `… / a`.
+ *
+ * @param color        a NORMALIZED-domain `Color` ([0,1] channels)
+ * @param bgLightness  background surface lightness in OKLab [0,1]
+ * @param minContrast  minimum lightness distance (default 0.35)
+ * @param digits       output precision (default 3)
+ * @returns a CSS `oklch(…)` accent string, contrast-guarded
+ */
+export function safeAccentCssString(
+    color: Color,
+    bgLightness: number,
+    minContrast: number = DEFAULT_MIN_CONTRAST,
+    digits: number = 3,
+): string {
+    // Reuse the guard leaf — returns a fresh OKLCHColor whose channels are in
+    // the NORMALIZED [0,1] domain (`color2`/clone discipline of safeAccentColor).
+    const safe = safeAccentColor(color, bgLightness, minContrast);
+
+    // Denormalize [0,1] → the compact CSS number domain for oklch, sourced from
+    // the library range table (l→identity, c→[0,0.5], h→[0,360]) — the exact
+    // mapping the demo hand-coded as `C * 0.5` / `H * 360`. Alpha is separate
+    // (`channels` excludes it) and its oklch number range is already [0,1].
+    for (const k of safe.channels) {
+        const { min, max } = getColorSpaceBound("oklch", k, "number");
+        safe[k] = ch(scale(safe[k] as number, 0, 1, min, max));
+    }
+
+    return safe.toFormattedString(digits);
 }

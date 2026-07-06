@@ -6,14 +6,20 @@
 
 ```
 color/
-├── index.ts        # Color<T> base class + 15 space classes
-│                     RGBColor, HSLColor, HSVColor, HWBColor
-│                     LABColor, LCHColor, OKLABColor, OKLCHColor
-│                     XYZColor, KelvinColor
-│                     LinearSRGBColor, DisplayP3Color, AdobeRGBColor
+├── index.ts        # color-subsystem BARREL (S.W1 W1-8): re-exports base + spaces
+│                     + serialize's consumers + dispatch/mix/contrast. Every
+│                     `import { Color, ch, RGBColor, … } from "."` resolves here.
+├── base.ts         # Color<T> base class + ColorChannel<T> phantom brand +
+│                     ch<T>/channelOf/setChannel typed accessors (W1-8 leaf split;
+│                     spaces.ts extends this — must stay a leaf, no dispatch import)
+├── spaces.ts       # the 15 space subclasses + ColorSpaceMap<T> (W1-8 split):
+│                     RGBColor, HSLColor, HSVColor, HWBColor, LABColor, LCHColor,
+│                     OKLABColor, OKLCHColor, XYZColor, KelvinColor,
+│                     LinearSRGBColor, DisplayP3Color, AdobeRGBColor,
 │                     ProPhotoRGBColor, Rec2020Color
-│                     ColorSpaceMap<T> discriminated union type
-│                     ColorChannel<T> phantom brand + `ch<T>` brand-eraser (E.W1 Lane E lift)
+├── serialize.ts    # apply-path serializers (W1-8 split): formatNumber/formatColor,
+│                     toAnimationString helpers (B1 zero-alloc + B2 output-space
+│                     emit); color2/gamutMap late-bound (registered by dispatch)
 ├── constants.ts    # ranges, matrices, white points, named colors
 │                     COLOR_SPACE_RANGES (per-component min/max for all 15 spaces)
 │                     COLOR_SPACE_DENORM_UNITS (default output units per space)
@@ -21,7 +27,9 @@ color/
 │                     Chromatic adaptation matrices (D65↔D50, Bradford)
 │                     XYZ↔LMS, LMS↔OKLab, RGB↔XYZ matrices (all 15 spaces)
 │                     GAMUT_SECTOR_COEFFICIENTS (Red/Green/Blue polynomial k0-k4)
-│                     COLOR_NAMES — 147 CSS named + 5 custom colors
+├── color-names.ts  # COLOR_NAMES (147 CSS named + 5 custom colors) data table
+│                     (S.W1 W1-8 lift out of constants.ts) + the runtime custom
+│                     color-name registry (registerColorNames/clear/get — O.W1 S1)
 ├── matrix.ts       # 3x3 matrix math (replaces gl-matrix)
 │                     Vec3 = [number, number, number]
 │                     Mat3 = 9-element tuple (ROW-MAJOR)

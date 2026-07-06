@@ -8,8 +8,7 @@
  * Emits a typed audit event via `emitAuditEvent`.
  */
 
-import type { Context } from "hono";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import { NotFoundError } from "../../errors/index.js";
 import { emitAuditEvent } from "../../events/auditLog.js";
 import type { PaletteColor } from "../../models.js";
@@ -26,11 +25,12 @@ export interface ImportResult {
 }
 
 export async function importPalettes(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
     slug: string,
     entries: ImportPaletteInput[],
 ): Promise<ImportResult> {
-    const { users, palettes } = c.var.services.repositories;
+    const { users, palettes } = services.repositories;
     const user = await users.findBySlug(slug);
     if (!user) {
         throw new NotFoundError("User not found");
@@ -73,7 +73,7 @@ export async function importPalettes(
         }
     }
 
-    await emitAuditEvent(c, "import-palettes", {
+    await emitAuditEvent(services, actorSlug, "import-palettes", {
         target: `slug=${slug} count=${imported}`,
     });
     return { imported, errors };

@@ -14,9 +14,9 @@
  * Sub-module map:
  *   - client.ts          — `request` / `adminRequest` / `setSessionToken` / `BASE_URL`
  *   - availability.ts    — the K-INV5 availability latch (`apiAvailability`)
- *   - sessions.ts        — session lifecycle (create/login/delete/me)
- *   - palettes.ts        — user palette CRUD + vote + flag
- *   - versions.ts        — versions + forks + provenance
+ *   - sessions.ts        — session lifecycle (create/login/delete)
+ *   - palettes.ts        — user palette CRUD + publish/unpublish + vote + flag
+ *   - versions.ts        — versions + forks
  *   - colors.ts          — public colour-name + tag listing
  *   - admin-palettes.ts  — admin palette moderation + batch + flagged triage
  *   - admin-users.ts     — admin user CRUD + lifecycle + batch
@@ -30,16 +30,19 @@ export {
     type ApiAvailability,
     apiAvailability,
     ApiUnavailableError,
+    DevMisconfigError,
+    devMisconfigMessage,
 } from "./availability";
 
-export { createSession, loginWithSlug, deleteSession, getMe } from "./sessions";
+export { createSession, loginWithSlug, deleteSession } from "./sessions";
 
 export {
     type ListPalettesOptions,
     listPalettes,
-    getMyPalettes,
     getPalette,
+    createAndSavePalette,
     publishPalette,
+    unpublishPalette,
     updatePalette,
     renamePalette,
     votePalette,
@@ -50,16 +53,12 @@ export {
 
 export {
     listVersions,
-    getVersion,
     revertPalette,
     forkPalette,
-    listForks,
-    getProvenance,
 } from "./versions";
 
 export {
     getApprovedColorNames,
-    searchColorNames,
     getTags,
     proposeColorName,
 } from "./colors";
@@ -67,7 +66,6 @@ export {
 export {
     featurePalette,
     deletePaletteAdmin,
-    batchPaletteAction,
     getFlaggedPalettes,
     dismissFlags,
 } from "./admin-palettes";
@@ -75,13 +73,10 @@ export {
 export {
     listUsers,
     getUserPalettes,
-    setUserStatus,
     deleteUser,
     deleteUserPalettes,
     impersonateUser,
     pruneEmptyUsers,
-    importPalettes,
-    batchUserAction,
 } from "./admin-users";
 
 export {

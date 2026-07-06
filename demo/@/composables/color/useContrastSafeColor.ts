@@ -1,9 +1,7 @@
-import { computed, type ComputedRef, type Ref, type ShallowRef } from "vue";
+import { computed, type ComputedRef } from "vue";
 import { useDark } from "@vueuse/core";
-import { colorUnit2 } from "@src/units/color/normalize";
-import { computeSafeAccent } from "@src/units/color/contrast";
-import { parseCSSColor } from "@src/parsing/color";
-import type { ColorModel } from "@components/custom/color-picker";
+import { safeAccentCssString, needsContrastAdjustment } from "@src/units/color/contrast";
+import { cssToRawColor } from "@lib/color-utils";
 
 /**
  * Background lightness constants (OKLab L) for the app's light/dark themes.
@@ -11,12 +9,41 @@ import type { ColorModel } from "@components/custom/color-picker";
  * These correspond to the --background CSS variable:
  *   light: hsl(0 0% 100%)   → OKLab L ≈ 1.0
  *   dark:  hsl(224 71% 4%)  → OKLab L ≈ 0.15
+ *
+ * Exported (S.W7 · W7-4): `useViewAccents` re-guards the per-view accent
+ * tokens against the SAME scheme lightness the live accent rides — one
+ * source, never a second pair of constants.
  */
-const BG_LIGHTNESS_DARK = 0.15;
-const BG_LIGHTNESS_LIGHT = 0.97;
+export const BG_LIGHTNESS_DARK = 0.15;
+export const BG_LIGHTNESS_LIGHT = 0.97;
 
 /**
- * Computes a contrast-safe accent color CSS string from the current color model.
+ * The contrast guard, sourced ENTIRELY from the library (S.W2-2 ⊣ W1-6): the
+ * demo carries NO norm/denorm color math. `cssToRawColor` lifts a CSS string to
+ * a normalized-domain `Color<number>` (the inv-N-3 single resolution path);
+ * `needsContrastAdjustment` decides whether the guard must fire (identical
+ * threshold to `safeAccentCssString`, so a no-op is skippable for best
+ * fidelity); `safeAccentCssString` owns the guard AND the [0,1]→CSS denorm
+ * (the retired `C * 0.5` / `H * 360` magic literals now come from the library's
+ * own range table).
+ *
+ * @param css   an OPAQUE CSS color string (the accent is opaque by design — the
+ *              guarded output is `oklch(L C H)` with no alpha clause)
+ * @param bgL   background surface lightness in OKLab [0,1]
+ * @returns     the original string when contrast suffices, else a guarded
+ *              `oklch(…)` string
+ */
+function guardedAccentCss(css: string, bgL: number): string {
+    const color = cssToRawColor(css, "oklch");
+    if (!color) return css;
+    // No adjustment needed — return the original for best fidelity (the library
+    // would otherwise re-express a sufficient-contrast color as oklch).
+    if (!needsContrastAdjustment(color, bgL)) return css;
+    return safeAccentCssString(color, bgL);
+}
+
+/**
+ * Computes a contrast-safe accent color CSS string from the live picked color.
  *
  * When the picked color is too close in lightness to the UI background
  * (e.g. near-black in dark mode, near-white in light mode), the returned
@@ -25,41 +52,12 @@ const BG_LIGHTNESS_LIGHT = 0.97;
  * Usage: provide via SAFE_ACCENT_KEY and inject in components that use the
  * accent color for text, icons, or borders (not for background fills).
  */
-export function useContrastSafeColor(
-    model: ShallowRef<ColorModel>,
-    cssColorOpaque: ComputedRef<string>,
-) {
+export function useContrastSafeColor(cssColorOpaque: ComputedRef<string>) {
     const isDark = useDark({ disableTransition: false });
 
     const safeAccentCss = computed(() => {
         const bgL = isDark.value ? BG_LIGHTNESS_DARK : BG_LIGHTNESS_LIGHT;
-
-        // Convert the current color to OKLCH (normalized [0,1])
-        try {
-            const oklch = colorUnit2(model.value.color, "oklch", true, false, false);
-            const L = oklch.value.l.value;
-            const C = oklch.value.c.value;
-            const H = oklch.value.h.value;
-
-            const safe = computeSafeAccent(L, C, H, bgL);
-
-            // No adjustment needed — return original for best fidelity
-            if (safe.L === L && safe.C === C && safe.H === H) {
-                return cssColorOpaque.value;
-            }
-
-            // Denormalize OKLCH from [0,1] to physical ranges:
-            //   L: [0,1] → [0,1] (identity)
-            //   C: [0,1] → [0,0.5] (×0.5)
-            //   H: [0,1] → [0,360] (×360)
-            const denormL = safe.L;
-            const denormC = safe.C * 0.5;
-            const denormH = safe.H * 360;
-
-            return `oklch(${denormL.toFixed(3)} ${denormC.toFixed(4)} ${denormH.toFixed(1)})`;
-        } catch {
-            return cssColorOpaque.value;
-        }
+        return guardedAccentCss(cssColorOpaque.value, bgL);
     });
 
     const needsAdjustment = computed(() => {
@@ -67,33 +65,6 @@ export function useContrastSafeColor(
     });
 
     return { safeAccentCss, needsAdjustment };
-}
-
-/**
- * Convert any CSS color string to a contrast-safe variant for the current theme.
- * Returns the original string if contrast is sufficient, otherwise an adjusted oklch() string.
- */
-function safeAccentFromCss(css: string, bgL: number): string {
-    try {
-        const parsed = parseCSSColor(css);
-        if (!parsed) return css;
-
-        // parsed has physical values — normalize first, then convert
-        const oklch = colorUnit2(parsed, "oklch", false, false, false);
-        const L = oklch.value.l.value;
-        const C = oklch.value.c.value;
-        const H = oklch.value.h.value;
-
-        const safe = computeSafeAccent(L, C, H, bgL);
-        if (safe.L === L && safe.C === C && safe.H === H) return css;
-
-        const denormL = safe.L;
-        const denormC = safe.C * 0.5;
-        const denormH = safe.H * 360;
-        return `oklch(${denormL.toFixed(3)} ${denormC.toFixed(4)} ${denormH.toFixed(1)})`;
-    } catch {
-        return css;
-    }
 }
 
 /**
@@ -107,7 +78,7 @@ export function useSafeAccentFn() {
 
     function safeCss(css: string): string {
         const bgL = isDark.value ? BG_LIGHTNESS_DARK : BG_LIGHTNESS_LIGHT;
-        return safeAccentFromCss(css, bgL);
+        return guardedAccentCss(css, bgL);
     }
 
     return { safeCss };

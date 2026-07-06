@@ -40,7 +40,10 @@ import {
 import {
     DELTA_E_OK_JND,
     deltaEOK,
+    findCusp,
     gamutMapOKLabInto,
+    isInSRGBGamut,
+    oklabToLinearSRGBInto,
     srgbToOKLabInto,
 } from "./gamut";
 
@@ -322,4 +325,130 @@ export function sampleGamutBoundary(
         oogTopFrac: 0,
     };
     return sampleGamutBoundaryInto(hueDeg, target, out, options);
+}
+
+// ── OKLCh slice boundary (S.W1-6) — the L×C sRGB cusp polyline ───────────────
+//
+// For a FIXED OKLCH hue the sRGB gamut is a lightness×chroma region: at each
+// lightness `L ∈ [0,1]` there is a maximum in-gamut chroma `C_max(L)`, rising
+// from (L=0, C=0) through the CUSP (the maximum-chroma point of the hue) and
+// back to (L=1, C=0). This samples that boundary contour — the polyline the
+// OKLCH picker draws as its gamut outline. value.js owns the geometry; the demo
+// (S.W5-8) owns paint and never re-derives it (the boundary-api division of
+// labour, mirroring {@link sampleGamutBoundary}).
+//
+// Coordinates are RAW OKLab: `L ∈ [0,1]` (identical to normalized — the oklch L
+// range IS [0,1]) and `C` in physical OKLab chroma (~0..0.32 for sRGB; the
+// consumer scales by the `oklch.c` number range [0,0.5] to normalize). The cusp
+// is reported ANALYTICALLY (Ottosson's `findCusp`, exact) alongside the sampled
+// polyline. sRGB-target only — the OKLCH picker's gamut is sRGB, and the cusp
+// math (`gamut.ts`) is sRGB-fit.
+
+/** The L×C sRGB gamut contour of one OKLCH hue slice (S.W1-6). */
+export interface OKLChSliceBoundary {
+    /**
+     * Interleaved `[L0,C0, L1,C1, …]` boundary polyline, `L` increasing 0→1 in
+     * `columns+1` even steps (`L_i = i/columns`). `C` is the RAW OKLab max
+     * in-gamut chroma at that lightness. Capacity is `2·(columns+1)`; the first
+     * `2·count` entries are valid.
+     */
+    points: Float64Array;
+    /** valid point count (`columns + 1`; `0` only for a non-finite/achromatic hue). */
+    count: number;
+    /** analytical cusp lightness (raw OKLab `L ∈ [0,1]`); `0` for achromatic. */
+    cuspL: number;
+    /** analytical cusp chroma (raw OKLab chroma); `0` for achromatic. */
+    cuspC: number;
+}
+
+// Chroma bracket: the sRGB OKLab cusp chroma peaks ≈0.322 (blue), so 0.5 is a
+// guaranteed out-of-gamut upper bound for every interior lightness.
+const SLICE_C_HI = 0.5;
+const SLICE_BISECT_ITERS = 24; // 2⁻²⁴ chroma resolution — sub-JND.
+const _sliceLin: Vec3 = [0, 0, 0];
+
+/** Largest in-gamut raw chroma along the hue direction (a_, b_) at lightness L. */
+function maxChromaAtL(L: number, a_: number, b_: number): number {
+    // C=0 (grey) is in gamut for every L ∈ [0,1]; SLICE_C_HI is out — bisect.
+    let lo = 0;
+    let hi = SLICE_C_HI;
+    for (let i = 0; i < SLICE_BISECT_ITERS; i++) {
+        const mid = (lo + hi) / 2;
+        oklabToLinearSRGBInto(L, mid * a_, mid * b_, _sliceLin);
+        if (isInSRGBGamut(_sliceLin[0], _sliceLin[1], _sliceLin[2])) lo = mid;
+        else hi = mid;
+    }
+    return lo;
+}
+
+/**
+ * Zero-alloc out-param form (the module's `Into` idiom). Writes the `columns+1`
+ * boundary samples into `out.points`, sets `out.count`/`out.cuspL`/`out.cuspC`,
+ * returns `out`. Requires `out.points.length ≥ 2·(columns+1)` — RangeError
+ * otherwise. `out` MUST be caller-owned; single-threaded re-entrancy (the shared
+ * `_sliceLin` scratch is fully written before read within each sample).
+ */
+export function sampleOKLChSliceBoundaryInto(
+    hueDeg: number,
+    out: OKLChSliceBoundary,
+    columns: number = 96,
+): OKLChSliceBoundary {
+    validateColumns(columns);
+    if (out.points.length < 2 * (columns + 1)) {
+        throw new RangeError(
+            `sampleOKLChSliceBoundary: out.points capacity ${out.points.length} < required ${2 * (columns + 1)}`,
+        );
+    }
+
+    const points = out.points;
+
+    // Non-finite hue (CSS `none`) is achromatic — the slice is the grey axis,
+    // zero chroma at every lightness, and there is no cusp.
+    if (!Number.isFinite(hueDeg)) {
+        for (let i = 0; i <= columns; i++) {
+            points[2 * i] = i / columns;
+            points[2 * i + 1] = 0;
+        }
+        out.count = columns + 1;
+        out.cuspL = 0;
+        out.cuspC = 0;
+        return out;
+    }
+
+    const hue = ((hueDeg % 360) + 360) % 360;
+    const hRad = (hue * Math.PI) / 180;
+    const a_ = Math.cos(hRad);
+    const b_ = Math.sin(hRad);
+
+    for (let i = 0; i <= columns; i++) {
+        const L = i / columns;
+        points[2 * i] = L;
+        points[2 * i + 1] = maxChromaAtL(L, a_, b_);
+    }
+    out.count = columns + 1;
+
+    // The analytical cusp — exact (polynomial + one Halley step), not sampled.
+    const cusp = findCusp(a_, b_);
+    out.cuspL = cusp.L;
+    out.cuspC = cusp.C;
+    return out;
+}
+
+/**
+ * Allocating form — constructs an {@link OKLChSliceBoundary} sized to `columns`
+ * and delegates to {@link sampleOKLChSliceBoundaryInto}. Exactly 2 allocations
+ * (the result object + its `Float64Array`).
+ */
+export function sampleOKLChSliceBoundary(
+    hueDeg: number,
+    columns: number = 96,
+): OKLChSliceBoundary {
+    validateColumns(columns);
+    const out: OKLChSliceBoundary = {
+        points: new Float64Array(2 * (columns + 1)),
+        count: 0,
+        cuspL: 0,
+        cuspC: 0,
+    };
+    return sampleOKLChSliceBoundaryInto(hueDeg, out, columns);
 }

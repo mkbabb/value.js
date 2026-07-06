@@ -17,6 +17,8 @@ export interface UseAdminAudit {
     page: Ref<number>;
     pageSize: number;
     loading: Ref<boolean>;
+    /** W5-5 (F-2): load failure, surfaced — error ≠ empty at the panel. */
+    loadError: Ref<string | null>;
     actionFilter: Ref<string>;
     targetFilter: Ref<string>;
     pageCount: Ref<number>;
@@ -35,6 +37,7 @@ export function useAdminAudit(): UseAdminAudit {
     const page = ref(1);
     const pageSize = 20;
     const loading = ref(false);
+    const loadError = ref<string | null>(null);
     const actionFilter = ref("");
     const targetFilter = ref("");
 
@@ -57,7 +60,10 @@ export function useAdminAudit(): UseAdminAudit {
             const res = await getAuditLog(token, merged);
             entries.value = res.data;
             total.value = res.total;
-        } catch (e) {
+            loadError.value = null;
+        } catch (e: any) {
+            // W5-5 (F-2): never costume a dead backend as an empty ledger.
+            loadError.value = e?.message ?? "Backend unreachable";
             console.warn("Failed to load audit log:", e);
         } finally {
             loading.value = false;
@@ -84,6 +90,7 @@ export function useAdminAudit(): UseAdminAudit {
         page,
         pageSize,
         loading,
+        loadError,
         actionFilter,
         targetFilter,
         pageCount,

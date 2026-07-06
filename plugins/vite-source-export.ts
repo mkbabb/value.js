@@ -1,5 +1,6 @@
 import type { Plugin } from "vite";
 import { readFileSync } from "node:fs";
+import ts from "typescript";
 
 const QUERY = "?source";
 
@@ -63,63 +64,89 @@ export function sourceExportPlugin(): Plugin {
             const filePath = idToPath.get(id) ?? id.slice(0, -QUERY.length);
             const raw = readFileSync(filePath, "utf-8");
 
-            return await extractExports(raw, prettier, hljs);
+            return await renderExports(raw, prettier, hljs, filePath);
         },
     };
 }
 
 /**
- * Extract all `export const` and `export function` declarations from
- * raw TypeScript source, format with Prettier, highlight with highlight.js,
- * and return a module where each export is a pre-rendered HTML string.
+ * Parse `raw` TypeScript with the TypeScript compiler and return each top-level
+ * `export const` / `export function` as `{ name, source }`, where `source` is
+ * the COMPLETE declaration text with the leading `export ` stripped.
+ *
+ * This is a real parse, NOT a brace scan. The prior first-`{`-then-balance scan
+ * (W4-4 root, `design-docs-about.md` P0-1) truncated every export whose first
+ * parameter is destructured (`({ l, c, h }: T)`) at the destructuring brace —
+ * 15/18 doc-imported conversions shipped as one invalid line — and mis-sliced
+ * or skipped brace-free initializers (array literals, `invertMat3(…)` calls).
+ * A parse yields the exact declaration span for every form: destructured
+ * params, object return types, arrow/array/call initializers, multi-line bodies.
+ *
+ * Pure + side-effect-free so the per-page snippet golden
+ * (`test/docs-source-snippets.test.ts`) can exercise it directly — vitest does
+ * not register this Vite plugin, so it cannot resolve `?source` imports.
  */
-async function extractExports(
+export function extractExportSources(
     raw: string,
-    prettier: typeof import("prettier"),
-    hljs: typeof import("highlight.js/lib/core").default,
-): Promise<string> {
-    const exportRe = /export\s+(?:const|function)\s+(\w+)/g;
-    const entries: string[] = [];
-    let m: RegExpExecArray | null;
+    fileName = "source.ts",
+): { name: string; source: string }[] {
+    const sourceFile = ts.createSourceFile(
+        fileName,
+        raw,
+        ts.ScriptTarget.Latest,
+        /* setParentNodes */ true,
+        ts.ScriptKind.TS,
+    );
 
-    while ((m = exportRe.exec(raw)) !== null) {
-        const name = m[1];
-        const start = m.index;
+    const out: { name: string; source: string }[] = [];
 
-        const openBrace = raw.indexOf("{", start);
-        if (openBrace === -1) continue;
+    for (const stmt of sourceFile.statements) {
+        const modifiers = ts.canHaveModifiers(stmt)
+            ? ts.getModifiers(stmt)
+            : undefined;
+        const isExported =
+            modifiers?.some((m) => m.kind === ts.SyntaxKind.ExportKeyword) ??
+            false;
+        if (!isExported) continue;
 
-        let depth = 0;
-        let inStr = false;
-        let strChar = "";
-        let end = -1;
+        const declText = raw
+            .slice(stmt.getStart(sourceFile), stmt.getEnd())
+            .replace(/^export\s+/, "");
 
-        for (let i = openBrace; i < raw.length; i++) {
-            const ch = raw[i];
-            if (inStr) {
-                if (ch === "\\") { i++; continue; }
-                if (ch === strChar) inStr = false;
-                continue;
-            }
-            if (ch === '"' || ch === "'" || ch === "`") {
-                inStr = true;
-                strChar = ch;
-                continue;
-            }
-            if (ch === "{") depth++;
-            if (ch === "}") {
-                depth--;
-                if (depth === 0) {
-                    end = raw[i + 1] === ";" ? i + 2 : i + 1;
-                    break;
+        if (ts.isFunctionDeclaration(stmt) && stmt.name) {
+            out.push({ name: stmt.name.text, source: declText });
+        } else if (ts.isVariableStatement(stmt)) {
+            for (const decl of stmt.declarationList.declarations) {
+                if (ts.isIdentifier(decl.name)) {
+                    out.push({ name: decl.name.text, source: declText });
                 }
             }
         }
+    }
 
-        if (end === -1) continue;
+    return out;
+}
 
-        const source = raw.slice(start, end).replace(/^export\s+/, "");
+/**
+ * Extract every exported declaration from `raw`, format each with Prettier,
+ * highlight with highlight.js, and return a module where each export is a
+ * pre-rendered HTML string.
+ *
+ * A Prettier failure THROWS (build-failing guard, W4-4). Because the extractor
+ * now emits complete declarations, Prettier never fails in normal operation; a
+ * throw here means a future extractor regression produced an invalid fragment,
+ * and the build must fail loudly rather than ship a truncated snippet — the
+ * precept-violating silent `catch` this replaces is exactly what hid P0-1.
+ */
+async function renderExports(
+    raw: string,
+    prettier: typeof import("prettier"),
+    hljs: typeof import("highlight.js/lib/core").default,
+    fileName: string,
+): Promise<string> {
+    const entries: string[] = [];
 
+    for (const { name, source } of extractExportSources(raw, fileName)) {
         // Format with Prettier (fixed 80-col width)
         let formatted: string;
         try {
@@ -128,12 +155,19 @@ async function extractExports(
                 printWidth: 80,
                 tabWidth: 4,
             });
-        } catch {
-            formatted = source;
+        } catch (err) {
+            throw new Error(
+                `[source-export] Prettier failed to format export \`${name}\` ` +
+                    `from ${fileName}: ${(err as Error).message}\n` +
+                    `The extracted source is not a complete, valid declaration — ` +
+                    `refusing to ship a truncated snippet (W4-4 build-failing guard).`,
+            );
         }
 
         // Highlight with highlight.js
-        const highlighted = hljs.highlight(formatted.trimEnd(), { language: "typescript" });
+        const highlighted = hljs.highlight(formatted.trimEnd(), {
+            language: "typescript",
+        });
         const html = `<pre class="hljs typescript"><code class="language-typescript">${highlighted.value}</code></pre>`;
 
         entries.push(`export const ${name} = ${JSON.stringify(html)};`);

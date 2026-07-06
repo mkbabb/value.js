@@ -43,6 +43,7 @@ import { inject, onMounted, watch } from "vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import { Checkbox } from "@components/ui/checkbox";
 import { Loader2 } from "@lucide/vue";
+import { paletteETag } from "@lib/palette/api";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
 const { open, paletteSlug, currentTags } = defineProps<{
@@ -65,8 +66,15 @@ async function onToggle(name: string, checked: boolean) {
         ? [...currentTags, name]
         : currentTags.filter((t) => t !== name);
 
+    // W5-13 · F-9: derive the captured If-Match validator from the palette we
+    // already hold in the browse list (BEFORE the emit mutates its tags — the
+    // ETag reads `currentHash`/`updatedAt`, which the tag edit hasn't bumped
+    // yet). Falls back to the `"*"` match-any when the row isn't in hand.
+    const source = pm.remotePalettes.value.find((p) => p.slug === paletteSlug);
+    const ifMatch = source ? paletteETag(source) : undefined;
+
     emit("update:tags", updated);
-    await tagEdit.saveTags(paletteSlug, updated);
+    await tagEdit.saveTags(paletteSlug, updated, ifMatch);
 }
 
 watch(() => open, (isOpen) => {

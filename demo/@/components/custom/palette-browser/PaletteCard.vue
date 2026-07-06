@@ -8,17 +8,27 @@
             // (consumed via the border-card-edge bridge), the chip-scale
             // cartoon rung at rest, and a law-3 hover that DEEPENS the same
             // voice (sm → md) instead of lurching from none to the full rung.
-            'group rounded-card border border-card-edge bg-card overflow-hidden shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
+            // S.W5-2 (S-20): the card joins the glass rung — bg-card/75 +
+            // backdrop blur, so the pane plate reads through instead of the
+            // opaque cream punching a hole in it. PaletteCardSkeleton +
+            // .dashed-well speak the same shell by construction.
+            // NO overflow-hidden (S.W5-10 / S-15-A): a card-level radius clip
+            // rasterizes 1-bit at compositing-layer bounds (the stair-stepped
+            // strip corner in the owner's shot); the strip clips its OWN
+            // corners below — an interior clip keeps normal AA.
+            'group rounded-card border border-card-edge bg-card/75 backdrop-blur-sm shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
         role="article"
         :aria-label="`Palette: ${palette.name}`"
         @click="$emit('click')"
     >
-        <!-- Color strip -->
+        <!-- Color strip — the card's only full-bleed child; it carries the
+             corner radius itself now that the card no longer clips. -->
         <PaletteColorStrip
             :colors="palette.colors"
             :orientation="layout === 'aside' ? 'vertical' : 'horizontal'"
+            :class="layout === 'aside' ? 'rounded-l-card' : 'rounded-t-card'"
         />
 
         <!-- Card body (flex-1 in aside layout so it sits next to the vertical strip) -->
@@ -32,13 +42,20 @@
                     v-if="draggable"
                     class="drag-handle w-4 h-4 text-muted-foreground/40 shrink-0 cursor-grab active:cursor-grabbing"
                 />
+                <!-- S.W5-7: the title hides while the rename input is open —
+                     never the same string twice on one card. -->
                 <span
+                    v-if="!renaming"
                     class="text-subheading line-clamp-2 sm:line-clamp-1"
                     :class="editableName && 'cursor-text hover:underline decoration-dashed underline-offset-4'"
                     :title="palette.name"
                     @click.stop="editableName && startRenaming()"
                 >{{ palette.name }}</span>
-                <Badge v-if="palette.tier === 'featured'" variant="outline" class="featured-badge text-mono-small shrink-0 gap-1 border-gold text-gold">
+                <!-- S.W7-7: the featured badge's gold TEXT shimmer consumes the
+                     producer's ONE metal register (glass-ui `.gold-shimmer` —
+                     gradient-clip + metal-shimmer-sweep, PRM-gated); the local
+                     `golden-text-shimmer` keyframe fork is retired. -->
+                <Badge v-if="palette.tier === 'featured'" variant="outline" class="featured-badge gold-shimmer text-mono-small shrink-0 gap-1 border-gold">
                     <!-- Wrapper class lets the scoped `.featured-badge__icon`
                          selector style the icon without :deep(svg) reach. -->
                     <span class="featured-badge__icon inline-flex">
@@ -113,12 +130,18 @@
                     @action="handleMenuAction"
                 >
                     <template #trigger>
-                        <button
-                            class="p-1 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                        <!-- S.W5-4: 3rd copy of the hand-rolled icon-trigger
+                             recipe dies onto the glass-ui atom; the sm square
+                             also cures the ~24px touch target. -->
+                        <Button
+                            icon-only
+                            variant="ghost"
+                            size="sm"
                             aria-label="Palette menu"
+                            class="shrink-0"
                         >
-                            <MoreHorizontal class="w-4 h-4 text-muted-foreground" />
-                        </button>
+                            <MoreHorizontal class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                        </Button>
                     </template>
                 </PaletteCardMenu>
             </div>
@@ -180,6 +203,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { Badge } from "@components/ui/badge";
+import { Button } from "@components/ui/button";
 import {
     Heart,
     Award,
@@ -188,10 +212,8 @@ import {
     GitFork,
     History,
 } from "@lucide/vue";
-import type { PaletteColor } from "@lib/palette/types";
-import type { Palette } from "@lib/palette/types";
-import { getPaletteKind } from "@lib/palette/utils";
-import type { PaletteKind } from "@lib/palette/utils";
+import type { Palette, PaletteColor } from "@lib/palette/types";
+import { getPaletteKind, type PaletteKind } from "@lib/palette/utils";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 import { useHoverPopover } from "./composables/useHoverPopover";
@@ -231,6 +253,8 @@ const emit = defineEmits<{
     addColor: [css: string];
     feature: [palette: Palette];
     adminDelete: [palette: Palette];
+    /** Q1 (S.W5): the visibility flip from the card-menu control. */
+    setVisibility: [palette: Palette, visibility: "public" | "private"];
     fork: [palette: Palette];
     versions: [palette: Palette];
     flag: [palette: Palette];
@@ -238,8 +262,13 @@ const emit = defineEmits<{
     export: [palette: Palette, format: string];
 }>();
 
+// S.W2 W2-9: a palette with zero colors is a real, reachable state (a
+// freshly-created palette before any swatch). This neutral mid-gray is the
+// designed empty-state swatch, named rather than an inline magic literal.
+const EMPTY_PALETTE_SWATCH = "#888";
+
 const kind = computed<PaletteKind>(() => getPaletteKind(props.palette));
-const firstColor = computed(() => props.palette.colors[0]?.css ?? props.cssColor ?? '#888');
+const firstColor = computed(() => props.palette.colors[0]?.css ?? props.cssColor ?? EMPTY_PALETTE_SWATCH);
 
 const { safeCss } = useSafeAccentFn();
 const safeFirstColor = computed(() => safeCss(firstColor.value));
@@ -303,6 +332,9 @@ function handleMenuAction(action: string) {
         rename: () => startRenaming(),
         feature: () => emit("feature", props.palette),
         adminDelete: () => emit("adminDelete", props.palette),
+        // Q1: the designed visibility flip (owned remote palettes).
+        makePublic: () => emit("setVisibility", props.palette, "public"),
+        makePrivate: () => emit("setVisibility", props.palette, "private"),
         fork: () => emit("fork", props.palette),
         versions: () => emit("versions", props.palette),
         flag: () => emit("flag", props.palette),
@@ -337,14 +369,13 @@ function onPopoverCopy(css: string) {
 </script>
 
 <style scoped>
+/* S.W7-7 (god-module census §2.2): the badge's gold text shimmer is the
+ * producer's `.gold-shimmer` metal register (see the template class); this
+ * scoped block keeps only what the register doesn't own — the outline hue
+ * and the icon ink. The local `golden-text-shimmer` keyframe fork is
+ * retired onto glass-ui's `metal-shimmer-sweep` (moved, not lost). */
 .featured-badge {
-    background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light), var(--color-gold), var(--color-gold-light), var(--color-gold));
-    background-size: 300% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     border-color: var(--color-gold);
-    animation: golden-text-shimmer 4s var(--ease-standard) infinite;
 }
 /* Featured-badge icon — selector-stable replacement for the prior
  * `.featured-badge :deep(svg)` reach (D.W4 Lane A §3). The wrapper span
@@ -354,11 +385,6 @@ function onPopoverCopy(css: string) {
 .featured-badge__icon svg {
     stroke: var(--color-gold);
     filter: drop-shadow(0 0 1px color-mix(in srgb, var(--color-gold) 40%, transparent));
-}
-
-@keyframes golden-text-shimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
 }
 
 /* vj-morph geometry for the rename unfurl: drops in from above (enter and

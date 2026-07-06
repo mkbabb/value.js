@@ -15,9 +15,12 @@
             <h2 class="font-display text-subheading mb-2">
                 Basic Information
             </h2>
+            <!-- S.W4-8 (design-docs-about P2-7): the former "Type:" row died —
+                 it restated the Definition alert above in shorthand ("Type:
+                 Cylindrical representation of OKLab" one screen under
+                 "Definition: A cylindrical representation of the OKLab color
+                 space"). One sentence, said once. -->
             <div class="grid grid-cols-2 gap-2 text-small">
-                <div class="italic">Type:</div>
-                <div>{{ currentColorSpaceInfo.type }}</div>
                 <div class="italic">Device Dependency:</div>
                 <div>
                     {{ currentColorSpaceInfo.deviceDependency }}

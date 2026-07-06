@@ -61,18 +61,21 @@ describe("OKHSL", () => {
     });
 
     it("round-trips OKHSL → sRGB → OKHSL", () => {
-        // Sweep the region where the OKHSL math is the determinant. (The library's
-        // sRGB decode transfer is non-invertible in the dark 8-bit band, encoded
-        // 0.003131–0.04045 — a pre-existing gamut.ts/transfer.ts bug orthogonal
-        // to OKHSL; the dark+saturated corner that lands there is left to that
-        // fix, so this sweep keeps l ≥ 0.4 / s ≤ 0.8.)
+        // Sweep the region where the OKHSL math is the determinant, INCLUDING the
+        // dark+saturated corner (low l, high s). Pre-S.W1-1 this band was dodged
+        // (`l ≥ 0.4 / s ≤ 0.8`) because the sRGB DECODE transfer was
+        // non-invertible in the dark 8-bit band (encoded 0.003131–0.04045): a
+        // color there decoded on the wrong branch, so the sRGB↔OKHSL round-trip
+        // could not close. The S.W1-1 decode-threshold cure makes the transfer
+        // pair mutually invertible across that band, so the dodged domain is
+        // reinstated here.
         for (let h = 15; h < 360; h += 45) {
-            for (const s of [0.2, 0.5, 0.8]) {
-                for (const l of [0.45, 0.7]) {
+            for (const s of [0.2, 0.5, 0.8, 1.0]) {
+                for (const l of [0.2, 0.35, 0.45, 0.7]) {
                     const [h2, s2, l2] = srgbToOkhsl(...okhslToSrgb(h, s, l));
-                    expect(h2).toBeCloseTo(h, 2);
-                    expect(s2).toBeCloseTo(s, 3);
-                    expect(l2).toBeCloseTo(l, 3);
+                    expect(h2, `h ${h},${s},${l}`).toBeCloseTo(h, 2);
+                    expect(s2, `s ${h},${s},${l}`).toBeCloseTo(s, 3);
+                    expect(l2, `l ${h},${s},${l}`).toBeCloseTo(l, 3);
                 }
             }
         }

@@ -10,26 +10,11 @@ import type { HueInterpolationMethod } from "@src/units/color/mix";
 import { mixColors } from "@src/units/color/mix";
 import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
 
-// ── Shared interpolation constants (used by Gradient + Mix views) ──
-
-export const INTERPOLATION_SPACES: { value: ColorSpace; label: string; description: string }[] = [
-    { value: "oklch", label: "OKLCh", description: "Perceptual, hue-preserving" },
-    { value: "oklab", label: "OKLab", description: "Perceptual, smooth" },
-    { value: "lab",   label: "Lab",   description: "CIE perceptual" },
-    { value: "lch",   label: "LCh",   description: "CIE cylindrical" },
-    { value: "hsl",   label: "HSL",   description: "Web-native cylindrical" },
-    { value: "hsv",   label: "HSV",   description: "Hue-saturation-value" },
-    { value: "hwb",   label: "HWB",   description: "Hue-whiteness-blackness" },
-    { value: "rgb",   label: "RGB",   description: "Device linear" },
-    { value: "xyz",   label: "XYZ",   description: "CIE absolute" },
-];
-
-export const HUE_INTERPOLATION_METHODS: { value: HueInterpolationMethod; label: string; description: string }[] = [
-    { value: "shorter",    label: "Shorter",    description: "Nearest arc" },
-    { value: "longer",     label: "Longer",     description: "Far arc" },
-    { value: "increasing", label: "Increasing", description: "Always clockwise" },
-    { value: "decreasing", label: "Decreasing", description: "Counter-clockwise" },
-];
+// ── Shared interpolation vocabulary — moved to its neutral `@lib/` home
+// (S.W5-6 · F16: color-space facts, not gradient facts). Re-exported here so
+// the gradient tree's own consumers (`useGradientModel` → visualizer) keep
+// their import path.
+export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@lib/color-space-meta";
 
 // ── Helpers ──
 
@@ -59,17 +44,14 @@ export function interpolateStopColors(
 export interface UseGradientInterpolationReturn {
     interpolationSpace: Ref<ColorSpace>;
     hueMethod: Ref<HueInterpolationMethod>;
-    resolution: Ref<number>;
 }
 
 export function useGradientInterpolation(): UseGradientInterpolationReturn {
     const interpolationSpace = ref<ColorSpace>("oklch");
     const hueMethod = ref<HueInterpolationMethod>("shorter");
-    const resolution = ref(32);
 
     return {
         interpolationSpace,
         hueMethod,
-        resolution,
     };
 }

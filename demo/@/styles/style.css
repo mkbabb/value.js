@@ -53,10 +53,28 @@
 @import "@mkbabb/glass-ui/styles.css";
 /* The brand font corpus (R.W3 Lane A / A1 — U1-fonts): real Plus Jakarta Sans +
  * Fira Code woff2 faces (base64, variable-weight). Deliberately split off the
- * critical `./styles` path by the producer; without this third import only the
- * metric-compat *Fallback* faces ship and the body voice paints system-ui. */
-@import "@mkbabb/glass-ui/styles/fonts";
+ * critical `./styles` path by the producer; the metric-compat *Fallback* faces
+ * (ascent-override/size-adjust) ship in that critical `./styles` surface, so the
+ * body/mono voices paint correct-METRIC glyphs at first paint even before the
+ * real faces arrive — zero layout shift when they swap in.
+ *
+ * S.W3-9 (CSS critical-path diet): the corpus is base64 woff2 worth ~102 KB gzip
+ * — the ENTIRE render-blocking overage over the ≤120 KB gate (everything else
+ * render-blocking is ~86 KB gzip, already under). It is therefore DEFERRED off
+ * the critical `<link>`: the `deferGlassFonts` vite plugin (plugins/vite-defer-
+ * glass-fonts.ts) replaces the marker below with the real `@import` in DEV (dev
+ * is not gate-measured; render-blocking there is faithful) and, in the BUILD,
+ * emits the corpus as a standalone hashed asset loaded via a non-blocking
+ * `<link media=print onload=…>` (the same idiom index.html uses for Fraunces).
+ * The critical/deferred split of glass-ui's `./styles` MONOLITH itself is a
+ * producer concern — see the census artefact's producer-letter record. */
+/*__GLASS_FONTS_DEFERRED__*/
 @import "./animations.css";
+/* The house code-plate ink (S.W4-8): ONE hljs token theme — crayon primaries
+ * proportioned, Fira, dark via `.dark` — consumed by the docs' build-time
+ * TypeScript plates AND the gradient pane's live CSS editor. The former
+ * GitHub-css imports + per-component head-injection swaps are dead. */
+@import "./hljs.css";
 
 /* The explicit demo-source scan (see the header block) — declared AFTER the
  * glass-ui `@import`s so its `@utility` registrations (text-mono-small &c.,
@@ -91,12 +109,33 @@
     --spacing-dock-inset:     var(--dock-inset);
     --shadow-card-hover:      var(--shadow-cartoon-hover);
 
+    /* ── The bare-utility transition default (S.W3-5) ──
+     * Tailwind v4's un-modified `transition` / `transition-*` utilities fall
+     * back to a hard-coded 150ms `cubic-bezier(0.4,0,0.2,1)`. The 21-file
+     * bare-utility census (motion-animation-inventory §5) inherits that
+     * untokened default. Alias it at the `@theme` ROOT to the house motion
+     * tokens so every un-tuned `transition` utility speaks the app's fast
+     * duration + standard ease by construction — no per-callsite modifier. */
+    --default-transition-duration:         var(--duration-fast);
+    --default-transition-timing-function:  var(--ease-standard);
+
     /* ── The hairline bridge (R.W4 Lane A / A1) ──
      * Surfaces the R.W3 `--card-edge` mint (:root below — owned THERE, this is
      * a pure consume) as a Tailwind color key so every Z2 in-plate card writes
      * the first-class `border-card-edge` utility instead of a magic
      * `border-[var(--card-edge)]` reach (DESIGN.md §Idioms NOT used). */
     --color-card-edge: var(--card-edge);
+
+    /* ── The φ-ladder spacing bridges (S.W4-8) ──
+     * Surface the :root φ rungs (owned below) as Tailwind spacing keys so
+     * consumers write `py-phi-3` / `pb-phi-4`, never `py-[1.618rem]`
+     * arbitrary literals (AboutPane's former re-hardcode of the ladder —
+     * design-docs-about P3). */
+    --spacing-phi-0: var(--phi-0);
+    --spacing-phi-1: var(--phi-1);
+    --spacing-phi-2: var(--phi-2);
+    --spacing-phi-3: var(--phi-3);
+    --spacing-phi-4: var(--phi-4);
 }
 
 /* Project tokens (layout, surfaces).
@@ -115,18 +154,23 @@
  * pins at the top rather than floating with the content — the one accepted
  * visual delta of Proposal B.
  */
-/* The per-view accent hue turn (R.W4 Lane B / B2): registering the custom
- * property gives it a real <angle> type, which is what makes the `:root`
- * `transition: --view-hue-shift …` interpolate — navigation SWEEPS the
- * interactive layer to the new view's hue. PRM: the global reduced-motion
- * guard (animations.css) neutralises the transition like any other. */
-@property --view-hue-shift {
-    /* UNITLESS degrees: relative-color channel keywords (`h`) resolve as
-     * <number>s, so the shift must be a <number> too — an <angle> inside the
-     * calc() would invalidate the whole derivation at computed-value time. */
-    syntax: "<number>";
+/* The per-view accent (S.W7 · W7-4): registering `--accent-view` with a real
+ * <color> type makes it INTERPOLABLE — but the transition lives ONLY on the
+ * bounded accent-painting scope (DockViewSelect's trigger), NEVER on `:root`.
+ * The former `--view-hue-shift` <number> registration + `:root` transition
+ * (R.W4 B2) taxed the WHOLE document per sweep frame (every inherited
+ * custom-property consumer re-resolved 60×/s — design-dock-shell P1-7); the
+ * W3-7 mechanism decision retires it: the per-view tokens are resolved
+ * JS-side (library gamut-map + contrast guard, useViewAccents) and SNAP on
+ * the root; the sweep survives where the accent actually paints. PRM: the
+ * global reduced-motion guard (animations.css) neutralises the scoped
+ * transition like any other. */
+@property --accent-view {
+    syntax: "<color>";
     inherits: true;
-    initial-value: 0;
+    /* The same pre-hydration literal as `--accent-live` below — @property
+     * initial values must be computationally independent (no var()). */
+    initial-value: oklch(0.632 0.214 13.5);
 }
 
 :root {
@@ -159,25 +203,28 @@
      * surface, no demo-local glass recipe). */
     --accent-live: oklch(0.632 0.214 13.5);
 
-    /* ── The per-view accent (R.W4 Lane B / B2 — navigation reads
-     * chromatically). `--accent-view` DERIVES from the R.W3 `--accent-live`
-     * axis (a pure consume — the mint stays R.W3-owned) by rotating OKLCh hue
-     * per view; L and C are preserved, so the contrast guard the live accent
-     * carries survives the turn. ONE resolver path: viewSchema.ts declares
-     * each view's `accentHueShift`; App.vue writes `--view-hue-shift`; this
-     * relative-color derivation is the only color math. The registered
-     * @property (below :root) makes the hue turn ANIMATABLE — the interactive
-     * layer sweeps to the new view's hue instead of snapping. `--primary`
-     * rides the view accent (picker's shift is 0°, so the picker view is
-     * byte-identical to the R.W3 axis); the glass frost keeps reading
-     * `--accent-live` (the plate temperature stays the picked color). */
-    --view-hue-shift: 0; /* unitless deg — see the @property registration */
-    --accent-view: oklch(from var(--accent-live) l c calc(h + var(--view-hue-shift)));
+    /* ── The per-view accent (S.W7 · W7-4 — navigation reads chromatically,
+     * gamut-guaranteed). The former CSS relative-color derivation
+     * (`oklch(from var(--accent-live) l c calc(h + shift))`) trusted the
+     * browser's gamut clamp — measured false: the clamp bends L per hue
+     * (mix 2.74:1 / generate 2.77:1 failed the 3:1 graphics floor) and at
+     * C≈0 all nine rotations collapsed to one gray. ONE resolver path now:
+     * viewSchema.ts declares each view's `accentHueShift`; `useViewAccents`
+     * resolves each token THROUGH THE LIBRARY (rotate → low-C floor →
+     * Ottosson gamut-map to the cusp → L re-guard → WCAG ≥3:1) and writes
+     * `--accent-view-<id>` × 9 + this `--accent-view` + `--seal-ink` as
+     * static root tokens per accent change. The declaration below is only
+     * the pre-hydration fallback (picker's shift is 0°, so falling back to
+     * the live axis is chromatically true). The view-switch hue sweep lives
+     * on the BOUNDED trigger scope (see the @property registration above) —
+     * never a `:root` transition. `--primary` rides the view accent; the
+     * glass frost keeps reading `--accent-live` (the plate temperature
+     * stays the picked color). */
+    --accent-view: var(--accent-live);
     --primary: var(--accent-view);
     --primary-foreground: var(--background);
     --glass-tint-source: var(--accent-live);
     --glass-tint-strength: 4%;
-    transition: --view-hue-shift var(--duration-panel) var(--ease-standard);
 
     /* ── The accent-aware focus register (R.W3 Lane C / C5, D8) ──
      * glass-ui's `--focus-ring-shadow` recipe reads ONE retint knob
@@ -213,6 +260,22 @@
                            transparent 0 5px,
                            color-mix(in oklab, var(--background) 12%, transparent) 5px 6px);
 
+    /* ── The alpha transparency checker (S owner-ruling 2026-07-05) ──
+     * ONE recipe, one home: the idiomatic transparency ground every alpha-
+     * carrying ramp/well composes UNDER its color layer via the background
+     * shorthand — `background: <ramp>, var(--alpha-checker)`. 8px squares
+     * (16px tile), two-tone in the house neutrals: --background + a quiet
+     * --foreground mix, so both schemes stay in-material by construction
+     * (dark gets a dark checker, never a white flash). The token carries its
+     * own position/size — it is a complete background LAYER; compose it via
+     * `background:`, not `background-image:`. Consumers: the picker's alpha
+     * slider track (ComponentSliders), the gradient editor bar + stop wells
+     * (GradientStopEditor). */
+    --alpha-checker: repeating-conic-gradient(
+            color-mix(in oklab, var(--foreground) 14%, var(--background)) 0% 25%,
+            var(--background) 0% 50%
+        ) left top / 16px 16px;
+
     --shadow-color: var(--foreground);
 
     /* PROJECT OVERRIDE: the demo's identity surface shadow is a bold pop-art
@@ -241,14 +304,17 @@
     --content-max-h: calc(100dvh - var(--dock-total) - 1rem);
 
     /* ── The pane clamp ladder (R.W3 Lane A / A4 — U32) ──
-     * The cards GROW then clamp, handled generally: `--pane-min` is the floor
-     * (the former frozen 480px card size), `--pane-max` the per-card ceiling,
-     * `--pane-gap` a fluid φ-stepped gutter. The GRID owns the clamp via the
-     * `min()` container formula below — pane shells never self-clamp (the 10
-     * `lg:max-w-desktop-pane` forks are deleted; shells are `w-full` only).
-     * No per-width media staircase. */
-    --pane-min: 30rem;
-    --pane-max: 44rem;
+     * The cards GROW then clamp, handled generally: `--pane-min` is the floor,
+     * `--pane-max` the per-card ceiling, `--pane-gap` a fluid φ-stepped gutter.
+     * The GRID owns the clamp via the `min()` container formula below — pane
+     * shells never self-clamp (the 10 `lg:max-w-desktop-pane` forks are
+     * deleted; shells are `w-full` only). No per-width media staircase.
+     * OWNER RULING 2026-07-05 (card-width): 44rem → 32rem (~27% off — "about
+     * 1/3 smaller, maybe a bit less"); the floor drops 30rem → 25rem to stay
+     * below the new ceiling. 32rem over 30rem by eye: at 30rem the About
+     * card's Components labels wrap mid-word ("a* (Green-Red)" breaks). */
+    --pane-min: 25rem;
+    --pane-max: 32rem;
     --pane-gap: clamp(0.5rem, 1.25vw, 1.618rem);
 
     /* Shared min-width for dropdown/select menu panels (was 5 ad-hoc widths). */
@@ -259,6 +325,17 @@
      * and .pane-container's `max-width: calc(… + 2rem)`. Both now read this
      * token so the coupling is explicit and survives a future tightening. */
     --app-padding-x: 1rem;
+
+    /* ── The φ ladder (S.W4-8 — promoted from Markdown.vue's private scoped
+     * block; design-docs-about P3). 1rem base, neighbours a factor of
+     * φ ≈ 1.618 apart. The docs body rhythm (Markdown.vue) AND the About
+     * pane's sectional padding read the same rungs — one ladder, never a
+     * re-hardcoded arbitrary value. */
+    --phi-0: 0.382rem; /* base ÷ φ² */
+    --phi-1: 0.618rem; /* base ÷ φ  */
+    --phi-2: 1rem; /*     base      */
+    --phi-3: 1.618rem; /* base × φ  */
+    --phi-4: 2.618rem; /* base × φ² */
 }
 
 /* Desktop: tighter dock margins.
@@ -317,7 +394,8 @@
     /* The GRID owns the clamp (R.W3 Lane A / A4 — U32, "handled generally"):
      * the container grows fluidly with the viewport (minus .app-layout's
      * horizontal padding, both sides) and clamps at two max-size cards plus
-     * the gutter (≈ 1434px). Equal columns always; no shell self-clamps. */
+     * the gutter (≈ 1050px — 32rem × 2 + 1.618rem, the 2026-07-05 owner-ruling
+     * clamp). Equal columns always; no shell self-clamps. */
     max-width: min(
         calc(100vw - var(--app-padding-x) * 2),
         calc(var(--pane-max) * 2 + var(--pane-gap))
@@ -333,6 +411,18 @@
  * `vw`. Display type rungs are the named exception (viewport-fluid clamps). */
 .pane-wrapper {
     container-type: inline-size;
+}
+
+/* W6-4 (S.W6) — the SLOT-owned cross-pane layer: the LEFT slot (the picker +
+ * its corner-breaking hero-blob ornament) paints above the right pane, so the
+ * bead's overlap strip is never buried under the About card (the S-4 burial —
+ * both glass Cards are z-auto stacking contexts, so DOM order alone painted
+ * the LATER right pane over the left pane's overflowing ornament). Grid items
+ * take z-index directly (no positioning needed); portaled overlays are
+ * unaffected; ZERO per-instance z-index on the ornament itself (the
+ * no-z-hacks law — the slot assigns the layer). */
+.pane-wrapper--left {
+    z-index: 1;
 }
 
 /* The aspect-law display exception (R.W3 Lane A / A4 — the D6-03 portrait
@@ -356,8 +446,8 @@
     }
     .pane-container--dual {
         /* Equal columns always (the kept 1fr↔1fr invariant), with the floor
-         * explicit: no card ever renders below `--pane-min` (the former frozen
-         * size) on the dual grid. */
+         * explicit: no card ever renders below `--pane-min` on the dual
+         * grid. */
         grid-template-columns: repeat(2, minmax(var(--pane-min), 1fr));
     }
 }
@@ -393,6 +483,23 @@
     border-radius: 0;
 }
 
+/* MARKER (S owner-ruling 2026-07-05, alpha-checker lane): restatement of
+ * glass-ui's OWN spectrum-range rule, which its SOURCE declares (Slider.vue —
+ * `background: transparent; backdrop-filter: none; -webkit-backdrop-filter:
+ * none; box-shadow: none`) but whose DIST minification drops the UNPREFIXED
+ * `backdrop-filter: none` leg, keeping only `-webkit-backdrop-filter: none`.
+ * Chromium does not implement the -webkit- alias (computed reads empty), so
+ * in Chrome the `.glass-liquid-fill` register's backdrop blur stays LIVE on
+ * every spectrum range — washing the track under it (it blurred the ramps
+ * before; it liquefied the alpha checker into a flat wash, which is how it
+ * was caught). NOT a fork — a byte-level restatement of producer intent,
+ * scoped to the exact producer selector. Retire when the glass-ui dist keeps
+ * the unprefixed leg (reported; the W8 /slider consume is the checkpoint). */
+.glass-slider[data-variant="spectrum"] .slider-range {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
 /* D.W4 Lane A: .palette-tab-content (data-state cascade) colocated into
  * PaletteDialog.vue's unscoped <style>; .touch-gate-* cluster colocated into
  * ComponentSliders.vue's unscoped <style>; .pane-scroll-fade colocated into
@@ -411,7 +518,13 @@
         border-color: var(--border);
     }
     body {
-        background-color: var(--background);
+        /* W6-1 (S.W6): the body ground IS the atmosphere's derived BASE stop
+         * (`--saved-bg`, written by useAtmosphere's boot-material sink + the
+         * index.html boot script) — boot background → first aurora frame is
+         * ONE material, no theme-paper flash between the fouc-guard ground
+         * and the canvas arrival. First-ever visits (no persisted material)
+         * fall back to the theme paper. */
+        background-color: var(--saved-bg, var(--background));
         color: var(--foreground);
     }
 }

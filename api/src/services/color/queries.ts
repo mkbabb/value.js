@@ -9,12 +9,11 @@
  * Writes (the propose flow) live in `./proposals.ts` to keep each service
  * file under the 250-LoC partition cap.
  *
- * All DB access routes through `c.var.services.repositories.{proposedNames,tags}`.
+ * All DB access routes through `services.repositories.{proposedNames,tags}`.
  */
 
-import type { Context } from "hono";
 import type { WithId } from "mongodb";
-import type { AppEnv } from "../../types.js";
+import type { Services } from "../../middleware/inject-services.js";
 import { escapeRegex } from "../../regex.js";
 import type { ProposedName, Tag } from "../../models.js";
 
@@ -68,11 +67,11 @@ function formatTag(tag: WithId<Tag>): TagDTO {
 }
 
 export async function listApprovedColors(
-    c: Context<AppEnv>,
+    services: Services,
     limit: number,
     offset: number,
 ): Promise<ApprovedListPage> {
-    const { proposedNames } = c.var.services.repositories;
+    const { proposedNames } = services.repositories;
     const [results, total] = await Promise.all([
         proposedNames.findByStatus("approved", offset, limit),
         proposedNames.countByStatus("approved"),
@@ -86,11 +85,11 @@ export async function listApprovedColors(
 }
 
 export async function searchApprovedColors(
-    c: Context<AppEnv>,
+    services: Services,
     q: string,
     limit: number,
 ): Promise<SearchResults> {
-    const { proposedNames } = c.var.services.repositories;
+    const { proposedNames } = services.repositories;
 
     // Primary: $text search ordered by score.
     const textResults = await proposedNames.searchText(q, limit);
@@ -131,8 +130,8 @@ export async function searchApprovedColors(
     };
 }
 
-export async function listColorTags(c: Context<AppEnv>): Promise<TagDTO[]> {
-    const { tags } = c.var.services.repositories;
+export async function listColorTags(services: Services): Promise<TagDTO[]> {
+    const { tags } = services.repositories;
     const rows = await tags.findAllSorted();
     return rows.map((t) => formatTag(t));
 }

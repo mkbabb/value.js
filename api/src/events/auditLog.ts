@@ -10,10 +10,13 @@
  *
  * Lane B's admin-route refactor calls this exclusively; the per-route
  * `try { await audit(...) } catch {}` shim deletes.
+ *
+ * W2-8 — takes the resolved `Services` + `actorSlug` (the caller's session
+ * userSlug, best-effort) rather than a Hono `Context`: the admin services
+ * that call this exclusively no longer hold a `Context` themselves.
  */
 
-import type { Context } from "hono";
-import type { AppEnv } from "../types.js";
+import type { Services } from "../middleware/inject-services.js";
 
 export interface AuditEmitOptions {
     /** Free-form structured payload. */
@@ -25,17 +28,17 @@ export interface AuditEmitOptions {
 }
 
 export async function emitAuditEvent(
-    c: Context<AppEnv>,
+    services: Services,
+    actorSlug: string | undefined,
     action: string,
     options: AuditEmitOptions = {},
 ): Promise<void> {
-    const services = c.var.services;
-    const actorSlug = c.var.userSlug ?? null;
+    const resolvedActorSlug = actorSlug ?? null;
 
     try {
         await services.repositories.adminAudit.insert({
             action,
-            actorSlug,
+            actorSlug: resolvedActorSlug,
             timestamp: new Date(),
             ...(options.payload !== undefined ? { payload: options.payload } : {}),
             ...(options.target !== undefined ? { target: options.target } : {}),
@@ -49,7 +52,7 @@ export async function emitAuditEvent(
         // context — NOT a silent swallow.
         console.error("[audit-log] emit failed", {
             action,
-            actorSlug,
+            actorSlug: resolvedActorSlug,
             target: options.target,
             error: err instanceof Error ? err.message : String(err),
         });

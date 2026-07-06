@@ -1,18 +1,19 @@
 /**
- * Palette history endpoints — versions, forks, provenance.
+ * Palette history endpoints — versions + forks.
  *
- * Three cohering history concerns:
- *   - **Versions**: list/get/revert immutable version records
- *   - **Forks**: fork a palette into a new lineage + list direct forks
- *   - **Provenance**: walk the ancestry DAG via `ProvenanceNode[]`
+ * Two cohering history concerns:
+ *   - **Versions**: list/revert immutable version records
+ *   - **Forks**: fork a palette into a new lineage
  *
  * H.W3 Lane A — extracted from `api.ts §VERSIONING` + `§FORKING / PROVENANCE`.
+ * W5-13 · F-5: `getVersion`, `listForks`, `getProvenance` deleted — each was a
+ * fully-wired wrapper with zero UI consumers (grep-proven). The server routes
+ * remain; a future lineage-browser re-adds the wrapper it needs.
  */
 
 import type {
     Palette,
     PaletteVersion,
-    ProvenanceNode,
     PaginatedResponse,
 } from "../types";
 
@@ -30,12 +31,6 @@ export function listVersions(
     );
 }
 
-export function getVersion(slug: string, hash: string): Promise<PaletteVersion> {
-    return request(
-        `/palettes/${encodeURIComponent(slug)}/versions/${encodeURIComponent(hash)}`,
-    );
-}
-
 export function revertPalette(slug: string, hash: string): Promise<Palette> {
     return request(`/palettes/${encodeURIComponent(slug)}/revert`, {
         method: "POST",
@@ -43,7 +38,7 @@ export function revertPalette(slug: string, hash: string): Promise<Palette> {
     });
 }
 
-// ---- Forks + provenance -----------------------------------------------------
+// ---- Forks ------------------------------------------------------------------
 
 export function forkPalette(
     slug: string,
@@ -54,18 +49,4 @@ export function forkPalette(
         method: "POST",
         body: JSON.stringify({ name, slug: forkSlug }),
     });
-}
-
-export function listForks(
-    slug: string,
-    limit = 20,
-    offset = 0,
-): Promise<PaginatedResponse<Palette>> {
-    return request(
-        `/palettes/${encodeURIComponent(slug)}/forks?limit=${limit}&offset=${offset}`,
-    );
-}
-
-export function getProvenance(slug: string): Promise<ProvenanceNode[]> {
-    return request(`/palettes/${encodeURIComponent(slug)}/provenance`);
 }

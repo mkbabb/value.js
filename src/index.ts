@@ -15,9 +15,10 @@ export {
     FLEX_UNITS,
     COMPUTED_UNITS,
     UNITS,
-    STYLE_NAMES,
 } from "./units/constants";
 export type { MatrixValues } from "./units/constants";
+// STYLE_NAMES — the CSS property-name data table (S.W1 W1-8 data-module split).
+export { STYLE_NAMES } from "./units/style-names";
 
 // Unit utilities
 export {
@@ -40,9 +41,14 @@ export { FUNCTION_IDENTITY } from "./units/constants";
 
 // Unit normalization
 export {
-    getComputedValue,
     normalizeNumericUnits,
     normalizeValueUnits,
+} from "./units/normalize";
+export type { NormalizeValueUnitsOptions } from "./units/normalize";
+// Computed-value resolution + its layout-epoch cache (S.W1 W1-8 split →
+// units/layout-cache.ts).
+export {
+    getComputedValue,
     // Computed-endpoint-cache invalidation (Wave C7 + N.W7.B-B3.F1). The single
     // bust for BOTH staleness classes the computed cache (C1) is subject to:
     // (1) layout change — viewport `resize` (auto-installed), a container
@@ -54,8 +60,7 @@ export {
     getLayoutEpoch,
     // The LRU ceiling for the computed-endpoint memo (N.W7.B-B3.F2).
     COMPUTED_MEMO_MAX_ENTRIES,
-} from "./units/normalize";
-export type { NormalizeValueUnitsOptions } from "./units/normalize";
+} from "./units/layout-cache";
 
 // Value-level interpolation
 export {
@@ -84,6 +89,8 @@ export {
     AdobeRGBColor,
     ProPhotoRGBColor,
     Rec2020Color,
+    ICtCpColor,
+    JzazbzColor,
 } from "./units/color";
 export type { ColorSpaceMap } from "./units/color";
 
@@ -113,8 +120,9 @@ export {
     LINEAR_SRGB_TO_LMS,
     OKLAB_TO_LMS_COEFF,
     GAMUT_SECTOR_COEFFICIENTS,
-    COLOR_NAMES,
 } from "./units/color/constants";
+// COLOR_NAMES — the CSS named-color data table (S.W1 W1-8 lift → color-names.ts).
+export { COLOR_NAMES } from "./units/color/color-names";
 export type {
     ColorSpace,
     WhitePoint,
@@ -156,6 +164,9 @@ export type { HueInterpolationMethod } from "./units/color/mix";
 export {
     computeSafeAccent,
     safeAccentColor,
+    // S.W1-6 — the CSS-string accent surface the demo consumes (retires the
+    // hand-denorm `C*0.5`/`H*360` blocks in useContrastSafeColor.ts).
+    safeAccentCssString,
     needsContrastAdjustment,
     getOklchLightness,
     // VJ-Q1 (1.1.1) — WCAG 2.x relative-luminance + `contrast-color()` leaf.
@@ -177,15 +188,6 @@ export type {
     GamutBoundaryMode,
     SampleGamutBoundaryOptions,
 } from "./units/color/boundary";
-
-// VJ-Q8 (1.2.0) — the SoA color-channel layout the keyframes.js compositor folds
-// the boxed color tail through (the Float64 oklab-channel plan + buffer fold).
-export {
-    buildColorChannelPlan,
-    packColorChannels,
-    lerpColorChannels,
-} from "./units/color-soa";
-export type { ColorChannelPlan } from "./units/color-soa";
 
 // Color normalization
 export {
@@ -214,7 +216,10 @@ export {
 } from "./units/color/gamut";
 
 // Perceptual color-difference metrics (R.W1.6 · R-3)
-export { deltaE2000, deltaEITP, xyzToICtCp } from "./units/color/difference";
+// + ICtCp round-trip (S.W1-6 · Q9): `ictcpToXYZ` is the inverse of `xyzToICtCp`.
+export { deltaE2000, deltaEITP, xyzToICtCp, ictcpToXYZ } from "./units/color/difference";
+// Jzazbz perceptual transform (S.W1-11 · Q9 widening — net-new PQ-variant math).
+export { xyzToJzazbz, jzazbzToXYZ } from "./units/color/conversions/jzazbz";
 
 // OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
 export {
@@ -272,11 +277,15 @@ export {
     easeInExpo, easeOutExpo, easeInOutExpo,
     jumpTerms, steppedEase, stepStart, stepEnd,
     cssLinear, bezierPresets, timingFunctions, timingFunctionDescriptions,
+    resolveEasing,
 } from "./easing";
 export type { LinearStop, TimingFunction } from "./easing";
 
 // Easing parsers (CSS Easing Functions Level 1 + Level 2)
-export { parseLinearStops, parseSteps, parseSpring, lowerSpringEasing } from "./parsing/easing";
+export {
+    parseLinearStops, parseSteps, parseSpring, lowerSpringEasing,
+    resolveEasingFunction,
+} from "./parsing/easing";
 export type { JumpTerm, StepsArgs } from "./parsing/easing";
 
 // Parsing — parsers and parse functions

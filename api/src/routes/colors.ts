@@ -37,7 +37,7 @@ colors.get("/approved", async (c) => {
     }
     const limit = Math.max(1, Math.min(parsed.data.limit ?? 100, 500));
     const offset = Math.max(0, parsed.data.offset ?? 0);
-    const result = await listApprovedColors(c, limit, offset);
+    const result = await listApprovedColors(c.var.services, limit, offset);
     return c.json(result);
 });
 
@@ -57,13 +57,13 @@ colors.get("/search", async (c) => {
         throw new ValidationError("Invalid query parameters", parsed.error.format());
     }
     const limit = Math.max(1, Math.min(parsed.data.limit ?? 10, 20));
-    const result = await searchApprovedColors(c, parsed.data.q, limit);
+    const result = await searchApprovedColors(c.var.services, parsed.data.q, limit);
     return c.json(result);
 });
 
 // GET /colors/tags — all tags, sorted by name (raw array — no envelope wrapping)
 colors.get("/tags", async (c) => {
-    const result = await listColorTags(c);
+    const result = await listColorTags(c.var.services);
     return c.json(result);
 });
 
@@ -74,7 +74,7 @@ colors.post("/propose", async (c) => {
     if (!parsed.success) {
         throw new ValidationError("Invalid color body", parsed.error.format());
     }
-    const result = await proposeColor(c, parsed.data);
+    const result = await proposeColor(c.var.services, c.var.sessionToken, parsed.data);
     return c.json(result, 201);
 });
 

@@ -1,0 +1,214 @@
+diff --git a/demo/@/components/custom/color-picker/ColorPicker.vue b/demo/@/components/custom/color-picker/ColorPicker.vue
+index 98a2bf7..d89f01e 100644
+--- a/demo/@/components/custom/color-picker/ColorPicker.vue
++++ b/demo/@/components/custom/color-picker/ColorPicker.vue
+@@ -4,29 +4,16 @@
+          owns the sub-lg width). -->
+     <div class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full">
+         <Card tier="resting" class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
+-            <!-- R.W3 Lane D / D2 — the dual-hero diagonal (U30b, N.W16 D1-4):
+-                 the blob is the MATERIAL hero, absolutely top-right on the
+-                 relative Card (corner-break at lg, where overflow is visible;
+-                 tucked inside the clipped mobile card), out of the header
+-                 grid entirely. The numbers are the TYPOGRAPHIC hero on the
+-                 reading axis below-left — never the same channel at the same
+-                 position. -->
+-            <!-- The deep negative inset is calibrated to the GooBlob canvas:
+-                 the visible metaball body sits inset ~25% within its square
+-                 canvas, so a true corner-break needs the canvas well past the
+-                 card edge. -->
+-            <HeroBlob
+-                ref="heroBlobRef"
+-                class="absolute z-20 top-0 right-0 lg:-top-14 lg:-right-12"
+-                @click="onHeroBlobClick()"
+-            />
+-
+             <!-- The header is a DISPLAY surface (space title + hero numbers →
+                  Fraunces); horizontal padding rides `cqi` against the pane-slot
+                  container, not viewport breakpoints (R.W3 Lane A / A4). The
+                  static right padding is the blob's footprint RESERVATION
+                  (D1-4: by construction, never a measured nudge). -->
+-            <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full pl-[clamp(0.75rem,4cqi,1.5rem)] pr-24 lg:pr-36 min-w-0 overflow-visible flex flex-col gap-y-1 items-start">
++            <!-- S.W6 W6-4 (seed): the <lg blob is ABSENT (Q7), so the mobile
++                 header reclaims the dead pr-24 reservation; the lg reservation
++                 stays static-by-construction (D1-4) against the grown
++                 footprint's on-card intrusion (beadR + r ≈ 4.2rem < 9rem). -->
++            <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] lg:pr-36 min-w-0 overflow-visible flex flex-col gap-y-1 items-start">
+                 <ColorSpaceSelector
+                     :model-value="model.selectedColorSpace"
+                     v-model:open="selectedColorSpaceOpen"
+@@ -62,6 +49,37 @@
+             </CardContent>
+         </Card>
+ 
++        <!-- S.W6 W6-4 (seed) — the corner-break placement LAW (one law,
++             design-blob-atmosphere §2), owned by the SLOT layer, not the
++             Card: the blob is the topmost ornament of its pane slot, so it
++             lives OUTSIDE the Card as a LATER sibling on the shell — it
++             paints above the card content (incl. the z-10 header) by source
++             order, zero z hacks, and keeps its pointer surface (the round-1
++             probe showed the in-card placement lost the bead's on-card half
++             to the header's hit box). Cross-card layering (the About-card
++             burial) is the slot's: .pane-wrapper--left { z-index: 1 }.
++             GEOMETRY: the bead's CENTER sits on the card's corner-radius
++             origin (--radius-card = 1rem inside each edge) ⇒ offset
++             calc(r − W/2), W = `--blob-fp`. The shell's top-right corner is
++             the Card's (w-full first child, no shell padding). SIZE LAW
++             (amended from clamp(9rem,18cqi,13rem) on round-1 measurement:
++             18cqi of the real ~695px pane = 125px, so the 9rem floor bound
++             — SMALLER than the pre-seed 11rem): clamp(11rem,26cqi,13rem).
++             Q7 mobile all-or-nothing: ABSENT at <lg is a MOUNT decision
++             (v-if), never a display toggle — a hidden-but-mounted GooBlob
++             would still hold a live GL context (X6 single-context). -->
++        <HeroBlob
++            v-if="blobPresent"
++            ref="heroBlobRef"
++            class="absolute"
++            style="
++                --blob-fp: clamp(11rem, 26cqi, 13rem);
++                top: calc(var(--radius-card) - var(--blob-fp) / 2);
++                right: calc(var(--radius-card) - var(--blob-fp) / 2);
++            "
++            @click="onHeroBlobClick()"
++        />
++
+         <!-- T21 (R.W4 Lane E): the mounted-but-display:none EditDrawer is
+              DELETED — the edit UX lives in the dock; the commit/cancel state
+              machine below stays (keyboard + dock consumers). -->
+@@ -95,6 +113,7 @@ import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+ import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
+ 
+ import { copyToClipboard } from "@mkbabb/glass-ui";
++import { useBreakpoint } from "@mkbabb/glass-ui/dom";
+ import HeroBlob from "./visual/HeroBlob.vue";
+ import SpectrumCanvas from "./controls/SpectrumCanvas.vue";
+ import ComponentSliders from "./controls/ComponentSliders.vue";
+@@ -138,6 +157,15 @@ const {
+     applyExternalColor,
+ } = colorModel;
+ 
++// --- HeroBlob presence (S.W6 W6-4 seed / Q7 all-or-nothing) ---
++// The SAME compound query as App.vue's X6 pane-grammar gate (desktop grammar
++// = blob present; portrait tablets run the mobile grammar and get NO blob).
++// The wave-proper lift shares one exported constant with App.vue instead of
++// this duplicated literal.
++const { matches: blobPresent } = useBreakpoint(
++    "(min-width: 1024px) and (min-aspect-ratio: 1.1)",
++);
++
+ // --- HeroBlob click: copy color to clipboard ---
+ 
+ function onHeroBlobClick() {
+diff --git a/demo/@/components/custom/color-picker/visual/HeroBlob.vue b/demo/@/components/custom/color-picker/visual/HeroBlob.vue
+index 391622f..d6d2dd6 100644
+--- a/demo/@/components/custom/color-picker/visual/HeroBlob.vue
++++ b/demo/@/components/custom/color-picker/visual/HeroBlob.vue
+@@ -5,14 +5,17 @@
+         <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
+             <Tooltip>
+                 <TooltipTrigger as-child>
+-                    <!-- R.W3 Lane D / D2: the material hero's scale (N.W16
+-                         D1-4 — `w-[11rem]` at the lg corner-break; a tucked
+-                         w-24 puck on the clipped mobile card). Position is
+-                         the caller's. -->
++                    <!-- S.W6 W6-4 (seed): the material hero's footprint rides
++                         the caller-owned `--blob-fp` custom property (the size
++                         law `clamp(9rem,18cqi,13rem)` — cqi resolves against
++                         the pane-wrapper container). Position AND footprint
++                         are the placement law's, i.e. the caller's; Q7 makes
++                         <lg absence a MOUNT decision upstream, so no mobile
++                         width variant exists here. -->
+                     <GooBlob
+                         ref="gooBlobRef"
+                         :color="cssColorOpaque"
+-                        class="w-24 lg:w-[11rem]"
++                        class="w-(--blob-fp)"
+                         @click="onBlobClick"
+                         @mouseenter="gooBlobRef?.setMood('curious')"
+                     />
+diff --git a/demo/@/composables/color/useAtmosphere.ts b/demo/@/composables/color/useAtmosphere.ts
+index 276795f..920cb8c 100644
+--- a/demo/@/composables/color/useAtmosphere.ts
++++ b/demo/@/composables/color/useAtmosphere.ts
+@@ -30,7 +30,7 @@ import {
+ } from "@mkbabb/glass-ui/aurora";
+ import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@components/custom/panes/keys";
+ import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/goo-blob";
+-import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
++import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
+ 
+ export function useAtmosphere(
+     atmosphereCanvas: Readonly<ShallowRef<HTMLCanvasElement | null>>,
+@@ -98,6 +98,26 @@ export function useAtmosphere(
+     // The 8-atom nested config — structuredClone so the reactive copy owns
+     // deep atoms (the aurora precedent above does the same).
+     const blobConfig = reactive(structuredClone(BLOB_CONFIG_DEFAULTS));
++
++    // S.W6 W6-4 (seed) — the HERO register, consumer-side (design-blob-
++    // atmosphere §2 satellite choreography): the library default is the
++    // contained droplet (orbit 0.17 < body 0.22 — satellite centers orbit
++    // INSIDE the skin, so the show reads as membrane bumps). The hero widens
++    // the orbit past the skin so beads read as beads, near-circular, and
++    // grows the body toward the visible-bead law. Bead diameter =
++    // 2·bodyRadius·POS_SCALE(0.625)·canvas(1.6·W) = 2·bodyRadius·W ⇒ 0.26 →
++    // 0.52·W (~92px at the 11rem floor — the ≥96px law is JUST out of
++    // consumer reach: orbit reach 0.40+0.09=0.49 is already at the canvas
++    // edge, and the skin-clearance gap 0.40−(0.26+0.09)=0.05 is already at
++    // the smin band. Growing the bead further collapses the satellite show —
++    // the producer HERO preset (L5: overscan/POS_SCALE headroom) owns the
++    // last 4px). This override RETIRES to that preset at the W8 adopt.
++    Object.assign(blobConfig.geometry, {
++        bodyRadius: 0.26,
++        orbitRadius: 0.4,
++        satelliteRadius: 0.09,
++        eccentricity: 0.03,
++    });
+     provide(BLOB_CONFIG_KEY, blobConfig);
+ 
+     // --- Live-palette coupling — the hero blob IS the palette made flesh ---
+@@ -105,14 +125,22 @@ export function useAtmosphere(
+     // flows straight into the blob's spatial multi-stop color field. glass-ui's
+     // GooBlob deep-watches `config.color.paletteStops`, so a colour change
+     // repaints free.
++    // S.W6 W6-4 (seed) — the ramp ceiling TRACKS the picked chroma: the fixed
++    // 0.16 ceiling literally cannot show the advertised ink (a C 0.23 pick
++    // rendered at 0.16 is a different color). The ceiling is the picked C with
++    // the 0.16 non-neon floor kept for muted seeds (the derivation's
++    // chromaBump may lift a mid-stop above a near-grey seed — the floor keeps
++    // that life); every stop is still gamut-mapped by deriveBlobPalette, so
++    // "ceiling = gamut" holds at the top end.
+     watch(
+         cssColorOpaque,
+         (css) => {
+             try {
+-                blobConfig.color.paletteStops = deriveBlobPalette(css, {
++                const seed = cssToOklch(css); // throws iff un-parseable
++                blobConfig.color.paletteStops = deriveBlobPalette(seed, {
+                     stopCount: 4,
+                     harmony: "analogous",
+-                    chromaCeiling: 0.16,
++                    chromaCeiling: Math.max(0.16, seed.C),
+                 }).map(oklchStopToHex);
+             } catch {
+                 // A transient un-parseable colour string leaves the last good ramp.
+diff --git a/demo/@/styles/style.css b/demo/@/styles/style.css
+index 82dc8d1..dad4629 100644
+--- a/demo/@/styles/style.css
++++ b/demo/@/styles/style.css
+@@ -335,6 +335,16 @@
+     container-type: inline-size;
+ }
+ 
++/* S.W6 W6-4 (seed) — the corner-break placement law's LAYER half: the SLOT
++ * assigns the hero blob's layer. The left slot (the picker's) stacks above
++ * its later right sibling so the bead's east limb is never buried under the
++ * About card — a slot-level law, not a per-instance z hack (grid items take
++ * z-index without positioning). Portaled overlays (dialogs, popovers, dock)
++ * live on the body stacking context and are unaffected. */
++.pane-wrapper--left {
++    z-index: 1;
++}
++
+ /* The aspect-law display exception (R.W3 Lane A / A4 — the D6-03 portrait
+  * pathology): the `lg:hidden` display witness on the mobile slot is width-only
+  * (CI emission-probe-pinned — scripts/css-emission-probe.mjs), but App.vue's

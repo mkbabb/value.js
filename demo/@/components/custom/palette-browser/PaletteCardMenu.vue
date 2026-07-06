@@ -39,6 +39,26 @@
                 >offline</span>
             </DropdownMenuItem>
 
+            <!-- S.W5 · Q1 (RATIFIED WIRE, full-idiomatic): the VISIBILITY
+                 control as a designed surface — one verb item naming the
+                 flip, with the CURRENT state annotated in the K-INV5
+                 small-caps register (never a checkbox bolt-on). Owned
+                 remote palettes only; the doomed action disables + names
+                 the degraded state when the backend is down. -->
+            <DropdownMenuItem
+                v-if="paletteKind === 'remote' && isOwned"
+                class="gap-2 cursor-pointer"
+                :disabled="apiOffline"
+                @click="$emit('action', isPublic ? 'makePrivate' : 'makePublic')"
+            >
+                <component :is="isPublic ? EyeOff : Globe" class="h-4 w-4" />
+                {{ isPublic ? "Make private" : "Publish" }}
+                <span
+                    class="ml-auto fira-code text-mono-caption opacity-55 tracking-wide"
+                    style="font-variant: small-caps"
+                >{{ apiOffline ? "offline" : isPublic ? "public" : "private" }}</span>
+            </DropdownMenuItem>
+
             <!-- Fork/remix (remote palettes) -->
             <DropdownMenuItem
                 v-if="paletteKind === 'remote'"
@@ -156,7 +176,7 @@
 import { computed } from "vue";
 import type { Palette } from "@lib/palette/types";
 import type { PaletteKind } from "@lib/palette/utils";
-import { apiAvailability } from "@lib/palette/api";
+import { useApiClient } from "@lib/palette/api/useApiClient";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -171,6 +191,7 @@ import {
 import {
     Trash2,
     Globe,
+    EyeOff,
     Bookmark,
     Pencil,
     Star,
@@ -182,7 +203,7 @@ import {
     Tag,
 } from "@lucide/vue";
 
-defineProps<{
+const { palette } = defineProps<{
     palette: Palette;
     paletteKind: PaletteKind;
     menuOpen: boolean;
@@ -190,8 +211,15 @@ defineProps<{
     isAdmin?: boolean | undefined;
 }>();
 
-// K-INV5: the publish action reads the availability latch.
-const apiOffline = computed(() => apiAvailability.value === "unavailable");
+// K-INV5: the publish action reads the availability latch — through the
+// injected api-client seam (S.W2 W2-4), not a hard module-singleton import.
+const { availability } = useApiClient();
+const apiOffline = computed(() => availability.value === "unavailable");
+
+// Q1: the canonical remote state is `(visibility, tier)` — an absent
+// visibility on an in-browse row means public (the browse feed is the
+// public wall + your own rows, which always carry the field).
+const isPublic = computed(() => palette.visibility !== "private");
 
 defineEmits<{
     action: [action: string];

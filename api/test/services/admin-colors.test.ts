@@ -1,11 +1,6 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
-import {
-    buildServices,
-    cleanCollections,
-    connect,
-    makeFakeContext,
-} from "../helpers.js";
+import { buildServices, cleanCollections, connect } from "../helpers.js";
 import {
     approveColor,
     deleteColor,
@@ -48,8 +43,7 @@ describe("service.admin.colors", () => {
             createdAt: new Date(),
             approvedAt: null,
         });
-        const c = makeFakeContext(services, "admin");
-        const page = await listByStatus(c, "proposed", 10, 0);
+        const page = await listByStatus(services, "proposed", 10, 0);
         expect(page.total).toBe(1);
         expect(page.data[0].name).toBe("red-1");
     });
@@ -63,8 +57,7 @@ describe("service.admin.colors", () => {
             createdAt: new Date(),
             approvedAt: null,
         });
-        const c = makeFakeContext(services, "admin");
-        await approveColor(c, id.toString());
+        await approveColor(services, "admin", id.toString());
         const after = await services.repositories.proposedNames.findById(id);
         expect(after?.status).toBe("approved");
         const audit = await services.repositories.adminAudit.findManyByFilter({}, 0, 10);
@@ -72,18 +65,16 @@ describe("service.admin.colors", () => {
     });
 
     it("approveColor on missing id throws NotFoundError", async () => {
-        const c = makeFakeContext(services, "admin");
         // Valid-shape ObjectId that does not exist
-        await expect(approveColor(c, "507f1f77bcf86cd799439011")).rejects.toBeInstanceOf(
-            NotFoundError,
-        );
+        await expect(
+            approveColor(services, "admin", "507f1f77bcf86cd799439011"),
+        ).rejects.toBeInstanceOf(NotFoundError);
     });
 
     it("rejectColor on invalid id-shape throws ValidationError", async () => {
-        const c = makeFakeContext(services, "admin");
-        await expect(rejectColor(c, "not-a-valid-oid")).rejects.toBeInstanceOf(
-            ValidationError,
-        );
+        await expect(
+            rejectColor(services, "admin", "not-a-valid-oid"),
+        ).rejects.toBeInstanceOf(ValidationError);
     });
 
     it("deleteColor removes the doc + emits audit", async () => {
@@ -95,8 +86,7 @@ describe("service.admin.colors", () => {
             createdAt: new Date(),
             approvedAt: null,
         });
-        const c = makeFakeContext(services, "admin");
-        await deleteColor(c, id.toString());
+        await deleteColor(services, "admin", id.toString());
         expect(await services.repositories.proposedNames.findById(id)).toBeNull();
     });
 });

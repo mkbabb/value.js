@@ -100,57 +100,61 @@ function resetDefaults() {
             tier="wash"
             :shadow="false"
             :grain="false"
-            class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full relative"
+            class="w-full min-w-0 h-full relative flex flex-col overflow-hidden"
         >
-            <PaneHeader v-bind="description !== undefined ? { description } : {}">{{ title }}</PaneHeader>
+            <!-- The scroll region owns the fade mask + overflow; the action bar
+                 below sits OUTSIDE it (flex-none footer) so it can never occlude
+                 a slider or readout (W6-6). -->
+            <div class="pane-scroll-fade flex-1 min-w-0 overflow-y-auto overflow-x-hidden">
+                <PaneHeader v-bind="description !== undefined ? { description } : {}">{{ title }}</PaneHeader>
 
-            <!-- Default slot for extra controls (e.g. AuroraPane select rows) -->
-            <slot />
+                <!-- Default slot for extra controls (e.g. AuroraPane select rows) -->
+                <slot />
 
-            <div
-                v-if="sections.length > 0"
-                class="flex flex-col gap-5 px-4 sm:px-6 pt-2 pb-20"
-            >
                 <div
-                    v-for="section in sections"
-                    :key="section.title"
-                    class="flex flex-col gap-2.5"
+                    v-if="sections.length > 0"
+                    class="flex flex-col gap-5 px-4 sm:px-6 pt-2 pb-6"
                 >
-                    <div class="config-section-header">
-                        <span class="config-section-title">{{ section.title }}</span>
-                    </div>
-
-                    <ConfiguratorRow
-                        v-for="def in section.defs"
-                        :key="def.key"
-                        :label="def.label"
-                        class="gap-0.5 py-0"
+                    <div
+                        v-for="section in sections"
+                        :key="section.title"
+                        class="flex flex-col gap-1.5"
                     >
-                        <template #default>
-                            <div class="w-full flex flex-col gap-0.5">
-                                <div class="flex items-center justify-between">
-                                    <span class="section-label normal-case tracking-normal">{{ def.label }}</span>
-                                    <span class="section-label normal-case tracking-normal tabular-nums">
-                                        {{ fmt(read(def.key)) }}
-                                    </span>
-                                </div>
-                                <Slider
-                                    :aria-label="def.label"
-                                    variant="spectrum"
-                                    :model-value="[read(def.key)]"
-                                    :min="def.min"
-                                    :max="def.max"
-                                    :step="def.step"
-                                    @update:model-value="(v: number[] | undefined) => v && update(def.key, v[0]!)"
-                                />
-                            </div>
-                        </template>
-                    </ConfiguratorRow>
+                        <div class="config-section-header">
+                            <span class="config-section-title">{{ section.title }}</span>
+                        </div>
+
+                        <!-- ONE label per row (ConfiguratorRow's `label`), with the
+                             live readout paired to it via the row's `name` slot — the
+                             glass-ui ConfiguratorRow label API (L14), no demo fork.
+                             The slot carries only the Slider; the prior in-slot
+                             sans+mono label pair (the doubled row) is gone (W6-6). -->
+                        <ConfiguratorRow
+                            v-for="def in section.defs"
+                            :key="def.key"
+                            :label="def.label"
+                            :name="fmt(read(def.key))"
+                            class="gap-1.5 py-1"
+                        >
+                            <Slider
+                                :aria-label="def.label"
+                                variant="spectrum"
+                                :model-value="[read(def.key)]"
+                                :min="def.min"
+                                :max="def.max"
+                                :step="def.step"
+                                @update:model-value="(v: number[] | undefined) => v && update(def.key, v[0]!)"
+                            />
+                        </ConfiguratorRow>
+                    </div>
                 </div>
             </div>
 
-            <!-- Floating glass dock at bottom — only shown when there are sliders -->
-            <div v-if="sections.length > 0" class="config-dock-anchor">
+            <!-- Action bar — a flex-none footer docked below the scroll region.
+                 Keeps the glass-pill affordance but out of the scroll-overlap
+                 path, so it no longer floats over the last rows (W6-6). Only
+                 shown when there are sliders. -->
+            <div v-if="sections.length > 0" class="config-action-bar">
                 <GlassDock :always-expanded="true" :fit-content="true">
                     <Button variant="ghost" size="sm" @click="copyAsJson">
                         <Copy class="w-3.5 h-3.5" />
@@ -182,16 +186,11 @@ function resetDefaults() {
     color: var(--muted-foreground);
 }
 
-.config-dock-anchor {
-    position: sticky;
-    bottom: 0.75rem;
+.config-action-bar {
+    flex: none;
     display: flex;
     justify-content: center;
-    z-index: var(--z-content);
-    pointer-events: none;
-}
-
-.config-dock-anchor > * {
-    pointer-events: auto;
+    padding: 0.625rem 0.75rem;
+    border-top: 1px solid color-mix(in srgb, var(--border) 35%, transparent);
 }
 </style>

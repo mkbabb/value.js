@@ -1,236 +1,190 @@
 /**
- * Mixing animation — multi-section fill effect.
+ * The mix convergence CLOCK — S.W3-6 / Q10 first-principles re-work.
  *
- * Each selected color fills a section of the canvas from a random corner,
- * growing as a rounded rectangle toward center. Colors layer and blend
- * via canvas blur. The final mixed color suffuses the area, then shrinks
- * into the center where the result swatch appears.
+ * THE NARRATION IS THE MIX. Each selected source releases a soft pigment drop
+ * from its actual chip position (`[data-mix-source]`); the drops arc across
+ * the plate toward the result plate's awaiting well (`[data-mix-target]`, the
+ * seeded WatercolorDot ghost), surrendering their identity en route — every
+ * drop's pigment rides a `sampleColorRamp()` perceptual ramp from its own
+ * color to the TRUE mixed result, in the SAME interpolation space + hue
+ * method the mix math itself ran. All drops arrive together (a chord, not a
+ * queue) at `MIX_ARRIVE_MS`; the merged pool swells, settles with one soft
+ * ripple by `MIX_CONVERGE_MS`, and the DOM plate inks in beneath the
+ * dissolving pool. The convergence LANDS AT the result plate — no jump-cuts,
+ * no spinner: the animation IS the progress. The stage model (geometry,
+ * pigment, draw calls) lives in `mixStage.ts`; this composable owns the
+ * clock and the lifecycle.
  *
- * Phases:
- * 1. **gathering** — sections grow from random corners (staggered)
- * 2. **mixing** — all sections merge into the mixed color
- * 3. **revealing** — filled area shrinks to swatch-sized rect at center
+ * ONE CLOCK. This composable's rAF timeline is the only clock in the mix
+ * choreography. The phase machine (`useMixingState`) owns no timers — it
+ * advances mixing → done on the `onSettled` completion event fired here at
+ * t = MIX_CONVERGE_MS. Total wall clock ≤ 1.2 s (900 ms timeline + 300 ms
+ * dissolve, overlapping the plate's vj-morph reveal).
+ *
+ * SAFARI-TRUE BY CONSTRUCTION. Pure geometry: radial-gradient soft discs +
+ * default source-over alpha compositing (see `mixStage.ts`). No `ctx.filter`
+ * (never shipped in WebKit), no engine-conditional path, no degraded
+ * fallback — one implementation, every engine.
+ *
+ * RAF DISCIPLINE (W3-8). The convergence rides glass-ui's `useRAFLoop`
+ * (`@mkbabb/glass-ui/motion-core`), armed only for the [arm, settle+epilogue]
+ * window: `pauseWhenHidden` freezes the narration on a hidden tab and its
+ * `elapsed` excludes paused time, so a resume never jump-cuts (the former
+ * hand-rolled per-frame delta cap is retired). `respectReducedMotion` is FALSE
+ * on the host — the mix is a phase-machine forward edge, so under
+ * prefers-reduced-motion `arm()` must COMPLETE-IMMEDIATELY (fire onSettled),
+ * never PAUSE; a paused loop would strand the phase machine mid-mix.
  */
 
 import { watch, onBeforeUnmount } from "vue";
 import type { Ref } from "vue";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import { lerp } from "@src/math";
-import { cssToRgb255 } from "@lib/color-utils";
-import type { AnimationPhase } from "./useMixingState";
+import { useRAFLoop } from "@mkbabb/glass-ui/motion-core";
+import type { HueInterpolationMethod } from "@src/units/color/mix";
+import type { ColorSpace } from "@src/units/color/constants";
+import type { AnimationPhase, MixResult } from "./useMixingState";
+import type { Stage } from "./mixStage";
+import { collectStage, drawStage, MIX_CONVERGE_MS, MIX_EPILOGUE_MS } from "./mixStage";
 
-interface FillSection {
-    color: [number, number, number];
-    originX: number; // 0 or 1 (which corner)
-    originY: number; // 0 or 1
-    progress: number;
-    alpha: number;
-    entryDelay: number;
+export { MIX_ARRIVE_MS, MIX_CONVERGE_MS, MIX_EPILOGUE_MS } from "./mixStage";
+
+export interface MixingAnimationOptions {
+    result: Ref<MixResult | null>;
+    space: Ref<ColorSpace>;
+    hueMethod: Ref<HueInterpolationMethod>;
+    /** The completion event — the phase machine's ONLY forward edge. */
+    onSettled: () => void;
 }
-
-function rgba(r: number, g: number, b: number, a: number): string {
-    return `rgba(${r},${g},${b},${a.toFixed(3)})`;
-}
-
-function easeOutCubic(t: number): number {
-    return 1 - Math.pow(1 - t, 3);
-}
-
-function easeInQuad(t: number): number {
-    return t * t;
-}
-
-// Random corner assignment: distribute sections to different corners
-const CORNERS: [number, number][] = [[0, 0], [1, 0], [1, 1], [0, 1]];
 
 export function useMixingAnimation(
     canvasRef: Ref<HTMLCanvasElement | null>,
-    colorCSSList: Ref<string[]>,
     phase: Ref<AnimationPhase>,
+    { result, space, hueMethod, onSettled }: MixingAnimationOptions,
 ) {
-    let frame: number | null = null;
-    let sections: FillSection[] = [];
-    let phaseStartTime = 0;
-    let running = false;
+    let settledFired = false;
+    let stage: Stage | null = null;
 
-    // mix-RAF PRM gate: the multi-section fill is decorative MOTION. Under
-    // prefers-reduced-motion the loop is not armed at all (the demo's standing
-    // PRM discipline — no ungated rAF). The phase machine (`useMixingState`) is
-    // setTimeout-driven and advances to "done" independently, so the result
-    // swatch still reveals; only the animated canvas is skipped.
+    // PRM gate: the convergence is decorative MOTION. Under
+    // prefers-reduced-motion the loop is never armed; the completion event
+    // fires immediately, so the result inks in with zero dead time.
     const { matches: prefersReducedMotion } = useBreakpoint(
         "(prefers-reduced-motion: reduce)",
     );
 
-    const FILL_DURATION = 1800;
-    const SUFFUSE_DURATION = 600;
-    const SHRINK_DURATION = 600;
-    const STAGGER = 200;
-
-    function createSections(colors: string[]): FillSection[] {
-        return colors.map((css, i) => {
-            const corner = CORNERS[i % CORNERS.length]!;
-            return {
-                color: cssToRgb255(css),
-                originX: corner[0],
-                originY: corner[1],
-                progress: 0,
-                alpha: 0,
-                entryDelay: i * STAGGER,
-            };
-        });
+    /** The convergence pigment: what the landing pool IS. */
+    function convergeCss(): string | null {
+        const res = result.value;
+        if (!res) return null;
+        if (res.type === "color") return res.css ?? null;
+        // Palette mix: the pool lands on the first well slot, whose dot IS
+        // the mix of the sources' first colors — spatially and chromatically true.
+        return res.colors?.[0]?.css ?? null;
     }
 
-    function render(now: number) {
-        if (!running) return;
-        const canvas = canvasRef.value;
-        if (!canvas) { frame = requestAnimationFrame(render); return; }
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
+    // W3-8: the convergence clock is glass-ui's useRAFLoop. `elapsed` is the
+    // host's accumulated running time (paused-time excluded via pauseWhenHidden),
+    // so a hidden-tab freeze/resume never jump-cuts. See the file docstring for
+    // why respectReducedMotion is FALSE here (arm() owns the PRM fast-path).
+    const loop = useRAFLoop(
+        ({ elapsed }) => {
+            const canvas = canvasRef.value;
+            const ctx = canvas?.getContext("2d");
+            if (!canvas || !ctx || !stage) {
+                loop.stop();
+                return;
+            }
 
-        const w = canvas.clientWidth;
-        const h = canvas.clientHeight;
-        if (w === 0 || h === 0) { frame = requestAnimationFrame(render); return; }
+            const w = canvas.clientWidth;
+            const h = canvas.clientHeight;
+            ctx.clearRect(0, 0, w, h);
 
-        const dpr = window.devicePixelRatio || 2;
-        if (canvas.width !== w * dpr || canvas.height !== h * dpr) {
-            canvas.width = w * dpr;
-            canvas.height = h * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
+            drawStage(ctx, stage, elapsed);
 
-        const elapsed = now - phaseStartTime;
-        const currentPhase = phase.value;
+            if (!settledFired && elapsed >= MIX_CONVERGE_MS) {
+                settledFired = true;
+                onSettled();
+            }
 
-        ctx.clearRect(0, 0, w, h);
+            if (elapsed >= MIX_CONVERGE_MS + MIX_EPILOGUE_MS) {
+                loop.stop();
+                ctx.clearRect(0, 0, w, h);
+            }
+        },
+        { immediate: false, pauseWhenHidden: true, respectReducedMotion: false },
+    );
 
-        if (currentPhase === "idle" || currentPhase === "done") {
-            if (currentPhase === "done") { running = false; return; }
-            frame = requestAnimationFrame(render);
+    function arm() {
+        loop.stop();
+        settledFired = false;
+
+        if (prefersReducedMotion.value) {
+            // No motion, no dead time: complete immediately.
+            settledFired = true;
+            onSettled();
             return;
         }
 
-        ctx.save();
-        ctx.filter = "blur(16px) saturate(120%)";
-
-        const maxDim = Math.max(w, h) * 1.6;
-
-        if (currentPhase === "gathering") {
-            // Each section grows from its corner
-            for (const sec of sections) {
-                const t = Math.max(0, Math.min(1, (elapsed - sec.entryDelay) / FILL_DURATION));
-                if (t <= 0) continue;
-                const eased = easeOutCubic(t);
-
-                sec.progress = eased;
-                sec.alpha = Math.min(eased * 1.2, 0.92);
-
-                const size = eased * maxDim;
-                const cornerX = sec.originX * w;
-                const cornerY = sec.originY * h;
-                const cx = lerp(cornerX, w / 2, eased * 0.6);
-                const cy = lerp(cornerY, h / 2, eased * 0.6);
-                const radius = size * 0.25;
-
-                const [r, g, b] = sec.color;
-                ctx.fillStyle = rgba(r, g, b, sec.alpha);
-                ctx.beginPath();
-                ctx.roundRect(cx - size / 2, cy - size / 2, size, size, radius);
-                ctx.fill();
-            }
-        } else if (currentPhase === "mixing") {
-            // All sections suffuse — draw single merged rect fading to mixed color
-            const t = Math.max(0, Math.min(1, elapsed / SUFFUSE_DURATION));
-            const eased = easeOutCubic(t);
-
-            // Draw all sections at their final positions, fading
-            for (const sec of sections) {
-                const size = maxDim;
-                const cx = w / 2;
-                const cy = h / 2;
-                const radius = size * 0.25;
-                const [r, g, b] = sec.color;
-
-                ctx.fillStyle = rgba(r, g, b, 0.92 * (1 - eased * 0.5));
-                ctx.beginPath();
-                ctx.roundRect(cx - size / 2, cy - size / 2, size, size, radius);
-                ctx.fill();
-            }
-
-            // Overlay mixed color fading in
-            if (sections.length > 0) {
-                const avgR = Math.round(sections.reduce((s, sec) => s + sec.color[0], 0) / sections.length);
-                const avgG = Math.round(sections.reduce((s, sec) => s + sec.color[1], 0) / sections.length);
-                const avgB = Math.round(sections.reduce((s, sec) => s + sec.color[2], 0) / sections.length);
-
-                ctx.fillStyle = rgba(avgR, avgG, avgB, eased * 0.95);
-                ctx.beginPath();
-                ctx.roundRect(-w * 0.1, -h * 0.1, w * 1.2, h * 1.2, 0);
-                ctx.fill();
-            }
-        } else if (currentPhase === "revealing") {
-            // Shrink from full area to swatch-sized rect at center
-            const t = Math.max(0, Math.min(1, elapsed / SHRINK_DURATION));
-            const eased = easeInQuad(t);
-
-            if (sections.length > 0) {
-                const avgR = Math.round(sections.reduce((s, sec) => s + sec.color[0], 0) / sections.length);
-                const avgG = Math.round(sections.reduce((s, sec) => s + sec.color[1], 0) / sections.length);
-                const avgB = Math.round(sections.reduce((s, sec) => s + sec.color[2], 0) / sections.length);
-
-                const fullW = w * 1.2;
-                const fullH = h * 1.2;
-                const targetSize = 48;
-                const currentW = lerp(fullW, targetSize, eased);
-                const currentH = lerp(fullH, targetSize, eased);
-                const cx = lerp(-w * 0.1, (w - targetSize) / 2, eased);
-                const cy = lerp(-h * 0.1, (h - targetSize) / 2, eased);
-                const radius = lerp(0, 12, eased);
-                const alpha = lerp(0.95, 0, eased);
-
-                ctx.fillStyle = rgba(avgR, avgG, avgB, alpha);
-                ctx.beginPath();
-                ctx.roundRect(cx, cy, currentW, currentH, radius);
-                ctx.fill();
-            }
+        const canvas = canvasRef.value;
+        const poolCss = convergeCss();
+        if (!canvas || !canvas.parentElement || !poolCss) {
+            settledFired = true;
+            onSettled();
+            return;
         }
 
-        ctx.restore();
-        frame = requestAnimationFrame(render);
+        // Cover the pane's full scrollable extent so the well is reachable
+        // even when the plate sits below the fold.
+        const parent = canvas.parentElement;
+        const w = parent.clientWidth;
+        const h = parent.scrollHeight;
+        canvas.style.height = `${h}px`;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        const ctx = canvas.getContext("2d");
+        if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        stage = collectStage(canvas, poolCss, space.value, hueMethod.value);
+        if (!stage) {
+            // Nothing measurable to narrate (no stamped sources) — settle
+            // honestly rather than stall the phase machine.
+            settledFired = true;
+            onSettled();
+            return;
+        }
+
+        // start() resets the host's elapsed/frame counters to zero.
+        loop.start();
     }
 
-    function start() {
-        sections = createSections(colorCSSList.value);
-        phaseStartTime = performance.now();
-        running = true;
-        if (prefersReducedMotion.value) return; // PRM: skip the decorative loop
-        frame = requestAnimationFrame(render);
-    }
-
-    function stop() {
-        running = false;
-        if (frame != null) {
-            cancelAnimationFrame(frame);
-            frame = null;
+    function clearCanvas() {
+        const canvas = canvasRef.value;
+        const ctx = canvas?.getContext("2d");
+        if (canvas && ctx) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            canvas.style.height = "";
         }
     }
 
-    watch(phase, (newPhase, oldPhase) => {
-        if (newPhase === "gathering" && oldPhase === "idle") {
-            start();
-        } else if (newPhase !== oldPhase && newPhase !== "idle" && newPhase !== "done") {
-            phaseStartTime = performance.now();
-        } else if (newPhase === "idle") {
-            stop();
-            const canvas = canvasRef.value;
-            if (canvas) {
-                const ctx = canvas.getContext("2d");
-                if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // flush:"post" — the ghost well ([data-mix-target]) mounts in the same
+    // reactive flush that opens the mixing window; measure after the DOM patch.
+    watch(
+        phase,
+        (next) => {
+            if (next === "mixing") {
+                arm();
+            } else if (next === "idle") {
+                loop.stop();
+                stage = null;
+                clearCanvas();
             }
-        }
-    });
+        },
+        { flush: "post" },
+    );
 
-    onBeforeUnmount(() => stop());
+    // useRAFLoop auto-disposes on scope teardown; this belt-and-suspenders stop
+    // also halts an in-flight narration if the pane unmounts mid-mix.
+    onBeforeUnmount(() => loop.stop());
 
-    return { start, stop };
+    return { stop: () => loop.stop() };
 }

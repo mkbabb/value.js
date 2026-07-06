@@ -12,7 +12,7 @@ const router = new Hono<AppEnv>();
 
 // GET /admin/tags — list all tags, sorted by name
 router.get("/tags", async (c) => {
-    const data = await listTags(c);
+    const data = await listTags(c.var.services);
     return c.json(data);
 });
 
@@ -22,13 +22,18 @@ router.post("/tags", async (c) => {
     if (!parsed.success) {
         throw new ValidationError("Invalid tag body", parsed.error.format());
     }
-    const result = await createTag(c, parsed.data.name, parsed.data.category);
+    const result = await createTag(
+        c.var.services,
+        c.var.userSlug,
+        parsed.data.name,
+        parsed.data.category,
+    );
     return c.json(result, 201);
 });
 
 // DELETE /admin/tags/:name — delete a tag + cascade $pull from palettes
 router.delete("/tags/:name", async (c) => {
-    await deleteTag(c, c.req.param("name"));
+    await deleteTag(c.var.services, c.var.userSlug, c.req.param("name"));
     return c.json({ deleted: true });
 });
 

@@ -11,11 +11,18 @@ import {
     PERCENTAGE_UNITS,
     RELATIVE_LENGTH_UNITS,
     RESOLUTION_UNITS,
-    STYLE_NAMES,
     TIME_UNITS,
     UNITS,
 } from "./constants";
 import type { MatrixValues } from "./constants";
+import { STYLE_NAMES } from "./style-names";
+import {
+    convertFontMetricUnitToPixels,
+    convertViewportUnitToPixels,
+    findQueryContainer,
+    HANDLED_RELATIVE_UNITS,
+    isVerticalWritingMode,
+} from "./dom-metrics";
 
 export function isColorUnit(
     value: ValueUnit,
@@ -117,7 +124,6 @@ export const flattenObject = (obj: any) => {
                     flat[key] = new ValueArray();
                 }
                 flat[key].push(calcUnit);
-                flat[key] = flat[key].flat();
                 return;
             }
 
@@ -159,10 +165,17 @@ export const flattenObject = (obj: any) => {
         }
 
         flat[key].push(obj);
-        flat[key] = flat[key].flat();
     };
 
     flatten(obj);
+
+    // Flatten each accumulated ValueArray ONCE, after the walk (S.W1 W1-7). The
+    // prior per-leaf `.flat()` inside the recursion re-copied the whole array on
+    // every push — O(N²) for a property accruing N leaves. One pass here is
+    // output-identical (leaves are ValueUnits, never nested arrays) and O(N).
+    for (const key of Object.keys(flat)) {
+        flat[key] = flat[key].flat();
+    }
 
     return flat;
 };
@@ -301,9 +314,14 @@ export const unpackMatrixValues = (value: FunctionValue): MatrixValues => {
             scaleY: values[3] ?? 1,
             translateX: values[4] ?? 0,
             translateY: values[5] ?? 0,
+            // A 2D `matrix()` is planar — the ONLY rotation it can encode is the
+            // in-plane rotateZ. The prior code derived rotateY/rotateX from the
+            // same `a`/`b`/`c`/`d` cells via atan2, emitting nonsense
+            // out-of-plane angles for a purely planar transform (lib-core P2-5).
+            // The two out-of-plane rotations are identically 0.
             rotateZ: Math.atan2(values[1] ?? 0, values[0] ?? 1),
-            rotateY: Math.atan2(-(values[2] ?? 0), values[0] ?? 1),
-            rotateX: Math.atan2(values[1] ?? 0, values[3] ?? 1),
+            rotateY: 0,
+            rotateX: 0,
         };
     } else if (name === "matrix3d") {
         if (values.length === 4) {
@@ -345,150 +363,6 @@ export const unpackMatrixValues = (value: FunctionValue): MatrixValues => {
 
     throw new Error("Unsupported matrix type or invalid number of values");
 };
-
-function findQueryContainer(element: HTMLElement): HTMLElement | null {
-    let el = element.parentElement;
-    while (el) {
-        const ct = getComputedStyle(el).containerType;
-        if (ct === "inline-size" || ct === "size") {
-            return el;
-        }
-        el = el.parentElement;
-    }
-    return null;
-}
-
-function isVerticalWritingMode(el: HTMLElement): boolean {
-    const wm = getComputedStyle(el).writingMode;
-    return wm?.startsWith("vertical") || wm?.startsWith("sideways") || false;
-}
-
-/**
- * Every relative length unit that has a resolution branch in `convertToPixels`
- * or its helpers. A declared relative unit absent from this set has no
- * conversion and triggers the C5 fail-loud guard rather than a silent no-op.
- */
-const HANDLED_RELATIVE_UNITS = new Set<string>([
-    // font-relative (need an element / documentElement)
-    "em", "rem", "ch", "ex", "cap", "ic", "lh", "rlh",
-    // viewport + writing-mode (need window)
-    "vw", "vh", "vmin", "vmax", "vi", "vb",
-    "svw", "svh", "svi", "svb", "svmin", "svmax",
-    "lvw", "lvh", "lvi", "lvb", "lvmin", "lvmax",
-    "dvw", "dvh", "dvi", "dvb", "dvmin", "dvmax",
-    // container-query (need a query container)
-    "cqw", "cqh", "cqi", "cqb", "cqmin", "cqmax",
-]);
-
-/**
- * Resolve a viewport-relative length unit to pixels (C5).
- *
- * Covers the three CSS viewport variants — `sv*` (small, against
- * `visualViewport`), `lv*`/`dv*` (large/dynamic, against `innerWidth`/
- * `innerHeight`) — plus the writing-mode-relative `vi`/`vb`/`*vi`/`*vb`. Each
- * was previously a silent no-op (`50dvh` → `50px`). The `min`/`max` axes pick
- * the smaller/larger of the two physical dimensions per spec.
- *
- * `vh`/`vw`/`vmin`/`vmax` keep their existing branches in `convertToPixels`;
- * this handles their `s`/`l`/`d`-prefixed and inline/block siblings.
- *
- * Returns `null` when `unit` is not a recognised viewport unit, so the caller
- * can fall through to other unit families / the fail-loud guard.
- */
-function convertViewportUnitToPixels(
-    value: number,
-    unit: string,
-    element?: HTMLElement,
-): number | null {
-    const m = /^(sv|lv|dv|v)(w|h|i|b|min|max)$/.exec(unit);
-    if (!m) return null;
-
-    const variant = m[1]; // sv | lv | dv | v
-    const axis = m[2]; // w | h | i | b | min | max
-
-    // The `v` (no-prefix) variants other than the inline/block pair are already
-    // handled by convertToPixels' dedicated branches; only `vi`/`vb` reach here.
-    let width: number;
-    let height: number;
-    if (variant === "sv") {
-        const vv = typeof window !== "undefined" ? window.visualViewport : undefined;
-        width = vv?.width ?? window.innerWidth;
-        height = vv?.height ?? window.innerHeight;
-    } else {
-        // lv / dv / v — the large/dynamic/default viewport.
-        width = window.innerWidth;
-        height = window.innerHeight;
-    }
-
-    // Inline/block resolve against writing mode; default horizontal when no
-    // element is available (inline = horizontal = width, block = vertical = height).
-    const isVertical = element ? isVerticalWritingMode(element) : false;
-
-    let basis: number;
-    switch (axis) {
-        case "w":
-            basis = width;
-            break;
-        case "h":
-            basis = height;
-            break;
-        case "i":
-            basis = isVertical ? height : width;
-            break;
-        case "b":
-            basis = isVertical ? width : height;
-            break;
-        case "min":
-            basis = Math.min(width, height);
-            break;
-        default: // max
-            basis = Math.max(width, height);
-            break;
-    }
-
-    return value * (basis / 100);
-}
-
-/**
- * Resolve a font-metric-relative length unit to pixels (C5): `cap`, `ic`,
- * `lh`, `rlh`. These previously no-op'd to raw px. Approximated from the
- * element's (or root's) computed font/line-height, mirroring the existing
- * `ex`/`ch` canvas-metric approach. Returns `null` for unrecognised units.
- */
-function convertFontMetricUnitToPixels(
-    value: number,
-    unit: string,
-    element?: HTMLElement,
-): number | null {
-    const styleEl =
-        unit === "rlh"
-            ? typeof document !== "undefined"
-                ? document.documentElement
-                : undefined
-            : element;
-    if (!styleEl) return null;
-
-    const cs = getComputedStyle(styleEl);
-    const fontSize = parseFloat(cs.fontSize) || 16;
-
-    switch (unit) {
-        case "lh":
-        case "rlh": {
-            const lh = parseFloat(cs.lineHeight);
-            // `normal` line-height parses to NaN; approximate as 1.2 × font-size.
-            const resolved = Number.isFinite(lh) ? lh : fontSize * 1.2;
-            return value * resolved;
-        }
-        case "cap":
-            // cap-height ≈ 0.7 × font-size (typical Latin cap-height ratio).
-            return value * fontSize * 0.7;
-        case "ic":
-            // ideographic advance ≈ 1 × font-size (full-width glyph).
-            return value * fontSize;
-        default:
-            return null;
-    }
-}
 
 export function convertAbsoluteUnitToPixels(value: number, unit: string) {
     let pixels = value;
@@ -536,22 +410,27 @@ export function convertToPixels(
         );
         value = (value / 100) * parentValue;
     } else if (unit === "ch" && element) {
-        // ch = width of "0" glyph; approximate via canvas when available
+        // ch = width of "0" glyph; approximate via canvas when available.
         const fontSize = parseFloat(getComputedStyle(element).fontSize) || 16;
-        if (typeof OffscreenCanvas !== "undefined" || typeof document !== "undefined") {
-            try {
-                const canvas =
-                    typeof OffscreenCanvas !== "undefined"
-                        ? new OffscreenCanvas(1, 1)
-                        : document.createElement("canvas");
-                const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-                ctx.font = `${fontSize}px ${getComputedStyle(element).fontFamily}`;
-                const zeroWidth = ctx.measureText("0").width;
-                value *= zeroWidth > 0 ? zeroWidth : fontSize * 0.5;
-            } catch {
-                value *= fontSize * 0.5;
-            }
+        // `getContext("2d")` is genuinely nullable (a headless/jsdom target, or
+        // a browser that declines a 2D context, returns null). Narrow it
+        // EXPLICITLY — the prior `as CanvasRenderingContext2D` asserted non-null,
+        // then a blanket `catch {}` two lines later silently folded the resulting
+        // null-deref into the same fallback as "measurement unavailable"
+        // (legacy-sweep-src P2). Each `getContext` call is on one concrete class,
+        // so no cast is needed.
+        let ctx: CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D | null = null;
+        if (typeof OffscreenCanvas !== "undefined") {
+            ctx = new OffscreenCanvas(1, 1).getContext("2d");
+        } else if (typeof document !== "undefined") {
+            ctx = document.createElement("canvas").getContext("2d");
+        }
+        if (ctx) {
+            ctx.font = `${fontSize}px ${getComputedStyle(element).fontFamily}`;
+            const zeroWidth = ctx.measureText("0").width;
+            value *= zeroWidth > 0 ? zeroWidth : fontSize * 0.5;
         } else {
+            // No 2D context available — fall back to the x-height approximation.
             value *= fontSize * 0.5;
         }
     } else if (unit === "ex" && element) {
