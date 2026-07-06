@@ -26,17 +26,20 @@
  * (never shipped in WebKit), no engine-conditional path, no degraded
  * fallback — one implementation, every engine.
  *
- * RAF DISCIPLINE (W3-8-ready). A single self-terminating loop, armed only for
- * the [arm, settle+epilogue] window; elapsed time accumulates per-frame
- * deltas (capped), so a `useRAFLoop` host with `pauseWhenHidden` freezes the
- * narration cleanly instead of jump-cutting. Under prefers-reduced-motion the
- * loop never arms and completion fires immediately — the result appears with
- * zero dead time.
+ * RAF DISCIPLINE (W3-8). The convergence rides glass-ui's `useRAFLoop`
+ * (`@mkbabb/glass-ui/motion-core`), armed only for the [arm, settle+epilogue]
+ * window: `pauseWhenHidden` freezes the narration on a hidden tab and its
+ * `elapsed` excludes paused time, so a resume never jump-cuts (the former
+ * hand-rolled per-frame delta cap is retired). `respectReducedMotion` is FALSE
+ * on the host — the mix is a phase-machine forward edge, so under
+ * prefers-reduced-motion `arm()` must COMPLETE-IMMEDIATELY (fire onSettled),
+ * never PAUSE; a paused loop would strand the phase machine mid-mix.
  */
 
 import { watch, onBeforeUnmount } from "vue";
 import type { Ref } from "vue";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
+import { useRAFLoop } from "@mkbabb/glass-ui/motion-core";
 import type { HueInterpolationMethod } from "@src/units/color/mix";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { AnimationPhase, MixResult } from "./useMixingState";
@@ -44,14 +47,6 @@ import type { Stage } from "./mixStage";
 import { collectStage, drawStage, MIX_CONVERGE_MS, MIX_EPILOGUE_MS } from "./mixStage";
 
 export { MIX_ARRIVE_MS, MIX_CONVERGE_MS, MIX_EPILOGUE_MS } from "./mixStage";
-
-/**
- * Per-frame delta cap: large enough that slow-frame environments (software
- * raster, throttled tabs) still track wall clock, small enough that the one
- * oversized delta on hidden-tab resume (rAF doesn't fire while hidden) can't
- * jump-cut the narration.
- */
-const FRAME_DELTA_CAP = 200;
 
 export interface MixingAnimationOptions {
     result: Ref<MixResult | null>;
@@ -66,11 +61,7 @@ export function useMixingAnimation(
     phase: Ref<AnimationPhase>,
     { result, space, hueMethod, onSettled }: MixingAnimationOptions,
 ) {
-    let frame: number | null = null;
-    let running = false;
     let settledFired = false;
-    let elapsed = 0;
-    let last = 0;
     let stage: Stage | null = null;
 
     // PRM gate: the convergence is decorative MOTION. Under
@@ -90,40 +81,40 @@ export function useMixingAnimation(
         return res.colors?.[0]?.css ?? null;
     }
 
-    function render(now: number) {
-        if (!running) return;
-        const canvas = canvasRef.value;
-        const ctx = canvas?.getContext("2d");
-        if (!canvas || !ctx || !stage) {
-            stop();
-            return;
-        }
+    // W3-8: the convergence clock is glass-ui's useRAFLoop. `elapsed` is the
+    // host's accumulated running time (paused-time excluded via pauseWhenHidden),
+    // so a hidden-tab freeze/resume never jump-cuts. See the file docstring for
+    // why respectReducedMotion is FALSE here (arm() owns the PRM fast-path).
+    const loop = useRAFLoop(
+        ({ elapsed }) => {
+            const canvas = canvasRef.value;
+            const ctx = canvas?.getContext("2d");
+            if (!canvas || !ctx || !stage) {
+                loop.stop();
+                return;
+            }
 
-        // Pause-tolerant clock: capped per-frame deltas, never wall-clock jumps.
-        elapsed += Math.min(now - last, FRAME_DELTA_CAP);
-        last = now;
-
-        const w = canvas.clientWidth;
-        const h = canvas.clientHeight;
-        ctx.clearRect(0, 0, w, h);
-
-        drawStage(ctx, stage, elapsed);
-
-        if (!settledFired && elapsed >= MIX_CONVERGE_MS) {
-            settledFired = true;
-            onSettled();
-        }
-
-        if (elapsed >= MIX_CONVERGE_MS + MIX_EPILOGUE_MS) {
-            stop();
+            const w = canvas.clientWidth;
+            const h = canvas.clientHeight;
             ctx.clearRect(0, 0, w, h);
-            return;
-        }
-        frame = requestAnimationFrame(render);
-    }
+
+            drawStage(ctx, stage, elapsed);
+
+            if (!settledFired && elapsed >= MIX_CONVERGE_MS) {
+                settledFired = true;
+                onSettled();
+            }
+
+            if (elapsed >= MIX_CONVERGE_MS + MIX_EPILOGUE_MS) {
+                loop.stop();
+                ctx.clearRect(0, 0, w, h);
+            }
+        },
+        { immediate: false, pauseWhenHidden: true, respectReducedMotion: false },
+    );
 
     function arm() {
-        stop();
+        loop.stop();
         settledFired = false;
 
         if (prefersReducedMotion.value) {
@@ -162,18 +153,8 @@ export function useMixingAnimation(
             return;
         }
 
-        elapsed = 0;
-        last = performance.now();
-        running = true;
-        frame = requestAnimationFrame(render);
-    }
-
-    function stop() {
-        running = false;
-        if (frame != null) {
-            cancelAnimationFrame(frame);
-            frame = null;
-        }
+        // start() resets the host's elapsed/frame counters to zero.
+        loop.start();
     }
 
     function clearCanvas() {
@@ -193,7 +174,7 @@ export function useMixingAnimation(
             if (next === "mixing") {
                 arm();
             } else if (next === "idle") {
-                stop();
+                loop.stop();
                 stage = null;
                 clearCanvas();
             }
@@ -201,7 +182,9 @@ export function useMixingAnimation(
         { flush: "post" },
     );
 
-    onBeforeUnmount(() => stop());
+    // useRAFLoop auto-disposes on scope teardown; this belt-and-suspenders stop
+    // also halts an in-flight narration if the pane unmounts mid-mix.
+    onBeforeUnmount(() => loop.stop());
 
-    return { stop };
+    return { stop: () => loop.stop() };
 }
