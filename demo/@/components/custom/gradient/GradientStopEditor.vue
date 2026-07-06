@@ -160,11 +160,14 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
 </script>
 
 <template>
-    <div class="flex flex-col gap-1">
+    <!-- `relative`: the remove chip anchors to the RAIL root (the bar's
+         contain:paint would clip a child chip — see below). -->
+    <div class="relative flex flex-col gap-1">
         <!-- Gradient bar: hover ghost previews the add; handles drag; the
              selected handle carries a touch-true remove chip. -->
         <div
             ref="barRef"
+            data-testid="gradient-stop-bar"
             :class="['relative h-10 rounded-lg glass-wash select-none touch-none', draggingId ? 'cursor-grabbing' : 'cursor-copy']"
             :style="{
                 /* S owner-ruling 2026-07-05: the house `--alpha-checker`
@@ -233,26 +236,30 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
                 @keydown="(e) => onHandleKeydown(e, stop)"
             />
 
-            <!-- The remove chip (W5-11 / P1-3: remove was right-click-ONLY —
-                 undiscoverable, impossible on touch). Rides above the selected
-                 handle whenever removal is legal. -->
-            <button
-                v-if="selectedStop && removable"
-                type="button"
-                aria-label="Remove selected stop"
-                class="absolute w-6 h-6 -top-3 rounded-full border border-card-edge bg-card text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                :style="{
-                    left: handleLeft(selectedStop.position),
-                    transform: 'translate(-50%, -100%)',
-                    boxShadow: 'var(--shadow-sm)',
-                    transition: 'color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard)',
-                }"
-                @pointerdown.stop
-                @click.stop="removeStop(selectedStop.id)"
-            >
-                <X class="w-3.5 h-3.5" aria-hidden="true" />
-            </button>
         </div>
+
+        <!-- The remove chip (W5-11 / P1-3: remove was right-click-ONLY —
+             undiscoverable, impossible on touch). Floats BELOW the selected
+             handle whenever removal is legal. A SIBLING of the bar, never a
+             child: the bar's glass-wash recipe carries `contain: paint`,
+             which clips any descendant outside the bar's box out of paint
+             AND hit-testing (probed live — the same clipping class as the
+             producer's documented R8-17 defect). -->
+        <button
+            v-if="selectedStop && removable"
+            type="button"
+            aria-label="Remove selected stop"
+            class="absolute w-6 h-6 top-11 rounded-full border border-card-edge bg-card text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            :style="{
+                left: handleLeft(selectedStop.position),
+                transform: 'translate(-50%, 0)',
+                boxShadow: 'var(--shadow-sm)',
+                transition: 'color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard)',
+            }"
+            @click.stop="removeStop(selectedStop.id)"
+        >
+            <X class="w-3.5 h-3.5" aria-hidden="true" />
+        </button>
 
         <!-- The iso-ΔE_OK rung row (W5-8): perceptual pacing as visible
              netting on the editing rail, mapped to the same inset track as

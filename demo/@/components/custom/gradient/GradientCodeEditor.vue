@@ -103,6 +103,7 @@ onMounted(() => render(modelValue));
              never a silent partial apply, never a stolen caret. -->
         <p
             v-if="parseVerdict"
+            data-testid="gradient-parse-verdict"
             class="fira-code text-mono-caption text-destructive"
             role="status"
         >
