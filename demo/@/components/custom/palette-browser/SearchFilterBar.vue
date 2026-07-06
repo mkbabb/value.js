@@ -79,18 +79,24 @@
                                     />
                                 </template>
                             </MiniColorPicker>
-                            <!-- Text input with inline search button -->
+                            <!-- Text input with inline search button.
+                                 S.W5-3 (S-17): the glass-ui Input pill — a
+                                 CSS-literal readout field, so it keeps the
+                                 Fira voice via class (font only, no chrome
+                                 fork). -->
                             <div class="relative flex-1 min-w-0">
-                                <input
+                                <Input
                                     v-model="colorText"
                                     type="text"
+                                    size="sm"
                                     placeholder="#hex, hsl(...)"
-                                    class="h-7 w-full rounded-input border border-input bg-background pl-2 pr-14 fira-code text-caption truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                                    aria-label="Search by CSS color"
+                                    class="w-full pr-16 font-mono truncate"
                                     @keydown.enter="applyColorSearch"
                                 />
                                 <button
                                     :disabled="searching"
-                                    class="absolute right-0.5 top-0.5 h-6 px-2 rounded-sm text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-fast cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
+                                    class="absolute right-1 top-1/2 -translate-y-1/2 h-6 px-2 rounded-full text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-fast cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none"
                                     @click="applyColorSearch"
                                 >
                                     <Loader2 v-if="searching" class="h-3 w-3 animate-spin" />
@@ -121,6 +127,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { Button } from "@components/ui/button";
+import { Input } from "@components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
 import MiniColorPicker from "./MiniColorPicker.vue";
 import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";

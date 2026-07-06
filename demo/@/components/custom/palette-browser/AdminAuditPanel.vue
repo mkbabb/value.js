@@ -2,17 +2,23 @@
     <div class="grid gap-3 pb-3">
         <!-- Toolbar -->
         <div class="flex items-center gap-2 flex-wrap">
-            <input
+            <!-- S.W5-3 (S-17/F-7): the glass-ui Input pill, sm rung — the
+                 hand-rolled square chrome under the SearchBar pills is dead. -->
+            <Input
                 v-model="audit.actionFilter.value"
                 type="text"
+                size="sm"
                 placeholder="Action..."
-                class="h-7 w-28 rounded-input border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                aria-label="Filter by action"
+                class="w-32 font-mono"
             />
-            <input
+            <Input
                 v-model="audit.targetFilter.value"
                 type="text"
+                size="sm"
                 placeholder="Target..."
-                class="h-7 flex-1 min-w-[6rem] rounded-input border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                aria-label="Filter by target"
+                class="flex-1 min-w-[6rem] font-mono"
             />
             <div class="flex-1" />
             <span class="text-mono-small text-muted-foreground">{{ audit.total.value }}</span>
@@ -68,6 +74,7 @@
 <script setup lang="ts">
 import { inject, onMounted, watch } from "vue";
 import { Button } from "@components/ui/button";
+import { Input } from "@components/ui/input";
 import { Badge } from "@components/ui/badge";
 import { RefreshCw } from "@lucide/vue";
 import EmptyState from "./EmptyState.vue";

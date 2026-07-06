@@ -14,17 +14,24 @@
 
         <!-- Create form -->
         <div class="flex items-center gap-2">
-            <input
+            <!-- S.W5-3 (S-17/F-7): glass-ui Input pills, sm rung; the pair
+                 sized honestly (name vs category was ~5×; the category well
+                 no longer clips its own placeholder). -->
+            <Input
                 v-model="tagsApi.newName.value"
                 type="text"
+                size="sm"
                 placeholder="Tag name..."
-                class="h-7 flex-1 rounded-input border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                aria-label="New tag name"
+                class="flex-1 min-w-0 font-mono"
             />
-            <input
+            <Input
                 v-model="tagsApi.newCategory.value"
                 type="text"
+                size="sm"
                 placeholder="Category..."
-                class="h-7 w-28 rounded-input border border-input bg-background px-2.5 text-mono-small focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                aria-label="New tag category"
+                class="w-36 font-mono"
             />
             <!-- W5-a11y: icon-only create tag button needs accessible name -->
             <Button
@@ -91,6 +98,7 @@
 <script setup lang="ts">
 import { inject, onMounted } from "vue";
 import { Button } from "@components/ui/button";
+import { Input } from "@components/ui/input";
 import { Skeleton } from "@components/ui/skeleton";
 import { Plus, RefreshCw, X } from "@lucide/vue";
 import EmptyState from "./EmptyState.vue";
