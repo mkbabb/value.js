@@ -241,16 +241,6 @@ function onIntervalAuthored(index: number, value: EasingPickerValue | undefined)
     if (value) updateInterval(index, value);
 }
 
-const activeTypeDesc = computed(() =>
-    GRADIENT_TYPES.find((t) => t.value === type.value)?.description ?? "",
-);
-const activeSpaceDesc = computed(() =>
-    INTERPOLATION_SPACES.find((s) => s.value === interpolationSpace.value)?.description ?? "",
-);
-const activeHueDesc = computed(() =>
-    HUE_INTERPOLATION_METHODS.find((m) => m.value === hueMethod.value)?.description ?? "",
-);
-
 async function copyCSS() {
     await copyToClipboard(coalescedCSS.value);
 }
@@ -288,9 +278,11 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <h3 class="font-display text-subheading text-muted-foreground">Interpolation</h3>
 
         <div class="grid grid-cols-3 gap-3">
+            <!-- W5-7 (P1-11): the per-select subtitle rows are EXCISED — they
+                 truncated at every viewport and duplicated the descriptions
+                 already carried inside each dropdown's items. -->
             <div class="flex flex-col gap-1">
                 <span class="section-label">Type</span>
-                <span class="section-subtitle">{{ activeTypeDesc }}</span>
                 <Select :model-value="type" @update:model-value="(v: AcceptableValue) => type = v as GradientType">
                     <SelectTrigger class="h-9" aria-label="Gradient type">
                         <SelectValue />
@@ -308,7 +300,6 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
             <div class="flex flex-col gap-1">
                 <span class="section-label">Space</span>
-                <span class="section-subtitle">{{ activeSpaceDesc }}</span>
                 <Select :model-value="interpolationSpace" @update:model-value="(v: AcceptableValue) => interpolationSpace = v as ColorSpace">
                     <SelectTrigger class="h-9" aria-label="Interpolation space">
                         <SelectValue />
@@ -326,7 +317,6 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
             <div class="flex flex-col gap-1">
                 <span class="section-label">Hue</span>
-                <span class="section-subtitle">{{ activeHueDesc }}</span>
                 <Select :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => hueMethod = v as HueInterpolationMethod">
                     <SelectTrigger class="h-9" aria-label="Hue interpolation">
                         <SelectValue />
