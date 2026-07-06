@@ -19,11 +19,14 @@
  *      solve/frame under a drag); the picker keeps the synchronous
  *      `cssColorOpaque` via CSS_COLOR_KEY, provided by App.
  *
- *   2. THE PER-VIEW ACCENT (R.W4 Lane B / B2) — each view's schema-declared hue
- *      shift lands on the `--view-hue-shift` root token; style.css derives
- *      `--accent-view` from the R.W3 axis via CSS relative colour (zero JS
- *      colour math), and `--primary` rides it — so navigation reads
- *      chromatically everywhere the interactive layer paints.
+ *   2. THE PER-VIEW ACCENT (S.W7 · W7-4, superseding R.W4 B2's CSS
+ *      relative-color derivation) — `useViewAccents` resolves each view's
+ *      accent THROUGH THE LIBRARY (rotate hue → low-C floor → gamut-map to
+ *      the cusp → L re-guard → WCAG ≥3:1) and writes it as static root
+ *      tokens: `--accent-view-<id>` × 9 + the current `--accent-view`
+ *      (`--primary` rides it) + `--seal-ink`. The `--view-hue-shift`
+ *      relative-color path and its `:root` transition tax are retired
+ *      (the W3-7 mechanism decision, consumed here).
  *
  *   3. THE ATMOSPHERE (N.W5.B) — delegated to useAtmosphere (atoms, render-mode
  *      tiering, seed guards, blob ramp); seeded by the same rAF-coalesced colour
@@ -37,6 +40,7 @@ import type { ComputedRef, ShallowRef } from "vue";
 import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
 import type { PaneConfig } from "@composables/useViewManager";
 import { useContrastSafeColor } from "./useContrastSafeColor";
+import { useViewAccents } from "./useViewAccents";
 import { useAtmosphere } from "./useAtmosphere";
 
 export function useAtmosphereBoot(
@@ -60,17 +64,14 @@ export function useAtmosphereBoot(
         { immediate: true },
     );
 
-    // 2 — the per-view accent: the schema hue shift lands on `--view-hue-shift`.
-    watch(
-        () => currentConfig.value.accentHueShift,
-        (deg) => {
-            document.documentElement.style.setProperty(
-                "--view-hue-shift",
-                String(deg ?? 0),
-            );
-        },
-        { immediate: true },
-    );
+    // 2 — the per-view accent (W7-4): the library-resolved static tokens —
+    //     `--accent-view-<id>` × 9 + `--accent-view` + `--seal-ink` — written
+    //     per accent change on the same rAF-coalesced clock.
+    useViewAccents({
+        cssColorOpaque: atmosphereColor,
+        safeAccentCss,
+        currentConfig,
+    });
 
     // 3 — the atmosphere: aurora + hero-blob palette coupling (provides
     //     AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on the caller's scope).

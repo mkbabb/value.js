@@ -154,18 +154,23 @@
  * pins at the top rather than floating with the content — the one accepted
  * visual delta of Proposal B.
  */
-/* The per-view accent hue turn (R.W4 Lane B / B2): registering the custom
- * property gives it a real <angle> type, which is what makes the `:root`
- * `transition: --view-hue-shift …` interpolate — navigation SWEEPS the
- * interactive layer to the new view's hue. PRM: the global reduced-motion
- * guard (animations.css) neutralises the transition like any other. */
-@property --view-hue-shift {
-    /* UNITLESS degrees: relative-color channel keywords (`h`) resolve as
-     * <number>s, so the shift must be a <number> too — an <angle> inside the
-     * calc() would invalidate the whole derivation at computed-value time. */
-    syntax: "<number>";
+/* The per-view accent (S.W7 · W7-4): registering `--accent-view` with a real
+ * <color> type makes it INTERPOLABLE — but the transition lives ONLY on the
+ * bounded accent-painting scope (DockViewSelect's trigger), NEVER on `:root`.
+ * The former `--view-hue-shift` <number> registration + `:root` transition
+ * (R.W4 B2) taxed the WHOLE document per sweep frame (every inherited
+ * custom-property consumer re-resolved 60×/s — design-dock-shell P1-7); the
+ * W3-7 mechanism decision retires it: the per-view tokens are resolved
+ * JS-side (library gamut-map + contrast guard, useViewAccents) and SNAP on
+ * the root; the sweep survives where the accent actually paints. PRM: the
+ * global reduced-motion guard (animations.css) neutralises the scoped
+ * transition like any other. */
+@property --accent-view {
+    syntax: "<color>";
     inherits: true;
-    initial-value: 0;
+    /* The same pre-hydration literal as `--accent-live` below — @property
+     * initial values must be computationally independent (no var()). */
+    initial-value: oklch(0.632 0.214 13.5);
 }
 
 :root {
@@ -198,25 +203,28 @@
      * surface, no demo-local glass recipe). */
     --accent-live: oklch(0.632 0.214 13.5);
 
-    /* ── The per-view accent (R.W4 Lane B / B2 — navigation reads
-     * chromatically). `--accent-view` DERIVES from the R.W3 `--accent-live`
-     * axis (a pure consume — the mint stays R.W3-owned) by rotating OKLCh hue
-     * per view; L and C are preserved, so the contrast guard the live accent
-     * carries survives the turn. ONE resolver path: viewSchema.ts declares
-     * each view's `accentHueShift`; App.vue writes `--view-hue-shift`; this
-     * relative-color derivation is the only color math. The registered
-     * @property (below :root) makes the hue turn ANIMATABLE — the interactive
-     * layer sweeps to the new view's hue instead of snapping. `--primary`
-     * rides the view accent (picker's shift is 0°, so the picker view is
-     * byte-identical to the R.W3 axis); the glass frost keeps reading
-     * `--accent-live` (the plate temperature stays the picked color). */
-    --view-hue-shift: 0; /* unitless deg — see the @property registration */
-    --accent-view: oklch(from var(--accent-live) l c calc(h + var(--view-hue-shift)));
+    /* ── The per-view accent (S.W7 · W7-4 — navigation reads chromatically,
+     * gamut-guaranteed). The former CSS relative-color derivation
+     * (`oklch(from var(--accent-live) l c calc(h + shift))`) trusted the
+     * browser's gamut clamp — measured false: the clamp bends L per hue
+     * (mix 2.74:1 / generate 2.77:1 failed the 3:1 graphics floor) and at
+     * C≈0 all nine rotations collapsed to one gray. ONE resolver path now:
+     * viewSchema.ts declares each view's `accentHueShift`; `useViewAccents`
+     * resolves each token THROUGH THE LIBRARY (rotate → low-C floor →
+     * Ottosson gamut-map to the cusp → L re-guard → WCAG ≥3:1) and writes
+     * `--accent-view-<id>` × 9 + this `--accent-view` + `--seal-ink` as
+     * static root tokens per accent change. The declaration below is only
+     * the pre-hydration fallback (picker's shift is 0°, so falling back to
+     * the live axis is chromatically true). The view-switch hue sweep lives
+     * on the BOUNDED trigger scope (see the @property registration above) —
+     * never a `:root` transition. `--primary` rides the view accent; the
+     * glass frost keeps reading `--accent-live` (the plate temperature
+     * stays the picked color). */
+    --accent-view: var(--accent-live);
     --primary: var(--accent-view);
     --primary-foreground: var(--background);
     --glass-tint-source: var(--accent-live);
     --glass-tint-strength: 4%;
-    transition: --view-hue-shift var(--duration-panel) var(--ease-standard);
 
     /* ── The accent-aware focus register (R.W3 Lane C / C5, D8) ──
      * glass-ui's `--focus-ring-shadow` recipe reads ONE retint knob

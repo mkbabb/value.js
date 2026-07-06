@@ -74,13 +74,16 @@ export interface PaneConfig {
     rightLabel: string | null;
     icon: Component;
     /**
-     * R.W4 Lane B / B2 — the per-view accent: an OKLCh HUE ROTATION (deg)
-     * applied to the R.W3 `--accent-live` axis via the CSS relative-color
-     * derivation in style.css (`--accent-view`). Pure data; ONE resolver
-     * path (App.vue writes `--view-hue-shift`), zero bespoke color math.
-     * The nine primary views are proportioned around the wheel in 40°
-     * steps in dock order; admin views stay at 0° — admin identity is the
-     * gold accent, not a hue turn.
+     * The per-view accent: an OKLCh HUE ROTATION (deg) applied to the R.W3
+     * `--accent-live` axis. Pure data; ONE resolver path — since S.W7-4 the
+     * shift feeds `useViewAccents`, which resolves each view's token THROUGH
+     * THE LIBRARY (gamut-map to the cusp + contrast re-guard + WCAG 3:1
+     * floor) and writes `--accent-view-<id>`/`--accent-view` as static root
+     * tokens (the former CSS relative-color derivation trusted the browser
+     * clamp and failed the graphics floor at cyan/green hues). The nine
+     * primary views are proportioned around the wheel in 40° steps in dock
+     * order; admin views stay at 0° — admin identity is the gold accent,
+     * not a hue turn.
      */
     accentHueShift: number;
 }

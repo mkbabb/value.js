@@ -136,12 +136,14 @@ watch(
                     <!-- Main navigation layer (inlined — was the passthrough DockMainLayer.vue) -->
                     <DockLayer id="main">
                         <!-- View selector — gate (a): viewSelectOpen comes from the single mutex above -->
+                        <!-- W7-4 (ONE dock voice): the view-select speaks the
+                             gamut-guarded `--accent-view` tokens exclusively —
+                             the live-accent props are gone (that voice stays
+                             on Tools/Login, the app chrome). -->
                         <DockViewSelect
                             v-model:open="viewSelectOpen"
                             :current-view="viewManager.currentView.value"
                             :current-icon="viewManager.currentConfig.value.icon"
-                            :safe-accent="safeAccent"
-                            :css-color-opaque="cssColorOpaque"
                             :is-admin-mode="isAdminMode"
                             :is-desktop="isDesktop"
                             :view-entries="viewEntries"

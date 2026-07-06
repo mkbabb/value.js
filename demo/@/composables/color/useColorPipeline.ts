@@ -279,8 +279,9 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     // `color-picker-bg` persistence carry the derived BASE stop, so boot →
     // first frame is ONE material. The inline-background clears died with the
     // index.html boot script's inline writes (the fouc-guard `--saved-bg` rule
-    // is the one pre-hydration ground now). (--accent-live and --view-hue-shift
-    // stay App-scoped — they read contrast/view state, seed rider 1.)
+    // is the one pre-hydration ground now). (--accent-live and the W7-4
+    // per-view accent tokens stay App-scoped — they read contrast/view
+    // state, seed rider 1.)
 
     // --- W3-1 (S.W3): rAF-coalesce the colour → atmosphere fan-out ---
     // The atmosphere fan-out — the aurora seed derive + the blob-palette derive

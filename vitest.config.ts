@@ -8,6 +8,12 @@ export default defineConfig({
             // S.W5 Lane C: the gradient strict-parser unit tests import the
             // demo composable, which reaches @lib/color-utils transitively.
             "@lib": path.resolve(import.meta.dirname, "demo/@/lib"),
+            // S.W7-4: the accent contrast probe reads the REAL view schema
+            // (viewSchema.ts is pure data — safe outside a Vue app).
+            "@composables": path.resolve(
+                import.meta.dirname,
+                "demo/@/composables",
+            ),
         },
     },
     test: {

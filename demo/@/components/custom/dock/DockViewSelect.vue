@@ -11,16 +11,12 @@ import type { ViewEntry } from "./composables/useDockAdminMode";
 const {
     currentView,
     currentIcon,
-    safeAccent,
-    cssColorOpaque,
     isAdminMode,
     isDesktop,
     viewEntries,
 } = defineProps<{
     currentView: string;
     currentIcon: unknown;
-    safeAccent: string;
-    cssColorOpaque: string;
     isAdminMode: boolean;
     isDesktop: boolean;
     viewEntries: ViewEntry[];
@@ -37,6 +33,16 @@ const emit = defineEmits<{
 const open = defineModel<boolean>("open", { default: false });
 
 const pm = inject(PALETTE_MANAGER_KEY)!;
+
+// W7-4 (ONE dock voice) — each menu entry speaks ITS OWN gamut-guarded view
+// hue (the `--accent-view-<id>` static tokens useViewAccents writes): the
+// menu is the navigation's color-wheel legend. Admin entries keep the gold
+// identity (admin is a mode, not a hue turn — viewSchema's own ruling).
+function entryAccent(id: string): string {
+    return id.startsWith("admin-")
+        ? "var(--color-gold)"
+        : `var(--accent-view-${id})`;
+}
 </script>
 
 <template>
@@ -49,10 +55,16 @@ const pm = inject(PALETTE_MANAGER_KEY)!;
         <!-- Ad-18 marker: [&>span]:line-clamp-none cancels glass-ui's internal
              line-clamp-1 on the trigger label span. Root fix is a `clampLabel`
              prop on glass-ui DockSelectTrigger (filed coordination/Q.md §3). -->
+        <!-- W7-4 (ONE dock voice): the trigger — icon + ring — speaks
+             `--accent-view`, the CURRENT view's gamut-guarded token. The ring
+             seam (`--dock-ring`) is re-wired off the live accent onto the view
+             accent: it is the W7-1 morph clause's continuity carrier (the seal
+             rim grows into this ring — one hue held the whole way). The
+             producer-side ring consume is the filed L13/W7-1 ask. -->
         <DockSelectTrigger
             aria-label="Select view"
-            class="text-small font-display font-normal [&>span]:line-clamp-none"
-            :style="{ '--dock-ring': safeAccent }"
+            class="view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
+            :style="{ '--dock-ring': isAdminMode ? 'var(--color-gold)' : 'var(--accent-view)' }"
         >
             <!-- The view-select moment (R.W4 Lane B / B3): the trigger icon
                  swaps on the morph family (scale-settle beat), and reads the
@@ -81,19 +93,23 @@ const pm = inject(PALETTE_MANAGER_KEY)!;
                     class="py-1.5 px-2.5"
                     hide-indicator
                 >
+                    <!-- W7-4 — the color-wheel legend: every entry's dot +
+                         icon speak THEIR OWN view hue (the 9 gamut-guarded
+                         static tokens), never the live accent (that voice
+                         belongs to Tools/Login — app chrome). The former
+                         current-item-only live dot + gray siblings die here.
+                         S.W5-7 (Q4 EXCISE) stands: labels speak ink — hue
+                         belongs to color-data surfaces (dots/icons). -->
                     <span class="flex items-center gap-2">
                         <span
                             class="inline-block w-2 h-2 rounded-full shrink-0 transition-colors"
-                            :style="{ backgroundColor: currentView === entry.id ? (isAdminMode ? 'var(--color-gold)' : cssColorOpaque) : 'color-mix(in srgb, var(--muted-foreground) 25%, transparent)' }"
+                            :style="{ backgroundColor: entryAccent(entry.id) }"
                         ></span>
                         <component
                             :is="entry.icon"
                             class="w-4 h-4 shrink-0"
-                            :style="currentView === entry.id ? { color: isAdminMode ? 'var(--color-gold)' : safeAccent } : {}"
-                            :class="currentView !== entry.id ? 'text-muted-foreground' : ''"
+                            :style="{ color: entryAccent(entry.id) }"
                         />
-                        <!-- S.W5-7 (Q4 EXCISE): the palettes entry speaks ink
-                             like every sibling — the rainbow recipe is dead. -->
                         <span :class="currentView === entry.id ? 'font-semibold' : ''">{{ entry.label }}</span>
                     </span>
                 </SelectItem>
@@ -128,5 +144,15 @@ const pm = inject(PALETTE_MANAGER_KEY)!;
 .gold-shimmer-icon {
     color: var(--color-gold);
     filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-gold) 30%, transparent));
+}
+
+/* W7-4 — the BOUNDED view-switch hue sweep (the W3-7 §2 mechanism, form A):
+ * the <color>-registered `--accent-view` transitions on THIS trigger scope
+ * only — the icon + ring inherit the one animating computed value, so the
+ * navigation still SWEEPS to the new view's hue, while the root token snaps
+ * (no per-frame whole-document inherited-property invalidation — the P1-7
+ * tax is dead). PRM: neutralised by the global guard like any transition. */
+.view-select-trigger {
+    transition: --accent-view var(--duration-panel) var(--ease-standard);
 }
 </style>

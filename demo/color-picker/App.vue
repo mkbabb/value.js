@@ -211,7 +211,8 @@ const currentConfig = computed(() => viewManager.currentConfig.value);
 
 // --- Atmosphere boot (S.W5 · row-8 cap cure) ---
 // The three document-root atmosphere/entrance side-effects — the R.W3
-// `--accent-live` accent axis, the R.W4 `--view-hue-shift` per-view accent, and
+// `--accent-live` accent axis, the S.W7-4 library-resolved per-view accent
+// tokens (`--accent-view-<id>`/`--accent-view`/`--seal-ink`), and
 // the N.W5.B aurora + hero-blob region — live in one composable. It provides
 // SAFE_ACCENT_KEY + AURORA_ATOMS_KEY + BLOB_CONFIG_KEY; App keeps only the canvas
 // mount + the picker's synchronous CSS_COLOR_KEY provide above. Seeded by the

@@ -9,9 +9,13 @@ import { cssToRawColor } from "@lib/color-utils";
  * These correspond to the --background CSS variable:
  *   light: hsl(0 0% 100%)   → OKLab L ≈ 1.0
  *   dark:  hsl(224 71% 4%)  → OKLab L ≈ 0.15
+ *
+ * Exported (S.W7 · W7-4): `useViewAccents` re-guards the per-view accent
+ * tokens against the SAME scheme lightness the live accent rides — one
+ * source, never a second pair of constants.
  */
-const BG_LIGHTNESS_DARK = 0.15;
-const BG_LIGHTNESS_LIGHT = 0.97;
+export const BG_LIGHTNESS_DARK = 0.15;
+export const BG_LIGHTNESS_LIGHT = 0.97;
 
 /**
  * The contrast guard, sourced ENTIRELY from the library (S.W2-2 ⊣ W1-6): the
