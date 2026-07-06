@@ -6,8 +6,8 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
-import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
 import PaletteColorStrip from "@components/custom/palette-browser/PaletteColorStrip.vue";
+import EmptyState from "@components/custom/palette-browser/EmptyState.vue";
 import type { Palette } from "@lib/palette/types";
 import type { SelectedColor } from "./composables/useMixingState";
 
@@ -115,10 +115,9 @@ watch(
         <template v-if="mode === 'colors'">
             <!-- Selected colors + add button -->
             <div class="dashed-well">
-                <div class="flex items-center justify-between">
-                    <span class="text-small font-display font-semibold text-muted-foreground">Selected</span>
-                    <span v-if="selectedColors.length > 0" class="text-mono-small text-muted-foreground">{{ selectedColors.length }} colors</span>
-                </div>
+                <!-- W5-7: the "N colors" counter died — it restated the
+                     visible chips (and read "1 colors" at one). -->
+                <span class="text-small font-display font-semibold text-muted-foreground">Selected</span>
                 <TransitionGroup
                     name="vj-enter"
                     tag="div"
@@ -214,7 +213,16 @@ watch(
 
         <!-- Palettes mode -->
         <template v-else>
-            <PaletteCardSkeleton v-if="savedPalettes.length === 0" :count="3" />
+            <!-- S.W5-6 · F3: TRUE EMPTY speaks the specimen-plate register
+                 (Q6) — never the loading grammar. The eternal skeleton died:
+                 loading ≠ empty, and this store is synchronous (no loading
+                 state exists here at all). -->
+            <EmptyState
+                v-if="savedPalettes.length === 0"
+                eyebrow="· nothing to mix ·"
+                message="No saved palettes yet."
+                hint="Save two or more palettes, then pour them together here."
+            />
             <!-- W5-a11y: native <button> for keyboard reach + aria-pressed for selection state -->
             <button
                 v-for="palette in savedPalettes"
@@ -239,10 +247,8 @@ watch(
                     :css-color="''"
                 />
             </button>
-
-            <div v-if="selectedPalettes.length > 0" class="text-mono-small text-muted-foreground">
-                {{ selectedPalettes.length }} palette{{ selectedPalettes.length === 1 ? '' : 's' }} selected
-            </div>
+            <!-- W5-7: the "N palettes selected" line died — the ring-lit
+                 cards ARE the selection state. -->
         </template>
     </div>
 </template>

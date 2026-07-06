@@ -12,7 +12,9 @@ import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/mix";
 import type { LeftoverStrategy } from "@lib/palette/mix";
 import type { AcceptableValue } from "reka-ui";
-import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@components/custom/gradient/composables/useGradientModel";
+// S.W5-6 · F16: the interpolation vocabulary lives in its neutral @lib/ home
+// (color-space facts, not gradient facts) — no more cross-feature reach.
+import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@lib/color-space-meta";
 
 const {
     colorSpace,
@@ -47,9 +49,10 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
 <template>
     <div class="flex flex-col gap-3">
         <div class="grid grid-cols-2 gap-2">
+            <!-- W5-7: the permanent subtitles died — the dropdown's own
+                 #description rows already tell the story once, on demand. -->
             <div class="flex flex-col gap-1">
                 <label class="section-label">Color space</label>
-                <span class="section-subtitle">{{ INTERPOLATION_SPACES.find(s => s.value === colorSpace)?.description }}</span>
                 <Select :model-value="colorSpace" @update:model-value="(v: AcceptableValue) => emit('update:colorSpace', v as ColorSpace)">
                     <SelectTrigger aria-label="Color space" class="h-9">
                         <SelectValue />
@@ -67,7 +70,6 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
 
             <div class="flex flex-col gap-1">
                 <label class="section-label">Hue method</label>
-                <span class="section-subtitle">{{ HUE_INTERPOLATION_METHODS.find(m => m.value === hueMethod)?.description }}</span>
                 <Select :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => emit('update:hueMethod', v as HueInterpolationMethod)">
                     <SelectTrigger aria-label="Hue method" class="h-9">
                         <SelectValue />
@@ -99,8 +101,12 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
             </Select>
         </div>
 
-        <!-- Mix button -->
+        <!-- The page's ONE verb — the producer's deliberate-primary register
+             (S.W5-6 · L6 rider: consumed at the root vocabulary, never a
+             per-instance costume; `default` is the quiet glass capsule and
+             read disabled-forever over the wash tier). -->
         <Button
+            variant="primary-audacious"
             :disabled="!canMix"
             class="h-10 gap-2 font-medium font-display"
             @click="emit('mix')"
