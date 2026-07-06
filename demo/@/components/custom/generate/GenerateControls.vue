@@ -8,9 +8,9 @@ import {
     SelectValue,
 } from "@components/ui/select";
 import { Slider } from "@components/ui/slider";
+import { Button } from "@components/ui/button";
 import { RefreshCw } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import type { Palette } from "@lib/palette/types";
 import {
@@ -19,8 +19,8 @@ import {
     HARMONY_NAMES,
     GENERATION_PRESETS,
     HARMONY_DEFS,
-} from "@components/custom/color-picker/composables/useColorGeneration";
-import type { PresetName, HarmonyName } from "@components/custom/color-picker/composables/useColorGeneration";
+} from "./composables/useColorGeneration";
+import type { PresetName, HarmonyName } from "./composables/useColorGeneration";
 import type { AcceptableValue } from "reka-ui";
 
 const {
@@ -47,6 +47,19 @@ const generatedPalette = computed<Palette>(() => ({
     updatedAt: new Date().toISOString(),
     isLocal: true,
 }));
+
+// S.W5-6 · F8: the count slider carries the generated ramp itself — the
+// extract k-slider pattern (the instrument shows its own state), replacing
+// the dead grey spectrum capsule.
+const countSliderGradient = computed(() => {
+    const colors = palette.value;
+    if (colors.length === 0) return "var(--muted)";
+    const stops = colors.map((css, i) => {
+        const pct = colors.length === 1 ? 50 : (i / (colors.length - 1)) * 100;
+        return `${css} ${pct.toFixed(0)}%`;
+    });
+    return `linear-gradient(to right, ${stops.join(", ")})`;
+});
 
 function onPresetChange(value: AcceptableValue) {
     preset.value = value as PresetName;
@@ -76,92 +89,11 @@ defineExpose({ regenerate, save, copyColors });
 </script>
 
 <template>
-    <div class="flex flex-col gap-5">
-        <!-- Controls -->
-        <div class="flex flex-col gap-4">
-            <!-- Preset & Harmony in 2-col grid -->
-            <div class="grid grid-cols-2 gap-3 items-end">
-                <div class="flex flex-col gap-1">
-                    <span class="section-label">Preset</span>
-                    <span class="section-subtitle">{{ GENERATION_PRESETS[preset].description }}</span>
-                    <Select :model-value="preset" @update:model-value="onPresetChange">
-                        <SelectTrigger aria-label="Generation preset" class="h-9">
-                            <SelectValue />
-                        </SelectTrigger>
-                        <!-- B.W1: kept wider than --menu-min-w — preset names + descriptions need the space -->
-                        <SelectContent class="min-w-[14rem]">
-                            <SelectItem
-                                v-for="p in PRESET_NAMES"
-                                :key="p"
-                                :value="p"
-                            >
-                                {{ capitalize(p) }}
-                                <template #description>
-                                    <span class="text-micro text-muted-foreground">{{ GENERATION_PRESETS[p].description }}</span>
-                                </template>
-                            </SelectItem>
-                        </SelectContent>
-                    </Select>
-                </div>
-
-                <div class="flex flex-col gap-1">
-                    <span class="section-label">Harmony</span>
-                    <span class="section-subtitle">{{ HARMONY_DEFS[harmony].description }}</span>
-                    <Select :model-value="harmony" @update:model-value="onHarmonyChange">
-                        <SelectTrigger aria-label="Color harmony" class="h-9">
-                            <SelectValue />
-                        </SelectTrigger>
-                        <!-- B.W1: kept wider than --menu-min-w — harmony names + descriptions need the space -->
-                        <SelectContent class="min-w-[14rem]">
-                            <SelectItem
-                                v-for="h in HARMONY_NAMES"
-                                :key="h"
-                                :value="h"
-                            >
-                                {{ capitalize(h) }}
-                                <template #description>
-                                    <span class="text-micro text-muted-foreground">{{ HARMONY_DEFS[h].description }}</span>
-                                </template>
-                            </SelectItem>
-                        </SelectContent>
-                    </Select>
-                </div>
-            </div>
-
-            <!-- Count slider -->
-            <div class="flex flex-col gap-1">
-                <div class="flex items-center justify-between">
-                    <span class="section-label">Count</span>
-                    <span class="text-mono-small text-muted-foreground tabular-nums">{{ count }}</span>
-                </div>
-                <Slider
-                    aria-label="Color count"
-                    variant="spectrum"
-                    :model-value="[count]"
-                    :min="1"
-                    :max="12"
-                    :step="1"
-                    @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) count = v[0]; }"
-                />
-            </div>
-
-            <!-- Seed row -->
-            <div class="flex items-center gap-1">
-                <span class="text-mono-small text-muted-foreground tabular-nums select-all">
-                    seed: {{ seed.toString(16).padStart(8, '0') }}
-                </span>
-                <DockIconButton
-                    compact
-                    class="ml-auto"
-                    title="Regenerate"
-                    @click="regenerate()"
-                >
-                    <RefreshCw class="w-5 h-5" />
-                </DockIconButton>
-            </div>
-        </div>
-
-        <!-- Generated palette -->
+    <!-- S.W5-6 · F8: the deliverable LEADS — palette plate as hero, the page's
+         one verb as a real action in the plate's toolbar, generation controls
+         as marginalia beneath. The hierarchy inversion (product last, ghost
+         verb parked in a metadata row) died here. -->
+    <div class="flex flex-col gap-4">
         <PaletteCard
             :palette="generatedPalette"
             :expanded="true"
@@ -170,5 +102,99 @@ defineExpose({ regenerate, save, copyColors });
             @save="save"
             @rename="onRename"
         />
+
+        <!-- The plate's toolbar: the one verb in the deliberate-primary
+             register (L6 rider — root vocabulary, no costume); the seed stays
+             a Fira bench note, select-all kept. -->
+        <div class="flex items-center gap-3 min-w-0">
+            <Button
+                variant="primary-audacious"
+                class="h-10 gap-2 font-medium font-display"
+                @click="regenerate()"
+            >
+                <RefreshCw class="w-4 h-4" />
+                Regenerate
+            </Button>
+            <span
+                class="ml-auto text-mono-small text-muted-foreground tabular-nums select-all truncate"
+            >
+                seed: {{ seed.toString(16).padStart(8, '0') }}
+            </span>
+        </div>
+
+        <!-- Marginalia: preset & harmony. W5-7 — the permanent subtitles died;
+             the dropdown's own #description rows tell the story on demand. -->
+        <div class="grid grid-cols-2 gap-3">
+            <div class="flex flex-col gap-1">
+                <span class="section-label">Preset</span>
+                <Select :model-value="preset" @update:model-value="onPresetChange">
+                    <SelectTrigger aria-label="Generation preset" class="h-9">
+                        <SelectValue />
+                    </SelectTrigger>
+                    <!-- B.W1: kept wider than --menu-min-w — preset names + descriptions need the space -->
+                    <SelectContent class="min-w-[14rem]">
+                        <SelectItem
+                            v-for="p in PRESET_NAMES"
+                            :key="p"
+                            :value="p"
+                        >
+                            {{ capitalize(p) }}
+                            <template #description>
+                                <span class="text-micro text-muted-foreground">{{ GENERATION_PRESETS[p].description }}</span>
+                            </template>
+                        </SelectItem>
+                    </SelectContent>
+                </Select>
+            </div>
+
+            <div class="flex flex-col gap-1">
+                <span class="section-label">Harmony</span>
+                <Select :model-value="harmony" @update:model-value="onHarmonyChange">
+                    <SelectTrigger aria-label="Color harmony" class="h-9">
+                        <SelectValue />
+                    </SelectTrigger>
+                    <!-- B.W1: kept wider than --menu-min-w — harmony names + descriptions need the space -->
+                    <SelectContent class="min-w-[14rem]">
+                        <SelectItem
+                            v-for="h in HARMONY_NAMES"
+                            :key="h"
+                            :value="h"
+                        >
+                            {{ capitalize(h) }}
+                            <template #description>
+                                <span class="text-micro text-muted-foreground">{{ HARMONY_DEFS[h].description }}</span>
+                            </template>
+                        </SelectItem>
+                    </SelectContent>
+                </Select>
+            </div>
+        </div>
+
+        <!-- Count — the extract k-slider pattern verbatim: the ramp IS the
+             track (F8; S-2/S-16 family cure for the dead grey capsule). -->
+        <div class="flex items-center gap-2 w-full min-w-0">
+            <label
+                class="text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right"
+            >
+                {{ count }}
+            </label>
+            <div class="relative flex-1 h-6 flex items-center">
+                <div
+                    class="absolute inset-0 rounded-full overflow-hidden h-6"
+                    :style="{ background: countSliderGradient }"
+                />
+                <Slider
+                    aria-label="Color count"
+                    variant="spectrum"
+                    :model-value="[count]"
+                    :min="1"
+                    :max="12"
+                    :step="1"
+                    class="relative w-full"
+                    :style="{ '--slider-track-bg': 'transparent' }"
+                    @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) count = v[0]; }"
+                />
+            </div>
+        </div>
     </div>
 </template>

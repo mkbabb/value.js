@@ -1,6 +1,8 @@
 import { computed, ref, type ShallowRef, type Ref, type ComputedRef } from "vue";
 import { debounce } from "@src/utils";
-import { generateSingleColor } from "./useColorGeneration";
+// S.W5-6 · F15: the generation engine lives in its own feature tree
+// (`custom/generate/composables/`); the picker consumes the one pure helper.
+import { generateSingleColor } from "@components/custom/generate/composables/useColorGeneration";
 import { parseCSSColor } from "@src/parsing/color";
 import type { ParsedColorUnit } from "@src/parsing/color";
 import type { ColorSpace } from "@src/units/color/constants";
