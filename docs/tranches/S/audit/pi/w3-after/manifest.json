@@ -1,0 +1,75 @@
+{
+  "capturedAt": "2026-07-06T01:00:39.019Z",
+  "base": "http://127.0.0.1:4185",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "scheme": "dark",
+  "families": [
+    {
+      "name": "drag",
+      "frames": [
+        "frame-00-rest.png",
+        "frame-01-grab.png",
+        "frame-02-scrub-01.png",
+        "frame-03-scrub-02.png",
+        "frame-04-scrub-03.png",
+        "frame-05-scrub-04.png",
+        "frame-06-scrub-05.png",
+        "frame-07-scrub-06.png",
+        "frame-08-scrub-07.png",
+        "frame-09-scrub-08.png",
+        "frame-10-scrub-09.png",
+        "frame-11-scrub-10.png",
+        "frame-12-release.png"
+      ],
+      "status": "ok",
+      "note": "",
+      "video": "drag/drag.webm"
+    },
+    {
+      "name": "view-switch",
+      "frames": [
+        "frame-00-picker-rest.png",
+        "frame-01-listbox-open.png",
+        "frame-02-swap-t000.png",
+        "frame-03-swap-t060.png",
+        "frame-04-swap-t120.png",
+        "frame-05-swap-t200.png",
+        "frame-06-swap-t300.png",
+        "frame-07-swap-t450.png",
+        "frame-08-swap-t650.png",
+        "frame-09-swap-t900.png",
+        "frame-10-gradient-rest.png"
+      ],
+      "status": "ok",
+      "note": "",
+      "video": "view-switch/view-switch.webm"
+    },
+    {
+      "name": "mix",
+      "frames": [
+        "frame-00-mix-rest.png",
+        "frame-01-seed-1.png",
+        "frame-02-seed-2.png",
+        "frame-03-pre-run.png",
+        "frame-04-pour-t0080.png",
+        "frame-05-pour-t0160.png",
+        "frame-06-pour-t0260.png",
+        "frame-07-pour-t0400.png",
+        "frame-08-pour-t0600.png",
+        "frame-09-pour-t0850.png",
+        "frame-10-pour-t1150.png",
+        "frame-11-pour-t1500.png",
+        "frame-12-pour-t1900.png",
+        "frame-13-pour-t2400.png",
+        "frame-14-pour-t2900.png",
+        "frame-15-settled.png"
+      ],
+      "status": "ok",
+      "note": "",
+      "video": "mix/mix.webm"
+    }
+  ]
+}

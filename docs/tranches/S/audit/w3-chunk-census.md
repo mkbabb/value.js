@@ -212,3 +212,40 @@ re-baselining):
 ~0 production bytes — not a budget lever); the vendor shared surface (no glass-ui
 pre-bundle — K.W2.5 lesson); the value.js `color-utils`+`dispatch` (`src/`-owned,
 off-bounds this wave).
+
+---
+
+## §10 — WAVE-CLOSE re-measure (the MEASURE lane, at the final head)
+
+**Measured at**: `tranche-q` @ `7819526` (ALL S.W3 units landed — W3-1/-2/-3/-4/
+-5/-6/-7/-8 — plus the concurrent S.W4). `npm run gh-pages` clean; gzip level 6;
+same eager-set method (entry `<script type=module>` + every `<link
+rel=modulepreload>` + the render-blocking `<link rel=stylesheet>`, `<noscript>`
+fallbacks excluded). This is the close re-measure the §Hard-gate 2 asks for; it
+CONFIRMS §8 holds at the final head — the W3-4/-5/-7/-8 motion + RAF-discipline
+work and the S.W4 header re-composition did not move the eager graph.
+
+| Gate | BEFORE (`3549147`) | §8 AFTER (`~52c5fd4`) | **CLOSE (`7819526`)** | Gate | Verdict |
+|---|---|---|---|---|---|
+| **JS eager** gzip | 345.0 KiB | 345.4 KiB | **345.4 KiB** (353,653 B) | ≤ 280 KiB | **RE-BASELINE — 65.4 KiB over (see §9)** |
+| **Render-blocking CSS** gzip | 184.2 KiB | 85.0 KiB | **85.5 KiB** (87,517 B) | ≤ 120 KiB | **MET** |
+| Eager cold-load (JS+CSS) gzip | 529.1 KiB | 430.4 KiB | **430.9 KiB** | measured | recorded |
+
+Per-chunk eager JS at close (unchanged from §2 modulo the rolldown hash + the
+vendor-chunk rename `_plugin-vue_export-helper-*` → `glass-ui-ClDjozRN.js`, same
+109.5 KiB surface): `index` 196.8 K · `glass-ui` (vendor) 109.5 K · `color-utils`
+20.5 K · `dispatch` 11.5 K · `packrat-entry` 4.6 K · `TabsTrigger` 1.2 K ·
+`createLucideIcon` 0.7 K · `rolldown-runtime` 0.4 K · `prng` 0.2 K = **345.4 K gz**.
+Render-blocking CSS: the single `index-*.css` 85.5 K gz (the 98 KiB glass-font
+corpus stays deferred off the critical `<link>` via `media=print onload`, W3-9
+`7c3c597`; its `<noscript>` fallback is not render-blocking under JS).
+
+**Verdict at close**: the CSS gate is **MET** (85.5 ≤ 120). The JS gate stands
+at the §9 **recorded re-baseline** — ≤ 280 KiB is not reachable by demo-owned
+deferral (33 KiB is the `@mkbabb/glass-ui/goo-blob` barrel anchor → the L16-
+adjacent producer letter in §9; the remaining ~32 KiB is vendor-prohibited +
+`src/`-off-bounds + irreducible App shell). This is on-record, never silent
+(R lesson 3); **S.W9 re-runs the gate and carries the standing verdict**. The
+frame-budget half of the §6.2 regime is MET on the built bundle at this head —
+see `w3-frame-budget-measure.md` (drag p50 8.4 ms · view-switch first-frame
+8.3 ms · idle p50 8.3 ms · mix 1.13 s, all on the M5 Max real-GPU bundle).
