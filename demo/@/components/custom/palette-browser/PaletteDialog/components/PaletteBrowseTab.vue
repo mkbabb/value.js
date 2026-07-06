@@ -39,6 +39,7 @@
                         @add-color="(css) => $emit('addColor', css)"
                         @feature="(p) => $emit('feature', p)"
                         @admin-delete="(p) => $emit('adminDelete', p)"
+                        @set-visibility="(p, v) => $emit('setVisibility', p, v)"
                         @fork="(p) => $emit('fork', p)"
                         @versions="(p) => $emit('versions', p)"
                         @flag="(p) => $emit('flag', p)"
@@ -92,6 +93,8 @@ defineEmits<{
     addColor: [css: string];
     feature: [palette: Palette];
     adminDelete: [palette: Palette];
+    /** Q1 (S.W5): the card-menu visibility flip, forwarded. */
+    setVisibility: [palette: Palette, visibility: "public" | "private"];
     fork: [palette: Palette];
     versions: [palette: Palette];
     flag: [palette: Palette];

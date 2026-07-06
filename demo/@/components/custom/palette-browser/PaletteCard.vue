@@ -245,6 +245,8 @@ const emit = defineEmits<{
     addColor: [css: string];
     feature: [palette: Palette];
     adminDelete: [palette: Palette];
+    /** Q1 (S.W5): the visibility flip from the card-menu control. */
+    setVisibility: [palette: Palette, visibility: "public" | "private"];
     fork: [palette: Palette];
     versions: [palette: Palette];
     flag: [palette: Palette];
@@ -322,6 +324,9 @@ function handleMenuAction(action: string) {
         rename: () => startRenaming(),
         feature: () => emit("feature", props.palette),
         adminDelete: () => emit("adminDelete", props.palette),
+        // Q1: the designed visibility flip (owned remote palettes).
+        makePublic: () => emit("setVisibility", props.palette, "public"),
+        makePrivate: () => emit("setVisibility", props.palette, "private"),
         fork: () => emit("fork", props.palette),
         versions: () => emit("versions", props.palette),
         flag: () => emit("flag", props.palette),

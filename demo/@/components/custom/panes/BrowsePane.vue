@@ -90,6 +90,7 @@
                         @add-color="(css) => pm.onSwatchAddColor(css)"
                         @feature="(p) => pm.onFeaturePalette(p)"
                         @admin-delete="(p) => pm.onAdminDeletePalette(p)"
+                        @set-visibility="onSetVisibility"
                         @fork="(p) => onFork(p)"
                         @versions="(p) => onVersions(p)"
                         @flag="(p) => onFlag(p)"
@@ -97,6 +98,31 @@
                         @edit-tags="(p) => onEditTags(p)"
                     />
                 </PaletteCardGrid>
+
+                <!-- S.W5 · the LOAD-MORE trigger (W5-13's data seam, this
+                     lane's affordance): the wall pages past the 50-cap. The
+                     next page arrives as developing plates (the W5-1
+                     grammar); the button retires when the cursor exhausts. -->
+                <div
+                    v-if="pm.loadingMore.value"
+                    class="grid grid-cols-1 gap-3"
+                    aria-label="Loading more palettes"
+                >
+                    <PaletteCardSkeleton v-for="i in 2" :key="i" variant="developing" />
+                </div>
+                <div
+                    v-else-if="pm.hasMore.value && !pm.browsing.value && !pm.browseError.value"
+                    class="flex justify-center pt-1 pb-2"
+                >
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        class="font-display"
+                        @click="pm.loadMoreRemotePalettes()"
+                    >
+                        More from the commons
+                    </Button>
+                </div>
             </div>
         </div>
         <!-- These components portal themselves via reka-ui (Sheet/Dialog) -->
@@ -192,6 +218,14 @@ async function onDeleteOwned(palette: Palette) {
             card.showFeedback(result.message, "error");
         }
     }
+}
+
+// Q1 (S.W5): the card-menu visibility flip — pm.onSetVisibility updates the
+// browse row in place; the verdict rides the same card feedback rail as
+// save/delete.
+async function onSetVisibility(palette: Palette, visibility: "public" | "private") {
+    const result = await pm.onSetVisibility(palette, visibility);
+    cardRefs[palette.slug]?.showFeedback(result.message, result.success ? "success" : "error");
 }
 
 // --- Fork / Remix + browse filters ---

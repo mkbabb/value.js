@@ -4,6 +4,7 @@ import { openView } from "../fixtures/dock";
 import {
     routeBrowsePalettes,
     PAGE1_COUNT,
+    PAGE2_COUNT,
 } from "../fixtures/browse-palettes";
 
 /**
@@ -36,6 +37,43 @@ test("browse wall renders a full keyset page of palettes", async ({ page }) => {
     await expect(
         page.getByText(`Wall Palette ${PAGE1_COUNT}`, { exact: true }).first(),
     ).toBeVisible();
+
+    expect(consoleErrors).toEqual([]);
+});
+
+/**
+ * S.W5 Lane A — the LOAD-MORE click-through (page 2): the pane affordance
+ * consumes `pm.hasMore` + `pm.loadMoreRemotePalettes` and the wall pages
+ * past the 50-cap (the N.W3.D keyset machinery finally serving its primary
+ * purpose). The button retires when the cursor exhausts.
+ */
+test("browse wall pages past the 50-cap through the load-more affordance", async ({ page }) => {
+    const consoleErrors = setupEnvNoise(page);
+    await routeBrowsePalettes(page);
+
+    await page.goto("/");
+    await openView(page, "Browse");
+
+    const main = page.getByRole("main", { name: "Color tool panes" });
+    const cards = main.getByRole("article").filter({ visible: true });
+    await expect(cards).toHaveCount(PAGE1_COUNT);
+
+    const more = main
+        .getByRole("button", { name: "More from the commons" })
+        .filter({ visible: true });
+    await expect(more).toBeVisible();
+    await more.click();
+
+    // Page 2 APPENDS (never replaces the wall) …
+    await expect(cards).toHaveCount(PAGE1_COUNT + PAGE2_COUNT);
+    await expect(
+        page
+            .getByText(`Wall Palette ${PAGE1_COUNT + PAGE2_COUNT}`, { exact: true })
+            .first(),
+    ).toBeVisible();
+
+    // … and the affordance retires with the cursor.
+    await expect(more).toHaveCount(0);
 
     expect(consoleErrors).toEqual([]);
 });
