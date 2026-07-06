@@ -20,6 +20,7 @@
 
 import { computed, reactive, watch, provide } from "vue";
 import type { ComputedRef, ShallowRef } from "vue";
+import { useEventListener } from "@vueuse/core";
 import {
     useAurora,
     resolveAtoms,
@@ -32,6 +33,13 @@ import { debounce } from "@src/utils";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@components/custom/panes/keys";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/goo-blob";
 import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
+
+/**
+ * W6-7 — the pointer-as-light strength fed to the aurora cursor model. The
+ * producer default (0.8) is the studio register; the backdrop wants the subtle
+ * arm — the light LEANS toward the pointer (a lerp weight, not a spotlight).
+ */
+const ATMOSPHERE_POINTER_STRENGTH = 0.45;
 
 export function useAtmosphere(
     atmosphereCanvas: Readonly<ShallowRef<HTMLCanvasElement | null>>,
@@ -133,6 +141,43 @@ export function useAtmosphere(
     const auroraArrived = computed(
         () => auroraRenderMode === "css" || aurora.isArmed.value,
     );
+
+    // --- W6-7 (owner ruling §1.3): pointer-reactive atmosphere, the consume
+    // half of the producer's SHIPPED pointer door. `setCursor` feeds the eased
+    // cursor model (continuous field swirl + the `interactivity.light`
+    // cursor-as-light pull — armed in DEFAULT_AURORA_ATOMS); the velocity
+    // injection adds the flick swirl-burst. ONE pointer grammar with the hero
+    // blob: the pointer is a soft attractor/light — fields LEAN toward it with
+    // ease and decay to rest when it lifts (the blob's own pointer choreography
+    // is the same register; neither snaps). PRM is producer-gated at the
+    // runtime (velocity write-path early-out + the master-tempo zero), and the
+    // cursor writes are plain state the frame loop samples — no per-event
+    // derive, so the W3-1 coalescing discipline holds. The `"css"` substrate
+    // has no frame loop (a static placeholder): skip the listeners entirely.
+    if (auroraRenderMode === "webgl" && typeof window !== "undefined") {
+        let lastPointerX: number | null = null;
+        let lastPointerY: number | null = null;
+        useEventListener(
+            window,
+            "pointermove",
+            (e: PointerEvent) => {
+                const x = e.clientX / Math.max(window.innerWidth, 1);
+                const y = e.clientY / Math.max(window.innerHeight, 1);
+                aurora.setCursor(x, y, ATMOSPHERE_POINTER_STRENGTH);
+                if (lastPointerX !== null && lastPointerY !== null) {
+                    aurora.injectCursorVelocity(x - lastPointerX, y - lastPointerY);
+                }
+                lastPointerX = x;
+                lastPointerY = y;
+            },
+            { passive: true },
+        );
+        useEventListener(document, "pointerleave", () => {
+            aurora.clearCursor(); // decay-to-rest, never a snap
+            lastPointerX = null;
+            lastPointerY = null;
+        });
+    }
 
     // The picker→atmosphere seed: every (coalesced) colour change re-seeds the
     // derived palette. `atmosphereColor` is always a value.js-serialised colour,

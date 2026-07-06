@@ -50,4 +50,10 @@ export const DEFAULT_AURORA_ATOMS: AuroraAtoms = {
     // zeroes spatial drift (the field pulses in place at most). `drifting` is
     // the spatial-drift register that actually moves the atmosphere over time.
     motion: "drifting",
+    // W6-7 (owner ruling §1.3): the mouse influences the field. The producer
+    // aurora SHIPS the pointer door — `interactivity.light` drives the movable
+    // impasto light (cursor-as-light + idle orbit, PRM-gated at the runtime by
+    // the master tempo). The demo feeds the cursor from useAtmosphere's window
+    // pointermove wiring; this atom arms the light's cursor-pull.
+    interactivity: { light: true },
 };
