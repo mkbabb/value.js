@@ -150,8 +150,10 @@ watch(
                             @update:model-value="onViewChange"
                         />
 
-                        <!-- Action bar toggle -->
-                        <DockSeparator v-if="hasAnyActionBar" />
+                        <!-- Action bar toggle — S.W7-2: the separator and the
+                             trailing chevron are desktop furniture; below sm the
+                             aperture (312px at 390w) holds controls only. -->
+                        <DockSeparator v-if="hasAnyActionBar" class="hidden lg:block" />
                         <div class="action-bar-toggle-slot" :class="{ 'is-visible': hasAnyActionBar }">
                             <div class="action-bar-toggle-inner">
                                 <DockIconButton
@@ -171,26 +173,26 @@ watch(
                                     <span v-if="isDesktop" class="text-small font-display" :style="{ color: genericBar?.accentColor ?? safeAccent }">
                                         {{ genericBar?.label ?? 'Tools' }}
                                     </span>
-                                    <ChevronDown class="w-3 h-3 text-muted-foreground" />
+                                    <ChevronDown class="w-3 h-3 text-muted-foreground hidden lg:block" />
                                 </DockIconButton>
                             </div>
                         </div>
 
-                        <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner) -->
-                        <template v-if="viewManager.currentConfig.value.right !== null">
-                            <DockSeparator class="lg:hidden" />
-                            <div class="lg:hidden">
-                                <PaneSegmentedControl
-                                    :model-value="viewManager.mobilePaneIndex.value"
-                                    :left-label="viewManager.currentConfig.value.leftLabel ?? ''"
-                                    :right-label="viewManager.currentConfig.value.rightLabel ?? ''"
-                                    @update:model-value="(v) => viewManager.mobilePaneIndex.value = v"
-                                />
-                            </div>
-                        </template>
+                        <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner).
+                             S.W7-2: the mobile separator PAIR is dropped (four vertical bars
+                             in a 312px aperture was furniture crowding the ⋮ trigger out of
+                             the pill — design-dock-shell P0-2); the control compacts at its
+                             own root below sm. -->
+                        <div v-if="viewManager.currentConfig.value.right !== null" class="lg:hidden">
+                            <PaneSegmentedControl
+                                :model-value="viewManager.mobilePaneIndex.value"
+                                :left-label="viewManager.currentConfig.value.leftLabel ?? ''"
+                                :right-label="viewManager.currentConfig.value.rightLabel ?? ''"
+                                @update:model-value="(v) => viewManager.mobilePaneIndex.value = v"
+                            />
+                        </div>
 
                         <!-- Mobile overflow menu -->
-                        <DockSeparator class="lg:hidden" />
                         <MobileMenuDropdown
                             v-model:open="mobileMenuOpen"
                             :css-color-opaque="safeAccent"
