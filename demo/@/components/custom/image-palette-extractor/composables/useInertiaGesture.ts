@@ -155,7 +155,11 @@ export function useInertiaGesture(
         const rect = el.getBoundingClientRect();
         const { width: cw, height: ch } = options.contentSize();
         if (!cw || !ch || !rect.width || !rect.height) return;
-        const fit = Math.min(rect.width / cw, rect.height / ch, 1);
+        // S.W5-6 · F13: the plate is the event — fit fills the viewport in
+        // BOTH directions (a small specimen scales UP, aspect preserved),
+        // clamped to the gesture's own maxZoom. The former `…, 1)` cap left
+        // small images floating small in a mostly-empty overlay.
+        const fit = Math.min(rect.width / cw, rect.height / ch, maxZoom);
         fitZoom = fit;
         zoom.value = fit;
         panX.value = (rect.width - cw * fit) / 2;

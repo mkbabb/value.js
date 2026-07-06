@@ -2,6 +2,13 @@ export interface PaletteColor {
     css: string;
     name?: string;
     position: number;
+    /**
+     * S.W5-6 · F7 (T19 carried onto the card): the quantizer's population
+     * share for this swatch, normalized to [0,1]. Present only on extracted
+     * palettes; `PaletteColorStrip` sizes its segments from it, so the ONE
+     * card strip tells the population story — no standalone twin strip.
+     */
+    weight?: number;
 }
 
 export interface Palette {

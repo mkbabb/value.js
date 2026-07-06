@@ -71,20 +71,7 @@
                     @reset="session.onReset"
                 />
 
-                <!-- Processing indicator -->
-                <div
-                    v-if="session.isProcessing.value"
-                    class="flex items-center gap-2 justify-center py-2"
-                >
-                    <div
-                        class="w-4 h-4 rounded-full border-2 border-muted-foreground/30 border-t-primary animate-spin"
-                    />
-                    <span class="text-mono-small text-muted-foreground"
-                        >Extracting...</span
-                    >
-                </div>
-
-                <!-- Error -->
+                <!-- Error (error ≠ empty: an explicit destructive line) -->
                 <div
                     v-if="session.quantizeError.value"
                     class="text-mono-small text-destructive px-1"
@@ -92,51 +79,54 @@
                     {{ session.quantizeError.value }}
                 </div>
 
-                <!-- Extracted result or the undeveloped plate -->
+                <!-- The result plate. S.W5-6: loading wears the loading
+                     grammar (the developing skeleton — no generic spinner
+                     row, F12); the developed plate is ONE card whose own
+                     strip carries the population story (F7); TRUE EMPTY is
+                     the drop zone alone — the second invitation and the
+                     at-rest shimmer died (F1/F2, loading ≠ empty). -->
                 <Transition name="vj-morph" mode="out-in">
+                    <PaletteCardSkeleton
+                        v-if="session.isProcessing.value"
+                        key="developing"
+                        :count="session.colorCount.value"
+                    />
                     <div
-                        v-if="session.extractedPalette.value && !session.isProcessing.value"
+                        v-else-if="session.extractedPalette.value"
                         key="extracted"
-                        class="flex flex-col gap-3"
+                        class="flex flex-col gap-1.5"
                     >
-                        <!-- T19 — the dominance readout: the quantizer's
-                             perceptual story made visible. The stat is the
-                             audacious display voice; the numerals are the
-                             Fira readout. -->
+                        <!-- T19 folded as the card's label line (F7): the
+                             display-voice stat + eyebrow + Fira readout on
+                             one baseline, seated on the plate it describes.
+                             The duplicate dominant dot died — the card's
+                             first swatch IS the dominant specimen. -->
                         <div
                             v-if="session.dominant.value"
-                            class="flex items-center gap-4"
+                            class="flex items-baseline gap-2 min-w-0 px-1"
                         >
-                            <WatercolorDot
-                                :color="session.dominant.value.css"
-                                tag="div"
-                                class="w-16 h-16 sm:w-20 sm:h-20 shrink-0"
-                            />
-                            <div class="flex flex-col min-w-0 gap-0.5">
+                            <span class="font-display text-display leading-none shrink-0">
+                                {{ Math.round(session.dominantShare.value * 100)
+                                }}<span
+                                    class="text-body font-normal text-muted-foreground"
+                                    >% of the image</span
+                                >
+                            </span>
+                            <span class="flex items-baseline gap-2 min-w-0 ml-auto">
                                 <span
-                                    class="text-mono-caption uppercase tracking-[0.18em] text-muted-foreground/70"
+                                    class="text-mono-caption uppercase tracking-[0.18em] text-muted-foreground shrink-0"
                                     >dominant</span
                                 >
-                                <span class="font-display text-display leading-none">
-                                    {{ Math.round(session.dominantShare.value * 100)
-                                    }}<span
-                                        class="text-body font-normal text-muted-foreground"
-                                        >% of the image</span
-                                    >
-                                </span>
+                                <!-- truncate may trim trailing digits at narrow
+                                     widths; the full readout rides title +
+                                     select-all (never a lying readout). -->
                                 <code
-                                    class="fira-code text-mono-small text-muted-foreground truncate"
+                                    class="fira-code text-mono-small text-muted-foreground truncate select-all"
+                                    :title="session.dominant.value.css"
                                     >{{ session.dominant.value.css }}</code
                                 >
-                            </div>
+                            </span>
                         </div>
-
-                        <!-- T19 — the population-proportional strip (8% floor). -->
-                        <PaletteColorStrip
-                            :colors="session.extractedPalette.value.colors"
-                            :weights="session.populationWeights.value"
-                            class="h-3 rounded-input overflow-hidden border border-card-edge"
-                        />
 
                         <PaletteCard
                             :palette="session.extractedPalette.value"
@@ -150,22 +140,6 @@
                             @rename="session.onRename"
                             @add-color="(css) => emit('addColor', css)"
                         />
-                    </div>
-                    <!-- The undeveloped plate (R.W4 Lane A / A4): the shimmer
-                         bones ARE the specimen ghost; a Fira plate label makes
-                         the empty state read as an invitation, not a stall. -->
-                    <div
-                        v-else-if="!session.isProcessing.value"
-                        key="shadow"
-                        class="flex flex-col gap-1.5"
-                    >
-                        <p
-                            v-if="!session.previewDataUrl.value"
-                            class="text-mono-caption uppercase tracking-[0.18em] text-muted-foreground/70 text-center"
-                        >
-                            · undeveloped plate — feed it an image ·
-                        </p>
-                        <PaletteCardSkeleton :count="session.colorCount.value" />
                     </div>
                 </Transition>
             </div>
@@ -187,7 +161,6 @@
 import { ref, inject, onBeforeUnmount, useTemplateRef } from "vue";
 import { Aperture } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import type { ColorSpace } from "@src/units/color/constants";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
@@ -198,7 +171,6 @@ import ExtractControls from "./ExtractControls.vue";
 import ImageEyedropper from "./ImageEyedropper/ImageEyedropper.vue";
 import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
 import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
-import PaletteColorStrip from "@components/custom/palette-browser/PaletteColorStrip.vue";
 
 type DisplayColorSpace = ColorSpace | "hex";
 

@@ -40,9 +40,14 @@ export function useExtractSession() {
 
     const extractedPalette = computed<Palette | null>(() => {
         if (palette.value.length === 0) return null;
+        // S.W5-6 · F7: the population story rides ON the palette — each
+        // swatch carries its normalized share, so the card's OWN strip is
+        // population-proportional (ONE strip; the standalone twin died).
+        const total = palette.value.reduce((sum, c) => sum + c.population, 0);
         const colors: PaletteColor[] = palette.value.map((c, i) => ({
             css: c.css,
             position: i / Math.max(1, palette.value.length - 1),
+            ...(total > 0 ? { weight: c.population / total } : {}),
         }));
         return {
             id: "__extracted__",
@@ -94,11 +99,6 @@ export function useExtractSession() {
         const d = dominant.value;
         return total > 0 && d ? d.population / total : 0;
     });
-
-    /** Per-cluster populations, ordered like the palette (strip weights). */
-    const populationWeights = computed(() =>
-        palette.value.map((c) => c.population),
-    );
 
     // ── Quantize orchestration ──
 
@@ -164,7 +164,6 @@ export function useExtractSession() {
         totalPopulation,
         dominant,
         dominantShare,
-        populationWeights,
         // actions
         onFile,
         onKChange,

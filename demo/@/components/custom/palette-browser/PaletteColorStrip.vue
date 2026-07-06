@@ -37,7 +37,10 @@ const {
     orientation?: "horizontal" | "vertical";
     /** Optional per-segment weights (e.g. quantizer populations — T19).
      *  Segments size proportionally with an 8% floor so small clusters stay
-     *  legible; absent → equal widths (the pre-T19 behavior). */
+     *  legible; absent → the colors' own `weight` fields (S.W5-6 · F7 — an
+     *  extracted palette carries its population story ON the palette, so the
+     *  card's own strip is proportional by construction); neither → equal
+     *  widths (the pre-T19 behavior). */
     weights?: number[];
 }>();
 
@@ -47,10 +50,17 @@ const WEIGHT_FLOOR = 0.08;
 const segmentPcts = computed<number[]>(() => {
     const n = colors.length;
     if (n === 0) return [];
-    if (weights && weights.length === n) {
-        const total = weights.reduce((sum, w) => sum + Math.max(w, 0), 0);
+    const own = colors.map((c) => c.weight ?? 0);
+    const effective =
+        weights && weights.length === n
+            ? weights
+            : own.some((w) => w > 0)
+              ? own
+              : undefined;
+    if (effective) {
+        const total = effective.reduce((sum, w) => sum + Math.max(w, 0), 0);
         if (total > 0) {
-            const floored = weights.map((w) =>
+            const floored = effective.map((w) =>
                 Math.max(Math.max(w, 0) / total, WEIGHT_FLOOR),
             );
             const flooredTotal = floored.reduce((sum, x) => sum + x, 0);
