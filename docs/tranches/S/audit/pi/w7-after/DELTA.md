@@ -51,3 +51,32 @@ swap window: NONE, max 0 ms** (≤50 gate — frame 2+ counted; the deferred mou
 never crossed the threshold). The standing `smoke-perf` view-switch spec
 passes on its software-GL arm in the same tree (66.7 ms / 84 ms, under the
 documented SOFT_CEIL protocol ceilings).
+
+## Independent gate-verifier re-capture (S.W7 close, HEAD `d993534`)
+
+The 16-shot matrix re-run cold by the wave's independent verifier (fresh
+disposable vite :4933, same harness): every shot reproduces the executor's
+record — `manifest.json` byte-identical except `capturedAt`/`base`; the PRM
+triplet re-measures the identical 44/58/44 px boxes (the producer gap-row
+STANDS, `w7-furniture-records.md §1`, re-verify at W8). Beyond the matrix,
+live-probed at the same tree: the ADMIN seal (gold rim + gold shield ink over
+live wax, `dock-seal--admin`, driven via the admin-token idiom on
+`#/admin/users`); the seal at the 1024 px collapse-reachability boundary
+(58 px circle, icon-only, zero text nodes); the gradient-view rim
+(`.dock-seal` border computes to the gradient token
+`oklab(0.6024 −0.0586 −0.1594 / 0.6)` while the wax holds the live
+`lab(92% 88.8 20)` and the ink holds `oklch(0 0 0)` — the carrier/wax/ink
+separation measured, not inferred); all 10 tokens at chromatic + C≈0 picks in
+both schemes (byte-match to `w7-accent-table.md`; the tightest rows recomputed
+≥3:1 with independent, non-library OKLCH→sRGB→WCAG math); the luma witness
+(`data-backdrop-sampled` + `--glass-backdrop-luma: 0.236` +
+`--glass-backdrop-sampled: 1`, both schemes, deterministic); the 390 ⋮
+overflow (real click → Login/@mbabb/Share/GitHub/Dark-mode menu, trigger box
+x 266–308 inside the 390 aperture). The row-4 real-GPU branch re-run through
+the committed spec on a throwaway headed config over :8091 (the
+`w3-frame-budget-measure.md §4` protocol): **firstFrame 5.7 ms · maxTask
+0 ms** — the exact §6.2 gates asserted, green. Suites re-run at HEAD: lint 0 ·
+typecheck 0 · vitest 2158/2158 · e2e 66/66 (6 projects; the smoke-perf
+software arm logged maxTask 655 ms under full-suite contention — inside the
+documented loose SOFT_CEIL freeze guard of 3000 ms, the tight gate carried by
+the real-GPU branch above).
