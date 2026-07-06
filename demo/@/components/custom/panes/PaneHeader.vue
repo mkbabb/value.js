@@ -1,5 +1,11 @@
 <template>
-    <div class="pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header backdrop-blur-md bg-card/60">
+    <!-- S.W5-2 FORENSICS RIDER (card-lighting-forensics artifact 2): the
+         sticky band paints NOTHING at rest — its frosted surface lives on the
+         ::before veil below, scroll-gated on the --pane-scroll timeline with
+         a feathered bottom edge. The static `bg-card/60 backdrop-blur-md`
+         rectangle (the olive band with the hard box edge over the field-floor
+         ellipse cores) is dead. -->
+    <div class="pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header">
         <!-- Q5 (S.W4 W4-7): the pane title speaks the DISPLAY voice — the ONE
              site; all 9 panes inherit. The three-voice law's hierarchy fix:
              the largest text on a pane must not speak the body sans. -->
@@ -45,6 +51,41 @@ defineProps<{
     animation: pane-header-shrink linear both;
     animation-timeline: --pane-scroll;
     animation-range: 0px 120px;
+}
+
+/* The W5-2 rider veil: the band's ONLY paint. Rides the SAME --pane-scroll
+ * timeline as the shrink — transparent at scroll-top (the hard edge is DEAD
+ * at rest, both schemes), earning the frosted card surface as content
+ * actually scrolls under it. The surface lives on a ::before so the feather
+ * mask never eats the title ink: the pseudo extends 14px past the header box
+ * and the mask fades exactly that overhang, so the band dissolves into the
+ * plate instead of terminating at a box edge. Engines without scroll-driven
+ * animations resolve the 0s fill-both animation at its end state — the
+ * always-on veil, still feathered (strictly better than the old hard band). */
+.pane-header::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 -14px 0;
+    z-index: -1;
+    pointer-events: none;
+    background: color-mix(in srgb, var(--card) 60%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    mask-image: linear-gradient(to bottom, black calc(100% - 14px), transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 14px), transparent);
+    opacity: 0;
+    animation: pane-header-veil linear both;
+    animation-timeline: --pane-scroll;
+    animation-range: 0px 120px;
+}
+
+@keyframes pane-header-veil {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .pane-header-title {

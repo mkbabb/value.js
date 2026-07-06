@@ -8,7 +8,11 @@
             // (consumed via the border-card-edge bridge), the chip-scale
             // cartoon rung at rest, and a law-3 hover that DEEPENS the same
             // voice (sm → md) instead of lurching from none to the full rung.
-            'group rounded-card border border-card-edge bg-card overflow-hidden shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
+            // S.W5-2 (S-20): the card joins the glass rung — bg-card/75 +
+            // backdrop blur, so the pane plate reads through instead of the
+            // opaque cream punching a hole in it. PaletteCardSkeleton +
+            // .dashed-well speak the same shell by construction.
+            'group rounded-card border border-card-edge bg-card/75 backdrop-blur-sm overflow-hidden shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
         role="article"

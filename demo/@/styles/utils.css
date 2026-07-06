@@ -76,8 +76,15 @@
      * `--card-edge` mint (in-house, scheme-stable), never a `--border` fork. */
     border: 1.5px dashed var(--card-edge);
     border-radius: var(--radius-card);
-    background: color-mix(in srgb, var(--muted) 35%, transparent);
-    box-shadow: inset 0 1px 3px color-mix(in srgb, var(--shadow-color) 6%, transparent);
+    /* S.W5-2 (S-20): the well joins the ONE card species — the same
+     * bg-card/75 glass base + chip-scale cartoon rung as PaletteCard and
+     * PaletteCardSkeleton. The dashed edge ALONE carries the in-progress
+     * semantics ("the same card, unpinned"); the recessed-tray fork
+     * (muted wash + inset shadow) is dead. */
+    background: color-mix(in srgb, var(--card) 75%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-cartoon-sm);
 }
 
 /* Swatch-row list idiom (R.W4 Lane B / B1) — shared by the three swatch
