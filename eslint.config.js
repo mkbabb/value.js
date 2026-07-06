@@ -40,6 +40,10 @@ export default [
             "docs/precepts/**",
             "docs/tranches/C/**",
             ".playwright-mcp/**",
+            // Session-harness worktrees + symlinks (e.g. a `keyframes.js`
+            // symlink to a sibling DIRECTORY, which `eslint .` globs as a .js
+            // file and EISDIR-crashes on). Never lintable content.
+            ".claude/**",
             "test-results/**",
             "playwright-report/**",
             "demo/**/dist/**",
