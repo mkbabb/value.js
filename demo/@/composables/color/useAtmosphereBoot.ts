@@ -32,6 +32,16 @@
  *      tiering, seed guards, blob ramp); seeded by the same rAF-coalesced colour
  *      so the aurora seed + blob palette derives fire once per frame, not 60×/s
  *      under a slider drag. `auroraArrived` keys the W6-1 canvas derive-in.
+ *
+ *      W7-3 (luma truth): the atmosphere canvas carries glass-ui's ONE
+ *      field-canvas convention stamp `data-glass-field-canvas` (declared in
+ *      App's template — attributes are template truth). Every backdrop-
+ *      luminance sampler (GlassDock's default-on observer today, any future
+ *      glass surface) auto-discovers THIS canvas as its `backgroundCanvas` and
+ *      samples the live field; an unreadable/unpainted WebGL readback falls to
+ *      the static stack-walk via the producer's L4 alpha-floor cure (glass-ui
+ *      `9db65db7`), never a luma-0 lie. One stamp threads the canvas
+ *      consistently for every present and future sampling surface.
  */
 
 import { watch, provide } from "vue";

@@ -1,18 +1,11 @@
 <template>
     <div class="app-layout">
-        <!-- W5-a11y: decorative aurora canvas — hidden from AT.
-             W6-1 entrance (owner ruling §1.1): the canvas derive-fades in over
-             the SAME-material `--saved-bg` ground once the field is drawable
-             (`auroraArrived` — the producer's own `isArmed` cross-fade idiom),
-             so the load carries no dark→light/light→dark snap.
-             W7-3 (luma truth): `data-glass-field-canvas` is glass-ui's ONE
-             field-canvas convention — every backdrop-luminance sampler
-             (GlassDock's default-on observer today) auto-discovers THIS
-             canvas as its `backgroundCanvas` and samples the live field;
-             an unreadable/unpainted WebGL readback falls to the static
-             stack-walk via the producer's L4 alpha-floor cure (glass-ui
-             `9db65db7`), never a luma-0 lie. One stamp threads the canvas
-             consistently for every present and future sampling surface. -->
+        <!-- W5-a11y: decorative aurora canvas — hidden from AT. W6-1 entrance
+             (owner ruling §1.1): the canvas derive-fades in over the
+             SAME-material `--saved-bg` ground once the field is drawable
+             (`auroraArrived`), so the load carries no dark→light snap. W7-3: the
+             `data-glass-field-canvas` stamp threads the live field to samplers —
+             the full luma-truth rationale lives with useAtmosphereBoot. -->
         <canvas
             ref="atmosphereCanvas"
             class="atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none"
@@ -219,14 +212,12 @@ provide(VIEW_MANAGER_KEY, viewManager);
 const currentConfig = computed(() => viewManager.currentConfig.value);
 
 // --- Atmosphere boot (S.W5 · row-8 cap cure) ---
-// The three document-root atmosphere/entrance side-effects — the R.W3
-// `--accent-live` accent axis, the S.W7-4 library-resolved per-view accent
-// tokens (`--accent-view-<id>`/`--accent-view`/`--seal-ink`), and
-// the N.W5.B aurora + hero-blob region — live in one composable. It provides
-// SAFE_ACCENT_KEY + AURORA_ATOMS_KEY + BLOB_CONFIG_KEY; App keeps only the canvas
-// mount + the picker's synchronous CSS_COLOR_KEY provide above. Seeded by the
-// rAF-coalesced colour (W3-1). W6-1 entrance: `auroraArrived` keys the canvas
-// derive-in (template class).
+// All three document-root atmosphere/entrance side-effects (`--accent-live`
+// accent axis, per-view accent tokens, aurora + hero-blob) and their provides
+// (SAFE_ACCENT_KEY + AURORA_ATOMS_KEY + BLOB_CONFIG_KEY) live in one composable
+// — see useAtmosphereBoot's header. App keeps only the canvas mount + the
+// CSS_COLOR_KEY provide above; seeded by the rAF-coalesced colour (W3-1),
+// `auroraArrived` keys the W6-1 canvas derive-in.
 const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
     atmosphereCanvas,
     cssColorOpaqueFrame,
