@@ -1,9 +1,17 @@
 <template>
     <DropdownMenu>
         <DropdownMenuTrigger as-child>
-            <button class="p-0.5 rounded-sm hover:bg-accent/50 active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40">
-                <EllipsisVertical class="w-4 h-4 text-muted-foreground" />
-            </button>
+            <!-- S.W5-4: the triplicated hand-rolled icon-trigger recipe dies
+                 onto the sanctioned glass-ui atom (+ the missing name). -->
+            <Button
+                icon-only
+                variant="ghost"
+                size="xs"
+                aria-label="Sort palettes"
+                class="shrink-0"
+            >
+                <EllipsisVertical class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
+            </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" class="min-w-menu font-display">
             <DropdownMenuRadioGroup
@@ -24,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+import { Button } from "@components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,

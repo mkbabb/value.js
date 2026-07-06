@@ -117,12 +117,18 @@
                     @action="handleMenuAction"
                 >
                     <template #trigger>
-                        <button
-                            class="p-1 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                        <!-- S.W5-4: 3rd copy of the hand-rolled icon-trigger
+                             recipe dies onto the glass-ui atom; the sm square
+                             also cures the ~24px touch target. -->
+                        <Button
+                            icon-only
+                            variant="ghost"
+                            size="sm"
                             aria-label="Palette menu"
+                            class="shrink-0"
                         >
-                            <MoreHorizontal class="w-4 h-4 text-muted-foreground" />
-                        </button>
+                            <MoreHorizontal class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                        </Button>
                     </template>
                 </PaletteCardMenu>
             </div>
@@ -184,6 +190,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { Badge } from "@components/ui/badge";
+import { Button } from "@components/ui/button";
 import {
     Heart,
     Award,
