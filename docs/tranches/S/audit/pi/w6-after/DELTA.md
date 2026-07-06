@@ -100,4 +100,19 @@ still defers to the cards — long spatial wavelengths, no banding, ink contrast
 holding, the pick's identity anchored at the base stop. On the real-GPU arm the same
 derive reads as a teal-green body with warm gold lobes that lean toward the hand and
 breathe back to rest. Visibly greater C/H variance, subtle in register — variance,
-not noise. MET.
+not noise. MET *against the same-day amplification bar* — superseded below.
+
+## RECALIBRATION addendum (the 2026-07-05 LATE ruling, read at gate time)
+
+`OWNER-RULING-2026-07-05-variance-webbing.md` §1.1 landed mid-gate (`eea925b`,
+23:42): the bar row 8 judges is now the CALIBRATED one — "pull the C/H variance
+back toward subtle while keeping the STRONG field presence" (owner §0 verbatim on
+the landed field: "the c and h variation is a bit too strong"). Judged against THAT
+bar, this archive's after-field OVERSHOOTS: the triad partner zones (violet/pink
+under the About card for a green pick) carry a register past "subtle" at 1440 —
+the verifier concurs with the owner's read. The taste paragraph above is therefore
+superseded for gate purposes: STRONG presence + tracking + composure stand; the
+variance amplitude is the recorded overshoot, remediated as the ruling's sanctioned
+owner-tuning pass (small, browser-judged, π-recorded at the tuning commit — the
+S.W6.md rider-2 amendment carries the route; ruling §2 awaits the implementation
+record). The entrance no-snap and W6-7 pointer halves of row 8 are unaffected.
