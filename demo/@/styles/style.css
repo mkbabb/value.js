@@ -405,6 +405,18 @@
     container-type: inline-size;
 }
 
+/* W6-4 (S.W6) — the SLOT-owned cross-pane layer: the LEFT slot (the picker +
+ * its corner-breaking hero-blob ornament) paints above the right pane, so the
+ * bead's overlap strip is never buried under the About card (the S-4 burial —
+ * both glass Cards are z-auto stacking contexts, so DOM order alone painted
+ * the LATER right pane over the left pane's overflowing ornament). Grid items
+ * take z-index directly (no positioning needed); portaled overlays are
+ * unaffected; ZERO per-instance z-index on the ornament itself (the
+ * no-z-hacks law — the slot assigns the layer). */
+.pane-wrapper--left {
+    z-index: 1;
+}
+
 /* The aspect-law display exception (R.W3 Lane A / A4 — the D6-03 portrait
  * pathology): the `lg:hidden` display witness on the mobile slot is width-only
  * (CI emission-probe-pinned — scripts/css-emission-probe.mjs), but App.vue's

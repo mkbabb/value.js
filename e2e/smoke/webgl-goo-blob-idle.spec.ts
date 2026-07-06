@@ -25,9 +25,13 @@ import {
  * THEN sample the draw count over a window that itself exceeds N.
  *
  * Keep this constant in lock-step with `HeroBlob.vue`'s `BLOB_IDLE_MS`.
+ *
+ * W6-4 (S.W6): the park now completes at N + SLEEPY_POSE_MS (2000 + 700 =
+ * 2700ms — HeroBlob first poses the blob sleepy, THEN freezes that frame).
+ * PARK_SETTLE_MS = N + 1500 = 3500ms keeps 800ms slack past park completion.
  */
 const BLOB_IDLE_MS = 2000; // === HeroBlob.vue BLOB_IDLE_MS
-const PARK_SETTLE_MS = BLOB_IDLE_MS + 1500; // wait past N for the loop to park
+const PARK_SETTLE_MS = BLOB_IDLE_MS + 1500; // past N + the 700ms sleepy pose
 const SAMPLE_WINDOW_MS = BLOB_IDLE_MS + 500; // the idle sampling window (> N, §6.1)
 // A couple of straggler frames may land as the park engages (the "before"
 // sample can be captured one frame ahead of the final park frame); a live loop

@@ -4,23 +4,6 @@
          owns the sub-lg width). -->
     <div class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full">
         <Card tier="resting" class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
-            <!-- R.W3 Lane D / D2 — the dual-hero diagonal (U30b, N.W16 D1-4):
-                 the blob is the MATERIAL hero, absolutely top-right on the
-                 relative Card (corner-break at lg, where overflow is visible;
-                 tucked inside the clipped mobile card), out of the header
-                 grid entirely. The numbers are the TYPOGRAPHIC hero on the
-                 reading axis below-left — never the same channel at the same
-                 position. -->
-            <!-- The deep negative inset is calibrated to the GooBlob canvas:
-                 the visible metaball body sits inset ~25% within its square
-                 canvas, so a true corner-break needs the canvas well past the
-                 card edge. -->
-            <HeroBlob
-                v-if="blobReady"
-                class="absolute z-20 top-0 right-0 lg:-top-14 lg:-right-12"
-                @click="onHeroBlobClick()"
-            />
-
             <!-- The header is a DISPLAY surface (space title + hero numbers →
                  Fraunces); horizontal padding rides `cqi` against the pane-slot
                  container, not viewport breakpoints (R.W3 Lane A / A4) — and is
@@ -28,14 +11,14 @@
                  alone (S.W4-2 / S-19). -->
             <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col gap-y-1 items-start">
                 <!-- Title row: the blob's static footprint RESERVATION (D1-4:
-                     by construction, never a measured nudge) is scoped HERE.
-                     The blob's canvas occupies the title band only (y ≈
-                     −56…120 at lg; it never descends into the readout row),
-                     so only the title pays for the corner-break — the hero
-                     numbers below span the FULL header width and Lab inks
-                     ONE line at the desktop rung (S.W4-2 / S-19;
-                     design-picker P1-1). -->
-                <div class="w-full min-w-0 pr-24 lg:pr-36">
+                     by construction, never a measured nudge) is scoped HERE —
+                     the bead occupies the title band only, so only the title
+                     pays for the corner-break; the hero numbers below span the
+                     FULL header width and Lab inks ONE line at the desktop
+                     rung (S.W4-2 / S-19). W6-4: the base arm reserves for the
+                     <lg hand-scale bead (~67px, inset 1.75rem → pr-28); lg
+                     keeps pr-36 for the 11rem bead. -->
+                <div class="w-full min-w-0 pr-28 lg:pr-36">
                     <ColorSpaceSelector
                         :model-value="model.selectedColorSpace"
                         v-model:open="selectedColorSpaceOpen"
@@ -71,6 +54,20 @@
                 </div>
             </CardContent>
         </Card>
+
+        <!-- W6-4 (S.W6) — CORNER-BREAK LAW, slot-owned (genesis §3.2; Q7 full
+             presence at EVERY viewport): the blob is the slot's TOPMOST
+             ORNAMENT, a LATER SIBLING of the Card — source order + the slot's
+             cross-pane layer (style.css `.pane-wrapper--left`) kill the S-4
+             About-card burial with ZERO z-index on the instance (seed
+             §Learnings 3). R.W3 D2's dual-hero diagonal still reads. Geometry:
+             `.hero-blob-anchor` below. `v-if="blobReady"` = the W3-2 IDLE
+             deferral (time-based, never a viewport gate, per the Q7 flip). -->
+        <HeroBlob
+            v-if="blobReady"
+            class="hero-blob-anchor"
+            @click="onHeroBlobClick()"
+        />
 
         <!-- T21 (R.W4 Lane E): the mounted-but-display:none EditDrawer is
              DELETED — the edit UX lives in the dock; the commit/cancel state
@@ -342,6 +339,41 @@ onUnmounted(() => {
     /* W3-4 (S.W3): the `margin` layout-property transition is DELETED — margin
        morphs forced a reflow every frame of the swap. Transform only now. */
     transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+/* W6-4 (S.W6) — the corner-break placement LAW (the slot owns the footprint
+ * token AND the anchor; HeroBlob only consumes `--blob-fp`). Size identity:
+ * canvas = 1.6× wrapper, POS_SCALE 0.625 — the factors cancel, so visible
+ * bead px = 2·bodyRadius·footprint exactly (seed §Learnings 2; bodyRadius
+ * 0.26 via HeroBlob's HERO register).
+ *
+ * DESIGN CALL (rider-2's fork, recorded): bead CENTER on the card's
+ * CORNER-RADIUS ORIGIN — the integrated "wet on the plate" composition, NOT
+ * the detached corner-POINT relocation. At the HERO body the per-broken-edge
+ * overflow is (R − r)/2R ≈ 33% ≥ the ratified 25% law. */
+.hero-blob-anchor {
+    position: absolute;
+    /* <lg — the hand-scale arm (Q7 presence DESIGNED, never toggled): fixed
+     * 8rem footprint (bead ≈ 67px). Same vertical law (top = r − fp/2 → the
+     * TOP edge breaks at ≈ 26%); the RIGHT edge stays UNBROKEN so the 1.6×
+     * canvas overscan stays inside the viewport (the forbidden 390px
+     * clipped-smudge state, genesis §3.3): right 1.75rem puts canvas-right
+     * ≈ viewport − 4px at 390 (and clears 320). ONE broken edge is the
+     * hand-scale grammar of the same law. */
+    --blob-fp: 8rem;
+    top: calc(var(--radius-card) - var(--blob-fp) / 2);
+    right: 1.75rem;
+}
+
+@media (min-width: 1024px) {
+    .hero-blob-anchor {
+        /* lg+ — the ratified rider-1 footprint (SEEDS.md w6 rider 1; the
+         * 11rem floor binds on the 32rem-ruled dual grid — 26cqi of 512px =
+         * 133px; .pane-wrapper is the cqi container). Bead center EXACTLY on
+         * the radius origin: BOTH broken edges carry the ≥25% overflow. */
+        --blob-fp: clamp(11rem, 26cqi, 13rem);
+        right: calc(var(--radius-card) - var(--blob-fp) / 2);
+    }
 }
 
 /* R.W3 Lane E / E1 — beat one: the plate placement (treatment §MOTION-1).

@@ -72,10 +72,11 @@ test("goo-blob canvas survives view switch without webglcontextlost", async ({
     if (!vp) throw new Error("no viewport size");
     expect(box.width, "goo-blob width (S-4 smudge floor)").toBeGreaterThanOrEqual(100);
     expect(box.height, "goo-blob height (S-4 smudge floor)").toBeGreaterThanOrEqual(100);
-    // The canvas intentionally corner-breaks PAST the card/viewport edge
-    // (HeroBlob `lg:-top-14 lg:-right-12`; safari-truth §P1 confirmed this is
-    // design, not a DOM clip — `.app-layout` overflow does not clip it), so we
-    // do NOT assert containment. We assert only that it is not positioned
+    // The canvas intentionally corner-breaks PAST the card edge (the W6-4
+    // slot-owned placement law: bead center on the card's corner-radius
+    // origin, ColorPicker `.hero-blob-anchor`; safari-truth §P1 confirmed the
+    // break is design, not a DOM clip — `.app-layout` overflow does not clip
+    // it), so we do NOT assert containment. We assert only that it is not positioned
     // ENTIRELY off-screen: a real chunk still intersects the viewport (a
     // mispositioned fully-off-canvas blob fails). The intentional break leaves
     // a modest visible slice; floor low to accommodate the design.
