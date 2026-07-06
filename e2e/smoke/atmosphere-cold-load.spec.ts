@@ -76,14 +76,36 @@ for (const scheme of ["light", "dark"] as const) {
         expect(bg, "stale session material must not survive").not.toBe(
             STALE_BOOT_BG,
         );
-        // Green-family read: the derived ramp of an H≈145 seed keeps green
-        // dominant in its base stop (the W6-3 triad walk is SEED-ANCHORED at
-        // stop 0; the 120° partners land on LATER stops).
+        // Seed-family read: the derived ramp of an H≈145 seed keeps its base
+        // stop in the seed's yellow-green→green hue band. Under the variance
+        // pull-back knobs (owner ruling 2026-07-05 §1.1: analogous walk,
+        // anchor±28°) the BASE stop anchors at anchor−28° — an OLIVE
+        // (#7a7800-class, sRGB hue ≈ 59°) whose red channel ties green, so
+        // the former g>r channel compare is re-grounded on an honest HUE-BAND
+        // assert: in-family olive→green passes; the stale hot-pink class
+        // (hue ≈ 335°) and any complement-flank base (blue/purple) fail.
         const [r, g, b] = [1, 3, 5].map((i) =>
             parseInt(bg.slice(i, i + 2), 16),
         );
-        expect(g, `derived base stop ${bg} reads green-family`).toBeGreaterThan(r);
-        expect(g, `derived base stop ${bg} reads green-family`).toBeGreaterThan(b);
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        const d = max - min;
+        const hue =
+            d === 0
+                ? NaN // achromatic — never a derived vivid-seed base stop
+                : max === r
+                  ? (60 * ((g - b) / d) + 360) % 360
+                  : max === g
+                    ? 60 * ((b - r) / d) + 120
+                    : 60 * ((r - g) / d) + 240;
+        expect(
+            hue,
+            `derived base stop ${bg} (hue ${hue.toFixed(1)}°) reads seed-family (yellow-green→green)`,
+        ).toBeGreaterThanOrEqual(50);
+        expect(
+            hue,
+            `derived base stop ${bg} (hue ${hue.toFixed(1)}°) reads seed-family (yellow-green→green)`,
+        ).toBeLessThanOrEqual(180);
 
         // Write-through: the persisted boot material for the NEXT cold load is
         // the same derived stop (debounced 200ms → poll).

@@ -116,3 +116,23 @@ variance amplitude is the recorded overshoot, remediated as the ruling's sanctio
 owner-tuning pass (small, browser-judged, π-recorded at the tuning commit — the
 S.W6.md rider-2 amendment carries the route; ruling §2 awaits the implementation
 record). The entrance no-snap and W6-7 pointer halves of row 8 are unaffected.
+
+## PULL-BACK addendum (2026-07-06 — the §1.1 tuning pass LANDED)
+
+The sanctioned owner-tuning pass landed: `DEFAULT_AURORA_ATOMS` → `harmony:
+"analogous"` (was `triad`), `colorEnergy: 0.7` (was `0.82`), `zones: 6` kept —
+judged post-arm at 1440 light+dark across green-145/red-25/neutral seeds (shots:
+`../../ruling-shots/`, `judged-*` series relative to this dir's audit root —
+`docs/tranches/S/audit/pi/w6-after/ruling-shots/`). The triad overshoot's
+partner zones (purple-dominant field for a green pick, teal for red) are gone;
+the field walks the seed family (anchor±28°) with the C register back at the
+pre-amplification 0.7 and the spatial variance (6 zones) alive; the neutral
+stays a live sage. The cold-load e2e green-family channel-compare was
+re-grounded as a seed-family hue-band assert (the analogous BASE stop is
+olive `#7a7800`, r≈g). CAVEAT discovered by the same lane's STEP-0 probe: on
+the armed-GPU arm the COLD-LOAD field renders the pre-hydration DEFAULT-pick
+ramp regardless of knobs (glass-ui `useAurora` arm-gap defect — the config
+deep-watch wires post-arm with no replay; `w6-producer-gap-rows.md §GAP-ARM`,
+ruling §2.1). The knobs above govern every post-arm derive (first interaction
+onward) and the css-substrate arm; the cold-load first-paint answers the
+picker only once the producer replay fix ships.

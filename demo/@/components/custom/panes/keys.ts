@@ -19,30 +19,32 @@ export const AURORA_ATOMS_KEY: InjectionKey<AuroraAtoms> = Symbol("aurora-atoms"
  * shape (harmony / energy / zones / noise / medium / motion) without disturbing
  * the colour. A wispier, breathing default over glass-ui's static wispy-sky.
  *
- * W6-3 (S.W6 · owner-ruling amplification, 2026-07-05): the field must read as
- * STRONG presence with visibly GREATER derived C and H variance off the pick,
- * subtle in register (variance ≠ noise). The chroma-adaptive `hueSpread` /
- * C-bell-floor / scheme-banded-L formulas live PRODUCER-side behind the letter
- * L2 atoms (not yet on the `AuroraAtoms` door — recorded gap row, re-verify at
- * W8); the demo half is this retune of the door's SHIPPED knobs — the design
- * call of record (derive-tune iteration 2 of the §Triumvirate 3-halt; the
- * measured ramps for an oklch(0.72 0.19 145) seed ground the choice):
- *   - `harmony: "triad"` — the deep BASE stop stays SEED-anchored (h≈135 for
- *     a 145° pick — the field still ANSWERS the picker, S-18), while the two
- *     120° partners carry the H variance into the later stops and C spreads
- *     0.07–0.16 zone-to-zone. REJECTED `split-complementary` (iteration 1):
- *     its walk re-anchors the base stop to a complement FLANK (a purple base
- *     for a green pick) — greater variance at the cost of the field's
- *     identity hue, which is noise, not variance.
- *   - `colorEnergy: 0.82` (was 0.7) — the door's one C-variance cluster knob:
- *     lifts saturation + valueVariance + breath + the warm-light/cool-shadow
- *     temperature together (moving any one alone reads as a defect).
- *   - `zones: 6` (was 5) — one more colour zone = more spatial H/C variation
- *     across the field; stays within MAX_NUCLEI and AuroraPane's slider band.
+ * Variance pull-back (S · owner ruling 2026-07-05 §1.1, supersedes the W6-3
+ * amplification's LANDING): "the c and h variation is a bit too strong." The
+ * W6-3 triad/0.82 overshoot lost the seed's identity — a triad walk spans
+ * 240° with the `increasing` arc, so a green 145° pick derived stops at
+ * h≈135/228/308/15 and the field read PURPLE-dominant (browser-judged at 1440,
+ * light+dark, seeds 145°/25°/neutral; shots under
+ * docs/tranches/S/audit/pi/w6-after/ruling-shots/). The calibration of record
+ * — presence with restraint, between the two same-day poles:
+ *   - `harmony: "analogous"` — the hue walk sits IN the seed family
+ *     (anchor±28°: h≈108–164 for a 145° pick, ~56° total vs triad's 240°).
+ *     The field answers the picker again (S-18) across all three judged
+ *     seeds; the neutral gray stays alive (the producer C-bell floor holds
+ *     a soft sage drift). Cost, accepted: the deep BASE stop anchors at
+ *     anchor−28° (olive h≈108 for a green pick, `--saved-bg #7a7800`) — the
+ *     cold-load e2e green-family assert was re-grounded on an honest
+ *     seed-family HUE BAND instead of the g>r channel compare.
+ *   - `colorEnergy: 0.7` (was 0.82) — back to the pre-amplification C
+ *     register: saturation 1.095 keeps the field STRONG (the ruling keeps
+ *     presence), while valueVariance/breath ride down with the one cluster
+ *     knob.
+ *   - `zones: 6` KEPT (the amplification's spatial half survives — more
+ *     colour zones = the in-family variance stays visibly alive).
  */
 export const DEFAULT_AURORA_ATOMS: AuroraAtoms = {
-    harmony: "triad",
-    colorEnergy: 0.82,
+    harmony: "analogous",
+    colorEnergy: 0.7,
     zones: { count: 6, arrangement: "composed" },
     noise: 0.5,
     medium: { kind: "smooth" },
