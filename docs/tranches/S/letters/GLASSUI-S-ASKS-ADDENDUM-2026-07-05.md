@@ -70,3 +70,18 @@ subpath (`@mkbabb/goo-blob/config` or equivalent) exporting the atoms/keys/defau
 engine imports, so consumers can wire config eagerly and load the engine lazily. Our census +
 re-baseline record: `docs/tranches/S/audit/w3-chunk-census.md` §5/§9/§10. Standing hedge:
 recorded producer-gap row, re-verified at the W8 adopt.
+
+## A6 — dist minification drops the unprefixed `backdrop-filter: none` (Chromium-visible)
+
+(Appended with the alpha-checker ruling, same day.) Your `Slider.vue` source declares BOTH
+legs of the spectrum-range override (`backdrop-filter: none` + `-webkit-backdrop-filter:
+none`); the dist keeps ONLY the `-webkit-` leg — and Chromium does not implement that alias
+(computed reads empty). Result: the `.glass-liquid-fill` register's `blur(8px) saturate(1.4)`
+backdrop blur stays LIVE over every spectrum track in Chrome, silently liquefying consumer
+ramps (found while landing our owner-ruled alpha transparency checker). We carry a
+marker-commented byte-level restatement of your own source rule (exact selector
+`.glass-slider[data-variant="spectrum"] .slider-range`) that retires the day the dist keeps
+the unprefixed leg — likely a cssnano/lightningcss vendor-prefix-collapse setting in the
+dist pipeline. Companion ask for the same surface: a `--slider-track-checker` seam under
+`--slider-track-bg` (the transparency ground's proper long-term home — the L6/W8 `/slider`
+consume letter carries both).
