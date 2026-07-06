@@ -217,6 +217,13 @@ S.W5 `035b02c`; re-breached +10 in W7 (`7549772` field-canvas thread + `33ba703`
 accent-axis) with no W7 cap-check row. Routes to a demo cohesion-lift fix lane; App.vue is
 off-limits to W9. Everything else ≤400.
 
+**CURED same-day: `2522656` — App.vue 399 LoC** (useAtmosphereBoot 84 → 94). The +10 was
+all COMMENT (the W7-3 luma-truth block + a duplicate of useAtmosphereBoot's own header):
+`useViewAccents` was already lifted at `33ba703` and `data-glass-field-canvas` is template
+truth, so the cohesion lift continued by consolidating the field-canvas / luma-truth
+provenance into the atmosphere owner's doc block, leaving terse pointers in App.vue. Verify:
+lint 0 · typecheck 0 · vitest 2158 green · atmosphere-cold-load e2e 3/3 · view-accents 13/13.
+
 ### legacy grep (standing patterns)
 
 | Pattern | Result | Verdict |
