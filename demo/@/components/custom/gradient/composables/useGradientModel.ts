@@ -3,7 +3,7 @@
  * bi-directional CSS serialization/parsing.
  *
  * Orchestrates sub-composables:
- * - useGradientInterpolation — color space, hue method, resolution
+ * - useGradientInterpolation — color space, hue method
  * - useGradientCSS — CSS serialization, coalescing, and parsing
  */
 
@@ -13,11 +13,13 @@ import type { HueInterpolationMethod } from "@src/units/color/mix";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
 import { useGradientInterpolation } from "./useGradientInterpolation";
 import { useGradientCSS, parseGradientCSS, linearInterval } from "./useGradientCSS";
+import type { GradientParseResult } from "./useGradientCSS";
 
 // ── Re-exports (preserve public API surface) ──
 
 export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "./useGradientInterpolation";
 export { serializeGradient, serializeCoalescedGradient, parseGradientCSS, linearInterval } from "./useGradientCSS";
+export type { GradientParseResult, ParsedGradientModel } from "./useGradientCSS";
 
 // ── Types ──
 
@@ -47,7 +49,8 @@ export interface GradientModelState {
     intervals: GradientInterval[];
     interpolationSpace: ColorSpace;
     hueMethod: HueInterpolationMethod;
-    resolution: number; // sub-stops per interval for coalesced output
+    // NOTE: no `resolution` — the coalesce density is the inlined
+    // COALESCE_RESOLUTION constant (W5-11 / P2-14: it never had a UI).
 }
 
 // ── Helpers ──
@@ -72,7 +75,7 @@ export function useGradientModel() {
     const intervals = ref<GradientInterval[]>([linearInterval()]);
 
     // ── Interpolation sub-composable ──
-    const { interpolationSpace, hueMethod, resolution } = useGradientInterpolation();
+    const { interpolationSpace, hueMethod } = useGradientInterpolation();
 
     // Ensure intervals array stays in sync with stops
     watch(
@@ -95,7 +98,6 @@ export function useGradientModel() {
         intervals: intervals.value,
         interpolationSpace: interpolationSpace.value,
         hueMethod: hueMethod.value,
-        resolution: resolution.value,
     }));
 
     // ── CSS sub-composable ──
@@ -139,18 +141,22 @@ export function useGradientModel() {
     }
 
     /**
-     * Parse CSS and update model. Returns true if parse succeeded.
+     * Parse CSS and apply it ATOMICALLY (W5-11 / P0-1): the whole complete
+     * model swaps in, or NOTHING changes and the caller gets the explicit
+     * `{ ok: false, reason }` verdict to surface. The former field-by-field
+     * partial apply (which could desync `stops` from `intervals` and vanish
+     * the Easing section) is dead.
      */
-    function applyCSS(css: string): boolean {
-        const parsed = parseGradientCSS(css);
-        if (!parsed) return false;
+    function applyCSS(css: string): GradientParseResult {
+        const result = parseGradientCSS(css);
+        if (!result.ok) return result;
 
-        if (parsed.type != null) type.value = parsed.type;
-        if (parsed.direction != null) direction.value = parsed.direction;
-        if (parsed.stops != null && parsed.stops.length >= 2) stops.value = parsed.stops;
-        if (parsed.intervals != null) intervals.value = parsed.intervals;
-
-        return true;
+        const { model } = result;
+        type.value = model.type;
+        direction.value = model.direction;
+        stops.value = model.stops;
+        intervals.value = model.intervals;
+        return result;
     }
 
     return {
@@ -161,7 +167,6 @@ export function useGradientModel() {
         intervals,
         interpolationSpace,
         hueMethod,
-        resolution,
 
         // Computed
         modelState,

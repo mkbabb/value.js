@@ -22,6 +22,8 @@ import {
     HUE_INTERPOLATION_METHODS,
 } from "./composables/useGradientModel";
 import type { GradientType } from "./composables/useGradientModel";
+import { interpolateStopColors } from "./composables/useGradientInterpolation";
+import { linear } from "@src/easing";
 import type { ColorSpace } from "@src/units/color/constants";
 import type { HueInterpolationMethod } from "@src/units/color/mix";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
@@ -36,7 +38,6 @@ const {
     intervals,
     interpolationSpace,
     hueMethod,
-    resolution,
     coalescedCSS,
     simpleCSS,
     addStop,
@@ -55,20 +56,55 @@ const GRADIENT_TYPES: { value: GradientType; label: string; description: string 
     { value: "conic", label: "Conic", description: "Angular sweep" },
 ];
 
+/**
+ * The ramp's color at a bar position (0–100), easing included — feeds the
+ * stop editor's add ghost AND the color a bar-click mints (W5-11: the old
+ * fixed-teal insert is dead; an added stop is invisible until moved).
+ */
+function colorAtPosition(position: number): string | null {
+    const list = stops.value;
+    if (list.length === 0) return null;
+    if (position <= list[0]!.position) return list[0]!.cssColor;
+    const last = list[list.length - 1]!;
+    if (position >= last.position) return last.cssColor;
+    for (let i = 0; i < list.length - 1; i++) {
+        const s0 = list[i]!;
+        const s1 = list[i + 1]!;
+        if (position < s0.position || position > s1.position) continue;
+        const span = s1.position - s0.position;
+        const t = span > 0 ? (position - s0.position) / span : 0;
+        const easedT = (intervals.value[i]?.fn ?? linear)(t);
+        return interpolateStopColors(
+            s0.cssColor,
+            s1.cssColor,
+            easedT,
+            interpolationSpace.value,
+            hueMethod.value,
+        );
+    }
+    return null;
+}
+
 function onAddStop(position: number) {
-    addStop("oklch(0.7 0.1 180)", position);
+    addStop(colorAtPosition(position) ?? "oklch(0.7 0.1 180)", position);
 }
 
 function onStopPositionUpdate(id: string, position: number) {
     updateStop(id, { position });
 }
 
+// The one-line Fira verdict of the LAST editor parse (W5-11 / P0-1):
+// null = applied; string = the explicit rejection reason.
+const parseVerdict = ref<string | null>(null);
+
 function onParseCSS(css: string) {
     // A successful parse re-seeds every interval to the `linear` preset
     // (easing-disposition §1.6/D3). Bump the epoch so the alive picker
     // instances remount re-seeded `linear` — the drawn curve and the
     // interval's live fn must never disagree after a reset.
-    if (applyCSS(css)) {
+    const result = applyCSS(css);
+    parseVerdict.value = result.ok ? null : result.reason;
+    if (result.ok) {
         easingEpoch.value++;
         intervalModes.value = {};
     }
@@ -88,7 +124,7 @@ function resetGradient() {
     direction.value = 90;
     interpolationSpace.value = "oklch";
     hueMethod.value = "shorter";
-    resolution.value = 32;
+    parseVerdict.value = null;
 }
 
 const intervalPairs = computed(() => {
@@ -180,6 +216,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <GradientStopEditor
             :stops="stops"
             :coalesced-c-s-s="coalescedCSS"
+            :color-at="colorAtPosition"
             v-model:selected-id="selectedStopId"
             @update:position="onStopPositionUpdate"
             @add="onAddStop"
@@ -196,7 +233,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 <span class="section-label">Type</span>
                 <span class="section-subtitle">{{ activeTypeDesc }}</span>
                 <Select :model-value="type" @update:model-value="(v: AcceptableValue) => type = v as GradientType">
-                    <SelectTrigger class="h-9">
+                    <SelectTrigger class="h-9" aria-label="Gradient type">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -214,7 +251,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 <span class="section-label">Space</span>
                 <span class="section-subtitle">{{ activeSpaceDesc }}</span>
                 <Select :model-value="interpolationSpace" @update:model-value="(v: AcceptableValue) => interpolationSpace = v as ColorSpace">
-                    <SelectTrigger class="h-9">
+                    <SelectTrigger class="h-9" aria-label="Interpolation space">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -232,7 +269,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 <span class="section-label">Hue</span>
                 <span class="section-subtitle">{{ activeHueDesc }}</span>
                 <Select :model-value="hueMethod" @update:model-value="(v: AcceptableValue) => hueMethod = v as HueInterpolationMethod">
-                    <SelectTrigger class="h-9">
+                    <SelectTrigger class="h-9" aria-label="Hue interpolation">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -318,7 +355,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         </div>
         <GradientCodeEditor
             :model-value="simpleCSS"
-            :coalesced-c-s-s="coalescedCSS"
+            :parse-verdict="parseVerdict"
             @parse="onParseCSS"
         />
     </div>

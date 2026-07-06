@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { ref, computed, useTemplateRef } from "vue";
+import { X } from "@lucide/vue";
 import type { GradientStop } from "./composables/useGradientModel";
 
-const { stops, coalescedCSS } = defineProps<{
+const { stops, coalescedCSS, colorAt = undefined } = defineProps<{
     stops: GradientStop[];
     coalescedCSS: string;
+    /** Ramp color at a position (0–100) — previews the ghost + seeds adds. */
+    colorAt?: (position: number) => string | null;
 }>();
 
 const emit = defineEmits<{
@@ -23,54 +26,85 @@ const draggingId = ref<string | null>(null);
 // folded into the same inline expression.
 const hoveredId = ref<string | null>(null);
 
+// ── The add affordance (W5-11 / P1-3: the dblclick/warp truce) ──
+// The old bar-pointerdown WARPED the nearest stop to the click point and
+// started a drag — dblclick-to-add fired that twice first, corrupting a stop
+// before adding one. The truce: the bar NEVER moves an existing stop. A bar
+// click ADDS a stop at that position (a hover ghost previews exactly what
+// will land — the gesture is self-evident, no instruction line needed);
+// drags start ONLY on a handle.
+const hoverPos = ref<number | null>(null);
+let pendingAdd: { x: number; y: number } | null = null;
+
+// ── Geometry (W5-11: end-handle truce) ──
+// Handle CENTERS ride an inset track [HANDLE_HALF, width - HANDLE_HALF], so
+// the 0%/100% handles sit fully INSIDE the bar instead of hanging half off
+// its rounded corners.
+const HANDLE_HALF = 10; // w-5 handle → 20px, half = 10
+
+function handleLeft(position: number): string {
+    return `calc(${HANDLE_HALF}px + (100% - ${HANDLE_HALF * 2}px) * ${position / 100})`;
+}
+
 // Handle scale ladder: selected/dragging (1.25) > hover (1.1) > rest (1).
 function handleScale(id: string): number {
     if (selectedId.value === id || draggingId.value === id) return 1.25;
     return hoveredId.value === id ? 1.1 : 1;
 }
 
-// A stop is removable only when more than 2 stops exist; matches onHandleContextMenu guard.
+// A stop is removable only when more than 2 stops exist.
 const removable = computed(() => stops.length > 2);
+const selectedStop = computed(
+    () => stops.find((s) => s.id === selectedId.value) ?? null,
+);
 
-function getPosition(e: PointerEvent): number {
+const ghostColor = computed(() =>
+    hoverPos.value !== null ? (colorAt?.(hoverPos.value) ?? null) : null,
+);
+
+function getPosition(e: { clientX: number }): number {
     if (!barRef.value) return 0;
     const rect = barRef.value.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    return Math.round(Math.max(0, Math.min(100, (x / rect.width) * 100)) * 10) / 10;
+    const x = e.clientX - rect.left - HANDLE_HALF;
+    const span = Math.max(1, rect.width - HANDLE_HALF * 2);
+    return Math.round(Math.max(0, Math.min(100, (x / span) * 100)) * 10) / 10;
 }
+
+// ── Bar gestures: hover ghost + click-to-add (never warp, never drag) ──
 
 function onBarPointerDown(e: PointerEvent) {
     const target = e.target as HTMLElement;
-    if (target.dataset.stopId) return; // clicking a handle directly
+    if (target.closest("[data-stop-id]")) return; // handles own their gestures
+    pendingAdd = { x: e.clientX, y: e.clientY };
+}
 
-    const pos = getPosition(e);
-
-    // Find closest stop and warp it to click position
-    let closestIdx = 0;
-    let closestDist = Infinity;
-    for (let i = 0; i < stops.length; i++) {
-        const dist = Math.abs(stops[i]!.position - pos);
-        if (dist < closestDist) { // strict < means left wins ties
-            closestDist = dist;
-            closestIdx = i;
-        }
+function onBarPointerMove(e: PointerEvent) {
+    if (draggingId.value) {
+        // Fallback path while a handle drag is live (capture sits on the handle).
+        emit("update:position", draggingId.value, getPosition(e));
+        return;
     }
-
-    const closestStop = stops[closestIdx]!;
-    selectedId.value = closestStop.id;
-    emit("select", closestStop.id);
-    emit("update:position", closestStop.id, pos);
-
-    // Start dragging immediately
-    draggingId.value = closestStop.id;
-    const bar = barRef.value;
-    if (bar) bar.setPointerCapture(e.pointerId);
+    const target = e.target as HTMLElement;
+    hoverPos.value = target.closest("[data-stop-id]") ? null : getPosition(e);
 }
 
-function onBarDoubleClick(e: MouseEvent) {
-    const pos = getPosition(e as unknown as PointerEvent);
-    emit("add", pos);
+function onBarPointerUp(e: PointerEvent) {
+    if (pendingAdd) {
+        const moved =
+            Math.abs(e.clientX - pendingAdd.x) > 4 ||
+            Math.abs(e.clientY - pendingAdd.y) > 4;
+        if (!moved) emit("add", getPosition(e));
+        pendingAdd = null;
+    }
+    draggingId.value = null;
 }
+
+function onBarPointerLeave() {
+    hoverPos.value = null;
+    pendingAdd = null;
+}
+
+// ── Handle gestures: drag / select / remove ──
 
 function onHandlePointerDown(e: PointerEvent, id: string) {
     e.preventDefault();
@@ -85,38 +119,46 @@ function onHandlePointerDown(e: PointerEvent, id: string) {
 
 function onHandlePointerMove(e: PointerEvent) {
     if (!draggingId.value) return;
-    const pos = getPosition(e);
-    emit("update:position", draggingId.value, pos);
+    emit("update:position", draggingId.value, getPosition(e));
 }
 
 function onHandlePointerUp() {
     draggingId.value = null;
 }
 
-function onBarPointerMove(e: PointerEvent) {
-    if (!draggingId.value) return;
-    const pos = getPosition(e);
-    emit("update:position", draggingId.value, pos);
-}
-
-function onBarPointerUp() {
-    draggingId.value = null;
+function removeStop(id: string) {
+    if (!removable.value) return;
+    if (selectedId.value === id) selectedId.value = null;
+    emit("remove", id);
 }
 
 function onHandleContextMenu(e: MouseEvent, id: string) {
     e.preventDefault();
-    if (stops.length > 2) {
-        emit("remove", id);
+    removeStop(id);
+}
+
+/** Keyboard: arrows nudge (±1, shift ±10); Delete/Backspace removes. */
+function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        e.preventDefault();
+        const delta = (e.key === "ArrowLeft" ? -1 : 1) * (e.shiftKey ? 10 : 1);
+        const next = Math.max(0, Math.min(100, stop.position + delta));
+        selectedId.value = stop.id;
+        emit("update:position", stop.id, Math.round(next * 10) / 10);
+    } else if (e.key === "Delete" || e.key === "Backspace") {
+        e.preventDefault();
+        removeStop(stop.id);
     }
 }
 </script>
 
 <template>
     <div class="flex flex-col gap-1">
-        <!-- Gradient bar with draggable handles -->
+        <!-- Gradient bar: hover ghost previews the add; handles drag; the
+             selected handle carries a touch-true remove chip. -->
         <div
             ref="barRef"
-            :class="['relative h-10 rounded-lg glass-wash select-none touch-none', draggingId ? 'cursor-grabbing' : 'cursor-crosshair']"
+            :class="['relative h-10 rounded-lg glass-wash select-none touch-none', draggingId ? 'cursor-grabbing' : 'cursor-copy']"
             :style="{
                 /* S owner-ruling 2026-07-05: the house `--alpha-checker`
                    ground layers UNDER the gradient, so translucent stops
@@ -127,23 +169,40 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
             @pointermove="onBarPointerMove"
             @pointerup="onBarPointerUp"
             @pointercancel="onBarPointerUp"
-            @dblclick="onBarDoubleClick"
+            @pointerleave="onBarPointerLeave"
         >
+            <!-- The add ghost: a dashed twin of the handle species, filled
+                 with the exact ramp color a click would mint (W5-11 — the
+                 affordance replaces the instruction line). -->
+            <div
+                v-if="hoverPos !== null && !draggingId"
+                class="absolute top-1/2 w-5 h-5 rounded-full border-2 border-dashed border-white/70 opacity-80 pointer-events-none z-0"
+                :style="{
+                    left: handleLeft(hoverPos),
+                    background: ghostColor
+                        ? `linear-gradient(${ghostColor}, ${ghostColor}), var(--alpha-checker)`
+                        : 'var(--alpha-checker)',
+                    transform: 'translate(-50%, -50%)',
+                    boxShadow: 'var(--shadow-sm)',
+                }"
+                aria-hidden="true"
+            />
+
             <!-- Stop handles -->
             <button
                 v-for="stop in stops"
                 :key="stop.id"
                 :data-stop-id="stop.id"
+                type="button"
                 :aria-label="`Gradient stop at ${Math.round(stop.position)}%`"
-                :aria-disabled="!removable"
-                class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring aria-disabled:opacity-50"
+                class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 :class="[
                     selectedId === stop.id
-                        ? 'border-white ring-2 ring-primary z-popover'
+                        ? 'border-white ring-2 ring-primary z-10'
                         : 'border-white/80 z-0'
                 ]"
                 :style="{
-                    left: `${stop.position}%`,
+                    left: handleLeft(stop.position),
                     /* S owner-ruling 2026-07-05: the stop well paints its
                        color as a layer OVER the `--alpha-checker` ground
                        (background-color would sit UNDER background-image,
@@ -164,12 +223,28 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
                 @pointerenter="hoveredId = stop.id"
                 @pointerleave="hoveredId = null"
                 @contextmenu="(e) => onHandleContextMenu(e, stop.id)"
+                @keydown="(e) => onHandleKeydown(e, stop)"
             />
-        </div>
 
-        <!-- Hint text -->
-        <p class="text-mono-small text-muted-foreground/40">
-            Double-click to add · Right-click to remove · Drag to reposition
-        </p>
+            <!-- The remove chip (W5-11 / P1-3: remove was right-click-ONLY —
+                 undiscoverable, impossible on touch). Rides above the selected
+                 handle whenever removal is legal. -->
+            <button
+                v-if="selectedStop && removable"
+                type="button"
+                aria-label="Remove selected stop"
+                class="absolute w-6 h-6 -top-3 rounded-full border border-card-edge bg-card text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                :style="{
+                    left: handleLeft(selectedStop.position),
+                    transform: 'translate(-50%, -100%)',
+                    boxShadow: 'var(--shadow-sm)',
+                    transition: 'color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard)',
+                }"
+                @pointerdown.stop
+                @click.stop="removeStop(selectedStop.id)"
+            >
+                <X class="w-3.5 h-3.5" aria-hidden="true" />
+            </button>
+        </div>
     </div>
 </template>

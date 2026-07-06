@@ -44,17 +44,14 @@ export function interpolateStopColors(
 export interface UseGradientInterpolationReturn {
     interpolationSpace: Ref<ColorSpace>;
     hueMethod: Ref<HueInterpolationMethod>;
-    resolution: Ref<number>;
 }
 
 export function useGradientInterpolation(): UseGradientInterpolationReturn {
     const interpolationSpace = ref<ColorSpace>("oklch");
     const hueMethod = ref<HueInterpolationMethod>("shorter");
-    const resolution = ref(32);
 
     return {
         interpolationSpace,
         hueMethod,
-        resolution,
     };
 }
