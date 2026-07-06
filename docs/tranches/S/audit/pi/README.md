@@ -173,3 +173,114 @@ node docs/tranches/S/audit/pi/pi-baseline.mjs http://localhost:4877 docs/tranche
   every viewport" is a placement/footprint/perf redesign against an already-mounted mobile
   blob, not a from-scratch mount. `blob/*/satellite-t*.png` records the current orbit for
   the before/after satellite-count diff (§Hard-gate 4, ≥2 distinct beads).
+
+---
+
+# S.W7 — π BASELINE (the light/dark × collapsed/expanded dock quadrant)
+
+The S.W7 hard gate (§Hard gate row 5, `waves/S.W7.md`) requires a **π archive light/dark
+× collapsed/expanded** — the record the wave close compares against to confirm the
+W7-1 seal↔trigger chromatic handoff "reads intentional, not jarring." `pi-w7.mjs` is a
+NEW sibling harness under this same standing root (a **static-shot** lane — the
+`pi-capture.mjs` SHOTS-driven idiom, S.W4's convention — not a motion capture; this is a
+state archive, not a per-frame family) shaped for W7's specific quadrant:
+
+- **collapsed** — the dock at rest, auto-collapsed (a real mouseleave + the
+  `collapse-delay=5000` timer, since `Dock.vue` boots EXPANDED on desktop — N.W5
+  Defect-B — there is no prop that boots it pre-collapsed).
+- **expanded + view-select open** — the dock at its main layer with the view-select
+  listbox open (the `getByRole("combobox", {name:"Select view"})` open idiom, the same
+  contract `fixtures/dock.ts` `openView` drives).
+- **furniture** — the current `@mbabb` / Login / Tools chrome, rest + the `@mbabb`
+  dropdown open (the W7-6 before-record).
+- **prm** — a `reducedMotion:"reduce"` emulated sequence (mount → forced-collapse →
+  real-user tap-to-expand) recording the W6→W7-routed observation verbatim.
+
+× light/dark scheme. **collapsed** + **furniture** + **prm** are `wide-1440x900` ONLY
+(collapse is unreachable <1024 — `Dock.vue` pins `:always-expanded="!isDesktop"`,
+`isDesktop` = `min-width:1024px`; the `@mbabb`/Login chrome is `hidden lg:flex` — desktop-
+only); **expanded + view-select** is `{wide-1440x900, mobile-390x844}` (the task's "1440
+and 390 (mobile posture)" clause).
+
+## Layout
+
+```
+pi/
+├── pi-w7.mjs              # the durable, re-runnable W7 harness              [committed]
+├── README.md              # this file                                       [committed]
+└── w7-before/             # BEFORE — captured at tranche-q @ 1041137 (pre W7-1..W7-7)
+    ├── manifest.json                                                        [committed]
+    ├── collapsed--wide-1440x900--{light,dark}.png                [self-ignored]
+    ├── expanded-view-select--{wide-1440x900,mobile-390x844}--{light,dark}.png
+    │                                                             [self-ignored]
+    ├── furniture-{rest,mbabb-open}--wide-1440x900--{light,dark}.png
+    │                                                             [self-ignored]
+    └── prm-{mount,collapsed,stuck-after-tap}--wide-1440x900--{light,dark}.png
+                                                                   [self-ignored]
+```
+
+**Binary hygiene (the R/S convention).** Every PNG (16 shots) self-ignores under the
+repo's blanket `.gitignore:19 *.png` — only this harness + manifest.json commit; the
+shots regenerate on demand by re-running `pi-w7.mjs` at the same commit.
+`manifest.json` also carries the `boundingBox`/`dockClass` measurements for the 6 `prm-*`
+shots, so the PRM defect is on record as NUMBERS, not only pixels (screenshots alone
+would let a future reader dismiss a subtle width difference as a rendering artefact).
+
+## Method
+
+- **Own dev server, free port.** Captured on a disposable `vite --port 4933 --strictPort`
+  dev server (`VITE_API_URL=http://localhost:59999`, a deliberately unreachable backend —
+  the demo's origin-honest `unavailable` state) — the owner's dev server on **:9000** is
+  never touched.
+- **Real-user idioms, no `force`.** The view-select open uses the same
+  `getByRole("combobox", {name:"Select view"})` + real click contract as
+  `e2e/smoke/fixtures/dock.ts` `openView`; the collapsed-pill tap-to-expand under PRM uses
+  the same real click as that fixture's `expandDock`.
+- **Viewport × scheme.** `{wide-1440x900, mobile-390x844}` × `{light, dark}` (collapsed /
+  furniture / prm restricted to `wide-1440x900` per the reachability notes above).
+
+## Reproduce (and produce the AFTER)
+
+```
+VITE_API_URL=http://localhost:59999 npx vite --port 4933 --strictPort &
+node docs/tranches/S/audit/pi/pi-w7.mjs http://localhost:4933 docs/tranches/S/audit/pi/w7-after
+```
+
+(Run from the repo root so the bare `playwright` import resolves — the R/S convention.)
+
+## BEFORE observations (1041137 — what the archive shows W7 must move)
+
+- **collapsed (W7-1 before)** — `collapsed--wide-1440x900--*.png` shows the CURRENT
+  collapsed pill: a small watercolor-dot circle plus a TRUNCATED TEXT label ("Ho…", the
+  view's `label`, `hidden sm:inline` — i.e. shown at desktop widths) and a chevron. This
+  is the exact shape W7-1 replaces: the icon is currently `sm:hidden` (shown only BELOW
+  the `sm` breakpoint — the inverse of the wanted desktop affordance), so today's desktop
+  collapse reads dot+text+chevron, not the wanted dot+inked-icon with no text/chevron.
+- **expanded + view-select (W7-4 before)** — `expanded-view-select--*.png` (both
+  viewports) shows the CURRENT "rainbow menu": each row's icon carries its own hard-coded
+  hue (Home pink, Palettes teal, Browse gray, Extract blue, Mix violet, Generate teal,
+  Gradient gray) with no achromatic-pick floor — the literal one-off W7-4 / Q4 retires in
+  favour of the gamut-guarded per-view accent tokens (the menu becomes the navigation's
+  color-wheel legend, ONE derivation, not N hand-picked hues).
+- **furniture (W7-6 before)** — `furniture-rest--*.png` shows today's row: `Home` (view-
+  select trigger with label), `Tools ⌄` (a `DockIconButton` with a bare `ChevronDown` —
+  the "chevron-that-isn't-a-dropdown" W7-6 resolves; it never opens a menu, only toggles
+  the action-bar slot), `Login` (a bordered pill button), `@MBABB` (all-caps via a text-
+  transform the register fix targets). `furniture-mbabb-open--*.png` shows the `@mbabb`
+  dropdown's current content (avatar + tagline, Share color, GitHub, Dark mode) — the
+  target for W7-6's register-casing pass, unchanged in content shape.
+- **PRM defect (routed W6→W7, `PROGRESS.md` 2026-07-05: "the PRM dock never expands past
+  the collapsed circle")** — live-reproduced verbatim while authoring this harness, same
+  commit, both schemes: `prm-mount--*.png` (`boundingBox.width` **44px** — already NOT the
+  ~447px full-width the identical mount reaches under normal motion), `prm-collapsed--
+  *.png` (width **58px**, the ordinary collapsed-dot size — indistinguishable from the
+  non-PRM collapsed shot), then a REAL tap on the collapsed pill (`expandDock`'s own
+  idiom) → `prm-stuck-after-tap--*.png`: `dockClass` reads `"...expanded fit-content
+  dock-inline"` (the JS state machine correctly flips to `expanded`) but
+  `boundingBox.width` stays **44px** — visually indistinguishable from the collapsed
+  circle, the dock never grows into the Home/Tools/Login/@mbabb pill. The defect is a
+  PAINT/measurement gap (`useDockExpandedSize`'s `--dock-expanded-px` measurement, or the
+  morph orchestrator's PRM one-frame jump landing on a stale/zero target), not a JS-state
+  gap — `manifest.json`'s `dockClass`+`boundingBox` pair pins that distinction precisely
+  so W7 (or the routed re-verify at W8, per the wave's hard-gate-map hedge) diagnoses the
+  right layer.
