@@ -362,7 +362,9 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                         @click="toggleInterval(pair.index)"
                     >
                         <span class="fira-code text-mono-small text-muted-foreground shrink-0">{{ pair.label }}</span>
-                        <code class="fira-code text-mono-caption text-muted-foreground/70 truncate flex-1 min-w-0">{{ pair.css }}</code>
+                        <!-- text-mono-SMALL: the literal is case-sensitive code;
+                             text-mono-caption would uppercase it (P1-7). -->
+                        <code class="fira-code text-mono-small text-muted-foreground/70 truncate flex-1 min-w-0">{{ pair.css }}</code>
                         <ChevronDown
                             class="w-4 h-4 shrink-0 text-muted-foreground transition-transform"
                             :class="openInterval === pair.index ? 'rotate-180' : ''"

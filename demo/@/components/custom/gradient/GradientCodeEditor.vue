@@ -101,10 +101,13 @@ onMounted(() => render(modelValue));
         />
         <!-- The one-line Fira verdict (W5-11): explicit destructive failure —
              never a silent partial apply, never a stolen caret. -->
+        <!-- text-mono-SMALL, deliberately: the verdict quotes code literals,
+             and text-mono-caption is the UPPERCASE eyebrow token (the P1-7
+             label-costume trap — case-sensitive code never wears it). -->
         <p
             v-if="parseVerdict"
             data-testid="gradient-parse-verdict"
-            class="fira-code text-mono-caption text-destructive"
+            class="fira-code text-mono-small text-destructive"
             role="status"
         >
             {{ parseVerdict }}
