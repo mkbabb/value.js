@@ -74,3 +74,102 @@ node docs/tranches/S/audit/pi/pi-motion.mjs http://127.0.0.1:4185 docs/tranches/
   legible convergence landing at the plate. This is precisely the BEFORE that Q10's
   **first-principles re-work** (W3-6, RATIFICATION §1) replaces — "the animation IS the
   progress," ≤1.2 s, one clock, reveal AT the result plate.
+
+---
+
+# S.W6 — π BASELINE (the four-quadrant cold/live × light/dark archive)
+
+The S.W6 hard gate (§Hard gate row 6, `waves/S.W6.md`) requires **π archives light/dark
+× cold/live** plus a static hero-blob record (the W6-4 before). `pi-baseline.mjs` is a
+NEW sibling harness under this same standing root (extends the family/cadence idioms of
+`pi-motion.mjs` + the static-shot idiom of `pi-capture.mjs`; never forked) shaped for
+W6's specific quadrant: **cold** (a fresh Playwright context navigated straight to a
+`?space=oklch&color=…` URL-hash color, frame series + video from the moment navigation
+commits — the vehicle for the W6-1/owner-ruling "no explicit snap at load" clause) ×
+**live** (the same context, steady state after a real L-channel slider scrub) × **light/
+dark** scheme × **{wide-1440x900, mobile-390x844}** = 4 quadrants. Each quadrant also
+carries a free W6-4 hero-blob before-record (footprint crop, placement context, a short
+satellite-cadence series) since the picker page is already live in that exact viewport/
+scheme at that point in the run.
+
+## Layout
+
+```
+pi/
+├── pi-baseline.mjs        # the durable, re-runnable W6 harness            [committed]
+├── README.md              # this file                                     [committed]
+└── w6-before/             # BEFORE — captured at tranche-q @ 9d1297b (pre W6-1..W6-8)
+    ├── manifest.json                                                      [committed]
+    ├── cold/<viewport>--<scheme>/
+    │   frame-tNNNN.png [self-ignored] × 13 (t=0..1800ms cadence)
+    │   + <viewport>--<scheme>.webm [committed]
+    ├── live/<viewport>--<scheme>.png                        [self-ignored]
+    └── blob/<viewport>--<scheme>/
+        footprint.png · placement.png [self-ignored]
+        + satellite-tNNNN.png [self-ignored] × 5 (t=0..2000ms cadence)
+```
+
+**Binary hygiene (the R/S convention).** The 4 `.webm` videos (≈2.4 MB total) are the
+durable, committed cold-entrance record; every PNG (frame series, live shots, blob crops
+— ~30 MB) self-ignores under `.gitignore:19 *.png`. Regenerate on demand by re-running
+`pi-baseline.mjs` at the same commit; `manifest.json` records exactly what each quadrant
+produced.
+
+## Method
+
+- **Own dev server, free port.** Captured on a disposable `vite --port 4877 --strictPort`
+  dev server (`VITE_API_URL=http://localhost:59999`, a deliberately unreachable backend —
+  the demo's origin-honest `unavailable` state, never `misconfigured` since the env var
+  IS set) — the owner's dev server on **:9000** is never touched.
+- **Cold = a genuinely fresh Playwright context** (no seeded storage) navigated with
+  `waitUntil: "commit"` directly to `/#/picker?space=oklch&color=oklch(0.72 0.19 145)` (a
+  vivid green — nowhere near the `defaultColorModel` hot-pink SYNTHESIS names, so any
+  stale/default flash ahead of the derived field would read clearly against it).
+- **Live = the same context**, after settling, driven through an L-channel slider scrub
+  (the standing drag idiom from `pi-motion.mjs`) to a single steady-state frame.
+- **Cadence.** Sampled at absolute times from the navigation commit: cold at
+  t = 0/16/33/50/80/120/180/260/380/550/800/1200/1800 ms (fine near the start, where an
+  entrance snap would land, backing off to the standing ~1.8s fonts+aurora+entrance
+  settle window); blob satellites at t = 0/500/1000/1500/2000 ms (coarse — a before/after
+  placement record, not a motion study).
+- **Viewport × scheme.** `{wide-1440x900, mobile-390x844}` × `{light, dark}` — the task's
+  four-quadrant matrix (not R's 3-viewport shot matrix or W3's single-dark-viewport
+  motion matrix).
+
+## Reproduce (and produce the AFTER)
+
+```
+VITE_API_URL=http://localhost:59999 npx vite --port 4877 --strictPort &
+node docs/tranches/S/audit/pi/pi-baseline.mjs http://localhost:4877 docs/tranches/S/audit/pi/w6-after
+```
+
+(Run from the repo root so the bare `playwright` import resolves — the R/S convention.)
+
+## BEFORE observations (9d1297b — what the archive shows W6 must move)
+
+- **cold entrance** — in this literal fresh-context precondition (no prior localStorage),
+  **no hot-pink flash and no light/dark scheme mismatch reproduces**: `frame-t0000` is an
+  unstyled blank paint (expected pre-hydration), and by `frame-t0016`/`frame-t0033` the
+  field is already the correct scheme-consistent derived green — the nav chrome and blob
+  fill in progressively through ~t0800 (the blob's W3-2 idle-callback defer). This is
+  useful negative evidence, not a refutation of SYNTHESIS's "stale hot-pink every cold
+  load" finding: that finding's mechanism (`syncColorToStorage` persisting a
+  re-parsed-wrong string) requires a **returning-user precondition** — a PRIOR session
+  that actually changed the color (the persistence watch never fires, and
+  `color-picker` never lands in `localStorage`, on an untouched boot) — which this
+  literal "fresh context" capture does not exercise. W6-1's close-out verification should
+  re-run this harness against a primed (returning-user) storage state, not only this
+  cold-boot one, before declaring the hot-pink defect cured.
+- **field richness (W6-3 before)** — the derived field at rest reads as ONE dominant hue
+  band (green, tracking the pick) with a soft gold/brown corner top-left and a mint
+  corner bottom-right; modest H/C variance, no dead-gray zones at this saturated seed.
+  This is the baseline the amplification rider (§Post-ratification rider 2 — "visibly
+  GREATER derived C and H variance") must expand against.
+- **hero blob (W6-4 before)** — `blob/*/placement.png` shows today's corner-break: the
+  bead sits top-right on the card, a visible fraction overflowing both edges, tucked to a
+  `w-24` puck on mobile vs `lg:w-[11rem]` on desktop (the footprint clamp W6-4 replaces
+  with `clamp(11rem,26cqi,13rem)`). The bead IS present and rendered at BOTH viewports in
+  this baseline (mobile is not currently absent/toggled-off) — Q7's "full presence at
+  every viewport" is a placement/footprint/perf redesign against an already-mounted mobile
+  blob, not a from-scratch mount. `blob/*/satellite-t*.png` records the current orbit for
+  the before/after satellite-count diff (§Hard-gate 4, ≥2 distinct beads).
