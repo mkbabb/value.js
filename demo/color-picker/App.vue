@@ -4,7 +4,15 @@
              W6-1 entrance (owner ruling §1.1): the canvas derive-fades in over
              the SAME-material `--saved-bg` ground once the field is drawable
              (`auroraArrived` — the producer's own `isArmed` cross-fade idiom),
-             so the load carries no dark→light/light→dark snap. -->
+             so the load carries no dark→light/light→dark snap.
+             W7-3 (luma truth): `data-glass-field-canvas` is glass-ui's ONE
+             field-canvas convention — every backdrop-luminance sampler
+             (GlassDock's default-on observer today) auto-discovers THIS
+             canvas as its `backgroundCanvas` and samples the live field;
+             an unreadable/unpainted WebGL readback falls to the static
+             stack-walk via the producer's L4 alpha-floor cure (glass-ui
+             `9db65db7`), never a luma-0 lie. One stamp threads the canvas
+             consistently for every present and future sampling surface. -->
         <canvas
             ref="atmosphereCanvas"
             class="atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none"
@@ -12,6 +20,7 @@
             :style="auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined"
             aria-hidden="true"
             data-testid="atmosphere-canvas"
+            data-glass-field-canvas
         />
         <!-- W5-a11y: nav landmark for the dock -->
         <nav aria-label="Application navigation">

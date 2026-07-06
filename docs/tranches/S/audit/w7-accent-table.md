@@ -104,3 +104,54 @@ Probed on a fresh boot (own server, dead-API port per lane discipline):
   pick, flipping to `oklch(1 0 0)` for dark wax. The threshold is the WCAG
   crossover the library owns, not the seed's interim CSS `L 0.62` literal.
   The Dock writer (W7-1) consumes it for the seal's inked icon.
+## §W7-3 — luma truth (the P0-3 coin flip): the record
+
+**Producer cure (L4): LANDED.** Verified in the glass-ui tree AND in the
+built dist the demo consumes (`dist/dock.js`, symlinked `file:../glass-ui`):
+
+- `FIELD_ALPHA_FLOOR = 0.02` — an all-transparent readback (unrendered /
+  cleared / unreadable WebGL canvas) returns null and **falls to the static
+  stack-walk**; the `getImageData` taint path also fails explicit. The
+  "unreadable canvas reads as luma 0 → dark glass in the light scheme" lie
+  is structurally impossible.
+- `wantsLiveLoop` arming-on-intent + the `data-backdrop-sampled` /
+  `--glass-backdrop-sampled: 1` writer-fired WITNESS (a dead observer is no
+  longer indistinguishable from a calm backdrop).
+- Producer commits: `e367b800` → `d785cba2` → `9db65db7`
+  (BG.W-GLASS-SIGNAL-TRUTH; NF.3 mustFix #2).
+
+**Demo threading: ONE conventional stamp.** The demo previously threaded NO
+`backgroundCanvas` anywhere (the dock's sampler fell to auto-discovery of
+`[data-glass-field-canvas]`, which no demo element carried). Fixed at the
+root of the convention: the App.vue atmosphere canvas now carries
+`data-glass-field-canvas` — glass-ui's documented ONE-field-canvas contract —
+so every present and future sampling surface (GlassDock's default-on
+observer today) resolves the live field consistently. No consumer shim; the
+sampler's own alpha-floor governs unreadable frames.
+
+**Live verification (both schemes, 3 same-scheme reloads):** the dock
+surface stamps the witness on every load and reads `--glass-backdrop-luma:
+0.236` / bucket `dark` deterministically — a TRUTHFUL sample of the pink
+aurora field behind it (body ground `rgb(179 114 144)`, relative luminance
+≈ 0.24), not a luma-0 artifact. The P0-3 non-determinism (cream vs mud
+across same-scheme loads) did not reproduce.
+
+**S-20 π archives re-check:** the S-20-era dark-legibility reads predate the
+producer witness — a dead sampler was indistinguishable from a calm backdrop
+when they were captured, so their glass-face judgments carry the P0-3
+contamination caveat but their CONCLUSIONS (routed to W5-2/W6-8, both since
+landed) are not invalidated by the cure: the pane plates do not run the
+sampler (only the dock does), so no plate ever keyed on the lying luma after
+the W5/W6 re-authoring. The W7 close π quadrant (light/dark ×
+collapsed/expanded, the wave's own lane) re-captures the dock band with the
+witness verifiable in-frame.
+
+**Title-ink cross-ref (residual, recorded honestly):** the picker title ink
+(`ColorSpaceSelector.vue` → `--space-title-ink`, the W4-1 four-state
+grammar) keys on SAFE_ACCENT_KEY — mode/accent — not plate luminance (the
+card-lighting-forensics artifact-3 residual). The W7-4 resolver does NOT
+naturally cover it: the fix class is plate-luminance-keyed ink, which
+requires the pane plate to run (or inherit) the producer's sampled
+`--glass-backdrop-luma` — a pane-shell surface (W5's tree) + producer
+consumption question, out of this lane's bounds. RESIDUAL STANDS — routed to
+the W8 adopt walk / W9 books re-verification.
