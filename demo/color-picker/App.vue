@@ -28,8 +28,12 @@
 
         <!-- W5-a11y: main landmark for pane content -->
         <main class="pane-main" aria-label="Color tool panes">
-        <!-- Two-pane grid -->
+        <!-- Two-pane grid. `paneContainer` feeds the S.W5-10 device-pixel
+             snap (card-lighting-forensics artifact 4): the flex-centering
+             remainder is nudged off fractional device pixels so the card
+             corner arcs rasterize ON the pixel grid. -->
         <div
+            ref="paneContainer"
             :class="[
                 'pane-container',
                 currentConfig.right !== null && 'pane-container--dual',
@@ -143,6 +147,7 @@ import { useGlobalDark } from "@components/custom/dark-mode-toggle";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useAtmosphere } from "@composables/color/useAtmosphere";
+import { useDevicePixelSnap } from "@composables/useDevicePixelSnap";
 
 import "@styles/utils.css";
 import "@styles/style.css";
@@ -160,6 +165,13 @@ provideApiClient();
 const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
 const model = shallowRef<ColorModel>(defaultColorModel);
+
+// --- S.W5-10 (card-lighting-forensics artifact 4): integer-snap the pane
+//     centering — the flex remainder parks card corner arcs on fractional
+//     device pixels (picker y=230.445… measured), which reads as stepped
+//     corner AA under Chromium's backdrop-clip. Paint-only relative nudge. ---
+const paneContainer = useTemplateRef<HTMLDivElement>("paneContainer");
+useDevicePixelSnap(paneContainer);
 
 // --- Color model — the ONE pipeline (S.W2 · W2-1) ---
 // One composable owns the model + one derivation set + storage + the token sink.

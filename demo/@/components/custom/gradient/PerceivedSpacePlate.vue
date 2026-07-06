@@ -147,9 +147,14 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
+    <!-- `paper-grain-overlay` (W5-10): the producer's per-surface grain
+         register, opted back in as dither over the page's largest smooth
+         field — the S-15-B discipline after the universal grain plane's
+         retirement (grain is opt-in per surface now, and this plate is the
+         page's banding-prone surface). -->
     <div
         ref="hostRef"
-        class="relative h-28 sm:h-32 rounded-card border border-card-edge bg-card overflow-hidden shadow-card"
+        class="relative h-28 sm:h-32 rounded-card border border-card-edge bg-card overflow-hidden shadow-card paper-grain-overlay"
         role="img"
         :aria-label="`Perceived-space plate: OKLCH lightness–chroma slice at hue ${Math.round(hue)} degrees with the gradient's trajectory and stops`"
     >
