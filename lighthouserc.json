@@ -1,5 +1,5 @@
 {
-    "//": "Lighthouse CI budget gate (K.W2 CI/CD lane — closes the W8 M5.2 zero-instrumented-runs gap). HARD since S.W0 W0-2(b). Core Web Vitals floor per UNIFIED-CICD §1 stage 6: CLS ≤ 0.1, LCP ≤ 2.5s, INP ≤ 200ms, TBT ≤ 300ms. staticDistDir is CWD-relative (NOT config-file-relative): the treosh `uses:` step runs at the WORKSPACE root of the nested-workspace CI layout (R.W7 X3 — value.js checked out at path: value.js), so the built artifact is under value.js/dist/gh-pages from LHCI's CWD.",
+    "//": "Lighthouse CI budget gate (K.W2 CI/CD lane — closes the W8 M5.2 zero-instrumented-runs gap). HARD since S.W0 W0-2(b). Core Web Vitals floor per UNIFIED-CICD §1 stage 6: CLS ≤ 0.1, LCP ≤ 2.5s, INP ≤ 200ms, TBT ≤ 300ms. staticDistDir is CWD-relative (NOT config-file-relative): the treosh `uses:` step runs at the WORKSPACE root of the nested-workspace CI layout (R.W7 X3 — value.js checked out at path: value.js), so the built artifact is under value.js/dist/gh-pages from LHCI's CWD. NO comment keys inside `assertions` — LHCI treats EVERY key there as an audit-name assertion (a '//'-prefixed key becomes a phantom audit that fails auditRan at error level; run 28836873580). interaction-to-next-paint is warn, NOT error: INP is structurally unmeasurable in navigation-mode lab Lighthouse (no interactions occur — auditRan 0,0,0 in run 28833754238); INP enforcement belongs to field/RUM or a timespan-mode collection, TBT is the lab interactivity proxy and stays HARD.",
     "ci": {
         "collect": {
             "staticDistDir": "./value.js/dist/gh-pages",
@@ -11,7 +11,6 @@
                 "categories:accessibility": ["error", { "minScore": 0.9 }],
                 "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
                 "largest-contentful-paint": ["error", { "maxNumericValue": 2500 }],
-                "//interaction-to-next-paint": "warn, NOT error: INP is STRUCTURALLY unmeasurable in navigation-mode lab Lighthouse — no interactions occur, so the audit never runs (run 28833754238: auditRan failure, all values 0,0,0 across 3 runs). An error-level assertion here can only ever fail, regardless of product quality. INP enforcement belongs to field/RUM or a timespan-mode collection; TBT below is the lab interactivity proxy and stays HARD.",
                 "interaction-to-next-paint": ["warn", { "maxNumericValue": 200 }],
                 "total-blocking-time": ["error", { "maxNumericValue": 300 }]
             }
