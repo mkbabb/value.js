@@ -375,9 +375,13 @@ jobs:
             - name: Lighthouse CI (budget gate — HARD, W0-2b)
               uses: treosh/lighthouse-ci-action@v12
               with:
-                  # Nested layout: the config (and its staticDistDir) lives under
-                  # value.js/. Soft-launch (continue-on-error) — path drift here
-                  # never blocks the ladder.
+                  # Nested layout: this is a `uses:` step, so the job's
+                  # defaults.run.working-directory does NOT apply — LHCI's CWD is
+                  # the WORKSPACE root. configPath is workspace-relative here, and
+                  # lighthouserc.json's staticDistDir must ALSO be workspace-
+                  # relative (value.js/dist/gh-pages): LHCI resolves it against
+                  # CWD, not against the config file. First hard-gate execution
+                  # ENOENT'd on exactly this (run 28832463506).
                   configPath: ./value.js/lighthouserc.json
                   uploadArtifacts: true
                   temporaryPublicStorage: true
