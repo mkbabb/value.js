@@ -117,11 +117,20 @@ jobs:
                   CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
               # The demo build output dir is dist/gh-pages (vite.config.ts
-              # gh-pages mode outDir). `--branch=main` is the CF Pages
-              # production branch; `--commit-dirty=true` lets a clean CI
+              # gh-pages mode outDir). `--commit-dirty=true` lets a clean CI
               # checkout deploy without a dirty-tree warning.
+              #
+              # --branch=master, NOT main: the CF Pages project `color`'s
+              # PRODUCTION branch is `master` (verified via `wrangler pages
+              # deployment list` 2026-07-07: the only Production deployment was
+              # a2119a8d/16129e0, a month stale). Every `--branch=main` deploy
+              # (incl. the R-close-era runs) landed as a PREVIEW deployment —
+              # wrangler exits 0 and prints "Deployment complete", the run goes
+              # green, but color-enw.pages.dev/color.babb.dev never update: a
+              # FALSE-SUCCESS deploy. The branch flag must equal the project's
+              # production branch for wrangler to cut a Production deployment.
               run: >-
                   npx --yes wrangler@4 pages deploy dist/gh-pages
                   --project-name=color
-                  --branch=main
+                  --branch=master
                   --commit-dirty=true
