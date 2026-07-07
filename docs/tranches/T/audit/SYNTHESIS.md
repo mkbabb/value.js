@@ -13,6 +13,8 @@ lane and over this synthesis. The S SYNTHESIS is the structural precedent; the p
 `t-precepts-recap.md §A–§E` (PP-1..PP-16 · PR-1..PR-8), lifted into the T charter verbatim.
 **Evidence base**: `audit/lanes/*.md` (36 lanes, each cited by name below) · `S/FINAL.md §5/§7` ·
 the owner shots at `audit/owner-screenshots/` (shot↔finding map re-derived — §1.0).
+**Pass-2**: amended per the 3-critic review 2026-07-07 — both mustFix folds + 11 shouldFix folds,
+marked AMENDED-AT-PASS-2 where substantive; dispositions that changed nothing are in §9.
 
 **One-line thesis** (t-plan-audit-2 §7, verified across the fleet): *S built to a moving target and
 certified taste by proxy; T re-aims at the owner's target, retires the old specs by name, replaces
@@ -133,7 +135,8 @@ sanctioned-exception ledger is §1.2 T-24's row. Mobile frame: every rung judged
 aurora's brightest band (t-mobile F-8 — the stricter reading sets the floor).
 
 **D2 · THE ×φ TYPE RECALIBRATION** — "1.5× on our golden scale" = **one full golden rung = two
-token steps** (|ln1.5−lnφ| < |ln1.5−ln√φ|; t-title-typography §1 — every landing is an exact
+token steps** (×1.618, an OWNER-WORD RE-CUT of the literal 1.5 — ratified via Q11, never assumed
+[AMENDED-AT-PASS-2]) (|ln1.5−lnφ| < |ln1.5−ln√φ|; t-title-typography §1 — every landing is an exact
 shipped token, no new values): picker title display-1→display-3 (41.89→67.78px @1440) · pane title
 heading→display-1 (25.89→41.89, phones floor-pinned = deliberate no-op) · readout
 display-2→display-4-class rung (33.77→54.64 @32rem). Weight 400 carried ON the trigger's own class
@@ -169,7 +172,9 @@ is the SIZING SPEC handed to the producer atoms (P1).
 
 **D5 · THE PLATE + CONSOLE GESTALT (sliders)** — the picker's content region resolves into the
 **specimen plate** (spectrum + caption) and the **console** (letter-rail + sliders): a rung-2 WELL
-sub-card (C5 settles it — opaque tone-step, no blur; NOT "quiet glass"), the letter column a
+sub-card (C5 settles it — opaque tone-step, no blur; NOT "quiet glass"; an OWNER-WORD RE-CUT of
+"a little glass card" — surfaced for ratification via Q4, never settled silently
+[AMENDED-AT-PASS-2]), the letter column a
 vertical micro-dock ring in `--accent-view` (seal-rim recipe turned portrait; producer letter-rail
 primitive = P5, demo interim sanctioned), letters speak INK (the channel-color conceit retires —
 degenerate by construction), the WatercolorDot ring stays the ONE live-color voice, `L a b α`
@@ -236,7 +241,7 @@ its non-firing inside T's window is not a miss). W8 runs only after every design
 process binds every wave: Fable + frontend-design for all design lanes; opus/sonnet fanout; batches
 of three; lane worktrees cut from the tranche head; PP-8 repo-wide sweep (caps recomputed post-move
 · legacy grep · as-any ledger regenerated) in EVERY wave gate; per-wave Lighthouse delta recorded
-(PI-1 discipline).
+(PI-1 discipline); the §6.2 CSS-byte tripwire REDS W3/W4/W5 at >120 KiB gz.
 
 ### THE COLOCATION SEQUENCING DECISION (Q1 — default: RESTRUCTURE FIRST, as W1, before every design wave)
 
@@ -264,7 +269,7 @@ pre-E-1 set landed.
 | W0-1 | **Dispatch the E-2 packet series** (§4) at ratification: GLASSUI-T-ASKS (P1–P10) + the KF letter (PRM-expand re-cite w/ current line numbers) — HEAD-restamped at dispatch (S-letter §16); the W-1/W-2 payload (P9) named FIRST | dispatch record + producer-inbox cite |
 | W0-2 | **Finish the proof:* retirement** (LEG-1/F5 split verdict): retain-reclassify 4 behavioral gates (`css-parity`, `round-trip-idempotent`, `perf-target`, `serialize-fidelity`) into a CI-wired `test:dist`; EXCISE the other 8 + `generate-favicon.mjs` (verify-dead) + `globals` devDep; CLAUDE.md sentence made true by construction (**Q13**) | grep `proof:` = the 4 reclassified only; CI runs test:dist |
 | W0-3 | Legacy excisions: BulkActionToolbar + SortFilterMenu (+doc rows), savedPalettes param, `constants.ts:340-344` type trio, PaletteDialog orphan confirm+excise (CC-6), PaletteSlugBar iconOnly migration, stale comments | grep-zero; suites green |
-| W0-4 | Doc-truth (pre-E-1-safe): 5→6 e2e ×2 · ci.yml:362 comment · DESIGN.md 32/25rem + `--alpha-checker` + `@lib/gamut-ink` entries · `transform/CLAUDE.md` path.ts + LoC strip · `units/color` space table +ICtCp/Jzazbz · `subpaths/CLAUDE.md` authored (the frozen-entry law) | doc-vs-tree spot check |
+| W0-4 | Doc-truth (pre-E-1-safe): 5→6 e2e ×2 · ci.yml:362 comment · DESIGN.md 32/25rem + `--alpha-checker` + `@lib/gamut-ink` entries · `transform/CLAUDE.md` path.ts + LoC strip · `units/color` space table +ICtCp/Jzazbz · `subpaths/CLAUDE.md` authored (the frozen-entry law) · docs-truth F5 (AMENDED-AT-PASS-2: color-theory/gamut-mapping now live under `docs/colors/` + app.md/quantization.md exist; `assets/docs` = **11** pages incl. kelvin.md, not 10) | doc-vs-tree spot check |
 | W0-5 | **Oracle mints** (the boot set MUST precede W2 — plan-audit-1 F3/F4): O-1 color-truth · O-2 real-hydration · O-3 headed-GPU probe annex · O-4 order-invariance · O-5 pacing variance · O-16 computed-cascade · O-7 card-census scaffold | each born-RED against today's tree where the defect is live (honest reds recorded) |
 | W0-6 | CI hygiene: smoke-safari wedge diagnosis (`--reporter=line`, keep the 12-min bound) · O-25 prod-lineage assert · `--ring` fallback-first pre-migration (`ColorInput.vue:338` → `var(--focus-ring-color, var(--ring))`) | CI captured |
 
@@ -275,7 +280,7 @@ suites green; O-23 bundle-diff flat ±2%; PP-8 caps recomputed; zero re-export s
 |---|---|---|
 | W1-demo | §5.1: Beat-A leaf moves + twin unifications → palette-browser decomposition behind hardened barrels → color-domain unification (keys ~24 sites, atomic codemod, LAST) → app-shell home (`app/composables/boot/`) → per-feature recursion. **Cohesion cargo**: dup-`useDark` fold onto `useGlobalDark`; PI-DRIFT-1 + the 10-site `out-in` audit (+ the pi-w5b hard-fail rider); **MOB-1 stamped witness** (`data-layout`, the style.css:435 exception dies); **MOB-2 route-derived pane index** | suites + e2e green; O-23; witness gate (both panes reachable at 1024×1366) |
 | W1-api | §5.2: modules/+platform transposition (move-only; L laws verbatim per t-coloc-backend §3); **TA-4 excision inside the move** (routes `/remix`+`/diff` + `computePaletteDiff` + `remixPaletteBody` + meta rows + fork↔remix fold + `PaletteVersion.atomDiff` + `lib/crud/atomdiff.ts`; KEEP `computeAtomSetHash`); models.ts carve; scripts/ regroup (deploy/dev/ci/gates) | api 224-class suite green post-excision (diff tests deleted, fork coverage re-homed); tsc 0; **Q8/Q17** |
-| W1-src | §5.3: (1) the **demo-dogfood keystone** — repoint demo off `@src/*` deep paths onto the public subpaths; the 5 leaked conversion primitives get citizenship (**Q15**); (2) test/ mirror; (3) `parsing/{color,timeline,stylesheet}/` + `color/gamut/` + constants split (name-preserving at every barrel — §0 semver-free); (4) the hue-swept boundary sampler (T-21's src half, beside `sampleOKLChSliceBoundary`, with Into twin); (5) **W2-3 Normalized/Display redesign** (boolean-literal-param + conditional-return-type across ~58 callsites), sequenced last | `proof:subpath-budget`-class invariant green (parse-that-free subpaths); dts surface byte-stable; vitest green |
+| W1-src | §5.3: (1) the **demo-dogfood keystone** — repoint demo off `@src/*` deep paths onto the public subpaths; the 5 leaked conversion primitives get citizenship (**Q15**); (2) test/ mirror; (3) `parsing/{color,timeline,stylesheet}/` + `color/gamut/` + constants split (name-preserving at every barrel — §0 semver-free); (4) the hue-swept boundary sampler (T-21's src half, beside `sampleOKLChSliceBoundary`, with Into twin); (5) the **Normalized/Display brand decision (L1)** — S's "W2-3" book renamed, T's W2-3 is the OVERTURE (boolean-literal-param + conditional-return-type across ~58 callsites), sequenced last | `proof:subpath-budget`-class invariant green (parse-that-free subpaths); dts surface **additive-only**: no removal/rename of any existing exported symbol (the §5.3 FORBIDS ledger); Q15 promotions are expected semver-MINOR additions [AMENDED-AT-PASS-2 — "byte-stable" contradicted Q15's own default]; vitest green |
 
 **T.W2 — THE BOOT OVERTURE + THE LIVING FIELD** (T-1 · T-25 · T-26 · T-27 demo halves; GAP-ARM-hedged)
 Goal: the load is ONE choreography and the field lives inside the bracket. The producer replay
@@ -315,7 +320,7 @@ re-derive against the settled band. Files: `ColorPicker.vue` · `ColorComponentD
 | W4-4 | The console (D5): rung-2 well sub-card + ink letters + `L a b α` + dock-trigger state ladder + the interim seal-recipe ring (producer swap booked, P5) + WatercolorDot active seat + touch rung (≥44px hits <lg; tooltip re-seat) | O-18; ONE active indicator; a11y roving-tabindex verbatim |
 | W4-5 | THE SEAT (D8): flush anchor + one cqi formula + `--z-ornament` + contact-shadow depth + closed-form ink floor + the leave-bind/park/tooltip beats (park stays wall-clock until P6's `settled` seam; booked) | **O-12 set** (seat identity · occlusion · hover budget · mobile gate RE-DERIVED from the formula · timing fixture centralized) — PI-4's same-commit law |
 | W4-6 | Display-voice population sweep (T-15): PaletteCard + sibling `text-subheading`-as-title sites; rename-input/line-clamp re-verified under the serif | O-10d family census |
-| W4-7 | Veil earn-range + shrink re-derived from the taller band (keyed to OCCLUSION, not the shrink) | O-11 gate 3 re-run |
+| W4-7 | Veil earn-range + shrink re-derived from the taller band (keyed to OCCLUSION, not the shrink); the T-23 rest-floor bracket RE-JUDGED over the settled post-W2 field (W3-4 calibrated parallel to the boot fix — AMENDED-AT-PASS-2) | O-11 gates 1+3 re-run |
 
 **T.W5 — MOTION LIQUID** (T-14; perf-split per PI-5)
 Goal: the two-channel law structural. Tranche A = retune rows R1–R5/R9–R11 + the card cartoon
@@ -325,8 +330,11 @@ day PKT-1 lands — the O-16 row for it stays EXPECTED-RED with the packet cite 
 Gate: O-16 census (owned rows green; R1 row honest); view-switch ≤100ms budget re-run; the KEEP set
 (F6) untouched.
 
-**T.W6 — SURFACES & SHELL** (parallel lanes; single-writer map: gradient tree · easing editor ·
-dock+nav · generate)
+**T.W6 — SURFACES & SHELL** (parallel lanes; single-writer map, total over all 8 items
+[AMENDED-AT-PASS-2 — W6-1 was unassigned]: **gradient tree** = W6-1 + W6-2 (the netting's re-judge
+surface IS the W3 gradient plate; `style.css` regions disjoint — netting @254-261 vs the surviving
+accent @223-224, t-nav-dropdowns:123) · **easing editor** = W6-3 · **dock+nav** = W6-4/W6-6/W6-7/
+W6-8 · **generate** = W6-5)
 | Item | Content | Gate |
 |---|---|---|
 | W6-1 | Netting recalibration (T-6): the R5 band (22%/28%/45%/65%/1.25px), CSS tile + `WEBBING` in lockstep; re-judged on the W3 plate + 390 | O-19 |
@@ -347,7 +355,7 @@ must land TOGETHER or the re-baseline carries a third tranche) · CI un-pin from
 PRM-expand via kf) · the producer-gated design halves land: park-from-`settled`, satellite
 emergence + HERO preset (the ≥96px bead gate), tabs re-judge (O-8 goes live), seated-rung +
 letter-rail + header-knob consumes (the booked interim swaps fire), EasingPicker v2 consume,
-alpha-checker MARKER retire-check (legacy-sweep F7). Gate: the verify-at-cut ledger (§4) walked
+alpha-checker + `.underline-tabs` MARKER retire-checks (legacy-sweep F7/F6). Gate: the verify-at-cut ledger (§4) walked
 row-by-row; suites + O-slate green.
 
 **T.W8 — E-7 THE HARDENING/CRITIQUE WAVE** (§0.2; depth = **Q6**)
@@ -363,8 +371,8 @@ Lighthouse delta run in the same wave.
 
 **T.W9 — CLOSE** — the S close machinery inherited unchanged (F19): zero-drop ledger walk · every
 book re-probed live · repo-wide sweeps · budgets re-measured · doc rewrites now unblocked
-(demo/CLAUDE.md + api/CLAUDE.md full rewrites at the pattern level — DOC F6/F7; root src Structure
-collapses to module-boundary contracts) · maintainer residuals X1/X2 restated verbatim with firing
+(demo/CLAUDE.md + api/CLAUDE.md full rewrites at the pattern level — DOC F6/F7, the api rewrite
+reconciling TA-6's 26-vs-27 index count; root src Structure collapses to module-boundary contracts) · maintainer residuals X1/X2 restated verbatim with firing
 ops · spec-status recheck (CH/R8/R rows) · the naming law (PP-16): gates-pass-goal-unmet closes
 `complete_with_misses`.
 
@@ -387,9 +395,9 @@ disposition) / VERIFY-AT-CUT.
 | **P4** | **TABS PILLING** (T-20) | NEW · W-3 | the anchor-arm block insets drop the double-counted `--bouncy-track-trim` addend (bare `anchor()`, both orientations/breakpoints/trim rungs); acceptance: indicator ≡ active-button box at every breakpoint × orientation × scheme × engine (incl. the JS fallback) — mobile numbers supplied (t-mobile F-6) |
 | **P5** | **LETTER-RAIL + RING CONTRACT** (S-3 upgraded to MANDATED by T-5) | NEW · W-3 | the vertical rail primitive (stadium hairline, slot-per-item, dock-trigger state ladder, an ACTIVE SEAT that yields to consumer indicator content — the exact seam SegmentedTabs lacked, cite `38d83e4`; admin/gold variant; PRM-clean; a TOUCH-size rung) · the ONE ring contract (seal rim + `--dock-ring` L13 + letter-rail) · the WatercolorDot **solid-ring register** (the ghost-stroke mechanism at solid weight, `--watercolor-ring-*`, never hairline ≤48px — T-28's register law) |
 | **P6** | **BLOB L5 ADDENDUM** (append to F9.R1 — NOT a re-ask of the shade work) | NEW-append + VERIFY · W-3 (HERO preset = W-1) | rows A–E: hero-scale mood-legibility floor · curvature-bounded pseudopod · `settled` seam + park-only-from-settled · mood-gated satellite emergence · the containment update to the genesis contract (+ contact-shadow register now WANTED) · the single-WebGL2 collapse (drain `metaball.wgsl`) · the exported **HERO preset** (W-1!) |
-| **P7** | **THE COMPONENT BATCH, RE-ASKED BY NAME** (fold-claimed to W-DESHADCN, verified absent) | RE-ASK · W-3 | L6 slider tokens (+`--slider-track-checker`) · **L8 clampLabel — 5th booking, ESCALATE** · L11 dropdown-menu glass tokens · L16 backdrop-prefix policy · L10 verify · L7 **EasingPicker v2** carried + net-new: container-query stage law (square-fit canvas), internal material tokens/`chrome` prop, `preset?` payload field, declarative `autoplay`/`playing` door, curve-glyph preset menu, travel-dot rest + PRM at source · L13 dock residuals · L14 ConfiguratorRow · the Select **description-lane survival contract** (T-17 rides it) |
+| **P7** | **THE COMPONENT BATCH, RE-ASKED BY NAME** (fold-claimed to W-DESHADCN, verified absent) | RE-ASK · W-3 | L6 slider tokens (+`--slider-track-checker`) · **L8 clampLabel — 5th booking, ESCALATE** · L11 dropdown-menu glass tokens · L16 backdrop-prefix policy · L10 verify · L7 **EasingPicker v2** carried + net-new: container-query stage law (square-fit canvas), internal material tokens/`chrome` prop, `preset?` payload field, declarative `autoplay`/`playing` door, curve-glyph preset menu, travel-dot rest + PRM at source · L13 dock residuals · L14 ConfiguratorRow · the Select **description-lane survival contract** (T-17 rides it) · the base-Tabs **`underline` variant** (legacy-sweep F6, AMENDED-AT-PASS-2: the `.underline-tabs` MARKER `style.css:476-484` STAYS until this ships or PaletteDialog migrates `<Tabs>`→`<SegmentedTabs>`; retire-check at W7 beside F7) |
 | **P8** | **BUILD/DIST** | NEW · W-3 | A6 the minifier drops unprefixed `backdrop-filter:none` (the demo MARKER retires the day it's fixed) · **CC-1** the registered-@property-inside-`color-mix()` collapse on bare `.glass-wash` (the producer's own material.css names the hazard; fix at the compositing path) · the dist-rebuild discipline note (G-CUR-1) |
-| **P9** | **THE 5.0.0-CUT PAYLOAD** | VERIFY/NEW · **W-1/W-2 — in the letter FIRST** | J1 Blob rename in the export-regen input (verify) · **J2 L20 `/blob/config`** (the RP-2 anchor — must be named before B2.1-swap freezes) · J3 `/styles/fonts` MIGRATION row verify · J4 the `--ring` B7 roster add (value.js is an UN-ROSTERED consumer; the demo pre-migrates fallback-first at W0-6) |
+| **P9** | **THE 5.0.0-CUT PAYLOAD** | VERIFY/NEW · **W-1/W-2 — in the letter FIRST** | J1 Blob rename in the export-regen input (verify) · **J2 L20 `/blob/config`** (the RP-2 anchor — must be named before B2.1-swap freezes) · J3 `/styles/fonts` MIGRATION row verify (+ its twin: the `/easing` 17th-subpath GAP-3 verify-watch, deferred-census A10 — AMENDED-AT-PASS-2) · J4 the `--ring` B7 roster add (value.js is an UN-ROSTERED consumer; the demo pre-migrates fallback-first at W0-6) |
 | **P10** | **TYPE STATIONS** | NEW · W-3 (W-2 if token) | the SelectTrigger size ladder +1 station (or token-indirect `--select-trigger-font-size`) · display/heading **weight tokenization** (`--type-weight-display/-heading` — the demo pins 400 at `:root`, the same shape as `--font-stack-display`) — verify-first against BG/BH before authoring (the rung may exist) |
 | **KF** | keyframes letter | RE-CITE | PRM-expand: `managed-play.ts:48-59` PRM arm never emits `_onFrame` — re-verified UNCHANGED 2026-07-07 (t-a11y §6); the one-line cure |
 
@@ -470,6 +478,16 @@ barrel names). **Do NOT over-restructure**: `difference`/`contrast`/`colorFilter
 The KEYSTONE is §2's demo-dogfood: land it first and every later move is a one-barrel edit. The
 parse-that-free subpath invariant survives every move (the reclassified dist gate guards it).
 
+### §5.4 Totality (E-1 "ALL file directories" — AMENDED-AT-PASS-2)
+
+The edict is provably total; every top-level tree is dispositioned: `demo/` §5.1 · `api/` +
+`scripts/` §5.2 · `src/` + the `test/` mirror §5.3 · `e2e/` top-level grouping only (already the
+good exemplar) · `demo/@/styles/` EXEMPT (D.W4-disciplined) · `demo/@/components/ui/` EXEMPT
+(vendored shadcn, the standing law) · `assets/docs/` EXEMPT-with-reason (11 flat leaf reference
+pages already colocated with their assets; a restructure is churn-for-churn) · `docs/` is
+documents, not code — governed by the doc-truth program (W0-4 + W9 rewrites), not the colocation
+law.
+
 ---
 
 ## §6 ORACLES + BUDGETS
@@ -507,7 +525,7 @@ parse-that-free subpath invariant survives every move (the reclassified dist gat
 ### §6.2 Budgets carried (S FINAL §6.2 + the Lighthouse record)
 
 JS eager **347.9 KiB gz** vs ≤280 — **RP-2 re-baseline stands**; cleared only at W7 (L20 + GAP-L5
-together) · CSS ≤120 (86.5, headroom 33.5 — the ladder/type waves spend against it consciously) ·
+together) · CSS ≤120 (86.5, headroom 33.5) with a **per-wave TRIPWIRE** (AMENDED-AT-PASS-2 — PI-1/PI-6 proved the delta ledger advisory-only): W3/W4/W5, the ladder/type/motion spenders, each re-measure CSS gz at their wave gate and RED the wave at >120; the one MET budget stays met by control, not intent, while the JS overage stays owner-adjudicated (Q14) ·
 frame budgets (drag ≤20 · view ≤100 · idle ≤13 · 0 long tasks; drag headroom 12ms bounds the W4
 ink-law solve) · the 390 blob perf gate (Q7) HARD · **Lighthouse run of record `28836873580`: LCP
 5563ms (~2.2× over) · TBT 5618ms (~19× over) — HONESTLY RED, no gate weakened**; disposition =
@@ -533,7 +551,7 @@ Suites at synthesis: vitest 2158/68 green; playwright 38/39 + 1 known contention
 | S-3 letter-rail (FIRED) | joint | **P5** (upgraded to MANDATED by T-5) + W4-4 interim | do not wait on the book |
 | X1 prod api deploy (**CHRONIC**, 2nd carry) — the backend half of T-9; publish/unpublish 404-broken for real users | **maintainer** | W9 residual + O-25 | firing op restated verbatim; never a silent 3rd re-book |
 | X2 NCSU alias (**CHRONIC**, the OLDEST owner order) | maintainer | W9 residual | on-VPN op |
-| W2-3 Normalized/Display brand | src | **W1-src** (last item) | the decision-doc redesign, ~58 callsites |
+| the Normalized/Display brand (**L1**; S's "W2-3" book, renamed — T's W2-3 is the OVERTURE) | src | **W1-src** (last item) | the decision-doc redesign, ~58 callsites |
 | `Color.try()` (**CHRONIC**) | src | park; re-justify only if a parsing wave opens | 12 try-wraps ≠ the bar |
 | S.H3 Pratt (**CHRONIC**) | src/parse-that | KEEP-DORMANT (re-justified — folding it would be contrivance) | fires if parse-that presents |
 | dup-useDark · PI-DRIFT-1 (+10 `out-in` sites, pi-w5b hard-fail rider) | demo | **W1-demo cargo** | |
@@ -554,20 +572,32 @@ Suites at synthesis: vitest 2158/68 green; playwright 38/39 + 1 known contention
 | **Q1** | Colocation sequencing: restructure before or after the design waves? | **BEFORE (W1)** — new design code is born colocated; the restructure is mechanical + hard-gated; MOVE-MAP + wave-open re-anchoring absorb the stale-cite cost (§3) | (a) AFTER the design waves (anchors stay live; new code moves twice); (b) interleaved per-surface (maximum churn — rejected) |
 | **Q2** | The T-26 in-bracket landing point | the §2.3/t-aurora spec: chroma-adaptive hueSpread [24°,64°] · energy **0.76** · ONE counterpoint stop (+165°, 0.6×C) · softmaxBeta 4 · breath 26s — a full composition inside the bracket, judged by eye across green/warm/neutral seeds AFTER W2-1 | energy-only step (0.74–0.78, no counterpoint — safer, may under-deliver "noticeable"); wider fan only; defer the counterpoint to a second calibration |
 | **Q3** | The blob seat: flush or corner-kiss? | **flush** (`--blob-seat: 0`) — containment identity holds by construction; the knob stays for the in-wave taste pass | small negative seat (a trace of corner break) — re-admits partial overflow; must re-prove no-clip at 390 |
-| **Q4** | Material-ladder rung assignments needing taste sign-off | the t-card-material §3 + census §4 table; specifically: gradient perceived-space plate DROPS to well (the nested double-stamp dies) · eyedropper overlay stays chrome · PaletteCard = well | keep the perceived-space plate at full cartoon (2 protagonists per pane — against the shadow budget); PaletteCard at a mid-rung |
-| **Q5** | The Palettes rainbow form (T-10) | **data-strip chip** — a 5-segment miniature palette (the user's current palette when present, else the derived guarded fan): color-as-DATA, unifies T-10 with T-17 under the C3 law | letterform-ramp (`background-clip:text` — the owner-verbatim memory; re-opens the letterforms-speak-ink law for ONE named row; encode as a sanctioned exception if picked) |
+| **Q4** | Material-ladder rung assignments needing taste sign-off | the t-card-material §3 + census §4 table; specifically: gradient perceived-space plate DROPS to well (the nested double-stamp dies) · eyedropper overlay stays chrome · PaletteCard = well · the sliders console = rung-2 WELL (an owner-word re-cut — the owner said "a little glass card"; D1 cuts a card-in-a-plate as a tone, not a second glass — AMENDED-AT-PASS-2) | keep the perceived-space plate at full cartoon (2 protagonists per pane — against the shadow budget); PaletteCard at a mid-rung; the owner-literal quiet-GLASS console card (re-admits glass-in-plate) |
+| **Q5** | The Palettes rainbow form (T-10) | **data-strip chip** — a 5-segment miniature palette (the user's current palette when present, else the derived guarded fan): color-as-DATA, unifies T-10 with T-17 under the C3 law. An owner-word re-cut of "rainbow": the ratification package LEADS with the owner-verbatim letterform reading, chip second as the recommendation (AMENDED-AT-PASS-2) | letterform-ramp (`background-clip:text` — the owner-verbatim memory; re-opens the letterforms-speak-ink law for ONE named row; encode as a sanctioned exception if picked) |
 | **Q6** | E-7 depth | ONE late wave (W8): per-surface critique passes (batches of 3) → remediation lanes → ONE owner certification package; owner = terminal authority, brackets not points | two-stage (a mid-tranche checkpoint after W4 + the close pass) — catches drift earlier, costs a wave |
 | **Q7** | Packet-dispatch timing | **at ratification (W0-1), immediately** — WS12/B4e are OPEN but are the LAST window; the W-3 behavior packets unblock T's own waves via the file:-pin; P9 named first | hold until the BG frontier quiets (risks missing W-1/W-2 = a post-5.0.0 second break event, forbidden by the one-migration edict) |
 | **Q8** | The api-hygiene excision depth | **full TA-4**: routes + services + validation + meta rows + the fork↔remix fold + drop `PaletteVersion.atomDiff` + `lib/crud/atomdiff.ts` (KEEP `computeAtomSetHash`); inside W1-api | routes-only (leaves the write-only column — the exact E-3 violation TA-4 proved reaches the schema) |
 | **Q9** | Header material authority (C2) | **the ladder** — rest = quiet-derived fill inside the eye bracket [0.45, 0.65 of the veil], stuck = floating+tint rung-climb; feather at every state; expressed AS ladder rungs, not an off-ladder alpha fade | the independent `veil-surface` alpha-fade (re-mints the off-ladder-material class T-CM-4 indicts) |
 | **Q10** | Does Tools/Login live-accent CHROME fall under "the rest white/black"? | **NO** — the owner's line is menu-scoped; chrome keeps the live accent (W7-4's surviving voice map); ruled here rather than silently widened | extend the ink law to chrome (kills the dock's one chromatic naming point — the white/black menu's counterweight) |
-| **Q11** | Readout line-lock levers (T-7 at ×φ) | levers **1+2** (per-space integer least-counts + the fit clamp), lever **3** for lab-class (honest 2-line locks; ictcp/jzazbz 2-line at <sm); lever 1 is REQUIRED at 390. The ×φ reading itself (two token steps) rides this row | hold lab at 1-decimal one-line via fit-down ~×1.08 (rejects the owner's size intent); blanket 2-line everywhere |
+| **Q11** | Readout line-lock levers (T-7 at ×φ) | levers **1+2** (per-space integer least-counts + the fit clamp), lever **3** for lab-class (honest 2-line locks; ictcp/jzazbz 2-line at <sm); lever 1 is REQUIRED at 390. The ×φ reading itself (two token steps = ×1.618, the D2 owner-word re-cut of the literal 1.5) rides this row — ratifying Q11 ratifies ×φ (AMENDED-AT-PASS-2) | hold lab at 1-decimal one-line via fit-down ~×1.08 (rejects the owner's size intent); blanket 2-line everywhere; the literal ×1.5 (one step √φ≈1.27 under-delivers; a true 1.5 mints a non-token size off the golden scale the owner invoked) |
 | **Q12** | T-28: abrogate vs fitted ring | **ABROGATE at the seal** — wax + glyph already carry identity; a third concentric boundary at 40px is over-drawing, and the geometric one can never fit; the producer solid-ring register (P5) becomes the standing law for any future ring | consume the fitted producer ring on the wax (once P5 ships) — a ring, correctly seated |
 | **Q13** | The proof:* split | legacy-sweep F5: retain-reclassify 4 dist-behavioral gates into CI-wired `test:dist`; excise 8 + the favicon script; CLAUDE.md names which batch retired | excise all 12 (simplest; loses real dist-level round-trip/perf coverage vitest doesn't reach) |
 | **Q14** | The Lighthouse LCP/TBT record disposition | keep the budgets RED + the per-wave delta ledger; adjudicate budget/preset pairing WITH the owner at W8/W9 (lab-mobile field thresholds on a KaTeX+WebGL SPA may be mis-paired — but TBT 19× is also a real payload finding RP-2/L20 partially answers) | re-baseline now (premature — no delta history yet); desktop preset now (loses the mobile signal) |
 | **Q15** | The 5 leaked conversion primitives' citizenship (src §2) | **promote** the genuinely-useful leaves (`linearToSrgb`, `hsl2rgb`, `oklch2xyz`/`xyz2rgb`, `hex2rgb`) into the `/color` subpath + index with a MIGRATION note — they are real API the demo proved demand for | keep internal; the demo re-derives via `color2()` (slower on hot paint paths — the gamut overlay samples per-pixel) |
 | **Q16** | `EmptyState` + picker action controls: glass-ui primitives? | flag both in the packet letter as CANDIDATES (producer's call); until answered, `EmptyState` lifts to a shared demo atom, the action controls stay picker exports consumed via the hardened barrel | force the producer ask now (pre-empts the producer's own ≥2-consumer bar) |
 | **Q17** | Backend naming + test policy | `modules/` + `platform/`; colocated `__tests__/` per module + a NAMED `test/conformance/` exception (contract suites) | `features/`+`core/`; full colocation including conformance |
+
+---
+
+## §9 DISSENTS (pass-2 critique dispositions — nothing silent)
+
+- Fidelity's Q10 row ("keep the Tools/Login chrome carve-out an explicit ratified decision"): NO
+  CHANGE — Q10 already IS the explicit ratification row, ruled-not-silent by construction;
+  re-encoding it would duplicate the table.
+
+Every other pass-2 mustFix/shouldFix was folded (the AMENDED-AT-PASS-2 markers above). No question
+opened or closed: the two owner-word re-cuts route through EXISTING rows (T-5 console → Q4; T-2 ×φ
+→ Q11) — the slate stays at Q1–Q17.
 
 ---
 
