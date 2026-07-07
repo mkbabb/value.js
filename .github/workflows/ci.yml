@@ -33,7 +33,14 @@ jobs:
     # ── Build + test matrix (Node 22 floor + 24 ceiling) ────────────────────
     build-and-test:
         runs-on: ubuntu-latest
-        timeout-minutes: 20
+        # 30, not 20: the S.W0 W0-2(a) smoke-safari (WebKit) step is the new long
+        # pole. WebKit in CI (incl. the sustained-30s context-loss probe) pushes
+        # the Node-22 job's total past 20 min — the whole ladder then hit the job
+        # `timeout-minutes` mid-safari and the job was reported CANCELLED (GH marks
+        # a timed-out job "cancelled"). That is the SYSTEMATIC canceller that
+        # skipped every downstream deploy-pages run (workflow_run requires CI
+        # conclusion==success). 30 gives the bounded soft steps room to finish.
+        timeout-minutes: 30
         strategy:
             fail-fast: false
             matrix:
@@ -260,6 +267,10 @@ jobs:
             # without blocking until the dock-interaction fix lands.
             - name: Playwright — full smoke project (soft-launch)
               continue-on-error: true
+              # Per-step bound so a headless hang self-fails SOFT instead of
+              # consuming the whole job budget into a HARD job-timeout (which
+              # continue-on-error does NOT swallow — it cancels the job).
+              timeout-minutes: 8
               run: npx playwright test --project=smoke
 
             # S.W0 W0-2(a): smoke-safari (WebKit) NOW RUNS IN CI — the S-22 gap
@@ -276,6 +287,12 @@ jobs:
             # un-pin book above).
             - name: Playwright — smoke-safari (WebKit, soft — surfaces the L1 aurora-shader P0)
               continue-on-error: true
+              # Per-step bound (the actual root of the CANCELLED runs): before this,
+              # the soft WebKit run had no ceiling and could burn the entire job
+              # budget, tripping the HARD job `timeout-minutes` mid-run. 12 min lets
+              # the sustained-30s probe complete on a slow runner yet self-fails SOFT
+              # if WebKit wedges — the job then proceeds to success and deploy fires.
+              timeout-minutes: 12
               run: npx playwright test --project=smoke-safari
 
             - name: Upload Playwright report
