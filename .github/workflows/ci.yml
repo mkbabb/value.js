@@ -374,6 +374,12 @@ jobs:
             # reddens CI instead of shipping (e2e-coverage-gaps §4 P0 item 2).
             - name: Lighthouse CI (budget gate — HARD, W0-2b)
               uses: treosh/lighthouse-ci-action@v12
+              env:
+                  # LHCI's CWD is the WORKSPACE root (a `uses:` step), which is
+                  # not a git repo — `git rev-parse HEAD` fails there and the
+                  # upload phase errors ("LHCI 'upload' failed to upload to LHCI
+                  # server", run 28833754238). Provide the hash explicitly.
+                  LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.sha }}
               with:
                   # Nested layout: this is a `uses:` step, so the job's
                   # defaults.run.working-directory does NOT apply — LHCI's CWD is

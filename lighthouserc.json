@@ -11,7 +11,8 @@
                 "categories:accessibility": ["error", { "minScore": 0.9 }],
                 "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
                 "largest-contentful-paint": ["error", { "maxNumericValue": 2500 }],
-                "interaction-to-next-paint": ["error", { "maxNumericValue": 200 }],
+                "//interaction-to-next-paint": "warn, NOT error: INP is STRUCTURALLY unmeasurable in navigation-mode lab Lighthouse — no interactions occur, so the audit never runs (run 28833754238: auditRan failure, all values 0,0,0 across 3 runs). An error-level assertion here can only ever fail, regardless of product quality. INP enforcement belongs to field/RUM or a timespan-mode collection; TBT below is the lab interactivity proxy and stays HARD.",
+                "interaction-to-next-paint": ["warn", { "maxNumericValue": 200 }],
                 "total-blocking-time": ["error", { "maxNumericValue": 300 }]
             }
         }
