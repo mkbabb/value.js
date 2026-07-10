@@ -108,12 +108,14 @@ export function usePaletteManagerWiring(
             if (cur !== "picker" && cur !== "palettes") {
                 viewManager.switchView("palettes");
             }
-            viewManager.mobilePaneIndex.value = 0;
-            // Defer the first check one tick so the pane switch can mount the picker.
-            setTimeout(
-                () => whenColorPickerReady((picker) => picker.onStartEdit(target), "startEdit"),
-                50,
-            );
+            // Show the picker (left pane) for the edit. The pane override is
+            // route-view-tagged (MOB-2), so it must be applied AFTER the switch
+            // settles `currentView` to the destination — set it in the same
+            // deferred tick that waits for the picker to mount.
+            setTimeout(() => {
+                viewManager.mobilePaneIndex.value = 0;
+                whenColorPickerReady((picker) => picker.onStartEdit(target), "startEdit");
+            }, 50);
         },
 
         emitSetCurrentColor: (css: string) => {

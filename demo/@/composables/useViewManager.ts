@@ -46,28 +46,36 @@ export function useViewManager(): ViewManager {
     });
 
     const previousView = ref<ViewId | null>(null);
-    // X8: seed the mobile pane index from the COLD-loaded view so a direct
-    // `#/palettes` (or `#/mix`) hash boot hydrates the ADDRESSED pane into the
-    // visible slot. `switchView` sets this on navigation, but a cold hash boot
-    // never calls `switchView`, so the index stayed pinned at 0 and the direct-
-    // linked pane cold-mounted into the hidden slot (the X8 residual).
-    const initialView = currentView.value;
-    const mobilePaneIndex = ref<0 | 1>(
-        VIEW_MAP[initialView].right !== null &&
-        (initialView === "palettes" || initialView === "mix")
-            ? 1
-            : 0,
-    );
-
     const currentConfig = computed(() => VIEW_MAP[currentView.value]);
+
+    // MOB-2 / F-2: the visible mobile pane is DERIVED FROM THE ROUTE, not a
+    // leaked `ref<0|1>`. The override below is TAGGED with the view it applies
+    // to, so any route change to a different view — deep-link, back/forward,
+    // hash-nav, in-content `router.push` — falls through to the destination
+    // view's schema default (`defaultPaneIndex`). The old X8 cold-boot seed +
+    // the per-`switchView` re-derivation die: the schema is the single writer
+    // of the default, and only an EXPLICIT user/edit toggle overrides it, only
+    // for the view it was made on.
+    const paneOverride = ref<{ view: ViewId; index: 0 | 1 } | null>(null);
+    const mobilePaneIndex = computed<0 | 1>({
+        get: () => {
+            const o = paneOverride.value;
+            return o && o.view === currentView.value
+                ? o.index
+                : (currentConfig.value.defaultPaneIndex ?? 0);
+        },
+        set: (v) => {
+            paneOverride.value = { view: currentView.value, index: v };
+        },
+    });
 
     function switchView(id: ViewId) {
         if (id === currentView.value) return;
         previousView.value = currentView.value;
-        // Preserve color query params when switching views
+        // Preserve color query params when switching views. The pane index is
+        // NOT set here — the route change re-derives it to `id`'s schema default
+        // (the override is view-tagged, so the old view's toggle cannot leak).
         router.push({ name: id, query: route.query });
-        const cfg = VIEW_MAP[id];
-        mobilePaneIndex.value = (cfg.right !== null && (id === "palettes" || id === "mix")) ? 1 : 0;
     }
 
     function goBack() {
@@ -77,7 +85,6 @@ export function useViewManager(): ViewManager {
         } else {
             switchView("picker");
         }
-        mobilePaneIndex.value = 0;
     }
 
     return {

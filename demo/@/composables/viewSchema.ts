@@ -86,6 +86,14 @@ export interface PaneConfig {
      * not a hue turn.
      */
     accentHueShift: number;
+    /**
+     * The mobile single-pane default: which pane (0 = left, 1 = right) a fresh
+     * ROUTE-DRIVEN arrival at this view shows. Omitted ⇒ 0 (left). The
+     * content-first dual views (palettes/mix) name their default HERE (1 = the
+     * content pane), so no call-site string-list re-derives it — MOB-2/F-2: the
+     * visible mobile pane is route-derived from the schema, never a leaked ref.
+     */
+    defaultPaneIndex?: 0 | 1;
 }
 
 /**
@@ -111,6 +119,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         rightLabel: "Palettes",
         icon: Palette,
         accentHueShift: 40,
+        defaultPaneIndex: 1,
     },
     browse: {
         left: "browse",
@@ -138,6 +147,7 @@ export const VIEW_MAP: Record<ViewId, PaneConfig> = {
         rightLabel: "Mix",
         icon: Blend,
         accentHueShift: 160,
+        defaultPaneIndex: 1,
     },
     generate: {
         left: "generate",
