@@ -330,18 +330,20 @@ onMounted(() => { loadCustomColorNames(); });
    every frame of every swap — the P1 layout-thrash (perf-transitions P1-2). The
    pane geometry rides transform/opacity only now. */
 
-/* ── W6-1 · the atmosphere ARRIVAL (owner ruling 2026-07-05 §1.1) ──
-   The canvas eases in over the `--saved-bg` derived-base ground once the
-   field is drawable (`isArmed` — the producer's own Aurora.vue cross-fade
-   idiom; immediate on the `"css"` placeholder substrate). Ground and field
-   are ONE material (the base stop IS the field's deepest stop), so the
-   entrance reads as the field texturing in from its own base — never an
-   explicit dark→light/light→dark snap. House slow register + decelerate
-   ease; W3-2's idle-deferral mechanics are untouched (this designs the
-   arrival, it does not revert the deferral). */
+/* ── W6-1 · the atmosphere ARRIVAL (owner ruling 2026-07-05 §1.1), re-cut
+   W2-2 (T.W2 · t-aurora-boot §2.1 step 4): the canvas textures in over its
+   OWN gradient ground once the field is drawable (`isArmed`; immediate on
+   the `"css"` placeholder substrate). Ground and field are ONE material by
+   construction now (W2-2's ground IS the derived-palette gradient), so the
+   fade cannot pass through gray — the arrival reads as the painting waking
+   up, not a crossfade to a different picture. Duration 0.45s → 0.9s (the
+   §2.1 re-cut: the old fade completed before the eye registered what the
+   ground was — HALF the story too fast); decelerate kept, no new curve.
+   W3-2's idle-deferral mechanics are untouched (this designs the arrival,
+   it does not revert the deferral). */
 .atmosphere-canvas {
     opacity: 0;
-    transition: opacity var(--duration-slow, 0.45s) var(--ease-decelerate);
+    transition: opacity var(--overture-derive-in, 0.9s) var(--ease-decelerate);
 }
 .atmosphere-canvas--arrived {
     opacity: 1;

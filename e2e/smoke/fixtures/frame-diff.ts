@@ -195,6 +195,23 @@ export function srgbToOklch(
     return { L, C, h };
 }
 
+/**
+ * Normalize a CSS color read to lowercase `#rrggbb`. W2-2 registered the
+ * `--saved-bg*` tokens as `@property syntax:"<color>"`, so `getComputedStyle`
+ * returns the COMPUTED form (`rgb(r, g, b)`) rather than the raw specified
+ * hex — every spec comparing the token against a persisted hex must
+ * normalize both sides. Accepts `#rrggbb` and `rgb(r, g, b)`; null otherwise.
+ */
+export function cssColorToHex(s: string): string | null {
+    const t = s.trim().toLowerCase();
+    if (/^#[0-9a-f]{6}$/.test(t)) return t;
+    const m = t.match(/^rgb\(\s*(\d+)\s*,?\s*(\d+)\s*,?\s*(\d+)\s*\)$/);
+    if (!m) return null;
+    const hex = (v: string) =>
+        Math.max(0, Math.min(255, parseInt(v, 10))).toString(16).padStart(2, "0");
+    return `#${hex(m[1]!)}${hex(m[2]!)}${hex(m[3]!)}`;
+}
+
 /** A fractional sub-rectangle of a region's bounding box (all values 0–1). */
 export interface FracRect {
     xFrac: number;

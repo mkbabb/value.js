@@ -4,6 +4,7 @@ import {
     canvasPresents,
     ATMOSPHERE_TESTID,
 } from "../fixtures/webgl-appearance";
+import { cssColorToHex } from "../fixtures/frame-diff";
 
 /**
  * T.W0 W0-5 · O-2 — REAL-HYDRATION COLD-LOAD (SYNTHESIS §6.1 O-2).
@@ -29,12 +30,14 @@ import {
 
 const SEED = "oklch(0.7 0.18 145)"; // vivid green, hue ≈ 145°
 
-function savedBg(page: import("@playwright/test").Page): Promise<string> {
-    return page.evaluate(() =>
+// Registered `<color>` tokens compute to `rgb(…)` — normalize to hex.
+async function savedBg(page: import("@playwright/test").Page): Promise<string> {
+    const raw = await page.evaluate(() =>
         getComputedStyle(document.documentElement)
             .getPropertyValue("--saved-bg")
             .trim(),
     );
+    return cssColorToHex(raw) ?? raw;
 }
 
 test("O-2 real-hydration — a returning-user bare reload restores the derived field via the natural path", async ({
@@ -49,17 +52,24 @@ test("O-2 real-hydration — a returning-user bare reload restores the derived f
     await expect(
         page.getByRole("main", { name: "Color tool panes" }),
     ).toBeVisible();
-    // Wait for BOTH debounced write-throughs to land: the boot material
-    // (color-picker-bg, the atmosphere sink) AND the color store
-    // (color-picker.inputColor — the seed hydration restores from). A real
-    // returning user comes back long after both writes; navigating between
-    // them fabricates a half-persisted session no user ever has.
-    await expect
-        .poll(
-            () => page.evaluate(() => localStorage.getItem("color-picker-bg")),
-            { timeout: 8000 },
-        )
-        .toMatch(/^#[0-9a-f]{6}$/i);
+    // Wait for BOTH debounced write-throughs to land: the boot GROUND record
+    // (color-picker-ground — the atmosphere sink's W2-2 {stops,scheme,
+    // deriveVersion} shape) AND the color store (color-picker.inputColor —
+    // the seed hydration restores from). A real returning user comes back
+    // long after both writes; navigating between them fabricates a
+    // half-persisted session no user ever has.
+    const groundBase = () =>
+        page.evaluate(() => {
+            try {
+                const rec = JSON.parse(
+                    localStorage.getItem("color-picker-ground") ?? "null",
+                ) as { stops?: string[] } | null;
+                return rec?.stops?.[0] ?? null;
+            } catch {
+                return null;
+            }
+        });
+    await expect.poll(groundBase, { timeout: 8000 }).toMatch(/^#[0-9a-f]{6}$/i);
     await expect
         .poll(
             () =>
@@ -78,9 +88,7 @@ test("O-2 real-hydration — a returning-user bare reload restores the derived f
             { timeout: 8000 },
         )
         .toContain("145"); // the seed's hue landed in the persisted projection
-    const persisted = await page.evaluate(() =>
-        localStorage.getItem("color-picker-bg"),
-    );
+    const persisted = await groundBase();
 
     // ── RETURNING-USER COLD LOAD: reload at the BARE root (no URL colour) so the
     //    ONLY source is the persisted localStorage — the real restoreFromStorage

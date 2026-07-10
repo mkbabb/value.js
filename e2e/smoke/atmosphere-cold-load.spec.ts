@@ -5,6 +5,7 @@ import {
     canvasPresents,
     ATMOSPHERE_TESTID,
 } from "./fixtures/webgl-appearance";
+import { cssColorToHex } from "./fixtures/frame-diff";
 
 /**
  * S.W6 · W6-1 — the cold-load DERIVED-field gate (the wave's hard-gate row 1),
@@ -13,9 +14,10 @@ import {
  * Cold load at a URL color must paint the DERIVED aurora field first frame:
  * the boot-material token (`--saved-bg`) settles on the derived BASE stop of
  * the URL color (useAtmosphere's boot-material sink — boot ground → first
- * frame is ONE material), the persisted `color-picker-bg` write-through
- * carries the SAME derived stop for the next cold boot, and the field
- * presents (WebGL draws, or the CSS-gradient placeholder under software GL).
+ * frame is ONE material), the persisted GROUND record (`color-picker-ground`,
+ * the W2-2 `{stops, scheme, deriveVersion}` shape — boot/ground.ts) carries
+ * the SAME derived stops for the next cold boot, and the field presents
+ * (WebGL draws, or the CSS-gradient placeholder under software GL).
  * The stale raw session color — the pre-W6 corruption class ("stale hot-pink
  * every cold load") — must never survive into any of those surfaces.
  *
@@ -36,7 +38,17 @@ const STALE_BOOT_BG = "lab(92% 88.8 20 / 82.70%)";
 async function seedStaleSession(page: Page, scheme: "light" | "dark") {
     await page.addInitScript(
         ([bg, sch]) => {
-            localStorage.setItem("color-picker-bg", bg);
+            // A stale-but-VALID ground record in the hot-pink family (the
+            // corruption class, expressed in the W2-2 record shape): the URL
+            // color's derive must overwrite every stop of it.
+            localStorage.setItem(
+                "color-picker-ground",
+                JSON.stringify({
+                    stops: ["#b37290", "#c98ba1", "#dfa5b2", "#f4c0c4"],
+                    scheme: sch,
+                    deriveVersion: 1,
+                }),
+            );
             localStorage.setItem(
                 "color-picker",
                 JSON.stringify({ inputColor: bg, savedColors: [] }),
@@ -47,12 +59,14 @@ async function seedStaleSession(page: Page, scheme: "light" | "dark") {
     );
 }
 
-function savedBg(page: Page): Promise<string> {
-    return page.evaluate(() =>
+// Registered `<color>` tokens (W2-2) compute to `rgb(…)` — normalize to hex.
+async function savedBg(page: Page): Promise<string> {
+    const raw = await page.evaluate(() =>
         getComputedStyle(document.documentElement)
             .getPropertyValue("--saved-bg")
             .trim(),
     );
+    return cssColorToHex(raw) ?? raw;
 }
 
 for (const scheme of ["light", "dark"] as const) {
@@ -68,14 +82,12 @@ for (const scheme of ["light", "dark"] as const) {
         ).toBeVisible();
 
         // The boot-material token settles on the DERIVED base stop of the URL
-        // color — a hex (oklchStopToHex), never the stale raw session string.
-        await expect
-            .poll(() => savedBg(page), { timeout: 8000 })
-            .toMatch(/^#[0-9a-f]{6}$/i);
-        const bg = await savedBg(page);
-        expect(bg, "stale session material must not survive").not.toBe(
-            STALE_BOOT_BG,
-        );
+        // color. W2-2 note: the fouc-guard paints the (stale) persisted ground
+        // INSTANTLY pre-paint and the sink's corrected write then rides the
+        // 200ms registered-<color> transition — so the poll waits for the
+        // SETTLED in-family value, not merely "a hex" (which the stale ground
+        // now satisfies at t=0 by design).
+        //
         // Seed-family read: the derived ramp of an H≈145 seed keeps its base
         // stop in the seed's yellow-green→green hue band. Under the variance
         // pull-back knobs (owner ruling 2026-07-05 §1.1: analogous walk,
@@ -84,34 +96,50 @@ for (const scheme of ["light", "dark"] as const) {
         // the former g>r channel compare is re-grounded on an honest HUE-BAND
         // assert: in-family olive→green passes; the stale hot-pink class
         // (hue ≈ 335°) and any complement-flank base (blue/purple) fail.
-        const [r, g, b] = [1, 3, 5].map((i) =>
-            parseInt(bg.slice(i, i + 2), 16),
-        );
-        const max = Math.max(r, g, b);
-        const min = Math.min(r, g, b);
-        const d = max - min;
-        const hue =
-            d === 0
+        const hueOfHex = (hex: string): number => {
+            const [r, g, b] = [1, 3, 5].map((i) =>
+                parseInt(hex.slice(i, i + 2), 16),
+            ) as [number, number, number];
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            const d = max - min;
+            return d === 0
                 ? NaN // achromatic — never a derived vivid-seed base stop
                 : max === r
                   ? (60 * ((g - b) / d) + 360) % 360
                   : max === g
                     ? 60 * ((b - r) / d) + 120
                     : 60 * ((r - g) / d) + 240;
+        };
+        await expect
+            .poll(async () => hueOfHex(await savedBg(page)), { timeout: 8000 })
+            .toBeLessThanOrEqual(180);
+        const bg = await savedBg(page);
+        const hue = hueOfHex(bg);
+        expect(bg, "stale session material must not survive").not.toBe(
+            STALE_BOOT_BG,
+        );
         expect(
             hue,
             `derived base stop ${bg} (hue ${hue.toFixed(1)}°) reads seed-family (yellow-green→green)`,
         ).toBeGreaterThanOrEqual(50);
-        expect(
-            hue,
-            `derived base stop ${bg} (hue ${hue.toFixed(1)}°) reads seed-family (yellow-green→green)`,
-        ).toBeLessThanOrEqual(180);
 
-        // Write-through: the persisted boot material for the NEXT cold load is
-        // the same derived stop (debounced 200ms → poll).
+        // Write-through: the persisted GROUND record for the NEXT cold load
+        // carries the same derived base stop (debounced 200ms → poll; the
+        // W2-2 shape — stops, never a gradient string).
         await expect
             .poll(
-                () => page.evaluate(() => localStorage.getItem("color-picker-bg")),
+                () =>
+                    page.evaluate(() => {
+                        try {
+                            const rec = JSON.parse(
+                                localStorage.getItem("color-picker-ground") ?? "null",
+                            ) as { stops?: string[] } | null;
+                            return rec?.stops?.[0] ?? null;
+                        } catch {
+                            return null;
+                        }
+                    }),
                 { timeout: 8000 },
             )
             .toBe(bg);

@@ -30,9 +30,16 @@ import {
     type AuroraAtoms,
 } from "@mkbabb/glass-ui/aurora";
 import { debounce } from "@mkbabb/value.js";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@composables/color/aurora-atoms";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/goo-blob";
 import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
+import {
+    GROUND_STORE_KEY,
+    buildGroundRecord,
+    normalizeGroundStops,
+    type GroundRecord,
+} from "./ground";
 
 /**
  * W6-7 — the pointer-as-light strength fed to the aurora cursor model. The
@@ -113,19 +120,45 @@ export function useAtmosphere(
             : undefined,
     );
 
-    // --- W6-1 (S.W6 · S-18): the boot-material sink — `--saved-bg` IS the
-    // derived BASE stop, never the raw picked colour. The pre-hydration ground
-    // (index.html's fouc-guard + style.css's body rule) and the field's own
-    // deepest stop are then ONE material: boot background → first aurora frame
-    // reads as the field texturing in over its own base, not a colour snap.
-    // Ownership note: this sink MOVED here from useColorPipeline's applyTokens
-    // (which persisted the raw opaque pick — the boot↔field material mismatch
-    // the owner saw as the load darkening). One writer: the atmosphere owns
-    // the boot material because it owns the derived field.
-    const persistBootMaterial = debounce(
-        (css: string) => {
+    // --- W2-2 (T.W2, supersedes W6-1's base-stop sink): THE GRADIENT GROUND.
+    // The boot material is the derived-palette GRADIENT — the whole material,
+    // never the deepest stop as a flat slab (t-aurora-boot F-2's dark-mud +
+    // luminance leap). The sink writes the four registered per-stop properties
+    // `--saved-bg-0..3` (+ `--saved-bg`, the base-stop solid fallback) on the
+    // root; body's FIXED gradient template (style.css) reads them, and each
+    // stop rides a 200ms OKLab transition (F-12: a discrete pick breathes into
+    // the new family — the rAF re-derive under drags outruns the transition,
+    // no double-animation). Persisted shape: `{stops, scheme, deriveVersion}`
+    // — STOPS, never a gradient string (M-11); boot/ground.ts owns the record.
+    // One writer: the atmosphere owns the boot material because it owns the
+    // derived field. Scheme rides the record so the fouc-guard can refuse the
+    // other band's material (F-6 dark honesty).
+    const { isDark } = useGlobalDark();
+    // The GROUND material is SCHEME-BANDED (F-6's cure): in dark the ground
+    // derives through the producer's own shipped dark band
+    // (`deriveAurora(seed, { scheme: "dark" })` — consuming a producer
+    // option, never forking the derive), so a dark boot grounds in dark
+    // material B0→B2 — and the first sink write for the DEFAULT seed is
+    // byte-identical to the FIRST_VISIT_GROUND dark constant (same derive).
+    // The FIELD itself remains light-band in dark — the atoms door ships no
+    // scheme/lBand (GAP-L2, probed at this dist: seed-atom resolution
+    // clobbers a base-palette override) — that half rides packet P1 and the
+    // W7 re-verify; the ground meets the dark field the day the atom lands.
+    const groundPalette = computed(() => {
+        const fieldPalette = resolvedPalette.value; // tracks seed/atom edits
+        if (!isDark.value) return fieldPalette;
+        const seed = auroraAtoms.seed;
+        if (typeof seed !== "string") return fieldPalette;
+        try {
+            return deriveAurora(seed, { scheme: "dark" });
+        } catch {
+            return fieldPalette;
+        }
+    });
+    const persistGround = debounce(
+        (record: GroundRecord) => {
             try {
-                localStorage.setItem("color-picker-bg", css);
+                localStorage.setItem(GROUND_STORE_KEY, JSON.stringify(record));
             } catch {
                 /* private-mode */
             }
@@ -134,15 +167,26 @@ export function useAtmosphere(
         false,
     );
     watch(
-        () => resolvedPalette.value[0],
-        (base) => {
-            if (!base) return;
-            const css = oklchStopToHex(base);
-            // Live var first (the body ground tracks the field in-session),
-            // then the debounced cold-boot persistence (mirrors the colour
-            // store's 200ms write-through cadence).
-            document.documentElement.style.setProperty("--saved-bg", css);
-            persistBootMaterial(css);
+        [groundPalette, isDark],
+        ([palette, dark]) => {
+            if (!palette?.length) return;
+            const stops = normalizeGroundStops(palette.map(oklchStopToHex));
+            const root = document.documentElement.style;
+            stops.forEach((stop, i) => root.setProperty(`--saved-bg-${i}`, stop));
+            const base = stops[0];
+            if (!base) return; // unreachable (normalized to 4) — type honesty
+            // The solid base-stop fallback var (unregistered consumers +
+            // the no-gradient degradation path).
+            root.setProperty("--saved-bg", base);
+            // W2-3 theme-color B0 sub-clause: the browser chrome rides the
+            // ground's base stop, updated beside the pick transition (the
+            // meta is minted pre-paint by the index.html boot script).
+            document
+                .querySelector('meta[name="theme-color"]')
+                ?.setAttribute("content", base);
+            persistGround(
+                buildGroundRecord(stops, dark ? "dark" : "light"),
+            );
         },
         { immediate: true },
     );
