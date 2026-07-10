@@ -5,7 +5,8 @@ import {
 } from "@lucide/vue";
 import { DockSeparator } from "@mkbabb/glass-ui/dock";
 import { Button } from "@components/ui/button";
-import { DarkModeToggle, useGlobalDark } from "@components/custom/dark-mode-toggle";
+import { DarkModeToggle } from "@mkbabb/glass-ui/controls";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuLabel,

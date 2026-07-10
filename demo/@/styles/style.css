@@ -358,8 +358,9 @@
     }
 }
 
-/* D.W4 Lane A: .palette-card-grid + .palette-tab-content[data-state="inactive"]
- * containment hints colocated into PaletteCardGrid.vue + PaletteDialog.vue. */
+/* D.W4 Lane A: .palette-card-grid containment hints colocated into
+ * PaletteCardGrid.vue. (The `.palette-tab-content` cascade died with
+ * PaletteDialog.vue — the dialog-era shell excised at T.W0-3, CC-6.) */
 
 /* ── App layout ──
  * Flex column: padding-top reserves the fixed dock's band (--dock-total),
@@ -500,10 +501,10 @@
     -webkit-backdrop-filter: none;
 }
 
-/* D.W4 Lane A: .palette-tab-content (data-state cascade) colocated into
- * PaletteDialog.vue's unscoped <style>; .touch-gate-* cluster colocated into
- * ComponentSliders.vue's unscoped <style>; .pane-scroll-fade colocated into
- * PaneHeader.vue's unscoped <style> (alongside the --pane-scroll consumers). */
+/* D.W4 Lane A: .touch-gate-* cluster colocated into ComponentSliders.vue's
+ * unscoped <style>; .pane-scroll-fade colocated into PaneHeader.vue's unscoped
+ * <style> (alongside the --pane-scroll consumers). (The `.palette-tab-content`
+ * data-state cascade died with PaletteDialog.vue at T.W0-3, CC-6.) */
 
 /* Slug pill — the user/palette slug chip recipe, shared across the dock menus,
  * the admin users panel, and the slug bar (was copy-pasted at 5+ sites).

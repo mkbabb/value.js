@@ -3,7 +3,8 @@ import { inject } from "vue";
 import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, MoreVertical,
 } from "@lucide/vue";
-import { DarkModeToggle, useGlobalDark } from "@components/custom/dark-mode-toggle";
+import { DarkModeToggle } from "@mkbabb/glass-ui/controls";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuLabel,

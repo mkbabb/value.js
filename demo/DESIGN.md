@@ -83,7 +83,7 @@ Glass-ui ships a 5-rung tier ladder (glass-ui DESIGN.md §Glass Surfaces): wash 
 
 - `<Card tier="resting">` — the picker pane shell (`ColorPicker.vue:~30`). The canonical translucent+frosted plate.
 - `<Card tier="wash" :shadow="false" :grain="false">` — every browsing/listing pane (BrowsePane, PalettesPane, MixPane, AdminPane, etc.). Shadow + grain are off because these panes scroll and the cartoon rung would compete with their scroll fades.
-- `.glass-floating` — direct utility on the swatch edit overlay (CurrentPaletteEditor.vue), the bulk-action toolbar (BulkActionToolbar.vue). For popover-tier chrome that sits over a Card.
+- `.glass-floating` — direct utility on the swatch edit overlay (CurrentPaletteEditor.vue). For popover-tier chrome that sits over a Card.
 
 `.input-bar` is the one non-tier glass surface in use (PaletteRenameInput.vue). It is glass-ui's input-chrome recipe (glass-ui DESIGN.md §Glass Surfaces → Convenience shorthands), kept verbatim.
 

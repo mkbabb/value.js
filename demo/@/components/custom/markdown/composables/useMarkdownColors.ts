@@ -1,4 +1,4 @@
-import { useGlobalDark } from "@components/custom/dark-mode-toggle";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { computed } from "vue";
 import { parseCSSColor } from "@src/parsing/color";
 import { computeSafeAccent } from "@src/units/color/contrast";

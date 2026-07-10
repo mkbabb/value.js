@@ -13,13 +13,13 @@
             @submit.prevent="onSlugSwitch"
             @keydown.escape.stop="slugEditMode = false"
         >
-            <!-- TODO: collapse to <Button size='icon-sm'> when glass-ui ships the rung (Q.md ask #7) -->
             <!-- W5-a11y: icon-only submit / close buttons need accessible names -->
             <Button
                 type="submit"
                 variant="ghost"
                 icon-only
-                class="h-6 w-6 shrink-0"
+                size="xs"
+                class="shrink-0"
                 :disabled="!slugInput.trim() || slugSwitching"
                 :aria-label="slugSwitching ? 'Signing in…' : 'Sign in with slug'"
             >
@@ -30,7 +30,8 @@
                 type="button"
                 variant="ghost"
                 icon-only
-                class="h-6 w-6 shrink-0"
+                size="xs"
+                class="shrink-0"
                 aria-label="Cancel slug edit"
                 @click="slugEditMode = false"
             >

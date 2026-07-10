@@ -8,7 +8,8 @@
  * H.W3 Lane A — extracted from `api.ts §ADMIN — PALETTES` +
  * `§ADMIN — BATCH ACTIONS` (palette half) + `§ADMIN — FLAGGED PALETTES`.
  * W5-13 · F-5: `batchPaletteAction` deleted — a wired wrapper with zero UI
- * consumers (`BulkActionToolbar` is present but nothing fed it batch calls).
+ * consumers (nothing ever fed it batch calls; its would-be toolbar consumer
+ * was itself excised at T.W0-3).
  */
 
 import type { FlaggedPalette, PaginatedResponse } from "../types";

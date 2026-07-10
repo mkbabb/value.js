@@ -332,16 +332,7 @@ export const COLOR_FUNCTION_FORM: Record<ColorSpace, ColorFunctionForm> = {
 // `string`. The `Record<...>` assertion inside is the single dynamic-index
 // boundary; callers stay cast-free and fully typed.
 //
-// `ColorComponent<C>` exposes the per-space component key set for callers that
-// DO have a concrete space literal (it collapses to the shared keys under a
-// space union — by design).
 // ──────────────────────────────────────────────────────────────────────────────
-
-export type ColorSpaceRanges = typeof COLOR_SPACE_RANGES;
-export type ColorSpaceDenormUnits = typeof COLOR_SPACE_DENORM_UNITS;
-
-/** Components of a color space (the keys of its range record). */
-export type ColorComponent<C extends ColorSpace> = keyof ColorSpaceRanges[C];
 
 /** A `{ min, max }` bound — the value type of every per-unit range entry. */
 export interface ColorSpaceBound {
