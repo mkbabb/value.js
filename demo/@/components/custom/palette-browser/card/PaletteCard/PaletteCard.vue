@@ -8,15 +8,16 @@
             // (consumed via the border-card-edge bridge), the chip-scale
             // cartoon rung at rest, and a law-3 hover that DEEPENS the same
             // voice (sm → md) instead of lurching from none to the full rung.
-            // S.W5-2 (S-20): the card joins the glass rung — bg-card/75 +
-            // backdrop blur, so the pane plate reads through instead of the
-            // opaque cream punching a hole in it. PaletteCardSkeleton +
+            // T.W3-1 (D1 rung-2 WELL; supersedes S-20 — R8): the card is an
+            // in-plate fixture — an opaque tone-step of the host plate
+            // (`bg-well`), never heavier glass than its host (RC-2). The
+            // blur dies with the glass recipe. PaletteCardSkeleton +
             // .dashed-well speak the same shell by construction.
             // NO overflow-hidden (S.W5-10 / S-15-A): a card-level radius clip
             // rasterizes 1-bit at compositing-layer bounds (the stair-stepped
             // strip corner in the owner's shot); the strip clips its OWN
             // corners below — an interior clip keeps normal AA.
-            'group rounded-card border border-card-edge bg-card/75 backdrop-blur-sm shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
+            'group rounded-card border border-card-edge bg-well shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
         role="article"

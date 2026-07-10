@@ -249,7 +249,7 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
             v-if="selectedStop && removable"
             type="button"
             aria-label="Remove selected stop"
-            class="absolute w-6 h-6 top-11 rounded-full border border-card-edge bg-card text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            class="absolute w-6 h-6 top-11 rounded-full border border-card-edge bg-well text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             :style="{
                 left: handleLeft(selectedStop.position),
                 transform: 'translate(-50%, 0)',

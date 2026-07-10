@@ -147,14 +147,15 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <!-- `paper-grain-overlay` (W5-10): the producer's per-surface grain
-         register, opted back in as dither over the page's largest smooth
-         field — the S-15-B discipline after the universal grain plane's
-         retirement (grain is opt-in per surface now, and this plate is the
-         page's banding-prone surface). -->
+    <!-- T.W3-1 (D1 rung-2 WELL, Q4-defaulted): the plate DROPS to the well —
+         an opaque tone-step of the host; the nested-protagonist double-stamp
+         (a full `shadow-card` cartoon rung inside a host plate) dies (T-18,
+         t-card-material RC-2). `paper-grain-overlay` (W5-10) survives on its
+         own rationale: dither over the page's banding-prone smooth field
+         (S-15-B) — a paint-quality register, not a material stamp. -->
     <div
         ref="hostRef"
-        class="relative h-28 sm:h-32 rounded-card border border-card-edge bg-card overflow-hidden shadow-card paper-grain-overlay"
+        class="relative h-28 sm:h-32 rounded-card border border-card-edge bg-well overflow-hidden paper-grain-overlay"
         role="img"
         :aria-label="`Perceived-space plate: OKLCH lightness–chroma slice at hue ${Math.round(hue)} degrees with the gradient's trajectory and stops`"
     >

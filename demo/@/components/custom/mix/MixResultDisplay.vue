@@ -48,8 +48,11 @@ async function onCopy() {
 </script>
 
 <template>
+    <!-- T.W3-1 (D1 rung-2 WELL): an in-plate fixture — the floating-rung
+         glass (heavier than its host, the RC-2 inversion) drops to the
+         opaque well tone-step. -->
     <div
-        class="mix-plate flex flex-col gap-3 p-4 rounded-xl glass-floating"
+        class="mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well"
         :class="{ 'mix-plate--ghost': ghost }"
     >
         <span class="font-display text-caption font-bold text-muted-foreground uppercase tracking-wide">Result</span>

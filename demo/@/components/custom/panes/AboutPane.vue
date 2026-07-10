@@ -1,8 +1,6 @@
 <template>
     <Card
-        tier="wash"
-        :shadow="false"
-        :grain="false"
+        tier="resting"
         class="about-card pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
     >
         <!-- S.W4 W4-1 (the S-1 parity half): the de-capsuled selector inlines

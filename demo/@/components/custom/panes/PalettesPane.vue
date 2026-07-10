@@ -1,5 +1,5 @@
 <template>
-    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <Card tier="resting" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <!-- S.W5-7 (Q4 EXCISE): the heading joins every other pane title —
              ink, display voice; the palette-ness is carried by the cards. -->
         <PaneHeader description="Save, organize, and share your colors.">

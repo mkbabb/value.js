@@ -1,9 +1,7 @@
 <template>
     <div class="relative w-full mx-auto h-full min-w-0">
         <Card
-            tier="wash"
-            :shadow="false"
-            :grain="false"
+            tier="resting"
             class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
         >
             <PaneHeader description="Pull palettes from any image.">Extract</PaneHeader>

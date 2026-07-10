@@ -59,7 +59,7 @@ defineExpose({ clearSelection, startMix, copyResult });
 
 <template>
     <div class="relative w-full mx-auto h-full min-w-0">
-        <Card tier="wash" :shadow="false" :grain="false" class="relative pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
+        <Card tier="resting" class="relative pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
             <!-- The mix convergence overlay (S.W3-6 / Q10): drops from the
                  selected chips arc to the result plate's awaiting well. Its
                  rAF timeline is the ONE clock; @settled is the phase

@@ -1,7 +1,11 @@
 <template>
     <!-- enter/exit family — opacity-only geometry (--vj-enter-y pinned to 0). -->
     <Transition name="vj-enter" @after-enter="onTransitionEnd">
-        <div class="absolute inset-0 z-popover flex flex-col bg-card/75 backdrop-blur-sm rounded-panel overflow-hidden" style="--vj-enter-y: 0px">
+        <!-- T.W3-1 (D1 rung-3 CHROME, Q4-defaulted: "eyedropper overlay stays
+             chrome"): a TRUE floating overlay over live image content — the
+             producer floating rung replaces the hand-minted bg-card/75 glass
+             (the T-CM-4 parallel-mint class). -->
+        <div class="absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden" style="--vj-enter-y: 0px">
             <!-- Top bar -->
             <div class="flex items-center gap-2 px-3 py-2 shrink-0" :style="{ '--hover-color': sampledColor ?? '' }">
                 <DockIconButton class="eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">

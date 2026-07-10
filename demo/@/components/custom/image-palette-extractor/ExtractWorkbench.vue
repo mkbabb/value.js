@@ -25,11 +25,16 @@
                     @click="session.previewDataUrl.value && (eyedropperActive = true)"
                 />
 
-                <!-- Camera viewfinder (unified capability — T20) -->
+                <!-- Camera viewfinder (unified capability — T20).
+                     T.W3-1 (D1 rung-4 STAGE): the photographic ground + its
+                     caption veil + on-stage chrome read the NAMED near-black
+                     pair (--stage/--on-stage-chrome) — the raw bg-black/
+                     bg-white literals die (census §1.E; CC-7). The chip's
+                     backdrop-blur is TRUE glass: it floats over live video. -->
                 <Transition name="vj-enter">
                     <div
                         v-if="cameraActive"
-                        class="relative rounded-panel overflow-hidden bg-black shrink-0"
+                        class="relative rounded-panel overflow-hidden bg-stage shrink-0"
                     >
                         <video
                             ref="videoRef"
@@ -39,15 +44,15 @@
                             class="w-full max-h-[200px] object-cover"
                         />
                         <div
-                            class="absolute inset-x-0 bottom-0 flex justify-center p-2.5 bg-gradient-to-t from-black/50 to-transparent"
+                            class="absolute inset-x-0 bottom-0 flex justify-center p-2.5 bg-gradient-to-t from-stage/50 to-transparent"
                         >
                             <DockIconButton
                                 compact
-                                class="p-1.5 bg-white/20 hover:bg-white/40 backdrop-blur-sm"
+                                class="p-1.5 bg-on-stage-chrome/20 hover:bg-on-stage-chrome/40 backdrop-blur-sm"
                                 title="Capture frame"
                                 @click="captureFrame"
                             >
-                                <Aperture class="w-4.5 h-4.5 text-white" />
+                                <Aperture class="w-4.5 h-4.5 text-on-stage-chrome" />
                             </DockIconButton>
                         </div>
                     </div>

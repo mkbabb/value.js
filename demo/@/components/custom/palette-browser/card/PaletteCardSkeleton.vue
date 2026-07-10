@@ -23,7 +23,7 @@
                         never re-defined here (§No-workaround). -->
     <div
         data-slot="palette-card-skeleton"
-        class="skeleton-ink-register rounded-card border border-card-edge bg-card/75 backdrop-blur-sm overflow-hidden shadow-cartoon-sm"
+        class="skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden shadow-cartoon-sm"
         role="status"
         aria-label="Loading palette"
     >
