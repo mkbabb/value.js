@@ -162,6 +162,36 @@ function resolveLiveTint(surface: InkSurface): SurfaceTint | undefined {
     return { L, alpha: resolved.alpha };
 }
 
+/**
+ * The tint cache — the RECIPE is scheme/epoch-scoped, never per-frame. A
+ * tier's painted tint changes only when the scheme class flips or the token
+ * cascade changes (an epoch event); the AMBIENT is what moves per frame. An
+ * uncached probe would interleave `getComputedStyle` + canvas readbacks with
+ * the boot writer's per-frame root `setProperty` writes — a forced style
+ * recalc EVERY drag frame (the §6.2 frame budgets are the gate this
+ * protects). Validity is stamped from DOM truth (the root `.dark` class at
+ * probe time), so a probe that raced a scheme flip self-corrects on the next
+ * reactive recompute — same self-healing as the uncached read, ~zero cost.
+ */
+interface TintCacheEntry {
+    darkClass: boolean;
+    epoch: number;
+    tint: SurfaceTint | undefined;
+}
+const liveTintCache = new Map<InkSurface, TintCacheEntry>();
+function resolveLiveTintCached(surface: InkSurface): SurfaceTint | undefined {
+    if (typeof document === "undefined") return undefined;
+    const darkClass = document.documentElement.classList.contains("dark");
+    const epoch = probeEpoch.value;
+    const hit = liveTintCache.get(surface);
+    if (hit && hit.darkClass === darkClass && hit.epoch === epoch) {
+        return hit.tint;
+    }
+    const tint = resolveLiveTint(surface);
+    liveTintCache.set(surface, { darkClass, epoch, tint });
+    return tint;
+}
+
 /** The surface referent, live-first: probe the painted recipe, compose with
  *  the ambient; the static model serves only where nothing can be measured.
  *  Tracks the probe epoch so a reactive caller re-drives its live read once
@@ -171,12 +201,11 @@ function surfaceLightnessNow(
     ambientL: number,
     dark: boolean,
 ): number {
-    void probeEpoch.value; // reactive dep — connection-truth invalidation
     return resolveSurfaceLightness(
         surface,
         ambientL,
         dark,
-        resolveLiveTint(surface),
+        resolveLiveTintCached(surface),
     );
 }
 
