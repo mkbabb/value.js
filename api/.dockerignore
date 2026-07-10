@@ -1,5 +1,7 @@
 node_modules
 dist
+**/__tests__
+test
 .env
 .env.local
 .env.example
