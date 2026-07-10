@@ -19,12 +19,12 @@ import { ChevronDown } from "@lucide/vue";
 import { EasingPicker } from "@mkbabb/glass-ui/easing";
 import type { EasingPickerMode, EasingPickerValue } from "@mkbabb/glass-ui/easing";
 import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
-import { serializeIntervalRamp } from "./composables/useGradientCSS";
+import { serializeIntervalRamp } from "../composables/useGradientCSS";
 import type {
     GradientInterval,
     GradientModelState,
     GradientStop,
-} from "./composables/useGradientModel";
+} from "../composables/useGradientModel";
 
 const { stops, intervals, modelState, epoch } = defineProps<{
     stops: GradientStop[];

@@ -25,7 +25,7 @@ import { oklabToLinearSRGBInto } from "@mkbabb/value.js/color";
 import type { Vec3 } from "@mkbabb/value.js/color";
 import { drawHatch, drawSecondNet } from "@lib/gamut-ink";
 import type { ResolvedInks } from "@lib/gamut-ink";
-import type { RampPoint, StopPoint } from "./composables/usePerceivedRamp";
+import type { RampPoint, StopPoint } from "../../composables/usePerceivedRamp";
 
 /**
  * The C axis paint scale. The sRGB cusp peaks ≈0.322 (blue) and wide-space

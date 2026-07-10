@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, useTemplateRef } from "vue";
 import { X } from "@lucide/vue";
-import type { GradientStop } from "./composables/useGradientModel";
+import type { GradientStop } from "../composables/useGradientModel";
 
 const { stops, coalescedCSS, colorAt = undefined, rungs = undefined } = defineProps<{
     stops: GradientStop[];

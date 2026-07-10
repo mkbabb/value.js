@@ -29,7 +29,7 @@ import { cancelAnimationFrame, requestAnimationFrame } from "@mkbabb/value.js";
 import { createInkProbe, DPR_CAP } from "@lib/gamut-ink";
 import type { ResolvedInks } from "@lib/gamut-ink";
 import { paintPerceivedSpacePlate, paintSliceField } from "./perceivedSpacePaint";
-import type { RampPoint, StopPoint } from "./composables/usePerceivedRamp";
+import type { RampPoint, StopPoint } from "../../composables/usePerceivedRamp";
 
 const COLUMNS = 96; // the validated geometry default (boundary-api §2)
 

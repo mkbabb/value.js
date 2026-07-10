@@ -2,7 +2,7 @@
 import { inject, ref } from "vue";
 import { Card } from "@components/ui/card";
 import PaneHeader from "./PaneHeader.vue";
-import GradientVisualizer from "@components/custom/gradient/GradientVisualizer.vue";
+import GradientVisualizer from "@components/custom/gradient/GradientVisualizer/GradientVisualizer.vue";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;

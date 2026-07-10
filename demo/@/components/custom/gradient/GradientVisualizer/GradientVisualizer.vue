@@ -14,16 +14,16 @@ import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import GradientStopEditor from "./GradientStopEditor.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
 import GradientEasingEditor from "./GradientEasingEditor.vue";
-import PerceivedSpacePlate from "./PerceivedSpacePlate.vue";
+import PerceivedSpacePlate from "./PerceivedSpacePlate/PerceivedSpacePlate.vue";
 import {
     useGradientModel,
     INTERPOLATION_SPACES,
     HUE_INTERPOLATION_METHODS,
-} from "./composables/useGradientModel";
-import type { GradientType } from "./composables/useGradientModel";
-import { interpolateStopColors } from "./composables/useGradientInterpolation";
-import { usePerceivedRamp } from "./composables/usePerceivedRamp";
-import { easingFnOf } from "./composables/useGradientCSS";
+} from "../composables/useGradientModel";
+import type { GradientType } from "../composables/useGradientModel";
+import { interpolateStopColors } from "../composables/useGradientInterpolation";
+import { usePerceivedRamp } from "../composables/usePerceivedRamp";
+import { easingFnOf } from "../composables/useGradientCSS";
 import type { ColorSpace } from "@mkbabb/value.js/color";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
