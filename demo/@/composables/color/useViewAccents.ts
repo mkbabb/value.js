@@ -28,7 +28,7 @@
 
 import { watch } from "vue";
 import type { ComputedRef } from "vue";
-import { useDark } from "@vueuse/core";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 
 import { VIEW_MAP } from "@composables/viewSchema";
 import type { PaneConfig, ViewId } from "@composables/viewSchema";
@@ -68,7 +68,7 @@ export interface UseViewAccentsOptions {
 
 export function useViewAccents(options: UseViewAccentsOptions): void {
     const { cssColorOpaque, safeAccentCss, currentConfig } = options;
-    const isDark = useDark({ disableTransition: false });
+    const { isDark } = useGlobalDark();
     const bgL = () => (isDark.value ? BG_LIGHTNESS_DARK : BG_LIGHTNESS_LIGHT);
 
     // The 9 static per-view tokens — recomputed per accent change + scheme flip.
