@@ -128,7 +128,7 @@ import { computed, onMounted, provide, ref, shallowRef, useTemplateRef } from "v
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import { ColorPicker } from "@components/custom/color-picker";
-import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@composables/color/keys";
 
 import { Dock } from "@components/custom/dock";
 // PI-6: DIRECT imports (not via the dialog/status barrels) keep the eager index.js chunk from pulling the lazy sibling dialogs' side-effecting <style>.
@@ -137,8 +137,8 @@ import DevMisconfigBanner from "@components/custom/palette-browser/status/DevMis
 import PaneSlot from "@components/custom/panes/PaneSlot.vue";
 
 import { defaultColorModel } from "@components/custom/color-picker";
-import { useCustomColorNames } from "@components/custom/color-picker/composables/useCustomColorNames";
-import { useColorUrl } from "@components/custom/color-picker/composables/useColorUrl";
+import { useCustomColorNames } from "@composables/color/useCustomColorNames";
+import { useColorUrl } from "@composables/color/useColorUrl";
 
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { useColorPipeline } from "@composables/color/useColorPipeline";

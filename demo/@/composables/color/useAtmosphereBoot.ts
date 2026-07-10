@@ -47,7 +47,7 @@
 import { watch, provide } from "vue";
 import type { ComputedRef, ShallowRef } from "vue";
 
-import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
+import { SAFE_ACCENT_KEY } from "@composables/color/keys";
 import type { PaneConfig } from "@composables/useViewManager";
 import { useContrastSafeColor } from "./useContrastSafeColor";
 import { useViewAccents } from "./useViewAccents";

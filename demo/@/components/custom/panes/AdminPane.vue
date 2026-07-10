@@ -71,7 +71,7 @@ import { Card } from "@components/ui/card";
 import { Badge } from "@components/ui/badge";
 
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
 import {
     AdminUsersPanel,
     AdminNamesPanel,

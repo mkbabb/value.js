@@ -4,7 +4,7 @@ import { Card } from "@components/ui/card";
 import PaneHeader from "./PaneHeader.vue";
 import GenerateControls from "@components/custom/generate/GenerateControls.vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import type { PaletteColor } from "@lib/palette/types";
 

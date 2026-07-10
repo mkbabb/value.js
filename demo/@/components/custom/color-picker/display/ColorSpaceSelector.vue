@@ -99,7 +99,7 @@ import {
     resolveColorSpace,
 } from "..";
 import type { DisplayColorSpace } from "..";
-import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../keys";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
 
 const { modelValue, cssColor } = defineProps<{
     modelValue: string;

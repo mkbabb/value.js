@@ -14,10 +14,10 @@ import PaneSegmentedControl from "@components/custom/panes/PaneSegmentedControl.
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
 import { usePopupMutex } from "./composables/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
-import type { ActionBarContext } from "@components/custom/color-picker/keys";
+import type { ActionBarContext } from "@composables/color/keys";
 import type { EditTarget } from "@components/custom/color-picker";
 import type { DockActionBar } from "@composables/usePaneRouter";
 

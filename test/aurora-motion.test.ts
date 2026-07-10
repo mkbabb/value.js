@@ -4,7 +4,7 @@
  *
  * The TRUE root of U33 was the demo default `motion:"breathing"` — the register
  * that zeroes SPATIAL drift (the field pulses in place at most). The fix flips
- * the demo default (`DEFAULT_AURORA_ATOMS`, `panes/keys.ts`) to `"drifting"`,
+ * the demo default (`DEFAULT_AURORA_ATOMS`, `@composables/color/aurora-atoms.ts`) to `"drifting"`,
  * the spatial-drift register.
  *
  * This is a temporal-oracle STAND-IN that is fully device-independent (the
@@ -23,7 +23,7 @@ import { describe, expect, it } from "vitest";
 
 import { resolveAtoms } from "@mkbabb/glass-ui/aurora";
 
-import { DEFAULT_AURORA_ATOMS } from "../demo/@/components/custom/panes/keys";
+import { DEFAULT_AURORA_ATOMS } from "../demo/@/composables/color/aurora-atoms";
 
 describe("aurora default motion (U33 — the field drifts)", () => {
     it("the demo default selects the spatial-drift register, not breathing", () => {

@@ -163,7 +163,7 @@ import { Aperture } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import type { ColorSpace } from "@mkbabb/value.js/color";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
 import { useExtractSession } from "./composables/useExtractSession";
 
 import ImageDropZone from "./ImageDropZone.vue";

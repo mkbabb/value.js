@@ -6,7 +6,7 @@ import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
 
 export { default as ColorPicker } from "./ColorPicker.vue";
 export { default as ColorNutritionLabel } from "./display/ColorNutritionLabel.vue";
-export type { ActionBarContext } from "./keys";
+export type { ActionBarContext } from "@composables/color/keys";
 export { colorSpaceInfo } from "./colorSpaceInfo";
 
 export interface EditTarget {

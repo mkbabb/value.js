@@ -95,8 +95,8 @@ import { useMagicKeys } from "@vueuse/core";
 import { useIdleReady } from "@mkbabb/glass-ui/dom";
 import type { ColorModel, EditTarget } from ".";
 import { toCSSColorString, resolveColorSpace } from ".";
-import { COLOR_MODEL_KEY } from "./keys";
-import type { ActionBarContext } from "./keys";
+import { COLOR_MODEL_KEY } from "@composables/color/keys";
+import type { ActionBarContext } from "@composables/color/keys";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 

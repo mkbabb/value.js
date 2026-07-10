@@ -153,7 +153,7 @@
 </template>
 <script setup lang="ts">
 import { computed, ref, inject } from "vue";
-import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
+import { SAFE_ACCENT_KEY } from "@composables/color/keys";
 import type { ColorSpace } from "@mkbabb/value.js/color";
 import {
     COLOR_SPACE_RANGES,

@@ -30,7 +30,7 @@ import {
     type AuroraAtoms,
 } from "@mkbabb/glass-ui/aurora";
 import { debounce } from "@mkbabb/value.js";
-import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@components/custom/panes/keys";
+import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@composables/color/aurora-atoms";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/goo-blob";
 import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
 

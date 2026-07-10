@@ -161,7 +161,7 @@ import { inject, reactive, ref, computed, onMounted } from "vue";
 import { Card } from "@components/ui/card";
 import { Button } from "@components/ui/button";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
 import {
     PaletteCard,
     PaletteCardGrid,

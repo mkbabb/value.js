@@ -1,7 +1,7 @@
 import { ref, computed, inject, watch } from "vue";
 import type { Ref, ShallowRef } from "vue";
 import type { EditTarget } from "@components/custom/color-picker";
-import { EDIT_TARGET_KEY } from "@components/custom/color-picker/keys";
+import { EDIT_TARGET_KEY } from "@composables/color/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { CURRENT_PALETTE_ID } from "@lib/palette/constants";
 import { useHoverPopover } from "./useHoverPopover";

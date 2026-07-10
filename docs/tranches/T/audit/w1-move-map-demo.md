@@ -184,6 +184,39 @@ shared `card.js`/`card.css`; the glass-ui `search`/`input` basename collisions p
 strip-hash roll-up). Same stable-level interpretation as batch 5. **Gates**: typecheck 0 · lint 0 ·
 vitest 2158/2158 · keyframe census 18/18 · build clean.
 
+## Batch 7 — the color-domain ATOMIC codemod (F2/F3/F6; the LAST of the moves, all-or-nothing) — LANDED
+
+The color domain unifies under `@composables/color/`: the picker-nested color helpers RISE beside
+`useColorPipeline` (F2), the app-wide color contract keys RISE (F3), and the mis-domained aurora
+atoms RISE (F6). ONE commit — the highest-blast edge in the tree, sequenced after every other move
+so the tree was stable when it landed.
+
+| old path | new path |
+|---|---|
+| `color-picker/composables/{useColorParsing,useColorNameResolution,useSliderGradients,useCustomColorNames,useColorUrl,normalizedColorNames}.ts` (F2) | `@composables/color/*` (the intra-cluster `./` refs survive — all 6 move together) |
+| `color-picker/keys.ts` (F3 — `COLOR_MODEL_KEY`·`CSS_COLOR_KEY`·`SAFE_ACCENT_KEY`·`EDIT_TARGET_KEY`·`ActionBarContext`) | `@composables/color/keys.ts` |
+| `panes/keys.ts` (F6 — `AURORA_ATOMS_KEY`·`DEFAULT_AURORA_ATOMS`; domain-qualified, NOT a 2nd `panes/keys`) | `@composables/color/aurora-atoms.ts` |
+
+**F3 blast radius = the census's ~24 (NOT the recovery-brief's 17)**: the brief listed the **17
+out-of-feature** `@components/custom/color-picker/keys` importers; the census's **8 in-feature**
+importers use RELATIVE `./keys`/`../keys` (`ColorPicker` ×2, `ColorInput`, `SpectrumCanvas`,
+`ComponentSliders`, `ParseEchoReadout`, `display/ColorSpaceSelector`, `visual/HeroBlob`) — **the
+alias-grep missed them; vue-tsc caught them** (the atomic-codemod gate working as designed). All
+repoint to `@composables/color/keys`. Plus the barrel back-ref (`color-picker/index.ts`
+`export type { ActionBarContext } from "./keys"` → `@composables/color/keys`) and keys.ts's own
+`EditTarget from "."` → `@components/custom/color-picker` (the type-only picker↔color pair stays
+acyclic — both `import type`). `useColorPipeline`'s 3 F2 imports → `./…`; App.vue's 2
+(`useCustomColorNames`, `useColorUrl`) → `@composables/color/…`; `useAtmosphere` + `AuroraPane` →
+`@composables/color/aurora-atoms`. F2 helpers keep their `@components/custom/color-picker` barrel
+imports (color utils — the picker's PUBLIC surface, not its private folder; the F2 inversion is cured).
+
+**Consumer migration (PP-3)**: `test/aurora-motion.test.ts` imported the old `panes/keys` — repointed
+to `@composables/color/aurora-atoms` (a demo file this unit test consumes; the move's consumer).
+
+**O-23 (batch 7, vs `o23-pre-batch5.json`)**: aggregate **−0.131%** · eager `index.js` flat. Pure
+composable import-path rewrites (no SFC styles move) — chunk-graph-neutral. **Gates**: typecheck 0 ·
+lint 0 · vitest 2158/2158 · keyframe census 18/18 · build clean · zero `export *`, zero shim.
+
 ---
 
 ## Cohesion cargo (distinct commits — §Commit plan)

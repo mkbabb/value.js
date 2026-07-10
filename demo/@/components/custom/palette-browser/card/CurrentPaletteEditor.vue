@@ -163,7 +163,7 @@
 
 <script setup lang="ts">
 import { inject, ref, toRef, TransitionGroup } from "vue";
-import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
+import { SAFE_ACCENT_KEY } from "@composables/color/keys";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import {

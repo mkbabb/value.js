@@ -87,7 +87,7 @@ import { useSpectrumCrossfade } from "../composables/useSpectrumCrossfade";
 import { useSpectrumPlateStyle } from "../composables/useSpectrumPlateStyle";
 import SpectrumPlateCaption from "./SpectrumPlateCaption.vue";
 import SpectrumDetentLabel from "./SpectrumDetentLabel.vue";
-import { COLOR_MODEL_KEY } from "../keys";
+import { COLOR_MODEL_KEY } from "@composables/color/keys";
 
 const {
     model,
