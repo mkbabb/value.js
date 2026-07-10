@@ -29,8 +29,9 @@
 //   Born-RED PROVEN at authoring: reverting src/parsing to tranche-o and rebuilding
 //   drops the throughput below the cured level; byte-identical parse results were
 //   proven 3 ways (the 1871-test suite, an 89-case parse-corpus diff, scanner fuzz
-//   vs the regexes). The 1871-test suite is the deterministic CORRECTNESS oracle;
-//   proof:gamut-alloc (84 allocs/call) is the deterministic GAMUT guard.
+//   vs the regexes). The 1871-test suite is the deterministic CORRECTNESS oracle.
+//   (The former proof:gamut-alloc alloc-count guard was retired at T.W0 Q13 —
+//   ruled overfit; the gamut hot path stands by the type system + review now.)
 //
 // RATIO FLOORS (calibrated ~25% below the cured ratios so the gate is robust to
 // machine + noise variance while still catching a GROSS perf regression — e.g.
@@ -111,10 +112,10 @@ record(
         : "ratio below floor — stylesheet parse regressed",
 );
 
-// C3 gamut: the deterministic guard is `proof:gamut-alloc` (alloc count, not a
-// flaky ns/call timing). Reported here informationally only.
+// C3 gamut: reported here informationally only (a raw ns/call timing, never a
+// gate — the former proof:gamut-alloc alloc-count guard was retired at T.W0 Q13).
 console.log(
-    `  INFO  C3-gamut  gamutMap ${gamutNs.toFixed(0)} ns/call (informational; the hard gamut guard is proof:gamut-alloc — deterministic alloc count)`,
+    `  INFO  C3-gamut  gamutMap ${gamutNs.toFixed(0)} ns/call (informational only; not a gate)`,
 );
 
 const failed = results.filter((r) => !r.ok);

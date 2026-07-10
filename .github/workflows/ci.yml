@@ -201,6 +201,17 @@ jobs:
                   fi
                   echo "published tarball unpackedSize: $SIZE bytes (≤ $GATE PASS)"
 
+            # ── 3b · dist behavioral gates (the retained-5 proof:*, T.W0 W0-2) ─
+            # The Q13 retain-5/excise-7 split (LEG-1/F5): the five behavioral
+            # gates that exercise the BUILT dist survive as ONE CI-wired entry —
+            # `test:dist` = `npm run build && css-parity && round-trip-idempotent
+            # && perf-target && serialize-fidelity && subpath-budget`. It
+            # SELF-BUILDS (so it runs standalone locally too), which re-emits dist
+            # over the §3 build — cheap and deliberate. subpath-budget IS the
+            # parse-that-free bundle-trace invariant W1-src's gate reads.
+            - name: Test dist (the retained-5 behavioral gates — self-builds, W0-2)
+              run: npm run test:dist
+
             # ── 4 · test ────────────────────────────────────────────────────
             - name: Vitest (unit suite)
               run: npx vitest run
