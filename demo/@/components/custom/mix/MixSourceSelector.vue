@@ -5,7 +5,7 @@ import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components/ui/collapsible";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
-import { PaletteCard, PaletteColorStrip } from "@components/custom/palette-browser/card";
+import { PaletteCard, PaletteColorStrip, ShadowPalette } from "@components/custom/palette-browser/card";
 import EmptyState from "@components/common/EmptyState.vue";
 import type { Palette } from "@lib/palette/types";
 import type { SelectedColor } from "./composables/useMixingState";
@@ -212,16 +212,28 @@ watch(
 
         <!-- Palettes mode -->
         <template v-else>
-            <!-- S.W5-6 · F3: TRUE EMPTY speaks the specimen-plate register
-                 (Q6) — never the loading grammar. The eternal skeleton died:
-                 loading ≠ empty, and this store is synchronous (no loading
-                 state exists here at all). -->
-            <EmptyState
-                v-if="savedPalettes.length === 0"
-                eyebrow="· nothing to mix ·"
-                message="No saved palettes yet."
-                hint="Save two or more palettes, then pour them together here."
-            />
+            <!-- T.W3-2 · D9 (T-19, owner overrule R7 — supersedes the
+                 S.W5-6 F3 text plate): TRUE EMPTY displays the shadow
+                 palette in ALL cases — TWO ghosts, because the count IS
+                 the copy ("save two or more, then pour") — the caption
+                 seated beneath (dot-ghosts shed, N-3); the text plate
+                 never substitutes for the ghost. STILL by construction:
+                 this store is synchronous — no loading species exists
+                 here, and none is announced (F3's semantics survive; the
+                 material returns, honest). -->
+            <template v-if="savedPalettes.length === 0">
+                <ShadowPalette
+                    v-for="i in 2"
+                    :key="`ghost-${i}`"
+                    :hue-offset="(i - 1) * 2"
+                />
+                <EmptyState
+                    :dots="false"
+                    eyebrow="· nothing to mix ·"
+                    message="No saved palettes yet."
+                    hint="Save two or more palettes, then pour them together here."
+                />
+            </template>
             <!-- W5-a11y: native <button> for keyboard reach + aria-pressed for selection state -->
             <button
                 v-for="palette in savedPalettes"

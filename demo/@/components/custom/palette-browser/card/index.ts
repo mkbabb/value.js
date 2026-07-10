@@ -4,5 +4,6 @@
 export { default as PaletteCard } from "./PaletteCard/PaletteCard.vue";
 export { default as PaletteCardGrid } from "./PaletteCardGrid.vue";
 export { default as PaletteCardSkeleton } from "./PaletteCardSkeleton.vue";
+export { default as ShadowPalette } from "./ShadowPalette.vue";
 export { default as PaletteColorStrip } from "./PaletteColorStrip.vue";
 export { default as CurrentPaletteEditor } from "./CurrentPaletteEditor.vue";

@@ -7,20 +7,25 @@
          (hairline + glass rung + chip-scale cartoon stamp) so the ghost reads
          as "a palette card developing", not a foreign grey box.
 
-         Three temporal registers (S-10.4):
-         · shadow     — flat unified ink blocks on the 6s breath rung; the
-                        known-imminent wait (extract's undeveloped plate).
-         · specimen   — shadow + a low-chroma hue rotation around
-                        `--accent-live` on the strip segments (the ghost OF a
-                        palette, still clearly shadow). One relative-color
-                        recipe, per-segment `--i`.
-         · developing — specimen + the sequential top-to-bottom sweep for the
-                        unknown-duration network wait (Browse). The stagger
-                        rides the producer's `--skeleton-shimmer-delay` /
-                        `--skeleton-shimmer-tint` seams (letter L9): custom
-                        properties inherit into `::after`, so the choreography
-                        goes live the day glass-ui's shimmer reads them —
-                        never re-defined here (§No-workaround). -->
+         Two temporal registers (S-10.4, re-cut on D9's MOTION axis at
+         T.W3-2 — this component is the LOADING family only):
+         · shadow     — flat unified ink blocks on the breath rung (D9
+                        calibration below); the KNOWN-IMMINENT wait — local
+                        compute, seconds away (extract's plate developing).
+         · developing — + the specimen accent seams + the sequential
+                        top-to-bottom sweep for the unknown-duration NETWORK
+                        wait (Browse). The stagger rides the producer's
+                        `--skeleton-shimmer-delay` / `--skeleton-shimmer-tint`
+                        seams (letter L9): custom properties inherit into
+                        `::after`, so the choreography goes live the day
+                        glass-ui's shimmer reads them — never re-defined here
+                        (§No-workaround).
+         The third S.W5-1 register — `specimen`, "the ghost OF a palette" —
+         moved OUT of the loading family at T.W3-2: it is TRUE EMPTY's ink
+         and lives on the STILL `ShadowPalette` species (D9: loading ≠ empty,
+         re-cut on the motion axis; its walk now sits at the recipe root,
+         utils.css `.specimen-seg`). This shell keeps `role="status"` +
+         "Loading palette" because HERE work IS happening. -->
     <div
         data-slot="palette-card-skeleton"
         class="skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden shadow-cartoon-sm"
@@ -35,7 +40,7 @@
                 surface="glass"
                 :variant="blockVariant"
                 class="h-full rounded-none"
-                :class="variant !== 'shadow' && 'skeleton-seg'"
+                :class="variant === 'developing' && 'specimen-seg skeleton-seg'"
                 :style="{
                     width: `${100 / count}%`,
                     '--i': i - 1,
@@ -78,31 +83,35 @@ import { Skeleton } from "@components/ui/skeleton";
 
 const { count = 5, variant = "shadow" } = defineProps<{
     count?: number;
-    /** The three loading registers — see the template note. */
-    variant?: "shadow" | "specimen" | "developing";
+    /** The two LOADING registers — see the template note. TRUE EMPTY is not
+     *  a register here: it is the sibling `ShadowPalette` species (D9). */
+    variant?: "shadow" | "developing";
 }>();
 
-// `developing` sweeps (shimmer); `shadow`/`specimen` breathe (the 6s
-// known-imminent rung). The breath animation lives on the HOST element, so
+// `developing` sweeps (shimmer); `shadow` breathes (the known-imminent
+// rung, calibrated below). The breath animation lives on each block, so
 // its register needs no producer seam.
 const blockVariant = computed(() => (variant === "developing" ? "shimmer" : "breath"));
 </script>
 
 <style scoped>
 /* The ink base lives at the ONE recipe root (`utils.css
- * .skeleton-ink-register`); this block owns only the specimen tint. */
+ * .skeleton-ink-register`); the specimen walk likewise (`.specimen-seg`,
+ * lifted there at T.W3-2 when ShadowPalette became its second consumer).
+ * This block only bridges the walk into glass-ui's over-glass seam for the
+ * developing strip, and calibrates the D9 known-imminent breath. */
+.skeleton-seg {
+    --skeleton-glass-bg: var(--specimen-ink);
+}
 
-/* Specimen tint — the strip segments only: a low-chroma hue walk around the
- * live accent (fixed steps of 36°, C clamped low) mixed INTO the ink base so
- * the ghost stays shadow-first. Guarded: engines without relative-color
- * calc() keep the plain ink base (the recipe never falls to transparent). */
-@supports (color: oklch(from red calc(l) c calc(h + 36deg))) {
-    .skeleton-seg {
-        --skeleton-glass-bg: color-mix(
-            in oklab,
-            var(--skeleton-ink) 78%,
-            oklch(from var(--accent-live) l 0.12 calc(h + var(--i, 0) * 36deg))
-        );
-    }
+/* D9 known-imminent breath (T.W3-2): 0.55 ↔ 0.75 on `--ease-standard` over
+ * the producer's 6s ambient period — a quieter swell than the 0.95
+ * producer default, tuned ONLY through the published seams
+ * (`--pulse-aura-opacity-max`, `--animate-ambient-pulse-easing`), never a
+ * demo re-declaration of the producer keyframes. PRM stillness rides the
+ * producer's media query (parked at the 0.55 trough). */
+[data-slot="palette-card-skeleton"] {
+    --pulse-aura-opacity-max: 0.75;
+    --animate-ambient-pulse-easing: var(--ease-standard);
 }
 </style>

@@ -84,16 +84,25 @@
                     {{ session.quantizeError.value }}
                 </div>
 
-                <!-- The result plate. S.W5-6: loading wears the loading
-                     grammar (the developing skeleton — no generic spinner
-                     row, F12); the developed plate is ONE card whose own
-                     strip carries the population story (F7); TRUE EMPTY is
-                     the drop zone alone — the second invitation and the
-                     at-rest shimmer died (F1/F2, loading ≠ empty). -->
+                <!-- The result plate — D9's species grammar (T.W3-2; the T-13
+                     owner overrule R7 returns the material S.W5-6 F1/F2
+                     amputated, keeping its semantics). TRUE EMPTY wears the
+                     shadow palette: the instrument shows the shape of what
+                     it produces — `count` rides the k-slider LIVE, so k is
+                     legible before any image exists and the ghost
+                     re-segments under the slider. `isProcessing` swaps
+                     ghost → KNOWN-IMMINENT skeleton IN PLACE (same bones —
+                     a material change, not a layout jump; the `shadow`
+                     breath register, local compute — never the network
+                     `developing` sweep, whose name the old key mis-wore);
+                     the developed card (F7's one-card story) lands in the
+                     same seat. The caption carries the text for AT (the
+                     ghost is aria-hidden); the error line above stays its
+                     own explicit register (error ≠ empty). -->
                 <Transition name="vj-morph" mode="out-in">
                     <PaletteCardSkeleton
                         v-if="session.isProcessing.value"
-                        key="developing"
+                        key="imminent"
                         :count="session.colorCount.value"
                     />
                     <div
@@ -146,6 +155,16 @@
                             @add-color="(css) => emit('addColor', css)"
                         />
                     </div>
+                    <div v-else key="shadow" class="flex flex-col gap-2">
+                        <ShadowPalette :count="session.colorCount.value" />
+                        <!-- The resurrected `ec1b200` caption — the AT text
+                             for the aria-hidden ghost above. -->
+                        <p
+                            class="text-mono-caption uppercase tracking-[0.18em] text-muted-foreground text-center"
+                        >
+                            · undeveloped plate — feed it an image ·
+                        </p>
+                    </div>
                 </Transition>
             </div>
         </div>
@@ -174,7 +193,11 @@ import { useExtractSession } from "./composables/useExtractSession";
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
 import ImageEyedropper from "./ImageEyedropper/ImageEyedropper.vue";
-import { PaletteCard, PaletteCardSkeleton } from "@components/custom/palette-browser/card";
+import {
+    PaletteCard,
+    PaletteCardSkeleton,
+    ShadowPalette,
+} from "@components/custom/palette-browser/card";
 
 type DisplayColorSpace = ColorSpace | "hex";
 
