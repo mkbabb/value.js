@@ -445,9 +445,20 @@ onMounted(() => { loadCustomColorNames(); });
 .atmosphere-canvas--arrived {
     opacity: 1;
 }
-/* PRM-honest: reduce → no fade, the field is a static state change. */
+/* PRM-honest (T.W2 gate 5b — the instant-states law): the field is PRESENT
+   at terminal opacity from B0; the arm is a static CONTENT change, never a
+   fade. The bare `transition: none` was NOT enough — the producer's PRM
+   doctrine (glass-ui a11y-overrides.css) FORCES
+   `transition: opacity/color/… 0.1s !important` on every un-marked element
+   as a state-change fade, so the b2 opacity flip 0→1 still painted a 0.1s
+   mid-fade under PRM (annex 2026-07-10: dark leg read 0.5747 — the 5b
+   breach). Pinning opacity to 1 removes the CHANGE, so no transition of any
+   duration can fire; pre-arm the canvas buffer is transparent and the
+   same-material gradient ground shows through (one material from t0), and a
+   context-loss terminal likewise rests on the ground. */
 @media (prefers-reduced-motion: reduce) {
     .atmosphere-canvas {
+        opacity: 1;
         transition: none;
     }
 }
