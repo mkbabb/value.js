@@ -50,7 +50,8 @@ S.W0-1 seed-rider contract (R10) byte-preserved; per-item gates below. (SYNTHESI
 **Lane G — gradient tree** = W6-1 + W6-2 (the netting's re-judge surface IS the W3 gradient
 plate; `style.css` regions disjoint — netting @254-261 vs the surviving accent @223-224,
 t-nav-dropdowns:123). **Lane E — easing editor** = W6-3. **Lane D — dock+nav** =
-W6-4/W6-6/W6-7/W6-8. **Lane N — generate** = W6-5. Each lane closes on its own item gates +
+W6-4/W6-6/W6-7/W6-8 **+ the T-31 LAW row [OWNER-2026-07-10]** (the scope-table rider below —
+same lane, same files). **Lane N — generate** = W6-5. Each lane closes on its own item gates +
 evidence; the wave closes when all four do.
 
 ## §Scope (SYNTHESIS §3 T.W6 item table, transcribed verbatim — anchors + evidence lanes intact; anchors are pre-W1-move, re-derived at wave-open per PP-11)
@@ -65,6 +66,7 @@ evidence; the wave closes when all four do.
 | W6-6 | **T-9 re-home**: the banner dies; dock status lamp (first-paint, dev-gated) + per-surface designed states + console untouched; **the S.W0-1 seed-rider contract byte-preserved** (R10 — not T's W0-1: the banner FORM dies; the transport latch, synchronous `DevMisconfigError`, loud `console.error`, misconfigured ≠ unavailable, REJECTED-localhost-CORS all SURVIVE) | `DevMisconfigBanner.vue` + `App.vue:115`; `ApiOfflineChip.vue:57-79` | t-misc-elements F3, t-api-state, plan-audit-1 F2/F6 | **O-22** lamp oracle (correct variant per precondition, first-paint, dev-gated) |
 | W6-7 | **T-28 ABROGATE at the seal** (Q12 default; + the cascade-dead `ring-2 ring-primary/50` sibling verified in-wave; the register law encoded: rings on WatercolorDots ride the dot's own silhouette or do not exist) — R9: the `.dock-seal` die-rim + gold border override DIE; the wax + inked-glyph identity SURVIVES, continuity re-carried by the GLYPH; `--dock-ring` stays on the geometric expanded trigger | `Dock.vue:330-341` dies; `MixSourceSelector.vue:138` (verify) | t-outline-dropdown-clip §1 | **O-15a** negative watch (border-style none — resurrection guard) |
 | W6-8 | **T-29 settle-stamped clip release** + register pass (native-`title` retirement ×4; the separator folds into the slot's arrival) — DEMO-owned (Dock.vue), NOT a portal ask | `.action-bar-toggle-inner { overflow:hidden }` unconditional (`Dock.vue:311-316`); native `title` tooltip ×4; separator pop | t-outline-dropdown-clip §2 | **O-15b** settle-stamped clip release + whole-shadow assert |
+| T-31 **[OWNER-2026-07-10]** | **THE DOCK-ATOP LAYOUT LAW** (`MANDATE §0.5`, audited PRE-round-2 @ `c63f9aa`): "our core layout should have the dock atop, with the card/scene area on the bottom below that" — the dock sits ATOP as its OWN BAND, the card/scene area BELOW it; **no card composites over the dock**. The occlusion class dies **STRUCTURALLY** (band layout at the shell), never by z-index patching. Lane D, Fable + frontend-design (E-6) — a shell-layout design item, not a chrome patch; W4.5 re-judges against the landed round-2 state | `audit/owner-screenshots/t-31-dock-occluded-by-card.png` (the About card compositing OVER the dock — Login/@mbabb occluded behind card glass); shell-layout anchors re-derived via the W1 MOVE-MAP at wave-open | MANDATE §0.5 | occlusion probe: `elementFromPoint` over the dock band is NEVER a card surface; band structure verified (dock band + scene band), zero z-index arms minted |
 
 ## §Triumvirate dispatch
 
