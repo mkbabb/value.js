@@ -517,7 +517,7 @@ fourier / parse-that: nothing new on T's account.
 | PP-2 | No fallbacks — the honest failure state | process |
 | PP-3 | No legacy — migrate at the root, no shim | process |
 | PP-4 | Breaking changes fine — cut the major | process |
-| PP-5 | Books, never gates | process |
+| PP-5 | Books, never gates — qualified [AMENDED-AT-HARDENING — h-precepts HP-3]: no gate reads books as pass/fail; named EXPECTED-RED rows appear in gates as honest-red RECORDS with packet cites | process |
 | PP-6 | Certify in the amended tree | process |
 | PP-7 | Never silently regolden | process |
 | **PP-8** | **Repo-wide sweep in EVERY wave gate** (NEW, S-minted) | process |
@@ -542,7 +542,11 @@ fourier / parse-that: nothing new on T's account.
 
 ## §9 — Lessons carried (S §13 unamended + the T-development additions)
 
-**S §13 carries whole** (the R lessons ride inside it): 1 resolve contradictions against the LIVE
+**S §13 carries whole** (the R lessons ride inside it). [AMENDED-AT-HARDENING — h-precepts HP-2,
+the bridging clause: `S/FINAL.md §7`'s S-execution lesson tier maps onto the precept slate —
+integration-verification → PP-9 · recalibrated-bar → PP-13 · lane-death recovery → PP-14/§8's
+rider · repo-wide sweeps → PP-8 · harness waits → PP-15 · single-writer contention → §3.2.] The
+numbered carry: 1 resolve contradictions against the LIVE
 tree · 2 wave-green ≠ repo-green (→ PP-8) · 3 producer drift is a designed-for condition
 (HEAD-stamps) · 4 books discharge silently unless re-checked (→ W9 re-probe) · 5 test comments
 are not filings · 6 lane-death recovery from the journal · 7 shared-browser contention corrupts

@@ -87,7 +87,7 @@ Mandatory on:
 |---|---|---|
 | W2-1/W2-2/W2-3 | `app/composables/boot/*` (the W1-created home: useAtmosphereBoot · useAtmosphere · useViewAccents · view-accents) · `App.vue` · `index.html` (font self-host/preload + `@property --saved-bg`) · the `--overture-*` token block at the shell | modify |
 | W2-3 (grammar) | the pane-slot `appear` grammar + dock arrival seam (shell-side only — the dock's own internals are W6/W7 surfaces) | modify |
-| W2-4 | the B4 trigger site + `HeroBlob` reveal wiring (the FSM's existing `emerging` state — NO engine edits) | modify |
+| W2-4 | the B4 trigger site + `HeroBlob` reveal wiring (the FSM's existing `emerging` state — NO engine edits). **The exact seam named** [AMENDED-AT-HARDENING — h-wave-w2-w3 S2 ≡ h-dag D-7]: **the boot chain PROVIDES the emerge signal; W2's grant on `HeroBlob/` is the reveal-consume hunk ONLY — the seat/beats/geometry of `HeroBlob/` are W4-5's (the picker-knot fence holds)** | modify |
 | W2-5 | the derive knob sites (`panes/keys.ts:46-47` pre-move; re-derived via MOVE-MAP) + base-override knobs | modify |
 
 Single-writer (§3.2): `app/composables/boot/*` + `App.vue` + `index.html`. Do NOT touch:

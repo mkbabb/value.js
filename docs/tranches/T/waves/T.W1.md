@@ -153,7 +153,10 @@ cut from the wave head (§3.2).
    (dup-`useDark` dead; the 10 `out-in` sites audited w/ pi-w5b hard-fail rider).
 7. **W1-api**: the 224-class suite green post-TA-4 (diff tests deleted, fork coverage
    re-homed); the L boundary laws re-verified in the NEW shape (typed ApiError everywhere ·
-   routes never touch `repositories.*` · only `platform/db` + the DI factory touch raw `db`);
+   routes never touch `repositories.*` · only `platform/db` + the DI factory touch raw `db` ·
+   **the H1 cascade-correctness invariant intact: every cross-collection write site still wrapped
+   in `services.withTransaction(...)` — the standing reference
+   `docs/tranches/H/audit/api-withTransaction-coverage.md` re-walked post-move** [AMENDED-AT-HARDENING — h-precepts HP-4]);
    Q8 depth honored (the write-only `atomDiff` column GONE from the schema); Q17 naming landed.
 8. **W1-src**: fresh-build dts surface **additive-only** — no removal/rename of any existing
    exported symbol (FORBIDS ledger; before/after `.d.ts` symbol diff recorded); Q15 promotions
