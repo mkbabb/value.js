@@ -49,7 +49,7 @@ import type { ComputedRef, ShallowRef } from "vue";
 
 import { SAFE_ACCENT_KEY } from "@composables/color/keys";
 import type { PaneConfig } from "@composables/useViewManager";
-import { useContrastSafeColor } from "./useContrastSafeColor";
+import { useContrastSafeColor } from "@composables/color/useContrastSafeColor";
 import { useViewAccents } from "./useViewAccents";
 import { useAtmosphere } from "./useAtmosphere";
 

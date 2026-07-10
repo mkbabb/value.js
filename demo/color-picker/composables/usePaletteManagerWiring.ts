@@ -19,7 +19,7 @@ import type { ColorPicker } from "@components/custom/color-picker";
 import type { ViewManager } from "@composables/useViewManager";
 import { normalizeColorUnit } from "@mkbabb/value.js/color";
 import { parseCSSColor } from "@mkbabb/value.js/parsing";
-import { usePaletteManager, type PaletteManager } from "./usePaletteManager";
+import { usePaletteManager, type PaletteManager } from "@composables/palette/usePaletteManager";
 
 export function usePaletteManagerWiring(
     colorPickerRef: Ref<InstanceType<typeof ColorPicker> | null>,

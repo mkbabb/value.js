@@ -58,7 +58,7 @@ import {
 } from "@mkbabb/value.js/color";
 import { getColorSpaceBound } from "@mkbabb/value.js/color";
 import { clamp } from "@mkbabb/value.js/math";
-import { cssToRawColor } from "./color-utils";
+import { cssToRawColor } from "@lib/color-utils";
 
 /**
  * The low-C floor for the view axis, in RAW OKLCH chroma: 4 OKLab JNDs of

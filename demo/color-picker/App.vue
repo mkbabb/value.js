@@ -143,13 +143,13 @@ import { useColorUrl } from "@composables/color/useColorUrl";
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { useColorPipeline } from "@composables/color/useColorPipeline";
 import { usePaneRouter } from "@composables/usePaneRouter";
-import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
+import { usePaletteManagerWiring } from "./composables/usePaletteManagerWiring";
 import { provideApiClient } from "@lib/palette/api/useApiClient";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import { useAtmosphereBoot } from "@composables/color/useAtmosphereBoot";
-import { useDevicePixelSnap } from "@composables/useDevicePixelSnap";
+import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
+import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 import "@styles/utils.css";
 import "@styles/style.css";

@@ -217,6 +217,44 @@ to `@composables/color/aurora-atoms` (a demo file this unit test consumes; the m
 composable import-path rewrites (no SFC styles move) — chunk-graph-neutral. **Gates**: typecheck 0 ·
 lint 0 · vitest 2158/2158 · keyframe census 18/18 · build clean · zero `export *`, zero shim.
 
+## Batch 8 — app-shell home `demo/color-picker/composables/` + `boot/` (W2's single-writer surface, made legible) — LANDED
+
+`App.vue` (the shell) gets a colocated composables home beside it (CL-2's sanctioned "add
+`demo/color-picker/composables/`" option — App.vue stays the Vite entry, so `@/app/` promotion is
+NOT taken). The 5 SHELL units (+ the view-accents pure half) leave the SHARED module tree.
+
+| old path | new path |
+|---|---|
+| `@composables/useDevicePixelSnap.ts` (CL-2, 1←App) | `demo/color-picker/composables/useDevicePixelSnap.ts` |
+| `@composables/palette/usePaletteManagerWiring.ts` (CL-2, 1←App) | `demo/color-picker/composables/usePaletteManagerWiring.ts` |
+| `@composables/color/useAtmosphereBoot.ts` (CL-5, 1←App) | `demo/color-picker/composables/boot/useAtmosphereBoot.ts` |
+| `@composables/color/useAtmosphere.ts` (CL-5, 1←Boot) | `demo/color-picker/composables/boot/useAtmosphere.ts` |
+| `@composables/color/useViewAccents.ts` (CL-5, 1←Boot) | `demo/color-picker/composables/boot/useViewAccents.ts` |
+| `@lib/view-accents.ts` (CL-4/CL-5, the pure half, 1←useViewAccents) | `demo/color-picker/composables/boot/view-accents.ts` |
+
+**CL-4 disposition (the view-accents twin)**: the two-HOMES split (`@composables/color/` reactive +
+`@lib/` pure) **DISSOLVES** — both halves now sit side-by-side in `boot/`. The pure `view-accents.ts`
+(221 LoC) is KEPT as its own file, NOT physically merged into the reactive `useViewAccents.ts` (119),
+because it is a deliberately Vue-free unit-probed resolver (`test/view-accents.test.ts`); merging it
+into a composable that imports Vue + glass-ui's `useGlobalDark` would destroy that clean pure-module
+test boundary. The recovery brief's own batch-8 enumeration lists both as separate `boot/` files —
+co-location IS the unify (one directory unit), the pure/reactive FILE boundary preserved.
+
+**Import rewrites**: App.vue's 3 imports → `./composables/{useDevicePixelSnap,usePaletteManagerWiring}`
++ `./composables/boot/useAtmosphereBoot`. Intra-boot `./useAtmosphere`/`./useViewAccents` survive
+(all in `boot/`); the boot→color edges repoint to the alias
+(`useContrastSafeColor` STAYS in `@composables/color/`, imported now via `@composables/color/…`);
+`useViewAccents` `@lib/view-accents`→`./view-accents`; `view-accents` `./color-utils`→`@lib/color-utils`;
+`usePaletteManagerWiring` `./usePaletteManager`→`@composables/palette/usePaletteManager`.
+**PP-3 test migration**: `test/view-accents.test.ts` (2 imports: the pure resolver + the composable's
+`PRIMARY_VIEW_IDS`/`PRIMARY_VIEW_SHIFTS`) → the new `boot/` paths. (test/ is outside the typecheck
+tsconfig, so vitest — not vue-tsc — is the gate that catches a test's stale demo import.)
+
+**O-23 (batch 8)**: aggregate **−0.135%** · eager `index.js` flat (composable moves, no SFC styles,
+chunk-graph-neutral). **Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18 ·
+build clean. **W2 hand-off**: `demo/color-picker/composables/boot/` EXISTS by name — the load-animation
+wave's single-writer surface is legible.
+
 ---
 
 ## Cohesion cargo (distinct commits — §Commit plan)

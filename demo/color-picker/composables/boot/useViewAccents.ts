@@ -36,11 +36,11 @@ import {
     resolveSealInk,
     resolveViewAccent,
     resolveViewAccentTokens,
-} from "@lib/view-accents";
+} from "./view-accents";
 import {
     BG_LIGHTNESS_DARK,
     BG_LIGHTNESS_LIGHT,
-} from "./useContrastSafeColor";
+} from "@composables/color/useContrastSafeColor";
 
 /**
  * The nine primary views — every non-admin `VIEW_MAP` row. Admin views stay
