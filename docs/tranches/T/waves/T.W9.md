@@ -15,11 +15,12 @@ T.md charter clause, restated here so the rule is self-evident in-file; `MANDATE
 **Agents**: 1–2 serial (reconciliation + the spec-status recheck lane; the evidence
 reconciliation by a NON-authoring agent).
 **Hard gate**: composite (§Hard gate) — the zero-drop ledger walked with evidence cites · every
-open book re-probed LIVE · repo-wide sweeps re-run · the §6.2 budgets re-measured · FINAL.md
-authored · master merged + tagged through the now-fixed chain · **PP-16**:
-gates-pass-goal-unmet closes `complete_with_misses`.
-**Status**: AUTHORED — development only; the dispatch gate is CLOSED until the `T.md §12` owner
-ratification (E-6). Post-ratification: PENDING, gated on T.W8 + all non-trigger waves closed.
+open book re-probed LIVE · repo-wide sweeps re-run · **the Q14 PERF REDEMPTION close gate:
+the §6.2 LCP/TBT budgets GREEN on the re-measured close run, or a triumvirate-level owner
+escalation naming the physical blocker (RULED 2026-07-09 — REPLACES the keep-red disposition;
+no re-baseline, no preset-swap, no deferral)** · FINAL.md authored · master merged + tagged
+through the now-fixed chain · **PP-16**: gates-pass-goal-unmet closes `complete_with_misses`.
+**Status**: RATIFIED 2026-07-09 — PENDING, gated on T.W8 + all non-trigger waves closed.
 
 ---
 
@@ -32,9 +33,11 @@ act, not a paperwork act. (The S.W9 goal, inherited unchanged per SYNTHESIS §3 
 
 `FINAL.md` reconciles the SYNTHESIS §1 finding→item map row-by-row, zero drops (T-1..T-29 + the
 fleet finds + the E-4 fold table); all wave gates evidence-backed; the O-1..O-25 slate at close
-(honest EXPECTED-REDs with packet cites); budgets per the Q14 adjudication; every book re-probed
-live; the doc rewrites landed; X1/X2 restated verbatim with firing ops; master merged + tagged.
-The PP-16 naming law binds. (`T.md` Completion criterion + SYNTHESIS §3 T.W9, composed.)
+(honest EXPECTED-REDs with packet cites); **budgets GREEN per the Q14 PERF REDEMPTION ruling, or
+the named triumvirate-level owner escalation** (the ruled close gate); every book re-probed
+live; the doc rewrites landed; X1/X2's W0-executed outcomes restated verbatim with their firing
+records; master merged + tagged. The PP-16 naming law binds. (`T.md` Completion criterion +
+SYNTHESIS §3 T.W9, composed; Q14 RULED-AT-RATIFICATION.)
 
 ---
 
@@ -50,20 +53,26 @@ The PP-16 naming law binds. (`T.md` Completion criterion + SYNTHESIS §3 T.W9, c
 3. **Evidence tranche-level reconciliation** — the standing visual/oracle evidence reviewed
    end-to-end by a NON-authoring agent; the wave archives + the W8 certification package
    cross-checked against live close-state.
-4. **The §6.2 budget re-run** — all rows re-measured on the built bundle at close; the **Q14
-   adjudication encoded** (the owner's budget/preset ruling from W8/W9 lands here either way —
-   red rows carried honestly if unadjudicated); the PI-1 per-wave Lighthouse delta ledger
-   closed out with a final run; RP-2's state recorded (cleared at W7, or the third-tranche
-   carry named).
+4. **The §6.2 budget re-run — THE Q14 PERF REDEMPTION CLOSE GATE** (RULED 2026-07-09; REPLACES
+   the old keep-red/adjudicate-at-W8/W9 disposition): all rows re-measured on the built bundle
+   at close; the LCP/TBT budgets must be **GREEN** — the cure architectural and idiomatic (the
+   reveal/hydration/payload chain), never a re-baseline, preset-swap, or deferral; a red row at
+   close is closed ONLY by a **triumvirate-level owner escalation naming the physical blocker**
+   (encoded in FINAL.md, PP-16); the PI-1 per-wave Lighthouse delta ledger (the gate's TRACKING
+   instrument — W0 baseline, W2 LCP contribution, W7 TBT/JS-eager deltas) closed out with the
+   final run; RP-2's state recorded (cleared at W7, or the third-tranche carry named).
 5. **The spec-status recheck lane** — the CHRONIC cross-repo set: CH-10 · CH-13 · R8-23 · R-5 ·
    R-10 · FN-7 · kf `resolveEasing` — each probed for a fired-but-unnoticed trigger
    (re-verified none at synthesis; the close re-checks).
 6. **Book re-verification** — every `T.md §7` row (inherited §7.1 + T-minted §7.2) probed
    against the live world with a dated record; fired-but-unnoticed triggers hunted (S lesson
    4); the W7 adopt state recorded as-is; **X1/X2 restated VERBATIM with their firing ops**
-   (from `S/FINAL.md §8`; the book-state from §5 [AMENDED-AT-HARDENING — M-25]) — X1 (prod api deploy; publish/unpublish 404-broken for real users;
-   O-25 stands guard) is on its 2nd carry: **never a silent 3rd re-book** — a T close that
-   still carries X1 names it in FINAL.md §misses.
+   (from `S/FINAL.md §8`; the book-state from §5 [AMENDED-AT-HARDENING — M-25])
+   [RULED-AT-RATIFICATION §2/cascade 5: X1/X2 became **W0-EXECUTABLE** (W0-X1/W0-X2) — this
+   close row now RESTATES their executed-or-honest-record W0 outcomes] — X1 (prod api deploy;
+   publish/unpublish 404-broken for real users; O-25 stands guard) was on its 2nd carry:
+   **never a silent 3rd re-book** — a T close whose W0-X1 record is honest-blocked (not
+   executed) names it in FINAL.md §misses with the exact missing credential.
 7. **Repo-wide sweeps re-run** — the caps (post-E-1 tree: `demo/` ≤400 · `api/` ≤350 · src
    cohesion-ledger), legacy grep (the E-3 named set), the `as any`/`as unknown as` ledger
    REGENERATED (the counts are regenerable, never hardcoded) — repo-wide, not
@@ -120,12 +129,16 @@ own row — the close never silently patches), `../glass-ui`, `../keyframes.js`,
 1. FINAL.md exists; the finding→item map + fold table reconcile row-by-row with evidence cites;
    per-wave goal-vs-landed verdicts recorded (honest `complete` / `complete_with_misses` — the
    PP-16 naming law).
-2. Every `T.md §7` book row re-verified with a dated probe record; X1/X2 restated verbatim with
-   firing ops (X1's carry state NAMED, never silent).
+2. Every `T.md §7` book row re-verified with a dated probe record; X1/X2's W0-X1/W0-X2 outcomes
+   restated verbatim with their firing records (an honest-blocked record NAMED with its missing
+   credential, never silent — the no-silent-3rd-re-book law).
 3. Repo-wide sweeps green or ledgered: caps (post-E-1), legacy grep, the as-any ledger
    regenerated.
-4. The §6.2 budgets re-run on the built bundle (Q14 adjudication encoded; drift recorded on the
-   row, never silently reconciled); the final Lighthouse delta appended.
+4. **The Q14 close gate**: the §6.2 budgets re-run on the built bundle — **LCP/TBT GREEN, or the
+   triumvirate-level owner escalation naming the physical blocker encoded in FINAL.md** (no
+   re-baseline, no preset-swap, no deferral — the ruled PERF REDEMPTION mandate; drift recorded
+   on the row, never silently reconciled); the final Lighthouse delta appended, closing the PI-1
+   ledger.
 5. The oracle slate at close: O-1..O-25 green or honest EXPECTED-RED with cites; the evidence
    reconciliation by a NON-authoring agent; **O-25 green against the LIVE deployment**.
 6. The spec-status recheck records (CH/R8/R/FN-7/kf rows, dated).
@@ -144,6 +157,9 @@ own row — the close never silently patches), `../glass-ui`, `../keyframes.js`,
   named as such (PP-16).
 - **No gate weakened to ship** — the deploy rides the designed manual lane if CI is honestly
   red, recorded (the S-close precedent; the chain's false-success class is dead and stays dead).
+- **No Q14 escape hatch** — NO re-baseline, NO preset-swap, NO deferral of the LCP/TBT budgets
+  (RULED: "Accept no failures--divine a proper and idiomatic fix. No compormises."); the ONLY
+  alternative to green is the triumvirate-level owner escalation naming the physical blocker.
 - **No doc rewrite that re-inventories** — the src Structure block becomes contracts, not a
   fresh file list that drifts by the next wave.
 

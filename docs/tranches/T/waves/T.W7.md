@@ -21,9 +21,10 @@ on any non-mechanical surprise).
 `boot-smoke` cold, e2e 5-project) against a **REBUILT dist + stamped HEAD** (G-CUR-1 discipline)
 · `^4→^5` · the L17/L20 consumes with the **RP-2 re-measure** · every GAP re-verified · the
 booked interim swaps FIRED with interims deleted · CI un-pinned from `tranche/BG` at the master
-landing · O-8 live.
-**Status**: AUTHORED — development only; the dispatch gate is CLOSED until the `T.md §12` owner
-ratification (E-6). Post-ratification: PENDING **+ TRIGGER-GATED** (the BG/BH joint cut).
+landing · O-8 live · **the Q14 gate row: the payload landings' TBT/JS-eager deltas measured at
+wave close** (RATIFICATION cascade 2 — PERF REDEMPTION).
+**Status**: RATIFIED 2026-07-09 (the dispatch precondition is MET) — PENDING **+ TRIGGER-GATED**
+(the BG/BH joint cut; trigger NOT fired at ratification).
 
 ---
 
@@ -119,7 +120,12 @@ Do NOT touch: `../glass-ui`, `../keyframes.js` (zero files — asks route to the
    green**; the MARKER retire-checks walked (retired or honestly carried with cites).
 7. The verify-at-cut ledger + the P1–P10 disposition record complete (L8 escalation answered on
    the record).
-8. PP-8 repo-wide sweep; `npm run lint` 0 · `npm test` green · `npm run gh-pages` ✓ built;
+8. **THE Q14 GATE ROW (RATIFICATION cascade 2 — PERF REDEMPTION)**: the payload landings'
+   **TBT + JS-eager deltas MEASURED at wave close** — a fresh LHCI run + the RP-2 bundle
+   measure appended to the PI-1 ledger with the L20/GAP-L5/dead-payload contributions NAMED
+   (against the `28836873580` TBT baseline and the 347.9 KiB eager baseline); the entry is the
+   TRACKING instrument for the W9 must-go-green close gate; an UNMEASURED close REDs this gate.
+9. PP-8 repo-wide sweep; `npm run lint` 0 · `npm test` green · `npm run gh-pages` ✓ built;
    suites + the O-slate green.
 
 ## §No-workaround prohibitions (binding)

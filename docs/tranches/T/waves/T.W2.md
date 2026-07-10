@@ -20,8 +20,12 @@ bracket cannot be judged honestly over an un-cured arm gap. Fable + frontend-des
 lane, E-6); owner eye-judge frames archived at W2-5.
 **Hard gate**: composite (§Hard gate) — O-1 color-truth · O-2 real-hydration · O-3 headed-GPU
 re-run · O-4 order-invariance under 6× throttle · O-5 pacing · O-6 bracket test +
-perceptibility gates · O-24 LCP identity · no-pop assert · PP-9 integrated-surface cites.
-**Status**: PENDING — DEVELOPMENT ONLY; waves dispatch only post-ratification (E-6).
+perceptibility gates · O-24 LCP identity · no-pop assert · PP-9 integrated-surface cites ·
+**the Q14 gate row: the overture's LCP contribution measured at wave close** (RATIFICATION
+cascade 2 — PERF REDEMPTION).
+**Status**: RATIFIED 2026-07-09 — PENDING, gated on T.W1 close (round 2; **Q2 RULED "full
+comp."** — W2-5 lands the full composition, the NOW/FULL split + the boot-fade/settle annex
+standing).
 
 ---
 
@@ -124,7 +128,13 @@ worktree cut from the wave head.
    wave per §6.1.
 7. **O-5 pacing variance** green (inter-frame-delta variance / dropped-frame ratio — the
    renderer-independent jitter red line): the T-27 "jittery" axis measured, not eyeballed.
-8. PP-8 repo-wide sweep · PI-1 Lighthouse delta recorded (the LCP delta is THIS wave's
+8. **THE Q14 GATE ROW (RATIFICATION cascade 2 — PERF REDEMPTION)**: the overture's LCP
+   contribution MEASURED at wave close — the PI-1 LHCI run recorded with the wave's contribution
+   NAMED and attributed (reveal-only law · font strike · hydration-first — which moved what,
+   against the `28836873580` baseline); the ledger entry is the TRACKING instrument for the W9
+   must-go-green close gate; an UNMEASURED close REDs this gate (a worsened LCP is recorded
+   honestly and root-caused before close — never deferred silently).
+9. PP-8 repo-wide sweep · PI-1 Lighthouse delta recorded (the LCP delta is THIS wave's
    headline number — the reveal-only law + font strike should move it; record either way) ·
    `npm run lint` 0 · `npm run typecheck` 0 · `npm test` green · e2e green · clean `git status`.
 
@@ -183,7 +193,9 @@ neither committed a half-beat and `git worktree list` = the two live lanes only.
 - **Depends on**: T.W0 (the born-RED boot oracle set O-1..O-5/O-16 + the O-7 scaffold — a
   STRUCTURAL precondition, plan-audit-1 F3/F4; O-24 mints IN-WAVE here, before any beat lands
   per §6.1) + T.W1 (the boot chain's colocated home; the MOVE-MAP for anchor re-derivation) +
-  the Q2 ruling (W2-5's values).
+  the Q2 ruling (W2-5's values — **RULED 2026-07-09 "full comp."**: the full composition,
+  chroma-adaptive hueSpread [24°,64°] · energy 0.76 · ONE counterpoint stop · softmaxBeta 4 ·
+  breath 26s, judged by eye after W2-1).
 - **Blocks**: T.W4 (consumes the settled boot — T-23's veil is judged over the TRUE field;
   W4-7 re-judges the rest-floor bracket over the post-W2 field). Runs parallel with T.W3
   (disjoint single-writer surfaces).
