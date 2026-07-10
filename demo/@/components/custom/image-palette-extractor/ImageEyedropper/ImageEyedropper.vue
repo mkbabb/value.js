@@ -91,7 +91,7 @@ import { X, Plus, Check } from "@lucide/vue";
 import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 
-import { useInertiaGesture } from "../composables/useInertiaGesture";
+import { useInertiaGesture } from "./composables/useInertiaGesture";
 import { useImageSampler, type DisplayColorSpace } from "./composables/useImageSampler";
 import { useLoupeCanvas } from "./composables/useLoupeCanvas";
 import { LOUPE_SIZE } from "./constants";

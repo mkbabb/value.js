@@ -70,3 +70,20 @@ private animation pipeline (`useMixingAnimation` → `mixStage`, a single-parent
 **External edge rewritten** (1): `panes/MixPane.vue:8` →
 `@components/custom/mix/MixAnimationCanvas/MixAnimationCanvas.vue`.
 **Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18.
+
+## Batch 4 — image-palette-extractor  (contained feature; CL-3 lib colocation)  — LANDED
+
+`useInertiaGesture` (sole consumer `ImageEyedropper.vue`) nests one level down into the exemplar
+`ImageEyedropper/composables/`; the `quantize-worker.ts` Web Worker (CL-3; sole consumer
+`useImageQuantize.ts`, a `?worker` import) colocates OUT of the module `lib/` tree into the feature.
+
+| old path | new path |
+|---|---|
+| `image-palette-extractor/composables/useInertiaGesture.ts` | `image-palette-extractor/ImageEyedropper/composables/useInertiaGesture.ts` |
+| `lib/quantize-worker.ts` | `image-palette-extractor/quantize-worker.ts` |
+| `image-palette-extractor/composables/{useExtractSession,useImageQuantize}.ts` | KEEP (extractor-shared) |
+| `image-palette-extractor/ImageEyedropper/` | KEEP (the E-1 exemplar) |
+
+**Edges rewritten** (2): `ImageEyedropper.vue:94` → `./composables/useInertiaGesture`;
+`composables/useImageQuantize.ts:10-11` `@lib/quantize-worker` → `../quantize-worker` (+ `?worker`).
+**Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18.
