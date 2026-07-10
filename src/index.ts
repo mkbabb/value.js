@@ -120,6 +120,10 @@ export {
     LINEAR_SRGB_TO_LMS,
     OKLAB_TO_LMS_COEFF,
     GAMUT_SECTOR_COEFFICIENTS,
+    // Q15 (T.W1) — per-space component bound + denorm-unit resolvers promoted to
+    // first-class API (the demo consumed them off the internal `constants` leaf).
+    getColorSpaceBound,
+    getColorSpaceDenormUnit,
 } from "./units/color/constants";
 // COLOR_NAMES — the CSS named-color data table (S.W1 W1-8 lift → color-names.ts).
 export { COLOR_NAMES } from "./units/color/color-names";
@@ -140,9 +144,11 @@ export {
 export type { Vec3, Mat3 } from "./units/color/matrix";
 
 // Color conversion utilities — public surface is `color2` + `colorUnit2`.
-// The 51 individual `<from>2<to>` helpers remain internal to value.js
+// The individual `<from>2<to>` helpers remain internal to value.js
 // (still imported by `color2`'s dispatch table in `src/units/color/dispatch.ts`)
-// but are NOT exported from the main barrel.
+// and are NOT exported from the main barrel — EXCEPT the Q15 (T.W1) promotions
+// (`hsl2rgb`/`oklch2xyz`/`xyz2rgb`/`linearToSrgb`/`hex2rgb`), which are now
+// first-class API beside `color2` (see the Q15 block below).
 export {
     getFormattedColorSpaceRange,
     color2,
@@ -203,6 +209,8 @@ export {
     DELTA_E_OK_JND,
     deltaEOK,
     oklabToLinearSRGB,
+    // Q15 (T.W1) — the zero-alloc out-param twin (the demo's hot paint paths).
+    oklabToLinearSRGBInto,
     isInSRGBGamut,
     computeMaxSaturation,
     findCusp,
@@ -220,6 +228,16 @@ export {
 export { deltaE2000, deltaEITP, xyzToICtCp, ictcpToXYZ } from "./units/color/difference";
 // Jzazbz perceptual transform (S.W1-11 · Q9 widening — net-new PQ-variant math).
 export { xyzToJzazbz, jzazbzToXYZ } from "./units/color/conversions/jzazbz";
+
+// Q15 (T.W1) — the 5 conversion primitives the demo consumed off the internal
+// `conversions/` leaves, promoted to first-class API (see the block comment
+// above). Parse-that-free; the demo now dogfoods these off `@mkbabb/value.js`
+// / `@mkbabb/value.js/color` instead of white-boxing `conversions/`.
+export { hsl2rgb } from "./units/color/conversions/cylindrical";
+export { oklch2xyz } from "./units/color/conversions/oklab";
+export { xyz2rgb } from "./units/color/conversions/xyz-extended";
+export { linearToSrgb } from "./units/color/conversions/transfer";
+export { hex2rgb } from "./units/color/conversions/hex";
 
 // OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
 export {

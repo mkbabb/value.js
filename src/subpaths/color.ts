@@ -61,6 +61,13 @@ export {
     LINEAR_SRGB_TO_LMS,
     OKLAB_TO_LMS_COEFF,
     GAMUT_SECTOR_COEFFICIENTS,
+    // Q15 (T.W1) — the per-space component bound + denorm-unit resolvers,
+    // promoted to citizenship on the color subpath. The demo's readout
+    // reservation, slider-gradient, and view-accent paths consumed these off the
+    // internal `constants` leaf; they are genuine public metadata API (the same
+    // class as COLOR_SPACE_RANGES beside them), not a color2()-able detour.
+    getColorSpaceBound,
+    getColorSpaceDenormUnit,
 } from "../units/color/constants";
 export type {
     ColorSpace,
@@ -140,6 +147,9 @@ export {
     DELTA_E_OK_JND,
     deltaEOK,
     oklabToLinearSRGB,
+    // Q15 (T.W1) — the zero-alloc out-param twin (the demo's hot per-pixel paint
+    // paths call this instead of the allocating `oklabToLinearSRGB`).
+    oklabToLinearSRGBInto,
     isInSRGBGamut,
     computeMaxSaturation,
     findCusp,
@@ -163,6 +173,17 @@ export {
 // (S.W1-6 · Q9: ictcpToXYZ inverse) + Jzazbz transform (S.W1-11 · Q9 widening).
 export { deltaE2000, deltaEITP, xyzToICtCp, ictcpToXYZ } from "../units/color/difference";
 export { xyzToJzazbz, jzazbzToXYZ } from "../units/color/conversions/jzazbz";
+
+// Q15 (T.W1) — the 5 conversion primitives the demo consumed off the internal
+// `conversions/` leaves (gamut-overlay `hsl2rgb`, generation `oklch2xyz`+
+// `xyz2rgb`, perceived-space `linearToSrgb`, search `hex2rgb`). Promoted to
+// first-class color-subpath API so the demo dogfoods the published surface
+// rather than white-boxing the raw matrix chain. All parse-that-free.
+export { hsl2rgb } from "../units/color/conversions/cylindrical";
+export { oklch2xyz } from "../units/color/conversions/oklab";
+export { xyz2rgb } from "../units/color/conversions/xyz-extended";
+export { linearToSrgb } from "../units/color/conversions/transfer";
+export { hex2rgb } from "../units/color/conversions/hex";
 
 // OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
 export {

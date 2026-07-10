@@ -1,5 +1,40 @@
 # Changelog
 
+## [3.2.0] — Unreleased (T.W1 · Q15 — the 8 leaked color primitives get citizenship)
+
+Additive (a semver MINOR — new public API, **zero breaks**; the fresh-build `.d.ts` symbol diff
+is additive-only, 0 removals / 16 additions). The T.W1 demo-dogfood keystone requires the demo to
+consume value.js through its **published subpaths only** (the 8 `exports` keys), no `@src/*` deep
+paths. The census (`docs/tranches/T/audit/lanes/t-coloc-src.md §2`) found the demo white-boxing a
+set of internal color primitives the public surface deliberately withheld. Q15 (ratified
+2026-07-09) promotes them to first-class API on **both** the `.` root barrel and the `./color`
+subpath (`@mkbabb/value.js` and `@mkbabb/value.js/color`). All are parse-that-FREE, so the color
+subpath's parse-that-free budget invariant survives.
+
+The by-name MIGRATION table (old internal path → new public specifier):
+
+| Symbol | Was (internal leaf) | Now (public) |
+|---|---|---|
+| `getColorSpaceBound` | `units/color/constants` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
+| `getColorSpaceDenormUnit` | `units/color/constants` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
+| `oklabToLinearSRGBInto` | `units/color/gamut` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
+| `hsl2rgb` | `units/color/conversions/cylindrical` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
+| `oklch2xyz` | `units/color/conversions/oklab` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
+| `xyz2rgb` | `units/color/conversions/xyz-extended` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
+| `linearToSrgb` | `units/color/conversions/transfer` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
+| `hex2rgb` | `units/color/conversions/hex` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
+
+> **Count note (the "count is regenerable, not hardcoded" discipline)**: the ratified slate named
+> **7** (`getColorSpaceBound` + `oklabToLinearSRGBInto` + the 5 conversions). A fresh regeneration
+> of the demo leak-set against the live subpath barrels found an **8th** — `getColorSpaceDenormUnit`,
+> the twin of `getColorSpaceBound` (both resolve per-space component metadata; the demo imports
+> them together in every site: `readoutReservation.ts`, `useSliderGradients.ts`). Promoting one
+> without its twin would leave a lone deep `@src/units/color/constants` import and defeat the
+> keystone. The census's own 5→7 correction under-counted this twin; the regenerated count is 8.
+
+Note: the five `<from>2<to>` conversion primitives were previously documented as internal-only in
+`src/index.ts`; that block comment is amended to record the Q15 exception.
+
 ## [3.1.0] — 2026-07-05 (S.W1 · remediation — ICtCp + Jzazbz land as FULL spaces; the 3.0.0 record corrected)
 
 The honest completion of the S perceptual slate. The 3.0.0 cut shipped ICtCp (W1-6/Q9) and Jzazbz
