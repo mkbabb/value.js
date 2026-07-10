@@ -26,7 +26,10 @@
         <slot name="action" />
     </div>
     <div v-else class="flex flex-col items-center justify-center gap-2.5 py-8 text-center" role="status">
-        <div class="flex items-end gap-2" aria-hidden="true">
+        <!-- N-3 (T.W3-2 · D9): the dot-scale ghost row sheds wherever a
+             card-scale ghost (ShadowPalette) seats beside this caption —
+             never two ghost registers at two scales. -->
+        <div v-if="dots" class="flex items-end gap-2" aria-hidden="true">
             <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-a" class="w-8 h-8 opacity-80" />
             <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-b" class="w-11 h-11" />
             <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-c" class="w-6 h-6 opacity-60" />
@@ -62,7 +65,11 @@ withDefaults(
         hint?: string | undefined;
         /** The machine truth (error variant) — the caught message, in Fira. */
         detail?: string | undefined;
+        /** The dot-scale ghost row (empty variant). Shed (`false`) wherever
+         *  a card-scale ShadowPalette ghost seats beside this caption —
+         *  N-3: never two ghost registers at two scales. */
+        dots?: boolean | undefined;
     }>(),
-    { variant: "empty", eyebrow: "· empty plate ·" },
+    { variant: "empty", eyebrow: "· empty plate ·", dots: true },
 );
 </script>

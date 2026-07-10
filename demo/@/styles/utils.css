@@ -47,6 +47,28 @@
     --skeleton-shimmer-tint: color-mix(in srgb, var(--muted-foreground) 24%, transparent);
 }
 
+/* The SPECIMEN ink walk (S.W5-1's `specimen` register, FINALLY consumed —
+ * T.W3-2 · D9): a low-chroma hue rotation around the live accent (fixed 36°
+ * steps, C clamped to 0.12) mixed INTO the ink base so the ghost stays
+ * shadow-first, per-segment via `--i`. Lifted here from PaletteCardSkeleton's
+ * scoped block the day it gained a second consumer (DESIGN.md's
+ * global-utility rule): the ShadowPalette true-empty ghost (STILL) reads it
+ * as fill; the developing skeleton's strip seams read it through glass-ui's
+ * `--skeleton-glass-bg`. Guarded: engines without relative-color calc() keep
+ * the plain ink base (the recipe never falls to transparent). */
+.specimen-seg {
+    --specimen-ink: var(--skeleton-ink);
+}
+@supports (color: oklch(from red calc(l) c calc(h + 36deg))) {
+    .specimen-seg {
+        --specimen-ink: color-mix(
+            in oklab,
+            var(--skeleton-ink) 78%,
+            oklch(from var(--accent-live) l 0.12 calc(h + var(--i, 0) * 36deg))
+        );
+    }
+}
+
 /* Dashed inset well — the recessed container that collects an in-progress set
  * of colors (the mix "Selected" tray, the current-palette editor). Both sites
  * used `.dashed-well` as a never-defined phantom (inv-N-7); this mints the
