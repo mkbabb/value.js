@@ -3,28 +3,11 @@ import { setupEnvNoise } from "../fixtures/env-noise";
 import { openView } from "../fixtures/dock";
 
 /**
- * Smoke (D.W5 Lane A): the Mix view renders its pane heading.
- * Picker is the left pane in mix mode; right pane is the Mix surface.
- */
-test("mix view renders Mix heading with zero console errors", async ({
-    page,
-}) => {
-    const consoleErrors = setupEnvNoise(page);
-
-    await page.goto("/");
-
-    await openView(page, "Mix");
-
-    const main = page.getByRole("main", { name: "Color tool panes" });
-    await expect(
-        main.getByRole("heading", { name: "Mix" }).last(),
-    ).toBeVisible();
-
-    expect(consoleErrors).toEqual([]);
-});
-
-/**
  * S.W3-6 / Q10 — the mix convergence flow (the first-principles re-work).
+ *
+ * The Mix view's bare "renders heading + zero console errors" mount check was
+ * folded into the user-view census (walk.spec.ts) at T.W0 W0-CI; this spec now
+ * carries only the behavioral convergence gate below.
  *
  * The choreography under test: startMix computes the result synchronously and
  * mounts the result plate GHOSTED (the awaiting well, `[data-mix-target]` —
