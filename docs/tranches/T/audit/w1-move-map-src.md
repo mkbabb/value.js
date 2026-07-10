@@ -1,0 +1,89 @@
+# T.W1-src — THE MOVE-MAP (old path → new path)
+
+The W1-src lane's binding MOVE-MAP (the Q1 mitigation, T.W1 §The MOVE-MAP). Every
+downstream wave re-derives its `file:line` anchors against this table at wave-open
+(PP-11). Committed with each batch; the src tree is writer-disjoint from demo/api.
+
+**Frame** (`t-coloc-src §0`): the 3.x public surface is a NAME SET — the 8 `exports`
+keys + the symbol sets of `src/index.ts` and the 7 `src/subpaths/*.ts` barrels. Every
+row below is **name-preserving at the barrels** (semver-free); the fresh-build dts
+symbol diff is ADDITIVE-ONLY across the whole lane (the §5.3 FORBIDS ledger).
+
+**Base**: `tranche-t` post-keystone (`879ea36` — the demo-dogfood keystone + Q15's 8
+promotions already landed; demo speaks only the 8 public keys, so every src move below
+collapses to a one-barrel edit + internal-import + test-import update).
+
+---
+
+## Batch 1 — the `test/` mirror (§5; pure move, lowest risk)
+
+The test tree mirrors the src shape. Tests are run by vitest (esbuild + the `@src`
+alias) and are in NEITHER tsconfig — so this batch cannot touch the frozen dts surface
+or `npm run typecheck`; only vitest's runtime resolution matters. Moved files convert
+their `"../src…"` specifiers to the depth-invariant `@src` alias (already in
+`vitest.config.ts`); `vitest.config.ts include` widens `test/*.ts` → `test/**/*.ts`.
+
+Files kept at `test/` root (pure leaves + meta/cross-cutting shadows of no single
+module): `math` · `easing` · `easing-export-stability` · `utils` ·
+`color-picker-lifecycle` · `dts-published-surface` · `docs-source-snippets` ·
+`parser-snapshot` (colocated `__snapshots__/`, unchanged) · `refactor-fixes` ·
+`recursion-guard` · `tranche-f` · `tranche-q-1.2.0` · `aurora-motion` (demo) ·
+`gradient-parse` (demo) · `view-accents` (demo).
+
+| Old path | New path |
+|---|---|
+| `test/gamut-mapping.test.ts` | `test/units/color/gamut/gamut-mapping.test.ts` |
+| `test/gamut-raytrace.test.ts` | `test/units/color/gamut/gamut-raytrace.test.ts` |
+| `test/gamut-boundary.test.ts` | `test/units/color/gamut/gamut-boundary.test.ts` |
+| `test/okhsl.test.ts` | `test/units/color/gamut/okhsl.test.ts` |
+| `test/oklch-slice-boundary.test.ts` | `test/units/color/gamut/oklch-slice-boundary.test.ts` |
+| `test/color-conversions.test.ts` | `test/units/color/conversions/color-conversions.test.ts` |
+| `test/color-jzazbz.test.ts` | `test/units/color/conversions/color-jzazbz.test.ts` |
+| `test/srgb-transfer-darkband.test.ts` | `test/units/color/conversions/srgb-transfer-darkband.test.ts` |
+| `test/color-classes.test.ts` | `test/units/color/color-classes.test.ts` |
+| `test/color-contrast.test.ts` | `test/units/color/color-contrast.test.ts` |
+| `test/color-difference.test.ts` | `test/units/color/color-difference.test.ts` |
+| `test/color-emit.test.ts` | `test/units/color/color-emit.test.ts` |
+| `test/color-filter.test.ts` | `test/units/color/color-filter.test.ts` |
+| `test/colorFilter-spsa.test.ts` | `test/units/color/colorFilter-spsa.test.ts` |
+| `test/color-function.test.ts` | `test/units/color/color-function.test.ts` |
+| `test/color-hdr-spaces.test.ts` | `test/units/color/color-hdr-spaces.test.ts` |
+| `test/color-hue-interpolation.test.ts` | `test/units/color/color-hue-interpolation.test.ts` |
+| `test/color-into.test.ts` | `test/units/color/color-into.test.ts` |
+| `test/color-mix.test.ts` | `test/units/color/color-mix.test.ts` |
+| `test/color-none.test.ts` | `test/units/color/color-none.test.ts` |
+| `test/color-normalize.test.ts` | `test/units/color/color-normalize.test.ts` |
+| `test/color-ramp.test.ts` | `test/units/color/color-ramp.test.ts` |
+| `test/color-relative.test.ts` | `test/units/color/color-relative.test.ts` |
+| `test/color-roundtrip.test.ts` | `test/units/color/color-roundtrip.test.ts` |
+| `test/color-sentinels.test.ts` | `test/units/color/color-sentinels.test.ts` |
+| `test/color-validation.test.ts` | `test/units/color/color-validation.test.ts` |
+| `test/matrix.test.ts` | `test/units/color/matrix.test.ts` |
+| `test/unit-normalize.test.ts` | `test/units/unit-normalize.test.ts` |
+| `test/unit-utils.test.ts` | `test/units/unit-utils.test.ts` |
+| `test/units-interpolate.test.ts` | `test/units/units-interpolate.test.ts` |
+| `test/value-unit.test.ts` | `test/units/value-unit.test.ts` |
+| `test/computed-endpoint-cache.test.ts` | `test/units/computed-endpoint-cache.test.ts` |
+| `test/parsing-easing.test.ts` | `test/parsing/timeline/parsing-easing.test.ts` |
+| `test/scroll-timeline.test.ts` | `test/parsing/timeline/scroll-timeline.test.ts` |
+| `test/parsing-stylesheet.test.ts` | `test/parsing/stylesheet/parsing-stylesheet.test.ts` |
+| `test/parsing-extract.test.ts` | `test/parsing/stylesheet/parsing-extract.test.ts` |
+| `test/parsing-extract-functions.test.ts` | `test/parsing/stylesheet/parsing-extract-functions.test.ts` |
+| `test/parsing-serialize.test.ts` | `test/parsing/stylesheet/parsing-serialize.test.ts` |
+| `test/grammar-2026-atrules.test.ts` | `test/parsing/stylesheet/grammar-2026-atrules.test.ts` |
+| `test/parsing.test.ts` | `test/parsing/parsing.test.ts` |
+| `test/parsing-sub-value.test.ts` | `test/parsing/parsing-sub-value.test.ts` |
+| `test/parsing-balanced-scan.test.ts` | `test/parsing/parsing-balanced-scan.test.ts` |
+| `test/parsing-memo-bounds.test.ts` | `test/parsing/parsing-memo-bounds.test.ts` |
+| `test/parsing-sibling-index.test.ts` | `test/parsing/parsing-sibling-index.test.ts` |
+| `test/parsing-animation-shorthand.test.ts` | `test/parsing/parsing-animation-shorthand.test.ts` |
+| `test/grammar-2026-values.test.ts` | `test/parsing/grammar-2026-values.test.ts` |
+| `test/math-functions.test.ts` | `test/parsing/math-functions.test.ts` |
+| `test/diagnostics-sink.test.ts` | `test/parsing/diagnostics-sink.test.ts` |
+| `test/round-trip.test.ts` | `test/parsing/round-trip.test.ts` |
+| `test/decompose-targeted.test.ts` | `test/transform/decompose-targeted.test.ts` |
+| `test/path-geometry.test.ts` | `test/transform/path-geometry.test.ts` |
+| `test/quantize.test.ts` | `test/quantize/quantize.test.ts` |
+| `test/quantize-chroma-weight.test.ts` | `test/quantize/quantize-chroma-weight.test.ts` |
+
+Config: `vitest.config.ts` `include: ["test/*.ts"]` → `["test/**/*.ts"]`.
