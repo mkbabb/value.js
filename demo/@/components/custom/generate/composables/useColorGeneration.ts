@@ -20,10 +20,10 @@
 
 import { ref, computed } from "vue";
 import type { Ref } from "vue";
-import { OKLCHColor, RGBColor } from "@src/units/color";
-import { oklch2xyz } from "@src/units/color/conversions/oklab";
-import { xyz2rgb } from "@src/units/color/conversions/xyz-extended";
-import { gamutMapSRGB } from "@src/units/color/gamut";
+import { OKLCHColor, RGBColor } from "@mkbabb/value.js/color";
+import { oklch2xyz } from "@mkbabb/value.js/color";
+import { xyz2rgb } from "@mkbabb/value.js/color";
+import { gamutMapSRGB } from "@mkbabb/value.js/color";
 import { mulberry32 } from "@composables/prng";
 
 // ── Preset definitions ──

@@ -1,6 +1,6 @@
-import { parseCSSColor } from "@src/parsing/color";
-import { COLOR_NAMES } from "@src/units/color/color-names";
-import { colorUnit2 } from "@src/units/color/normalize";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import { COLOR_NAMES } from "@mkbabb/value.js/color";
+import { colorUnit2 } from "@mkbabb/value.js/color";
 
 const DIGITS = 2;
 

@@ -142,8 +142,8 @@ import {
     Loader2,
 } from "@lucide/vue";
 import type { Tag } from "@lib/palette/types";
-import { srgbToOKLab } from "@src/units/color/gamut";
-import { hex2rgb } from "@src/units/color/conversions/hex";
+import { srgbToOKLab } from "@mkbabb/value.js/color";
+import { hex2rgb } from "@mkbabb/value.js/color";
 
 const { sort, tier, selectedTags, availableTags } = defineProps<{
     sort: string;

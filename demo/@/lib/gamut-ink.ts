@@ -12,7 +12,7 @@
  * netting inks, color-mix and all), the WEBBING token table (density/angle/
  * weight — the owner-ruling §1.2 facility), the registered hatch line-painter,
  * the paper-ink SECOND net, and the shared DPR cap. No reactivity, no
- * geometry — geometry is always library-owned (`@src/units/color/boundary`),
+ * geometry — geometry is always library-owned (`@mkbabb/value.js/color`),
  * scheduling is the consumer's.
  */
 

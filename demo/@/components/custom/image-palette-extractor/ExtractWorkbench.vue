@@ -162,7 +162,7 @@ import { ref, inject, onBeforeUnmount, useTemplateRef } from "vue";
 import { Aperture } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import type { ColorSpace } from "@src/units/color/constants";
+import type { ColorSpace } from "@mkbabb/value.js/color";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
 import { useExtractSession } from "./composables/useExtractSession";
 

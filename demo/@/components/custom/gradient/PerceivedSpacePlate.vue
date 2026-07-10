@@ -23,9 +23,9 @@ import {
 import {
     sampleOKLChSliceBoundary,
     sampleOKLChSliceBoundaryInto,
-} from "@src/units/color/boundary";
-import type { OKLChSliceBoundary } from "@src/units/color/boundary";
-import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
+} from "@mkbabb/value.js/color";
+import type { OKLChSliceBoundary } from "@mkbabb/value.js/color";
+import { cancelAnimationFrame, requestAnimationFrame } from "@mkbabb/value.js";
 import { createInkProbe, DPR_CAP } from "@lib/gamut-ink";
 import type { ResolvedInks } from "@lib/gamut-ink";
 import { paintPerceivedSpacePlate, paintSliceField } from "./perceivedSpacePaint";

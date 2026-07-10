@@ -173,7 +173,7 @@ import TagEditPopover from "@components/custom/palette-browser/TagEditPopover.vu
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 import type { Palette, Tag } from "@lib/palette/types";
-import { deltaEOK } from "@src/units/color/gamut";
+import { deltaEOK } from "@mkbabb/value.js/color";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
 import { useDialogBrowseActions } from "@components/custom/palette-browser/PaletteDialog/composables/useDialogBrowseActions";
 

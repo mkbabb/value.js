@@ -1,14 +1,14 @@
 import { computed, ref, type ShallowRef, type Ref, type ComputedRef } from "vue";
-import { debounce } from "@src/utils";
+import { debounce } from "@mkbabb/value.js";
 // S.W5-6 · F15: the generation engine lives in its own feature tree
 // (`custom/generate/composables/`); the picker consumes the one pure helper.
 import { generateSingleColor } from "@components/custom/generate/composables/useColorGeneration";
-import { parseCSSColor } from "@src/parsing/color";
-import type { ParsedColorUnit } from "@src/parsing/color";
-import type { ColorSpace } from "@src/units/color/constants";
-import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
-import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
-import { deltaEOK, gamutMapOKLab, DELTA_E_OK_JND } from "@src/units/color/gamut";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
+import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
+import { deltaEOK, gamutMapOKLab, DELTA_E_OK_JND } from "@mkbabb/value.js/color";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { DisplayColorSpace } from "@components/custom/color-picker";
 import { resolveColorSpace } from "@components/custom/color-picker";

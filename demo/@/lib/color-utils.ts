@@ -5,14 +5,14 @@
  * with the math world (Color<number>) that mixColors/color2 expect.
  */
 
-import type { Color } from "@src/units/color";
-import type { ColorSpace } from "@src/units/color/constants";
-import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
-import { ValueUnit } from "@src/units";
-import { parseCSSColor } from "@src/parsing/color";
-import { normalizeColorUnit, colorUnit2 } from "@src/units/color/normalize";
-import { color2 } from "@src/units/color/dispatch";
-import { scale } from "@src/math";
+import type { Color } from "@mkbabb/value.js/color";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
+import { ValueUnit } from "@mkbabb/value.js/units";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import { normalizeColorUnit, colorUnit2 } from "@mkbabb/value.js/color";
+import { color2 } from "@mkbabb/value.js/color";
+import { scale } from "@mkbabb/value.js/math";
 
 /**
  * Parse a CSS color string → normalized Color<number> in the given space.

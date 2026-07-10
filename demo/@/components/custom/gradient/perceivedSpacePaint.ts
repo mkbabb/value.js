@@ -19,10 +19,10 @@
  * interpolation space, drawn as a registered ink-over-paper pair.
  */
 
-import type { OKLChSliceBoundary } from "@src/units/color/boundary";
-import { linearToSrgb } from "@src/units/color/conversions/transfer";
-import { oklabToLinearSRGBInto } from "@src/units/color/gamut";
-import type { Vec3 } from "@src/units/color/matrix";
+import type { OKLChSliceBoundary } from "@mkbabb/value.js/color";
+import { linearToSrgb } from "@mkbabb/value.js/color";
+import { oklabToLinearSRGBInto } from "@mkbabb/value.js/color";
+import type { Vec3 } from "@mkbabb/value.js/color";
 import { drawHatch, drawSecondNet } from "@lib/gamut-ink";
 import type { ResolvedInks } from "@lib/gamut-ink";
 import type { RampPoint, StopPoint } from "./composables/usePerceivedRamp";

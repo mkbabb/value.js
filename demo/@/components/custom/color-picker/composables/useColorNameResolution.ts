@@ -1,9 +1,9 @@
 import { computed, ref, watch, type ShallowRef, type ComputedRef } from "vue";
-import { debounce } from "@src/utils";
-import { ValueUnit } from "@src/units";
-import { Color } from "@src/units/color";
-import type { ColorSpace } from "@src/units/color/constants";
-import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
+import { debounce } from "@mkbabb/value.js";
+import { ValueUnit } from "@mkbabb/value.js/units";
+import { Color } from "@mkbabb/value.js/color";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
 import { useCustomColorNames } from "./useCustomColorNames";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { DisplayColorSpace } from "@components/custom/color-picker";

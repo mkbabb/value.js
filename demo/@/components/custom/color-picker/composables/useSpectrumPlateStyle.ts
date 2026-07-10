@@ -6,7 +6,7 @@
  */
 
 import { computed, type ComputedRef } from "vue";
-import { clamp } from "@src/math";
+import { clamp } from "@mkbabb/value.js/math";
 import { spectrumFieldIsLight } from "../spectrumLuma";
 import type { useTouchGate } from "@mkbabb/glass-ui";
 

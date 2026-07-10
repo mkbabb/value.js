@@ -92,7 +92,7 @@ import {
 } from "@components/ui/select";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { inject } from "vue";
-import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
+import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
 import {
     DISPLAY_COLOR_SPACE_NAMES,
     colorToHexString,

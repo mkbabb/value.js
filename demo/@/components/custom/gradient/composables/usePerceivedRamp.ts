@@ -14,16 +14,16 @@
 
 import { computed } from "vue";
 import type { ComputedRef, Ref } from "vue";
-import { scale } from "@src/math";
-import type { Color } from "@src/units/color";
-import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
-import { color2 } from "@src/units/color/dispatch";
+import { scale } from "@mkbabb/value.js/math";
+import type { Color } from "@mkbabb/value.js/color";
+import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
+import { color2 } from "@mkbabb/value.js/color";
 import {
     deltaEOK,
     isInSRGBGamut,
     oklabToLinearSRGBInto,
-} from "@src/units/color/gamut";
-import type { Vec3 } from "@src/units/color/matrix";
+} from "@mkbabb/value.js/color";
+import type { Vec3 } from "@mkbabb/value.js/color";
 import { cssToRawColor, cssToRgb255 } from "@lib/color-utils";
 import { sampleCoalescedStops } from "./useGradientCSS";
 import type { GradientModelState } from "./useGradientModel";

@@ -9,10 +9,10 @@
 
 import { computed } from "vue";
 import type { ComputedRef } from "vue";
-import type { Color } from "@src/units/color";
-import { mixColors } from "@src/units/color/mix";
-import { linear, resolveEasing } from "@src/easing";
-import type { TimingFunction } from "@src/easing";
+import type { Color } from "@mkbabb/value.js/color";
+import { mixColors } from "@mkbabb/value.js/color";
+import { linear, resolveEasing } from "@mkbabb/value.js/easing";
+import type { TimingFunction } from "@mkbabb/value.js/easing";
 import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
 import type {
     GradientModelState,

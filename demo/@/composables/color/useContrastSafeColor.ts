@@ -1,6 +1,6 @@
 import { computed, type ComputedRef } from "vue";
 import { useDark } from "@vueuse/core";
-import { safeAccentCssString, needsContrastAdjustment } from "@src/units/color/contrast";
+import { safeAccentCssString, needsContrastAdjustment } from "@mkbabb/value.js/color";
 import { cssToRawColor } from "@lib/color-utils";
 
 /**

@@ -8,8 +8,8 @@ import {
 } from "@components/ui/select";
 import { Button } from "@components/ui/button";
 import { Blend } from "@lucide/vue";
-import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/mix";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { LeftoverStrategy } from "@lib/palette/mix";
 import type { AcceptableValue } from "reka-ui";
 // S.W5-6 · F16: the interpolation vocabulary lives in its neutral @lib/ home

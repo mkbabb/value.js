@@ -108,8 +108,8 @@ import {
     TooltipTrigger,
 } from "@components/ui/tooltip";
 import { Slider } from "@components/ui/slider";
-import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
-import { clamp } from "@src/math";
+import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
+import { clamp } from "@mkbabb/value.js/math";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 import { colorSpaceInfo } from "../index";
 import type { DisplayColorSpace } from "../index";

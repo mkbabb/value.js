@@ -24,8 +24,8 @@ import type { GradientType } from "./composables/useGradientModel";
 import { interpolateStopColors } from "./composables/useGradientInterpolation";
 import { usePerceivedRamp } from "./composables/usePerceivedRamp";
 import { easingFnOf } from "./composables/useGradientCSS";
-import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/mix";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import type { AcceptableValue } from "reka-ui";
 

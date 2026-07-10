@@ -3,8 +3,8 @@
  * Runs quantizePixels off the main thread, using Transferable for zero-copy pixel data.
  */
 
-import { quantizePixels } from "@src/quantize";
-import type { QuantizeOptions, QuantizedColor } from "@src/quantize";
+import { quantizePixels } from "@mkbabb/value.js/quantize";
+import type { QuantizeOptions, QuantizedColor } from "@mkbabb/value.js/quantize";
 
 export interface QuantizeWorkerRequest {
     pixels: ArrayBuffer;

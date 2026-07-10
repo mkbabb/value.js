@@ -4,9 +4,9 @@ import { useRouter, useRoute } from "vue-router";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { DisplayColorSpace } from "@components/custom/color-picker";
 import { toCSSColorString, resolveColorSpace, colorToHexString } from "@components/custom/color-picker";
-import { parseCSSColor } from "@src/parsing/color";
-import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
-import { debounce } from "@src/utils";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
+import { debounce } from "@mkbabb/value.js";
 import { NORMALIZED_COLOR_NAMES } from "./normalizedColorNames";
 
 export function useColorUrl(options: {

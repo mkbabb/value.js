@@ -29,7 +29,7 @@ import {
     paletteToCssGradient,
     type AuroraAtoms,
 } from "@mkbabb/glass-ui/aurora";
-import { debounce } from "@src/utils";
+import { debounce } from "@mkbabb/value.js";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@components/custom/panes/keys";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/goo-blob";
 import { deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";

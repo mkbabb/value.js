@@ -17,8 +17,8 @@ import type { Ref, ShallowRef } from "vue";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { ColorPicker } from "@components/custom/color-picker";
 import type { ViewManager } from "@composables/useViewManager";
-import { normalizeColorUnit } from "@src/units/color/normalize";
-import { parseCSSColor } from "@src/parsing/color";
+import { normalizeColorUnit } from "@mkbabb/value.js/color";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
 import { usePaletteManager, type PaletteManager } from "./usePaletteManager";
 
 export function usePaletteManagerWiring(

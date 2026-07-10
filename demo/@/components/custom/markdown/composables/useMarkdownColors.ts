@@ -1,8 +1,8 @@
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { computed } from "vue";
-import { parseCSSColor } from "@src/parsing/color";
-import { computeSafeAccent } from "@src/units/color/contrast";
-import { colorUnit2 } from "@src/units/color/normalize";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import { computeSafeAccent } from "@mkbabb/value.js/color";
+import { colorUnit2 } from "@mkbabb/value.js/color";
 
 const BG_LIGHTNESS_DARK = 0.15;
 const BG_LIGHTNESS_LIGHT = 0.97;

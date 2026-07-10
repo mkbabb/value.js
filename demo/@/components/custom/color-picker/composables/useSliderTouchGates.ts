@@ -11,7 +11,7 @@
  */
 
 import { onMounted, onUnmounted, ref, watch, nextTick, type WatchSource } from "vue";
-import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
+import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
 import { useTouchGate } from "@mkbabb/glass-ui";
 import type { usePointerDebug } from "./usePointerDebug";
 

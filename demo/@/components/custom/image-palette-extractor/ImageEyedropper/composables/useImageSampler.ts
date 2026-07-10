@@ -9,9 +9,9 @@
  * Extracted from `ImageEyedropper.vue` at D.W3 Lane A (De §2.4 split).
  */
 import { ref, type Ref } from "vue";
-import type { ColorSpace } from "@src/units/color/constants";
-import { parseCSSColor } from "@src/parsing/color";
-import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
 
 export type DisplayColorSpace = ColorSpace | "hex";
 

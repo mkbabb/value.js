@@ -1,15 +1,15 @@
 import { computed, onScopeDispose, ref, watch, type ShallowRef } from "vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import { debounce } from "@src/utils";
-import type { ParsedColorUnit } from "@src/parsing/color";
-import { ValueUnit } from "@src/units";
-import type { ColorSpace } from "@src/units/color/constants";
-import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
+import { debounce } from "@mkbabb/value.js";
+import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
+import { ValueUnit } from "@mkbabb/value.js/units";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
 import {
     colorUnit2,
     normalizeColorUnit,
     normalizeColorUnitComponent,
-} from "@src/units/color/normalize";
+} from "@mkbabb/value.js/color";
 import type { ColorModel } from "@components/custom/color-picker";
 import {
     createDefaultColorModel,

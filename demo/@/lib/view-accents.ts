@@ -49,15 +49,15 @@ import {
     computeSafeAccent,
     contrastColor,
     wcagContrastRatio,
-} from "@src/units/color";
+} from "@mkbabb/value.js/color";
 import {
     DELTA_E_OK_JND,
     gamutMapOKLab,
     rawOklabToOklch,
     rawOklchToOklab,
-} from "@src/units/color/gamut";
-import { getColorSpaceBound } from "@src/units/color/constants";
-import { clamp } from "@src/math";
+} from "@mkbabb/value.js/color";
+import { getColorSpaceBound } from "@mkbabb/value.js/color";
+import { clamp } from "@mkbabb/value.js/math";
 import { cssToRawColor } from "./color-utils";
 
 /**

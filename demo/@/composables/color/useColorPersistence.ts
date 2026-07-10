@@ -1,8 +1,8 @@
 import { watch, type ShallowRef, type ComputedRef } from "vue";
 import { useStorage } from "@vueuse/core";
-import { debounce } from "@src/utils";
-import type { ParsedColorUnit } from "@src/parsing/color";
-import { normalizeColorUnit } from "@src/units/color/normalize";
+import { debounce } from "@mkbabb/value.js";
+import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
+import { normalizeColorUnit } from "@mkbabb/value.js/color";
 import type { ColorModel } from "@components/custom/color-picker";
 import { defaultColorModel } from "@components/custom/color-picker";
 

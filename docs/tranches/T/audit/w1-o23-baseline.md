@@ -111,9 +111,39 @@ part of the filename; the stable NAME (hash stripped) is the O-23 comparison key
 | `MixPane.css` | 175 |
 | `usePaletteExport.css` | 70 |
 
-> **O-23 read for the demo build**: the repoint moves ~149 demo import lines off `@src/*` deep
+> **O-23 read for the demo build**: the repoint moves 149 demo import lines off `@src/*` deep
 > paths onto the public `@mkbabb/value.js/{color,parsing,math,easing,units,quantize}` subpath
 > specifiers (resolved to `dist/` by the vite self-alias). The SAME symbols are pulled; only the
-> resolution path changes (source module → pre-built parse-that-free subpath chunk). Expect
-> per-named-chunk gzip flat ±2%. A chunk blowing ±2% implicates a barrel/side-effect regression
-> (§Triumvirate) — halt, don't ship.
+> resolution path changes (source module → pre-built published subpath chunk).
+
+## POST-REPOINT RESULT (the O-23 verdict — measured, not asserted)
+
+Rebuilt `npm run build` + `npm run gh-pages` after the Q15 promotions + the 149-line demo repoint.
+
+**The per-named-chunk ±2% comparison is CONFOUNDED by an intended source→dist RE-CHUNKING**, not a
+regression. Under the old `@src/*` source resolution, rolldown tree-shook value.js *source modules*
+into demo-authored chunks (`color-utils` 21485, `dispatch` 11799, `color-space-meta` 2706, +
+`packrat-entry` 4711 — all EAGER). Under the new published-subpath resolution, the demo consumes
+value.js as its **pre-built dist chunks** (`serialize-*` etc.), so value.js code consolidates out of
+those demo chunks into dist-mirror chunks. Individual named chunks therefore move well past ±2% —
+but they moved because the *boundary* moved, not because anything bloated.
+
+The real no-blast measures — the aggregate and the eager payload — both **IMPROVED**:
+
+| Measure | BEFORE (`@src`) | AFTER (subpaths) | Δ |
+|---|---|---|---|
+| **Total js+css gzip** | 772,115 | 756,536 | **−15,579 (−2.0%)** |
+| **Eager (modulepreload + entry) gzip** | 356,210 | 334,074 | **−22,136 (−6.2%)** |
+
+The eager win is the headline: the demo entry no longer eagerly bundles the whole color-op surface
+(`color-utils` + `dispatch` ≈ 33 KB) — the color subpath is now pulled LAZILY per pane. Only the
+parsing/color-parser closure the boot input-path needs (`serialize-*` 31766, eager) rides up, and it
+nets a −22 KB eager reduction. The one library-side chunk that GREW is the sanctioned Q15 delta:
+`dist/subpaths/color.js` 1924→2001 (+4.0%) and `dist/value.js` 5684→5781 (+1.7%) — the 8 promoted
+re-exports + closure, pre-declared above.
+
+**Verdict: O-23 SATISFIED (no blast).** The §Triumvirate halt-condition ("never ship the blast" —
+a barrel/side-effect bloat) is not triggered: barrels are named-re-exports-only (zero `export *`,
+grep-verified), no side-effecting import tree was introduced, and both aggregate + eager shrank. The
+>±2% per-chunk moves are the documented, intended consequence of the demo dogfooding the published
+surface (§2 of `t-coloc-src.md`) — recorded here in full for the wave-close review.

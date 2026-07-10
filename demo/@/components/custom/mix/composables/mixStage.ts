@@ -12,13 +12,13 @@
  * no engine-conditional path — one implementation, every engine.
  */
 
-import { lerp, clamp } from "@src/math";
-import { easeInOutCubic, easeOutCubic, easeInQuad } from "@src/easing";
-import { sampleColorRamp } from "@src/units/color/mix";
-import type { HueInterpolationMethod } from "@src/units/color/mix";
-import { color2 } from "@src/units/color/dispatch";
-import type { Color } from "@src/units/color";
-import type { ColorSpace } from "@src/units/color/constants";
+import { lerp, clamp } from "@mkbabb/value.js/math";
+import { easeInOutCubic, easeOutCubic, easeInQuad } from "@mkbabb/value.js/easing";
+import { sampleColorRamp } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import { color2 } from "@mkbabb/value.js/color";
+import type { Color } from "@mkbabb/value.js/color";
+import type { ColorSpace } from "@mkbabb/value.js/color";
 import { cssToRawColor, cssToRgb255 } from "@lib/color-utils";
 
 /** All drops arrive at the well together — the convergence chord. */

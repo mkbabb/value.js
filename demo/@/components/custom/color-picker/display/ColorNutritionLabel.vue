@@ -154,15 +154,15 @@
 <script setup lang="ts">
 import { computed, ref, inject } from "vue";
 import { SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
-import type { ColorSpace } from "@src/units/color/constants";
+import type { ColorSpace } from "@mkbabb/value.js/color";
 import {
     COLOR_SPACE_RANGES,
     COLOR_SPACE_DENORM_UNITS,
-} from "@src/units/color/constants";
-import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
+} from "@mkbabb/value.js/color";
+import { getFormattedColorSpaceRange } from "@mkbabb/value.js/color";
 import { Separator } from "@components/ui/separator";
-import { ValueUnit } from "@src/units";
-import { Color } from "@src/units/color";
+import { ValueUnit } from "@mkbabb/value.js/units";
+import { Color } from "@mkbabb/value.js/color";
 import {
     Tooltip,
     TooltipProvider,
@@ -173,7 +173,7 @@ import { ArrowRight } from "@lucide/vue";
 import { Alert, AlertTitle, AlertDescription } from "@components/ui/alert";
 import type { ColorModel } from "..";
 import { colorSpaceInfo, resolveColorSpace } from "..";
-import { normalizeColorUnit } from "@src/units/color/normalize";
+import { normalizeColorUnit } from "@mkbabb/value.js/color";
 
 const model = defineModel<ColorModel>({ required: true });
 

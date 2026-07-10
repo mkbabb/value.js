@@ -8,8 +8,8 @@
  */
 
 import { ref, computed, watch } from "vue";
-import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/mix";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
 import { useGradientInterpolation } from "./useGradientInterpolation";
 import { useGradientCSS, linearInterval } from "./useGradientCSS";

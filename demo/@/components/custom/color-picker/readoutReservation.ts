@@ -15,12 +15,12 @@
  * the tabular width, so a worst-case character count IS a worst-case width.
  */
 
-import type { ColorSpace } from "@src/units/color/constants";
+import type { ColorSpace } from "@mkbabb/value.js/color";
 import {
     COLOR_SPACE_RANGES,
     getColorSpaceBound,
     getColorSpaceDenormUnit,
-} from "@src/units/color/constants";
+} from "@mkbabb/value.js/color";
 
 /** ch width of one bound rendered at the readout's 1-decimal format. */
 const chOf = (n: number): number => n.toFixed(1).length;

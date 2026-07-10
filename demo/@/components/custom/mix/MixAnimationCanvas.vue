@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useTemplateRef, toRef } from "vue";
-import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/mix";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import { useMixingAnimation } from "./composables/useMixingAnimation";
 import type { AnimationPhase, MixResult } from "./composables/useMixingState";
 

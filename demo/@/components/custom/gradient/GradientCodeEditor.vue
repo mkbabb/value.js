@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, useTemplateRef } from "vue";
-import { debounce } from "@src/utils";
+import { debounce } from "@mkbabb/value.js";
 
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";

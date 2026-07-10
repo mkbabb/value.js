@@ -1,7 +1,11 @@
 // The demo program (inv-K-1 — K.W2 split; N.W1.C mechanism-C resolution).
 //
-// `demo/` only. Resolves the value.js library through the `@src/*` path and
-// `@mkbabb/glass-ui` from its published `dist/` surface (N.W1.C / mechanism-C —
+// `demo/` only. Resolves the value.js library through its PUBLISHED subpath
+// `exports` — `@mkbabb/value.js` + `@mkbabb/value.js/{color,parsing,math,easing,
+// units,transform,quantize}` → the `dist/*.d.ts` trust boundary (the T.W1
+// demo-dogfood keystone; the pre-keystone `@src/*` source path was RETIRED so
+// the demo speaks only the 8 public keys and no `src/` internal is reachable) —
+// and `@mkbabb/glass-ui` from its published `dist/` surface (N.W1.C / mechanism-C —
 // the `development` source-resolution condition was abrogated constellation-
 // wide; glass-ui's `exports` map carries only `{types, import, default}` → all
 // `dist/`). Dist-resolution gives a real `.d.ts` trust boundary: glass-ui's
@@ -25,7 +29,6 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "paths": {
-            "@src/*": ["./src/*"],
             "@styles/*": ["./demo/@/styles/*"],
             "@components/*": ["./demo/@/components/*"],
             "@utils/*": ["./demo/@/utils/*"],
@@ -34,7 +37,19 @@
             "@assets/*": ["./assets/*"],
             "vue": ["./node_modules/vue"],
             "@vue/*": ["./node_modules/@vue/*"],
-            "@mkbabb/value.js": ["./dist/index.d.ts"]
+            // The value.js published surface: the bare `.` root + the 7 subpath
+            // barrels, each → its `dist/*.d.ts` (the T.W1 demo-dogfood keystone;
+            // TS `paths` needs an explicit per-subpath entry — there is no `.../*`
+            // wildcard because the `exports` map is a CLOSED 8-key set). Mirrors
+            // the `vite.config.ts` runtime self-alias generated from the same map.
+            "@mkbabb/value.js": ["./dist/index.d.ts"],
+            "@mkbabb/value.js/color": ["./dist/subpaths/color.d.ts"],
+            "@mkbabb/value.js/parsing": ["./dist/subpaths/parsing.d.ts"],
+            "@mkbabb/value.js/math": ["./dist/subpaths/math.d.ts"],
+            "@mkbabb/value.js/easing": ["./dist/subpaths/easing.d.ts"],
+            "@mkbabb/value.js/units": ["./dist/subpaths/units.d.ts"],
+            "@mkbabb/value.js/transform": ["./dist/subpaths/transform.d.ts"],
+            "@mkbabb/value.js/quantize": ["./dist/subpaths/quantize.d.ts"]
         }
     },
     // `src/vite-env.d.ts` carries `/// <reference types="vite/client" />`

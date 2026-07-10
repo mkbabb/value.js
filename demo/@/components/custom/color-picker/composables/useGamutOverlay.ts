@@ -34,15 +34,15 @@ import { useMediaQuery } from "@vueuse/core";
 import {
     sampleGamutBoundary,
     sampleGamutBoundaryInto,
-} from "@src/units/color/boundary";
+} from "@mkbabb/value.js/color";
 import type {
     GamutBoundary,
     GamutBoundaryTarget,
-} from "@src/units/color/boundary";
-import { findCusp, srgbToOKLab } from "@src/units/color/gamut";
-import { hsl2rgb } from "@src/units/color/conversions/cylindrical";
-import { HSLColor } from "@src/units/color";
-import { cancelAnimationFrame, requestAnimationFrame } from "@src/utils";
+} from "@mkbabb/value.js/color";
+import { findCusp, srgbToOKLab } from "@mkbabb/value.js/color";
+import { hsl2rgb } from "@mkbabb/value.js/color";
+import { HSLColor } from "@mkbabb/value.js/color";
+import { cancelAnimationFrame, requestAnimationFrame } from "@mkbabb/value.js";
 import {
     createInkProbe,
     paintGamutBoundary,

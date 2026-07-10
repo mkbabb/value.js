@@ -1,7 +1,7 @@
 import { ref, readonly } from "vue";
-import { registerColorNames, clearCustomColorNames } from "@src/parsing/color";
-import { parseCSSColor } from "@src/parsing/color";
-import { colorUnit2 } from "@src/units/color/normalize";
+import { registerColorNames, clearCustomColorNames } from "@mkbabb/value.js/parsing";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import { colorUnit2 } from "@mkbabb/value.js/color";
 import { getApprovedColorNames, ApiUnavailableError } from "@lib/palette/api";
 import type { ProposedColorName } from "@lib/palette/types";
 

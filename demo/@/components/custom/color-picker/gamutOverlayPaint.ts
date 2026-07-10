@@ -23,7 +23,7 @@
  * boundary paint.
  */
 
-import type { GamutBoundary } from "@src/units/color/boundary";
+import type { GamutBoundary } from "@mkbabb/value.js/color";
 import { DPR_CAP, drawHatch, HATCH_STEP } from "@lib/gamut-ink";
 import type { ResolvedInks } from "@lib/gamut-ink";
 import { spectrumFieldIsLight } from "./spectrumLuma";

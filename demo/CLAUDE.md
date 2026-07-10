@@ -138,7 +138,10 @@ Organised by domain (Mar-2026 restructure) plus root utilities + the D.W3 Lane D
 
 ## Library integration
 
-The demo imports directly from `@src/` (path alias → `src/`) where library-facing:
+The demo consumes value.js through its PUBLISHED subpaths — `@mkbabb/value.js` +
+`@mkbabb/value.js/{color,parsing,math,easing,units,quantize}` (the T.W1 demo-dogfood
+keystone; the pre-keystone `@src/` deep-path alias was retired so the demo dogfoods
+the 8 public `exports` keys, never `src/` internals) — where library-facing:
 - `parseCSSColor()` for input parsing (memoised at D.W3 Lane C L3 with invalidation hook)
 - `parseCSSValueUnit()` for dimension parsing (memoised at D.W3 Lane C L8 parity)
 - `colorUnit2()` / `normalizeColorUnit()` for space conversion

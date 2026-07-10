@@ -5,9 +5,9 @@
 
 import { ref } from "vue";
 import type { Ref } from "vue";
-import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/mix";
-import { mixColors } from "@src/units/color/mix";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import { mixColors } from "@mkbabb/value.js/color";
 import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
 
 // ── Shared interpolation vocabulary — moved to its neutral `@lib/` home
