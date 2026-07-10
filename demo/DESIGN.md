@@ -36,6 +36,11 @@ compiled utilities paint) and are deleted.
 - **Fira Code — the readout/annotation voice.** Numeric readouts, code, admin
   labels, plate captions/eyebrows. `--select-font` + `--dropdown-menu-font`
   pin Select + DropdownMenu triggers to mono so numeric values read cleanly.
+  **Mono on a FIELD is a statement about the content, never a default**
+  (T.W3-3 / T-12): a prose search field speaks the body voice (the seated
+  register strips the producer recipe's baked `--font-mono` — ASK-B's seam
+  target); CSS-literal and identifier fields opt back into mono by explicit
+  class (SearchFilterBar's color input is the exemplar).
 
 **Prohibitions**: no `!important` family overrides; no serif-fallback rung
 accepted as a cure (a Times-painted display rung is a defect, not a degrade);
@@ -97,8 +102,17 @@ rung routes to ratification; off-ladder material mints are prohibited
 The PaneHeader veil is rung-1's material at a scroll-earned intensity
 (`--glass-bg-resting` + `--glass-blur-resting` + rest floor — see
 `PaneHeader.vue`; C2's reconciliation, the CC-3 bespoke recipe retired).
-`.input-bar` is producer input chrome; its in-plate seat is the W3-3 register
-law (fields on paper wear paper).
+**THE REGISTER LAW (W3-3, landed)**: *fields on paper wear paper; fields on
+glass stay glass.* glass-ui's `.input-bar` is CHROME (rung-3 dock furniture —
+floating glass, a 24rem dock cap, the mono voice); a field seated in a pane
+BODY is a rung-2 fixture and wears the SEATED register — the ONE opt-in
+`.search-seated` (utils.css): `--well-bg` fill, no blur, the `--card-edge`
+ink hairline, the chip-scale cartoon stamp, the column measure (the dock cap
+dies), the plate's text voice. Consumers: the Palettes / Browse / Admin pane
+search bars. Dock/overlay search keeps the floating pill. INTERIM demo seat —
+booked onto the P3 seated field-chrome rung (ASK-D, with ASK-B font +
+ASK-C cap seams); the O-7 census carries the seat row (both schemes, judged
+beside the dashed-well + card in-frame, + the 768 F-7 frame).
 
 **The depth law (RC-2)**: interior fixtures are rung-2 tone-steps, NEVER
 heavier glass than their host; heavier-than-host glass is reserved for

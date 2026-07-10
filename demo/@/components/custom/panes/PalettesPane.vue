@@ -8,9 +8,13 @@
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
-                 side-by-side panes) is scoped — this one owns YOUR list. -->
+                 side-by-side panes) is scoped — this one owns YOUR list.
+                 T.W3-3 (T-12): a field on paper wears paper — the seated
+                 register (utils.css `.search-seated`; interim, booked onto
+                 the P3 seated rung / ASK-D). -->
             <SearchBar
                 v-model="pm.searchQuery.value"
+                class="search-seated"
                 placeholder="Search your palettes..."
             />
 
