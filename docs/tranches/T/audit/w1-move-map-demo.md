@@ -87,3 +87,36 @@ private animation pipeline (`useMixingAnimation` → `mixStage`, a single-parent
 **Edges rewritten** (2): `ImageEyedropper.vue:94` → `./composables/useInertiaGesture`;
 `composables/useImageQuantize.ts:10-11` `@lib/quantize-worker` → `../quantize-worker` (+ `?worker`).
 **Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18.
+
+---
+
+## Cohesion cargo (distinct commits — §Commit plan)
+
+| cargo | disposition | files | gates |
+|---|---|---|---|
+| **dup-`useDark` fold** onto `useGlobalDark` | LANDED | `composables/color/useViewAccents.ts` + `useContrastSafeColor.ts` — the last two `@vueuse/core` `useDark` holdouts fold onto the glass-ui `useGlobalDark` singleton (markdown did this at S.W4-8; zero vueuse `useDark` left in demo/) | tc 0 · lint 0 · vitest 2158/2158 |
+| **MOB-2** route-derived pane index | LANDED | `viewSchema.ts` (+`defaultPaneIndex`), `useViewManager.ts` (ref→view-tagged writable computed; X8 seed + per-switchView re-derivation die), `usePaletteManagerWiring.ts` (edit-flow override deferred to the settled tick) | tc 0 · lint 0 · vitest 2158/2158 · **playwright `mobile/walk` (pane-toggle + view-select re-route) PASS** |
+| **MOB-1** stamped `data-layout` witness | NOT STARTED (see recovery brief) | App.vue (stamp `data-layout`), Dock.vue + ColorPicker.vue + `styles/style.css:435` exception DIES | — |
+| **PI-DRIFT-1 + the 10-site `out-in` audit** | NOT STARTED (see recovery brief) | the 10 `<Transition mode="out-in">` sites + the pi-w5b hard-fail rider | — |
+
+## O-23 bundle verdict (landed batches 2-4 + cargo)
+
+Measured `dist/gh-pages` gzip per named chunk, current HEAD vs the post-batch-4 reference
+(`scratchpad/o23-pre-batch5.json`): **worst per-chunk delta −1.44%** (`dateFormat.js` 278→274, a
+4-byte move on a tiny chunk) · `AdminPane.js` +1.19% · aggregate **−0.084%** — all inside the O-23
+±2% band. The move batches are pure path-rewrites (chunk-graph-neutral, PI-6); the two cargo folds
+are logic-only. **O-23 SATISFIED** for the landed work; the barrel/decomposition batches (5-6) that
+carry the real PI-6 side-effect-bloat risk are NOT YET LANDED (recovery brief).
+
+## Lane status (partial — checkpoint at batch 4 + 2 cargo)
+
+**LANDED**: PR-7 census · MOVE-MAP · batch 1 (verify: DROP/dissolve discharged by W0-3) · batch 2
+(gradient) · batch 3 (mix) · batch 4 (extractor) · cargo dup-`useDark` · cargo MOB-2. **Lane-close
+gates on the landed state: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18 · O-23
+±2% (worst −1.44%, aggregate −0.084%) · playwright smoke+admin+mobile 51 passed / 3 skipped.**
+**DEFERRED** (recovery brief `audit/recovery/T.W1-demo-brief-2026-07-10.md`): batch 5 (hardened
+barrels) · batch 6 (palette-browser decomposition) · batch 7 (color-domain atomic codemod — the
+all-or-nothing ~24 keys hunk) · batch 8 (app-shell `app/composables/boot/`) · batch 9 (per-feature
+recursion) · cargo MOB-1 · cargo PI-DRIFT-1. The three trees are writer-disjoint; this demo lane's
+landed state is internally consistent (all gates green) and each deferred batch is an independent
+PP-14 resumption unit re-derivable against the live tree.
