@@ -11,7 +11,8 @@ consumed dist is a gitignored local build ~1 day stale — G-CUR-1); `../keyfram
 **Precedence**: `MANDATE-2026-07-06.md §0` + addenda §0.1–§0.4 are VERBATIM LAW and win over every
 lane and over this synthesis. The S SYNTHESIS is the structural precedent; the precept slate is
 `t-precepts-recap.md §A–§E` (PP-1..PP-16 · PR-1..PR-8), lifted into the T charter verbatim.
-**Evidence base**: `audit/lanes/*.md` (36 lanes, each cited by name below) · `S/FINAL.md §5/§7` ·
+**Evidence base**: `audit/lanes/*.md` (36 lanes, each cited by name below) · `S/FINAL.md §5/§8`
+[AMENDED-AT-HARDENING — M-25: the firing-ops source is §8, the book-state §5] ·
 the owner shots at `audit/owner-screenshots/` (shot↔finding map re-derived — §1.0).
 **Pass-2**: amended per the 3-critic review 2026-07-07 — both mustFix folds + 11 shouldFix folds,
 marked AMENDED-AT-PASS-2 where substantive; dispositions that changed nothing are in §9.

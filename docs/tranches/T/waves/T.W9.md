@@ -6,8 +6,8 @@ unchanged, F19)
 as-is — an unfired trigger hands the book to the successor, the R→S→T precedent).
 **Spec of record**: `audit/SYNTHESIS.md §3` (the T.W9 block) · SYNTHESIS §1 (the finding→item
 map = the zero-drop ledger) + §7 (the fold table) · `T.md §7` (the BOOKS table) · SYNTHESIS §6.2
-(the budget re-run + the Q14 disposition) · `S/FINAL.md §7` (the X1/X2 residuals, restated
-verbatim) · `audit/lanes/t-ci-lighthouse-record.md` (**the now-fixed CI/deploy chain of
+(the budget re-run + the Q14 disposition) · `S/FINAL.md §8` (the X1/X2 residuals' firing ops, restated verbatim; the book-state is §5)
+[AMENDED-AT-HARDENING — M-25: the old §7 cite pointed at Process lessons] · `audit/lanes/t-ci-lighthouse-record.md` (**the now-fixed CI/deploy chain of
 record**) · `docs/RELEASE.md` (the publish/close ceremony) · the precepts close discipline.
 **On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the
 T.md charter clause, restated here so the rule is self-evident in-file; `MANDATE-2026-07-06.md §0`
@@ -61,7 +61,7 @@ The PP-16 naming law binds. (`T.md` Completion criterion + SYNTHESIS §3 T.W9, c
 6. **Book re-verification** — every `T.md §7` row (inherited §7.1 + T-minted §7.2) probed
    against the live world with a dated record; fired-but-unnoticed triggers hunted (S lesson
    4); the W7 adopt state recorded as-is; **X1/X2 restated VERBATIM with their firing ops**
-   (from `S/FINAL.md §7`) — X1 (prod api deploy; publish/unpublish 404-broken for real users;
+   (from `S/FINAL.md §8`; the book-state from §5 [AMENDED-AT-HARDENING — M-25]) — X1 (prod api deploy; publish/unpublish 404-broken for real users;
    O-25 stands guard) is on its 2nd carry: **never a silent 3rd re-book** — a T close that
    still carries X1 names it in FINAL.md §misses.
 7. **Repo-wide sweeps re-run** — the caps (post-E-1 tree: `demo/` ≤400 · `api/` ≤350 · src
@@ -132,7 +132,7 @@ own row — the close never silently patches), `../glass-ui`, `../keyframes.js`,
 7. Master merged (`--no-ff`, the R ceremony) + annotated `tranche-t-close` tag pushed; the
    Production deploy lineage verified (or the manual-lane record + resumption condition); clean
    `git status`; `git worktree list` = main tree only.
-8. `npm run lint` 0 · `npm run typecheck` 0 · `npm test` green · e2e 5-project green ·
+8. `npm run lint` 0 · `npm run typecheck` 0 · `npm test` green · e2e all-project green (6 at authoring [AMENDED-AT-HARDENING — M-26: the stale "5-project" corrected drift-proof; W0-4 fixes the CLAUDE.md source]) ·
    `npm run gh-pages` ✓ built; exact suite counts recorded in FINAL.md (the wave-gate doc
    carries the authoritative numbers — CLAUDE.md's standing law).
 
@@ -150,7 +150,7 @@ own row — the close never silently patches), `../glass-ui`, `../keyframes.js`,
 ## §Format + lint cadence
 
 `npm run lint` + `npm run typecheck` + `npm test` + `npx playwright test` on the merged tree
-before the ceremony; `git diff --check` on every docs commit.
+before the ceremony; `git diff --check` on every docs commit. The tool-artefact grep `grep -rnE '</?(content|invoke|parameter|antml)'` over the wave's touched docs MUST be empty before any docs commit (the §Recovery seam class — M-1).
 
 ## §Verification artefacts
 
@@ -165,6 +165,20 @@ environment + asset hashes vs the close sha); the merge/tag hashes; `git status 
 FINAL.md commit (with body); the doc-rewrite commits (demo/api/root CLAUDE.md + DESIGN.md,
 each scoped); the status-stamp commits; the merge commit (`--no-ff`) + annotated
 `tranche-t-close` tag; a final PROGRESS.md status commit.
+
+## §Recovery (STANDING — the `T.md §8` completion-brief rider binds every dispatch AND resume of this wave; PP-14/PP-15 operationalized) [AMENDED-AT-HARDENING — M-29/h-exec-recovery]
+
+The four-step protocol (audit-partial → patch-brief at `audit/recovery/T.W<n>-<lane>-brief-<date>.md` → resume-from-work-order → seam-audit-at-close) is standing law in `T.md §8`; E-6 batches-of-three is the prevention half, this rider the cure. This wave's type-specific deltas:
+
+**Partial signatures**: a **mid-ledger-walk** (a zero-drop claim on a partial walk is FALSE); a
+**mid-merge partial** (`--no-ff` started, conflicts half-resolved — the single most dangerous
+partial in T); FINAL.md half-authored.
+**Resume specifics**: the merge is the ONE irreversible-adjacent act — a resumed close **audits
+the merge state first** (`git status`; `git merge --abort` + re-drive if incoherent) before ANY
+new commit; the ledger walk **re-runs WHOLE** (a partial reconciliation is re-driven, never
+trusted — a "zero-drop" claim must cover every row in one continuous pass, its command named).
+PP-16 binds: a close recovering a partial it cannot fully finish names the residual
+`complete_with_misses`.
 
 ## §Dependencies
 
@@ -184,7 +198,7 @@ watch).
 ## §Evidence packets consumed
 
 The full wave-close artefact set (T.W0–T.W8) · SYNTHESIS §1/§6.2/§7 · `T.md §7` ·
-`S/FINAL.md §5/§7` (the inherited books + the X1/X2 verbatim source) ·
+`S/FINAL.md §5/§8` (the inherited books + the X1/X2 firing-ops verbatim source [AMENDED-AT-HARDENING — M-25]) ·
 `audit/lanes/t-ci-lighthouse-record.md` (the chain of record + the run-of-record figures) ·
 `audit/lanes/t-deferred-census.md` (the recheck-lane pattern) · `audit/lanes/t-docs-truth.md`
 (the rewrite targets) · `docs/RELEASE.md`.

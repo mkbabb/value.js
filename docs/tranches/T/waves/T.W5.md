@@ -99,7 +99,7 @@ Mandatory on:
 
 | Surface | Files (pre-move anchors; re-derive via the W1 MOVE-MAP) | Access |
 |---|---|---|
-| swap + families | `App.vue` (the pane-swap transition block) · `animations.css` (enter legs only — collapse legs are Tranche B, untouched) · `style.css` (motion region) | modify |
+| swap + families | `App.vue` (the pane-swap transition block) · `animations.css` (enter legs only — collapse legs are Tranche B, untouched) · `style.css` (motion region **@~86-150 ONLY — the round-4 region split [AMENDED-AT-HARDENING — h-dag D-3]: W5 owns the motion region, W6-Lane-G owns the netting @254-261, the surviving accent @223-224 is READ-ONLY everywhere**) | modify |
 | cards + interactives | `PaletteCard.vue` · `CurrentPaletteEditor.vue` · `ComponentSliders` (rail-item leg) · `ColorInput.vue` · `ColorPicker.vue` (`.pane-shell` leg) | modify |
 | skeleton settle | `BrowsePane.vue` · `PaletteBrowseTab.vue` · `PaletteCardSkeleton.vue` | modify |
 | coherence rows | `PaletteDialog.vue` (scrim clock) · DESIGN.md (motion-table rows) | modify |
@@ -136,7 +136,7 @@ wave-open against the W1 MOVE-MAP (PP-11).
 6. **CSS tripwire**: CSS gz re-measured at gate; >120 KiB REDs the wave (§6.2, pass-2).
 7. PP-8 repo-wide sweep (caps · legacy grep · as-any ledger regenerated) + PI-1 Lighthouse delta
    recorded.
-8. `npm run lint` 0 · `npm run typecheck` 0 · `npm test` green · e2e 5-project green · no `demo/`
+8. `npm run lint` 0 · `npm run typecheck` 0 · `npm test` green · e2e all-project green (6 at authoring [AMENDED-AT-HARDENING — M-26: the stale "5-project" corrected drift-proof; W0-4 fixes the CLAUDE.md source]) · no `demo/`
    file >400 LoC.
 
 ## §No-workaround prohibitions (binding)
@@ -154,7 +154,7 @@ wave-open against the W1 MOVE-MAP (PP-11).
 ## §Format + lint cadence
 
 `npm run lint` + `npm run typecheck` + `npm test` after each row batch and before close;
-`npx playwright test` (incl. the O-16 census spec) at close; the CSS gz measurement at gate.
+`npx playwright test` (incl. the O-16 census spec) at close; the CSS gz measurement at gate. The tool-artefact grep `grep -rnE '</?(content|invoke|parameter|antml)'` over the wave's touched docs MUST be empty before any docs commit (the §Recovery seam class — M-1).
 
 ## §Verification artefacts
 
@@ -171,6 +171,16 @@ adoption (R4) / interactive scales (R5+R11) / skeleton settle (R8) / coherence r
 two stated KEEP calls); a Tranche-B book-status commit (no code); the census + close commit; a
 wave status commit.
 
+## §Recovery (STANDING — the `T.md §8` completion-brief rider binds every dispatch AND resume of this wave; PP-14/PP-15 operationalized) [AMENDED-AT-HARDENING — M-29/h-exec-recovery]
+
+The four-step protocol (audit-partial → patch-brief at `audit/recovery/T.W<n>-<lane>-brief-<date>.md` → resume-from-work-order → seam-audit-at-close) is standing law in `T.md §8`; E-6 batches-of-three is the prevention half, this rider the cure. This wave's type-specific deltas:
+
+**Partial signatures**: one row-batch landed without its census verification; a KEEP-set row
+"helpfully" re-touched (itself a defect — F6 is canon); a Tranche-B site touched before PKT-3.
+**Resume specifics**: audit the lane's committed row-batches against the §Commit plan; the O-16
+census re-runs over ALL owned rows at resume (not just the resumed batch); the Tranche-B no-touch
+diff proof re-runs as the partial-detector.
+
 ## §Dependencies
 
 - **Depends on**: T.W4 closed (the DAG: W4 → {W5 · W6}); the W1 MOVE-MAP (PP-11 re-anchoring);
@@ -186,8 +196,10 @@ wave status commit.
 - **O-16 R1 row EXPECTED-RED → PKT-1** (T.md §7.2): goes live the day the packet lands; the red
   carries the cite. If PKT-1 lands via the file:-pin before W7, the row is re-run and greened
   in-wave (recorded).
-- **W5 Tranche B → PKT-3** (T.md §7.2): R6/R7 re-cut fires when the recipe lands (in-round via
-  the W6 coordination clause, at W7, or hands to the successor).
+- **W5 Tranche B → PKT-3** (T.md §7.2), **the R6/R7 book row SPLIT** [AMENDED-AT-HARDENING —
+  h-wave-w4-w5 S2]: **R7** (`Dock.vue`) fires in-round via the W6 dock queue if PKT-3 lands in
+  round 4; **R6** (`animations.css` — W5's own frozen file) fires at W7-or-successor (W5 cannot
+  re-open its own closed file; no conditional self-authority).
 - **PKT-2 spring-clock hole**: the pane swap lands on arm (i) (`--spring-snappy` @ its own
   clock) unless the ~0.3s preset answers first; the decision recorded on the book row.
 - **PKT-4/L9 skeleton stagger seams**: the demo's `--skeleton-shimmer-delay/-tint` writes stay;

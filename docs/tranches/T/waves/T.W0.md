@@ -38,10 +38,10 @@ zero on the named set; doc-truth pre-E-1 set landed. (SYNTHESIS §3 T.W0 Complet
 | # | Item | Gate | Anchors · evidence |
 |---|---|---|---|
 | W0-1 | **Dispatch the E-2 packet series** (SYNTHESIS §4) at ratification: GLASSUI-T-ASKS (P1–P10) + the KF letter (PRM-expand re-cite w/ current line numbers) — HEAD-restamped at dispatch (S-letter §16); the W-1/W-2 payload (P9) named FIRST | dispatch record + producer-inbox cite | `letters/GLASSUI-T-ASKS.md` (`<RE-STAMP AT DISPATCH>` placeholder); the consolidation law: PRM-expand routes to keyframes, NEVER the glass-ui letter · t-request-packets §0/§1; t-glassui-forward §1 (windows); t-glassui-current |
-| W0-2 | **Finish the proof:* retirement** (LEG-1/F5 split verdict): retain-reclassify 4 behavioral gates (`css-parity`, `round-trip-idempotent`, `perf-target`, `serialize-fidelity`) into a CI-wired `test:dist`; EXCISE the other 8 + `generate-favicon.mjs` (verify-dead) + `globals` devDep; CLAUDE.md sentence made true by construction (**Q13**) | grep `proof:` = the 4 reclassified only; CI runs test:dist | `package.json` scripts · `scripts/generate-favicon.mjs` · CLAUDE.md §Test+verify · t-legacy-sweep F5; the CHRONIC `proof:*` carry (T.md §5 — the doc-claimed retirement that never completed) |
-| W0-3 | Legacy excisions: BulkActionToolbar + SortFilterMenu (+doc rows), savedPalettes param, `constants.ts:340-344` type trio, PaletteDialog orphan confirm+excise (CC-6), PaletteSlugBar iconOnly migration, stale comments | grep-zero; suites green | t-legacy-sweep LEG-1..9; t-card-color-census CC-6 |
+| W0-2 | **Finish the proof:* retirement** (LEG-1/F5 split verdict): retain-reclassify **5** behavioral gates (`css-parity`, `round-trip-idempotent`, `perf-target`, `serialize-fidelity`, **`subpath-budget`** — the bundle-trace that IS the parse-that-free invariant W1-src's gate reads [AMENDED-AT-HARDENING — h-wave-w0-w1 M1: retain-5/excise-7, same home at all four sites; Q13 annotated]) into a CI-wired `test:dist`; EXCISE the other **7** + `generate-favicon.mjs` (verify-dead) + `globals` devDep; CLAUDE.md sentence made true by construction (**Q13**) | grep `proof:` = the 5 reclassified only; CI runs test:dist | `package.json` scripts · `scripts/generate-favicon.mjs` · CLAUDE.md §Test+verify · t-legacy-sweep F5; the CHRONIC `proof:*` carry (T.md §5 — the doc-claimed retirement that never completed) |
+| W0-3 | Legacy excisions: BulkActionToolbar + SortFilterMenu (+doc rows), savedPalettes param, `constants.ts:340-344` type trio, PaletteDialog orphan confirm+excise (CC-6), PaletteSlugBar iconOnly migration, **the `dark-mode-toggle/` DISSOLVE (LEG bundle item 3 — named here so no wave orphans it** [h-wave-w0-w1 S1]**)**, stale comments | grep-zero; suites green | t-legacy-sweep LEG-1..9; t-card-color-census CC-6 |
 | W0-4 | Doc-truth (pre-E-1-safe): 5→6 e2e ×2 · ci.yml:362 comment · DESIGN.md 32/25rem + `--alpha-checker` + `@lib/gamut-ink` entries · `transform/CLAUDE.md` path.ts + LoC strip · `units/color` space table +ICtCp/Jzazbz · `subpaths/CLAUDE.md` authored (the frozen-entry law) · docs-truth F5 (AMENDED-AT-PASS-2: color-theory/gamut-mapping now live under `docs/colors/` + app.md/quantization.md exist; `assets/docs` = **11** pages incl. kelvin.md, not 10) | doc-vs-tree spot check | t-docs-truth DOC-1..13; the demo/api CLAUDE.md FULL rewrites are W9's (E-1 orphans them as documents — post-restructure, not diffs) |
-| W0-5 | **Oracle mints** (the boot set MUST precede W2 — plan-audit-1 F3/F4): O-1 color-truth · O-2 real-hydration · O-3 headed-GPU probe annex · O-4 order-invariance · O-5 pacing variance · O-16 computed-cascade · O-7 card-census scaffold | each born-RED against today's tree where the defect is live (honest reds recorded) | §6.1 rows O-1..O-5/O-16/O-7 (each names the S failure shape it repairs: named-site-not-population or proxy-predicates) · t-oracle-gaps; t-load-sync; t-aurora-boot-active; t-transitions-liquid |
+| W0-5 | **Oracle mints** (the boot set MUST precede W2 — plan-audit-1 F3/F4): O-1 color-truth · O-2 real-hydration · O-3 headed-GPU probe annex (owner/headed-attested, not CI pass/fail) · O-4 order-invariance · O-5 pacing variance · **O-26 perceptibility (render, not atoms)** [AMENDED-AT-HARDENING — M-22] · O-16 computed-cascade · O-7 card-census **scaffold = the census loop + pane roster + rung resolver, asserting nothing yet** (its assertions arm at W3) [h-exec-w0 S3] | each born-RED against today's tree where the defect is live (honest reds recorded); rows whose defect is NOT yet live are annotated born-GREEN-pending-W2, never conflated | §6.1 rows O-1..O-5/O-16/O-7 (each names the S failure shape it repairs: named-site-not-population or proxy-predicates) · t-oracle-gaps; t-load-sync; t-aurora-boot-active; t-transitions-liquid |
 | W0-6 | CI hygiene: smoke-safari wedge diagnosis (`--reporter=line`, keep the 12-min bound) · O-25 prod-lineage assert · `--ring` fallback-first pre-migration (`ColorInput.vue:338` → `var(--focus-ring-color, var(--ring))`) | CI captured | t-ci-lighthouse-record §layer-4 (the wedge: 4 tests, zero output ~12 min to step-kill; outside Playwright's test-timeout jurisdiction) · O-25 = §6.1 (the next stale-prod window caught by an oracle, not an owner eyeball) · P9-J4 (value.js is an UN-ROSTERED `--ring` consumer; this pre-migration makes W7's roster verify a no-op) |
 
 ### Rider — the deploy-fully chain of record + the Lighthouse record disposition (t-ci-lighthouse-record, binding context)
@@ -95,10 +95,9 @@ surfaces (W3's). Single writer — no sibling worktrees.
 
 ## §Hard gate (verbatim-faithful to SYNTHESIS §3 T.W0 + §6.2/Q14)
 
-1. **W0-1**: dispatch record + producer-inbox cite; P9 named FIRST; the letter HEAD-restamped at
-   dispatch (PP-11 — present-tense producer claims carry a HEAD-stamp); the KF letter dispatched
-   to keyframes (consolidation law), never folded into the glass-ui letter.
-2. **W0-2**: grep `proof:` = the 4 reclassified only; CI runs `test:dist`; the excised 8 +
+1. **W0-1**: dispatch record + producer-inbox cite — **RULED [AMENDED-AT-HARDENING — h-exec-w0 M1]: the cite = the value.js-SIDE dispatch record (the letter's `## Dispatch stamp` section + the PROGRESS.md event row); a glass-ui-side relay commit is FORBIDDEN by T's zero-touch fence and is a later booked producer/maintainer action, never this gate's artefact. "acked-or-recorded" reads accordingly: the RECORD is the gate; an ack is a bonus, never waited on**; P9 named FIRST; the letter HEAD-restamped at
+   dispatch (PP-11 — present-tense producer claims carry a HEAD-stamp); the **§KF section dispatched SEPARATELY to the keyframes inbox** (consolidation law; the keyframes HEAD re-stamped at dispatch too [h-wave-w0-w1 S3]), never folded into the glass-ui letter.
+2. **W0-2**: grep `proof:` = the 5 reclassified only (incl. `subpath-budget` [AMENDED-AT-HARDENING]); CI runs `test:dist` — **which SELF-BUILDS (`npm run build && …`) and lands as a named step in `build-and-test` after ci.yml:148** [h-exec-w0 S1]; the excised 7 +
    `generate-favicon.mjs` + `globals` devDep gone (grep-zero); the CLAUDE.md sentence true by
    construction (Q13 — names which batch retired).
 3. **W0-3**: grep-zero on the named legacy set; suites green.
@@ -109,8 +108,11 @@ surfaces (W3's). Single writer — no sibling worktrees.
    (O-1..O-5, O-16, O-7 scaffold) exists BEFORE W2 opens (structural precondition, plan-audit-1
    F3/F4).
 6. **W0-6**: CI captured — the smoke-safari wedge diagnosed with `--reporter=line` progress
-   evidence (12-min bound KEPT); O-25 prod-lineage assert wired (CI/boot probe vs expected build
-   lineage); `--ring` fallback-first landed at `ColorInput.vue:338`.
+   evidence (12-min bound KEPT); O-25 prod-lineage assert wired per its buildable spec
+   [AMENDED-AT-HARDENING — h-exec-w0 M2]: a post-deploy CI step asserts the CF Pages production
+   deployment's source sha == the built commit (`wrangler pages deployment list`,
+   Environment=Production, branch=master); creds precondition NAMED — absent creds = SKIPPED-with-
+   record, never silently green; `--ring` fallback-first landed at `ColorInput.vue:338`.
 7. **Q14 disposition recorded**: run `28836873580` stays HONESTLY RED (LCP 5563 / TBT 5618); the
    PI-1 per-wave delta ledger opened with this run as baseline; NO gate weakened, NO re-baseline.
 8. PP-8 repo-wide sweep (caps · legacy grep · as-any ledger regenerated) · `npm run lint` 0 ·
@@ -134,7 +136,7 @@ surfaces (W3's). Single writer — no sibling worktrees.
 
 `npm run lint` + `npm run typecheck` + `npm test` after each item batch and before close;
 `npx playwright test` (full project set) after W0-5 and before close; `test:dist` after W0-2;
-`git diff --check` on every docs/record commit.
+`git diff --check` on every docs/record commit. The tool-artefact grep `grep -rnE '</?(content|invoke|parameter|antml)'` over the wave's touched docs MUST be empty before any docs commit (the §Recovery seam class — M-1).
 
 ## §Verification artefacts
 
@@ -152,6 +154,19 @@ one docs commit); W0-5 (oracle mints — one commit per oracle family, honest re
 bodies); W0-6 (CI hygiene); a status commit at close. Scopes name the owned surface (packets /
 proof-split / legacy / doc-truth / oracles / ci-hygiene).
 
+## §Recovery (STANDING — the `T.md §8` completion-brief rider binds every dispatch AND resume of this wave; PP-14/PP-15 operationalized) [AMENDED-AT-HARDENING — M-29/h-exec-recovery]
+
+The four-step protocol (audit-partial → patch-brief at `audit/recovery/T.W<n>-<lane>-brief-<date>.md` → resume-from-work-order → seam-audit-at-close) is standing law in `T.md §8`; E-6 batches-of-three is the prevention half, this rider the cure. This wave's type-specific deltas:
+
+**Partial signatures**: a packet DISPATCHED but its re-stamp + inbox cite not recorded (W0-1); an
+oracle minted GREEN where its defect is live (a proxy, not a partial — re-mint born-RED); a legacy
+grep-zero claimed but the deletion uncommitted; `test:dist` wired but CI not green.
+**Resume specifics**: the partial IS the working tree (single-writer mainline — no worktree); never
+assume a prior W0 item "landed" without its commit + grep/dispatch capture. **W0-1 is the ONE
+irreversible act** — if a packet was already sent, recover its re-stamp + inbox cite from the
+letter's dispatch record; do NOT re-send (double-dispatch is a producer-inbox defect, not a clean
+retry).
+
 ## §Dependencies
 
 - **Depends on**: `T.md §12` ratification (Q1–Q17 ruled; the encoding doc's §0 wins).
@@ -160,8 +175,8 @@ proof-split / legacy / doc-truth / oracles / ci-hygiene).
 
 ## §BOOKS opened/serviced (books-never-gates)
 
-- **The `proof:*` carry (CHRONIC)** — discharged at W0-2 (Q13 split); the retained 4 live on as
-  `test:dist`.
+- **The `proof:*` carry (CHRONIC)** — discharged at W0-2 (Q13 split); the retained 5 live on as
+  `test:dist` [AMENDED-AT-HARDENING — retain-5/excise-7].
 - **O-16's R1 row** — born EXPECTED-RED with the PKT-1 cite (the dist 150ms clobber is
   producer-root); goes live the day PKT-1 lands. The red carries the cite, never weakened.
 - **The `/easing` 17th-subpath GAP-3 verify-watch** — rides P9-J3 in the W0-1 letter

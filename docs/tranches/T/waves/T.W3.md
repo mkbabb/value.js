@@ -15,7 +15,10 @@ T.md charter clause, restated here so the rule is self-evident in-file); above b
 **Agents**: ≤3 parallel (E-6 batch bound). The token/material core (W3-1 + W3-4) is the
 **SINGLE WRITER of the tier tokens + `PaneHeader.vue`** (§3.2); W3-2 (ShadowPalette), W3-3
 (search seat), and W3-5 (ink contract) run beside it, CONSUMING — never minting — rung tokens
-through the core writer's queue. Fable + frontend-design (design lanes, E-6).
+through the core writer's queue. **Sequencing under the cap** [AMENDED-AT-HARDENING —
+h-exec-budget F3, the VERDICT §5-D1 arm: E-6's batches-of-three is owner law]: **the core lane
+lands its token queue FIRST; the 3 consumer lanes dispatch as the next batch** — never 4 live
+writers. Fable + frontend-design (design lanes, E-6).
 **Hard gate**: composite (§Hard gate) — O-7 census green (rung membership, both schemes, all
 panes + fixtures) + the 390-frame · O-9 all-cases · O-11 gates 1-6 · O-18 population contrast
 census · **the CSS tripwire: re-measure CSS gz at this gate and RED the wave at >120 KiB**.
@@ -45,11 +48,11 @@ committed MOVE-MAP at wave-open (PP-11).
 
 | # | Item | Gate | Anchors · evidence |
 |---|---|---|---|
-| W3-1 | Rung-1 adoption (9 pane cards → resting+stamp+grain); rung-2 WELL consolidation (the 6 mints die; interim demo `--well-bg` if P3 unlanded, swap booked); rung-4 STAGE tokens; the C3 law + exception ledger encoded in DESIGN.md | **O-7 census oracle green** (rung membership, both schemes, all panes + fixtures) + t-mobile F-8 390-frame | `AboutPane.vue:3` `tier="wash"` (α .356/.430, blur 1px) vs `ColorPicker.vue:6` `resting` (T-3); shot t-2004-55 pane wash + `.input-bar` slabs (T-11); mix-dark stack 0.43<0.58<0.75<0.88<1.0 + `PerceivedSpacePlate.vue:157` nested full plate (T-18); 9 alphas over one aurora = a hue ladder (T-24 — α spread IS hue spread over chroma) · t-card-material §1-§3; t-card-color-census §4 (the deployment table of record, CC-2 mint-count correction); t-contradictions C3 |
-| W3-2 | `ShadowPalette` species (D9) at the three host classes (Extract live-k ghost · Mix ×2 · PaletteCardGrid ×4) | O-9 all-cases (ghost present, `aria-hidden`, caption for AT) | R7 kills `e43601c`+`a34d20f` (the material amputation retires; the semantics SURVIVE); the `specimen` register FINALLY consumed (`PaletteCardSkeleton.vue:79-107` shipped ZERO consumers); `ExtractWorkbench.vue:88-93`; `PaletteCardGrid.vue:15-21` (4 hosts) + `MixSourceSelector.vue:216-225` · t-shadow-palette §1-§3, F-4; D9's four MOTION-axis species (true-empty STILL dashed ghost · known-imminent shadow breath · network developing shimmer · error plain register UNTOUCHED) |
-| W3-3 | Search seat: the register law (fields on paper wear paper) — interim demo seat if P3's rung unlanded (booked swap); voice = content-class (mono opt-in only) | O-7 row; judged beside dashed-well + card in-frame | `.input-bar` floating-bound (`components.css:205-228`); 24rem cap (78px short at 1440 AND 768); baked `--font-mono` (T-12) · t-search-tabs §1-3; t-card-color-census CC-5; t-mobile F-7 |
+| W3-1 | Rung-1 adoption (9 pane cards → resting+stamp+grain); rung-2 WELL consolidation (the 6 mints die; interim demo `--well-bg` if P3 unlanded — **landed at the D1 bracket default (8% `--foreground` into `--card`, oklab) and judged inside [6%, 10%] at the O-7 census** [AMENDED-AT-HARDENING — h-refine-doctrine F-10] — swap booked); rung-4 STAGE tokens; the C3 law + exception ledger encoded in DESIGN.md | **O-7 census oracle green** (rung membership, both schemes, all panes + fixtures) + t-mobile F-8 390-frame | `AboutPane.vue:3` `tier="wash"` (α .356/.430, blur 1px) vs `ColorPicker.vue:6` `resting` (T-3); shot t-2004-55 pane wash + `.input-bar` slabs (T-11); mix-dark stack 0.43<0.58<0.75<0.88<1.0 + `PerceivedSpacePlate.vue:157` nested full plate (T-18); 9 alphas over one aurora = a hue ladder (T-24 — α spread IS hue spread over chroma) · t-card-material §1-§3; t-card-color-census §4 (the deployment table of record, CC-2 mint-count correction); t-contradictions C3 |
+| W3-2 | `ShadowPalette` species (D9) at the three host classes (Extract live-k ghost · Mix ×2 · PaletteCardGrid ×4, grid-host ghost count default **3**). **ShadowPalette consumes the `specimen` INK recipe, NOT the host breath** — the shipped `blockVariant` maps specimen→breath and must not be inherited; the true-empty species is STILL by construction [AMENDED-AT-HARDENING — M-23/h-refine-console F-2]. **Extract's `isProcessing` = the known-imminent species (`shadow` register, breath — local compute per the species table; the §3(a) word "developing" + the shipped `key="developing"` are superseded; developing = network hosts only)** [F-5]. The caption plate **sheds its dot-ghost row wherever the card-scale ghost seats** (no two ghost registers at two scales — N-3). D9's known-imminent breath default: opacity 0.55↔0.75, `--ease-standard`, 6s; PRM still [doctrine N-2] | O-9 all-cases (ghost present, `aria-hidden`, caption for AT) **+ the O-9 MOTION leg** (true-empty computed animation = none) | R7 kills `e43601c`+`a34d20f` (the material amputation retires; the semantics SURVIVE); the `specimen` register FINALLY consumed (`PaletteCardSkeleton.vue:79-107` shipped ZERO consumers); `ExtractWorkbench.vue:88-93`; `PaletteCardGrid.vue:15-21` (4 hosts) + `MixSourceSelector.vue:216-225` · t-shadow-palette §1-§3, F-4; D9's four MOTION-axis species (true-empty STILL dashed ghost · known-imminent shadow breath · network developing shimmer · error plain register UNTOUCHED) |
+| W3-3 | Search seat: the register law (fields on paper wear paper) — interim demo seat if P3's rung unlanded (booked swap); voice = content-class (mono opt-in only). [AMENDED-AT-HARDENING — h-wave-w2-w3 S3: the `.input-bar` anchor restores the PRODUCER path (`glass-ui/src/styles/utilities/components.css:205-228`) — the demo half is a consumer opt-in; the seated-rung recipe rides P3/ASK-B/C, never a demo fork] | O-7 row; judged beside dashed-well + card in-frame | `.input-bar` floating-bound (`components.css:205-228`); 24rem cap (78px short at 1440 AND 768); baked `--font-mono` (T-12) · t-search-tabs §1-3; t-card-color-census CC-5; t-mobile F-7 |
 | W3-4 | **Header material at rest** (R2): constitutive veil AT the ladder (rest = quiet-derived fill in the [0.45, 0.65] eye bracket; stuck = floating+tint rung-climb — **Q9**); swell completes ≤64px; the F3 fork RETIRES onto the producer scroll grammar (compositor-only) with the demo feather carried until P3's knobs land; F6 grammar law (no in-card sticky above `--z-header`) | **O-11 gates 1-6** (t-header-shading §4 verbatim: rest floor · no band · no double-exposure · compositor-only [CDP layout track flat] · engine/PRM coherence · one grammar) | `PaneHeader.vue:65-89`; the R2 retirement: the `opacity:0`-at-rest clause dies, the FEATHER (the band-killer) + scroll modulation SURVIVE; `w5a-after/DELTA.md:25` + the S.W5 rider row get supersession annotations (record repair) · t-header-shading F1-F6 §3/§4; t-card-color-census CC-3/G1; t-contradictions C2→Q9 |
-| W3-5 | **The ink-on-tier contract** (D6): constants retired; atmosphere-lightness + tier-lightness threaded; the unguarded sites routed (A11Y-F2); the fg/bg double-duty split (F3); de-emphasis rungs (F4) | **O-18 population contrast census** both schemes at the owner's reference color | `useContrastSafeColor.ts:17-18` (`BG_LIGHTNESS 0.15/0.97` — the FALSE referent vs composited 0.376–0.936); unguarded menu ink `ProfileSection.vue:50,60`, `MobileMenuDropdown.vue:43` (≤1.28:1); `ColorNutritionLabel.vue:110-113` (fg-guard reused as bg fill); guard-then-alpha erosion (readout fracs, ParseEcho); the in-repo exemplar: `resolveSealInk`/`--seal-ink`, generalized · t-a11y-contrast F-1..F-4 |
+| W3-5 | **The ink-on-tier contract** (D6): constants retired — **the BOOT-SIDE half routes through W2's writer queue** [AMENDED-AT-HARDENING — M-15/h-wave-w2-w3 M1 ≡ h-dag D-1: `useViewAccents.ts:41-43,72` consumes `BG_LIGHTNESS_DARK/LIGHT` and `useAtmosphere` must expose `derivedLightness` — both W2 EXCLUSIVE boot files, same round; W3-5 threads the exposed value and owns the non-boot consumers]; atmosphere-lightness + tier-lightness threaded; the unguarded sites routed (A11Y-F2) **+ `useMarkdownColors.ts:7-8` (a local `BG_LIGHTNESS` shadow-duplicate the "every consumer" claim missed — h-wave-w2-w3 S1) + the spectrum-plate caption (`SpectrumPlateCaption`, the t-2001-51 owner-shot instance, 3.84/3.36:1 — joins the `ink-muted` rung; h-refine-console F-10)**; the fg/bg double-duty split (F3); de-emphasis rungs (F4) — **the readout-frac guard-then-alpha CURE lands at W4 (W3-5 threads the contract only; the O-18/W3-5 grep scoped accordingly — h-dag D-4)** | **O-18 population contrast census** both schemes at the owner's reference color `lab(38% 32 24)` | `useContrastSafeColor.ts:17-18` (`BG_LIGHTNESS 0.15/0.97` — the FALSE referent vs composited 0.376–0.936); unguarded menu ink `ProfileSection.vue:50,60`, `MobileMenuDropdown.vue:43` (≤1.28:1); `ColorNutritionLabel.vue:110-113` (fg-guard reused as bg fill); guard-then-alpha erosion (readout fracs, ParseEcho); the in-repo exemplar: `resolveSealInk`/`--seal-ink`, generalized · t-a11y-contrast F-1..F-4 |
 
 **The ladder (D1, transcribed — the deployment spec)**: **1 PLATE** (the picker's exact
 register: `tier="resting"` + cartoon stamp + grain — all 9 pane cards join) · **2 WELL** (opaque
@@ -103,8 +106,11 @@ Mandatory on:
 | W3-5 | `useContrastSafeColor.ts` + the routed consumer sites (menus, nutrition label, readout fracs, ParseEcho) | modify |
 
 Single-writer (§3.2): the tier tokens + `PaneHeader.vue` — the W3-1/W3-4 core lane owns both;
-W3-2/W3-3/W3-5 consume tokens through its queue. Do NOT touch: `../glass-ui`,
-`../keyframes.js`, `src/`, the boot chain (W2's — parallel wave), the picker knot files (W4's:
+W3-2/W3-3/W3-5 consume tokens through its queue. [AMENDED-AT-HARDENING — M-15: the W2∥W3
+"disjoint" claim is CORRECTED — the D6 constants retirement has ONE cross-wave ink dependency
+(the boot-side `useViewAccents`/`useAtmosphere` half), routed through W2's queue and recorded in
+both wave logs; every other surface stays disjoint.] Do NOT touch: `../glass-ui`,
+`../keyframes.js`, `src/`, the boot chain (W2's — parallel wave; the ONE routed exception above), the picker knot files (W4's:
 `ColorPicker.vue` · `ColorComponentDisplay/` · `ComponentSliders/` · `readoutReservation.ts` ·
 `HeroBlob/`), `docs/precepts/`. Lanes run in sibling worktrees cut from the wave head.
 
@@ -125,8 +131,11 @@ W3-2/W3-3/W3-5 consume tokens through its queue. Do NOT touch: `../glass-ui`,
    annotations landed (DELTA.md:25 + the S.W5 rider row — record repair, not deletion).
 5. **W3-5**: O-18 population contrast census green — the 1×1-canvas resolver over the ACTUAL
    consumer selectors against their REAL parent grounds (slug pills, readout fracs, graph
-   nodes, channel letters, captions), both schemes, at the owner's reference color;
-   `BG_LIGHTNESS_DARK/LIGHT` gone (grep); zero guard-then-alpha sites.
+   nodes, channel letters, captions, the spectrum-plate caption, the markdown/KaTeX About body —
+   the hardened O-18 roster), both schemes, at the owner's reference color `lab(38% 32 24)`;
+   `BG_LIGHTNESS_DARK/LIGHT` gone (grep — **satisfiable only WITH the W2-queue routed boot half,
+   M-15**); zero guard-then-alpha sites on W3's routed set (the readout-frac cure is W4's —
+   h-dag D-4).
 6. **The CSS tripwire [AMENDED-AT-PASS-2]**: CSS gz re-measured at this gate; **>120 KiB REDS
    the wave** (86.5 baseline, 33.5 headroom — the ladder is a named spender; the one MET budget
    stays met by control, not intent).
@@ -154,7 +163,7 @@ W3-2/W3-3/W3-5 consume tokens through its queue. Do NOT touch: `../glass-ui`,
 
 `npm run lint` + `npm run typecheck` + `npm test` after each item batch and before close;
 `npx playwright test` (incl. the census oracles) per lane close and at wave close; the CSS gz
-measure + PI-1 LHCI run at the wave gate.
+measure + PI-1 LHCI run at the wave gate. The tool-artefact grep `grep -rnE '</?(content|invoke|parameter|antml)'` over the wave's touched docs MUST be empty before any docs commit (the §Recovery seam class — M-1).
 
 ## §Verification artefacts (π lane)
 
@@ -172,10 +181,23 @@ commit); W3-2 (ShadowPalette, own commit with body citing R7's survives column);
 seat); W3-4 (header material, own commit with body — the R2 supersession annotations ride it);
 W3-5 (ink contract + routed sites, own commit with body); a status commit at close.
 
+## §Recovery (STANDING — the `T.md §8` completion-brief rider binds every dispatch AND resume of this wave; PP-14/PP-15 operationalized) [AMENDED-AT-HARDENING — M-29/h-exec-recovery]
+
+The four-step protocol (audit-partial → patch-brief at `audit/recovery/T.W<n>-<lane>-brief-<date>.md` → resume-from-work-order → seam-audit-at-close) is standing law in `T.md §8`; E-6 batches-of-three is the prevention half, this rider the cure. This wave's type-specific deltas:
+
+**Partial signatures**: same class as W2 (parallel π lanes) — a half-landed rung adoption (some
+pane cards stamped, some not = an O-7 census mid-state); uncommitted census tables; a swallowed
+π-harness wait (PP-15).
+**Resume specifics**: audit the core (token) lane FIRST — W3-2/W3-3/W3-5 consume its queue, so a
+dead core lane invalidates consumer work landed after its last commit; re-drive π captures; the
+O-7 census re-runs WHOLE on resume (a partial census certifies nothing).
+
 ## §Dependencies
 
 - **Depends on**: T.W1 (colocated card family for ShadowPalette's birth home; the MOVE-MAP) +
-  T.W0 (the O-7 scaffold; O-18's census shape) + the Q4/Q9 rulings.
+  T.W0 (the O-7 scaffold; O-18's census shape) + the Q4/Q9 rulings + **the W2 queue for the ONE
+  routed boot-side hunk (M-15 — W2 is a COORDINATION dependency for W3-5's constants gate, not a
+  close dependency)**.
 - **Blocks**: T.W4 (the console/ink/seat composite is judged against THIS settled ladder; W4's
   `PaneHeader.vue` access is geometry-only because this wave settled the material). Runs
   parallel with T.W2 (disjoint single-writer surfaces).

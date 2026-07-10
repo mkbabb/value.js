@@ -8,7 +8,7 @@ inside T's window is not a miss**). Ratification is still a precondition: the tr
 early, the wave dispatches only post-ratification (E-6).
 **Spec of record**: `audit/SYNTHESIS.md §3` (the T.W7 block) + §4 (the packet series, the timing
 windows — W-4 = the joint tag = this walk — and the verify-at-cut ledger) ·
-**`waves/S.W8.md` — the handed book's standing spec, executed INTACT** (the S→T hand-off clause
+**`S/waves/S.W8.md` — the handed book's standing spec, executed INTACT** [AMENDED-AT-HARDENING — h-wave-w6-w7 SF-3: the path corrected ×5, it lives under `docs/tranches/S/`] (the S→T hand-off clause
 in its own §Hand-off; the R→S precedent for the same book) · the producer's by-name MIGRATION
 table (B4e) · `letters/GLASSUI-T-ASKS.md` (P1–P10 dispositions + the KF note) ·
 `S/FINAL.md §5` (the handed books this wave discharges).
@@ -30,7 +30,7 @@ ratification (E-6). Post-ratification: PENDING **+ TRIGGER-GATED** (the BG/BH jo
 ## §Goal criterion
 
 The adopt-event book executes as one mechanical, verified walk — S.W8's goal, handed intact —
-now carrying T's packet-landing consumes on top. (SYNTHESIS §3 T.W7: "Runs `waves/S.W8.md`'s
+now carrying T's packet-landing consumes on top. (SYNTHESIS §3 T.W7: "Runs `S/waves/S.W8.md`'s
 MIGRATION walk at the cut against a REBUILT dist + stamped HEAD.")
 
 ## §Completion criterion
@@ -49,7 +49,10 @@ verbatim-faithful.)
 stamp the verified HEAD in the walk record — the consumed dist is a gitignored local build and
 is NEVER trusted stale (the ~1-day-stale finding that named this discipline).
 
-**Segment 1 — the inherited S.W8 walk, INTACT**: execute `waves/S.W8.md §Scope` as written (the
+**Segment 1 — the inherited S.W8 walk, INTACT [AMENDED-AT-HARDENING — h-wave-w6-w7 SF-5:
+"INTACT" is SCOPED to the 18-specifier walk + its gate rows; S.W8's S-wave-numbered
+producer-gap paragraph is SUPERSEDED by this doc's P-6 (note the L-number collision: S.W8's
+L-rows are S-letter rows, not T's)]**: execute `S/waves/S.W8.md §Scope` as written (the
 18-specifier walk incl. `goo-blob`→`/blob` + the GooBlob→`Blob` rename BY NAME no alias ·
 `density`→`size` · bare `--ring` grep · `/slider` + `/forms#Input` adopt + local-shadcn deletion
 · `uSatColor[]` consume + interim deletion · dock-fission rail evaluate · Card tier consume ·
@@ -67,7 +70,7 @@ anchors predate the colocation) and every claim certified in the amended tree (P
 | P-4 | CI un-pin from `tranche/BG` **at the master landing** (the un-pin book's own trigger — if the cut lands on the branch first, the pin stays until master carries it; recorded) |
 | P-5 | `--ring` roster verify (pre-migrated fallback-first at W0-6 — expected no-op; verified anyway, P9-J4) |
 | P-6 | **Every GAP re-verified**: GAP-ARM (both halves — the P1 producer replay + the W2-1 demo half already landed un-gated) · GAP-L2 (the variance atoms, sized by the T-26 bracket — consumed at the W2-5 knobs) · GAP-L5 (rows A–E; the ≥96px bead gate) · PRM-expand via the keyframes note |
-| P-7 | The producer-gated design halves land: park-from-`settled` (the W4-5 wall-clock park dies) · satellite emergence + the **HERO preset** (W-1 payload; the ≥96px bead gate) · **tabs re-judge — O-8 goes LIVE** (post-P4: indicator ≡ active-button box, breakpoints × orientations × schemes × engines, both trim rungs) · the **booked interim swaps FIRE**: W3-1 `--well-bg` → the P3 WELL rung · W3-3 search seat → the P3 seated field-chrome rung · W3-4 demo feather → the P3 rest-floor + bottom-feather knobs (the F3 fork retires onto the producer scroll grammar) · W4-4 seal-recipe letter ring → the P5 letter-rail primitive · **EasingPicker v2 consume** (P7) + the W6-3 regex-drive deletion |
+| P-7 | The producer-gated design halves land: park-from-`settled` (the W4-5 wall-clock park dies) · satellite emergence + the **HERO preset** (W-1 payload; the ≥96px bead gate) · **tabs re-judge — O-8 goes LIVE** (post-P4: indicator ≡ active-button box, ε ≤ 0.5px/edge, breakpoints × orientations × schemes × engines, both trim rungs) · the **booked interim swaps FIRE**: W3-1 `--well-bg` → the P3 WELL rung · W3-3 search seat → the P3 seated field-chrome rung · W3-4 demo feather → the P3 rest-floor + bottom-feather knobs (the F3 fork retires onto the producer scroll grammar) · W4-4 seal-recipe letter ring → the P5 letter-rail primitive · **CONDITIONAL [AMENDED-AT-HARDENING — M-6]: iff Q12 ruled the fitted arm — the P5 solid-ring register consumed on the wax (the §7.2 Q12-alt row fires here)** · **EasingPicker v2 consume** (P7) + the W6-3 regex-drive deletion · the P7 arrive-expanded consume (the W2-3 `transitionend` interim dies) + P6 row-F pose consume if shipped [M-14] |
 | P-8 | The MARKER retire-checks: `.underline-tabs` (`style.css:476-484`) retires iff the P7 base-Tabs `underline` variant shipped or PaletteDialog migrated `<Tabs>`→`<SegmentedTabs>`; the A6 `backdrop-filter:none` MARKER retires iff the P8 minifier fix shipped (legacy-sweep F6/F7) |
 | P-9 | The O-16 R1 row re-run (PKT-1 state at the cut — greens if landed; the EXPECTED-RED carries otherwise) + the W5 Tranche B book state recorded (PKT-3) |
 
@@ -105,7 +108,7 @@ Do NOT touch: `../glass-ui`, `../keyframes.js` (zero files — asks route to the
 ## §Hard gate (verbatim-faithful to SYNTHESIS §3 T.W7 + the inherited S.W8 gate)
 
 1. The by-name MIGRATION walk green: `npm run typecheck` 0 · `boot-smoke` cold (`--force`) PASS
-   · e2e 5-project green — against the REBUILT dist + stamped HEAD.
+   · e2e all-project green (6 at authoring [AMENDED-AT-HARDENING — M-26: the stale "5-project" corrected drift-proof; W0-4 fixes the CLAUDE.md source]) — against the REBUILT dist + stamped HEAD.
 2. The inherited S.W8 gate rows 2–5 met verbatim (shadcn deletion grep-zero; verify-at-cut rows
    walked; producer-gap rows re-verified; un-pin at the master landing or recorded).
 3. `^4→^5` landed; L17 rename consumed BY NAME (grep-zero on `GooBlob`).
@@ -134,7 +137,7 @@ Do NOT touch: `../glass-ui`, `../keyframes.js` (zero files — asks route to the
 
 `npm run lint` + `npm run typecheck` + `npm test` after each walk segment; `boot-smoke --force`
 cold after every segment that touches the module graph; `npx playwright test` + the RP-2 bundle
-measure at close.
+measure at close. The tool-artefact grep `grep -rnE '</?(content|invoke|parameter|antml)'` over the wave's touched docs MUST be empty before any docs commit (the §Recovery seam class — M-1).
 
 ## §Verification artefacts
 
@@ -152,10 +155,25 @@ shadcn deletion as its own commit with body · `^4→^5` + lockfile · L20/GAP-L
 record (one commit — the TOGETHER law made structural) · per-swap fire commits (interim deleted
 in-commit) · the CI un-pin as its own commit (or a recorded deferral) · a status commit at close.
 
+## §Recovery (STANDING — the `T.md §8` completion-brief rider binds every dispatch AND resume of this wave; PP-14/PP-15 operationalized) [AMENDED-AT-HARDENING — M-29/h-exec-recovery]
+
+The four-step protocol (audit-partial → patch-brief at `audit/recovery/T.W<n>-<lane>-brief-<date>.md` → resume-from-work-order → seam-audit-at-close) is standing law in `T.md §8`; E-6 batches-of-three is the prevention half, this rider the cure. This wave's type-specific deltas:
+
+**Partial signatures**: a wall **mid-specifier-walk** (a non-building mixed `^4`/`^5` tree); a
+wall between a swap and its interim-deletion (a **half-fire** the "NO interim survives its
+consume" law cannot self-detect); a **STALE dist certified** (G-CUR-1).
+**Resume specifics**: **rebuild + HEAD-stamp the dist FIRST on every resume** (the G-CUR-1
+precondition re-runs per resume, never trust the pre-wall build); because W7 FLOATS, a resume may
+find MORE T waves closed than the dying run saw — **re-derive the swap set against the CURRENT
+wave state**. Seam-audit: grep for surviving interims per swap commit; `boot-smoke --force` cold
+catches the mixed-version tree.
+
 ## §Dependencies
 
-- **Depends on**: the BG/BH joint cut (trigger) + ratification. Consumes whatever T waves have
-  closed when it fires (the interim swaps only fire where their interims exist — a pre-W3 firing
+- **Depends on**: the BG/BH joint cut (trigger) + ratification. **When fired, W7 runs as its OWN
+  serial act at a ROUND BOUNDARY — it consumes CLOSED waves, never floats INTO a live round's
+  working set** [AMENDED-AT-HARDENING — h-dag D-5: "floats" resolved]. Consumes whatever T waves
+  have closed when it fires (the interim swaps only fire where their interims exist — a pre-W3 firing
   walks fewer swap rows and RECORDS the remainder against the wave that will mint them). NOT on
   the critical path — no T wave waits on this one.
 - **Blocks**: nothing (T.W9 re-verifies whatever state this book is in at close; an unfired
@@ -175,7 +193,7 @@ in-commit) · the CI un-pin as its own commit (or a recorded deferral) · a stat
 
 ## §Evidence packets consumed
 
-`waves/S.W8.md` (the handed standing spec) · `audit/SYNTHESIS.md §4` (packets + windows +
+`S/waves/S.W8.md` (the handed standing spec) · `audit/SYNTHESIS.md §4` (packets + windows +
 verify-at-cut ledger) · `letters/GLASSUI-T-ASKS.md` · `audit/lanes/t-request-packets.md` ·
 `audit/lanes/t-glassui-current.md` + `t-glassui-forward.md` (the freeze-window map + G-CUR-1) ·
 `audit/lanes/t-legacy-sweep.md` F6/F7 (the MARKER retire-checks) · `S/FINAL.md §5` · the

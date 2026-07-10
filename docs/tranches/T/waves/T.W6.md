@@ -15,7 +15,7 @@ T.md charter clause, restated here so the rule is self-evident in-file; `MANDATE
 **Agents**: ≤6 — the four-lane structure below, dispatched in batches of three (E-6); each lane
 independently gated; Fable + frontend-design on every design surface.
 **Hard gate**: composite (§Hard gate) — O-13 slim SAME-COMMIT + O-14 byte-identity · O-15a/b ·
-O-17 · O-19 · O-20 · O-21 · O-22 with the W0-1 contract byte-preserved · per-item gates.
+O-17 · O-19 · O-20 · O-21 · O-22 with the **S.W0-1 seed-rider-1 contract** byte-preserved (R10 — the S-era misconfig contract, NOT T's W0-1 dispatch item [AMENDED-AT-HARDENING — h-wave-w6-w7 SF-6]) · per-item gates.
 **Status**: AUTHORED — development only; the dispatch gate is CLOSED until the `T.md §12` owner
 ratification (E-6). Post-ratification: PENDING, gated on T.W4 close.
 
@@ -34,7 +34,7 @@ distilled; the item table below is the letter of it.)
 O-13 slims in the same commit as the T-10 excise; O-14 preview byte-identity green; O-15a/b
 green; O-17 composition oracle green; O-19 luma-delta floors green on the post-W3 plate + 390;
 O-20 containment green; O-21 silhouette/rung extents green; O-22 lamp oracle green with the
-W0-1 contract byte-preserved; per-item gates below. (SYNTHESIS §3 T.W6 Gate column, composed.)
+S.W0-1 seed-rider contract (R10) byte-preserved; per-item gates below. (SYNTHESIS §3 T.W6 Gate column, composed.)
 
 ---
 
@@ -50,12 +50,12 @@ evidence; the wave closes when all four do.
 
 | # | Item | Anchors | Evidence lanes | Gate |
 |---|---|---|---|---|
-| W6-1 | **Netting recalibration** (T-6): the R5 band (22%/28%/45%/65%/1.25px), CSS tile + `WEBBING` in lockstep; re-judged on the W3 plate + 390. R5 retires the 9%/12% intensity values ONLY — the ONE-home facility, the DPR raster, the token architecture SURVIVE (the ruling-6 cures stack, unopposed) | `style.css:254-261` (9%→22% fg / 12%→28% bg / edge 45%/65% / 1.25px); `gamut-ink.ts:29-36` lockstep | t-gradient-surfaces §1 | **O-19** luma-delta floor (≥59/255 L, ≥45/255 D) — drift-back protection |
+| W6-1 | **Netting recalibration** (T-6): the R5 band (22%/28%/45%/65%/1.25px), CSS tile + `WEBBING` in lockstep; re-judged on the W3 plate + 390. R5 retires **all FIVE recalibrated values — hatch 9%/12% + edge 28%/50% + the old stripe width** [AMENDED-AT-HARDENING — h-wave-w6-w7 SF-4: "the 9%/12% intensity values ONLY" under-named the retire set] — the ONE-home facility, the DPR raster, the token architecture SURVIVE (the ruling-6 cures stack, unopposed) | `style.css:254-261` (9%→22% fg / 12%→28% bg / edge 45%/65% / 1.25px); `gamut-ink.ts:29-36` lockstep | t-gradient-surfaces §1 | **O-19** luma-delta floor (≥59/255 L, ≥45/255 D) — drift-back protection |
 | W6-2 | **The gradient instrument** (T-21): hue-swept envelope plate (three truth regimes, cusp-adaptive axis, condition-label reservation) consuming **W1-src's hue-swept boundary sampler**; the rail re-authored (normalized projection + owned paint stack + ruler grammar/terminal caps; the render tile joins the Type/Direction controls) | single-hue slice vs hue-varying trajectory (`PLATE_C_MAX 0.4` vs cusp 0.145 @H205); rail paints the RENDER string (`GradientVisualizer.vue:158`); border-tile bleed; rung row 12.6%/7.4% short | t-gradient-surfaces §2-6 | **O-21** silhouette/rung extents; the §6.1 spec extended |
 | W6-3 | **Easing composition, demo half** (T-22): specimen-bench anatomy (closed rows = dots+glyph+name; one-literal law; per-row `--motion-accent` = the interval's own ink; wells seated flat); the regex-drive deleted the day P7's declarative door lands (booked) | 132px canvas in 288px chrome; `btn-pill`×`glass-btn` blob (dist `easing.js:424`); two cartoon rungs in a Z2 row; dot parks at cx=1; regex-driven autoplay (`GradientEasingEditor.vue:82-101`) | t-easing-pane 1-10, census CC-4 | **O-17** composition oracle (aspect≈1, ≤1 stamp, dot rest, one-literal law) |
-| W6-4 | **Nav voice** (T-10, the R1 retirement + orphaned-machinery excise + **O-13 slims same-commit**) + **preview chips** (T-17: STRIP/RAMP module, description-lane, restraint table, phone no-clip re-flow) — **Palettes form = Q5** (default: the data-strip chip, color-as-DATA under the C3 law; the owner-verbatim letterform-ramp is the live alternative — the ratified outcome lands) | `DockViewSelect.vue:41-45,103-114`; survives/dies per R1 (`entryAccent`/`resolveViewAccentTokens`/`PRIMARY_VIEW_SHIFTS`/`PRIMARY_VIEW_IDS` + dot column DIE; `resolveViewAccent`/`resolveSealInk`/`--accent-view` trigger/ring/`@property` sweep/WCAG math SURVIVE); `GENERATION_PRESETS`/`HARMONY_DEFS` prose-only rows; the description-lane grammar (`ColorSpaceSelector.vue:54-57` precedent, read-only) | t-nav-dropdowns F1-F4 + §2 F5-F8, t-mobile F-9 | **O-13** slim same-commit (the AT-RISK row) + **O-14** preview byte-identity vs `generatePalette`/`mixColors`; phone no-clip trigger rule |
+| W6-4 | **Nav voice** (T-10, the R1 retirement + orphaned-machinery excise + **O-13 slims same-commit**) + **preview chips** (T-17: STRIP/RAMP module, description-lane, restraint table, phone no-clip re-flow; **segment floor: preview segments cap at ~7 with honest truncation, or the chip steps up one width token past count 8** [h-refine-console N-4 — a taste knob named so no writer mints it]) — **Palettes form = Q5** (default: the data-strip chip, color-as-DATA under the C3 law; the owner-verbatim letterform-ramp is the live alternative — the ratified outcome lands) | `DockViewSelect.vue:41-45,103-114`; survives/dies per R1 (`entryAccent`/`resolveViewAccentTokens`/`PRIMARY_VIEW_SHIFTS`/`PRIMARY_VIEW_IDS` + dot column DIE; `resolveViewAccent`/`resolveSealInk`/`--accent-view` trigger/ring/`@property` sweep/WCAG math SURVIVE); `GENERATION_PRESETS`/`HARMONY_DEFS` prose-only rows; the description-lane grammar (`ColorSpaceSelector.vue:54-57` precedent, read-only) | t-nav-dropdowns F1-F4 + §2 F5-F8, t-mobile F-9 | **O-13** slim same-commit (the AT-RISK row) + **O-14** preview byte-identity vs `generatePalette`/`mixColors`; phone no-clip trigger rule |
 | W6-5 | **The Generate verb joins the plate chrome** (T-16); seed = bench-note; the orphan row dies (REDESIGN, never excise) | `GenerateControls.vue:106-123` (verb OUTSIDE the plate F8 specified) | t-misc-elements F2, plan-audit-2 F21 | **O-20** plate-containment assert |
-| W6-6 | **T-9 re-home**: the banner dies; dock status lamp (first-paint, dev-gated) + per-surface designed states + console untouched; **the W0-1 contract byte-preserved** (R10: the banner FORM dies; the transport latch, synchronous `DevMisconfigError`, loud `console.error`, misconfigured ≠ unavailable, REJECTED-localhost-CORS all SURVIVE) | `DevMisconfigBanner.vue` + `App.vue:115`; `ApiOfflineChip.vue:57-79` | t-misc-elements F3, t-api-state, plan-audit-1 F2/F6 | **O-22** lamp oracle (correct variant per precondition, first-paint, dev-gated) |
+| W6-6 | **T-9 re-home**: the banner dies; dock status lamp (first-paint, dev-gated) + per-surface designed states + console untouched; **the S.W0-1 seed-rider contract byte-preserved** (R10 — not T's W0-1: the banner FORM dies; the transport latch, synchronous `DevMisconfigError`, loud `console.error`, misconfigured ≠ unavailable, REJECTED-localhost-CORS all SURVIVE) | `DevMisconfigBanner.vue` + `App.vue:115`; `ApiOfflineChip.vue:57-79` | t-misc-elements F3, t-api-state, plan-audit-1 F2/F6 | **O-22** lamp oracle (correct variant per precondition, first-paint, dev-gated) |
 | W6-7 | **T-28 ABROGATE at the seal** (Q12 default; + the cascade-dead `ring-2 ring-primary/50` sibling verified in-wave; the register law encoded: rings on WatercolorDots ride the dot's own silhouette or do not exist) — R9: the `.dock-seal` die-rim + gold border override DIE; the wax + inked-glyph identity SURVIVES, continuity re-carried by the GLYPH; `--dock-ring` stays on the geometric expanded trigger | `Dock.vue:330-341` dies; `MixSourceSelector.vue:138` (verify) | t-outline-dropdown-clip §1 | **O-15a** negative watch (border-style none — resurrection guard) |
 | W6-8 | **T-29 settle-stamped clip release** + register pass (native-`title` retirement ×4; the separator folds into the slot's arrival) — DEMO-owned (Dock.vue), NOT a portal ask | `.action-bar-toggle-inner { overflow:hidden }` unconditional (`Dock.vue:311-316`); native `title` tooltip ×4; separator pop | t-outline-dropdown-clip §2 | **O-15b** settle-stamped clip release + whole-shadow assert |
 
@@ -68,8 +68,8 @@ Mandatory on:
   `../glass-ui`/`../keyframes.js` write (P5/P7/P8 halves are letters);
 - **non-local gate failures**: O-14 byte-identity failing on a library-function discrepancy (src
   boundary call, not a chip patch); the O-13 slim breaking a consumer outside the T-10 kill set
-  (the survives-column mis-drawn — re-derive against R1 before cutting); the W0-1 contract
-  byte-preservation failing under the lamp re-home (a T-9 contract violation is a charter event);
+  (the survives-column mis-drawn — re-derive against R1 before cutting); the S.W0-1 seed-rider
+  contract byte-preservation failing under the lamp re-home (a T-9 contract violation is a charter event);
   one lane's evidence refuting another's register claim (resolve against the live tree before
   elevation, S lesson 1);
 - **loop halt**: the third iteration of any netting-intensity or chip-proportion tuning loop
@@ -81,13 +81,15 @@ Mandatory on:
 |---|---|---|
 | G (W6-1, W6-2) | `GradientVisualizer.vue` + children · `GradientStopEditor.vue` · the new envelope-plate module (born colocated in the gradient tree, E-1) · `style.css` @254-261 (netting region ONLY) · `gamut-ink.ts` | modify/create |
 | E (W6-3) | `GradientEasingEditor.vue` + the easing-editor sub-tree (disjoint from Lane G's files within the gradient feature dir) | modify |
-| D (W6-4, W6-6, W6-7, W6-8) | `DockViewSelect.vue` · `Dock.vue` · the STRIP/RAMP chip module (born colocated, E-1) · view-accents (the O-13 slim, same commit) · `DevMisconfigBanner.vue` (delete) · `ApiOfflineChip.vue` · `MixSourceSelector.vue` (W6-7 verify; T-17 mix-Select chip consume) | modify/create/delete |
+| D (W6-4, W6-6, W6-7, W6-8) | `DockViewSelect.vue` · `Dock.vue` · the STRIP/RAMP chip module (born colocated, E-1) · view-accents (the O-13 slim, same commit) — **the boot-chain prohibition carries an explicit EXCEPT clause [AMENDED-AT-HARDENING — M-19/h-wave-w6-w7 MUSTFIX-1]: the O-13 slim's targets (`resolveViewAccentTokens` in `boot/view-accents.ts`; `PRIMARY_VIEW_SHIFTS`/`PRIMARY_VIEW_IDS` in `boot/useViewAccents.ts`) are WRITABLE for the T-10 excise, same commit; the R1 SURVIVES set (`resolveViewAccent` · `resolveSealInk` · the `--accent-view` trigger/ring · the `@property` sweep · the WCAG math) is byte-preserved** · `DevMisconfigBanner.vue` (delete) · `ApiOfflineChip.vue` · `MixSourceSelector.vue` (W6-7 verify ONLY — **it contains ZERO Selects; the T-17 mis-attribution struck**) · **`MixConfigBar.vue` (T-17 mix Space/Hue RAMP consume — the REAL host, `:56-84,92-100`)** · **`AuroraPane.vue` (T-17 STRIP family member, admin harmony — t-nav F7)** [AMENDED-AT-HARDENING — M-21/h-refine-console F-1] | modify/create/delete |
 | N (W6-5) | `GenerateControls.vue` | modify |
 
 **Intra-wave clause**: `GenerateControls.vue` has ONE writer — Lane N. If T-17's chip consume
 reaches a Select INSIDE `GenerateControls.vue` (the `GENERATION_PRESETS` rows live there), the
 hunk routes through Lane N's queue (Lane D authors the chip module + the spec; recorded in both
-lane logs). `style.css` is region-split by the amended map: Lane G owns @254-261; the surviving
+lane logs). **The same shape for the gradient consume [AMENDED-AT-HARDENING — M-21]:
+`GradientVisualizer.vue` has ONE writer — Lane G; T-17's gradient Space/Hue RAMP consume routes
+through Lane G's queue (Lane D authors the chip module + spec).** `style.css` is region-split by the amended map: Lane G owns @254-261; the surviving
 accent @223-224 is READ-ONLY everywhere (it SURVIVES per R1).
 
 **Cross-wave clauses (round 4, W6 ∥ W5)**: `App.vue` has ONE round-4 writer — **W5** (the swap
@@ -112,23 +114,26 @@ worktree cut from the wave head.
    at 390 plates.
 4. **O-21**: rail silhouette extents (ramp ≡ border-box, no terminal bleed) + rung-row grammar;
    the gradient interaction spec extended (§6.1) and green.
-5. **O-17**: canvas aspect ≈ 1 across container widths · ≤1 cartoon stamp in-row · dot rest
-   (never a doubled endpoint) · the one-literal law.
+5. **O-17**: **zero letterbox — drawn-plot box ≡ element content box (±1px both axes) across
+   container widths; element aspect ≡ 1/vb-ratio** (=1 for non-overshoot presets only)
+   [AMENDED-AT-HARDENING — h-refine-doctrine F-8: "≈1" would red the designed overshoot
+   geometry] · ≤1 cartoon stamp in-row · dot rest (never a doubled endpoint) · the one-literal
+   law.
 6. **O-20**: Regenerate inside the plate (locator assert).
 7. **O-22**: the lamp shows the correct variant per precondition, first-paint, dev-gated; the
-   **W0-1 contract byte-preserved** (the R10 survives set verified live: transport latch ·
+   **S.W0-1 seed-rider contract byte-preserved** (the R10 survives set verified live: transport latch ·
    synchronous throw · loud console.error · misconfigured ≠ unavailable).
 8. **O-15a**: seal computed `border-style: none` (negative watch — resurrection guard); the
    `ring-primary/50` cascade-dead sibling dispositioned. **O-15b**: settle-stamped clip release +
    whole-shadow assert; zero native `title` on the dock set.
 9. PP-8 repo-wide sweep + PI-1 Lighthouse delta recorded; `npm run lint` 0 · `npm run typecheck`
-   0 · `npm test` green · e2e 5-project green · no `demo/` file >400 LoC.
+   0 · `npm test` green · e2e all-project green (6 at authoring [AMENDED-AT-HARDENING — M-26: the stale "5-project" corrected drift-proof; W0-4 fixes the CLAUDE.md source]) · no `demo/` file >400 LoC.
 
 ## §No-workaround prohibitions (binding)
 
 - **ZERO new demo math** for W6-2 — the hue-swept envelope comes from W1-src's sampler, or the
   lane halts on a W1 defect (never re-derived in demo).
-- **The W0-1 contract is byte-preserved** — W6-6 kills the banner FORM only; any weakening of the
+- **The S.W0-1 seed-rider contract is byte-preserved** — W6-6 kills the banner FORM only; any weakening of the
   misconfigured-state contract is a charter violation (R10's survives column).
 - **Q10 stands**: the Tools/Login live-accent CHROME is out of scope for "the rest white/black" —
   never silently widened onto the menu ink law.
@@ -145,7 +150,7 @@ worktree cut from the wave head.
 
 `npm run lint` + `npm run typecheck` + `npm test` after each lane batch and before each lane
 close; `npx playwright test` (incl. the new O-13/O-14/O-15/O-17/O-19/O-20/O-21/O-22 specs) per
-lane close and at wave close.
+lane close and at wave close. The tool-artefact grep `grep -rnE '</?(content|invoke|parameter|antml)'` over the wave's touched docs MUST be empty before any docs commit (the §Recovery seam class — M-1).
 
 ## §Verification artefacts
 
@@ -161,6 +166,18 @@ Per-lane item-scoped commits (G: netting recal / envelope plate / rail re-author
 composition; D: T-10 excise + O-13 slim [ONE commit] / chip module + consumes / lamp re-home +
 banner death / seal abrogation / clip release; N: generate verb re-seat); each lane's close
 commit; a wave status commit when all four lanes close.
+
+## §Recovery (STANDING — the `T.md §8` completion-brief rider binds every dispatch AND resume of this wave; PP-14/PP-15 operationalized) [AMENDED-AT-HARDENING — M-29/h-exec-recovery]
+
+The four-step protocol (audit-partial → patch-brief at `audit/recovery/T.W<n>-<lane>-brief-<date>.md` → resume-from-work-order → seam-audit-at-close) is standing law in `T.md §8`; E-6 batches-of-three is the prevention half, this rider the cure. This wave's type-specific deltas:
+
+**Partial signatures**: one disjoint feature lane died while siblings are green — the hazard is
+committing a **half-lane a sibling's gate then reads as done**; an O-13 slim split from its T-10
+excise commit (the same-commit law violated by the wall).
+**Resume specifics**: audit each lane's partial INDEPENDENTLY (the single-writer map is total +
+disjoint — recover only the dead lane); do NOT re-touch other lanes' files; the O-13 same-commit
+invariant re-checks as the partial-detector; a lane with fewer commits than scope rows is a
+partial to resume, not a lane to close.
 
 ## §Dependencies
 

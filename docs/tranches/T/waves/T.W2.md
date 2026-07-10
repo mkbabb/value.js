@@ -48,13 +48,15 @@ committed MOVE-MAP at wave-open (PP-11).
 | # | Item | Gate | Anchors · evidence |
 |---|---|---|---|
 | W2-1 | **Hydration-before-derivation as ordering LAW** (the boot-region transposition; kills F-1-demo + F-3's latent flash) | O-2 real-hydration + O-1 color-truth green | `App.vue:181/221/298-299` (derive-before-hydrate); glass-ui `useAurora.ts:228/262` (the arm gap — PRODUCER side, P1); `ColorPicker.vue:379-399` · t-load-sync LS-1..LS-8; t-aurora-boot F-1/F-3/F-5; plan-audit-2 F12 |
-| W2-2 | The gradient ground (persist `paletteToCssGradient`, scheme-guarded; first-visit = build-time default-derived constant, dark-honest) + `@property --saved-bg` 200ms OKLab transition + the 0.9s derive-in | O-1; no >x luma leap (the numeric bound set at wave-open from the O-1 baseline — PP-10); F-6 dark first-run honest | t-aurora-boot §2.1 (the persisted ground = the derived-palette GRADIENT, not the deepest stop — kills the dark-slab + the L≈0.35→0.6 leap; like-with-like crossfade cannot desaturate, F-4); t-aurora-boot F-2..F-6 |
-| W2-3 | THE OVERTURE beat sheet (B0–B4; `--overture-*` tokens at the shell; dock arrives AS the pill; pane-slot `appear` grammar; fonts self-hosted + preloaded, struck from the timeline) + the **LCP reveal-only law** (PI-2: identify the LCP element first; bind it B0-unconditional) | O-4 order-invariance under 6× throttle; O-24 LCP identity; PP-9 integrated-surface cite | t-load-sync §3 (the five laws + beat sheet, adopted verbatim: B0 ground · B1 plates, ONE plate-land family · B2 field derive-in 0.9s decelerate over its OWN gradient ground · B3 instrument · B4 blob) · LS-6 (fonts); t-perf-implications PI-2; jitter = paint holes 44→315ms then pile-up (T-27) — O-5 is its red line |
-| W2-4 | The blob EMERGE beat (demo trigger at B4; engine pose rides P6 — until then the reveal uses the FSM's existing `emerging` state) | no-pop assert | t-blob-hero §3 (beat table); the booked P6 swap (T.md §7.2) |
-| W2-5 | **T-26 in-bracket calibration** (Q2 values; demo knobs: energy 0.76, base-override softmaxBeta 4 / breathPeriod 26 / vividness=f(seedC)) — SEQUENCED after W2-1 (C4); pointer retune DEFERRED until P1's honesty fix lands (F-10) | O-6 bracket test + the perceptibility gates; owner eye-judge frames archived | `panes/keys.ts:46-47` (the R6 bracket: analogous±28°/0.7 too muted ← target → triad/0.82 too strong); the Q2 composition: chroma-adaptive hueSpread [24°,64°] · ONE counterpoint stop (+165°, 0.6×C) · breath 26s · `vividness = smoothstep(0.02, 0.10, seedC)` — gray picks keep a sage whisper, never marigold · t-aurora-boot §2.2 F-7..F-11; t-contradictions C4 |
+| W2-2 | The gradient ground — a **FIXED gradient template over registered per-stop properties `--saved-bg-0..3`** (+ `--saved-bg` fallback), each with the 200ms OKLab transition; **persist/write STOPS, never a gradient string** [AMENDED-AT-HARDENING — M-11: the image-ground and the `<color>` @property cure did not otherwise compose]; the persist record `{stops, scheme, deriveVersion}` — the fouc-guard resolves the ACTIVE scheme first, paints the persisted gradient only on scheme+version match, else the ACTIVE scheme's member of the first-visit constant PAIR (dark-honest); shape-validated read [F-8/N-1/N-3] + the 0.9s derive-in | O-1 holds over the gradient ground; **no ground-luma leap: B0→B2 monotone OKLab L toward the derived field's L; inter-beat \|ΔL\| ≤ 0.10; per-frame ≤ 0.04** (the measured ≈0.25 defect = the born-RED reference; PP-10 tighten-only) [AMENDED-AT-HARDENING — M-7: the `>x` placeholder resolved]; F-6 dark first-run honest | t-aurora-boot §2.1 (the persisted ground = the derived-palette GRADIENT, not the deepest stop — kills the dark-slab + the L≈0.35→0.6 leap; like-with-like crossfade cannot desaturate, F-4); t-aurora-boot F-2..F-6 |
+| W2-3 | THE OVERTURE beat sheet (B0–B4 per the D3 **named beat-gating DAG** [AMENDED-AT-HARDENING — M-10]: B1 hydration-committed ∧ mount · B2 `isArmed` ∧ dock-plate-landed (0.9s derive-in, settle ≤1.6s — the B2 supersession, M-8) · B3 left-plate-landed · B4 B3-complete ∧ B2-started ∧ chunk-resolved; `--overture-*` tokens at the shell; dock arrives AS the pill — **interim: the demo veils the dock inside its own B1 slot and reveals on the producer transition's `transitionend`, a recorded booked-interim; the sanctioned mechanism is the P7 arrive-expanded ask** [M-14]; pane-slot `appear` grammar; fonts self-hosted + preloaded with the **300ms ink-gate → metric-compatible fallback** [M-12]; **a `theme-color` B0 sub-clause: mint from the persisted ground, update beside the `--saved-bg` pick transition, both schemes** [h-gaps G-3, speculative-low]; **the NO-FIELD composition designed** [h-gaps G-4/PP-2]: WebGL-unavailable/context-loss ⇒ the persisted gradient ground IS the honest terminal (dark-honest), re-arm once on context-restore, else rest on the ground) + the **LCP reveal-only law** (PI-2, DEFINED [M-13]: the LCP-owning plate's land is transform+shadow ONLY, opacity pinned 1; paint chain `opacity > 0` from B0) | O-4 asserts B0 < B1 < {B2, B3} < B4 ∧ B2-start < B4-start under 6× throttle [M-10]; O-24 LCP identity + first-paint-time ≤ B1-start + 1 frame [M-13]; PP-9 integrated-surface cite | t-load-sync §3 (the five laws + beat sheet, adopted verbatim: B0 ground · B1 plates, ONE plate-land family · B2 field derive-in 0.9s decelerate over its OWN gradient ground · B3 instrument · B4 blob) · LS-6 (fonts); t-perf-implications PI-2; jitter = paint holes 44→315ms then pile-up (T-27) — O-5 is its red line |
+| W2-4 | The blob EMERGE beat (demo trigger at B4; the OPTIONAL engine pose rides **P6 row-F** [AMENDED-AT-HARDENING — M-14: the row now exists in the letter] — until/unless it lands the reveal uses the FSM's existing `emerging` state, the sanctioned interim) | no-pop assert | t-blob-hero §3 (beat table); the booked P6 swap (T.md §7.2) |
+| W2-5 | **T-26 in-bracket calibration** — the Q2 split marked [AMENDED-AT-HARDENING — h-refine-overture F-7]: **Q2-NOW** (demo knobs, lands here): energy 0.76 · softmaxBeta 4 · breathPeriod 26 · vividness=f(seedC); **Q2-FULL** (P1-gated, re-judged at W7): hueSpread formula · counterpoint · drift ×1.6 · lBand — SEQUENCED after W2-1 (C4); pointer retune DEFERRED until P1's honesty fix lands (F-10) | O-6 tests the NOW-half resolver (the FULL re-run = a W7 verify-at-cut row) + the O-26 perceptibility gates; owner eye-judge frames archived (P1 sizing-spec input — a muted read is data for P1, not a gate failure) | `panes/keys.ts:46-47` (the R6 bracket: analogous±28°/0.7 too muted ← target → triad/0.82 too strong); the Q2 composition: chroma-adaptive hueSpread [24°,64°] · ONE counterpoint stop (+165°, 0.6×C) · breath 26s · `vividness = smoothstep(0.02, 0.10, seedC)` — gray picks keep a sage whisper, never marigold · t-aurora-boot §2.2 F-7..F-11; t-contradictions C4 |
 
-**The perceptibility gates (D4, transcribed — bind W2-5)**: 2s glance-pair sub-JND; 10s window
-shows unmistakable migration (≥4/255 mid-C); 60s never repeats. **The drag path is
+**The perceptibility gates (D4/O-26, transcribed — bind W2-5)** [AMENDED-AT-HARDENING — M-22:
+now slate row O-26, minted born-RED at W0-5; metric = mean abs 8-bit frame diff over the field
+region]: 2s glance-pair sub-JND (<2/255); 10s window shows unmistakable migration (≥4/255 mid-C);
+60s never repeats (no two 5s-apart window pairs <1/255). **The drag path is
 byte-identical** (the app's best living moment).
 
 **What this wave RETIRES (D3, by name)**: the five-clock smear · the About pop · the dock
@@ -108,10 +110,15 @@ worktree cut from the wave head.
    fonts self-hosted + preloaded (zero Google-Fonts requests — network log evidence).
 4. **W2-4**: no-pop assert green (the reveal composes from the `emerging` state; no first-frame
    fully-formed blob).
-5. **W2-5**: O-6 bracket resolver test green (atom resolution inside the bracket envelope —
-   pure function); the perceptibility gates hold (2s sub-JND · 10s ≥4/255 mid-C · 60s
+5. **W2-5**: O-6 bracket resolver test green (the Q2-NOW resolver inside the bracket envelope —
+   pure function); the O-26 perceptibility gates hold (2s <2/255 · 10s ≥4/255 mid-C · 60s
    non-repeat); the drag path byte-identical (diff evidence); **owner eye-judge frames archived**
    across green/warm/neutral seeds, both schemes (W8-package inputs; brackets, not points).
+5b. **PRM scoping rider** [AMENDED-AT-HARDENING — h-refine-overture F-9]: gates O-4 · O-5 ·
+   no-pop run **PRM-OFF** (the choreography leg); the O-3 headed annex adds ONE **PRM-ON** run per
+   scheme asserting the instant-states law — first content frame ≡ the settled composition
+   (derived ground, field present at terminal opacity, blob static at the seat, no intermediate
+   beat state ever painted).
 6. **O-3 headed real-GPU cold-load probe re-run** (returning-user precondition, post-arm
    canvas-pixel asserts, BOTH schemes; screencast-judged order) — the W0 annex re-run at this
    wave per §6.1.
@@ -140,7 +147,7 @@ worktree cut from the wave head.
 
 `npm run lint` + `npm run typecheck` + `npm test` after each item and before close;
 `npx playwright test` (incl. the O-1..O-5/O-24 mints) after W2-1, after W2-3, and at close;
-the O-3 headed probe at close; the PI-1 LHCI run at close.
+the O-3 headed probe at close; the PI-1 LHCI run at close. The tool-artefact grep `grep -rnE '</?(content|invoke|parameter|antml)'` over the wave's touched docs MUST be empty before any docs commit (the §Recovery seam class — M-1).
 
 ## §Verification artefacts (π lane)
 
@@ -157,6 +164,19 @@ W2-1 (the ordering law, own commit with body — the R11 NEW-BUG cite); W2-2 (th
 ground + `--saved-bg`); W2-3 (the overture beat sheet + LCP law, may split shell-tokens/beats);
 W2-4 (emerge beat); W2-5 (the calibration, own commit with body carrying the Q2 values + the
 bracket cite); a status commit at close.
+
+## §Recovery (STANDING — the `T.md §8` completion-brief rider binds every dispatch AND resume of this wave; PP-14/PP-15 operationalized) [AMENDED-AT-HARDENING — M-29/h-exec-recovery]
+
+The four-step protocol (audit-partial → patch-brief at `audit/recovery/T.W<n>-<lane>-brief-<date>.md` → resume-from-work-order → seam-audit-at-close) is standing law in `T.md §8`; E-6 batches-of-three is the prevention half, this rider the cure. This wave's type-specific deltas:
+
+**Partial signatures**: a **boot beat half-authored out of order** (B0–B4 is ordered; C4 puts W2-5
+after W2-1 — a tree with B2 landed but not B1's plate-land is an ORDER VIOLATION, not a benign
+partial); uncommitted π before/after frames; a π-harness wait that SWALLOWED on the dying run
+(PP-15 — a swallowed wait hides the very defect the shot exists to record).
+**Resume specifics**: **re-drive the π capture** — frames are cheap and a pre-wall frame whose
+harness may have swallowed its wait is untrusted. The boot-beat order (C4) binds the resume
+identically. W2 and W3 are disjoint — a W2 wall cannot touch W3's lane; the seam-audit confirms
+neither committed a half-beat and `git worktree list` = the two live lanes only.
 
 ## §Dependencies
 
