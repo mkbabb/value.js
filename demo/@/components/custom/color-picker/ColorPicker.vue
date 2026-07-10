@@ -61,12 +61,24 @@
              cross-pane layer (style.css `.pane-wrapper--left`) kill the S-4
              About-card burial with ZERO z-index on the instance (seed
              §Learnings 3). R.W3 D2's dual-hero diagonal still reads. Geometry:
-             `.hero-blob-anchor` below. `v-if="blobReady"` = the W3-2 IDLE
-             deferral (time-based, never a viewport gate, per the Q7 flip). -->
+             `.hero-blob-anchor` below.
+
+             T.W2-4 — THE EMERGE BEAT (B4): the blob EMERGES, never appears.
+             `blobReady` stays the W3-2 IDLE deferral (the WORK — chunk fetch
+             — defers exactly as before); `ornamentOpen` is the overture's B4
+             predicate (B3-complete ∧ B2-started) — an early chunk WAITS for
+             the beat, a late chunk emerges on resolution through the same
+             pose (work defers, appearance composes). The reveal composes
+             from the engine's own arrival (the FSM's `emerging`-state
+             satellite grammar is the conserved asset) under the demo's
+             goo-scale emerge on the anchor (below) — the SANCTIONED INTERIM
+             until the P6 row-F body-arrival pose lands (the booked swap,
+             T.md §7.2). `@vue:mounted` stamps the B4 mark (overture:b4). -->
         <HeroBlob
-            v-if="blobReady"
+            v-if="blobReady && ornamentOpen"
             class="hero-blob-anchor"
             @click="onHeroBlobClick()"
+            @vue:mounted="overture?.noteOrnamentEmerge()"
         />
 
         <!-- T21 (R.W4 Lane E): the mounted-but-display:none EditDrawer is
@@ -97,6 +109,7 @@ import type { ColorModel, EditTarget } from ".";
 import { toCSSColorString, resolveColorSpace } from ".";
 import { COLOR_MODEL_KEY } from "@composables/color/keys";
 import type { ActionBarContext } from "@composables/color/keys";
+import { OVERTURE_KEY } from "../../../../color-picker/composables/boot/useOverture";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
@@ -123,6 +136,12 @@ const emit = defineEmits<{
 // deferred mount causes no layout shift.
 const HeroBlob = defineAsyncComponent(() => import("./visual/HeroBlob.vue"));
 const { ready: blobReady } = useIdleReady();
+
+// T.W2-4 — the B4 consume: the overture's ornament beat (injected; a
+// standalone/test mount without the App shell keeps the pre-overture
+// behavior — open immediately).
+const overture = inject(OVERTURE_KEY, null);
+const ornamentOpen = computed(() => overture?.b4.value ?? true);
 
 // --- Color model: inject the ONE pipeline (S.W2 · W2-1 transposition) ---
 // The former `defineModel` + local `useColorModel` shallowRef copy are gone.
@@ -373,6 +392,29 @@ onUnmounted(() => {
          * the radius origin: BOTH broken edges carry the ≥25% overflow. */
         --blob-fp: clamp(11rem, 26cqi, 13rem);
         right: calc(var(--radius-card) - var(--blob-fp) / 2);
+    }
+}
+
+/* T.W2-4 — THE EMERGE POSE (the demo interim; no-pop law): the bead
+ * GOO-SCALES from the seat as it mounts at B4 — never a first-frame
+ * fully-formed blob. Scale from the seat point (the card-corner anchor),
+ * decelerate, ~500ms (the beat sheet's goo-emerge window); the engine's own
+ * satellite `emerging` grammar composes inside it. RETIRES to the P6 row-F
+ * producer body-arrival pose when it lands (the booked swap). PRM = static
+ * first frame (no animation — the mount IS the state change). */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes blob-emerge {
+        from {
+            opacity: 0;
+            transform: scale(0.35);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+    .hero-blob-anchor {
+        animation: blob-emerge 500ms var(--ease-decelerate) both;
     }
 }
 
