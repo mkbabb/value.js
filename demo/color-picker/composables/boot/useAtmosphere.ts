@@ -18,17 +18,17 @@
  * edit (slider drag OR a seed change) re-derives + re-uploads for free.
  */
 
-import { computed, reactive, watch, provide } from "vue";
+import { computed, reactive, ref, watch, provide } from "vue";
 import type { ComputedRef, ShallowRef } from "vue";
 import { useEventListener } from "@vueuse/core";
 import {
     useAurora,
-    resolveAtoms,
     deriveAurora,
     resolveRenderMode,
     paletteToCssGradient,
     type AuroraAtoms,
 } from "@mkbabb/glass-ui/aurora";
+import { resolveCalibratedAtmosphere } from "./atmosphere-calibration";
 import { debounce } from "@mkbabb/value.js";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@composables/color/aurora-atoms";
@@ -96,9 +96,13 @@ export function useAtmosphere(
     // (a mount-time device tier).
     const auroraRenderMode = resolveRenderMode("auto");
 
+    // W2-5 (T.W2): the config source resolves over the CALIBRATED base —
+    // the Q2-NOW knobs (breath 26 · softmaxBeta 4 · vividness = f(seedC))
+    // ride `resolveAtoms(atoms, base)`; the atoms door itself is untouched
+    // (AuroraPane's live tuning flows through exactly as before).
     const aurora = useAurora(
         atmosphereCanvas,
-        () => resolveAtoms(auroraAtoms),
+        () => resolveCalibratedAtmosphere(auroraAtoms),
         { onInitError: (err) => console.warn("[aurora] init failed:", err) },
         { renderMode: auroraRenderMode },
     );
@@ -106,8 +110,10 @@ export function useAtmosphere(
     // The resolved derived palette — ONE computed shared by the CSS-gradient
     // fallback below AND the W6-1 boot-material sink. Recomputes at most once
     // per frame under a drag (the seed is the rAF-coalesced colour), so the
-    // extra `resolveAtoms` here stays off the per-event hot path.
-    const resolvedPalette = computed(() => resolveAtoms(auroraAtoms).palette);
+    // extra resolve here stays off the per-event hot path.
+    const resolvedPalette = computed(
+        () => resolveCalibratedAtmosphere(auroraAtoms).palette,
+    );
 
     // --- M-15 (T.W2-routed cross-wave hunk; D6 THE INK-ON-TIER CONTRACT) ---
     // The atmosphere EXPOSES its live derived lightness — the mean OKLab L of
@@ -208,16 +214,48 @@ export function useAtmosphere(
         { immediate: true },
     );
 
+    // --- W2-3 (T.W2 · h-gaps G-4/PP-2): THE NO-FIELD HONEST TERMINAL ---
+    // WebGL-unavailable (init error → isArmed never true) or CONTEXT LOSS ⇒
+    // the persisted gradient ground IS the honest terminal (dark-honest by
+    // W2-2's scheme banding) — the canvas rests at opacity 0 and the page
+    // stands on its own material; never a blank canvas presented as a field.
+    // Re-arm ONCE on context-restore (the first `webglcontextrestored`
+    // re-admits the arrival signal); a second loss rests on the ground for
+    // the session.
+    const contextLost = ref(false);
+    let restoredOnce = false;
+    if (auroraRenderMode === "webgl") {
+        watch(
+            atmosphereCanvas,
+            (canvas) => {
+                if (!canvas) return;
+                canvas.addEventListener("webglcontextlost", () => {
+                    contextLost.value = true;
+                });
+                canvas.addEventListener("webglcontextrestored", () => {
+                    if (!restoredOnce) {
+                        restoredOnce = true;
+                        contextLost.value = false;
+                    }
+                });
+            },
+            { immediate: true },
+        );
+    }
+
     // --- W6-1 entrance rider (owner ruling 2026-07-05 §1.1): the ARRIVAL is
     // designed, not a snap. The producer's own idiom (`Aurora.vue`) keys a
     // cross-fade on `isArmed`; the demo consumes the same signal — App.vue
     // eases the canvas in over the SAME-material ground once the field is
-    // drawable. On the `"css"` substrate the static gradient placeholder IS
-    // a complete render, so it arrives immediately (no WebGL arming to wait
-    // for). PRM honesty lives in App.vue's CSS (reduce → no transition, a
-    // static state change).
+    // drawable (T.W2-3: gated at B2 = this signal ∧ dock-plate-landed, the
+    // overture's predicate). On the `"css"` substrate the static gradient
+    // placeholder IS a complete render, so it arrives immediately (no WebGL
+    // arming to wait for). PRM honesty lives in App.vue's CSS (reduce → no
+    // transition, a static state change).
     const auroraArrived = computed(
-        () => auroraRenderMode === "css" || aurora.isArmed.value,
+        () =>
+            (auroraRenderMode === "css" || aurora.isArmed.value) &&
+            !contextLost.value,
     );
 
     // --- W6-7 (owner ruling §1.3): pointer-reactive atmosphere, the consume
