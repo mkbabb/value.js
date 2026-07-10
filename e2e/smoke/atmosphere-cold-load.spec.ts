@@ -139,23 +139,33 @@ for (const scheme of ["light", "dark"] as const) {
 
         // Write-through: the persisted GROUND record for the NEXT cold load
         // carries the same derived base stop (debounced 200ms → poll; the
-        // W2-2 shape — stops, never a gradient string).
+        // W2-2 shape — stops, never a gradient string). CONVERGENCE-SHAPED
+        // (T.W2 close): the family capture above may sample the token a few
+        // frames before the 200ms transition's exact end (a 1–2/255 delta —
+        // #7c7802 vs the record's #7b7800, caught live), so the record is
+        // compared against the SETTLED computed token, polled as a pair —
+        // the transition ends AT the written value, so the two truths must
+        // converge exactly.
         await expect
             .poll(
-                () =>
-                    page.evaluate(() => {
+                async () => {
+                    const settled = await savedBg(page);
+                    const rec = await page.evaluate(() => {
                         try {
-                            const rec = JSON.parse(
-                                localStorage.getItem("color-picker-ground") ?? "null",
+                            const parsed = JSON.parse(
+                                localStorage.getItem("color-picker-ground") ??
+                                    "null",
                             ) as { stops?: string[] } | null;
-                            return rec?.stops?.[0] ?? null;
+                            return parsed?.stops?.[0] ?? null;
                         } catch {
                             return null;
                         }
-                    }),
+                    });
+                    return rec !== null && settled === rec;
+                },
                 { timeout: 8000 },
             )
-            .toBe(bg);
+            .toBe(true);
 
         // The field PRESENTS — honest to both render-mode paths (webgl draws
         // under a real GPU; the CSS-gradient placeholder under software GL).

@@ -77,6 +77,18 @@ test("hero blob FULL PRESENCE at 390: sized+rendering, viewport-honest, top-brea
     const blob = page.getByTestId(GOO_BLOB_TESTID).last();
     await expect(blob).toBeAttached();
 
+    // SETTLE-STAMPED (T.W2-4): the blob EMERGES at B4 through the 500ms
+    // goo-scale pose (scale 0.35 → 1) — a boundingBox read at attach time
+    // samples the arrival pose (204.8 × 0.35 = 71.68px, caught live at the
+    // W2 close). The presence gate judges the SETTLED footprint, so poll
+    // until the emerge releases before the exact law asserts.
+    await expect
+        .poll(async () => (await blob.boundingBox())?.width ?? 0, {
+            timeout: 4000,
+            message:
+                "goo-blob canvas never settled to the 8rem-law footprint (emerge pose stuck?)",
+        })
+        .toBeGreaterThanOrEqual(180);
     const box = await blob.boundingBox();
     if (!box) throw new Error("goo-blob canvas has no layout box at 390");
     // The <lg law: 8rem footprint → 1.6× canvas = 204.8px. Floor at 180 still
