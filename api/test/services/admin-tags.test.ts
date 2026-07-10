@@ -5,12 +5,12 @@ import {
     createTag,
     deleteTag,
     listTags,
-} from "../../src/services/admin/tags.js";
+} from "../../src/modules/admin/service/tags.js";
 import {
     ConflictError,
     NotFoundError,
-} from "../../src/errors/index.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+} from "../../src/platform/http/errors/index.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("service.admin.tags", () => {
     let client: MongoClient;

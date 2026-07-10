@@ -24,20 +24,20 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import { createPalette, patchPalette } from "../../src/services/palette/crud.js";
+import { createPalette, patchPalette } from "../../src/modules/palette/service/crud.js";
 import {
     loginSession,
     registerSession,
-} from "../../src/services/session/auth.js";
-import { deletePalette as adminDeletePalette } from "../../src/services/admin/palettes.js";
+} from "../../src/modules/session/service/auth.js";
+import { deletePalette as adminDeletePalette } from "../../src/modules/admin/service/palettes.js";
 import {
     deleteUserPalettes,
     pruneEmptyUsers,
     setUserStatus,
-} from "../../src/services/admin/users.js";
-import { deleteTag } from "../../src/services/admin/tags.js";
-import { asSessionToken, asUserSlug } from "../../src/models.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+} from "../../src/modules/admin/service/users.js";
+import { deleteTag } from "../../src/modules/admin/service/tags.js";
+import { asSessionToken, asUserSlug } from "../../src/modules/session/model.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("withTransaction rollback (H.W1 Lane A)", () => {
     let client: MongoClient;

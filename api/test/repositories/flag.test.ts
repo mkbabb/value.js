@@ -1,8 +1,8 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { cleanCollections, connect } from "../helpers.js";
-import { FlagRepository } from "../../src/repositories/flag.js";
-import type { Flag } from "../../src/models.js";
+import { FlagRepository } from "../../src/modules/palette/repository/flag.js";
+import type { Flag } from "../../src/modules/palette/model.js";
 
 describe("repository.flag", () => {
     let client: MongoClient;

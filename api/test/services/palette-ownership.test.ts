@@ -1,9 +1,9 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import { createPalette } from "../../src/services/palette/crud.js";
-import { getOwnedPalette } from "../../src/services/palette/ownership.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+import { createPalette } from "../../src/modules/palette/service/crud.js";
+import { getOwnedPalette } from "../../src/modules/palette/service/ownership.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("service.palette.ownership", () => {
     let client: MongoClient;

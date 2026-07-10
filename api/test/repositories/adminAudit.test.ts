@@ -1,8 +1,8 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { cleanCollections, connect } from "../helpers.js";
-import { AdminAuditRepository } from "../../src/repositories/adminAudit.js";
-import type { AdminAuditEvent } from "../../src/models.js";
+import { AdminAuditRepository } from "../../src/modules/admin/repository/adminAudit.js";
+import type { AdminAuditEvent } from "../../src/modules/admin/model.js";
 
 describe("repository.adminAudit", () => {
     let client: MongoClient;

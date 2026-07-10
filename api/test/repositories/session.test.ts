@@ -1,9 +1,9 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { cleanCollections, connect } from "../helpers.js";
-import { SessionRepository } from "../../src/repositories/session.js";
-import type { Session } from "../../src/models.js";
-import { asSessionToken } from "../../src/models.js";
+import { SessionRepository } from "../../src/modules/session/repository/session.js";
+import type { Session } from "../../src/modules/session/model.js";
+import { asSessionToken } from "../../src/modules/session/model.js";
 
 function makeSession(overrides: Partial<Session> = {}): Session {
     return {

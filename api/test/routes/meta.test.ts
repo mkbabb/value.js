@@ -16,7 +16,7 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { Hono } from "hono";
 import type { AppEnv } from "../../src/types.js";
-import { ROUTES } from "../../src/routes/meta-routes.js";
+import { ROUTES } from "../../src/modules/meta/route-table.js";
 
 let meta: Hono<AppEnv>;
 let closeDb: () => Promise<void>;
@@ -25,8 +25,8 @@ beforeAll(async () => {
     // Point getDb() at the ephemeral replica set the suite booted, then import
     // the meta router (its getDb() resolves the singleton lazily on first call).
     process.env.MONGODB_URI = process.env.TEST_MONGODB_URI;
-    ({ meta } = await import("../../src/routes/meta.js"));
-    ({ closeDb } = await import("../../src/db.js"));
+    ({ meta } = await import("../../src/modules/meta/routes.js"));
+    ({ closeDb } = await import("../../src/platform/db/db.js"));
 });
 
 afterAll(async () => {

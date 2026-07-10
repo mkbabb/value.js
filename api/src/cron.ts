@@ -19,7 +19,7 @@
  * expires_at < now()", discharged by the DB engine (N.W3.C/I).
  */
 
-import { getServices } from "./middleware/inject-services.js";
+import { getServices } from "./platform/http/inject-services.js";
 
 const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
 /** I.W2 grace window. Default 30 days; overridable via `PALETTE_GRACE_MS` env. */

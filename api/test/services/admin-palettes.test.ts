@@ -4,10 +4,10 @@ import { buildServices, cleanCollections, connect } from "../helpers.js";
 import {
     deletePalette as adminDeletePalette,
     setFeatured,
-} from "../../src/services/admin/palettes.js";
-import { createPalette } from "../../src/services/palette/crud.js";
-import { NotFoundError } from "../../src/errors/index.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+} from "../../src/modules/admin/service/palettes.js";
+import { createPalette } from "../../src/modules/palette/service/crud.js";
+import { NotFoundError } from "../../src/platform/http/errors/index.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("service.admin.palettes", () => {
     let client: MongoClient;

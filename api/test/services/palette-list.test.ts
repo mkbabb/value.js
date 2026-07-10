@@ -12,9 +12,9 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import type { Services } from "../../src/middleware/inject-services.js";
-import type { OklabTriple, Palette } from "../../src/models.js";
-import { listPalettes } from "../../src/services/palette/crud-list.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
+import type { OklabTriple, Palette } from "../../src/modules/palette/model.js";
+import { listPalettes } from "../../src/modules/palette/service/crud-list.js";
 
 function makePalette(slug: string, oklab: OklabTriple[], createdAtMs: number): Palette {
     const when = new Date(createdAtMs);

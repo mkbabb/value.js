@@ -21,13 +21,13 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import { Hono } from "hono";
 import type { Db, MongoClient } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import sessions from "../../src/routes/sessions.js";
-import colors from "../../src/routes/colors.js";
-import { resolveSession } from "../../src/middleware/resolve-session.js";
-import { toResponseEnvelope } from "../../src/errors/index.js";
-import { asSessionToken, asUserSlug } from "../../src/models.js";
+import sessions from "../../src/modules/session/routes.js";
+import colors from "../../src/modules/color/routes.js";
+import { resolveSession } from "../../src/modules/session/resolve-session.js";
+import { toResponseEnvelope } from "../../src/platform/http/errors/index.js";
+import { asSessionToken, asUserSlug } from "../../src/modules/session/model.js";
 import type { AppEnv } from "../../src/types.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 /**
  * Build the test app with the production authn seam: injectServices-equivalent

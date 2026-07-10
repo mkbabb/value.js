@@ -28,4 +28,4 @@ USER node
 EXPOSE 3000
 
 ENTRYPOINT ["tini", "--"]
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/main.js"]

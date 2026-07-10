@@ -1,8 +1,8 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { cleanCollections, connect } from "../helpers.js";
-import { VoteRepository } from "../../src/repositories/vote.js";
-import type { Vote } from "../../src/models.js";
+import { VoteRepository } from "../../src/modules/palette/repository/vote.js";
+import type { Vote } from "../../src/modules/palette/model.js";
 
 describe("repository.vote", () => {
     let client: MongoClient;

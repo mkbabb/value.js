@@ -22,10 +22,10 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import { createPalette, deletePalette } from "../../src/services/palette/crud.js";
-import { batchUsers } from "../../src/services/admin/batch.js";
-import { asSessionToken, asUserSlug } from "../../src/models.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+import { createPalette, deletePalette } from "../../src/modules/palette/service/crud.js";
+import { batchUsers } from "../../src/modules/admin/service/batch.js";
+import { asSessionToken, asUserSlug } from "../../src/modules/session/model.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("withTransaction rollback (G.W3 Lane E)", () => {
     let client: MongoClient;

@@ -1,10 +1,10 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import { toggleVote } from "../../src/services/palette/votes.js";
-import { createPalette } from "../../src/services/palette/crud.js";
-import { NotFoundError } from "../../src/errors/index.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+import { toggleVote } from "../../src/modules/palette/service/votes.js";
+import { createPalette } from "../../src/modules/palette/service/crud.js";
+import { NotFoundError } from "../../src/platform/http/errors/index.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("service.palette.votes", () => {
     let client: MongoClient;

@@ -22,11 +22,11 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import { createPalette, restorePalette, deletePalette } from "../../src/services/palette/crud.js";
-import { toggleVote } from "../../src/services/palette/votes.js";
-import { registerSession, loginSession } from "../../src/services/session/auth.js";
-import { asUserSlug } from "../../src/models.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+import { createPalette, restorePalette, deletePalette } from "../../src/modules/palette/service/crud.js";
+import { toggleVote } from "../../src/modules/palette/service/votes.js";
+import { registerSession, loginSession } from "../../src/modules/session/service/auth.js";
+import { asUserSlug } from "../../src/modules/session/model.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 /** Wrap `services.withTransaction` with a call counter; returns a getter. */
 function spyOnWithTransaction(services: Services): () => number {

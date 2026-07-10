@@ -19,11 +19,11 @@ import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from
 import { Hono } from "hono";
 import type { Db, MongoClient } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import admin from "../../src/routes/admin/index.js";
-import { toResponseEnvelope } from "../../src/errors/index.js";
-import { asUserSlug } from "../../src/models.js";
+import admin from "../../src/modules/admin/routes/index.js";
+import { toResponseEnvelope } from "../../src/platform/http/errors/index.js";
+import { asUserSlug } from "../../src/modules/session/model.js";
 import type { AppEnv } from "../../src/types.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 const ADMIN_TOKEN = "test-admin-token";
 

@@ -7,10 +7,10 @@ import {
     getPaletteBySlug,
     patchPalette,
     restorePalette,
-} from "../../src/services/palette/crud.js";
-import { ConflictError, NotFoundError } from "../../src/errors/index.js";
-import type { Services } from "../../src/middleware/inject-services.js";
-import type { Palette } from "../../src/models.js";
+} from "../../src/modules/palette/service/crud.js";
+import { ConflictError, NotFoundError } from "../../src/platform/http/errors/index.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
+import type { Palette } from "../../src/modules/palette/model.js";
 
 function makePalette(overrides: Partial<Palette> = {}): Palette {
     const now = new Date();

@@ -28,7 +28,7 @@ import {
     RateLimitError,
     toResponseEnvelope,
     ValidationError,
-} from "../src/errors/index.js";
+} from "../src/platform/http/errors/index.js";
 
 const CONTRACT = "urn:contract:";
 const INTERNAL_URN = "urn:palette-api:problem:internal";

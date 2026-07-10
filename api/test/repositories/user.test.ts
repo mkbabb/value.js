@@ -1,9 +1,10 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { cleanCollections, connect } from "../helpers.js";
-import { UserRepository } from "../../src/repositories/user.js";
-import type { Palette, User } from "../../src/models.js";
-import { asUserSlug } from "../../src/models.js";
+import { UserRepository } from "../../src/modules/session/repository/user.js";
+import type { Palette } from "../../src/modules/palette/model.js";
+import type { User } from "../../src/modules/session/model.js";
+import { asUserSlug } from "../../src/modules/session/model.js";
 
 function makeUser(overrides: Partial<User> = {}): User {
     return {

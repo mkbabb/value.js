@@ -6,11 +6,11 @@ import {
     listUsers,
     pruneEmptyUsers,
     setUserStatus,
-} from "../../src/services/admin/users.js";
-import { createPalette } from "../../src/services/palette/crud.js";
-import { NotFoundError } from "../../src/errors/index.js";
-import { asSessionToken, asUserSlug } from "../../src/models.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+} from "../../src/modules/admin/service/users.js";
+import { createPalette } from "../../src/modules/palette/service/crud.js";
+import { NotFoundError } from "../../src/platform/http/errors/index.js";
+import { asSessionToken, asUserSlug } from "../../src/modules/session/model.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("service.admin.users", () => {
     let client: MongoClient;

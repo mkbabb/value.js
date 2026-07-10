@@ -1,8 +1,8 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { cleanCollections, connect } from "../helpers.js";
-import { PaletteVersionRepository } from "../../src/repositories/paletteVersion.js";
-import type { PaletteVersion } from "../../src/models.js";
+import { PaletteVersionRepository } from "../../src/modules/palette/repository/paletteVersion.js";
+import type { PaletteVersion } from "../../src/modules/palette/model.js";
 
 function makeVersion(overrides: Partial<PaletteVersion> = {}): PaletteVersion {
     return {

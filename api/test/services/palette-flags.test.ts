@@ -1,14 +1,14 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import { flagPalette } from "../../src/services/palette/flags.js";
-import { createPalette } from "../../src/services/palette/crud.js";
+import { flagPalette } from "../../src/modules/palette/service/flags.js";
+import { createPalette } from "../../src/modules/palette/service/crud.js";
 import {
     ConflictError,
     NotFoundError,
     ValidationError,
-} from "../../src/errors/index.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+} from "../../src/platform/http/errors/index.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("service.palette.flags", () => {
     let client: MongoClient;

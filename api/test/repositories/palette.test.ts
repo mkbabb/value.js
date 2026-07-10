@@ -1,8 +1,8 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { connect, cleanCollections } from "../helpers.js";
-import { PaletteRepository } from "../../src/repositories/palette.js";
-import type { Palette } from "../../src/models.js";
+import { PaletteRepository } from "../../src/modules/palette/repository/palette.js";
+import type { Palette } from "../../src/modules/palette/model.js";
 
 function makePalette(overrides: Partial<Palette> = {}): Palette {
     const now = new Date();

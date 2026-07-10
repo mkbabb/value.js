@@ -5,13 +5,13 @@ import {
     forkPalette,
     getProvenance,
     listForks,
-} from "../../src/services/palette/forks.js";
-import { createPalette } from "../../src/services/palette/crud.js";
+} from "../../src/modules/palette/service/forks.js";
+import { createPalette } from "../../src/modules/palette/service/crud.js";
 import {
     NotFoundError,
     ValidationError,
-} from "../../src/errors/index.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+} from "../../src/platform/http/errors/index.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("service.palette.forks", () => {
     let client: MongoClient;

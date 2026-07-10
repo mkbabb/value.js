@@ -6,10 +6,10 @@ import {
     getVersionByHash,
     listVersions,
     revertToVersion,
-} from "../../src/services/palette/versions.js";
-import { createPalette, patchPalette } from "../../src/services/palette/crud.js";
-import { NotFoundError } from "../../src/errors/index.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+} from "../../src/modules/palette/service/versions.js";
+import { createPalette, patchPalette } from "../../src/modules/palette/service/crud.js";
+import { NotFoundError } from "../../src/platform/http/errors/index.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("service.palette.versions", () => {
     let client: MongoClient;

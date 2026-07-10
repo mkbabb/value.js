@@ -1,8 +1,8 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { cleanCollections, connect } from "../helpers.js";
-import { TagRepository } from "../../src/repositories/tag.js";
-import type { Tag } from "../../src/models.js";
+import { TagRepository } from "../../src/modules/color/repository/tag.js";
+import type { Tag } from "../../src/modules/color/model.js";
 
 describe("repository.tag", () => {
     let client: MongoClient;

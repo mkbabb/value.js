@@ -6,12 +6,12 @@ import {
     deleteColor,
     listByStatus,
     rejectColor,
-} from "../../src/services/admin/colors.js";
+} from "../../src/modules/admin/service/colors.js";
 import {
     NotFoundError,
     ValidationError,
-} from "../../src/errors/index.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+} from "../../src/platform/http/errors/index.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("service.admin.colors", () => {
     let client: MongoClient;
