@@ -7,50 +7,41 @@
 
 import type { WithId } from "mongodb";
 import type { Services } from "../../middleware/inject-services.js";
-import type { Palette, PaletteColor } from "../../models.js";
+import type { Palette } from "../../models.js";
 import { ConflictError, NotFoundError, ValidationError } from "../../errors/index.js";
 import { computeContentHash } from "../../hash.js";
-import { diffAtoms, type AtomDiffOp } from "../../lib/crud/atomdiff.js";
 import { computeOklabColors } from "./oklab.js";
 import { createVersionRecord } from "./versions.js";
 
 const SLUG_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
 
-export interface RemixInput {
+export interface ForkInput {
     sourceSlug: string;
     name?: string | undefined;
     slug?: string | undefined;
-    /** ABSENT → a plain fork (the recorded atom-diff is empty). PRESENT → the
-     * remix payload; the server diffs it against the source's colors and
-     * records the atom-diff on the child version edge. */
-    colors?: PaletteColor[] | undefined;
     userSlug: string;
 }
 
-export interface RemixOutput {
+export interface ForkOutput {
     palette: WithId<Palette>;
-    /** The recorded source→child atom-diff (empty for a plain fork). */
-    atomDiff: AtomDiffOp[];
-    /** The provenance edge source: the slug + content-hash forked from. */
-    remixedFrom: { slug: string; hash: string | null };
 }
 
 /**
- * Remix = fork + a RECORDED atom-diff (J.W2). The cross-collection
- * `withTransaction` discipline is UNCHANGED from the original fork (insert
+ * Fork a palette: copy the source's colors into a new child + record the
+ * provenance edge. The cross-collection `withTransaction` discipline (insert
  * child + version + bump parent fork-count; in-txn source re-read closes the
- * race) — the delta is that the child version records the atom-diff from the
- * source. `fork` is `remix` with no colors (an empty diff): ONE code path, no
- * legacy shim (see `forkPalette` below).
+ * race) is the single fork write path — the J.W2 remix/atom-diff arm was
+ * excised at T.W1 (TA-4: the `/remix`+`/diff` write-only apparatus), so fork is
+ * now the sole caller and there is no `colors`-diff branch to fold.
  *
- * H1 invariant: this is the SAME cross-collection write site previously named
- * `forkPalette` (palettes insert + parent fork-count `$inc` + paletteVersions);
- * tracked at `docs/tranches/H/audit/api-withTransaction-coverage.md` row 2.
+ * H1 invariant: this is the cross-collection write site (palettes insert +
+ * parent fork-count `$inc` + paletteVersions); tracked at
+ * `docs/tranches/H/audit/api-withTransaction-coverage.md` row 2.
  */
-export async function remixPalette(
+export async function forkPalette(
     services: Services,
-    input: RemixInput,
-): Promise<RemixOutput> {
+    input: ForkInput,
+): Promise<ForkOutput> {
     const { sourceSlug, userSlug } = input;
 
     // Source fetch + input validation is read-only and pure — keep OUTSIDE the
@@ -58,31 +49,26 @@ export async function remixPalette(
     const source = await services.repositories.palettes.findBySlug(sourceSlug);
     if (!source) throw new NotFoundError("Palette not found");
 
-    const remixName = input.name ?? `${source.name} (remix)`;
-    const remixSlug =
+    const forkName = input.name ?? `${source.name} (remix)`;
+    const forkSlug =
         input.slug ?? `${sourceSlug}-remix-${crypto.randomUUID().slice(0, 8)}`;
 
-    if (remixName.length > 100) {
+    if (forkName.length > 100) {
         throw new ValidationError("name too long (max 100 chars)");
     }
-    if (!SLUG_PATTERN.test(remixSlug) || remixSlug.length > 120) {
+    if (!SLUG_PATTERN.test(forkSlug) || forkSlug.length > 120) {
         throw new ValidationError("Invalid slug");
     }
 
-    const sourceColors: PaletteColor[] = source.colors;
-    const targetColors: PaletteColor[] = input.colors ?? sourceColors;
-    // The recorded atom-diff (source → target). A plain fork (colors absent)
-    // diffs against itself → empty (fork IS remix-with-empty-diff).
-    const atomDiff = diffAtoms(sourceColors, targetColors);
-
-    const contentHash = computeContentHash(remixName, targetColors);
+    const colors = source.colors;
+    const contentHash = computeContentHash(forkName, colors);
     const now = new Date();
 
     const newDoc: Palette = {
-        name: remixName,
-        slug: remixSlug,
-        colors: targetColors,
-        oklabColors: computeOklabColors(targetColors),
+        name: forkName,
+        slug: forkSlug,
+        colors,
+        oklabColors: computeOklabColors(colors),
         tags: source.tags ?? [],
         voteCount: 0,
         userSlug,
@@ -129,13 +115,12 @@ export async function remixPalette(
         await createVersionRecord(
             services,
             {
-                paletteSlug: remixSlug,
-                name: remixName,
-                colors: targetColors,
+                paletteSlug: forkSlug,
+                name: forkName,
+                colors,
                 authorSlug: userSlug,
                 parentHash: null,
                 forkedFromHash: source.currentHash ?? null,
-                atomDiff,
             },
             session,
         );
@@ -143,49 +128,14 @@ export async function remixPalette(
         await services.repositories.palettes.incrementForkCount(sourceSlug, session);
 
         const inserted = await services.repositories.palettes.findBySlug(
-            remixSlug,
+            forkSlug,
             session,
         );
         if (!inserted) throw new NotFoundError("Palette missing after insert");
         return inserted;
     });
 
-    return {
-        palette: doc,
-        atomDiff,
-        remixedFrom: { slug: sourceSlug, hash: source.currentHash ?? null },
-    };
-}
-
-export interface ForkInput {
-    sourceSlug: string;
-    name?: string | undefined;
-    slug?: string | undefined;
-    userSlug: string;
-}
-
-export interface ForkOutput {
-    palette: WithId<Palette>;
-}
-
-/**
- * Fork = remix with an empty diff. ONE code path — `forkPalette` is the
- * zero-change special case of `remixPalette` (no `colors` → empty atomDiff).
- * The existing `POST /:slug/fork` route + its contract are preserved; this is
- * a semantic alias, NOT a backward-compat shim.
- */
-export async function forkPalette(
-    services: Services,
-    input: ForkInput,
-): Promise<ForkOutput> {
-    const { palette } = await remixPalette(services, {
-        sourceSlug: input.sourceSlug,
-        name: input.name,
-        slug: input.slug,
-        colors: undefined,
-        userSlug: input.userSlug,
-    });
-    return { palette };
+    return { palette: doc };
 }
 
 export interface ForkListResult {

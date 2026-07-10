@@ -22,7 +22,6 @@
 import { Hono } from "hono";
 import type { AppEnv } from "../../types.js";
 import { crudRouter } from "./crud.js";
-import { diffRouter } from "./diff.js";
 import { flagsRouter } from "./flags.js";
 import { forksRouter } from "./forks.js";
 import { publishRouter } from "./publish.js";
@@ -34,9 +33,6 @@ export const palettes = new Hono<AppEnv>();
 palettes.route("/", crudRouter);
 palettes.route("/", versionsRouter);
 palettes.route("/", forksRouter);
-// J.W2 remix lives in forksRouter (`/:slug/remix`); the read-only diff
-// endpoint + the publish/unpublish verb pair are their own concern routers.
-palettes.route("/", diffRouter);
 palettes.route("/", publishRouter);
 palettes.route("/", votesRouter);
 palettes.route("/", flagsRouter);

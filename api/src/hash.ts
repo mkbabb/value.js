@@ -37,10 +37,9 @@ export function computeAtomHash(atom: PaletteColor): string {
  * the same set-hash — the atom-layer dedup fingerprint.
  *
  * Distinct from `computeContentHash`, which folds `name` into the palette
- * identity; the set-hash is the COLORS-ONLY identity the atom-diff layer
- * compares against, so the canonical `/diff` envelope's `fromHash`/`toHash`
- * ARE these set-hashes (J-diff-shape §2.4) and `setHash(A) === setHash(B)`
- * ⟺ `diffAtoms(A, B)` is empty (the dedup property on the wire).
+ * identity; the set-hash is the COLORS-ONLY identity. It is emitted on the
+ * palette envelope as `atomSetHash` (the dedup hint). (The `/diff` read + the
+ * atom-diff algebra that once also consumed it were excised at T.W1 — TA-4.)
  */
 export function computeAtomSetHash(atoms: PaletteColor[]): string {
     const entries = atoms

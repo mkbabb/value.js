@@ -1,23 +1,13 @@
 /**
- * N.W3.H-tests — wire-level conformance for the fork / remix / forks /
- * provenance / revert routes + the W3.F stored-atomDiff SERVE.
+ * N.W3.H-tests — wire-level conformance for the fork / forks / provenance /
+ * revert routes.
  *
  * D5 §3.2 + E4 §5 flagged the forks router as service-level-only: the route
- * handlers' auth gates, optional-body parsing, the `{...formatted, remixedFrom,
- * atomDiff}` remix composite, the list/provenance wire shapes, and the
- * revert→200 path had NO HTTP-layer test. inv-N-8 requires wire coverage for
- * every shipped route.
- *
- * W3.F DECISION = SERVE (recorded in the lane report): the remix records its
- * source→child atom-diff on the child version edge (`PaletteVersion.atomDiff`).
- * D4 correctly observed the `/diff?from&to` endpoint RECOMPUTES (it must — it
- * answers an arbitrary pair on the chain, which a single stored edge-diff
- * cannot serve), so the stored field was "write-only" THERE. The honest serve
- * is on the VERSION READ where the edge-diff is recorded: `GET
- * /:slug/versions/:hash` already spreads the full version doc (incl. atomDiff)
- * onto the wire. This test makes that serve LOAD-BEARING — a remix's stored
- * atom-diff round-trips through the version read — so the field is no longer
- * dead storage. The demo diff view consumes it at W6.D (the K-W3DIFF carry).
+ * handlers' auth gates, optional-body parsing, the list/provenance wire shapes,
+ * and the revert→200 path had NO HTTP-layer test. inv-N-8 requires wire
+ * coverage for every shipped route. (The J.W2 `/remix` route + its stored
+ * atom-diff were excised at T.W1 — TA-4 — so the remix/atomDiff wire cases are
+ * gone; the fork wire coverage stands.)
  */
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
@@ -27,7 +17,6 @@ import { buildServices, cleanCollections, connect } from "../helpers.js";
 import { palettes } from "../../src/routes/palettes/index.js";
 import { toResponseEnvelope } from "../../src/errors/index.js";
 import { createPalette } from "../../src/services/palette/crud.js";
-import type { AtomDiffOp } from "../../src/lib/crud/atomdiff.js";
 import type { PaletteColor } from "../../src/models.js";
 import type { AppEnv } from "../../src/types.js";
 import type { Services } from "../../src/middleware/inject-services.js";
@@ -58,9 +47,9 @@ const jsonAlice = { ...alice, "Content-Type": "application/json" };
 
 /**
  * A body-bearing request through Hono's `app.request` must carry an explicit
- * `Content-Length` — the fork/remix routes use that header to distinguish an
- * empty `POST` (server-generated slug) from a malformed JSON body, and
- * `app.request` (unlike a real HTTP client) does not auto-populate it.
+ * `Content-Length` — the fork route uses that header to distinguish an empty
+ * `POST` (server-generated slug) from a malformed JSON body, and `app.request`
+ * (unlike a real HTTP client) does not auto-populate it.
  */
 function withBody(body: string): { headers: Record<string, string>; body: string } {
     return {
@@ -72,7 +61,7 @@ function withBody(body: string): { headers: Record<string, string>; body: string
     };
 }
 
-describe("routes.palettes forks/remix/provenance + revert (N.W3.H-tests)", () => {
+describe("routes.palettes forks/provenance + revert (N.W3.H-tests)", () => {
     let client: MongoClient;
     let db: Db;
     let services: Services;
@@ -106,11 +95,6 @@ describe("routes.palettes forks/remix/provenance + revert (N.W3.H-tests)", () =>
         expect(body.type).toBe("urn:contract:session-invalid");
     });
 
-    it("POST /:slug/remix → 401 when unauthenticated", async () => {
-        const res = await app.request("/palettes/source/remix", { method: "POST" });
-        expect(res.status).toBe(401);
-    });
-
     // ---- FORK (optional-body path) ----
 
     it("POST /:slug/fork (no body) → 201 + FormattedPalette; forkOf tracks source", async () => {
@@ -122,62 +106,6 @@ describe("routes.palettes forks/remix/provenance + revert (N.W3.H-tests)", () =>
         const body = (await res.json()) as { slug: string; forkOf: string };
         expect(body.forkOf).toBe("source");
         expect(body.slug).toMatch(/^source-remix-/);
-    });
-
-    // ---- REMIX (composite wire shape + recorded atom-diff) ----
-
-    it("POST /:slug/remix with colors → 201 + {remixedFrom, atomDiff} composite", async () => {
-        const res = await app.request("/palettes/source/remix", {
-            method: "POST",
-            ...withBody(
-                JSON.stringify({
-                    slug: "remixed",
-                    colors: [{ css: "#0000ff", position: 0 }],
-                }),
-            ),
-        });
-        expect(res.status).toBe(201);
-        const body = (await res.json()) as {
-            slug: string;
-            remixedFrom: { slug: string; hash: string | null };
-            atomDiff: AtomDiffOp[];
-        };
-        expect(body.slug).toBe("remixed");
-        expect(body.remixedFrom.slug).toBe("source");
-        // The 2-color source → 1-color remix has a non-empty recorded atom-diff.
-        expect(Array.isArray(body.atomDiff)).toBe(true);
-        expect(body.atomDiff.length).toBeGreaterThan(0);
-    });
-
-    // ---- W3.F: the stored atom-diff is SERVED on the version read ----
-
-    it("a remix's recorded atom-diff round-trips through GET /:slug/versions/:hash (W3.F serve)", async () => {
-        const remix = await app.request("/palettes/source/remix", {
-            method: "POST",
-            ...withBody(
-                JSON.stringify({
-                    slug: "remixed2",
-                    colors: [{ css: "#0000ff", position: 0 }],
-                }),
-            ),
-        });
-        expect(remix.status).toBe(201);
-        const remixBody = (await remix.json()) as {
-            currentHash: string;
-            atomDiff: AtomDiffOp[];
-        };
-
-        // Read the child version by its content-hash — the stored atomDiff
-        // recorded at remix time is served here (no longer write-only storage).
-        const version = await app.request(
-            `/palettes/remixed2/versions/${remixBody.currentHash}`,
-            { method: "GET" },
-        );
-        expect(version.status).toBe(200);
-        const versionBody = (await version.json()) as { atomDiff: AtomDiffOp[] };
-        // The persisted edge-diff equals the one the remix response returned.
-        expect(versionBody.atomDiff).toEqual(remixBody.atomDiff);
-        expect(versionBody.atomDiff.length).toBeGreaterThan(0);
     });
 
     // ---- LIST FORKS + PROVENANCE ----

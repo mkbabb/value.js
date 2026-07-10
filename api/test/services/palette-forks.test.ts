@@ -52,6 +52,25 @@ describe("service.palette.forks", () => {
         expect(source?.forkCount).toBe(1);
     });
 
+    it("forkPalette copies the source colors and records the provenance edge", async () => {
+        // Re-homed from the excised palette-remix.test.ts (TA-4): a fork copies
+        // the source's colors verbatim and its child version carries the
+        // `forkedFromHash` provenance edge (no atom-diff column — dropped at T.W1).
+        const source = await services.repositories.palettes.findBySlug("root");
+        const { palette } = await forkPalette(services, {
+            sourceSlug: "root",
+            slug: "root-copy",
+            userSlug: "bob",
+        });
+        expect(palette.colors).toEqual(source?.colors);
+        expect(palette.forkOf).toBe("root");
+
+        const childVersion = await services.repositories.paletteVersions.findByHash(
+            palette.currentHash as string,
+        );
+        expect(childVersion?.forkedFromHash).toBe(source?.currentHash ?? null);
+    });
+
     it("forkPalette on missing source throws NotFoundError", async () => {
         await expect(
             forkPalette(services, {

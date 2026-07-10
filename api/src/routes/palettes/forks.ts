@@ -8,19 +8,10 @@
 
 import { Hono } from "hono";
 import type { AppEnv } from "../../types.js";
-import {
-    forkPaletteBody,
-    paginationQuery,
-    remixPaletteBody,
-} from "../../validation/palette.js";
+import { forkPaletteBody, paginationQuery } from "../../validation/palette.js";
 import { AuthenticationError, ValidationError } from "../../errors/index.js";
 import { formatPalette } from "../../format/palette.js";
-import {
-    forkPalette,
-    getProvenance,
-    listForks,
-    remixPalette,
-} from "../../services/palette/forks.js";
+import { forkPalette, getProvenance, listForks } from "../../services/palette/forks.js";
 
 export const forksRouter = new Hono<AppEnv>();
 
@@ -57,43 +48,6 @@ forksRouter.post("/:slug/fork", async (c) => {
         userSlug,
     });
     return c.json(formatPalette(palette), 201);
-});
-
-// POST /:slug/remix — fork + a recorded atom-diff (J.W2). Body (all optional):
-// `{ name?, slug?, colors? }`. `colors` ABSENT → a plain fork (empty diff);
-// PRESENT → the server diffs against `:slug`'s colors and records the atom-diff
-// on the child version edge. Returns the formatted child + `remixedFrom` +
-// `atomDiff`. (The same optional-body parsing as `/fork`.)
-forksRouter.post("/:slug/remix", async (c) => {
-    const sourceSlug = c.req.param("slug");
-    const sessionToken = c.var.sessionToken;
-    const userSlug = c.var.userSlug;
-    if (!sessionToken || !userSlug) {
-        throw new AuthenticationError();
-    }
-
-    let raw: unknown = {};
-    const contentLength = c.req.header("Content-Length");
-    const hasBody = contentLength !== undefined && contentLength !== "0";
-    if (hasBody) {
-        raw = await c.req.json().catch(() => {
-            throw new ValidationError("Invalid JSON body");
-        });
-    }
-    const parsed = remixPaletteBody.safeParse(raw);
-    if (!parsed.success) {
-        throw new ValidationError("Invalid request body", parsed.error.format());
-    }
-
-    const { palette, atomDiff, remixedFrom } = await remixPalette(c.var.services, {
-        sourceSlug,
-        name: parsed.data.name,
-        slug: parsed.data.slug,
-        colors: parsed.data.colors,
-        userSlug,
-    });
-    const formatted = formatPalette(palette);
-    return c.json({ ...formatted, remixedFrom, atomDiff }, 201);
 });
 
 forksRouter.get("/:slug/forks", async (c) => {
