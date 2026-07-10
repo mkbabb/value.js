@@ -49,13 +49,21 @@ export function useDockArrival(
             requestAnimationFrame(() => {
                 if (dockRevealed.value) return;
                 const dock = dockNav.value?.querySelector(".glass-dock");
-                // FINITE animations only — the dock subtree carries standing
-                // infinite loops (the gl-fade shimmer pair, probed live);
-                // waiting on those would veil the dock forever. The mount
-                // morph is a finite transition/animation.
+                // TIME-DRIVEN FINITE animations only — the dock subtree
+                // carries two classes of standing animation that never
+                // "finish" on the wall clock and must never gate the reveal:
+                // infinite-iteration loops, AND ScrollTimeline-driven
+                // progress states (the gl-fade scroll-rail pair: iterations
+                // 1 but endTime "53.3%" — their `finished` promise never
+                // resolves; awaiting them veiled the dock FOREVER on
+                // WebKit-mobile, where no mount-morph transitionend arrives
+                // first — b2 never opened, the blob never mounted; the
+                // smoke-safari project caught it at the W2 close). The mount
+                // morph is a finite document-timeline transition/animation.
                 const running = (
                     dock?.getAnimations({ subtree: true }) ?? []
                 ).filter((a) => {
+                    if (!(a.timeline instanceof DocumentTimeline)) return false;
                     const t = a.effect?.getTiming();
                     return t ? t.iterations !== Infinity : true;
                 });
