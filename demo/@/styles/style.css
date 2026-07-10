@@ -126,6 +126,15 @@
      * `border-[var(--card-edge)]` reach (DESIGN.md §Idioms NOT used). */
     --color-card-edge: var(--card-edge);
 
+    /* ── The material-ladder bridges (T.W3-1 — D1; owned in :root below) ──
+     * `bg-well` / `bg-stage` / `text-on-stage-chrome` etc. resolve the rung-2
+     * WELL and rung-4 STAGE tokens as first-class utilities so no consumer
+     * ever re-mints a well alpha or a raw black/white stage by hand again
+     * (the T-CM-4 parallel-mint pathology, closed at the token). */
+    --color-well: var(--well-bg);
+    --color-stage: var(--stage);
+    --color-on-stage-chrome: var(--on-stage-chrome);
+
     /* ── The φ-ladder spacing bridges (S.W4-8) ──
      * Surface the :root φ rungs (owned below) as Tailwind spacing keys so
      * consumers write `py-phi-3` / `pb-phi-4`, never `py-[1.618rem]`
@@ -278,6 +287,28 @@
             color-mix(in oklab, var(--foreground) 14%, var(--background)) 0% 25%,
             var(--background) 0% 50%
         ) left top / 16px 16px;
+
+    /* ── THE MATERIAL LADDER, rungs 2 + 4 (T.W3-1 — SYNTHESIS §2 D1) ──
+     * Rung-2 WELL: the recessed in-plate fixture — an OPAQUE tone-step of the
+     * plate, NO backdrop-blur (nothing live sits behind an in-plate fixture;
+     * blurring the aurora THROUGH the host is the mud generator, t-card-material
+     * RC-3). The tone-step is the D1 bracket default: 8% `--foreground` into
+     * `--card`, oklab, judged inside [6%, 10%] at the O-7 census. INTERIM demo
+     * mint — the producer `.glass-well`/`--glass-bg-well` rung is packet P3;
+     * this token swaps onto it at the adopt event (BOOKED, T.W3 §BOOKS).
+     * Consumers: `.dashed-well`, PaletteCard (+skeleton), the gradient
+     * perceived-space plate + stop chip, VersionHistoryDrawer rows, the mix
+     * result plate — the six parallel hand-mints D1 retires. */
+    --well-bg: color-mix(in oklab, var(--card) 92%, var(--foreground) 8%);
+
+    /* Rung-4 STAGE: the named near-black pair for photographic/media grounds
+     * (extract image stage, caption veils, on-stage chrome). Scheme-INVARIANT
+     * by design — a photograph's ground does not flip with the theme — and
+     * warm stone, per Q18's ratified neutral family (raw #fff/#000 survive
+     * only inside color-math ramps). Replaces the raw `bg-black`/`bg-white/NN`
+     * literals (t-card-color-census §1.E; CC-7). */
+    --stage: rgb(28 25 23);
+    --on-stage-chrome: rgb(233 230 226);
 
     --shadow-color: var(--foreground);
 

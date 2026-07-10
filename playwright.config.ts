@@ -72,6 +72,17 @@ const SWIFTSHADER_LAUNCH = {
     ],
 };
 
+// T.W3 — the lane-local port seam. Tranche T's standing execution mode (E-6)
+// runs lanes in SIBLING WORKTREES, each closing with its own playwright run;
+// `reuseExistingServer` on a fixed :8090 silently attaches a lane's run to a
+// SIBLING lane's vite (a wrong-tree census — observed live at W3 open). The
+// defaults are byte-identical for CI and single-checkout runs; a parallel lane
+// exports VJS_E2E_PORT/VJS_E2E_PERF_PORT to get a tree-true server pair.
+const E2E_PORT = Number(process.env.VJS_E2E_PORT ?? 8090);
+const E2E_PERF_PORT = Number(process.env.VJS_E2E_PERF_PORT ?? 8091);
+const E2E_ORIGIN = `http://localhost:${E2E_PORT}`;
+const E2E_PERF_ORIGIN = `http://localhost:${E2E_PERF_PORT}`;
+
 export default defineConfig({
     testDir: "./e2e",
     // R.W2 — DETERMINISM: one worker for the whole suite (was: host default of
@@ -97,8 +108,8 @@ export default defineConfig({
     expect: { timeout: 8000 },
     webServer: [
         {
-            command: "npx vite --port 8090",
-            port: 8090,
+            command: `npx vite --port ${E2E_PORT}`,
+            port: E2E_PORT,
             reuseExistingServer: !process.env.CI,
             // inv-K-5 (K.W2b): point the demo's palette-API base at the SAME-ORIGIN
             // dev server so no production `api.color.babb.dev` fetch fires under e2e
@@ -107,7 +118,7 @@ export default defineConfig({
             // optional reads (`/colors/approved`) fall back to the SPA 200; other
             // reads 404 same-origin (already absorbed by setupEnvNoise). The demo's
             // production default (`api.color.babb.dev`) is unchanged for real builds.
-            env: { VITE_API_URL: "http://localhost:8090" },
+            env: { VITE_API_URL: E2E_ORIGIN },
         },
         {
             // S.W3 ORACLE — the BUILT-bundle server for `smoke-perf`. The §6.2
@@ -119,9 +130,11 @@ export default defineConfig({
             // smoke-perf project targets this origin; the other projects ignore
             // it (they pay only the ~fast static-server startup).
             command: "node e2e/smoke/perf/serve-built.mjs",
-            port: 8091,
+            port: E2E_PERF_PORT,
             reuseExistingServer: !process.env.CI,
             timeout: 180_000, // allows a cold gh-pages build on a fresh tree
+            // The seam threads through: serve-built.mjs reads PERF_PORT.
+            env: { PERF_PORT: String(E2E_PERF_PORT) },
         },
     ],
     projects: [
@@ -139,7 +152,7 @@ export default defineConfig({
                 "**/reactivity-instant.spec.ts",
             ],
             use: {
-                baseURL: "http://localhost:8090",
+                baseURL: E2E_ORIGIN,
                 browserName: "chromium",
                 channel: WEBGL_CHANNEL,
                 headless: true,
@@ -151,7 +164,7 @@ export default defineConfig({
             name: "smoke-admin",
             testDir: "./e2e/smoke/admin",
             use: {
-                baseURL: "http://localhost:8090",
+                baseURL: E2E_ORIGIN,
                 browserName: "chromium",
                 channel: WEBGL_CHANNEL,
                 headless: true,
@@ -164,7 +177,7 @@ export default defineConfig({
             testDir: "./e2e/smoke/mobile",
             use: {
                 ...devices["Pixel 7"],
-                baseURL: "http://localhost:8090",
+                baseURL: E2E_ORIGIN,
                 channel: WEBGL_CHANNEL,
                 headless: true,
                 launchOptions: SWIFTSHADER_LAUNCH,
@@ -183,7 +196,7 @@ export default defineConfig({
             testMatch: ["**/reactivity-instant.spec.ts"],
             workers: 1,
             use: {
-                baseURL: "http://localhost:8090",
+                baseURL: E2E_ORIGIN,
                 browserName: "chromium",
                 channel: WEBGL_CHANNEL,
                 headless: true,
@@ -215,7 +228,7 @@ export default defineConfig({
             use: {
                 // The BUILT bundle (:8091), not the dev server — the §6.2 gates
                 // are built-bundle numbers (see the webServer note above).
-                baseURL: "http://localhost:8091",
+                baseURL: E2E_PERF_ORIGIN,
                 browserName: "chromium",
                 channel: WEBGL_CHANNEL,
                 headless: true,
@@ -240,7 +253,7 @@ export default defineConfig({
             testDir: "./e2e/smoke/safari",
             use: {
                 ...devices["iPhone 14"],
-                baseURL: "http://localhost:8090",
+                baseURL: E2E_ORIGIN,
                 headless: true,
             },
         },

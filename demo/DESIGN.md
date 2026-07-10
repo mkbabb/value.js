@@ -77,17 +77,46 @@ Lane D — int/frac/unit span split + declared `tabular-nums` in
 2-line block lock. Verified by the close probe: End/Home/End keyboard sweeps
 leave the card rect byte-identical.
 
-## § Surfaces
+## § Surfaces — THE MATERIAL LADDER (NORMATIVE — T.W3-1 / SYNTHESIS §2 D1)
 
-Glass-ui ships a 5-rung tier ladder (glass-ui DESIGN.md §Glass Surfaces): wash → quiet → resting → floating → overlay. The demo uses three:
+Doctrine: **glass earns its blur by floating over live content; a surface that
+sits IN a plate is a tone of the plate, not a second pane of glass.** Four
+rungs; every rendered surface is a MEMBER of exactly one. The O-7 census
+(`e2e/smoke/oracles/o7-card-census.spec.ts`) asserts membership — by identity,
+never by a fixed alpha — both schemes + the 390 frame. A surface that fits NO
+rung routes to ratification; off-ladder material mints are prohibited
+(T.W3 §No-workaround; the T-CM-4 parallel-mint pathology).
 
-- `<Card tier="resting">` — the picker pane shell (`ColorPicker.vue:~30`). The canonical translucent+frosted plate.
-- `<Card tier="wash" :shadow="false" :grain="false">` — every browsing/listing pane (BrowsePane, PalettesPane, MixPane, AdminPane, etc.). Shadow + grain are off because these panes scroll and the cartoon rung would compete with their scroll fades.
-- `.glass-floating` — direct utility on the swatch edit overlay (CurrentPaletteEditor.vue). For popover-tier chrome that sits over a Card.
+| Rung | Material | Deployments |
+|---|---|---|
+| **1 · PLATE** | ONE card species — the picker's exact register: `<Card tier="resting">` with its defaults (cartoon stamp via `--shadow-card`, grain ON) | the picker card AND all 9 pane cards (About, Palettes, Browse, Extract, Mix, Generate, Gradient, Admin, ConfigSlider) |
+| **2 · WELL** | an **opaque tone-step of the plate, NO backdrop-blur** (nothing live sits behind an in-plate fixture; blurring the aurora through the host is the mud generator) — the ONE `--well-bg` token: `color-mix(in oklab, var(--card) 92%, var(--foreground) 8%)` (the D1 bracket [6%, 10%], default 8%), consumed as `bg-well`/`var(--well-bg)`; dashed edge / `--shadow-cartoon-sm` where the affordance calls for it | `.dashed-well` · PaletteCard (+skeleton — one shared shell) · the gradient perceived-space plate + stop chip · VersionHistoryDrawer rows · the mix result plate · markdown interiors (`bg-muted`, the pattern's origin cite) |
+| **3 · CHROME** | true floating glass — the producer rungs as shipped (`glass-dock`, capsules, `glass-floating`/`overlay`) | dock, login capsule, Mix CTA, popovers/dialogs/drawers, the swatch-edit overlay, the eyedropper overlay (Q4-defaulted: a TRUE overlay — floating is correct *there*) |
+| **4 · STAGE** | the named near-black pair `--stage`/`--on-stage-chrome` (warm stone, **scheme-invariant** — a photograph's ground never flips) | the extract camera/image stage, its caption veil, on-stage chrome chips |
 
-`.input-bar` is the one non-tier glass surface in use (PaletteRenameInput.vue). It is glass-ui's input-chrome recipe (glass-ui DESIGN.md §Glass Surfaces → Convenience shorthands), kept verbatim.
+The PaneHeader veil is rung-1's material at a scroll-earned intensity
+(`--glass-bg-resting` + `--glass-blur-resting` + rest floor — see
+`PaneHeader.vue`; C2's reconciliation, the CC-3 bespoke recipe retired).
+`.input-bar` is producer input chrome; its in-plate seat is the W3-3 register
+law (fields on paper wear paper).
 
-Decision rule: a pane shell that scrolls → `tier="wash" :shadow="false" :grain="false"`; a non-scrolling content card → `tier="resting"`; a floating overlay over either → `.glass-floating` direct utility. The cartoon-shadow rung (see § Shadows) is the shared envelope, so all three read as the same material at different elevations.
+**The depth law (RC-2)**: interior fixtures are rung-2 tone-steps, NEVER
+heavier glass than their host; heavier-than-host glass is reserved for
+surfaces that float. The physics that makes this the T-24 neutrals cure: over
+a full-chroma aurora an alpha spread IS a hue spread — with rungs 1–2 in
+place every in-view surface is ≥ ~0.7 effective alpha of ONE neutral family
+and the hue fork dies by construction.
+
+**Interim mints, booked swaps (T.W3 §BOOKS)**: `--well-bg` is demo-owned
+pending the producer `.glass-well`/`--glass-bg-well` rung (packet P3, sized by
+the D1 bracket); the header veil's rest-floor + feather knobs are P3 rows.
+
+**Retired by name (E-3 — never restore)**: the `tier="wash" :shadow="false"
+:grain="false"` pane fleet and its "scrolling pane → wash" decision rule ·
+the S-20 `bg-card/75 + backdrop-blur` card species (the one-species GOAL
+survives, re-grounded at the picker's rung — R8) · the six parallel well
+mints · raw `bg-black`/`bg-white`/`text-white` utilities (rung 4 names them) ·
+the bespoke 60%-`--card`/blur(12) header veil recipe (CC-3).
 
 ## § Depth (NORMATIVE — R.W3 Lane A / A5; the laws R.W4 applies fleet-wide)
 
@@ -99,9 +128,9 @@ hairline, and rounding — never ad-hoc per component.
 | Rank | Role | Material | Shadow | Hairline |
 |---|---|---|---|---|
 | **Z0** | The page: aurora + graticule substrate | atmosphere (no surface) | none | none |
-| **Z1** | Plates: pane shells, the picker card | glass `resting` / `wash` | the cartoon rung (`--shadow-card`), plates only | the glass tier's built-in `--glass-border-accent` |
+| **Z1** | Plates: pane shells, the picker card | glass `resting` — rung-1 PLATE (T.W3-1; the wash arm retired) | the cartoon rung (`--shadow-card`), plates only | the glass tier's built-in `--glass-border-accent` |
 | **Z1v** | Veils: config/overlay panes that read *through* | glass veil tier | none | glass border |
-| **Z2** | In-plate cards: palette cards, swatch tiles, chips | flat/quiet on the plate | `--shadow-cartoon-sm/md` (chip scale) or none | `--card-edge` |
+| **Z2** | In-plate cards: palette cards, swatch tiles, chips | the rung-2 WELL (`--well-bg` opaque tone-step — § Surfaces) | `--shadow-cartoon-sm/md` (chip scale) or none | `--card-edge` |
 | **Z3** | Protagonists: ≤ 1 per pane (the hero blob, a featured card) | material hero | the full cartoon rung | per material |
 | **Z4** | Floating chrome: popovers, dialogs, dock, toolbars | glass `floating`/`overlay` | the glass tier's own shadow | glass border |
 
@@ -231,6 +260,30 @@ All z-index reaches route through glass-ui's `--z-*` tokens (DESIGN.md §Z-Index
 Zero numeric `z-[NN]` literals in custom components post-D.W4 Lane A (the two `z-[1]` survivors live in `demo/@/components/ui/` — shadcn-vue generated, do not hand-edit). Lane A surfaces these as `z-dock`, `z-popover`, etc. Tailwind utilities; the rendered output is byte-identical.
 
 ## § Color
+
+**THE C3 LAW (NORMATIVE — T.W3-1; T-24 reconciled per t-contradictions C3;
+law + ledger + neutral family RATIFIED via Q18, 2026-07-09): color appears
+only as color DATA; chrome, material, and type are NEUTRAL.** The neutral
+family is the house WARM cream/stone form — the glass-ui warm ladder plus the
+stone-ink pair `rgb(28 25 23)` / `rgb(233 230 226)` (the rung-4 STAGE pair);
+raw `#fff`/`#000` live ONLY inside color-math ramps. T-24's "consistent
+gray/black/white" is NOT "no color" — six T rows deliberately put color ON
+surfaces; the law resolves the contradiction with this COMPLETE
+sanctioned-exception ledger. A surface not on the ledger paints neutral; a
+new exception ROUTES TO RATIFICATION, never self-adds:
+
+1. **Color-data ramps** — spectrum plates, gradient ramps/bars, slider tracks, hue wheels, harmony previews (the data IS color).
+2. **WatercolorDots** — the live-color voice; any ring rides the dot's own silhouette or does not exist (R9/Q12 register law).
+3. **Palette strips + chips** — saved/browse palette data, preview chips (T-17's lane).
+4. **The gamut netting** — hue-carrying measurement ink (T-6 recalibrates intensity, never neutralizes).
+5. **The aurora field** — the derived atmosphere (T-25/T-26's living ground).
+6. **The blob** — the picked color made flesh (T-8).
+7. **The Palettes rainbow** — Q5's owner-verbatim GUARDED LETTERFORM RAMP at exactly TWO sites: the "Palettes" view-dropdown entry AND the Palettes title (lands at W6-4; the accessible descendant of the excised `pastel-rainbow-text`).
+8. **Admin-gold** — the `--color-gold` family (admin/featured identity; see the accent-token block below).
+9. **The `--accent-view` navigation-ring family** — the expanded-trigger ring + the W4-4 letter-rail enclosure (the seal rim is STRUCK per R9/Q12). Q10 scope sub-clause: Tools/Login chrome KEEPS the live accent — the owner's "the rest white/black" is menu-scoped.
+
+Everything else — card material, headers, dropdown chrome, type ink, dock
+chrome — is neutral, on the ladder (§ Surfaces).
 
 OKLab-driven throughout — the picker, the gradient interpolation, the harmony generator. Glass-ui's color tokens (`--background`, `--foreground`, `--card`, `--muted-foreground`, `--border`, etc.) are the surface contract.
 

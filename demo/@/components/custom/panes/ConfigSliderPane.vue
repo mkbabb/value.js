@@ -97,9 +97,7 @@ function resetDefaults() {
 <template>
     <div class="relative w-full mx-auto h-full min-w-0">
         <Card
-            tier="wash"
-            :shadow="false"
-            :grain="false"
+            tier="resting"
             class="w-full min-w-0 h-full relative flex flex-col overflow-hidden"
         >
             <!-- The scroll region owns the fade mask + overflow; the action bar

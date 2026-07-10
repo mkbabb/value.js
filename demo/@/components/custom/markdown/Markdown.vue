@@ -355,9 +355,13 @@ onUpdated(() => {
         @apply text-sm;
     }
 
-    /* Tables of contents */
+    /* Tables of contents — T.W3-4 (the F6 ONE-grammar law): the sticky
+     * `bg-background z-popover` band is DEAD — it out-stacked `--z-header`
+     * and painted an opaque un-feathered band inside the pane (O-11 gate 6;
+     * nothing in-card sticks above the pane header). The TOC is a proper
+     * in-flow block on the rung-2 well tone (§ Surfaces ladder). */
     .toc {
-        @apply sticky top-0 bg-background z-popover;
+        @apply bg-well rounded-2xl;
         @apply p-4 mb-4;
         @apply font-bold text-foreground;
         @apply first:mt-0 scroll-m-20;

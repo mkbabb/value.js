@@ -62,14 +62,13 @@
      * `--card-edge` mint (in-house, scheme-stable), never a `--border` fork. */
     border: 1.5px dashed var(--card-edge);
     border-radius: var(--radius-card);
-    /* S.W5-2 (S-20): the well joins the ONE card species — the same
-     * bg-card/75 glass base + chip-scale cartoon rung as PaletteCard and
-     * PaletteCardSkeleton. The dashed edge ALONE carries the in-progress
-     * semantics ("the same card, unpinned"); the recessed-tray fork
-     * (muted wash + inset shadow) is dead. */
-    background: color-mix(in srgb, var(--card) 75%, transparent);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    /* T.W3-1 (D1 rung-2 WELL; supersedes the S-20 glass recipe — R8): an
+     * in-plate fixture is an opaque TONE-STEP of its host plate, never a
+     * second pane of glass — the ONE `--well-bg` token, NO backdrop-blur
+     * (blurring the aurora through the host is the mud generator, RC-3).
+     * The dashed edge ALONE carries the in-progress semantics; the chip
+     * cartoon rung stays. */
+    background: var(--well-bg);
     box-shadow: var(--shadow-cartoon-sm);
 }
 
