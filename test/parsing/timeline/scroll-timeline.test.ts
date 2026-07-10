@@ -11,7 +11,7 @@ import {
     serializeTimelineScope,
     serializeAnimationTrigger,
     serializeTimelineOptions,
-} from "@src/parsing/scroll-timeline";
+} from "@src/parsing/timeline/scroll-timeline";
 import type { ParseDiagnostic } from "@src/parsing/utils";
 import { parseCSSStylesheet } from "@src/parsing/stylesheet";
 

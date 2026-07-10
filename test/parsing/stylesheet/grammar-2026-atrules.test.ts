@@ -1,16 +1,16 @@
 import { describe, expect, it } from "vitest";
 import { parseCSSStylesheet } from "@src/parsing/stylesheet";
 import type { StylesheetItem } from "@src/parsing/stylesheet";
-import { extractKeyframes } from "@src/parsing/extract";
+import { extractKeyframes } from "@src/parsing/stylesheet/extract";
 import {
     serializeStylesheet,
     serializeStylesheetItem,
-} from "@src/parsing/serialize";
+} from "@src/parsing/stylesheet/serialize";
 import {
     extractNamedTimelines,
     parseAnimationTimelineList,
     serializeAnimationTimeline,
-} from "@src/parsing/scroll-timeline";
+} from "@src/parsing/timeline/scroll-timeline";
 
 // O.W4 GRAMMAR-G1 — the AT-RULE + NESTING grammar gate. Each clause runs the
 // REAL parseCSSStylesheet / extractKeyframes / serialize* over a REAL CSS

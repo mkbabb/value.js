@@ -4,7 +4,7 @@ import {
     extractKeyframes,
     extractProperties,
     extractStyleRules,
-} from "@src/parsing/extract";
+} from "@src/parsing/stylesheet/extract";
 import { parseCSSStylesheet } from "@src/parsing/stylesheet";
 
 // ─────────────────────────────────────────────────────────────────────────────

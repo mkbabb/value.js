@@ -1,4 +1,4 @@
-import { FunctionValue, ValueUnit } from "../units";
+import { FunctionValue, ValueUnit } from "../../units";
 import {
     AdobeRGBColor,
     Color,
@@ -14,12 +14,12 @@ import {
     RGBColor,
     Rec2020Color,
     XYZColor,
-} from "../units/color";
-import type { ColorSpace } from "../units/color/constants";
-import { color2 } from "../units/color/dispatch";
-import * as utils from "./utils";
-import { CSSValueUnit } from "./units";
-import { createCalcParser, createMathFunctionParsers, evaluateMathFunction } from "./math";
+} from "../../units/color";
+import type { ColorSpace } from "../../units/color/constants";
+import { color2 } from "../../units/color/dispatch";
+import * as utils from "../utils";
+import { CSSValueUnit } from "../units";
+import { createCalcParser, createMathFunctionParsers, evaluateMathFunction } from "../math";
 import { createColorValueUnit, resolveToPlainColor } from "./color-unit";
 
 // ─── Relative color syntax resolution (CSS Color L5) ───────────────────────

@@ -1,4 +1,4 @@
-import type { ValueArray } from "../units";
+import type { ValueArray } from "../../units";
 
 // ─── Public AST types ─────────────────────────────────────────────────────
 //

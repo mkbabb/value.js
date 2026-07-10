@@ -28,5 +28,5 @@ export type { LinearStop, TimingFunction } from "../easing";
 export {
     parseLinearStops, parseSteps, parseSpring, lowerSpringEasing,
     resolveEasingFunction,
-} from "../parsing/easing";
-export type { JumpTerm, StepsArgs } from "../parsing/easing";
+} from "../parsing/timeline/easing";
+export type { JumpTerm, StepsArgs } from "../parsing/timeline/easing";

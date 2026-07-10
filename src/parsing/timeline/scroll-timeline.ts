@@ -6,10 +6,10 @@ import type {
     Stylesheet,
     StylesheetItem,
     ViewTimelineDescriptor,
-} from "./stylesheet-types";
-import * as utils from "./utils";
-import { splitTopLevelCommas } from "./utils";
-import type { OnParseError } from "./utils";
+} from "../stylesheet/stylesheet-types";
+import * as utils from "../utils";
+import { splitTopLevelCommas } from "../utils";
+import type { OnParseError } from "../utils";
 
 /**
  * CSS Scroll-driven-animation VALUE grammar (N.W11′ — the `CSSTimelineOptions`

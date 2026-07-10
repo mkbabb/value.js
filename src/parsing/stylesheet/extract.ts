@@ -1,5 +1,5 @@
-import { parseAnimationShorthand } from "./animation-shorthand";
-import { parseCSSTime } from "./index";
+import { parseAnimationShorthand } from "../animation-shorthand";
+import { parseCSSTime } from "../index";
 import type {
     CustomFunctionDescriptor,
     Declaration,

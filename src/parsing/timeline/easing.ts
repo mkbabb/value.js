@@ -1,8 +1,8 @@
 import { Parser, all, any, regex, string, whitespace } from "@mkbabb/parse-that";
-import type { LinearStop, TimingFunction } from "../easing";
-import { cssLinear, jumpTerms, resolveEasing } from "../easing";
-import { FunctionValue, ValueUnit } from "../units";
-import * as utils from "./utils";
+import type { LinearStop, TimingFunction } from "../../easing";
+import { cssLinear, jumpTerms, resolveEasing } from "../../easing";
+import { FunctionValue, ValueUnit } from "../../units";
+import * as utils from "../utils";
 
 /**
  * CSS Easing parsers (CSS Easing Functions Level 1 + Level 2).

@@ -3,7 +3,7 @@ import {
     parseLinearStops,
     parseSteps,
     resolveEasingFunction,
-} from "@src/parsing/easing";
+} from "@src/parsing/timeline/easing";
 import { cssLinear, steppedEase } from "@src/easing";
 
 describe("parseLinearStops (E1 — CSS Easing L2 linear())", () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { extractFunctions } from "@src/parsing/extract";
+import { extractFunctions } from "@src/parsing/stylesheet/extract";
 import { extractFunctions as extractFunctionsRoot } from "@src/index";
 import { parseCSSStylesheet } from "@src/parsing/stylesheet";
 

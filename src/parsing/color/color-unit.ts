@@ -1,6 +1,6 @@
-import { ValueUnit } from "../units";
-import { Color, ch, channelOf, setChannel } from "../units/color";
-import { normalizeColorUnit } from "../units/color/normalize";
+import { ValueUnit } from "../../units";
+import { Color, ch, channelOf, setChannel } from "../../units/color";
+import { normalizeColorUnit } from "../../units/color/normalize";
 
 // ─── The color-parse boundary currency ─────────────────────────────────────
 //

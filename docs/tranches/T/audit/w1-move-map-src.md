@@ -87,3 +87,37 @@ module): `math` · `easing` · `easing-export-stability` · `utils` ·
 | `test/quantize-chroma-weight.test.ts` | `test/quantize/quantize-chroma-weight.test.ts` |
 
 Config: `vitest.config.ts` `include: ["test/*.ts"]` → `["test/**/*.ts"]`.
+
+---
+
+## Batch 2 — `parsing/{color,timeline,stylesheet}/` (§3; barrel-touching)
+
+The three parse clusters the census flagged (each with cluster-private members)
+become subdirs with an `index.ts` barrel (named re-exports only, never `export *`).
+The flat parse core stays: `index` · `units` · `math` · `utils` ·
+`animation-shorthand` · `syntax`. dts symbol diff: **0 removed / 0 added**
+(byte-identical public surface); vitest 2158/68; lib-tsc 0; build clean.
+
+| Old path | New path |
+|---|---|
+| `src/parsing/color.ts` | `src/parsing/color/color.ts` |
+| `src/parsing/color-unit.ts` | `src/parsing/color/color-unit.ts` |
+| `src/parsing/relative-color.ts` | `src/parsing/color/relative-color.ts` |
+| — | `src/parsing/color/index.ts` (NEW barrel) |
+| `src/parsing/easing.ts` | `src/parsing/timeline/easing.ts` |
+| `src/parsing/scroll-timeline.ts` | `src/parsing/timeline/scroll-timeline.ts` |
+| — | `src/parsing/timeline/index.ts` (NEW barrel) |
+| `src/parsing/stylesheet.ts` | `src/parsing/stylesheet/stylesheet.ts` |
+| `src/parsing/stylesheet-types.ts` | `src/parsing/stylesheet/stylesheet-types.ts` |
+| `src/parsing/extract.ts` | `src/parsing/stylesheet/extract.ts` |
+| `src/parsing/serialize.ts` | `src/parsing/stylesheet/serialize.ts` |
+| — | `src/parsing/stylesheet/index.ts` (NEW barrel) |
+
+Specifier repoints (name-preserving; `parsing/color` + `parsing/stylesheet`
+HEADS resolve to their new barrels UNCHANGED): the moved-renamed leaves
+`parsing/easing`→`parsing/timeline/easing`, `parsing/scroll-timeline`→
+`parsing/timeline/scroll-timeline`, `parsing/extract`→`parsing/stylesheet/extract`,
+`parsing/serialize`→`parsing/stylesheet/serialize` in `src/index.ts` +
+`src/subpaths/{easing,parsing}.ts` + `src/parsing/animation-shorthand.ts` (the
+`./extract` type import) + the mirrored tests. `src/parsing/CLAUDE.md` refreshed
+(§6, bound to the move).

@@ -303,8 +303,8 @@ export type { LinearStop, TimingFunction } from "./easing";
 export {
     parseLinearStops, parseSteps, parseSpring, lowerSpringEasing,
     resolveEasingFunction,
-} from "./parsing/easing";
-export type { JumpTerm, StepsArgs } from "./parsing/easing";
+} from "./parsing/timeline/easing";
+export type { JumpTerm, StepsArgs } from "./parsing/timeline/easing";
 
 // Parsing — parsers and parse functions
 export {
@@ -342,8 +342,8 @@ export {
     extractFunctions,
     extractStyleRules,
     extractAnimationOptions,
-} from "./parsing/extract";
-export type { CSSAnimationOptions } from "./parsing/extract";
+} from "./parsing/stylesheet/extract";
+export type { CSSAnimationOptions } from "./parsing/stylesheet/extract";
 
 // VJ-Q6 (1.2.0) — the `<syntax>` validator on the resolve path (the @function
 // typed-arg coercion consumer; kf inlines call args through this, not a re-
@@ -378,7 +378,7 @@ export {
     serializeTimelineScope,
     serializeAnimationTrigger,
     serializeTimelineOptions,
-} from "./parsing/scroll-timeline";
+} from "./parsing/timeline/scroll-timeline";
 export type {
     CSSTimelineOptions,
     NamedTimelineRegistry,
@@ -392,7 +392,7 @@ export type {
     ScrollerKeyword,
     TimelineAxis,
     TriggerType,
-} from "./parsing/scroll-timeline";
+} from "./parsing/timeline/scroll-timeline";
 
 // Stylesheet serialiser + Prettier wrapper
 export {
@@ -402,7 +402,7 @@ export {
     serializeKeyframeSelector,
     formatCSS,
     stylesheetToString,
-} from "./parsing/serialize";
+} from "./parsing/stylesheet/serialize";
 
 export {
     CSSValueUnit,

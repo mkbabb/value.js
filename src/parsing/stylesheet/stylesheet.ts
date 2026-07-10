@@ -6,11 +6,11 @@ import {
     string,
     whitespace,
 } from "@mkbabb/parse-that";
-import { memoize } from "../utils";
-import { ValueArray, ValueUnit } from "../units";
-import { CSSValues } from "./index";
-import { CSSValueUnit } from "./units";
-import * as utils from "./utils";
+import { memoize } from "../../utils";
+import { ValueArray, ValueUnit } from "../../units";
+import { CSSValues } from "../index";
+import { CSSValueUnit } from "../units";
+import * as utils from "../utils";
 
 // ─── Public AST types ─────────────────────────────────────────────────────
 //

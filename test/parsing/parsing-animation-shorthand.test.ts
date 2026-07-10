@@ -3,7 +3,7 @@ import {
     parseAnimationShorthand,
     reverseAnimationShorthand,
 } from "@src/parsing/animation-shorthand";
-import type { CSSAnimationOptions } from "@src/parsing/extract";
+import type { CSSAnimationOptions } from "@src/parsing/stylesheet/extract";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // parseAnimationShorthand

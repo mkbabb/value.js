@@ -7,7 +7,7 @@ import {
     serializeStylesheet,
     serializeStylesheetItem,
     stylesheetToString,
-} from "@src/parsing/serialize";
+} from "@src/parsing/stylesheet/serialize";
 import { ValueArray, ValueUnit } from "@src/units";
 
 // ─────────────────────────────────────────────────────────────────────────────
