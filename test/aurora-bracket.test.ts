@@ -105,6 +105,49 @@ describe("O-6 — the T-26 bracket resolver (Q2-NOW)", () => {
         expect(mid.vividness).toBe(1);
     });
 
+    it("T-32 — the zones knob: count sits AT the producer ceiling; the scattered prior spreads the six across the frame", () => {
+        // The owner rider (MANDATE §0.5): "a few more zones". The count half
+        // is producer-gated — MAX_NUCLEI = 6 is a shader #define; a raise
+        // beyond it CLAMPS (probed: count 8/9 → 6 nuclei). The demo landing
+        // is the legibility half: the scattered placement prior.
+        expect(DEFAULT_AURORA_ATOMS.zones).toEqual({
+            count: 6,
+            arrangement: "scattered",
+        });
+        const landed = resolveCalibratedAtmosphere({
+            ...DEFAULT_AURORA_ATOMS,
+            seed: MID_C_SEED,
+        });
+        expect(landed.nuclei.length).toBe(6); // the ceiling, fully used
+        // A count "raise" cannot exceed the ceiling at this dist — the clamp
+        // is the producer-book witness (re-judged at W7 on the P1 cut).
+        const clamped = resolveCalibratedAtmosphere({
+            ...DEFAULT_AURORA_ATOMS,
+            zones: { count: 9, arrangement: "scattered" },
+            seed: MID_C_SEED,
+        });
+        expect(clamped.nuclei.length).toBe(6);
+        // The legibility axis: scattered's spread covers the frame; composed
+        // parks the lattice inside the middle-thirds band (the blur cause).
+        const spreadOf = (nuclei: { x: number; y: number }[]) => {
+            const xs = nuclei.map((n) => n.x);
+            const ys = nuclei.map((n) => n.y);
+            return {
+                x: Math.max(...xs) - Math.min(...xs),
+                y: Math.max(...ys) - Math.min(...ys),
+            };
+        };
+        const composed = resolveCalibratedAtmosphere({
+            ...DEFAULT_AURORA_ATOMS,
+            zones: { count: 6, arrangement: "composed" },
+            seed: MID_C_SEED,
+        });
+        const s = spreadOf(landed.nuclei);
+        const c = spreadOf(composed.nuclei);
+        expect(s.x).toBeGreaterThan(c.x);
+        expect(s.y).toBeGreaterThan(c.y);
+    });
+
     it("seedChroma is throw-free on any input (the deep-watch law's helper)", () => {
         // The deep-watch law itself is held at useAtmosphere's VALIDATED seed
         // write (an un-parseable string never reaches the atoms — the
