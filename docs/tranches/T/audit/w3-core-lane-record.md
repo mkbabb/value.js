@@ -82,8 +82,10 @@ available without the producer knobs; the swap fires at W7.
 ## §5 THE MOB-1 RIDER ADJUDICATION (deferred from W1 — honest record, no silent skip)
 
 **Read**: `audit/w1-close-artefacts.md §2` (the routed book) + `App.vue:50-51` (the D8-1
-note) + `scripts/ci/css-emission-probe.mjs:9-10` + `style.css:429-440` (the D6-03 aspect
-exception) + `Dock.vue:213` (`lg:hidden`, the width-only dock witness).
+note) + `scripts/ci/css-emission-probe.mjs:9-10` + `style.css:460-471` (the D6-03 aspect
+exception — post-W3-1 coordinate; this lane's +31 token lines drifted the pre-lane `429-440`
+cite, repaired at the §Recovery resume) + `Dock.vue:213` (`lg:hidden`, the width-only dock
+witness).
 
 **Adjudication: NOT LANDABLE THIS ROUND — recorded as a routed ask with the blocking cites,
 carried to the T.W4.5 checkpoint (where W1 close already routed it).** Two independent
@@ -112,7 +114,7 @@ blocks, either sufficient:
 and `App.vue` frees): ONE commit that (a) stamps `data-layout="desktop|mobile"` from the
 `isDesktop` compound-query breakpoint (`App.vue:233` — the ONE JS truth), (b) re-keys the
 pane wrappers + `.pane-slot-mobile` + `Dock.vue:213` onto `[data-layout]` attribute rules,
-(c) kills the `style.css:429-440` D6-03 exception (dies by construction — the CSS witness
+(c) kills the `style.css:460-471` D6-03 exception (dies by construction — the CSS witness
 IS the JS witness), (d) re-points `css-emission-probe.mjs` at the successor witness rules so
 the P9/D8-1 canary function survives the swap, (e) updates the `App.vue:50` D8-1 note to
 record the supersession (record repair, per this wave's R2 precedent). The current
@@ -131,6 +133,21 @@ passes — verified at W1 close).
   smoke-safari sustained-30s leg.
 - Tool-artefact grep over every touched doc (`grep -rnE '</?(content|invoke|parameter|antml)'`)
   — empty at every docs commit (M-1).
+
+## §6b §RECOVERY RESUME ADDENDUM (2026-07-10 — the T.md §8 protocol, run whole)
+
+The session closed after `e04609a` without the lane report; the resume ran the four-step
+protocol (brief: `audit/recovery/T.W3-core-brief-2026-07-10.md`). **The whole-census re-drive
+earned its keep**: O-11 gate 5's normal-engine read raced the boot reveal (no mount-wait,
+unlike gates 1+2) and could pass VACUOUSLY on two empty reads — cured with the sibling gates'
+own wait discipline + non-vacuity assertions on both reads (spec-only change; the header
+material was correct). Re-certified whole on the cured mint: **O-7 3/3 · O-11 6/6 (9/9
+spec-level, targeted re-run) · lint 0 · typecheck 0 · vitest 2171/69 · CSS 88,667 B =
+86.6 KiB gz (fresh build, byte-identical) · retirement greps 0 · tool-artefact grep empty**.
+The full 6-project suite certification composes the §6 run (69/3, exit 0 — the committed
+product tree is byte-identical since) with this resume's whole re-drive of the ONLY amended
+spec; a belt-and-braces full re-run was additionally dispatched at resume close. Record
+repair folded: the §5 D6-03 cite re-derived to the post-W3-1 coordinate (`style.css:460-471`).
 
 ## §7 Hand-off to the consumer batch (W3-2 · W3-3 · W3-5)
 

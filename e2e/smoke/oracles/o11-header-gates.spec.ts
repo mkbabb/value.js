@@ -257,12 +257,26 @@ test("O-11 gate 5 — engine/PRM coherence: rest state identical under PRM; ever
     await expect(
         page.getByRole("main", { name: "Color tool panes" }),
     ).toBeVisible();
+    // The same mount-wait discipline as gates 1+2: `main` turns visible before
+    // the pane cards finish revealing, so an un-waited read races the boot
+    // reveal and returns an empty veil list (observed live at the W3 §Recovery
+    // resume — and an empty NORMAL read would let the PRM comparison pass
+    // vacuously on undefined === undefined).
+    await expect(page.locator("main .pane-header").first()).toBeVisible();
     const normal = await readVeils(page);
+    expect(
+        normal.length,
+        "no visible pane header at rest (normal engine read)",
+    ).toBeGreaterThan(0);
 
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.reload();
     await expect(page.locator("main .pane-header").first()).toBeVisible();
     const prm = await readVeils(page);
+    expect(
+        prm.length,
+        "no visible pane header at rest (PRM read)",
+    ).toBeGreaterThan(0);
 
     expect(prm[0]?.opacity, "PRM rest veil diverges from normal rest").toBe(
         normal[0]?.opacity,
