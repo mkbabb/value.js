@@ -546,7 +546,7 @@ adversarial re-derivation untouched. The hardening changes:
 | **ANNOTATE** | Q9 | The bracket's UNIT fixed: the ratified frame is the EFFECT bracket (27–39% added card material); the P3 knob accepted iff it composites inside it. | doctrine F-9 |
 | **ANNOTATE** | Q12 | The alternative arm now has a landing site (§7.2 row + W7 P-7 conditional) — no re-rule needed; the row becomes honest. | M-6 |
 
-Net: **17 rows → 19 rows** (one split, two new) **+ 2 annexes + 6 annotations**. Everything else in
+Net: **17 rows → 20 rows** (one split, two new) **+ 2 annexes + 6 annotations**. Everything else in
 the table stands as authored — re-verified well-posed, defaults re-derivable, alternatives fair.
 
 ---
@@ -617,7 +617,7 @@ three ways — all mapped, all minutes to fix, and the §Recovery rider (M-29) +
 tool-artefact grep (M-1) exist so the NEXT wall leaves even less. The 34 MUSTFIX are dominated not
 by seam damage but by the hardening working as designed: placeholders resolved, silent owner-word
 re-cuts surfaced back into the table the owner rules on, and the wave mechanics made cold-resumable.
-Fold clusters A–B, re-issue the 19-row table, and the ratification STOP is safe to put to the owner.
+Fold clusters A–B, re-issue the 20-row table, and the ratification STOP is safe to put to the owner.
 
 *Verdict of the T hardening fleet — 31 lanes synthesized. ZERO corpus/product edits by this lane
 beyond this file.*

@@ -31,7 +31,7 @@ and governing. This charter distills and transcribes it; where the two could eve
 spec wins** — and above BOTH, `MANDATE-2026-07-06.md §0` + addenda §0.1–§0.4 are **VERBATIM LAW**
 and win over every lane, the synthesis, and this charter.
 
-**Mode**: **DEVELOPMENT ONLY — awaiting the §12 owner ratification (the 19-row slate: Q1–Q18 with
+**Mode**: **DEVELOPMENT ONLY — awaiting the §12 owner ratification (the 20-row slate: Q1–Q18 with
 Q11a/Q11b — CHANGED-AT-HARDENING from Q1–Q17).** "This is NOT an
 implementation phase. Tranche development only." The corpus STOPS at the ratification gate; waves
 dispatch only post-ratification (E-6). The dispatch gate is CLOSED (`PROGRESS.md`).
@@ -593,7 +593,7 @@ Every OPEN decision; **DEFAULT = the synthesis's recommendation**. The dispatch 
 until every row is ruled; the owner's verbatim rulings will be encoded in a
 `audit/RATIFICATION-<date>.md` whose §0 wins over everything (the S precedent). Ratifying Q11a
 ratifies ×φ (D2); ratifying Q4 settles the console WELL (D5); ratifying Q18 settles the C3 law +
-the neutral family (D1). [CHANGED-AT-HARDENING — the slate is **19 rows** (was Q1–Q17): Q11 split
+the neutral family (D1). [CHANGED-AT-HARDENING — the slate is **20 rows** (was Q1–Q17): Q11 split
 into Q11a/Q11b, Q3b + Q18 added, Q5's DEFAULT re-cut owner-verbatim-first, Q15's set corrected to
 7 — every changed row is marked in the table below so the owner sees the deltas.]
 

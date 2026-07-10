@@ -19,7 +19,7 @@ marked AMENDED-AT-PASS-2 where substantive; dispositions that changed nothing ar
 **Hardening pass (2026-07-09)**: amended per the 31-lane hardening fleet's VERDICT
 (`audit/hardening/VERDICT.md` — SOUND-WITH-AMENDMENTS): the 34 MUSTFIX + accepted SHOULDFIX folds,
 marked AMENDED-AT-HARDENING where substantive; the §8 table rows that changed are marked
-CHANGED-AT-HARDENING (net: 17 → **19 rows** — Q11 split, Q3b + Q18 added — + 2 annexes + 6
+CHANGED-AT-HARDENING (net: 17 → **20 rows** — Q11 split, Q3b + Q18 added — + 2 annexes + 6
 annotations); dissents from lane resolutions are VERDICT §5.
 
 **One-line thesis** (t-plan-audit-2 §7, verified across the fleet): *S built to a moving target and
@@ -644,7 +644,7 @@ Suites at synthesis: vitest 2158/68 green; playwright 38/39 + 1 known contention
 
 ## §8 THE RATIFICATION TABLE (every OPEN decision; DEFAULT = this synthesis's recommendation)
 
-**[AMENDED-AT-HARDENING — the table is now 19 rows** (Q11 split into Q11a/Q11b; Q3b + Q18 added)
+**[AMENDED-AT-HARDENING — the table is now 20 rows** (Q11 split into Q11a/Q11b; Q3b + Q18 added)
 **+ 2 annexes + annotations**; changed rows are marked CHANGED-AT-HARDENING. **The ratification
 package** (h-gaps G-6): the amend/dispatch agent assembles the presentation — this table + the
 owner's own on-disk shots re-used per taste row + both poles of Q5/Q4 described (prose-only
@@ -703,7 +703,7 @@ re-cuts"; the corrected census is **five**: T-5 "little glass card"→WELL (Q4) 
 (Q11a) · T-10 "rainbow"→chip (Q5) · T-8 "higher z than all"→content-top (now Q3b) · T-10/T-24
 "white/black"+"gray/black/white"→warm neutrals (now Q18) — plus the T-19 "in all cases" narrowing
 (the §8 rider annex). The hardening pass opened Q3b + Q18 and split Q11 — the slate is now
-**Q1–Q18 with Q11a/Q11b, 19 rows**.]
+**Q1–Q18 with Q11a/Q11b, 20 rows**.]
 
 ---
 
