@@ -232,7 +232,7 @@ function onClearAll() {
 </script>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../../../../styles/style.css";
 
 .filter-section { padding: 0.75rem; }
 .filter-section > .section-label { margin-bottom: 0.375rem; }

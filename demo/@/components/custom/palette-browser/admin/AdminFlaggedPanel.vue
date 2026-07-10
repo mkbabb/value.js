@@ -136,10 +136,10 @@ import { inject, onMounted } from "vue";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { RefreshCw, Trash2 } from "@lucide/vue";
-import EmptyState from "./EmptyState.vue";
+import EmptyState from "@components/common/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
-import { formatDate } from "@lib/dateFormat";
+import { formatDate } from "../dateFormat";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
 // D.W3 Lane B: route through pm.flagged sub-object (was: direct getFlaggedPalettes/dismissFlags/deletePaletteAdmin)

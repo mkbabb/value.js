@@ -126,7 +126,7 @@ import { Button } from "@components/ui/button";
 import { Check, X as XIcon, Trash2 } from "@lucide/vue";
 import type { ProposedColorName } from "@lib/palette/types";
 import AdminListItem from "./AdminListItem.vue";
-import EmptyState from "./EmptyState.vue";
+import EmptyState from "@components/common/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 
 const { pendingError = null, approvedError = null } = defineProps<{

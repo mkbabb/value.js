@@ -171,8 +171,8 @@ import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 import { Loader2, Trash2, Eraser, RefreshCw } from "@lucide/vue";
 import type { Palette, User } from "@lib/palette/types";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import PaletteCard from "./PaletteCard.vue";
-import EmptyState from "./EmptyState.vue";
+import { PaletteCard } from "../card";
+import EmptyState from "@components/common/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 
 const {

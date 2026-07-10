@@ -140,6 +140,50 @@ are flat. The literal "±2% per named chunk" is evaluated at the stable level (a
 CSS-total · promotion) since the mandated barrels legitimately reshuffle auto-chunk names.
 **Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18.
 
+## Batch 6 — palette-browser DECOMPOSITION (the flat 31-`.vue` namespace → 6 sub-feature folders) — LANDED
+
+The flat namespace decomposes into `card/`·`admin/`·`search/`·`dialog/`·`slug/`·`status/` behind
+the batch-5 barrels. External consumers are UNCHANGED (routed through the barrels last batch);
+only the barrels' INTERNAL re-export paths + the moved files' intra-tree relative imports update.
+`EmptyState` lifts OUT to a shared atom; `dateFormat.ts` colocates IN (CL-3).
+
+| old path (flat `palette-browser/`) | new path |
+|---|---|
+| `PaletteCard.vue` (+ children `PaletteCardMenu`, `PaletteCardSwatches`, `PaletteRenameInput`, `ActionFeedback`) | `card/PaletteCard/*` (folder owns its render-private children) |
+| `PaletteColorStrip.vue`·`PaletteCardGrid.vue`·`PaletteCardSkeleton.vue`·`CurrentPaletteEditor.vue`·`SwatchHoverMenu.vue` | `card/*` (cluster-shared siblings; SwatchHoverMenu has 2 consumers ⇒ card/ level) |
+| `composables/{useHeightTransition,useHoverPopover,useLeaveTimer,useSwatchActions}.ts` | `card/composables/*` (card-cluster-shared) |
+| `Admin{Users,Names,Audit,Flagged,Tags}Panel.vue`·`AdminListItem`·`AdminListSkeleton`·`PaginationBar` | `admin/*` |
+| `SearchFilterBar.vue` (+ child `MiniColorPicker`)·`UserSortMenu`·`TagEditPopover` | `search/*` |
+| `FlagReportDialog`·`MigratePalettesDialog`·`VersionHistoryDrawer` | `dialog/*` |
+| `PaletteDialog/composables/useDialogBrowseActions.ts` (the lone survivor of the dialog god-module) | `dialog/composables/useDialogBrowseActions.ts` (empty `PaletteDialog/` removed) |
+| `PaletteSlugBar.vue` | `slug/PaletteSlugBar.vue` |
+| `ApiOfflineChip.vue`·`DevMisconfigBanner.vue` (each carries a scoped `@keyframes` — census #17/#18) | `status/*` (keyframes travel with the SFC via `git mv`) |
+| `@lib/dateFormat.ts` (CL-3; consumers = admin + dialog) | `palette-browser/dateFormat.ts` (feature-root shared) |
+| `palette-browser/EmptyState.vue` (F7 lift-out; 8 consumers across 3 features, generic) | **`@components/common/EmptyState.vue`** (a NEW shared demo atom; Q16 book — glass-ui-first candidate still open, parked as a shared atom) |
+
+**Internal edge rewrites** (barrels → `./`-relative; moved files → cross-cluster relatives):
+6 barrels repoint to `./…`; `card/PaletteCard/PaletteCard.vue` → `../composables/*` + `../PaletteColorStrip.vue`;
+`card/PaletteCard/PaletteCardSwatches.vue` → `../SwatchHoverMenu.vue`; `card/CurrentPaletteEditor.vue`
+`./ApiOfflineChip.vue` → `../status/ApiOfflineChip.vue`; `admin/AdminUsersPanel.vue` `./PaletteCard.vue`
+(default) → `{ PaletteCard } from "../card"` (barrel, cross-cluster); the 3 `dateFormat` consumers
+`@lib/dateFormat` → `../dateFormat`; the 6 `EmptyState` consumers (2 external + 4 internal) →
+`@components/common/EmptyState.vue`; App.vue's 2 direct imports → `dialog/` + `status/` paths.
+
+**BUILD-only trap fixed** (vue-tsc does NOT see it): `slug/PaletteSlugBar.vue` +
+`search/SearchFilterBar.vue` carry a Tailwind `@reference "../../../styles/style.css"` in their
+`<style>` block — the one-level-deeper move broke the relative path → `../../../../styles/…`. Only
+`npm run build` catches this class (a moved SFC's scoped-`<style>` relative CSS `@reference`).
+
+**PP-8**: App.vue was 399 (cap edge); the batch-5 PI-6 comment tipped it to 402 → trimmed to a
+1-line note (**400**, ≤ cap). No other demo file > 400.
+
+**O-23 verdict (batch 6, vs `o23-pre-batch5.json` = the whole barrels+decomposition restructure)**:
+**aggregate −0.129%** · total CSS −208 B · **eager `index.js` flat** · **no lazy→eager promotion**.
+The auto-chunk regroup settled (`PaletteCard.js`+`EmptyState.js`+`dateFormat.js`+card CSS → the one
+shared `card.js`/`card.css`; the glass-ui `search`/`input` basename collisions persist in the
+strip-hash roll-up). Same stable-level interpretation as batch 5. **Gates**: typecheck 0 · lint 0 ·
+vitest 2158/2158 · keyframe census 18/18 · build clean.
+
 ---
 
 ## Cohesion cargo (distinct commits — §Commit plan)

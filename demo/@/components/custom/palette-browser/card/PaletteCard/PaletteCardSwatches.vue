@@ -70,7 +70,7 @@
 import { Copy, Pencil, Plus } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import type { PaletteColor } from "@lib/palette/types";
-import SwatchHoverMenu from "./SwatchHoverMenu.vue";
+import SwatchHoverMenu from "../SwatchHoverMenu.vue";
 
 defineProps<{
     colors: readonly PaletteColor[];

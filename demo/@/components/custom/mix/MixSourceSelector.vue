@@ -6,7 +6,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { PaletteCard, PaletteColorStrip } from "@components/custom/palette-browser/card";
-import EmptyState from "@components/custom/palette-browser/EmptyState.vue";
+import EmptyState from "@components/common/EmptyState.vue";
 import type { Palette } from "@lib/palette/types";
 import type { SelectedColor } from "./composables/useMixingState";
 

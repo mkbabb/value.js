@@ -131,11 +131,9 @@ import { ColorPicker } from "@components/custom/color-picker";
 import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
 
 import { Dock } from "@components/custom/dock";
-// PI-6: App.vue is the EAGER `index.js` chunk. Its two palette-browser imports stay DIRECT
-// (a barrel's named re-exports of side-effecting SFC <style> do not tree-shake the lazy
-// siblings out of the eager chunk). Batch 6 repoints these to their moved sub-folders.
-import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
-import DevMisconfigBanner from "@components/custom/palette-browser/DevMisconfigBanner.vue";
+// PI-6: DIRECT imports (not via the dialog/status barrels) keep the eager index.js chunk from pulling the lazy sibling dialogs' side-effecting <style>.
+import MigratePalettesDialog from "@components/custom/palette-browser/dialog/MigratePalettesDialog.vue";
+import DevMisconfigBanner from "@components/custom/palette-browser/status/DevMisconfigBanner.vue";
 import PaneSlot from "@components/custom/panes/PaneSlot.vue";
 
 import { defaultColorModel } from "@components/custom/color-picker";

@@ -167,7 +167,7 @@ import {
     PaletteCardGrid,
     PaletteCardSkeleton,
 } from "@components/custom/palette-browser/card";
-import EmptyState from "@components/custom/palette-browser/EmptyState.vue";
+import EmptyState from "@components/common/EmptyState.vue";
 import { SearchFilterBar, TagEditPopover } from "@components/custom/palette-browser/search";
 import {
     VersionHistoryDrawer,

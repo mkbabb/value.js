@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import EmptyState from "./EmptyState.vue";
+import EmptyState from "@components/common/EmptyState.vue";
 
 defineProps<{
     empty?: boolean;

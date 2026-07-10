@@ -183,7 +183,7 @@ import {
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
-import ApiOfflineChip from "./ApiOfflineChip.vue";
+import ApiOfflineChip from "../status/ApiOfflineChip.vue";
 import { useSwatchActions } from "./composables/useSwatchActions";
 
 const { savedColorStrings, cssColorOpaque, savedPaletteCount, savedPalettes } =
