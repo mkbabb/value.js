@@ -36,7 +36,7 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const GH_PAGES_ASSETS = join(REPO_ROOT, "dist/gh-pages/assets");
 
 // The witness utilities (escaped CSS-selector form) + the breakpoint each MUST

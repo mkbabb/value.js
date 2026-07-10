@@ -45,7 +45,7 @@ import { dirname, resolve } from "node:path";
 import { existsSync } from "node:fs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const root = resolve(__dirname, "..");
+const root = resolve(__dirname, "..", "..");
 const distValue = resolve(root, "dist/value.js");
 
 console.log("proof:perf-target — CSS-parse throughput vs JSON.parse normaliser (portable)\n");

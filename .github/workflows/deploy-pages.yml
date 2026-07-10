@@ -6,7 +6,7 @@
 # a historical artefact (it builds the demo SPA to dist/gh-pages); the SITE ships
 # to Cloudflare Pages, which is where the DNS for color.babb.dev points. The
 # matching api origin (api.color.babb.dev) ships separately via the babb.dev
-# spine webhook (scripts/deploy.sh api) — this workflow is the DEMO half only.
+# spine webhook (scripts/deploy/deploy.sh api) — this workflow is the DEMO half only.
 #
 # GREEN-CI-GATED (the constellation verified-deploy-of-record idiom): it triggers
 # on the `CI` workflow *completing* and deploys ONLY when that same-SHA run is

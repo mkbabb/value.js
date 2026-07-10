@@ -39,7 +39,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, resolve, relative, extname } from "node:path";
 
-const REPO_ROOT = resolve(import.meta.dirname, "..");
+const REPO_ROOT = resolve(import.meta.dirname, "..", "..");
 const DEMO_DIR = join(REPO_ROOT, "demo");
 const GLASS_UI_PKG = join(
     REPO_ROOT,

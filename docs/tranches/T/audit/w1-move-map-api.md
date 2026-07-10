@@ -141,9 +141,36 @@ as the shared harness. Per-domain suites move to `modules/<domain>/__tests__/`.
 
 ## §10 scripts/ regroup (E-1/F7 — `deploy/` · `dev/` · `ci/` · `gates/`)
 
-Recorded at the scripts batch. `test:dist`'s five retained gates
-(`proof-*.mjs`) → `scripts/gates/`; the `proof:*` npm-script paths in the ROOT
-`package.json` re-pointed so `npm run test:dist` stays green.
+| Old | New |
+|---|---|
+| `scripts/deploy.sh` | `scripts/deploy/deploy.sh` |
+| `scripts/deploy-hook.sh` | `scripts/deploy/deploy-hook.sh` |
+| `scripts/dev.sh` | `scripts/dev/dev.sh` |
+| `scripts/boot-smoke.mjs` | `scripts/ci/boot-smoke.mjs` |
+| `scripts/abrogation-sweep.mjs` | `scripts/ci/abrogation-sweep.mjs` |
+| `scripts/css-emission-probe.mjs` | `scripts/ci/css-emission-probe.mjs` |
+| `scripts/proof-css-parity.mjs` | `scripts/gates/proof-css-parity.mjs` |
+| `scripts/proof-round-trip-idempotent.mjs` | `scripts/gates/proof-round-trip-idempotent.mjs` |
+| `scripts/proof-perf-target.mjs` | `scripts/gates/proof-perf-target.mjs` |
+| `scripts/proof-serialize-fidelity.mjs` | `scripts/gates/proof-serialize-fidelity.mjs` |
+| `scripts/proof-subpath-budget.mjs` | `scripts/gates/proof-subpath-budget.mjs` |
+
+Re-points (all functional refs; CI uses `npm run <name>` so only the definitions move):
+- ROOT `package.json` scripts object: `dev` → `scripts/dev/dev.sh up`; `boot-smoke` /
+  `abrogation-sweep` / `css-emission-probe` → `scripts/ci/*`; the five `proof:*` →
+  `scripts/gates/*`. **`npm run test:dist` stays green** (the W0-2 deliverable
+  survives W1 — verified below).
+- Each moved `.mjs` that computes repo-root via `import.meta.url` had its `..` bumped
+  to `../..` (one level deeper): `css-emission-probe`, `abrogation-sweep`, and the
+  five `proof-*` gates. `boot-smoke` hits a live HTTP server (path-agnostic).
+- `dev.sh`: the `down` pkill re-targets `tsx watch src/main.ts` (the index→main
+  rename) + self-usage paths updated.
+- `deploy-hook.sh`: header carries the **on-host webhook path-change note** — the
+  host `hooks.json` `execute-command` points at the NEW `scripts/deploy/deploy-hook.sh`
+  when W0-X1 (re)registers the dead webhook (coordinated, not a live break).
+- The 5 retained gates keep their behavioral contract; the excised-7 set was already
+  removed at T.W0 (W0-2 retain-5/excise-7). `docs/precepts/` + `demo/@/styles/` +
+  `demo/@/components/ui/` + `assets/docs/` untouched (fence).
 
 ---
 

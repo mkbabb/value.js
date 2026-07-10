@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# value.js/scripts/dev.sh — local-dev orchestrator (constellation standard).
+# value.js/scripts/dev/dev.sh — local-dev orchestrator (constellation standard).
 # Adopted from deploy/templates/dev.sh. SHAPE=fullstack.
 #
-#   Vue/Vite demo (vite --port 9000) + Hono/Mongo api (tsx watch src/index.ts,
+#   Vue/Vite demo (vite --port 9000) + Hono/Mongo api (tsx watch src/main.ts,
 #   PORT 3000, MONGODB_URI + ADMIN_TOKEN). Demo points at the local api via
 #   VITE_API_URL=http://localhost:3000 (else demo defaults to prod
 #   https://api.color.babb.dev — see demo/@/lib/palette/api/client.ts).
@@ -70,7 +70,7 @@ require_env() {
     for v in "${REQUIRED_ENV[@]:-}"; do
         [[ -z "$v" ]] && continue
         if [[ -z "${!v:-}" ]]; then
-            note "$v is unset. Copy .env.example to .env and set it, or export inline: $v=... scripts/dev.sh"
+            note "$v is unset. Copy .env.example to .env and set it, or export inline: $v=... scripts/dev/dev.sh"
             missing=1
         fi
     done
@@ -104,7 +104,7 @@ find_free_port() {
         note "$label :$p in use — trying :$((p + 1))"
         p=$((p + 1)); attempts=$((attempts + 1))
     done
-    die "$label — no free port within $PORT_FALLBACK_LIMIT slots from :$desired (recover: scripts/dev.sh down)" 7
+    die "$label — no free port within $PORT_FALLBACK_LIMIT slots from :$desired (recover: scripts/dev/dev.sh down)" 7
 }
 
 # ── Process management ──────────────────────────────────────────────────────
@@ -331,7 +331,7 @@ cmd_up() {
   VITE_API_URL → http://localhost:${BACKEND_PORT}
   Mongo        → ${MONGO_SOURCE} (:${MONGO_PORT}/${MONGO_DB})
   ADMIN_TOKEN  → ${ADMIN_TOKEN:-dev}
-  Logs         → ${LOG_DIR}/   (scripts/dev.sh logs)
+  Logs         → ${LOG_DIR}/   (scripts/dev/dev.sh logs)
   Ctrl-C to tear down
 ──────────────────────────────────────
 
@@ -342,7 +342,7 @@ cmd_down() {
     log "tearing down value.js..."
     docker rm -f "$MONGO_CONTAINER" >/dev/null 2>&1 || true
     pkill -f "vite.*--port 9000" 2>/dev/null || true
-    pkill -f "tsx watch src/index.ts" 2>/dev/null || true
+    pkill -f "tsx watch src/main.ts" 2>/dev/null || true
     rm -f "$DEV_DIR"/*.ports 2>/dev/null || true
     log "down."
 }
@@ -376,5 +376,5 @@ case "$SUB" in
     logs)   cmd_logs ;;
     build)  require_bins; load_env; do_build ;;
     test)   require_bins; load_env; do_test "$@" ;;
-    *)      note "usage: scripts/dev.sh [up|down|status|logs|build|test]"; exit 2 ;;
+    *)      note "usage: scripts/dev/dev.sh [up|down|status|logs|build|test]"; exit 2 ;;
 esac

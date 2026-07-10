@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
-# value.js/scripts/deploy.sh — constellation deploy standard.
+# value.js/scripts/deploy/deploy.sh — constellation deploy standard.
 #
 # Two independently-deployable surfaces (ADOPTION-ASKS Ask 3 + Ask 5):
 #   api      — backend (Hono+Mongo). Deploy is git-push-driven: this target
 #              just pushes + pokes the per-repo webhook at
 #              deploy.babb.dev/hooks/value-js, then HEALTH-GATES the live
 #              endpoint. The actual on-host work (git checkout + compose
-#              up + flock + rollback) is scripts/deploy-hook.sh, run ON the
+#              up + flock + rollback) is scripts/deploy/deploy-hook.sh, run ON the
 #              host by the adnanh/webhook receiver after HMAC verify. There
 #              is NO SSH here, NO secret here (Ask 3).
 #   frontend — the demo SPA → Cloudflare Pages via the standard cf recipe
 #              (project pre-flight + rollback-target capture + commit-msg
 #              ASCII transliteration) (Ask 5).
 #
-# Usage:  scripts/deploy.sh [all|api|frontend]
+# Usage:  scripts/deploy/deploy.sh [all|api|frontend]
 # Exit:   0 success+health · 1 deploy failed · 2 usage · 5 env · 6 dep
 set -euo pipefail
 
@@ -45,7 +45,7 @@ deploy_api() {
     git push origin "$branch" || die "git push failed" 1
 
     # Poke the per-repo webhook. The receiver verifies GitHub HMAC and invokes
-    # the on-host scripts/deploy-hook.sh (git checkout + compose up + rollback).
+    # the on-host scripts/deploy/deploy-hook.sh (git checkout + compose up + rollback).
     # Real pushes already trigger it via the GitHub webhook; this poke is a
     # belt-and-braces manual nudge and is non-fatal if the receiver 404s a
     # manual GET (the push-trigger is authoritative).
@@ -107,6 +107,6 @@ case "$TARGET" in
     all)      deploy_api; deploy_frontend ;;
     api)      deploy_api ;;
     frontend) deploy_frontend ;;
-    *)        err "usage: scripts/deploy.sh [all|api|frontend]"; exit 2 ;;
+    *)        err "usage: scripts/deploy/deploy.sh [all|api|frontend]"; exit 2 ;;
 esac
 log "deploy '$TARGET' complete."

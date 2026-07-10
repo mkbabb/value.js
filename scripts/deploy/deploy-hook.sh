@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
-# value.js/scripts/deploy-hook.sh — the on-host half of the api deploy (N.W4.B).
+# value.js/scripts/deploy/deploy-hook.sh — the on-host half of the api deploy (N.W4.B).
 #
-# This is the tracked, on-host deploy logic that scripts/deploy.sh's header
+# ── T.W1 PATH MOVE (E-1 scripts/ regroup) ──────────────────────────────────────
+# This script moved `scripts/deploy-hook.sh → scripts/deploy/deploy-hook.sh`. The
+# host's untracked `hooks.json` `execute-command` MUST point at the NEW path when
+# W0-X1 (re)registers the `deploy.babb.dev/hooks/value-js` webhook. (X1 is a fresh
+# maintainer op — the webhook is currently unregistered — so this is a coordinated
+# path, not a live break.)
+#
+# This is the tracked, on-host deploy logic that scripts/deploy/deploy.sh's header
 # already specs (deploy.sh:6-11): the dev's sole manual act is `git push`; the
 # host-resident adnanh/webhook receiver verifies the GitHub HMAC-SHA256
 # signature and then invokes THIS script locally (NO SSH here, NO secret here —
 # the HMAC secret lives only in GitHub's webhook config + the host's untracked
-# hooks.json). scripts/deploy.sh pushes + pokes the webhook + health-gates the
+# hooks.json). scripts/deploy/deploy.sh pushes + pokes the webhook + health-gates the
 # PUBLIC endpoint; this script does the actual on-host work.
 #
 # ── IT RETIRES THE HOST'S LEGACY dispatch.sh (Ask 3, the 4th/gating migration) ─

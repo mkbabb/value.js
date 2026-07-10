@@ -68,7 +68,7 @@
         "dist"
     ],
     "scripts": {
-        "dev": "scripts/dev.sh up",
+        "dev": "scripts/dev/dev.sh up",
         "predev:web-only": "test -f dist/value.js || npm run build",
         "dev:web-only": "vite --port 9000",
         "build": "vite build --mode production",
@@ -81,14 +81,14 @@
         "test": "vitest",
         "test:e2e": "playwright test",
         "test:dist": "npm run build && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget",
-        "boot-smoke": "node scripts/boot-smoke.mjs",
-        "abrogation-sweep": "node scripts/abrogation-sweep.mjs",
-        "css-emission-probe": "node scripts/css-emission-probe.mjs",
-        "proof:css-parity": "node scripts/proof-css-parity.mjs",
-        "proof:round-trip-idempotent": "node scripts/proof-round-trip-idempotent.mjs",
-        "proof:perf-target": "node scripts/proof-perf-target.mjs",
-        "proof:serialize-fidelity": "node scripts/proof-serialize-fidelity.mjs",
-        "proof:subpath-budget": "node scripts/proof-subpath-budget.mjs"
+        "boot-smoke": "node scripts/ci/boot-smoke.mjs",
+        "abrogation-sweep": "node scripts/ci/abrogation-sweep.mjs",
+        "css-emission-probe": "node scripts/ci/css-emission-probe.mjs",
+        "proof:css-parity": "node scripts/gates/proof-css-parity.mjs",
+        "proof:round-trip-idempotent": "node scripts/gates/proof-round-trip-idempotent.mjs",
+        "proof:perf-target": "node scripts/gates/proof-perf-target.mjs",
+        "proof:serialize-fidelity": "node scripts/gates/proof-serialize-fidelity.mjs",
+        "proof:subpath-budget": "node scripts/gates/proof-subpath-budget.mjs"
     },
     "repository": {
         "type": "git",

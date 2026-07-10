@@ -22,7 +22,7 @@ import { dirname, resolve, relative } from "node:path";
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const root = resolve(__dirname, "..");
+const root = resolve(__dirname, "..", "..");
 
 const results = [];
 const record = (id, label, fn) =>

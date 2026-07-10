@@ -23,7 +23,7 @@ import { dirname, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const repoRoot = resolve(__dirname, "..");
+const repoRoot = resolve(__dirname, "..", "..");
 const distPath = resolve(repoRoot, "dist", "value.js");
 
 let mod;

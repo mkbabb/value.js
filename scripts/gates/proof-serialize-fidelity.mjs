@@ -23,7 +23,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const distPath = resolve(__dirname, "..", "dist", "value.js");
+const distPath = resolve(__dirname, "..", "..", "dist", "value.js");
 
 let mod;
 try {
