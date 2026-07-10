@@ -22,7 +22,9 @@ writers. Fable + frontend-design (design lanes, E-6).
 **Hard gate**: composite (§Hard gate) — O-7 census green (rung membership, both schemes, all
 panes + fixtures) + the 390-frame · O-9 all-cases · O-11 gates 1-6 · O-18 population contrast
 census · **the CSS tripwire: re-measure CSS gz at this gate and RED the wave at >120 KiB**.
-**Status**: PENDING — DEVELOPMENT ONLY; waves dispatch only post-ratification (E-6).
+**Status**: RATIFIED 2026-07-09 — PENDING, gated on T.W1 close (round 2; **Q4 RULED "The
+well."** — the sliders console = rung-2 WELL, sibling assignments defaulted; Q9 the effect
+bracket; Q18 "Keep." — the C3 law + ledger + the warm neutral family).
 
 ---
 

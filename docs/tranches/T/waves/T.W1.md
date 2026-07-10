@@ -2,7 +2,8 @@
 
 **Name**: W1 — The colocation grand restructure (the E-1 grand edict executed whole; the
 structural spine of T)
-**Opens after**: T.W0 (round 1). Sequenced BEFORE every design wave per **Q1's default** —
+**Opens after**: T.W0 (round 1). Sequenced BEFORE every design wave per **Q1 — RULED
+2026-07-09 "First."** —
 new design code is BORN colocated; the restructure is mechanical + hard-gated and depends on NO
 producer window; landing it last would move every design wave's freshly-landed files a second
 time. Q1's live alternative (restructure AFTER) is preserved in the ratification table; a Q1
@@ -25,7 +26,7 @@ floor, not a ceiling.
 bundle-diff flat ±2% per named chunk · PP-8 caps recomputed post-move · ZERO re-export shims at
 old paths · MOB-1 witness + MOB-2 gates · api 224-class suite green post-TA-4 + tsc 0 · dts
 surface additive-only (the §5.3 FORBIDS ledger) · subpath invariant green.
-**Status**: PENDING — DEVELOPMENT ONLY; waves dispatch only post-ratification (E-6).
+**Status**: RATIFIED 2026-07-09 — PENDING, gated on T.W0 close (round 1).
 
 ---
 

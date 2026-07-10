@@ -1,7 +1,8 @@
 # T.W5 — MOTION LIQUID (T-14: the two-channel law structural; the PI-5 split)
 
 **Name**: W5 — Motion Liquid (ALL card transitions onto the liquid-glass easing curves)
-**Opens after**: T.W4 (round 4; runs PARALLEL with T.W6 — the cross-wave file clauses in
+**Opens after**: T.W4.5 (round 4 — the DAG amended at ratification: W4 → **W4.5 the
+mid-tranche checkpoint** → { W5 · W6 }, cascade 1; runs PARALLEL with T.W6 — the cross-wave file clauses in
 §File bounds govern the shared-file rows).
 **Spec of record**: `audit/SYNTHESIS.md §3` (the T.W5 block) · SYNTHESIS §1.2 T-14 row · §2 D7
 (THE LIQUID-EASING FAMILY, STRUCTURAL) · `audit/lanes/t-transitions-liquid.md` §0 (the liquid
@@ -16,8 +17,8 @@ Fable + frontend-design on the design surface; opus/sonnet fanout in batches of 
 **Hard gate**: composite (§Hard gate) — O-16 computed-cascade census (owned rows green; the R1
 row honest EXPECTED-RED with the PKT-1 cite) · view-switch ≤100ms budget re-run · the KEEP set
 (F6) untouched · Tranche B strictly PKT-3-gated · CSS gz ≤120 KiB tripwire.
-**Status**: AUTHORED — development only; the dispatch gate is CLOSED until the `T.md §12` owner
-ratification (E-6). Post-ratification: PENDING, gated on T.W4 close.
+**Status**: RATIFIED 2026-07-09 — PENDING, gated on T.W4.5 close (round 4; the pre-ratification
+"gated on T.W4" reading is SUPERSEDED by cascade 1 — the checkpoint sits between).
 
 ---
 
@@ -183,7 +184,9 @@ diff proof re-runs as the partial-detector.
 
 ## §Dependencies
 
-- **Depends on**: T.W4 closed (the DAG: W4 → {W5 · W6}); the W1 MOVE-MAP (PP-11 re-anchoring);
+- **Depends on**: T.W4.5 closed (the ratification-amended DAG: W4 → W4.5 → {W5 · W6}, cascade
+  1 — the checkpoint's remediations are this wave's settled ground); the W1 MOVE-MAP (PP-11
+  re-anchoring);
   W3's settled ladder (R4's cartoon register judges against it).
 - **Producer books it rides (never gates)**: PKT-1 (R1 goes live), PKT-2 (the ~0.3s preset — the
   decision between `--spring-snappy`@own-clock and the new preset is recorded either way), PKT-3

@@ -24,8 +24,11 @@ multiple §Recovery events; the batches-of-three cap bounds CONCURRENCY, not tot
 **Hard gate**: composite (§Hard gate) — every filed remediation row landed-or-booked · the full
 oracle slate + budgets + a fresh Lighthouse delta run in-wave · the certification package
 assembled (brackets, both poles named) · **the owner's verdict is the gate**.
-**Status**: AUTHORED — development only; the dispatch gate is CLOSED until the `T.md §12` owner
-ratification (E-6). Post-ratification: PENDING, gated on T.W2–T.W6 all closed.
+**Status**: RATIFIED 2026-07-09 — PENDING, gated on T.W2–T.W6 all closed (round 5). **Q6 RULED
+"both." (cascade 1)**: this wave KEEPS the deep close-stage role + the terminal
+owner-certification package; the mid-tranche checkpoint is the NEW `waves/T.W4.5.md` (round
+3.5), which reuses this doc's pass grammar on the through-W4 surface set and hands its
+`w45-checkpoint/ROWS.md` + flagged brackets to this wave's passes. (The pre-ratification AUTHORED/gate-CLOSED stamp is superseded.)
 
 ---
 
@@ -186,7 +189,9 @@ state, never a proxy sign-off to "finish" the recovery.
 
 ## §Dependencies
 
-- **Depends on**: T.W2–T.W6 all closed (the DAG: W8 runs only after every design wave closes);
+- **Depends on**: T.W2–T.W6 all closed (the DAG: W8 runs only after every design wave closes)
+  + T.W4.5's checkpoint record (`w45-checkpoint/ROWS.md` + the flagged brackets — this wave's
+  pass inputs, cascade 1);
   the W0-5 oracle floor (plan-audit-1 F3/F4 — the floor MUST precede E-7; an unminted oracle
   invalidates its pass); T.W7's state recorded as-is (books never gates).
 - **Blocks**: T.W9 (the close consumes the verdict + the package).

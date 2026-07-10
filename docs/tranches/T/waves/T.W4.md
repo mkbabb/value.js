@@ -24,7 +24,10 @@ the serial walk at the dispatcher's call. Fable + frontend-design (design lanes,
 same-commit law) · O-11 gates 1+3 re-run over the settled band · meter presence · ONE active
 indicator · height gate @900px · **the CSS tripwire: re-measure CSS gz at this gate and RED
 the wave at >120 KiB**.
-**Status**: PENDING — DEVELOPMENT ONLY; waves dispatch only post-ratification (E-6).
+**Status**: RATIFIED 2026-07-09 — PENDING, gated on T.W2 + T.W3 close (round 3; **Q3 RULED
+"Flush."** — `--blob-seat: 0`; **Q11a RULED**: the producer-ladder sizing AUTHORITY, ×φ = two
+token steps; Q3b/Q11b defaults stand). **NOTE (cascade 1): T.W4.5 — the mid-tranche checkpoint
+— now sits between this wave and round 4** (`waves/T.W4.5.md`).
 
 ---
 
