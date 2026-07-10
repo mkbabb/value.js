@@ -271,9 +271,7 @@ const EMPTY_PALETTE_SWATCH = "#888";
 const kind = computed<PaletteKind>(() => getPaletteKind(props.palette));
 const firstColor = computed(() => props.palette.colors[0]?.css ?? props.cssColor ?? EMPTY_PALETTE_SWATCH);
 
-// D6 (T.W3-5): the card IS the rung-2 WELL (Q4) — an OPAQUE tone-step whose
-// composited lightness is closed-form (the C5/Q4 determinism dividend), so
-// the pill/ink certifies against THAT tier, never the page ambient.
+// D6 (T.W3-5): the card IS the rung-2 WELL (Q4) — ink certifies on THAT tier.
 const { safeCss } = useSafeAccentFn("well");
 const safeFirstColor = computed(() => safeCss(firstColor.value));
 const displaySlug = computed(() => props.palette.userSlug ?? props.palette.slug);
