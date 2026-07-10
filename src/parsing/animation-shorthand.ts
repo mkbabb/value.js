@@ -1,5 +1,5 @@
 import { memoize } from "../utils";
-import type { CSSAnimationOptions } from "./extract";
+import type { CSSAnimationOptions } from "./stylesheet/extract";
 import { parseCSSTime } from "./index";
 import { reverseCSSIterationCount } from "./units";
 import {

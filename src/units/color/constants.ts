@@ -1,3 +1,10 @@
+// T.W1-src §4b: this module holds the color-space REFERENCE-DATA concern — the
+// ranges/bounds + the illuminant white points (both broadly shared across the
+// subsystem, the same class as COLOR_SPACE_RANGES). The OKLab/LMS TRANSFORM
+// matrices (conversion machinery: XYZ↔LMS↔OKLab↔linear-sRGB) moved to
+// `conversions/matrices.ts` (colocated with the conversion leaves + the gamut
+// family that use them); GAMUT_SECTOR_COEFFICIENTS moved to `gamut/gamut.ts` (its
+// sole consumer). Everything stays public under the same barrel names.
 import type { Vec3, Mat3 } from "./matrix";
 import { invertMat3 } from "./matrix";
 
@@ -397,6 +404,10 @@ export const COLOR_SPACE_NAMES = {
     jzazbz: "Jzazbz",
 } as const;
 
+// ─── Illuminant white points + the D65↔D50 white-adaptation matrices ────────
+// Colorimetric reference data (broadly shared: base.ts, conversions/{lab,
+// xyz-extended}.ts, gamut/boundary.ts), kept beside the ranges/names above.
+
 // From CIE 15:2004 table T.3
 export const WHITE_POINT_D65: Vec3 = [
     0.3127 / 0.329,
@@ -425,67 +436,3 @@ export const WHITE_POINTS = {
 };
 
 export type WhitePoint = keyof typeof WHITE_POINTS;
-
-// OKLab LMS matrices (moved from utils.ts for shared access)
-export const XYZ_TO_LMS_MATRIX: Mat3 = [
-    0.819022437996703, 0.3619062600528904, -0.1288737815209879,
-    0.0329836539323885, 0.9292868615863434, 0.0361446663506424,
-    0.0481771893596242, 0.2642395317527308, 0.6335478284694309,
-];
-
-export const LMS_TO_XYZ_MATRIX: Mat3 = invertMat3(XYZ_TO_LMS_MATRIX);
-
-export const LMS_TO_OKLAB_MATRIX: Mat3 = [
-    0.210454268309314, 0.7936177747023054, -0.0040720430116193,
-    1.9779985324311684, -2.4285922420485799, 0.450593709617411,
-    0.0259040424655478, 0.7827717124575296, -0.8086757549230774,
-];
-
-export const OKLAB_TO_LMS_MATRIX: Mat3 = invertMat3(LMS_TO_OKLAB_MATRIX);
-
-// Direct LMS→linear sRGB matrix (Ottosson's canonical values, bypasses XYZ)
-export const LMS_TO_LINEAR_SRGB: Mat3 = [
-    +4.0767416621, -3.3077115913, +0.2309699292,
-    -1.2684380046, +2.6097574011, -0.3413193965,
-    -0.0041960863, -0.7034186147, +1.7076147010,
-];
-
-// Direct linear sRGB→LMS matrix (Ottosson's canonical values)
-export const LINEAR_SRGB_TO_LMS: Mat3 = [
-    0.4122214708, 0.5363325363, 0.0514459929,
-    0.2119034982, 0.6806995451, 0.1073969566,
-    0.0883024619, 0.2817188376, 0.6299787005,
-];
-
-// OKLab→LMS coefficients (rows of OKLAB_TO_LMS used in the direct path)
-export const OKLAB_TO_LMS_COEFF = {
-    l: [1.0, +0.3963377774, +0.2158037573] as Vec3,
-    m: [1.0, -0.1055613458, -0.0638541728] as Vec3,
-    s: [1.0, -0.0894841775, -1.2914855480] as Vec3,
-} as const;
-
-// Gamut sector coefficients for Ottosson's analytical max-saturation solver.
-// Each sector has polynomial coefficients (k0-k4) and LMS→sRGB channel weights (wl,wm,ws).
-export const GAMUT_SECTOR_COEFFICIENTS = [
-    {
-        // Red sector: -1.88170328*a - 0.80936493*b > 1
-        test: (a: number, b: number) => -1.88170328 * a - 0.80936493 * b > 1,
-        k0: +1.19086277, k1: +1.76576728, k2: +0.59662641,
-        k3: +0.75515197, k4: +0.56771245,
-        wl: +4.0767416621, wm: -3.3077115913, ws: +0.2309699292,
-    },
-    {
-        // Green sector: 1.81444104*a - 1.19445276*b > 1
-        test: (a: number, b: number) => 1.81444104 * a - 1.19445276 * b > 1,
-        k0: +0.73956515, k1: -0.45954404, k2: +0.08285427,
-        k3: +0.12541070, k4: +0.14503204,
-        wl: -1.2684380046, wm: +2.6097574011, ws: -0.3413193965,
-    },
-    {
-        // Blue sector (fallback)
-        test: () => true,
-        k0: +1.35733652, k1: -0.00915799, k2: -1.15130210,
-        k3: -0.50559606, k4: +0.00692167,
-        wl: -0.0041960863, wm: -0.7034186147, ws: +1.7076147010,
-    },
-] as const;
