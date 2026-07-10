@@ -111,11 +111,11 @@ import { Slider } from "@components/ui/slider";
 import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
 import { clamp } from "@mkbabb/value.js/math";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
-import { colorSpaceInfo } from "../index";
-import type { DisplayColorSpace } from "../index";
+import { colorSpaceInfo } from "../../index";
+import type { DisplayColorSpace } from "../../index";
 import { spectrumFieldIsLight } from "../spectrumLuma";
-import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
-import { useSliderTouchGates } from "../composables/useSliderTouchGates";
+import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";
+import { useSliderTouchGates } from "./composables/useSliderTouchGates";
 import { COLOR_MODEL_KEY } from "@composables/color/keys";
 
 const {

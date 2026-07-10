@@ -53,7 +53,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { CardTitle } from "@components/ui/card";
-import { readoutCh, readoutLineCount } from "../readoutReservation";
+import { readoutCh, readoutLineCount } from "./readoutReservation";
 
 export interface ComponentFormat {
     value: number | string;

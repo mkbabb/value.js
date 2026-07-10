@@ -26,7 +26,7 @@
 import type { GamutBoundary } from "@mkbabb/value.js/color";
 import { DPR_CAP, drawHatch, HATCH_STEP } from "@lib/gamut-ink";
 import type { ResolvedInks } from "@lib/gamut-ink";
-import { spectrumFieldIsLight } from "./spectrumLuma";
+import { spectrumFieldIsLight } from "../spectrumLuma";
 
 export { createInkProbe, DPR_CAP } from "@lib/gamut-ink";
 export type { ResolvedInks } from "@lib/gamut-ink";

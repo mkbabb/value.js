@@ -26,7 +26,7 @@ defineProps<{
 </script>
 
 <style scoped>
-@reference "../../../../styles/style.css";
+@reference "../../../../../styles/style.css";
 
 /* Fira Code, lens-named, a paper chip so the tick reads over any field
  * region. Painted above the dot by DOM order. The contour lives near the

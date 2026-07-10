@@ -13,7 +13,7 @@
 import { onMounted, onUnmounted, ref, watch, nextTick, type WatchSource } from "vue";
 import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
 import { useTouchGate } from "@mkbabb/glass-ui";
-import type { usePointerDebug } from "./usePointerDebug";
+import type { usePointerDebug } from "../../../composables/usePointerDebug";
 
 type PointerDebug = ReturnType<typeof usePointerDebug>;
 

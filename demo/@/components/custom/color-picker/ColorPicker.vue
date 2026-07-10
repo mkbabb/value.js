@@ -79,7 +79,7 @@
 <script setup lang="ts">
 import { Card, CardContent, CardHeader } from "@components/ui/card";
 import ColorSpaceSelector from "./display/ColorSpaceSelector.vue";
-import ColorComponentDisplay from "./display/ColorComponentDisplay.vue";
+import ColorComponentDisplay from "./display/ColorComponentDisplay/ColorComponentDisplay.vue";
 import {
     computed,
     defineAsyncComponent,
@@ -103,8 +103,8 @@ import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
 
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import SpectrumCanvas from "./controls/SpectrumCanvas.vue";
-import ComponentSliders from "./controls/ComponentSliders.vue";
+import SpectrumCanvas from "./controls/SpectrumCanvas/SpectrumCanvas.vue";
+import ComponentSliders from "./controls/ComponentSliders/ComponentSliders.vue";
 import PointerDebugOverlay from "./visual/PointerDebugOverlay.vue";
 
 const emit = defineEmits<{

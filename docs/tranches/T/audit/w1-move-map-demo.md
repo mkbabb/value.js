@@ -255,6 +255,35 @@ chunk-graph-neutral). **Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · ke
 build clean. **W2 hand-off**: `demo/color-picker/composables/boot/` EXISTS by name — the load-animation
 wave's single-writer surface is legible.
 
+## Batch 9 — per-feature recursion (color-picker depth-N; F1) + the prng CL-3 leaf — LANDED
+
+The picker's sub-components that own single-consumer satellites are promoted to FOLDERS (the
+`ImageEyedropper/` exemplar generalized) — recursion to depth-N, the literal E-1 gap F1 named.
+
+| old path | new path |
+|---|---|
+| `controls/SpectrumCanvas.vue` + `SpectrumDetentLabel.vue` + `SpectrumPlateCaption.vue` | `controls/SpectrumCanvas/*` (folder) |
+| `color-picker/gamutOverlayPaint.ts` (root; 1←useGamutOverlay) | `controls/SpectrumCanvas/gamutOverlayPaint.ts` |
+| `composables/{useGamutDetent,useGamutOverlay,useSpectrumCrossfade,useSpectrumPlateStyle}.ts` | `controls/SpectrumCanvas/composables/*` |
+| `controls/ComponentSliders.vue` | `controls/ComponentSliders/ComponentSliders.vue` (folder) |
+| `composables/useSliderTouchGates.ts` | `controls/ComponentSliders/composables/useSliderTouchGates.ts` |
+| `display/ColorComponentDisplay.vue` + `readoutReservation.ts` (root; 1←the display) | `display/ColorComponentDisplay/*` (folder) |
+| `color-picker/spectrumLuma.ts` (root; 2 sibling controls consume ⇒ KEEP at controls/) | `controls/spectrumLuma.ts` |
+| `@composables/prng.ts` (CL-3; 1←generate) | `components/custom/generate/composables/prng.ts` |
+
+`usePointerDebug.ts` STAYS at `color-picker/composables/` (feature-wide, 6 consumers). Keyframes
+`field-paint-in`/`plate-crossfade-out` (#10/#11) travel inside `SpectrumCanvas.vue`'s `<style>` — census 18/18.
+
+**Two BUILD-only traps (the `../`-regex missed both; the gates caught them)**: (1) the 3 SpectrumCanvas
+SFCs' `@reference "…/styles/style.css"` needed one more `../` (the deeper move — vite-only). (2)
+`useGamutOverlay.ts` imports the picker barrel via BARE `".."` (no trailing slash → the relative-import
+grep missed it) — `..`→`../../..` (**vue-tsc caught it** — the typecheck gate).
+
+**O-23 (batch 9, vs `o23-pre-batch5.json`)**: aggregate **−0.128%** · eager `index.js` flat (SFC folders
++ satellites stay in the same lazy `index.js`/picker chunk — colocation is chunk-graph-neutral).
+**PP-8**: no demo file > 400. **Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18 ·
+build clean.
+
 ---
 
 ## Cohesion cargo (distinct commits — §Commit plan)

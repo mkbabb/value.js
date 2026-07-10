@@ -48,7 +48,7 @@ import {
     paintGamutBoundary,
     type ResolvedInks,
 } from "../gamutOverlayPaint";
-import type { DisplayColorSpace } from "..";
+import type { DisplayColorSpace } from "../../..";
 
 const COLUMNS = 96; // the validated geometry default (boundary-api §2)
 

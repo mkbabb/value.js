@@ -7,7 +7,7 @@
 
 import { computed, type ComputedRef } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
-import { spectrumFieldIsLight } from "../spectrumLuma";
+import { spectrumFieldIsLight } from "../../spectrumLuma";
 import type { useTouchGate } from "@mkbabb/glass-ui";
 
 export function useSpectrumPlateStyle(opts: {

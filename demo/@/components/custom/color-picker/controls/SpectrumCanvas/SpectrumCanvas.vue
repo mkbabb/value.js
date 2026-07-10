@@ -80,11 +80,11 @@ import { clamp } from "@mkbabb/value.js/math";
 import { cancelAnimationFrame, requestAnimationFrame } from "@mkbabb/value.js";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { useTouchGate } from "@mkbabb/glass-ui";
-import { POINTER_DEBUG_KEY } from "../composables/usePointerDebug";
-import { useGamutOverlay } from "../composables/useGamutOverlay";
-import { useGamutDetent } from "../composables/useGamutDetent";
-import { useSpectrumCrossfade } from "../composables/useSpectrumCrossfade";
-import { useSpectrumPlateStyle } from "../composables/useSpectrumPlateStyle";
+import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";
+import { useGamutOverlay } from "./composables/useGamutOverlay";
+import { useGamutDetent } from "./composables/useGamutDetent";
+import { useSpectrumCrossfade } from "./composables/useSpectrumCrossfade";
+import { useSpectrumPlateStyle } from "./composables/useSpectrumPlateStyle";
 import SpectrumPlateCaption from "./SpectrumPlateCaption.vue";
 import SpectrumDetentLabel from "./SpectrumDetentLabel.vue";
 import { COLOR_MODEL_KEY } from "@composables/color/keys";
@@ -317,7 +317,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-@reference "../../../../styles/style.css";
+@reference "../../../../../styles/style.css";
 
 .spectrum-picker {
     border-radius: var(--radius-xl);

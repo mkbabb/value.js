@@ -17,7 +17,7 @@ defineProps<{
 </script>
 
 <style scoped>
-@reference "../../../../styles/style.css";
+@reference "../../../../../styles/style.css";
 
 /* The annotation voice (Fira Code), all-small-caps — the atlas-caption
  * register shared with the space title's catalog eyebrow. */
