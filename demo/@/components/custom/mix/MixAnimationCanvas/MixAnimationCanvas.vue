@@ -3,7 +3,7 @@ import { useTemplateRef, toRef } from "vue";
 import type { ColorSpace } from "@mkbabb/value.js/color";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import { useMixingAnimation } from "./composables/useMixingAnimation";
-import type { AnimationPhase, MixResult } from "./composables/useMixingState";
+import type { AnimationPhase, MixResult } from "../composables/useMixingState";
 
 const { phase, result, space, hueMethod } = defineProps<{
     phase: AnimationPhase;

@@ -50,3 +50,23 @@ single-consumer paint satellite. Feature-shared composables KEEP.
 **External edge rewritten** (1): `panes/GradientPane.vue:5` →
 `@components/custom/gradient/GradientVisualizer/GradientVisualizer.vue`.
 **Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18 (no drops).
+**Batch-2 residual** (folded into batch 3): `lib/gamut-ink.ts:9` comment path updated to the
+new `perceivedSpacePaint.ts` home (prose, not a shim).
+
+## Batch 3 — mix  (contained feature; 1 external edge)  — LANDED
+
+`MixAnimationCanvas` (external importer: `panes/MixPane.vue`) promoted to a folder owning its
+private animation pipeline (`useMixingAnimation` → `mixStage`, a single-parent consumer chain);
+`useMixingState` (5 consumers incl. `panes/MixPane`) KEEPs feature-shared.
+
+| old path | new path |
+|---|---|
+| `mix/MixAnimationCanvas.vue` | `mix/MixAnimationCanvas/MixAnimationCanvas.vue` |
+| `mix/composables/useMixingAnimation.ts` | `mix/MixAnimationCanvas/composables/useMixingAnimation.ts` |
+| `mix/composables/mixStage.ts` | `mix/MixAnimationCanvas/composables/mixStage.ts` |
+| `mix/composables/useMixingState.ts` | KEEP (feature-shared) |
+| `mix/{MixConfigBar,MixResultDisplay,MixSourceSelector}.vue` | KEEP root |
+
+**External edge rewritten** (1): `panes/MixPane.vue:8` →
+`@components/custom/mix/MixAnimationCanvas/MixAnimationCanvas.vue`.
+**Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18.

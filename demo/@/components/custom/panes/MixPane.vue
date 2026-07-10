@@ -5,7 +5,7 @@ import PaneHeader from "./PaneHeader.vue";
 import MixSourceSelector from "@components/custom/mix/MixSourceSelector.vue";
 import MixConfigBar from "@components/custom/mix/MixConfigBar.vue";
 import MixResultDisplay from "@components/custom/mix/MixResultDisplay.vue";
-import MixAnimationCanvas from "@components/custom/mix/MixAnimationCanvas.vue";
+import MixAnimationCanvas from "@components/custom/mix/MixAnimationCanvas/MixAnimationCanvas.vue";
 import { useMixingState } from "@components/custom/mix/composables/useMixingState";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
