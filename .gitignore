@@ -24,3 +24,6 @@ test-results/
 *-dataurl.txt
 $OUT
 mix-*-snapshot.md
+# crashed-session stderr residue (T hardening G-12: err.log was un-dispositioned
+# scratch; ignore the class so a stray 2>err.log never re-enters the tree)
+*.log
