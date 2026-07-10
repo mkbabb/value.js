@@ -27,8 +27,18 @@ Files kept at `test/` root (pure leaves + meta/cross-cutting shadows of no singl
 module): `math` · `easing` · `easing-export-stability` · `utils` ·
 `color-picker-lifecycle` · `dts-published-surface` · `docs-source-snippets` ·
 `parser-snapshot` (colocated `__snapshots__/`, unchanged) · `refactor-fixes` ·
-`recursion-guard` · `tranche-f` · `tranche-q-1.2.0` · `aurora-motion` (demo) ·
+`recursion-guard` · `tranche-f` · `tranche-q-1.2.0` · `round-trip` · `aurora-motion` (demo) ·
 `gradient-parse` (demo) · `view-accents` (demo).
+
+> **`round-trip` reclassified keep-at-root (post-close §Recovery cure)**: the O-2
+> semantic-idempotence corpus ("the corpus IS the spec") is cross-cutting
+> (stylesheet + value + timeline, not a single module) AND is the named corpus the
+> `test:dist` behavioral gate `proof:round-trip-idempotent` consumes by exact path
+> (C6: `vitest run test/round-trip.test.ts`, `scripts/proof-round-trip-idempotent.mjs:175`).
+> Moving it under `test/parsing/` reddened that HARD gate; `scripts/` is the api
+> lane's regroup surface (§5.2, off the src lane's tree), so the src-owned root cure
+> is to keep the gate corpus at `test/` root beside the other dist-gate/meta shadows —
+> the same class already kept above. The batch-1 move row is struck accordingly.
 
 | Old path | New path |
 |---|---|
@@ -80,7 +90,6 @@ module): `math` · `easing` · `easing-export-stability` · `utils` ·
 | `test/grammar-2026-values.test.ts` | `test/parsing/grammar-2026-values.test.ts` |
 | `test/math-functions.test.ts` | `test/parsing/math-functions.test.ts` |
 | `test/diagnostics-sink.test.ts` | `test/parsing/diagnostics-sink.test.ts` |
-| `test/round-trip.test.ts` | `test/parsing/round-trip.test.ts` |
 | `test/decompose-targeted.test.ts` | `test/transform/decompose-targeted.test.ts` |
 | `test/path-geometry.test.ts` | `test/transform/path-geometry.test.ts` |
 | `test/quantize.test.ts` | `test/quantize/quantize.test.ts` |
