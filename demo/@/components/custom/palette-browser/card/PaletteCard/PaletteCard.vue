@@ -271,7 +271,8 @@ const EMPTY_PALETTE_SWATCH = "#888";
 const kind = computed<PaletteKind>(() => getPaletteKind(props.palette));
 const firstColor = computed(() => props.palette.colors[0]?.css ?? props.cssColor ?? EMPTY_PALETTE_SWATCH);
 
-const { safeCss } = useSafeAccentFn();
+// D6 (T.W3-5): the card IS the rung-2 WELL (Q4) — ink certifies on THAT tier.
+const { safeCss } = useSafeAccentFn("well");
 const safeFirstColor = computed(() => safeCss(firstColor.value));
 const displaySlug = computed(() => props.palette.userSlug ?? props.palette.slug);
 

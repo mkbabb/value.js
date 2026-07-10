@@ -109,7 +109,10 @@ describe("safeAccentColor", () => {
 });
 
 describe("safeAccentCssString (S.W1-6 — the demo-consumed CSS accent surface)", () => {
-    // OKLab L of the app's light/dark surfaces (mirrors useContrastSafeColor.ts).
+    // Historical light/dark PAGE lightnesses — leaf-level probe referents
+    // only. (The demo's BG_LIGHTNESS constants were RETIRED at T.W3-5/D6:
+    // consumers now thread the live surface lightness; the leaf's math is
+    // referent-agnostic, so these stay as representative endpoints.)
     const LIGHT_BG = 0.97;
     const DARK_BG = 0.15;
 

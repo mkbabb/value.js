@@ -233,10 +233,15 @@ onUpdated(() => {
         @apply text-xs font-mono bg-muted rounded;
     }
 
-    /* Inline code */
+    /* Inline code — the markdown accent voice (D6, T.W3-5): `text-primary`
+     * rides the PAGE-certified `--accent-view`, which measured 1.2:1 on the
+     * plate-seated muted chip (the O-18 census); inline code joins the
+     * PLATE-certified `--md-color-accent` the headings already speak — one
+     * accent family, certified for the surface it actually sits on. */
     p > code,
     li > code {
-        @apply text-primary bg-muted rounded px-1 py-0.5;
+        @apply bg-muted rounded px-1 py-0.5;
+        color: var(--md-color-accent, var(--foreground));
     }
 
     /* Blockquotes */
