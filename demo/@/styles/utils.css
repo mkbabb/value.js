@@ -72,6 +72,53 @@
     box-shadow: var(--shadow-cartoon-sm);
 }
 
+/* THE SEATED SEARCH FIELD (T.W3-3 · T-12 — THE REGISTER LAW: fields on paper
+ * wear paper; fields on glass stay glass). glass-ui's `.input-bar` recipe is
+ * dock furniture — the FLOATING chrome rung (80/88%-α glass + blur(13px) +
+ * a 24rem dock cap + a baked mono voice). Seated in a pane BODY it is the one
+ * floating-glass element in a cartoon-grammar column (t-search-tabs §1-3):
+ * over a flat plate the blur has nothing to blur, the dark roast reads darker
+ * than its own plate, and the cap rags the bar 78px short of its siblings at
+ * 1440 AND 768 (t-mobile F-7). This opt-in re-seats the bar on the MATERIAL
+ * LADDER as the Z2 in-plate fixture it is (DESIGN.md § Surfaces):
+ *
+ *   fill    — the ONE rung-2 `--well-bg` tone-step, NO backdrop-blur (RC-3);
+ *   edge    — the drawn `--card-edge` ink hairline (the dashed-well's solid
+ *             sibling — hairline law 4, ONE edge mint);
+ *   stamp   — `--shadow-cartoon-sm`, the chip-scale elevation PaletteCard rides;
+ *   measure — the dock cap dies: a seated field runs its host column (ASK-C);
+ *   voice   — content-class (the `.input-bar-field` rule below).
+ *
+ * INTERIM DEMO SEAT — a consumer opt-in on the producer recipe (unlayered, so
+ * it wins over the `@layer components` recipe by layer order — the exact
+ * mechanism the producer's own `bare` rung proved), NEVER a recipe fork.
+ * BOOKED SWAP (T.W3 §BOOKS "W3-3 interim search seat"): dies onto glass-ui's
+ * P3 seated field-chrome rung — GLASSUI-T-ASKS ASK-D (`variant="seated"`),
+ * with ASK-B (the font seam) + ASK-C (the cap seam) — at the adopt event. */
+.search-seated {
+    background: var(--well-bg);
+    backdrop-filter: none;
+    border: 1.5px solid var(--card-edge);
+    box-shadow: var(--shadow-cartoon-sm);
+    max-width: none;
+}
+
+/* Compose, never replace: the producer's focus ring joins the stamp (the
+ * unlayered base box-shadow above would otherwise silently beat the layered
+ * `.input-bar:focus-within` ring). */
+.search-seated:focus-within {
+    box-shadow: var(--shadow-cartoon-sm), var(--focus-ring-shadow);
+}
+
+/* Voice = CONTENT-CLASS (T-12): a prose search field speaks its plate's text
+ * voice; the producer's baked `--font-mono` (`components.css:235`, ASK-B's
+ * seam target) is a statement about CSS-literal readouts, not prose. Mono
+ * stays an EXPLICIT per-field opt-in (SearchFilterBar's color input keeps it
+ * by class; identifier fields opt back in the same way). */
+.search-seated .input-bar-field {
+    font-family: inherit;
+}
+
 /* The gold ADMIN-identity icon ink (S.W7-1 consume / W7-7 dedup home) — the
  * ONE demo-side gold icon recipe, lifted here because its consumers span
  * components (the Dock.vue wax-seal ink + DockViewSelect's trigger/menu

@@ -43,6 +43,20 @@ const VIEWS = [
     "Gradient",
 ] as const;
 
+/** The per-view SETTLE signal (W3-3 hardening — the O-11 gate-5 vacuity class):
+ *  "a card is visible" is TRUE of the PREVIOUS view across the pane swap, so a
+ *  census could walk a view that never mounted. Each view settles on its OWN
+ *  pane heading (the walk.spec-proven locators) before the census reads. */
+const VIEW_HEADING: Record<(typeof VIEWS)[number], string> = {
+    Home: "About the color spaces", // the About pane heading, mounted at boot
+    Palettes: "My Palettes",
+    Browse: "Browse",
+    Extract: "Extract",
+    Mix: "Mix",
+    Generate: "Generate",
+    Gradient: "Gradient",
+};
+
 /** Resolve the ladder's demo-owned rung tokens in-page (identity referents). */
 async function resolveRungTokens(page: import("@playwright/test").Page) {
     return page.evaluate(() => {
@@ -54,8 +68,10 @@ async function resolveRungTokens(page: import("@playwright/test").Page) {
         const well = getComputedStyle(probe).backgroundColor;
         probe.style.backgroundColor = "var(--stage)";
         const stage = getComputedStyle(probe).backgroundColor;
+        probe.style.backgroundColor = "var(--card-edge)";
+        const cardEdge = getComputedStyle(probe).backgroundColor;
         probe.remove();
-        return { well, stage };
+        return { well, stage, cardEdge };
     });
 }
 
@@ -80,12 +96,52 @@ async function censusView(page: import("@playwright/test").Page) {
                 shadow: cs.boxShadow,
             };
         };
+        // W3-3 · the SEATED SEARCH FIELD (T-12, the register law: fields on
+        // paper wear paper). Membership by identity like every other row —
+        // plus the two seat-specific laws the interim carries: the 24rem dock
+        // cap is DEAD (t-mobile F-7: 78px right-rag at 1440 AND 768) and the
+        // voice is content-class (prose inherits the plate's text voice; mono
+        // is an explicit per-field opt-in only).
+        const searchSeat = (() => {
+            // The pane mounts in BOTH responsive layout slots (the
+            // off-breakpoint copy is display:none) — census the visible seat.
+            const el =
+                Array.from(
+                    main?.querySelectorAll<HTMLElement>(".search-seated") ?? [],
+                ).find((e) => e.getClientRects().length > 0) ?? null;
+            if (!el) return null;
+            const cs = getComputedStyle(el);
+            const field = el.querySelector<HTMLElement>(".input-bar-field");
+            const column = el.parentElement;
+            const colCs = column ? getComputedStyle(column) : null;
+            const columnWidth = column
+                ? column.clientWidth -
+                  parseFloat(colCs!.paddingLeft) -
+                  parseFloat(colCs!.paddingRight)
+                : 0;
+            return {
+                bg: cs.backgroundColor,
+                backdrop: cs.backdropFilter || "none",
+                maxWidth: cs.maxWidth,
+                // The used border-width rounds to device pixels (1.5px
+                // specified → 1px at dpr 1, same as the dashed-well) — the
+                // identity half is the STYLE + the `--card-edge` token color.
+                edgeStyle: cs.borderTopStyle,
+                edgeWidth: parseFloat(cs.borderTopWidth),
+                edgeColor: cs.borderTopColor,
+                stamp: cs.boxShadow !== "none",
+                fieldFont: field ? getComputedStyle(field).fontFamily : "",
+                width: el.getBoundingClientRect().width,
+                columnWidth,
+            };
+        })();
         return {
             cards,
             dashedWell: fixture(".dashed-well"),
             mixPlate: fixture(".mix-plate"),
             perceivedPlate: fixture('[role="img"][aria-label^="Perceived-space"]'),
             paletteCard: fixture('[role="article"].bg-well'),
+            searchSeat,
         };
     });
 }
@@ -93,7 +149,7 @@ async function censusView(page: import("@playwright/test").Page) {
 for (const scheme of ["light", "dark"] as const) {
     test(`O-7 census — every pane a rung-1 PLATE, every named fixture on its rung (${scheme})`, async ({
         page,
-    }) => {
+    }, testInfo) => {
         test.setTimeout(120_000);
         await page.goto("/");
         await expect(
@@ -108,7 +164,16 @@ for (const scheme of ["light", "dark"] as const) {
 
         for (const view of VIEWS) {
             if (view !== "Home") await openView(page, view);
-            // The pane grid re-mounts through the swap; settle on a card.
+            // Settle on THIS view's own pane heading (never just "a card" —
+            // that is true of the previous view across the swap), then on a
+            // card being visible.
+            await expect(
+                page
+                    .getByRole("main", { name: "Color tool panes" })
+                    .getByRole("heading", { name: VIEW_HEADING[view] })
+                    .filter({ visible: true })
+                    .last(),
+            ).toBeVisible();
             await expect(
                 page.locator('main [data-slot="card"]').first(),
             ).toBeVisible();
@@ -160,9 +225,126 @@ for (const scheme of ["light", "dark"] as const) {
                     )
                     .toBe("none");
             }
+
+            // W3-3 · THE O-7 SEAT ROW (T-12): the two user-walkable seats
+            // (Palettes, Browse) MUST wear the seated register; AdminPane is
+            // session-gated and carries the byte-identical one-class stamp
+            // (census A7 discipline — grep-verified at the wave gate).
+            if (view === "Palettes" || view === "Browse") {
+                expect(
+                    census.searchSeat,
+                    `${view} (${scheme}): the search field is not seated`,
+                ).toBeTruthy();
+            }
+            if (census.searchSeat) {
+                const seat = census.searchSeat;
+                // Rung-2 membership by token identity + the no-blur half —
+                // the same paper as the dashed-well beside it.
+                expect
+                    .soft(seat.bg, `${view} (${scheme}): seat off the well token`)
+                    .toBe(tokens.well);
+                expect
+                    .soft(
+                        seat.backdrop,
+                        `${view} (${scheme}): the seat carries backdrop-blur (RC-3)`,
+                    )
+                    .toBe("none");
+                // The drawn ink edge (ONE `--card-edge` hairline family) + the
+                // chip-scale stamp — the elevation PaletteCard rides.
+                expect
+                    .soft(
+                        seat.edgeStyle,
+                        `${view} (${scheme}): the ink edge is gone`,
+                    )
+                    .toBe("solid");
+                expect
+                    .soft(
+                        seat.edgeWidth,
+                        `${view} (${scheme}): the ink edge is invisible`,
+                    )
+                    .toBeGreaterThanOrEqual(1);
+                expect
+                    .soft(
+                        seat.edgeColor,
+                        `${view} (${scheme}): the edge off the card-edge token`,
+                    )
+                    .toBe(tokens.cardEdge);
+                expect
+                    .soft(seat.stamp, `${view} (${scheme}): the cartoon stamp missing`)
+                    .toBe(true);
+                // The 24rem dock cap is DEAD: a seated field runs its host
+                // column (t-mobile F-7's 78px right-rag class).
+                expect
+                    .soft(seat.maxWidth, `${view} (${scheme}): the dock cap survived`)
+                    .toBe("none");
+                expect
+                    .soft(
+                        Math.abs(seat.width - seat.columnWidth),
+                        `${view} (${scheme}): the seat rags short of its column (${seat.width} vs ${seat.columnWidth})`,
+                    )
+                    .toBeLessThanOrEqual(1);
+                // Voice = content-class: prose speaks the plate's text voice;
+                // mono is opt-in only (the baked `--font-mono` is dead here).
+                expect
+                    .soft(
+                        seat.fieldFont,
+                        `${view} (${scheme}): the prose field wears the terminal voice`,
+                    )
+                    .not.toMatch(/fira|monospace/i);
+            }
+
+            // The W3-3 gate's judged-beside frame: seat + dashed-well + pane
+            // card in ONE capture, per scheme (the eye-judgment record).
+            if (view === "Palettes") {
+                await testInfo.attach(`o7-seat-beside-well-${scheme}`, {
+                    body: await page.screenshot(),
+                    contentType: "image/png",
+                });
+            }
         }
     });
 }
+
+test("O-7 seat row · t-mobile F-7 — the 768 frame: the cap class stays dead where it bit (captures attached)", async ({
+    page,
+}, testInfo) => {
+    test.setTimeout(60_000);
+    await page.setViewportSize({ width: 768, height: 1024 });
+    await page.goto("/");
+    await expect(
+        page.getByRole("main", { name: "Color tool panes" }),
+    ).toBeVisible();
+    await openView(page, "Palettes");
+    await expect(
+        page
+            .getByRole("main", { name: "Color tool panes" })
+            .getByRole("heading", { name: "My Palettes" })
+            .filter({ visible: true })
+            .last(),
+    ).toBeVisible();
+    await expect(
+        page.locator("main .search-seated").filter({ visible: true }).last(),
+    ).toBeVisible();
+
+    for (const scheme of ["light", "dark"] as const) {
+        await page.evaluate(
+            (s) => document.documentElement.classList.toggle("dark", s === "dark"),
+            scheme,
+        );
+        const census = await censusView(page);
+        const seat = census.searchSeat;
+        expect(seat, `768 (${scheme}): the search field is not seated`).toBeTruthy();
+        expect(
+            Math.abs(seat!.width - seat!.columnWidth),
+            `768 (${scheme}): the F-7 right-rag reproduced (${seat!.width} vs ${seat!.columnWidth})`,
+        ).toBeLessThanOrEqual(1);
+        // The judged-beside frame: seat + dashed-well + pane card in-frame.
+        await testInfo.attach(`o7-seat-768-${scheme}`, {
+            body: await page.screenshot(),
+            contentType: "image/png",
+        });
+    }
+});
 
 test("O-7 · t-mobile F-8 — the 390 frame: membership holds at the phone band (captures attached)", async ({
     page,
