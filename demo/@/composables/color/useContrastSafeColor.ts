@@ -1,5 +1,5 @@
 import { computed, type ComputedRef } from "vue";
-import { useDark } from "@vueuse/core";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { safeAccentCssString, needsContrastAdjustment } from "@mkbabb/value.js/color";
 import { cssToRawColor } from "@lib/color-utils";
 
@@ -53,7 +53,7 @@ function guardedAccentCss(css: string, bgL: number): string {
  * accent color for text, icons, or borders (not for background fills).
  */
 export function useContrastSafeColor(cssColorOpaque: ComputedRef<string>) {
-    const isDark = useDark({ disableTransition: false });
+    const { isDark } = useGlobalDark();
 
     const safeAccentCss = computed(() => {
         const bgL = isDark.value ? BG_LIGHTNESS_DARK : BG_LIGHTNESS_LIGHT;
@@ -74,7 +74,7 @@ export function useContrastSafeColor(cssColorOpaque: ComputedRef<string>) {
  * Use this in components that display arbitrary palette colors as text/borders.
  */
 export function useSafeAccentFn() {
-    const isDark = useDark({ disableTransition: false });
+    const { isDark } = useGlobalDark();
 
     function safeCss(css: string): string {
         const bgL = isDark.value ? BG_LIGHTNESS_DARK : BG_LIGHTNESS_LIGHT;

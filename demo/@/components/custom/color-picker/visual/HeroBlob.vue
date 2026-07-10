@@ -48,7 +48,7 @@ import { GooBlob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/goo-blob";
 import type { BlobConfig } from "@mkbabb/glass-ui/goo-blob";
 import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import { COLOR_MODEL_KEY } from "../keys";
+import { COLOR_MODEL_KEY } from "@composables/color/keys";
 
 // Thin consumer of glass-ui's GooBlob (the demo half of W6-4 — consume/config/
 // placement ONLY; the engine is the producer's, genesis brief §3.0). The

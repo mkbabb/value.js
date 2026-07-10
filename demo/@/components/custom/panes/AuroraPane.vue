@@ -29,7 +29,7 @@ import type {
     AuroraMotionAtom,
     AuroraZoneArrangement,
 } from "@mkbabb/glass-ui/aurora";
-import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "./keys";
+import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@composables/color/aurora-atoms";
 import ConfigSliderPane from "./ConfigSliderPane.vue";
 import type { SliderSection } from "./ConfigSliderPane.vue";
 

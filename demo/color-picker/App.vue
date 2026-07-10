@@ -128,27 +128,28 @@ import { computed, onMounted, provide, ref, shallowRef, useTemplateRef } from "v
 
 import type { ColorModel, EditTarget } from "@components/custom/color-picker";
 import { ColorPicker } from "@components/custom/color-picker";
-import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@composables/color/keys";
 
 import { Dock } from "@components/custom/dock";
-import MigratePalettesDialog from "@components/custom/palette-browser/MigratePalettesDialog.vue";
-import DevMisconfigBanner from "@components/custom/palette-browser/DevMisconfigBanner.vue";
+// PI-6: DIRECT imports (not via the dialog/status barrels) keep the eager index.js chunk from pulling the lazy sibling dialogs' side-effecting <style>.
+import MigratePalettesDialog from "@components/custom/palette-browser/dialog/MigratePalettesDialog.vue";
+import DevMisconfigBanner from "@components/custom/palette-browser/status/DevMisconfigBanner.vue";
 import PaneSlot from "@components/custom/panes/PaneSlot.vue";
 
 import { defaultColorModel } from "@components/custom/color-picker";
-import { useCustomColorNames } from "@components/custom/color-picker/composables/useCustomColorNames";
-import { useColorUrl } from "@components/custom/color-picker/composables/useColorUrl";
+import { useCustomColorNames } from "@composables/color/useCustomColorNames";
+import { useColorUrl } from "@composables/color/useColorUrl";
 
 import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { useColorPipeline } from "@composables/color/useColorPipeline";
 import { usePaneRouter } from "@composables/usePaneRouter";
-import { usePaletteManagerWiring } from "@composables/palette/usePaletteManagerWiring";
+import { usePaletteManagerWiring } from "./composables/usePaletteManagerWiring";
 import { provideApiClient } from "@lib/palette/api/useApiClient";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import { useAtmosphereBoot } from "@composables/color/useAtmosphereBoot";
-import { useDevicePixelSnap } from "@composables/useDevicePixelSnap";
+import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
+import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 import "@styles/utils.css";
 import "@styles/style.css";

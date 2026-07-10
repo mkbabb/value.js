@@ -11,7 +11,7 @@ import { Slider } from "@components/ui/slider";
 import { Button } from "@components/ui/button";
 import { RefreshCw } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
+import { PaletteCard } from "@components/custom/palette-browser/card";
 import type { Palette } from "@lib/palette/types";
 import {
     useColorGeneration,

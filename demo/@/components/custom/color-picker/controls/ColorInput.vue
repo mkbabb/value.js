@@ -123,7 +123,7 @@ import ParseEchoReadout from "./ParseEchoReadout.vue";
 import { proposeColorName } from "@lib/palette/api";
 import { useSession } from "@composables/auth/useSession";
 import type { EditTarget } from "..";
-import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../keys";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
 
 const { proposeMode } = defineProps<{
     editTarget: EditTarget | null;

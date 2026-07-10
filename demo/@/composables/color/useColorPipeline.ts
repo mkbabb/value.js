@@ -18,9 +18,9 @@ import {
     CSS_NATIVE_SPACES,
     resolveColorSpace,
 } from "@components/custom/color-picker";
-import { useColorParsing } from "@components/custom/color-picker/composables/useColorParsing";
-import { useSliderGradients } from "@components/custom/color-picker/composables/useSliderGradients";
-import { useColorNameResolution } from "@components/custom/color-picker/composables/useColorNameResolution";
+import { useColorParsing } from "./useColorParsing";
+import { useSliderGradients } from "./useSliderGradients";
+import { useColorNameResolution } from "./useColorNameResolution";
 import { useColorPersistence } from "./useColorPersistence";
 
 const DIGITS = 2;

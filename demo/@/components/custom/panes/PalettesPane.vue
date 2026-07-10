@@ -102,10 +102,12 @@ import { Badge } from "@components/ui/badge";
 import { Trash2 } from "@lucide/vue";
 import { useSortable } from "@vueuse/integrations/useSortable";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
-import CurrentPaletteEditor from "@components/custom/palette-browser/CurrentPaletteEditor.vue";
-import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
-import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
+import {
+    CurrentPaletteEditor,
+    PaletteCard,
+    PaletteCardGrid,
+} from "@components/custom/palette-browser/card";
 import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";

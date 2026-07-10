@@ -24,7 +24,7 @@ import { OKLCHColor, RGBColor } from "@mkbabb/value.js/color";
 import { oklch2xyz } from "@mkbabb/value.js/color";
 import { xyz2rgb } from "@mkbabb/value.js/color";
 import { gamutMapSRGB } from "@mkbabb/value.js/color";
-import { mulberry32 } from "@composables/prng";
+import { mulberry32 } from "./prng";
 
 // ── Preset definitions ──
 

@@ -21,11 +21,11 @@ import {
     VIEW_ACCENT_MIN_CHROMA,
     resolveSealInk,
     resolveViewAccent,
-} from "@lib/view-accents";
+} from "../demo/color-picker/composables/boot/view-accents";
 import {
     PRIMARY_VIEW_IDS,
     PRIMARY_VIEW_SHIFTS,
-} from "@composables/color/useViewAccents";
+} from "../demo/color-picker/composables/boot/useViewAccents";
 import {
     BG_LIGHTNESS_DARK,
     BG_LIGHTNESS_LIGHT,

@@ -163,14 +163,13 @@ import { Aperture } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import type { ColorSpace } from "@mkbabb/value.js/color";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
 import { useExtractSession } from "./composables/useExtractSession";
 
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
 import ImageEyedropper from "./ImageEyedropper/ImageEyedropper.vue";
-import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
-import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
+import { PaletteCard, PaletteCardSkeleton } from "@components/custom/palette-browser/card";
 
 type DisplayColorSpace = ColorSpace | "hex";
 
