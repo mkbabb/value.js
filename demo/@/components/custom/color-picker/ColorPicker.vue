@@ -376,25 +376,28 @@ onUnmounted(() => {
     }
 }
 
-/* R.W3 Lane E / E1 — beat one: the plate placement (treatment §MOTION-1).
- * The specimen plate is PLACED — it settles in with a slight rotation and
- * the cartoon shadow CASTS IN as it lands (the editorial signature in
- * motion). Reuses --spring-snappy + --shadow-cartoon; PRM-gated whole. */
+/* R.W3 Lane E / E1 — beat one: the plate placement (treatment §MOTION-1),
+ * RE-CUT at T.W2-3 under THE LCP REVEAL-ONLY LAW (PI-2/M-13): this card IS
+ * the page's LCP element (both schemes — the O-24 before-record), so its
+ * land is SHADOW ONLY — opacity pinned 1 from B0, transform none (the
+ * O-24 breach was exactly this keyframe's `from { opacity: 0 }`). The
+ * MOTION half of the land now lives at the shell: the pane-slot `appear`
+ * grammar (App.vue `.overture-appear-*`, transform-only) carries the
+ * translateY + rotate settle for EVERY pane plate — one family, and this
+ * card keeps its editorial signature: the cartoon shadow CASTS IN as the
+ * slot lands (same clock + stagger via the shell tokens). PRM-gated. */
 @media (prefers-reduced-motion: no-preference) {
     @keyframes plate-land {
         from {
-            opacity: 0;
-            transform: translateY(-12px) rotate(-0.6deg);
             box-shadow: 0 0 0 0 transparent;
         }
         to {
-            opacity: 1;
-            transform: none;
             box-shadow: var(--shadow-cartoon);
         }
     }
     .pane-shell > :first-child {
-        animation: plate-land 440ms var(--spring-snappy) both;
+        animation: plate-land var(--overture-plate-land, 440ms)
+            var(--spring-snappy) var(--overture-appear-delay, 0ms) both;
     }
 }
 </style>

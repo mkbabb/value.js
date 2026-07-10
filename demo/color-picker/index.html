@@ -8,18 +8,66 @@
         <title>Color Picker</title>
         <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 
-        <!-- Fraunces — the atlas/display voice's SINGLE brand source (R.W3 Lane A:
-             the glass-ui fonts corpus carries Jakarta + Fira as real faces via
-             the style.css import; it has no Fraunces, so the display face loads
-             here). Preconnect + non-blocking load (avoids render-blocking
-             @import). The former Fira Code link died with the corpus import —
-             one source per face. -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" media="print" onload="this.media='all'" />
-        <noscript>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" />
-        </noscript>
+        <!-- W2-3 (T.W2 · LS-6): Fraunces SELF-HOSTED — the display voice is
+             struck from the network timeline (the Google-Fonts actor RETIRES;
+             zero cross-origin font requests). Variable woff2 (opsz 9..144,
+             wght 100..900), latin + latin-ext, normal + italic, served from
+             ./fonts/. The latin-normal face — the title/hero glyphs — is
+             PRELOADED so it arrives with the critical resources.
+
+             THE BOUNDED INK GATE (D3 [AMENDED-AT-HARDENING M-12]):
+             `font-display: fallback` — a ~100ms UA block period (inside the
+             ≤300ms cap; ink opens on load-or-block-end), then the
+             METRIC-COMPATIBLE fallback below commits; the eventual swap is
+             reflow-free because "Fraunces Fallback" is size-adjust-tuned
+             Georgia (measured against the real face: size-adjust 89.26%,
+             ascent 109.79%, descent 29.13%) — never an UNTUNED fallback
+             commit, never a swap-reflow. font-display:fallback's no-late-swap
+             arm is a non-case for a preloaded same-origin face (recorded). -->
+        <link rel="preload" href="./fonts/fraunces-latin-normal.woff2" as="font" type="font/woff2" crossorigin />
+        <style>
+            @font-face {
+                font-family: "Fraunces";
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: fallback;
+                src: url(./fonts/fraunces-latin-normal.woff2) format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "Fraunces";
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: fallback;
+                src: url(./fonts/fraunces-latin-ext-normal.woff2) format("woff2");
+                unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            }
+            @font-face {
+                font-family: "Fraunces";
+                font-style: italic;
+                font-weight: 100 900;
+                font-display: fallback;
+                src: url(./fonts/fraunces-latin-italic.woff2) format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "Fraunces";
+                font-style: italic;
+                font-weight: 100 900;
+                font-display: fallback;
+                src: url(./fonts/fraunces-latin-ext-italic.woff2) format("woff2");
+                unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            }
+            /* The metric-compatible fallback (the ink-gate's landing face). */
+            @font-face {
+                font-family: "Fraunces Fallback";
+                src: local("Georgia");
+                size-adjust: 89.26%;
+                ascent-override: 109.79%;
+                descent-override: 29.13%;
+                line-gap-override: 0%;
+            }
+        </style>
 
         <!-- W2-2 (T.W2): the per-stop ground properties, registered PRE-PAINT
              so the B0 ground can transition. Each is a `<color>` — registered
@@ -83,6 +131,8 @@
              Mirrors boot/ground.ts (the record of truth) — keep in lockstep. -->
         <script>
             (function() {
+                // B0 — the ground beat (the overture's origin mark; O-4 reads it).
+                if (window.performance && performance.mark) performance.mark('overture:b0');
                 var s = document.documentElement.style;
                 var stored = localStorage.getItem('vueuse-color-scheme');
                 var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;

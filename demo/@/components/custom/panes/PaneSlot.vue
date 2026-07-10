@@ -31,6 +31,8 @@ const {
     transitionName,
     max = 5,
     onMount,
+    appear = false,
+    onAppeared,
 } = defineProps<{
     /** The resolved async component for this slot. */
     component: Component | null | undefined;
@@ -48,6 +50,16 @@ const {
      * without relying on template ref auto-unwrapping.
      */
     onMount?: (instance: any) => void;
+    /**
+     * W2-3 (T.W2) — the pane-slot APPEAR grammar (LS-4): first-mount (and a
+     * late async chunk's arrival) lands through the shell's plate-land
+     * family via the dedicated `.overture-appear-*` classes (App.vue owns
+     * them; transform-only — the LCP reveal-only law). View swaps keep the
+     * vj-enter family untouched; the two grammars never share classes.
+     */
+    appear?: boolean;
+    /** After-appear hook — the overture's plate-land completion report. */
+    onAppeared?: (el: Element) => void;
 }>();
 
 // W3-4 (S.W3 · pane-swap payload): the rendered triplet TRAILS the incoming
@@ -97,7 +109,14 @@ onBeforeUnmount(() => cancelAnimationFrame(raf));
 </script>
 
 <template>
-    <Transition :name="transitionName">
+    <Transition
+        :name="transitionName"
+        :appear="appear"
+        appear-from-class="overture-appear-from"
+        appear-active-class="overture-appear-active"
+        appear-to-class="overture-appear-to"
+        @after-appear="(el: Element) => onAppeared?.(el)"
+    >
         <KeepAlive :max="max">
             <component
                 :is="liveComponent"

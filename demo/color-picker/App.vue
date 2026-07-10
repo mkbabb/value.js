@@ -9,14 +9,32 @@
         <canvas
             ref="atmosphereCanvas"
             class="atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none"
-            :class="auroraArrived && 'atmosphere-canvas--arrived'"
+            :class="overture.b2.value && 'atmosphere-canvas--arrived'"
             :style="auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined"
             aria-hidden="true"
             data-testid="atmosphere-canvas"
             data-glass-field-canvas
         />
-        <!-- W5-a11y: nav landmark for the dock -->
-        <nav aria-label="Application navigation">
+        <!-- W5-a11y: nav landmark for the dock.
+             W2-3 (T.W2 · B1 dock voice): the dock arrives AS the pill — the
+             demo VEILS the dock inside its own B1 slot while the producer's
+             mount nub→pill morph runs, and reveals through the plate-land
+             family on the morph's transitionend (a RECORDED BOOKED-INTERIM;
+             the sanctioned mechanism is the P7 arrive-expanded ask, M-14 —
+             this veil dies the day it ships). The reveal's animationend is
+             B2's second predicate (noteDockLanded). State-gated, never
+             timed: a no-morph mount (the P7 future) reveals via the
+             getAnimations emptiness check. -->
+        <nav
+            ref="dockNav"
+            aria-label="Application navigation"
+            :class="[
+                !dockRevealed && 'overture-dock-veiled',
+                dockRevealed && !prmInstant && 'overture-dock-land',
+            ]"
+            @transitionend.capture="onDockMorphSettled"
+            @animationend="onDockLandEnd"
+        >
             <Dock
                 :link-copied="linkCopied"
                 :edit-target="activeEditTarget"
@@ -52,8 +70,10 @@
 
             <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
                  makes it a size container so in-card `cqi` sizing resolves on
-                 every slot (R.W3 Lane A / A4). -->
-            <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
+                 every slot (R.W3 Lane A / A4). W2-3: the slot speaks the
+                 `appear` plate-land grammar (the single plate = the left
+                 voice, +40ms). -->
+            <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch" style="--overture-appear-delay: var(--overture-left-delay)">
                 <!-- W3-4 (S.W3): KeepAlive :max right-sized to the 9 non-admin
                      views. The mobile slot cycles both left+right panes, so it
                      caches the common (non-admin) surface without evicting a
@@ -65,12 +85,14 @@
                     :component-props="mobile.props"
                     :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
                     :max="9"
+                    appear
+                    :on-appeared="(el: Element) => overture.noteLeftPlateSettled(el)"
                 />
             </div>
 
             <template v-else>
-                <!-- Desktop: left pane (lg+) -->
-                <div class="pane-wrapper pane-wrapper--left hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
+                <!-- Desktop: left pane (lg+) — the B3 plate (+40ms). -->
+                <div class="pane-wrapper pane-wrapper--left hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center" style="--overture-appear-delay: var(--overture-left-delay)">
                     <!-- W3-4 (S.W3): :max = the 6 distinct non-admin LEFT panes
                          (color-picker · browse · extract · atmosphere · generate
                          · gradient) — already right-sized; admin left panes fall
@@ -82,13 +104,20 @@
                         :on-mount="onDesktopLeftMount"
                         :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
                         :max="6"
+                        appear
+                        :on-appeared="(el: Element) => overture.noteLeftPlateSettled(el)"
                     />
                 </div>
 
-                <!-- Desktop: right pane (lg+) — always in DOM to preserve KeepAlive scroll position -->
+                <!-- Desktop: right pane (lg+) — always in DOM to preserve
+                     KeepAlive scroll position. W2-3: the right plate (+120ms)
+                     arrives through the SAME appear grammar — the About pop
+                     dies (LS-4); a late chunk materializes through the same
+                     land on resolution (work defers, appearance composes). -->
                 <div
                     class="pane-wrapper pane-wrapper--right hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
                     :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
+                    style="--overture-appear-delay: var(--overture-right-delay)"
                 >
                     <!-- W3-4 (S.W3): :max = the 4 distinct non-admin RIGHT panes
                          (about · palettes · mix · blob) — every admin view uses
@@ -101,6 +130,8 @@
                         :on-mount="onDesktopRightMount"
                         :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
                         :max="4"
+                        appear
+                        :on-appeared="() => overture.noteRightPlateSettled()"
                     />
                 </div>
             </template>
@@ -149,6 +180,7 @@ import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
 import { resolveHydratedBootModel } from "./composables/boot/hydrate";
+import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 import "@styles/utils.css";
@@ -235,6 +267,71 @@ const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
     cssColorOpaqueFrame,
     currentConfig,
 );
+
+// --- W2-3 (T.W2) — THE OVERTURE: the named beat-gating DAG (B0–B4) ---
+// One choreography, ordered by GATING (see useOverture's header). B2's field
+// derive-in binds the canvas class above; the slots' `appear` grammar + the
+// dock veil below report the plate-land events; ColorPicker consumes B4 via
+// OVERTURE_KEY for the blob's emerge beat (W2-4).
+const overture = useOverture(auroraArrived);
+provide(OVERTURE_KEY, overture);
+
+// The dock veil (the M-14 booked-interim; template note above). PRM: instant
+// states — no veil, no land, the dock is simply present.
+const prmInstant =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const dockNav = useTemplateRef<HTMLElement>("dockNav");
+const dockRevealed = ref(prmInstant);
+if (prmInstant) overture.noteDockLanded();
+
+function onDockMorphSettled(e: TransitionEvent) {
+    if (dockRevealed.value) return;
+    // Only the producer dock's own morph counts (any property of the
+    // .glass-dock subtree — the nub→pill geometry transition).
+    if ((e.target as Element | null)?.closest?.(".glass-dock")) {
+        dockRevealed.value = true;
+    }
+}
+function onDockLandEnd(e: AnimationEvent) {
+    if (e.animationName.includes("overture-plate-land")) {
+        overture.noteDockLanded();
+    }
+}
+onMounted(() => {
+    if (dockRevealed.value) return;
+    // State-gated no-morph fallback (the P7 arrive-expanded future): after
+    // the mount's styles settle (two frames — a state boundary, not a
+    // timeout), if the producer dock is NOT morphing, reveal immediately.
+    requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+            if (dockRevealed.value) return;
+            const dock = dockNav.value?.querySelector(".glass-dock");
+            // FINITE animations only — the dock subtree carries standing
+            // infinite loops (the gl-fade shimmer pair, probed live); waiting
+            // on those would veil the dock forever. The mount morph is a
+            // finite transition/animation.
+            const running = (dock?.getAnimations({ subtree: true }) ?? []).filter(
+                (a) => {
+                    const t = a.effect?.getTiming();
+                    return t ? t.iterations !== Infinity : true;
+                },
+            );
+            if (!running.length) {
+                dockRevealed.value = true;
+                return;
+            }
+            // A morph IS running — gate the reveal on its own completion
+            // (covers animation-driven morphs the transitionend capture
+            // cannot see; first signal wins via the guard).
+            void Promise.allSettled(running.map((a) => a.finished)).then(
+                () => {
+                    dockRevealed.value = true;
+                },
+            );
+        }),
+    );
+});
 
 // X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px), now guarded
 // by the aspect law (R.W3 Lane A / A4): a portrait tablet ≥ 1024px wide runs
@@ -370,6 +467,77 @@ onMounted(() => { loadCustomColorNames(); });
 </style>
 
 <style>
+/* ── W2-3 (T.W2) · THE OVERTURE — the shell token block + the arrival
+ * grammar. ONE clock family: every offset below is a token on this shell
+ * timeline, so DevTools shows ONE clock (t-load-sync §3). The beats OPEN by
+ * gating (useOverture); these tokens only voice the staggers/durations. ── */
+:root {
+    /* B1 · the plate-land family (440ms --spring-snappy; staggers per the
+     * beat sheet: dock +0 · left +40ms · right +120ms). */
+    --overture-plate-land: 440ms;
+    --overture-dock-delay: 0ms;
+    --overture-left-delay: 40ms;
+    --overture-right-delay: 120ms;
+    /* B2 · the field derive-in (0.9s decelerate — t-aurora-boot §2.1). */
+    --overture-derive-in: 0.9s;
+}
+
+/* The pane-slot APPEAR grammar (LS-4 — one arrival grammar, three voices):
+ * first-mount and late-chunk arrival speak the plate-land family. TRANSFORM
+ * ONLY — opacity pinned 1 (the LCP REVEAL-ONLY LAW, PI-2/M-13: the left
+ * slot hosts the LCP-owning picker plate; its paint chain never carries an
+ * opacity gate). The travel is the plate-land settle (translateY + the
+ * cartoon half-degree), NOT the vj-enter off-canvas slide — arrival is a
+ * landing, not a swap. */
+.overture-appear-from {
+    transform: translateY(-12px) rotate(-0.6deg);
+}
+.overture-appear-active {
+    transition: transform var(--overture-plate-land) var(--spring-snappy);
+    transition-delay: var(--overture-appear-delay, 0ms);
+}
+.overture-appear-to {
+    transform: none;
+}
+
+/* The dock's B1 voice (the M-14 booked-interim): veiled while the producer
+ * nub→pill mount-morph runs (the morph is no longer a visible actor), then
+ * lands AS the pill through the same family at +0ms. The dock is not the
+ * LCP owner, so its land may carry opacity (it was veiled — the reveal IS
+ * the arrival). */
+.overture-dock-veiled {
+    visibility: hidden;
+}
+@keyframes overture-plate-land {
+    from {
+        opacity: 0;
+        transform: translateY(-12px) rotate(-0.6deg);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+.overture-dock-land {
+    animation: overture-plate-land var(--overture-plate-land)
+        var(--spring-snappy) var(--overture-dock-delay) both;
+}
+
+/* PRM — instant states (D3 law 5, kept): the overture collapses; every
+ * surface is simply present in its settled pose. */
+@media (prefers-reduced-motion: reduce) {
+    .overture-appear-from,
+    .overture-appear-to {
+        transform: none;
+    }
+    .overture-appear-active {
+        transition: none;
+    }
+    .overture-dock-land {
+        animation: none;
+    }
+}
+
 /* ── Pane swap — the enter/exit family (R.W4 Lane B / B1) ──
  * The former pane-slide/pane-left/pane-right trio collapsed onto `vj-enter`
  * (animations.css); these DIRECT-CHILD geometry overrides carry only the

@@ -185,10 +185,13 @@
      * every `.font-display` / `.text-display-*` rung — glass-ui-compiled and
      * demo-authored alike — resolves Fraunces BY CONSTRUCTION (never via the
      * dead `--font-display` runtime var, never via `!important` overrides).
-     * Fraunces' single brand source is the Google Fonts <link> in
-     * demo/color-picker/index.html (the glass-ui corpus carries no Fraunces);
-     * Jakarta + Fira load as real faces from the corpus import above. */
-    --font-stack-display: "Fraunces", serif;
+     * Fraunces' single brand source is the SELF-HOSTED @font-face set in
+     * demo/color-picker/index.html (W2-3/LS-6 — the Google-Fonts network
+     * actor retired; the glass-ui corpus carries no Fraunces); Jakarta +
+     * Fira load as real faces from the corpus import above. "Fraunces
+     * Fallback" is the size-adjust-tuned Georgia (the bounded ink gate's
+     * reflow-free landing face). */
+    --font-stack-display: "Fraunces", "Fraunces Fallback", serif;
 
     /* ── The accent axis (R.W3 Lane A / A2 — the app's chromatic voice) ──
      * `--accent-live` is the contrast-guarded LIVE picked color, written by
