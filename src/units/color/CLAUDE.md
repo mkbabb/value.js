@@ -1,6 +1,6 @@
 # src/units/color/
 
-15 color spaces, conversion via XYZ hub, gamut mapping, normalization, filter solving.
+17 color spaces, conversion via XYZ hub, gamut mapping, normalization, filter solving.
 
 ## Files
 
@@ -12,20 +12,21 @@ color/
 ├── base.ts         # Color<T> base class + ColorChannel<T> phantom brand +
 │                     ch<T>/channelOf/setChannel typed accessors (W1-8 leaf split;
 │                     spaces.ts extends this — must stay a leaf, no dispatch import)
-├── spaces.ts       # the 15 space subclasses + ColorSpaceMap<T> (W1-8 split):
+├── spaces.ts       # the 17 space subclasses + ColorSpaceMap<T> (W1-8 split):
 │                     RGBColor, HSLColor, HSVColor, HWBColor, LABColor, LCHColor,
 │                     OKLABColor, OKLCHColor, XYZColor, KelvinColor,
 │                     LinearSRGBColor, DisplayP3Color, AdobeRGBColor,
-│                     ProPhotoRGBColor, Rec2020Color
+│                     ProPhotoRGBColor, Rec2020Color, ICtCpColor, JzazbzColor
+│                     (ICtCp/Jzazbz: S.W1 3.1.0 Q9 HDR-space promotion, W1-6/W1-11)
 ├── serialize.ts    # apply-path serializers (W1-8 split): formatNumber/formatColor,
 │                     toAnimationString helpers (B1 zero-alloc + B2 output-space
 │                     emit); color2/gamutMap late-bound (registered by dispatch)
 ├── constants.ts    # ranges, matrices, white points, named colors
-│                     COLOR_SPACE_RANGES (per-component min/max for all 15 spaces)
+│                     COLOR_SPACE_RANGES (per-component min/max for all 17 spaces)
 │                     COLOR_SPACE_DENORM_UNITS (default output units per space)
 │                     WHITE_POINT_D65, WHITE_POINT_D50 (Vec3)
 │                     Chromatic adaptation matrices (D65↔D50, Bradford)
-│                     XYZ↔LMS, LMS↔OKLab, RGB↔XYZ matrices (all 15 spaces)
+│                     XYZ↔LMS, LMS↔OKLab, RGB↔XYZ matrices (the RGB + OKLab families)
 │                     GAMUT_SECTOR_COEFFICIENTS (Red/Green/Blue polynomial k0-k4)
 ├── color-names.ts  # COLOR_NAMES (147 CSS named + 5 custom colors) data table
 │                     (S.W1 W1-8 lift out of constants.ts) + the runtime custom
@@ -34,7 +35,7 @@ color/
 │                     Vec3 = [number, number, number]
 │                     Mat3 = 9-element tuple (ROW-MAJOR)
 │                     transformMat3, transposeMat3, multiplyMat3, invertMat3
-├── conversions/    # 8 focused {from}2{to} modules + index barrel (G.W1 Lane B)
+├── conversions/    # 10 focused {from}2{to} modules + index barrel (G.W1 Lane B)
 │   ├── hex.ts          # hex parse + serialize
 │   ├── kelvin.ts       # temperature → RGB approximation
 │   ├── cylindrical.ts  # HSL/HSV/HWB/LCH/OKLCH cluster (hsl2rgb closed-form)
@@ -42,6 +43,8 @@ color/
 │   ├── oklab.ts        # OKLab ↔ XYZ
 │   ├── transfer.ts     # sRGB/AdobeRGB/ProPhoto/Rec2020 transfer + gamma helpers
 │   ├── xyz-extended.ts # XYZ-D50 / D65 / RGB-linear (RGB↔XYZ matrices)
+│   ├── ictcp.ts        # ICtCp ↔ XYZ (BT.2100 LMS + PQ; S.W1 3.1.0)
+│   ├── jzazbz.ts       # Jzazbz ↔ XYZ (PQ-variant transfer; S.W1 3.1.0)
 │   ├── direct.ts       # DIRECT_PATHS perf-critical chains (OKLab↔LMS↔linear-sRGB)
 │   └── index.ts        # aggregate barrel re-exporting all conversion functions
 ├── dispatch.ts     # generic conversion dispatch core
@@ -103,6 +106,8 @@ color/
 | a98-rgb | AdobeRGBColor | r, g, b | D65 | [0,1] |
 | prophoto-rgb | ProPhotoRGBColor | r, g, b | D50 | [0,1] |
 | rec2020 | Rec2020Color | r, g, b | D65 | [0,1] |
+| ictcp | ICtCpColor | i, ct, cp | D65 (BT.2100) | i:[0,1], ct/cp:[-0.5,0.5] |
+| jzazbz | JzazbzColor | jz, az, bz | D65 | jz:[0,0.222], az/bz:[-0.5,0.5] |
 
 ## Conversion architecture
 
