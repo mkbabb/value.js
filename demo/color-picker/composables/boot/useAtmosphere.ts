@@ -60,6 +60,23 @@ export function useAtmosphere(
     const auroraAtoms = reactive<AuroraAtoms>(structuredClone(DEFAULT_AURORA_ATOMS));
     provide(AURORA_ATOMS_KEY, auroraAtoms);
 
+    // --- W2-1 (T.W2) — the WRITER-ORDER half of hydration-before-derivation:
+    // the seed lands in the atoms BEFORE any derived sink registers below, so
+    // the boot-material sink's FIRST write (immediate watch) is already the
+    // hydrated seed's material. Without this, the sink's immediate fire reads
+    // the DEFAULT_AURORA_ATOMS palette for one synchronous beat and writes a
+    // default-material token the pre-flush re-fire then corrects — the F-3
+    // latent-flash mechanism, one paint yield from visible. App.vue hydrates
+    // the model before construction (boot/hydrate), so `atmosphereColor` here
+    // is the true seed at setup; this line makes the ORDER structural rather
+    // than flush-timing-dependent (E-3: a transposition, not a flush patch).
+    try {
+        deriveAurora(atmosphereColor.value); // throws iff un-parseable
+        auroraAtoms.seed = atmosphereColor.value;
+    } catch {
+        /* un-parseable seed — the atoms keep the default (the seed watch guards) */
+    }
+
     // Adaptive substrate (glass-ui's `resolveRenderMode("auto")`): on a
     // low-power or SOFTWARE-WebGL device (SwiftShader / llvmpipe / MS Basic
     // Render — the GPU-blocklisted path) this resolves to `"css"`, so

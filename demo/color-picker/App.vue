@@ -136,7 +136,6 @@ import MigratePalettesDialog from "@components/custom/palette-browser/dialog/Mig
 import DevMisconfigBanner from "@components/custom/palette-browser/status/DevMisconfigBanner.vue";
 import PaneSlot from "@components/custom/panes/PaneSlot.vue";
 
-import { defaultColorModel } from "@components/custom/color-picker";
 import { useCustomColorNames } from "@composables/color/useCustomColorNames";
 import { useColorUrl } from "@composables/color/useColorUrl";
 
@@ -149,6 +148,7 @@ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
+import { resolveHydratedBootModel } from "./composables/boot/hydrate";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 import "@styles/utils.css";
@@ -166,7 +166,18 @@ provideApiClient();
 // --- Template refs ---
 const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
-const model = shallowRef<ColorModel>(defaultColorModel);
+
+// --- W2-1 (T.W2) — HYDRATION BEFORE DERIVATION, the ordering LAW ---
+// The seed resolves FIRST (URL hash → storage → default, pure + synchronous),
+// so the model ref — and every derivation graph constructed below (the
+// pipeline's rAF-coalesced frame ref, the atmosphere/accent token sinks) —
+// is BORN carrying the hydrated color. Nothing on screen ever paints the
+// default's color unless the default IS the seed (t-load-sync LS-2; kills
+// t-aurora-boot F-1's demo half + F-3's latent pink flash structurally).
+// useColorUrl/restoreFromStorage below keep the LIVE sync + savedColors
+// restore; they no longer carry the FIRST value.
+const hydration = resolveHydratedBootModel();
+const model = shallowRef<ColorModel>(hydration.model);
 
 // --- S.W5-10 (card-lighting-forensics artifact 4): integer-snap the pane
 //     centering — the flex remainder parks card corner arcs on fractional
@@ -292,12 +303,16 @@ const shareLink = async () => {
     }
 };
 
-// --- URL sync + persistence precedence (S.W2 · W2-1) ---
-// URL-hash-wins-on-load: useColorUrl applies the hash color first and reports
-// whether it did. Only when the hash carries NO color does the pipeline restore
-// the last session from localStorage (the fallback, gated behind URL-wins).
+// --- URL sync + persistence precedence (S.W2 · W2-1; re-scoped T.W2 · W2-1) ---
+// The FIRST value is hydration's (above — the model was born with it).
+// useColorUrl's initial apply is an idempotent re-commit of the same URL
+// color and keeps owning the LIVE URL↔model sync; restoreFromStorage keeps
+// owning the savedColors restore (skipped whenever a URL color won, exactly
+// as before). `hydration.source` guards the corner where the router's query
+// and the pure hash read could disagree — the hydrated URL seed must never
+// be overwritten by the stored one.
 const { appliedFromUrl } = useColorUrl({ model, updateModel: patchModelExternal });
-if (!appliedFromUrl) restoreFromStorage();
+if (!appliedFromUrl && hydration.source !== "url") restoreFromStorage();
 
 // --- Custom color names ---
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
