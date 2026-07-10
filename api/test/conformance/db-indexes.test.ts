@@ -16,7 +16,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { Db } from "mongodb";
-import { getDb, closeDb } from "../src/platform/db/db.js";
+import { getDb, closeDb } from "../../src/platform/db/db.js";
 
 interface IndexInfo {
     name: string;
