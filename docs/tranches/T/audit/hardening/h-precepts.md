@@ -223,5 +223,3 @@ memory feedback files. O-1..O-25 (`SYNTHESIS §6.1`) walked for each precept's m
 duplicate of h-mandate-trace H-1 (the T-8 z-order re-cut, a §4/lesson-15 application defect) or
 h-books-folds (routing) — this lane audits the precept/lesson LAYER's completeness, internal
 consistency, and enforceability. Reports only; the amend pass owns the fold.*
-</content>
-</invoke>

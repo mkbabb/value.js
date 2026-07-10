@@ -23,7 +23,7 @@ The residue that survives is narrower and more interesting: **two self-admittedl
 components no file-level sweep should have missed** (found, not by me first — corroborated),
 **one fully orphaned type trio** sitting beside load-bearing code in the same file, **one
 genuinely unused devDependency mis-bucketed at the W0-9 ledger**, **a documentation-vs-reality
-contradiction about the very "no legacy" claim CLAUDE.md itself makes** (13 `proof:*` npm
+contradiction about the very "no legacy" claim CLAUDE.md itself makes** (12 `proof:*` npm [AMENDED-AT-HARDENING: count reconciled 13→12 — `grep -c '"proof:' package.json` = 12; h-seam-fleet-resume F3]
 scripts + a dead one-shot script), and **one self-documented dead parameter** threaded through
 three files for zero purpose. None of these are "quick patches" — each has a named excise-or-
 retire verdict below.
@@ -121,14 +121,14 @@ directly at that point — not resurrect a parameter kept "just in case" today.
 
 ## §4 Deprecated pattern / compat-residue documentation contradiction
 
-### F5 — 13 `proof:*` npm scripts + a dead one-shot script contradict CLAUDE.md's own "retired" claim (corroborating `t-coloc-backend.md` F7, independently verified against CI)
+### F5 — 12 `proof:*` npm scripts [AMENDED-AT-HARDENING: 13→12] + a dead one-shot script contradict CLAUDE.md's own "retired" claim (corroborating `t-coloc-backend.md` F7, independently verified against CI)
 **Evidence**: `CLAUDE.md:33` states *"The grep-based `proof:*` invariant scripts (G/H-era) were
 retired as overfit."* That sentence is **literally true of its own referent** — I cross-checked
 `CHANGELOG.md:508` (a **prior, now-fully-gone** G/H-era batch: `proof:no-deprecated`,
 `proof:no-ts-ignore`, `proof:as-any-budget`, `proof:codemod-publication`, `proof:no-deep`,
 `proof:no-bare-builtins` — **none of these six names exist in `package.json` today**, confirming
 that specific retirement is real and complete). But `package.json`'s current `scripts` block
-still wires **13** `proof:*` entries from a **later, O/Q-era, behavioral** (not grep-based) batch:
+still wires **12** `proof:*` entries [AMENDED-AT-HARDENING] from a **later, O/Q-era, behavioral** (not grep-based) batch:
 `proof:css-parity`, `proof:subpath-budget`, `proof:subpath-resolve`, `proof:contrast-color`,
 `proof:gamut-alloc`, `proof:grammar-2026`, `proof:serialize-fidelity`, `proof:grammar-q`,
 `proof:color-arch-q`, `proof:round-trip-idempotent`, `proof:perf-target`,
@@ -138,7 +138,7 @@ parity.mjs`: *"value.js O.W0 born-RED gate"*; `proof-subpath-budget.mjs`: O.W2;
 `proof-round-trip-idempotent.mjs`: O.W5 / inv-O-2; `proof-perf-target.mjs`: O.W6;
 `proof-progress-honesty.mjs`: *"value.js VJ-P.W0 born-RED gate"* — literally asserts the O
 tranche's `PROGRESS.md` header isn't stale, a check with zero standing purpose once O closed).
-Grep of `.github/workflows/*.yml` for `proof:` returns **zero matches** — none of the 13 fire in
+Grep of `.github/workflows/*.yml` for `proof:` returns **zero matches** — none of the 12 fire in
 CI. `scripts/generate-favicon.mjs` (a watercolor-favicon generator) has **zero references**
 anywhere (not in `package.json`, not in any workflow, not in `deploy.sh`/`dev.sh`) — a manual
 one-shot whose artifact (if ever run) is presumably already committed. This corroborates
@@ -188,6 +188,11 @@ restatements, not legacy in the pejorative sense; they are recorded here as the 
 mandate asks for, with the live status that makes the "not yet" verdict falsifiable next sweep.
 
 ### F6 — `.underline-tabs` override (`style.css:476-484`, A.W2 / `coordination/Q.md §3`) — STAYS, retire-condition partially addressed but not met
+
+[AMENDED-AT-HARDENING — h-evidence-sweeps HES-2: the producer's "underline register" is carried by
+`TabsIndicator.vue` and is a PILL-PLATE indicator, not a border-bottom underline — the verdict
+(MARKER STAYS) is unchanged, but the P7 base-Tabs `underline`-variant ask should name
+`TabsIndicator.vue` so the producer sizes the right mechanism.]
 **Evidence**: the marker's stated retire-condition is *"retired once glass-ui ships a Tabs
 `underline` variant."* Checked live: glass-ui's base `Tabs`/`TabsList`/`TabsTrigger` triad
 (`../glass-ui/src/components/ui/tabs/*.vue` — the exact component `PaletteDialog.vue:27`'s
@@ -318,7 +323,7 @@ NOT flagged — the lane's job is to distinguish this class from F4's, not just 
 | F2 | Zero-importer components `BulkActionToolbar.vue`/`SortFilterMenu.vue` | `demo/@/components/custom/palette-browser/` | EXCISE (+ prune CLAUDE.md/DESIGN.md rows) | demo |
 | F3 | `dark-mode-toggle/` 2-line re-export folder | `demo/@/components/custom/dark-mode-toggle/index.ts` + 4 consumers | DISSOLVE | demo |
 | F4 | `savedPalettes` dead-and-voided dep param | `usePaletteDialogState.ts` + `PaletteDialog.vue:233` | EXCISE | demo |
-| F5 | 13 `proof:*` scripts + dead favicon script vs. CLAUDE.md's "retired" claim | `package.json`, `scripts/*`, `CLAUDE.md:33` | SPLIT: retain-reclassify 4 / excise 8 / fix doc | joint |
+| F5 | 12 `proof:*` scripts + dead favicon script vs. CLAUDE.md's "retired" claim | `package.json`, `scripts/*`, `CLAUDE.md:33` | SPLIT: retain-reclassify 4 / excise 8 / fix doc | joint |
 | F6 | `.underline-tabs` MARKER — retire-condition partially met, not literally | `style.css:476-484` | STAYS (sharpen the producer ask) | joint |
 | F7 | alpha-checker `backdrop-filter` MARKER — retire-condition confirmed unmet | `style.css:486-501` | STAYS (re-check at W8) | joint |
 | F8 | `globals` devDependency, zero consumers | `package.json`, `eslint.config.js` | EXCISE | demo/src (root) |

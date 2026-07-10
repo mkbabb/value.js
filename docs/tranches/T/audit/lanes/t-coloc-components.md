@@ -44,13 +44,13 @@ Everything below is measured against those two shapes.
 
 | Feature dir | files | LoC | current sub-structure | external deep-importers | E-1 state |
 |---|--:|--:|---|--:|---|
-| `color-picker/` | 33 | 6,131 | `composables/ controls/ display/ visual/` + **6 loose root `.ts`** | **18** | partial; loose root `.ts` + a grab-bag `composables/` + an app-wide `keys.ts` buried inside |
-| `palette-browser/` | 45 | 6,470 | **33 `.vue` FLAT at root** + `composables/` + `PaletteDialog/` | 9 | **the flagship "long-running dir" offender** — one flat namespace, no sub-feature folders |
+| `color-picker/` | 33 | 5,624 [AMENDED-AT-HARDENING: LoC re-measured, h-evidence-censuses H-EC-3] | `composables/ controls/ display/ visual/` + **6 loose root `.ts`** | **18** | partial; loose root `.ts` + a grab-bag `composables/` + an app-wide `keys.ts` buried inside |
+| `palette-browser/` | 48 | 5,491 | **31 `.vue` FLAT at root** + `composables/` + `PaletteDialog/` [AMENDED-AT-HARDENING: 45→48 files / 33→31 root `.vue` / LoC re-measured — H-EC-1/H-EC-3] | 9 | **the flagship "long-running dir" offender** — one flat namespace, no sub-feature folders |
 | `panes/` | 16 | 1,850 | flat (`.vue` + `keys.ts` + `index.ts`) | 4 | composition layer; `keys.ts` is mis-domained (holds Aurora, not pane, contracts) |
-| `gradient/` | 11 | 2,231 | `composables/` + loose `perceivedSpacePaint.ts` | 1 | near-correct; 1 loose paint helper + single-consumer composables to nest |
+| `gradient/` | 11 | 2,332 [AMENDED-AT-HARDENING] | `composables/` + loose `perceivedSpacePaint.ts` | 1 | near-correct; 1 loose paint helper + single-consumer composables to nest |
 | `image-palette-extractor/` | 12 | 1,727 | `composables/` + `ImageEyedropper/` (recursive) | 1 | good; one composable mis-homed above its only consumer |
-| `mix/` | 7 | 1,035 | `composables/` + 4 flat `.vue` | 1 | near-correct; 2 single-consumer composables to nest |
-| `dock/` | 9 | 1,204 | `composables/ layers/ menus/` | 0 | good; fully self-contained |
+| `mix/` | 7 | 1,200 [AMENDED-AT-HARDENING] | `composables/` + 4 flat `.vue` | 1 | near-correct; 2 single-consumer composables to nest |
+| `dock/` | 10 | 1,217 | `composables/ layers/ menus/` | 1 | good [AMENDED-AT-HARDENING: 9→10 — `DockViewSelect.vue` (156 LoC) was omitted; it has 1 external importer (`ColorSpaceSelector`), so "fully self-contained" is corrected — H-EC-4] |
 | `markdown/` | 4 | 553 | `composables/` | 0 | good |
 | `generate/` | 2 | 474 | `composables/` (1) | 2 | trivial |
 | `katex/` | 2 | 40 | flat | 0 | trivial |
@@ -142,9 +142,9 @@ partner move to F2: keys + pipeline + helpers reunify as the color domain. It al
 awkward `keys.ts → barrel (EditTarget) → keys.ts` back-reference by relocating both into one
 place. **Highest single-symbol blast radius in the tree (~24 import sites)** — see §5.
 
-### F4 — `palette-browser/` is a 33-`.vue` FLAT namespace: the direct "long-running dirs must be broken into common modules" violation · owner: demo
+### F4 — `palette-browser/` is a 31-`.vue` FLAT namespace [AMENDED-AT-HARDENING: 33→31 — H-EC-1]: the direct "long-running dirs must be broken into common modules" violation · owner: demo
 
-**Evidence**: 33 `.vue` files sit at `palette-browser/` root with no sub-feature grouping
+**Evidence**: 31 `.vue` files sit at `palette-browser/` root with no sub-feature grouping
 (only `composables/` and the one nested `PaletteDialog/`). The flat set contains at least five
 distinct sub-features, each already legible from names + the import graph:
 - **card cluster** (9): `PaletteCard` + `PaletteCardMenu`, `PaletteCardSwatches`,
@@ -314,6 +314,8 @@ this is the honest reading of the "≥2 sibling consumers ⇒ KEEP at their comm
 | `dialog/` | `PaletteDialog/` (already recursive — KEEP), `FlagReportDialog`, `MigratePalettesDialog`, `DeleteAllConfirm`* | `useDialog*` (already in `PaletteDialog/composables/` — KEEP) |
 | `slug/` | `PaletteSlugBar` | `useSlugMigration` (LIFT-DOWN from `@composables/palette/` — F5) |
 | `status/` | `ApiOfflineChip`, `DevMisconfigBanner` | — |
+| `card/` (edit chrome) [AMENDED-AT-HARDENING — M-27/H-EC-1: two real root components were dropped from this census] | `CurrentPaletteEditor` (305 LoC; 3 importers — PalettesPane, DevMisconfigBanner, PaletteSavedTab; `.dashed-well` kinship per t-card-color-census B1 → seats beside `PaletteCard`) | — |
+| `dialog/` (drawer) [AMENDED-AT-HARDENING — M-27/H-EC-1] | `VersionHistoryDrawer` (164 LoC; 3 importers — BrowsePane, PaletteDialog, useDialogModalStack; PaletteDialog is its own importer → seats in `dialog/`) | `useVersionHistory` (already palette-domain) |
 | **LIFT-OUT** | `EmptyState` → glass-ui request packet OR `@components/` shared atom (F7) | — |
 | **DROP** | `BulkActionToolbar`, `SortFilterMenu` (zero importers — F8) | — |
 

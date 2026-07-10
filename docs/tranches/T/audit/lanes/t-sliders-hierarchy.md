@@ -31,7 +31,7 @@ below are re-derivable from the cited code):
 
 | Surface | Light | Dark | Floor |
 |---|---|---|---|
-| Channel letters (rendered ink vs card ground, pixel-sampled) | **2.17–2.26 : 1** | **1.01 : 1** (invisible) | 3:1 large-text, 4.5:1 ideal |
+| Channel letters (rendered ink vs card ground, pixel-sampled) | **≈1.9–2.3 : 1** [AMENDED-AT-HARDENING: pixel-AA spread — h-evidence-design-1 H-ED1-2] | **1.01 : 1** (invisible) | 3:1 large-text, 4.5:1 ideal |
 | Range annotations `(0% – 100%)` (0.5-alpha ink, effective blend) | **2.94 : 1** | **2.54 : 1** | 4.5:1 (14.4px italic) |
 | Plate caption (`--muted-foreground`, 10px mono) | **3.84 : 1** | **3.36 : 1** | 4.5:1 (small text) |
 

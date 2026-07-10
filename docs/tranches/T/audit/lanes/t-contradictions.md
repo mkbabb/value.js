@@ -272,7 +272,9 @@ legend (`33ba703`), the W5-2-rider zero-at-rest (`PaneHeader.vue:76`), W6-4 corn
 (`ColorPicker.vue:344`), W4-2 full-span readout (`ColorComponentDisplay.vue:12`), W4-1 audacious-rung
 size basis, **S.W5-6 shadow-palette kills** (`e43601c`+`a34d20f`), **S.W5-2/S-20 card species**,
 **W7-1 rim π-certification**, Q6 true-empty-only scope, Q4's rainbow-excise (partially un-done for the
-one Palettes row). Without this ledger, E-3's "no legacy" is unenforceable (you cannot retire what is
+one Palettes row), **the W5-8 webbing 9%/12% intensity values** (R5) **and the T-26 analogous/0.7
+point values @ `fe30d68`** (R6) [AMENDED-AT-HARDENING: the "current inventory" omitted the two
+recalibration rows whose RETIRES cells retire landed values — h-overrule-ledger F-2]. Without this ledger, E-3's "no legacy" is unenforceable (you cannot retire what is
 not named) and the next owner audit re-opens whichever reversal the corpus forgot to record.
 
 ---

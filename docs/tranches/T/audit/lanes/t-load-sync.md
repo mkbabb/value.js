@@ -263,7 +263,7 @@ DevTools shows ONE clock):
 |---|---|---|---|
 | B0 · ground | body ground (saved/default derived base stop) | pre-paint, instant | 0ms |
 | B1 · plates | left card + right card + dock — ONE plate-land family, staggered (dock +0, left +40ms, right +120ms); dock arrives AS the pill (no mount nub-morph — LS-4) | plate-land 440ms `--spring-snappy` | 180–740ms |
-| B2 · field | aurora derive-in over its own base, gated on `isArmed && B1-complete`; `"css"` substrate: present from B0 | 450ms `--ease-decelerate` | complete ≤1.2s |
+| B2 · field | aurora derive-in over its own base, gated on `isArmed && B1-complete`; `"css"` substrate: present from B0 | 450ms `--ease-decelerate` | complete ≤1.2s | *[SUPERSEDED-AT-HARDENING: this B2 row carried the CURRENT fade; the doctrine adopts the t-aurora-boot §2.1 re-cut — 0.9s `--ease-decelerate`, gate re-cut to `isArmed ∧ dock-plate-landed` (620ms), settle ≤1.6s (bracket [1.4, 1.7]s, Q2 annex). B0/B1/B3/B4 remain adopted verbatim — h-refine-doctrine F-2 + h-refine-overture F-6.]*
 | B3 · instrument | spectrum field-paint-in + channel stagger (existing beats, re-keyed to the shared timeline) | existing | ≤1.0s |
 | B4 · ornament | blob EMERGES at the card corner (producer pose, LS-5); early chunk waits for B4, late chunk emerges on arrival | goo-emerge ~500ms | ≤1.5s |
 

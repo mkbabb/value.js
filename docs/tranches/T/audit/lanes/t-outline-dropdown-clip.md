@@ -26,6 +26,13 @@ pixel-for-pixel on desktop Chromium 1440×900.
 
 ## §1 T-28 — the current-color die-rim on the wax seal
 
+[AMENDED-AT-HARDENING — h-evidence-design-2 H-EVID2-3: the absolute px figures below (seal 40×40,
+wax 34×34, crosses ~+1.5px / gaps ~−2.5px) are **@1440×900, body-font-conditioned** — the demo
+scales body font responsively, and the font-inheriting dock enlarges the seal with it (62/56
+observed @1512/DPR-2). The geometry ARGUMENT is scale-free (the −6px chrome invariant holds at
+both scales; an organic wax edge crosses/gaps ANY geometric ring by construction); only the
+literals are viewport-pinned.]
+
 ### Evidence (measured, collapsed seal at rest)
 
 | Element | Measured | Recipe |

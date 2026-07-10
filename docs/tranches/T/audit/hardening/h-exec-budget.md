@@ -218,3 +218,10 @@ to size ALL waves, not because it currently threatens a wall inside this tranche
   FLOOR, not a ceiling — which sharpens F1 further (a ~50-slot W8 worst-case could easily become
   75-100 actual agent-dispatches) and makes F2/F3's asks (name checkpoints, fix the arithmetic)
   cheaper insurance than they might otherwise appear.
+
+## VERDICT DISSENT (recorded at the amend pass — VERDICT §5-D1)
+
+F3's option (a) — raising W3's cap to "≤4" — is **REJECTED**: E-6 ("batches of three") is
+owner-verbatim law a hardening lane cannot re-cut. Option (b) is ADOPTED: the sequencing clause
+("the core lane lands its token queue before the 3 consumer lanes dispatch") is folded into
+`waves/T.W3.md`. F1/F2 folded as filed (M-32; W4 §Recovery delta).

@@ -267,7 +267,7 @@ a photographic-content register, not a glass material).
 |---|---|---|
 | **1 · PLATE** | 10 (A1-A10) + 1 bespoke-recipe (G1, PaneHeader veil) | every pane host + picker + the header veil once unified |
 | **2 · WELL** | 15 (B1,B2/B3/B4-shared,B6,B7,B8,C1-C6,D1,D2,D3,D4,F2,F5,F9) | dashed-well, PaletteCard family, perceived-space plate, stop chip, VersionHistoryDrawer, markdown interiors, admin chips, mix result plate, EasingPicker, select fills |
-| **3 · CHROME** | 8 (B5,F1,F3,F4,F8,F10,F11,F12,F13) | eyedropper overlay, input-bar (as hard-bound), bulk-toolbar, swatch-edit overlay, toolbar pill, Mix CTA, dock, segmented tabs, popover |
+| **3 · CHROME** | 9 (B5,F1,F3,F4,F8,F10,F11,F12,F13) [AMENDED-AT-HARDENING: the label said 8, the enumeration is 9 — h-seam-fleet-resume F7; WELL's "15" likewise counts SITES after de-dup of the shared B2/B3/B4 + C-family tokens, ~18 raw rows] | eyedropper overlay, input-bar (as hard-bound), bulk-toolbar, swatch-edit overlay, toolbar pill, Mix CTA, dock, segmented tabs, popover |
 | **4 · STAGE** | 3 (E1,E2,E3) | Extract image stage + caption veil + on-stage chip |
 | **n/a (outside ladder, correctly)** | 4 (G2,G3,G4 + MiniColorPicker/PointerDebugOverlay exemptions) | status chips, banner, color-math ramps, dev instrumentation |
 | **ORPHANED (flag, don't rung)** | 1 (B9 / CC-6) | `PaletteDialog`/`PaletteControlsBar` — zero render path |

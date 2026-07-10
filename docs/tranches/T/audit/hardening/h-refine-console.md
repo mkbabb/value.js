@@ -342,3 +342,10 @@ sentence) in the W3-2 row.
 - **The Palettes-rainbow ledger entry** in C3's exception list is form-agnostic (survives either
   Q5 arm); O-13's slim-same-commit discipline and the R1 survives set are consistently quoted at
   every level for T-10.
+
+## VERDICT DISSENT (recorded at the amend pass — VERDICT §5-D5)
+
+F-4's "rule the rail neutral" arm is **NOT unilaterally adopted**: the accent-ring question routes
+through the new Q18 exception-ledger row (the owner's call), with D5's three-scale sentence re-cut
+to the two surviving scales as filed. F-1/F-2 folded as MUSTFIX (M-21/M-23); F-3/F-5..F-10 + the
+N-batch folded as filed.

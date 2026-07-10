@@ -32,7 +32,7 @@ The repo has exactly one contrast-guard primitive family, and it is correctly bu
   aggressive than WCAG 4.5:1" per its own docstring) that pushes a foreground color's L away
   from a caller-supplied `bgLightness` until it clears the band.
 
-Both leaves are pure, tested (`test/color-contrast.test.ts`, 20 tests) and take `bgLightness`
+Both leaves are pure, tested (`test/color-contrast.test.ts`, 38 tests [AMENDED-AT-HARDENING]) and take `bgLightness`
 as an explicit parameter — the library did its job. **Every consumer in the demo, without
 exception, feeds this parameter one of exactly two hardcoded constants**
 (`useContrastSafeColor.ts:17-18`):
@@ -247,7 +247,7 @@ post-hoc opacity — a `mix-toward-surface` step that is floor-clamped by `wcagC
 |---|---|---|
 | `test/view-accents.test.ts` (13 tests) | the 9 nav-menu view accents ≥3:1 WCAG (incl. achromatic C≈0) + the seal-ink (2 tests, WCAG-maximal black/white) | everything NOT nav/seal — i.e. every surface in §1-§4 |
 | `e2e/smoke/accent-contrast-guard.spec.ts` | the ROOT `--accent-live` token's own luminance at the DEFAULT pick, both schemes — an ADJACENT-ONLY oracle (it reads a CSS custom property off `document.documentElement`, never a consumer DOM element) | every actual consumer site (`ProfileSection`, `MobileMenuDropdown`, `PaletteCard`/`PaletteCardSwatches`, `ColorInput`, `ColorNutritionLabel`, `Dock.vue`'s icons+label, `CurrentPaletteEditor`, `AdminUsersPanel`, `ComponentSliders`) |
-| `test/color-contrast.test.ts` (20 tests) | the guard LEAF's own math (`computeSafeAccent`/`needsContrastAdjustment`/`safeAccentCssString`) in isolation, using the SAME two hardcoded `DARK_BG`/`LIGHT_BG` constants the demo does | cannot catch F-1 by construction — the test supplies its own bgL exactly matching the demo's stale assumption, so a correct-math/wrong-referent bug is invisible to it twice over |
+| `test/color-contrast.test.ts` (38 tests [AMENDED-AT-HARDENING]) | the guard LEAF's own math (`computeSafeAccent`/`needsContrastAdjustment`/`safeAccentCssString`) in isolation, using the SAME two hardcoded `DARK_BG`/`LIGHT_BG` constants the demo does | cannot catch F-1 by construction — the test supplies its own bgL exactly matching the demo's stale assumption, so a correct-math/wrong-referent bug is invisible to it twice over |
 
 **Grep-confirmed zero coverage** (`grep -rln "ProfileSection\|MobileMenuDropdown\|slug-pill\|
 PaletteCardSwatches\|ColorNutritionLabel\|nodeHighlightColor\|ParseEchoReadout" e2e/ test/`):

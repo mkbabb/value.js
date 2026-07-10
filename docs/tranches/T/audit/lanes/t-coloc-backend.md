@@ -170,13 +170,13 @@ session-authn.
 and each module contributes its own authz to its own routes — colocation, not a central authz grab-bag.
 
 ### F7 — `scripts/` is a grab-bag with a tranche-era `proof:*` accretion + a dead favicon script *(joint)*
-**Evidence**: `scripts/` (19 files) mixes four unrelated purposes with no grouping — deploy
+**Evidence**: `scripts/` (18 files [AMENDED-AT-HARDENING: 19→18]) mixes four unrelated purposes with no grouping — deploy
 (`deploy.sh`, `deploy-hook.sh`), dev (`dev.sh`), CI probes (`boot-smoke.mjs`,
 `css-emission-probe.mjs`, `abrogation-sweep.mjs`), and **11 `proof-*.mjs`** behavioral gates. The
 proof scripts are **born-RED gates keyed to CLOSED tranches** — headers self-declare O.W0
 (`proof-css-parity`), O.W2 (`subpath-*`), O.W5 (`round-trip-idempotent`), O.W6 (`perf-target`),
 VJ-P.W0 (`progress-honesty`), Q (`color-arch-q`, `grammar-q`, `contrast-color`,
-`serialize-fidelity`, `gamut-alloc`) — yet still wired as 13 `proof:*` scripts in the **root
+`serialize-fidelity`, `gamut-alloc`) — yet still wired as 12 `proof:*` scripts [AMENDED-AT-HARDENING: 13→12] in the **root
 package.json**. This **contradicts CLAUDE.md**, which states *"The grep-based `proof:*` invariant
 scripts (G/H-era) were retired as overfit"* and MEMORY's proof-idiom-retired feedback. (These are
 *behavioral* proofs over the built `dist/`, not the grep-based ones — so the retirement was

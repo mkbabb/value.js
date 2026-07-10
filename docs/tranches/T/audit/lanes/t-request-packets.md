@@ -65,7 +65,7 @@ re-forensic): `t-glassui-current.md` (the 14-open-ask ground-truth ledger + the 
    token-name change binds the WS12 export-regen freeze (**W-1**) or the B4e MIGRATION freeze
    (**W-2**) and MUST be in the packet before those run (`t-glassui-forward §1`). The Blob rename
    (L17), `/blob/config` (L20), and any T-new token rename are the W-1/W-2 payload; everything else
-   rides W-3. WS12 has not landed — the windows are still OPEN.
+   rides W-3. [AMENDED-AT-HARDENING — h-packets H-PKT-1: the blanket "WS12 has not landed" was FALSE at HEAD; the precise state:] the WS12 `BH.B2.1-swap` export-regen has not run — `goo-blob` is still in the export map (no `./blob`, no `/blob/config`), so W-1/W-2 remain OPEN for the J1/J2 rename+config payload; NOTE the WS12 CSS-MINIFY + GATE-FAMILY-CONSOLIDATE waves DID land (`ee382861`/`a900a71f`, 2026-07-05, ancestors of HEAD), so P2/PKT-1 and P8/A6 are claims about a POST-minify dist and must be re-verified on a fresh `../glass-ui` build at dispatch (G-CUR-1).
 
 6. **RP-CENSUS-6 — the `--ring` silent strand: value.js is an UN-ROSTERED consumer.** WS10 renames
    `--ring → --focus-ring-color` (no alias, clean break); the BH B7 roster counted atlas + speedtest
@@ -399,7 +399,7 @@ findings are recorded in §3 (explicitly NOT packets).
 
 ## §2 The timing-window binding (which packet rides which freeze gate)
 
-From `t-glassui-forward §1`. WS12 has NOT landed → W-1 and W-2 are STILL OPEN, but they are the LAST
+From `t-glassui-forward §1`. [AMENDED-AT-HARDENING — H-PKT-1] the WS12 `BH.B2.1-swap` export-regen has not run — `goo-blob` is still in the export map (no `./blob`, no `/blob/config`), so W-1/W-2 remain OPEN for the J1/J2 rename+config payload; NOTE the WS12 CSS-MINIFY + GATE-FAMILY-CONSOLIDATE waves DID land (`ee382861`/`a900a71f`, 2026-07-05, ancestors of HEAD), so P2/PKT-1 and P8/A6 are claims about a POST-minify dist and must be re-verified on a fresh `../glass-ui` build at dispatch (G-CUR-1). W-1 and W-2 are STILL OPEN, but they are the LAST
 window (the cut folds them all at once). Behaviour packets (W-3) have the widest window and the most
 value landing early (they unblock value.js's own T waves via the `file:` pin).
 
@@ -428,7 +428,7 @@ redundant ask; the corpus routes them to the T DEMO waves with a citation to the
 | **T-5 (ink)** | slider legibility | value.js's OWN WCAG leaves (`src/units/color/contrast.ts`, the `--seal-ink` precedent) | demo/src (value.js library) |
 | **T-8 (clip/z/place)** | blob into-card, higher-z, all-sizes | pure `HeroBlob` composition CSS over the exported HERO preset | demo |
 | **T-3/T-11/T-18/T-24** | too-transparent / neutral-inconsistency | the tier/tint/depth ladder is RICH (`--glass-bg-${tier}`, `--glass-tint-*`, `cartoon-surface`); apply ONE tier ladder | demo (with H1 as the producer FLOOR dependency) |
-| **T-16 / T-21 / T-4** | corner element / bugged surface / dynamic bottom text | demo-surface identifications — no producer primitive implicated (per their lanes) | demo |
+| **T-16 / T-21 / T-4** | corner element / bugged surface / dynamic bottom text | demo-surface identifications [AMENDED-AT-HARDENING — h-packets H-PKT-3: T-16 and T-9 DO carry E-2 producer riders per t-misc-elements F2/F3 — the hue-carrying primary tier (T-16) and the dock status-lamp primitive (T-9) — routed to the letter's Q16-candidates note; the demo halves stay demo-routed] | demo (+2 Q16-class riders) |
 
 ---
 

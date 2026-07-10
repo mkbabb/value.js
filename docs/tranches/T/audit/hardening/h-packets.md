@@ -240,3 +240,9 @@ cleanly into P1-P10+KF or explicit demo-routes. The only orphans/contradictions 
 (t-misc-elements riders), H-PKT-4 (L15 + item-8), and H-PKT-5 (CC-1 census gap). Producer state was
 re-verified at HEAD `bdc4211c`; the only producer EVENTS the corpus missed are the WS12 CSS-MINIFY/
 GATE-FAMILY-CONSOLIDATE landings (H-PKT-1) and the DARK-READABILITY-REPAIR DONE flip (H-PKT-2).
+
+## VERDICT DISPOSITION (recorded at the amend pass — VERDICT §5-D6)
+
+H-PKT-2's strike-the-HALT is accepted **with the lane's own caution intact**: the P3 A1/A2 row is
+reclassed VERIFY-AT-CUT (paint-closed at `300a30fb`) and the DONE flip is re-verified on a fresh
+dist at dispatch — never trusted. H-PKT-1 folded as MUSTFIX (M-33); H-PKT-3/H-PKT-4 folded.

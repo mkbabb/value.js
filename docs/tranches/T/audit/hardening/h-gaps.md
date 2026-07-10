@@ -253,3 +253,12 @@ at W0-3's hygiene sweep (or immediately); add `*.log` to the PP-8 sweep's residu
 *Lane artefact of the T hardening fleet. ZERO corpus edits made — every amendment above is a
 proposal for the amend pass. Evidence gathered live at `tranche-t` HEAD (source tree byte-equal
 to `tranche-s-close`), demo tree + `../glass-ui` read-only.*
+
+## VERDICT DISSENT (recorded at the amend pass — VERDICT §5-D3)
+
+G-8's option (a) — an app-level `errorHandler` as a W1 cargo row — is **NARROWED to the lane's own
+option (b)**: runtime-error machinery inside the E-1 move wave is scope the move-only discipline
+counsels against. Folded instead: a considered-and-declined ledger row (the G-10 table, now in
+`T.md §5`) + a named W8 roster row ("thrown-error state"); promoted to a wave item only on owner
+elevation. G-1 folded as MUSTFIX (M-34, option (a) + a W8 roster row); G-2/G-3/G-4/G-5/G-6/G-7/G-9/
+G-11/G-12 folded as filed.

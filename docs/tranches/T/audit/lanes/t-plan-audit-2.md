@@ -28,8 +28,11 @@ sweep missed — T-14 · T-15 · T-16, F20–F22), §3.1 (the shot-map systemati
 (the completion-audit record + coverage-completeness ledger), plus the matrix rows for the three
 folds. The header is now truthful; the verification trail is §8.
 
-**Companion**: `t-plan-audit-1.md` (W0–W3) — the disjoint-by-wave partner; NOT YET LANDED in the
-tree at this head (do not cite it as extant). This lane stands complete on its own W4–W7 + W9 scope.
+**Companion**: `t-plan-audit-1.md` (W0–W3) — the disjoint-by-wave partner; LANDED at `385c2d2`
+[AMENDED-AT-HARDENING: the recovered partial froze a pre-wall substrate claim — the companion was
+already landed at the parent of this lane's own completion commit (h-seam-plan-audit-2 SF-1); the
+frozen-substrate class is now governed by the §Recovery rider, T.md §8]. This lane stands complete
+on its own W4–W7 + W9 scope.
 
 ---
 
@@ -667,8 +670,9 @@ proxy; T's job is to (a) re-aim at the owner's new target, retiring the old spec
 - `tranche-s-close` = `5bb2d59` ≠ `cc4f4fa`; both diff-empty against HEAD → **identical source
   tree** across `cc4f4fa` / `5bb2d59` / `e12fd09` (docs-only delta). Every `file:line` reads S-close
   source exactly.
-- `t-plan-audit-1.md` (W0–W3 companion) confirmed **NOT present** on disk — the draft's
-  do-not-cite-as-extant note holds.
+- `t-plan-audit-1.md` (W0–W3 companion) — [AMENDED-AT-HARDENING] the draft's "NOT present" claim
+  was a frozen pre-wall snapshot; the companion IS landed (`385c2d2`). Superseded per
+  h-seam-plan-audit-2 SF-1.
 
 ### §8.3 Independently-verified cites (source/shot read THIS pass)
 

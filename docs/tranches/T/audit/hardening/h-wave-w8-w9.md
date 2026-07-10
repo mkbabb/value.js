@@ -182,3 +182,9 @@ is authorable.
 - **The Q14/budget/RP-2 disposition is complete**: W8 prepares, W9 encodes either way, red rows
   carried honestly if unadjudicated, the manual `workflow_dispatch` lane ships if CI stays red — no
   gate weakened (`T.W9.md:53-57`/`:85-88`/`:145-146`).
+
+## VERDICT DISSENT (recorded at the amend pass — VERDICT §5-D4)
+
+HW-2's literal "6" is **REFINED**: the corpus's regenerable-count precept (hardcoded numbers drift
+every wave) argues for "e2e **all-project** green (6 at authoring)" over a fresh hardcoded "6" —
+same fix, drift-proof phrasing (M-26). HW-1 folded as filed (M-25).

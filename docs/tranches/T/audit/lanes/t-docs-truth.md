@@ -33,7 +33,7 @@ already wrong *independent of* T.
    are **32rem / 25rem** (S FINAL.md Ruling #1, landed `52c5fd4`). A NORMATIVE numeric law in the
    canonical design catalog is simply wrong.
 4. **Root `CLAUDE.md`'s "`proof:*` scripts... retired as overfit" line is stale to the point of
-   being false**: 11 `proof:*` scripts are live in `package.json` today, all authored in tranches
+   being false**: 12 `proof:*` scripts are live in `package.json` today [AMENDED-AT-HARDENING: 11→12 npm entries; 11 is the .mjs-file count — h-seam-fleet-resume F4], all authored in tranches
    O/Q — *after* the retirement date MEMORY.md records — and none of the six docs mention the
    comeback.
 5. **The 5→6 `e2e` smoke-projects count** is wrong in root `CLAUDE.md` at two sites (build comment +
@@ -145,7 +145,7 @@ retired as overfit; the disciplines they guarded stand by the type system + esli
 MEMORY.md's `feedback-proof-idiom-retired.md` entry (dated 2026-06-02) is stronger still: *"Never
 re-introduce; enforce invariants structurally."*
 
-`package.json:86-97` lists **11 live `proof:*` scripts today**: `proof:css-parity`,
+`package.json:86-97` lists **12 live `proof:*` scripts today** [AMENDED-AT-HARDENING: 11→12]: `proof:css-parity`,
 `proof:subpath-budget`, `proof:subpath-resolve`, `proof:contrast-color`, `proof:gamut-alloc`,
 `proof:grammar-2026`, `proof:serialize-fidelity`, `proof:grammar-q`, `proof:color-arch-q`,
 `proof:round-trip-idempotent`, `proof:perf-target`, `proof:progress-honesty`. `git log` on two of
@@ -467,7 +467,7 @@ authorization this tranche withholds by charter.
 | F1 | `parsing/` 9-of-15 files documented | joint | root `CLAUDE.md` | ordinary drift |
 | F2 | `units/color/` 10-of-17 (+8-of-11 `conversions/`) documented | joint | root `CLAUDE.md` | ordinary drift |
 | F3 | `src/subpaths/` (7 files) wholly undocumented | src/joint | root `CLAUDE.md` (+ needs own file) | coverage gap |
-| F4 | "`proof:*` retired" is contradicted by 11 live O/Q scripts | joint | root `CLAUDE.md`, MEMORY.md | stale precept claim |
+| F4 | "`proof:*` retired" is contradicted by 12 live O/Q scripts [AMENDED-AT-HARDENING] | joint | root `CLAUDE.md`, MEMORY.md | stale precept claim |
 | F5 | `docs/color-theory.md`/`gamut-mapping.md` moved+expanded, uncredited | joint | root `CLAUDE.md` | ordinary drift |
 | — | `units/color/CLAUDE.md` space table omits ICtCp/Jzazbz | joint | `src/units/color/CLAUDE.md` | ordinary drift (minor) |
 | — | `transform/CLAUDE.md` omits `path.ts` (562 LoC, doubles the dir) | joint | `src/transform/CLAUDE.md` | coverage gap |

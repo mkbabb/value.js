@@ -465,5 +465,3 @@ becomes T's E-5 ("all owner prompts recapped and verified addressed").
 - Memory feedback files (provenance for the product precepts): `feedback_no_backwards_compat`,
   `feedback_no_god_modules`, `feedback_root_styling`, `feedback_glass_ui_first_class`,
   `feedback_preserve_animations`, `feedback_select_font`, `feedback_kiss_no_contrivance`.
-</content>
-</invoke>

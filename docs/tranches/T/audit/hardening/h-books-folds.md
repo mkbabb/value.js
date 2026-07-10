@@ -147,3 +147,9 @@ here only to confirm it does NOT indicate a books/folds routing drop (the X1/X2 
 
 All nine present, routed to real wave items, dispositions rationaled. Zero book-drop across the 23-row
 `S/FINAL.md §5` table.
+
+## VERDICT DISSENT (recorded at the amend pass — VERDICT §5-D6)
+
+SF-1 (EasingPicker a11y, "MUSTFIX-adjacent") **stays SHOULDFIX** — the P7 dispatch has not fired,
+so the fold window is open; the accessible-name contract is now named in the P7 row and MUST land
+before W0-1 dispatches the letter (the sequencing note rides M-33's packet edits). SF-2/N-2 folded.

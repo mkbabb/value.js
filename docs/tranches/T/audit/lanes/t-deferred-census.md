@@ -254,5 +254,3 @@ re-probed at close, amended in place when a maintainer fires them (the R/S prece
 Color.try→L2, S.H3 Pratt→L3, FN-7→C3, usePaletteStore→H4, kf resolveEasing→C4, RP-2→A9, S-3→§2.6 —
 all present. Off-ledger E-4 folds: proof:*→S1, ci.yml comment→S3, oracle-blindness→S4, EasingPicker
 a11y + GAP-3 watch→A10. **Discharged-in-S retired (§3): 9 items, none re-folded.**
-</content>
-</invoke>

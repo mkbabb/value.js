@@ -61,7 +61,7 @@ subtree):
 
 | Dir | Files | LoC | Role |
 |---|---|---|---|
-| `demo/@/composables/` | 29 (`auth/` 4, `color/` 6, `palette/` 13, root 6) | 3977 | reactive module composables |
+| `demo/@/composables/` | 30 (`auth/` 4, `color/` 6, `palette/` 13, root 7) | 3977 [AMENDED-AT-HARDENING: 29→30, root 6→7 — `prng.ts` was uncounted; h-seam-fleet-resume F6. The §2 phantom `palette/useAdminUsers.ts` row is DELETED (h-evidence-censuses H-EC-2 — the file does not exist; only `auth/useAdminUsers.ts` is real), so §2's per-domain classification arithmetic self-corrects] | reactive module composables |
 | `demo/@/lib/` | 24 (root 4, `palette/` 5 + `palette/api/` 15) | 2107 | pure module logic + API client |
 | `demo/@/styles/` | 4 (`style.css` 530, `animations.css` 212, `hljs.css` 102, `utils.css` 99) | 943 | global CSS |
 | `demo/@/utils/` | 1 (`utils.ts` = `cn()`) | — | the one shared class-merge util |
@@ -74,7 +74,7 @@ That is the E-3 architectural-transposition cost, paid once, not a reason to def
 
 ---
 
-## §2 — `demo/@/composables/` classification (29 files)
+## §2 — `demo/@/composables/` classification (30 files [AMENDED-AT-HARDENING])
 
 Verdict key: **MODULE** = truly cross-feature/global, stays in a module `composables/` (possibly
 re-homed by domain per CL-1); **COLOCATE→X** = single-feature, moves into X's subtree; **SHELL** =
@@ -92,7 +92,6 @@ App-shell-private, colocates with `App.vue`.
 | `palette/usePaletteActions.ts` | 1 ← pm | **MODULE** (palette, enc.) | facade action extraction |
 | `palette/useColorNameQueue.ts` | 1 ← pm | **MODULE** (palette, enc.) | admin color queue |
 | `palette/useSlugMigration.ts` | 1 ← pm | **MODULE** (palette, enc.) | slug-switch flows |
-| `palette/useAdminUsers.ts` | 1 ← pm | **MODULE** (palette, enc.) | admin user CRUD |
 | `palette/useBrowsePalettes.ts` | 1 ← pm | **MODULE** (palette, enc.) | remote browse/sort/vote |
 | `palette/usePaletteStore.ts` | 3 | **MODULE** (palette) | localStorage CRUD — also used by IPE + browse |
 | `palette/usePaletteExport.ts` | 3 | **MODULE** (palette) | export dispatch — **CL-4: unify with `lib/palette/export.ts`** |

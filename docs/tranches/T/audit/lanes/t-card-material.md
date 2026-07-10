@@ -25,8 +25,8 @@ Aurora ground at probe time: `body` `rgb(179,114,144)` (full-chroma pink; the au
 
 | Surface | Deployment | Material (light) | Material (dark) | Stamp |
 |---|---|---|---|---|
-| Picker card | `ColorPicker.vue:6` `tier="resting"` | `oklab(0.885 … / 0.678)` + `blur(8px) saturate(1.4)` | `oklab(0.363 … / 0.742)` + `blur(8px) saturate(1.3)` | `--shadow-cartoon` 8px offset @ 80% ink + grain — **the owner's accepted register** |
-| ALL 8 pane cards | `AboutPane.vue:3`, `BrowsePane.vue:2`, `ExtractPane.vue:4`, `GradientPane.vue:20`, `AdminPane.vue:2`, `ConfigSliderPane.vue:100`, `MixPane.vue:62`, `GeneratePane.vue:32`, `PalettesPane.vue:2` — every one `tier="wash" :shadow="false" :grain="false"` | `oklab(0.804 … / 0.356)` + `blur(1px)` | `oklab(0.412 … / 0.430)` + `blur(1px)` | none |
+| Picker card | `ColorPicker.vue:6` `tier="resting"` | `oklab(0.885 … / 0.678)` + `blur(8px) saturate(1.4)` | `oklab(0.363 … / 0.742)` + `blur(8px) saturate(1.3) brightness(1.14)` [AMENDED-AT-HARDENING: full computed filter — h-evidence-design-1 H-ED1-1] | `--shadow-cartoon` 8px offset @ 80% ink + grain — **the owner's accepted register** |
+| ALL 8 pane cards | `AboutPane.vue:3`, `BrowsePane.vue:2`, `ExtractPane.vue:4`, `GradientPane.vue:20`, `AdminPane.vue:2`, `ConfigSliderPane.vue:100`, `MixPane.vue:62`, `GeneratePane.vue:32`, `PalettesPane.vue:2` — every one `tier="wash" :shadow="false" :grain="false"` | `oklab(0.804 … / 0.356)` + `blur(1px) saturate(1.4)` | `oklab(0.412 … / 0.430)` + `blur(1px) saturate(1.35) brightness(1.18)` [AMENDED-AT-HARDENING — H-ED1-1: the wash tier's `saturate()` AMPLIFIES transmitted aurora chroma, STRENGTHENING T-CM-3/RC-2's mechanism] | none |
 
 ### In-plate fixtures (each a separately-minted material)
 

@@ -55,7 +55,7 @@ honest).
 ### F-2 — the boot ground is the wrong REGISTER: a dark muddy slab, then a luminance leap (T-27 "gray")
 
 **Evidence**: the pre-hydration ground is the derived BASE stop persisted as a flat
-solid: `#616600` army-olive fullscreen for a green pick, `#b27290` dull mauve for the
+solid: `#616600` army-olive fullscreen for a green pick, `#b37290` dull mauve for the
 default, `#525252` for neutral — a desaturated dark slab that owns the screen for
 ~300ms (2.1s at 4× CPU). When the field fades in, the page LEAPS from the deepest stop
 (L≈0.35) to the field's mean (L≈0.6–0.75) through a 450ms fade — the load reads dark-mud
@@ -72,7 +72,7 @@ the cold-load e2e hue-band assert re-grounds on the gradient string's stops.
 ### F-3 — a LATENT default-pink ground flash, currently masked by the very jank T-27 names
 
 **Evidence**: style-truth poll: on every returning/URL boot, `--saved-bg` flips
-persisted-olive → **default-pink `#b27290`** → olive (t≈260→287ms normal; t≈824→935ms at
+persisted-olive → **default-pink `#b37290`** → olive (t≈260→287ms normal; t≈824→935ms at
 4× CPU). No screencast frame composited inside that window on any run — the main thread
 is blocked from ~44ms to ~315ms (F-5), so the pink never reached glass. It is one paint
 yield away from being a visible flash: **fixing the boot jank (T-27) without fixing this
@@ -175,7 +175,7 @@ velocity swirl-burst does nothing. Sweep probe: 7.7 vs 4.1 ambient (light) and *
 4.12 ambient (dark — statistically indistinguishable)**. Hold: no visible feature forms
 around the parked pointer on any still.
 **Root cause** (producer source, read-only): `uCursorBurst`/`uCursorVelocity` are
-consumed ONLY by `flowDirection()` (`flow.glsl.ts:82–93`) — which only stroke mediums
+consumed ONLY by `flowField()` (`flow.glsl.ts:82–93`) [AMENDED-AT-HARDENING: was mis-cited `flowDirection()` — h-evidence-design-2 H-EVID2-1] — which only stroke mediums
 sample: on `medium:"smooth"` + `flow.pattern:"none"` the burst is inert by construction.
 `uLightDir` is consumed only by `relightImpasto` (`brush.glsl.ts:274`) whose lit terms
 multiply by `uImpasto` — 0 on smooth: the `interactivity.light` atom the demo arms
