@@ -4,33 +4,38 @@ import { detectRenderer, isSoftwareGL } from "../perf/frame-budget";
 import { sampleRegion, meanRgb, srgbToOklch } from "../fixtures/frame-diff";
 
 /**
- * T.W0 W0-5 · O-1 — COLOR-TRUTH BOOT (SYNTHESIS §6.1 O-1).
+ * T.W0 W0-5 · O-1 — COLOR-TRUTH BOOT (SYNTHESIS §6.1 O-1). ARMED AT W2-1.
  *
  * Replaces the DRAW-CALL-COUNT proxy (webgl-appearance) — a draw-count cannot
  * tell a vivid derived field from an achromatic slab. O-1 reads the settled,
- * post-hydration field pixels and asserts it is actually COLOURED:
+ * post-hydration field pixels and asserts the DERIVED material:
  *
- *   • C ≥ 0.03            — never an achromatic slab (the HARD non-proxy core;
- *                            the exact repair of the draw-count proxy)
- *   • L in the active scheme's band — a plausible aurora luminance (asserted at
- *     a GENEROUS [0.08, 0.92] band at W0; the tight dark [0.18, 0.72] L2 band
- *     arms at W2 with the real-shader read, PP-10 tighten-only)
- *   • hue within ±30° of the derived seed — LOGGED at W0 (the ±30° gate needs the
- *     W2 derive-hue reference; recorded here as the measurement of record)
+ *   • C ≥ 0.03            — never an achromatic slab (the HARD non-proxy core)
+ *   • hue within ±30° of the derived seed's hue — the seed's FAMILY, never the
+ *     default pick's (the W2-1 hydration-before-derivation gate; GAP-ARM's
+ *     demo half dead ⇒ the sampled family is the seed's)
+ *   • L inside the active scheme's band — dark [0.18, 0.72] (the L2 lBand);
+ *     light [0.35, 0.95] (the derive's shipped light band, recorded at mint;
+ *     PP-10 tighten-only)
  *
- * ── BORN-GREEN-PENDING-W2 (annotated, never conflated with a live red): the
- *    achromatic-slab defect is NOT live at the SETTLED frame today — S.W6's
- *    cold-load fix lands the derived field, so the settled read is chromatic.
- *    O-1's FIRST-FRAME + tight-band + hue-±30° gate arms at W2 (the ordering
- *    defect O-1 shares with O-2/O-4 is the pre-settle flash, not the settled
- *    colour). Under software-GL the read samples the CSS-gradient placeholder
- *    (itself derived from the palette), so the chromatic assertion is honest on
- *    this runner; the authoritative real-shader read is the O-3 headed annex.
+ * ── W2-1 ARMING NOTE: the W0 mint logged hue and asserted a generous L band;
+ *    the tight bands armed with the ordering law (T.W2 · W2-1). Under
+ *    software-GL the read samples the CSS-gradient placeholder — itself the
+ *    SAME derived palette — so the family assertion is honest on this runner;
+ *    the authoritative real-shader read is the O-3 headed annex.
  */
 
 const SEED = "oklch(0.66 0.16 28)"; // mid-chroma warm seed, hue ≈ 28°
+const SEED_HUE = 28;
+const HUE_TOL = 30;
 
-test("O-1 color-truth — the settled boot field is chromatic, not an achromatic slab", async ({
+/** Circular hue distance in degrees. */
+function hueDelta(a: number, b: number): number {
+    const d = Math.abs(a - b) % 360;
+    return d > 180 ? 360 - d : d;
+}
+
+test("O-1 color-truth — the settled boot field is the DERIVED seed's material", async ({
     page,
 }) => {
     test.setTimeout(30_000);
@@ -56,7 +61,7 @@ test("O-1 color-truth — the settled boot field is chromatic, not an achromatic
     const [r, g, b] = meanRgb(img);
     const { L, C, h } = srgbToOklch(r, g, b);
     console.log(
-        `[O-1] renderer=${renderer} (${isSoftwareGL(renderer) ? "software-GL CSS placeholder" : "real-GPU"}) sample rgb=(${r.toFixed(0)},${g.toFixed(0)},${b.toFixed(0)}) → OKLCh L=${L.toFixed(3)} C=${C.toFixed(3)} h=${h.toFixed(1)}° (seed h≈28°)`,
+        `[O-1] renderer=${renderer} (${isSoftwareGL(renderer) ? "software-GL CSS placeholder" : "real-GPU"}) sample rgb=(${r.toFixed(0)},${g.toFixed(0)},${b.toFixed(0)}) → OKLCh L=${L.toFixed(3)} C=${C.toFixed(3)} h=${h.toFixed(1)}° (seed h≈${SEED_HUE}°)`,
     );
 
     // HARD (the draw-count proxy's repair): the field is chromatic.
@@ -65,10 +70,17 @@ test("O-1 color-truth — the settled boot field is chromatic, not an achromatic
         `boot field is an achromatic slab (C=${C.toFixed(3)} < 0.03) — the exact appearance blindness the draw-count proxy had`,
     ).toBeGreaterThanOrEqual(0.03);
 
-    // Generous luminance band at W0 (tight dark [0.18,0.72] arms at W2).
+    // ARMED AT W2-1 — the hue family: the field is the SEED's material, never
+    // the default pick's (the GAP-ARM demo-half kill made observable).
+    expect(
+        hueDelta(h, SEED_HUE),
+        `boot field hue ${h.toFixed(1)}° is outside ±${HUE_TOL}° of the derived seed's ${SEED_HUE}° — the field is not the seed's material (GAP-ARM class)`,
+    ).toBeLessThanOrEqual(HUE_TOL);
+
+    // ARMED AT W2-1 — the dark-scheme L band ([0.18, 0.72], the L2 lBand).
     expect(
         L,
-        `boot field L=${L.toFixed(3)} outside the plausible aurora band [0.08, 0.92]`,
-    ).toBeGreaterThanOrEqual(0.08);
-    expect(L).toBeLessThanOrEqual(0.92);
+        `boot field L=${L.toFixed(3)} outside the dark band [0.18, 0.72]`,
+    ).toBeGreaterThanOrEqual(0.18);
+    expect(L).toBeLessThanOrEqual(0.72);
 });

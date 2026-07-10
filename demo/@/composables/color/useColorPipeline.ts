@@ -34,9 +34,9 @@ const DIGITS = 2;
  * per-space savedColorStrings — seed rider 4, twins deleted); the stableHue
  * invariant preserved bit-for-bit; and declared persistence precedence
  * (URL-hash-wins-on-load, else the localStorage→model restore below, gated
- * behind URL-wins). The boot-material sink (`--saved-bg`/`color-picker-bg`)
- * moved to useAtmosphere at W6-1 — it carries the DERIVED field base stop,
- * which only the atmosphere owns.
+ * behind URL-wins). The boot-material sink (`--saved-bg-*`/the
+ * `color-picker-ground` record since T.W2-2) moved to useAtmosphere at W6-1
+ * — it carries the DERIVED field material, which only the atmosphere owns.
  */
 export function useColorPipeline(model: ShallowRef<ColorModel>) {
     // The sentinel — NOT a copy — distinguishes a self-originated write (slider/
@@ -272,16 +272,16 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     };
 
     // W6-1 (S.W6): the former applyTokens sink is GONE from the pipeline. It
-    // persisted the RAW opaque pick to `color-picker-bg` — the boot↔field
-    // material mismatch behind the load darkening/lightening snap (the ground
-    // painted the pick, the first aurora frame painted the derived field). The
-    // boot material is now owned by useAtmosphere: `--saved-bg` + the
-    // `color-picker-bg` persistence carry the derived BASE stop, so boot →
-    // first frame is ONE material. The inline-background clears died with the
-    // index.html boot script's inline writes (the fouc-guard `--saved-bg` rule
-    // is the one pre-hydration ground now). (--accent-live and the W7-4
-    // per-view accent tokens stay App-scoped — they read contrast/view
-    // state, seed rider 1.)
+    // persisted the RAW opaque pick — the boot↔field material mismatch behind
+    // the load darkening/lightening snap (the ground painted the pick, the
+    // first aurora frame painted the derived field). The boot material is now
+    // owned by useAtmosphere: the `--saved-bg-0..3` per-stop tokens + the
+    // `color-picker-ground` record (T.W2-2) carry the derived GRADIENT, so
+    // boot → first frame is ONE material. The inline-background clears died
+    // with the index.html boot script's inline writes (the fouc-guard
+    // gradient template is the one pre-hydration ground now). (--accent-live
+    // and the W7-4 per-view accent tokens stay App-scoped — they read
+    // contrast/view state, seed rider 1.)
 
     // --- W3-1 (S.W3): rAF-coalesce the colour → atmosphere fan-out ---
     // The atmosphere fan-out — the aurora seed derive + the blob-palette derive

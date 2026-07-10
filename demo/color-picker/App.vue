@@ -9,14 +9,27 @@
         <canvas
             ref="atmosphereCanvas"
             class="atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none"
-            :class="auroraArrived && 'atmosphere-canvas--arrived'"
+            :class="overture.b2.value && 'atmosphere-canvas--arrived'"
             :style="auroraCssGradient ? { backgroundImage: auroraCssGradient } : undefined"
             aria-hidden="true"
             data-testid="atmosphere-canvas"
             data-glass-field-canvas
         />
-        <!-- W5-a11y: nav landmark for the dock -->
-        <nav aria-label="Application navigation">
+        <!-- W5-a11y: nav landmark for the dock.
+             W2-3 (T.W2 · B1 dock voice): the dock arrives AS the pill —
+             veiled during the producer mount-morph, revealed through the
+             plate-land family (the M-14 booked-interim; the full mechanism +
+             rationale live in boot/useDockArrival.ts). -->
+        <nav
+            ref="dockNav"
+            aria-label="Application navigation"
+            :class="[
+                !dockRevealed && 'overture-dock-veiled',
+                dockRevealed && !prmInstant && 'overture-dock-land',
+            ]"
+            @transitionend.capture="onDockMorphSettled"
+            @animationend="onDockLandEnd"
+        >
             <Dock
                 :link-copied="linkCopied"
                 :edit-target="activeEditTarget"
@@ -52,8 +65,10 @@
 
             <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
                  makes it a size container so in-card `cqi` sizing resolves on
-                 every slot (R.W3 Lane A / A4). -->
-            <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch">
+                 every slot (R.W3 Lane A / A4). W2-3: the slot speaks the
+                 `appear` plate-land grammar (the single plate = the left
+                 voice, +40ms). -->
+            <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch" style="--overture-appear-delay: var(--overture-left-delay)">
                 <!-- W3-4 (S.W3): KeepAlive :max right-sized to the 9 non-admin
                      views. The mobile slot cycles both left+right panes, so it
                      caches the common (non-admin) surface without evicting a
@@ -65,12 +80,14 @@
                     :component-props="mobile.props"
                     :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
                     :max="9"
+                    appear
+                    :on-appeared="(el: Element) => overture.noteLeftPlateSettled(el)"
                 />
             </div>
 
             <template v-else>
-                <!-- Desktop: left pane (lg+) -->
-                <div class="pane-wrapper pane-wrapper--left hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center">
+                <!-- Desktop: left pane (lg+) — the B3 plate (+40ms). -->
+                <div class="pane-wrapper pane-wrapper--left hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center" style="--overture-appear-delay: var(--overture-left-delay)">
                     <!-- W3-4 (S.W3): :max = the 6 distinct non-admin LEFT panes
                          (color-picker · browse · extract · atmosphere · generate
                          · gradient) — already right-sized; admin left panes fall
@@ -82,13 +99,20 @@
                         :on-mount="onDesktopLeftMount"
                         :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
                         :max="6"
+                        appear
+                        :on-appeared="(el: Element) => overture.noteLeftPlateSettled(el)"
                     />
                 </div>
 
-                <!-- Desktop: right pane (lg+) — always in DOM to preserve KeepAlive scroll position -->
+                <!-- Desktop: right pane (lg+) — always in DOM to preserve
+                     KeepAlive scroll position. W2-3: the right plate (+120ms)
+                     arrives through the SAME appear grammar — the About pop
+                     dies (LS-4); a late chunk materializes through the same
+                     land on resolution (work defers, appearance composes). -->
                 <div
                     class="pane-wrapper pane-wrapper--right hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
                     :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
+                    style="--overture-appear-delay: var(--overture-right-delay)"
                 >
                     <!-- W3-4 (S.W3): :max = the 4 distinct non-admin RIGHT panes
                          (about · palettes · mix · blob) — every admin view uses
@@ -101,6 +125,8 @@
                         :on-mount="onDesktopRightMount"
                         :transition-name="viewManager.ready.value ? 'vj-enter' : ''"
                         :max="4"
+                        appear
+                        :on-appeared="() => overture.noteRightPlateSettled()"
                     />
                 </div>
             </template>
@@ -136,7 +162,6 @@ import MigratePalettesDialog from "@components/custom/palette-browser/dialog/Mig
 import DevMisconfigBanner from "@components/custom/palette-browser/status/DevMisconfigBanner.vue";
 import PaneSlot from "@components/custom/panes/PaneSlot.vue";
 
-import { defaultColorModel } from "@components/custom/color-picker";
 import { useCustomColorNames } from "@composables/color/useCustomColorNames";
 import { useColorUrl } from "@composables/color/useColorUrl";
 
@@ -149,10 +174,17 @@ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
+import { resolveHydratedBootModel } from "./composables/boot/hydrate";
+import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
+import { useDockArrival } from "./composables/boot/useDockArrival";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 import "@styles/utils.css";
 import "@styles/style.css";
+// The overture's one-clock grammar sheet (tokens + arrival/appear/dock/emerge
+// rules) — colocated with the boot chain; imported AFTER style.css so the
+// cascade order matches the former in-SFC blocks (T.W2-3).
+import "./composables/boot/overture.css";
 
 // --- Dark mode: initialize global dark state eagerly so the user's saved
 //     preference takes effect before the Dock profile menu mounts. ---
@@ -166,7 +198,15 @@ provideApiClient();
 // --- Template refs ---
 const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
-const model = shallowRef<ColorModel>(defaultColorModel);
+
+// --- W2-1 (T.W2) — HYDRATION BEFORE DERIVATION, the ordering LAW ---
+// The seed resolves FIRST (URL hash → storage → default, pure + synchronous)
+// so the model — and every derivation graph below — is BORN hydrated; nothing
+// ever paints a color the seed did not produce (LS-2; kills F-1-demo + F-3
+// structurally — full rationale in boot/hydrate.ts). useColorUrl/
+// restoreFromStorage keep the LIVE sync; they no longer carry the FIRST value.
+const hydration = resolveHydratedBootModel();
+const model = shallowRef<ColorModel>(hydration.model);
 
 // --- S.W5-10 (card-lighting-forensics artifact 4): integer-snap the pane
 //     centering — the flex remainder parks card corner arcs on fractional
@@ -224,6 +264,20 @@ const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
     cssColorOpaqueFrame,
     currentConfig,
 );
+
+// --- W2-3 (T.W2) — THE OVERTURE: the named beat-gating DAG (B0–B4) ---
+// One choreography, ordered by GATING (see useOverture's header). B2's field
+// derive-in binds the canvas class above; the slots' `appear` grammar + the
+// dock veil below report the plate-land events; ColorPicker consumes B4 via
+// OVERTURE_KEY for the blob's emerge beat (W2-4).
+const overture = useOverture(auroraArrived);
+provide(OVERTURE_KEY, overture);
+
+// The dock's B1 voice (the M-14 booked-interim) — veil + reveal + the B2
+// noteDockLanded predicate live in boot/useDockArrival (full rationale there).
+const dockNav = useTemplateRef<HTMLElement>("dockNav");
+const { prmInstant, dockRevealed, onDockMorphSettled, onDockLandEnd } =
+    useDockArrival(dockNav, overture);
 
 // X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px), now guarded
 // by the aspect law (R.W3 Lane A / A4): a portrait tablet ≥ 1024px wide runs
@@ -292,12 +346,16 @@ const shareLink = async () => {
     }
 };
 
-// --- URL sync + persistence precedence (S.W2 · W2-1) ---
-// URL-hash-wins-on-load: useColorUrl applies the hash color first and reports
-// whether it did. Only when the hash carries NO color does the pipeline restore
-// the last session from localStorage (the fallback, gated behind URL-wins).
+// --- URL sync + persistence precedence (S.W2 · W2-1; re-scoped T.W2 · W2-1) ---
+// The FIRST value is hydration's (above — the model was born with it).
+// useColorUrl's initial apply is an idempotent re-commit of the same URL
+// color and keeps owning the LIVE URL↔model sync; restoreFromStorage keeps
+// owning the savedColors restore (skipped whenever a URL color won, exactly
+// as before). `hydration.source` guards the corner where the router's query
+// and the pure hash read could disagree — the hydrated URL seed must never
+// be overwritten by the stored one.
 const { appliedFromUrl } = useColorUrl({ model, updateModel: patchModelExternal });
-if (!appliedFromUrl) restoreFromStorage();
+if (!appliedFromUrl && hydration.source !== "url") restoreFromStorage();
 
 // --- Custom color names ---
 const { loadFromAPI: loadCustomColorNames } = useCustomColorNames();
@@ -315,28 +373,8 @@ onMounted(() => { loadCustomColorNames(); });
    every frame of every swap — the P1 layout-thrash (perf-transitions P1-2). The
    pane geometry rides transform/opacity only now. */
 
-/* ── W6-1 · the atmosphere ARRIVAL (owner ruling 2026-07-05 §1.1) ──
-   The canvas eases in over the `--saved-bg` derived-base ground once the
-   field is drawable (`isArmed` — the producer's own Aurora.vue cross-fade
-   idiom; immediate on the `"css"` placeholder substrate). Ground and field
-   are ONE material (the base stop IS the field's deepest stop), so the
-   entrance reads as the field texturing in from its own base — never an
-   explicit dark→light/light→dark snap. House slow register + decelerate
-   ease; W3-2's idle-deferral mechanics are untouched (this designs the
-   arrival, it does not revert the deferral). */
-.atmosphere-canvas {
-    opacity: 0;
-    transition: opacity var(--duration-slow, 0.45s) var(--ease-decelerate);
-}
-.atmosphere-canvas--arrived {
-    opacity: 1;
-}
-/* PRM-honest: reduce → no fade, the field is a static state change. */
-@media (prefers-reduced-motion: reduce) {
-    .atmosphere-canvas {
-        transition: none;
-    }
-}
+/* The atmosphere-canvas arrival + PRM opacity pin moved to the overture
+   grammar sheet (composables/boot/overture.css — the B2 voice + gate 5b). */
 
 /* Ghost pane: always in DOM to preserve scroll-timeline state, but invisible
    and non-interactive. content-visibility:auto (W3-4) additionally drops the
@@ -352,49 +390,8 @@ onMounted(() => { loadCustomColorNames(); });
 
 </style>
 
-<style>
-/* ── Pane swap — the enter/exit family (R.W4 Lane B / B1) ──
- * The former pane-slide/pane-left/pane-right trio collapsed onto `vj-enter`
- * (animations.css); these DIRECT-CHILD geometry overrides carry only the
- * pane slots' off-canvas slide + cartoon-swagger rotate, opacity pinned
- * (the swap reads as travel, not a fade). Direct-child (`>`) on purpose:
- * an inherited `--vj-enter-*` var would leak the pane geometry into
- * nested in-pane transitions. Unscoped on purpose: the pane root carries
- * PaneSlot's scope id, not App's. The PaneSlot <Transition> stays DEFAULT
- * mode (the R.W3 dev-safe simultaneous cross-slide — DESIGN.md §Motion). */
-.pane-wrapper--left > .vj-enter-enter-from,
-.pane-wrapper--left > .vj-enter-leave-to {
-    opacity: 1;
-    transform: translateX(-110%) rotate(-2deg);
-}
-.pane-wrapper--right > .vj-enter-enter-from,
-.pane-wrapper--right > .vj-enter-leave-to {
-    opacity: 1;
-    transform: translateX(110%) rotate(2deg);
-}
-
-/* W3-4 (S.W3): promote the pane to its own compositor layer for the DURATION
- * of the enter/leave transition ONLY (`*-active`) — never a standing
- * `will-change` layer (a persistent one costs memory + defeats the point). The
- * browser drops the hint the moment the transition class is removed. */
-.pane-wrapper--left > .vj-enter-enter-active,
-.pane-wrapper--left > .vj-enter-leave-active,
-.pane-wrapper--right > .vj-enter-enter-active,
-.pane-wrapper--right > .vj-enter-leave-active {
-    will-change: transform;
-}
-
-/* W3-5 (S.W3 · view-swap spring retune): the pane ENTER travel rode the
- * `--spring-smooth-duration` 0.45s settle (§6.2 baseline); re-time it to
- * `--duration-normal` (0.3s) here — SCOPED to the pane wrappers so the shared
- * vj-enter family (overlays, toolbars, list items) is untouched. The spring
- * CURVE (`--spring-smooth`) is kept; only its clock tightens. The leave side
- * already ran at `--duration-normal` (animations.css), so the swap is
- * symmetric ~0.3s now. */
-.pane-wrapper--left > .vj-enter-enter-active,
-.pane-wrapper--right > .vj-enter-enter-active {
-    transition:
-        opacity var(--duration-normal) var(--ease-decelerate),
-        transform var(--duration-normal) var(--spring-smooth);
-}
-</style>
+<!-- Global grammar homes (the W2-close PP-8 cap cure — moves, not removals):
+     THE OVERTURE (tokens · appear · dock voice · plate cast-in · emerge ·
+     PRM collapse) → composables/boot/overture.css (imported in script setup);
+     the pane-swap vj-enter geometry overrides → @styles/animations.css
+     (appended beside the vj-enter base family they override). -->

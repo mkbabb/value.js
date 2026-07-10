@@ -61,12 +61,19 @@
              cross-pane layer (style.css `.pane-wrapper--left`) kill the S-4
              About-card burial with ZERO z-index on the instance (seed
              §Learnings 3). R.W3 D2's dual-hero diagonal still reads. Geometry:
-             `.hero-blob-anchor` below. `v-if="blobReady"` = the W3-2 IDLE
-             deferral (time-based, never a viewport gate, per the Q7 flip). -->
+             `.hero-blob-anchor` below.
+
+             T.W2-4 — THE EMERGE BEAT (B4): the blob EMERGES, never appears.
+             `blobReady` stays the W3-2 IDLE deferral (work defers);
+             `ornamentOpen` is the overture's B4 predicate — an early chunk
+             WAITS for the beat, a late chunk emerges on resolution through
+             the same pose (boot/overture.css `blob-emerge` — the sanctioned
+             interim until P6 row-F lands). `@vue:mounted` stamps overture:b4. -->
         <HeroBlob
-            v-if="blobReady"
+            v-if="blobReady && ornamentOpen"
             class="hero-blob-anchor"
             @click="onHeroBlobClick()"
+            @vue:mounted="overture?.noteOrnamentEmerge()"
         />
 
         <!-- T21 (R.W4 Lane E): the mounted-but-display:none EditDrawer is
@@ -97,6 +104,7 @@ import type { ColorModel, EditTarget } from ".";
 import { toCSSColorString, resolveColorSpace } from ".";
 import { COLOR_MODEL_KEY } from "@composables/color/keys";
 import type { ActionBarContext } from "@composables/color/keys";
+import { OVERTURE_KEY } from "../../../../color-picker/composables/boot/useOverture";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
@@ -123,6 +131,12 @@ const emit = defineEmits<{
 // deferred mount causes no layout shift.
 const HeroBlob = defineAsyncComponent(() => import("./visual/HeroBlob.vue"));
 const { ready: blobReady } = useIdleReady();
+
+// T.W2-4 — the B4 consume: the overture's ornament beat (injected; a
+// standalone/test mount without the App shell keeps the pre-overture
+// behavior — open immediately).
+const overture = inject(OVERTURE_KEY, null);
+const ornamentOpen = computed(() => overture?.b4.value ?? true);
 
 // --- Color model: inject the ONE pipeline (S.W2 · W2-1 transposition) ---
 // The former `defineModel` + local `useColorModel` shallowRef copy are gone.
@@ -376,25 +390,11 @@ onUnmounted(() => {
     }
 }
 
-/* R.W3 Lane E / E1 — beat one: the plate placement (treatment §MOTION-1).
- * The specimen plate is PLACED — it settles in with a slight rotation and
- * the cartoon shadow CASTS IN as it lands (the editorial signature in
- * motion). Reuses --spring-snappy + --shadow-cartoon; PRM-gated whole. */
-@media (prefers-reduced-motion: no-preference) {
-    @keyframes plate-land {
-        from {
-            opacity: 0;
-            transform: translateY(-12px) rotate(-0.6deg);
-            box-shadow: 0 0 0 0 transparent;
-        }
-        to {
-            opacity: 1;
-            transform: none;
-            box-shadow: var(--shadow-cartoon);
-        }
-    }
-    .pane-shell > :first-child {
-        animation: plate-land 440ms var(--spring-snappy) both;
-    }
-}
+/* T.W2 beat grammar — the B4 EMERGE POSE (`blob-emerge` on
+ * `.hero-blob-anchor`, no-pop law) and the B1 plate SHADOW CAST-IN
+ * (`plate-land` on `.pane-shell > :first-child`, the LCP reveal-only law)
+ * live in the boot-colocated overture grammar sheet
+ * (demo/color-picker/composables/boot/overture.css). Both selectors are
+ * unique to THIS template, so the global rules bind identically to the
+ * former scoped ones (moved at the W2-close PP-8 cap cure). */
 </style>

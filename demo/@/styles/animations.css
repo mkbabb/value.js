@@ -210,3 +210,51 @@
         transition-property: opacity !important;
     }
 }
+
+/* -----------------------------------------------------------------------
+ * Pane swap — the App-shell enter/exit family (R.W4 Lane B / B1; moved
+ * here from App.vue's unscoped block at the T.W2-close PP-8 cap cure —
+ * it overrides the vj-enter base family THIS file hosts, so this is its
+ * cohesion home. Higher-specificity direct-child overrides: source order
+ * vs the base family is immaterial.)
+ * The former pane-slide/pane-left/pane-right trio collapsed onto
+ * `vj-enter`; these DIRECT-CHILD geometry overrides carry only the pane
+ * slots' off-canvas slide + cartoon-swagger rotate, opacity pinned (the
+ * swap reads as travel, not a fade). Direct-child (`>`) on purpose: an
+ * inherited `--vj-enter-*` var would leak the pane geometry into nested
+ * in-pane transitions. The PaneSlot <Transition> stays DEFAULT mode (the
+ * R.W3 dev-safe simultaneous cross-slide — DESIGN.md §Motion).
+ * ----------------------------------------------------------------------- */
+.pane-wrapper--left > .vj-enter-enter-from,
+.pane-wrapper--left > .vj-enter-leave-to {
+    opacity: 1;
+    transform: translateX(-110%) rotate(-2deg);
+}
+.pane-wrapper--right > .vj-enter-enter-from,
+.pane-wrapper--right > .vj-enter-leave-to {
+    opacity: 1;
+    transform: translateX(110%) rotate(2deg);
+}
+
+/* W3-4 (S.W3): promote the pane to its own compositor layer for the
+ * DURATION of the enter/leave transition ONLY (`*-active`) — never a
+ * standing `will-change` layer. The browser drops the hint the moment the
+ * transition class is removed. */
+.pane-wrapper--left > .vj-enter-enter-active,
+.pane-wrapper--left > .vj-enter-leave-active,
+.pane-wrapper--right > .vj-enter-enter-active,
+.pane-wrapper--right > .vj-enter-leave-active {
+    will-change: transform;
+}
+
+/* W3-5 (S.W3 · view-swap spring retune): re-time the pane ENTER travel to
+ * `--duration-normal` (0.3s) — SCOPED to the pane wrappers so the shared
+ * vj-enter family (overlays, toolbars, list items) is untouched; the curve
+ * (`--spring-smooth`) is kept. The leave side already runs at
+ * `--duration-normal`, so the swap is symmetric ~0.3s. */
+.pane-wrapper--left > .vj-enter-enter-active,
+.pane-wrapper--right > .vj-enter-enter-active {
+    transition:
+        opacity var(--duration-normal) var(--ease-decelerate),
+        transform var(--duration-normal) var(--spring-smooth);
+}

@@ -1,0 +1,174 @@
+/* ═══ T.W2-3 · THE OVERTURE GRAMMAR SHEET — the boot subsystem's ONE clock
+ * family (t-load-sync §3), colocated with the boot chain (the W1 batch-8
+ * colocation law; lifted from App.vue/ColorPicker.vue styles at the W2
+ * close PP-8 cap cure — a MOVE, never a removal, feedback_preserve_animations).
+ * Every offset below is a token on this shell timeline, so DevTools shows
+ * ONE clock. The beats OPEN by gating (useOverture); these rules only voice
+ * the staggers/durations. All selectors here are app-unique (verified:
+ * `.atmosphere-canvas`, `.pane-shell`, `.hero-blob-anchor` each live in
+ * exactly one template), so this global sheet carries the exact semantics
+ * the former scoped blocks had. Imported by App.vue after the style.css
+ * chain — cascade order preserved. ═══ */
+
+:root {
+    /* B1 · the plate-land family (440ms --spring-snappy; staggers per the
+     * beat sheet: dock +0 · left +40ms · right +120ms). */
+    --overture-plate-land: 440ms;
+    --overture-dock-delay: 0ms;
+    --overture-left-delay: 40ms;
+    --overture-right-delay: 120ms;
+    /* B2 · the field derive-in (0.9s decelerate — t-aurora-boot §2.1). */
+    --overture-derive-in: 0.9s;
+}
+
+/* ── B2 · the atmosphere ARRIVAL (owner ruling 2026-07-05 §1.1, re-cut
+   W2-2 per t-aurora-boot §2.1 step 4): the canvas textures in over its OWN
+   gradient ground once the field is drawable (`isArmed`; immediate on the
+   `"css"` placeholder substrate). Ground and field are ONE material by
+   construction (W2-2's ground IS the derived-palette gradient), so the fade
+   cannot pass through gray — the arrival reads as the painting waking up,
+   not a crossfade to a different picture. Duration 0.45s → 0.9s (the §2.1
+   re-cut); decelerate kept, no new curve. W3-2's idle-deferral mechanics
+   untouched (this designs the arrival, it does not revert the deferral). */
+.atmosphere-canvas {
+    opacity: 0;
+    transition: opacity var(--overture-derive-in, 0.9s) var(--ease-decelerate);
+}
+.atmosphere-canvas--arrived {
+    opacity: 1;
+}
+/* PRM-honest (T.W2 gate 5b — the instant-states law): the field is PRESENT
+   at terminal opacity from B0; the arm is a static CONTENT change, never a
+   fade. A bare `transition: none` is NOT enough — the producer's PRM
+   doctrine (glass-ui a11y-overrides.css) FORCES
+   `transition: opacity/color/… 0.1s !important` onto every un-marked
+   element as a state-change fade, so a b2 opacity flip 0→1 still painted a
+   0.1s mid-fade under PRM (annex 2026-07-10: dark leg read 0.5747 — the 5b
+   breach). Pinning opacity to 1 removes the CHANGE, so no forced transition
+   of any duration can fire; pre-arm the canvas buffer is transparent and
+   the same-material gradient ground shows through (one material from t0);
+   a context-loss terminal likewise rests on the ground. */
+@media (prefers-reduced-motion: reduce) {
+    .atmosphere-canvas {
+        opacity: 1;
+        transition: none;
+    }
+}
+
+/* ── B1/B3 · the pane-slot APPEAR grammar (LS-4 — one arrival grammar,
+ * three voices): first-mount and late-chunk arrival speak the plate-land
+ * family. TRANSFORM ONLY — opacity pinned 1 (the LCP REVEAL-ONLY LAW,
+ * PI-2/M-13: the left slot hosts the LCP-owning picker plate; its paint
+ * chain never carries an opacity gate). The travel is the plate-land settle
+ * (translateY + the cartoon half-degree), NOT the vj-enter off-canvas slide
+ * — arrival is a landing, not a swap. */
+.overture-appear-from {
+    transform: translateY(-12px) rotate(-0.6deg);
+}
+.overture-appear-active {
+    transition: transform var(--overture-plate-land) var(--spring-snappy);
+    transition-delay: var(--overture-appear-delay, 0ms);
+}
+.overture-appear-to {
+    transform: none;
+}
+
+/* ── B1 · the dock voice (the M-14 booked-interim): veiled while the
+ * producer nub→pill mount-morph runs (the morph is no longer a visible
+ * actor), then lands AS the pill through the same family at +0ms. The dock
+ * is not the LCP owner, so its land may carry opacity (it was veiled — the
+ * reveal IS the arrival). Gating lives in boot/useDockArrival.ts. */
+.overture-dock-veiled {
+    visibility: hidden;
+}
+@keyframes overture-plate-land {
+    from {
+        opacity: 0;
+        transform: translateY(-12px) rotate(-0.6deg);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+/* ONE-SHOT RELEASE LAW (W2-close finding, live-bisected): every land/emerge
+ * beat fills `backwards`, never `both`/`forwards` — each keyframe's `to`
+ * state ≡ the element's natural resting state, so releasing at animationend
+ * is visually seamless, while a permanently-filling TRANSFORM animation left
+ * `current` on the nav rendered every dock control "element is not stable"
+ * to Playwright actionability FOREVER (20 view-nav specs timed out on real
+ * user-shaped clicks — the propose/palette/gradient/walk class). A finished
+ * beat retires; it does not squat on the compositor. */
+.overture-dock-land {
+    animation: overture-plate-land var(--overture-plate-land)
+        var(--spring-snappy) var(--overture-dock-delay) backwards;
+}
+
+/* ── B1 · the picker plate's editorial signature (R.W3 Lane E / E1 beat
+ * one, RE-CUT at T.W2-3 under THE LCP REVEAL-ONLY LAW, PI-2/M-13): this
+ * card IS the page's LCP element (both schemes — the O-24 before-record),
+ * so its land is SHADOW ONLY — opacity pinned 1 from B0, transform none
+ * (the O-24 breach was exactly this keyframe's former `from { opacity: 0 }`).
+ * The MOTION half of the land lives in the slot `appear` grammar above
+ * (transform-only); the cartoon shadow CASTS IN as the slot lands — same
+ * clock + stagger via the shell tokens. `.pane-shell` is unique to
+ * ColorPicker.vue's template, so this global rule binds exactly the plate
+ * the former scoped rule did. PRM-gated. */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes plate-land {
+        from {
+            box-shadow: 0 0 0 0 transparent;
+        }
+        to {
+            box-shadow: var(--shadow-cartoon);
+        }
+    }
+    .pane-shell > :first-child {
+        /* backwards per the one-shot release law above: the card's natural
+         * box-shadow IS var(--shadow-cartoon) (probed computed-equal), so the
+         * release at animationend is seamless. */
+        animation: plate-land var(--overture-plate-land, 440ms)
+            var(--spring-snappy) var(--overture-appear-delay, 0ms) backwards;
+    }
+}
+
+/* ── B4 · THE EMERGE POSE (T.W2-4, the demo interim; no-pop law): the bead
+ * GOO-SCALES from the seat as it mounts at B4 — never a first-frame
+ * fully-formed blob. Scale from the seat point (the card-corner anchor),
+ * decelerate, ~500ms (the beat sheet's goo-emerge window); the engine's own
+ * satellite `emerging` grammar composes inside it. RETIRES to the P6 row-F
+ * producer body-arrival pose when it lands (the booked swap).
+ * `.hero-blob-anchor` is unique to ColorPicker.vue's template. PRM = static
+ * first frame (no animation — the mount IS the state change). */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes blob-emerge {
+        from {
+            opacity: 0;
+            transform: scale(0.35);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+    .hero-blob-anchor {
+        /* backwards per the one-shot release law above (`to` ≡ natural). */
+        animation: blob-emerge 500ms var(--ease-decelerate) backwards;
+    }
+}
+
+/* ── PRM — instant states (D3 law 5, kept): the overture collapses; every
+ * surface is simply present in its settled pose. (blob-emerge/plate-land
+ * above are no-preference-wrapped; the canvas pin is in its own block.) */
+@media (prefers-reduced-motion: reduce) {
+    .overture-appear-from,
+    .overture-appear-to {
+        transform: none;
+    }
+    .overture-appear-active {
+        transition: none;
+    }
+    .overture-dock-land {
+        animation: none;
+    }
+}

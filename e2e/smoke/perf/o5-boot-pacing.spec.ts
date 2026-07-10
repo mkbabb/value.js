@@ -24,14 +24,18 @@ import {
  * transform bursts would inject false spikes — see the webServer note).
  *
  * ── BORN-RED BY DESIGN: the born-RED reference is the recorded 44→315ms hole
- *    chain (a ~7× spike). The overture that PACES the boot does not exist yet
- *    (pre-W2), so today's unstructured boot spikes on the pane-mount → the 3×
- *    band fails. `test.fail()` records the honest red WITHOUT reddening CI and
- *    flips when the cure lands. NOT softened — the frame deltas are real.
+ *    chain (a ~7× spike). `test.fail()` records the honest red WITHOUT
+ *    reddening CI. NOT softened — the frame deltas are real.
  *
- * ── CURE WAVE: **W2-3 (the overture beat sheet)** paces the boot window; O-5 is
- *    a W2 gate row (SYNTHESIS §3 T.W2). Remove test.fail() when W2-3 lands.
- *    Exact numbers re-recorded at wave-open per PP-10, tighten-only.
+ * ── W2-3 RE-MEASURE (the overture landed; T.W2 §Hard gate 7, HONESTLY RED):
+ *    post-overture built-bundle numbers — median 25.0ms · dropped 5.3%
+ *    (≤10% — THE PILE-UP LEG IS GREEN: the five-clock race + About/blob pops
+ *    are gone, appearance is beat-gated) · max spike 399.9ms = 16× median —
+ *    THE SPIKE LEG STAYS RED. The surviving hole is the ONE eager-payload
+ *    mount task (the 347.9 KiB gz eager index — RP-2), not a choreography
+ *    clock: the overture cannot spread a synchronous framework mount; the
+ *    payload cure is W7's (L20 `/blob/config` + GAP-L5 — the Q14 chain).
+ *    Re-measure at the W7 adopt; flip then. A red stays red with its cite.
  */
 
 const SPIKE_RATIO = 3; // no delta > 3× median
@@ -39,8 +43,8 @@ const DROP_RATIO = 2; // a "dropped" frame is > 2× median
 const DROP_FRACTION_MAX = 0.1; // ≤ 10% dropped
 
 test("O-5 boot pacing — no jitter spike over the boot window", async ({ page }) => {
-    // BORN-RED: the boot is unstructured pre-overture (the 44→315ms hole class).
-    // Cured at W2-3 (the overture beat sheet). Remove test.fail then.
+    // HONESTLY RED (W2-3 re-measure): the pile-up leg is green; the spike leg
+    // reds on the ONE eager-payload mount task (RP-2 → W7). Remove at W7.
     test.fail();
     test.setTimeout(30_000);
 

@@ -185,10 +185,13 @@
      * every `.font-display` / `.text-display-*` rung — glass-ui-compiled and
      * demo-authored alike — resolves Fraunces BY CONSTRUCTION (never via the
      * dead `--font-display` runtime var, never via `!important` overrides).
-     * Fraunces' single brand source is the Google Fonts <link> in
-     * demo/color-picker/index.html (the glass-ui corpus carries no Fraunces);
-     * Jakarta + Fira load as real faces from the corpus import above. */
-    --font-stack-display: "Fraunces", serif;
+     * Fraunces' single brand source is the SELF-HOSTED @font-face set in
+     * demo/color-picker/index.html (W2-3/LS-6 — the Google-Fonts network
+     * actor retired; the glass-ui corpus carries no Fraunces); Jakarta +
+     * Fira load as real faces from the corpus import above. "Fraunces
+     * Fallback" is the size-adjust-tuned Georgia (the bounded ink gate's
+     * reflow-free landing face). */
+    --font-stack-display: "Fraunces", "Fraunces Fallback", serif;
 
     /* ── The accent axis (R.W3 Lane A / A2 — the app's chromatic voice) ──
      * `--accent-live` is the contrast-guarded LIVE picked color, written by
@@ -519,13 +522,44 @@
         border-color: var(--border);
     }
     body {
-        /* W6-1 (S.W6): the body ground IS the atmosphere's derived BASE stop
-         * (`--saved-bg`, written by useAtmosphere's boot-material sink + the
-         * index.html boot script) — boot background → first aurora frame is
-         * ONE material, no theme-paper flash between the fouc-guard ground
-         * and the canvas arrival. First-ever visits (no persisted material)
-         * fall back to the theme paper. */
+        /* W2-2 (T.W2, supersedes the W6-1 base-stop ground): THE GRADIENT
+         * GROUND — the body boots inside the derived-palette GRADIENT, the
+         * field's whole material (never the deepest stop as a flat slab —
+         * t-aurora-boot F-2's dark-mud + luminance leap). The template is
+         * FIXED (it mirrors the producer's paletteToCssGradient geometry:
+         * 135deg, 4 stops); only the registered per-stop `<color>` properties
+         * `--saved-bg-0..3` move (written by useAtmosphere's sink + the
+         * index.html fouc-guard boot script — boot/ground.ts is the record
+         * of truth). Each stop rides the :root 200ms transition below, so a
+         * discrete pick breathes into the new family in OKLab (F-12) and the
+         * boot crossfade blends like-with-like (F-4). `--saved-bg` (the base
+         * stop) stays as the solid fallback var; first-ever visits get the
+         * scheme-honest constant pair from the boot script (F-6). */
         background-color: var(--saved-bg, var(--background));
+        background-image: linear-gradient(
+            135deg,
+            var(--saved-bg-0, var(--saved-bg, var(--background))) 0%,
+            var(--saved-bg-1, var(--saved-bg, var(--background))) 33%,
+            var(--saved-bg-2, var(--saved-bg, var(--background))) 67%,
+            var(--saved-bg-3, var(--saved-bg, var(--background))) 100%
+        );
         color: var(--foreground);
+    }
+    :root {
+        /* W2-2 — the ground's material clock: each registered `--saved-bg-*`
+         * stop (registered in index.html, pre-paint) interpolates as a
+         * `<color>` — OKLab by CSS Color 4's default — over 200ms decelerate.
+         * The rAF re-derive under a continuous drag outruns this (one write
+         * per frame → the transition restarts at the fresh value, visually
+         * the live tracking the drag already had — W2-5's byte-identity
+         * clause holds); only DISCRETE picks (swatch click, palette apply)
+         * ride the full 200ms breath. PRM: a color crossfade is a state
+         * change, not motion — kept under reduced motion by design. */
+        transition:
+            --saved-bg-0 200ms var(--ease-decelerate),
+            --saved-bg-1 200ms var(--ease-decelerate),
+            --saved-bg-2 200ms var(--ease-decelerate),
+            --saved-bg-3 200ms var(--ease-decelerate),
+            --saved-bg 200ms var(--ease-decelerate);
     }
 }
