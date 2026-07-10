@@ -64,16 +64,11 @@
              `.hero-blob-anchor` below.
 
              T.W2-4 — THE EMERGE BEAT (B4): the blob EMERGES, never appears.
-             `blobReady` stays the W3-2 IDLE deferral (the WORK — chunk fetch
-             — defers exactly as before); `ornamentOpen` is the overture's B4
-             predicate (B3-complete ∧ B2-started) — an early chunk WAITS for
-             the beat, a late chunk emerges on resolution through the same
-             pose (work defers, appearance composes). The reveal composes
-             from the engine's own arrival (the FSM's `emerging`-state
-             satellite grammar is the conserved asset) under the demo's
-             goo-scale emerge on the anchor (below) — the SANCTIONED INTERIM
-             until the P6 row-F body-arrival pose lands (the booked swap,
-             T.md §7.2). `@vue:mounted` stamps the B4 mark (overture:b4). -->
+             `blobReady` stays the W3-2 IDLE deferral (work defers);
+             `ornamentOpen` is the overture's B4 predicate — an early chunk
+             WAITS for the beat, a late chunk emerges on resolution through
+             the same pose (boot/overture.css `blob-emerge` — the sanctioned
+             interim until P6 row-F lands). `@vue:mounted` stamps overture:b4. -->
         <HeroBlob
             v-if="blobReady && ornamentOpen"
             class="hero-blob-anchor"
@@ -395,51 +390,11 @@ onUnmounted(() => {
     }
 }
 
-/* T.W2-4 — THE EMERGE POSE (the demo interim; no-pop law): the bead
- * GOO-SCALES from the seat as it mounts at B4 — never a first-frame
- * fully-formed blob. Scale from the seat point (the card-corner anchor),
- * decelerate, ~500ms (the beat sheet's goo-emerge window); the engine's own
- * satellite `emerging` grammar composes inside it. RETIRES to the P6 row-F
- * producer body-arrival pose when it lands (the booked swap). PRM = static
- * first frame (no animation — the mount IS the state change). */
-@media (prefers-reduced-motion: no-preference) {
-    @keyframes blob-emerge {
-        from {
-            opacity: 0;
-            transform: scale(0.35);
-        }
-        to {
-            opacity: 1;
-            transform: none;
-        }
-    }
-    .hero-blob-anchor {
-        animation: blob-emerge 500ms var(--ease-decelerate) both;
-    }
-}
-
-/* R.W3 Lane E / E1 — beat one: the plate placement (treatment §MOTION-1),
- * RE-CUT at T.W2-3 under THE LCP REVEAL-ONLY LAW (PI-2/M-13): this card IS
- * the page's LCP element (both schemes — the O-24 before-record), so its
- * land is SHADOW ONLY — opacity pinned 1 from B0, transform none (the
- * O-24 breach was exactly this keyframe's `from { opacity: 0 }`). The
- * MOTION half of the land now lives at the shell: the pane-slot `appear`
- * grammar (App.vue `.overture-appear-*`, transform-only) carries the
- * translateY + rotate settle for EVERY pane plate — one family, and this
- * card keeps its editorial signature: the cartoon shadow CASTS IN as the
- * slot lands (same clock + stagger via the shell tokens). PRM-gated. */
-@media (prefers-reduced-motion: no-preference) {
-    @keyframes plate-land {
-        from {
-            box-shadow: 0 0 0 0 transparent;
-        }
-        to {
-            box-shadow: var(--shadow-cartoon);
-        }
-    }
-    .pane-shell > :first-child {
-        animation: plate-land var(--overture-plate-land, 440ms)
-            var(--spring-snappy) var(--overture-appear-delay, 0ms) both;
-    }
-}
+/* T.W2 beat grammar — the B4 EMERGE POSE (`blob-emerge` on
+ * `.hero-blob-anchor`, no-pop law) and the B1 plate SHADOW CAST-IN
+ * (`plate-land` on `.pane-shell > :first-child`, the LCP reveal-only law)
+ * live in the boot-colocated overture grammar sheet
+ * (demo/color-picker/composables/boot/overture.css). Both selectors are
+ * unique to THIS template, so the global rules bind identically to the
+ * former scoped ones (moved at the W2-close PP-8 cap cure). */
 </style>

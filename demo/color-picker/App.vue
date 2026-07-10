@@ -16,15 +16,10 @@
             data-glass-field-canvas
         />
         <!-- W5-a11y: nav landmark for the dock.
-             W2-3 (T.W2 · B1 dock voice): the dock arrives AS the pill — the
-             demo VEILS the dock inside its own B1 slot while the producer's
-             mount nub→pill morph runs, and reveals through the plate-land
-             family on the morph's transitionend (a RECORDED BOOKED-INTERIM;
-             the sanctioned mechanism is the P7 arrive-expanded ask, M-14 —
-             this veil dies the day it ships). The reveal's animationend is
-             B2's second predicate (noteDockLanded). State-gated, never
-             timed: a no-morph mount (the P7 future) reveals via the
-             getAnimations emptiness check. -->
+             W2-3 (T.W2 · B1 dock voice): the dock arrives AS the pill —
+             veiled during the producer mount-morph, revealed through the
+             plate-land family (the M-14 booked-interim; the full mechanism +
+             rationale live in boot/useDockArrival.ts). -->
         <nav
             ref="dockNav"
             aria-label="Application navigation"
@@ -181,10 +176,15 @@ import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
 import { resolveHydratedBootModel } from "./composables/boot/hydrate";
 import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
+import { useDockArrival } from "./composables/boot/useDockArrival";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 import "@styles/utils.css";
 import "@styles/style.css";
+// The overture's one-clock grammar sheet (tokens + arrival/appear/dock/emerge
+// rules) — colocated with the boot chain; imported AFTER style.css so the
+// cascade order matches the former in-SFC blocks (T.W2-3).
+import "./composables/boot/overture.css";
 
 // --- Dark mode: initialize global dark state eagerly so the user's saved
 //     preference takes effect before the Dock profile menu mounts. ---
@@ -200,14 +200,11 @@ const atmosphereCanvas = useTemplateRef<HTMLCanvasElement>("atmosphereCanvas");
 const colorPickerRef = ref<InstanceType<typeof ColorPicker> | null>(null);
 
 // --- W2-1 (T.W2) — HYDRATION BEFORE DERIVATION, the ordering LAW ---
-// The seed resolves FIRST (URL hash → storage → default, pure + synchronous),
-// so the model ref — and every derivation graph constructed below (the
-// pipeline's rAF-coalesced frame ref, the atmosphere/accent token sinks) —
-// is BORN carrying the hydrated color. Nothing on screen ever paints the
-// default's color unless the default IS the seed (t-load-sync LS-2; kills
-// t-aurora-boot F-1's demo half + F-3's latent pink flash structurally).
-// useColorUrl/restoreFromStorage below keep the LIVE sync + savedColors
-// restore; they no longer carry the FIRST value.
+// The seed resolves FIRST (URL hash → storage → default, pure + synchronous)
+// so the model — and every derivation graph below — is BORN hydrated; nothing
+// ever paints a color the seed did not produce (LS-2; kills F-1-demo + F-3
+// structurally — full rationale in boot/hydrate.ts). useColorUrl/
+// restoreFromStorage keep the LIVE sync; they no longer carry the FIRST value.
 const hydration = resolveHydratedBootModel();
 const model = shallowRef<ColorModel>(hydration.model);
 
@@ -276,62 +273,11 @@ const { auroraCssGradient, auroraArrived } = useAtmosphereBoot(
 const overture = useOverture(auroraArrived);
 provide(OVERTURE_KEY, overture);
 
-// The dock veil (the M-14 booked-interim; template note above). PRM: instant
-// states — no veil, no land, the dock is simply present.
-const prmInstant =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+// The dock's B1 voice (the M-14 booked-interim) — veil + reveal + the B2
+// noteDockLanded predicate live in boot/useDockArrival (full rationale there).
 const dockNav = useTemplateRef<HTMLElement>("dockNav");
-const dockRevealed = ref(prmInstant);
-if (prmInstant) overture.noteDockLanded();
-
-function onDockMorphSettled(e: TransitionEvent) {
-    if (dockRevealed.value) return;
-    // Only the producer dock's own morph counts (any property of the
-    // .glass-dock subtree — the nub→pill geometry transition).
-    if ((e.target as Element | null)?.closest?.(".glass-dock")) {
-        dockRevealed.value = true;
-    }
-}
-function onDockLandEnd(e: AnimationEvent) {
-    if (e.animationName.includes("overture-plate-land")) {
-        overture.noteDockLanded();
-    }
-}
-onMounted(() => {
-    if (dockRevealed.value) return;
-    // State-gated no-morph fallback (the P7 arrive-expanded future): after
-    // the mount's styles settle (two frames — a state boundary, not a
-    // timeout), if the producer dock is NOT morphing, reveal immediately.
-    requestAnimationFrame(() =>
-        requestAnimationFrame(() => {
-            if (dockRevealed.value) return;
-            const dock = dockNav.value?.querySelector(".glass-dock");
-            // FINITE animations only — the dock subtree carries standing
-            // infinite loops (the gl-fade shimmer pair, probed live); waiting
-            // on those would veil the dock forever. The mount morph is a
-            // finite transition/animation.
-            const running = (dock?.getAnimations({ subtree: true }) ?? []).filter(
-                (a) => {
-                    const t = a.effect?.getTiming();
-                    return t ? t.iterations !== Infinity : true;
-                },
-            );
-            if (!running.length) {
-                dockRevealed.value = true;
-                return;
-            }
-            // A morph IS running — gate the reveal on its own completion
-            // (covers animation-driven morphs the transitionend capture
-            // cannot see; first signal wins via the guard).
-            void Promise.allSettled(running.map((a) => a.finished)).then(
-                () => {
-                    dockRevealed.value = true;
-                },
-            );
-        }),
-    );
-});
+const { prmInstant, dockRevealed, onDockMorphSettled, onDockLandEnd } =
+    useDockArrival(dockNav, overture);
 
 // X6: the desktop dual-pane breakpoint (Tailwind `lg` = 1024px), now guarded
 // by the aspect law (R.W3 Lane A / A4): a portrait tablet ≥ 1024px wide runs
@@ -427,41 +373,8 @@ onMounted(() => { loadCustomColorNames(); });
    every frame of every swap — the P1 layout-thrash (perf-transitions P1-2). The
    pane geometry rides transform/opacity only now. */
 
-/* ── W6-1 · the atmosphere ARRIVAL (owner ruling 2026-07-05 §1.1), re-cut
-   W2-2 (T.W2 · t-aurora-boot §2.1 step 4): the canvas textures in over its
-   OWN gradient ground once the field is drawable (`isArmed`; immediate on
-   the `"css"` placeholder substrate). Ground and field are ONE material by
-   construction now (W2-2's ground IS the derived-palette gradient), so the
-   fade cannot pass through gray — the arrival reads as the painting waking
-   up, not a crossfade to a different picture. Duration 0.45s → 0.9s (the
-   §2.1 re-cut: the old fade completed before the eye registered what the
-   ground was — HALF the story too fast); decelerate kept, no new curve.
-   W3-2's idle-deferral mechanics are untouched (this designs the arrival,
-   it does not revert the deferral). */
-.atmosphere-canvas {
-    opacity: 0;
-    transition: opacity var(--overture-derive-in, 0.9s) var(--ease-decelerate);
-}
-.atmosphere-canvas--arrived {
-    opacity: 1;
-}
-/* PRM-honest (T.W2 gate 5b — the instant-states law): the field is PRESENT
-   at terminal opacity from B0; the arm is a static CONTENT change, never a
-   fade. The bare `transition: none` was NOT enough — the producer's PRM
-   doctrine (glass-ui a11y-overrides.css) FORCES
-   `transition: opacity/color/… 0.1s !important` on every un-marked element
-   as a state-change fade, so the b2 opacity flip 0→1 still painted a 0.1s
-   mid-fade under PRM (annex 2026-07-10: dark leg read 0.5747 — the 5b
-   breach). Pinning opacity to 1 removes the CHANGE, so no transition of any
-   duration can fire; pre-arm the canvas buffer is transparent and the
-   same-material gradient ground shows through (one material from t0), and a
-   context-loss terminal likewise rests on the ground. */
-@media (prefers-reduced-motion: reduce) {
-    .atmosphere-canvas {
-        opacity: 1;
-        transition: none;
-    }
-}
+/* The atmosphere-canvas arrival + PRM opacity pin moved to the overture
+   grammar sheet (composables/boot/overture.css — the B2 voice + gate 5b). */
 
 /* Ghost pane: always in DOM to preserve scroll-timeline state, but invisible
    and non-interactive. content-visibility:auto (W3-4) additionally drops the
@@ -477,120 +390,8 @@ onMounted(() => { loadCustomColorNames(); });
 
 </style>
 
-<style>
-/* ── W2-3 (T.W2) · THE OVERTURE — the shell token block + the arrival
- * grammar. ONE clock family: every offset below is a token on this shell
- * timeline, so DevTools shows ONE clock (t-load-sync §3). The beats OPEN by
- * gating (useOverture); these tokens only voice the staggers/durations. ── */
-:root {
-    /* B1 · the plate-land family (440ms --spring-snappy; staggers per the
-     * beat sheet: dock +0 · left +40ms · right +120ms). */
-    --overture-plate-land: 440ms;
-    --overture-dock-delay: 0ms;
-    --overture-left-delay: 40ms;
-    --overture-right-delay: 120ms;
-    /* B2 · the field derive-in (0.9s decelerate — t-aurora-boot §2.1). */
-    --overture-derive-in: 0.9s;
-}
-
-/* The pane-slot APPEAR grammar (LS-4 — one arrival grammar, three voices):
- * first-mount and late-chunk arrival speak the plate-land family. TRANSFORM
- * ONLY — opacity pinned 1 (the LCP REVEAL-ONLY LAW, PI-2/M-13: the left
- * slot hosts the LCP-owning picker plate; its paint chain never carries an
- * opacity gate). The travel is the plate-land settle (translateY + the
- * cartoon half-degree), NOT the vj-enter off-canvas slide — arrival is a
- * landing, not a swap. */
-.overture-appear-from {
-    transform: translateY(-12px) rotate(-0.6deg);
-}
-.overture-appear-active {
-    transition: transform var(--overture-plate-land) var(--spring-snappy);
-    transition-delay: var(--overture-appear-delay, 0ms);
-}
-.overture-appear-to {
-    transform: none;
-}
-
-/* The dock's B1 voice (the M-14 booked-interim): veiled while the producer
- * nub→pill mount-morph runs (the morph is no longer a visible actor), then
- * lands AS the pill through the same family at +0ms. The dock is not the
- * LCP owner, so its land may carry opacity (it was veiled — the reveal IS
- * the arrival). */
-.overture-dock-veiled {
-    visibility: hidden;
-}
-@keyframes overture-plate-land {
-    from {
-        opacity: 0;
-        transform: translateY(-12px) rotate(-0.6deg);
-    }
-    to {
-        opacity: 1;
-        transform: none;
-    }
-}
-.overture-dock-land {
-    animation: overture-plate-land var(--overture-plate-land)
-        var(--spring-snappy) var(--overture-dock-delay) both;
-}
-
-/* PRM — instant states (D3 law 5, kept): the overture collapses; every
- * surface is simply present in its settled pose. */
-@media (prefers-reduced-motion: reduce) {
-    .overture-appear-from,
-    .overture-appear-to {
-        transform: none;
-    }
-    .overture-appear-active {
-        transition: none;
-    }
-    .overture-dock-land {
-        animation: none;
-    }
-}
-
-/* ── Pane swap — the enter/exit family (R.W4 Lane B / B1) ──
- * The former pane-slide/pane-left/pane-right trio collapsed onto `vj-enter`
- * (animations.css); these DIRECT-CHILD geometry overrides carry only the
- * pane slots' off-canvas slide + cartoon-swagger rotate, opacity pinned
- * (the swap reads as travel, not a fade). Direct-child (`>`) on purpose:
- * an inherited `--vj-enter-*` var would leak the pane geometry into
- * nested in-pane transitions. Unscoped on purpose: the pane root carries
- * PaneSlot's scope id, not App's. The PaneSlot <Transition> stays DEFAULT
- * mode (the R.W3 dev-safe simultaneous cross-slide — DESIGN.md §Motion). */
-.pane-wrapper--left > .vj-enter-enter-from,
-.pane-wrapper--left > .vj-enter-leave-to {
-    opacity: 1;
-    transform: translateX(-110%) rotate(-2deg);
-}
-.pane-wrapper--right > .vj-enter-enter-from,
-.pane-wrapper--right > .vj-enter-leave-to {
-    opacity: 1;
-    transform: translateX(110%) rotate(2deg);
-}
-
-/* W3-4 (S.W3): promote the pane to its own compositor layer for the DURATION
- * of the enter/leave transition ONLY (`*-active`) — never a standing
- * `will-change` layer (a persistent one costs memory + defeats the point). The
- * browser drops the hint the moment the transition class is removed. */
-.pane-wrapper--left > .vj-enter-enter-active,
-.pane-wrapper--left > .vj-enter-leave-active,
-.pane-wrapper--right > .vj-enter-enter-active,
-.pane-wrapper--right > .vj-enter-leave-active {
-    will-change: transform;
-}
-
-/* W3-5 (S.W3 · view-swap spring retune): the pane ENTER travel rode the
- * `--spring-smooth-duration` 0.45s settle (§6.2 baseline); re-time it to
- * `--duration-normal` (0.3s) here — SCOPED to the pane wrappers so the shared
- * vj-enter family (overlays, toolbars, list items) is untouched. The spring
- * CURVE (`--spring-smooth`) is kept; only its clock tightens. The leave side
- * already ran at `--duration-normal` (animations.css), so the swap is
- * symmetric ~0.3s now. */
-.pane-wrapper--left > .vj-enter-enter-active,
-.pane-wrapper--right > .vj-enter-enter-active {
-    transition:
-        opacity var(--duration-normal) var(--ease-decelerate),
-        transform var(--duration-normal) var(--spring-smooth);
-}
-</style>
+<!-- Global grammar homes (the W2-close PP-8 cap cure — moves, not removals):
+     THE OVERTURE (tokens · appear · dock voice · plate cast-in · emerge ·
+     PRM collapse) → composables/boot/overture.css (imported in script setup);
+     the pane-swap vj-enter geometry overrides → @styles/animations.css
+     (appended beside the vj-enter base family they override). -->
