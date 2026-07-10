@@ -74,21 +74,27 @@ export function useAtmosphereBoot(
         { immediate: true },
     );
 
-    // 2 — the per-view accent (W7-4): the library-resolved static tokens —
+    // 2 — the atmosphere: aurora + hero-blob palette coupling (provides
+    //     AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on the caller's scope). Ordered
+    //     BEFORE the per-view accents since M-15: the atmosphere exposes the
+    //     live `derivedLightness` (the D6 page-ambient referent) the accent
+    //     resolver consumes.
+    const { auroraCssGradient, auroraArrived, derivedLightness } = useAtmosphere(
+        atmosphereCanvas,
+        atmosphereColor,
+    );
+
+    // 3 — the per-view accent (W7-4): the library-resolved static tokens —
     //     `--accent-view-<id>` × 9 + `--accent-view` + `--seal-ink` — written
-    //     per accent change on the same rAF-coalesced clock.
+    //     per accent change on the same rAF-coalesced clock. M-15: the WCAG
+    //     referent is the atmosphere's live derived lightness, never the
+    //     BG_LIGHTNESS constants (retired from this path).
     useViewAccents({
         cssColorOpaque: atmosphereColor,
         safeAccentCss,
         currentConfig,
+        derivedLightness,
     });
-
-    // 3 — the atmosphere: aurora + hero-blob palette coupling (provides
-    //     AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on the caller's scope).
-    const { auroraCssGradient, auroraArrived } = useAtmosphere(
-        atmosphereCanvas,
-        atmosphereColor,
-    );
 
     return { auroraCssGradient, auroraArrived };
 }

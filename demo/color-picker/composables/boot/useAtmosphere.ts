@@ -109,6 +109,23 @@ export function useAtmosphere(
     // extra `resolveAtoms` here stays off the per-event hot path.
     const resolvedPalette = computed(() => resolveAtoms(auroraAtoms).palette);
 
+    // --- M-15 (T.W2-routed cross-wave hunk; D6 THE INK-ON-TIER CONTRACT) ---
+    // The atmosphere EXPOSES its live derived lightness — the mean OKLab L of
+    // the resolved field palette, i.e. the page-ambient the ink actually sits
+    // over. The D6 law: the contrast referent is a property of the SURFACE the
+    // text sits on, never a global constant (A11Y-F1: the BG_LIGHTNESS_DARK/
+    // LIGHT pair 0.15/0.97 is a FALSE referent everywhere — the measured
+    // composited ambient runs 0.376–0.936). useViewAccents consumes this ref;
+    // W3-5 threads it to the non-boot consumers (the same round's parallel
+    // wave — the routed-hunk seam, h-wave-w2-w3 M1 ≡ h-dag D-1).
+    const derivedLightness = computed(() => {
+        const palette = resolvedPalette.value;
+        if (!palette.length) return 0.5;
+        let sum = 0;
+        for (const stop of palette) sum += stop.L;
+        return sum / palette.length;
+    });
+
     // The CSS-gradient fallback for the `"css"` substrate — the same derived
     // palette `resolveAtoms` feeds the WebGL field, rendered as a static
     // linear gradient (the `<Aurora>` placeholder idiom, glass-ui's
@@ -286,5 +303,5 @@ export function useAtmosphere(
         { immediate: true },
     );
 
-    return { auroraCssGradient, auroraArrived };
+    return { auroraCssGradient, auroraArrived, derivedLightness };
 }

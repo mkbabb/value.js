@@ -28,7 +28,6 @@
 
 import { watch } from "vue";
 import type { ComputedRef } from "vue";
-import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 
 import { VIEW_MAP } from "@composables/viewSchema";
 import type { PaneConfig, ViewId } from "@composables/viewSchema";
@@ -37,10 +36,6 @@ import {
     resolveViewAccent,
     resolveViewAccentTokens,
 } from "./view-accents";
-import {
-    BG_LIGHTNESS_DARK,
-    BG_LIGHTNESS_LIGHT,
-} from "@composables/color/useContrastSafeColor";
 
 /**
  * The nine primary views — every non-admin `VIEW_MAP` row. Admin views stay
@@ -64,22 +59,36 @@ export interface UseViewAccentsOptions {
     safeAccentCss: ComputedRef<string>;
     /** The active view's config — its `accentHueShift` keys `--accent-view`. */
     currentConfig: ComputedRef<PaneConfig>;
+    /**
+     * M-15 (T.W2-routed; D6): the atmosphere's LIVE derived lightness — the
+     * page-ambient the accents actually composite over (exposed by
+     * useAtmosphere as the mean OKLab L of the resolved field palette). The
+     * former BG_LIGHTNESS_DARK/LIGHT constants (0.15/0.97) were a FALSE
+     * referent (A11Y-F1: measured composited ambient 0.376–0.936) — their
+     * consumption is RETIRED from this path; W3-5 threads the exposed value
+     * to the remaining non-boot consumers.
+     */
+    derivedLightness: ComputedRef<number>;
 }
 
 export function useViewAccents(options: UseViewAccentsOptions): void {
-    const { cssColorOpaque, safeAccentCss, currentConfig } = options;
-    const { isDark } = useGlobalDark();
-    const bgL = () => (isDark.value ? BG_LIGHTNESS_DARK : BG_LIGHTNESS_LIGHT);
+    const { cssColorOpaque, safeAccentCss, currentConfig, derivedLightness } =
+        options;
 
-    // The 9 static per-view tokens — recomputed per accent change + scheme flip.
+    // The 9 static per-view tokens — recomputed per accent change + ambient.
+    // D6 honesty note: the referent is the SURFACE (the live field), and the
+    // field's L band does not move on a scheme flip today (GAP-L2 — the dark
+    // lBand rides P1/W7); when it lands, the ambient ref carries the flip
+    // automatically. The old isDark→constants swap re-resolved against a
+    // referent no surface ever had.
     watch(
-        [safeAccentCss, isDark],
-        ([css]) => {
+        [safeAccentCss, derivedLightness],
+        ([css, bgL]) => {
             const root = document.documentElement.style;
             const tokens = resolveViewAccentTokens(
                 css,
                 PRIMARY_VIEW_SHIFTS,
-                bgL(),
+                bgL,
             );
             for (const [name, value] of Object.entries(tokens)) {
                 root.setProperty(name, value);
@@ -91,9 +100,9 @@ export function useViewAccents(options: UseViewAccentsOptions): void {
     // The CURRENT view's accent — `--primary` rides it (style.css). Admin
     // views carry shift 0, so admin surfaces keep the live-accent voice.
     watch(
-        [safeAccentCss, isDark, () => currentConfig.value.accentHueShift],
-        ([css, , shift]) => {
-            const resolved = resolveViewAccent(css, shift ?? 0, bgL());
+        [safeAccentCss, derivedLightness, () => currentConfig.value.accentHueShift],
+        ([css, bgL, shift]) => {
+            const resolved = resolveViewAccent(css, shift ?? 0, bgL);
             if (resolved) {
                 document.documentElement.style.setProperty(
                     "--accent-view",
