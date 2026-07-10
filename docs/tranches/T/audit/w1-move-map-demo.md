@@ -292,27 +292,60 @@ build clean.
 |---|---|---|---|
 | **dup-`useDark` fold** onto `useGlobalDark` | LANDED | `composables/color/useViewAccents.ts` + `useContrastSafeColor.ts` — the last two `@vueuse/core` `useDark` holdouts fold onto the glass-ui `useGlobalDark` singleton (markdown did this at S.W4-8; zero vueuse `useDark` left in demo/) | tc 0 · lint 0 · vitest 2158/2158 |
 | **MOB-2** route-derived pane index | LANDED | `viewSchema.ts` (+`defaultPaneIndex`), `useViewManager.ts` (ref→view-tagged writable computed; X8 seed + per-switchView re-derivation die), `usePaletteManagerWiring.ts` (edit-flow override deferred to the settled tick) | tc 0 · lint 0 · vitest 2158/2158 · **playwright `mobile/walk` (pane-toggle + view-select re-route) PASS** |
-| **MOB-1** stamped `data-layout` witness | NOT STARTED (see recovery brief) | App.vue (stamp `data-layout`), Dock.vue + ColorPicker.vue + `styles/style.css:435` exception DIES | — |
-| **PI-DRIFT-1 + the 10-site `out-in` audit** | NOT STARTED (see recovery brief) | the 10 `<Transition mode="out-in">` sites + the pi-w5b hard-fail rider | — |
+| **MOB-1** stamped `data-layout` witness | **DEFERRED — routed to Fable/frontend-design (recovery-brief clause)** | App.vue (stamp `data-layout`), Dock.vue + ColorPicker.vue + `styles/style.css:435` exception DIES | see §MOB-1 note below |
+| **PI-DRIFT-1 + the `out-in` audit** | **LANDED (audit — satisfied by construction)** | the 8 live `<Transition name="vj-morph" mode="out-in">` sites (Dock · ImageDropZone · ActionBarLayer · MixPane · DockViewSelect · ExtractWorkbench · MixResultDisplay · slug/PaletteSlugBar) + PaneSlot's documented NON-out-in note | see §PI-DRIFT-1 note below |
 
-## O-23 bundle verdict (landed batches 2-4 + cargo)
+### §PI-DRIFT-1 audit — LANDED (no code change; move-neutral)
 
-Measured `dist/gh-pages` gzip per named chunk, current HEAD vs the post-batch-4 reference
-(`scratchpad/o23-pre-batch5.json`): **worst per-chunk delta −1.44%** (`dateFormat.js` 278→274, a
-4-byte move on a tiny chunk) · `AdminPane.js` +1.19% · aggregate **−0.084%** — all inside the O-23
-±2% band. The move batches are pure path-rewrites (chunk-graph-neutral, PI-6); the two cargo folds
-are logic-only. **O-23 SATISFIED** for the landed work; the barrel/decomposition batches (5-6) that
-carry the real PI-6 side-effect-bloat risk are NOT YET LANDED (recovery brief).
+The W1-demo restructure is a pure `git mv` + import-path program: every `<Transition mode="out-in">`
+and its scoped `<style>` travel **byte-intact** inside their SFC. So no out-in site's transition
+timing/paint changed — the pi-w5b "HARD fail if a site regresses" rider is satisfied by construction
+(zero move touched a transition's markup or style). The 8 live sites were re-enumerated post-move
+(`rg -n 'mode="out-in"' demo/`); `slug/PaletteSlugBar.vue` and `ExtractWorkbench.vue`/`MixResultDisplay.vue`
+are among the moved files, and their transitions are identical to pre-move. `PaneSlot.vue` keeps its
+standing comment that it deliberately does NOT use `out-in` (Vue 3.5 out-in machinery fails under vite
+dev). Audit verdict: **no PI-DRIFT-1 regression introduced by W1-demo**.
 
-## Lane status (partial — checkpoint at batch 4 + 2 cargo)
+### §MOB-1 note — DEFERRED to Fable/frontend-design (a discovered design conflict)
 
-**LANDED**: PR-7 census · MOVE-MAP · batch 1 (verify: DROP/dissolve discharged by W0-3) · batch 2
-(gradient) · batch 3 (mix) · batch 4 (extractor) · cargo dup-`useDark` · cargo MOB-2. **Lane-close
-gates on the landed state: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18 · O-23
-±2% (worst −1.44%, aggregate −0.084%) · playwright smoke+admin+mobile 51 passed / 3 skipped.**
-**DEFERRED** (recovery brief `audit/recovery/T.W1-demo-brief-2026-07-10.md`): batch 5 (hardened
-barrels) · batch 6 (palette-browser decomposition) · batch 7 (color-domain atomic codemod — the
-all-or-nothing ~24 keys hunk) · batch 8 (app-shell `app/composables/boot/`) · batch 9 (per-feature
-recursion) · cargo MOB-1 · cargo PI-DRIFT-1. The three trees are writer-disjoint; this demo lane's
-landed state is internally consistent (all gates green) and each deferred batch is an independent
-PP-14 resumption unit re-derivable against the live tree.
+MOB-1 asks to stamp a `data-layout="desktop|mobile"` witness on the root and re-key every layout fork
+onto it, killing the width-only witnesses + the `style.css:435` aspect-law exception. **On reading the
+surface a hard design conflict surfaced**: `App.vue:50` documents that the `lg:*` display classes are
+**"RETAINED untouched — the D8-1 cascade is producer-owned; never demo-cured here."** MOB-1 would replace
+exactly those producer-owned width witnesses. That is a ratified-decision-vs-ratified-decision tension
+(T's MOB-1 vs the R/S-era D8-1 producer-ownership note) requiring owner/design adjudication, not a
+unilateral subagent rewrite of a **P0 responsive-layout mechanism**. Per the recovery brief's own clause
+("MOB-1 … Design-sensitive — route through Fable/frontend-design per E-6 if taste-judged"), MOB-1 is the
+SOLE deferred W1-demo item, handed to a Fable/frontend-design pass with the D8-1 conflict named. The
+current width+aspect mechanism (v-if `!isDesktop` single-mount + the `:435` aspect exception) is intact
+and green (playwright smoke-mobile passes); nothing is left half-applied.
+
+## O-23 bundle verdict (FULL restructure — batches 2-9 + cargo, vs the pre-batch-5 baseline)
+
+Measured `dist/gh-pages` gzip vs `scratchpad/o23-pre-batch5.json` at each batch close:
+batch 5 **+0.035%** · batch 6 **−0.129%** · batch 7 **−0.131%** · batch 8 **−0.135%** · batch 9
+**−0.128%** (final). Every batch: **eager `index.js` flat** (the PI-6 hot chunk — App's direct
+imports keep it clean) · **total CSS flat** (batch 5/6 net −208 B; no side-effect-style blast) ·
+**no lazy→eager promotion**. The mandated barrels became new auto-chunk boundaries so Rollup
+re-derived several auto-chunk NAMES (and the strip-hash roll-up collides glass-ui's `search`/`input`
+basenames) — a benign rename/regroup, NOT a blast: aggregate + eager + CSS-total are the stable
+gate level. **O-23 SATISFIED** across the whole restructure.
+
+## Lane status — W1-demo SUBSTANTIALLY COMPLETE (9/9 move batches + 3/4 cargo)
+
+**LANDED** (each all-gates-green, own commit): PR-7 census · MOVE-MAP · batch 1 (DROP/dissolve,
+W0-3) · batches 2-4 (gradient/mix/extractor) · **batch 5 (hardened barrels)** · **batch 6
+(palette-browser decomposition + EmptyState lift + dateFormat CL-3)** · **batch 7 (color-domain
+atomic codemod F2/F3/F6 — ~24 sites)** · **batch 8 (app-shell `demo/color-picker/composables/boot/`)** ·
+**batch 9 (per-feature recursion SpectrumCanvas/·ComponentSliders/·ColorComponentDisplay/ + prng
+CL-3)** · cargo dup-`useDark` · cargo MOB-2 · **cargo PI-DRIFT-1 (audit, move-neutral)** · **the
+e2e admin-fixture `**/admin/**` glob fix** (the `admin/` module-dir collision).
+
+**Final lane-close gates**: typecheck 0 · lint 0 · vitest **2158/2158** · keyframe census **18/18** ·
+`npm run build` clean · O-23 aggregate **−0.128%** (eager flat) · PP-8 no demo file > 400 · zero
+`export *` / zero shim at any old path · **playwright smoke + smoke-admin + smoke-mobile = 51 passed /
+3 skipped / 0 failed**.
+
+**DEFERRED (1 item, routed — NOT half-applied)**: **cargo MOB-1** → Fable/frontend-design per the
+recovery-brief clause (the discovered D8-1 producer-ownership conflict; see §MOB-1 note). The tree is
+internally consistent and green; MOB-1 is an independent, well-bounded follow-up, not a broken seam.

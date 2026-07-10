@@ -1,5 +1,14 @@
 # T.W1-demo — RECOVERY / RESUME BRIEF (2026-07-10)
 
+> **RESOLVED (2026-07-10, second run)** — the resume executed batches **5·6·7·8·9** + cargo
+> **PI-DRIFT-1** (audit) + the e2e admin-fixture glob fix, all all-gates-green (final: vitest
+> 2158/2158 · lint 0 · tc 0 · build clean · playwright smoke+admin+mobile 51 passed/3 skipped/0
+> failed · O-23 aggregate −0.128%, eager flat · PP-8 clean · zero `export *`/shim). The **sole
+> remaining item is cargo MOB-1**, DEFERRED to Fable/frontend-design per §3's own clause (a
+> discovered D8-1 producer-ownership conflict — see `w1-move-map-demo.md §MOB-1 note`). The live
+> tree is internally consistent; MOB-1 is not half-applied. This brief below is the point-in-time
+> batch-4-checkpoint record; the authoritative final status is `w1-move-map-demo.md §Lane status`.
+
 Per the standing §Recovery rider (`T.W1.md §Recovery`, `T.md §8`, PP-14/PP-15). This lane landed
 a clean, all-gates-green CHECKPOINT (batches 1-4 + 2 cargo) and stopped at a session wall before
 the high-blast batches. The tree is internally consistent — **no partial/atomic hunk is
