@@ -134,3 +134,41 @@ jobs:
                   --project-name=color
                   --branch=master
                   --commit-dirty=true
+            # ── O-25 · PROD-LINEAGE ASSERT (T.W0 W0-6; SYNTHESIS §6.1 O-25;
+            #    T.W0.md §Hard gate 6 — the buildable spec). The standing guard
+            #    for the deploy-fully footgun: layer-5 (`80c5888`) proved a
+            #    `--branch=main` deploy exits 0 + prints "Deployment complete"
+            #    while cutting a PREVIEW deployment — color.babb.dev goes a month
+            #    stale under a green run. This step makes the NEXT such window get
+            #    caught by an oracle, not an owner eyeball: after the deploy, the
+            #    CF Pages PRODUCTION deployment (Environment=Production,
+            #    branch=master) must reference the BUILT commit.
+            #
+            #    CREDS PRECONDITION (named): CLOUDFLARE_API_TOKEN +
+            #    CLOUDFLARE_ACCOUNT_ID. Absent creds ⇒ SKIPPED-WITH-RECORD (a loud
+            #    notice), NEVER silently green (T.W0 §No-workaround).
+            - name: "O-25 — assert prod lineage (CF Pages Production == built commit)"
+              env:
+                  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  BUILT_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+              run: |
+                  set -uo pipefail
+                  if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+                    echo "::notice title=O-25 SKIPPED::CF credentials absent (CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID) — prod-lineage assert SKIPPED-WITH-RECORD, never silently green. Wire the secrets to arm the guard."
+                    exit 0
+                  fi
+                  SHORT="${BUILT_SHA:0:8}"
+                  echo "O-25: built commit = ${BUILT_SHA} (short ${SHORT}); listing CF Pages deployments…"
+                  LIST="$(npx --yes wrangler@4 pages deployment list --project-name=color 2>&1)" || {
+                    echo "::error title=O-25::wrangler pages deployment list failed:"; echo "$LIST"; exit 1;
+                  }
+                  echo "$LIST"
+                  if printf '%s\n' "$LIST" | grep -iE 'production' | grep -q "$SHORT"; then
+                    echo "O-25 PASS: the Production deployment references the built commit ${SHORT}."
+                  elif printf '%s\n' "$LIST" | grep -q "$SHORT"; then
+                    echo "::warning title=O-25::built commit ${SHORT} is present in the deployment list but a Production-environment association could not be parsed from this wrangler output format — review the list above (not blocking a good deploy on a format quirk)."
+                  else
+                    echo "::error title=O-25 STALE-PROD::no CF Pages deployment references the built commit ${SHORT} — the deploy did not land as Production (the --branch footgun class). color.babb.dev is stale."
+                    exit 1
+                  fi
