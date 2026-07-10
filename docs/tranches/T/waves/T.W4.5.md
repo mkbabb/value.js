@@ -46,7 +46,9 @@ closes on its own gates, never on an owner verdict (W8 keeps that).
    rungs, C3/Q18 neutral family, certified contrast) · **the picker recomposition** (W4: ×φ/Q11a
    titles, readout tuple, console WELL, blob seat, veil) · **the colocation seams** (W1:
    structural spot-check — barrels, no old-path shims) · **the W0 oracle-floor state** (flipped
-   boot oracles re-read as evidence). Each pass drives the surface LIVE (the O-3 probe class),
+   boot oracles re-read as evidence). **[OWNER-2026-07-10]** RE-JUDGE **T-30/T-31/T-32**
+   (`MANDATE §0.5`) against the landed round-2 state — the findings were audited PRE-W2/W3, at
+   the W1-close head `c63f9aa`. Each pass drives the surface LIVE (the O-3 probe class),
    judges against D1–D10 + the owner's verbatim lines + **the §12 RULED outcomes** (a pass that
    contradicts a ruling or a §4 retirement files nothing — it routes to the owner).
 2. **Remediation lanes** for what falls short (batches of three; single-writer keyed on the
