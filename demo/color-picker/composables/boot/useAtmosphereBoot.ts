@@ -18,6 +18,10 @@
  *      W3-1 (S.W3): the contrast solve runs off the rAF-coalesced colour (one
  *      solve/frame under a drag); the picker keeps the synchronous
  *      `cssColorOpaque` via CSS_COLOR_KEY, provided by App.
+ *      T.W3-5 (D6, the M-15 thread): the solve's referent is the atmosphere's
+ *      LIVE `derivedLightness` (provided onward via INK_AMBIENT_KEY), and the
+ *      same instance stamps `--ink-muted` — the floor-clamped plate
+ *      de-emphasis rung (the BG_LIGHTNESS constants are retired everywhere).
  *
  *   2. THE PER-VIEW ACCENT (S.W7 · W7-4, superseding R.W4 B2's CSS
  *      relative-color derivation) — `useViewAccents` resolves each view's
@@ -47,7 +51,7 @@
 import { watch, provide } from "vue";
 import type { ComputedRef, ShallowRef } from "vue";
 
-import { SAFE_ACCENT_KEY } from "@composables/color/keys";
+import { INK_AMBIENT_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
 import type { PaneConfig } from "@composables/useViewManager";
 import { useContrastSafeColor } from "@composables/color/useContrastSafeColor";
 import { useViewAccents } from "./useViewAccents";
@@ -62,10 +66,30 @@ export function useAtmosphereBoot(
     // per-view accent token.
     currentConfig: ComputedRef<PaneConfig>,
 ) {
-    // 1 — the accent axis: mirror the contrast-guarded live colour onto
-    //     `--accent-live`, and provide the same computation via SAFE_ACCENT_KEY.
-    const { safeAccentCss } = useContrastSafeColor(atmosphereColor);
+    // 1 — the atmosphere: aurora + hero-blob palette coupling (provides
+    //     AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on the caller's scope). Ordered
+    //     FIRST since M-15: the atmosphere exposes the live `derivedLightness`
+    //     (the D6 page-ambient referent) BOTH accent resolvers consume.
+    const { auroraCssGradient, auroraArrived, derivedLightness } = useAtmosphere(
+        atmosphereCanvas,
+        atmosphereColor,
+    );
+
+    // 2 — the accent axis (W3-5 threads the M-15 exposed value): the live
+    //     colour certified against the LIVE ambient — never the retired
+    //     BG_LIGHTNESS constants — mirrored onto `--accent-live` and provided
+    //     via SAFE_ACCENT_KEY. The ambient referent itself is provided
+    //     (INK_AMBIENT_KEY) so tier-seated consumers (`useSafeAccentFn`,
+    //     `useMarkdownColors`) key their own rung's composited lightness off
+    //     the ONE source. The de-emphasis rung rides the same instance:
+    //     `--ink-muted` is the floor-clamped certified plate ink (D6/F-4 —
+    //     the plate-caption + parse-echo voice; post-hoc opacity died).
+    const { safeAccentCss, mutedInkCss } = useContrastSafeColor(
+        atmosphereColor,
+        derivedLightness,
+    );
     provide(SAFE_ACCENT_KEY, safeAccentCss);
+    provide(INK_AMBIENT_KEY, derivedLightness);
     watch(
         safeAccentCss,
         (css) => {
@@ -73,15 +97,26 @@ export function useAtmosphereBoot(
         },
         { immediate: true },
     );
-
-    // 2 — the atmosphere: aurora + hero-blob palette coupling (provides
-    //     AURORA_ATOMS_KEY + BLOB_CONFIG_KEY on the caller's scope). Ordered
-    //     BEFORE the per-view accents since M-15: the atmosphere exposes the
-    //     live `derivedLightness` (the D6 page-ambient referent) the accent
-    //     resolver consumes.
-    const { auroraCssGradient, auroraArrived, derivedLightness } = useAtmosphere(
-        atmosphereCanvas,
-        atmosphereColor,
+    watch(
+        mutedInkCss,
+        (css) => {
+            document.documentElement.style.setProperty("--ink-muted", css);
+        },
+        { immediate: true },
+    );
+    // The PUBLISHED page-ambient referent (the D6 "tiers publish effective
+    // lightness" stake, executed demo-side for the page tier): the exact
+    // number every certified ink keyed on, stamped so consumers + the O-18
+    // census read the SAME referent the guard used — never a re-derivation.
+    watch(
+        derivedLightness,
+        (l) => {
+            document.documentElement.style.setProperty(
+                "--ink-ambient-l",
+                l.toFixed(4),
+            );
+        },
+        { immediate: true },
     );
 
     // 3 — the per-view accent (W7-4): the library-resolved static tokens —

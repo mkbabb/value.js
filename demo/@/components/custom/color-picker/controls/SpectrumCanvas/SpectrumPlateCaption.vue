@@ -20,7 +20,14 @@ defineProps<{
 @reference "../../../../../styles/style.css";
 
 /* The annotation voice (Fira Code), all-small-caps — the atlas-caption
- * register shared with the space title's catalog eyebrow. */
+ * register shared with the space title's catalog eyebrow.
+ *
+ * Ink: the certified de-emphasis rung `--ink-muted` (D6, T.W3-5 —
+ * h-refine-console F-10; the t-2001-51 owner-shot instance). The former
+ * `--muted-foreground` measured 3.84:1 light / 3.36:1 dark on the plate it
+ * actually sits on — below the 4.5:1 small-text floor. The rung is
+ * floor-clamped against the LIVE resting-plate lightness by the boot writer
+ * (`useAtmosphereBoot` — the same contract as `--accent-live`). */
 .plate-caption {
     display: flex;
     justify-content: space-between;
@@ -35,7 +42,7 @@ defineProps<{
     letter-spacing: 0.09em;
     font-variant-caps: all-small-caps;
     font-feature-settings: "tnum" 1;
-    color: var(--muted-foreground);
+    color: var(--ink-muted);
     white-space: nowrap;
     user-select: none;
 }

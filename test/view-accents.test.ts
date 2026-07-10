@@ -26,10 +26,15 @@ import {
     PRIMARY_VIEW_IDS,
     PRIMARY_VIEW_SHIFTS,
 } from "../demo/color-picker/composables/boot/useViewAccents";
-import {
-    BG_LIGHTNESS_DARK,
-    BG_LIGHTNESS_LIGHT,
-} from "@composables/color/useContrastSafeColor";
+
+/**
+ * D6 (T.W3-5): the BG_LIGHTNESS constants are RETIRED — the live referent is
+ * the atmosphere's `derivedLightness` (M-15). The resolver stays a pure
+ * function of `bgL`, so the probe sweeps the MEASURED composited ambient
+ * band instead (t-a11y-contrast F-1: 0.376–0.936 across schemes/surfaces) —
+ * the floor must hold at BOTH ends of every ambient the app actually paints.
+ */
+const AMBIENT_BAND = { brightest: 0.936, darkest: 0.376 } as const;
 
 /** Parse the resolver's `oklch(L C H)` output into raw components. */
 function parseResolved(css: string): { L: number; C: number; H: number } {
@@ -56,8 +61,8 @@ const PICKS = {
 } as const;
 
 const SCHEMES = {
-    light: BG_LIGHTNESS_LIGHT,
-    dark: BG_LIGHTNESS_DARK,
+    "bright ambient": AMBIENT_BAND.brightest,
+    "dark ambient": AMBIENT_BAND.darkest,
 } as const;
 
 describe("W7-4 — the 9 gamut-guarded per-view accents", () => {
@@ -92,7 +97,7 @@ describe("W7-4 — the 9 gamut-guarded per-view accents", () => {
             const resolved = resolveViewAccent(
                 PICKS["achromatic mid (C≈0)"],
                 shift,
-                BG_LIGHTNESS_LIGHT,
+                AMBIENT_BAND.brightest,
             );
             const { C, H } = parseResolved(resolved!);
             expect(C).toBeGreaterThanOrEqual(DELTA_E_OK_JND);

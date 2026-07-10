@@ -47,8 +47,9 @@
                     class="space-y-1"
                 >
                     <div
-                        :style="{ color: nodeHighlightColor }"
+                        :style="{ color: componentInk }"
                         class="text-body"
+                        data-o18="component-name"
                     >
                         {{ currentColorSpaceInfo.components[index] ?? rangeKey }}
                     </div>
@@ -106,13 +107,17 @@
                                     v-for="(space, spaceIndex) in path"
                                     :key="spaceIndex"
                                 >
+                                    <!-- F-3 split: the hovered node commits to the live
+                                         fill AND the fill-derived ink together — never a
+                                         colored fill under the fixed foreground. -->
                                     <div
-                                        :style="{
-                                            backgroundColor: hoveredPath.length && hoveredPath.includes(space as string)
-                                                ? nodeHighlightColor
-                                                : '',
-                                        }"
+                                        :style="
+                                            hoveredPath.length && hoveredPath.includes(space as string)
+                                                ? { backgroundColor: nodeFill, color: nodeInk }
+                                                : undefined
+                                        "
                                         :class="['px-2 py-1 rounded transition-colors']"
+                                        data-o18="graph-node"
                                     >
                                         {{ space }}
                                     </div>
@@ -153,16 +158,11 @@
 </template>
 <script setup lang="ts">
 import { computed, ref, inject } from "vue";
-import { SAFE_ACCENT_KEY } from "@composables/color/keys";
-import type { ColorSpace } from "@mkbabb/value.js/color";
-import {
-    COLOR_SPACE_RANGES,
-    COLOR_SPACE_DENORM_UNITS,
-} from "@mkbabb/value.js/color";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
+import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
+import { contrastInkFor } from "@composables/color/ink";
 import { getFormattedColorSpaceRange } from "@mkbabb/value.js/color";
 import { Separator } from "@components/ui/separator";
-import { ValueUnit } from "@mkbabb/value.js/units";
-import { Color } from "@mkbabb/value.js/color";
 import {
     Tooltip,
     TooltipProvider,
@@ -173,27 +173,30 @@ import { ArrowRight } from "@lucide/vue";
 import { Alert, AlertTitle, AlertDescription } from "@components/ui/alert";
 import type { ColorModel } from "..";
 import { colorSpaceInfo, resolveColorSpace } from "..";
-import { normalizeColorUnit } from "@mkbabb/value.js/color";
 
 const model = defineModel<ColorModel>({ required: true });
 
-const denormalizedCurrentColor = computed(() => {
-    return normalizeColorUnit(model.value.color, true, false);
-});
+const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 
-const safeAccent = inject(SAFE_ACCENT_KEY, null);
+// D6 (T.W3-5 / A11Y-F3): the fg/bg DOUBLE-DUTY split. The former single
+// `nodeHighlightColor` served two incompatible roles with one guard call — a
+// foreground-certified value reused as a BACKGROUND fill, leaving the fixed
+// `--foreground` ink uncertified on top (measured 1.57:1 at the owner's own
+// color, light mode). The roles split:
+//
+//   TEXT role — the channel-name letters sit on the About plate (the RESTING
+//   rung), so their live-color ink certifies against THAT tier's composited
+//   lightness, never a page-level constant.
+const { safeCss } = useSafeAccentFn("resting");
+const componentInk = computed(() => safeCss(cssColorOpaque.value));
 
-const colorLight = computed(() => {
-    const color = denormalizedCurrentColor.value.clone();
-    color.value.alpha.value = 25;
-    return color;
-});
-
-/** CSS color string for conversion graph node highlighting — contrast-safe variant */
-const nodeHighlightColor = computed(() => {
-    if (safeAccent?.value) return safeAccent.value;
-    return colorLight.value.toString();
-});
+//   FILL role — the hovered graph node paints the LIVE COLOR as data (C3:
+//   color-data surface), and its ink derives from the FILL's own luminance —
+//   the `resolveSealInk` exemplar generalized (`contrastInkFor`): a pass by
+//   construction, the second, dependent guard the F-3 chain demands. On parse
+//   failure the caller keeps the resting ink (empty string → inherit).
+const nodeFill = cssColorOpaque;
+const nodeInk = computed(() => contrastInkFor(nodeFill.value) ?? "");
 
 const currentColorSpaceInfo = computed(() => {
     const space = resolveColorSpace(model.value.selectedColorSpace);
