@@ -187,13 +187,13 @@ export { mixColorsN, sampleColorRamp, sampleColorRampAt } from "./units/color/mi
 export type { SampleRampOptions } from "./units/color/mix";
 
 // Gamut-boundary sampler (R.W1.5) — the wide-RGB sRGB-excess contour.
-export { sampleGamutBoundary, sampleGamutBoundaryInto } from "./units/color/boundary";
+export { sampleGamutBoundary, sampleGamutBoundaryInto } from "./units/color/gamut/boundary";
 export type {
     GamutBoundary,
     GamutBoundaryTarget,
     GamutBoundaryMode,
     SampleGamutBoundaryOptions,
-} from "./units/color/boundary";
+} from "./units/color/gamut/boundary";
 
 // Color normalization
 export {
@@ -245,7 +245,7 @@ export {
     srgbToOkhsl,
     okhsvToSrgb,
     srgbToOkhsv,
-} from "./units/color/okhsl";
+} from "./units/color/gamut/okhsl";
 
 // Math utilities
 export {

@@ -3,7 +3,7 @@ import {
     sampleOKLChSliceBoundary,
     sampleOKLChSliceBoundaryInto,
     type OKLChSliceBoundary,
-} from "@src/units/color/boundary";
+} from "@src/units/color/gamut/boundary";
 import * as colorSubpath from "@src/subpaths/color";
 // Independent membership oracle — the raw OKLab→linear-sRGB direct path + the
 // cube test. The boundary is DEFINED as the sRGB-cube crossing along a fixed-hue

@@ -19,15 +19,15 @@ import {
     LMS_TO_XYZ_MATRIX,
     OKLAB_TO_LMS_COEFF,
     OKLAB_TO_LMS_MATRIX,
-} from "./constants";
-import { clamp, scale } from "../../math";
+} from "../constants";
+import { clamp, scale } from "../../../math";
 // The sRGB transfer pair is sourced from the `conversions/transfer.ts` leaf
 // (S.W1-1 DRY cure). The former inline twin here duplicated the pair with the
 // SAME decode-threshold defect; the "circular dep with utils.ts" justification
 // for the copy went stale when the G.W1 Lane B decomposition made `transfer.ts`
 // a zero-import leaf — importing it introduces no cycle. `clamp` likewise folds
 // onto `../../math` (already the home of `scale`, imported above).
-import { linearToSrgb, srgbToLinear } from "./conversions/transfer";
+import { linearToSrgb, srgbToLinear } from "../conversions/transfer";
 
 // ── Public API ──
 

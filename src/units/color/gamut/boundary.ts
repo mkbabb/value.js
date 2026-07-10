@@ -20,23 +20,23 @@
  * as package-internal exports of `conversions/xyz-extended.ts` (in no barrel).
  */
 
-import type { Mat3, Vec3 } from "./matrix";
-import { multiplyMat3, transformMat3Into } from "./matrix";
-import { WHITE_POINT_D50_D65 } from "./constants";
+import type { Mat3, Vec3 } from "../matrix";
+import { multiplyMat3, transformMat3Into } from "../matrix";
+import { WHITE_POINT_D50_D65 } from "../constants";
 import {
     ADOBE_RGB_XYZ_MATRIX,
     DISPLAY_P3_XYZ_MATRIX,
     PROPHOTO_XYZ_D50_MATRIX,
     REC2020_XYZ_MATRIX,
     XYZ_RGB_MATRIX,
-} from "./conversions/xyz-extended";
+} from "../conversions/xyz-extended";
 import {
     adobeRgbToLinear,
     linearToSrgb,
     proPhotoToLinear,
     rec2020ToLinear,
     srgbToLinear,
-} from "./conversions/transfer";
+} from "../conversions/transfer";
 import {
     DELTA_E_OK_JND,
     deltaEOK,

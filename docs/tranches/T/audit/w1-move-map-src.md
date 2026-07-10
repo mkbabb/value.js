@@ -121,3 +121,30 @@ HEADS resolve to their new barrels UNCHANGED): the moved-renamed leaves
 `src/subpaths/{easing,parsing}.ts` + `src/parsing/animation-shorthand.ts` (the
 `./extract` type import) + the mirrored tests. `src/parsing/CLAUDE.md` refreshed
 (§6, bound to the move).
+
+---
+
+## Batch 3 — `units/color/gamut/` (§4a; barrel-touching)
+
+The Ottosson gamut family (one concern across four top-level files) becomes a
+colocated subdir. dts diff **0 removed / 0 added**; lib-tsc 0; build clean;
+vitest 2158/68.
+
+| Old path | New path |
+|---|---|
+| `src/units/color/gamut.ts` | `src/units/color/gamut/gamut.ts` |
+| `src/units/color/gamut-raytrace.ts` | `src/units/color/gamut/raytrace.ts` |
+| `src/units/color/boundary.ts` | `src/units/color/gamut/boundary.ts` |
+| `src/units/color/okhsl.ts` | `src/units/color/gamut/okhsl.ts` |
+| — | `src/units/color/gamut/index.ts` (NEW barrel — re-exports the gamut.ts head) |
+
+Specifier repoints: `units/color/gamut` HEAD resolves to the new barrel UNCHANGED
+(dispatch's `./gamut`, quantize, src/index gamut block, tests). The barrel
+re-exports the gamut.ts head ONLY — deliberately NOT eager-aggregating
+`boundary.ts` (its top-level `TARGETS` matrix math cycles through
+`conversions/xyz-extended → dispatch`; aggregating it reorders that cycle and
+undefines the matrices — caught by vitest, root-caused, avoided). The other
+leaves repoint to their leaf paths: `units/color/gamut-raytrace`→
+`units/color/gamut/raytrace`, `units/color/boundary`→`units/color/gamut/boundary`,
+`units/color/okhsl`→`units/color/gamut/okhsl` in `src/index.ts` +
+`src/subpaths/color.ts` + the mirrored tests.

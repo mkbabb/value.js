@@ -37,7 +37,7 @@
  * color subpath as a reference/validation mapper, not a hot path.
  */
 
-import { clamp } from "../../math";
+import { clamp } from "../../../math";
 import {
     GAMUT_ALPHA,
     isInSRGBGamut,
@@ -45,7 +45,7 @@ import {
     oklabToLinearSRGBInto,
     srgbToOKLab,
 } from "./gamut";
-import { linearToSrgb } from "./conversions/transfer";
+import { linearToSrgb } from "../conversions/transfer";
 
 const RAYTRACE_EPS = 1e-5; // matches gamut.ts GAMUT_EPS (min chroma floor).
 // 2⁻⁴⁰ ≈ 9e-13 — the crossing is located to full f64 boundary precision, which

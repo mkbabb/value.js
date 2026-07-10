@@ -5,7 +5,7 @@ import {
     type GamutBoundary,
     type GamutBoundaryMode,
     type GamutBoundaryTarget,
-} from "@src/units/color/boundary";
+} from "@src/units/color/gamut/boundary";
 import * as colorSubpath from "@src/subpaths/color";
 
 // ── White-box field reconstruction (boundary-api §8 items 2/4) ───────────────

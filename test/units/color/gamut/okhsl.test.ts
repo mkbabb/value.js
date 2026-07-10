@@ -4,7 +4,7 @@ import {
     srgbToOkhsl,
     okhsvToSrgb,
     srgbToOkhsv,
-} from "@src/units/color/okhsl";
+} from "@src/units/color/gamut/okhsl";
 
 // OKHSL/OKHSV land exactly ON the sRGB boundary at full saturation; the
 // analytical (single-Halley-step) gamut intersection leaves a ~1e-6 residual

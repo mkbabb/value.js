@@ -119,19 +119,19 @@ export { mixColorsN, sampleColorRamp, sampleColorRampAt } from "../units/color/m
 export type { SampleRampOptions } from "../units/color/mix";
 
 // Gamut-boundary sampler (R.W1.5) — the wide-RGB sRGB-excess contour.
-export { sampleGamutBoundary, sampleGamutBoundaryInto } from "../units/color/boundary";
+export { sampleGamutBoundary, sampleGamutBoundaryInto } from "../units/color/gamut/boundary";
 export type {
     GamutBoundary,
     GamutBoundaryTarget,
     GamutBoundaryMode,
     SampleGamutBoundaryOptions,
-} from "../units/color/boundary";
+} from "../units/color/gamut/boundary";
 // OKLCh slice boundary (S.W1-6) — the L×C sRGB cusp polyline (S.W5-8 consumes).
 export {
     sampleOKLChSliceBoundary,
     sampleOKLChSliceBoundaryInto,
-} from "../units/color/boundary";
-export type { OKLChSliceBoundary } from "../units/color/boundary";
+} from "../units/color/gamut/boundary";
+export type { OKLChSliceBoundary } from "../units/color/gamut/boundary";
 
 // Color normalization
 export {
@@ -167,7 +167,7 @@ export {
 export {
     gamutMapOKLabRaytrace,
     gamutMapSRGBRaytrace,
-} from "../units/color/gamut-raytrace";
+} from "../units/color/gamut/raytrace";
 
 // Perceptual color-difference metrics (R.W1.6 · R-3) + ICtCp round-trip
 // (S.W1-6 · Q9: ictcpToXYZ inverse) + Jzazbz transform (S.W1-11 · Q9 widening).
@@ -191,7 +191,7 @@ export {
     srgbToOkhsl,
     okhsvToSrgb,
     srgbToOkhsv,
-} from "../units/color/okhsl";
+} from "../units/color/gamut/okhsl";
 
 // Color filter solver
 export { rgb2ColorFilter, cssFiltersToString } from "../units/color/colorFilter";

@@ -8,7 +8,7 @@ import {
 import {
     gamutMapOKLabRaytrace,
     gamutMapSRGBRaytrace,
-} from "@src/units/color/gamut-raytrace";
+} from "@src/units/color/gamut/raytrace";
 import * as colorSubpath from "@src/subpaths/color";
 
 // ─────────────────────────────────────────────────────────────────────────────

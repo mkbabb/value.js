@@ -20,7 +20,7 @@ import {
     oklabToLinearSRGB,
     srgbToOKLab,
 } from "./gamut";
-import { linearToSrgb } from "./conversions/transfer";
+import { linearToSrgb } from "../conversions/transfer";
 
 const TAU = 2 * Math.PI;
 // Below this OKLab chroma a color is achromatic: the cusp geometry degenerates
