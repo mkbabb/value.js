@@ -5,9 +5,13 @@
 # UNIFIED-CICD standard (docs/tranches/K/audit/.../UNIFIED-CICD.md):
 #   - concurrency group (cancel superseded runs)
 #   - permissions floor (contents: read)
-#   - Node 22 required floor + 24 ceiling matrix
-#   - the canonical ladder: lint → typecheck → build → test → playwright →
-#     lighthouse+axe (soft-launch)
+#   - Node 22 required floor + 24 ceiling matrix (lib gates only)
+#   - the canonical ladder (build-and-test job): lint → typecheck → abrogation
+#     sweep → build + size budgets → test:dist (the retained-5 dist gates) →
+#     vitest → api tests → bench. The browser E2E (chromium smoke + WebKit
+#     smoke-safari) is de-matrixed into PARALLEL sharded jobs (T.W0 W0-CI); the
+#     gh-pages job runs the css-emission probe (BLOCKING) + Lighthouse (HARD —
+#     the S.W0 soft-launch flip); boot-smoke owns its own cold-boot job.
 #   - npm ci ALWAYS (the #177 lockfile-discipline rule)
 #
 # Deploy is NOT a CI step (DEC-9): the demo ships to Cloudflare Pages
@@ -416,10 +420,16 @@ jobs:
             # uploaded report without wedging the ladder on a foreign-tree fix.
             # Per-step 12-min bound (the peel LAW): the sustained-30s probe
             # completes on a slow runner yet self-fails SOFT if WebKit wedges.
+            # `--reporter=line` is the W0-6 instrument for the S-era CI wedge (4
+            # tests, ZERO output, ~12 min to step-kill): the line reporter emits
+            # per-test progress so the next hang is diagnosable at the test that
+            # wedged, not a silent blank. The 12-min bound is KEPT verbatim — it
+            # correctly contains a hang, not a slow suite (local smoke-safari
+            # passes in ~30s; the wedge is CI-environmental). NEVER raise it.
             - name: Playwright — smoke-safari (WebKit, soft — surfaces the L1 aurora-shader P0)
               continue-on-error: true
               timeout-minutes: 12
-              run: npx playwright test --project=smoke-safari
+              run: npx playwright test --project=smoke-safari --reporter=line
             - name: Upload Playwright report (smoke-safari)
               if: always()
               uses: actions/upload-artifact@v4
@@ -428,7 +438,7 @@ jobs:
                   path: value.js/playwright-report/
                   retention-days: 7
 
-    # ── 6 · gh-pages build → CSS emission probe (BLOCKING) + lighthouse (soft) ─
+    # ── 6 · gh-pages build → CSS emission probe (BLOCKING) + lighthouse (HARD) ─
     # Builds the demo SPA once, then runs two gates on that ONE artifact:
     #   · css-emission-probe (BLOCKING, inv-N-7 / N.W2.B) — asserts the
     #     desktop-pane-visibility witness utilities (lg:flex/lg:block/lg:hidden +
@@ -438,9 +448,11 @@ jobs:
     #     the secondary panes blank ≥1024px (K.W2.6 / C9 §1.1 P0). This is the
     #     P9 phantom-utility failure mode killed for the build-output side: a
     #     scan regression fails CI here instead of shipping a blank desktop.
-    #   · lighthouse + axe (soft-launch — the W8 headline gap, M5.2): REQUIRED-
-    #     but-soft (continue-on-error) prints the budgets for a baseline-capture
-    #     wave, then flips to hard-fail.
+    #   · lighthouse (HARD — the S.W0 W0-2b soft-launch flip): the
+    #     lighthouserc.json error-level assertions (the captured CWV baseline)
+    #     BLOCK the ladder; a first-paint perf/CLS regression on the just-built
+    #     gh-pages artifact reddens CI instead of shipping. (No axe step is
+    #     wired — the earlier soft-launch axe pairing never landed.)
     gh-pages:
         runs-on: ubuntu-latest
         needs: build-and-test
