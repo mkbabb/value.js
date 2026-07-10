@@ -11,15 +11,14 @@
  * MIT License — Copyright (c) 2021 Bjorn Ottosson
  */
 
+import { COLOR_SPACE_RANGES } from "../constants";
 import {
-    COLOR_SPACE_RANGES,
-    GAMUT_SECTOR_COEFFICIENTS,
     LINEAR_SRGB_TO_LMS,
     LMS_TO_LINEAR_SRGB,
     LMS_TO_XYZ_MATRIX,
     OKLAB_TO_LMS_COEFF,
     OKLAB_TO_LMS_MATRIX,
-} from "../constants";
+} from "../conversions/matrices";
 import { clamp, scale } from "../../../math";
 // The sRGB transfer pair is sourced from the `conversions/transfer.ts` leaf
 // (S.W1-1 DRY cure). The former inline twin here duplicated the pair with the
@@ -28,6 +27,35 @@ import { clamp, scale } from "../../../math";
 // a zero-import leaf — importing it introduces no cycle. `clamp` likewise folds
 // onto `../../math` (already the home of `scale`, imported above).
 import { linearToSrgb, srgbToLinear } from "../conversions/transfer";
+
+// Gamut sector coefficients for Ottosson's analytical max-saturation solver
+// (T.W1-src §4b — colocated with `computeMaxSaturation` below, its sole consumer;
+// moved verbatim out of color/constants.ts). Each sector has polynomial
+// coefficients (k0-k4) and LMS→sRGB channel weights (wl,wm,ws). Public API — the
+// barrels re-export it under the same name.
+export const GAMUT_SECTOR_COEFFICIENTS = [
+    {
+        // Red sector: -1.88170328*a - 0.80936493*b > 1
+        test: (a: number, b: number) => -1.88170328 * a - 0.80936493 * b > 1,
+        k0: +1.19086277, k1: +1.76576728, k2: +0.59662641,
+        k3: +0.75515197, k4: +0.56771245,
+        wl: +4.0767416621, wm: -3.3077115913, ws: +0.2309699292,
+    },
+    {
+        // Green sector: 1.81444104*a - 1.19445276*b > 1
+        test: (a: number, b: number) => 1.81444104 * a - 1.19445276 * b > 1,
+        k0: +0.73956515, k1: -0.45954404, k2: +0.08285427,
+        k3: +0.12541070, k4: +0.14503204,
+        wl: -1.2684380046, wm: +2.6097574011, ws: -0.3413193965,
+    },
+    {
+        // Blue sector (fallback)
+        test: () => true,
+        k0: +1.35733652, k1: -0.00915799, k2: -1.15130210,
+        k3: -0.50559606, k4: +0.00692167,
+        wl: -0.0041960863, wm: -0.7034186147, ws: +1.7076147010,
+    },
+] as const;
 
 // ── Public API ──
 

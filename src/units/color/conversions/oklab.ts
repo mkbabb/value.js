@@ -13,13 +13,13 @@ import type { Vec3 } from "../matrix";
 import { transformMat3Into } from "../matrix";
 import { ch, LABColor, OKLABColor, OKLCHColor, XYZColor } from "..";
 import { scale } from "../../../math";
+import { COLOR_SPACE_RANGES } from "../constants";
 import {
-    COLOR_SPACE_RANGES,
     LMS_TO_OKLAB_MATRIX,
     LMS_TO_XYZ_MATRIX,
     OKLAB_TO_LMS_MATRIX,
     XYZ_TO_LMS_MATRIX,
-} from "../constants";
+} from "./matrices";
 import { lab2xyz, xyz2lab } from "./lab";
 
 // ── Module-scoped scratch Vec3 buffers (O.W3 zero-alloc) ──

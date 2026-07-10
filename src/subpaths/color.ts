@@ -35,7 +35,10 @@ export {
 } from "../units/color";
 export type { ColorSpaceMap } from "../units/color";
 
-// Color constants
+// Color reference data — ranges/bounds + illuminant white points (T.W1-src §4b
+// split; the moved OKLab/LMS transform matrices + gamut coefficients re-export
+// below under the same names, all parse-that-FREE — the subpath-budget invariant
+// holds).
 export {
     RGBA_MAX,
     ALPHA_RANGE,
@@ -53,14 +56,6 @@ export {
     WHITE_POINT_D65_D50,
     WHITE_POINT_D50_D65,
     WHITE_POINTS,
-    XYZ_TO_LMS_MATRIX,
-    LMS_TO_XYZ_MATRIX,
-    LMS_TO_OKLAB_MATRIX,
-    OKLAB_TO_LMS_MATRIX,
-    LMS_TO_LINEAR_SRGB,
-    LINEAR_SRGB_TO_LMS,
-    OKLAB_TO_LMS_COEFF,
-    GAMUT_SECTOR_COEFFICIENTS,
     // Q15 (T.W1) — the per-space component bound + denorm-unit resolvers,
     // promoted to citizenship on the color subpath. The demo's readout
     // reservation, slider-gradient, and view-accent paths consumed these off the
@@ -69,6 +64,16 @@ export {
     getColorSpaceBound,
     getColorSpaceDenormUnit,
 } from "../units/color/constants";
+export {
+    XYZ_TO_LMS_MATRIX,
+    LMS_TO_XYZ_MATRIX,
+    LMS_TO_OKLAB_MATRIX,
+    OKLAB_TO_LMS_MATRIX,
+    LMS_TO_LINEAR_SRGB,
+    LINEAR_SRGB_TO_LMS,
+    OKLAB_TO_LMS_COEFF,
+} from "../units/color/conversions/matrices";
+export { GAMUT_SECTOR_COEFFICIENTS } from "../units/color/gamut";
 export type {
     ColorSpace,
     WhitePoint,

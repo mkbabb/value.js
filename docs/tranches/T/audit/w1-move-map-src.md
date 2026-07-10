@@ -148,3 +148,30 @@ leaves repoint to their leaf paths: `units/color/gamut-raytrace`→
 `units/color/gamut/raytrace`, `units/color/boundary`→`units/color/gamut/boundary`,
 `units/color/okhsl`→`units/color/gamut/okhsl` in `src/index.ts` +
 `src/subpaths/color.ts` + the mirrored tests.
+
+---
+
+## Batch 4 — the `color/constants.ts` split (§4b; barrel-touching)
+
+The 3-concern god-table splits by concern. **Amendment to the audit grouping**:
+the illuminant white-point cluster (`WHITE_POINT_*`, `WHITE_POINTS`, `WhitePoint`)
+is broadly-shared colorimetric REFERENCE DATA (consumed across `base.ts`,
+`conversions/{lab,xyz-extended}.ts`, `gamut/boundary.ts` — spanning subsystems,
+the same class as `COLOR_SPACE_RANGES`), so it STAYS in constants.ts beside the
+ranges. Only the OKLab/LMS **transform matrices** (the conversion machinery) move.
+This also keeps the EXEMPT `assets/docs/xyz.md` `constants?source` snippet valid
+(it displays the white-point matrices) — no assets/docs edit, honoring the
+never-touch fence. dts diff **0 removed / 0 added**; lib-tsc 0; vitest 2158/68;
+subpath-budget GREEN.
+
+| Symbol group | From | To |
+|---|---|---|
+| ranges/bounds + **white points** (WHITE_POINT_*, WHITE_POINTS, WhitePoint) | `color/constants.ts` | **STAYS** (`color/constants.ts`) |
+| OKLab/LMS transform matrices (XYZ_TO_LMS_MATRIX, LMS_TO_XYZ_MATRIX, LMS_TO_OKLAB_MATRIX, OKLAB_TO_LMS_MATRIX, LMS_TO_LINEAR_SRGB, LINEAR_SRGB_TO_LMS, OKLAB_TO_LMS_COEFF) | `color/constants.ts` | `color/conversions/matrices.ts` (NEW) |
+| `GAMUT_SECTOR_COEFFICIENTS` | `color/constants.ts` | `color/gamut/gamut.ts` (its sole consumer) |
+
+Consumers repointed to `conversions/matrices`: `conversions/{oklab,direct}.ts`,
+`gamut/gamut.ts`. Public re-export of the matrices (src/index.ts +
+subpaths/color.ts) → `conversions/matrices`; of GAMUT_SECTOR_COEFFICIENTS → the
+gamut barrel; white points + ranges stay on `constants`. `units/color/CLAUDE.md`
+refreshed (§6, covers Batch 3 + Batch 4).

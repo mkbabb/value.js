@@ -17,6 +17,7 @@
 // matrices. Consumers of the other leaves import them by their leaf path. Named
 // re-exports only (never `export *`, PI-6).
 export {
+    GAMUT_SECTOR_COEFFICIENTS,
     DELTA_E_OK_JND,
     deltaEOK,
     oklabToLinearSRGB,

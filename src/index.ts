@@ -94,7 +94,10 @@ export {
 } from "./units/color";
 export type { ColorSpaceMap } from "./units/color";
 
-// Color constants
+// Color reference data — ranges/bounds + illuminant white points (T.W1-src §4b:
+// constants.ts holds this reference-data concern; the OKLab/LMS transform
+// matrices moved to conversions/matrices.ts, GAMUT_SECTOR_COEFFICIENTS to gamut/,
+// all still public under the same names below).
 export {
     RGBA_MAX,
     ALPHA_RANGE,
@@ -112,6 +115,14 @@ export {
     WHITE_POINT_D65_D50,
     WHITE_POINT_D50_D65,
     WHITE_POINTS,
+    // Q15 (T.W1) — per-space component bound + denorm-unit resolvers promoted to
+    // first-class API (the demo consumed them off the internal `constants` leaf).
+    getColorSpaceBound,
+    getColorSpaceDenormUnit,
+} from "./units/color/constants";
+// The OKLab/LMS transform matrices (T.W1-src §4b: colocated in
+// conversions/matrices.ts with their consumers; same public names).
+export {
     XYZ_TO_LMS_MATRIX,
     LMS_TO_XYZ_MATRIX,
     LMS_TO_OKLAB_MATRIX,
@@ -119,12 +130,9 @@ export {
     LMS_TO_LINEAR_SRGB,
     LINEAR_SRGB_TO_LMS,
     OKLAB_TO_LMS_COEFF,
-    GAMUT_SECTOR_COEFFICIENTS,
-    // Q15 (T.W1) — per-space component bound + denorm-unit resolvers promoted to
-    // first-class API (the demo consumed them off the internal `constants` leaf).
-    getColorSpaceBound,
-    getColorSpaceDenormUnit,
-} from "./units/color/constants";
+} from "./units/color/conversions/matrices";
+// GAMUT_SECTOR_COEFFICIENTS (T.W1-src §4b: colocated in gamut/ with its consumer).
+export { GAMUT_SECTOR_COEFFICIENTS } from "./units/color/gamut";
 // COLOR_NAMES — the CSS named-color data table (S.W1 W1-8 lift → color-names.ts).
 export { COLOR_NAMES } from "./units/color/color-names";
 export type {
