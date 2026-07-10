@@ -162,20 +162,23 @@ import { Card } from "@components/ui/card";
 import { Button } from "@components/ui/button";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
-import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
-import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
-import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
+import {
+    PaletteCard,
+    PaletteCardGrid,
+    PaletteCardSkeleton,
+} from "@components/custom/palette-browser/card";
 import EmptyState from "@components/custom/palette-browser/EmptyState.vue";
-import SearchFilterBar from "@components/custom/palette-browser/SearchFilterBar.vue";
-import VersionHistoryDrawer from "@components/custom/palette-browser/VersionHistoryDrawer.vue";
-import FlagReportDialog from "@components/custom/palette-browser/FlagReportDialog.vue";
-import TagEditPopover from "@components/custom/palette-browser/TagEditPopover.vue";
+import { SearchFilterBar, TagEditPopover } from "@components/custom/palette-browser/search";
+import {
+    VersionHistoryDrawer,
+    FlagReportDialog,
+} from "@components/custom/palette-browser/dialog";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 import type { Palette, Tag } from "@lib/palette/types";
 import { deltaEOK } from "@mkbabb/value.js/color";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
-import { useDialogBrowseActions } from "@components/custom/palette-browser/PaletteDialog/composables/useDialogBrowseActions";
+import { useDialogBrowseActions } from "@components/custom/palette-browser/dialog";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;

@@ -88,6 +88,58 @@ private animation pipeline (`useMixingAnimation` → `mixStage`, a single-parent
 `composables/useImageQuantize.ts:10-11` `@lib/quantize-worker` → `../quantize-worker` (+ `?worker`).
 **Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18.
 
+## Batch 5 — palette-browser HARDENED BARRELS (insulate the 9 external deep edges FIRST) — LANDED
+
+The 6 per-cluster barrels are minted as the feature's REAL public surface (F7). **NAMED
+re-exports only, never `export *`** (PI-6). Batch 5 re-exports from the still-flat file
+locations (`../X.vue`); batch 6 repoints the barrels' internal paths to the moved sub-folders,
+so every external consumer is insulated from the batch-6 moves. Files are NOT moved in this
+batch.
+
+| new barrel | named exports (batch-5 source = `../X.vue`) |
+|---|---|
+| `palette-browser/card/index.ts` | PaletteCard · PaletteCardGrid · PaletteCardSkeleton · PaletteColorStrip · CurrentPaletteEditor |
+| `palette-browser/admin/index.ts` | AdminUsersPanel · AdminNamesPanel · AdminAuditPanel · AdminFlaggedPanel · AdminTagsPanel |
+| `palette-browser/search/index.ts` | SearchFilterBar · UserSortMenu · TagEditPopover |
+| `palette-browser/dialog/index.ts` | FlagReportDialog · VersionHistoryDrawer · MigratePalettesDialog · useDialogBrowseActions |
+| `palette-browser/slug/index.ts` | PaletteSlugBar |
+| `palette-browser/status/index.ts` | ApiOfflineChip · DevMisconfigBanner |
+| `palette-browser/index.ts` | **DROP** — vestigial top barrel (only `PaletteCard`, zero importers); dead surface (E-3) |
+
+**External edges rerouted through the barrels** (8 lazy importers): `generate/GenerateControls.vue`
+(→ card) · `mix/MixSourceSelector.vue` (→ card; EmptyState still direct, lifts in batch 6) ·
+`image-palette-extractor/ExtractWorkbench.vue` (→ card) · `panes/PalettesPane.vue` (→ card) ·
+`panes/BrowsePane.vue` (→ card + search + dialog) · `panes/AdminPane.vue` (→ admin + search) ·
+`composables/auth/useAdminUsers.ts` (type → admin) · `composables/palette/useSlugMigration.ts`
+(type → slug).
+
+**PI-6 exception — App.vue's two imports stay DIRECT** (NOT barrel-routed): `App.vue` is the
+EAGER `index.js` chunk. A first attempt routing its `MigratePalettesDialog`/`DevMisconfigBanner`
+through the dialog/status barrels grew `index.js` **+1.04%** — the barrels' named re-exports of
+side-effecting SFC `<style>` do NOT tree-shake the lazy siblings (FlagReportDialog,
+VersionHistoryDrawer, ApiOfflineChip) out of the eager chunk (the PI-6 hazard, materialized +
+measured). Reverting App to direct `.vue` imports restored `index.js` to baseline. Batch 6
+repoints App's two direct imports to the moved `dialog/` + `status/` files.
+
+**F5 CORRECTION (trust-the-live-tree, RE-DERIVED)**: the census F5 "LIFT-DOWN
+`useAdminUsers`/`useAdminAudit`/`useAdminFlagged`/`useAdminTags`/`useSlugMigration` INTO
+palette-browser" is **REFUTED against the live tree** — every one of these is consumed by
+`@composables/palette/usePaletteManager.ts` (the global 25-consumer facade), i.e. they are
+pm-encapsulated sub-composables (the composables-lib census §2 classification: MODULE, palette,
+encapsulated). Moving them into `palette-browser/admin|slug/` would make the GLOBAL facade import
+DOWN into the feature — the exact E-1 inversion F2 forbids. **They STAY** in `@composables/`; only
+their `import type` template-ref specifiers repoint to the moved `.vue` (through the admin/slug
+barrels). This resolves the two-census contradiction in favour of the anti-inversion invariant.
+
+**O-23 verdict (batch 5, vs `o23-pre-batch5.json`)**: **aggregate +0.035%** · total CSS −115 B ·
+**eager `index.js` flat** (restored) · **no lazy→eager promotion**. The barrels became new
+auto-chunk boundaries, so Rollup re-derived several auto-chunk NAMES (`PaletteCard.js`→`card.js`
++ regrouped shared chunk; the pre-existing glass-ui `search`/`input` chunks collide on basename
+in the strip-hash roll-up) — a benign rename/regroup, NOT a blast: aggregate + eager + CSS-total
+are flat. The literal "±2% per named chunk" is evaluated at the stable level (aggregate · eager ·
+CSS-total · promotion) since the mandated barrels legitimately reshuffle auto-chunk names.
+**Gates**: typecheck 0 · lint 0 · vitest 2158/2158 · keyframe census 18/18.
+
 ---
 
 ## Cohesion cargo (distinct commits — §Commit plan)

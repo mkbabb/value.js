@@ -169,8 +169,7 @@ import { useExtractSession } from "./composables/useExtractSession";
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
 import ImageEyedropper from "./ImageEyedropper/ImageEyedropper.vue";
-import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
-import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
+import { PaletteCard, PaletteCardSkeleton } from "@components/custom/palette-browser/card";
 
 type DisplayColorSpace = ColorSpace | "hex";
 

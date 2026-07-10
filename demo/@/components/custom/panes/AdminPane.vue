@@ -72,12 +72,14 @@ import { Badge } from "@components/ui/badge";
 
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
-import AdminUsersPanel from "@components/custom/palette-browser/AdminUsersPanel.vue";
-import AdminNamesPanel from "@components/custom/palette-browser/AdminNamesPanel.vue";
-import AdminAuditPanel from "@components/custom/palette-browser/AdminAuditPanel.vue";
-import AdminFlaggedPanel from "@components/custom/palette-browser/AdminFlaggedPanel.vue";
-import AdminTagsPanel from "@components/custom/palette-browser/AdminTagsPanel.vue";
-import UserSortMenu from "@components/custom/palette-browser/UserSortMenu.vue";
+import {
+    AdminUsersPanel,
+    AdminNamesPanel,
+    AdminAuditPanel,
+    AdminFlaggedPanel,
+    AdminTagsPanel,
+} from "@components/custom/palette-browser/admin";
+import { UserSortMenu } from "@components/custom/palette-browser/search";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 
