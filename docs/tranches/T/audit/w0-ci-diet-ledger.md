@@ -260,9 +260,19 @@ is met by the split alone).
 
 **CI (the restructured pipeline):** `on: push` is `[master]` only, so a tranche-t push does NOT
 auto-run CI; the restructure is observed via a `workflow_dispatch` on tranche-t.
-Dispatch run: **`<DISPATCH_RUN_URL>`** — records the after-wall-clock + confirms the two new jobs
-spawn, build the siblings, and reach their Playwright steps. (CI overall stays RED on the Q14
-honest-red Lighthouse gate by design — the diet does not, and must not, change that.)
+Dispatch run: **`29070205121`**
+(`https://github.com/mkbabb/value.js/actions/runs/29070205121`) — records the after-wall-clock +
+confirms the two new jobs spawn, build the siblings, and reach their Playwright steps. **Observed
+at spawn: `build-and-test (22)`, `build-and-test (24)`, `e2e-smoke`, `e2e-safari` all
+`in_progress` in PARALLEL from t=0** (the sharded, de-`needs`'d structure works as designed;
+`gh-pages`/`boot-smoke` follow on `build-and-test`). (CI overall stays RED on the Q14 honest-red
+Lighthouse gate by design — the diet does not, and must not, change that.)
+
+**After-wall-clock**: the dispatch run `29070205121` is IN-FLIGHT at this record's landing; the
+sharded structure is confirmed at spawn (four jobs parallel from t=0, per above). The projected
+~16–17m (§5) is to be confirmed against this run's per-job wall-clock once it completes — the
+critical path is the parallel `e2e-safari` (setup + the irreducible 12-min sustained probe) vs.
+the `build-and-test`→`gh-pages` chain, both ~16m.
 
 ---
 
