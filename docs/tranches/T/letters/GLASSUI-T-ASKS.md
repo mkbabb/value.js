@@ -8,9 +8,12 @@ AS-AMENDED pass-2 `2a38c11`), transcribed verbatim; the routing/evidence census 
 `t-glassui-current.md` (the 14-open-ask ground truth) + `t-glassui-forward.md` (the BG/BH
 freeze gates) + the named finding lanes. The S letters this succeeds:
 `S/letters/GLASSUI-S-ASKS.md` (L1–L18) + `-ADDENDUM-2026-07-05.md` (A1–A7 / L19 / L20).
-**Verified glass-ui HEAD**: `<RE-STAMP AT DISPATCH>` (authoring stamps: the fleet census cited
-`file:line` at **`19ddbd71`**; the corpus-completion observation was **`6605e1dd`** 2026-07-09
-— the producer moves daily, ~10-minute cadence on `tranche/BG`).
+**Verified glass-ui HEAD**: `d25ce9c1` (branch `tranche/BG`, npm **4.2.0**; **stamped at dispatch
+2026-07-10** — the load-bearing cites re-verified live at this HEAD, see the `## Dispatch stamp`
+section below. Authoring stamps: the fleet census cited `file:line` at **`19ddbd71`**; the
+corpus-completion observation was **`6605e1dd`** 2026-07-09 — the producer moves daily,
+~10-minute cadence on `tranche/BG`: HEAD advanced `f9c2d66a`→`d25ce9c1` DURING this dispatch,
+proving the corollary).
 **Status**: AUTHORED — **dispatch happens AT the T ratification (W0-1; the Q7 default:
 immediately, not held for the BG frontier to quiet)**. [AMENDED-AT-HARDENING — h-packets
 H-PKT-1: the precise freeze state] The WS12 `BH.B2.1-swap` export-regen has NOT run — `goo-blob`
@@ -68,7 +71,7 @@ one-migration edict forbids (`BH/PLAN.md §2-#4`).
 
 | # | Ask | Class |
 |---|---|---|
-| **KF** | **PRM-expand**: `managed-play.ts:48-59` — the PRM arm never emits `_onFrame`; re-verified UNCHANGED 2026-07-07 (t-a11y-contrast §6); the one-line cure. First asked S-era (`S/letters/KF-COURTESY.md`); glass-ui's dock PRM-expand defect roots here | RE-CITE (with current line numbers, re-stamped at dispatch) |
+| **KF** | **PRM-expand**: `managed-play.ts:46-60` (`springPlay`) — the PRM arm at **`:48`** (`withReducedMotion(spring.respectReducedMotion, () => spring.snap(), …)`) routes through `snap()`→`_snapSettled()`→`emit()` (`progress.ts:230-239` + `:461-466`), which iterates the `.subscribe()` `subscribers` SET ONLY — **never the `.play(onFrame)` single-callback `_onFrame`** (set at `managed-play.ts:47`, declared `progress.ts:125`) — so `.play()` consumers get NO settled frame under an active reduced-motion query; contrast the NON-PRM settled branch (`managed-play.ts:53-55`) which DOES `onFrame?.(spring.value, spring.velocity)`. The asymmetric omission is the defect; the one-line cure = the PRM branch emits `onFrame` too. **Re-verified STILL LIVE at keyframes 5.2.0 / HEAD `e3d0ae5` (2026-07-10)** — the S-era `:48-59` cite holds, line-refreshed; glass-ui's dock PRM-expand defect roots here. Dispatched SEPARATELY to the keyframes.js inbox (`../keyframes.js docs/tranches/T/VALUEJS-KF-PRM-EXPAND-2026-07-09.md` — see the `## Dispatch stamp`) | RE-CITE (current line numbers, re-stamped at dispatch; **STILL LIVE — NOT discharged**) |
 
 ---
 
@@ -142,3 +145,67 @@ portal ask).
    **P4/T-20 → ESCALATE TO THE OWNER** (a two-repo taste conflict is the owner's call — T-20 has
    no demo interim and E-2 forbids a fork); P6 row-F → the FSM `emerging` state is already the
    sanctioned terminal (no loss).
+
+---
+
+## Dispatch stamp (W0-1 — 2026-07-10; the S-letter §16 shape)
+
+**Stamped HEAD**: glass-ui `d25ce9c1` (branch `tranche/BG`, npm **4.2.0**) · keyframes.js
+`e3d0ae5` (branch `tranche-u-dev`, npm **5.2.0**). The producer moved DURING dispatch
+(`f9c2d66a`→`d25ce9c1`, ~10-min cadence) — the HEAD-stamp corollary held in real time; the
+cites below are re-verified at `d25ce9c1`.
+
+**Re-verified load-bearing cites (protocol step 2, against the CURRENT tree):**
+
+- **P1 GAP-ARM — STILL LIVE.** `useAurora.ts` (`src/components/custom/aurora/composables/`):
+  `armRuntime()` (`:210`) calls `inst.arm()` (`:214`), then wires `stopWatch = watch(getCfg,
+  (next) => inst?.update(next), { deep: true })` at **`:228` — WITHOUT `immediate:true`**;
+  deferred construction is `inst = createAurora(canvas, getCfg(), …)` at **`:262`**. No honest
+  `inst.update(getCfg())` fires between construct (`:262`) and arm (`:214`), so a config change
+  in that window is not replayed onto the armed instance. The `:228/:262` cite in P1 stands
+  (arm now explicitly at `:214`); the ask is NOT discharged.
+- **PKT-1 (P2) — dist-level, G-CUR-1.** `grep default-transition-duration src/**/*.css` = ZERO
+  hits at `d25ce9c1`; the `--default-transition-duration:150ms` re-declaration is a BUILD
+  emission (dist `components.css` under `layer(components)`), not a source token — consistent
+  with the letter's "claims about a POST-minify dist." Verified against the dist per G-CUR-1 (a
+  fresh `cd ../glass-ui && npm run build`, never the version label) at the W7 verify-at-cut walk;
+  the ask stands as a dist claim, O-16 R1 carries it EXPECTED-RED.
+- **P3 A1/A2 F2.R1 — DISCHARGED (VERIFY-AT-CUT holds).** Paint-closed at glass-ui `300a30fb`
+  ("BG paint (BG.W-DARK-READABILITY-REPAIR): dual-engine PASS Chrome+Safari both modes → DONE");
+  re-confirm on a fresh 5.0.0 rebuild at dispatch/W7 per the letter.
+- **P9 W-1/W-2 freeze windows — OPEN (the LAST window).** The export map at `d25ce9c1` still
+  carries `./goo-blob`, with **NO `./blob`** and **NO `./blob/config`** — the WS12
+  `BH.B2.1-swap` export-regen has NOT run. P9-J1 (Blob rename in the regen input) and P9-J2 (L20
+  `/blob/config`) must land before B2.1-swap freezes. `./easing` + `./styles/fonts` +
+  `./configurator` present (P9-J3 twin + P10 rungs verify against BG/BH at authoring).
+- **§KF PRM-expand — STILL LIVE, line-refreshed (NOT discharged).** See the §KF row: at
+  keyframes 5.2.0 the `springPlay` PRM branch (`managed-play.ts:48`) emits via
+  `_snapSettled().emit()` to the `.subscribe()` `subscribers` set ONLY, never the `.play(onFrame)`
+  `_onFrame` channel; the non-PRM settled branch (`managed-play.ts:53-55`) emits `onFrame`
+  directly — the PRM branch's asymmetric omission is the defect. Routed SEPARATELY (below).
+
+**Q-sensitive rows confirmed at the RATIFIED outcomes (protocol step 6, RATIFICATION-2026-07-09
+§1):** P5 ring-contract = **`--dock-ring` L13 + letter-rail**, the seal-rim leg DEAD under Q12's
+default ABROGATE (already cut in-letter) · P7 Select description-lane contract is
+**Q5-outcome-independent** (the producer never waits on Q5) · P10 size-station cites **Q11a** (the
+producer typography ladder is the sizing AUTHORITY; ×φ = two token steps; the consumer mints no
+sizes) · Q5's chip arm is DEAD for T-10 (P-row grammar unchanged; survives only where T-17 earns
+it). No re-cut owed — the letter was authored post-fold and already carries these.
+
+**The dispatch record (W0-1 gate — the M1 ruling: the value.js-SIDE record IS the gate; a
+glass-ui-side relay commit is a producer/maintainer action, never this gate's artefact):**
+
+- **glass-ui inbox (the maintainer relay, executed now):**
+  `../glass-ui/docs/tranches/BG/coordination/VALUEJS-T-ASKS-2026-07-09.md` — path-scoped
+  single-file commit **`398b7b4d`** on `tranche/BG`, pushed to `origin/tranche/BG` (fast-forward
+  `9b891736..398b7b4d`, no force; parent `606c19ff` — HEAD had advanced past the `d25ce9c1` stamp
+  during dispatch; the producer's uncommitted paint PNGs were left untouched). The §KF ask is
+  trimmed to a routing pointer there (the consolidation law: PRM-expand is never folded into the
+  glass-ui packet).
+- **keyframes.js inbox (the separate §KF dispatch):**
+  `../keyframes.js/docs/tranches/T/VALUEJS-KF-PRM-EXPAND-2026-07-09.md` — path-scoped single-file
+  commit **`ad65733`** on `tranche-u-dev`, pushed to `origin/tranche-u-dev` (fast-forward
+  `e3d0ae5..ad65733`, no force).
+- **value.js-side record:** this `## Dispatch stamp` section + the `PROGRESS.md` event-log row +
+  the Cross-repo dispatch-points table flipped to DISPATCHED. This is the closeable W0-1 artefact
+  per the amended Hard-gate item 1; an ack is a bonus, never waited on.
