@@ -111,9 +111,22 @@ for (const scheme of ["light", "dark"] as const) {
                     ? 60 * ((b - r) / d) + 120
                     : 60 * ((r - g) / d) + 240;
         };
+        // RACE-PROOFED (T.W2 close): the stale-pink → olive correction rides
+        // the 200ms registered-<color> OKLab transition, whose sRGB-hue path
+        // sweeps 332° → 0/360° → 59° THROUGH the warm reds/oranges (11–49°) —
+        // a poll that accepts any hue ≤ 180 can sample a mid-transition
+        // orange and then fail the ≥ 50 family assert (caught live at the W2
+        // close suite: #a47469, hue 11.2°). The poll therefore waits for the
+        // SETTLED in-family band [50, 180] — the assert below stays the gate.
         await expect
-            .poll(async () => hueOfHex(await savedBg(page)), { timeout: 8000 })
-            .toBeLessThanOrEqual(180);
+            .poll(
+                async () => {
+                    const h = hueOfHex(await savedBg(page));
+                    return h >= 50 && h <= 180;
+                },
+                { timeout: 8000 },
+            )
+            .toBe(true);
         const bg = await savedBg(page);
         const hue = hueOfHex(bg);
         expect(bg, "stale session material must not survive").not.toBe(

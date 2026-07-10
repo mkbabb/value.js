@@ -91,9 +91,17 @@
         transform: none;
     }
 }
+/* ONE-SHOT RELEASE LAW (W2-close finding, live-bisected): every land/emerge
+ * beat fills `backwards`, never `both`/`forwards` — each keyframe's `to`
+ * state ≡ the element's natural resting state, so releasing at animationend
+ * is visually seamless, while a permanently-filling TRANSFORM animation left
+ * `current` on the nav rendered every dock control "element is not stable"
+ * to Playwright actionability FOREVER (20 view-nav specs timed out on real
+ * user-shaped clicks — the propose/palette/gradient/walk class). A finished
+ * beat retires; it does not squat on the compositor. */
 .overture-dock-land {
     animation: overture-plate-land var(--overture-plate-land)
-        var(--spring-snappy) var(--overture-dock-delay) both;
+        var(--spring-snappy) var(--overture-dock-delay) backwards;
 }
 
 /* ── B1 · the picker plate's editorial signature (R.W3 Lane E / E1 beat
@@ -116,8 +124,11 @@
         }
     }
     .pane-shell > :first-child {
+        /* backwards per the one-shot release law above: the card's natural
+         * box-shadow IS var(--shadow-cartoon) (probed computed-equal), so the
+         * release at animationend is seamless. */
         animation: plate-land var(--overture-plate-land, 440ms)
-            var(--spring-snappy) var(--overture-appear-delay, 0ms) both;
+            var(--spring-snappy) var(--overture-appear-delay, 0ms) backwards;
     }
 }
 
@@ -141,7 +152,8 @@
         }
     }
     .hero-blob-anchor {
-        animation: blob-emerge 500ms var(--ease-decelerate) both;
+        /* backwards per the one-shot release law above (`to` ≡ natural). */
+        animation: blob-emerge 500ms var(--ease-decelerate) backwards;
     }
 }
 
