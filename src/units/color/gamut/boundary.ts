@@ -452,3 +452,153 @@ export function sampleOKLChSliceBoundary(
     };
     return sampleOKLChSliceBoundaryInto(hueDeg, out, columns);
 }
+
+// ── The hue-swept envelope (T-21 · T.W1-src §Batch-5) ───────────────────────
+// The gradient instrument (W6-2) sweeps a hue INTERVAL, not one slice. Per L
+// row this reports the min/max in-gamut chroma across the swept hues, so the
+// plate can paint three truth regimes (solid field ≤ cMin, in-gamut at EVERY
+// swept hue; full netting ≥ cMax, out at every hue; the ambiguous belt between)
+// instead of a single-hue slice masquerading as a hue-varying trajectory. A
+// single-hue interval degenerates to the exact `sampleOKLChSliceBoundary` slice
+// (cMin ≡ cMax). Geometry stays library-owned — the demo never re-derives it.
+
+/** The L×[cMin,cMax] sRGB gamut envelope swept over an OKLCH hue interval (T-21). */
+export interface OKLChHueSweepBoundary {
+    /**
+     * Interleaved `[L0,cMin0,cMax0, L1,cMin1,cMax1, …]`, `L` increasing 0→1 in
+     * `columns+1` even steps (`L_i = i/columns`). `cMin` is the MIN over the swept
+     * hues of the raw-OKLab max in-gamut chroma (in-gamut at EVERY swept hue up to
+     * it — the solid-field boundary); `cMax` is the MAX (out-of-gamut at EVERY
+     * swept hue beyond it — the full-netting boundary). The `[cMin,cMax]` belt is
+     * the ambiguous register. Capacity is `3·(columns+1)`; the first `3·count`
+     * entries are valid.
+     */
+    points: Float64Array;
+    /** valid row count (`columns + 1`; `0` never — every row samples ≥1 hue). */
+    count: number;
+    /** MAX analytical cusp chroma across the swept hues (raw OKLab) — the referent
+     *  for the cusp-adaptive axis `C_max = k · cuspCMax`; `0` for an achromatic sweep. */
+    cuspCMax: number;
+    /** lightness of that peak cusp (raw OKLab `L ∈ [0,1]`); `0` for achromatic. */
+    cuspLAtPeak: number;
+}
+
+/** Sample count across the hue interval. Clamped to an integer ≥ 1. */
+function validateHueSteps(hueSteps: number): void {
+    if (!Number.isInteger(hueSteps) || hueSteps < 1) {
+        throw new RangeError(
+            `sampleOKLChHueSweepBoundary: hueSteps must be an integer ≥ 1, got ${hueSteps}`,
+        );
+    }
+}
+
+/**
+ * Zero-alloc out-param form (the module's `Into` idiom). Writes the `columns+1`
+ * envelope rows into `out.points` (3 numbers per row), sets `out.count`/
+ * `out.cuspCMax`/`out.cuspLAtPeak`, returns `out`. Requires
+ * `out.points.length ≥ 3·(columns+1)` — RangeError otherwise. Hues are swept
+ * LINEARLY from `hueStartDeg` to `hueEndDeg` across `hueSteps` samples (direction
+ * and any 360° wrap are the caller's to encode in the endpoints, matching the
+ * ramp's own hue path); each sample is normalized into `[0,360)`. The `points`
+ * buffer is caller-owned and never re-allocated; the only transients are
+ * `findCusp`'s per-hue return (matching the slice sampler's single-cusp alloc).
+ * Single-threaded re-entrancy (the shared `_sliceLin` scratch in `maxChromaAtL`
+ * is fully written before read within each sample).
+ */
+export function sampleOKLChHueSweepBoundaryInto(
+    hueStartDeg: number,
+    hueEndDeg: number,
+    out: OKLChHueSweepBoundary,
+    columns: number = 96,
+    hueSteps: number = 16,
+): OKLChHueSweepBoundary {
+    validateColumns(columns);
+    validateHueSteps(hueSteps);
+    if (out.points.length < 3 * (columns + 1)) {
+        throw new RangeError(
+            `sampleOKLChHueSweepBoundary: out.points capacity ${out.points.length} < required ${3 * (columns + 1)}`,
+        );
+    }
+
+    const points = out.points;
+
+    // Non-finite endpoint (CSS `none`) — the sweep is the grey axis: zero chroma
+    // at every lightness, no cusp.
+    if (!Number.isFinite(hueStartDeg) || !Number.isFinite(hueEndDeg)) {
+        for (let i = 0; i <= columns; i++) {
+            points[3 * i] = i / columns;
+            points[3 * i + 1] = 0;
+            points[3 * i + 2] = 0;
+        }
+        out.count = columns + 1;
+        out.cuspCMax = 0;
+        out.cuspLAtPeak = 0;
+        return out;
+    }
+
+    const span = hueEndDeg - hueStartDeg;
+
+    // Peak cusp across the swept hues (analytical, exact) — the axis referent.
+    let cuspCMax = 0;
+    let cuspLAtPeak = 0;
+    for (let j = 0; j < hueSteps; j++) {
+        const t = hueSteps === 1 ? 0 : j / (hueSteps - 1);
+        const hue = (((hueStartDeg + span * t) % 360) + 360) % 360;
+        const hRad = (hue * Math.PI) / 180;
+        const cusp = findCusp(Math.cos(hRad), Math.sin(hRad));
+        if (cusp.C > cuspCMax) {
+            cuspCMax = cusp.C;
+            cuspLAtPeak = cusp.L;
+        }
+    }
+
+    // Per L row: min/max of the per-hue max in-gamut chroma.
+    for (let i = 0; i <= columns; i++) {
+        const L = i / columns;
+        let cMin = Infinity;
+        let cMax = 0;
+        for (let j = 0; j < hueSteps; j++) {
+            const t = hueSteps === 1 ? 0 : j / (hueSteps - 1);
+            const hue = (((hueStartDeg + span * t) % 360) + 360) % 360;
+            const hRad = (hue * Math.PI) / 180;
+            const c = maxChromaAtL(L, Math.cos(hRad), Math.sin(hRad));
+            if (c < cMin) cMin = c;
+            if (c > cMax) cMax = c;
+        }
+        points[3 * i] = L;
+        points[3 * i + 1] = cMin;
+        points[3 * i + 2] = cMax;
+    }
+    out.count = columns + 1;
+    out.cuspCMax = cuspCMax;
+    out.cuspLAtPeak = cuspLAtPeak;
+    return out;
+}
+
+/**
+ * Allocating form — constructs an {@link OKLChHueSweepBoundary} sized to
+ * `columns` and delegates to {@link sampleOKLChHueSweepBoundaryInto}. Exactly 2
+ * persistent allocations (the result object + its `Float64Array`).
+ */
+export function sampleOKLChHueSweepBoundary(
+    hueStartDeg: number,
+    hueEndDeg: number,
+    columns: number = 96,
+    hueSteps: number = 16,
+): OKLChHueSweepBoundary {
+    validateColumns(columns);
+    validateHueSteps(hueSteps);
+    const out: OKLChHueSweepBoundary = {
+        points: new Float64Array(3 * (columns + 1)),
+        count: 0,
+        cuspCMax: 0,
+        cuspLAtPeak: 0,
+    };
+    return sampleOKLChHueSweepBoundaryInto(
+        hueStartDeg,
+        hueEndDeg,
+        out,
+        columns,
+        hueSteps,
+    );
+}

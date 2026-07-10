@@ -131,12 +131,18 @@ export type {
     GamutBoundaryMode,
     SampleGamutBoundaryOptions,
 } from "../units/color/gamut/boundary";
-// OKLCh slice boundary (S.W1-6) — the L×C sRGB cusp polyline (S.W5-8 consumes).
+// OKLCh slice boundary (S.W1-6) — the L×C sRGB cusp polyline (S.W5-8 consumes) +
+// the hue-swept envelope (T-21 · T.W1-src — the gradient instrument's src half).
 export {
     sampleOKLChSliceBoundary,
     sampleOKLChSliceBoundaryInto,
+    sampleOKLChHueSweepBoundary,
+    sampleOKLChHueSweepBoundaryInto,
 } from "../units/color/gamut/boundary";
-export type { OKLChSliceBoundary } from "../units/color/gamut/boundary";
+export type {
+    OKLChSliceBoundary,
+    OKLChHueSweepBoundary,
+} from "../units/color/gamut/boundary";
 
 // Color normalization
 export {

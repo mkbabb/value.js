@@ -175,3 +175,26 @@ Consumers repointed to `conversions/matrices`: `conversions/{oklab,direct}.ts`,
 subpaths/color.ts) → `conversions/matrices`; of GAMUT_SECTOR_COEFFICIENTS → the
 gamut barrel; white points + ranges stay on `constants`. `units/color/CLAUDE.md`
 refreshed (§6, covers Batch 3 + Batch 4).
+
+---
+
+## Batch 5 — the hue-swept boundary sampler (T-21; NEW code, additive)
+
+Not a move — the T-21 src item. `gamut/boundary.ts` gains, beside
+`sampleOKLChSliceBoundary`, the hue-swept envelope sampler the gradient
+instrument (W6-2) consumes: per L row the min/max in-gamut chroma across a swept
+hue interval (three truth regimes), with the zero-alloc `Into` twin + the
+peak-cusp referent for the cusp-adaptive axis. A single-hue interval degenerates
+to the exact slice. Geometry stays library-owned. NEW public exports on the
+`./color` subpath (semver-MINOR, additive — dts diff **+3 / 0 removed**):
+
+| Symbol | Kind |
+|---|---|
+| `sampleOKLChHueSweepBoundary` | fn (allocating) |
+| `sampleOKLChHueSweepBoundaryInto` | fn (zero-alloc `Into` twin) |
+| `OKLChHueSweepBoundary` | interface |
+
+Exported from `src/subpaths/color.ts` (mirrors `sampleOKLChSliceBoundary`'s
+`./color`-only placement). Tests: `test/units/color/gamut/oklch-hue-sweep-boundary.test.ts`
+(13 cases — envelope correctness cross-checked against the slice sampler, single-hue
+degeneracy, cusp envelope, achromatic, the Into twin, validation). vitest 2171/69.
