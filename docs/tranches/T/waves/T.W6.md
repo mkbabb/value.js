@@ -1,14 +1,20 @@
 # T.W6 — SURFACES & SHELL (W6-1..W6-8: gradient · easing · dock+nav · generate)
 
 **Name**: W6 — Surfaces & Shell (the feature surfaces + the dock/nav voice)
-**Opens after**: T.W4 (round 4; runs PARALLEL with T.W5 — the amended single-writer map below is
-TOTAL over all 8 items [AMENDED-AT-PASS-2 — W6-1 was unassigned]; cross-wave clauses in
+**Opens after**: T.W4.5 (round 4 — the DAG amended at ratification: W4 → **W4.5 the mid-tranche
+checkpoint** → { W5 · W6 }, cascade 1; runs PARALLEL with T.W5 — the amended single-writer map
+below is TOTAL over all 8 items [AMENDED-AT-PASS-2 — W6-1 was unassigned]; cross-wave clauses in
 §File bounds).
 **Spec of record**: `audit/SYNTHESIS.md §3` (the T.W6 item table) · SYNTHESIS §1.2 rows
 T-6/T-9/T-10/T-16/T-17/T-21/T-22/T-28/T-29 · the spec-retirement ledger rows R1/R5/R9/R10
-(`T.md §4` — what dies and what SURVIVES) · **Q5/Q10/Q12 outcomes from `T.md §12` as ratified**
-(the ratification record wins over the defaults quoted below) · SYNTHESIS §6.1 oracles
-O-13/O-14/O-15a/b/O-17/O-19/O-20/O-21/O-22.
+(`T.md §4` — what dies and what SURVIVES) · **Q5/Q10/Q12 outcomes RULED 2026-07-09**
+(`audit/RATIFICATION-2026-07-09.md` §1 — **Q5: the owner-verbatim GUARDED LETTERFORM RAMP at
+exactly TWO sites ("Only palettes should be rainbow--the letterforms dropdown and the title");
+the data-strip chip arm is DEAD for T-10; the ramp + guard is the WHOLE T-10 implementation —
+the dock/nav lane simplifies (cascade 3). Q10: "Keep." — chrome keeps the live accent. Q12:
+DEFAULT — ABROGATE**; the ratification record wins over the defaults quoted below) · SYNTHESIS
+§6.1 oracles O-13/O-14/O-15a/b/O-17/O-19/O-20/O-21/O-22 (**O-14's T-10 referent re-points to
+the ramp's guarded stops** — cascade 3; the T-17 preview byte-identity referent unchanged).
 **On any divergence between this wave doc and its spec-of-record sections, the spec wins** (the
 T.md charter clause, restated here so the rule is self-evident in-file; `MANDATE-2026-07-06.md §0`
 + addenda win over both).
@@ -16,8 +22,8 @@ T.md charter clause, restated here so the rule is self-evident in-file; `MANDATE
 independently gated; Fable + frontend-design on every design surface.
 **Hard gate**: composite (§Hard gate) — O-13 slim SAME-COMMIT + O-14 byte-identity · O-15a/b ·
 O-17 · O-19 · O-20 · O-21 · O-22 with the **S.W0-1 seed-rider-1 contract** byte-preserved (R10 — the S-era misconfig contract, NOT T's W0-1 dispatch item [AMENDED-AT-HARDENING — h-wave-w6-w7 SF-6]) · per-item gates.
-**Status**: AUTHORED — development only; the dispatch gate is CLOSED until the `T.md §12` owner
-ratification (E-6). Post-ratification: PENDING, gated on T.W4 close.
+**Status**: RATIFIED 2026-07-09 — PENDING, gated on T.W4.5 close (round 4 — the DAG amended at
+ratification: W4 → W4.5 → { W5 · W6 }, cascade 1).
 
 ---
 
@@ -25,7 +31,8 @@ ratification (E-6). Post-ratification: PENDING, gated on T.W4 close.
 
 The remaining owner-named feature surfaces and the shell voice land at their roots: the gradient
 pane becomes a truthful instrument, the easing area composes, the menu goes ink with ONLY
-Palettes chromatic (Q5 form), the Generate verb joins its plate, the banner dies into a designed
+Palettes chromatic (Q5 RULED: the guarded letterform ramp at the two named sites), the Generate
+verb joins its plate, the banner dies into a designed
 lamp, the seal outline is abrogated, and the Tools toggle releases its clip. (SYNTHESIS §3 T.W6,
 distilled; the item table below is the letter of it.)
 
@@ -53,7 +60,7 @@ evidence; the wave closes when all four do.
 | W6-1 | **Netting recalibration** (T-6): the R5 band (22%/28%/45%/65%/1.25px), CSS tile + `WEBBING` in lockstep; re-judged on the W3 plate + 390. R5 retires **all FIVE recalibrated values — hatch 9%/12% + edge 28%/50% + the old stripe width** [AMENDED-AT-HARDENING — h-wave-w6-w7 SF-4: "the 9%/12% intensity values ONLY" under-named the retire set] — the ONE-home facility, the DPR raster, the token architecture SURVIVE (the ruling-6 cures stack, unopposed) | `style.css:254-261` (9%→22% fg / 12%→28% bg / edge 45%/65% / 1.25px); `gamut-ink.ts:29-36` lockstep | t-gradient-surfaces §1 | **O-19** luma-delta floor (≥59/255 L, ≥45/255 D) — drift-back protection |
 | W6-2 | **The gradient instrument** (T-21): hue-swept envelope plate (three truth regimes, cusp-adaptive axis, condition-label reservation) consuming **W1-src's hue-swept boundary sampler**; the rail re-authored (normalized projection + owned paint stack + ruler grammar/terminal caps; the render tile joins the Type/Direction controls) | single-hue slice vs hue-varying trajectory (`PLATE_C_MAX 0.4` vs cusp 0.145 @H205); rail paints the RENDER string (`GradientVisualizer.vue:158`); border-tile bleed; rung row 12.6%/7.4% short | t-gradient-surfaces §2-6 | **O-21** silhouette/rung extents; the §6.1 spec extended |
 | W6-3 | **Easing composition, demo half** (T-22): specimen-bench anatomy (closed rows = dots+glyph+name; one-literal law; per-row `--motion-accent` = the interval's own ink; wells seated flat); the regex-drive deleted the day P7's declarative door lands (booked) | 132px canvas in 288px chrome; `btn-pill`×`glass-btn` blob (dist `easing.js:424`); two cartoon rungs in a Z2 row; dot parks at cx=1; regex-driven autoplay (`GradientEasingEditor.vue:82-101`) | t-easing-pane 1-10, census CC-4 | **O-17** composition oracle (aspect≈1, ≤1 stamp, dot rest, one-literal law) |
-| W6-4 | **Nav voice** (T-10, the R1 retirement + orphaned-machinery excise + **O-13 slims same-commit**) + **preview chips** (T-17: STRIP/RAMP module, description-lane, restraint table, phone no-clip re-flow; **segment floor: preview segments cap at ~7 with honest truncation, or the chip steps up one width token past count 8** [h-refine-console N-4 — a taste knob named so no writer mints it]) — **Palettes form = Q5** (default: the data-strip chip, color-as-DATA under the C3 law; the owner-verbatim letterform-ramp is the live alternative — the ratified outcome lands) | `DockViewSelect.vue:41-45,103-114`; survives/dies per R1 (`entryAccent`/`resolveViewAccentTokens`/`PRIMARY_VIEW_SHIFTS`/`PRIMARY_VIEW_IDS` + dot column DIE; `resolveViewAccent`/`resolveSealInk`/`--accent-view` trigger/ring/`@property` sweep/WCAG math SURVIVE); `GENERATION_PRESETS`/`HARMONY_DEFS` prose-only rows; the description-lane grammar (`ColorSpaceSelector.vue:54-57` precedent, read-only) | t-nav-dropdowns F1-F4 + §2 F5-F8, t-mobile F-9 | **O-13** slim same-commit (the AT-RISK row) + **O-14** preview byte-identity vs `generatePalette`/`mixColors`; phone no-clip trigger rule |
+| W6-4 | **Nav voice** (T-10, the R1 retirement + orphaned-machinery excise + **O-13 slims same-commit**) + **preview chips** (T-17: STRIP/RAMP module, description-lane, restraint table, phone no-clip re-flow; **segment floor: preview segments cap at ~7 with honest truncation, or the chip steps up one width token past count 8** [h-refine-console N-4 — a taste knob named so no writer mints it]) — **Palettes form = Q5 RULED 2026-07-09** ("Only palettes should be rainbow--the letterforms dropdown and the title"): **the owner-verbatim GUARDED LETTERFORM RAMP at exactly TWO sites — the "Palettes" entry in the view dropdown AND the Palettes title** (`background-clip:text` on a derived + contrast-guarded ramp; enters the C3 ledger as the sanctioned exception per Q18); **the data-strip chip arm is DEAD for T-10** (no T-10 chip, no fallback resolver — the chip grammar survives ONLY where T-17's previews independently earn it); the ramp + guard is the WHOLE T-10 implementation (cascade 3); the Palettes-TITLE site is Lane D-authored (anchor re-derived via MOVE-MAP; W3/W4 closed by round 4 — no writer conflict, recorded in the lane log) | `DockViewSelect.vue:41-45,103-114`; survives/dies per R1 (`entryAccent`/`resolveViewAccentTokens`/`PRIMARY_VIEW_SHIFTS`/`PRIMARY_VIEW_IDS` + dot column DIE; `resolveViewAccent`/`resolveSealInk`/`--accent-view` trigger/ring/`@property` sweep/WCAG math SURVIVE); `GENERATION_PRESETS`/`HARMONY_DEFS` prose-only rows; the description-lane grammar (`ColorSpaceSelector.vue:54-57` precedent, read-only) | t-nav-dropdowns F1-F4 + §2 F5-F8, t-mobile F-9 | **O-13** slim same-commit (the AT-RISK row) + **O-14** preview byte-identity vs `generatePalette`/`mixColors` (T-17) **+ the re-pointed T-10 referent: the ramp's guarded stops** (derived + contrast-guarded — the guard's output IS the oracle's referent; cascade 3); phone no-clip trigger rule |
 | W6-5 | **The Generate verb joins the plate chrome** (T-16); seed = bench-note; the orphan row dies (REDESIGN, never excise) | `GenerateControls.vue:106-123` (verb OUTSIDE the plate F8 specified) | t-misc-elements F2, plan-audit-2 F21 | **O-20** plate-containment assert |
 | W6-6 | **T-9 re-home**: the banner dies; dock status lamp (first-paint, dev-gated) + per-surface designed states + console untouched; **the S.W0-1 seed-rider contract byte-preserved** (R10 — not T's W0-1: the banner FORM dies; the transport latch, synchronous `DevMisconfigError`, loud `console.error`, misconfigured ≠ unavailable, REJECTED-localhost-CORS all SURVIVE) | `DevMisconfigBanner.vue` + `App.vue:115`; `ApiOfflineChip.vue:57-79` | t-misc-elements F3, t-api-state, plan-audit-1 F2/F6 | **O-22** lamp oracle (correct variant per precondition, first-paint, dev-gated) |
 | W6-7 | **T-28 ABROGATE at the seal** (Q12 default; + the cascade-dead `ring-2 ring-primary/50` sibling verified in-wave; the register law encoded: rings on WatercolorDots ride the dot's own silhouette or do not exist) — R9: the `.dock-seal` die-rim + gold border override DIE; the wax + inked-glyph identity SURVIVES, continuity re-carried by the GLYPH; `--dock-ring` stays on the geometric expanded trigger | `Dock.vue:330-341` dies; `MixSourceSelector.vue:138` (verify) | t-outline-dropdown-clip §1 | **O-15a** negative watch (border-style none — resurrection guard) |
@@ -81,7 +88,7 @@ Mandatory on:
 |---|---|---|
 | G (W6-1, W6-2) | `GradientVisualizer.vue` + children · `GradientStopEditor.vue` · the new envelope-plate module (born colocated in the gradient tree, E-1) · `style.css` @254-261 (netting region ONLY) · `gamut-ink.ts` | modify/create |
 | E (W6-3) | `GradientEasingEditor.vue` + the easing-editor sub-tree (disjoint from Lane G's files within the gradient feature dir) | modify |
-| D (W6-4, W6-6, W6-7, W6-8) | `DockViewSelect.vue` · `Dock.vue` · the STRIP/RAMP chip module (born colocated, E-1) · view-accents (the O-13 slim, same commit) — **the boot-chain prohibition carries an explicit EXCEPT clause [AMENDED-AT-HARDENING — M-19/h-wave-w6-w7 MUSTFIX-1]: the O-13 slim's targets (`resolveViewAccentTokens` in `boot/view-accents.ts`; `PRIMARY_VIEW_SHIFTS`/`PRIMARY_VIEW_IDS` in `boot/useViewAccents.ts`) are WRITABLE for the T-10 excise, same commit; the R1 SURVIVES set (`resolveViewAccent` · `resolveSealInk` · the `--accent-view` trigger/ring · the `@property` sweep · the WCAG math) is byte-preserved** · `DevMisconfigBanner.vue` (delete) · `ApiOfflineChip.vue` · `MixSourceSelector.vue` (W6-7 verify ONLY — **it contains ZERO Selects; the T-17 mis-attribution struck**) · **`MixConfigBar.vue` (T-17 mix Space/Hue RAMP consume — the REAL host, `:56-84,92-100`)** · **`AuroraPane.vue` (T-17 STRIP family member, admin harmony — t-nav F7)** [AMENDED-AT-HARDENING — M-21/h-refine-console F-1] | modify/create/delete |
+| D (W6-4, W6-6, W6-7, W6-8) | `DockViewSelect.vue` · `Dock.vue` · **the guarded letterform-ramp resolver (ONE module, born colocated, E-1) + its TWO consume sites: the dropdown "Palettes" entry + the Palettes-title site (anchor via MOVE-MAP; W3/W4 closed — Q5 RULED, cascade 3)** · the STRIP/RAMP chip module (T-17 previews ONLY — the T-10 chip arm is DEAD, born colocated, E-1) · view-accents (the O-13 slim, same commit) — **the boot-chain prohibition carries an explicit EXCEPT clause [AMENDED-AT-HARDENING — M-19/h-wave-w6-w7 MUSTFIX-1]: the O-13 slim's targets (`resolveViewAccentTokens` in `boot/view-accents.ts`; `PRIMARY_VIEW_SHIFTS`/`PRIMARY_VIEW_IDS` in `boot/useViewAccents.ts`) are WRITABLE for the T-10 excise, same commit; the R1 SURVIVES set (`resolveViewAccent` · `resolveSealInk` · the `--accent-view` trigger/ring · the `@property` sweep · the WCAG math) is byte-preserved** · `DevMisconfigBanner.vue` (delete) · `ApiOfflineChip.vue` · `MixSourceSelector.vue` (W6-7 verify ONLY — **it contains ZERO Selects; the T-17 mis-attribution struck**) · **`MixConfigBar.vue` (T-17 mix Space/Hue RAMP consume — the REAL host, `:56-84,92-100`)** · **`AuroraPane.vue` (T-17 STRIP family member, admin harmony — t-nav F7)** [AMENDED-AT-HARDENING — M-21/h-refine-console F-1] | modify/create/delete |
 | N (W6-5) | `GenerateControls.vue` | modify |
 
 **Intra-wave clause**: `GenerateControls.vue` has ONE writer — Lane N. If T-17's chip consume
@@ -109,7 +116,10 @@ worktree cut from the wave head.
    certifies dead code or breaks on a deleted export); the R1 survives-column intact (grep: the
    surviving exports still consumed).
 2. **O-14**: chip stops ≡ the library function's live output, byte-identical (the truth law — a
-   lying preview is worse than none); the phone no-clip trigger rule green.
+   lying preview is worse than none) — the T-17 preview referent; **the T-10 referent RE-POINTED
+   (Q5 RULED, cascade 3): the letterform ramp's rendered stops ≡ the guarded resolver's output
+   at BOTH named sites** (dropdown entry + Palettes title — one resolver, two consumers, never
+   two mints); the phone no-clip trigger rule green.
 3. **O-19**: netting luma-delta ≥59/255 (light) / ≥45/255 (dark), judged on the post-W3 plate AND
    at 390 plates.
 4. **O-21**: rail silhouette extents (ramp ≡ border-box, no terminal bleed) + rung-row grammar;
@@ -181,9 +191,11 @@ partial to resume, not a lane to close.
 
 ## §Dependencies
 
-- **Depends on**: T.W4 closed (the DAG: W4 → {W5 · W6}); **W1-src's hue-swept boundary sampler**
-  (W6-2's src half — landed at W1); **W3's plate** (W6-1's re-judge surface); the W1 MOVE-MAP
-  (PP-11 re-anchoring); the Q5/Q10/Q12 ratification outcomes.
+- **Depends on**: T.W4.5 closed (the ratification-amended DAG: W4 → W4.5 → {W5 · W6}, cascade 1
+  — the checkpoint's remediations are this wave's settled ground); **W1-src's hue-swept boundary
+  sampler** (W6-2's src half — landed at W1); **W3's plate** (W6-1's re-judge surface); the W1
+  MOVE-MAP (PP-11 re-anchoring); the Q5/Q10/Q12 outcomes (RULED 2026-07-09: letterform ramp ×2
+  sites / Keep / ABROGATE).
 - **Blocks**: T.W8 (round barrier — W8 opens only after every design wave closes).
 
 ## §BOOKS opened/serviced (books-never-gates)
