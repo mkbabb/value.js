@@ -1,5 +1,5 @@
 <template>
-    <div class="app-layout">
+    <div class="app-layout" :data-layout="isDesktop ? 'desktop' : 'mobile'">
         <!-- W5-a11y: decorative aurora canvas — hidden from AT. W6-1 entrance
              (owner ruling §1.1): the canvas derive-fades in over the
              SAME-material `--saved-bg` ground once the field is drawable
@@ -60,15 +60,16 @@
                  viewport. The prior always-in-DOM display-toggle kept a hidden-
                  but-LIVE second picker (the mobile slot at desktop, the desktop
                  slots at mobile), doubling the WebGL contexts + the reactive
-                 subtree. The lg:* display classes are RETAINED untouched (the
-                 D8-1 cascade is producer-owned; never demo-cured here). -->
+                 subtree. MOB-1 (T round-4) SUPERSEDES the width-only lg:* display
+                 witnesses with the .app-layout [data-layout] stamp (the single
+                 isDesktop truth); the D6-03 exception + D8-1 note die — see style.css. -->
 
             <!-- Mobile: single pane slot (below lg / portrait). `pane-wrapper`
                  makes it a size container so in-card `cqi` sizing resolves on
                  every slot (R.W3 Lane A / A4). W2-3: the slot speaks the
                  `appear` plate-land grammar (the single plate = the left
                  voice, +40ms). -->
-            <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile lg:hidden w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch" style="--overture-appear-delay: var(--overture-left-delay)">
+            <div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch" style="--overture-appear-delay: var(--overture-left-delay)">
                 <!-- W3-4 (S.W3): KeepAlive :max right-sized to the 9 non-admin
                      views. The mobile slot cycles both left+right panes, so it
                      caches the common (non-admin) surface without evicting a
@@ -87,7 +88,7 @@
 
             <template v-else>
                 <!-- Desktop: left pane (lg+) — the B3 plate (+40ms). -->
-                <div class="pane-wrapper pane-wrapper--left hidden lg:flex w-full min-w-0 min-h-0 h-full flex-col justify-center" style="--overture-appear-delay: var(--overture-left-delay)">
+                <div class="pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center" style="--overture-appear-delay: var(--overture-left-delay)">
                     <!-- W3-4 (S.W3): :max = the 6 distinct non-admin LEFT panes
                          (color-picker · browse · extract · atmosphere · generate
                          · gradient) — already right-sized; admin left panes fall
@@ -110,7 +111,7 @@
                      dies (LS-4); a late chunk materializes through the same
                      land on resolution (work defers, appearance composes). -->
                 <div
-                    class="pane-wrapper pane-wrapper--right hidden lg:block w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+                    class="pane-wrapper pane-wrapper--right w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
                     :class="currentConfig.right === null ? 'pane-wrapper--ghost' : ''"
                     style="--overture-appear-delay: var(--overture-right-delay)"
                 >

@@ -210,7 +210,7 @@ watch(
                              in a 312px aperture was furniture crowding the ⋮ trigger out of
                              the pill — design-dock-shell P0-2); the control compacts at its
                              own root below sm. -->
-                        <div v-if="viewManager.currentConfig.value.right !== null" class="lg:hidden">
+                        <div v-if="viewManager.currentConfig.value.right !== null" class="dock-mobile-panes">
                             <PaneSegmentedControl
                                 :model-value="viewManager.mobilePaneIndex.value"
                                 :left-label="viewManager.currentConfig.value.leftLabel ?? ''"

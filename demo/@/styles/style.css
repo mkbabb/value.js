@@ -4,13 +4,15 @@
 /*
  * EXPLICIT demo-source scan (N.W2.B — the desktop-pane-visibility P0 fix).
  *
- * The load-bearing responsive display utilities `lg:flex` / `lg:block` /
- * `lg:hidden` (+ `sm:max-w-lg`) live ONLY on App.vue's pane wrappers
- * (`demo/color-picker/App.vue:33,44,57`). They toggle the desktop dual-pane
- * vs. mobile single-slot layout: with them unemitted the base `hidden` wins on
- * both desktop wrappers (→ `display:none` ≥1024px) and the mobile slot leaks
- * onto desktop — the secondary panes blank above ~1024px (K.W2.6 §2,
- * audit/lanes/C9.md §1.1).
+ * The desktop dual-pane vs. mobile single-slot layout toggles on the
+ * `[data-layout]` stamp App.vue sets on `.app-layout` from the single
+ * `isDesktop` truth (MOB-1, T round-4 — the display witnesses live in this file,
+ * below; the retired width-only `lg:*` utilities no longer gate pane
+ * visibility). The one surviving JIT-scanned utility on the pane wrappers is
+ * the mobile slot's `sm:max-w-lg` width clamp: with it unemitted the mobile
+ * plate loses its ≥40rem clamp (K.W2.6 §2, audit/lanes/C9.md §1.1). The scan
+ * still covers the FULL demo utility surface (every `lg:*`/`sm:*`/… the tree
+ * uses), so the explicit `@source` below stays load-bearing regardless.
  *
  * Tailwind v4 auto-detection roots its scan at the GIT REPOSITORY ROOT and
  * prunes `.gitignore` matches; that *happens* to cover App.vue today, but the
@@ -24,9 +26,11 @@
  * sibling `.css` files (this one + animations.css/utils.css) — which are NOT
  * content templates — stay out of the candidate-extraction set.
  *
- * The CI emission probe (.github/workflows/ci.yml → scripts/css-emission-probe.mjs)
- * asserts the witness utilities survive the build, so a future scan regression
- * fails loud instead of shipping a blank desktop.
+ * The CI emission probe (.github/workflows/ci.yml → scripts/ci/css-emission-probe.mjs)
+ * asserts the pane-visibility witnesses survive the build — the `[data-layout]`
+ * display rules (present, un-media'd) + the `sm:max-w-lg` clamp (gated at 40rem)
+ * — so a future scan/emission regression fails loud instead of shipping a blank
+ * desktop.
  */
 
 /*
@@ -510,17 +514,33 @@
     z-index: 1;
 }
 
-/* The aspect-law display exception (R.W3 Lane A / A4 — the D6-03 portrait
- * pathology): the `lg:hidden` display witness on the mobile slot is width-only
- * (CI emission-probe-pinned — scripts/css-emission-probe.mjs), but App.vue's
- * mount condition is width AND landscape. On the portrait band (≥ 1024px wide,
- * aspect < 1.1) the MOBILE slot is the mounted one, so its flex display
- * re-engages here over the width-only utility (unlayered rule → wins the
- * layered utility by cascade, no !important). */
-@media (min-width: 1024px) and (aspect-ratio < 1.1) {
-    .pane-slot-mobile {
-        display: flex;
-    }
+/* MOB-1 (T round-4 — the C-5/D8-1 adjudication landed) — THE LAYOUT DISPLAY
+ * WITNESSES key on [data-layout], the single-truth stamp App.vue sets on
+ * .app-layout from `isDesktop` (= width AND landscape). The CSS witness IS the
+ * JS witness: a portrait tablet ≥ 1024px wide (aspect < 1.1) stamps
+ * data-layout="mobile", so the mobile slot shows and the desktop wrappers hide
+ * BY CONSTRUCTION — the retired D6-03 portrait pathology needed a width-only
+ * `lg:hidden` display exception here; the stamp dissolves it. The v-if
+ * single-mount (App.vue X6) is the primary gate; these are the aspect-correct
+ * defensive witnesses + the CI emission canary (scripts/ci/css-emission-probe.mjs,
+ * re-pointed off the lg:* utilities onto these rules). They are intentionally
+ * UN-media'd — the JS drives the breakpoint, so a media wrapper would
+ * re-introduce the width-only disagreement the stamp exists to retire. */
+[data-layout="mobile"] .pane-slot-mobile {
+    display: flex;
+}
+[data-layout="desktop"] .pane-wrapper--left {
+    display: flex;
+}
+[data-layout="desktop"] .pane-wrapper--right {
+    display: block;
+}
+/* The mobile pane switcher (Dock.vue's PaneSegmentedControl) is mobile-grammar
+ * only — hidden on desktop, shown on the portrait band so BOTH panes stay
+ * reachable at 1024×1366 (the width-only `lg:hidden` it replaced marooned the
+ * second pane there). */
+[data-layout="desktop"] .dock-mobile-panes {
+    display: none;
 }
 
 /* The dual grid fires on width AND landscape (the aspect law — see the
