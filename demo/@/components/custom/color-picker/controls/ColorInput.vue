@@ -86,7 +86,9 @@
             </HoverCardTrigger>
 
             <HoverCardContent v-if="!proposeMode" class="pointer-events-auto font-display w-full">
-                <p class="font-bold text-subheading">Enter a color</p>
+                <!-- T.W4-6 (T-15/F7): hover-card title → display voice, ≤500
+                     non-bold (the `font-bold` 700 dies with the sweep). -->
+                <p class="font-display font-medium text-subheading">Enter a color</p>
                 <p>
                     <span class="italic">Any</span> valid CSS color string is accepted.
                 </p>

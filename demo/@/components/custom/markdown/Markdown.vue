@@ -18,7 +18,12 @@
 
     <div v-else>
         <Alert>
-            <AlertTitle class="text-4xl">Oh snap...</AlertTitle>
+            <!-- T.W4-6 (T-15/F7 census): an error HEADLINE is a title surface —
+                 it joins the EmptyState error-statement register verbatim
+                 (`font-display text-heading`, S.W5-5), retiring the stock
+                 `text-4xl` body-voice one-off (the F7 root-cause class:
+                 a size utility silently carrying the wrong family). -->
+            <AlertTitle class="font-display text-heading">Oh snap...</AlertTitle>
             <AlertDescription>
                 We couldn't find the documentation for the selected color space.
             </AlertDescription>
