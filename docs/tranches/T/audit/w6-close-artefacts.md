@@ -23,6 +23,16 @@ curing the 3 stale reds). The BLOCK is the gate's own-run incompleteness, not a 
 exactly T-36/T-37/T-40b/T-43/T-46/T-48 against the merged tree — the instrument that discharges these
 MISS-RECORDED legs). **T.W6.5 flips DISPATCHABLE on the landed substantive ground; T.W8 stays PENDING
 on T.W6.5** (the §0.6 addendum moved the barrier: `… → {W5 · W6} → W6.5 → W8 → W9`).
+**GATE #4 RE-RUN (2026-07-11) — STRENGTHENED, still `BLOCKED`**: after the above, the round-4 CLOSE
+gate was RE-RUN at HEAD `6bf8e6b` (gh-pages rebuilt fresh, playwright launched once on lane-unique
+`VJS_E2E_PORT=8490`/`VJS_E2E_PERF_PORT=8491`) and returned **10 PASS + 1 MISS-RECORDED, zero FAIL** —
+a strictly stronger partial than §1's 4 PASS + 7 MISS. The **smoke project (tests 1-123) ran to
+COMPLETION** carrying EVERY named T.W6 oracle live leg GREEN (O-13/O-14/O-15a-b/O-17/O-19/O-20/O-21/
+O-22/T-31), so the SEVEN §1 MISS-RECORDED live-oracle legs are now all CONFIRMED PASS. The block
+NARROWS to row 9's static sweeps (`npm run lint` / `npm run typecheck` / `npm test` — HELD to keep CPU
+off the WebGL-sensitive suite) + the full-6-project e2e COMPLETION (un-observed at forced output;
+smoke-admin was at test 133). Verdict stays `BLOCKED` (≠ complete → round 4 NOT fully closed); T.W6.5
+stays DISPATCHABLE. **The 11 gate-#4 rows + notes are transcribed verbatim in §7 (the certification run).**
 **Governing law**: `RATIFICATION-2026-07-09.md §0` verbatim wins → `MANDATE-2026-07-06.md §0` +
 addenda (§0.5 = T-30/T-31/T-32; §0.6 = the 2026-07-11 owner audit, T-36/T-37/T-40b/T-43/T-46/T-47/T-48
 bind the in-flight W6 lanes as merge constraints) → `SYNTHESIS.md` as-hardened §3 (T.W6) + §6.1
@@ -32,7 +42,7 @@ bind the in-flight W6 lanes as merge constraints) → `SYNTHESIS.md` as-hardened
 gate** (§1) + the `BLOCKED` basis (§2) + the §0.6/MANDATE dispositions T-31/MOB-1/T-36/T-37/T-43/
 T-46/T-47/T-48 + the cold-load residual → W8/Q14 (§3) + the booked swaps carried PKT-1..4 / P5-P6-P7
 halves / R6-at-W7 (§4) + the four-lane commit/merge map (§5) + the grep captures + verification-
-artefacts index (§6).
+artefacts index (§6) + **the gate-#4 CERTIFICATION RE-RUN — 11 rows verbatim + notes (§7)**.
 
 ---
 
@@ -289,3 +299,143 @@ booked swaps (PKT-1/R1, PKT-3/R6-R7, PKT-4, P5 register, P7 v2 consume) at the 5
 lands. **T.W8** inherits the T-42 + T-48-frame-by-frame residual brackets + the cold-load stall
 (Q14/T-39 face). **T.W9** re-runs the repo-wide sweeps these excisions must survive + the Q14
 green-or-escalation close gate.
+
+---
+
+## §7 — THE CERTIFICATION RUN (gate #4 — the round-4 CLOSE re-run, 2026-07-11)
+
+The round-4 CLOSE gate was RE-RUN at HEAD `6bf8e6b` (`tranche-t`, working tree clean; gh-pages rebuilt
+fresh via `npm run gh-pages` exit 0; playwright launched ONCE on lane-unique
+`VJS_E2E_PORT=8490`/`VJS_E2E_PERF_PORT=8491`, `--reporter=list`, all 6 projects). It returned **10 PASS
++ 1 MISS-RECORDED, zero FAIL** — a strictly stronger partial than §1's 4 PASS + 7 MISS: the **smoke
+project (tests 1-123) ran to COMPLETION** carrying EVERY named T.W6 hard-gate oracle live leg GREEN, so
+the SEVEN §1 MISS-RECORDED live-oracle legs are all CONFIRMED PASS here. The verdict remains **`BLOCKED`**
+(≠ complete → round 4 NOT fully closed) on the single narrowed cause: row 9's static sweeps
+(lint/typecheck/vitest) + the full-6-project e2e COMPLETION were un-observed at forced structured-output.
+**T.W6.5 stays DISPATCHABLE** (either way). The 11 rows + gate notes below are transcribed VERBATIM from
+the gate-#4 structured output.
+
+### The 11 rows (verbatim)
+
+> **Row 1 — O-13 slim SAME-COMMIT as the T-10 excise** — **PASS**
+
+Closed-form/git-ancestry, complete. Commit 5833474 'feat(T.W6·W6-4): the T-10 excise + O-13 slim [ONE
+COMMIT]' is an ancestor of HEAD 6bf8e6b; it touches DockViewSelect.vue (T-10 excise) AND
+boot/view-accents.ts + boot/useViewAccents.ts (the O-13 slim targets) in ONE commit. Kill-set
+(resolveViewAccentTokens / PRIMARY_VIEW_SHIFTS / PRIMARY_VIEW_IDS / entryAccent) survives ONLY in
+death-documenting comments (grep-verified: zero live code). R1 survives-column live-consumed
+(resolveViewAccent, resolveSealInk, --accent-view across boot + palettes-ramp + utils.css). Unit oracle
+test/view-accents.test.ts present.
+
+> **Row 2 — O-14 preview byte-identity (T-17 chips + re-pointed T-10 ramp)** — **PASS**
+
+o14-preview-truth.spec.ts 4/4 GREEN in completed smoke run (tests 36-39): (a) dropdown 'Palettes' entry
++ Palettes title render the resolver's guarded stops byte-identical — one mint (--palettes-ramp-0/1/2),
+two consumers; (b) excised legend dead (no --accent-view-* tokens, no dot column); (c) T-17 honest
+absence with <2 operands; (d) every open-menu chip's painted gradient carries exactly its stamped stops
+(≤1e-3). Unit oracle test/preview-chips.test.ts present.
+
+> **Row 3 — O-19 netting luma-delta floors (both schemes, desktop+390)** — **PASS**
+
+o19-netting-luma.spec.ts 5/5 GREEN (tests 67-71) at dpr2: desktop light ≥59/255, desktop dark ≥45/255,
+390 light ≥59/255, 390 dark ≥45/255, plus computed-token tripwire (hatch 30%/4.75px, paper 36%, edge
+45%/65%). This is the Lane-G-tail remediation confirmed at HEAD — the previously-RED desktop netting
+(T-6 'more visible') now passes; root cause 40f79a6 (specimen-strip mount reveal yanking pane scroll)
+cured.
+
+> **Row 4 — O-21 rail silhouette/rung extents (4/4 incl. cap <1.5px)** — **PASS**
+
+o21-gradient-rail.spec.ts 4/4 GREEN (tests 76-79): terminal truth (each edge paints its own stop, no
+mirrored bleed), owned paint stack (linear-gradient(90deg) no-repeat, border-box origin+clip over
+checker), pill silhouette T-46 (radius ≥ height/2), ruler grammar (exactly 2 terminal caps + every rung
+strictly interior, cap-center↔handle-center Math.abs < 1.5px both terminals).
+
+> **Row 5 — O-17 easing composition (zero letterbox, ≤1 stamp, dot rest, one-literal)** — **PASS**
+
+o17-easing-composition.spec.ts 3/3 GREEN (tests 48-50): zero letterbox across curve regimes
+(linear/overshoot back/steps) desktop AND 390 via getScreenCTM (drawn-plot box ≡ content box ±1px,
+aspect≡1/vb-ratio); composition leg (≤1 cartoon stamp, flat well shadow none, 4 circles no r=0.03 travel
+dot, one-literal-law exactly 1 leaf, mint-law byte-identical 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+head speaks NAME not literal).
+
+> **Row 6 — O-20 Regenerate-inside-plate containment** — **PASS**
+
+o20-generate-plate.spec.ts 2/2 GREEN (tests 74-75): verb + actions + bench-note seed live INSIDE
+[data-generate-plate] (page Regenerate count ≡ plate count, orphan dead), regenerate re-stamps seed in
+place; T-17 seed-exact strips (preset row's stamped data-stops ≡ the plate's live swatches after
+selecting it).
+
+> **Row 7 — O-22 status lamp + S.W0-1 seed-rider contract byte-preserved** — **PASS**
+
+o22-status-lamp.spec.ts 2/2 GREEN (tests 80-81): healthy backend → no lamp + dead banner stays dead
+(negative watch); transport failure (route abort) → 'unavailable' variant, role=status, first-paint band
+chrome inside nav landmark, NOT in .dock-layers, no dock interaction. Closed-form contract
+test/status-lamp.test.ts covers the R10 survives set: synchronous DevMisconfigError, loud console.error
+at initApiEnvironment, misconfigured≠unavailable (distinct variants+roles), dev-gating.
+
+> **Row 8 — O-15a/b seal abrogation + clip release** — **PASS**
+
+o15-dock-register.spec.ts 6/6 GREEN (tests 40-45): O-15a seal computes border-style none + border-width
+0px + padding 0px (resurrection guard), ring-2 sibling dispositioned (no geometric ring on mix
+WatercolorDots); O-15b settled rest releases clip (.action-bar-toggle-inner overflow visible) + non-none
+focus-visible box-shadow on unclipped box, T-36 true-button (padding 8px 12px, margin 4px), zero native
+title on the dock set, separator folds into slot arrival.
+
+> **Row 9 — PP-8 sweep + PI-1 delta + lint/typecheck/vitest + e2e all-project + LoC cap** — **MISS-RECORDED**
+
+NOT a FAIL (zero honest reds). VERIFIED: demo LoC cap 0 files >400 (find+wc clean); PI-1 round-4
+Lighthouse delta row recorded at abff923 (pi1-delta-ledger.md + PROGRESS.md — 'delta recorded' met, Q14
+budgets honestly-RED by design); MOB-1 css-emission-probe PASS. UNCONFIRMED at forced output: (a) npm
+run lint / npm run typecheck / npm test (vitest) were HELD to avoid CPU contention destabilizing the
+WebGL-sensitive suite and had not run when structured-output was enforced; (b) the full 6-project e2e was
+still executing (smoke 123/123 GREEN complete; smoke-admin in progress at test 133;
+smoke-mobile/reactivity/perf/safari pending) — no PLAYWRIGHT_EXIT yet. The 2 red ✘ marks are born-RED
+test.fail() legs (o16 R1 PKT-1 clobber, confirmed 150ms live at line 116; the other a born-RED leg),
+ok:true, NOT genuine failures and NOT T.W6 gate rows.
+
+> **Row T-31 — dock-atop layout law, occlusion 8/8** — **PASS**
+
+t31-dock-band.spec.ts 8/8 GREEN (tests 96-103): two-band grid (display grid, 2 rows, rowGap≥7, nav
+in-flow static/relative, navZ auto, wrapper static/auto, bandFloor≥40); retired trio dead (no
+fixed/z-dock/top-dock-inset); occlusion probe elementFromPoint over dock band is NEVER a
+.pane-container/.pane-wrapper/.pane-main across @1280 light+dark (+scroll+Mix), @390 light+dark,
+short-viewport 1100x430 (gap≥7), ultra-wide 2560 (navTop≤20). Structural cure, zero z-index arms.
+
+> **Row MOB-1 — data-layout witness** — **PASS**
+
+Closed-form, complete. a92f501 'fix(MOB-1): data-layout witness lands [ONE COMMIT]' ancestor of HEAD (the
+folded-closed T.W1 FAIL). scripts/ci/css-emission-probe.mjs PASS exit 0 — all 5 witnesses emitted
+([data-layout=mobile] .pane-slot-mobile, [data-layout=desktop] .pane-wrapper--left/--right/.dock-mobile-panes,
+.sm:max-w-lg). data-layout stamp live at App.vue:2 (:data-layout="isDesktop ? 'desktop' : 'mobile'").
+Live-witness, stronger than gate #3's ancestry-only.
+
+### Gate-#4 notes (verbatim)
+
+1. gh-pages rebuilt fresh at 12:34 (npm run gh-pages, exit 0, '✓ built in 1.78s'; only warnings are
+   @vueuse pure-annotation position, non-fatal). dist/gh-pages/ verified. Playwright launched ONCE with
+   VJS_E2E_PORT=8490 VJS_E2E_PERF_PORT=8491 (never :9000), --reporter=list, all 6 projects.
+2. BLOCKED = gate-run incompleteness at forced structured-output, NOT a product defect and NOT any gate
+   weakened. This is a MUCH stronger partial than gate #3 (which had 4 PASS + 7 MISS): here 10 of 11 rows
+   PASS with hard evidence, only row-9's static sweeps (lint/typecheck/vitest) + all-project e2e
+   completion remain unconfirmed, zero FAIL.
+3. DECISIVE: the smoke project (tests 1-123) ran to COMPLETION and carries EVERY named T.W6 hard-gate
+   oracle live leg — O-14 4/4, O-15a/b 6/6, O-17 3/3, O-19 5/5, O-20 2/2, O-21 4/4 (incl. <1.5px cap),
+   O-22 2/2, T-31 8/8 — ALL GREEN. The 7 legs gate #3 recorded as MISS-RECORDED are now all confirmed
+   PASS.
+4. The 2 red ✘ in the run are born-RED-by-design test.fail() legs (o16-computed-cascade R1: console shows
+   '--default-transition-duration = 150ms' clobber live, the PKT-1 producer-root expected-red; plus one
+   further born-RED leg). Under test.fail() these are ok:true, not counted as genuine failures. The o16
+   W5-census companion leg (o16:106) passed. o5-boot-pacing (perf) and o26-aurora (smoke) are the other
+   born-RED legs, all routed W7/W9 producer/headless.
+5. The remediation 40f79a6..24802b0 is landed on HEAD and its effect confirmed live: O-19 desktop netting
+   (T-6) now GREEN at desktop+390 both schemes (was the Lane-G-tail red at d4e0032); the re-authored
+   gradient.spec.ts tests (66/106/127/174/205/233/253/287) all pass — the two stale reds (:34 H-range,
+   :183 steps) cured; O-21 rung-row mx-px cap + rail silhouette oracle green.
+6. TO CLOSE (recommended re-dispatch, no code change expected): (1) let the running suite reach
+   PLAYWRIGHT_EXIT and read the final all-project summary; (2) run npm run lint (expect 0), npm run
+   typecheck (expect 0), npm test / vitest (expect green — abff923 recorded 2222/2222 at d4e0032; only 2
+   demo Vue files changed since, no vitest-covered source), after the suite finishes so CPU contention
+   cannot destabilize either. On those completing green, row-9 flips PASS → 11/11 and the wave closes
+   complete.
+7. Working tree clean at HEAD 6bf8e6b (tranche-t). PP-8 pieces spot-verified: 0 demo files >400 LoC;
+   casts/api-cap disciplines are documented and unchanged by the demo-only remediation.
