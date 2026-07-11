@@ -383,6 +383,37 @@ named W8 shrunken-state bracket; **T-33/T-40** are recalibrations of landed W4 w
 (seam/weight), cured at W6.5 with their §0.6 encodings. The T-33..T-48 class census lives in
 `MANDATE §0.6`'s OVERLAP column (the honest reconciliation of record).
 
+**[OWNER-2026-07-11b] The §0.7 companion encodings (T-49..T-60; no R-rows minted — every
+touched RULING STANDS; recorded so nothing re-opens silently; roots + splits =
+`audit/t49-research.md`, executed via the `T.W8` [OWNER-2026-07-11b] riders):** **T-49b** is a
+CALIBRATION of the Q3-FLUSH seat's scale knob (the ruling stands; the W4-5 cqi formula's ceiling
+is the bracket, t49-research §2.2); **T-50** is a T-34 PERSISTENCE sighting against the W6.5
+Lane-P veil re-seat (`ad301e7`) — **Q4 "The well." stands**; the re-open is the MATERIAL-SIGNAL
+axis only (the seated veil primitive is starving for backdrop, not absent — a calibration, not a
+construction); **T-51** recalibrates the T-2/R4 title size a SECOND time (landed
+`--type-display-3` → the display-2/display-1 bracket — **Q11a ladder-authority WORKING AS
+RULED**, zero mint) and COLLAPSES the W4-2 line-lock's reservation-as-visible-air in BOTH
+placements (T-33 photographed it below the numbers, T-51 above — the blank band is dead wherever
+it sits; the lock's GOAL survives via the two honest arms, t33-research §6.1); **T-54/T-55**
+re-cut the W6-5 Lane-N plate's FACE (plain chips → the ruled WatercolorDot register with T-28's
+outline law riding; the three-register verb row → ONE glass-ui instrument, dock-set or dropdown
+by the owner's word) — the W6-5 redesign-never-excise disposition itself SURVIVES; **T-56** =
+the **Q5 ramp PASTEL re-cut — a CALIBRATION NOTE, the ruling stands** (letterform rainbow ×2
+sites, chip DEAD for T-10), PLUS an A-class resolver defect recorded (the landed stops compute
+near-black and fail every floor including their own — defect-in-green-gate; the O-14
+feasibility-leg oracle flag rides W8); **T-57** AMENDS the T-31 dock-atop law on the expansion
+axis (**the LAW STANDS** — the `--dock-h` reservation was undersized ~16px, not the grammar);
+**T-58** ESCALATES T-48 from bracket to MANDATE (W5's easing family SURVIVES — O-16 census
+green; the measured jank is window SCHEDULING, t49-research §10; the §4-attributed payload half
+stays W7/Q14's, never re-bracketed); **T-59** retires the console's `<lg` two-state rhythm as a
+MECHANISM (the 44px touch rung survives via hit-extension — one container-scaled law; T-51's
+mobile kernel is the same defect's other face); **T-53** mints NOTHING here — not a
+landed-design touch but a distinct A-class demo defect (the dark cartoon caster; the T-45
+cure exonerated by bisection); **T-60/T-49a** are PRODUCER-ROOT (the reveal-bloom veil at both
+canvas leaves — the demo exonerated on every hypothesis; W2-2's F-4 mechanism HELD). The
+T-49..T-60 class census lives in `MANDATE §0.7`'s OVERLAP column; the producer halves are
+BOOKED at the consolidated communiqué (glass-ui BI inbox @ `f3f3c097`, stamped `24a7a764`).
+
 ---
 
 ## §5 — The E-4 fold table (pointer) + CHRONIC flags
