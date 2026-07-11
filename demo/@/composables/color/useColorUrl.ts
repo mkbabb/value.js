@@ -6,7 +6,7 @@ import type { DisplayColorSpace } from "@components/custom/color-picker";
 import { toCSSColorString, resolveColorSpace, colorToHexString } from "@components/custom/color-picker";
 import { parseCSSColor } from "@mkbabb/value.js/parsing";
 import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
-import { debounce } from "@mkbabb/value.js";
+import { debounce } from "@utils/utils";
 import { NORMALIZED_COLOR_NAMES } from "./normalizedColorNames";
 
 export function useColorUrl(options: {
@@ -71,7 +71,7 @@ export function useColorUrl(options: {
 
         syncGen++;
         router.replace({ query: { ...route.query, space, color } });
-    }, 300, false);
+    }, 300);
 
     // Initial load — URL-hash-wins-on-load. The result declares the persistence
     // precedence to the caller: when the hash carries no color, the caller falls

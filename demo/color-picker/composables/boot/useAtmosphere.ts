@@ -29,7 +29,7 @@ import {
     type AuroraAtoms,
 } from "@mkbabb/glass-ui/aurora";
 import { resolveCalibratedAtmosphere } from "./atmosphere-calibration";
-import { debounce } from "@mkbabb/value.js";
+import { debounce } from "@utils/utils";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@composables/color/aurora-atoms";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/goo-blob";
@@ -187,7 +187,6 @@ export function useAtmosphere(
             }
         },
         200,
-        false,
     );
     watch(
         [groundPalette, isDark],

@@ -28,7 +28,13 @@
  *                     ColorPicker's idle-fetched HeroBlob — work defers,
  *                     appearance composes; an early chunk WAITS on the
  *                     field's arm — kills the measured d/e idle race by
- *                     construction).
+ *                     construction). DE-COINCIDED from the field's arrival
+ *                     (T.W6.5 Lane M): the flip waits out the derive-in
+ *                     transition's SETTLE (state-checked via getAnimations,
+ *                     never a timeout) + an idle slice, so the blob engine
+ *                     mount (the §4.1 wall — forensically the WHOLE wall,
+ *                     see the b4 block) can never freeze the 0.9s arrival
+ *                     fade mid-flight. PRM: synchronous (law 5).
  *
  * Every beat START stamps a `performance.mark("overture:bN")` — the O-4
  * order-invariance oracle asserts B0 < B1 < {B2, B3} < B4 ∧ B2 < B4 under
@@ -46,7 +52,7 @@
  * (self-hosted, index.html), the seeded-session gate as evidence (O-2).
  */
 
-import { computed, onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import type { ComputedRef, InjectionKey, Ref } from "vue";
 
 export interface OvertureBeats {
@@ -58,9 +64,10 @@ export interface OvertureBeats {
     b3: Readonly<Ref<boolean>>;
     /** B3-complete — left plate settled ∧ in-card paint beats finished. */
     b3Complete: Readonly<Ref<boolean>>;
-    /** B4 — the ornament beat is OPEN (B3-complete ∧ B2-started). The
+    /** B4 — the ornament beat is OPEN (B3-complete ∧ B2-started, then ONE
+     *  yielded slice — see the de-coincidence note in `useOverture`). The
      *  chunk-resolved leg composes at the consumer (∧ blob chunk ready). */
-    b4: ComputedRef<boolean>;
+    b4: Readonly<Ref<boolean>>;
     /** The dock's plate has landed (B2's second predicate; veil-reveal end). */
     dockLanded: Readonly<Ref<boolean>>;
     /** Beat callbacks — the shell + consumers report NAMED completion events. */
@@ -108,9 +115,72 @@ export function useOverture(fieldArmed: ComputedRef<boolean>): OvertureBeats {
         { immediate: true },
     );
 
-    // B4 opens on B3-complete ∧ B2-started; the consumer composes the
-    // chunk-resolved leg (∧ its own async-component readiness).
-    const b4 = computed(() => b3Complete.value && b2.value);
+    // B4 opens on B3-complete ∧ B2-started — then waits out the FIELD'S
+    // ARRIVAL before flipping (T.W6.5 Lane M · the B2/B4 DE-COINCIDENCE,
+    // t33-research §4.1/§4.3 — the row's "next beat" arm):
+    //
+    // THE FORENSIC (this lane's chunk-block probe, archived in
+    // w65-lane-m-record.md): the ~505ms post-b2/b4 main-thread wall is the
+    // BLOB ENGINE MOUNT alone — with the HeroBlob chunk blocked the wall
+    // vanishes entirely, so it is ONE indivisible producer-engine init task
+    // (WebGL2 context + shader compile; the L20 eager-config/lazy-engine
+    // split + GAP-L5 halves are its SIZE cure — the standing W7 P9/P1
+    // packet rows). What the demo OWNS is its PLACEMENT: a b4 synchronous
+    // with b2 mounted the engine ~30ms into the field's 0.9s derive-in,
+    // freezing the arrival fade mid-flight. The beat DAG owns the ordering,
+    // so the seam lives HERE: after the predicate commits, b4 waits for the
+    // derive-in transition to SETTLE — a STATE check on the canvas's own
+    // running animations (the noteLeftPlateSettled / useDockArrival
+    // getAnimations idiom; `.atmosphere-canvas` is app-unique, overture.css)
+    // — then takes an idle slice. Never a timer: no transition running
+    // (css substrate, an already-settled field, a test mount) falls through
+    // immediately. TIME-DRIVEN FINITE animations only (the WebKit-mobile
+    // ScrollTimeline lesson, useDockArrival) so an infinite/scroll-driven
+    // ambient loop can never wedge the ornament. Order is preserved (B2 <
+    // B4 strictly — O-4's DAG assert); the rIC 500ms ceiling bounds the
+    // ornament's wait on a busy main thread; Safari (no rIC) takes the
+    // macrotask hop. PRM keeps the instant-states law (law 5): synchronous.
+    const b4 = ref(false);
+    const openB4 = () => {
+        if ("requestIdleCallback" in window) {
+            window.requestIdleCallback(() => (b4.value = true), {
+                timeout: 500,
+            });
+        } else {
+            setTimeout(() => (b4.value = true), 0);
+        }
+    };
+    watch(
+        () => b3Complete.value && b2.value,
+        (open) => {
+            if (!open || b4.value) return;
+            if (prm || typeof window === "undefined") {
+                b4.value = true;
+                return;
+            }
+            // One frame past the arming flush, so the derive-in transition
+            // (opened by the same b2 flip) is observable via getAnimations.
+            requestAnimationFrame(() => {
+                const canvas = document.querySelector(".atmosphere-canvas");
+                const running = (canvas?.getAnimations?.() ?? []).filter(
+                    (a) => {
+                        if (!(a.timeline instanceof DocumentTimeline))
+                            return false;
+                        const t = a.effect?.getTiming();
+                        return t ? t.iterations !== Infinity : true;
+                    },
+                );
+                if (!running.length) {
+                    openB4();
+                    return;
+                }
+                void Promise.allSettled(running.map((a) => a.finished)).then(
+                    openB4,
+                );
+            });
+        },
+        { immediate: true },
+    );
 
     onMounted(() => {
         // B1: hydration-committed ∧ mount. The hydration half is committed

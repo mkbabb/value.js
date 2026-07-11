@@ -42,7 +42,6 @@ import type {
 import { findCusp, srgbToOKLab } from "@mkbabb/value.js/color";
 import { hsl2rgb } from "@mkbabb/value.js/color";
 import { HSLColor } from "@mkbabb/value.js/color";
-import { cancelAnimationFrame, requestAnimationFrame } from "@mkbabb/value.js";
 import {
     createInkProbe,
     paintGamutBoundary,

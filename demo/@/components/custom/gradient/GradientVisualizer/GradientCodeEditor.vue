@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, useTemplateRef } from "vue";
-import { debounce } from "@mkbabb/value.js";
+import { debounce } from "@utils/utils";
 
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
@@ -54,7 +54,7 @@ function render(code: string) {
 
 const debouncedParse = debounce((text: string) => {
     emit("parse", text);
-}, 500, false);
+}, 500);
 
 function onInput() {
     const text = editorRef.value?.textContent ?? "";

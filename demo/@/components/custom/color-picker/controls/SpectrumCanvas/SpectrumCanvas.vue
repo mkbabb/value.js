@@ -77,7 +77,6 @@
 <script setup lang="ts">
 import { computed, inject, onUnmounted, ref, useTemplateRef, watch } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
-import { cancelAnimationFrame, requestAnimationFrame } from "@mkbabb/value.js";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { useTouchGate } from "@mkbabb/glass-ui";
 import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";

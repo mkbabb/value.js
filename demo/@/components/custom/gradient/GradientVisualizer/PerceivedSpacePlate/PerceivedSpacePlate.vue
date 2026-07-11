@@ -34,7 +34,6 @@ import {
     sampleOKLChHueSweepBoundaryInto,
 } from "@mkbabb/value.js/color";
 import type { OKLChHueSweepBoundary } from "@mkbabb/value.js/color";
-import { cancelAnimationFrame, requestAnimationFrame } from "@mkbabb/value.js";
 import { createInkProbe, DPR_CAP } from "@lib/gamut-ink";
 import type { ResolvedInks } from "@lib/gamut-ink";
 import {

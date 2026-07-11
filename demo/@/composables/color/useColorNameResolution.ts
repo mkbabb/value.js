@@ -1,5 +1,5 @@
 import { computed, ref, watch, type ShallowRef, type ComputedRef } from "vue";
-import { debounce } from "@mkbabb/value.js";
+import { debounce } from "@utils/utils";
 import { ValueUnit } from "@mkbabb/value.js/units";
 import { Color } from "@mkbabb/value.js/color";
 import type { ColorSpace } from "@mkbabb/value.js/color";
@@ -27,7 +27,7 @@ export function useColorNameResolution(deps: {
     const recomputeXYZ = debounce(() => {
         const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
         currentXYZString.value = xyz.value.toFormattedString(DIGITS);
-    }, 100, false);
+    }, 100);
 
     watch(() => model.value.color, () => recomputeXYZ(), { immediate: true });
 

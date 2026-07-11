@@ -228,6 +228,27 @@ test("O-11 gate 4 — compositor-only: pane-* keyframes carry ONLY transform/opa
     // Warm-up pass: first-reveal render work (content-visibility regions,
     // lazy content entering the scrollport) is legitimate one-time layout,
     // not scroll-driven animation — it must not pollute the flat-track read.
+    //
+    // T.W6.5 Lane M — the SAME first-reveal class, one beat later: B4 now
+    // settle-gates on the field's derive-in (useOverture — the B2/B4
+    // de-coincidence), so the hero blob's one-time MOUNT layout lands
+    // ~1.6s+ after boot; un-awaited it fell INSIDE the traced scrub and
+    // read as 10 Layout events. Settle the FULL overture (b4 mark + the
+    // blob canvas attached) before the warm-up, so the trace reads ONLY
+    // the scroll-driven track — the ≤5 bar is unchanged.
+    await page
+        .waitForFunction(
+            () =>
+                performance.getEntriesByName("overture:b4", "mark").length > 0,
+            null,
+            { timeout: 20_000 },
+        )
+        .catch(() => {
+            /* PRM/css-substrate mounts carry no b4 wait — fall through */
+        });
+    await expect(page.getByTestId("goo-blob-canvas").last()).toBeAttached({
+        timeout: 15_000,
+    });
     await scrub();
     await browser.startTracing(page, {
         categories: ["devtools.timeline"],
