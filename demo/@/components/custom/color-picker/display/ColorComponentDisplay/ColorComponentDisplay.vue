@@ -1,25 +1,24 @@
 <template>
-    <!-- R.W3 Lane D / D1 — the readout rhythm (treatment TYPOGRAPHY-1) under
-         the card-lock law (demo/DESIGN.md §Type, A6/U31): the numbers are the
-         picker's TYPOGRAPHIC hero on the display ramp — Fraunces with declared
-         tabular figures — and a slider drag from min to max changes NO
-         containing card rect: every cell reserves its worst-case `ch` width
-         from the static readoutReservation table, cells are atomic (nowrap),
-         and the block locks the SPACE'S own worst-case line count (S.W4-2 —
-         the same table's static derivation; 1 for every space in today's
-         catalog — never a blanket 2). -->
+    <!-- T.W4-2 (T-7 · R4) — THE CONTIGUOUS TUPLE under the re-scoped
+         card-lock law: the numbers are the picker's TYPOGRAPHIC hero on the
+         display ramp — Fraunces with VERIFIED tabular figures — reading as
+         true values, contiguously: x, y, z. The per-cell worst-case `ch`
+         min-width is RETIRED (R4 — the reservation rendered as dead air
+         between the values, the owner's t-2002-52 spread); cells are
+         INTRINSIC and atomic (nowrap), and the card-lock GOAL is re-earned
+         at tuple/line level: real tnum + the fixed per-space least-count
+         format (readoutDecimals) ⇒ widths move only at digit-count
+         boundaries; the block locks the SPACE'S own worst-case line count
+         (never a blanket 2). -->
     <CardTitle
-        class="readout flex h-fit w-full m-0 p-0 gap-x-3 flex-wrap items-baseline font-display focus-visible:outline-none"
+        class="readout flex h-fit w-fit max-w-full m-0 p-0 flex-wrap items-baseline font-display focus-visible:outline-none"
         :style="{ '--readout-lines': lineCount }"
     >
         <template
             v-for="([component], ix) in colorComponents"
             :key="component"
         >
-            <span
-                class="readout-cell"
-                :style="{ minWidth: `${readoutCh(space, component)}ch` }"
-            >
+            <span class="readout-cell">
                 <span
                     contenteditable="true"
                     role="textbox"
@@ -53,7 +52,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { CardTitle } from "@components/ui/card";
-import { readoutCh, readoutLineCount } from "./readoutReservation";
+import { readoutDecimals, readoutLineCount } from "./readoutReservation";
 
 export interface ComponentFormat {
     value: number | string;
@@ -84,7 +83,8 @@ const emit = defineEmits<{
 
 /**
  * The int/frac split of a component's rendering. Numbers ink a FIXED
- * 1-decimal instrument format (never a stripped `.0` — a meter holds its
+ * per-space least-count format (Q11b lever 1 — `readoutDecimals`; never a
+ * stripped `.0` and never a value-dependent precision: a meter holds its
  * least count), so the demoted fraction is a constant rhythm, not a
  * flicker. Strings (hex) pass through whole.
  */
@@ -92,8 +92,12 @@ function figParts(component: string): { int: string; frac: string } {
     const fmt = formatted[component];
     if (!fmt) return { int: "", frac: "" };
     if (typeof fmt.value === "string") return { int: fmt.value, frac: "" };
-    const s = fmt.value.toFixed(1).replace(/^-(0\.0)$/, "$1");
+    const d = readoutDecimals(space, component);
+    let s = fmt.value.toFixed(d);
+    // Negative zero never inks (at any least count).
+    if (Number.parseFloat(s) === 0) s = s.replace(/^-/, "");
     const dot = s.indexOf(".");
+    if (dot === -1) return { int: s, frac: "" };
     return { int: s.slice(0, dot), frac: s.slice(dot) };
 }
 </script>
@@ -117,6 +121,11 @@ function figParts(component: string): { int: string; frac: string } {
 .readout {
     font-size: min(var(--type-display-2), max(7.2cqi, 1.618rem));
     line-height: 1.12;
+    /* THE CONTIGUOUS GAP (T.W4-2): 0.75ch — the SAME quantity the line-lock
+     * packing arithmetic reserves (READOUT_GAP_CH), so paint and derivation
+     * can never disagree. Replaces the retired gap-x-3 + per-cell slack (the
+     * "spread apart" dead air, R4). */
+    column-gap: 0.75ch;
     font-variant-numeric: tabular-nums lining-nums;
     /* The per-space lock (S.W4-2): `--readout-lines` is the space's own
      * worst-case line count from the static reservation table — never a
