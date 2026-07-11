@@ -15,7 +15,7 @@
 # EXIT CODES:  0 ok · 1 fail · 2 usage · 3 partial · 4 down · 5 env · 6 dep · 7 port
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT"
 
 # ── CONFIG ────────────────────────────────────────────────────────────────────
