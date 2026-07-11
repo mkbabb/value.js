@@ -1,0 +1,808 @@
+
+=== CELL 1440-light (root.dark=false) ===
+{
+ "shadow": {
+  "borderStyle": "solid",
+  "borderWidth": "1px",
+  "borderColor": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+  "bg": "oklab(0.913295 0.00550478 0.0130424)",
+  "radius": "16px",
+  "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+  "segCount": 5,
+  "seg1Anim": "pulse 2s delay=0s",
+  "seg3Delay": "0.24s",
+  "seg1Bg": "oklab(0.858983 0.00484434 0.0141267)",
+  "swatchCount": 5,
+  "box": {
+   "x": 224,
+   "y": 581.171875,
+   "w": 462,
+   "h": 150
+  },
+  "seg1Box": {
+   "x": 225,
+   "y": 582.171875,
+   "w": 91.1875,
+   "h": 40
+  }
+ },
+ "caption": {
+  "text": "· undeveloped plate — feed it an image ·",
+  "color": "rgb(112, 89, 66)",
+  "fontSize": "14.384px",
+  "box": {
+   "x": 224,
+   "y": 740.171875,
+   "w": 462,
+   "h": 21.578125
+  }
+ },
+ "kRail": {
+  "bgImage": "none",
+  "bgColor": "oklch(0.461 0.1718 32.6)",
+  "height": "24px",
+  "radius": "3.35544e+07px",
+  "box": {
+   "x": 252,
+   "y": 494.171875,
+   "w": 434,
+   "h": 24
+  }
+ },
+ "kLabel": {
+  "text": "5",
+  "color": "rgb(112, 89, 66)",
+  "weight": "700",
+  "fontSize": "16.4px",
+  "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+  "box": {
+   "x": 224,
+   "y": 494.6875,
+   "w": 20,
+   "h": 22.96875
+  }
+ },
+ "kThumb": {
+  "box": {
+   "x": 364.53125,
+   "y": 494.171875,
+   "w": 12,
+   "h": 24
+  },
+  "visible": "1"
+ },
+ "kcTrack": {
+  "bg": "oklch(0.461 0.1718 32.6)",
+  "trackVar": "oklch(0.4610 0.1718 32.6)",
+  "height": "24px",
+  "box": {
+   "x": 360.203125,
+   "y": 538.171875,
+   "w": 230.796875,
+   "h": 24
+  }
+ },
+ "kcLabel": {
+  "color": "rgb(112, 89, 66)",
+  "weight": "400",
+  "fontSize": "11px",
+  "box": {
+   "x": 341,
+   "y": 543.296875,
+   "w": 13.203125,
+   "h": 13.75
+  }
+ },
+ "kcValue": {
+  "text": "",
+  "color": "rgb(28, 25, 23)",
+  "fontSize": "18.608px"
+ },
+ "kcThumb": {
+  "box": {
+   "x": 433.125,
+   "y": 538.171875,
+   "w": 12,
+   "h": 24
+  }
+ },
+ "card": {
+  "bg": "oklab(0.884503 0.00542215 0.0127179 / 0.678)",
+  "backdrop": "none",
+  "box": {
+   "x": 199,
+   "y": 200.484375,
+   "w": 512,
+   "h": 578.265625
+  }
+ },
+ "inkMuted": "oklch(0.3634 0.0062 56.0)",
+ "accentLive": "oklch(0.3810 0.1420 32.6)"
+}
+PIXEL kC-track rgb(162 29 0) vs ground↑ rgb(219 154 150) = 3.35:1 | vs ground↓ rgb(220 155 148) = 3.38:1  [1.4.11 floor 3]
+PIXEL K-rail rgb(162 29 0) vs ground↑ rgb(220 155 148) = 3.38:1  [1.4.11 floor 3]
+PIXEL shadow-seg rgb(217 209 200) vs well rgb(233 225 217) = 1.17:1 (ghost, decorative) | well vs plate rgb(219 155 149) = 1.78:1
+TEXT k-label ink rgb(112, 89, 66) w=700 vs plate rgb(220 155 148) = 2.87:1 [floor 4.5]
+TEXT kC-label ink rgb(112, 89, 66) vs plate rgb(219 154 150) = 2.84:1 [floor 4.5]
+TEXT caption ink rgb(112, 89, 66) vs plate rgb(219 153 150) = 2.82:1 [floor 4.5]
+console errors: 0 
+
+=== CELL 1440-dark (root.dark=true) ===
+{
+ "shadow": {
+  "borderStyle": "solid",
+  "borderWidth": "1px",
+  "borderColor": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+  "bg": "oklab(0.345295 0.0103877 0.0175526)",
+  "radius": "16px",
+  "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+  "segCount": 5,
+  "seg1Anim": "pulse 2s delay=0s",
+  "seg3Delay": "0.24s",
+  "seg1Bg": "oklab(0.352286 0.00407478 0.0102198)",
+  "swatchCount": 5,
+  "box": {
+   "x": 224,
+   "y": 581.171875,
+   "w": 462,
+   "h": 150
+  },
+  "seg1Box": {
+   "x": 225,
+   "y": 582.171875,
+   "w": 91.1875,
+   "h": 40
+  }
+ },
+ "caption": {
+  "text": "· undeveloped plate — feed it an image ·",
+  "color": "rgb(195, 185, 172)",
+  "fontSize": "14.384px",
+  "box": {
+   "x": 224,
+   "y": 740.171875,
+   "w": 462,
+   "h": 21.578125
+  }
+ },
+ "kRail": {
+  "bgImage": "none",
+  "bgColor": "oklch(0.7451 0.1558 32.6)",
+  "height": "24px",
+  "radius": "3.35544e+07px",
+  "box": {
+   "x": 252,
+   "y": 494.171875,
+   "w": 434,
+   "h": 24
+  }
+ },
+ "kLabel": {
+  "text": "5",
+  "color": "rgb(195, 185, 172)",
+  "weight": "700",
+  "fontSize": "16.4px",
+  "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+  "box": {
+   "x": 224,
+   "y": 494.6875,
+   "w": 20,
+   "h": 22.96875
+  }
+ },
+ "kThumb": {
+  "box": {
+   "x": 364.53125,
+   "y": 494.171875,
+   "w": 12,
+   "h": 24
+  },
+  "visible": "1"
+ },
+ "kcTrack": {
+  "bg": "oklch(0.7451 0.1558 32.6)",
+  "trackVar": "oklch(0.7451 0.1558 32.6)",
+  "height": "24px",
+  "box": {
+   "x": 360.203125,
+   "y": 538.171875,
+   "w": 230.796875,
+   "h": 24
+  }
+ },
+ "kcLabel": {
+  "color": "rgb(195, 185, 172)",
+  "weight": "400",
+  "fontSize": "11px",
+  "box": {
+   "x": 341,
+   "y": 543.296875,
+   "w": 13.203125,
+   "h": 13.75
+  }
+ },
+ "kcValue": {
+  "text": "",
+  "color": "rgb(233, 230, 226)",
+  "fontSize": "18.608px"
+ },
+ "kcThumb": {
+  "box": {
+   "x": 433.125,
+   "y": 538.171875,
+   "w": 12,
+   "h": 24
+  }
+ },
+ "card": {
+  "bg": "oklab(0.362792 0.0101461 0.0171963 / 0.7424)",
+  "backdrop": "none",
+  "box": {
+   "x": 199,
+   "y": 200.484375,
+   "w": 512,
+   "h": 578.265625
+  }
+ },
+ "inkMuted": "oklch(0.8274 0.0062 67.7)",
+ "accentLive": "oklch(0.8251 0.0987 32.6)"
+}
+PIXEL kC-track rgb(255 131 106) vs ground↑ rgb(112 52 48) = 3.92:1 | vs ground↓ rgb(112 53 47) = 3.89:1  [1.4.11 floor 3]
+PIXEL K-rail rgb(255 131 106) vs ground↑ rgb(112 53 47) = 3.89:1  [1.4.11 floor 3]
+PIXEL shadow-seg rgb(64 58 52) vs well rgb(66 55 47) = 1.03:1 (ghost, decorative) | well vs plate rgb(112 53 47) = 1.23:1
+TEXT k-label ink rgb(195, 185, 172) w=700 vs plate rgb(112 53 47) = 4.85:1 [floor 4.5]
+TEXT kC-label ink rgb(195, 185, 172) vs plate rgb(112 52 48) = 4.88:1 [floor 4.5]
+TEXT caption ink rgb(195, 185, 172) vs plate rgb(111 52 48) = 4.91:1 [floor 4.5]
+console errors: 0 
+
+=== CELL 768-light (root.dark=false) ===
+{
+ "shadow": {
+  "borderStyle": "solid",
+  "borderWidth": "1px",
+  "borderColor": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+  "bg": "oklab(0.913295 0.00550478 0.0130424)",
+  "radius": "16px",
+  "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+  "segCount": 5,
+  "seg1Anim": "pulse 2s delay=0s",
+  "seg3Delay": "0.24s",
+  "seg1Bg": "oklab(0.858983 0.00484434 0.0141267)",
+  "swatchCount": 5,
+  "box": {
+   "x": 153,
+   "y": 642.40625,
+   "w": 462,
+   "h": 150
+  },
+  "seg1Box": {
+   "x": 154,
+   "y": 643.40625,
+   "w": 91.1875,
+   "h": 40
+  }
+ },
+ "caption": {
+  "text": "· undeveloped plate — feed it an image ·",
+  "color": "rgb(112, 89, 66)",
+  "fontSize": "12.9728px",
+  "box": {
+   "x": 153,
+   "y": 801.40625,
+   "w": 462,
+   "h": 19.453125
+  }
+ },
+ "kRail": {
+  "bgImage": "none",
+  "bgColor": "oklch(0.461 0.1718 32.6)",
+  "height": "24px",
+  "radius": "3.35544e+07px",
+  "box": {
+   "x": 181,
+   "y": 555.40625,
+   "w": 434,
+   "h": 24
+  }
+ },
+ "kLabel": {
+  "text": "5",
+  "color": "rgb(112, 89, 66)",
+  "weight": "700",
+  "fontSize": "14.72px",
+  "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+  "box": {
+   "x": 153,
+   "y": 557.109375,
+   "w": 20,
+   "h": 20.59375
+  }
+ },
+ "kThumb": {
+  "box": {
+   "x": 293.53125,
+   "y": 555.40625,
+   "w": 12,
+   "h": 24
+  },
+  "visible": "1"
+ },
+ "kcTrack": {
+  "bg": "oklch(0.461 0.1718 32.6)",
+  "trackVar": "oklch(0.4610 0.1718 32.6)",
+  "height": "24px",
+  "box": {
+   "x": 289.203125,
+   "y": 599.40625,
+   "w": 230.796875,
+   "h": 24
+  }
+ },
+ "kcLabel": {
+  "color": "rgb(112, 89, 66)",
+  "weight": "400",
+  "fontSize": "11px",
+  "box": {
+   "x": 270,
+   "y": 604.53125,
+   "w": 13.203125,
+   "h": 13.75
+  }
+ },
+ "kcValue": {
+  "text": "",
+  "color": "rgb(28, 25, 23)",
+  "fontSize": "16.7936px"
+ },
+ "kcThumb": {
+  "box": {
+   "x": 362.125,
+   "y": 599.40625,
+   "w": 12,
+   "h": 24
+  }
+ },
+ "card": {
+  "bg": "oklab(0.884503 0.00542215 0.0127179 / 0.678)",
+  "backdrop": "none",
+  "box": {
+   "x": 128,
+   "y": 274.5,
+   "w": 512,
+   "h": 563.359375
+  }
+ },
+ "inkMuted": "oklch(0.3634 0.0062 56.0)",
+ "accentLive": "oklch(0.3810 0.1420 32.6)"
+}
+PIXEL kC-track rgb(162 29 0) vs ground↑ rgb(223 160 144) = 3.53:1 | vs ground↓ rgb(224 161 143) = 3.56:1  [1.4.11 floor 3]
+PIXEL K-rail rgb(162 29 0) vs ground↑ rgb(224 162 142) = 3.59:1  [1.4.11 floor 3]
+PIXEL shadow-seg rgb(218 210 202) vs well rgb(233 225 217) = 1.16:1 (ghost, decorative) | well vs plate rgb(224 161 144) = 1.68:1
+TEXT k-label ink rgb(112, 89, 66) w=700 vs plate rgb(224 162 142) = 3.04:1 [floor 4.5]
+TEXT kC-label ink rgb(112, 89, 66) vs plate rgb(223 160 144) = 2.99:1 [floor 4.5]
+TEXT caption ink rgb(112, 89, 66) vs plate rgb(223 160 144) = 2.99:1 [floor 4.5]
+console errors: 0 
+
+=== CELL 768-dark (root.dark=true) ===
+{
+ "shadow": {
+  "borderStyle": "solid",
+  "borderWidth": "1px",
+  "borderColor": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+  "bg": "oklab(0.345295 0.0103877 0.0175526)",
+  "radius": "16px",
+  "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+  "segCount": 5,
+  "seg1Anim": "pulse 2s delay=0s",
+  "seg3Delay": "0.24s",
+  "seg1Bg": "oklab(0.352286 0.00407478 0.0102198)",
+  "swatchCount": 5,
+  "box": {
+   "x": 153,
+   "y": 642.40625,
+   "w": 462,
+   "h": 150
+  },
+  "seg1Box": {
+   "x": 154,
+   "y": 643.40625,
+   "w": 91.1875,
+   "h": 40
+  }
+ },
+ "caption": {
+  "text": "· undeveloped plate — feed it an image ·",
+  "color": "rgb(195, 185, 172)",
+  "fontSize": "12.9728px",
+  "box": {
+   "x": 153,
+   "y": 801.40625,
+   "w": 462,
+   "h": 19.453125
+  }
+ },
+ "kRail": {
+  "bgImage": "none",
+  "bgColor": "oklch(0.7451 0.1558 32.6)",
+  "height": "24px",
+  "radius": "3.35544e+07px",
+  "box": {
+   "x": 181,
+   "y": 555.40625,
+   "w": 434,
+   "h": 24
+  }
+ },
+ "kLabel": {
+  "text": "5",
+  "color": "rgb(195, 185, 172)",
+  "weight": "700",
+  "fontSize": "14.72px",
+  "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+  "box": {
+   "x": 153,
+   "y": 557.109375,
+   "w": 20,
+   "h": 20.59375
+  }
+ },
+ "kThumb": {
+  "box": {
+   "x": 293.53125,
+   "y": 555.40625,
+   "w": 12,
+   "h": 24
+  },
+  "visible": "1"
+ },
+ "kcTrack": {
+  "bg": "oklch(0.7451 0.1558 32.6)",
+  "trackVar": "oklch(0.7451 0.1558 32.6)",
+  "height": "24px",
+  "box": {
+   "x": 289.203125,
+   "y": 599.40625,
+   "w": 230.796875,
+   "h": 24
+  }
+ },
+ "kcLabel": {
+  "color": "rgb(195, 185, 172)",
+  "weight": "400",
+  "fontSize": "11px",
+  "box": {
+   "x": 270,
+   "y": 604.53125,
+   "w": 13.203125,
+   "h": 13.75
+  }
+ },
+ "kcValue": {
+  "text": "",
+  "color": "rgb(233, 230, 226)",
+  "fontSize": "16.7936px"
+ },
+ "kcThumb": {
+  "box": {
+   "x": 362.125,
+   "y": 599.40625,
+   "w": 12,
+   "h": 24
+  }
+ },
+ "card": {
+  "bg": "oklab(0.362792 0.0101461 0.0171963 / 0.7424)",
+  "backdrop": "none",
+  "box": {
+   "x": 128,
+   "y": 274.5,
+   "w": 512,
+   "h": 563.359375
+  }
+ },
+ "inkMuted": "oklch(0.8274 0.0062 67.7)",
+ "accentLive": "oklch(0.8251 0.0987 32.6)"
+}
+PIXEL kC-track rgb(255 131 106) vs ground↑ rgb(115 58 43) = 3.68:1 | vs ground↓ rgb(116 59 42) = 3.63:1  [1.4.11 floor 3]
+PIXEL K-rail rgb(255 131 106) vs ground↑ rgb(116 59 42) = 3.63:1  [1.4.11 floor 3]
+PIXEL shadow-seg rgb(64 57 51) vs well rgb(66 55 47) = 1.02:1 (ghost, decorative) | well vs plate rgb(116 58 43) = 1.31:1
+TEXT k-label ink rgb(195, 185, 172) w=700 vs plate rgb(116 59 42) = 4.52:1 [floor 4.5]
+TEXT kC-label ink rgb(195, 185, 172) vs plate rgb(115 58 43) = 4.58:1 [floor 4.5]
+TEXT caption ink rgb(195, 185, 172) vs plate rgb(115 57 44) = 4.62:1 [floor 4.5]
+console errors: 0 
+
+=== CELL 390-light (root.dark=false) ===
+{
+ "shadow": {
+  "borderStyle": "solid",
+  "borderWidth": "1px",
+  "borderColor": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+  "bg": "oklab(0.913295 0.00550478 0.0130424)",
+  "radius": "16px",
+  "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+  "segCount": 5,
+  "seg1Anim": "pulse 2s delay=0s",
+  "seg3Delay": "0.24s",
+  "seg1Bg": "oklab(0.858983 0.00484434 0.0141267)",
+  "swatchCount": 5,
+  "box": {
+   "x": 33,
+   "y": 544,
+   "w": 324,
+   "h": 142
+  },
+  "seg1Box": {
+   "x": 34,
+   "y": 545,
+   "w": 63.59375,
+   "h": 40
+  }
+ },
+ "caption": {
+  "text": "· undeveloped plate — feed it an image ·",
+  "color": "rgb(112, 89, 66)",
+  "fontSize": "12.179px",
+  "box": {
+   "x": 33,
+   "y": 695,
+   "w": 324,
+   "h": 36.5
+  }
+ },
+ "kRail": {
+  "bgImage": "none",
+  "bgColor": "oklch(0.461 0.1718 32.6)",
+  "height": "24px",
+  "radius": "3.35544e+07px",
+  "box": {
+   "x": 61,
+   "y": 457,
+   "w": 296,
+   "h": 24
+  }
+ },
+ "kLabel": {
+  "text": "5",
+  "color": "rgb(112, 89, 66)",
+  "weight": "700",
+  "fontSize": "14px",
+  "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+  "box": {
+   "x": 33,
+   "y": 459.203125,
+   "w": 20,
+   "h": 19.59375
+  }
+ },
+ "kThumb": {
+  "box": {
+   "x": 136.71875,
+   "y": 457,
+   "w": 12,
+   "h": 24
+  },
+  "visible": "1"
+ },
+ "kcTrack": {
+  "bg": "oklch(0.461 0.1718 32.6)",
+  "trackVar": "oklch(0.4610 0.1718 32.6)",
+  "height": "24px",
+  "box": {
+   "x": 169.203125,
+   "y": 501,
+   "w": 92.796875,
+   "h": 24
+  }
+ },
+ "kcLabel": {
+  "color": "rgb(112, 89, 66)",
+  "weight": "400",
+  "fontSize": "11px",
+  "box": {
+   "x": 150,
+   "y": 506.125,
+   "w": 13.203125,
+   "h": 13.75
+  }
+ },
+ "kcValue": {
+  "text": "",
+  "color": "rgb(28, 25, 23)",
+  "fontSize": "16px"
+ },
+ "kcThumb": {
+  "box": {
+   "x": 196.125,
+   "y": 501,
+   "w": 12,
+   "h": 24
+  }
+ },
+ "card": {
+  "bg": "oklab(0.884503 0.00542215 0.0127179 / 0.678)",
+  "backdrop": "none",
+  "box": {
+   "x": 16,
+   "y": 183.015625,
+   "w": 358,
+   "h": 565.484375
+  }
+ },
+ "inkMuted": "oklch(0.3634 0.0062 56.0)",
+ "accentLive": "oklch(0.3810 0.1420 32.6)"
+}
+PIXEL kC-track rgb(162 29 0) vs ground↑ rgb(224 161 143) = 3.56:1 | vs ground↓ rgb(225 163 142) = 3.62:1  [1.4.11 floor 3]
+PIXEL K-rail rgb(162 29 0) vs ground↑ rgb(225 162 142) = 3.60:1  [1.4.11 floor 3]
+PIXEL shadow-seg rgb(223 214 206) vs well rgb(233 225 217) = 1.11:1 (ghost, decorative) | well vs plate rgb(225 162 142) = 1.66:1
+TEXT k-label ink rgb(112, 89, 66) w=700 vs plate rgb(225 162 142) = 3.05:1 [floor 4.5]
+TEXT kC-label ink rgb(112, 89, 66) vs plate rgb(224 161 143) = 3.02:1 [floor 4.5]
+TEXT caption ink rgb(112, 89, 66) vs plate rgb(225 163 142) = 3.08:1 [floor 4.5]
+console errors: 0 
+
+=== CELL 390-dark (root.dark=true) ===
+{
+ "shadow": {
+  "borderStyle": "solid",
+  "borderWidth": "1px",
+  "borderColor": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+  "bg": "oklab(0.345295 0.0103877 0.0175526)",
+  "radius": "16px",
+  "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+  "segCount": 5,
+  "seg1Anim": "pulse 2s delay=0s",
+  "seg3Delay": "0.24s",
+  "seg1Bg": "oklab(0.352286 0.00407478 0.0102198)",
+  "swatchCount": 5,
+  "box": {
+   "x": 33,
+   "y": 544,
+   "w": 324,
+   "h": 142
+  },
+  "seg1Box": {
+   "x": 34,
+   "y": 545,
+   "w": 63.59375,
+   "h": 40
+  }
+ },
+ "caption": {
+  "text": "· undeveloped plate — feed it an image ·",
+  "color": "rgb(195, 185, 172)",
+  "fontSize": "12.179px",
+  "box": {
+   "x": 33,
+   "y": 695,
+   "w": 324,
+   "h": 36.5
+  }
+ },
+ "kRail": {
+  "bgImage": "none",
+  "bgColor": "oklch(0.7451 0.1558 32.6)",
+  "height": "24px",
+  "radius": "3.35544e+07px",
+  "box": {
+   "x": 61,
+   "y": 457,
+   "w": 296,
+   "h": 24
+  }
+ },
+ "kLabel": {
+  "text": "5",
+  "color": "rgb(195, 185, 172)",
+  "weight": "700",
+  "fontSize": "14px",
+  "family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira",
+  "box": {
+   "x": 33,
+   "y": 459.203125,
+   "w": 20,
+   "h": 19.59375
+  }
+ },
+ "kThumb": {
+  "box": {
+   "x": 136.71875,
+   "y": 457,
+   "w": 12,
+   "h": 24
+  },
+  "visible": "1"
+ },
+ "kcTrack": {
+  "bg": "oklch(0.7451 0.1558 32.6)",
+  "trackVar": "oklch(0.7451 0.1558 32.6)",
+  "height": "24px",
+  "box": {
+   "x": 169.203125,
+   "y": 501,
+   "w": 92.796875,
+   "h": 24
+  }
+ },
+ "kcLabel": {
+  "color": "rgb(195, 185, 172)",
+  "weight": "400",
+  "fontSize": "11px",
+  "box": {
+   "x": 150,
+   "y": 506.125,
+   "w": 13.203125,
+   "h": 13.75
+  }
+ },
+ "kcValue": {
+  "text": "",
+  "color": "rgb(233, 230, 226)",
+  "fontSize": "16px"
+ },
+ "kcThumb": {
+  "box": {
+   "x": 196.125,
+   "y": 501,
+   "w": 12,
+   "h": 24
+  }
+ },
+ "card": {
+  "bg": "oklab(0.362792 0.0101461 0.0171963 / 0.7424)",
+  "backdrop": "none",
+  "box": {
+   "x": 16,
+   "y": 183.015625,
+   "w": 358,
+   "h": 565.484375
+  }
+ },
+ "inkMuted": "oklch(0.8274 0.0062 67.7)",
+ "accentLive": "oklch(0.8251 0.0987 32.6)"
+}
+PIXEL kC-track rgb(255 131 106) vs ground↑ rgb(116 58 42) = 3.66:1 | vs ground↓ rgb(117 60 41) = 3.58:1  [1.4.11 floor 3]
+PIXEL K-rail rgb(255 131 106) vs ground↑ rgb(117 60 42) = 3.57:1  [1.4.11 floor 3]
+PIXEL shadow-seg rgb(64 57 51) vs well rgb(66 55 47) = 1.02:1 (ghost, decorative) | well vs plate rgb(117 60 42) = 1.34:1
+TEXT k-label ink rgb(195, 185, 172) w=700 vs plate rgb(117 60 42) = 4.46:1 [floor 4.5]
+TEXT kC-label ink rgb(195, 185, 172) vs plate rgb(116 58 42) = 4.56:1 [floor 4.5]
+TEXT caption ink rgb(195, 185, 172) vs plate rgb(117 60 41) = 4.46:1 [floor 4.5]
+console errors: 0 
+
+=== INTERACTION 1440-light ===
+live-k: 5 → ArrowRight → label=6 segs=6 swatches=6 (expect 6/6/6)
+kC: 0.5 → ArrowRight → 0.6 (expect 0.6)
+imminent-skeleton caught mid-swap: false
+developed: {
+ "railBgImage": "linear-gradient(to right, oklch(0.5038 0.2008 300.87) 0%, oklch(0.5085 0.1643 262.37) 25%, oklch(0.5362 0.0867 159.97) 50%, oklch(0.761 0.14",
+ "railBgColor": "oklch(0.461 0.1718 32.6)",
+ "dominance": "20% of the imagedominantoklch(50.38% 0.2008 300.87)",
+ "dominantCss": "oklch(50.38% 0.2008 300.87)",
+ "shadowGone": true,
+ "cardThere": true
+}
+PIXEL developed K-rail left rgb(99 76 194) / right rgb(210 105 51) vs ground rgb(219 153 150) = 2.69:1 / 1.55:1
+reset → ghost instrument face returns: false
+interaction console errors: 0
+
+=== PRM reduce === shadow-seg anim: {"animationName":"pulse","duration":"1e-05s","playState":"running"}
+
+=== SUPPLEMENTARY (probe2) ===
+imminent skeleton caught: false
+390 touch hit-areas: {
+ "kThumb": {
+  "box": "12×24",
+  "afterInset": "auto",
+  "afterContent": "none",
+  "beforeInset": "10px 0px 0px 4px",
+  "beforeContent": "\"\"",
+  "touchAction": "auto"
+ },
+ "kcThumb": {
+  "box": "12×24",
+  "afterInset": "auto",
+  "afterContent": "none",
+  "beforeInset": "10px 0px 0px 4px",
+  "beforeContent": "\"\"",
+  "touchAction": "auto"
+ },
+ "kcTrackBox": "81×24"
+}
