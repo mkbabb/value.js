@@ -28,11 +28,13 @@
  *                     ColorPicker's idle-fetched HeroBlob — work defers,
  *                     appearance composes; an early chunk WAITS on the
  *                     field's arm — kills the measured d/e idle race by
- *                     construction). DE-COINCIDED from B2's frame (T.W6.5
- *                     Lane M): the flip yields one rAF + an idle slice past
- *                     the field-arrival task, so the aurora WebGL arm and
- *                     the blob engine mount never share one long task (the
- *                     §4.1 ~505ms wall splits). PRM: synchronous (law 5).
+ *                     construction). DE-COINCIDED from the field's arrival
+ *                     (T.W6.5 Lane M): the flip waits out the derive-in
+ *                     transition's SETTLE (state-checked via getAnimations,
+ *                     never a timeout) + an idle slice, so the blob engine
+ *                     mount (the §4.1 wall — forensically the WHOLE wall,
+ *                     see the b4 block) can never freeze the 0.9s arrival
+ *                     fade mid-flight. PRM: synchronous (law 5).
  *
  * Every beat START stamps a `performance.mark("overture:bN")` — the O-4
  * order-invariance oracle asserts B0 < B1 < {B2, B3} < B4 ∧ B2 < B4 under
@@ -113,20 +115,41 @@ export function useOverture(fieldArmed: ComputedRef<boolean>): OvertureBeats {
         { immediate: true },
     );
 
-    // B4 opens on B3-complete ∧ B2-started — then yields ONE frame + an idle
-    // slice before flipping (T.W6.5 Lane M · the B2/B4 DE-COINCIDENCE,
-    // t33-research §4.1/§4.3): B2's arming flip lands INSIDE the aurora
-    // WebGL arm's own task, and a synchronous B4 mounted the blob engine in
-    // that same task — the measured ~505ms one-frame wall at the
-    // `overture:b2`/`b4` marks (both profiles, unthrottled AND 4×). The beat
-    // DAG owns the ordering, so the split lives HERE: the predicate is
-    // unchanged (gating, never a timer — the rAF/idle hop is a YIELD past
-    // the field-arrival frame, not a clock), order is preserved (B2 < B4
-    // strictly, O-4), and the blob engine mount lands in its own task.
-    // PRM keeps the instant-states law (law 5): no yield, the flip is
-    // synchronous with the predicate. The rIC timeout bounds the ornament's
-    // wait on a busy main thread; Safari (no rIC) takes the macrotask hop.
+    // B4 opens on B3-complete ∧ B2-started — then waits out the FIELD'S
+    // ARRIVAL before flipping (T.W6.5 Lane M · the B2/B4 DE-COINCIDENCE,
+    // t33-research §4.1/§4.3 — the row's "next beat" arm):
+    //
+    // THE FORENSIC (this lane's chunk-block probe, archived in
+    // w65-lane-m-record.md): the ~505ms post-b2/b4 main-thread wall is the
+    // BLOB ENGINE MOUNT alone — with the HeroBlob chunk blocked the wall
+    // vanishes entirely, so it is ONE indivisible producer-engine init task
+    // (WebGL2 context + shader compile; the L20 eager-config/lazy-engine
+    // split + GAP-L5 halves are its SIZE cure — the standing W7 P9/P1
+    // packet rows). What the demo OWNS is its PLACEMENT: a b4 synchronous
+    // with b2 mounted the engine ~30ms into the field's 0.9s derive-in,
+    // freezing the arrival fade mid-flight. The beat DAG owns the ordering,
+    // so the seam lives HERE: after the predicate commits, b4 waits for the
+    // derive-in transition to SETTLE — a STATE check on the canvas's own
+    // running animations (the noteLeftPlateSettled / useDockArrival
+    // getAnimations idiom; `.atmosphere-canvas` is app-unique, overture.css)
+    // — then takes an idle slice. Never a timer: no transition running
+    // (css substrate, an already-settled field, a test mount) falls through
+    // immediately. TIME-DRIVEN FINITE animations only (the WebKit-mobile
+    // ScrollTimeline lesson, useDockArrival) so an infinite/scroll-driven
+    // ambient loop can never wedge the ornament. Order is preserved (B2 <
+    // B4 strictly — O-4's DAG assert); the rIC 500ms ceiling bounds the
+    // ornament's wait on a busy main thread; Safari (no rIC) takes the
+    // macrotask hop. PRM keeps the instant-states law (law 5): synchronous.
     const b4 = ref(false);
+    const openB4 = () => {
+        if ("requestIdleCallback" in window) {
+            window.requestIdleCallback(() => (b4.value = true), {
+                timeout: 500,
+            });
+        } else {
+            setTimeout(() => (b4.value = true), 0);
+        }
+    };
     watch(
         () => b3Complete.value && b2.value,
         (open) => {
@@ -135,14 +158,25 @@ export function useOverture(fieldArmed: ComputedRef<boolean>): OvertureBeats {
                 b4.value = true;
                 return;
             }
+            // One frame past the arming flush, so the derive-in transition
+            // (opened by the same b2 flip) is observable via getAnimations.
             requestAnimationFrame(() => {
-                if ("requestIdleCallback" in window) {
-                    window.requestIdleCallback(() => (b4.value = true), {
-                        timeout: 500,
-                    });
-                } else {
-                    setTimeout(() => (b4.value = true), 0);
+                const canvas = document.querySelector(".atmosphere-canvas");
+                const running = (canvas?.getAnimations?.() ?? []).filter(
+                    (a) => {
+                        if (!(a.timeline instanceof DocumentTimeline))
+                            return false;
+                        const t = a.effect?.getTiming();
+                        return t ? t.iterations !== Infinity : true;
+                    },
+                );
+                if (!running.length) {
+                    openB4();
+                    return;
                 }
+                void Promise.allSettled(running.map((a) => a.finished)).then(
+                    openB4,
+                );
             });
         },
         { immediate: true },
