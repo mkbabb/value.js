@@ -18,9 +18,15 @@
  * happen ONLY on a tile press (the kf `:key` re-seat seam — glass-ui's
  * modelValue is emit-only) and on the parent's `epoch` bump (a successful
  * CSS parse re-seeds every interval `linear`).
+ *
+ * The W5-9 regex autoplay drive (querySelector on the picker's play-button
+ * text) DIED at T.W6.5 Row E (t33-research §3.4 — compactness by deletion:
+ * the row's live ramp strip IS the motion preview; `:playback="false"`
+ * keeps the pill off the surface). A demonstrate-itself behavior returns
+ * only through P7's declarative `autoplay`/`playing` door — never a DOM
+ * drive.
  */
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { useMediaQuery } from "@vueuse/core";
+import { computed, onBeforeUnmount, ref, watch } from "vue";
 import { Check, ChevronDown, Copy, SlidersHorizontal } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
@@ -65,57 +71,11 @@ const openIntervalRamp = computed<string | null>(() =>
         : serializeIntervalRamp(modelState, openInterval.value),
 );
 
-// ── Auto-trace on open (W5-9; DISARMED at 4.2.0 — record, not deleted) ──
-// The regex-drive found the picker's public play button by its accessible
-// text. This composition seats the picker `:playback="false"` (O-17 dot
-// rest — the producer's travel dot parks ON the endpoint, and the R8-17
-// `btn-pill`×`glass-btn` blob ships at dist `easing.js:424`; L7 rows
-// 1/2/3/5), so the query finds nothing and the drive is a silent no-op BY
-// CONSTRUCTION. The machinery stays: its DELETION is booked on P7's
-// declarative `autoplay`/`playing` door (T.md §7.2 — the row re-arms the
-// demonstrate-itself behavior the day the producer ships rest-state + loop
-// + PRM at the source). Do not delete early.
-const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
-const intervalBodyEls = new Map<number, HTMLElement>();
-let traceTimer: ReturnType<typeof setTimeout> | null = null;
-
-function setIntervalBodyEl(index: number, el: unknown) {
-    if (el instanceof HTMLElement) intervalBodyEls.set(index, el);
-    else intervalBodyEls.delete(index);
-}
-
-function autoTrace(index: number) {
-    if (prefersReducedMotion.value) return;
-    void nextTick(() => {
-        if (traceTimer !== null) clearTimeout(traceTimer);
-        traceTimer = setTimeout(() => {
-            traceTimer = null;
-            if (openInterval.value !== index) return;
-            const host = intervalBodyEls.get(index);
-            const btn = host
-                ? Array.from(host.querySelectorAll("button")).find((b) =>
-                      /trace the curve|climb the staircase/i.test(
-                          b.textContent ?? "",
-                      ),
-                  )
-                : undefined;
-            btn?.click();
-        }, 180);
-    });
-}
-
 function toggleInterval(index: number) {
-    const opening = openInterval.value !== index;
-    openInterval.value = opening ? index : null;
-    if (opening) autoTrace(index);
+    openInterval.value = openInterval.value === index ? null : index;
 }
-
-onMounted(() => {
-    if (openInterval.value !== null) autoTrace(openInterval.value);
-});
 
 onBeforeUnmount(() => {
-    if (traceTimer !== null) clearTimeout(traceTimer);
     if (copyTimer !== null) clearTimeout(copyTimer);
 });
 
@@ -209,7 +169,6 @@ async function copyLiteral(index: number, css: string) {
             <div
                 v-show="openInterval === row.index"
                 :id="`easing-interval-${row.index}`"
-                :ref="(el) => setIntervalBodyEl(row.index, el)"
                 class="px-3 pb-3 flex flex-col gap-2.5"
             >
                 <!-- The interval's live ramp (W5-9, kept verbatim): the
