@@ -149,6 +149,21 @@ function figParts(component: string): { int: string; frac: string } {
      * worst-case line count from the static reservation table — never a
      * blanket 2 (the blank second line under hex was P1-1's pathology). */
     min-height: calc(var(--readout-lines, 1) * 1.12em);
+    /* T.W6.5-P (T-33b · t33-audit-01 "too large of a gap between the numbers
+     * and the gradient selector") — THE SEAM ABSORBS THE RESERVATION AS
+     * DESIGNED AIR: the tuple BOTTOM-ANCHORS inside its locked box, so a
+     * one-line tuple in a two-line lock (lab's honest worst case) renders
+     * its reserved line as display air ABOVE the numbers — the title band's
+     * breathing room — and the numbers sit flush on the field below. The
+     * §6.1-measured 61px dead band between the figures and the spectrum
+     * rail DIES while the lock holds bit-for-bit: min-height is unchanged
+     * (O-10b's min-height ≡ lock × line-height row), the card rect never
+     * moves, and on a 1↔2-line digit-count crossing the tuple grows UPWARD
+     * into its own reservation — nothing below the header ever shifts
+     * mid-drag (the lock's reason to exist). The W8 bracket (research §6.1,
+     * both arms) rides only the TASTE residual of where the air reads best;
+     * the functional gap cure lands here. */
+    align-content: flex-end;
     font-weight: 400;
 }
 
