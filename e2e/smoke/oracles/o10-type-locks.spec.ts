@@ -187,3 +187,154 @@ test.describe("O-10a — the mobile matrix (390)", () => {
         expect(lines, "About title <sm is an honest 2-line lock").toBe(2);
     });
 });
+
+/* ── O-10c — tnum equal digit-advance on the SHIPPED face (W4-2) ──────────
+ * The self-host regression class: the declaration alone proved a silent
+ * no-op on the Google-served face (t-title-typography F5) — and NO Fraunces
+ * artifact ships tabular figures, so the shipped latin-normal face carries
+ * the MINTED tnum (scripts/fonts/build-fraunces-tnum.py). This row judges
+ * the RENDER: equal digit advance under the readout's own declaration, and
+ * honest proportional digits without it (prose stays design-true). */
+test.describe("O-10c — rendered digit advance (the shipped face)", () => {
+    test("tabular-nums yields equal digit advance at the readout's weights; prose stays proportional", async ({
+        page,
+    }) => {
+        await page.goto("/");
+        await expect(
+            page.getByRole("main", { name: "Color tool panes" }),
+        ).toBeVisible();
+        const r = await page.evaluate(async () => {
+            await document.fonts.load("600 55px Fraunces");
+            await document.fonts.load("300 55px Fraunces");
+            const measure = (text: string, weight: number, tnum: boolean) => {
+                const s = document.createElement("span");
+                s.style.cssText = `font-family: Fraunces; font-size: 55px; font-weight: ${weight}; position: absolute; visibility: hidden; white-space: pre; ${tnum ? "font-variant-numeric: tabular-nums lining-nums;" : ""}`;
+                s.textContent = text;
+                document.body.appendChild(s);
+                const w = s.getBoundingClientRect().width;
+                s.remove();
+                return w;
+            };
+            const out: Record<string, number[]> = {};
+            for (const weight of [300, 600]) {
+                out[`t${weight}`] = ["1111", "0000", "9999"].map((t) =>
+                    measure(t, weight, true),
+                );
+                out[`p${weight}`] = ["1111", "0000"].map((t) =>
+                    measure(t, weight, false),
+                );
+            }
+            return out;
+        });
+        for (const weight of [300, 600]) {
+            const [a, b, c] = r[`t${weight}`]!;
+            expect(
+                Math.abs(a! - b!),
+                `w${weight}: '1111' vs '0000' advance differs (tnum dead on the shipped face)`,
+            ).toBeLessThanOrEqual(0.5);
+            expect(Math.abs(b! - c!), `w${weight}: '0000' vs '9999'`).toBeLessThanOrEqual(0.5);
+            const [p1, p0] = r[`p${weight}`]!;
+            expect(
+                Math.abs(p1! - p0!),
+                `w${weight}: prose digits went tabular — the default figures must stay design-true`,
+            ).toBeGreaterThan(2);
+        }
+    });
+});
+
+/* ── O-10b — per-space line-count locks (W4-2's re-authored gate text) ────
+ * "Every space inks its own LOCKED line count" — all catalog spaces + hex,
+ * at the 32rem band AND 390 (Q11b: levers 1+2, lever 3 for lab-class).
+ * Asserted per space: (i) the bound lock ≡ the reservation table's derived
+ * count via the min-height mechanism; (ii) the render never EXCEEDS the
+ * lock (a rendered line past the lock moves the card rect — the exact
+ * defect the lock exists to kill); (iii) no horizontal cell overflow. */
+for (const vp of [
+    { name: "32rem band", width: 1440, height: 900 },
+    { name: "390 phone", width: 390, height: 844 },
+] as const) {
+    test.describe(`O-10b — line locks (${vp.name})`, () => {
+        test.use({ viewport: { width: vp.width, height: vp.height } });
+
+        test(`every space inks its own locked line count at ${vp.width}px`, async ({
+            page,
+        }) => {
+            test.setTimeout(180_000);
+            // Boot at the owner reference color (the O-18 census referent),
+            // then drive the app's OWN selector through the whole catalog —
+            // the census population is the shipped dropdown, never a hand
+            // list (the options carry no machine id, so the UI drive IS the
+            // honest enumeration).
+            await page.goto(
+                `/#/?space=lab&color=${encodeURIComponent("lab(38% 32 24)")}`,
+            );
+            await expect(
+                page.getByRole("main", { name: "Color tool panes" }),
+            ).toBeVisible();
+            const trigger = page.locator(".pane-shell .space-trigger").first();
+            await trigger.click();
+            const optionCount = await page.locator('[role="option"]').count();
+            await page.keyboard.press("Escape");
+            expect(optionCount, "catalog enumerated").toBeGreaterThanOrEqual(15);
+
+            const failures: string[] = [];
+            for (let i = 0; i < optionCount; i++) {
+                await trigger.click();
+                const option = page.locator('[role="option"]').nth(i);
+                const spaceName =
+                    (await option.locator("span").first().textContent())?.trim() ??
+                    `option-${i}`;
+                await option.click();
+                const readout = page.locator(".readout").first();
+                await expect(readout).toBeVisible();
+                const space = spaceName;
+                // Fonts settle once per page; poll the readout's lock var.
+                const row = await readout.evaluate((el) => {
+                    const cs = getComputedStyle(el);
+                    const lock = Number.parseFloat(
+                        cs.getPropertyValue("--readout-lines") || "1",
+                    );
+                    // Rendered line count: cluster the cells' top edges.
+                    const tops: number[] = [];
+                    for (const cell of el.children) {
+                        const r = cell.getBoundingClientRect();
+                        if (r.width < 1) continue;
+                        if (!tops.some((t) => Math.abs(t - r.top) < 4)) {
+                            tops.push(r.top);
+                        }
+                    }
+                    const elBox = el.getBoundingClientRect();
+                    const host = el.parentElement!.getBoundingClientRect();
+                    return {
+                        lock,
+                        rendered: tops.length,
+                        minHeightPx: Number.parseFloat(cs.minHeight),
+                        lineHeightPx: Number.parseFloat(cs.lineHeight),
+                        overflowX: elBox.right - host.right > 1,
+                    };
+                });
+                if (row.rendered > row.lock) {
+                    failures.push(
+                        `${space}: rendered ${row.rendered} > lock ${row.lock}`,
+                    );
+                }
+                if (
+                    Math.abs(
+                        row.minHeightPx - row.lock * row.lineHeightPx,
+                    ) > 1
+                ) {
+                    failures.push(
+                        `${space}: min-height ${row.minHeightPx} ≠ lock ${row.lock} × ${row.lineHeightPx}`,
+                    );
+                }
+                if (row.overflowX) {
+                    failures.push(`${space}: horizontal cell overflow`);
+                }
+            }
+            expect(
+                failures,
+                `line-lock census failures:\n${failures.join("\n")}`,
+            ).toEqual([]);
+        });
+    });
+}

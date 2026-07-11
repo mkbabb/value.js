@@ -15,6 +15,15 @@
              ./fonts/. The latin-normal face — the title/hero glyphs — is
              PRELOADED so it arrives with the critical resources.
 
+             W4-2 (T.W4 · O-10c): the latin-normal face is the tnum-MINTED
+             build (scripts/fonts/build-fraunces-tnum.py — no Fraunces
+             artifact anywhere ships tabular figures; the mint cuts the .tf
+             set the foundry never did: constant-advance composites + a real
+             GSUB tnum feature). The readout's `font-variant-numeric:
+             tabular-nums` is therefore LIVE, verified by rendered
+             digit-advance (never by declaration — the F5 class). -->
+        <!-- (original W2-3 note continues)
+
              THE BOUNDED INK GATE (D3 [AMENDED-AT-HARDENING M-12]):
              `font-display: fallback` — a ~100ms UA block period (inside the
              ≤300ms cap; ink opens on load-or-block-end), then the

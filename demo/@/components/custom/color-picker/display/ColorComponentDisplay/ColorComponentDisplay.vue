@@ -12,7 +12,7 @@
          (never a blanket 2). -->
     <CardTitle
         class="readout flex h-fit w-fit max-w-full m-0 p-0 flex-wrap items-baseline font-display focus-visible:outline-none"
-        :style="{ '--readout-lines': lineCount }"
+        :style="{ '--readout-lines': lineCount, '--readout-fit': fit }"
     >
         <template
             v-for="([component], ix) in colorComponents"
@@ -52,7 +52,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { CardTitle } from "@components/ui/card";
-import { readoutDecimals, readoutLineCount } from "./readoutReservation";
+import {
+    readoutDecimals,
+    readoutFit,
+    readoutLineCount,
+} from "./readoutReservation";
 
 export interface ComponentFormat {
     value: number | string;
@@ -67,10 +71,19 @@ const { formatted, colorComponents, space } = defineProps<{
     space: string;
 }>();
 
-/** The per-space line lock (S.W4-2) — the reservation table's own static
- *  derivation, bound as `--readout-lines` for the min-height calc. */
+/** The per-space line lock (T.W4-2 · Q11b) — the reservation table's own
+ *  static derivation, bound as `--readout-lines` for the min-height calc. */
 const lineCount = computed(() =>
     readoutLineCount(
+        space,
+        colorComponents.map(([component]) => component),
+    ),
+);
+
+/** Q11b lever 2 — the per-space fit coefficient (≤3% shave holding the
+ *  one-line lock for the ictcp-class overhang; 1 everywhere else). */
+const fit = computed(() =>
+    readoutFit(
         space,
         colorComponents.map(([component]) => component),
     ),
@@ -103,23 +116,28 @@ function figParts(component: string): { int: string; frac: string } {
 </script>
 
 <style scoped>
-/* The hero-number register: the display ramp, Fraunces voice, DECLARED
- * tabular figures (Fraunces is not tabular by default — card-lock law
- * mechanism 1), and the per-space line lock so wrap count is a constant of
- * the space, never of the value.
+/* The hero-number register: the display ramp, Fraunces voice, VERIFIED
+ * tabular figures (the minted tnum face — O-10c asserts the rendered
+ * digit-advance, never the declaration; the F5 declared-but-dead class is
+ * dead), and the per-space line lock so wrap count is a constant of the
+ * space, never of the value.
  *
- * The `cqi` display rung (S.W4-2 / S-19, the P1-1 third lever): the hero
+ * The ×φ `cqi` display rung (T.W4-2 · Q11a — every bound exactly ×φ of the
+ * S rung: display-2→display-4 · 7.2→11.65cqi · 1.618→2.618rem): the hero
  * rides the pane-slot container, not the viewport — font ∝ container width
  * means the line's capacity IN CH is a near-constant of the composition
- * (~20ch; full derivation in readoutReservation.ts), so one-line Lab is a
- * structural guarantee across the whole band, not a lucky viewport. Capped
- * by the --type-display-2 token (wide panes), floored at the display-1
- * rung's own 1.618rem floor so the voice never drops below the display
- * register. This narrows the "display rungs are viewport-fluid" exception
- * (style.css §pane-wrapper) for the one display surface that must MEASURE:
- * an instrument readout broken-lined mid-figure is a hierarchy defect. */
+ * (~11.7 tabular-ch; full derivation in readoutReservation.ts), so each
+ * space's line lock is a structural guarantee across the whole band, not a
+ * lucky viewport. `--readout-fit` is Q11b lever 2 — the derived ≤3% shave
+ * that holds the ictcp-class one-line lock (1 everywhere else). This
+ * narrows the "display rungs are viewport-fluid" exception (style.css
+ * §pane-wrapper) for the one display surface that must MEASURE: an
+ * instrument readout broken-lined mid-figure is a hierarchy defect. */
 .readout {
-    font-size: min(var(--type-display-2), max(7.2cqi, 1.618rem));
+    font-size: calc(
+        min(var(--type-display-4), max(11.65cqi, 2.618rem)) *
+            var(--readout-fit, 1)
+    );
     line-height: 1.12;
     /* THE CONTIGUOUS GAP (T.W4-2): 0.75ch — the SAME quantity the line-lock
      * packing arithmetic reserves (READOUT_GAP_CH), so paint and derivation
