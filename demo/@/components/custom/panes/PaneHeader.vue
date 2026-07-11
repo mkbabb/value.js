@@ -145,7 +145,21 @@ defineProps<{
  * The veil SWELL completes by 64px — decoupled from the 120px title range:
  * content reaches the title underside by ~24–48px (About/Gradient, the
  * earliest colliders), so the veil is near-full before any ink collision
- * (O-11 gate 3, the F2 double-exposure cure). */
+ * (O-11 gate 3, the F2 double-exposure cure).
+ *
+ * T.W4-7 — THE RE-DERIVE AGAINST THE ×φ-TALLER BAND (T-23's geometry over
+ * the settled post-W2 field; W4-1 grew the title heading→display-1): the
+ * earn-range is keyed to OCCLUSION, not the shrink — occlusion onset is
+ * GAP-driven (content crosses the sticky header's underside at a scroll
+ * offset set by the header→content gap, which the type move left
+ * unchanged), so the 0–64px veil range HOLDS over the taller band; the
+ * ::before tracks the grown header box by construction (inset-derived).
+ * The title-shrink range stays the producer grammar's own 0–120px (one
+ * grammar — card-scroll.css's title-collapse lane; the ×φ travel rides the
+ * same scrub). RE-VERIFIED at W4-7: O-11 gate 1 (rest floor inside the Q9
+ * EFFECT bracket, both schemes, all panes — MATERIAL untouched, W3-4's) +
+ * gate 3 (swell ≤64px, no naked window under the earliest colliders) green
+ * over the settled field. */
 @supports (animation-timeline: scroll()) {
     .pane-header::before {
         animation: pane-header-veil linear both;
