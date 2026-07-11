@@ -13,9 +13,14 @@ import { Badge } from "@components/ui/badge";
 import { RefreshCw, Save, Copy } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { PaletteColorStrip } from "@components/custom/palette-browser/card";
+// T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
+// the chip module + spec; the GenerateControls consume routes through Lane
+// N's queue — recorded in both lane logs.
+import { PreviewStrip } from "@components/custom/color-chips";
 import type { PaletteColor } from "@lib/palette/types";
 import {
     useColorGeneration,
+    generatePalette,
     PRESET_NAMES,
     HARMONY_NAMES,
     GENERATION_PRESETS,
@@ -74,6 +79,21 @@ function onHarmonyChange(value: AcceptableValue) {
 
 function capitalize(s: string): string {
     return s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, " ");
+}
+
+// T-17 · the F5 TRUTH LAW (seed-exact strips): each option row previews the
+// EXACT palette selecting it yields — `generatePalette` is pure and
+// mulberry32-seeded, so the strip and the future selection are the same
+// bytes. Computed only while the SelectContent renders (it unmounts closed
+// — the ColorSpaceSelector precedent), so zero rest cost; 10 rows × 5-12
+// library generations is sub-millisecond. A preview that lies (random per
+// open, or a canned swatch) is worse than none.
+function presetStops(candidate: PresetName): string[] {
+    return generatePalette(count.value, candidate, harmony.value, seed.value);
+}
+
+function harmonyStops(candidate: HarmonyName): string[] {
+    return generatePalette(count.value, preset.value, candidate, seed.value);
 }
 
 function save() {
@@ -192,16 +212,23 @@ defineExpose({ regenerate, save, copyColors });
                     <SelectTrigger aria-label="Generation preset" class="h-9">
                         <SelectValue />
                     </SelectTrigger>
-                    <!-- B.W1: kept wider than --menu-min-w — preset names + descriptions need the space -->
-                    <SelectContent class="min-w-[14rem]">
+                    <!-- B.W1 width, re-verified at the T-17 chip landing (F7:
+                         keep the width comments honest): 17rem seats the
+                         golden-plate chip + the longest description. -->
+                    <SelectContent class="min-w-[17rem]">
                         <SelectItem
                             v-for="p in PRESET_NAMES"
                             :key="p"
                             :value="p"
                         >
                             {{ capitalize(p) }}
+                            <!-- T-17/F5+F7: chip leading, description after —
+                                 the strip is the row's own seed-exact truth. -->
                             <template #description>
-                                <span class="text-micro text-muted-foreground">{{ GENERATION_PRESETS[p].description }}</span>
+                                <span class="flex items-center gap-2 min-w-0">
+                                    <PreviewStrip :stops="presetStops(p)" />
+                                    <span class="text-micro text-muted-foreground">{{ GENERATION_PRESETS[p].description }}</span>
+                                </span>
                             </template>
                         </SelectItem>
                     </SelectContent>
@@ -214,16 +241,22 @@ defineExpose({ regenerate, save, copyColors });
                     <SelectTrigger aria-label="Color harmony" class="h-9">
                         <SelectValue />
                     </SelectTrigger>
-                    <!-- B.W1: kept wider than --menu-min-w — harmony names + descriptions need the space -->
-                    <SelectContent class="min-w-[14rem]">
+                    <!-- B.W1 width, re-verified at the T-17 chip landing (F7):
+                         17rem seats the chip + "Base + two flanking
+                         complements", the family's longest line. -->
+                    <SelectContent class="min-w-[17rem]">
                         <SelectItem
                             v-for="h in HARMONY_NAMES"
                             :key="h"
                             :value="h"
                         >
                             {{ capitalize(h) }}
+                            <!-- T-17/F5+F7: chip leading, description after. -->
                             <template #description>
-                                <span class="text-micro text-muted-foreground">{{ HARMONY_DEFS[h].description }}</span>
+                                <span class="flex items-center gap-2 min-w-0">
+                                    <PreviewStrip :stops="harmonyStops(h)" />
+                                    <span class="text-micro text-muted-foreground">{{ HARMONY_DEFS[h].description }}</span>
+                                </span>
                             </template>
                         </SelectItem>
                     </SelectContent>

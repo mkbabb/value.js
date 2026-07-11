@@ -59,4 +59,49 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
             seedBefore,
         );
     });
+
+    test("T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields", async ({
+        page,
+    }) => {
+        await page.goto("/");
+        await page.waitForSelector(".glass-dock");
+        await openView(page, "Generate");
+
+        const plate = page.locator("[data-generate-plate]");
+        await expect(plate).toBeVisible();
+
+        // Open the Preset menu; every row carries a stamped preview strip.
+        await page
+            .getByRole("combobox", { name: "Generation preset" })
+            .click();
+        const listbox = page.getByRole("listbox");
+        await expect(listbox).toBeVisible();
+        const chips = listbox.locator("[data-stops]");
+        expect(
+            await chips.count(),
+            "every preset row previews its own truth",
+        ).toBeGreaterThan(0);
+
+        // Read a NON-selected row's stamp, then select it.
+        const target = listbox
+            .getByRole("option")
+            .filter({ hasText: "Pastel" });
+        const stamped = (
+            (await target.locator("[data-stops]").getAttribute("data-stops")) ??
+            ""
+        ).split("|");
+        expect(stamped.length).toBeGreaterThanOrEqual(1);
+        await target.click();
+
+        // The plate's live swatches ARE the stamped stops — same function,
+        // same args, same seed: byte-identical rgb() strings, same order.
+        const live = await plate
+            .locator(".generate-swatch")
+            .evaluateAll((els) =>
+                els.map(
+                    (el) => getComputedStyle(el as HTMLElement).backgroundColor,
+                ),
+            );
+        expect(live).toEqual(stamped);
+    });
 });
