@@ -10,6 +10,7 @@ import SlugEditLayer from "./layers/SlugEditLayer.vue";
 import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
 import DockViewSelect from "./DockViewSelect.vue";
+import DockStatusLamp from "./DockStatusLamp.vue";
 import PaneSegmentedControl from "@components/custom/panes/PaneSegmentedControl.vue";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
@@ -286,6 +287,13 @@ watch(
                 </template>
             </GlassDock>
         </div>
+
+        <!-- T.W6 · W6-6 (T-9 re-home): the dock STATUS LAMP — band chrome,
+             absolutely seated at the band's inline-end so it is visible at
+             FIRST PAINT in every dock state (expanded, collapsed, mid-morph)
+             and never rides a collapsible layer. Dev-gated; variant matrix
+             in status-lamp.ts (O-22). -->
+        <DockStatusLamp />
     </div>
 </template>
 
