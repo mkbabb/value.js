@@ -75,7 +75,10 @@ import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { contrastInkFor, resolveMutedInk } from "@composables/color/ink";
-import { resolveSurfaceLightnessLive } from "@composables/color/useContrastSafeColor";
+import {
+    bumpProbeEpochOnMount,
+    resolveSurfaceLightnessLive,
+} from "@composables/color/useContrastSafeColor";
 import { colorSpaceInfo } from "../../index";
 import type { DisplayColorSpace } from "../../index";
 import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "@composables/color/keys";
@@ -99,15 +102,22 @@ const { matches: isLgViewport } = useBreakpoint("(min-width: 1024px)");
 
 // --- THE INK SYSTEM (D5/D6 — the channel-color conceit is DEAD) -----------
 // The letters SPEAK INK. Rest letters wear the certified de-emphasis rung
-// against the WELL's deterministic ground (the C5 dividend: an opaque
-// tone-step makes the referent closed-form); hover/active lift to full ink.
-// Hue keeps living where it is honest — the ramps and the active dot.
+// against the VEIL's ground (T.W6.5-P · T-34: the console re-seat moved the
+// D6 referent WITH the material — the well's closed-form dividend yields to
+// the veil rung's live-probed quiet-α recipe composited over the resting
+// plate); hover/active lift to full ink. Hue keeps living where it is
+// honest — the ramps and the active dot.
 const { isDark } = useGlobalDark();
 const inkAmbient = inject(INK_AMBIENT_KEY, null);
+// The live-instrument consumer contract (T.W6.5-P): the rail folds the
+// surface referent into its own computed, so IT must register the mount-
+// truth epoch bump — else its first (pre-style/detached) veil probe caches
+// as undefined and the rest ink certifies against the static model forever.
+bumpProbeEpochOnMount();
 const restInk = computed(() =>
     resolveMutedInk(
         resolveSurfaceLightnessLive(
-            "well",
+            "veil",
             inkAmbient?.value ?? 0.5,
             isDark.value,
         ),
@@ -211,8 +221,9 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
 /* Rail items — the dock-trigger STATE LADDER (the producer's own tokens:
  * hover/press fills; the bespoke opacity/scale hover + the 8% selected pill
  * are retired). Letters speak INK: rest = the certified de-emphasis rung on
- * the well; hover + active lift to full ink; the ACTIVE letter's ink
- * derives from the WatercolorDot fill it sits on (:style binding). */
+ * the veil (T.W6.5-P — the console's T-34 seat); hover + active lift to
+ * full ink; the ACTIVE letter's ink derives from the WatercolorDot fill it
+ * sits on (:style binding). */
 .channel-rail-item {
     appearance: none;
     background: transparent;

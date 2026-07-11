@@ -1,18 +1,35 @@
 <template>
-    <!-- T.W4-4 — THE CONSOLE (D5 · Q4 "The well." · C5): the sliders +
-         letter rail seated in a rung-2 WELL sub-card (opaque tone-step, no
-         blur, no second cartoon shadow — the .console-well one-home class;
-         P3 swap booked). Bounding the ground is what makes the ink
-         COMPUTABLE (t-sliders F-4): the rail letters and meters certify
-         against the well's deterministic lightness (the W3-5 D6 contract).
+    <!-- T.W6.5-P — THE CONSOLE ON THE VEIL (T-34 · t33-audit-02, owner
+         verbatim: "use a glass-ui veil card, too"): the sliders + letter
+         rail re-seat from the Q4 rung-2 WELL onto the producer's
+         <Card surface="veil"> — the `veil-surface` @utility (glass-ui
+         cards.css): quiet-rung glass with the border + rim STRIPPED by
+         design. The owner's own word re-opens the RATIFIED Q4 on the
+         MATERIAL axis — encoded here + MANDATE §0.6, never silent. The
+         radius stays the in-plate panel rung (`rounded-panel` over the
+         Card's `rounded-card` stamp); grain/shadow OFF — an instrument
+         surface, not a paper register. The `.console-well` one-home class
+         remains the SECOND slider population's seat (ConfigSliderPane —
+         Q4's sibling assignments stand as ratified).
+
+         THE INK REFERENT MOVED WITH THE MATERIAL (the W3-5 D6 contract):
+         the rail letters certify against the VEIL rung (`ink.ts` "veil" —
+         the live-probed quiet-α recipe composited over the resting plate),
+         and the O-18 W4 census rows re-ran green on the new ground.
 
          THE CHASSIS-PERSISTENCE LAW (N-2): a space change re-keys the ROWS
          (and the rail's letters) ONLY — the console card and the rail ring
          are persistent chassis, never re-mounted scenery. The rail itself
          is the colocated ConsoleRail SFC (the exact seam the P5 letter-rail
          primitive swaps into — BOOKED). -->
-    <div class="sliders-console console-well">
-        <div class="flex gap-x-2 items-stretch">
+    <Card
+        surface="veil"
+        tier="quiet"
+        :shadow="false"
+        :grain="false"
+        class="sliders-console rounded-panel"
+    >
+        <div class="flex gap-x-2.5 items-stretch">
             <ConsoleRail
                 :components="componentEntries.map(([c]) => c)"
                 :active="activeComponent"
@@ -28,7 +45,7 @@
                  hover-jailed thumb tooltip is DEAD — one voice per fact). -->
             <div
                 :key="animationKey"
-                class="channel-rows flex-1 min-w-0 flex flex-col gap-y-1 justify-around stagger-children"
+                class="channel-rows flex-1 min-w-0 flex flex-col gap-y-1.5 justify-around stagger-children"
             >
                 <div
                     v-for="[component] in componentEntries"
@@ -70,11 +87,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </Card>
 </template>
 
 <script setup lang="ts">
 import { computed, inject, ref, watch } from "vue";
+import { Card } from "@components/ui/card";
 import { Slider } from "@components/ui/slider";
 import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
 import { clamp } from "@mkbabb/value.js/math";
@@ -227,12 +245,15 @@ const {
     border-color: var(--foreground);
 }
 
-/* ── THE CONSOLE (T.W4-4) ─────────────────────────────────────────────────
- * Material rides the one-home `.console-well` class (style.css — rung-2
- * WELL; P3 swap booked). Padding reserves the 3px touch-gate outline +
- * offset inside the well. */
+/* ── THE CONSOLE (T.W4-4 → T.W6.5-P re-seat) ─────────────────────────────
+ * Material is the producer veil card (<Card surface="veil"> — T-34, the
+ * owner's Q4 material re-cut; the `.console-well` one-home class stays the
+ * SECOND slider population's home, ConfigSliderPane). THE AIR RECALIBRATION
+ * (t33-audit-02 "a bit too tight … more spaced out"): padding steps up from
+ * the well-era 0.5/0.625rem — and still reserves the 3px touch-gate outline
+ * + 1px offset inside the plate. Row air rides the template's gap-y-1.5. */
 .sliders-console {
-    padding: 0.5rem 0.625rem;
+    padding: 0.75rem 0.875rem;
 }
 
 /* ── THE METER (W4-3) — the strip's persistent live reading ──────────────

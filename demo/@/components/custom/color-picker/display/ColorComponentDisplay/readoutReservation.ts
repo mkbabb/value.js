@@ -21,6 +21,14 @@
  * `COLOR_SPACE_RANGES` + `COLOR_SPACE_DENORM_UNITS` — no ResizeObserver, no
  * runtime measurement, no nudged constants.
  *
+ * T.W6.5-P: the table's worst-case premise is TRUE BY CONSTRUCTION since
+ * T-33a — the demo model clamps every landing color into these same
+ * `getColorSpaceBound` ranges at the pipeline seams (`valueDomain.ts`), so
+ * no live value can ink wider than the derivation (`lab(40% 999 47)` inks
+ * 125). And the lock's reserved-minus-painted delta renders as DESIGNED AIR
+ * above the tuple, never a dead band below it (T-33b — the readout
+ * bottom-anchors inside the locked box; ColorComponentDisplay `.readout`).
+ *
  * Q11b LEVER 1 — per-space INTEGER LEAST-COUNTS (RULED; required at 390):
  * the "fixed 1-decimal" law generalizes to a fixed per-space least count (a
  * meter's least count is per-quantity): the integer-native spaces (rgb
