@@ -18,6 +18,18 @@ import { openView } from "../fixtures/dock";
  *              (photographic grounds; conditionally-mounted sites are gated by
  *              the source-level raw-black/white grep at the wave gate).
  *
+ * T.W6.5-P (T-34 · t33-audit-02, owner verbatim "use a glass-ui veil card,
+ * too") — THE VEIL FIXTURE ROW: the sliders console re-seated from the
+ * rung-2 WELL onto the producer `<Card surface="veil" tier="quiet">` (the
+ * owner's own word re-opened the RATIFIED Q4 on the material axis —
+ * encoded, never silent). A `data-surface="veil"` card is a NESTED IN-PLATE
+ * FIXTURE, not a pane plate: the rung-1 sweep exempts it and the veil row
+ * asserts its OWN identity POSITIVELY instead (quiet tier · rim/border
+ * STRIPPED · the quiet backdrop-blur that IS the veil's definition — the
+ * producer recipe, so the RC-3 no-blur clause is the WELL's rung law, not
+ * this fixture's · seated INSIDE a resting plate, never a pane root · off
+ * the well token). The gate is re-aimed, never weakened.
+ *
  * Membership is asserted by IDENTITY, never by a fixed alpha: Cards via the
  * producer's `data-tier` stamp; wells by byte-equality of the computed
  * `background-color` against the same-page-resolved `--well-bg` token, plus
@@ -81,11 +93,38 @@ async function censusView(page: import("@playwright/test").Page) {
         const main = document.querySelector("main");
         const cards = Array.from(
             main?.querySelectorAll<HTMLElement>('[data-slot="card"]') ?? [],
-        ).map((el) => ({
-            tier: el.dataset.tier ?? "(none)",
-            grain: el.dataset.grain ?? "(none)",
-            shadow: getComputedStyle(el).boxShadow !== "none",
-        }));
+        )
+            // T-34: veil cards are NESTED IN-PLATE FIXTURES with their own
+            // positive row below — the rung-1 plate sweep exempts exactly
+            // the surface the veil row asserts (no silent hole: a veil card
+            // is REQUIRED to sit inside a resting plate by that row).
+            .filter((el) => el.dataset.surface !== "veil")
+            .map((el) => ({
+                tier: el.dataset.tier ?? "(none)",
+                grain: el.dataset.grain ?? "(none)",
+                shadow: getComputedStyle(el).boxShadow !== "none",
+            }));
+        // T.W6.5-P (T-34) — the VEIL fixture census: every mounted veil card
+        // (today: the picker's sliders console) carries the producer veil
+        // identity and seats INSIDE a rung-1 plate.
+        const veilFixtures = Array.from(
+            main?.querySelectorAll<HTMLElement>(
+                '[data-slot="card"][data-surface="veil"]',
+            ) ?? [],
+        ).map((el) => {
+            const cs = getComputedStyle(el);
+            const host = el.parentElement?.closest<HTMLElement>(
+                '[data-slot="card"]',
+            );
+            return {
+                tier: el.dataset.tier ?? "(none)",
+                bg: cs.backgroundColor,
+                backdrop: cs.backdropFilter || "none",
+                shadow: cs.boxShadow,
+                borderWidth: Number.parseFloat(cs.borderTopWidth) || 0,
+                hostTier: host?.dataset.tier ?? "(none)",
+            };
+        });
         const fixture = (sel: string) => {
             const el = main?.querySelector<HTMLElement>(sel);
             if (!el) return null;
@@ -137,6 +176,7 @@ async function censusView(page: import("@playwright/test").Page) {
         })();
         return {
             cards,
+            veilFixtures,
             dashedWell: fixture(".dashed-well"),
             mixPlate: fixture(".mix-plate"),
             perceivedPlate: fixture('[role="img"][aria-label^="Perceived-space"]'),
@@ -196,6 +236,57 @@ for (const scheme of ["light", "dark"] as const) {
                 expect
                     .soft(card.shadow, `${view} (${scheme}): stamp missing`)
                     .toBe(true);
+            }
+
+            // THE VEIL FIXTURE ROW (T.W6.5-P · T-34 — the owner's Q4
+            // material re-cut, positively asserted): the picker's sliders
+            // console is the ONE veil seat; the picker pane mounts on Home
+            // by construction (presence asserted there), and WHEREVER a veil
+            // card mounts it must wear the producer veil identity (quiet
+            // tier · rim/border stripped · the quiet blur that IS the veil's
+            // definition), sit INSIDE a rung-1 plate (an in-plate fixture,
+            // never a pane root), and be OFF the well token (the re-seat is
+            // real, not a re-paint).
+            if (view === "Home") {
+                expect(
+                    census.veilFixtures.length,
+                    `${view} (${scheme}): the veil console fixture is absent`,
+                ).toBeGreaterThan(0);
+            }
+            for (const veil of census.veilFixtures) {
+                expect
+                    .soft(veil.tier, `${view} (${scheme}): veil off the quiet rung`)
+                    .toBe("quiet");
+                expect
+                    .soft(
+                        veil.backdrop,
+                        `${view} (${scheme}): the veil's quiet blur is dead (its own definition)`,
+                    )
+                    .not.toBe("none");
+                expect
+                    .soft(
+                        veil.shadow,
+                        `${view} (${scheme}): the veil carries a rim/shadow (stripped by design)`,
+                    )
+                    .toBe("none");
+                expect
+                    .soft(
+                        veil.borderWidth,
+                        `${view} (${scheme}): the veil carries a border (stripped by design)`,
+                    )
+                    .toBe(0);
+                expect
+                    .soft(
+                        veil.hostTier,
+                        `${view} (${scheme}): the veil is not seated inside a resting plate`,
+                    )
+                    .toBe("resting");
+                expect
+                    .soft(
+                        veil.bg,
+                        `${view} (${scheme}): the veil still wears the well token (the re-seat is a re-paint)`,
+                    )
+                    .not.toBe(tokens.well);
             }
 
             // RUNG-2 MEMBERSHIP (token identity + the no-blur half):
