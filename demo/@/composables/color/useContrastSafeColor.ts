@@ -66,9 +66,14 @@ const TIER_BG_TOKEN: Partial<Record<InkSurface, string>> = {
  * probes re-drive through ordinary reactivity. No polling, no workaround.
  */
 const probeEpoch = ref(0);
-function bumpProbeEpochOnMount(): void {
+export function bumpProbeEpochOnMount(): void {
     // Composables may be exercised outside a component (unit probes) — the
     // epoch is a mount-truth signal, so no instance simply means no bump.
+    // EXPORTED (T.W6.5-P): a component that folds `resolveSurfaceLightnessLive`
+    // into its OWN computed (the ConsoleRail idiom) is a live-instrument
+    // consumer like any other — it must register the mount bump from its
+    // setup, or its first (possibly detached/pre-style) probe result caches
+    // until some OTHER consumer happens to bump the epoch.
     if (getCurrentInstance()) onMounted(() => probeEpoch.value++);
 }
 
@@ -146,6 +151,59 @@ function resolveLiveTint(surface: InkSurface): SurfaceTint | undefined {
     if (surface === "chrome") {
         const dock = document.querySelector<HTMLElement>(".glass-dock");
         if (dock) bg = getComputedStyle(dock).backgroundColor;
+    } else if (surface === "veil") {
+        // T.W6.5-P (T-34): the veil is an IN-PLATE fixture — TWO alpha
+        // layers (the veil recipe over its host plate) sit between its ink
+        // and the ambient, and BOTH recipes are SUBTREE-LOCAL (the W55
+        // adaptive `--glass-tint-*` axis retunes per-card, so a body-level
+        // probe reads the wrong cascade — probed live: root-context veil
+        // L 0.34/α 0.60 vs the card-context 0.41/0.63). So the veil is
+        // probed off the MOUNTED element itself (the `chrome`/`.glass-dock`
+        // precedent): the Card stamps `data-surface="veil"`, its painted
+        // recipe + its nearest painted ancestor (the resting plate) are
+        // composited A-over-B in sRGB — the SAME alpha-composite model the
+        // O-18 census measures with — into ONE effective tint. A per-layer
+        // OKLab-L linear mix diverges past the certification headroom at
+        // two stacked layers (probed live: 4.30:1 measured vs the 5.75
+        // walked target). Pre-mount the resolver yields undefined (the
+        // static model serves); the consumer's mount-epoch bump re-drives.
+        const host = document.querySelector<HTMLElement>(
+            '[data-surface="veil"]',
+        );
+        if (!host) return undefined;
+        const veil = resolveCssColorAlpha(
+            getComputedStyle(host).backgroundColor,
+        );
+        if (!veil || veil.alpha === 0) return undefined;
+        let plate: ReturnType<typeof resolveCssColorAlpha> = null;
+        for (
+            let n = host.parentElement;
+            n && n !== document.body;
+            n = n.parentElement
+        ) {
+            const c = resolveCssColorAlpha(
+                getComputedStyle(n).backgroundColor,
+            );
+            if (c && c.alpha > 0) {
+                plate = c;
+                break;
+            }
+        }
+        if (plate) {
+            const aOut = veil.alpha + plate.alpha * (1 - veil.alpha);
+            const mix = (a: number, b: number) =>
+                (veil.alpha * a + plate.alpha * b * (1 - veil.alpha)) / aOut;
+            const L = srgbLightness(
+                mix(veil.r, plate.r),
+                mix(veil.g, plate.g),
+                mix(veil.b, plate.b),
+            );
+            if (L === null) return undefined;
+            return { L, alpha: aOut };
+        }
+        const L = srgbLightness(veil.r, veil.g, veil.b);
+        if (L === null) return undefined;
+        return { L, alpha: veil.alpha };
     } else {
         const probe = probeEl();
         const token = TIER_BG_TOKEN[surface];
@@ -206,6 +264,10 @@ function surfaceLightnessNow(
         ambientL,
         dark,
         resolveLiveTintCached(surface),
+        // The veil is an IN-PLATE fixture (T-34): its underlay referent is
+        // the RESTING plate's live tint — `resolveSurfaceLightness` composes
+        // plate-over-ambient first, then the veil tint over the plate.
+        surface === "veil" ? resolveLiveTintCached("resting") : undefined,
     );
 }
 

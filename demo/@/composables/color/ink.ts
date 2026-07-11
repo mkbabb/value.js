@@ -52,8 +52,11 @@ import { clamp } from "@mkbabb/value.js/math";
 import { cssToRawColor } from "@lib/color-utils";
 
 /** The material-ladder surfaces a demo ink can sit on (D1 rung vocabulary;
- *  `chrome` = the dock band — true floating glass at its own, thinner α). */
-export type InkSurface = "page" | "resting" | "floating" | "well" | "chrome";
+ *  `chrome` = the dock band — true floating glass at its own, thinner α;
+ *  `veil` = the producer veil card (`veil-surface`, quiet-rung glass) seated
+ *  as an IN-PLATE fixture — its backdrop is the resting plate, never the
+ *  bare page ambient (T.W6.5-P · T-34, the owner's Q4 material re-cut). */
+export type InkSurface = "page" | "resting" | "floating" | "well" | "chrome" | "veil";
 
 /** WCAG 1.4.3 small-text contrast floor — the spec constant. */
 export const TEXT_CONTRAST_FLOOR = 4.5;
@@ -98,6 +101,11 @@ const PRODUCER_TINTS = {
 const RUNG_ALPHA = {
     resting: { light: 0.65, dark: 0.72 },
     floating: { light: 0.8, dark: 0.88 },
+    // The QUIET rung — the veil card's material (`--glass-opacity-quiet`,
+    // glass.css light arm / dark-arm.css; the `veil-surface` @utility rides
+    // it at `--glass-level: 1`). Static model only — the live probe reads
+    // the painted `veil-surface` recipe (W55 adaptive tint included).
+    quiet: { light: 0.5, dark: 0.58 },
 } as const;
 
 /**
@@ -170,19 +178,46 @@ const FOREGROUND = {
  * non-browser degenerate — the O-18 census enforces the live path in the
  * real browser).
  *
- * @param surface  the D1 rung the ink sits on
- * @param ambientL the atmosphere's LIVE derived lightness (`useAtmosphere`'s
- *                 `derivedLightness` — the M-15 exposed value)
- * @param dark     the active scheme (`useGlobalDark`)
- * @param tint     optional LIVE-resolved tier tint (recipe truth)
+ * @param surface   the D1 rung the ink sits on
+ * @param ambientL  the atmosphere's LIVE derived lightness (`useAtmosphere`'s
+ *                  `derivedLightness` — the M-15 exposed value)
+ * @param dark      the active scheme (`useGlobalDark`)
+ * @param tint      optional LIVE-resolved tier tint (recipe truth)
+ * @param underTint optional LIVE-resolved tint of the UNDERLAY rung — read
+ *                  only by the `veil` in-plate composite (its backdrop is the
+ *                  resting plate, whose own recipe may be live-probed)
  */
 export function resolveSurfaceLightness(
     surface: InkSurface,
     ambientL: number,
     dark: boolean,
     tint?: SurfaceTint,
+    underTint?: SurfaceTint,
 ): number {
     if (surface === "page") return ambientL;
+
+    // T.W6.5-P (T-34) — the VEIL rung: the quiet-glass in-plate fixture (the
+    // sliders console's seat after the owner's Q4 material re-cut). Its
+    // backdrop is the RESTING plate, never the bare page ambient.
+    if (surface === "veil") {
+        // Live path: `tint` arrives as the EFFECTIVE two-layer recipe — the
+        // veil composited over the resting plate in sRGB by the live
+        // instrument (`useContrastSafeColor.resolveLiveTint`), the SAME
+        // alpha-composite model the O-18 census measures with — so it mixes
+        // over the bare ambient exactly like every other rung's tint.
+        if (tint) return tint.alpha * tint.L + (1 - tint.alpha) * ambientL;
+        // Static degenerate (jsdom / non-browser): the quiet-α model over
+        // the static resting composite (its own live tint when available).
+        const underL = resolveSurfaceLightness(
+            "resting",
+            ambientL,
+            dark,
+            underTint,
+        );
+        const a = RUNG_ALPHA.quiet[dark ? "dark" : "light"];
+        return a * CARD_L[dark ? "dark" : "light"] + (1 - a) * underL;
+    }
+
     if (tint) return tint.alpha * tint.L + (1 - tint.alpha) * ambientL;
 
     const scheme = dark ? "dark" : "light";

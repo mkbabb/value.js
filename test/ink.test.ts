@@ -56,6 +56,15 @@ function parseOklch(css: string): { L: number; C: number; H: number } {
 /** The measured ambient band (F-1) + interior points. */
 const AMBIENTS = [0.376, 0.5, 0.63, 0.8, 0.936] as const;
 
+/** The producer card tint's own L (the veil composite's mix endpoint) —
+ *  parsed through the same library leaf the resolver threads (never a
+ *  hand-computed lightness). */
+function veilCardBound(dark: boolean): number {
+    const c = cssToRawColor(dark ? "hsl(26 22% 17%)" : "hsl(30 85% 96%)", "oklch");
+    expect(c).not.toBeNull();
+    return c!.l as number;
+}
+
 /** The owner's reference color (O-18's literal) + the failure-mode picks. */
 const PICKS = [
     "lab(38% 32 24)", // the owner brown — the O-18 census referent
@@ -101,6 +110,44 @@ describe("D6 — resolveSurfaceLightness (the ladder referent)", () => {
         // Scheme honesty: bright cream light well, deep stone dark well.
         expect(light).toBeGreaterThan(0.8);
         expect(dark).toBeLessThan(0.5);
+    });
+
+    it("the veil is an IN-PLATE composite — quiet-α over the RESTING rung, never the bare ambient (T.W6.5-P · T-34)", () => {
+        for (const dark of [false, true]) {
+            for (const a of AMBIENTS) {
+                const veil = resolveSurfaceLightness("veil", a, dark);
+                const resting = resolveSurfaceLightness("resting", a, dark);
+                // A convex mix of the card tint and its plate underlay: the
+                // veil referent must sit BETWEEN the two, strictly inside.
+                const lo = Math.min(resting, veilCardBound(dark));
+                const hi = Math.max(resting, veilCardBound(dark));
+                expect(veil).toBeGreaterThanOrEqual(lo);
+                expect(veil).toBeLessThanOrEqual(hi);
+            }
+            // Ambient damping: the veil's swing across the band is strictly
+            // smaller than the resting plate's own swing.
+            const veilSwing =
+                resolveSurfaceLightness("veil", 0.936, dark) -
+                resolveSurfaceLightness("veil", 0.376, dark);
+            const restingSwing =
+                resolveSurfaceLightness("resting", 0.936, dark) -
+                resolveSurfaceLightness("resting", 0.376, dark);
+            expect(veilSwing).toBeGreaterThan(0);
+            expect(veilSwing).toBeLessThan(restingSwing);
+        }
+    });
+
+    it("the rail's rest rung clears the 4.5:1 floor on the veil ground (the O-18 channel-letter row's static twin)", () => {
+        for (const dark of [false, true]) {
+            for (const a of AMBIENTS) {
+                const veilL = resolveSurfaceLightness("veil", a, dark);
+                const muted = resolveMutedInk(veilL, dark);
+                expect(
+                    ratioOn(muted, veilL),
+                    `muted ink on veil (ambient ${a}, ${dark ? "dark" : "light"})`,
+                ).toBeGreaterThanOrEqual(4.5);
+            }
+        }
     });
 });
 
