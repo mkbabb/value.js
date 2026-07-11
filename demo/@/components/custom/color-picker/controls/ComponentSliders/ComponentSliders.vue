@@ -92,6 +92,7 @@ const {
     componentsSlidersStyle,
     cssColorOpaque,
     HSVCurrentColor,
+    denormalizedCurrentColor,
     updateColorComponent,
 } = inject(COLOR_MODEL_KEY)!;
 
@@ -119,8 +120,19 @@ watch(currentColorSpace, () => { animationKey.value++; });
 // voice, zero new state; updates synchronously with the drag. The static
 // range captions retire to their two standing owners (rail tooltip + the
 // About card); the hover-jailed thumb tooltip is DEAD.
+// T.W4.5 C-1 — the ALPHA meter inks: the formatted-cell map deliberately
+// carries no alpha (the header tuple never inks it — the C-2 bracket rides
+// to W8 unruled), but the console row still owes its live datum (the W4-3
+// gate text: "live meter present per row"). Alpha reads the SAME injected
+// pipeline's denormalized color — one voice, zero new state — at the
+// space's own least count (82.7% in lab; 83% in the integer spaces). Hex
+// mode's single-cell map stays untouched (its console is not this row's).
 function meterText(component: string): string {
-    const fmt = currentColorComponentsFormatted.value[component];
+    const fmt =
+        currentColorComponentsFormatted.value[component] ??
+        (component === "alpha" && model.value.selectedColorSpace !== "hex"
+            ? denormalizedCurrentColor.value.value.alpha
+            : undefined);
     if (!fmt) return "";
     if (typeof fmt.value === "string") return fmt.value;
     const d = readoutDecimals(currentColorSpace.value, component);
