@@ -2,7 +2,11 @@
     <Dialog :open="open" @update:open="$emit('update:open', $event)">
         <DialogContent class="sm:max-w-md">
             <DialogHeader>
-                <DialogTitle>Report Palette</DialogTitle>
+                <!-- T.W4-6 (T-15/F7): the producer DialogTitle default is the
+                     body-voice `text-subheading` — the demo's dialog headers
+                     join the display voice (≤500 non-bold). Producer-root
+                     candidate recorded with the W4-6 sweep (packet class). -->
+                <DialogTitle class="font-display font-medium">Report Palette</DialogTitle>
                 <DialogDescription>
                     Why are you reporting "{{ paletteName }}"?
                 </DialogDescription>

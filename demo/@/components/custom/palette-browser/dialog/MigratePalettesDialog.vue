@@ -2,7 +2,9 @@
     <Dialog v-model:open="open">
         <DialogContent class="rounded-dialog max-w-sm">
             <DialogHeader>
-                <DialogTitle class="text-subheading">{{ title }}</DialogTitle>
+                <!-- T.W4-6 (T-15/F7): dialog headers are title surfaces —
+                     display voice at the subheading rung, ≤500 non-bold. -->
+                <DialogTitle class="font-display font-medium text-subheading">{{ title }}</DialogTitle>
                 <DialogDescription class="text-small font-display">
                     {{ description }}
                 </DialogDescription>

@@ -59,7 +59,10 @@
                 </div>
 
                 <div class="flex flex-col gap-0.5 min-w-0 flex-1">
-                    <span class="text-subheading truncate">
+                    <!-- T.W4-6 (T-15/F7 population sweep): a palette NAME is a
+                         title surface — display voice, ≤500 non-bold,
+                         non-italic (user data), same register as PaletteCard. -->
+                    <span class="font-display font-medium text-subheading truncate">
                         {{ item.palette?.name ?? item.paletteSlug }}
                     </span>
                     <!-- W5-5 (F-11): a null palette is a DELETED palette —

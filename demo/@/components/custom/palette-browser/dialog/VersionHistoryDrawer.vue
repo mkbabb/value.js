@@ -2,7 +2,11 @@
     <Sheet :open="open" @update:open="$emit('update:open', $event)">
         <SheetContent side="right" class="w-[380px] sm:max-w-[420px] flex flex-col">
             <SheetHeader class="shrink-0">
-                <SheetTitle>Version History</SheetTitle>
+                <!-- T.W4-6 (T-15/F7): the producer SheetTitle default is the
+                     body-voice `text-subheading` — drawer headers join the
+                     display voice (≤500 non-bold), same register as the
+                     dialog headers. -->
+                <SheetTitle class="font-display font-medium">Version History</SheetTitle>
                 <SheetDescription>
                     {{ paletteName }} &mdash; {{ total }} version{{ total === 1 ? "" : "s" }}
                 </SheetDescription>

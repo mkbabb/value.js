@@ -33,7 +33,11 @@
         </HoverCardTrigger>
         <HoverCardContent class="pointer-events-auto font-display">
             <div>
-                <p class="text-subheading">{{ title }}</p>
+                <!-- T.W4-6 (T-15/F7): the hover-card TITLE speaks the display
+                     voice on its own class list — the bare `text-subheading`
+                     set the body family directly on this node, silently
+                     overriding the parent's `font-display` intent. -->
+                <p class="font-display font-medium text-subheading">{{ title }}</p>
                 <p class="text-small text-muted-foreground">{{ description }}</p>
             </div>
         </HoverCardContent>
