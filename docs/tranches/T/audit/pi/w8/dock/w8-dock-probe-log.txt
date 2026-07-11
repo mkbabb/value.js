@@ -1,0 +1,179 @@
+
+[1440-light] band={"x":16,"y":8,"width":1408,"height":71.4140625} sceneTop=102.703125 toolsVisible=true
+[1440-light] T-36 tools box=121x40 padding=8px 12px margin=0px 4px gap=9.304px radius=9999px
+[1440-light] T-29 inner overflow(rest)=visible slotClass="action-bar-toggle-slot is-visible is-live is-settled"
+[1440-light] T-29 tools hover shadow=none transform=none
+[1440-light] T-57 action-bar layer: band h 71→71 · sceneTop 102.703125→102.703125
+[1440-light] seal visible after idle=true
+[1440-light] O-15a seal border-style=none width=0px
+[1440-light] T-57 collapsed: band h=65 sceneTop=99.703125 (rest was 102.703125)
+[1440-light] T-37 wax mean rgb(143,68,55) L=0.480 · field mean rgb(153,56,39) L=0.475 · ΔL=0.004 · WCAG=1.03:1
+[1440-light] T-57 re-expanded: band h=71 sceneTop=102.703125 · Δscene(collapsed→expanded)=3.0px
+
+[1440-light] view menu: 7 options
+[1440-light]   opt "Home" weight=400 bg=none clip=border-box ink=rgb(28, 25, 23) font=Fraunces icon=true
+[1440-light]   opt "Palettes" weight=400 bg=none clip=border-box ink=rgb(28, 25, 23) font=Fraunces icon=true
+[1440-light]   opt "Browse" weight=400 bg=none clip=border-box ink=rgb(28, 25, 23) font=Fraunces icon=true
+[1440-light]   opt "Extract" weight=400 bg=none clip=border-box ink=rgb(28, 25, 23) font=Fraunces icon=true
+[1440-light]   opt "Mix" weight=400 bg=none clip=border-box ink=rgb(28, 25, 23) font=Fraunces icon=true
+[1440-light]   opt "Generate" weight=400 bg=none clip=border-box ink=rgb(28, 25, 23) font=Fraunces icon=true
+[1440-light]   opt "Gradient" weight=400 bg=none clip=border-box ink=rgb(28, 25, 23) font=Fraunces icon=true
+
+[1440-light] T-52 gradient-trigger ring: shadow=none
+[1440-light] T-52 trigger rect x=[484.8, 612.8]
+[1440-light] T-52 clipping ancestor <DIV dock-layer dock-layer--full is-active> overflow=auto/hidden clip=- mask=mask contain=none x=[484.8, 955.2] r=0px
+[1440-light] T-52 clipping ancestor <DIV dock-layers> overflow=hidden/auto clip=- mask=- contain=none x=[484.8, 955.2] r=0px
+[1440-light] T-52 clipping ancestor <DIV app-layout> overflow=hidden/hidden clip=- mask=- contain=none x=[0.0, 1440.0] r=0px
+[1440-light] T-17 preset menu: rows=10 chips=10 first: 41.9x16.4px radius=4px segs=5 stops="rgb(184, 108, 186)|rgb(158, 153, 103)|rgb(66, 138, 186)|rgb(…"
+[1440-light] T-17 harmony menu: rows=6 chips=6 first: 41.9x16.4px radius=4px segs=5 stops="rgb(184, 108, 186)|rgb(158, 153, 103)|rgb(66, 138, 186)|rgb(…"
+[1440-light] T-40 letterforms menu: 18 options weights={400} rampCount=0 (T-10 negative control)
+
+[768-light] band=736x65 @y16
+[768-light] view menu box=192x328 @(257,66) viewport-clipped=false
+[768-light] T-20 tabs: track={"x":324.4,"y":26,"w":141.1,"h":39} pad=4px gap=normal r=10003px
+[768-light] T-20   btn0 {"x":326.4,"y":29.1,"w":70.5,"h":32.9,"radius":"5px"}
+[768-light] T-20   btn1 {"x":395,"y":30,"w":66.6,"h":31,"radius":"5px"}
+[768-light] T-20   indicator {"x":326.4,"y":33.1,"w":70.6,"h":24.9,"radius":"9999px"}
+
+[390-light] band=358x65 @y16
+[390-light] view menu box=192x328 @(86,66) viewport-clipped=false
+[390-light] T-20 tabs: track={"x":153.9,"y":29.4,"w":104.1,"h":32.3} pad=3px gap=normal r=10002px
+[390-light] T-20   btn0 {"x":155.5,"y":31.6,"w":52,"h":27.8,"radius":"5px"}
+[390-light] T-20   btn1 {"x":206,"y":32.4,"w":49.1,"h":26.3,"radius":"5px"}
+[390-light] T-20   indicator {"x":155.5,"y":34.6,"w":52,"h":21.8,"radius":"9999px"}
+
+[1440-dark] band={"x":16,"y":8,"width":1408,"height":71.4140625} sceneTop=102.703125 toolsVisible=true
+[1440-dark] T-36 tools box=121x40 padding=8px 12px margin=0px 4px gap=9.304px radius=9999px
+[1440-dark] T-29 inner overflow(rest)=visible slotClass="action-bar-toggle-slot is-visible is-live is-settled"
+[1440-dark] T-29 tools hover shadow=none transform=none
+[1440-dark] T-57 action-bar layer: band h 71→71 · sceneTop 102.703125→102.703125
+[1440-dark] seal visible after idle=true
+[1440-dark] O-15a seal border-style=none width=0px
+[1440-dark] T-57 collapsed: band h=65 sceneTop=99.703125 (rest was 102.703125)
+[1440-dark] T-37 wax mean rgb(141,65,53) L=0.471 · field mean rgb(157,60,42) L=0.488 · ΔL=0.016 · WCAG=1.06:1
+[1440-dark] T-57 re-expanded: band h=71 sceneTop=102.703125 · Δscene(collapsed→expanded)=3.0px
+
+[1440-dark] view menu: 7 options
+[1440-dark]   opt "Home" weight=400 bg=none clip=border-box ink=rgb(233, 230, 226) font=Fraunces icon=true
+[1440-dark]   opt "Palettes" weight=400 bg=none clip=border-box ink=rgb(233, 230, 226) font=Fraunces icon=true
+[1440-dark]   opt "Browse" weight=400 bg=none clip=border-box ink=rgb(233, 230, 226) font=Fraunces icon=true
+[1440-dark]   opt "Extract" weight=400 bg=none clip=border-box ink=rgb(233, 230, 226) font=Fraunces icon=true
+[1440-dark]   opt "Mix" weight=400 bg=none clip=border-box ink=rgb(233, 230, 226) font=Fraunces icon=true
+[1440-dark]   opt "Generate" weight=400 bg=none clip=border-box ink=rgb(233, 230, 226) font=Fraunces icon=true
+[1440-dark]   opt "Gradient" weight=400 bg=none clip=border-box ink=rgb(233, 230, 226) font=Fraunces icon=true
+
+[1440-dark] T-52 gradient-trigger ring: shadow=none
+[1440-dark] T-52 trigger rect x=[484.8, 612.8]
+[1440-dark] T-52 clipping ancestor <DIV dock-layer dock-layer--full is-active> overflow=auto/hidden clip=- mask=mask contain=none x=[484.8, 955.2] r=0px
+[1440-dark] T-52 clipping ancestor <DIV dock-layers> overflow=hidden/auto clip=- mask=- contain=none x=[484.8, 955.2] r=0px
+[1440-dark] T-52 clipping ancestor <DIV app-layout> overflow=hidden/hidden clip=- mask=- contain=none x=[0.0, 1440.0] r=0px
+[1440-dark] T-17 preset menu: rows=10 chips=10 first: 41.9x16.4px radius=4px segs=5 stops="rgb(39, 139, 129)|rgb(176, 137, 180)|rgb(147, 140, 93)|rgb(1…"
+[1440-dark] T-17 harmony menu: rows=6 chips=6 first: 41.9x16.4px radius=4px segs=5 stops="rgb(39, 139, 129)|rgb(176, 137, 180)|rgb(147, 140, 93)|rgb(1…"
+[1440-dark] T-40 letterforms menu: 18 options weights={400} rampCount=0 (T-10 negative control)
+
+[768-dark] band=736x65 @y16
+[768-dark] view menu box=192x328 @(257,66) viewport-clipped=false
+[768-dark] T-20 tabs: track={"x":324.4,"y":26,"w":141.1,"h":39} pad=4px gap=normal r=10003px
+[768-dark] T-20   btn0 {"x":326.4,"y":29.1,"w":70.5,"h":32.9,"radius":"5px"}
+[768-dark] T-20   btn1 {"x":395,"y":30,"w":66.6,"h":31,"radius":"5px"}
+[768-dark] T-20   indicator {"x":326.4,"y":33.1,"w":70.6,"h":24.9,"radius":"9999px"}
+
+[390-dark] band=358x65 @y16
+[390-dark] view menu box=192x328 @(86,66) viewport-clipped=false
+[390-dark] T-20 tabs: track={"x":153.9,"y":29.4,"w":104.1,"h":32.3} pad=3px gap=normal r=10002px
+[390-dark] T-20   btn0 {"x":155.5,"y":31.6,"w":52,"h":27.8,"radius":"5px"}
+[390-dark] T-20   btn1 {"x":206,"y":32.4,"w":49.1,"h":26.3,"radius":"5px"}
+[390-dark] T-20   indicator {"x":155.5,"y":34.6,"w":52,"h":21.8,"radius":"9999px"}
+
+=== CONSOLE ERRORS (0) ===
+
+
+===== LEG 2 =====
+
+[1440-light] root ramp tokens: --palettes-ramp-0:oklch(0.0228 0.0094 351.6) · --palettes-ramp-1:oklch(0.0226 0.0086 31.6) · --palettes-ramp-2:oklch(0.0211 0.0045 71.6)
+[1440-light] opt "Home" weight=600 ink=rgb(28, 25, 23) rampClass=false bg=none
+[1440-light] opt "Palettes" weight=400 ink=rgba(0, 0, 0, 0) rampClass=true bg=GRADIENT rampBg=linear-gradient(90deg, oklch(0.0228 0.0094 351.6), oklch(0.0226 0.0086 31.6), oklch(0.0211 0.0045 71.6))
+[1440-light] opt "Browse" weight=400 ink=rgb(28, 25, 23) rampClass=false bg=none
+[1440-light] opt "Extract" weight=400 ink=rgb(28, 25, 23) rampClass=false bg=none
+[1440-light] opt "Mix" weight=400 ink=rgb(28, 25, 23) rampClass=false bg=none
+[1440-light] opt "Generate" weight=400 ink=rgb(28, 25, 23) rampClass=false bg=none
+[1440-light] opt "Gradient" weight=400 ink=rgb(28, 25, 23) rampClass=false bg=none
+[1440-light] RAMP PIXEL TRUTH "Palettes" label: stem mean rgb(4,4,3) L=0.106 hue spread=[19°, 20°] · vs ground rgb(245,199,173) WCAG=13.34:1
+
+[1440-light] T-52 trigger self: border=none 0px color(srgb 0 0 0 / 0.8) shadow=none outline=none 3px
+[1440-light] T-52 ::before: {"border":"solid 0px color(srgb 0 0 0 / 0.8)","boxShadow":"color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset","outline":"none 1.5px","bg":"rgba(0, 0, 0, 0)","rect":null}
+[1440-light] T-52 .dock-layer: overflow=auto/hidden pad=0px mask=linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0) 100%) x=[484.8,955.2]
+
+[1440-light] Login button: pad=8px h=28.0 border=none 0px ink=rgb(28, 25, 23)
+[1440-light] @mbabb menu: {"bf":"blur(13px) saturate(1.6)","bg":"oklab(0.936403 0.00557132 0.0133027 / 0.808)","radius":"12px"} box=215x222 viewport-clipped=false
+
+[1440-light] pale leg: seal did not collapse
+
+[390-light] ⋮ menu: bf=blur(13px) saturate(1.6) bg=oklab(0.936403 0.00557132 0.0133027 / 0.808) box={"x":89.5,"r":304.1,"w":214.6} clipped=false
+[390-light]   item "Login" ink=rgb(28, 25, 23) weight=400
+[390-light]   item "Share color" ink=rgb(28, 25, 23) weight=400
+[390-light]   item "GitHub" ink=rgb(28, 25, 23) weight=400
+[390-light]   item "Dark mode" ink=rgb(28, 25, 23) weight=400
+
+[1440-dark] root ramp tokens: --palettes-ramp-0:oklch(0.0226 0.0094 351.6) · --palettes-ramp-1:oklch(0.0224 0.0086 31.6) · --palettes-ramp-2:oklch(0.0213 0.0046 71.6)
+[1440-dark] opt "Home" weight=600 ink=rgb(233, 230, 226) rampClass=false bg=none
+[1440-dark] opt "Palettes" weight=400 ink=rgba(0, 0, 0, 0) rampClass=true bg=GRADIENT rampBg=linear-gradient(90deg, oklch(0.0226 0.0094 351.6), oklch(0.0224 0.0086 31.6), oklch(0.0213 0.0046 71.6))
+[1440-dark] opt "Browse" weight=400 ink=rgb(233, 230, 226) rampClass=false bg=none
+[1440-dark] opt "Extract" weight=400 ink=rgb(233, 230, 226) rampClass=false bg=none
+[1440-dark] opt "Mix" weight=400 ink=rgb(233, 230, 226) rampClass=false bg=none
+[1440-dark] opt "Generate" weight=400 ink=rgb(233, 230, 226) rampClass=false bg=none
+[1440-dark] opt "Gradient" weight=400 ink=rgb(233, 230, 226) rampClass=false bg=none
+[1440-dark] RAMP PIXEL TRUTH "Palettes" label: stem mean rgb(99,67,47) L=0.414 hue spread=[23°, 24°] · vs ground rgb(80,55,38) WCAG=1.24:1
+
+[1440-dark] T-52 trigger self: border=none 0px color(srgb 1 1 1 / 0.8) shadow=none outline=none 3px
+[1440-dark] T-52 ::before: {"border":"solid 0px color(srgb 1 1 1 / 0.8)","boxShadow":"color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset","outline":"none 1.5px","bg":"rgba(0, 0, 0, 0)","rect":null}
+[1440-dark] T-52 .dock-layer: overflow=auto/hidden pad=0px mask=linear-gradient(to right, rgba(0, 0, 0, 0) 0px, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 100%, rgba(0, 0, 0, 0) 100%) x=[484.8,955.2]
+
+[1440-dark] Login button: pad=8px h=28.0 border=none 0px ink=rgb(233, 230, 226)
+[1440-dark] @mbabb menu: {"bf":"blur(13px) saturate(1.28) brightness(1.1)","bg":"oklab(0.379439 0.00991643 0.0168573 / 0.8944)","radius":"12px"} box=215x222 viewport-clipped=false
+
+[1440-dark] pale leg: seal did not collapse
+
+[390-dark] ⋮ menu: bf=blur(13px) saturate(1.28) brightness(1.1) bg=oklab(0.379439 0.00991643 0.0168573 / 0.8944) box={"x":89.5,"r":304.1,"w":214.6} clipped=false
+[390-dark]   item "Login" ink=rgb(233, 230, 226) weight=400
+[390-dark]   item "Share color" ink=rgb(233, 230, 226) weight=400
+[390-dark]   item "GitHub" ink=rgb(233, 230, 226) weight=400
+[390-dark]   item "Dark mode" ink=rgb(233, 230, 226) weight=400
+
+=== LEG-2 CONSOLE ERRORS (0) ===
+
+
+===== LEG 3 =====
+[1440-light] ramp-0 @0ms: oklch(0.0228 0.0094 351.6)
+[1440-light] ramp-0 @1000ms: oklch(0.0228 0.0094 351.6)
+[1440-light] ramp-0 @2000ms: oklch(0.0228 0.0094 351.6)
+[1440-light] ramp-0 @3000ms: oklch(0.0228 0.0094 351.6)
+[1440-light] ramp-0 @4000ms: oklch(0.0228 0.0094 351.6)
+[1440-light] ramp-0 @5000ms: oklch(0.0228 0.0094 351.6)
+[1440-light] ramp-0 plain-load @3s: oklch(0.0228 0.0094 351.6)
+
+[1440-light] T-52 hover: transform=none shadow=none
+[1440-light] T-52 hover ::before shadow=color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset
+[1440-light] T-52 focus: outline=none 3px offset=0px shadow=color(srgb 0.440201 0.154456 0.10781 / 0.3) 0px 0px 0px 2px, color(srgb 0.440201 0.154456 0.10781 / 0.15) 0px 0px 8px 0p
+[1440-light] Login paint: {"border":"none 0px oklab(0.1894 0.0618354 0.0380414 / 0.3)","shadow":"rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 ","bg":"rgba(0, 0, 0, 0)"}
+[1440-light] T-37 pale retry: seal never collapsed after 14s idle — dock class="glass-dock-frame horizontal"
+[1440-dark] ramp-0 @0ms: oklch(0.0226 0.0094 351.6)
+[1440-dark] ramp-0 @1000ms: oklch(0.0226 0.0094 351.6)
+[1440-dark] ramp-0 @2000ms: oklch(0.0226 0.0094 351.6)
+[1440-dark] ramp-0 @3000ms: oklch(0.0226 0.0094 351.6)
+[1440-dark] ramp-0 @4000ms: oklch(0.0226 0.0094 351.6)
+[1440-dark] ramp-0 @5000ms: oklch(0.0226 0.0094 351.6)
+[1440-dark] ramp-0 plain-load @3s: oklch(0.0226 0.0094 351.6)
+
+[1440-dark] T-52 hover: transform=none shadow=none
+[1440-dark] T-52 hover ::before shadow=color(srgb 0.948 0.929333 0.892 / 0.7) 0px 0px 0px 0.75px inset
+[1440-dark] T-52 focus: outline=none 3px offset=0px shadow=color(srgb 1.00001 0.682658 0.619954 / 0.3) 0px 0px 0px 2px, color(srgb 1.00001 0.682658 0.619954 / 0.15) 0px 0px 8px 0p
+[1440-dark] Login paint: {"border":"none 0px oklab(0.1849 0.0603874 0.0371506 / 0.3)","shadow":"rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0","bg":"rgba(0, 0, 0, 0)"}
+[1440-dark] T-37 pale retry: seal never collapsed after 14s idle — dock class="glass-dock-frame horizontal"
+
+
+===== LEG 3b =====
+[1440-light] pale leg-3b: sealed=true (enter/leave armed)
+[1440-light] T-37 PALE lab(88% 5 30): wax rgb(233,207,161) L=0.865 · field rgb(225,200,151) L=0.842 · ΔL=0.023 · WCAG=1.08:1
+[1440-dark] pale leg-3b: sealed=true (enter/leave armed)
+[1440-dark] T-37 PALE lab(88% 5 30): wax rgb(221,192,141) L=0.821 · field rgb(183,158,102) L=0.709 · ΔL=0.112 · WCAG=1.48:1

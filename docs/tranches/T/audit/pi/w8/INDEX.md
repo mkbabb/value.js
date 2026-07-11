@@ -30,3 +30,21 @@ deselect probe, BUILT terminal truth).
 | `gradient/built-1440-{light,dark}-full.png` | The BUILT-bundle terminal-truth frames |
 
 The pass record these feed: `../../w8-certification/passes/gradient.p1.md`.
+
+## Pass 9 (dock + nav + menus)
+
+Produced by `dock/w8-dock-probe{,-leg2,-leg3,-leg3b}.mjs` (headed real GPU; lane ports
+8680/8681) at head `571f8d0` (product tree ≡ `5e4f1f6`), 2026-07-11. Log of record:
+`dock/w8-dock-probe-log.txt` (Tools box-model, seal wax↔field OKLab/WCAG at two seeds, ramp
+token trace + label pixel truth, T-52 clip forensic, T-57 band arithmetic, tabs geometry,
+menu censuses).
+
+| Path | What it is |
+|---|---|
+| `dock/{1440,768,390}-{light,dark}-dock-rest.png` | The 6-cell dock-at-rest matrix |
+| `dock/1440-{light,dark}-{view-menu,letterforms-menu,preset-menu,harmony-menu,mbabb-menu}.png` + `{768,390}-*-view-menu.png` + `390-*-mobile-menu.png` | The menu-voice census frames (T-10/T-40/T-17) |
+| `dock/1440-{light,dark}-{seal-zoom,seal-pale-zoom,dock-collapsed}.png` | The T-37 seal figure/ground pairs (owner seed + adversarial pale) |
+| `dock/1440-{light,dark}-t52-{gradient-trigger,trigger-hover,trigger-focus}-zoom.png` | The T-52 flush-clip forensic states |
+| `dock/1440-{light,dark}-{tools-hover-zoom,actionbar-layer,login-zoom}.png` · `{768,390}-*-tabs-zoom.png` | T-36/T-29 whole-paint · T-57 layer states · Q10 Login · T-20 tabs |
+
+The pass record these feed: `../../w8-certification/passes/dock-nav-menus.p1.md`.
