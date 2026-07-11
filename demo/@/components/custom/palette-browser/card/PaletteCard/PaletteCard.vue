@@ -4,26 +4,41 @@
          the correct pattern for a card container that also houses nested interactive elements. -->
     <div
         :class="[
-            // Z2 in-plate card (DESIGN.md §Depth): the --card-edge hairline
-            // (consumed via the border-card-edge bridge), the chip-scale
-            // cartoon rung at rest, and a law-3 hover that DEEPENS the same
-            // voice (sm → md) instead of lurching from none to the full rung.
-            // T.W3-1 (D1 rung-2 WELL; supersedes S-20 — R8): the card is an
-            // in-plate fixture — an opaque tone-step of the host plate
-            // (`bg-well`), never heavier glass than its host (RC-2). The
-            // blur dies with the glass recipe. PaletteCardSkeleton +
-            // .dashed-well speak the same shell by construction.
+            // T.W5-R4 (T-14 / D7): the card speaks the producer CARTOON
+            // REGISTER — the `cartoon-surface` atom (glass-ui cards.css,
+            // BD.W-CARTOON-CASTER) owns the whole hover/press choreography:
+            // translate/scale on --ease-cartoon-punch @ --duration-normal
+            // (volume-preserving peel 1.015×0.985), shadow on --ease-standard
+            // (md rest → lg hover), :active squash 1.04×0.94, and the lagging
+            // .cartoon-cast ink-plate child (~1.15× clock follow-through).
+            // The prior hand-rolled shadow-only hover (sm→md @ the dead 150ms
+            // bare-utility default — t-transitions-liquid F1/F3) is retired;
+            // border width (2px) comes from the atom, color stays the
+            // --card-edge hairline bridge. NOT <Card surface="cartoon">: the
+            // ratified Q4/T.W3-1 material is the rung-2 WELL (`bg-well`, an
+            // opaque tone-step of the host plate) and cartoon-surface is
+            // decoration-only BY DESIGN ("composes ON TOP of a tier — NOT
+            // itself a tier"), so the atom lands the motion register while
+            // the W3 material law stands untouched.
             // NO overflow-hidden (S.W5-10 / S-15-A): a card-level radius clip
             // rasterizes 1-bit at compositing-layer bounds (the stair-stepped
             // strip corner in the owner's shot); the strip clips its OWN
             // corners below — an interior clip keeps normal AA.
-            'group rounded-card border border-card-edge bg-well shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
+            'group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
         role="article"
         :aria-label="`Palette: ${palette.name}`"
+        v-bind="press.handlers"
+        :style="press.pressStyle.value"
         @click="$emit('click')"
     >
+        <!-- T.W5-R4 — the producer's inert moving-cel cast (the exact child
+             <Card surface="cartoon"> emits): the ink-plate the body floats
+             above, travelling down-left + spreading as --card-press-t rises,
+             lagging the body ~1.15× (follow-through). PRM zeroes
+             --motion-weight at the producer root — travel collapses to rest. -->
+        <span class="cartoon-cast" aria-hidden="true" />
         <!-- Color strip — the card's only full-bleed child; it carries the
              corner radius itself now that the card no longer clips. -->
         <PaletteColorStrip
@@ -216,6 +231,7 @@ import {
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import { getPaletteKind, type PaletteKind } from "@lib/palette/utils";
 import { copyToClipboard } from "@mkbabb/glass-ui";
+import { useLiquidPress } from "@mkbabb/glass-ui/motion";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 import { useHoverPopover } from "../composables/useHoverPopover";
 import { useHeightTransition } from "../composables/useHeightTransition";
@@ -301,6 +317,18 @@ const {
 } = useHoverPopover();
 
 const menuOpen = ref(false);
+
+// T.W5-R4 — the producer press drive (the SAME wiring <Card> carries for a
+// pressable card: useLiquidPress @ the shared `press` SPRING_PRESETS clock,
+// card amplitude 0.02, writing --card-press-t — which cartoon-surface aliases
+// into --cartoon-press-t for the caster travel/spread). The CSS :active
+// squash (1.04×0.94) is the no-JS floor; this is the interruptible,
+// velocity-continuous enhancement over it. PRM-instant by construction.
+const press = useLiquidPress({
+    pressVar: "--card-press-t",
+    shrinkDepth: 0.02,
+    maxStretch: 1.03,
+});
 
 const {
     onBeforeEnter,
