@@ -309,6 +309,25 @@
      * literals (t-card-color-census §1.E; CC-7). */
     --stage: rgb(28 25 23);
     --on-stage-chrome: rgb(233 230 226);
+}
+
+/* ── THE CONSOLE WELL (T.W4-4 · D5 · Q4 "The well.") ──
+ * The rung-2 WELL as a seated sub-card CLASS — ONE home for the console
+ * species (the picker's sliders console + ConfigSliderPane, the app's
+ * second slider population — the M-34 population clause), so no consumer
+ * ever re-mints the recipe. Opaque tone-step of the plate (--well-bg), the
+ * ONE hairline (--card-edge), the panel radius rung; NO backdrop-blur
+ * (nothing live behind an in-plate fixture — C5's material ruling), NO
+ * cartoon shadow (depth law 2: the plate already casts the pane's rung).
+ * INTERIM demo class — swaps onto the producer `.glass-well` rung when
+ * packet P3 ships (BOOKED, T.W3 §BOOKS). */
+.console-well {
+    background: var(--well-bg);
+    border: 1px solid var(--card-edge);
+    border-radius: var(--radius-panel);
+}
+
+:root {
 
     --shadow-color: var(--foreground);
 

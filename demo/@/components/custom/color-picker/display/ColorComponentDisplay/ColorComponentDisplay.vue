@@ -168,24 +168,32 @@ function figParts(component: string): { int: string; frac: string } {
 }
 
 /* TYPOGRAPHY-1 — the instrument's typographic rhythm: integer heavy,
- * fraction light + demoted, unit as a muted small-cap index. */
+ * fraction light + demoted, unit as a muted small-cap index.
+ *
+ * T.W4-4 — THE GUARD-THEN-ALPHA CURE (the W3-5 D6 contract handed here,
+ * h-dag D-4): the demotions were post-hoc opacity multiplies over an
+ * uncontrolled live-tinted ground — un-certifiable by construction
+ * (t-a11y F-4). De-emphasis now rides the CERTIFIED de-emphasis rung: the
+ * boot writer's `--ink-muted` (floor-clamped against the resting plate —
+ * exactly the tier these figures sit on). Weight demotion stays (weight is
+ * rhythm, not contrast); alpha dies. O-18's readout-frac row asserts. */
 .fig-int {
     font-weight: 600;
 }
 .fig-frac {
     font-weight: 300;
-    opacity: 0.55;
+    color: var(--ink-muted, var(--muted-foreground));
 }
 .fig-unit {
     font-variant: small-caps;
     letter-spacing: 0.04em;
-    opacity: 0.5;
+    color: var(--ink-muted, var(--muted-foreground));
     font-size: 0.55em;
     font-style: italic;
     margin-left: 0.08em;
 }
 .fig-comma {
-    opacity: 0.4;
+    color: var(--ink-muted, var(--muted-foreground));
     font-weight: 300;
 }
 </style>

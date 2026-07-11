@@ -448,20 +448,104 @@ for (const scheme of ["light", "dark"] as const) {
     });
 }
 
-// ---- THE W4-OWNED ROSTER ROWS (BORN-RED — h-dag D-4) -----------------------
-// The cure for these consumers lands at W4-3/W4-4 (the picker knot files are
-// W4's exclusive surface this round); the rows are minted NOW so the roster
-// is complete and W4 un-fixmes them against this settled contract.
+// ---- THE W4-OWNED ROSTER ROWS (un-fixme'd at T.W4-3/W4-4 — h-dag D-4) ------
+// The cures landed against the settled W3-5 contract: the readout demotions
+// ride `--ink-muted` (guard-then-alpha dead), the channel letters speak
+// certified ink on the console WELL (the labelColor self-camouflage conceit
+// dead), and the ConfigSliderPane rows (the SECOND slider population, M-34)
+// seat in the same well with the same certified de-emphasis.
 
-test.fixme(
-    "O-18 W4 row — readout fracs/units/commas (.fig-frac/.fig-unit/.fig-comma) ≥4.5:1 (guard-then-alpha cure = W4)",
-    async () => {},
-);
-test.fixme(
-    "O-18 W4 row — the channel letters (ComponentSliders label rail) ≥4.5:1 on the console well (W4-4)",
-    async () => {},
-);
-test.fixme(
-    "O-18 W4 row — the ConfigSliderPane slider labels (Atmosphere/Blob — the SECOND slider population, M-34) ≥4.5:1",
-    async () => {},
-);
+for (const scheme of ["light", "dark"] as const) {
+    test.describe(`O-18 W4 rows (${scheme})`, () => {
+        test.use({ colorScheme: scheme });
+
+        test("readout fracs/units/commas wear the certified de-emphasis rung ≥4.5:1", async ({
+            page,
+        }) => {
+            await bootAtOwnerColor(page);
+            for (const [sel, name] of [
+                [".fig-frac", "readout-frac"],
+                [".fig-unit", "readout-unit"],
+                [".fig-comma", "readout-comma"],
+            ] as const) {
+                const row = await censusElement(page, sel, name);
+                expect(row, `${name} mounted (lab readout)`).not.toBeNull();
+                expect(
+                    row!.ratio,
+                    `${name} ink ${row!.ink} vs ${row!.ground} — raw ${row!.rawColor} α ${row!.effectiveAlpha}`,
+                ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+            }
+        });
+
+        test("the channel letters ≥4.5:1 on the console well (rest rung)", async ({
+            page,
+        }) => {
+            await bootAtOwnerColor(page);
+            // Settle-poll (the census's standing idiom): the stagger
+            // entrance holds child opacity 0 through its delay — a bare
+            // read mid-animation honestly reports the ground.
+            const deadline = Date.now() + 8000;
+            let row: CensusRow | null = null;
+            for (;;) {
+                row = await censusElement(
+                    page,
+                    ".channel-rail-item",
+                    "channel-letter-rest",
+                );
+                if (row && row.ratio >= TEXT_FLOOR) break;
+                if (Date.now() > deadline) break;
+                await page.waitForTimeout(250);
+            }
+            expect(row, "rail letter mounted").not.toBeNull();
+            expect(
+                row!.ratio,
+                `letter ink ${row!.ink} vs well ground ${row!.ground} — raw ${row!.rawColor} α ${row!.effectiveAlpha} stack [${row!.stack.join(" | ")}]`,
+            ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+        });
+
+        test("ConfigSliderPane rows (Atmosphere — the SECOND slider population, M-34) ≥4.5:1", async ({
+            page,
+        }) => {
+            // The direct route (no admin meta): the config surface mounts
+            // without the dock's admin-mode dance.
+            await page.goto("/#/atmosphere");
+            await expect(
+                page.getByRole("main", { name: "Color tool panes" }),
+            ).toBeVisible();
+            await expect(
+                page.locator(".config-console .configurator-row").first(),
+            ).toBeVisible();
+            const settle = async (
+                selector: string,
+                name: string,
+            ): Promise<CensusRow | null> => {
+                const deadline = Date.now() + 8000;
+                let row: CensusRow | null = null;
+                for (;;) {
+                    row = await censusElement(page, selector, name);
+                    if (row && row.ratio >= TEXT_FLOOR) return row;
+                    if (Date.now() > deadline) return row;
+                    await page.waitForTimeout(250);
+                }
+            };
+            const label = await settle(
+                ".config-console .configurator-row label",
+                "config-row-label",
+            );
+            expect(label, "config row label mounted").not.toBeNull();
+            expect(
+                label!.ratio,
+                `label ink ${label!.ink} vs well ${label!.ground}`,
+            ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+            const value = await settle(
+                ".config-console .configurator-row .font-mono",
+                "config-row-live-value",
+            );
+            expect(value, "config row live value mounted").not.toBeNull();
+            expect(
+                value!.ratio,
+                `live value ink ${value!.ink} vs well ${value!.ground} — raw ${value!.rawColor} α ${value!.effectiveAlpha}`,
+            ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+        });
+    });
+}
