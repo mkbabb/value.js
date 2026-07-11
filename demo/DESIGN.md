@@ -228,6 +228,36 @@ The two families coexist by design — Family A is the everyday rhythm (where th
 
 **§ Easings.** `var(--ease-standard)` (decel cubic, default), `var(--ease-decelerate)` / `var(--ease-accelerate)` (entry/exit), `var(--spring-snappy)` / `var(--spring-smooth)` / `var(--ease-spring)` (spring physics for transforms). The `--motion-ease-*` aliases (`--motion-ease-standard`, etc.) point at the same curves; the unprefixed names are the consumer-facing surface.
 
+**§ The liquid two-channel law (T.W5 — T-14/D7, the motion table of record).**
+SPATIAL (translate/scale travel) = a spring at ITS OWN clock (`--spring-<name>` @
+`--spring-<name>-duration` — a normalized spring `linear()` reaches ~0.5 by ~6% of ANY
+clock, so it NEVER rides a generic `--duration-*`); EFFECTS (color/opacity/box-shadow) =
+bezier (`--ease-standard`/`--ease-out` @ `--duration-fast`/`--duration-normal`); EXIT =
+bezier, strictly SHORTER than its enter, never an overshoot. The law is INHERITED, not
+per-site: interactive scales consume the producer atoms (`btn-interactive`,
+`.interactive-item`, `.tap-squish` — the scale leg reads `--transition-liquid-spatial`),
+cards consume the cartoon register (`cartoon-surface` + `.cartoon-cast` +
+`useLiquidPress`), arrivals/settles key the three `vj-*` families (animations.css).
+
+| Register (T.W5 row) | Site | Pairing | Status |
+|---|---|---|---|
+| Pane swap ENTER (R2) | `animations.css` `.pane-wrapper--* > .vj-enter-enter-active` | transform `--spring-snappy` @ `--spring-snappy-duration` (PKT-2 arm (i) — the ~0.3s preset unanswered at this cut) | landed |
+| Pane swap LEAVE (R3) | same block, leave-active | opacity+transform `--duration-fast` `--ease-out` — the exit law | landed |
+| Card cartoon (R4) | `PaletteCard.vue` root | producer `cartoon-surface` register: translate/scale `--ease-cartoon-punch` @ `--duration-normal`, shadow `--ease-standard`, press squash + lagging caster | landed |
+| Interactive scales (R5) | editor buttons, add-slot, send-btn (`btn-interactive`); `.channel-rail-item` press leg (`--spring-press` @ 0.16s) | `--transition-liquid-spatial` @ `--spring-smooth-duration`; press @ its own clock | landed |
+| Skeleton settle (R8) | `BrowsePane.vue` state chain; extract already settled (W3-2) | `vj-morph` out-in; stagger dormant on the PKT-4 seams | landed |
+| `.pane-shell` nudge (R11) | `ColorPicker.vue` | `--transition-liquid-spatial` @ `--spring-smooth-duration` | landed |
+| Bare-utility default (R1) | 37-file census | `--duration-fast` + `--ease-standard` via the `@theme` alias (style.css:119) — DEAD until PKT-1 clears the dist `:root` 150ms clobber; NO demo cascade arms-race | producer-gated (O-16 row EXPECTED-RED) |
+| Collapse legs (R6/R7 — Tranche B) | `vj-morph`/`vj-celebrate` `max-height` legs; dock action-bar grid slot | compositor re-cut per the PKT-3 recipe; NEVER retimed on layout properties (PI-5) | PKT-3-gated, untouched |
+| Gradient stop handle (R9) | `GradientStopEditor.vue` | `--spring-snappy` @ `--spring-snappy-duration` — the retime rides INSIDE W6-2's re-author (T-46); W5's O-16 census owns the row's verification | handed across → W6-2 |
+| Dialog scrim (R10) | ~~`PaletteDialog.vue:310`~~ | the 0.55s scrim DIED with the W0-3 CC-6 PaletteDialog excision; the live dialogs are glass-ui re-exports on the producer bloom clock (F6 KEEP) | discharged by excision |
+| **KEEP** — view-accent sweep (F7.3) | `DockViewSelect.vue` `--accent-view` @ `--duration-panel` (0.55s) `--ease-standard` | EFFECTS-on-bezier, correct channel; the 0.55s is a DELIBERATE stately sweep (W7-4's surviving voice) — kept, stated here so it never reads as a stray | KEEP, do not retime |
+| **KEEP** — tracked canvas (F7.4) | `ImageEyedropper.vue` `.eyedropper-canvas` transform `--duration-fast` `--ease-decelerate` | canon "tracked = bezier": a position-TRACKED transform follows the pointer/gesture, it does not travel on its own — a spring here would fight the hand | KEEP, do not retime |
+
+The KEEP set (t-transitions-liquid F6) is canon and not re-litigated: `vj-morph`/
+`vj-celebrate` enters, the un-scoped `vj-enter` family, the glass-ui
+reveal/dock/tabs registers, the atmosphere arrival fade, and the PRM guard chain.
+
 **§ Bespoke literals (KEEP, not migrated).** Some demo animations carry durations that do not exactly match a glass-ui token, and per `feedback_preserve_animations.md` are preserved rather than force-fit:
 
 | Site | Literal | Why kept |
