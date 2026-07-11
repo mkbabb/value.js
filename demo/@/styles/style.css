@@ -264,21 +264,25 @@
      * spectrumLuma helper, flip at 0.5). The overlay canvas resolves all four
      * via a computed-style probe; the hatch is drawn twice, registered.
      *
-     * T.W6-1 (T-6, the R5 recalibrated band): the W5-8 "subtle" register was
-     * an explicit owner recalibration UP — the old 9%/12% hatch + 28%/50%
-     * edge + 1px stroke measured 33/23 per-255 luma delta on the live plate
-     * (sub-texture); the band below reads as designed security-paper ribbing
-     * (measured 59 light / 45 dark — the O-19 floor). The 4.75px+1.25px tile
-     * MUST agree with `gamut-ink.ts` WEBBING (period 6 / weight 1.25) — two
-     * renderings of ONE register; a drift between them is a defect. */
+     * T.W6-1 (T-6, the R5 recalibrated band, re-judged on the W3 plate):
+     * the W5-8 "subtle" register was an explicit owner recalibration UP —
+     * the old 9%/12% hatch + 28%/50% edge + 1px stroke measured 33/23
+     * per-255 luma delta on the live plate (sub-texture). The R5 candidate
+     * center (22% ink) was judged on the pre-W1 wash-era plate; on the W3
+     * WELL ground it re-measures 46/38 — under the O-19 floor (≥59 L /
+     * ≥45 D), so the floor rules the mix: 30% ink / 36% paper measures
+     * 61/51 on the live W3 plate at desktop + 390 (intensity moves, the
+     * architecture stands). The 4.75px+1.25px tile MUST agree with
+     * `gamut-ink.ts` WEBBING (period 6 / weight 1.25) — two renderings of
+     * ONE register; a drift between them is a defect. */
     --gamut-edge:        color-mix(in oklab, var(--foreground) 45%, transparent);
     --gamut-hatch:       repeating-linear-gradient(45deg,
                            transparent 0 4.75px,
-                           color-mix(in oklab, var(--foreground) 22%, transparent) 4.75px 6px);
+                           color-mix(in oklab, var(--foreground) 30%, transparent) 4.75px 6px);
     --gamut-edge-paper:  color-mix(in oklab, var(--background) 65%, transparent);
     --gamut-hatch-paper: repeating-linear-gradient(45deg,
                            transparent 0 4.75px,
-                           color-mix(in oklab, var(--background) 28%, transparent) 4.75px 6px);
+                           color-mix(in oklab, var(--background) 36%, transparent) 4.75px 6px);
 
     /* ── The alpha transparency checker (S owner-ruling 2026-07-05) ──
      * ONE recipe, one home: the idiomatic transparency ground every alpha-
