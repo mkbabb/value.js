@@ -14,10 +14,15 @@
  *     `derivedLightness`) composited through the material ladder's rung
  *     alphas (D1: resting plate · floating chrome/menus · the opaque well).
  *   - `certifyAccentInk` — the live-color ink path: the library's OKLab
- *     distance guard, then gamut-map, then a WCAG floor WALK — a pass by
- *     construction, never a distance heuristic against an assumed number
- *     (the `resolveSealInk`/`--seal-ink` exemplar, generalized — it resolves
- *     ink from the ACTUAL surface it sits on).
+ *     distance guard, then a WCAG floor WALK along the hue's GAMUT CUSP — a
+ *     pass by construction, never a distance heuristic against an assumed
+ *     number (the `resolveSealInk`/`--seal-ink` exemplar, generalized — it
+ *     resolves ink from the ACTUAL surface it sits on). T.W6.5 row 7 (T-35,
+ *     t33-research §5.1): each walk step rides the MOST CHROMATIC in-gamut
+ *     point at its L (the pick's own C where the hue slice permits, the
+ *     boundary where it narrows) — the former constant-C-then-clamp walk
+ *     collapsed the owner brick to cream (`oklch(0.97 0.014 32.6)`); "the
+ *     current contrast friendly color" now stays the CURRENT color.
  *   - `resolveMutedInk` — de-emphasis as a designed RUNG of certified ink: a
  *     φ⁻¹-complement step of the foreground toward the surface, floor-clamped
  *     by `wcagContrastRatio`, so "quieter" and "illegible" can never collapse
@@ -42,10 +47,9 @@ import {
     OKLCHColor,
     computeSafeAccent,
     contrastColor,
-    gamutMapOKLab,
+    findCusp,
+    findGamutIntersection,
     getColorSpaceBound,
-    rawOklabToOklch,
-    rawOklchToOklab,
     wcagContrastRatio,
 } from "@mkbabb/value.js/color";
 import { clamp } from "@mkbabb/value.js/math";
@@ -57,6 +61,11 @@ export type InkSurface = "page" | "resting" | "floating" | "well" | "chrome";
 
 /** WCAG 1.4.3 small-text contrast floor — the spec constant. */
 export const TEXT_CONTRAST_FLOOR = 4.5;
+
+/** WCAG 1.4.11 non-text (graphics) contrast floor — the spec constant. The
+ *  GRAPHICS rung of the same contract (T.W6.5 row 9 / T-44a): slider tracks,
+ *  meter rails, and their kin certify at THIS floor against their ground. */
+export const GRAPHICS_CONTRAST_FLOOR = 3;
 
 /**
  * Certification headroom: the floor walk lands at `floor + headroom`, so the
@@ -210,13 +219,21 @@ export function resolveSurfaceLightness(
 
 // --- the certification walk ---------------------------------------------------
 
-/** Gamut-map a raw OKLCH triple to the sRGB cusp (hue-exact, library map). */
-function mapToGamut(L: number, C: number, H: number): RawOklch {
-    const [l, a, b] = rawOklchToOklab(L, C, H);
-    const [lm, am, bm] = gamutMapOKLab(l, a, b);
-    const [Lm, Cm, Hm] = rawOklabToOklch(lm, am, bm);
-    // Keep the INPUT hue at near-zero chroma (the stableHue lesson).
-    return { L: Lm, C: Cm, H: Cm < 1e-6 ? H : Hm };
+/**
+ * The hue's gamut geometry, hoisted once per walk: the max in-gamut chroma at
+ * lightness L along a FIXED hue is the horizontal ray from (L, 0) through
+ * (L, 1) meeting the sRGB boundary — the library's own okhsl idiom
+ * (`findGamutIntersection` with L0 = L1 returns t = C_max directly, off the
+ * hue's `findCusp` solve). This is the CUSP the certification walk rides
+ * (T.W6.5 row 7 · t33-research §5.1b).
+ */
+function hueGamutCeiling(H: number): (L: number) => number {
+    const hr = (H * Math.PI) / 180;
+    const a_ = Math.cos(hr);
+    const b_ = Math.sin(hr);
+    const cusp = findCusp(a_, b_);
+    return (L: number) =>
+        Math.max(0, findGamutIntersection(a_, b_, L, 1, L, cusp));
 }
 
 /** Public-domain OKLCH color for the WCAG leaves. */
@@ -232,21 +249,40 @@ function ratioAgainst(ink: RawOklch, surfaceL: number): number {
 }
 
 /**
- * Walk an ink's L away from the surface until it clears `target`, gamut-
- * mapping each step (the view-accents WCAG-walk idiom, generalized to the
- * text floor). Direction is CHOSEN BY REACH — the WCAG metric is asymmetric
- * (from a mid ground, black ink tops out at ~3.5:1 while white clears 6:1),
- * so the walk prefers the ink's current side of the surface but flips when
- * the other side's NEUTRAL endpoint bound is strictly stronger and the
- * current side cannot reach the target. When NO side can reach the target
- * (a theoretical mid-ground sliver), the walk lands at the strongest
- * achievable ink — which still clears the 4.5 floor at the WCAG worst case.
+ * Walk an ink's L away from the surface until it clears `target`, riding the
+ * hue's GAMUT CUSP at every step (the view-accents WCAG-walk idiom,
+ * generalized to the text floor). Direction is CHOSEN BY REACH — the WCAG
+ * metric is asymmetric (from a mid ground, black ink tops out at ~3.5:1 while
+ * white clears 6:1), so the walk prefers the ink's current side of the
+ * surface but flips when the other side's NEUTRAL endpoint bound is strictly
+ * stronger and the current side cannot reach the target.
+ *
+ * THE CUSP WALK (T.W6.5 row 7 · T-35 · t33-research §5.1): each candidate
+ * carries `C = min(inkC, C_max(L))` — the ink's OWN chroma wherever the hue
+ * slice permits it, the boundary where the slice narrows — never the former
+ * constant-C-then-clamp, whose per-step gamut projection collapsed chroma
+ * monotonically (the cream collapse: the owner brick walked to
+ * `oklch(0.97 0.014 32.6)`). The certified ink lands at the most chromatic
+ * point that clears the floor; chroma concedes further ONLY at the gamut's
+ * physical edge (the terminal yield below), because the floor outranks the
+ * identity — but nothing else does.
+ *
+ * When NO side can reach the target (a theoretical mid-ground sliver), the
+ * walk lands at the strongest achievable ink — which still clears the 4.5
+ * floor at the WCAG worst case.
  */
 function walkToFloor(ink: RawOklch, surfaceL: number, target: number): RawOklch {
-    let cur = mapToGamut(ink.L, ink.C, ink.H);
+    const ceilingAt = hueGamutCeiling(ink.H);
+    const candidate = (L: number): RawOklch => ({
+        L,
+        C: Math.min(ink.C, ceilingAt(L)),
+        H: ink.H,
+    });
+
+    let cur = candidate(clamp(ink.L, 0.02, 0.98));
     if (ratioAgainst(cur, surfaceL) >= target) return cur;
 
-    // Neutral endpoint bounds (C=0 — the walk collapses chroma near the
+    // Neutral endpoint bounds (C=0 — the cusp pinches to neutral at the
     // extremes anyway, and the neutral bound is the honest ceiling).
     const upMax = ratioAgainst({ L: 0.98, C: 0, H: ink.H }, surfaceL);
     const dnMax = ratioAgainst({ L: 0.02, C: 0, H: ink.H }, surfaceL);
@@ -260,7 +296,18 @@ function walkToFloor(ink: RawOklch, surfaceL: number, target: number): RawOklch 
         i < MAX_WALK_STEPS && ratioAgainst(cur, surfaceL) < target;
         i++
     ) {
-        cur = mapToGamut(clamp(cur.L + dir * WALK_STEP_L, 0.02, 0.98), cur.C, ink.H);
+        cur = candidate(clamp(cur.L + dir * WALK_STEP_L, 0.02, 0.98));
+    }
+
+    // Terminal chroma yield: only when even the L-extreme candidate sits
+    // under target does chroma concede toward neutral (halving steps — the
+    // old walk's neutral-endpoint guarantee, preserved).
+    for (
+        let i = 0;
+        i < 12 && ratioAgainst(cur, surfaceL) < target && cur.C > 1e-4;
+        i++
+    ) {
+        cur = { L: cur.L, C: cur.C / 2, H: cur.H };
     }
     return cur;
 }
@@ -272,13 +319,15 @@ const asOklchCss = ({ L, C, H }: RawOklch): string =>
 
 /**
  * Certify a live-color INK against the surface it actually sits on: the
- * library's OKLab-distance guard (hue-preserving), then gamut-map, then the
- * WCAG floor walk. Returns the ORIGINAL string when it already clears the
- * floor (fidelity — no needless re-expression), else a certified `oklch(…)`.
+ * library's OKLab-distance guard (hue-preserving), then the WCAG floor walk
+ * along the hue's gamut cusp. Returns the ORIGINAL string when it already
+ * clears the floor (fidelity — no needless re-expression), else a certified
+ * `oklch(…)`.
  *
  * @param css      any CSS color (the live pick, a palette color)
  * @param surfaceL the resolved surface lightness (`resolveSurfaceLightness`)
- * @param floor    WCAG floor (default 4.5 — text; pass 3 for graphics ink)
+ * @param floor    WCAG floor (default 4.5 — text; pass
+ *                 `GRAPHICS_CONTRAST_FLOOR` (3) for graphics ink)
  */
 export function certifyAccentInk(
     css: string,
@@ -291,9 +340,12 @@ export function certifyAccentInk(
 
     // 1 — the library's own guard (moves L away from the surface, hue kept).
     const safe = computeSafeAccent(raw.L, raw.C, raw.H, surfaceL);
-    // 2/3 — map to gamut + floor-walk to the certified target.
+    // 2 — the cusp floor-walk to the certified target. The walk carries the
+    //     PICK's chroma (raw.C), not the guard's extremity-tapered safe.C —
+    //     the cusp ceiling owns the gamut honesty per step, so the taper's
+    //     pre-emptive desaturation would only re-open the §5.1 collapse.
     const certified = walkToFloor(
-        { L: safe.L, C: safe.C, H: raw.H },
+        { L: safe.L, C: raw.C, H: raw.H },
         surfaceL,
         floor + CERTIFY_HEADROOM,
     );
