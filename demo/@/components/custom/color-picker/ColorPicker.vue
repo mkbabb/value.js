@@ -10,15 +10,17 @@
                  symmetric now that the blob reservation lives on the title row
                  alone (S.W4-2 / S-19). -->
             <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col gap-y-1 items-start">
-                <!-- Title row: the blob's static footprint RESERVATION (D1-4:
-                     by construction, never a measured nudge) is scoped HERE —
-                     the bead occupies the title band only, so only the title
-                     pays for the corner-break; the hero numbers below span the
-                     FULL header width and Lab inks ONE line at the desktop
-                     rung (S.W4-2 / S-19). W6-4: the base arm reserves for the
-                     <lg hand-scale bead (~67px, inset 1.75rem → pr-28); lg
-                     keeps pr-36 for the 11rem bead. -->
-                <div class="w-full min-w-0 pr-28 lg:pr-36">
+                <!-- Title row = THE BEAD'S BAND (T.W4-5 · D8; t-contradictions
+                     C1 order: the seat re-derives AGAINST the settled ×φ title
+                     and the freed tuple). The blob's reservation is scoped
+                     HERE and derived from the ONE seat formula (never a
+                     measured nudge, never a hand px): padding-right clears
+                     the visible bead's horizontal extent (0.76·fp from the
+                     card edge); min-height hosts the bead's vertical extent
+                     so the READOUT below starts clear of it at EVERY band —
+                     the line-lock capacity keeps the full header width by
+                     construction. Both bind in the scoped block (.title-row). -->
+                <div class="title-row w-full min-w-0">
                     <ColorSpaceSelector
                         :model-value="model.selectedColorSpace"
                         v-model:open="selectedColorSpaceOpen"
@@ -55,13 +57,18 @@
             </CardContent>
         </Card>
 
-        <!-- W6-4 (S.W6) — CORNER-BREAK LAW, slot-owned (genesis §3.2; Q7 full
-             presence at EVERY viewport): the blob is the slot's TOPMOST
-             ORNAMENT, a LATER SIBLING of the Card — source order + the slot's
-             cross-pane layer (style.css `.pane-wrapper--left`) kill the S-4
-             About-card burial with ZERO z-index on the instance (seed
-             §Learnings 3). R.W3 D2's dual-hero diagonal still reads. Geometry:
-             `.hero-blob-anchor` below.
+        <!-- T.W4-5 — THE SEAT (D8 · Q3 "Flush." · the T-30 centre-ward
+             rider): the bead is a PAPERWEIGHT ON THE PLATE — wrapper flush
+             to the card corner (--blob-seat: 0), the WHOLE composition
+             seated INSIDE the card at every viewport by the containment
+             identity (orbit-reach 0.49 ≤ 0.5 of the wrapper ⇒ no clip, no
+             dock collision, no seam skewer, no About amputation — BY
+             CONSTRUCTION; only the transparent 1.6× canvas overscan crosses
+             the card edge, clipped by .app-layout). The R3 corner-break law
+             (center-on-radius-origin + ≥25%-overflow arms + the <lg 8rem
+             hand arm) is DEAD; ONE cqi formula sizes every band. The z law
+             is the NAMED --z-ornament tier (Q3b: content-top, chrome above).
+             Geometry: `.pane-shell`/`.hero-blob-anchor` below.
 
              T.W2-4 — THE EMERGE BEAT (B4): the blob EMERGES, never appears.
              `blobReady` stays the W3-2 IDLE deferral (work defers);
@@ -109,6 +116,7 @@ import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
 import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
+import "./seat.css";
 
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import SpectrumCanvas from "./controls/SpectrumCanvas/SpectrumCanvas.vue";
@@ -355,40 +363,10 @@ onUnmounted(() => {
     transition: transform var(--duration-normal) var(--ease-standard);
 }
 
-/* W6-4 (S.W6) — the corner-break placement LAW (the slot owns the footprint
- * token AND the anchor; HeroBlob only consumes `--blob-fp`). Size identity:
- * canvas = 1.6× wrapper, POS_SCALE 0.625 — the factors cancel, so visible
- * bead px = 2·bodyRadius·footprint exactly (seed §Learnings 2; bodyRadius
- * 0.26 via HeroBlob's HERO register).
- *
- * DESIGN CALL (rider-2's fork, recorded): bead CENTER on the card's
- * CORNER-RADIUS ORIGIN — the integrated "wet on the plate" composition, NOT
- * the detached corner-POINT relocation. At the HERO body the per-broken-edge
- * overflow is (R − r)/2R ≈ 33% ≥ the ratified 25% law. */
-.hero-blob-anchor {
-    position: absolute;
-    /* <lg — the hand-scale arm (Q7 presence DESIGNED, never toggled): fixed
-     * 8rem footprint (bead ≈ 67px). Same vertical law (top = r − fp/2 → the
-     * TOP edge breaks at ≈ 26%); the RIGHT edge stays UNBROKEN so the 1.6×
-     * canvas overscan stays inside the viewport (the forbidden 390px
-     * clipped-smudge state, genesis §3.3): right 1.75rem puts canvas-right
-     * ≈ viewport − 4px at 390 (and clears 320). ONE broken edge is the
-     * hand-scale grammar of the same law. */
-    --blob-fp: 8rem;
-    top: calc(var(--radius-card) - var(--blob-fp) / 2);
-    right: 1.75rem;
-}
-
-@media (min-width: 1024px) {
-    .hero-blob-anchor {
-        /* lg+ — the ratified rider-1 footprint (SEEDS.md w6 rider 1; the
-         * 11rem floor binds on the 32rem-ruled dual grid — 26cqi of 512px =
-         * 133px; .pane-wrapper is the cqi container). Bead center EXACTLY on
-         * the radius origin: BOTH broken edges carry the ≥25% overflow. */
-        --blob-fp: clamp(11rem, 26cqi, 13rem);
-        right: calc(var(--radius-card) - var(--blob-fp) / 2);
-    }
-}
+/* T.W4-5 — THE SEAT lives in the colocated grammar sheet (./seat.css —
+ * imported in <script setup>; the W2-close overture.css precedent: every
+ * seat selector is unique to THIS template, so the global rules bind
+ * identically to the former scoped ones; PP-8 cap seam). */
 
 /* T.W2 beat grammar — the B4 EMERGE POSE (`blob-emerge` on
  * `.hero-blob-anchor`, no-pop law) and the B1 plate SHADOW CAST-IN

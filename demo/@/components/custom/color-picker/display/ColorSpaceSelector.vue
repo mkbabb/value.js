@@ -14,15 +14,25 @@
             }
         "
     >
-        <!-- The trigger OWNS its face (`font-display italic` in its own class
-             list — the DockViewSelect pattern, host-independent; the prior
-             ride-the-CardHeader-cascade dependency is retired). Size keeps
-             riding the producer `size="audacious"` rung; the ink ladder rides
-             the `--space-title-ink` custom property so the scoped block owns
-             rest/hover/open as ONE grammar in both hosts (S-21: zero
-             per-instance overrides). The caret is the ONLY rest affordance —
-             producer-owned glyph; the em-relative nudge optically centers it
-             against the italic title's x-height at every rung. -->
+        <!-- The trigger OWNS its face — ALL FOUR AXES (T.W4-1 · O-10a; the
+             S-21 law extended to weight): `font-display italic` + the scoped
+             font-size/font-weight below live on the trigger's own class list,
+             host-independent by construction. WEIGHT rides the :root
+             `--type-weight-display` pin (the About-700 inheritance bug —
+             t-title-typography F2 — is dead: weight no longer inherits from
+             any host heading). SIZE is the ONE sanctioned host prop (F3):
+             the picker plate keeps the explicit display-3 rung (Q11a — two
+             token steps, ×φ, above the retired audacious/display-1 basis;
+             the producer trigger ladder tops out at display-1, so the rung
+             lands as the exact shipped token in the scoped block — the P10
+             size-station consume is the BOOKED swap); the About host passes
+             `inline` and the trigger inks `1em`, riding its sentence (and
+             its compositor shrink) by construction. The ink ladder rides
+             `--space-title-ink` so the scoped block owns rest/hover/open as
+             ONE grammar in both hosts. The caret is the ONLY rest
+             affordance — producer-owned glyph; size + nudge are em-relative
+             so the affordance holds its optical ratio at every rung (a
+             fixed-px caret/underline reads hairline at the ×φ landing). -->
         <!-- Open-state caret (seed rider 1, DISCHARGED-BY-PRODUCER): glass-ui's
              SelectTrigger chevron now keys off the TRIGGER's data-state
              (`in-data-[state=open]:rotate-180`, SelectTrigger.vue — the L18
@@ -34,7 +44,10 @@
             variant="ghost"
             size="audacious"
             :style="{ '--space-title-ink': safeAccent }"
-            class="space-trigger inline-flex w-fit h-fit gap-2 align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]"
+            :class="[
+                'space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]',
+                inline ? 'space-trigger--inline' : '',
+            ]"
         >
             <SelectValue class="w-full" />
         </SelectTrigger>
@@ -101,9 +114,13 @@ import {
 import type { DisplayColorSpace } from "..";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
 
-const { modelValue, cssColor } = defineProps<{
+const { modelValue, cssColor, inline = false } = defineProps<{
     modelValue: string;
     cssColor: string;
+    /** The ONE sanctioned host axis (T.W4-1 · S-21 restated): `inline` hosts
+     *  (the About sentence) ink `1em` and ride the sentence's rung + shrink;
+     *  the default is the picker plate's explicit display-3 rung (Q11a). */
+    inline?: boolean;
 }>();
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
@@ -168,22 +185,57 @@ function specimenFor(space: DisplayColorSpace): string {
 .space-trigger {
     color: color-mix(in srgb, var(--space-title-ink) 86%, transparent);
     transition: color var(--duration-fast) var(--ease-standard);
+    /* T.W4-1 — the ×φ landing (Q11a: the glass-ui ladder is the sizing
+     * AUTHORITY; two token steps = one full golden rung). The producer
+     * trigger's size grammar tops out at audacious→display-1, so the plate
+     * rung lands HERE as the exact shipped token — never a minted value —
+     * on the trigger's own class list (unlayered scoped beats the layered
+     * `text-dropdown` utility the producer size rung feeds). BOOKED SWAP:
+     * retires onto the P10 SelectTrigger size station the day it ships. */
+    font-size: var(--type-display-3);
+    /* The non-bold edict, host-independent BY CONSTRUCTION (the F2 kill:
+     * About's h3 700 can no longer reach the trigger through inheritance).
+     * Rides the :root pin — the P10 weight-tokenization booked swap. */
+    font-weight: var(--type-weight-display);
+    /* Em-relative caret gutter (was gap-2 = 0.19em at the display-1 basis —
+     * the same optical ratio carried up the rung). */
+    gap: 0.19em;
     /* The excision, enforced (seed rider 2): the producer's control padding
      * (`px-3 py-2`) must NOT survive — the title sits flush with the plate's
      * typography grid. This SCOPED block outranks the utility list (unlayered
      * beats @layer utilities); glass-ui's slim `cn` does not resolve a p-0
-     * against the producer's px-3. 0.25rem bottom is descender room for the
-     * italic face, not a padding rhythm. */
-    padding: 0 0 0.25rem;
+     * against the producer's px-3. The bottom is descender room for the
+     * italic face, not a padding rhythm — em-relative so it scales with the
+     * rung (0.095em ≈ the 0.25rem it carried at the display-1 basis). */
+    padding: 0 0 0.095em;
     margin: 0;
 }
 
+/* The inline host (About): the trigger rides its SENTENCE — size 1em means
+ * the member inherits the h3's rung AND its compositor shrink with zero
+ * per-host keyframe wiring (t-title-typography F3's desync cure). */
+.space-trigger--inline {
+    font-size: 1em;
+}
+
+/* Em-relative caret (T.W4-1): the producer chevron ships h-4/w-4 fixed px —
+ * at the ×φ title that reads as a shrunken foreign glyph. 0.382em (φ⁻²) is
+ * today's exact optical ratio (1rem at the 41.89px display-1 cap), carried
+ * as a ratio so both hosts and every band keep the same caret weight. */
+.space-trigger :deep(svg) {
+    width: 0.382em;
+    height: 0.382em;
+}
+
 /* text-decoration does not propagate into flex items — the underline lives
- * on the cloned SelectValue label span itself. */
+ * on the cloned SelectValue label span itself. Thickness/offset are
+ * EM-RELATIVE (T.W4-1): the 1px/3px pair read hairline at the ×φ landing —
+ * 0.024em/0.072em are the same pair expressed as the display-1-basis ratio,
+ * so the editorial link grammar holds its weight at every rung. */
 .space-trigger > :deep(span) {
     text-decoration-line: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
+    text-decoration-thickness: 0.024em;
+    text-underline-offset: 0.072em;
     text-decoration-color: transparent;
     transition: text-decoration-color var(--duration-fast) var(--ease-standard);
 }

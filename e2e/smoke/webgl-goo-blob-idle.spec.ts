@@ -30,13 +30,12 @@ import {
  * 2700ms — HeroBlob first poses the blob sleepy, THEN freezes that frame).
  * PARK_SETTLE_MS = N + 1500 = 3500ms keeps 800ms slack past park completion.
  */
-const BLOB_IDLE_MS = 2000; // === HeroBlob.vue BLOB_IDLE_MS
-const PARK_SETTLE_MS = BLOB_IDLE_MS + 1500; // past N + the 700ms sleepy pose
-const SAMPLE_WINDOW_MS = BLOB_IDLE_MS + 500; // the idle sampling window (> N, §6.1)
-// A couple of straggler frames may land as the park engages (the "before"
-// sample can be captured one frame ahead of the final park frame); a live loop
-// would add HUNDREDS over the window, so a small slack cannot mask a regression.
-const PARKED_DRAW_SLACK = 5;
+// T.W4-5 (PI-4): the park-latency contract lives in the ONE shared fixture.
+import {
+    PARK_SETTLE_MS,
+    SAMPLE_WINDOW_MS,
+    PARKED_DRAW_SLACK,
+} from "./fixtures/blob-timing";
 
 /** Read-only wall-clock wait (the reactivity/safari-spec `performance.now()` idiom). */
 async function waitMs(page: import("@playwright/test").Page, ms: number): Promise<void> {

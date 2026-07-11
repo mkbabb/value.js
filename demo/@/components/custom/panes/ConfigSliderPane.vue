@@ -109,10 +109,17 @@ function resetDefaults() {
                 <!-- Default slot for extra controls (e.g. AuroraPane select rows) -->
                 <slot />
 
+                <!-- T.W4-4 THE POPULATION CLAUSE (M-34): the console grammar
+                     extends to the app's SECOND slider population — the
+                     sections seat in the SAME rung-2 well (.console-well,
+                     the one-home class; P3 swap booked), live values wear
+                     certified ink, rows carry the touch rung <lg. O-18's
+                     config-slider rows judge this surface. -->
                 <div
                     v-if="sections.length > 0"
-                    class="flex flex-col gap-5 px-4 sm:px-6 pt-2 pb-6"
+                    class="px-4 sm:px-6 pt-2 pb-6"
                 >
+                    <div class="config-console console-well flex flex-col gap-5">
                     <div
                         v-for="section in sections"
                         :key="section.title"
@@ -145,6 +152,7 @@ function resetDefaults() {
                             />
                         </ConfiguratorRow>
                     </div>
+                    </div>
                 </div>
             </div>
 
@@ -170,6 +178,25 @@ function resetDefaults() {
 
 <style scoped>
 @reference "../../../styles/style.css";
+
+/* T.W4-4 (the population clause): the console well's inner rhythm + the
+ * certified-ink cure for the row's live value (the producer ConfiguratorRow
+ * names it `text-muted-foreground/70` — a guard-then-alpha ink over a live
+ * tint; on the well it re-inks at the certified de-emphasis rung
+ * `--ink-muted`, the D6 contract's stamped token) + the <lg touch rung
+ * (≥44px slider rows — the producer's own --dock-touch-target). */
+.config-console {
+    padding: 0.75rem 0.875rem;
+}
+.config-console :deep(.configurator-row .font-mono) {
+    color: var(--ink-muted, var(--muted-foreground));
+}
+@media (max-width: 1023px) {
+    .config-console :deep(.configurator-row > div:last-child) {
+        min-height: var(--dock-touch-target, 2.75rem);
+        align-items: center;
+    }
+}
 
 .config-section-header {
     border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);

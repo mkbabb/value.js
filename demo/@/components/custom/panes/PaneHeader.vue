@@ -11,8 +11,14 @@
     <div class="pane-header px-4 sm:px-6 pt-4 pb-2 sticky top-0 z-header">
         <!-- Q5 (S.W4 W4-7): the pane title speaks the DISPLAY voice — the ONE
              site; all 9 panes inherit. The three-voice law's hierarchy fix:
-             the largest text on a pane must not speak the body sans. -->
-        <h3 class="pane-header-title font-display text-heading"><slot /></h3>
+             the largest text on a pane must not speak the body sans.
+             T.W4-1 (D2 · Q11a): the rung moves one full golden step,
+             heading → display-1 (×φ at the ≥1440 cap; phones floor-pinned =
+             the deliberate no-op, t-mobile F-4.2 — About is an honest 2-line
+             lock <sm). Weight rides the :root `--type-weight-display` pin
+             (non-bold; the P10 booked swap) — `text-heading`'s hardcoded 700
+             is retired from this surface. -->
+        <h3 class="pane-header-title font-display"><slot /></h3>
         <div v-if="description" class="pane-header-desc-wrap">
             <p class="text-caption text-muted-foreground">{{ description }}</p>
         </div>
@@ -85,6 +91,20 @@ defineProps<{
     opacity: var(--pane-veil-rest);
 }
 
+/* T.W4-1 — the pane-title rung (D2 · Q11a): heading → display-1, one full
+ * golden step, on the title's OWN rule (the producer `text-heading` utility
+ * hardcodes 700 — retired here; the weight rides the :root pin, the P10
+ * booked swap). Leading/tracking/balance are the producer's own display-rung
+ * pairing (`text-display`), carried verbatim so the landing is the exact
+ * shipped rung, not a hybrid. */
+.pane-header-title {
+    font-size: var(--type-display-1);
+    line-height: var(--type-leading-display);
+    letter-spacing: var(--type-tracking-display);
+    font-weight: var(--type-weight-display);
+    text-wrap: balance;
+}
+
 .pane-header-desc-wrap {
     margin-top: 0.125rem;
 }
@@ -93,11 +113,19 @@ defineProps<{
     /* The one tunable: the ratified rest floor (Q9 bracket [0.45, 0.65] of
      * the veil; effect bracket 27–39% added card material — see above). */
     --pane-veil-rest: 0.52;
-    /* W3-4 owns the COMPOSITOR CONVERSION; W4-1 re-targets the endpoints
-     * (rest display-1 → stuck heading/display-1). 0.695 transposes the
-     * retired font-size keyframe's own endpoints (--type-heading →
-     * --type-prose) ≈ the producer's --card-title-shrink-ratio. */
-    --pane-title-shrink-ratio: 0.695;
+    /* T.W4-1 — the RE-TARGETED endpoints on W3-4's PINNED compositor arm
+     * (no font-size keyframe returns): rest = scale 1 at display-1, stuck =
+     * heading/display-1 — the stuck title lands EXACTLY on the retired
+     * heading rung. The ratio is CLOSED-FORM, not a hand constant:
+     * tan(atan2(y, x)) is the CSS length-ratio identity, so the endpoint
+     * law survives display-1's viewport-fluid clamp at every band — ≈0.618
+     * (1/φ) at the ≥1440 cap, degenerating to exactly 1 on phones where
+     * display-1 floor-pins AT heading (the shrink self-neutralizes; the
+     * floor-pinned no-op needs no band arm). Guarded by the same @supports
+     * SDA gate as its one consumer (atan2: Chromium 111+ ⊂ SDA engines). */
+    --pane-title-shrink-ratio: calc(
+        tan(atan2(var(--type-heading), var(--type-display-1)))
+    );
 }
 
 /* ── THE SWELL + SHRINK (compositor-only; SDA-gated) ────────────────────
@@ -117,7 +145,21 @@ defineProps<{
  * The veil SWELL completes by 64px — decoupled from the 120px title range:
  * content reaches the title underside by ~24–48px (About/Gradient, the
  * earliest colliders), so the veil is near-full before any ink collision
- * (O-11 gate 3, the F2 double-exposure cure). */
+ * (O-11 gate 3, the F2 double-exposure cure).
+ *
+ * T.W4-7 — THE RE-DERIVE AGAINST THE ×φ-TALLER BAND (T-23's geometry over
+ * the settled post-W2 field; W4-1 grew the title heading→display-1): the
+ * earn-range is keyed to OCCLUSION, not the shrink — occlusion onset is
+ * GAP-driven (content crosses the sticky header's underside at a scroll
+ * offset set by the header→content gap, which the type move left
+ * unchanged), so the 0–64px veil range HOLDS over the taller band; the
+ * ::before tracks the grown header box by construction (inset-derived).
+ * The title-shrink range stays the producer grammar's own 0–120px (one
+ * grammar — card-scroll.css's title-collapse lane; the ×φ travel rides the
+ * same scrub). RE-VERIFIED at W4-7: O-11 gate 1 (rest floor inside the Q9
+ * EFFECT bracket, both schemes, all panes — MATERIAL untouched, W3-4's) +
+ * gate 3 (swell ≤64px, no naked window under the earliest colliders) green
+ * over the settled field. */
 @supports (animation-timeline: scroll()) {
     .pane-header::before {
         animation: pane-header-veil linear both;
