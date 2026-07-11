@@ -1,107 +1,111 @@
 <template>
-    <!-- T.W3-2 · D9 — THE SHADOW-PALETTE STATE GRAMMAR, the TRUE-EMPTY
-         species: wherever a surface's absent content is a palette, the empty
-         state displays the ghost of the artifact to come, at the artifact's
-         own scale, in ALL cases. Born `ec1b200` as "the shadow palette",
-         amputated twice in S.W5-6 (`e43601c` + `a34d20f`), OWNER-OVERRULED
-         on material (R7) — this species is the return.
+    <!-- T.W6.5 · Lane S — THE SHADOW-PALETTE SPECIES, redesigned from first
+         principles (R12: the owner overrule of the landed W3-2/D9 design;
+         MANDATE §0.6 t33-audit-07/11 — "poorly designed and do not shimmer
+         properly as a proper skeleton" · "The style we had many many
+         versions ago, when the extract feature was first introduced, was
+         closer to what we want").
 
-         It consumes, never duplicates: the palette card's exact bones
-         (strip → meta → swatches, the skeleton's geometry, so the
-         known-imminent swap is a MATERIAL change, not a layout jump) + the
-         S.W5-1 `specimen` ink walk (utils.css `.specimen-seg` — the
-         zero-consumer register finally consumed), letting the ghost breathe
-         the app's living accent without impersonating content.
+         The GENESIS register, assayed directly (`ec1b200`, 2026-03-20 —
+         t33-research §2.2): card-true material with a SOLID hairline edge;
+         count equal-width muted cells, each `animate-pulse` on a staggered
+         `animation-delay` — a LIVING cascading shimmer that travels the
+         plate (strip → meta → swatches, one wave); meta blocks at 60/40,
+         swatches at 30 of the muted ink. The dashed-edge still-species this
+         replaces retired with R12; its as-filler deployment at the empty
+         hosts died with it (TRUE EMPTY speaks the EmptyState dot trio —
+         N-3 re-aimed).
 
-         The dashed hairline is the load-bearing distinction — the ghost
-         vocabulary lifted from dot to card scale (WatercolorDot ghost, the
-         drop zone, `.dashed-well`): the skeleton is the card DEVELOPING
-         (solid edge, animated ink); the shadow palette is the card IMAGINED
-         (dashed edge, quiet ink, STILL — motion promises work, empty
-         promises nothing; PRM safety by construction).
+         ONE seat: the standing INSTRUMENT face — Extract's k-threaded
+         undeveloped plate, where the ghost is the instrument showing its
+         output shape before any image exists (the live-k leg: turn k and
+         the plate re-segments). The living register belongs HERE because
+         the plate is a standing instrument face, not a filler; PRM degrades
+         it static for free (`animate-pulse` rides the global
+         prefers-reduced-motion guard, animations.css).
 
-         Semantics — R7's SURVIVING half (F-5): the ghost is `aria-hidden`,
-         carries NO role="status" and NO "Loading" label (nothing is
-         loading); the host's seated caption carries the text for AT, and
-         that caption sheds its dot-ghost row here (N-3 — never two ghost
-         registers at two scales). Error states never wear this species:
-         error ≠ empty stands. -->
+         Materials in TODAY'S grammar, not a xerox: the genesis `bg-card` +
+         `border-border/50` reads as the developed PaletteCard's own ratified
+         seat (Q4: PaletteCard = well) — `bg-well` + the solid `--card-edge`
+         hairline + `rounded-card` + the chip-scale cartoon stamp — so
+         ghost → skeleton → card stays ONE plate developing in place. The
+         genesis `hsl(var(--muted))` block ink reads through the house's ONE
+         loading-ink recipe (`--skeleton-ink`, utils.css — "the ec1b200
+         register, modernized"), scheme-true through the muted tokens.
+
+         Semantics — R7's SURVIVING stack (announcement, NOT motion): the
+         ghost is `aria-hidden`, carries NO role="status" and NO "Loading"
+         label (nothing is loading — a shimmering aria-hidden plate does not
+         lie to AT); the host's seated caption carries the text. Error
+         states never wear this species: error ≠ empty stands. -->
     <div
         data-slot="shadow-palette"
-        class="shadow-palette skeleton-ink-register rounded-card bg-well overflow-hidden shadow-cartoon-sm"
+        class="shadow-palette skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden shadow-cartoon-sm"
         aria-hidden="true"
     >
-        <!-- The imagined color strip — the specimen walk, per-segment. The
-             real strip is flush (its colors carry the segmentation); the
-             ghost's segmentation is STRUCTURAL — a hairline of the well
-             ground between segments, the same interrupted-edge grammar as
-             the dashes — so the count stays legible (the live-k leg: turn
-             k and the ghost visibly re-segments) while the walk itself
-             remains a whisper. -->
-        <div class="shadow-strip flex h-10 w-full">
+        <!-- The imagined color strip — count equal-width cells, the wave's
+             leading edge (delay i × 0.12s). A hairline of the well ground
+             between cells keeps the segmentation legible AT REST (the
+             live-k readout survives PRM stillness); in motion the stagger
+             makes each cell breathe in sequence. -->
+        <div class="flex h-10 w-full gap-px">
             <div
                 v-for="i in count"
                 :key="i"
-                class="specimen-seg shadow-seg h-full min-w-0 flex-1"
-                :style="{ '--i': hueOffset + i - 1 }"
+                class="shadow-seg animate-pulse h-full min-w-0 flex-1"
+                :style="{ animationDelay: `${((i - 1) * 0.12).toFixed(2)}s` }"
             />
         </div>
-        <!-- The imagined metadata row. -->
+        <!-- The imagined metadata row — the wave arrives after the strip. -->
         <div class="px-3 py-2.5 flex items-center gap-2">
-            <div class="shadow-block h-5 w-32 rounded-md" />
-            <div class="shadow-block h-5 w-6 rounded-md" />
+            <div
+                class="shadow-block-name animate-pulse h-5 w-32 rounded-md"
+                :style="{ animationDelay: `${(count * 0.12 + 0.1).toFixed(2)}s` }"
+            />
+            <div
+                class="shadow-block-count animate-pulse h-5 w-6 rounded-md"
+                :style="{ animationDelay: `${(count * 0.12 + 0.22).toFixed(2)}s` }"
+            />
         </div>
-        <!-- The imagined swatches. -->
+        <!-- The imagined swatches — the wave's last exposure pass. -->
         <div class="px-3 pb-3 flex flex-wrap gap-2">
             <div
                 v-for="i in count"
                 :key="i"
-                class="shadow-block w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-badge"
+                class="shadow-swatch animate-pulse w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-badge"
+                :style="{
+                    animationDelay: `${(count * 0.12 + 0.34 + (i - 1) * 0.1).toFixed(2)}s`,
+                }"
             />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-const { count = 5, hueOffset = 0 } = defineProps<{
+const { count = 5 } = defineProps<{
     /** Ghost segment/swatch count — Extract threads the LIVE k here, so the
      *  instrument shows its output shape before any image exists. */
     count?: number;
-    /** Offset (in 36° steps) into the specimen walk — sibling ghosts
-     *  continue the rotation instead of reading as copies. */
-    hueOffset?: number;
 }>();
 </script>
 
 <style scoped>
-/* The card imagined. The dashed hairline reads the ONE `--card-edge` mint
- * (hairline law — the `.dashed-well` / drop-zone dashed family, lifted to
- * card scale); the body sits ON the rung-2 WELL (`bg-well`, Q4: PaletteCard
- * = well) with the chip-scale cartoon stamp — exactly the skeleton's seat,
- * so ghost → skeleton → card is one plate developing in place. STILL by
- * construction: this species declares NO animation anywhere (the O-9
- * MOTION leg asserts computed animation-name `none`). */
-.shadow-palette {
-    border: 1.5px dashed var(--card-edge);
-}
-
-/* Hairline segmentation — sized to the dash weight (one hairline grammar). */
-.shadow-strip {
-    gap: 1.5px;
-}
-
-/* Ghost ink: the strip segments read the specimen walk; the meta + swatch
- * blocks read the plain ink base — both faded INTO the plate by a color-mix
- * step (never post-hoc opacity, D6) so the ghost sits a register quieter
- * than the developing skeleton it swaps with. */
+/* The genesis ink ladder (`ec1b200`: strip = muted · meta = muted/60,/40 ·
+ * swatches = muted/30), spoken through the ONE loading-ink recipe root
+ * (`--skeleton-ink`, utils.css `.skeleton-ink-register` — the modernized
+ * ec1b200 muted family). The ladder steps fade INTO the plate by a
+ * color-mix step (never element opacity — D6); the pulse's opacity swing
+ * is MOTION on top of the ink, not the ink itself. */
 .shadow-seg {
-    background: color-mix(
-        in oklab,
-        var(--specimen-ink, var(--skeleton-ink)) 72%,
-        transparent
-    );
+    background: var(--skeleton-ink);
 }
-.shadow-block {
-    background: color-mix(in oklab, var(--skeleton-ink) 55%, transparent);
+.shadow-block-name {
+    background: color-mix(in oklab, var(--skeleton-ink) 60%, transparent);
+}
+.shadow-block-count {
+    background: color-mix(in oklab, var(--skeleton-ink) 40%, transparent);
+}
+.shadow-swatch {
+    background: color-mix(in oklab, var(--skeleton-ink) 30%, transparent);
 }
 </style>

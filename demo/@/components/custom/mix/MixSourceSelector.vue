@@ -5,7 +5,7 @@ import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components/ui/collapsible";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
-import { PaletteCard, PaletteColorStrip, ShadowPalette } from "@components/custom/palette-browser/card";
+import { PaletteCard, PaletteColorStrip } from "@components/custom/palette-browser/card";
 import EmptyState from "@components/common/EmptyState.vue";
 import type { Palette } from "@lib/palette/types";
 import type { SelectedColor } from "./composables/useMixingState";
@@ -224,28 +224,20 @@ watch(
 
         <!-- Palettes mode -->
         <template v-else>
-            <!-- T.W3-2 · D9 (T-19, owner overrule R7 — supersedes the
-                 S.W5-6 F3 text plate): TRUE EMPTY displays the shadow
-                 palette in ALL cases — TWO ghosts, because the count IS
-                 the copy ("save two or more, then pour") — the caption
-                 seated beneath (dot-ghosts shed, N-3); the text plate
-                 never substitutes for the ghost. STILL by construction:
-                 this store is synchronous — no loading species exists
-                 here, and none is announced (F3's semantics survive; the
-                 material returns, honest). -->
-            <template v-if="savedPalettes.length === 0">
-                <ShadowPalette
-                    v-for="i in 2"
-                    :key="`ghost-${i}`"
-                    :hue-offset="(i - 1) * 2"
-                />
-                <EmptyState
-                    :dots="false"
-                    eyebrow="· nothing to mix ·"
-                    message="No saved palettes yet."
-                    hint="Save two or more palettes, then pour them together here."
-                />
-            </template>
+            <!-- T.W6.5 · Lane S (R12 — the owner overrule of the D9
+                 as-filler deployment; MANDATE §0.6 t33-audit-12
+                 "superfluous shadow palettes everywhere"): TRUE EMPTY
+                 speaks the EmptyState invitation ALONE — the watercolor
+                 dot trio + dashes (its default register, N-3 re-aimed),
+                 never ghost cards before the caption. This store is
+                 synchronous — no loading species exists here, and none
+                 is announced (F3's semantics survive, honest). -->
+            <EmptyState
+                v-if="savedPalettes.length === 0"
+                eyebrow="· nothing to mix ·"
+                message="No saved palettes yet."
+                hint="Save two or more palettes, then pour them together here."
+            />
             <!-- W5-a11y: native <button> for keyboard reach + aria-pressed for selection state -->
             <button
                 v-for="palette in savedPalettes"

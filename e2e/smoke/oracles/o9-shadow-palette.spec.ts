@@ -3,32 +3,35 @@ import type { Locator, Page } from "@playwright/test";
 import { openView } from "../fixtures/dock";
 
 /**
- * T.W3 W3-2 · O-9 — THE SHADOW-PALETTE ALL-CASES ORACLE (SYNTHESIS §6.1 O-9;
- * D9, the shadow-palette state grammar; owner rows T-13a/T-19).
+ * O-9 — THE EMPTY-STATE CENSUS, RE-AIMED (T.W6.5 · Lane S — R12, the owner
+ * overrule of the W3-2/D9 as-filler grammar; MANDATE §0.6 t33-audit-07/08/
+ * 11/12). The census DISCIPLINE survives (T.md §4 R12: "the oracle
+ * re-points, never deletes"); its referents are the redesigned species +
+ * the true-empty states.
  *
- * The rule (t-shadow-palette §3): wherever a surface's absent content is a
- * palette, the empty state displays a shadow palette — the ghost of the
- * artifact to come, at the artifact's own scale — in ALL cases; the text
- * plate captions the ghost, it never substitutes. Per host class this
- * asserts: ghost PRESENT + `aria-hidden` + a visible caption carrying the
- * text for AT ("never a bare text plate").
+ * THE RULE, post-R12:
+ * · TRUE EMPTY speaks the EmptyState invitation ALONE — the watercolor
+ *   dot TRIO + DASHES (the R.W4 ghost trio, N-3 re-aimed: the owner's
+ *   ruling picks the dot register at true-empty) above the caption; a
+ *   "no palettes found" plate is NEVER preceded by ghost cards (zero
+ *   ShadowPalette-as-filler at every empty-host class).
+ * · The ShadowPalette species has ONE seat — the standing INSTRUMENT face
+ *   (Extract's k-threaded undeveloped plate) — wearing the genesis
+ *   `ec1b200` register: card-true material, solid hairline, muted blocks,
+ *   and a LIVING staggered pulse (i × 0.12s). THE MOTION LEG RE-AIMS: the
+ *   instrument face pulses LIVE; under prefers-reduced-motion the global
+ *   PRM guard (animations.css) degrades it static — both asserted.
  *
- * THE MOTION LEG: the true-empty species is STILL by construction — motion
- * promises work; empty promises nothing (this is how the S.W5-6 "loading ≠
- * empty" doctrine survives the material's owner-ordered return, and how PRM
- * safety falls out for free). Every element of the ghost must compute
- * `animation-name: none`. The leg POLLS so a transient mount transition
- * settles out while a persistent animation (the violation class — an
- * inherited breath/shimmer) stays red.
+ * R7's SURVIVING SEMANTICS (unchanged — announcement, NOT motion): the
+ * ghost is `aria-hidden`, carries NO role="status" and NO "Loading" label
+ * (a shimmering aria-hidden plate does not lie to AT); the host's caption
+ * carries the text. error ≠ empty — an error plate never wears the ghost,
+ * never the trio, never announces work that isn't happening.
  *
- * THE ERROR LEG (R7's surviving semantics): error ≠ empty — an error plate
- * never wears the ghost, never announces work that isn't happening.
- *
- * Host classes (the W3-2 roster): Extract live-k ghost · Mix ×2 ·
- * PaletteCardGrid (My Palettes + the empty Browse commons, ghost count 3).
- * Every leg judges PER PANE: the dual-pane views seat a sibling PalettesPane
- * (wearing its OWN legitimate D9 ghosts) beside the probed host, so a
- * main-wide count would conflate hosts.
+ * Host classes: Extract (instrument face) · Mix · PaletteCardGrid
+ * (My Palettes + the empty Browse commons). Every leg judges PER PANE:
+ * the dual-pane views seat a sibling PalettesPane beside the probed host,
+ * so a main-wide count would conflate hosts.
  */
 
 const MAIN = { name: "Color tool panes" } as const;
@@ -53,53 +56,94 @@ function ghosts(scope: Locator): Locator {
         .filter({ visible: true });
 }
 
-/** Ghost present + `aria-hidden` on every instance. */
-async function assertGhosts(scope: Locator, count: number): Promise<void> {
-    const gs = ghosts(scope);
-    await expect(gs).toHaveCount(count);
-    for (const g of await gs.all()) {
-        await expect(g).toHaveAttribute("aria-hidden", "true");
+/** THE FILLER SWEEP — zero ShadowPalette-as-filler in the scoped host. */
+async function assertNoFillers(scope: Locator): Promise<void> {
+    await expect(ghosts(scope)).toHaveCount(0);
+}
+
+/** THE TRIO LEG — the watercolor dot trio + dashes present at true-empty:
+ *  the EmptyState ghost row (aria-hidden), three seeded WatercolorDot
+ *  ghosts, each tracing its dashed organic silhouette (the ghost variant's
+ *  `.watercolor-ghost-stroke` dashed outline IS "that iconset with the
+ *  dashes"). */
+async function assertTrio(scope: Locator): Promise<void> {
+    const trio = scope
+        .locator('[data-slot="empty-state-trio"]')
+        .filter({ visible: true });
+    await expect(trio).toHaveCount(1);
+    await expect(trio).toHaveAttribute("aria-hidden", "true");
+    await expect(trio.locator('[data-variant="ghost"]')).toHaveCount(3);
+    await expect(trio.locator(".watercolor-ghost-stroke")).toHaveCount(3);
+}
+
+/** THE LIVING LEG — the instrument face pulses: every strip cell computes
+ *  the pulse animation, staggered i × 0.12s (the cascading shimmer). */
+async function assertPulsesLive(ghost: Locator): Promise<void> {
+    const probes = await ghost.evaluate((root) =>
+        Array.from(root.querySelectorAll(".shadow-seg")).map((el) => {
+            const cs = getComputedStyle(el);
+            return {
+                name: cs.animationName,
+                duration: parseFloat(cs.animationDuration),
+                iteration: cs.animationIterationCount,
+                delay: parseFloat(cs.animationDelay),
+            };
+        }),
+    );
+    expect(probes.length).toBeGreaterThan(0);
+    for (const [i, p] of probes.entries()) {
+        expect(p.name, "the pulse keyframe rides every cell").toContain(
+            "pulse",
+        );
+        expect(p.iteration).toBe("infinite");
+        expect(p.duration).toBeGreaterThanOrEqual(1);
+        expect(p.delay).toBeCloseTo(i * 0.12, 2);
     }
 }
 
-/** THE MOTION LEG — every element of the ghost computes animation `none`. */
-async function assertStill(ghost: Locator): Promise<void> {
-    await expect
-        .poll(
-            () =>
-                ghost.evaluate((root) =>
-                    [root, ...Array.from(root.querySelectorAll("*"))]
-                        .map((el) => ({
-                            cls: (el as HTMLElement).className,
-                            animation: getComputedStyle(el).animationName,
-                        }))
-                        .filter((probe) => probe.animation !== "none"),
-                ),
-            {
-                message:
-                    "O-9 MOTION leg: the true-empty ghost must be STILL by construction",
-            },
-        )
-        .toEqual([]);
+/** THE PRM LEG — under prefers-reduced-motion the global guard collapses
+ *  the pulse (duration 0.01ms, one iteration): static by construction. */
+async function assertPrmStatic(ghost: Locator): Promise<void> {
+    const probes = await ghost.evaluate((root) =>
+        Array.from(root.querySelectorAll(".shadow-seg")).map((el) => {
+            const cs = getComputedStyle(el);
+            return {
+                duration: parseFloat(cs.animationDuration),
+                iteration: cs.animationIterationCount,
+            };
+        }),
+    );
+    expect(probes.length).toBeGreaterThan(0);
+    for (const p of probes) {
+        expect(p.duration, "PRM collapses the pulse duration").toBeLessThan(
+            0.1,
+        );
+        expect(p.iteration).toBe("1");
+    }
 }
 
-test("O-9 · Extract — the undeveloped plate wears the live-k ghost", async ({
+test("O-9 · Extract — the instrument face: live-k ghost, LIVING pulse, PRM-static", async ({
     page,
 }) => {
     await page.goto("/#/extract");
     const extractPane = pane(page, "Extract");
     await expect(extractPane).toBeVisible();
 
-    // Ghost present at REST (the e43601c amputation stays reverted).
-    await assertGhosts(extractPane, 1);
-    const ghost = ghosts(extractPane).first();
-
-    // The caption carries the text for AT — never a bare (or absent) plate.
+    // The standing-instrument seat: ghost present at REST, aria-hidden —
+    // and NO announcement (R7: no role=status, no "Loading" label; the
+    // caption carries the text for AT — never a bare or absent plate).
+    const gs = ghosts(extractPane);
+    await expect(gs).toHaveCount(1);
+    const ghost = gs.first();
+    await expect(ghost).toHaveAttribute("aria-hidden", "true");
+    await expect(ghost).not.toHaveAttribute("role", "status");
     await expect(
         extractPane.getByText("· undeveloped plate — feed it an image ·"),
     ).toBeVisible();
 
-    await assertStill(ghost);
+    // THE LIVING LEG (R12 re-aim of the still-species MOTION leg): the
+    // genesis register pulses — a staggered cascade, i × 0.12s.
+    await assertPulsesLive(ghost);
 
     // THE LIVE-K LEG: the ghost re-segments under the k-slider — the
     // instrument shows its output shape before any image exists.
@@ -113,9 +157,15 @@ test("O-9 · Extract — the undeveloped plate wears the live-k ghost", async ({
     await expect(segs).toHaveCount(6);
     await page.keyboard.press("ArrowLeft");
     await expect(segs).toHaveCount(5);
+
+    // THE PRM LEG: reduced motion degrades the living register static —
+    // for free, via the global guard.
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await assertPrmStatic(ghost);
+    await page.emulateMedia({ reducedMotion: null });
 });
 
-test("O-9 · Mix → Palettes — two ghosts (the count IS the copy), caption beneath", async ({
+test("O-9 · Mix → Palettes — TRUE EMPTY: the trio + dashes, zero fillers", async ({
     page,
 }) => {
     await page.goto("/");
@@ -128,13 +178,13 @@ test("O-9 · Mix → Palettes — two ghosts (the count IS the copy), caption be
         .getByRole("button", { name: "Palettes", exact: true })
         .click();
 
-    await assertGhosts(mixPane, 2);
     await expect(mixPane.getByText("· nothing to mix ·")).toBeVisible();
     await expect(mixPane.getByText("No saved palettes yet.")).toBeVisible();
-    await assertStill(ghosts(mixPane).first());
+    await assertTrio(mixPane);
+    await assertNoFillers(mixPane);
 });
 
-test("O-9 · PaletteCardGrid (My Palettes) — ghosts seat IN the grid cells", async ({
+test("O-9 · PaletteCardGrid (My Palettes) — TRUE EMPTY: the trio + dashes, zero fillers", async ({
     page,
 }) => {
     await page.goto("/");
@@ -142,22 +192,15 @@ test("O-9 · PaletteCardGrid (My Palettes) — ghosts seat IN the grid cells", a
     const palettesPane = pane(page, "My Palettes");
     await expect(palettesPane).toBeVisible();
 
-    await assertGhosts(palettesPane, 3);
-    // In-grid: absence occupies the same cells presence would — the ghosts
-    // are CHILDREN of the grid, not an overlay beside it.
-    await expect(
-        palettesPane
-            .locator('.palette-card-grid > [data-slot="shadow-palette"]')
-            .filter({ visible: true }),
-    ).toHaveCount(3);
     await expect(palettesPane.getByText("· empty plate ·")).toBeVisible();
     await expect(
         palettesPane.getByText("No saved palettes yet."),
     ).toBeVisible();
-    await assertStill(ghosts(palettesPane).first());
+    await assertTrio(palettesPane);
+    await assertNoFillers(palettesPane);
 });
 
-test("O-9 · PaletteCardGrid (Browse, empty commons) — the second grid host", async ({
+test("O-9 · PaletteCardGrid (Browse, empty commons) — TRUE EMPTY: the trio + dashes, zero fillers", async ({
     page,
 }) => {
     // The walk.spec envelope pin: same-origin `/palettes` resolves SPA HTML
@@ -184,20 +227,20 @@ test("O-9 · PaletteCardGrid (Browse, empty commons) — the second grid host", 
     const browsePane = pane(page, "Browse");
     await expect(browsePane).toBeVisible();
 
-    await assertGhosts(browsePane, 3);
     await expect(browsePane.getByText("· the commons ·")).toBeVisible();
     await expect(
         browsePane.getByText("No published palettes here yet."),
     ).toBeVisible();
-    await assertStill(ghosts(browsePane).first());
+    await assertTrio(browsePane);
+    await assertNoFillers(browsePane);
 });
 
-test("O-9 · error ≠ empty — the Browse error plate wears NO ghost (R7 surviving semantics)", async ({
+test("O-9 · error ≠ empty — the Browse error plate wears NO ghost and NO trio (R7 surviving semantics)", async ({
     page,
 }) => {
     // Unpinned, the same-origin `/palettes` GET resolves to SPA HTML → the
     // browse store reads a deterministic load FAILURE → the PLAIN error
-    // register (untouched by D9): no ghost, no announced work.
+    // register (untouched by R12): no ghost, no trio, no announced work.
     await page.goto("/#/browse");
     const browsePane = pane(page, "Browse");
     await expect(browsePane).toBeVisible();
@@ -208,10 +251,13 @@ test("O-9 · error ≠ empty — the Browse error plate wears NO ghost (R7 survi
     await expect(
         browsePane.getByText("The commons is unreachable."),
     ).toBeVisible();
-    await expect(ghosts(browsePane)).toHaveCount(0);
+    await assertNoFillers(browsePane);
+    await expect(
+        browsePane.locator('[data-slot="empty-state-trio"]'),
+    ).toHaveCount(0);
 
     // Positive control: the sibling My Palettes pane KEEPS its true-empty
-    // ghosts — the error exemption is scoped to the erroring surface, never
+    // trio — the error exemption is scoped to the erroring surface, never
     // a global amputation.
-    await assertGhosts(pane(page, "My Palettes"), 3);
+    await assertTrio(pane(page, "My Palettes"));
 });

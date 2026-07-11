@@ -26,10 +26,22 @@
         <slot name="action" />
     </div>
     <div v-else class="flex flex-col items-center justify-center gap-2.5 py-8 text-center" role="status">
-        <!-- N-3 (T.W3-2 · D9): the dot-scale ghost row sheds wherever a
-             card-scale ghost (ShadowPalette) seats beside this caption —
-             never two ghost registers at two scales. -->
-        <div v-if="dots" class="flex items-end gap-2" aria-hidden="true">
+        <!-- N-3, RE-AIMED (T.W6.5 · Lane S — R12, MANDATE §0.6
+             t33-audit-08 "bring that iconset with the dashes back"): the
+             clause stays TRUE — never two ghost registers at two scales —
+             and the owner's ruling picks WHICH register speaks at
+             TRUE EMPTY: this seeded dot trio (the R.W4 specimen-plate
+             invitation, `4d8ad79`). The card-scale ShadowPalette no
+             longer seats at empty hosts (it is solely the Extract
+             standing-instrument face), so the trio is the one ghost
+             voice of every true-empty plate; `dots` sheds it ONLY where
+             a card-scale instrument ghost seats beside this caption. -->
+        <div
+            v-if="dots"
+            data-slot="empty-state-trio"
+            class="flex items-end gap-2"
+            aria-hidden="true"
+        >
             <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-a" class="w-8 h-8 opacity-80" />
             <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-b" class="w-11 h-11" />
             <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-c" class="w-6 h-6 opacity-60" />
@@ -65,9 +77,11 @@ withDefaults(
         hint?: string | undefined;
         /** The machine truth (error variant) — the caught message, in Fira. */
         detail?: string | undefined;
-        /** The dot-scale ghost row (empty variant). Shed (`false`) wherever
-         *  a card-scale ShadowPalette ghost seats beside this caption —
-         *  N-3: never two ghost registers at two scales. */
+        /** The dot-scale ghost trio (empty variant) — TRUE EMPTY's one
+         *  ghost register by owner ruling (R12/t33-audit-08). Shed
+         *  (`false`) ONLY where a card-scale instrument ghost seats
+         *  beside this caption — N-3 re-aimed: never two ghost registers
+         *  at two scales. */
         dots?: boolean | undefined;
     }>(),
     { variant: "empty", eyebrow: "· empty plate ·", dots: true },
