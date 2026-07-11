@@ -36,8 +36,14 @@ function onTileToggle(tile: SpecimenTile, on: boolean) {
 
 // The selected specimen stays in view: on selection AND on reveal the
 // pressed tile scrolls to its nearest edge — scoped to THIS strip's own
-// subtree (sibling rows mount hidden twins of every data-specimen id),
-// inline-nearest so the page never yanks.
+// subtree (sibling rows mount hidden twins of every data-specimen id) AND
+// to the strip's OWN inline axis. Never `scrollIntoView`: even with
+// `block: "nearest"` it walks EVERY scrollable ancestor, so the strip's
+// mount-time reveal (below the fold) yanked the PANE's vertical scroll
+// ~95px and buried the hero plate under the sticky header — the O-19
+// desktop flat-netting root cause. The strip owns exactly one scroll axis
+// (the FadingScroll port); it writes scrollLeft on that port and nothing
+// else, so the page can never yank by construction.
 const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 const rowEl = useTemplateRef<HTMLElement>("rowEl");
 
@@ -49,11 +55,25 @@ watch(
             const el = rowEl.value?.querySelector<HTMLElement>(
                 `[data-specimen="${selectedId}"]`,
             );
-            el?.scrollIntoView({
-                behavior: prefersReducedMotion.value ? "auto" : "smooth",
-                block: "nearest",
-                inline: "nearest",
-            });
+            // The FadingScroll root IS the scroll port (its documented DOM
+            // contract) — the ONE element this reveal may scroll.
+            const port = el?.closest<HTMLElement>(".fading-scroll");
+            if (!el || !port) return;
+            const pr = port.getBoundingClientRect();
+            const er = el.getBoundingClientRect();
+            // Nearest-edge semantics on the inline axis, by hand.
+            const dx =
+                er.left < pr.left
+                    ? er.left - pr.left
+                    : er.right > pr.right
+                      ? er.right - pr.right
+                      : 0;
+            if (dx !== 0) {
+                port.scrollBy({
+                    left: dx,
+                    behavior: prefersReducedMotion.value ? "auto" : "smooth",
+                });
+            }
         });
     },
     { immediate: true },
