@@ -91,7 +91,7 @@
             @property --saved-bg-0 { syntax: "<color>"; inherits: true; initial-value: #b37290; }
             @property --saved-bg-1 { syntax: "<color>"; inherits: true; initial-value: #df8ea7; }
             @property --saved-bg-2 { syntax: "<color>"; inherits: true; initial-value: #ffb0b4; }
-            @property --saved-bg-3 { syntax: "<color>"; inherits: true; initial-value: #ffd0c8; }
+            @property --saved-bg-3 { syntax: "<color>"; inherits: true; initial-value: #ffcfc8; }
             @property --saved-bg   { syntax: "<color>"; inherits: true; initial-value: #b37290; }
         </style>
 
@@ -143,9 +143,14 @@
                 // B0 — the ground beat (the overture's origin mark; O-4 reads it).
                 if (window.performance && performance.mark) performance.mark('overture:b0');
                 var s = document.documentElement.style;
+                // Scheme resolution MIRRORS useColorMode (the producer's own
+                // darkModeSyncScript semantics): the app persists "auto" by
+                // default, so "auto" MUST honor prefers-dark — the T.W4.5 R1
+                // cure (a returning dark-preference visit used to read "auto"
+                // as light and boot the light material, re-theming mid-boot).
                 var stored = localStorage.getItem('vueuse-color-scheme');
                 var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                var dark = stored === 'dark' || (!stored && prefersDark);
+                var dark = stored === 'dark' || ((stored === 'auto' || !stored) && prefersDark);
                 if (dark) document.documentElement.classList.add('dark');
                 s.colorScheme = dark ? 'dark' : 'light';
 
@@ -153,7 +158,7 @@
                 // the DEFAULT seed's derived gradient, per scheme (dark = the
                 // producer derive's dark band — honest for a dark first run).
                 var FIRST_VISIT = {
-                    light: ['#b37290', '#df8ea7', '#ffb0b4', '#ffd0c8'],
+                    light: ['#b37290', '#df8ea7', '#ffb0b4', '#ffcfc8'],
                     dark:  ['#673255', '#944a62', '#ba696b', '#d6917c']
                 };
                 var VERSION = 1; // boot/ground.ts GROUND_RECORD_VERSION

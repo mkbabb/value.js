@@ -139,7 +139,15 @@
  * satellite `emerging` grammar composes inside it. RETIRES to the P6 row-F
  * producer body-arrival pose when it lands (the booked swap).
  * `.hero-blob-anchor` is unique to ColorPicker.vue's template. PRM = static
- * first frame (no animation — the mount IS the state change). */
+ * first frame (no animation — the mount IS the state change).
+ *
+ * T.W4.5 R2 — THE POSE/ARM RACE (lockstep: HeroBlob.vue onEmergeEnd): the
+ * engine arms mid-pose and presizes its backing store from gBCR, so the
+ * `from { scale(0.35) }` frame poisons the boot resolution to ~0.35× (and
+ * a transform never fires the leaf ResizeObserver). HeroBlob releases the
+ * race at THIS animation's `animationend` (name-filtered on `blob-emerge`)
+ * via the producer's resume re-measure seam. Renaming these keyframes means
+ * updating that filter. */
 @media (prefers-reduced-motion: no-preference) {
     @keyframes blob-emerge {
         from {

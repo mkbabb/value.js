@@ -32,6 +32,13 @@
  * The reader (index.html's fouc-guard boot script) carries a mirrored
  * shape-validated parse + the same literals — it runs pre-module, so it
  * cannot import this file; keep the two in lockstep (both cite this header).
+ * LOCKSTEP CLAUSE 2 — the reader's scheme resolution mirrors useColorMode
+ * (the producer darkModeSyncScript semantics): the app persists "auto" by
+ * default, so "auto" honors prefers-dark exactly like a missing key
+ * (`stored === 'dark' || ((stored === 'auto' || !stored) && prefersDark)`).
+ * The T.W4.5 R1 finding was this predicate dropping the 'auto' arm — every
+ * returning dark-preference visit booted the LIGHT material and re-themed
+ * mid-boot (D3/F-6 breach the first-visit oracles cannot see).
  *
  * Pure module — no Vue. The reactive writer is useAtmosphere's sink.
  */
@@ -65,9 +72,12 @@ export interface GroundRecord {
  * shifts material when the sink lands. Regenerate when the default seed or
  * the producer derive changes (then bump GROUND_RECORD_VERSION).
  * index.html carries the same literals (the pre-module mirror).
+ * REGENERATED at T.W4.5 (R6): light stop-3 #ffd0c8 → #ffcfc8 — the live
+ * first-visit sink write had drifted sub-JND from the constant; the version
+ * stays 1 (same derive meaning, the literal is the regeneration).
  */
 export const FIRST_VISIT_GROUND: Record<GroundScheme, readonly string[]> = {
-    light: ["#b37290", "#df8ea7", "#ffb0b4", "#ffd0c8"],
+    light: ["#b37290", "#df8ea7", "#ffb0b4", "#ffcfc8"],
     dark: ["#673255", "#944a62", "#ba696b", "#d6917c"],
 };
 
