@@ -10,6 +10,7 @@ import {
     normalizeColorUnit,
     normalizeColorUnitComponent,
 } from "@mkbabb/value.js/color";
+import { clampColorToSpaceDomain } from "./valueDomain";
 import type { ColorModel } from "@components/custom/color-picker";
 import {
     createDefaultColorModel,
@@ -39,12 +40,25 @@ const DIGITS = 2;
  * — it carries the DERIVED field material, which only the atmosphere owns.
  */
 export function useColorPipeline(model: ShallowRef<ColorModel>) {
+    // T-33a (T.W6.5-P) — the BORN value enters the domain law too: the model
+    // arrives HYDRATED (boot/hydrate.ts seeds URL/storage/default before the
+    // pipeline exists — W2-1's ordering law), so a deep-linked
+    // `lab(40% 999 47)` would otherwise live in the model unclamped until
+    // the first gated write. Clamp before the first derivation (initHsv
+    // below reads it).
+    if (model.value.color) clampColorToSpaceDomain(model.value.color);
+
     // The sentinel — NOT a copy — distinguishes a self-originated write (slider/
     // component edit, which carries hue explicitly) from an external one (URL
     // load, palette apply, reset, which must refresh the stable hue).
     let lastWrittenModel: ColorModel | null = null;
 
     const updateModel = (patch: Partial<ColorModel>) => {
+        // T-33a (T.W6.5-P) — the ONE write gate: every color landing on the
+        // model enters its space's value domain here (the dynamic-max law —
+        // `./valueDomain`), so `lab(40% 999 47)` inks the space max and the
+        // readout reservation's worst case is true by construction.
+        if (patch.color) clampColorToSpaceDomain(patch.color);
         const next = { ...model.value, ...patch };
         lastWrittenModel = next;
         model.value = next; // the ONE ref — synchronous; derivations recompute now
@@ -60,6 +74,12 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         (m) => {
             if (m === lastWrittenModel) return; // skip self-originated writes
             if (!m.color) return;
+            // T-33a — the EXTERNAL-write seam: the App's URL live-sync writes
+            // `model.value` directly BY DESIGN (`patchModelExternal` — an
+            // updateModel write would be marked self-originated and skip this
+            // very watch's stableHue refresh), so the domain law binds here
+            // for that origin class; pre-flush, so render reads clamped truth.
+            clampColorToSpaceDomain(m.color);
             try {
                 const hsv = colorUnit2(m.color, "hsv", true, false, false);
                 const s = hsv.value.s.value;
