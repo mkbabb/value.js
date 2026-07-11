@@ -328,6 +328,16 @@
     --select-font: var(--font-mono);
     --dropdown-menu-font: var(--font-mono);
 
+    /* ── The display-weight pin (T.W4-1 — D2 "non-bold"; the P10 booked swap) ──
+     * The owner's non-bold edict for the display voice, pinned at :root the
+     * same shape as `--font-stack-display`: glass-ui's `text-display-*`
+     * utilities hardcode `font-weight: 600` (and `text-heading` 700) with no
+     * token seam (t-title-typography F8), so every demo title surface carries
+     * `font-weight: var(--type-weight-display)` on its OWN class list. When
+     * P10's weight tokenization ships, the producer utilities read this same
+     * knob and the per-surface declarations retire (BOOKED, verify-first). */
+    --type-weight-display: 400;
+
     /* ── Layout tokens ── (7 — B.W1 dropped --dock-pos and --layout-padding) */
     --dock-border-width: 3px;
     --dock-padding-y: 0.75rem;

@@ -14,10 +14,14 @@
              law). Both hosts get the W4-1 grammar verbatim (S-21). -->
         <PaneHeader description="The math, the science, the art, the beauty of color spaces.">
             About the color spaces,
+            <!-- T.W4-1: `inline` = the sanctioned host SIZE prop (1em) — the
+                 member rides the sentence's display-1 rung + compositor
+                 shrink by construction; weight is trigger-owned (F2). -->
             <ColorSpaceSelector
                 :model-value="model.selectedColorSpace"
                 v-model:open="aboutSelectOpen"
                 :css-color="cssColor"
+                inline
                 @update:model-value="(colorSpace: any) => { model = { ...model, selectedColorSpace: colorSpace }; }"
             />
         </PaneHeader>
