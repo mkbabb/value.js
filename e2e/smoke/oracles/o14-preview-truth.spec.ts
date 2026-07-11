@@ -44,9 +44,11 @@ async function readRampTokens(page: import("@playwright/test").Page) {
  * the stops are the same numbers, byte-identical through the one writer.
  */
 function parseOklchTriples(s: string): number[][] {
-    return [...s.matchAll(/oklch\(([\d.]+)[ ,]+([\d.]+)[ ,]+([\d.]+)\)/g)].map(
-        (m) => [Number(m[1]), Number(m[2]), Number(m[3])],
-    );
+    return [
+        ...s.matchAll(
+            /oklch\(([\d.]+)[ ,]+([\d.]+)[ ,]+([\d.]+)(?:\s*\/\s*[\d.%]+)?\)/g,
+        ),
+    ].map((m) => [Number(m[1]), Number(m[2]), Number(m[3])]);
 }
 
 function expectStopsEqual(painted: number[][], tokens: string[]) {
@@ -130,13 +132,32 @@ test.describe("O-14 · the T-10 letterform-ramp referent", () => {
 });
 
 test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
-    test("every open-menu chip's painted gradient embeds exactly its sampled stops", async ({ page }) => {
+    test("honest absence: with <2 operands the rows carry NO chip", async ({ page }) => {
+        await page.goto("/");
+        await page.waitForSelector(".glass-dock");
+        await openView(page, "Mix");
+        await page.getByRole("combobox", { name: "Color space", exact: true }).click();
+        await expect(page.getByRole("listbox")).toBeVisible();
+        expect(
+            await page.getByRole("listbox").locator("[data-stops]").count(),
+        ).toBe(0);
+        await page.keyboard.press("Escape");
+    });
+
+    test("every open-menu chip's painted gradient carries exactly its stamped stops", async ({ page }) => {
         await page.goto("/");
         await page.waitForSelector(".glass-dock");
         await openView(page, "Mix");
 
+        // Two REAL operands through the real flow (the add-slot ghost).
+        const addSlot = page.getByRole("button", {
+            name: "Add current color to the mix",
+        });
+        await addSlot.click();
+        await addSlot.click();
+
         for (const menuName of ["Color space", "Hue method"]) {
-            await page.getByRole("combobox", { name: menuName }).click();
+            await page.getByRole("combobox", { name: menuName, exact: true }).click();
             const chips = page.getByRole("listbox").locator("[data-stops]");
             const n = await chips.count();
             expect(n, `${menuName}: preview chips render`).toBeGreaterThan(0);
@@ -147,8 +168,23 @@ test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
                     paint: getComputedStyle(el).backgroundImage,
                 }));
                 expect(stops.length).toBeGreaterThanOrEqual(2);
-                for (const s of stops) {
-                    expect(paint, `${menuName} chip ${i} embeds ${s}`).toContain(s);
+                // VALUE-level identity (computed-style canonicalization —
+                // see parseOklchTriples): every stamped stop appears in the
+                // painted gradient, in order, component-equal within the
+                // canonicalization rounding band.
+                const painted = parseOklchTriples(paint);
+                const stamped = stops.flatMap((s) => parseOklchTriples(s));
+                expect(
+                    painted.length,
+                    `${menuName} chip ${i}: painted stop count`,
+                ).toBe(stamped.length);
+                for (let j = 0; j < stamped.length; j++) {
+                    for (let c = 0; c < 3; c++) {
+                        expect(
+                            Math.abs(painted[j]![c]! - stamped[j]![c]!),
+                            `${menuName} chip ${i} stop ${j} component ${c}`,
+                        ).toBeLessThanOrEqual(1e-3);
+                    }
                 }
             }
             await page.keyboard.press("Escape");
