@@ -2,8 +2,9 @@
 
 **Name**: W8 — Hardening & Critique (the mandate §0.2 stage: "the frontend design plugin with a
 fable agent must be used for hardening and criqutining of our frontend. Done at a later stage.")
-**Opens after**: every design wave closed (T.W2–T.W6; round 5). T.W7's book state is recorded
-as-is (an unfired trigger is not a miss — PP-5).
+**Opens after**: every design wave closed (T.W2–T.W6) **+ T.W6.5, the owner-audit remediation
+wave [OWNER-2026-07-11] — the round barrier moves: round 4.5 sits between round 4 and this
+wave**; round 5. T.W7's book state is recorded as-is (an unfired trigger is not a miss — PP-5).
 **Spec of record**: `audit/SYNTHESIS.md §3` (the T.W8 block) · `MANDATE-2026-07-06.md §0.2` +
 E-7 (mandate §2) · **Q6 outcome from `T.md §12`** (default: ONE late wave — this doc encodes the
 default; if the owner rules the two-stage alternative, the mid-tranche checkpoint after W4 reuses
@@ -88,11 +89,22 @@ Lighthouse delta run in the same wave; **the owner's verdict recorded — it is 
    h-refine-hardening RF-3/RF-4/RF-5/RF-6:] **every pole is a NAMED reproducible state** (a
    value tuple / commit / frame path — adjective-only poles are defective package rows); **the
    BEFORE panels are the owner's own 23 shots** (per the §1.0 corrected map) beside the AFTER
-   frames; **the bracket-table axis roster is SOURCED** (the §12 taste rows + the wave-gate
+   frames — **[OWNER-2026-07-11] plus the 15 §0.6 shots (`t33-audit-01..15`) for the T-33..T-48
+   surfaces**; **the bracket-table axis roster is SOURCED** (the §12 taste rows + the wave-gate
    eye-judge clauses + pass-minted axes) and **each axis carries its LANDED default + a
    bulk-approve verb** (the owner rules per-axis or approves the landed set wholesale). The
    package carries the Q14 adjudication material (the Lighthouse budget/preset pairing decision
-   is WITH the owner at W8/W9).
+   is WITH the owner at W8/W9). **[OWNER-2026-07-11] Two brackets join the roster BY NAME from
+   the §0.6 audit**: (a) **the shrunken-state bracket (T-42)** — the scrolled pane-header shrink
+   register re-derived: the owner's both axes ("far too big" + "text too small") are ONE
+   mechanism (compositor-only title `scale(0.618)` over an UNSHRUNKEN header layout box —
+   t33-research §6.6, the mechanism handed so no pass re-discovers it; the honest arms = a
+   designed SHORT stuck strip with the veil range re-keyed, or the P3 ScrollCardHeader producer
+   knobs); (b) **the card-transition motion bracket (T-48 residual)** — the frame-by-frame
+   re-analysis the owner ordered RIDES THE W5 GATE (mid-flight captures, the F2 evidence class;
+   glass-ui curves + liquid-glass smoothing bind W5's own close); whatever taste residual
+   survives W5's gate lands HERE as a bracket, with the §4-attributed payload half of "janky"
+   (the boot walls) staying W7's, never re-bracketed as taste.
 4. **The full oracle slate + budgets re-run in the same wave**: O-1..O-25 as live (honest
    EXPECTED-REDs carried with their packet cites); the §6.2 budget rows; **a fresh Lighthouse
    delta** appended to the PI-1 per-wave ledger; the O-3 headed-GPU probe re-run (its W8 row).
@@ -190,6 +202,9 @@ state, never a proxy sign-off to "finish" the recovery.
 ## §Dependencies
 
 - **Depends on**: T.W2–T.W6 all closed (the DAG: W8 runs only after every design wave closes)
+  **+ T.W6.5 closed [OWNER-2026-07-11]** (round 4.5 — its verify-walk record + lane ledger join
+  this wave's pass inputs, with `MANDATE §0.6` + `audit/t33-research.md` as the passes'
+  owner-verbatim/root-cause reading for the T-33..T-48 surfaces)
   + T.W4.5's checkpoint record (`w45-checkpoint/ROWS.md` + the flagged brackets — this wave's
   pass inputs, cascade 1);
   the W0-5 oracle floor (plan-audit-1 F3/F4 — the floor MUST precede E-7; an unminted oracle

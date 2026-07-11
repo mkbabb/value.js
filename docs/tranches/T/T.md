@@ -254,17 +254,22 @@ reactive-vs-pure split dissolves); the App shell gets a home (the boot chain bec
 mid-tranche checkpoint, inserts between W4 and round 4**):
 
 ```
-T.W0 → T.W1 → { T.W2 · T.W3 } → T.W4 → T.W4.5 → { T.W5 · T.W6 } → T.W8 → T.W9
+T.W0 → T.W1 → { T.W2 · T.W3 } → T.W4 → T.W4.5 → { T.W5 · T.W6 } → T.W6.5 → T.W8 → T.W9
 T.W7 (the 5.0.0 ADOPT) — trigger-gated on the glass-ui BG/BH joint cut; FLOATS into whatever
 round is current when it fires; NOT on the critical path (PP-5: books never gates — its
 non-firing inside T's window is not a miss). T.W8 runs only after every design wave closes.
 T.W4.5 is a LIGHT checkpoint (per-surface critique of everything landed through W4 + remediation
 lanes + a delta-report to the owner; NO certification package — that stays W8's).
+T.W6.5 [OWNER-2026-07-11] is the OWNER-AUDIT REMEDIATION WAVE (round 4.5 — MANDATE §0.6's
+T-33..T-48 executed as the ordered "proper addendum": the round-4-bound rows VERIFIED at the
+merged tree, the overruled/new rows cured by design-grade single-writer lanes, T-38 relayed,
+T-39's levers named at W7/W9, T-42 + the T-48 residual handed to W8 as brackets).
 ```
 
 Rounds: **0**: W0 · **1**: W1 (three single-writer lanes demo ∥ api ∥ src) · **2**: W2 ∥ W3 ·
-**3**: W4 · **3.5**: W4.5 (the checkpoint — Q6 "both.") · **4**: W5 ∥ W6 · **5**: W8 ·
-**close**: W9 · **trigger**: W7 floats.
+**3**: W4 · **3.5**: W4.5 (the checkpoint — Q6 "both.") · **4**: W5 ∥ W6 · **4.5**: W6.5 (the
+owner-audit remediation — [OWNER-2026-07-11]) · **5**: W8 · **close**: W9 · **trigger**: W7
+floats.
 
 W2 and W3 parallelize (disjoint surfaces: boot chain vs materials); W4 REQUIRES W3 (the
 console/ink/seat composite against the settled ladder) and consumes W2's settled boot (T-23's
@@ -294,7 +299,8 @@ triumvirate dispatch, file bounds, and evidence packets live in the wave docs; t
 | **T.W4.5** | THE MID-TRANCHE CHECKPOINT (Q6 "both." — NEW-AT-RATIFICATION, cascade 1; LIGHT: per-surface Fable+frontend-design critique of everything landed through W4, batches of 3, remediation lanes, a delta-report to the owner; NO certification package — that stays W8's) | `waves/T.W4.5.md` | — | every through-W4 surface has a filed pass record; filed rows landed-or-booked with rationale; the owner delta-report delivered (informational — the owner's verdict is NOT this gate; W8 keeps it); PP-8 sweep + PI-1 ledger state recorded |
 | **T.W5** | MOTION LIQUID (T-14; PI-5 two-tranche split) | `waves/T.W5.md` | — | O-16 computed-cascade census (owned rows green; R1 row honest EXPECTED-RED w/ PKT-1 cite); view-switch ≤100ms re-run; the KEEP set (F6) untouched; Tranche B strictly PKT-3-gated; CSS tripwire |
 | **T.W6** | SURFACES & SHELL (W6-1..W6-8; parallel lanes per the single-writer map; **Q5 RULED: the guarded letterform ramp at the 2 named sites = the whole T-10 implementation — the chip arm DEAD, the dock/nav lane simplifies**, cascade 3) | `waves/T.W6.md` | — | O-13 slim same-commit + O-14 byte-identity (T-17 previews; **the T-10 referent re-points to the ramp's guarded stops** — O-14 per cascade 3); O-15a/b; O-17; O-19; O-20; O-21; O-22 (W0-1 contract byte-preserved) |
-| **T.W7** | THE ADOPT EVENT (= S.W8 handed intact; trigger-gated, floats) | `waves/T.W7.md` | — | the verify-at-cut ledger (letter §) walked row-by-row against a REBUILT dist + stamped HEAD; `^4→^5`; L17/L20+RP-2 re-measure; every GAP re-verify; the booked interim swaps fire; O-8 goes live; suites + O-slate green; **the Q14 gate row: the payload landings' TBT/JS-eager deltas measured and recorded** (cascade 2) |
+| **T.W6.5** | **THE OWNER-AUDIT REMEDIATION WAVE** (T-33..T-48 — [OWNER-2026-07-11], the §0.6 "proper addendum"; NEW-BY-OWNER-AUDIT, minted by the triumvirate's tranche-update lane) | `waves/T.W6.5.md` | — | the VERIFY-AT-ROUND-4-GATE walk (T-36/37/40b/43/46/48 — verified, never duplicated); Lane S ShadowPalette FIRST-PRINCIPLES redesign (R12: fillers die · ghost-trio+dashes restored · genesis `ec1b200` register assayed; O-9 re-aimed); Lane P console veil re-seat (Q4 re-opened BY OWNER WORD) + readout seam + the dynamic-max value-domain law; Lane I ink delineation (certifyAccentInk cusp/surface-rung cure; O-18 +IDENTITY +GRAPHICS legs; roster gap cured); Lane M mechanical set (root-barrel→subpaths ×10 · B2/B4 de-coincide · T-45 oversampled-pseudo interim); Row E easing-seat conditional (the keyframes assay = spec); T-38 relayed · T-39 levers stay W7/W9 · T-42/T-48-residual → W8 brackets |
+| **T.W7** | THE ADOPT EVENT (= S.W8 handed intact; trigger-gated, floats) | `waves/T.W7.md` | — | the verify-at-cut ledger (letter §) walked row-by-row against a REBUILT dist + stamped HEAD; `^4→^5`; L17/L20+RP-2 re-measure; every GAP re-verify; the booked interim swaps fire; O-8 goes live; suites + O-slate green; **the Q14 gate row: the payload landings' TBT/JS-eager deltas measured and recorded** (cascade 2; the About/KaTeX boot ride joins the payload row — t33-research §4.2) |
 | **T.W8** | E-7 THE HARDENING/CRITIQUE WAVE (depth = Q6) | `waves/T.W8.md` | — | per-surface Fable+frontend-design critique (batches of 3, coherence PRE-FILTER only) → remediation lanes → ONE owner taste-certification package (annotated frames per surface, both schemes, 3 viewports + boot screencast); **the owner's verdict is the gate**; full oracle slate + budgets + fresh Lighthouse delta |
 | **T.W9** | CLOSE (the S close machinery inherited unchanged) | `waves/T.W9.md` | — | zero-drop ledger walk · every book re-probed live · repo-wide sweeps · **budgets GREEN or the named triumvirate-level owner escalation (the Q14 PERF REDEMPTION close gate — REPLACES the keep-red disposition)** · doc rewrites unblocked (demo/api CLAUDE.md pattern-level; TA-6 index-count reconcile; src Structure → module-boundary contracts) · X1/X2 W0-outcome restated verbatim w/ firing records · spec-status recheck · PP-16 |
 
@@ -322,6 +328,13 @@ triumvirate dispatch, file bounds, and evidence packets live in the wave docs; t
   netting's re-judge surface IS the W3 gradient plate; `style.css` regions disjoint — netting
   @254-261 vs the surviving accent @223-224, t-nav-dropdowns:123) · **easing editor** = W6-3 ·
   **dock+nav** = W6-4/W6-6/W6-7/W6-8 · **generate** = W6-5.
+- **W6.5** [OWNER-2026-07-11] — four single-writer lanes + one verify agent, disjoint by
+  construction (round 4 CLOSED before it opens): **S** = ShadowPalette/EmptyState + the three
+  empty hosts · **P** = the picker console/readout tree + the `useColorPipeline` clamp seam ·
+  **I** = `ink.ts` + the O-18 census + the delinquent-site sweep set · **M** = the root-barrel
+  import sites + the boot beat files (W2 re-opened by writ) + the pane-card recipe · **E** =
+  conditional, Lane E's W6-3 files iff the T-47 verify fails. An anchor collision re-homes the
+  hunk to ONE lane (the W8 M-20 device).
 - **Every wave**: lane worktrees cut from the **wave head** [AMENDED-AT-HARDENING — h-dag D-6];
   PP-8 repo-wide sweep (caps recomputed
   post-move · legacy grep · as-any ledger regenerated) in EVERY wave gate; per-wave Lighthouse
@@ -329,13 +342,15 @@ triumvirate dispatch, file bounds, and evidence packets live in the wave docs; t
 
 ---
 
-## §4 — The spec-retirement ledger R1–R11 (SYNTHESIS §1.1, transcribed with cross-refs resolved — E-3 binds)
+## §4 — The spec-retirement ledger R1–R12 (SYNTHESIS §1.1, transcribed with cross-refs resolved — E-3 binds)
 
 Every row is a ratified S spec/ruling/π-certification the owner reversed. Each is RETIRED BY NAME
 so no future audit "restores" it. Class labels per plan-audit-2 §0 (A defect-in-green-gate ·
 B owner overrule · C recorded miss · D scope gap). [AMENDED-AT-HARDENING — h-overrule-ledger F-1:
 **7 rows mandate-§3-listed / 4 corpus-added**; R6 is the fourth §3-omission; bare S-era Q-numbers
-are prefixed **S-Q** (h-refine-console F-7).]
+are prefixed **S-Q** (h-refine-console F-7).] [OWNER-2026-07-11 — **R12 added**: the ledger's
+first row against a T-landed, T-gate-green spec (W3-2/D9), per the §0.6 owner audit; the formal
+row the MANDATE booked for "the owner-ordered tranche-update addendum".]
 
 | # | Finding vs landed spec | Precise class | What RETIRES | What SURVIVES (E-3 must not over-delete) |
 |---|---|---|---|---|
@@ -350,6 +365,7 @@ are prefixed **S-Q** (h-refine-console F-7).]
 | R9 | **T-28 vs W7-1's π-certified "INTENTIONAL" rim** (`Dock.vue:330-338`, `96a12ed`) | OVERRULE of a taste certification (unlisted) + A (rim on the WRONG element — geometric parent circle vs seeded organic wax, crosses +1.5px / gaps −2.5px by construction) | the `.dock-seal` die-rim + gold border override; the "hairline as continuity carrier" clause | the wax + inked-glyph identity; W7-1's continuity re-carried by the GLYPH; the `--dock-ring` on the geometric expanded trigger |
 | R10 | **T-9 vs W0-1 seed-rider-1** (DevMisconfigBanner, `App.vue:115`) | OVERRULE of PRESENTATION only | the banner FORM (fixed red bar, z-9999, dock-overlapping) | the ENTIRE W0-1 contract: transport latch, synchronous `DevMisconfigError`, loud `console.error`, misconfigured ≠ unavailable, REJECTED-localhost-CORS |
 | R11 | **T-1 vs GAP-ARM + W6-1** | **NOT an overrule** — FOLD-FORWARD (C, producer replay) + NEW BUG (A, demo hydration order, un-recorded by S) + SCOPE-WHOLE (D, boot quality). Mis-filing it as taste would bury a live prod defect | — | W6-1's entrance clause, RESTATED over the terminal state (material-invariance of the load, LS-8) |
+| R12 **[OWNER-2026-07-11]** | **T-41/T-44 vs T.W3-2/D9** — THE SHADOWPALETTE OVERRULE (`9b7fbd2`, O-9 census GREEN at landing; shots t33-audit-07/08/11/12; `MANDATE §0.6` + t33-research §2) | **B owner overrule of gate-green T work + D scope-widening** (the ledger's first row against T's own landed spec — the S-disease grammar applied to ourselves, never silently) | the AS-FILLER deployment at the empty-host classes (Browse wall · Commons wall · Mix — TRUE empty state only); the shimmer-less pseudo-skeleton presentation (`animation: none` as the species' face); the N-3 `dots=false` shed AT TRUE-EMPTY (the clause itself survives re-aimed: one ghost register per scale — the owner picks the DOT trio at true-empty); the D9 species' current material (dashed edge on the well) as-is — the species goes back for an ENTIRE first-principles redesign anchored on the genesis `ec1b200` extract-era register (card-true material · solid hairline · muted blocks · LIVING staggered pulse), with the watercolor three-palette + dashes placeholder iconset RESTORED | **what D9 KEEPS (E-3 must not over-delete)**: R7's UPHOLD-on-semantics stack — the aria split ("never announce work that isn't happening" — announcement, NOT motion: a shimmering `aria-hidden` plate does not lie to AT) · **error ≠ empty** · S-Q6's true-empty-ONLY scope · the loading-lie cure; O-9's census DISCIPLINE (re-aimed at the redesigned species + the true-empty states — the oracle re-points, never deletes); the standing-INSTRUMENT face distinction (Extract's k-threaded plate — where the genesis LIVING register applies, PRM degrading static). Executed at **T.W6.5 Lane S** |
 
 **Class census** (plan-audit-2 §8.6): B/overrule = T-2, T-6, T-7, T-8(seam), T-10/17, T-23, T-26 +
 seams in T-13/T-28 · A/green-gate-defect = T-3/11/18/24, T-5(contrast), T-12, T-13/19(dead code),
@@ -357,6 +373,15 @@ T-14, T-15, T-16, T-21, T-28(geometry), T-29 + F12's demo half · C/recorded = T
 halves of T-8/T-26, GAP-* · D/scope-whole = T-4, T-22, T-27-quality. The A-set indicts the S
 **verification method** (named-site-not-population; proxy predicates) → the §6 oracle slate exists
 to fix it; the B-set indicts nothing — it is taste evolution, encoded above.
+
+**[OWNER-2026-07-11] The §0.6 companion encodings (no rows minted — recorded so nothing re-opens
+silently):** **T-34** re-opens the RATIFIED **Q4 "The well."** on the MATERIAL axis by the
+owner's own word (veil card + air) — encoded at `MANDATE §0.6` + the `T.W6.5` Lane P row (the D6
+ink referent moves with the material; the O-18 W4 rows re-run); **T-42** recalibrates the landed
+W4-2b/O-11 shrink register (both owner axes = one mechanism, t33-research §6.6) — routed as the
+named W8 shrunken-state bracket; **T-33/T-40** are recalibrations of landed W4 work
+(seam/weight), cured at W6.5 with their §0.6 encodings. The T-33..T-48 class census lives in
+`MANDATE §0.6`'s OVERLAP column (the honest reconciliation of record).
 
 ---
 

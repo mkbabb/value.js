@@ -209,3 +209,25 @@ glass-ui-side relay commit is a producer/maintainer action, never this gate's ar
 - **value.js-side record:** this `## Dispatch stamp` section + the `PROGRESS.md` event-log row +
   the Cross-repo dispatch-points table flipped to DISPATCHED. This is the closeable W0-1 artefact
   per the amended Hard-gate item 1; an ack is a bonus, never waited on.
+
+---
+
+## §P1 rider — the aurora pointer-interactivity ask (T-38, OWNER-ORDERED; dispatched 2026-07-11)
+
+**[OWNER-2026-07-11]** The 2026-07-11 owner audit (`MANDATE §0.6`) escalated P1's pointer-door
+HONESTY row from book to **owner order**: "The mouse interactivtiy of the background aurora is
+not extreme enough or noteworthy enough and should be relayed to glass-ui" (T-38). The rider is
+SELF-CONTAINED (readable without this letter) and cites the full door/consume assay
+(`audit/t33-research.md §7`): the demo consumes EVERYTHING shipped (setCursor @0.45 + per-move
+velocity burst + `interactivity.light`, `useAtmosphere.ts:262-292`) and the **two dead axes on
+the `smooth` medium** — the swirl (the smooth field integrates it away) and the velocity burst —
+leave the subtle light lean as the only visible response. Asks: the three F-10 honesty arms
+(cursor-local luminance lean · burst→domain-warp path · medium-gated atom types) + a sized
+amplitude atom (`strength?`/`radius?`, T-26 bracket grammar) + GAP-ARM replay first.
+
+**Relay record (the standing law — path-scoped single-file commit, current branch, no force):**
+`../glass-ui/docs/tranches/BG/coordination/VALUEJS-T-P1-RIDER-AURORA-POINTER-2026-07-11.md` —
+commit **`8a0ca24e`** on `tranche/BG`, pushed fast-forward `398b7b4d..8a0ca24e` to
+`origin/tranche/BG` (stamped @ producer HEAD `b4c1998c`; cursorModel/atoms cites re-verified
+live at that HEAD; the producer's uncommitted work untouched). Verify-at-cut at T.W7; the W2-5
+pointer retune stays DEFERRED until it lands; delivery ≠ disposition.
