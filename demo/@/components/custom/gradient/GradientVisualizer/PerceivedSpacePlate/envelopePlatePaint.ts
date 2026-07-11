@@ -25,16 +25,12 @@
  * per-pixel color from `oklabToLinearSRGBInto`/`linearToSrgb`. The only
  * local arithmetic is the pixel↔(L,C) axis mapping and the hue's (cos,sin)
  * parameterization — the same unit-vector form `boundary.ts` documents.
- *
  * The C axis is CUSP-ADAPTIVE (the fixed `PLATE_C_MAX 0.4` died with the
- * slice — an axis sized for the blue cusp renders a green ramp as a sliver):
- * `C_axis = AXIS_HEADROOM · cuspCMax`, quantized with hysteresis so hue
- * drags never flap it, eased by the consumer so it never snaps. The netting
- * margin becomes a designed constant fraction at every hue.
- *
- * Netting grammar: the ONE registered 45° voice (`@lib/gamut-ink` — the one
- * home). The SECOND net (paper-under-dashed-ink) remains the trajectory's
- * sRGB-excess treatment, per its own flag.
+ * slice — an axis sized for the blue cusp renders a green ramp as a
+ * sliver): `C_axis = AXIS_HEADROOM · cuspCMax`, quantized with hysteresis
+ * so hue drags never flap it, eased by the consumer so it never snaps.
+ * Netting grammar: the ONE registered 45° voice (`@lib/gamut-ink`); the
+ * SECOND net stays the trajectory's sRGB-excess treatment, per its flag.
  */
 
 import type { OKLChHueSweepBoundary } from "@mkbabb/value.js/color";
