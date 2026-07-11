@@ -277,10 +277,14 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
              error. Mapped to the same inset track as the handles; the rung
              ink joins the recalibrated gamut-ink register (ONE netting
              voice across plate and rail, both schemes). -->
+        <!-- `mx-px`: the rail's 1px hairline insets its padding box (where
+             the handles' inset track lives); the borderless ruler row takes
+             the same 1px inset so caps/rungs and handle centers share ONE
+             axis to the pixel (O-21's cap↔handle congruence). -->
         <div
             v-if="rungs && rungs.length"
             data-testid="gradient-rung-row"
-            class="relative h-2.5"
+            class="relative h-2.5 mx-px"
             aria-hidden="true"
         >
             <span
