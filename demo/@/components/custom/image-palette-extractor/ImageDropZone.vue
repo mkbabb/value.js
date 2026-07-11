@@ -41,8 +41,10 @@
                 class="w-full h-full object-contain rounded-xl"
                 alt="Uploaded image"
             />
+            <!-- T.W6.5 row 8 (F-4 sweep): the /50 post-hoc alpha dies — the
+                 muted token is already the de-emphasis rung. -->
             <div v-else class="flex flex-col items-center gap-2 py-6">
-                <ImagePlus class="w-7 h-7 text-muted-foreground/50" />
+                <ImagePlus class="w-7 h-7 text-muted-foreground" />
                 <span class="text-mono-small text-muted-foreground text-center px-4">
                     Drop an image or click to browse
                 </span>

@@ -67,10 +67,14 @@
                     <!-- Default slot = SelectItemText: the display-face
                          name ONLY (reka's SelectValue clones this node
                          into the trigger — the swatch/conversion must
-                         stay in the #description row). -->
+                         stay in the #description row). T-40a (T.W6.5 row
+                         10): the letterform is NON-BOLD by the owner's word
+                         — the weight pin lives on `.specimen-name` below;
+                         the former selected-row `font-semibold` dies with
+                         the bold (selection speaks through the specimen
+                         dot's idle-opacity step, never through weight). -->
                     <span
-                        class="font-display italic text-title leading-tight"
-                        :class="modelValue === space ? 'font-semibold' : ''"
+                        class="specimen-name font-display italic text-title leading-tight"
                     >{{ name }}</span>
                     <template #description>
                         <span class="flex items-center gap-2 min-w-0 max-w-[16rem]">
@@ -82,7 +86,7 @@
                             />
                             <span
                                 v-if="colorModel"
-                                class="fira-code text-mono-caption lowercase opacity-60 truncate"
+                                class="specimen-caption fira-code text-mono-caption lowercase truncate"
                             >
                                 {{ specimenFor(space as DisplayColorSpace) }}
                             </span>
@@ -272,5 +276,26 @@ function specimenFor(space: DisplayColorSpace): string {
 }
 .specimen-dot-idle {
     opacity: 0.35;
+}
+
+/* T-40a (T.W6.5 row 10) — "Dropdown options should not be bold" (§0.6
+ * t33-audit-06). Root: glass-ui's `text-title` @utility hardcodes
+ * `font-weight: 700` (semantic.css:132) — a UTILITY hardcode, not a token.
+ * The W4-1 idiom, applied to the option letterforms: the surface's OWN class
+ * list pins the display weight through the `:root --type-weight-display` pin
+ * (= 400, style.css) — unlayered scoped beats the layered utility. BOOKED
+ * SWAP: the pin retires the day P10 weight-tokenization lands (the producer
+ * cure). The pin travels with reka's SelectValue clone into the trigger by
+ * construction (the class rides the node). */
+.specimen-name {
+    font-weight: var(--type-weight-display);
+}
+
+/* T.W6.5 row 8 — the `opacity-60` guard-then-alpha survivor dies (§5.2: the
+ * F-4 class W3-5 killed elsewhere). The specimen conversion line speaks the
+ * CERTIFIED de-emphasis rung — the D6 contract's stamped token — never a
+ * post-hoc alpha over an already-resolved ink. */
+.specimen-caption {
+    color: var(--ink-muted, var(--muted-foreground));
 }
 </style>
