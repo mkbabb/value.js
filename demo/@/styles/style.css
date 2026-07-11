@@ -682,6 +682,13 @@
         position: relative;
     }
 
+    /* UNPREFIXED backdrop-filter ONLY (the producer's own authoring law —
+     * glass-ui ladder.css authors the bare form and lets Lightning CSS
+     * inject the `-webkit-` companion). Hand-authoring the pair here made
+     * the demo's OWN minifier collapse it to the prefixed form alone (the
+     * exact unprefixed-leg-dropped class the spectrum-range MARKER above
+     * documents), which computes `none` in Chromium — probed live on the
+     * built bundle. */
     .pane-wrapper:has(> .glass-resting)::before,
     .pane-wrapper:not(:has(> .glass-resting))
         > div:has(> .glass-resting)::before {
@@ -690,7 +697,6 @@
         inset: calc(-2 * var(--glass-blur-resting-radius, 8px));
         pointer-events: none;
         backdrop-filter: var(--glass-blur-resting);
-        -webkit-backdrop-filter: var(--glass-blur-resting);
         clip-path: inset(
             calc(2 * var(--glass-blur-resting-radius, 8px))
                 round var(--radius-card)
@@ -702,7 +708,6 @@
     .pane-wrapper > .glass-resting,
     .pane-wrapper > div > .glass-resting {
         backdrop-filter: none;
-        -webkit-backdrop-filter: none;
     }
 }
 
