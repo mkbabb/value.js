@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
-import { ArrowRight, Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
+import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import { GlassDock, DockLayerGroup, DockLayer } from ".";
 import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import ActionBarToggle from "./ActionBarToggle.vue";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
 import GenericActionBar from "./layers/GenericActionBar.vue";
 import SlugEditLayer from "./layers/SlugEditLayer.vue";
 import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
 import DockViewSelect from "./DockViewSelect.vue";
+import DockStatusLamp from "./DockStatusLamp.vue";
 import PaneSegmentedControl from "@components/custom/panes/PaneSegmentedControl.vue";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
@@ -46,25 +48,9 @@ const actionBarLayerActive = ref(false);
 function toggleActionBar() { actionBarLayerActive.value = !actionBarLayerActive.value; }
 watch(hasAnyActionBar, (has) => { if (!has) actionBarLayerActive.value = false; });
 
-// S.W7-6 (P1-9.3 — the Tools load-order flicker): the toggle-slot's 0fr↔1fr
-// grow transition must fire only on GENUINE runtime toggles, never on the
-// app's boot composition. The pane mounts a beat after the dock (W3-4's
-// deferred mount), so its action-bar context arrives ~170ms in — the slot
-// visibly GREW the pill on EVERY load (measured 0→36→82→86px over ~380ms,
-// three consecutive loads). The first presence now PAINTS seated (transition
-// unarmed), then the transition arms one frame later for real mid-session
-// presence changes.
-const actionBarSlotLive = ref(false);
-watch(
-    hasAnyActionBar,
-    (has) => {
-        if (!has || actionBarSlotLive.value) return;
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => { actionBarSlotLive.value = true; });
-        });
-    },
-    { immediate: true },
-);
+// The Tools trigger + its S.W7-6 boot-flicker / W6-8 T-29 settle-stamp slot
+// machine live in the colocated <ActionBarToggle> (the W6-8 PP-8 cap lift —
+// full rationale in that SFC's header).
 // gate (b): watchers that reach dockRef stay in the SFC
 watch(actionBarLayerActive, (active) => { if (active) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
 function onActionBarOpenPalette() { viewManager.switchView(viewManager.currentView.value === "palettes" ? "picker" : "palettes"); }
@@ -122,12 +108,17 @@ watch(
 </script>
 
 <template>
-    <div class="fixed top-dock-inset inset-x-0 z-dock flex items-center justify-center pointer-events-none">
-        <div
-            class="pointer-events-auto"
-            :class="dockSettle && 'dock-settle'"
-            @animationend.self="dockSettle = false"
-        >
+    <!-- T.W6 · T-31 (THE DOCK-ATOP BAND LAW): the dock renders IN-FLOW inside
+         the shell's dock band (App.vue's <nav class="dock-band">, row 1 of the
+         two-band grid). The former fixed overlay
+         (`fixed top-dock-inset inset-x-0 z-dock` + the pointer-events
+         none/auto pair) RETIRED WITH the --dock-total reservation: the band
+         is structure the layout owns, so the dock needs no pin, no z, and no
+         hit-test punch-through. -->
+    <div
+        :class="dockSettle && 'dock-settle'"
+        @animationend.self="dockSettle = false"
+    >
             <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="false" :fit-content="true" :always-expanded="!isDesktop">
                 <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
                     <!-- Mobile edit layer -->
@@ -136,8 +127,11 @@ watch(
                         <span class="text-muted-foreground text-caption">&rarr;</span>
                         <WatercolorDot :color="cssColorOpaque" tag="div" class="w-7 h-7 shrink-0" seed="edit-new" />
                         <DockSeparator />
-                        <DockIconButton title="Save edit" @click="emit('commitEdit')"><Check class="w-5 h-5" :style="{ color: safeAccent }" /></DockIconButton>
-                        <DockIconButton title="Cancel edit" @click="emit('cancelEdit')"><Undo2 class="w-5 h-5" /></DockIconButton>
+                        <!-- W6-8 register pass: native `title` retired dock-wide —
+                             icon-only controls carry aria-label (the UA tooltip slab
+                             is a foreign register on the liquid-glass dock). -->
+                        <DockIconButton aria-label="Save edit" @click="emit('commitEdit')"><Check class="w-5 h-5" :style="{ color: safeAccent }" /></DockIconButton>
+                        <DockIconButton aria-label="Cancel edit" @click="emit('cancelEdit')"><Undo2 class="w-5 h-5" /></DockIconButton>
                     </DockLayer>
 
                     <!-- Slug edit layer -->
@@ -147,7 +141,7 @@ watch(
 
                     <!-- Action bar layer -->
                     <DockLayer v-if="hasAnyActionBar" id="action-bar">
-                        <DockIconButton class="shrink-0" title="Back" @click="actionBarLayerActive = false"><ArrowLeft class="w-6 h-6" /></DockIconButton>
+                        <DockIconButton class="shrink-0" aria-label="Back" @click="actionBarLayerActive = false"><ArrowLeft class="w-6 h-6" /></DockIconButton>
                         <DockSeparator />
                         <ActionBarLayer v-if="actionBar" :action-bar="actionBar" :edit-target="editTarget" @open-palette="onActionBarOpenPalette" @open-extract="onActionBarOpenExtract" />
                         <GenericActionBar v-else-if="genericBar" :actions="genericBar.actions.value" :accent-color="genericBar.accentColor ?? safeAccent" />
@@ -172,38 +166,18 @@ watch(
 
                         <!-- Action bar toggle — S.W7-2: the separator and the
                              trailing chevron are desktop furniture; below sm the
-                             aperture (312px at 390w) holds controls only. -->
-                        <DockSeparator v-if="hasAnyActionBar" class="hidden lg:block" />
-                        <div class="action-bar-toggle-slot" :class="{ 'is-visible': hasAnyActionBar, 'is-live': actionBarSlotLive }">
-                            <div class="action-bar-toggle-inner">
-                                <DockIconButton
-                                    compact
-                                    :class="{ 'is-active': actionBarLayerActive }"
-                                    title="Action bar"
-                                    aria-label="Toggle action bar"
-                                    :aria-pressed="actionBarLayerActive"
-                                    :tabindex="hasAnyActionBar ? 0 : -1"
-                                    @click="toggleActionBar"
-                                >
-                                    <component
-                                        :is="genericBar?.icon ?? Paintbrush"
-                                        class="w-6 h-6"
-                                        :style="{ color: genericBar?.accentColor ?? safeAccent }"
-                                    />
-                                    <span v-if="isDesktop" class="text-small font-display" :style="{ color: genericBar?.accentColor ?? safeAccent }">
-                                        {{ genericBar?.label ?? 'Tools' }}
-                                    </span>
-                                    <!-- S.W7-6 (P1-9.2): the layer-swap AFFORDANCE —
-                                         ArrowRight mirrors the ArrowLeft back-button
-                                         inside the action-bar layer (one enter/exit
-                                         motif). The former ChevronDown promised a
-                                         dropdown this button never opens (the
-                                         chevron-that-isn't); Tools SWAPS the dock
-                                         layer, so it wears the layer grammar. -->
-                                    <ArrowRight class="w-3 h-3 text-muted-foreground hidden lg:block" />
-                                </DockIconButton>
-                            </div>
-                        </div>
+                             aperture (312px at 390w) holds controls only. The
+                             slot machine + T-29/T-36 register live in the
+                             colocated SFC (the W6-8 PP-8 cap lift). -->
+                        <ActionBarToggle
+                            :visible="hasAnyActionBar"
+                            :active="actionBarLayerActive"
+                            :is-desktop="isDesktop"
+                            :icon="genericBar?.icon ?? Paintbrush"
+                            :label="genericBar?.label ?? 'Tools'"
+                            :accent="genericBar?.accentColor ?? safeAccent"
+                            @toggle="toggleActionBar"
+                        />
 
                         <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner).
                              S.W7-2: the mobile separator PAIR is dropped (four vertical bars
@@ -285,8 +259,15 @@ watch(
                     </div>
                 </template>
             </GlassDock>
-        </div>
     </div>
+
+    <!-- T.W6 · W6-6 (T-9 re-home): the dock STATUS LAMP — band chrome,
+         absolutely seated at the band's inline-end (the .dock-band is the
+         positioning context) so it is visible at FIRST PAINT in every dock
+         state (expanded, collapsed, mid-morph) and never rides a
+         collapsible layer. Dev-gated; variant matrix in status-lamp.ts
+         (O-22). -->
+    <DockStatusLamp />
 </template>
 
 <style scoped>
@@ -298,35 +279,9 @@ watch(
     animation: vj-settle var(--spring-snappy-duration) var(--spring-snappy);
 }
 
-/* Action-bar toggle slot: animates between 0 and content width via the
-   grid-template-columns 0fr → 1fr pattern (no max-width clipping).
-   Merged in from the retired DockMainLayer.vue.
-   S.W7-6: the transition arms only once `.is-live` sets (one frame AFTER the
-   first presence painted) — the boot-composition appearance seats instantly;
-   only genuine mid-session presence toggles animate. */
-.action-bar-toggle-slot {
-    display: grid;
-    grid-template-columns: 0fr;
-    opacity: 0;
-}
-
-.action-bar-toggle-slot.is-live {
-    transition:
-        grid-template-columns var(--duration-normal) var(--ease-standard),
-        opacity var(--duration-normal) var(--ease-standard);
-}
-
-.action-bar-toggle-slot.is-visible {
-    grid-template-columns: 1fr;
-    opacity: 1;
-}
-
-.action-bar-toggle-inner {
-    overflow: hidden;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-}
+/* The action-bar toggle slot machine (S.W7-6 boot seat · W6-8 T-29 settle
+   release · T-36 true-button box-model) lives in the colocated
+   ActionBarToggle.vue (the W6-8 PP-8 cap lift). */
 
 /* ── The wax seal (S.W7 W7-1; die-rim ABROGATED T.W6 · W6-7, Q12/T-28) ──
    The collapsed dock IS the seal: wax (WatercolorDot, live color) filling

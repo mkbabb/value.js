@@ -297,7 +297,7 @@ All z-index reaches route through glass-ui's `--z-*` tokens (DESIGN.md §Z-Index
 
 - `z-[var(--z-bar)]` (30) — sticky bars (PaletteControlsBar).
 - `z-[var(--z-header)]` (35) — pane headers (PaneHeader, Markdown TOC).
-- `z-[var(--z-dock)]` (40) — the dock (Dock.vue), EditDrawer.
+- `z-[var(--z-dock)]` (40) — RETIRED from the shell at T.W6 · T-31: the dock band is grid structure (own row), so the dock needs no z at all; the token remains glass-ui's, available to true chrome overlays.
 - `z-[var(--z-popover)]` (70) — popovers, bulk-action toolbar, eyedropper overlay, gradient stop selection ring.
 - `z-[var(--z-controls)]` (20) — inline canvas overlays (MixAnimationCanvas).
 
@@ -350,13 +350,13 @@ Harmony patterns ship in `useColorGeneration.ts` (demo/@/components/custom/color
 
 ## § Layout
 
-The post-B.W1 flex-fixed dock (Bβ Proposal B, style.css:15-30 doc-comment). The dock is `position: fixed`; `.app-layout` is a flex column whose `padding-top: var(--dock-total)` reserves the dock band; `justify-content: center` vertically centres the pane container. There is no `--dock-pos` formula and no grid clearance row — the dock's pinning and the content's centring are independent CSS layout.
+THE DOCK-ATOP BAND LAW (T.W6 · T-31, owner-verbatim; supersedes B.W1's Bβ Proposal-B fixed overlay). `.app-layout` is a TWO-BAND GRID (`grid-template-rows: auto 1fr`, `row-gap: var(--dock-gap)`): the dock band (`<nav class="dock-band">`, in-flow, static) sits ATOP as row 1; the scene band (`<main class="pane-main">`, `justify-content: center`) sits below as row 2. The former simulation — `position: fixed` + a `--dock-total` padding-top reservation + a load-bearing `z-dock` — retired together: no card can composite over the dock BY CONSTRUCTION, and the paint order no longer depends on any z-index chain. Portaled menus keep their own chrome z.
 
-Layout tokens (style.css:55-66, all `:root`):
+Layout tokens (style.css `:root`):
 
-- `--dock-inset` (1rem mobile, 0.5rem ≥1024 px) — the dock's pin offset.
-- `--dock-h` / `--dock-gap` / `--dock-total` — the vertical band the dock occupies.
-- `--content-max-h: calc(100dvh - var(--dock-total) - 1rem)` — the cap on the pane container; the `100dvh` keeps the math mobile-safe (URL bar collapse).
+- `--dock-inset` (1rem mobile, 0.5rem ≥1024 px) — the shell's top padding (the band's breathing room).
+- `--dock-h` — the dock band's `min-height` floor; `--dock-gap` — the DESIGNED gap between the two bands (the grid row-gap). (`--dock-total` died with the padding reservation at T-31.)
+- `--content-max-h: 100%` — the cap on the pane container; the scene band's own height is the honest base (row 2 resolves it by construction), with the desktop/ultra-wide designed clamps overriding.
 - `--pane-min: 25rem` / `--pane-max: 32rem` / `--pane-gap: clamp(0.5rem, 1.25vw, 1.618rem)` — the pane clamp ladder (R.W3 Lane A / A4; the 44/30 → 32/25 re-cut is **S FINAL.md Ruling #1** "card width ~1/3 smaller", landed `52c5fd4`). The GRID owns the clamp: `.pane-container` is `max-width: min(100vw − 2·--app-padding-x, 2·--pane-max + --pane-gap)` and the dual grid is `repeat(2, minmax(var(--pane-min), 1fr))` — cards grow fluidly 1024→1536 then clamp, equal columns always. **Pane shells never self-clamp** (`w-full` only; the 10 `lg:max-w-desktop-pane` forks are deleted). No per-width media staircase.
 - `--menu-min-w: 11rem` — shared dropdown/select panel width (collapsed from 5 ad-hoc widths at A.W7).
 
@@ -364,15 +364,15 @@ Layout tokens (style.css:55-66, all `:root`):
 
 **Container queries.** The pane slot wrappers (`.pane-wrapper`) are `container-type: inline-size`; in-card sizing rides `cqi` (e.g. the picker card's `px-[clamp(0.75rem,4cqi,1.5rem)]` gutters), never `vw` — structurally immune to the viewport-variant kill class. Display type rungs are the named exception (viewport-fluid `clamp()`s by design).
 
-Consumer sites (post-D.W4 Lane A surfaces these as utilities — `top-dock-inset`, `min-w-menu` etc.):
+Consumer sites (post-D.W4 Lane A surfaces these as utilities — `min-w-menu` etc.; the `top-dock-inset` bridge died with the fixed overlay at T-31):
 
 | Token | Consumed at | Idiom |
 |---|---|---|
-| `--dock-inset` | `Dock.vue` (the fixed dock pin) | `top-[var(--dock-inset)]` |
+| `--dock-inset` | `.app-layout` padding (style.css) | direct CSS — the shell owns its band inset |
 | `--pane-min` / `--pane-max` / `--pane-gap` | `.pane-container` (style.css) | direct CSS — the grid owns the clamp |
 | `--menu-min-w` | every DropdownMenuContent + SelectContent | `min-w-[var(--menu-min-w)]` |
 | `--content-max-h` | `.pane-container` (style.css) | `max-h-[var(--content-max-h)]` |
-| `--dock-total` | `.app-layout` padding (style.css) | direct CSS, not a utility |
+| `--dock-h` / `--dock-gap` | `.dock-band` min-height / `.app-layout` row-gap (style.css) | direct CSS — the band grid owns them |
 
 The pane-shell layout (`panes/PaneHeader.vue` + `.pane-container` / `.app-layout` in `style.css`, driven by the pane clamp ladder + `--dock-inset` tokens above) is the live visual-hierarchy reference for the app viewport: a title-row + scroll-faded content region that every pane (`BrowsePane`, `ExtractPane`, `MixPane`, …) composes. It is type-clean and reduced-motion-correct (the WebGL RAF loops fence on `prefers-reduced-motion` in their composables — see the §Reduced-motion carve-out above).
 

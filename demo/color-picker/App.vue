@@ -15,13 +15,15 @@
             data-testid="atmosphere-canvas"
             data-glass-field-canvas
         />
-        <!-- W5-a11y: nav landmark for the dock.
-             W2-3 (T.W2 · B1 dock voice): the dock arrives AS the pill —
-             veiled during the producer mount-morph, revealed through the
-             plate-land family (the M-14 booked-interim; the full mechanism +
-             rationale live in boot/useDockArrival.ts). -->
+        <!-- W5-a11y: nav landmark. T-31 (T.W6): the nav IS the dock band —
+             row 1 of the two-band grid, in-flow, zero z-index arms; the scene
+             band sits below (style.css §App layout). W2-3 (T.W2 · B1 dock
+             voice): the dock arrives AS the pill — veiled during the producer
+             mount-morph, revealed through the plate-land family (the M-14
+             booked-interim; mechanism in boot/useDockArrival.ts). -->
         <nav
             ref="dockNav"
+            class="dock-band"
             aria-label="Application navigation"
             :class="[
                 !dockRevealed && 'overture-dock-veiled',

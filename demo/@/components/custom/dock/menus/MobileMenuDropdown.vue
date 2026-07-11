@@ -100,7 +100,10 @@ const { toggleDark } = useGlobalDark();
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
-                    <DarkModeToggle passive title="Toggle dark mode" class="aspect-square w-4" />
+                    <!-- W6-8: native `title` retired (the row's own "Dark mode"
+                         text is the accessible name; the passive glyph is
+                         decorative). -->
+                    <DarkModeToggle passive aria-hidden="true" class="aspect-square w-4" />
                     Dark mode
                 </DropdownMenuItem>
             </DropdownMenuContent>

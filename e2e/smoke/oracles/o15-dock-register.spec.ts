@@ -58,3 +58,110 @@ test.describe("O-15a · the seal abrogation (negative watch)", () => {
         expect(cls).not.toMatch(/\bring-\d/);
     });
 });
+
+test.describe("O-15b · the Tools clip release + register pass (W6-8)", () => {
+    test("settled rest releases the clip — the hover capsule + shadow render whole", async ({
+        page,
+    }) => {
+        await page.goto("/");
+        await page.waitForSelector(".glass-dock");
+        await expandDock(page);
+
+        // The picker view carries an action bar, so the toggle slot is
+        // present at first paint (boot-seated: the settle stamp rides the
+        // same double-rAF that arms the transition). At settled-visible rest
+        // the clip has NO job — the inner box computes `overflow: visible`.
+        const slot = page.locator(".action-bar-toggle-slot");
+        await expect(slot).toHaveClass(/is-visible/);
+        await expect(slot).toHaveClass(/is-settled/, { timeout: 5000 });
+        const inner = page.locator(".action-bar-toggle-inner");
+        await expect(inner).toHaveCSS("overflow", "visible");
+
+        // The whole-shadow assert: the producer's box-shadow states (the
+        // shared :focus-visible ring — the one shadow the register paints by
+        // default; --dock-active-shadow ships `none`) render on a box whose
+        // clip is RELEASED, so nothing amputates them (the pre-cure clip box
+        // fit the rest box exactly — 100% of any blur fell outside it).
+        // Keyboard focus (Tab) gives honest :focus-visible modality.
+        const tools = page.locator(".dock-tools-btn");
+        let shadow = "none";
+        for (let i = 0; i < 20; i++) {
+            await page.keyboard.press("Tab");
+            const isTools = await tools.evaluate(
+                (el) => el === document.activeElement,
+            );
+            if (isTools) {
+                shadow = await tools.evaluate(
+                    (el) => getComputedStyle(el).boxShadow,
+                );
+                break;
+            }
+        }
+        expect(shadow).not.toBe("none");
+        // …and the shadow's canvas is unclipped (asserted above: the inner
+        // computes overflow visible at settled rest).
+    });
+
+    test("T-36 (§0.6): the Tools trigger wears the true-button box-model", async ({
+        page,
+    }) => {
+        await page.goto("/");
+        await page.waitForSelector(".glass-dock");
+        await expandDock(page);
+        const tools = page.locator(".dock-tools-btn");
+        await expect(tools).toBeVisible();
+        const box = await tools.evaluate((el) => {
+            const cs = getComputedStyle(el);
+            return {
+                padding: cs.padding,
+                marginLeft: cs.marginLeft,
+                marginRight: cs.marginRight,
+                gap: cs.gap,
+            };
+        });
+        // The Button-primitive px-3/py-2 scale ("proper margin and padding
+        // like a true button element"), never the compact 4px sticker seat —
+        // delivered through the producer's own --dock-compact-control-padding
+        // token hook, so a producer register change surfaces here.
+        expect(box.padding).toBe("8px 12px");
+        expect(box.marginLeft).toBe("4px");
+        expect(box.marginRight).toBe("4px");
+        expect(box.gap).not.toBe("normal");
+    });
+
+    test("zero native title on the dock set (the UA-slab retirement)", async ({
+        page,
+    }) => {
+        await page.goto("/");
+        await page.waitForSelector(".glass-dock");
+        await expandDock(page);
+        const nav = page.locator('nav[aria-label="Application navigation"]');
+
+        // Main layer (the Tools trigger's former title="Action bar").
+        await expect(nav.locator("[title]")).toHaveCount(0);
+
+        // The action-bar layer (the former title="Back").
+        await page.locator(".dock-tools-btn").click();
+        await expect(page.getByRole("button", { name: "Back" })).toBeVisible();
+        await expect(nav.locator("[title]")).toHaveCount(0);
+        await page.getByRole("button", { name: "Back" }).click();
+
+        // The conditional layers (mobile-edit, slug-edit) and the portaled
+        // menus (DarkModeToggle rows) are retired at the same source pass;
+        // the lane record carries the dock-tree grep-zero.
+    });
+
+    test("the separator folds into the slot's arrival — one presence grammar", async ({
+        page,
+    }) => {
+        await page.goto("/");
+        await page.waitForSelector(".glass-dock");
+        await expandDock(page);
+        // T-29 register pass row 3: the desktop separator lives INSIDE the
+        // animated inner box now — it enters WITH the 0fr→1fr arrival instead
+        // of popping via v-if beside it (two grammars for one arrival).
+        await expect(
+            page.locator(".action-bar-toggle-inner .dock-separator"),
+        ).toHaveCount(1);
+    });
+});
