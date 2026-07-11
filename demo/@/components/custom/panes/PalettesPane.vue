@@ -1,9 +1,14 @@
 <template>
     <Card tier="resting" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
-        <!-- S.W5-7 (Q4 EXCISE): the heading joins every other pane title —
-             ink, display voice; the palette-ness is carried by the cards. -->
+        <!-- T.W6 · W6-4 (Q5 RULED, T-43 owner-CONFIRMS: "'Palettes' should be
+             rainbow"): the "Palettes" letterforms wear the guarded ramp — the
+             SECOND of the exactly-two sanctioned sites (with the dock
+             dropdown entry; one resolver, `@composables/color/palettes-ramp`,
+             consumed via the ONE `.palettes-ramp-text` recipe). This is the
+             Q4-record moment surviving, relocated per the ruled form; every
+             OTHER pane title stays ink (S.W5-7 stands for the rest). -->
         <PaneHeader description="Save, organize, and share your colors.">
-            <span class="capitalize">My Palettes</span>
+            <span class="capitalize">My <span class="palettes-ramp-text">Palettes</span></span>
             <Badge v-if="pm.savedPalettes.value.length > 0" variant="secondary" class="text-mono-small ml-2">{{ pm.savedPalettes.value.length }}</Badge>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">

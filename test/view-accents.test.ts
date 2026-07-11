@@ -1,13 +1,25 @@
 /**
- * S.W7 · W7-4 — the accent contrast probe (§Hard gate 3).
+ * S.W7 · W7-4 — the accent contrast probe (§Hard gate 3), O-13-SLIMMED at
+ * T.W6 · W6-4 (the T-10 excise, same commit — the census's AT-RISK row).
  *
- * All 9 view accents must clear the WCAG 1.4.11 graphics floor (≥ 3:1)
- * POST-gamut-map, INCLUDING achromatic picks (probed at C ≈ 0), in both
- * schemes. The pre-fix state this gate exists to kill (design-dock-shell
- * P1-4, measured): mix 2.74:1 / generate 2.77:1 on the default pick, and
- * ALL nine rotations collapsing to one gray at C ≈ 0.
+ * WHAT SLIMMED: the 9-per-view-token rows (`PRIMARY_VIEW_IDS`/
+ * `PRIMARY_VIEW_SHIFTS` / `resolveViewAccentTokens`) died with the W7-4
+ * color-wheel legend (the owner overrule — the menu speaks ink now). The
+ * oracle no longer orbits a paint nobody renders.
  *
- * The probe verifies through the SAME library leaves the resolver consumes
+ * WHAT SURVIVES (the R1 survives-column): `resolveViewAccent` — the
+ * CURRENT-view accent still resolves per the active view's schema shift, so
+ * the WCAG 1.4.11 graphics floor (≥ 3:1) must hold POST-gamut-map for EVERY
+ * shift the schema can make current, INCLUDING achromatic picks (probed at
+ * C ≈ 0), at both ends of the measured ambient band. `resolveSealInk` — the
+ * seal-ink rows, unchanged.
+ *
+ * WHAT JOINS (W6-4, Q5 RULED): the guarded letterform ramp rows — the THREE
+ * analogous stops (the `--palettes-ramp-*` referent, O-14's re-pointed T-10
+ * referent) each clear the WCAG 1.4.3 TEXT floor (≥ 4.5:1) and stay
+ * hue-distinct.
+ *
+ * The probe verifies through the SAME library leaves the resolvers consume
  * (`wcagContrastRatio`, `OKLCHColor`) — the oracle and the implementation
  * share the metric, not the pipeline.
  */
@@ -23,9 +35,11 @@ import {
     resolveViewAccent,
 } from "../demo/color-picker/composables/boot/view-accents";
 import {
-    PRIMARY_VIEW_IDS,
-    PRIMARY_VIEW_SHIFTS,
-} from "../demo/color-picker/composables/boot/useViewAccents";
+    PALETTES_RAMP_SHIFTS,
+    RAMP_TEXT_CONTRAST_FLOOR,
+    resolvePalettesRamp,
+} from "../demo/@/composables/color/palettes-ramp";
+import { VIEW_MAP } from "../demo/@/composables/viewSchema";
 
 /**
  * D6 (T.W3-5): the BG_LIGHTNESS constants are RETIRED — the live referent is
@@ -35,6 +49,15 @@ import {
  * the floor must hold at BOTH ends of every ambient the app actually paints.
  */
 const AMBIENT_BAND = { brightest: 0.936, darkest: 0.376 } as const;
+
+/**
+ * Every accentHueShift the schema can make CURRENT (the `--accent-view`
+ * input domain) — derived from `VIEW_MAP` itself, never a hand list. The
+ * per-view static tokens are dead (W6-4); the shift domain is not.
+ */
+const SCHEMA_SHIFTS = [
+    ...new Set(Object.values(VIEW_MAP).map((c) => c.accentHueShift)),
+];
 
 /** Parse the resolver's `oklch(L C H)` output into raw components. */
 function parseResolved(css: string): { L: number; C: number; H: number } {
@@ -65,45 +88,40 @@ const SCHEMES = {
     "dark ambient": AMBIENT_BAND.darkest,
 } as const;
 
-describe("W7-4 — the 9 gamut-guarded per-view accents", () => {
-    it("the schema yields exactly nine primary views", () => {
-        expect(PRIMARY_VIEW_IDS).toHaveLength(9);
-        expect(Object.keys(PRIMARY_VIEW_SHIFTS)).toHaveLength(9);
+describe("W7-4 — the current-view accent (O-13-slimmed: the R1 survivor)", () => {
+    it("the schema's shift domain is non-trivial (the sweep has teeth)", () => {
+        expect(SCHEMA_SHIFTS.length).toBeGreaterThanOrEqual(2);
+        expect(SCHEMA_SHIFTS).toContain(0);
     });
 
     for (const [schemeName, bgL] of Object.entries(SCHEMES)) {
         for (const [pickName, pickCss] of Object.entries(PICKS)) {
-            it(`≥3:1 graphics floor — ${pickName}, ${schemeName} scheme, all 9 views`, () => {
-                for (const [id, shift] of Object.entries(
-                    PRIMARY_VIEW_SHIFTS,
-                )) {
+            it(`≥3:1 graphics floor — ${pickName}, ${schemeName} scheme, every schema shift`, () => {
+                for (const shift of SCHEMA_SHIFTS) {
                     const resolved = resolveViewAccent(pickCss, shift, bgL);
-                    expect(resolved, `${id} resolves`).not.toBeNull();
+                    expect(resolved, `shift ${shift}° resolves`).not.toBeNull();
                     const ratio = ratioAgainst(resolved!, bgL);
                     expect(
                         ratio,
-                        `${id} (${shift}°) → ${resolved} vs ${schemeName} bg`,
+                        `${shift}° → ${resolved} vs ${schemeName} bg`,
                     ).toBeGreaterThanOrEqual(GRAPHICS_CONTRAST_FLOOR);
                 }
             });
         }
     }
 
-    it("achromatic picks fan out chromatically — the axis survives C≈0", () => {
-        // Pre-fix: all 9 rotations painted ONE gray. Post: nine hue-distinct,
-        // visibly chromatic tokens (C at least one OKLab JND after mapping).
-        const hues = new Set<number>();
-        for (const shift of Object.values(PRIMARY_VIEW_SHIFTS)) {
+    it("achromatic picks stay chromatic — the axis survives C≈0", () => {
+        // Pre-fix: rotations of a gray pick collapsed to ONE gray. Post: each
+        // schema shift resolves visibly chromatic (C ≥ one OKLab JND mapped).
+        for (const shift of SCHEMA_SHIFTS) {
             const resolved = resolveViewAccent(
                 PICKS["achromatic mid (C≈0)"],
                 shift,
                 AMBIENT_BAND.brightest,
             );
-            const { C, H } = parseResolved(resolved!);
+            const { C } = parseResolved(resolved!);
             expect(C).toBeGreaterThanOrEqual(DELTA_E_OK_JND);
-            hues.add(Math.round(H / 10));
         }
-        expect(hues.size).toBe(9);
     });
 
     it("the low-C floor is library-anchored (4 × the OKLab JND)", () => {
@@ -111,7 +129,43 @@ describe("W7-4 — the 9 gamut-guarded per-view accents", () => {
     });
 });
 
-describe("W7-4 — the seal ink (the 10th token, SEEDS.md w7 rider)", () => {
+describe("W6-4 — the guarded letterform ramp (Q5 RULED; O-14's T-10 referent)", () => {
+    it("the ruled form: three analogous stops, ±40° about the live accent", () => {
+        expect(PALETTES_RAMP_SHIFTS).toEqual([-40, 0, 40]);
+        expect(RAMP_TEXT_CONTRAST_FLOOR).toBe(4.5);
+    });
+
+    for (const [schemeName, bgL] of Object.entries(SCHEMES)) {
+        for (const [pickName, pickCss] of Object.entries(PICKS)) {
+            it(`≥4.5:1 text floor — ${pickName}, ${schemeName} scheme, all 3 stops`, () => {
+                const ramp = resolvePalettesRamp(pickCss, bgL);
+                expect(ramp, "ramp resolves").not.toBeNull();
+                expect(ramp).toHaveLength(3);
+                for (const stop of ramp!) {
+                    expect(
+                        ratioAgainst(stop, bgL),
+                        `${stop} vs ${schemeName} bg`,
+                    ).toBeGreaterThanOrEqual(RAMP_TEXT_CONTRAST_FLOOR);
+                }
+            });
+        }
+    }
+
+    it("the fan is hue-distinct — the ramp reads as a ramp, not one ink", () => {
+        const ramp = resolvePalettesRamp(
+            PICKS["chromatic default (the P1-4 measured pick)"],
+            AMBIENT_BAND.brightest,
+        )!;
+        const hues = ramp.map((s) => Math.round(parseResolved(s).H / 10));
+        expect(new Set(hues).size).toBe(3);
+    });
+
+    it("unparseable accent resolves to null (the writer keeps the last tokens)", () => {
+        expect(resolvePalettesRamp("not-a-color", 0.5)).toBeNull();
+    });
+});
+
+describe("W7-4 — the seal ink (the SEEDS.md w7 rider; R1 survivor)", () => {
     it("light wax stamps dark ink; dark wax stamps light ink", () => {
         expect(resolveSealInk("white")).toBe("oklch(0 0 0)");
         expect(resolveSealInk("oklch(0.95 0.05 100)")).toBe("oklch(0 0 0)");

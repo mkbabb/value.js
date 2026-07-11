@@ -165,3 +165,26 @@
 .swatch-row > .vj-enter-leave-active {
     position: absolute;
 }
+
+/* THE GUARDED LETTERFORM RAMP recipe (T.W6 · W6-4 — Q5 RULED, owner-verbatim:
+ * "Only palettes should be rainbow--the letterforms dropdown and the title";
+ * T-43 owner-CONFIRMS). The ONE recipe for the exactly-TWO consume sites
+ * (DockViewSelect's "Palettes" entry + PalettesPane's title letterforms) —
+ * never a scoped twin (the S.W7-7 lesson). Stops are the THREE root tokens
+ * `boot/useViewAccents` writes from the ONE resolver
+ * (`@composables/color/palettes-ramp` — derived from the live accent,
+ * gamut-guarded, WCAG ≥4.5:1 text-floor); the guard's output IS O-14's T-10
+ * referent. C3-ledger: the sanctioned exception to the nav ink law (Q18).
+ * Fallbacks = the resolver's own pre-first-write class of value (the
+ * `--accent-view` @property initial family), overwritten at first resolve. */
+.palettes-ramp-text {
+    background-image: linear-gradient(
+        90deg,
+        var(--palettes-ramp-0, oklch(0.632 0.214 333.5)),
+        var(--palettes-ramp-1, oklch(0.632 0.214 13.5)),
+        var(--palettes-ramp-2, oklch(0.632 0.214 53.5))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

@@ -29,19 +29,24 @@
  *      re-mapping) until it clears — a deterministic library-driven solve,
  *      never nine hand-tuned literals.
  *
- * The composable half (`@composables/color/useViewAccents`) writes the result
- * as 9 STATIC root tokens per accent change (`--accent-view-<viewId>`) plus
- * the current view's `--accent-view` — consuming the W3-7 mechanism decision
+ * The composable half (`boot/useViewAccents`) writes the result as STATIC
+ * root tokens per accent change — the current view's `--accent-view` (plus
+ * the W6-4 letterform-ramp trio, resolved by `@composables/color/palettes-ramp`)
+ * — consuming the W3-7 mechanism decision
  * (`docs/tranches/S/audit/w3-7-hue-sweep-retirement.md` §2): the
  * `:root`-inherited `--view-hue-shift` transition tax is retired with it.
+ * (T.W6 · W6-4, the T-10 excise: the NINE per-view static tokens and their
+ * `resolveViewAccentTokens` batch resolver are DEAD — the menu speaks ink;
+ * `resolveViewAccent` survives as the CURRENT-view resolver, byte-preserved.)
  *
- * The 10th token (`--seal-ink`, the SEEDS.md w7 rider): the wax seal's icon
- * ink resolves from the WAX color's own luminance through the library's
+ * The seal-ink token (the SEEDS.md w7 rider): the wax seal's icon ink
+ * resolves from the WAX color's own luminance through the library's
  * `contrast-color()` leaf (`contrastColor` — the WCAG black/white endpoint
  * picker), so the flip threshold is library-derived, not a CSS literal.
  *
  * Pure module — no Vue, no DOM. Unit-probed by `test/view-accents.test.ts`
- * (the §Hard-gate 3 contrast probe: 9 views × achromatic + chromatic picks).
+ * (the §Hard-gate 3 contrast probe, O-13-slimmed at W6-4: the current-accent
+ * floor sweep + the seal ink + the ramp rows).
  */
 
 import {
@@ -196,26 +201,4 @@ export function resolveSealInk(waxCss: string): string | null {
     // The leaf returns pure black or pure white (the CSS Color 5 endpoints);
     // re-express in the house oklch voice.
     return (ink.r as number) === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
-}
-
-/**
- * Resolve the full static token set for one accent state: every primary
- * view's `--accent-view-<id>` token. Pure — the composable owns the writes.
- *
- * @param liveCss the contrast-guarded live accent
- * @param shifts  viewId → hue-shift map (the caller passes the schema's
- *                primary rows; this module stays Vue-free)
- * @param bgL     scheme background lightness in OKLab [0,1]
- */
-export function resolveViewAccentTokens(
-    liveCss: string,
-    shifts: Readonly<Record<string, number>>,
-    bgL: number,
-): Record<string, string> {
-    const tokens: Record<string, string> = {};
-    for (const [id, shift] of Object.entries(shifts)) {
-        const resolved = resolveViewAccent(liveCss, shift, bgL);
-        if (resolved) tokens[`--accent-view-${id}`] = resolved;
-    }
-    return tokens;
 }
