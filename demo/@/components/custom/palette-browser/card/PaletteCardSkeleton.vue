@@ -21,11 +21,14 @@
                         glass-ui's shimmer reads them — never re-defined here
                         (§No-workaround).
          The third S.W5-1 register — `specimen`, "the ghost OF a palette" —
-         moved OUT of the loading family at T.W3-2: it is TRUE EMPTY's ink
-         and lives on the STILL `ShadowPalette` species (D9: loading ≠ empty,
-         re-cut on the motion axis; its walk now sits at the recipe root,
-         utils.css `.specimen-seg`). This shell keeps `role="status"` +
-         "Loading palette" because HERE work IS happening. -->
+         moved OUT of the loading family at T.W3-2 and OFF the sibling
+         `ShadowPalette` at T.W6.5 (R12: the species was redesigned onto the
+         genesis muted register, LIVING pulse, and seats solely at Extract's
+         standing-instrument face; true-empty hosts speak the EmptyState dot
+         trio instead). loading ≠ empty now splits on ANNOUNCEMENT, not
+         motion: this shell keeps `role="status"` + "Loading palette"
+         because HERE work IS happening; the aria-hidden ghost announces
+         nothing. -->
     <div
         data-slot="palette-card-skeleton"
         class="skeleton-ink-register rounded-card border border-card-edge bg-well overflow-hidden shadow-cartoon-sm"
@@ -84,7 +87,9 @@ import { Skeleton } from "@components/ui/skeleton";
 const { count = 5, variant = "shadow" } = defineProps<{
     count?: number;
     /** The two LOADING registers — see the template note. TRUE EMPTY is not
-     *  a register here: it is the sibling `ShadowPalette` species (D9). */
+     *  a register here: empty hosts speak the EmptyState dot trio, and the
+     *  sibling `ShadowPalette` species is the Extract instrument face
+     *  (T.W6.5 · R12). */
     variant?: "shadow" | "developing";
 }>();
 
@@ -97,9 +102,11 @@ const blockVariant = computed(() => (variant === "developing" ? "shimmer" : "bre
 <style scoped>
 /* The ink base lives at the ONE recipe root (`utils.css
  * .skeleton-ink-register`); the specimen walk likewise (`.specimen-seg`,
- * lifted there at T.W3-2 when ShadowPalette became its second consumer).
- * This block only bridges the walk into glass-ui's over-glass seam for the
- * developing strip, and calibrates the D9 known-imminent breath. */
+ * lifted there at T.W3-2 — since T.W6.5/R12 this developing strip is its
+ * sole consumer: the redesigned ShadowPalette reads the plain genesis
+ * muted ladder, not the walk). This block only bridges the walk into
+ * glass-ui's over-glass seam for the developing strip, and calibrates the
+ * D9 known-imminent breath. */
 .skeleton-seg {
     --skeleton-glass-bg: var(--specimen-ink);
 }
