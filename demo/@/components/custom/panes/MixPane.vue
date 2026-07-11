@@ -89,13 +89,18 @@ defineExpose({ clearSelection, startMix, copyResult });
                     @remove-palette="removePalette"
                 />
 
-                <!-- Mixing controls -->
+                <!-- Mixing controls. T.W6 · W6-4 (T-17): the operand colors
+                     feed the Space/Hue preview ramps (colors mode only —
+                     palettes mode passes [] so the rows carry no chip:
+                     honest restraint, the column-wise palette mix has no
+                     single ramp to preview). -->
                 <MixConfigBar
                     v-model:color-space="colorSpace"
                     v-model:hue-method="hueMethod"
                     v-model:leftover-strategy="leftoverStrategy"
                     :show-leftover-strategy="mode === 'palettes'"
                     :can-mix="canMix"
+                    :operand-colors="mode === 'colors' ? selectedColors.map((sc) => sc.css) : []"
                     @mix="startMix"
                 />
 

@@ -242,22 +242,35 @@ watch(
                     </DockLayer>
                 </DockLayerGroup>
 
-                <!-- Collapsed state — the WAX SEAL (S.W7 W7-1 / S-8): the
-                     WatercolorDot in the LIVE color fills the producer's
-                     collapsed circle (the wax speaks live — the dot IS the
-                     accent); the current view's icon is INKED over it in
-                     `--seal-ink` (the W7-4 resolver's 10th token, WCAG-derived
-                     from the wax — never `--accent-view`), swapping on the
-                     morph family keyed by view: the old impression lifts off,
-                     the next stamp presses in. The hairline die-rim adopts
-                     `--accent-view` — the continuity carrier designed to grow
-                     into the expanded trigger's ring (W7-4's `--dock-ring`
-                     seam). NO text, NO chevron; gold rim + gold ink under
-                     admin. MORPH LAW: the wax exits WITH the seal under the
-                     producer's collapse↔expand cross-fade — no element ever
-                     animates live→view-hue. -->
+                <!-- Collapsed state — the WAX SEAL (S.W7 W7-1 / S-8; die-rim
+                     ABROGATED T.W6 · W6-7, Q12 + T-28): the WatercolorDot in
+                     the LIVE color fills the producer's collapsed circle (the
+                     wax speaks live — the dot IS the accent; T-37: the wax
+                     now fills the WHOLE seal, no rim standoff — the palette
+                     swatch reads at full size on the collapsed dock); the
+                     current view's icon is INKED over it in `--seal-ink`
+                     (WCAG-derived from the wax — never `--accent-view`),
+                     swapping on the morph family keyed by view: the old
+                     impression lifts off, the next stamp presses in.
+
+                     THE REGISTER LAW (T-28, encoded): a selection/state ring
+                     on a WatercolorDot rides the dot's OWN silhouette +
+                     filter (the P5 producer solid-ring register) or does not
+                     exist — a geometric hairline over the seeded organic
+                     edge both crosses and gaps it by construction (the
+                     t-outline forensic: ~+1.5px cross / ~−2.5px gap per
+                     seed). The W7-1 continuity clause re-carries on the
+                     GLYPH: the same view icon exists at both morph endpoints
+                     (seal ink ↔ trigger icon, both on the vj-morph family) —
+                     a stronger continuity read than a 1px rim; the expanded
+                     trigger's `--dock-ring` (a geometric ring on a geometric
+                     control — sound) arrives WITH the expansion morph. Admin
+                     identity stays on the INK (gold-shimmer-icon). NO text,
+                     NO chevron. MORPH LAW: the wax exits WITH the seal under
+                     the producer's collapse↔expand cross-fade — no element
+                     ever animates live→view-hue. -->
                 <template #collapsed>
-                    <div class="dock-seal" :class="{ 'dock-seal--admin': isAdminMode }">
+                    <div class="dock-seal">
                         <WatercolorDot :color="cssColorOpaque" tag="div" class="dock-seal-wax" seed="top-dock">
                             <Transition name="vj-morph" mode="out-in">
                                 <component
@@ -315,14 +328,22 @@ watch(
     align-items: center;
 }
 
-/* ── The wax seal (S.W7 W7-1) ────────────────────────────────────────────
+/* ── The wax seal (S.W7 W7-1; die-rim ABROGATED T.W6 · W6-7, Q12/T-28) ──
    The collapsed dock IS the seal: wax (WatercolorDot, live color) filling
    the producer's collapsed circle (glass-ui pins the summary pane square,
-   aspect-ratio 1 — density.css/morph.css), the view icon inked over it,
-   and a hairline circular die-rim in --accent-view (the continuity
-   carrier the expanded trigger's --dock-ring seam adopts under W7-4). The
-   seal is a FIXED-INTRINSIC-SIZE composition (block 100% / aspect 1): the
-   collapsed morph endpoint becomes VIEW-INVARIANT — no per-view text
+   aspect-ratio 1 — density.css/morph.css) and the view icon inked over
+   it. The seal speaks with TWO voices — the wax IS the live color
+   (identity by material) and the inked glyph IS the view (identity by
+   impression); the third concentric boundary (the 1px --accent-view
+   die-rim + its gold admin override) was over-drawing at 40px and the
+   only voice that could never fit the seeded organic edge — it DIED with
+   its 2px standoff padding (T-37: the wax gains the whole circle; the
+   underlying palette swatch finally reads at size). NO border may return
+   here: the O-15a negative watch asserts computed border-style none (the
+   resurrection guard); a future fitted ring is the P5 producer solid-ring
+   register on the wax itself, never a geometric parent circle. The seal
+   is a FIXED-INTRINSIC-SIZE composition (block 100% / aspect 1): the
+   collapsed morph endpoint stays VIEW-INVARIANT — no per-view text
    width, nothing to re-measure, nothing to clip (the P0-1 "Ho" cure). All
    motion is transform/opacity-only: the producer's compositor
    expand↔collapse morph outside, the vj-morph stamp swap inside; PRM
@@ -332,12 +353,12 @@ watch(
     aspect-ratio: 1;
     display: grid;
     place-items: center;
-    padding: 2px;
     border-radius: 9999px;
-    border: 1px solid color-mix(in oklab, var(--accent-view) 60%, transparent);
-}
-.dock-seal--admin {
-    border-color: color-mix(in oklab, var(--color-gold) 75%, transparent);
+    /* The abrogation made literal (O-15a's negative watch reads this
+       computed value): Tailwind's preflight stamps `border: 0 solid`
+       app-wide, so an explicit none is the honest "the rim is DEAD and
+       stays dead" declaration, not redundancy. */
+    border: none;
 }
 .dock-seal-wax {
     inline-size: 100%;
