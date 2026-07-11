@@ -247,14 +247,32 @@
     will-change: transform;
 }
 
-/* W3-5 (S.W3 · view-swap spring retune): re-time the pane ENTER travel to
- * `--duration-normal` (0.3s) — SCOPED to the pane wrappers so the shared
- * vj-enter family (overlays, toolbars, list items) is untouched; the curve
- * (`--spring-smooth`) is kept. The leave side already runs at
- * `--duration-normal`, so the swap is symmetric ~0.3s. */
+/* T.W5 · R2+R3 (T-14 / D7 — the two-channel law; one moment, one clock):
+ * the pane swap is a SPATIAL travel, so the ENTER rides `--spring-snappy`
+ * at the spring's OWN clock. The superseded W3-5 retune kept the smooth
+ * curve but squeezed it onto `--duration-normal` — the named
+ * normalized-spring-on-generic-clock anti-pattern (a spring linear()
+ * reaches ~0.5 by ~6% of ANY clock → all travel in the first ~60ms,
+ * then dead air; t-transitions-liquid F2). PKT-2 (the ~0.3s preset) is
+ * unanswered at this cut, so the swap lands on arm (i) —
+ * `--spring-snappy` @ `--spring-snappy-duration` (0.4s true settle);
+ * decision recorded on the T.md §7.2 book row.
+ * The LEAVE is the exit law: strictly SHORTER than the enter, bezier
+ * `--ease-out`, never an overshoot — the outgoing plate is gone before
+ * the incoming plate's overshoot lands (the prior full-0.3s ACCELERATE
+ * leave held the outgoing pane at full presence exactly when the
+ * incoming pane arrived — the F2 mid-flight collision). Both rules stay
+ * SCOPED to the pane wrappers: the un-scoped vj-enter family above is
+ * the F6 KEEP set, untouched. */
 .pane-wrapper--left > .vj-enter-enter-active,
 .pane-wrapper--right > .vj-enter-enter-active {
     transition:
-        opacity var(--duration-normal) var(--ease-decelerate),
-        transform var(--duration-normal) var(--spring-smooth);
+        opacity var(--duration-fast) var(--ease-decelerate),
+        transform var(--spring-snappy-duration) var(--spring-snappy);
+}
+.pane-wrapper--left > .vj-enter-leave-active,
+.pane-wrapper--right > .vj-enter-leave-active {
+    transition:
+        opacity var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-out);
 }

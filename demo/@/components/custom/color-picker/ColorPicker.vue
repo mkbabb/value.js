@@ -359,8 +359,13 @@ onUnmounted(() => {
 
 .pane-shell {
     /* W3-4 (S.W3): the `margin` layout-property transition is DELETED — margin
-       morphs forced a reflow every frame of the swap. Transform only now. */
-    transition: transform var(--duration-normal) var(--ease-standard);
+       morphs forced a reflow every frame of the swap. Transform only now.
+       T.W5-R11 (T-14 / D7): the nudge is a SPATIAL travel — it rides
+       `--transition-liquid-spatial` at the spring's OWN clock
+       (`--spring-smooth-duration`), never a bezier on a generic clock; the
+       producer's PRM carve re-aliases the token to `--ease-standard` under
+       reduced motion. */
+    transition: transform var(--spring-smooth-duration) var(--transition-liquid-spatial);
 }
 
 /* T.W4-5 — THE SEAT lives in the colocated grammar sheet (./seat.css —

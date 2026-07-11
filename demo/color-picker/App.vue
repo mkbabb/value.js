@@ -134,11 +134,12 @@
         </main>
     </div>
 
-    <!-- S.W0 W0-1 (seed rider 1): always-mounted dev-misconfig banner. Inert
-         in production + whenever VITE_API_URL is set (e2e / boot-smoke); only
-         paints when bare `dev:web-only` silently targets the cross-origin prod
-         api. -->
-    <DevMisconfigBanner />
+    <!-- T.W6-6 (T-9, landed through the W5 App.vue queue — the ONE round-4
+         App.vue writer): the dev-misconfig BANNER mount is REMOVED (the owner:
+         "This banner should be removed", re-confirmed live at R10/W4.5). The
+         misconfigured-state affordance re-homes as Lane D's dock status lamp
+         (first-paint, dev-gated); the W0-1 honesty contract
+         (availability.ts + the loud console.error) is byte-preserved. -->
 
     <!-- Global modals -->
     <MigratePalettesDialog
@@ -159,7 +160,6 @@ import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@composables/co
 import { Dock } from "@components/custom/dock";
 // PI-6: DIRECT imports (not via the dialog/status barrels) keep the eager index.js chunk from pulling the lazy sibling dialogs' side-effecting <style>.
 import MigratePalettesDialog from "@components/custom/palette-browser/dialog/MigratePalettesDialog.vue";
-import DevMisconfigBanner from "@components/custom/palette-browser/status/DevMisconfigBanner.vue";
 import PaneSlot from "@components/custom/panes/PaneSlot.vue";
 
 import { useCustomColorNames } from "@composables/color/useCustomColorNames";

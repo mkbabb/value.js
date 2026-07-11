@@ -4,26 +4,30 @@
          the correct pattern for a card container that also houses nested interactive elements. -->
     <div
         :class="[
-            // Z2 in-plate card (DESIGN.md §Depth): the --card-edge hairline
-            // (consumed via the border-card-edge bridge), the chip-scale
-            // cartoon rung at rest, and a law-3 hover that DEEPENS the same
-            // voice (sm → md) instead of lurching from none to the full rung.
-            // T.W3-1 (D1 rung-2 WELL; supersedes S-20 — R8): the card is an
-            // in-plate fixture — an opaque tone-step of the host plate
-            // (`bg-well`), never heavier glass than its host (RC-2). The
-            // blur dies with the glass recipe. PaletteCardSkeleton +
-            // .dashed-well speak the same shell by construction.
+            // T.W5-R4 (T-14 / D7): the producer CARTOON REGISTER — the
+            // `cartoon-surface` atom owns the hover/press choreography
+            // (translate/scale on --ease-cartoon-punch @ --duration-normal,
+            // shadow bezier md→lg, :active squash, 2px border) + the lagging
+            // .cartoon-cast child below. The hand-rolled shadow-only hover on
+            // the dead 150ms default (F1/F3) is retired. NOT <Card
+            // surface=cartoon>: the ratified Q4/T.W3-1 rung-2 WELL material
+            // (bg-well) stands — cartoon-surface is decoration-only by
+            // producer design, so the motion register lands tier-agnostic.
             // NO overflow-hidden (S.W5-10 / S-15-A): a card-level radius clip
-            // rasterizes 1-bit at compositing-layer bounds (the stair-stepped
-            // strip corner in the owner's shot); the strip clips its OWN
-            // corners below — an interior clip keeps normal AA.
-            'group rounded-card border border-card-edge bg-well shadow-cartoon-sm transition-shadow hover:shadow-cartoon-md cursor-pointer',
+            // rasterizes 1-bit at compositing-layer bounds; the strip clips
+            // its OWN corners below — an interior clip keeps normal AA.
+            'group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer',
             layout === 'aside' && 'flex',
         ]"
         role="article"
         :aria-label="`Palette: ${palette.name}`"
+        v-bind="press.handlers"
+        :style="press.pressStyle.value"
         @click="$emit('click')"
     >
+        <!-- T.W5-R4 — the producer's inert cel cast (the exact child Card
+             emits for surface=cartoon); rides --card-press-t, PRM-zeroed. -->
+        <span class="cartoon-cast" aria-hidden="true" />
         <!-- Color strip — the card's only full-bleed child; it carries the
              corner radius itself now that the card no longer clips. -->
         <PaletteColorStrip
@@ -68,55 +72,9 @@
                     {{ palette.colors.length }}
                 </Badge>
 
-                <!-- Fork indicator -->
-                <span
-                    v-if="palette.forkOf"
-                    class="flex items-center gap-0.5 text-micro text-muted-foreground shrink-0"
-                    :title="`Remixed from ${palette.forkOf}`"
-                >
-                    <GitFork class="w-3 h-3" />
-                </span>
-
-                <!-- Fork count -->
-                <span
-                    v-if="(palette.forkCount ?? 0) > 0"
-                    class="flex items-center gap-0.5 text-micro text-muted-foreground shrink-0"
-                    :title="`${palette.forkCount} remix${palette.forkCount === 1 ? '' : 'es'}`"
-                >
-                    <GitFork class="w-3 h-3" />
-                    <span class="fira-code">{{ palette.forkCount }}</span>
-                </span>
-
-                <!-- Version count -->
-                <span
-                    v-if="(palette.versionCount ?? 0) > 1"
-                    class="flex items-center gap-0.5 text-micro text-muted-foreground shrink-0"
-                    :title="`${palette.versionCount} versions`"
-                >
-                    <History class="w-3 h-3" />
-                    <span class="fira-code">{{ palette.versionCount }}</span>
-                </span>
-
-                <!-- Tag chips -->
-                <span
-                    v-for="tag in (palette.tags ?? []).slice(0, 3)"
-                    :key="tag"
-                    class="rounded-full bg-muted/60 px-1.5 py-0.5 text-micro text-muted-foreground shrink-0"
-                >{{ tag }}</span>
-
-                <!-- Vote count -->
-                <button
-                    v-if="!palette.isLocal"
-                    class="flex items-center gap-1 px-1.5 py-0.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors duration-fast cursor-pointer shrink-0 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
-                    :aria-label="`${palette.voteCount ?? 0} votes, click to vote`"
-                    @click.stop="emit('vote', palette)"
-                >
-                    <Heart
-                        class="w-3.5 h-3.5 transition-colors"
-                        :class="palette.voted ? 'fill-red-500 text-red-500' : 'text-muted-foreground'"
-                    />
-                    <span class="text-mono-small text-muted-foreground">{{ palette.voteCount ?? 0 }}</span>
-                </button>
+                <!-- Metadata chips (fork/version/tags/vote) — colocated lift
+                     (T.W5 PP-8 cap cure; the H.W3 sub-component precedent). -->
+                <PaletteCardMeta :palette="palette" @vote="emit('vote', $event)" />
             </div>
 
             <!-- Dropdown menu -->
@@ -205,22 +163,17 @@
 import { ref, computed } from "vue";
 import { Badge } from "@components/ui/badge";
 import { Button } from "@components/ui/button";
-import {
-    Heart,
-    Award,
-    MoreHorizontal,
-    GripVertical,
-    GitFork,
-    History,
-} from "@lucide/vue";
+import { Award, MoreHorizontal, GripVertical } from "@lucide/vue";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import { getPaletteKind, type PaletteKind } from "@lib/palette/utils";
 import { copyToClipboard } from "@mkbabb/glass-ui";
+import { useLiquidPress } from "@mkbabb/glass-ui/motion";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 import { useHoverPopover } from "../composables/useHoverPopover";
 import { useHeightTransition } from "../composables/useHeightTransition";
 import PaletteColorStrip from "../PaletteColorStrip.vue";
 import PaletteCardMenu from "./PaletteCardMenu.vue";
+import PaletteCardMeta from "./PaletteCardMeta.vue";
 import PaletteCardSwatches from "./PaletteCardSwatches.vue";
 import PaletteRenameInput from "./PaletteRenameInput.vue";
 import ActionFeedback from "./ActionFeedback.vue";
@@ -301,6 +254,16 @@ const {
 } = useHoverPopover();
 
 const menuOpen = ref(false);
+
+// T.W5-R4 — the producer press drive (the SAME wiring <Card> carries: the
+// shared `press` spring clock, card amplitude, writing --card-press-t for
+// the caster travel/spread). CSS :active squash stays the no-JS floor;
+// this is the interruptible enhancement. PRM-instant by construction.
+const press = useLiquidPress({
+    pressVar: "--card-press-t",
+    shrinkDepth: 0.02,
+    maxStretch: 1.03,
+});
 
 const {
     onBeforeEnter,

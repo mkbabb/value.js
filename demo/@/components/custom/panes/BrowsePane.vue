@@ -27,10 +27,22 @@
             </SearchBar>
 
             <div class="grid gap-3 pb-3">
+                <!-- T.W5-R8 (T-14 / D7 · F5): skeleton→content is "ONE
+                     surface, NEW content" — the wall's three states key the
+                     vj-morph family (out-in on the state container), so the
+                     developing plates SETTLE into the wall on the snappy
+                     spring instead of a hard v-if POP; the skeleton's last
+                     shimmer sweep hands off into the enter (one clock, no
+                     double-flash). The per-card stagger stays DORMANT on the
+                     PKT-4 seams (--skeleton-shimmer-delay writes in
+                     PaletteCardSkeleton — live the day the producer shimmer
+                     reads them; never re-defined here). -->
+                <Transition name="vj-morph" mode="out-in">
                 <!-- W5-1 (S-10): the wall loads as DEVELOPING PLATES — the
                      palette-card shadow grammar, never a generic spinner. -->
                 <div
                     v-if="pm.browsing.value"
+                    key="developing"
                     class="grid grid-cols-1 gap-3"
                     aria-label="Loading palettes"
                 >
@@ -48,6 +60,7 @@
                      neutral, no dock atom mis-planted in a pane body. -->
                 <EmptyState
                     v-else-if="pm.browseError.value && displayedBrowse.length === 0"
+                    key="error"
                     variant="error"
                     message="The commons is unreachable."
                     :detail="pm.browseError.value"
@@ -66,6 +79,7 @@
 
                 <PaletteCardGrid
                     v-else
+                    key="wall"
                     :empty="displayedBrowse.length === 0"
                     empty-eyebrow="· the commons ·"
                     empty-text="No published palettes here yet."
@@ -102,6 +116,7 @@
                         @edit-tags="(p) => onEditTags(p)"
                     />
                 </PaletteCardGrid>
+                </Transition>
 
                 <!-- S.W5 · the LOAD-MORE trigger (W5-13's data seam, this
                      lane's affordance): the wall pages past the 50-cap. The

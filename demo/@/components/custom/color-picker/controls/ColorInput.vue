@@ -57,10 +57,15 @@
                         </Tooltip>
                     </TooltipProvider>
 
-                    <!-- Inline send button -->
+                    <!-- Inline send button — T.W5-R5: the spatial hover/press
+                         legs come from the producer `btn-interactive` atom
+                         (scale @ --spring-smooth-duration on
+                         --transition-liquid-spatial, house press/hover
+                         magnitudes + focus register); .send-btn keeps only
+                         seat geometry (see the scoped block). -->
                     <button
                         v-if="proposeMode"
-                        class="send-btn"
+                        class="send-btn btn-interactive"
                         :disabled="!proposedName.trim() || proposing"
                         @click="submitProposedName"
                     >
@@ -69,7 +74,7 @@
                     </button>
                     <button
                         v-else
-                        class="send-btn"
+                        class="send-btn btn-interactive"
                         @click="onSubmitColor"
                     >
                         <ArrowRight class="w-4 h-4" :style="{ stroke: safeAccent }" />
@@ -318,6 +323,14 @@ defineExpose({
     pointer-events: none;
 }
 
+/* T.W5-R5 (T-14 / D7): the bespoke transform-on-bezier hover/press recipe
+ * (scale 1.1/0.95 composed into `transform` @ --duration-fast --ease-standard
+ * — the F3 spatial-on-bezier stray) is RETIRED onto the producer
+ * `btn-interactive` atom (template class): the scale longhand rides
+ * --transition-liquid-spatial @ --spring-smooth-duration, press/hover
+ * magnitudes + focus ring + disabled opacity are the house registers. This
+ * block keeps ONLY the seat geometry — the static translateY(-50%) transform
+ * composes cleanly under the atom's `scale` longhand. */
 .send-btn {
     position: absolute;
     right: 0.25rem;
@@ -326,21 +339,8 @@ defineExpose({
     padding: 0.25rem;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: transform var(--duration-fast) var(--ease-standard),
-                opacity var(--duration-fast) var(--ease-standard);
-}
-.send-btn:hover {
-    transform: translateY(-50%) scale(1.1);
-}
-.send-btn:active {
-    transform: translateY(-50%) scale(0.95);
-}
-.send-btn:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--focus-ring-color, var(--ring));
 }
 .send-btn:disabled {
-    opacity: 0.3;
     cursor: not-allowed;
 }
 
