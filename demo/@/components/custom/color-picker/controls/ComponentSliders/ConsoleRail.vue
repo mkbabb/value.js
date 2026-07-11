@@ -226,7 +226,11 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
     transition:
         color var(--duration-normal) var(--ease-standard),
         background-color var(--duration-normal) var(--ease-standard),
-        transform var(--duration-fast) var(--ease-standard);
+        /* T.W5-R5 (T-14 / D7): the only transform here is the :active press
+         * scale — a SPATIAL press leg, so it rides `--spring-press` at the
+         * spring's OWN clock (0.16s sub-200ms tap answer), never a bezier on
+         * a generic clock. Effects legs above stay bezier (two-channel law). */
+        transform var(--spring-press-duration) var(--spring-press);
 }
 .channel-rail-item:hover {
     color: var(--foreground);
