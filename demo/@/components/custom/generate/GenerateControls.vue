@@ -9,10 +9,11 @@ import {
 } from "@components/ui/select";
 import { Slider } from "@components/ui/slider";
 import { Button } from "@components/ui/button";
-import { RefreshCw } from "@lucide/vue";
+import { Badge } from "@components/ui/badge";
+import { RefreshCw, Save, Copy } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import { PaletteCard } from "@components/custom/palette-browser/card";
-import type { Palette } from "@lib/palette/types";
+import { PaletteColorStrip } from "@components/custom/palette-browser/card";
+import type { PaletteColor } from "@lib/palette/types";
 import {
     useColorGeneration,
     PRESET_NAMES,
@@ -32,21 +33,23 @@ const {
     regenerate,
 } = useColorGeneration();
 
+// T.W6 · W6-5 (T-16/F2): the save carries the plate's own name — the bench
+// title is provenance FOR the save, never display-only chrome. (The pane's
+// `createPalette` name-wire is its owner's one-liner; recorded in the lane
+// record — this emit is already truthful.)
 const emit = defineEmits<{
-    save: [colors: string[]];
+    save: [colors: string[], name: string];
 }>();
 
 const paletteName = ref("Generated Palette");
 
-const generatedPalette = computed<Palette>(() => ({
-    id: `gen-${seed.value}`,
-    name: paletteName.value,
-    slug: `gen-${seed.value}`,
-    colors: palette.value.map((css, i) => ({ css, position: i })),
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-    isLocal: true,
-}));
+/** The specimen strip's PaletteColor shape (css + position). */
+const stripColors = computed<PaletteColor[]>(() =>
+    palette.value.map((css, i) => ({ css, position: i })),
+);
+
+/** The bench-note seed — fixed-width hex, a specimen label's provenance. */
+const seedHex = computed(() => seed.value.toString(16).padStart(8, "0"));
 
 // S.W5-6 · F8: the count slider carries the generated ramp itself — the
 // extract k-slider pattern (the instrument shows its own state), replacing
@@ -74,53 +77,111 @@ function capitalize(s: string): string {
 }
 
 function save() {
-    emit("save", [...palette.value]);
-}
-
-function onRename(_palette: Palette, newName: string) {
-    paletteName.value = newName;
+    emit("save", [...palette.value], paletteName.value);
 }
 
 async function copyColors() {
     await copyToClipboard(palette.value.join(", "));
 }
 
+/** Per-swatch copy — the specimen face's one direct verb. */
+async function copyColor(css: string) {
+    await copyToClipboard(css);
+}
+
 defineExpose({ regenerate, save, copyColors });
 </script>
 
 <template>
-    <!-- S.W5-6 · F8: the deliverable LEADS — palette plate as hero, the page's
-         one verb as a real action in the plate's toolbar, generation controls
-         as marginalia beneath. The hierarchy inversion (product last, ghost
-         verb parked in a metadata row) died here. -->
     <div class="flex flex-col gap-4">
-        <PaletteCard
-            :palette="generatedPalette"
-            :expanded="true"
-            :css-color="''"
-            editable-name
-            @save="save"
-            @rename="onRename"
-        />
+        <!-- T.W6 · W6-5 (T-16 / t-misc-elements F2): THE SPECIMEN PLATE owns
+             its chrome. F8's hierarchy-inversion finally lands as written —
+             the verb lives ON the plate it acts on (name — count — regenerate
+             — actions), the seed is the plate's bench note (provenance, like
+             a specimen label), and the orphan toolbar row is DEAD. The plate
+             is the rung-2 WELL species (Q4: PaletteCard → well), an
+             instrument fixture — static at rest, never a clickable catalog
+             card. NO card-level overflow clip (S.W5-10 / T-45 class): the
+             strip clips its OWN corners. -->
+        <section
+            data-generate-plate
+            aria-label="Generated palette"
+            class="rounded-card border border-card-edge bg-well shadow-cartoon-sm min-w-0"
+        >
+            <!-- The specimen face — full-bleed strip, corners its own. -->
+            <PaletteColorStrip :colors="stripColors" class="rounded-t-card" />
 
-        <!-- The plate's toolbar: the one verb in the deliberate-primary
-             register (L6 rider — root vocabulary, no costume); the seed stays
-             a Fira bench note, select-all kept. -->
-        <div class="flex items-center gap-3 min-w-0">
-            <Button
-                variant="primary-audacious"
-                class="h-10 gap-2 font-medium font-display"
-                @click="regenerate()"
-            >
-                <RefreshCw class="w-4 h-4" />
-                Regenerate
-            </Button>
-            <span
-                class="ml-auto text-mono-small text-muted-foreground tabular-nums select-all truncate"
-            >
-                seed: {{ seed.toString(16).padStart(8, '0') }}
-            </span>
-        </div>
+            <!-- Plate chrome: name — count — regenerate — actions. The name
+                 is the plate title (editable in place — the card family's
+                 dashed-underline affordance), not a form field. The row
+                 WRAPS gracefully: name+count lead, the verb cluster rides
+                 `ml-auto` right — at 390 the verbs settle onto their own
+                 right-aligned line, never a clipped title. -->
+            <div class="px-3 py-2.5 flex flex-wrap items-center gap-x-2 gap-y-1.5 min-w-0">
+                <input
+                    v-model="paletteName"
+                    type="text"
+                    aria-label="Palette name"
+                    class="flex-1 basis-[10rem] min-w-0 bg-transparent font-display font-medium text-subheading cursor-text rounded-sm hover:underline decoration-dashed underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                />
+                <Badge variant="secondary" class="text-mono-small shrink-0">
+                    {{ count }}
+                </Badge>
+                <!-- The verb cluster wraps as ONE unit, right-seated. The
+                     one verb rides the deliberate-primary register (L6
+                     rider — root vocabulary, no costume), AS plate chrome. -->
+                <div class="ml-auto flex items-center gap-2 shrink-0">
+                    <Button
+                        variant="primary-audacious"
+                        class="h-9 gap-2 font-medium font-display shrink-0"
+                        @click="regenerate()"
+                    >
+                        <RefreshCw class="w-4 h-4" />
+                        Regenerate
+                    </Button>
+                    <Button
+                        icon-only
+                        variant="ghost"
+                        size="sm"
+                        aria-label="Save palette"
+                        class="shrink-0"
+                        @click="save"
+                    >
+                        <Save class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                    </Button>
+                    <Button
+                        icon-only
+                        variant="ghost"
+                        size="sm"
+                        aria-label="Copy all colors"
+                        class="shrink-0"
+                        @click="copyColors"
+                    >
+                        <Copy class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
+                    </Button>
+                </div>
+            </div>
+
+            <!-- Specimen swatches — each a direct copy verb (the catalog
+                 card's popover-copy, collapsed to one honest click; the
+                 dead add/edit emits die with the borrowed card). -->
+            <div class="px-3 pb-1 flex flex-wrap gap-1.5">
+                <button
+                    v-for="(css, i) in palette"
+                    :key="i"
+                    type="button"
+                    class="generate-swatch w-9 h-9 sm:w-10 sm:h-10 rounded-md cursor-pointer active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                    :style="{ backgroundColor: css }"
+                    :aria-label="`Copy ${css}`"
+                    @click="copyColor(css)"
+                ></button>
+            </div>
+
+            <!-- The bench note: seed as provenance, select-all kept. -->
+            <p class="px-3 pb-2.5 pt-1 text-mono-small text-muted-foreground tabular-nums select-all">
+                seed: {{ seedHex }}
+            </p>
+        </section>
 
         <!-- Marginalia: preset & harmony. W5-7 — the permanent subtitles died;
              the dropdown's own #description rows tell the story on demand. -->
@@ -198,3 +259,13 @@ defineExpose({ regenerate, save, copyColors });
         </div>
     </div>
 </template>
+
+<style scoped>
+/* F8's designed-color-outranks-bleed hairline (the color-chips module's
+ * recipe verbatim): light swatches survive the light well, dark swatches
+ * the dark one. */
+.generate-swatch {
+    box-shadow: inset 0 0 0 1px
+        color-mix(in oklab, var(--foreground) 12%, transparent);
+}
+</style>
