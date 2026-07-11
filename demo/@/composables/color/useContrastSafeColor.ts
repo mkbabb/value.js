@@ -273,11 +273,21 @@ function surfaceLightnessNow(
 
 /**
  * Computes a contrast-safe accent color CSS string from the live picked color,
- * certified against the LIVE page ambient. ONE app-level instance (the boot
- * writer, `useAtmosphereBoot`) provides the result via SAFE_ACCENT_KEY and
- * mirrors it onto `--accent-live`; it also carries the de-emphasis rung
- * (`mutedInkCss` → `--ink-muted`, certified against the resting plate — the
- * rung the captions sit on).
+ * certified against the RESTING PLATE rung (live-composited with the page
+ * ambient). ONE app-level instance (the boot writer, `useAtmosphereBoot`)
+ * provides the result via SAFE_ACCENT_KEY and mirrors it onto
+ * `--accent-live`; it also carries the de-emphasis rung (`mutedInkCss` →
+ * `--ink-muted`, certified against the same resting plate — the rung the
+ * captions sit on).
+ *
+ * T.W6.5 row 7 (T-35 · t33-research §5.1a): the referent is the SURFACE RUNG,
+ * never the bare page ambient. The accent-voice text population (the space
+ * trigger, plate titles, chrome labels) sits on the material ladder, whose
+ * rungs composite the ambient AWAY from mid-lightness — against the former
+ * raw mid-ambient referent (L ≈ 0.51 at the owner URL) NO mid-chroma color
+ * clears the floor and the walk degenerated to the L extreme (the cream
+ * collapse). Page-rung consumers keep their own referent through
+ * `useSafeAccentFn("page")`.
  *
  * @param cssColorOpaque   the rAF-coalesced live OPAQUE colour
  * @param ambientLightness the atmosphere's live derived lightness (M-15)
@@ -290,7 +300,14 @@ export function useContrastSafeColor(
     bumpProbeEpochOnMount();
 
     const safeAccentCss = computed(() =>
-        certifyAccentInk(cssColorOpaque.value, ambientLightness.value),
+        certifyAccentInk(
+            cssColorOpaque.value,
+            surfaceLightnessNow(
+                "resting",
+                ambientLightness.value,
+                isDark.value,
+            ),
+        ),
     );
 
     const needsAdjustment = computed(() => {
@@ -330,10 +347,14 @@ export function useSafeAccentFn(surface: InkSurface = "page") {
     const ambient = inject(INK_AMBIENT_KEY)!;
     bumpProbeEpochOnMount();
 
-    function safeCss(css: string): string {
+    /** @param floor optional WCAG floor override — pass
+     *  `GRAPHICS_CONTRAST_FLOOR` (3) for non-text ink (WCAG 1.4.11: slider
+     *  tracks, rails — the T-44a rung); defaults to the 4.5 text floor. */
+    function safeCss(css: string, floor?: number): string {
         return certifyAccentInk(
             css,
             surfaceLightnessNow(surface, ambient.value, isDark.value),
+            floor,
         );
     }
 

@@ -82,7 +82,7 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
             ref="slugInputRef"
             v-model="slugInput"
             placeholder="enter slug or token..."
-            class="text-mono-small bg-transparent border-none outline-none w-40 min-w-0 placeholder:text-muted-foreground/50"
+            class="text-mono-small bg-transparent border-none outline-none w-40 min-w-0 placeholder:text-muted-foreground"
             @keydown.escape.stop="slugEditMode = false"
         />
         <!-- W6-8 register pass: native `title` retired dock-wide — icon-only

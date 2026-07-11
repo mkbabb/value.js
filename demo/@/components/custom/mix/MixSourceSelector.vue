@@ -183,8 +183,12 @@ watch(
                     <span class="section-label">From palettes</span>
                     <span class="text-micro text-muted-foreground">{{ savedPalettes.length }}</span>
                     <div class="flex-1" />
+                    <!-- T.W6.5 row 8 (F-4 sweep): the /50 post-hoc alpha over
+                         the muted rung dies — the token IS the de-emphasis
+                         rung; attenuating it further is the guard-then-alpha
+                         class ("quieter" and "illegible" must never collapse). -->
                     <ChevronDown
-                        class="w-4 h-4 text-muted-foreground/50 transition-transform group-hover:text-foreground"
+                        class="w-4 h-4 text-muted-foreground transition-transform group-hover:text-foreground"
                         :class="paletteDropdownOpen && 'rotate-180'"
                     />
                 </CollapsibleTrigger>

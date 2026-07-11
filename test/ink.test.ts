@@ -227,6 +227,55 @@ describe("D6 — contrastInkFor (the seal-ink exemplar, generalized — F-3's de
     });
 });
 
+describe("T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1)", () => {
+    // The archived repro (2026-07-11, pre-cure @ db1e9c9-era walk): the owner
+    // brick `oklch(0.51 0.13 32)` against the live referents —
+    //   page@0.5103          → oklch(0.9700 0.0148 32.0)   ← the CREAM COLLAPSE
+    //   resting(light) 0.8117 → oklch(0.3817 0.1300 32.0)
+    //   resting(dark)  0.3552 → oklch(0.8090 0.1092 32.0)
+    // Post-cure (referent = the resting rung + the cusp walk):
+    //   resting(light) 0.8117 → oklch(0.3817 0.1300 32.0)  (full pick chroma)
+    //   resting(dark)  0.3552 → oklch(0.8252 0.0984 32.0)  (cusp-capped)
+    const OWNER_BRICK = "oklch(0.51 0.13 32)";
+    const OWNER_AMBIENT = 0.5103; // §5.1 live `--ink-ambient-l` at the owner URL
+    const PICK_C = 0.13;
+    /** The O-18 identity-leg floor: C ≥ 0.35 × the pick's C, gamut-permitting. */
+    const IDENTITY_C_FLOOR = 0.35;
+
+    for (const dark of [false, true]) {
+        it(`the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ ${IDENTITY_C_FLOOR}× the pick (${dark ? "dark" : "light"})`, () => {
+            const plateL = resolveSurfaceLightness(
+                "resting",
+                OWNER_AMBIENT,
+                dark,
+            );
+            const ink = certifyAccentInk(OWNER_BRICK, plateL);
+            expect(
+                ratioOn(ink, plateL),
+                `certified ink clears the floor: ${ink}`,
+            ).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+            const { C, H } = parseOklch(ink);
+            expect(
+                C,
+                `the cream collapse is dead — ${ink} keeps the pick's chroma voice`,
+            ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * PICK_C);
+            expect(Math.abs(H - 32), `hue held: ${ink}`).toBeLessThan(1);
+        });
+    }
+
+    it("the cusp walk lands the MOST chromatic clearing point (never constant-C-then-clamp)", () => {
+        // A vivid pick on the light plate: the walk lands deep enough to
+        // clear, and the landing C is the pick's own where the slice permits.
+        const plateL = resolveSurfaceLightness("resting", OWNER_AMBIENT, false);
+        const ink = certifyAccentInk("oklch(0.62 0.2725 9.8)", plateL);
+        const { C } = parseOklch(ink);
+        expect(ratioOn(ink, plateL)).toBeGreaterThanOrEqual(TEXT_CONTRAST_FLOOR);
+        // The P1-4 vivid red holds REAL chroma at its certified L (the old
+        // walk's per-step projection bled it toward neutral).
+        expect(C).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * 0.2725);
+    });
+});
+
 describe("D6 — the certification headroom (the interim-model tolerance)", () => {
     it("is a named, positive constant (dies with the P3/P5 publish swap)", () => {
         expect(CERTIFY_HEADROOM).toBeGreaterThan(0);

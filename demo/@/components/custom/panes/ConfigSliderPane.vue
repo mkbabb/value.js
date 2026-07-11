@@ -181,7 +181,7 @@ function resetDefaults() {
 
 /* T.W4-4 (the population clause): the console well's inner rhythm + the
  * certified-ink cure for the row's live value (the producer ConfiguratorRow
- * names it `text-muted-foreground/70` — a guard-then-alpha ink over a live
+ * names a muted-rung /70 post-hoc alpha — a guard-then-alpha ink over a live
  * tint; on the well it re-inks at the certified de-emphasis rung
  * `--ink-muted`, the D6 contract's stamped token) + the <lg touch rung
  * (≥44px slider rows — the producer's own --dock-touch-target). */

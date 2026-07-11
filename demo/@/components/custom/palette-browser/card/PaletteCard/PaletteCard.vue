@@ -42,10 +42,11 @@
         <!-- Metadata row -->
         <div class="px-3 py-2.5 flex items-center justify-between gap-2 min-w-0">
             <div class="flex items-center gap-2 min-w-0">
-                <!-- Drag handle -->
+                <!-- Drag handle. T.W6.5 row 8 (F-4 sweep): the /40 post-hoc
+                     alpha dies — the muted token is the de-emphasis rung. -->
                 <GripVertical
                     v-if="draggable"
-                    class="drag-handle w-4 h-4 text-muted-foreground/40 shrink-0 cursor-grab active:cursor-grabbing"
+                    class="drag-handle w-4 h-4 text-muted-foreground shrink-0 cursor-grab active:cursor-grabbing"
                 />
                 <!-- S.W5-7: the title hides while renaming (never twice on one
                      card). T.W4-6 (T-15/F7): display voice, ≤500, non-italic. -->
