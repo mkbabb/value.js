@@ -6,7 +6,7 @@ gradient · Lane E easing · Lane D dock+nav · Lane N generate; + the T-31 DOCK
 **Closed (gate re-run)**: 2026-07-11, branch `tranche-t` (all four lanes merged — Lane G `6bd778c`,
 Lane D PARTIAL `b4711d8` + REMAINDER `6c14e33`, Lane E `5a66dd6`, Lane N `d4e0032`; the round-4
 CLOSE gate re-ran at HEAD after the Lane-G tail recovery `24802b0`).
-**Verdict**: **`BLOCKED`** — the round-4 CLOSE gate re-ran the 9-row `T.W6.md §Hard gate` PLUS the
+**Verdict**: **`BLOCKED`** (the gate-run verdict at forced output — **SUPERSEDED by the 2026-07-11 CLOSE-FLIP**: `CLOSED-complete_with_misses`, row 9 confirmed 11/11 at HEAD `5b64236`; see the CLOSE-FLIP banner at the end of this header block + the §7 closing subsection) — the round-4 CLOSE gate re-ran the 9-row `T.W6.md §Hard gate` PLUS the
 two carried rows (T-31 dock-atop, MOB-1) = **11 rows**, returning **4 PASS + 7 MISS-RECORDED, zero
 FAIL**. The block is **not** a single env-class caveat (which would be `_with_misses`): the CLOSE
 gate's own full-6-project playwright run (lane-unique `VJS_E2E_PORT=8390`/`VJS_E2E_PERF_PORT=8391`,
@@ -33,6 +33,16 @@ NARROWS to row 9's static sweeps (`npm run lint` / `npm run typecheck` / `npm te
 off the WebGL-sensitive suite) + the full-6-project e2e COMPLETION (un-observed at forced output;
 smoke-admin was at test 133). Verdict stays `BLOCKED` (≠ complete → round 4 NOT fully closed); T.W6.5
 stays DISPATCHABLE. **The 11 gate-#4 rows + notes are transcribed verbatim in §7 (the certification run).**
+**CLOSE-FLIP (2026-07-11 @ `5b64236`) — the verdict FLIPS `BLOCKED` → `CLOSED-complete_with_misses`**:
+gate #4's lone open row (row 9 — the HELD static sweeps + the full-6-project e2e completion) is NOW
+FULLY CONFIRMED by the orchestrator's deterministic runs at HEAD `5b64236` — `npm run lint` exit 0 ·
+`npm run typecheck` exit 0 · vitest 2222/2222 · `npx playwright test` ALL 6 projects 146 passed /
+2 skipped / exit 0 (logs `w6-row9-residue.log` + `w6-e2e-residue.log`) — so **row 9 flips PASS →
+11/11, zero FAIL** and the wave CLOSES. `_with_misses` = the THREE STANDING born-RED producer legs
+(O-16-R1 PKT-1→W7 · O-5 RP-2→W7 · O-26 headless→W9), carried by-design, never weakened. **ROUND 4
+SEALED** (T.W5 ∥ T.W6 both CLOSED). The §1/§2/§7 `BLOCKED` narrative below is the FAITHFUL historical
+record of the gate-#4 run at forced output; **§7's closing subsection carries the row-9 residue
+confirmation that discharges it**.
 **Governing law**: `RATIFICATION-2026-07-09.md §0` verbatim wins → `MANDATE-2026-07-06.md §0` +
 addenda (§0.5 = T-30/T-31/T-32; §0.6 = the 2026-07-11 owner audit, T-36/T-37/T-40b/T-43/T-46/T-47/T-48
 bind the in-flight W6 lanes as merge constraints) → `SYNTHESIS.md` as-hardened §3 (T.W6) + §6.1
@@ -439,3 +449,39 @@ Live-witness, stronger than gate #3's ancestry-only.
    complete.
 7. Working tree clean at HEAD 6bf8e6b (tranche-t). PP-8 pieces spot-verified: 0 demo files >400 LoC;
    casts/api-cap disciplines are documented and unchanged by the demo-only remediation.
+
+### Row-9 residue CONFIRMED — the wave closes `complete_with_misses` (2026-07-11 @ `5b64236`)
+
+Note 6's TO-CLOSE recommendation was executed exactly as written: the orchestrator re-ran row 9's
+HELD legs as **DETERMINISTIC runs at HEAD `5b64236`** (working tree clean), sequenced AFTER the
+WebGL-sensitive suite so CPU contention could not destabilize either half:
+
+- `npm run lint` (`eslint . --max-warnings=0`) → **`LINT_EXIT=0`**;
+- `npm run typecheck` (`vue-tsc -p tsconfig.lib.json` + `tsconfig.demo.json`) → **`TSC_EXIT=0`**;
+- `npm test` (vitest) → **`Tests 2222 passed (2222)`**, `VITEST_EXIT=0` (3.63s);
+- `npx playwright test` ALL 6 projects → **146 passed / 2 skipped**, **`PLAYWRIGHT_EXIT=0`** (9.9m;
+  the 2 skips = O-3 headed-GPU `test.skip`, headless);
+- demo LoC cap re-confirmed **0 files > 400** (`components/ui/` excluded); PP-8 / PI-1 unchanged.
+
+Logs (orchestrator scratchpad, on-disk, gitignored per the standing π convention):
+**`w6-row9-residue.log`** (`=== ROW-9 RESIDUE RUN Sat Jul 11 12:54:18 EDT 2026 @ 5b64236` → the
+lint/typecheck/vitest exits above) + **`w6-e2e-residue.log`** (`=== E2E RESIDUE … @ 5b64236` → the
+all-project tail: `146 passed (9.9m)` · `PLAYWRIGHT_EXIT=0` · `=== DONE Sat Jul 11 13:08:19 EDT
+2026`; the smoke-safari sustained-30s + spazz-repro legs enumerated at the tail).
+
+**Row 9 flips MISS-RECORDED → PASS: the gate is 11/11, zero FAIL — the block is discharged in full.**
+The wave therefore closes **`complete_with_misses`** (NOT `complete`) because the THREE STANDING
+born-RED producer legs remain the honest residual, each carried by-design (`test.fail()`, never
+weakened, never demo-worked-around, never a T.W6 gate row):
+
+- **O-16-R1** — the 150ms `--default-transition-duration` clobber LIVE in the glass-ui dist; PKT-1
+  producer-root, fires at W7 (the day the packet lands at the glass-ui root / the `file:`-pin);
+- **O-5** — the boot-pacing spike (16× median), RP-2 eager-payload lever → W7;
+- **O-26** — the aurora headless leg → W9 (headless render class).
+
+**ROUND 4 SEALED** — T.W5 CLOSED-`complete_with_misses` ∥ T.W6 CLOSED-`complete_with_misses` (all
+four lanes merged + the Lane-G tail recovered). **T.W6.5** (round 4.5, the §0.6 owner-audit
+remediation) proceeds DISPATCHABLE; **T.W8 stays PENDING on T.W6.5**. The T.W6.5
+VERIFY-AT-ROUND-4-GATE walk re-runs T-36/37/40b/43/46/48 against the merged tree as a **re-run
+confirmation** (a miss there re-opens as a W6.5 row in the owning files, never a W6 re-open). ROUND
+4 SEALED. **ROUND 4 SEALED.**
