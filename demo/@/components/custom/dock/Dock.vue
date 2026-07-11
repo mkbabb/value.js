@@ -149,12 +149,17 @@ watch(
 </script>
 
 <template>
-    <div class="fixed top-dock-inset inset-x-0 z-dock flex items-center justify-center pointer-events-none">
-        <div
-            class="pointer-events-auto"
-            :class="dockSettle && 'dock-settle'"
-            @animationend.self="dockSettle = false"
-        >
+    <!-- T.W6 · T-31 (THE DOCK-ATOP BAND LAW): the dock renders IN-FLOW inside
+         the shell's dock band (App.vue's <nav class="dock-band">, row 1 of the
+         two-band grid). The former fixed overlay
+         (`fixed top-dock-inset inset-x-0 z-dock` + the pointer-events
+         none/auto pair) RETIRED WITH the --dock-total reservation: the band
+         is structure the layout owns, so the dock needs no pin, no z, and no
+         hit-test punch-through. -->
+    <div
+        :class="dockSettle && 'dock-settle'"
+        @animationend.self="dockSettle = false"
+    >
             <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="false" :fit-content="true" :always-expanded="!isDesktop">
                 <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
                     <!-- Mobile edit layer -->
@@ -332,15 +337,15 @@ watch(
                     </div>
                 </template>
             </GlassDock>
-        </div>
-
-        <!-- T.W6 · W6-6 (T-9 re-home): the dock STATUS LAMP — band chrome,
-             absolutely seated at the band's inline-end so it is visible at
-             FIRST PAINT in every dock state (expanded, collapsed, mid-morph)
-             and never rides a collapsible layer. Dev-gated; variant matrix
-             in status-lamp.ts (O-22). -->
-        <DockStatusLamp />
     </div>
+
+    <!-- T.W6 · W6-6 (T-9 re-home): the dock STATUS LAMP — band chrome,
+         absolutely seated at the band's inline-end (the .dock-band is the
+         positioning context) so it is visible at FIRST PAINT in every dock
+         state (expanded, collapsed, mid-morph) and never rides a
+         collapsible layer. Dev-gated; variant matrix in status-lamp.ts
+         (O-22). -->
+    <DockStatusLamp />
 </template>
 
 <style scoped>

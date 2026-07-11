@@ -102,15 +102,16 @@
 
     /* ── Demo-local layout token bridges (D.W4 Lane A) ──
      * Surface the demo's :root layout tokens as Tailwind utility keys so
-     * consumers write `min-w-menu`, `top-dock-inset` instead of
-     * `min-w-[var(--menu-min-w)]` etc.
+     * consumers write `min-w-menu` instead of `min-w-[var(--menu-min-w)]` etc.
      * Glass-ui already bridges --z-index-*, --transition-duration-*, --radius-*,
      * --shadow-card, --ease-* (see node_modules/@mkbabb/glass-ui … theme.css).
      * (The `max-w-desktop-pane` bridge died with the self-clamp fork at R.W3
-     * Lane A — the grid owns the clamp; see the pane clamp ladder in :root.) */
+     * Lane A — the grid owns the clamp; see the pane clamp ladder in :root.
+     * The `top-dock-inset` bridge died with the fixed dock overlay at T.W6 ·
+     * T-31 — the dock band is in-flow grid structure now; --dock-inset is the
+     * shell's own top padding.) */
     --max-width-tooltip:      12.5rem;
     --min-width-menu:         var(--menu-min-w);
-    --spacing-dock-inset:     var(--dock-inset);
     --shadow-card-hover:      var(--shadow-cartoon-hover);
 
     /* ── The bare-utility transition default (S.W3-5) ──
@@ -153,20 +154,26 @@
 
 /* Project tokens (layout, surfaces).
  *
- * Dock layout (B.W1 — flex+fixed transposition, Bβ Proposal B):
- *   --dock-h      = icon-btn + vertical padding + border  (intrinsic height)
- *   --dock-total  = inset + dock-h + gap                  (vertical band the dock occupies)
+ * Dock layout — THE DOCK-ATOP BAND LAW (T.W6 · T-31, owner-verbatim: "our
+ * core layout should have the dock atop, with the card/scene area on the
+ * bottom below that"; supersedes B.W1's Proposal-B fixed overlay):
+ *   --dock-h      = icon-btn + vertical padding + border  (the band's floor)
+ *   --dock-inset  = the shell's top padding (the band's breathing room)
+ *   --dock-gap    = the DESIGNED gap between the two bands (the grid row-gap)
  *   --content-max-h = the cap on the pane container's height
  *
- * The dock is position:fixed and pins at --dock-inset on every viewport.
- * .app-layout is a flex column whose padding-top: --dock-total reserves the
- * dock band and whose justify-content: center vertically centres the pane
- * container. There is no --dock-pos formula, no grid clearance row, no
- * fold-back: the dock's position and the content's centring are independent
- * CSS layout, not a token derivation. At ultra-wide aspect ratios the dock
- * pins at the top rather than floating with the content — the one accepted
- * visual delta of Proposal B.
- */
+ * .app-layout is a TWO-BAND GRID (`auto 1fr`): the dock band (<nav>, in-flow,
+ * static) sits ATOP as row 1; the scene band (<main>) sits BELOW as row 2.
+ * The former simulation — a position:fixed overlay + a --dock-total
+ * padding-top reservation + a load-bearing z-dock — RETIRED TOGETHER: cards
+ * cannot composite over the dock BY CONSTRUCTION (they live in another grid
+ * row), so the paint order no longer depends on any z-index chain (the P9
+ * phantom-utility single point of failure the owner's shot reproduced).
+ * Zero z-index arms; portaled menus keep their own chrome z. The former
+ * 0–1px arithmetic clearance at short viewports dies behind the designed
+ * --dock-gap row-gap. At ultra-wide aspect ratios the dock keeps its
+ * pinned-at-top read — the band IS the top, in-flow (the Proposal-B delta,
+ * re-confirmed in-band). */
 /* The per-view accent (S.W7 · W7-4): registering `--accent-view` with a real
  * <color> type makes it INTERPOLABLE — but the transition lives ONLY on the
  * bounded accent-painting scope (DockViewSelect's trigger), NEVER on `:root`.
@@ -382,14 +389,18 @@
      * never conflict (D8). A NAMED tier, never source-order accident. */
     --z-ornament: 20;
 
-    /* ── Layout tokens ── (7 — B.W1 dropped --dock-pos and --layout-padding) */
+    /* ── Layout tokens ── (T.W6 · T-31 dropped --dock-total: the band grid
+     * owns the reservation structurally — no padding arithmetic simulates
+     * the dock's space, so there is nothing left to derive) */
     --dock-border-width: 3px;
     --dock-padding-y: 0.75rem;
     --dock-h: calc(var(--size-icon-btn) + var(--dock-padding-y) + var(--dock-border-width));
     --dock-inset: 1rem;
     --dock-gap: 1rem;
-    --dock-total: calc(var(--dock-inset) + var(--dock-h) + var(--dock-gap));
-    --content-max-h: calc(100dvh - var(--dock-total) - 1rem);
+    /* The scene band's own height IS the honest cap (row 2 of the shell
+     * grid resolves it by construction); the desktop/ultra-wide designed
+     * clamps below override it. */
+    --content-max-h: 100%;
 
     /* ── The pane clamp ladder (R.W3 Lane A / A4 — U32) ──
      * The cards GROW then clamp, handled generally: `--pane-min` is the floor,
@@ -450,26 +461,44 @@
  * PaletteCardGrid.vue. (The `.palette-tab-content` cascade died with
  * PaletteDialog.vue — the dialog-era shell excised at T.W0-3, CC-6.) */
 
-/* ── App layout ──
- * Flex column: padding-top reserves the fixed dock's band (--dock-total),
- * justify-content centres the pane container. No grid clearance row. */
+/* ── App layout — THE DOCK-ATOP BAND LAW (T.W6 · T-31) ──
+ * Two-band grid: the dock band (row 1, auto) sits ATOP as structure the
+ * layout OWNS; the scene band (row 2, 1fr) sits below behind the designed
+ * --dock-gap row-gap. The retired trio (see the token doc-comment above):
+ * the fixed overlay, the --dock-total padding reservation, the load-bearing
+ * z-dock. Occlusion of the dock by any card is impossible by construction —
+ * grid rows do not overlap and no z-index is minted anywhere in the shell. */
 .app-layout {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    row-gap: var(--dock-gap);
     height: 100dvh;
     width: 100%;
     position: relative;
     overflow: hidden;
-    padding: var(--dock-total) var(--app-padding-x) 0.5rem;
+    padding: var(--dock-inset) var(--app-padding-x) 0.5rem;
 }
 
-/* The a11y landmarks are the flex children of .app-layout. <nav> wraps the
- * position:fixed dock so it carries no in-flow height; <main> (.pane-main)
- * holds the pane container and is the flex item justify-content centres. */
+/* The a11y landmarks are the two band rows. <nav> IS the dock band —
+ * in-flow, static, centring the pill; --dock-h floors it so the band never
+ * jitters across the dock's collapse↔expand morph (the collapsed seal is
+ * height-pinned square, same height by producer construction). position:
+ * relative seats the band-chrome instruments (the W6-6 status lamp). */
+.dock-band {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--dock-h);
+}
+
+/* <main> (.pane-main) is the scene band: it centres the pane container
+ * within row 2 (the centring the flex shell used to do at the layout root —
+ * now the band's own job). */
 .pane-main {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     /* flex-min-size idiom — let the column shrink to its content. */
     min-height: 0;
     min-width: 0;

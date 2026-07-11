@@ -16,12 +16,17 @@
             data-glass-field-canvas
         />
         <!-- W5-a11y: nav landmark for the dock.
+             T-31 (T.W6 · THE DOCK-ATOP BAND LAW): the nav IS the dock band —
+             row 1 of the .app-layout two-band grid, in-flow and static; the
+             scene band (<main>) sits below it. No fixed overlay, no
+             --dock-total reservation, no z-index arm (style.css §App layout).
              W2-3 (T.W2 · B1 dock voice): the dock arrives AS the pill —
              veiled during the producer mount-morph, revealed through the
              plate-land family (the M-14 booked-interim; the full mechanism +
              rationale live in boot/useDockArrival.ts). -->
         <nav
             ref="dockNav"
+            class="dock-band"
             aria-label="Application navigation"
             :class="[
                 !dockRevealed && 'overture-dock-veiled',
