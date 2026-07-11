@@ -142,14 +142,16 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
 <template>
     <div class="flex flex-col gap-5">
-        <!-- Hero: the perceived-space plate (W5-8). The old aria-hidden
-             preview swatch is DISSOLVED (P2-16 — it duplicated the editing
-             rail below): the rail renders the gradient itself; the plate
-             renders what the ramp DOES in perceptual space. -->
+        <!-- Hero: the hue-swept envelope plate (T.W6-2, re-authored from the
+             W5-8 slice). The old aria-hidden preview swatch is DISSOLVED
+             (P2-16 — it duplicated the editing rail below): the rail renders
+             the gradient itself; the plate renders what the ramp DOES in
+             perceptual space, across its OWN swept hues. -->
         <PerceivedSpacePlate
             :points="ramp.points.value"
             :stop-points="ramp.stopPoints.value"
             :hue="ramp.runningHue.value"
+            :sweep="ramp.sweptHues.value"
             :selected-id="selectedStopId"
         />
 

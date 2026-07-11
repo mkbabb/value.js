@@ -6,7 +6,7 @@
  *
  * Two consumers today:
  * - the picker's spectrum-plate overlay (`color-picker/gamutOverlayPaint.ts`)
- * - the gradient page's perceived-space plate (`gradient/GradientVisualizer/PerceivedSpacePlate/perceivedSpacePaint.ts`)
+ * - the gradient page's envelope plate (`gradient/GradientVisualizer/PerceivedSpacePlate/envelopePlatePaint.ts`)
  *
  * Owns: the `--gamut-*` token probe (computed-style resolution of the four
  * netting inks, color-mix and all), the WEBBING token table (density/angle/
