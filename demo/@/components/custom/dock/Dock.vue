@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
-import { ArrowRight, Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
+import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import { GlassDock, DockLayerGroup, DockLayer } from ".";
 import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import ActionBarToggle from "./ActionBarToggle.vue";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
 import GenericActionBar from "./layers/GenericActionBar.vue";
 import SlugEditLayer from "./layers/SlugEditLayer.vue";
@@ -47,51 +48,9 @@ const actionBarLayerActive = ref(false);
 function toggleActionBar() { actionBarLayerActive.value = !actionBarLayerActive.value; }
 watch(hasAnyActionBar, (has) => { if (!has) actionBarLayerActive.value = false; });
 
-// S.W7-6 (P1-9.3 — the Tools load-order flicker): the toggle-slot's 0fr↔1fr
-// grow transition must fire only on GENUINE runtime toggles, never on the
-// app's boot composition. The pane mounts a beat after the dock (W3-4's
-// deferred mount), so its action-bar context arrives ~170ms in — the slot
-// visibly GREW the pill on EVERY load (measured 0→36→82→86px over ~380ms,
-// three consecutive loads). The first presence now PAINTS seated (transition
-// unarmed), then the transition arms one frame later for real mid-session
-// presence changes.
-// T.W6 · W6-8 (T-29): THE SETTLE STAMP — the 0fr↔1fr clip is the presence
-// animation's tool, and the animation is not running at rest. Unconditional
-// `overflow: hidden` on the inner box amputated the producer's unified
-// hover register (the ×1.1 capsule + its lift shadow — cut on all four
-// sides, measured 4.3px L/R + 1.6px T/B at hover). Three-state machine:
-// `.is-live` (transition armed, one frame after first paint — S.W7-6),
-// `.is-visible` (presence), `.is-settled` (clip RELEASED). Settle stamps:
-//   - boot-seated first paint: no transition runs (the slot paints seated
-//     before `.is-live` arms), so the stamp rides the same double-rAF;
-//   - mid-session arrival: the grid-columns `transitionend` stamps it
-//     (PRM included — the global guard shortens transitions to 0.01ms,
-//     it never removes them, so the event still fires);
-//   - departure: the stamp drops the moment presence drops — the clip
-//     returns BEFORE any collapse animates.
-const actionBarSlotLive = ref(false);
-const actionBarSettled = ref(false);
-watch(
-    hasAnyActionBar,
-    (has) => {
-        if (!has) {
-            actionBarSettled.value = false;
-            return;
-        }
-        if (actionBarSlotLive.value) return;
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                actionBarSlotLive.value = true;
-                actionBarSettled.value = true;
-            });
-        });
-    },
-    { immediate: true },
-);
-function onToggleSlotSettled(e: TransitionEvent) {
-    if (e.propertyName !== "grid-template-columns") return;
-    actionBarSettled.value = hasAnyActionBar.value;
-}
+// The Tools trigger + its S.W7-6 boot-flicker / W6-8 T-29 settle-stamp slot
+// machine live in the colocated <ActionBarToggle> (the W6-8 PP-8 cap lift —
+// full rationale in that SFC's header).
 // gate (b): watchers that reach dockRef stay in the SFC
 watch(actionBarLayerActive, (active) => { if (active) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
 function onActionBarOpenPalette() { viewManager.switchView(viewManager.currentView.value === "palettes" ? "picker" : "palettes"); }
@@ -207,55 +166,18 @@ watch(
 
                         <!-- Action bar toggle — S.W7-2: the separator and the
                              trailing chevron are desktop furniture; below sm the
-                             aperture (312px at 390w) holds controls only.
-                             W6-8: the separator FOLDS INTO the slot (T-29
-                             register pass, presence grammar) — it used to POP
-                             via v-if while the slot beside it grew 0fr→1fr,
-                             two grammars for one arrival; the pair now enters
-                             as one gesture inside the animated slot. -->
-                        <div
-                            class="action-bar-toggle-slot"
-                            :class="{ 'is-visible': hasAnyActionBar, 'is-live': actionBarSlotLive, 'is-settled': actionBarSettled }"
-                            @transitionend.self="onToggleSlotSettled"
-                        >
-                            <div class="action-bar-toggle-inner">
-                                <DockSeparator class="hidden lg:block" />
-                                <!-- T-36 (§0.6 rider): the TRUE-BUTTON box-model —
-                                     dock-tools-btn steps the compact register's 4px
-                                     sticker seat up to the Button-primitive px-3/py-2
-                                     scale (see the scoped rule below). The native
-                                     `title` is retired (W6-8 register pass): the
-                                     control shows its label on desktop and carries
-                                     aria-label — the UA tooltip was a foreign slab
-                                     on the liquid-glass dock. -->
-                                <DockIconButton
-                                    compact
-                                    class="dock-tools-btn"
-                                    :class="{ 'is-active': actionBarLayerActive }"
-                                    aria-label="Toggle action bar"
-                                    :aria-pressed="actionBarLayerActive"
-                                    :tabindex="hasAnyActionBar ? 0 : -1"
-                                    @click="toggleActionBar"
-                                >
-                                    <component
-                                        :is="genericBar?.icon ?? Paintbrush"
-                                        class="w-6 h-6"
-                                        :style="{ color: genericBar?.accentColor ?? safeAccent }"
-                                    />
-                                    <span v-if="isDesktop" class="text-small font-display" :style="{ color: genericBar?.accentColor ?? safeAccent }">
-                                        {{ genericBar?.label ?? 'Tools' }}
-                                    </span>
-                                    <!-- S.W7-6 (P1-9.2): the layer-swap AFFORDANCE —
-                                         ArrowRight mirrors the ArrowLeft back-button
-                                         inside the action-bar layer (one enter/exit
-                                         motif). The former ChevronDown promised a
-                                         dropdown this button never opens (the
-                                         chevron-that-isn't); Tools SWAPS the dock
-                                         layer, so it wears the layer grammar. -->
-                                    <ArrowRight class="w-3 h-3 text-muted-foreground hidden lg:block" />
-                                </DockIconButton>
-                            </div>
-                        </div>
+                             aperture (312px at 390w) holds controls only. The
+                             slot machine + T-29/T-36 register live in the
+                             colocated SFC (the W6-8 PP-8 cap lift). -->
+                        <ActionBarToggle
+                            :visible="hasAnyActionBar"
+                            :active="actionBarLayerActive"
+                            :is-desktop="isDesktop"
+                            :icon="genericBar?.icon ?? Paintbrush"
+                            :label="genericBar?.label ?? 'Tools'"
+                            :accent="genericBar?.accentColor ?? safeAccent"
+                            @toggle="toggleActionBar"
+                        />
 
                         <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner).
                              S.W7-2: the mobile separator PAIR is dropped (four vertical bars
@@ -357,63 +279,9 @@ watch(
     animation: vj-settle var(--spring-snappy-duration) var(--spring-snappy);
 }
 
-/* Action-bar toggle slot: animates between 0 and content width via the
-   grid-template-columns 0fr → 1fr pattern (no max-width clipping).
-   Merged in from the retired DockMainLayer.vue.
-   S.W7-6: the transition arms only once `.is-live` sets (one frame AFTER the
-   first presence painted) — the boot-composition appearance seats instantly;
-   only genuine mid-session presence toggles animate. */
-.action-bar-toggle-slot {
-    display: grid;
-    grid-template-columns: 0fr;
-    opacity: 0;
-}
-
-.action-bar-toggle-slot.is-live {
-    transition:
-        grid-template-columns var(--duration-normal) var(--ease-standard),
-        opacity var(--duration-normal) var(--ease-standard);
-}
-
-.action-bar-toggle-slot.is-visible {
-    grid-template-columns: 1fr;
-    opacity: 1;
-}
-
-.action-bar-toggle-inner {
-    overflow: hidden;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-}
-
-/* T.W6 · W6-8 (T-29): THE SETTLE-STAMPED CLIP RELEASE. At settled-visible
-   rest the clip has no job — the presence animation is not running — so it
-   releases and the producer's unified dock hover register (the ×1.1 warm
-   capsule + its lift shadow, glass-ui scale-paper/glass-capsule) renders
-   WHOLE, like every sibling dock control. The clip returns the instant
-   presence drops (`.is-settled` is stripped before the collapse animates)
-   and during any 0fr↔1fr width transition. `overflow: clip` +
-   overflow-clip-margin was REJECTED as the sole cure (Safari ships no
-   overflow-clip-margin — the amputation would survive on WebKit verbatim). */
-.action-bar-toggle-slot.is-visible.is-settled .action-bar-toggle-inner {
-    overflow: visible;
-}
-
-/* T-36 (§0.6 owner rider): THE TRUE-BUTTON BOX-MODEL. The producer compact
-   register seats content 4px off a full pill cap — a sticker, not a button
-   ("does not have the proper margin and padding like a true button
-   element"). The cure rides the producer's OWN token hook
-   (`--dock-compact-control-padding` — dock-controls/icon-button.css), never
-   a specificity fight: inline padding at the Button-primitive px-3/py-2
-   scale (proportional to the cap radius; the box lands at the sibling
-   controls' 2.5rem height), breathing margin off the folded separator, and
-   the label's em-gap between glyph, wordmark, and affordance arrow. */
-.dock-tools-btn {
-    --dock-compact-control-padding: 0.5rem 0.75rem;
-    margin-inline: 0.25rem;
-    gap: 0.5em;
-}
+/* The action-bar toggle slot machine (S.W7-6 boot seat · W6-8 T-29 settle
+   release · T-36 true-button box-model) lives in the colocated
+   ActionBarToggle.vue (the W6-8 PP-8 cap lift). */
 
 /* ── The wax seal (S.W7 W7-1; die-rim ABROGATED T.W6 · W6-7, Q12/T-28) ──
    The collapsed dock IS the seal: wax (WatercolorDot, live color) filling
