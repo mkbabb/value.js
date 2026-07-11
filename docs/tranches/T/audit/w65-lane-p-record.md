@@ -104,8 +104,20 @@ hashes in the wave ledger / below).
   `docs/tranches/T/audit/w65-lane-p-frames/{before,after}-picker-{light,dark}.png`
   + seam metrics inline above (the before/after `deadBandBelow`/`airAbove`
   numbers).
-- Oracles: O-18 (16), O-10 (6), readout-seam (3), ink probes (17), the clamp
-  oracle (6), vitest full 2230, lint 0, all at the lane head.
+- Oracles: O-18 (16), O-10 (6), O-7 (4 — re-aimed with the NAMED veil
+  fixture row: positive identity assertions, presence on Home; the rung-1
+  sweep exempts exactly the surface the new row asserts — re-aimed, never
+  weakened), readout-seam (3), ink probes (17), the clamp oracle (6),
+  vitest full 2230, lint 0, all at the lane head.
+- The lane-close ALL-PROJECT run (VJS_E2E_PORT=8213/PERF 8214, the built
+  bundle rebuilt at the lane head): **145 passed / 2 skipped / 4 failed in
+  10.1m**; the 4 = dual-pane-1440 (worktree-env ENOENT — the spec
+  `readFileSync`s `node_modules/@mkbabb/glass-ui/...`, absent in a lane
+  worktree; cured by the gitignored `node_modules/@mkbabb` symlink shim,
+  no repo change) + O-7 ×3 (pre-re-aim spec). Targeted re-runs after the
+  shim + re-aim: dual-pane + O-7 (4/4) ALL GREEN. O-11/O-16-R1/O-26
+  artifact dirs were attachments/standing born-RED (`test.fail()` legs per
+  the T.W6 close record), not failures.
 - Typecheck: the worktree environment carries **9 pre-existing errors**
   (dual `@vue/*` type identity through the walk-up `node_modules` — the lane
   worktree has no local install; byte-identical WITH the lane's changes
