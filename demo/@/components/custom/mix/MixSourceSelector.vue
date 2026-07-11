@@ -131,10 +131,22 @@ watch(
                         data-mix-source
                         :data-mix-color="sc.css"
                     >
+                        <!-- T.W6 · W6-7 (T-28's register-law sibling): the
+                             former `ring-2 ring-primary/50` here was
+                             CASCADE-DEAD — Tailwind ring utilities compose
+                             the box-shadow channel in @layer utilities and
+                             the dot's own UNLAYERED material shadow wins the
+                             cascade; probed live 2026-07-11 (computed
+                             box-shadow = the dot's 3-layer material only, no
+                             ring component). The register law: rings on
+                             WatercolorDots ride the dot's own silhouette
+                             (the P5 producer solid-ring register) or do not
+                             exist — the dead utility is excised, never
+                             re-minted geometric. -->
                         <WatercolorDot
                             :color="sc.css"
                             tag="div"
-                            class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 ring-2 ring-primary/50"
+                            class="w-11 h-11 sm:w-12 sm:h-12 shrink-0"
                             :title="`${sc.css} (${sc.source})`"
                         />
                         <button
