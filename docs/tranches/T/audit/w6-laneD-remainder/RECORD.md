@@ -145,8 +145,16 @@ Q14/T-39 load-quality face). Boot-chain files untouched by this lane.
 - Lane oracles POST-lift: O-22 2/2 + matrix 14/14 · O-15a/b 6/6 · T-31 8/8 —
   all 16 e2e legs green in one run (lane ports 8293/8294; the owner's :9000
   untouched throughout).
-- The full 6-project close-run: launched on the lane ports at close — tally
-  recorded by the dispatch report (StructuredOutput evidence field).
+- The full 6-project close-run (lane ports 8293/8294, WebKit present):
+  **128 passed · 2 skipped · 2 failed (9.5m)** — both failures in
+  `e2e/smoke/views/gradient.spec.ts` (console-errors + stop-add), **the
+  in-flight Lane G surface (W6-2), NOT this lane's files**. ADJUDICATED
+  INHERITED: the identical spec re-run at the base `a92f501` (pre-this-lane)
+  fails the SAME two tests (2 failed / 5 passed) — this lane's head is not
+  worse than its base; the row belongs to Lane G's own close gate (its
+  re-authored rail vs the stale view spec). The known expected-red legs
+  (O-16 R1 PKT-1 · O-11's contention artifact) rode as designed inside the
+  128-green tally.
 - Tool-artefact grep over this record + the touched docs: EMPTY (M-1).
 - PP-8: no demo file > 400 LoC (Dock.vue 468→336 via the ActionBarToggle
   colocated lift `a9f5e88`; App.vue back to exactly 400 by tightening this
