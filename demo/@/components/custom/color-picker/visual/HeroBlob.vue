@@ -7,7 +7,11 @@
          wrapper square must never re-intercept a sibling-card click in the
          corner-break overlap strip (the seed's (770,150) interception,
          discharged by the producer's clip-path hit layer). -->
-    <div class="pointer-events-none">
+    <!-- T.W4.5 R2 — @animationend: the caller's `.hero-blob-anchor` class
+         (and with it the W2-4 `blob-emerge` beat) lands on THIS root, so the
+         emerge pose's end fires here; onEmergeEnd re-measures the engine's
+         backing store against the settled box (see the script block). -->
+    <div class="pointer-events-none" @animationend="onEmergeEnd">
         <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
             <Tooltip>
                 <TooltipTrigger as-child>
@@ -268,6 +272,28 @@ watch(
         }
     },
 );
+
+// --- T.W4.5 R2 — THE EMERGE RE-MEASURE (the T-30 boot-blur demo cure) ------
+// The W2-4 `blob-emerge` pose scales the anchor from 0.35 while the engine
+// arms: the substrate presizes its backing store from gBCR (the leaf sizer,
+// BG.W-VIZ-RESIZE-ADOPT), so the bead's canvas boots at ~0.35× resolution —
+// and the transform never fires the leaf ResizeObserver (layout box
+// unchanged), so the idle park FREEZES the low-res frame (measured at dpr2:
+// backing 126×126 for a 180.2px box; a wake re-measures to 360×360). The cure
+// drives the producer's EXISTING re-measure seam — `resume()` re-measures via
+// idempotent `resize()` on the was-suspended path, the same path a pointer
+// wake over a parked blob takes — as a pause()/resume() pair at the emerge
+// pose's animationend, sizing the backing against the settled (untransformed)
+// box with one same-frame repaint. Name-filtered (the engine's own grammars
+// compose inside this subtree); park-guarded so a parked blob is never woken
+// by a beat's end. Under PRM the emerge never runs (no-preference-wrapped) and
+// the engine arms against the untransformed box — no cure needed, none fires.
+function onEmergeEnd(e: AnimationEvent) {
+    if (e.animationName !== "blob-emerge") return;
+    if (blobPaused.value) return;
+    gooBlobRef.value?.pause();
+    gooBlobRef.value?.resume();
+}
 
 function onBlobHover() {
     noteBlobActivity();

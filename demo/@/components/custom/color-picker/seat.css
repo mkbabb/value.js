@@ -25,14 +25,20 @@
  * CONTAINMENT ITSELF — the bead moves from half-off-card (overlapping the
  * About seam) to wholly inside the plate, its mass in the title band, edge
  * 0.24·fp (~27px) inside the corner; the contact shadow seats it ON the
- * paper. Re-judged at T.W4.5. The BLUR forensic verdict (demo-root cleared,
- * measured 2026-07-10): backing store = gBCR × resolveBudgetDpr (ratio 1.99
- * at dpr2 — full-res), zero CSS filter on the canvas chain, demo quality
- * rung `full` at lg. The residual softness is PRODUCER-root: the engine's
- * hero-scale interior shading (the silhouette AA is ~1px fwidth-derived —
+ * paper. Re-judged at T.W4.5. The BLUR verdict, AMENDED at the W4.5
+ * checkpoint (the W4 "demo-root cleared" read measured the AWAKE state):
+ * the BOOT path was demo-root after all — the engine armed mid-`blob-emerge`
+ * pose and presized its backing from the scaled gBCR (0.35× — dpr2 backing
+ * 126×126 for a 180.2px box), and the idle park froze that frame. CURED at
+ * T.W4.5 R2: HeroBlob re-measures via the producer resume seam at the emerge
+ * pose's animationend (see overture.css B4 + HeroBlob.vue onEmergeEnd); the
+ * awake numbers (gBCR × resolveBudgetDpr, ratio 1.99 at dpr2 — full-res,
+ * zero CSS filter on the canvas chain, quality `full` at lg) now hold from
+ * boot. The RESIDUAL softness stays PRODUCER-root: the engine's hero-scale
+ * interior shading (the silhouette AA is ~1px fwidth-derived —
  * metaball.frag.ts:315-318 — but the interior reads featureless at ⌀≥90px)
  * + the wrapper's resting drop-shadow halo — the exact P6 packet rider
- * (hero-scale legibility, row A family). */
+ * (hero-scale legibility, row A family), which STANDS amended. */
 .pane-shell {
     --blob-fp: clamp(7rem, 22cqi, 11rem);
     /* Q3 "Flush." — the ruled seat inset; the knob survives for taste
