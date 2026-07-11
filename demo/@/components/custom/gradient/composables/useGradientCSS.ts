@@ -149,6 +149,14 @@ export function sampleCoalescedStops(model: GradientModelState): CoalescedSample
     return out;
 }
 
+/** Format eased samples as a normalized horizontal strip (the ONE ramp form). */
+function rampGradient(samples: CoalescedSample[]): string {
+    const parts = samples.map(
+        (s) => `${rawColorToCSS(s.color)} ${s.position.toFixed(2)}%`,
+    );
+    return `linear-gradient(90deg, ${parts.join(", ")})`;
+}
+
 /**
  * ONE interval's eased ramp, normalized to a full-width strip (W5-9 / P1-5:
  * the easing row's "ball" — what `steps(4, end)` does to green→blue, visible
@@ -177,10 +185,28 @@ export function serializeIntervalRamp(
     const samples = sampleCoalescedStops(sub);
     if (samples.length === 0) return null;
 
-    const parts = samples.map(
-        (s) => `${rawColorToCSS(s.color)} ${s.position.toFixed(2)}%`,
-    );
-    return `linear-gradient(90deg, ${parts.join(", ")})`;
+    return rampGradient(samples);
+}
+
+/**
+ * The rail-normalized projection (T.W6-2 / T-21b): the WHOLE model's eased
+ * ramp as a horizontal `linear-gradient(90deg, …)` strip. The editing rail
+ * ALWAYS paints this — at every type/direction — so handles, add-ghost,
+ * rungs, and ramp share one axis by construction (the former raw-render-
+ * string paint compressed/rotated/reversed/garbled the rail under any
+ * non-default direction or type). The TRUE render (type + direction
+ * applied) is the render tile's job (`serializeCoalescedGradient` — the
+ * CSS-output truth). One sampling law feeds both.
+ */
+export function serializeRailRamp(model: GradientModelState): string {
+    const { stops } = model;
+    if (stops.length === 0) {
+        return "linear-gradient(90deg, transparent, transparent)";
+    }
+    if (stops.length === 1) {
+        return `linear-gradient(90deg, ${stops[0]!.cssColor}, ${stops[0]!.cssColor})`;
+    }
+    return rampGradient(sampleCoalescedStops(model));
 }
 
 /**
@@ -219,20 +245,25 @@ export function serializeCoalescedGradient(model: GradientModelState): string {
 export interface UseGradientCSSReturn {
     coalescedCSS: ComputedRef<string>;
     simpleCSS: ComputedRef<string>;
+    /** The rail-normalized 90° projection (T.W6-2 — the editing rail's paint). */
+    railRampCSS: ComputedRef<string>;
 }
 
 /**
  * Reactive CSS output from a gradient model state.
- * `coalescedCSS` bakes in per-interval easing; `simpleCSS` is user-editable.
+ * `coalescedCSS` bakes in per-interval easing (the render truth);
+ * `simpleCSS` is user-editable; `railRampCSS` is the rail's normalized axis.
  */
 export function useGradientCSS(
     modelState: ComputedRef<GradientModelState>,
 ): UseGradientCSSReturn {
     const coalescedCSS = computed(() => serializeCoalescedGradient(modelState.value));
     const simpleCSS = computed(() => serializeGradient(modelState.value));
+    const railRampCSS = computed(() => serializeRailRamp(modelState.value));
 
     return {
         coalescedCSS,
         simpleCSS,
+        railRampCSS,
     };
 }

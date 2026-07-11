@@ -3,9 +3,15 @@ import { ref, computed, useTemplateRef } from "vue";
 import { X } from "@lucide/vue";
 import type { GradientStop } from "../composables/useGradientModel";
 
-const { stops, coalescedCSS, colorAt = undefined, rungs = undefined } = defineProps<{
+const { stops, railRamp, colorAt = undefined, rungs = undefined } = defineProps<{
     stops: GradientStop[];
-    coalescedCSS: string;
+    /**
+     * The rail-normalized 90° projection (`serializeRailRamp`, T.W6-2): the
+     * rail ALWAYS paints this — at every type/direction — so handles,
+     * add-ghost, rungs, and ramp share one axis by construction. The raw
+     * render string (type + direction applied) is the render tile's job.
+     */
+    railRamp: string;
     /** Ramp color at a position (0–100) — previews the ghost + seeds adds. */
     colorAt?: (position: number) => string | null;
     /**
@@ -163,18 +169,17 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
     <!-- `relative`: the remove chip anchors to the RAIL root (the bar's
          contain:paint would clip a child chip — see below). -->
     <div class="relative flex flex-col gap-1">
-        <!-- Gradient bar: hover ghost previews the add; handles drag; the
-             selected handle carries a touch-true remove chip. -->
+        <!-- The editing rail (T.W6-2 re-author): a pill-silhouette instrument
+             (T-46 — the glass-ui slider-track rounding register) painting the
+             NORMALIZED ramp projection. Its paint stack is an owned material
+             contract (`.gradient-rail`, scoped below), never a per-callsite
+             `background` shorthand. Hover ghost previews the add; handles
+             drag; the selected handle carries a touch-true remove chip. -->
         <div
             ref="barRef"
             data-testid="gradient-stop-bar"
-            :class="['relative h-10 rounded-lg glass-wash select-none touch-none', draggingId ? 'cursor-grabbing' : 'cursor-copy']"
-            :style="{
-                /* S owner-ruling 2026-07-05: the house `--alpha-checker`
-                   ground layers UNDER the gradient, so translucent stops
-                   read as transparency, not as a wash over the pane glass. */
-                background: `${coalescedCSS}, var(--alpha-checker)`,
-            }"
+            :class="['gradient-rail relative h-10 select-none touch-none', draggingId ? 'cursor-grabbing' : 'cursor-copy']"
+            :style="{ '--rail-ramp': railRamp }"
             @pointerdown="onBarPointerDown"
             @pointermove="onBarPointerMove"
             @pointerup="onBarPointerUp"
@@ -222,9 +227,12 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
                     /* S.W4 / W4-3: the hover scale rides the INLINE transform —
                        the `hover:scale-110` utility was DEAD, shadowed by this
                        inline `transform` (inline style always outranks the
-                       class). Selected/dragging (1.25) outranks hover (1.1). */
+                       class). Selected/dragging (1.25) outranks hover (1.1).
+                       T.W5 R9 (ridden here per the cross-wave clause): the
+                       handle's scale settle is SPATIAL — `--spring-snappy` @
+                       its own clock, never the squeezed generic 0.3s. */
                     transform: `translate(-50%, -50%) scale(${handleScale(stop.id)})`,
-                    transition: 'box-shadow var(--duration-fast) var(--ease-standard), transform var(--duration-normal) var(--ease-spring)',
+                    transition: 'box-shadow var(--duration-fast) var(--ease-standard), transform var(--spring-snappy-duration) var(--spring-snappy)',
                 }"
                 @pointerdown="(e) => onHandlePointerDown(e, stop.id)"
                 @pointermove="onHandlePointerMove"
@@ -240,11 +248,11 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
 
         <!-- The remove chip (W5-11 / P1-3: remove was right-click-ONLY —
              undiscoverable, impossible on touch). Floats BELOW the selected
-             handle whenever removal is legal. A SIBLING of the bar, never a
-             child: the bar's glass-wash recipe carries `contain: paint`,
-             which clips any descendant outside the bar's box out of paint
-             AND hit-testing (probed live — the same clipping class as the
-             producer's documented R8-17 defect). -->
+             handle whenever removal is legal. A SIBLING of the rail, never a
+             child: it lives OUTSIDE the rail's box, so it must not grow the
+             rail's hit-area or ride inside its paint contract. (The former
+             glass-wash `contain: paint` clip — the R8-17 class — died with
+             the owned paint stack; the sibling seat stays on its own merit.) -->
         <button
             v-if="selectedStop && removable"
             type="button"
@@ -261,20 +269,58 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
             <X class="w-3.5 h-3.5" aria-hidden="true" />
         </button>
 
-        <!-- The iso-ΔE_OK rung row (W5-8): perceptual pacing as visible
-             netting on the editing rail, mapped to the same inset track as
-             the handles so rungs, beads and handles agree on the axis. -->
+        <!-- The iso-ΔE_OK ruler (W5-8 rungs; T.W6-2 ruler grammar — finding
+             6's cure): rungs are INTERIOR perceptual arc-length marks (the
+             ends are not rungs), so the row carries terminal caps at 0/100
+             in a distinct taller voice — the termination law made visible;
+             the asymmetric extents read as perceptual truth, not layout
+             error. Mapped to the same inset track as the handles; the rung
+             ink joins the recalibrated gamut-ink register (ONE netting
+             voice across plate and rail, both schemes). -->
         <div
             v-if="rungs && rungs.length"
-            class="relative h-1.5"
+            data-testid="gradient-rung-row"
+            class="relative h-2.5"
             aria-hidden="true"
         >
             <span
+                v-for="cap in [0, 100]"
+                :key="`cap-${cap}`"
+                data-testid="gradient-ruler-cap"
+                class="absolute top-0 h-full w-[1.5px] -translate-x-1/2 rounded-full bg-foreground/70"
+                :style="{ left: handleLeft(cap) }"
+            />
+            <span
                 v-for="(r, i) in rungs"
                 :key="i"
-                class="absolute top-0 w-px h-full bg-muted-foreground/50"
-                :style="{ left: handleLeft(r) }"
+                data-testid="gradient-rung"
+                class="absolute top-1/2 w-px h-1.5 -translate-y-1/2"
+                :style="{ left: handleLeft(r), background: 'var(--gamut-edge)' }"
             />
         </div>
     </div>
 </template>
+
+<style scoped>
+/* ── The rail's owned paint stack (T.W6-2 — a MATERIAL CONTRACT, not a
+   shorthand assembly; t-gradient-surfaces §5's cure). The former per-callsite
+   `background: <render-string>, var(--alpha-checker)` on a glass-wash box
+   resolved origin `padding-box` / clip `border-box` / `repeat`, so the ramp
+   TILED into the 1px border ring and each border column showed the OPPOSITE
+   terminal's color (the shot-visible mirrored slivers). Here the ramp is a
+   border-box layer, no-repeat, sized to the full box: silhouette and ramp
+   agree to the pixel at both ends by construction. The alpha-checker ground
+   tiles beneath (S owner-ruling 2026-07-05); the glass grammar — hairline +
+   soft lift — sits OUTSIDE the ramp's geometry. Pill silhouette per T-46:
+   the glass-ui slider-track rounding register (`--radius-pill`). */
+.gradient-rail {
+    border-radius: var(--radius-pill, 9999px);
+    border: 1px solid var(--card-edge);
+    background: var(--rail-ramp), var(--alpha-checker);
+    background-origin: border-box;
+    background-clip: border-box;
+    background-repeat: no-repeat, repeat;
+    background-size: 100% 100%, 16px 16px;
+    box-shadow: var(--shadow-sm);
+}
+</style>

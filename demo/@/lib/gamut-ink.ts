@@ -6,7 +6,7 @@
  *
  * Two consumers today:
  * - the picker's spectrum-plate overlay (`color-picker/gamutOverlayPaint.ts`)
- * - the gradient page's perceived-space plate (`gradient/GradientVisualizer/PerceivedSpacePlate/perceivedSpacePaint.ts`)
+ * - the gradient page's envelope plate (`gradient/GradientVisualizer/PerceivedSpacePlate/envelopePlatePaint.ts`)
  *
  * Owns: the `--gamut-*` token probe (computed-style resolution of the four
  * netting inks, color-mix and all), the WEBBING token table (density/angle/
@@ -21,18 +21,19 @@ export const DPR_CAP = 2;
 /**
  * The webbing token table (OWNER-RULING-2026-07-05 §1.2b): density, angle,
  * and line weight of the registered net, in ONE place. `period` and `angleDeg`
- * MUST agree with the CSS `--gamut-hatch(-paper)` tokens (the 5px+1px tile at
- * 45deg) — the probe reads the ink from CSS, the painter realizes the same
- * lattice on canvas; they are two renderings of one register. Weights are CSS
- * px on a DPR-scaled context — device-pixel-crisp at retina by construction.
+ * MUST agree with the CSS `--gamut-hatch(-paper)` tokens (the 4.75px+1.25px
+ * tile at 45deg — T.W6-1's R5 recalibrated band, T-6) — the probe reads the
+ * ink from CSS, the painter realizes the same lattice on canvas; they are two
+ * renderings of one register. Weights are CSS px on a DPR-scaled context —
+ * device-pixel-crisp at retina by construction.
  */
 export const WEBBING = {
-    /** Perpendicular line spacing, CSS px — the token's 5px+1px tile. */
+    /** Perpendicular line spacing, CSS px — the token's 4.75px+1.25px tile. */
     period: 6,
     /** Lattice angle (CSS-token register: `repeating-linear-gradient(45deg…)`). */
     angleDeg: 45,
-    /** Hatch stroke weight, CSS px. */
-    weight: 1,
+    /** Hatch stroke weight, CSS px (lockstep with the CSS tile's 1.25px band). */
+    weight: 1.25,
 } as const;
 
 /** The lattice's x-axis step (one period measured along the top edge). */

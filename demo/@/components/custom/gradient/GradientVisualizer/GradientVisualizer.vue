@@ -41,6 +41,7 @@ const {
     modelState,
     coalescedCSS,
     simpleCSS,
+    railRampCSS,
     addStop,
     removeStop,
     updateStop,
@@ -142,20 +143,22 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
 <template>
     <div class="flex flex-col gap-5">
-        <!-- Hero: the perceived-space plate (W5-8). The old aria-hidden
-             preview swatch is DISSOLVED (P2-16 — it duplicated the editing
-             rail below): the rail renders the gradient itself; the plate
-             renders what the ramp DOES in perceptual space. -->
+        <!-- Hero: the hue-swept envelope plate (T.W6-2, re-authored from the
+             W5-8 slice). The old aria-hidden preview swatch is DISSOLVED
+             (P2-16 — it duplicated the editing rail below): the rail renders
+             the gradient itself; the plate renders what the ramp DOES in
+             perceptual space, across its OWN swept hues. -->
         <PerceivedSpacePlate
             :points="ramp.points.value"
             :stop-points="ramp.stopPoints.value"
             :hue="ramp.runningHue.value"
+            :sweep="ramp.sweptHues.value"
             :selected-id="selectedStopId"
         />
 
         <GradientStopEditor
             :stops="stops"
-            :coalesced-c-s-s="coalescedCSS"
+            :rail-ramp="railRampCSS"
             :color-at="colorAtPosition"
             :rungs="ramp.rungs.value"
             v-model:selected-id="selectedStopId"
@@ -169,7 +172,14 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <hr class="border-border" />
         <h3 class="font-display text-subheading text-muted-foreground">Interpolation</h3>
 
-        <div class="grid grid-cols-3 gap-3">
+        <!-- T.W6-2 / T-21b: the controls band carries the RENDER TILE as its
+             right rail — the honest surface for what Type + Direction DO
+             (the rail below normalizes to 90° for editing; before this tile
+             the direction slider's only visible effect was corrupting the
+             rail). One sampling law feeds both; the tile paints the
+             CSS-output truth (`coalescedCSS`). -->
+        <div class="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-5">
+        <div class="grid grid-cols-3 gap-3 min-w-0">
             <!-- W5-7 (P1-11): the per-select subtitle rows are EXCISED — they
                  truncated at every viewport and duplicated the descriptions
                  already carried inside each dropdown's items. -->
@@ -225,6 +235,19 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
             </div>
         </div>
 
+        <!-- The render tile: type + direction APPLIED — a square-ish surface
+             spanning both control rows (an angled/radial/conic render cannot
+             live in a horizontal strip). Same owned paint-stack contract as
+             the rail: render layer no-repeat over the full border-box,
+             alpha-checker ground beneath. -->
+        <div
+            data-testid="gradient-render-tile"
+            role="img"
+            aria-label="Gradient render with type and direction applied"
+            class="gradient-render-tile row-span-2 w-20 sm:w-24 rounded-card border border-card-edge"
+            :style="{ '--tile-render': coalescedCSS }"
+        />
+
         <div class="flex flex-col gap-1">
             <div class="flex items-center justify-between">
                 <span class="section-label">Direction</span>
@@ -232,6 +255,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
             </div>
             <Slider aria-label="Gradient direction" :model-value="[direction]" :min="0" :max="360" :step="1"
                 @update:model-value="(v: number[] | undefined) => { if (v?.[0] !== undefined) direction = v[0]; }" />
+        </div>
         </div>
 
         <!-- ── Easing (R.W4 Lane D — the glass-ui <EasingPicker> consume;
@@ -263,3 +287,18 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         />
     </div>
 </template>
+
+<style scoped>
+/* The render tile's owned paint stack (T.W6-2 — the rail's material
+   contract, same shape): the render string is a border-box layer, no-repeat,
+   over the alpha-checker ground; silhouette and render agree at every edge.
+   Never a per-callsite `background` shorthand assembly. */
+.gradient-render-tile {
+    background: var(--tile-render), var(--alpha-checker);
+    background-origin: border-box;
+    background-clip: border-box;
+    background-repeat: no-repeat, repeat;
+    background-size: 100% 100%, 16px 16px;
+    box-shadow: var(--shadow-sm);
+}
+</style>
