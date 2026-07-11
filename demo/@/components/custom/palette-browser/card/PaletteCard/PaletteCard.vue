@@ -14,11 +14,11 @@
             // The prior hand-rolled shadow-only hover (sm→md @ the dead 150ms
             // bare-utility default — t-transitions-liquid F1/F3) is retired;
             // border width (2px) comes from the atom, color stays the
-            // --card-edge hairline bridge. NOT <Card surface="cartoon">: the
+            // --card-edge hairline bridge. NOT <Card surface=cartoon>: the
             // ratified Q4/T.W3-1 material is the rung-2 WELL (`bg-well`, an
             // opaque tone-step of the host plate) and cartoon-surface is
-            // decoration-only BY DESIGN ("composes ON TOP of a tier — NOT
-            // itself a tier"), so the atom lands the motion register while
+            // decoration-only BY DESIGN (it composes ON TOP of a tier — NOT
+            // itself a tier), so the atom lands the motion register while
             // the W3 material law stands untouched.
             // NO overflow-hidden (S.W5-10 / S-15-A): a card-level radius clip
             // rasterizes 1-bit at compositing-layer bounds (the stair-stepped
