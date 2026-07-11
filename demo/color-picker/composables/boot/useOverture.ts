@@ -28,7 +28,11 @@
  *                     ColorPicker's idle-fetched HeroBlob — work defers,
  *                     appearance composes; an early chunk WAITS on the
  *                     field's arm — kills the measured d/e idle race by
- *                     construction).
+ *                     construction). DE-COINCIDED from B2's frame (T.W6.5
+ *                     Lane M): the flip yields one rAF + an idle slice past
+ *                     the field-arrival task, so the aurora WebGL arm and
+ *                     the blob engine mount never share one long task (the
+ *                     §4.1 ~505ms wall splits). PRM: synchronous (law 5).
  *
  * Every beat START stamps a `performance.mark("overture:bN")` — the O-4
  * order-invariance oracle asserts B0 < B1 < {B2, B3} < B4 ∧ B2 < B4 under
@@ -46,7 +50,7 @@
  * (self-hosted, index.html), the seeded-session gate as evidence (O-2).
  */
 
-import { computed, onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import type { ComputedRef, InjectionKey, Ref } from "vue";
 
 export interface OvertureBeats {
@@ -58,9 +62,10 @@ export interface OvertureBeats {
     b3: Readonly<Ref<boolean>>;
     /** B3-complete — left plate settled ∧ in-card paint beats finished. */
     b3Complete: Readonly<Ref<boolean>>;
-    /** B4 — the ornament beat is OPEN (B3-complete ∧ B2-started). The
+    /** B4 — the ornament beat is OPEN (B3-complete ∧ B2-started, then ONE
+     *  yielded slice — see the de-coincidence note in `useOverture`). The
      *  chunk-resolved leg composes at the consumer (∧ blob chunk ready). */
-    b4: ComputedRef<boolean>;
+    b4: Readonly<Ref<boolean>>;
     /** The dock's plate has landed (B2's second predicate; veil-reveal end). */
     dockLanded: Readonly<Ref<boolean>>;
     /** Beat callbacks — the shell + consumers report NAMED completion events. */
@@ -108,9 +113,40 @@ export function useOverture(fieldArmed: ComputedRef<boolean>): OvertureBeats {
         { immediate: true },
     );
 
-    // B4 opens on B3-complete ∧ B2-started; the consumer composes the
-    // chunk-resolved leg (∧ its own async-component readiness).
-    const b4 = computed(() => b3Complete.value && b2.value);
+    // B4 opens on B3-complete ∧ B2-started — then yields ONE frame + an idle
+    // slice before flipping (T.W6.5 Lane M · the B2/B4 DE-COINCIDENCE,
+    // t33-research §4.1/§4.3): B2's arming flip lands INSIDE the aurora
+    // WebGL arm's own task, and a synchronous B4 mounted the blob engine in
+    // that same task — the measured ~505ms one-frame wall at the
+    // `overture:b2`/`b4` marks (both profiles, unthrottled AND 4×). The beat
+    // DAG owns the ordering, so the split lives HERE: the predicate is
+    // unchanged (gating, never a timer — the rAF/idle hop is a YIELD past
+    // the field-arrival frame, not a clock), order is preserved (B2 < B4
+    // strictly, O-4), and the blob engine mount lands in its own task.
+    // PRM keeps the instant-states law (law 5): no yield, the flip is
+    // synchronous with the predicate. The rIC timeout bounds the ornament's
+    // wait on a busy main thread; Safari (no rIC) takes the macrotask hop.
+    const b4 = ref(false);
+    watch(
+        () => b3Complete.value && b2.value,
+        (open) => {
+            if (!open || b4.value) return;
+            if (prm || typeof window === "undefined") {
+                b4.value = true;
+                return;
+            }
+            requestAnimationFrame(() => {
+                if ("requestIdleCallback" in window) {
+                    window.requestIdleCallback(() => (b4.value = true), {
+                        timeout: 500,
+                    });
+                } else {
+                    setTimeout(() => (b4.value = true), 0);
+                }
+            });
+        },
+        { immediate: true },
+    );
 
     onMounted(() => {
         // B1: hydration-committed ∧ mount. The hydration half is committed
