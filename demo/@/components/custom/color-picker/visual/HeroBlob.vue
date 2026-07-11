@@ -17,6 +17,13 @@
                          blob only consumes it. No self-owned width rungs —
                          Q7 full presence means the SAME consume at every
                          viewport, sized by the slot. -->
+                    <!-- T.W4-5 — the RELEASE beat (t-blob-hero F-6/§3): the
+                         missing @mouseleave lands — hover-out returns the
+                         mood to the autonomic idle arc and re-arms the park
+                         countdown, so the park can never embalm a mid-smear
+                         hover pose. The park TRIGGER stays wall-clock until
+                         P6's `settled` seam ships (BOOKED — never a demo
+                         guess at silhouette energy). -->
                     <GooBlob
                         ref="gooBlobRef"
                         :color="cssColorOpaque"
@@ -25,10 +32,14 @@
                         class="w-(--blob-fp)"
                         @click="onBlobClick"
                         @mouseenter="onBlobHover"
+                        @mouseleave="onBlobLeave"
                         @pointermove="noteBlobActivity"
                     />
                 </TooltipTrigger>
-                <TooltipContent class="fira-code">
+                <!-- T.W4-5 — the tooltip re-seats BELOW the bead, into the
+                     card region (t-blob-hero §3 Celebration: it used to pop
+                     upward into the dock band). -->
+                <TooltipContent side="bottom" align="end" class="fira-code">
                     {{ denormalizedCurrentColor.value.toFormattedString() }}
                 </TooltipContent>
             </Tooltip>
@@ -47,8 +58,12 @@ import {
 import { GooBlob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/goo-blob";
 import type { BlobConfig } from "@mkbabb/glass-ui/goo-blob";
 import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
+import type { OklchStop } from "@mkbabb/glass-ui/color";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import { COLOR_MODEL_KEY } from "@composables/color/keys";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+import { clamp } from "@mkbabb/value.js/math";
+import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "@composables/color/keys";
+import { resolveSurfaceLightnessLive } from "@composables/color/useContrastSafeColor";
 
 // Thin consumer of glass-ui's GooBlob (the demo half of W6-4 — consume/config/
 // placement ONLY; the engine is the producer's, genesis brief §3.0). The
@@ -91,16 +106,51 @@ const { matches: isLgViewport } = useBreakpoint("(min-width: 1024px)");
 // the rAF-COALESCED colour (the W3-1 discipline — one derive per frame under a
 // 60×/s scrub), seeded from the app config so the first frame has a ramp.
 const heroStops = shallowRef<string[]>([...appBlobConfig.color.paletteStops]);
+
+// --- T.W4-5: THE INK FLOOR (D8 · t-blob-hero F-4) --------------------------
+// |ΔL(bead body, card plate)| ≥ INK_FLOOR — the figure-ground collapse cure
+// (bead, field, and plate all derive from ONE seed; without a floor a pink
+// bead sits on a pink plate). CLOSED-FORM inside the 12ms drag headroom
+// (PI-3 — this runs in the exact rAF-coalesced fan-out drag-frame-budget
+// measures; an iterative solve here is forbidden): one referent read (the
+// scheme/epoch-CACHED tier probe — never a per-frame style recalc), one mean,
+// one shift, applied uniformly so the ramp's internal spread survives.
+// The floor value is the RULED default 0.15 ∈ [0.12, 0.20] OKLab L (M-9;
+// owner eye-judge inside the bracket at W8). The producer F9.R1
+// `lightnessFloor` knob replaces this at the W7 adopt (BOOKED — the bracket
+// is its sizing spec).
+const INK_FLOOR = 0.15;
+const { isDark } = useGlobalDark();
+const inkAmbient = inject(INK_AMBIENT_KEY, null);
+
+function floorStops(stops: OklchStop[]): OklchStop[] {
+    const ambient = inkAmbient?.value ?? 0.5;
+    const plateL = resolveSurfaceLightnessLive("resting", ambient, isDark.value);
+    const meanL = stops.reduce((s, x) => s + x.L, 0) / stops.length;
+    const delta = meanL - plateL;
+    if (Math.abs(delta) >= INK_FLOOR) return stops;
+    // Push AWAY from the plate on the side the ramp already leans; flip if
+    // that side has no headroom (closed-form — two branches, zero iteration).
+    let dir = delta >= 0 ? 1 : -1;
+    const need = INK_FLOOR - Math.abs(delta);
+    const headroom = dir === 1 ? 0.98 - meanL : meanL - 0.02;
+    if (headroom < need) dir = -dir;
+    const push = dir * (INK_FLOOR - dir * delta);
+    return stops.map((s) => ({ ...s, L: clamp(s.L + push, 0.02, 0.98) }));
+}
+
 watch(
     cssColorOpaqueFrame,
     (css) => {
         try {
             const seed = cssToOklch(css); // throws iff un-parseable
-            heroStops.value = deriveBlobPalette(css, {
-                stopCount: 4,
-                harmony: "analogous",
-                chromaCeiling: Math.max(0.16, seed.C),
-            }).map(oklchStopToHex);
+            heroStops.value = floorStops(
+                deriveBlobPalette(css, {
+                    stopCount: 4,
+                    harmony: "analogous",
+                    chromaCeiling: Math.max(0.16, seed.C),
+                }),
+            ).map(oklchStopToHex);
         } catch {
             // A transient un-parseable colour string leaves the last good ramp.
         }
@@ -222,6 +272,14 @@ watch(
 function onBlobHover() {
     noteBlobActivity();
     gooBlobRef.value?.setMood("curious");
+}
+
+// T.W4-5 — the RELEASE beat (F-6's missing half): hover-out hands the body
+// back to the autonomic arc (idle — the engine settles itself) and re-arms
+// the park countdown, so the freeze can never race a mid-smear hover pose.
+function onBlobLeave() {
+    noteBlobActivity();
+    gooBlobRef.value?.setMood("idle");
 }
 
 function onBlobClick() {

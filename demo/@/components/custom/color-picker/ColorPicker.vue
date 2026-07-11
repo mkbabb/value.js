@@ -10,15 +10,17 @@
                  symmetric now that the blob reservation lives on the title row
                  alone (S.W4-2 / S-19). -->
             <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col gap-y-1 items-start">
-                <!-- Title row: the blob's static footprint RESERVATION (D1-4:
-                     by construction, never a measured nudge) is scoped HERE —
-                     the bead occupies the title band only, so only the title
-                     pays for the corner-break; the hero numbers below span the
-                     FULL header width and Lab inks ONE line at the desktop
-                     rung (S.W4-2 / S-19). W6-4: the base arm reserves for the
-                     <lg hand-scale bead (~67px, inset 1.75rem → pr-28); lg
-                     keeps pr-36 for the 11rem bead. -->
-                <div class="w-full min-w-0 pr-28 lg:pr-36">
+                <!-- Title row = THE BEAD'S BAND (T.W4-5 · D8; t-contradictions
+                     C1 order: the seat re-derives AGAINST the settled ×φ title
+                     and the freed tuple). The blob's reservation is scoped
+                     HERE and derived from the ONE seat formula (never a
+                     measured nudge, never a hand px): padding-right clears
+                     the visible bead's horizontal extent (0.76·fp from the
+                     card edge); min-height hosts the bead's vertical extent
+                     so the READOUT below starts clear of it at EVERY band —
+                     the line-lock capacity keeps the full header width by
+                     construction. Both bind in the scoped block (.title-row). -->
+                <div class="title-row w-full min-w-0">
                     <ColorSpaceSelector
                         :model-value="model.selectedColorSpace"
                         v-model:open="selectedColorSpaceOpen"
@@ -55,13 +57,18 @@
             </CardContent>
         </Card>
 
-        <!-- W6-4 (S.W6) — CORNER-BREAK LAW, slot-owned (genesis §3.2; Q7 full
-             presence at EVERY viewport): the blob is the slot's TOPMOST
-             ORNAMENT, a LATER SIBLING of the Card — source order + the slot's
-             cross-pane layer (style.css `.pane-wrapper--left`) kill the S-4
-             About-card burial with ZERO z-index on the instance (seed
-             §Learnings 3). R.W3 D2's dual-hero diagonal still reads. Geometry:
-             `.hero-blob-anchor` below.
+        <!-- T.W4-5 — THE SEAT (D8 · Q3 "Flush." · the T-30 centre-ward
+             rider): the bead is a PAPERWEIGHT ON THE PLATE — wrapper flush
+             to the card corner (--blob-seat: 0), the WHOLE composition
+             seated INSIDE the card at every viewport by the containment
+             identity (orbit-reach 0.49 ≤ 0.5 of the wrapper ⇒ no clip, no
+             dock collision, no seam skewer, no About amputation — BY
+             CONSTRUCTION; only the transparent 1.6× canvas overscan crosses
+             the card edge, clipped by .app-layout). The R3 corner-break law
+             (center-on-radius-origin + ≥25%-overflow arms + the <lg 8rem
+             hand arm) is DEAD; ONE cqi formula sizes every band. The z law
+             is the NAMED --z-ornament tier (Q3b: content-top, chrome above).
+             Geometry: `.pane-shell`/`.hero-blob-anchor` below.
 
              T.W2-4 — THE EMERGE BEAT (B4): the blob EMERGES, never appears.
              `blobReady` stays the W3-2 IDLE deferral (work defers);
@@ -355,39 +362,85 @@ onUnmounted(() => {
     transition: transform var(--duration-normal) var(--ease-standard);
 }
 
-/* W6-4 (S.W6) — the corner-break placement LAW (the slot owns the footprint
- * token AND the anchor; HeroBlob only consumes `--blob-fp`). Size identity:
- * canvas = 1.6× wrapper, POS_SCALE 0.625 — the factors cancel, so visible
- * bead px = 2·bodyRadius·footprint exactly (seed §Learnings 2; bodyRadius
- * 0.26 via HeroBlob's HERO register).
+/* T.W4-5 — THE SEAT (D8; placement law v3 — the R3 corner-break law and its
+ * <lg hand arm are DEAD). The SLOT owns the footprint token AND the anchor;
+ * HeroBlob only consumes `--blob-fp` (the surviving Q7/R3 slot-owned-token
+ * law). Size identity: canvas = 1.6× wrapper, POS_SCALE 0.625 — the factors
+ * cancel, so visible bead px = 2·bodyRadius·footprint exactly (bodyRadius
+ * 0.26 via HeroBlob's HERO register → bead = 0.52·fp, edges 0.24·fp inside
+ * the wrapper).
  *
- * DESIGN CALL (rider-2's fork, recorded): bead CENTER on the card's
- * CORNER-RADIUS ORIGIN — the integrated "wet on the plate" composition, NOT
- * the detached corner-POINT relocation. At the HERO body the per-broken-edge
- * overflow is (R − r)/2R ≈ 33% ≥ the ratified 25% law. */
-.hero-blob-anchor {
-    position: absolute;
-    /* <lg — the hand-scale arm (Q7 presence DESIGNED, never toggled): fixed
-     * 8rem footprint (bead ≈ 67px). Same vertical law (top = r − fp/2 → the
-     * TOP edge breaks at ≈ 26%); the RIGHT edge stays UNBROKEN so the 1.6×
-     * canvas overscan stays inside the viewport (the forbidden 390px
-     * clipped-smudge state, genesis §3.3): right 1.75rem puts canvas-right
-     * ≈ viewport − 4px at 390 (and clears 320). ONE broken edge is the
-     * hand-scale grammar of the same law. */
-    --blob-fp: 8rem;
-    top: calc(var(--radius-card) - var(--blob-fp) / 2);
-    right: 1.75rem;
+ * ONE cqi FORMULA at every viewport (no band arms): fp = clamp(7rem, 22cqi,
+ * 11rem) — derived from the ×φ title band it seats in: at the 512px pane,
+ * 22cqi = 112.6px → bead ⌀58.6 ≈ the display-3 title line (≈75px tall), so
+ * the bead sits BESIDE the title with zero added header height at desktop;
+ * the 7rem floor keeps a full-presence hand-scale bead (⌀58) at 390 (Q7 —
+ * presence designed, never toggled). The title row hosts the bead's whole
+ * vertical extent via the formula-derived min-height (template note) — the
+ * readout band below stays clear at EVERY band, which is what keeps the
+ * line-lock capacity full-width (readoutReservation's derivation).
+ *
+ * T-30 (OWNER-2026-07-10): centre-ward + integrated is delivered by
+ * CONTAINMENT ITSELF — the bead moves from half-off-card (overlapping the
+ * About seam) to wholly inside the plate, its mass in the title band, edge
+ * 0.24·fp (~27px) inside the corner; the contact shadow (below) seats it ON
+ * the paper. Re-judged at T.W4.5. The BLUR forensic verdict (demo-root
+ * cleared, measured 2026-07-10): backing store = gBCR × resolveBudgetDpr
+ * (ratio 1.99 at dpr2 — full-res), zero CSS filter on the canvas chain,
+ * demo quality rung `full` at lg. The residual softness is PRODUCER-root:
+ * the engine's hero-scale interior shading (the silhouette AA is ~1px
+ * fwidth-derived — metaball.frag.ts:315-318 — but the interior reads
+ * featureless at ⌀≥90px) + the wrapper's resting drop-shadow halo — the
+ * exact P6 packet rider (hero-scale legibility, row A family). */
+.pane-shell {
+    --blob-fp: clamp(7rem, 22cqi, 11rem);
+    /* Q3 "Flush." — the ruled seat inset; the knob survives for taste
+     * passes (positive = deeper into the card; negatives are DEAD — they
+     * re-admit the overflow class the ruling closed). */
+    --blob-seat: 0px;
 }
 
-@media (min-width: 1024px) {
-    .hero-blob-anchor {
-        /* lg+ — the ratified rider-1 footprint (SEEDS.md w6 rider 1; the
-         * 11rem floor binds on the 32rem-ruled dual grid — 26cqi of 512px =
-         * 133px; .pane-wrapper is the cqi container). Bead center EXACTLY on
-         * the radius origin: BOTH broken edges carry the ≥25% overflow. */
-        --blob-fp: clamp(11rem, 26cqi, 13rem);
-        right: calc(var(--radius-card) - var(--blob-fp) / 2);
-    }
+.hero-blob-anchor {
+    position: absolute;
+    top: var(--blob-seat);
+    right: var(--blob-seat);
+    /* The NAMED ornament tier (Q3b) — never source-order accident. */
+    z-index: var(--z-ornament);
+}
+
+/* The CONTACT SHADOW — the seat's depth signature (D8: the corner-break's
+ * "wet on the plate" is REPLACED, not deleted). A static radial pool under
+ * the bead's base anchors it to the plate (the paperweight read; also the
+ * demo-side half of the T-30 blur percept cure — a grounded object reads
+ * focused; the engine-side wet-edge register is the P6 open-Q9 row, now
+ * WANTED). Geometry derives from the same identity: bead center at 50%,
+ * base at 76% of the wrapper. PRM-static; both schemes via --shadow-color. */
+.hero-blob-anchor::before {
+    content: "";
+    position: absolute;
+    left: 24%;
+    right: 24%;
+    top: 68%;
+    height: 14%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse 50% 50% at 50% 50%,
+        color-mix(in srgb, var(--shadow-color) 22%, transparent),
+        transparent 70%
+    );
+}
+
+/* The title row hosts the bead (the C1-settled band): reservation +
+ * min-height both derive from the ONE formula — visible-bead extent =
+ * 0.76·fp from the card edge; the row's content box extends past the bead's
+ * base (minus its own pt-3 = 0.75rem) so the readout below never enters the
+ * bead's band. At desktop the min-height resolves ≤ the display-3 title
+ * line (a no-op); at the phone floor it grows the row to seat the bead —
+ * a clamp, never a band arm. */
+.title-row {
+    padding-right: calc(0.76 * var(--blob-fp) + 0.5rem);
+    min-height: calc(0.76 * var(--blob-fp) - 0.75rem);
 }
 
 /* T.W2 beat grammar — the B4 EMERGE POSE (`blob-emerge` on

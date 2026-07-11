@@ -338,6 +338,15 @@
      * knob and the per-surface declarations retire (BOOKED, verify-first). */
     --type-weight-display: 400;
 
+    /* ── The ornament layer (T.W4-5 · D8 · Q3b) ──
+     * "Higher z than all" reads as the top of the CONTENT stack (the ruled
+     * Q3b default): above both pane cards and every in-card fixture (the
+     * picker CardHeader's z-10 included), BELOW floating chrome — the dock/
+     * menus band starts at --z-header 35. Under the flush seat the bead
+     * never enters the chrome band in paint, so the two readings of "all"
+     * never conflict (D8). A NAMED tier, never source-order accident. */
+    --z-ornament: 20;
+
     /* ── Layout tokens ── (7 — B.W1 dropped --dock-pos and --layout-padding) */
     --dock-border-width: 3px;
     --dock-padding-y: 0.75rem;
