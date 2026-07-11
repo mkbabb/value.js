@@ -30,6 +30,18 @@ assembled (brackets, both poles named) · **the owner's verdict is the gate**.
 owner-certification package; the mid-tranche checkpoint is the NEW `waves/T.W4.5.md` (round
 3.5), which reuses this doc's pass grammar on the through-W4 surface set and hands its
 `w45-checkpoint/ROWS.md` + flagged brackets to this wave's passes. (The pre-ratification AUTHORED/gate-CLOSED stamp is superseded.)
+**[OWNER-2026-07-11b — the §0.7 evening audit lands MID-WAVE]**: the owner's 2026-07-11 ~17:22
+live audit (T-49..T-59, `MANDATE §0.7`) + the later-same-evening T-60 sub-note arrived with this
+wave RUNNING (picker.p1 filed mid-audit); per the owner's own process order
+(research·harden·tranche-wave write), the research of record is `audit/t49-research.md`
+(`49d2d5b`) and its rows join THIS wave via the §Scope riders below — the critique/taste-shaped
+halves as pass inputs + package brackets, the build-shaped halves as the §0.7 OWNER-FILED WORK
+ROWS (WR-1..WR-11), the producer halves at the consolidated communiqué
+(`letters/GLASSUI-T-COMMUNIQUE-2026-07-11.md`, dispatched @ glass-ui **`f3f3c097`**). **No
+successor wave is minted**: W8 is running and owns every §0.7-named surface in its census, so
+the owner's rows enter as the highest-grade FILED rows (the owner is the terminal critique
+authority; the W6.5 mint is NOT repeated — that wave existed because no open wave owned its
+surfaces).
 
 ---
 
@@ -70,7 +82,17 @@ Lighthouse delta run in the same wave; **the owner's verdict recorded — it is 
    material (non-macOS) · cursor grammar (spectrum/slider drag, blob hover) · the static
    `<title>` · native-`title` tooltips BEYOND the dock set. **The thrown-error state** row
    [h-gaps G-8, VERDICT §5-D3 — the declined-ledger row's judged surface]. No pass may certify taste — a pass VERDICT is "coherent with the doctrine" or a filed
-   row, never "beautiful" (lesson 12).
+   row, never "beautiful" (lesson 12). **[OWNER-2026-07-11b] The §0.7 set joins the pass
+   inputs**: every pass reads `MANDATE §0.7` (+ the T-60 sub-note) and `audit/t49-research.md`
+   as its surface's owner-verbatim + root-cause reading (the §0.6/t33-research pairing extended
+   to the evening set); a pass filed BEFORE the addendum re-judges against it, never the reverse
+   (pass-2 boot/atmosphere/blob owns T-49/T-58/T-60's surfaces; picker owns T-50/T-51/T-59;
+   palettes-browse + dock own T-56/T-52/T-57; mix-generate owns T-53/T-54/T-55). The handed
+   mechanisms are BINDING pass inputs — no pass re-discovers them: the T-60/blob reveal-bloom
+   computed-style trace (t49-research §2.1 — producer-root, the demo exonerated on both
+   hypotheses), the T-53 dark-caster bisection (§6 — NOT a T-45 recurrence), the T-58 frame
+   forensics (§10 — one 135ms-headless/356ms-headed compositor hole + sub-60 tail; scheduling,
+   not easing; O-16 curves green), and the T-52 producer mask geometry (§5).
 2. **Remediation lanes** land the filed rows (batches of three; **single-writer keyed on the
    FILE, not the surface** [AMENDED-AT-HARDENING — M-20/h-refine-hardening RF-1: the census
    surfaces provably share files — T-2 spans picker+About on ONE anchor
@@ -105,9 +127,69 @@ Lighthouse delta run in the same wave; **the owner's verdict recorded — it is 
    glass-ui curves + liquid-glass smoothing bind W5's own close); whatever taste residual
    survives W5's gate lands HERE as a bracket, with the §4-attributed payload half of "janky"
    (the boot walls) staying W7's, never re-bracketed as taste.
+   **[OWNER-2026-07-11b] The §0.7 brackets join the roster BY NAME** (poles from
+   `audit/t49-research.md`, every pole a reproducible tuple per RF-3): **blob-size** (T-49b:
+   current `22cqi`/`11rem` ⌀≈92px desktop ← "a bit bigger" (ceiling 12–12.5rem + 24cqi,
+   ⌀≈100–105) → over-grown (>~12.5rem the bead outgrows the title line and ADDS header height
+   via the 0.76 seat coupling); re-derived against WR-4's chosen title line in the same pass —
+   the two knobs interact) · **fission-amp** (T-49c: 0/never-splits ← [0.4, 0.8],
+   calm-effective ≈ [0.16, 0.32] → busy colony) · **veil-clarity** (T-50: landed α pair
+   0.52/0.678 reads opaque ← visible glass, the field legibly moving under the console →
+   too-clear; the O-18 GRAPHICS leg is the far fence) · **title-step** (T-51: the owner's "by
+   1 or 2" IS the bracket — `--type-display-2` (53.28px @1440) vs `--type-display-1` (41.89px);
+   landed `--type-display-3` (67.78px) the near pole) · **dark-caster register** (T-53: cream
+   @0.5 reads artifact ← a deliberate caster (dark-on-dark; or low-α cream at larger offset) →
+   no caster in dark, the scheme-asymmetric register cost) · **verb-cluster instrument** (T-55:
+   dock-set capsule ↔ dropdown-menu — the owner's own disjunction; the research's fit ground:
+   all three verbs are immediate plate actions) · **pastel band centers** (T-56: landed
+   near-black wreck ← the §8 closed-form bands (dark pastel L∈[0.80,0.88]/C∈[0.06,0.10]; light
+   chalk L∈[0.30,0.40]) → over-sweet (C>~0.12 candy / L>0.9 dies into the light card)) ·
+   **rhythm clamp constants** (T-59: shot-10 desktop 24px rows ← target → shot-11 mobile 44px
+   visual rows — BOTH poles owner-photographed, the T-26 template with reproducible owner-named
+   poles). **The T-58 motion axis SHARPENS from bracket to MANDATE** (the §0.7 escalation — the
+   owner reds this surface a SECOND time post-W5-close): the frame-by-frame mechanism analysis
+   the owner ordered twice is DONE and HANDED (t49-research §10 — one 135ms-headless /
+   356ms-headed compositor hole + sub-60 rAF tail; scheduling, not easing; O-16 curves green;
+   O-16-R1 named the KNOWN CONFOUND to isolate FIRST; the payload half stays W7/Q14's BY LAW);
+   only the residual poles stay bracketed (frozen-mid-pose ← hole-free swap → over-deferred /
+   blank arrival). The BEFORE panels extend to **the 11 §0.7 shots** (`t49-audit-01..11`; note
+   shot 11's stamp precedes shot 10's — the pair was shot mobile-first).
 4. **The full oracle slate + budgets re-run in the same wave**: O-1..O-25 as live (honest
    EXPECTED-REDs carried with their packet cites); the §6.2 budget rows; **a fresh Lighthouse
    delta** appended to the PI-1 per-wave ledger; the O-3 headed-GPU probe re-run (its W8 row).
+
+## §Scope rider — THE §0.7 OWNER-FILED WORK ROWS (WR-1..WR-11) [OWNER-2026-07-11b]
+
+The build-shaped halves of T-49..T-60, minted as a **remediation-lane EXPANSION under this
+wave's own §Scope-2 grammar** (owner-filed rows ARE filed rows — the highest grade; they enter
+the remediation queue beside pass-filed rows, batches of three, single-writer keyed on the
+FILE). Anchors are the research's, measured (`audit/t49-research.md`, cited per row as §n).
+E-3 stands over the whole set (NO quick solutions, NO workarounds); every taste-shaped half
+rides the §Scope-3 roster to the owner — a WR lane lands the mechanism and the LANDED default,
+never a point-value taste certification. Producer halves are NOT here (they ride the
+communiqué, `f3f3c097`) — a WR lane that finds itself editing producer material has left its
+bounds.
+
+| WR | Owner row | The work (anchors) | Rides / oracles |
+|---|---|---|---|
+| WR-1 | T-49a (demo half) | The emerge α re-cut to MATTER-ARRIVAL — goo-scale WITHOUT the α leg (or α floored ≥ ~0.6 from frame 1), one keyframe block (`boot/overture.css:152-165`); the R2 pose/arm race contract (`animationend` name filter) unchanged; the no-pop law holds via scale alone (§2.1). The bloom half is PRODUCER-ONLY (communiqué §1.1) — an emerge-delay chase is DOA (the bloom stamps at first-visible and re-aligns with any delayed fade); NO counter-filter | pass-2 owns the surface; the wake-gray bead stays DISTINCT (pass-2 row B's route); boot gates + O-12 family |
+| WR-2 | T-49c | Arm the SHIPPED fission register — `heroConfig` gains `surface: { ...appBlobConfig.surface, fissionAmp: <bracket> }` (`HeroBlob.vue:165-188`) + the park-runway extension (the 2.7s wall-clock park < one 5.2s fission beat, `HeroBlob.vue:210-211` — extend the countdown ≥ one beat, or gate the park on the engine's quiescence read); sized for the CALM state (sleepy arousal ×0.4) (§2.3) | A-class (never-meatball is a mechanism defect); the `settled` seam + HERO preset stay producer (communiqué §1.4); fission-amp bracket to the roster; 390 blob perf gate HARD |
+| WR-3 | T-50 | The veil-SIGNAL calibration (the primitive is ALREADY seated, `ComponentSliders.vue:25-31` — calibration, not construction): lower the console tint α and/or open a clarity window in the pane card behind the console region so the blur has a backdrop (landed stack: 0.52 over 0.678 → ~15% surviving variation reads opaque) (§3) | The D6 ink referent moves with every α change (the veil-rung certification in `ink.ts` re-threads); O-18 W4 rows re-run; veil-clarity bracket to the roster |
+| WR-4 | T-51 | The title token step-down — ONE class-list line on `.space-trigger` to `--type-display-2` (default) / `--type-display-1` (far arm); zero mint, Q11a working as ruled — PLUS the title↔readout SEAM design mandate: P1-B1 is COLLAPSED (the owner has redded the reservation-as-blank in BOTH placements — T-33 below, T-51 above); design INSIDE the two honest arms (per-VALUE-CLASS reservation · seam-absorb; t33-research §6.1), never the blank band (§4) | O-10 line-locks re-run; interacts WR-11 (one header rhythm) + the blob-size bracket (§2.2 — the seat ceiling re-derives against the NEW title line in the same pass) |
+| WR-5 | T-53 | The dark-caster re-cut — the dark-scheme cartoon caster paints 50%-α CREAM (`--shadow-color: var(--foreground)` under `.dark`; recipe `style.css:597-600`, root `:363`): a design re-cut of what dark mode's caster IS, not a paint fix; one declaration (§6). **NOT a T-45 recurrence** (bisected live: box-shadow kill removes it, backdrop-filter kill does not — the landed ≤1/255 pseudo cap is INNOCENT) | The P3 producer book UNTOUCHED (its class stands, tracked at the communiqué §1.5); dark-caster register bracket to the roster |
+| WR-6 | T-54 | The WatercolorDot swap at the Generate plate — `.generate-swatch` plain rounded-rects (`GenerateControls.vue:193`) join the ruled watercolor register: the existing button stays the wrapper seat, the dot becomes its face (`color` + stable per-color `seed` (`color+i`) + variant); sizing holds the w-9/w-10 rung; **T-28's outline law rides** — no geometric focus ring on the organic edge (§7) | O-20 re-run at the plate; the 9 existing dot consumers are the register referent |
+| WR-7 | T-55 | The verb-cluster re-seat into ONE glass-ui instrument (`GenerateControls.vue:145-181` — three button registers in one row today): dock-set capsule (DockSection/DockStack/DockIconButton) vs `ui/dropdown-menu`, BY THE OWNER'S WORD; the producer's own primitives at the root (E-2), never a demo approximation (§7) | Shares `GenerateControls.vue` with WR-6 — ONE lane (the §Scope-2 shared-file law); instrument choice bracket to the roster |
+| WR-8 | T-56 | The palettes-ramp resolver cure (`palettes-ramp.ts` + `useViewAccents.ts:81-95`) — three stacked roots: (1) card-SURFACE referent, never the field ambient (the T-35 lesson applied); (2) feasibility-aware walk (detect the unreachable floor, choose the FEASIBLE direction, hold C — the landed walk ships a near-black wreck failing every floor including its own); (3) the direction heuristic at mid-L grounds. Targets = the §8 closed-form per-scheme/per-site bands, solved per-frame against the LIVE card rung via the `ink.ts` surface machinery; the WCAG large-text carve-out splits the two Q5 sites honestly (display-scale title 3:1 vs ~16px menu entry 4.5:1) (§8) | **Q5 stands RULED, untouched** (rainbow ×2 sites; this is the register, not the ruling); pastel band centers bracket to the roster; oracle note: O-14 gains a ramp-stop FEASIBILITY leg (the near-black wreck was invisible — the oracle compared sites to tokens, never tokens to their floors) |
+| WR-9 | T-57 | The `--dock-h` floor correction (`style.css:397` — the calc computes 55px vs the rendered 70.9px pill; make the floor TRUE so the band NEVER changes height across seal/pill/action-bar states BY CONSTRUCTION; zero z-index arms; the overlay arm is unnecessary once the floor is honest) + a band-height invariance probe across the morph (an O-15/t31-dock-band census extension) (§9) | The T-31 law EXTENDS to the expansion axis exactly as §0.7 orders; the optional producer `--dock-pill-h` rung rides the communiqué §1.9c |
+| WR-10 | T-58 | The swap-window scheduling re-design — evict the re-activation payload from the enter window (pre-warm the incoming face on intent, or defer content re-mount until after transition settle so the enter clock never shares its budget with mount walls); the measured signature is HANDED (§10). **Confound isolation FIRST** (the owner ordered this analysis twice): O-16-R1's 150ms clobber is LIVE in the shipped dist (PKT-1 unlanded — any felt-duration retune before it lands tunes against a corrupted clock); the payload half is W7/Q14's BY LAW | Now a MANDATE (see the roster rider); pass-2 row F is the partner record; **cure WITH the wake-gray bead** (same window — a compound percept; cure both or the owner reds it a third time); re-measure after W7's payload levers land (W9 walk re-verifies) |
+| WR-11 | T-59 | The one-law rhythm regime — kill the hard `<lg` band switch (24px desktop rows vs 44px mobile, a 1.83× discontinuity): ONE container-scaled law (row block-size `clamp(2rem, 7cqi, 2.625rem)`-class + row-gap clamp) with the 44px TOUCH rung preserved by hit-area extension (the touch-gate inflation idiom already in `ComponentSliders.vue`); offered to the ConfigSliderPane population (the M-34 surface) so the app has ONE rhythm source (§11) | Clamp constants bracket to the roster (the owner's two shots ARE the poles); O-10b line-locks · the 44px touch oracle · O-18 unmoved ground; the P5 letter-rail primitive inherits the law when it ships |
+
+**Shared-file map at this expansion's granularity** (the §Scope-2 batch-cut law, pre-derived):
+WR-3/WR-4/WR-11 intersect on the picker console/header files (`ComponentSliders.vue` + the
+header stack) — ONE lane; WR-6/WR-7 intersect on `GenerateControls.vue` — ONE lane; WR-1/WR-2
+intersect on the blob emerge/config files — ONE lane, coordinated with pass-2's iteration count
+(a WR landing on a pass-owned surface counts as that surface's remediation slot, not a free
+side-channel).
 
 ## §Triumvirate dispatch
 
@@ -208,7 +290,11 @@ state, never a proxy sign-off to "finish" the recovery.
   + T.W4.5's checkpoint record (`w45-checkpoint/ROWS.md` + the flagged brackets — this wave's
   pass inputs, cascade 1);
   the W0-5 oracle floor (plan-audit-1 F3/F4 — the floor MUST precede E-7; an unminted oracle
-  invalidates its pass); T.W7's state recorded as-is (books never gates).
+  invalidates its pass); T.W7's state recorded as-is (books never gates)
+  **+ [OWNER-2026-07-11b]** `MANDATE §0.7` (+ the T-60 sub-note) and `audit/t49-research.md`
+  (`49d2d5b`) — the evening-audit pass inputs + the §Scope-rider WR rows; the producer halves
+  ride the consolidated communiqué (`letters/GLASSUI-T-COMMUNIQUE-2026-07-11.md` @ glass-ui
+  `f3f3c097`), consumed at W7, never in-wave.
 - **Blocks**: T.W9 (the close consumes the verdict + the package).
 
 ## §BOOKS opened/serviced (books-never-gates)
@@ -218,6 +304,14 @@ state, never a proxy sign-off to "finish" the recovery.
 - Any remediation row booked (not landed) opens a named book row handed to W9's re-verify.
 - EXPECTED-RED oracle rows (O-16 R1, O-8 if W7 unfired) carry their packet cites into the
   package unaltered.
+- **[OWNER-2026-07-11b]** The §0.7 producer halves are BOOKED at the consolidated communiqué
+  (glass-ui BI inbox @ `f3f3c097`, stamped HEAD `24a7a764`): the T-60/T-49a reveal-bloom
+  consumer door (ONE register with UF-E10 — the goo-blob leaf included) · the GAP-L5 `settled`
+  seam (now load-bearing the day WR-2 arms fission) · the T-52 dock-layer mask-honesty +
+  inline safe-inset arms (P7·L13) · the optional `--dock-pill-h` rung · PKT-1 re-cited as the
+  standing T-58 confound. Books, never gates — the WR rows are designed to land WITHOUT them.
+  **T-53 is NOT booked producer-side** (exonerated by bisection; the P3 book stands for its own
+  class only).
 
 ## §Evidence packets consumed
 
@@ -226,7 +320,10 @@ state, never a proxy sign-off to "finish" the recovery.
 `audit/lanes/t-plan-audit-2.md` F18 · `audit/lanes/t-prompts-recap.md` F2 ·
 `audit/lanes/t-oracle-gaps.md` (the slate's coverage map) · the W2–W6 wave-close artefact sets
 (the frames baseline) · `audit/lanes/t-ci-lighthouse-record.md` (the delta ledger's run of
-record).
+record) · **[OWNER-2026-07-11b]** `MANDATE §0.7` + sub-note (the T-49..T-60 verbatim lines) ·
+`audit/t49-research.md` (the demo-now/producer-relay/taste-bracket split of record; its §12
+oracle notes are FLAGS for the passes, mints only by triumvirate record) ·
+`letters/GLASSUI-T-COMMUNIQUE-2026-07-11.md` (the producer ledger state at W8).
 
 ## §Hand-off
 
