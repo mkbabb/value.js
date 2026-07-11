@@ -77,3 +77,36 @@ export async function openView(page: Page, name: string): Promise<void> {
     await expect(option).toBeVisible();
     await option.click();
 }
+
+/**
+ * Wait for the pane-swap enter transition to fully settle (T.W6 round-4
+ * remediation). Under a cold dev server the swap's CSSTransition can STALL
+ * at `currentTime = 0` for ~1s (the first-visit transform burst starves the
+ * main thread) and then resume — Playwright's "stable bounding box"
+ * actionability check is satisfied DURING the stall, so a click measured
+ * mid-stall lands on a surface that then slides away (observed live: a
+ * 50%-of-bar click minting a 0% gradient stop while the pane was still
+ * 563px off-station), and pixel probes screenshot a mid-flight surface.
+ * Poll the pane subtree to transform-rest before handing it to
+ * interactions or probes. This is a WAIT, never a gate relaxation: a
+ * PERMANENT resting transform (the W5-10 class) times this poll out and
+ * fails the caller loudly.
+ */
+export async function paneSettled(page: Page): Promise<void> {
+    await expect
+        .poll(
+            () =>
+                page.evaluate(() =>
+                    [".pane-container", ".pane-wrapper", ".pane-wrapper > *"]
+                        .flatMap((sel) => [
+                            ...document.querySelectorAll(sel),
+                        ])
+                        .some(
+                            (el) =>
+                                getComputedStyle(el).transform !== "none",
+                        ),
+                ),
+            { timeout: 15_000 },
+        )
+        .toBe(false);
+}
