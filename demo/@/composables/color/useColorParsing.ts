@@ -1,5 +1,5 @@
 import { computed, ref, type ShallowRef, type Ref, type ComputedRef } from "vue";
-import { debounce } from "@mkbabb/value.js";
+import { debounce } from "@utils/utils";
 // S.W5-6 · F15: the generation engine lives in its own feature tree
 // (`custom/generate/composables/`); the picker consumes the one pure helper.
 import { generateSingleColor } from "@components/custom/generate/composables/useColorGeneration";
@@ -137,7 +137,7 @@ export function useColorParsing(deps: {
         }
     };
 
-    const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000, false);
+    const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000);
 
     // ── The Parse-Lab echo (R.W4 Lane E / E4 — Q10 RATIFIED 2026-07-03) ──
     //

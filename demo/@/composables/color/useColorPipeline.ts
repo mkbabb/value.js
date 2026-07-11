@@ -1,6 +1,6 @@
 import { computed, onScopeDispose, ref, watch, type ShallowRef } from "vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import { debounce } from "@mkbabb/value.js";
+import { debounce } from "@utils/utils";
 import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
 import { ValueUnit } from "@mkbabb/value.js/units";
 import type { ColorSpace } from "@mkbabb/value.js/color";

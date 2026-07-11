@@ -1,6 +1,6 @@
 import { watch, type ShallowRef, type ComputedRef } from "vue";
 import { useStorage } from "@vueuse/core";
-import { debounce } from "@mkbabb/value.js";
+import { debounce } from "@utils/utils";
 import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
 import { normalizeColorUnit } from "@mkbabb/value.js/color";
 import type { ColorModel } from "@components/custom/color-picker";
@@ -90,7 +90,6 @@ export function useColorPersistence(deps: {
             colorStore.value.inputColor = cssColor.value;
         },
         200,
-        false,
     );
 
     watch(
