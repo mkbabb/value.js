@@ -634,6 +634,78 @@
     -webkit-backdrop-filter: none;
 }
 
+/* ═══ T-45 · THE PANE-CARD OVERSAMPLED-BLUR SEAT (T.W6.5 Lane M · the
+ * BOOKED-SWAP demo interim; root = producer, P3 rider) ═══════════════════
+ *
+ * THE DEFECT (t33-audit-13, ROOT FOUND BY BISECTION — t33-research §6.8):
+ * the pane card's OWN `backdrop-filter: blur(8px) saturate(1.4)`
+ * edge-samples the bright aurora beyond the card's border box (the spec
+ * clips the backdrop INPUT at the border box, so the kernel edge-clamps)
+ * and smears it inward ≈ one blur radius; the rounded clip then cuts the
+ * band unevenly at the corner arcs — the owner's "strange clipping
+ * artifacts on the borders of these cards". Card filter off → rim GONE;
+ * header-veil toggles change nothing.
+ *
+ * THE CURE CLASS (the oversampled-pseudo idiom): the blur moves onto a
+ * layer whose sample region OVERSHOOTS the visible edge by 2× the blur
+ * radius, and whose OUTPUT is clipped back to the card's rounded box —
+ * the edge-clamp smear falls entirely in the clipped-away band.
+ *
+ * THE SEAT (why the pane WRAPPER, not the card's own pseudo): the producer
+ * ladder already claims BOTH card pseudos (`.glass-resting::before` = the
+ * specular catch-light, `::after` = grain + rim — material.css), so an
+ * on-card pseudo would fork the ladder (forbidden — the root cure is the
+ * producer's); and most pane cards ARE their own scroll containers, where
+ * an absolutely-positioned carrier would scroll away with the content and
+ * inflate the scrollable overflow. The seat is therefore the pane card's
+ * DIRECT WRAPPER (a static box the card fills by construction): the
+ * `.pane-wrapper` slot for the root-Card panes, the one-deep wrapper div
+ * for the wrapped panes (the picker's `.pane-shell`, Extract/Config).
+ * `clip-path` clips hit-testing too, so the overshoot band can never
+ * intercept a pointer. The `:not()` arm keeps the carrier SINGULAR during
+ * a mixed pane swap (both structures transiently co-mounted in one slot).
+ *
+ * TOKEN-FIRST, ZERO FORKED VALUES: the carrier reads the SAME
+ * `--glass-blur-resting` the `.glass-resting` rung consumes (ladder.css),
+ * so `--glass-level`, the W55 bright-bucket, and the reduced-transparency
+ * escape (`--glass-level: 0` → blur(0)) retune it in lockstep — every
+ * producer escape is inherited by construction, no media-arm restatement.
+ *
+ * RETIREMENT: the producer-root cure is the BOOKED P3-family rider
+ * (letters/GLASSUI-T-ASKS.md §P3/P10 riders — the oversampled-pseudo AT
+ * THE LADDER, relayed `92136ab5` on tranche/BG, walked at W7
+ * verify-at-cut). This whole block dies the day that lands — never a demo
+ * fork of the ladder, a booked-swap interim. */
+@supports selector(:has(*)) {
+    .pane-wrapper:has(> .glass-resting),
+    .pane-wrapper:not(:has(> .glass-resting)) > div:has(> .glass-resting) {
+        position: relative;
+    }
+
+    .pane-wrapper:has(> .glass-resting)::before,
+    .pane-wrapper:not(:has(> .glass-resting))
+        > div:has(> .glass-resting)::before {
+        content: "";
+        position: absolute;
+        inset: calc(-2 * var(--glass-blur-resting-radius, 8px));
+        pointer-events: none;
+        backdrop-filter: var(--glass-blur-resting);
+        -webkit-backdrop-filter: var(--glass-blur-resting);
+        clip-path: inset(
+            calc(2 * var(--glass-blur-resting-radius, 8px))
+                round var(--radius-card)
+        );
+    }
+
+    /* The card's own filter dies where the carrier speaks for it — same
+     * material (one token), sampled wide, clipped true. */
+    .pane-wrapper > .glass-resting,
+    .pane-wrapper > div > .glass-resting {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+}
+
 /* D.W4 Lane A: .touch-gate-* cluster colocated into ComponentSliders.vue's
  * unscoped <style>; .pane-scroll-fade colocated into PaneHeader.vue's unscoped
  * <style> (alongside the --pane-scroll consumers). (The `.palette-tab-content`
