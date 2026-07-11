@@ -10,46 +10,37 @@
              PalettesPane reads `$el` for useSortable — a fragment root resolves
              $el to the comment node, not the <div>. -->
         <slot />
-        <!-- T.W3-2 · D9 (the shadow-palette rule, T-19 generalized —
-             supersedes R.W4 A4's naked plate): the empty grid renders
-             shadow palettes IN the grid cells — absence occupies the same
-             space presence would — with the caption seated in-grid
-             (dot-ghosts shed per N-3) and the CTA slot surviving on the
-             caption. The text plate captions the ghost; it never
-             substitutes. One change, every grid host cured. -->
-        <template v-if="empty">
-            <ShadowPalette
-                v-for="i in ghostCount"
-                :key="`ghost-${i}`"
-                :hue-offset="(i - 1) * 2"
-            />
-            <EmptyState
-                class="col-span-full"
-                :dots="false"
-                :message="emptyText"
-                :eyebrow="emptyEyebrow"
-                :hint="emptyHint"
-            >
-                <template v-if="$slots.emptyAction" #action>
-                    <slot name="emptyAction" />
-                </template>
-            </EmptyState>
-        </template>
+        <!-- T.W6.5 · Lane S (R12 — the owner overrule of the D9 as-filler
+             deployment; MANDATE §0.6 t33-audit-07/08/12): TRUE EMPTY is the
+             EmptyState invitation ALONE — the watercolor dot trio + dashes
+             speak (its default register, N-3 re-aimed), and "no palettes
+             found" is never preceded by ghost cards. The ShadowPalette
+             species survives at its ONE standing-instrument seat (Extract's
+             k-threaded undeveloped plate). The CTA slot survives on the
+             caption. -->
+        <EmptyState
+            v-if="empty"
+            class="col-span-full"
+            :message="emptyText"
+            :eyebrow="emptyEyebrow"
+            :hint="emptyHint"
+        >
+            <template v-if="$slots.emptyAction" #action>
+                <slot name="emptyAction" />
+            </template>
+        </EmptyState>
     </div>
 </template>
 
 <script setup lang="ts">
 import EmptyState from "@components/common/EmptyState.vue";
-import ShadowPalette from "./ShadowPalette.vue";
 
-const { ghostCount = 3 } = defineProps<{
+defineProps<{
     empty?: boolean;
     emptyText?: string;
     emptyEyebrow?: string;
     emptyHint?: string;
     gridClass?: string;
-    /** D9: how many ghost cards seat in the empty cells (grid default 3). */
-    ghostCount?: number;
 }>();
 </script>
 
