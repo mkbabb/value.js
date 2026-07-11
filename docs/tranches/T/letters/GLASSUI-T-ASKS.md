@@ -231,3 +231,30 @@ commit **`8a0ca24e`** on `tranche/BG`, pushed fast-forward `398b7b4d..8a0ca24e` 
 `origin/tranche/BG` (stamped @ producer HEAD `b4c1998c`; cursorModel/atoms cites re-verified
 live at that HEAD; the producer's uncommitted work untouched). Verify-at-cut at T.W7; the W2-5
 pointer retune stays DEFERRED until it lands; delivery ≠ disposition.
+
+---
+
+## §P3/P10 riders — the T-45 + T-40 producer roots (same §0.6 audit; dispatched 2026-07-11)
+
+**[OWNER-2026-07-11]** The two remaining producer-rooted §0.6 findings ride the SAME relay as
+a `§6 ADDENDUM` (the triumvirate's verification lane completed the dispatch the tranche-update
+lane's death left un-relayed):
+
+- **P10 rider (T-40)** — glass-ui's `text-title` **@utility hardcodes `font-weight: 700`**
+  (`semantic.css:132-139`, verified at the addendum's stamped HEAD) — the root of the bold
+  option letterforms; ask: `text-title` joins P10's weight tokenization. The demo's
+  `--type-weight-display` pin (T.W6.5 Lane I item 10) is the booked interim; it retires when
+  the token lands (`audit/t33-research.md §6.5`).
+- **P3 rider (T-45)** — the glass-recipe **backdrop-filter edge-sampling bleed** (bisection
+  proof `audit/t33-research.md §6.8`): every ladder rung pairing backdrop blur with a radius
+  clip over a bright ground smears the field ≈ one blur radius inside the edge; ask: the
+  oversampled-pseudo idiom (`::before { inset: calc(-2 * blur) }` under the host clip) AT THE
+  LADDER. The demo-interim on the pane-card recipe (T.W6.5 Lane M item 11) is the booked-swap
+  interim — never a demo fork of the ladder.
+
+**Relay record:** the same rider file, `§6 ADDENDUM` — commit **`92136ab5`** on `tranche/BG`,
+pushed fast-forward `8a0ca24e..92136ab5` to `origin/tranche/BG` (stamped @ producer HEAD
+**`c93a7f13`** — the F8 5.0.0 cut row USER-GATED and untagged at dispatch, so the T.W7 trigger
+has NOT fired; both cites re-verified live at that HEAD; the fast-forward carries the
+producer's own committed `c93a7f13`, their uncommitted work untouched). Both rows walked at
+T.W7 verify-at-cut beside the §P1 rider; delivery ≠ disposition.
