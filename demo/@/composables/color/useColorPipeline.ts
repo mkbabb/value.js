@@ -1,4 +1,4 @@
-import { computed, onScopeDispose, ref, watch, type ShallowRef } from "vue";
+import { computed, ref, watch, type ShallowRef } from "vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { debounce } from "@utils/utils";
 import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
@@ -23,6 +23,7 @@ import { useColorParsing } from "./useColorParsing";
 import { useSliderGradients } from "./useSliderGradients";
 import { useColorNameResolution } from "./useColorNameResolution";
 import { useColorPersistence } from "./useColorPersistence";
+import { useAtmosphereFrameCoalesce } from "./useAtmosphereFrameCoalesce";
 
 const DIGITS = 2;
 
@@ -304,45 +305,14 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     // contrast/view state, seed rider 1.)
 
     // --- W3-1 (S.W3): rAF-coalesce the colour → atmosphere fan-out ---
-    // The atmosphere fan-out — the aurora seed derive + the blob-palette derive
-    // (both in useAtmosphere) + the `--accent-live` contrast solve (App) — is
-    // the tranche's #1 perf cost (perf-transitions P0-1): three heavy derives
-    // (≈16 gamut-maps + a parse + an OKLab contrast solve) fired SYNCHRONOUSLY
-    // on EVERY `cssColorOpaque` change, i.e. 60×/s under a slider drag → the
-    // ~20fps / 31-of-44-janked collapse. This republishes the LATEST opaque
-    // colour AT MOST ONCE per animation frame; the atmosphere consumers read
-    // THIS signal (never the synchronous `cssColorOpaque`), so each drag frame's
-    // intermediate colours collapse to ONE derive. The picker's own instant
-    // surfaces (readout, tooltip, spectrum) keep the synchronous `cssColorOpaque`
-    // — only the atmosphere coalesces.
-    //
-    // S-18 (the aurora seed tracks the picked colour) is PRESERVED bit-for-bit:
-    // the LAST colour of every frame wins, so a settled drag lands its TERMINAL
-    // colour on the next frame and the seed still tracks — coalescing drops the
-    // intermediate colours, never the terminal one. Seeded with the current
-    // value so the FIRST paint derives synchronously (no atmosphere flash).
-    const opaqueFrameLatest = ref(cssColorOpaque.value);
-    let atmosphereFrame: number | null = null;
-    const publishOpaqueFrame = () => {
-        atmosphereFrame = null;
-        opaqueFrameLatest.value = cssColorOpaque.value; // latest-of-frame wins
-    };
-    watch(cssColorOpaque, () => {
-        if (atmosphereFrame !== null) return; // one derive already scheduled this frame
-        if (typeof requestAnimationFrame !== "function") {
-            publishOpaqueFrame(); // non-rAF env (SSR): republish synchronously
-            return;
-        }
-        atmosphereFrame = requestAnimationFrame(publishOpaqueFrame);
-    });
-    onScopeDispose(() => {
-        if (atmosphereFrame !== null && typeof cancelAnimationFrame === "function") {
-            cancelAnimationFrame(atmosphereFrame);
-        }
-    });
-    // The coalesced projection the atmosphere fan-out consumes (a ComputedRef so
-    // it drops into the existing `ComputedRef<string>` consumer signatures).
-    const cssColorOpaqueFrame = computed(() => opaqueFrameLatest.value);
+    // The coalesced projection the atmosphere fan-out consumes (aurora seed +
+    // blob palette + `--accent-live`): AT MOST ONE derive per animation frame
+    // under a slider drag, S-18 last-of-frame-wins preserved bit-for-bit. Lifted
+    // to `useAtmosphereFrameCoalesce` at T.W6.5 close (the PP-8 cohesion cure) —
+    // the perf concern + its rAF lifecycle + the full rationale travel whole into
+    // the named composable; the picker's own instant surfaces keep synchronous
+    // `cssColorOpaque`, only the atmosphere coalesces.
+    const cssColorOpaqueFrame = useAtmosphereFrameCoalesce(cssColorOpaque);
 
     return {
         // Model
