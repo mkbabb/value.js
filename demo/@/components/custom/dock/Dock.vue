@@ -55,17 +55,43 @@ watch(hasAnyActionBar, (has) => { if (!has) actionBarLayerActive.value = false; 
 // three consecutive loads). The first presence now PAINTS seated (transition
 // unarmed), then the transition arms one frame later for real mid-session
 // presence changes.
+// T.W6 · W6-8 (T-29): THE SETTLE STAMP — the 0fr↔1fr clip is the presence
+// animation's tool, and the animation is not running at rest. Unconditional
+// `overflow: hidden` on the inner box amputated the producer's unified
+// hover register (the ×1.1 capsule + its lift shadow — cut on all four
+// sides, measured 4.3px L/R + 1.6px T/B at hover). Three-state machine:
+// `.is-live` (transition armed, one frame after first paint — S.W7-6),
+// `.is-visible` (presence), `.is-settled` (clip RELEASED). Settle stamps:
+//   - boot-seated first paint: no transition runs (the slot paints seated
+//     before `.is-live` arms), so the stamp rides the same double-rAF;
+//   - mid-session arrival: the grid-columns `transitionend` stamps it
+//     (PRM included — the global guard shortens transitions to 0.01ms,
+//     it never removes them, so the event still fires);
+//   - departure: the stamp drops the moment presence drops — the clip
+//     returns BEFORE any collapse animates.
 const actionBarSlotLive = ref(false);
+const actionBarSettled = ref(false);
 watch(
     hasAnyActionBar,
     (has) => {
-        if (!has || actionBarSlotLive.value) return;
+        if (!has) {
+            actionBarSettled.value = false;
+            return;
+        }
+        if (actionBarSlotLive.value) return;
         requestAnimationFrame(() => {
-            requestAnimationFrame(() => { actionBarSlotLive.value = true; });
+            requestAnimationFrame(() => {
+                actionBarSlotLive.value = true;
+                actionBarSettled.value = true;
+            });
         });
     },
     { immediate: true },
 );
+function onToggleSlotSettled(e: TransitionEvent) {
+    if (e.propertyName !== "grid-template-columns") return;
+    actionBarSettled.value = hasAnyActionBar.value;
+}
 // gate (b): watchers that reach dockRef stay in the SFC
 watch(actionBarLayerActive, (active) => { if (active) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
 function onActionBarOpenPalette() { viewManager.switchView(viewManager.currentView.value === "palettes" ? "picker" : "palettes"); }
@@ -137,8 +163,11 @@ watch(
                         <span class="text-muted-foreground text-caption">&rarr;</span>
                         <WatercolorDot :color="cssColorOpaque" tag="div" class="w-7 h-7 shrink-0" seed="edit-new" />
                         <DockSeparator />
-                        <DockIconButton title="Save edit" @click="emit('commitEdit')"><Check class="w-5 h-5" :style="{ color: safeAccent }" /></DockIconButton>
-                        <DockIconButton title="Cancel edit" @click="emit('cancelEdit')"><Undo2 class="w-5 h-5" /></DockIconButton>
+                        <!-- W6-8 register pass: native `title` retired dock-wide —
+                             icon-only controls carry aria-label (the UA tooltip slab
+                             is a foreign register on the liquid-glass dock). -->
+                        <DockIconButton aria-label="Save edit" @click="emit('commitEdit')"><Check class="w-5 h-5" :style="{ color: safeAccent }" /></DockIconButton>
+                        <DockIconButton aria-label="Cancel edit" @click="emit('cancelEdit')"><Undo2 class="w-5 h-5" /></DockIconButton>
                     </DockLayer>
 
                     <!-- Slug edit layer -->
@@ -148,7 +177,7 @@ watch(
 
                     <!-- Action bar layer -->
                     <DockLayer v-if="hasAnyActionBar" id="action-bar">
-                        <DockIconButton class="shrink-0" title="Back" @click="actionBarLayerActive = false"><ArrowLeft class="w-6 h-6" /></DockIconButton>
+                        <DockIconButton class="shrink-0" aria-label="Back" @click="actionBarLayerActive = false"><ArrowLeft class="w-6 h-6" /></DockIconButton>
                         <DockSeparator />
                         <ActionBarLayer v-if="actionBar" :action-bar="actionBar" :edit-target="editTarget" @open-palette="onActionBarOpenPalette" @open-extract="onActionBarOpenExtract" />
                         <GenericActionBar v-else-if="genericBar" :actions="genericBar.actions.value" :accent-color="genericBar.accentColor ?? safeAccent" />
@@ -173,14 +202,31 @@ watch(
 
                         <!-- Action bar toggle — S.W7-2: the separator and the
                              trailing chevron are desktop furniture; below sm the
-                             aperture (312px at 390w) holds controls only. -->
-                        <DockSeparator v-if="hasAnyActionBar" class="hidden lg:block" />
-                        <div class="action-bar-toggle-slot" :class="{ 'is-visible': hasAnyActionBar, 'is-live': actionBarSlotLive }">
+                             aperture (312px at 390w) holds controls only.
+                             W6-8: the separator FOLDS INTO the slot (T-29
+                             register pass, presence grammar) — it used to POP
+                             via v-if while the slot beside it grew 0fr→1fr,
+                             two grammars for one arrival; the pair now enters
+                             as one gesture inside the animated slot. -->
+                        <div
+                            class="action-bar-toggle-slot"
+                            :class="{ 'is-visible': hasAnyActionBar, 'is-live': actionBarSlotLive, 'is-settled': actionBarSettled }"
+                            @transitionend.self="onToggleSlotSettled"
+                        >
                             <div class="action-bar-toggle-inner">
+                                <DockSeparator class="hidden lg:block" />
+                                <!-- T-36 (§0.6 rider): the TRUE-BUTTON box-model —
+                                     dock-tools-btn steps the compact register's 4px
+                                     sticker seat up to the Button-primitive px-3/py-2
+                                     scale (see the scoped rule below). The native
+                                     `title` is retired (W6-8 register pass): the
+                                     control shows its label on desktop and carries
+                                     aria-label — the UA tooltip was a foreign slab
+                                     on the liquid-glass dock. -->
                                 <DockIconButton
                                     compact
+                                    class="dock-tools-btn"
                                     :class="{ 'is-active': actionBarLayerActive }"
-                                    title="Action bar"
                                     aria-label="Toggle action bar"
                                     :aria-pressed="actionBarLayerActive"
                                     :tabindex="hasAnyActionBar ? 0 : -1"
@@ -334,6 +380,34 @@ watch(
     min-width: 0;
     display: flex;
     align-items: center;
+}
+
+/* T.W6 · W6-8 (T-29): THE SETTLE-STAMPED CLIP RELEASE. At settled-visible
+   rest the clip has no job — the presence animation is not running — so it
+   releases and the producer's unified dock hover register (the ×1.1 warm
+   capsule + its lift shadow, glass-ui scale-paper/glass-capsule) renders
+   WHOLE, like every sibling dock control. The clip returns the instant
+   presence drops (`.is-settled` is stripped before the collapse animates)
+   and during any 0fr↔1fr width transition. `overflow: clip` +
+   overflow-clip-margin was REJECTED as the sole cure (Safari ships no
+   overflow-clip-margin — the amputation would survive on WebKit verbatim). */
+.action-bar-toggle-slot.is-visible.is-settled .action-bar-toggle-inner {
+    overflow: visible;
+}
+
+/* T-36 (§0.6 owner rider): THE TRUE-BUTTON BOX-MODEL. The producer compact
+   register seats content 4px off a full pill cap — a sticker, not a button
+   ("does not have the proper margin and padding like a true button
+   element"). The cure rides the producer's OWN token hook
+   (`--dock-compact-control-padding` — dock-controls/icon-button.css), never
+   a specificity fight: inline padding at the Button-primitive px-3/py-2
+   scale (proportional to the cap radius; the box lands at the sibling
+   controls' 2.5rem height), breathing margin off the folded separator, and
+   the label's em-gap between glyph, wordmark, and affordance arrow. */
+.dock-tools-btn {
+    --dock-compact-control-padding: 0.5rem 0.75rem;
+    margin-inline: 0.25rem;
+    gap: 0.5em;
 }
 
 /* ── The wax seal (S.W7 W7-1; die-rim ABROGATED T.W6 · W6-7, Q12/T-28) ──
