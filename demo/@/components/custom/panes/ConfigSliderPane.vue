@@ -187,14 +187,45 @@ function resetDefaults() {
  * (≥44px slider rows — the producer's own --dock-touch-target). */
 .config-console {
     padding: 0.75rem 0.875rem;
+    /* T.W8 boot-A (defect · A-class · the named O-18 blind spot on the SECOND
+     * slider population): the config sliders' spectrum TRACK computed
+     * `var(--secondary)` — ~1.09:1 light / 1.26:1 dark on the well, an
+     * invisible control extent (WCAG 1.4.11 wants ≥3:1), and the spectrum
+     * `.slider-range` is transparent by recipe so no filled/unfilled split
+     * reads either. The W6.5 GRAPHICS cure (T-44a) covered the EXTRACT tracks
+     * only. Here the config population re-inks its track via the SAME cure
+     * class (the eb7bb2c-era `--slider-track-bg` feed, no `ui/slider` edit):
+     * the certified de-emphasis rung `--ink-muted` (the D6 contract's stamped
+     * token — the exact material ExtractControls falls to when no live pick
+     * threads) is ≥3:1 on the well by construction. o18-contrast-census's new
+     * config GRAPHICS leg is this row's born-RED gate. */
+    --slider-track-bg: var(--ink-muted, var(--muted-foreground));
 }
 .config-console :deep(.configurator-row .font-mono) {
     color: var(--ink-muted, var(--muted-foreground));
 }
-@media (max-width: 1023px) {
-    .config-console :deep(.configurator-row > div:last-child) {
-        min-height: var(--dock-touch-target, 2.75rem);
-        align-items: center;
+
+/* T.W8-WR-11 (T-59) — THE ONE RHYTHM SOURCE, offered to the config population
+ * (M-34): the same container-scaled law the picker console carries, so the app
+ * has ONE rhythm regime, never a per-population hand-tune. The row block-size
+ * rides a clamp() of the pane container; the hard `<lg` 44px switch is retired
+ * for a coarse-pointer HIT-AREA EXTENSION on the row's slider (the tap zone
+ * reaches 44px without inflating the visual row). Clamp constants ride the
+ * WR-11 roster bracket. */
+.config-console :deep(.configurator-row) {
+    min-block-size: clamp(2rem, 7cqi, 2.625rem);
+}
+@media (pointer: coarse) {
+    .config-console :deep(.configurator-row .glass-slider) {
+        position: relative;
+    }
+    .config-console :deep(.configurator-row .glass-slider)::before {
+        content: "";
+        position: absolute;
+        inset-inline: 0;
+        top: 50%;
+        translate: 0 -50%;
+        block-size: max(100%, var(--dock-touch-target, 2.75rem));
     }
 }
 

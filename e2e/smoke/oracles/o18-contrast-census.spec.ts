@@ -955,3 +955,75 @@ for (const scheme of ["light", "dark"] as const) {
         });
     });
 }
+
+// ---- THE W8 CONFIG-TRACK GRAPHICS LEG (boot-A · WCAG 1.4.11 · M-34) --------
+// The named O-18 blind spot, extended to the app's SECOND slider population
+// (pass-2 boot/atmosphere/blob row A): O-18's config rows judged TEXT only, so
+// the ConfigSliderPane spectrum TRACK material — `var(--secondary)`, ≈1.09:1
+// light / 1.26:1 dark on the `.console-well` — was invisible-class (WCAG
+// 1.4.11 wants ≥3:1 for the control's extent), and the spectrum `.slider-range`
+// is transparent by recipe so no filled/unfilled split reads either. This leg
+// is the cure's BORN-RED gate: born red against the pre-cure `--secondary`
+// track, green against the `--slider-track-bg: var(--ink-muted)` re-ink
+// (ConfigSliderPane — the SAME certified-material class as the eb7bb2c Extract
+// re-ink). The census extension is the W6.5 precedent (a bounds extension, not
+// a weakening — the GRAPHICS floor is unchanged).
+
+for (const scheme of ["light", "dark"] as const) {
+    test.describe(`O-18 config-track graphics leg (${scheme})`, () => {
+        test.use({ colorScheme: scheme });
+
+        test("the ConfigSliderPane spectrum tracks ≥3:1 on the well (boot-A · M-34)", async ({
+            page,
+        }) => {
+            await page.goto("/#/atmosphere");
+            await expect(
+                page.getByRole("main", { name: "Color tool panes" }),
+            ).toBeVisible();
+            await expect(
+                page
+                    .locator(".config-console .configurator-row .slider-track")
+                    .first(),
+            ).toBeVisible();
+            // The track material is the certified de-emphasis rung — wait for
+            // the ink writer to stamp `--ink-muted` (the census certifies the
+            // stamped token, never the pre-boot `--muted-foreground` fallback).
+            await expect
+                .poll(
+                    () =>
+                        page.evaluate(() =>
+                            getComputedStyle(document.documentElement)
+                                .getPropertyValue("--ink-muted")
+                                .trim(),
+                        ),
+                    { timeout: 8000 },
+                )
+                .not.toBe("");
+
+            const settleSurface = async (
+                selector: string,
+                name: string,
+            ): Promise<CensusRow | null> => {
+                const deadline = Date.now() + 8000;
+                let row: CensusRow | null = null;
+                for (;;) {
+                    row = await censusSurface(page, selector, name);
+                    if (row && row.ratio >= GRAPHICS_FLOOR) return row;
+                    if (Date.now() > deadline) return row;
+                    await page.waitForTimeout(250);
+                }
+            };
+            const diag = (row: CensusRow) =>
+                `${row.name} fill ${row.ink} vs ground ${row.ground} — raw ${row.rawColor} α ${row.effectiveAlpha} stack [${row.stack.join(" | ")}]`;
+
+            const track = await settleSurface(
+                ".config-console .configurator-row .slider-track",
+                "config-slider-track",
+            );
+            expect(track, "config slider track mounted").not.toBeNull();
+            expect(track!.ratio, diag(track!)).toBeGreaterThanOrEqual(
+                GRAPHICS_FLOOR,
+            );
+        });
+    });
+}
