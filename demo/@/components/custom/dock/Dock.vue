@@ -221,7 +221,20 @@ watch(
                      the LIVE color fills the producer's collapsed circle (the
                      wax speaks live — the dot IS the accent; T-37: the wax
                      now fills the WHOLE seal, no rim standoff — the palette
-                     swatch reads at full size on the collapsed dock); the
+                     swatch reads at full size on the collapsed dock);
+
+                     T.W8 · P9-R3/T-37 — THE DERIVE-SEAM GUARANTEE (the swatch
+                     READS against its own derived field): the wax is the live
+                     seed and the atmosphere FIELD behind it is DERIVED from the
+                     SAME seed, so at collision seeds (the owner's brick: wax↔
+                     field ΔL 0.004 / 1.03:1) the swatch vanished into the field,
+                     carried only by the producer glass halo (which dissolves
+                     over light fields — §6.4 self-camouflage). The guarantee is
+                     MATERIAL, in the atmosphere derive path
+                     (useAtmosphere `DERIVE_SEAM_FLOOR` — the field's mean L
+                     never lands within the floor of the wax L), NEVER a ring or
+                     rim here (Q12/O-15a stand). The seal owns no legibility
+                     code — the field steps off the wax by construction; the
                      current view's icon is INKED over it in `--seal-ink`
                      (WCAG-derived from the wax — never `--accent-view`),
                      swapping on the morph family keyed by view: the old
