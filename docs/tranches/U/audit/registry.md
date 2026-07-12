@@ -182,6 +182,22 @@ formation (the convergent design loop) opens on W8's terminal state.
 | U-F52 | C | `scratch-accumulation` | `docs/tranches/T/audit/pi/` holds 1.8 GB untracked scratch (w8/ = 1.7 GB); bulk is *.png-ignored (0.5 MB real accidental-add exposure). | **retire** (sweep before U opens) |
 | U-F53 | — | `worktree-prune-proof` | 5 of 9 worktrees are 0-unique + clean (prunable WITH the law's proof delivered); 4 protected (e53-14/15 live W8 commits, e53-16/ec3-2 uncommitted, e53-16 OS-locked). | **actionable** (prune the 5 at a safe moment) |
 
+## §13.5 OWNER RULING (2026-07-12, verbatim — wins over every disposition-candidate above)
+
+> Indded, both of these are incorrect and must be ameliorated:
+> - U-F29 — parseCSSValue, the headline README function, silently drops everything after the first sub-value ('1px solid red' → '1px'). A consumer following the README loses data on every shorthand with no signal.
+> - U-F30 — colors from color-mix()/relative-color serialize their internal normalized [0,1] channels verbatim, so color-mix(in srgb, red 30%, blue).toString() yields a near-black rgb(0.3 0 0.7) instead of rgb(76.5 0 178.5) — the same parseCSSColor produces two incompatible numeric conventions by input path.
+
+**Encoding**: U-F29 and U-F30 flip from disposition-candidate to **OWNER-RULED DEFECTS — AMELIORATE**.
+The round-3 verify:lib-api question narrows: no longer "is it a bug?" (ruled) but "what is the
+correct amelioration shape?" — its contract/consumer analysis feeds the fix design directly.
+EXECUTION: a dedicated library-correctness remediation dispatches on the round-3 verifier's
+return (born-RED tests reproducing both defects FIRST, then the idiomatic cure — E-3 binds: the
+fix addresses the serialization/contract CLASS, and the verifier-confirmed siblings U-F31/F32/F33
+join the same wave if confirmed real, never cherry-picked around). The PUBLISH decision (the
+version cut — U-F29's shape change is semver-loaded against glass-ui's `value ^3.1.0` peer floor)
+is PRESENTED to the owner with the landed fix, not taken unilaterally.
+
 ## §14 ROUND-3 STEERING
 
 Round 2 surfaced 2 A-class + many B — NOT stable; round 3 required. The two library A-class bugs (U-F29/U-F30) are the highest-impact new claims and MUST survive a fresh refuter before they shape the tranche (is `parseCSSValue` contractually single-value with `parseCSSSubValue` the intended multi path? is the normalized-serialization real end-to-end or denormalized at a consumer seam?). Remaining unexplored: build/bundle/tooling truth, dependency/supply-chain, and a **completeness critic** (what modality was never run, what claim is unverified).
