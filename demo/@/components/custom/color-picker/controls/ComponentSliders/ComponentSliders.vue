@@ -45,7 +45,7 @@
                  hover-jailed thumb tooltip is DEAD — one voice per fact). -->
             <div
                 :key="animationKey"
-                class="channel-rows flex-1 min-w-0 flex flex-col gap-y-1.5 justify-around stagger-children"
+                class="channel-rows flex-1 min-w-0 flex flex-col justify-around stagger-children"
             >
                 <div
                     v-for="[component] in componentEntries"
@@ -254,6 +254,24 @@ const {
  * + 1px offset inside the plate. Row air rides the template's gap-y-1.5. */
 .sliders-console {
     padding: 0.75rem 0.875rem;
+    /* T.W8-WR-3 (T-50) — THE VEIL-SIGNAL CALIBRATION: the landed quiet-glass α
+     * (0.50 light / 0.58 dark) read OPAQUE — only ~15% of the surviving field
+     * variation survives the blur. The console tint α is lowered here (a
+     * DIRECT `--glass-bg-quiet` override on the veil element, unambiguous
+     * across the substitution chain — veil-surface reads `var(--glass-bg-quiet)`
+     * for its `--veil-bg`) so more variation reads as glass. The D6 ink
+     * referent re-threads BY THE LIVE PROBE, not an ink.ts edit: the rail's
+     * `resolveMutedInk` reads this lowered-α veil recipe and walks its rest
+     * ink to floor against the now-more-ambient ground (O-18 W4 rail-letter
+     * census holds by the walk-to-floor contract). This α is the veil-clarity
+     * bracket's near pole (roster); the deeper cure — a clarity window in the
+     * PLATE behind the console so the blur has a live-field backdrop, not the
+     * opaque cartoon plate — needs `ColorPicker.vue` (out of this lane's tree),
+     * booked as the picker-plate half. */
+    --glass-bg-quiet: color-mix(in srgb, var(--card) 42%, transparent);
+}
+.dark .sliders-console {
+    --glass-bg-quiet: color-mix(in srgb, var(--card) 50%, transparent);
 }
 
 /* ── THE METER (W4-3) — the strip's persistent live reading ──────────────
@@ -269,18 +287,44 @@ const {
     white-space: nowrap;
 }
 
-/* ── THE TOUCH RUNG (T.W4-4 · t-mobile F-5) — ≥44px hits <lg ─────────────
- * The producer's own --dock-touch-target (2.75rem = 44px); hit areas grow,
- * glyphs do NOT (the .slider-thumb touch-hit-area idiom extended to the
- * row). The rail items' rung lives with the rail (ConsoleRail.vue). */
-@media (max-width: 1023px) {
-    .channel-strip .touch-gate-target {
-        min-height: var(--dock-touch-target, 2.75rem);
-        display: flex;
-        align-items: center;
+/* ── THE ONE-LAW RHYTHM REGIME (T.W8-WR-11 · T-59) ───────────────────────
+ * The owner's "too tight on desktop, too spaced out on mobile" was ONE
+ * divergent spacing regime with a hard `<lg` band switch (natural ~24px
+ * desktop rows vs a 44px mobile min-height — a 1.83× discontinuity). It is
+ * retired for ONE container-scaled law serving BOTH breakpoints: the row
+ * block-size and the inter-row gap ride clamp()s of the pane container, so the
+ * rhythm is a smooth function of width, never two hand-tuned states. The clamp
+ * constants are the roster bracket (the owner's two shots — desktop-tight /
+ * mobile-spaced — are the poles). Offered to the ConfigSliderPane population
+ * (M-34) so the whole app has ONE rhythm source. */
+.channel-rows {
+    row-gap: clamp(0.375rem, 1.5cqi, 0.5rem);
+}
+.channel-strip {
+    min-block-size: clamp(2rem, 7cqi, 2.625rem);
+}
+
+/* THE 44px TOUCH RUNG — preserved by HIT-AREA EXTENSION, not row inflation
+ * (WR-11: "the touch-gate inflation idiom"). On coarse pointers a transparent
+ * pseudo on the reka SliderRoot (`.channel-slider`) extends the tappable zone
+ * to ≥44px centered on the track, WITHOUT growing the visual row — so the
+ * mobile rows read tighter than a 44px row (the owner's t49-audit-03) while
+ * the tap ergonomics hold. Generated content is part of the host box, so a
+ * pointerdown on the pseudo dispatches to the SliderRoot it belongs to and
+ * drives the slider exactly as a track tap does. Gated on `pointer: coarse`
+ * (the input device), never viewport width — the discontinuity was the
+ * width-keyed switch. */
+@media (pointer: coarse) {
+    .channel-slider {
+        position: relative;
     }
-    .channel-strip .touch-gate-target > * {
-        flex: 1;
+    .channel-slider::before {
+        content: "";
+        position: absolute;
+        inset-inline: 0;
+        top: 50%;
+        translate: 0 -50%;
+        block-size: max(100%, var(--dock-touch-target, 2.75rem));
     }
 }
 
@@ -290,8 +334,24 @@ const {
  * ring, and dot always agree about the live color's regime. */
 .channel-slider .slider-thumb {
     position: relative;
+    /* T.W8-P11-R2 (LAND · cursor grammar): the app's PRIMARY drag control
+     * signalled no draggability — the four channel thumbs + track computed
+     * `cursor: auto` while the gradient stop-thumb reads `grab`. The demo
+     * already styles this reka-emitted class here (no `ui/slider` hand-edit,
+     * no producer ask), so the drag cursor lands with it: `grab` at rest,
+     * `grabbing` while held (the gradient precedent). */
+    cursor: grab;
     transition: background-color var(--duration-fast) var(--ease-standard),
         border-color var(--duration-fast) var(--ease-standard);
+}
+.channel-slider .slider-track {
+    cursor: grab;
+}
+.channel-slider:active .slider-thumb,
+.channel-slider[data-held] .slider-thumb,
+.channel-slider:active .slider-track,
+.channel-slider[data-held] .slider-track {
+    cursor: grabbing;
 }
 .channel-slider .slider-thumb::after {
     content: "";
