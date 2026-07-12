@@ -20,7 +20,13 @@
              is retired from this surface. -->
         <h3 class="pane-header-title font-display"><slot /></h3>
         <div v-if="description" class="pane-header-desc-wrap">
-            <p class="text-caption text-muted-foreground">{{ description }}</p>
+            <!-- AB-2 (T.W8 remediation_1 · D6): the caption speaks the CERTIFIED
+                 de-emphasis rung `--ink-muted` (the boot-stamped floor-clamped
+                 plate ink, ≥4.5 on the composited resting plate) — never raw
+                 `--muted-foreground`, which measured 4.29:1 on the TRUE header
+                 ground (veil `::before` included). One class-list edit; all 9
+                 panes inherit. The color rides the scoped rule below. -->
+            <p class="pane-header-desc text-caption">{{ description }}</p>
         </div>
     </div>
 </template>
@@ -107,6 +113,14 @@ defineProps<{
 
 .pane-header-desc-wrap {
     margin-top: 0.125rem;
+}
+
+/* AB-2 (D6) — the caption ink: the boot-stamped certified de-emphasis rung.
+ * `--ink-muted` is the floor-clamped plate ink useAtmosphereBoot writes on
+ * :root (the plate-caption / parse-echo voice, ≥4.5 on the composited resting
+ * plate). Falls back to `--muted-foreground` before the boot writer runs. */
+.pane-header-desc {
+    color: var(--ink-muted, var(--muted-foreground));
 }
 
 .pane-header {

@@ -2,7 +2,10 @@
     <!-- Body voice by default (three-voice law, R.W3 Lane A / A1): the atlas-plate
          DATA reads in Jakarta; only the section headings below are display rungs. -->
     <div class="w-full grid grid-cols-1 gap-4 relative">
-        <Alert class="m-0 bg-muted/50 dark:bg-muted/30 border-border/30 rounded-card">
+        <!-- AB-3 (T.W8 remediation_1 · D1): the Definition chip seats on the ONE
+             rung-2 well tone (`bg-well` = `--well-bg`), collapsing the `/50` `/30`
+             muted-alpha sub-species onto the single well recipe. -->
+        <Alert class="m-0 bg-well border-border/30 rounded-card">
             <AlertTitle>Definition</AlertTitle>
             <AlertDescription>
                 {{ currentColorSpaceInfo.definition }}
@@ -98,8 +101,13 @@
                 >
                     <Tooltip>
                         <TooltipTrigger as-child>
+                            <!-- AB-3 (D1): the conversion-graph node seats on the
+                                 well recipe; the interactive hover follows the
+                                 app's established well-row idiom (bg-well →
+                                 hover:bg-accent/50, per VersionHistoryDrawer),
+                                 collapsing the /50 /30 /60 muted-alpha species. -->
                             <div
-                                class="flex flex-wrap items-center p-3 bg-muted/50 dark:bg-muted/30 rounded-panel hover:bg-muted dark:hover:bg-muted/60 transition-colors cursor-pointer max-w-full"
+                                class="flex flex-wrap items-center p-3 bg-well rounded-panel hover:bg-accent/50 transition-colors cursor-pointer max-w-full"
                                 @mouseenter="setHoveredPath(path as any)"
                                 @mouseleave="clearHoveredPath"
                             >
