@@ -17,10 +17,10 @@
         role="alert"
     >
         <CircleAlert class="w-6 h-6 text-destructive/80" aria-hidden="true" />
-        <p class="font-display text-heading text-foreground/85 max-w-[26ch] text-balance leading-snug">
+        <p class="font-display text-heading text-foreground max-w-[26ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
-        <p v-if="detail" class="text-mono-small text-muted-foreground max-w-[44ch] break-words">
+        <p v-if="detail" class="text-mono-small plate-ink max-w-[44ch] break-words">
             {{ detail }}
         </p>
         <slot name="action" />
@@ -46,16 +46,19 @@
             <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-b" class="w-11 h-11" />
             <WatercolorDot color="var(--accent-live)" variant="ghost" tag="div" seed="plate-c" class="w-6 h-6 opacity-60" />
         </div>
-        <!-- W5-5: the /70 double-attenuation is dead — --muted-foreground is
-             already the scheme-tuned quiet rung; halving it again made the
-             eyebrow invisible over dark glass. -->
-        <p class="text-mono-caption uppercase tracking-[0.18em] text-muted-foreground">
+        <!-- P4-R2 (T.W8 remediation_1): the eyebrow/hint thread the certified
+             de-emphasis rung `--ink-muted` (boot-stamped, floor-clamped against
+             the live resting plate; D6) — the STATIC `text-muted-foreground`
+             composited 3.84:1 over the My Palettes plate in light (< the 4.5:1
+             small-text floor). The earlier /70 double-attenuation was already
+             dead; this thread the rung the console's captions ride. -->
+        <p class="text-mono-caption uppercase tracking-[0.18em] plate-ink">
             {{ eyebrow }}
         </p>
-        <p class="font-display text-heading text-foreground/85 max-w-[26ch] text-balance leading-snug">
+        <p class="font-display text-heading text-foreground max-w-[26ch] text-balance leading-snug">
             <slot>{{ message }}</slot>
         </p>
-        <p v-if="hint" class="text-mono-small text-muted-foreground max-w-[36ch]">
+        <p v-if="hint" class="text-mono-small plate-ink max-w-[36ch]">
             {{ hint }}
         </p>
         <slot name="action" />
@@ -87,3 +90,16 @@ withDefaults(
     { variant: "empty", eyebrow: "· empty plate ·", dots: true },
 );
 </script>
+
+<style scoped>
+/* P4-R2 + P11-R3 (T.W8 remediation_1): the shared empty/error plate's captions
+ * — the eyebrow, the hint, the error detail line — thread the certified
+ * de-emphasis rung (`--ink-muted` — boot-stamped, floor-clamped against the
+ * live resting plate; D6). This is the ONE shared empty atom (8 consumers incl.
+ * the admin walls), so every consumer inherits the cure. The primary display
+ * line drops its `/85` guard-then-alpha (D6 retires the class by name) to the
+ * full certified `--foreground`. */
+.plate-ink {
+    color: var(--ink-muted, var(--muted-foreground));
+}
+</style>

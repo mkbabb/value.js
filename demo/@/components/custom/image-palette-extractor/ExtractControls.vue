@@ -2,18 +2,24 @@
     <div class="flex flex-col gap-3">
         <!-- K slider — own row, full width, tall track with gradient.
              T-44a (T.W6.5 row 9): the rail's COLOR channel is the certified
-             track ink (the session's palette gradient rides above as the
-             image layer when present) — the rail reads ≥3:1 on its ground by
-             construction, never only as legible as its gradient content. -->
+             track ink. E1-R3 (T.W8 remediation_1): pre-image the track ink
+             carries the rail (≥3:1 on its ground); once an image develops,
+             the opaque palette gradient rides above as a DATA layer (C3) and
+             fully occludes that fill — so the certified ink survives OUTWARD
+             as a persistent hairline ring (the ShadowPalette hairline idiom
+             turned outward), giving the component a certified identity edge
+             independent of its gradient content in every state.
+             The k label speaks its cluster's ONE mono voice (weight 400,
+             matching kC — E1-R1), inked at the certified de-emphasis rung. -->
         <div class="flex items-center gap-2 w-full min-w-0">
-            <label class="text-mono-small font-bold text-muted-foreground whitespace-nowrap tabular-nums w-5 text-right">
+            <label class="text-mono-small plate-ink whitespace-nowrap tabular-nums w-5 text-right">
                 {{ k }}
             </label>
             <div class="relative flex-1 h-6 flex items-center">
                 <div
                     data-o18="extract-k-rail"
                     class="absolute inset-0 rounded-full overflow-hidden h-6"
-                    :style="{ background: gradient, backgroundColor: trackInk }"
+                    :style="{ background: gradient, backgroundColor: trackInk, boxShadow: `inset 0 0 0 1.5px ${trackInk}` }"
                 />
                 <Slider
                     aria-label="Number of colors"
@@ -57,7 +63,7 @@
                  live pick certified against its rung at the WCAG 1.4.11
                  graphics floor (the O-18 graphics leg is its born-RED gate). -->
             <div data-o18="extract-kc" class="flex items-center gap-1.5 flex-1 min-w-0">
-                <label class="fira-code text-micro text-muted-foreground whitespace-nowrap" title="Chroma weight">kC</label>
+                <label class="fira-code text-micro plate-ink whitespace-nowrap" title="Chroma weight">kC</label>
                 <Slider
                     aria-label="Chroma weight"
                     variant="spectrum"
@@ -69,7 +75,7 @@
                     :style="{ '--slider-track-bg': trackInk }"
                     @update:model-value="(v: number[] | undefined) => v && $emit('update:chromaWeight', v[0]!)"
                 />
-                <span class="fira-code text-micro text-muted-foreground tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
+                <span class="fira-code text-micro plate-ink tabular-nums w-5">{{ chromaWeight.toFixed(1) }}</span>
             </div>
 
             <DockSeparator />
@@ -133,5 +139,13 @@ defineEmits<{
 /* Touch gate styling for extract sliders */
 .touch-gate-target {
     border-radius: var(--radius-pill);
+}
+
+/* E1-R1 (T.W8 remediation_1): the extract plate's labels/readouts thread the
+ * certified de-emphasis rung (`--ink-muted` — boot-stamped, floor-clamped
+ * against the live resting plate; D6), never the STATIC `text-muted-foreground`
+ * that composited 2.82–3.08:1 over the live-ambient plate in light. */
+.plate-ink {
+    color: var(--ink-muted, var(--muted-foreground));
 }
 </style>

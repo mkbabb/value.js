@@ -92,10 +92,14 @@ const { count = 5 } = defineProps<{
 <style scoped>
 /* The genesis ink ladder (`ec1b200`: strip = muted · meta = muted/60,/40 ·
  * swatches = muted/30), spoken through the ONE loading-ink recipe root
- * (`--skeleton-ink`, utils.css `.skeleton-ink-register` — the modernized
- * ec1b200 muted family). The ladder steps fade INTO the plate by a
- * color-mix step (never element opacity — D6); the pulse's opacity swing
- * is MOTION on top of the ink, not the ink itself. */
+ * (`--skeleton-ink`, utils.css `.skeleton-ink-register`). E1-R2 (T.W8
+ * remediation_1): that recipe now CERTIFIES the block as a bounded tone-step
+ * of this plate's `bg-well` ground, so the "hairline of the well ground
+ * between cells keeps the segmentation legible AT REST" contract (above) holds
+ * in BOTH schemes — the dark seg-vs-well collapse (1.02:1) is dead; the strip
+ * reads as BLOCKS whether the plate is light or dark. The ladder steps fade
+ * INTO the plate by a color-mix step (never element opacity — D6); the pulse's
+ * opacity swing is MOTION on top of the ink, not the ink itself. */
 .shadow-seg {
     background: var(--skeleton-ink);
 }

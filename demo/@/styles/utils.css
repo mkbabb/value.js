@@ -36,13 +36,25 @@
 /* The ONE loading-ink recipe (S.W5 Lane A / W5-1 — the `ec1b200` register,
  * modernized): every skeleton surface in the app reads this single muted-ink
  * family through glass-ui's `--skeleton-glass-bg` seam — one `color-mix`,
- * both schemes (the muted tokens are scheme-tuned by the producer), opaque
- * enough to read as SHADOW against the field, never as content. The
- * `--skeleton-shimmer-tint` line is the letter-L9 producer seam (the sheen
- * joins the same ink family once glass-ui's `::after` reads it). Consumers:
- * PaletteCardSkeleton, AdminListSkeleton, the admin tag-chip shadows. */
+ * both schemes, opaque enough to read as SHADOW against the field, never as
+ * content. The `--skeleton-shimmer-tint` line is the letter-L9 producer seam
+ * (the sheen joins the same ink family once glass-ui's `::after` reads it).
+ * Consumers: ShadowPalette + PaletteCardSkeleton (both `bg-well`),
+ * AdminListSkeleton + the admin tag-chip shadows (resting plate).
+ *
+ * E1-R2 (T.W8 remediation_1): the former `color-mix(muted-foreground 22%,
+ * muted)` recipe was NOT certified against its ground — in dark it landed ≈
+ * `--well-bg` (probed ΔL 0.007, seg-vs-well 1.02:1), collapsing the ghost to a
+ * featureless slab. The ink is now a CERTIFIED tone-step OF the well ground
+ * itself: a fixed φ-ish fraction of `--foreground` mixed into `--well-bg`, so
+ * the block is guaranteed a bounded ΔL from the well in BOTH schemes by
+ * construction (darker than the well in light, lifted above it in dark — the
+ * scheme-adaptive direction falls out of the token, no per-scheme fork), and
+ * the genesis "muted blocks" read as BLOCKS against every neutral skeleton
+ * ground (well ≈ resting plate). Low-chroma by construction (both `--well-bg`
+ * and `--foreground` are near-neutral), so the muted-family character holds. */
 .skeleton-ink-register {
-    --skeleton-ink: color-mix(in oklab, var(--muted-foreground) 22%, var(--muted));
+    --skeleton-ink: color-mix(in oklab, var(--well-bg), var(--foreground) 15%);
     --skeleton-glass-bg: var(--skeleton-ink);
     --skeleton-shimmer-tint: color-mix(in srgb, var(--muted-foreground) 24%, transparent);
 }

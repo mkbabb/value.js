@@ -122,20 +122,20 @@
                             <span class="font-display text-display leading-none shrink-0">
                                 {{ Math.round(session.dominantShare.value * 100)
                                 }}<span
-                                    class="text-body font-normal text-muted-foreground"
+                                    class="text-body font-normal plate-ink"
                                     >% of the image</span
                                 >
                             </span>
                             <span class="flex items-baseline gap-2 min-w-0 ml-auto">
                                 <span
-                                    class="text-mono-caption uppercase tracking-[0.18em] text-muted-foreground shrink-0"
+                                    class="text-mono-caption uppercase tracking-[0.18em] plate-ink shrink-0"
                                     >dominant</span
                                 >
                                 <!-- truncate may trim trailing digits at narrow
                                      widths; the full readout rides title +
                                      select-all (never a lying readout). -->
                                 <code
-                                    class="fira-code text-mono-small text-muted-foreground truncate select-all"
+                                    class="fira-code text-mono-small plate-ink truncate select-all"
                                     :title="session.dominant.value.css"
                                     >{{ session.dominant.value.css }}</code
                                 >
@@ -160,7 +160,7 @@
                         <!-- The resurrected `ec1b200` caption — the AT text
                              for the aria-hidden ghost above. -->
                         <p
-                            class="text-mono-caption uppercase tracking-[0.18em] text-muted-foreground text-center"
+                            class="text-mono-caption uppercase tracking-[0.18em] plate-ink text-center"
                         >
                             · undeveloped plate — feed it an image ·
                         </p>
@@ -280,3 +280,14 @@ async function captureFrame() {
 
 onBeforeUnmount(stopCamera);
 </script>
+
+<style scoped>
+/* E1-R1 (T.W8 remediation_1): the dominance row + the undeveloped-plate ghost
+ * caption thread the certified de-emphasis rung (`--ink-muted` — boot-stamped,
+ * floor-clamped against the live resting plate; D6), never the STATIC
+ * `text-muted-foreground` that failed the text floor over the live-ambient
+ * plate in light. */
+.plate-ink {
+    color: var(--ink-muted, var(--muted-foreground));
+}
+</style>
