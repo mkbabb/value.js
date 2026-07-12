@@ -119,7 +119,9 @@ test.describe("T-31 · band structure (the retired trio stays dead)", () => {
         expect(s.navZ).toBe("auto");
         expect(s.wrapperPosition).toBe("static");
         expect(s.wrapperZ).toBe("auto");
-        // The band floors at --dock-h so the collapse morph never jitters it.
+        // The band floors at --dock-band-min-h (the expanded-pill reservation)
+        // so the collapse morph never jitters it (T-57, asserted invariant in
+        // the census extension below).
         expect(s.bandFloor).toBeGreaterThanOrEqual(40);
     });
 
@@ -134,6 +136,86 @@ test.describe("T-31 · band structure (the retired trio stays dead)", () => {
                     .className,
         );
         expect(cls).not.toMatch(/\bfixed\b|z-dock|top-dock-inset/);
+    });
+});
+
+test.describe("T-31/T-57 · band-height invariance across the collapse↔expand morph", () => {
+    /**
+     * T.W8 · P9-R2/WR-9 — the census extension the §0.7 T-57 amendment orders.
+     * The dock idle-collapses to the seal (shorter) and re-expands to the pill
+     * (taller); before the cure the band tracked that height change (expanded
+     * 71.4px, collapsed 65.4px) and shifted the centred scene +3.0px on every
+     * cycle. The T-31 band law now EXTENDS to the collapse↔expand axis: the
+     * band floors at --dock-band-min-h (the expanded-pill reservation), so the
+     * band height AND the scene top are INVARIANT across the whole morph — by
+     * construction, never a z/margin patch. Born-RED against the pre-cure 3px
+     * reflow (this asserts ≤1px).
+     */
+    test("the band height + scene top never change across seal↔pill (T-57 reflow cure)", async ({
+        page,
+    }) => {
+        test.setTimeout(30000);
+        await page.goto("/");
+        await page.waitForSelector(".glass-dock");
+        await page.waitForTimeout(3500); // overture settle
+
+        const read = () =>
+            page.evaluate(() => {
+                const band = document
+                    .querySelector("nav.dock-band")!
+                    .getBoundingClientRect();
+                const pane = document
+                    .querySelector(".pane-container")
+                    ?.getBoundingClientRect();
+                const dock = document.querySelector(".glass-dock")!;
+                return {
+                    bandH: band.height,
+                    paneTop: pane?.top ?? null,
+                    collapsed: dock.className.includes("collapsed"),
+                };
+            });
+
+        // Arm the producer collapse timer (hover then leave the dock).
+        const dockBox = (await page.locator(".glass-dock").boundingBox())!;
+        await page.mouse.move(
+            dockBox.x + dockBox.width / 2,
+            dockBox.y + dockBox.height / 2,
+        );
+        await page.waitForTimeout(300);
+        const expanded = await read();
+
+        // Leave the dock; the producer collapse-delay (5000ms) fires the morph.
+        await page.mouse.move(dockBox.x + dockBox.width / 2, dockBox.y + 320);
+        await expect
+            .poll(async () => (await read()).collapsed, { timeout: 12000 })
+            .toBe(true);
+        const collapsed = await read();
+
+        // Re-expand by hovering back onto the dock band.
+        await page.mouse.move(dockBox.x + dockBox.width / 2, dockBox.y + 8);
+        await expect
+            .poll(async () => (await read()).collapsed, { timeout: 6000 })
+            .toBe(false);
+        const reexpanded = await read();
+
+        // INVARIANCE — the band never changes height, the scene never shifts
+        // (≤1px sub-pixel; the pre-cure defect was 6px band / 3px scene).
+        expect(
+            Math.abs(collapsed.bandH - expanded.bandH),
+            `band height changed on collapse (${expanded.bandH}→${collapsed.bandH})`,
+        ).toBeLessThanOrEqual(1);
+        expect(
+            Math.abs(reexpanded.bandH - expanded.bandH),
+            `band height changed on re-expand (${expanded.bandH}→${reexpanded.bandH})`,
+        ).toBeLessThanOrEqual(1);
+        expect(
+            Math.abs((collapsed.paneTop ?? 0) - (expanded.paneTop ?? 0)),
+            `scene shifted on collapse (${expanded.paneTop}→${collapsed.paneTop})`,
+        ).toBeLessThanOrEqual(1);
+        expect(
+            Math.abs((reexpanded.paneTop ?? 0) - (expanded.paneTop ?? 0)),
+            `scene shifted on re-expand (${expanded.paneTop}→${reexpanded.paneTop})`,
+        ).toBeLessThanOrEqual(1);
     });
 });
 
