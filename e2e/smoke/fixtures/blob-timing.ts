@@ -24,8 +24,13 @@
  */
 
 export const BLOB_IDLE_MS = 2000; // === HeroBlob.vue BLOB_IDLE_MS
-export const SLEEPY_POSE_MS = 700; // === HeroBlob.vue SLEEPY_POSE_MS
-export const PARK_SETTLE_MS = BLOB_IDLE_MS + 1500;
+// T.W8 · WR-2/T-49c — extended so the full park latency (N + SLEEPY_POSE_MS =
+// 5.3s) clears one 5.2s fission beat (the resting colony shows a calm split
+// before it freezes). === HeroBlob.vue SLEEPY_POSE_MS.
+export const SLEEPY_POSE_MS = 3300;
+// Wait PAST the full park latency (N + SLEEPY_POSE_MS) with 800ms of slack, so
+// every park spec samples AFTER the loop parks regardless of the runway length.
+export const PARK_SETTLE_MS = BLOB_IDLE_MS + SLEEPY_POSE_MS + 800;
 export const SAMPLE_WINDOW_MS = BLOB_IDLE_MS + 500;
 export const PARKED_DRAW_SLACK = 5;
 

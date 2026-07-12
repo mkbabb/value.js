@@ -149,13 +149,26 @@
  * via the producer's resume re-measure seam. Renaming these keyframes means
  * updating that filter. */
 @media (prefers-reduced-motion: no-preference) {
+    /* T.W8 · WR-1/T-49a — THE EMERGE RE-CUT TO MATTER-ARRIVAL: the bead
+       goo-SCALES from the seat as MATTER (opaque from frame 1), never fading
+       IN. The α leg is GONE — the no-pop law now holds via SCALE alone (a
+       small droplet growing to full presence, not a translucent ghost
+       resolving). The former `from { opacity: 0 }` compounded with the
+       producer T-60 reveal-bloom's brightness/saturate floor (which stamps AT
+       the fade start and holds through the whole 500ms — t49-research §2.1) to
+       read GRAY on arrival; dropping the α leg removes the demo half of that
+       compound (the bloom half is PRODUCER-ONLY, communiqué §1.1 — an
+       emerge-delay chase is DOA, so NO counter-filter here). The R2 pose/arm
+       race contract is UNCHANGED: the `scale(0.35)` frame + the name filter
+       (`blob-emerge`) HeroBlob.vue's onEmergeEnd keys on both stand — renaming
+       these keyframes still means updating that filter. The wake-gray bead
+       (boot-B, the KeepAlive re-activation flash) is a DISTINCT percept, cured
+       separately in HeroBlob.vue. */
     @keyframes blob-emerge {
         from {
-            opacity: 0;
             transform: scale(0.35);
         }
         to {
-            opacity: 1;
             transform: none;
         }
     }
