@@ -121,3 +121,71 @@ refute, prompted to refute.
 
 **Stability rule**: the registry is stable when two consecutive rounds surface nothing new; then
 formation (the convergent design loop) opens on W8's terminal state.
+
+---
+
+# ROUND 2 (2026-07-12) — 8 agents (3 verifiers + 5 fresh lenses), 9 verdicts + 30 findings (2 A · 11 B · 17 C). Budget 20/32.
+
+## §10 VERDICTS ON THE ROUND-1 A/B CLAIMS (adversarial verify)
+
+| Claim | Verdict | Correction |
+|---|---|---|
+| **U-F4** PRM-dock | **SHARPENED, A stands** | Behavior CONFIRMED (empty 44px pill, ~0 usable controls, no recovery, ships in dist) but the mechanism was HALF WRONG: `overture.css:179` is a RED HERRING (never applied under PRM). True root is **PRODUCER-ONLY**: `data-morphing` latches ON under PRM → `../glass-ui .../morph.css:72` derives `--dock-expand-t` from the frozen `--dock-morph-t=0` while the "expanded" class is set. **DESKTOP-viewport-specific** (always-expanded=false); mobile degrades to 244px, not empty. Demo EXONERATED. → the communiqué gets a named producer row; the demo has no cure to make. |
+| **U-F3** Q14 magnitude | **WEAKENED** | The 11085ms mobile LCP was an **uncompressed-serve artifact** (~2.2× inflated, wrong transport). At the true gate instrument (LHCI, compressed static-dir, mobile+simulate): **LCP ~4951 local / 5141 CI** (~2× budget, RED). On a fast host the binding reds are **LCP + CLS**, not TBT (TBT 187ms local, only reddens on the 2-core CI runner). Desktop fully GREEN. Direction (producer-coupled, uncloseable by value.js alone) STANDS. |
+| **U-F16** CLS | **CONFIRMED + sharpened** | CLS 0.219 (LHCI) / up to 0.435 standalone — deterministic, mobile-only, **the shifting node is the SAME element as the LCP element** (the picker/readout plate mount). Untracked in PI-1; baseline "PASS" was asserted un-measured. A hard-red that reddens W9 even if LCP is cured. |
+| **U-F14** perf-flake | **CONFIRMED + sharpened** | Genuine non-deterministic RED ~50% on a clean tree, and it **flakes even at IDLE** (40%), not only under load. Root: native V8 `JSON.parse` (156–353 MB/s) does not co-scale with the interpreted CSS parser (1.5–8 MB/s), so the ratio's designed 25% headroom is already spent on fast archs. |
+| **U-F25** gradient-focus | **CONFIRMED** | Dead from day one by TWO causes (empty `--ring`/`--color-ring` token + inline `boxShadow` override at GradientStopEditor.vue:226); the commit that cured the twin dead-hover (4e6c178) missed the identical focus pattern. |
+| **U-F26** dark-accent | **SHARPENED** | The sub-3:1 breach is **DEFAULT-SEED-SPECIFIC** (light L=92 pink → mid-dark-pink paper): default breaches 2.91–3.26:1; 5 other seeds all clear 4.37–5.02:1. The specific "Tools 1.89" active-tab case not isolated in headless; the ~2.8–3.0 component-label breach replicated. |
+| **U-F22** barrel-drift | **CONFIRMED exact** | All 10 value symbols verified in src AND dist .d.ts; no exclusion comment covers any. Type-level drift is even wider (>10 with types). |
+| **U-F23** ground-fork | **WEAKENED** | The forked read + dead `parseGroundRecord` CONFIRMED, but `GROUND_RECORD_VERSION` is NOT zero-ref (live via buildGroundRecord write). Version-bump-strands-boot risk stands. |
+| **U-F24** dead-orphans | **CONFIRMED** | All 3 safe-delete (mulberry32 in prng.ts is live — trio only). Note: CLAUDE.md/MEMORY.md list a stale `demo/@/composables/prng.ts` path. |
+
+## §11 NEW FAMILIES — LIBRARY API CORRECTNESS (the round-2 headline: real bugs shipping in published 3.1.0)
+
+| ID | Sev | Family | Mechanism | Disp |
+|---|---|---|---|---|
+| **U-F29** | **A** | `parseCSSValue-silent-truncation` | The headline, README-usage-example export `parseCSSValue` (src/parsing/index.ts:494) is `tryParse(ValuesValue)` — a SINGLE value — so it silently drops every token after the first sub-value: `'1px solid red'`→`'1px'`, `'0 0 4px red'`→`'0'`, `'translate(10px) rotate(45deg)'`→drops rotate. The full-value fn `parseCSSSubValue` exists but is absent from the README and named as if it parses LESS. A consumer following the README loses data on borders/shadows/fonts/padding/transform-lists with zero signal. | **build** — the consumer-facing API contract is wrong; the fix is BREAKING (rename/re-shape the primary export). A U design-loop question (the greenfield naming). |
+| **U-F30** | **A** | `computed-color-normalized-serialization` | Colors from the flagship CSS Color 4/5 paths (color-mix, relative-color) carry internal normalized [0,1] channels and `Color.toString()` emits them verbatim: `parseCSSColor('color-mix(in srgb, red 30%, blue)').toString()`→`'rgb(0.3 0 0.7)'` (near-black) vs the direct-parse `'rgb(76.5 0 178.5)'`. Same `parseCSSColor` yields two incompatible numeric conventions by input path; propagates through parseCSSValue into gradients. base.ts's own docstring calls toString "the canonical round-trip serializer". | **build** — a denorm-on-serialize (or normalize-on-construct) correctness fix; a real library bug, not taste. |
+| U-F31 | B | `transform-single-axis-expansion` | `rotate(45deg)`→`rotateX rotateY rotateZ` (CSS rotate is Z-only); `translate(10px)`→all-axis; `scale(2)`→`scaleZ(2)` too. Multi-arg forms are correct. If this feeds decompose/interpolate, blends compute a wrong transform. | **build** (verify the decompose interaction) |
+| U-F32 | B | `math-trig-unit-leak` | `sin(30deg)`→`0.5deg` (should be unitless `<number>` per css-values-4); leaks into `calc(sin(30deg)*100px)`→`50deg` not `50px`. | **build** |
+| U-F33 | B | `gradient-stop-position-roundtrip` | `linear-gradient(90deg, red 20%, blue 80%)`→`'...red), 20%, ...blue), 80%'` (comma not space-joined → invalid CSS, reads as 5 stops). | **build** |
+| U-F34 | C | `library-naming-incoherence` | `{from}2{to}` vs `{from}To{to}` coexist (xyz2rgb vs xyzToICtCp); `serialize*` vs `reverse*` for the same parse-inverse role; casing drift (srgbToOKLab / linearToSrgb / oklabToLinearSRGB). | **fold** into the U library-coherence row (pick one convention — a design-loop call) |
+| U-F35 | C | `transform-2D-recompose-missing` | `decomposeMatrix2D` has no `recomposeMatrix2D` inverse and `interpolateDecomposed` is 3D-only — 2D decompose is a dead-end. | **fold** |
+
+(The lib #6 subpath class-asymmetry and #9 README drift MERGE into U-F22 / U-F21 respectively.)
+
+## §12 NEW FAMILIES — SECURITY / API RUNTIME
+
+| ID | Sev | Family | Mechanism | Disp |
+|---|---|---|---|---|
+| U-F36 | B | `impersonation-dead-credential` | `POST /admin/impersonate` mints a session with NO `expiresAt`; the auth path (`findAndTouch`, session.ts:25) filters `expiresAt>now` → the impersonation token is dead-on-arrival, and the route test asserts only row-existence (via the no-expiry `findByToken`), staying green over the break — a green-over-broken masking. | **build** (fix + a test that drives the auth middleware) |
+| U-F37 | B | `db-trust-boundary` | Mongo deployed with NO auth (`--replSet rs0 --bind_ip_all`, no `--auth`/`--keyFile`); `.env.example` advertises 4 `MONGO_*` creds compose.yaml never references — config-truth lie + defense-in-depth gap under the plaintext token store. Mitigated (not host-exposed). | **build** (wire creds or delete the advertised vars) |
+| U-F38 | C | `db-token-at-rest` | Session tokens stored cleartext as `sessions._id`; any DB read = every live token (mass hijack). Entropy is fine (UUIDv4). | **build** (SHA-256 at rest, lookup by hash) |
+| U-F39 | C | `frontend-missing-security-headers` | color.babb.dev serves HTML with only `x-content-type-options` — no CSP/HSTS/X-Frame-Options, while the API origin sets a full suite. CF-Pages `_headers` fix. | **build** |
+| U-F40 | C | `admin-audit-attribution` | Admin auth is bearer-token-only; `admin_audit.actorSlug` derives from the optional session `userSlug` → privileged actions recordable with `actorSlug=undefined`. | **fold** into U-F36 remediation |
+| U-F41 | C | `duplicate-ncsu-origin` | apache-vhost.conf documents the `mbabb.fi.ncsu.edu/colors/` alias STILL live + byte-identical (DEC-9 declared retired; N.W4 V3 found it alive), sharing the rate-limit pool. NCSU-VPN-gated, unverified this audit. **Ties to X2 residual.** | **escalate** (deploy ceremony; re-verify) |
+
+## §13 NEW FAMILIES — TEST HEALTH / DEMO ARCH / HYGIENE
+
+| ID | Sev | Family | Mechanism | Disp |
+|---|---|---|---|---|
+| U-F42 | B | `vacuous-ci-tripwire` (merges toward U-F1/U-F15) | 3 armed `test.fail()` at head (O-16 clobber INDEPENDENTLY re-verified STILL shipped at glass-ui dist components.css:1; O-26 aurora; O-5 boot) whose cure waves have not landed; on the software-GL CI runner O-26 can never flip AND O-3's chroma assertion fully SKIPS — the aurora has no executable gate on CI. | **escalate** (own all 3 + wire a headed-GPU annex or acknowledge) |
+| U-F43 | C | `slow-build-in-beforeAll` | `test/dts-published-surface.test.ts:23` runs a full `npm run build` in beforeAll for 2 string checks → ~70–80% of the unit-suite wall time. Move to test:dist. | **fold** |
+| U-F44 | C | `impl-detail-coupled-tests` | value-unit.test.ts couples to internal `superType` array identity + `.value` nesting (breaks on a no-op rep refactor). Snapshots are defensible (parse output IS the contract). | **fold** |
+| U-F45 | B | `demo-cross-layer-inversion` | `demo/@/composables/color/palettes-ramp.ts:49` reaches UP into app-root boot (`../../../color-picker/composables/boot/view-accents`, raw path bypassing the alias) while boot reaches DOWN — a near-cycle between the shared layer and app-root; blocks extracting demo/@ as a clean lower layer. | **build** (relocate resolveViewAccent to the shared layer) |
+| U-F46 | B | `session-token-triplication` | One token in 3 reactive cells (useSession._token, useUserAuth._userToken, api client sessionTokenRef) + 2 storage backends, synced only by manual write-through; `useSession.clearSession()` is a dead incomplete-teardown twin that would desync all 3 if wired. | **build** (single source + delete the dead twin) |
+| U-F47 | C | `colocation-e1-violation` | The color-pipeline spine (`useColorParsing.ts:5`) imports `generateSingleColor` from a feature's internal composable; `palette-browser` (consumed by 6 features) exposes NO index.ts barrel — all 6 reach into internals. | **build** (move the primitive down; give palette-browser a seam) |
+| U-F48 | C | `demo-state-fragility-cluster` | usePaletteStore per-call factory duplicated at 3 sites (localStorage-round-trip sync); COLOR_STORE_KEY defined in 2 files/2 idioms; Dock.vue 7 watchers (5 coordinating one open/close state). | **fold** (one hoist-to-singleton + const-extract + computed-predicate row) |
+| U-F49 | B | `gitignore-auth-unanchored` | `.gitignore:8 auth/` is unanchored → matches the tracked SOURCE dir `demo/@/composables/auth/` (4 composables). Survive only by tracked-exemption; any new/re-added file there is silently ignored — a silent-drop trap. Anchor to `/auth/`. | **build** (one-line, high-value) |
+| U-F50 | C | `tracked-binary-bloat` | 133 MB (84%) of the 159 MB tracked tree is audit binaries; a 58 MB heapsnapshot (N-tranche) still tracked (37% of tree); 154 of 156 tracked PNGs match the repo's own `*.png` ignore. | **retire** (git rm the heapsnapshot; policy for shots) |
+| U-F51 | C | `stale-local-branches` | 3 orphan local branches == master + t-w5-motion-liquid (0-unique, merged); local-only clutter. | **retire** |
+| U-F52 | C | `scratch-accumulation` | `docs/tranches/T/audit/pi/` holds 1.8 GB untracked scratch (w8/ = 1.7 GB); bulk is *.png-ignored (0.5 MB real accidental-add exposure). | **retire** (sweep before U opens) |
+| U-F53 | — | `worktree-prune-proof` | 5 of 9 worktrees are 0-unique + clean (prunable WITH the law's proof delivered); 4 protected (e53-14/15 live W8 commits, e53-16/ec3-2 uncommitted, e53-16 OS-locked). | **actionable** (prune the 5 at a safe moment) |
+
+## §14 ROUND-3 STEERING
+
+Round 2 surfaced 2 A-class + many B — NOT stable; round 3 required. The two library A-class bugs (U-F29/U-F30) are the highest-impact new claims and MUST survive a fresh refuter before they shape the tranche (is `parseCSSValue` contractually single-value with `parseCSSSubValue` the intended multi path? is the normalized-serialization real end-to-end or denormalized at a consumer seam?). Remaining unexplored: build/bundle/tooling truth, dependency/supply-chain, and a **completeness critic** (what modality was never run, what claim is unverified).
+
+**Round-3 roster (5 agents, batches of 3; 25/32 after)**: verify:lib-api (opus — refute U-F29..F33 against the tests + the type contract + real consumer use) · verify:security (sonnet — drive the auth middleware to confirm/refute U-F36; re-probe U-F37/F38) · completeness-critic (opus — read BOTH rounds' coverage statements, name every un-run modality/unverified claim/unread source) · lens:build-tooling (sonnet — vite/rolldown config, build determinism, sourcemaps, gh-pages chunking, tsconfig/eslint coverage) · lens:dependency-supply-chain (sonnet — the file: sibling deps, pins, peer/unused deps, npm audit, the parse-that re-pin). All under the probe-parsimony edict (static-first, compact returns).
+
+**Then**: if round 3 is confirmatory (no material new families), round 4 = a fresh-eyes adversarial completeness pass → two-clean-passes stability → the convergent design-loop FORMATION opens on W8's terminal state.
