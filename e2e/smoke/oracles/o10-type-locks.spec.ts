@@ -9,9 +9,10 @@ import { test, expect, type Page } from "@playwright/test";
  *       host-divergence on any un-sanctioned axis is the red condition (the
  *       About-700 inheritance bug, t-title-typography F2, dead by
  *       construction). SIZE is the ONE sanctioned host prop (F3): each host's
- *       size must ≡ its exact D2 landing — picker = display-3, About = the
- *       sentence's own display-1 (`1em` inherit) — which is row (e)'s token
- *       census applied to the pair.
+ *       size must ≡ its exact D2 landing — picker = display-2 (T-51/WR-4
+ *       owner MANDATE §0.7 stepped the `.space-trigger` DOWN one golden rung
+ *       from display-3, landed 5f273ae), About = the sentence's own display-1
+ *       (`1em` inherit) — which is row (e)'s token census applied to the pair.
  *   (e) TOKEN CENSUS — every landed title size ≡ an exact shipped token
  *       (D2's "exact shipped token" law, mechanically checked against the
  *       live resolved ladder — h-oracle-slate F-2).
@@ -93,11 +94,14 @@ test.describe("O-10a/e — title type locks (desktop dual grid)", () => {
         expect(picker.style).toBe("italic");
 
         // (e) The token census — size ≡ the exact shipped token per host.
-        const display3 = await resolveTokenPx(page, "--type-display-3");
+        // T-51/WR-4 (owner MANDATE §0.7): the picker `.space-trigger` steps DOWN
+        // one golden rung, display-3 → --type-display-2 (landed 5f273ae). The lock
+        // re-aims to the ruled token — the O-14-slim tighten-not-weaken idiom.
+        const display2 = await resolveTokenPx(page, "--type-display-2");
         const display1 = await resolveTokenPx(page, "--type-display-1");
         expect(
-            Math.abs(picker.sizePx - display3),
-            `picker trigger ${picker.sizePx}px ≠ display-3 ${display3}px`,
+            Math.abs(picker.sizePx - display2),
+            `picker trigger ${picker.sizePx}px ≠ display-2 ${display2}px`,
         ).toBeLessThanOrEqual(0.5);
         // About = the sanctioned 1em inherit — the sentence's display-1 rung.
         const aboutTitle = await readVoice(page, ABOUT_TITLE);
@@ -148,10 +152,11 @@ test.describe("O-10a — the mobile matrix (390)", () => {
         const main = page.getByRole("main", { name: "Color tool panes" });
         await expect(main).toBeVisible();
 
-        // The picker trigger keeps the plate rung (display-3, fluid band).
-        const display3 = await resolveTokenPx(page, "--type-display-3");
+        // The picker trigger keeps the plate rung (display-2 after the T-51/WR-4
+        // step-down, fluid band).
+        const display2 = await resolveTokenPx(page, "--type-display-2");
         const picker = await readVoice(page, PICKER_TRIGGER);
-        expect(Math.abs(picker.sizePx - display3)).toBeLessThanOrEqual(0.5);
+        expect(Math.abs(picker.sizePx - display2)).toBeLessThanOrEqual(0.5);
         expect(picker.weight).toBe("400");
 
         // Switch the mobile slot to the About pane (the segmented control).
