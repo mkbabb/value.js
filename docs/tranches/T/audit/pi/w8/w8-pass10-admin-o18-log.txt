@@ -1,0 +1,47 @@
+# T.W8 · PASS 10 ADMIN — O-18 contrast census EXTENSION (log)
+
+## CAVEAT (method-of-record)
+The headed-WebGL pixel census (`w8-pass10-admin-o18.mjs`, element-clip screenshots →
+`decodePng` → median-luminance ground vs computed ink token) OOM-thrashed the long-lived
+headed Chromium context across the 10 owner-color view loads (aurora + goo-blob accumulate
+under dpr 2; two attempts, heap 4G then 8G, both OOM). The precise pixel ratios are DEFERRED
+to the W8 O-18 oracle census (`e2e/smoke/oracles/o18-*`, run at package assembly on the built
+bundle — the honest venue). The numbers below are the ANALYTICAL PROXY: the measured admin
+plate (oklab) composited over the measured `document.body` mid-tone at the plate alpha, WCAG'd
+against the measured muted-ink token. Proxy weakness: the live aurora varies spatially, so the
+real composited plate is lighter over bright bands (higher ratio) and darker over deep bands
+(lower); the flat-body number is a representative mid.
+
+## MEASURED INPUTS (from w8-pass10-admin-probe, @1440, populated)
+LIGHT: plate = oklab(0.884503 0.00542215 0.0127179 / 0.678) over body rgb(179,114,144)
+       muted-foreground ink = rgb(112,89,66)  (warm brown-gray, T-24 neutral family)
+DARK : plate = oklab(0.362792 0.0101461 0.0171963 / 0.7424) over body rgb(103,50,85)
+       muted-foreground ink = rgb(195,185,172) (warm off-white, T-24 neutral family)
+(paneBg BYTE-IDENTICAL across all five admin views AND the My Palettes card — one card
+species, one neutral family; T-24 corollary holds.)
+
+## ANALYTICAL WCAG (muted SECONDARY readout on the composited resting plate)
+LIGHT plate/muted: composited-plate L=0.544  muted-ink L=0.110  WCAG=3.72:1  large-text-only(3–4.5)
+DARK  plate/muted: composited-plate L=0.050  muted-ink L=0.493  WCAG=5.42:1  PASS(>=4.5 body)
+
+## READING
+- The DARK muted rung passes AA body (5.42:1).
+- The LIGHT muted rung lands ~3.72:1 — AA-LARGE only, under 4.5:1 for the caption/small type
+  the admin secondary readouts actually are (css literals, targets, timestamps, slug-readouts,
+  tag section-labels, toolbar counts, pane descriptions). This is the DE-EMPHASIS rung and it
+  is APP-WIDE (the global `text-muted-foreground` on every pane's resting plate), NOT admin-
+  specific — admin is merely the O-18 census-EXTENSION surface named by the pass. Same class as
+  T-35 "delineate all". → Row A-2 (booked O-18 row + D6 population question).
+
+## ACCENT INK (D6-certified — GREEN)
+The slug-pills + the profile trigger thread safeAccentColor per surface (chrome/floating rung
+split); admin gold pill = oklch(0.751 0.147 84.2) light / oklch(0.784 0.143 86) dark. Certified,
+not the concern — the concern is the muted SECONDARY rung above.
+
+## SKELETON REGISTER (T-41 — measured live, loading freeze)
+AdminListSkeleton → data-slot=skeleton, class `skeleton-over-glass skeleton-breath`,
+animation-name=skeleton-breath-cycle, animation-duration=6s, surface=glass (BOTH schemes).
+= the BREATH register (opacity-only 0.55->0.95), NOT the shimmer sweep. Structurally a valid
+loading skeleton (distinct from the true-empty EmptyState + the error register), so T-41's
+discipline is MET; the breath-vs-shimmer register choice is Row A-1 (taste bracket). App-wide
+(shared recipe with PaletteCardSkeleton).

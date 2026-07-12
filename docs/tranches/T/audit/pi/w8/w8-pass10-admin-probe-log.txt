@@ -1,0 +1,40 @@
+# T.W8 · PASS 10 ADMIN probe — 2026-07-12T20:09:41.390Z
+DEV=http://localhost:8690  (bare vite, mock fixture reproduced in-script)
+
+
+## MEASURE — light @1440 (populated)
+  [users] rows=3 paneBg=oklab(0.884503 0.00542215 0.0127179 / 0.678) backdrop=none rowBg=rgba(0, 0, 0, 0) rowBorder=oklab(0.216128 0.00350075 0.00518669 / 0.12)
+         muted=rgb(112, 89, 66) ("Manage accounts and permission") bodyBg=rgb(179, 114, 144) dark=false
+  [names] rows=6 paneBg=oklab(0.884503 0.00542215 0.0127179 / 0.678) backdrop=none rowBg=rgba(0, 0, 0, 0) rowBorder=oklab(0.216128 0.00350075 0.00518669 / 0.12)
+         muted=rgb(112, 89, 66) ("Review and approve color names") bodyBg=rgb(179, 114, 144) dark=false
+  [audit] rows=3 paneBg=oklab(0.884503 0.00542215 0.0127179 / 0.678) backdrop=none rowBg=rgba(0, 0, 0, 0) rowBorder=oklab(0.216128 0.00350075 0.00518669 / 0.12)
+         muted=rgb(112, 89, 66) ("View admin action history.") bodyBg=rgb(179, 114, 144) dark=false
+  [flagged] rows=2 paneBg=oklab(0.884503 0.00542215 0.0127179 / 0.678) backdrop=none rowBg=rgba(0, 0, 0, 0) rowBorder=oklab(0.216128 0.00350075 0.00518669 / 0.12)
+         muted=rgb(112, 89, 66) ("Review reported palettes.") bodyBg=rgb(179, 114, 144) dark=false
+  [tags] rows=3 paneBg=oklab(0.884503 0.00542215 0.0127179 / 0.678) backdrop=none rowBg=oklab(0.965254 0.000953913 0.00611699 / 0.3) rowBorder=oklab(0.216128 0.00350075 0.00518669 / 0.12)
+         muted=rgb(112, 89, 66) ("Manage palette tag taxonomy.") bodyBg=rgb(179, 114, 144) dark=false
+
+## MEASURE — dark @1440 (populated)
+  [users] rows=3 paneBg=oklab(0.362792 0.0101461 0.0171963 / 0.7424) backdrop=none rowBg=rgba(0, 0, 0, 0) rowBorder=oklab(0.925196 0.00238398 0.00574207 / 0.12)
+         muted=rgb(195, 185, 172) ("Manage accounts and permission") bodyBg=rgb(103, 50, 85) dark=true
+  [names] rows=6 paneBg=oklab(0.362792 0.0101461 0.0171963 / 0.7424) backdrop=none rowBg=rgba(0, 0, 0, 0) rowBorder=oklab(0.925196 0.00238398 0.00574207 / 0.12)
+         muted=rgb(195, 185, 172) ("Review and approve color names") bodyBg=rgb(103, 50, 85) dark=true
+  [audit] rows=3 paneBg=oklab(0.362792 0.0101461 0.0171963 / 0.7424) backdrop=none rowBg=rgba(0, 0, 0, 0) rowBorder=oklab(0.925196 0.00238398 0.00574207 / 0.12)
+         muted=rgb(195, 185, 172) ("View admin action history.") bodyBg=rgb(103, 50, 85) dark=true
+  [flagged] rows=2 paneBg=oklab(0.362792 0.0101461 0.0171963 / 0.7424) backdrop=none rowBg=rgba(0, 0, 0, 0) rowBorder=oklab(0.925196 0.00238398 0.00574207 / 0.12)
+         muted=rgb(195, 185, 172) ("Review reported palettes.") bodyBg=rgb(103, 50, 85) dark=true
+  [tags] rows=3 paneBg=oklab(0.362792 0.0101461 0.0171963 / 0.7424) backdrop=none rowBg=oklab(0.22863 0.00364291 0.00732781 / 0.3) rowBorder=oklab(0.925196 0.00238398 0.00574207 / 0.12)
+         muted=rgb(195, 185, 172) ("Manage palette tag taxonomy.") bodyBg=rgb(103, 50, 85) dark=true
+
+## SKELETON REGISTER — light (loading freeze)
+  {"found":true,"classes":"rounded-input skeleton-over-glass skeleton-breath w-8 h-8 rounded-full shrink-0","animName":"skeleton-breath-cycle-e270610f","animDur":"6s","opacity":"0.845269","bg":"oklab(0.858983 0.00484434 0.0141267)","surface":"glass"}
+
+## SKELETON REGISTER — dark (loading freeze)
+  {"found":true,"classes":"rounded-input skeleton-over-glass skeleton-breath w-8 h-8 rounded-full shrink-0","animName":"skeleton-breath-cycle-e270610f","animDur":"6s","opacity":"0.843735","bg":"oklab(0.352286 0.00407478 0.0102198)","surface":"glass"}
+## FRAMES populated — done
+## FRAMES empty — done
+## FRAMES error — done
+
+## AUTH / PROFILE FLOW (1440)
+  [light] admin pill: {"found":true,"text":"admin","color":"oklch(0.751 0.147 84.2)","border":"oklch(0.751 0.147 84.2)"}
+  [dark] admin pill: {"found":true,"text":"admin","color":"oklch(0.784 0.143 86)","border":"oklch(0.784 0.143 86)"}
