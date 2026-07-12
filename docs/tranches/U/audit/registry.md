@@ -319,4 +319,40 @@ R-4/U-F77 scoped U-F29's cross-repo consumers to glass-ui ALONE and asserted "br
 
 ## §24 ROUND-6 = the final confirm
 
-The R-4 amendment is applied + verified by direct source read. Round 6 = one last fresh adversary on the amended registry: if it surfaces no material new family or broken reconciliation → the two-consecutive-refinements-bounded convergence is earned (each round strictly less: R4 four reconciliations → R5 one scoping completion → R6 target clean) and **the convergent design-loop FORMATION opens**, absorbing W8's terminal state. The formationReadiness wave-shape (round 5, contingent on this amendment): **W-lib-correctness** (U-F29/F30/F31/F32/F33 +F34/F35/F74, E-3-bound, born-RED driving BOTH glass-ui + keyframes, owner-held publish co-landing TWO peer floors) · **W-perf-shared-surface** (U-F3/F16/F76 + the mount-box ordering) · **W-a11y** (U-F4→producer, F25/F26/F27/F57 + F56 authed surface) · **W-adopt** (U-F2/F68/F77 — the disease wave) · **W-canon-hygiene** (U-F21/F49/F50/F51/F52/F69/F75 + F63/F64/F65/F66) · **W-security** (U-F36/F37/F38/F39/F40/F41) · **W-oracle-integrity** (U-F1/F6-oracle-half/F15/F42/F55-CI-teeth + F72/F73 test-hardening) · **W-demo-arch** (U-F45/F46/F47/F48). Real-GPU (U-F54) = the owner-attested annex. W9's Q14 (U-F3/F14/F16) = the perf-redemption inheritance.
+The R-4 amendment is applied + verified by direct source read. Round 6 = one last fresh adversary on the amended registry: if it surfaces no material new family or broken reconciliation → the two-consecutive-refinements-bounded convergence is earned (each round strictly less: R4 four reconciliations → R5 one scoping completion → R6 target clean) and **the convergent design-loop FORMATION opens**, absorbing W8's terminal state. The formationReadiness wave-shape seed is superseded by §26 (post round-6 amendment).
+
+---
+
+# ROUND 6 (2026-07-12) — the final-confirm attempt. 1 fresh adversary. Verdict UNSTABLE for ONE material finding (glass-ui's SECOND consumer path) — but delivered the CONSUMER-SCOPE COMPLETENESS PROOF. Amendment applied → round 7 = confirm on the now-exhausted scope. Budget 31/32.
+
+## §25 THE CONSUMER-SCOPE COMPLETENESS PROOF + the last gap (VERIFIED, applied)
+
+Round 6 did the exhaustive enumeration the prior rounds sampled:
+- **REPO AXIS — SWEPT COMPLETE**: globbed the whole ~130-repo constellation for `@mkbabb/value.js` pins → 5 non-sibling consumers (atlas, bbnf-buddy, fourier/web, muster/frontend, speedtest) ALL frozen at old majors (^0.10/^0.13/^1.2, real registry installs, NOT file: symlinks) — none can auto-adopt a 3.x minor or receive a 4.0.0 cut. **keyframes.js is confirmed the LAST cross-repo consumer on the repo axis.**
+- **PATH AXIS — the last gap, VERIFIED**: glass-ui has a SECOND, un-named DIRECT consumer of the exact functions R-2 targets — `../glass-ui/src/components/custom/border-progress/composables/spectrum-walk.ts:22` imports `{ mixColors, OKLCHColor, sampleColorRamp }` from `@mkbabb/value.js`, calls `mixColors(...)` at :58 + `sampleColorRamp(...)` at :90, and reads RAW `OKLCHColor` channels via `oklchToStop` (`:36-39` — `c.l`, `c.c`, `c.h*360`), **BYPASSING parseCSSColor and the toString/serialize layer entirely**. Ships live in glass-ui dist (`spectrum-walk-Clqk6-Gg.js`). Its own comment (`:30`) attests it is tuned to value.js's CURRENT normalized-in / hue-in-turns convention.
+
+**Why it's material**: R-2's U-F30 fix changes the `mixColors` OUTPUT convention (normalize-on-construct vs denorm-on-output). glass-ui's spectrum-walk reads that raw output — so the fix would **silently shift glass-ui's border-progress spectrum with NO born-RED on that surface** (boot-smoke catches export drift, not semantic-convention shifts).
+
+**AMENDMENT (applied)**: 
+1. **W-lib-correctness born-RED drives THREE consumer surfaces**, not two: (a) glass-ui `parseCSSColor` auto-adopt path (^3.1.0 minor), (b) **glass-ui DIRECT `mixColors`/`sampleColorRamp` path** (spectrum-walk.ts — reads raw OKLCHColor channels), (c) keyframes `parseCSSValue` ×3 + `parseCSSSubValue`/`parseCSSValueUnit`.
+2. **R-2 invariant pick CONSTRAINED**: the chosen U-F30 invariant (normalize-on-construct OR denorm-on-output) MUST provably PRESERVE the raw `OKLCHColor` channel convention glass-ui's spectrum-walk reads — OR glass-ui's spectrum-walk co-migrates (folds into the U-F77 co-land ordering exactly as keyframes did). The design loop picks with BOTH consumer paths in view.
+3. **§23 correction**: "the EXACT pipeline glass-ui uses" was incomplete — glass-ui has DUAL value.js pipelines (parseCSSColor→colorUnit2 AND direct mixColors→raw-channels).
+4. **Ledger honesty**: glass-ui's `parseCSSColor` usage is ~1-2 real call sites (composables/color/index.ts:24,119), not 5 (the other grep hits are comments/docs); glass-ui imports ZERO `parseCSSValue` (verified). The material claim (glass-ui does not consume the reshaped parseCSSValue) holds.
+
+**CONVERGENCE STATUS**: R4 (reconciliation classes) → R5 (keyframes, repo axis) → R6 (glass-ui direct path + the EXHAUSTIVE proof). The consumer axis is now provably closed (repo sweep complete + both siblings' full import surface enumerated); R6's own final scan for wave-ordering/family-split/build-vs-escalate/§13.5-E3 contradictions found NOTHING beyond this consumer-scope gap. Round 7 confirms on the exhausted scope.
+
+## §26 THE FORMATION WAVE-SHAPE (seed for the design loop — post-amendment)
+
+- **W-lib-correctness** — U-F29 (owner-ruled: loud/full-value) · U-F30 (+relative-color leak; physical-output or normalize-on-construct at the mix/relative locus, NOT the shared wrapper) · U-F31/F32/F33 · folds U-F34/F35/F74. **E-3-bound, born-RED per defect driving THREE consumer surfaces** (glass-ui parseCSSColor + glass-ui direct-mixColors + keyframes parseCSSValue). Owner-held publish (§13.5).
+- **W-adopt (the disease wave)** — U-F2 (glass-ui 5.0.0 at the cut) + U-F4 (producer PRM-dock) + U-F68 (lock refresh) + **U-F77 co-land ordering** binding the lib-correctness version cut against BOTH ^3.1.0 peer floors (glass-ui + keyframes) AND glass-ui's spectrum-walk convention co-migration.
+- **W-perf-shared-surface** — U-F3 (LCP) + U-F16 (CLS, same node) + **U-F76 mount-box coordination/ordering** so the reseats don't re-open CLS. W9's Q14 inherits U-F3/F14/F16.
+- **W-a11y** — U-F25/F26/F27/F57 + U-F56 (authed surface) (U-F4 → W-adopt/producer).
+- **W-canon-hygiene** — U-F21/F69 (doc-lies) · U-F49 (gitignore trap) · U-F50/F51/F52 (bloat/branches/scratch) · U-F63/F64/F65/F66 (build/tooling) · U-F75 (precept label).
+- **W-security** — U-F36 (impersonation) · U-F37 (+mongo-discipline precept) · U-F38/F39/F40/F41.
+- **W-oracle-integrity** — U-F1/F15/F42/F55-CI-teeth (the no-teeth CI slate) · U-F6-oracle-half (the O-14 feasibility-leg law) · U-F72/F73 (color test-hardening).
+- **W-demo-arch** — U-F45 (layer inversion) · U-F46 (token triplication) · U-F47 (colocation) · U-F48 (state cluster).
+- **Real-GPU (U-F54)** = the owner-attested visual annex; the §2 owner-eye still-reds (U-F5..F13, W8's terminal state absorbed) gate born-RED against a real-GPU/owner frame, never a headless assertion.
+
+## §27 ROUND 7 = confirm on the exhausted scope
+
+The consumer enumeration is exhaustive + the amendment applied. Round 7 = one fresh adversary verifying the completeness proof holds (no 3rd consumer path in either sibling; no other axis) and the §26 wave-shape carries no ordering contradiction. STABLE → the convergent design-loop formation opens on §26, absorbing W8's terminal state. The design loop's own critique phase catches residual polish — the audit does not run confirming passes indefinitely once the search space is provably closed.
