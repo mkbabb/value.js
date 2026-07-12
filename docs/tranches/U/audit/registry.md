@@ -7,6 +7,13 @@ adversarial against the close-class lies; registry stable after two consecutive 
 followed by the convergent formation. **This campaign is PLANNING-ONLY**: no source edits land
 from it (T.W8's remediation, running concurrently, is T's own and unaffected).
 
+**OWNER PROCESS EDICT (2026-07-12, binding on every campaign lane from round 3 onward)**:
+*"Parsimonious usage of playwright and dev tools MCP, as to not overwhelm context. Fastidious
+design and code analysis."* — static analysis first, live probes only to confirm a formed
+hypothesis; probes via purpose-built scripts emitting compact summaries (never raw DOM/console
+dumps in context); element-clipped captures over full-page; targeted, filtered DevTools calls.
+The probe budget forces selectivity, never shallowness.
+
 **The registry law**: two findings sharing a defect MECHANISM share a family, however
 differently worded. Dispositions here are CANDIDATES until formation; re-booking is forbidden —
 every family terminates in build / fold / retire / escalate with rationale. A family that has
