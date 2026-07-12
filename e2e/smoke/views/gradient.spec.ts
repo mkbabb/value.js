@@ -103,7 +103,7 @@ test("the rail is a normalized 90° projection; the render tile carries type + d
     expect(consoleErrors).toEqual([]);
 });
 
-test("selecting a stop pins the envelope plate to that stop's single-hue slice", async ({
+test("selecting a stop pins the envelope plate to its single-hue slice; Escape and re-tap un-pin it (P7-R1)", async ({
     page,
 }) => {
     const consoleErrors = setupEnvNoise(page);
@@ -117,9 +117,26 @@ test("selecting a stop pins the envelope plate to that stop's single-hue slice",
 
     // Pin: select the first stop — the label collapses to that hue alone
     // (the degenerate slice, the stated special case).
-    await handles(main).first().click();
+    const first = handles(main).first();
+    await first.click();
     await expect(plate).toContainText(/H \d+°/);
     await expect(plate).not.toContainText(/H \d+–\d+°/);
+
+    // Release leg A (P7-R1 — the EXIT the sweep regime lacked): Escape on
+    // the focused handle clears the selection, un-pinning the plate back to
+    // the swept-hue hero regime (a hue RANGE) WITHOUT destroying a stop.
+    await first.focus();
+    await page.keyboard.press("Escape");
+    await expect(plate).toContainText(/H \d+–\d+°/);
+    await expect(handles(main)).toHaveCount(2);
+
+    // Release leg B: a re-tap on the already-selected handle (the pointer
+    // twin of Escape — touch has no Escape key) toggles the selection off.
+    await first.click(); // re-pin
+    await expect(plate).not.toContainText(/H \d+–\d+°/);
+    await first.click(); // re-tap → deselect
+    await expect(plate).toContainText(/H \d+–\d+°/);
+    await expect(handles(main)).toHaveCount(2);
 
     expect(consoleErrors).toEqual([]);
 });

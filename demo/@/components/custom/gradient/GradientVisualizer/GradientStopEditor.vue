@@ -49,6 +49,14 @@ const hoveredId = ref<string | null>(null);
 const hoverPos = ref<number | null>(null);
 let pendingAdd: { x: number; y: number } | null = null;
 
+// ── The re-tap deselect (P7-R1: the sweep regime's EXIT) ──
+// Selecting a stop pins the envelope plate to its single-hue slice; the
+// sweep hero regime was one-way (no gesture un-pinned it). A re-tap on the
+// already-selected handle — a press that does NOT become a drag — clears the
+// selection, un-pinning the plate. This is Escape's pointer twin (touch has
+// no Escape), so it must NOT fire when the press turns into a drag.
+let handleGesture: { wasSelected: boolean; x: number; y: number; moved: boolean } | null = null;
+
 // ── Geometry (W5-11: end-handle truce) ──
 // Handle CENTERS ride an inset track [HANDLE_HALF, width - HANDLE_HALF], so
 // the 0%/100% handles sit fully INSIDE the bar instead of hanging half off
@@ -122,6 +130,12 @@ function onBarPointerLeave() {
 function onHandlePointerDown(e: PointerEvent, id: string) {
     e.preventDefault();
     e.stopPropagation();
+    handleGesture = {
+        wasSelected: selectedId.value === id,
+        x: e.clientX,
+        y: e.clientY,
+        moved: false,
+    };
     draggingId.value = id;
     selectedId.value = id;
     emit("select", id);
@@ -132,10 +146,23 @@ function onHandlePointerDown(e: PointerEvent, id: string) {
 
 function onHandlePointerMove(e: PointerEvent) {
     if (!draggingId.value) return;
+    if (
+        handleGesture &&
+        (Math.abs(e.clientX - handleGesture.x) > 4 ||
+            Math.abs(e.clientY - handleGesture.y) > 4)
+    ) {
+        handleGesture.moved = true;
+    }
     emit("update:position", draggingId.value, getPosition(e));
 }
 
 function onHandlePointerUp() {
+    // A press that never became a drag ON the already-selected handle is a
+    // re-tap → deselect (un-pin the plate; the touch/mouse EXIT — P7-R1).
+    if (handleGesture && handleGesture.wasSelected && !handleGesture.moved) {
+        selectedId.value = null;
+    }
+    handleGesture = null;
     draggingId.value = null;
 }
 
@@ -150,7 +177,12 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
     removeStop(id);
 }
 
-/** Keyboard: arrows nudge (±1, shift ±10); Delete/Backspace removes. */
+/**
+ * Keyboard: arrows nudge (±1, shift ±10); Delete/Backspace removes; Escape
+ * clears the selection (P7-R1 — un-pins the envelope plate back to the
+ * swept-hue hero regime; the handle keeps focus, the pin-on-select law is
+ * untouched — this is the EXIT the sweep regime lacked).
+ */
 function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
         e.preventDefault();
@@ -161,6 +193,9 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
     } else if (e.key === "Delete" || e.key === "Backspace") {
         e.preventDefault();
         removeStop(stop.id);
+    } else if (e.key === "Escape") {
+        e.preventDefault();
+        selectedId.value = null;
     }
 }
 </script>
@@ -210,7 +245,7 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
                 :data-stop-id="stop.id"
                 type="button"
                 :aria-label="`Gradient stop at ${Math.round(stop.position)}%`"
-                class="absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                class="rail-handle absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 :class="[
                     selectedId === stop.id
                         ? 'border-white ring-2 ring-primary z-10'
@@ -257,7 +292,7 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
             v-if="selectedStop && removable"
             type="button"
             aria-label="Remove selected stop"
-            class="absolute w-6 h-6 top-11 rounded-full border border-card-edge bg-well text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            class="rail-remove-chip absolute w-6 h-6 top-11 rounded-full border border-card-edge bg-well text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             :style="{
                 left: handleLeft(selectedStop.position),
                 transform: 'translate(-50%, 0)',
@@ -326,5 +361,32 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
     background-repeat: no-repeat, repeat;
     background-size: 100% 100%, 16px 16px;
     box-shadow: var(--shadow-sm);
+}
+
+/* ── Coarse-pointer hit inflation (P7-R2) ──
+   The 20×20 handles and the 24×24 remove chip under-serve the producer's
+   own --touch-target floor (44px), which the Direction slider thumb on this
+   same pane honours via `touch-hit-area`. That producer utility's ::before
+   carries `pointer-events: none` (a visual reservation, not a hit target),
+   so here we CONSUME its --touch-target token to mint a REAL hit-expander:
+   a centred, transparent ::before that IS a hit target (pointer-events left
+   at its `auto` initial). Because the pseudo belongs to the handle/chip
+   button (which carries data-stop-id / the remove role), a coarse tap in the
+   inflated zone targets the button — so the bar's add-on-click guard
+   (`target.closest("[data-stop-id]")`) already treats a handle-adjacent miss
+   as a grab, never an unintended mint (the add-gesture guard the row names).
+   Fine pointers see nothing — no visual delta, no paint/geometry change. */
+@media (pointer: coarse) {
+    .rail-handle::before,
+    .rail-remove-chip::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--touch-target, 2.75rem);
+        height: var(--touch-target, 2.75rem);
+        transform: translate(-50%, -50%);
+        border-radius: 9999px;
+    }
 }
 </style>

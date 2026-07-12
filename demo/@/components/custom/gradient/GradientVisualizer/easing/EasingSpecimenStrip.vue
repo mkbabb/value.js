@@ -178,7 +178,12 @@ watch(
 }
 .tile-glyph path {
     fill: none;
-    stroke: color-mix(in oklab, var(--foreground) 45%, transparent);
+    /* Resting portrait ink (P8-R2): 45% floated the sparkline under the
+       WCAG 1.4.11 3:1 graphics floor (~2.6:1, both schemes) — the gallery's
+       recognize-a-curve-by-its-shape thesis went faint. 65% clears 3:1 in
+       both schemes while staying visibly de-emphasized under the pressed
+       state (which inks to the full --motion-accent at a heavier weight). */
+    stroke: color-mix(in oklab, var(--foreground) 65%, transparent);
     stroke-width: 1.25;
     stroke-linecap: round;
     stroke-linejoin: round;

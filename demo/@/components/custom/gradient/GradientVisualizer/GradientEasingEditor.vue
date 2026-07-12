@@ -191,8 +191,15 @@ async function copyLiteral(index: number, css: string) {
                 />
 
                 <!-- The readout rail: the row's ONE literal + copy (the
-                     one-literal law) + the authoring disclosure. -->
-                <div class="readout-rail flex items-center gap-1.5">
+                     one-literal law) + the authoring disclosure. The rail
+                     carries the reservation-law WELL backing (P8-R1): the
+                     literal is `text-muted-foreground`, and on the raw
+                     translucent pane over the saturated atmosphere it
+                     composited ~2.7:1 (fails AA); a `bg-well` well floors it
+                     to the certified ink-on-well ratio (the condition chip's
+                     precedent) AND visually unifies the rail with the canvas
+                     plate below it. -->
+                <div class="readout-rail flex items-center gap-1.5 rounded-md bg-well px-2 py-1">
                     <code class="fira-code text-mono-small text-muted-foreground truncate flex-1 min-w-0" :title="row.css">{{ row.css }}</code>
                     <button
                         type="button"
