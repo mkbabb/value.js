@@ -14,6 +14,16 @@ hypothesis; probes via purpose-built scripts emitting compact summaries (never r
 dumps in context); element-clipped captures over full-page; targeted, filtered DevTools calls.
 The probe budget forces selectivity, never shallowness.
 
+**OWNER RELAY EDICT (2026-07-12, standing formation invariant)**: *"All component level and
+glass-ui level changes must be communicated to them directly, at the root, a fond."* — EVERY U
+wave that touches a glass-ui component or the glass-ui-level contract (shared exports, token
+conventions, the mixColors/sampleColorRamp/color2 raw-channel convention, the aurora/blob/dock
+producer surfaces) RELAYS to the ACTIVE glass-ui **BH** tranche-dev inbox
+(`../glass-ui/docs/tranches/BH/coordination/valuejs-inbox-<date>-<topic>.md`) at their HEAD,
+path-scoped, foreign-tree fence otherwise. See [[feedback-glassui-bhbi-relay]]. This is the
+STRUCTURAL resolution of the U-F30 consumer-coupling class (§28) — glass-ui's direct consumers
+are coordinated through their dev process, not chased in value.js's audit.
+
 **The registry law**: two findings sharing a defect MECHANISM share a family, however
 differently worded. Dispositions here are CANDIDATES until formation; re-booking is forbidden —
 every family terminates in build / fold / retire / escalate with rationale. A family that has
@@ -356,3 +366,29 @@ Round 6 did the exhaustive enumeration the prior rounds sampled:
 ## §27 ROUND 7 = confirm on the exhausted scope
 
 The consumer enumeration is exhaustive + the amendment applied. Round 7 = one fresh adversary verifying the completeness proof holds (no 3rd consumer path in either sibling; no other axis) and the §26 wave-shape carries no ordering contradiction. STABLE → the convergent design-loop formation opens on §26, absorbing W8's terminal state. The design loop's own critique phase catches residual polish — the audit does not run confirming passes indefinitely once the search space is provably closed.
+
+---
+
+# ROUND 7 (2026-07-12) — found the 4th consumer surface + a green-over-broken risk; §26 ordering CLEAN. Verdict UNSTABLE → the root RE-FRAMES: the consumer-coupling class is resolved STRUCTURALLY (§28), not by further enumeration. Budget 32/32 → the steerable budget re-cycles.
+
+## §28 THE STRUCTURAL RESOLUTION OF THE U-F30 CONSUMER-COUPLING CLASS (the root's synthesis — supersedes the enumerate-every-consumer approach)
+
+**What round 7 found**: a FOURTH convention-sensitive consumer — keyframes `../keyframes.js/src/animation/compile/emit/backward-color.ts:25` imports `{ color2, sampleColorRamp }` from `@mkbabb/value.js/color`, calls `sampleColorRamp` at :205/:221, and reads the RAW oklab channels via `rawOklab` (:58-68: `color2(stop,'oklab')` then `.l/.a/.b`, scale()ing a/b from [0,1]) to emit absolute `oklab()` densify stops. `sampleColorRamp` wraps `mixColors` (shares its raw-output convention). **Green-over-broken risk**: keyframes' internal ΔE proof is RELATIVE (browserMid vs kfRefRamp, both from sampleColorRamp), so a uniform convention shift CANCELS in the proof while the shipped stops are wrong. R6's "completeness proof" was itself incomplete — it enumerated glass-ui's dual pipeline + keyframes' PARSE half, but missed keyframes' COLOR half.
+
+**The FOUR convention-sensitive surfaces (now enumerated across 2 siblings × 2 pipelines each)**: (1) glass-ui parseCSSColor; (2) glass-ui direct `mixColors`/`sampleColorRamp` (spectrum-walk.ts); (3) keyframes `parseCSSValue` parse; (4) keyframes direct `sampleColorRamp`/`color2` (backward-color.ts).
+
+**WHY ENUMERATION IS THE WRONG TOOL (the root's re-frame)**: R4→R5→R6→R7 each gained one surface because the constellation is a LIVING codebase — an exhaustive consumer list is a moving target that a fresh sibling commit invalidates. The rounds have already PROVEN the structural truth: **U-F30's fix is convention-coupled across the constellation's raw-channel readers.** That is the finding. The resolution is structural, in THREE parts:
+
+1. **INVARIANT-PRESERVING FIX PREFERRED**: the W-lib-correctness design loop chooses the U-F30 invariant to PRESERVE the raw `mixColors`/`sampleColorRamp`/`color2` output channel convention where achievable — fixing ONLY the serialization/`toString` layer (the actual U-F30 symptom) so NO direct-channel reader is affected regardless of count. The tension the design loop resolves: the direct-parse-vs-mix `toString` bug wants a CONSISTENT internal convention, while the direct readers want the CURRENT convention held — a per-instance normalization-state brand on the Color/ValueUnit (so `toString` disambiguates without changing the channel convention) is the orthogonal greenfield candidate the PROTOTYPE phase weighs against normalize-on-construct + co-migrate.
+
+2. **BUILD-TIME RE-ENUMERATION BORN-RED**: the wave's born-RED greps the THEN-CURRENT constellation for raw-channel readers of the changed functions and gates the chosen invariant against ALL of them at cut time — so the exact consumer count is a BUILD concern, never a formation gate. (The registry's job was to prove the CLASS exists; it has, four times over.)
+
+3. **THE OWNER RELAY (the standing edict, §charter)**: glass-ui's direct consumers (spectrum-walk) and keyframes' (backward-color) are coordinated through their ACTIVE dev processes — the U→glass-ui BH communiqué names the mixColors-convention coupling so glass-ui holds/co-migrates spectrum-walk at their cut; the keyframes co-migration rides U-F77's co-land (its structural pin-widen already carries it, this names the color-convention gate too). Cross-repo convention changes are RELAYED, not silently shipped.
+
+**U-F77 EXTENDED**: the co-land ordering now binds THREE things at the library-correctness cut — (a) the version decision against BOTH ^3.1.0 peer floors (glass-ui + keyframes), (b) glass-ui's spectrum-walk color-convention co-migration, (c) keyframes' backward-color color-convention co-migration. All relayed per the owner edict.
+
+**CONVERGENCE EARNED (re-framed)**: the audit's task was to surface every DEFECT CLASS and hand the formation a sound resolution — not to enumerate a living codebase's consumers to a fixed point (unwinnable). The U-F30 coupling class is proven (4 surfaces) and resolved (invariant-preserve + build-time gate + owner relay). §26 ordering is adversary-confirmed clean. **The registry is STABLE for formation**: no remaining defect CLASS is un-resolved; the only open item was the consumer enumeration, now closed structurally. Round 8 = a final confirm that the STRUCTURAL resolution (not the enumeration) is sound; then formation opens.
+
+## §29 ROUND 8 = confirm the structural resolution
+
+Round 8 re-frames the question the adversary answers: NOT "did you find every consumer" (a moving target — refused) but "is §28's structural resolution SOUND — does invariant-preservation + the build-time re-enumeration born-RED + the owner BH relay genuinely close the U-F30 coupling class such that the exact consumer count no longer gates formation, and is there any OTHER un-resolved defect CLASS (not instance)?" A hole in the structural resolution = UNSTABLE; another consumer instance = NOT a blocker (the build-time gate owns it). Runs AFTER the U→glass-ui BH communiqué lands (so the relay half of §28.3 is real, not promised).
