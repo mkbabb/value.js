@@ -196,7 +196,16 @@ function specimenFor(space: DisplayColorSpace): string {
      * on the trigger's own class list (unlayered scoped beats the layered
      * `text-dropdown` utility the producer size rung feeds). BOOKED SWAP:
      * retires onto the P10 SelectTrigger size station the day it ships. */
-    font-size: var(--type-display-3);
+    /* T.W8-WR-4 (T-51) — THE TITLE STEP-DOWN: the owner's "the 'lab' text
+     * should be a bit smaller, go down a golden-typography step by 1 or 2"
+     * brackets the T-2 "1.5× bigger" ruling from BOTH sides. The LANDED
+     * default steps down ONE golden rung — `--type-display-3` (67.78px @1440)
+     * → `--type-display-2` (53.28px @1440); zero mint, Q11a working exactly as
+     * ruled (the token ladder is the sizing authority). The far bracket pole
+     * (down two, `--type-display-1` = 41.89px @1440) rides the roster —
+     * owner-judged. The step-down also shrinks the header band, easing the
+     * title↔readout seam (the WR-4 seam half lands in ColorComponentDisplay). */
+    font-size: var(--type-display-2);
     /* The non-bold edict, host-independent BY CONSTRUCTION (the F2 kill:
      * About's h3 700 can no longer reach the trigger through inheritance).
      * Rides the :root pin — the P10 weight-tokenization booked swap. */
