@@ -38,11 +38,20 @@
  * aurora/blob derives already ride.
  */
 
-import { watch } from "vue";
+import { computed, watch } from "vue";
 import type { ComputedRef } from "vue";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 
 import type { PaneConfig } from "@composables/viewSchema";
-import { resolvePalettesRamp } from "@composables/color/palettes-ramp";
+import {
+    resolvePalettesRamp,
+    RAMP_TEXT_CONTRAST_FLOOR,
+    RAMP_LARGE_TEXT_CONTRAST_FLOOR,
+} from "@composables/color/palettes-ramp";
+import {
+    bumpProbeEpochOnMount,
+    resolveSurfaceLightnessLive,
+} from "@composables/color/useContrastSafeColor";
 import { resolveSealInk, resolveViewAccent } from "./view-accents";
 
 export interface UseViewAccentsOptions {
@@ -67,28 +76,82 @@ export interface UseViewAccentsOptions {
 export function useViewAccents(options: UseViewAccentsOptions): void {
     const { cssColorOpaque, safeAccentCss, currentConfig, derivedLightness } =
         options;
+    const { isDark } = useGlobalDark();
+
+    // T.W8 · WR-8 — the ramp writer folds the ink.ts LIVE surface probe into
+    // its own computeds (the ConsoleRail idiom, `useContrastSafeColor` doc):
+    // register the mount-truth signal so the first (pre-connection) probe
+    // re-drives once the DOM is attached. Idempotent-ish (increments the
+    // shared epoch on THIS composable's mount) — the sibling
+    // `useContrastSafeColor` in the same boot bumps it too; either re-drives
+    // the surface computeds below through ordinary reactivity.
+    bumpProbeEpochOnMount();
+
+    // WR-8 root 1 — THE CARD SURFACE the two ramp sites sit on (D6: the
+    // referent is a property of the surface, never the page ambient).
+    // Resolved LIVE + SCHEME-TRUE through the ink.ts surface machinery (the
+    // probe cache is keyed on the `.dark` class, so a scheme flip self-heals)
+    // — the cure for the scheme-blindness the landed page-ambient referent
+    // shipped (GAP-L2: the field L band does not flip on scheme — probed
+    // `--ink-ambient-l` ≈ 0.77 in BOTH schemes — so the ambient could never
+    // carry the flip). BOTH ramp sites sit on RESTING-class plates: the pane
+    // title on the pane card; the dock view dropdown's SelectContent glass —
+    // MEASURED (T.W8 probe, owner seed, both schemes) — composites like the
+    // resting model (dark lum .097 vs resting .084 vs the far-too-dark
+    // floating .046; light .753 vs .739 vs .815), so the resting referent is
+    // the empirically-true surface for the popover, not the thin floating
+    // tint. The per-site SPLIT is therefore the FLOOR (root 3), not the
+    // surface. This computed tracks the probe epoch + scheme + ambient,
+    // re-firing the watch on any.
+    const surfaceL = computed(() =>
+        resolveSurfaceLightnessLive(
+            "resting",
+            derivedLightness.value,
+            isDark.value,
+        ),
+    );
 
     // The CURRENT view's accent — `--primary` rides it (style.css). Admin
     // views carry shift 0, so admin surfaces keep the live-accent voice.
-    // The SAME watch writes the guarded letterform ramp (W6-4): the ramp is
-    // a pure function of the same two inputs (accent + ambient), so the one
-    // watch stays the one writer — no second clock, no second mint.
-    // D6 honesty note: the referent is the SURFACE (the live field), and the
-    // field's L band does not move on a scheme flip today (GAP-L2 — the dark
-    // lBand rides P1/W7); when it lands, the ambient ref carries the flip
-    // automatically.
+    // The SAME watch writes the guarded letterform ramp (W6-4): ONE watch,
+    // ONE writer — no second clock, no second mint. The ramp now resolves
+    // PER SITE (WR-8 root 3): the ~16px menu entry at the 4.5 text floor
+    // (`--palettes-ramp-0/1/2`, the DockViewSelect consume, unchanged), the
+    // display-scale pane title at the 3:1 large-text floor
+    // (`--palettes-ramp-title-0/1/2`, aliased into the `.palettes-ramp-text`
+    // recipe by PalettesPane) — each against ITS OWN surface, one resolver,
+    // per-site CERTIFIED OUTPUTS (never two mints).
     watch(
-        [safeAccentCss, derivedLightness, () => currentConfig.value.accentHueShift],
-        ([css, bgL, shift]) => {
+        [
+            safeAccentCss,
+            derivedLightness,
+            surfaceL,
+            () => currentConfig.value.accentHueShift,
+        ],
+        ([css, bgL, surfL, shift]) => {
             const root = document.documentElement.style;
             const resolved = resolveViewAccent(css, shift ?? 0, bgL);
             if (resolved) {
                 root.setProperty("--accent-view", resolved);
             }
-            const ramp = resolvePalettesRamp(css, bgL);
-            if (ramp) {
-                ramp.forEach((stop, i) => {
+            const menuRamp = resolvePalettesRamp(
+                css,
+                surfL,
+                RAMP_TEXT_CONTRAST_FLOOR,
+            );
+            if (menuRamp) {
+                menuRamp.forEach((stop, i) => {
                     root.setProperty(`--palettes-ramp-${i}`, stop);
+                });
+            }
+            const titleRamp = resolvePalettesRamp(
+                css,
+                surfL,
+                RAMP_LARGE_TEXT_CONTRAST_FLOOR,
+            );
+            if (titleRamp) {
+                titleRamp.forEach((stop, i) => {
+                    root.setProperty(`--palettes-ramp-title-${i}`, stop);
                 });
             }
         },

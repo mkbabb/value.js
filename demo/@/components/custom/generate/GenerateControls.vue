@@ -12,6 +12,7 @@ import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
 import { RefreshCw, Save, Copy } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { PaletteColorStrip } from "@components/custom/palette-browser/card";
 // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
 // the chip module + spec; the GenerateControls consume routes through Lane
@@ -184,17 +185,25 @@ defineExpose({ regenerate, save, copyColors });
 
             <!-- Specimen swatches — each a direct copy verb (the catalog
                  card's popover-copy, collapsed to one honest click; the
-                 dead add/edit emits die with the borrowed card). -->
+                 dead add/edit emits die with the borrowed card). WR-6 / T-54:
+                 the plain rounded-rects join the ruled WatercolorDot register
+                 (the 9-consumer species) — the button stays the copy-verb
+                 seat (`tag="button"`), the dot its organic face, seeded stable
+                 per (color,i). T-28's outline law rides: NO geometric focus
+                 ring on the organic edge (the filled-dot register — rings ride
+                 the silhouette via the producer P5 register, or do not exist —
+                 the MixSourceSelector precedent). -->
             <div class="px-3 pb-1 flex flex-wrap gap-1.5">
-                <button
+                <WatercolorDot
                     v-for="(css, i) in palette"
                     :key="i"
-                    type="button"
-                    class="generate-swatch w-9 h-9 sm:w-10 sm:h-10 rounded-md cursor-pointer active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-                    :style="{ backgroundColor: css }"
+                    :color="css"
+                    tag="button"
+                    :seed="`gen-${css}-${i}`"
+                    class="generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none"
                     :aria-label="`Copy ${css}`"
                     @click="copyColor(css)"
-                ></button>
+                />
             </div>
 
             <!-- The bench note: seed as provenance, select-all kept. -->
@@ -221,7 +230,12 @@ defineExpose({ regenerate, save, copyColors });
                             :key="p"
                             :value="p"
                         >
-                            {{ capitalize(p) }}
+                            <!-- P9-R5: the NAME lane joins the dropdown family's
+                                 DISPLAY voice (the ColorSpaceSelector precedent,
+                                 weight-inherited 400 per T-40) — the bare-sans
+                                 name-lane fork is closed; the description lane
+                                 stays micro sans. -->
+                            <span class="font-display">{{ capitalize(p) }}</span>
                             <!-- T-17/F5+F7: chip leading, description after —
                                  the strip is the row's own seed-exact truth. -->
                             <template #description>
@@ -250,7 +264,8 @@ defineExpose({ regenerate, save, copyColors });
                             :key="h"
                             :value="h"
                         >
-                            {{ capitalize(h) }}
+                            <!-- P9-R5: the NAME lane joins the display voice. -->
+                            <span class="font-display">{{ capitalize(h) }}</span>
                             <!-- T-17/F5+F7: chip leading, description after. -->
                             <template #description>
                                 <span class="flex items-center gap-2 min-w-0">
@@ -292,13 +307,3 @@ defineExpose({ regenerate, save, copyColors });
         </div>
     </div>
 </template>
-
-<style scoped>
-/* F8's designed-color-outranks-bleed hairline (the color-chips module's
- * recipe verbatim): light swatches survive the light well, dark swatches
- * the dark one. */
-.generate-swatch {
-    box-shadow: inset 0 0 0 1px
-        color-mix(in oklab, var(--foreground) 12%, transparent);
-}
-</style>

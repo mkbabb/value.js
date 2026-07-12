@@ -116,10 +116,16 @@ const headerDescription = computed(() => {
 
 const adminCount = computed(() => {
     switch (subView) {
-        case "admin-users": return pm.adminUsers.value.length;
+        // A-3: suppress the badge while the roster/queue loads — a "0" over
+        // the loading skeletons lies (the length is 0 before data arrives).
+        case "admin-users":
+            return pm.loadingUsers.value ? null : pm.adminUsers.value.length;
         // S.W5-7 (F-12): the header badge is the ACTIONABLE queue — the old
         // pending+approved sum matched neither visible list.
-        case "admin-names": return pm.filteredColorQueue.value.length;
+        case "admin-names":
+            return pm.loadingColorQueue.value
+                ? null
+                : pm.filteredColorQueue.value.length;
         default: return null;
     }
 });

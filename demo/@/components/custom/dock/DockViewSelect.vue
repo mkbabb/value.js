@@ -96,22 +96,23 @@ const pm = inject(PALETTE_MANAGER_KEY)!;
                     hide-indicator
                 >
                     <!-- W6-4 (T-10) — the INK menu: icon + label, both the
-                         popover foreground; selection stays weight + the
-                         producer's glass-quiet highlighted row. The one
-                         chromatic row is Palettes (Q5 RULED): its label
-                         letterforms wear the guarded ramp — the nav row
-                         whose destination IS color data. The W7-4 legend
-                         (per-row hue + dot swatch column) died here. -->
+                         popover foreground. P4-R4 (T-40a): the current
+                         entry's `font-semibold` selection marker is RETIRED
+                         (the ColorSpaceSelector precedent — the owner's
+                         "dropdown options should not be bold"): EVERY option
+                         computes 400, selection speaks reka's `aria-selected`
+                         + the producer's glass-quiet highlighted-on-open row,
+                         never weight. The one chromatic row is Palettes (Q5
+                         RULED): its label letterforms wear the guarded ramp —
+                         the nav row whose destination IS color data. The W7-4
+                         legend (per-row hue + dot swatch column) died here. -->
                     <span class="flex items-center gap-2">
                         <component
                             :is="entry.icon"
                             class="w-4 h-4 shrink-0"
                         />
                         <span
-                            :class="[
-                                currentView === entry.id ? 'font-semibold' : '',
-                                entry.id === 'palettes' ? 'palettes-ramp-text' : '',
-                            ]"
+                            :class="entry.id === 'palettes' ? 'palettes-ramp-text' : ''"
                         >{{ entry.label }}</span>
                     </span>
                 </SelectItem>

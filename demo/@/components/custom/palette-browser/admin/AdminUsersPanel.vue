@@ -2,10 +2,13 @@
     <div class="grid gap-3 pb-3">
         <!-- Admin toolbar -->
         <div class="flex items-center gap-2 flex-wrap">
-            <span class="text-mono-small text-muted-foreground">
+            <!-- A-3: the count speaks only once the roster resolves — a "0
+                 users" line above three loading skeletons is a self-
+                 contradiction (totalUsers is 0 before the data arrives). -->
+            <span v-if="!loading" class="text-mono-small text-muted-foreground">
                 {{ totalUsers }} user{{ totalUsers !== 1 ? 's' : '' }}
             </span>
-            <span v-if="emptyCount > 0" class="text-mono-small text-muted-foreground">
+            <span v-if="!loading && emptyCount > 0" class="text-mono-small text-muted-foreground">
                 · {{ emptyCount }} empty
             </span>
             <div class="flex-1" />

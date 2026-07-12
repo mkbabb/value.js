@@ -101,10 +101,19 @@ const { toggleDark } = useGlobalDark();
 
         <!-- Not logged in -->
         <template v-else>
+            <!-- P9-R4 (Q10): the `border-primary/30` accent voice was
+                 cascade-DEAD — the outline variant paints its border via
+                 inset highlight shadows (`border: none 0px`), so the width
+                 never survived. Re-land the accent on the channels the
+                 variant ACTUALLY paints — the certified chrome-rung ink
+                 (text + icon), the exact idiom the logged-in Profile trigger
+                 already wears — so "Tools/Login CHROME keeps the live accent"
+                 is live at Login too, never decorative dead code. -->
             <Button
                 variant="outline"
                 size="xs"
-                class="gap-1.5 text-mono-small font-bold whitespace-nowrap border-primary/30"
+                class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
+                :style="{ color: triggerInk, borderColor: triggerInk }"
                 @click="emit('startSlugEdit')"
             >
                 <LogIn class="w-3.5 h-3.5" />

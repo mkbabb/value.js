@@ -37,6 +37,7 @@ import {
 import {
     PALETTES_RAMP_SHIFTS,
     RAMP_TEXT_CONTRAST_FLOOR,
+    RAMP_LARGE_TEXT_CONTRAST_FLOOR,
     resolvePalettesRamp,
 } from "../demo/@/composables/color/palettes-ramp";
 import { VIEW_MAP } from "../demo/@/composables/viewSchema";
@@ -129,39 +130,63 @@ describe("W7-4 — the current-view accent (O-13-slimmed: the R1 survivor)", () 
     });
 });
 
-describe("W6-4 — the guarded letterform ramp (Q5 RULED; O-14's T-10 referent)", () => {
-    it("the ruled form: three analogous stops, ±40° about the live accent", () => {
+describe("W6-4/WR-8 — the guarded letterform ramp (Q5 RULED; O-14's T-10 referent; the per-site surface cure)", () => {
+    it("the ruled form: three analogous stops, ±40°; the two per-site floors", () => {
         expect(PALETTES_RAMP_SHIFTS).toEqual([-40, 0, 40]);
         expect(RAMP_TEXT_CONTRAST_FLOOR).toBe(4.5);
+        expect(RAMP_LARGE_TEXT_CONTRAST_FLOOR).toBe(3);
     });
 
-    for (const [schemeName, bgL] of Object.entries(SCHEMES)) {
+    /**
+     * WR-8 — the cure certifies against the CARD SURFACE the letterforms sit
+     * on (the `resolveSurfaceLightness` output band), NOT the mid page ambient
+     * the wreck used. At these realistic per-scheme grounds every site floor
+     * is reachable WITH chroma via the feasibility-aware cusp walk — the
+     * near-black L≈0.02 clamp (2.03:1 dark / monochrome light) cannot recur.
+     */
+    const CARD_SURFACES = { "light card": 0.68, "dark card": 0.35 } as const;
+    const SITE_FLOORS = {
+        "menu 4.5": RAMP_TEXT_CONTRAST_FLOOR,
+        "title 3": RAMP_LARGE_TEXT_CONTRAST_FLOOR,
+    } as const;
+
+    for (const [schemeName, surfaceL] of Object.entries(CARD_SURFACES)) {
         for (const [pickName, pickCss] of Object.entries(PICKS)) {
-            it(`≥4.5:1 text floor — ${pickName}, ${schemeName} scheme, all 3 stops`, () => {
-                const ramp = resolvePalettesRamp(pickCss, bgL);
-                expect(ramp, "ramp resolves").not.toBeNull();
-                expect(ramp).toHaveLength(3);
-                for (const stop of ramp!) {
-                    expect(
-                        ratioAgainst(stop, bgL),
-                        `${stop} vs ${schemeName} bg`,
-                    ).toBeGreaterThanOrEqual(RAMP_TEXT_CONTRAST_FLOOR);
-                }
-            });
+            for (const [floorName, floor] of Object.entries(SITE_FLOORS)) {
+                it(`clears the ${floorName} floor on the ${schemeName} — ${pickName}, chromatic (never the near-black clamp)`, () => {
+                    const ramp = resolvePalettesRamp(pickCss, surfaceL, floor);
+                    expect(ramp, "ramp resolves").not.toBeNull();
+                    expect(ramp).toHaveLength(3);
+                    for (const stop of ramp!) {
+                        expect(
+                            ratioAgainst(stop, surfaceL),
+                            `${stop} vs ${schemeName}`,
+                        ).toBeGreaterThanOrEqual(floor);
+                        // Feasibility: the cure never ships the L≈0.02 clamp.
+                        expect(
+                            parseResolved(stop).L,
+                            `${stop} is not near-black-clamped`,
+                        ).toBeGreaterThan(0.05);
+                    }
+                });
+            }
         }
     }
 
     it("the fan is hue-distinct — the ramp reads as a ramp, not one ink", () => {
         const ramp = resolvePalettesRamp(
             PICKS["chromatic default (the P1-4 measured pick)"],
-            AMBIENT_BAND.brightest,
+            CARD_SURFACES["dark card"],
+            RAMP_TEXT_CONTRAST_FLOOR,
         )!;
         const hues = ramp.map((s) => Math.round(parseResolved(s).H / 10));
         expect(new Set(hues).size).toBe(3);
     });
 
     it("unparseable accent resolves to null (the writer keeps the last tokens)", () => {
-        expect(resolvePalettesRamp("not-a-color", 0.5)).toBeNull();
+        expect(
+            resolvePalettesRamp("not-a-color", 0.5, RAMP_TEXT_CONTRAST_FLOOR),
+        ).toBeNull();
     });
 });
 

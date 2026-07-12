@@ -8,8 +8,21 @@
              Q4-record moment surviving, relocated per the ruled form; every
              OTHER pane title stays ink (S.W5-7 stands for the rest). -->
         <PaneHeader description="Save, organize, and share your colors.">
-            <span class="capitalize">My <span class="palettes-ramp-text">Palettes</span></span>
-            <Badge v-if="pm.savedPalettes.value.length > 0" variant="secondary" class="text-mono-small ml-2">{{ pm.savedPalettes.value.length }}</Badge>
+            <!-- P4-R1 (WR-8): the title is LARGE text — it consumes the
+                 per-site title ramp (3:1 large-text floor, certified against
+                 the resting plate) aliased into the shared recipe slots;
+                 utils.css untouched, the menu entry keeps the 4.5 default. -->
+            <span class="capitalize">My <span class="palettes-ramp-text" :style="rampTitleVars">Palettes</span></span>
+            <!-- P4-R3 (a11y): the count badge leaves the heading's accessible
+                 name (`aria-hidden`) so AT never announces "My Palettes2"; an
+                 sr-only companion carries the count with a separator. -->
+            <Badge
+                v-if="pm.savedPalettes.value.length > 0"
+                variant="secondary"
+                class="text-mono-small ml-2"
+                aria-hidden="true"
+            >{{ pm.savedPalettes.value.length }}</Badge>
+            <span v-if="pm.savedPalettes.value.length > 0" class="sr-only"> ({{ pm.savedPalettes.value.length }} saved)</span>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <!-- S.W5-7: the twin placeholder ("Search palettes..." in BOTH
@@ -134,6 +147,16 @@ const emit = defineEmits<{
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;
+
+// WR-8 (P4-R1): alias the per-site TITLE ramp tokens into the shared
+// `.palettes-ramp-text` recipe's `--palettes-ramp-*` slots. The fallbacks
+// mirror utils.css so there is no pre-first-resolve flash (utils.css stays
+// LANE-5-owned + untouched; the token NAMES are kept).
+const rampTitleVars = {
+    "--palettes-ramp-0": "var(--palettes-ramp-title-0, oklch(0.632 0.214 333.5))",
+    "--palettes-ramp-1": "var(--palettes-ramp-title-1, oklch(0.632 0.214 13.5))",
+    "--palettes-ramp-2": "var(--palettes-ramp-title-2, oklch(0.632 0.214 53.5))",
+} as const;
 
 const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
 
