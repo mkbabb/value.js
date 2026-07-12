@@ -394,7 +394,29 @@
      * the dock's space, so there is nothing left to derive) */
     --dock-border-width: 3px;
     --dock-padding-y: 0.75rem;
+    /* --dock-h is the control/separator basis (it shadows glass-ui's identical
+     * :root value, which feeds `--dock-separator-height: --dock-h × 0.5`); it
+     * is NOT the band floor — inflating it would grow the producer's dock
+     * separator by construction (probed 27.5→36px). The band floor is the
+     * dedicated `--dock-band-min-h` below. */
     --dock-h: calc(var(--size-icon-btn) + var(--dock-padding-y) + var(--dock-border-width));
+    /* ── The dock-band floor (T.W8 · P9-R2/WR-9/T-57 — the reflow cure) ──
+     * The .dock-band is row 1 of the `auto 1fr` shell grid; its height tracked
+     * the dock's content, so idle-collapse↔re-expand SHRANK then GREW the band
+     * (measured: EXPANDED band 71.4px, COLLAPSED 65.4px → the centred
+     * .pane-container shifted 99.7↔102.7 = +3.0px every cycle, both schemes —
+     * the T-57 downshift the owner redded). The T-31 band law now EXTENDS to
+     * the collapse↔expand AXIS: the band floors at the TALLEST (expanded) state
+     * so the pill/seal/action-bar morph renders INSIDE a constant band by
+     * construction (the shorter collapsed seal centres in the reserved box) —
+     * zero z-index arms, never a margin patch. The reserve = the control atom
+     * (`--size-icon-btn` 40px) + the dock chrome the expanded pill adds above
+     * it (measured 31.4px = block-padding 16 + border 3 + control-vs-icon 6 +
+     * the inline-flex line-box descent 6.4), rounded to 2rem (72px ≥ 71.4). It
+     * RETIRES to the producer `--dock-pill-h` rung when it ships (communiqué
+     * §1.9c); the O-15/t31 band-height invariance probe across the morph is the
+     * drift guard until then. */
+    --dock-band-min-h: calc(var(--size-icon-btn) + 2rem);
     --dock-inset: 1rem;
     --dock-gap: 1rem;
     /* The scene band's own height IS the honest cap (row 2 of the shell
@@ -480,16 +502,20 @@
 }
 
 /* The a11y landmarks are the two band rows. <nav> IS the dock band —
- * in-flow, static, centring the pill; --dock-h floors it so the band never
- * jitters across the dock's collapse↔expand morph (the collapsed seal is
- * height-pinned square, same height by producer construction). position:
- * relative seats the band-chrome instruments (the W6-6 status lamp). */
+ * in-flow, static, centring the pill; --dock-band-min-h floors it at the
+ * EXPANDED-pill height so the band never jitters across the dock's
+ * collapse↔expand morph (T.W8 · P9-R2/T-57: the former --dock-h floor sat
+ * BELOW the expanded pill, so the band grew 6.4px on every re-expand and
+ * shifted the scene +3.0px — the reservation now covers the tallest state by
+ * construction, the shorter collapsed seal centring in the reserved box).
+ * position: relative seats the band-chrome instruments (the W6-6 status
+ * lamp). */
 .dock-band {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: var(--dock-h);
+    min-height: var(--dock-band-min-h);
 }
 
 /* <main> (.pane-main) is the scene band: it centres the pane container
@@ -594,6 +620,24 @@
  * hue" navy hairline) and FOUGHT the producer's ladder; they are deleted, not
  * retuned — zero borders compute in the 200–240 navy band. */
 .dark {
+    /* PROJECT OVERRIDE — the dark-scheme cartoon caster is a SHADOW, not a
+     * highlight (T.W8 · P6-R1/WR-5/T-53, the caster re-cut). At :root
+     * `--shadow-color: var(--foreground)` — correct in light (the foreground
+     * IS the stone ink), but in dark `--foreground` is the CREAM ink
+     * (#e9e6e2 ≈ srgb 0.914 0.902 0.886), so every shadow-card/shadow-cartoon
+     * consumer cast a LIGHT 8px slab: a "shadow" up to +88/255 BRIGHTER than
+     * the ground it shades (measured 143–161/255 over grounds of 55–92/255 —
+     * the owner's re-sighted "artifact at the edges of the top border of
+     * cards", NOT the T-45 blur class: bisection-proven filter-independent).
+     * Pin the caster ink to the STONE form (the light arm's own value) so the
+     * caster stays a scheme-true SHADOW in both schemes; the dark-tuned alpha
+     * (50/55%) below now paints stone-over-bright-field = honest depth. The
+     * cartoon OFFSET register (8px/0-blur stamp, D1) survives UNTOUCHED — this
+     * is the ONE knob (`--shadow-color`), never a producer fork (the P3 book
+     * stands for its own smear class). Pole A of the P6-B1 register bracket;
+     * the owner rules which register dark speaks in. */
+    --shadow-color: color(srgb 0.11 0.098 0.09);
+
     /* Lighter cartoon shadows in dark mode; --shadow-card / --shadow-card-hover
      * resolve through these via the var() reference set in :root. */
     --shadow-cartoon: 8px 8px 0px 0px color-mix(in srgb, var(--shadow-color) 50%, transparent);
@@ -605,6 +649,26 @@
      * glass-ui's dark arm re-declares --focus-ring-color to warm gray; re-pin
      * it to the accent axis (`--accent-live` is contrast-guarded per scheme). */
     --focus-ring-color: var(--accent-live);
+}
+
+/* ── The text-selection ink (T.W8 · P11-R1/T-24) ──
+ * Every stylesheet (demo + glass-ui) shipped ZERO `::selection` rules, so a
+ * text selection painted the browser's DEFAULT BLUE — the single foreign
+ * accent in a bespoke terracotta/brick derived-atmosphere app, over the warm
+ * ground in BOTH schemes. The cure keys the selection to the live-accent +
+ * foreground TOKENS (never a hardcoded hue), the same per-scheme derived
+ * discipline the ink-walk cure applies: the highlight is the live picked
+ * accent at a legible alpha (`--accent-live` is contrast-guarded per scheme);
+ * the ink rides the scheme `--foreground`, which flips light↔dark by
+ * construction. `::-moz-selection` carries Firefox. A semi-transparent tint
+ * (never opaque) keeps the underlying ink legible over any surface. */
+::selection {
+    background: color-mix(in srgb, var(--accent-live) 32%, transparent);
+    color: var(--foreground);
+}
+::-moz-selection {
+    background: color-mix(in srgb, var(--accent-live) 32%, transparent);
+    color: var(--foreground);
 }
 
 /* Underline tab variant — active tab gets a colored bottom border.
