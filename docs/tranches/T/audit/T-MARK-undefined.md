@@ -1,0 +1,316 @@
+# TRANCHE T — THE DONE-STATE MARK (the census of record) [OWNER-undefined]
+
+**Purpose.** The owner ordered: *"Let's mark what's been done in T, and then fold those,
+propagate them, to a new forthcoming tranche that will seek to close all noted gaps."* This
+document is the complete done-state census of tranche T at the mark: every wave's verdict, every
+owner finding's current state, every un-done obligation with its owner, and the standing
+machinery. It **seeds the successor-tranche formation** — the §3 OPEN CENSUS is the successor's
+inbound work list.
+
+**Status of this record.** This is a **claims-compilation of record**: every "landed" / "green"
+claim carries its evidence commit SHA so a reader can verify in the tree. **The independent
+audit verifies separately** — a claim here is a pointer to evidence, not the evidence itself
+(tranche docs are CLAIMS; the tree/live is truth, per the standing independence law).
+
+**Audited head.** `95d806d56b8c3b1f4acea6858345c5a8a809655d` (branch `tranche-t`,
+2026-07-12). Other lanes may land commits concurrently; every SHA below is cited against this
+audited head. The producer landing SHA `f3f3c097` is a **glass-ui** commit (sibling tree), not a
+value.js commit — it will not resolve in this repo.
+
+**Sources folded.** `PROGRESS.md` · `T.md` (§4 R-ledger · §5/§7 BOOKS · §12 ratification) ·
+`MANDATE-2026-07-06.md` (§0 + §0.1–§0.4 + §0.5 + §0.6 + §0.7 + the T-60 sub-note) ·
+`audit/RATIFICATION-2026-07-09.md` · every `waves/T.W*.md` status line · every
+`audit/w*-close-artefacts.md` · `audit/w45-checkpoint/{ROWS.md,REPORT.md}` · the eight W8 pass
+records under `audit/w8-certification/passes/` · `docs/tranches/S/FINAL.md §5` (inherited books)
+· `letters/{GLASSUI-T-ASKS.md, GLASSUI-T-COMMUNIQUE-2026-07-11.md}`.
+
+**Governance ceiling** (unchanged): `MANDATE-2026-07-06.md §0` + addenda win over every encoding
+· `RATIFICATION-2026-07-09.md §0` verbatim wins over the corpus · `SYNTHESIS.md` (as-amended
+pass-2 `2a38c11`) is the spec of record read under the ratification. T RATIFIED 2026-07-09
+(`a8d24b9`); all 20 §12 rows RULED.
+
+---
+
+## §1 — THE LANDED CENSUS (waves W0..W6.5 closed; W7 trigger-gated; W8 in flight; W9 pending)
+
+Substrate: the whole T source delta over master `cc4f4fa` (tag `tranche-s-close`) began
+docs-only; the design/build deltas land wave-by-wave below. value.js **3.1.0** on the registry
+at authoring.
+
+| Wave | Verdict | Gate result | Landed evidence (commits) |
+|---|---|---|---|
+| **T.W0** SUBSTRATE · ORACLE FLOOR · PACKET DISPATCH · CI/DEPLOY | **CLOSED-`complete`** (2026-07-10) | 11-row §Hard gate → **11/11 PASS**, zero FAIL/MISS | W0-1 dispatch `6c8c88a` · W0-2 proof-split→`test:dist` `8bbf069` · W0-3 legacy-grep-zero (16 files deleted) `9599319` · W0-4 doc-truth `18bf9f8`/`8345ea9` · W0-5 born-RED oracle floor `120970f` · W0-6 smoke-safari+O-25+`--ring` `55f2991`/`d01d22f`/`970ad6a` · **W0-CI diet ~32.4→16.4 min** (before `28842102862`/after `29070205121`) `ea70496`/`d9b6137`/`75cbd3a`/`ab1718d` · **W0-X1/X2 LANDED** (prod api restored to `0441aba`, webhook repointed, NCSU `/colors/` 301→color.babb.dev) `bdfb4a5` · Q14 PI-1 ledger opened (baseline run `28836873580`: LCP 5563 / TBT 5618, honestly RED) `f8ed939`. Artefacts `audit/w0-close-artefacts.md` |
+| **T.W1** THE COLOCATION GRAND RESTRUCTURE | **CLOSED-`complete_with_misses`** (2026-07-10) | 11-row §Hard gate → **10 PASS + 1 FAIL** | E-1 landed WHOLE across 3 single-writer trees: src `f8e7eed` · api `dfa46c4` (incl. TA-4 excision, `atomDiff` gone) · demo `77d21fc`. MOVE-MAP-first `eaad670`. §Recovery cure (`.gitignore _*` swallowed 27 colocated `__tests__/`) `cf65472`. dts additive-only **476→479** (0 removed); PR-7 keyframe census **19/19**. MOB-2 landed. vitest 2171/69 · playwright 61/3-skip · api 205/35 · tsc 0. **THE MISS = row 6 / MOB-1**: `data-layout` witness not stamped + `style.css` aspect-law exception live → deferred to Fable with a ratified-vs-ratified conflict (`App.vue:50-51` D8-1). Artefacts `audit/w1-close-artefacts.md` |
+| **T.W2** THE BOOT OVERTURE + LIVING FIELD | **CLOSED-`complete`** (2026-07-10, round-2 gate @ `e1151de`) | 11-row §Hard gate → **9 PASS + 2 MISS-RECORDED**, zero FAIL | W2-1 hydration-before-derivation `ed24358` · W2-2 gradient ground `f354f42` · W2-3 THE OVERTURE (O-24 reveal-only, LCP 2484→2128 light) `e02fa61` · W2-4 emerge beat `400fe15` · W2-5 T-26 Q2-NOW calibration `244459e` · T-32 rider `73762b2`. Close cured 4 classes: 5b PRM `1f5b4b4` · PP-8 re-breach `a25c4d2` · one-shot release law `eb6d9a6` · WebKit veil-forever `d5b3e4d`. **THE 2 MISS** = sanctioned headed-GPU / gitignored-archival env class (owner eye-frames · O-3 real-GPU). O-5 spike + O-26 headless honestly RED (→W7/W9). Q14 gate-8 MEASURED (LCP 4919 local / TBT 125). Artefacts `audit/w2-close-artefacts.md` + `audit/pi/w2/w2-close-artefacts.md` |
+| **T.W3** MATERIAL LADDER · NEUTRALS · INK | **CLOSED-`complete_with_misses`** (2026-07-10, round-2 gate) | 7-row §Hard gate → **7 PASS**, zero FAIL | Core `d99303f`; consumers W3-2 ShadowPalette `9b7fbd2` · W3-3 search seat `e4dd2ee` · W3-5 ink-on-tier D6 `ba0706e`. C3 LAW + 9-row exception ledger in DESIGN.md. Census green: O-7 · O-9 · O-11 · O-18 (10/10). CSS 87.1 KiB gz ≤ 120. **THE MISSES** = full 6-project suite not locally re-driven (rests on lane records + CI e2e-smoke SUCCESS `29131814948`) + O-11 gate-4 CDP layout flake (6 vs ≤5 under contention; green solo ×3 + self-healed retries=2). **Honesty note**: the ink lane reported `null` (a StructuredOutput crash) — its committed 4-commit work is complete + green (`audit/w3-ink-lane-record.md`), integrated as committed green work. Artefacts `audit/w3-close-artefacts.md` |
+| **T.W4** THE PICKER RECOMPOSITION (the C1 knot) | **CLOSED-`complete_with_misses`** (2026-07-10, round-3 gate @ `388c4a9`) | 9-row §Hard gate → **8 PASS + 1 MISS-RECORDED**, zero FAIL | Forced order: W4-1 `b16eb07` → W4-2a `529bbbc` → W4-2b `79787ef` → W4-5 `dfd76b1` → W4-4+3 `f991554` → W4-7 `3c79556` → cap-cure `be155e1` (merge `26a08ce`); W4-6 `388c4a9`. **PI-4 same-commit LAW verified in git** (`dfd76b1` = seat formula + mobile gate + o12 mint + fixture together). Oracle re-runs: o10-type-locks 12/12 · o10d 6/6 · o11 22/22 · o18 22/22 · o12-blob-seat 3/3 · blob-390 1/1. CSS 86.75 KiB gz. **THE MISS = row 9**: PI-1 Lighthouse W4 delta row absent (later filed at W4.5 C-6 `4e5165b`) — W4 is NOT a named Q14 gate (only W2/W7/W9), so no RED. Artefacts `audit/w4-close-artefacts.md` |
+| **T.W4.5** THE MID-TRANCHE CHECKPOINT (Q6 "both.") | **CLOSED-`complete_with_misses`** (2026-07-11) | 4-row §Hard gate → **4/4 PASS** | 3 passes filed at close head `06b793c` (A boot · B ladder-neutrals-ink · C picker-seams). **17 filed rows → 17 dispositioned**: 5 LAND-NOW (R1/R6 `baed206` · R2 blob backing-race `af18e07` · C-1 α-meter `5b79cb7` · C-6 PI-1 W4 row `4e5165b`; merges `e58a213`/`1c0c143`) · 7→W8 (R3/R5/R7/R8/C-2/C-3/C-4) · 3→W6 (R10/B-1/C-5) · 2→producer (R4 GAP-L2 / R9 T-32). T-30/T-31/T-32 re-judged; owner delta-report `8bdec9f` (informational, NO certification package, 9 brackets flagged). **THE MISS** = full 6-project run un-observed to completion (recorded, never asserted). PI-1 mid-read LCP 5141 / TBT 5988, honestly RED. Artefacts `audit/w45-checkpoint/` |
+| **T.W5** MOTION LIQUID | **CLOSED-`complete_with_misses`** (2026-07-11, round-4 gate) | 8-row §Hard gate → **7 PASS + 1 MISS-RECORDED**, zero FAIL | Liquid-easing family at per-spring clocks (R2–R5/R8/R10/R11); O-16 computed-cascade census GREEN both schemes; exit-law leave < enter; KEEP-set + Tranche-B zero-hunk proofs. **R1 EXPECTED-RED carried** (150ms `--default-transition-duration` clobber LIVE, PKT-1 unlanded — never weakened). CSS 88.00 KiB gz. vitest 2222/2222. **THE MISS = row 8** e2e all-project (132 passed / 3 failed; the 3 reds ALL forensically non-W5: reka-ui Select detach flake + 2 stale gradient specs vs owner-ORDERED W6 surfaces — since cured `24802b0`). T-48 residual → W8. Artefacts `audit/w5-close-artefacts.md` |
+| **T.W6** SURFACES & SHELL + THE T-31 DOCK-ATOP LAW | **CLOSED-`complete_with_misses`** (2026-07-11, gate #4, close-flip @ `5b64236`) | 11 rows → **11/11 PASS**, zero FAIL | 4 lanes: G `6bd778c` + Lane-G tail recovered `40f79a6`/`921a325`/`ee7b1dc`/`24802b0` · D `b4711d8`+`6c14e33` (W6-6 status-lamp `e4ddd32`/`c237d24`, T-31 two-band grid `d8f1fb1`, PP-8 cure `a9f5e88`) · E `5a66dd6` · N `d4e0032` (W6-5 Generate verb `5571f2b`/`3372749`). Named oracle legs GREEN: O-13/O-14/O-15a-b/O-17/O-19/O-20/O-21/O-22/T-31 8/8 + MOB-1 discharged (`a92f501`). **Row 9 flipped MISS→PASS** by deterministic runs at `5b64236` (lint 0 · typecheck 0 · vitest 2222/2222 · playwright ALL 6 = 146 passed/2 skip/exit 0). **THE MISSES** = the 3 standing born-RED producer legs (`test.fail()`, never weakened): O-16-R1 (PKT-1→W7) · O-5 (RP-2→W7) · O-26 (aurora headless→W9). NB: the artefact §1/§2 preserve the earlier `BLOCKED` gate-run narrative (banner flipped at §7) — honest historical record. Artefacts `audit/w6-close-artefacts.md §7` |
+| **T.W6.5** THE OWNER-AUDIT REMEDIATION WAVE (§0.6, T-33..T-48) | **CLOSED-`complete_with_misses`** (2026-07-11) | 8-row §Hard gate → **7 PASS + 1 MISS-RECORDED**, zero FAIL | 4 lanes + Row E: S ShadowPalette R12 redesign `0ad772f` · P console veil re-seat + dynamic-max clamp `ad301e7` · I ink delineation (certifyAccentInk cusp cure, O-18 +IDENTITY/+GRAPHICS) `c2a911f` · M root-barrel ×10 + B2/B4 split + T-45 pseudo cap `7d3900a` · E kf `<EasingPicker>` seat, regex autoplay deleted `1a8f06c`. **HG7 GENUINE FAIL cured at close**: `ink.ts` 423 / `useColorPipeline.ts` 403 over the ≤400 cap → two cohesion-honest lifts (`ink-walk.ts` / `useAtmosphereFrameCoalesce.ts`) `69500b7`; PI-1 W6.5 row filed → HG7 flips PASS. vitest 2233/2233. Close head `5e4f1f6`. **THE MISS = HG5** (the "scroll-timeline chunk absent from eager" leg — a research §4.2 chunk-NAME misattribution; the real dead weight is library-side `/parsing` → routed to **W7 dead-payload BY NAME**). 16/16 T-33..T-48 rows dispositioned. Artefacts `audit/w65-close-artefacts.md` |
+| **T.W8** E-7 HARDENING/CRITIQUE + terminal owner certification | **DISPATCHABLE / IN FLIGHT** (round 5) — **NOT CLOSED** | passes filed **8/≈11**; Remediate phase NOT started; package NOT assembled; **owner verdict = the gate, NOT given** | 8 pass records filed (all PROBE-ONLY coherence pre-filters, no authoring): picker.p1 `1142aab` · about.p1 `e73a523` · boot-atmosphere-blob.p1 `5d5f015` · extract.p1 `b878417` · mix-generate.p1 `64e6ba9` · palettes-browse.p1 `d1e0e43` · gradient.p1 `a4d03d3` · dock-nav-menus.p1 `95d806d`. §0.7 riders + WR-1..WR-11 owner-filed rows minted `61bfa04`; T-60 forensic `71ae027`; the consolidated producer communiqué dispatched `0d4d65f` (glass-ui landing `f3f3c097`). See §3 for the remainder |
+| **T.W7** THE ADOPT EVENT (= S.W8 handed intact) | **RATIFIED — TRIGGER NOT FIRED** | n/a (books never gates, PP-5) | Re-probed 2026-07-11: `git -C ../glass-ui tag --list 'v5*'` EMPTY · `npm view @mkbabb/glass-ui version` **4.2.0** · glass-ui pkg **5.0.0 in-tree** but the cut is **USER-GATED + untagged**. W7 floats into whatever round is current when the tag lands; NOT on the critical path. Also owns the HG5-routed `/parsing` scroll()/view() dead-payload split |
+| **T.W9** CLOSE (Q14 perf-redemption close gate) | **PENDING — gated on W8** | composite §Hard gate (zero-drop ledger · every book re-probed live · **Q14 budgets GREEN or named triumvirate escalation** · FINAL.md · master merge+tag) | none |
+
+**Wave-verdict honesty summary.** One wave `complete` on its own gate (W2, plus W0 which is
+`complete` outright); W0 is the only zero-miss close. Seven waves closed
+`complete_with_misses` — the misses are named per row above (W1 MOB-1 FAIL routed; W3 un-re-driven
+suite + CDP flake; W4 the deferred-not-a-gate PI-1 row; W4.5 the un-observed suite; W5 the 3
+non-W5 e2e reds; W6 the 3 standing born-RED producer legs; W6.5 the HG5 library-side dead-payload
++ the HG7 cap-FAIL that was cured at close). No green-over-broken was found in the close records;
+the born-RED legs are carried by `test.fail()`, never weakened.
+
+---
+
+## §2 — THE OWNER-FINDING LEDGER (T-1..T-60)
+
+Each finding's current state: **LANDED** (with commit) / **OPEN** (owning wave/row) /
+**PRODUCER-GATED** (letter + producer SHA). The §0 set (T-1..T-24) + T-25..T-29 are the original
+mandate; T-30..T-32 = §0.5; T-33..T-48 = §0.6; T-49..T-60 = §0.7. Where a landed finding was
+later re-bracketed by a subsequent owner audit, both the landing and the re-open are shown.
+
+### §2.1 The original mandate (T-1..T-29 + T-25)
+
+| T | Finding (one line) | State |
+|---|---|---|
+| **T-1** | Load sync (bg/blob/hero out of sync on load) | **LANDED** W2-1 hydration-before-derivation `ed24358` (R11 restated); producer half GAP-ARM **PRODUCER-GATED** (communiqué §1.6). Boot-quality residual escalates via T-27/T-58 |
+| **T-2** | "Lab"/About title 1.5× golden, non-bold | **LANDED** W4-1 ×φ (`--type-display-3`, weight 400) `b16eb07`/`f991554`; verified COHERENT (picker.p1/about.p1). **RE-OPENED** by T-51 (step-down 1–2) → W8 WR-4 |
+| **T-3** | About card too transparent → cartoon like picker | **LANDED** W3-1 (about≡picker material); COHERENT about.p1 |
+| **T-4** | Bottom text area dynamic | **LANDED** (α channel-meter) W4.5 C-1 `5b79cb7` |
+| **T-5** | Contrasted variants + vertical dock-like RING + glass card | **LANDED** W4-4 (channel-rail ring + veil card); COHERENT picker.p1 **except the ACTIVE seat = P1-R1 OPEN**; P5 letter-rail **PRODUCER-GATED** booked swap (communiqué §2.3) |
+| **T-6** | Gradient netting more visible | **LANDED** W6-1 Lane-G tail (root cause `40f79a6` + O-19); gradient.p1 re-judged GREEN |
+| **T-7** | Readout 1.5× golden, contiguous x,y,z | **LANDED** W4-2 + W6.5 Lane-P dynamic-max/seam `ad301e7`; COHERENT picker.p1; **α 4th-cell = bracket P1-B2 OPEN** |
+| **T-8** | Blob hover/satellite morphing, no clip, higher-z, into card, all sizes | **PARTIAL**: placement/containment **LANDED** W4-5 `dfd76b1` (Q3 Flush); **satellites "never meatball off" STILL OWED** → W8 WR-2 OPEN + GAP-L5 **PRODUCER-GATED** (communiqué §1.4) |
+| **T-9** | Banner removed + backend-not-working UX | **LANDED** W6-6 (banner → dock status lamp, O-22) `e4ddd32`/`c237d24` |
+| **T-10** | Only "Palettes" rainbow, rest white/black | **LANDED** W6-4 Q5 letterform ramp ×2 sites, chip DEAD `5833474`; ink-menu COHERENT. **BUT the ramp RENDER is broken** (near-black clamp) → **T-56 / P4-R1 / WR-8 OPEN** (see §2.3) |
+| **T-11** | Another card too glassy | **LANDED** W3-1 (R8) |
+| **T-12** | Search area styled inconsistently | **LANDED** W3-3 `.search-seated` `e4dd2ee` |
+| **T-13** | Shadow palette missing + too transparent | **LANDED** (PaletteCard=well opaque); species redesigned W6.5 Lane-S `0ad772f`; COHERENT palettes-browse.p1 |
+| **T-14** | All card transitions → liquid-glass easing | **LANDED** W5 motion liquid; **escalated → T-48 → T-58 W8 MANDATE (WR-10) OPEN** |
+| **T-15** | "This font is not right" | **LANDED-via** the W4 display-voice census (o10d Fraunces walk) — no standalone cite; verify at W9 E-5 recap |
+| **T-16** | Strange bottom-left corner element | **LANDED** W6-5 (Generate verb re-seat, orphan toolbar row dead) `5571f2b` |
+| **T-17** | Dropdowns with color previews | **LANDED** W6 (PreviewStrip chips, O-14) `3372749`; COHERENT dock-nav-menus.p1; **NAME-lane voice fork = P9-R5 OPEN** residual |
+| **T-18** | Glass-card bg inconsistent | **LANDED** W3-1 (neutrals) |
+| **T-19** | Should display shadow palette in all cases | **LANDED** (reconciled via R7/R12; true-empty trio+dashes restored W6.5 Lane-S `0ad772f`); COHERENT palettes-browse.p1 |
+| **T-20** | Glass-ui Tabs pilling, no gap | **PRODUCER-GATED** (P4/T-20; communiqué §2.2; DECLINE→escalate owner); double-trim re-witnessed dock-nav-menus.p1. OPEN |
+| **T-21** | Bugged surface + gradient bar too short | **LANDED** W6-2 (envelope plate/rail) `5edd903`; gradient.p1 COHERENT (span ≡ plate) |
+| **T-22** | Easing area still a mess | **LANDED** W6-3 Lane-E `a540dde` + W6.5 Row E `1a8f06c` (O-17 3/3); **W8 easing pass NOT YET FILED** — verification pending |
+| **T-23** | Scrolling header shaded at rest | **LANDED** W3-4 (R2 recalibration, feather rest-floor) |
+| **T-24** | Gray/black/white consistency audit | **LANDED** W3 (C3 law + neutral family, Q18); ongoing via T-35 delineate-all extension |
+| **T-25** | Loading + aurora on load AND active | **PARTIAL**: boot overture W2; aurora active → GAP-L2/GAP-ARM/T-38 **PRODUCER-GATED** (communiqué §1.3/§1.6/§1.7); quality tracked W8 pass-2 + T-60 |
+| **T-26** | The variance bracket (3rd calibration) | **LANDED** demo calibration W2-5 `244459e` (energy 0.76/softmaxBeta 4/breath 26); the bracket = producer sizing spec → GAP-L2 **PRODUCER-GATED** (communiqué §3.3); whisper-floor bracket → W8 (boot row D) |
+| **T-27** | Loading too gray/slow/jittery | **PARTIAL**: boot cures W2; **gray-stage root = T-60 producer reveal-bloom** (communiqué §1.1); jitter → T-58 W8 MANDATE. OPEN |
+| **T-28** | WatercolorDot outline too fine → abrogate | **LANDED** W4 (R9, outline none/border 0); COHERENT picker.p1; rides WR-6 (dot register) |
+| **T-29** | Pseudo-dropdown clipped at edges | **LANDED** W6-8 settle-stamped clip release `c237d24`; COHERENT at rest; surviving edge-clip re-homes to **T-52 producer (P9-W2 OPEN)** |
+
+### §2.2 §0.5 (T-30..T-32; owner audit at W1-close head `c63f9aa`, re-judged at W4.5)
+
+| T | Finding | State |
+|---|---|---|
+| **T-30** | Blob blurry + top-right → centre, integrated | **LANDED**: blur cured W4.5 R2 `af18e07` (backing 1.998 full-res); centre-ward via containment W4-5. P6 interior-shading/halo residual **PRODUCER-GATED**. Seat positive-domain (R7/C-3) → **W8 bracket (boot row E) OPEN** |
+| **T-31** | The dock-atop layout law | **LANDED** W6 two-band grid `d8f1fb1` (oracle 8/8). **AMENDED** by T-57 (expansion reservation) → W8 WR-9 OPEN |
+| **T-32** | Aurora more zones (configurable?) | **LANDED** demo half W2-5 `73762b2` (arrangement scattered); MAX_NUCLEI=6 ceiling **PRODUCER-GATED** (communiqué §3.2) |
+
+### §2.3 §0.6 (T-33..T-48; owner audit at W4.5-close head `25924d1`, remediated at W6.5)
+
+| T | Finding | State |
+|---|---|---|
+| **T-33** | Readout↔rail gap + per-space dynamic max (999) | **LANDED** W6.5 Lane-P `ad301e7` (dynamic-max clamp + seam); COHERENT (functional); taste residual = **P1-B1 bracket OPEN** |
+| **T-34** | Sliders console veil card + spacing | **LANDED** W6.5 Lane-P (Q4 material re-cut). **RE-OPENED** by T-50 persistence → W8 WR-3 OPEN |
+| **T-35** | "Delineate all" contrast-friendly text | **LANDED** W6.5 Lane-I `c2a911f` (certifyAccentInk cusp cure, O-18 legs). Config-slider TRACK population defect (boot row A) → W8 OPEN |
+| **T-36** | Tools trigger true-button box-model | **LANDED** W6-8 `c237d24` (`--dock-compact-control-padding`); COHERENT dock-nav-menus.p1 |
+| **T-37** | Collapsed-dock swatch visibility | **LANDED** W6-7 `3408433`; **PARTIALLY COHERENT** (halo-carried; the §6.4 derive-seam guarantee absent = **P9-R3 OPEN**) |
+| **T-38** | Aurora pointer relay to glass-ui | **PRODUCER-GATED** (relayed `8a0ca24e`; communiqué §1.7). OPEN |
+| **T-39** | Perf awful, especially on load | **Q14-PRESSURE** — levers W7 (RP-2/L20/GAP-L5), **W9 green-or-escalation**. OPEN. PI-1 mid-read LCP 5141 / TBT 5988 |
+| **T-40** | Dropdown options not bold | **LANDED** W6.5 (`--type-weight-display` 400 pin); COHERENT (current-entry semibold exception = **P4-R4 OPEN**); producer root `text-title` 700 **PRODUCER-GATED** (communiqué §2.8) |
+| **T-41** | The ShadowPalette rejection (3 sightings) | **LANDED** W6.5 Lane-S `0ad772f` (R12 overrule; as-filler retired, trio+dashes restored, O-9 5/5); COHERENT palettes-browse.p1 |
+| **T-42** | Shrunken scrolled-card state too big / text too small | **OPEN** → **W8 bracket** (shrunken-state; mechanism handed t33-research §6.6). Named in W8 §Scope-3 |
+| **T-43** | "Palettes" rainbow (owner CONFIRMS Q5) | **LANDED** W6-4 `5833474` (confirms ruling; render defect tracked as T-56) |
+| **T-44** | Sliders unreadable + shadow palette redesign (genesis) | **LANDED** W6.5 Lane-I tracks re-inked + Lane-S species redesign; extract.p1 COHERENT light, **DARK collapses = E1-R2 OPEN** + label-ink **E1-R1 OPEN** |
+| **T-45** | Card-border clipping artifacts | **PARTIAL**: demo pseudo capped W6.5 Lane-M `7d3900a` (≤1/255); producer backdrop-blur root **PRODUCER-GATED** (communiqué §1.5, rider `92136ab5`); T-53 recurrence = distinct demo caster (WR-5). OPEN |
+| **T-46** | Gradient unusable + more rounded | **LANDED** W6-2 `5edd903`+`ee7b1dc`; gradient.p1 re-judged does NOT reproduce (green); 2 LAND rows (P7-R1/R2 one-way sweep + 20/24px touch floor) OPEN |
+| **T-47** | Easing selector → keyframes.js curve picker | **LANDED** W6.5 Row E `1a8f06c` (kf EasingPicker seat, O-17 3/3); **W8 easing pass NOT FILED** — verification pending |
+| **T-48** | Card transitions borked, frame-by-frame | **ESCALATED → T-58 W8 MANDATE**; motion family landed W5; residual → WR-10 OPEN |
+
+### §2.4 §0.7 (T-49..T-60; owner audit at post-W6.5 head `5e4f1f6`; the W8 running-wave rows)
+
+| T | Finding | State |
+|---|---|---|
+| **T-49** | Blob gray fade-in + a bit bigger + satellites never meatball off | **OPEN** → W8 pass-2 + WR-1 (emerge α re-cut) + WR-2 (arm shipped fission; A-class never-meatball). Gray root = producer reveal-bloom (T-60, communiqué §1.1); size = blob-size bracket |
+| **T-50** | Console card should be a glass veil (T-34 persistence) | **OPEN** → W8 WR-3 (veil-signal calibration); producer veil named E-2 |
+| **T-51** | Title↔readout seam + "Lab" step down 1–2 + mobile tighter | **OPEN** → W8 WR-4 (title step-down `--type-display-2`/`-1`, zero mint, Q11a working as ruled) + joins WR-11 |
+| **T-52** | Dock inline-edge clip — producer relay question | **PRODUCER-FORENSIC ANSWERED** dock-nav-menus.p1 (producer dock-layer zero-slack clip + 0px-fade mask shaves the ring) → **PRODUCER-GATED** (communiqué §1.9). OPEN producer |
+| **T-53** | Card top-border artifacts recurrence (T-45) | **OPEN** demo → W8 WR-5 (dark cartoon caster re-cut; box-shadow-root, backdrop exonerated by bisection); producer P3 book stands separately (communiqué §1.5) |
+| **T-54** | Palette swatches not watercolor dots | **OPEN** → W8 WR-6 (WatercolorDot swap at Generate plate; T-28 outline law rides) |
+| **T-55** | Redesign palette-option controls → glass-ui dropdown/dock set | **OPEN** → W8 WR-7 (verb-cluster into ONE glass-ui instrument; shares `GenerateControls.vue` with WR-6, ONE lane) |
+| **T-56** | "Palettes" pleasing PASTEL rainbow (Q5 calibration) | **OPEN** → W8 WR-8 (palettes-ramp resolver cure). **A-class resolver defect CONFIRMED** (P4-R1, dock-nav-menus.p1 + palettes-browse.p1): the ramp walks to a **0.02 near-black clamp — monochrome in light, 1.24:1 in dark, the rainbow does not exist as rainbow**. O-14 gains a feasibility leg |
+| **T-57** | Dock expand must NOT shift UI (T-31 amendment) | **OPEN** → W8 WR-9 (`--dock-h` floor correction; measured **+3.0px scene reflow on expand**, band floor < expanded pill, dock-nav-menus.p1). Law STANDS |
+| **T-58** | Card/scene transitions still janky (T-48 escalation) | **OPEN → W8 MANDATE** (WR-10); scheduling not easing (t49-research §10); **O-16-R1 the named KNOWN CONFOUND to isolate first** (PKT-1 producer clobber) |
+| **T-59** | Perfected union desktop-tight / mobile-spaced | **OPEN** → W8 WR-11 (one-law container-scaled rhythm regime; 44px touch via hit-extension) |
+| **T-60** | Aurora gray-stage (static → gray pulse → aurora) | **PRODUCER-ROOT, FORENSICALLY PINNED** `71ae027` (glass-ui BG.W-VIZ-REVEAL-BLOOM one-shot, `runtime.ts:261`, no consumer door; demo EXONERATED on all hypotheses) → **PRODUCER-GATED** (communiqué §1.1, JOINS glass-ui's own UF-E10). Demo half = consume-the-door/B2-sync seam → W8/W8.5 queue. OPEN producer |
+
+---
+
+## §3 — THE OPEN CENSUS (every un-done obligation, with its owner)
+
+This is the successor-tranche inbound list. Owner tags: **W8-remainder** (finish the running
+wave) · **W9** (close gate) · **W7-trigger** (glass-ui 5.0.0 adopt) · **producer** (glass-ui
+letter rows) · **successor-tranche** (folds forward if T does not discharge).
+
+### §3.1 The T.W8 remainder (round 5, running)
+
+- **≈3 critique passes UNFILED** (target 11, filed 8):
+  - **easing** (T-47/Row E — `easing/EasingAuthoringStage.vue`): **probed** (headed-GPU frames + `pi/w8/easing/w8-easing-probe.mjs` + log exist, untracked) but the `passes/easing.p1.md` record is **NOT filed** — the nearest-to-done of the three.
+  - **admin**: the five admin views BY NAME (`admin-users` · `admin-names` · `admin-audit` · `admin-flagged` · `admin-tags`) + auth/profile flows — no probe, no record.
+  - **micro-chrome roster + thrown-error state**: `::selection` ink · non-macOS scrollbar · cursor grammar · static `<title>` · native-`title` tooltips beyond the dock; + the thrown-error state (VERDICT §5-D3 declined-ledger row) — no record.
+- **The Remediate phase has NOT started.** All filed pass rows are un-landed:
+  - picker: **P1-R1** (active rail seat), **P1-R2**, **P1-R3** (spectrum-thumb UA-outline — = communiqué §1.8).
+  - about: **AB-1** (KaTeX scope-dead math wreck) + 3 LAND rows.
+  - boot-atmosphere-blob: **row A** (config-slider TRACK invisible, O-18 GRAPHICS census extension), **row B** (bead re-enters GRAY on cached-pane return — forensic-first).
+  - extract: **E1-R1** (label-ink population light-FAIL), **E1-R2** (dark ghost 1.02:1 collapse), **E1-R3** (developed-rail occlusion).
+  - mix-generate: **P6-R1** (dark caster shadow-as-highlight = T-53/WR-5).
+  - palettes-browse: **P4-R1** (scheme-blind ramp guard 1.83:1 dark = the T-56 resolver defect), **P4-R2/R3/R4**.
+  - gradient: **P7-R1/R2** (one-way sweep; touch floor).
+  - dock-nav-menus: **P9-R1** (Q5 ramp resolver, one lane with P4-R1), **P9-R2..R5**, **P4-R4** (current-entry semibold).
+  - the **WR-1..WR-11** owner-filed remediation rows (the §0.7 build-shaped halves) — anchors handed, un-landed.
+- **The certification package NOT assembled** (must be a NON-authoring agent): annotated frames per surface · both schemes · 3 viewports · boot screencast · every taste axis a BRACKET with both poles named. Roster brackets already flagged: P1-B1..B4 · E1-B1 · P6-B1 · P7-B1 · P4-B1 · P9-B1 · boot C/D/E/F · the W4.5 seven (R3/R5/R7/R8/C-2/C-3/C-4) · the nine §0.7 brackets (blob-size · fission-amp · veil-clarity · title-step · dark-caster · verb-instrument · pastel bands · rhythm clamps · T-58 poles) · T-42 shrunken-state · T-48/T-58 motion.
+- **THE OWNER VERDICT IS THE GATE** — not given. A package delivered but unruled leaves W8 OPEN, honestly (never a proxy sign-off). Fable/frontend-design certifies nothing; taste is the owner's.
+- **Triumvirate-route note open**: the boot pass's row G (an o12 boot-time backing-ratio oracle leg) is a bounds expansion the pass may not mint — routed to W8's triumvirate record; W9 inherits the minted leg or the declined-note.
+
+### §3.2 T.W9 — the Q14 perf-redemption close gate (gated on W8)
+
+- **Budgets GREEN or a named triumvirate-level owner escalation** — RULED 2026-07-09; REPLACES the keep-red disposition; no re-baseline, no preset-swap, no deferral. Current honest reds: LCP ~5141 / TBT ~5988 (W4.5 PI-1 mid-read); baseline LCP 5563 / TBT 5618 (run `28836873580`). Redemption levers land at W7 (RP-2 eager-payload mount / L20 −33 KiB / GAP-L5 / dead-payload abrogation / font+KaTeX delivery).
+- FINAL.md zero-drop ledger (T-1..T-60 + fleet + E-4 folds) · every book re-probed live · X1/X2 W0-outcomes restated · master merge + tag through the now-fixed chain · PP-16 naming law.
+
+### §3.3 T.W7 — the adopt trigger (unfired)
+
+- glass-ui **5.0.0 untagged** (npm 4.2.0, pkg 5.0.0 in-tree, USER-GATED). Trigger floats; not on the critical path (PP-5).
+- W7 owns at the cut: the L17 `Blob` rename consume · CI un-pin from `tranche/BG` · the full VERIFY-AT-CUT walk (L1·L3·L18·F9.R1/R8·A4·F2.R1) · the **HG5-routed `/parsing` scroll()/view() dead-payload split** · the RP-2/L20/GAP-L5 payload landings (Q14 W7 gate row) · every §7.2 booked swap firing (W3-1/W3-3/W3-4→P3 · W4-4→P5 · W4-5→P6 · W2-3/W2-4→P7 · Q12-alternative conditional · the regex-autoplay booked deletion — pre-executed `1a8f06c`).
+
+### §3.4 The standing born-RED oracles (carried by-design, `test.fail()`, never weakened)
+
+| Oracle | Defect | Route |
+|---|---|---|
+| **O-16-R1** | the 150ms `--default-transition-duration` clobber LIVE in the glass-ui dist (PKT-1 unlanded) — the named T-58 KNOWN CONFOUND | producer PKT-1 → W7; flips green the day it lands + a fresh demo rebuild (`e2e/smoke/oracles/o16-computed-cascade.spec.ts`) |
+| **O-5** | the boot-pacing spike (399.9ms = 16× median) | RP-2 → W7 |
+| **O-26** | aurora perceptibility headless leg (headed annex GREEN) | → W9 (`e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts`) |
+
+### §3.5 Open producer asks — the consolidated communiqué (glass-ui BI inbox @ `f3f3c097`, stamped HEAD `24a7a764`)
+
+§1 BLOCKING reds (9, only the producer can green): **1.1** T-60 reveal-bloom consumer door +
+palette-honest entrance floor (JOINS UF-E10) · **1.2** PKT-1 150ms clobber (re-verified fresh
+dist) · **1.3** GAP-L2 aurora `lBand`/variance atoms (OLDEST, S→T) · **1.4** GAP-L5 blob
+`settled` seam NOW LOAD-BEARING (fission shipped, park 2.7s < beat 5.2s freeze hazard) + rows
+A–E · **1.5** the glass-recipe backdrop-filter edge-bleed ladder cure (T-45) · **1.6** GAP-ARM
+cold-load arm-replay · **1.7** T-38 aurora-pointer honesty (owner-ordered) · **1.8** NEW
+spectrum-thumb UA-outline double-paint (`Slider.vue:470-474`) · **1.9** T-52 dock inline-edge
+clip (mask-honesty + inline safe-inset + optional `--dock-pill-h`).
+§2 BOOKED SWAPS: P3 glass ladder rungs · P4 tabs pilling (DECLINE→escalate owner) · P5
+letter-rail + one-ring · P6 blob remainder · P7 component batch (incl. **L8 = 5th booking
+ESCALATED**, L7 EasingPicker v2, L13 dock residuals) · PKT-2/3/4 · P8 build/dist · P10 type
+stations (`text-title` 700) · Q16 candidates.
+§3 CALIBRATION: pointer amplitude atom · MAX_NUCLEI=6 lift · the T-26 sizing record + whisper
+band · entrance floor sizing.
+Routed elsewhere: **PRM-expand → the keyframes inbox** (`ad65733`, `tranche-u-dev`; STILL LIVE
+at kf 5.2.0 — subscribers-only emit, never `_onFrame`).
+
+### §3.6 Booked / rider rows still riding (BOOKS-never-gates)
+
+- **Inherited S books** (T.md §7.1): glass-ui 5.0.0 adopt (CHRONIC ~10 tranches) · CI un-pin · L17 rename · GAP-ARM/GAP-L2/GAP-L5 · PRM-expand · L20+RP-2 (land together) · the L2..L16 open set (re-asked by name; L8 ESCALATED) · S-3 letter-rail FIRED→P5 · the FN-7/kf-resolveEasing/CH-10/CH-13/R8-23/R-5/R-10 cross-repo set (W9 recheck) · L1 Normalized/Display brand **LANDED** W1-src (`f8e7eed`) · `Color.try()` PARK · S.H3 Pratt KEEP-DORMANT.
+- **X1/X2** (RULED-AT-RATIFICATION §2): moved to W0-EXECUTABLE and **LANDED** at W0 (`bdfb4a5`); W9 restates the outcome + O-25 lineage guard.
+- **T-minted swaps** (T.md §7.2): all fire at their producer trigger — see §3.3.
+
+---
+
+## §4 — MACHINERY (standing conventions the successor inherits)
+
+### §4.1 Worktrees (standing)
+
+`git worktree list` at the audited head: the mainline `tranche-t @ 95d806d` + six lane
+worktrees. `wf_c9d0ca77-ec3-2` (base `a540dde`) was the PRESERVED Lane-G tail — its content was
+**recovered + landed** (`40f79a6`/`921a325`/`ee7b1dc`/`24802b0`), so the worktree is now stale
+history; the `wf_cb72cb21-e13-*` set (incl. `t-w6.5-lane-m`) are the W6.5 lane worktrees. The
+§Recovery "never lose" law governs cleanup — a worktree holding uncommitted work is preserved,
+never discarded. Lane worktrees are cut from the wave head; remediation lanes are single-writer
+keyed on the FILE (W8 §Scope-2), never the surface.
+
+### §4.2 Probe-dir conventions
+
+- `docs/tranches/T/audit/pi/<wave>/` — the probe-artefact home. **Probe instruments (`.mjs`) +
+  logs (`.txt`) are COMMITTED**; the **PNG frame series are gitignored-by-class on-disk** (the
+  standing owner-screenshots convention — the package assembler + the owner read them from disk).
+  Live at the mark: `pi/w2/` · `pi/w45/` · `pi/w8/` (INDEX.md + per-surface dirs) · `pi/t60/`.
+  Currently untracked probe dirs: `pi/t60/` (T-60 forensic) and `pi/w8/easing/` (the unfiled
+  easing pass's frames + probe).
+- `docs/tranches/T/audit/owner-screenshots/` — the owner's audit shots (`t-*`, `t33-audit-*`,
+  `t49-audit-*`), gitignored on-disk; rows cite the stem, forensics lanes re-derive the
+  shot↔finding pairing by READING the images.
+- `docs/tranches/T/audit/recovery/` — the §Recovery patch-briefs
+  (`T.W<n>-<lane>-brief-<date>.md`), the four-step protocol (audit-partial → patch-brief →
+  resume-from-work-order → seam-audit-at-close). Four briefs on record (W1-demo · W2-boot ·
+  W3-core · W3-ink).
+- Lane-unique e2e ports (owner's `:9000` untouched, probed-and-avoided) — each lane/pass picks a
+  distinct `VJS_E2E_PORT`/`VJS_E2E_PERF_PORT` pair (W8 passes used 8600/8610/8660/8680, etc.).
+
+### §4.3 The oracle slate + gate scripts
+
+- The slate of record is **SYNTHESIS §6.1: O-1..O-26** — each mint names the axis it must NOT
+  proxy away (the two S failure shapes: named-site-not-population · proxy-predicates). The boot
+  set (O-1..O-5, O-16, O-7 scaffold) mints at W0 and precedes W2 + E-7. Born-RED-by-design:
+  O-5 · O-16-R1 · O-26 (§3.4).
+- **`npm run test:dist`** = the 5 retained behavioral gates (Q13 retain-5/excise-7):
+  `proof:css-parity` · `proof:round-trip-idempotent` · `proof:perf-target` ·
+  `proof:serialize-fidelity` · `proof:subpath-budget` (the parse-that-free / bundle-trace floor).
+  The other 7 proof scripts + the favicon script + `globals` devDep were excised at W0-2.
+- Per-wave standing gates (T.md §8): PP-8 repo-wide sweep (caps recomputed · legacy grep ·
+  as-any ledger regenerated · `*.log` residue) · PI-1 per-wave Lighthouse delta (the Q14
+  tracking instrument, `audit/pi1-delta-ledger.md`) · the §6.2 CSS-byte tripwire (REDS
+  W3/W4/W5 at >120 KiB gz; live 88.16 KiB) · PP-11 wave-open re-anchoring against the W1
+  MOVE-MAP · the tool-artefact grep `grep -rnE '</?(content|invoke|parameter|antml)'` MUST be
+  empty before any docs commit (the M-1 committed-tool-XML seam class).
+
+### §4.4 Process laws carried
+
+- **E-6**: Fable + frontend-design for ALL design; opus/sonnet fanout; **batches of three** (the
+  §Recovery prevention half). **E-7**: T.W8 is the standing late-stage hardening wave, coherence
+  pre-filter only, owner = terminal taste authority, brackets-never-points.
+- **The terminal StructuredOutput law**: a workflow subagent whose scope overflows crashes on
+  StructuredOutput reporting `null` (the W3 ink lane did this — its committed work was integrated
+  as green regardless). Split scope + recover the work-order from the journal / committed tree.
+- **Cross-repo fence**: `../glass-ui` + `../keyframes.js` are READ-ONLY (relays are path-scoped
+  single-file, no force, others' work untouched — the M1 ruling: the value.js-side record IS the
+  gate, an ack is a bonus).
+
+---
+
+## §5 — THE FOLD-FORWARD (what the successor tranche seeks to close)
+
+The owner's order was to **fold the marked done-state forward into a successor tranche that
+closes all noted gaps**. The successor's charter should ingest §3 as its inbound backlog, by
+owner-class:
+
+1. **Finish T.W8** (round 5): the ≈3 unfiled passes (easing · admin · micro-chrome/thrown-error)
+   → the Remediate phase (all filed P#/E#/AB/WR rows) → the certification package →
+   **the owner verdict** (the gate). If T pauses before the verdict, this is the successor's
+   first tranche of record — W8 is the fattest wave in the DAG.
+2. **T.W9's Q14 close gate**: budgets GREEN by architectural/idiomatic cure, or the named
+   triumvirate escalation. Coupled to W7's payload landings.
+3. **The producer adopt (W7)**: fires on the glass-ui 5.0.0 tag; carries the 9 blocking reds +
+   the booked swaps + the VERIFY-AT-CUT walk. Until the tag, every producer red (§3.5) is
+   owner-visible and un-closeable from value.js.
+4. **The standing chronics**: GAP-L2 (aurora dark-band, S→T, oldest) · GAP-L5 (blob satellites,
+   K→N→M→S→T) · L8 (5th booking) · PRM-expand (keyframes) — these have crossed multiple
+   tranches; the successor should treat re-carry as escalation, never a silent re-book.
+
+**Honest posture for the successor**: nothing here restores a §4-retired spec (R1–R12) or
+re-opens a §12 RULED outcome — the marked state is taste evolution and defect-remediation on top
+of ratified ground, never a reversal. Every open row above is a defect, a producer dependency, or
+an owner-flagged bracket awaiting the owner's own verdict — the three honest halt classes, never
+laundered into one another.
+
+---
+
+*Provenance: this mark compiles `PROGRESS.md` + the wave close-artefacts + the eight W8 pass
+records + the §0/§0.5/§0.6/§0.7 mandate + the RATIFICATION + the two producer letters, each cited
+inline. `MANDATE-2026-07-06.md §0` + addenda remain the ceiling; `RATIFICATION-2026-07-09.md §0`
+wins over the corpus. The independent audit verifies these claims separately.*
