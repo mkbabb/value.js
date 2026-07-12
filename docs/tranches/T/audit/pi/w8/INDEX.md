@@ -48,3 +48,20 @@ menu censuses).
 | `dock/1440-{light,dark}-{tools-hover-zoom,actionbar-layer,login-zoom}.png` · `{768,390}-*-tabs-zoom.png` | T-36/T-29 whole-paint · T-57 layer states · Q10 Login · T-20 tabs |
 
 The pass record these feed: `../../w8-certification/passes/dock-nav-menus.p1.md`.
+
+## Pass 8 (easing — the selector / authoring stage)
+
+Produced by `easing/w8-easing-probe.mjs` (dev probe of record, lane port 8670, 2026-07-11) +
+`easing/w8-easing-confirm.mjs` (the BUILT-bundle corrected-contrast confirm re-drive, PERF_PORT
+8671, 2026-07-12) at head `95d806d` (product tree ≡ `5e4f1f6`, easing frozen since Row E
+`1a8f06c`). Logs of record: `easing/w8-easing-probe-log.txt` (geometry, O-17 letterbox, stamp /
+dot-rest / one-literal, interaction drive) + `easing/w8-easing-confirm-log.txt` (composited-pixel
+contrast — the readout literal / resting portraits / gutter — plus the aliveness/custom-persistence
+seam; authored because the dev probe's `parseRgb` mis-parses `oklch()` strokes).
+
+| Path | What it is |
+|---|---|
+| `easing/{1440,768,390}-{light,dark}-bench.png` | The 6-cell sweep — open row 0 + disclosed authoring picker (selection strip + canvas + readout) |
+| `easing/1440-light-{drag,steps}.png` | The authoring states (custom bezier drag · steps regime with native `STEPS (N)`/`JUMP TERM` controls) |
+
+The pass record these feed: `../../w8-certification/passes/easing.p1.md`.

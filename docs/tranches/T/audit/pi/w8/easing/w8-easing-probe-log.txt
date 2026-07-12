@@ -1,0 +1,882 @@
+
+=== CELL 1440-light (root.dark=false) ===
+{
+ "rowCount": 1,
+ "closedHeadBox": {
+  "x": 225,
+  "y": 100.8,
+  "w": 460,
+  "h": 38.97
+ },
+ "rowShellBox": {
+  "x": 224,
+  "y": 99.8,
+  "w": 462,
+  "h": 675.33
+ },
+ "openBodyBox": {
+  "x": 225,
+  "y": 139.77,
+  "w": 460,
+  "h": 634.36
+ },
+ "canvas": {
+  "box": {
+   "x": 250,
+   "y": 298.75,
+   "w": 304,
+   "h": 364.8
+  },
+  "vb": {
+   "x": 0,
+   "y": -0.10000000149011612,
+   "w": 1,
+   "h": 1.2000000476837158
+  },
+  "vbRatio": "1.2000000476837158",
+  "letterbox": {
+   "dLeft": 0,
+   "dTop": 0,
+   "dRight": 0,
+   "dBottom": 0
+  },
+  "aspect": 0.83,
+  "inlineSize": "304px",
+  "transition": "aspect-ratio"
+ },
+ "pickerGrid": "436px",
+ "pickerCard": {
+  "bg": "oklab(0.913295 0.00550478 0.0130424)",
+  "shadow": "none",
+  "backdrop": "none",
+  "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+  "box": {
+   "x": 237,
+   "y": 285.75,
+   "w": 436,
+   "h": 390.8
+  }
+ },
+ "strip": {
+  "portBox": {
+   "x": 237,
+   "y": 169.77,
+   "w": 436,
+   "h": 71.98
+  },
+  "scrollW": 1475,
+  "clientW": 436,
+  "eyebrow": {
+   "fontSize": "9px",
+   "color": "rgb(112, 89, 66)",
+   "opacity": "0.75",
+   "text": "css"
+  },
+  "tileBox": {
+   "x": 237.35,
+   "y": 194.33,
+   "w": 47.7,
+   "h": 47.04
+  },
+  "tileLabel": {
+   "fontSize": "9px",
+   "color": "oklch(0.341 0.0582 205)",
+   "text": "linear"
+  },
+  "tileCount": 27,
+  "glyphStroke": "oklch(0.341 0.0582 205)"
+ },
+ "ramp": {
+  "box": {
+   "x": 237,
+   "y": 139.77,
+   "w": 436,
+   "h": 20
+  }
+ },
+ "rail": {
+  "codeBox": {
+   "x": 237,
+   "y": 252.27,
+   "w": 376,
+   "h": 22.97
+  },
+  "codeColor": "rgb(112, 89, 66)",
+  "codeFontSize": "16.4px",
+  "codeText": "cubic-bezier(0, 0, 1, 1)",
+  "btnBoxes": [
+   {
+    "x": 619,
+    "y": 251.75,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "x": 649,
+    "y": 251.75,
+    "w": 24,
+    "h": 24
+   }
+  ]
+ },
+ "head": {
+  "labelColor": "rgb(112, 89, 66)",
+  "labelFontSize": "16.4px",
+  "nameText": "linear",
+  "nameColor": "rgb(112, 89, 66)",
+  "glyphStroke": "oklch(0.341 0.0582 205)",
+  "motionAccent": "oklch(0.3410 0.0582 205.0)"
+ },
+ "presetCaption": {
+  "fontSize": "14.384px",
+  "color": "rgb(112, 89, 66)",
+  "transform": "uppercase"
+ },
+ "stampCount": 0,
+ "literalLeaves": 1,
+ "headLiterals": 0,
+ "travelDots": 0,
+ "playPills": 0,
+ "plateGround": {
+  "bg": "rgba(0, 0, 0, 0)"
+ }
+}
+CONTRAST 1440-light: {"headLabel":5.2,"headGlyph":8.84,"eyebrow":3.45,"tileLabel":10.13,"railCode":2.79,"tileGlyphResting":10.13,"grounds":{"head":[241,226,218],"strip":[247,243,243],"rail":[218,152,152],"well":[219,207,194]}}
+CONSOLE 1440-light: 0 error(s)
+
+=== CELL 1440-dark (root.dark=true) ===
+{
+ "rowCount": 1,
+ "closedHeadBox": {
+  "x": 225,
+  "y": 100.8,
+  "w": 460,
+  "h": 38.97
+ },
+ "rowShellBox": {
+  "x": 224,
+  "y": 99.8,
+  "w": 462,
+  "h": 675.33
+ },
+ "openBodyBox": {
+  "x": 225,
+  "y": 139.77,
+  "w": 460,
+  "h": 634.36
+ },
+ "canvas": {
+  "box": {
+   "x": 250,
+   "y": 298.75,
+   "w": 304,
+   "h": 364.8
+  },
+  "vb": {
+   "x": 0,
+   "y": -0.10000000149011612,
+   "w": 1,
+   "h": 1.2000000476837158
+  },
+  "vbRatio": "1.2000000476837158",
+  "letterbox": {
+   "dLeft": 0,
+   "dTop": 0,
+   "dRight": 0,
+   "dBottom": 0
+  },
+  "aspect": 0.83,
+  "inlineSize": "304px",
+  "transition": "aspect-ratio"
+ },
+ "pickerGrid": "436px",
+ "pickerCard": {
+  "bg": "oklab(0.345295 0.0103877 0.0175526)",
+  "shadow": "none",
+  "backdrop": "none",
+  "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+  "box": {
+   "x": 237,
+   "y": 285.75,
+   "w": 436,
+   "h": 390.8
+  }
+ },
+ "strip": {
+  "portBox": {
+   "x": 237,
+   "y": 169.77,
+   "w": 436,
+   "h": 71.98
+  },
+  "scrollW": 1475,
+  "clientW": 436,
+  "eyebrow": {
+   "fontSize": "9px",
+   "color": "rgb(195, 185, 172)",
+   "opacity": "0.75",
+   "text": "css"
+  },
+  "tileBox": {
+   "x": 237.35,
+   "y": 194.33,
+   "w": 47.7,
+   "h": 47.04
+  },
+  "tileLabel": {
+   "fontSize": "9px",
+   "color": "oklch(0.7851 0.1341 205)",
+   "text": "linear"
+  },
+  "tileCount": 27,
+  "glyphStroke": "oklch(0.7851 0.1341 205)"
+ },
+ "ramp": {
+  "box": {
+   "x": 237,
+   "y": 139.77,
+   "w": 436,
+   "h": 20
+  }
+ },
+ "rail": {
+  "codeBox": {
+   "x": 237,
+   "y": 252.27,
+   "w": 376,
+   "h": 22.97
+  },
+  "codeColor": "rgb(195, 185, 172)",
+  "codeFontSize": "16.4px",
+  "codeText": "cubic-bezier(0, 0, 1, 1)",
+  "btnBoxes": [
+   {
+    "x": 619,
+    "y": 251.75,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "x": 649,
+    "y": 251.75,
+    "w": 24,
+    "h": 24
+   }
+  ]
+ },
+ "head": {
+  "labelColor": "rgb(195, 185, 172)",
+  "labelFontSize": "16.4px",
+  "nameText": "linear",
+  "nameColor": "rgb(195, 185, 172)",
+  "glyphStroke": "oklch(0.7851 0.1341 205)",
+  "motionAccent": "oklch(0.7851 0.1341 205.0)"
+ },
+ "presetCaption": {
+  "fontSize": "14.384px",
+  "color": "rgb(195, 185, 172)",
+  "transform": "uppercase"
+ },
+ "stampCount": 0,
+ "literalLeaves": 1,
+ "headLiterals": 0,
+ "travelDots": 0,
+ "playPills": 0,
+ "plateGround": {
+  "bg": "rgba(0, 0, 0, 0)"
+ }
+}
+CONTRAST 1440-dark: {"headLabel":6.52,"headGlyph":1.13,"eyebrow":4.4,"tileLabel":1.13,"railCode":5.02,"tileGlyphResting":1.13,"grounds":{"head":[63,48,41],"strip":[58,49,50],"rail":[110,50,49],"well":[79,68,57]}}
+CONSOLE 1440-dark: 0 error(s)
+
+=== CELL 768-light (root.dark=false) ===
+{
+ "rowCount": 1,
+ "closedHeadBox": {
+  "x": 154,
+  "y": 152.02,
+  "w": 460,
+  "h": 36.59
+ },
+ "rowShellBox": {
+  "x": 153,
+  "y": 151.02,
+  "w": 462,
+  "h": 668.83
+ },
+ "openBodyBox": {
+  "x": 154,
+  "y": 188.61,
+  "w": 460,
+  "h": 630.23
+ },
+ "canvas": {
+  "box": {
+   "x": 179,
+   "y": 345.59,
+   "w": 304,
+   "h": 364.8
+  },
+  "vb": {
+   "x": 0,
+   "y": -0.10000000149011612,
+   "w": 1,
+   "h": 1.2000000476837158
+  },
+  "vbRatio": "1.2000000476837158",
+  "letterbox": {
+   "dLeft": 0,
+   "dTop": 0,
+   "dRight": 0,
+   "dBottom": 0
+  },
+  "aspect": 0.83,
+  "inlineSize": "304px",
+  "transition": "aspect-ratio"
+ },
+ "pickerGrid": "436px",
+ "pickerCard": {
+  "bg": "oklab(0.913295 0.00550478 0.0130424)",
+  "shadow": "none",
+  "backdrop": "none",
+  "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+  "box": {
+   "x": 166,
+   "y": 332.59,
+   "w": 436,
+   "h": 390.8
+  }
+ },
+ "strip": {
+  "portBox": {
+   "x": 166,
+   "y": 218.61,
+   "w": 436,
+   "h": 69.98
+  },
+  "scrollW": 1475,
+  "clientW": 436,
+  "eyebrow": {
+   "fontSize": "9px",
+   "color": "rgb(112, 89, 66)",
+   "opacity": "0.75",
+   "text": "css"
+  },
+  "tileBox": {
+   "x": 166.35,
+   "y": 241.17,
+   "w": 47.7,
+   "h": 47.04
+  },
+  "tileLabel": {
+   "fontSize": "9px",
+   "color": "oklch(0.341 0.0582 205)",
+   "text": "linear"
+  },
+  "tileCount": 27,
+  "glyphStroke": "oklch(0.341 0.0582 205)"
+ },
+ "ramp": {
+  "box": {
+   "x": 166,
+   "y": 188.61,
+   "w": 436,
+   "h": 20
+  }
+ },
+ "rail": {
+  "codeBox": {
+   "x": 166,
+   "y": 300.3,
+   "w": 376,
+   "h": 20.59
+  },
+  "codeColor": "rgb(112, 89, 66)",
+  "codeFontSize": "14.72px",
+  "codeText": "cubic-bezier(0, 0, 1, 1)",
+  "btnBoxes": [
+   {
+    "x": 548,
+    "y": 298.59,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "x": 578,
+    "y": 298.59,
+    "w": 24,
+    "h": 24
+   }
+  ]
+ },
+ "head": {
+  "labelColor": "rgb(112, 89, 66)",
+  "labelFontSize": "14.72px",
+  "nameText": "linear",
+  "nameColor": "rgb(112, 89, 66)",
+  "glyphStroke": "oklch(0.341 0.0582 205)",
+  "motionAccent": "oklch(0.3410 0.0582 205.0)"
+ },
+ "presetCaption": {
+  "fontSize": "12.9728px",
+  "color": "rgb(112, 89, 66)",
+  "transform": "uppercase"
+ },
+ "stampCount": 0,
+ "literalLeaves": 1,
+ "headLiterals": 0,
+ "travelDots": 0,
+ "playPills": 0,
+ "plateGround": {
+  "bg": "rgba(0, 0, 0, 0)"
+ }
+}
+CONTRAST 768-light: {"headLabel":4.22,"headGlyph":7.17,"eyebrow":3.57,"tileLabel":10.66,"railCode":2.92,"tileGlyphResting":10.66,"grounds":{"head":[233,200,193],"strip":[250,249,255],"rail":[221,157,147],"well":[219,207,194]}}
+CONSOLE 768-light: 0 error(s)
+
+=== CELL 768-dark (root.dark=true) ===
+{
+ "rowCount": 1,
+ "closedHeadBox": {
+  "x": 154,
+  "y": 152.02,
+  "w": 460,
+  "h": 36.59
+ },
+ "rowShellBox": {
+  "x": 153,
+  "y": 151.02,
+  "w": 462,
+  "h": 668.83
+ },
+ "openBodyBox": {
+  "x": 154,
+  "y": 188.61,
+  "w": 460,
+  "h": 630.23
+ },
+ "canvas": {
+  "box": {
+   "x": 179,
+   "y": 345.59,
+   "w": 304,
+   "h": 364.8
+  },
+  "vb": {
+   "x": 0,
+   "y": -0.10000000149011612,
+   "w": 1,
+   "h": 1.2000000476837158
+  },
+  "vbRatio": "1.2000000476837158",
+  "letterbox": {
+   "dLeft": 0,
+   "dTop": 0,
+   "dRight": 0,
+   "dBottom": 0
+  },
+  "aspect": 0.83,
+  "inlineSize": "304px",
+  "transition": "aspect-ratio"
+ },
+ "pickerGrid": "436px",
+ "pickerCard": {
+  "bg": "oklab(0.345295 0.0103877 0.0175526)",
+  "shadow": "none",
+  "backdrop": "none",
+  "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+  "box": {
+   "x": 166,
+   "y": 332.59,
+   "w": 436,
+   "h": 390.8
+  }
+ },
+ "strip": {
+  "portBox": {
+   "x": 166,
+   "y": 218.61,
+   "w": 436,
+   "h": 69.98
+  },
+  "scrollW": 1475,
+  "clientW": 436,
+  "eyebrow": {
+   "fontSize": "9px",
+   "color": "rgb(195, 185, 172)",
+   "opacity": "0.75",
+   "text": "css"
+  },
+  "tileBox": {
+   "x": 166.35,
+   "y": 241.17,
+   "w": 47.7,
+   "h": 47.04
+  },
+  "tileLabel": {
+   "fontSize": "9px",
+   "color": "oklch(0.7851 0.1341 205)",
+   "text": "linear"
+  },
+  "tileCount": 27,
+  "glyphStroke": "oklch(0.7851 0.1341 205)"
+ },
+ "ramp": {
+  "box": {
+   "x": 166,
+   "y": 188.61,
+   "w": 436,
+   "h": 20
+  }
+ },
+ "rail": {
+  "codeBox": {
+   "x": 166,
+   "y": 300.3,
+   "w": 376,
+   "h": 20.59
+  },
+  "codeColor": "rgb(195, 185, 172)",
+  "codeFontSize": "14.72px",
+  "codeText": "cubic-bezier(0, 0, 1, 1)",
+  "btnBoxes": [
+   {
+    "x": 548,
+    "y": 298.59,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "x": 578,
+    "y": 298.59,
+    "w": 24,
+    "h": 24
+   }
+  ]
+ },
+ "head": {
+  "labelColor": "rgb(195, 185, 172)",
+  "labelFontSize": "14.72px",
+  "nameText": "linear",
+  "nameColor": "rgb(195, 185, 172)",
+  "glyphStroke": "oklch(0.7851 0.1341 205)",
+  "motionAccent": "oklch(0.7851 0.1341 205.0)"
+ },
+ "presetCaption": {
+  "fontSize": "12.9728px",
+  "color": "rgb(195, 185, 172)",
+  "transform": "uppercase"
+ },
+ "stampCount": 0,
+ "literalLeaves": 1,
+ "headLiterals": 0,
+ "travelDots": 0,
+ "playPills": 0,
+ "plateGround": {
+  "bg": "rgba(0, 0, 0, 0)"
+ }
+}
+CONTRAST 768-dark: {"headLabel":5.84,"headGlyph":1.01,"eyebrow":4.61,"tileLabel":1.2,"railCode":4.74,"tileGlyphResting":1.2,"grounds":{"head":[81,51,44],"strip":[51,45,53],"rail":[113,55,46],"well":[79,68,57]}}
+CONSOLE 768-dark: 0 error(s)
+
+=== CELL 390-light (root.dark=false) ===
+{
+ "rowCount": 1,
+ "closedHeadBox": {
+  "x": 34,
+  "y": 88.89,
+  "w": 322,
+  "h": 35.59
+ },
+ "rowShellBox": {
+  "x": 33,
+  "y": 87.89,
+  "w": 324,
+  "h": 627.22
+ },
+ "openBodyBox": {
+  "x": 34,
+  "y": 124.48,
+  "w": 322,
+  "h": 589.63
+ },
+ "canvas": {
+  "box": {
+   "x": 59,
+   "y": 280.47,
+   "w": 272,
+   "h": 326.39
+  },
+  "vb": {
+   "x": 0,
+   "y": -0.10000000149011612,
+   "w": 1,
+   "h": 1.2000000476837158
+  },
+  "vbRatio": "1.2000000476837158",
+  "letterbox": {
+   "dLeft": 0,
+   "dTop": 0,
+   "dRight": 0,
+   "dBottom": 0
+  },
+  "aspect": 0.83,
+  "inlineSize": "272px",
+  "transition": "aspect-ratio"
+ },
+ "pickerGrid": "298px",
+ "pickerCard": {
+  "bg": "oklab(0.913295 0.00550478 0.0130424)",
+  "shadow": "none",
+  "backdrop": "none",
+  "border": "1px oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+  "box": {
+   "x": 46,
+   "y": 267.47,
+   "w": 298,
+   "h": 352.39
+  }
+ },
+ "strip": {
+  "portBox": {
+   "x": 46,
+   "y": 154.48,
+   "w": 298,
+   "h": 68.98
+  },
+  "scrollW": 1475,
+  "clientW": 298,
+  "eyebrow": {
+   "fontSize": "9px",
+   "color": "rgb(112, 89, 66)",
+   "opacity": "0.75",
+   "text": "css"
+  },
+  "tileBox": {
+   "x": 46.35,
+   "y": 176.05,
+   "w": 47.7,
+   "h": 47.04
+  },
+  "tileLabel": {
+   "fontSize": "9px",
+   "color": "oklch(0.341 0.0582 205)",
+   "text": "linear"
+  },
+  "tileCount": 27,
+  "glyphStroke": "oklch(0.341 0.0582 205)"
+ },
+ "ramp": {
+  "box": {
+   "x": 46,
+   "y": 124.48,
+   "w": 298,
+   "h": 20
+  }
+ },
+ "rail": {
+  "codeBox": {
+   "x": 46,
+   "y": 235.67,
+   "w": 238,
+   "h": 19.59
+  },
+  "codeColor": "rgb(112, 89, 66)",
+  "codeFontSize": "14px",
+  "codeText": "cubic-bezier(0, 0, 1, 1)",
+  "btnBoxes": [
+   {
+    "x": 290,
+    "y": 233.47,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "x": 320,
+    "y": 233.47,
+    "w": 24,
+    "h": 24
+   }
+  ]
+ },
+ "head": {
+  "labelColor": "rgb(112, 89, 66)",
+  "labelFontSize": "14px",
+  "nameText": "linear",
+  "nameColor": "rgb(112, 89, 66)",
+  "glyphStroke": "oklch(0.341 0.0582 205)",
+  "motionAccent": "oklch(0.3410 0.0582 205.0)"
+ },
+ "presetCaption": {
+  "fontSize": "12.179px",
+  "color": "rgb(112, 89, 66)",
+  "transform": "uppercase"
+ },
+ "stampCount": 0,
+ "literalLeaves": 1,
+ "headLiterals": 0,
+ "travelDots": 0,
+ "playPills": 0,
+ "plateGround": {
+  "bg": "rgba(0, 0, 0, 0)"
+ }
+}
+CONTRAST 390-light: {"headLabel":5.24,"headGlyph":8.9,"eyebrow":3.57,"tileLabel":10.66,"railCode":2.87,"tileGlyphResting":10.66,"grounds":{"head":[241,227,218],"strip":[250,249,255],"rail":[220,155,149],"well":[0,65,70]}}
+CONSOLE 390-light: 0 error(s)
+
+=== CELL 390-dark (root.dark=true) ===
+{
+ "rowCount": 1,
+ "closedHeadBox": {
+  "x": 34,
+  "y": 88.89,
+  "w": 322,
+  "h": 35.59
+ },
+ "rowShellBox": {
+  "x": 33,
+  "y": 87.89,
+  "w": 324,
+  "h": 627.22
+ },
+ "openBodyBox": {
+  "x": 34,
+  "y": 124.48,
+  "w": 322,
+  "h": 589.63
+ },
+ "canvas": {
+  "box": {
+   "x": 59,
+   "y": 280.47,
+   "w": 272,
+   "h": 326.39
+  },
+  "vb": {
+   "x": 0,
+   "y": -0.10000000149011612,
+   "w": 1,
+   "h": 1.2000000476837158
+  },
+  "vbRatio": "1.2000000476837158",
+  "letterbox": {
+   "dLeft": 0,
+   "dTop": 0,
+   "dRight": 0,
+   "dBottom": 0
+  },
+  "aspect": 0.83,
+  "inlineSize": "272px",
+  "transition": "aspect-ratio"
+ },
+ "pickerGrid": "298px",
+ "pickerCard": {
+  "bg": "oklab(0.345295 0.0103877 0.0175526)",
+  "shadow": "none",
+  "backdrop": "none",
+  "border": "1px oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+  "box": {
+   "x": 46,
+   "y": 267.47,
+   "w": 298,
+   "h": 352.39
+  }
+ },
+ "strip": {
+  "portBox": {
+   "x": 46,
+   "y": 154.48,
+   "w": 298,
+   "h": 68.98
+  },
+  "scrollW": 1475,
+  "clientW": 298,
+  "eyebrow": {
+   "fontSize": "9px",
+   "color": "rgb(195, 185, 172)",
+   "opacity": "0.75",
+   "text": "css"
+  },
+  "tileBox": {
+   "x": 46.35,
+   "y": 176.05,
+   "w": 47.7,
+   "h": 47.04
+  },
+  "tileLabel": {
+   "fontSize": "9px",
+   "color": "oklch(0.7851 0.1341 205)",
+   "text": "linear"
+  },
+  "tileCount": 27,
+  "glyphStroke": "oklch(0.7851 0.1341 205)"
+ },
+ "ramp": {
+  "box": {
+   "x": 46,
+   "y": 124.48,
+   "w": 298,
+   "h": 20
+  }
+ },
+ "rail": {
+  "codeBox": {
+   "x": 46,
+   "y": 235.67,
+   "w": 238,
+   "h": 19.59
+  },
+  "codeColor": "rgb(195, 185, 172)",
+  "codeFontSize": "14px",
+  "codeText": "cubic-bezier(0, 0, 1, 1)",
+  "btnBoxes": [
+   {
+    "x": 290,
+    "y": 233.47,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "x": 320,
+    "y": 233.47,
+    "w": 24,
+    "h": 24
+   }
+  ]
+ },
+ "head": {
+  "labelColor": "rgb(195, 185, 172)",
+  "labelFontSize": "14px",
+  "nameText": "linear",
+  "nameColor": "rgb(195, 185, 172)",
+  "glyphStroke": "oklch(0.7851 0.1341 205)",
+  "motionAccent": "oklch(0.7851 0.1341 205.0)"
+ },
+ "presetCaption": {
+  "fontSize": "12.179px",
+  "color": "rgb(195, 185, 172)",
+  "transform": "uppercase"
+ },
+ "stampCount": 0,
+ "literalLeaves": 1,
+ "headLiterals": 0,
+ "travelDots": 0,
+ "playPills": 0,
+ "plateGround": {
+  "bg": "rgba(0, 0, 0, 0)"
+ }
+}
+CONTRAST 390-dark: {"headLabel":6.51,"headGlyph":1.13,"eyebrow":4.61,"tileLabel":1.2,"railCode":4.85,"tileGlyphResting":1.2,"grounds":{"head":[63,48,42],"strip":[51,45,53],"rail":[112,53,47],"well":[0,209,226]}}
+CONSOLE 390-dark: 0 error(s)
+
+=== INTERACTION 1440-light ===
+seeded: literal=cubic-bezier(0, 0, 1, 1) name=linear
+after drag: literal=cubic-bezier(0.197, 0.263, 1, 1) headName=custom stripPressed=0
+after tune toggle: literal=cubic-bezier(0.197, 0.263, 1, 1) (aliveness: unchanged=true)
+tile ease-out-back: literal=cubic-bezier(0.175, 0.885, 0.32, 1.275) (mint-law=true) headName=ease-out-back vb={"vb":"0 -0.375 1 1.475000023841858","aspect":0.678,"h":448.4}
+tile step-end: literal=steps(1, end) stepsSlider=1 vb={"vb":"-0.05000000447034836 -0.10000000149011612 1.100000023841858 1.2000000476837158","h":331.6}
+copy: clipboard=steps(1, end) (match=true)
+accordion: only one interval in the default gradient
+console after interaction: 0 error(s)
+
+=== PRM === svg transition-duration=0.1s ramp animation=none console=0

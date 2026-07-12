@@ -1,0 +1,45 @@
+
+=== 1440-light ===
+canvas 304x364.8 inline=304px | plate 436 | gutterL=13 gutterR=119
+letterbox {"dL":0,"dT":0,"dR":0,"dB":0} | stamps=0 plateFlat=true lits=1 travelDots=0
+readout literal contrast=2.69 ink=112,89,66 ground=213,149,155
+family eyebrow contrast=1.13 ink=234,213,207 ground=242,227,219
+resting tile glyph [ease] contrast=2.65 ink=139,125,116 ground=229,207,192 coverage=0.59
+console: 1 error(s) :: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8671 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+
+=== 1440-dark ===
+canvas 304x364.8 inline=304px | plate 436 | gutterL=13 gutterR=119
+letterbox {"dL":0,"dT":0,"dR":0,"dB":0} | stamps=0 plateFlat=true lits=1 travelDots=0
+readout literal contrast=5.83 ink=208,198,184 ground=109,49,51
+family eyebrow contrast=1.15 ink=71,60,52 ground=66,49,43
+resting tile glyph [ease] contrast=2.61 ink=158,145,136 ground=98,76,63 coverage=0.61
+console: 1 error(s) :: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8671 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+
+=== 768-light ===
+canvas 304x364.8 inline=304px | plate 436 | gutterL=13 gutterR=119
+letterbox {"dL":0,"dT":0,"dR":0,"dB":0} | stamps=0 plateFlat=true lits=1 travelDots=0
+readout literal contrast=2.86 ink=112,89,66 ground=219,155,149
+family eyebrow contrast=2.11 ink=135,101,87 ground=212,148,153
+resting tile glyph [ease] contrast=2.66 ink=139,125,116 ground=230,207,192 coverage=0.69
+console: 1 error(s) :: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8671 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+
+=== 390-light ===
+canvas 272x326.39 inline=272px | plate 298 | gutterL=13 gutterR=13
+letterbox {"dL":0,"dT":0,"dR":0,"dB":0} | stamps=0 plateFlat=true lits=1 travelDots=0
+readout literal contrast=2.71 ink=112,89,66 ground=213,150,154
+family eyebrow contrast=2.08 ink=135,102,89 ground=211,148,153
+resting tile glyph [ease] contrast=2.66 ink=139,125,116 ground=230,207,192 coverage=0.7
+console: 1 error(s) :: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8671 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+
+=== 390-dark ===
+canvas 272x326.39 inline=272px | plate 298 | gutterL=13 gutterR=13
+letterbox {"dL":0,"dT":0,"dR":0,"dB":0} | stamps=0 plateFlat=true lits=1 travelDots=0
+readout literal contrast=5.04 ink=195,185,172 ground=109,50,50
+family eyebrow contrast=3.38 ink=169,147,141 ground=108,50,53
+resting tile glyph [ease] contrast=2.61 ink=158,145,136 ground=98,76,63 coverage=0.7
+console: 1 error(s) :: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8671 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+
+=== ALIVENESS / CUSTOM PERSISTENCE (1440-light) ===
+authored custom: literal=cubic-bezier(0.181, 0.23, 1, 1) handles=[0.181,0.770 1.000,0.000]
+after close+reopen: literal=cubic-bezier(0.181, 0.23, 1, 1) handles=[0.181,0.770 1.000,0.000] (canvas persisted=true)
+console: 1 error(s)
