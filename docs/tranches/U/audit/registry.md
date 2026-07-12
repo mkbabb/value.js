@@ -264,3 +264,37 @@ Round 3 was NOT confirmatory — it surfaced build/dep/completeness families. Tw
 - `adversary:fresh-completeness` (opus) — a skeptic who did NOT author the registry: attack it for the two-clean-passes rule — is any CONFIRMED finding actually wrong? any disposition unsafe to build on? what breaks if U forms on this registry today? Names anything that must move before formation.
 
 **Real-GPU (U-F54)**: NOT chased — a formation-time acknowledgement (U carries a real-GPU visual annex, owner-attested). The headless env cannot run it; pretending otherwise is the close-class lie the charter forbids.
+
+---
+
+# ROUND 4 (2026-07-12) — the CONVERGENCE round. 4 agents. Verdict UNSTABLE → 4 reconciliations applied → round 5 = one confirming pass. Budget 29/32.
+
+## §19 CLOSED GAPS + NEW low-severity families
+
+| ID | Sev | Family | Result |
+|---|---|---|---|
+| **U-F55 (a11y half)** | — | `a11y-hard-gate` | **MEASURED → PASSES 1.0** (all 3 runs, 2 lighthouse majors, zero failing scored audits, +0.10 over the 0.9 floor). NOT a third W9 ambush. The unmeasured-a11y concern is **RETIRED**. (The CI-teeth half of U-F55 stands — see §20.) |
+| U-F60 | — | `color-math-soundness` | **VERDICT: the numeric color core is SOUND** — sRGB→XYZ matches the CSS Color 4 matrix to ≤1.11e-16, sRGB→OKLab to ≤1e-6 (Ottosson/culori), Lab→sRGB first-principles-exact, gamut analytical≡raytrace to ≤1.4e-4, CIEDE2000 impl passes the omitted Sharma pairs to 3e-5. No numeric defects. |
+| U-F72 | C | `test-ground-truth-circularity` | The XYZ/Lab/OKLab suite validates almost entirely by ROUND-TRIP (forward∘inverse=identity) — blind to a shared-error class; no external-vector anchor for rgb2xyz/xyz2lab/xyz2oklab (the core IS sound, but the TEST can't prove it). | 
+| U-F73 | C | `test-ground-truth-incomplete` | CIEDE2000 test carries 14 of Sharma's 34 canonical pairs; the omitted 20 include the large-ΔE (#17-20) + achromatic-transition (#13,16,31,32) pairs (impl passes them — the coverage, not the code, is short). |
+| U-F74 | C | `conversion-silent-gamut-map` | `xyz2rgb` defaults `correctGamut=true` so `color2(x,'rgb')` silently gamut-maps — a caller converting wide→sRGB to DETECT out-of-gamut never sees raw OOB channels; `correctGamut=false` is not dispatch-exposed. |
+| U-F75 | C | `precept-stale-label` | docs/precepts/infra/domains.md names value.js's app "palette" (palette.babb.dev); landed reality is "color" (color.babb.dev). The `<app>.babb.dev` convention IS followed — only the illustrative label is stale. **retire**. |
+| (precept) | — | `mongo-discipline-divergence` | The precept `infra/domains.md §Mongo discipline` requires SCRAM+TLS; prod compose runs unauth (bounded: internal-bridge-only) with NO written justified-residual + a FALSE `.env.example` comment → **FOLDS INTO U-F37** (the mongo/config-truth family gains the precept cite + the "write the residual or wire the auth" arm). |
+
+**api test suite**: (round-4 read; see the run journal for the exact count) — folded into U-F59's closure with the precept read.
+
+## §20 THE FOUR RECONCILIATIONS (fresh-adversary BLOCKERS — applied; no CONFIRMED finding was wrong, the instability was dispositions + missing fix-interaction families)
+
+**R-1 — U-F4 disposition CORRECTED (was self-contradictory).** §1 read "build (demo arm-static-fallback)"; §10's own sharpened verify ruled the root **PRODUCER-ONLY** (glass-ui `morph.css:72` `data-morphing` latch under PRM; `overture.css:179` a RED HERRING; **demo EXONERATED**). The phantom demo static-fallback wave row is **RETIRED**; U-F4 **folds into U-F2's BI-acceptance-constraint list** (the desktop-PRM dock-collapse is a named producer row — the demo has no cure to make).
+
+**R-2 — U-F30 fix-locus CORRECTED (the named locus was a trap).** §15 said "denormalize at `createColorValueUnit`" — but that is the SHARED wrapper for BOTH conventions: the direct-parse path stores PHYSICAL-range channels (`color.ts:189-271`, rgb→76.5) and only the mix/relative path stores NORMALIZED [0,1] (`color.ts:359` mixColors, `color.ts:443` resolveRelativeColor). Denormalizing there would **double-denormalize the working direct path**. CORRECT FIX: normalize the invariant at the `mixColors`/`resolveRelativeColor` OUTPUT (emit physical-range, matching direct-parse), and the born-RED **must assert the direct path is unchanged** as a guard. This correction is load-bearing — building on the wrong locus breaks the path that works today.
+
+**R-3 — NEW FAMILY U-F76 `shared-surface-coordination` (missing fix-interaction family).** SIX findings edit ONE surface, the **picker/readout plate mount**, routed to ≥3 different wave classes: U-F3 (the LCP element), U-F16 (the CLS shifting node — §10: "the SAME element as the LCP element"), U-F5 (blob bead collides the readout at 390px), U-F9 (header spacing regime), U-F26 (dark accents on the controls), U-F27 (control tap targets). Formation MUST carry **one coordination row + an explicit ordering** so the CLS/LCP mount-box reservation is not undone by the gestalt reseats (a reseat that changes the mount box re-opens CLS). Disp: **build — the ordering constraint is itself a wave-sequencing law**.
+
+**R-4 — NEW FAMILY U-F77 `library-cut-adopt-ordering` (missing cross-wave constraint).** U-F29's honest amelioration (loud-fail or full-value reshape) is semver-loaded; glass-ui pins `@mkbabb/value.js '^3.1.0'` in BOTH peer+dev deps (`../glass-ui/package.json:1109,1147`), which EXCLUDES a 4.x cut. Nuance (softens, doesn't remove): glass-ui consumes only `parseCSSColor` (5 sites), NOT `parseCSSValue` — so the reshape breaks no CONSUMED API, but a 4.0.0 cut strands the peer floor until glass-ui widens it. Formation carries a **co-land ordering row**: the library-correctness cut's version decision (owner-held, §13.5) sequences against the U-F2 adopt so the peer floor and the cut land coherently.
+
+## §21 STABILITY
+
+Adversary: "**UNSTABLE** — but the fixes are bounded registry reconciliations (planning-only, no code), not a new investigation round... After these four registry reconciliations, one confirming clean pass = stable → formation may open. **No CONFIRMED finding is factually WRONG**." The four (R-1..R-4) are now applied above. Notes carried, non-blocking: U-F55 CI-teeth sharpened (page-load.spec.ts is the **SOLE** hard e2e gate — smoke + smoke-safari are BOTH continue-on-error); U-F54 real-GPU never run means §2 still-red TARGETS carry a demonstrated headless false-red risk (the registry itself logged 2: the U-F4 overture red herring + the U-F13 PRM confound) → the formation's §2 remediation gates must be born-RED against a real-GPU or owner-attested frame, never a headless assertion.
+
+**ROUND 5 = ONE confirming pass**: a fresh adversary (who did not author these reconciliations) re-reads the reconciled registry and rules STABLE / UNSTABLE. If STABLE → the convergent design-loop FORMATION opens (research→synthesize→prototype→critique→agglomerate → `docs/tranches/U/` with born-RED gates, π/DELTA obligations, and a decided disposition for every family), absorbing W8's terminal state.
