@@ -205,3 +205,62 @@ Round 2 surfaced 2 A-class + many B — NOT stable; round 3 required. The two li
 **Round-3 roster (5 agents, batches of 3; 25/32 after)**: verify:lib-api (opus — refute U-F29..F33 against the tests + the type contract + real consumer use) · verify:security (sonnet — drive the auth middleware to confirm/refute U-F36; re-probe U-F37/F38) · completeness-critic (opus — read BOTH rounds' coverage statements, name every un-run modality/unverified claim/unread source) · lens:build-tooling (sonnet — vite/rolldown config, build determinism, sourcemaps, gh-pages chunking, tsconfig/eslint coverage) · lens:dependency-supply-chain (sonnet — the file: sibling deps, pins, peer/unused deps, npm audit, the parse-that re-pin). All under the probe-parsimony edict (static-first, compact returns).
 
 **Then**: if round 3 is confirmatory (no material new families), round 4 = a fresh-eyes adversarial completeness pass → two-clean-passes stability → the convergent design-loop FORMATION opens on W8's terminal state.
+
+---
+
+# ROUND 3 (2026-07-12) — 5 agents (2 verifiers + completeness critic + 2 lenses), 8 verdicts + 18 findings. Budget 25/32. NOT stable (new families surfaced) → round 4.
+
+## §15 VERDICTS
+
+| Claim | Verdict | Resolution (feeds the amelioration) |
+|---|---|---|
+| **U-F29** parseCSSValue truncation | **WEAKENED** (but OWNER-RULED ameliorate §13.5 — the ruling wins) | Not a "wrong contract": `parseCSSValue = tryParse(ValuesValue)` is a DOCUMENTED single-value parser (truncation explicitly documented at index.ts:513-518), paired with the full-list `parseCSSSubValue`; the README shows NO multi-token example. The legitimately-sharp defect is the **SILENT no-signal truncation** (`tryParse` never requires full-input consumption → returns partial, no throw/warn). AMELIORATION SHAPE (design-loop): make the truncation LOUD (throw/warn on unconsumed input) and/or fix discoverability (the naming footgun — `parseCSSSubValue` sounds like it parses *less*). The owner's intent ("a consumer must not silently lose data") is honored by either the loud-fail or the full-value default — the design loop picks. There is no `parseCSSValues` top-level fn (only the combinator + parseCSSSubValue). |
+| **U-F30** normalized serialization | **SHARPENED + CONFIRMED** | No denorm seam exists (`toFormattedString` emits the same normalized floats; base.ts:248 calls both "canonical round-trip serializers"). Root: `mixColors` returns a `Color<number>` normalized [0,1] (mix.ts:105,177) and `createColorValueUnit` (color-unit.ts:32) wraps it WITHOUT denormalizing; `toString` (base.ts:202) emits verbatim. **The relative-color path ALSO leaks** (`rgb(from red r g b)`→`rgb(1 0 0)`, should be `rgb(255 0 0)`) — same `createColorValueUnit`-wraps-normalized seam. A single, clear fix locus. Zero tests assert a color-mix/relative-color serialization. |
+| **U-F31** transform single-axis expansion | **CONFIRMED, real** | `rotate(45deg)`→3 axes etc.; root src/parsing/index.ts:87-91 (single-value branch iterates all dims). Downstream hypothesis REFUTED: the library's own decompose/interpolate is matrix-component based and never consumes the expanded FunctionValue list — blast radius is DIRECT consumers of the parse output (an apply/keyframes path), not internal. |
+| **U-F32** trig unit leak | **CONFIRMED, bounded** | `evaluateMathFunction(sin(30deg))`→`0.5deg`; root math.ts:504-524 (sin/cos/tan not in the inverse-fn unit list). Confined to the `evaluateMathFunction` resolve path; `parseCSSValue` does not eagerly evaluate (AST round-trips unevaluated). |
+| **U-F33** gradient-stop comma | **CONFIRMED, bounded** | Positioned stops comma-join → invalid CSS; root FunctionValue.toString default (units/index.ts:300, no positioned-stop case). The DEMO uses a SEPARATE strict gradient parser (gradientParse/useGradientCSS, test-asserted correct) — no app path hits it; confined to the library FunctionValue serialize. |
+| **U-F36** impersonation | **CONFIRMED** | Route is LIVE-reachable (app.ts:80 → POST /admin/impersonate behind ADMIN_TOKEN) and returns HTTP 200 with a functionally-inert token; the missing `expiresAt` also defeats the TTL reaper (dead rows accumulate). |
+| **U-F37** no-auth Mongo | **CONFIRMED** | Bounded: mongo publishes no host port (internal bridge only), api loopback-bound 127.0.0.1:8130. Config-truth-lie (unwired MONGO_* vars) stands. |
+| **U-F38** cleartext tokens | **CONFIRMED** | Mitigated only by the network boundary — which U-F37 shows is itself unauthenticated; the two compound. |
+
+**Amelioration consolidation**: U-F30 (+relative-color leak) is a single-locus correctness fix (denormalize at `createColorValueUnit`, or normalize-on-construct — the design loop picks the invariant). U-F29/U-F31/U-F32/U-F33 are the **serialization/contract CLASS** the owner's E-3 binds together — one library-correctness wave, born-RED per defect, no cherry-picking. The publish/semver decision stays with the owner (§13.5).
+
+## §16 NEW FAMILIES — COMPLETENESS FRONTIER (the critic; these are COVERAGE gaps, not new defects — they bound what a formation may claim)
+
+| ID | Sev | Family | Gap → how to close |
+|---|---|---|---|
+| **U-F54** | **A** | `real-GPU-visual-oracle-never-run` | The headed-GPU oracle slate (O-1..O-26 live legs) was NEVER executed across all 3 rounds — the tranche-T core deliverable is verified only statically + SwiftShader-confounded headless. **Un-runnable in this headless env** → a FORMATION-TIME ACKNOWLEDGEMENT: U carries a real-GPU visual annex (owner-attested or a headed-CI lane), exactly as S/T did; not chased further. |
+| **U-F55** | **A** | `ci-oracle-slate-no-teeth` (merges U-F1+U-F15+U-F42) + unmeasured a11y HARD gate | lighthouserc `accessibility:['error',{minScore:0.9}]` is a HARD gate NO lens measured — a second W9-close ambush beside CLS. → round 4 MEASURES it (closeable). The no-teeth CI slate → a U build row. |
+| U-F56 | B | `authenticated-populated-surface-uneyeballed` | Login/save/publish/admin/populated Extract-Browse never driven live (empty-plate + unauth GETs only). → a U gestalt+a11y row over the authed surface. |
+| U-F57 | B | `a11y-modality-gaps` | Zero coverage: real screen-reader, forced-colors/high-contrast, prefers-contrast, prefers-reduced-transparency, real-mobile touch, slider keyboard OPERATION. Source has ZERO forced-colors/prefers-contrast rules. → a U a11y hardening row. |
+| U-F58 | C | `untested-web-modalities` | i18n/RTL (html has no dir), print (no @media print), PWA/offline (no SW/manifest), error-injection, long-session/memory (the iOS 294-frame class unprobed). → formation decides build-or-explicitly-out-of-scope per modality. |
+| U-F59 | B | `unread-sources-of-record` | docs/precepts/* (live submodule, unopened), the pre-R owner-ask chain (A..Q + N U1-U33, inherited by chain-of-custody, never re-verified), the api test suite (never run — only tsc), assets/docs content. → round 4 reads/runs these. |
+| U-F60 | C | `color-math-correctness-unaudited` | No lens audited the numeric color core (17-space conversions, Ottosson/raytrace gamut, deltaE, SPSA colorFilter, okhsl). Tests exist with external ground-truth + green, but soundness unverified. → round 4 spot-checks. |
+| U-F61 | B | `single-sourced-claims` | X2 NCSU-301 (VPN-gated, both rounds), the CI TBT red (pure ledger claim, local understates), born-RED cure-ownership, the deploy-webhook repair — all single-sourced/network-unverified. → formation flags each as attested-not-verified. |
+| U-F62 | C | `families-that-are-two-mechanisms` | U-F6 = the Q5 ramp resolver (color-math) + the O-14 proxy-oracle (instrument-class) — SPLIT them: the ramp cure (WR-8) and the oracle-class law ("every guard-constant gets a feasibility leg") have different owners/surfaces. |
+
+## §17 NEW FAMILIES — BUILD/TOOLING + SUPPLY-CHAIN
+
+| ID | Sev | Family | Mechanism | Disp |
+|---|---|---|---|---|
+| U-F63 | B | `npm-pack-ships-demo` | No `.npmignore` + a no-op `prepare` → a stale `dist/gh-pages/` (the whole demo app) ships inside the npm tarball (measured unpackedSize ~4.3 MB). | **build** (clean-before-pack or .npmignore) |
+| U-F64 | C | `size-gate-blind` | CI gates `dist/value.js ≤145KB` but the file is a 14.9 KB post-split facade — core bloat now lives in hashed shared chunks the gate can't see. | **retire/re-anchor** (gate the chunk-graph total) |
+| U-F65 | C | `lint-vacuity` | `npm run lint` is green over 680 files but ~every rule is OFF; only the src/ glass-ui import ban enforces anything (breadth genuine, depth ~nil). | **fold** (owner call: restore a real rule set or accept types+review) |
+| U-F66 | C | `typecheck-stale-dist` | `npm run typecheck` resolves demo→value.js through `dist/*.d.ts` with no prebuild → silently passes against STALE published types. | **fold** (add a pretypecheck build, or accept the documented build-state dependence) |
+| U-F67 | B | `api-hono-advisory` | `hono@4.12.2` (api runtime) carries an open advisory set; the reachable bodyLimit-bypass class is live, fix by an in-range minor bump. Other hono CVEs unreachable (no serveStatic/toSSG/hono-cors). | **build** (bump) |
+| U-F68 | C | `glass-ui-lock-adopt-drift` | package-lock records file:glass-ui @ 4.2.0 but disk/symlink is 5.0.0 — the adopt gap is ALREADY LIVE locally; the lock's 4.2.0 is a false record. glass-ui 5.0.0 peers ARE satisfied (value 3.1.0, kf 5.2.0). | **fold** into the W7-adopt wave (the lock refreshes at the cut) |
+| U-F69 | C | `parse-that-doc-lie` | CLAUDE.md:154 says parse-that "shipped 2.0.1"; registry latest is 1.0.0, spec/lock/node_modules ALL 1.0.0, caret `^1.0.0` forbids 2.x. The dep state is coherent; the prose is false. | **build** (canon-sync — joins U-F21) |
+| U-F70 | C | `root-zod-orphan` | Root devDep `zod ^3.23.8` unused (0 imports in src/demo/test/e2e/scripts); all zod is api-side (own 4.4.3). | **retire** |
+| U-F71 | C | `dev-toolchain-advisories` | Remaining npm-audit hits (esbuild/js-yaml/vitest/vite) are dev/build-only, none ship in dist. | **fold** (batch dev-dep bump) |
+
+## §18 ROUND-4 STEERING (the convergence round)
+
+Round 3 was NOT confirmatory — it surfaced build/dep/completeness families. Two-clean-passes rule ⇒ round 4 required. Round 4 CLOSES the closeable frontier gaps + runs the fresh-adversary completeness pass; if it surfaces no NEW material family, that + a clean round 5 = stability, and formation opens.
+
+**Round-4 roster (4 agents, batches of 3; 29/32 after)**:
+- `measure:a11y-hard-gate` (sonnet) — run the lighthouse accessibility category (the U-F55 unmeasured HARD gate) on dist/gh-pages, lane port :8196; report the score + top failures. Closeable.
+- `read:unread-sources` (opus) — open docs/precepts/* (the submodule), RUN the api test suite (`cd api && npm test`), spot-check the pre-R owner-ask chain (A..Q + N U1-U33) for any genuinely-unaddressed ask, skim assets/docs content claims. Closes U-F59.
+- `verify:color-math` (opus) — the U-F60 gap: confirm the color-science tests assert against EXTERNAL ground truth (Sharma CIEDE2000 table, known conversion vectors) and spot-check 3-4 conversions/gamut-maps for soundness against an independent reference. Closes U-F60.
+- `adversary:fresh-completeness` (opus) — a skeptic who did NOT author the registry: attack it for the two-clean-passes rule — is any CONFIRMED finding actually wrong? any disposition unsafe to build on? what breaks if U forms on this registry today? Names anything that must move before formation.
+
+**Real-GPU (U-F54)**: NOT chased — a formation-time acknowledgement (U carries a real-GPU visual annex, owner-attested). The headless env cannot run it; pretending otherwise is the close-class lie the charter forbids.
