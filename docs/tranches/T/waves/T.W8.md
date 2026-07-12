@@ -122,7 +122,11 @@ Lighthouse delta run in the same wave; **the owner's verdict recorded — it is 
    mechanism (compositor-only title `scale(0.618)` over an UNSHRUNKEN header layout box —
    t33-research §6.6, the mechanism handed so no pass re-discovers it; the honest arms = a
    designed SHORT stuck strip with the veil range re-keyed, or the P3 ScrollCardHeader producer
-   knobs); (b) **the card-transition motion bracket (T-48 residual)** — the frame-by-frame
+   knobs) — **[OWNER-2026-07-12] T-61 RULES THE DIRECTION (`MANDATE §0.8`, shot t61-audit-01):
+   "The header padding/background shoudl ALSO shrink on scroll--not just the title." The
+   whole-header contraction IS the honest arm (padding + background + title condense as ONE
+   strip); the package presents T-42 with this input named — the remaining bracket is the
+   REGISTER of the contraction, not its existence**; (b) **the card-transition motion bracket (T-48 residual)** — the frame-by-frame
    re-analysis the owner ordered RIDES THE W5 GATE (mid-flight captures, the F2 evidence class;
    glass-ui curves + liquid-glass smoothing bind W5's own close); whatever taste residual
    survives W5's gate lands HERE as a bracket, with the §4-attributed payload half of "janky"
