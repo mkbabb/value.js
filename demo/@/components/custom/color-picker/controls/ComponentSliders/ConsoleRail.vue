@@ -38,15 +38,32 @@
                             <!-- The ONE active indicator: the WatercolorDot
                                  seat under the active glyph (the live-color
                                  voice; the aria-selected neutral pill is
-                                 retired). -->
-                            <WatercolorDot
+                                 retired). T.W8-P1-R1 (LAND · A-class): the dot
+                                 is seated inside a DEMO-OWNED positioned box —
+                                 the producer's scoped `.watercolor-swatch`
+                                 (position:relative, 0-2-0) defeated the flat
+                                 `.rail-dot { position:absolute }` (0-1-0), so
+                                 the dot rendered 11.6×0px and NOTHING painted
+                                 (the active glyph then inked near-white off the
+                                 never-painted fill). The seat carries the
+                                 absolute box; the dot fills it 100% — NO
+                                 producer property overridden, T-28 ABROGATE
+                                 (no geometric ring on the dot) intact. -->
+                            <span
                                 v-if="active === component"
-                                tag="div"
-                                :color="cssColorOpaque"
-                                class="rail-dot"
+                                class="rail-dot-seat"
                                 aria-hidden="true"
-                            />
-                            <span class="rail-glyph">{{ componentGlyph(component) }}</span>
+                            >
+                                <WatercolorDot
+                                    tag="div"
+                                    :color="cssColorOpaque"
+                                    class="rail-dot"
+                                />
+                            </span>
+                            <span
+                                class="rail-glyph"
+                                :class="{ 'rail-glyph--alpha': component === 'alpha' }"
+                            >{{ componentGlyph(component) }}</span>
                         </button>
                     </TooltipTrigger>
                     <!-- The anatomy popover re-seats at touch bands (t-mobile
@@ -258,16 +275,47 @@ function onRailKeydown(e: KeyboardEvent, component: string) {
 }
 
 /* The ONE active indicator — the WatercolorDot seat under the active glyph
- * (the live-color voice; organic silhouette, per-instance filter). */
-.rail-dot {
+ * (the live-color voice; organic silhouette, per-instance filter).
+ *
+ * T.W8-P1-R1 (LAND · A-class — the seat was DEAD BY CASCADE): the positioned
+ * box is a DEMO-OWNED wrapper (`.rail-dot-seat`), NOT the producer dot. The
+ * producer's `.watercolor-swatch` ships `position: relative` (0-2-0 with its
+ * data-v attr), which defeated a flat `.rail-dot { position: absolute }`
+ * (0-1-0) → the dot computed `relative`, rendered 11.6×0px, painted nothing
+ * (the `background-color` was correctly bound but had zero box). The seat now
+ * owns the absolute geometry; the dot FILLS it (100%×100%), so no producer
+ * property is overridden and the dot's own `position: relative` is honoured.
+ * T-28's ABROGATE law holds — no geometric ring anywhere on the organic
+ * silhouette. */
+.rail-dot-seat {
     position: absolute;
     inset: -1px;
     z-index: 0;
     pointer-events: none;
+    display: block;
+}
+.rail-dot {
+    width: 100%;
+    height: 100%;
 }
 .rail-glyph {
     position: relative;
     z-index: 1;
+}
+
+/* T.W8-P1-R2 (LAND · legibility/identity) — the α glyph is a Latin-`a` twin:
+ * Fraunces carries no Greek, so U+03B1 falls back to the metric-compatible
+ * serif and inks as a near-twin of the CIELAB `a*` glyph one row up (the rail
+ * read `L a b a`). The LANDED default is a distinct styling rung: alpha inks
+ * in the house MONO face (Fira Code ships a genuine, open Greek alpha) and
+ * UPRIGHT, so it can never be confused with the italic Fraunces `a*` — alpha
+ * is the transparency channel, not a color axis, and now reads as its own
+ * token. The C-4 house-cut-face flag (a donor-Greek subset into the self-cut
+ * Fraunces, or the P10 producer ask) rides this row into the package as the
+ * far bracket pole — the owner has never seen a minted face named. */
+.rail-glyph--alpha {
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-style: normal;
 }
 
 /* THE TOUCH RUNG (t-mobile F-5) — ≥44px hits <lg via the producer's own
