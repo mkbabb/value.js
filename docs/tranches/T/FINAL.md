@@ -1,4 +1,4 @@
-# T — FINAL: the colocation + taste-consummation tranche closes (CLOSE-READY)
+# T — FINAL: the colocation + taste-consummation tranche closes (CLOSED 2026-07-13)
 
 **Tranche**: T (the colocation grand restructure · the boot overture · the material ladder ·
 the picker recomposition · motion liquid · surfaces & shell · the terminal owner certification ·
@@ -20,8 +20,19 @@ goal-unmet closes `complete_with_misses`, never `complete` (PP-16). The one goal
 cannot meet inside its own window — the Q14 LCP/TBT budgets — closes by the RULED escalation
 (§3), not by a re-baseline, a preset-swap, or a deferral (all three forbidden by the Q14 mandate).
 
-> **THIS DOCUMENT IS CLOSE-READY, NOT MERGED.** Three terminals are the OWNER's, and are NOT
-> crossed here (the R→S→T ceremony precedent, RULED for T at the ratification):
+> **THE CEREMONY FIRED 2026-07-13** on the owner's verbatim execution order
+> (`docs/tranches/U/audit/RATIFICATION-2026-07-13.md`, coupled with the tranche-U ratification —
+> T closed and U opened as ONE decision, exactly as reserved): the merge landed (`--no-ff`
+> `tranche-t` → `master` **`6e14e90`**; the one conflict, `.github/workflows/ci.yml`, resolved to
+> the tranche-t side — T.W0 adopted then superseded master's peel; merged tree byte-identical to
+> `tranche-t` @ `bf564c7`), the annotated **`tranche-t-close`** tag is pushed, and the 12
+> pre-ceremony lane worktrees are SWEPT (`audit/w9-close/ceremony-sweep.md` — every lane branch
+> proven 0-unmerged-patches via `git cherry` before removal). The Q14 escalation (§3) is
+> ACKNOWLEDGED-BY-EXECUTION-ORDER (the RATIFICATION §1.2 encoding); **the HG6 taste verdict
+> REMAINS the owner's — PENDING, never proxied** (§8.3; U.W-VISUAL's wave-open census is the live
+> instrument meanwhile). The deploy-lineage (O-25) + merged-tree e2e legs fired at the ceremony;
+> their records amend `audit/w9-close/` at completion. The three terminals as originally reserved
+> (historical, pre-ceremony text):
 >
 > 1. **The master merge (`--no-ff` `tranche-t` → `master`) + the annotated `tranche-t-close`
 >    tag + the worktree cleanup** — the OWNER fires these, COUPLED with the tranche-U
@@ -57,7 +68,7 @@ cannot meet inside its own window — the Q14 LCP/TBT budgets — closes by the 
 | **T.W6.5** the owner-audit remediation wave (§0.6, T-33..T-48) | **complete_with_misses** (2026-07-11) | 8-row §Hard gate → **7 PASS + 1 MISS-RECORDED**, zero FAIL. 4 lanes + Row E: S ShadowPalette R12 redesign `0ad772f` · P console veil re-seat + dynamic-max clamp `ad301e7` · I ink delineation (certifyAccentInk cusp cure, O-18 +IDENTITY/+GRAPHICS) `c2a911f` · M root-barrel ×10 + B2/B4 split + T-45 pseudo `7d3900a` · E kf `<EasingPicker>` seat `1a8f06c`. **HG7 GENUINE FAIL cured at close** the idiomatic §0.6 way: two cohesion-honest lifts (`ink.ts`→`ink-walk.ts` 423→292 · `useColorPipeline.ts`→`useAtmosphereFrameCoalesce.ts` 403→373; `69500b7`, behaviour-preserving); PI-1 W6.5 row filed → HG7 flips PASS. vitest 2233/2233. Close head `5e4f1f6`. Artefacts `audit/w65-close-artefacts.md` | Goal met: 16/16 T-33..T-48 rows dispositioned, zero silent drops | `_with_misses` = **HG5** (the "scroll-timeline chunk absent from eager" leg — a research §4.2 chunk-NAME misattribution; the real dead weight is library-side `src/subpaths/parsing.ts` → routed to **W7 dead-payload BY NAME**) + the standing born-RED legs |
 | **T.W7** the adopt event (= S.W8 handed intact; the Q14 TBT/JS-eager delta gate row) | **TRIGGER-NOT-FIRED** — recorded as-is (PP-5: books never gates) | Re-probed 2026-07-12 at the T.W8 close: `git -C ../glass-ui tag --list 'v5*'` = EMPTY · `npm view @mkbabb/glass-ui version` = **4.2.0**. glass-ui pkg **5.0.0 in-tree** (HEAD `690fef91`, `tranche/BI`, BI GREENLIGHT 2026-07-12) but the cut is **USER-GATED + untagged** — no v5 tag, no registry v5 | **Not a miss**: a trigger-gated wave whose trigger did not fire inside T's window. The wave doc + the §3.10 MIGRATION walk hand to the successor intact. The cut is **imminent** (very likely to fire early in U's life) | The adopt-event class → §5 (HAND TO U): CI un-pin · L17 rename · L20 subpath · GAP-ARM/L2/L5 re-verify · the L2..L16 asks · the whole §7.2 producer-consume swap set · the HG5-routed `/parsing` dead-payload split |
 | **T.W8** E-7 the hardening/critique wave (the terminal owner certification package) | **complete_with_misses** (2026-07-12; **HG6 owner verdict PENDING — the honest terminal**) | 6-row §Hard gate → **5 PASS + 1 MISS-RECORDED**, zero FAIL. 6 remediation lanes landed + merged (`83d8714`→`6d95871`; 29 LAND rows [§7.2 enumeration; the pre-P9 scalar read 24] + 9/11 §0.7 WR rows); 11 critique-pass journals filed (`passes/`); the package ASSEMBLED by the **non-authoring terminal-assembler** (`286619e`, docs-only) — 20 taste brackets B-01..B-20 (each pole a named reproducible state) + 2 flagged non-rows + boot screencast (1543 frames) + T-48 motion captures (8 hops) + the honest-red ledger + the owner-line index + the Q14 material. HG3: full 6-project e2e **160 passed / 2 skipped / exit 0** on lane ports 8790/8791 (owner's :9000 untouched; exactly the 3 born-RED legs reproduce). Artefacts `audit/w8-close-artefacts.md` + `audit/w8-certification/{PACKAGE,ROWS,VERDICT-2026-07-12,PROGRESS}.md` + `passes/*` (11) | Goal met to the package: the tranche's taste record is delivered, certified by no proxy | **HG5 MISS-RECORDED** (PP-8 caps breach — two W8-remediation-grown demo files over ≤400: `useAtmosphere.ts` 344→411 `c116250` [P9-R3/T-37 derive-seam] · `Markdown.vue` 396→408 `433ae22` [AB-1 KaTeX]; ZERO at baseline `5e4f1f6`; comment-heavy raw-LoC, not complexity — booked a **W9-handed re-encapsulation row**, splitting demo/ is a remediation act not a gate act). **HG6: THE OWNER'S VERDICT IS THE GATE — PENDING** (the empty stub; delivered-but-unruled, never a proxy sign-off) → §8 |
-| **T.W9** close (the Q14 PERF REDEMPTION close gate) | **CLOSE-READY · `complete_with_misses`** (2026-07-12) | Composite §Hard gate: the finding→item ledger walked WHOLE with evidence cites (§2, zero drops) · every `T.md §7` book re-probed live (`audit/w9-close/book-reverify.md`) · repo-wide sweeps re-run (§6) · **the Q14 close gate resolved to the RULED ESCALATION** (§3) · FINAL.md authored. Static close gates ALL GREEN (`audit/w9-close/sweeps.log`, HEAD `28f30ed`): lint 0 · typecheck (lib+demo) 0 · api tsc --noEmit 0 · vitest **74 files / 2241 / 2241 passed / 0 failed** · `npm run build` clean (dist/value.js 14.91 kB gz 5.89 kB, 1.65s) · `npm run gh-pages` clean (3.96s) | Goal met: the tranche's gates are proven to hold against the live tree (a verification act, not paperwork). The master merge + tag + deploy-lineage verification are the OWNER's ceremony (§8) — the close-READY state is produced, the git ops are not performed | **The Q14 escalation** (§3, budgets HONESTLY RED, redemption INHERITS to U's `U.W-PERF`) · **the e2e leg CERTIFIED** on the quiet machine (159 passed / 2 skip / 1 proven-flake O-7 — isolated re-pass 4/4 green; the 3 born-RED `test.fail()` legs the only named reds; matches W6 146/2-skip + W8 160/2-skip; `audit/w9-close/e2e-certification.md`) · the W8 HG5 re-encapsulation row → U · the owner-gated terminals (§8) |
+| **T.W9** close (the Q14 PERF REDEMPTION close gate) | **`complete_with_misses` — MERGED 2026-07-13** (master `6e14e90`, tag `tranche-t-close`; CLOSE-READY authored 2026-07-12) | Composite §Hard gate: the finding→item ledger walked WHOLE with evidence cites (§2, zero drops) · every `T.md §7` book re-probed live (`audit/w9-close/book-reverify.md`) · repo-wide sweeps re-run (§6) · **the Q14 close gate resolved to the RULED ESCALATION** (§3) · FINAL.md authored. Static close gates ALL GREEN (`audit/w9-close/sweeps.log`, HEAD `28f30ed`): lint 0 · typecheck (lib+demo) 0 · api tsc --noEmit 0 · vitest **74 files / 2241 / 2241 passed / 0 failed** · `npm run build` clean (dist/value.js 14.91 kB gz 5.89 kB, 1.65s) · `npm run gh-pages` clean (3.96s) | Goal met: the tranche's gates are proven to hold against the live tree (a verification act, not paperwork). The master merge + tag + deploy-lineage verification are the OWNER's ceremony (§8) — the close-READY state is produced, the git ops are not performed | **The Q14 escalation** (§3, budgets HONESTLY RED, redemption INHERITS to U's `U.W-PERF`) · **the e2e leg CERTIFIED** on the quiet machine (159 passed / 2 skip / 1 proven-flake O-7 — isolated re-pass 4/4 green; the 3 born-RED `test.fail()` legs the only named reds; matches W6 146/2-skip + W8 160/2-skip; `audit/w9-close/e2e-certification.md`) · the W8 HG5 re-encapsulation row → U · the owner-gated terminals (§8) |
 
 **Wave-verdict honesty summary.** Two waves `complete` on their own gate (W0 zero-miss outright;
 W2 `complete` with 2 non-downgrading env-class MISS). Eight waves closed `complete_with_misses` —
@@ -426,10 +437,13 @@ real-GPU annex hands to U-F54). **O-25** (prod-lineage) GREEN against the deploy
 
 ---
 
-## §8 — THE OWNER-GATED CLOSE (the terminals NOT crossed here)
+## §8 — THE OWNER-GATED CLOSE (EXECUTED at the 2026-07-13 ceremony; HG6 remains pending)
 
-FINAL.md is **CLOSE-READY, not merged.** The following are the OWNER's decision, and are COUPLED
-with the tranche-U ratification — **T closes and U opens as ONE owner decision point**:
+**Ceremony record**: item 1 EXECUTED (merge `6e14e90` + tag `tranche-t-close` + the 12-worktree
+sweep, `ceremony-sweep.md`); item 2 ACKNOWLEDGED-BY-EXECUTION-ORDER (`U/audit/
+RATIFICATION-2026-07-13.md §1.2`); item 3 **PENDING — the owner's, never proxied**. The original
+reservation text follows (historical). The following were the OWNER's decision, COUPLED with the
+tranche-U ratification — **T closes and U opens as ONE owner decision point**:
 
 1. **The master merge + tag + worktree cleanup.** The `--no-ff` merge of `tranche-t` → `master`,
    the annotated `tranche-t-close` tag (carrying the `complete_with_misses` verdict + the finding
