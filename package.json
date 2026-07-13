@@ -83,7 +83,7 @@
         "lint": "eslint . --max-warnings=0",
         "test": "vitest",
         "test:e2e": "playwright test",
-        "test:dist": "npm run build && npm run proof:dts-surface && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget && npm run proof:lib-correctness && npm run proof:barrel-parity && npm run proof:pack-manifest",
+        "test:dist": "npm run build && npm run proof:dts-surface && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget && npm run proof:lib-correctness && npm run proof:barrel-parity && npm run proof:pack-manifest && npm run proof:close-ledger",
         "boot-smoke": "node scripts/ci/boot-smoke.mjs",
         "abrogation-sweep": "node scripts/ci/abrogation-sweep.mjs",
         "css-emission-probe": "node scripts/ci/css-emission-probe.mjs",
@@ -96,7 +96,8 @@
         "proof:lib-correctness": "node scripts/gates/proof-lib-correctness.mjs",
         "proof:barrel-parity": "node scripts/gates/proof-barrel-parity.mjs",
         "proof:pack-manifest": "node scripts/gates/proof-pack-manifest.mjs",
-        "proof:size-graph": "node scripts/gates/proof-size-graph.mjs"
+        "proof:size-graph": "node scripts/gates/proof-size-graph.mjs",
+        "proof:close-ledger": "node scripts/gates/proof-close-ledger.mjs"
     },
     "repository": {
         "type": "git",
