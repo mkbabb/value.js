@@ -5,7 +5,8 @@ session wall must lose NOTHING: this file + the run journals + the git tree are 
 resume from any of the three death classes below. **Update this file at every wave launch/close**
 (the orchestrator's standing duty); the git history of this file IS the execution timeline.
 
-**Last stamped**: 2026-07-13, by the orchestrating session `daa7c418-d0bc-4d88-913c-27283e6345eb`.
+**Last stamped**: 2026-07-13 (U.W-PERF CLOSED `complete_with_misses`), by the orchestrating session
+`daa7c418-d0bc-4d88-913c-27283e6345eb`.
 
 ---
 
@@ -35,7 +36,7 @@ resume from any of the three death classes below. **Update this file at every wa
 
 | Run | Workflow | Phase at stamp | Script (in §3 dir) | On death |
 |---|---|---|---|---|
-| `wf_c072f8ee-d1e` | U.W-PERF (dispatch → 3 lanes [perf-cls U-F16+F76 main-tree LHCI · perf-dist-gate U-F14 in worktree · perf-lcp-escalate U-F3 docs-only] → gate G-PERF-1..4 → close) | **RESUMED 2026-07-13** after a harness-crash kill (death class 2: process died mid-lanes; dispatcher cached, 3 lanes re-running batch-of-3; the U-F3 escalate had ALREADY LANDED `ca8dbca` pre-crash — its re-run reconciles, never duplicates; the dead U-F14 lane worktree was CLEAN → removed) | `u-w-perf-wf_c072f8ee-d1e.js` | resume; PERF is reserve-only (the U-F76 TAIL — never moves the mount box); G-PERF-3 is ARMED-RED escalate, never a gate edit |
+| `wf_c072f8ee-d1e` | U.W-PERF (dispatch → 3 lanes [perf-cls U-F16+F76 main-tree LHCI · perf-dist-gate U-F14 in worktree · perf-lcp-escalate U-F3 docs-only] → gate G-PERF-1..4 → close) | **CLOSED `complete_with_misses` 2026-07-13** (this run completed; 3 born-RED gates flipped to terminal [G-PERF-1 CLS 0.2146→0.0010 · G-PERF-2 dist-gate 32/32 re-anchored · G-PERF-4 settle-guard 16/16] + G-PERF-3 the DECIDED LCP escalate [armed-RED, producer-gated, no gate edit]; U-F3 W9 row LANDED in PI-1 by the close scribe; verdict + commits in §4) | `u-w-perf-wf_c072f8ee-d1e.js` | n/a — CLOSED; the U-F76 chain is the reserve-only TAIL, complete |
 
 **Completed runs** (journals retained, no action): `wf_84ed7f23-036` **A11Y (CLOSED
 `complete_with_misses`** — all 11 born-RED gates BR-1..BR-11 flipped RED→GREEN [deterministic
@@ -70,15 +71,21 @@ publish-packet.md` [MAJOR, 4.0.0 recommended, OWNER-DECIDES], BH relay
 
 ## §4 The DAG cursor + standing state
 
-- **Closed (7)**: DEMO (`complete`) · SEC (`complete_with_misses`) · LIB (`COMPLETE`
+- **Closed (8)**: DEMO (`complete`) · SEC (`complete_with_misses`) · LIB (`COMPLETE`
   build-complete) · ORACLE (`complete_with_misses`) · CANON (`complete_with_misses`) ·
-  VISUAL (`complete_with_misses`) · **A11Y (`complete_with_misses`, 2026-07-13** — 11/11 born-RED
-  gates GREEN; U-F76 mount HELD, visual box UNCHANGED → UNBLOCKS PERF; OA-1/OA-2 owner-attest OPEN).
-  **Next**: **PERF (UNBLOCKED — fires next**; reserves CLS/LCP over the SETTLED mount box; ADOPT-gated
-  LCP half escalates per the wave doc; long-session/memory U-F58 fold rides `smoke-safari`).
-  **ADOPT**: trigger-gated — probe `git -C ../glass-ui tag --list 'v5*'` each round (EMPTY at stamp).
-  **CLOSE last** (zero-drop ledger walk · publish presentation · real-GPU annex · the census ANNEX-7
-  + A11Y OA-1/OA-2 + u-f12 Pole A/B bracket to the owner).
+  VISUAL (`complete_with_misses`) · A11Y (`complete_with_misses`) · **PERF (`complete_with_misses`,
+  2026-07-13** — commits `ca8dbca`·`a16e1f4`·`b3f4f76`·`a0d777d` + close stamp; 3 born-RED gates
+  flipped to terminal [G-PERF-1 CLS 0.2146→0.0010 · G-PERF-2 dist-gate re-anchored 32/32, re-probed
+  live PASS 2/2 · G-PERF-4 settle-guard 16/16, box `y=199 h=613` unmoved] + **G-PERF-3 the DECIDED LCP
+  escalate** [armed-RED, ~4919/5141 ~2×, producer-gated on the unfired 5.0.0 adopt, no gate edit —
+  Q14 verbatim]; PERF was the reserve-only TAIL of the U-F76 chain [VISUAL → A11Y → PERF], CLOSED; the
+  U-F3 W9 row LANDED in PI-1 by the close scribe; RELAY discharged by citation [communiqué `17e0f522`];
+  the RECEIVED A11Y long-session fold acknowledged at `smoke-safari`).
+  **Next**: **ADOPT** (trigger-gated — probe `git -C ../glass-ui tag --list 'v5*'` each round, EMPTY at
+  stamp; the U-F3 producer payload cut / Pole A rides its BI-acceptance) + **CLOSE last** (zero-drop
+  ledger walk · publish presentation · real-GPU annex · the census ANNEX-7 + A11Y OA-1/OA-2 + u-f12
+  Pole A/B bracket + **the U-F3 Q14 LCP adjudication — G-PERF-3 ARMED-RED rides to CLOSE** as the
+  attested/escalated flag; registry §26 W9's Q14 inherits U-F3/F14/F16 — all to the owner).
 - **Substrate**: glass-ui PINNED @ `2e559f7a` (both symlinks → `.claude/worktrees/glass-ui-pinned`;
   record `audit/w-adopt/substrate-pin.md`; UNPIN at the v5 tag). The L17 goo-blob→blob consume
   swap is LANDED (`110b56f`). **Co-land PREVIEW applied 2026-07-13** (`296b8b2`, pushed): the
