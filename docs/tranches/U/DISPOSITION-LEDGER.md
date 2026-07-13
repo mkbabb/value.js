@@ -134,7 +134,8 @@ The §A families come from the converged `audit/registry.md` (§1–§28). Three
 HAND-TO-U book-successor table are NOT registry-family-enumerated (they arrived at T's close, after
 the registry converged), so they are carried HERE — each with a DECIDED U home, closing the
 `T/FINAL.md §5` → U coverage completely (the other §5 rows fold to §A/§B: the 5.0.0 adopt / GAP-* /
-L2..L16 → U-F2; L20+RP-2 / Q14 → U-F3; the T.W8 remediation rows → §C; PRM-expand → U-F28; **the
+L2..L16 → U-F2 [**L8's 5th-booking escalation + the per-item book-reverify obligation discharged at
+§C.1**]; L20+RP-2 / Q14 → U-F3; the T.W8 remediation rows → §C; PRM-expand → U-F28; **the
 P1–P10 packet dispositions + the T-60 producer communiqué (`f3f3c097`) → the §B "glass-ui BH relay
 set" chronic → U.W-ADOPT (the letter lane / BI-acceptance constraints)** — the substance is the §B
 BH-relay set, this row names the T/FINAL §5:306 handoff explicitly so it is enumerated, not merely
@@ -250,6 +251,40 @@ TERMINAL T.W8 state (charter §W8-inheritance) and routes only the residue.
 
 ---
 
+## §C.1 — THE EXHAUSTIVE T→U HANDOFF CENSUS RESIDUE (the RG-2 kill — four orphans homed)
+
+`FORMATION-VERDICT §11 RG-2` is the strongest residual: FIVE of seven hardening rounds each surfaced
+a NEW silently-dropped cross-tranche T→U handoff (r2 T-57 · r3 T-20 · r4 T-5/P1-R1 · r6 the three
+unfiled passes · r7 T-1/T-8/T-25/T-26/T-27 + the letter-rail). The **exhaustive T→U census** (this
+pass) enumerates EVERY T-side row — the pi-audit `audit/w8-certification/ROWS.md` finding rows + the
+`T/FINAL.md §2.2/§5` booked/HAND-TO-U rows — against the U corpus by BOTH id-match AND family-alias
+(an id-match miss ≠ an orphan: a T-row homed under its U-Fxx family name is verified-homed, not
+re-booked). **Thirty-one T-side candidate rows checked; twenty-seven verified-homed** under an
+existing family/ledger cite (no edit — e.g. P1-R3 → `U.W-VISUAL:126/131` + communiqué §2b · P1-B1 →
+`U.W-VISUAL:297/481` (BR-5/U-F9) · P6-W2/T-55 → U-F8 `U.W-VISUAL:274/554` · P9-W1/T-20 → §C
+`U.W-ADOPT` relay · P9-W2/T-52 → U-F13 · P11-notes n1/n2/n3 → the micro-chrome census
+`U.W-VISUAL:160-161` + a11y · O-16-R1/O-5/O-26 → U-F42 · GAP-ARM/GAP-L2/GAP-L5/PKT-1 → §2b · the
+adopt/perf/doc/PRM/7-set/DORMANT/packet folds above). **FOUR were genuinely un-homed** (ZERO hits
+under any alias) and are homed HERE, closing the RG-2 recurrence by construction (no sampling — every
+T-side row now lands-in-T, books-to-U with a named wave, or retires-with-rationale):
+
+| Census orphan | T-side origin | Un-homed evidence (grep-verified) | DECIDED U home + rationale |
+|---|---|---|---|
+| **boot-G** — the o12 boot-time backing-ratio oracle leg (TRIUMVIRATE; "would make the R2 regression class visible to the slate"; bounds-expansion; W9 inherits the minted-leg-or-the-declined-note) | `ROWS.md:72` pass-2 Row G (ROUTED → the triumvirate record) | ZERO hits for backing-ratio / o12 / bounds-expansion in the U corpus; `U.W-ORACLE §BOOKS` covers O-16/O-26/O-5/feasibility-leg/CI-teeth/dts-surface but NOT the o12 slate-bounds leg | **U.W-ORACLE §BOOKS** — the oracle-slate BOUNDS-EXPANSION decision: MINT the o12 boot-time backing-ratio leg (make the R2 boot-regression class slate-visible) OR record the declined-note with rationale. Parallels U-F1 (ci-oracle-slate) + the feasibility-leg law (U-F6-oracle-half): a triumvirate-minted leg is an oracle-hardening act decided in the oracle wave, never a silent drop. |
+| **CC-1** — `.glass-wash` zero-fill (PRODUCER-GATED packet P8 + the W3 consume note; "the two demo sites paint their rung post-fix") | `T/FINAL:150` (§2.2 pre-U booked set) | ZERO hits for glass-wash / CC-1 / packet-P8 in the U corpus; substantively within the "P1–P10 packet dispositions" §B.1 fold (line 138) but NEITHER the packet-P8 relay half NOR the demo consume-half is NAMED | **U.W-ADOPT §BOOKS** — producer half rides packet P8 inside the §B BH-relay set (the communiqué letter lane, `17e0f522`); the demo consume-half (paint the two sites' rung once glass-ui ships the `.glass-wash` fill) is a CONSUME-AT-CUT action booked to the adopt (E-3: no demo override of the producer fill — the consume waits on the primitive). NOT one of the §2b nine (a distinct producer packet); named so the demo consume is not invisible to a CC-1 auditor. |
+| **L8 / the L2..L16 open GLASSUI asks** — L8 = the 5th booking, ESCALATED; the open primitive-asks set, "per-item at book-reverify §C" | `T/FINAL:303` (§5 HAND-TO-U) | §B.1 folds "L2..L16 → U-F2" (line 137) but NEITHER L8's 5th-booking escalation NOR the per-item book-reverify obligation is discharged | **U.W-ADOPT §BOOKS / U-F2** — the L2..L16 open asks ARE the §1 design reds U-F2 re-files as EXPLICIT NAMED BI-acceptance constraints; **L8's 5th-booking ESCALATION** is recorded as a disease-adjacent signal (parallels the ≥3-tranche disease-row law) and the **per-item book-reverify** is the adopt-cut ledger vs the rebuilt dist (G-ADOPT-1), EXTENDED to each open ask + re-probed at U.W-CLOSE. Line 137's fold stands; this row discharges its two sub-obligations. |
+| **W8-2 rest-floor F9.R1 producer knob** — the rest-floor in-bracket read; F9.R1 producer knob booked W7 (the sibling of the GAP-L2 flagged-non-row) | `ROWS.md:194` (the two flagged non-rows) | GAP-L2 (the sibling half) is homed (§2b communiqué); the rest-floor F9.R1 producer-knob half has ZERO hits | **U.W-ADOPT §BOOKS / §B BH relay** — the F9.R1 rest-floor producer knob is a producer-gated residual that rides the adopt cut like the GAP-* reds (booked W7 in T = the U.W-ADOPT cut); the PR-2 fence is honored (no demo cure for a producer knob). The in-bracket rest-floor DEFAULT already landed in T's package; only the producer-knob residual carries. |
+
+**Census completeness statement**: the four orphans above + the twenty-seven verified-homed rows
+account for EVERY enumerated T-side handoff candidate. This is the RG-2 kill — the census is now
+assertable EXHAUSTIVE by construction (no next-round drop remains: every T-side row is
+landed-in-T, booked-to-U under a NAMED wave, or retired-with-rationale). HONESTY note: this does not
+retroactively make T's 7-round loop clean (RG-1 stands — no two consecutive clean passes occurred);
+it discharges the *enumeration* residual RG-2 names, leaving RG-3's r7-cure re-audit as the standing
+open item.
+
+---
+
 ## §D — THE §8 ZERO-DROP WINS (retire — the successor must NOT re-fold these)
 
 Recorded so no U reader re-opens what T genuinely discharged (registry §8):
@@ -272,5 +307,8 @@ U-F55-a11y-half (lighthouse a11y MEASURED 1.0).
 §B decides every embedded chronic/disease class; **§B.1 folds the three `T/FINAL.md §5` HAND-TO-U
 carried books that are not registry-family-enumerated** (the W8 demo-caps re-encapsulation, the
 spec-status 7-set, the DORMANT/PARK set); §C addresses every owner ask (still-red → wave; discharged
-→ §D retire) and every edict E-1..E-7; §D records the retire-set. No family, chronic, carried-book,
-or prompt-recap row is dropped, merged without a named target, or re-booked. This is E-4's discharge.
+→ §D retire) and every edict E-1..E-7; **§C.1 homes the four exhaustive-census T→U orphans the
+7-round loop's RG-2 residual predicted would remain** (boot-G · CC-1 · L8/L2..L16 per-item · W8-2
+rest-floor F9.R1) — twenty-seven of thirty-one T-side candidates verified-homed, four homed there;
+§D records the retire-set. No family, chronic, carried-book, census-orphan, or prompt-recap row is
+dropped, merged without a named target, or re-booked. This is E-4's discharge; §C.1 is RG-2's.

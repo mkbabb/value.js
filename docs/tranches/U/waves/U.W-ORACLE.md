@@ -446,6 +446,16 @@ family folds away without a named target.
   soft), never an un-owned drift.
 - **The moved dts-surface check → CI-wired `test:dist`.** U-F43's 2 string checks join the standing
   post-build slate; the unit suite's build-free state is the standing signal (G-ORACLE-4).
+- **boot-G — the o12 boot-time backing-ratio slate-bounds decision (the T triumvirate leg) → this
+  wave's oracle-slate BOUNDS-EXPANSION row.** `ROWS.md:72` (pass-2 Row G) routed the o12 boot-time
+  backing-ratio leg to the triumvirate record ("would make the R2 regression class visible to the
+  slate"; bounds-expansion; W9 inherits the minted-leg-or-the-declined-note). The census
+  (`DISPOSITION-LEDGER §C.1`) found it un-homed in U. DECISION: **MINT** the o12 backing-ratio leg
+  (arm the R2 boot-regression class as a slate-visible born-RED/GREEN gate) OR record the
+  **declined-note** with rationale — parallels U-F1 (ci-oracle-slate) + the U-F6-oracle-half
+  feasibility-leg law (an oracle must certify the FLOOR, not a proxy). A triumvirate-minted leg is an
+  oracle-hardening act decided in THIS wave; the minted-or-declined outcome rides U.W-CLOSE's ledger
+  walk. Not re-booked, not silently dropped.
 
 ---
 

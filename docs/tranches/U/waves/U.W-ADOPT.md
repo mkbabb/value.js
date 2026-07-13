@@ -310,3 +310,26 @@ Zero silent drops: F2, F4, F13-producer, F28, F68, F77 each reach a decided home
 - **The cut-execution residual (if the trigger does not fire in-window) → U.W-CLOSE.** The disease row
   is DECIDED here regardless; the cut execution (if trigger-gated past the window) is booked BY NAME to
   U.W-CLOSE, closing `complete_with_misses` (PP-16), never re-booked to a successor tranche.
+
+### The exhaustive-census producer residue (three T→U orphans homed here — `DISPOSITION-LEDGER §C.1`)
+
+- **CC-1 `.glass-wash` zero-fill → the packet-P8 relay half + the demo consume-at-cut half.**
+  `T/FINAL:150` booked CC-1 (PRODUCER-GATED packet P8 + the W3 consume note; "the two demo sites paint
+  their rung post-fix"). The census found it un-named in U. Producer half rides **packet P8** inside
+  the §B BH-relay set (already in the letter lane, `17e0f522`; NOT one of the §2b nine — a distinct
+  producer packet); the demo consume-half (paint the two sites' rung once glass-ui ships the
+  `.glass-wash` fill) is a **CONSUME-AT-CUT** action gated on this adopt — E-3 forbids a demo override
+  of the producer fill, so the consume WAITS on the primitive. Named so the consume is not invisible.
+- **L8 / the L2..L16 open GLASSUI asks → U-F2 (the §1 design reds) with two sub-obligations
+  discharged.** `T/FINAL:303` handed the L2..L16 open primitive-asks set (**L8 = the 5th booking,
+  ESCALATED**; "per-item at book-reverify §C"). §B.1 folds L2..L16 → U-F2; this row discharges the two
+  sub-obligations the fold left implicit: (a) **L8's 5th-booking ESCALATION** is a disease-adjacent
+  signal (the ≥3-tranche disease-row law's kin) — recorded, not swept; (b) the **per-item
+  book-reverify** is G-ADOPT-1's adopt-cut ledger-vs-rebuilt-dist EXTENDED to each open ask, re-probed
+  at U.W-CLOSE's book re-probe. The open asks ARE the §1 design reds U-F2 already re-files as EXPLICIT
+  NAMED BI-acceptance constraints; this names L8 + the per-item obligation by name.
+- **W8-2 rest-floor F9.R1 producer knob → the §B BH relay (producer knob at the cut).** `ROWS.md:194`
+  flagged two non-rows; GAP-L2 (the dark-scheme field/chrome split) is homed (§2b communiqué), but the
+  **rest-floor F9.R1 producer knob** (booked W7 in T) had no U home. It rides the adopt cut like the
+  GAP-* reds — the in-bracket rest-floor DEFAULT already landed in T's package; only the producer-knob
+  residual carries. PR-2 fence honored: no demo cure for a producer knob.
