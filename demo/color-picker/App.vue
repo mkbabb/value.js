@@ -191,6 +191,12 @@ import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 import "@styles/utils.css";
 import "@styles/style.css";
+// U.W-A11Y / U-F25: the `--focus-ring-inner/-outer` token recipe (:root) that
+// every keyboard-operable control's focus affordance composes. Global wire (a
+// `:root` token must be defined regardless of which control is mounted); the
+// modality lane REFERENCES these names from style.css. Imported AFTER style.css
+// so a later owner override there wins the cascade.
+import "@styles/focus-ring.css";
 // The overture's one-clock grammar sheet (tokens + arrival/appear/dock/emerge
 // rules) — colocated with the boot chain; imported AFTER style.css so the
 // cascade order matches the former in-SFC blocks (T.W2-3).

@@ -100,6 +100,7 @@ import { spectrumFieldIsLight } from "../spectrumLuma";
 import { readoutDecimals } from "../../display/ColorComponentDisplay/readoutReservation";
 import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";
 import { useSliderTouchGates } from "./composables/useSliderTouchGates";
+import { useSliderAnnouncements } from "./composables/useSliderAnnouncements";
 import ConsoleRail from "./ConsoleRail.vue";
 import { COLOR_MODEL_KEY } from "@composables/color/keys";
 
@@ -205,6 +206,19 @@ const {
     sliderGates,
     sliderWrapperEls,
 } = useSliderTouchGates({ currentColorSpace, debug });
+
+// U.W-A11Y / U-F27 (BR-4): every channel slider announces a HUMAN-READABLE,
+// unit-aware `aria-valuetext` ("Hue 210°", "Red 128", "Saturation 42%") off the
+// SAME formatted meter cell (ONE voice), instead of the reka thumb's raw
+// ≥16-digit `aria-valuenow`. The glass-ui `Slider` exposes no `aria-valuetext`
+// prop, so the demo sets it on the rendered `[role="slider"]` thumb directly —
+// the clean prop-through is the recorded producer RELAY.
+useSliderAnnouncements({
+    wrapperEls: sliderWrapperEls,
+    currentColorSpace,
+    valueText: meterText,
+    reactiveKey: currentColorComponentsFormatted,
+});
 </script>
 
 <style>

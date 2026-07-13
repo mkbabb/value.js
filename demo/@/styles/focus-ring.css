@@ -1,0 +1,36 @@
+/*
+ * ── The dual-contrast focus-ring recipe (U.W-A11Y · U-F25) ──────────────────
+ *
+ * ONE token recipe reused by every keyboard-operable control (the gradient
+ * stop handles + remove chip today; the modality lane REFERENCES these names
+ * from style.css for its forced-colors/prefers-contrast register — never a
+ * per-control literal).
+ *
+ * The U-F25 defect had TWO deaths: (1) an inline `boxShadow` on the control
+ * CLOBBERED Tailwind's `focus-visible:ring-2` box-shadow layer, and (2) the
+ * `--ring`/`--color-ring` token it reached resolved EMPTY — so even an
+ * un-clobbered ring painted nothing. This recipe cures (2): both channels
+ * resolve to REAL, non-empty colors by construction. The cascade half of the
+ * cure — hoisting the material shadow off the inline style so the ring
+ * COMPOSES with it — lives in the control's own scoped CSS (Pole A).
+ *
+ * The affordance is DUAL-CONTRAST — a 1px inner DARK hairline riding UNDER a
+ * 3px outer LIGHT ring — so at least one edge contrasts against ANY fill the
+ * ring rides over (a gradient stop's own colour, a slider thumb, a swatch).
+ * The two neutral poles are the ROBUST default (they read on every hue); the
+ * branded alternative — binding the outer ring to the WCAG-guarded
+ * `--accent-view` (post-U-F26) — is the bracket's other pole, left as a
+ * one-line retune for the owner. Scheme-independent by design: the ring rides
+ * over the control's own fill, not the page, so it must read the same in light
+ * and dark.
+ *
+ * Composed by every control as:
+ *   box-shadow: 0 0 0 1px var(--focus-ring-inner),
+ *               0 0 0 3px var(--focus-ring-outer),
+ *               var(--shadow-sm);
+ * with a forced-colors `outline` fallback (box-shadow is stripped in WHCM).
+ */
+:root {
+    --focus-ring-inner: rgba(0, 0, 0, 0.85);
+    --focus-ring-outer: rgba(255, 255, 255, 0.92);
+}

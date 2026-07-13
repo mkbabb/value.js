@@ -245,10 +245,10 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
                 :data-stop-id="stop.id"
                 type="button"
                 :aria-label="`Gradient stop at ${Math.round(stop.position)}%`"
-                class="rail-handle absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                class="rail-handle absolute top-1/2 w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing"
                 :class="[
                     selectedId === stop.id
-                        ? 'border-white ring-2 ring-primary z-10'
+                        ? 'border-white z-10'
                         : 'border-white/80 z-0'
                 ]"
                 :style="{
@@ -258,7 +258,13 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
                        (background-color would sit UNDER background-image,
                        so the color rides a const-color gradient layer). */
                     background: `linear-gradient(${stop.cssColor}, ${stop.cssColor}), var(--alpha-checker)`,
-                    boxShadow: 'var(--shadow-sm)',
+                    /* U.W-A11Y / U-F25 (Pole A): the material lift (`--shadow-sm`)
+                       is HOISTED to the scoped `.rail-handle` cascade (below) so
+                       the focus ring COMPOSES with it — an inline box-shadow here
+                       clobbered the whole property, killing `focus-visible:ring-2`
+                       (the twin of the 4e6c178 dead-hover miss). The per-stop
+                       COLOR stays inline (it is per-stop DATA); only the shadow
+                       stack became a stylesheet contract. */
                     /* S.W4 / W4-3: the hover scale rides the INLINE transform —
                        the `hover:scale-110` utility was DEAD, shadowed by this
                        inline `transform` (inline style always outranks the
@@ -292,11 +298,13 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
             v-if="selectedStop && removable"
             type="button"
             aria-label="Remove selected stop"
-            class="rail-remove-chip absolute w-6 h-6 top-11 rounded-full border border-card-edge bg-well text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            class="rail-remove-chip absolute w-6 h-6 top-11 rounded-full border border-card-edge bg-well text-muted-foreground flex items-center justify-center z-20 cursor-pointer hover:text-destructive hover:border-destructive/60"
             :style="{
                 left: handleLeft(selectedStop.position),
                 transform: 'translate(-50%, 0)',
-                boxShadow: 'var(--shadow-sm)',
+                /* U.W-A11Y / U-F25: `--shadow-sm` + the focus ring hoisted to the
+                   scoped `.rail-remove-chip` cascade (below), same class-of-fix
+                   as the handle — the inline box-shadow clobbered the ring. */
                 transition: 'color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard)',
             }"
             @click.stop="removeStop(selectedStop.id)"
@@ -363,30 +371,68 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
     box-shadow: var(--shadow-sm);
 }
 
-/* ── Coarse-pointer hit inflation (P7-R2) ──
-   The 20×20 handles and the 24×24 remove chip under-serve the producer's
-   own --touch-target floor (44px), which the Direction slider thumb on this
-   same pane honours via `touch-hit-area`. That producer utility's ::before
-   carries `pointer-events: none` (a visual reservation, not a hit target),
-   so here we CONSUME its --touch-target token to mint a REAL hit-expander:
-   a centred, transparent ::before that IS a hit target (pointer-events left
-   at its `auto` initial). Because the pseudo belongs to the handle/chip
-   button (which carries data-stop-id / the remove role), a coarse tap in the
-   inflated zone targets the button — so the bar's add-on-click guard
-   (`target.closest("[data-stop-id]")`) already treats a handle-adjacent miss
-   as a grab, never an unintended mint (the add-gesture guard the row names).
-   Fine pointers see nothing — no visual delta, no paint/geometry change. */
+/* ── The focus affordance SYSTEM (U.W-A11Y · U-F25 · BR-1) ──
+   The keyboard-operable stop handle + remove chip carry the material lift
+   (--shadow-sm) in the CASCADE now (hoisted off the inline style, Pole A), so
+   the focus ring COMPOSES with it instead of an inline box-shadow clobbering
+   the ring layer (the twin of the 4e6c178 dead-hover miss; the `--ring` token
+   the dead `focus-visible:ring-*` utility reached also resolved empty). The
+   ring is DUAL-CONTRAST — a 1px inner dark hairline UNDER a 3px outer light
+   ring (the ONE `--focus-ring-inner/-outer` recipe, focus-ring.css) riding
+   OVER the stop's own colour fill, so at least one edge contrasts against ANY
+   fill. */
+.rail-handle,
+.rail-remove-chip {
+    box-shadow: var(--shadow-sm);
+}
+.rail-handle:focus-visible,
+.rail-remove-chip:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 1px var(--focus-ring-inner),
+        0 0 0 3px var(--focus-ring-outer),
+        var(--shadow-sm);
+}
+/* Forced-colors (WHCM) strips box-shadow → the ring vanishes; a real outline
+   keeps the affordance (links U-F57). The scoped rule also FIRMS the UA's own
+   forced-colors focus outline into a deterministic, branded 2px. */
+@media (forced-colors: active) {
+    .rail-handle:focus-visible,
+    .rail-remove-chip:focus-visible {
+        outline: 2px solid Highlight;
+        outline-offset: 2px;
+    }
+}
+
+/* ── Always-on hit inflation (U.W-A11Y · U-F27 · Pole A — mount-safe; BR-3) ──
+   The 20×20 handle / 24×24 chip under-serve WCAG 2.5.8 (24px) on FINE pointers
+   (the former ::before was `@media (pointer: coarse)`-gated, so fine pointers
+   saw a 20px target) and the producer's 44px referent on COARSE. The
+   hit-expander is now PRESENT ON ALL POINTERS — a centred, transparent
+   ::before at max(24px, the visual box) on fine / the producer 44px
+   --touch-target on coarse — a REAL hit target (pointer-events left at its
+   `auto` initial). The VISUAL dot is UNCHANGED (the pseudo is absolute → zero
+   layout/geometry delta → the mount box is HELD, the clean U-F76 handoff).
+   Because the pseudo belongs to the handle/chip button (data-stop-id / the
+   remove role), a tap in the inflated zone targets the button, so the bar's
+   add-on-click guard (`target.closest("[data-stop-id]")`) still treats a
+   handle-adjacent hit as a grab, never an unintended mint. */
+.rail-handle::before,
+.rail-remove-chip::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max(1.5rem, 100%);
+    height: max(1.5rem, 100%);
+    transform: translate(-50%, -50%);
+    border-radius: 9999px;
+}
 @media (pointer: coarse) {
     .rail-handle::before,
     .rail-remove-chip::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
         width: var(--touch-target, 2.75rem);
         height: var(--touch-target, 2.75rem);
-        transform: translate(-50%, -50%);
-        border-radius: 9999px;
     }
 }
 </style>
