@@ -99,12 +99,20 @@ against this real referent.
 
 ## §3 The approach-family registry (updated per pass)
 
-| Family | Design idea (the shared mechanism) | State | Convergence % | Open gaps |
+Full survey + reasoning: `design/portfolio.md`. Six orthogonal families minted at Round Zero — primary
+axis "what structure is DERIVED FROM"; F5/F6 split the execution axis (strangler vs big-bang).
+
+| Family | Design idea (the shared mechanism) | State | Convergence % | Open gaps (pass-1 must establish) |
 |---|---|---|---|---|
-| — | (minted at Round Zero) | — | — | — |
+| **1 · CONSTELLATION-CONFORM** | adopt glass-ui's CODIFIED `STRUCTURE-SPEC` (round-6) + G1–G10 gate battery + RESTRUCTURE prompts as value.js's own standard | OPEN | 0% | which glass-ui gates are library-applicable vs UI-only; is `api/model/lib` better than value.js's `routes/service/repository`; does the SPEC name a "library" profile; lead-or-follow glass-ui's DEFERRED src-execution (leverage vs the atomic-vs-publish hazard it deferred for) |
+| **2 · GRAPH-PROJECTION** | the static import DAG computes placement (single-consumer colocates, shared→LCA, cycles banned, 0-reach=dead) | OPEN | 0% | madge/dep-cruiser reliability across the `@`-alias+subpath graph; the true dead-code census (A1 flagged 0-consumer composables); the cycle inventory (src/+demo/); fan-in ranking for god-module carve lines; does graph-count contradict the T3 "≥2 UNRELATED families" rule |
+| **3 · FEATURE-CAPSULE** | product-feature vertical capsules with one barrel each + a small named kernel; api is the landed template | OPEN | 0% | the true demo kernel size (composables serving ≥3 UNRELATED features); do the 7 subpaths already partition src cleanly or overlap (color vs parsing); the cross-capsule import-leak census (parsing/color → units/color) |
+| **4 · TYPE-ONTOLOGY** | tree mirrors the core type lattice (ValueUnit/Color<T>/combinator); parsing validation = a typed `{ast,diagnostics}` boundary | OPEN | 0% | cost of a `{ast,diagnostics}` public parse API (breaking? 8-key exports churn?); is threading `onParseError` enough or must the return type change; verify which of the 11 kf VJ-classes are ACTUALLY still open; does the lattice imply a materially different `units/` layout |
+| **5 · STRANGLER-BY-GATE** | born-RED structural gates (@-ban, barrel-pure, depth, colocation, god-ceiling, grammar-fuzz) drive incremental convergence | OPEN | 0% | can `@`-ban be pure eslint no-restricted-imports (vs glass-ui's "never ESLint" idiom); which gates born-RED today; is strangler reconcilable with "clean break, no dual paths"; the MINIMAL gate set that covers the law without re-growing the overfit thicket |
+| **6 · BIG-BANG CODEMOD** | a spec-complete target tree reached per-surface atomically via ts-morph/jscodeshift; clean break, one commit/surface | OPEN | 0% | ts-morph reliability across `@`-alias+subpath+`.vue`+CSS-`@import` specifiers; the exact blast/conflict surface vs concurrent U.W-CLOSE (fence check); is a per-surface atomic commit reviewable or must it be per-feature; can glass-ui's `CODEMOD-SPEC.md` be reused |
 
 ## §4 Pass log
 
 | Pass | Workflow run | Outcome |
 |---|---|---|
-| 0 (portfolio) | — | IN FLIGHT |
+| 0 (portfolio) | round-zero minter (survey + 6 families) | DONE — `design/portfolio.md` authored: Act-1 ground survey (demo/api/src/hygiene) + glass-ui BH/BI CODIFIED-but-partially-executed distillation (corrected) + kf `VJ-*` bug corpus (11 classes); Act-2 six orthogonal families registered §3 all OPEN@0%. Next: pass-1 RESEARCH (≤8 probes, batched 3) against each family's gaps column. |
