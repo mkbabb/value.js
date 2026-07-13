@@ -5,8 +5,10 @@ session wall must lose NOTHING: this file + the run journals + the git tree are 
 resume from any of the three death classes below. **Update this file at every wave launch/close**
 (the orchestrator's standing duty); the git history of this file IS the execution timeline.
 
-**Last stamped**: 2026-07-13 (U.W-ADOPT CLOSED `complete_with_misses` — the disease row DECIDED over the
-UNFIRED v5 cut; 9 of 10 waves closed, U.W-CLOSE fires next and LAST), by the orchestrating session
+**Last stamped**: 2026-07-13 (**U.W-CLOSE CLOSED `complete_with_misses` — ALL TEN WAVES DECIDED; the
+tranche CLOSES `complete_with_misses`**. Execution is TERMINAL — NO live U-execution runs remain; the
+tranche awaits the coupled owner event, ratify U + close T as ONE. The owner packet is handed
+[`audit/w-close-close-artefacts.md §3`].), by the orchestrating session
 `daa7c418-d0bc-4d88-913c-27283e6345eb`.
 
 ---
@@ -35,10 +37,15 @@ UNFIRED v5 cut; 9 of 10 waves closed, U.W-CLOSE fires next and LAST), by the orc
 
 ## §2 Live runs (stamp on every launch/completion)
 
+**NO live U-execution runs remain.** All ten waves are CLOSED/decided; U.W-CLOSE — the terminal sink —
+CLOSED `complete_with_misses`. Tranche-U execution is TERMINAL, pending the coupled owner event (ratify
+U + close T as ONE). The one run below (`wf_a6f37335-625`) is COMPLETED; the V design campaign is a
+SEPARATE, docs/prototype-scoped campaign the owner ordered to run alongside — it is NOT a U-execution run.
+
 | Run | Workflow | Phase at stamp | Script (in §3 dir) | On death |
 |---|---|---|---|---|
-| `wf_a6f37335-625` | U.W-CLOSE — THE TERMINAL SINK (dispatch → stage-1 [close-books B1..B14 + U-F51/F52/F53 hygiene retires + quiet-host e2e ∥ close-annex-publish: annex-packet + publish-presentation + RELAY-CLOSE] → stage-2 [close-ledger: FINAL.md zero-drop walk + G-CLOSE-1 regenerable assertion] → gate G-CLOSE-1..5 → close) | **LAUNCHED 2026-07-13** post-ADOPT-close | `u-w-close-wf_a6f37335-625.js` | resume; owner-reserved slate NEVER proxied (assembled → presented at the orchestrator's terminal report); G-CLOSE-4 rows close complete_with_misses with frame obligations NAMED, never headless-greened |
-| (agent) | **V DESIGN CAMPAIGN — Round Zero portfolio minter** (fable; ground survey D1..D4 + BH/BI cross-cut → 4-6 orthogonal families → registry). Charter: `docs/tranches/V/DESIGN-CAMPAIGN.md` (`2c9e9ad`, owner verbatim §0). Runs ALONGSIDE U.W-CLOSE per the owner; campaign is docs/prototype-scoped, never touches execution surfaces mid-close | **LAUNCHED 2026-07-13** (the owner's structure edict) | — (Agent, not Workflow; on death re-mint from the charter) | then: Pass-1 workflow (RESEARCH ≤8 batched-3 → SYNTHESIZE → PROTOTYPE → CRITIQUE → AGGLOMERATE), ≥3 passes before convergence |
+| `wf_a6f37335-625` | U.W-CLOSE — THE TERMINAL SINK (dispatch → stage-1 [close-books B1..B14 + U-F51/F52/F53 hygiene retires + quiet-host e2e ∥ close-annex-publish: annex-packet + publish-presentation + RELAY-CLOSE] → stage-2 [close-ledger: FINAL.md zero-drop walk + G-CLOSE-1 regenerable assertion] → gate G-CLOSE-1..5 → close) | **COMPLETED 2026-07-13** — CLOSED `complete_with_misses` (commits `928c81f`·`adf0327`·`a113eeb` + the close stamp). `proof:close-ledger` GREEN (77/77); G-CLOSE-1/2/3 GREEN · G-CLOSE-5 GREEN-on-presentation · G-CLOSE-4 complete_with_misses-frame-named; 0 FAIL. Owner packet handed (`audit/w-close-close-artefacts.md §3`). | journals retained, NO action — the run is closed; the owner-reserved slate is PRESENTED, never proxied |
+| (agent) | **V DESIGN CAMPAIGN — Round Zero portfolio minter** (fable; ground survey D1..D4 + BH/BI cross-cut → 4-6 orthogonal families → registry). Charter: `docs/tranches/V/DESIGN-CAMPAIGN.md` (`2c9e9ad`, owner verbatim §0). Runs ALONGSIDE (NOT part of U execution); docs/prototype-scoped, never touches execution surfaces | **LAUNCHED 2026-07-13** (the owner's structure edict) | — (Agent, not Workflow; on death re-mint from the charter) | then: Pass-1 workflow (RESEARCH ≤8 batched-3 → SYNTHESIZE → PROTOTYPE → CRITIQUE → AGGLOMERATE), ≥3 passes before convergence |
 
 **ADOPT completed**: `wf_ca09a7c3-93e` **CLOSED `complete_with_misses` 2026-07-13** — the DISEASE WAVE,
 trigger-UNFIRED arm. The disease row DECIDED in-wave over the still-EMPTY v5 tag; **all four born-RED
@@ -88,10 +95,19 @@ publish-packet.md` [MAJOR, 4.0.0 recommended, OWNER-DECIDES], BH relay
 
 ## §4 The DAG cursor + standing state
 
-- **Closed (9)**: DEMO (`complete`) · SEC (`complete_with_misses`) · LIB (`COMPLETE`
-  build-complete) · ORACLE (`complete_with_misses`) · CANON (`complete_with_misses`) ·
+- **Closed (10) — ALL TEN WAVES DECIDED**: DEMO (`complete`) · SEC (`complete_with_misses`) · LIB
+  (`COMPLETE` build-complete) · ORACLE (`complete_with_misses`) · CANON (`complete_with_misses`) ·
   VISUAL (`complete_with_misses`) · A11Y (`complete_with_misses`) · PERF (`complete_with_misses`) ·
-  **ADOPT (`complete_with_misses`, 2026-07-13** — lane commits `f0f2965`·`b9a9290`·`e82d27a` + close
+  ADOPT (`complete_with_misses`) · **CLOSE (`complete_with_misses`, 2026-07-13** — the terminal DAG
+  sink; commits `928c81f`·`adf0327`·`a113eeb` + close stamp; `FINAL.md` walks `DISPOSITION-LEDGER.md`
+  row-by-row GATE-VERIFIED [`proof:close-ledger` GREEN, 77/77 families + Family-audit invariant, zero
+  silent drops]; the five born-RED close gates G-CLOSE-1/2/3 GREEN · G-CLOSE-5 GREEN-on-presentation ·
+  G-CLOSE-4 `complete_with_misses`-frame-named, 0 FAIL; the four U-F61 claims flagged
+  attested-not-verified; B1..B14 live-re-probed; CANON hygiene-retires U-F51/F52/F53 executed;
+  RELAY-CLOSE verified read-only [formation@BH · LIB/VISUAL/dist-breakage@BI · 2 cut-gated obligations
+  STILL-BOOKED]; the owner packet handed [`audit/w-close-close-artefacts.md §3`];
+  `audit/w-close-close-artefacts.md`). **CLOSE follows ADOPT below** (kept for the cut-state detail):
+- ADOPT (**`complete_with_misses`, 2026-07-13** — lane commits `f0f2965`·`b9a9290`·`e82d27a` + close
   stamp; the DISEASE WAVE — the disease row DECIDED in-wave over the still-UNFIRED glass-ui v5 cut
   [`git -C ../glass-ui tag --list 'v5*'` EMPTY; glass-ui HEAD `8b0f9acc` branch `tranche/BI`]; **all four
   born-RED gates ARMED against the LIVE `tranche/BG`-pinned tree, 0 flipped [cut unfired], 0 FAIL, 0
@@ -105,14 +121,19 @@ publish-packet.md` [MAJOR, 4.0.0 recommended, OWNER-DECIDES], BH relay
   refresh; dispatcher drift CORRECTED [7 pins not 6, FIVE U-F34 renames not 3]; version cut OWNER-HELD
   [packet 4.0.0 recommended]; RELAY authored in-tree [unfired arm — foreign addendum lands only at the cut;
   producer material cited BY NAME, communiqué `17e0f522` + BI `-u-w-visual.md §B`]; `audit/w-adopt-close-artefacts.md`).
-  **Next**: **CLOSE — the SOLE remaining wave, fires next and LAST** (the terminal sink UNBLOCKS; 9 of 10
-  decided). The zero-drop ledger walk · publish presentation WITH the landed fix · the real-GPU visual
-  annex owner-attested · the census ANNEX-7 + A11Y OA-1/OA-2 + u-f12 Pole A/B bracket + **the U-F3 Q14 LCP
-  adjudication [G-PERF-3 ARMED-RED, the adopt state is its input]** + the **ADOPT armed-gate flips +
-  OA-B1/OA-B2 + U-F28 next-tag retire + the census residue CC-1/L8/F9.R1** — every book re-probed live;
-  registry §26 W9's Q14 inherits U-F3/F14/F16 — all to the owner. **The v5 probe STAYS STANDING at CLOSE**:
-  `git -C ../glass-ui tag --list 'v5*'` each round — on fire mid-CLOSE the unpin [orchestrator-owned] + the
-  G-ADOPT-1/2/3/4 flips execute; the version cut stays OWNER-HELD.
+- **DAG cursor: ALL TEN DECIDED — execution TERMINAL.** No wave remains. The only thing left is the
+  **coupled owner event** (ratify U + close T as ONE: master-merge+tag · Q14 ack · T.W8 HG6 verdict — never
+  crossed by any agent). The owner-reserved slate is PRESENTED at the terminal report (§owner-reserved
+  below + `audit/w-close-close-artefacts.md §3`): the version cut/publish · the T.W8 HG6 taste verdict · the
+  u-f12 Pole A/B bracket · the VISUAL ANNEX-7 + A11Y OA-1/OA-2 + ADOPT OA-B1/OA-B2 owner-attest slate · the
+  U-F3 Q14 LCP adjudication [ESCALATE delivered-as-structural-fact, Pole A/B] · the CI-teeth posture [B7].
+- **THE STANDING v5 PROBE (survives close).** `git -C ../glass-ui tag --list 'v5*'` re-probed at close =
+  **EMPTY (UNFIRED)**; glass-ui HEAD advanced `8b0f9acc`→**`cae697cc`** but stayed on `tranche/BI` — no cut.
+  On fire POST-CLOSE, the glass-ui 5.0.0 cut executes **as its OWN owner event** per the co-land ordering
+  (`w-adopt/coland/coland-ordering.md §6`): the unpin [orchestrator-owned] + the G-ADOPT-1/2/3/4 flips +
+  the OA-B1/OA-B2 owner-attest frames + the foreign-tree co-land addendum + the keyframes co-migration all
+  execute there; the version cut stays OWNER-HELD (§13.5). The disease row is DECIDED — never re-booked
+  un-decided to a successor tranche.
 - **Substrate**: glass-ui PINNED @ `2e559f7a` (both symlinks → `.claude/worktrees/glass-ui-pinned`;
   record `audit/w-adopt/substrate-pin.md`; UNPIN at the v5 tag). The L17 goo-blob→blob consume
   swap is LANDED (`110b56f`). **Co-land PREVIEW applied 2026-07-13** (`296b8b2`, pushed): the
