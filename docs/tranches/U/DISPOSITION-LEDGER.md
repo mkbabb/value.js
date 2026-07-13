@@ -196,7 +196,7 @@ to T.W8/WR; U absorbs the un-landed residue) → their U-Fxx family → owning w
 | T-14 · T-48 · T-58 (scene-transition motion, thrice-red) | U-F7 | U.W-VISUAL (real-GPU annex) |
 | T-54 · T-55 (generate plate species chrome) | U-F8 | U.W-VISUAL |
 | T-2 · T-51 · T-59 (at-rest header) · **T-61/T-42 B-01** (scrolled-header whole-contraction, §0.8 owner-verbatim — a DISTINCT arm of U-F9 with its own gate BR-9/OA-6 + the P3 `ScrollCardHeader` producer RELAY, NOT a fold into the at-rest cure) | U-F9 | U.W-VISUAL |
-| **T-5** (the picker active channel-rail seat; `T/FINAL §2.1:113` = "W4-4 landed; ACTIVE seat P1-R1 → U", `T-MARK-2026-07-12:80` = "the ACTIVE seat = P1-R1 OPEN" — a LANDED-partial owner-uncertified still-red, NOT a discharged row; the pi-audit LAND row P1-R1/P1-R2, no WR cure — T.W8's Remediate never reached it) | **U-F9-rail** (a DISTINCT arm of U-F9, the picker active-rail-seat — parallels the U-F13-band split; NOT the header-spacing regime) | U.W-VISUAL (W8-inheritance census; census-red re-cure — born-RED **BR-12** seat-tracks-rung geometry (LANDED-partial per W4-4, born-GREEN must-STAY if it holds) + owner-attested **OA-7** reads-coherent + a π/DELTA seat-offset row — the FULL teeth that parallel the U-F13-band BR-10/OA/π split; the ring's active/selected channel seat reads coherent at every rung) |
+| **T-5** (the picker active channel-rail seat; `T/FINAL §2.1:113` = "W4-4 landed; ACTIVE seat P1-R1 → U", `T-MARK-2026-07-12:80` = "the ACTIVE seat = P1-R1 OPEN" — a LANDED-partial owner-uncertified still-red, NOT a discharged row; the pi-audit LAND row P1-R1/P1-R2, no WR cure — T.W8's Remediate never reached it) | **U-F9-rail** (a DISTINCT arm of U-F9, the picker active-rail-seat — parallels the U-F13-band split; NOT the header-spacing regime) | U.W-VISUAL (W8-inheritance census; census-red re-cure — born-RED **BR-12** seat-tracks-rung geometry (LANDED-partial per W4-4, born-GREEN must-STAY if it holds) + owner-attested **OA-7** reads-coherent + a π/DELTA seat-offset row — the FULL teeth that parallel the U-F13-band BR-10/OA/π split; the ring's active/selected channel seat reads coherent at every rung) · **T-5's 2nd residual** (the P5/S-3 letter-rail, PRODUCER-GATED per `T/FINAL §2.1:114`/§2.3:161) → U.W-ADOPT BH relay (§B.1 §7.2 swap fold), NOT this rail-seat arm — T-5's dual-residual thus fully enumerated |
 | T-34 · T-50 (console veil material) | U-F10 | U.W-VISUAL |
 | T-37 (collapsed dock swatch seam) | U-F11 | U.W-VISUAL |
 | T-36 · T-52 (dock edge clip) | U-F13 | U.W-VISUAL (demo) + U.W-ADOPT/relay (producer) |
@@ -210,11 +210,29 @@ to T.W8/WR; U absorbs the un-landed residue) → their U-Fxx family → owning w
 residual**) → **retire into the §8 zero-drop WINS** below; recorded so no successor re-opens them.
 **LANDED-PARTIAL rows are NOT discharged**: where T's wave landed a cure BUT `T/FINAL §2.1` books an
 OPEN residual to U (T-5's ACTIVE seat P1-R1 = the exemplar — LANDED W4-4, seat OPEN), the residual is
-routed ABOVE in this §C (T-5 → U-F9-rail), never swept to §D. **The 24 owner-uncertified T.W8
-pi-audit LAND rows** (`T/FINAL §2.1:123`/§7.2:405-411) likewise inherit to the **U.W-VISUAL
+routed ABOVE in this §C (T-5 → U-F9-rail), never swept to §D. **T-5 carries a SECOND residual** —
+the P5/S-3 letter-rail, PRODUCER-GATED (`T/FINAL §2.1:114` "P5 letter-rail PRODUCER-GATED" · §2.3:161
+"S-3 letter-rail → ride the unfired W7 → HAND TO U"; `T-MARK-2026-07-12:219` "S-3 letter-rail FIRED→P5")
+— which does NOT sit in the U-F9-rail arm (that is the ACTIVE-seat half); it routes to the **§B.1 §7.2
+producer-consume swap fold → U.W-ADOPT BH relay** (`17e0f522`), so T-5's dual-residual is fully
+enumerated and the named `letter-rail` handoff is not invisible to a T-5 auditor. **The producer-gated
+LANDED-partial residuals** — T-1's producer half (→ **GAP-ARM**), T-8 (satellites-never-meatball →
+**GAP-L5**), T-25/T-26/T-27 (aurora quality → **GAP-L2 / GAP-ARM / T-60**) — complete the
+`T/FINAL §2.1:112-115` LANDED-partial class the T-5 exemplar opened: their value.js/demo halves LANDED
+(W2 boot / W4-5 seat), their OPEN residuals are producer-gated with a communiqué cite (T's own §2.1
+close standard, `f3f3c097`), so each routes to the **§B "glass-ui BH relay set" chronic** — the 9
+BLOCKING reds ridden by U.W-ADOPT (`17e0f522`) — NOT §D, and NOT a value.js-side cure (there is none
+to build). Named here so a reader walking ONLY this ledger traces every §2.1 LANDED-partial row to a
+home without leaving for `T/FINAL`. **The 29 owner-uncertified T.W8
+pi-audit LAND rows** (`T/FINAL §2.1:123`/§7.2:405-411; the "24" scalar was the stale pre-P9 tally —
+`ROWS.md §4`'s enumeration + §1 pass tables count 29) likewise inherit to the **U.W-VISUAL
 W8-inheritance census** (enumerated + bucketed at `U.W-VISUAL §The W8-inheritance census` — most fold
-to the WR→family map's existing families; the picker active-rail-seat P1-R1/R2 is the one distinct
-residue, homed to U-F9-rail here), NOT to §D. The full finding→wave-item map of record is
+to the WR→family map's existing families; the picker active-rail-seat P1-R1/R2 (→ U-F9-rail) AND the
+dock-nav Login/Tools Q10 accent-ink cascade P9-R4 (→ **U-F13-menuink**, computed gate **BR-14**) are
+the TWO distinct residues with no covering WR row, homed here — P9-R4 gets a COMPUTED gate, not the
+perceptual catch-all, because a cascade-dead accent renders as a coherent neutral pill the owner-eye
+census cannot red, the O-14 trap; Q10 is the owner-RATIFIED Q18/C3 menu-scoped-ink scope sub-clause),
+NOT to §D. The full finding→wave-item map of record is
 `T.md §1` / SYNTHESIS §1.2 (T's ledger); U does not re-litigate T's landed cures — it inherits the
 TERMINAL T.W8 state (charter §W8-inheritance) and routes only the residue.
 

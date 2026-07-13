@@ -117,23 +117,34 @@ no successor re-opens) or CENSUS-RED (this wave's designed re-cure). The WR → 
 | — (NEW, no owner row, no WR) | — | **U-F12** | AUTOMATIC re-cure (owner-judgment-at-formation) |
 | T-52 producer mask (communiqué, not a WR demo cure) | T-36 · T-52 | **U-F13-demo** (Tools box-model half; producer clip/fade → U.W-ADOPT/relay) | demo half re-cure; producer half relayed |
 | WR-9 (T-57 dock-band `--dock-h` floor cure) | T-57 (T-31 re-bracket) | **U-F13-band** (dock-morph band-height invariance — a DISTINCT arm from U-F13-demo's edge-clip, and a DIFFERENT surface than U-F16's picker-plate mount reflow) | census → born-RED BR-10 band-invariance re-cure if RED (owner-attested no-scene-shift; π/DELTA +3.0px → 0px) |
-| — (NO WR row; T.W8 Remediate never reached it — the pi-audit LAND row P1-R1 is OPEN) | **T-5** (the picker active channel-rail seat; `T/FINAL §2.1:113` "ACTIVE seat P1-R1 → U", `T-MARK:80` OPEN) · P1-R2 | **U-F9-rail** (picker active-rail-seat arm — a DISTINCT arm of U-F9, NOT its header-spacing regime; parallels the U-F13-band split) | census → U-F9-rail re-cure if RED: born-RED **BR-12** seat-tracks-rung (LANDED-partial, born-GREEN must-STAY if the W4-4 geometry holds) + **OA-7** owner-attested reads-coherent; π/DELTA seat-offset RED→GREEN (owner-uncertified still-red; the ring's active/selected channel seat reads coherent at every rung) |
+| — (NO WR row; T.W8 Remediate never reached it — the pi-audit LAND row P1-R1 is OPEN) | **T-5** (the picker active channel-rail seat; `T/FINAL §2.1:113` "ACTIVE seat P1-R1 → U", `T-MARK:80` OPEN; T-5's SECOND residual — the P5/S-3 letter-rail — is PRODUCER-GATED → U.W-ADOPT BH relay per `T/FINAL §2.1:114`/§2.3:161, NOT this rail-seat arm) · P1-R2 | **U-F9-rail** (picker active-rail-seat arm — a DISTINCT arm of U-F9, NOT its header-spacing regime; parallels the U-F13-band split) | census → U-F9-rail re-cure if RED: born-RED **BR-12** seat-tracks-rung (LANDED-partial, born-GREEN must-STAY if the W4-4 geometry holds) + **OA-7** owner-attested reads-coherent; π/DELTA seat-offset RED→GREEN (owner-uncertified still-red; the ring's active/selected channel seat reads coherent at every rung) |
 
-> **The 24 owner-uncertified T.W8 pi-audit LAND rows inherit here too** (not only the 11 WR rows).
-> `T/FINAL §2.1:123`/§7.2:405-411 hand ALL 24 pi-audit LAND rows (T-MARK §3.1: P1-R1/R2/R3, boot-A/B,
-> AB-1..4, E1-R1..R3, P6-R1, P4-R1..R4, P7-R1/R2, P8-R1/R2, P9-R1..R5, A-3, P11-R1..R3) to this
-> census. **Bucketing (auditable, not asserted):** the LAND rows are the pi-audit's PER-SURFACE
+> **The 29 owner-uncertified T.W8 pi-audit LAND rows inherit here too** (not only the 11 WR rows).
+> `T/FINAL §2.1:123`/§7.2:405-411 hand ALL 29 pi-audit LAND rows (`audit/w8-certification/ROWS.md §4`
+> — the authoritative enumeration + §1 pass tables: P1-R1/R2, boot-A/B, AB-1..4, P4-R1..R4, E1-R1..R3,
+> P6-R1, P7-R1/R2, P8-R1/R2, P9-R1..R5, A-3, P11-R1..R3) to this census. **P1-R3 is NOT a LAND row** —
+> `ROWS.md §4` grades it PRODUCER (the spectrum-thumb UA outline, `Slider.vue`), routed to U.W-ADOPT
+> below (§1.8/§2b relay), NOT this census; the earlier "24" scalar was the stale pre-P9 tally
+> (un-bumped when the last-filed dock-nav-menus pass added P9-R1..R5), and it erroneously carried P1-R3. **Bucketing (auditable, not asserted):** the LAND rows are the pi-audit's PER-SURFACE
 > still-reds, so they route BY SURFACE — nearly all name the SAME surfaces the WR rows above already
 > home: P4-R1/P9-R1 (Q5 ramp) → **U-F6-ramp**; P6-R1 (dark caster) → **U-F19/U-F10**; boot-B (wake-gray)
 > → **U-F7** (OA-1 arm); AB-1 (KaTeX) → **U-F19/U.W-CANON**; P1-R3 (spectrum-thumb UA outline) →
-> communiqué §1.8, the §2b relay (homed via U.W-ADOPT). The GENUINELY-DISTINCT residue with NO
-> covering WR row is the **picker active-rail-seat (P1-R1/P1-R2)** — homed to **U-F9-rail** by the row
-> above. Any LAND-row surface the census opens that has NO pre-authored family becomes an AUTOMATIC
-> census-red re-cure (the U-F11/U-F12 idiom) — so every one of the 24 has a re-judge slot; none is
+> communiqué §1.8, the §2b relay (homed via U.W-ADOPT). The GENUINELY-DISTINCT residues with NO
+> covering WR row are **TWO**: (1) the **picker active-rail-seat (P1-R1/P1-R2)** — homed to
+> **U-F9-rail** by the row above; and (2) the **dock-nav Login/Tools Q10 accent-ink cascade (P9-R4)** —
+> homed to **U-F13-menuink** with the computed gate **BR-14** (§Register 1), PROMOTED OUT of the
+> perceptual AUTOMATIC catch-all below because a cascade-dead accent (accent set on a `border-primary/30`
+> channel that computes to `border-width:0`) renders as a COHERENT neutral stone pill — perceptually
+> invisible, so the owner-attested census would retire it CENSUS-GREEN while the owner's RATIFIED Q10
+> "Keep" ruling (the Q18/C3 menu-scoped-ink scope sub-clause — the chrome is NON-neutral) stays dead
+> (the O-14 green-over-broken trap). P9-R4 LANDED `ccf4b30` ("Q10 live at Login"), so BR-14 is a
+> born-GREEN must-STAY (the BR-12/BR-13 idiom); its computed teeth catch the regression the eye cannot.
+> Any OTHER LAND-row surface the census opens that has NO pre-authored family becomes an AUTOMATIC
+> census-red re-cure (the U-F11/U-F12 idiom) — so every one of the 29 has a re-judge slot; none is
 > swept into §D-discharged. The wave-open census enumerates the full LAND set as its scoping act.
 
 > **The THREE UNFILED T.W8 critique passes inherit here too** (`T-MARK-2026-07-12 §3.1` — target 11,
-> **filed 8**; the census scopes its active set from the filed WR-1..11 + the 24 pi-audit LAND rows,
+> **filed 8**; the census scopes its active set from the filed WR-1..11 + the 29 pi-audit LAND rows,
 > so a NEVER-FILED pass would otherwise have no scoping slot). The E-7 coherence pass was never filed
 > for these, so they carry an owner-uncertified residual and are **NOT dischargeable to §D**
 > ("no owner-uncertified OPEN residual") — named + routed here so U covers the case where T.W8 closes
@@ -458,7 +469,7 @@ computed-color** predicates are authored **born-RED** (`test.fail()` / expected-
 headless assertion** (the registry logged two headless false-reds; a headless "green" over a GPU
 red is the close-class lie the charter forbids).
 
-### Register 1 — born-RED headless-verifiable (14 gates — 13 born-RED + 1 born-GREEN must-STAY guard [BR-4, the WR-4 landed step-down]; each cites LIVE evidence)
+### Register 1 — born-RED headless-verifiable (15 gates — 14 born-RED + 1 born-GREEN must-STAY guard [BR-4, the WR-4 landed step-down]; each cites LIVE evidence)
 
 | # | Gate (born-RED — RED today, flips GREEN on cure) | Family | LIVE evidence (the RED it guards) |
 |---|---|---|---|
@@ -476,6 +487,7 @@ red is the close-class lie the charter forbids).
 | **BR-11** | scrolled sticky-header title computed font-size ≥ the ruled legibility floor (a NAMED min token — the T-42 "text too small" axis BELOW-bound) AND the scrolled title is re-keyed to a real token step, NOT a compositor-only `scale` shrink of the un-stepped rung | U-F9 (scrolled arm, T-61/T-42 — the TEXT axis) | MANDATE §1:199: "The text is too small"; the §0.8 register bounds the contraction below on the text axis — BR-9 gates the footprint contract, BR-11 gates that the contracted title stays legible (a cure passing BR-9+OA-6 could still leave the title too small) |
 | **BR-12** | active-seat indicator computed center TRACKS the SELECTED channel's rung box across every channel (the WatercolorDot active seat is seated on the active rung within tolerance; moves to and aligns with the selected rung on channel-change, never orphaned off-ring) | U-F9-rail (T-5/P1-R1) | T-5 P1-R1 (`T-MARK-2026-07-12:80`/§3.1): the picker's vertical dock-like channel-ring active/selected seat, LANDED W4-4 (`channel-rail ring + WatercolorDot active seat`) but owner-uncertified-OPEN. **HONESTY (W4-4 landed — the BR-3 idiom):** the seat-tracks-rung GEOMETRY may ALREADY be GREEN at HEAD (the picker read COHERENT except the owner-uncertified active seat, `T-MARK:80`) — if so BR-12 is born-GREEN **must-STAY** (a re-cure that de-seats/orphans the active dot reds the row) and the residual is the OWNER-ATTESTED perceptual read (OA-7). The census re-judges LIVE; the born-RED teeth are the seat-alignment sub-predicate wherever the active dot still mis-tracks its rung |
 | **BR-13** | computed `.dark --shadow-color` under `.dark` is a DESIGNED dark-caster value, NOT `var(--foreground)`/the cream foreground token, AND the cartoon caster's effective α ≤ the designed caster floor (the headless TOKEN/α leg of the T-53 re-cut — a computed-custom-property predicate, `getComputedStyle` on a `.dark` element, GPU-independent; parallels U-F13-band's BR-10 headless leg beside its owner-attested read) | U-F19/T-53 | registry §4 / WR-5 — the still-red was `.dark --shadow-color: var(--foreground)` (a 50%-α cream slab, `style.css` root `:355`). **HONESTY (WR-5 re-cut landed — the BR-3/BR-12 idiom):** `style.css:639` now reads `.dark { --shadow-color: color(srgb 0.11 0.098 0.09) }` (α `:643-644` 50/55%), so this token predicate may ALREADY be GREEN at HEAD — if so BR-13 is born-GREEN **must-STAY** (a re-cure that reverts to the foreground cream reds the row). The census re-judges LIVE; the born-RED teeth are the `--shadow-color ≠ foreground cream` sub-predicate wherever the caster still resolves to the cream token. OA-5 remains the perceptual "reads as an honest dark caster" read |
+| **BR-14** | Login/Tools nav-chrome Q10 live-accent PAINTS — the accent-carrying channel has computed width/opacity > 0 AND the accent resolves NON-neutral (chroma ≥ perceptible floor) when the accent token is set; NEVER `border-primary/30` computing to `border-width:0` (accent set but unpainted → neutral stone pill). A `getComputedStyle` predicate on the Login/Tools trigger, GPU-independent | U-F13-menuink (P9-R4/Q10 — a THIRD dock-family arm, sibling to -demo edge-clip / -band height) | P9-R4 (`dock-nav-menus.p1.md:172-183`): the Login pill's Q10 accent "computes to nothing" — `border-primary/30` set, computed `border-width:0`, pill shows neutral stone-ink (the cascade-dead `ring-primary/50` W6-7 sibling class). **HONESTY (P9-R4 re-cut LANDED `ccf4b30` — the BR-12/BR-13 idiom):** the cure re-lands the accent on the channels the outline variant paints (Profile-trigger idiom, "Q10 live at Login"), so this computed predicate may ALREADY be GREEN at HEAD — if so BR-14 is born-GREEN **must-STAY** (a re-cure/regression that re-sets the accent onto a zero-width/neutral channel reds the row). The census re-judges LIVE; the born-RED teeth are the accent-paint sub-predicate wherever the Q10 accent still resolves onto an unpainted channel. **Why computed, not an OA read:** a cascade-dead accent renders as a COHERENT neutral pill — the owner-attested census is BLIND to it (it will not "open RED" by eye, the O-14 green-over-broken trap); Q10 is the Q18/C3 menu-scoped-ink scope sub-clause the owner RATIFIED "Keep" (the chrome is NON-neutral), so a computed predicate is mandatory |
 
 ### Register 2 — owner-attested / real-GPU annex (NOT headless born-RED; the U-F54 law)
 
@@ -516,6 +528,7 @@ measured quantity that moved.
 | U-F12 | `pane-*-dark-{1440,390}.png` across panes — identity-less uniform warm-brown → per-pane identity carried (**pole-conditional, mirrors BR-7**: Pole A = the card GROUND tint; Pole B / C3-compliant DEFAULT = the sanctioned `--accent` lane) | **Pole A** (chroma-carried tint — C3-ledger amendment): per-pane GROUND-tint chroma C (RED ≈ 0 → GREEN ≥ floor); cross-pane GROUND hue-spread (RED uniform → GREEN seed-tracked). **Pole B** (restrained-neutral tint — C3-compliant DEFAULT; the ground stays near-neutral BY CONSTRUCTION, so ground chroma ≈ 0 is CORRECT, never the RED): the assertion MOVES to the accent lane — per-pane **`--accent`-lane** chroma C (RED ≈ 0 → GREEN ≥ floor); cross-pane **accent** hue-spread (RED uniform → GREEN seed-tracked) |
 | U-F13-demo | `dock-*-1440-expanded.png` + `border-*` — edge ring shaved → whole | edge-item ring-arc completeness (px shaved → 0); Tools box-model ring reservation present |
 | U-F13-band (T-57/WR-9) | `dock-{light,dark}-collapsed→expanded.png` — scene reflows on dock-expand → scene invariant | scene-top shift across the morph (RED **+3.0px** → GREEN **0px**); in-flow band block-size vs expanded pill (RED floor < pill → GREEN reserved ≥ expanded) |
+| U-F13-menuink (P9-R4/Q10) | `dock-{light,dark}` Login/Tools pill — accent set but unpainted (neutral stone pill) → accent paints (Q10 voice live) | computed accent-channel width/opacity (RED 0 → GREEN > 0, headless **BR-14**, LANDED-partial born-GREEN must-STAY if `ccf4b30` holds); accent chroma when the token is set (RED ≈ 0 neutral → GREEN ≥ perceptible floor) |
 | U-F19/T-53 | dark-caster clip — 50%-α cream slab → honest caster | computed `.dark --shadow-color` (RED `var(--foreground)` cream / 50%-α → GREEN designed dark value ≤ caster-α floor — the headless **BR-13** leg, LANDED-partial born-GREEN must-STAY if `style.css:639` holds); + the owner-attested "reads as an honest caster" read (**OA-5**) |
 
 **Obligation law**: a family may not claim GREEN without BOTH the after π-frame captured (real-GPU/

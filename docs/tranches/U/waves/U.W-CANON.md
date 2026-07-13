@@ -458,13 +458,19 @@ orphan-delete is a verify-at-execution done-state.
 
 **This wave has NO visual claim** — nothing renders, nothing is eyeballed, so there is no
 before/after π-frame obligation and no real-GPU/owner-attested annex (that discipline is
-U.W-VISUAL's, for the §2 still-reds; U-F17's material still-red is U-F10 THERE, not here). In lieu
+U.W-VISUAL's, for the §2 still-reds; U-F17's material still-red is U-F10 THERE, not here). The one
+inherited render-truth residue routed here — AB-1 (U-F19 About-KaTeX, §the Inherited W8-census
+residue) — is a BUILD/boot-scope defect whose cure signature is DOM/SVG-STRUCTURAL, not perceptual;
+its DELTA below is the mechanical render-truth (node count, SVG geometry — GPU-independent), and the
+perceptual re-judge stays U.W-VISUAL's census. This closes the round-7 finding that AB-1 carried no
+π-frame + no DELTA in EITHER wave. In lieu
 of a π-frame, every family carries a **mechanical DELTA** — a before→after count/state, measurable
 without a GPU:
 
 | Family | DELTA measurement (before → after) | Evidence anchor |
 |---|---|---|
 | U-F17 | §4-amendment-rows: 0 → 1 (T.md "STANDS" superseded); reversal-locus named | `T.md:391,682` · `ComponentSliders.vue:26` |
+| U-F19 (AB-1 half — build-if-CENSUS-RED) | About-KaTeX scope-dead build seam: doubled render layers 2 → 1 (`.katex-mathml` hidden, one layer paints); brace SVG height 6400px → 22px (card-clipping → contained). A DOM/SVG-geometry DELTA — GPU-INDEPENDENT (KaTeX is HTML/CSS; render-truth is structural, not a perceptual claim). RE-MEASURED only if the U.W-VISUAL census opens AB-1 RED (else RETIRES with the AB-1..4 LAND cite) | `Katex.vue` (global script import, `f0ef927`) · `audit/w8-certification/ROWS.md` AB-1 |
 | U-F21+F69 | canon-sync-lies: 4 → 0 (root+api Structure, README 15→17, parse-that prose) + `demo/CLAUDE.md` + `demo/DESIGN.md` facilities reconciled (the T §5:305 remainder) | `README.md:11,66` · `CLAUDE.md:154` · `demo/CLAUDE.md` · `demo/DESIGN.md` |
 | U-F22 | barrel-drift symbols: 10 → 0; parity-gate: absent → present (CI) | `index.ts:92,93,377,383,392` · `subpaths/color.ts` |
 | U-F23 | hand-duplicated boot constants: 2 (`VERSION`,`FIRST_VISIT`) → 0 (single-sourced) | `index.html:160,164,169` |
