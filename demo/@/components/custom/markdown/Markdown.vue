@@ -18,7 +18,12 @@
 
     <div v-else>
         <Alert>
-            <AlertTitle class="text-4xl">Oh snap...</AlertTitle>
+            <!-- T.W4-6 (T-15/F7 census): an error HEADLINE is a title surface —
+                 it joins the EmptyState error-statement register verbatim
+                 (`font-display text-heading`, S.W5-5), retiring the stock
+                 `text-4xl` body-voice one-off (the F7 root-cause class:
+                 a size utility silently carrying the wrong family). -->
+            <AlertTitle class="font-display text-heading">Oh snap...</AlertTitle>
             <AlertDescription>
                 We couldn't find the documentation for the selected color space.
             </AlertDescription>
@@ -221,22 +226,30 @@ onUpdated(() => {
         }
     }
 
-    /* Code blocks */
+    /* Code blocks — AB-3 (T.W8 remediation_1 · D1): the content chips seat on
+     * the ONE rung-2 well tone (`bg-well` = `--well-bg`), the same recipe the
+     * sibling `.toc` already consumes, never the parallel `--muted` species
+     * (which stepped OPPOSITE the well in dark). */
     /* rounded-2xl: documented exception (content element, not a surface) — W3-conventions */
     pre {
-        @apply bg-muted rounded-2xl overflow-x-auto;
+        @apply bg-well rounded-2xl overflow-x-auto;
         padding: var(--phi-2);
         margin-bottom: var(--phi-3);
     }
 
     code {
-        @apply text-xs font-mono bg-muted rounded;
+        @apply text-xs font-mono bg-well rounded;
     }
 
-    /* Inline code */
+    /* Inline code — the markdown accent voice (D6, T.W3-5): inline code joins
+     * the PLATE-certified `--md-color-accent` the headings already speak — one
+     * accent family, certified for the surface it actually sits on. The chip
+     * fill joins the well recipe (AB-3), the ground the hljs census re-measures
+     * against. */
     p > code,
     li > code {
-        @apply text-primary bg-muted rounded px-1 py-0.5;
+        @apply bg-well rounded px-1 py-0.5;
+        color: var(--md-color-accent, var(--foreground));
     }
 
     /* Blockquotes */
@@ -259,7 +272,7 @@ onUpdated(() => {
     }
 
     th {
-        @apply bg-muted font-bold text-left;
+        @apply bg-well font-bold text-left;
     }
 
     /* Images */
@@ -275,8 +288,17 @@ onUpdated(() => {
         @apply mx-1;
     }
 
-    /* KaTeX display math blocks — rendered by <Katex> Vue component */
-    > div.inline-block:has(> .katex) {
+    /* KaTeX display math blocks — rendered by <Katex> Vue component.
+     * AB-1 (T.W8 remediation_1): matches on `.katex-display`, NOT `.katex`.
+     * `<Katex displayMode>` renders `div.inline-block > span.katex-display >
+     * span.katex`, so the former `:has(> .katex)` (a DIRECT-child test) never
+     * matched a display block — the overflow-x scroll container was dead, and
+     * once the katex stylesheet came alive (the import cure) `.katex-display >
+     * .katex { white-space: nowrap }` let wide formulas (the L-a-b lightness
+     * row) overflow and clip at the card edge with content loss. `:has(>
+     * .katex-display)` is the display-block's true structure; the wide row scrolls
+     * honestly inside its own overflow-x:auto box (no card overflow). */
+    > div.inline-block:has(> .katex-display) {
         display: block;
         @apply overflow-x-auto;
         padding: var(--phi-1) 0 var(--phi-1) var(--phi-3);
@@ -319,9 +341,9 @@ onUpdated(() => {
         }
     }
 
-    /* Callouts or admonitions */
+    /* Callouts or admonitions — the well recipe (AB-3), not the parallel muted. */
     .callout {
-        @apply bg-muted border-l-4 border-primary rounded-r-2xl;
+        @apply bg-well border-l-4 border-primary rounded-r-2xl;
         padding: var(--phi-2);
         margin-bottom: var(--phi-3);
 
@@ -355,9 +377,13 @@ onUpdated(() => {
         @apply text-sm;
     }
 
-    /* Tables of contents */
+    /* Tables of contents — T.W3-4 (the F6 ONE-grammar law): the sticky
+     * `bg-background z-popover` band is DEAD — it out-stacked `--z-header`
+     * and painted an opaque un-feathered band inside the pane (O-11 gate 6;
+     * nothing in-card sticks above the pane header). The TOC is a proper
+     * in-flow block on the rung-2 well tone (§ Surfaces ladder). */
     .toc {
-        @apply sticky top-0 bg-background z-popover;
+        @apply bg-well rounded-2xl;
         @apply p-4 mb-4;
         @apply font-bold text-foreground;
         @apply first:mt-0 scroll-m-20;

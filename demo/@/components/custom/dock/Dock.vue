@@ -1,23 +1,25 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
-import { ArrowRight, Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
+import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import { GlassDock, DockLayerGroup, DockLayer } from ".";
 import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+import ActionBarToggle from "./ActionBarToggle.vue";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
 import GenericActionBar from "./layers/GenericActionBar.vue";
 import SlugEditLayer from "./layers/SlugEditLayer.vue";
 import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
 import DockViewSelect from "./DockViewSelect.vue";
+import DockStatusLamp from "./DockStatusLamp.vue";
 import PaneSegmentedControl from "@components/custom/panes/PaneSegmentedControl.vue";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
 import { usePopupMutex } from "./composables/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
-import type { ActionBarContext } from "@components/custom/color-picker/keys";
+import type { ActionBarContext } from "@composables/color/keys";
 import type { EditTarget } from "@components/custom/color-picker";
 import type { DockActionBar } from "@composables/usePaneRouter";
 
@@ -46,25 +48,9 @@ const actionBarLayerActive = ref(false);
 function toggleActionBar() { actionBarLayerActive.value = !actionBarLayerActive.value; }
 watch(hasAnyActionBar, (has) => { if (!has) actionBarLayerActive.value = false; });
 
-// S.W7-6 (P1-9.3 — the Tools load-order flicker): the toggle-slot's 0fr↔1fr
-// grow transition must fire only on GENUINE runtime toggles, never on the
-// app's boot composition. The pane mounts a beat after the dock (W3-4's
-// deferred mount), so its action-bar context arrives ~170ms in — the slot
-// visibly GREW the pill on EVERY load (measured 0→36→82→86px over ~380ms,
-// three consecutive loads). The first presence now PAINTS seated (transition
-// unarmed), then the transition arms one frame later for real mid-session
-// presence changes.
-const actionBarSlotLive = ref(false);
-watch(
-    hasAnyActionBar,
-    (has) => {
-        if (!has || actionBarSlotLive.value) return;
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => { actionBarSlotLive.value = true; });
-        });
-    },
-    { immediate: true },
-);
+// The Tools trigger + its S.W7-6 boot-flicker / W6-8 T-29 settle-stamp slot
+// machine live in the colocated <ActionBarToggle> (the W6-8 PP-8 cap lift —
+// full rationale in that SFC's header).
 // gate (b): watchers that reach dockRef stay in the SFC
 watch(actionBarLayerActive, (active) => { if (active) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
 function onActionBarOpenPalette() { viewManager.switchView(viewManager.currentView.value === "palettes" ? "picker" : "palettes"); }
@@ -122,12 +108,17 @@ watch(
 </script>
 
 <template>
-    <div class="fixed top-dock-inset inset-x-0 z-dock flex items-center justify-center pointer-events-none">
-        <div
-            class="pointer-events-auto"
-            :class="dockSettle && 'dock-settle'"
-            @animationend.self="dockSettle = false"
-        >
+    <!-- T.W6 · T-31 (THE DOCK-ATOP BAND LAW): the dock renders IN-FLOW inside
+         the shell's dock band (App.vue's <nav class="dock-band">, row 1 of the
+         two-band grid). The former fixed overlay
+         (`fixed top-dock-inset inset-x-0 z-dock` + the pointer-events
+         none/auto pair) RETIRED WITH the --dock-total reservation: the band
+         is structure the layout owns, so the dock needs no pin, no z, and no
+         hit-test punch-through. -->
+    <div
+        :class="dockSettle && 'dock-settle'"
+        @animationend.self="dockSettle = false"
+    >
             <GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="false" :fit-content="true" :always-expanded="!isDesktop">
                 <DockLayerGroup v-model:active="activeLayer" :show-rail="false">
                     <!-- Mobile edit layer -->
@@ -136,8 +127,11 @@ watch(
                         <span class="text-muted-foreground text-caption">&rarr;</span>
                         <WatercolorDot :color="cssColorOpaque" tag="div" class="w-7 h-7 shrink-0" seed="edit-new" />
                         <DockSeparator />
-                        <DockIconButton title="Save edit" @click="emit('commitEdit')"><Check class="w-5 h-5" :style="{ color: safeAccent }" /></DockIconButton>
-                        <DockIconButton title="Cancel edit" @click="emit('cancelEdit')"><Undo2 class="w-5 h-5" /></DockIconButton>
+                        <!-- W6-8 register pass: native `title` retired dock-wide —
+                             icon-only controls carry aria-label (the UA tooltip slab
+                             is a foreign register on the liquid-glass dock). -->
+                        <DockIconButton aria-label="Save edit" @click="emit('commitEdit')"><Check class="w-5 h-5" :style="{ color: safeAccent }" /></DockIconButton>
+                        <DockIconButton aria-label="Cancel edit" @click="emit('cancelEdit')"><Undo2 class="w-5 h-5" /></DockIconButton>
                     </DockLayer>
 
                     <!-- Slug edit layer -->
@@ -147,7 +141,7 @@ watch(
 
                     <!-- Action bar layer -->
                     <DockLayer v-if="hasAnyActionBar" id="action-bar">
-                        <DockIconButton class="shrink-0" title="Back" @click="actionBarLayerActive = false"><ArrowLeft class="w-6 h-6" /></DockIconButton>
+                        <DockIconButton class="shrink-0" aria-label="Back" @click="actionBarLayerActive = false"><ArrowLeft class="w-6 h-6" /></DockIconButton>
                         <DockSeparator />
                         <ActionBarLayer v-if="actionBar" :action-bar="actionBar" :edit-target="editTarget" @open-palette="onActionBarOpenPalette" @open-extract="onActionBarOpenExtract" />
                         <GenericActionBar v-else-if="genericBar" :actions="genericBar.actions.value" :accent-color="genericBar.accentColor ?? safeAccent" />
@@ -172,45 +166,25 @@ watch(
 
                         <!-- Action bar toggle — S.W7-2: the separator and the
                              trailing chevron are desktop furniture; below sm the
-                             aperture (312px at 390w) holds controls only. -->
-                        <DockSeparator v-if="hasAnyActionBar" class="hidden lg:block" />
-                        <div class="action-bar-toggle-slot" :class="{ 'is-visible': hasAnyActionBar, 'is-live': actionBarSlotLive }">
-                            <div class="action-bar-toggle-inner">
-                                <DockIconButton
-                                    compact
-                                    :class="{ 'is-active': actionBarLayerActive }"
-                                    title="Action bar"
-                                    aria-label="Toggle action bar"
-                                    :aria-pressed="actionBarLayerActive"
-                                    :tabindex="hasAnyActionBar ? 0 : -1"
-                                    @click="toggleActionBar"
-                                >
-                                    <component
-                                        :is="genericBar?.icon ?? Paintbrush"
-                                        class="w-6 h-6"
-                                        :style="{ color: genericBar?.accentColor ?? safeAccent }"
-                                    />
-                                    <span v-if="isDesktop" class="text-small font-display" :style="{ color: genericBar?.accentColor ?? safeAccent }">
-                                        {{ genericBar?.label ?? 'Tools' }}
-                                    </span>
-                                    <!-- S.W7-6 (P1-9.2): the layer-swap AFFORDANCE —
-                                         ArrowRight mirrors the ArrowLeft back-button
-                                         inside the action-bar layer (one enter/exit
-                                         motif). The former ChevronDown promised a
-                                         dropdown this button never opens (the
-                                         chevron-that-isn't); Tools SWAPS the dock
-                                         layer, so it wears the layer grammar. -->
-                                    <ArrowRight class="w-3 h-3 text-muted-foreground hidden lg:block" />
-                                </DockIconButton>
-                            </div>
-                        </div>
+                             aperture (312px at 390w) holds controls only. The
+                             slot machine + T-29/T-36 register live in the
+                             colocated SFC (the W6-8 PP-8 cap lift). -->
+                        <ActionBarToggle
+                            :visible="hasAnyActionBar"
+                            :active="actionBarLayerActive"
+                            :is-desktop="isDesktop"
+                            :icon="genericBar?.icon ?? Paintbrush"
+                            :label="genericBar?.label ?? 'Tools'"
+                            :accent="genericBar?.accentColor ?? safeAccent"
+                            @toggle="toggleActionBar"
+                        />
 
                         <!-- Mobile pane toggle — Ae-5: PaneSegmentedControl owns this control (one owner).
                              S.W7-2: the mobile separator PAIR is dropped (four vertical bars
                              in a 312px aperture was furniture crowding the ⋮ trigger out of
                              the pill — design-dock-shell P0-2); the control compacts at its
                              own root below sm. -->
-                        <div v-if="viewManager.currentConfig.value.right !== null" class="lg:hidden">
+                        <div v-if="viewManager.currentConfig.value.right !== null" class="dock-mobile-panes">
                             <PaneSegmentedControl
                                 :model-value="viewManager.mobilePaneIndex.value"
                                 :left-label="viewManager.currentConfig.value.leftLabel ?? ''"
@@ -242,22 +216,48 @@ watch(
                     </DockLayer>
                 </DockLayerGroup>
 
-                <!-- Collapsed state — the WAX SEAL (S.W7 W7-1 / S-8): the
-                     WatercolorDot in the LIVE color fills the producer's
-                     collapsed circle (the wax speaks live — the dot IS the
-                     accent); the current view's icon is INKED over it in
-                     `--seal-ink` (the W7-4 resolver's 10th token, WCAG-derived
-                     from the wax — never `--accent-view`), swapping on the
-                     morph family keyed by view: the old impression lifts off,
-                     the next stamp presses in. The hairline die-rim adopts
-                     `--accent-view` — the continuity carrier designed to grow
-                     into the expanded trigger's ring (W7-4's `--dock-ring`
-                     seam). NO text, NO chevron; gold rim + gold ink under
-                     admin. MORPH LAW: the wax exits WITH the seal under the
-                     producer's collapse↔expand cross-fade — no element ever
-                     animates live→view-hue. -->
+                <!-- Collapsed state — the WAX SEAL (S.W7 W7-1 / S-8; die-rim
+                     ABROGATED T.W6 · W6-7, Q12 + T-28): the WatercolorDot in
+                     the LIVE color fills the producer's collapsed circle (the
+                     wax speaks live — the dot IS the accent; T-37: the wax
+                     now fills the WHOLE seal, no rim standoff — the palette
+                     swatch reads at full size on the collapsed dock);
+
+                     T.W8 · P9-R3/T-37 — THE DERIVE-SEAM GUARANTEE (the swatch
+                     READS against its own derived field): the wax is the live
+                     seed and the atmosphere FIELD behind it is DERIVED from the
+                     SAME seed, so at collision seeds (the owner's brick: wax↔
+                     field ΔL 0.004 / 1.03:1) the swatch vanished into the field,
+                     carried only by the producer glass halo (which dissolves
+                     over light fields — §6.4 self-camouflage). The guarantee is
+                     MATERIAL, in the atmosphere derive path
+                     (useAtmosphere `DERIVE_SEAM_FLOOR` — the field's mean L
+                     never lands within the floor of the wax L), NEVER a ring or
+                     rim here (Q12/O-15a stand). The seal owns no legibility
+                     code — the field steps off the wax by construction; the
+                     current view's icon is INKED over it in `--seal-ink`
+                     (WCAG-derived from the wax — never `--accent-view`),
+                     swapping on the morph family keyed by view: the old
+                     impression lifts off, the next stamp presses in.
+
+                     THE REGISTER LAW (T-28, encoded): a selection/state ring
+                     on a WatercolorDot rides the dot's OWN silhouette +
+                     filter (the P5 producer solid-ring register) or does not
+                     exist — a geometric hairline over the seeded organic
+                     edge both crosses and gaps it by construction (the
+                     t-outline forensic: ~+1.5px cross / ~−2.5px gap per
+                     seed). The W7-1 continuity clause re-carries on the
+                     GLYPH: the same view icon exists at both morph endpoints
+                     (seal ink ↔ trigger icon, both on the vj-morph family) —
+                     a stronger continuity read than a 1px rim; the expanded
+                     trigger's `--dock-ring` (a geometric ring on a geometric
+                     control — sound) arrives WITH the expansion morph. Admin
+                     identity stays on the INK (gold-shimmer-icon). NO text,
+                     NO chevron. MORPH LAW: the wax exits WITH the seal under
+                     the producer's collapse↔expand cross-fade — no element
+                     ever animates live→view-hue. -->
                 <template #collapsed>
-                    <div class="dock-seal" :class="{ 'dock-seal--admin': isAdminMode }">
+                    <div class="dock-seal">
                         <WatercolorDot :color="cssColorOpaque" tag="div" class="dock-seal-wax" seed="top-dock">
                             <Transition name="vj-morph" mode="out-in">
                                 <component
@@ -272,8 +272,15 @@ watch(
                     </div>
                 </template>
             </GlassDock>
-        </div>
     </div>
+
+    <!-- T.W6 · W6-6 (T-9 re-home): the dock STATUS LAMP — band chrome,
+         absolutely seated at the band's inline-end (the .dock-band is the
+         positioning context) so it is visible at FIRST PAINT in every dock
+         state (expanded, collapsed, mid-morph) and never rides a
+         collapsible layer. Dev-gated; variant matrix in status-lamp.ts
+         (O-22). -->
+    <DockStatusLamp />
 </template>
 
 <style scoped>
@@ -285,44 +292,26 @@ watch(
     animation: vj-settle var(--spring-snappy-duration) var(--spring-snappy);
 }
 
-/* Action-bar toggle slot: animates between 0 and content width via the
-   grid-template-columns 0fr → 1fr pattern (no max-width clipping).
-   Merged in from the retired DockMainLayer.vue.
-   S.W7-6: the transition arms only once `.is-live` sets (one frame AFTER the
-   first presence painted) — the boot-composition appearance seats instantly;
-   only genuine mid-session presence toggles animate. */
-.action-bar-toggle-slot {
-    display: grid;
-    grid-template-columns: 0fr;
-    opacity: 0;
-}
+/* The action-bar toggle slot machine (S.W7-6 boot seat · W6-8 T-29 settle
+   release · T-36 true-button box-model) lives in the colocated
+   ActionBarToggle.vue (the W6-8 PP-8 cap lift). */
 
-.action-bar-toggle-slot.is-live {
-    transition:
-        grid-template-columns var(--duration-normal) var(--ease-standard),
-        opacity var(--duration-normal) var(--ease-standard);
-}
-
-.action-bar-toggle-slot.is-visible {
-    grid-template-columns: 1fr;
-    opacity: 1;
-}
-
-.action-bar-toggle-inner {
-    overflow: hidden;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-}
-
-/* ── The wax seal (S.W7 W7-1) ────────────────────────────────────────────
+/* ── The wax seal (S.W7 W7-1; die-rim ABROGATED T.W6 · W6-7, Q12/T-28) ──
    The collapsed dock IS the seal: wax (WatercolorDot, live color) filling
    the producer's collapsed circle (glass-ui pins the summary pane square,
-   aspect-ratio 1 — density.css/morph.css), the view icon inked over it,
-   and a hairline circular die-rim in --accent-view (the continuity
-   carrier the expanded trigger's --dock-ring seam adopts under W7-4). The
-   seal is a FIXED-INTRINSIC-SIZE composition (block 100% / aspect 1): the
-   collapsed morph endpoint becomes VIEW-INVARIANT — no per-view text
+   aspect-ratio 1 — density.css/morph.css) and the view icon inked over
+   it. The seal speaks with TWO voices — the wax IS the live color
+   (identity by material) and the inked glyph IS the view (identity by
+   impression); the third concentric boundary (the 1px --accent-view
+   die-rim + its gold admin override) was over-drawing at 40px and the
+   only voice that could never fit the seeded organic edge — it DIED with
+   its 2px standoff padding (T-37: the wax gains the whole circle; the
+   underlying palette swatch finally reads at size). NO border may return
+   here: the O-15a negative watch asserts computed border-style none (the
+   resurrection guard); a future fitted ring is the P5 producer solid-ring
+   register on the wax itself, never a geometric parent circle. The seal
+   is a FIXED-INTRINSIC-SIZE composition (block 100% / aspect 1): the
+   collapsed morph endpoint stays VIEW-INVARIANT — no per-view text
    width, nothing to re-measure, nothing to clip (the P0-1 "Ho" cure). All
    motion is transform/opacity-only: the producer's compositor
    expand↔collapse morph outside, the vj-morph stamp swap inside; PRM
@@ -332,12 +321,12 @@ watch(
     aspect-ratio: 1;
     display: grid;
     place-items: center;
-    padding: 2px;
     border-radius: 9999px;
-    border: 1px solid color-mix(in oklab, var(--accent-view) 60%, transparent);
-}
-.dock-seal--admin {
-    border-color: color-mix(in oklab, var(--color-gold) 75%, transparent);
+    /* The abrogation made literal (O-15a's negative watch reads this
+       computed value): Tailwind's preflight stamps `border: 0 solid`
+       app-wide, so an explicit none is the honest "the rim is DEAD and
+       stays dead" declaration, not redundancy. */
+    border: none;
 }
 .dock-seal-wax {
     inline-size: 100%;

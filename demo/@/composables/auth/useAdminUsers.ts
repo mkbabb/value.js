@@ -11,7 +11,7 @@ import {
     getUserPalettes,
 } from "@lib/palette/api";
 import type { Palette, User } from "@lib/palette/types";
-import type AdminUsersPanel from "@components/custom/palette-browser/AdminUsersPanel.vue";
+import type { AdminUsersPanel } from "@components/custom/palette-browser/admin";
 
 export function useAdminUsers(deps: {
     searchQuery: Ref<string>;

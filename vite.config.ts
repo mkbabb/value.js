@@ -73,6 +73,14 @@ const defaultOptions = {
         // The `@…`-prefixed demo aliases stay STRING finds precisely BECAUSE
         // `@rollup/plugin-alias` prefix-matches strings — `@src/foo/bar` must
         // resolve, and a string find (exact OR `find + "/…"`) is exactly that.
+        // NOTE: T.W1 (the demo-dogfood keystone) retired every `@src/*` import
+        // from the DEMO tree — the demo now consumes value.js ONLY through the
+        // published `@mkbabb/value.js` subpaths (the self-alias set below), never
+        // `src/` internals (`tsconfig.demo.json` dropped its `@src/*` path to
+        // enforce this at the type level). The `@src` alias SURVIVES here for the
+        // EXEMPT `assets/docs/*.md` reference pages, which embed live source
+        // snippets via `@src/…?source` (the `sourceExportPlugin`), and for the
+        // vitest suite's own `@src` alias in `vitest.config.ts`.
         alias: [
             { find: "@src", replacement: path.resolve(import.meta.dirname, "src") },
             { find: "@styles", replacement: path.resolve(import.meta.dirname, "demo/@/styles") },

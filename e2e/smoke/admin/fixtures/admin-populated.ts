@@ -138,6 +138,11 @@ export const adminPopulatedTest = base.extend({
         await page.route("**/admin/**", (route) => {
             const req = route.request();
             const url = req.url();
+            // T.W1 F4: the `palette-browser/admin/` source dir now puts `/admin/`
+            // in vite MODULE URLs (`/@fs/…/admin/AdminUsersPanel.vue`), which this
+            // glob also matches. Mock ONLY genuine API calls (pathname `/admin/…`);
+            // let module/asset requests fall through to the dev server.
+            if (!new URL(url).pathname.startsWith("/admin/")) return route.continue();
             const method = req.method();
             const json = (body: string, status = 200) =>
                 route.fulfill({ status, contentType: "application/json", body });

@@ -1,0 +1,314 @@
+# U — THE DISPOSITION LEDGER (zero silent drops)
+
+**Purpose**: E-4's discharge — every noted gap gets a DECIDED disposition (build / fold / retire /
+escalate) in a NAMED wave. Re-booking is forbidden. This ledger is the completion-criterion walk:
+`FINAL.md` walks it row-by-row, zero drops.
+
+**Enumeration method (so the ledger is itself auditable)**:
+1. **The U-Fxx families** — enumerated `F1..F77` directly from `audit/registry.md` (§1–§28), the
+   converged registry. Every integer in `[1,77]` appears exactly once as a row below; the count is
+   the registry's own family count ("~77 U-Fxx families"). Split families (U-F6, U-F55) appear
+   as one row with both halves' homes named; the U-F62 registry-hygiene family records the U-F6
+   split mechanism. No family is omitted, merged-away without a named target, or re-booked.
+2. **The chronic rows** — the registry's embedded chronic/disease classes (there is no separate
+   §chronic-disposition heading; they are inlined at U-F2/U-F3/U-F28/U-F42 and the §28 relay). Each
+   is decided below in the CHRONIC section, cross-referenced to its owning family.
+3. **The prompt-recap rows** — the owner asks T-1..T-61 (MANDATE §1 + §0.5/0.6/0.7/0.8) and the
+   edicts E-1..E-7. The still-red T-rows route to their U-Fxx family; the discharged T-rows retire
+   into the §8 zero-drop WINS; the edicts get an inherited-status line. In the PROMPT-RECAP section.
+
+**Audit invariant**: rows below = 77 (families) + the CHRONIC set + the §B.1 T-CLOSE CARRIED-BOOKS
+set + the PROMPT-RECAP set + the RETIRED-WINS set. Every wave named is one of the ten in
+`U.md §The wave DAG`.
+
+---
+
+## §A — THE 77 U-Fxx FAMILIES
+
+| ID | Family | Owning wave | Disp | One-line rationale |
+|---|---|---|---|---|
+| U-F1 | ci-oracle-slate-nonblocking | U.W-ORACLE | build | `page-load.spec.ts` is the SOLE hard e2e; promote the slate to blocking or make the soft posture an explicit owner decision. |
+| U-F2 | adopt-trigger-disease | **U.W-ADOPT** | build | THE DISEASE ROW (≥3 tranches): the adopt is a wave of its own; the §1 design reds re-file as EXPLICIT named glass-ui BI-acceptance constraints, not trusted to topical waves. |
+| U-F3 | q14-perf-redemption-uncloseable | U.W-PERF | **escalate** | Coupled to producer levers gated on the unfired adopt; present the owner the structural fact — green needs the producer cut in-window, or a ruled re-scope. |
+| U-F4 | reduced-motion-dock-collapse | U.W-ADOPT | fold | Folds into U-F2's BI-acceptance list; PRODUCER-ONLY (glass-ui `morph.css:72` `data-morphing` PRM latch), demo EXONERATED (R-1) — no demo cure to make. |
+| U-F5 | blob-card-seat | U.W-VISUAL | build | Seat/integration/size still-red (bead spills the card edge at 1440, collides the readout at 390); blur axis genuinely CURED. Real-GPU/owner-attested gate. |
+| U-F6 | q5-ramp-register + proxy-predicate-oracle | **SPLIT** (U-F62): ramp→U.W-VISUAL · oracle→U.W-ORACLE | build | Ramp-half: the WR-8 letterform-ramp cure (purple→maroon walk to the L=0.02 clamp) → U.W-VISUAL. Oracle-half: O-14 is a proxy predicate — the "every guard-constant gets a feasibility leg" law → U.W-ORACLE. |
+| U-F7 | scene-transition-motion | U.W-VISUAL | build | Thrice-red, MANDATE-escalated (T-58); real-GPU frame-by-frame with confound isolation — born-RED against a real-GPU/owner frame, never headless. |
+| U-F8 | generate-plate-species-chrome | U.W-VISUAL | build | Flat rounded squares (not WatercolorDots); three verb registers → ONE glass-ui instrument (RELAY). |
+| U-F9 | picker-header-spacing-regime | U.W-VISUAL | build | Title 67.8px un-stepped, dead band above readout, 1440-tight vs 390-airy divergence; shares the U-F76 mount. |
+| U-F10 | console-veil-material | U.W-VISUAL | build | Reads flat cream/brown, not a translucent veil; the glass-ui veil material named by the owner (RELAY, producer primitive). |
+| U-F11 | collapsed-dock-swatch-seam | U.W-VISUAL | build | Derive-seam ΔL .004–.023 imperceptible; the swatch exists structurally, invisibly. |
+| U-F12 | dark-scheme-derived-tint-muddiness | U.W-VISUAL | build | Ambient dark-card tint a uniform desaturated warm-brown across panes; owner's-judgment-at-formation row (compounds U-F6/F26). |
+| U-F13 | dock-edge-clip | U.W-VISUAL (demo Tools box-model) + U.W-ADOPT/relay (producer clip/fade) | build | Producer clip/fade-mask shaves EDGE items' rings; producer half → BH communiqué, the Tools true-button box-model half is demo work. |
+| U-F14 | perf-ratio-nonportable-flake | U.W-PERF | build | The flagship dist gate flakes ~50% even at IDLE (native `JSON.parse` doesn't co-scale with the interpreted CSS parser); re-anchor floors with real headroom. |
+| U-F15 | o26-softwaregl-nonflip | U.W-ORACLE | fold | An oracle whose cure-path is unmeasurable on its runner is mis-hosted; folds into the oracle-hardening row (headed-GPU annex or acknowledge). |
+| U-F16 | untracked-CLS-gate | U.W-PERF | build | CLS 0.219 deterministic mobile (the SAME node as the LCP element), untracked in PI-1; add to the ledger + cure the pane-shell mount reflow. Shares the U-F76 mount. |
+| U-F17 | q4-well-veil-silent-reversal | U.W-CANON | build | A ratified Q4 WELL was materially reversed with no re-ratification row while T.md §4 still reads "STANDS"; an honest §4 amendment row (ledger-integrity, lesson-15 class). |
+| U-F18 | e5-addressed-half-unmet-paused | U.W-CLOSE (charter §W8-inheritance) | fold | E-5's "ensure ADDRESSED" structurally unmet for §0.7 at audit time; folds into U's W8-terminal inheritance census (W8's remediation is the live counter-motion). |
+| U-F19 | w8-remediation-live-defects | U.W-VISUAL/U.W-CANON (charter §W8-inheritance) | fold | The filed W8 body holds LIVE A-class ordinary bugs; U takes the TERMINAL W8 state and absorbs the un-landed residue by name (T-56→F6, error-detail→F26, T-53/AB-1→VISUAL/CANON). |
+| U-F20 | doc-template-token-unsubstituted | — | **retire** (at root) | `${DATE}`/`[OWNER-undefined]` cured at rename this commit; harness lesson recorded (Workflow args must be a JSON object). No wave. |
+| U-F21 | canon-structure-drift | U.W-CANON | build | Root + api + **demo** CLAUDE.md Structure blocks predate the T.W1 reorg (api's is wholly invalid); README "15 spaces" ×3 (tree ships 17); **`demo/DESIGN.md` facilities** (the T/FINAL §5:305 remainder); ONE canon-sync row (regenerable-count precept). |
+| U-F22 | barrel-parity-drift | U.W-CANON | build | Root vs subpath barrels disagree on 10 symbols, shipping in dist `.d.ts`, no parity gate; cure the 10 + mint the parity gate (library-surface, tooling gate). |
+| U-F23 | ground-record-forked-read | U.W-CANON | build | The only READ of GroundRecord is hand-duplicated vanilla JS in index.html; the typed `parseGroundRecord` is dead — single-source the record contract (codegen / build-time inline). |
+| U-F24 | dead-orphans + over-export-hygiene | U.W-CANON | retire (orphans) + rule (over-export) | Retire the 4 true orphans (api migrate-soft-delete, `__resetServicesForTest`, the prng radii trio); the ~150 over-exports are ruled leave-as-is with a named rationale (idiomatic aliases + testability seams). |
+| U-F25 | gradient-stop-focus-invisible | U.W-A11Y | build | `:focus-visible` resolves `outline-style:none` + inline boxShadow override → zero focus affordance on a keyboard-operable control; pairs with U-F27 on the same element. |
+| U-F26 | dark-accent-below-floor | U.W-A11Y | build | Default-seed dark accents render 1.89–2.87:1 (below AA + below the claimed 3:1 floor); re-guard against the RENDERED tier; joins U-F6's feasibility-leg law. Shares the U-F76 mount. |
+| U-F27 | tap-targets-aria-polish | U.W-A11Y | fold | Gradient stops 20×20 (<24), 17/19 controls <44px, raw 16-digit `aria-valuenow`; one target-size + announcement hardening row. Shares the U-F76 mount. |
+| U-F28 | kf-prm-expand-fixed-unreleased | U.W-ADOPT | **retire** (on their next tag) | The one keyframes ask is FIXED at HEAD but unreleased; value.js has zero direct kf imports — a cross-repo watch row, no work. |
+| U-F29 | parseCSSValue-silent-truncation | **U.W-LIB** | build | **OWNER-RULED AMELIORATE (§13.5)**: the README-usage export silently drops every token after the first sub-value; loud-fail or full-value reshape (design-loop); owner-held publish. Born-RED. |
+| U-F30 | computed-color-normalized-serialization | **U.W-LIB** | build | **OWNER-RULED AMELIORATE (§13.5)**: color-mix/relative-color serialize normalized `[0,1]` verbatim; fix at the mix/relative OUTPUT locus (NOT the shared wrapper — R-2), born-RED asserts the direct path unchanged; drives 4 consumer surfaces (§25/§28). |
+| U-F31 | transform-single-axis-expansion | U.W-LIB | build | `rotate(45deg)`→3 axes (CSS rotate is Z-only); feeds keyframes' apply/resolve path — the concrete build→co-migrate. Same E-3 class as U-F29. |
+| U-F32 | math-trig-unit-leak | U.W-LIB | build | `sin(30deg)`→`0.5deg` (should be unitless); confined to `evaluateMathFunction`. Same serialization/contract class. |
+| U-F33 | gradient-stop-position-roundtrip | U.W-LIB | build | Positioned stops comma-join → invalid CSS; the library `FunctionValue.toString` default (the demo uses a separate strict parser). Same class. |
+| U-F34 | library-naming-incoherence | U.W-LIB | fold | `{from}2{to}` vs `{from}To{to}`, `serialize*` vs `reverse*`, casing drift; pick one convention (design-loop) inside the library-coherence row. |
+| U-F35 | transform-2D-recompose-missing | U.W-LIB | fold | `decomposeMatrix2D` has no recompose inverse + `interpolateDecomposed` is 3D-only; folds into the library-coherence row. |
+| U-F36 | impersonation-dead-credential | U.W-SEC | build | `POST /admin/impersonate` mints a session with NO `expiresAt` → dead-on-arrival behind a green-over-broken test; fix + a test that drives the auth middleware. |
+| U-F37 | db-trust-boundary | U.W-SEC | build | Mongo runs no-auth + `.env.example` advertises 4 unwired `MONGO_*` vars (config-truth lie); wire creds or delete the vars + write the mongo-discipline precept residual (round-4 fold). |
+| U-F38 | db-token-at-rest | U.W-SEC | build | Session tokens stored cleartext as `sessions._id`; SHA-256 at rest, lookup by hash (compounds with U-F37's unauthenticated boundary). |
+| U-F39 | frontend-missing-security-headers | U.W-SEC | build | color.babb.dev serves only `x-content-type-options`; add CSP/HSTS/X-Frame-Options via the CF-Pages `_headers` file. |
+| U-F40 | admin-audit-attribution | U.W-SEC | fold | `admin_audit.actorSlug` can be `undefined` (bearer-only auth); folds into U-F36's remediation. |
+| U-F41 | duplicate-ncsu-origin | U.W-SEC | **escalate** | `mbabb.fi.ncsu.edu/colors/` alias still live + byte-identical (DEC-9 declared retired); deploy-ceremony + re-verify (VPN-gated). Ties X2 residual. |
+| U-F42 | vacuous-ci-tripwire | U.W-ORACLE | **escalate** | 3 armed `test.fail()` at head whose cure waves have not landed + O-26 can never flip on software-GL; own all 3 born-RED + wire a headed-GPU annex or acknowledge. |
+| U-F43 | slow-build-in-beforeAll | U.W-ORACLE | fold | `dts-published-surface.test.ts` runs a full build in `beforeAll` for 2 string checks (~70–80% of unit-suite wall time); move to `test:dist`. |
+| U-F44 | impl-detail-coupled-tests | U.W-ORACLE | fold | `value-unit.test.ts` couples to internal `superType` identity + `.value` nesting; de-couple (snapshots are defensible). |
+| U-F45 | demo-cross-layer-inversion | U.W-DEMO | build | `palettes-ramp.ts` reaches UP into app-root boot while boot reaches DOWN (a near-cycle); relocate `resolveViewAccent` to the shared layer. |
+| U-F46 | session-token-triplication | U.W-DEMO | build | One token in 3 reactive cells + 2 storage backends synced by manual write-through; single-source + delete the dead `clearSession()` twin. |
+| U-F47 | colocation-e1-violation | U.W-DEMO | build | E-1 residue: the color-pipeline spine imports a feature's internal composable; `palette-browser` (6 consumers) exposes no barrel — move the primitive down, give the feature a seam. |
+| U-F48 | demo-state-fragility-cluster | U.W-DEMO | fold | usePaletteStore per-call factory ×3, COLOR_STORE_KEY in 2 idioms, Dock.vue 7 watchers; one hoist-to-singleton + const-extract + computed-predicate row. |
+| U-F49 | gitignore-auth-unanchored | U.W-CANON | build | `.gitignore:8 auth/` unanchored matches the tracked SOURCE `demo/@/composables/auth/` — a silent-drop trap; anchor to `/auth/` (one line, high value). |
+| U-F50 | tracked-binary-bloat | U.W-CANON | retire | 133 MB (84%) of the tracked tree is audit binaries incl. a 58 MB N-tranche heapsnapshot; git rm the heapsnapshot + a shot policy. |
+| U-F51 | stale-local-branches | U.W-CANON | retire | 3 orphan local branches == master / 0-unique-merged; delete. |
+| U-F52 | scratch-accumulation | U.W-CANON | retire | `docs/tranches/T/audit/pi/` holds 1.8 GB untracked scratch; sweep before U opens (0.5 MB real accidental-add exposure). |
+| U-F53 | worktree-prune-proof | U.W-CANON | retire (actionable) | 5 of 9 worktrees 0-unique + clean; prune the 5 at a safe moment WITH the law's proof; 4 protected (live/uncommitted/locked). |
+| U-F54 | real-GPU-visual-oracle-never-run | **U.W-CLOSE §G-CLOSE-4** (charter §real-GPU annex) | **acknowledge** (owner-attested) | The headed-GPU O-slate never ran in 7 rounds; a formation-time acknowledgement — U carries a real-GPU visual annex, owner-attested; not chased. VISUAL/U-F7 gate against a real-GPU frame. |
+| U-F55 | ci-oracle-slate-no-teeth + unmeasured-a11y-gate | **SPLIT**: a11y-half RETIRE · CI-teeth→U.W-ORACLE | retire + build | a11y-half: MEASURED → PASSES 1.0 (not a W9 ambush) → RETIRED. CI-teeth-half: `page-load.spec.ts` is the SOLE hard gate (smoke + smoke-safari both continue-on-error) → U.W-ORACLE build row. |
+| U-F56 | authenticated-populated-surface-uneyeballed | U.W-A11Y | build | Login/save/publish/admin/populated Extract-Browse never driven live; a gestalt+a11y row over the authed surface. |
+| U-F57 | a11y-modality-gaps | U.W-A11Y | build | Zero coverage of screen-reader / forced-colors / prefers-contrast / prefers-reduced-transparency / real-touch / slider-keyboard OPERATION; source has ZERO forced-colors rules. |
+| U-F58 | untested-web-modalities | U.W-A11Y | build-or-out-of-scope (per modality) | i18n/RTL (no `dir`), print (no `@media print`), PWA/offline (no SW/manifest), **error-injection/thrown-error** (registry §16 fifth modality — a11y-half fold → U-F56, gestalt-half → U.W-VISUAL census), long-session/memory; the formation decides build-or-explicitly-out-of-scope per modality (recorded, not silently dropped). |
+| U-F59 | unread-sources-of-record | — | **retire** (round-4 closed) | docs/precepts read, api suite RUN, the pre-R owner-ask chain spot-checked, assets/docs skimmed at round 4; closed — recorded so no successor re-opens. |
+| U-F60 | color-math-correctness-unaudited | — | **retire** (round-4: SOUND) | The numeric color core VERDICT SOUND (sRGB→XYZ ≤1.11e-16, OKLab ≤1e-6, CIEDE2000 3e-5, analytical≡raytrace ≤1.4e-4); no numeric defects. Recorded. |
+| U-F61 | single-sourced-claims | U.W-CLOSE | fold | X2 NCSU-301, the CI TBT red, born-RED cure-ownership, the deploy-webhook repair — attested-not-verified; the close ledger FLAGS each (X2 also rides U-F41). |
+| U-F62 | families-that-are-two-mechanisms | **U.W-ORACLE** (the U-F6 split executor) | fold | Registry-hygiene: records that U-F6 = the Q5 ramp resolver (→U.W-VISUAL) + the O-14 proxy oracle (→U.W-ORACLE) have different owners/surfaces; the split is executed at those rows. Homed at U.W-ORACLE (§Dispositions, the split-executor bookkeeping row) per `U.md §wave-DAG` U-F62 ∈ U.W-ORACLE. |
+| U-F63 | npm-pack-ships-demo | U.W-CANON | build | No `.npmignore` + no-op `prepare` ships a stale `dist/gh-pages/` (the whole demo, ~4.3 MB) in the tarball; clean-before-pack or `.npmignore`. |
+| U-F64 | size-gate-blind | U.W-CANON | retire/re-anchor | CI gates `dist/value.js ≤145KB` but it's a 14.9 KB facade — core bloat lives in hashed chunks the gate can't see; re-anchor to the chunk-graph total. |
+| U-F65 | lint-vacuity | U.W-CANON | fold | `npm run lint` green over 680 files with ~every rule OFF; owner call — restore a real rule set or accept types+review (recorded). |
+| U-F66 | typecheck-stale-dist | U.W-CANON | fold | `npm run typecheck` resolves demo→value.js through stale `dist/*.d.ts` with no prebuild; add a `pretypecheck` build or document the build-state dependence. |
+| U-F67 | api-hono-advisory | U.W-SEC | build | `hono@4.12.2` carries a reachable bodyLimit-bypass advisory; fix by an in-range minor bump. |
+| U-F68 | glass-ui-lock-adopt-drift | U.W-ADOPT | fold | package-lock records file:glass-ui @ 4.2.0 but disk is 5.0.0 (false record); the lock refreshes at the adopt cut. |
+| U-F69 | parse-that-doc-lie | U.W-CANON | build | CLAUDE.md:154 says parse-that "shipped 2.0.1"; spec/lock/node_modules are ALL 1.0.0 (caret `^1.0.0` forbids 2.x) — the prose is false; canon-sync, joins U-F21. |
+| U-F70 | root-zod-orphan | U.W-CANON | retire | Root devDep `zod ^3.23.8` unused (0 imports); all zod is api-side (own 4.4.3); remove. |
+| U-F71 | dev-toolchain-advisories | U.W-CANON | fold | esbuild/js-yaml/vitest/vite npm-audit hits are dev/build-only, none ship in dist; batch dev-dep bump. |
+| U-F72 | test-ground-truth-circularity | U.W-ORACLE | build | The XYZ/Lab/OKLab suite validates almost entirely by round-trip (blind to a shared-error class); add an external-vector anchor for rgb2xyz/xyz2lab/xyz2oklab. |
+| U-F73 | test-ground-truth-incomplete | U.W-ORACLE | build | CIEDE2000 carries 14 of Sharma's 34 pairs (the impl passes the omitted 20); add the large-ΔE + achromatic-transition pairs. |
+| U-F74 | conversion-silent-gamut-map | U.W-LIB | fold | `xyz2rgb` defaults `correctGamut=true` so `color2(x,'rgb')` silently gamut-maps; expose the raw-OOB detect path (§26 folds into the library-correctness wave). |
+| U-F75 | precept-stale-label | U.W-CANON | retire | `docs/precepts/infra/domains.md` names the app "palette" (landed reality "color"); the `<app>.babb.dev` convention IS followed — only the label is stale. |
+| U-F76 | shared-surface-coordination | **U.W-PERF** | build | THE ORDERING LAW: 6 findings edit ONE picker/readout mount across 3 waves; the mount-changing reseats (VISUAL/A11Y) settle FIRST, then PERF reserves + measures CLS/LCP over the settled box. Binds VISUAL→A11Y→PERF. |
+| U-F77 | library-cut-adopt-ordering | **U.W-ADOPT** | build | THE CO-LAND ORDERING: the lib-correctness version cut sequences against BOTH `^3.1.0` floors (glass-ui **peer** `peerDependencies`+`devDependencies` / keyframes **runtime** `dependencies` — NOT devDeps, the stronger coupling) + the spectrum-walk/backward-color convention co-migration; owner-held version decision (§13.5). Binds LIB→ADOPT. |
+
+**Family audit**: F1–F77 present, each exactly once; F6 and F55 carry named split-homes (F62 is
+F6's split-executor bookkeeping, homed at U.W-ORACLE); F18/F19 route to the charter's
+W8-inheritance census; F20/F59/F60 retire (closed/cured — owning-wave `—`); F54 is the
+owner-attested annex. Every other row homes to a named wave (no unexplained blank). Zero silent drops.
+
+---
+
+## §B — THE CHRONIC ROWS (the registry's embedded chronic/disease classes — decided)
+
+| Chronic class | Where the registry embeds it | Decided disposition |
+|---|---|---|
+| **adopt-disease** (glass-ui 5.0.0, ridden ≥3 tranches / ~10-tranche primitive-asks lineage) | U-F2 (§1) | **build — DISEASE LAW: its own wave** (U.W-ADOPT); the §1 design reds re-file as EXPLICIT named glass-ui BI-acceptance constraints. |
+| **Q14 / RP-2 perf-redemption** (the HARD close gate + 331.0 KiB JS-eager vs ≤280 — T close-of-record; 347.9 was the S re-baseline — riding its 3rd tranche) | U-F3 (§1) + RP-2 (inline) | **escalate** (U.W-PERF): present the owner the structural fact — green needs the producer cut in-window, or a ruled re-scope. RP-2 is the payload arm, gated on the adopt (U.W-ADOPT). |
+| **cross-repo KEEP-BOOKED — the glass-ui BH relay set** (the §1 producer design reds + the 9 carried-forward T reds + the mixColors-convention coupling) | §28 + §28.3 (communiqué landed `17e0f522`) | **decided via RELAY rows** carried by U.W-ADOPT (BI-acceptance constraints), U.W-VISUAL (U-F8/F10/F13 producer material), U.W-LIB (the convention co-migration) — all relayed to the glass-ui BH inbox per E-2. |
+| **cross-repo KEEP-BOOKED — the keyframes ask** (managed-stepper PRM-expand, fixed-unreleased) | U-F28 (§7) | **retire on their next tag** (U.W-ADOPT watch row); value.js has zero direct kf imports. |
+| **born-RED cure-ownership** (3 armed `test.fail()`: O-16 clobber · O-26 aurora · O-5 boot — cure waves un-landed, O-26 can never flip on software-GL) | U-F42 (§13) | **escalate** (U.W-ORACLE): own all 3 born-RED + wire a headed-GPU annex or acknowledge. |
+| **the perf-flake gate** (the flagship dist ratio gate, non-deterministic RED even at idle — a 2nd-order chronic instrument) | U-F14 (§3/§10) | **build** (U.W-PERF): re-anchor floors with real headroom. |
+
+Every chronic class terminates in a named wave; none rides un-decided. The disease-row law is
+honored (U-F2 is its own wave; U-F3 is a named escalate).
+
+---
+
+## §B.1 — THE T-CLOSE CARRIED BOOKS (from `T/FINAL.md §5` HAND-TO-U — not registry-family-enumerated)
+
+The §A families come from the converged `audit/registry.md` (§1–§28). Three rows of `T/FINAL.md §5`'s
+HAND-TO-U book-successor table are NOT registry-family-enumerated (they arrived at T's close, after
+the registry converged), so they are carried HERE — each with a DECIDED U home, closing the
+`T/FINAL.md §5` → U coverage completely (the other §5 rows fold to §A/§B: the 5.0.0 adopt / GAP-* /
+L2..L16 → U-F2 [**L8's 5th-booking escalation + the per-item book-reverify obligation discharged at
+§C.1**]; L20+RP-2 / Q14 → U-F3; the T.W8 remediation rows → §C; PRM-expand → U-F28; **the
+P1–P10 packet dispositions + the T-60 producer communiqué (`f3f3c097`) → the §B "glass-ui BH relay
+set" chronic → U.W-ADOPT (the letter lane / BI-acceptance constraints)** — the substance is the §B
+BH-relay set, this row names the T/FINAL §5:306 handoff explicitly so it is enumerated, not merely
+substantively-covered; **the doc-rewrite remainder** — T/FINAL §5:305 enumerates it as *"demo/api
+CLAUDE.md + root Structure + DESIGN.md facilities, DOC-1..13 post-E-1"* → **U-F21**, whose canon-sync
+scope is EXTENDED to cover ALL of T's enumeration: root + api CLAUDE.md (native), **plus
+`demo/CLAUDE.md`** (a tracked ~17 KB canon doc) **and `demo/DESIGN.md`** (the T.W3 C3-LAW + 9-row
+exception ledger, `T/FINAL:52`) — the two T names that U-F21's original root+api-only framing dropped,
+now explicitly homed at `U.W-CANON §U-F21` + `G-CANON-2` so the "→ U-F21" arrow covers T's whole
+remainder, not merely the root+api subset):
+
+| T-close carried book | State at T close | Decided U disposition |
+|---|---|---|
+| **The W8 HG5 demo-caps re-encapsulation** (`useAtmosphere.ts` 411 · `Markdown.vue` 408 over ≤400) | booked; "splitting demo/ is a remediation act, not a gate act" (T/FINAL:294) | **U.W-DEMO** demo-hygiene lane — re-encapsulate below ≤400 (H.W3-style cohesion lifts); verify-at-execution done-state, NO gate; lands AFTER the U.W-VISUAL re-cures that touch the two files (U-F11 derive-seam · U-F19 AB-1) settle. `U.W-DEMO §BOOKS`. |
+| **The chronic cross-repo spec-status 7-set** (CH-10 · CH-13 · FN-7 · kf `resolveEasing` · R8-23 · R-5 · R-10) | all KEEP-BOOKED; no fired trigger crosses value.js's consume-edge; 3 spec drifts recorded (`random()` Safari-only · scroll-timeline Firefox-behind, not Baseline · kf easing kf-internal subpath) | **U.W-CANON / spec-status** — a rolling spec-status WATCH row (no work; re-surfaces only if a trigger crosses the consume-edge). NOT a family, a build row, or a producer RELAY. `U.W-CANON §BOOKS`. |
+| **DORMANT/PARK** (`Color.try()` 3 wraps · `usePaletteStore` migration [schema version 1] · S.H3 Pratt [PT-E no reply]) | dormant, no fired trigger | **PARK — carried, no wave work** (re-surfaces only on a fired trigger). NOTE: the `usePaletteStore` *schema-version-1 migration* park item is DISTINCT from U-F48's per-call-factory concern (U-F48 single-sources the store binding; it does NOT address the schema-version migration). |
+
+These three complete the `T/FINAL.md §5` HAND-TO-U table's fold into U's ledger — zero silent drop of
+a T-close handoff.
+
+---
+
+## §B.2 — THE BI → BH INBOX BRIDGE (the glass-ui active-coordination-inbox redirect)
+
+A reader tracing T's `f3f3c097` producer handoff into U meets an apparent contradiction — **it is a
+real inbox transition, resolved by the owner's edict, recorded here so no round re-chases it**:
+
+- **At T close (2026-07-11)** glass-ui's active coordination tranche was **BI**. T's consolidated
+  producer communiqué landed at `f3f3c097` (value.js side), stamped **glass-ui BI inbox HEAD
+  `24a7a764`** (`T/FINAL:131,412`); the T communiqué addressed "the glass-ui BI inbox — your active
+  tranche."
+- **At U formation (2026-07-12)** the governing authority is the **owner's 2026-07-12 edict**: EVERY
+  glass-ui-level change relays to the **active glass-ui BH inbox at root** (the standing formation
+  invariant, `MEMORY §feedback-glassui-bhbi-relay`). glass-ui advanced BI → **BH**; U's formation
+  communiqué landed at **glass-ui HEAD `17e0f522`** (`valuejs-inbox-2026-07-12-u-formation.md`), which
+  itself records "BI is now closed history."
+- **The redirect**: value.js's T-era `f3f3c097` (BI) producer handoff is CARRIED FORWARD, not
+  re-issued — its payload (the 9 BLOCKING reds + the booked swaps) rides U's **BH** relay of record
+  (`17e0f522` + the U.W-ADOPT co-land addendum). The pervasive "**BI-acceptance constraint**" term in
+  U names the *glass-ui version-cut acceptance* (what the producer must accept at the 5.0.0 cut); the
+  *delivery channel* is the **BH inbox** per the owner edict. `f3f3c097`(BI) → `17e0f522`(BH).
+- **Execution obligation (NOT a formation gate)**: glass-ui's BI coordination dir showed activity as
+  late as 2026-07-12 22:08 (an `atlas-outbound` decision file), so whether **BH** is the producer's
+  LIVE inbox at the cut is a **U.W-CLOSE RELAY-discharge verify obligation** (`U.W-CLOSE §the RELAY
+  discharge`) — CLOSE confirms the relay landed at the producer's THEN-CURRENT active inbox, per the
+  foreign-tree fence.
+
+---
+
+## §C — THE PROMPT-RECAP ROWS (owner asks T-1..T-61 + edicts E-1..E-7 — addressed-or-owning-wave)
+
+**The still-red T-rows** (the owner's eye logged them against MANDATE §0.5/0.6/0.7/0.8; most routed
+to T.W8/WR; U absorbs the un-landed residue) → their U-Fxx family → owning wave:
+
+| Owner ask (T-row) | U-Fxx family | Owning wave |
+|---|---|---|
+| T-30 · T-49 (blob card seat) | U-F5 | U.W-VISUAL |
+| T-10 · T-43 · T-56 (Q5 ramp register + the near-black wreck) | U-F6 (ramp-half) | U.W-VISUAL (+ oracle-half U.W-ORACLE) |
+| T-14 · T-48 · T-58 (scene-transition motion, thrice-red) | U-F7 | U.W-VISUAL (real-GPU annex) |
+| T-54 · T-55 (generate plate species chrome) | U-F8 | U.W-VISUAL |
+| T-2 · T-51 · T-59 (at-rest header) · **T-61/T-42 B-01** (scrolled-header whole-contraction, §0.8 owner-verbatim — a DISTINCT arm of U-F9 with its own gate BR-9/OA-6 + the P3 `ScrollCardHeader` producer RELAY, NOT a fold into the at-rest cure) | U-F9 | U.W-VISUAL |
+| **T-5** (the picker active channel-rail seat; `T/FINAL §2.1:113` = "W4-4 landed; ACTIVE seat P1-R1 → U", `T-MARK-2026-07-12:80` = "the ACTIVE seat = P1-R1 OPEN" — a LANDED-partial owner-uncertified still-red, NOT a discharged row; the pi-audit LAND row P1-R1/P1-R2, no WR cure — T.W8's Remediate never reached it) | **U-F9-rail** (a DISTINCT arm of U-F9, the picker active-rail-seat — parallels the U-F13-band split; NOT the header-spacing regime) | U.W-VISUAL (W8-inheritance census; census-red re-cure — born-RED **BR-12** seat-tracks-rung geometry (LANDED-partial per W4-4, born-GREEN must-STAY if it holds) + owner-attested **OA-7** reads-coherent + a π/DELTA seat-offset row — the FULL teeth that parallel the U-F13-band BR-10/OA/π split; the ring's active/selected channel seat reads coherent at every rung) · **T-5's 2nd residual** (the P5/S-3 letter-rail, PRODUCER-GATED per `T/FINAL §2.1:114`/§2.3:161) → U.W-ADOPT BH relay (§B.1 §7.2 swap fold), NOT this rail-seat arm — T-5's dual-residual thus fully enumerated |
+| T-34 · T-50 (console veil material) | U-F10 | U.W-VISUAL |
+| T-37 (collapsed dock swatch seam) | U-F11 | U.W-VISUAL |
+| T-36 · T-52 (dock edge clip) | U-F13 | U.W-VISUAL (demo) + U.W-ADOPT/relay (producer) |
+| **T-20** (P4 glass-ui Tabs pilling — no gap between pills; `T/FINAL §2.1:132` PRODUCER-GATED + §5:306 booked-swaps hand-to-U; `T-MARK-2026-07-12:95`/§2:208; **PRODUCER-DECLINED → owner-escalated** — the producer declined the cure, T escalated to the OWNER) | **— (no value.js/demo family)**: a glass-ui Tabs-component geometry red; the demo consumes the producer Tabs, so there is NO value.js-side cure to build | **U.W-ADOPT relay (owner-escalation lane)** — carried to the glass-ui active coordination inbox (**BH** per the owner's 2026-07-12 edict — see the §B.2 BI→BH bridge; T-era it rode BI `f3f3c097`) owner-visible until the producer ships OR the owner accepts the decline. **NOT a §2b carried-forward red** (the communiqué's 9 §2b rows are pending-producer; T-20 was already producer-DECLINED, so it rides as an owner DECISION, not a pending relay — distinct home, explicitly routed so it is not silently dropped). |
+| T-53 (dark caster) · AB-1 (About-KaTeX) | U-F19 residue | U.W-VISUAL / U.W-CANON (W8-inheritance) |
+| **T-57** (WR-9 dock-band `--dock-h` floor; MEASURED +3.0px scene reflow on dock-expand, invariance probe `2c1a0f4`; T-31→T-57 re-bracket) | U-F13 (dock-band arm — DISTINCT from the U-F13-demo edge-clip) | U.W-VISUAL (W8-inheritance census; born-RED BR-10 band-height-invariance-across-morph + owner-attested no-scene-shift — a DIFFERENT surface than U-F16's picker-plate mount reflow) |
+| **T-39** (the Q14-pressure perf face; owner still-red, `T-MARK-2026-07-12:124` LCP 5141 / TBT 5988; `T/FINAL §5:299`/§2.1:129/§7.2:411 hand it BY NAME) | U-F3 (**LCP**) · U-F61 (**TBT**) | **LCP → U.W-PERF** (the DECIDED escalate — W9 green-or-escalation; the perf half of Q14, distinct from the U.W-VISUAL census re-judge). **TBT re-homed** (registry §10:144 re-measure: **187 ms local GREEN**, only reddens on the 2-core CI runner) → **U-F61 attested-not-verified → U.W-CLOSE** (G-CLOSE-3, cross-ref U-F3). T hands "LCP/**TBT** → U.W-PERF"; U.W-PERF gates LCP+CLS only, so TBT's real home is U.W-CLOSE — bridged here + at `U.W-PERF §Goal` so the by-name handoff is not silently re-scoped. |
+| **T-22 · T-47** (the easing surface; LANDED W6/W6.5 O-17 3/3, but the **W8 easing critique pass UNFILED** — `T-MARK-2026-07-12 §3.1`, `easing/EasingAuthoringStage.vue`, owner-uncertified so NOT §D-dischargeable) | **— (no §2 owner-eye family)**: an unfiled-E-7-pass residue, not a headless-verifiable geometry red | **U.W-VISUAL W8-inheritance census** (the unfiled-pass re-judge — AUTOMATIC census-red re-cure if opened RED, else RETIRE-with-the-O-17-cite into the census record). One of the three unfiled T.W8 passes (`T-MARK §3.1`, target 11 / filed 8); the admin pass → U-F56, the micro-chrome+thrown-error pass → U.W-VISUAL census (perceptual) + U-F58 error-injection (thrown-error a11y). Named so the never-filed passes are not swept to §D. |
+
+**The discharged T-rows** (T-1..T-61 that T's own waves landed **fully — no owner-uncertified OPEN
+residual**) → **retire into the §8 zero-drop WINS** below; recorded so no successor re-opens them.
+**LANDED-PARTIAL rows are NOT discharged**: where T's wave landed a cure BUT `T/FINAL §2.1` books an
+OPEN residual to U (T-5's ACTIVE seat P1-R1 = the exemplar — LANDED W4-4, seat OPEN), the residual is
+routed ABOVE in this §C (T-5 → U-F9-rail), never swept to §D. **T-5 carries a SECOND residual** —
+the P5/S-3 letter-rail, PRODUCER-GATED (`T/FINAL §2.1:114` "P5 letter-rail PRODUCER-GATED" · §2.3:161
+"S-3 letter-rail → ride the unfired W7 → HAND TO U"; `T-MARK-2026-07-12:219` "S-3 letter-rail FIRED→P5")
+— which does NOT sit in the U-F9-rail arm (that is the ACTIVE-seat half); it routes to the **§B.1 §7.2
+producer-consume swap fold → U.W-ADOPT BH relay** (`17e0f522`), so T-5's dual-residual is fully
+enumerated and the named `letter-rail` handoff is not invisible to a T-5 auditor. **The producer-gated
+LANDED-partial residuals** — T-1's producer half (→ **GAP-ARM**), T-8 (satellites-never-meatball →
+**GAP-L5**), T-25/T-26/T-27 (aurora quality → **GAP-L2 / GAP-ARM / T-60**) — complete the
+`T/FINAL §2.1:112-115` LANDED-partial class the T-5 exemplar opened: their value.js/demo halves LANDED
+(W2 boot / W4-5 seat), their OPEN residuals are producer-gated with a communiqué cite (T's own §2.1
+close standard, `f3f3c097`), so each routes to the **§B "glass-ui BH relay set" chronic** — the 9
+BLOCKING reds ridden by U.W-ADOPT (`17e0f522`) — NOT §D, and NOT a value.js-side cure (there is none
+to build). Named here so a reader walking ONLY this ledger traces every §2.1 LANDED-partial row to a
+home without leaving for `T/FINAL`. **The 29 owner-uncertified T.W8
+pi-audit LAND rows** (`T/FINAL §2.1:123`/§7.2:405-411; the "24" scalar was the stale pre-P9 tally —
+`ROWS.md §4`'s enumeration + §1 pass tables count 29) likewise inherit to the **U.W-VISUAL
+W8-inheritance census** (enumerated + bucketed at `U.W-VISUAL §The W8-inheritance census` — most fold
+to the WR→family map's existing families; the picker active-rail-seat P1-R1/R2 (→ U-F9-rail) AND the
+dock-nav Login/Tools Q10 accent-ink cascade P9-R4 (→ **U-F13-menuink**, computed gate **BR-14**) are
+the TWO distinct residues with no covering WR row, homed here — P9-R4 gets a COMPUTED gate, not the
+perceptual catch-all, because a cascade-dead accent renders as a coherent neutral pill the owner-eye
+census cannot red, the O-14 trap; Q10 is the owner-RATIFIED Q18/C3 menu-scoped-ink scope sub-clause),
+NOT to §D. The full finding→wave-item map of record is
+`T.md §1` / SYNTHESIS §1.2 (T's ledger); U does not re-litigate T's landed cures — it inherits the
+TERMINAL T.W8 state (charter §W8-inheritance) and routes only the residue.
+
+**The edicts E-1..E-7** (status):
+
+| Edict | Status in U |
+|---|---|
+| E-1 colocation grand edict | LANDED by T.W1; residue (U-F47) → U.W-DEMO (build). |
+| E-2 packet series → THE RELAY EDICT | STANDING invariant; U's cross-repo waves carry RELAY rows; the U-formation BH communiqué landed (`17e0f522`). |
+| E-3 no legacy / gestalt / architectural transposition | INHERITED binding; shapes U.W-LIB (fix the CLASS) + forbids demo overrides (U-F4). |
+| E-4 fold ALL deferred items | DISCHARGED BY THIS LEDGER (every family + chronic + prompt-recap decided). |
+| E-5 recap ALL owner prompts, verify addressed | DISCHARGED BY THIS §C; the §0.7 addressed-half residue (U-F18) → charter W8-inheritance census. |
+| E-6 process: Fable + frontend-design; opus/sonnet fanout | INHERITED process; U.W-A11Y + U.W-VISUAL run designHeavy under Fable+frontend-design. |
+| E-7 hardening/critique stage | INHERITED: T.W8 is E-7; U does not re-run it — U.W-VISUAL absorbs its terminal residue. |
+
+---
+
+## §C.1 — THE EXHAUSTIVE T→U HANDOFF CENSUS RESIDUE (the RG-2 kill — four orphans homed)
+
+`FORMATION-VERDICT §11 RG-2` is the strongest residual: FIVE of seven hardening rounds each surfaced
+a NEW silently-dropped cross-tranche T→U handoff (r2 T-57 · r3 T-20 · r4 T-5/P1-R1 · r6 the three
+unfiled passes · r7 T-1/T-8/T-25/T-26/T-27 + the letter-rail). The **exhaustive T→U census** (this
+pass) enumerates EVERY T-side row — the pi-audit `audit/w8-certification/ROWS.md` finding rows + the
+`T/FINAL.md §2.2/§5` booked/HAND-TO-U rows — against the U corpus by BOTH id-match AND family-alias
+(an id-match miss ≠ an orphan: a T-row homed under its U-Fxx family name is verified-homed, not
+re-booked). **Thirty-one T-side candidate rows checked; twenty-seven verified-homed** under an
+existing family/ledger cite (no edit — e.g. P1-R3 → `U.W-VISUAL:126/131` + communiqué §2b · P1-B1 →
+`U.W-VISUAL:297/481` (BR-5/U-F9) · P6-W2/T-55 → U-F8 `U.W-VISUAL:274/554` · P9-W1/T-20 → §C
+`U.W-ADOPT` relay · P9-W2/T-52 → U-F13 · P11-notes n1/n2/n3 → the micro-chrome census
+`U.W-VISUAL:160-161` + a11y · O-16-R1/O-5/O-26 → U-F42 · GAP-ARM/GAP-L2/GAP-L5/PKT-1 → §2b · the
+adopt/perf/doc/PRM/7-set/DORMANT/packet folds above). **FOUR were genuinely un-homed** (ZERO hits
+under any alias) and are homed HERE, closing the RG-2 recurrence by construction (no sampling — every
+T-side row now lands-in-T, books-to-U with a named wave, or retires-with-rationale):
+
+| Census orphan | T-side origin | Un-homed evidence (grep-verified) | DECIDED U home + rationale |
+|---|---|---|---|
+| **boot-G** — the o12 boot-time backing-ratio oracle leg (TRIUMVIRATE; "would make the R2 regression class visible to the slate"; bounds-expansion; W9 inherits the minted-leg-or-the-declined-note) | `ROWS.md:72` pass-2 Row G (ROUTED → the triumvirate record) | ZERO hits for backing-ratio / o12 / bounds-expansion in the U corpus; `U.W-ORACLE §BOOKS` covers O-16/O-26/O-5/feasibility-leg/CI-teeth/dts-surface but NOT the o12 slate-bounds leg | **U.W-ORACLE §BOOKS** — the oracle-slate BOUNDS-EXPANSION decision: MINT the o12 boot-time backing-ratio leg (make the R2 boot-regression class slate-visible) OR record the declined-note with rationale. Parallels U-F1 (ci-oracle-slate) + the feasibility-leg law (U-F6-oracle-half): a triumvirate-minted leg is an oracle-hardening act decided in the oracle wave, never a silent drop. |
+| **CC-1** — `.glass-wash` zero-fill (PRODUCER-GATED packet P8 + the W3 consume note; "the two demo sites paint their rung post-fix") | `T/FINAL:150` (§2.2 pre-U booked set) | ZERO hits for glass-wash / CC-1 / packet-P8 in the U corpus; substantively within the "P1–P10 packet dispositions" §B.1 fold (line 138) but NEITHER the packet-P8 relay half NOR the demo consume-half is NAMED | **U.W-ADOPT §BOOKS** — producer half rides packet P8 inside the §B BH-relay set (the communiqué letter lane, `17e0f522`); the demo consume-half (paint the two sites' rung once glass-ui ships the `.glass-wash` fill) is a CONSUME-AT-CUT action booked to the adopt (E-3: no demo override of the producer fill — the consume waits on the primitive). NOT one of the §2b nine (a distinct producer packet); named so the demo consume is not invisible to a CC-1 auditor. |
+| **L8 / the L2..L16 open GLASSUI asks** — L8 = the 5th booking, ESCALATED; the open primitive-asks set, "per-item at book-reverify §C" | `T/FINAL:303` (§5 HAND-TO-U) | §B.1 folds "L2..L16 → U-F2" (line 137) but NEITHER L8's 5th-booking escalation NOR the per-item book-reverify obligation is discharged | **U.W-ADOPT §BOOKS / U-F2** — the L2..L16 open asks ARE the §1 design reds U-F2 re-files as EXPLICIT NAMED BI-acceptance constraints; **L8's 5th-booking ESCALATION** is recorded as a disease-adjacent signal (parallels the ≥3-tranche disease-row law) and the **per-item book-reverify** is the adopt-cut ledger vs the rebuilt dist (G-ADOPT-1), EXTENDED to each open ask + re-probed at U.W-CLOSE. Line 137's fold stands; this row discharges its two sub-obligations. |
+| **W8-2 rest-floor F9.R1 producer knob** — the rest-floor in-bracket read; F9.R1 producer knob booked W7 (the sibling of the GAP-L2 flagged-non-row) | `ROWS.md:194` (the two flagged non-rows) | GAP-L2 (the sibling half) is homed (§2b communiqué); the rest-floor F9.R1 producer-knob half has ZERO hits | **U.W-ADOPT §BOOKS / §B BH relay** — the F9.R1 rest-floor producer knob is a producer-gated residual that rides the adopt cut like the GAP-* reds (booked W7 in T = the U.W-ADOPT cut); the PR-2 fence is honored (no demo cure for a producer knob). The in-bracket rest-floor DEFAULT already landed in T's package; only the producer-knob residual carries. |
+
+**Census completeness statement**: the four orphans above + the twenty-seven verified-homed rows
+account for EVERY enumerated T-side handoff candidate. This is the RG-2 kill — the census is now
+assertable EXHAUSTIVE by construction (no next-round drop remains: every T-side row is
+landed-in-T, booked-to-U under a NAMED wave, or retired-with-rationale). HONESTY note: this does not
+retroactively make T's 7-round loop clean (RG-1 stands — no two consecutive clean passes occurred);
+it discharges the *enumeration* residual RG-2 names, leaving RG-3's r7-cure re-audit as the standing
+open item.
+
+---
+
+## §D — THE §8 ZERO-DROP WINS (retire — the successor must NOT re-fold these)
+
+Recorded so no U reader re-opens what T genuinely discharged (registry §8):
+
+- The `proof:*` Q13 disposition (retain-5 behavioral gates → CI-wired `test:dist`; excise-7 overfit).
+- **X1** prod-api deploy + **X2** NCSU 301 (the two oldest owner orders; on-host claims verified via
+  close artefacts — X2's VPN-gated re-verify rides U-F41/U-F61 as attested-not-verified).
+- `/remix` + `/diff` full excision.
+- The duplicate `useDark` folds.
+- The L1 Normalized/Display brand — PERMANENTLY RETIRED.
+- The doc 5→6 playwright-projects reconcile.
+
+**RETIRED / round-closed (no wave; recorded)**: U-F20 (harness token, cured at root) · U-F59
+(unread sources — read/run at round 4) · U-F60 (color-math — VERDICT SOUND at round 4) ·
+U-F55-a11y-half (lighthouse a11y MEASURED 1.0).
+
+---
+
+**Ledger completeness statement**: §A accounts for all 77 U-Fxx families (each integer 1..77 once);
+§B decides every embedded chronic/disease class; **§B.1 folds the three `T/FINAL.md §5` HAND-TO-U
+carried books that are not registry-family-enumerated** (the W8 demo-caps re-encapsulation, the
+spec-status 7-set, the DORMANT/PARK set); §C addresses every owner ask (still-red → wave; discharged
+→ §D retire) and every edict E-1..E-7; **§C.1 homes the four exhaustive-census T→U orphans the
+7-round loop's RG-2 residual predicted would remain** (boot-G · CC-1 · L8/L2..L16 per-item · W8-2
+rest-floor F9.R1) — twenty-seven of thirty-one T-side candidates verified-homed, four homed there;
+§D records the retire-set. No family, chronic, carried-book, census-orphan, or prompt-recap row is
+dropped, merged without a named target, or re-booked. This is E-4's discharge; §C.1 is RG-2's.

@@ -1,0 +1,12 @@
+[O-3 light] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)
+[O-3 light] post-arm field OKLCh L=0.687 C=0.156 h=33.1° (seed warm h≈28°) — chromatic=PASS hue-family=PASS
+[O-3 light] beat marks: {"b0":10,"b1":134,"b3":505,"b2":754,"b4":790}
+[O-3 light] font requests (4): /fonts/fraunces-latin-normal.woff2, /fonts/fraunces-latin-italic.woff2, /fonts/fraunces-latin-normal.woff2, /fonts/fraunces-latin-italic.woff2 — google-fonts=0 (must be 0)
+[O-3 dark] renderer=ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)
+[O-3 dark] post-arm field OKLCh L=0.631 C=0.153 h=33.9° (seed warm h≈28°) — chromatic=PASS hue-family=PASS
+[O-3 dark] beat marks: {"b0":9,"b1":127,"b3":493,"b2":721,"b4":775}
+[O-3 dark] font requests (4): /fonts/fraunces-latin-normal.woff2, /fonts/fraunces-latin-italic.woff2, /fonts/fraunces-latin-normal.woff2, /fonts/fraunces-latin-italic.woff2 — google-fonts=0 (must be 0)
+[5b PRM light] canvas opacity states over settle: {1} (law: exactly {1} — terminal from the first frame) · beat-family animations max: 0 (must be 0) · animations targeting the canvas max: 0 (must be 0) · producer state-fade census (a11y-overrides doctrine, observation): 1 → PASS
+[5b PRM dark] canvas opacity states over settle: {1} (law: exactly {1} — terminal from the first frame) · beat-family animations max: 0 (must be 0) · animations targeting the canvas max: 0 (must be 0) · producer state-fade census (a11y-overrides doctrine, observation): 0 → PASS
+[O-26 headed] calm 2s = 1.54/255 (< 2 → PASS) · 10s migration = 9.20/255 (≥ 4 → PASS) · 60s min 5s-apart pair = 2.19/255 (≥ 1 → PASS)
+[screencast] 223 frames archived (returning warm/light boot)

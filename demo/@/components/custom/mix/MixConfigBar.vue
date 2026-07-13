@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import {
     Select,
     SelectContent,
@@ -8,13 +9,18 @@ import {
 } from "@components/ui/select";
 import { Button } from "@components/ui/button";
 import { Blend } from "@lucide/vue";
-import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/mix";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { LeftoverStrategy } from "@lib/palette/mix";
 import type { AcceptableValue } from "reka-ui";
 // S.W5-6 · F16: the interpolation vocabulary lives in its neutral @lib/ home
 // (color-space facts, not gradient facts) — no more cross-feature reach.
 import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@lib/color-space-meta";
+// T.W6 · W6-4 (T-17): the preview-chip module — library-sampled ramps in
+// the Select #description lane. The chips render only while SelectContent
+// is mounted (reka unmounts it closed — the ColorSpaceSelector precedent),
+// so the sampling costs nothing at rest.
+import { PreviewRamp, sampleInterpolationRamp } from "@components/custom/color-chips";
 
 const {
     colorSpace,
@@ -22,13 +28,50 @@ const {
     leftoverStrategy,
     showLeftoverStrategy,
     canMix,
+    operandColors = [],
 } = defineProps<{
     colorSpace: ColorSpace;
     hueMethod: HueInterpolationMethod;
     leftoverStrategy: LeftoverStrategy;
     showLeftoverStrategy: boolean;
     canMix: boolean;
+    /**
+     * T-17: the CURRENT mix operands (colors mode) — the preview ramps'
+     * truth inputs. With fewer than 2 operands the rows carry NO chip
+     * (honest absence — the preview has nothing true to say; never a
+     * canned swatch). Palettes mode passes [] by the same restraint.
+     */
+    operandColors?: string[];
 }>();
+
+/**
+ * T-17 (t-nav F6) — the preview ramps, library-sampled:
+ *   - each SPACE row: the current operands interpolated through the
+ *     CANDIDATE space (current hue arc);
+ *   - each HUE row: the current space with the CANDIDATE arc — the
+ *     four-arc quartet drawn with the user's own colors.
+ * O-14 truth: the chip stamps the sampler's stops on `data-stops`; the
+ * vitest oracle holds the sampler ≡ the library, the e2e leg holds the
+ * paint ≡ the stamp.
+ */
+const spaceRamps = computed(
+    () =>
+        new Map(
+            INTERPOLATION_SPACES.map((s) => [
+                s.value,
+                sampleInterpolationRamp(operandColors, s.value, hueMethod),
+            ]),
+        ),
+);
+const hueRamps = computed(
+    () =>
+        new Map(
+            HUE_INTERPOLATION_METHODS.map((m) => [
+                m.value,
+                sampleInterpolationRamp(operandColors, colorSpace, m.value),
+            ]),
+        ),
+);
 
 const emit = defineEmits<{
     "update:colorSpace": [value: ColorSpace];
@@ -58,10 +101,16 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
+                        <!-- T-17: chip leading, description after (F7 — the
+                             producer #description lane, the one slot reka's
+                             SelectValue does NOT clone into the trigger). -->
                         <SelectItem v-for="s in INTERPOLATION_SPACES" :key="s.value" :value="s.value">
                             {{ s.label }}
                             <template #description>
-                                <span class="text-micro text-muted-foreground">{{ s.description }}</span>
+                                <span class="flex items-center gap-2">
+                                    <PreviewRamp v-if="spaceRamps.get(s.value)" :stops="spaceRamps.get(s.value)!" />
+                                    <span class="text-micro text-muted-foreground">{{ s.description }}</span>
+                                </span>
                             </template>
                         </SelectItem>
                     </SelectContent>
@@ -75,10 +124,15 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
+                        <!-- T-17: the four-arc quartet, drawn with the user's
+                             own colors (current space, candidate arc). -->
                         <SelectItem v-for="m in HUE_INTERPOLATION_METHODS" :key="m.value" :value="m.value">
                             {{ m.label }}
                             <template #description>
-                                <span class="text-micro text-muted-foreground">{{ m.description }}</span>
+                                <span class="flex items-center gap-2">
+                                    <PreviewRamp v-if="hueRamps.get(m.value)" :stops="hueRamps.get(m.value)!" />
+                                    <span class="text-micro text-muted-foreground">{{ m.description }}</span>
+                                </span>
                             </template>
                         </SelectItem>
                     </SelectContent>

@@ -8,8 +8,8 @@
  */
 
 import { ref, computed, watch } from "vue";
-import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/mix";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
 import { useGradientInterpolation } from "./useGradientInterpolation";
 import { useGradientCSS, linearInterval } from "./useGradientCSS";
@@ -19,7 +19,12 @@ import type { GradientParseResult } from "./gradientParse";
 // ── Re-exports (preserve public API surface) ──
 
 export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "./useGradientInterpolation";
-export { serializeGradient, serializeCoalescedGradient, linearInterval } from "./useGradientCSS";
+export {
+    serializeGradient,
+    serializeCoalescedGradient,
+    serializeRailRamp,
+    linearInterval,
+} from "./useGradientCSS";
 export { parseGradientCSS } from "./gradientParse";
 export type { GradientParseResult, ParsedGradientModel } from "./gradientParse";
 
@@ -105,7 +110,7 @@ export function useGradientModel() {
     }));
 
     // ── CSS sub-composable ──
-    const { coalescedCSS, simpleCSS } = useGradientCSS(modelState);
+    const { coalescedCSS, simpleCSS, railRampCSS } = useGradientCSS(modelState);
 
     // ── Stop manipulation ──
 
@@ -176,6 +181,7 @@ export function useGradientModel() {
         modelState,
         coalescedCSS,
         simpleCSS,
+        railRampCSS,
 
         // Actions
         addStop,

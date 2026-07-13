@@ -6,9 +6,9 @@
  */
 
 import { ref, shallowRef, onBeforeUnmount } from "vue";
-import type { QuantizedColor, QuantizeOptions } from "@src/quantize";
-import type { QuantizeWorkerResponse } from "@lib/quantize-worker";
-import QuantizeWorkerURL from "@lib/quantize-worker?worker";
+import type { QuantizedColor, QuantizeOptions } from "@mkbabb/value.js/quantize";
+import type { QuantizeWorkerResponse } from "../quantize-worker";
+import QuantizeWorkerURL from "../quantize-worker?worker";
 
 function createWorker(): Worker {
     return new QuantizeWorkerURL();

@@ -4,6 +4,7 @@
 **Authored**: 2026-05-26 (H.W1 Lane C, post-Lane-A landing).
 **Updated**: 2026-05-26 (H.W1 Lane A.2 — D4-D10 wrapped per option-α adjudication).
 **Updated**: 2026-06-11 (N.W3.B — transaction right-sizing: 18 sites → 14; the 4 benign / single-collection sites dropped, each justified below in §3.3).
+**Updated**: 2026-07-10 (T.W1 — the E-1 package-by-feature MOVE re-homed every service under `modules/<domain>/service/`; the §1.4 + §2 file paths below are re-walked to the new tree. **Count unchanged: 14.** TA-4 folded `remixPalette` back into `forkPalette` (the `/remix` write-only arm excised) — row 2's cross-collection write is now `forkPalette` at `modules/palette/service/forks.ts`, same `palettes`+`palette_versions` surface; no cross-collection referential write was added or dropped.).
 **HEAD at authoring**: `tranche-h` @ `a12a71d` + Lane A.1 + Lane A.2 working-tree.
 
 > **N.W3.B right-sizing (2026-06-11).** The H1 invariant binds **cross-collection**
@@ -54,26 +55,26 @@ For every candidate site:
 
 ### §1.4 — Authoritative grep at HEAD
 
-`grep -rn 'services.withTransaction(' api/src/` at HEAD (post-N.W3.B) returns **the following 14 invocation lines** across `services/` (13) + `cron.ts` (1), excluding the helper-definition lines in `middleware/inject-services.ts` and the comment refs:
+`grep -rn 'services.withTransaction(' api/src/` at HEAD (post-T.W1) returns **the following 14 invocation lines** across `modules/*/service/` (13) + `cron.ts` (1), excluding the helper-definition lines in `platform/http/inject-services.ts` and the comment refs:
 
 | Invocation file | Line | Function context | Wave landed | Collections |
 |---|---|---|---|---|
 | `cron.ts` | 47 | `cleanup` (reaper hard-delete) | I.W2 | `palettes`+`votes`+`flags` |
-| `services/admin/users.ts` | 169 | `deleteUser` | E.W2 Lane B | multi |
-| `services/admin/batch.ts` | 38 | `batchPalettes(delete)` | G.W3 Lane E | `palettes`+`votes`+`flags` |
-| `services/admin/batch.ts` | 87 | `batchUsers(suspend)` | G.W3 Lane E | `users`+`sessions` |
-| `services/palette/crud.ts` | 116 | `createPalette` | H.W1 Lane A.1 | `palettes`+`palette_versions` |
-| `services/palette/crud.ts` | 203 | `patchPalette` | H.W1 Lane A.1 | `palettes`+`palette_versions` |
-| `services/palette/crud.ts` | 255 | `deletePalette` (user-facing) | G.W3 Lane E | `palettes`† |
-| `services/palette/forks.ts` | 107 | `remixPalette` (was `forkPalette`; `forkPalette` now delegates) | E.W2 Lane B; J.W2 rename+atomDiff | `palettes`+`palette_versions` |
-| `services/palette/versions.ts` | 156 | `revertToVersion` | G.W3 Lane E | `palette_versions`+`palettes` |
-| `services/admin/palettes.ts` | 66 | `deletePalette` (admin variant — D6) | **H.W1 Lane A.2** | `palettes`† |
-| `services/admin/users.ts` | 121 | `setUserStatus` (D7) | **H.W1 Lane A.2** | `users`+`sessions` |
-| `services/admin/users.ts` | 206 | `deleteUserPalettes` (D8) | **H.W1 Lane A.2** | `palettes`+`votes`+`flags` |
-| `services/admin/users.ts` | 240 | `pruneEmptyUsers` (D9) | **H.W1 Lane A.2** | `sessions`+`users` |
-| `services/admin/tags.ts` | 79 | `deleteTag` (D10) | **H.W1 Lane A.2** | `tags`+`palettes` |
+| `modules/admin/service/users.ts` | 171 | `deleteUser` | E.W2 Lane B | multi |
+| `modules/admin/service/batch.ts` | 37 | `batchPalettes(delete)` | G.W3 Lane E | `palettes`+`votes`+`flags` |
+| `modules/admin/service/batch.ts` | 86 | `batchUsers(suspend)` | G.W3 Lane E | `users`+`sessions` |
+| `modules/palette/service/crud.ts` | 116 | `createPalette` | H.W1 Lane A.1 | `palettes`+`palette_versions` |
+| `modules/palette/service/crud.ts` | 203 | `patchPalette` | H.W1 Lane A.1 | `palettes`+`palette_versions` |
+| `modules/palette/service/crud.ts` | 255 | `deletePalette` (user-facing) | G.W3 Lane E | `palettes`† |
+| `modules/palette/service/forks.ts` | 93 | `forkPalette` (T.W1 TA-4: `remixPalette` folded in; the `/remix` arm excised) | E.W2 Lane B | `palettes`+`palette_versions` |
+| `modules/palette/service/versions.ts` | 146 | `revertToVersion` | G.W3 Lane E | `palette_versions`+`palettes` |
+| `modules/admin/service/palettes.ts` | 69 | `deletePalette` (admin variant — D6) | **H.W1 Lane A.2** | `palettes`† |
+| `modules/admin/service/users.ts` | 121 | `setUserStatus` (D7) | **H.W1 Lane A.2** | `users`+`sessions` |
+| `modules/admin/service/users.ts` | 208 | `deleteUserPalettes` (D8) | **H.W1 Lane A.2** | `palettes`+`votes`+`flags` |
+| `modules/admin/service/users.ts` | 244 | `pruneEmptyUsers` (D9) | **H.W1 Lane A.2** | `sessions`+`users` |
+| `modules/admin/service/tags.ts` | 84 | `deleteTag` (D10) | **H.W1 Lane A.2** | `tags`+`palettes` |
 
-= **14 invocations at post-N.W3.B HEAD** (matching the §2 KEPT table count).
+= **14 invocations at post-T.W1 HEAD** (matching the §2 KEPT table count).
 
 † **`deletePalette` (user + admin) are SINGLE-collection** (the soft-delete `update` + the parent `decrementForkCount` both write `palettes`), so H1 does not *bind* them — they are KEPT for the two-document atomicity (the parent fork-count must roll back with the soft-delete) the dedicated rollback tests assert. A deliberate "wrap iff the two-doc outcome is referentially meaningful" judgment, recorded so the classification is not mistaken for an H1 over-application.
 
@@ -83,24 +84,26 @@ For every candidate site:
 
 ## §2 — WRAPPED sites
 
-The **14 KEPT** sites that wrap their multi-document mutation in `services.withTransaction(async (session) => { ... })`, with `session` threaded through every internal repository call. (Post-N.W3.B: the 4 benign / single-collection sites — `toggleVote`, `registerSession`, `loginSession`, `restorePalette` — were right-sized OUT; see §3.3. Line numbers below reflect post-N.W3.B HEAD.)
+The **14 KEPT** sites that wrap their multi-document mutation in `services.withTransaction(async (session) => { ... })`, with `session` threaded through every internal repository call. (Post-N.W3.B: the 4 benign / single-collection sites — `toggleVote`, `registerSession`, `loginSession`, `restorePalette` — were right-sized OUT; see §3.3. **Line numbers + paths below reflect post-T.W1 HEAD** — the E-1 package-by-feature move re-homed every service under `modules/<domain>/service/`.)
 
 | # | File:line | Function | Collections touched | Wave landed | Rollback test? |
 |---|---|---|---|---|---|
-| 1 | `services/admin/users.ts:169` | `deleteUser` | `palettes` + `votes` + `flags` + `sessions` + `adminAudit` + `users` | E.W2 Lane B | Pattern-covered (G.W3 §3); no dedicated test (representative pair only) |
-| 2 | `services/palette/forks.ts:107` | `remixPalette` (`forkPalette` delegates — fork = remix-with-empty-diff, ONE path) | `palettes` (insert + parent fork-count `$inc`) + `paletteVersions` (carries the J.W2 `atomDiff` edge payload — SAME collection, no new store, inv-J-2) | E.W2 Lane B; **J.W2 rename** | Pattern-covered (G.W3 §3); `palette-remix.test.ts` asserts the recorded edge + parent fork-count bump |
-| 3 | `services/palette/crud.ts:255` | `deletePalette` (user-facing) | `palettes` (soft-delete `update` + parent `decrementForkCount` when `forkOf`) — SINGLE-collection, KEPT for the two-doc atomicity | G.W3 Lane E | **YES** — `withTransaction-rollback.test.ts` "rolls back deletedAt when fork-count cascade throws" |
-| 4 | `services/palette/versions.ts:156` | `revertToVersion` | `paletteVersions` (via `createVersionRecord`) + `palettes` (update + `$inc versionCount`) | G.W3 Lane E | Pattern-covered (G.W3 §3) |
-| 5 | `services/admin/batch.ts:38` | `batchPalettes(delete)` | `palettes` + `votes` + `flags` | G.W3 Lane E | Pattern-covered (G.W3 §3) |
-| 6 | `services/admin/batch.ts:87` | `batchUsers(suspend)` | `users` (status flip) + `sessions` (cascade-invalidate) | G.W3 Lane E | **YES** — `withTransaction-rollback.test.ts` "rolls back user status when session invalidation throws" |
-| 7 | `services/palette/crud.ts:116` | `createPalette` | `palettes` (insert) + `paletteVersions` (via `createVersionRecord`, when `userSlug` present) | **H.W1 Lane A.1** | **YES** — `withTransaction-rollback-h-w1.test.ts` "createPalette rolls back palette + version when createVersionRecord throws" |
-| 8 | `services/palette/crud.ts:203` | `patchPalette` | `palettes` (update + `currentHash` bookkeeping) + `paletteVersions` (via `createVersionRecord`, when content-hash changes AND `userSlug` present) | **H.W1 Lane A.1** | **YES** — `withTransaction-rollback-h-w1.test.ts` "patchPalette rolls back palette mutation + version when createVersionRecord throws" |
-| 9 | `services/admin/palettes.ts:66` | `deletePalette` (admin variant — D6) | `palettes` (soft-delete `update` + parent `decrementForkCount`) — SINGLE-collection, KEPT for the two-doc atomicity (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D6 admin deletePalette rolls back soft-delete when fork-count cascade throws" |
-| 10 | `services/admin/users.ts:121` | `setUserStatus` (D7 — wrapped unconditionally for call-site uniformity; only the `suspended` branch is multi-collection) | `users` (setStatus) + `sessions` (deleteByUserSlug on suspend branch) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D7 setUserStatus(suspended) rolls back user status when sessions.deleteByUserSlug throws" |
-| 11 | `services/admin/users.ts:206` | `deleteUserPalettes` (D8) | `palettes` (deleteManyByUserSlug) + `votes` (deleteByPaletteSlugs) + `flags` (deleteByPaletteSlugs) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D8 deleteUserPalettes rolls back vote + flag cascade when palettes.deleteManyByUserSlug throws" |
-| 12 | `services/admin/users.ts:240` | `pruneEmptyUsers` (D9) | `sessions` (deleteByUserSlugs) + `users` (deleteMany) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D9 pruneEmptyUsers rolls back sessions.deleteByUserSlugs when users.deleteMany throws" |
-| 13 | `services/admin/tags.ts:79` | `deleteTag` (D10) | `tags` (deleteByName) + `palettes` (pullTagFromAll cascade) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D10 deleteTag rolls back tags.deleteByName when palettes.pullTagFromAll throws" |
+| 1 | `modules/admin/service/users.ts:171` | `deleteUser` | `palettes` + `votes` + `flags` + `sessions` + `adminAudit` + `users` | E.W2 Lane B | Pattern-covered (G.W3 §3); no dedicated test (representative pair only) |
+| 2 | `modules/palette/service/forks.ts:93` | `forkPalette` (T.W1 TA-4: `remixPalette` folded in — the `/remix` write-only arm excised; fork is now the ONE path) | `palettes` (insert + parent fork-count `$inc`) + `paletteVersions` (the root version record — no `atomDiff` column any longer, dropped at TA-4) | E.W2 Lane B; **T.W1 fold** | Pattern-covered (G.W3 §3); `palette-forks.test.ts` asserts the copied colors, the provenance edge + parent fork-count bump |
+| 3 | `modules/palette/service/crud.ts:255` | `deletePalette` (user-facing) | `palettes` (soft-delete `update` + parent `decrementForkCount` when `forkOf`) — SINGLE-collection, KEPT for the two-doc atomicity | G.W3 Lane E | **YES** — `withTransaction-rollback.test.ts` "rolls back deletedAt when fork-count cascade throws" |
+| 4 | `modules/palette/service/versions.ts:146` | `revertToVersion` | `paletteVersions` (via `createVersionRecord`) + `palettes` (update + `$inc versionCount`) | G.W3 Lane E | Pattern-covered (G.W3 §3) |
+| 5 | `modules/admin/service/batch.ts:37` | `batchPalettes(delete)` | `palettes` + `votes` + `flags` | G.W3 Lane E | Pattern-covered (G.W3 §3) |
+| 6 | `modules/admin/service/batch.ts:86` | `batchUsers(suspend)` | `users` (status flip) + `sessions` (cascade-invalidate) | G.W3 Lane E | **YES** — `withTransaction-rollback.test.ts` "rolls back user status when session invalidation throws" |
+| 7 | `modules/palette/service/crud.ts:116` | `createPalette` | `palettes` (insert) + `paletteVersions` (via `createVersionRecord`, when `userSlug` present) | **H.W1 Lane A.1** | **YES** — `withTransaction-rollback-h-w1.test.ts` "createPalette rolls back palette + version when createVersionRecord throws" |
+| 8 | `modules/palette/service/crud.ts:203` | `patchPalette` | `palettes` (update + `currentHash` bookkeeping) + `paletteVersions` (via `createVersionRecord`, when content-hash changes AND `userSlug` present) | **H.W1 Lane A.1** | **YES** — `withTransaction-rollback-h-w1.test.ts` "patchPalette rolls back palette mutation + version when createVersionRecord throws" |
+| 9 | `modules/admin/service/palettes.ts:69` | `deletePalette` (admin variant — D6) | `palettes` (soft-delete `update` + parent `decrementForkCount`) — SINGLE-collection, KEPT for the two-doc atomicity (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D6 admin deletePalette rolls back soft-delete when fork-count cascade throws" |
+| 10 | `modules/admin/service/users.ts:121` | `setUserStatus` (D7 — wrapped unconditionally for call-site uniformity; only the `suspended` branch is multi-collection) | `users` (setStatus) + `sessions` (deleteByUserSlug on suspend branch) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D7 setUserStatus(suspended) rolls back user status when sessions.deleteByUserSlug throws" |
+| 11 | `modules/admin/service/users.ts:208` | `deleteUserPalettes` (D8) | `palettes` (deleteManyByUserSlug) + `votes` (deleteByPaletteSlugs) + `flags` (deleteByPaletteSlugs) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D8 deleteUserPalettes rolls back vote + flag cascade when palettes.deleteManyByUserSlug throws" |
+| 12 | `modules/admin/service/users.ts:244` | `pruneEmptyUsers` (D9) | `sessions` (deleteByUserSlugs) + `users` (deleteMany) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D9 pruneEmptyUsers rolls back sessions.deleteByUserSlugs when users.deleteMany throws" |
+| 13 | `modules/admin/service/tags.ts:84` | `deleteTag` (D10) | `tags` (deleteByName) + `palettes` (pullTagFromAll cascade) (+ post-txn `admin_audit` per D2) | **H.W1 Lane A.2** | **YES** — `withTransaction-rollback-h-w1.test.ts` "D10 deleteTag rolls back tags.deleteByName when palettes.pullTagFromAll throws" |
 | 14 | `cron.ts:47` | `cleanup` (reaper hard-delete loop) | `palettes` (delete) + `votes` (deleteByPaletteSlug) + `flags` (deleteByPaletteSlug) | I.W2 | Pattern-covered (same cascade shape as user `deletePalette`) |
+
+> **T.W1 path-mapping note (for §3 / §4 below).** The historical `services/<domain>/*`, `repositories/*`, `middleware/*`, and `events/auditLog.ts` paths in the §3 / §4 tables map under the E-1 MOVE-MAP to `modules/<domain>/service/*`, `modules/<domain>/repository/*`, the module authz files (`modules/palette/{etag,require-ownership}.ts`, `modules/admin/admin-auth.ts`, `modules/session/resolve-session.ts`), and `modules/admin/audit-log.ts` respectively. The classifications (DEFERRED / right-sized / single-collection) are unchanged by the move — only the paths shift. See `docs/tranches/T/audit/w1-move-map-api.md`.
 
 **Invariant verification** (at post-N.W3.B HEAD):
 - Every `withTransaction` callback receives `session: ClientSession` as its argument.

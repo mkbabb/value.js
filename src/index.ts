@@ -94,7 +94,10 @@ export {
 } from "./units/color";
 export type { ColorSpaceMap } from "./units/color";
 
-// Color constants
+// Color reference data — ranges/bounds + illuminant white points (T.W1-src §4b:
+// constants.ts holds this reference-data concern; the OKLab/LMS transform
+// matrices moved to conversions/matrices.ts, GAMUT_SECTOR_COEFFICIENTS to gamut/,
+// all still public under the same names below).
 export {
     RGBA_MAX,
     ALPHA_RANGE,
@@ -112,6 +115,14 @@ export {
     WHITE_POINT_D65_D50,
     WHITE_POINT_D50_D65,
     WHITE_POINTS,
+    // Q15 (T.W1) — per-space component bound + denorm-unit resolvers promoted to
+    // first-class API (the demo consumed them off the internal `constants` leaf).
+    getColorSpaceBound,
+    getColorSpaceDenormUnit,
+} from "./units/color/constants";
+// The OKLab/LMS transform matrices (T.W1-src §4b: colocated in
+// conversions/matrices.ts with their consumers; same public names).
+export {
     XYZ_TO_LMS_MATRIX,
     LMS_TO_XYZ_MATRIX,
     LMS_TO_OKLAB_MATRIX,
@@ -119,8 +130,9 @@ export {
     LMS_TO_LINEAR_SRGB,
     LINEAR_SRGB_TO_LMS,
     OKLAB_TO_LMS_COEFF,
-    GAMUT_SECTOR_COEFFICIENTS,
-} from "./units/color/constants";
+} from "./units/color/conversions/matrices";
+// GAMUT_SECTOR_COEFFICIENTS (T.W1-src §4b: colocated in gamut/ with its consumer).
+export { GAMUT_SECTOR_COEFFICIENTS } from "./units/color/gamut";
 // COLOR_NAMES — the CSS named-color data table (S.W1 W1-8 lift → color-names.ts).
 export { COLOR_NAMES } from "./units/color/color-names";
 export type {
@@ -140,9 +152,11 @@ export {
 export type { Vec3, Mat3 } from "./units/color/matrix";
 
 // Color conversion utilities — public surface is `color2` + `colorUnit2`.
-// The 51 individual `<from>2<to>` helpers remain internal to value.js
+// The individual `<from>2<to>` helpers remain internal to value.js
 // (still imported by `color2`'s dispatch table in `src/units/color/dispatch.ts`)
-// but are NOT exported from the main barrel.
+// and are NOT exported from the main barrel — EXCEPT the Q15 (T.W1) promotions
+// (`hsl2rgb`/`oklch2xyz`/`xyz2rgb`/`linearToSrgb`/`hex2rgb`), which are now
+// first-class API beside `color2` (see the Q15 block below).
 export {
     getFormattedColorSpaceRange,
     color2,
@@ -181,13 +195,13 @@ export { mixColorsN, sampleColorRamp, sampleColorRampAt } from "./units/color/mi
 export type { SampleRampOptions } from "./units/color/mix";
 
 // Gamut-boundary sampler (R.W1.5) — the wide-RGB sRGB-excess contour.
-export { sampleGamutBoundary, sampleGamutBoundaryInto } from "./units/color/boundary";
+export { sampleGamutBoundary, sampleGamutBoundaryInto } from "./units/color/gamut/boundary";
 export type {
     GamutBoundary,
     GamutBoundaryTarget,
     GamutBoundaryMode,
     SampleGamutBoundaryOptions,
-} from "./units/color/boundary";
+} from "./units/color/gamut/boundary";
 
 // Color normalization
 export {
@@ -203,6 +217,8 @@ export {
     DELTA_E_OK_JND,
     deltaEOK,
     oklabToLinearSRGB,
+    // Q15 (T.W1) — the zero-alloc out-param twin (the demo's hot paint paths).
+    oklabToLinearSRGBInto,
     isInSRGBGamut,
     computeMaxSaturation,
     findCusp,
@@ -221,13 +237,23 @@ export { deltaE2000, deltaEITP, xyzToICtCp, ictcpToXYZ } from "./units/color/dif
 // Jzazbz perceptual transform (S.W1-11 · Q9 widening — net-new PQ-variant math).
 export { xyzToJzazbz, jzazbzToXYZ } from "./units/color/conversions/jzazbz";
 
+// Q15 (T.W1) — the 5 conversion primitives the demo consumed off the internal
+// `conversions/` leaves, promoted to first-class API (see the block comment
+// above). Parse-that-free; the demo now dogfoods these off `@mkbabb/value.js`
+// / `@mkbabb/value.js/color` instead of white-boxing `conversions/`.
+export { hsl2rgb } from "./units/color/conversions/cylindrical";
+export { oklch2xyz } from "./units/color/conversions/oklab";
+export { xyz2rgb } from "./units/color/conversions/xyz-extended";
+export { linearToSrgb } from "./units/color/conversions/transfer";
+export { hex2rgb } from "./units/color/conversions/hex";
+
 // OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
 export {
     okhslToSrgb,
     srgbToOkhsl,
     okhsvToSrgb,
     srgbToOkhsv,
-} from "./units/color/okhsl";
+} from "./units/color/gamut/okhsl";
 
 // Math utilities
 export {
@@ -285,8 +311,8 @@ export type { LinearStop, TimingFunction } from "./easing";
 export {
     parseLinearStops, parseSteps, parseSpring, lowerSpringEasing,
     resolveEasingFunction,
-} from "./parsing/easing";
-export type { JumpTerm, StepsArgs } from "./parsing/easing";
+} from "./parsing/timeline/easing";
+export type { JumpTerm, StepsArgs } from "./parsing/timeline/easing";
 
 // Parsing — parsers and parse functions
 export {
@@ -324,8 +350,8 @@ export {
     extractFunctions,
     extractStyleRules,
     extractAnimationOptions,
-} from "./parsing/extract";
-export type { CSSAnimationOptions } from "./parsing/extract";
+} from "./parsing/stylesheet/extract";
+export type { CSSAnimationOptions } from "./parsing/stylesheet/extract";
 
 // VJ-Q6 (1.2.0) — the `<syntax>` validator on the resolve path (the @function
 // typed-arg coercion consumer; kf inlines call args through this, not a re-
@@ -360,7 +386,7 @@ export {
     serializeTimelineScope,
     serializeAnimationTrigger,
     serializeTimelineOptions,
-} from "./parsing/scroll-timeline";
+} from "./parsing/timeline/scroll-timeline";
 export type {
     CSSTimelineOptions,
     NamedTimelineRegistry,
@@ -374,7 +400,7 @@ export type {
     ScrollerKeyword,
     TimelineAxis,
     TriggerType,
-} from "./parsing/scroll-timeline";
+} from "./parsing/timeline/scroll-timeline";
 
 // Stylesheet serialiser + Prettier wrapper
 export {
@@ -384,7 +410,7 @@ export {
     serializeKeyframeSelector,
     formatCSS,
     stylesheetToString,
-} from "./parsing/serialize";
+} from "./parsing/stylesheet/serialize";
 
 export {
     CSSValueUnit,

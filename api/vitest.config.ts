@@ -8,6 +8,10 @@
  *   in <500ms.
  * - `globalSetup` boots one ephemeral MongoDB before the suite + tears down
  *   after; per-suite tests connect via `process.env.TEST_MONGODB_URI`.
+ * - include spans BOTH the colocated per-domain suites (the module __tests__
+ *   dirs, T.W1 Q17 colocation) AND the named cross-module test/conformance
+ *   exception + the shared harness under test/. The build tsconfig excludes the
+ *   module __tests__ dirs so these never emit to dist.
  * - `pool: "forks"` — each test file gets its own worker so the MongoClient
  *   singleton in `src/db.ts` doesn't leak across suites that intentionally
  *   exercise `getDb()`. (Most suites construct their own client; this guards
@@ -22,7 +26,7 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
     test: {
         environment: "node",
-        include: ["test/**/*.test.ts"],
+        include: ["src/**/__tests__/**/*.test.ts", "test/**/*.test.ts"],
         testTimeout: 60_000,
         hookTimeout: 60_000,
         globalSetup: ["./test/setup.ts"],

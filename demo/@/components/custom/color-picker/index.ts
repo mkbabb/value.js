@@ -1,12 +1,12 @@
-import type { ColorSpace } from "@src/units/color/constants";
-import { COLOR_SPACE_NAMES } from "@src/units/color/constants";
-import { parseCSSColor } from "@src/parsing/color";
-import type { ParsedColorUnit } from "@src/parsing/color";
-import { colorUnit2, normalizeColorUnit } from "@src/units/color/normalize";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import { COLOR_SPACE_NAMES } from "@mkbabb/value.js/color";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
+import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
 
 export { default as ColorPicker } from "./ColorPicker.vue";
 export { default as ColorNutritionLabel } from "./display/ColorNutritionLabel.vue";
-export type { ActionBarContext } from "./keys";
+export type { ActionBarContext } from "@composables/color/keys";
 export { colorSpaceInfo } from "./colorSpaceInfo";
 
 export interface EditTarget {

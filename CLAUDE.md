@@ -25,13 +25,20 @@ npm run dev:web-only # frontend ONLY (bare vite :9000). No backend: palette/API 
 
 ```
 npm test                 # vitest (jsdom) — unit suite (count → per-tranche FINAL.md)
-npx playwright test      # 5 projects: smoke / smoke-admin / smoke-mobile / smoke-reactivity / smoke-safari (count → per-tranche FINAL.md)
+npx playwright test      # 6 projects: smoke / smoke-admin / smoke-mobile / smoke-reactivity / smoke-perf / smoke-safari (count → per-tranche FINAL.md)
 npm run lint             # eslint flat config (D.W1 L7) — exit 0 required
 npm run typecheck        # vue-tsc --noEmit (library + demo); api typecheck: cd api && npx tsc --noEmit
 ```
 
-> The grep-based `proof:*` invariant scripts (G/H-era) were retired as overfit;
-> the disciplines they guarded stand by the type system + eslint + review.
+> The G/H-era **repo-wide grep `proof:*` sweeps** were retired as overfit. A
+> distinct, narrower idiom lives on: the O/Q-era **per-invariant born-RED gates**
+> (the `package.json` `proof:*` scripts, each guarding one named tranche invariant
+> against a specific regression, not a repo-wide grep). **Tranche T's Q13 rules
+> their disposition** (executed at W0-2): retain-reclassify the 5 behavioral gates
+> — `css-parity`, `round-trip-idempotent`, `perf-target`, `serialize-fidelity`,
+> `subpath-budget` (the parse-that-free / bundle-trace floor) — as a CI-wired
+> `test:dist`; excise the other 7 as overfit. The disciplines the excised set
+> guarded stand by the type system + eslint + review.
 
 > Exact test/spec counts belong in per-tranche FINAL.md docs (e.g.
 > `docs/tranches/E/FINAL.md`). Numbers inlined here drift each wave; the
@@ -45,17 +52,23 @@ src/
 ├── math.ts               # lerp, bezier, clamp, scale, deCasteljau
 ├── easing.ts             # CSS timing functions (30+ named, cubic-bezier, stepped, linear())
 ├── utils.ts              # clone, memoize, debounce, RAF, case conversion
-├── vite-env.d.ts         # Vite module declarations (.vue)
-├── parsing/              # parse-that combinators for CSS values
+├── vite-env.d.ts         # Vite module declarations (.vue, .bbnf?raw)
+├── parsing/              # parse-that combinators for CSS values (15 modules — file inventory: src/parsing/CLAUDE.md)
 │   ├── index.ts          # top-level: parseCSSValue, gradients, transforms, var(), calc()
 │   ├── units.ts          # dimension parsers: length, angle, time, frequency, resolution, flex, %
-│   ├── color.ts          # 15 color spaces, hex, kelvin, color-mix(), relative color syntax
+│   ├── color.ts          # 15+ color spaces, hex, kelvin, color-mix(), relative color syntax
+│   ├── color-unit.ts     # ValueUnit-level color parse/normalize bridge
+│   ├── relative-color.ts # relative color syntax (from … channel keywords)
 │   ├── math.ts           # calc() AST, min/max/clamp, trig, exp, round/mod/rem
-│   ├── utils.ts          # istring, number, none, tryParse, succeed, fail
+│   ├── easing.ts         # <easing-function> value parser (NOT src/easing.ts — that's the named-fn table)
+│   ├── scroll-timeline.ts # scroll()/view() timeline value parsing
+│   ├── syntax.ts         # <syntax> descriptor grammar (@property)
 │   ├── animation-shorthand.ts  # animation/transition shorthand parsing
 │   ├── extract.ts        # value extraction helpers
 │   ├── serialize.ts      # value serialization
-│   └── stylesheet.ts     # stylesheet-level parsing
+│   ├── stylesheet.ts     # stylesheet-level parsing
+│   ├── stylesheet-types.ts # stylesheet AST types
+│   └── utils.ts          # istring, number, none, tryParse, succeed, fail
 ├── units/                # core value classes + unit definitions
 │   ├── index.ts          # ValueUnit, FunctionValue, ValueArray classes
 │   ├── constants.ts      # unit arrays, MatrixValues
@@ -65,37 +78,55 @@ src/
 │   ├── normalize.ts      # value normalization + interpolation setup
 │   ├── layout-cache.ts   # getComputedValue + layout-epoch memo (W1-8 split)
 │   ├── interpolate.ts    # value interpolation
-│   └── color/            # color system (15 spaces, conversion, gamut mapping)
-│       ├── index.ts      # Color<T> base + 15 space classes + ColorChannel brand + ch<T> helper
+│   └── color/            # color system (17 spaces, conversion, gamut mapping — file inventory: src/units/color/CLAUDE.md)
+│       ├── index.ts      # Color<T> base + 17 space classes + ColorChannel brand + ch<T> helper
+│       ├── base.ts       # Color<T> base leaf (W1-8 split)
+│       ├── spaces.ts     # the space-class table (W1-8 split)
 │       ├── constants.ts  # ranges, matrices, white points, named colors
-│       ├── conversions/  # 8 focused {from}2{to} modules (hex, kelvin, cylindrical, lab, oklab, transfer, xyz-extended, direct) + index barrel (G.W1 Lane B)
+│       ├── color-names.ts # CSS named-color table
+│       ├── conversions/  # 10 focused {from}2{to} modules (hex, kelvin, cylindrical, lab, oklab, transfer, xyz-extended, direct, ictcp, jzazbz) + index barrel (G.W1 Lane B; +ICtCp/Jzazbz S.W1)
 │       ├── dispatch.ts   # color2() generic converter, DIRECT_PATHS, gamutMap, interpolateHue, mixColors
 │       ├── matrix.ts     # Vec3/Mat3 math (row-major, f64, replaces gl-matrix)
 │       ├── normalize.ts  # color normalization to [0,1], space conversion
 │       ├── gamut.ts      # Ottosson analytical sRGB gamut mapping (zero-iteration)
+│       ├── gamut-raytrace.ts # raytrace gamut map (Q8/S.W1)
+│       ├── boundary.ts   # gamut-boundary helpers
+│       ├── okhsl.ts      # OKHSL/OKHSV perceptual picker pair
+│       ├── difference.ts # deltaE2000 + deltaEITP + xyzToICtCp
 │       ├── colorFilter.ts # CSS filter solver via SPSA optimization
 │       ├── contrast.ts   # OKLab contrast helpers, safeAccentColor
+│       ├── serialize.ts  # color serialization
 │       └── mix.ts        # N-color mix() helpers
 ├── quantize/             # image color quantization (OKLab-native)
 │   ├── index.ts          # quantizePixels, dominantColor (public API)
 │   ├── cluster.ts        # MMCQ median cut, k-means++, JND deduplication
 │   └── types.ts          # QuantizeOptions, QuantizedColor
+├── subpaths/             # tree-shake subpath barrels (O.W2) — each parse-that-budget-gated (proof:subpath-budget)
+│   ├── color.ts          # @mkbabb/value.js/color (the parse-that-ZERO barrel)
+│   ├── easing.ts         # @mkbabb/value.js/easing
+│   ├── math.ts           # @mkbabb/value.js/math
+│   ├── parsing.ts        # @mkbabb/value.js/parsing
+│   ├── quantize.ts       # @mkbabb/value.js/quantize
+│   ├── transform.ts      # @mkbabb/value.js/transform
+│   └── units.ts          # @mkbabb/value.js/units
 └── transform/
-    └── decompose.ts      # 2D/3D matrix decomposition, quaternion slerp, recomposition
+    ├── decompose.ts      # 2D/3D matrix decomposition, quaternion slerp, recomposition
+    └── path.ts           # SVG-path geometry (getTotalLength/getPointAtLength, no DOM; N.W7 VJ-F1)
 ```
 
 ```
 test/                     # vitest unit tests
-e2e/smoke/                # playwright smoke suite across 5 projects:
-                          #   smoke (desktop Chromium, incl. WebGL + view-anchors)
+e2e/smoke/                # playwright smoke suite across 6 projects:
+                          #   smoke (desktop Chromium, incl. WebGL + view-anchors + the T oracle mints)
                           #   smoke-admin (admin views via addInitScript mock fixture)
                           #   smoke-mobile (Pixel-7 layout probe)
                           #   smoke-reactivity (slider-keyboard + spectrum-drag instant-update gates; workers:1)
+                          #   smoke-perf (built-bundle :8091 frame-budget gates; workers:1)
                           #   smoke-safari (iPhone-14 WebKit; sustained-30s context-loss probe)
 demo/                     # Vue 3.5 color picker app (reka-ui, Tailwind, @vueuse)
 api/                      # Hono + MongoDB palette API (Docker, Node 22, 9 collections / 27 indexes)
-docs/                     # color-theory.md, gamut-mapping.md
-assets/docs/              # 10 color space reference pages (Vue + KaTeX)
+docs/                     # colors/ (theory · gamut-mapping · app · quantization) · RELEASE.md · precepts/ · tranches/
+assets/docs/              # 11 color space reference pages (Vue + KaTeX; incl. kelvin.md)
 ```
 
 ## Conventions

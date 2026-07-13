@@ -18,10 +18,10 @@
  * `stops[].cssColor` keeps the AUTHORED literal (`red` stays `red`, P2-15).
  */
 
-import { parseCSSValue } from "@src/parsing";
-import { parseCSSColor } from "@src/parsing/color";
-import { ValueUnit } from "@src/units";
-import { convertToDegrees } from "@src/units/utils";
+import { parseCSSValue } from "@mkbabb/value.js/parsing";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import { ValueUnit } from "@mkbabb/value.js/units";
+import { convertToDegrees } from "@mkbabb/value.js/units";
 import { linearInterval } from "./useGradientCSS";
 import type {
     GradientType,

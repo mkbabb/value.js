@@ -4,7 +4,7 @@ import { Card } from "@components/ui/card";
 import PaneHeader from "./PaneHeader.vue";
 import GenerateControls from "@components/custom/generate/GenerateControls.vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import type { PaletteColor } from "@lib/palette/types";
 
@@ -29,7 +29,7 @@ defineExpose({
 
 <template>
     <div class="relative w-full mx-auto h-full min-w-0">
-        <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
+        <Card tier="resting" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
             <PaneHeader description="Create pleasing random palettes with aesthetic presets.">
                 Generate
             </PaneHeader>

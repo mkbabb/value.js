@@ -16,12 +16,12 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import { Hono } from "hono";
 import type { Db, MongoClient } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import { palettes } from "../../src/routes/palettes/index.js";
-import { idempotency } from "../../src/middleware/idempotency.js";
-import { toResponseEnvelope } from "../../src/errors/index.js";
-import type { PaletteColor } from "../../src/models.js";
+import { palettes } from "../../src/modules/palette/routes/index.js";
+import { idempotency } from "../../src/platform/http/idempotency.js";
+import { toResponseEnvelope } from "../../src/platform/http/errors/index.js";
+import type { PaletteColor } from "../../src/modules/palette/model.js";
 import type { AppEnv } from "../../src/types.js";
-import type { Services } from "../../src/middleware/inject-services.js";
+import type { Services } from "../../src/platform/http/inject-services.js";
 
 const COLORS: PaletteColor[] = [{ css: "#ff0000", position: 0 }];
 

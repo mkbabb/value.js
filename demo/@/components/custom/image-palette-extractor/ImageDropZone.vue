@@ -41,9 +41,11 @@
                 class="w-full h-full object-contain rounded-xl"
                 alt="Uploaded image"
             />
-            <div v-else class="flex flex-col items-center gap-2 py-6">
-                <ImagePlus class="w-7 h-7 text-muted-foreground/50" />
-                <span class="text-mono-small text-muted-foreground text-center px-4">
+            <!-- T.W6.5 row 8 (F-4 sweep): the /50 post-hoc alpha dies — the
+                 muted token is already the de-emphasis rung. -->
+            <div v-else class="flex flex-col items-center gap-2 py-6 plate-ink">
+                <ImagePlus class="w-7 h-7" />
+                <span class="text-mono-small text-center px-4">
                     Drop an image or click to browse
                 </span>
             </div>
@@ -53,7 +55,7 @@
              specimen): a tiny chip that inks in on hover/focus. -->
         <span
             v-if="preview"
-            class="absolute bottom-1.5 right-1.5 rounded-sm bg-background/85 px-1.5 py-0.5 text-mono-caption uppercase tracking-[0.18em] text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+            class="absolute bottom-1.5 right-1.5 rounded-sm bg-background/85 px-1.5 py-0.5 text-mono-caption uppercase tracking-[0.18em] plate-ink opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
             :style="{ transitionDuration: 'var(--duration-fast)' }"
             aria-hidden="true"
         >{{ disableClick ? 'sample' : 'replace' }}</span>
@@ -97,4 +99,15 @@ function onDrop(e: DragEvent) {
     }
 }
 </script>
+
+<style scoped>
+/* E1-R1 (T.W8 remediation_1): the drop-zone caption family (placeholder icon +
+ * prompt, corner Fira tag) threads the certified de-emphasis rung
+ * (`--ink-muted` — boot-stamped, floor-clamped against the live resting plate;
+ * D6) instead of the STATIC `text-muted-foreground` that failed the text floor
+ * over the live-ambient plate in light. */
+.plate-ink {
+    color: var(--ink-muted, var(--muted-foreground));
+}
+</style>
 

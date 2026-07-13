@@ -1,11 +1,15 @@
 <template>
-    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <Card tier="resting" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader description="Discover palettes from the community.">Browse</PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
             <!-- S.W5-7: the twin placeholder is scoped — this one searches
-                 the public wall. -->
+                 the public wall.
+                 T.W3-3 (T-12): a field on paper wears paper — the seated
+                 register (utils.css `.search-seated`; interim, booked onto
+                 the P3 seated rung / ASK-D). -->
             <SearchBar
                 v-model="pm.searchQuery.value"
+                class="search-seated"
                 placeholder="Search the commons..."
             >
                 <SearchFilterBar
@@ -23,10 +27,22 @@
             </SearchBar>
 
             <div class="grid gap-3 pb-3">
+                <!-- T.W5-R8 (T-14 / D7 · F5): skeleton→content is "ONE
+                     surface, NEW content" — the wall's three states key the
+                     vj-morph family (out-in on the state container), so the
+                     developing plates SETTLE into the wall on the snappy
+                     spring instead of a hard v-if POP; the skeleton's last
+                     shimmer sweep hands off into the enter (one clock, no
+                     double-flash). The per-card stagger stays DORMANT on the
+                     PKT-4 seams (--skeleton-shimmer-delay writes in
+                     PaletteCardSkeleton — live the day the producer shimmer
+                     reads them; never re-defined here). -->
+                <Transition name="vj-morph" mode="out-in">
                 <!-- W5-1 (S-10): the wall loads as DEVELOPING PLATES — the
                      palette-card shadow grammar, never a generic spinner. -->
                 <div
                     v-if="pm.browsing.value"
+                    key="developing"
                     class="grid grid-cols-1 gap-3"
                     aria-label="Loading palettes"
                 >
@@ -44,6 +60,7 @@
                      neutral, no dock atom mis-planted in a pane body. -->
                 <EmptyState
                     v-else-if="pm.browseError.value && displayedBrowse.length === 0"
+                    key="error"
                     variant="error"
                     message="The commons is unreachable."
                     :detail="pm.browseError.value"
@@ -62,6 +79,7 @@
 
                 <PaletteCardGrid
                     v-else
+                    key="wall"
                     :empty="displayedBrowse.length === 0"
                     empty-eyebrow="· the commons ·"
                     empty-text="No published palettes here yet."
@@ -98,6 +116,7 @@
                         @edit-tags="(p) => onEditTags(p)"
                     />
                 </PaletteCardGrid>
+                </Transition>
 
                 <!-- S.W5 · the LOAD-MORE trigger (W5-13's data seam, this
                      lane's affordance): the wall pages past the 50-cap. The
@@ -161,21 +180,24 @@ import { inject, reactive, ref, computed, onMounted } from "vue";
 import { Card } from "@components/ui/card";
 import { Button } from "@components/ui/button";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
-import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
-import PaletteCardGrid from "@components/custom/palette-browser/PaletteCardGrid.vue";
-import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
-import EmptyState from "@components/custom/palette-browser/EmptyState.vue";
-import SearchFilterBar from "@components/custom/palette-browser/SearchFilterBar.vue";
-import VersionHistoryDrawer from "@components/custom/palette-browser/VersionHistoryDrawer.vue";
-import FlagReportDialog from "@components/custom/palette-browser/FlagReportDialog.vue";
-import TagEditPopover from "@components/custom/palette-browser/TagEditPopover.vue";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
+import {
+    PaletteCard,
+    PaletteCardGrid,
+    PaletteCardSkeleton,
+} from "@components/custom/palette-browser/card";
+import EmptyState from "@components/common/EmptyState.vue";
+import { SearchFilterBar, TagEditPopover } from "@components/custom/palette-browser/search";
+import {
+    VersionHistoryDrawer,
+    FlagReportDialog,
+} from "@components/custom/palette-browser/dialog";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 import type { Palette, Tag } from "@lib/palette/types";
-import { deltaEOK } from "@src/units/color/gamut";
+import { deltaEOK } from "@mkbabb/value.js/color";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
-import { useDialogBrowseActions } from "@components/custom/palette-browser/PaletteDialog/composables/useDialogBrowseActions";
+import { useDialogBrowseActions } from "@components/custom/palette-browser/dialog";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;

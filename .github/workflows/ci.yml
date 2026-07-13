@@ -5,9 +5,13 @@
 # UNIFIED-CICD standard (docs/tranches/K/audit/.../UNIFIED-CICD.md):
 #   - concurrency group (cancel superseded runs)
 #   - permissions floor (contents: read)
-#   - Node 22 required floor + 24 ceiling matrix
-#   - the canonical ladder: lint → typecheck → build → test → playwright →
-#     lighthouse+axe (soft-launch)
+#   - Node 22 required floor + 24 ceiling matrix (lib gates only)
+#   - the canonical ladder (build-and-test job): lint → typecheck → abrogation
+#     sweep → build + size budgets → test:dist (the retained-5 dist gates) →
+#     vitest → api tests → bench. The browser E2E (chromium smoke + WebKit
+#     smoke-safari) is de-matrixed into PARALLEL sharded jobs (T.W0 W0-CI); the
+#     gh-pages job runs the css-emission probe (BLOCKING) + Lighthouse (HARD —
+#     the S.W0 soft-launch flip); boot-smoke owns its own cold-boot job.
 #   - npm ci ALWAYS (the #177 lockfile-discipline rule)
 #
 # Deploy is NOT a CI step (DEC-9): the demo ships to Cloudflare Pages
@@ -33,14 +37,15 @@ jobs:
     # ── Build + test matrix (Node 22 floor + 24 ceiling) ────────────────────
     build-and-test:
         runs-on: ubuntu-latest
-        # 30, not 20: the S.W0 W0-2(a) smoke-safari (WebKit) step is the new long
-        # pole. WebKit in CI (incl. the sustained-30s context-loss probe) pushes
-        # the Node-22 job's total past 20 min — the whole ladder then hit the job
-        # `timeout-minutes` mid-safari and the job was reported CANCELLED (GH marks
-        # a timed-out job "cancelled"). That is the SYSTEMATIC canceller that
-        # skipped every downstream deploy-pages run (workflow_run requires CI
-        # conclusion==success). 30 gives the bounded soft steps room to finish.
-        timeout-minutes: 30
+        # 20 is honest again post-T.W0 W0-CI: the browser E2E (the 12-min
+        # smoke-safari long pole + the chromium smoke) MOVED to the parallel
+        # e2e-smoke / e2e-safari jobs, so this job is the lib-gates ladder only
+        # (~11 min). The S-close `timeout-minutes: 30` WORKAROUND (raised because
+        # safari-in-this-job overran the 20-min budget → GH marked the timed-out
+        # job CANCELLED → deploy-pages skipped) is DISCHARGED at its root: safari
+        # owns its own job budget now. The peel's per-step SOFT bounds survive
+        # verbatim in the e2e jobs; the LHCI-hash deploy peel survives in gh-pages.
+        timeout-minutes: 20
         strategy:
             fail-fast: false
             matrix:
@@ -200,6 +205,17 @@ jobs:
                   fi
                   echo "published tarball unpackedSize: $SIZE bytes (≤ $GATE PASS)"
 
+            # ── 3b · dist behavioral gates (the retained-5 proof:*, T.W0 W0-2) ─
+            # The Q13 retain-5/excise-7 split (LEG-1/F5): the five behavioral
+            # gates that exercise the BUILT dist survive as ONE CI-wired entry —
+            # `test:dist` = `npm run build && css-parity && round-trip-idempotent
+            # && perf-target && serialize-fidelity && subpath-budget`. It
+            # SELF-BUILDS (so it runs standalone locally too), which re-emits dist
+            # over the §3 build — cheap and deliberate. subpath-budget IS the
+            # parse-that-free bundle-trace invariant W1-src's gate reads.
+            - name: Test dist (the retained-5 behavioral gates — self-builds, W0-2)
+              run: npm run test:dist
+
             # ── 4 · test ────────────────────────────────────────────────────
             - name: Vitest (unit suite)
               run: npx vitest run
@@ -232,78 +248,197 @@ jobs:
                   [ "$fail" -eq 0 ] && echo "All bench gates PASS."
                   exit $fail
 
-            # ── 5 · playwright (chromium gate + smoke-safari WebKit; the full
-            #        5-project suite is local) ─────────────────────────────────
-            - name: Cache Playwright browsers
+    # ── 5 · e2e (chromium smoke) — de-matrixed + sharded (T.W0 W0-CI) ───────
+    # Browser E2E is Node-runner-version-independent: the demo runs in the
+    # browser, not in the test-runner's Node, so running the whole ~17-min
+    # Playwright block inside the build-and-test [22, 24] matrix ran it TWICE
+    # for ZERO added signal — a "useless meta item" (RATIFICATION §2). It now
+    # runs ONCE, in its own job, PARALLEL to build-and-test (no `needs:`) so the
+    # suite overlaps the lib gates instead of serialising after them. Chromium
+    # smoke here (page-load HARD + full smoke soft); WebKit smoke-safari is the
+    # sibling e2e-safari job so the 12-min sustained probe is not the whole
+    # suite's long pole. The library's Node-22/24 compatibility stays proven by
+    # lint/typecheck/build/vitest/api-tests in the matrix.
+    e2e-smoke:
+        runs-on: ubuntu-latest
+        timeout-minutes: 15
+        defaults:
+            run:
+                working-directory: value.js
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  path: value.js
+            - name: "Checkout glass-ui @ tranche/BG (the D8-1-cured live tree; un-pin at the 5.0.0 master landing)"
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/glass-ui
+                  ref: tranche/BG
+                  path: glass-ui
+            - name: "Checkout keyframes.js (file: workspace dep)"
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/keyframes.js
+                  path: keyframes.js
+            - name: Use Node 24 (the producers' build env)
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+            - name: Build glass-ui dist (the demo's runtime CSS/dts/js)
+              working-directory: glass-ui
+              run: |
+                  npm ci
+                  npm run build
+            - name: Build keyframes.js dist (the demo runtime graph imports it via glass-ui's peer)
+              working-directory: keyframes.js
+              run: |
+                  npm ci
+                  npm run build
+            - name: Use Node 22 (the value.js ladder)
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 22
+                  cache: "npm"
+                  cache-dependency-path: value.js/package-lock.json
+            - run: npm ci
+            # The demo dev server (playwright webServer) self-aliases
+            # @mkbabb/value.js → dist/value.js (vite.config mechanism-C), so the
+            # library dist must exist before the server can resolve the graph.
+            - name: Build value.js dist (the demo self-alias target)
+              run: npm run build
+            - name: Cache Playwright browsers (chromium)
               uses: actions/cache@v4
               id: playwright-cache
               with:
                   path: ~/.cache/ms-playwright
-                  # `webkit` in the key (S.W0 W0-2a): invalidates the old
-                  # chromium-only cache so a fresh cache carries BOTH engines.
-                  key: playwright-webkit-${{ runner.os }}-${{ hashFiles('value.js/package-lock.json') }}
-
-            - name: Install Playwright (chromium + webkit — W0-2a smoke-safari in CI)
+                  key: playwright-chromium-${{ runner.os }}-${{ hashFiles('value.js/package-lock.json') }}
+            - name: Install Playwright (chromium)
               if: steps.playwright-cache.outputs.cache-hit != 'true'
-              run: npx playwright install --with-deps chromium webkit
-
-            - name: Install Playwright system deps + ensure webkit (cache hit)
+              run: npx playwright install --with-deps chromium
+            - name: Install Playwright system deps (chromium, cache hit)
               if: steps.playwright-cache.outputs.cache-hit == 'true'
-              # `install webkit` is idempotent — a no-op when the binary is
-              # already cached, and backfills it if a pre-webkit cache is hit.
-              run: |
-                  npx playwright install-deps chromium webkit
-                  npx playwright install webkit
-
+              run: npx playwright install-deps chromium
             # HARD gate: the inv-K-5 evidence — the demo boots with ZERO console
             # errors against NO backend (VITE_API_URL -> same-origin dev server).
-            - name: Playwright — page-load (inv-K-5 console-clean, hard gate)
+            # No continue-on-error → a page-load regression reddens CI (and blocks
+            # the deploy gate) exactly as it did inside build-and-test.
+            - name: Playwright — page-load (inv-K-5 console-clean, HARD gate)
               run: npx playwright test --project=smoke e2e/smoke/page-load.spec.ts
-
-            # SOFT gate: the broader smoke project. A pre-existing dock view-select
-            # interaction blocker (the collapsed summary-layer overlays the combobox
-            # in headless — booked at K.W2b, orthogonal to the color topology) keeps
-            # 16 view-switching specs red; continue-on-error captures the report
-            # without blocking until the dock-interaction fix lands.
+            # SOFT gate: the broader chromium smoke project. Per-step 8-min bound
+            # (the S-close peel LAW, preserved through the split): a headless hang
+            # self-fails SOFT instead of consuming the job budget into a HARD
+            # job-timeout (which continue-on-error does NOT swallow — it cancels
+            # the job).
             - name: Playwright — full smoke project (soft-launch)
               continue-on-error: true
-              # Per-step bound so a headless hang self-fails SOFT instead of
-              # consuming the whole job budget into a HARD job-timeout (which
-              # continue-on-error does NOT swallow — it cancels the job).
               timeout-minutes: 8
               run: npx playwright test --project=smoke
-
-            # S.W0 W0-2(a): smoke-safari (WebKit) NOW RUNS IN CI — the S-22 gap
-            # (the project existed since E.W3; CI never passed --project=smoke-
-            # safari, so no Safari-only bug could be observed at all).
-            # SOFT (continue-on-error) by DESIGN: the aurora WebGL2 shader fails
-            # to COMPILE on WebKit's strict GLSL-ES validator (safari-truth §P0)
-            # — a KNOWN-LIVE glass-ui PRODUCER defect value.js is prohibited from
-            # shimming (the L1 no-workaround rule). The sustained-30s spec now
-            # guards the shader-compile substrings (W0-2c), so this step SURFACES
-            # the defect in the uploaded report without wedging the value.js
-            # ladder on a foreign-tree fix. FLIP to hard-fail at the glass-ui
-            # adopt-event once the shader defect lands (mirrors the tranche/BG
-            # un-pin book above).
-            - name: Playwright — smoke-safari (WebKit, soft — surfaces the L1 aurora-shader P0)
-              continue-on-error: true
-              # Per-step bound (the actual root of the CANCELLED runs): before this,
-              # the soft WebKit run had no ceiling and could burn the entire job
-              # budget, tripping the HARD job `timeout-minutes` mid-run. 12 min lets
-              # the sustained-30s probe complete on a slow runner yet self-fails SOFT
-              # if WebKit wedges — the job then proceeds to success and deploy fires.
-              timeout-minutes: 12
-              run: npx playwright test --project=smoke-safari
-
-            - name: Upload Playwright report
+            - name: Upload Playwright report (chromium smoke)
               if: always()
               uses: actions/upload-artifact@v4
               with:
-                  name: playwright-report-node-${{ matrix.node }}
+                  name: playwright-report-smoke
                   path: value.js/playwright-report/
                   retention-days: 7
 
-    # ── 6 · gh-pages build → CSS emission probe (BLOCKING) + lighthouse (soft) ─
+    # ── 5b · e2e (WebKit smoke-safari) — parallel shard (T.W0 W0-CI) ─────────
+    # The iOS-Safari engine gate (the S oracle floor's REAL smoke-safari gate,
+    # which SURVIVES the diet): the sustained-30s context-loss probe + the
+    # aurora shader-compile divergence surface (safari-truth §P0). SOFT
+    # (continue-on-error) by DESIGN — it surfaces the KNOWN-LIVE glass-ui aurora
+    # WebGL2 shader P0 that value.js is prohibited from shimming (L1). Its own
+    # job so the 12-min probe runs PARALLEL to the chromium smoke + the lib
+    # gates. This IS the root cure for the S-close CANCELLED runs: a 12-min
+    # safari step inside the 20-min build-and-test job overran the budget → GH
+    # marked the timed-out job CANCELLED → deploy-pages (workflow_run needs CI
+    # success) was skipped. Safari now owns its own job budget + the 12-min
+    # per-step SOFT bound (the peel LAW, verbatim). FLIP to hard-fail at the
+    # glass-ui adopt-event once the shader defect lands (mirrors tranche/BG).
+    e2e-safari:
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        defaults:
+            run:
+                working-directory: value.js
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  path: value.js
+            - name: "Checkout glass-ui @ tranche/BG (the D8-1-cured live tree; un-pin at the 5.0.0 master landing)"
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/glass-ui
+                  ref: tranche/BG
+                  path: glass-ui
+            - name: "Checkout keyframes.js (file: workspace dep)"
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/keyframes.js
+                  path: keyframes.js
+            - name: Use Node 24 (the producers' build env)
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+            - name: Build glass-ui dist (the demo's runtime CSS/dts/js)
+              working-directory: glass-ui
+              run: |
+                  npm ci
+                  npm run build
+            - name: Build keyframes.js dist (the demo runtime graph imports it via glass-ui's peer)
+              working-directory: keyframes.js
+              run: |
+                  npm ci
+                  npm run build
+            - name: Use Node 22 (the value.js ladder)
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 22
+                  cache: "npm"
+                  cache-dependency-path: value.js/package-lock.json
+            - run: npm ci
+            - name: Build value.js dist (the demo self-alias target)
+              run: npm run build
+            - name: Cache Playwright browsers (webkit)
+              uses: actions/cache@v4
+              id: playwright-cache
+              with:
+                  path: ~/.cache/ms-playwright
+                  key: playwright-webkit-${{ runner.os }}-${{ hashFiles('value.js/package-lock.json') }}
+            - name: Install Playwright (webkit)
+              if: steps.playwright-cache.outputs.cache-hit != 'true'
+              run: npx playwright install --with-deps webkit
+            - name: Install Playwright system deps + ensure webkit (cache hit)
+              if: steps.playwright-cache.outputs.cache-hit == 'true'
+              # `install webkit` is idempotent — a no-op when cached, backfills a
+              # pre-webkit cache.
+              run: |
+                  npx playwright install-deps webkit
+                  npx playwright install webkit
+            # SOFT (continue-on-error) — surfaces the L1 aurora-shader P0 in the
+            # uploaded report without wedging the ladder on a foreign-tree fix.
+            # Per-step 12-min bound (the peel LAW): the sustained-30s probe
+            # completes on a slow runner yet self-fails SOFT if WebKit wedges.
+            # `--reporter=line` is the W0-6 instrument for the S-era CI wedge (4
+            # tests, ZERO output, ~12 min to step-kill): the line reporter emits
+            # per-test progress so the next hang is diagnosable at the test that
+            # wedged, not a silent blank. The 12-min bound is KEPT verbatim — it
+            # correctly contains a hang, not a slow suite (local smoke-safari
+            # passes in ~30s; the wedge is CI-environmental). NEVER raise it.
+            - name: Playwright — smoke-safari (WebKit, soft — surfaces the L1 aurora-shader P0)
+              continue-on-error: true
+              timeout-minutes: 12
+              run: npx playwright test --project=smoke-safari --reporter=line
+            - name: Upload Playwright report (smoke-safari)
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: playwright-report-safari
+                  path: value.js/playwright-report/
+                  retention-days: 7
+
+    # ── 6 · gh-pages build → CSS emission probe (BLOCKING) + lighthouse (HARD) ─
     # Builds the demo SPA once, then runs two gates on that ONE artifact:
     #   · css-emission-probe (BLOCKING, inv-N-7 / N.W2.B) — asserts the
     #     desktop-pane-visibility witness utilities (lg:flex/lg:block/lg:hidden +
@@ -313,9 +448,11 @@ jobs:
     #     the secondary panes blank ≥1024px (K.W2.6 / C9 §1.1 P0). This is the
     #     P9 phantom-utility failure mode killed for the build-output side: a
     #     scan regression fails CI here instead of shipping a blank desktop.
-    #   · lighthouse + axe (soft-launch — the W8 headline gap, M5.2): REQUIRED-
-    #     but-soft (continue-on-error) prints the budgets for a baseline-capture
-    #     wave, then flips to hard-fail.
+    #   · lighthouse (HARD — the S.W0 W0-2b soft-launch flip): the
+    #     lighthouserc.json error-level assertions (the captured CWV baseline)
+    #     BLOCK the ladder; a first-paint perf/CLS regression on the just-built
+    #     gh-pages artifact reddens CI instead of shipping. (No axe step is
+    #     wired — the earlier soft-launch axe pairing never landed.)
     gh-pages:
         runs-on: ubuntu-latest
         needs: build-and-test

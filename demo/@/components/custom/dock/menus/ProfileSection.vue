@@ -1,22 +1,35 @@
 <script setup lang="ts">
-import { inject } from "vue";
+import { computed, inject } from "vue";
 import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle,
 } from "@lucide/vue";
 import { DockSeparator } from "@mkbabb/glass-ui/dock";
 import { Button } from "@components/ui/button";
-import { DarkModeToggle, useGlobalDark } from "@components/custom/dark-mode-toggle";
+import { DarkModeToggle } from "@mkbabb/glass-ui/controls";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuLabel,
 } from "@components/ui/dropdown-menu";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 
 const { cssColorOpaque, linkCopied } = defineProps<{
     cssColorOpaque: string;
     linkCopied: boolean;
 }>();
+
+// D6 (T.W3-5 / A11Y-F2): the live-color identity keeps its voice but wears
+// CERTIFIED ink — the raw pick as text/border measured ≤1.28:1 on the real
+// menu ground for roughly half of all picks per scheme. Two hosts, two
+// referents: the trigger sits ON THE DOCK BAND (chrome — its own thinner α),
+// the slug pill inside the menu popover (the floating rung); each ink
+// certifies against the surface it actually composites over.
+const { safeCss: chromeSafeCss } = useSafeAccentFn("chrome");
+const { safeCss: floatingSafeCss } = useSafeAccentFn("floating");
+const triggerInk = computed(() => chromeSafeCss(cssColorOpaque));
+const menuInk = computed(() => floatingSafeCss(cssColorOpaque));
 
 const emit = defineEmits<{
     shareLink: [];
@@ -42,12 +55,14 @@ const { toggleDark } = useGlobalDark();
                 <DropdownMenuTrigger as-child>
                     <!-- S.W5-4: hand-rolled pill → glass-ui Button (buttons
                          only — W7-6 owns this section's casing later). The
-                         live-color identity stays via :style. -->
+                         live-color identity stays via :style — CERTIFIED
+                         against the floating rung (D6, T.W3-5). -->
                     <Button
                         variant="outline"
                         size="xs"
                         class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
-                        :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
+                        :style="{ color: triggerInk, borderColor: triggerInk }"
+                        data-o18="profile-trigger"
                     >
                         <UserCircle class="w-3.5 h-3.5" />
                         Profile
@@ -57,7 +72,7 @@ const { toggleDark } = useGlobalDark();
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
                             class="slug-pill whitespace-nowrap"
-                            :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
+                            :style="{ color: menuInk, borderColor: menuInk }"
                         >{{ pm.userSlug.value }}</span>
                     </DropdownMenuLabel>
                     <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="emit('copySlug')">
@@ -86,10 +101,19 @@ const { toggleDark } = useGlobalDark();
 
         <!-- Not logged in -->
         <template v-else>
+            <!-- P9-R4 (Q10): the `border-primary/30` accent voice was
+                 cascade-DEAD — the outline variant paints its border via
+                 inset highlight shadows (`border: none 0px`), so the width
+                 never survived. Re-land the accent on the channels the
+                 variant ACTUALLY paints — the certified chrome-rung ink
+                 (text + icon), the exact idiom the logged-in Profile trigger
+                 already wears — so "Tools/Login CHROME keeps the live accent"
+                 is live at Login too, never decorative dead code. -->
             <Button
                 variant="outline"
                 size="xs"
-                class="gap-1.5 text-mono-small font-bold whitespace-nowrap border-primary/30"
+                class="gap-1.5 text-mono-small font-bold whitespace-nowrap"
+                :style="{ color: triggerInk, borderColor: triggerInk }"
                 @click="emit('startSlugEdit')"
             >
                 <LogIn class="w-3.5 h-3.5" />
@@ -142,7 +166,10 @@ const { toggleDark } = useGlobalDark();
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
-                    <DarkModeToggle passive title="Toggle dark mode" class="aspect-square w-4" />
+                    <!-- W6-8: native `title` retired (the row's own "Dark mode"
+                         text is the accessible name; the passive glyph is
+                         decorative). -->
+                    <DarkModeToggle passive aria-hidden="true" class="aspect-square w-4" />
                     Dark mode
                 </DropdownMenuItem>
             </DropdownMenuContent>

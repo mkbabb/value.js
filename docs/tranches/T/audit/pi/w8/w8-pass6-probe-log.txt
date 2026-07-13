@@ -1,0 +1,112 @@
+═══ LEG A · BUILT (:8651) T-45/T-53 carrier truth ═══
+  built-mix-1440-dark · card bf=none radius=16px
+  built-mix-1440-dark · --radius-card=1rem --glass-blur-resting=blur(calc(8px * 1)) saturate(1.3) brightness(1.14) --glass-blur-resting-radius=8px
+  built-mix-1440-dark · carrier depth=1 <DIV class="relative w-full mx-auto h-full min-w-0"> pos=relative bf=blur(8px) saturate(1.3) brightness(1.14)
+  built-mix-1440-dark · carrier host↔card box delta: dx=0 dy=0 dw=0 dh=0 · inset=-16px -16px -16px -16px · clip=inset(16px round 16px)
+  built-mix-1440-dark · TOP-EDGE PROFILE (8-bit): band(max 62.83 · mean 60.83) vs interior 60.33 → Δmax 2.5 · Δmean 0.5
+  built-mix-1440-dark-sibling-lab · card bf=none radius=16px
+  built-mix-1440-dark-sibling-lab · --radius-card=1rem --glass-blur-resting=blur(calc(8px * 1)) saturate(1.3) brightness(1.14) --glass-blur-resting-radius=8px
+  built-mix-1440-dark-sibling-lab · carrier depth=1 <DIV class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full picker-shell"> pos=relative bf=blur(8px) saturate(1.3) brightness(1.14)
+  built-mix-1440-dark-sibling-lab · carrier host↔card box delta: dx=0 dy=0 dw=0 dh=0 · inset=-16px -16px -16px -16px · clip=inset(16px round 16px)
+  built-mix-1440-dark-sibling-lab · TOP-EDGE PROFILE (8-bit): band(max 71.57 · mean 67.59) vs interior 66.72 → Δmax 4.85 · Δmean 0.87
+  built-mix-1440-dark · console raw=1 designed(misconfig)=1 REAL=0
+  built-generate-1440-dark · card bf=none radius=16px
+  built-generate-1440-dark · --radius-card=1rem --glass-blur-resting=blur(calc(8px * 1)) saturate(1.3) brightness(1.14) --glass-blur-resting-radius=8px
+  built-generate-1440-dark · carrier depth=1 <DIV class="relative w-full mx-auto h-full min-w-0"> pos=relative bf=blur(8px) saturate(1.3) brightness(1.14)
+  built-generate-1440-dark · carrier host↔card box delta: dx=0 dy=0 dw=0 dh=0 · inset=-16px -16px -16px -16px · clip=inset(16px round 16px)
+  built-generate-1440-dark · TOP-EDGE PROFILE (8-bit): band(max 59.51 · mean 57.26) vs interior 56.86 → Δmax 2.65 · Δmean 0.39
+  built-generate-1440-dark-sibling-palettes · card bf=none radius=16px
+  built-generate-1440-dark-sibling-palettes · --radius-card=1rem --glass-blur-resting=blur(calc(8px * 1)) saturate(1.3) brightness(1.14) --glass-blur-resting-radius=8px
+  built-generate-1440-dark-sibling-palettes · carrier depth=1 <DIV class="relative w-full mx-auto h-full min-w-0"> pos=relative bf=blur(8px) saturate(1.3) brightness(1.14)
+  built-generate-1440-dark-sibling-palettes · carrier host↔card box delta: dx=0 dy=0 dw=0 dh=0 · inset=-16px -16px -16px -16px · clip=inset(16px round 16px)
+  built-generate-1440-dark-sibling-palettes · TOP-EDGE PROFILE (8-bit): band(max 59.35 · mean 57.11) vs interior 56.72 → Δmax 2.63 · Δmean 0.39
+  built-generate-1440-dark · console raw=1 designed(misconfig)=1 REAL=0
+  built-mix-1440-light · card bf=none radius=16px
+  built-mix-1440-light · --radius-card=1rem --glass-blur-resting=blur(calc(8px * 1)) saturate(1.4) --glass-blur-resting-radius=8px
+  built-mix-1440-light · carrier depth=1 <DIV class="relative w-full mx-auto h-full min-w-0"> pos=relative bf=blur(8px) saturate(1.4)
+  built-mix-1440-light · carrier host↔card box delta: dx=0 dy=0 dw=0 dh=0 · inset=-16px -16px -16px -16px · clip=inset(16px round 16px)
+  built-mix-1440-light · TOP-EDGE PROFILE (8-bit): band(max 206.59 · mean 204.46) vs interior 204.29 → Δmax 2.3 · Δmean 0.16
+  built-mix-1440-light-sibling-lab · card bf=none radius=16px
+  built-mix-1440-light-sibling-lab · --radius-card=1rem --glass-blur-resting=blur(calc(8px * 1)) saturate(1.4) --glass-blur-resting-radius=8px
+  built-mix-1440-light-sibling-lab · carrier depth=1 <DIV class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full picker-shell"> pos=relative bf=blur(8px) saturate(1.4)
+  built-mix-1440-light-sibling-lab · carrier host↔card box delta: dx=0 dy=0 dw=0 dh=0 · inset=-16px -16px -16px -16px · clip=inset(16px round 16px)
+  built-mix-1440-light-sibling-lab · TOP-EDGE PROFILE (8-bit): band(max 175.51 · mean 171.29) vs interior 170.38 → Δmax 5.13 · Δmean 0.91
+  built-mix-1440-light · console raw=1 designed(misconfig)=1 REAL=0
+  built-generate-1440-light · card bf=none radius=16px
+  built-generate-1440-light · --radius-card=1rem --glass-blur-resting=blur(calc(8px * 1)) saturate(1.4) --glass-blur-resting-radius=8px
+  built-generate-1440-light · carrier depth=1 <DIV class="relative w-full mx-auto h-full min-w-0"> pos=relative bf=blur(8px) saturate(1.4)
+  built-generate-1440-light · carrier host↔card box delta: dx=0 dy=0 dw=0 dh=0 · inset=-16px -16px -16px -16px · clip=inset(16px round 16px)
+  built-generate-1440-light · TOP-EDGE PROFILE (8-bit): band(max 202.23 · mean 199.99) vs interior 199.59 → Δmax 2.64 · Δmean 0.4
+  built-generate-1440-light-sibling-palettes · card bf=none radius=16px
+  built-generate-1440-light-sibling-palettes · --radius-card=1rem --glass-blur-resting=blur(calc(8px * 1)) saturate(1.4) --glass-blur-resting-radius=8px
+  built-generate-1440-light-sibling-palettes · carrier depth=1 <DIV class="relative w-full mx-auto h-full min-w-0"> pos=relative bf=blur(8px) saturate(1.4)
+  built-generate-1440-light-sibling-palettes · carrier host↔card box delta: dx=0 dy=0 dw=0 dh=0 · inset=-16px -16px -16px -16px · clip=inset(16px round 16px)
+  built-generate-1440-light-sibling-palettes · TOP-EDGE PROFILE (8-bit): band(max 202.08 · mean 199.87) vs interior 199.52 → Δmax 2.56 · Δmean 0.35
+  built-generate-1440-light · console raw=1 designed(misconfig)=1 REAL=0
+  built-mix-390-dark · card bf=none radius=16px
+  built-mix-390-dark · --radius-card=1rem --glass-blur-resting=blur(calc(8px * 1)) saturate(1.3) brightness(1.14) --glass-blur-resting-radius=8px
+  built-mix-390-dark · carrier depth=1 <DIV class="relative w-full mx-auto h-full min-w-0"> pos=relative bf=blur(8px) saturate(1.3) brightness(1.14)
+  built-mix-390-dark · carrier host↔card box delta: dx=0 dy=0 dw=0 dh=0 · inset=-16px -16px -16px -16px · clip=inset(16px round 16px)
+  built-mix-390-dark · TOP-EDGE PROFILE (8-bit): band(max 59.1 · mean 56.83) vs interior 56.47 → Δmax 2.63 · Δmean 0.36
+  built-mix-390-dark · console raw=1 designed(misconfig)=1 REAL=0
+  built-generate-390-dark · card bf=none radius=16px
+  built-generate-390-dark · --radius-card=1rem --glass-blur-resting=blur(calc(8px * 1)) saturate(1.3) brightness(1.14) --glass-blur-resting-radius=8px
+  built-generate-390-dark · carrier depth=1 <DIV class="relative w-full mx-auto h-full min-w-0"> pos=relative bf=blur(8px) saturate(1.3) brightness(1.14)
+  built-generate-390-dark · carrier host↔card box delta: dx=0 dy=0 dw=0 dh=0 · inset=-16px -16px -16px -16px · clip=inset(16px round 16px)
+  built-generate-390-dark · TOP-EDGE PROFILE (8-bit): band(max 59.9 · mean 57.57) vs interior 56.85 → Δmax 3.05 · Δmean 0.72
+  built-generate-390-dark · console raw=1 designed(misconfig)=1 REAL=0
+═══ LEG B · DEV (:8650) 6-cell sweep ═══
+  dev-mix-1440-light · T-41 palettes-empty: ShadowPalette-fillers=0 skeleton-nodes=0 EmptyState=false watercolor-nodes=11
+  dev-mix-1440-light · empty text: "undefined"
+  dev-mix-1440-light · console raw=0 REAL=0
+  dev-generate-1440-light · T-24 cardBg=oklab(0.884503 0.00542215 0.0127179 / 0.678) plateBg=oklab(0.913295 0.00550478 0.0130424)
+  dev-generate-1440-light · T-54 swatch: <BUTTON> radius=6px watercolor=false
+  dev-generate-1440-light · T-55 verb "Regenerate": bg=rgba(0, 0, 0, 0) border=0px color(srgb 0.11 0.098 0.09 / 0.14) h=36.0 r=9999px
+  dev-generate-1440-light · T-55 verb "Save palette": bg=rgba(0, 0, 0, 0) border=0px rgb(198, 180, 159) h=36.0 r=9999px
+  dev-generate-1440-light · T-55 verb "Copy all colors": bg=rgba(0, 0, 0, 0) border=0px rgb(198, 180, 159) h=36.0 r=9999px
+  dev-generate-1440-light · console raw=0 REAL=0
+  dev-mix-1440-dark · T-41 palettes-empty: ShadowPalette-fillers=0 skeleton-nodes=0 EmptyState=false watercolor-nodes=11
+  dev-mix-1440-dark · empty text: "undefined"
+  dev-mix-1440-dark · console raw=0 REAL=0
+  dev-generate-1440-dark · T-24 cardBg=oklab(0.362792 0.0101461 0.0171963 / 0.7424) plateBg=oklab(0.345295 0.0103877 0.0175526)
+  dev-generate-1440-dark · T-54 swatch: <BUTTON> radius=6px watercolor=false
+  dev-generate-1440-dark · T-55 verb "Regenerate": bg=rgba(0, 0, 0, 0) border=0px color(srgb 0.914 0.9 0.886 / 0.14) h=36.0 r=9999px
+  dev-generate-1440-dark · T-55 verb "Save palette": bg=rgba(0, 0, 0, 0) border=0px rgb(101, 87, 73) h=36.0 r=9999px
+  dev-generate-1440-dark · T-55 verb "Copy all colors": bg=rgba(0, 0, 0, 0) border=0px rgb(101, 87, 73) h=36.0 r=9999px
+  dev-generate-1440-dark · console raw=0 REAL=0
+  dev-mix-768-light · T-41 palettes-empty: ShadowPalette-fillers=0 skeleton-nodes=0 EmptyState=false watercolor-nodes=9
+  dev-mix-768-light · empty text: "undefined"
+  dev-mix-768-light · console raw=0 REAL=0
+  dev-generate-768-light · console raw=0 REAL=0
+  dev-mix-768-dark · T-41 palettes-empty: ShadowPalette-fillers=0 skeleton-nodes=0 EmptyState=false watercolor-nodes=9
+  dev-mix-768-dark · empty text: "undefined"
+  dev-mix-768-dark · console raw=0 REAL=0
+  dev-generate-768-dark · console raw=0 REAL=0
+  dev-mix-390-light · T-41 palettes-empty: ShadowPalette-fillers=0 skeleton-nodes=0 EmptyState=false watercolor-nodes=9
+  dev-mix-390-light · empty text: "undefined"
+  dev-mix-390-light · console raw=0 REAL=0
+  dev-generate-390-light · console raw=0 REAL=0
+  dev-mix-390-dark · T-41 palettes-empty: ShadowPalette-fillers=0 skeleton-nodes=0 EmptyState=false watercolor-nodes=9
+  dev-mix-390-dark · empty text: "undefined"
+  dev-mix-390-dark · console raw=0 REAL=0
+  dev-generate-390-dark · console raw=0 REAL=0
+═══ LEG C · DEV interaction drives ═══
+  generate · regenerate: "seed: 920e40d4" → "seed: 1b6ccef3" (RE-STAMPED)
+  generate-interact · console REAL=0
+  mix · result plate: {"bg":"oklab(0.345295 0.0103877 0.0175526)","radius":"12px","backdrop":"none"}
+  mix-interact · console REAL=0
+═══ LEG D · pane-swap witness (BUILT) ═══
+  swap screencast: 119 frames · worst inter-frame gap 99ms (compositor-frame series; the T-58 mechanism analysis is pass-2's)
+
+═══ ANNEX · bisection + caster ═══
+annex-mix · A(landed) Δmax 2.18 Δmean 0.28 argmax@+1.5px · B(pre-carrier) Δmax 2.16 Δmean 0.27 argmax@+1.5px · C(no-blur) Δmax 2.43 Δmean 0.3 argmax@+1.5px
+annex-mix · carrier-vs-noblur residual: Δmean(A−C) = -0.02/255 · pre-carrier smear head-room: Δmean(B−C) = -0.03/255
+annex-mix · CASTER dark: box-shadow=rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, color(srgb 0.913725 0.901961 0.886275 / 0.5) 8px 8px 0px 0px
+annex-mix · --shadow-color=#e9e6e2 · --foreground=#e9e6e2
+annex-mix · right-edge column profile (x from cardRight−6px, dpr2): 71.4 71.4 71.4 71.4 71.4 71.4 71.5 71.5 75.1 78.6 85.9 85.9 160.7 160.8 160.9 160.9 160.8 160.6 160.8 160.9 160.9 160.9 160.7 160.7 160.7 160.7 160.8 161.4 92.1 91.8 92 91.9 91.7 91.7 91.7 91.8 91.7 91.5 91.9 91.9 92.1 92.2 92.1 92.4 92.4 92.2 92 92.1 92 91.8 92.4 92.1
+annex-generate · A(landed) Δmax 2.63 Δmean 0.38 argmax@+1.5px · B(pre-carrier) Δmax 2.58 Δmean 0.31 argmax@+1.5px · C(no-blur) Δmax 2.73 Δmean 0.44 argmax@+1.5px
+annex-generate · carrier-vs-noblur residual: Δmean(A−C) = -0.06/255 · pre-carrier smear head-room: Δmean(B−C) = -0.13/255
+annex-generate · CASTER dark: box-shadow=rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, color(srgb 0.913725 0.901961 0.886275 / 0.5) 8px 8px 0px 0px
+annex-generate · --shadow-color=#e9e6e2 · --foreground=#e9e6e2
+annex-generate · right-edge column profile (x from cardRight−6px, dpr2): 61.8 61.8 61.8 61.8 61.8 61.8 61.8 61.8 66 70.5 76.8 76.8 143 143.4 143.1 142.9 142.5 142.2 142.8 142.6 142.5 142.8 142.3 142.5 142.6 142.6 142.6 142.7 55.2 54.9 54.7 55.6 56.1 56.2 55.9 55.3 55 55.4 55.7 55.7 55.2 54.6 55.3 55.4 55.6 55.6 54.6 54.7 76.8 76.8 70.5 66
+annex-generate · CASTER light: box-shadow=rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, color(srgb 0.109804 0.0980392 0.0901961 / 0.8) 8px 8px 0px 0px

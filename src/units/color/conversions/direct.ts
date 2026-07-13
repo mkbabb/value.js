@@ -20,14 +20,14 @@
 import { OKLABColor, OKLCHColor, RGBColor } from "..";
 import type { Color, ColorSpaceMap, HSLColor } from "..";
 import { scale } from "../../../math";
+import { COLOR_SPACE_RANGES } from "../constants";
+import type { ColorSpace } from "../constants";
 import {
-    COLOR_SPACE_RANGES,
     LINEAR_SRGB_TO_LMS,
     LMS_TO_LINEAR_SRGB,
     LMS_TO_OKLAB_MATRIX,
     OKLAB_TO_LMS_COEFF,
-} from "../constants";
-import type { ColorSpace } from "../constants";
+} from "./matrices";
 import { gamutMap } from "../dispatch";
 import { hsl2rgb, rgb2hsl } from "./cylindrical";
 import { linearToSrgb, srgbToLinear } from "./transfer";

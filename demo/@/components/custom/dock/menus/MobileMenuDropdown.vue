@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { inject } from "vue";
+import { computed, inject } from "vue";
 import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, MoreVertical,
 } from "@lucide/vue";
-import { DarkModeToggle, useGlobalDark } from "@components/custom/dark-mode-toggle";
+import { DarkModeToggle } from "@mkbabb/glass-ui/controls";
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuLabel,
@@ -11,11 +12,17 @@ import {
 import { DockDropdownTrigger } from "@mkbabb/glass-ui/dock";
 import { Avatar, AvatarImage } from "@components/ui/avatar";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 
 const { cssColorOpaque, linkCopied } = defineProps<{
     cssColorOpaque: string;
     linkCopied: boolean;
 }>();
+
+// D6 (T.W3-5 / A11Y-F2): certified ink on the menu's floating rung — the
+// desktop twin's cure, verbatim (ProfileSection.vue).
+const { safeCss } = useSafeAccentFn("floating");
+const menuInk = computed(() => safeCss(cssColorOpaque));
 
 const emit = defineEmits<{
     shareLink: [];
@@ -40,7 +47,7 @@ const { toggleDark } = useGlobalDark();
                     <DropdownMenuLabel class="px-2 py-1.5">
                         <span
                             class="slug-pill whitespace-nowrap"
-                            :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
+                            :style="{ color: menuInk, borderColor: menuInk }"
                         >{{ pm.userSlug.value }}</span>
                     </DropdownMenuLabel>
                     <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="emit('copySlug')">
@@ -93,7 +100,10 @@ const { toggleDark } = useGlobalDark();
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
-                    <DarkModeToggle passive title="Toggle dark mode" class="aspect-square w-4" />
+                    <!-- W6-8: native `title` retired (the row's own "Dark mode"
+                         text is the accessible name; the passive glyph is
+                         decorative). -->
+                    <DarkModeToggle passive aria-hidden="true" class="aspect-square w-4" />
                     Dark mode
                 </DropdownMenuItem>
             </DropdownMenuContent>

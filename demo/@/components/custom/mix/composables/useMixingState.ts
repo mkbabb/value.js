@@ -16,13 +16,13 @@
  */
 
 import { ref, computed } from "vue";
-import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/mix";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { Palette, PaletteColor } from "@lib/palette/types";
 import type { LeftoverStrategy } from "@lib/palette/mix";
 import { mixPalettes } from "@lib/palette/mix";
-import { mixColorsN } from "@src/units/color/mix";
-import type { Color } from "@src/units/color";
+import { mixColorsN } from "@mkbabb/value.js/color";
+import type { Color } from "@mkbabb/value.js/color";
 import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
 
 export interface SelectedColor {

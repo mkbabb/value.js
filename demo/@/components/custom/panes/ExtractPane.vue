@@ -1,9 +1,7 @@
 <template>
     <div class="relative w-full mx-auto h-full min-w-0">
         <Card
-            tier="wash"
-            :shadow="false"
-            :grain="false"
+            tier="resting"
             class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full"
         >
             <PaneHeader description="Pull palettes from any image.">Extract</PaneHeader>
@@ -27,7 +25,7 @@ import { Card } from "@components/ui/card";
 import ExtractWorkbench from "@components/custom/image-palette-extractor/ExtractWorkbench.vue";
 import PaneHeader from "./PaneHeader.vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import type { ColorSpace } from "@src/units/color/constants";
+import type { ColorSpace } from "@mkbabb/value.js/color";
 
 type DisplayColorSpace = ColorSpace | "hex";
 

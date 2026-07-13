@@ -8,18 +8,97 @@
         <title>Color Picker</title>
         <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 
-        <!-- Fraunces — the atlas/display voice's SINGLE brand source (R.W3 Lane A:
-             the glass-ui fonts corpus carries Jakarta + Fira as real faces via
-             the style.css import; it has no Fraunces, so the display face loads
-             here). Preconnect + non-blocking load (avoids render-blocking
-             @import). The former Fira Code link died with the corpus import —
-             one source per face. -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" media="print" onload="this.media='all'" />
-        <noscript>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" />
-        </noscript>
+        <!-- W2-3 (T.W2 · LS-6): Fraunces SELF-HOSTED — the display voice is
+             struck from the network timeline (the Google-Fonts actor RETIRES;
+             zero cross-origin font requests). Variable woff2 (opsz 9..144,
+             wght 100..900), latin + latin-ext, normal + italic, served from
+             ./fonts/. The latin-normal face — the title/hero glyphs — is
+             PRELOADED so it arrives with the critical resources.
+
+             W4-2 (T.W4 · O-10c): the latin-normal face is the tnum-MINTED
+             build (scripts/fonts/build-fraunces-tnum.py — no Fraunces
+             artifact anywhere ships tabular figures; the mint cuts the .tf
+             set the foundry never did: constant-advance composites + a real
+             GSUB tnum feature). The readout's `font-variant-numeric:
+             tabular-nums` is therefore LIVE, verified by rendered
+             digit-advance (never by declaration — the F5 class). -->
+        <!-- (original W2-3 note continues)
+
+             THE BOUNDED INK GATE (D3 [AMENDED-AT-HARDENING M-12]):
+             `font-display: fallback` — a ~100ms UA block period (inside the
+             ≤300ms cap; ink opens on load-or-block-end), then the
+             METRIC-COMPATIBLE fallback below commits; the eventual swap is
+             reflow-free because "Fraunces Fallback" is size-adjust-tuned
+             Georgia (measured against the real face: size-adjust 89.26%,
+             ascent 109.79%, descent 29.13%) — never an UNTUNED fallback
+             commit, never a swap-reflow. font-display:fallback's no-late-swap
+             arm is a non-case for a preloaded same-origin face (recorded). -->
+        <link rel="preload" href="./fonts/fraunces-latin-normal.woff2" as="font" type="font/woff2" crossorigin />
+        <style>
+            @font-face {
+                font-family: "Fraunces";
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: fallback;
+                src: url(./fonts/fraunces-latin-normal.woff2) format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "Fraunces";
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: fallback;
+                src: url(./fonts/fraunces-latin-ext-normal.woff2) format("woff2");
+                unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            }
+            @font-face {
+                font-family: "Fraunces";
+                font-style: italic;
+                font-weight: 100 900;
+                font-display: fallback;
+                src: url(./fonts/fraunces-latin-italic.woff2) format("woff2");
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+            @font-face {
+                font-family: "Fraunces";
+                font-style: italic;
+                font-weight: 100 900;
+                font-display: fallback;
+                src: url(./fonts/fraunces-latin-ext-italic.woff2) format("woff2");
+                unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+            }
+            /* The metric-compatible fallback (the ink-gate's landing face). */
+            @font-face {
+                font-family: "Fraunces Fallback";
+                src: local("Georgia");
+                size-adjust: 89.26%;
+                ascent-override: 109.79%;
+                descent-override: 29.13%;
+                line-gap-override: 0%;
+            }
+        </style>
+
+        <!-- W2-2 (T.W2): the per-stop ground properties, registered PRE-PAINT
+             so the B0 ground can transition. Each is a `<color>` — registered
+             <color> custom properties interpolate in OKLab (CSS Color 4), the
+             chroma-honest path the F-12 ground transition rides. The
+             initial-values are the LIGHT first-visit constants (the boot
+             script below overwrites them — persisted record or the ACTIVE
+             scheme's constant — before first paint; these literals only ever
+             paint if the script itself fails). boot/ground.ts is the record
+             of truth for the constants + the persisted shape. -->
+        <style>
+            @property --saved-bg-0 { syntax: "<color>"; inherits: true; initial-value: #b37290; }
+            @property --saved-bg-1 { syntax: "<color>"; inherits: true; initial-value: #df8ea7; }
+            @property --saved-bg-2 { syntax: "<color>"; inherits: true; initial-value: #ffb0b4; }
+            @property --saved-bg-3 { syntax: "<color>"; inherits: true; initial-value: #ffcfc8; }
+            @property --saved-bg   { syntax: "<color>"; inherits: true; initial-value: #b37290; }
+        </style>
+
+        <!-- W2-3 theme-color B0 sub-clause: minted from the persisted ground's
+             base stop by the boot script below, pre-paint; useAtmosphere's
+             sink updates it beside the `--saved-bg` pick transition. -->
+        <meta name="theme-color" content="#b37290" />
 
         <!-- Critical: prevent FOUC before Tailwind CSS loads.
              Without this, .hidden elements are visible during the
@@ -28,34 +107,79 @@
              flipping media queries to desktop mode permanently.
 
              Uses @layer so that once Tailwind loads, its utilities
-             (lg:flex, lg:block) take priority and override this. -->
+             (lg:flex, lg:block) take priority and override this.
+
+             W2-2: the body ground is the FIXED gradient template over the
+             registered per-stop properties (the same template as style.css's
+             base rule — the producer paletteToCssGradient geometry). The
+             ground is a complete material from the first paint (B0). -->
         <style>
             @layer fouc-guard {
                 .hidden { display: none; }
-                body { background: var(--saved-bg); }
+                body {
+                    background-color: var(--saved-bg);
+                    background-image: linear-gradient(
+                        135deg,
+                        var(--saved-bg-0) 0%,
+                        var(--saved-bg-1) 33%,
+                        var(--saved-bg-2) 67%,
+                        var(--saved-bg-3) 100%
+                    );
+                }
             }
         </style>
 
-        <!-- Prevent flash: apply dark mode class + initial bg before any rendering. -->
+        <!-- The fouc-guard boot script: scheme FIRST, then the ground.
+             Order is the law (W2-2): resolve the ACTIVE scheme, then paint
+             the persisted gradient ONLY on a scheme+version match — else the
+             ACTIVE scheme's member of the first-visit constant PAIR (dark-
+             honest by construction, F-6: a dark first run never boots as a
+             light-pink page). The persisted shape is `{stops, scheme,
+             deriveVersion}` — STOPS, never a gradient string; the read is
+             shape-validated and falls to the constants on ANY malformation.
+             Mirrors boot/ground.ts (the record of truth) — keep in lockstep. -->
         <script>
             (function() {
+                // B0 — the ground beat (the overture's origin mark; O-4 reads it).
+                if (window.performance && performance.mark) performance.mark('overture:b0');
                 var s = document.documentElement.style;
+                // Scheme resolution MIRRORS useColorMode (the producer's own
+                // darkModeSyncScript semantics): the app persists "auto" by
+                // default, so "auto" MUST honor prefers-dark — the T.W4.5 R1
+                // cure (a returning dark-preference visit used to read "auto"
+                // as light and boot the light material, re-theming mid-boot).
                 var stored = localStorage.getItem('vueuse-color-scheme');
                 var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                var dark = stored === 'dark' || (!stored && prefersDark);
+                var dark = stored === 'dark' || ((stored === 'auto' || !stored) && prefersDark);
                 if (dark) document.documentElement.classList.add('dark');
                 s.colorScheme = dark ? 'dark' : 'light';
-                // W6-1 (S.W6): `color-picker-bg` carries the DERIVED aurora
-                // base stop (useAtmosphere's boot-material sink), never the
-                // raw picked color — the pre-hydration ground and the first
-                // aurora frame are ONE material. The var is the ONE write:
-                // the fouc-guard rule above + style.css's body rule both read
-                // `--saved-bg`, so no inline background (nothing to clear
-                // post-hydration, no DOMContentLoaded re-apply race).
-                var bg = localStorage.getItem('color-picker-bg');
-                if (bg) {
-                    s.setProperty('--saved-bg', bg);
+
+                // The first-visit constant PAIR (boot/ground.ts FIRST_VISIT_GROUND):
+                // the DEFAULT seed's derived gradient, per scheme (dark = the
+                // producer derive's dark band — honest for a dark first run).
+                var FIRST_VISIT = {
+                    light: ['#b37290', '#df8ea7', '#ffb0b4', '#ffcfc8'],
+                    dark:  ['#673255', '#944a62', '#ba696b', '#d6917c']
+                };
+                var VERSION = 1; // boot/ground.ts GROUND_RECORD_VERSION
+                var scheme = dark ? 'dark' : 'light';
+                var stops = FIRST_VISIT[scheme];
+                try {
+                    var rec = JSON.parse(localStorage.getItem('color-picker-ground'));
+                    if (rec && rec.deriveVersion === VERSION &&
+                        rec.scheme === scheme &&
+                        Array.isArray(rec.stops) && rec.stops.length === 4 &&
+                        rec.stops.every(function (x) { return /^#[0-9a-fA-F]{6}$/.test(String(x)); })) {
+                        stops = rec.stops;
+                    }
+                } catch (e) { /* malformed record → the constants */ }
+                for (var i = 0; i < 4; i++) {
+                    s.setProperty('--saved-bg-' + i, stops[i]);
                 }
+                s.setProperty('--saved-bg', stops[0]);
+                // theme-color rides the ground's base stop from B0.
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', stops[0]);
             })();
         </script>
 

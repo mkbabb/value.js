@@ -17,20 +17,36 @@
  * entities blue, strings green, numbers ochre); comments recede to the
  * muted voice. The mono voice is Fira (`--font-stack-mono`, the
  * three-voice law).
+ *
+ * AB-3/AB-4 (T.W8 remediation_1) — THE WELL RE-GUARD. The markdown code chip
+ * ground moved from `--muted` to the rung-2 well (`--well-bg` = card 92% +
+ * fg 8%), a DARKER tone-step: the light chip ground dropped rgb(246 243 239)
+ * → rgb(233 225 217). Re-censused live (dpr2, owner color lab(38% 32 24)) on
+ * the landed well ground, THREE light tokens fell under the 4.5 floor —
+ * comment 4.19, string 4.20, number 3.82 — where only `number` failed on the
+ * old muted ground. All three are re-seated below (the crayon HUE/chroma
+ * hold; only L drops one step). The comment leaves `--muted-foreground` —
+ * that token is guarded for the lighter page/muted ground, not the well — for
+ * an explicit warm-gray guarded for the well in BOTH schemes (dark comment
+ * was 4.49 on the dark well; lifted). Dark string/number/keyword/entity clear
+ * on the dark well unchanged. Post-fix on the well: comment 5.33/5.04, string
+ * 4.99, number 4.91, keyword 4.91, entity/title 5.41 (light) — all ≥4.5.
  */
 
 :root {
     --code-ink: var(--foreground);
-    --code-comment: var(--muted-foreground);
-    /* The four crayons, guarded for the light parchment field. */
+    /* The four crayons + the muted comment, guarded for the light WELL field
+     * (the rung-2 code-chip ground, AB-3). */
+    --code-comment: hsl(30 22% 34%); /* warm muted gray (well-guarded) */
     --code-keyword: oklch(0.51 0.19 27); /* crayon red   */
     --code-entity: oklch(0.47 0.14 262); /* crayon blue  */
-    --code-string: oklch(0.51 0.13 145); /* crayon green */
-    --code-number: oklch(0.55 0.12 78); /* crayon ochre */
+    --code-string: oklch(0.47 0.13 145); /* crayon green (AB-4 well re-guard) */
+    --code-number: oklch(0.49 0.12 78); /* crayon ochre (AB-4 well re-guard) */
 }
 
 .dark {
-    /* The same four crayons, lifted for the dark chocolate field. */
+    /* The same set, lifted for the dark chocolate WELL field. */
+    --code-comment: hsl(34 14% 66%); /* warm muted gray (well-guarded) */
     --code-keyword: oklch(0.75 0.15 27);
     --code-entity: oklch(0.76 0.11 262);
     --code-string: oklch(0.77 0.11 148);

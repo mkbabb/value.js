@@ -7,10 +7,10 @@
  * - **distribute**: linearly interpolate shorter palettes across the longest length
  */
 
-import type { ColorSpace } from "@src/units/color/constants";
-import type { HueInterpolationMethod } from "@src/units/color/mix";
-import { mixColors, mixColorsN } from "@src/units/color/mix";
-import type { Color } from "@src/units/color";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import { mixColors, mixColorsN } from "@mkbabb/value.js/color";
+import type { Color } from "@mkbabb/value.js/color";
 import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
 import type { Palette, PaletteColor } from "./types";
 

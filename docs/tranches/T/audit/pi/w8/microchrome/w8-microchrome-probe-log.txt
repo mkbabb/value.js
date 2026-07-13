@@ -1,0 +1,74 @@
+
+═══════════════ SCHEME: light ═══════════════
+
+[LEG1 · title] document.title = "Color Picker"
+
+[LEG2 · title= roster] total [title] elements = 0
+  non-dock [title] elements = 0 (of first 0 sampled)
+
+[LEG3 · ::selection] declared ::selection rules = 0
+  getComputedStyle(el,'::selection') color=color(srgb 0 0 0 / 0.8) bg=rgba(0, 0, 0, 0)
+
+[LEG4 · cursor grammar]
+  spectrum   (.spectrum-picker) → cursor: crosshair
+  sliderThumb([role='slider']) → cursor: auto
+  blob       (.goo-blob-hit) → cursor: pointer
+
+[LEG5 · scrollbar material] pane-scroller found=true
+  .rounded-card text-card-foreground scrollbar-hidden [--card-p
+  scrollbar-color: auto · scrollbar-width: none
+  scrollHeight 7599 / clientHeight 772 · overflows=true
+
+[LEG4b · gradient cursor]
+  rail     (.gradient-rail) → cursor: copy
+  stopThumb(.gradient-rail [class*='cursor-grab']) → cursor: grab
+  [forced-overflow @420h] pane overflows=true (987/323)
+
+[LEG6 · THROWN-ERROR STATE] error plate present=true
+  role=alert (R7: role='alert' required)
+  glyph present=true class="lucide lucide-circle-alert-icon lucide-c" color=oklab(0.574284 0.191676 0.099719 / 0.8) (R7: CircleAlert)
+  message: "The commons is unreachable." color=oklab(0.216128 0.00350075 0.00518669 / 0.85) font=Fraunces
+  detail:  "Failed to load palettes" color=rgb(112, 89, 66) font="Fira Code"
+  Retry action present=true text="Retry"
+  NEGATIVE CONTROLS (must be empty-state-free): ghostTrio=true eyebrow=false
+  plate ground (nearest painted ancestor bg) = oklab(0.884503 0.00542215 0.0127179 / 0.678)
+
+[console] errors this scheme = 1
+   ! Failed to load resource: net::ERR_CONNECTION_REFUSED
+
+═══════════════ SCHEME: dark ═══════════════
+
+[LEG1 · title] document.title = "Color Picker"
+
+[LEG2 · title= roster] total [title] elements = 0
+  non-dock [title] elements = 0 (of first 0 sampled)
+
+[LEG3 · ::selection] declared ::selection rules = 0
+  getComputedStyle(el,'::selection') color=color(srgb 1 1 1 / 0.8) bg=rgba(0, 0, 0, 0)
+
+[LEG4 · cursor grammar]
+  spectrum   (.spectrum-picker) → cursor: crosshair
+  sliderThumb([role='slider']) → cursor: auto
+  blob       (.goo-blob-hit) → cursor: pointer
+
+[LEG5 · scrollbar material] pane-scroller found=true
+  .rounded-card text-card-foreground scrollbar-hidden [--card-p
+  scrollbar-color: auto · scrollbar-width: none
+  scrollHeight 7599 / clientHeight 772 · overflows=true
+
+[LEG4b · gradient cursor]
+  rail     (.gradient-rail) → cursor: copy
+  stopThumb(.gradient-rail [class*='cursor-grab']) → cursor: grab
+  [forced-overflow @420h] pane overflows=true (987/323)
+
+[LEG6 · THROWN-ERROR STATE] error plate present=true
+  role=alert (R7: role='alert' required)
+  glyph present=true class="lucide lucide-circle-alert-icon lucide-c" color=oklab(0.633298 0.181499 0.0843767 / 0.8) (R7: CircleAlert)
+  message: "The commons is unreachable." color=oklab(0.925196 0.00238398 0.00574207 / 0.85) font=Fraunces
+  detail:  "Failed to load palettes" color=rgb(195, 185, 172) font="Fira Code"
+  Retry action present=true text="Retry"
+  NEGATIVE CONTROLS (must be empty-state-free): ghostTrio=true eyebrow=false
+  plate ground (nearest painted ancestor bg) = oklab(0.362792 0.0101461 0.0171963 / 0.7424)
+
+[console] errors this scheme = 1
+   ! Failed to load resource: net::ERR_CONNECTION_REFUSED

@@ -5,9 +5,8 @@ import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components/ui/collapsible";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
-import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
-import PaletteColorStrip from "@components/custom/palette-browser/PaletteColorStrip.vue";
-import EmptyState from "@components/custom/palette-browser/EmptyState.vue";
+import { PaletteCard, PaletteColorStrip } from "@components/custom/palette-browser/card";
+import EmptyState from "@components/common/EmptyState.vue";
 import type { Palette } from "@lib/palette/types";
 import type { SelectedColor } from "./composables/useMixingState";
 
@@ -132,10 +131,22 @@ watch(
                         data-mix-source
                         :data-mix-color="sc.css"
                     >
+                        <!-- T.W6 · W6-7 (T-28's register-law sibling): the
+                             former `ring-2 ring-primary/50` here was
+                             CASCADE-DEAD — Tailwind ring utilities compose
+                             the box-shadow channel in @layer utilities and
+                             the dot's own UNLAYERED material shadow wins the
+                             cascade; probed live 2026-07-11 (computed
+                             box-shadow = the dot's 3-layer material only, no
+                             ring component). The register law: rings on
+                             WatercolorDots ride the dot's own silhouette
+                             (the P5 producer solid-ring register) or do not
+                             exist — the dead utility is excised, never
+                             re-minted geometric. -->
                         <WatercolorDot
                             :color="sc.css"
                             tag="div"
-                            class="w-11 h-11 sm:w-12 sm:h-12 shrink-0 ring-2 ring-primary/50"
+                            class="w-11 h-11 sm:w-12 sm:h-12 shrink-0"
                             :title="`${sc.css} (${sc.source})`"
                         />
                         <button
@@ -172,8 +183,12 @@ watch(
                     <span class="section-label">From palettes</span>
                     <span class="text-micro text-muted-foreground">{{ savedPalettes.length }}</span>
                     <div class="flex-1" />
+                    <!-- T.W6.5 row 8 (F-4 sweep): the /50 post-hoc alpha over
+                         the muted rung dies — the token IS the de-emphasis
+                         rung; attenuating it further is the guard-then-alpha
+                         class ("quieter" and "illegible" must never collapse). -->
                     <ChevronDown
-                        class="w-4 h-4 text-muted-foreground/50 transition-transform group-hover:text-foreground"
+                        class="w-4 h-4 text-muted-foreground transition-transform group-hover:text-foreground"
                         :class="paletteDropdownOpen && 'rotate-180'"
                     />
                 </CollapsibleTrigger>
@@ -213,10 +228,14 @@ watch(
 
         <!-- Palettes mode -->
         <template v-else>
-            <!-- S.W5-6 · F3: TRUE EMPTY speaks the specimen-plate register
-                 (Q6) — never the loading grammar. The eternal skeleton died:
-                 loading ≠ empty, and this store is synchronous (no loading
-                 state exists here at all). -->
+            <!-- T.W6.5 · Lane S (R12 — the owner overrule of the D9
+                 as-filler deployment; MANDATE §0.6 t33-audit-12
+                 "superfluous shadow palettes everywhere"): TRUE EMPTY
+                 speaks the EmptyState invitation ALONE — the watercolor
+                 dot trio + dashes (its default register, N-3 re-aimed),
+                 never ghost cards before the caption. This store is
+                 synchronous — no loading species exists here, and none
+                 is announced (F3's semantics survive, honest). -->
             <EmptyState
                 v-if="savedPalettes.length === 0"
                 eyebrow="· nothing to mix ·"

@@ -26,17 +26,17 @@ import {
     type Services,
     type Repositories,
     type WithTransaction,
-} from "../src/middleware/inject-services.js";
-import { makeCollections } from "../src/db/collections.js";
-import { PaletteRepository } from "../src/repositories/palette.js";
-import { PaletteVersionRepository } from "../src/repositories/paletteVersion.js";
-import { VoteRepository } from "../src/repositories/vote.js";
-import { SessionRepository } from "../src/repositories/session.js";
-import { ProposedNameRepository } from "../src/repositories/proposedName.js";
-import { TagRepository } from "../src/repositories/tag.js";
-import { FlagRepository } from "../src/repositories/flag.js";
-import { AdminAuditRepository } from "../src/repositories/adminAudit.js";
-import { UserRepository } from "../src/repositories/user.js";
+} from "../src/platform/http/inject-services.js";
+import { makeCollections } from "../src/platform/db/collections.js";
+import { PaletteRepository } from "../src/modules/palette/repository/palette.js";
+import { PaletteVersionRepository } from "../src/modules/palette/repository/paletteVersion.js";
+import { VoteRepository } from "../src/modules/palette/repository/vote.js";
+import { SessionRepository } from "../src/modules/session/repository/session.js";
+import { ProposedNameRepository } from "../src/modules/color/repository/proposedName.js";
+import { TagRepository } from "../src/modules/color/repository/tag.js";
+import { FlagRepository } from "../src/modules/palette/repository/flag.js";
+import { AdminAuditRepository } from "../src/modules/admin/repository/adminAudit.js";
+import { UserRepository } from "../src/modules/session/repository/user.js";
 
 export interface TestConnection {
     client: MongoClient;

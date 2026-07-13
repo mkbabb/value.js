@@ -34,15 +34,17 @@ const open = defineModel<boolean>("open", { default: false });
 
 const pm = inject(PALETTE_MANAGER_KEY)!;
 
-// W7-4 (ONE dock voice) — each menu entry speaks ITS OWN gamut-guarded view
-// hue (the `--accent-view-<id>` static tokens useViewAccents writes): the
-// menu is the navigation's color-wheel legend. Admin entries keep the gold
-// identity (admin is a mode, not a hue turn — viewSchema's own ruling).
-function entryAccent(id: string): string {
-    return id.startsWith("admin-")
-        ? "var(--color-gold)"
-        : `var(--accent-view-${id})`;
-}
+// T.W6 · W6-4 (T-10, the owner overrule of W7-4's color-wheel legend): the
+// menu speaks INK. Rows are icon + label in the popover foreground pair;
+// the per-row view-hue legend (`entryAccent` + the `--accent-view-<id>`
+// tokens + the dot column) is EXCISED — seven simultaneous 40°-fan hues at
+// matched L/C carried near-zero discriminative information. Chromatic
+// identity in the nav belongs to the DESTINATION of color data: exactly ONE
+// row — Palettes — wears the guarded letterform ramp (Q5 RULED; the
+// `.palettes-ramp-text` recipe over the `--palettes-ramp-*` tokens, the C3
+// sanctioned exception). Admin keeps gold (mode identity, not a hue turn).
+// The trigger/seal still name the CURRENT view in hue (`--accent-view`) —
+// the ink menu's one counterweight (R1 SURVIVES).
 </script>
 
 <template>
@@ -93,24 +95,25 @@ function entryAccent(id: string): string {
                     class="py-1.5 px-2.5"
                     hide-indicator
                 >
-                    <!-- W7-4 — the color-wheel legend: every entry's dot +
-                         icon speak THEIR OWN view hue (the 9 gamut-guarded
-                         static tokens), never the live accent (that voice
-                         belongs to Tools/Login — app chrome). The former
-                         current-item-only live dot + gray siblings die here.
-                         S.W5-7 (Q4 EXCISE) stands: labels speak ink — hue
-                         belongs to color-data surfaces (dots/icons). -->
+                    <!-- W6-4 (T-10) — the INK menu: icon + label, both the
+                         popover foreground. P4-R4 (T-40a): the current
+                         entry's `font-semibold` selection marker is RETIRED
+                         (the ColorSpaceSelector precedent — the owner's
+                         "dropdown options should not be bold"): EVERY option
+                         computes 400, selection speaks reka's `aria-selected`
+                         + the producer's glass-quiet highlighted-on-open row,
+                         never weight. The one chromatic row is Palettes (Q5
+                         RULED): its label letterforms wear the guarded ramp —
+                         the nav row whose destination IS color data. The W7-4
+                         legend (per-row hue + dot swatch column) died here. -->
                     <span class="flex items-center gap-2">
-                        <span
-                            class="inline-block w-2 h-2 rounded-full shrink-0 transition-colors"
-                            :style="{ backgroundColor: entryAccent(entry.id) }"
-                        ></span>
                         <component
                             :is="entry.icon"
                             class="w-4 h-4 shrink-0"
-                            :style="{ color: entryAccent(entry.id) }"
                         />
-                        <span :class="currentView === entry.id ? 'font-semibold' : ''">{{ entry.label }}</span>
+                        <span
+                            :class="entry.id === 'palettes' ? 'palettes-ramp-text' : ''"
+                        >{{ entry.label }}</span>
                     </span>
                 </SelectItem>
 
@@ -122,13 +125,15 @@ function entryAccent(id: string): string {
                         class="py-1.5 px-2.5"
                         hide-indicator
                     >
+                        <!-- W6-4: the dot column died with the legend (the
+                             admin rows shed theirs identically — S-12
+                             superfluity). Gold ink stays: mode identity,
+                             the ledger's second sanctioned exception. -->
                         <span v-if="!isAdminMode" class="flex items-center gap-2">
-                            <span class="inline-block w-2 h-2 rounded-full shrink-0" style="background: var(--color-gold)"></span>
                             <Shield class="w-4 h-4 shrink-0 gold-shimmer-icon" />
                             <span class="gold-shimmer">Admin</span>
                         </span>
                         <span v-else class="flex items-center gap-2">
-                            <span class="inline-block w-2 h-2 rounded-full shrink-0" style="background: color-mix(in srgb, var(--muted-foreground) 25%, transparent)"></span>
                             <ArrowLeft class="w-4 h-4 shrink-0 text-muted-foreground" />
                             <span>Back to app</span>
                         </span>

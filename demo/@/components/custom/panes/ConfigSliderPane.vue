@@ -97,9 +97,7 @@ function resetDefaults() {
 <template>
     <div class="relative w-full mx-auto h-full min-w-0">
         <Card
-            tier="wash"
-            :shadow="false"
-            :grain="false"
+            tier="resting"
             class="w-full min-w-0 h-full relative flex flex-col overflow-hidden"
         >
             <!-- The scroll region owns the fade mask + overflow; the action bar
@@ -111,10 +109,17 @@ function resetDefaults() {
                 <!-- Default slot for extra controls (e.g. AuroraPane select rows) -->
                 <slot />
 
+                <!-- T.W4-4 THE POPULATION CLAUSE (M-34): the console grammar
+                     extends to the app's SECOND slider population — the
+                     sections seat in the SAME rung-2 well (.console-well,
+                     the one-home class; P3 swap booked), live values wear
+                     certified ink, rows carry the touch rung <lg. O-18's
+                     config-slider rows judge this surface. -->
                 <div
                     v-if="sections.length > 0"
-                    class="flex flex-col gap-5 px-4 sm:px-6 pt-2 pb-6"
+                    class="px-4 sm:px-6 pt-2 pb-6"
                 >
+                    <div class="config-console console-well flex flex-col gap-5">
                     <div
                         v-for="section in sections"
                         :key="section.title"
@@ -147,6 +152,7 @@ function resetDefaults() {
                             />
                         </ConfiguratorRow>
                     </div>
+                    </div>
                 </div>
             </div>
 
@@ -172,6 +178,56 @@ function resetDefaults() {
 
 <style scoped>
 @reference "../../../styles/style.css";
+
+/* T.W4-4 (the population clause): the console well's inner rhythm + the
+ * certified-ink cure for the row's live value (the producer ConfiguratorRow
+ * names a muted-rung /70 post-hoc alpha — a guard-then-alpha ink over a live
+ * tint; on the well it re-inks at the certified de-emphasis rung
+ * `--ink-muted`, the D6 contract's stamped token) + the <lg touch rung
+ * (≥44px slider rows — the producer's own --dock-touch-target). */
+.config-console {
+    padding: 0.75rem 0.875rem;
+    /* T.W8 boot-A (defect · A-class · the named O-18 blind spot on the SECOND
+     * slider population): the config sliders' spectrum TRACK computed
+     * `var(--secondary)` — ~1.09:1 light / 1.26:1 dark on the well, an
+     * invisible control extent (WCAG 1.4.11 wants ≥3:1), and the spectrum
+     * `.slider-range` is transparent by recipe so no filled/unfilled split
+     * reads either. The W6.5 GRAPHICS cure (T-44a) covered the EXTRACT tracks
+     * only. Here the config population re-inks its track via the SAME cure
+     * class (the eb7bb2c-era `--slider-track-bg` feed, no `ui/slider` edit):
+     * the certified de-emphasis rung `--ink-muted` (the D6 contract's stamped
+     * token — the exact material ExtractControls falls to when no live pick
+     * threads) is ≥3:1 on the well by construction. o18-contrast-census's new
+     * config GRAPHICS leg is this row's born-RED gate. */
+    --slider-track-bg: var(--ink-muted, var(--muted-foreground));
+}
+.config-console :deep(.configurator-row .font-mono) {
+    color: var(--ink-muted, var(--muted-foreground));
+}
+
+/* T.W8-WR-11 (T-59) — THE ONE RHYTHM SOURCE, offered to the config population
+ * (M-34): the same container-scaled law the picker console carries, so the app
+ * has ONE rhythm regime, never a per-population hand-tune. The row block-size
+ * rides a clamp() of the pane container; the hard `<lg` 44px switch is retired
+ * for a coarse-pointer HIT-AREA EXTENSION on the row's slider (the tap zone
+ * reaches 44px without inflating the visual row). Clamp constants ride the
+ * WR-11 roster bracket. */
+.config-console :deep(.configurator-row) {
+    min-block-size: clamp(2rem, 7cqi, 2.625rem);
+}
+@media (pointer: coarse) {
+    .config-console :deep(.configurator-row .glass-slider) {
+        position: relative;
+    }
+    .config-console :deep(.configurator-row .glass-slider)::before {
+        content: "";
+        position: absolute;
+        inset-inline: 0;
+        top: 50%;
+        translate: 0 -50%;
+        block-size: max(100%, var(--dock-touch-target, 2.75rem));
+    }
+}
 
 .config-section-header {
     border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);

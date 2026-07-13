@@ -1,11 +1,10 @@
-import { useGlobalDark } from "@components/custom/dark-mode-toggle";
-import { computed } from "vue";
-import { parseCSSColor } from "@src/parsing/color";
-import { computeSafeAccent } from "@src/units/color/contrast";
-import { colorUnit2 } from "@src/units/color/normalize";
-
-const BG_LIGHTNESS_DARK = 0.15;
-const BG_LIGHTNESS_LIGHT = 0.97;
+import { useGlobalDark } from "@mkbabb/glass-ui/dark";
+import { computed, inject } from "vue";
+import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import { colorUnit2 } from "@mkbabb/value.js/color";
+import { INK_AMBIENT_KEY } from "@composables/color/keys";
+import { certifyAccentInk } from "@composables/color/ink";
+import { resolveSurfaceLightnessLive } from "@composables/color/useContrastSafeColor";
 
 /**
  * Computes CSS custom properties for heading colors derived from the given CSS color.
@@ -17,6 +16,13 @@ export function useMarkdownColors(cssColor: () => string | undefined) {
     // vueuse useDark: parallel stores raced the initial scheme resolution
     // (design-docs-about P2-5's observed wrong-theme paint).
     const { isDark } = useGlobalDark();
+
+    // D6 (T.W3-5 / h-wave-w2-w3 S1): this composable carried a local
+    // BG_LIGHTNESS shadow-duplicate of the retired constants — the "every
+    // consumer" claim's miss. The markdown body sits on the About card's
+    // RESTING plate; its heading-ink referent is THAT tier's composited
+    // lightness off the ONE live ambient source, never a page constant.
+    const ambient = inject(INK_AMBIENT_KEY)!;
 
     const mdColorVars = computed(() => {
         const colorStr = cssColor();
@@ -32,16 +38,15 @@ export function useMarkdownColors(cssColor: () => string | undefined) {
             const C = oklch.value.c.value;
             const H = oklch.value.h.value;
 
-            const bgL = isDark.value ? BG_LIGHTNESS_DARK : BG_LIGHTNESS_LIGHT;
-            const safe = computeSafeAccent(L, C, H, bgL, 0.35);
+            const bgL = resolveSurfaceLightnessLive(
+                "resting",
+                ambient.value,
+                isDark.value,
+            );
 
-            // Denormalize: L [0,1]→[0,1], C [0,1]→[0,0.5], H [0,1]→[0,360]
-            const denormL = safe.L;
-            const denormC = safe.C * 0.5;
-            const denormH = safe.H * 360;
-
-            // Boost chroma slightly for headings
-            const headingC = Math.max(denormC, 0.08);
+            // Denormalize: L [0,1]→[0,1], C [0,1]→[0,0.5], H [0,1]→[0,360];
+            // boost chroma slightly for headings.
+            const headingC = Math.max(C * 0.5, 0.08);
 
             // S.W4-8 — the register boundary: letterforms speak ONE ink.
             // The safe accent is minted once (the h2 rung, full strength);
@@ -53,7 +58,15 @@ export function useMarkdownColors(cssColor: () => string | undefined) {
             // type — design-docs-about P2-3.) The oklab mix against the
             // scheme's neutral foreground lowers C and moves L toward ink,
             // correctly in BOTH schemes, with no second color minted.
-            const accent = `oklch(${denormL} ${headingC} ${denormH})`;
+            //
+            // T.W3-5: the guard is `certifyAccentInk` — the D6 certified-ink
+            // path (distance guard + gamut-map + WCAG floor walk), keyed on
+            // the plate referent above; the former bare `computeSafeAccent`
+            // stopped at the distance heuristic.
+            const accent = certifyAccentInk(
+                `oklch(${L} ${headingC} ${H * 360})`,
+                bgL,
+            );
 
             return {
                 "--md-color-h2": accent,

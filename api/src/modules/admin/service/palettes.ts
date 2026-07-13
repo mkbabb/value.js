@@ -1,0 +1,80 @@
+/**
+ * Admin palettes service — palette moderation by admins.
+ *
+ * Owns:
+ *   - POST /admin/palettes/:slug/feature  (toggle featured/published status)
+ *   - DELETE /admin/palettes/:slug        (delete palette + cascade votes/flags)
+ *
+ * All admin actions emit a typed audit event via `emitAuditEvent`.
+ */
+
+import type { Services } from "../../../platform/http/inject-services.js";
+import { NotFoundError } from "../../../platform/http/errors/index.js";
+import { emitAuditEvent } from "../audit-log.js";
+import type { PaletteTier } from "../../palette/model.js";
+
+export interface FeatureToggleResult {
+    slug: string;
+    tier: PaletteTier;
+}
+
+/**
+ * I.W3 idempotent featured setter (CRUD-CONTRACT v2.0.0 §8). Replaces the
+ * pre-I.W3 toggle: `POST /palettes/{slug}/feature` with body `{ featured }`.
+ * Re-posting the same body returns 200 with no state change (idempotent);
+ * an audit row is emitted per call (the operator intent is logged even when
+ * the state-update is a no-op, so admin coordination is auditable).
+ */
+export async function setFeatured(
+    services: Services,
+    actorSlug: string | undefined,
+    slug: string,
+    featured: boolean,
+): Promise<FeatureToggleResult> {
+    const { palettes } = services.repositories;
+    const palette = await palettes.findBySlug(slug);
+    if (!palette) {
+        throw new NotFoundError("Palette not found");
+    }
+    const newTier: PaletteTier = featured ? "featured" : "standard";
+
+    // Idempotent: only write if state changes. Audit row STILL fires (the
+    // operator decision is recorded regardless of state delta).
+    if (palette.tier !== newTier) {
+        await palettes.update(slug, {
+            $set: { tier: newTier, updatedAt: new Date() },
+        });
+    }
+    await emitAuditEvent(services, actorSlug, "set-featured", {
+        target: `slug=${slug} featured=${featured} tier=${newTier}`,
+    });
+    return { slug, tier: newTier };
+}
+
+export async function deletePalette(
+    services: Services,
+    actorSlug: string | undefined,
+    slug: string,
+): Promise<void> {
+    const { palettes } = services.repositories;
+    // I.W2: admin delete is now soft (sets deletedAt). The reaper cron
+    // hard-deletes after the grace window (default 30 days). This matches the
+    // user-facing /palettes/{slug} DELETE shape — admin and user converge on
+    // the soft-delete model; restoration is uniform.
+    const palette = await palettes.findBySlug(slug);
+    if (!palette) {
+        throw new NotFoundError("Palette not found");
+    }
+    const now = new Date();
+    await services.withTransaction(async (session) => {
+        await palettes.update(
+            slug,
+            { $set: { deletedAt: now, updatedAt: now } },
+            session,
+        );
+        if (palette.forkOf) {
+            await palettes.decrementForkCount(palette.forkOf, session);
+        }
+    });
+    await emitAuditEvent(services, actorSlug, "delete-palette", { target: `slug=${slug}` });
+}

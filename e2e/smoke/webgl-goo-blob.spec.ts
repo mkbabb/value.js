@@ -63,23 +63,26 @@ test("goo-blob canvas survives view switch without webglcontextlost", async ({
     //    S-4's "4px smudge, clipped at the corner, renders nothing". Numeric
     //    assertions only, no pixel snapshot (no bit-rot on palette change):
     //
-    //    1 · SIZE. A degenerate/clipped blob collapses to a few px. The live
-    //        hero canvas is ~282×282 at 1280×720; floor at 100 catches the
-    //        smudge with margin.
+    //    1 · SIZE. A degenerate/clipped blob collapses to a few px; floor at
+    //        100 catches the smudge with margin. T.W4-5: the re-mounted blob
+    //        EMERGES through the 500ms goo-scale pose (W2-4) — POLL to the
+    //        settled footprint before the exact assert (a bare read samples
+    //        the arrival pose). Under THE SEAT (D8 — the corner-break law is
+    //        dead) the wrapper sits wholly inside the card; only the
+    //        transparent 1.6× canvas overscan crosses edges, so the canvas
+    //        trivially intersects the viewport — the off-screen assert stays
+    //        as the cheap mispositioning guard.
+    await expect
+        .poll(async () => (await blob.boundingBox())?.width ?? 0, {
+            timeout: 4000,
+            message: "goo-blob never settled past the emerge pose",
+        })
+        .toBeGreaterThanOrEqual(100);
     const box = await blob.boundingBox();
     if (!box) throw new Error("goo-blob canvas has no layout box");
     const vp = page.viewportSize();
     if (!vp) throw new Error("no viewport size");
-    expect(box.width, "goo-blob width (S-4 smudge floor)").toBeGreaterThanOrEqual(100);
     expect(box.height, "goo-blob height (S-4 smudge floor)").toBeGreaterThanOrEqual(100);
-    // The canvas intentionally corner-breaks PAST the card edge (the W6-4
-    // slot-owned placement law: bead center on the card's corner-radius
-    // origin, ColorPicker `.hero-blob-anchor`; safari-truth §P1 confirmed the
-    // break is design, not a DOM clip — `.app-layout` overflow does not clip
-    // it), so we do NOT assert containment. We assert only that it is not positioned
-    // ENTIRELY off-screen: a real chunk still intersects the viewport (a
-    // mispositioned fully-off-canvas blob fails). The intentional break leaves
-    // a modest visible slice; floor low to accommodate the design.
     const visibleW = Math.min(box.x + box.width, vp.width) - Math.max(box.x, 0);
     const visibleH = Math.min(box.y + box.height, vp.height) - Math.max(box.y, 0);
     expect(visibleW, "goo-blob not entirely off-screen (x)").toBeGreaterThan(10);

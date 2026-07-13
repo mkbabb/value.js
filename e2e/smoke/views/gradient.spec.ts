@@ -1,13 +1,15 @@
 import { test, expect } from "@playwright/test";
 import type { Locator, Page } from "@playwright/test";
 import { setupEnvNoise } from "../fixtures/env-noise";
-import { openView } from "../fixtures/dock";
+import { openView, paneSettled } from "../fixtures/dock";
 
 /**
- * Smoke (D.W5 Lane A) + the S.W5 §6.1 gradient interaction spec (Lane C):
- * stop add / drag / remove, the atomic round-trip with its explicit failure
- * surface (W5-11), the easing row's live ramp (W5-9), the perceived-space
- * plate (W5-8), and the at-rest no-compositing-transform audit (W5-10).
+ * Smoke (D.W5 Lane A) + the S.W5 §6.1 gradient interaction spec (Lane C),
+ * EXTENDED at T.W6-2 (the §6.1 extension the O-21 gate names): stop add /
+ * drag / remove, the atomic round-trip with its explicit failure surface
+ * (W5-11), the easing row's live ramp (W5-9), the hue-swept envelope plate
+ * (T.W6-2, ex the W5-8 slice), the rail-normalization/render-tile job split
+ * (T-21b), and the at-rest no-compositing-transform audit (W5-10).
  */
 
 async function openGradient(page: Page): Promise<Locator> {
@@ -17,6 +19,10 @@ async function openGradient(page: Page): Promise<Locator> {
     await expect(
         main.getByRole("heading", { name: "Gradient" }).last(),
     ).toBeVisible();
+    // The swap spring must be at rest before interactions — the cold-load
+    // stall-then-resume enter transition defeats Playwright's bounding-box
+    // stability check (see paneSettled).
+    await paneSettled(page);
     return main;
 }
 
@@ -43,13 +49,94 @@ test("gradient view renders direction slider with zero console errors", async ({
     await expect(
         main.getByRole("heading", { name: "Interpolation" }).last(),
     ).toBeVisible();
-    // W5-8: the perceived-space plate is the hero — present, sized, and
-    // stating its condition (the running-hue chip).
+    // T.W6-2 (ex W5-8): the envelope plate is the hero — present, sized,
+    // and stating its FULL condition: space, swept hues (a single hue when
+    // pinned/degenerate, a range for a hue-varying ramp), and the
+    // cusp-adaptive axis.
     const plate = main
         .getByRole("img", { name: /Perceived-space plate/ })
         .last();
     await expect(plate).toBeVisible();
+    await expect(plate).toContainText(/H \d+(–\d+)?°/);
+    await expect(plate).toContainText(/C ≤ 0\.\d+/);
+
+    expect(consoleErrors).toEqual([]);
+});
+
+test("the rail is a normalized 90° projection; the render tile carries type + direction (T-21b)", async ({
+    page,
+}) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+
+    const railImage = () =>
+        bar(main).evaluate((el) => getComputedStyle(el).backgroundImage);
+    const tileImage = () =>
+        main
+            .getByTestId("gradient-render-tile")
+            .last()
+            .evaluate((el) => getComputedStyle(el).backgroundImage);
+
+    // Angled linear: the rail NEVER rotates (the ramp completes the full
+    // strip — "too short" is dead); the tile carries the angle.
+    await typeIntoEditor(main, page, "linear-gradient(30deg, red, blue)");
+    await expect
+        .poll(tileImage, { timeout: 3000 })
+        .toMatch(/^linear-gradient\(30deg/);
+    expect(await railImage()).toMatch(/^linear-gradient\(90deg/);
+
+    // Reversed direction: the rail axis NEVER flips against the handles.
+    await typeIntoEditor(main, page, "linear-gradient(270deg, red, blue)");
+    await expect
+        .poll(tileImage, { timeout: 3000 })
+        .toMatch(/^linear-gradient\(270deg/);
+    expect(await railImage()).toMatch(/^linear-gradient\(90deg/);
+
+    // Conic: an angular sweep can NOT live in the editing strip — the tile
+    // renders it; the rail stays the normalized projection.
+    await typeIntoEditor(main, page, "conic-gradient(from 45deg, red, blue)");
+    await expect
+        .poll(tileImage, { timeout: 3000 })
+        .toMatch(/^conic-gradient\(from 45deg/);
+    expect(await railImage()).toMatch(/^linear-gradient\(90deg/);
+
+    expect(consoleErrors).toEqual([]);
+});
+
+test("selecting a stop pins the envelope plate to its single-hue slice; Escape and re-tap un-pin it (P7-R1)", async ({
+    page,
+}) => {
+    const consoleErrors = setupEnvNoise(page);
+    const main = await openGradient(page);
+    const plate = main
+        .getByRole("img", { name: /Perceived-space plate/ })
+        .last();
+
+    // Default hue-varying seed: the label states a RANGE.
+    await expect(plate).toContainText(/H \d+–\d+°/);
+
+    // Pin: select the first stop — the label collapses to that hue alone
+    // (the degenerate slice, the stated special case).
+    const first = handles(main).first();
+    await first.click();
     await expect(plate).toContainText(/H \d+°/);
+    await expect(plate).not.toContainText(/H \d+–\d+°/);
+
+    // Release leg A (P7-R1 — the EXIT the sweep regime lacked): Escape on
+    // the focused handle clears the selection, un-pinning the plate back to
+    // the swept-hue hero regime (a hue RANGE) WITHOUT destroying a stop.
+    await first.focus();
+    await page.keyboard.press("Escape");
+    await expect(plate).toContainText(/H \d+–\d+°/);
+    await expect(handles(main)).toHaveCount(2);
+
+    // Release leg B: a re-tap on the already-selected handle (the pointer
+    // twin of Escape — touch has no Escape key) toggles the selection off.
+    await first.click(); // re-pin
+    await expect(plate).not.toContainText(/H \d+–\d+°/);
+    await first.click(); // re-tap → deselect
+    await expect(plate).toContainText(/H \d+–\d+°/);
+    await expect(handles(main)).toHaveCount(2);
 
     expect(consoleErrors).toEqual([]);
 });
@@ -192,12 +279,23 @@ test("easing row carries its live ramp; steps mode lands in the literal", async 
         main.getByRole("img", { name: /Eased ramp for interval/ }).last(),
     ).toBeVisible();
 
-    // Flip the interval to Steps (SegmentedTabs pill = role=group +
-    // aria-pressed buttons): the authored literal follows.
-    await main.getByRole("button", { name: "Steps", exact: true }).last().click();
-    await expect(main.locator(".interval-head code").first()).toContainText(
-        /steps\(/i,
+    // Flip the interval to steps. T.W6-3 (the interval specimen bench)
+    // retired the SegmentedTabs mode pill — selection now lives on the
+    // specimen strip's aria-pressed tiles; `exact` dodges the
+    // step-start/step-end siblings. The authored literal follows into the
+    // row's ONE readout rail (the one-literal law), byte-exact to the
+    // catalogue's mint (`stepsLiteral(4, "end")`).
+    const strip = main
+        .getByRole("group", { name: "Easing curve specimens" })
+        .first();
+    await strip.getByRole("button", { name: "steps", exact: true }).click();
+    await expect(main.locator(".readout-rail code").first()).toContainText(
+        "steps(4, end)",
         { timeout: 3000 },
+    );
+    // The closed-row identity law: the row head speaks the steps family.
+    await expect(main.locator(".interval-head").first()).toContainText(
+        "steps",
     );
 
     expect(consoleErrors).toEqual([]);

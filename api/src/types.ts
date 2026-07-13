@@ -1,6 +1,6 @@
 import type { WithId } from "mongodb";
-import type { Services } from "./middleware/inject-services.js";
-import type { Palette } from "./models.js";
+import type { Services } from "./platform/http/inject-services.js";
+import type { Palette } from "./modules/palette/model.js";
 
 export type AppEnv = {
     Variables: {

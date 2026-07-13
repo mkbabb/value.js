@@ -1,15 +1,15 @@
 import { describe, expect, it } from "vitest";
-import { parseCSSStylesheet } from "../src/parsing/stylesheet";
-import { serializeStylesheet } from "../src/parsing/serialize";
-import { parseCSSValue } from "../src/parsing";
-import { lowerSpringEasing, parseSpring } from "../src/parsing/easing";
+import { parseCSSStylesheet } from "@src/parsing/stylesheet";
+import { serializeStylesheet } from "@src/parsing/stylesheet/serialize";
+import { parseCSSValue } from "@src/parsing";
+import { lowerSpringEasing, parseSpring } from "@src/parsing/timeline/easing";
 import type {
     Declaration,
     KeyframeRule,
     KeyframeSelector,
     Stylesheet,
     StylesheetItem,
-} from "../src/parsing/stylesheet";
+} from "@src/parsing/stylesheet";
 
 // ───────────────────────────────────────────────────────────────────────────
 // inv-O-2 — the SEMANTIC-IDEMPOTENCE invariant (O.W5 / D5).

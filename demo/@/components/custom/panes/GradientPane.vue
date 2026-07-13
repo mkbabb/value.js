@@ -2,8 +2,8 @@
 import { inject, ref } from "vue";
 import { Card } from "@components/ui/card";
 import PaneHeader from "./PaneHeader.vue";
-import GradientVisualizer from "@components/custom/gradient/GradientVisualizer.vue";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import GradientVisualizer from "@components/custom/gradient/GradientVisualizer/GradientVisualizer.vue";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const visualizerRef = ref<InstanceType<typeof GradientVisualizer> | null>(null);
@@ -17,7 +17,7 @@ defineExpose({
 
 <template>
     <div class="relative w-full mx-auto h-full min-w-0">
-        <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
+        <Card tier="resting" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
             <PaneHeader description="Build gradients with per-interval easing and CSS output.">
                 Gradient
             </PaneHeader>

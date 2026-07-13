@@ -17,7 +17,10 @@ export default defineConfig({
         },
     },
     test: {
-        include: ["test/*.ts"],
+        // T.W1-src §5: the test tree mirrors the src shape (test/units/color/…,
+        // test/parsing/…, test/transform/, test/quantize/); the flat `test/*.ts`
+        // glob would miss every mirrored subdir.
+        include: ["test/**/*.ts"],
         environment: "jsdom",
     },
 });

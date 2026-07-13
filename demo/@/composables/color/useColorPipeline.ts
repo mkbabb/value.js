@@ -1,15 +1,16 @@
-import { computed, onScopeDispose, ref, watch, type ShallowRef } from "vue";
+import { computed, ref, watch, type ShallowRef } from "vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import { debounce } from "@src/utils";
-import type { ParsedColorUnit } from "@src/parsing/color";
-import { ValueUnit } from "@src/units";
-import type { ColorSpace } from "@src/units/color/constants";
-import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
+import { debounce } from "@utils/utils";
+import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
+import { ValueUnit } from "@mkbabb/value.js/units";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
 import {
     colorUnit2,
     normalizeColorUnit,
     normalizeColorUnitComponent,
-} from "@src/units/color/normalize";
+} from "@mkbabb/value.js/color";
+import { clampColorToSpaceDomain } from "./valueDomain";
 import type { ColorModel } from "@components/custom/color-picker";
 import {
     createDefaultColorModel,
@@ -18,10 +19,11 @@ import {
     CSS_NATIVE_SPACES,
     resolveColorSpace,
 } from "@components/custom/color-picker";
-import { useColorParsing } from "@components/custom/color-picker/composables/useColorParsing";
-import { useSliderGradients } from "@components/custom/color-picker/composables/useSliderGradients";
-import { useColorNameResolution } from "@components/custom/color-picker/composables/useColorNameResolution";
+import { useColorParsing } from "./useColorParsing";
+import { useSliderGradients } from "./useSliderGradients";
+import { useColorNameResolution } from "./useColorNameResolution";
 import { useColorPersistence } from "./useColorPersistence";
+import { useAtmosphereFrameCoalesce } from "./useAtmosphereFrameCoalesce";
 
 const DIGITS = 2;
 
@@ -34,17 +36,30 @@ const DIGITS = 2;
  * per-space savedColorStrings — seed rider 4, twins deleted); the stableHue
  * invariant preserved bit-for-bit; and declared persistence precedence
  * (URL-hash-wins-on-load, else the localStorage→model restore below, gated
- * behind URL-wins). The boot-material sink (`--saved-bg`/`color-picker-bg`)
- * moved to useAtmosphere at W6-1 — it carries the DERIVED field base stop,
- * which only the atmosphere owns.
+ * behind URL-wins). The boot-material sink (`--saved-bg-*`/the
+ * `color-picker-ground` record since T.W2-2) moved to useAtmosphere at W6-1
+ * — it carries the DERIVED field material, which only the atmosphere owns.
  */
 export function useColorPipeline(model: ShallowRef<ColorModel>) {
+    // T-33a (T.W6.5-P) — the BORN value enters the domain law too: the model
+    // arrives HYDRATED (boot/hydrate.ts seeds URL/storage/default before the
+    // pipeline exists — W2-1's ordering law), so a deep-linked
+    // `lab(40% 999 47)` would otherwise live in the model unclamped until
+    // the first gated write. Clamp before the first derivation (initHsv
+    // below reads it).
+    if (model.value.color) clampColorToSpaceDomain(model.value.color);
+
     // The sentinel — NOT a copy — distinguishes a self-originated write (slider/
     // component edit, which carries hue explicitly) from an external one (URL
     // load, palette apply, reset, which must refresh the stable hue).
     let lastWrittenModel: ColorModel | null = null;
 
     const updateModel = (patch: Partial<ColorModel>) => {
+        // T-33a (T.W6.5-P) — the ONE write gate: every color landing on the
+        // model enters its space's value domain here (the dynamic-max law —
+        // `./valueDomain`), so `lab(40% 999 47)` inks the space max and the
+        // readout reservation's worst case is true by construction.
+        if (patch.color) clampColorToSpaceDomain(patch.color);
         const next = { ...model.value, ...patch };
         lastWrittenModel = next;
         model.value = next; // the ONE ref — synchronous; derivations recompute now
@@ -60,6 +75,12 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         (m) => {
             if (m === lastWrittenModel) return; // skip self-originated writes
             if (!m.color) return;
+            // T-33a — the EXTERNAL-write seam: the App's URL live-sync writes
+            // `model.value` directly BY DESIGN (`patchModelExternal` — an
+            // updateModel write would be marked self-originated and skip this
+            // very watch's stableHue refresh), so the domain law binds here
+            // for that origin class; pre-flush, so render reads clamped truth.
+            clampColorToSpaceDomain(m.color);
             try {
                 const hsv = colorUnit2(m.color, "hsv", true, false, false);
                 const s = hsv.value.s.value;
@@ -272,57 +293,26 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     };
 
     // W6-1 (S.W6): the former applyTokens sink is GONE from the pipeline. It
-    // persisted the RAW opaque pick to `color-picker-bg` — the boot↔field
-    // material mismatch behind the load darkening/lightening snap (the ground
-    // painted the pick, the first aurora frame painted the derived field). The
-    // boot material is now owned by useAtmosphere: `--saved-bg` + the
-    // `color-picker-bg` persistence carry the derived BASE stop, so boot →
-    // first frame is ONE material. The inline-background clears died with the
-    // index.html boot script's inline writes (the fouc-guard `--saved-bg` rule
-    // is the one pre-hydration ground now). (--accent-live and the W7-4
-    // per-view accent tokens stay App-scoped — they read contrast/view
-    // state, seed rider 1.)
+    // persisted the RAW opaque pick — the boot↔field material mismatch behind
+    // the load darkening/lightening snap (the ground painted the pick, the
+    // first aurora frame painted the derived field). The boot material is now
+    // owned by useAtmosphere: the `--saved-bg-0..3` per-stop tokens + the
+    // `color-picker-ground` record (T.W2-2) carry the derived GRADIENT, so
+    // boot → first frame is ONE material. The inline-background clears died
+    // with the index.html boot script's inline writes (the fouc-guard
+    // gradient template is the one pre-hydration ground now). (--accent-live
+    // and the W7-4 per-view accent tokens stay App-scoped — they read
+    // contrast/view state, seed rider 1.)
 
     // --- W3-1 (S.W3): rAF-coalesce the colour → atmosphere fan-out ---
-    // The atmosphere fan-out — the aurora seed derive + the blob-palette derive
-    // (both in useAtmosphere) + the `--accent-live` contrast solve (App) — is
-    // the tranche's #1 perf cost (perf-transitions P0-1): three heavy derives
-    // (≈16 gamut-maps + a parse + an OKLab contrast solve) fired SYNCHRONOUSLY
-    // on EVERY `cssColorOpaque` change, i.e. 60×/s under a slider drag → the
-    // ~20fps / 31-of-44-janked collapse. This republishes the LATEST opaque
-    // colour AT MOST ONCE per animation frame; the atmosphere consumers read
-    // THIS signal (never the synchronous `cssColorOpaque`), so each drag frame's
-    // intermediate colours collapse to ONE derive. The picker's own instant
-    // surfaces (readout, tooltip, spectrum) keep the synchronous `cssColorOpaque`
-    // — only the atmosphere coalesces.
-    //
-    // S-18 (the aurora seed tracks the picked colour) is PRESERVED bit-for-bit:
-    // the LAST colour of every frame wins, so a settled drag lands its TERMINAL
-    // colour on the next frame and the seed still tracks — coalescing drops the
-    // intermediate colours, never the terminal one. Seeded with the current
-    // value so the FIRST paint derives synchronously (no atmosphere flash).
-    const opaqueFrameLatest = ref(cssColorOpaque.value);
-    let atmosphereFrame: number | null = null;
-    const publishOpaqueFrame = () => {
-        atmosphereFrame = null;
-        opaqueFrameLatest.value = cssColorOpaque.value; // latest-of-frame wins
-    };
-    watch(cssColorOpaque, () => {
-        if (atmosphereFrame !== null) return; // one derive already scheduled this frame
-        if (typeof requestAnimationFrame !== "function") {
-            publishOpaqueFrame(); // non-rAF env (SSR): republish synchronously
-            return;
-        }
-        atmosphereFrame = requestAnimationFrame(publishOpaqueFrame);
-    });
-    onScopeDispose(() => {
-        if (atmosphereFrame !== null && typeof cancelAnimationFrame === "function") {
-            cancelAnimationFrame(atmosphereFrame);
-        }
-    });
-    // The coalesced projection the atmosphere fan-out consumes (a ComputedRef so
-    // it drops into the existing `ComputedRef<string>` consumer signatures).
-    const cssColorOpaqueFrame = computed(() => opaqueFrameLatest.value);
+    // The coalesced projection the atmosphere fan-out consumes (aurora seed +
+    // blob palette + `--accent-live`): AT MOST ONE derive per animation frame
+    // under a slider drag, S-18 last-of-frame-wins preserved bit-for-bit. Lifted
+    // to `useAtmosphereFrameCoalesce` at T.W6.5 close (the PP-8 cohesion cure) —
+    // the perf concern + its rAF lifecycle + the full rationale travel whole into
+    // the named composable; the picker's own instant surfaces keep synchronous
+    // `cssColorOpaque`, only the atmosphere coalesces.
+    const cssColorOpaqueFrame = useAtmosphereFrameCoalesce(cssColorOpaque);
 
     return {
         // Model

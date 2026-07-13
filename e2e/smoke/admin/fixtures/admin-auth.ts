@@ -62,6 +62,10 @@ export const adminTest = base.extend({
         //    shape-correct empty envelope. No XHR ever hits the network.
         await page.route("**/admin/**", (route) => {
             const url = route.request().url();
+            // T.W1 F4: the `palette-browser/admin/` source dir now puts `/admin/`
+            // in vite MODULE URLs; mock ONLY genuine API calls (pathname `/admin/…`),
+            // never module/asset requests (let those fall through to the dev server).
+            if (!new URL(url).pathname.startsWith("/admin/")) return route.continue();
             // getAdminTags returns Tag[] directly (no PaginatedResponse wrapper).
             if (url.includes("/admin/tags")) {
                 return route.fulfill({

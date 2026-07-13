@@ -38,9 +38,12 @@ import {
  * the gate. The park itself is proven engine-independently by the draw-plateau
  * oracle; this spec measures the idle-frame CADENCE the park unlocks.
  */
-const N = 2000; // === HeroBlob.vue BLOB_IDLE_MS (the idle threshold)
-const PARK_SETTLE_MS = N + 1500; // wait past N (+ margin) for the loop to park
-const SAMPLE_WINDOW_MS = N + 500; // the idle sampling window — MUST exceed N
+// T.W4-5 (PI-4): the park-latency contract lives in the ONE shared fixture.
+import {
+    BLOB_IDLE_MS as N,
+    PARK_SETTLE_MS,
+    SAMPLE_WINDOW_MS,
+} from "../fixtures/blob-timing";
 
 test("idle picker frame budget: p50 ≤ 13ms with the blob mounted, window > N (built-bundle gate)", async ({
     page,

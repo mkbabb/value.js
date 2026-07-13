@@ -82,12 +82,16 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
             ref="slugInputRef"
             v-model="slugInput"
             placeholder="enter slug or token..."
-            class="text-mono-small bg-transparent border-none outline-none w-40 min-w-0 placeholder:text-muted-foreground/50"
+            class="text-mono-small bg-transparent border-none outline-none w-40 min-w-0 placeholder:text-muted-foreground"
             @keydown.escape.stop="slugEditMode = false"
         />
+        <!-- W6-8 register pass: native `title` retired dock-wide — icon-only
+             controls carry aria-label (the UA tooltip slab is a foreign
+             register on the liquid-glass dock). -->
         <DockIconButton
             compact
             type="submit"
+            aria-label="Switch to slug"
             :disabled="!slugInput.trim() || slugSwitching"
         >
             <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin" />
@@ -99,7 +103,7 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
 
     <DockIconButton
         compact
-        title="Generate new slug"
+        aria-label="Generate new slug"
         @click="slugEditMode = false; pm.onRegenerateSlug()"
     >
         <RefreshCw class="w-3.5 h-3.5" />
@@ -107,7 +111,7 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
 
     <DockIconButton
         compact
-        title="Cancel"
+        aria-label="Cancel"
         @click="slugEditMode = false"
     >
         <XIcon class="w-3.5 h-3.5" />

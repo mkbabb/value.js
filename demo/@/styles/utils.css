@@ -36,15 +36,49 @@
 /* The ONE loading-ink recipe (S.W5 Lane A / W5-1 — the `ec1b200` register,
  * modernized): every skeleton surface in the app reads this single muted-ink
  * family through glass-ui's `--skeleton-glass-bg` seam — one `color-mix`,
- * both schemes (the muted tokens are scheme-tuned by the producer), opaque
- * enough to read as SHADOW against the field, never as content. The
- * `--skeleton-shimmer-tint` line is the letter-L9 producer seam (the sheen
- * joins the same ink family once glass-ui's `::after` reads it). Consumers:
- * PaletteCardSkeleton, AdminListSkeleton, the admin tag-chip shadows. */
+ * both schemes, opaque enough to read as SHADOW against the field, never as
+ * content. The `--skeleton-shimmer-tint` line is the letter-L9 producer seam
+ * (the sheen joins the same ink family once glass-ui's `::after` reads it).
+ * Consumers: ShadowPalette + PaletteCardSkeleton (both `bg-well`),
+ * AdminListSkeleton + the admin tag-chip shadows (resting plate).
+ *
+ * E1-R2 (T.W8 remediation_1): the former `color-mix(muted-foreground 22%,
+ * muted)` recipe was NOT certified against its ground — in dark it landed ≈
+ * `--well-bg` (probed ΔL 0.007, seg-vs-well 1.02:1), collapsing the ghost to a
+ * featureless slab. The ink is now a CERTIFIED tone-step OF the well ground
+ * itself: a fixed φ-ish fraction of `--foreground` mixed into `--well-bg`, so
+ * the block is guaranteed a bounded ΔL from the well in BOTH schemes by
+ * construction (darker than the well in light, lifted above it in dark — the
+ * scheme-adaptive direction falls out of the token, no per-scheme fork), and
+ * the genesis "muted blocks" read as BLOCKS against every neutral skeleton
+ * ground (well ≈ resting plate). Low-chroma by construction (both `--well-bg`
+ * and `--foreground` are near-neutral), so the muted-family character holds. */
 .skeleton-ink-register {
-    --skeleton-ink: color-mix(in oklab, var(--muted-foreground) 22%, var(--muted));
+    --skeleton-ink: color-mix(in oklab, var(--well-bg), var(--foreground) 15%);
     --skeleton-glass-bg: var(--skeleton-ink);
     --skeleton-shimmer-tint: color-mix(in srgb, var(--muted-foreground) 24%, transparent);
+}
+
+/* The SPECIMEN ink walk (S.W5-1's `specimen` register, FINALLY consumed —
+ * T.W3-2 · D9): a low-chroma hue rotation around the live accent (fixed 36°
+ * steps, C clamped to 0.12) mixed INTO the ink base so the ghost stays
+ * shadow-first, per-segment via `--i`. Lifted here from PaletteCardSkeleton's
+ * scoped block the day it gained a second consumer (DESIGN.md's
+ * global-utility rule): the ShadowPalette true-empty ghost (STILL) reads it
+ * as fill; the developing skeleton's strip seams read it through glass-ui's
+ * `--skeleton-glass-bg`. Guarded: engines without relative-color calc() keep
+ * the plain ink base (the recipe never falls to transparent). */
+.specimen-seg {
+    --specimen-ink: var(--skeleton-ink);
+}
+@supports (color: oklch(from red calc(l) c calc(h + 36deg))) {
+    .specimen-seg {
+        --specimen-ink: color-mix(
+            in oklab,
+            var(--skeleton-ink) 78%,
+            oklch(from var(--accent-live) l 0.12 calc(h + var(--i, 0) * 36deg))
+        );
+    }
 }
 
 /* Dashed inset well — the recessed container that collects an in-progress set
@@ -62,15 +96,61 @@
      * `--card-edge` mint (in-house, scheme-stable), never a `--border` fork. */
     border: 1.5px dashed var(--card-edge);
     border-radius: var(--radius-card);
-    /* S.W5-2 (S-20): the well joins the ONE card species — the same
-     * bg-card/75 glass base + chip-scale cartoon rung as PaletteCard and
-     * PaletteCardSkeleton. The dashed edge ALONE carries the in-progress
-     * semantics ("the same card, unpinned"); the recessed-tray fork
-     * (muted wash + inset shadow) is dead. */
-    background: color-mix(in srgb, var(--card) 75%, transparent);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    /* T.W3-1 (D1 rung-2 WELL; supersedes the S-20 glass recipe — R8): an
+     * in-plate fixture is an opaque TONE-STEP of its host plate, never a
+     * second pane of glass — the ONE `--well-bg` token, NO backdrop-blur
+     * (blurring the aurora through the host is the mud generator, RC-3).
+     * The dashed edge ALONE carries the in-progress semantics; the chip
+     * cartoon rung stays. */
+    background: var(--well-bg);
     box-shadow: var(--shadow-cartoon-sm);
+}
+
+/* THE SEATED SEARCH FIELD (T.W3-3 · T-12 — THE REGISTER LAW: fields on paper
+ * wear paper; fields on glass stay glass). glass-ui's `.input-bar` recipe is
+ * dock furniture — the FLOATING chrome rung (80/88%-α glass + blur(13px) +
+ * a 24rem dock cap + a baked mono voice). Seated in a pane BODY it is the one
+ * floating-glass element in a cartoon-grammar column (t-search-tabs §1-3):
+ * over a flat plate the blur has nothing to blur, the dark roast reads darker
+ * than its own plate, and the cap rags the bar 78px short of its siblings at
+ * 1440 AND 768 (t-mobile F-7). This opt-in re-seats the bar on the MATERIAL
+ * LADDER as the Z2 in-plate fixture it is (DESIGN.md § Surfaces):
+ *
+ *   fill    — the ONE rung-2 `--well-bg` tone-step, NO backdrop-blur (RC-3);
+ *   edge    — the drawn `--card-edge` ink hairline (the dashed-well's solid
+ *             sibling — hairline law 4, ONE edge mint);
+ *   stamp   — `--shadow-cartoon-sm`, the chip-scale elevation PaletteCard rides;
+ *   measure — the dock cap dies: a seated field runs its host column (ASK-C);
+ *   voice   — content-class (the `.input-bar-field` rule below).
+ *
+ * INTERIM DEMO SEAT — a consumer opt-in on the producer recipe (unlayered, so
+ * it wins over the `@layer components` recipe by layer order — the exact
+ * mechanism the producer's own `bare` rung proved), NEVER a recipe fork.
+ * BOOKED SWAP (T.W3 §BOOKS "W3-3 interim search seat"): dies onto glass-ui's
+ * P3 seated field-chrome rung — GLASSUI-T-ASKS ASK-D (`variant="seated"`),
+ * with ASK-B (the font seam) + ASK-C (the cap seam) — at the adopt event. */
+.search-seated {
+    background: var(--well-bg);
+    backdrop-filter: none;
+    border: 1.5px solid var(--card-edge);
+    box-shadow: var(--shadow-cartoon-sm);
+    max-width: none;
+}
+
+/* Compose, never replace: the producer's focus ring joins the stamp (the
+ * unlayered base box-shadow above would otherwise silently beat the layered
+ * `.input-bar:focus-within` ring). */
+.search-seated:focus-within {
+    box-shadow: var(--shadow-cartoon-sm), var(--focus-ring-shadow);
+}
+
+/* Voice = CONTENT-CLASS (T-12): a prose search field speaks its plate's text
+ * voice; the producer's baked `--font-mono` (`components.css:235`, ASK-B's
+ * seam target) is a statement about CSS-literal readouts, not prose. Mono
+ * stays an EXPLICIT per-field opt-in (SearchFilterBar's color input keeps it
+ * by class; identifier fields opt back in the same way). */
+.search-seated .input-bar-field {
+    font-family: inherit;
 }
 
 /* The gold ADMIN-identity icon ink (S.W7-1 consume / W7-7 dedup home) — the
@@ -96,4 +176,27 @@
 }
 .swatch-row > .vj-enter-leave-active {
     position: absolute;
+}
+
+/* THE GUARDED LETTERFORM RAMP recipe (T.W6 · W6-4 — Q5 RULED, owner-verbatim:
+ * "Only palettes should be rainbow--the letterforms dropdown and the title";
+ * T-43 owner-CONFIRMS). The ONE recipe for the exactly-TWO consume sites
+ * (DockViewSelect's "Palettes" entry + PalettesPane's title letterforms) —
+ * never a scoped twin (the S.W7-7 lesson). Stops are the THREE root tokens
+ * `boot/useViewAccents` writes from the ONE resolver
+ * (`@composables/color/palettes-ramp` — derived from the live accent,
+ * gamut-guarded, WCAG ≥4.5:1 text-floor); the guard's output IS O-14's T-10
+ * referent. C3-ledger: the sanctioned exception to the nav ink law (Q18).
+ * Fallbacks = the resolver's own pre-first-write class of value (the
+ * `--accent-view` @property initial family), overwritten at first resolve. */
+.palettes-ramp-text {
+    background-image: linear-gradient(
+        90deg,
+        var(--palettes-ramp-0, oklch(0.632 0.214 333.5)),
+        var(--palettes-ramp-1, oklch(0.632 0.214 13.5)),
+        var(--palettes-ramp-2, oklch(0.632 0.214 53.5))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }

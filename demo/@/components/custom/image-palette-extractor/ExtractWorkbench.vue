@@ -25,11 +25,16 @@
                     @click="session.previewDataUrl.value && (eyedropperActive = true)"
                 />
 
-                <!-- Camera viewfinder (unified capability — T20) -->
+                <!-- Camera viewfinder (unified capability — T20).
+                     T.W3-1 (D1 rung-4 STAGE): the photographic ground + its
+                     caption veil + on-stage chrome read the NAMED near-black
+                     pair (--stage/--on-stage-chrome) — the raw bg-black/
+                     bg-white literals die (census §1.E; CC-7). The chip's
+                     backdrop-blur is TRUE glass: it floats over live video. -->
                 <Transition name="vj-enter">
                     <div
                         v-if="cameraActive"
-                        class="relative rounded-panel overflow-hidden bg-black shrink-0"
+                        class="relative rounded-panel overflow-hidden bg-stage shrink-0"
                     >
                         <video
                             ref="videoRef"
@@ -39,15 +44,15 @@
                             class="w-full max-h-[200px] object-cover"
                         />
                         <div
-                            class="absolute inset-x-0 bottom-0 flex justify-center p-2.5 bg-gradient-to-t from-black/50 to-transparent"
+                            class="absolute inset-x-0 bottom-0 flex justify-center p-2.5 bg-gradient-to-t from-stage/50 to-transparent"
                         >
                             <DockIconButton
                                 compact
-                                class="p-1.5 bg-white/20 hover:bg-white/40 backdrop-blur-sm"
+                                class="p-1.5 bg-on-stage-chrome/20 hover:bg-on-stage-chrome/40 backdrop-blur-sm"
                                 title="Capture frame"
                                 @click="captureFrame"
                             >
-                                <Aperture class="w-4.5 h-4.5 text-white" />
+                                <Aperture class="w-4.5 h-4.5 text-on-stage-chrome" />
                             </DockIconButton>
                         </div>
                     </div>
@@ -79,16 +84,25 @@
                     {{ session.quantizeError.value }}
                 </div>
 
-                <!-- The result plate. S.W5-6: loading wears the loading
-                     grammar (the developing skeleton — no generic spinner
-                     row, F12); the developed plate is ONE card whose own
-                     strip carries the population story (F7); TRUE EMPTY is
-                     the drop zone alone — the second invitation and the
-                     at-rest shimmer died (F1/F2, loading ≠ empty). -->
+                <!-- The result plate — D9's species grammar (T.W3-2; the T-13
+                     owner overrule R7 returns the material S.W5-6 F1/F2
+                     amputated, keeping its semantics). TRUE EMPTY wears the
+                     shadow palette: the instrument shows the shape of what
+                     it produces — `count` rides the k-slider LIVE, so k is
+                     legible before any image exists and the ghost
+                     re-segments under the slider. `isProcessing` swaps
+                     ghost → KNOWN-IMMINENT skeleton IN PLACE (same bones —
+                     a material change, not a layout jump; the `shadow`
+                     breath register, local compute — never the network
+                     `developing` sweep, whose name the old key mis-wore);
+                     the developed card (F7's one-card story) lands in the
+                     same seat. The caption carries the text for AT (the
+                     ghost is aria-hidden); the error line above stays its
+                     own explicit register (error ≠ empty). -->
                 <Transition name="vj-morph" mode="out-in">
                     <PaletteCardSkeleton
                         v-if="session.isProcessing.value"
-                        key="developing"
+                        key="imminent"
                         :count="session.colorCount.value"
                     />
                     <div
@@ -108,20 +122,20 @@
                             <span class="font-display text-display leading-none shrink-0">
                                 {{ Math.round(session.dominantShare.value * 100)
                                 }}<span
-                                    class="text-body font-normal text-muted-foreground"
+                                    class="text-body font-normal plate-ink"
                                     >% of the image</span
                                 >
                             </span>
                             <span class="flex items-baseline gap-2 min-w-0 ml-auto">
                                 <span
-                                    class="text-mono-caption uppercase tracking-[0.18em] text-muted-foreground shrink-0"
+                                    class="text-mono-caption uppercase tracking-[0.18em] plate-ink shrink-0"
                                     >dominant</span
                                 >
                                 <!-- truncate may trim trailing digits at narrow
                                      widths; the full readout rides title +
                                      select-all (never a lying readout). -->
                                 <code
-                                    class="fira-code text-mono-small text-muted-foreground truncate select-all"
+                                    class="fira-code text-mono-small plate-ink truncate select-all"
                                     :title="session.dominant.value.css"
                                     >{{ session.dominant.value.css }}</code
                                 >
@@ -140,6 +154,16 @@
                             @rename="session.onRename"
                             @add-color="(css) => emit('addColor', css)"
                         />
+                    </div>
+                    <div v-else key="shadow" class="flex flex-col gap-2">
+                        <ShadowPalette :count="session.colorCount.value" />
+                        <!-- The resurrected `ec1b200` caption — the AT text
+                             for the aria-hidden ghost above. -->
+                        <p
+                            class="text-mono-caption uppercase tracking-[0.18em] plate-ink text-center"
+                        >
+                            · undeveloped plate — feed it an image ·
+                        </p>
                     </div>
                 </Transition>
             </div>
@@ -162,15 +186,18 @@ import { ref, inject, onBeforeUnmount, useTemplateRef } from "vue";
 import { Aperture } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import type { ColorSpace } from "@src/units/color/constants";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import type { ColorSpace } from "@mkbabb/value.js/color";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
 import { useExtractSession } from "./composables/useExtractSession";
 
 import ImageDropZone from "./ImageDropZone.vue";
 import ExtractControls from "./ExtractControls.vue";
 import ImageEyedropper from "./ImageEyedropper/ImageEyedropper.vue";
-import PaletteCard from "@components/custom/palette-browser/PaletteCard.vue";
-import PaletteCardSkeleton from "@components/custom/palette-browser/PaletteCardSkeleton.vue";
+import {
+    PaletteCard,
+    PaletteCardSkeleton,
+    ShadowPalette,
+} from "@components/custom/palette-browser/card";
 
 type DisplayColorSpace = ColorSpace | "hex";
 
@@ -253,3 +280,14 @@ async function captureFrame() {
 
 onBeforeUnmount(stopCamera);
 </script>
+
+<style scoped>
+/* E1-R1 (T.W8 remediation_1): the dominance row + the undeveloped-plate ghost
+ * caption thread the certified de-emphasis rung (`--ink-muted` — boot-stamped,
+ * floor-clamped against the live resting plate; D6), never the STATIC
+ * `text-muted-foreground` that failed the text floor over the live-ambient
+ * plate in light. */
+.plate-ink {
+    color: var(--ink-muted, var(--muted-foreground));
+}
+</style>

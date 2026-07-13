@@ -8,6 +8,9 @@ my_venv/
 auth/
 _*
 !test/__snapshots__/
+# colocated per-domain test dirs (T.W1 Q17) — `_*` above would swallow them
+!**/__tests__/
+!**/__tests__/**
 dist/
 test-results/
 # scripts/dev.sh (npm run dev) runtime scratch — mongo dbpath, logs, .ports
@@ -24,3 +27,6 @@ test-results/
 *-dataurl.txt
 $OUT
 mix-*-snapshot.md
+# crashed-session stderr residue (T hardening G-12: err.log was un-dispositioned
+# scratch; ignore the class so a stray 2>err.log never re-enters the tree)
+*.log

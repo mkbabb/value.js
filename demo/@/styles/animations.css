@@ -210,3 +210,69 @@
         transition-property: opacity !important;
     }
 }
+
+/* -----------------------------------------------------------------------
+ * Pane swap — the App-shell enter/exit family (R.W4 Lane B / B1; moved
+ * here from App.vue's unscoped block at the T.W2-close PP-8 cap cure —
+ * it overrides the vj-enter base family THIS file hosts, so this is its
+ * cohesion home. Higher-specificity direct-child overrides: source order
+ * vs the base family is immaterial.)
+ * The former pane-slide/pane-left/pane-right trio collapsed onto
+ * `vj-enter`; these DIRECT-CHILD geometry overrides carry only the pane
+ * slots' off-canvas slide + cartoon-swagger rotate, opacity pinned (the
+ * swap reads as travel, not a fade). Direct-child (`>`) on purpose: an
+ * inherited `--vj-enter-*` var would leak the pane geometry into nested
+ * in-pane transitions. The PaneSlot <Transition> stays DEFAULT mode (the
+ * R.W3 dev-safe simultaneous cross-slide — DESIGN.md §Motion).
+ * ----------------------------------------------------------------------- */
+.pane-wrapper--left > .vj-enter-enter-from,
+.pane-wrapper--left > .vj-enter-leave-to {
+    opacity: 1;
+    transform: translateX(-110%) rotate(-2deg);
+}
+.pane-wrapper--right > .vj-enter-enter-from,
+.pane-wrapper--right > .vj-enter-leave-to {
+    opacity: 1;
+    transform: translateX(110%) rotate(2deg);
+}
+
+/* W3-4 (S.W3): promote the pane to its own compositor layer for the
+ * DURATION of the enter/leave transition ONLY (`*-active`) — never a
+ * standing `will-change` layer. The browser drops the hint the moment the
+ * transition class is removed. */
+.pane-wrapper--left > .vj-enter-enter-active,
+.pane-wrapper--left > .vj-enter-leave-active,
+.pane-wrapper--right > .vj-enter-enter-active,
+.pane-wrapper--right > .vj-enter-leave-active {
+    will-change: transform;
+}
+
+/* T.W5 · R2+R3 (T-14 / D7 — the two-channel law; one moment, one clock):
+ * the pane swap is a SPATIAL travel, so the ENTER rides `--spring-snappy`
+ * at the spring's OWN clock. The superseded W3-5 retune kept the smooth
+ * curve but squeezed it onto `--duration-normal` — the named
+ * normalized-spring-on-generic-clock anti-pattern (a spring linear()
+ * reaches ~0.5 by ~6% of ANY clock → all travel in the first ~60ms,
+ * then dead air; t-transitions-liquid F2). PKT-2 (the ~0.3s preset) is
+ * unanswered at this cut, so the swap lands on arm (i) —
+ * `--spring-snappy` @ `--spring-snappy-duration` (0.4s true settle);
+ * decision recorded on the T.md §7.2 book row.
+ * The LEAVE is the exit law: strictly SHORTER than the enter, bezier
+ * `--ease-out`, never an overshoot — the outgoing plate is gone before
+ * the incoming plate's overshoot lands (the prior full-0.3s ACCELERATE
+ * leave held the outgoing pane at full presence exactly when the
+ * incoming pane arrived — the F2 mid-flight collision). Both rules stay
+ * SCOPED to the pane wrappers: the un-scoped vj-enter family above is
+ * the F6 KEEP set, untouched. */
+.pane-wrapper--left > .vj-enter-enter-active,
+.pane-wrapper--right > .vj-enter-enter-active {
+    transition:
+        opacity var(--duration-fast) var(--ease-decelerate),
+        transform var(--spring-snappy-duration) var(--spring-snappy);
+}
+.pane-wrapper--left > .vj-enter-leave-active,
+.pane-wrapper--right > .vj-enter-leave-active {
+    transition:
+        opacity var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-out);
+}

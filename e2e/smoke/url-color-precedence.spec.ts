@@ -43,6 +43,20 @@ function accentLive(page: Page): Promise<string> {
     );
 }
 
+/**
+ * The HUE FIELD of the accent token, parsed (T.W6.5 lane I hardening): the
+ * former whole-string `toContain("<hue>")` was a substring PROXY — the
+ * certified voice `oklch(L C H)` false-positives it on chroma digits (the
+ * cusp walk lands e.g. C 0.1452 for the URL blue on the light plate, whose
+ * "145" is not a leaked hue). Both accent voices parse: the original pick
+ * string (`oklch(0.55 0.18 260)`, `oklch(75% 0.16 145deg / 100%)`) and the
+ * certified `oklch(0.3559 0.1452 260.0)`.
+ */
+function hueOf(css: string): number {
+    const m = /^oklch\(\s*[\d.%]+\s+[\d.]+\s+([\d.]+)/.exec(css);
+    return m ? Number(m[1]) : Number.NaN;
+}
+
 test("URL hash color WINS over populated localStorage (readout + trigger + accent agree)", async ({
     page,
 }) => {
@@ -68,9 +82,14 @@ test("URL hash color WINS over populated localStorage (readout + trigger + accen
     await expect(spaceTrigger).toHaveText("OKLCh");
 
     // The `--accent-live` root token agrees — the hue (260) survives the
-    // contrast guard (which shifts lightness only, preserving H).
-    await expect.poll(() => accentLive(page), { timeout: 8000 }).toContain("260");
-    expect(await accentLive(page)).not.toContain("145");
+    // contrast guard (which certifies L/C against the rung, preserving H).
+    // Asserted on the PARSED hue field (see `hueOf`), never a substring.
+    await expect
+        .poll(async () => Math.round(hueOf(await accentLive(page))), {
+            timeout: 8000,
+        })
+        .toBe(260);
+    expect(Math.round(hueOf(await accentLive(page)))).not.toBe(145);
 });
 
 test("localStorage RESTORES the last session when the hash carries no color", async ({
@@ -90,6 +109,12 @@ test("localStorage RESTORES the last session when the hash carries no color", as
         .last();
     await expect(hueReadout).toContainText("145");
 
-    // The `--accent-live` token agrees with the restored color.
-    await expect.poll(() => accentLive(page), { timeout: 8000 }).toContain("145");
+    // The `--accent-live` token agrees with the restored color — the same
+    // parsed-hue instrument (a "145" substring could one day ride chroma
+    // digits just as falsely in THIS direction).
+    await expect
+        .poll(async () => Math.round(hueOf(await accentLive(page))), {
+            timeout: 8000,
+        })
+        .toBe(145);
 });

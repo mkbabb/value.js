@@ -1,0 +1,34 @@
+[B · slider cursors] 4 [role=slider] found; track cursor=auto
+   12x24 cursor=auto aria="L channel" .slider-thumb glass-specular-track touch-hit-
+   12x24 cursor=auto aria="A channel" .slider-thumb glass-specular-track touch-hit-
+   12x24 cursor=auto aria="B channel" .slider-thumb glass-specular-track touch-hit-
+   12x24 cursor=auto aria="ALPHA channel" .slider-thumb glass-specular-track touch-hit-
+
+[A · pane-scroll-fade @gradient] found 2
+   sb-width=none sb-color=auto hidden-class=true overflows=true · .rounded-card text-card-foreground scrollbar-hidden [--card-p
+   sb-width=none sb-color=auto hidden-class=true overflows=false · .rounded-card text-card-foreground scrollbar-hidden [--card-p
+
+[A · pane-scroll-fade @extract] found 2
+   sb-width=none sb-color=auto hidden-class=true overflows=false · .rounded-card text-card-foreground scrollbar-hidden [--card-p
+   sb-width=none sb-color=auto hidden-class=true overflows=false · .rounded-card text-card-foreground scrollbar-hidden [--card-p
+
+[A · pane-scroll-fade @browse] found 2
+   sb-width=none sb-color=auto hidden-class=true overflows=false · .rounded-card text-card-foreground scrollbar-hidden [--card-p
+   sb-width=none sb-color=auto hidden-class=true overflows=false · .rounded-card text-card-foreground scrollbar-hidden [--card-p
+
+[C · [title] @gradient] total=2 · non-dock=1 · non-dock-without-aria=1
+   ---- <code title="cubic-bezier(0, 0, 1, 1)" [NO-ARIA]>
+   DOCK <button title="Copy CSS" [NO-ARIA]>
+
+[C · [title] @mix] total=0 · non-dock=0 · non-dock-without-aria=0
+
+[C · [title] @extract] total=4 · non-dock=1 · non-dock-without-aria=1
+   DOCK <button title="Upload image" [NO-ARIA]>
+   DOCK <button title="Open camera" [NO-ARIA]>
+   ---- <label title="Chroma weight" [NO-ARIA]>
+   DOCK <button title="Reset" [NO-ARIA]>
+
+[C · [title] @browse] total=0 · non-dock=0 · non-dock-without-aria=0
+
+[D · error plate ghost-trio scoped]
+   NO error plate (unexpected)

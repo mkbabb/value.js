@@ -1,0 +1,117 @@
+=== LEG 1 · the three walls × 6 cells ===
+[1440-light] mypalettes-empty  trio=1 ghosts=3 strokes=3 ariaHidden=true fillers=0 eyebrow=1 msg=1
+[1440-light]   ramp: clip=text color=rgba(0, 0, 0, 0) stops=oklch(0.3837 0.1732 329.8) | oklch(0.3871 0.1548 9.8) | oklch(0.3865 0.1025 49.8) bg=linear-gradient(90deg, oklch(0.3837 0.1732 329.8), oklch(0.3871 0.1548 9.8), oklch(0.3865 0.1025 49.8))
+[1440-light]   eyebrow ink rgb(112, 89, 66) on oklab(0.884503 0.00542215 0.0127179 / 0.678) → ~3.19:1 (alpha-blind approx)
+[1440-light] console errors: 0
+[1440-light] browse-empty  trio=1 ghosts=3 strokes=3 fillers=0 eyebrow=1 msg=1 alert=0 titleBg=none(ink)
+[1440-light] console errors: 0
+[1440-light] browse-wall  cards=8 fillers=0 skeletons=0 loadMore=1
+[1440-light]   card mat: bg=oklab(0.913295 0.00550478 0.0130424) border=oklab(0.216128 0.00350075 0.00518669 / 0.12) radius=16px blur=none classes=[rounded-card border-card-edge bg-well]
+[1440-light] console errors: 0
+[1440-dark] mypalettes-empty  trio=1 ghosts=3 strokes=3 ariaHidden=true fillers=0 eyebrow=1 msg=1
+[1440-dark]   ramp: clip=text color=rgba(0, 0, 0, 0) stops=oklch(0.3837 0.1386 329.8) | oklch(0.3837 0.1054 9.8) | oklch(0.3856 0.1022 49.8) bg=linear-gradient(90deg, oklch(0.3837 0.1386 329.8), oklch(0.3837 0.1054 9.8), oklch(0.3856 0.1022 49.8))
+[1440-dark]   eyebrow ink rgb(195, 185, 172) on oklab(0.362792 0.0101461 0.0171963 / 0.7424) → ~10.85:1 (alpha-blind approx)
+[1440-dark] console errors: 0
+[1440-dark] browse-empty  trio=1 ghosts=3 strokes=3 fillers=0 eyebrow=1 msg=1 alert=0 titleBg=none(ink)
+[1440-dark] console errors: 0
+[1440-dark] browse-wall  cards=8 fillers=0 skeletons=0 loadMore=1
+[1440-dark]   card mat: bg=oklab(0.345295 0.0103877 0.0175526) border=oklab(0.925196 0.00238398 0.00574207 / 0.12) radius=16px blur=none classes=[rounded-card border-card-edge bg-well]
+[1440-dark] console errors: 0
+[768-light] mypalettes-empty  trio=1 ghosts=3 strokes=3 ariaHidden=true fillers=0 eyebrow=1 msg=1
+[768-light]   ramp: clip=text color=rgba(0, 0, 0, 0) stops=oklch(0.3837 0.1732 329.8) | oklch(0.3871 0.1548 9.8) | oklch(0.3865 0.1025 49.8) bg=linear-gradient(90deg, oklch(0.3837 0.1732 329.8), oklch(0.3871 0.1548 9.8), oklch(0.3865 0.1025 49.8))
+[768-light]   eyebrow ink rgb(112, 89, 66) on oklab(0.884503 0.00542215 0.0127179 / 0.678) → ~3.19:1 (alpha-blind approx)
+[768-light] console errors: 0
+[768-light] browse-empty  trio=1 ghosts=3 strokes=3 fillers=0 eyebrow=1 msg=1 alert=0 titleBg=none(ink)
+[768-light] console errors: 0
+[768-light] browse-wall  cards=8 fillers=0 skeletons=0 loadMore=1
+[768-light]   card mat: bg=oklab(0.913295 0.00550478 0.0130424) border=oklab(0.216128 0.00350075 0.00518669 / 0.12) radius=16px blur=none classes=[rounded-card border-card-edge bg-well]
+[768-light] console errors: 0
+[768-dark] mypalettes-empty  trio=1 ghosts=3 strokes=3 ariaHidden=true fillers=0 eyebrow=1 msg=1
+[768-dark]   ramp: clip=text color=rgba(0, 0, 0, 0) stops=oklch(0.3837 0.1386 329.8) | oklch(0.3837 0.1054 9.8) | oklch(0.3856 0.1022 49.8) bg=linear-gradient(90deg, oklch(0.3837 0.1386 329.8), oklch(0.3837 0.1054 9.8), oklch(0.3856 0.1022 49.8))
+[768-dark]   eyebrow ink rgb(195, 185, 172) on oklab(0.362792 0.0101461 0.0171963 / 0.7424) → ~10.85:1 (alpha-blind approx)
+[768-dark] console errors: 0
+[768-dark] browse-empty  trio=1 ghosts=3 strokes=3 fillers=0 eyebrow=1 msg=1 alert=0 titleBg=none(ink)
+[768-dark] console errors: 0
+[768-dark] browse-wall  cards=8 fillers=0 skeletons=0 loadMore=1
+[768-dark]   card mat: bg=oklab(0.345295 0.0103877 0.0175526) border=oklab(0.925196 0.00238398 0.00574207 / 0.12) radius=16px blur=none classes=[rounded-card border-card-edge bg-well]
+[768-dark] console errors: 0
+[390-light] mypalettes-empty  trio=1 ghosts=3 strokes=3 ariaHidden=true fillers=0 eyebrow=1 msg=1
+[390-light]   ramp: clip=text color=rgba(0, 0, 0, 0) stops=oklch(0.3837 0.1732 329.8) | oklch(0.3871 0.1548 9.8) | oklch(0.3865 0.1025 49.8) bg=linear-gradient(90deg, oklch(0.3837 0.1732 329.8), oklch(0.3871 0.1548 9.8), oklch(0.3865 0.1025 49.8))
+[390-light]   eyebrow ink rgb(112, 89, 66) on oklab(0.884503 0.00542215 0.0127179 / 0.678) → ~3.19:1 (alpha-blind approx)
+[390-light] console errors: 0
+[390-light] browse-empty  trio=1 ghosts=3 strokes=3 fillers=0 eyebrow=1 msg=1 alert=0 titleBg=none(ink)
+[390-light] console errors: 0
+[390-light] browse-wall  cards=8 fillers=0 skeletons=0 loadMore=1
+[390-light]   card mat: bg=oklab(0.913295 0.00550478 0.0130424) border=oklab(0.216128 0.00350075 0.00518669 / 0.12) radius=16px blur=none classes=[rounded-card border-card-edge bg-well]
+[390-light] console errors: 0
+[390-dark] mypalettes-empty  trio=1 ghosts=3 strokes=3 ariaHidden=true fillers=0 eyebrow=1 msg=1
+[390-dark]   ramp: clip=text color=rgba(0, 0, 0, 0) stops=oklch(0.3837 0.1386 329.8) | oklch(0.3837 0.1054 9.8) | oklch(0.3856 0.1022 49.8) bg=linear-gradient(90deg, oklch(0.3837 0.1386 329.8), oklch(0.3837 0.1054 9.8), oklch(0.3856 0.1022 49.8))
+[390-dark]   eyebrow ink rgb(195, 185, 172) on oklab(0.362792 0.0101461 0.0171963 / 0.7424) → ~10.85:1 (alpha-blind approx)
+[390-dark] console errors: 0
+[390-dark] browse-empty  trio=1 ghosts=3 strokes=3 fillers=0 eyebrow=1 msg=1 alert=0 titleBg=none(ink)
+[390-dark] console errors: 0
+[390-dark] browse-wall  cards=8 fillers=0 skeletons=0 loadMore=1
+[390-dark]   card mat: bg=oklab(0.345295 0.0103877 0.0175526) border=oklab(0.925196 0.00238398 0.00574207 / 0.12) radius=16px blur=none classes=[rounded-card border-card-edge bg-well]
+[390-dark] console errors: 0
+=== LEG 2 · developing + error ===
+[1440-light] browse-developing  skeletons=4 trioDuringLoad=0 role=status label=Loading palette
+[1440-light]   seg anim el={none 0s ×1} ::after={skeleton-shimmer-slide-e270610f 1.5s delay=0s ×infinite}
+[1440-light]   settle → cards=8 (skeleton→wall hand-off)
+[1440-light] console errors: 0
+[1440-light] browse-error  alert=1 msg=1 retry=1 trio=0 fillers=0 | sibling trio=1 strokes=3
+[1440-light] console errors (error leg EXPECTS the loud fetch error): 0
+[1440-dark] browse-developing  skeletons=4 trioDuringLoad=0 role=status label=Loading palette
+[1440-dark]   seg anim el={none 0s ×1} ::after={skeleton-shimmer-slide-e270610f 1.5s delay=0s ×infinite}
+[1440-dark]   settle → cards=8 (skeleton→wall hand-off)
+[1440-dark] console errors: 0
+[1440-dark] browse-error  alert=1 msg=1 retry=1 trio=0 fillers=0 | sibling trio=1 strokes=3
+[1440-dark] console errors (error leg EXPECTS the loud fetch error): 0
+=== LEG 3 · Mix + Extract ===
+[1440-light] mix-empty  trio=1 ghosts=3 strokes=3 fillers=0 eyebrow=1
+[1440-light] console errors: 0
+[1440-dark] mix-empty  trio=1 ghosts=3 strokes=3 fillers=0 eyebrow=1
+[1440-dark] console errors: 0
+[390-light] mix-empty  trio=1 ghosts=3 strokes=3 fillers=0 eyebrow=1
+[390-light] console errors: 0
+[1440-light] extract-face  ghosts=1 aria-hidden=true role=null bg=oklab(0.913295 0.00550478 0.0130424) border=oklab(0.216128 0.00350075 0.00518669 / 0.12)
+[1440-light]   segs: pulse@0s · pulse@0.12s · pulse@0.24s · pulse@0.36s · pulse@0.48s
+[1440-light] console errors: 0
+=== LEG 4 · the ramp ×2 sites ===
+[1440-light] ramp title: clip=text color=rgba(0, 0, 0, 0) stops=oklch(0.3837 0.1732 329.8) | oklch(0.3871 0.1548 9.8) | oklch(0.3865 0.1025 49.8)
+[1440-light] ramp dropdown-entry present=1 clip=text stops=oklch(0.3837 0.1732 329.8) | oklch(0.3871 0.1548 9.8) | oklch(0.3865 0.1025 49.8)
+[1440-light] ramp-site census (DOM-wide .palettes-ramp-text): 2
+[1440-light] console errors: 0
+[1440-dark] ramp title: clip=text color=rgba(0, 0, 0, 0) stops=oklch(0.3837 0.1386 329.8) | oklch(0.3837 0.1054 9.8) | oklch(0.3856 0.1022 49.8)
+[1440-dark] ramp dropdown-entry present=1 clip=text stops=oklch(0.3837 0.1386 329.8) | oklch(0.3837 0.1054 9.8) | oklch(0.3856 0.1022 49.8)
+[1440-dark] ramp-site census (DOM-wide .palettes-ramp-text): 2
+[1440-dark] console errors: 0
+=== LEG 5 · dialog/detail ===
+[1440-light] mypalettes-populated  heading="My Palettes2" cards=2 trio=0 (trio must be 0 when populated)
+[1440-light]   card name voice: {"family":"Fraunces","size":"20.352px","weight":"500"}
+[1440-light] card-menu open  items=[ Publish  ·  Rename  ·  Export  ·  Delete ] mat={"bg":"oklab(0.936403 0.00557132 0.0133027 / 0.808)","blur":"blur(13px) saturate(1.6)","radius":"12px"}
+[1440-light] delete-all dialog present=1
+[1440-light] console errors: 0
+[1440-dark] mypalettes-populated  heading="My Palettes2" cards=2 trio=0 (trio must be 0 when populated)
+[1440-dark]   card name voice: {"family":"Fraunces","size":"20.352px","weight":"500"}
+[1440-dark] card-menu open  items=[ Publish  ·  Rename  ·  Export  ·  Delete ] mat={"bg":"oklab(0.379439 0.00991643 0.0168573 / 0.8944)","blur":"blur(13px) saturate(1.28) brightness(1.1)","radius":"12px"}
+[1440-dark] delete-all dialog present=1
+[1440-dark] console errors: 0
+=== LEG 6 · forensics ===
+[1440-light] dash witness: {"borderStyle":"dashed","borderWidth":"2px","borderColor":"oklch(0.433 0.1732 9.8)","radius":"55.5238% 76.5501% 44.1574% 61.8171% / 38.144% 71.6144% 75.53","filter":"feDisplacement(wet)","accentLive":"oklch(0.4330 0.1732 9.8)"}
+[1440-light] eyebrow COMPOSITED: ink=rgb(112, 89, 66) ground=rgb(233, 186, 194) → 3.84:1 (pixel-sampled)
+[1440-light] display-line ink=oklab(0.216128 0.00350075 0.00518669 / 0.85) vs same ground → 12.26:1
+[1440-light] hint ink=rgb(112, 89, 66) vs same ground → 3.84:1
+[1440-light] dropdown Palettes-entry weight: 600
+[1440-light] console errors: 0
+[1440-dark] dash witness: {"borderStyle":"dashed","borderWidth":"2px","borderColor":"lab(92 88.8 20)","radius":"55.5238% 76.5501% 44.1574% 61.8171% / 38.144% 71.6144% 75.53","filter":"feDisplacement(wet)","accentLive":"lab(92% 88.8 20 / 100%)"}
+[1440-dark] eyebrow COMPOSITED: ink=rgb(195, 185, 172) ground=rgb(118, 82, 86) → 3.49:1 (pixel-sampled)
+[1440-dark] display-line ink=oklab(0.925196 0.00238398 0.00574207 / 0.85) vs same ground → 3.11:1
+[1440-dark] hint ink=rgb(195, 185, 172) vs same ground → 3.49:1
+[1440-dark] dropdown Palettes-entry weight: 600
+[1440-dark] console errors: 0
+
+=== LEG 7 MICRO-FORENSICS ===
+[1440-light] view-dropdown option voices: Home: w=400 · Palettes: w=400 rampSpan=600 · Browse: w=400 · Extract: w=400 · Mix: w=400 · Generate: w=400 · Gradient: w=400
+[1440-light] title letterform COMPOSITED: ink=rgb(120,25,32) ground=rgb(205,180,170) → 5.47:1 (stem-pixel sampled)
+[1440-dark] view-dropdown option voices: Home: w=400 · Palettes: w=400 rampSpan=600 · Browse: w=400 · Extract: w=400 · Mix: w=400 · Generate: w=400 · Gradient: w=400
+[1440-dark] title letterform COMPOSITED: ink=rgb(110,45,24) ground=rgb(118,100,92) → 1.83:1 (stem-pixel sampled)

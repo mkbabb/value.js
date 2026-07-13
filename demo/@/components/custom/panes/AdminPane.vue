@@ -1,13 +1,17 @@
 <template>
-    <Card tier="wash" :shadow="false" :grain="false" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <Card tier="resting" class="pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full">
         <PaneHeader :description="headerDescription">
             {{ headerTitle }}
             <Badge v-if="adminCount != null" variant="secondary" class="text-mono-small ml-2">{{ adminCount }}</Badge>
         </PaneHeader>
         <div class="px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0">
+            <!-- T.W3-3 (T-12): a field on paper wears paper — the seated
+                 register (utils.css `.search-seated`; interim, booked onto
+                 the P3 seated rung / ASK-D). -->
             <SearchBar
                 v-if="subView === 'admin-users' || subView === 'admin-names'"
                 v-model="pm.searchQuery.value"
+                class="search-seated"
                 :placeholder="subView === 'admin-users' ? 'Search users...' : 'Search color names...'"
             >
                 <UserSortMenu
@@ -71,13 +75,15 @@ import { Card } from "@components/ui/card";
 import { Badge } from "@components/ui/badge";
 
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
-import AdminUsersPanel from "@components/custom/palette-browser/AdminUsersPanel.vue";
-import AdminNamesPanel from "@components/custom/palette-browser/AdminNamesPanel.vue";
-import AdminAuditPanel from "@components/custom/palette-browser/AdminAuditPanel.vue";
-import AdminFlaggedPanel from "@components/custom/palette-browser/AdminFlaggedPanel.vue";
-import AdminTagsPanel from "@components/custom/palette-browser/AdminTagsPanel.vue";
-import UserSortMenu from "@components/custom/palette-browser/UserSortMenu.vue";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
+import {
+    AdminUsersPanel,
+    AdminNamesPanel,
+    AdminAuditPanel,
+    AdminFlaggedPanel,
+    AdminTagsPanel,
+} from "@components/custom/palette-browser/admin";
+import { UserSortMenu } from "@components/custom/palette-browser/search";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 
@@ -110,10 +116,16 @@ const headerDescription = computed(() => {
 
 const adminCount = computed(() => {
     switch (subView) {
-        case "admin-users": return pm.adminUsers.value.length;
+        // A-3: suppress the badge while the roster/queue loads — a "0" over
+        // the loading skeletons lies (the length is 0 before data arrives).
+        case "admin-users":
+            return pm.loadingUsers.value ? null : pm.adminUsers.value.length;
         // S.W5-7 (F-12): the header badge is the ACTIONABLE queue — the old
         // pending+approved sum matched neither visible list.
-        case "admin-names": return pm.filteredColorQueue.value.length;
+        case "admin-names":
+            return pm.loadingColorQueue.value
+                ? null
+                : pm.filteredColorQueue.value.length;
         default: return null;
     }
 });

@@ -1,0 +1,91 @@
+/* T.W4-5 — THE SEAT GRAMMAR SHEET (D8; the R3 corner-break law and its <lg
+ * hand arm are DEAD). Colocated with ColorPicker.vue and imported by it —
+ * the W2-close overture.css precedent (PP-8: the scoped block outgrew the
+ * god-module cap; every selector here is UNIQUE to ColorPicker's template,
+ * so the global rules bind identically to the former scoped ones).
+ *
+ * THE LAW: the SLOT owns the footprint token AND the anchor; HeroBlob only
+ * consumes `--blob-fp` (the surviving Q7/R3 slot-owned-token law). Size
+ * identity: canvas = 1.6× wrapper, POS_SCALE 0.625 — the factors cancel, so
+ * visible bead px = 2·bodyRadius·footprint exactly (bodyRadius 0.26 via
+ * HeroBlob's HERO register → bead = 0.52·fp, edges 0.24·fp inside the
+ * wrapper).
+ *
+ * ONE cqi FORMULA at every viewport (no band arms): fp = clamp(7rem, 22cqi,
+ * 11rem) — derived from the ×φ title band it seats in: at the 512px pane,
+ * 22cqi = 112.6px → bead ⌀58.6 ≈ the display-3 title line (≈75px tall), so
+ * the bead sits BESIDE the title with zero added header height at desktop;
+ * the 7rem floor keeps a full-presence hand-scale bead (⌀58) at 390 (Q7 —
+ * presence designed, never toggled). The title row hosts the bead's whole
+ * vertical extent via the formula-derived min-height — the readout band
+ * below stays clear at EVERY band, which is what keeps the line-lock
+ * capacity full-width (readoutReservation's derivation).
+ *
+ * T-30 (OWNER-2026-07-10): centre-ward + integrated is delivered by
+ * CONTAINMENT ITSELF — the bead moves from half-off-card (overlapping the
+ * About seam) to wholly inside the plate, its mass in the title band, edge
+ * 0.24·fp (~27px) inside the corner; the contact shadow seats it ON the
+ * paper. Re-judged at T.W4.5. The BLUR verdict, AMENDED at the W4.5
+ * checkpoint (the W4 "demo-root cleared" read measured the AWAKE state):
+ * the BOOT path was demo-root after all — the engine armed mid-`blob-emerge`
+ * pose and presized its backing from the scaled gBCR (0.35× — dpr2 backing
+ * 126×126 for a 180.2px box), and the idle park froze that frame. CURED at
+ * T.W4.5 R2: HeroBlob re-measures via the producer resume seam at the emerge
+ * pose's animationend (see overture.css B4 + HeroBlob.vue onEmergeEnd); the
+ * awake numbers (gBCR × resolveBudgetDpr, ratio 1.99 at dpr2 — full-res,
+ * zero CSS filter on the canvas chain, quality `full` at lg) now hold from
+ * boot. The RESIDUAL softness stays PRODUCER-root: the engine's hero-scale
+ * interior shading (the silhouette AA is ~1px fwidth-derived —
+ * metaball.frag.ts:315-318 — but the interior reads featureless at ⌀≥90px)
+ * + the wrapper's resting drop-shadow halo — the exact P6 packet rider
+ * (hero-scale legibility, row A family), which STANDS amended. */
+.pane-shell {
+    --blob-fp: clamp(7rem, 22cqi, 11rem);
+    /* Q3 "Flush." — the ruled seat inset; the knob survives for taste
+     * passes (positive = deeper into the card; negatives are DEAD — they
+     * re-admit the overflow class the ruling closed). */
+    --blob-seat: 0px;
+}
+
+.hero-blob-anchor {
+    position: absolute;
+    top: var(--blob-seat);
+    right: var(--blob-seat);
+    /* The NAMED ornament tier (Q3b) — never source-order accident. */
+    z-index: var(--z-ornament);
+}
+
+/* The CONTACT SHADOW — the seat's depth signature (D8: the corner-break's
+ * "wet on the plate" is REPLACED, not deleted). A static radial pool under
+ * the bead's base anchors it to the plate (the paperweight read; also the
+ * demo-side half of the T-30 blur percept cure — a grounded object reads
+ * focused; the engine-side wet-edge register is the P6 open-Q9 row, now
+ * WANTED). Geometry derives from the same identity: bead center at 50%,
+ * base at 76% of the wrapper. PRM-static; both schemes via --shadow-color. */
+.hero-blob-anchor::before {
+    content: "";
+    position: absolute;
+    left: 24%;
+    right: 24%;
+    top: 68%;
+    height: 14%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse 50% 50% at 50% 50%,
+        color-mix(in srgb, var(--shadow-color) 22%, transparent),
+        transparent 70%
+    );
+}
+
+/* The title row hosts the bead (the C1-settled band): reservation +
+ * min-height both derive from the ONE formula — visible-bead extent =
+ * 0.76·fp from the card edge; the row's content box extends past the bead's
+ * base (minus its own pt-3 = 0.75rem) so the readout below never enters the
+ * bead's band. At desktop the min-height resolves ≤ the display-3 title
+ * line (a no-op); at the phone floor it grows the row to seat the bead —
+ * a clamp, never a band arm. */
+.title-row {
+    padding-right: calc(0.76 * var(--blob-fp) + 0.5rem);
+    min-height: calc(0.76 * var(--blob-fp) - 0.75rem);
+}

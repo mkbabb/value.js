@@ -57,10 +57,15 @@
                         </Tooltip>
                     </TooltipProvider>
 
-                    <!-- Inline send button -->
+                    <!-- Inline send button — T.W5-R5: the spatial hover/press
+                         legs come from the producer `btn-interactive` atom
+                         (scale @ --spring-smooth-duration on
+                         --transition-liquid-spatial, house press/hover
+                         magnitudes + focus register); .send-btn keeps only
+                         seat geometry (see the scoped block). -->
                     <button
                         v-if="proposeMode"
-                        class="send-btn"
+                        class="send-btn btn-interactive"
                         :disabled="!proposedName.trim() || proposing"
                         @click="submitProposedName"
                     >
@@ -69,7 +74,7 @@
                     </button>
                     <button
                         v-else
-                        class="send-btn"
+                        class="send-btn btn-interactive"
                         @click="onSubmitColor"
                     >
                         <ArrowRight class="w-4 h-4" :style="{ stroke: safeAccent }" />
@@ -86,7 +91,9 @@
             </HoverCardTrigger>
 
             <HoverCardContent v-if="!proposeMode" class="pointer-events-auto font-display w-full">
-                <p class="font-bold text-subheading">Enter a color</p>
+                <!-- T.W4-6 (T-15/F7): hover-card title → display voice, ≤500
+                     non-bold (the `font-bold` 700 dies with the sweep). -->
+                <p class="font-display font-medium text-subheading">Enter a color</p>
                 <p>
                     <span class="italic">Any</span> valid CSS color string is accepted.
                 </p>
@@ -123,7 +130,7 @@ import ParseEchoReadout from "./ParseEchoReadout.vue";
 import { proposeColorName } from "@lib/palette/api";
 import { useSession } from "@composables/auth/useSession";
 import type { EditTarget } from "..";
-import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../keys";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
 
 const { proposeMode } = defineProps<{
     editTarget: EditTarget | null;
@@ -316,6 +323,14 @@ defineExpose({
     pointer-events: none;
 }
 
+/* T.W5-R5 (T-14 / D7): the bespoke transform-on-bezier hover/press recipe
+ * (scale 1.1/0.95 composed into `transform` @ --duration-fast --ease-standard
+ * — the F3 spatial-on-bezier stray) is RETIRED onto the producer
+ * `btn-interactive` atom (template class): the scale longhand rides
+ * --transition-liquid-spatial @ --spring-smooth-duration, press/hover
+ * magnitudes + focus ring + disabled opacity are the house registers. This
+ * block keeps ONLY the seat geometry — the static translateY(-50%) transform
+ * composes cleanly under the atom's `scale` longhand. */
 .send-btn {
     position: absolute;
     right: 0.25rem;
@@ -324,21 +339,8 @@ defineExpose({
     padding: 0.25rem;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: transform var(--duration-fast) var(--ease-standard),
-                opacity var(--duration-fast) var(--ease-standard);
-}
-.send-btn:hover {
-    transform: translateY(-50%) scale(1.1);
-}
-.send-btn:active {
-    transform: translateY(-50%) scale(0.95);
-}
-.send-btn:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--ring);
 }
 .send-btn:disabled {
-    opacity: 0.3;
     cursor: not-allowed;
 }
 

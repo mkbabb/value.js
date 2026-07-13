@@ -5,10 +5,10 @@ import PaneHeader from "./PaneHeader.vue";
 import MixSourceSelector from "@components/custom/mix/MixSourceSelector.vue";
 import MixConfigBar from "@components/custom/mix/MixConfigBar.vue";
 import MixResultDisplay from "@components/custom/mix/MixResultDisplay.vue";
-import MixAnimationCanvas from "@components/custom/mix/MixAnimationCanvas.vue";
+import MixAnimationCanvas from "@components/custom/mix/MixAnimationCanvas/MixAnimationCanvas.vue";
 import { useMixingState } from "@components/custom/mix/composables/useMixingState";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@components/custom/color-picker/keys";
+import { CSS_COLOR_KEY } from "@composables/color/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import type { PaletteColor } from "@lib/palette/types";
 
@@ -59,7 +59,7 @@ defineExpose({ clearSelection, startMix, copyResult });
 
 <template>
     <div class="relative w-full mx-auto h-full min-w-0">
-        <Card tier="wash" :shadow="false" :grain="false" class="relative pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
+        <Card tier="resting" class="relative pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
             <!-- The mix convergence overlay (S.W3-6 / Q10): drops from the
                  selected chips arc to the result plate's awaiting well. Its
                  rAF timeline is the ONE clock; @settled is the phase
@@ -89,13 +89,18 @@ defineExpose({ clearSelection, startMix, copyResult });
                     @remove-palette="removePalette"
                 />
 
-                <!-- Mixing controls -->
+                <!-- Mixing controls. T.W6 · W6-4 (T-17): the operand colors
+                     feed the Space/Hue preview ramps (colors mode only —
+                     palettes mode passes [] so the rows carry no chip:
+                     honest restraint, the column-wise palette mix has no
+                     single ramp to preview). -->
                 <MixConfigBar
                     v-model:color-space="colorSpace"
                     v-model:hue-method="hueMethod"
                     v-model:leftover-strategy="leftoverStrategy"
                     :show-leftover-strategy="mode === 'palettes'"
                     :can-mix="canMix"
+                    :operand-colors="mode === 'colors' ? selectedColors.map((sc) => sc.css) : []"
                     @mix="startMix"
                 />
 
