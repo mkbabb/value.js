@@ -35,9 +35,17 @@ resume from any of the three death classes below. **Update this file at every wa
 
 | Run | Workflow | Phase at stamp | Script (in §3 dir) | On death |
 |---|---|---|---|---|
-| `wf_84ed7f23-036` | U.W-A11Y (dispatch → ≤4 lanes [fable judgment + opus probes] → gate → close) | **RESUMED 2026-07-13** post-wall (`resumeFromRunId`; 4 cached: dispatcher + controls `87b4eca` + contrast `6667eb05` + modality `7335786`; re-running: authed lane [its pre-wall partials sit UNTRACKED in the main tree — reconcile, never discard] + gate + close) | `u-w-a11y-wf_84ed7f23-036.js` | resume; the LAST mount-box writer before PERF |
+| — | — (no live run) | **U.W-A11Y CLOSED 2026-07-13** — `wf_84ed7f23-036` completed (see below); **next launch: U.W-PERF** (UNBLOCKED by the U-F76 mount HELD) | — | — |
 
-**Completed runs** (journals retained, no action): `wf_5a0823fb-9f1` LIB evidence ·
+**Completed runs** (journals retained, no action): `wf_84ed7f23-036` **A11Y (CLOSED
+`complete_with_misses`** — all 11 born-RED gates BR-1..BR-11 flipped RED→GREEN [deterministic
+headless, no U-F54 annex]; 4 lanes: controls `87b4eca` [U-F25 focus SYSTEM + U-F27 hit-inflation +
+`aria-valuetext`] · contrast `6667eb05` [U-F26 rendered-tier accent re-guard, 1.19→4.31; `safeAccent-
+AgainstSurface` minted+exported] · modality `7335786` [U-F57 support layer + U-F58 web-modality
+decisions] · authed `42608eb` [U-F56 driven-live battery + ErrorBoundary]; npm test 2326, mount
+guards 16/16 — **U-F76 mount HELD, visual box UNCHANGED, → UNBLOCKS U.W-PERF**; 2 owner-attested OPEN
+[OA-1/OA-2]; RELAY DISPATCHED [BH §A11Y-1..6]; misses booked [dock-icon→U-F12 · boot-drift→LIB/ADOPT];
+`audit/w-a11y-close-artefacts.md`) · `wf_5a0823fb-9f1` LIB evidence ·
 `wf_dd696346-869` VISUAL census (verdict table `audit/w-visual/census.md`) · `wf_fb4f0284-ad9`
 SEC (CLOSED `complete_with_misses`) · `wf_c1769491-04d` DEMO (CLOSED `complete`) ·
 `wf_237d5120-d5a` **VISUAL-remediate (CLOSED `complete_with_misses` `79eb278`** — §0.8 whole-header
@@ -62,12 +70,15 @@ publish-packet.md` [MAJOR, 4.0.0 recommended, OWNER-DECIDES], BH relay
 
 ## §4 The DAG cursor + standing state
 
-- **Closed (6)**: DEMO (`complete`) · SEC (`complete_with_misses`) · LIB (`COMPLETE`
-  build-complete) · ORACLE (`complete_with_misses`) · CANON (`complete_with_misses`).
-  VISUAL (`complete_with_misses`). **In flight**: A11Y (wf_84ed7f23-036). **Next**: PERF
-  (fires at A11Y close; ADOPT-gated LCP half escalates per the wave doc). **ADOPT**: trigger-gated — probe `git -C ../glass-ui tag --list 'v5*'`
-  each round (EMPTY at stamp). **CLOSE last** (zero-drop ledger walk · publish presentation ·
-  real-GPU annex · the census ANNEX-7 + u-f12 Pole A/B bracket to the owner).
+- **Closed (7)**: DEMO (`complete`) · SEC (`complete_with_misses`) · LIB (`COMPLETE`
+  build-complete) · ORACLE (`complete_with_misses`) · CANON (`complete_with_misses`) ·
+  VISUAL (`complete_with_misses`) · **A11Y (`complete_with_misses`, 2026-07-13** — 11/11 born-RED
+  gates GREEN; U-F76 mount HELD, visual box UNCHANGED → UNBLOCKS PERF; OA-1/OA-2 owner-attest OPEN).
+  **Next**: **PERF (UNBLOCKED — fires next**; reserves CLS/LCP over the SETTLED mount box; ADOPT-gated
+  LCP half escalates per the wave doc; long-session/memory U-F58 fold rides `smoke-safari`).
+  **ADOPT**: trigger-gated — probe `git -C ../glass-ui tag --list 'v5*'` each round (EMPTY at stamp).
+  **CLOSE last** (zero-drop ledger walk · publish presentation · real-GPU annex · the census ANNEX-7
+  + A11Y OA-1/OA-2 + u-f12 Pole A/B bracket to the owner).
 - **Substrate**: glass-ui PINNED @ `2e559f7a` (both symlinks → `.claude/worktrees/glass-ui-pinned`;
   record `audit/w-adopt/substrate-pin.md`; UNPIN at the v5 tag). The L17 goo-blob→blob consume
   swap is LANDED (`110b56f`). **Co-land PREVIEW applied 2026-07-13** (`296b8b2`, pushed): the
@@ -84,10 +95,16 @@ publish-packet.md` [MAJOR, 4.0.0 recommended, OWNER-DECIDES], BH relay
 - **Owner-reserved (NEVER proxy; present at the terminal report)**: the U-F29 version-cut /
   npm publish (packet: `audit/w-lib/publish-packet.md` when LIB closes) · the T.W8 HG6 taste
   verdict (`docs/tranches/T/audit/w8-certification/VERDICT-2026-07-12.md` empty stub) · the
-  u-f12 Pole A/B bracket · the census ANNEX-OWNER-ATTEST 7-row slate.
+  u-f12 Pole A/B bracket · the census ANNEX-OWNER-ATTEST 7-row slate · the **A11Y OA-1** (forced-
+  colors/prefers-contrast/reduced-transparency fallback COHERENCE) + **OA-2** (authed+populated
+  GESTALT) — operability born-RED GREEN, aesthetic owner-terminal (π under `audit/w-a11y/pi/`).
 - **Booked residuals riding to CLOSE**: the quiet-host reactivity e2e re-run (ceremony residual)
   · U-F39/U-F41 prod-attestation legs (SEC) · the App.vue eager-chunk sideEffects reconciliation
-  (DEMO book).
+  (DEMO book) · the **A11Y dock-icon 2.26:1** on the mid-tint dock chrome → coupled to the **U-F12**
+  owner-ruling bracket · the **A11Y e2e specs** (o27/o18-leg/a11y-modality/-slider/-web/-authed) run
+  GREEN in CI once the demo-boot adopt-drift (U-F68/U-F34) reconciles → **U.W-LIB/U.W-ADOPT** (proven
+  here against a reverted-before-commit shim) · the **producer RELAY halves** (BH §A11Y-1..5) →
+  U.W-ADOPT BI-acceptance · the **per-component RTL logical-property audit** → component lanes.
 
 ## §5 Standing laws (verbatim-derived; bind every resumed lane)
 
