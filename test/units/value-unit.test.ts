@@ -66,15 +66,25 @@ describe("ValueUnit", () => {
 
     // ---- clone -------------------------------------------------------------
     describe("clone", () => {
-        it("creates a deep copy with identical properties", () => {
+        // U-F44 — anchored on the OBSERVABLE contract (the serialized form is
+        // the contract) rather than internal representation. `valueOf()` is the
+        // public raw-value accessor, tolerant to how the value is stored (nesting
+        // / wrapping) unlike a raw `.value` read.
+        it("creates a deep copy whose serialized contract matches the original", () => {
             const original = new ValueUnit(10, "px", ["length"], "width", "width");
             const cloned = original.clone();
 
-            expect(cloned.value).toBe(10);
+            // The contract: the clone serializes identically.
+            expect(cloned.toString()).toBe(original.toString());
+            expect(cloned.toString()).toBe("10px");
+            expect(cloned.valueOf()).toBe(10);
+            // Public metadata carried by the clone — asserted by VALUE, never by
+            // reference identity (superType has no serialized reflection, so its
+            // propagation can only be observed by reading the public field).
             expect(cloned.unit).toBe("px");
-            expect(cloned.superType).toEqual(["length"]);
             expect(cloned.subProperty).toBe("width");
             expect(cloned.property).toBe("width");
+            expect(cloned.superType).toEqual(["length"]);
         });
 
         it("does not share references for value objects", () => {
@@ -82,25 +92,39 @@ describe("ValueUnit", () => {
             const original = new ValueUnit(innerObj, "px");
             const cloned = original.clone();
 
-            // The clone utility copies plain objects deeply
-            cloned.value.r = 0;
-            expect(original.value.r).toBe(255);
+            // The clone utility copies plain objects deeply: mutating the clone's
+            // value object must not reach the original (behavioral independence).
+            cloned.valueOf().r = 0;
+            expect(original.valueOf().r).toBe(255);
         });
 
-        it("does not share references for superType array", () => {
-            const original = new ValueUnit(10, "px", ["length"]);
+        // U-F44 — clone independence asserted as the OBSERVABLE consequence
+        // (mutate the clone through the PUBLIC surface → the original is
+        // untouched), NOT by reaching into the internal superType array's
+        // reference identity (the retired `cloned.superType!.push(...)` idiom
+        // broke on any no-op representation refactor of superType).
+        it("clone is independent — mutating the clone does not touch the original", () => {
+            const original = new ValueUnit(10, "px", ["length"], "top", "position");
             const cloned = original.clone();
 
-            cloned.superType!.push("extra");
-            expect(original.superType).toEqual(["length"]);
+            cloned.setSubProperty("bottom");
+            cloned.setProperty("inset");
+            cloned.setValue(999);
+
+            expect(original.toString()).toBe("10px");
+            expect(original.valueOf()).toBe(10);
+            expect(original.subProperty).toBe("top");
+            expect(original.property).toBe("position");
         });
 
-        it("produces an independent instance", () => {
+        it("produces an independent instance (value mutation stays local)", () => {
             const original = new ValueUnit(100, "px");
             const cloned = original.clone();
 
             cloned.setValue(999);
-            expect(original.value).toBe(100);
+            expect(original.valueOf()).toBe(100);
+            expect(original.toString()).toBe("100px");
+            expect(cloned.toString()).toBe("999px");
         });
     });
 
@@ -111,9 +135,12 @@ describe("ValueUnit", () => {
             const right = new ValueUnit(20, "px");
             const result = left.coalesce(right);
 
+            // Contract: the merged unit serializes with the borrowed unit.
+            expect(result.toString()).toBe("10px");
             expect(result.unit).toBe("px");
-            expect(result.value).toBe(10);
-            // Original is unchanged
+            expect(result.valueOf()).toBe(10);
+            // The original is unchanged (still unitless → serializes bare).
+            expect(left.toString()).toBe("10");
             expect(left.unit).toBeUndefined();
         });
 
@@ -128,11 +155,15 @@ describe("ValueUnit", () => {
             );
             const result = left.coalesce(right);
 
-            // unit already present on left, so left's "px" is kept
+            // Contract: left already carries the unit, so the serialized form
+            // keeps left's "px" (the right does not overwrite it).
+            expect(result.toString()).toBe("5px");
             expect(result.unit).toBe("px");
-            expect(result.superType).toEqual(["length"]);
+            // Metadata borrowed from the right (public fields; superType has no
+            // serialized reflection, so it is read directly, by VALUE).
             expect(result.subProperty).toBe("translateX");
             expect(result.property).toBe("transform");
+            expect(result.superType).toEqual(["length"]);
         });
 
         it("does not overwrite already-set fields", () => {
@@ -152,10 +183,13 @@ describe("ValueUnit", () => {
             );
             const result = left.coalesce(right);
 
+            // Contract: every field already set on the left survives — the
+            // serialized form is left's, untouched by the right.
+            expect(result.toString()).toBe("10rem");
             expect(result.unit).toBe("rem");
-            expect(result.superType).toEqual(["length"]);
             expect(result.subProperty).toBe("marginTop");
             expect(result.property).toBe("margin");
+            expect(result.superType).toEqual(["length"]);
         });
 
         it("inplace mode mutates the left ValueUnit", () => {
@@ -164,10 +198,12 @@ describe("ValueUnit", () => {
             const result = left.coalesce(right, true);
 
             expect(result).toBe(left);
+            // Contract: the left now serializes with the borrowed unit in place.
+            expect(left.toString()).toBe("10px");
             expect(left.unit).toBe("px");
-            expect(left.superType).toEqual(["length"]);
             expect(left.subProperty).toBe("top");
             expect(left.property).toBe("top");
+            expect(left.superType).toEqual(["length"]);
         });
 
         it("returns this unchanged when right is null/undefined", () => {
@@ -250,13 +286,14 @@ describe("ValueUnit", () => {
         it("updates the value property", () => {
             const v = new ValueUnit(10, "px");
             v.setValue(20);
-            expect(v.value).toBe(20);
+            expect(v.valueOf()).toBe(20);
+            expect(v.toString()).toBe("20px");
         });
 
         it("can set value to a different type", () => {
             const v = new ValueUnit(10, "px");
             v.setValue("hello" as any);
-            expect(v.value).toBe("hello");
+            expect(v.valueOf()).toBe("hello");
         });
     });
 
