@@ -65,7 +65,9 @@
         }
     },
     "files": [
-        "dist"
+        "dist",
+        "!dist/gh-pages",
+        "!dist/gh-pages/**"
     ],
     "scripts": {
         "dev": "scripts/dev/dev.sh up",
@@ -76,11 +78,16 @@
         "gh-pages": "vite build --mode gh-pages",
         "prepare": "test -f dist/value.js || npm run build",
         "bench": "node bench/color-channel-access.mjs && node bench/color2-direct-paths.mjs && node bench/parser-namelookup.mjs && node bench/computed-endpoint.mjs && node bench/color-soa-fold.mjs",
+        "pretypecheck": "npm run build",
         "typecheck": "vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit",
         "lint": "eslint . --max-warnings=0",
         "test": "vitest",
         "test:e2e": "playwright test",
+<<<<<<< Updated upstream
         "test:dist": "npm run build && npm run proof:dts-surface && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget && npm run proof:lib-correctness",
+=======
+        "test:dist": "npm run build && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget && npm run proof:lib-correctness && npm run proof:barrel-parity && npm run proof:pack-manifest",
+>>>>>>> Stashed changes
         "boot-smoke": "node scripts/ci/boot-smoke.mjs",
         "abrogation-sweep": "node scripts/ci/abrogation-sweep.mjs",
         "css-emission-probe": "node scripts/ci/css-emission-probe.mjs",
@@ -90,7 +97,10 @@
         "proof:perf-target": "node scripts/gates/proof-perf-target.mjs",
         "proof:serialize-fidelity": "node scripts/gates/proof-serialize-fidelity.mjs",
         "proof:subpath-budget": "node scripts/gates/proof-subpath-budget.mjs",
-        "proof:lib-correctness": "node scripts/gates/proof-lib-correctness.mjs"
+        "proof:lib-correctness": "node scripts/gates/proof-lib-correctness.mjs",
+        "proof:barrel-parity": "node scripts/gates/proof-barrel-parity.mjs",
+        "proof:pack-manifest": "node scripts/gates/proof-pack-manifest.mjs",
+        "proof:size-graph": "node scripts/gates/proof-size-graph.mjs"
     },
     "repository": {
         "type": "git",
@@ -150,7 +160,6 @@
         "vue": "^3.5.34",
         "vue-eslint-parser": "^10.4.0",
         "vue-router": "^5.1.0",
-        "vue-tsc": "^3.3.1",
-        "zod": "^3.23.8"
+        "vue-tsc": "^3.3.1"
     }
 }

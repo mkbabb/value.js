@@ -173,19 +173,19 @@ jobs:
             - name: Log dist sizes
               run: ls -la dist/ | head -20
 
-            # dist/value.js post-W7.A raw ~137 KB. Budget ≤ 145 KB (148480 bytes).
-            # This guards the JS CORE against bloat; it is structurally blind to
-            # re-bundled vendor (the prettier chunks lived in SEPARATE dist/*.js
-            # files, not value.js — E3 F-1/F-4). The whole-tarball gate below is
-            # the structural backstop.
-            - name: Assert dist/value.js size budget (≤ 145 KB raw)
-              run: |
-                  SIZE=$(stat -c%s dist/value.js 2>/dev/null || stat -f%z dist/value.js)
-                  if [ "$SIZE" -gt 148480 ]; then
-                      echo "dist/value.js size budget exceeded: $SIZE bytes (gate ≤ 148480)"
-                      exit 1
-                  fi
-                  echo "dist/value.js size: $SIZE bytes (≤ 148480 PASS)"
+            # U-F64 (U.W-CANON · G-CANON-8) — the size budget RE-ANCHORED from the
+            # ~15 KB post-split FACADE (`dist/value.js`) to the real CHUNK-GRAPH
+            # TOTAL: the facade PLUS every hashed shared chunk it transitively
+            # imports (the Rolldown codeSplitting layout). The prior `stat
+            # dist/value.js ≤ 148480` step was structurally blind — it measured
+            # 14,973 B while the `.` entry's real reachable payload is ~192 KB
+            # across ~11 modules (facade share < 8%), so a shared-chunk regression
+            # sailed under it. `proof:size-graph` walks the dist import graph and
+            # budgets the total; the WHOLE-TARBALL gate below stays the published-
+            # payload backstop. Both G-CANON-8 + G-CANON-3 (barrel-parity, in
+            # test:dist) are the wave's STANDING CI-wired regression guards.
+            - name: Assert dist `.` chunk-graph size budget (U-F64 · G-CANON-8)
+              run: npm run proof:size-graph
 
             # WHOLE-TARBALL gate (N.W7.B) — measures the PUBLISHED package's
             # `unpackedSize` via `npm pack --dry-run --json`, the structural
