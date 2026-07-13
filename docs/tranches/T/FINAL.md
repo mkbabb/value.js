@@ -57,15 +57,15 @@ cannot meet inside its own window — the Q14 LCP/TBT budgets — closes by the 
 | **T.W6.5** the owner-audit remediation wave (§0.6, T-33..T-48) | **complete_with_misses** (2026-07-11) | 8-row §Hard gate → **7 PASS + 1 MISS-RECORDED**, zero FAIL. 4 lanes + Row E: S ShadowPalette R12 redesign `0ad772f` · P console veil re-seat + dynamic-max clamp `ad301e7` · I ink delineation (certifyAccentInk cusp cure, O-18 +IDENTITY/+GRAPHICS) `c2a911f` · M root-barrel ×10 + B2/B4 split + T-45 pseudo `7d3900a` · E kf `<EasingPicker>` seat `1a8f06c`. **HG7 GENUINE FAIL cured at close** the idiomatic §0.6 way: two cohesion-honest lifts (`ink.ts`→`ink-walk.ts` 423→292 · `useColorPipeline.ts`→`useAtmosphereFrameCoalesce.ts` 403→373; `69500b7`, behaviour-preserving); PI-1 W6.5 row filed → HG7 flips PASS. vitest 2233/2233. Close head `5e4f1f6`. Artefacts `audit/w65-close-artefacts.md` | Goal met: 16/16 T-33..T-48 rows dispositioned, zero silent drops | `_with_misses` = **HG5** (the "scroll-timeline chunk absent from eager" leg — a research §4.2 chunk-NAME misattribution; the real dead weight is library-side `src/subpaths/parsing.ts` → routed to **W7 dead-payload BY NAME**) + the standing born-RED legs |
 | **T.W7** the adopt event (= S.W8 handed intact; the Q14 TBT/JS-eager delta gate row) | **TRIGGER-NOT-FIRED** — recorded as-is (PP-5: books never gates) | Re-probed 2026-07-12 at the T.W8 close: `git -C ../glass-ui tag --list 'v5*'` = EMPTY · `npm view @mkbabb/glass-ui version` = **4.2.0**. glass-ui pkg **5.0.0 in-tree** (HEAD `690fef91`, `tranche/BI`, BI GREENLIGHT 2026-07-12) but the cut is **USER-GATED + untagged** — no v5 tag, no registry v5 | **Not a miss**: a trigger-gated wave whose trigger did not fire inside T's window. The wave doc + the §3.10 MIGRATION walk hand to the successor intact. The cut is **imminent** (very likely to fire early in U's life) | The adopt-event class → §5 (HAND TO U): CI un-pin · L17 rename · L20 subpath · GAP-ARM/L2/L5 re-verify · the L2..L16 asks · the whole §7.2 producer-consume swap set · the HG5-routed `/parsing` dead-payload split |
 | **T.W8** E-7 the hardening/critique wave (the terminal owner certification package) | **complete_with_misses** (2026-07-12; **HG6 owner verdict PENDING — the honest terminal**) | 6-row §Hard gate → **5 PASS + 1 MISS-RECORDED**, zero FAIL. 6 remediation lanes landed + merged (`83d8714`→`6d95871`; 24 LAND rows + 9/11 §0.7 WR rows); 11 critique-pass journals filed (`passes/`); the package ASSEMBLED by the **non-authoring terminal-assembler** (`286619e`, docs-only) — 20 taste brackets B-01..B-20 (each pole a named reproducible state) + 2 flagged non-rows + boot screencast (1543 frames) + T-48 motion captures (8 hops) + the honest-red ledger + the owner-line index + the Q14 material. HG3: full 6-project e2e **160 passed / 2 skipped / exit 0** on lane ports 8790/8791 (owner's :9000 untouched; exactly the 3 born-RED legs reproduce). Artefacts `audit/w8-close-artefacts.md` + `audit/w8-certification/{PACKAGE,ROWS,VERDICT-2026-07-12,PROGRESS}.md` + `passes/*` (11) | Goal met to the package: the tranche's taste record is delivered, certified by no proxy | **HG5 MISS-RECORDED** (PP-8 caps breach — two W8-remediation-grown demo files over ≤400: `useAtmosphere.ts` 344→411 `c116250` [P9-R3/T-37 derive-seam] · `Markdown.vue` 396→408 `433ae22` [AB-1 KaTeX]; ZERO at baseline `5e4f1f6`; comment-heavy raw-LoC, not complexity — booked a **W9-handed re-encapsulation row**, splitting demo/ is a remediation act not a gate act). **HG6: THE OWNER'S VERDICT IS THE GATE — PENDING** (the empty stub; delivered-but-unruled, never a proxy sign-off) → §8 |
-| **T.W9** close (the Q14 PERF REDEMPTION close gate) | **CLOSE-READY · `complete_with_misses`** (2026-07-12) | Composite §Hard gate: the finding→item ledger walked WHOLE with evidence cites (§2, zero drops) · every `T.md §7` book re-probed live (`audit/w9-close/book-reverify.md`) · repo-wide sweeps re-run (§6) · **the Q14 close gate resolved to the RULED ESCALATION** (§3) · FINAL.md authored. Static close gates ALL GREEN (`audit/w9-close/sweeps.log`, HEAD `28f30ed`): lint 0 · typecheck (lib+demo) 0 · api tsc --noEmit 0 · vitest **74 files / 2241 / 2241 passed / 0 failed** · `npm run build` clean (dist/value.js 14.91 kB gz 5.89 kB, 1.65s) · `npm run gh-pages` clean (3.96s) | Goal met: the tranche's gates are proven to hold against the live tree (a verification act, not paperwork). The master merge + tag + deploy-lineage verification are the OWNER's ceremony (§8) — the close-READY state is produced, the git ops are not performed | **The Q14 escalation** (§3, budgets HONESTLY RED, redemption INHERITS to U's `U.W-PERF`) · **the e2e leg DEFERRED** to a quiet-machine re-run at the owner-gated close (the session machine was saturated ~4–5× by the concurrent U-formation, load avg 74→113; the last two wave-gate e2e closes were GREEN: W6 146/2-skip, W8 160/2-skip) · the W8 HG5 re-encapsulation row → U · the owner-gated terminals (§8) |
+| **T.W9** close (the Q14 PERF REDEMPTION close gate) | **CLOSE-READY · `complete_with_misses`** (2026-07-12) | Composite §Hard gate: the finding→item ledger walked WHOLE with evidence cites (§2, zero drops) · every `T.md §7` book re-probed live (`audit/w9-close/book-reverify.md`) · repo-wide sweeps re-run (§6) · **the Q14 close gate resolved to the RULED ESCALATION** (§3) · FINAL.md authored. Static close gates ALL GREEN (`audit/w9-close/sweeps.log`, HEAD `28f30ed`): lint 0 · typecheck (lib+demo) 0 · api tsc --noEmit 0 · vitest **74 files / 2241 / 2241 passed / 0 failed** · `npm run build` clean (dist/value.js 14.91 kB gz 5.89 kB, 1.65s) · `npm run gh-pages` clean (3.96s) | Goal met: the tranche's gates are proven to hold against the live tree (a verification act, not paperwork). The master merge + tag + deploy-lineage verification are the OWNER's ceremony (§8) — the close-READY state is produced, the git ops are not performed | **The Q14 escalation** (§3, budgets HONESTLY RED, redemption INHERITS to U's `U.W-PERF`) · **the e2e leg CERTIFIED** on the quiet machine (159 passed / 2 skip / 1 proven-flake O-7 — isolated re-pass 4/4 green; the 3 born-RED `test.fail()` legs the only named reds; matches W6 146/2-skip + W8 160/2-skip; `audit/w9-close/e2e-certification.md`) · the W8 HG5 re-encapsulation row → U · the owner-gated terminals (§8) |
 
 **Wave-verdict honesty summary.** Two waves `complete` on their own gate (W0 zero-miss outright;
 W2 `complete` with 2 non-downgrading env-class MISS). Eight waves closed `complete_with_misses` —
 each miss named per row (W1 MOB-1 FAIL routed; W3 un-re-driven suite + CDP flake; W4 the
 deferred-not-a-gate PI-1 row; W4.5 the un-observed suite; W5 the 3 non-W5 e2e reds; W6 the 3
 standing born-RED producer legs; W6.5 the HG5 library-side dead-payload; W8 the HG5 caps breach
-+ the HG6 pending owner verdict; W9 the Q14 escalation + the deferred e2e leg). W7 is
-TRIGGER-NOT-FIRED (not a miss — PP-5). No green-over-broken was found; the born-RED legs are
++ the HG6 pending owner verdict; W9 the Q14 escalation — the e2e leg since CERTIFIED on the quiet
+machine, one proven O-7 flake). W7 is TRIGGER-NOT-FIRED (not a miss — PP-5). No green-over-broken was found; the born-RED legs are
 carried by `test.fail()`, never weakened.
 
 ---
@@ -323,17 +323,22 @@ resolves to a named U wave there).
 | `npm test` (vitest) | **74 files · 2241 tests · 2241 passed · 0 failed** | GREEN |
 | `npm run build` (library → dist) | clean; dist/value.js 14.91 kB (gz 5.89 kB), 1.65s | GREEN |
 | `npm run gh-pages` (demo) | clean, built 3.96s (Q14 close build 4.38s) | GREEN |
-| **e2e (6 projects)** | **DEFERRED** — quiet-machine re-run at the owner-gated close | see below |
+| **e2e (6 projects)** | **CERTIFIED** — 159 passed / 2 skip / 1 proven-flake, quiet machine | GREEN (`audit/w9-close/e2e-certification.md`) |
 
-**The e2e deferral (an honest env-class residual, not a red gate).** The close session machine was
-saturated ~4–5× by the concurrent U-formation (18 cores, load avg 74→113; the Q14 lighthouse
-measure held :8195 throughout, left untouched). Under that load, tests that normally take seconds
-took ~1.9min and reddened on 30s per-test timeouts (spurious reds: atmosphere-cold-load, O-10d,
-O-11 — NOT product defects; a genuine defect reddens identically at any load). The authoritative
-e2e closes stand at the last two wave gates on quiet machines: **W6 = 146 passed / 2 skip / exit 0**
-(`5b64236`) and **W8 = 160 passed / 2 skip / exit 0** (`6d95871`, on lane ports 8790/8791) — each
-reproducing exactly the 3 born-RED `test.fail()` legs and no others. The full-suite re-drive rides
-to the owner-gated close event (the merged-tree suite re-run, the S precedent).
+**The e2e certification (the deferred leg, now run — GREEN modulo one proven flake + the named reds).**
+The full 6-project suite was re-run on the quiet machine (load ~11, no concurrent fleet; lane ports
+8290/8291, the owner's :9000 untouched) once both W8-successor workflows closed: **159 passed / 2
+skip / 1 failed**. The one hard failure — O-7 census light (`o7-card-census.spec.ts:190`, the
+"Generate" heading not visible after the 8s timeout) — is a PROVEN serialization-ordering FLAKE: the
+exact spec re-run in isolation passes **4/4 / exit 0** (light + dark + both mobile frames), the
+timeout-artifact signature the `workers:1` single-server config documents (`playwright.config.ts:88`),
+not a deterministic assertion mismatch. O-7 has stood green across T.W2/W3/W6.5. The 3 standing
+born-RED `test.fail()` legs (O-16-R1/O-5/O-26) reproduce as EXPECTED and are the only named reds;
+`smoke-perf` frame budgets and `smoke-safari` sustained-30s (console-failures 0, L1 aurora cure +
+blob-spazz NO-REPRO on WebKit) are green. This matches the two prior quiet-machine wave closes to the
+leg — **W6 = 146 passed / 2 skip / exit 0** (`5b64236`), **W8 = 160 passed / 2 skip / exit 0**
+(`6d95871`, ports 8790/8791) — same 3 born-RED legs, no product defect. The owner-gated merged-tree
+re-run at the close ceremony (§8) stands as the final confirmation on the merged sha.
 
 ### §6.2 — Repo-wide sweeps (PP-8; regenerated, never hardcoded)
 
