@@ -93,10 +93,10 @@ gate; an ack is a bonus, never waited on).
 concurrently-moving foreign tree):
 `../glass-ui/docs/tranches/BH/coordination/valuejs-inbox-2026-07-12-u-formation.md`
 
-| Producer lever (cited by name) | Communiqué row | What it unblocks |
+| Producer lever (cited by name) | Where it is named of record | What it unblocks |
 |---|---|---|
-| **L20 `/blob/config`** subpath (goo-blob → `/blob`) | §3 (the 5.0.0 + parseCSSValue-reshape co-land) | the HeroBlob **eager-config / lazy-engine split** — import the lightweight config eagerly, DEFER the heavy WebGL engine off the boot critical path. **This is the RP-2 anchor.** |
-| **GAP-L5** (goo-blob) — the `settled` seam + **single-WebGL2 collapse** + HERO preset + `lightnessFloor` | §2b (T-producer reds carried forward; the GAP-L5 row) | lets one WebGL2 context serve the field and lets the consumer defer/quiesce the engine instead of eagerly arming it; anchors the Q14 RP-2 clear |
+| **L20 `/blob/config`** + **RP-2** JS-eager re-baseline (goo-blob → `/blob`) | the **T close-of-record** — `T/FINAL.md §Cross-repo`:310 (L20 `/blob/config` + RP-2 "land TOGETHER at the cut") + SYNTHESIS §6.2 / T.W7 P-3; *NOT a standalone communiqué row* — its producer dispatch rides **§2b GAP-L5** (the blob anchor) + the **§3** 5.0.0 adopt co-land | the HeroBlob **eager-config / lazy-engine split** — import the lightweight config eagerly, DEFER the heavy WebGL engine off the boot critical path. **This is the RP-2 anchor.** |
+| **GAP-L5** (goo-blob) — the `settled` seam + **single-WebGL2 collapse** + HERO preset + `lightnessFloor` | communiqué **§2b** (the STILL-OPEN T producer reds carried FORWARD by name; the GAP-L5 row — verified present) | lets one WebGL2 context serve the field and lets the consumer defer/quiesce the engine instead of eagerly arming it; **anchors the Q14 RP-2 clear** (`T/FINAL.md`:309) |
 | the `/parsing`-subpath **scroll()/view() grammar TAIL** dead-payload split | (library-side; T.W6.5 Lane-M row, ledger `:47`) | trims boot-eager grammar the URL-color hydrate does not use — the *only* residual lever value.js itself owns, but chunk-graph-minor next to the engine defer |
 | **the `mixColors` convention coupling** (spectrum-walk / backward-color) | §1 (freshest, most urgent) | NOT a PERF surface — flagged for completeness; its RELAY is U.W-LIB / U.W-ADOPT's, not this wave's (PERF touches no color-convention surface) |
 
