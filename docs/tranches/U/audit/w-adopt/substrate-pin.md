@@ -107,3 +107,88 @@ own dirty files untouched). **NOT pushed**: `tranche/BI` has no upstream branch,
 left **local** for the fleet to push with their own branch. Content: the A1/A2 breakage
 evidence, the L17 landed-consume-swap confirmation, the pin notice, and the ask (5.0.0 ships a
 whole dist).
+
+## §co-land-preview — the U.W-LIB rename preview applied to the sandbox (2026-07-13)
+
+**Trigger.** U.W-LIB landed the export renames (`d5efe2b` + barrel edits, HEAD `87b4eca`). The
+pinned dist (`2e559f7a`) externalizes `@mkbabb/value.js` under the OLD names, so `npm run gh-pages`
+died resolving them against the renamed `tranche-u` tree (demo unbootable). This section records the
+**co-land PREVIEW**: the sanctioned migration applied to the **detached sandbox as UNCOMMITTED
+working-tree edits only** — the real sibling migration stays owner-held at U.W-ADOPT, executed from
+`docs/tranches/U/audit/w-lib/publish-packet.md §3`. **NO commit in the pinned worktree; NO write to
+`/Users/mkbabb/Programming/glass-ui` (the live checkout) or its branches.**
+
+### Mapping A — glass-ui pinned SRC (uncommitted working-tree edits, 6 files, 43/43 name-only)
+
+The mapping comes from the LANDED tree (`git show HEAD:src/index.ts`), never guessed. Applied
+case-sensitive, whole-word (`perl -i -pe 's/\bOLD\b/NEW/g'`) across `src/**/*.{ts,vue}`:
+
+| Old (gone) | New | occ in pinned src |
+|---|---|---|
+| `srgbToOKLab` | `srgb2oklab` | 11 |
+| `rawOklabToOklch` | `rawOklab2oklch` | 11 |
+| `rawOklchToOklab` | `rawOklch2oklab` | 13 |
+| `oklabToLinearSRGB` | `oklab2linearSrgb` | 6 |
+| `oklabToRgb255` | `oklab2rgb255` | 5 |
+
+**Reconciliation with publish-packet §3 (U-F34).** The packet's U-F34 table (probed against
+glass-ui `c66b5354`) enumerates **3** renamed conversion imports. The **pinned substrate ref
+`2e559f7a`** — the ref this sandbox actually builds — imports **5**: it adds `oklabToLinearSRGB`
+(`composables/color/index.ts`) and `oklabToRgb255`, both externalized by the pre-rebuild pinned
+dist (`color-CN343HXv.js`). This is src drift between `2e559f7a` (consumed) and `c66b5354`
+(packet-probed). **The real ADOPT migration must extend U-F34 to the 5-name set against whichever
+glass-ui ref the 5.0.0 cut carries.** NOT touched: glass-ui-internal `linearToSrgb` (own fn,
+`auroraFallbackGround.ts`), `oklabToLinearSrgb`/`srgbToLinear` (GLSL/WGSL shader fns) — case- and
+spelling-distinct, verified untouched (58/42/13 occ before ≡ after).
+
+### Mapping B — keyframes pinned NODE_MODULES copy (sandbox dist artifact)
+
+The task premise ("keyframes clean") held only for the *conversion* names; the U-F29 rename
+`parseCSSSubValue → parseCSSValues` (publish-packet §3 keyframes bullet, `329932b`) is a **second
+break** the demo hits via glass-ui's dist → its bundled keyframes. The offending importer is the
+sandbox copy `glass-ui-pinned/node_modules/@mkbabb/keyframes.js/dist/parse-flatten-ZZUSEQEL.js` (a
+**real dir**, NOT a symlink — a node_modules artifact inside the sandbox, same nature as the
+value.js copy refreshed below). Patched the single import specifier
+(`parseCSSSubValue as s` → `parseCSSValues as s`), sandbox-only. **The LIVE keyframes checkout
+(`/Users/mkbabb/Programming/keyframes.js/dist/engine/index.js`) was NOT touched** and still carries
+the old name — its real migration rides U-F77 at its own cut (packet §3).
+
+### node_modules resolution repoint
+
+`glass-ui-pinned/node_modules/@mkbabb/value.js` was a stale **`3.1.0` copy** (36 OLD-name occ in its
+dist) used by glass-ui's `emit-types` (vue-tsc). Refreshed its `dist/` + `package.json` from the
+live renamed build (`npm run build` in the main tree first) → **0** OLD-name occ; `srgb2oklab`
+resolvable in its `index.d.ts`. Sandbox node_modules only.
+
+### Rebuild verification (pinned dist — `npm run build` = vite + vue-tsc emit-types, green)
+
+| check | pre-rebuild | post-rebuild | want |
+|---|---|---|---|
+| OLD value.js names externalized in `dist/*.js` | **9** | **0** | 0 |
+| NEW names externalized | — | `srgb2oklab`×3 `rawOklab2oklch`×3 `rawOklch2oklab`×1 `oklab2linearSrgb`×1 `oklab2rgb255`×1 | present |
+| `.d.ts` count in dist | 773 | **773** | 773 |
+| `dist/blob.js` | 103906 B | **103906 B** | 103906 |
+| `dist/blob.d.ts` | 42 B | **42 B** | 42 |
+| `dist/styles/dock/morph-bridge.css` | PRESENT | **PRESENT** | present |
+| CSS `@import` audit | 111 files / 110 imports | **0 unresolved** | 0 |
+| `./blob` export + package.json version | `5.0.0` | **`5.0.0`** | 5.0.0 |
+
+### Consumer verification (value.js MAIN tree, `tranche-u`)
+
+- `npm run build` → renamed dist (0 OLD conversion names).
+- `npm run typecheck` → **exit 0**.
+- `npm run gh-pages` → **GREEN** (exit 0; `dist/gh-pages/index.html` 13886 B + 120 assets; only the
+  documented `@vueuse/core` `/* #__PURE__ */` Rolldown annotation notes remain).
+- `npx vitest run test/tranche-u-lib.test.ts` → **20/20** (LIB slate green; the sibling-SRC census
+  reads the renamed names, no old readers).
+- Owner demo `http://localhost:9000/` → **HTTP 200**, app mount `<body id="app">` served, main
+  entry + glass-ui subpath resolve 200/200, zero old-name resolution errors in the dev log
+  (`scripts/dev/dev.sh up`, full honest stack: docker mongo `rs0` + local api :3000 + `VITE_API_URL`).
+
+### Unpin / real-migration condition — UNCHANGED
+
+The preview edits are **ephemeral sandbox state**, discarded when the pin lifts. The real migration
+(both siblings' floor-widen + source rename, the 5-name glass-ui set + keyframes `parseCSSValues`)
+executes for real at **U.W-ADOPT from publish-packet §3**, floating on the glass-ui `5.0.0` tag. The
+unpin steps (retarget both symlinks to `/Users/mkbabb/Programming/glass-ui`, remove the worktree)
+stand as written above.
