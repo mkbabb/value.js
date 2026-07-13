@@ -161,8 +161,15 @@ import { ColorPicker } from "@components/custom/color-picker";
 import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@composables/color/keys";
 
 import { Dock } from "@components/custom/dock";
-// PI-6: DIRECT imports (not via the dialog/status barrels) keep the eager index.js chunk from pulling the lazy sibling dialogs' side-effecting <style>.
-import MigratePalettesDialog from "@components/custom/palette-browser/dialog/MigratePalettesDialog.vue";
+// U.W-DEMO · U-F47 (G-DEMO-3b): reached through the `dialog/` sub-barrel (a
+// barrel the top-level palette-browser seam re-exports), never the raw `.vue`
+// file. BOOK (PI-6 residual): the root `package.json` marks `./demo/**`
+// side-effecting, so this eager-chunk barrel reach does NOT tree-shake the lazy
+// sibling dialogs by static analysis — the bundle-hygiene reconciliation
+// (narrow the `demo/**` sideEffects glob, or a manualChunk for this dialog) is a
+// build-config change to be verified once the demo builds (currently blocked by
+// the glass-ui 5.0.0 adopt-gap); tracked to U.W-CLOSE's re-probe.
+import { MigratePalettesDialog } from "@components/custom/palette-browser/dialog";
 import PaneSlot from "@components/custom/panes/PaneSlot.vue";
 
 import { useCustomColorNames } from "@composables/color/useCustomColorNames";

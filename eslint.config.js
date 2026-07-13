@@ -217,4 +217,89 @@ export default [
             ],
         },
     },
+    {
+        // G-DEMO-3b (U.W-DEMO · U-F47) — the palette-browser mega-feature is
+        // reached through its BARREL SEAM (the top-level index.ts or a
+        // sub-barrel it re-exports), never a raw internal `.vue` file. The seam
+        // is the feature's stable public API; a raw-file reach couples a
+        // consumer to internal layout. Barrel reaches (`.../card`, `.../dialog`,
+        // `.../admin`, `.../search`, `.../slug`, `.../status`) do NOT match —
+        // only paths ending in a raw `.vue` are banned. This object's file glob
+        // is the NON-composables demo consumer trees; it is DISJOINT from the
+        // composables-layer object below, so neither clobbers the other's
+        // `no-restricted-imports` (flat config does not array-merge that rule
+        // across matching objects — the last match wins wholesale).
+        files: [
+            "demo/color-picker/**/*.ts",
+            "demo/color-picker/**/*.vue",
+            "demo/@/components/**/*.ts",
+            "demo/@/components/**/*.vue",
+            "demo/@/lib/**/*.ts",
+            "demo/@/lib/**/*.vue",
+        ],
+        rules: {
+            "no-restricted-imports": [
+                "error",
+                {
+                    patterns: [
+                        {
+                            group: [
+                                "@components/custom/palette-browser/**/*.vue",
+                            ],
+                            message:
+                                "G-DEMO-3b: reach palette-browser through its barrel seam, never a raw .vue file.",
+                        },
+                    ],
+                },
+            ],
+        },
+    },
+    {
+        // G-DEMO-1 (U.W-DEMO · U-F45) + G-DEMO-3a (U-F47) — the shared
+        // composables layer (`demo/@/composables/`) is a CLEAN LOWER LAYER. It
+        // reaches DOWN into the library and sideways within itself; it must
+        // never reach UP into app-root boot (`demo/color-picker/`, the color-
+        // spine near-cycle G-DEMO-1 dissolves) and never into a feature's
+        // internal composables (`@components/custom/*/composables/`, the E-1
+        // colocation inversion G-DEMO-3a dissolves). Wired STANDING so a future
+        // feature edit cannot silently re-invert the demo module graph. The
+        // three bans live in ONE object over ONE file glob because flat config
+        // resolves `no-restricted-imports` by last-match-wins (no merge) — a
+        // single object is the only override-safe encoding for a file region
+        // that needs multiple bans. (The bare `@components/custom/color-picker`
+        // barrel is ALLOWED — `**/color-picker/**` requires a trailing segment,
+        // so only the raw-relative app-root reach + picker-internal subpaths are
+        // banned; the G-DEMO-3b raw-`.vue` ban is re-declared here since this
+        // object owns the composables region's rule value.)
+        files: [
+            "demo/@/composables/**/*.ts",
+            "demo/@/composables/**/*.vue",
+        ],
+        rules: {
+            "no-restricted-imports": [
+                "error",
+                {
+                    patterns: [
+                        {
+                            group: ["**/color-picker/**"],
+                            message:
+                                "G-DEMO-1: the shared color layer (demo/@/composables/color) must never import app-root boot (demo/color-picker) — the spine is a clean lower layer.",
+                        },
+                        {
+                            group: ["@components/custom/*/composables/**"],
+                            message:
+                                "G-DEMO-3a: the shared composables layer must not import feature internals — features depend on shared, never the reverse.",
+                        },
+                        {
+                            group: [
+                                "@components/custom/palette-browser/**/*.vue",
+                            ],
+                            message:
+                                "G-DEMO-3b: reach palette-browser through its barrel seam, never a raw .vue file.",
+                        },
+                    ],
+                },
+            ],
+        },
+    },
 ];

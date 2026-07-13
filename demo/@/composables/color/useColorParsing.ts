@@ -1,8 +1,10 @@
 import { computed, ref, type ShallowRef, type Ref, type ComputedRef } from "vue";
 import { debounce } from "@utils/utils";
-// S.W5-6 · F15: the generation engine lives in its own feature tree
-// (`custom/generate/composables/`); the picker consumes the one pure helper.
-import { generateSingleColor } from "@components/custom/generate/composables/useColorGeneration";
+// U.W-DEMO · U-F47: the pure generation core lives in the shared color layer
+// (`@composables/color/generate-color`); the picker consumes the one pure
+// helper as a SIBLING shared primitive (the E-1 colocation cure — the spine no
+// longer reaches into the `generate` feature's internals).
+import { generateSingleColor } from "@composables/color/generate-color";
 import { parseCSSColor } from "@mkbabb/value.js/parsing";
 import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
 import type { ColorSpace } from "@mkbabb/value.js/color";

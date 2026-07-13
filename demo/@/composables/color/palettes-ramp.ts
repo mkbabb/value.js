@@ -69,7 +69,7 @@
  */
 
 import { certifyAccentInk } from "./ink";
-import { resolveViewAccent } from "../../../color-picker/composables/boot/view-accents";
+import { resolveViewAccent } from "@composables/color/view-accent";
 
 /**
  * The 3-stop analogous fan (the Q4 record's own form, ruled in at Q5). ±40°

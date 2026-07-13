@@ -52,7 +52,8 @@ import {
     bumpProbeEpochOnMount,
     resolveSurfaceLightnessLive,
 } from "@composables/color/useContrastSafeColor";
-import { resolveSealInk, resolveViewAccent } from "./view-accents";
+import { resolveViewAccent } from "@composables/color/view-accent";
+import { resolveSealInk } from "./view-accents";
 
 export interface UseViewAccentsOptions {
     /** The rAF-coalesced live OPAQUE colour — the seal-ink (wax) source. */

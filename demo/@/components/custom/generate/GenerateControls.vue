@@ -19,15 +19,17 @@ import { PaletteColorStrip } from "@components/custom/palette-browser/card";
 // N's queue — recorded in both lane logs.
 import { PreviewStrip } from "@components/custom/color-chips";
 import type { PaletteColor } from "@lib/palette/types";
+import { useColorGeneration } from "./composables/useColorGeneration";
+// U.W-DEMO · U-F47: the pure generation core relocated DOWN to the shared color
+// layer; the feature consumes it UP-from-shared (feature → shared, correct).
 import {
-    useColorGeneration,
     generatePalette,
     PRESET_NAMES,
     HARMONY_NAMES,
     GENERATION_PRESETS,
     HARMONY_DEFS,
-} from "./composables/useColorGeneration";
-import type { PresetName, HarmonyName } from "./composables/useColorGeneration";
+} from "@composables/color/generate-color";
+import type { PresetName, HarmonyName } from "@composables/color/generate-color";
 import type { AcceptableValue } from "reka-ui";
 
 const {

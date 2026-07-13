@@ -31,9 +31,9 @@ import { DELTA_E_OK_JND } from "@src/units/color/gamut";
 import {
     GRAPHICS_CONTRAST_FLOOR,
     VIEW_ACCENT_MIN_CHROMA,
-    resolveSealInk,
     resolveViewAccent,
-} from "../demo/color-picker/composables/boot/view-accents";
+} from "../demo/@/composables/color/view-accent";
+import { resolveSealInk } from "../demo/color-picker/composables/boot/view-accents";
 import {
     PALETTES_RAMP_SHIFTS,
     RAMP_TEXT_CONTRAST_FLOOR,
