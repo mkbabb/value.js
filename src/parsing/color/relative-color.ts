@@ -17,6 +17,7 @@ import {
 } from "../../units/color";
 import type { ColorSpace } from "../../units/color/constants";
 import { color2 } from "../../units/color/dispatch";
+import { normalizeColor } from "../../units/color/normalize";
 import * as utils from "../utils";
 import { CSSValueUnit } from "../units";
 import { createCalcParser, createMathFunctionParsers, evaluateMathFunction } from "../math";
@@ -128,19 +129,45 @@ export function resolveRelativeColor(
     componentExprs: ComponentExpr[],
     alphaExpr: ComponentExpr | undefined,
 ): ValueUnit {
-    // Normalize origin color to plain [0,1] values, then convert to target space
+    // Normalize origin color to plain [0,1] values, then convert to target space.
     const plainOrigin = resolveToPlainColor(originUnit);
     const converted = color2(plainOrigin, targetSpace);
 
-    // Build bindings from the converted color
+    // U-F30 (normalize-on-construct): denorm the converted origin to PHYSICAL
+    // BEFORE building the calc bindings, so each component expression evaluates on
+    // the CSS-true channel magnitudes — `rgb(from red calc(r + 10) g b)` computes
+    // `255 + 10 = 265`, NOT the [0,1]-normalized `1 + 10 = 11`. `normalizeColor(_,
+    // inverse)` scales each channel to its physical range AND attaches the space's
+    // denorm unit (rgb→"", hsl s/l→"%", h→"deg", …), so the result serializes
+    // shaped exactly like a direct-parse color. The CSS `alpha` keyword is [0,1]
+    // in every space — capture it BEFORE the denorm (which would scale it to the
+    // space's denorm alpha unit). `resolveRelativeColor` is parse-private (no RAW
+    // reader consumes it), so changing its binding convention is safe.
+    const originAlpha = ValueUnit.unwrapDeep(
+        converted.alpha as ValueUnit<number> | number,
+    );
+    const physical = normalizeColor(converted, true);
+
     const bindings: Record<string, number> = {};
-    for (const [key, val] of converted.entries()) {
-        bindings[key] = val as number;
+    for (const key of physical.keys()) {
+        bindings[key] =
+            key === "alpha"
+                ? originAlpha
+                : ValueUnit.unwrapDeep(physical[key] as ValueUnit<number> | number);
     }
 
-    // Resolve each component expression
-    const values = componentExprs.map((expr) => resolveExpr(expr, bindings));
-    const alpha = alphaExpr ? resolveExpr(alphaExpr, bindings) : (bindings.alpha ?? 1);
+    // Evaluate each component expression on the physical bindings, re-wrapping the
+    // result in the channel's denorm unit (carried on `physical` by the inverse
+    // normalize) so the constructed color serializes like the direct parser.
+    const channels = physical.channels;
+    const values = componentExprs.map((expr, i) => {
+        const key = channels[i]!;
+        const unit = (physical[key] as ValueUnit<number>).unit;
+        return new ValueUnit(resolveExpr(expr, bindings), unit);
+    });
+    const alpha = new ValueUnit(
+        alphaExpr ? resolveExpr(alphaExpr, bindings) : (originAlpha ?? 1),
+    );
 
     // Create result color
     const CONSTRUCTORS: Record<string, new (...args: any[]) => Color> = {
@@ -159,6 +186,6 @@ export function resolveRelativeColor(
         rec2020: Rec2020Color,
     };
     const Ctor = CONSTRUCTORS[targetSpace] ?? RGBColor;
-    const result = new Ctor(...(values as [number, number, number]), alpha);
+    const result = new Ctor(...values, alpha);
     return createColorValueUnit(result);
 }

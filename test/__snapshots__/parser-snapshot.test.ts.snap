@@ -611,11 +611,11 @@ exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb 1 0 0)") 1`
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color(srgb-linear 0.5 0.5 0.5)") 1`] = `"color(srgb-linear 0.5 0.5 0.5)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in hsl, hsl(0, 100%, 50%), hsl(120, 100%, 50%))") 1`] = `"hsl(0.16666666666666674 1 0.5)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in hsl, hsl(0, 100%, 50%), hsl(120, 100%, 50%))") 1`] = `"hsl(60.00000000000003deg 100% 50%)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in oklab, red, blue)") 1`] = `"oklab(0.5399845437103836 0.6202537990615136 0.3839488210522569)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in oklab, red, blue)") 1`] = `"oklab(53.99845437103836% 0.09620303924921086 -0.09284094315819447)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in oklch, red 30%, blue 70%)") 1`] = `"oklch(0.5047962148568498 0.5931101212608852 0.8377960504402855)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("color-mix(in oklch, red 30%, blue 70%)") 1`] = `"oklch(50.47962148568498% 0.2965550606304426 301.60657815850277deg)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("cubic-bezier(0.25, 0.1, 0.25, 1)") 1`] = `"cubic-bezier(0.25, 0.1, 0.25, 1)"`;
 

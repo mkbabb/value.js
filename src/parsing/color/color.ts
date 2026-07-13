@@ -32,6 +32,7 @@ import {
 } from "../../units/color/color-names";
 import type { ANGLE_UNITS } from "../../units/constants";
 import { hex2rgb } from "../../units/color/dispatch";
+import { normalizeColor } from "../../units/color/normalize";
 import { mixColors } from "../../units/color/mix";
 import { kelvin2rgb } from "../../units/color/conversions/kelvin";
 import type { HueInterpolationMethod } from "../../units/color/mix";
@@ -356,7 +357,24 @@ const colorMix: Parser<ValueUnit> = utils
         const c2 = resolveToPlainColor(color2Unit);
 
         const mixed = mixColors(c1, c2, p1, p2, space, method);
-        return createColorValueUnit(mixed);
+        // U-F30 (Locus P): `mixColors` returns a NORMALIZED [0,1] `Color<number>`
+        // (its premultiplied-alpha + hue-in-turns math is spec-defined on
+        // normalized channels — it stays UNCHANGED so every RAW reader of
+        // `mixColors`/`sampleColorRamp` is preserved). Denorm the result to
+        // PHYSICAL range at THIS parse consumer via the inverse-normalize path
+        // (`normalizeColor(_, /*inverse*/ true)` scales [0,1] → [min,max] AND
+        // attaches the space's denorm unit) so the wrapped color serializes shaped
+        // like a direct-parse color (`rgb(76.5 0 178.5)`, not the leaked
+        // `rgb(0.3 0 0.7)`) AND re-feeds through `normalizeColorUnit` correctly.
+        // NOT `convertColorSpaceDenorm` (it normalizes-in assuming physical input,
+        // reproducing the G5 wrong number) and NEVER the shared
+        // `createColorValueUnit` wrapper (the R-2 double-denorm trap). Alpha is
+        // preserved in its CSS [0,1] form — the denorm would otherwise scale an
+        // opaque alpha to `100%`, diverging from the direct-parse `/ <0..1>` shape.
+        const alpha = mixed.alpha;
+        const physical = normalizeColor(mixed, true);
+        physical.alpha = new ValueUnit(alpha);
+        return createColorValueUnit(physical);
     });
 
 // --- CSS Color 5 `contrast-color()` (L7, Baseline April 2026) — VJ-Q1 ---

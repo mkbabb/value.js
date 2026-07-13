@@ -12,19 +12,21 @@ describe("Relative Color Syntax", () => {
         it("rgb(from green r g b) should be green", () => {
             const color = getColor("rgb(from green r g b)") as RGBColor;
             expect(color.colorSpace).toBe("rgb");
-            // green = #008000 = rgb(0, 128, 0) → normalized ≈ (0, 0.502, 0)
-            expect(color.r).toBeCloseTo(0, 1);
-            expect(color.g).toBeCloseTo(0.502, 1);
-            expect(color.b).toBeCloseTo(0, 1);
+            // U-F30: parser colors are PHYSICAL (matching direct-parse), so the
+            // relative-color result carries green's physical channels
+            // green = #008000 = rgb(0, 128, 0).
+            expect(Number(color.r)).toBeCloseTo(0, 1);
+            expect(Number(color.g)).toBeCloseTo(128, 0);
+            expect(Number(color.b)).toBeCloseTo(0, 1);
         });
 
         it("hsl(from red h s l) should be red", () => {
             const color = getColor("hsl(from red h s l)") as HSLColor;
             expect(color.colorSpace).toBe("hsl");
-            // red = hsl(0, 1, 0.5)
-            expect(color.h).toBeCloseTo(0, 1);
-            expect(color.s).toBeCloseTo(1, 1);
-            expect(color.l).toBeCloseTo(0.5, 1);
+            // U-F30: physical hsl channels — red = hsl(0 100% 50%).
+            expect(Number(color.h)).toBeCloseTo(0, 1);
+            expect(Number(color.s)).toBeCloseTo(100, 0);
+            expect(Number(color.l)).toBeCloseTo(50, 0);
         });
     });
 
@@ -42,10 +44,11 @@ describe("Relative Color Syntax", () => {
     describe("literal values", () => {
         it("rgb(from green 0.5 g b) should override red channel", () => {
             const color = getColor("rgb(from green 0.5 g b)") as RGBColor;
-            expect(color.r).toBeCloseTo(0.5, 3);
-            // g from green ≈ 0.502
-            expect(color.g).toBeCloseTo(0.502, 1);
-            expect(color.b).toBeCloseTo(0, 1);
+            // U-F30: physical channels — the literal 0.5 is the CSS r value, g
+            // is green's physical g = 128.
+            expect(Number(color.r)).toBeCloseTo(0.5, 3);
+            expect(Number(color.g)).toBeCloseTo(128, 0);
+            expect(Number(color.b)).toBeCloseTo(0, 1);
         });
     });
 
@@ -53,10 +56,12 @@ describe("Relative Color Syntax", () => {
         it("rgb(from hsl(from red h s l) r g b) should roundtrip", () => {
             const color = getColor("rgb(from hsl(from red h s l) r g b)") as RGBColor;
             expect(color.colorSpace).toBe("rgb");
-            // Should be close to red: (1, 0, 0)
-            expect(color.r).toBeCloseTo(1, 1);
-            expect(color.g).toBeCloseTo(0, 1);
-            expect(color.b).toBeCloseTo(0, 1);
+            // U-F30: physical channels — the round-trip lands back on red
+            // rgb(255, 0, 0). (The nested inner relative color re-normalizes
+            // correctly because its physical channels carry their denorm units.)
+            expect(Number(color.r)).toBeCloseTo(255, 0);
+            expect(Number(color.g)).toBeCloseTo(0, 1);
+            expect(Number(color.b)).toBeCloseTo(0, 1);
         });
     });
 
@@ -75,7 +80,9 @@ describe("Relative Color Syntax", () => {
     describe("none in relative color", () => {
         it("should support none as a component", () => {
             const color = getColor("hsl(from red none s l)") as HSLColor;
-            expect(Number.isNaN(color.h as number)).toBe(true);
+            // U-F30: channels are physical ValueUnits (matching direct-parse's
+            // `none` → ValueUnit(NaN)); coerce before the NaN test.
+            expect(Number.isNaN(Number(color.h))).toBe(true);
         });
     });
 });
