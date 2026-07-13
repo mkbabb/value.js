@@ -1,86 +1,53 @@
 /**
- * Session management — thin wrapper that delegates to useUserAuth when a
- * persistent user token exists, and only creates anonymous sessions as a
- * fallback.
+ * Session management — resolves the live API session token, delegating to the
+ * persistent user token (useUserAuth / localStorage) when one exists and only
+ * minting an anonymous session (sessionStorage) as a fallback.
  *
- * This prevents the original bug where ensureSession() would create a
- * competing anonymous session that overwrote the user's real token in
- * the api module.
+ * This prevents the original bug where ensureSession() would create a competing
+ * anonymous session that overwrote the user's real token.
  *
- * Storage: sessionStorage (cleared on tab close) for anonymous sessions.
- * When useUserAuth has a token, it is synced to sessionStorage so both
- * systems see the same value.
+ * U.W-DEMO · U-F46: the token is single-sourced on the api client's
+ * `sessionTokenRef` (the transport's own read cell) and persisted by the ONE
+ * `sessionToken` adapter. This module holds NO private token ref — `token`
+ * exposes the canonical cell directly, driven through the adapter's single
+ * write path.
  */
-import { ref, type Ref } from "vue";
-import { createSession, setSessionToken } from "@lib/palette/api";
-import { safeGetItem, safeSetItem } from "../useSafeStorage";
+import { createSession } from "@lib/palette/api";
+import { sessionTokenRef } from "@lib/palette/api/client";
 
-const SESSION_KEY = "palette-session-token";
-const USER_TOKEN_KEY = "palette-user-token"; // shared with useUserAuth
-
-let _token: Ref<string | null> | null = null;
-let _initialized = false;
-
-function getToken(): Ref<string | null> {
-    if (!_token) {
-        _token = ref<string | null>(safeGetItem(sessionStorage, SESSION_KEY));
-    }
-    return _token;
-}
-
-function initialize() {
-    if (_initialized) return;
-    _initialized = true;
-    const t = getToken();
-    if (t.value) {
-        setSessionToken(t.value);
-    }
-}
+import { loadPersistedToken, persistToken, restoreToken } from "./sessionToken";
 
 async function ensureSession(): Promise<string> {
-    const token = getToken();
-
-    // 1. Check sessionStorage (may have been synced from useUserAuth)
-    if (token.value) {
-        setSessionToken(token.value);
-        return token.value;
+    // 1. Canonical in-memory cell already populated?
+    if (sessionTokenRef.value) {
+        return sessionTokenRef.value;
     }
 
-    // 2. Check if useUserAuth has a persistent token in localStorage
-    //    (covers the case where sessionStorage was cleared on tab close
-    //    but the user is still "logged in" via localStorage)
-    const userToken = safeGetItem(localStorage, USER_TOKEN_KEY);
-    if (userToken) {
-        token.value = userToken;
-        safeSetItem(sessionStorage, SESSION_KEY, userToken);
-        setSessionToken(userToken);
-        return userToken;
+    // 2. A persisted token — the logged-in user's localStorage token, or an
+    //    anonymous sessionStorage token minted earlier this tab (covers the
+    //    case where sessionStorage was cleared on tab close but the user is
+    //    still "logged in" via localStorage).
+    const persisted = loadPersistedToken();
+    if (persisted) {
+        persistToken(persisted.token, persisted.persistent);
+        return persisted.token;
     }
 
-    // 3. No token anywhere — create an anonymous session
+    // 3. No token anywhere — mint an anonymous session.
     const res = await createSession();
-    token.value = res.token;
-    safeSetItem(sessionStorage, SESSION_KEY, res.token);
-    setSessionToken(res.token);
+    persistToken(res.token, false);
     return res.token;
 }
 
-function clearSession() {
-    const token = getToken();
-    token.value = null;
-    sessionStorage.removeItem(SESSION_KEY);
-}
-
 /**
- * Module-level singleton: state is shared across all callers.
- * Lazy-init avoids accessing Storage at import time
- * (SSR safety + Safari private browsing).
+ * Module-level singleton: the canonical token cell is shared across all callers.
+ * `restoreToken()` lazily hydrates it from storage on first use (SSR safety +
+ * Safari private browsing).
  */
 export function useSession() {
-    initialize();
+    restoreToken();
     return {
-        token: getToken(),
+        token: sessionTokenRef,
         ensureSession,
-        clearSession,
     };
 }

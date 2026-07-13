@@ -1,5 +1,5 @@
 /**
- * User auth — module-level singleton with lazy initialization and
+ * User auth — module-level singleton with lazy slug initialization and
  * auto-registration deduplication.
  *
  * Same singleton pattern as useAdminAuth/useSession. Additionally manages:
@@ -7,18 +7,22 @@
  *   (multiple components calling `ensureUser()` during mount)
  * - `_registrationCancelled` — cancellation flag for in-flight registrations
  *
- * User slug + token persist in localStorage across sessions.
+ * The user slug persists in localStorage across sessions.
+ *
+ * U.W-DEMO · U-F46: the session token is single-sourced on the api client's
+ * `sessionTokenRef` and persisted by the ONE `sessionToken` adapter (a user
+ * token is the `persistent` case). This module holds NO private token ref — it
+ * owns only the user SLUG, coupled to the token at each persist/clear.
  */
 import { ref, computed, type Ref } from "vue";
-import { createSession, deleteSession, loginWithSlug, setSessionToken } from "@lib/palette/api";
+import { createSession, deleteSession, loginWithSlug } from "@lib/palette/api";
 import { safeGetItem, safeSetItem, safeRemoveItem } from "../useSafeStorage";
 
+import { clearPersistedToken, persistToken, restoreToken } from "./sessionToken";
+
 const SLUG_KEY = "palette-user-slug";
-const TOKEN_KEY = "palette-user-token";
-const SESSION_KEY = "palette-session-token"; // shared with useSession
 
 let _userSlug: Ref<string | null> | null = null;
-let _userToken: Ref<string | null> | null = null;
 let _autoRegisterPromise: Promise<string> | null = null;
 let _registrationCancelled = false;
 
@@ -29,23 +33,18 @@ function getUserSlug(): Ref<string | null> {
     return _userSlug;
 }
 
-function getUserToken(): Ref<string | null> {
-    if (!_userToken) {
-        _userToken = ref<string | null>(safeGetItem(localStorage, TOKEN_KEY));
-    }
-    return _userToken;
+/** Persist the user's slug (localStorage) + token (the persistent adapter case). */
+function persist(slug: string, token: string) {
+    getUserSlug().value = slug;
+    safeSetItem(localStorage, SLUG_KEY, slug);
+    persistToken(token, true);
 }
 
-function persist(slug: string, token: string) {
-    const slugRef = getUserSlug();
-    const tokenRef = getUserToken();
-    slugRef.value = slug;
-    tokenRef.value = token;
-    safeSetItem(localStorage, SLUG_KEY, slug);
-    safeSetItem(localStorage, TOKEN_KEY, token);
-    // Sync with useSession's sessionStorage so ensureSession() won't create a competing session
-    safeSetItem(sessionStorage, SESSION_KEY, token);
-    setSessionToken(token);
+/** Clear the user's slug (localStorage) + token (both backends + canonical cell). */
+function clearAuth() {
+    getUserSlug().value = null;
+    safeRemoveItem(localStorage, SLUG_KEY);
+    clearPersistedToken();
 }
 
 /**
@@ -55,13 +54,9 @@ function persist(slug: string, token: string) {
  */
 export function useUserAuth() {
     const slugRef = getUserSlug();
-    const tokenRef = getUserToken();
 
-    // Restore session token on first use — sync both api module and sessionStorage
-    if (tokenRef.value) {
-        setSessionToken(tokenRef.value);
-        safeSetItem(sessionStorage, SESSION_KEY, tokenRef.value);
-    }
+    // Restore the persisted token into the canonical cell on first use.
+    restoreToken();
 
     const userSlug = computed(() => slugRef.value);
     const isLoggedIn = computed(() => !!slugRef.value);
@@ -94,12 +89,7 @@ export function useUserAuth() {
         } catch {
             // Session may already be expired
         }
-        slugRef.value = null;
-        tokenRef.value = null;
-        safeRemoveItem(localStorage, SLUG_KEY);
-        safeRemoveItem(localStorage, TOKEN_KEY);
-        sessionStorage.removeItem(SESSION_KEY);
-        setSessionToken(null);
+        clearAuth();
     }
 
     /**
@@ -125,13 +115,11 @@ export function useUserAuth() {
         } catch {
             // Old session may already be expired
         }
-        // Clear storage but DON'T null the ref yet
+        // Clear storage + token but DON'T null the slug ref yet (avoids UI flash).
         safeRemoveItem(localStorage, SLUG_KEY);
-        safeRemoveItem(localStorage, TOKEN_KEY);
-        sessionStorage.removeItem(SESSION_KEY);
-        setSessionToken(null);
+        clearPersistedToken();
 
-        // Register new user — persist() updates the ref atomically
+        // Register new user — persist() updates the slug ref atomically.
         const res = await createSession();
         if (!res.userSlug) throw new Error("Server did not return a user slug");
         persist(res.userSlug, res.token);
@@ -141,11 +129,7 @@ export function useUserAuth() {
     function clearSlug() {
         _registrationCancelled = true;
         _autoRegisterPromise = null;
-        slugRef.value = null;
-        tokenRef.value = null;
-        safeRemoveItem(localStorage, SLUG_KEY);
-        safeRemoveItem(localStorage, TOKEN_KEY);
-        sessionStorage.removeItem(SESSION_KEY);
+        clearAuth();
     }
 
     return { userSlug, isLoggedIn, register, login, logout, ensureUser, regenerate, clearSlug };

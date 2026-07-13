@@ -44,9 +44,13 @@ initApiEnvironment(BASE_URL);
 
 // S.W2 W2-4: the session-token cell is a real `ref` (not a bare module `let`)
 // so the `useApiClient()` DI seam can re-expose it reactively — the SAME
-// provide/inject discipline color-state uses. This module stays the single
-// source of truth: `request()` reads `sessionTokenRef.value` and the auth
-// composables drive it via `setSessionToken`.
+// provide/inject discipline color-state uses.
+//
+// U.W-DEMO · U-F46: this is THE single canonical session-token cell. The auth
+// composables (`useSession`/`useUserAuth`) hold NO private token ref — they
+// read this cell directly and drive it through the one `sessionToken`
+// persistence adapter's `setSessionToken` write path, so `request()`'s
+// transport-truth and the app's auth-truth are one object.
 export const sessionTokenRef: Ref<string | null> = ref(null);
 
 export function setSessionToken(token: string | null) {
