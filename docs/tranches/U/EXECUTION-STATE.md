@@ -35,7 +35,7 @@ resume from any of the three death classes below. **Update this file at every wa
 
 | Run | Workflow | Phase at stamp | Script (in §3 dir) | On death |
 |---|---|---|---|---|
-| `wf_c072f8ee-d1e` | U.W-PERF (dispatch → 3 lanes [perf-cls U-F16+F76 main-tree LHCI · perf-dist-gate U-F14 in worktree · perf-lcp-escalate U-F3 docs-only] → gate G-PERF-1..4 → close) | **LAUNCHED 2026-07-13** post-A11Y-close | `u-w-perf-wf_c072f8ee-d1e.js` | resume; PERF is reserve-only (the U-F76 TAIL — never moves the mount box); G-PERF-3 is ARMED-RED escalate, never a gate edit |
+| `wf_c072f8ee-d1e` | U.W-PERF (dispatch → 3 lanes [perf-cls U-F16+F76 main-tree LHCI · perf-dist-gate U-F14 in worktree · perf-lcp-escalate U-F3 docs-only] → gate G-PERF-1..4 → close) | **RESUMED 2026-07-13** after a harness-crash kill (death class 2: process died mid-lanes; dispatcher cached, 3 lanes re-running batch-of-3; the U-F3 escalate had ALREADY LANDED `ca8dbca` pre-crash — its re-run reconciles, never duplicates; the dead U-F14 lane worktree was CLEAN → removed) | `u-w-perf-wf_c072f8ee-d1e.js` | resume; PERF is reserve-only (the U-F76 TAIL — never moves the mount box); G-PERF-3 is ARMED-RED escalate, never a gate edit |
 
 **Completed runs** (journals retained, no action): `wf_84ed7f23-036` **A11Y (CLOSED
 `complete_with_misses`** — all 11 born-RED gates BR-1..BR-11 flipped RED→GREEN [deterministic
