@@ -83,11 +83,7 @@
         "lint": "eslint . --max-warnings=0",
         "test": "vitest",
         "test:e2e": "playwright test",
-<<<<<<< Updated upstream
-        "test:dist": "npm run build && npm run proof:dts-surface && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget && npm run proof:lib-correctness",
-=======
-        "test:dist": "npm run build && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget && npm run proof:lib-correctness && npm run proof:barrel-parity && npm run proof:pack-manifest",
->>>>>>> Stashed changes
+        "test:dist": "npm run build && npm run proof:dts-surface && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget && npm run proof:lib-correctness && npm run proof:barrel-parity && npm run proof:pack-manifest",
         "boot-smoke": "node scripts/ci/boot-smoke.mjs",
         "abrogation-sweep": "node scripts/ci/abrogation-sweep.mjs",
         "css-emission-probe": "node scripts/ci/css-emission-probe.mjs",
