@@ -31,20 +31,12 @@ import {
     ConflictError,
     NotFoundError,
 } from "../../../platform/http/errors/index.js";
-import { asSessionToken, asUserSlug } from "../model.js";
+import { asUserSlug, hashSessionToken, SESSION_TTL_MS } from "../model.js";
 import { generateUniqueSlug } from "../slugWords.js";
 
-/**
- * 30 days — the only place this constant lives.
- *
- * This is the documented cross-repo session contract (CRUD-CONTRACT §6:
- * `session_ttl_days = 30`). A session is minted with `expiresAt = createdAt +
- * SESSION_TTL_MS` and the value is never extended; the `sessions.expiresAt` TTL
- * index (`db.ts`, `expireAfterSeconds: 0`) is what discharges §6's "the cron
- * hard-deletes sessions where expires_at < now()" — the DB engine does it, so
- * there is no application-level session sweep (N.W3.C/I reconcile).
- */
-const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+// `SESSION_TTL_MS` (the 30-day contract horizon, CRUD-CONTRACT §6) is the single
+// source in `../model.js` (U-F36 lifted it there so the admin impersonation mint
+// shares the one horizon instead of duplicating the literal).
 
 /** Constant-time delay (ms) padding the login response. */
 const LOGIN_CONSTANT_DELAY_MS = 200;
@@ -93,9 +85,9 @@ export async function registerSession(
         lastSeenAt: now,
     });
     await sessions.insert({
-        // Construction mint: the freshly generated uuid becomes this new
-        // session's branded `_id`.
-        _id: asSessionToken(token),
+        // Construction mint: the freshly generated uuid is hashed (U-F38) into
+        // this new session's branded `_id`; the raw `token` is returned below.
+        _id: hashSessionToken(token),
         ipHash,
         userSlug,
         createdAt: now,
@@ -141,9 +133,9 @@ export async function loginSession(
     // a session that failed to land. This mirrors `registerSession`'s
     // benign-orphan reasoning — neither outcome is a cross-collection break.
     await sessions.insert({
-        // Construction mint: the freshly generated uuid becomes this new
-        // session's branded `_id`.
-        _id: asSessionToken(token),
+        // Construction mint: the freshly generated uuid is hashed (U-F38) into
+        // this new session's branded `_id`; the raw `token` is returned below.
+        _id: hashSessionToken(token),
         ipHash,
         userSlug: slug,
         createdAt: now,

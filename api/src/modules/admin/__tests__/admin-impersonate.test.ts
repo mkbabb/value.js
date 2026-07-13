@@ -117,7 +117,7 @@ describe("routes.admin impersonate + adminAuth gate (N.W3.H-tests)", () => {
 
     // ---- impersonate happy path + not-found ----
 
-    it("POST /admin/impersonate → 200 {token, userSlug} for an existing user", async () => {
+    it("POST /admin/impersonate → 200 + the token AUTHENTICATES through the auth path + attributable audit (G-SEC-1 · U-F36/U-F40)", async () => {
         const res = await app.request("/admin/impersonate", {
             method: "POST",
             headers: authed,
@@ -129,9 +129,33 @@ describe("routes.admin impersonate + adminAuth gate (N.W3.H-tests)", () => {
         expect(typeof body.token).toBe("string");
         expect(body.token.length).toBeGreaterThan(0);
 
-        // The minted session is real — it names the target user.
-        const session = await services.repositories.sessions.findByToken(body.token);
+        // G-SEC-1 (U-F36) — DRIVES the auth middleware, not a row-existence mask.
+        // `findAndTouch` is the EXACT read `resolveSession` performs, and it
+        // filters `expiresAt: { $gt: now }`. A session minted with no `expiresAt`
+        // is dead-on-arrival: the filter drops it and the token is functionally
+        // inert (401 downstream) even though the route returned 200. Asserting
+        // the session resolves + carries a live `expiresAt` proves the credential
+        // AUTHENTICATES. (This REPLACES the former `findByToken` check, which read
+        // `_id` only, ignored the expiry filter, and was green over broken.)
+        const session = await services.repositories.sessions.findAndTouch(body.token);
+        expect(session).not.toBeNull();
         expect(session?.userSlug).toBe("target-user");
+        expect(session?.expiresAt).toBeInstanceOf(Date);
+
+        // G-SEC-1 paired sub-assertion (U-F40) — the privileged impersonate op is
+        // attributably logged. `adminAuth` is bearer-only (no session), so the
+        // route's former `c.var.userSlug` actor was `undefined` → `actorSlug`
+        // sank to `null`. The admin actor is now surfaced from the bearer gate:
+        // a resolvable identity is recorded, never `null`.
+        const auditRows = await services.repositories.adminAudit.findManyByFilter(
+            { action: "impersonate" },
+            0,
+            10,
+        );
+        expect(auditRows).toHaveLength(1);
+        expect(auditRows[0].actorSlug).not.toBeNull();
+        expect(typeof auditRows[0].actorSlug).toBe("string");
+        expect((auditRows[0].actorSlug as string).length).toBeGreaterThan(0);
     });
 
     it("POST /admin/impersonate → 404 for an unknown target user", async () => {

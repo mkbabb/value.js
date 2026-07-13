@@ -47,19 +47,19 @@ router.get("/colors/approved", async (c) => {
 
 // DELETE /admin/colors/:id — delete a color name (any status)
 router.delete("/colors/:id", async (c) => {
-    await deleteColor(c.var.services, c.var.userSlug, c.req.param("id"));
+    await deleteColor(c.var.services, c.var.adminActor, c.req.param("id"));
     return c.json({ deleted: true });
 });
 
 // POST /admin/colors/:id/approve
 router.post("/colors/:id/approve", async (c) => {
-    await approveColor(c.var.services, c.var.userSlug, c.req.param("id"));
+    await approveColor(c.var.services, c.var.adminActor, c.req.param("id"));
     return c.json({ approved: true });
 });
 
 // POST /admin/colors/:id/reject
 router.post("/colors/:id/reject", async (c) => {
-    await rejectColor(c.var.services, c.var.userSlug, c.req.param("id"));
+    await rejectColor(c.var.services, c.var.adminActor, c.req.param("id"));
     return c.json({ rejected: true });
 });
 

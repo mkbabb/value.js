@@ -9,7 +9,7 @@ import {
 } from "../service/users.js";
 import { createPalette } from "../../palette/service/crud.js";
 import { NotFoundError } from "../../../platform/http/errors/index.js";
-import { asSessionToken, asUserSlug } from "../../session/model.js";
+import { asUserSlug, hashSessionToken } from "../../session/model.js";
 import type { Services } from "../../../platform/http/inject-services.js";
 
 describe("service.admin.users", () => {
@@ -48,7 +48,7 @@ describe("service.admin.users", () => {
             status: "active",
         });
         await services.repositories.sessions.insert({
-            _id: asSessionToken("tok-1"),
+            _id: hashSessionToken("tok-1"),
             ipHash: "ip",
             userSlug: "alice",
             createdAt: new Date(),
@@ -83,7 +83,7 @@ describe("service.admin.users", () => {
         });
         await services.repositories.votes.upsertIdempotent("alice", "p1");
         await services.repositories.sessions.insert({
-            _id: asSessionToken("s"),
+            _id: hashSessionToken("s"),
             ipHash: "ip",
             userSlug: "alice",
             createdAt: new Date(),

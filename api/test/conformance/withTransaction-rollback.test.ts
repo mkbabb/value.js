@@ -24,7 +24,7 @@ import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
 import { createPalette, deletePalette } from "../../src/modules/palette/service/crud.js";
 import { batchUsers } from "../../src/modules/admin/service/batch.js";
-import { asSessionToken, asUserSlug } from "../../src/modules/session/model.js";
+import { asUserSlug, hashSessionToken } from "../../src/modules/session/model.js";
 import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("withTransaction rollback (G.W3 Lane E)", () => {
@@ -109,7 +109,7 @@ describe("withTransaction rollback (G.W3 Lane E)", () => {
             status: "active",
         });
         await services.repositories.sessions.insert({
-            _id: asSessionToken("tok-1"),
+            _id: hashSessionToken("tok-1"),
             ipHash: "ip",
             userSlug: "alice",
             createdAt: new Date(),

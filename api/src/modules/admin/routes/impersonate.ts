@@ -18,7 +18,7 @@ router.post("/impersonate", async (c) => {
         throw new ValidationError("Invalid impersonate body", parsed.error.format());
     }
     const ipHash = await hashIP(resolveIP(c));
-    const result = await impersonate(c.var.services, c.var.userSlug, ipHash, parsed.data.slug);
+    const result = await impersonate(c.var.services, c.var.adminActor, ipHash, parsed.data.slug);
     return c.json(result);
 });
 

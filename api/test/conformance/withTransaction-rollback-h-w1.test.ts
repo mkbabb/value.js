@@ -36,7 +36,7 @@ import {
     setUserStatus,
 } from "../../src/modules/admin/service/users.js";
 import { deleteTag } from "../../src/modules/admin/service/tags.js";
-import { asSessionToken, asUserSlug } from "../../src/modules/session/model.js";
+import { asUserSlug, hashSessionToken } from "../../src/modules/session/model.js";
 import type { Services } from "../../src/platform/http/inject-services.js";
 
 describe("withTransaction rollback (H.W1 Lane A)", () => {
@@ -299,7 +299,7 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             status: "active",
         });
         await services.repositories.sessions.insert({
-            _id: asSessionToken("tok-1"),
+            _id: hashSessionToken("tok-1"),
             ipHash: "ip",
             userSlug: "alice",
             createdAt: new Date(),
@@ -398,7 +398,7 @@ describe("withTransaction rollback (H.W1 Lane A)", () => {
             lastSeenAt: new Date(),
         });
         await services.repositories.sessions.insert({
-            _id: asSessionToken("tok-ghost"),
+            _id: hashSessionToken("tok-ghost"),
             ipHash: "ip",
             userSlug: "ghost",
             createdAt: new Date(),

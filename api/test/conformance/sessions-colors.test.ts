@@ -25,7 +25,7 @@ import sessions from "../../src/modules/session/routes.js";
 import colors from "../../src/modules/color/routes.js";
 import { resolveSession } from "../../src/modules/session/resolve-session.js";
 import { toResponseEnvelope } from "../../src/platform/http/errors/index.js";
-import { asSessionToken, asUserSlug } from "../../src/modules/session/model.js";
+import { asUserSlug, hashSessionToken } from "../../src/modules/session/model.js";
 import type { AppEnv } from "../../src/types.js";
 import type { Services } from "../../src/platform/http/inject-services.js";
 
@@ -190,7 +190,7 @@ describe("routes.colors — propose + public listings (N.W3.H-tests)", () => {
             lastSeenAt: new Date(),
         });
         await services.repositories.sessions.insert({
-            _id: asSessionToken("tok-c"),
+            _id: hashSessionToken("tok-c"),
             ipHash: "test",
             userSlug: "carol",
             createdAt: new Date(),

@@ -18,7 +18,7 @@ router.post("/batch/palettes", async (c) => {
     }
     const result = await batchPalettes(
         c.var.services,
-        c.var.userSlug,
+        c.var.adminActor,
         parsed.data.action,
         parsed.data.slugs,
     );
@@ -33,7 +33,7 @@ router.post("/batch/users", async (c) => {
     }
     const result = await batchUsers(
         c.var.services,
-        c.var.userSlug,
+        c.var.adminActor,
         parsed.data.action,
         parsed.data.slugs,
     );

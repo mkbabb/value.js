@@ -32,7 +32,7 @@ router.get("/flagged", async (c) => {
 
 // DELETE /admin/flags/:paletteSlug — dismiss all flags for a palette
 router.delete("/flags/:paletteSlug", async (c) => {
-    const result = await dismissFlags(c.var.services, c.var.userSlug, c.req.param("paletteSlug"));
+    const result = await dismissFlags(c.var.services, c.var.adminActor, c.req.param("paletteSlug"));
     return c.json(result);
 });
 

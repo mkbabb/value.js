@@ -24,7 +24,7 @@ router.post("/tags", async (c) => {
     }
     const result = await createTag(
         c.var.services,
-        c.var.userSlug,
+        c.var.adminActor,
         parsed.data.name,
         parsed.data.category,
     );
@@ -33,7 +33,7 @@ router.post("/tags", async (c) => {
 
 // DELETE /admin/tags/:name — delete a tag + cascade $pull from palettes
 router.delete("/tags/:name", async (c) => {
-    await deleteTag(c.var.services, c.var.userSlug, c.req.param("name"));
+    await deleteTag(c.var.services, c.var.adminActor, c.req.param("name"));
     return c.json({ deleted: true });
 });
 

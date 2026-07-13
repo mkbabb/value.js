@@ -1,21 +1,24 @@
 /**
  * SessionRepository — owns all query/write ops for the `sessions` collection.
  *
- * Session `_id` is the session token (uuid), branded `SessionToken` at the
- * model boundary (L.W2). The `findAndTouch` method IS the session-validation
- * read `middleware/resolve-session.ts` consumes via the DI seam — an atomic
- * find + `lastSeenAt` touch.
+ * Session `_id` is the SHA-256 digest of the session token (U-F38), branded
+ * `SessionToken` at the model boundary (L.W2). Every lookup hashes the incoming
+ * RAW token via `hashSessionToken` before filtering, mirroring the mint — so the
+ * cleartext token never appears in a query and the digest-at-rest seam round-
+ * trips. The `findAndTouch` method IS the session-validation read
+ * `modules/session/resolve-session.ts` consumes via the DI seam — an atomic find
+ * (gated on `expiresAt > now`) + `lastSeenAt` touch.
  */
 
 import type { ClientSession, Collection } from "mongodb";
 import type { Session } from "../model.js";
-import { asSessionToken } from "../model.js";
+import { hashSessionToken } from "../model.js";
 
 export class SessionRepository {
     constructor(private readonly col: Collection<Session>) {}
 
     findByToken(token: string): Promise<Session | null> {
-        return this.col.findOne({ _id: asSessionToken(token) });
+        return this.col.findOne({ _id: hashSessionToken(token) });
     }
 
     /**
@@ -24,7 +27,7 @@ export class SessionRepository {
      */
     findAndTouch(token: string): Promise<Session | null> {
         return this.col.findOneAndUpdate(
-            { _id: asSessionToken(token), expiresAt: { $gt: new Date() } },
+            { _id: hashSessionToken(token), expiresAt: { $gt: new Date() } },
             { $set: { lastSeenAt: new Date() } },
             { returnDocument: "after" },
         );
@@ -42,7 +45,7 @@ export class SessionRepository {
 
     delete(token: string): Promise<number> {
         return this.col
-            .deleteOne({ _id: asSessionToken(token) })
+            .deleteOne({ _id: hashSessionToken(token) })
             .then((r) => r.deletedCount);
     }
 
