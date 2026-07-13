@@ -36,7 +36,12 @@ resume from any of the three death classes below. **Update this file at every wa
 
 | Run | Workflow | Phase at stamp | Script (in §3 dir) | On death |
 |---|---|---|---|---|
-| `wf_c072f8ee-d1e` | U.W-PERF (dispatch → 3 lanes [perf-cls U-F16+F76 main-tree LHCI · perf-dist-gate U-F14 in worktree · perf-lcp-escalate U-F3 docs-only] → gate G-PERF-1..4 → close) | **CLOSED `complete_with_misses` 2026-07-13** (this run completed; 3 born-RED gates flipped to terminal [G-PERF-1 CLS 0.2146→0.0010 · G-PERF-2 dist-gate 32/32 re-anchored · G-PERF-4 settle-guard 16/16] + G-PERF-3 the DECIDED LCP escalate [armed-RED, producer-gated, no gate edit]; U-F3 W9 row LANDED in PI-1 by the close scribe; verdict + commits in §4) | `u-w-perf-wf_c072f8ee-d1e.js` | n/a — CLOSED; the U-F76 chain is the reserve-only TAIL, complete |
+| `wf_ca09a7c3-93e` | U.W-ADOPT trigger-UNFIRED arm (dispatch → ≤3 lanes [U-F2 disease law + CI ref-pins + co-land ordering · U-F4/U-F13-producer OWNER-ATTEST annex rows · U-F28/U-F68/U-F77 version-cut sequencing vs both floors] → gate → close) | **LAUNCHED 2026-07-13** post-PERF-close (v5 tag EMPTY at launch; armed gates flip only at the real cut; the version cut stays OWNER-HELD) | `u-w-adopt-wf_ca09a7c3-93e.js` | resume; never unpin/publish from a lane — orchestrator owns the unpin, the owner owns the cut |
+
+**PERF completed**: `wf_c072f8ee-d1e` **CLOSED `complete_with_misses` 2026-07-13** — 3 born-RED
+gates flipped to terminal (G-PERF-1 CLS 0.2146→0.0010 · G-PERF-2 dist-gate 32/32 re-anchored ·
+G-PERF-4 settle-guard 16/16) + G-PERF-3 the DECIDED LCP escalate (armed-RED, producer-gated, no
+gate edit); U-F3 W9 row LANDED in PI-1; close stamp `b54ce7f`.
 
 **Completed runs** (journals retained, no action): `wf_84ed7f23-036` **A11Y (CLOSED
 `complete_with_misses`** — all 11 born-RED gates BR-1..BR-11 flipped RED→GREEN [deterministic
