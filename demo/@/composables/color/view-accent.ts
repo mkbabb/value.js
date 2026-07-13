@@ -36,13 +36,15 @@
  *   3. gamut-map to the cusp with the Ottosson analytical mapper
  *      (`gamutMapOKLab` — hue-exact, adaptive-L0), so the painted sRGB is
  *      OURS, not the browser clamp's;
- *   4. re-guard L against the scheme background (`computeSafeAccent`, the
- *      same leaf the live accent rides) + re-map (the guard preserves hue;
- *      the map keeps the guarded L honest);
- *   5. verify the WCAG 1.4.11 graphics floor (≥ 3:1) with the library's
- *      `wcagContrastRatio` leaf, walking L away from the background (and
- *      re-mapping) until it clears — a deterministic library-driven solve,
- *      never nine hand-tuned literals.
+ *   4. re-guard L against the SURFACE (`computeSafeAccent`, the same leaf the
+ *      live accent rides) + re-map (the guard preserves hue; the map keeps the
+ *      guarded L honest);
+ *   5. certify the WCAG 1.4.11 graphics floor (≥ 3:1) with the library's
+ *      `safeAccentAgainstSurface` leaf (VJ-U-F26) — walking L away from the
+ *      SURFACE COLOR (and re-mapping) until the true WCAG ratio clears, a
+ *      deterministic library-driven solve, never nine hand-tuned literals.
+ *      The referent is the tier the accent SITS ON (the resting rung the ramp
+ *      certifies against), never the page ambient — so certified ≡ rendered.
  *
  * The composable half (`boot/useViewAccents`) writes the result as STATIC
  * root tokens per accent change — the current view's `--accent-view` (plus
@@ -64,7 +66,7 @@
 import {
     OKLCHColor,
     computeSafeAccent,
-    wcagContrastRatio,
+    safeAccentAgainstSurface,
 } from "@mkbabb/value.js/color";
 import {
     DELTA_E_OK_JND,
@@ -73,7 +75,6 @@ import {
     rawOklch2oklab,
 } from "@mkbabb/value.js/color";
 import { getColorSpaceBound } from "@mkbabb/value.js/color";
-import { clamp } from "@mkbabb/value.js/math";
 import { cssToRawColor } from "@lib/color-utils";
 
 /**
@@ -129,15 +130,25 @@ export function tryParseOklch(css: string): ReturnType<typeof cssToRawColor> {
  * Resolve ONE view accent: rotate → C-floor → gamut-map → L re-guard →
  * WCAG ≥3:1 verify (all library ops — see the module doc pipeline).
  *
- * @param liveCss  the contrast-guarded LIVE accent (`--accent-live`'s value)
- * @param shiftDeg the view's schema-declared OKLCH hue rotation (degrees)
- * @param bgL      scheme background lightness in OKLab [0,1]
- * @returns        a resolved `oklch(…)` string, or null on parse failure
+ * VJ-U-F26 (U.W-A11Y): `surfaceL` is the LIVE-PROBED SURFACE the accent
+ * renders against (the resting rung the ramp already certifies against —
+ * WR-8), NOT the page ambient. The former ambient referent walked the accent
+ * to a mid-ambient-relative L that, on the real (composited-away-from-mid)
+ * tier, breached its own claimed 3:1 floor — measured dark-scheme 1.72:1 on
+ * the default seed. Passing the surface referent unifies accent + ramp onto
+ * ONE contrast ground (the elegant transposition), so `certified ≡ rendered`.
+ *
+ * @param liveCss   the contrast-guarded LIVE accent (`--accent-live`'s value)
+ * @param shiftDeg  the view's schema-declared OKLCH hue rotation (degrees)
+ * @param surfaceL  the surface referent lightness in OKLab [0,1] — the tier
+ *                  the accent SITS ON (`resolveSurfaceLightnessLive`), never
+ *                  the bare page ambient
+ * @returns         a resolved `oklch(…)` string, or null on parse failure
  */
 export function resolveViewAccent(
     liveCss: string,
     shiftDeg: number,
-    bgL: number,
+    surfaceL: number,
 ): string | null {
     const live = tryParseOklch(liveCss);
     if (!live) return null;
@@ -155,10 +166,10 @@ export function resolveViewAccent(
     // 3 — gamut-map to the cusp.
     let { L, C } = mapToGamut(L0, Math.max(C0, VIEW_ACCENT_MIN_CHROMA), H);
 
-    // 4 — re-guard L against the scheme background (the library's own
-    // OKLab-distance guard), then re-map: the guard moves L (hue untouched);
-    // the guarded point may sit outside the boundary at high C.
-    const safe = computeSafeAccent(L, C, H, bgL);
+    // 4 — re-guard L against the SURFACE (the library's own OKLab-distance
+    // preconditioner), then re-map: the guard moves L (hue untouched); the
+    // guarded point may sit outside the boundary at high C.
+    const safe = computeSafeAccent(L, C, H, surfaceL);
     if (safe.L !== L || safe.C !== C) {
         ({ L, C } = mapToGamut(
             safe.L,
@@ -167,22 +178,22 @@ export function resolveViewAccent(
         ));
     }
 
-    // 5 — the WCAG 1.4.11 graphics floor, verified with the library's
-    // contrast-ratio leaf; walk L away from the background until it clears.
-    const bg = publicOklch(bgL, 0, 0);
-    const away = bgL < 0.5 ? 1 : -1;
-    for (
-        let i = 0;
-        i < MAX_GUARD_STEPS &&
-        wcagContrastRatio(publicOklch(L, C, H), bg) < GRAPHICS_CONTRAST_FLOOR;
-        i++
-    ) {
-        ({ L, C } = mapToGamut(
-            clamp(L + away * GUARD_STEP_L, 0.02, 0.98),
-            C,
-            H,
-        ));
-    }
+    // 5 — the WCAG 1.4.11 graphics floor against the SURFACE (VJ-U-F26): the
+    // library's own contrast-ratio walk owns the loop now. The demo passes the
+    // referent as a COLOR — `publicOklch(surfaceL,0,0)` (gray at the surface's
+    // OWN lightness, the honest degenerate for a probe that resolves to L),
+    // the live-probed tier color when a caller has it — so the accent is
+    // certified against the tier it renders on, never a gray at the page
+    // ambient (the former referent that shipped the sub-3:1 breach).
+    ({ L, C } = safeAccentAgainstSurface(
+        L,
+        C,
+        H,
+        publicOklch(surfaceL, 0, 0),
+        GRAPHICS_CONTRAST_FLOOR,
+        GUARD_STEP_L,
+        MAX_GUARD_STEPS,
+    ));
 
     return `oklch(${L.toFixed(4)} ${C.toFixed(4)} ${H.toFixed(1)})`;
 }

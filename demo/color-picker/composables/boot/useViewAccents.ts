@@ -122,16 +122,24 @@ export function useViewAccents(options: UseViewAccentsOptions): void {
     // (`--palettes-ramp-title-0/1/2`, aliased into the `.palettes-ramp-text`
     // recipe by PalettesPane) — each against ITS OWN surface, one resolver,
     // per-site CERTIFIED OUTPUTS (never two mints).
+    //
+    // VJ-U-F26 (U.W-A11Y) — THE ONE-REFERENT CURE: `--accent-view` certifies
+    // against `surfL` (the live-probed RESTING rung the ramp already uses),
+    // NOT the page ambient `derivedLightness`. The ambient referent walked the
+    // default-seed dark accent to a mid-relative L that breached its own 3:1
+    // floor on the real (composited-away-from-mid) tier — measured 1.72:1
+    // dark. Unifying accent + ramp onto ONE surface ground makes certified ≡
+    // rendered. `derivedLightness` stays a watch dep only transitively (it
+    // feeds `surfaceL`); the accent no longer reads the bare ambient.
     watch(
         [
             safeAccentCss,
-            derivedLightness,
             surfaceL,
             () => currentConfig.value.accentHueShift,
         ],
-        ([css, bgL, surfL, shift]) => {
+        ([css, surfL, shift]) => {
             const root = document.documentElement.style;
-            const resolved = resolveViewAccent(css, shift ?? 0, bgL);
+            const resolved = resolveViewAccent(css, shift ?? 0, surfL);
             if (resolved) {
                 root.setProperty("--accent-view", resolved);
             }

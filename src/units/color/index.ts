@@ -64,6 +64,8 @@ export type { HueInterpolationMethod } from "./mix";
 export {
     computeSafeAccent,
     safeAccentColor,
+    // VJ-U-F26 — the WCAG-ratio accent re-guard against a SURFACE COLOR.
+    safeAccentAgainstSurface,
     needsContrastAdjustment,
     getOklchLightness,
     // VJ-Q1 (1.1.1) — WCAG 2.x relative-luminance + `contrast-color()` leaf.

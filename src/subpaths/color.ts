@@ -118,6 +118,9 @@ export {
     safeAccentColor,
     // S.W1-6 — the CSS-string accent surface the demo consumes.
     safeAccentCssString,
+    // VJ-U-F26 — the WCAG-ratio accent re-guard against a SURFACE COLOR (the
+    // rendered-tier referent the demo accent pipeline consumes).
+    safeAccentAgainstSurface,
     needsContrastAdjustment,
     getOklchLightness,
     wcagRelativeLuminance,

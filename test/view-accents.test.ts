@@ -33,6 +33,10 @@ import {
     VIEW_ACCENT_MIN_CHROMA,
     resolveViewAccent,
 } from "../demo/@/composables/color/view-accent";
+import {
+    certifyAccentInk,
+    resolveSurfaceLightness,
+} from "../demo/@/composables/color/ink";
 import { resolveSealInk } from "../demo/color-picker/composables/boot/view-accents";
 import {
     PALETTES_RAMP_SHIFTS,
@@ -188,6 +192,65 @@ describe("W6-4/WR-8 — the guarded letterform ramp (Q5 RULED; O-14's T-10 refer
             resolvePalettesRamp("not-a-color", 0.5, RAMP_TEXT_CONTRAST_FLOOR),
         ).toBeNull();
     });
+});
+
+describe("VJ-U-F26 (BR-2) — the rendered-tier accent re-guard: one surface referent, not the page ambient", () => {
+    // The DEFAULT SEED (useColorParsing.ts DEFAULT_COLOR = "lavendi").
+    const DEFAULT_SEED = "oklch(0.799 0.11 318.24)";
+    // FIRST_VISIT_GROUND (boot/ground.ts) — the default seed's derived field,
+    // per scheme; the page ambient is its mean OKLab L. Inlined + cited (the
+    // test gates the MECHANISM, not the exact literal — regenerate with it).
+    // FIRST_VISIT_GROUND (boot/ground.ts) for reference: light pinks
+    // #b37290→#ffcfc8 (mean OKLab L ≈ 0.77), dark #673255→#d6917c (mean ≈ 0.56).
+
+    /**
+     * Reproduce the boot cascade for the default seed, both schemes:
+     *   --accent-live = certifyAccentInk(seed, restingL)  [useContrastSafeColor]
+     *   --accent-view = resolveViewAccent(--accent-live, 0, referentL)  [useViewAccents]
+     * The BUG was `referentL = page ambient`; the CURE is `referentL = surface`.
+     */
+    for (const scheme of ["light", "dark"] as const) {
+        const dark = scheme === "dark";
+        // The page ambient (mean OKLab L of the derived field) — parsed through
+        // the census's own `ratioAgainst`/OKLCHColor instrument is overkill; a
+        // representative value per scheme suffices (the measured band, F-1):
+        // light field mean ≈ 0.77, dark field mean ≈ 0.56.
+        const ambientL = dark ? 0.56 : 0.77;
+        const restingL = resolveSurfaceLightness("resting", ambientL, dark);
+
+        it(`${scheme}: the accent certified against the SURFACE clears ≥3:1 on that surface (the cure)`, () => {
+            const accentLive = certifyAccentInk(DEFAULT_SEED, restingL);
+            // POLE A — the shipped boot referent: the live-probed surface.
+            const accentView = resolveViewAccent(accentLive, 0, restingL)!;
+            expect(accentView, "accent resolves").not.toBeNull();
+            expect(
+                ratioAgainst(accentView, restingL),
+                `accent ${accentView} on resting rung L=${restingL.toFixed(3)}`,
+            ).toBeGreaterThanOrEqual(GRAPHICS_CONTRAST_FLOOR);
+        });
+
+        if (dark) {
+            it(`${scheme}: the PAGE-AMBIENT referent is the recorded defect — it breaches on the real surface`, () => {
+                const accentLive = certifyAccentInk(DEFAULT_SEED, restingL);
+                // THE DEFECT (pre-U-F26): certify against the mid page ambient…
+                const accentAmbient = resolveViewAccent(accentLive, 0, ambientL)!;
+                // …then MEASURE against the surface the accent renders on: the
+                // measured 1.72:1 breach class — the ambient referent walks the
+                // dark accent to a mid-relative L that fails on the dark tier.
+                expect(
+                    ratioAgainst(accentAmbient, restingL),
+                    `ambient-referent accent ${accentAmbient} BREACHES on resting L=${restingL.toFixed(3)}`,
+                ).toBeLessThan(GRAPHICS_CONTRAST_FLOOR);
+                // The SAME cascade with the SURFACE referent (the cure) clears —
+                // the crisp before/after on ONE deterministic instrument.
+                const accentSurface = resolveViewAccent(accentLive, 0, restingL)!;
+                expect(
+                    ratioAgainst(accentSurface, restingL),
+                    `surface-referent accent ${accentSurface} clears`,
+                ).toBeGreaterThanOrEqual(GRAPHICS_CONTRAST_FLOOR);
+            });
+        }
+    }
 });
 
 describe("W7-4 — the seal ink (the SEEDS.md w7 rider; R1 survivor)", () => {

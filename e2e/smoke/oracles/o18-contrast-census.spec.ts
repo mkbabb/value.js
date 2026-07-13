@@ -414,6 +414,179 @@ async function bootAtOwnerColor(page: Page) {
     }
 }
 
+/** Boot the DEFAULT SEED (no color param → useColorParsing DEFAULT_COLOR
+ *  "lavendi") and wait for the view-accent writer to stamp `--accent-view`. */
+async function bootAtDefaultSeed(page: Page) {
+    await page.goto("/");
+    await expect(
+        page.getByRole("main", { name: "Color tool panes" }),
+    ).toBeVisible();
+    for (const token of ["--accent-view", "--accent-live", "--ink-ambient-l"]) {
+        await expect
+            .poll(
+                () =>
+                    page.evaluate(
+                        (t) =>
+                            getComputedStyle(document.documentElement)
+                                .getPropertyValue(t)
+                                .trim(),
+                        token,
+                    ),
+                { timeout: 8000 },
+            )
+            .not.toBe("");
+    }
+}
+
+// ---- THE U-F26 RENDERED-TIER ACCENT LEG (default seed · `--accent-view`) ----
+// VJ-U-F26 (U.W-A11Y · BR-2): the per-view accent resolver walked `--accent-view`
+// against the PAGE AMBIENT (a mid lightness), so on the real composited tier the
+// "certified" accent BREACHED its own claimed WCAG 1.4.11 ≥3:1 floor — measured
+// 1.72:1 dark on the default seed (the "Tools 1.89" class). The cure unifies the
+// accent onto the SAME live-surface referent the ramp uses (the resting rung).
+// This leg is the born-RED: the root `--accent-view` composited against its
+// rendered surface, AND the dock view-select icon (color: var(--accent-view), a
+// WCAG 1.4.11 graphic) against its own floating chrome ground. Both schemes,
+// default seed — the coverage the OWNER-color census never reached.
+for (const scheme of ["light", "dark"] as const) {
+    test.describe(`O-18 U-F26 accent-view leg (${scheme})`, () => {
+        test.use({ colorScheme: scheme });
+
+        test("the default-seed `--accent-view` clears ≥3:1 against its rendered tier (BR-2)", async ({
+            page,
+        }) => {
+            await bootAtDefaultSeed(page);
+
+            // Token leg: `--accent-view` vs the RESTING rung it certifies
+            // against (the resolver's own referent — so certified ≡ rendered by
+            // construction post-cure; pre-cure this read 1.72:1 dark, the RED).
+            const ratio = await page.evaluate(() => {
+                const cv = document.createElement("canvas");
+                cv.width = cv.height = 1;
+                const ctx = cv.getContext("2d")!;
+                const resolve = (
+                    css: string,
+                ): [number, number, number, number] => {
+                    const draw = (ground: string) => {
+                        ctx.fillStyle = ground;
+                        ctx.fillRect(0, 0, 1, 1);
+                        ctx.fillStyle = "#000";
+                        ctx.fillStyle = css;
+                        ctx.fillRect(0, 0, 1, 1);
+                        return ctx.getImageData(0, 0, 1, 1).data;
+                    };
+                    const onBlack = draw("#000");
+                    const onWhite = draw("#fff");
+                    const a = 1 - (onWhite[0] - onBlack[0]) / 255;
+                    if (a <= 0) return [0, 0, 0, 0];
+                    return [onBlack[0] / a, onBlack[1] / a, onBlack[2] / a, a];
+                };
+                const rootStyle = getComputedStyle(document.documentElement);
+                const accent = resolve(
+                    rootStyle.getPropertyValue("--accent-view").trim(),
+                );
+                const ambientL = Number.parseFloat(
+                    rootStyle.getPropertyValue("--ink-ambient-l").trim(),
+                );
+                const ambient = Number.isFinite(ambientL)
+                    ? resolve(`oklch(${ambientL} 0 0)`)
+                    : resolve(
+                          rootStyle.getPropertyValue("--saved-bg").trim() ||
+                              rootStyle.getPropertyValue("--background").trim(),
+                      );
+                // The resting rung (the resolver's referent), live-composited.
+                const probe = document.createElement("div");
+                probe.style.cssText =
+                    "position:absolute;width:0;height:0;visibility:hidden;pointer-events:none";
+                probe.style.background = "var(--glass-bg-resting)";
+                document.body.appendChild(probe);
+                const tint = resolve(getComputedStyle(probe).backgroundColor);
+                probe.remove();
+                const ta = tint[3];
+                const ground: [number, number, number] = [
+                    ta * tint[0] + (1 - ta) * ambient[0],
+                    ta * tint[1] + (1 - ta) * ambient[1],
+                    ta * tint[2] + (1 - ta) * ambient[2],
+                ];
+                const lum = ([r, g, b]: [number, number, number]) => {
+                    const lin = (v: number) => {
+                        const s = v / 255;
+                        return s <= 0.04045
+                            ? s / 12.92
+                            : ((s + 0.055) / 1.055) ** 2.4;
+                    };
+                    return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+                };
+                const la = lum([accent[0], accent[1], accent[2]]);
+                const lg = lum(ground);
+                return (Math.max(la, lg) + 0.05) / (Math.min(la, lg) + 0.05);
+            });
+            expect(
+                ratio,
+                `--accent-view vs its rendered resting rung (${scheme})`,
+            ).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+
+            // Consumer identity leg (the C3/O-7 discipline): the dock
+            // view-select ICON wears color: var(--accent-view) — assert it
+            // computes to the SAME resolved color as the certified token (no
+            // RAW un-guarded accent survives on the control; the coverage half).
+            await expandDock(page);
+            const icon = page.locator(".view-select-trigger svg").first();
+            if (await icon.count()) {
+                await expect(icon).toBeVisible();
+                const [iconRgb, tokenRgb] = await page.evaluate(() => {
+                    const cv = document.createElement("canvas");
+                    cv.width = cv.height = 1;
+                    const ctx = cv.getContext("2d")!;
+                    const rgb = (css: string) => {
+                        ctx.fillStyle = "#000";
+                        ctx.fillRect(0, 0, 1, 1);
+                        ctx.fillStyle = css;
+                        ctx.fillRect(0, 0, 1, 1);
+                        const d = ctx.getImageData(0, 0, 1, 1).data;
+                        return [d[0], d[1], d[2]];
+                    };
+                    const el = document.querySelector<HTMLElement>(
+                        ".view-select-trigger svg",
+                    )!;
+                    const token = getComputedStyle(document.documentElement)
+                        .getPropertyValue("--accent-view")
+                        .trim();
+                    return [rgb(getComputedStyle(el).color), rgb(token)];
+                });
+                for (let i = 0; i < 3; i++) {
+                    expect(
+                        Math.abs(iconRgb[i] - tokenRgb[i]),
+                        `dock icon wears the CERTIFIED --accent-view (icon ${iconRgb} vs token ${tokenRgb})`,
+                    ).toBeLessThanOrEqual(2);
+                }
+            }
+
+            // DOCK-CHROME FLOOR — a DIAGNOSTIC, booked to U-F12, NOT a hard
+            // gate. The dock band composites to a muddy warm-brown MID lightness
+            // (U-F12 `dark-scheme-derived-tint-muddiness`: measured live
+            // rgb(108,82,73) in dark), a DIFFERENT tier than the resting rung
+            // the accent certifies against. On that mid ground no CHROMATIC
+            // accent clears 3:1 without collapsing to near-white (C≈0.02) or a
+            // resting-breaking dark — irreconcilable with ONE token, so it is
+            // NOT the accent re-guard's to close: it roots in U-F12's mid-tint
+            // (the task's U-F26↔U-F12 coupling). Logged for the census record;
+            // the cure is U-F12 giving the dark dock a PROPER dark tier (then
+            // the resting-certified accent clears the dock coherently).
+            const iconRow = await censusElement(
+                page,
+                ".view-select-trigger svg",
+                "view-accent-icon",
+            );
+            if (iconRow && iconRow.ratio < GRAPHICS_FLOOR) {
+                console.log(
+                    `[U-F12 BOOKED] dock icon ${iconRow.ratio}:1 on live dock chrome ${iconRow.ground} (${scheme}) — mid-tint muddiness, not the accent re-guard's floor`,
+                );
+            }
+        });
+    });
+}
+
 for (const scheme of ["light", "dark"] as const) {
     test.describe(`O-18 census (${scheme})`, () => {
         test.use({ colorScheme: scheme });

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { computeSafeAccent, safeAccentColor, safeAccentCssString, needsContrastAdjustment, getOklchLightness } from "@src/units/color/contrast";
+import { computeSafeAccent, safeAccentColor, safeAccentCssString, needsContrastAdjustment, getOklchLightness, safeAccentAgainstSurface, wcagContrastRatio } from "@src/units/color/contrast";
 import { OKLCHColor, RGBColor, HSLColor } from "@src/units/color";
 import type { Color } from "@src/units/color";
 import { color2 } from "@src/units/color/dispatch";
@@ -331,5 +331,117 @@ describe("contrast-color() parse arm (VJ-Q1 — eager Color resolution)", () => 
     it("parseCSSColor('contrast-color(white)') resolves to black", () => {
         const v = parseCSSValue("contrast-color(white)");
         expect(v.toString()).toBe("rgb(0 0 0)");
+    });
+});
+
+describe("safeAccentAgainstSurface (VJ-U-F26 — the rendered-tier accent re-guard)", () => {
+    const GRAPHICS_FLOOR = 3;
+
+    /** WCAG ratio of a raw-physical OKLCH accent triple vs a surface Color. */
+    const ratio = (
+        a: { L: number; C: number; H: number },
+        surface: Color,
+    ) => wcagContrastRatio(new OKLCHColor(a.L, a.C, a.H, 1), surface);
+
+    it("BORN-RED: the ΔL guard passes but the WCAG ratio breaches — the leaf clears it", () => {
+        // The measured U-F26 default-seed dark breach, reproduced: an accent
+        // certified against a MID page-ambient walks to a dark lavender that,
+        // on the real dark tier, sits at ~1.7:1 — floor-passing in name only.
+        const darkAccent = { L: 0.2144, C: 0.1038, H: 318.2 };
+        const darkTier = new OKLCHColor(0.369, 0, 0, 1); // the resting rung, dark
+
+        // THE ΔL GUARD (computeSafeAccent) — its own docstring admits it is an
+        // OKLab-lightness DISTANCE, not a contrast ratio: against a surface L
+        // of 0.369 the accent L 0.214 sits ΔL 0.155 away, BELOW the 0.35
+        // threshold, so the ΔL guard MOVES it — but it moves it toward
+        // bgL+0.35 = 0.719, and the RESULT's true WCAG ratio is what we assert
+        // is unreliable. The point: the ΔL number is not the WCAG number.
+        const deltaLguard = computeSafeAccent(
+            darkAccent.L,
+            darkAccent.C,
+            darkAccent.H,
+            0.369,
+        );
+        // The RAW accent (pre-guard) breaches the WCAG graphics floor — the RED.
+        expect(ratio(darkAccent, darkTier)).toBeLessThan(GRAPHICS_FLOOR);
+
+        // THE WCAG LEAF — walks the TRUE ratio against the surface COLOR: GREEN.
+        const certified = safeAccentAgainstSurface(
+            darkAccent.L,
+            darkAccent.C,
+            darkAccent.H,
+            darkTier,
+            GRAPHICS_FLOOR,
+        );
+        expect(ratio(certified, darkTier)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+        // Hue is preserved (only lightness walks).
+        expect(Math.abs(certified.H - darkAccent.H)).toBeLessThan(1);
+        // sanity: the ΔL guard's own output is a triple, not a ratio guarantee.
+        expect(deltaLguard.H).toBe(darkAccent.H);
+    });
+
+    it("the referent is a COLOR, not a lightness — a chromatic surface differs from gray-at-L", () => {
+        // A SATURATED surface and a GRAY at the SAME OKLab L have different WCAG
+        // relative luminance, so certifying against each can diverge. Pick a
+        // vivid blue tier; a gray at its OKLab L is far lighter in WCAG luma.
+        const blueTier = new OKLCHColor(0.45, 0.28, 264, 1); // vivid blue
+        const grayAtL = new OKLCHColor(0.45, 0, 0, 1); // gray at the same L
+        const accent = { L: 0.55, C: 0.12, H: 264 }; // a near-hue accent
+
+        const rBlue = ratio(accent, blueTier);
+        const rGray = ratio(accent, grayAtL);
+        // The two referents genuinely disagree (the gray-proxy fiction) —
+        // materially (≈0.19 ratio units here), well above float noise. The
+        // divergence SCALES WITH SURFACE CHROMA: near-neutral tiers (the real
+        // U-F12 warm-brown card) diverge < 0.01, which is why the dominant
+        // U-F26 lever is the ambient→surface-LIGHTNESS referent (Pole A) and
+        // the surface-COLOR referent is the precision seam this leaf opens.
+        expect(Math.abs(rBlue - rGray)).toBeGreaterThan(0.1);
+
+        // The leaf certifies against the ACTUAL chromatic surface (its own
+        // luminance), clearing the floor on THAT surface by construction.
+        const certified = safeAccentAgainstSurface(
+            accent.L,
+            accent.C,
+            accent.H,
+            blueTier,
+            GRAPHICS_FLOOR,
+        );
+        expect(ratio(certified, blueTier)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+    });
+
+    it("returns the accent unchanged when it already clears the floor (fidelity)", () => {
+        const lightTier = new OKLCHColor(0.9, 0, 0, 1);
+        const deepAccent = { L: 0.35, C: 0.14, H: 30 }; // already high-contrast
+        expect(ratio(deepAccent, lightTier)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+        const out = safeAccentAgainstSurface(
+            deepAccent.L,
+            deepAccent.C,
+            deepAccent.H,
+            lightTier,
+            GRAPHICS_FLOOR,
+        );
+        // Gamut-clamp is idempotent on an in-gamut point → L/C/H essentially held.
+        expect(out.L).toBeCloseTo(deepAccent.L, 4);
+        expect(out.H).toBeCloseTo(deepAccent.H, 1);
+    });
+
+    it("clears the floor on BOTH a dark and a light tier (direction by reach)", () => {
+        for (const surfaceL of [0.30, 0.92]) {
+            const surface = new OKLCHColor(surfaceL, 0, 0, 1);
+            // Start from an accent close to the surface (a hard case).
+            const near = { L: surfaceL, C: 0.1, H: 200 };
+            const certified = safeAccentAgainstSurface(
+                near.L,
+                near.C,
+                near.H,
+                surface,
+                GRAPHICS_FLOOR,
+            );
+            expect(
+                ratio(certified, surface),
+                `surfaceL=${surfaceL}`,
+            ).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
+        }
     });
 });

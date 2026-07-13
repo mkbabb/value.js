@@ -181,6 +181,8 @@ export {
     // S.W1-6 — the CSS-string accent surface the demo consumes (retires the
     // hand-denorm `C*0.5`/`H*360` blocks in useContrastSafeColor.ts).
     safeAccentCssString,
+    // VJ-U-F26 — the WCAG-ratio accent re-guard against a SURFACE COLOR.
+    safeAccentAgainstSurface,
     needsContrastAdjustment,
     getOklchLightness,
     // VJ-Q1 (1.1.1) — WCAG 2.x relative-luminance + `contrast-color()` leaf.

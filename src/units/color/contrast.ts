@@ -3,6 +3,7 @@ import { ch, OKLCHColor, RGBColor, LinearSRGBColor } from ".";
 import type { Color } from ".";
 import { getColorSpaceBound } from "./constants";
 import { color2 } from "./dispatch";
+import { gamutMapOKLab, rawOklab2oklch, rawOklch2oklab } from "./gamut/gamut";
 import { normalizeColor } from "./normalize";
 
 // ── WCAG 2.x relative-luminance + contrast-ratio (CSS Color 5 `contrast-color()`) ──
@@ -152,6 +153,81 @@ export function computeSafeAccent(
     const adjustedC = C * (1 - 0.5 * extremity);
 
     return { L: targetL, C: adjustedC, H };
+}
+
+/**
+ * The WCAG contrast-ratio floor walk against a SURFACE COLOR — the
+ * rendered-tier accent re-guard (VJ-U-F26 · U.W-A11Y).
+ *
+ * Where {@link computeSafeAccent} enforces an OKLab lightness DISTANCE (a
+ * perceptual-Δ heuristic that does NOT map monotonically onto the WCAG 2.x
+ * contrast ratio — its own docstring admits "0.35 … ~0.25–0.30 in OKLab L"),
+ * this leaf walks the TRUE WCAG ratio against the surface's ACTUAL luminance,
+ * so a "certified" accent is certified BY CONSTRUCTION on the tier it renders
+ * against. Two defects it closes versus a gray-at-lightness proxy (the U-F26
+ * mechanism, measured):
+ *
+ *   1. **the referent is a `Color`, not a lightness** — a CHROMATIC or
+ *      TRANSLUCENT tier at a given OKLab L has a DIFFERENT WCAG relative
+ *      luminance than a gray at that L, so `certified ratio ≡ rendered ratio`
+ *      holds only when the real surface color is the referent (pass the
+ *      live-probed tier color; a `publicOklch(L,0,0)` gray is the degenerate
+ *      case a caller with only a lightness supplies);
+ *   2. **it is a contrast-RATIO guard, not a ΔL guard** — the ΔL heuristic
+ *      lets sub-floor ratios through near the WCAG boundary.
+ *
+ * Hue-preserving: only lightness walks (direction chosen by the surface's own
+ * lightness — the WCAG metric is asymmetric, so a mid ground reaches its floor
+ * on one side only), chroma clamped into the sRGB gamut at every step via the
+ * Ottosson analytical map (`gamutMapOKLab` — the same cusp geometry the accent
+ * pipeline rides). Returns the accent unchanged when it already clears the
+ * floor (fidelity — no needless re-expression).
+ *
+ * DOMAIN: raw-physical OKLCH (L ∈ [0,1] · C physical ≈ [0,0.4] · H degrees) —
+ * the `new OKLCHColor(L,C,H,1)` public domain {@link wcagContrastRatio}
+ * consumes, and the exact domain the demo's accent pipeline already speaks (so
+ * it consumes with no norm/denorm at the callsite). `surface` is ANY
+ * PUBLIC-domain `Color`; its luminance is read through the library.
+ *
+ * @param L        accent OKLCH lightness [0,1]
+ * @param C        accent OKLCH chroma (physical, ≈[0,0.4])
+ * @param H        accent OKLCH hue in degrees
+ * @param surface  the ACTUAL rendered surface color (any public-domain Color)
+ * @param floor    the WCAG 2.x contrast-ratio floor (e.g. 3 for 1.4.11)
+ * @param step     L walk step (default 0.04 — one guard nudge per iteration)
+ * @param maxSteps walk bound (default 12 → 0.48 of L travel)
+ * @returns        a gamut-clamped, floor-certified { L, C, H } (hue preserved)
+ */
+export function safeAccentAgainstSurface(
+    L: number,
+    C: number,
+    H: number,
+    surface: Color,
+    floor: number,
+    step: number = 0.04,
+    maxSteps: number = 12,
+): { L: number; C: number; H: number } {
+    // sRGB-gamut clamp along the FIXED hue (hue-exact by construction; keep the
+    // input hue at near-zero chroma so an atan2 can never smear the axis — the
+    // stableHue lesson).
+    const clampGamut = (l: number, c: number, h: number) => {
+        const [ll, aa, bb] = rawOklch2oklab(l, c, h);
+        const [lm, am, bm] = gamutMapOKLab(ll, aa, bb);
+        const [Lm, Cm, Hm] = rawOklab2oklch(lm, am, bm);
+        return { L: Lm, C: Cm, H: Cm < 1e-6 ? h : Hm };
+    };
+    const ratio = (l: number, c: number, h: number) =>
+        wcagContrastRatio(new OKLCHColor(l, c, h, 1), surface);
+
+    let cur = clampGamut(L, C, H);
+    if (ratio(cur.L, cur.C, cur.H) >= floor) return cur;
+
+    // Direction by the surface's own lightness — walk L AWAY from the ground.
+    const away = getOklchLightness(surface) < 0.5 ? 1 : -1;
+    for (let i = 0; i < maxSteps && ratio(cur.L, cur.C, cur.H) < floor; i++) {
+        cur = clampGamut(clamp(cur.L + away * step, 0.02, 0.98), cur.C, cur.H);
+    }
+    return cur;
 }
 
 /**
