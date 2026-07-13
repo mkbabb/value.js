@@ -2,7 +2,7 @@ import type { Page } from "@playwright/test";
 
 /**
  * S.W0 W0-2(d) — WebGL canvas APPEARANCE oracle helpers, shared by
- * `webgl-goo-blob.spec.ts` + `webgl-atmosphere.spec.ts`.
+ * `webgl-blob.spec.ts` + `webgl-atmosphere.spec.ts`.
  *
  * The wave's intent (e2e-coverage-gaps §4 P0 item 3) is a non-blank / actually-
  * rendering assertion beyond "canvas is attached + no context-loss". readPixels

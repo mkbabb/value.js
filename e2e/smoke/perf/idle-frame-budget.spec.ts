@@ -23,7 +23,7 @@ import {
  *
  * ─── N — THE IDLE THRESHOLD ───────────────────────────────────────────────────
  * N === HeroBlob.vue BLOB_IDLE_MS === 2000 ms (kept in lock-step with the
- * blob-park draw-plateau oracle, webgl-goo-blob-idle.spec.ts). Per §Hard-gate 5
+ * blob-park draw-plateau oracle, webgl-blob-idle.spec.ts). Per §Hard-gate 5
  * the idle SAMPLING WINDOW MUST EXCEED N — else the sample straddles the still-
  * live pre-park window and the ≤13 ms idle gate fails on correct true-idle
  * behaviour. We anchor the idle countdown with ONE interaction, wait PAST N for

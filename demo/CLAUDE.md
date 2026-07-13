@@ -76,7 +76,7 @@ Organised into `controls/`, `display/`, `visual/`, `composables/` subdirs (Mar-2
 | Subtree | Purpose |
 |---|---|
 | `dock/` | top-dock + dock-menus + layers (Mar-2026 rename from `top-dock/`); `GlassDock.vue` lives here |
-| ~~`goo-blob/`~~ | **DELETED (N.W5.A)** — the 1270-LoC flat-HSV fork is extirpated; the hero blob now consumes `@mkbabb/glass-ui/goo-blob` (the OKLCh lit-glass superset). `GooBlob`/`BLOB_CONFIG_KEY`/`BLOB_CONFIG_DEFAULTS` import from glass-ui; the live picker palette flows `deriveBlobPalette → config.color.paletteStops` ("the palette made flesh", App.vue). BlobPane re-authored against the 8-atom nested config |
+| ~~`goo-blob/`~~ | **DELETED (N.W5.A)** — the 1270-LoC flat-HSV fork is extirpated; the hero blob now consumes `@mkbabb/glass-ui/blob` (the OKLCh lit-glass superset; the L17 `goo-blob`→`blob` producer rename, U.W-ADOPT early consume-swap). `Blob`/`BLOB_CONFIG_KEY`/`BLOB_CONFIG_DEFAULTS` import from glass-ui; the live picker palette flows `deriveBlobPalette → config.color.paletteStops` ("the palette made flesh", App.vue). BlobPane re-authored against the 8-atom nested config |
 | `gradient/` | gradient editing + `composables/` |
 | `mix/` | color mixing + `composables/` |
 | `generate/` | palette generation |

@@ -28,8 +28,8 @@
                          hover pose. The park TRIGGER stays wall-clock until
                          P6's `settled` seam ships (BOOKED — never a demo
                          guess at silhouette energy). -->
-                    <GooBlob
-                        ref="gooBlobRef"
+                    <Blob
+                        ref="blobRef"
                         :color="cssColorOpaque"
                         :config="heroConfig"
                         :paused="blobPaused"
@@ -68,8 +68,8 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@components/ui/tooltip";
-import { GooBlob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/goo-blob";
-import type { BlobConfig } from "@mkbabb/glass-ui/goo-blob";
+import { Blob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/blob";
+import type { BlobConfig } from "@mkbabb/glass-ui/blob";
 import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
 import type { OklchStop } from "@mkbabb/glass-ui/color";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
@@ -78,7 +78,7 @@ import { clamp } from "@mkbabb/value.js/math";
 import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "@composables/color/keys";
 import { resolveSurfaceLightnessLive } from "@composables/color/useContrastSafeColor";
 
-// Thin consumer of glass-ui's GooBlob (the demo half of W6-4 — consume/config/
+// Thin consumer of glass-ui's Blob (the demo half of W6-4 — consume/config/
 // placement ONLY; the engine is the producer's, genesis brief §3.0). The
 // component owns its own autonomic mood arc; HeroBlob binds the REAL APP
 // MOMENTS the picker UX cares about (the W6-4 mood-FSM row):
@@ -97,15 +97,15 @@ const { cssColorOpaque, cssColorOpaqueFrame, denormalizedCurrentColor, savedColo
 
 const emit = defineEmits<{ click: [] }>();
 
-const gooBlobRef = useTemplateRef<InstanceType<typeof GooBlob>>("gooBlobRef");
+const blobRef = useTemplateRef<InstanceType<typeof Blob>>("blobRef");
 
 // --- W6-4: the HERO config register (the consumer contract, genesis §3.0) ---
 // The app-wide 8-atom config (provided by useAtmosphere via BLOB_CONFIG_KEY)
 // stays the ONE base — BlobPane's live tuning flows through untouched. The
 // hero OVERLAYS its register through the config PROP (the producer's own
-// `config ?? injectedConfig` seam; GooBlob's liveConfig() re-reads the prop, so
+// `config ?? injectedConfig` seam; Blob's liveConfig() re-reads the prop, so
 // the fresh computed object is exactly the wake-repaint shape the producer
-// built for — glass-ui GooBlob.vue AY.W-BLOB-CONFIG D1).
+// built for — glass-ui Blob.vue AY.W-BLOB-CONFIG D1).
 const appBlobConfig = inject(BLOB_CONFIG_KEY)!;
 
 // The lg rung (width-only — the quality ladder cares about device scale, not
@@ -261,7 +261,7 @@ function noteBlobActivity() {
     clearTimeout(idleTimer);
     clearTimeout(poseTimer);
     idleTimer = setTimeout(() => {
-        gooBlobRef.value?.setMood("sleepy"); // the contained rest pose…
+        blobRef.value?.setMood("sleepy"); // the contained rest pose…
         poseTimer = setTimeout(() => {
             blobPaused.value = true; // …then park, freezing the sleepy frame
         }, SLEEPY_POSE_MS);
@@ -289,7 +289,7 @@ onScopeDispose(() => {
 onActivated(() => {
     reseedHeroStops(cssColorOpaqueFrame.value);
     noteBlobActivity();
-    gooBlobRef.value?.resume();
+    blobRef.value?.resume();
 });
 
 // --- W6-4: scrub → excited ---
@@ -316,7 +316,7 @@ watch(
             now - lastScrubFire > SCRUB_REFIRE_MS
         ) {
             lastScrubFire = now;
-            gooBlobRef.value?.setMood("excited");
+            blobRef.value?.setMood("excited");
         }
     },
     { immediate: true },
@@ -331,8 +331,8 @@ watch(
     (n, prev) => {
         if (n > prev) {
             noteBlobActivity(); // wake the parked loop so the drip renders
-            gooBlobRef.value?.setMood("happy");
-            gooBlobRef.value?.pulse();
+            blobRef.value?.setMood("happy");
+            blobRef.value?.pulse();
         }
     },
 );
@@ -355,13 +355,13 @@ watch(
 function onEmergeEnd(e: AnimationEvent) {
     if (e.animationName !== "blob-emerge") return;
     if (blobPaused.value) return;
-    gooBlobRef.value?.pause();
-    gooBlobRef.value?.resume();
+    blobRef.value?.pause();
+    blobRef.value?.resume();
 }
 
 function onBlobHover() {
     noteBlobActivity();
-    gooBlobRef.value?.setMood("curious");
+    blobRef.value?.setMood("curious");
 }
 
 // T.W4-5 — the RELEASE beat (F-6's missing half): hover-out hands the body
@@ -369,18 +369,18 @@ function onBlobHover() {
 // the park countdown, so the freeze can never race a mid-smear hover pose.
 function onBlobLeave() {
     noteBlobActivity();
-    gooBlobRef.value?.setMood("idle");
+    blobRef.value?.setMood("idle");
 }
 
 function onBlobClick() {
     noteBlobActivity();
     emit("click");
-    gooBlobRef.value?.setMood("happy");
-    gooBlobRef.value?.nudge();
+    blobRef.value?.setMood("happy");
+    blobRef.value?.nudge();
 }
 
 function nudgeSatellites() {
-    gooBlobRef.value?.nudge();
+    blobRef.value?.nudge();
 }
 
 defineExpose({ nudgeSatellites });

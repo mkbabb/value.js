@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // BlobPane — metaball blob tuning pane. RE-AUTHORED at N.W5.A against
-// glass-ui's goo-blob 8-atom nested `BlobConfig` (the old flat 30-key slider
+// glass-ui's blob 8-atom nested `BlobConfig` (the old flat 30-key slider
 // model is dead). Slider keys are now dot-paths into the cohesive atoms
 // (`geometry.bodyRadius`, `membrane.smoothK`, `surface.specStrength`, …);
 // ConfigSliderPane resolves them. Three keys the old pane drove —
@@ -9,8 +9,8 @@
 // live picker-palette feed (App.vue's deriveBlobPalette watch), not a slider.
 
 import { inject } from "vue";
-import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/goo-blob";
-import type { BlobConfig } from "@mkbabb/glass-ui/goo-blob";
+import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob";
+import type { BlobConfig } from "@mkbabb/glass-ui/blob";
 import ConfigSliderPane from "./ConfigSliderPane.vue";
 import type { SliderSection } from "./ConfigSliderPane.vue";
 

@@ -69,7 +69,7 @@ export const GATE = {
 // The authoritative §6.2 p50/first-frame/long-task numbers are asserted on the
 // real-GPU branch (verified on the built bundle: drag 8.4 ms, view 8.3 ms, idle
 // 8.3 ms, 0 long tasks). The blob idle-park is separately proven engine-
-// independently by the draw-plateau oracle (webgl-goo-blob-idle.spec.ts).
+// independently by the draw-plateau oracle (webgl-blob-idle.spec.ts).
 export const SOFT_CEIL = {
     dragMaxTaskMs: 3000,
     viewSwitchFirstFrameMs: 1500,

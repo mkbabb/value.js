@@ -129,9 +129,9 @@ const emit = defineEmits<{
 }>();
 
 // --- W3-2 (S.W3 · S-23 eager-shell deferral) ---
-// HeroBlob wraps glass-ui's GooBlob — the WebGL2 metaball renderer + shaders +
+// HeroBlob wraps glass-ui's Blob — the WebGL2 metaball renderer + shaders +
 // mood/pointer/satellite FSMs. That graph bundles into the demo's eager
-// `index` chunk (ColorPicker is the SOLE eager importer of the goo-blob
+// `index` chunk (ColorPicker is the SOLE eager importer of the blob
 // COMPONENT surface). Loading it async splits the whole metaball graph out of
 // the cold-load JS; `useIdleReady` (the glass-ui-first `scheduleAfterFirstPaint`
 // idiom, `@mkbabb/glass-ui/dom`) then mounts it behind the first post-paint

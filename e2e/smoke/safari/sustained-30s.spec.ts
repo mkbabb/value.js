@@ -99,7 +99,7 @@ test("iOS-Safari sustained 30s: spectrum-drive + view-switch + WebGL render, zer
     // canvas mounts inside HeroBlob and may be unmounted/remounted during
     // view switches; the document-level listener catches the event
     // regardless of which canvas instance fires it. Pattern lifted from
-    // `webgl-goo-blob.spec.ts` + `webgl-atmosphere.spec.ts`.
+    // `webgl-blob.spec.ts` + `webgl-atmosphere.spec.ts`.
     await page.addInitScript(() => {
         document.addEventListener(
             "webglcontextlost",
