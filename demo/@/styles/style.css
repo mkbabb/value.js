@@ -834,3 +834,210 @@
             --saved-bg 200ms var(--ease-decelerate);
     }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * THE A11Y MODALITY SUPPORT LAYER (U.W-A11Y · U-F57 + U-F58)
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * The app aesthetic is glass/translucent (aurora / blob / veil / glass), so
+ * each user-preference modality gets a DESIGNED fallback — never a blanket
+ * system-color override (E-3: a designed fallback per modality, born-RED gated
+ * BR-5..BR-8/BR-10/BR-11). ZERO forced-colors / prefers-contrast /
+ * prefers-reduced-transparency / @media print rules existed before this block
+ * (VERIFIED grep, count 0). The demo-side support lands HERE; the
+ * producer-primitive halves (GlassDock / Button / Select / veil / WatercolorDot /
+ * GooBlob under forced-colors + reduced-transparency, forced-color-adjust:none on
+ * the producer COLOR surfaces, the focus `outline`, the Slider aria-valuetext
+ * prop-through) are the BH RELAY addendum (E-2) — a demo-only pass leaves the
+ * producer glass invisible in WHCM, so the relay is load-bearing.
+ *
+ * COLOR-SURFACE ROSTER (the two-tier `forced-color-adjust` policy below reuses
+ * it): the surfaces whose whole PURPOSE is to show a color — the actual content
+ * of a color tool — must survive WHCM's system-color substitution. The chrome
+ * (buttons, labels, borders, the dock) adopts system colors by default (`auto`).
+ */
+
+/* ── The named color-DISPLAY surfaces (demo-owned) ──────────────────────────
+ * The one roster, reused by @media (forced-colors) + @media print so the "keep
+ * the colors" set is declared ONCE. `canvas` covers the spectrum gamut overlay,
+ * the atmosphere field, and the producer blob leaf in one leaf-level rule
+ * (canvases paint raster color by construction). */
+
+/* ── U-F57 · @media (forced-colors: active) — the two-tier policy (BR-5) ──────
+ * WHCM strips author colors + box-shadow. A blanket substitution would DESTROY
+ * the color content the tool exists to show, so:
+ *   tier 1 — `forced-color-adjust: none` on the color-DISPLAY surfaces (they
+ *            keep their real colors);
+ *   tier 2 — the CHROME stays at the UA default `auto` (adopts Canvas /
+ *            CanvasText / ButtonFace / ButtonText / Highlight) so it is visible
+ *            + operable;
+ *   plus  — the U-F25 focus bind: box-shadow rings vanish in WHCM, so restore a
+ *            real `outline` (system `Highlight`) on every operable control. The
+ *            normal-register dual-contrast ring is the controls lane's
+ *            focus-ring.css recipe; THIS block is only the WHCM `outline`
+ *            fallback (the one register the shadow ring cannot survive). */
+@media (forced-colors: active) {
+    /* tier 1 — color-display surfaces keep their colors */
+    canvas,
+    .spectrum-picker,
+    .gamut-overlay,
+    .atmosphere-canvas,
+    [data-glass-field-canvas],
+    .gradient-rail,
+    .rail-handle,
+    .readout-rail,
+    .swatch-row > *,
+    .generate-swatch,
+    .shadow-swatch,
+    .goo-blob-canvas,
+    .watercolor-swatch,
+    .glass-slider[data-variant="spectrum"] .slider-range,
+    [data-color-surface] {
+        forced-color-adjust: none;
+    }
+
+    /* the U-F25 focus bind — a real outline where the shadow ring cannot paint.
+     * `:where(...)` keeps the specificity at 0 so a control's own focus rule
+     * (or the controls lane's focus-ring.css) still wins the normal register;
+     * here the outline is the WHCM-only affordance. */
+    :where(
+            a[href],
+            button,
+            [role="button"],
+            [role="combobox"],
+            [role="tab"],
+            [role="slider"],
+            [role="menuitem"],
+            [role="option"],
+            input,
+            select,
+            summary,
+            .rail-handle,
+            .rail-remove-chip,
+            [tabindex]:not([tabindex="-1"])
+        ):focus-visible {
+        outline: 2px solid Highlight;
+        outline-offset: 2px;
+    }
+}
+
+/* ── U-F57 · @media (prefers-contrast: more) — the elevated-contrast layer (BR-6)
+ * ONE override token set (not per-component): the low-contrast decorative tints
+ * (the U-F12 warm-brown muddiness) DROP, borders thicken toward full-ink, and
+ * the muddiest text token rises to the foreground floor. The glass calms so the
+ * text floor holds over it. */
+@media (prefers-contrast: more) {
+    :root,
+    .dark {
+        /* drop the decorative glass tint + calm the material so text floors hold */
+        --glass-tint-strength: 0%;
+        --glass-level: 0.1;
+        /* borders + hairlines to a high-contrast weight */
+        --border: color-mix(in oklab, var(--foreground) 78%, var(--background));
+        --card-edge: color-mix(in oklab, var(--foreground) 55%, transparent);
+        /* raise the muddiest low-contrast text to the ink floor */
+        --muted-foreground: color-mix(in oklab, var(--foreground) 88%, var(--background));
+    }
+    /* thicker operable-chrome borders (one weight bump, not per-component).
+     * The `.app-layout` prefix lifts specificity to 0,2,0 so the bump beats the
+     * producer SFC-scoped hairline on the in-shell glass surfaces. */
+    .console-well,
+    .app-layout .glass-resting,
+    .app-layout .console-well,
+    .slug-pill,
+    [role="tab"] {
+        border-width: 2px;
+    }
+}
+
+/* ── U-F57 · @media (prefers-reduced-transparency: reduce) — opaque fallback (BR-7)
+ * The veil / dock glass / popover glass drop translucency for an OPAQUE surface.
+ * The producer-sanctioned blur lever is `--glass-level: 0` (glass-ui's
+ * `--glass-blur-*: blur(calc(radius * var(--glass-level)))` chain → blur(0); the
+ * SAME lever the producer's own timeline-rail reduced-transparency rule uses),
+ * set at :root so it INHERITS through portaled overlays (popovers/menus in
+ * <body>). The opaque background is ONE fallback token (`--surface-reduced-opaque`,
+ * the same in-plate material the veil approaches — coordinates with U-F10). The
+ * `!important` on backdrop-filter/background is the deliberate MODALITY ESCAPE
+ * (the whole intent is to forcibly reduce transparency) — it beats producer
+ * SFC-scoped rules (`.glass-resting[data-v-*]`, specificity 0,2,0) without a
+ * per-surface specificity fight; it is scoped to this media block only. */
+@media (prefers-reduced-transparency: reduce) {
+    :root,
+    .dark {
+        --glass-level: 0;
+        --glass-tint-strength: 0%;
+        --surface-reduced-opaque: var(--card);
+    }
+    /* kill residual backdrop-filter (blur(0) still carries a saturate leg) +
+     * the demo T-45 oversampled carrier's blur */
+    .glass-resting,
+    .glass-floating,
+    .glass-wash,
+    .veil-surface,
+    [data-surface="veil"],
+    .pane-wrapper::before,
+    .pane-wrapper > div::before {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    /* opaque surface — nothing shows through, whatever the residual filter */
+    .glass-resting,
+    .glass-floating,
+    .glass-wash,
+    .veil-surface,
+    [data-surface="veil"] {
+        background-color: var(--surface-reduced-opaque, var(--card)) !important;
+    }
+}
+
+/* ── U-F58 · @media print — the palette IS a printable artifact (BR-11) ───────
+ * A color tool's output is a printable palette: the swatches + hex/space labels
+ * printed with faithful ink, the glass/aurora/blob chrome hidden, ink-economical
+ * (white ground, ink text, no shadows/blur). `print-color-adjust: exact` +
+ * `forced-color-adjust: none` on the color surfaces make the browser honor the
+ * actual swatch colors instead of dropping backgrounds for ink economy — for a
+ * color tool the color IS the content. */
+@media print {
+    /* hide the decorative + interactive chrome */
+    .atmosphere-canvas,
+    .goo-blob-wrapper,
+    .goo-blob-canvas,
+    .dock-band,
+    nav[aria-label="Application navigation"] {
+        display: none !important;
+    }
+    /* ink-economical ground */
+    body {
+        background: #fff !important;
+        background-image: none !important;
+        color: #000 !important;
+    }
+    * {
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        text-shadow: none !important;
+    }
+    /* plates print as clean ruled boxes */
+    .glass-resting,
+    .console-well,
+    .veil-surface,
+    [data-surface="veil"] {
+        background: #fff !important;
+        border: 1px solid #000 !important;
+    }
+    /* the color content prints with faithful ink (the whole point) */
+    .spectrum-picker,
+    .gradient-rail,
+    .rail-handle,
+    .swatch-row > *,
+    .generate-swatch,
+    .shadow-swatch,
+    .watercolor-swatch,
+    [data-color-surface] {
+        forced-color-adjust: none;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}

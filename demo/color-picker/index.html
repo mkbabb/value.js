@@ -1,5 +1,14 @@
 <!doctype html>
-<html lang="en">
+<!-- U.W-A11Y · U-F58 (BR-10) — RTL mechanical readiness. `dir="ltr"` is the
+     explicit default-direction plumbing (was absent: `lang` present, `dir` not).
+     The single-locale English tool does NOT do full string extraction (that half
+     is out-of-scope, recorded in the U-F58 decision table); this establishes the
+     `dir` seam so `dir="rtl"` flips the whole document and the grid/flex layout
+     (style.css uses grid + flex + shorthand padding — no global physical
+     left/right positioning) stays integral by construction. Per-component
+     physical-property → logical conversions are BOOKED follow-ups
+     (docs/tranches/U/audit/w-a11y/rtl-logical-property-audit.md). -->
+<html lang="en" dir="ltr">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
