@@ -54,6 +54,15 @@ audit + two consecutive clean passes; then the tranche plan + wave sets with bor
 π obligations, and a disposition per banked route. Fable mints/orchestrates; opus/sonnet
 implement; every spawn declares its model.)
 
+**§0.1 Owner clarification (2026-07-13, same sitting)**: glass-ui SHOULD HAVE codified a
+template/best-practice set for structuring frontend components — they recently abrogated `@`
+therein and flattened components with improved colocation. VERIFIED on disk: no `src/@`, no
+`demo/@`; flat top level (`components/`, `composables/`, `styles/`, flat feature modules). The
+codification lives in their tranche BH (`PLAN.md` + `research/SYNTHESIS-PASS1..3` + 8 lane
+docs) with BI the follow-on. **This is landed prior art**: the portfolio must carry a
+constellation-alignment family centered on adopting/extending it, and every other family
+states its alignment/divergence against that REAL referent.
+
 ## §1 The design problem (the four surfaces + the cross-cut)
 
 - **D1 — demo/ frontend restructure**: flatten; ABROGATE `@` (the `demo/@/` tree + its
