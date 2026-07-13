@@ -54,14 +54,21 @@ audit + two consecutive clean passes; then the tranche plan + wave sets with bor
 π obligations, and a disposition per banked route. Fable mints/orchestrates; opus/sonnet
 implement; every spawn declares its model.)
 
-**§0.1 Owner clarification (2026-07-13, same sitting)**: glass-ui SHOULD HAVE codified a
-template/best-practice set for structuring frontend components — they recently abrogated `@`
-therein and flattened components with improved colocation. VERIFIED on disk: no `src/@`, no
-`demo/@`; flat top level (`components/`, `composables/`, `styles/`, flat feature modules). The
-codification lives in their tranche BH (`PLAN.md` + `research/SYNTHESIS-PASS1..3` + 8 lane
-docs) with BI the follow-on. **This is landed prior art**: the portfolio must carry a
-constellation-alignment family centered on adopting/extending it, and every other family
-states its alignment/divergence against that REAL referent.
+**§0.1 Owner clarification (2026-07-13, same sitting)**: glass-ui codified a template/
+best-practice set for structuring frontend components — `@` abrogated, components flattened
+with improved colocation. **§0.2 Survey correction (same day, verified on disk)**: the
+convention is CODIFIED + AUTHORITATIVE but PARTIALLY EXECUTED upstream — their demo/
+restructure LANDED at 5.0.0 (shell/chassis/stories shape); their src/ flatten + export
+de-indirection (kill subpaths/, api/, the 7 flat barrels → 91 flat component peers) ride
+their BI as 5.1.0, NOT yet landed; `@glass` was a transitional ALIAS (719-rewrite codemod),
+superseded by pure-relative + the `proof:no-glass-in-dist` dist-lock — never a physical dir.
+Spec of record: `../glass-ui/docs/tranches/BH/spec-structure/STRUCTURE-TRANCHE-PLAN.md` +
+`STRUCTURE-SPEC.md` (round-6 flatten override) + the T4 earned-dir rule + colocate-iff-
+single-owner styles + generated fail-CLOSED exports + born-RED structural gates G1–G10
+(never ESLint) + the 500-raw-line ceiling. **The portfolio's constellation-alignment family
+adopts the CONVENTION now** (adoptable without waiting on upstream execution), naming both
+poles of the partially-unexecuted-referent risk; every other family states its divergence
+against this real referent.
 
 ## §1 The design problem (the four surfaces + the cross-cut)
 
