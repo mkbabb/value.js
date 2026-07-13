@@ -5,8 +5,10 @@ import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
 import { normalizeColorUnit } from "@mkbabb/value.js/color";
 import type { ColorModel } from "@components/custom/color-picker";
 import { defaultColorModel } from "@components/custom/color-picker";
-
-const COLOR_STORE_KEY = "color-picker";
+// The persisted color-state projection key — single-sourced (U-F48), shared
+// with boot/hydrate. color→lib is a legal sideways/DOWN import (no color↔
+// color-picker boundary breach — @lib is the shared lib layer).
+import { COLOR_STORE_KEY } from "@lib/palette/constants";
 
 /**
  * The persisted color-state projection (S.W2 W2-6). localStorage round-trips

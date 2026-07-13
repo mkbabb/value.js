@@ -36,9 +36,9 @@ import {
     createDefaultColorModel,
     resolveColorSpace,
 } from "@components/custom/color-picker";
-
-/** The persisted color-state projection (mirrors useColorPersistence). */
-const COLOR_STORE_KEY = "color-picker";
+// The persisted color-state projection key — single-sourced (U-F48), shared
+// with useColorPersistence. boot→lib is a legal DOWN import.
+import { COLOR_STORE_KEY } from "@lib/palette/constants";
 
 export type BootSeedSource = "url" | "storage" | "default";
 

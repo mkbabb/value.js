@@ -50,9 +50,8 @@ watch(hasAnyActionBar, (has) => { if (!has) actionBarLayerActive.value = false; 
 
 // The Tools trigger + its S.W7-6 boot-flicker / W6-8 T-29 settle-stamp slot
 // machine live in the colocated <ActionBarToggle> (the W6-8 PP-8 cap lift —
-// full rationale in that SFC's header).
-// gate (b): watchers that reach dockRef stay in the SFC
-watch(actionBarLayerActive, (active) => { if (active) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
+// full rationale in that SFC's header). The dock open/close hold this layer
+// used to drive imperatively is now one declarative predicate below (U-F48).
 function onActionBarOpenPalette() { viewManager.switchView(viewManager.currentView.value === "palettes" ? "picker" : "palettes"); }
 function onActionBarOpenExtract() { viewManager.switchView(viewManager.currentView.value === "extract" ? "picker" : "extract"); }
 
@@ -75,8 +74,19 @@ const anyEditActive = computed(() => !!editTarget);
 const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>('dockRef');
 
 watch(() => dockRef.value?.expanded, (expanded) => { if (!expanded && slugEditMode.value) slugEditMode.value = false; });
-watch(anyEditActive, (active) => { if (active) { dockRef.value?.keepOpen(); dockRef.value?.expand?.(); } else dockRef.value?.release(); });
-watch(isAnyOpen, (open) => { if (open) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
+
+// ── The dock open/close HOLD — ONE declarative predicate (U-F48) ──
+// The three scattered imperative keepOpen/release watchers (the action-bar
+// layer, the edit-active hold, and the popup-mutex hold) collapse to a single
+// disjunction: the dock is held open while ANY driver is live and releases when
+// all fall. keepOpen/release are the producer's ref-counted holds (glass-ui
+// useDockState) — the former per-flag holds each contributed +1 while their
+// flag was true; this ONE balanced +1/−1 pair per predicate edge is
+// behaviour-equivalent for the open/close decision (held ⇔ any flag true).
+const shouldKeepOpen = computed(() => actionBarLayerActive.value || anyEditActive.value || isAnyOpen.value);
+watch(shouldKeepOpen, (open) => { if (open) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
+// The expand-on-edit is a DISTINCT concern (not the open/close hold) — its own watch.
+watch(anyEditActive, (active) => { if (active) dockRef.value?.expand?.(); });
 
 // ── Layer dispatch (inlined from the retired useDockLayers — gate (c): the
 //    immediate watch reads live reactive deps, so call order does not matter) ──
