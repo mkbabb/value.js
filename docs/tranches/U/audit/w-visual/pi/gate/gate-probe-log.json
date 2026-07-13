@@ -1,0 +1,135 @@
+{
+  "br4": {
+    "light-1440": {
+      "titleFs_rest": 53.28,
+      "tokDisplay2": "clamp(2.058rem, 1.5rem + 2.2vw, 3.33rem)",
+      "position": "sticky"
+    },
+    "light-390": {
+      "titleFs_rest": 32.928,
+      "tokDisplay2": "clamp(2.058rem, 1.5rem + 2.2vw, 3.33rem)",
+      "position": "sticky"
+    },
+    "dark-1440": {
+      "titleFs_rest": 53.28,
+      "tokDisplay2": "clamp(2.058rem, 1.5rem + 2.2vw, 3.33rem)",
+      "position": "sticky"
+    },
+    "dark-390": {
+      "titleFs_rest": 32.928,
+      "tokDisplay2": "clamp(2.058rem, 1.5rem + 2.2vw, 3.33rem)",
+      "position": "sticky"
+    }
+  },
+  "br5": {
+    "light-1440": {
+      "seam": 2.39,
+      "rowGap": "7.168px",
+      "titleBottom": 225.6,
+      "readoutTop": 227.99
+    },
+    "light-390": {
+      "seam": 25.61,
+      "rowGap": "5.012px",
+      "titleBottom": 229.02,
+      "readoutTop": 254.63
+    },
+    "dark-1440": {
+      "seam": 7.16,
+      "rowGap": "7.168px",
+      "titleBottom": 234.98,
+      "readoutTop": 242.15
+    },
+    "dark-390": {
+      "seam": 25.61,
+      "rowGap": "5.012px",
+      "titleBottom": 229.02,
+      "readoutTop": 254.63
+    }
+  },
+  "br9": {
+    "light-1440": {
+      "scrollRoot": "VIEWPORT(none)",
+      "overflow": 0,
+      "condensed": false,
+      "headerH_rest": 231.87,
+      "headerH_scrolled": 226.54,
+      "headerH_delta": -5.33,
+      "padTop_rest": "12px",
+      "padTop_scrolled": "12px",
+      "padBottom_rest": "0px",
+      "padBottom_scrolled": "0px"
+    },
+    "light-390": {
+      "scrollRoot": "rounded-card text-card-foreground scrollbar-hidden [--card-p",
+      "overflow": 0,
+      "condensed": false,
+      "headerH_rest": 183.95,
+      "headerH_scrolled": 183.95,
+      "headerH_delta": 0,
+      "padTop_rest": "12px",
+      "padTop_scrolled": "12px",
+      "padBottom_rest": "0px",
+      "padBottom_scrolled": "0px"
+    },
+    "dark-1440": {
+      "scrollRoot": "VIEWPORT(none)",
+      "overflow": 0,
+      "condensed": false,
+      "headerH_rest": 226.54,
+      "headerH_scrolled": 226.54,
+      "headerH_delta": 0,
+      "padTop_rest": "12px",
+      "padTop_scrolled": "12px",
+      "padBottom_rest": "0px",
+      "padBottom_scrolled": "0px"
+    },
+    "dark-390": {
+      "scrollRoot": "rounded-card text-card-foreground scrollbar-hidden [--card-p",
+      "overflow": 0,
+      "condensed": false,
+      "headerH_rest": 183.95,
+      "headerH_scrolled": 183.95,
+      "headerH_delta": 0,
+      "padTop_rest": "12px",
+      "padTop_scrolled": "12px",
+      "padBottom_rest": "0px",
+      "padBottom_scrolled": "0px"
+    }
+  },
+  "br11": {
+    "light-1440": {
+      "titleFs_rest": 53.28,
+      "titleFs_scrolled": 53.28,
+      "tokDisplay1": "clamp(1.618rem, 1.2rem + 1.6vw, 2.618rem)",
+      "condensed": false
+    },
+    "light-390": {
+      "titleFs_rest": 32.928,
+      "titleFs_scrolled": 32.928,
+      "tokDisplay1": "clamp(1.618rem, 1.2rem + 1.6vw, 2.618rem)",
+      "condensed": false
+    },
+    "dark-1440": {
+      "titleFs_rest": 53.28,
+      "titleFs_scrolled": 53.28,
+      "tokDisplay1": "clamp(1.618rem, 1.2rem + 1.6vw, 2.618rem)",
+      "condensed": false
+    },
+    "dark-390": {
+      "titleFs_rest": 32.928,
+      "titleFs_scrolled": 32.928,
+      "tokDisplay1": "clamp(1.618rem, 1.2rem + 1.6vw, 2.618rem)",
+      "condensed": false
+    }
+  },
+  "riders": {
+    "titleInitial": "oklch(62% 0.17 28deg / 100%) — Color Picker",
+    "titlePalettes": "tomato · Palettes — Color Picker",
+    "titleGradient": "rebeccapurple · Gradient — Color Picker",
+    "dynamic": true,
+    "scrollbarThin_gradientView": 0,
+    "scrollbarThin_atmosphereView": 1,
+    "scrollbarThin_total_seen": 1
+  }
+}

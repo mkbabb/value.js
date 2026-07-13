@@ -1,0 +1,83 @@
+# U.W-VISUAL INDEPENDENT GATE + INTEGRATOR — verdict log
+# merged tranche-u (be807ce) built gh-pages served @ :8599, dpr2, both schemes.
+# Serve provenance: dist/gh-pages from the MERGED tree (lane-1 header + lane-2
+# riders). Build required an UNCOMMITTED census-scaffold compat shim (see the
+# GH-PAGES SUBSTRATE FINDING below) — reverted after certification; NOT committed.
+
+================ INTEGRATION ================
+merged  lane-1 worktree-wf_237d5120-d5a-1 (U-F9 header: ColorPicker.vue + useHeaderCondense.ts
+        + header.css + o11 gate + π frames) → tranche-u   [clean auto-merge, ColorPicker regions disjoint]
+merged  lane-2 worktree-wf_237d5120-d5a-2 (zd3-microchrome riders: useDocumentTitle.ts + router
+        + .scrollbar-thin ×5) → tranche-u                 [clean auto-merge]
+push    8a95a26..be807ce tranche-u -> origin              [fast-forward, 0 behind]
+cherry  lane-1 unique=0 · lane-2 unique=0                 [both fully absorbed]
+cleanup both lane worktrees removed + branches deleted    [lane-1 force-removed: stale uncommitted
+                                                           goo-blob→blob scaffold, already committed on tranche-u]
+
+================ SUITES ================
+typecheck   0 errors (vue-tsc lib + demo)
+lint        0 errors (eslint --max-warnings=0)
+npm test    84 files · 2312 tests · ALL PASS
+gh-pages    RED at raw committed HEAD — see SUBSTRATE FINDING; GREEN only with the cert compat shim
+e2e (smoke) 15/15 header-adjacent oracles PASS: o10-type-locks (6), o11-header-gates (6, incl. gate 6
+            now sanctioning .picker-header sticky + gate 4 compositor-only pane keyframes still flat),
+            readout-seam T-33b (3, "reserved-line band is designed air, never a dead band")
+
+================ BR-4 (guard STAYS — title token step unchanged at rest) ================
+title fs @1440 = 53.28px (--type-display-2)   @390 = 32.928px (--type-display-2)   both schemes · position:sticky
+VERDICT PASS — unchanged from census baseline; never the 67.776 un-stepped.
+
+================ BR-5 (ONE rhythm law · the 390 dead band) ================
+inter-row rhythm gap (rowGap token, cqi-scaled): @1440 = 7.168px   @390 = 5.012px
+  census BEFORE: 4.0px@1440 vs 24.6px@390 (~6× divergence) → NOW 7.168 vs 5.012 (~1.4×, ONE law).
+title-row→readout flex gap @390 = 254.6 − 249.6 = 5.0px (= the rowGap token, NOT a dead band).
+NOTE: title-TEXT→readout @390 = 25.6px, but that band is the U-F5 BLOB-SEAT reservation
+  (.title-row min-height 73.12px, seat.css --blob-fp; the bead visibly occupies it — frame
+  c-light-390x520-rest.png) — annexed owner-attest (u-f5), NOT the U-F9 rhythm.
+VERDICT PASS — the 6× divergence eliminated to one cqi law; readout-seam oracle confirms designed air.
+
+================ BR-9 (whole-header contraction under scroll — REAL layout shrink) ================
+@390x520 (both schemes · card overflow 149px · condensed class TRUE):
+  header block-size   183.95px → 87.29px    Δ -96.66px   (element screenshot 368→176px dpr2 — a REAL
+                                                          layout box shrink, NOT a compositor transform)
+  padding-top         12px → 6px             (computed getComputedStyle — genuine box-model contraction)
+  title fs            32.928 → 25.888px       (real token step display-2→display-1)
+  → title + padding + background veil band + readout condense together as ONE strip (frame
+    c-{light,dark}-390x520-scrolled.png).  Census RED: "contraction ENTIRELY ABSENT, Δ0, not even sticky."
+@1440x640 (both schemes): scroll root=VIEWPORT, pageOverflow=0 → NO scroll surface (desktop
+  lg:overflow-visible) → contraction correctly DORMANT (composable-documented "picker fits → stays
+  expanded"). Owner mandate is "ON scroll"; desktop picker does not scroll → not applicable.
+VERDICT PASS at 390 (real, both schemes, verified REAL box shrink); 1440 dormant-by-design (recorded).
+
+================ BR-11 (condensed title ≥ legibility floor) ================
+condensed title @390 = 25.888px = 1.618rem = --type-display-1 (clamp min) = the wave-doc named floor.
+Real token step (display-2→display-1), NOT a compositor scale of the un-stepped rung. Both schemes.
+VERDICT PASS.
+
+================ RIDERS ================
+dynamic document.title = TRUE — 3 distinct live titles observed:
+  "oklch(62% 0.17 28deg / 100%) — Color Picker"  ·  "tomato · Palettes — Color Picker"
+  ·  "rebeccapurple · Gradient — Color Picker"   (driven by color + pane change; static was "Color Picker")
+.scrollbar-thin consumers > 0 — ≥1 live (computed scrollbar-width:thin): gradient view (GradientCodeEditor)
+  + atmosphere view (ConfigSliderPane). (rider lane wired 5 consumers total; the others gate on interaction.)
+VERDICT PASS (both riders).
+
+================ ANNEX (7 — NOT mine to flip; owner-attest by law U-F54) ================
+u-f5 · u-f11 · u-f8 · u-f10 · u-f12 · u-f7 · zd3-microchrome (perceptual/GPU halves) — honestly OPEN.
+
+================ GH-PAGES SUBSTRATE FINDING (pre-existing, NOT the VISUAL lanes) ================
+`npm run gh-pages` FAILS at raw committed tranche-u HEAD: pinned glass-ui 5.0.0 (2e559f7a) — and the
+live sibling — import pre-rename value.js names that U.W-LIB's rename sweeps DROPPED:
+  bare @mkbabb/value.js : srgbToOKLab, oklabToLinearSRGB, oklabToRgb255, rawOklabToOklch, rawOklchToOklab
+                          (U-F34 {from}2{to}: now srgb2oklab / oklab2linearSrgb / oklab2rgb255 / rawOklab2oklch / rawOklch2oklab)
+  @mkbabb/value.js/parsing : parseCSSSubValue  (U-F29: now parseCSSValue, single-value semantics)
+keyframes.js dist consumes the same. This is a value.js↔glass-ui-5.0.0/keyframes producer/consumer
+export-contract break — U.W-ADOPT / U.W-LIB substrate territory, orthogonal to the VISUAL cures.
+The VISUAL merge touches NO color/parse export. Certification used an uncommitted compat re-export
+shim (census-scaffold pattern) to unblock the local serve only; reverted, never committed.
+
+================ WAVE VERDICT (PP-16) ================
+complete_with_misses — both CENSUS-RED re-cures (u-f9-atrest one-law rhythm · u-f9-scrolled whole-header
+contraction) + both riders LANDED and verified GREEN by this independent gate (BR-4/5/9/11 + riders all
+PASS, real-box-shrink confirmed). MISSES: the 7 ANNEX rows remain honestly-open owner-attest (by law);
+the gh-pages substrate break is a real recorded finding routed to U.W-ADOPT/LIB (not the lanes).
