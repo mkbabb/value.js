@@ -3,17 +3,51 @@
 //
 // THE REAL OBSERVABLE: the value-level / stylesheet parser throughput, measured
 // against the BUILT `dist/value.js` over a real byte corpus — but expressed as a
-// RATIO against an in-run `JSON.parse` machine-speed normaliser, NOT an absolute
-// MB/s threshold.
+// RATIO against an in-run parse-that combinator normaliser (`jsonParser.parse`),
+// NOT native `JSON.parse`, NOT an absolute MB/s threshold.
 //
 // WHY RELATIVE (the device-dependence lesson). An earlier draft of this gate
 // embedded ABSOLUTE MB/s thresholds (5.23 / 10.81) derived from the authoring
 // machine's baseline. Those are NON-PORTABLE: a slower machine (or the slow CI
 // Linux runner) reads lower absolute MB/s even when the *relative* win is intact,
-// so the gate flakes RED through no regression of its own. CSS-parse throughput
-// and JSON.parse throughput both scale ~linearly with CPU speed, so their RATIO
-// is machine-independent. This gate asserts the ratio clears a floor — portable
-// across machines and robust to the ~8-10% run-to-run noise on a shared box.
+// so the gate flakes RED through no regression of its own. The cure is a RATIO
+// against an in-run reference that co-scales with the parser, so a faster/slower
+// box (or a hotter/quieter box) moves numerator and denominator TOGETHER and the
+// ratio holds. This gate asserts the ratio clears a floor — portable across
+// machines and robust to the ~8-10% run-to-run noise on a shared box.
+//
+// ─────────────────────────────────────────────────────────────────────────────
+// U-F14 — THE CO-SCALING NORMALISER (the PREMISE fix; U.W-PERF, E-3).
+//
+// The original O.W6 normaliser was native `JSON.parse`. Its premise — "CSS-parse
+// throughput and JSON.parse throughput both scale ~linearly with CPU speed, so
+// their RATIO is machine-independent" — is FALSE. Native `JSON.parse` is C++
+// inside V8 (156-400+ MB/s); the CSS parser is the interpreted/JIT'd parse-that
+// combinator chain (1.5-8 MB/s). The two do NOT co-scale:
+//   - across ARCH: on a fast box `JSON.parse` runs disproportionately fast, so
+//     `parser/json` collapses toward the floor — the designed 25% headroom spends
+//     to a MEASURED 0-7% margin on fast archs (registry U-F14 §10), a genuine
+//     idle flake (~50% RED on a clean tree).
+//   - across NODE VERSION: node-24's V8 optimized native `JSON.parse` relative to
+//     the combinator chain, dropping the sheet ratio 0.0278 -> 0.0189 with NO
+//     throughput loss (CI run 29230557187). U.W-ORACLE nudged the SHEET floor
+//     0.0200 -> 0.0160 to swallow that — a THRESHOLD move on the false premise.
+//
+// THE CURE (E-3: re-anchor the PREMISE, never lower the threshold to swallow the
+// flake): normalise against parse-that's OWN `jsonParser` — the SAME combinator
+// machinery (dispatch + allocation + backtracking) as the CSS value/sheet parser,
+// over the SAME ~450-byte JSON payload. Because numerator and denominator are now
+// the identical performance class, the ratio co-scales across arch AND node
+// version. MEASURED (this machine, node-26, under 19-28 load): when concurrent
+// load dropped `jsonParser` 92 -> 83 MB/s, the parser dropped in lockstep and the
+// ratio HELD (v/pt 0.0586, s/pt 0.1216 unchanged) — native `JSON.parse` would
+// have stayed ~400 and collapsed the ratio. `jsonParser` lives in the dependency,
+// NOT `src/parsing`: a scanner regression moves the numerator but not this fixed
+// reference, so the gate keeps its teeth. This SUPERSEDES the ORACLE node-24
+// nudge: native `JSON.parse` is gone as the denominator, so that node-version
+// drift cannot recur; the floors below are RE-DERIVED on the parse-that scale
+// (~90 MB/s reference), so they are NOT comparable to the old native-scale
+// numbers (0.0100 / 0.0160) — this is a premise re-anchor, not a threshold tweak.
 //
 // ─────────────────────────────────────────────────────────────────────────────
 // THE O.W6 WIN (rigorously A/B-measured on the authoring + verifier machines;
@@ -33,52 +67,55 @@
 //   (The former proof:gamut-alloc alloc-count guard was retired at T.W0 Q13 —
 //   ruled overfit; the gamut hot path stands by the type system + review now.)
 //
-// RATIO FLOORS (calibrated below the cured ratios so the gate is robust to
-// machine + noise variance while still catching a GROSS perf regression — e.g.
-// a revert of the dispatch table or the scanners back to the slow chain, which
-// would drop the ratio well below the floor). The cured ratios measured here:
-//   value/json ~= 0.0134 ; sheet/json ~= 0.0278 (authoring machine, node-22 era).
-//
-// U.W-ORACLE NODE-24 RE-ANCHOR (SHEET floor 0.0200 -> 0.0160; derivation
-// recorded at docs/tranches/U/audit/oracle/feasibility/node24-perf-floor.md).
-// Evidence: CI run 29230557187 double-failed proof:perf-target C2-stylesheet at
-// ratio 0.0189 (< the old 0.0200 floor) on the node-24 leg while node-22 passed
-// the SAME code twice. Same code passing on node-22 and failing on node-24 is
-// definitionally NOT a parser regression (a code regression fails on every
-// runtime) — it is a V8 runtime difference: node-24 optimized JSON.parse (the
-// ratio DENOMINATOR) relative to the parse-that combinator chain, so the ratio
-// drops with no throughput loss. The floor was mis-calibrated for node-24 and is
-// re-anchored FROM the measured node-24 cured datum (0.0189): ~15% below it =
-// 0.0160, which (a) clears node-24's cured code with margin over the ~8-10%
-// run-to-run noise + node-version variance, and (b) still reds a gross slow-
-// chain revert (which drops the ratio well below 0.0160). NOT hand-tuned to
-// pass: 0.0160 is derived from the node-24 headroom, and a fuller ~28%-below
-// re-anchor (0.0136) was REJECTED because it would sink below the reverted level
-// and lose the gate's teeth. The C1 VALUE floor is UNCHANGED (0.0100): only C2
-// exhibited node-24 marginality; the value parser keeps a wide margin (~0.0132).
+// RATIO FLOORS (re-derived against the parse-that normaliser; PEAK of N=15 samples
+// — see the `peak` note below). Cured PEAK ratios MEASURED here (median over 18
+// gate invocations, node-26, load 5-27): value/pt ~= 0.0596 ; sheet/pt ~= 0.1250.
+// A full slow-chain revert (smallest documented win: value +23%, sheet +27%) drops
+// even the peak to ~0.0485 / ~0.0988 — the teeth level (a fuller +30%/+32% revert
+// drops it to ~0.0458 / ~0.0947). The floors sit between the revert level and the
+// worst observed peak:
+//   VALUE 0.0500 — ~16% below cured peak; ~13% over the worst observed peak
+//                  (0.0563 over 18 runs); above the full-revert level (teeth).
+//   SHEET 0.1000 — ~20% below cured peak; ~9% over the worst observed peak
+//                  (0.1091); above the full-revert level (teeth).
+// Crucially the margin is now ARCH-INVARIANT (co-scaling) — it does NOT collapse
+// to 0-7% on a fast arch as the native-JSON.parse ratio did. Proven: 18/18 GREEN
+// under variable load with NO false red (the born-RED idle-flake is cured). The
+// gate held 18/18 where the median-of-9 flaked RED under load contention.
+// RESIDUAL (honest): the value win (+23%) is close to the run noise, so against
+// the SMALLEST documented revert the teeth are thin — this gate is the GROSS-
+// regression (full slow-chain revert) tripwire it was authored to be; the
+// 1871-test suite carries the fine correctness discrimination.
+// Derivation record: docs/tranches/U/audit/w-perf/dist-gate/perf-ratio-reanchor.md.
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { existsSync } from "node:fs";
+import { jsonParser } from "@mkbabb/parse-that";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..", "..");
 const distValue = resolve(root, "dist/value.js");
 
-console.log("proof:perf-target — CSS-parse throughput vs JSON.parse normaliser (portable)\n");
+console.log("proof:perf-target — CSS-parse throughput vs parse-that jsonParser normaliser (portable, co-scaling)\n");
 
 if (!existsSync(distValue)) {
     console.log("  FAIL  C0  dist/value.js missing — run `npm run build` first");
     process.exit(1);
 }
 
-const VALUE_RATIO_FLOOR = 0.0100; // cured ~0.0134; floor ~25% below — robust
-const SHEET_RATIO_FLOOR = 0.0160; // node-24 re-anchor: cured node-24 ~0.0189; floor ~15% below (was 0.0200, node-22-era) — see the derivation note above
+const VALUE_RATIO_FLOOR = 0.0500; // co-scaling normaliser, PEAK statistic; cured peak ~0.0596, floor ~16% below, ~13% over the worst observed peak (0.0563/18 runs), above the full-revert level — see the U-F14 derivation above
+const SHEET_RATIO_FLOOR = 0.1000; // co-scaling normaliser, PEAK statistic; cured peak ~0.1250, floor ~20% below, ~9% over the worst observed peak (0.1091), above the full-revert level
 
 const { runBench } = await import(resolve(root, "bench/css-parse-perf.mjs"));
 
-// In-run machine-speed normaliser: JSON.parse of a ~450-byte payload.
+// In-run CO-SCALING normaliser: parse-that's `jsonParser` over a ~450-byte
+// payload. Same combinator machinery as the CSS parser (so numerator + denominator
+// co-scale across arch + node version), independent of `src/parsing` (so a scanner
+// regression moves the numerator but not this reference — teeth preserved). This
+// REPLACES the O.W6 native `JSON.parse` normaliser (U-F14: native C++ does not
+// co-scale with the interpreted parser; see the header note).
 const jsonPayload = JSON.stringify({
     a: 1, b: [1, 2, 3, 4, 5], c: "hello world",
     d: { x: 1.5, y: 2.5, z: [true, false, null] },
@@ -87,12 +124,24 @@ const jsonPayload = JSON.stringify({
 const jsonBytes = Buffer.byteLength(jsonPayload);
 function jsonMBs() {
     const N = 20000;
+    for (let w = 0; w < 100; w++) jsonParser.parse(jsonPayload); // warm-up: tier up the combinator chain
     const t = performance.now();
-    for (let i = 0; i < N; i++) JSON.parse(jsonPayload);
+    for (let i = 0; i < N; i++) jsonParser.parse(jsonPayload);
     return (N * jsonBytes / 1e6) / ((performance.now() - t) / 1000);
 }
 
-const SAMPLES = 9;
+const SAMPLES = 15;
+// PEAK statistic (the capability floor — U-F14's stability arm). On a shared box,
+// CPU contention can only make the parser SLOWER; a genuine code regression makes
+// even the best-scheduled run slower. So the PEAK (least-contended) sample is the
+// honest capability the floor tests — contention-immune (this is what kills the
+// idle/load flake: the median gets dragged below the floor under load, the peak
+// does not) yet teeth-preserving (a full slow-chain revert drops even the peak
+// ~23-27% below the cured peak, under the floor). N=15 gives enough samples to
+// catch a well-scheduled CPU slice; per-sample timer noise at N=1000 inner
+// iterations is <1%, so the peak cannot spuriously EXCEED true capability (no
+// false pass). The gamut timing stays a median (informational only, not a gate).
+const peak = (a) => Math.max(...a);
 const median = (a) => { const s = [...a].sort((x, y) => x - y); return s[Math.floor(s.length / 2)]; };
 const vs = [], ss = [], js = [], gs = [];
 for (let i = 0; i < SAMPLES; i++) {
@@ -100,7 +149,7 @@ for (let i = 0; i < SAMPLES; i++) {
     vs.push(r.valueMBs); ss.push(r.sheetMBs); gs.push(r.gamutNs);
     js.push(jsonMBs());
 }
-const valueMBs = median(vs), sheetMBs = median(ss), jsonRef = median(js), gamutNs = median(gs);
+const valueMBs = peak(vs), sheetMBs = peak(ss), jsonRef = peak(js), gamutNs = median(gs);
 const valueRatio = valueMBs / jsonRef, sheetRatio = sheetMBs / jsonRef;
 
 const results = [];
@@ -110,20 +159,20 @@ const record = (id, label, ok, detail) => {
     if (detail) console.log(`        ${detail}`);
 };
 
-console.log(`  (machine normaliser: JSON.parse ${jsonRef.toFixed(0)} MB/s)\n`);
+console.log(`  (co-scaling normaliser: parse-that jsonParser ${jsonRef.toFixed(0)} MB/s)\n`);
 
 record(
     "C1-value-parser",
-    `parseCSSValue ${valueMBs.toFixed(2)} MB/s · ratio v/json ${valueRatio.toFixed(4)} >= ${VALUE_RATIO_FLOOR}`,
+    `parseCSSValue ${valueMBs.toFixed(2)} MB/s · ratio v/pt ${valueRatio.toFixed(4)} >= ${VALUE_RATIO_FLOOR}`,
     valueRatio >= VALUE_RATIO_FLOOR,
     valueRatio >= VALUE_RATIO_FLOOR
         ? "throughput holds (dispatch + byte-scanner win intact; +23-30% A/B documented)"
-        : "ratio below floor — the dispatch/scanner win regressed (parser slowed vs JSON.parse)",
+        : "ratio below floor — the dispatch/scanner win regressed (parser slowed vs the combinator baseline)",
 );
 
 record(
     "C2-stylesheet-parser",
-    `parseCSSStylesheet ${sheetMBs.toFixed(2)} MB/s · ratio s/json ${sheetRatio.toFixed(4)} >= ${SHEET_RATIO_FLOOR}`,
+    `parseCSSStylesheet ${sheetMBs.toFixed(2)} MB/s · ratio s/pt ${sheetRatio.toFixed(4)} >= ${SHEET_RATIO_FLOOR}`,
     sheetRatio >= SHEET_RATIO_FLOOR,
     sheetRatio >= SHEET_RATIO_FLOOR
         ? "throughput holds (+27-32% A/B documented)"
