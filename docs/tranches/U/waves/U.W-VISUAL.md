@@ -113,6 +113,7 @@ no successor re-opens) or CENSUS-RED (this wave's designed re-cure). The WR → 
 | — (NO WR row; T.W8 attempted no cure) | T-37 | **U-F11** | AUTOMATIC re-cure (uncured by W8) |
 | — (NEW, no owner row, no WR) | — | **U-F12** | AUTOMATIC re-cure (owner-judgment-at-formation) |
 | T-52 producer mask (communiqué, not a WR demo cure) | T-36 · T-52 | **U-F13-demo** (Tools box-model half; producer clip/fade → U.W-ADOPT/relay) | demo half re-cure; producer half relayed |
+| WR-9 (T-57 dock-band `--dock-h` floor cure) | T-57 (T-31 re-bracket) | **U-F13-band** (dock-morph band-height invariance — a DISTINCT arm from U-F13-demo's edge-clip, and a DIFFERENT surface than U-F16's picker-plate mount reflow) | census → born-RED BR-10 band-invariance re-cure if RED (owner-attested no-scene-shift; π/DELTA +3.0px → 0px) |
 
 **Census law**: the verdicts are OWNER-ATTESTED, not headless-asserted (U-F54). A WR that lands
 GREEN retires with its frame recorded; the design cures below are the **CENSUS-RED contingency** —
@@ -189,8 +190,15 @@ walls. **The scheduling BRACKET**:
 - **Pole B — defer-remount-past-settle**: hold the outgoing face, run the transition on a
   lightweight proxy, and re-mount the incoming content AFTER the transition settle (the enter clock
   owns only the paint, never the mount).
-**Cure WITH the wake-gray bead** (same window — a compound percept; cure both or the owner reds it a
-third time — the WR-10 partner record). **Confound isolation FIRST**: the born-RED (real-GPU/
+**The wake-gray bead arm** (same window — a compound percept; cure both or the owner reds it a
+third time — the WR-10 partner record; the T cure LANDED at boot-B `5cecdf2`, `T ROWS.md:179`, so
+this is a **MUST-NOT-REGRESS** from that landed baseline): the scheduling re-cure re-opens the swap
+window, which can re-expose the gray wake substrate that flashes before the incoming face paints its
+own ground. E-3 — NOT a color-patch over the flash but a reveal-ordering guarantee: the incoming
+face paints its opaque background substrate BEFORE the reveal begins, so the swap window never
+exposes the wake-gray ground (the gray-flash stays ABSENT). The bead's own π/DELTA leg (gray-flash
+present→absent, must-not-regress) rides U-F7's obligation row below; OA-1 carries its
+must-not-regress clause. **Confound isolation FIRST**: the born-RED (real-GPU/
 owner-attested, NEVER headless) measures the swap window with O-16-R1's 150ms clobber + PKT-1's
 corrupted `--default-transition-duration` EXCLUDED — otherwise a felt-duration judgment tunes
 against a corrupted clock. Producer confounds (O-16-R1, PKT-1) are relayed/booked to U.W-ADOPT.
@@ -301,14 +309,27 @@ owner-attested.
 desaturated warm-brown across every pane**, dragging mid-tones down and compounding U-F6/U-F26. A
 candidate for the owner's judgment at formation.
 
-**Cure APPROACH** — re-derive the dark-card tint so it carries the seed's chroma per view (not a
-warm-brown average). **The dark-tint BRACKET**:
-- **Pole A — chroma-carried tint**: the dark tint holds the pane's seed HUE at a perceptible chroma
-  floor (per-view identity survives into dark), so panes are chromatically distinct.
-- **Pole B — restrained-neutral tint**: a nearly-neutral dark ground with the seed chroma carried
-  ONLY in the accent lane (the ground stays quiet, identity lives in the accents).
+**The governing ruling** (RATIFICATION-2026-07-09:28 — **Q18 "Keep."**; `T/FINAL:463` "wins over the
+corpus"): the ratified **C3 law** — *"color appears only as color DATA; chrome/material/type are
+neutral"* + its COMPLETE sanctioned-exception ledger (ramps · dots · palette strips/chips · gamut
+netting · aurora FIELD · blob · Palettes-rainbow · admin-gold · the `--accent-view` navigation-ring
+family — `SYNTHESIS.md:676`). The dark **card GROUND is card MATERIAL, which C3 rules NEUTRAL**, and
+it is **NOT** on that ledger (the aurora field is exempt; the card ground is not). The house neutral
+FORM is the warm cream / stone-ink family (raw #fff/#000 only inside color-math).
+
+**Cure APPROACH** — re-derive the dark-card tint. **The dark-tint BRACKET**:
+- **Pole A — chroma-carried tint** [**C3-LEDGER AMENDMENT — requires owner RE-RATIFICATION**]: the
+  dark tint holds the pane's seed HUE at a perceptible chroma floor on the card GROUND (per-view
+  identity survives into dark). This moves a MATERIAL surface from neutral to color-DATA — a
+  CONTRADICTION of the ratified "material is neutral" C3 law — so Pole A is admissible ONLY as an
+  owner amendment to the C3 exception ledger (adding "dark-card ground" to the sanctioned set), never
+  a unilateral formation pick.
+- **Pole B — restrained-neutral tint** [**the C3-COMPLIANT DEFAULT**]: a near-neutral dark ground
+  (material stays neutral per C3) with the seed chroma carried ONLY in the sanctioned `--accent`
+  lane (identity lives in the accents — an already-ledgered exception). No re-ratification needed.
 Because this is NEW with no owner row, it is **presented as a BRACKET for owner ruling at
-wave-open** (owner-judgment) — the born-RED (per-pane hue-tracks-seed + chroma ≥ floor) is the
+wave-open** (owner-judgment) — **Pole B is the C3-compliant default; Pole A a flagged ledger
+amendment**. The born-RED (BR-7, pole-conditional per-pane hue-tracks-seed + chroma ≥ floor) is the
 feasibility-real predicate; the acceptance is owner-gated. Coordinates with U-F6 (ramp) + U-F26
 (dark accents, U.W-A11Y) — the three dark-scheme reds share a derivation surface.
 
@@ -327,6 +348,26 @@ so the focus ring is never clipped at the dock edge. **The box-model BRACKET**:
   a flush Tools item is never scrolled to the clipping edge.
 The producer mask-honesty (0px-fade transparent stop antialiasing the outermost column) → RELAY /
 booked to U.W-ADOPT (BI-acceptance). Headless-verifiable (box-model geometry) → born-RED.
+
+### U-F13-band · `dock-expand-scene-reflow` — build-if-CENSUS-RED (WR-9's terminal residue; T-57, T-31 re-bracket)
+
+**The still-red** (T/FINAL:122 / WR-9; invariance probe `2c1a0f4`): the dock's `--dock-h` floor lets
+the band GROW on collapse↔expand, pushing a **MEASURED +3.0px scene reflow** into the content below
+the dock — a landed-but-OWNER-UNCERTIFIED T.W8 cure (the band floor sits BELOW the expanded pill). A
+DIFFERENT surface than U-F16's picker-plate mount reflow (U.W-PERF) — this is the dock-morph band, a
+discrete user gesture (dock-expand), not the mobile mount CLS.
+
+**Cure APPROACH** (E-3 — an ARCHITECTURAL band-height reservation, not a `min-height` nudge that
+papers the reflow): reserve the dock band's expanded block-size at the collapsed state so the morph
+NEVER grows the scene box. **The band BRACKET**:
+- **Pole A — reserve-to-expanded**: `--dock-h` floors at the EXPANDED band block-size (the band is
+  always sized for its tallest morph state; the collapsed pill floats inside the reserved box) — the
+  scene box is invariant across the morph by construction.
+- **Pole B — overlay-the-growth**: the expand delta paints in an overlay layer (the band expands OUT
+  of flow, over the scene) so the in-flow band block-size is morph-invariant and the content below
+  never reflows.
+Headless-verifiable (computed band block-size + scene-top shift across the morph) → born-RED (BR-10);
+the "reads as no scene shift" gestalt is owner-attested.
 
 ### U-F19 residue · T-53 dark caster (material) — build-if-CENSUS-RED (WR-5's terminal residue)
 
@@ -361,12 +402,13 @@ red is the close-class lie the charter forbids).
 | **BR-7** | **pole-conditional on the U-F12 owner ruling (flips on whichever pole the owner rules — the G-CANON-10-style escape)**: under **Pole A** (chroma-carried tint) the per-pane dark-card GROUND tint hue tracks the pane seed hue (Δhue ≤ tol) AND ground chroma ≥ perceptible floor; under **Pole B** (restrained-neutral tint, ground deliberately near-neutral) the assertion moves to the ACCENT lane — per-pane accent chroma ≥ floor AND cross-pane accent hue distinguishable (seed-tracked). NOT a uniform warm-brown under either pole | U-F12 | registry §2: "uniform desaturated warm-brown across every pane" |
 | **BR-8** | Tools true-button focus-ring box within the dock-layer content box + safe-inset (ring arc unclipped) @ flush edge, both edges | U-F13-demo | registry §2 / `overflow.css:86-99`: producer clip shaves EDGE rings |
 | **BR-9** | scrolled-header band computed `padding` + background-footprint block-size CONTRACT vs the at-rest box (a real layout-box shrink, NOT a compositor-only title `scale`) — the band's scrolled block-size < its at-rest block-size by ≥ the ruled contraction step | U-F9 (scrolled arm, T-61/T-42) | MANDATE §0.8: header band retains full at-rest padding on scroll; t33-research §6.6 compositor-only title scale over an UNSHRUNKEN box |
+| **BR-10** | dock in-flow band computed block-size INVARIANT across the collapse↔expand morph AND scene-top shift == 0px across the morph (the reserved band floors at the expanded block-size, so `--dock-h` never grows the scene box) | U-F13-band (T-57/WR-9) | T/FINAL:122 / WR-9: MEASURED **+3.0px scene reflow** on dock-expand (band floor < expanded pill; invariance probe `2c1a0f4`) |
 
 ### Register 2 — owner-attested / real-GPU annex (NOT headless born-RED; the U-F54 law)
 
 | # | Gate (owner-attested against a real-GPU / owner frame) | Family | Why not headless |
 |---|---|---|---|
-| **OA-1** | swap-window max frame ≤ 32ms + 0 frames > 32ms over the settle window, **confound-isolated** (O-16-R1 clobber + PKT-1 clock EXCLUDED) | U-F7 | SwiftShader confounds motion timing; the T-58 mandate is a real-GPU frame-by-frame |
+| **OA-1** | swap-window max frame ≤ 32ms + 0 frames > 32ms over the settle window, **confound-isolated** (O-16-R1 clobber + PKT-1 clock EXCLUDED) **AND zero wake-gray substrate flash across the swap window** (the bead's compound half — MUST-NOT-REGRESS from the landed T boot-B cure `5cecdf2`) | U-F7 | SwiftShader confounds motion timing; the T-58 mandate is a real-GPU frame-by-frame; the gray-flash is a GPU-rendered percept (owner-attested, not a headless α proxy) |
 | **OA-2** | the Generate swatch reads as a WatercolorDot species + ONE verb instrument (producer-register attested) | U-F8 | organic-edge material perception + producer-primitive adoption |
 | **OA-3** | the console reads as a TRANSLUCENT veil (surviving-variation > the ~15% opaque floor; the blur samples a real backdrop) | U-F10 | veil material is a perceptual read, not a headless α proxy (the O-14 warning) |
 | **OA-4** | the whole-picker + per-surface GESTALT sign-off — the blob seats as part of the picker (U-F5), the ramp reads perceptible/beautiful (U-F6), the dark tint reads clean (U-F12) | U-F5/F6/F12 | taste is owner-terminal (lesson 12); the geometry is born-RED, the gestalt is owner-attested |
@@ -390,7 +432,7 @@ measured quantity that moved.
 |---|---|---|
 | U-F5 | `picker-{light,dark}-{1440,390}-full.png` — blob spilling/colliding → seated | @1440: card-edge right inset (px, RED spill < 0 → GREEN ≥ gutter); @390: readout clearance (px, RED collision < 0 → GREEN ≥ gutter) |
 | U-F6-ramp | `ramp-{light,dark}.png` — near-black sink → perceptible band | min per-letter L (RED ≈ 0.02 → GREEN ≥ floor); min per-glyph contrast vs card rung (RED < carve-out → GREEN ≥ 3:1/4.5:1) |
-| U-F7 | real-GPU swap-window screencast (confound-isolated) — jank → smooth | max frame ms (RED > 32 / 88 → GREEN ≤ 32); frames-over-budget count (RED 11/74 → GREEN 0) |
+| U-F7 | real-GPU swap-window screencast (confound-isolated) — jank → smooth; **+ the wake-gray bead**: swap-window frame at reveal-start — gray substrate flash → opaque incoming ground | max frame ms (RED > 32 / 88 → GREEN ≤ 32); frames-over-budget count (RED 11/74 → GREEN 0); **wake-gray flash present→absent** (MUST-NOT-REGRESS from the landed boot-B baseline `5cecdf2` — GREEN absent, a re-cure that re-exposes it reds the row) |
 | U-F8 | `pane-generate-{light,dark}-{1440,390}.png` — flat squares / 3 registers → dots / 1 instrument | swatch species (rect → WatercolorDot, producer-attested); verb-register count (3 → 1) |
 | U-F9 (at-rest) | `picker-*-full.png` + `scrolled-light.png` — un-stepped title + dead band → stepped + honest seam | title fs (67.776px → `--type-display-2` value); dead-band height (px → 0/absorbed); 1440↔390 rhythm-ratio (divergent → one-law) |
 | U-F9 (scrolled arm, T-61/T-42) | `scrolled-{light,dark}.png` at-rest→scrolled — full-padding band with ghost-through → ONE condensed strip | header band block-size (RED at-rest padding retained on scroll → GREEN contracted vs at-rest by ≥ the ruled step); Components-row ghost-through (RED visible under the band → GREEN 0); title condense is NOT the sole change (RED compositor-only title scale → GREEN whole-header contract) |
@@ -398,6 +440,7 @@ measured quantity that moved.
 | U-F11 | `dock-{light,dark}-*-rest.png` collapsed swatch — invisible → perceptible seam | swatch-boundary ΔE (RED .004–.023 ΔL → GREEN ≥ JND ~2.3 ΔE) |
 | U-F12 | `pane-*-dark-{1440,390}.png` across panes — uniform warm-brown → chroma-carried | per-pane dark-tint chroma C (RED ≈ 0 → GREEN ≥ floor); cross-pane hue-spread (RED uniform → GREEN seed-tracked) |
 | U-F13-demo | `dock-*-1440-expanded.png` + `border-*` — edge ring shaved → whole | edge-item ring-arc completeness (px shaved → 0); Tools box-model ring reservation present |
+| U-F13-band (T-57/WR-9) | `dock-{light,dark}-collapsed→expanded.png` — scene reflows on dock-expand → scene invariant | scene-top shift across the morph (RED **+3.0px** → GREEN **0px**); in-flow band block-size vs expanded pill (RED floor < pill → GREEN reserved ≥ expanded) |
 | U-F19/T-53 | dark-caster clip — 50%-α cream slab → honest caster | caster color/α (cream `--foreground` 50%-α → re-cut value) |
 
 **Obligation law**: a family may not claim GREEN without BOTH the after π-frame captured (real-GPU/

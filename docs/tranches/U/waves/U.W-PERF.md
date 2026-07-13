@@ -96,7 +96,9 @@ flake), and U-F3 is escalated as a structural fact (never a gate re-baseline —
 
 ### U-F3 — `q14-perf-redemption-uncloseable` · **escalate (the DISEASE/RP-2 arm — present the owner the structural fact)**
 
-**Evidence** (registry §1 + §10 R-1 verdict + §26 + `DISPOSITION-LEDGER §B` chronic): the owner-ruled
+**Evidence** (registry §1 + §10 R-1 verdict + §26 + `DISPOSITION-LEDGER §B`/§C chronic; the owner's
+**T-39** is the Q14-pressure perf face — `T-MARK-2026-07-12:124` classes it an OPEN still-red, LCP
+5141 / TBT 5988, and `T/FINAL §5:299`/§2.1:129/§7.2:411 hand T-39 → U.W-PERF **by name**): the owner-ruled
 HARD close gate (Q14: *"no re-baseline, no deferral"*) is coupled to producer-side levers (L20 /
 GAP-L5) gated on the UNFIRED glass-ui 5.0.0 adopt — structurally uncloseable by value.js alone; RP-2
 (**331.0 KiB JS-eager vs the ≤ 280 target — the T close-of-record, `T/FINAL.md §3`:208 / §5:291; the

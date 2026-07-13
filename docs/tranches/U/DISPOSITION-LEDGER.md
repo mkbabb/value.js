@@ -88,7 +88,7 @@ set + the PROMPT-RECAP set + the RETIRED-WINS set. Every wave named is one of th
 | U-F59 | unread-sources-of-record | — | **retire** (round-4 closed) | docs/precepts read, api suite RUN, the pre-R owner-ask chain spot-checked, assets/docs skimmed at round 4; closed — recorded so no successor re-opens. |
 | U-F60 | color-math-correctness-unaudited | — | **retire** (round-4: SOUND) | The numeric color core VERDICT SOUND (sRGB→XYZ ≤1.11e-16, OKLab ≤1e-6, CIEDE2000 3e-5, analytical≡raytrace ≤1.4e-4); no numeric defects. Recorded. |
 | U-F61 | single-sourced-claims | U.W-CLOSE | fold | X2 NCSU-301, the CI TBT red, born-RED cure-ownership, the deploy-webhook repair — attested-not-verified; the close ledger FLAGS each (X2 also rides U-F41). |
-| U-F62 | families-that-are-two-mechanisms | — (the U-F6 split executor) | fold | Registry-hygiene: records that U-F6 = the Q5 ramp resolver (→U.W-VISUAL) + the O-14 proxy oracle (→U.W-ORACLE) have different owners/surfaces; the split is executed at those rows. |
+| U-F62 | families-that-are-two-mechanisms | **U.W-ORACLE** (the U-F6 split executor) | fold | Registry-hygiene: records that U-F6 = the Q5 ramp resolver (→U.W-VISUAL) + the O-14 proxy oracle (→U.W-ORACLE) have different owners/surfaces; the split is executed at those rows. Homed at U.W-ORACLE (§Dispositions, the split-executor bookkeeping row) per `U.md §wave-DAG` U-F62 ∈ U.W-ORACLE. |
 | U-F63 | npm-pack-ships-demo | U.W-CANON | build | No `.npmignore` + no-op `prepare` ships a stale `dist/gh-pages/` (the whole demo, ~4.3 MB) in the tarball; clean-before-pack or `.npmignore`. |
 | U-F64 | size-gate-blind | U.W-CANON | retire/re-anchor | CI gates `dist/value.js ≤145KB` but it's a 14.9 KB facade — core bloat lives in hashed chunks the gate can't see; re-anchor to the chunk-graph total. |
 | U-F65 | lint-vacuity | U.W-CANON | fold | `npm run lint` green over 680 files with ~every rule OFF; owner call — restore a real rule set or accept types+review (recorded). |
@@ -105,9 +105,10 @@ set + the PROMPT-RECAP set + the RETIRED-WINS set. Every wave named is one of th
 | U-F76 | shared-surface-coordination | **U.W-PERF** | build | THE ORDERING LAW: 6 findings edit ONE picker/readout mount across 3 waves; the mount-changing reseats (VISUAL/A11Y) settle FIRST, then PERF reserves + measures CLS/LCP over the settled box. Binds VISUAL→A11Y→PERF. |
 | U-F77 | library-cut-adopt-ordering | **U.W-ADOPT** | build | THE CO-LAND ORDERING: the lib-correctness version cut sequences against BOTH `^3.1.0` peer floors (glass-ui + keyframes) + the spectrum-walk/backward-color convention co-migration; owner-held version decision (§13.5). Binds LIB→ADOPT. |
 
-**Family audit**: F1–F77 present, each exactly once; F6 and F55 carry named split-homes; F18/F19
-route to the charter's W8-inheritance census; F20/F59/F60 retire (closed/cured); F54 is the
-owner-attested annex. Zero silent drops.
+**Family audit**: F1–F77 present, each exactly once; F6 and F55 carry named split-homes (F62 is
+F6's split-executor bookkeeping, homed at U.W-ORACLE); F18/F19 route to the charter's
+W8-inheritance census; F20/F59/F60 retire (closed/cured — owning-wave `—`); F54 is the
+owner-attested annex. Every other row homes to a named wave (no unexplained blank). Zero silent drops.
 
 ---
 
@@ -163,6 +164,8 @@ to T.W8/WR; U absorbs the un-landed residue) → their U-Fxx family → owning w
 | T-37 (collapsed dock swatch seam) | U-F11 | U.W-VISUAL |
 | T-36 · T-52 (dock edge clip) | U-F13 | U.W-VISUAL (demo) + U.W-ADOPT/relay (producer) |
 | T-53 (dark caster) · AB-1 (About-KaTeX) | U-F19 residue | U.W-VISUAL / U.W-CANON (W8-inheritance) |
+| **T-57** (WR-9 dock-band `--dock-h` floor; MEASURED +3.0px scene reflow on dock-expand, invariance probe `2c1a0f4`; T-31→T-57 re-bracket) | U-F13 (dock-band arm — DISTINCT from the U-F13-demo edge-clip) | U.W-VISUAL (W8-inheritance census; born-RED BR-10 band-height-invariance-across-morph + owner-attested no-scene-shift — a DIFFERENT surface than U-F16's picker-plate mount reflow) |
+| **T-39** (the Q14-pressure perf face; owner still-red, `T-MARK-2026-07-12:124` LCP 5141 / TBT 5988; `T/FINAL §5:299`/§2.1:129/§7.2:411 hand it BY NAME) | U-F3 | U.W-PERF (the DECIDED escalate — W9 green-or-escalation; the perf half of Q14, distinct from the U.W-VISUAL census re-judge) |
 
 **The discharged T-rows** (T-1..T-61 that T's own waves landed) → **retire into the §8 zero-drop
 WINS** below; recorded so no successor re-opens them. The full finding→wave-item map of record is

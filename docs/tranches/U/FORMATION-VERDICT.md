@@ -68,8 +68,8 @@ The three load-bearing ordering binds are each internally coherent:
 
 - **U-F77 (LIB → ADOPT co-land)** — LIB authors the U-F29/F30/F31/F32/F33 fix + owns the U-F30
   invariant + the build-time re-enumeration born-RED (LIB-G6); ADOPT sequences the *version-cut
-  decision* (owner-held §13.5) against **BOTH** `^3.1.0` peer floors (glass-ui `package.json:1109`
-  dev + `:1147` peer — cites VERIFIED exact; keyframes `package.json:268` — pin `^3.1.0` VERIFIED,
+  decision* (owner-held §13.5) against **BOTH** `^3.1.0` peer floors (glass-ui `package.json:1113`
+  peer + `:1151` dev — VERIFIED against the sibling tree; keyframes `package.json:268` — pin `^3.1.0` VERIFIED,
   see §3 note) AND the spectrum-walk/backward-color raw-channel co-migration. The fix precedes the
   cut; the cut cannot sequence a version until LIB has a fix to version. Coherent.
 - **U-F76 (VISUAL → A11Y → PERF mount-box single-writer)** — VISUAL (U-F5 blob reseat, U-F9 header)
@@ -194,7 +194,7 @@ discipline, not scope-creep and not a drop.
 1. **keyframes `^3.1.0` pin line-cite drift** — `registry §22/§20-R4` cite `../keyframes.js/package.json:269`;
    `U.W-ADOPT §U-F77` + `G-ADOPT-4b` cite `:266`. The ACTUAL line is **`:268`** (verified this pass).
    The load-bearing FACT is sound and consistent everywhere (keyframes pins `@mkbabb/value.js '^3.1.0'`
-   — a SECOND `^3.1.0` peer floor beside glass-ui's `:1109`/`:1147`, which the U-F77 co-land requires).
+   — a SECOND `^3.1.0` peer floor beside glass-ui's `:1113`/`:1151`, which the U-F77 co-land requires).
    Only the exact line integer drifts across encodings. A one-token correction at execution; the
    design-time reasoning is unaffected.
 2. **"three vs four" consumer-surface heading tension (self-reconciled)** — `U.W-LIB` has a heading
@@ -302,9 +302,66 @@ consecutive clean fresh-adversary pass to reach the owner's design-loop stabilit
 
 ---
 
+## §6 — Round-2 fresh-adversary hardening (remediated 2026-07-12)
+
+A round-2 fresh-adversary pass raised **6 actionable findings** against the round-1-remediated
+formation (1 [blocks-ratification], 5 [adjust]); **all 6 were DOC-FIXABLE and remediated** path-scoped
+in `docs/tranches/U/**` (no cross-tranche edit needed — the two cross-tranche cites at T/FINAL were
+already correct; the drops were U-side). None reversed a disposition, gate, or ordering:
+
+1. **glass-ui `^3.1.0` peer-floor cite wrong in 5 docs + a false verification claim** (bornred-exec) —
+   all five cited `../glass-ui/package.json:1109` (dev) / `:1147` (peer); verified against the sibling
+   tree the value.js pins are at **`:1113` (peerDependencies)** / **`:1151` (devDependencies)** — the
+   cites were the block-OPENER lines (off by 4) AND the dev/peer labels were INVERTED. FORMATION-VERDICT
+   §Check-2 asserted these "cites VERIFIED exact" (false). Corrected the numbers + labels in all 5 docs
+   (FORMATION-VERDICT §Check-2 + §3-note, U.W-ADOPT:134/210, U.W-LIB:338, registry §R-4) and struck the
+   false "VERIFIED exact" (now "VERIFIED against the sibling tree"). The G-ADOPT-4b gate asserts version-
+   floor SATISFACTION, not a line integer, so executability was always sound — this was a cite-honesty gap.
+2. **U-F62 ledger §A owning-wave blank** (zerodrop-reaudit) — `DISPOSITION-LEDGER §A:91` recorded F62's
+   owning-wave as `—`, contradicting `U.md:156` (F62 ∈ U.W-ORACLE) + `U.W-ORACLE §Dispositions` (a decided
+   U-F62 fold row). The ledger-walk would hit an unexplained blank for a family the Family-audit expects
+   normally-homed (F62 is NOT among the enumerated `—` exceptions F20/F59/F60/F18/F19/F54). Homed F62 to
+   **U.W-ORACLE** (the split-executor bookkeeping) + noted it in the Family-audit line — the adjacent case
+   the d81261e F18/F19/F54 fix missed.
+3. **T-39 → U.W-PERF handoff silently dropped** (cross-tranche) — `T/FINAL §5:299`/§2.1:129/§7.2:411
+   hand T-39 (the Q14-pressure perf face, `T-MARK:124` OPEN still-red) to U.W-PERF BY NAME, but `grep T-39
+   U/` returned ZERO. Same CLASS as the r1 §5 dropped-handoff findings, missed because T-39 rides as a
+   parenthetical inside §5 row 7. Added a **T-39 → U-F3 → U.W-PERF** row to ledger §C + named T-39 in
+   U.W-PERF's U-F3 evidence.
+4. **WR-9/T-57 dock-band reflow silently dropped** (pi-delta-visual, **[blocks-ratification]**) — T-57
+   (the dock-band `--dock-h` floor; a MEASURED +3.0px scene reflow on dock-expand, owner-uncertified T.W8
+   cure, probe `2c1a0f4`) was OMITTED from the census WR→family map (WR-1..8/10/11 present, WR-9 missing),
+   ledger §C, and every gate — falsifying the completion-criterion claim "re-judged every WR-cured surface
+   (WR-1..WR-11)." A DIFFERENT surface than U-F16's picker-plate mount reflow. Added: a **WR-9/T-57 census
+   row** (family **U-F13-band**, a distinct dock-morph arm), a U-F13-band cure APPROACH (reserve-to-expanded
+   / overlay-the-growth bracket), born-RED **BR-10** (band-block-size invariant + scene-top shift == 0px
+   across the morph), an **OA/owner-attested no-scene-shift** leg, a π/DELTA row (**RED +3.0px → GREEN 0px**),
+   and a **T-57 → U-F13-band → U.W-VISUAL** ledger §C row.
+5. **U-F7 wake-gray bead had no cure arm or π/DELTA** (pi-delta-visual) — U-F7 states "Cure WITH the
+   wake-gray bead ... cure both or the owner reds it a third time," but only the scheduling/jank bracket
+   was specified; the gray-flash (owner-uncertified must-not-regress, T cure landed boot-B `5cecdf2`) had
+   NO cure arm and OA-1/π-DELTA measured only jank. Added a **wake-gray bead arm** (reveal-ordering: the
+   incoming face paints its opaque ground before reveal — E-3, not a color-patch), a **must-not-regress
+   π/DELTA leg** (gray-flash present→absent from the boot-B baseline), and a must-not-regress clause on OA-1.
+6. **U-F12 Pole A contradicts ratified C3/Q18 unflagged** (owner-verbatim) — `RATIFICATION-2026-07-09:28`
+   ratified Q18 ("Keep.") — the C3 law "chrome/material/type are neutral" (`T/FINAL:463` wins over the
+   corpus); the dark card GROUND is MATERIAL (C3-neutral) and NOT on the sanctioned-exception ledger
+   (`SYNTHESIS.md:676`; the aurora FIELD is exempt, the card ground is not). U-F12 Pole A (chroma-carried
+   ground tint) moves material to color-DATA — a contradiction — yet was presented for owner ruling with no
+   C3/Q18 reference. Named the governing C3/Q18 ruling in U-F12, marked **Pole A a C3-LEDGER AMENDMENT
+   requiring owner RE-RATIFICATION**, and confirmed **Pole B (near-neutral ground + chroma in the sanctioned
+   `--accent` lane) is the C3-compliant DEFAULT**.
+
+**Round-2 remediation is CLEAN** — 6 applied, 0 deferred (1 blocks-ratification cured). Both fresh-adversary
+passes to date (r1: 10, r2: 6) raised real findings, so the two-CONSECUTIVE-CLEAN counter has not yet
+started; the tranche awaits the NEXT fresh-adversary pass as the first potential clean.
+
+---
+
 **Ruling: CONVERGED** — the formation is complete and coherent; the four residual notes are named,
 NOTE-level, and correctable at execution without touching a disposition, gate, or ordering. The
-round-1 fresh-adversary findings (§5) are all doc-remediated; a second clean pass is pending.
+round-1 (§5) and round-2 (§6) fresh-adversary findings are all doc-remediated; a first CLEAN pass is
+still pending (the owner's bar is two CONSECUTIVE clean passes).
 
 *Filed by the formation integrator + fresh-adversary critic (opus), 2026-07-12. Path-scoped to
 `docs/tranches/U/**`; pull-rebased on the shared `tranche-t` branch (T.W8/T.W9 landing concurrently).*
