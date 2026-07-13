@@ -35,7 +35,7 @@ resume from any of the three death classes below. **Update this file at every wa
 
 | Run | Workflow | Phase at stamp | Script (in §3 dir) | On death |
 |---|---|---|---|---|
-| `wf_84ed7f23-036` | U.W-A11Y (dispatch → ≤4 lanes [fable judgment + opus probes] → gate → close) | dispatched | `u-w-a11y-wf_84ed7f23-036.js` | resume; the LAST mount-box writer before PERF |
+| `wf_84ed7f23-036` | U.W-A11Y (dispatch → ≤4 lanes [fable judgment + opus probes] → gate → close) | **RESUMED 2026-07-13** post-wall (`resumeFromRunId`; 4 cached: dispatcher + controls `87b4eca` + contrast `6667eb05` + modality `7335786`; re-running: authed lane [its pre-wall partials sit UNTRACKED in the main tree — reconcile, never discard] + gate + close) | `u-w-a11y-wf_84ed7f23-036.js` | resume; the LAST mount-box writer before PERF |
 
 **Completed runs** (journals retained, no action): `wf_5a0823fb-9f1` LIB evidence ·
 `wf_dd696346-869` VISUAL census (verdict table `audit/w-visual/census.md`) · `wf_fb4f0284-ad9`
@@ -70,8 +70,14 @@ publish-packet.md` [MAJOR, 4.0.0 recommended, OWNER-DECIDES], BH relay
   real-GPU annex · the census ANNEX-7 + u-f12 Pole A/B bracket to the owner).
 - **Substrate**: glass-ui PINNED @ `2e559f7a` (both symlinks → `.claude/worktrees/glass-ui-pinned`;
   record `audit/w-adopt/substrate-pin.md`; UNPIN at the v5 tag). The L17 goo-blob→blob consume
-  swap is LANDED (`110b56f`). Their BI relay commits: `c66b5354` (dist breakage) — LOCAL-ONLY on
-  their `tranche/BI` (no upstream).
+  swap is LANDED (`110b56f`). **Co-land PREVIEW applied 2026-07-13** (`296b8b2`, pushed): the
+  U-F34 renames patched UNCOMMITTED into the pinned sandbox src (5 conversions — packet §3's 3
+  + `oklabToLinearSRGB`/`oklabToRgb255`, a ref-drift undercount flagged for the ADOPT cut) +
+  the keyframes `parseCSSSubValue→parseCSSValues` node_modules copy; pinned dist rebuilt
+  (old-names 0, d.ts 773, css audit 111/110/0); gh-pages + typecheck + LIB slate 20/20 GREEN;
+  preview state is EPHEMERAL — discarded at unpin, the real migration rides U.W-ADOPT. `:9000`
+  RESTORED (full stack via dev.sh, nohup-detached, HTTP 200). Their BI relay commits: `c66b5354`
+  (dist breakage) + `9feed5e1` (co-land preview) — LOCAL-ONLY on their `tranche/BI` (no upstream).
 - **Ports**: `:9000` = the owner's dev server, NEVER touched. Lane ranges used so far: 8490/8491
   (ceremony e2e) · 8591-8599 (VISUAL census/remediate/gate) · 8600-8650 (SEC) · 8660-8680 (DEMO)
   · 8700-8750 (ORACLE). Lane-unique `VJS_E2E_PORT`/`PERF_PORT` always.
