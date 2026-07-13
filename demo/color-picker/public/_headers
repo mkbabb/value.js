@@ -1,0 +1,49 @@
+# Cloudflare-Pages security-header suite for color.babb.dev — U.W-SEC / U-F39.
+#
+# The Pages build root copies `public/` verbatim, so this file is the honored
+# locus for response headers on the demo origin. It brings color.babb.dev to
+# parity with the api origin's already-complete suite (api/apache-vhost.conf
+# :52-59) — CSP, HSTS, X-Frame-Options, Referrer-Policy, Permissions-Policy.
+#
+# The CSP is DERIVED from the demo's real resource graph, NOT copied from the
+# api's `default-src 'none'` (which is correct for a JSON endpoint but would
+# blank the app). Each directive traces to a live need:
+#
+#   default-src 'self'         the fallback floor — bundled JS/CSS is same-origin.
+#   script-src  'self'         + 'unsafe-inline' for the index.html boot IIFE (the
+#                              fouc-guard / ground-paint classic <script>, kept in
+#                              lockstep with boot/ground.ts) — Vite leaves classic
+#                              inline scripts in the built HTML. No 'unsafe-eval':
+#                              Vue SFCs are precompiled at build; WebGL shader
+#                              compilation is not eval.
+#   style-src   'self'         + 'unsafe-inline' for the index.html <style> blocks
+#                              (@font-face / @property / fouc-guard) and the inline
+#                              styles Vue :style bindings, reka-ui, and KaTeX inject.
+#   img-src     'self'         + data: / blob: (canvas + uploaded-image previews,
+#                              lib/palette/export.ts object URLs) +
+#                              https://avatars.githubusercontent.com (the GitHub
+#                              avatar in dock/menus/ProfileSection.vue).
+#   font-src    'self'         Fraunces (public/fonts/*.woff2) AND the KaTeX faces
+#                              (bundled via katex.min.css) are both self-hosted;
+#                              the Google-Fonts actor was retired (T.W2 · LS-6).
+#   connect-src 'self'         + https://api.color.babb.dev — the palette API fetch
+#                              target (lib/palette/api/client.ts:36-37, the resolved
+#                              cross-origin BASE_URL).
+#   object-src 'none' · base-uri 'self' · form-action 'self' · frame-ancestors
+#   'none' · upgrade-insecure-requests   standing hardening; frame-ancestors 'none'
+#                              is the CSP-level twin of X-Frame-Options: DENY.
+#
+# The transport/policy headers mirror the api referent verbatim (HSTS max-age,
+# X-Frame-Options DENY, Referrer-Policy, Permissions-Policy, X-XSS-Protection 0).
+#
+# The LIVE on-wire confirmation (a GET to color.babb.dev showing these headers)
+# is deploy-dependent — owner-attested at deploy, BOOKED to U.W-CLOSE / U-F61.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://avatars.githubusercontent.com; font-src 'self'; connect-src 'self' https://api.color.babb.dev; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-XSS-Protection: 0
