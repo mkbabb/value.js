@@ -85,20 +85,23 @@
              initial-values are the LIGHT first-visit constants (the boot
              script below overwrites them — persisted record or the ACTIVE
              scheme's constant — before first paint; these literals only ever
-             paint if the script itself fails). boot/ground.ts is the record
-             of truth for the constants + the persisted shape. -->
+             paint if the script itself fails). U-F23: they are SINGLE-SOURCED —
+             the `__GROUND_LIGHT_n__` tokens are injected from boot/ground.ts's
+             FIRST_VISIT_GROUND.light at build/serve time (vite
+             `groundRecordInject` → `injectGroundTokens`), never hand-typed. -->
         <style>
-            @property --saved-bg-0 { syntax: "<color>"; inherits: true; initial-value: #b37290; }
-            @property --saved-bg-1 { syntax: "<color>"; inherits: true; initial-value: #df8ea7; }
-            @property --saved-bg-2 { syntax: "<color>"; inherits: true; initial-value: #ffb0b4; }
-            @property --saved-bg-3 { syntax: "<color>"; inherits: true; initial-value: #ffcfc8; }
-            @property --saved-bg   { syntax: "<color>"; inherits: true; initial-value: #b37290; }
+            @property --saved-bg-0 { syntax: "<color>"; inherits: true; initial-value: __GROUND_LIGHT_0__; }
+            @property --saved-bg-1 { syntax: "<color>"; inherits: true; initial-value: __GROUND_LIGHT_1__; }
+            @property --saved-bg-2 { syntax: "<color>"; inherits: true; initial-value: __GROUND_LIGHT_2__; }
+            @property --saved-bg-3 { syntax: "<color>"; inherits: true; initial-value: __GROUND_LIGHT_3__; }
+            @property --saved-bg   { syntax: "<color>"; inherits: true; initial-value: __GROUND_LIGHT_0__; }
         </style>
 
         <!-- W2-3 theme-color B0 sub-clause: minted from the persisted ground's
              base stop by the boot script below, pre-paint; useAtmosphere's
-             sink updates it beside the `--saved-bg` pick transition. -->
-        <meta name="theme-color" content="#b37290" />
+             sink updates it beside the `--saved-bg` pick transition. The
+             fallback base stop is single-sourced (U-F23 `__GROUND_LIGHT_0__`). -->
+        <meta name="theme-color" content="__GROUND_LIGHT_0__" />
 
         <!-- Critical: prevent FOUC before Tailwind CSS loads.
              Without this, .hidden elements are visible during the
@@ -137,7 +140,13 @@
              light-pink page). The persisted shape is `{stops, scheme,
              deriveVersion}` — STOPS, never a gradient string; the read is
              shape-validated and falls to the constants on ANY malformation.
-             Mirrors boot/ground.ts (the record of truth) — keep in lockstep. -->
+             U-F23 (G-CANON-4): the CONSTANTS (VERSION, the FIRST_VISIT seed,
+             the stop count) are SINGLE-SOURCED — the `__GROUND_*__` tokens are
+             injected from boot/ground.ts at build/serve time (vite
+             `groundRecordInject` → `injectGroundTokens`), so a
+             GROUND_RECORD_VERSION bump propagates here automatically and can no
+             longer strand the boot. Only the guard LOGIC below is mirrored
+             (inherent to a pre-module reader that cannot import). -->
         <script>
             (function() {
                 // B0 — the ground beat (the overture's origin mark; O-4 reads it).
@@ -154,26 +163,27 @@
                 if (dark) document.documentElement.classList.add('dark');
                 s.colorScheme = dark ? 'dark' : 'light';
 
-                // The first-visit constant PAIR (boot/ground.ts FIRST_VISIT_GROUND):
-                // the DEFAULT seed's derived gradient, per scheme (dark = the
-                // producer derive's dark band — honest for a dark first run).
-                var FIRST_VISIT = {
-                    light: ['#b37290', '#df8ea7', '#ffb0b4', '#ffcfc8'],
-                    dark:  ['#673255', '#944a62', '#ba696b', '#d6917c']
-                };
-                var VERSION = 1; // boot/ground.ts GROUND_RECORD_VERSION
+                // The first-visit constant PAIR + the version + the stop count
+                // are SINGLE-SOURCED from boot/ground.ts (U-F23): the
+                // `__GROUND_*__` tokens are injected by vite's
+                // `injectGroundTokens` at build/serve time, so a
+                // GROUND_RECORD_VERSION bump propagates here and never strands
+                // the boot. (dark = the producer derive's dark band — honest
+                // for a dark first run.)
+                var FIRST_VISIT = __GROUND_FIRST_VISIT__;
+                var VERSION = __GROUND_RECORD_VERSION__;
                 var scheme = dark ? 'dark' : 'light';
                 var stops = FIRST_VISIT[scheme];
                 try {
                     var rec = JSON.parse(localStorage.getItem('color-picker-ground'));
                     if (rec && rec.deriveVersion === VERSION &&
                         rec.scheme === scheme &&
-                        Array.isArray(rec.stops) && rec.stops.length === 4 &&
+                        Array.isArray(rec.stops) && rec.stops.length === __GROUND_STOP_COUNT__ &&
                         rec.stops.every(function (x) { return /^#[0-9a-fA-F]{6}$/.test(String(x)); })) {
                         stops = rec.stops;
                     }
                 } catch (e) { /* malformed record → the constants */ }
-                for (var i = 0; i < 4; i++) {
+                for (var i = 0; i < __GROUND_STOP_COUNT__; i++) {
                     s.setProperty('--saved-bg-' + i, stops[i]);
                 }
                 s.setProperty('--saved-bg', stops[0]);

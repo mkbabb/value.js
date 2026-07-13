@@ -29,9 +29,14 @@
  *   - deriveVersion: bumped when the derive's meaning changes, so a stale
  *     record from an older derive falls to the first-visit constants.
  *
- * The reader (index.html's fouc-guard boot script) carries a mirrored
- * shape-validated parse + the same literals — it runs pre-module, so it
- * cannot import this file; keep the two in lockstep (both cite this header).
+ * The reader (index.html's fouc-guard boot script) runs pre-module, so it
+ * cannot import this file. Its CONSTANTS are no longer hand-duplicated: the
+ * boot HTML carries `__GROUND_*__` tokens that `injectGroundTokens` (below)
+ * resolves through THIS module at build/serve time (U-F23 · G-CANON-4 — a
+ * version bump here propagates to the boot read automatically; no hand-typed
+ * constant survives to strand it). Only the guard LOGIC + scheme resolution are
+ * mirrored inline — inherent to a pre-module reader — and every VALUE they
+ * compare against is single-sourced here.
  * LOCKSTEP CLAUSE 2 — the reader's scheme resolution mirrors useColorMode
  * (the producer darkModeSyncScript semantics): the app persists "auto" by
  * default, so "auto" honors prefers-dark exactly like a missing key
@@ -46,7 +51,9 @@
 export const GROUND_STORE_KEY = "color-picker-ground";
 
 /** Bump when the derive's material meaning changes (stale records fall to
- *  the first-visit constants — never a wrong-material paint). */
+ *  the first-visit constants — never a wrong-material paint). A bump propagates
+ *  into the pre-module boot guard automatically via `injectGroundTokens`
+ *  (U-F23): the boot read no longer carries a hand-typed twin to strand. */
 export const GROUND_RECORD_VERSION = 1;
 
 /** The fixed template's stop count — the template never changes shape. */
@@ -104,22 +111,36 @@ export function buildGroundRecord(
     };
 }
 
-/** Shape-validated parse of a persisted record (null on ANY malformation —
- *  the reader falls to the first-visit constants; F-8/N-1/N-3). */
-export function parseGroundRecord(raw: string | null): GroundRecord | null {
-    if (!raw) return null;
-    try {
-        const rec: unknown = JSON.parse(raw);
-        if (typeof rec !== "object" || rec === null) return null;
-        const { stops, scheme, deriveVersion } = rec as Partial<GroundRecord>;
-        if (deriveVersion !== GROUND_RECORD_VERSION) return null;
-        if (scheme !== "light" && scheme !== "dark") return null;
-        if (!Array.isArray(stops) || stops.length !== GROUND_STOP_COUNT)
-            return null;
-        if (!stops.every((s) => typeof s === "string" && /^#[0-9a-f]{6}$/i.test(s)))
-            return null;
-        return { stops, scheme, deriveVersion };
-    } catch {
-        return null;
-    }
+/**
+ * BUILD-TIME single-source projection of the ground contract into the boot HTML
+ * (U-F23 · G-CANON-4). The boot reader (index.html's fouc-guard `<script>`) runs
+ * PRE-MODULE — before any ES module loads, synchronously, for a no-FOUC first
+ * paint — so it cannot import this file. Rather than hand-duplicate
+ * GROUND_RECORD_VERSION / GROUND_STOP_COUNT / the first-visit seed as vanilla-JS
+ * literals (the pre-U-F23 fork, where a bump here silently stranded the boot
+ * guard against a hard-typed `var VERSION = 1`), the boot HTML carries
+ * `__GROUND_*__` tokens that vite's `transformIndexHtml` resolves through THIS
+ * function at build/serve time (see `vite.config.ts` `groundRecordInject`). The
+ * constants therefore DERIVE from this module by construction: bump a constant
+ * above and the injected boot guard tracks automatically — no hand-typed
+ * constant survives. (This retires the former `parseGroundRecord` typed twin,
+ * which was DEAD — a pre-module reader can never call it; its shape-validation
+ * logic lives, un-duplicated, in the inline guard whose VALUES are injected
+ * here.)
+ */
+export function injectGroundTokens(html: string): string {
+    let out = html
+        .replaceAll("__GROUND_RECORD_VERSION__", String(GROUND_RECORD_VERSION))
+        .replaceAll("__GROUND_STOP_COUNT__", String(GROUND_STOP_COUNT))
+        .replaceAll(
+            "__GROUND_FIRST_VISIT__",
+            JSON.stringify(FIRST_VISIT_GROUND),
+        );
+    // The @property initial-values + the theme-color base stop are the LIGHT
+    // first-visit seed (the material that paints ONLY if the boot script itself
+    // fails); single-source them too so no first-visit literal is hand-typed.
+    FIRST_VISIT_GROUND.light.forEach((hex, i) => {
+        out = out.replaceAll("__GROUND_LIGHT_" + i + "__", hex);
+    });
+    return out;
 }

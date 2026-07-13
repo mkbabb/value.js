@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import path from "path";
 import { readFileSync } from "fs";
 
@@ -12,6 +12,7 @@ import Markdown from "unplugin-vue-markdown/vite";
 
 import { sourceExportPlugin } from "./plugins/vite-source-export";
 import { deferGlassFonts } from "./plugins/vite-defer-glass-fonts";
+import { injectGroundTokens } from "./demo/color-picker/composables/boot/ground";
 
 import {
     libraryEntries,
@@ -155,10 +156,29 @@ const defaultOptions = {
 // Tailwind `@source` class-scanning) — a glass-ui-owned successor concern.
 const siblingFsAllowTransient = [path.resolve(import.meta.dirname, "..")];
 
+// U-F23 (G-CANON-4): single-source the boot GroundRecord contract. The
+// index.html fouc-guard `<script>` runs pre-module and cannot import
+// boot/ground.ts, so its constants (GROUND_RECORD_VERSION, GROUND_STOP_COUNT,
+// the FIRST_VISIT seed) are carried as `__GROUND_*__` tokens and resolved here
+// at build/serve time through the TS origin's `injectGroundTokens`. A version
+// bump in boot/ground.ts propagates into the boot read automatically — no
+// hand-duplicated constant survives (the pre-U-F23 fork silently stranded the
+// boot guard against a hard-typed `var VERSION = 1`). transformIndexHtml fires
+// only when there is an index.html (dev + gh-pages); the library build has none.
+function groundRecordInject(): Plugin {
+    return {
+        name: "value-js:ground-record-inject",
+        transformIndexHtml(html) {
+            return injectGroundTokens(html);
+        },
+    };
+}
+
 const defaultPlugins = [
     sourceExportPlugin(),
     Vue({ include: [/\.vue$/, /\.md$/] }),
     Markdown({}),
+    groundRecordInject(),
 ];
 
 export default defineConfig((mode) => {
