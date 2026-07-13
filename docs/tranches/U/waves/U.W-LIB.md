@@ -335,8 +335,9 @@ lands the same cut). Zero silent drops; each terminates here with rationale, non
   discharged.
 - **Outbound (LIB → ADOPT, the U-F77 co-land bind)**: the version-cut/publish decision and the
   sibling co-migration ride **U.W-ADOPT** (owner-held §13.5), sequenced against **BOTH** `^3.1.0`
-  peer floors — glass-ui (`../glass-ui/package.json:1114` peer + `:1152` dev) and keyframes
-  (`../keyframes.js/package.json:268`, VERIFIED §22). A 4.0.0 cut strands TWO floors, not one; LIB
+  peer floors — glass-ui (`../glass-ui/package.json` → `peerDependencies["@mkbabb/value.js"]` +
+  `devDependencies["@mkbabb/value.js"]` — block+key, never a line integer into a moving foreign tree)
+  and keyframes (`../keyframes.js/package.json` → `devDependencies["@mkbabb/value.js"]`). A 4.0.0 cut strands TWO floors, not one; LIB
   lands the fix, ADOPT cuts coherently.
 - **Tooling**: `npm test` (jsdom), `test:dist` (built-bundle behavioral slate — the born-RED gates
   wire here so the published surface is what's certified), `typecheck`, `lint`. No external service,

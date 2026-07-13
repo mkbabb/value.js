@@ -160,6 +160,7 @@ to T.W8/WR; U absorbs the un-landed residue) → their U-Fxx family → owning w
 | T-14 · T-48 · T-58 (scene-transition motion, thrice-red) | U-F7 | U.W-VISUAL (real-GPU annex) |
 | T-54 · T-55 (generate plate species chrome) | U-F8 | U.W-VISUAL |
 | T-2 · T-51 · T-59 (at-rest header) · **T-61/T-42 B-01** (scrolled-header whole-contraction, §0.8 owner-verbatim — a DISTINCT arm of U-F9 with its own gate BR-9/OA-6 + the P3 `ScrollCardHeader` producer RELAY, NOT a fold into the at-rest cure) | U-F9 | U.W-VISUAL |
+| **T-5** (the picker active channel-rail seat; `T/FINAL §2.1:113` = "W4-4 landed; ACTIVE seat P1-R1 → U", `T-MARK-2026-07-12:80` = "the ACTIVE seat = P1-R1 OPEN" — a LANDED-partial owner-uncertified still-red, NOT a discharged row; the pi-audit LAND row P1-R1/P1-R2, no WR cure — T.W8's Remediate never reached it) | **U-F9-rail** (a DISTINCT arm of U-F9, the picker active-rail-seat — parallels the U-F13-band split; NOT the header-spacing regime) | U.W-VISUAL (W8-inheritance census; census-red re-cure — the ring's active/selected channel seat reads coherent at every rung) |
 | T-34 · T-50 (console veil material) | U-F10 | U.W-VISUAL |
 | T-37 (collapsed dock swatch seam) | U-F11 | U.W-VISUAL |
 | T-36 · T-52 (dock edge clip) | U-F13 | U.W-VISUAL (demo) + U.W-ADOPT/relay (producer) |
@@ -168,8 +169,15 @@ to T.W8/WR; U absorbs the un-landed residue) → their U-Fxx family → owning w
 | **T-57** (WR-9 dock-band `--dock-h` floor; MEASURED +3.0px scene reflow on dock-expand, invariance probe `2c1a0f4`; T-31→T-57 re-bracket) | U-F13 (dock-band arm — DISTINCT from the U-F13-demo edge-clip) | U.W-VISUAL (W8-inheritance census; born-RED BR-10 band-height-invariance-across-morph + owner-attested no-scene-shift — a DIFFERENT surface than U-F16's picker-plate mount reflow) |
 | **T-39** (the Q14-pressure perf face; owner still-red, `T-MARK-2026-07-12:124` LCP 5141 / TBT 5988; `T/FINAL §5:299`/§2.1:129/§7.2:411 hand it BY NAME) | U-F3 (**LCP**) · U-F61 (**TBT**) | **LCP → U.W-PERF** (the DECIDED escalate — W9 green-or-escalation; the perf half of Q14, distinct from the U.W-VISUAL census re-judge). **TBT re-homed** (registry §10:144 re-measure: **187 ms local GREEN**, only reddens on the 2-core CI runner) → **U-F61 attested-not-verified → U.W-CLOSE** (G-CLOSE-3, cross-ref U-F3). T hands "LCP/**TBT** → U.W-PERF"; U.W-PERF gates LCP+CLS only, so TBT's real home is U.W-CLOSE — bridged here + at `U.W-PERF §Goal` so the by-name handoff is not silently re-scoped. |
 
-**The discharged T-rows** (T-1..T-61 that T's own waves landed) → **retire into the §8 zero-drop
-WINS** below; recorded so no successor re-opens them. The full finding→wave-item map of record is
+**The discharged T-rows** (T-1..T-61 that T's own waves landed **fully — no owner-uncertified OPEN
+residual**) → **retire into the §8 zero-drop WINS** below; recorded so no successor re-opens them.
+**LANDED-PARTIAL rows are NOT discharged**: where T's wave landed a cure BUT `T/FINAL §2.1` books an
+OPEN residual to U (T-5's ACTIVE seat P1-R1 = the exemplar — LANDED W4-4, seat OPEN), the residual is
+routed ABOVE in this §C (T-5 → U-F9-rail), never swept to §D. **The 24 owner-uncertified T.W8
+pi-audit LAND rows** (`T/FINAL §2.1:123`/§7.2:405-411) likewise inherit to the **U.W-VISUAL
+W8-inheritance census** (enumerated + bucketed at `U.W-VISUAL §The W8-inheritance census` — most fold
+to the WR→family map's existing families; the picker active-rail-seat P1-R1/R2 is the one distinct
+residue, homed to U-F9-rail here), NOT to §D. The full finding→wave-item map of record is
 `T.md §1` / SYNTHESIS §1.2 (T's ledger); U does not re-litigate T's landed cures — it inherits the
 TERMINAL T.W8 state (charter §W8-inheritance) and routes only the residue.
 

@@ -69,9 +69,11 @@ The three load-bearing ordering binds are each internally coherent:
 
 - **U-F77 (LIB → ADOPT co-land)** — LIB authors the U-F29/F30/F31/F32/F33 fix + owns the U-F30
   invariant + the build-time re-enumeration born-RED (LIB-G6); ADOPT sequences the *version-cut
-  decision* (owner-held §13.5) against **BOTH** `^3.1.0` peer floors (glass-ui `package.json:1114`
-  peer + `:1152` dev — VERIFIED against the sibling tree; keyframes `package.json:268` — pin `^3.1.0` VERIFIED,
-  see §3 note) AND the spectrum-walk/backward-color raw-channel co-migration. The fix precedes the
+  decision* (owner-held §13.5) against **BOTH** `^3.1.0` peer floors (glass-ui `package.json` →
+  `peerDependencies["@mkbabb/value.js"]` + `devDependencies["@mkbabb/value.js"]` — cite block+key,
+  never a line integer into a moving foreign tree; keyframes `package.json` →
+  `devDependencies["@mkbabb/value.js"]`, pin `^3.1.0` VERIFIED, see §3 note) AND the
+  spectrum-walk/backward-color raw-channel co-migration. The fix precedes the
   cut; the cut cannot sequence a version until LIB has a fix to version. Coherent.
 - **U-F76 (VISUAL → A11Y → PERF mount-box single-writer)** — VISUAL (U-F5 blob reseat, U-F9 header)
   settles the mount box FIRST; A11Y (U-F26/F27, hit-inflation preferred precisely to hold geometry
@@ -195,7 +197,7 @@ discipline, not scope-creep and not a drop.
 1. **keyframes `^3.1.0` pin line-cite drift** — `registry §22/§20-R4` cite `../keyframes.js/package.json:269`;
    `U.W-ADOPT §U-F77` + `G-ADOPT-4b` cite `:266`. The ACTUAL line is **`:268`** (verified this pass).
    The load-bearing FACT is sound and consistent everywhere (keyframes pins `@mkbabb/value.js '^3.1.0'`
-   — a SECOND `^3.1.0` peer floor beside glass-ui's `:1114`/`:1152`, which the U-F77 co-land requires).
+   — a SECOND `^3.1.0` peer floor beside glass-ui's `peerDependencies`/`devDependencies["@mkbabb/value.js"]`, which the U-F77 co-land requires).
    Only the exact line integer drifts across encodings. A one-token correction at execution; the
    design-time reasoning is unaffected.
 2. **"three vs four" consumer-surface heading tension (self-reconciled)** — `U.W-LIB` has a heading
@@ -371,7 +373,12 @@ A round-3 fresh-adversary pass raised **8 actionable findings** against the roun
    land on `@mkbabb/pencil-boil`; the value.js pins are `:1114`(peer)/`:1152`(dev). Corrected 1113→1114 /
    1151→1152 across all 5 docs (U.W-ADOPT:134/210, U.W-LIB:338, registry §R-4, FORMATION §Check-2/§3/§6)
    against verified evidence. keyframes `:268` re-confirmed CORRECT. G-ADOPT-4b asserts floor SATISFACTION,
-   not a line integer — a cite-honesty gap.
+   not a line integer — a cite-honesty gap. **[r4 CORRECTION — this r3 claim was ITSELF FALSE: `:1114`/`:1152`
+   BOTH land on `@mkbabb/keyframes.js`, NOT value.js (the actual value.js pins were `:1116`/`:1154` at r4's
+   grep); "1113/1151 both land on pencil-boil" is also false (1113 = `@lucide/vue`, 1115 = pencil-boil). This
+   was the 4th consecutive miss of a line integer into a live foreign tree. r4 ENDS the cycle: all operative
+   cites now use the block+key idiom (`peerDependencies["@mkbabb/value.js"]` / `devDependencies[...]`), never a
+   line integer — see §8.]**
 2. **SEC `impersonate.ts` route/service basename conflation** (bornred-exec) — the mint is in
    `service/impersonate.ts:44-52` (`:47` = `_id`), NOT the 25-line `routes/impersonate.ts`; the actor pass
    is `routes/impersonate.ts:21` (not `:20`). Disambiguated route vs service at U.W-SEC :81/:106/:123/:236
@@ -410,10 +417,66 @@ STILL not started; the tranche awaits the NEXT fresh-adversary pass as the first
 
 ---
 
-**Ruling: CONVERGED** — the formation is complete and coherent; the four residual notes are named,
+## §8 — Round-4 fresh-adversary hardening (remediated 2026-07-12)
+
+A round-4 fresh-adversary pass raised **8 actionable findings** against the round-3-remediated formation
+(1 [blocks-ratification], 7 [adjust]); **all 8 were DOC-FIXABLE and remediated** path-scoped
+(`docs/tranches/U/**`; the one cross-tranche side was verified against `T/FINAL.md`, unedited — the drop
+was U-side). None reversed a disposition, gate, or ordering:
+
+1. **§13.5/§15 still named the U-F30 shared-wrapper BAND-AID as an admissible cure** (e3-gestalt) — the
+   highest-precedence section (§13.5 "wins over every encoding") carried "denormalize at `createColorValueUnit`"
+   (L236) + "same `createColorValueUnit` seam. A single, clear fix locus" (L228) — the EXACT point-patch R-2
+   (round 5, L300) later forbade ("double-denormalizes the working direct path"). The two coexisted un-struck,
+   inviting an execution agent citing §13.5 to pick the double-denorm trap (65 lines before R-2). Corrected both
+   loci to the R-2/§28 invariant-preserving fix (mix/relative OUTPUT or the toString/serialization layer),
+   marking the shared-wrapper locus FORBIDDEN — the operative wave cure (U.W-LIB §Scope U-F30 + LIB-G4) already
+   carried only the corrected locus; now the ruling section does too.
+2. **glass-ui peer-floor line-cite wrong a 4TH consecutive round** (bornred-exec) — r3 "corrected to `:1114`/`:1152`
+   … against verified evidence" was ITSELF false: `:1114`/`:1152` BOTH land on `@mkbabb/keyframes.js`; the actual
+   value.js pins were `:1116`/`:1154` at r4's grep (and r3's "1113/1151 = pencil-boil" is wrong — 1113 = lucide,
+   1115 = pencil-boil). Four rounds chased a line integer into a concurrently-moving foreign tree (r1: 1109/1147,
+   r2: 1113/1151, r3: 1114/1152, all wrong). **ENDED the cycle with the E-3-idiomatic fix**: every operative cite
+   now uses the block+key idiom (`peerDependencies["@mkbabb/value.js"]` / `devDependencies["@mkbabb/value.js"]`),
+   never a line integer — at registry §R-4, U.W-LIB:338, U.W-ADOPT:134/210, FORMATION §Check-2/§3; the r3 §7 audit
+   entry annotated with the correction. G-ADOPT-4b was always executable (it asserts floor SATISFACTION, not a line).
+3. **BR-4 born-GREEN + BR-3 cites pre-cure/mislocated evidence** (bornred-exec) — BR-4 asserted a GREEN already true
+   at HEAD (WR-4 title step-down landed: `ColorSpaceSelector.vue:208` reads `font-size: var(--type-display-2)`), so
+   it flipped nothing — remade it a **born-GREEN must-STAY GUARD** (LIB-G4 idiom; Register-1 now 9 born-RED + 1
+   guard). BR-3 cited `palettes-ramp.ts:93-110` (that range is JSDoc/signature — no clamp); re-pointed to the LIVE
+   `ink-walk.ts:117,134` clamp + noted honestly that WR-8's landed `certifyAccentInk` (`ecb15c3`) may already clear
+   the headless L-floor, leaving the residual owner-attested (OA-4).
+4 + 5. **T-5/P1-R1 SILENT DROP** (zerodrop-reaudit + cross-tranche, **[blocks-ratification]**) — `T/FINAL §2.1:113`
+   books T-5's ACTIVE picker channel-rail seat (P1-R1, `T-MARK:80` OPEN) → U, but a full U-tree grep returned ZERO;
+   U's §C/§D dichotomy swept T-5 (LANDED W4-4) to §D-discharged, dropping its OPEN residual — the same class the
+   prior rounds rated blocks-ratification (T-20 r3#4, WR-9/T-57 r2#4). Homed it: a **U-F9-rail** census row + §C
+   ledger row + a U-F9 third-arm note, and fixed the §C/§D dichotomy so LANDED-PARTIAL rows (landed cure + OPEN
+   owner-uncertified residual) route to §C, never §D. Also made the **24 owner-uncertified T.W8 pi-audit LAND-row
+   inheritance auditable** (bucketed by surface at the census: most fold to existing WR→families; P1-R1/R2 the
+   distinct residue; any un-familied surface = AUTOMATIC census-red) — the wholesale inheritance is now enumerated,
+   not merely asserted.
+6 + 7. **U.md:228 charter under-states the inheritance count 8→9** (cross-tranche + pi-delta-visual) — the r3 8→9
+   sweep (9 sites) MISSED the charter's own W8-terminal-inheritance line (still "the eight carried-forward T
+   producer reds"); every routing table already reads 9 (communiqué §2b = T-60/T-52/GAP-L2/GAP-L5/PKT-1/T-38/T-45/
+   P1-R3/GAP-ARM). One-word "eight"→"nine" at the precedence-authority charter; no routing changes.
+8. **T-42's "text too small" axis un-gated in the scrolled arm** (owner-verbatim) — the owner ruled T-42
+   (`MANDATE §1:199`) on BOTH axes ("far too big" footprint · "text too small"); the §0.8/T-61 fold "asks only the
+   REGISTER of the contraction" — and the register bounds the text below. But BR-9/OA-6/DELTA gated ONLY the
+   footprint contraction: a cure could contract the band, read as one strip, and STILL leave the title too small.
+   Added the **BR-11 scrolled-title legibility-floor** born-RED + a two-axis binding clause + the OA-6/DELTA text
+   leg — the register is now bounded BOTH ways (above on footprint, below on text).
+
+**Round-4 remediation is CLEAN** — 8 applied, 0 deferred (1 blocks-ratification cured). Four fresh-adversary
+passes to date (r1: 10, r2: 6, r3: 8, r4: 8) each raised real findings, so the two-CONSECUTIVE-CLEAN counter has
+STILL not started; the tranche awaits the NEXT fresh-adversary pass as the first potential clean. The peer-floor
+line-cite cycle (4 rounds) is now STRUCTURALLY ended by the block+key idiom — no future round can re-chase it.
+
+---
+
+**Ruling: CONVERGED** — the formation is complete and coherent; the residual notes are named,
 NOTE-level, and correctable at execution without touching a disposition, gate, or ordering. The
-round-1 (§5), round-2 (§6), and round-3 (§7) fresh-adversary findings are all doc-remediated; a first
-CLEAN pass is still pending (the owner's bar is two CONSECUTIVE clean passes).
+round-1 (§5), round-2 (§6), round-3 (§7), and round-4 (§8) fresh-adversary findings are all
+doc-remediated; a first CLEAN pass is still pending (the owner's bar is two CONSECUTIVE clean passes).
 
 *Filed by the formation integrator + fresh-adversary critic (opus), 2026-07-12. Path-scoped to
 `docs/tranches/U/**`; pull-rebased on the shared `tranche-t` branch (T.W8/T.W9 landing concurrently).*

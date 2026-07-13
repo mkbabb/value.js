@@ -225,7 +225,8 @@ the still-reds T.W8's running remediation does NOT land. The inheritance census 
 - error-detail 2.72:1 sub-3:1 contrast + the dark-accent breaches → the U-F26 class → U.W-A11Y.
 - T-53 dark caster (`--shadow-color` → 50%-α cream slab) + AB-1 About-KaTeX scope-dead → U.W-VISUAL
   (material) / U.W-CANON (the KaTeX boot-scope half, if a build seam).
-- the eight carried-forward T producer reds (relayed in the BH communiqué §2b) → U.W-ADOPT's
+- the NINE carried-forward T producer reds (relayed in the BH communiqué §2b — T-60/T-52/GAP-L2/
+  GAP-L5/PKT-1/T-38/T-45/P1-R3/GAP-ARM; the r3 8→9 correction reaches the charter here) → U.W-ADOPT's
   BI-acceptance-constraint list + the RELAY row.
 
 U does NOT re-litigate T.W8's landed cures; it takes the terminal W8 state as fact and absorbs only

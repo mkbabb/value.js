@@ -114,6 +114,20 @@ no successor re-opens) or CENSUS-RED (this wave's designed re-cure). The WR → 
 | — (NEW, no owner row, no WR) | — | **U-F12** | AUTOMATIC re-cure (owner-judgment-at-formation) |
 | T-52 producer mask (communiqué, not a WR demo cure) | T-36 · T-52 | **U-F13-demo** (Tools box-model half; producer clip/fade → U.W-ADOPT/relay) | demo half re-cure; producer half relayed |
 | WR-9 (T-57 dock-band `--dock-h` floor cure) | T-57 (T-31 re-bracket) | **U-F13-band** (dock-morph band-height invariance — a DISTINCT arm from U-F13-demo's edge-clip, and a DIFFERENT surface than U-F16's picker-plate mount reflow) | census → born-RED BR-10 band-invariance re-cure if RED (owner-attested no-scene-shift; π/DELTA +3.0px → 0px) |
+| — (NO WR row; T.W8 Remediate never reached it — the pi-audit LAND row P1-R1 is OPEN) | **T-5** (the picker active channel-rail seat; `T/FINAL §2.1:113` "ACTIVE seat P1-R1 → U", `T-MARK:80` OPEN) · P1-R2 | **U-F9-rail** (picker active-rail-seat arm — a DISTINCT arm of U-F9, NOT its header-spacing regime; parallels the U-F13-band split) | census → U-F9-rail re-cure if RED (owner-uncertified still-red; the ring's active/selected channel seat reads coherent at every rung) |
+
+> **The 24 owner-uncertified T.W8 pi-audit LAND rows inherit here too** (not only the 11 WR rows).
+> `T/FINAL §2.1:123`/§7.2:405-411 hand ALL 24 pi-audit LAND rows (T-MARK §3.1: P1-R1/R2/R3, boot-A/B,
+> AB-1..4, E1-R1..R3, P6-R1, P4-R1..R4, P7-R1/R2, P8-R1/R2, P9-R1..R5, A-3, P11-R1..R3) to this
+> census. **Bucketing (auditable, not asserted):** the LAND rows are the pi-audit's PER-SURFACE
+> still-reds, so they route BY SURFACE — nearly all name the SAME surfaces the WR rows above already
+> home: P4-R1/P9-R1 (Q5 ramp) → **U-F6-ramp**; P6-R1 (dark caster) → **U-F19/U-F10**; boot-B (wake-gray)
+> → **U-F7** (OA-1 arm); AB-1 (KaTeX) → **U-F19/U.W-CANON**; P1-R3 (spectrum-thumb UA outline) →
+> communiqué §1.8, the §2b relay (homed via U.W-ADOPT). The GENUINELY-DISTINCT residue with NO
+> covering WR row is the **picker active-rail-seat (P1-R1/P1-R2)** — homed to **U-F9-rail** by the row
+> above. Any LAND-row surface the census opens that has NO pre-authored family becomes an AUTOMATIC
+> census-red re-cure (the U-F11/U-F12 idiom) — so every one of the 24 has a re-judge slot; none is
+> swept into §D-discharged. The wave-open census enumerates the full LAND set as its scoping act.
 
 **Census law**: the verdicts are OWNER-ATTESTED, not headless-asserted (U-F54). A WR that lands
 GREEN retires with its frame recorded; the design cures below are the **CENSUS-RED contingency** —
@@ -221,7 +235,16 @@ re-seat.
   **Pole B — `ui/dropdown-menu`**. The producer's own primitives at the root (E-2), never a demo
   approximation. Both poles RELAY to the BH inbox as VISUAL-wave acceptance constraints.
 
-### U-F9 · `picker-header-spacing-regime` — build (T-2 · T-51 · T-59 · **T-61/T-42 scrolled-header B-01**; shares U-F76 mount)
+### U-F9 · `picker-header-spacing-regime` — build (T-2 · T-51 · T-59 · **T-61/T-42 scrolled-header B-01** · **T-5 picker active-rail-seat [U-F9-rail]**; shares U-F76 mount)
+
+> **U-F9 carries THREE arms**: (1) the at-rest header-spacing regime (T-2/T-51/T-59, below); (2) the
+> scrolled-header contraction arm (T-61/T-42, §The scrolled-header arm); (3) the **picker
+> active-rail-seat arm** (`U-F9-rail`, T-5 — the census-homed pi-audit LAND row P1-R1: the vertical
+> dock-like channel-ring's active/selected seat, LANDED W4-4 but owner-uncertified-OPEN per
+> `T/FINAL §2.1:113`). Arm (3) is a CENSUS-RED contingency (no WR cure was authored; T.W8's Remediate
+> never reached it) — the census re-judges the active seat LIVE; if RED, the re-cure re-keys the
+> active-rung seat so it reads coherent against the ring at every channel. Distinct arms, one family.
+
 
 **The still-red** (registry §2; `probe-log-picker.txt`): the space-label title renders **67.776px
 un-stepped** at 1440 / 43.7px at 390, with a **dead band above the readout** and a **1440-tight vs
@@ -250,7 +273,14 @@ condensed strip, NEVER the compositor-only title `scale(0.618)` over an UNSHRUNK
 witness). **The at-rest shading STANDS (T-23); T-61 rules the SCROLLED state ONLY** — so this is its
 own designed arm with its own gate + DELTA, not the at-rest title-step/seam/rhythm cure. The owner
 RULED THE DIRECTION (whole-header contraction); the bracket is the REGISTER of the contraction, not
-the direction. **The contraction BRACKET**:
+the direction. **TWO-AXIS binding (T-42, MANDATE-2026-07-06 §1:199 verbatim — "totally wrong and is
+far too big. The text is too small"):** the register is bounded BOTH ways — ABOVE on the footprint
+axis (the band MUST contract, BR-9) AND BELOW on the TEXT axis (the contracted scrolled title MUST
+NOT be "too small" — a legibility floor). The §0.8/T-61 whole-header ruling folds T-42 as its
+RULING-INPUT and "asks only the REGISTER of the contraction" — and the register is exactly where the
+text-size floor lives: how much the whole header contracts bounds the title text below. A cure that
+contracts the band (BR-9) + reads as one strip (OA-6) but leaves the title too small is NOT a T-42
+cure. **The contraction BRACKET**:
 - **Pole A — demo layout-box contraction**: the header band's `padding` + `background`-footprint
   re-key together with the title into a single condensed stuck strip (the honest SHORT strip), the
   layout box ACTUALLY shrinking (not a compositor-only title scale) so the scrolled Components rows
@@ -389,20 +419,21 @@ computed-color** predicates are authored **born-RED** (`test.fail()` / expected-
 headless assertion** (the registry logged two headless false-reds; a headless "green" over a GPU
 red is the close-class lie the charter forbids).
 
-### Register 1 — born-RED headless-verifiable (9 gates; each cites LIVE registry evidence)
+### Register 1 — born-RED headless-verifiable (10 gates — 9 born-RED + 1 born-GREEN must-STAY guard [BR-4, the WR-4 landed step-down]; each cites LIVE evidence)
 
 | # | Gate (born-RED — RED today, flips GREEN on cure) | Family | LIVE evidence (the RED it guards) |
 |---|---|---|---|
 | **BR-1** | blob-canvas right edge ≤ picker-card inner-padding-box right − ring gutter @1440 (both schemes) | U-F5 | `probe-log-picker.txt`: blob `x:565 w:180` → right 745 spills the card |
 | **BR-2** | blob-canvas bottom edge ≤ readout space-label top − rhythm gutter @390 (both schemes) | U-F5 | blob `x:228 y:120 h:179` → bottom 299 collides space-label `y:167` |
-| **BR-3** | min per-letter ramp L ≥ card-surface feasibility floor (NOT 0.02) AND per-glyph contrast ≥ carve-out (display 3:1 / entry 4.5:1) vs the LIVE card rung | U-F6-ramp | `palettes-ramp.ts:93-110` walks to the L=0.02 clamp; mid-letters sink on dark |
-| **BR-4** | `.space-trigger` computed font-size == `--type-display-2` token (far arm `--type-display-1`), NOT 67.776px un-stepped | U-F9 | `probe-log-picker.txt`: title `fs:67.776px` @1440 un-stepped |
+| **BR-3** | min per-letter ramp L ≥ card-surface feasibility floor (NOT the 0.02 near-black clamp bound) AND per-glyph contrast ≥ carve-out (display 3:1 / entry 4.5:1) vs the LIVE card rung | U-F6-ramp | the near-black clamp lives at `ink-walk.ts:117,134` (`clamp(ink.L, 0.02, 0.98)`) — NOT `palettes-ramp.ts` (that file's `93-110` is JSDoc/signature, no clamp). **HONESTY (WR-8 landed):** `certifyAccentInk` (commit `ecb15c3`, ancestor of HEAD) REPLACED the fixed near-black walk with a contrast-certified rung, so this headless L-floor predicate may ALREADY be GREEN at HEAD — if so, BR-3 is born-GREEN and the residual is the OWNER-ATTESTED PERCEPTUAL red (OA-4: "the ramp reads perceptible/beautiful"), not a headless flip. The census re-judges LIVE; the born-RED teeth are the contrast/floor sub-predicate wherever `certifyAccentInk` still bottoms at the 0.02 bound on the live card rung |
+| **BR-4** | *(born-GREEN must-STAY GUARD — the LIB-G4 idiom, not a red-flips-green gate)* `.space-trigger` computed font-size STAYS == `--type-display-2` token (far arm `--type-display-1`), NEVER regressing to 67.776px un-stepped — a re-cure that re-inflates the title reds the row | U-F9 | WR-4 (T-51) title step-down LANDED at HEAD: `ColorSpaceSelector.vue:208` reads `font-size: var(--type-display-2);` (comment `:199-207`, "Q11a working exactly as ruled"). The old RED (`probe-log-picker.txt`: title `fs:67.776px` un-stepped) is PRE-cure — this guard holds the landed step-down |
 | **BR-5** | title↔readout gap ≤ the rhythm step — no dead/blank band (the reserved space is value-class-sized or seam-absorbed) | U-F9 | registry §2: "dead band above readout"; P1-B1 reservation-as-blank redded both placements |
 | **BR-6** | collapsed-dock swatch boundary ΔE vs adjacent ground ≥ JND (~2.3) | U-F11 | registry §2: derive-seam ΔL `.004–.023` imperceptible |
 | **BR-7** | **pole-conditional on the U-F12 owner ruling (flips on whichever pole the owner rules — the G-CANON-10-style escape)**: under **Pole A** (chroma-carried tint) the per-pane dark-card GROUND tint hue tracks the pane seed hue (Δhue ≤ tol) AND ground chroma ≥ perceptible floor; under **Pole B** (restrained-neutral tint, ground deliberately near-neutral) the assertion moves to the ACCENT lane — per-pane accent chroma ≥ floor AND cross-pane accent hue distinguishable (seed-tracked). In NEITHER pole does the defect survive — the identity-less uniform warm-brown: Pole A cures it in the GROUND (non-uniform, hue-carried); Pole B keeps a uniform warm-NEUTRAL ground BY CONSTRUCTION but carries per-pane identity in the accent lane | U-F12 | registry §2: "uniform desaturated warm-brown across every pane" |
 | **BR-8** | Tools true-button focus-ring box within the dock-layer content box + safe-inset (ring arc unclipped) @ flush edge, both edges | U-F13-demo | registry §2 / `overflow.css:86-99`: producer clip shaves EDGE rings |
 | **BR-9** | scrolled-header band computed `padding` + background-footprint block-size CONTRACT vs the at-rest box (a real layout-box shrink, NOT a compositor-only title `scale`) — the band's scrolled block-size < its at-rest block-size by ≥ the ruled contraction step | U-F9 (scrolled arm, T-61/T-42) | MANDATE §0.8: header band retains full at-rest padding on scroll; t33-research §6.6 compositor-only title scale over an UNSHRUNKEN box |
 | **BR-10** | dock in-flow band computed block-size INVARIANT across the collapse↔expand morph AND scene-top shift == 0px across the morph (the reserved band floors at the expanded block-size, so `--dock-h` never grows the scene box) | U-F13-band (T-57/WR-9) | T/FINAL:122 / WR-9: MEASURED **+3.0px scene reflow** on dock-expand (band floor < expanded pill; invariance probe `2c1a0f4`) |
+| **BR-11** | scrolled sticky-header title computed font-size ≥ the ruled legibility floor (a NAMED min token — the T-42 "text too small" axis BELOW-bound) AND the scrolled title is re-keyed to a real token step, NOT a compositor-only `scale` shrink of the un-stepped rung | U-F9 (scrolled arm, T-61/T-42 — the TEXT axis) | MANDATE §1:199: "The text is too small"; the §0.8 register bounds the contraction below on the text axis — BR-9 gates the footprint contract, BR-11 gates that the contracted title stays legible (a cure passing BR-9+OA-6 could still leave the title too small) |
 
 ### Register 2 — owner-attested / real-GPU annex (NOT headless born-RED; the U-F54 law)
 
@@ -413,7 +444,7 @@ red is the close-class lie the charter forbids).
 | **OA-3** | the console reads as a TRANSLUCENT veil (surviving-variation > the ~15% opaque floor; the blur samples a real backdrop) | U-F10 | veil material is a perceptual read, not a headless α proxy (the O-14 warning) |
 | **OA-4** | the whole-picker + per-surface GESTALT sign-off — the blob seats as part of the picker (U-F5), the ramp reads perceptible/beautiful (U-F6), the dark tint reads clean (U-F12) | U-F5/F6/F12 | taste is owner-terminal (lesson 12); the geometry is born-RED, the gestalt is owner-attested |
 | **OA-5** | the dark-caster re-cut reads as an HONEST dark caster (if CENSUS-RED) | U-F19/T-53 | material re-cut, perceptual |
-| **OA-6** | the SCROLLED header reads as ONE condensed strip — title AND padding AND background band contract together, ZERO ghost-through of the scrolled Components rows under the band | U-F9 (scrolled arm, T-61/T-42) | the owner-verbatim §0.8 whole-header ruling is a perceptual "reads as one strip" gestalt, not a headless proxy (the box-model half is BR-9) |
+| **OA-6** | the SCROLLED header reads as ONE condensed strip — title AND padding AND background band contract together, ZERO ghost-through of the scrolled Components rows under the band — **AND the contracted title reads legible, NOT "too small"** (the T-42 second axis, owner-terminal: the register is bounded below on the text) | U-F9 (scrolled arm, T-61/T-42) | the owner-verbatim §0.8 whole-header ruling is a perceptual "reads as one strip" gestalt; T-42's "text too small" is likewise an owner-terminal legibility read (the box-model half is BR-9, the title-min-size half is BR-11) |
 
 **The gate is the owner's verdict** (E-7 inheritance — T.W8 was E-7; U.W-VISUAL absorbs its terminal
 residue and re-certifies by owner ratification, never proxy). PP-16: gates-pass-goal-unmet closes
@@ -435,7 +466,7 @@ measured quantity that moved.
 | U-F7 | real-GPU swap-window screencast (confound-isolated) — jank → smooth; **+ the wake-gray bead**: swap-window frame at reveal-start — gray substrate flash → opaque incoming ground | max frame ms (RED > 32 / 88 → GREEN ≤ 32); frames-over-budget count (RED 11/74 → GREEN 0); **wake-gray flash present→absent** (MUST-NOT-REGRESS from the landed boot-B baseline `5cecdf2` — GREEN absent, a re-cure that re-exposes it reds the row) |
 | U-F8 | `pane-generate-{light,dark}-{1440,390}.png` — flat squares / 3 registers → dots / 1 instrument | swatch species (rect → WatercolorDot, producer-attested); verb-register count (3 → 1) |
 | U-F9 (at-rest) | `picker-*-full.png` + `scrolled-light.png` — un-stepped title + dead band → stepped + honest seam | title fs (67.776px → `--type-display-2` value); dead-band height (px → 0/absorbed); 1440↔390 rhythm-ratio (divergent → one-law) |
-| U-F9 (scrolled arm, T-61/T-42) | `scrolled-{light,dark}.png` at-rest→scrolled — full-padding band with ghost-through → ONE condensed strip | header band block-size (RED at-rest padding retained on scroll → GREEN contracted vs at-rest by ≥ the ruled step); Components-row ghost-through (RED visible under the band → GREEN 0); title condense is NOT the sole change (RED compositor-only title scale → GREEN whole-header contract) |
+| U-F9 (scrolled arm, T-61/T-42) | `scrolled-{light,dark}.png` at-rest→scrolled — full-padding band with ghost-through + too-small title → ONE condensed strip with a legible title | header band block-size (RED at-rest padding retained on scroll → GREEN contracted vs at-rest by ≥ the ruled step); Components-row ghost-through (RED visible under the band → GREEN 0); title condense is NOT the sole change (RED compositor-only title scale → GREEN whole-header contract); **scrolled title font-size (RED "too small" compositor-scale → GREEN ≥ the ruled legibility-floor token — the T-42 text axis, BR-11)** |
 | U-F10 | console-region clip (light/dark) — flat slab → translucent veil | surviving backdrop variation (RED ~15% → GREEN > threshold); console tint α (before → lowered) |
 | U-F11 | `dock-{light,dark}-*-rest.png` collapsed swatch — invisible → perceptible seam | swatch-boundary ΔE (RED .004–.023 ΔL → GREEN ≥ JND ~2.3 ΔE) |
 | U-F12 | `pane-*-dark-{1440,390}.png` across panes — identity-less uniform warm-brown → per-pane identity carried (**pole-conditional, mirrors BR-7**: Pole A = the card GROUND tint; Pole B / C3-compliant DEFAULT = the sanctioned `--accent` lane) | **Pole A** (chroma-carried tint — C3-ledger amendment): per-pane GROUND-tint chroma C (RED ≈ 0 → GREEN ≥ floor); cross-pane GROUND hue-spread (RED uniform → GREEN seed-tracked). **Pole B** (restrained-neutral tint — C3-compliant DEFAULT; the ground stays near-neutral BY CONSTRUCTION, so ground chroma ≈ 0 is CORRECT, never the RED): the assertion MOVES to the accent lane — per-pane **`--accent`-lane** chroma C (RED ≈ 0 → GREEN ≥ floor); cross-pane **accent** hue-spread (RED uniform → GREEN seed-tracked) |
