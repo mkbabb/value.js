@@ -277,6 +277,41 @@ S, not re-folded into T, not re-verified here (S's record is closed history).
 
 ---
 
+## §H — Close re-verification stamp (2026-07-12, re-probe against the live world at T-close)
+
+A close verifies the deployed lineage, never assumes it: the §A–§F probes above were **re-run at
+the close seam** (value.js HEAD `71af4c9`). **Every probe HOLDS; zero disposition changes.**
+
+| Re-probe | Result | vs the §-record above |
+|---|---|---|
+| `git -C ../glass-ui tag --list 'v5*'` | **(empty)** · `describe`→`v4.2.0` | **UNCHANGED — TRIGGER-NOT-FIRED** (§B) |
+| glass-ui registry `dist-tags.latest` | **`4.2.0`** (tail `…4.0.1, 4.1.0, 4.2.0`; **no v5**) | UNCHANGED (§B) |
+| `curl api.color.babb.dev/health` | **200** `commit:"0441aba…"`, `mongo:"ok"`, uptime `245296` | **X1 HOLDS** — same `0441aba` deploy, no restart (§A) |
+| `curl deploy.babb.dev/hooks/value.js` | **200** `"Hook rules were not satisfied."` | X1 webhook HOLDS (§A) |
+| `curl -I mbabb.fi.ncsu.edu/colors/` | **301** `Location: https://color.babb.dev/` | **X2 HOLDS** (§A) |
+| `useMarkdownColors.ts:1` `useGlobalDark` import + `:18` singleton use | present; the 2 `useDark` hits = past-tense comments (`:16`/`:76`) | dup-`useDark` DISCHARGED HOLDS (§E) |
+| `atomDiff` in `api/…/service/forks.ts` | **empty** (excised) | TA-4 DISCHARGED HOLDS (§E) |
+| `package.json` `test:dist` | build + the **5** retained proof gates | `proof:*` Q13 split HOLDS (§E) |
+| `e2e/smoke/oracles/` | present (`o10-type-locks`, `o11-header-gates`, …) | oracle-floor HOLDS (§E) |
+| `usePaletteStore.ts:8` `version` | **1** (no bump) | DORMANT HOLDS (§E) |
+| `src/easing.ts:517` `resolveEasing` host | present | kf `resolveEasing` courtesy host HOLDS (§D.2) |
+
+**The three immaterial live-flux deltas (both figures on the record, no silent reconciliation — S
+lesson 4):**
+1. glass-ui HEAD advanced `690fef91` → **`910dfffd`** (`tranche/BI`, "BI B0 encap-redrain"); still
+   5.0.0-**IN-DEV**, v5 tag STILL empty, registry latest STILL `4.2.0` — **trigger-not-fired
+   unchanged** (this is exactly the "sibling trees are in active flux" the header stamps flagged).
+2. keyframes HEAD advanced `b1ca5ee9` → **`3e3ebc67`** (`tranche-u-impl`, 5.2.0) — kf-side, PRM-
+   expand + `resolveEasing` dispositions **unchanged** (§C / §D.2).
+3. X1 `/health` uptime `242382` → **`245296`** (+~48 min, **no restart** — same `0441aba`
+   artifact) — X1 stability **re-confirmed**, not a re-deploy.
+
+**Verdict: the committed record (`7d2d38b`) is faithful to the live world at close.** Every T.md
+§7.1 inherited + §7.2 minted book is re-probed, dated, and routed (HAND-TO-U vs RETIRE, §G). No
+book silently discharged; no fired-but-unnoticed trigger crosses value.js's consume-edge.
+
+---
+
 ## §Method note (probe-parsimony)
 
 Static-first per the owner's PROBE-PARSIMONY law: the X1/X2/webhook curls (5 read-only GETs, no
