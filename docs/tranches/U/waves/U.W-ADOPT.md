@@ -6,7 +6,7 @@ the two visual gates ride the U-F54 real-GPU/owner-attested annex, not a fronten
 
 **Opens after**: **U.W-LIB** (the U-F77 co-land — U.W-LIB authors the U-F29/F30/F31/F32/F33 fix +
 owns the invariant + the build-time re-enumeration born-RED; U.W-ADOPT sequences the *version-cut
-decision* against both peer floors so the fix and the cut land coherently — LIB → ADOPT, registry
+decision* against both floors (glass-ui peer + keyframes runtime) so the fix and the cut land coherently — LIB → ADOPT, registry
 R-4/§22/§25/§28) **AND the external glass-ui 5.0.0 trigger** (USER-GATED, UNFIRED at authoring:
 `../glass-ui` disk labels `5.0.0` but sits on branch `tranche/BG` with NO `v5*` tag; value.js CI
 still checks it out `ref: tranche/BG` at six sites). **This wave FLOATS on the owner-gated cut** —
@@ -32,7 +32,7 @@ against the 5.0.0 dist. The §1 producer design reds (U-F4 PRM-dock, U-F13-produ
 re-filed as **EXPLICIT NAMED glass-ui BI-acceptance constraints** — not trusted to topical waves,
 not cured by a demo override (E-3: a consumer CSS override would breach glass-ui-first). The
 library-correctness version cut (U.W-LIB's U-F29/F30 amelioration, §13.5) is **owner-held** and
-sequenced against BOTH `@mkbabb/value.js '^3.1.0'` peer floors (glass-ui + keyframes) AND the
+sequenced against BOTH `@mkbabb/value.js '^3.1.0'` floors (glass-ui peer + keyframes runtime) AND the
 spectrum-walk/backward-color raw-channel convention co-migration, so the fix and the cut land
 coherently (U-F77).
 
@@ -132,9 +132,12 @@ sub-assertion of the U-F2 cut gate, G-ADOPT-1).
 **Evidence** (registry R-4 §20 + §22 amendment + §25 amendment + §28 the structural resolution):
 U-F29's honest amelioration (§13.5) is **semver-loaded**. BOTH siblings pin `@mkbabb/value.js
 '^3.1.0'` — glass-ui at `package.json` → `peerDependencies["@mkbabb/value.js"]` +
-`devDependencies["@mkbabb/value.js"]` (cite block+key, never a line integer into a moving foreign
-tree), keyframes at `package.json` → `devDependencies["@mkbabb/value.js"]`
-— so a **4.0.0 cut strands TWO peer floors**, not one; a 3.x minor auto-adopts. U-F30's fix changes
+`devDependencies["@mkbabb/value.js"]` (a **peer floor**; cite block+key, never a line integer into a
+moving foreign tree), keyframes at `../keyframes.js/package.json` → **`dependencies["@mkbabb/value.js"]`**
+(a **RUNTIME dependency floor** — NOT `devDependencies`; the STRONGER coupling: a 4.0.0 cut strands
+keyframes' RUNTIME dependency AND every transitive keyframes consumer, not merely keyframes' own build)
+— so a **4.0.0 cut strands TWO `^3.1.0` floors** (glass-ui peer + keyframes runtime), not one; a 3.x
+minor auto-adopts. U-F30's fix changes
 the raw-channel OUTPUT convention that **FOUR convention-sensitive surfaces read RAW, bypassing
 `toString`** (registry §28, enumerated across 2 siblings × 2 pipelines):
 
@@ -148,7 +151,7 @@ the raw-channel OUTPUT convention that **FOUR convention-sensitive surfaces read
 **Cure APPROACH** (§28 — the STRUCTURAL resolution, supersedes enumerate-every-consumer): U.W-ADOPT
 does NOT re-enumerate a living codebase's consumers (a moving target). It sequences the **co-land
 ordering** in THREE binds at the cut: (a) the version decision (owner-held, §13.5) against BOTH
-`^3.1.0` peer floors; (b) glass-ui's spectrum-walk color-convention co-migration; (c) keyframes'
+`^3.1.0` floors (glass-ui peer + keyframes runtime); (b) glass-ui's spectrum-walk color-convention co-migration; (c) keyframes'
 backward-color color-convention co-migration. The **build-time re-enumeration born-RED** (authored in
 U.W-LIB, §28.2; re-run and confirmed at THIS cut) greps the THEN-CURRENT constellation for
 raw-channel readers and gates the chosen U.W-LIB invariant against ALL of them — so the exact
@@ -194,7 +197,7 @@ ring pixel-coverage)**. Born-RED NOW (registry §2: producer clip/fade-mask shav
 Producer-gated (BI-acceptance, RELAYED to BH); the demo Tools box-model half is NOT this gate
 (U.W-VISUAL).
 
-### G-ADOPT-4 — U-F77 co-land ordering · **born-RED (build-time re-enumeration + BOTH peer floors)**
+### G-ADOPT-4 — U-F77 co-land ordering · **born-RED (build-time re-enumeration + BOTH `^3.1.0` floors: glass-ui peer + keyframes runtime)**
 
 Two arms, both born-RED at authoring:
 
@@ -208,8 +211,8 @@ Two arms, both born-RED at authoring:
   surfaces** the task names — registry §25 said THREE (glass-ui parseCSSColor + glass-ui direct-mix +
   keyframes parseCSSValue); §28 (round 7) AMENDED to FOUR (added keyframes' backward-color color
   half). The registry wins: the gate drives all FOUR; the "three" framing is the pre-§28 count.
-- **4b — BOTH peer floors satisfied at the version cut**: assert the owner-held version decision keeps
-  glass-ui's `^3.1.0` (`package.json` → `peerDependencies["@mkbabb/value.js"]` + `devDependencies["@mkbabb/value.js"]`) AND keyframes' `^3.1.0` (`package.json` → `devDependencies["@mkbabb/value.js"]`) satisfied
+- **4b — BOTH `^3.1.0` floors satisfied at the version cut** (glass-ui peer + keyframes runtime): assert the owner-held version decision keeps
+  glass-ui's `^3.1.0` (`package.json` → `peerDependencies["@mkbabb/value.js"]` + `devDependencies["@mkbabb/value.js"]`, a **peer floor**) AND keyframes' `^3.1.0` (`../keyframes.js/package.json` → **`dependencies["@mkbabb/value.js"]`**, a **RUNTIME dependency floor** — grep the `dependencies` block, NOT `devDependencies`) satisfied
   — a 3.x minor auto-adopts; a 4.0.0 cut RED until both siblings co-widen. Born-RED where the version
   decision is un-taken (§13.5, owner-held). Flips GREEN when the cut is taken with both floors held (or
   both co-widened + relayed).
@@ -270,7 +273,7 @@ local-only per the foreign-tree fence. No source or foreign-tree edit lands from
 | **U-F13-producer** | **build via RELAY + BI-acceptance** (producer half only) | The clip/fade-mask is producer-side; named in the BH communiqué (one of the §2b nine, sharpened to the edge-ring-shave a11y class). Gated on a real-GPU/owner frame. The demo Tools box-model half → U.W-VISUAL. |
 | **U-F28** | **retire on their next tag** (WATCH row, no work) | Fixed-unreleased at keyframes HEAD; value.js has ZERO direct kf imports → nothing to build. Retires the moment keyframes cuts its next tag; booked to U.W-CLOSE re-probe. |
 | **U-F68** | **fold → the adopt cut** (lock refresh) | The stale glass-ui lock record is a false record vs disk 5.0.0; it refreshes at the cut (a sub-assertion of G-ADOPT-1). No independent work. |
-| **U-F77** | **build** (THE CO-LAND ORDERING) | The lib-correctness version cut is semver-loaded against BOTH `^3.1.0` peer floors + the 4-surface raw-channel convention; the co-land ordering sequences the version decision (owner-held, §13.5), the build-time re-enumeration gate, and the two sibling co-migrations. LIB authors the invariant + build-time gate; ADOPT owns the co-land. |
+| **U-F77** | **build** (THE CO-LAND ORDERING) | The lib-correctness version cut is semver-loaded against BOTH `^3.1.0` floors (glass-ui peer + keyframes runtime `dependencies`) + the 4-surface raw-channel convention; the co-land ordering sequences the version decision (owner-held, §13.5), the build-time re-enumeration gate, and the two sibling co-migrations. LIB authors the invariant + build-time gate; ADOPT owns the co-land. |
 
 Zero silent drops: F2, F4, F13-producer, F28, F68, F77 each reach a decided home.
 
@@ -280,7 +283,7 @@ Zero silent drops: F2, F4, F13-producer, F28, F68, F77 each reach a decided home
 
 - **U.W-LIB** (LIB → ADOPT) — U.W-LIB authors the U-F29/F30/F31/F32/F33 fix + owns the U-F30 invariant
   choice + the build-time re-enumeration born-RED (§28.2); U.W-ADOPT sequences the *version-cut
-  decision* (owner-held) against both peer floors so the fix and the cut land coherently (U-F77). The
+  decision* (owner-held) against both floors (glass-ui peer + keyframes runtime) so the fix and the cut land coherently (U-F77). The
   co-land cannot sequence a version until LIB has landed a fix to version.
 - **External glass-ui 5.0.0 trigger** (USER-GATED, UNFIRED) — glass-ui disk `5.0.0` on branch
   `tranche/BG`, no `v5*` tag; the wave FLOATS on the owner-gated cut. The born-RED gates are ARMED but

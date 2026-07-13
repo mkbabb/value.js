@@ -50,7 +50,7 @@ serialization/contract **CLASS**, never one symptom, never a cherry-pick around 
 4. The three **folds** (U-F34 naming coherence · U-F35 2D recompose · U-F74 silent-gamut-map) land
    in the coherence cut of the same wave.
 5. The **version-cut/publish decision** is PREPARED for owner presentation WITH the landed fix
-   (U-F29's reshape is semver-loaded against BOTH `^3.1.0` peer floors) — never taken unilaterally;
+   (U-F29's reshape is semver-loaded against BOTH `^3.1.0` floors — glass-ui peer + keyframes runtime) — never taken unilaterally;
    the cut itself is U.W-ADOPT's row (U-F77).
 
 ## §Completion criterion
@@ -335,9 +335,9 @@ lands the same cut). Zero silent drops; each terminates here with rationale, non
   discharged.
 - **Outbound (LIB → ADOPT, the U-F77 co-land bind)**: the version-cut/publish decision and the
   sibling co-migration ride **U.W-ADOPT** (owner-held §13.5), sequenced against **BOTH** `^3.1.0`
-  peer floors — glass-ui (`../glass-ui/package.json` → `peerDependencies["@mkbabb/value.js"]` +
-  `devDependencies["@mkbabb/value.js"]` — block+key, never a line integer into a moving foreign tree)
-  and keyframes (`../keyframes.js/package.json` → `devDependencies["@mkbabb/value.js"]`). A 4.0.0 cut strands TWO floors, not one; LIB
+  floors — glass-ui (`../glass-ui/package.json` → `peerDependencies["@mkbabb/value.js"]` +
+  `devDependencies["@mkbabb/value.js"]`, a **peer floor** — block+key, never a line integer into a moving foreign tree)
+  and keyframes (`../keyframes.js/package.json` → **`dependencies["@mkbabb/value.js"]`**, a **RUNTIME dependency floor** — NOT `devDependencies`; the stronger coupling). A 4.0.0 cut strands TWO floors, not one; LIB
   lands the fix, ADOPT cuts coherently.
 - **Tooling**: `npm test` (jsdom), `test:dist` (built-bundle behavioral slate — the born-RED gates
   wire here so the published surface is what's certified), `typecheck`, `lint`. No external service,

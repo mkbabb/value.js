@@ -34,7 +34,7 @@ U.W-ORACLE ┤
 U.W-DEMO  ─┘
 ```
 
-Cross-wave binds (the sequencing laws): **U-F77** LIB→ADOPT co-land (both `^3.1.0` peer floors +
+Cross-wave binds (the sequencing laws): **U-F77** LIB→ADOPT co-land (both `^3.1.0` floors — glass-ui peer + keyframes runtime `dependencies` +
 the spectrum-walk/backward-color convention co-migration) · **U-F76** VISUAL→A11Y→PERF shared
 picker-mount ordering (a reseat that changes the mount box re-opens CLS) · **U-F3** ADOPT→PERF
 (the LCP cure rides the producer payload cut).

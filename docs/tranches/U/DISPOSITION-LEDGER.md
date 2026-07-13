@@ -103,7 +103,7 @@ set + the PROMPT-RECAP set + the RETIRED-WINS set. Every wave named is one of th
 | U-F74 | conversion-silent-gamut-map | U.W-LIB | fold | `xyz2rgb` defaults `correctGamut=true` so `color2(x,'rgb')` silently gamut-maps; expose the raw-OOB detect path (§26 folds into the library-correctness wave). |
 | U-F75 | precept-stale-label | U.W-CANON | retire | `docs/precepts/infra/domains.md` names the app "palette" (landed reality "color"); the `<app>.babb.dev` convention IS followed — only the label is stale. |
 | U-F76 | shared-surface-coordination | **U.W-PERF** | build | THE ORDERING LAW: 6 findings edit ONE picker/readout mount across 3 waves; the mount-changing reseats (VISUAL/A11Y) settle FIRST, then PERF reserves + measures CLS/LCP over the settled box. Binds VISUAL→A11Y→PERF. |
-| U-F77 | library-cut-adopt-ordering | **U.W-ADOPT** | build | THE CO-LAND ORDERING: the lib-correctness version cut sequences against BOTH `^3.1.0` peer floors (glass-ui + keyframes) + the spectrum-walk/backward-color convention co-migration; owner-held version decision (§13.5). Binds LIB→ADOPT. |
+| U-F77 | library-cut-adopt-ordering | **U.W-ADOPT** | build | THE CO-LAND ORDERING: the lib-correctness version cut sequences against BOTH `^3.1.0` floors (glass-ui **peer** `peerDependencies`+`devDependencies` / keyframes **runtime** `dependencies` — NOT devDeps, the stronger coupling) + the spectrum-walk/backward-color convention co-migration; owner-held version decision (§13.5). Binds LIB→ADOPT. |
 
 **Family audit**: F1–F77 present, each exactly once; F6 and F55 carry named split-homes (F62 is
 F6's split-executor bookkeeping, homed at U.W-ORACLE); F18/F19 route to the charter's
@@ -134,8 +134,11 @@ The §A families come from the converged `audit/registry.md` (§1–§28). Three
 HAND-TO-U book-successor table are NOT registry-family-enumerated (they arrived at T's close, after
 the registry converged), so they are carried HERE — each with a DECIDED U home, closing the
 `T/FINAL.md §5` → U coverage completely (the other §5 rows fold to §A/§B: the 5.0.0 adopt / GAP-* /
-L2..L16 → U-F2; L20+RP-2 / Q14 → U-F3; the T.W8 remediation rows → §C; PRM-expand → U-F28; the
-doc-rewrite remainder → U-F21):
+L2..L16 → U-F2; L20+RP-2 / Q14 → U-F3; the T.W8 remediation rows → §C; PRM-expand → U-F28; **the
+P1–P10 packet dispositions + the T-60 producer communiqué (`f3f3c097`) → the §B "glass-ui BH relay
+set" chronic → U.W-ADOPT (the letter lane / BI-acceptance constraints)** — the substance is the §B
+BH-relay set, this row names the T/FINAL §5:306 handoff explicitly so it is enumerated, not merely
+substantively-covered; the doc-rewrite remainder → U-F21):
 
 | T-close carried book | State at T close | Decided U disposition |
 |---|---|---|
@@ -145,6 +148,33 @@ doc-rewrite remainder → U-F21):
 
 These three complete the `T/FINAL.md §5` HAND-TO-U table's fold into U's ledger — zero silent drop of
 a T-close handoff.
+
+---
+
+## §B.2 — THE BI → BH INBOX BRIDGE (the glass-ui active-coordination-inbox redirect)
+
+A reader tracing T's `f3f3c097` producer handoff into U meets an apparent contradiction — **it is a
+real inbox transition, resolved by the owner's edict, recorded here so no round re-chases it**:
+
+- **At T close (2026-07-11)** glass-ui's active coordination tranche was **BI**. T's consolidated
+  producer communiqué landed at `f3f3c097` (value.js side), stamped **glass-ui BI inbox HEAD
+  `24a7a764`** (`T/FINAL:131,412`); the T communiqué addressed "the glass-ui BI inbox — your active
+  tranche."
+- **At U formation (2026-07-12)** the governing authority is the **owner's 2026-07-12 edict**: EVERY
+  glass-ui-level change relays to the **active glass-ui BH inbox at root** (the standing formation
+  invariant, `MEMORY §feedback-glassui-bhbi-relay`). glass-ui advanced BI → **BH**; U's formation
+  communiqué landed at **glass-ui HEAD `17e0f522`** (`valuejs-inbox-2026-07-12-u-formation.md`), which
+  itself records "BI is now closed history."
+- **The redirect**: value.js's T-era `f3f3c097` (BI) producer handoff is CARRIED FORWARD, not
+  re-issued — its payload (the 9 BLOCKING reds + the booked swaps) rides U's **BH** relay of record
+  (`17e0f522` + the U.W-ADOPT co-land addendum). The pervasive "**BI-acceptance constraint**" term in
+  U names the *glass-ui version-cut acceptance* (what the producer must accept at the 5.0.0 cut); the
+  *delivery channel* is the **BH inbox** per the owner edict. `f3f3c097`(BI) → `17e0f522`(BH).
+- **Execution obligation (NOT a formation gate)**: glass-ui's BI coordination dir showed activity as
+  late as 2026-07-12 22:08 (an `atlas-outbound` decision file), so whether **BH** is the producer's
+  LIVE inbox at the cut is a **U.W-CLOSE RELAY-discharge verify obligation** (`U.W-CLOSE §the RELAY
+  discharge`) — CLOSE confirms the relay landed at the producer's THEN-CURRENT active inbox, per the
+  foreign-tree fence.
 
 ---
 
@@ -160,11 +190,11 @@ to T.W8/WR; U absorbs the un-landed residue) → their U-Fxx family → owning w
 | T-14 · T-48 · T-58 (scene-transition motion, thrice-red) | U-F7 | U.W-VISUAL (real-GPU annex) |
 | T-54 · T-55 (generate plate species chrome) | U-F8 | U.W-VISUAL |
 | T-2 · T-51 · T-59 (at-rest header) · **T-61/T-42 B-01** (scrolled-header whole-contraction, §0.8 owner-verbatim — a DISTINCT arm of U-F9 with its own gate BR-9/OA-6 + the P3 `ScrollCardHeader` producer RELAY, NOT a fold into the at-rest cure) | U-F9 | U.W-VISUAL |
-| **T-5** (the picker active channel-rail seat; `T/FINAL §2.1:113` = "W4-4 landed; ACTIVE seat P1-R1 → U", `T-MARK-2026-07-12:80` = "the ACTIVE seat = P1-R1 OPEN" — a LANDED-partial owner-uncertified still-red, NOT a discharged row; the pi-audit LAND row P1-R1/P1-R2, no WR cure — T.W8's Remediate never reached it) | **U-F9-rail** (a DISTINCT arm of U-F9, the picker active-rail-seat — parallels the U-F13-band split; NOT the header-spacing regime) | U.W-VISUAL (W8-inheritance census; census-red re-cure — the ring's active/selected channel seat reads coherent at every rung) |
+| **T-5** (the picker active channel-rail seat; `T/FINAL §2.1:113` = "W4-4 landed; ACTIVE seat P1-R1 → U", `T-MARK-2026-07-12:80` = "the ACTIVE seat = P1-R1 OPEN" — a LANDED-partial owner-uncertified still-red, NOT a discharged row; the pi-audit LAND row P1-R1/P1-R2, no WR cure — T.W8's Remediate never reached it) | **U-F9-rail** (a DISTINCT arm of U-F9, the picker active-rail-seat — parallels the U-F13-band split; NOT the header-spacing regime) | U.W-VISUAL (W8-inheritance census; census-red re-cure — born-RED **BR-12** seat-tracks-rung geometry (LANDED-partial per W4-4, born-GREEN must-STAY if it holds) + owner-attested **OA-7** reads-coherent + a π/DELTA seat-offset row — the FULL teeth that parallel the U-F13-band BR-10/OA/π split; the ring's active/selected channel seat reads coherent at every rung) |
 | T-34 · T-50 (console veil material) | U-F10 | U.W-VISUAL |
 | T-37 (collapsed dock swatch seam) | U-F11 | U.W-VISUAL |
 | T-36 · T-52 (dock edge clip) | U-F13 | U.W-VISUAL (demo) + U.W-ADOPT/relay (producer) |
-| **T-20** (P4 glass-ui Tabs pilling — no gap between pills; `T/FINAL §2.1:132` PRODUCER-GATED + §5:306 booked-swaps hand-to-U; `T-MARK-2026-07-12:95`/§2:208; **PRODUCER-DECLINED → owner-escalated** — the producer declined the cure, T escalated to the OWNER) | **— (no value.js/demo family)**: a glass-ui Tabs-component geometry red; the demo consumes the producer Tabs, so there is NO value.js-side cure to build | **U.W-ADOPT relay (owner-escalation lane)** — carried to the BI inbox owner-visible until the producer ships OR the owner accepts the decline. **NOT a §2b carried-forward red** (the communiqué's 9 §2b rows are pending-producer; T-20 was already producer-DECLINED, so it rides as an owner DECISION, not a pending relay — distinct home, explicitly routed so it is not silently dropped). |
+| **T-20** (P4 glass-ui Tabs pilling — no gap between pills; `T/FINAL §2.1:132` PRODUCER-GATED + §5:306 booked-swaps hand-to-U; `T-MARK-2026-07-12:95`/§2:208; **PRODUCER-DECLINED → owner-escalated** — the producer declined the cure, T escalated to the OWNER) | **— (no value.js/demo family)**: a glass-ui Tabs-component geometry red; the demo consumes the producer Tabs, so there is NO value.js-side cure to build | **U.W-ADOPT relay (owner-escalation lane)** — carried to the glass-ui active coordination inbox (**BH** per the owner's 2026-07-12 edict — see the §B.2 BI→BH bridge; T-era it rode BI `f3f3c097`) owner-visible until the producer ships OR the owner accepts the decline. **NOT a §2b carried-forward red** (the communiqué's 9 §2b rows are pending-producer; T-20 was already producer-DECLINED, so it rides as an owner DECISION, not a pending relay — distinct home, explicitly routed so it is not silently dropped). |
 | T-53 (dark caster) · AB-1 (About-KaTeX) | U-F19 residue | U.W-VISUAL / U.W-CANON (W8-inheritance) |
 | **T-57** (WR-9 dock-band `--dock-h` floor; MEASURED +3.0px scene reflow on dock-expand, invariance probe `2c1a0f4`; T-31→T-57 re-bracket) | U-F13 (dock-band arm — DISTINCT from the U-F13-demo edge-clip) | U.W-VISUAL (W8-inheritance census; born-RED BR-10 band-height-invariance-across-morph + owner-attested no-scene-shift — a DIFFERENT surface than U-F16's picker-plate mount reflow) |
 | **T-39** (the Q14-pressure perf face; owner still-red, `T-MARK-2026-07-12:124` LCP 5141 / TBT 5988; `T/FINAL §5:299`/§2.1:129/§7.2:411 hand it BY NAME) | U-F3 (**LCP**) · U-F61 (**TBT**) | **LCP → U.W-PERF** (the DECIDED escalate — W9 green-or-escalation; the perf half of Q14, distinct from the U.W-VISUAL census re-judge). **TBT re-homed** (registry §10:144 re-measure: **187 ms local GREEN**, only reddens on the 2-core CI runner) → **U-F61 attested-not-verified → U.W-CLOSE** (G-CLOSE-3, cross-ref U-F3). T hands "LCP/**TBT** → U.W-PERF"; U.W-PERF gates LCP+CLS only, so TBT's real home is U.W-CLOSE — bridged here + at `U.W-PERF §Goal` so the by-name handoff is not silently re-scoped. |

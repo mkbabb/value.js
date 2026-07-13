@@ -139,13 +139,14 @@ in-window ⇒ recorded `complete_with_misses` with the frame obligation named.
 
 **Evidence** (registry §13.5 the owner ruling; §26 W-lib-correctness "owner-held publish"; U.W-LIB
 §BOOKS "The PUBLISH / version-cut decision → U.W-ADOPT (U-F77)"; U.W-ADOPT §Goal "the
-library-correctness version cut is owner-held and sequenced against BOTH `^3.1.0` peer floors"; U.md
+library-correctness version cut is owner-held and sequenced against BOTH `^3.1.0` floors"; U.md
 §Completion "the library-correctness publish decision is owner-held and taken WITH the landed fix"):
-U-F29's amelioration reshape is semver-loaded against glass-ui's + keyframes' `@mkbabb/value.js
-'^3.1.0'` peer floors; the version cut is OWNER-HELD, never unilateral.
+U-F29's amelioration reshape is semver-loaded against glass-ui's `@mkbabb/value.js '^3.1.0'` **peer** floor
+(`peerDependencies`+`devDependencies`) + keyframes' `'^3.1.0'` **runtime** floor (`dependencies`, NOT devDeps —
+the stronger coupling); the version cut is OWNER-HELD, never unilateral.
 
 **APPROACH**: LIB authors the fix + the publish packet (semver classification + both-floor co-land
-plan); ADOPT sequences the version decision against both peer floors + the FOUR-surface
+plan); ADOPT sequences the version decision against both floors + the FOUR-surface
 convention co-migration (§28). CLOSE is the close-ceremony locus where the **assembled packet is
 PRESENTED to the owner WITH the landed fix** for the final version-cut decision (G-CLOSE-5). This
 discharges the U.md completion criterion "the publish decision is owner-held and taken WITH the
@@ -287,7 +288,7 @@ foreign-tree fence. No source or foreign-tree edit lands from THIS campaign.
 | **U-F54** real-GPU annex | **attest here** (home = charter §annex; disp **acknowledge**) | The headed-GPU slate never ran in 7 rounds (SwiftShader confound); CLOSE discharges the attestation — the §2 still-reds + U-F7 owner-attested against a real-GPU/owner frame (G-CLOSE-4), NEVER headless. Un-attested in-window ⇒ `complete_with_misses`. |
 | **the zero-drop ledger walk** | **build** (E-4's completion proof) | `FINAL.md` walks `DISPOSITION-LEDGER.md` row-by-row; a regenerable completeness assertion (G-CLOSE-1) gates it so a dropped row is RED, not a prose omission. Absorbs the W8-terminal inheritance (U-F18/F19) + the trigger-gated adopt residual (U-F2) by name. |
 | **the PUBLISH presentation** | **present WITH the landed fix** (owner-held §13.5) | LIB authors the fix + packet; ADOPT sequences the version decision against both floors + the FOUR-surface co-migration; CLOSE presents the assembled packet to the owner for the cut (G-CLOSE-5). §13.5 forbids the unilateral cut — un-taken publish is not a miss (PP-16). |
-| **the RELAY discharge** | **verify** (E-2) | CLOSE confirms the three relay obligations landed at the siblings' HEADs (the formation communiqué `17e0f522` + the ADOPT addendum + the keyframes co-migration), grep-clean per the foreign-tree fence. No new communiqué. |
+| **the RELAY discharge** | **verify** (E-2) | CLOSE confirms the three relay obligations landed at the siblings' HEADs (the formation communiqué `17e0f522` + the ADOPT addendum + the keyframes co-migration), grep-clean per the foreign-tree fence. **AND confirms BH is the producer's THEN-CURRENT active coordination inbox at the cut** (the BI→BH transition of `DISPOSITION-LEDGER §B.2` — glass-ui's BI dir showed activity 2026-07-12 22:08; the T-era `f3f3c097`(BI) handoff is carried forward, not stranded), redirecting to the producer's live inbox if BH has itself advanced. No new communiqué. |
 
 Zero silent drops: U-F61 folds to the flag; U-F54 attests; the ledger walk, publish presentation,
 and relay discharge each reach a decided close-obligation.

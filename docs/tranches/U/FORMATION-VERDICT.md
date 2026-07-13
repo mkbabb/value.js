@@ -69,10 +69,10 @@ The three load-bearing ordering binds are each internally coherent:
 
 - **U-F77 (LIB → ADOPT co-land)** — LIB authors the U-F29/F30/F31/F32/F33 fix + owns the U-F30
   invariant + the build-time re-enumeration born-RED (LIB-G6); ADOPT sequences the *version-cut
-  decision* (owner-held §13.5) against **BOTH** `^3.1.0` peer floors (glass-ui `package.json` →
-  `peerDependencies["@mkbabb/value.js"]` + `devDependencies["@mkbabb/value.js"]` — cite block+key,
-  never a line integer into a moving foreign tree; keyframes `package.json` →
-  `devDependencies["@mkbabb/value.js"]`, pin `^3.1.0` VERIFIED, see §3 note) AND the
+  decision* (owner-held §13.5) against **BOTH** `^3.1.0` floors (glass-ui `package.json` →
+  `peerDependencies["@mkbabb/value.js"]` + `devDependencies["@mkbabb/value.js"]`, a **peer floor** — cite block+key,
+  never a line integer into a moving foreign tree; keyframes `../keyframes.js/package.json` →
+  **`dependencies["@mkbabb/value.js"]`**, a **RUNTIME dependency floor** — NOT `devDependencies`; pin `^3.1.0` VERIFIED, see §3 note) AND the
   spectrum-walk/backward-color raw-channel co-migration. The fix precedes the
   cut; the cut cannot sequence a version until LIB has a fix to version. Coherent.
 - **U-F76 (VISUAL → A11Y → PERF mount-box single-writer)** — VISUAL (U-F5 blob reseat, U-F9 header)
@@ -138,7 +138,9 @@ the obligation in its honest non-visual form (a serialized string / a mechanical
 π-frame:
 
 - **VISUAL** — every §2 still-red (U-F5..F13 + U-F19/T-53) carries a π-frame (both schemes, named
-  viewports, owner-attested/real-GPU) + a measured DELTA (px inset, ΔL, ΔE, ms, α, chroma). **ADOPT** —
+  viewports, owner-attested/real-GPU) + a measured DELTA (px inset, ΔL, ΔE, ms, α, chroma) — **incl. the
+  U-F9-rail active-rail-seat arm (BR-12 seat-tracks-rung + OA-7 reads-coherent + a π/DELTA seat-offset
+  row, completed r5 §9#4 to full parallel with U-F13-band)**. **ADOPT** —
   U-F4/U-F13-producer carry owner-attested π-frames. **A11Y** — every a11y cure carries a headless
   π-frame (a11y is deterministic) + a DELTA (contrast, target-px, valuetext). **PERF** — the CLS/LCP/
   settle-box claims carry LHCI-instrument π-frames + DELTAs; U-F14 is DELTA-only (pure instrument).
@@ -194,12 +196,20 @@ discipline, not scope-creep and not a drop.
 
 ## §3 — Residual notes (by name; all NOTE-level, none blocks close)
 
-1. **keyframes `^3.1.0` pin line-cite drift** — `registry §22/§20-R4` cite `../keyframes.js/package.json:269`;
+1. **keyframes `^3.1.0` pin line-cite drift + block-name correction [r5]** — `registry §22/§20-R4` cite `../keyframes.js/package.json:269`;
    `U.W-ADOPT §U-F77` + `G-ADOPT-4b` cite `:266`. The ACTUAL line is **`:268`** (verified this pass).
-   The load-bearing FACT is sound and consistent everywhere (keyframes pins `@mkbabb/value.js '^3.1.0'`
-   — a SECOND `^3.1.0` peer floor beside glass-ui's `peerDependencies`/`devDependencies["@mkbabb/value.js"]`, which the U-F77 co-land requires).
-   Only the exact line integer drifts across encodings. A one-token correction at execution; the
-   design-time reasoning is unaffected.
+   **[r5 CORRECTION — the BLOCK NAME was wrong everywhere, not just the line integer]:** keyframes pins
+   `@mkbabb/value.js '^3.1.0'` in its **`dependencies`** (RUNTIME) block (`../keyframes.js/package.json:267-269`,
+   verified r5), NOT `devDependencies` — value.js appears in keyframes' package.json EXACTLY ONCE, in
+   `dependencies`. Every operative cite had mislabeled it `devDependencies["@mkbabb/value.js"]` and framed it
+   as a "peer floor"; it is a **RUNTIME dependency floor** — the STRONGER coupling (a value.js 4.0.0 cut strands
+   keyframes' runtime dependency AND every transitive keyframes consumer, not merely keyframes' own build, so the
+   prior "peer floor" framing UNDERSTATED the co-land coupling). Corrected `devDependencies`→`dependencies` +
+   "peer floor"→"runtime dependency floor" across U.W-ADOPT (:135/:215), U.W-LIB (:340), and this §72 bind. The
+   load-bearing FACT is sound (keyframes floors value.js at `^3.1.0` — a SECOND `^3.1.0` floor beside glass-ui's
+   `peerDependencies`/`devDependencies["@mkbabb/value.js"]` peer floor, which the U-F77 co-land requires; both
+   satisfied at a 3.x minor, RED at a 4.0.0 cut — G-ADOPT-4b's assertion is unchanged). A cite/framing correction
+   at execution; no disposition reverses.
 2. **"three vs four" consumer-surface heading tension (self-reconciled)** — `U.W-LIB` has a heading
    "THE THREE consumer surfaces" (the pre-§28 R6 count) while its body + LIB-G6 + the parenthetical +
    `U.W-ADOPT G-ADOPT-4a` + `U.W-CLOSE G-CLOSE-5` all correctly state FOUR and defer the exact count to
@@ -469,14 +479,71 @@ was U-side). None reversed a disposition, gate, or ordering:
 **Round-4 remediation is CLEAN** — 8 applied, 0 deferred (1 blocks-ratification cured). Four fresh-adversary
 passes to date (r1: 10, r2: 6, r3: 8, r4: 8) each raised real findings, so the two-CONSECUTIVE-CLEAN counter has
 STILL not started; the tranche awaits the NEXT fresh-adversary pass as the first potential clean. The peer-floor
-line-cite cycle (4 rounds) is now STRUCTURALLY ended by the block+key idiom — no future round can re-chase it.
+line-cite cycle (4 rounds) was claimed STRUCTURALLY ended by the block+key idiom — **but that claim was PARTIALLY
+COSMETIC** (it fixed the FORMAT — block+key — while leaving the keyframes block NAME wrong: `devDependencies` where
+the truth is `dependencies`, a runtime floor); **round 5 re-chased it (a 5th round)** and it is now corrected at the
+ROOT (block name + "peer floor"→"runtime dependency floor" framing — see §9#1). "No future round can re-chase it" was
+an overclaim; the substantive gate (G-ADOPT-4b) was always sound.
+
+---
+
+## §9 — Round-5 fresh-adversary hardening (remediated 2026-07-13)
+
+A fifth fresh-adversary pass raised **4 actionable findings** (2 cross-tranche [adjust], 1 bornred-exec
+[adjust], 1 pi-delta-visual [blocks-ratification]). All 4 are DOC-FIXABLE; remediated path-scoped to
+`docs/tranches/U/**` (+ no `T/FINAL.md` edit needed — the incoherences were U-side or bridge-able):
+
+1. **keyframes `^3.1.0` floor mis-cited as `devDependencies` + mislabeled "peer floor"** (bornred-exec)
+   — GROUND TRUTH (verified r5): `../keyframes.js/package.json:267-269` pins `@mkbabb/value.js '^3.1.0'`
+   in the **`dependencies`** (RUNTIME) block — value.js appears there EXACTLY ONCE, NOT in
+   `devDependencies`. Every operative locus (U.W-ADOPT:135/215 the G-ADOPT-4b evidence, U.W-LIB:340,
+   FORMATION §72/§200) cited it as `devDependencies` and framed it a "peer floor" — a runtime dep is the
+   **STRONGER** coupling (a value.js 4.0.0 cut strands keyframes' runtime dep + every transitive keyframes
+   consumer), so the docs UNDERSTATED the co-land. The r4 §8 claim that the block+key idiom "STRUCTURALLY
+   ended" the cite cycle "no future round can re-chase it" was PARTIALLY COSMETIC (fixed the format, left
+   the block name wrong) — r5 re-chased it (a 5th round) and it is now corrected at the ROOT:
+   `devDependencies`→`dependencies` + "peer floor"→"runtime dependency floor" across U.W-ADOPT / U.W-LIB /
+   FORMATION §3-note-1 / registry §22 + the shorthand loci (U.md, ledger, CLOSE, PROGRESS). G-ADOPT-4b's
+   substantive assertion (both floor `^3.1.0`, GREEN at a 3.x minor, RED at a 4.0.0 cut) is UNCHANGED — a
+   cite/framing correction, no disposition reverses, no family drops.
+2. **§B.1 completeness enumeration omitted the T/FINAL §5:306 P1–P10-packet / T-60-communiqué row**
+   (cross-tranche, [adjust]) — `DISPOSITION-LEDGER §B.1` claims to close `T/FINAL §5` → U "completely" and
+   enumerates where every other §5 row folds, but the "P1–P10 packet dispositions + the T-60 producer
+   communiqué (`f3f3c097`)" row was in NEITHER the enumeration NOR the three carried rows. The substance IS
+   covered by the §B "glass-ui BH relay set" chronic, so it was an enumeration-completeness gap, not a true
+   silent drop. Fixed: added the row to §B.1's parenthetical routing (→ §B BH-relay chronic / U.W-ADOPT letter lane).
+3. **BI→BH active-inbox incoherence, no bridge in the U tree** (cross-tranche, [adjust]) — T cites the
+   producer communiqué at `f3f3c097` / "BI inbox HEAD `24a7a764`" ("BI = your active tranche"); U's whole
+   relay apparatus targets BH `17e0f522` ("BI is now closed history"); no U doc named `f3f3c097`/`24a7a764`
+   or reconciled the change, and ledger's T-20 row still routed "to the BI inbox." Fixed: added
+   `DISPOSITION-LEDGER §B.2` — the BI→BH bridge (T-close BI → U-formation BH per the owner's 2026-07-12 BH
+   edict as the governing redirect; `f3f3c097`(BI) carried forward, not stranded) + reconciled the T-20 row
+   to BH + sharpened `U.W-CLOSE §the RELAY discharge` to VERIFY BH is the producer's then-current live inbox
+   (glass-ui BI dir showed activity 2026-07-12 22:08 — that verify is an execution obligation, now named).
+4. **U-F9-rail (T-5 picker active-rail-seat) had a cure approach but NO gate + NO π/DELTA**
+   (pi-delta-visual, **blocks-ratification**) — the round-4 T-5 homing landed a census row + arm note + §C
+   ledger row but NOT the teeth: unlike its stated parallel U-F13-band (BR-10 + owner-attested + a π/DELTA
+   row), U-F9-rail carried a VISUAL claim ("the ring's active/selected channel seat reads coherent at every
+   rung") with nothing to flip and nothing to measure — the exact close-class honesty hole the tranche
+   outlaws. Fixed (full parallel to U-F13-band, honest per the born-RED law): added **BR-12** (the
+   seat-tracks-rung GEOMETRY — headless-verifiable, LANDED-partial per W4-4 so born-GREEN must-STAY if the
+   geometry holds, per the BR-3 idiom — NOT a fabricated headless red for a perceptual surface) + **OA-7**
+   (the owner-attested "reads coherent" perceptual residual, the U-F54 annex) + a **π/DELTA row**
+   (active-seat offset RED→GREEN); updated the census row, the arm note, the ledger row, and the Register-1
+   count (10→12 gates, correcting a pre-existing miscount that had not counted BR-11).
+
+**Round-5 remediation is CLEAN** — 4 applied, 0 deferred (1 blocks-ratification cured). Five
+fresh-adversary passes to date (r1:10, r2:6, r3:8, r4:8, r5:4) each raised real findings, so the
+two-CONSECUTIVE-CLEAN counter has STILL not started; the tranche awaits the NEXT fresh-adversary pass
+as the first potential clean.
 
 ---
 
 **Ruling: CONVERGED** — the formation is complete and coherent; the residual notes are named,
 NOTE-level, and correctable at execution without touching a disposition, gate, or ordering. The
-round-1 (§5), round-2 (§6), round-3 (§7), and round-4 (§8) fresh-adversary findings are all
+round-1 (§5), round-2 (§6), round-3 (§7), round-4 (§8), and round-5 (§9) fresh-adversary findings are all
 doc-remediated; a first CLEAN pass is still pending (the owner's bar is two CONSECUTIVE clean passes).
 
-*Filed by the formation integrator + fresh-adversary critic (opus), 2026-07-12. Path-scoped to
-`docs/tranches/U/**`; pull-rebased on the shared `tranche-t` branch (T.W8/T.W9 landing concurrently).*
+*Filed by the formation integrator + fresh-adversary critic (opus), 2026-07-12; §9 round-5 remediation
+2026-07-13. Path-scoped to `docs/tranches/U/**`; pull-rebased on the shared `tranche-t` branch
+(T.W8/T.W9 landing concurrently).*

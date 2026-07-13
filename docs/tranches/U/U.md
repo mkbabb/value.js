@@ -65,7 +65,7 @@ land:
 **Goal criterion.** Every noted gap in `audit/registry.md` — all 77 U-Fxx families + every chronic
 + every prompt-recap row — lands at its root or is explicitly folded/retired with rationale, in a
 named wave, with zero silent drops. The library-correctness cut co-lands coherently against both
-sibling peer floors. The gate slate gains teeth. The owner-eye residue is cured against a
+sibling `^3.1.0` floors (glass-ui peer + keyframes runtime). The gate slate gains teeth. The owner-eye residue is cured against a
 real-GPU/owner-attested frame, never a headless assertion.
 
 **Completion criterion.** `FINAL.md` walks the DISPOSITION-LEDGER row-by-row (zero drops); every
@@ -160,11 +160,12 @@ U.W-DEMO  ─┘
 **The cross-wave binds** (load-bearing sequencing laws — the registry's R-2/R-3/R-4 reconciliations
 + §28):
 
-- **U-F77 — the lib-cut ⟷ adopt co-land, against BOTH `^3.1.0` peer floors.** U-F29's honest
-  amelioration is semver-loaded; glass-ui pins `@mkbabb/value.js '^3.1.0'` (peer + dev) and
-  keyframes.js pins `'^3.1.0'` (VERIFIED, registry §22) — a 4.0.0 cut strands TWO floors, not one.
+- **U-F77 — the lib-cut ⟷ adopt co-land, against BOTH `^3.1.0` floors.** U-F29's honest
+  amelioration is semver-loaded; glass-ui pins `@mkbabb/value.js '^3.1.0'` (peer + dev — a **peer floor**) and
+  keyframes.js pins `'^3.1.0'` in its **`dependencies`** block (a **RUNTIME dependency floor**, NOT devDeps — the
+  stronger coupling; VERIFIED, registry §22) — a 4.0.0 cut strands TWO floors, not one.
   U.W-LIB authors the fix (born-RED per defect); U.W-ADOPT sequences the version-cut decision
-  (owner-held) against both floors so the peer floors and the cut land coherently. LIB → ADOPT.
+  (owner-held) against both floors so they and the cut land coherently. LIB → ADOPT.
 
 - **The `spectrum-walk` / `backward-color` convention co-migration** (registry §25/§28 — the
   STRUCTURAL resolution). U-F30's fix changes the `mixColors`/`sampleColorRamp`/`color2` OUTPUT
