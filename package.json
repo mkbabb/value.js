@@ -80,7 +80,7 @@
         "lint": "eslint . --max-warnings=0",
         "test": "vitest",
         "test:e2e": "playwright test",
-        "test:dist": "npm run build && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget",
+        "test:dist": "npm run build && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget && npm run proof:lib-correctness",
         "boot-smoke": "node scripts/ci/boot-smoke.mjs",
         "abrogation-sweep": "node scripts/ci/abrogation-sweep.mjs",
         "css-emission-probe": "node scripts/ci/css-emission-probe.mjs",
@@ -88,7 +88,8 @@
         "proof:round-trip-idempotent": "node scripts/gates/proof-round-trip-idempotent.mjs",
         "proof:perf-target": "node scripts/gates/proof-perf-target.mjs",
         "proof:serialize-fidelity": "node scripts/gates/proof-serialize-fidelity.mjs",
-        "proof:subpath-budget": "node scripts/gates/proof-subpath-budget.mjs"
+        "proof:subpath-budget": "node scripts/gates/proof-subpath-budget.mjs",
+        "proof:lib-correctness": "node scripts/gates/proof-lib-correctness.mjs"
     },
     "repository": {
         "type": "git",
