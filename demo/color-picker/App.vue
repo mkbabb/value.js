@@ -45,6 +45,9 @@
 
         <!-- W5-a11y: main landmark for pane content -->
         <main class="pane-main" aria-label="Color tool panes">
+        <!-- U.W-A11Y · U-F58: a pane render throw surfaces the focus-managed,
+             SR-announced boundary IN PLACE of the grid — never a white-screen. -->
+        <ErrorBoundary message="This panel hit an unexpected error.">
         <!-- Two-pane grid. `paneContainer` feeds the S.W5-10 device-pixel
              snap (card-lighting-forensics artifact 4): the flex-centering
              remainder is nudged off fractional device pixels so the card
@@ -134,6 +137,7 @@
                 </div>
             </template>
         </div>
+        </ErrorBoundary>
         </main>
     </div>
 
@@ -171,6 +175,9 @@ import { Dock } from "@components/custom/dock";
 // the glass-ui 5.0.0 adopt-gap); tracked to U.W-CLOSE's re-probe.
 import { MigratePalettesDialog } from "@components/custom/palette-browser/dialog";
 import PaneSlot from "@components/custom/panes/PaneSlot.vue";
+// U.W-A11Y · U-F58: the focus-managed / SR-announced boundary that catches a
+// pane render throw instead of white-screening (never a silent dead plate).
+import ErrorBoundary from "@components/common/ErrorBoundary.vue";
 
 import { useCustomColorNames } from "@composables/color/useCustomColorNames";
 import { useColorUrl } from "@composables/color/useColorUrl";

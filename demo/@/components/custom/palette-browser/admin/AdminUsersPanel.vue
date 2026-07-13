@@ -67,13 +67,26 @@
                 :key="user.slug"
                 class="rounded-md border border-card-edge overflow-hidden"
             >
-                <!-- User header row -->
+                <!-- User header row. U.W-A11Y · BR-9 (WCAG 2.1.1 Keyboard):
+                     the expand affordance is the WHOLE row (its cursor-pointer
+                     class), and there is NO other keyboard path to a user's
+                     palettes — so when the row is interactive (paletteCount > 0)
+                     it is a real disclosure BUTTON: role=button + tabindex=0 +
+                     aria-expanded + Enter/Space. A 0-palette row carries none of
+                     these (it is inert), so it never enters the tab order as a
+                     dead control. -->
                 <div
                     :class="[
                         'flex items-center gap-3 px-3 py-2.5 transition-colors',
-                        user.paletteCount ? 'cursor-pointer hover:bg-accent/50' : 'cursor-default',
+                        user.paletteCount
+                            ? 'cursor-pointer hover:bg-accent/50 focus-visible:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring'
+                            : 'cursor-default',
                     ]"
+                    :role="user.paletteCount ? 'button' : undefined"
+                    :tabindex="user.paletteCount ? 0 : undefined"
+                    :aria-expanded="user.paletteCount ? expandedUserSlug === user.slug : undefined"
                     @click="user.paletteCount ? toggleUserExpand(user.slug) : undefined"
+                    @keydown="user.paletteCount ? onRowKeydown($event, user.slug) : undefined"
                 >
                     <div class="flex-1 min-w-0 flex items-center gap-2">
                         <!-- Ag-11: slug-pill class replaces copy-pasted cluster.
@@ -300,6 +313,21 @@ function onDeleteUserClick(slug: string) {
         destructive: true,
         action: () => emit("deleteUser", slug),
     });
+}
+
+// U.W-A11Y · BR-9: keyboard activation of the disclosure row. Enter/Space
+// toggle the row's palettes (Space is `.prevent`ed to suppress page scroll).
+// The `target === currentTarget` guard is load-bearing: the inner action
+// cluster (Palettes / Delete) lives INSIDE the row, and while its clicks are
+// `@click.stop`ped, a keydown still bubbles — without this guard, pressing
+// Enter on a nested button would ALSO toggle the row. Only a key that
+// originated on the row itself expands it.
+function onRowKeydown(e: KeyboardEvent, slug: string) {
+    if (e.target !== e.currentTarget) return;
+    if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        toggleUserExpand(slug);
+    }
 }
 
 async function toggleUserExpand(slug: string) {
