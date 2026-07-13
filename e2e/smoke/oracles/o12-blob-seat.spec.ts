@@ -43,6 +43,25 @@ test.use({ viewport: { width: 1440, height: 900 } });
 
 const BLOB_CANVAS = '[data-testid="goo-blob-canvas"]';
 
+// ── O-12 BACKING-RATIO FEASIBILITY LEG (boot-G MINT · G-ORACLE-2, U.W-ORACLE)
+// The seat-identity leg (`--blob-seat === 0` + wrapper ⊂ card) is the GUARD
+// CONSTANT — it certifies the seat GEOMETRY but is blind to the backing-store
+// RESOLUTION. R2 (T.W45 checkpoint) shipped the blob booting at ~0.35× backing
+// (the substrate presizes from gBCR mid-`blob-emerge`, when the anchor is
+// scaled from 0.35), and the idle park FROZE that low-res frame — a wreck the
+// geometry leg cannot see (the box is full-size; only its pixels are starved).
+// This leg makes the R2 regression class SLATE-VISIBLE: it certifies the real
+// referent — the canvas backing store at FULL DEVICE RESOLUTION after settle.
+// BORN-GREEN — cured at af18e07 (HeroBlob drives the producer's re-measure seam
+// — pause()/resume() at the emerge animationend — sizing the backing against
+// the untransformed box). The floor is DERIVED FROM MEASUREMENT (see the
+// derivation in docs/tranches/U/audit/oracle/feasibility/): the settled cured
+// ratio measures ≈ 1.0 (backing ≡ css×dpr); the R2 wreck freezes at ≈ 0.35× —
+// the 0.6 floor sits well above the wreck (with the ~8–10% frame-noise + any
+// quality-ladder margin) and below full-res, so a re-regression to the low-res
+// emerge frame reds here while healthy boot stays green.
+const BACKING_RATIO_FLOOR = 0.6;
+
 async function bootWithBlob(page: import("@playwright/test").Page) {
     await page.goto("/");
     await expect(
@@ -182,4 +201,42 @@ test("O-12 · 4 — hover-active frame budget: sustained pointermove sweep p50 �
             `hover-active p50 ${p50.toFixed(1)}ms over the ≤${GATE.dragP50Ms ?? 20}ms budget`,
         ).toBeLessThanOrEqual(20);
     }
+});
+
+test("O-12 · 5 — the backing-ratio feasibility leg: the settled canvas backing store is at full device resolution (never the 0.35× emerge-presize wreck; boot-G / R2)", async ({
+    page,
+}) => {
+    const { blob } = await bootWithBlob(page);
+    // Let the emerge re-measure seam (pause()/resume() at the `blob-emerge`
+    // animationend) settle the backing against the untransformed box.
+    await waitMs(page, PARK_SETTLE_MS);
+
+    const renderer = await detectRenderer(page);
+    const m = await blob.evaluate((el) => {
+        const c = el as HTMLCanvasElement;
+        const box = c.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        return {
+            backingW: c.width,
+            backingH: c.height,
+            cssW: box.width,
+            cssH: box.height,
+            dpr,
+            // The R2 invariant is dpr-agnostic: backing ÷ (css × dpr). Full
+            // device resolution ≈ 1.0; the frozen emerge frame ≈ 0.35×.
+            ratio: box.width > 0 ? c.width / (box.width * dpr) : 0,
+        };
+    });
+    console.log(
+        `[o12-backing] renderer=${isSoftwareGL(renderer) ? "SOFTWARE-GL" : "REAL-GPU"} backing ${m.backingW}x${m.backingH} css ${m.cssW.toFixed(1)}x${m.cssH.toFixed(1)} dpr ${m.dpr} → ratio ${m.ratio.toFixed(3)} (full-res ≈ 1.0; R2 wreck ≈ 0.35; floor ${BACKING_RATIO_FLOOR})`,
+    );
+    // The backing resize is JS-driven (the substrate's gBCR sizer), so this leg
+    // is renderer-INDEPENDENT — it is not the aurora's GPU-only class (U-F15);
+    // it measures a real resolution floor headless, the honest born-GREEN case.
+    expect(m.cssW, "blob canvas has a laid-out box").toBeGreaterThan(0);
+    expect(m.backingW, "blob canvas has a backing store").toBeGreaterThan(0);
+    expect(
+        m.ratio,
+        `backing at full device resolution (ratio ${m.ratio.toFixed(3)} — the R2 wreck freezes ≈ 0.35×; a regression re-froze the low-res emerge frame)`,
+    ).toBeGreaterThanOrEqual(BACKING_RATIO_FLOOR);
 });

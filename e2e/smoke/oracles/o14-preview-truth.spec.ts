@@ -389,4 +389,172 @@ test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
             await page.keyboard.press("Escape");
         }
     });
+
+    // ── the T-17 CHIP FEASIBILITY LEG (G-ORACLE-2 · the feasibility-leg law,
+    // U.W-ORACLE / U-F6-oracle-half). The byte-identity test above is the GUARD
+    // CONSTANT: painted gradient ≡ stamped `data-stops` — a byte-honest sampler
+    // whose serialization the paint faithfully echoes. But byte-identity is
+    // BLIND to a wreck the sampler itself could emit: stops clamped near-black
+    // (the O-14 ramp's own disease — L ≈ 0.02) or driven near-transparent, a
+    // "lying preview" (worse than none) that still byte-matches its own output.
+    // This leg is the ramp leg's pattern generalized to the chip: each preview
+    // chip's PAINTED stops are certified against the REAL referent — perceptible
+    // against the composited menu surface, opaque, and off the near-black clamp —
+    // never against their own serialization.
+    test("the chip feasibility leg: every preview chip is perceptible against the menu surface — never the near-black / near-transparent clamp a byte-honest sampler would still serialize", async ({
+        page,
+    }) => {
+        await page.goto("/");
+        await page.waitForSelector(".glass-dock");
+        await openView(page, "Mix");
+
+        const addSlot = page.getByRole("button", {
+            name: "Add current color to the mix",
+        });
+        await addSlot.click();
+        await addSlot.click();
+
+        for (const menuName of ["Color space", "Hue method"]) {
+            await page
+                .getByRole("combobox", { name: menuName, exact: true })
+                .click();
+            const chips = page.getByRole("listbox").locator("[data-stops]");
+            const n = await chips.count();
+            expect(n, `${menuName}: preview chips render`).toBeGreaterThan(0);
+            for (let i = 0; i < n; i++) {
+                const m = await chips.nth(i).evaluate((el) => {
+                    const cv = document.createElement("canvas");
+                    cv.width = cv.height = 1;
+                    const ctx = cv.getContext("2d")!;
+                    const resolve = (
+                        css: string,
+                    ): [number, number, number, number] => {
+                        const draw = (ground: string) => {
+                            ctx.fillStyle = ground;
+                            ctx.fillRect(0, 0, 1, 1);
+                            ctx.fillStyle = "#000";
+                            ctx.fillStyle = css;
+                            ctx.fillRect(0, 0, 1, 1);
+                            return ctx.getImageData(0, 0, 1, 1).data;
+                        };
+                        const onBlack = draw("#000");
+                        const onWhite = draw("#fff");
+                        const a = 1 - (onWhite[0] - onBlack[0]) / 255;
+                        if (a <= 0) return [0, 0, 0, 0];
+                        return [onBlack[0] / a, onBlack[1] / a, onBlack[2] / a, a];
+                    };
+                    // Composite the ancestor bg stack over the published page
+                    // ambient — the option-row surface the chip sits on (the
+                    // O-18 census model; the same ground the ramp leg uses).
+                    const rootStyle = getComputedStyle(document.documentElement);
+                    const ambientL = Number.parseFloat(
+                        rootStyle.getPropertyValue("--ink-ambient-l").trim(),
+                    );
+                    const pageGround = Number.isFinite(ambientL)
+                        ? resolve(`oklch(${ambientL} 0 0)`)
+                        : resolve(
+                              rootStyle.getPropertyValue("--saved-bg").trim() ||
+                                  rootStyle
+                                      .getPropertyValue("--background")
+                                      .trim(),
+                          );
+                    const layers: [number, number, number, number][] = [];
+                    for (
+                        let node: HTMLElement | null = el as HTMLElement;
+                        node &&
+                        node !== document.body &&
+                        node !== document.documentElement;
+                        node = node.parentElement
+                    ) {
+                        const c = resolve(
+                            getComputedStyle(node).backgroundColor,
+                        );
+                        if (c[3] > 0) layers.push(c);
+                    }
+                    let ground: [number, number, number] = [
+                        pageGround[0],
+                        pageGround[1],
+                        pageGround[2],
+                    ];
+                    for (const [r, g, b, a] of layers.reverse()) {
+                        ground = [
+                            a * r + (1 - a) * ground[0],
+                            a * g + (1 - a) * ground[1],
+                            a * b + (1 - a) * ground[2],
+                        ];
+                    }
+                    const lum = ([r, g, b]: [number, number, number]) => {
+                        const lin = (v: number) => {
+                            const s = v / 255;
+                            return s <= 0.04045
+                                ? s / 12.92
+                                : ((s + 0.055) / 1.055) ** 2.4;
+                        };
+                        return (
+                            0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b)
+                        );
+                    };
+                    const lg = lum(ground);
+                    // The PAINTED gradient's own stops (what actually renders),
+                    // not the stamped serialization — this is the paint ≡ floor
+                    // leg, distinct from the paint ≡ token byte-identity above.
+                    const paint = getComputedStyle(el).backgroundImage;
+                    const matches = [
+                        ...paint.matchAll(
+                            /oklch\(([\d.]+)[ ,]+([\d.]+)[ ,]+([\d.]+)(?:\s*\/\s*([\d.%]+))?\)/g,
+                        ),
+                    ];
+                    const alphas: number[] = [];
+                    const ratios: number[] = [];
+                    const okls: number[] = [];
+                    for (const mm of matches) {
+                        const [r, g, b, a] = resolve(mm[0]);
+                        alphas.push(a);
+                        const li = lum([r, g, b]);
+                        ratios.push(
+                            (Math.max(li, lg) + 0.05) / (Math.min(li, lg) + 0.05),
+                        );
+                        okls.push(
+                            Math.cbrt(
+                                0.2126 * (r / 255) +
+                                    0.7152 * (g / 255) +
+                                    0.0722 * (b / 255),
+                            ),
+                        );
+                    }
+                    return {
+                        count: matches.length,
+                        alphas,
+                        ratios,
+                        maxL: okls.length ? Math.max(...okls) : 0,
+                        maxRatio: ratios.length ? Math.max(...ratios) : 0,
+                        minAlpha: alphas.length ? Math.min(...alphas) : 0,
+                        ground: `rgb(${ground.map(Math.round).join(" ")})`,
+                    };
+                });
+
+                const tag = `${menuName} chip ${i}`;
+                expect(m.count, `${tag}: painted gradient has ≥2 stops`).toBeGreaterThanOrEqual(2);
+                // OPAQUE — a near-transparent preview is a wreck the byte-
+                // identity leg cannot see.
+                expect(
+                    m.minAlpha,
+                    `${tag}: chip is opaque (minα ${m.minAlpha.toFixed(3)})`,
+                ).toBeGreaterThanOrEqual(0.5);
+                // OFF THE NEAR-BLACK CLAMP — the O-14 ramp's own disease
+                // (L ≈ 0.02), the referent this whole law exists to catch.
+                expect(
+                    m.maxL,
+                    `${tag}: not near-black-clamped (maxL ${m.maxL.toFixed(3)})`,
+                ).toBeGreaterThan(0.1);
+                // PERCEPTIBLE against the surface it sits on — a chip collapsed
+                // to the menu ground (contrast ≈ 1.0) reds here.
+                expect(
+                    m.maxRatio,
+                    `${tag}: perceptible vs menu surface ${m.ground} (max ${m.maxRatio.toFixed(2)}:1)`,
+                ).toBeGreaterThanOrEqual(1.2);
+            }
+            await page.keyboard.press("Escape");
+        }
+    });
 });

@@ -54,6 +54,18 @@ import { expandDock } from "../fixtures/dock";
  * guard and census keep sharing ONE referent by construction.
  */
 
+// ── O-18 CENSUS FEASIBILITY LEG (G-ORACLE-2 · the feasibility-leg law) ───────
+// The membership-by-identity assertions (`caption color === --ink-muted`, the
+// O-7 discipline; the IDENTITY-leg hue/chroma echo) are the GUARD CONSTANT:
+// they prove a consumer WEARS the certified token — serialization ≡ paint,
+// blind on their own to whether the token itself clears a floor (the §5.1
+// cream-collapse read accent-voiced in name only). EVERY `ratio ≥ TEXT_FLOOR /
+// GRAPHICS_FLOOR` assertion in this census IS the feasibility half: the
+// effective ink (or track SURFACE) is certified against the COMPOSITED ancestor
+// stack over the published page ambient — the real referent, both schemes — so
+// a wearer of a floor-failing token reds here even while the identity leg still
+// matches. The census IS the leg; this marker names it for the G-ORACLE-2
+// meta-audit. (U.W-ORACLE / U-F6-oracle-half.)
 const OWNER_COLOR = "lab(38% 32 24)";
 const OWNER_URL = "/#/?space=lab&color=" + encodeURIComponent(OWNER_COLOR);
 

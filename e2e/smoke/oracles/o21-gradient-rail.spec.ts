@@ -50,6 +50,15 @@ async function openGradient(page: Page): Promise<Locator> {
 
 const bar = (main: Locator) => main.getByTestId("gradient-stop-bar").last();
 
+// ── O-21 SPAN FEASIBILITY LEG (G-ORACLE-2 · the feasibility-leg law) ─────────
+// The `owned paint stack` test is the GUARD CONSTANT: it asserts the computed
+// `background-image` ≡ `linear-gradient(90deg…)` with border-box origin+clip — a
+// paint-stack proxy, blind to whether the ramp actually SPANS its stops in
+// paint. THIS terminal-truth leg is the feasibility half: in real screenshot
+// PIXELS each rail EDGE paints ITS OWN terminal stop's color (left→first,
+// right→last), so a mirrored-sliver bleed or a collapsed span reds here even
+// while the paint stack still reads correct — the constant certified against the
+// real referent, not against its own serialization. (U.W-ORACLE / U-F6-oracle.)
 test("terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bleed)", async ({
     page,
 }) => {

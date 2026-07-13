@@ -31,6 +31,16 @@ import { lumaDelta, screenshotPixels } from "./gradient-pixels";
 
 test.use({ deviceScaleFactor: 2 });
 
+// ── O-19 NETTING FEASIBILITY LEG (G-ORACLE-2 · the feasibility-leg law) ──────
+// The computed-token test below (`the recalibrated register's computed tokens
+// hold`) is the GUARD CONSTANT: it asserts the four `--gamut-*` tokens serialize
+// 30% / 36% / 45% / 4.75px — a token-string proxy, blind to whether the netting
+// actually PAINTS. THIS parametrized leg is the feasibility half: it certifies
+// the netting's real referent — the hatch-vs-paper LUMA DELTA on the LIVE
+// COMPOSITED plate (screenshot pixels, both schemes + 390), against the
+// perceptual FLOOR. A netting that drifts invisible reds here even while the
+// tokens still serialize their numbers — the S-disease's structural cure at the
+// O-19 surface. (U.W-ORACLE / U-F6-oracle-half.)
 const FLOORS = { light: 59, dark: 45 } as const;
 
 async function openGradient(page: Page) {
