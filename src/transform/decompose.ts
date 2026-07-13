@@ -426,6 +426,32 @@ export function slerp(qa: Vec4, qb: Vec4, t: number): Vec4 {
 // ────────────────────────────────────────────────────────────────
 
 /**
+ * Recompose a 2D decomposed matrix back into a CSS matrix(a, b, c, d, e, f)
+ * value array (6 values). The algebraic inverse of {@link decomposeMatrix2D}:
+ * it rebuilds the recomposition `translate · rotate(angle) · skew · scale`
+ * (CSSOM View §15.1 — the 2D analog of {@link recomposeMatrix3D}'s
+ * translate→rotate→skew→scale order).
+ *
+ * With `cos = cos(angle)`, `sin = sin(angle)`, the linear part is
+ * `rotate · skew · scale`, giving the column-vector matrix `| a c | / | b d |`.
+ * A negative `scaleX` (the decompose determinant-flip encoding) is carried
+ * through verbatim, so a reflected matrix round-trips exactly.
+ */
+export function recomposeMatrix2D(d: DecomposedMatrix2D): number[] {
+    const cos = Math.cos(d.angle);
+    const sin = Math.sin(d.angle);
+
+    return [
+        d.scaleX * cos, // a
+        d.scaleX * sin, // b
+        d.scaleY * (d.skew * cos - sin), // c
+        d.scaleY * (d.skew * sin + cos), // d
+        d.translateX, // e
+        d.translateY, // f
+    ];
+}
+
+/**
  * Recompose a 3D decomposed matrix back into a CSS matrix3d() value array (16 values, column-major CSS order).
  */
 export function recomposeMatrix3D(d: DecomposedMatrix3D): number[] {
@@ -504,38 +530,74 @@ function quaternionToMatrix(q: Vec4): Mat4 {
 // ────────────────────────────────────────────────────────────────
 
 /**
- * Interpolate between two decomposed 3D matrices at parameter t.
- * Uses slerp for rotation, lerp for everything else.
+ * Interpolate between two decomposed matrices at parameter t.
+ *
+ * 3D: slerp for rotation, lerp for everything else. 2D (CSSOM §15.1): the plane
+ * carries a single scalar rotation `angle` rather than a quaternion, so `angle`
+ * lerps directly — no slerp needed. The two operands must share dimensionality;
+ * a 2D/3D mix is not interpolable and throws.
  */
+export function interpolateDecomposed(
+    a: DecomposedMatrix2D,
+    b: DecomposedMatrix2D,
+    t: number,
+): DecomposedMatrix2D;
 export function interpolateDecomposed(
     a: DecomposedMatrix3D,
     b: DecomposedMatrix3D,
     t: number,
-): DecomposedMatrix3D {
+): DecomposedMatrix3D;
+export function interpolateDecomposed(
+    a: DecomposedMatrix2D | DecomposedMatrix3D,
+    b: DecomposedMatrix2D | DecomposedMatrix3D,
+    t: number,
+): DecomposedMatrix2D | DecomposedMatrix3D {
     const lerp = (v0: number, v1: number) => v0 + (v1 - v0) * t;
 
-    return {
-        translate: [
-            lerp(a.translate[0], b.translate[0]),
-            lerp(a.translate[1], b.translate[1]),
-            lerp(a.translate[2], b.translate[2]),
-        ],
-        scale: [
-            lerp(a.scale[0], b.scale[0]),
-            lerp(a.scale[1], b.scale[1]),
-            lerp(a.scale[2], b.scale[2]),
-        ],
-        skew: [
-            lerp(a.skew[0], b.skew[0]),
-            lerp(a.skew[1], b.skew[1]),
-            lerp(a.skew[2], b.skew[2]),
-        ],
-        quaternion: slerp(a.quaternion, b.quaternion, t),
-        perspective: [
-            lerp(a.perspective[0], b.perspective[0]),
-            lerp(a.perspective[1], b.perspective[1]),
-            lerp(a.perspective[2], b.perspective[2]),
-            lerp(a.perspective[3], b.perspective[3]),
-        ],
-    };
+    // 2D shape: discriminated by the scalar `angle` (3D has none). `angle` lerps
+    // directly — the plane has a single rotation axis, so slerp is degenerate.
+    if ("angle" in a && "angle" in b) {
+        return {
+            translateX: lerp(a.translateX, b.translateX),
+            translateY: lerp(a.translateY, b.translateY),
+            scaleX: lerp(a.scaleX, b.scaleX),
+            scaleY: lerp(a.scaleY, b.scaleY),
+            angle: lerp(a.angle, b.angle),
+            skew: lerp(a.skew, b.skew),
+        };
+    }
+
+    // 3D shape: discriminated by the `quaternion` (2D has none).
+    if ("quaternion" in a && "quaternion" in b) {
+        return {
+            translate: [
+                lerp(a.translate[0], b.translate[0]),
+                lerp(a.translate[1], b.translate[1]),
+                lerp(a.translate[2], b.translate[2]),
+            ],
+            scale: [
+                lerp(a.scale[0], b.scale[0]),
+                lerp(a.scale[1], b.scale[1]),
+                lerp(a.scale[2], b.scale[2]),
+            ],
+            skew: [
+                lerp(a.skew[0], b.skew[0]),
+                lerp(a.skew[1], b.skew[1]),
+                lerp(a.skew[2], b.skew[2]),
+            ],
+            quaternion: slerp(a.quaternion, b.quaternion, t),
+            perspective: [
+                lerp(a.perspective[0], b.perspective[0]),
+                lerp(a.perspective[1], b.perspective[1]),
+                lerp(a.perspective[2], b.perspective[2]),
+                lerp(a.perspective[3], b.perspective[3]),
+            ],
+        };
+    }
+
+    // Mixed 2D/3D operands: recompose to a common dimensionality before
+    // interpolating — the two shapes have no shared rotation representation.
+    throw new Error(
+        "interpolateDecomposed: cannot interpolate a 2D and a 3D decomposition together",
+    );
 }
