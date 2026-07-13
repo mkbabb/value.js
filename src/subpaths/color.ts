@@ -32,6 +32,12 @@ export {
     AdobeRGBColor,
     ProPhotoRGBColor,
     Rec2020Color,
+    // U-F22 (U.W-CANON) — the two perceptual-difference spaces (S.W1 additions)
+    // were in the root barrel but drifted out of this /color subpath. Restored
+    // ADDITIVELY; they come from the same `../units/color` module this barrel
+    // already imports, so the parse-that-FREE subpath-budget invariant holds.
+    ICtCpColor,
+    JzazbzColor,
 } from "../units/color";
 export type { ColorSpaceMap } from "../units/color";
 

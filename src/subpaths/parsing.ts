@@ -39,6 +39,10 @@ export type {
     PropertyDescriptor,
     CustomFunctionDescriptor,
     CustomFunctionParameter,
+    // U-F22 (U.W-CANON) — the scroll/view timeline descriptor types were in the
+    // root barrel but drifted out of this /parsing subpath. Restored ADDITIVELY.
+    ScrollTimelineDescriptor,
+    ViewTimelineDescriptor,
 } from "../parsing/stylesheet";
 
 // Stylesheet extractors
@@ -68,11 +72,15 @@ export {
 // Scroll-driven-animation VALUE grammar (N.W11′)
 export {
     parseAnimationTimeline,
+    // U-F22 (U.W-CANON) — the List/Named timeline variants were in the root
+    // barrel but drifted out of this /parsing subpath. Restored ADDITIVELY.
+    parseAnimationTimelineList,
     parseAnimationRange,
     parseAnimationRangeBoundary,
     parseTimelineScope,
     parseAnimationTrigger,
     extractTimelineOptions,
+    extractNamedTimelines,
     serializeAnimationTimeline,
     serializeAnimationRange,
     serializeTimelineScope,
@@ -81,6 +89,8 @@ export {
 } from "../parsing/timeline/scroll-timeline";
 export type {
     CSSTimelineOptions,
+    // U-F22 — the named-timeline registry type, restored ADDITIVELY (parity).
+    NamedTimelineRegistry,
     AnimationTimelineValue,
     AnimationRangeValue,
     AnimationTriggerValue,

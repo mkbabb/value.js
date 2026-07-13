@@ -202,6 +202,25 @@ export type {
     GamutBoundaryMode,
     SampleGamutBoundaryOptions,
 } from "./units/color/gamut/boundary";
+// U-F22 (U.W-CANON) — the OKLCh slice/hue-sweep boundary samplers (S.W1-6 · T.W1-src)
+// shipped on the /color subpath but had drifted OUT of this root barrel. Restored
+// ADDITIVELY so root ⊇ every subpath symbol (the parity invariant, G-CANON-3).
+export {
+    sampleOKLChSliceBoundary,
+    sampleOKLChSliceBoundaryInto,
+    sampleOKLChHueSweepBoundary,
+    sampleOKLChHueSweepBoundaryInto,
+} from "./units/color/gamut/boundary";
+export type {
+    OKLChSliceBoundary,
+    OKLChHueSweepBoundary,
+} from "./units/color/gamut/boundary";
+// U-F22 (U.W-CANON) — the raytrace gamut-map twins (S.W1-10 · R-4) were on the
+// /color subpath but absent from root; restored ADDITIVELY (parity, G-CANON-3).
+export {
+    gamutMapOKLabRaytrace,
+    gamutMapSRGBRaytrace,
+} from "./units/color/gamut/raytrace";
 
 // Color normalization
 export {
