@@ -155,6 +155,17 @@ jobs:
             - name: Abrogation sweep (exports map + retired classes — inv-N-10)
               run: npm run abrogation-sweep
 
+            # ── 2c · G-ORACLE-1 · oracle-slate CI-teeth (blocking — U-F1/U-F55-CI) ─
+            # Parses the workflow YAML + playwright.config.ts and asserts the
+            # oracle + built-bundle-perf slate carries NO un-owned continue-on-error
+            # AND every playwright project is invoked by a workflow (or a soft step
+            # is OWNED + cited to the soft-posture record). HARD by design: a
+            # born-RED gate that no workflow runs is the very "invoked by no
+            # workflow" drift this closes. Cheap config-read (no browser/dist).
+            # See docs/tranches/U/audit/oracle/ci-teeth/SOFT-POSTURE.md.
+            - name: "G-ORACLE-1 — oracle-slate CI-teeth assertion (U-F1 · U-F55-CI-teeth)"
+              run: node scripts/ci/oracle-slate-teeth.mjs
+
             # ── 3 · build + size budget ─────────────────────────────────────
             - name: Build library (dist/value.{js,d.ts})
               run: npm run build
@@ -330,7 +341,14 @@ jobs:
             # self-fails SOFT instead of consuming the job budget into a HARD
             # job-timeout (which continue-on-error does NOT swallow — it cancels
             # the job).
-            - name: Playwright — full smoke project (soft-launch)
+            - name: Playwright — full smoke project (soft-launch — OWNED soft, see G-ORACLE-1 cite)
+              # G-ORACLE-1 SOFT-POSTURE-CITE: docs/tranches/U/audit/oracle/ci-teeth/SOFT-POSTURE.md
+              # OWNED soft (not un-owned drift): the smoke project hosts the
+              # producer/GPU-gated reds O-16/O-26/O-3, mapped by name in the cite +
+              # the born-red-register. Default posture SOFT-but-OWNED; the
+              # blocking-vs-ratified-soft ruling is booked to U.W-CLOSE. The Pole-A
+              # hard subset (still-red/GPU-only excluded by name) is PREPARED +
+              # RESERVED in the cite's §3 — activate at the close ruling.
               continue-on-error: true
               timeout-minutes: 8
               run: npx playwright test --project=smoke
@@ -427,6 +445,12 @@ jobs:
             # correctly contains a hang, not a slow suite (local smoke-safari
             # passes in ~30s; the wedge is CI-environmental). NEVER raise it.
             - name: Playwright — smoke-safari (WebKit, soft — surfaces the L1 aurora-shader P0)
+              # G-ORACLE-1 SOFT-POSTURE-CITE: docs/tranches/U/audit/oracle/ci-teeth/SOFT-POSTURE.md
+              # OWNED soft (not un-owned drift): surfaces the known-live L1
+              # aurora-shader WebGL2 P0 (a producer defect value.js is prohibited
+              # from shimming). FLIP to hard at the glass-ui adopt-event
+              # (communiqué 17e0f522 §2b / U.W-ADOPT). Default posture SOFT-but-
+              # OWNED; the blocking-vs-ratified-soft ruling is booked to U.W-CLOSE.
               continue-on-error: true
               timeout-minutes: 12
               run: npx playwright test --project=smoke-safari --reporter=line
@@ -435,6 +459,109 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   name: playwright-report-safari
+                  path: value.js/playwright-report/
+                  retention-days: 7
+
+    # ── 5c · e2e-slate — the previously-unrun projects (U.W-ORACLE GAP-CLOSURE) ─
+    # U-F1 + U-F55-CI-teeth (registry §1/§16/§20/§21): smoke-perf (the built-
+    # bundle frame-budget project that hosts O-5 + O-24 + the drag/idle/view-switch
+    # budgets), smoke-reactivity, smoke-mobile, and smoke-admin were invoked by NO
+    # workflow (VERIFIED: 0 `--project=<name>` matches across ci.yml + deploy-
+    # pages.yml + release.yml). A green CI was therefore ZERO evidence the built-
+    # bundle perf slate or the reactivity/mobile/admin oracle slate passed — the
+    # T.W0 core-deliverable debt. This job WIRES all four. It is GAP-closure, NOT
+    # a CI-semantics flip: the step is SOFT + OWNED (the G-ORACLE-1 cite), the
+    # blocking promotion is the PREPARED-but-RESERVED Pole-A hard step in the cite
+    # (§3), and the blocking-vs-ratified-soft ruling is booked to U.W-CLOSE. Its
+    # own job (no `needs:`) so it runs PARALLEL to the lib gates + the other e2e
+    # jobs and owns its own budget (the CANCELLED-job root-cause lesson).
+    e2e-slate:
+        runs-on: ubuntu-latest
+        timeout-minutes: 25
+        defaults:
+            run:
+                working-directory: value.js
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  path: value.js
+            - name: "Checkout glass-ui @ tranche/BG (the D8-1-cured live tree; un-pin at the 5.0.0 master landing)"
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/glass-ui
+                  ref: tranche/BG
+                  path: glass-ui
+            - name: "Checkout keyframes.js (file: workspace dep)"
+              uses: actions/checkout@v4
+              with:
+                  repository: mkbabb/keyframes.js
+                  path: keyframes.js
+            - name: Use Node 24 (the producers' build env)
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+            - name: Build glass-ui dist (the demo's runtime CSS/dts/js)
+              working-directory: glass-ui
+              run: |
+                  npm ci
+                  npm run build
+            - name: Build keyframes.js dist (the demo runtime graph imports it via glass-ui's peer)
+              working-directory: keyframes.js
+              run: |
+                  npm ci
+                  npm run build
+            - name: Use Node 22 (the value.js ladder)
+              uses: actions/setup-node@v5
+              with:
+                  node-version: 22
+                  cache: "npm"
+                  cache-dependency-path: value.js/package-lock.json
+            - run: npm ci
+            # The demo self-aliases @mkbabb/value.js → dist/value.js (mechanism-C),
+            # and smoke-perf's built-bundle server (serve-built.mjs on :8091) builds
+            # dist/gh-pages on demand — so the library dist must exist first.
+            - name: Build value.js dist (the demo self-alias + built-bundle target)
+              run: npm run build
+            - name: Cache Playwright browsers (chromium)
+              uses: actions/cache@v4
+              id: playwright-cache
+              with:
+                  path: ~/.cache/ms-playwright
+                  key: playwright-chromium-${{ runner.os }}-${{ hashFiles('value.js/package-lock.json') }}
+            - name: Install Playwright (chromium)
+              if: steps.playwright-cache.outputs.cache-hit != 'true'
+              run: npx playwright install --with-deps chromium
+            - name: Install Playwright system deps (chromium, cache hit)
+              if: steps.playwright-cache.outputs.cache-hit == 'true'
+              run: npx playwright install-deps chromium
+            # SOFT + OWNED (the G-ORACLE-1 cite): one combined invocation so the
+            # webServers (dev :8090 + the built-bundle serve-built.mjs :8091) boot
+            # ONCE for all four. A single per-step 15-min bound (the peel LAW) is
+            # the hang-catcher; continue-on-error keeps a slate red from wedging
+            # the ladder while the posture is soft.
+            - name: "Playwright — previously-unrun slate (smoke-perf/reactivity/mobile/admin, soft — GAP-CLOSURE)"
+              # G-ORACLE-1 SOFT-POSTURE-CITE: docs/tranches/U/audit/oracle/ci-teeth/SOFT-POSTURE.md
+              # GAP-CLOSURE, not a semantics flip. SOFT + OWNED on first-wire (these
+              # projects are not CI-certified green in-lane; E-3 forbids an unproven
+              # blocking flip). smoke-perf hosts O-5 (test.fail, producer/adopt-
+              # gated → U.W-PERF/U.W-ADOPT RP-2). The Pole-A hard subset (O-5
+              # excluded BY NAME) is PREPARED + RESERVED in the cite §3; the
+              # blocking-vs-ratified-soft ruling is booked to U.W-CLOSE.
+              continue-on-error: true
+              timeout-minutes: 15
+              run: >-
+                  npx playwright test
+                  --project=smoke-perf
+                  --project=smoke-reactivity
+                  --project=smoke-mobile
+                  --project=smoke-admin
+                  --reporter=line
+            - name: Upload Playwright report (e2e-slate)
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: playwright-report-slate
                   path: value.js/playwright-report/
                   retention-days: 7
 
