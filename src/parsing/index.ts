@@ -55,6 +55,23 @@ const { mathFunction: MathFunction, calcFn: CalcFunction } = createMathFunctionP
 const TRANSFORM_FUNCTIONS = ["translate", "scale", "rotate", "skew"];
 const TRANSFORM_DIMENSIONS = ["x", "y", "z"];
 
+// The single-argument axis-expansion table (U-F31 · U.W-LIB LIB-G7). A
+// scalar-arg transform does NOT fan onto all three axes — each function has its
+// own single-value semantics per the CSS transform spec:
+//   · rotate(a)    → a Z-rotation (rotateZ) — CSS `rotate` is Z-only.
+//   · scale(s)     → scaleX + scaleY (a uniform 2D scale; Z is left untouched).
+//   · translate(t) → translateX only (the Y offset defaults to 0).
+//   · skew(a)      → skewX only (the Y skew defaults to 0; skew has no Z axis).
+// The multi-argument forms still expand positionally over TRANSFORM_DIMENSIONS
+// (see the handleTransform `else` branch); this table governs ONLY the
+// single-value branch, which previously over-expanded onto every axis.
+const TRANSFORM_SINGLE_ARG_AXES: Record<string, string[]> = {
+    translate: ["x"],
+    scale: ["x", "y"],
+    rotate: ["z"],
+    skew: ["x"],
+};
+
 const transformDimensions = TRANSFORM_DIMENSIONS.map(utils.istring);
 const transformFunctions = TRANSFORM_FUNCTIONS.map(utils.istring);
 
@@ -85,7 +102,10 @@ const handleTransform = () => {
             const newName = lowerName + dim.toUpperCase();
             transformObject[newName] = values[0];
         } else if (values.length === 1) {
-            dimensions.forEach((d) => {
+            // Respect each transform's single-arg axis cardinality (U-F31)
+            // instead of fanning the scalar onto every dimension.
+            const axes = TRANSFORM_SINGLE_ARG_AXES[lowerName] ?? dimensions;
+            axes.forEach((d) => {
                 const newName = makeTransformName(lowerName, d);
                 transformObject[newName] = values[0];
             });
@@ -487,33 +507,71 @@ export const CSSValues = {
     Values: ValuesValue.sepBy(whitespace),
 };
 
+/**
+ * Thrown by {@link parseCSSValue} when a value string cannot be fully consumed —
+ * either it is unparseable or it carries unconsumed trailing tokens (a
+ * multi-token list fed to the single-value parser). A typed, named error (not
+ * value.js' bare `tryParse` `Error`) so a consumer can
+ * `catch (e) { if (e instanceof CSSParseError) … }` and steer to
+ * {@link parseCSSValues} for a whitespace/comma-separated list.
+ */
+export class CSSParseError extends Error {
+    constructor(message: string, options?: ErrorOptions) {
+        super(message, options);
+        this.name = "CSSParseError";
+    }
+}
+
+// `.eof()` requires FULL-INPUT consumption (U-F29 · U.W-LIB LIB-G1): the parse
+// fails when any trailing token remains after the single value, so a multi-token
+// string is rejected instead of silently dropping every token past the first.
+const ValuesValueEOF: Parser<any> = ValuesValue.eof();
+
 // keyFn identity override (E.W1 Lane D / E-AUDIT-5 §9 item 9): the default
 // `JSON.stringify(args)` cache-key synthesises a quoted copy of the input
 // string on every call. For single-string parsers, identity is both faster
 // and clearer about the cache-key shape.
+//
+// U-F29 (U.W-LIB, owner-ruled AMELIORATE §13.5): parseCSSValue parses a SINGLE
+// CSS value and now LOUD-FAILS on unconsumed trailing tokens —
+// `parseCSSValue('1px solid red')` throws a typed CSSParseError rather than
+// silently returning the bare '1px'. The parser tells the truth instead of
+// dropping data; use `parseCSSValues` for a whole whitespace/comma-separated
+// list. The memoize wrapper never caches the throw (it propagates before the
+// `cache.set`), so successive bad-input calls each re-throw.
 export const parseCSSValue = memoize(
     (input: string): ValueUnit | FunctionValue => {
-        return utils.tryParse(ValuesValue, input);
+        try {
+            return utils.tryParse(ValuesValueEOF, input);
+        } catch (cause) {
+            throw new CSSParseError(
+                `parseCSSValue could not fully parse ${JSON.stringify(input)}: ` +
+                    `it parses a SINGLE CSS value and rejects unconsumed ` +
+                    `trailing tokens — use parseCSSValues for a whitespace/` +
+                    `comma-separated list.`,
+                { cause },
+            );
+        }
     },
     // maxCacheSize (W1-5): bound the cache — see PARSE_MEMO_MAX_ENTRIES.
     { keyFn: (input: string) => input, maxCacheSize: utils.PARSE_MEMO_MAX_ENTRIES },
 );
 
-// ─── parseCSSSubValue (VJ-L3) ──────────────────────────────────────────────
+// ─── parseCSSValues (VJ-L3) ────────────────────────────────────────────────
 //
-// A typed re-entry parser for a single CSS *sub-value* string — one keyframe
-// value, a transform list, a color, a length. It internalizes the exact
+// A typed re-entry parser for a CSS *value list* string — one keyframe value, a
+// transform list, a color, a length. It internalizes the exact
 // `any(CSSFunction.FunctionArgs, CSSValues.Value)` composition that a consumer
 // (keyframes.js' `tryParseLeaves`) previously hand-rolled by reaching past
 // value.js into `@mkbabb/parse-that` for the `any` combinator. Same-realm here,
 // so no cross-realm `as any` cast is needed.
 //
-// FunctionArgs MUST be tried FIRST (the V4 truncation trap): the shipped
-// `parseCSSValue` (= `tryParse(ValuesValue)`) parses only the FIRST sub-value
-// of a multi-function list — `parseCSSValue("scale(2) rotate(45deg)")` yields
-// just `scaleX/Y/Z(2)`, DROPPING `rotate`. `FunctionArgs` is a whitespace/comma
+// FunctionArgs MUST be tried FIRST: the sibling `parseCSSValue` parses only a
+// SINGLE value and LOUD-FAILS on a multi-function list (U-F29) —
+// `parseCSSValue("scale(2) rotate(45deg)")` throws. `parseCSSValues` is the
+// discoverable full-list parser: `FunctionArgs` is a whitespace/comma
 // `sepBy(Value)`, so it consumes the WHOLE list and always wraps in a
-// `ValueArray` (even for a bare `"10px"`) — which is exactly the uniform shape a
+// `ValueArray` (even for a bare `"10px"`) — exactly the uniform shape a
 // flatten-to-leaves consumer expects. The ordering is therefore load-bearing,
 // not incidental.
 //
@@ -521,27 +579,27 @@ export const parseCSSValue = memoize(
 // (mirroring the consumer's pre-parse `v.setSubProperty(childKey)`), so a
 // downstream DOM-computed resolution can pair the value with its property.
 
-export type ParseCSSSubValueOptions = {
+export type ParseCSSValuesOptions = {
     /** Property context stamped onto every parsed leaf (e.g. "transform"). */
     subProperty?: string;
 };
 
 /**
- * Parse one CSS sub-value string into value.js' `ValueUnit | ValueArray |
+ * Parse a CSS value-list string into value.js' `ValueUnit | ValueArray |
  * FunctionValue` tree, internalizing the `FunctionArgs`-FIRST composition.
  *
- * Unlike {@link parseCSSValue} (single-value, truncates a multi-function list),
+ * Unlike {@link parseCSSValue} (single-value, throws on a multi-function list),
  * this consumes the FULL whitespace/comma-separated list — `"scale(2)
- * rotate(45deg)"` round-trips to the complete `ValueArray`, never the truncated
- * first function. A bare scalar (`"10px"`) is wrapped in a one-element
+ * rotate(45deg)"` round-trips to the complete `ValueArray`, never a truncated or
+ * rejected first function. A bare scalar (`"10px"`) is wrapped in a one-element
  * `ValueArray` for a uniform downstream shape.
  *
- * @param value the raw CSS sub-value source
+ * @param value the raw CSS value-list source
  * @param opts.subProperty optional property name stamped onto every leaf
  */
-export function parseCSSSubValue(
+export function parseCSSValues(
     value: string,
-    opts?: ParseCSSSubValueOptions,
+    opts?: ParseCSSValuesOptions,
 ): ValueUnit | ValueArray | FunctionValue {
     const subProperty = opts?.subProperty;
     const functionArgs =

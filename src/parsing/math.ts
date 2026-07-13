@@ -511,6 +511,17 @@ function inferResultUnit(node: any): { unit?: string; superType?: string[] } | u
         return undefined;
     }
     if (node instanceof FunctionValue) {
+        // For forward trig (sin/cos/tan) the result is a UNITLESS <number> per
+        // css-values-4 — the angle argument is consumed and the ratio carries
+        // no unit. Returning `undefined` (NOT the argument's `deg`/`rad`) both
+        // makes a bare `sin(30deg)` resolve unitless AND lets a
+        // `calc(sin(30deg)*100px)` still infer `px` from the sibling operand
+        // (the inherit loop below skips this "no unit" node and keeps walking).
+        // This case MUST precede that loop, which would otherwise carry `deg`
+        // out (U-F32 · U.W-LIB LIB-G8).
+        if (["sin", "cos", "tan"].includes(node.name)) {
+            return undefined;
+        }
         // For trig inverse functions, result is in radians
         if (["asin", "acos", "atan", "atan2"].includes(node.name)) {
             return { unit: "rad", superType: ["angle"] };

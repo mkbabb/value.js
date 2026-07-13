@@ -37,7 +37,7 @@ export class ValueUnit<
         // WeakMap `FN_NAME_MAP` + clone-restamp ceremony (the leaf survives
         // `clone()` WITH its function name, so the consumer reads `u.fnName`
         // directly). `subProperty` cannot double as the carrier — it is clobbered
-        // by `parseCSSSubValue` with the child key.
+        // by `parseCSSValues` with the child key.
         public fnName?: string,
     ) {}
 

@@ -658,9 +658,9 @@ exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rgb(255, 0, 0)") 1`] =
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rgba(0, 255, 0, 0.5)") 1`] = `"rgb(0 255 0 / 0.5)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rotate(45deg)") 1`] = `"rotateX(45deg) rotateY(45deg) rotateZ(45deg)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("rotate(45deg)") 1`] = `"rotateZ(45deg)"`;
 
-exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("scale(2)") 1`] = `"scaleX(2) scaleY(2) scaleZ(2)"`;
+exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("scale(2)") 1`] = `"scaleX(2) scaleY(2)"`;
 
 exports[`BBNF Equivalence: parseCSSValue > parseCSSValue("scaleY(0.5)") 1`] = `"scaleY(0.5)"`;
 

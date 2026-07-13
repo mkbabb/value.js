@@ -166,7 +166,10 @@ describe("Q unit conversion", () => {
 // 5. skewZ exclusion
 // ---------------------------------------------------------------------------
 describe("skewZ exclusion", () => {
-    it("skew(10deg) produces only skewX and skewY, not skewZ", () => {
+    it("skew(10deg) produces only skewX (single-arg), never skewY or skewZ", () => {
+        // U-F31 (U.W-LIB): a single-arg `skew(a)` is `skewX(a)` only — the Y
+        // skew defaults to 0, so it is NOT emitted (the two-arg `skew(ax, ay)`
+        // form still expands to skewX + skewY). `skewZ` never exists in CSS.
         const result = parseCSSValue("skew(10deg)");
         // The parser returns a ValueArray of FunctionValues for transform shorthands
         expect(result).toBeDefined();
@@ -188,7 +191,7 @@ describe("skewZ exclusion", () => {
         }
 
         expect(names).toContain("skewX");
-        expect(names).toContain("skewY");
+        expect(names).not.toContain("skewY");
         expect(names).not.toContain("skewZ");
     });
 });

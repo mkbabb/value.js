@@ -27,10 +27,21 @@ npm install @mkbabb/value.js
 ```ts
 import {
     parseCSSValue,
+    parseCSSValues,
     parseCSSColor,
     ValueUnit,
     FunctionValue,
 } from "@mkbabb/value.js";
+
+// parseCSSValue parses a SINGLE CSS value and requires full-input consumption.
+parseCSSValue("45deg"); // → ValueUnit { value: 45, unit: "deg" }
+parseCSSValue("rotate(45deg)"); // → FunctionValue "rotateZ(45deg)" (rotate is Z-only)
+
+// A multi-token string LOUD-FAILS — it does NOT silently drop the trailing
+// tokens. Use parseCSSValues for a whole whitespace/comma-separated list.
+parseCSSValue("1px solid red"); // throws CSSParseError (unconsumed "solid red")
+parseCSSValues("1px solid red"); // → ValueArray [ 1px, solid, rgb(255 0 0) ]
+parseCSSValues("translate(10px) rotate(45deg)"); // → the FULL transform list
 ```
 
 ## Build

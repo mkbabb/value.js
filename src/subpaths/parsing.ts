@@ -21,11 +21,12 @@ export {
     CSSJSON,
     CSSValues,
     parseCSSValue,
-    parseCSSSubValue,
+    parseCSSValues,
+    CSSParseError,
     parseCSSPercent,
     parseCSSTime,
 } from "../parsing";
-export type { ParseCSSSubValueOptions } from "../parsing";
+export type { ParseCSSValuesOptions } from "../parsing";
 
 // Stylesheet AST
 export { parseCSSStylesheet } from "../parsing/stylesheet";
