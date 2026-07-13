@@ -25,8 +25,12 @@ import { openView } from "../fixtures/dock";
  *       from-state (= the base state), so PRM and non-SDA engines paint the
  *       identical rest header; structurally, every --pane-scroll binding
  *       lives inside `@supports (animation-timeline: scroll())`.
- *   6 · ONE GRAMMAR — no in-card sticky surface other than `.pane-header`;
- *       nothing in-card out-stacks `--z-header`.
+ *   6 · ONE GRAMMAR — the ONLY in-card sticky surfaces are the sanctioned
+ *       headers: `.pane-header` (the 9 panes) and `.picker-header` (the picker
+ *       plate's whole-header scroll-contraction strip — U-F9/T-61/§0.8, the
+ *       owner-verbatim whole-header contraction; it condenses in place as
+ *       content scrolls under, so it is legitimately sticky). Nothing in-card
+ *       out-stacks `--z-header`.
  */
 
 const VEIL_FLOOR_MIN = 0.45;
@@ -366,14 +370,18 @@ test("O-11 gate 6 — one grammar: no in-card sticky beyond .pane-header; nothin
             )) {
                 const cs = getComputedStyle(el);
                 if (cs.position !== "sticky") continue;
-                const isHeader = el.classList.contains("pane-header");
+                // the two sanctioned sticky headers: the pane header + the
+                // picker plate's whole-header contraction strip (U-F9/§0.8)
+                const isHeader =
+                    el.classList.contains("pane-header") ||
+                    el.classList.contains("picker-header");
                 const z = Number(cs.zIndex) || 0;
                 if (!isHeader) {
                     bad.push(
                         `sticky off-grammar: ${el.tagName}.${el.className}`,
                     );
                 } else if (z > zHeader) {
-                    bad.push(`pane-header over --z-header: z=${z}`);
+                    bad.push(`sticky header over --z-header: z=${z}`);
                 }
             }
             return bad;

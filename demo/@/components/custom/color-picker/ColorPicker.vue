@@ -4,12 +4,27 @@
          owns the sub-lg width). -->
     <div class="pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-full">
         <Card tier="resting" class="relative flex flex-col rounded-card min-w-0 flex-none lg:flex-1 min-h-0 max-h-full overflow-x-hidden overflow-y-auto lg:overflow-visible">
+            <!-- U-F9 (T-61/§0.8) — the scroll-contraction sentinel: a 0-height
+                 marker riding the TOP of the Card scroll container (the picker
+                 Card is the mobile scroll host, overflow-y-auto). useHeaderCondense
+                 observes it; crossing the threshold condenses the whole header
+                 block to ONE short strip. -->
+            <div ref="headerSentinel" class="header-sentinel" aria-hidden="true"></div>
             <!-- The header is a DISPLAY surface (space title + hero numbers →
                  Fraunces); horizontal padding rides `cqi` against the pane-slot
                  container, not viewport breakpoints (R.W3 Lane A / A4) — and is
                  symmetric now that the blob reservation lives on the title row
-                 alone (S.W4-2 / S-19). -->
-            <CardHeader class="font-display m-0 pt-3 pb-0 relative z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col gap-y-1 items-start">
+                 alone (S.W4-2 / S-19).
+                 U-F9 — `picker-header` carries the ONE-LAW rhythm (Row A) + the
+                 sticky whole-header contraction (Row B, T-61/§0.8, header.css);
+                 `gap-y-1` retires into the `--picker-header-rhythm` token. -->
+            <CardHeader
+                ref="pickerHeaderEl"
+                :class="[
+                    'picker-header font-display m-0 pt-3 pb-0 z-10 w-full px-[clamp(0.75rem,4cqi,1.5rem)] min-w-0 overflow-visible flex flex-col items-start',
+                    condensed ? 'is-condensed' : '',
+                ]"
+            >
                 <!-- Title row = THE BEAD'S BAND (T.W4-5 · D8; t-contradictions
                      C1 order: the seat re-derives AGAINST the settled ×φ title
                      and the freed tuple). The blob's reservation is scoped
@@ -103,6 +118,7 @@ import {
     provide,
     ref,
     shallowRef,
+    useTemplateRef,
     watch,
 } from "vue";
 import { useMagicKeys } from "@vueuse/core";
@@ -116,7 +132,9 @@ import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 
 import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
+import { useHeaderCondense } from "./composables/useHeaderCondense";
 import "./seat.css";
+import "./header.css";
 
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import SpectrumCanvas from "./controls/SpectrumCanvas/SpectrumCanvas.vue";
@@ -157,6 +175,25 @@ const { model } = colorModel;
 
 const pointerDebug = usePointerDebug();
 provide(POINTER_DEBUG_KEY, pointerDebug);
+
+// U-F9 (T-61/§0.8) — the whole-header scroll contraction. The sentinel rides
+// the top of the Card scroll container; `condensed` flips past the threshold
+// and drives the `.is-condensed` strip state (header.css). Threshold sits below
+// the 390 card overflow (~32px at the tightest witnessed phone band) so the
+// contraction is reachable on the mobile scroll where the picker actually
+// scrolls; the desktop picker fits (no scroll → stays expanded, correct). The
+// composable reserves the condense deficit on the scroll root imperatively so
+// the toggle stays stable on barely-overflowing content (no oscillation).
+const headerSentinel = useTemplateRef<HTMLElement>("headerSentinel");
+// glass-ui's <CardHeader> is a single-root SFC; the template ref exposes the
+// component proxy, whose `$el` is the header <div> the composable measures.
+const pickerHeaderRef = useTemplateRef("pickerHeaderEl");
+const pickerHeaderEl = computed<HTMLElement | null>(
+    () => (pickerHeaderRef.value as { $el?: HTMLElement } | null)?.$el ?? null,
+);
+const { condensed } = useHeaderCondense(headerSentinel, pickerHeaderEl, {
+    threshold: 16,
+});
 
 const viewManager = inject(VIEW_MANAGER_KEY)!;
 const paletteManager = inject(PALETTE_MANAGER_KEY);
