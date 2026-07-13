@@ -37,7 +37,7 @@ UNFIRED v5 cut; 9 of 10 waves closed, U.W-CLOSE fires next and LAST), by the orc
 
 | Run | Workflow | Phase at stamp | Script (in §3 dir) | On death |
 |---|---|---|---|---|
-| — | (no live run — 9 of 10 waves CLOSED) | **U.W-CLOSE is the sole remaining wave** (the terminal sink; fires next and LAST) | — | launch U.W-CLOSE per the §4 recipe; the v5 probe stays STANDING — on fire the unpin+flip executes in-CLOSE |
+| `wf_a6f37335-625` | U.W-CLOSE — THE TERMINAL SINK (dispatch → stage-1 [close-books B1..B14 + U-F51/F52/F53 hygiene retires + quiet-host e2e ∥ close-annex-publish: annex-packet + publish-presentation + RELAY-CLOSE] → stage-2 [close-ledger: FINAL.md zero-drop walk + G-CLOSE-1 regenerable assertion] → gate G-CLOSE-1..5 → close) | **LAUNCHED 2026-07-13** post-ADOPT-close | `u-w-close-wf_a6f37335-625.js` | resume; owner-reserved slate NEVER proxied (assembled → presented at the orchestrator's terminal report); G-CLOSE-4 rows close complete_with_misses with frame obligations NAMED, never headless-greened |
 
 **ADOPT completed**: `wf_ca09a7c3-93e` **CLOSED `complete_with_misses` 2026-07-13** — the DISEASE WAVE,
 trigger-UNFIRED arm. The disease row DECIDED in-wave over the still-EMPTY v5 tag; **all four born-RED
