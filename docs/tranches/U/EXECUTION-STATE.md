@@ -35,12 +35,14 @@ resume from any of the three death classes below. **Update this file at every wa
 
 | Run | Workflow | Phase at stamp | Script (in §3 dir) | On death |
 |---|---|---|---|---|
-| `wf_6c47fe54-fc2` | U.W-CANON (dispatch → ≤5 lanes → gate → close) | lanes (one works STAGED in the MAIN tree — recover its staging, never sweep it; one package.json stash-pop conflict already cured `e921994` — the concurrent-package.json class is live) | `u-w-canon-wf_6c47fe54-fc2.js` | resume; check main-tree staged CLAUDE.md/README/DESIGN set |
 | `wf_237d5120-d5a` | U.W-VISUAL remediate (header fable lane ∥ riders → gate → close) | lanes (worktree-isolated) | `u-w-visual-remediate-wf_237d5120-d5a.js` | resume; the header lane is FABLE (credit-wall-exposed); its worktree carries the header re-cut |
 
 **Completed runs** (journals retained, no action): `wf_5a0823fb-9f1` LIB evidence ·
 `wf_dd696346-869` VISUAL census (verdict table `audit/w-visual/census.md`) · `wf_fb4f0284-ad9`
 SEC (CLOSED `complete_with_misses`) · `wf_c1769491-04d` DEMO (CLOSED `complete`) ·
+`wf_6c47fe54-fc2` **CANON (CLOSED `complete_with_misses` `26d1392`** — 10/10 G-CANON gates,
+14/19 homes landed, 3 hygiene retires DEFERRED-to-safe-moment [U-F51/F52/F53 → CLOSE], 2
+owner-decidable BOOKs) ·
 `wf_d2caf8d6-1e6` **ORACLE (CLOSED `complete_with_misses` `ca26848`** — 6/6 gate rows, CI teeth
 wired soft-but-owned, node-24 floor re-anchored, the 3 producer-gated test.fail flips booked) ·
 `wf_319ba067-341` **LIB (CLOSED `COMPLETE` build-complete `d40e04c`** — 12 gates/20 legs GREEN,
@@ -56,9 +58,10 @@ publish-packet.md` [MAJOR, 4.0.0 recommended, OWNER-DECIDES], BH relay
 
 ## §4 The DAG cursor + standing state
 
-- **Closed**: DEMO (`complete`) · SEC (`complete_with_misses`). **In flight**: LIB · CANON ·
-  ORACLE · VISUAL-remediate. **Next**: A11Y (opens at VISUAL close) → PERF (VISUAL+A11Y+ADOPT
-  binds U-F76/U-F3). **ADOPT**: trigger-gated — probe `git -C ../glass-ui tag --list 'v5*'`
+- **Closed (5)**: DEMO (`complete`) · SEC (`complete_with_misses`) · LIB (`COMPLETE`
+  build-complete) · ORACLE (`complete_with_misses`) · CANON (`complete_with_misses`).
+  **In flight**: VISUAL-remediate ONLY. **Next**: A11Y (fires at VISUAL close) → PERF
+  (VISUAL+A11Y+ADOPT binds U-F76/U-F3). **ADOPT**: trigger-gated — probe `git -C ../glass-ui tag --list 'v5*'`
   each round (EMPTY at stamp). **CLOSE last** (zero-drop ledger walk · publish presentation ·
   real-GPU annex · the census ANNEX-7 + u-f12 Pole A/B bracket to the owner).
 - **Substrate**: glass-ui PINNED @ `2e559f7a` (both symlinks → `.claude/worktrees/glass-ui-pinned`;
