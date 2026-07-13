@@ -717,3 +717,110 @@ loop terminated at the budget cap with named residual gaps.
 *Sealed by the convergence-hardening SEALER (opus), 2026-07-13. Addendum to §1–§4 (CONVERGED, intact) —
 HARDENS, does not rewrite. Path-scoped to `docs/tranches/U/FORMATION-VERDICT.md`; pull-rebased on the
 shared `tranche-t` branch.*
+
+---
+
+## §12 — The census closure (the RG-2 kill)
+
+**This section KILLS RG-2 by EXHAUSTIVE ENUMERATION and records, honestly, what remains.** RG-2 (§11)
+was the strongest residual: FIVE of the seven hardening rounds each surfaced a NEW silently-dropped
+cross-tranche T→U handoff (r2 T-57 · r3 T-20 · r4 T-5/P1-R1 · r6 the three never-filed passes · r7
+T-1/T-8/T-25/T-26/T-27 + the letter-rail). The recurrence — not any single drop — was the signal: the
+"zero silent drops" headline held on each round's snapshot only because the NEXT round found the next
+drop. A sampling loop cannot end that recurrence; only an EXHAUSTIVE census can. This closure runs that
+census, then submits it to a fresh confirm. RG-2 is discharged; the honest residual is named below and
+the verdict is **RESIDUAL-HONEST** — the owner ratifies against the FULL record, not this section alone.
+
+### The exhaustive census (commit `c515fc1`)
+
+No sampling. Every T-side row was enumerated and diffed against the U corpus by **id-match AND
+family-alias** (a T-row homed under its U-Fxx family name is verified-homed, not re-booked — an
+id-match miss is not an orphan):
+
+- **T-side enumerated: 176 rows** — the full pi-audit `audit/w8-certification/ROWS.md` finding set +
+  the `T/FINAL.md §2.2/§5` booked / HAND-TO-U rows. The complete T→U handoff surface, not a sample.
+- **U-side indexed: 66 receiving rows** — every U-Fxx family disposition, ledger §A/§B/§B.1/§C row, and
+  wave-doc cite that can RECEIVE a T handoff, indexed as the diff's right-hand side.
+- **Orphan-candidates diffed: 31** — the T-side rows that did NOT trivially id-match a U cite, carried
+  forward for the family-alias re-check (the true search space; the other 145 id-matched directly).
+- **Result: 27 verified-homed (no edit) · 4 genuine orphans homed by `c515fc1` (applied 4).** The 27
+  land under an existing family/ledger cite (e.g. P1-R3 → communiqué §2b + `U.W-VISUAL:126/131` · P1-B1
+  → BR-5/U-F9 · P6-W2/T-55 → U-F8 · O-16-R1/O-5/O-26 → U-F42 · GAP-ARM/GAP-L2/GAP-L5/PKT-1 → §2b). The
+  4 genuine orphans (ZERO hits under any alias) are homed in `DISPOSITION-LEDGER §C.1`:
+  **boot-G** (the o12 boot-time backing-ratio oracle leg → U.W-ORACLE §BOOKS mint-or-decline) ·
+  **CC-1** (`.glass-wash` zero-fill → U.W-ADOPT §BOOKS producer-packet-P8 + demo consume-at-cut) ·
+  **L8 / L2..L16** (the open GLASSUI asks; L8 = the 5th booking ESCALATED → U.W-ADOPT §BOOKS / U-F2
+  per-item book-reverify) · **W8-2 rest-floor F9.R1** (the producer knob → U.W-ADOPT §BOOKS / §B BH relay).
+
+**Completeness statement (the RG-2 kill):** the 4 orphans + the 27 verified-homed rows account for
+EVERY enumerated T-side handoff candidate. The census is now assertable EXHAUSTIVE **by construction** —
+every T-side row lands-in-T with a cite, books-to-U under a NAMED wave, or retires-with-rationale. No
+next-round drop remains to be found, because there is no unexamined T-side row. **RG-2 is discharged.**
+
+### The r7-confirm (RG-3 re-audit) — verdict: GAPS (the r7 cures VERIFIED)
+
+RG-3 (§11) flagged round-7's five cures as applied-but-UNCONFIRMED (standing on the r7 remediator's word,
+never re-audited by a fresh pass). This closure ran that re-audit. **All five r7 cures are VERIFIED
+PRESENT** in the U tree: (a) the T-1/T-8/T-25/T-26/T-27 §C routing → the §B BH-relay chronic; (b) T-5's
+second (P5/S-3 letter-rail) residual homing; (c) the AB-1 About-KaTeX mechanical π/DELTA; (d) the
+"24 → 29 LAND rows" tally relabel across `T/FINAL` + U; (e) the Q10/P9-R4 Login-accent cascade-dead
+**BR-14**. The re-audit verdict is nonetheless **GAPS**, not clean: cure (e), **BR-14/Q10**, is a
+`[blocks-ratification]` finding, and it stands — verified-present is not resolved. RG-3's re-audit
+obligation is DISCHARGED; the ratification-blocker it re-audited PERSISTS.
+
+### The fresh 3-lens confirm
+
+Three fresh adversaries re-attacked the post-census formation. **8 actionable findings REMAIN** — the
+honest residual, named:
+
+- **`zero-drop-falsify` — GAPS (4 findings, attacking the census's own exhaustiveness claim):**
+  1. **ZD-1 (homed ≠ cured)** — the 4 orphans land in wave `§BOOKS` as decision-brackets (boot-G
+     mint-or-decline · CC-1 consume-at-cut · L8 per-item reverify · W8-2 F9.R1 producer-knob relay),
+     NOT born-RED gates. The drop is closed; an unexecuted books obligation rides into each wave.
+  2. **ZD-2 (exhaustive-by-construction rests on the author's enumeration)** — the EXHAUSTIVE claim
+     depends on the 176-row T-side base being complete, but `§C.1` records only 31/27/4, not the 176
+     working set; a fresh lens cannot re-derive the base from the ledger, so exhaustiveness is
+     asserted-not-independently-reproduced (the same standing-on-word class RG-3 named for r7).
+  3. **ZD-3 (never-filed passes have no census slot)** — the census scopes T-side rows from PRODUCED
+     artefacts (ROWS.md + `T/FINAL §2.2/§5`); a never-filed critique surface (the r6 lesson: 3 unfiled
+     T.W8 passes) has no row to enumerate. The scoping blind spot is structural, not closed by the census.
+  4. **ZD-4 (27 verified-homed on a cite-sample)** — `§C.1` cite-samples the 27 verified-homed rows
+     (P1-R3, P1-B1, P6-W2/T-55, O-16-R1, GAP-*, …), not a full 27-row walk; a reader takes 27/31 on the
+     sample, the complete proof living in the census working set outside the ledger.
+- **`cross-tranche-falsify` — CLEAN (0 findings):** the census closed the T↔U handoff drops — the exact
+  RG-2 class this lens hunts — so the fresh cross-tranche adversary found NOTHING. `T/FINAL ↔ U` is coherent.
+- **`generalist` — GAPS (4 findings, the standing §11 residuals that the census does NOT touch):**
+  5. **RG-1 (no clean pass)** — STANDS: the census is not a hardening round and produces no clean pass;
+     `cleanStreak = 0` is unchanged; the owner's two-consecutive-clean bar is unmet and the census cannot meet it.
+  6. **RG-3 (r7 cures)** — re-audited and verified PRESENT (above), but **BR-14/Q10** remains
+     `[blocks-ratification]` in the terminal state; the cures stand confirmed-present, one still ratification-blocking.
+  7. **RG-4 (peer-floor cite-miss history)** — the 5-round cite-miss (r1→r5: 1109/1147 → 1113/1151 →
+     1114/1152 → 1116/1154 → block-name) is an indelible stability signal on the record; rooted at r5
+     (block+key idiom + `devDependencies`→`dependencies` runtime-floor correction), not re-opened, not erasable.
+  8. **RG-5 (late blocks-ratification)** — a ratification-blocker surfaced as late as r7 (BR-14/Q10);
+     a tranche whose terminal fresh-adversary round still finds a blocker has not stabilized.
+
+The `[blocks-ratification]` among the 8 is RG-5/RG-3's shared **BR-14/Q10** (Login-accent cascade-dead) —
+a real, verified-present, still-open ratification blocker, not a manufactured one.
+
+### Disposition
+
+**VERDICT: RESIDUAL-HONEST.** The exhaustive census DISCHARGES **RG-2** — the strongest residual, the
+zero-drop recurrence — by construction: 176 T-side rows enumerated, 66 U-side receiving rows indexed, 31
+orphan-candidates diffed, 4 orphans homed (`c515fc1`), 27 verified-homed, zero un-examined. **The
+recurrence cannot repeat: there is no unexamined T-side row for a round 8 to trip over.** But this
+closure does NOT claim hardening-convergence. The fresh 3-lens confirm still returned **8 actionable
+findings** (zero-drop-falsify 4 · cross-tranche-falsify 0 · generalist 4), and **RG-1, RG-3, RG-4, RG-5
+STAND** — no clean pass ever occurred, the r7 BR-14/Q10 blocker persists, the 5-round cite-miss is on the
+record, and a ratification-blocker surfaced at the final round. The two-consecutive-clean bar is **NOT
+met** (cleanStreak = 0). The tranche is **FORMATION-CONVERGED** (§1–§4) **+ ENUMERATION-EXHAUSTIVE**
+(this §12, RG-2 killed) **but NOT HARDENING-STABLE** (RG-1/RG-3/RG-4/RG-5 remain). **The owner ratifies
+against the FULL record** — §1–§4 (CONVERGED) + §5–§10 (the seven rounds) + §11 (RESIDUAL-GAPS seal) +
+this §12 (census closure, RG-2 killed, 8 residual findings named) — not this section in isolation. Per
+the loop's honesty law (default to GAPS if genuinely uncertain a cure holds; never manufacture
+convergence), this is recorded as RESIDUAL-HONEST, not converged.
+
+*Sealed by the census-closure SEALER (opus), 2026-07-13. RG-2 killed by exhaustive enumeration (census
+`c515fc1`); RG-1/RG-3/RG-4/RG-5 stand; 8 fresh-confirm findings named. Addendum to §11 — HARDENS the
+record, does not rewrite §1–§4. PLANNING-ONLY held; no source edit. Path-scoped to
+`docs/tranches/U/FORMATION-VERDICT.md`; pull-rebased on the shared `tranche-t` branch.*
