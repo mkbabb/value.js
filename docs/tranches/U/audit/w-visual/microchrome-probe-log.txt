@@ -1,0 +1,53 @@
+# micro-chrome probe @ 2026-07-13T07:54:09.636Z
+
+================ SCHEME=light ================
+(d) TITLE: initial="Color Picker" afterViewSwitch="Color Picker" dynamic=false
+    tokens: --accent-live=oklch(0.4273 0.1709 9.8) --foreground=light-dark(#1c1917,#e9e6e2)
+    tokens: --scrollbar-thumb=color-mix(in srgb, light-dark(#7c6650,#aca091) 25%, transparent) --scrollbar-track=transparent
+(a) ::selection resolved: bg=color(srgb 0.582586 0.0000607169 0.225559 / 0.32) ink=rgb(28, 25, 23) hasRule=true
+    rule: ::selection { background: var(--accent-live); }
+    rule: ::selection { color: var(--foreground); }
+    selection frame captured (real text selected)
+(b) scrollbar-thin consumers=0  scrollbar-hidden consumers=3
+    picker-card: sw=none sc=auto overflowY=visible cls="rounded-card text-card-foreground scrollbar-hidden [--card-p"
+    generic overflow-y-auto: sw=none sc=auto overflowY=visible cls="rounded-card text-card-foreground scrollbar-hidden [--card-p"
+    dock: sw=auto sc=auto overflowY=visible cls="glass-dock horizontal shape-pill layout-linear dock-scroll-x"
+    any scrollbar-thin consumer: ABSENT
+    any scrollbar-hidden consumer: sw=none sc=auto overflowY=visible cls="rounded-card text-card-foreground scrollbar-hidden [--card-p"
+(c) cursor grammar:
+    interactive/button: cursor=pointer
+    text-input: cursor=text
+    spectrum/canvas: cursor=auto
+    draggable: cursor=grab
+    link: cursor=(no element)
+    crosshair-tagged: cursor=crosshair
+    disabled: cursor=default
+(e) native title tooltips live: total[title]=0 nonEmpty=0
+ERRORS(light): [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8596 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+
+================ SCHEME=dark ================
+(d) TITLE: initial="Color Picker" afterViewSwitch="Color Picker" dynamic=false
+    tokens: --accent-live=lab(92% 88.8 20 / 100%) --foreground=#e9e6e2
+    tokens: --scrollbar-thumb=color-mix(in srgb, #aca091 25%, transparent) --scrollbar-track=transparent
+(a) ::selection resolved: bg=color(srgb 1.51088 0.562414 0.782924 / 0.32) ink=rgb(233, 230, 226) hasRule=true
+    rule: ::selection { background: var(--accent-live); }
+    rule: ::selection { color: var(--foreground); }
+    selection frame captured (real text selected)
+(b) scrollbar-thin consumers=0  scrollbar-hidden consumers=3
+    picker-card: sw=none sc=auto overflowY=visible cls="rounded-card text-card-foreground scrollbar-hidden [--card-p"
+    generic overflow-y-auto: sw=none sc=auto overflowY=visible cls="rounded-card text-card-foreground scrollbar-hidden [--card-p"
+    dock: sw=auto sc=auto overflowY=visible cls="glass-dock horizontal shape-pill layout-linear dock-scroll-x"
+    any scrollbar-thin consumer: ABSENT
+    any scrollbar-hidden consumer: sw=none sc=auto overflowY=visible cls="rounded-card text-card-foreground scrollbar-hidden [--card-p"
+(c) cursor grammar:
+    interactive/button: cursor=pointer
+    text-input: cursor=text
+    spectrum/canvas: cursor=auto
+    draggable: cursor=grab
+    link: cursor=(no element)
+    crosshair-tagged: cursor=crosshair
+    disabled: cursor=default
+(e) native title tooltips live: total[title]=0 nonEmpty=0
+ERRORS(dark): [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8596 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+
+=== micro-chrome probe complete ===

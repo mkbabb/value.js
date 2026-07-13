@@ -1,0 +1,70 @@
+# census probe @ 2026-07-13T07:30:03.495Z
+[light-1440] blob={"x":564.6,"y":104.7,"w":180.2,"h":180.2,"right":744.8,"bottom":284.9,"fs":"18.608px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[light-1440] gamut(content-proxy)={"x":220.5,"y":374.9,"w":469.1,"h":224,"right":689.5,"bottom":598.9,"fs":"18.608px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[light-1440] card={"x":199,"y":138.5,"w":512,"h":702.6,"right":711,"bottom":841.1,"fs":"18.608px","pt":"0px","pb":"0px","bg":"oklab(0.884486 0.00469323 0.0128808 / 0.678)"}
+[light-1440] title(.space-trigger)={"x":220.5,"y":151.5,"w":111.5,"h":85,"right":332,"bottom":236.5,"fs":"53.28px","pt":"0px","pb":"5.0616px","bg":"rgba(0, 0, 0, 0)"}
+[light-1440] readout(.readout)={"x":220.5,"y":240.5,"w":441.8,"h":122.4,"right":662.3,"bottom":362.9,"fs":"54.6458px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[light-1440] DELTA blob.right(744.8) - content.right(689.5) = 55.3 (spill>0)
+[light-1440] DELTA blob.right(744.8) - card.right(711) = 33.8
+[light-1440] DELTA blob.right(744.8) - viewport(1440) = -695.2 (viewport spill>0)
+[light-1440] DELTA blob.bottom(284.9) - readout.top(240.5) = 44.4 (vertical overlap>0)
+[light-1440] DELTA readout.top(240.5) - title.bottom(236.5) = 4 (title->readout gap)
+[light-1440] rail-items=[{"i":0,"label":"L","cx":249.8,"cy":666.8},{"i":1,"label":"a","cx":249.8,"cy":706.6},{"i":2,"label":"b","cx":249.8,"cy":746.5},{"i":3,"label":"α","cx":249.8,"cy":786.8}]
+[light-1440] rail-active-seat=[{"clickedIdx":0,"clickedLabel":"L","activeItem":{"label":"L","cx":249.8,"cy":666.8},"seat":{"cx":249.8,"cy":666.8,"w":25.8,"h":26.4},"offset":{"dx":0,"dy":0}},{"clickedIdx":1,"clickedLabel":"a","activeItem":{"label":"a","cx":249.8,"cy":706.6},"seat":{"cx":249.8,"cy":706.6,"w":25.7,"h":26.4},"offset":{"dx":0,"dy":0}},{"clickedIdx":2,"clickedLabel":"b","activeItem":{"label":"b","cx":249.8,"cy":746.5},"seat":{"cx":249.8,"cy":746.5,"w":25.6,"h":26.4},"offset":{"dx":0,"dy":0}},{"clickedIdx":3,"clickedLabel":"α","activeItem":{"label":"α","cx":249.8,"cy":786.8},"seat":{"cx":249.8,"cy":786.8,"w":26.6,"h":27.4},"offset":{"dx":0,"dy":0}}]
+[light-1440] SCROLL header at-rest={"x":200,"y":139.5,"w":510,"h":223.4,"right":710,"bottom":362.9,"fs":"18.608px","pt":"12px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[light-1440] SCROLL header scrolled={"x":200,"y":139.5,"w":510,"h":223.4,"right":710,"bottom":362.9,"fs":"18.608px","pt":"12px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[light-1440] SCROLL title at-rest fs=53.28px h=85 -> scrolled fs=53.28px h=85
+[light-1440] SCROLL DELTA header.h 223.4 -> 223.4 (contract if <); pt 12px->12px; pb 0px->0px
+[light-1440] console-errors=[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8591 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+[light-390] blob={"x":228.4,"y":130.4,"w":179.2,"h":179.2,"right":407.6,"bottom":309.6,"fs":"16px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[light-390] gamut(content-proxy)={"x":31.3,"y":359.9,"w":327.4,"h":160,"right":358.7,"bottom":519.9,"fs":"16px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[light-390] card={"x":16,"y":164,"w":358,"h":611.9,"right":374,"bottom":775.9,"fs":"16px","pt":"0px","pb":"0px","bg":"oklab(0.884486 0.00469323 0.0128808 / 0.678)"}
+[light-390] title(.space-trigger)={"x":31.3,"y":177,"w":70,"h":52.5,"right":101.4,"bottom":229.5,"fs":"32.928px","pt":"0px","pb":"3.12816px","bg":"rgba(0, 0, 0, 0)"}
+[light-390] readout(.readout)={"x":31.3,"y":254.1,"w":327.4,"h":93.8,"right":358.7,"bottom":347.9,"fs":"41.888px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[light-390] DELTA blob.right(407.6) - content.right(358.7) = 48.9 (spill>0)
+[light-390] DELTA blob.right(407.6) - card.right(374) = 33.6
+[light-390] DELTA blob.right(407.6) - viewport(390) = 17.6 (viewport spill>0)
+[light-390] DELTA blob.bottom(309.6) - readout.top(254.1) = 55.5 (vertical overlap>0)
+[light-390] DELTA readout.top(254.1) - title.bottom(229.5) = 24.6 (title->readout gap)
+[light-390] rail-items=[{"i":0,"label":"L","cx":64.1,"cy":589.9},{"i":1,"label":"a","cx":64.1,"cy":633.9},{"i":2,"label":"b","cx":64.1,"cy":677.9},{"i":3,"label":"α","cx":64.1,"cy":721.9}]
+[light-390] rail-active-seat=[{"clickedIdx":0,"clickedLabel":"L","activeItem":{"label":"L","cx":64.1,"cy":589.9},"seat":{"cx":64.1,"cy":589.9,"w":33.7,"h":46},"offset":{"dx":0,"dy":0}},{"clickedIdx":1,"clickedLabel":"a","activeItem":{"label":"a","cx":64.1,"cy":633.9},"seat":{"cx":64.1,"cy":633.9,"w":33.7,"h":46},"offset":{"dx":0,"dy":0}},{"clickedIdx":2,"clickedLabel":"b","activeItem":{"label":"b","cx":64.1,"cy":677.9},"seat":{"cx":64.1,"cy":677.9,"w":33.7,"h":46},"offset":{"dx":0,"dy":0}},{"clickedIdx":3,"clickedLabel":"α","activeItem":{"label":"α","cx":64.1,"cy":721.9},"seat":{"cx":64.1,"cy":721.9,"w":33.7,"h":46},"offset":{"dx":0,"dy":0}}]
+[light-390] SCROLL header at-rest={"x":17,"y":165,"w":356,"h":182.9,"right":373,"bottom":347.9,"fs":"16px","pt":"12px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[light-390] SCROLL header scrolled={"x":17,"y":165,"w":356,"h":182.9,"right":373,"bottom":347.9,"fs":"16px","pt":"12px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[light-390] SCROLL title at-rest fs=32.928px h=52.5 -> scrolled fs=32.928px h=52.5
+[light-390] SCROLL DELTA header.h 182.9 -> 182.9 (contract if <); pt 12px->12px; pb 0px->0px
+[light-390] console-errors=[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8591 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+[dark-1440] blob={"x":564.6,"y":104.7,"w":180.2,"h":180.2,"right":744.8,"bottom":284.9,"fs":"18.608px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[dark-1440] gamut(content-proxy)={"x":220.5,"y":374.9,"w":469.1,"h":224,"right":689.5,"bottom":598.9,"fs":"18.608px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[dark-1440] card={"x":199,"y":138.5,"w":512,"h":702.6,"right":711,"bottom":841.1,"fs":"18.608px","pt":"0px","pb":"0px","bg":"oklab(0.362892 0.0104363 0.0169409 / 0.7424)"}
+[dark-1440] title(.space-trigger)={"x":220.5,"y":151.5,"w":111.5,"h":85,"right":332,"bottom":236.5,"fs":"53.28px","pt":"0px","pb":"5.0616px","bg":"rgba(0, 0, 0, 0)"}
+[dark-1440] readout(.readout)={"x":220.5,"y":240.5,"w":441.8,"h":122.4,"right":662.3,"bottom":362.9,"fs":"54.6458px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[dark-1440] DELTA blob.right(744.8) - content.right(689.5) = 55.3 (spill>0)
+[dark-1440] DELTA blob.right(744.8) - card.right(711) = 33.8
+[dark-1440] DELTA blob.right(744.8) - viewport(1440) = -695.2 (viewport spill>0)
+[dark-1440] DELTA blob.bottom(284.9) - readout.top(240.5) = 44.4 (vertical overlap>0)
+[dark-1440] DELTA readout.top(240.5) - title.bottom(236.5) = 4 (title->readout gap)
+[dark-1440] rail-items=[{"i":0,"label":"L","cx":249.8,"cy":666.8},{"i":1,"label":"a","cx":249.8,"cy":706.6},{"i":2,"label":"b","cx":249.8,"cy":746.5},{"i":3,"label":"α","cx":249.8,"cy":786.8}]
+[dark-1440] rail-active-seat=[{"clickedIdx":0,"clickedLabel":"L","activeItem":{"label":"L","cx":249.8,"cy":666.8},"seat":{"cx":249.8,"cy":666.8,"w":25.8,"h":26.4},"offset":{"dx":0,"dy":0}},{"clickedIdx":1,"clickedLabel":"a","activeItem":{"label":"a","cx":249.8,"cy":706.6},"seat":{"cx":249.8,"cy":706.6,"w":25.7,"h":26.4},"offset":{"dx":0,"dy":0}},{"clickedIdx":2,"clickedLabel":"b","activeItem":{"label":"b","cx":249.8,"cy":746.5},"seat":{"cx":249.8,"cy":746.5,"w":25.6,"h":26.4},"offset":{"dx":0,"dy":0}},{"clickedIdx":3,"clickedLabel":"α","activeItem":{"label":"α","cx":249.8,"cy":786.8},"seat":{"cx":249.8,"cy":786.8,"w":26.6,"h":27.4},"offset":{"dx":0,"dy":0}}]
+[dark-1440] SCROLL header at-rest={"x":200,"y":139.5,"w":510,"h":223.4,"right":710,"bottom":362.9,"fs":"18.608px","pt":"12px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[dark-1440] SCROLL header scrolled={"x":200,"y":139.5,"w":510,"h":223.4,"right":710,"bottom":362.9,"fs":"18.608px","pt":"12px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[dark-1440] SCROLL title at-rest fs=53.28px h=85 -> scrolled fs=53.28px h=85
+[dark-1440] SCROLL DELTA header.h 223.4 -> 223.4 (contract if <); pt 12px->12px; pb 0px->0px
+[dark-1440] console-errors=[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8591 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+[dark-390] blob={"x":228.4,"y":130.4,"w":179.2,"h":179.2,"right":407.6,"bottom":309.6,"fs":"16px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[dark-390] gamut(content-proxy)={"x":31.3,"y":359.9,"w":327.4,"h":160,"right":358.7,"bottom":519.9,"fs":"16px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[dark-390] card={"x":16,"y":164,"w":358,"h":611.9,"right":374,"bottom":775.9,"fs":"16px","pt":"0px","pb":"0px","bg":"oklab(0.362892 0.0104363 0.0169409 / 0.7424)"}
+[dark-390] title(.space-trigger)={"x":31.3,"y":177,"w":70,"h":52.5,"right":101.4,"bottom":229.5,"fs":"32.928px","pt":"0px","pb":"3.12816px","bg":"rgba(0, 0, 0, 0)"}
+[dark-390] readout(.readout)={"x":31.3,"y":254.1,"w":327.4,"h":93.8,"right":358.7,"bottom":347.9,"fs":"41.888px","pt":"0px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[dark-390] DELTA blob.right(407.6) - content.right(358.7) = 48.9 (spill>0)
+[dark-390] DELTA blob.right(407.6) - card.right(374) = 33.6
+[dark-390] DELTA blob.right(407.6) - viewport(390) = 17.6 (viewport spill>0)
+[dark-390] DELTA blob.bottom(309.6) - readout.top(254.1) = 55.5 (vertical overlap>0)
+[dark-390] DELTA readout.top(254.1) - title.bottom(229.5) = 24.6 (title->readout gap)
+[dark-390] rail-items=[{"i":0,"label":"L","cx":64.1,"cy":589.9},{"i":1,"label":"a","cx":64.1,"cy":633.9},{"i":2,"label":"b","cx":64.1,"cy":677.9},{"i":3,"label":"α","cx":64.1,"cy":721.9}]
+[dark-390] rail-active-seat=[{"clickedIdx":0,"clickedLabel":"L","activeItem":{"label":"L","cx":64.1,"cy":589.9},"seat":{"cx":64.1,"cy":589.9,"w":33.7,"h":46},"offset":{"dx":0,"dy":0}},{"clickedIdx":1,"clickedLabel":"a","activeItem":{"label":"a","cx":64.1,"cy":633.9},"seat":{"cx":64.1,"cy":633.9,"w":33.7,"h":46},"offset":{"dx":0,"dy":0}},{"clickedIdx":2,"clickedLabel":"b","activeItem":{"label":"b","cx":64.1,"cy":677.9},"seat":{"cx":64.1,"cy":677.9,"w":33.7,"h":46},"offset":{"dx":0,"dy":0}},{"clickedIdx":3,"clickedLabel":"α","activeItem":{"label":"α","cx":64.1,"cy":721.9},"seat":{"cx":64.1,"cy":721.9,"w":33.7,"h":46},"offset":{"dx":0,"dy":0}}]
+[dark-390] SCROLL header at-rest={"x":17,"y":165,"w":356,"h":182.9,"right":373,"bottom":347.9,"fs":"16px","pt":"12px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[dark-390] SCROLL header scrolled={"x":17,"y":165,"w":356,"h":182.9,"right":373,"bottom":347.9,"fs":"16px","pt":"12px","pb":"0px","bg":"rgba(0, 0, 0, 0)"}
+[dark-390] SCROLL title at-rest fs=32.928px h=52.5 -> scrolled fs=32.928px h=52.5
+[dark-390] SCROLL DELTA header.h 182.9 -> 182.9 (contract if <); pt 12px->12px; pb 0px->0px
+[dark-390] console-errors=[value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8591 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT "backend offline".
+DONE

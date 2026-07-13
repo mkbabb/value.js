@@ -1,0 +1,27 @@
+
+########## [u-f7] MOTION — light ##########
+CONFOUND-AUDIT light: {"defaultTransitionDuration":".15s","durationNormal":".3s","durationFast":".2s","springSmoothDuration":"calc(.35s * 1)","springSmoothSettle":".35s","motionTempo":"1","clobber150Count":4,"clobber150Samples":["flex:0.15s","flex:0.15s","flex:0.15s","flex:0.15s"]}
+view combobox present: true
+SWAP-TIMING light: {"label":"swap Home->Gradient","frames":7,"deltas":6,"maxFrameMs":4791.7,"over32":6,"over16":6,"longtasks":[{"s":12958,"d":50},{"s":13607,"d":53},{"s":13728,"d":71}],"maxLongtaskMs":71}
+WAKE-GRAY light: homeOption=Home {"canvas":true,"canvasSize":"300x150","box":{"w":1440,"h":900}} (percept OWNER-ATTEST — U-F54)
+CONSOLE light: 1 error(s) :: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8595 has no VITE_API_URL and is targeting the cross-origin production API (https:
+
+########## [u-f7] MOTION — dark ##########
+CONFOUND-AUDIT dark: {"defaultTransitionDuration":".15s","durationNormal":".3s","durationFast":".2s","springSmoothDuration":"calc(.35s * 1)","springSmoothSettle":".35s","motionTempo":"1","clobber150Count":4,"clobber150Samples":["flex:0.15s","flex:0.15s","flex:0.15s","flex:0.15s"]}
+view combobox present: true
+SWAP-TIMING dark: {"label":"swap Home->Gradient","frames":14,"deltas":13,"maxFrameMs":325.7,"over32":12,"over16":12,"longtasks":[{"s":4544,"d":64},{"s":5758,"d":91}],"maxLongtaskMs":91}
+WAKE-GRAY dark: homeOption=Home {"canvas":true,"canvasSize":"300x150","box":{"w":1440,"h":900}} (percept OWNER-ATTEST — U-F54)
+CONSOLE dark: 1 error(s) :: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8595 has no VITE_API_URL and is targeting the cross-origin production API (https:
+
+########## [zd3-easing] 1440-light ##########
+GEOMETRY 1440-light: {"canvasBox":{"w":304,"h":364.8,"aspect":0.83},"vb":{"w":1,"h":1.2000000476837158,"ratio":1.2},"vbRatioVar":"1.2000000476837158","letterbox":{"dL":0,"dT":0,"dR":0,"dB":0},"inlineSize":"304px","transitionProp":"aspect-ratio","pickerGrid":"436px","plateFlat":{"shadow":"none","backdrop":"blur(8px) saturate(1.4) brightness(1.02)","bg":"oklab(0.913277 0.00474745 0.0132167)"},"literalLeaves":1,"stamps":0,"travelDots":0}
+ALIVENESS 1440-light: {"before":"cubic-bezier(0, 0, 1, 1)","afterDrag":"cubic-bezier(0.181, 0.23, 1, 1)","changed":true,"persisted":true}
+CONSOLE 1440-light: 1 error(s) :: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8595 has no VITE_API_URL and is targeting the cross-origin production API (https:
+
+########## [zd3-easing] 1440-dark ##########
+GEOMETRY 1440-dark: {"canvasBox":{"w":304,"h":364.8,"aspect":0.83},"vb":{"w":1,"h":1.2000000476837158,"ratio":1.2},"vbRatioVar":"1.2000000476837158","letterbox":{"dL":0,"dT":0,"dR":0,"dB":0},"inlineSize":"304px","transitionProp":"aspect-ratio","pickerGrid":"436px","plateFlat":{"shadow":"none","backdrop":"blur(8px) saturate(1.35) brightness(1.16)","bg":"oklab(0.345369 0.0107104 0.0172779)"},"literalLeaves":1,"stamps":0,"travelDots":0}
+CONSOLE 1440-dark: 1 error(s) :: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8595 has no VITE_API_URL and is targeting the cross-origin production API (https:
+
+########## [zd3-easing] 390-light ##########
+GEOMETRY 390-light: {"canvasBox":{"w":272,"h":326.39,"aspect":0.83},"vb":{"w":1,"h":1.2000000476837158,"ratio":1.2},"vbRatioVar":"1.2000000476837158","letterbox":{"dL":0,"dT":0,"dR":0,"dB":0},"inlineSize":"272px","transitionProp":"aspect-ratio","pickerGrid":"298px","plateFlat":{"shadow":"none","backdrop":"blur(8px) saturate(1.4) brightness(1.02)","bg":"oklab(0.913277 0.00474745 0.0132167)"},"literalLeaves":1,"stamps":0,"travelDots":0}
+CONSOLE 390-light: 1 error(s) :: [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8595 has no VITE_API_URL and is targeting the cross-origin production API (https:
