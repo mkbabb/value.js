@@ -129,6 +129,16 @@ serialization/contract **CLASS**, never one symptom, never a cherry-pick around 
   - **a per-instance normalization-state brand** on the Color/ValueUnit (the §28.1 orthogonal
     greenfield candidate) so `toString` disambiguates WITHOUT changing the channel convention — the
     invariant-preserving option that touches NO direct-channel reader.
+- **The calc-case discriminator (LIB-G3 leg b is CURE-CONDITIONAL, not cure-agnostic — read with §Hard gate)**:
+  the plain `rgb(from red r g b)` serialization leg (LIB-G3 leg a) flips GREEN under ALL THREE cures
+  (each reaches `rgb(255 0 0)`), but the calc case `rgb(from red calc(r + 10) g b)` = CSS `265` is
+  reachable ONLY when the calc evaluates on PHYSICAL bindings — i.e. under **normalize-on-construct**
+  (physical bindings from the origin, calc `255+10=265`). Under denorm-on-output AND the normalization-
+  state brand the calc still runs on the NORMALIZED bindings (`relative-color.ts:137-142` builds them
+  from the `[0,1]`-normalized converted color) → `1+10=11`, never `265`. So the calc leg does NOT
+  silently over-constrain: it is the DISCRIMINATOR that either PICKS normalize-on-construct for the
+  relative-color path OR books the physical-binding co-migration under the other two poles (the BR-7
+  pole-conditional idiom applied to LIB-G3). The serialization leg (a) remains free of that choice.
 - **The convention constraint (§25/§28, load-bearing)**: the chosen invariant MUST provably preserve
   the raw `mixColors`/`sampleColorRamp`/`color2` output channel convention that the constellation's
   **convention-sensitive consumers** read RAW (bypassing `toString`) — OR those consumers co-migrate
@@ -224,7 +234,7 @@ serialized string / resolved value (see §π/DELTA).
 |---|---|---|---|
 | **LIB-G1** | U-F29 | `parseCSSValue('1px solid red')` does NOT silently return `'1px'` — the multi-token input either throws-on-unconsumed OR returns the full value (per the chosen shape); no silent drop. | `parsing/index.ts:494-500` |
 | **LIB-G2** | U-F30 | `parseCSSColor('color-mix(in srgb, red 30%, blue)').toString() === 'rgb(76.5 0 178.5)'` (today `'rgb(0.3 0 0.7)'`). | `mix.ts` + `color-unit.ts:32` + `base.ts:202` |
-| **LIB-G3** | U-F30 | `parseCSSColor('rgb(from red r g b)').toString() === 'rgb(255 0 0)'` (today `'rgb(1 0 0)'`) **and** the calc case `rgb(from red calc(r + 10) g b)` computes in the CSS convention (`265`, not `11`-normalized). | `relative-color.ts:125-163,137-142` |
+| **LIB-G3** | U-F30 | **TWO legs — one cure-agnostic, one CURE-CONDITIONAL (the BR-7 idiom).** **(a, cure-agnostic)** `parseCSSColor('rgb(from red r g b)').toString() === 'rgb(255 0 0)'` (today `'rgb(1 0 0)'`) — every sanctioned U-F30 cure reaches this. **(b, cure-conditional)** the calc case `rgb(from red calc(r + 10) g b)` = CSS `265`: reachable ONLY when calc evaluates on PHYSICAL bindings, i.e. under **normalize-on-construct** — denorm-on-output + the normalization-state brand run calc on the NORMALIZED bindings (`relative-color.ts:137-142`) → `1+10=11`, never `265`. So leg (b) asserts `265` UNDER normalize-on-construct AND books the relative-color physical-binding co-migration under the other two poles; it does NOT silently force the invariant — it is the DISCRIMINATOR (see §Cure APPROACH the calc-case discriminator). | `relative-color.ts:125-163,137-142` |
 | **LIB-G4** | U-F30 | **GUARD (born-GREEN, must STAY green)** — the direct-parse path is UNCHANGED: `parseCSSColor('rgb(76.5 0 178.5)').toString() === 'rgb(76.5 0 178.5)'`. The R-2 double-denorm guard; if it reddens, the fix hit the wrong (shared-wrapper) locus. | `color.ts` direct-parse |
 | **LIB-G5** | U-F30 | The re-fed pipeline is correct: a color-mix result pushed through `normalizeColorUnit`/`colorUnit2` does NOT double-normalize (today `0.3 → 0.00118`) — the exact glass-ui pipeline (§23). | `normalize.ts colorUnit2` |
 | **LIB-G6** | U-F30 / §28 | **Build-time raw-channel re-enumeration** — a gate that greps the THEN-CURRENT constellation for raw readers of `mixColors`/`sampleColorRamp`/`color2` and asserts the chosen invariant preserves the channel convention for ALL of them (or names the co-migrants). Born-RED until the invariant is proven convention-preserving OR the co-migration is booked. | §28.2 (structural) |
@@ -275,7 +285,7 @@ transition + the consumer blast-radius measurement:
 |---|---|---|---|
 | U-F29 | `parseCSSValue('1px solid red')` returns the silent partial `'1px'` | throws-on-unconsumed OR returns the full value | the exact return transition + the **keyframes 3-call-site resolved-value DELTA** (multi-token today → shape at cure) |
 | U-F30 mix | `'rgb(0.3 0 0.7)'` | `'rgb(76.5 0 178.5)'` | the string DELTA + the **glass-ui `colorUnit2` re-normalize DELTA** (`0.3 → 0.00118` today) + the **spectrum-walk raw-channel DELTA** (preserved = 0, or the co-migration delta) |
-| U-F30 relative | `'rgb(1 0 0)'` (and the calc `11`-normalized) | `'rgb(255 0 0)'` (calc `265`) | the string DELTA + the calc-convention DELTA |
+| U-F30 relative | `'rgb(1 0 0)'` (and the calc `11`-normalized) | `'rgb(255 0 0)'` (calc `265` **under normalize-on-construct**; the calc leg is cure-conditional per LIB-G3-b) | the string DELTA + the calc-convention DELTA (pole-conditional) |
 | U-F31 | `rotate(45deg) → 3 axes` | Z-only | the parse-output DELTA + the **keyframes apply/resolve blast-radius** measurement |
 | U-F32 | `sin(30deg) → 0.5deg` | `0.5` | the resolved-unit DELTA |
 | U-F33 | the comma-corrupted 5-token string | valid round-trip CSS | the serialize DELTA |

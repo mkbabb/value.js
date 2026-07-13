@@ -539,11 +539,77 @@ as the first potential clean.
 
 ---
 
+## §10 — Round-6 fresh-adversary hardening (remediated 2026-07-13)
+
+A sixth fresh-adversary pass raised **7 actionable findings** against the round-5-remediated formation
+(2 [blocks-ratification], 5 [adjust]); **all 7 were DOC-FIXABLE and remediated** path-scoped
+(`docs/tranches/U/**`; the one cross-tranche side (finding 4) was verified against `T/FINAL §5:305`,
+unedited — the drop was U-side). None reversed a disposition, gate, or ordering:
+
+1. **LIB-G3 calc leg not cure-agnostic** (bornred-exec, [adjust]) — LIB-G3 bundled `rgb(from red r g b)`
+   → `rgb(255 0 0)` (cure-agnostic) with the calc case `rgb(from red calc(r + 10) g b)` = `265`, but
+   `265` is reachable ONLY under **normalize-on-construct** (physical bindings); denorm-on-output + the
+   normalization-state brand run calc on the NORMALIZED bindings (`relative-color.ts:137-142`, verified
+   live: bindings built from the `[0,1]` converted color) → `11`, never `265`. The added-r5 calc leg
+   silently over-constrained the design-loop's stated-free 3-invariant choice (the same "gate not
+   cure-agnostic" class r4 fixed for BR-7). Made LIB-G3's calc leg **cure-conditional** (the BR-7 idiom)
+   + added a "calc-case discriminator" note to §Cure APPROACH + a pole-note to the π/DELTA relative row.
+2. **Three unfiled T.W8 passes — 2 of 3 unhomed** (zerodrop-reaudit, **[blocks-ratification]**) —
+   `T-MARK §3.1` names THREE never-filed critique passes (easing / admin / micro-chrome+thrown-error,
+   target 11 / filed 8); the census scopes its active set ONLY from filed WR-1..11 + the 24 pi-audit
+   LAND rows, so a never-filed pass has no scoping slot. Only admin was rescued (U-F56); easing
+   (T-22/T-47) + the micro-chrome roster had ZERO home, falsifying the zero-drop headline. Added a
+   census blockquote naming all three + their contingent dispositions (easing → census re-judge /
+   retire-with-O-17-cite; admin → U-F56; micro-chrome+thrown-error → census perceptual + U-F58
+   error-injection) + a `DISPOSITION-LEDGER §C` T-22/T-47 row.
+3. **U-F58 error-injection modality silently dropped** (zerodrop-reaudit, [adjust]) — registry §16
+   defines U-F58 with FIVE modalities INCLUDING `error-injection`, but the ledger §A rationale + the
+   U.W-A11Y decision table BOTH omitted it while U.W-A11Y:105 claimed the table "complete." Added an
+   error-injection/thrown-error row (a11y-half fold → U-F56, gestalt-half → U.W-VISUAL census) to the
+   F58 table + the ledger §A rationale + the U.W-A11Y disposition row — restoring the named modality.
+4. **T/FINAL §5:305 doc-rewrite remainder partial silent drop** (cross-tranche, [adjust]) — T hands
+   *"demo/api CLAUDE.md + root Structure + DESIGN.md facilities"*; U's ledger §B.1 folded it to "→ U-F21"
+   whose actual scope is root+api CLAUDE.md only — dropping **`demo/CLAUDE.md`** (a tracked ~17 KB doc)
+   and **`demo/DESIGN.md`** (the T.W3 C3-LAW ledger; "DESIGN.md" appeared ZERO times in the U tree).
+   EXTENDED U-F21's scope to both (ledger §B.1 + §A, U.W-CANON §Goal + §Scope + G-CANON-2 sub-assertion
+   (e) + §Dispositions + DELTA) so the "→ U-F21" arrow covers T's whole remainder.
+5. **BR-2 mis-framed false-green + @390 spill ungated** (pi-delta-visual, **[blocks-ratification]**) —
+   the CITED probe puts the blob at `[228,407]×[120,299]` and the space-label at `[31,98]×[167,233]`:
+   `228 > 98` → ZERO horizontal overlap, so the "collides the 390 readout" framing (Goal/Scope/BR-2/
+   π-DELTA) was geometrically FALSE, and the REAL @390 defect (right edge 407 spilling the ~358 card
+   content + the 390 viewport) was UNGATED (BR-1 is @1440-only). A reseat lifting the blob above y167
+   would false-green BR-2 without curing the spill. **Repurposed BR-2** as the @390 right-edge ≤
+   card-inner-content-box gate (mirroring BR-1) + added **BR-2b** as the honest X-INDEPENDENT
+   vertical-rhythm clearance axis (X-disjoint noted) + corrected the Goal/Scope prose + the π/DELTA row
+   (Register-1 12→14 gates).
+6. **Stale palettes-ramp clamp cite** (pi-delta-visual, [adjust]) — U.W-VISUAL §Scope :170 + registry
+   §2:57 still cited the clamp at `palettes-ramp.ts:93-110` (that file's `88-112` is the
+   `resolvePalettesRamp` JSDoc/signature — verified: its only `0.02` are a JSDoc `:18` + a comment
+   `:116`, no clamp) while the r4-corrected BR-3 correctly points at `ink-walk.ts:117,134`
+   (`clamp(ink.L, 0.02, 0.98)`, verified live). Since the precedence chain rules the registry spec
+   wins, the stale cite would win over BR-3. Propagated the `ink-walk.ts:117,134` cite to Scope :170 +
+   registry §2:57 + aligned BR-3's JSDoc-range mention.
+7. **U-F19/T-53 dark-caster headless leg had no born-RED** (pi-delta-visual, [adjust]) — the T-53
+   re-cut's TOKEN/α half (computed `.dark --shadow-color`, a `getComputedStyle` predicate) carried only
+   owner-attested OA-5, while the sibling build-if-CENSUS-RED family U-F13-band carries born-RED BR-10
+   for its headless half. Added **BR-13** (computed `.dark --shadow-color` ≠ the `var(--foreground)`
+   cream, α ≤ floor — LANDED-partial per `style.css:639` `color(srgb 0.11 0.098 0.09)`, the BR-3/BR-12
+   born-GREEN must-STAY idiom) as the headless leg, leaving OA-5 for the perceptual read + wired it into
+   the π/DELTA row + §Scope + §Dispositions.
+
+**Round-6 remediation is CLEAN** — 7 applied, 0 deferred (2 blocks-ratification cured). Six
+fresh-adversary passes to date (r1:10, r2:6, r3:8, r4:8, r5:4, r6:7) each raised real findings, so the
+two-CONSECUTIVE-CLEAN counter has STILL not started; the tranche awaits the NEXT fresh-adversary pass
+as the first potential clean.
+
+---
+
 **Ruling: CONVERGED** — the formation is complete and coherent; the residual notes are named,
 NOTE-level, and correctable at execution without touching a disposition, gate, or ordering. The
-round-1 (§5), round-2 (§6), round-3 (§7), round-4 (§8), and round-5 (§9) fresh-adversary findings are all
-doc-remediated; a first CLEAN pass is still pending (the owner's bar is two CONSECUTIVE clean passes).
+round-1 (§5), round-2 (§6), round-3 (§7), round-4 (§8), round-5 (§9), and round-6 (§10) fresh-adversary
+findings are all doc-remediated; a first CLEAN pass is still pending (the owner's bar is two
+CONSECUTIVE clean passes).
 
 *Filed by the formation integrator + fresh-adversary critic (opus), 2026-07-12; §9 round-5 remediation
-2026-07-13. Path-scoped to `docs/tranches/U/**`; pull-rebased on the shared `tranche-t` branch
-(T.W8/T.W9 landing concurrently).*
+2026-07-13; §10 round-6 remediation 2026-07-13. Path-scoped to `docs/tranches/U/**`; pull-rebased on
+the shared `tranche-t` branch (T.W8/T.W9 landing concurrently).*

@@ -23,8 +23,9 @@ Precedence: owner verbatim → registry → `U.md` → this wave doc.
 
 ## §Goal criterion
 
-The tree tells the truth about itself. Every canon document (root + api `CLAUDE.md`, `README.md`,
-the parse-that pin prose, the precept infra label) is **regenerably** in sync with the landed tree
+The tree tells the truth about itself. Every canon document (root + api + **demo** `CLAUDE.md`,
+`README.md`, **`demo/DESIGN.md`** facilities, the parse-that pin prose, the precept infra label — the
+full T/FINAL §5:305 doc-rewrite remainder) is **regenerably** in sync with the landed tree
 (the CLAUDE.md LoC-precept pattern applied — documented counts derive from the tree, not from a
 hand-typed number that drifts each wave); the library's OWN public surface is coherent (root and
 subpath barrels agree, guarded by a standing parity gate); the one ratified-then-reversed decision
@@ -122,15 +123,21 @@ transposition; verified live: `api/src/platform/http/inject-services.ts` exists,
 paths do); (c) `README.md` says "15 color spaces" at `:11` AND `:66` while the tree ships 17
 (`src/units/color/` — the ICtCp/Jzazbz additions of S.W1 are un-counted); (d) `CLAUDE.md:154` says
 parse-that "shipped 2.0.1 `a7eabcc`" while spec/lock/node_modules are ALL `1.0.0` and the caret
-`^1.0.0` FORBIDS 2.x — the prose is FALSE (U-F69; the dep state is coherent, only the prose lies).
+`^1.0.0` FORBIDS 2.x — the prose is FALSE (U-F69; the dep state is coherent, only the prose lies);
+(e) **the T/FINAL §5:305 doc-rewrite remainder names TWO more tracked canon surfaces** the root+api
+framing dropped — **`demo/CLAUDE.md`** (a tracked ~17 KB demo-canon doc, predating the T.W1 reorg like
+its root/api siblings) and **`demo/DESIGN.md`** (the T.W3 C3-LAW + 9-row exception ledger, `T/FINAL:52`;
+the "DESIGN.md facilities" T hands to U's doc lane). Both are in-scope for this canon-sync row.
 
 **Cure APPROACH** (E-3 — the **regenerable-count precept**, CLAUDE.md's own LoC-precept pattern —
 NOT a hand-retype that drifts next wave): the counts and structure blocks are re-derived FROM the
-tree, and a canon-sync check makes the derivation the source of truth. Root + api `CLAUDE.md`
-Structure blocks regenerated against the actual tree; `README.md` "15 spaces" → 17 (or a
-regenerable "`ls src/units/color/spaces` count"); `CLAUDE.md:154` parse-that prose corrected to the
+tree, and a canon-sync check makes the derivation the source of truth. Root + api + `demo/CLAUDE.md`
+Structure/facilities blocks regenerated against the actual tree; `README.md` "15 spaces" → 17 (or a
+regenerable "`ls src/units/color/spaces` count"); `demo/DESIGN.md`'s facility references (the C3-LAW +
+exception-ledger doc) reconciled to the landed tree; `CLAUDE.md:154` parse-that prose corrected to the
 PINNED reality (`^1.0.0`, 1.0.0 resolved — the "shipped 2.0.1" claim struck). One row, one gate
-(G-CANON-2) asserting documented-count ≡ tree-derived-count and pin-prose ≡ pinned-version. U-F69
+(G-CANON-2) asserting documented-count ≡ tree-derived-count and pin-prose ≡ pinned-version across ALL
+of T's §5:305 remainder (root + api + demo CLAUDE.md + DESIGN.md facilities). U-F69
 joins U-F21 (both canon-sync; the registry rules F69 "joins U-F21").
 
 #### U-F22 — `barrel-parity-drift` · **build (cure the 10 + MINT the parity gate — the crown tooling deliverable)**
@@ -366,12 +373,15 @@ BOOKED to T's close.
 ### G-CANON-2 — U-F21 + U-F69 · canon-sync regenerable-count gate · **born-RED**
 
 A regenerable canon-check (the LoC-precept `grep|wc` pattern): assert documented counts ≡
-tree-derived counts AND doc structure ≡ tree structure AND pin-prose ≡ pinned-version. **RED
-today** (four sub-assertions, each a live lie): (a) root `CLAUDE.md` Structure ≠ tree (dead T.W1
+tree-derived counts AND doc structure ≡ tree structure AND pin-prose ≡ pinned-version, across the
+FULL T/FINAL §5:305 doc-rewrite remainder. **RED today** (four confirmed live lies + the two
+T-named surfaces reconciled at execution): (a) root `CLAUDE.md` Structure ≠ tree (dead T.W1
 paths); (b) `api/CLAUDE.md` Structure INVALID (all 9 paths gone; the `platform/` transposition);
 (c) `README.md:11,66` "15 color spaces" ≠ 17 shipped; (d) `CLAUDE.md:154` parse-that "shipped
-2.0.1" ≠ the pinned `^1.0.0`/1.0.0 (U-F69). Flips GREEN when every doc regenerates from the tree
-and the check passes.
+2.0.1" ≠ the pinned `^1.0.0`/1.0.0 (U-F69); (e) **`demo/CLAUDE.md`** structure + **`demo/DESIGN.md`**
+facilities reconciled to the landed tree (the two T-named remainder surfaces the root+api framing
+dropped — drift confirmed/cleared at execution; canon-sync targets either way). Flips GREEN when
+every doc regenerates from the tree and the check passes.
 
 ### G-CANON-3 — U-F22 · barrel-parity gate · **born-RED (the crown STANDING tooling gate, CI-wired)**
 
@@ -455,7 +465,7 @@ without a GPU:
 | Family | DELTA measurement (before → after) | Evidence anchor |
 |---|---|---|
 | U-F17 | §4-amendment-rows: 0 → 1 (T.md "STANDS" superseded); reversal-locus named | `T.md:391,682` · `ComponentSliders.vue:26` |
-| U-F21+F69 | canon-sync-lies: 4 → 0 (root+api Structure, README 15→17, parse-that prose) | `README.md:11,66` · `CLAUDE.md:154` |
+| U-F21+F69 | canon-sync-lies: 4 → 0 (root+api Structure, README 15→17, parse-that prose) + `demo/CLAUDE.md` + `demo/DESIGN.md` facilities reconciled (the T §5:305 remainder) | `README.md:11,66` · `CLAUDE.md:154` · `demo/CLAUDE.md` · `demo/DESIGN.md` |
 | U-F22 | barrel-drift symbols: 10 → 0; parity-gate: absent → present (CI) | `index.ts:92,93,377,383,392` · `subpaths/color.ts` |
 | U-F23 | hand-duplicated boot constants: 2 (`VERSION`,`FIRST_VISIT`) → 0 (single-sourced) | `index.html:160,164,169` |
 | U-F49 | silent-drop trap: 1 unanchored `auth/` → 0 (`/auth/` anchored); tracked-source guard green | `.gitignore:8` |
@@ -512,7 +522,7 @@ nothing to it.
 | Family | Disposition | Rationale |
 |---|---|---|
 | **U-F17** | **build** (the honest §4 amendment) | A ratified decision was reversed with no re-ratification row; U authors the honest §4 amendment U-side + BOOKS the T.md pointer (path-scope fence). The material still-red is U-F10 (U.W-VISUAL), not here. |
-| **U-F21** | **build** (canon-sync) | Root+api Structure predate the T.W1 reorg / are invalid; README 15≠17; regenerable-count precept applied, ONE gate (G-CANON-2). |
+| **U-F21** | **build** (canon-sync) | Root+api+demo CLAUDE.md Structure predate the T.W1 reorg / are invalid; README 15≠17; `demo/DESIGN.md` facilities (the T/FINAL §5:305 remainder); regenerable-count precept applied, ONE gate (G-CANON-2). |
 | **U-F22** | **build** (cure 10 + MINT the parity gate) | Bidirectional 10-symbol drift ships in dist `.d.ts`, no parity gate exists; the standing CI gate is the gestalt cure. ADDITIVE → no RELAY. |
 | **U-F23** | **build** (single-source) | The only GroundRecord READ is hand-duplicated vanilla JS; a version bump silently strands boot; build-time inline / codegen single-sources it. |
 | **U-F24** | **retire** orphans + **RULE** over-export | 3-4 true orphans deleted (E-3: no dead-code-as-compat); the ~150 over-exports RULED leave-as-is with a named rationale (idiomatic aliases + testability seams), not silently un-audited. |

@@ -47,7 +47,7 @@ set + the PROMPT-RECAP set + the RETIRED-WINS set. Every wave named is one of th
 | U-F18 | e5-addressed-half-unmet-paused | U.W-CLOSE (charter §W8-inheritance) | fold | E-5's "ensure ADDRESSED" structurally unmet for §0.7 at audit time; folds into U's W8-terminal inheritance census (W8's remediation is the live counter-motion). |
 | U-F19 | w8-remediation-live-defects | U.W-VISUAL/U.W-CANON (charter §W8-inheritance) | fold | The filed W8 body holds LIVE A-class ordinary bugs; U takes the TERMINAL W8 state and absorbs the un-landed residue by name (T-56→F6, error-detail→F26, T-53/AB-1→VISUAL/CANON). |
 | U-F20 | doc-template-token-unsubstituted | — | **retire** (at root) | `${DATE}`/`[OWNER-undefined]` cured at rename this commit; harness lesson recorded (Workflow args must be a JSON object). No wave. |
-| U-F21 | canon-structure-drift | U.W-CANON | build | Root + api CLAUDE.md Structure blocks predate the T.W1 reorg (api's is wholly invalid); README "15 spaces" ×3 (tree ships 17); ONE canon-sync row (regenerable-count precept). |
+| U-F21 | canon-structure-drift | U.W-CANON | build | Root + api + **demo** CLAUDE.md Structure blocks predate the T.W1 reorg (api's is wholly invalid); README "15 spaces" ×3 (tree ships 17); **`demo/DESIGN.md` facilities** (the T/FINAL §5:305 remainder); ONE canon-sync row (regenerable-count precept). |
 | U-F22 | barrel-parity-drift | U.W-CANON | build | Root vs subpath barrels disagree on 10 symbols, shipping in dist `.d.ts`, no parity gate; cure the 10 + mint the parity gate (library-surface, tooling gate). |
 | U-F23 | ground-record-forked-read | U.W-CANON | build | The only READ of GroundRecord is hand-duplicated vanilla JS in index.html; the typed `parseGroundRecord` is dead — single-source the record contract (codegen / build-time inline). |
 | U-F24 | dead-orphans + over-export-hygiene | U.W-CANON | retire (orphans) + rule (over-export) | Retire the 4 true orphans (api migrate-soft-delete, `__resetServicesForTest`, the prng radii trio); the ~150 over-exports are ruled leave-as-is with a named rationale (idiomatic aliases + testability seams). |
@@ -84,7 +84,7 @@ set + the PROMPT-RECAP set + the RETIRED-WINS set. Every wave named is one of th
 | U-F55 | ci-oracle-slate-no-teeth + unmeasured-a11y-gate | **SPLIT**: a11y-half RETIRE · CI-teeth→U.W-ORACLE | retire + build | a11y-half: MEASURED → PASSES 1.0 (not a W9 ambush) → RETIRED. CI-teeth-half: `page-load.spec.ts` is the SOLE hard gate (smoke + smoke-safari both continue-on-error) → U.W-ORACLE build row. |
 | U-F56 | authenticated-populated-surface-uneyeballed | U.W-A11Y | build | Login/save/publish/admin/populated Extract-Browse never driven live; a gestalt+a11y row over the authed surface. |
 | U-F57 | a11y-modality-gaps | U.W-A11Y | build | Zero coverage of screen-reader / forced-colors / prefers-contrast / prefers-reduced-transparency / real-touch / slider-keyboard OPERATION; source has ZERO forced-colors rules. |
-| U-F58 | untested-web-modalities | U.W-A11Y | build-or-out-of-scope (per modality) | i18n/RTL (no `dir`), print (no `@media print`), PWA/offline (no SW/manifest), long-session/memory; the formation decides build-or-explicitly-out-of-scope per modality (recorded, not silently dropped). |
+| U-F58 | untested-web-modalities | U.W-A11Y | build-or-out-of-scope (per modality) | i18n/RTL (no `dir`), print (no `@media print`), PWA/offline (no SW/manifest), **error-injection/thrown-error** (registry §16 fifth modality — a11y-half fold → U-F56, gestalt-half → U.W-VISUAL census), long-session/memory; the formation decides build-or-explicitly-out-of-scope per modality (recorded, not silently dropped). |
 | U-F59 | unread-sources-of-record | — | **retire** (round-4 closed) | docs/precepts read, api suite RUN, the pre-R owner-ask chain spot-checked, assets/docs skimmed at round 4; closed — recorded so no successor re-opens. |
 | U-F60 | color-math-correctness-unaudited | — | **retire** (round-4: SOUND) | The numeric color core VERDICT SOUND (sRGB→XYZ ≤1.11e-16, OKLab ≤1e-6, CIEDE2000 3e-5, analytical≡raytrace ≤1.4e-4); no numeric defects. Recorded. |
 | U-F61 | single-sourced-claims | U.W-CLOSE | fold | X2 NCSU-301, the CI TBT red, born-RED cure-ownership, the deploy-webhook repair — attested-not-verified; the close ledger FLAGS each (X2 also rides U-F41). |
@@ -138,7 +138,13 @@ L2..L16 → U-F2; L20+RP-2 / Q14 → U-F3; the T.W8 remediation rows → §C; PR
 P1–P10 packet dispositions + the T-60 producer communiqué (`f3f3c097`) → the §B "glass-ui BH relay
 set" chronic → U.W-ADOPT (the letter lane / BI-acceptance constraints)** — the substance is the §B
 BH-relay set, this row names the T/FINAL §5:306 handoff explicitly so it is enumerated, not merely
-substantively-covered; the doc-rewrite remainder → U-F21):
+substantively-covered; **the doc-rewrite remainder** — T/FINAL §5:305 enumerates it as *"demo/api
+CLAUDE.md + root Structure + DESIGN.md facilities, DOC-1..13 post-E-1"* → **U-F21**, whose canon-sync
+scope is EXTENDED to cover ALL of T's enumeration: root + api CLAUDE.md (native), **plus
+`demo/CLAUDE.md`** (a tracked ~17 KB canon doc) **and `demo/DESIGN.md`** (the T.W3 C3-LAW + 9-row
+exception ledger, `T/FINAL:52`) — the two T names that U-F21's original root+api-only framing dropped,
+now explicitly homed at `U.W-CANON §U-F21` + `G-CANON-2` so the "→ U-F21" arrow covers T's whole
+remainder, not merely the root+api subset):
 
 | T-close carried book | State at T close | Decided U disposition |
 |---|---|---|
@@ -198,6 +204,7 @@ to T.W8/WR; U absorbs the un-landed residue) → their U-Fxx family → owning w
 | T-53 (dark caster) · AB-1 (About-KaTeX) | U-F19 residue | U.W-VISUAL / U.W-CANON (W8-inheritance) |
 | **T-57** (WR-9 dock-band `--dock-h` floor; MEASURED +3.0px scene reflow on dock-expand, invariance probe `2c1a0f4`; T-31→T-57 re-bracket) | U-F13 (dock-band arm — DISTINCT from the U-F13-demo edge-clip) | U.W-VISUAL (W8-inheritance census; born-RED BR-10 band-height-invariance-across-morph + owner-attested no-scene-shift — a DIFFERENT surface than U-F16's picker-plate mount reflow) |
 | **T-39** (the Q14-pressure perf face; owner still-red, `T-MARK-2026-07-12:124` LCP 5141 / TBT 5988; `T/FINAL §5:299`/§2.1:129/§7.2:411 hand it BY NAME) | U-F3 (**LCP**) · U-F61 (**TBT**) | **LCP → U.W-PERF** (the DECIDED escalate — W9 green-or-escalation; the perf half of Q14, distinct from the U.W-VISUAL census re-judge). **TBT re-homed** (registry §10:144 re-measure: **187 ms local GREEN**, only reddens on the 2-core CI runner) → **U-F61 attested-not-verified → U.W-CLOSE** (G-CLOSE-3, cross-ref U-F3). T hands "LCP/**TBT** → U.W-PERF"; U.W-PERF gates LCP+CLS only, so TBT's real home is U.W-CLOSE — bridged here + at `U.W-PERF §Goal` so the by-name handoff is not silently re-scoped. |
+| **T-22 · T-47** (the easing surface; LANDED W6/W6.5 O-17 3/3, but the **W8 easing critique pass UNFILED** — `T-MARK-2026-07-12 §3.1`, `easing/EasingAuthoringStage.vue`, owner-uncertified so NOT §D-dischargeable) | **— (no §2 owner-eye family)**: an unfiled-E-7-pass residue, not a headless-verifiable geometry red | **U.W-VISUAL W8-inheritance census** (the unfiled-pass re-judge — AUTOMATIC census-red re-cure if opened RED, else RETIRE-with-the-O-17-cite into the census record). One of the three unfiled T.W8 passes (`T-MARK §3.1`, target 11 / filed 8); the admin pass → U-F56, the micro-chrome+thrown-error pass → U.W-VISUAL census (perceptual) + U-F58 error-injection (thrown-error a11y). Named so the never-filed passes are not swept to §D. |
 
 **The discharged T-rows** (T-1..T-61 that T's own waves landed **fully — no owner-uncertified OPEN
 residual**) → **retire into the §8 zero-drop WINS** below; recorded so no successor re-opens them.

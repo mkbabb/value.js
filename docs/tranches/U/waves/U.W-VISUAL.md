@@ -51,7 +51,10 @@ headless false-reds — the U-F4 `overture.css` red herring + the U-F13 PRM conf
 the deliverable:
 
 - the goo-blob is **seated INSIDE the picker gestalt** (a bounded, integrated affective bead), not
-  a floating decal that spills the 1440 card edge or collides the 390 readout;
+  a floating decal that spills the card/viewport edge — at 1440 its right edge spills the card, at
+  390 its right edge (407) spills BOTH the ~358 card content box AND the 390 viewport (the real
+  headless defect; the blob is X-disjoint from the top-left space-label, so there is no literal
+  readout collision — only a vertical-rhythm conflict in the header well);
 - the letterform ramp holds a **perceptible, feasibility-bounded lightness band** (no walk to the
   L=0.02 near-black clamp), each glyph ≥ its WCAG carve-out floor against the LIVE card rung;
 - the scene-transition is **jank-free under confound isolation** (the producer O-16-R1 clobber +
@@ -129,6 +132,26 @@ no successor re-opens) or CENSUS-RED (this wave's designed re-cure). The WR → 
 > census-red re-cure (the U-F11/U-F12 idiom) — so every one of the 24 has a re-judge slot; none is
 > swept into §D-discharged. The wave-open census enumerates the full LAND set as its scoping act.
 
+> **The THREE UNFILED T.W8 critique passes inherit here too** (`T-MARK-2026-07-12 §3.1` — target 11,
+> **filed 8**; the census scopes its active set from the filed WR-1..11 + the 24 pi-audit LAND rows,
+> so a NEVER-FILED pass would otherwise have no scoping slot). The E-7 coherence pass was never filed
+> for these, so they carry an owner-uncertified residual and are **NOT dischargeable to §D**
+> ("no owner-uncertified OPEN residual") — named + routed here so U covers the case where T.W8 closes
+> them unfiled:
+> - **easing** (T-22 *"easing area still a mess"* · T-47 *"easing→keyframes picker"*; both LANDED
+>   W6/W6.5, O-17 3/3, but `easing/EasingAuthoringStage.vue`'s `passes/easing.p1.md` **NOT filed**):
+>   the census re-judges the easing surface LIVE at wave-open — an AUTOMATIC census-red re-cure (the
+>   U-F11/U-F12 idiom) if opened RED; if greened, it **RETIRES-with-the-O-17-cite** into the census
+>   record (the landed cure carried oracle backing). Homed via `DISPOSITION-LEDGER §C` (T-22/T-47).
+> - **admin** (the five admin views `admin-users`/`admin-names`/`admin-audit`/`admin-flagged`/`admin-tags`
+>   + auth/profile flows — no probe filed): already covered by **U-F56** (authenticated-populated-surface,
+>   U.W-A11Y) — the driven-live gestalt+a11y pass over exactly login/admin/populated-browse.
+> - **micro-chrome roster + thrown-error state** (`::selection` ink · non-macOS scrollbar · cursor
+>   grammar · static `<title>` · native-`title` tooltips + the thrown-error state, VERDICT §5-D3): the
+>   thrown-error a11y half → **U-F58 error-injection** (U.W-A11Y, fold → U-F56); the perceptual
+>   micro-chrome roster → THIS census (an AUTOMATIC census-red re-cure if opened RED, else
+>   retire-to-census) OR out-of-scope-recorded per the owner's eye at wave-open. No silent drop.
+
 **Census law**: the verdicts are OWNER-ATTESTED, not headless-asserted (U-F54). A WR that lands
 GREEN retires with its frame recorded; the design cures below are the **CENSUS-RED contingency** —
 authored now (design is the deliverable) so the re-cure is ready the moment the census reds it.
@@ -144,9 +167,13 @@ point value); the design loop's prototype phase picks inside the bracket against
 
 **The still-red** (registry §2; `audit/pi/u-gestalt/probe-log-picker.txt`): the goo-blob canvas is
 a 180px decal pinned top-right — at 1440 it seats `x:565 y:119 w:180 h:180` (right edge 745) and
-**spills the picker card edge**; at 390 it seats `x:228 y:120 w:179 h:179` (bottom 299) and
-**collides the space-label readout** (`x:31 y:167 w:67 h:66`). The bead reads as a floating
-sticker, not part of the picker. WR-1/WR-2 cure the boot emerge-α + arm fission (the
+**spills the picker card edge** (gamut-overlay content `x:220 w:469` → right 689); at 390 it seats
+`x:228 y:120 w:179 h:179` (right edge **407**) and **spills BOTH the ~358 card content box**
+(gamut-overlay `x:31 w:327` → right 358) **AND the 390 viewport**. **NO literal readout collision**:
+the blob is horizontally `[228,407]`, the space-label `[31,98]` (`x:31 y:167 w:67 h:66`) — X-DISJOINT
+(228 > 98), the blob top-RIGHT, the label top-LEFT; their only conflict is a VERTICAL-rhythm overlap
+in the header well (blob bottom 299 sits below the readout band top 167 on the shared y-axis, though
+in a different column). The bead reads as a floating sticker, not part of the picker. WR-1/WR-2 cure the boot emerge-α + arm fission (the
 never-meatball mechanism) — they do NOT touch the SEAT; the seat is U's still-red.
 
 **Cure APPROACH** — re-seat the blob as an INTEGRATED affective bead in the header's reserved
@@ -167,8 +194,10 @@ reserves after).
 
 ### U-F6-ramp · `q5-ramp-register` — build (T-10 · T-43 · T-56; oracle-half → U.W-ORACLE)
 
-**The still-red** (registry §2; `palettes-ramp.ts:93-110`): the letterform ramp walks
-purple→maroon→brown and **sinks its mid-letters toward the L=0.02 clamp** on dark — a monotone
+**The still-red** (registry §2; the clamp lives at `ink-walk.ts:117,134` — `clamp(ink.L, 0.02, 0.98)` —
+NOT `palettes-ramp.ts` (that file's `88-112` is the `resolvePalettesRamp` JSDoc/signature, no clamp;
+its only `0.02` mentions are a JSDoc `:18` + a prose comment `:116`), the BR-3-corrected locus): the
+letterform ramp walks purple→maroon→brown and **sinks its mid-letters toward the L=0.02 clamp** on dark — a monotone
 lightness descent that fails every contrast floor including its own. WR-8 attempts the resolver
 cure (card-SURFACE referent, feasibility-aware walk, direction heuristic). U owns the ramp-half
 (the visual band) — the O-14 proxy-oracle law (`every guard-constant gets a feasibility leg`) is
@@ -411,8 +440,13 @@ paints a **50%-α CREAM slab** (`--shadow-color: var(--foreground)` under `.dark
 in what dark mode's caster IS. WR-5 attempts the re-cut (NOT a T-45 recurrence — bisected: the
 box-shadow kill removes it, the landed ≤1/255 pseudo cap is innocent). If the census reds it, U
 owns the material re-cut (one declaration — a designed dark-caster color/α, not a paint patch). The
-AB-1 About-KaTeX scope-dead half routes to **U.W-CANON** (the boot-scope build seam) — NOT this
-wave's material row.
+**headless TOKEN/α leg carries a born-RED (BR-13)** — the computed `.dark --shadow-color` is a
+designed dark value (≠ the `var(--foreground)` cream) at a caster α ≤ floor, a `getComputedStyle`
+predicate (parallel to U-F13-band's BR-10 headless leg beside its owner-attested read); WR-5's re-cut
+(`style.css:639` `color(srgb 0.11 0.098 0.09)`) may ALREADY make it born-GREEN must-STAY, the census
+re-judges LIVE. The perceptual "reads as an honest dark caster" residual stays **OA-5** (owner-
+attested). The AB-1 About-KaTeX scope-dead half routes to **U.W-CANON** (the boot-scope build seam) —
+NOT this wave's material row.
 
 ---
 
@@ -424,13 +458,14 @@ computed-color** predicates are authored **born-RED** (`test.fail()` / expected-
 headless assertion** (the registry logged two headless false-reds; a headless "green" over a GPU
 red is the close-class lie the charter forbids).
 
-### Register 1 — born-RED headless-verifiable (12 gates — 11 born-RED + 1 born-GREEN must-STAY guard [BR-4, the WR-4 landed step-down]; each cites LIVE evidence)
+### Register 1 — born-RED headless-verifiable (14 gates — 13 born-RED + 1 born-GREEN must-STAY guard [BR-4, the WR-4 landed step-down]; each cites LIVE evidence)
 
 | # | Gate (born-RED — RED today, flips GREEN on cure) | Family | LIVE evidence (the RED it guards) |
 |---|---|---|---|
-| **BR-1** | blob-canvas right edge ≤ picker-card inner-padding-box right − ring gutter @1440 (both schemes) | U-F5 | `probe-log-picker.txt`: blob `x:565 w:180` → right 745 spills the card |
-| **BR-2** | blob-canvas bottom edge ≤ readout space-label top − rhythm gutter @390 (both schemes) | U-F5 | blob `x:228 y:120 h:179` → bottom 299 collides space-label `y:167` |
-| **BR-3** | min per-letter ramp L ≥ card-surface feasibility floor (NOT the 0.02 near-black clamp bound) AND per-glyph contrast ≥ carve-out (display 3:1 / entry 4.5:1) vs the LIVE card rung | U-F6-ramp | the near-black clamp lives at `ink-walk.ts:117,134` (`clamp(ink.L, 0.02, 0.98)`) — NOT `palettes-ramp.ts` (that file's `93-110` is JSDoc/signature, no clamp). **HONESTY (WR-8 landed):** `certifyAccentInk` (commit `ecb15c3`, ancestor of HEAD) REPLACED the fixed near-black walk with a contrast-certified rung, so this headless L-floor predicate may ALREADY be GREEN at HEAD — if so, BR-3 is born-GREEN and the residual is the OWNER-ATTESTED PERCEPTUAL red (OA-4: "the ramp reads perceptible/beautiful"), not a headless flip. The census re-judges LIVE; the born-RED teeth are the contrast/floor sub-predicate wherever `certifyAccentInk` still bottoms at the 0.02 bound on the live card rung |
+| **BR-1** | blob-canvas right edge ≤ picker-card inner-padding-box right − ring gutter @1440 (both schemes) | U-F5 | `probe-log-picker.txt`: blob `x:565 w:180` → right 745 spills the card (content right 689) |
+| **BR-2** | blob-canvas right edge ≤ picker-card inner-content-box right @390 (both schemes) — the REAL @390 headless defect, mirroring BR-1 at the small viewport | U-F5 | `probe-log-picker.txt`: blob `x:228 w:179` → right **407** spills the ~358 card content (gamut-overlay `x:31 w:327` → 358) AND the 390 viewport |
+| **BR-2b** | blob-canvas vertical extent CLEARS the readout band @390 (bottom ≤ space-label top − rhythm gutter) — an HONEST X-INDEPENDENT vertical-rhythm clearance axis (the header-well seat sits above the readout band), **NOT an X-overlap collision**: the boxes are X-DISJOINT (blob `[228,407]`, label `[31,98]`), so this gate flips only when the reseat lifts the blob above the readout band on the y-axis, and BR-2 (above) owns the actual spill | U-F5 | blob `x:228 y:120 h:179` → bottom 299 sits below space-label top `y:167` on the shared y-axis (X-disjoint from `x:31 w:67`) |
+| **BR-3** | min per-letter ramp L ≥ card-surface feasibility floor (NOT the 0.02 near-black clamp bound) AND per-glyph contrast ≥ carve-out (display 3:1 / entry 4.5:1) vs the LIVE card rung | U-F6-ramp | the near-black clamp lives at `ink-walk.ts:117,134` (`clamp(ink.L, 0.02, 0.98)`) — NOT `palettes-ramp.ts` (that file's `88-112` is the `resolvePalettesRamp` JSDoc/signature, no clamp). **HONESTY (WR-8 landed):** `certifyAccentInk` (commit `ecb15c3`, ancestor of HEAD) REPLACED the fixed near-black walk with a contrast-certified rung, so this headless L-floor predicate may ALREADY be GREEN at HEAD — if so, BR-3 is born-GREEN and the residual is the OWNER-ATTESTED PERCEPTUAL red (OA-4: "the ramp reads perceptible/beautiful"), not a headless flip. The census re-judges LIVE; the born-RED teeth are the contrast/floor sub-predicate wherever `certifyAccentInk` still bottoms at the 0.02 bound on the live card rung |
 | **BR-4** | *(born-GREEN must-STAY GUARD — the LIB-G4 idiom, not a red-flips-green gate)* `.space-trigger` computed font-size STAYS == `--type-display-2` token (far arm `--type-display-1`), NEVER regressing to 67.776px un-stepped — a re-cure that re-inflates the title reds the row | U-F9 | WR-4 (T-51) title step-down LANDED at HEAD: `ColorSpaceSelector.vue:208` reads `font-size: var(--type-display-2);` (comment `:199-207`, "Q11a working exactly as ruled"). The old RED (`probe-log-picker.txt`: title `fs:67.776px` un-stepped) is PRE-cure — this guard holds the landed step-down |
 | **BR-5** | title↔readout gap ≤ the rhythm step — no dead/blank band (the reserved space is value-class-sized or seam-absorbed) | U-F9 | registry §2: "dead band above readout"; P1-B1 reservation-as-blank redded both placements |
 | **BR-6** | collapsed-dock swatch boundary ΔE vs adjacent ground ≥ JND (~2.3) | U-F11 | registry §2: derive-seam ΔL `.004–.023` imperceptible |
@@ -440,6 +475,7 @@ red is the close-class lie the charter forbids).
 | **BR-10** | dock in-flow band computed block-size INVARIANT across the collapse↔expand morph AND scene-top shift == 0px across the morph (the reserved band floors at the expanded block-size, so `--dock-h` never grows the scene box) | U-F13-band (T-57/WR-9) | T/FINAL:122 / WR-9: MEASURED **+3.0px scene reflow** on dock-expand (band floor < expanded pill; invariance probe `2c1a0f4`) |
 | **BR-11** | scrolled sticky-header title computed font-size ≥ the ruled legibility floor (a NAMED min token — the T-42 "text too small" axis BELOW-bound) AND the scrolled title is re-keyed to a real token step, NOT a compositor-only `scale` shrink of the un-stepped rung | U-F9 (scrolled arm, T-61/T-42 — the TEXT axis) | MANDATE §1:199: "The text is too small"; the §0.8 register bounds the contraction below on the text axis — BR-9 gates the footprint contract, BR-11 gates that the contracted title stays legible (a cure passing BR-9+OA-6 could still leave the title too small) |
 | **BR-12** | active-seat indicator computed center TRACKS the SELECTED channel's rung box across every channel (the WatercolorDot active seat is seated on the active rung within tolerance; moves to and aligns with the selected rung on channel-change, never orphaned off-ring) | U-F9-rail (T-5/P1-R1) | T-5 P1-R1 (`T-MARK-2026-07-12:80`/§3.1): the picker's vertical dock-like channel-ring active/selected seat, LANDED W4-4 (`channel-rail ring + WatercolorDot active seat`) but owner-uncertified-OPEN. **HONESTY (W4-4 landed — the BR-3 idiom):** the seat-tracks-rung GEOMETRY may ALREADY be GREEN at HEAD (the picker read COHERENT except the owner-uncertified active seat, `T-MARK:80`) — if so BR-12 is born-GREEN **must-STAY** (a re-cure that de-seats/orphans the active dot reds the row) and the residual is the OWNER-ATTESTED perceptual read (OA-7). The census re-judges LIVE; the born-RED teeth are the seat-alignment sub-predicate wherever the active dot still mis-tracks its rung |
+| **BR-13** | computed `.dark --shadow-color` under `.dark` is a DESIGNED dark-caster value, NOT `var(--foreground)`/the cream foreground token, AND the cartoon caster's effective α ≤ the designed caster floor (the headless TOKEN/α leg of the T-53 re-cut — a computed-custom-property predicate, `getComputedStyle` on a `.dark` element, GPU-independent; parallels U-F13-band's BR-10 headless leg beside its owner-attested read) | U-F19/T-53 | registry §4 / WR-5 — the still-red was `.dark --shadow-color: var(--foreground)` (a 50%-α cream slab, `style.css` root `:355`). **HONESTY (WR-5 re-cut landed — the BR-3/BR-12 idiom):** `style.css:639` now reads `.dark { --shadow-color: color(srgb 0.11 0.098 0.09) }` (α `:643-644` 50/55%), so this token predicate may ALREADY be GREEN at HEAD — if so BR-13 is born-GREEN **must-STAY** (a re-cure that reverts to the foreground cream reds the row). The census re-judges LIVE; the born-RED teeth are the `--shadow-color ≠ foreground cream` sub-predicate wherever the caster still resolves to the cream token. OA-5 remains the perceptual "reads as an honest dark caster" read |
 
 ### Register 2 — owner-attested / real-GPU annex (NOT headless born-RED; the U-F54 law)
 
@@ -468,7 +504,7 @@ measured quantity that moved.
 
 | Family | π-frame (before → after) | DELTA (measured) |
 |---|---|---|
-| U-F5 | `picker-{light,dark}-{1440,390}-full.png` — blob spilling/colliding → seated | @1440: card-edge right inset (px, RED spill < 0 → GREEN ≥ gutter); @390: readout clearance (px, RED collision < 0 → GREEN ≥ gutter) |
+| U-F5 | `picker-{light,dark}-{1440,390}-full.png` — blob spilling → seated | @1440: card-edge right inset (px, RED spill −56 [745−689] < 0 → GREEN ≥ gutter, **BR-1**); @390: card-content right inset (px, RED spill **−49** [407−358] < 0 → GREEN ≥ gutter, **BR-2** — the real spill) + viewport inset (RED 407 > 390 → GREEN ≤ 390); @390 vertical: readout-band clearance (RED blob bottom 299 below label top 167 on the shared y → GREEN cleared, **BR-2b** — X-independent, no literal collision) |
 | U-F6-ramp | `ramp-{light,dark}.png` — near-black sink → perceptible band | min per-letter L (RED ≈ 0.02 → GREEN ≥ floor); min per-glyph contrast vs card rung (RED < carve-out → GREEN ≥ 3:1/4.5:1) |
 | U-F7 | real-GPU swap-window screencast (confound-isolated) — jank → smooth; **+ the wake-gray bead**: swap-window frame at reveal-start — gray substrate flash → opaque incoming ground | max frame ms (RED > 32 / 88 → GREEN ≤ 32); frames-over-budget count (RED 11/74 → GREEN 0); **wake-gray flash present→absent** (MUST-NOT-REGRESS from the landed boot-B baseline `5cecdf2` — GREEN absent, a re-cure that re-exposes it reds the row) |
 | U-F8 | `pane-generate-{light,dark}-{1440,390}.png` — flat squares / 3 registers → dots / 1 instrument | swatch species (rect → WatercolorDot, producer-attested); verb-register count (3 → 1) |
@@ -480,7 +516,7 @@ measured quantity that moved.
 | U-F12 | `pane-*-dark-{1440,390}.png` across panes — identity-less uniform warm-brown → per-pane identity carried (**pole-conditional, mirrors BR-7**: Pole A = the card GROUND tint; Pole B / C3-compliant DEFAULT = the sanctioned `--accent` lane) | **Pole A** (chroma-carried tint — C3-ledger amendment): per-pane GROUND-tint chroma C (RED ≈ 0 → GREEN ≥ floor); cross-pane GROUND hue-spread (RED uniform → GREEN seed-tracked). **Pole B** (restrained-neutral tint — C3-compliant DEFAULT; the ground stays near-neutral BY CONSTRUCTION, so ground chroma ≈ 0 is CORRECT, never the RED): the assertion MOVES to the accent lane — per-pane **`--accent`-lane** chroma C (RED ≈ 0 → GREEN ≥ floor); cross-pane **accent** hue-spread (RED uniform → GREEN seed-tracked) |
 | U-F13-demo | `dock-*-1440-expanded.png` + `border-*` — edge ring shaved → whole | edge-item ring-arc completeness (px shaved → 0); Tools box-model ring reservation present |
 | U-F13-band (T-57/WR-9) | `dock-{light,dark}-collapsed→expanded.png` — scene reflows on dock-expand → scene invariant | scene-top shift across the morph (RED **+3.0px** → GREEN **0px**); in-flow band block-size vs expanded pill (RED floor < pill → GREEN reserved ≥ expanded) |
-| U-F19/T-53 | dark-caster clip — 50%-α cream slab → honest caster | caster color/α (cream `--foreground` 50%-α → re-cut value) |
+| U-F19/T-53 | dark-caster clip — 50%-α cream slab → honest caster | computed `.dark --shadow-color` (RED `var(--foreground)` cream / 50%-α → GREEN designed dark value ≤ caster-α floor — the headless **BR-13** leg, LANDED-partial born-GREEN must-STAY if `style.css:639` holds); + the owner-attested "reads as an honest caster" read (**OA-5**) |
 
 **Obligation law**: a family may not claim GREEN without BOTH the after π-frame captured (real-GPU/
 owner-attested) AND the DELTA logged moving RED→GREEN. A born-RED gate flip is the DELTA's
@@ -520,7 +556,7 @@ The already-dispatched rows are cited BY NAME (no second book).
 
 | Family | Disposition | Rationale |
 |---|---|---|
-| **U-F5** blob-card-seat | **build** | seat/size/collision residue W8 (WR-1/WR-2) does NOT touch; re-seat as an integrated header bead; born-RED geometry (BR-1/BR-2) + owner-attested gestalt (OA-4); blur axis CURED (untouched) |
+| **U-F5** blob-card-seat | **build** | seat/size/spill residue W8 (WR-1/WR-2) does NOT touch; re-seat as an integrated header bead; born-RED geometry (BR-1 @1440 right-edge / BR-2 @390 right-edge spill / BR-2b @390 vertical readout-band clearance) + owner-attested gestalt (OA-4); blur axis CURED (untouched) |
 | **U-F6-ramp** q5-ramp-register | **build** (ramp-half; oracle-half → U.W-ORACLE via U-F62) | feasibility-bounded L/chroma envelope; born-RED per-letter floor (BR-3); the O-14 feasibility-leg law is a DIFFERENT surface (booked to U.W-ORACLE) |
 | **U-F7** scene-transition-motion | **build** (real-GPU annex) | scheduling re-design (evict payload from the enter window), cured WITH the wake bead; owner-attested (OA-1) NOT headless — confound-isolated; producer confounds relayed/booked |
 | **U-F8** generate-plate-species-chrome | **build** (RELAY) | WatercolorDot face + one verb instrument; both are producer registers → RELAY addendum; owner-attested (OA-2) |
@@ -529,7 +565,7 @@ The already-dispatched rows are cited BY NAME (no second book).
 | **U-F11** collapsed-dock-swatch-seam | **build** (AUTOMATIC — uncured by W8) | no WR row minted; a deliberate perceptible derive-seam (≥ JND); born-RED ΔE (BR-6) + owner-attested gestalt |
 | **U-F12** dark-scheme-derived-tint-muddiness | **build** (owner-judgment-at-formation) | NEW, no owner row → presented as a BRACKET for owner ruling; born-RED chroma-floor (BR-7); coordinates U-F6 + U-F26 |
 | **U-F13-demo** dock-edge-clip | **build** (demo half; producer half → U.W-ADOPT/relay) | Tools true-button box-model reserves its ring weight; born-RED box-model (BR-8); producer clip/fade relayed (already dispatched) |
-| **U-F19 residue** T-53 dark caster | **build-if-CENSUS-RED** (material) | absorbs WR-5's terminal residue; a designed dark-caster re-cut (one declaration); owner-attested (OA-5). AB-1 KaTeX build-scope → U.W-CANON (NOT here) |
+| **U-F19 residue** T-53 dark caster | **build-if-CENSUS-RED** (material) | absorbs WR-5's terminal residue; a designed dark-caster re-cut (one declaration); born-RED headless token/α leg (BR-13, LANDED-partial per `style.css:639`) + owner-attested perceptual read (OA-5). AB-1 KaTeX build-scope → U.W-CANON (NOT here) |
 
 No family in this wave's set is folded-away without a named home or retired-silently; the U-F6
 oracle-half + the U-F19 AB-1 half + the U-F13 producer half route to named sibling waves (booked).
