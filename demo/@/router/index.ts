@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
 
+import { installDocumentTitle } from "../composables/useDocumentTitle";
+
 /**
  * Hash-based router for the color picker demo.
  * Uses hash mode to avoid server-side routing requirements (GitHub Pages, etc.).
@@ -39,3 +41,8 @@ export const router = createRouter({
     history: createWebHashHistory(),
     routes,
 });
+
+// The live tab title tracks the route's voice — the picked colour + the current
+// pane — instead of the static "Color Picker". Registered here (the canonical
+// navigation-guard home) so no header/mount file is touched. See useDocumentTitle.
+installDocumentTitle(router);

@@ -18,7 +18,7 @@
                 </div>
 
                 <!-- Tag checkboxes -->
-                <div v-else class="flex flex-col gap-0.5 max-h-40 overflow-y-auto">
+                <div v-else class="flex flex-col gap-0.5 max-h-40 overflow-y-auto scrollbar-thin">
                     <label
                         v-for="tag in tagEdit.allTags.value"
                         :key="tag.name"

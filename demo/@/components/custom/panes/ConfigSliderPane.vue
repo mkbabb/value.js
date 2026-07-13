@@ -103,7 +103,7 @@ function resetDefaults() {
             <!-- The scroll region owns the fade mask + overflow; the action bar
                  below sits OUTSIDE it (flex-none footer) so it can never occlude
                  a slider or readout (W6-6). -->
-            <div class="pane-scroll-fade flex-1 min-w-0 overflow-y-auto overflow-x-hidden">
+            <div class="pane-scroll-fade scrollbar-thin flex-1 min-w-0 overflow-y-auto overflow-x-hidden">
                 <PaneHeader v-bind="description !== undefined ? { description } : {}">{{ title }}</PaneHeader>
 
                 <!-- Default slot for extra controls (e.g. AuroraPane select rows) -->

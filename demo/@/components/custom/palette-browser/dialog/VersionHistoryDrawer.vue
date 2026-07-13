@@ -12,7 +12,7 @@
                 </SheetDescription>
             </SheetHeader>
 
-            <div class="mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto">
+            <div class="mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin">
                 <!-- Loading -->
                 <div v-if="loading" class="flex items-center justify-center py-8">
                     <Loader2 class="h-5 w-5 animate-spin text-muted-foreground" />
