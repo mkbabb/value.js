@@ -9,12 +9,12 @@
  * 5. Nearest-neighbor palette sort in weighted OKLCH space
  */
 
-import { srgbToOKLab } from "../units/color/gamut";
+import { srgb2oklab } from "../units/color/gamut";
 import { DEFAULTS } from "./types";
 import type { QuantizeOptions, QuantizedColor } from "./types";
 import {
-    rawOklabToOklch,
-    oklabToRgb255,
+    rawOklab2oklch,
+    oklab2rgb255,
     oklchToCss,
     medianCutOKLab,
     kmeansPlusPlusInit,
@@ -122,7 +122,7 @@ export function quantizePixels(
 
             if (a < 10) continue;
 
-            const [L, oA, oB] = srgbToOKLab(r, g, b);
+            const [L, oA, oB] = srgb2oklab(r, g, b);
             oklabPixels[idx * 3] = L;
             oklabPixels[idx * 3 + 1] = oA;
             oklabPixels[idx * 3 + 2] = oB;
@@ -155,8 +155,8 @@ export function quantizePixels(
     // Step 6: Build output + perceptual sort
     const result: QuantizedColor[] = deduped.centroids.map((c, i) => {
         const [L, a, b] = c;
-        const oklch = rawOklabToOklch(L, a, b);
-        const rgb = oklabToRgb255(L, a, b);
+        const oklch = rawOklab2oklch(L, a, b);
+        const rgb = oklab2rgb255(L, a, b);
         return {
             oklab: [L, a, b] as [number, number, number],
             oklch,

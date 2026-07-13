@@ -26,7 +26,7 @@ import { clamp, scale } from "../../../math";
 // for the copy went stale when the G.W1 Lane B decomposition made `transfer.ts`
 // a zero-import leaf — importing it introduces no cycle. `clamp` likewise folds
 // onto `../../math` (already the home of `scale`, imported above).
-import { linearToSrgb, srgbToLinear } from "../conversions/transfer";
+import { linear2srgb, srgb2linear } from "../conversions/transfer";
 
 // Gamut sector coefficients for Ottosson's analytical max-saturation solver
 // (T.W1-src §4b — colocated with `computeMaxSaturation` below, its sole consumer;
@@ -76,7 +76,7 @@ export function deltaEOK(
  * Direct OKLab→linear sRGB conversion (no XYZ intermediate).
  * L ∈ [0,1], a,b ∈ [-0.4,0.4] (raw OKLab, NOT normalized).
  */
-export function oklabToLinearSRGB(L: number, a: number, b: number): [number, number, number] {
+export function oklab2linearSrgb(L: number, a: number, b: number): [number, number, number] {
     // OKLab → LMS (cube-root domain)
     const l_ = L + OKLAB_TO_LMS_COEFF.l[1] * a + OKLAB_TO_LMS_COEFF.l[2] * b;
     const m_ = L + OKLAB_TO_LMS_COEFF.m[1] * a + OKLAB_TO_LMS_COEFF.m[2] * b;
@@ -154,7 +154,7 @@ export function findCusp(a_: number, b_: number): { L: number; C: number } {
     const S_cusp = computeMaxSaturation(a_, b_);
 
     // Convert the max-saturation point to linear sRGB to find L_cusp
-    const [r, g, b] = oklabToLinearSRGB(1, S_cusp * a_, S_cusp * b_);
+    const [r, g, b] = oklab2linearSrgb(1, S_cusp * a_, S_cusp * b_);
     const L_cusp = Math.cbrt(1 / Math.max(r, g, b));
     const C_cusp = L_cusp * S_cusp;
 
@@ -264,7 +264,7 @@ export function gamutMapOKLab(
     L: number, a: number, b: number,
 ): [number, number, number] {
     // Check if already in gamut
-    const [rLin, gLin, bLin] = oklabToLinearSRGB(L, a, b);
+    const [rLin, gLin, bLin] = oklab2linearSrgb(L, a, b);
     if (isInSRGBGamut(rLin, gLin, bLin)) {
         return [L, a, b];
     }
@@ -294,25 +294,25 @@ export function gamutMapOKLab(
 
 // ── R.W1.5 (boundary-api §5) — the zero-alloc Into companions ──
 //
-// `srgbToOKLabInto` / `gamutMapOKLabInto` are the out-param twins of
-// `srgbToOKLab` / `gamutMapOKLab` — byte-identical arithmetic, no per-call tuple
+// `srgb2oklabInto` / `gamutMapOKLabInto` are the out-param twins of
+// `srgb2oklab` / `gamutMapOKLab` — byte-identical arithmetic, no per-call tuple
 // or cusp-object allocation, so the gamut-boundary sampler's inner field is
 // honestly zero-alloc. They are consumed only by `boundary.ts` and are kept OUT
 // of every barrel until a public consumer is named. Single-threaded re-entrancy
 // (the module scratches are fully written before any read) — the same argument
 // the `color2Into` / `xyz2rgbFamilyInto` scratches rely on.
 
-// Shared linear-sRGB scratch for the in-line `oklabToLinearSRGB` (avoids the
+// Shared linear-sRGB scratch for the in-line `oklab2linearSrgb` (avoids the
 // 3-tuple return). Written then immediately read within one call; the two
 // sequential uses inside `gamutMapOKLabInto` (in-gamut probe, then cusp) never
 // overlap.
 const _oklabLinScratch: [number, number, number] = [0, 0, 0];
 
-/** Out-param `oklabToLinearSRGB` — same 9 multiplies, no tuple allocation.
+/** Out-param `oklab2linearSrgb` — same 9 multiplies, no tuple allocation.
  *  Package-internal export (S.W1-6): the OKLCh-slice boundary sampler in
  *  `boundary.ts` bisects raw-OKLab chroma through it with zero per-step alloc.
  *  In no barrel — the public color surface stays geometry-only. */
-export function oklabToLinearSRGBInto(
+export function oklab2linearSrgbInto(
     L: number, a: number, b: number,
     out: [number, number, number],
 ): [number, number, number] {
@@ -334,7 +334,7 @@ const _cuspScratch: { L: number; C: number } = { L: 0, C: 0 };
 /** Out-param `findCusp` — writes into `_cuspScratch`; identical to `findCusp`. */
 function findCuspInto(a_: number, b_: number): { L: number; C: number } {
     const S_cusp = computeMaxSaturation(a_, b_);
-    oklabToLinearSRGBInto(1, S_cusp * a_, S_cusp * b_, _oklabLinScratch);
+    oklab2linearSrgbInto(1, S_cusp * a_, S_cusp * b_, _oklabLinScratch);
     const L_cusp = Math.cbrt(
         1 / Math.max(_oklabLinScratch[0], _oklabLinScratch[1], _oklabLinScratch[2]),
     );
@@ -343,14 +343,14 @@ function findCuspInto(a_: number, b_: number): { L: number; C: number } {
     return _cuspScratch;
 }
 
-/** Out-param twin of {@link srgbToOKLab} — writes (L,a,b) into `out`. */
-export function srgbToOKLabInto(
+/** Out-param twin of {@link srgb2oklab} — writes (L,a,b) into `out`. */
+export function srgb2oklabInto(
     r: number, g: number, b: number,
     out: [number, number, number],
 ): [number, number, number] {
-    const rLin = srgbToLinear(r);
-    const gLin = srgbToLinear(g);
-    const bLin = srgbToLinear(b);
+    const rLin = srgb2linear(r);
+    const gLin = srgb2linear(g);
+    const bLin = srgb2linear(b);
 
     const l_ = Math.cbrt(LINEAR_SRGB_TO_LMS[0] * rLin + LINEAR_SRGB_TO_LMS[1] * gLin + LINEAR_SRGB_TO_LMS[2] * bLin);
     const m_ = Math.cbrt(LINEAR_SRGB_TO_LMS[3] * rLin + LINEAR_SRGB_TO_LMS[4] * gLin + LINEAR_SRGB_TO_LMS[5] * bLin);
@@ -371,7 +371,7 @@ export function gamutMapOKLabInto(
     L: number, a: number, b: number,
     out: [number, number, number],
 ): [number, number, number] {
-    const lin = oklabToLinearSRGBInto(L, a, b, _oklabLinScratch);
+    const lin = oklab2linearSrgbInto(L, a, b, _oklabLinScratch);
     if (isInSRGBGamut(lin[0], lin[1], lin[2])) {
         out[0] = L; out[1] = a; out[2] = b;
         return out;
@@ -402,10 +402,10 @@ export function gamutMapOKLabInto(
  * Convert sRGB (possibly out-of-gamut) to raw OKLab.
  * Uses the direct linear sRGB → LMS path.
  */
-export function srgbToOKLab(r: number, g: number, b: number): [number, number, number] {
-    const rLin = srgbToLinear(r);
-    const gLin = srgbToLinear(g);
-    const bLin = srgbToLinear(b);
+export function srgb2oklab(r: number, g: number, b: number): [number, number, number] {
+    const rLin = srgb2linear(r);
+    const gLin = srgb2linear(g);
+    const bLin = srgb2linear(b);
 
     // linear sRGB → LMS (cube root)
     const l_ = Math.cbrt(LINEAR_SRGB_TO_LMS[0] * rLin + LINEAR_SRGB_TO_LMS[1] * gLin + LINEAR_SRGB_TO_LMS[2] * bLin);
@@ -431,21 +431,21 @@ export function gamutMapSRGB(
         return [r, g, b];
     }
 
-    const [L, a, bOk] = srgbToOKLab(r, g, b);
+    const [L, a, bOk] = srgb2oklab(r, g, b);
     const [Lm, am, bm] = gamutMapOKLab(L, a, bOk);
-    const [rM, gM, bM] = oklabToLinearSRGB(Lm, am, bm);
+    const [rM, gM, bM] = oklab2linearSrgb(Lm, am, bm);
 
     return [
-        clamp(linearToSrgb(rM), 0, 1),
-        clamp(linearToSrgb(gM), 0, 1),
-        clamp(linearToSrgb(bM), 0, 1),
+        clamp(linear2srgb(rM), 0, 1),
+        clamp(linear2srgb(gM), 0, 1),
+        clamp(linear2srgb(bM), 0, 1),
     ];
 }
 
 // ── Raw tuple conversions (promoted from quantize/cluster.ts) ──
 
 /** OKLab (L,a,b) → OKLCH (L,C,H) with H in degrees [0,360). */
-export function rawOklabToOklch(L: number, a: number, b: number): [number, number, number] {
+export function rawOklab2oklch(L: number, a: number, b: number): [number, number, number] {
     const C = Math.sqrt(a * a + b * b);
     let H = Math.atan2(b, a) * (180 / Math.PI);
     if (H < 0) H += 360;
@@ -453,18 +453,18 @@ export function rawOklabToOklch(L: number, a: number, b: number): [number, numbe
 }
 
 /** OKLCH (L,C,H) → OKLab (L,a,b). H in degrees. */
-export function rawOklchToOklab(L: number, C: number, H: number): [number, number, number] {
+export function rawOklch2oklab(L: number, C: number, H: number): [number, number, number] {
     const hRad = (H * Math.PI) / 180;
     return [L, C * Math.cos(hRad), C * Math.sin(hRad)];
 }
 
 /** OKLab → clamped sRGB [0,255]. */
-export function oklabToRgb255(L: number, a: number, b: number): [number, number, number] {
-    const [rLin, gLin, bLin] = oklabToLinearSRGB(L, a, b);
+export function oklab2rgb255(L: number, a: number, b: number): [number, number, number] {
+    const [rLin, gLin, bLin] = oklab2linearSrgb(L, a, b);
     return [
-        Math.round(clamp(linearToSrgb(rLin), 0, 1) * 255),
-        Math.round(clamp(linearToSrgb(gLin), 0, 1) * 255),
-        Math.round(clamp(linearToSrgb(bLin), 0, 1) * 255),
+        Math.round(clamp(linear2srgb(rLin), 0, 1) * 255),
+        Math.round(clamp(linear2srgb(gLin), 0, 1) * 255),
+        Math.round(clamp(linear2srgb(bLin), 0, 1) * 255),
     ];
 }
 
@@ -485,7 +485,7 @@ export function oklabToRgb255(L: number, a: number, b: number): [number, number,
 // [0,1], as the dispatch hands them); the output is raw XYZ-D65.
 //
 // `out` is a caller-owned 3-tuple (never the source) written in place + returned.
-export function oklchToXYZTuple(
+export function oklch2xyzTuple(
     l: number,
     c: number,
     h: number,

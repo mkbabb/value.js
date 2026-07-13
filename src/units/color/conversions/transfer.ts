@@ -19,7 +19,7 @@ const SRGB_TRANSITION = 0.04045; // sRGB transition point
 const SRGB_LINEAR_TRANSITION = SRGB_TRANSITION / SRGB_SLOPE; // sRGB linear transition point
 
 /** Convert an sRGB channel to linear-light sRGB. */
-export function srgbToLinear(channel: number): number {
+export function srgb2linear(channel: number): number {
     // sRGB uses a piecewise function (IEC 61966-2-1):
     // - A linear portion for low values (below the transition point)
     // - A power function for higher values
@@ -31,7 +31,7 @@ export function srgbToLinear(channel: number): number {
     // the encoded threshold. (The historical `<= SRGB_LINEAR_TRANSITION` guard
     // mis-routed the encoded 8-bit dark band 1..10/255 — all in
     // [0.0031308, 0.04045] — through the power branch, decoding near-black too
-    // bright: the booked `srgbToLinear` decode defect. `linearToSrgb` below is
+    // bright: the booked `srgb2linear` decode defect. `linear2srgb` below is
     // the mirror — its ENCODE branch correctly pivots on the linear-axis
     // `SRGB_LINEAR_TRANSITION`.)
     const sign = channel < 0 ? -1 : 1;
@@ -45,8 +45,8 @@ export function srgbToLinear(channel: number): number {
 }
 
 /** Convert a linear-light sRGB channel back to gamma-encoded sRGB. */
-export function linearToSrgb(channel: number): number {
-    // This function is the inverse of srgbToLinear
+export function linear2srgb(channel: number): number {
+    // This function is the inverse of srgb2linear
     // It applies the sRGB transfer function to convert linear RGB values back to sRGB
 
     const sign = channel < 0 ? -1 : 1;
@@ -68,12 +68,12 @@ export const linearTransfer = (c: number): number => c;
 
 const ADOBE_RGB_GAMMA = 563 / 256;
 
-export function adobeRgbToLinear(c: number): number {
+export function adobeRgb2linear(c: number): number {
     const sign = c < 0 ? -1 : 1;
     return sign * Math.abs(c) ** ADOBE_RGB_GAMMA;
 }
 
-export function linearToAdobeRgb(c: number): number {
+export function linear2adobeRgb(c: number): number {
     const sign = c < 0 ? -1 : 1;
     return sign * Math.abs(c) ** (1 / ADOBE_RGB_GAMMA);
 }
@@ -83,13 +83,13 @@ export function linearToAdobeRgb(c: number): number {
 const PROPHOTO_ET = 1 / 512;
 const PROPHOTO_GAMMA = 1.8;
 
-export function proPhotoToLinear(c: number): number {
+export function proPhoto2linear(c: number): number {
     const sign = c < 0 ? -1 : 1;
     const abs = Math.abs(c);
     return sign * (abs <= PROPHOTO_ET * 16 ? abs / 16 : abs ** PROPHOTO_GAMMA);
 }
 
-export function linearToProPhoto(c: number): number {
+export function linear2proPhoto(c: number): number {
     const sign = c < 0 ? -1 : 1;
     const abs = Math.abs(c);
     return sign * (abs >= PROPHOTO_ET ? abs ** (1 / PROPHOTO_GAMMA) : abs * 16);
@@ -100,7 +100,7 @@ export function linearToProPhoto(c: number): number {
 const REC2020_ALPHA = 1.09929682680944;
 const REC2020_BETA = 0.018053968510807;
 
-export function rec2020ToLinear(c: number): number {
+export function rec20202linear(c: number): number {
     const sign = c < 0 ? -1 : 1;
     const abs = Math.abs(c);
     if (abs < REC2020_BETA * 4.5) {
@@ -109,7 +109,7 @@ export function rec2020ToLinear(c: number): number {
     return sign * ((abs + REC2020_ALPHA - 1) / REC2020_ALPHA) ** (1 / 0.45);
 }
 
-export function linearToRec2020(c: number): number {
+export function linear2rec2020(c: number): number {
     const sign = c < 0 ? -1 : 1;
     const abs = Math.abs(c);
     if (abs >= REC2020_BETA) {

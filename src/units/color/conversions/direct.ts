@@ -30,7 +30,7 @@ import {
 } from "./matrices";
 import { gamutMap } from "../dispatch";
 import { hsl2rgb, rgb2hsl } from "./cylindrical";
-import { linearToSrgb, srgbToLinear } from "./transfer";
+import { linear2srgb, srgb2linear } from "./transfer";
 
 // ──────────────────────────────────────────────────────────────────────────────
 // All RGB direct paths route through `gamutMap` to match `xyz2rgb`'s default
@@ -43,7 +43,7 @@ import { linearToSrgb, srgbToLinear } from "./transfer";
 // ──────────────────────────────────────────────────────────────────────────────
 
 /** Direct OKLab → RGB. Skips XYZColor allocation + one matrix multiply. */
-export function directOklabToRgb(oklab: OKLABColor): RGBColor {
+export function directOklab2rgb(oklab: OKLABColor): RGBColor {
     // Denormalize a, b from [0,1] to OKLab physical range (mirrors oklab2xyz).
     const a = scale(
         oklab.a as number, 0, 1,
@@ -77,16 +77,16 @@ export function directOklabToRgb(oklab: OKLABColor): RGBColor {
 
     // Linear sRGB → sRGB (transfer encode) — then gamut-map (matches xyz2rgb default).
     const rgb = gamutMap(new RGBColor(
-        linearToSrgb(rLin), linearToSrgb(gLin), linearToSrgb(bLin), oklab.alpha,
+        linear2srgb(rLin), linear2srgb(gLin), linear2srgb(bLin), oklab.alpha,
     ));
     return new RGBColor(rgb.r, rgb.g, rgb.b, oklab.alpha);
 }
 
 /** Direct RGB → OKLab. Skips XYZColor allocation + one matrix multiply. */
-export function directRgbToOklab(rgb: RGBColor): OKLABColor {
-    const rLin = srgbToLinear(rgb.r as number);
-    const gLin = srgbToLinear(rgb.g as number);
-    const bLin = srgbToLinear(rgb.b as number);
+export function directRgb2oklab(rgb: RGBColor): OKLABColor {
+    const rLin = srgb2linear(rgb.r as number);
+    const gLin = srgb2linear(rgb.g as number);
+    const bLin = srgb2linear(rgb.b as number);
 
     // Linear sRGB → LMS (cube-root domain).
     const l_ = Math.cbrt(
@@ -125,7 +125,7 @@ export function directRgbToOklab(rgb: RGBColor): OKLABColor {
 }
 
 /** Direct OKLCH → RGB. Polar → Cartesian → direct OKLab→RGB. */
-export function directOklchToRgb(oklch: OKLCHColor): RGBColor {
+export function directOklch2rgb(oklch: OKLCHColor): RGBColor {
     // Denormalize c from [0,1] to OKLCh physical range (mirrors oklch2oklab).
     const c = scale(
         oklch.c as number, 0, 1,
@@ -155,16 +155,16 @@ export function directOklchToRgb(oklch: OKLCHColor): RGBColor {
         LMS_TO_LINEAR_SRGB[6] * lLin + LMS_TO_LINEAR_SRGB[7] * mLin + LMS_TO_LINEAR_SRGB[8] * sLin;
 
     const rgb = gamutMap(new RGBColor(
-        linearToSrgb(rLin), linearToSrgb(gLin), linearToSrgb(bLin), oklch.alpha,
+        linear2srgb(rLin), linear2srgb(gLin), linear2srgb(bLin), oklch.alpha,
     ));
     return new RGBColor(rgb.r, rgb.g, rgb.b, oklch.alpha);
 }
 
 /** Direct RGB → OKLCH. Direct RGB→OKLab Cartesian → polar (skip OKLABColor wrap). */
-export function directRgbToOklch(rgb: RGBColor): OKLCHColor {
-    const rLin = srgbToLinear(rgb.r as number);
-    const gLin = srgbToLinear(rgb.g as number);
-    const bLin = srgbToLinear(rgb.b as number);
+export function directRgb2oklch(rgb: RGBColor): OKLCHColor {
+    const rLin = srgb2linear(rgb.r as number);
+    const gLin = srgb2linear(rgb.g as number);
+    const bLin = srgb2linear(rgb.b as number);
 
     const l_ = Math.cbrt(
         LINEAR_SRGB_TO_LMS[0] * rLin + LINEAR_SRGB_TO_LMS[1] * gLin + LINEAR_SRGB_TO_LMS[2] * bLin,
@@ -201,7 +201,7 @@ export function directRgbToOklch(rgb: RGBColor): OKLCHColor {
 }
 
 /** Direct HSL → RGB. Already a closed-form cylindrical conversion (no XYZ). */
-export function directHslToRgb(hsl: HSLColor): RGBColor {
+export function directHsl2rgb(hsl: HSLColor): RGBColor {
     // `hsl2rgb` already implements the direct cylindrical conversion (no
     // XYZ intermediate at all) — the XYZ-hub path adds an unnecessary round
     // trip. Match `xyz2rgb`'s default by gamut-mapping the result.
@@ -210,7 +210,7 @@ export function directHslToRgb(hsl: HSLColor): RGBColor {
 }
 
 /** Direct RGB → HSL. Already a closed-form cylindrical conversion (no XYZ). */
-export function directRgbToHsl(rgb: RGBColor): HSLColor {
+export function directRgb2hsl(rgb: RGBColor): HSLColor {
     return rgb2hsl(rgb);
 }
 
@@ -255,15 +255,15 @@ export type DirectPathsTable = {
 export const DIRECT_PATHS: DirectPathsTable = {
     // OKLab ↔ RGB — skips XYZ + chromatic adaptation. Highest-frequency
     // interpolation pair in the demo + library hot paths.
-    "oklab->rgb": directOklabToRgb,
-    "rgb->oklab": directRgbToOklab,
+    "oklab->rgb": directOklab2rgb,
+    "rgb->oklab": directRgb2oklab,
     // OKLCH ↔ RGB — polar form of OKLab; direct path inlines the polar
     // conversion + the OKLab→LMS→sRGB chain.
-    "oklch->rgb": directOklchToRgb,
-    "rgb->oklch": directRgbToOklch,
+    "oklch->rgb": directOklch2rgb,
+    "rgb->oklch": directRgb2oklch,
     // HSL ↔ RGB — closed-form cylindrical conversion (no XYZ at all).
-    "hsl->rgb": directHslToRgb,
-    "rgb->hsl": directRgbToHsl,
+    "hsl->rgb": directHsl2rgb,
+    "rgb->hsl": directRgb2hsl,
 };
 
 /**

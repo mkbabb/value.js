@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
-    okhslToSrgb,
-    srgbToOkhsl,
-    okhsvToSrgb,
-    srgbToOkhsv,
+    okhsl2srgb,
+    srgb2okhsl,
+    okhsv2srgb,
+    srgb2okhsv,
 } from "@src/units/color/gamut/okhsl";
 
 // OKHSL/OKHSV land exactly ON the sRGB boundary at full saturation; the
@@ -18,16 +18,16 @@ const inUnit = ([r, g, b]: [number, number, number]) =>
 describe("OKHSL", () => {
     it("maps grey (s=0) to an achromatic sRGB triple", () => {
         for (const l of [0.1, 0.25, 0.5, 0.75, 0.9]) {
-            const [r, g, b] = okhslToSrgb(210, 0, l);
+            const [r, g, b] = okhsl2srgb(210, 0, l);
             expect(g).toBeCloseTo(r, 9);
             expect(b).toBeCloseTo(r, 9);
         }
     });
 
     it("pins black and white", () => {
-        expect(okhslToSrgb(0, 0.5, 0)).toEqual([0, 0, 0]);
-        expect(okhslToSrgb(0, 0.5, 1)).toEqual([1, 1, 1]);
-        const [, sW, lW] = srgbToOkhsl(1, 1, 1);
+        expect(okhsl2srgb(0, 0.5, 0)).toEqual([0, 0, 0]);
+        expect(okhsl2srgb(0, 0.5, 1)).toEqual([1, 1, 1]);
+        const [, sW, lW] = srgb2okhsl(1, 1, 1);
         expect(sW).toBeCloseTo(0, 6);
         expect(lW).toBeCloseTo(1, 6);
     });
@@ -36,7 +36,7 @@ describe("OKHSL", () => {
         for (let h = 0; h < 360; h += 30) {
             for (const s of [0, 0.25, 0.5, 0.8, 1]) {
                 for (const l of [0.15, 0.5, 0.85]) {
-                    expect(inUnit(okhslToSrgb(h, s, l)), `${h},${s},${l}`).toBe(true);
+                    expect(inUnit(okhsl2srgb(h, s, l)), `${h},${s},${l}`).toBe(true);
                 }
             }
         }
@@ -52,8 +52,8 @@ describe("OKHSL", () => {
             [0.5, 0.5, 0.5],
             [0.95, 0.9, 0.3],
         ] as const) {
-            const [h, s, l] = srgbToOkhsl(...rgb);
-            const back = okhslToSrgb(h, s, l);
+            const [h, s, l] = srgb2okhsl(...rgb);
+            const back = okhsl2srgb(h, s, l);
             expect(back[0]).toBeCloseTo(rgb[0], 5);
             expect(back[1]).toBeCloseTo(rgb[1], 5);
             expect(back[2]).toBeCloseTo(rgb[2], 5);
@@ -72,7 +72,7 @@ describe("OKHSL", () => {
         for (let h = 15; h < 360; h += 45) {
             for (const s of [0.2, 0.5, 0.8, 1.0]) {
                 for (const l of [0.2, 0.35, 0.45, 0.7]) {
-                    const [h2, s2, l2] = srgbToOkhsl(...okhslToSrgb(h, s, l));
+                    const [h2, s2, l2] = srgb2okhsl(...okhsl2srgb(h, s, l));
                     expect(h2, `h ${h},${s},${l}`).toBeCloseTo(h, 2);
                     expect(s2, `s ${h},${s},${l}`).toBeCloseTo(s, 3);
                     expect(l2, `l ${h},${s},${l}`).toBeCloseTo(l, 3);
@@ -84,8 +84,8 @@ describe("OKHSL", () => {
 
 describe("OKHSV", () => {
     it("pins black (v=0) and greys (s=0)", () => {
-        expect(okhsvToSrgb(120, 0.7, 0)).toEqual([0, 0, 0]);
-        const [r, g, b] = okhsvToSrgb(120, 0, 0.6);
+        expect(okhsv2srgb(120, 0.7, 0)).toEqual([0, 0, 0]);
+        const [r, g, b] = okhsv2srgb(120, 0, 0.6);
         expect(g).toBeCloseTo(r, 9);
         expect(b).toBeCloseTo(r, 9);
     });
@@ -94,7 +94,7 @@ describe("OKHSV", () => {
         for (let h = 0; h < 360; h += 30) {
             for (const s of [0, 0.3, 0.7, 1]) {
                 for (const v of [0.2, 0.6, 1]) {
-                    expect(inUnit(okhsvToSrgb(h, s, v)), `${h},${s},${v}`).toBe(true);
+                    expect(inUnit(okhsv2srgb(h, s, v)), `${h},${s},${v}`).toBe(true);
                 }
             }
         }
@@ -109,8 +109,8 @@ describe("OKHSV", () => {
             [0.2, 0.6, 0.9],
             [0.4, 0.4, 0.4],
         ] as const) {
-            const [h, s, v] = srgbToOkhsv(...rgb);
-            const back = okhsvToSrgb(h, s, v);
+            const [h, s, v] = srgb2okhsv(...rgb);
+            const back = okhsv2srgb(h, s, v);
             expect(back[0]).toBeCloseTo(rgb[0], 5);
             expect(back[1]).toBeCloseTo(rgb[1], 5);
             expect(back[2]).toBeCloseTo(rgb[2], 5);
@@ -123,7 +123,7 @@ describe("OKHSV", () => {
         for (let h = 20; h < 360; h += 50) {
             for (const s of [0.3, 0.6, 0.8]) {
                 for (const v of [0.6, 0.85, 1]) {
-                    const [h2, s2, v2] = srgbToOkhsv(...okhsvToSrgb(h, s, v));
+                    const [h2, s2, v2] = srgb2okhsv(...okhsv2srgb(h, s, v));
                     expect(h2).toBeCloseTo(h, 2);
                     expect(s2).toBeCloseTo(s, 3);
                     expect(v2).toBeCloseTo(v, 3);
@@ -135,7 +135,7 @@ describe("OKHSV", () => {
     it("holds hue stable at low chroma (the documented HSV drift is cured)", () => {
         // A near-grey color keeps a well-defined, stable hue under a tiny sat
         // change — the OKHSV property the sRGB HSV roundtrip loses at C≈0.
-        const [h] = srgbToOkhsv(...okhsvToSrgb(240, 0.05, 0.6));
+        const [h] = srgb2okhsv(...okhsv2srgb(240, 0.05, 0.6));
         expect(h).toBeCloseTo(240, 2);
     });
 });

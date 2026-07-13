@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { linearToSrgb, srgbToLinear } from "@src/units/color/conversions/transfer";
+import { linear2srgb, srgb2linear } from "@src/units/color/conversions/transfer";
 import { rgb2xyz } from "@src/units/color/conversions/xyz-extended";
 import { RGBColor } from "@src/units/color";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// S.W1-1 — the `srgbToLinear` decode-threshold cure (the booked defect).
+// S.W1-1 — the `srgb2linear` decode-threshold cure (the booked defect).
 //
 // The DECODE branch must pivot on the ENCODED-axis threshold 0.04045, not the
 // linear-axis 0.0031308. The historical guard mis-routed the encoded 8-bit dark
@@ -59,7 +59,7 @@ const DARK_BAND_Y: Array<[number, number]> = [
     [10, 0.003035269835488375],
 ];
 
-describe("srgbToLinear — dark-band decode cure (S.W1-1)", () => {
+describe("srgb2linear — dark-band decode cure (S.W1-1)", () => {
     it("rgb(n,n,n)→XYZ.Y matches the independent IEC/matrix oracle (n=1..10)", () => {
         for (const [n, y] of DARK_BAND_Y) {
             const c = n / 255;
@@ -73,10 +73,10 @@ describe("srgbToLinear — dark-band decode cure (S.W1-1)", () => {
         // they decode as c/12.92 (the linear branch), NOT the power branch.
         for (let n = 1; n <= 10; n++) {
             const c = n / 255;
-            expect(srgbToLinear(c)).toBeCloseTo(c / 12.92, 15);
+            expect(srgb2linear(c)).toBeCloseTo(c / 12.92, 15);
         }
         // The band's ceiling: encoded 0.04045 is the exact decode transition.
-        expect(srgbToLinear(0.04045)).toBeCloseTo(0.04045 / 12.92, 15);
+        expect(srgb2linear(0.04045)).toBeCloseTo(0.04045 / 12.92, 15);
     });
 });
 
@@ -90,18 +90,18 @@ describe("srgb transfer — agreement with the independent IEC oracle", () => {
         0, 1e-4, 0.0031308, 0.0031308 + 1e-9, 0.01, 0.05, 0.2, 0.5, 0.8, 1,
     ];
 
-    it("srgbToLinear matches hand-coded IEC decode to 15 digits (incl. dark band)", () => {
+    it("srgb2linear matches hand-coded IEC decode to 15 digits (incl. dark band)", () => {
         for (const c of ENCODED_SWEEP) {
-            expect(srgbToLinear(c)).toBeCloseTo(iecDecode(c), 15);
+            expect(srgb2linear(c)).toBeCloseTo(iecDecode(c), 15);
             // Sign-symmetry (the library's transfer is odd-extended for OOG).
-            expect(srgbToLinear(-c)).toBeCloseTo(iecDecode(-c), 15);
+            expect(srgb2linear(-c)).toBeCloseTo(iecDecode(-c), 15);
         }
     });
 
-    it("linearToSrgb matches hand-coded IEC encode to 15 digits", () => {
+    it("linear2srgb matches hand-coded IEC encode to 15 digits", () => {
         for (const l of LINEAR_SWEEP) {
-            expect(linearToSrgb(l)).toBeCloseTo(iecEncode(l), 15);
-            expect(linearToSrgb(-l)).toBeCloseTo(iecEncode(-l), 15);
+            expect(linear2srgb(l)).toBeCloseTo(iecEncode(l), 15);
+            expect(linear2srgb(-l)).toBeCloseTo(iecEncode(-l), 15);
         }
     });
 });
@@ -111,26 +111,26 @@ describe("srgb transfer — self-inverse (the non-circular roundtrip)", () => {
     // must return the input. The cure makes the pair mutually invertible across
     // the dark band (decode's 0.04045 cut is the image of encode's 0.0031308
     // cut under ×12.92), which the pre-cure code violated.
-    it("srgbToLinear(linearToSrgb(x)) === x across [0,1] incl. the dark band", () => {
+    it("srgb2linear(linear2srgb(x)) === x across [0,1] incl. the dark band", () => {
         for (let i = 0; i <= 1000; i++) {
             const x = i / 1000;
-            expect(srgbToLinear(linearToSrgb(x))).toBeCloseTo(x, 12);
+            expect(srgb2linear(linear2srgb(x))).toBeCloseTo(x, 12);
         }
         // Explicit dark-band linear values (image of encoded 1..10/255).
         for (let n = 1; n <= 10; n++) {
             const x = (n / 255) / 12.92;
-            expect(srgbToLinear(linearToSrgb(x))).toBeCloseTo(x, 14);
+            expect(srgb2linear(linear2srgb(x))).toBeCloseTo(x, 14);
         }
     });
 
-    it("linearToSrgb(srgbToLinear(x)) === x across [0,1] incl. the dark band", () => {
+    it("linear2srgb(srgb2linear(x)) === x across [0,1] incl. the dark band", () => {
         for (let i = 0; i <= 1000; i++) {
             const x = i / 1000;
-            expect(linearToSrgb(srgbToLinear(x))).toBeCloseTo(x, 12);
+            expect(linear2srgb(srgb2linear(x))).toBeCloseTo(x, 12);
         }
         for (let n = 1; n <= 10; n++) {
             const x = n / 255; // encoded dark-band values
-            expect(linearToSrgb(srgbToLinear(x))).toBeCloseTo(x, 14);
+            expect(linear2srgb(srgb2linear(x))).toBeCloseTo(x, 14);
         }
     });
 });

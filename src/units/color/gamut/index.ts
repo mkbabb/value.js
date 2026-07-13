@@ -8,7 +8,7 @@
 // is reachable at `units/color/gamut/{raytrace,boundary,okhsl}`).
 //
 // This barrel re-exports the `gamut.ts` head ONLY — the exact surface the old
-// `units/color/gamut` FILE presented (incl. the internal `oklchToXYZTuple` /
+// `units/color/gamut` FILE presented (incl. the internal `oklch2xyzTuple` /
 // `GAMUT_ALPHA` that `dispatch.ts` reaches via `./gamut`), so the specifier is
 // byte-stable AND the module graph is unchanged. It deliberately does NOT
 // eager-aggregate `boundary.ts` (whose top-level `TARGETS` matrix math cycles
@@ -20,20 +20,20 @@ export {
     GAMUT_SECTOR_COEFFICIENTS,
     DELTA_E_OK_JND,
     deltaEOK,
-    oklabToLinearSRGB,
+    oklab2linearSrgb,
     isInSRGBGamut,
     computeMaxSaturation,
     findCusp,
     findGamutIntersection,
     GAMUT_ALPHA,
     gamutMapOKLab,
-    oklabToLinearSRGBInto,
-    srgbToOKLabInto,
+    oklab2linearSrgbInto,
+    srgb2oklabInto,
     gamutMapOKLabInto,
-    srgbToOKLab,
+    srgb2oklab,
     gamutMapSRGB,
-    rawOklabToOklch,
-    rawOklchToOklab,
-    oklabToRgb255,
-    oklchToXYZTuple,
+    rawOklab2oklch,
+    rawOklch2oklab,
+    oklab2rgb255,
+    oklch2xyzTuple,
 } from "./gamut";

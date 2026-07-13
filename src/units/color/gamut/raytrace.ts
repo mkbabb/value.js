@@ -30,8 +30,8 @@
  *   map against (it is the oracle's oracle), and what you reach for when exact
  *   boundary landing matters more than zero-iteration cost.
  *
- * Imports the analytical primitives (`oklabToLinearSRGB`,
- * `oklabToLinearSRGBInto`, `isInSRGBGamut`, `srgbToOKLab`, `GAMUT_ALPHA`) from
+ * Imports the analytical primitives (`oklab2linearSrgb`,
+ * `oklab2linearSrgbInto`, `isInSRGBGamut`, `srgb2oklab`, `GAMUT_ALPHA`) from
  * `gamut.ts` so the anchor + the membership test are the SAME code — the two
  * mappers can never drift on the ray, only on the crossing. Surfaced on the
  * color subpath as a reference/validation mapper, not a hot path.
@@ -41,11 +41,11 @@ import { clamp } from "../../../math";
 import {
     GAMUT_ALPHA,
     isInSRGBGamut,
-    oklabToLinearSRGB,
-    oklabToLinearSRGBInto,
-    srgbToOKLab,
+    oklab2linearSrgb,
+    oklab2linearSrgbInto,
+    srgb2oklab,
 } from "./gamut";
-import { linearToSrgb } from "../conversions/transfer";
+import { linear2srgb } from "../conversions/transfer";
 
 const RAYTRACE_EPS = 1e-5; // matches gamut.ts GAMUT_EPS (min chroma floor).
 // 2⁻⁴⁰ ≈ 9e-13 — the crossing is located to full f64 boundary precision, which
@@ -74,7 +74,7 @@ function raytraceIntersection(
         const mid = (lo + hi) / 2;
         const Lm = L0 * (1 - mid) + mid * L1;
         const Cm = mid * C1;
-        oklabToLinearSRGBInto(Lm, Cm * a_, Cm * b_, _rtLin);
+        oklab2linearSrgbInto(Lm, Cm * a_, Cm * b_, _rtLin);
         if (isInSRGBGamut(_rtLin[0], _rtLin[1], _rtLin[2])) lo = mid;
         else hi = mid;
     }
@@ -91,7 +91,7 @@ function raytraceIntersection(
 export function gamutMapOKLabRaytrace(
     L: number, a: number, b: number,
 ): [number, number, number] {
-    oklabToLinearSRGBInto(L, a, b, _rtLin);
+    oklab2linearSrgbInto(L, a, b, _rtLin);
     if (isInSRGBGamut(_rtLin[0], _rtLin[1], _rtLin[2])) {
         return [L, a, b];
     }
@@ -126,12 +126,12 @@ export function gamutMapSRGBRaytrace(
     if (r >= 0 && r <= 1 && g >= 0 && g <= 1 && b >= 0 && b <= 1) {
         return [r, g, b];
     }
-    const [L, a, bOk] = srgbToOKLab(r, g, b);
+    const [L, a, bOk] = srgb2oklab(r, g, b);
     const [Lm, am, bm] = gamutMapOKLabRaytrace(L, a, bOk);
-    const [rLin, gLin, bLin] = oklabToLinearSRGB(Lm, am, bm);
+    const [rLin, gLin, bLin] = oklab2linearSrgb(Lm, am, bm);
     return [
-        clamp(linearToSrgb(rLin), 0, 1),
-        clamp(linearToSrgb(gLin), 0, 1),
-        clamp(linearToSrgb(bLin), 0, 1),
+        clamp(linear2srgb(rLin), 0, 1),
+        clamp(linear2srgb(gLin), 0, 1),
+        clamp(linear2srgb(bLin), 0, 1),
     ];
 }

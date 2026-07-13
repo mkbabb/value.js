@@ -39,7 +39,7 @@ import type {
     GamutBoundary,
     GamutBoundaryTarget,
 } from "@mkbabb/value.js/color";
-import { findCusp, srgbToOKLab } from "@mkbabb/value.js/color";
+import { findCusp, srgb2oklab } from "@mkbabb/value.js/color";
 import { hsl2rgb } from "@mkbabb/value.js/color";
 import { HSLColor } from "@mkbabb/value.js/color";
 import {
@@ -153,7 +153,7 @@ export function useGamutOverlay(opts: UseGamutOverlayOptions) {
         if (!Number.isFinite(hue)) return null;
         const hNorm = (((hue % 360) + 360) % 360) / 360;
         const rgb = hsl2rgb(new HSLColor(hNorm, 1, 0.5, 1));
-        const [, a, b] = srgbToOKLab(rgb.r, rgb.g, rgb.b);
+        const [, a, b] = srgb2oklab(rgb.r, rgb.g, rgb.b);
         const c = Math.hypot(a, b);
         if (c < 1e-9) return null;
         return findCusp(a / c, b / c);

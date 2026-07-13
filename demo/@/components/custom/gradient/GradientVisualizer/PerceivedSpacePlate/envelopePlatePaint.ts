@@ -22,7 +22,7 @@
  *
  * The demo owns PAINT, never math: the envelope comes from the library's
  * `sampleOKLChHueSweepBoundary` (T.W1-src — passed in, never re-derived);
- * per-pixel color from `oklabToLinearSRGBInto`/`linearToSrgb`. The only
+ * per-pixel color from `oklab2linearSrgbInto`/`linear2srgb`. The only
  * local arithmetic is the pixel↔(L,C) axis mapping and the hue's (cos,sin)
  * parameterization — the same unit-vector form `boundary.ts` documents.
  * The C axis is CUSP-ADAPTIVE (the fixed `PLATE_C_MAX 0.4` died with the
@@ -34,7 +34,7 @@
  */
 
 import type { OKLChHueSweepBoundary } from "@mkbabb/value.js/color";
-import { linearToSrgb, oklabToLinearSRGBInto } from "@mkbabb/value.js/color";
+import { linear2srgb, oklab2linearSrgbInto } from "@mkbabb/value.js/color";
 import type { Vec3 } from "@mkbabb/value.js/color";
 import { drawHatch, drawSecondNet } from "@lib/gamut-ink";
 import type { ResolvedInks } from "@lib/gamut-ink";
@@ -152,15 +152,15 @@ export function paintEnvelopeField(
             const c = ((x + 0.5) / w) * axisCMax;
             const idx = 4 * (y * w + x);
             if (c > cMin) continue; // transparent — the belt/netting ground
-            oklabToLinearSRGBInto(l, c * a_, c * b_, _lin);
+            oklab2linearSrgbInto(l, c * a_, c * b_, _lin);
             data[idx] = Math.round(
-                255 * Math.min(1, Math.max(0, linearToSrgb(_lin[0]))),
+                255 * Math.min(1, Math.max(0, linear2srgb(_lin[0]))),
             );
             data[idx + 1] = Math.round(
-                255 * Math.min(1, Math.max(0, linearToSrgb(_lin[1]))),
+                255 * Math.min(1, Math.max(0, linear2srgb(_lin[1]))),
             );
             data[idx + 2] = Math.round(
-                255 * Math.min(1, Math.max(0, linearToSrgb(_lin[2]))),
+                255 * Math.min(1, Math.max(0, linear2srgb(_lin[2]))),
             );
             data[idx + 3] = 255;
         }

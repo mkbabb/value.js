@@ -12,8 +12,8 @@
  * chromaticity contribute proportionally to perceived difference.
  */
 
-import { deltaEOK, rawOklabToOklch, oklabToRgb255 } from "../units/color/gamut";
-export { rawOklabToOklch, oklabToRgb255 };
+import { deltaEOK, rawOklab2oklch, oklab2rgb255 } from "../units/color/gamut";
+export { rawOklab2oklch, oklab2rgb255 };
 
 // ── Color conversion helpers ──
 

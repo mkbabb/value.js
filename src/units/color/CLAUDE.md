@@ -62,7 +62,7 @@ color/
 ├── gamut/          # the Ottosson cusp / max-saturation family (T.W1-src §4a)
 │   ├── gamut.ts        # analytical sRGB map (head): gamutMapSRGB, gamutMapOKLab,
 │   │                     findCusp, findGamutIntersection, computeMaxSaturation,
-│   │                     deltaEOK, srgbToOKLab (direct LMS path) +
+│   │                     deltaEOK, srgb2oklab (direct LMS path) +
 │   │                     GAMUT_SECTOR_COEFFICIENTS (§4b — colocated with its consumer)
 │   ├── raytrace.ts     # exact-boundary reference twin (S.W1-10)
 │   ├── boundary.ts     # sampleGamutBoundary/Into — sRGB-excess contour of an HSV
@@ -79,7 +79,7 @@ color/
 │                     safeAccentColor() — Color → contrast-safe OKLCHColor
 │                     needsContrastAdjustment(), getOklchLightness()
 ├── difference.ts   # perceptual ΔE metrics — deltaE2000 (CIEDE2000),
-│                     deltaEITP + xyzToICtCp (BT.2100/BT.2124 ICtCp)
+│                     deltaEITP + rawXyz2ictcp (BT.2100/BT.2124 ICtCp)
 └── mix.ts          # color-mixing + hue interpolation (K-DISP home):
                       interpolateHue, CYLINDRICAL_HUE_COMPONENT, mixColors,
                       mixColorsInto, cssColorInterpKeyword, HueInterpolationMethod,

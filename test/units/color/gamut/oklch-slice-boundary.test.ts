@@ -9,7 +9,7 @@ import * as colorSubpath from "@src/subpaths/color";
 // cube test. The boundary is DEFINED as the sRGB-cube crossing along a fixed-hue
 // ray, so verifying `C` in-gamut / `C·(1+δ)` out-of-gamut is the definitional
 // check, not a re-run of the sampler's bisection.
-import { oklabToLinearSRGB, isInSRGBGamut, findCusp } from "@src/units/color/gamut";
+import { oklab2linearSrgb, isInSRGBGamut, findCusp } from "@src/units/color/gamut";
 // Cross-path oracle (XYZ hub, independent of the direct path) for a spot check.
 import { color2 } from "@src/units/color/dispatch";
 import { OKLABColor } from "@src/units/color";
@@ -20,7 +20,7 @@ const HUES = [0, 30, 120, 200, 240, 300];
 
 function inGamutRaw(L: number, C: number, hueDeg: number): boolean {
     const hRad = (hueDeg * Math.PI) / 180;
-    const [r, g, b] = oklabToLinearSRGB(L, C * Math.cos(hRad), C * Math.sin(hRad));
+    const [r, g, b] = oklab2linearSrgb(L, C * Math.cos(hRad), C * Math.sin(hRad));
     return isInSRGBGamut(r, g, b);
 }
 

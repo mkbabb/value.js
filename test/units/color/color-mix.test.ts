@@ -62,20 +62,22 @@ describe("color-mix()", () => {
         it("mixing red and blue in srgb should give purple-ish", () => {
             const result = parseCSSColor("color-mix(in srgb, red, blue)");
             const color = getColorFromUnit(result);
-            // In sRGB, mixing red(1,0,0) and blue(0,0,1) at 50% gives (0.5, 0, 0.5)
+            // U-F30: mix results are PHYSICAL (matching direct-parse). In sRGB,
+            // mixing red(255,0,0) and blue(0,0,255) at 50% gives (127.5, 0, 127.5).
             expect(color.colorSpace).toBe("rgb");
             const rgb = color as RGBColor;
-            expect(rgb.r).toBeCloseTo(0.5, 1);
-            expect(rgb.g).toBeCloseTo(0, 1);
-            expect(rgb.b).toBeCloseTo(0.5, 1);
+            expect(Number(rgb.r)).toBeCloseTo(127.5, 0);
+            expect(Number(rgb.g)).toBeCloseTo(0, 1);
+            expect(Number(rgb.b)).toBeCloseTo(127.5, 0);
         });
 
         it("mixing identical colors returns the same color", () => {
             const result = parseCSSColor("color-mix(in srgb, red, red)");
             const color = getColorFromUnit(result) as RGBColor;
-            expect(color.r).toBeCloseTo(1, 2);
-            expect(color.g).toBeCloseTo(0, 2);
-            expect(color.b).toBeCloseTo(0, 2);
+            // U-F30: physical channels — red is rgb(255, 0, 0).
+            expect(Number(color.r)).toBeCloseTo(255, 0);
+            expect(Number(color.g)).toBeCloseTo(0, 2);
+            expect(Number(color.b)).toBeCloseTo(0, 2);
         });
     });
 
@@ -83,17 +85,17 @@ describe("color-mix()", () => {
         it("25%/75% should weight toward second color", () => {
             const result = parseCSSColor("color-mix(in srgb, red 25%, blue 75%)");
             const color = getColorFromUnit(result) as RGBColor;
-            // 25% red, 75% blue → r≈0.25, b≈0.75
-            expect(color.r).toBeCloseTo(0.25, 1);
-            expect(color.b).toBeCloseTo(0.75, 1);
+            // U-F30: physical — 25% red, 75% blue → r≈63.75, b≈191.25.
+            expect(Number(color.r)).toBeCloseTo(63.75, 0);
+            expect(Number(color.b)).toBeCloseTo(191.25, 0);
         });
 
         it("one percentage omitted should be complement", () => {
             const result = parseCSSColor("color-mix(in srgb, red 30%, blue)");
             const color = getColorFromUnit(result) as RGBColor;
-            // 30% red, 70% blue
-            expect(color.r).toBeCloseTo(0.3, 1);
-            expect(color.b).toBeCloseTo(0.7, 1);
+            // U-F30: physical — 30% red, 70% blue → r≈76.5, b≈178.5.
+            expect(Number(color.r)).toBeCloseTo(76.5, 0);
+            expect(Number(color.b)).toBeCloseTo(178.5, 0);
         });
     });
 

@@ -28,7 +28,7 @@ import {
     getColorSpaceDenormUnit,
 } from "./constants";
 import type { ColorSpace } from "./constants";
-import { deltaEOK, DELTA_E_OK_JND, gamutMapSRGB, oklchToXYZTuple } from "./gamut";
+import { deltaEOK, DELTA_E_OK_JND, gamutMapSRGB, oklch2xyzTuple } from "./gamut";
 import { hex2rgb, rgb2hex } from "./conversions/hex";
 import { kelvin2xyz, xyz2kelvin } from "./conversions/kelvin";
 import {
@@ -180,18 +180,52 @@ const getXyzFromIntoFn = (to: ColorSpace): XyzIntoFn | undefined =>
 // table + `directXxx` functions live in `conversions/direct.ts`; `color2()`
 // consults them via the imported `getDirectPath`.
 
-export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
+/**
+ * Options bag for {@link color2} (U-F74).
+ */
+export interface Color2Options {
+    /**
+     * sRGB egress gamut policy. `"map"` (the default — no behavior change for
+     * existing callers) gamut-maps an out-of-gamut sRGB result into gamut, the
+     * historical `xyz2rgb` default. `"raw"` returns the RAW converted channels
+     * (which may be < 0 or > 1) so a caller converting wide-gamut → sRGB can
+     * DETECT out-of-gamut rather than silently receive a mapped in-gamut result.
+     *
+     * Only the sRGB egress (`to === "rgb"`) distinguishes the two: `xyz2rgb` is
+     * the sole XYZ-hub `from`-fn that gamut-maps, and the wide-gamut egress
+     * converters never clip (a P3/Rec2020 result is already "raw"). For every
+     * other target the option is a no-op.
+     */
+    gamut?: "raw" | "map";
+}
+
+export function color2<T, C extends ColorSpace>(
+    color: Color<T>,
+    to: C,
+    opts?: Color2Options,
+) {
     if (color.colorSpace === to) {
         return color;
     }
 
+    // U-F74 — a RAW sRGB egress threads `correctGamut = false` through to
+    // `xyz2rgb` so out-of-gamut channels survive for detection. The gamut-mapping
+    // DIRECT paths (oklab/oklch/hsl → rgb) also correct to gamut (matching
+    // `xyz2rgb`'s default), so a raw request BYPASSES them and routes through the
+    // XYZ hub to reach `xyz2rgb(_, /*correctGamut*/ false)`. Default (`"map"`) is
+    // byte-identical to the historical path.
+    const rawSrgb = opts?.gamut === "raw" && to === ("rgb" as C);
+
     // Hot-path shortcut: consult the DIRECT_PATHS table before falling through
     // to the XYZ-hub dispatch. For the 6 wired pairs, skips a matrix multiply
     // + one XYZColor allocation per call. Numerically equivalent to the
-    // XYZ-hub path within floating-point epsilon.
-    const direct = getDirectPath<C>(color.colorSpace, to);
-    if (direct) {
-        return direct(color as Color<number>) as ColorSpaceMap<T>[C];
+    // XYZ-hub path within floating-point epsilon. (Skipped for a raw sRGB egress
+    // so the non-correcting `xyz2rgb` below is reached.)
+    if (!rawSrgb) {
+        const direct = getDirectPath<C>(color.colorSpace, to);
+        if (direct) {
+            return direct(color as Color<number>) as ColorSpaceMap<T>[C];
+        }
     }
 
     // XYZ-hub fallback — both halves via the typed lookups above.
@@ -200,6 +234,12 @@ export function color2<T, C extends ColorSpace>(color: Color<T>, to: C) {
         throw new Error(`Unknown source color space: "${color.colorSpace}"`);
     }
     const xyz = toXYZFn(color as Color<number>) as XYZColor<T>;
+
+    // U-F74: the raw sRGB egress calls `xyz2rgb` directly with `correctGamut`
+    // disabled (the generic `getXyzFromFn` lookup hard-calls it with the default).
+    if (rawSrgb) {
+        return xyz2rgb(xyz as XYZColor, false) as ColorSpaceMap<T>[C];
+    }
 
     const fromXYZFn = getXyzFromFn<C>(to);
     if (!fromXYZFn) {
@@ -244,7 +284,7 @@ const _color2IntoXyzTuple: [number, number, number] = [0, 0, 0];
  * re-entrancy argument documented on `color2`/`gamutMapToRgbSpace` applies.
  *
  * Behaviour matches `color2` bit-for-bit (the OKLCH leg replays the wrapper
- * path's `scale` round-trip — see `gamut.ts oklchToXYZTuple`).
+ * path's `scale` round-trip — see `gamut.ts oklch2xyzTuple`).
  */
 export function color2Into<T, C extends ColorSpace>(
     src: Color<T>,
@@ -277,7 +317,7 @@ export function color2Into<T, C extends ColorSpace>(
     if (src.colorSpace === "oklch") {
         const oklch = src as Color<number>;
         const xyz = (_color2IntoXyzScratch ??= new XYZColor(0, 0, 0, 1));
-        oklchToXYZTuple(
+        oklch2xyzTuple(
             oklch.l as number,
             oklch.c as number,
             oklch.h as number,

@@ -69,8 +69,8 @@ import {
 import {
     DELTA_E_OK_JND,
     gamutMapOKLab,
-    rawOklabToOklch,
-    rawOklchToOklab,
+    rawOklab2oklch,
+    rawOklch2oklab,
 } from "@mkbabb/value.js/color";
 import { getColorSpaceBound } from "@mkbabb/value.js/color";
 import { clamp } from "@mkbabb/value.js/math";
@@ -102,9 +102,9 @@ export interface RawOklch {
 
 /** Gamut-map a raw OKLCH triple to the sRGB cusp (hue-exact, library map). */
 function mapToGamut(L: number, C: number, H: number): RawOklch {
-    const [l, a, b] = rawOklchToOklab(L, C, H);
+    const [l, a, b] = rawOklch2oklab(L, C, H);
     const [lm, am, bm] = gamutMapOKLab(l, a, b);
-    const [Lm, Cm, Hm] = rawOklabToOklch(lm, am, bm);
+    const [Lm, Cm, Hm] = rawOklab2oklch(lm, am, bm);
     // The mapper is hue-exact by construction; keep the INPUT hue so a
     // near-zero-chroma atan2 can never smear the axis (the stableHue lesson).
     return { L: Lm, C: Cm, H: Cm < 1e-6 ? H : Hm };

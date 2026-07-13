@@ -4,9 +4,9 @@ import {
     findCusp,
     findGamutIntersection,
     isInSRGBGamut,
-    oklabToLinearSRGB,
+    oklab2linearSrgb,
     gamutMapOKLab,
-    rawOklchToOklab,
+    rawOklch2oklab,
     deltaEOK,
     DELTA_E_OK_JND,
 } from "@src/units/color/gamut";
@@ -15,23 +15,23 @@ import { color2, gamutMap } from "@src/units/color/dispatch";
 import { scale } from "@src/math";
 import { COLOR_SPACE_RANGES } from "@src/units/color/constants";
 
-describe("oklabToLinearSRGB", () => {
+describe("oklab2linearSrgb", () => {
     it("maps black (L=0) to (0,0,0)", () => {
-        const [r, g, b] = oklabToLinearSRGB(0, 0, 0);
+        const [r, g, b] = oklab2linearSrgb(0, 0, 0);
         expect(r).toBeCloseTo(0, 5);
         expect(g).toBeCloseTo(0, 5);
         expect(b).toBeCloseTo(0, 5);
     });
 
     it("maps white (L=1) to approximately (1,1,1)", () => {
-        const [r, g, b] = oklabToLinearSRGB(1, 0, 0);
+        const [r, g, b] = oklab2linearSrgb(1, 0, 0);
         expect(r).toBeCloseTo(1, 3);
         expect(g).toBeCloseTo(1, 3);
         expect(b).toBeCloseTo(1, 3);
     });
 
     it("maps mid-gray to ~(0.18, 0.18, 0.18)", () => {
-        const [r, g, b] = oklabToLinearSRGB(0.5, 0, 0);
+        const [r, g, b] = oklab2linearSrgb(0.5, 0, 0);
         // All channels should be equal for achromatic
         expect(r).toBeCloseTo(g, 5);
         expect(g).toBeCloseTo(b, 5);
@@ -184,7 +184,7 @@ describe("gamutMapOKLab", () => {
     it("maps out-of-gamut colors to in-gamut", () => {
         // Extreme out-of-gamut
         const [L, a, b] = gamutMapOKLab(0.7, 0.35, 0.0);
-        const [r, g, bLin] = oklabToLinearSRGB(L, a, b);
+        const [r, g, bLin] = oklab2linearSrgb(L, a, b);
         expect(r).toBeGreaterThanOrEqual(-0.001);
         expect(r).toBeLessThanOrEqual(1.001);
         expect(g).toBeGreaterThanOrEqual(-0.001);
@@ -486,7 +486,7 @@ describe("U10 tiered-bound guard (R.W1.1)", () => {
         for (const cRaw of [0.37, 0.4]) {
             for (const L of GUARD_L) {
                 for (let hueDeg = 0; hueDeg < 360; hueDeg += 30) {
-                    const [Li, ai, bi] = rawOklchToOklab(L, cRaw, hueDeg);
+                    const [Li, ai, bi] = rawOklch2oklab(L, cRaw, hueDeg);
                     const [Lm] = gamutMapOKLab(Li, ai, bi);
                     maxDL = Math.max(maxDL, Math.abs(Lm - L));
                 }
@@ -498,7 +498,7 @@ describe("U10 tiered-bound guard (R.W1.1)", () => {
     it("the self-limiting anchor is exact at L=0.50 (ΔL = 0)", () => {
         for (const cRaw of [0.37, 0.4]) {
             for (let hueDeg = 0; hueDeg < 360; hueDeg += 30) {
-                const [Li, ai, bi] = rawOklchToOklab(0.5, cRaw, hueDeg);
+                const [Li, ai, bi] = rawOklch2oklab(0.5, cRaw, hueDeg);
                 const [Lm] = gamutMapOKLab(Li, ai, bi);
                 expect(Lm).toBeCloseTo(0.5, 10);
             }

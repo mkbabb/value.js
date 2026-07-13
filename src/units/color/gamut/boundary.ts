@@ -31,11 +31,11 @@ import {
     XYZ_RGB_MATRIX,
 } from "../conversions/xyz-extended";
 import {
-    adobeRgbToLinear,
-    linearToSrgb,
-    proPhotoToLinear,
-    rec2020ToLinear,
-    srgbToLinear,
+    adobeRgb2linear,
+    linear2srgb,
+    proPhoto2linear,
+    rec20202linear,
+    srgb2linear,
 } from "../conversions/transfer";
 import {
     DELTA_E_OK_JND,
@@ -43,8 +43,8 @@ import {
     findCusp,
     gamutMapOKLabInto,
     isInSRGBGamut,
-    oklabToLinearSRGBInto,
-    srgbToOKLabInto,
+    oklab2linearSrgbInto,
+    srgb2oklabInto,
 } from "./gamut";
 
 // ── Public types (boundary-api §2) ──────────────────────────────────────────
@@ -102,22 +102,22 @@ interface TargetDescriptor {
 const TARGETS: Record<GamutBoundaryTarget, TargetDescriptor> = {
     "display-p3": {
         M: multiplyMat3(XYZ_RGB_MATRIX, DISPLAY_P3_XYZ_MATRIX),
-        decode: srgbToLinear,
+        decode: srgb2linear,
     },
     "a98-rgb": {
         M: multiplyMat3(XYZ_RGB_MATRIX, ADOBE_RGB_XYZ_MATRIX),
-        decode: adobeRgbToLinear,
+        decode: adobeRgb2linear,
     },
     "prophoto-rgb": {
         M: multiplyMat3(
             multiplyMat3(XYZ_RGB_MATRIX, WHITE_POINT_D50_D65),
             PROPHOTO_XYZ_D50_MATRIX,
         ),
-        decode: proPhotoToLinear,
+        decode: proPhoto2linear,
     },
     rec2020: {
         M: multiplyMat3(XYZ_RGB_MATRIX, REC2020_XYZ_MATRIX),
-        decode: rec2020ToLinear,
+        decode: rec20202linear,
     },
 };
 
@@ -182,7 +182,7 @@ function fieldAt(
 
     // jnd: encode to sRGB (sign-aware transfer handles OOG channels), then the
     // OKLab ΔE to the analytically gamut-mapped form.
-    srgbToOKLabInto(linearToSrgb(r), linearToSrgb(g), linearToSrgb(b), _ok1);
+    srgb2oklabInto(linear2srgb(r), linear2srgb(g), linear2srgb(b), _ok1);
     gamutMapOKLabInto(_ok1[0], _ok1[1], _ok1[2], _ok2);
     return (
         deltaEOK(_ok1[0], _ok1[1], _ok1[2], _ok2[0], _ok2[1], _ok2[2]) -
@@ -374,7 +374,7 @@ function maxChromaAtL(L: number, a_: number, b_: number): number {
     let hi = SLICE_C_HI;
     for (let i = 0; i < SLICE_BISECT_ITERS; i++) {
         const mid = (lo + hi) / 2;
-        oklabToLinearSRGBInto(L, mid * a_, mid * b_, _sliceLin);
+        oklab2linearSrgbInto(L, mid * a_, mid * b_, _sliceLin);
         if (isInSRGBGamut(_sliceLin[0], _sliceLin[1], _sliceLin[2])) lo = mid;
         else hi = mid;
     }

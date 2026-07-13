@@ -157,20 +157,20 @@ export {
 export {
     DELTA_E_OK_JND,
     deltaEOK,
-    oklabToLinearSRGB,
+    oklab2linearSrgb,
     // Q15 (T.W1) — the zero-alloc out-param twin (the demo's hot per-pixel paint
-    // paths call this instead of the allocating `oklabToLinearSRGB`).
-    oklabToLinearSRGBInto,
+    // paths call this instead of the allocating `oklab2linearSrgb`).
+    oklab2linearSrgbInto,
     isInSRGBGamut,
     computeMaxSaturation,
     findCusp,
     findGamutIntersection,
     gamutMapOKLab,
-    srgbToOKLab,
+    srgb2oklab,
     gamutMapSRGB,
-    rawOklabToOklch,
-    rawOklchToOklab,
-    oklabToRgb255,
+    rawOklab2oklch,
+    rawOklch2oklab,
+    oklab2rgb255,
 } from "../units/color/gamut";
 // Raytrace gamut map (S.W1-10 · R-4) — the EXACT-boundary reference twin of the
 // analytical map above (validation surface; agrees within ΔE-OK < 1e-3, lands
@@ -181,27 +181,27 @@ export {
 } from "../units/color/gamut/raytrace";
 
 // Perceptual color-difference metrics (R.W1.6 · R-3) + ICtCp round-trip
-// (S.W1-6 · Q9: ictcpToXYZ inverse) + Jzazbz transform (S.W1-11 · Q9 widening).
-export { deltaE2000, deltaEITP, xyzToICtCp, ictcpToXYZ } from "../units/color/difference";
-export { xyzToJzazbz, jzazbzToXYZ } from "../units/color/conversions/jzazbz";
+// (S.W1-6 · Q9: rawIctcp2xyz inverse) + Jzazbz transform (S.W1-11 · Q9 widening).
+export { deltaE2000, deltaEITP, rawXyz2ictcp, rawIctcp2xyz } from "../units/color/difference";
+export { rawXyz2jzazbz, rawJzazbz2xyz } from "../units/color/conversions/jzazbz";
 
 // Q15 (T.W1) — the 5 conversion primitives the demo consumed off the internal
 // `conversions/` leaves (gamut-overlay `hsl2rgb`, generation `oklch2xyz`+
-// `xyz2rgb`, perceived-space `linearToSrgb`, search `hex2rgb`). Promoted to
+// `xyz2rgb`, perceived-space `linear2srgb`, search `hex2rgb`). Promoted to
 // first-class color-subpath API so the demo dogfoods the published surface
 // rather than white-boxing the raw matrix chain. All parse-that-free.
 export { hsl2rgb } from "../units/color/conversions/cylindrical";
 export { oklch2xyz } from "../units/color/conversions/oklab";
 export { xyz2rgb } from "../units/color/conversions/xyz-extended";
-export { linearToSrgb } from "../units/color/conversions/transfer";
+export { linear2srgb } from "../units/color/conversions/transfer";
 export { hex2rgb } from "../units/color/conversions/hex";
 
 // OKHSL / OKHSV perceptual pickers (R.W1.6 · R-2)
 export {
-    okhslToSrgb,
-    srgbToOkhsl,
-    okhsvToSrgb,
-    srgbToOkhsv,
+    okhsl2srgb,
+    srgb2okhsl,
+    okhsv2srgb,
+    srgb2okhsv,
 } from "../units/color/gamut/okhsl";
 
 // Color filter solver
