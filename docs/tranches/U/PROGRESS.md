@@ -1,12 +1,17 @@
 # U — PROGRESS
 
-**Status board.** U is **FORMING** (2026-07-12). The evidence base — `audit/registry.md`, the
-7-round converged finding-family registry — is STABLE (two-consecutive-clean-passes convergence;
-the U→glass-ui BH communiqué discharged the §28.3 relay at glass-ui `17e0f522`). The formation
-spine is authored: the charter (`U.md`), this board, and the zero-silent-drop `DISPOSITION-LEDGER.md`
-(77 families + every chronic + every prompt-recap row DECIDED). **NEXT**: the convergent design-loop
-authors each wave spec (research → synthesize → prototype → critique → agglomerate) into
-`waves/U.W-*.md`, born-RED gates + RELAY rows per wave. Waves are **PENDING** until then.
+**Status board.** U is **FORMED — CONVERGED, awaiting owner ratification** (2026-07-12). The evidence
+base — `audit/registry.md`, the 7-round converged finding-family registry — is STABLE
+(two-consecutive-clean-passes convergence; the U→glass-ui BH communiqué discharged the §28.3 relay at
+glass-ui `17e0f522`). The full formation spine is authored: the charter (`U.md`), this board, the
+zero-silent-drop `DISPOSITION-LEDGER.md` (77 families + every chronic + every prompt-recap row
+DECIDED), and **all ten wave specs** (`waves/U.W-*.md` — LIB · ADOPT · VISUAL · A11Y · PERF · CANON ·
+SEC · ORACLE · DEMO · CLOSE, each with born-RED gates, π/DELTA obligations, RELAY rows, and
+dispositions). The **integration + fresh-adversary critique pass is FILED** (`FORMATION-VERDICT.md`,
+verdict **CONVERGED**): zero silent drops (all F1..F77 owned once), coherent backward-only DAG,
+born-RED honesty doubly enforced (no pretend-headless flip, no fabricated red), RELAY rows on every
+glass-ui-touching wave, π/DELTA on every visual claim; four NOTE-level residuals named, none blocking.
+**NEXT**: owner ratification, then the design-loop executes each wave on T.W8's terminal state.
 
 **Mode**: PLANNING-ONLY — U authors `docs/tranches/U/**` and makes NO source edits, runs NO fix.
 Commits path-scope to `docs/tranches/U/**` ONLY; T.W8 remediation lands concurrently on the shared
@@ -83,3 +88,5 @@ registry wins where the two could diverge.
 | Date | Event |
 |---|---|
 | 2026-07-12 | **U FORMATION SPINE authored** — the charter (`U.md`), this board (`PROGRESS.md`), and the zero-silent-drop `DISPOSITION-LEDGER.md` (77 families + chronic + prompt-recap all DECIDED) written from the converged `audit/registry.md`. The ten-wave DAG defined (U.W-LIB · ADOPT · VISUAL · A11Y · PERF · CANON · SEC · ORACLE · DEMO · CLOSE); the three cross-wave binds encoded (U-F77 co-land · U-F76 mount-box ordering · U-F3 LCP-rides-adopt). Waves PENDING; the design-loop authors each spec next. |
+| 2026-07-12 | **ALL TEN WAVE SPECS authored** — `waves/U.W-*.md` (LIB · PERF · VISUAL · CANON · A11Y · SEC · CANON · DEMO · ORACLE · CLOSE), each with paired goal/completion, item tables (file:line anchors), born-RED gate tables, π/DELTA obligations, RELAY rows, and per-family dispositions. |
+| 2026-07-12 | **FORMATION INTEGRATION + FRESH-ADVERSARY CRITIQUE filed** — `FORMATION-VERDICT.md`, verdict **CONVERGED**. Integration verified: (1) zero silent drops (all F1..F77 owned exactly once; splits/census/annex/retire all named-homed); (2) coherent backward-only DAG (no wave depends on a later wave; the three cross-wave binds sequence coherently); (3) born-RED honesty doubly enforced (no pretend-headless flip for GPU visuals → the U-F54 annex; no fabricated red over sound code → born-GREEN U-F72/F73/LIB-G4); (4) RELAY rows on every glass-ui-touching wave + honest not-triggered declarations on the rest; (5) π/DELTA on every visual claim. Adversary: no E-3 breach, no §13.5/owner-verbatim contradiction, no family behind a hand-wave — the tranche SURVIVES. Four NOTE-level residuals named (keyframes pin line-drift → actual `:268`; the three-vs-four heading self-reconciled; F18/F19/F54 ledger→charter-section pointers executed in named waves; PP-16 inherited-not-defined). **Ready for owner ratification.** |
