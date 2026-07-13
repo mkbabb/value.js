@@ -71,7 +71,10 @@ real-GPU/owner-attested frame, never a headless assertion.
 **Completion criterion.** `FINAL.md` walks the DISPOSITION-LEDGER row-by-row (zero drops); every
 wave gate is evidence-backed and born-RED where it guards a LIVE defect; the library-correctness
 publish decision is owner-held and taken WITH the landed fix; the real-GPU visual annex is
-owner-attested. PP-16 binds: gates-pass-goal-unmet closes `complete_with_misses`.
+owner-attested. **PP-16** (the inherited T-era close precept): when every wave gate passes but the
+wave's goal is not met, the wave/tranche closes `complete_with_misses` — not `complete` (goal unmet)
+and not `blocked` (gates pass). It is the honest terminal for a producer-gated or attested-residual
+close (e.g. the Q14 perf redemption inheriting to U.W-PERF).
 
 ---
 

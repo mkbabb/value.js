@@ -131,7 +131,7 @@ sub-assertion of the U-F2 cut gate, G-ADOPT-1).
 
 **Evidence** (registry R-4 §20 + §22 amendment + §25 amendment + §28 the structural resolution):
 U-F29's honest amelioration (§13.5) is **semver-loaded**. BOTH siblings pin `@mkbabb/value.js
-'^3.1.0'` — glass-ui at `package.json:1109` (dev) + `:1147` (peer), keyframes at `package.json:266`
+'^3.1.0'` — glass-ui at `package.json:1109` (dev) + `:1147` (peer), keyframes at `package.json:268`
 — so a **4.0.0 cut strands TWO peer floors**, not one; a 3.x minor auto-adopts. U-F30's fix changes
 the raw-channel OUTPUT convention that **FOUR convention-sensitive surfaces read RAW, bypassing
 `toString`** (registry §28, enumerated across 2 siblings × 2 pipelines):
@@ -207,7 +207,7 @@ Two arms, both born-RED at authoring:
   keyframes parseCSSValue); §28 (round 7) AMENDED to FOUR (added keyframes' backward-color color
   half). The registry wins: the gate drives all FOUR; the "three" framing is the pre-§28 count.
 - **4b — BOTH peer floors satisfied at the version cut**: assert the owner-held version decision keeps
-  glass-ui's `^3.1.0` (`package.json:1109,1147`) AND keyframes' `^3.1.0` (`package.json:266`) satisfied
+  glass-ui's `^3.1.0` (`package.json:1109,1147`) AND keyframes' `^3.1.0` (`package.json:268`) satisfied
   — a 3.x minor auto-adopts; a 4.0.0 cut RED until both siblings co-widen. Born-RED where the version
   decision is un-taken (§13.5, owner-held). Flips GREEN when the cut is taken with both floors held (or
   both co-widened + relayed).

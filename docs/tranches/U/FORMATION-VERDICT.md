@@ -217,6 +217,19 @@ None of the four is a blocking gap, an E-3 breach, a §13.5 contradiction, or an
 are correctable at execution or with a one-line edit; none changes a disposition, a gate, or an
 ordering.
 
+**§3.1 — Post-verdict polish (all four DISCHARGED 2026-07-12, before ratification).** The four
+NOTE-level residuals were correctable at the doc level, so they were closed rather than carried:
+1. **keyframes line-cite → `:268`** — corrected in `registry §22` (was `:269`), `U.W-LIB` (`:269`),
+   `U.W-ADOPT §U-F77` + `G-ADOPT-4b` (`:266`). Re-verified against `../keyframes.js/package.json:268`.
+2. **"three vs four" heading → FOUR** — `U.W-LIB` heading now reads "The FOUR consumer surfaces" and
+   the parenthetical fourth (keyframes `backward-color.ts` direct read) is promoted to a numbered item
+   4; LIB-G6 remains the standing count authority.
+3. **F18/F19/F54 ledger owning-wave column** — now names the executing wave alongside the charter
+   section: F18 → `U.W-CLOSE (charter §W8-inheritance)`, F19 → `U.W-VISUAL/U.W-CANON (charter
+   §W8-inheritance)`, F54 → `U.W-CLOSE §G-CLOSE-4 (charter §real-GPU annex)`.
+4. **PP-16 defined** — `U.md` now carries a self-contained definition of the inherited T-era close
+   precept (gates-pass-goal-unmet → `complete_with_misses`; not `complete`, not `blocked`).
+
 ---
 
 ## §4 — Convergence state for owner ratification

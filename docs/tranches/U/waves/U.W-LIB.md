@@ -235,7 +235,7 @@ serialized string / resolved value (see §π/DELTA).
 | **LIB-G11** | U-F35 | `recomposeMatrix2D(decomposeMatrix2D(M)) ≈ M` and `interpolateDecomposed` accepts the 2D shape — today `recomposeMatrix2D` does not exist (compile/run RED). | `transform/decompose.ts:41,510` |
 | **LIB-G12** | U-F34 | **Naming-parity check** (not born-RED — a convention gate): every conversion export matches the chosen `{from}2{to}` form; the drift (`xyzToICtCp`, `oklabToLinearSRGB`, …) is renamed. | `units/color/conversions/*` + `CLAUDE.md` |
 
-**The THREE consumer surfaces (U-F29/U-F30 born-RED drives them, per §25/§28)** — the born-RED set is
+**The FOUR consumer surfaces (U-F29/U-F30 born-RED drives them, per §25/§28)** — the born-RED set is
 not unit-local; it certifies the change against the convention-sensitive consumers the audit
 enumerated, with the build-time gate (LIB-G6) owning the exact count so a fresh sibling commit cannot
 invalidate a formation-time list:
@@ -249,10 +249,14 @@ invalidate a formation-time list:
    `resolve-if.ts:131`, §22) — the U-F29 reshape changes keyframes' resolved values; the co-migration
    rides U-F77.
 
-*(§28 named a FOURTH — keyframes' direct `sampleColorRamp`/`color2` in `backward-color.ts`. The
-registry's re-frame is explicit: enumeration is the wrong tool for a living codebase — LIB-G6, the
-build-time re-enumeration born-RED, owns the exact count at cut time; the formation gate is the
-CLASS, proven four times over.)*
+4. **keyframes DIRECT `sampleColorRamp`/`color2` path** (`backward-color.ts`, §28) — reads RAW oklab
+   channels via `rawOklab`, bypassing `toString` exactly like glass-ui's spectrum-walk; the chosen
+   invariant preserves that convention OR backward-color co-migrates (relay, rides U-F77).
+
+*(The registry's re-frame is explicit: enumeration is the wrong tool for a living codebase — LIB-G6,
+the build-time re-enumeration born-RED, owns the exact count at cut time; the formation gate is the
+CLASS, proven four times over. This numbered set is the formation-time enumeration; LIB-G6 is the
+standing authority.)*
 
 ---
 
@@ -332,7 +336,7 @@ lands the same cut). Zero silent drops; each terminates here with rationale, non
 - **Outbound (LIB → ADOPT, the U-F77 co-land bind)**: the version-cut/publish decision and the
   sibling co-migration ride **U.W-ADOPT** (owner-held §13.5), sequenced against **BOTH** `^3.1.0`
   peer floors — glass-ui (`../glass-ui/package.json:1109,1147`, peer+dev) and keyframes
-  (`../keyframes.js/package.json:269`, VERIFIED §22). A 4.0.0 cut strands TWO floors, not one; LIB
+  (`../keyframes.js/package.json:268`, VERIFIED §22). A 4.0.0 cut strands TWO floors, not one; LIB
   lands the fix, ADOPT cuts coherently.
 - **Tooling**: `npm test` (jsdom), `test:dist` (built-bundle behavioral slate — the born-RED gates
   wire here so the published surface is what's certified), `typecheck`, `lint`. No external service,
