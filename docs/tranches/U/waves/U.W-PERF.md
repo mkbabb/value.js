@@ -7,7 +7,7 @@ the metric gates ride the LHCI instrument, NOT the U-F54 real-GPU/owner annex �
 **Opens after**: **U.W-VISUAL** + **U.W-A11Y** (the U-F76 shared picker/readout mount is a
 single-writer chain — VISUAL → A11Y → PERF; the mount-changing reseats settle FIRST, then PERF
 reserves the settled box + measures CLS/LCP over the FINAL geometry) **AND U.W-ADOPT** (U-F3's
-producer LCP lever — the RP-2 347.9 KiB JS-eager payload cut + L20/GAP-L5 — unblocks only at the
+producer LCP lever — the RP-2 331.0 KiB JS-eager payload cut + L20/GAP-L5 — unblocks only at the
 glass-ui 5.0.0 adopt; registry §26 "W9's Q14 inherits U-F3/F14/F16"). **Downstream**: PERF →
 U.W-CLOSE (the Q14 W9 close gate — GREEN-or-escalation — inherits U-F3/F14/F16; `U.md §Mission`).
 
@@ -52,7 +52,7 @@ U.W-VISUAL + U.W-A11Y have SETTLED, with zero silent drop:
   and it no longer flakes RED at idle (the ~50% idle-flake, registry §10, gone); its RED becomes a
   trustworthy regression signal, not machine-noise;
 - the **Q14 LCP is DECIDED** — U-F3 is presented to the owner as a STRUCTURAL FACT (the disease/RP-2
-  escalate): green requires the producer payload cut in-window (the adopt-gated RP-2 347.9 KiB
+  escalate): green requires the producer payload cut in-window (the adopt-gated RP-2 331.0 KiB
   JS-eager + L20/GAP-L5), OR a ruled re-scope. The gate is NOT edited (Q14: no re-baseline, no
   preset-swap, no deferral). The escalation names the physical blocker;
 - the **U-F76 single-writer chain is CLOSED** — PERF reserved the mount box the VISUAL/A11Y reseats
@@ -99,7 +99,9 @@ flake), and U-F3 is escalated as a structural fact (never a gate re-baseline —
 **Evidence** (registry §1 + §10 R-1 verdict + §26 + `DISPOSITION-LEDGER §B` chronic): the owner-ruled
 HARD close gate (Q14: *"no re-baseline, no deferral"*) is coupled to producer-side levers (L20 /
 GAP-L5) gated on the UNFIRED glass-ui 5.0.0 adopt — structurally uncloseable by value.js alone; RP-2
-(347.9 KiB JS-eager vs the ≤ 280 target) now rides its 3rd tranche. Magnitude reconciled by R-1
+(**331.0 KiB JS-eager vs the ≤ 280 target — the T close-of-record, `T/FINAL.md §3`:208 / §5:291; the
+347.9 KiB figure was the superseded S re-baseline, +51 KiB / ~1.18× over, directionally lower but
+NOT cleared**) now rides its 3rd tranche. Magnitude reconciled by R-1
 (§10): the round-1 11085 ms mobile LCP was an **uncompressed-serve artifact** (~2.2× inflated, wrong
 transport); at the true gate instrument (LHCI, compressed static-dir, mobile + simulate) LCP reads
 **~4919 local / 5141 CI** (`lighthouserc.json:13` budget 2500 → ~2× over, RED). LCP ≈ FCP (paint-
@@ -113,7 +115,7 @@ cannot exist): the disease/RP-2 arm is presented to the owner as a **STRUCTURAL 
 landed every in-scope idiomatic cure (the reveal-only law · the Google-Fonts strike, 0 cross-origin
 font requests · hydration-first — all measured, `pi1-delta-ledger.md` W2/W2-3 rows); the residual is
 the PRODUCER payload cut, gated on the U.W-ADOPT trigger:
-- **the RP-2 payload lever** — the 347.9 KiB JS-eager critical payload cut (L20 dead-payload
+- **the RP-2 payload lever** — the 331.0 KiB JS-eager critical payload cut (L20 dead-payload
   abrogation + GAP-L5 + the Lane-M-routed `/parsing`-subpath scroll-timeline grammar TAIL split that
   T.W6.5 identified as library-side dead weight, `pi1-delta-ledger.md` W6.5 Lane M row) — the arm
   that moves FCP, gated on the adopt (U.W-ADOPT).
@@ -321,7 +323,7 @@ Zero silent drops: F3 (escalate, decided + booked), F14/F16 (build, born-RED val
   settle the picker/readout mount box FIRST; PERF reserves + measures over the FINAL geometry. PERF
   is the TAIL — a reseat downstream of PERF would re-open the CLS it measures, so PERF goes LAST.
   (U.W-A11Y is authored as its own wave doc in this same formation phase; PERF names it by the DAG.)
-- **opens-after: U.W-ADOPT** (the U-F3 producer LCP lever). The RP-2 347.9 KiB JS-eager payload cut
+- **opens-after: U.W-ADOPT** (the U-F3 producer LCP lever). The RP-2 331.0 KiB JS-eager payload cut
   (L20 / GAP-L5 / the `/parsing` scroll-timeline grammar TAIL split) unblocks ONLY at the glass-ui
   5.0.0 adopt (U.W-ADOPT books U-F3 to U.W-PERF as an escalate; ADOPT `§BOOKS`). U-F3's escalate
   INHERITS the adopt state: if the cut fires in-window, G-PERF-3 flips; if not, the escalate is the

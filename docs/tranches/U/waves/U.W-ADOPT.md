@@ -283,8 +283,9 @@ Zero silent drops: F2, F4, F13-producer, F28, F68, F77 each reach a decided home
 - **External glass-ui 5.0.0 trigger** (USER-GATED, UNFIRED) — glass-ui disk `5.0.0` on branch
   `tranche/BG`, no `v5*` tag; the wave FLOATS on the owner-gated cut. The born-RED gates are ARMED but
   flip only when the cut fires.
-- **Downstream: ADOPT → U.W-PERF** — U-F3's producer LCP lever (the RP-2 347.9 KiB JS-eager payload
-  cut) is gated on THIS adopt; U.W-PERF's U-F3 escalate inherits the adopt state (registry §26).
+- **Downstream: ADOPT → U.W-PERF** — U-F3's producer LCP lever (the RP-2 331.0 KiB JS-eager payload
+  cut — T close-of-record; 347.9 was the S re-baseline) is gated on THIS adopt; U.W-PERF's U-F3
+  escalate inherits the adopt state (registry §26).
 
 ---
 

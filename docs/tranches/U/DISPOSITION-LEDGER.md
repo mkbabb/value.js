@@ -17,8 +17,9 @@ escalate) in a NAMED wave. Re-booking is forbidden. This ledger is the completio
    edicts E-1..E-7. The still-red T-rows route to their U-Fxx family; the discharged T-rows retire
    into the §8 zero-drop WINS; the edicts get an inherited-status line. In the PROMPT-RECAP section.
 
-**Audit invariant**: rows below = 77 (families) + the CHRONIC set + the PROMPT-RECAP set + the
-RETIRED-WINS set. Every wave named is one of the ten in `U.md §The wave DAG`.
+**Audit invariant**: rows below = 77 (families) + the CHRONIC set + the §B.1 T-CLOSE CARRIED-BOOKS
+set + the PROMPT-RECAP set + the RETIRED-WINS set. Every wave named is one of the ten in
+`U.md §The wave DAG`.
 
 ---
 
@@ -115,7 +116,7 @@ owner-attested annex. Zero silent drops.
 | Chronic class | Where the registry embeds it | Decided disposition |
 |---|---|---|
 | **adopt-disease** (glass-ui 5.0.0, ridden ≥3 tranches / ~10-tranche primitive-asks lineage) | U-F2 (§1) | **build — DISEASE LAW: its own wave** (U.W-ADOPT); the §1 design reds re-file as EXPLICIT named glass-ui BI-acceptance constraints. |
-| **Q14 / RP-2 perf-redemption** (the HARD close gate + 347.9 KiB JS-eager vs ≤280, riding its 3rd tranche) | U-F3 (§1) + RP-2 (inline) | **escalate** (U.W-PERF): present the owner the structural fact — green needs the producer cut in-window, or a ruled re-scope. RP-2 is the payload arm, gated on the adopt (U.W-ADOPT). |
+| **Q14 / RP-2 perf-redemption** (the HARD close gate + 331.0 KiB JS-eager vs ≤280 — T close-of-record; 347.9 was the S re-baseline — riding its 3rd tranche) | U-F3 (§1) + RP-2 (inline) | **escalate** (U.W-PERF): present the owner the structural fact — green needs the producer cut in-window, or a ruled re-scope. RP-2 is the payload arm, gated on the adopt (U.W-ADOPT). |
 | **cross-repo KEEP-BOOKED — the glass-ui BH relay set** (the §1 producer design reds + the 8 carried-forward T reds + the mixColors-convention coupling) | §28 + §28.3 (communiqué landed `17e0f522`) | **decided via RELAY rows** carried by U.W-ADOPT (BI-acceptance constraints), U.W-VISUAL (U-F8/F10/F13 producer material), U.W-LIB (the convention co-migration) — all relayed to the glass-ui BH inbox per E-2. |
 | **cross-repo KEEP-BOOKED — the keyframes ask** (managed-stepper PRM-expand, fixed-unreleased) | U-F28 (§7) | **retire on their next tag** (U.W-ADOPT watch row); value.js has zero direct kf imports. |
 | **born-RED cure-ownership** (3 armed `test.fail()`: O-16 clobber · O-26 aurora · O-5 boot — cure waves un-landed, O-26 can never flip on software-GL) | U-F42 (§13) | **escalate** (U.W-ORACLE): own all 3 born-RED + wire a headed-GPU annex or acknowledge. |
@@ -123,6 +124,26 @@ owner-attested annex. Zero silent drops.
 
 Every chronic class terminates in a named wave; none rides un-decided. The disease-row law is
 honored (U-F2 is its own wave; U-F3 is a named escalate).
+
+---
+
+## §B.1 — THE T-CLOSE CARRIED BOOKS (from `T/FINAL.md §5` HAND-TO-U — not registry-family-enumerated)
+
+The §A families come from the converged `audit/registry.md` (§1–§28). Three rows of `T/FINAL.md §5`'s
+HAND-TO-U book-successor table are NOT registry-family-enumerated (they arrived at T's close, after
+the registry converged), so they are carried HERE — each with a DECIDED U home, closing the
+`T/FINAL.md §5` → U coverage completely (the other §5 rows fold to §A/§B: the 5.0.0 adopt / GAP-* /
+L2..L16 → U-F2; L20+RP-2 / Q14 → U-F3; the T.W8 remediation rows → §C; PRM-expand → U-F28; the
+doc-rewrite remainder → U-F21):
+
+| T-close carried book | State at T close | Decided U disposition |
+|---|---|---|
+| **The W8 HG5 demo-caps re-encapsulation** (`useAtmosphere.ts` 411 · `Markdown.vue` 408 over ≤400) | booked; "splitting demo/ is a remediation act, not a gate act" (T/FINAL:294) | **U.W-DEMO** demo-hygiene lane — re-encapsulate below ≤400 (H.W3-style cohesion lifts); verify-at-execution done-state, NO gate; lands AFTER the U.W-VISUAL re-cures that touch the two files (U-F11 derive-seam · U-F19 AB-1) settle. `U.W-DEMO §BOOKS`. |
+| **The chronic cross-repo spec-status 7-set** (CH-10 · CH-13 · FN-7 · kf `resolveEasing` · R8-23 · R-5 · R-10) | all KEEP-BOOKED; no fired trigger crosses value.js's consume-edge; 3 spec drifts recorded (`random()` Safari-only · scroll-timeline Firefox-behind, not Baseline · kf easing kf-internal subpath) | **U.W-CANON / spec-status** — a rolling spec-status WATCH row (no work; re-surfaces only if a trigger crosses the consume-edge). NOT a family, a build row, or a producer RELAY. `U.W-CANON §BOOKS`. |
+| **DORMANT/PARK** (`Color.try()` 3 wraps · `usePaletteStore` migration [schema version 1] · S.H3 Pratt [PT-E no reply]) | dormant, no fired trigger | **PARK — carried, no wave work** (re-surfaces only on a fired trigger). NOTE: the `usePaletteStore` *schema-version-1 migration* park item is DISTINCT from U-F48's per-call-factory concern (U-F48 single-sources the store binding; it does NOT address the schema-version migration). |
+
+These three complete the `T/FINAL.md §5` HAND-TO-U table's fold into U's ledger — zero silent drop of
+a T-close handoff.
 
 ---
 
@@ -137,7 +158,7 @@ to T.W8/WR; U absorbs the un-landed residue) → their U-Fxx family → owning w
 | T-10 · T-43 · T-56 (Q5 ramp register + the near-black wreck) | U-F6 (ramp-half) | U.W-VISUAL (+ oracle-half U.W-ORACLE) |
 | T-14 · T-48 · T-58 (scene-transition motion, thrice-red) | U-F7 | U.W-VISUAL (real-GPU annex) |
 | T-54 · T-55 (generate plate species chrome) | U-F8 | U.W-VISUAL |
-| T-2 · T-51 · T-59 · (T-61/T-42 scrolled-header) | U-F9 | U.W-VISUAL |
+| T-2 · T-51 · T-59 (at-rest header) · **T-61/T-42 B-01** (scrolled-header whole-contraction, §0.8 owner-verbatim — a DISTINCT arm of U-F9 with its own gate BR-9/OA-6 + the P3 `ScrollCardHeader` producer RELAY, NOT a fold into the at-rest cure) | U-F9 | U.W-VISUAL |
 | T-34 · T-50 (console veil material) | U-F10 | U.W-VISUAL |
 | T-37 (collapsed dock swatch seam) | U-F11 | U.W-VISUAL |
 | T-36 · T-52 (dock edge clip) | U-F13 | U.W-VISUAL (demo) + U.W-ADOPT/relay (producer) |
@@ -181,6 +202,8 @@ U-F55-a11y-half (lighthouse a11y MEASURED 1.0).
 ---
 
 **Ledger completeness statement**: §A accounts for all 77 U-Fxx families (each integer 1..77 once);
-§B decides every embedded chronic/disease class; §C addresses every owner ask (still-red → wave;
-discharged → §D retire) and every edict E-1..E-7; §D records the retire-set. No family, chronic, or
-prompt-recap row is dropped, merged without a named target, or re-booked. This is E-4's discharge.
+§B decides every embedded chronic/disease class; **§B.1 folds the three `T/FINAL.md §5` HAND-TO-U
+carried books that are not registry-family-enumerated** (the W8 demo-caps re-encapsulation, the
+spec-status 7-set, the DORMANT/PARK set); §C addresses every owner ask (still-red → wave; discharged
+→ §D retire) and every edict E-1..E-7; §D records the retire-set. No family, chronic, carried-book,
+or prompt-recap row is dropped, merged without a named target, or re-booked. This is E-4's discharge.

@@ -25,8 +25,15 @@ owner's verbatim wins**. Precedence: owner verbatim → registry → `U.md` → 
 The demo's module graph and reactive-state topology tell the truth about their own layering. The
 shared lower layer (`demo/@/composables/color/` — the color spine) is a **clean lower layer**: it
 reaches DOWN into the library and sideways within itself, never UP into app-root boot (`demo/color-
-picker/composables/boot/`) — the near-cycle that today blocks extracting `demo/@` as a stratum is
-dissolved by relocating the color-math resolver to where it belongs (U-F45). The live session token
+picker/composables/boot/`) — the **color-spine** near-cycle that today keeps the shared color layer
+from being a clean lower layer is dissolved by relocating the color-math resolver to where it belongs
+(U-F45). **Scope-honest**: this wave dissolves the color-spine near-cycle and stands the boundary
+guard over the color-composable layer where `palettes-ramp` is the sole up-importer; FULL `demo/@`-
+stratum extraction remains GATED on the two BOOKED components-tree up-imports (`aurora-harmony-
+stops.ts` → `boot/atmosphere-calibration`, `ColorPicker.vue` → `boot/useOverture` — relocate-or-
+ratify per instance, §BOOKS), which G-DEMO-1 does not born-RED (the converged registry named one
+instance; the two are surfaced, not inflated into a hard gate). The goal here is the color-spine
+cut, not the whole-stratum claim. The live session token
 has **one source of truth**, not three reactive cells manually write-through-synced across two
 storage backends, and the dead incomplete-teardown twin that would desync all three is gone (U-F46).
 The E-1 colocation edict has **no residue**: the color spine imports no feature internal, and the
@@ -395,3 +402,13 @@ Zero silent drops: all 4 families reach a decided home (3 build · 1 fold).
 - **The two standing import-boundary ESLint gates (G-DEMO-1, G-DEMO-3) → U.W-CLOSE re-probe.** The
   crown deliverable is a live boundary guard, not a one-shot fix; re-probed at close (the rule is
   wired and STILL guards a future re-inversion), booked to U.W-CLOSE's book re-probe.
+- **The W8 HG5 demo-caps re-encapsulation → this wave's demo-hygiene lane (inherited from `T/FINAL.md
+  §5`; the ledger §B.1 T-close carry).** T booked two W8-remediation-grown demo files over the ≤400
+  god-module cap — `useAtmosphere.ts` (344→411, the P9-R3/T-37 derive-seam edit) + `Markdown.vue`
+  (396→408, the AB-1 KaTeX edit); "splitting demo/ is a remediation act, not a gate act"
+  (T/FINAL:294). Re-encapsulate the two below ≤400 the way H.W3 decomposed the demo god-modules
+  (behaviour-preserving, cohesion-honest lifts) — a **verify-at-execution done-state** (raw-LoC ≤400
+  per file), NO born-RED gate (T ruled it a remediation, not a gate, act). **Lands AFTER the
+  U.W-VISUAL re-cures that touch these two files settle** (`useAtmosphere.ts` ⟷ U-F11 derive-seam;
+  `Markdown.vue` ⟷ U-F19 AB-1) so the decomposition reserves the settled file shape — the same
+  coordinated safe-moment discipline as the `palettes-ramp` / `Dock.vue` loci (§Dependencies).

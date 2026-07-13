@@ -3,7 +3,9 @@
 **Wave**: U.W-CANON · **designHeavy**: no (STRUCTURAL — precise gates, born-RED where the defect is
 LIVE, mechanical rigor; ZERO visual claims → no frontend-design loop, no π-frame, no real-GPU
 annex) · **Families**: U-F17 · U-F21 · U-F22 · U-F23 · U-F24 · U-F49 · U-F50 · U-F51 · U-F52 ·
-U-F53 · U-F63 · U-F64 · U-F65 · U-F66 · U-F69 · U-F70 · U-F71 · U-F75 (18 families).
+U-F53 · U-F63 · U-F64 · U-F65 · U-F66 · U-F69 · U-F70 · U-F71 · U-F75 (18 families) + the **inherited
+U-F19 AB-1 residue-half** (About-KaTeX boot-scope, build-if-CENSUS-RED — routed here from U.W-VISUAL's
+W8-inheritance census; not one of the 18 CANON-native families).
 
 **Opens after**: **root** (U.md §The wave DAG — `dependsOn: root`). No upstream wave gates this
 wave; it opens at formation. The ONE external coupling is a READ-not-dependency: U-F17's honest §4
@@ -52,6 +54,10 @@ DECIDED disposition (build / fold / retire); zero silent drops.
 - **This wave has NO visual claim** — no π-frame, no real-GPU annex (the U-F54 annex is
   U.W-VISUAL's, not here). Every claim is textual / structural / mechanically-measurable, so each
   family carries a **DELTA count** in lieu of a π-frame (§π/DELTA).
+- The **inherited U-F19 AB-1 residue-half** (About-KaTeX boot-scope) reaches its decided
+  build-if-CENSUS-RED disposition (§Scope · §Dispositions): CANON owns the boot-scope build seam IF
+  the U.W-VISUAL census reds it, else it retires into the census record — the "T-53/AB-1 →
+  VISUAL/CANON" ledger routing is now carried on both sides, zero silent drop.
 - PP-16 binds: gates-pass-goal-unmet closes `complete_with_misses`.
 
 ---
@@ -317,6 +323,26 @@ in src/demo/test/e2e/scripts; all zod is api-side (its own `4.4.3`). A dead depe
 born-RED (G-CANON-9) asserts zod is absent from root deps (RED today: present + 0-import). Retire —
 the api's own zod is untouched (a separate tree).
 
+### Inherited W8-census residue — U-F19 (AB-1 half) · `about-katex-boot-scope` · build-if-CENSUS-RED
+
+**Routed HERE, not a CANON-native family** (registry §4 U-F19; `U.W-VISUAL` census map L110 + §Scope
+L308 + §BOOKS L456 all route it here): U-F19 is the fold family that absorbs the terminal-W8
+live-defect residue BY NAME — its T-53 dark-caster MATERIAL half is U.W-VISUAL's row, and its **AB-1
+About-KaTeX scope-dead half routes to U.W-CANON** (the boot-scope build seam), explicitly NOT
+U.W-VISUAL's material row. AB-1 is an A-class ordinary bug (registry §4: "AB-1 About-KaTeX
+scope-dead"), a build/boot-scope defect in the About page's KaTeX, not a taste bracket. It is
+surfaced here so no successor mistakes it for a silent drop between the two waves that each disclaim
+the other's half.
+
+**Cure APPROACH** (build-if-CENSUS-RED — the honest inheritance, not a native CANON build): the
+U.W-VISUAL W8-inheritance census re-judges at wave-open whether the landed-but-owner-uncertified W8
+remediation (the AB-1..4 LAND rows, ROWS.md §4) left AB-1 RED. **If CENSUS-RED**, U.W-CANON owns the
+About-KaTeX boot-scope build seam — a real fix at the boot/build-scope origin (E-3: correct the
+scope-dead KaTeX path, never a suppression). **If CENSUS-GREEN** (the W8 LAND rows carried it), it
+RETIRES into the census record. No standing gate (a one-shot build-if-RED; the census verdict is the
+trigger). This closes the ledger's "T-53/AB-1 → VISUAL/CANON" routing (§C) — CANON now carries the
+AB-1 half it is routed.
+
 ---
 
 ## §Hard gate (born-RED where the defect is LIVE — registry-cited; ZERO visual gates, no annex)
@@ -503,8 +529,10 @@ nothing to it.
 | **U-F70** | **retire** (remove zod) | Root devDep `zod` 0-import orphan; remove + lock refresh (G-CANON-9); api zod untouched. |
 | **U-F71** | **fold** (batch dev-dep bump) | Dev/build-only advisories, none ship in dist; batch bump verified by `npm audit --omit=dev` clean; no standing gate (churn). |
 | **U-F75** | **retire** (label fix) | `domains.md:25` names the app "palette"; the convention IS followed, only the label stale; one-line correction. |
+| **U-F19 AB-1 residue** (inherited) | **build-if-CENSUS-RED** | The About-KaTeX boot-scope half of U-F19, routed here by the ledger §C + U.W-VISUAL's census (NOT U.W-VISUAL's material row); CANON owns the boot-scope build seam IF the census reds it, else retire-to-census. Closes the two-wave routing. |
 
-Zero silent drops: all 18 families reach a decided home (7 build · 3 fold · 8 retire).
+Zero silent drops: all 18 CANON-native families reach a decided home (7 build · 3 fold · 8 retire),
+plus the inherited U-F19 AB-1 residue-half decided build-if-CENSUS-RED.
 
 ---
 
@@ -544,3 +572,12 @@ Zero silent drops: all 18 families reach a decided home (7 build · 3 fold · 8 
 - **U-F71 dev-dep advisories → a rolling verification (not a standing gate).** The batch bump is
   verified at execution; future advisories are a rolling `npm audit` concern, not re-booked as a U
   family (dev-dep churn is not a tranche defect).
+- **The chronic cross-repo spec-status 7-set → a rolling spec-status WATCH (no work).** CH-10 ·
+  CH-13 · FN-7 · kf `resolveEasing` · R8-23 · R-5 · R-10 — handed by `T/FINAL.md §5` to "U.W-CANON /
+  spec-status" (§2.3 records the drifts). All KEEP-BOOKED: **no fired trigger crosses value.js's
+  consume-edge**; 3 spec drifts recorded — `random()` Safari 26.2-stable but still Safari-only ·
+  scroll-timeline Firefox-behind, NOT Baseline · kf touched its easing surface but the touch is a
+  kf-internal subpath refactor, not a value.js-consume decision. A rolling cross-repo spec-status
+  concern (re-surfaces only if a trigger crosses the consume-edge) — NOT a U family, NOT a build
+  row, NOT a producer RELAY (a watch, not an ask; §Cross-repo RELAY stays not-triggered). Recorded
+  so no successor mistakes the 7-set for dropped.

@@ -113,15 +113,21 @@ each row named at its cite in the T-MARK census:
   producer half GAP-ARM PRODUCER-GATED) · T-5 (W4-4 landed; ACTIVE seat P1-R1 → U; P5 letter-rail
   PRODUCER-GATED) · T-8 (seat/containment W4-5 `dfd76b1`; satellites-never-meatball → W8 WR-2 + GAP-L5
   PRODUCER-GATED) · T-25/T-26/T-27 (boot cures W2; aurora quality → GAP-L2/GAP-ARM/T-60 PRODUCER-GATED).
-- **OPEN → BOOKED to U (the T.W8 remediation rows un-landed at pause; whole set inherits)**: T-42
-  (+ **T-61 §0.8** rules the whole-header-contraction direction; B-01) · T-48/T-58 (motion MANDATE,
-  WR-10; scheduling-not-easing) · T-49 (WR-1/WR-2 blob emerge/fission) · T-50 (WR-3 veil) · T-51
-  (WR-4 title step-down) · T-53 (WR-5 dark caster) · T-54 (WR-6 WatercolorDot swap) · T-55 (WR-7
-  verb-cluster) · T-56 (WR-8 palettes-ramp resolver, the **A-class resolver defect CONFIRMED** —
-  the ramp walks to a 0.02 near-black clamp, monochrome in light / 1.24:1 in dark) · T-57 (WR-9
-  `--dock-h` floor; +3.0px reflow measured) · T-59 (WR-11 rhythm regime) · T-39 (Q14-pressure,
-  the perf face → §3). These are the T.W8-remediation build-shaped halves, anchors handed,
-  un-landed at the pause — inheriting to U's U.W-VISUAL / U.W-PERF (per `U/DISPOSITION-LEDGER.md`).
+- **OPEN → BOOKED to U (the T.W8 remediation cures LANDED-but-OWNER-UNCERTIFIED; the still-reds
+  inherit)**: T-42 (+ **T-61 §0.8** rules the whole-header-contraction direction; B-01) · T-48/T-58
+  (motion MANDATE, WR-10; scheduling-not-easing) · T-49 (WR-1/WR-2 blob emerge/fission) · T-50 (WR-3
+  veil) · T-51 (WR-4 title step-down) · T-53 (WR-5 dark caster) · T-54 (WR-6 WatercolorDot swap) ·
+  T-55 (WR-7 verb-cluster) · T-56 (WR-8 palettes-ramp resolver, the **A-class resolver defect
+  CONFIRMED** — the ramp walks to a 0.02 near-black clamp, monochrome in light / 1.24:1 in dark) ·
+  T-57 (WR-9 `--dock-h` floor; +3.0px reflow measured) · T-59 (WR-11 rhythm regime) · T-39
+  (Q14-pressure, the perf face → §3). **The terminal W8 state (this doc's own T.W8 §1 row +
+  `audit/w8-certification/ROWS.md §4`): the 24 LAND rows + 9/11 §0.7 WR cures LANDED + merged
+  (WR-1..WR-6, WR-8, WR-9, WR-11; `83d8714`→`6d95871`), but the HG6 OWNER VERDICT is PENDING (the
+  empty stub, never a proxy sign-off); WR-7 is a bracket-to-owner, WR-10 is W7/W9-by-law (its
+  wake-gray compound half landed); T-42/T-61 B-01 is a taste bracket, un-landed.** They inherit to U
+  NOT as an un-landed Remediate phase but as **owner-uncertified still-reds** — re-judged LIVE at
+  U.W-VISUAL's W8-inheritance census (CENSUS-GREEN retire / CENSUS-RED re-cure) + T-39 → U.W-PERF
+  (per `U/DISPOSITION-LEDGER.md`).
 - **PRODUCER-GATED (glass-ui, the consolidated communiqué `f3f3c097`, BI inbox HEAD `24a7a764`)**:
   T-20 (P4 tabs pilling, DECLINE→escalate owner) · T-38 (aurora pointer relay) · T-52 (dock
   inline-edge clip, PRODUCER-FORENSIC ANSWERED) · T-60 (aurora gray-stage = glass-ui
@@ -290,7 +296,7 @@ resolves to a named U wave there).
 | **GAP-L5** blob halves (`settled` seam NOW load-bearing · HERO preset · single-WebGL2 collapse) | rides the blob co-rebuild; no `settled` export at HEAD; **anchors the Q14 RP-2 clear** | U.W-ADOPT + **U.W-PERF** |
 | **L20 `/blob/config`** + **RP-2** JS-eager re-baseline (331.0 KiB > 280) | land TOGETHER at the cut; the RP-2 re-baseline carries a third tranche (§3) | **U.W-PERF** (U-F3) |
 | **The Q14 LCP/TBT redemption** | the ruled ESCALATION (§3); budgets red, producer-coupled to the unfired adopt | **U.W-PERF** (U-F3 escalate) |
-| **The T.W8 remediation rows un-landed at pause** (all filed P#/E#/AB/WR rows; T-42+T-61 B-01 · T-48/T-58 WR-10 · T-49..T-59 WR-1..11) | anchors handed, un-landed (the Remediate phase did not complete inside T) | **U.W-VISUAL** (+ U.W-PERF for T-39) |
+| **The T.W8 remediation cures — LANDED-but-OWNER-UNCERTIFIED** (the 24 LAND rows + 9/11 §0.7 WR cures LANDED+merged: WR-1..WR-6/WR-8/WR-9/WR-11, `83d8714`→`6d95871`, `ROWS.md §4`; HG6 owner verdict PENDING · WR-7 bracket-to-owner · WR-10 W7/W9-by-law · T-42+T-61 B-01 taste bracket) | landed, OWNER-UNCERTIFIED — the still-reds inherit for a live census re-judge, NOT an un-landed Remediate phase | **U.W-VISUAL** census (+ U.W-PERF for T-39) |
 | **The W8 HG5 demo-caps re-encapsulation row** (`useAtmosphere.ts` 411 · `Markdown.vue` 408 over ≤400) | booked; splitting demo/ is a remediation act, not a gate act | U (the demo/hygiene lane) |
 | **GLASSUI L2..L16 open asks** (L8 = 5th booking, ESCALATED) | ride the 5.0.0 cut / the W7 walk; per-item at book-reverify §C | U.W-ADOPT |
 | **PRM-expand** (keyframes `springPlay` subscribers-only emit) | re-dispatched (`ad65733`, `tranche-u-dev`), STILL LIVE at kf 5.2.0; not value.js-gated | U.W-ADOPT (kf letter) |
@@ -396,9 +402,13 @@ real-GPU annex hands to U-F54). **O-25** (prod-lineage) GREEN against the deploy
   is the empty stub; the package PRESENTS 20 taste brackets + the boot screencast + the Q14
   material, and CERTIFIES NOTHING until the owner rules (never a proxy sign-off). This is the
   honest terminal of the E-7 hardening wave.
-- **The T.W8 Remediate phase did not complete inside T** — the filed pass rows (P1-R1..R3, AB-1,
-  boot rows A/B, E1-R1..R3, P4-R1..R4, P6-R1, P7-R1/R2, P9-R1..R5) + the WR-1..WR-11 owner-filed
-  rows are anchors-handed, un-landed. They inherit to U's U.W-VISUAL (and T-39 → U.W-PERF).
+- **The T.W8 Remediate phase LANDED its cures; what is PENDING is the OWNER CERTIFICATION** — the
+  24 LAND rows (P1-R1/R2 · boot-A/B · AB-1..4 · P4-R1..R4 · E1-R1..R3 · P6-R1 · P7-R1/R2 · P8-R1/R2 ·
+  P9-R1..R5 · A-3 · P11-R1..R3, `audit/w8-certification/ROWS.md §4`) + 9/11 §0.7 WR cures (WR-1..WR-6,
+  WR-8, WR-9, WR-11) LANDED + merged (`83d8714`→`6d95871`); WR-7 is a bracket-to-owner, WR-10 is
+  W7/W9-by-law. The HG6 OWNER VERDICT is the empty stub (PENDING — never a proxy sign-off). These
+  inherit to U's U.W-VISUAL as **owner-uncertified still-reds** re-judged at the W8-inheritance
+  census (and T-39 → U.W-PERF), NOT as un-landed cures.
 - **The producer-gated items ride the BI inbox** (`f3f3c097`, stamped glass-ui HEAD `24a7a764`):
   the 9 BLOCKING reds (T-60 reveal-bloom door · PKT-1 · GAP-L2 · GAP-L5 · the backdrop-filter
   ladder cure · GAP-ARM · T-38 · the spectrum-thumb UA-outline · T-52 dock clip) + the booked

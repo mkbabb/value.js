@@ -257,8 +257,54 @@ opens per wave when U executes, on T.W8's terminal state.
 
 ---
 
+## §5 — Round-1 fresh-adversary hardening (remediated 2026-07-12)
+
+The owner's design-loop bar is STABLE-AFTER-TWO-CONSECUTIVE-CLEAN fresh-adversary passes. A round-1
+fresh-adversary pass raised 10 actionable findings against the CONVERGED formation; **all 10 were
+DOC-FIXABLE and remediated** path-scoped (`docs/tranches/U/**` + one permitted cross-tranche
+incoherence fix in `docs/tranches/T/FINAL.md`). None was an execution-time residual; none reversed a
+disposition, gate, or ordering — each closed a real honesty/coverage gap the single integrate pass
+missed:
+
+1. **U-F45 goal over-claim** (U.W-DEMO §Goal) — the goal asserted the whole `demo/@` stratum becomes
+   extractable, but two components-tree up-imports are BOOKED relocate-or-ratify. NARROWED the goal
+   to the color-spine near-cycle; full-stratum extraction stays gated on the two booked relocations.
+2. **BR-7 not cure-agnostic** (U.W-VISUAL) — the born-RED asserted ground-tint chroma≥floor, which
+   fails under U-F12's owner-selectable Pole B (neutral ground). Made BR-7 POLE-CONDITIONAL
+   (G-CANON-10-style) so it flips on whichever pole the owner rules.
+3. **U-F19 AB-1 residue dropped between waves** — routed to U.W-CANON by the ledger + U.W-VISUAL, but
+   CANON never carried it. Added the inherited U-F19 AB-1 (About-KaTeX boot-scope, build-if-CENSUS-RED)
+   row to U.W-CANON.
+4. **W8 HG5 demo-caps re-encapsulation dropped** — `T/FINAL §5` handed it to U; absent from the U
+   tree. Added to ledger §B.1 + U.W-DEMO §BOOKS (demo-hygiene, verify-at-execution).
+5. **Chronic cross-repo spec-status 7-set un-owned** — `T/FINAL §5` routed it to U.W-CANON/spec-
+   status; absent. Added a spec-status WATCH row to U.W-CANON §BOOKS + ledger §B.1.
+6. **DORMANT/PARK set un-owned** — Color.try / usePaletteStore-migration / S.H3 Pratt handed to U;
+   absent. Added a DORMANT/PARK carry row to ledger §B.1 (with the usePaletteStore-migration-vs-U-F48
+   distinction).
+7. **RP-2 stale figure** — U.W-PERF/registry/ledger carried the S-era 347.9 KiB; T's close-of-record
+   is 331.0 KiB. Updated the figure of record everywhere, noting 347.9 was the S re-baseline.
+8. **T/FINAL internal contradiction** — §2.1/§5/§7.2 called the T.W8 remediation "un-landed at pause",
+   contradicting T/FINAL's own T.W8 §1 row + ROWS.md §4 (24 LAND rows + 9/11 WR cures landed+merged).
+   Amended to the terminal reality: landed-but-owner-uncertified (HG6 pending), inheriting as
+   owner-uncertified still-reds.
+9. **T-61 owner-verbatim scrolled-header near-silently dropped** ([blocks-ratification]) — MANDATE §0.8's
+   whole-header-contraction ruling was folded into U-F9's AT-REST family with no scroll-state cure/
+   gate/DELTA/RELAY. Added the DISTINCT scrolled-header arm to U-F9 (whole-header contraction bracket,
+   BR-9 headless box-model + OA-6 owner-attested + the P3 ScrollCardHeader producer RELAY) + explicit
+   ledger §C routing.
+10. **P3 ScrollCardHeader producer RELAY missing** (consequent to #9) — added the P3 ScrollCardHeader
+    whole-header-contraction door to U.W-VISUAL's RELAY table + §BOOKS (E-2; the demo Pole-A
+    contraction is buildable independently, the producer Pole-B door is relayed).
+
+**Round-1 remediation is CLEAN** — 10 applied, 0 deferred. The tranche now awaits a SECOND
+consecutive clean fresh-adversary pass to reach the owner's design-loop stability bar.
+
+---
+
 **Ruling: CONVERGED** — the formation is complete and coherent; the four residual notes are named,
-NOTE-level, and correctable at execution without touching a disposition, gate, or ordering.
+NOTE-level, and correctable at execution without touching a disposition, gate, or ordering. The
+round-1 fresh-adversary findings (§5) are all doc-remediated; a second clean pass is pending.
 
 *Filed by the formation integrator + fresh-adversary critic (opus), 2026-07-12. Path-scoped to
 `docs/tranches/U/**`; pull-rebased on the shared `tranche-t` branch (T.W8/T.W9 landing concurrently).*

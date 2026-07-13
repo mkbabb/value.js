@@ -59,7 +59,9 @@ the deliverable:
 - the Generate plate reads as **ONE watercolor instrument** (WatercolorDot faces + one verb
   register), not flat rounded squares across three button species;
 - the picker header carries **ONE stepped rhythm** with an HONEST title↔readout seam (per-value-class
-  reservation OR seam-absorb — never a blank band);
+  reservation OR seam-absorb — never a blank band), and on scroll the **WHOLE header block
+  contracts** — title AND padding AND background band as one condensed strip (T-61/§0.8), never the
+  title alone over an un-shrunk band;
 - the console reads as a **translucent veil** (the blur samples a real backdrop), not a flat
   cream/brown slab;
 - the collapsed-dock swatch reads as a **deliberate derive-seam** (a perceptible boundary ≥ JND),
@@ -211,7 +213,7 @@ re-seat.
   **Pole B — `ui/dropdown-menu`**. The producer's own primitives at the root (E-2), never a demo
   approximation. Both poles RELAY to the BH inbox as VISUAL-wave acceptance constraints.
 
-### U-F9 · `picker-header-spacing-regime` — build (T-2 · T-51 · T-59; shares U-F76 mount)
+### U-F9 · `picker-header-spacing-regime` — build (T-2 · T-51 · T-59 · **T-61/T-42 scrolled-header B-01**; shares U-F76 mount)
 
 **The still-red** (registry §2; `probe-log-picker.txt`): the space-label title renders **67.776px
 un-stepped** at 1440 / 43.7px at 390, with a **dead band above the readout** and a **1440-tight vs
@@ -230,6 +232,34 @@ BOTH placements) rides.
   `clamp(...)`-class + row-gap clamp) so 1440 and 390 share ONE rhythm source, the 44px touch rung
   preserved by hit-area inflation. **Shares the U-F76 mount** — the header regime CHANGES the mount
   box, so it settles here before PERF reserves.
+
+**The scrolled-header arm** (T-61/T-42 · B-01 — the owner-verbatim MANDATE §0.8 ruling, a DISTINCT
+surface from the at-rest regime above, NOT a fold into it): MANDATE §0.8 verbatim — *"The header
+padding/background shoudl ALSO shrink on scroll--not just the title."* The SCROLLED sticky-header
+regime binds the **WHOLE header block**: title AND padding AND background band contract as ONE
+condensed strip, NEVER the compositor-only title `scale(0.618)` over an UNSHRUNKEN header layout box
+(t33-research §6.6 — the pinned defect: the un-shrunk band ghost-through the scrolled Components rows
+witness). **The at-rest shading STANDS (T-23); T-61 rules the SCROLLED state ONLY** — so this is its
+own designed arm with its own gate + DELTA, not the at-rest title-step/seam/rhythm cure. The owner
+RULED THE DIRECTION (whole-header contraction); the bracket is the REGISTER of the contraction, not
+the direction. **The contraction BRACKET**:
+- **Pole A — demo layout-box contraction**: the header band's `padding` + `background`-footprint
+  re-key together with the title into a single condensed stuck strip (the honest SHORT strip), the
+  layout box ACTUALLY shrinking (not a compositor-only title scale) so the scrolled Components rows
+  never ghost-through the band.
+- **Pole B — the producer `ScrollCardHeader` contraction door**: adopt the P3 `ScrollCardHeader`
+  producer knobs for the whole-header contraction (E-2 RELAY — §Cross-repo RELAY) rather than a demo
+  point-patch that fights a producer sticky-header mechanism (the U-F4 no-demo-override analogue;
+  E-3 forbids the demo counter-mechanism if the door is the producer's).
+The producer half (the P3 `ScrollCardHeader` contraction knobs, MANDATE §0.8 — *"the P3
+ScrollCardHeader producer knobs … rides the communiqué register"*) **RELAYS** to the BH inbox as a
+NEW addendum (§Cross-repo RELAY); the demo half owns the band's own padding/background contraction
+where no producer door is needed. **Owner-attested** (the scrolled header reads as ONE condensed
+strip, zero ghost-through — a perceptual read, OA-6) **PLUS a born-RED headless leg** where
+box-model-verifiable (the band's scrolled padding + background footprint contract vs its at-rest
+box — BR-9). Interacts with T-51 (the title-seam family, at-rest) + the O-19 sticky-header
+occlusion note (the same band); shares the U-F76 mount (the scrolled contraction changes the header
+band box → settles here before PERF reserves).
 
 ### U-F10 · `console-veil-material` — build (T-34 · T-50; RELAY — producer primitive)
 
@@ -318,7 +348,7 @@ computed-color** predicates are authored **born-RED** (`test.fail()` / expected-
 headless assertion** (the registry logged two headless false-reds; a headless "green" over a GPU
 red is the close-class lie the charter forbids).
 
-### Register 1 — born-RED headless-verifiable (8 gates; each cites LIVE registry evidence)
+### Register 1 — born-RED headless-verifiable (9 gates; each cites LIVE registry evidence)
 
 | # | Gate (born-RED — RED today, flips GREEN on cure) | Family | LIVE evidence (the RED it guards) |
 |---|---|---|---|
@@ -328,8 +358,9 @@ red is the close-class lie the charter forbids).
 | **BR-4** | `.space-trigger` computed font-size == `--type-display-2` token (far arm `--type-display-1`), NOT 67.776px un-stepped | U-F9 | `probe-log-picker.txt`: title `fs:67.776px` @1440 un-stepped |
 | **BR-5** | title↔readout gap ≤ the rhythm step — no dead/blank band (the reserved space is value-class-sized or seam-absorbed) | U-F9 | registry §2: "dead band above readout"; P1-B1 reservation-as-blank redded both placements |
 | **BR-6** | collapsed-dock swatch boundary ΔE vs adjacent ground ≥ JND (~2.3) | U-F11 | registry §2: derive-seam ΔL `.004–.023` imperceptible |
-| **BR-7** | per-pane dark-card tint hue tracks the pane seed hue (Δhue ≤ tol) AND chroma ≥ perceptible floor (NOT a uniform warm-brown) | U-F12 | registry §2: "uniform desaturated warm-brown across every pane" |
+| **BR-7** | **pole-conditional on the U-F12 owner ruling (flips on whichever pole the owner rules — the G-CANON-10-style escape)**: under **Pole A** (chroma-carried tint) the per-pane dark-card GROUND tint hue tracks the pane seed hue (Δhue ≤ tol) AND ground chroma ≥ perceptible floor; under **Pole B** (restrained-neutral tint, ground deliberately near-neutral) the assertion moves to the ACCENT lane — per-pane accent chroma ≥ floor AND cross-pane accent hue distinguishable (seed-tracked). NOT a uniform warm-brown under either pole | U-F12 | registry §2: "uniform desaturated warm-brown across every pane" |
 | **BR-8** | Tools true-button focus-ring box within the dock-layer content box + safe-inset (ring arc unclipped) @ flush edge, both edges | U-F13-demo | registry §2 / `overflow.css:86-99`: producer clip shaves EDGE rings |
+| **BR-9** | scrolled-header band computed `padding` + background-footprint block-size CONTRACT vs the at-rest box (a real layout-box shrink, NOT a compositor-only title `scale`) — the band's scrolled block-size < its at-rest block-size by ≥ the ruled contraction step | U-F9 (scrolled arm, T-61/T-42) | MANDATE §0.8: header band retains full at-rest padding on scroll; t33-research §6.6 compositor-only title scale over an UNSHRUNKEN box |
 
 ### Register 2 — owner-attested / real-GPU annex (NOT headless born-RED; the U-F54 law)
 
@@ -340,6 +371,7 @@ red is the close-class lie the charter forbids).
 | **OA-3** | the console reads as a TRANSLUCENT veil (surviving-variation > the ~15% opaque floor; the blur samples a real backdrop) | U-F10 | veil material is a perceptual read, not a headless α proxy (the O-14 warning) |
 | **OA-4** | the whole-picker + per-surface GESTALT sign-off — the blob seats as part of the picker (U-F5), the ramp reads perceptible/beautiful (U-F6), the dark tint reads clean (U-F12) | U-F5/F6/F12 | taste is owner-terminal (lesson 12); the geometry is born-RED, the gestalt is owner-attested |
 | **OA-5** | the dark-caster re-cut reads as an HONEST dark caster (if CENSUS-RED) | U-F19/T-53 | material re-cut, perceptual |
+| **OA-6** | the SCROLLED header reads as ONE condensed strip — title AND padding AND background band contract together, ZERO ghost-through of the scrolled Components rows under the band | U-F9 (scrolled arm, T-61/T-42) | the owner-verbatim §0.8 whole-header ruling is a perceptual "reads as one strip" gestalt, not a headless proxy (the box-model half is BR-9) |
 
 **The gate is the owner's verdict** (E-7 inheritance — T.W8 was E-7; U.W-VISUAL absorbs its terminal
 residue and re-certifies by owner ratification, never proxy). PP-16: gates-pass-goal-unmet closes
@@ -360,7 +392,8 @@ measured quantity that moved.
 | U-F6-ramp | `ramp-{light,dark}.png` — near-black sink → perceptible band | min per-letter L (RED ≈ 0.02 → GREEN ≥ floor); min per-glyph contrast vs card rung (RED < carve-out → GREEN ≥ 3:1/4.5:1) |
 | U-F7 | real-GPU swap-window screencast (confound-isolated) — jank → smooth | max frame ms (RED > 32 / 88 → GREEN ≤ 32); frames-over-budget count (RED 11/74 → GREEN 0) |
 | U-F8 | `pane-generate-{light,dark}-{1440,390}.png` — flat squares / 3 registers → dots / 1 instrument | swatch species (rect → WatercolorDot, producer-attested); verb-register count (3 → 1) |
-| U-F9 | `picker-*-full.png` + `scrolled-light.png` — un-stepped title + dead band → stepped + honest seam | title fs (67.776px → `--type-display-2` value); dead-band height (px → 0/absorbed); 1440↔390 rhythm-ratio (divergent → one-law) |
+| U-F9 (at-rest) | `picker-*-full.png` + `scrolled-light.png` — un-stepped title + dead band → stepped + honest seam | title fs (67.776px → `--type-display-2` value); dead-band height (px → 0/absorbed); 1440↔390 rhythm-ratio (divergent → one-law) |
+| U-F9 (scrolled arm, T-61/T-42) | `scrolled-{light,dark}.png` at-rest→scrolled — full-padding band with ghost-through → ONE condensed strip | header band block-size (RED at-rest padding retained on scroll → GREEN contracted vs at-rest by ≥ the ruled step); Components-row ghost-through (RED visible under the band → GREEN 0); title condense is NOT the sole change (RED compositor-only title scale → GREEN whole-header contract) |
 | U-F10 | console-region clip (light/dark) — flat slab → translucent veil | surviving backdrop variation (RED ~15% → GREEN > threshold); console tint α (before → lowered) |
 | U-F11 | `dock-{light,dark}-*-rest.png` collapsed swatch — invisible → perceptible seam | swatch-boundary ΔE (RED .004–.023 ΔL → GREEN ≥ JND ~2.3 ΔE) |
 | U-F12 | `pane-*-dark-{1440,390}.png` across panes — uniform warm-brown → chroma-carried | per-pane dark-tint chroma C (RED ≈ 0 → GREEN ≥ floor); cross-pane hue-spread (RED uniform → GREEN seed-tracked) |
@@ -389,6 +422,7 @@ communiqué, glass-ui HEAD `17e0f522`), supplementing (never superseding) it:
 | **WatercolorDot register** (U-F8) | the Generate swatch adopts the WatercolorDot face register (`color` + per-color `seed` + variant); the register is the producer's | **NEW addendum** — name it as a VISUAL-wave acceptance constraint on the WatercolorDot register |
 | **the verb-cluster instrument** (U-F8) | ONE glass-ui instrument for the three verb registers (dock-set capsule vs `ui/dropdown-menu` — owner's word); producer primitives at the root | **NEW addendum** — instrument-choice bracket relayed |
 | **the veil material** (U-F10) | the `surface="veil"` primitive's material (the veil IS glass+blur); calibration levers named so the demo does not fork | **NEW addendum** — veil-material calibration relayed |
+| **the P3 `ScrollCardHeader` contraction door** (U-F9 scrolled arm) | the whole-header scrolled contraction knob — the header padding + background band contract on scroll as ONE strip (MANDATE §0.8 names "the P3 ScrollCardHeader producer knobs"); named so the demo adopts the producer door (Pole B), never a demo point-patch fighting a producer sticky-header mechanism (E-3) | **NEW addendum** — P3 ScrollCardHeader whole-header-contraction door relayed as a VISUAL-wave acceptance constraint |
 | **dock-layer mask honesty** (U-F13 producer) | 0px-fade transparent stop shaving flush rings + inline safe-inset ≥ ring weight | **ALREADY DISPATCHED** — communiqué §2b T-52 (do NOT re-book; cite by name) |
 | **goo-blob `settled` seam + `revealBloom`** (U-F5 producer) | the `settled` seam (park-only-from-settled) + reveal-bloom consumer door | **ALREADY DISPATCHED** — communiqué §2b GAP-L5 / §2b T-60 |
 | **swap-window producer confounds** (U-F7) | O-16-R1 150ms clobber + PKT-1 dist-clock corruption (the isolation the felt-duration judgment needs) | **ALREADY DISPATCHED** — communiqué §2b PKT-1; booked to U.W-ADOPT |
@@ -408,7 +442,7 @@ The already-dispatched rows are cited BY NAME (no second book).
 | **U-F6-ramp** q5-ramp-register | **build** (ramp-half; oracle-half → U.W-ORACLE via U-F62) | feasibility-bounded L/chroma envelope; born-RED per-letter floor (BR-3); the O-14 feasibility-leg law is a DIFFERENT surface (booked to U.W-ORACLE) |
 | **U-F7** scene-transition-motion | **build** (real-GPU annex) | scheduling re-design (evict payload from the enter window), cured WITH the wake bead; owner-attested (OA-1) NOT headless — confound-isolated; producer confounds relayed/booked |
 | **U-F8** generate-plate-species-chrome | **build** (RELAY) | WatercolorDot face + one verb instrument; both are producer registers → RELAY addendum; owner-attested (OA-2) |
-| **U-F9** picker-header-spacing-regime | **build** | one stepped rhythm + honest title↔readout seam (per-value-class OR seam-absorb, never blank); born-RED token/geometry (BR-4/BR-5); shares U-F76 mount (settles first) |
+| **U-F9** picker-header-spacing-regime (+ the **T-61/T-42 scrolled-header arm**) | **build** | AT-REST: one stepped rhythm + honest title↔readout seam (per-value-class OR seam-absorb, never blank); born-RED token/geometry (BR-4/BR-5). SCROLLED (T-61 owner-verbatim §0.8, distinct surface — at-rest T-23 STANDS): whole-header contraction (padding+background band+title as ONE condensed strip, not a compositor-only title scale); born-RED box-model (BR-9) + owner-attested gestalt (OA-6) + the P3 ScrollCardHeader producer RELAY. Shares U-F76 mount (settles first) |
 | **U-F10** console-veil-material | **build** (RELAY) | veil-signal calibration (lower α + open a clarity window); the veil PRIMITIVE is glass-ui → RELAY; owner-attested material (OA-3) |
 | **U-F11** collapsed-dock-swatch-seam | **build** (AUTOMATIC — uncured by W8) | no WR row minted; a deliberate perceptible derive-seam (≥ JND); born-RED ΔE (BR-6) + owner-attested gestalt |
 | **U-F12** dark-scheme-derived-tint-muddiness | **build** (owner-judgment-at-formation) | NEW, no owner row → presented as a BRACKET for owner ruling; born-RED chroma-floor (BR-7); coordinates U-F6 + U-F26 |
@@ -453,6 +487,10 @@ oracle-half + the U-F19 AB-1 half + the U-F13 producer half route to named sibli
   U.W-VISUAL owns the SEAT box only.
 - **U-F7 producer confounds (O-16-R1 clobber + PKT-1 dist-clock) → U.W-ADOPT / relay** (communiqué
   §2b PKT-1 — already dispatched): the confound isolation the felt-duration judgment requires.
+- **U-F9 scrolled-header producer half (the P3 `ScrollCardHeader` whole-header-contraction door) →
+  U.W-ADOPT / BH relay** (NEW addendum, §Cross-repo RELAY): MANDATE §0.8 names the P3 ScrollCardHeader
+  producer knobs; the producer contraction door rides the communiqué register (BI-acceptance), the
+  demo band-contraction half is buildable independently (Pole A) if the producer door is not adopted.
 - **U-F19 AB-1 About-KaTeX scope-dead → U.W-CANON** (the boot-scope build seam, if one): NOT this
   wave's material row.
 - **The SETTLED picker/readout mount → U.W-A11Y then U.W-PERF** (U-F76): VISUAL hands the settled
