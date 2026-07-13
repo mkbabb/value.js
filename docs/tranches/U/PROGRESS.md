@@ -1,6 +1,9 @@
 # U — PROGRESS
 
-**Status board.** U is **FORMED — CONVERGED, awaiting owner ratification** (2026-07-12). The evidence
+**Status board.** U is **RATIFIED — EXECUTION LIVE** (2026-07-13; the coupled T-close/U-open event
+fired on the owner's verbatim order — `audit/RATIFICATION-2026-07-13.md`, whose §0 wins over every
+encoding; T merged to master + tagged `tranche-t-close`; execution branch **`tranche-u`**; the
+HG6 taste verdict remains the owner's, never proxied). Formerly: FORMED — CONVERGED (2026-07-12). The evidence
 base — `audit/registry.md`, the 7-round converged finding-family registry — is STABLE
 (two-consecutive-clean-passes convergence; the U→glass-ui BH communiqué discharged the §28.3 relay at
 glass-ui `17e0f522`). The full formation spine is authored: the charter (`U.md`), this board, the
@@ -11,11 +14,13 @@ dispositions). The **integration + fresh-adversary critique pass is FILED** (`FO
 verdict **CONVERGED**): zero silent drops (all F1..F77 owned once), coherent backward-only DAG,
 born-RED honesty doubly enforced (no pretend-headless flip, no fabricated red), RELAY rows on every
 glass-ui-touching wave, π/DELTA on every visual claim; four NOTE-level residuals named, none blocking.
-**NEXT**: owner ratification, then the design-loop executes each wave on T.W8's terminal state.
+**NEXT**: the root waves execute in parallel (U.W-LIB ∥ U.W-CANON ∥ U.W-SEC ∥ U.W-ORACLE ∥
+U.W-DEMO, + U.W-VISUAL whose T.W8-close dependency is satisfied); U.W-ADOPT floats on the
+still-unfired glass-ui 5.0.0 tag; U.W-A11Y → U.W-PERF per U-F76; U.W-CLOSE last.
 
-**Mode**: PLANNING-ONLY — U authors `docs/tranches/U/**` and makes NO source edits, runs NO fix.
-Commits path-scope to `docs/tranches/U/**` ONLY; T.W8 remediation lands concurrently on the shared
-`tranche-t` branch → every U commit pull-rebases first.
+**Mode**: EXECUTION (the formation's PLANNING-ONLY mode ended at ratification). Source edits are
+in-scope per the wave docs, on branch `tranche-u`; commits path-scope per lane and pull-rebase
+first; the wave docs bind; the registry wins where they could diverge.
 
 **The precedence chain**: owner verbatim (§13.5) → `audit/registry.md` → `U.md` → the wave docs.
 
