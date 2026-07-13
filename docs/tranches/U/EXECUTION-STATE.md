@@ -35,14 +35,17 @@ resume from any of the three death classes below. **Update this file at every wa
 
 | Run | Workflow | Phase at stamp | Script (in §3 dir) | On death |
 |---|---|---|---|---|
-| `wf_319ba067-341` | U.W-LIB impl (3 lanes → integrate → gate → relay+close) | integrator committing merges (`cd3f743`, `168060d` landed) | `u-w-lib-impl-wf_319ba067-341.js` | resume; lanes 1-3 cached; DECISION.md binds the invariant |
-| `wf_6c47fe54-fc2` | U.W-CANON (dispatch → ≤5 lanes → gate → close) | lanes (one works STAGED in the MAIN tree — recover its staging, never sweep it) | `u-w-canon-wf_6c47fe54-fc2.js` | resume; check main-tree staged CLAUDE.md/README/DESIGN set |
+| `wf_6c47fe54-fc2` | U.W-CANON (dispatch → ≤5 lanes → gate → close) | lanes (one works STAGED in the MAIN tree — recover its staging, never sweep it; one package.json stash-pop conflict already cured `e921994` — the concurrent-package.json class is live) | `u-w-canon-wf_6c47fe54-fc2.js` | resume; check main-tree staged CLAUDE.md/README/DESIGN set |
 | `wf_d2caf8d6-1e6` | U.W-ORACLE (dispatch → ≤4 lanes → gate → close) | lanes | `u-w-oracle-wf_d2caf8d6-1e6.js` | resume |
 | `wf_237d5120-d5a` | U.W-VISUAL remediate (header fable lane ∥ riders → gate → close) | lanes (worktree-isolated) | `u-w-visual-remediate-wf_237d5120-d5a.js` | resume; the header lane is FABLE (credit-wall-exposed); its worktree carries the header re-cut |
 
 **Completed runs** (journals retained, no action): `wf_5a0823fb-9f1` LIB evidence ·
 `wf_dd696346-869` VISUAL census (verdict table `audit/w-visual/census.md`) · `wf_fb4f0284-ad9`
-SEC (CLOSED `complete_with_misses`) · `wf_c1769491-04d` DEMO (CLOSED `complete`).
+SEC (CLOSED `complete_with_misses`) · `wf_c1769491-04d` DEMO (CLOSED `complete`) ·
+`wf_319ba067-341` **LIB (CLOSED `COMPLETE` build-complete `d40e04c`** — 12 gates/20 legs GREEN,
+suite 2312/2312, `proof:lib-correctness` in `test:dist`, publish packet `audit/w-lib/
+publish-packet.md` [MAJOR, 4.0.0 recommended, OWNER-DECIDES], BH relay
+`valuejs-inbox-2026-07-13-u-w-lib-invariant.md` at their BI inbox).
 
 ## §3 Paths (absolute; survive session death)
 
