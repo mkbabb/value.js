@@ -289,14 +289,43 @@ export class FunctionValue<T = any, N extends string = string> {
         if (this.name === "color") {
             return `${this.name}(${this.values.map((v) => v.toString()).join(" ")})`;
         }
+        // CSS Images 3 <gradient> stop serialization (U-F33): a color stop's
+        // position (a <length-percentage>) is SPACE-separated from its color
+        // (`red 20%`) and distinct stops comma-join. The parser flattens each
+        // stop's color and its position(s) into one flat value list, so the
+        // generic comma-join emits `…red), 20%, …` — reads as extra stops,
+        // invalid CSS. Re-group here, generalizing the linear() hint-spacing
+        // idiom above to the gradient family (linear-/radial-/conic-gradient +
+        // their repeating-* forms, all `*-gradient`): a position ValueUnit
+        // (length/percentage superType) attaches to the PRECEDING stop with a
+        // space; distinct stops join with ", ". The leading direction (an angle /
+        // side-or-corner deg — neither length nor percentage) starts its own
+        // entry and never attaches.
+        if (this.name.endsWith("-gradient")) {
+            const stops: string[] = [];
+            for (const v of this.values) {
+                const isPosition =
+                    v instanceof ValueUnit &&
+                    (v.superType?.includes("length") === true ||
+                        v.superType?.includes("percentage") === true);
+                if (isPosition && stops.length > 0) {
+                    stops[stops.length - 1] += ` ${v.toString()}`;
+                } else {
+                    stops.push(v.toString());
+                }
+            }
+            return `${this.name}(${stops.join(", ")})`;
+        }
         // CSS named-function serialization audit (O.W5 S5) — CONFIRMED-CORRECT
         // under the default comma-join:
         //   cubic-bezier(0.42, 0, 0.58, 1)   — four comma-separated args
         //   steps(4, end)                    — count + keyword, comma-separated
         //   spring(1, 100, 10, 0)            — four plain-number args (O.W5 S3)
-        //   linear-gradient(90deg, …)        — direction + stops, comma-separated
         // Special-cased above: calc infix, if() `:`/`;`, linear() hint-spacing,
-        // color() colorspace-spacing.
+        // color() colorspace-spacing, *-gradient() positioned stops. (The O.W5
+        // "linear-gradient — direction + stops, comma-separated" audit line was
+        // FALSIFIED by U-F33: a stop's position must SPACE-join its color, not
+        // comma-join away from it.)
         return `${this.name}(${this.values.map((v) => v.toString()).join(", ")})`;
     }
 
