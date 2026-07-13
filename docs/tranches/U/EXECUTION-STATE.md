@@ -5,7 +5,8 @@ session wall must lose NOTHING: this file + the run journals + the git tree are 
 resume from any of the three death classes below. **Update this file at every wave launch/close**
 (the orchestrator's standing duty); the git history of this file IS the execution timeline.
 
-**Last stamped**: 2026-07-13 (U.W-PERF CLOSED `complete_with_misses`), by the orchestrating session
+**Last stamped**: 2026-07-13 (U.W-ADOPT CLOSED `complete_with_misses` — the disease row DECIDED over the
+UNFIRED v5 cut; 9 of 10 waves closed, U.W-CLOSE fires next and LAST), by the orchestrating session
 `daa7c418-d0bc-4d88-913c-27283e6345eb`.
 
 ---
@@ -36,7 +37,17 @@ resume from any of the three death classes below. **Update this file at every wa
 
 | Run | Workflow | Phase at stamp | Script (in §3 dir) | On death |
 |---|---|---|---|---|
-| `wf_ca09a7c3-93e` | U.W-ADOPT trigger-UNFIRED arm (dispatch → ≤3 lanes [U-F2 disease law + CI ref-pins + co-land ordering · U-F4/U-F13-producer OWNER-ATTEST annex rows · U-F28/U-F68/U-F77 version-cut sequencing vs both floors] → gate → close) | **LAUNCHED 2026-07-13** post-PERF-close (v5 tag EMPTY at launch; armed gates flip only at the real cut; the version cut stays OWNER-HELD) | `u-w-adopt-wf_ca09a7c3-93e.js` | resume; never unpin/publish from a lane — orchestrator owns the unpin, the owner owns the cut |
+| — | (no live run — 9 of 10 waves CLOSED) | **U.W-CLOSE is the sole remaining wave** (the terminal sink; fires next and LAST) | — | launch U.W-CLOSE per the §4 recipe; the v5 probe stays STANDING — on fire the unpin+flip executes in-CLOSE |
+
+**ADOPT completed**: `wf_ca09a7c3-93e` **CLOSED `complete_with_misses` 2026-07-13** — the DISEASE WAVE,
+trigger-UNFIRED arm. The disease row DECIDED in-wave over the still-EMPTY v5 tag; **all four born-RED
+gates ARMED against the LIVE `tranche/BG`-pinned tree, 0 flipped [cut unfired], 0 FAIL, 0 fabricated
+flip**: G-ADOPT-1 (U-F2/U-F68) ARMED-RED [7 pins live · lock `~4.0.0`@`:193` · boot-smoke un-run · import
+surface GREEN `110b56f`], G-ADOPT-2/3 (U-F4/U-F13-producer) ARMED born-RED PRODUCER-ONLY riding OA-B1/OA-B2
+[U-F54 annex, NEVER headless; demo EXONERATED], G-ADOPT-4 (U-F77) ARMED both arms [both `^3.1.0` floors +
+Locus-P PROVABLY preserving surfaces 2+4, zero co-migrants]. Version cut OWNER-HELD; cut-execution residual
++ armed-gate flips + census residue booked BY NAME → U.W-CLOSE. Lane commits `f0f2965`·`b9a9290`·`e82d27a`;
+close stamp this commit. `audit/w-adopt-close-artefacts.md`.
 
 **PERF completed**: `wf_c072f8ee-d1e` **CLOSED `complete_with_misses` 2026-07-13** — 3 born-RED
 gates flipped to terminal (G-PERF-1 CLS 0.2146→0.0010 · G-PERF-2 dist-gate 32/32 re-anchored ·
@@ -76,21 +87,31 @@ publish-packet.md` [MAJOR, 4.0.0 recommended, OWNER-DECIDES], BH relay
 
 ## §4 The DAG cursor + standing state
 
-- **Closed (8)**: DEMO (`complete`) · SEC (`complete_with_misses`) · LIB (`COMPLETE`
+- **Closed (9)**: DEMO (`complete`) · SEC (`complete_with_misses`) · LIB (`COMPLETE`
   build-complete) · ORACLE (`complete_with_misses`) · CANON (`complete_with_misses`) ·
-  VISUAL (`complete_with_misses`) · A11Y (`complete_with_misses`) · **PERF (`complete_with_misses`,
-  2026-07-13** — commits `ca8dbca`·`a16e1f4`·`b3f4f76`·`a0d777d` + close stamp; 3 born-RED gates
-  flipped to terminal [G-PERF-1 CLS 0.2146→0.0010 · G-PERF-2 dist-gate re-anchored 32/32, re-probed
-  live PASS 2/2 · G-PERF-4 settle-guard 16/16, box `y=199 h=613` unmoved] + **G-PERF-3 the DECIDED LCP
-  escalate** [armed-RED, ~4919/5141 ~2×, producer-gated on the unfired 5.0.0 adopt, no gate edit —
-  Q14 verbatim]; PERF was the reserve-only TAIL of the U-F76 chain [VISUAL → A11Y → PERF], CLOSED; the
-  U-F3 W9 row LANDED in PI-1 by the close scribe; RELAY discharged by citation [communiqué `17e0f522`];
-  the RECEIVED A11Y long-session fold acknowledged at `smoke-safari`).
-  **Next**: **ADOPT** (trigger-gated — probe `git -C ../glass-ui tag --list 'v5*'` each round, EMPTY at
-  stamp; the U-F3 producer payload cut / Pole A rides its BI-acceptance) + **CLOSE last** (zero-drop
-  ledger walk · publish presentation · real-GPU annex · the census ANNEX-7 + A11Y OA-1/OA-2 + u-f12
-  Pole A/B bracket + **the U-F3 Q14 LCP adjudication — G-PERF-3 ARMED-RED rides to CLOSE** as the
-  attested/escalated flag; registry §26 W9's Q14 inherits U-F3/F14/F16 — all to the owner).
+  VISUAL (`complete_with_misses`) · A11Y (`complete_with_misses`) · PERF (`complete_with_misses`) ·
+  **ADOPT (`complete_with_misses`, 2026-07-13** — lane commits `f0f2965`·`b9a9290`·`e82d27a` + close
+  stamp; the DISEASE WAVE — the disease row DECIDED in-wave over the still-UNFIRED glass-ui v5 cut
+  [`git -C ../glass-ui tag --list 'v5*'` EMPTY; glass-ui HEAD `8b0f9acc` branch `tranche/BI`]; **all four
+  born-RED gates ARMED against the LIVE `tranche/BG`-pinned tree, 0 flipped [cut unfired], 0 FAIL, 0
+  fabricated flip**: G-ADOPT-1 [U-F2/U-F68] ARMED-RED [7 pins live — the doc's 6 corrected, PERF added the
+  boot-smoke 6th `ci.yml` site · lock `~4.0.0`@`:193` stale vs disk 5.0.0 · boot-smoke un-run vs the 5.0.0
+  dist · the goo-blob→blob import surface ALREADY GREEN `110b56f`], G-ADOPT-2/3 [U-F4/U-F13-producer]
+  ARMED born-RED PRODUCER-ONLY [the two NAMED BI-acceptance constraints authored; demo EXONERATED; riding
+  the U-F54 owner-attest annex OA-B1/OA-B2 — NEVER headless], G-ADOPT-4 [U-F77] ARMED both arms [both
+  `^3.1.0` floors — glass-ui peer + keyframes RUNTIME `dependencies:268`; **Locus-P PROVABLY preserves
+  surfaces 2+4 byte-identical, ZERO co-migrants**]; U-F28 WATCH row [no gate]; U-F68 folds → the lock
+  refresh; dispatcher drift CORRECTED [7 pins not 6, FIVE U-F34 renames not 3]; version cut OWNER-HELD
+  [packet 4.0.0 recommended]; RELAY authored in-tree [unfired arm — foreign addendum lands only at the cut;
+  producer material cited BY NAME, communiqué `17e0f522` + BI `-u-w-visual.md §B`]; `audit/w-adopt-close-artefacts.md`).
+  **Next**: **CLOSE — the SOLE remaining wave, fires next and LAST** (the terminal sink UNBLOCKS; 9 of 10
+  decided). The zero-drop ledger walk · publish presentation WITH the landed fix · the real-GPU visual
+  annex owner-attested · the census ANNEX-7 + A11Y OA-1/OA-2 + u-f12 Pole A/B bracket + **the U-F3 Q14 LCP
+  adjudication [G-PERF-3 ARMED-RED, the adopt state is its input]** + the **ADOPT armed-gate flips +
+  OA-B1/OA-B2 + U-F28 next-tag retire + the census residue CC-1/L8/F9.R1** — every book re-probed live;
+  registry §26 W9's Q14 inherits U-F3/F14/F16 — all to the owner. **The v5 probe STAYS STANDING at CLOSE**:
+  `git -C ../glass-ui tag --list 'v5*'` each round — on fire mid-CLOSE the unpin [orchestrator-owned] + the
+  G-ADOPT-1/2/3/4 flips execute; the version cut stays OWNER-HELD.
 - **Substrate**: glass-ui PINNED @ `2e559f7a` (both symlinks → `.claude/worktrees/glass-ui-pinned`;
   record `audit/w-adopt/substrate-pin.md`; UNPIN at the v5 tag). The L17 goo-blob→blob consume
   swap is LANDED (`110b56f`). **Co-land PREVIEW applied 2026-07-13** (`296b8b2`, pushed): the
