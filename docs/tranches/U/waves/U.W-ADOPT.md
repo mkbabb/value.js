@@ -76,7 +76,7 @@ owner-gated cut: (1) retire the `tranche/BG` pin at all six CI sites + `deploy-p
 tagged 5.0.0 master; (2) adopt the `goo-blob → blob` rename at the demo import surface (migrate the
 consumer to the new name at the root — E-3 forbids a compat shim / re-export alias); (3) the §1
 producer design reds re-file as EXPLICIT NAMED BI-acceptance constraints in the BH communiqué
-addendum (U-F4, U-F13-producer, + the 8 carried-forward T producer reds already in §2b). No demo
+addendum (U-F4, U-F13-producer, + the 9 carried-forward T producer reds already in §2b). No demo
 cure is invented for a producer defect.
 
 ### U-F4 — `reduced-motion-dock-collapse` · **fold → U-F2's BI-acceptance list (PRODUCER-ONLY; demo EXONERATED)**
@@ -107,7 +107,7 @@ only** (the clip/fade-mask); the demo Tools true-button box-model half is U.W-VI
 
 **Cure APPROACH**: BI-acceptance constraint — the producer dock-layer clip/fade-mask must not shave
 edge-item focus rings (the ring is the a11y affordance — see U-F25's focus-affordance class). Named
-in the BH communiqué (§2b already carries the 8 T producer reds; this is one of them). No demo cure
+in the BH communiqué (§2b already carries the 9 T producer reds; this is one of them). No demo cure
 in this wave. VISUAL still-red → gate against a real-GPU/owner-attested frame (U-F54 annex).
 
 ### U-F28 — `kf-prm-expand-fixed-unreleased` · **retire on their next tag (WATCH row, no work)**
@@ -131,7 +131,7 @@ sub-assertion of the U-F2 cut gate, G-ADOPT-1).
 
 **Evidence** (registry R-4 §20 + §22 amendment + §25 amendment + §28 the structural resolution):
 U-F29's honest amelioration (§13.5) is **semver-loaded**. BOTH siblings pin `@mkbabb/value.js
-'^3.1.0'` — glass-ui at `package.json:1113` (peer) + `:1151` (dev), keyframes at `package.json:268`
+'^3.1.0'` — glass-ui at `package.json:1114` (peer) + `:1152` (dev), keyframes at `package.json:268`
 — so a **4.0.0 cut strands TWO peer floors**, not one; a 3.x minor auto-adopts. U-F30's fix changes
 the raw-channel OUTPUT convention that **FOUR convention-sensitive surfaces read RAW, bypassing
 `toString`** (registry §28, enumerated across 2 siblings × 2 pipelines):
@@ -207,7 +207,7 @@ Two arms, both born-RED at authoring:
   keyframes parseCSSValue); §28 (round 7) AMENDED to FOUR (added keyframes' backward-color color
   half). The registry wins: the gate drives all FOUR; the "three" framing is the pre-§28 count.
 - **4b — BOTH peer floors satisfied at the version cut**: assert the owner-held version decision keeps
-  glass-ui's `^3.1.0` (`package.json:1113` peer + `:1151` dev) AND keyframes' `^3.1.0` (`package.json:268`) satisfied
+  glass-ui's `^3.1.0` (`package.json:1114` peer + `:1152` dev) AND keyframes' `^3.1.0` (`package.json:268`) satisfied
   — a 3.x minor auto-adopts; a 4.0.0 cut RED until both siblings co-widen. Born-RED where the version
   decision is un-taken (§13.5, owner-held). Flips GREEN when the cut is taken with both floors held (or
   both co-widened + relayed).
@@ -240,10 +240,10 @@ a RELAY row.
 - **RELAY-ADOPT (path-scoped to `../glass-ui/docs/tranches/BH/coordination/valuejs-inbox-<date>-adopt.md`
   at glass-ui HEAD, foreign-tree fence otherwise)** — the FORMATION communiqué already LANDED at
   glass-ui HEAD `17e0f522` (`valuejs-inbox-2026-07-12-u-formation.md`, §28.3: §1 the mixColors-convention
-  coupling, §2a U-F4 PRM-dock, §2b the 8 carried-forward T producer reds, §3 the 5.0.0 +
+  coupling, §2a U-F4 PRM-dock, §2b the 9 carried-forward T producer reds, §3 the 5.0.0 +
   parseCSSValue-reshape co-land). **This wave EXTENDS it at the cut with the co-land ADDENDUM**:
   (1) the U-F4 PRM-dock arm-static-fallback as a NAMED 5.0.0 BI-acceptance constraint;
-  (2) the U-F13-producer edge-clip/fade-mask focus-ring constraint (one of the §2b eight, sharpened to
+  (2) the U-F13-producer edge-clip/fade-mask focus-ring constraint (one of the §2b nine, sharpened to
   the edge-ring-shave a11y class);
   (3) the U-F77 co-land — the chosen U.W-LIB invariant + whether glass-ui's spectrum-walk HOLDS the
   current raw convention (invariant-preserving fix) or CO-MIGRATES at their cut;
@@ -265,7 +265,7 @@ local-only per the foreign-tree fence. No source or foreign-tree edit lands from
 |---|---|---|
 | **U-F2** | **build** (THE DISEASE LAW — its own wave) | Ridden ≥3 tranches un-decided → a disease row → a wave of its own; the §1 design reds re-file as EXPLICIT NAMED BI-acceptance constraints (not trusted to topical waves). The adopt is an explicit booked EVENT at the owner-gated cut. |
 | **U-F4** | **fold → U-F2's BI-acceptance list** | R-1: PRODUCER-ONLY (`morph.css` `[data-morphing]` PRM latch); `overture.css` a RED HERRING; demo EXONERATED. The phantom demo static-fallback row is RETIRED; there is NO value.js cure — the build is the producer BI-acceptance constraint. E-3 forbids a demo override. |
-| **U-F13-producer** | **build via RELAY + BI-acceptance** (producer half only) | The clip/fade-mask is producer-side; named in the BH communiqué (one of the §2b eight, sharpened to the edge-ring-shave a11y class). Gated on a real-GPU/owner frame. The demo Tools box-model half → U.W-VISUAL. |
+| **U-F13-producer** | **build via RELAY + BI-acceptance** (producer half only) | The clip/fade-mask is producer-side; named in the BH communiqué (one of the §2b nine, sharpened to the edge-ring-shave a11y class). Gated on a real-GPU/owner frame. The demo Tools box-model half → U.W-VISUAL. |
 | **U-F28** | **retire on their next tag** (WATCH row, no work) | Fixed-unreleased at keyframes HEAD; value.js has ZERO direct kf imports → nothing to build. Retires the moment keyframes cuts its next tag; booked to U.W-CLOSE re-probe. |
 | **U-F68** | **fold → the adopt cut** (lock refresh) | The stale glass-ui lock record is a false record vs disk 5.0.0; it refreshes at the cut (a sub-assertion of G-ADOPT-1). No independent work. |
 | **U-F77** | **build** (THE CO-LAND ORDERING) | The lib-correctness version cut is semver-loaded against BOTH `^3.1.0` peer floors + the 4-surface raw-channel convention; the co-land ordering sequences the version decision (owner-held, §13.5), the build-time re-enumeration gate, and the two sibling co-migrations. LIB authors the invariant + build-time gate; ADOPT owns the co-land. |

@@ -95,7 +95,7 @@ rationale for a retire; the structural-fact document for an escalate; the named 
 booked `complete_with_misses`). The walk is GATE-BACKED (G-CLOSE-1) so a dropped row is RED, not a
 prose omission. The ledger walk absorbs the two terminal-dependent censuses BY NAME: (a) the
 **W8-terminal inheritance** (U-F18/U-F19 — the still-reds T.W8's remediation did NOT land, routed
-T-56→U-F6, error-detail→U-F26, T-53/AB-1→U.W-VISUAL/U.W-CANON, the 8 producer reds→U.W-ADOPT relay);
+T-56→U-F6, error-detail→U-F26, T-53/AB-1→U.W-VISUAL/U.W-CANON, the 9 producer reds→U.W-ADOPT relay);
 (b) the **trigger-gated adopt residual** (U-F2 DECIDED, the cut execution booked if the glass-ui
 5.0.0 trigger did not fire in-window).
 
@@ -106,7 +106,7 @@ rounds and MUST be flagged, never presented as verified —
 1. **X2 NCSU-301** (VPN-gated, unverified both rounds; §8 zero-drop WINS records X2's on-host claim
    "verified via close artefacts only"; **ties U-F41** — the `mbabb.fi.ncsu.edu/colors/` alias, §12).
 2. **The CI TBT red** (a pure ledger claim — local runs UNDERSTATE it; the 2-core CI runner is the
-   only place TBT reddens; §10 R-2 "TBT 187ms local, only reddens on the 2-core CI runner"; **ties
+   only place TBT reddens; §10:144 "TBT 187ms local, only reddens on the 2-core CI runner"; **ties
    U-F3**).
 3. **The born-RED cure-ownership register** (the 3 armed `test.fail()`: O-16 clobber · O-26 aurora ·
    O-5 boot — cure waves un-landed at audit, O-26 can never flip on software-GL; §13 U-F42; **ties
@@ -261,7 +261,7 @@ directly, at the root, a fond"). It carries a RELAY-VERIFICATION row, not a new 
   HEADs, grep-clean, local-only per the fence:
   1. **The U-formation BH communiqué** (already LANDED at glass-ui HEAD `17e0f522`,
      `valuejs-inbox-2026-07-12-u-formation.md`, §28.3: the mixColors-convention coupling · U-F4
-     PRM-dock · the 8 carried-forward T producer reds · the 5.0.0 + parseCSSValue-reshape co-land) —
+     PRM-dock · the 9 carried-forward T producer reds · the 5.0.0 + parseCSSValue-reshape co-land) —
      confirm it is still present at close.
   2. **The U.W-ADOPT co-land ADDENDUM** (authored at the glass-ui cut, extending the communiqué with
      the U-F4 arm-static-fallback BI-acceptance constraint + the U-F13-producer edge-ring constraint +

@@ -59,6 +59,16 @@ U.W-VISUAL + U.W-A11Y have SETTLED, with zero silent drop:
   settled, and a settle-guard proves no residual reflow re-opens CLS (the reservation LOCKS the
   final geometry, it does not move it).
 
+> **TBT — re-homed, not dropped (the T→U bridge).** `T/FINAL §3`/§5:298 hand "the Q14 **LCP/TBT**
+> redemption" to U.W-PERF by name. U RE-MEASURED at the ratified LHCI instrument (registry §10:144, the U-F3-magnitude re-measure):
+> the binding fast-host reds are **LCP + CLS, NOT TBT** — TBT is **187 ms local (GREEN)** and only
+> reddens on the **2-core CI runner** (T's 5988 ms). So U.W-PERF gates **LCP (G-PERF-3) + CLS
+> (G-PERF-1)** — no TBT gate is armed here because the local reading is green and a CI-only red is not
+> a value.js-side cure. The **CI-2-core TBT red is re-homed to U-F61** (`single-sourced-claims` —
+> local runs understate it) → **U.W-CLOSE** as an attested-not-verified flag (G-CLOSE-3), cross-
+> referenced to U-F3 (`U.W-CLOSE:108-109/206/286`). A reader tracing T's "TBT → U.W-PERF" lands here,
+> then at U-F61/U.W-CLOSE — the by-name handoff is bridged, not silently re-scoped.
+
 ## §Completion criterion
 
 - Every family (U-F3, U-F14, U-F16, U-F76) reaches its decided disposition (§Dispositions); zero
@@ -360,6 +370,12 @@ Zero silent drops: F3 (escalate, decided + booked), F14/F16 (build, born-RED val
   rides the CI-wired `test:dist` slate (the Q13 retain-5); its determinism is the standing signal.
 - **The CLS row → the PI-1 ledger (standing tracking instrument).** U-F16 arm-2 adds CLS to the budget
   table; every future richness wave records its CLS delta (the append protocol — drift is signal too).
+- **RECEIVED fold — A11Y's `long-session / memory` watch → the standing `smoke-safari` sustained-30s
+  probe (`U.W-A11Y §modality-triage:316`).** The historical iOS 294-frame `ValueUnit`-nesting class
+  (MEMORY.md — the accumulation site fixed Mar 2026) is perf-adjacent, not a U-Fxx family (nothing to
+  build, so NOT in §Scope/§Dispositions). It is acknowledged here as its perf home and rests on the
+  existing `smoke-safari` sustained-30s context-loss probe (the real standing instrument). This closes
+  the A11Y `fold → U.W-PERF` booking — received, named, not dropped.
 
 ---
 

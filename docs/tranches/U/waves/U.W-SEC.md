@@ -78,9 +78,10 @@ declaration; the hono advisory is not pinned-around but bumped in-range.
 
 **Evidence** (registry §12 + §15 CONFIRMED): `POST /admin/impersonate` (route
 `api/src/modules/admin/routes/impersonate.ts:14-22` → mounted `app.ts:80`, behind the `adminAuth`
-bearer gate) mints a session with **NO `expiresAt`** — `impersonate.ts:44-52`
+bearer gate) mints a session with **NO `expiresAt`** — in the SERVICE file (distinct from the
+route, same basename) `api/src/modules/admin/service/impersonate.ts:44-52`
 (`sessions.insert({ _id, ipHash, userSlug, createdAt, lastSeenAt })`, the `expiresAt` field
-absent). The auth path FILTERS on it: `SessionRepository.findAndTouch` (`session.ts:25-31`) queries
+absent; the docstring `:7` confirms "no `expiresAt` set"; `:47` = `_id: asSessionToken(token)`). The auth path FILTERS on it: `SessionRepository.findAndTouch` (`session.ts:25-31`) queries
 `{ _id: token, expiresAt: { $gt: new Date() } }` — the read `resolve-session.ts:36` consumes as
 the session-validation middleware. A document with no `expiresAt` field **never matches** → the
 impersonation token is **dead-on-arrival** (returns HTTP 200 with a functionally-inert token, §15).
@@ -102,7 +103,7 @@ the green-over-broken instrument). No `expiresAt`-optional shim survives.
 
 **Evidence** (registry §12): admin auth is **bearer-token-only** (`admin-auth.ts` — `Authorization:
 Bearer ADMIN_TOKEN`, `timingSafeEqual`); the impersonate route passes `c.var.userSlug`
-(`impersonate.ts:20`) as the actor, which is `undefined` for a pure-admin bearer call (no session).
+(`routes/impersonate.ts:21`) as the actor, which is `undefined` for a pure-admin bearer call (no session).
 `emitAuditEvent` (`audit-log.ts:36`) coerces `actorSlug ?? null` → the privileged `impersonate`
 action (and every bearer-only admin op) is recorded with `actorSlug: null` — a privileged action
 with no attributable actor.
@@ -119,7 +120,7 @@ Rides G-SEC-1's gate as a paired sub-assertion (§Hard gate); no independent row
 **Evidence** (registry §12 + §15 CONFIRMED): session tokens are stored **cleartext** as
 `sessions._id` (`model.ts:63-64` — "`_id` is the session token (uuid)"); every lookup queries the
 raw token (`session.ts:18` `findByToken` `{ _id: token }`, `session.ts:27` `findAndTouch`
-`{ _id: token, … }`), every mint inserts it raw (`impersonate.ts:47`, `auth.ts:103,151`). Any DB
+`{ _id: token, … }`), every mint inserts it raw (`service/impersonate.ts:47`, `auth.ts:103,151`). Any DB
 read yields **every live token** (mass hijack). Entropy is fine (UUIDv4); the defect is at-rest
 storage. §15: mitigated only by the network boundary — which U-F37 shows is itself unauthenticated;
 **the two compound**.
@@ -232,7 +233,7 @@ non-born-RED family (escalate — its re-verify is VPN-gated/off-repo, owner-att
 
 Assert a token minted by `POST /admin/impersonate` **authenticates through the real auth path** —
 `findAndTouch(token)` returns the session (not `null`), OR a round-trip: impersonate → present the
-token as `X-Session-Token` to an authed route → 200 not 401. **RED today**: `impersonate.ts:44-52`
+token as `X-Session-Token` to an authed route → 200 not 401. **RED today**: `service/impersonate.ts:44-52`
 omits `expiresAt`; `findAndTouch` (`session.ts:27`) filters `expiresAt: { $gt: now }` → returns
 `null` → the token is inert (the current test's `findByToken` row-existence assertion at
 `admin-impersonate.test.ts:133` is the green-over-broken mask, REPLACED). Flips GREEN when
@@ -292,8 +293,8 @@ without a GPU (an auth round-trip, a config parse, a raw-DB read, a deploy-artef
 
 | Family | DELTA measurement (before → after) | Evidence anchor |
 |---|---|---|
-| U-F36 | impersonation-token auth: inert (`findAndTouch`→null, 401) → live (200); the green-over-broken test → auth-driving | `impersonate.ts:44-52` · `session.ts:25-31` · `admin-impersonate.test.ts:133` |
-| U-F40 | privileged-action `actorSlug`: null → attributable (resolvable admin identity) | `audit-log.ts:36` · `impersonate.ts:20` |
+| U-F36 | impersonation-token auth: inert (`findAndTouch`→null, 401) → live (200); the green-over-broken test → auth-driving | `service/impersonate.ts:44-52` · `session.ts:25-31` · `admin-impersonate.test.ts:133` |
+| U-F40 | privileged-action `actorSlug`: null → attributable (resolvable admin identity) | `audit-log.ts:36` · `routes/impersonate.ts:21` |
 | U-F37 | unwired `.env.example` `MONGO_*` vars: 4 → 0 (config-truth); precept residual: absent → written OR SCRAM wired | `.env.example:2-5` · `compose.yaml:12,67` · `domains.md:153-155` |
 | U-F38 | at-rest token exposure: cleartext (`_id`==token) → digest (raw-read ≠ token) | `model.ts:63-64` · `session.ts:18,27` |
 | U-F39 | frontend security headers: 1 (`x-content-type-options`) → suite (CSP/HSTS/X-Frame-Options); `_headers`: absent → present | `demo/color-picker/public/` · `apache-vhost.conf:52-59` (api-parity referent) |

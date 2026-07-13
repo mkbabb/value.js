@@ -36,7 +36,8 @@ distinct-F count = 77, all of `1..77` present). Each family reaches a DECIDED di
 - **W8-terminal census** (fold, executed in named waves): **U-F18** (E-5 addressed-half) + **U-F19**
   (W8 live-defect residue) fold into the charter's W8-inheritance census, EXECUTED in U.W-CLOSE's
   ledger walk + U.W-VISUAL's census (the T-53 material → VISUAL, AB-1 KaTeX → U.W-CANON, error-detail
-  → U-F26, T-56 → U-F6, the 8 producer reds → U.W-ADOPT relay — each routed by name).
+  → U-F26, T-56 → U-F6, the 9 producer reds → U.W-ADOPT relay (communiqué `17e0f522` §2b), and the
+  producer-DECLINED **T-20** → U.W-ADOPT owner-escalation lane (`DISPOSITION-LEDGER §C`) — each routed by name).
 - **Annex** (acknowledge, attested in a named wave): **U-F54** the real-GPU visual oracle — home is
   the charter §real-GPU annex; the attestation is DISCHARGED in U.W-CLOSE (G-CLOSE-4, owner-attested).
 - **Retire-at-root** (recorded, no wave): **U-F20** (harness token, cured at rename) · **U-F59**
@@ -68,8 +69,8 @@ The three load-bearing ordering binds are each internally coherent:
 
 - **U-F77 (LIB → ADOPT co-land)** — LIB authors the U-F29/F30/F31/F32/F33 fix + owns the U-F30
   invariant + the build-time re-enumeration born-RED (LIB-G6); ADOPT sequences the *version-cut
-  decision* (owner-held §13.5) against **BOTH** `^3.1.0` peer floors (glass-ui `package.json:1113`
-  peer + `:1151` dev — VERIFIED against the sibling tree; keyframes `package.json:268` — pin `^3.1.0` VERIFIED,
+  decision* (owner-held §13.5) against **BOTH** `^3.1.0` peer floors (glass-ui `package.json:1114`
+  peer + `:1152` dev — VERIFIED against the sibling tree; keyframes `package.json:268` — pin `^3.1.0` VERIFIED,
   see §3 note) AND the spectrum-walk/backward-color raw-channel co-migration. The fix precedes the
   cut; the cut cannot sequence a version until LIB has a fix to version. Coherent.
 - **U-F76 (VISUAL → A11Y → PERF mount-box single-writer)** — VISUAL (U-F5 blob reseat, U-F9 header)
@@ -194,7 +195,7 @@ discipline, not scope-creep and not a drop.
 1. **keyframes `^3.1.0` pin line-cite drift** — `registry §22/§20-R4` cite `../keyframes.js/package.json:269`;
    `U.W-ADOPT §U-F77` + `G-ADOPT-4b` cite `:266`. The ACTUAL line is **`:268`** (verified this pass).
    The load-bearing FACT is sound and consistent everywhere (keyframes pins `@mkbabb/value.js '^3.1.0'`
-   — a SECOND `^3.1.0` peer floor beside glass-ui's `:1113`/`:1151`, which the U-F77 co-land requires).
+   — a SECOND `^3.1.0` peer floor beside glass-ui's `:1114`/`:1152`, which the U-F77 co-land requires).
    Only the exact line integer drifts across encodings. A one-token correction at execution; the
    design-time reasoning is unaffected.
 2. **"three vs four" consumer-surface heading tension (self-reconciled)** — `U.W-LIB` has a heading
@@ -310,13 +311,14 @@ in `docs/tranches/U/**` (no cross-tranche edit needed — the two cross-tranche 
 already correct; the drops were U-side). None reversed a disposition, gate, or ordering:
 
 1. **glass-ui `^3.1.0` peer-floor cite wrong in 5 docs + a false verification claim** (bornred-exec) —
-   all five cited `../glass-ui/package.json:1109` (dev) / `:1147` (peer); verified against the sibling
-   tree the value.js pins are at **`:1113` (peerDependencies)** / **`:1151` (devDependencies)** — the
-   cites were the block-OPENER lines (off by 4) AND the dev/peer labels were INVERTED. FORMATION-VERDICT
-   §Check-2 asserted these "cites VERIFIED exact" (false). Corrected the numbers + labels in all 5 docs
-   (FORMATION-VERDICT §Check-2 + §3-note, U.W-ADOPT:134/210, U.W-LIB:338, registry §R-4) and struck the
-   false "VERIFIED exact" (now "VERIFIED against the sibling tree"). The G-ADOPT-4b gate asserts version-
-   floor SATISFACTION, not a line integer, so executability was always sound — this was a cite-honesty gap.
+   the value.js pins are at **`:1114` (peerDependencies)** / **`:1152` (devDependencies)** in the live
+   sibling tree (confirmed by `sed`; lines `:1113`/`:1151` BOTH land on `@mkbabb/pencil-boil`). The r1
+   cites (`:1109` dev / `:1147` peer) were the block-OPENER lines with inverted labels; r2 moved them to
+   `:1113`/`:1151` (still off-by-one) and re-asserted "VERIFIED" without a real line-check — cosmetic, not
+   a real landing. **r3 corrected the numbers to `:1114`/`:1152` in all 5 docs** (FORMATION-VERDICT
+   §Check-2 + §3-note + §6, U.W-ADOPT:134/210, U.W-LIB:338, registry §R-4) against a live `sed` of the
+   sibling `package.json`. The G-ADOPT-4b gate asserts version-floor SATISFACTION, not a line integer, so
+   executability was always sound — this was a cite-honesty gap, now closed against verified evidence.
 2. **U-F62 ledger §A owning-wave blank** (zerodrop-reaudit) — `DISPOSITION-LEDGER §A:91` recorded F62's
    owning-wave as `—`, contradicting `U.md:156` (F62 ∈ U.W-ORACLE) + `U.W-ORACLE §Dispositions` (a decided
    U-F62 fold row). The ledger-walk would hit an unexplained blank for a family the Family-audit expects
@@ -358,10 +360,60 @@ started; the tranche awaits the NEXT fresh-adversary pass as the first potential
 
 ---
 
+## §7 — Round-3 fresh-adversary hardening (remediated 2026-07-12)
+
+A round-3 fresh-adversary pass raised **8 actionable findings** against the round-2-remediated formation
+(1 [blocks-ratification], 7 [adjust]); **all 8 were DOC-FIXABLE and remediated** path-scoped
+(`docs/tranches/U/**` + one permitted cross-tranche read of `docs/tranches/T/FINAL.md`, unedited):
+
+1. **glass-ui `^3.1.0` peer/dev cite STILL off-by-one after r2** (bornred-exec) — r2 "corrected" the pins
+   to `package.json:1113`(peer)/`:1151`(dev) and re-asserted "verified", but a live `sed` shows both
+   land on `@mkbabb/pencil-boil`; the value.js pins are `:1114`(peer)/`:1152`(dev). Corrected 1113→1114 /
+   1151→1152 across all 5 docs (U.W-ADOPT:134/210, U.W-LIB:338, registry §R-4, FORMATION §Check-2/§3/§6)
+   against verified evidence. keyframes `:268` re-confirmed CORRECT. G-ADOPT-4b asserts floor SATISFACTION,
+   not a line integer — a cite-honesty gap.
+2. **SEC `impersonate.ts` route/service basename conflation** (bornred-exec) — the mint is in
+   `service/impersonate.ts:44-52` (`:47` = `_id`), NOT the 25-line `routes/impersonate.ts`; the actor pass
+   is `routes/impersonate.ts:21` (not `:20`). Disambiguated route vs service at U.W-SEC :81/:106/:123/:236
+   + the DELTA table. G-SEC-1's born-RED was always executable — a cite ambiguity.
+3. **A11Y→PERF dangling fold** (zerodrop-reaudit) — U.W-A11Y:316 booked the `long-session/memory` watch
+   to U.W-PERF, which never received it. Added a `§BOOKS` RECEIVED-fold line to U.W-PERF naming the
+   standing `smoke-safari` sustained-30s probe as its home (not a U family, nothing to build) — booking
+   fulfilled, not dropped.
+4. **T-20 SILENT DROP** (blocks-ratification) — T records T-20 (P4 glass-ui Tabs pilling, PRODUCER-DECLINED
+   → owner-escalated) OPEN on both sides (`T/FINAL §2.1:132`/§5:306, `T-MARK:95`), but U's zero-drop ledger
+   had no T-20 row anywhere and the communiqué §2b excludes it. Added an explicit `DISPOSITION-LEDGER §C`
+   T-20 row (no value.js family — a producer Tabs geometry red; U.W-ADOPT owner-escalation lane, distinct
+   from the pending §2b relays) + fixed FORMATION §Check-2:39's "each routed by name" claim. The zero-drop
+   criterion now holds.
+5. **§2b carried-forward-reds miscount 8→9** (cross-tranche) — the committed communiqué `17e0f522` §2b
+   enumerates NINE rows (T-60/T-52/GAP-L2/GAP-L5/PKT-1/T-38/T-45/P1-R3/GAP-ARM; `T/FINAL §5:306`/§7.2:413
+   agree "9"). Corrected "8"→"9" at 9 sites (registry §28.3, ledger §B, FORMATION §Check-2, U.W-ADOPT
+   :79/110/243/246/268, U.W-CLOSE :98/264). No red was lost — the count is the discharge evidence.
+6. **T-handed TBT→U.W-PERF unbridged re-home** (cross-tranche) — `T/FINAL §3`/§5:298 hand "LCP/**TBT** →
+   U.W-PERF"; U re-measured (registry §10:144: TBT 187ms local GREEN, CI-2-core red only) and re-homed TBT
+   to U-F61 → U.W-CLOSE, but neither U.W-PERF nor `ledger:168` stated it, so a reader found no TBT at
+   U.W-PERF. Added the TBT bridge note to U.W-PERF §Goal + the ledger T-39 row (LCP→U.W-PERF, TBT→U-F61/
+   U.W-CLOSE). Routing inconsistency reconciled.
+7 + 8. **U-F12 π/DELTA row left Pole-A-only** (pi-delta-visual + owner-verbatim) — r1 made BR-7 (:402)
+   pole-conditional and r2 established Pole B (near-neutral ground + `--accent`-lane chroma) as the
+   C3-compliant DEFAULT, but the PAIRED π/DELTA obligation (:441) still encoded only the Pole-A ground-tint
+   outcome — unsatisfiable RED→GREEN under the default (ground chroma ≈ 0 BY CONSTRUCTION) and driving
+   toward the un-ratified ground-chroma amendment. Made :441 pole-conditional to mirror BR-7 (Pole A →
+   ground chroma/hue; Pole B → accent-lane chroma/hue) + de-Pole-A'd the frame caption; also tightened
+   BR-7's trailing clause (Pole B keeps a uniform warm-NEUTRAL ground by construction, distinguished via
+   accents). The governing C3/Q18 ruling + BR-7 win by precedence — a consistency drift, now reconciled.
+
+**Round-3 remediation is CLEAN** — 8 applied, 0 deferred (1 blocks-ratification cured). Three fresh-adversary
+passes to date (r1: 10, r2: 6, r3: 8) each raised real findings, so the two-CONSECUTIVE-CLEAN counter has
+STILL not started; the tranche awaits the NEXT fresh-adversary pass as the first potential clean.
+
+---
+
 **Ruling: CONVERGED** — the formation is complete and coherent; the four residual notes are named,
 NOTE-level, and correctable at execution without touching a disposition, gate, or ordering. The
-round-1 (§5) and round-2 (§6) fresh-adversary findings are all doc-remediated; a first CLEAN pass is
-still pending (the owner's bar is two CONSECUTIVE clean passes).
+round-1 (§5), round-2 (§6), and round-3 (§7) fresh-adversary findings are all doc-remediated; a first
+CLEAN pass is still pending (the owner's bar is two CONSECUTIVE clean passes).
 
 *Filed by the formation integrator + fresh-adversary critic (opus), 2026-07-12. Path-scoped to
 `docs/tranches/U/**`; pull-rebased on the shared `tranche-t` branch (T.W8/T.W9 landing concurrently).*
