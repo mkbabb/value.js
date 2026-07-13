@@ -7,6 +7,7 @@
 export {
     decomposeMatrix2D,
     decomposeMatrix3D,
+    recomposeMatrix2D,
     recomposeMatrix3D,
     slerp,
     interpolateDecomposed,

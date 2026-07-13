@@ -10,9 +10,10 @@ transform/
 ├── decompose.ts    # matrix decompose/recompose + quaternion slerp
 │                     decomposeMatrix2D(a,b,c,d,e,f)   — CSSOM View §15.1
 │                     decomposeMatrix3D(cssValues[16]) — polar/Gram-Schmidt "unmatrix"
+│                     recomposeMatrix2D(decomposed)    — reconstruct matrix() values (§15.1 inverse)
 │                     recomposeMatrix3D(decomposed)    — reconstruct matrix3d() values
 │                     slerp(qa, qb, t)                 — quaternion spherical linear interpolation
-│                     interpolateDecomposed(a, b, t)   — full transform interpolation
+│                     interpolateDecomposed(a, b, t)   — full transform interpolation (2D + 3D)
 └── path.ts         # DOM-free SVG path geometry (VJ-F1, tranche-N W7)
                       getTotalLength(d)                — cumulative arc-length of a `d` string
                       getPointAtLength(d, length)      — point at an absolute length
