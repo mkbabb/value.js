@@ -322,11 +322,12 @@ export {
     CSSJSON,
     CSSValues,
     parseCSSValue,
-    parseCSSSubValue,
+    parseCSSValues,
+    CSSParseError,
     parseCSSPercent,
     parseCSSTime,
 } from "./parsing";
-export type { ParseCSSSubValueOptions } from "./parsing";
+export type { ParseCSSValuesOptions } from "./parsing";
 
 // Stylesheet AST — full CSS at-rule + qualified-rule parsing
 export { parseCSSStylesheet } from "./parsing/stylesheet";
