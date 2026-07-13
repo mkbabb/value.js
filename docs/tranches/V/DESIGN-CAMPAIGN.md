@@ -1,14 +1,19 @@
 # V — THE STRUCTURE DESIGN CAMPAIGN (formation-by-convergent-loop)
 
-**Status**: PASS 2 AGGLOMERATED (2026-07-13) · mid-U.W-CLOSE (the owner: "this should be done alongside
-our above"). Pass-2 fold (`design/pass-2/AGGLOMERATION.md`): the un-critiqued F3/F4 drew adversaries and
-DROPPED (F3 48→40 · F4 44→36); the skeleton RAN as three charters that each scored ABOVE their parts
-(A 58 · B 45 · C 54) → **one COMPOSED THESIS emerges as THE candidate (ADVANCED, 50%)**, four families
-MERGED into it, two BANKED as substrate/battery, the F4 lattice-mirror shape-half RETIRED. Material advance:
-the RED-baseline blocker that capped every pass-1 D1 claim is DISSOLVED (goo-blob→blob swap) — the general
-colocation now RUNS green. Next: pass-3 (the protocol's minimum-third pass — α placement-manifest · β
-merge-re-run · γ lossy-accounting + a fresh full adversary). **This document is the campaign state of
-record**; the registry (§3) and pass log (§4) update at every pass agglomeration.
+**Status**: PASS 3 AGGLOMERATED (2026-07-13) · mid-U.W-CLOSE (the owner: "this should be done alongside
+our above"). Pass-3 fold (`design/pass-3/AGGLOMERATION.md`): the three charters CLOSED their pass-2 caps with
+first-hand HEAD measurement — **α** ratified the placement to a UNIQUE 18/0 manifest (counterfactual-proven,
+CC-5 harness 3/3, scatter RUN green 182/1) · **β** re-ran the src color merge on HEAD (15-vs-11 dissolved to
+a deterministic 13, acyclicity-rides-registry demonstrated not inferred) · **γ** closed the lossy accounting
+(U-F29 credited, friction #1 RETRACTED as non-lossy, the sweep found a 2nd spec-forced site). The cross-lane
+convergence TAX is discharged; the composed thesis rises **50% → 62%** (the fresh audit's carriage, un-inflated).
+**BUT the fresh audit is CLEAN on clean-break yet enumerates the un-charted HALF of the owner's edict** —
+clause 12 (library complexity REDUCTION, 14 god-modules > 500 LoC, the sharpest gap), clause 4 (long-dirs),
+clause 3 (styles), clause 11 (D4 hygiene minus the gate-cull), clause 1 (the demo-wide manifest, deferred).
+**Gaps survive → pass-3 is NOT the clean pass** (the two-clean-pass clock is 0 of 2). Next: pass-4 gap-closers
+— **δ** complexity-reduction · **ε** long-dirs+styles+demo-wide-manifest · **ζ** hygiene — + the fresh
+FULL-THESIS adversary. **This document is the campaign state of record**; the registry (§3) and pass log (§4)
+update at every pass agglomeration.
 
 ## §0 The owner's verbatim (2026-07-13 — WINS over every encoding below)
 
@@ -106,15 +111,17 @@ against this real referent.
 ## §3 The approach-family registry (updated per pass)
 
 Full survey + reasoning: `design/portfolio.md`. Six orthogonal families minted at Round Zero — primary
-axis "what structure is DERIVED FROM"; F5/F6 split the execution axis (strangler vs big-bang). **Pass-2
-fold (`design/pass-2/AGGLOMERATION.md`)**: the un-critiqued F3/F4 drew adversaries and DROPPED (retro
-override: F3 48→**40**, F4 44→**36**); the pass-1 skeleton RAN as three CHARTERS that each scored ABOVE
-their constituent families (A 58 · B 45 · C 54) → **one COMPOSED THESIS is now THE candidate** (ADVANCED,
-50%). Four families MERGED into the charters (F1/F3/F6 + F4's D3 dimension); two BANKED as substrate/battery
-(F2/F5); the F4 lattice-mirror SHAPE-half RETIRED (self-refuted). Convergence % are the critics' earned
-numbers throughout; the retro F3/F4 numbers OVERRIDE the pass-1 un-adversaried scores. States/% are never
-inflated. **States**: ADVANCED (live candidate) · BANKED (folds in as substrate/support) · MERGED
-(subsumed into a composition) · RETIRED (dead) · BLOCKED (none fire).
+axis "what structure is DERIVED FROM"; F5/F6 split the execution axis (strangler vs big-bang). **Pass-3
+fold (`design/pass-3/AGGLOMERATION.md`)**: the three charters CLOSED their pass-2 caps (α 58→**68** · β
+45→**62** · γ 54→**68**) — the placement is a UNIQUE-by-counterfactual 18/0 manifest, the merge is re-run
+on HEAD, the lossy leg is load-bearing — and the cross-lane convergence TAX is discharged → **the COMPOSED
+THESIS rises 50→62%** (the fresh audit's carriage, un-inflated). The fresh audit is CLEAN on clean-break
+but RE-CAPS the thesis at 62% by the four un-charted owner clauses (12/4/3/11 + the deferred demo-wide
+manifest, clause 1) — now three OPEN rows with named pass-4 closers (δ/ε/ζ). **Pass-2 rows retained** for the
+families: F3 48→40, F4 44→36 (retro overrides); the F4 lattice-mirror SHAPE-half RETIRED. Convergence % are
+the critics'/auditor's earned numbers throughout; States/% are never inflated. **States**: ADVANCED (live
+candidate) · BANKED (substrate/support) · MERGED (subsumed) · OPEN (enumerated, un-charted — the pass-4
+surface) · RETIRED (dead) · BLOCKED (none fire).
 
 | Row | Design idea / composition | State | Conv % | Pass-2 disposition + pass-3 questions |
 |---|---|---|---|---|
@@ -124,10 +131,13 @@ inflated. **States**: ADVANCED (live candidate) · BANKED (folds in as substrate
 | **4 · TYPE-ONTOLOGY** | tree mirrors the type lattice; parsing validation = a typed `{value,diagnostics}` boundary | **MERGED** → Charter C | **36%** | retro-f4 override: lattice-mirror SHAPE thesis RETIRED (self-refuted to F1's one carve, 0 executed by F4). Survives as the owner-mandated D3 DIMENSION (corpus + `grammar-fuzz` + `#11` at true MAJOR cost + diagnostics) |
 | **5 · STRANGLER-BY-GATE** | born-RED structural gates drive incremental convergence | **BANKED** → Charter C | **42%** | Execution pole → F6; enforcement battery authored+corrected (10→7, Q13 floor + `barrel-pure` derived + `grammar-fuzz`; META-gate dropped). A supporting LAYER, not a family |
 | **6 · BIG-BANG CODEMOD** | a spec-complete target tree reached per-surface atomically; clean break, one commit/surface | **MERGED** → Charter B | **37%** | The atomic VEHICLE, now proven on the per-file SCATTER (not just the rename) + a src carve (three/four green gates). Fused into the execution half |
-| **⟐ Charter A — the WHAT-tree (F1 ∘ F3)** | glass-ui's LAW operated by F3's placement predicate | **ADVANCED — LEAD** | **58%** | The pass's MATERIAL ADVANCE (general colocation RAN green; retro-f3 G4 dissolved). Capped: placement DESIGN proven to RESOLVE not to be CORRECT — flagship "17/1" flawed, §1.3 false-on-disk, CC-5 un-validated, merge un-re-run. Pass-3 Charter α |
-| **⟐ Charter B — execution vehicle (F6 + F2 substrate)** | the atomic codemod + the wired/validated measurement substrate | **ADVANCED** | **45%** | Best-RUN of the batch (5/5, NO claim falsified on disk). Capped: convergence HEADLINE overstated — "18/0" a flat-predicate artifact, 5-file cross-lane destination divergence. Pass-3 Charter α/β |
-| **⟐ Charter C — D3 dimension + battery (F4 + F5)** | the typed diagnostics + the corrected enforcement battery | **ADVANCED** | **54%** | Closes retro-f4's two dominant drags (`#11` re-cost EXACT, memoize split Axis-A/B). Capped: item-2 lossy leg soft — U-F29 uncredited, permissive-string un-measured, "one spec-forced site" unproven. Pass-3 Charter γ |
-| **⇒ THE COMPOSED THESIS (A × B × C)** | F1-law ∘ F3-placement × F6-vehicle+F2-substrate × F4-dimension+F5-battery | **ADVANCED — THE CANDIDATE** | **50%** | All three legs RUN green; no competing shape. Capped by the un-ratified placement table (28% cross-lane destination divergence), the un-re-run merge, the un-validated CC-5. A demonstrable pass-3 from convergence |
+| **⟐ Charter A — the WHAT-tree (F1 ∘ F3)** | glass-ui's LAW operated by F3's placement predicate | **ADVANCED — LEAD** | **68%** | pass-3 α CLOSED the dominant cap: RATIFIED, UNIQUE-by-counterfactual **18/0** manifest (`generate-color`/`ink-walk` reversals decided; charter-a's "17/1" RETIRED), CC-5 harness 3/3, scatter RUN green (typecheck Δ0 · build 0 · smoke 182/1). Capped by SCOPE — one bucket, not the demo-wide manifest (→ pass-4 ε) |
+| **⟐ Charter B — execution vehicle (F6 + F2 substrate)** | the atomic codemod + the wired/validated measurement substrate | **ADVANCED** | **62%** | pass-3 β re-ran the merge on HEAD: 15-vs-11 dissolved to a deterministic **13**; acyclicity-rides-registry DEMONSTRATED not inferred (2 FAIL→0, barrel SCC 14→5). Capped by the honest correction — true blast = 15 test + canon doc; 5-file leaf-SCC residual |
+| **⟐ Charter C — D3 dimension + battery (F4 + F5)** | the typed diagnostics + the corrected enforcement battery | **ADVANCED** | **68%** | pass-3 γ closed all three soft-leg gaps: U-F29 credited (idiom twice-ratified in-tree), friction #1 RETRACTED (permissive-string NON-lossy), sweep found the 2nd spec-forced drop site. OF-3 widens 1 site → 1 class / 2 sites. The D3 leg is load-bearing |
+| **⇒ THE COMPOSED THESIS (A × B × C)** | F1-law ∘ F3-placement × F6-vehicle+F2-substrate × F4-dimension+F5-battery | **ADVANCED — THE CANDIDATE** | **62%** | pass-3: three legs hardened + the cross-lane TAX discharged (unique manifest). RE-CAPPED at the audit's fresh carriage (62%) by the four un-charted owner clauses (§3 below); the remaining 38% is now ENUMERATED with named δ/ε/ζ closers. Two-clean-pass clock at 0 of 2 |
+| **⊕ clause 12 — LIBRARY COMPLEXITY REDUCTION** | god-module carve set + a metric that goes DOWN | **OPEN → pass-4 δ** | — | the owner's sharpest, most-emphatic ask, un-charted: 14 src files > 500 LoC (`color.ts` 754, `scroll-timeline.ts` 658, `parsing/index.ts` 644, `stylesheet.ts` 643, …). Every RAN library move is behavior-preserving re-structure |
+| **⊕ clause 4/3/1 — long-dirs + styles + demo-wide manifest** | `panes/` carve · `style.css` cohesion · per-dir flatten across all 6 `demo/@/` | **OPEN → pass-4 ε** | — | `panes/` 2009 LoC · `style.css` 55 KB · the ~321-site @-abrogation beyond the one validated bucket; `@src`/`@assets` un-ruled |
+| **⊕ clause 11 — D4 hygiene (minus the gate-cull)** | PNGs · worktrees · benches · scripts · docs · plugins | **OPEN → pass-4 ζ** | — | 39 root PNGs · 14 worktrees · 11 benches · scripts-prune · stale docs · the plugins disposition (OF-6 — owner said "delete", survey measured them LIVE + wired) |
 
 ## §4 Pass log
 
@@ -136,3 +146,4 @@ inflated. **States**: ADVANCED (live candidate) · BANKED (folds in as substrate
 | 0 (portfolio) | round-zero minter (survey + 6 families) | DONE — `design/portfolio.md` authored: Act-1 ground survey (demo/api/src/hygiene) + glass-ui BH/BI CODIFIED-but-partially-executed distillation (corrected) + kf `VJ-*` bug corpus (11 classes); Act-2 six orthogonal families registered §3 all OPEN@0%. Next: pass-1 RESEARCH (≤8 probes, batched 3) against each family's gaps column. |
 | 1 (RESEARCH→SYNTH→PROTO→CRITIQUE→AGGLOMERATE) | pass-1 fleet (6 specs · 6 protos · 4 critiques · 8 research) → agglomerator | DONE — `design/pass-1/AGGLOMERATION.md`. **6 families → 4 ADVANCED (F1 45 · F3 48 · F4 44 · F6 37) + 2 BANKED (F2 40 → F3+F5-battery · F5 42 → F6+D3-gates)**; 0 retired/blocked/merged. Convergent skeleton: **F1(law)∘F3(placement) × F6 execution × banked-F5 battery(corrected 10→7)+F4's 2 D3 gates × banked-F2 substrate × F4 diagnostics dimension**. Spine facts: the `units/index.ts` barrel-carve (4 derivations), api=verify-but-OWNER-FORK, the color mass (one carve, runtime-init unbuilt), CC-5 closed by F3's consumer-census, D1 executed by F3 ALONE, 2/11 VJ bugs open. Agglomerator-verified: `test:dist`=10 gates (Q13 floor 5 → corrected arithmetic 10→7); barrel-purity is a runtime property, RED set `{parsing,units,quantize}` not the spec's stale `{src/index.ts,parsing,units}`. Owner-forks routed OUT (@-ban idiom · api vocab). **Coverage debt: F3/F4 un-critiqued → pass-2 opens with an adversarial pass on both.** Next: pass-2 against Charters A/B/C. |
 | 2 (2 RETROS + 3 CHARTERS + 3 CRITIQUES → AGGLOMERATE) | pass-2 fleet (retro-f3 · retro-f4 · charter-a/b/c · critique-a/b/c) → agglomerator | DONE — `design/pass-2/AGGLOMERATION.md`. **The un-adversaried discount was measured: F3 48→40 (D1 premium did not survive — one RAN move = kernel-helper colocation, general map refuted by the consumer set) · F4 44→36 (lattice-mirror SHAPE thesis RETIRED; `#11` "0 callers" FALSE on disk = a kf-coupled 2.0.0 MAJOR).** The skeleton RAN as 3 charters, each ABOVE its parts: **A 58 (F1∘F3, general colocation RAN GREEN — the RED-baseline blocker DISSOLVED via goo-blob→blob) · B 45 (F6 scatter + `units/index.ts` carve + the order-independent registry, color-SCC 2 FAIL→0) · C 54 (diagnostics split Axis-A/B owner-law-clean + battery 10→7 + `#11` re-cost)**. Fold: **1 COMPOSED THESIS (ADVANCED, 50%, THE candidate) · 4 MERGED (F1/F3/F6 + F4-dimension) · 2 BANKED (F2 substrate-now-validated / F5 battery) · F4 shape-half RETIRED**. Load-bearing DISAGREEMENT: the two lanes place 5/18 destinations differently (2 reversals) — direction settled, exact table un-ratified. Owner-fork register (§4 of AGGLOMERATION): 5 forks + 1 booked-not-forked (`#11` MAJOR). **Next: pass-3 (minimum-third pass) — α placement-manifest · β merge-re-run · γ lossy-accounting + a FRESH FULL ADVERSARY → two consecutive clean passes for convergence.** |
+| 3 (3 CHARTERS + 1 FRESH AUDIT → AGGLOMERATE) | pass-3 fleet (charter-α/β/γ · owner-verbatim/clean-break audit) → agglomerator | DONE — `design/pass-3/AGGLOMERATION.md`. **The three charters CLOSED their pass-2 caps with first-hand HEAD (`07bf61d`) measurement: α (58→68) reconciled the 5-file divergence into a UNIQUE-by-counterfactual 18/0 manifest (ratified=0 / charter-a=1 / charter-b=7 manufactured runtime edges), CC-5 harness 3/3, scatter RUN green (typecheck Δ0 · build 0 · smoke 182/1 — the 1 an env ENOENT); β (45→62) re-ran the src color merge (15-vs-11 dissolved to a deterministic 13 file-edges; acyclicity-rides-registry DEMONSTRATED — eager+carve 2 FAIL→ lazy+carve 0 FAIL, barrel SCC 14→5); γ (54→68) closed the lossy accounting (U-F29 `329932b` credited as twice-ratified idiom, friction #1 RETRACTED as NON-lossy, the sweep FALSIFIED "single site" → 2 spec-forced drops).** The cross-lane TAX discharged → composed thesis **50→62%**. **BUT the fresh audit is CLEAN on clean-break yet enumerates the un-charted HALF of the owner's edict** (62% carriage): clause 12 (complexity REDUCTION — 14 god-modules > 500 LoC, the sharpest), clause 4 (long-dirs), clause 3 (styles), clause 11 (D4 hygiene minus gate-cull), clause 1 (demo-wide manifest deferred). **Gaps survive → pass-3 is NOT the clean pass (clock 0 of 2).** OWNER-FORK fold: OF-3 WIDENED (1 site → 1 class / 2 sites) · OF-4 CONCRETIZED (6-file coupling evidence) · **OF-6 NEW** (the plugins delete-vs-keep divergence). **Next: pass-4 gap-closers — δ complexity-reduction · ε long-dirs+styles+demo-wide-manifest · ζ hygiene — + the fresh FULL-THESIS adversary (the owner-verbatim lens explicitly deferred it). Only a zero-gap pass starts the two-clean-pass clock.** |
