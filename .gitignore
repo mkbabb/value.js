@@ -5,13 +5,23 @@ backend/config.php
 node_modules/
 my_venv/
 .env
-auth/
+# U-F49: anchored to the repo-ROOT build-artefact dir only. A bare unanchored
+# `auth/` also matched the tracked SOURCE dir demo/@/composables/auth/ (a
+# silent-drop trap — a new file there would be silently ignored).
+/auth/
 _*
 !test/__snapshots__/
 # colocated per-domain test dirs (T.W1 Q17) — `_*` above would swallow them
 !**/__tests__/
 !**/__tests__/**
 dist/
+# test/dist/ holds the U.W-CANON repo-hygiene gates (U-F49/U-F50). The broad
+# `dist/` ignore above would swallow them — the same unanchored-dir silent-drop
+# class U-F49 closes for auth/. Carve the test tree back out (the repo's own
+# negation idiom, cf. `!test/__snapshots__/` + `!**/__tests__/` above). Root
+# `dist/` + `api/dist/` build outputs stay ignored.
+!test/dist/
+!test/dist/**
 test-results/
 # scripts/dev.sh (npm run dev) runtime scratch — mongo dbpath, logs, .ports
 .dev/

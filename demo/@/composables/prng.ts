@@ -9,24 +9,3 @@ export function mulberry32(seed: number) {
     };
 }
 
-/** Simple string→u32 hash (djb2) */
-export function hashString(str: string): number {
-    let hash = 5381;
-    for (let i = 0; i < str.length; i++) {
-        hash = ((hash << 5) + hash + str.charCodeAt(i)) | 0;
-    }
-    return hash >>> 0;
-}
-
-/** Generate 8 random border-radius values in [lo, hi] using the given PRNG */
-export function randomRadii(rng: () => number, lo: number, hi: number): number[] {
-    const out: number[] = [];
-    for (let i = 0; i < 8; i++) {
-        out.push(lo + rng() * (hi - lo));
-    }
-    return out;
-}
-
-export function radiiToCSS(r: number[]): string {
-    return `${r[0]}% ${r[1]}% ${r[2]}% ${r[3]}% / ${r[4]}% ${r[5]}% ${r[6]}% ${r[7]}%`;
-}

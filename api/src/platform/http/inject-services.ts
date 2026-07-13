@@ -108,11 +108,6 @@ function buildServices(collections: Collections, client: MongoClient): Services 
     };
 }
 
-/** Test-only reset hook (used in case Lanes A/B add unit tests). */
-export function __resetServicesForTest(): void {
-    cachedServices = null;
-}
-
 /**
  * Build (or return cached) services. Used by both the request-scoped
  * middleware below and by non-route consumers (cron handler, startup tasks)

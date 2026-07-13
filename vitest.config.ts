@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config";
+import { configDefaults, defineConfig } from "vitest/config";
 import path from "path";
 
 export default defineConfig({
@@ -21,6 +21,12 @@ export default defineConfig({
         // test/parsing/…, test/transform/, test/quantize/); the flat `test/*.ts`
         // glob would miss every mirrored subdir.
         include: ["test/**/*.ts"],
+        // U.W-CANON (U-F49/U-F50): the repo-hygiene gates live in `test/dist/`,
+        // but vitest's default exclude swallows `**/dist/**`. `include` is scoped
+        // to `test/**` and `test/dist` is the ONLY dist dir under it, so drop just
+        // the dist rule (node_modules / cypress / config excludes untouched) to
+        // auto-discover them under `npm test`.
+        exclude: configDefaults.exclude.filter((p) => !p.includes("dist")),
         environment: "jsdom",
     },
 });
