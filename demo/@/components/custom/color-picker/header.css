@@ -1,0 +1,143 @@
+/* U-F9 — THE PICKER HEADER GRAMMAR: the one-law rhythm (Row A · T-2/T-51/T-59)
+ * + the whole-header scroll contraction (Row B · T-61/§0.8 owner-verbatim).
+ *
+ * Colocated global sheet (the seat.css / overture.css precedent — imported by
+ * ColorPicker.vue's <script setup>). Two reasons it is GLOBAL, not scoped:
+ *   1. every selector is UNIQUE to ColorPicker's template (`.picker-header`,
+ *      `.header-sentinel`), so a global rule binds identically to a scoped one
+ *      (the PP-8 cap-seam precedent);
+ *   2. the contraction re-keys the light-DOM CHILD-component classes
+ *      (`.space-trigger` in ColorSpaceSelector, `.readout` in
+ *      ColorComponentDisplay) — a global (un-hashed) sheet reaches them through
+ *      the PLAIN descendant selector, the exact form glass-ui's own
+ *      `card-scroll.css` uses to reach `[data-slot=card-title]` (no `:deep()`
+ *      scope-escape needed, and no `:deep()` into shadcn internals — these are
+ *      the demo's own custom classes on custom components).
+ */
+
+/* ── Row A · ONE rhythm law ──────────────────────────────────────────────
+ * The title→readout seam is governed by ONE container-scaled token at every
+ * viewport, replacing the fixed `gap-y-1` (4px) that — over the fp-derived
+ * blob-reservation band — read as a 6× divergent gap (4.0px@1440 vs
+ * 24.6px@390). The token is `cqi`-scaled (the pane-slot container), so 1440
+ * and 390 share ONE rhythm SOURCE (the `<lg` band switch is dead). */
+.picker-header {
+    --picker-header-rhythm: clamp(0.25rem, 1.4cqi, 0.55rem);
+    row-gap: var(--picker-header-rhythm);
+    position: sticky;
+    top: 0;
+    /* the whole block condenses as ONE strip — a SINGLE discrete transition on
+     * the threshold crossing (never a per-scroll-frame scrub): the padding
+     * band + the type rung + the veil move together. Bounded 300ms reflow at
+     * the crossing, ZERO per-frame reflow during scroll (the honest box shrink
+     * §0.8 demands, without the CLS the producer's compositor gate guards). */
+    transition:
+        padding-top var(--duration-normal) var(--ease-standard),
+        padding-bottom var(--duration-normal) var(--ease-standard);
+}
+
+/* the 0-height scroll sentinel rides the top of the Card scroll container;
+ * useHeaderCondense observes it, flipping `.is-condensed` past the threshold. */
+.header-sentinel {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+
+/* ── Row B · THE BACKGROUND BAND (§0.8 "background band") ─────────────────
+ * The strip's veil: the plate's rung-1 material (`--glass-bg-resting` +
+ * `--glass-blur-resting`, the PaneHeader idiom — DESIGN §Surfaces "the veil is
+ * the plate's own rung-1 material at a scroll-earned intensity") at 0 opacity
+ * AT REST (the header stays transparent-on-plate — T-23 at-rest STANDS) and
+ * FULL when condensed, so the scrolled Components rows never ghost-through the
+ * strip (t33-research §6.6 — the pinned defect). Feathered 12px past the box
+ * so the band dissolves into the plate, never terminating at a hard edge. */
+.picker-header::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 -12px 0;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--glass-bg-resting);
+    -webkit-backdrop-filter: var(--glass-blur-resting);
+    backdrop-filter: var(--glass-blur-resting);
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black calc(100% - 12px),
+        transparent
+    );
+    mask-image: linear-gradient(to bottom, black calc(100% - 12px), transparent);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-standard);
+}
+.picker-header.is-condensed::before {
+    opacity: 1;
+}
+
+/* ── Row B · THE PADDING CONTRACTION (§0.8 "padding") ─────────────────────
+ * The band's vertical padding contracts on condense (a REAL layout-box shrink,
+ * measurable by getComputedStyle — BR-9; NOT a compositor translate). */
+.picker-header.is-condensed {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+}
+
+/* ── Row B · THE TITLE STEP (§0.8 "title" · BR-11) ───────────────────────
+ * The title steps ONE real golden rung down on condense — `--type-display-2`
+ * (at-rest, BR-4 must-STAY, untouched) → `--type-display-1`. A REAL TOKEN STEP,
+ * never a compositor `scale()` of the un-stepped rung. `--type-display-1`
+ * floors at 1.618rem (25.9px @390 / 41.9px @1440) — above the legibility floor
+ * the wave doc names (BR-11: the T-42 "text too small" below-bound). The
+ * `.space-trigger`'s own font-size transition rides here so the step is smooth,
+ * not a jump. */
+.picker-header .space-trigger {
+    transition:
+        color var(--duration-fast) var(--ease-standard),
+        font-size var(--duration-normal) var(--ease-standard);
+}
+.picker-header.is-condensed .space-trigger {
+    font-size: var(--type-display-1);
+}
+
+/* the readout condenses to a compact single-line register — the value stays
+ * legible while scrolled (the picker's data never leaves the strip), and the
+ * 2-line lock's reserved air collapses so the strip is SHORT (the block-size
+ * contraction that makes BR-9 measurable at the readout too). Card-lock in the
+ * scrolled state is moot — a scroll gesture is not a value change. */
+/* the readout SNAPS on condense (no transition on its font-size or line-lock
+ * min-height): that reservation IS the card-lock — it re-sizes only on a SPACE
+ * change (--readout-lines / --readout-fit), and the O-10b line-lock census
+ * measures both discretely — so animating them would both violate the lock and
+ * be caught mid-transition. The dominant contraction feel rides the title +
+ * padding + veil transitions; the compact readout resolves in one step under
+ * them. */
+.picker-header.is-condensed .readout {
+    font-size: var(--type-display-1);
+    min-height: 1.12em;
+    align-content: start;
+}
+
+/* the strip is TIGHT: the blob's at-rest vertical reservation on the title row
+ * (seat.css `--blob-fp`-derived min-height, which seats the at-rest readout
+ * BELOW the bead) is released on condense — the condensed readout is the
+ * narrower display-1 rung, so it clears the corner bead HORIZONTALLY (left
+ * column) and can sit flush under the title. This is what makes the strip read
+ * as ONE short band, not a tall header with a smaller title. */
+.picker-header.is-condensed .title-row {
+    min-height: 0;
+}
+
+/* Reduced motion: the condense STATE still lands (it is a designed layout
+ * state, not decorative motion), but the transitions collapse to instant under
+ * the global PRM guard (animations.css) — the box shrinks without the 300ms
+ * scrub, exactly as a discrete state should. */
+@media (prefers-reduced-motion: reduce) {
+    .picker-header,
+    .picker-header .space-trigger,
+    .picker-header .readout,
+    .picker-header::before {
+        transition-duration: 0.01ms;
+    }
+}
