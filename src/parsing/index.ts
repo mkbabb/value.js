@@ -55,6 +55,23 @@ const { mathFunction: MathFunction, calcFn: CalcFunction } = createMathFunctionP
 const TRANSFORM_FUNCTIONS = ["translate", "scale", "rotate", "skew"];
 const TRANSFORM_DIMENSIONS = ["x", "y", "z"];
 
+// The single-argument axis-expansion table (U-F31 · U.W-LIB LIB-G7). A
+// scalar-arg transform does NOT fan onto all three axes — each function has its
+// own single-value semantics per the CSS transform spec:
+//   · rotate(a)    → a Z-rotation (rotateZ) — CSS `rotate` is Z-only.
+//   · scale(s)     → scaleX + scaleY (a uniform 2D scale; Z is left untouched).
+//   · translate(t) → translateX only (the Y offset defaults to 0).
+//   · skew(a)      → skewX only (the Y skew defaults to 0; skew has no Z axis).
+// The multi-argument forms still expand positionally over TRANSFORM_DIMENSIONS
+// (see the handleTransform `else` branch); this table governs ONLY the
+// single-value branch, which previously over-expanded onto every axis.
+const TRANSFORM_SINGLE_ARG_AXES: Record<string, string[]> = {
+    translate: ["x"],
+    scale: ["x", "y"],
+    rotate: ["z"],
+    skew: ["x"],
+};
+
 const transformDimensions = TRANSFORM_DIMENSIONS.map(utils.istring);
 const transformFunctions = TRANSFORM_FUNCTIONS.map(utils.istring);
 
@@ -85,7 +102,10 @@ const handleTransform = () => {
             const newName = lowerName + dim.toUpperCase();
             transformObject[newName] = values[0];
         } else if (values.length === 1) {
-            dimensions.forEach((d) => {
+            // Respect each transform's single-arg axis cardinality (U-F31)
+            // instead of fanning the scalar onto every dimension.
+            const axes = TRANSFORM_SINGLE_ARG_AXES[lowerName] ?? dimensions;
+            axes.forEach((d) => {
                 const newName = makeTransformName(lowerName, d);
                 transformObject[newName] = values[0];
             });
