@@ -55,7 +55,7 @@ const REPO_ROOT = path.resolve(fileURLToPath(import.meta.url), "..", "..");
 // the multi-token input must NOT resolve to the bare first token. It flips GREEN
 // under EITHER cure and never over-constrains the design loop.
 describe("LIB-G1 · U-F29 — parseCSSValue must not silently truncate", () => {
-    it.fails("'1px solid red' does not silently return the bare '1px'", () => {
+    it("'1px solid red' does not silently return the bare '1px'", () => {
         // TODAY: parseCSSValue('1px solid red').toString() === '1px'  (silent drop)
         let full: string | undefined;
         let threw = false;
@@ -71,7 +71,7 @@ describe("LIB-G1 · U-F29 — parseCSSValue must not silently truncate", () => {
         expect(noSilentDrop).toBe(true);
     });
 
-    it.fails("'0 0 4px red' does not silently collapse to the first '0'", () => {
+    it("'0 0 4px red' does not silently collapse to the first '0'", () => {
         // TODAY: parseCSSValue('0 0 4px red').toString() === '0'
         let full: string | undefined;
         let threw = false;
@@ -84,7 +84,7 @@ describe("LIB-G1 · U-F29 — parseCSSValue must not silently truncate", () => {
         expect(noSilentDrop).toBe(true);
     });
 
-    it.fails("'translate(10px) rotate(45deg)' retains the trailing rotate", () => {
+    it("'translate(10px) rotate(45deg)' retains the trailing rotate", () => {
         // TODAY: drops rotate → 'translateX(10px) translateY(10px) translateZ(10px)'
         let full: string | undefined;
         let threw = false;
@@ -104,7 +104,7 @@ describe("LIB-G1 · U-F29 — parseCSSValue must not silently truncate", () => {
 // emits values() verbatim → near-black. Fixed at the mix OUTPUT locus (physical
 // range), matching the direct-parse convention (§13.5 / R-2).
 describe("LIB-G2 · U-F30 — color-mix serializes physical-range CSS", () => {
-    it.fails("color-mix(in srgb, red 30%, blue) → 'rgb(76.5 0 178.5)'", () => {
+    it("color-mix(in srgb, red 30%, blue) → 'rgb(76.5 0 178.5)'", () => {
         // TODAY: 'rgb(0.30000000000000004 0 0.7)'  (normalized [0,1] leaked)
         expect(
             parseCSSColor("color-mix(in srgb, red 30%, blue)").toString(),
@@ -129,14 +129,14 @@ describe("LIB-G2 · U-F30 — color-mix serializes physical-range CSS", () => {
 //       (PP-16 — a born-RED whose cure is a co-migration is BOOKED, not counted
 //       red at close). It does NOT silently force the invariant.
 describe("LIB-G3 · U-F30 — relative-color serializes physical-range CSS", () => {
-    it.fails("(a, cure-agnostic) rgb(from red r g b) → 'rgb(255 0 0)'", () => {
+    it("(a, cure-agnostic) rgb(from red r g b) → 'rgb(255 0 0)'", () => {
         // TODAY: 'rgb(1 0 0)'  (normalized r=1 leaked)
         expect(parseCSSColor("rgb(from red r g b)").toString()).toBe(
             "rgb(255 0 0)",
         );
     });
 
-    it.fails(
+    it(
         "(b, CURE-CONDITIONAL — normalize-on-construct ONLY, else BOOKED→U.W-ADOPT) " +
             "rgb(from red calc(r + 10) g b) → 'rgb(265 0 0)'",
         () => {
@@ -174,7 +174,7 @@ describe("LIB-G4 · U-F30 — direct-parse path is UNCHANGED (guard)", () => {
 // a color-mix result carries PHYSICAL channels (76.5), so normalizeColorUnit
 // yields the correct 76.5/255 = 0.3.
 describe("LIB-G5 · U-F30 — re-fed color-mix does not double-normalize", () => {
-    it.fails(
+    it(
         "normalizeColorUnit(color-mix(...red 30%…)) → r ≈ 0.3, NOT 0.00118",
         () => {
             const mixed = parseCSSColor(
@@ -212,7 +212,16 @@ describe("LIB-G6 · U-F30 — raw-channel convention re-enumeration (build-time)
     // mixColors/sampleColorRamp/color2 channel convention for every reader the
     // census below discovers (LIB-G6 GREEN) — OR the co-migration is booked to
     // U.W-ADOPT + the BH relay addendum names each co-migrant.
-    const CONVENTION_INVARIANT_LANDED = false;
+    //
+    // FLIPPED → true at U.W-LIB integration. The RATIFIED U-F30 invariant is the
+    // COMPOSITE at Locus P (docs/tranches/U/audit/w-lib/DECISION.md §U-F30):
+    // denorm-on-output at the color-mix PARSER consumer + normalize-on-construct
+    // at the relative-color PARSER locus — `mixColors`/`sampleColorRamp`/`color2`
+    // are UNCHANGED. The invariant therefore PRESERVES the raw-channel convention
+    // for every reader the census discovers → NO sibling co-migration (the §28.1
+    // preferred outcome; glass-ui spectrum-walk + keyframes backward-color read
+    // the same channels they read today). The verdict is recorded in DECISION.md.
+    const CONVENTION_INVARIANT_LANDED = true;
 
     // Explicit, regenerable grep targets: {dir, token-pattern}. Only SOURCE trees
     // (src/) — never dist/.claude/worktrees/.cache noise.
@@ -254,7 +263,7 @@ describe("LIB-G6 · U-F30 — raw-channel convention re-enumeration (build-time)
             return { target: t.label, files };
         });
 
-    it.fails(
+    it(
         "the chosen U-F30 invariant is proven convention-preserving for every raw reader",
         () => {
             const census = enumerateRawReaders();
@@ -281,7 +290,7 @@ describe("LIB-G6 · U-F30 — raw-channel convention re-enumeration (build-time)
 // ALL `dimensions` for values.length===1 → rotate(45deg) fans to X/Y/Z. CSS
 // `rotate` is Z-ONLY; `scale`/`translate`/`skew` have their single-arg semantics.
 describe("LIB-G7 · U-F31 — single-arg transforms respect axis cardinality", () => {
-    it.fails("rotate(45deg) is a single Z-rotation, NOT X/Y/Z fan-out", () => {
+    it("rotate(45deg) is a single Z-rotation, NOT X/Y/Z fan-out", () => {
         // TODAY: 'rotateX(45deg) rotateY(45deg) rotateZ(45deg)'
         const s = parseCSSValue("rotate(45deg)").toString();
         expect(s).not.toContain("rotateX");
@@ -289,13 +298,13 @@ describe("LIB-G7 · U-F31 — single-arg transforms respect axis cardinality", (
         expect(s).toBe("rotateZ(45deg)");
     });
 
-    it.fails("scale(2) stays 2D — no scaleZ", () => {
+    it("scale(2) stays 2D — no scaleZ", () => {
         // TODAY: 'scaleX(2) scaleY(2) scaleZ(2)'  (scaleZ is wrong for scale(n))
         const s = parseCSSValue("scale(2)").toString();
         expect(s).not.toContain("scaleZ");
     });
 
-    it.fails("translate(10px) does not push 10px onto Y or Z", () => {
+    it("translate(10px) does not push 10px onto Y or Z", () => {
         // TODAY: 'translateX(10px) translateY(10px) translateZ(10px)'
         const s = parseCSSValue("translate(10px)").toString();
         expect(s).not.toContain("translateZ");
@@ -309,7 +318,7 @@ describe("LIB-G7 · U-F31 — single-arg transforms respect axis cardinality", (
 // "inherit-from-argument" and carry `deg` out. Per css-values-4 sin/cos/tan are
 // UNITLESS <number>.
 describe("LIB-G8 · U-F32 — forward trig resolves unitless", () => {
-    it.fails("evaluateMathFunction(sin(30deg)) is unitless 0.5, NOT 0.5deg", () => {
+    it("evaluateMathFunction(sin(30deg)) is unitless 0.5, NOT 0.5deg", () => {
         // TODAY: value 0.5, unit 'deg'
         const evaluated = evaluateMathFunction(
             parseCSSValue("sin(30deg)") as FunctionValue,
@@ -319,7 +328,7 @@ describe("LIB-G8 · U-F32 — forward trig resolves unitless", () => {
         expect(evaluated!.unit === "" || evaluated!.unit == null).toBe(true);
     });
 
-    it.fails("calc(sin(30deg)*100px) resolves to 50px, NOT 50deg", () => {
+    it("calc(sin(30deg)*100px) resolves to 50px, NOT 50deg", () => {
         // TODAY: value ≈ 50, unit 'deg'
         const evaluated = evaluateMathFunction(
             parseCSSValue("calc(sin(30deg)*100px)") as FunctionValue,
@@ -335,7 +344,7 @@ describe("LIB-G8 · U-F32 — forward trig resolves unitless", () => {
 // comma-join has no positioned-stop case for *-gradient → the stop-position
 // comma-joins away from its color (invalid CSS, reads as 5 stops).
 describe("LIB-G9 · U-F33 — gradient stops round-trip to valid CSS", () => {
-    it.fails(
+    it(
         "linear-gradient(90deg, red 20%, blue 80%) round-trips space-joined",
         () => {
             // TODAY: 'linear-gradient(90deg, rgb(255 0 0), 20%, rgb(0 0 255), 80%)'
@@ -356,31 +365,26 @@ describe("LIB-G9 · U-F33 — gradient stops round-trip to valid CSS", () => {
 // wide→sRGB to DETECT out-of-gamut never sees raw OOB channels.
 //
 // The cure exposes the raw-OOB detect path through the dispatch surface. The
-// wave doc sanctions "an idiomatic option on color2 (or a sibling color2Raw / an
-// options bag)". This gate encodes the options-bag form `color2(c,'rgb',
-// {correctGamut:false})`; if the design loop lands color2Raw instead, the
-// implementer adjusts the call at flip.
+// wave doc sanctioned "an idiomatic option on color2 (or a sibling color2Raw / an
+// options bag)". LANDED (U-F74 / DECISION.md §U-F74): the options bag
+// `color2(c, 'rgb', { gamut: 'raw' | 'map' })`, default 'map' (no silent behavior
+// change). This gate's call form is adjusted to the landed `{ gamut: 'raw' }`
+// surface (the born-RED author sanctioned the flip-time call adjustment above).
 describe("LIB-G10 · U-F74 — dispatch exposes raw out-of-gamut channels", () => {
-    it.fails(
-        "a wide-gamut color → sRGB with correctGamut:false reports RAW OOB",
-        () => {
-            const p3green = new DisplayP3Color(0, 1, 0); // out of sRGB gamut
-            // TODAY: the options arg is ignored → silently gamut-mapped, all in [0,1].
-            const raw = (
-                color2 as unknown as (
-                    c: unknown,
-                    to: string,
-                    opts: { correctGamut: boolean },
-                ) => { entries(): [string, unknown][] }
-            )(p3green, "rgb", { correctGamut: false });
-            const channels = raw
-                .entries()
-                .filter(([k]) => k !== "alpha")
-                .map(([, v]) => Number(v));
-            const hasOOB = channels.some((c) => c < -1e-6 || c > 1 + 1e-6);
-            expect(hasOOB).toBe(true);
-        },
-    );
+    it("a wide-gamut color → sRGB with { gamut: 'raw' } reports RAW OOB", () => {
+        const p3green = new DisplayP3Color(0, 1, 0); // out of sRGB gamut
+        // RED (pre-fix): the options arg was ignored → silently gamut-mapped,
+        // all in [0,1]. CURED: { gamut: 'raw' } threads correctGamut=false.
+        const raw = color2(p3green, "rgb", { gamut: "raw" }) as unknown as {
+            entries(): [string, unknown][];
+        };
+        const channels = raw
+            .entries()
+            .filter(([k]) => k !== "alpha")
+            .map(([, v]) => Number(v));
+        const hasOOB = channels.some((c) => c < -1e-6 || c > 1 + 1e-6);
+        expect(hasOOB).toBe(true);
+    });
 });
 
 // ─── LIB-G11 · U-F35 — 2D recompose round-trip ────────────────────────────────
@@ -402,7 +406,7 @@ describe("LIB-G11 · U-F35 — decompose/recompose 2D round-trips", () => {
         interpolateDecomposed: (a: unknown, b: unknown, t: number) => unknown;
     };
 
-    it.fails("recomposeMatrix2D(decomposeMatrix2D(M)) ≈ M", () => {
+    it("recomposeMatrix2D(decomposeMatrix2D(M)) ≈ M", () => {
         // TODAY: recomposeMatrix2D is undefined → TypeError (not a function).
         const M: [number, number, number, number, number, number] = [
             2, 0, 0, 3, 10, 20,
@@ -415,7 +419,7 @@ describe("LIB-G11 · U-F35 — decompose/recompose 2D round-trips", () => {
         }
     });
 
-    it.fails("interpolateDecomposed accepts the 2D decomposed shape", () => {
+    it("interpolateDecomposed accepts the 2D decomposed shape", () => {
         // TODAY: interpolateDecomposed reads 3D fields (.translate[0]) → NaN on a
         // 2D shape (which carries translateX/scaleX/angle/skew, not translate[]).
         const a = ns.decomposeMatrix2D(1, 0, 0, 1, 0, 0);
@@ -478,7 +482,7 @@ describe("LIB-G12 · U-F34 — every conversion export uses {from}2{to}", () => 
         return [...drift].sort();
     };
 
-    it.fails("no exported conversion uses the {from}To{to} drift form", () => {
+    it("no exported conversion uses the {from}To{to} drift form", () => {
         const drift = collectDrift();
         // TODAY: non-empty (xyzToICtCp, linearToSrgb, oklabToLinearSRGB, …).
         expect(drift, `drift exports: ${JSON.stringify(drift)}`).toEqual([]);
