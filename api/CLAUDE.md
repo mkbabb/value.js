@@ -222,3 +222,45 @@ All admin actions require `Authorization: Bearer {ADMIN_TOKEN}` AND emit an `adm
   `docker compose up` → bounded `/` health-gate. **No rsync, no SSH** (the old
   `api/deploy.sh` rsync outlier + the `mbabb.fi.ncsu.edu/colors/` :3100 NCSU
   topology were retired at K.W2 / DEC-9).
+
+## Mongo discipline — justified divergence (U-F37)
+
+**Mongo-discipline justified-residual (U-F37).** The prod compose (`compose.yaml`)
+runs `mongod --replSet rs0 --bind_ip_all` with **no SCRAM auth and no
+`--keyFile`**, and `MONGODB_URI` carries **no credentials**. This is an EXPLICIT,
+documented **defense-in-depth residual** — a *written* divergence from the precept
+`docs/precepts/infra/domains.md §The Mongo discipline` (lines 149–155: "Verified-TLS
+server-only + SCRAM-SHA-256 auth", "**Never `0.0.0.0`**"), **not a silent one**.
+
+**Why it is bounded** (the divergence is a residual, not a raw host-exposed hole):
+
+- The `mongo` service publishes **no host port** — it declares no `ports:` block, so
+  it is reachable only on the internal compose bridge network (`networks: internal`),
+  never from the host or the public internet.
+- The `api` service is **loopback-bound** — `compose.yaml` maps `127.0.0.1:8130:3000`,
+  fronted by the spine's single Apache TLS terminator; nothing else on the host or LAN
+  can reach the api port either.
+- The compose carries genuine container hardening on both services — `read_only: true`
+  (api), `cap_drop: [ALL]`, `no-new-privileges:true`, tmpfs `noexec,nosuid`, and
+  per-service resource limits.
+
+**The config-truth restoration (U-F37 cure, path b).** `.env.example` previously
+advertised 4 `MONGO_*` credential vars (`MONGO_ROOT_USER`, `MONGO_ROOT_PASSWORD`,
+`MONGO_USER`, `MONGO_PASSWORD`) under a false comment claiming Docker Compose consumed
+them — `compose.yaml` never referenced any of them. Those 4 vars + the false comment
+are **deleted**; `.env.example` now advertises only the real, wired vars
+(`ADMIN_TOKEN`, `ALLOWED_ORIGINS`, `PORT`). The gate `api/test/config-truth.test.ts`
+(G-SEC-2) asserts no `.env.example` `MONGO_*` var goes unreferenced by `compose.yaml`,
+and that this divergence carries either wired SCRAM or this written residual.
+
+**The SCRAM-vs-residual fork (recorded).** U-F37 offered two honest ends: (a) **wire
+SCRAM** — add `MONGO_INITDB_ROOT_*` + a `--keyFile`, thread credentials into
+`MONGODB_URI`, restrict the bind (the full precept-satisfying gestalt); or (b)
+**delete the unwired vars + write this justified-residual** for the bounded
+internal-bridge posture. **Path (b) was taken** at execution: it is the **prod-safe,
+repo-side** path — it resolves the config-truth lie without improvising a live
+SCRAM/keyFile change to the production compose, which is a prod-touching deploy act.
+**The SCRAM + keyFile full-satisfaction path remains the owner's deploy-time
+election** (per U.W-SEC §BOOKS "The U-F37 SCRAM-vs-residual decision → owner call at
+execution"); when the owner elects to wire it, this section is superseded by real
+credentials and G-SEC-2 flips to the SCRAM-wired arm.
