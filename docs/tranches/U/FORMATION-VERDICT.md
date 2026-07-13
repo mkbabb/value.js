@@ -613,3 +613,107 @@ CONSECUTIVE clean passes).
 *Filed by the formation integrator + fresh-adversary critic (opus), 2026-07-12; §9 round-5 remediation
 2026-07-13; §10 round-6 remediation 2026-07-13. Path-scoped to `docs/tranches/U/**`; pull-rebased on
 the shared `tranche-t` branch (T.W8/T.W9 landing concurrently).*
+
+---
+
+## §11 — Convergence-hardening seal (the two-clean-pass proof — verdict: RESIDUAL-GAPS)
+
+**This seal records the TERMINAL state of the owner's convergence-hardening loop.** The owner's
+design-loop stability bar is STABLE-ONLY-AFTER-**TWO CONSECUTIVE CLEAN** fresh-adversary passes (a
+"clean" pass = a fresh adversary that raises ZERO actionable findings). **The loop ran the full round
+budget (7 rounds) and NEVER produced a clean pass: the clean streak is 0.** The bar is therefore **NOT
+met.** Per the loop's honesty law — *default to GAPS if genuinely uncertain a cure holds; never
+manufacture convergence* — this seal states **RESIDUAL-GAPS.** It does NOT claim hardening-convergence.
+
+**The §1–§4 CONVERGED verdict stands UNALTERED.** That verdict records the FORMATION's coherence on a
+single integrate pass (zero silent drops *as then-audited*, coherent backward-only DAG, born-RED
+honesty, RELAY rows, π/DELTA obligations). This §11 is an ADDENDUM that HARDENS the record with the
+loop's true terminal state; it does not rewrite §1–§4. The distinction is exact and load-bearing: the
+tranche is **FORMATION-CONVERGED** (coherent on a single-pass bar) but **NOT HARDENING-STABLE** (it did
+not survive two consecutive fresh-adversary passes clean).
+
+### The round-by-round record
+
+| Round | Remediation commit | Actionable | Deferred | blocks-ratification | Dimensions attacked |
+|-------|--------------------|-----------:|---------:|:-------------------:|---------------------|
+| r1 (§5)  | `826b5fc` | 10 | 0 | 1 (T-61)                       | zero-drop · cross-tranche · born-RED-exec · owner-verbatim · π/DELTA · E-3-gestalt |
+| r2 (§6)  | `fbffd3f` | 6  | 0 | 1 (WR-9/T-57)                  | born-RED-exec · zero-drop · cross-tranche · π/DELTA · owner-verbatim |
+| r3 (§7)  | `e5244cb` | 8  | 0 | 1 (T-20)                       | born-RED-exec · zero-drop · cross-tranche · π/DELTA · owner-verbatim |
+| r4 (§8)  | `4efb1b5` | 8  | 0 | 1 (T-5/P1-R1)                  | E-3-gestalt · born-RED-exec · zero-drop · cross-tranche · owner-verbatim · π/DELTA |
+| r5 (§9)  | `bfe0227` | 4  | 0 | 1 (U-F9-rail)                  | born-RED-exec · cross-tranche · π/DELTA |
+| r6 (§10) | `9f84b95` | 7  | 0 | 2 (3 unfiled passes; BR-2 @390)| born-RED-exec · zero-drop · cross-tranche · π/DELTA |
+| r7 (—)   | `2fb383c` | 5  | 0 | 1 (Q10/P9-R4 BR-14)            | zero-drop · cross-tranche · π/DELTA · owner-verbatim |
+| **Σ**    |           | **48** | **0** | **8**                     | all six dimensions, every round |
+
+Totals: **48 actionable findings, 48 applied, 0 deferred, 8 [blocks-ratification]** across 7 rounds.
+(Round 7's remediation was committed at `2fb383c` — it edited `DISPOSITION-LEDGER.md`, `T/FINAL.md`,
+`U.W-CANON.md`, and `U.W-VISUAL.md` — but, unlike r1–r6, it did NOT append its own per-round §-section
+to this verdict; **this seal is the sole in-verdict record of round 7.**)
+
+**The SIX dimensions the fresh adversaries attacked** (every round drew from this set): **E-3 idiomatic
+gestalt** (no workaround/fallback/shim/point-patch) · **born-RED executability** (each gate flips a real
+live defect, cited to live source file:line) · **independent zero-drop re-audit** (every T→U handoff
+homed to exactly one wave) · **cross-tranche coherence** (T/FINAL ↔ U consistency) · **π/DELTA visual
+honesty** (real-GPU/owner-attested, never a headless assert for a GPU-only visual) · **owner-verbatim
+fidelity** (§13.5, C3/Q18, Q10, Q14, the MANDATE rulings win over every encoding).
+
+Every round remediated to zero deferrals, and each round's remediation is CLEAN *in isolation*. **What
+the loop did NOT achieve is a CLEAN PASS** — a fresh adversary that finds nothing.
+
+### Why RESIDUAL-GAPS, not CONVERGED-HARD (the honest reading)
+
+The actionable-count series is **10 · 6 · 8 · 8 · 4 · 7 · 5** — it OSCILLATES; it does not decay to
+zero. A converging hardening loop trends toward a clean pass. This one did not: the LAST round before
+the budget cap (r7) still raised 5 real findings, one of them [blocks-ratification]. The bar demands
+two CONSECUTIVE clean passes; the loop produced **ZERO** clean passes across 7 rounds. **cleanStreak = 0.**
+
+### The residual gaps (by name)
+
+- **RG-1 — the bar itself was never reached.** No clean pass occurred; the loop hit the round cap (7)
+  with r7 still finding 5. There is no round-8 confirm, so the tranche is NOT demonstrated stable. On
+  the observed base rate (7/7 rounds found ≥4 real findings), a round 8 would very likely surface more —
+  the default-to-GAPS law governs.
+- **RG-2 — the zero-drop invariant kept being FALSIFIED by fresh eyes** *(the strongest residual)*. FIVE
+  of the seven rounds surfaced a NEW silently-dropped cross-tranche T→U handoff that the single integrate
+  pass and every prior round had missed: **r2** WR-9/T-57 (dock-band +3.0px reflow) · **r3** T-20
+  (producer Tabs pilling) · **r4** T-5/P1-R1 (picker active channel-rail seat) · **r6** the THREE
+  never-filed T.W8 critique passes (easing/admin/micro-chrome) · **r7** T-1(producer)/T-8/T-25/T-26/T-27
+  (LANDED-partial producer-gated residuals) **+** T-5's SECOND residual (P5/S-3 letter-rail). Each was
+  remediated, but the RECURRENCE is the signal: the census/ledger completeness **cannot yet be asserted
+  EXHAUSTIVE.** The "zero silent drops" headline (§1 Check-1) held on each round's snapshot only because
+  the NEXT round found the next drop.
+- **RG-3 — round-7's five cures are applied-but-UNCONFIRMED.** No subsequent clean pass re-audited them:
+  (a) the T-1/T-8/T-25/T-26/T-27 §C routing; (b) T-5's second (letter-rail) residual homing; (c) the
+  AB-1 About-KaTeX mechanical π/DELTA; (d) the "24 → 29 LAND rows" tally relabel across T/FINAL + U; (e)
+  the Q10/P9-R4 Login-accent cascade-dead **BR-14** [blocks-ratification]. They stand on the r7
+  remediator's word, not on a fresh adversary's clean re-read.
+- **RG-4 — the glass-ui/keyframes peer-floor cite was mis-corrected across FIVE consecutive rounds
+  (r1–r5).** The born-RED evidence for G-ADOPT-4b chased a line integer into two concurrently-moving
+  foreign `package.json` trees and got it wrong r1→r5 (1109/1147 → 1113/1151 → 1114/1152 → 1116/1154 →
+  block-name/`devDependencies`), with two "VERIFIED" over-claims along the way, before it was rooted at
+  r5 (the block+key idiom + `devDependencies`→`dependencies` runtime-floor correction). The substantive
+  gate always asserted floor SATISFACTION (sound), but a five-round evidence-honesty miss on a single
+  cite is itself a stability signal — the record was not self-checking.
+- **RG-5 — ratification-blocking gaps surfaced as late as the FINAL round.** Eight [blocks-ratification]
+  findings landed across the loop, the last at r7 (BR-14 / Q10). A tranche whose terminal fresh-adversary
+  round still finds a ratification blocker has not stabilized.
+
+### Cross-references (the remediation commits)
+
+r1 `826b5fc` · r2 `fbffd3f` · r3 `e5244cb` · r4 `4efb1b5` · r5 `bfe0227` · r6 `9f84b95` · r7 `2fb383c`.
+Each is path-scoped to `docs/tranches/U/**` (+ the permitted cross-tranche `docs/tranches/T/FINAL.md`
+coherence fixes). No source edit; PLANNING-ONLY held throughout every round and this seal.
+
+### Disposition
+
+**VERDICT: RESIDUAL-GAPS.** The formation is FORMATION-CONVERGED (§1–§4 stand, intact) and every named
+round-finding is doc-remediated to zero deferrals, **but the owner's two-consecutive-clean design-loop
+bar is NOT met** (cleanStreak = 0 over 7 rounds; no clean pass ever occurred). To reach the bar the loop
+must RESUME and run fresh-adversary passes until TWO CONSECUTIVE return zero actionable findings — the
+natural continuation is a round 8 that re-audits RG-3's five unconfirmed r7 cures and RG-2's
+completeness question. This seal does NOT claim hardening-convergence; it records, honestly, that the
+loop terminated at the budget cap with named residual gaps.
+
+*Sealed by the convergence-hardening SEALER (opus), 2026-07-13. Addendum to §1–§4 (CONVERGED, intact) —
+HARDENS, does not rewrite. Path-scoped to `docs/tranches/U/FORMATION-VERDICT.md`; pull-rebased on the
+shared `tranche-t` branch.*
