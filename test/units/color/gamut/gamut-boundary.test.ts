@@ -22,29 +22,29 @@ import {
     XYZ_RGB_MATRIX,
 } from "@src/units/color/conversions/xyz-extended";
 import {
-    adobeRgbToLinear,
-    linearToSrgb,
-    proPhotoToLinear,
-    rec2020ToLinear,
-    srgbToLinear,
+    adobeRgb2linear,
+    linear2srgb,
+    proPhoto2linear,
+    rec20202linear,
+    srgb2linear,
 } from "@src/units/color/conversions/transfer";
 import {
     DELTA_E_OK_JND,
     deltaEOK,
     gamutMapOKLab,
     gamutMapOKLabInto,
-    srgbToOKLab,
-    srgbToOKLabInto,
+    srgb2oklab,
+    srgb2oklabInto,
 } from "@src/units/color/gamut";
 
 const TARGET_M: Record<GamutBoundaryTarget, { M: Mat3; decode: (c: number) => number }> = {
-    "display-p3": { M: multiplyMat3(XYZ_RGB_MATRIX, DISPLAY_P3_XYZ_MATRIX), decode: srgbToLinear },
-    "a98-rgb": { M: multiplyMat3(XYZ_RGB_MATRIX, ADOBE_RGB_XYZ_MATRIX), decode: adobeRgbToLinear },
+    "display-p3": { M: multiplyMat3(XYZ_RGB_MATRIX, DISPLAY_P3_XYZ_MATRIX), decode: srgb2linear },
+    "a98-rgb": { M: multiplyMat3(XYZ_RGB_MATRIX, ADOBE_RGB_XYZ_MATRIX), decode: adobeRgb2linear },
     "prophoto-rgb": {
         M: multiplyMat3(multiplyMat3(XYZ_RGB_MATRIX, WHITE_POINT_D50_D65), PROPHOTO_XYZ_D50_MATRIX),
-        decode: proPhotoToLinear,
+        decode: proPhoto2linear,
     },
-    rec2020: { M: multiplyMat3(XYZ_RGB_MATRIX, REC2020_XYZ_MATRIX), decode: rec2020ToLinear },
+    rec2020: { M: multiplyMat3(XYZ_RGB_MATRIX, REC2020_XYZ_MATRIX), decode: rec20202linear },
 };
 
 function hsv(h: number, s: number, v: number): [number, number, number] {
@@ -69,7 +69,7 @@ function field(h: number, s: number, v: number, target: GamutBoundaryTarget, mod
     if (mode === "raw") {
         return Math.max(-lin[0], lin[0] - 1, -lin[1], lin[1] - 1, -lin[2], lin[2] - 1) - 1e-6;
     }
-    const ok = srgbToOKLab(linearToSrgb(lin[0]), linearToSrgb(lin[1]), linearToSrgb(lin[2]));
+    const ok = srgb2oklab(linear2srgb(lin[0]), linear2srgb(lin[1]), linear2srgb(lin[2]));
     const mp = gamutMapOKLab(ok[0], ok[1], ok[2]);
     return deltaEOK(ok[0], ok[1], ok[2], mp[0], mp[1], mp[2]) - DELTA_E_OK_JND;
 }
@@ -228,8 +228,8 @@ describe("gamut-boundary — property suite", () => {
             const r = rnd() * 1.6 - 0.3;
             const g = rnd() * 1.6 - 0.3;
             const b = rnd() * 1.6 - 0.3;
-            const ref = srgbToOKLab(r, g, b);
-            srgbToOKLabInto(r, g, b, ok);
+            const ref = srgb2oklab(r, g, b);
+            srgb2oklabInto(r, g, b, ok);
             expect(ok[0]).toBe(ref[0]);
             expect(ok[1]).toBe(ref[1]);
             expect(ok[2]).toBe(ref[2]);
@@ -282,7 +282,7 @@ describe("gamut-boundary — property suite", () => {
             "ADOBE_RGB_XYZ_MATRIX",
             "PROPHOTO_XYZ_D50_MATRIX",
             "REC2020_XYZ_MATRIX",
-            "srgbToOKLabInto",
+            "srgb2oklabInto",
             "gamutMapOKLabInto",
         ]) {
             expect(keys).not.toContain(forbidden);

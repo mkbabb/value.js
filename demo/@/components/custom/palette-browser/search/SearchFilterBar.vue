@@ -142,7 +142,7 @@ import {
     Loader2,
 } from "@lucide/vue";
 import type { Tag } from "@lib/palette/types";
-import { srgbToOKLab } from "@mkbabb/value.js/color";
+import { srgb2oklab } from "@mkbabb/value.js/color";
 import { hex2rgb } from "@mkbabb/value.js/color";
 
 const { sort, tier, selectedTags, availableTags } = defineProps<{
@@ -205,7 +205,7 @@ function toggleTag(name: string) {
 
 function hexToOklab(hex: string): { L: number; a: number; b: number } {
     const rgb = hex2rgb(hex);
-    const [L, a, b] = srgbToOKLab(rgb.r, rgb.g, rgb.b);
+    const [L, a, b] = srgb2oklab(rgb.r, rgb.g, rgb.b);
     return { L, a, b };
 }
 

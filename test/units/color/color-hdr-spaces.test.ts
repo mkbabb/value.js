@@ -8,15 +8,15 @@ import {
     XYZColor,
 } from "@src/units/color";
 import type { Color } from "@src/units/color";
-import { xyzToICtCp, ictcpToXYZ } from "@src/units/color/difference";
-import { xyzToJzazbz, jzazbzToXYZ } from "@src/units/color/conversions/jzazbz";
+import { rawXyz2ictcp, rawIctcp2xyz } from "@src/units/color/difference";
+import { rawXyz2jzazbz, rawJzazbz2xyz } from "@src/units/color/conversions/jzazbz";
 import { scale } from "@src/math";
 import { parseCSSColor } from "@src/parsing/color";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // S.W1 remediation (3.1.0) — ICtCp (Q9) + Jzazbz (Q9 widening, W1-11) as FULL
 // color spaces: `Color` subclasses + `color2()` dispatch arms + `color2Into`
-// currency + parsing + serialization. The raw transforms (`xyzToICtCp` etc.)
+// currency + parsing + serialization. The raw transforms (`rawXyz2ictcp` etc.)
 // shipped at 3.0.0 and are independently oracled in `color-difference.test.ts` /
 // `color-jzazbz.test.ts`; THIS suite pins the SPACE integration the 3.0.0 gate
 // (rows 5+7) required but the pairs-only landing missed.
@@ -57,9 +57,9 @@ const RGB_PROBES = [
 ];
 
 describe("ICtCp space — dispatch wiring agrees with the shipped raw transform", () => {
-    it("color2(XYZ→ictcp) denormalizes back to xyzToICtCp", () => {
+    it("color2(XYZ→ictcp) denormalizes back to rawXyz2ictcp", () => {
         for (const xyz of [XYZ_WHITE, XYZ_RED, XYZ_GREEN, XYZ_BLUE]) {
-            const [I, Ct, Cp] = xyzToICtCp(...xyz);
+            const [I, Ct, Cp] = rawXyz2ictcp(...xyz);
             const got = color2(new XYZColor(...xyz, 1), "ictcp") as ICtCpColor;
             // i range is [0,1] (identity); ct/cp range is [-0.5,0.5] → [0,1].
             expect(got.i as number).toBeCloseTo(scale(I, 0, 1), 12);
@@ -99,9 +99,9 @@ describe("ICtCp space — dispatch wiring agrees with the shipped raw transform"
 });
 
 describe("Jzazbz space — dispatch wiring agrees with the shipped raw transform", () => {
-    it("color2(XYZ→jzazbz) denormalizes back to xyzToJzazbz", () => {
+    it("color2(XYZ→jzazbz) denormalizes back to rawXyz2jzazbz", () => {
         for (const xyz of [XYZ_WHITE, XYZ_RED, XYZ_GREEN, XYZ_BLUE]) {
-            const [Jz, az, bz] = xyzToJzazbz(...xyz);
+            const [Jz, az, bz] = rawXyz2jzazbz(...xyz);
             const got = color2(new XYZColor(...xyz, 1), "jzazbz") as JzazbzColor;
             expect(got.jz as number).toBeCloseTo(scale(Jz, 0, 0.222), 12);
             expect(got.az as number).toBeCloseTo(scale(az, -0.5, 0.5), 12);
@@ -130,10 +130,10 @@ describe("Jzazbz space — dispatch wiring agrees with the shipped raw transform
         }
     });
 
-    it("the raw jzazbzToXYZ inverse is consistent with the space inverse", () => {
+    it("the raw rawJzazbz2xyz inverse is consistent with the space inverse", () => {
         // Cross-check the space wrapper reuses the shipped inverse.
         for (const xyz of [XYZ_RED, XYZ_GREEN, XYZ_BLUE]) {
-            const back = jzazbzToXYZ(...xyzToJzazbz(...xyz));
+            const back = rawJzazbz2xyz(...rawXyz2jzazbz(...xyz));
             expect(back[0]).toBeCloseTo(xyz[0], 11);
         }
     });

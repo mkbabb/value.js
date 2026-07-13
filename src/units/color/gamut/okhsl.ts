@@ -6,25 +6,25 @@
  * perceived hue and lightness stable, curing the documented low-chroma hue drift
  * (the `oklch→HSV` roundtrip losing hue at C≈0 — MEMORY note). They reuse the
  * gamut machinery already in `gamut.ts` — `computeMaxSaturation`/`findCusp`/
- * `findGamutIntersection`/`oklabToLinearSRGB`/`srgbToOKLab` — rather than
+ * `findGamutIntersection`/`oklab2linearSrgb`/`srgb2oklab` — rather than
  * re-deriving any color science, so the cusp geometry is single-sourced.
  *
  * Pure numeric conversions to/from gamma-encoded sRGB `[r,g,b] ∈ [0,1]³`. Hue is
- * in DEGREES `[0,360)` (matching `rawOklabToOklch`); s, l, v ∈ [0,1].
+ * in DEGREES `[0,360)` (matching `rawOklab2oklch`); s, l, v ∈ [0,1].
  */
 
 import {
     computeMaxSaturation,
     findCusp,
     findGamutIntersection,
-    oklabToLinearSRGB,
-    srgbToOKLab,
+    oklab2linearSrgb,
+    srgb2oklab,
 } from "./gamut";
-import { linearToSrgb } from "../conversions/transfer";
+import { linear2srgb } from "../conversions/transfer";
 
 const TAU = 2 * Math.PI;
 // Below this OKLab chroma a color is achromatic: the cusp geometry degenerates
-// as L→{0,1} (the chroma range collapses to a point), and `srgbToOKLab` leaves a
+// as L→{0,1} (the chroma range collapses to a point), and `srgb2oklab` leaves a
 // ~1e-8 a/b residual on a pure grey. 1e-6 is far below one JND (≈0.02) yet safely
 // above that residual, so real colors are never flattened.
 const ACHROMATIC_EPS = 1e-6;
@@ -125,7 +125,7 @@ const OKHSL_MID_INV = 1.25;
 // ── OKHSL ───────────────────────────────────────────────────────────────────
 
 /** OKHSL `(h°, s, l)` → gamma-encoded sRGB `[r,g,b] ∈ [0,1]³`. */
-export function okhslToSrgb(h: number, s: number, l: number): [number, number, number] {
+export function okhsl2srgb(h: number, s: number, l: number): [number, number, number] {
     if (l >= 1) return [1, 1, 1];
     if (l <= 0) return [0, 0, 0];
 
@@ -150,13 +150,13 @@ export function okhslToSrgb(h: number, s: number, l: number): [number, number, n
         C = k0 + (t * k1) / (1 - k2 * t);
     }
 
-    const [rLin, gLin, bLin] = oklabToLinearSRGB(L, C * a_, C * b_);
-    return [linearToSrgb(rLin), linearToSrgb(gLin), linearToSrgb(bLin)];
+    const [rLin, gLin, bLin] = oklab2linearSrgb(L, C * a_, C * b_);
+    return [linear2srgb(rLin), linear2srgb(gLin), linear2srgb(bLin)];
 }
 
 /** Gamma-encoded sRGB `[r,g,b] ∈ [0,1]³` → OKHSL `[h°, s, l]`. */
-export function srgbToOkhsl(r: number, g: number, b: number): [number, number, number] {
-    const [L, aRaw, bRaw] = srgbToOKLab(r, g, b);
+export function srgb2okhsl(r: number, g: number, b: number): [number, number, number] {
+    const [L, aRaw, bRaw] = srgb2oklab(r, g, b);
     const C = Math.hypot(aRaw, bRaw);
     const l = toe(L);
 
@@ -194,7 +194,7 @@ export function srgbToOkhsl(r: number, g: number, b: number): [number, number, n
 const OKHSV_S0 = 0.5;
 
 /** OKHSV `(h°, s, v)` → gamma-encoded sRGB `[r,g,b] ∈ [0,1]³`. */
-export function okhsvToSrgb(h: number, s: number, v: number): [number, number, number] {
+export function okhsv2srgb(h: number, s: number, v: number): [number, number, number] {
     if (v <= 0) return [0, 0, 0];
 
     const hRad = (h / 360) * TAU;
@@ -219,19 +219,19 @@ export function okhsvToSrgb(h: number, s: number, v: number): [number, number, n
     C = L > 0 ? (C * Lnew) / L : 0;
     L = Lnew;
 
-    const [rs, gs, bs] = oklabToLinearSRGB(Lvt, a_ * Cvt, b_ * Cvt);
+    const [rs, gs, bs] = oklab2linearSrgb(Lvt, a_ * Cvt, b_ * Cvt);
     const scaleL = Math.cbrt(1 / Math.max(rs, gs, bs, 0));
 
     L *= scaleL;
     C *= scaleL;
 
-    const [rLin, gLin, bLin] = oklabToLinearSRGB(L, C * a_, C * b_);
-    return [linearToSrgb(rLin), linearToSrgb(gLin), linearToSrgb(bLin)];
+    const [rLin, gLin, bLin] = oklab2linearSrgb(L, C * a_, C * b_);
+    return [linear2srgb(rLin), linear2srgb(gLin), linear2srgb(bLin)];
 }
 
 /** Gamma-encoded sRGB `[r,g,b] ∈ [0,1]³` → OKHSV `[h°, s, v]`. */
-export function srgbToOkhsv(r: number, g: number, b: number): [number, number, number] {
-    const [L, aRaw, bRaw] = srgbToOKLab(r, g, b);
+export function srgb2okhsv(r: number, g: number, b: number): [number, number, number] {
+    const [L, aRaw, bRaw] = srgb2oklab(r, g, b);
     const C = Math.hypot(aRaw, bRaw);
 
     if (C < ACHROMATIC_EPS) {
@@ -255,7 +255,7 @@ export function srgbToOkhsv(r: number, g: number, b: number): [number, number, n
     const Lvt = toeInv(Lv);
     const Cvt = (Cv * Lvt) / Lv;
 
-    const [rs, gs, bs] = oklabToLinearSRGB(Lvt, a_ * Cvt, b_ * Cvt);
+    const [rs, gs, bs] = oklab2linearSrgb(Lvt, a_ * Cvt, b_ * Cvt);
     const scaleL = Math.cbrt(1 / Math.max(rs, gs, bs, 0));
 
     let Ls = L / scaleL;

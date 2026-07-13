@@ -29,15 +29,15 @@ import {
 } from "..";
 import { WHITE_POINT_D50_D65, WHITE_POINT_D65_D50 } from "../constants";
 import {
-    adobeRgbToLinear,
-    linearToAdobeRgb,
-    linearToProPhoto,
-    linearToRec2020,
-    linearToSrgb,
+    adobeRgb2linear,
+    linear2adobeRgb,
+    linear2proPhoto,
+    linear2rec2020,
+    linear2srgb,
     linearTransfer,
-    proPhotoToLinear,
-    rec2020ToLinear,
-    srgbToLinear,
+    proPhoto2linear,
+    rec20202linear,
+    srgb2linear,
 } from "./transfer";
 import { gamutMap } from "../dispatch";
 
@@ -58,7 +58,7 @@ export const XYZ_RGB_MATRIX: Mat3 = invertMat3(RGB_XYZ_MATRIX);
 
 export function rgb2xyz({ r, g, b, alpha }: RGBColor): XYZColor {
     // Convert sRGB values to linear RGB
-    const linearRGB: Vec3 = [srgbToLinear(r), srgbToLinear(g), srgbToLinear(b)];
+    const linearRGB: Vec3 = [srgb2linear(r), srgb2linear(g), srgb2linear(b)];
 
     // Transform linear RGB to XYZ using the standardized matrix
     const [x, y, z] = transformMat3(linearRGB, RGB_XYZ_MATRIX);
@@ -74,9 +74,9 @@ export const xyz2rgb = (
     const linearRGB = transformMat3([x, y, z] as Vec3, XYZ_RGB_MATRIX);
 
     // Convert linear RGB to sRGB
-    const r = linearToSrgb(linearRGB[0]);
-    const g = linearToSrgb(linearRGB[1]);
-    const b = linearToSrgb(linearRGB[2]);
+    const r = linear2srgb(linearRGB[0]);
+    const g = linear2srgb(linearRGB[1]);
+    const b = linear2srgb(linearRGB[2]);
 
     if (correctGamut) {
         const rgb = gamutMap(new RGBColor(r, g, b, alpha));
@@ -180,27 +180,27 @@ export function xyz2linearSrgb(xyz: XYZColor): LinearSRGBColor {
 
 export function displayP32xyz(color: DisplayP3Color): XYZColor {
     // Display P3 uses the same sRGB transfer function.
-    return rgbFamily2xyz(color, srgbToLinear, DISPLAY_P3_XYZ_MATRIX);
+    return rgbFamily2xyz(color, srgb2linear, DISPLAY_P3_XYZ_MATRIX);
 }
 
 export function xyz2displayP3(xyz: XYZColor): DisplayP3Color {
-    return xyz2rgbFamily(xyz, XYZ_DISPLAY_P3_MATRIX, linearToSrgb,
+    return xyz2rgbFamily(xyz, XYZ_DISPLAY_P3_MATRIX, linear2srgb,
         (r, g, b, a) => new DisplayP3Color(r, g, b, a));
 }
 
 export function adobeRgb2xyz(color: AdobeRGBColor): XYZColor {
-    return rgbFamily2xyz(color, adobeRgbToLinear, ADOBE_RGB_XYZ_MATRIX);
+    return rgbFamily2xyz(color, adobeRgb2linear, ADOBE_RGB_XYZ_MATRIX);
 }
 
 export function xyz2adobeRgb(xyz: XYZColor): AdobeRGBColor {
-    return xyz2rgbFamily(xyz, XYZ_ADOBE_RGB_MATRIX, linearToAdobeRgb,
+    return xyz2rgbFamily(xyz, XYZ_ADOBE_RGB_MATRIX, linear2adobeRgb,
         (r, g, b, a) => new AdobeRGBColor(r, g, b, a));
 }
 
 export function proPhoto2xyz({ r, g, b, alpha }: ProPhotoRGBColor): XYZColor {
     // ProPhoto is native D50 — apply the family helper to get XYZ-D50, then
     // adapt to D65 via the Bradford matrix.
-    const linear: Vec3 = [proPhotoToLinear(r), proPhotoToLinear(g), proPhotoToLinear(b)];
+    const linear: Vec3 = [proPhoto2linear(r), proPhoto2linear(g), proPhoto2linear(b)];
     const xyzD50 = transformMat3(linear, PROPHOTO_XYZ_D50_MATRIX);
     const [x, y, z] = transformMat3(xyzD50, WHITE_POINT_D50_D65);
     return new XYZColor(x, y, z, alpha);
@@ -211,19 +211,19 @@ export function xyz2proPhoto({ x, y, z, alpha }: XYZColor): ProPhotoRGBColor {
     const xyzD50 = transformMat3([x, y, z] as Vec3, WHITE_POINT_D65_D50);
     const linear = transformMat3(xyzD50, XYZ_D50_PROPHOTO_MATRIX);
     return new ProPhotoRGBColor(
-        linearToProPhoto(linear[0]),
-        linearToProPhoto(linear[1]),
-        linearToProPhoto(linear[2]),
+        linear2proPhoto(linear[0]),
+        linear2proPhoto(linear[1]),
+        linear2proPhoto(linear[2]),
         alpha,
     );
 }
 
 export function rec20202xyz(color: Rec2020Color): XYZColor {
-    return rgbFamily2xyz(color, rec2020ToLinear, REC2020_XYZ_MATRIX);
+    return rgbFamily2xyz(color, rec20202linear, REC2020_XYZ_MATRIX);
 }
 
 export function xyz2rec2020(xyz: XYZColor): Rec2020Color {
-    return xyz2rgbFamily(xyz, XYZ_REC2020_MATRIX, linearToRec2020,
+    return xyz2rgbFamily(xyz, XYZ_REC2020_MATRIX, linear2rec2020,
         (r, g, b, a) => new Rec2020Color(r, g, b, a));
 }
 
@@ -274,15 +274,15 @@ export function xyz2linearSrgbInto(xyz: XYZColor, out: Color<number>): Color<num
 }
 
 export function xyz2displayP3Into(xyz: XYZColor, out: Color<number>): Color<number> {
-    return xyz2rgbFamilyInto(xyz, XYZ_DISPLAY_P3_MATRIX, linearToSrgb, out);
+    return xyz2rgbFamilyInto(xyz, XYZ_DISPLAY_P3_MATRIX, linear2srgb, out);
 }
 
 export function xyz2adobeRgbInto(xyz: XYZColor, out: Color<number>): Color<number> {
-    return xyz2rgbFamilyInto(xyz, XYZ_ADOBE_RGB_MATRIX, linearToAdobeRgb, out);
+    return xyz2rgbFamilyInto(xyz, XYZ_ADOBE_RGB_MATRIX, linear2adobeRgb, out);
 }
 
 export function xyz2rec2020Into(xyz: XYZColor, out: Color<number>): Color<number> {
-    return xyz2rgbFamilyInto(xyz, XYZ_REC2020_MATRIX, linearToRec2020, out);
+    return xyz2rgbFamilyInto(xyz, XYZ_REC2020_MATRIX, linear2rec2020, out);
 }
 
 // ProPhoto is native D50 — the D65→D50 adaptation makes it a two-matrix path, so
@@ -294,9 +294,9 @@ export function xyz2proPhotoInto({ x, y, z, alpha }: XYZColor, out: Color<number
     _xyzFamilyVec[2] = z as number;
     transformMat3Into(_xyzFamilyVec, WHITE_POINT_D65_D50, _xyzFamilyVec);
     const linear = transformMat3Into(_xyzFamilyVec, XYZ_D50_PROPHOTO_MATRIX, _xyzFamilyVec);
-    setChannel(out, "r", ch(linearToProPhoto(linear[0])));
-    setChannel(out, "g", ch(linearToProPhoto(linear[1])));
-    setChannel(out, "b", ch(linearToProPhoto(linear[2])));
+    setChannel(out, "r", ch(linear2proPhoto(linear[0])));
+    setChannel(out, "g", ch(linear2proPhoto(linear[1])));
+    setChannel(out, "b", ch(linear2proPhoto(linear[2])));
     out.alpha = ch(alpha as number);
     return out;
 }

@@ -7,7 +7,7 @@
  * ZERO new demo math (the binding W5-8 prohibition): every number here comes
  * from the library — `sampleCoalescedStops` (the ONE sampling law shared with
  * the coalesced serializer), `color2` (oklab/oklch projections), `deltaEOK`
- * (perceptual arc-length), `oklabToLinearSRGBInto` + `isInSRGBGamut` (the
+ * (perceptual arc-length), `oklab2linearSrgbInto` + `isInSRGBGamut` (the
  * sRGB membership predicate). The demo only reshapes library outputs into
  * paint-ready records.
  */
@@ -21,7 +21,7 @@ import { color2 } from "@mkbabb/value.js/color";
 import {
     deltaEOK,
     isInSRGBGamut,
-    oklabToLinearSRGBInto,
+    oklab2linearSrgbInto,
 } from "@mkbabb/value.js/color";
 import type { Vec3 } from "@mkbabb/value.js/color";
 import { cssToRawColor, cssToRgb255 } from "@lib/color-utils";
@@ -107,7 +107,7 @@ function toRampPoint(color: Color<number>, position: number): RampPoint {
         OKLCH_RANGES.h.number.max,
     );
 
-    oklabToLinearSRGBInto(l, a, b, _lin);
+    oklab2linearSrgbInto(l, a, b, _lin);
     const inSRGB = isInSRGBGamut(_lin[0], _lin[1], _lin[2]);
 
     return { position, l, c, a, b, h, inSRGB };

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { deltaE2000, deltaEITP, xyzToICtCp, ictcpToXYZ } from "@src/units/color/difference";
+import { deltaE2000, deltaEITP, rawXyz2ictcp, rawIctcp2xyz } from "@src/units/color/difference";
 
 // ── ΔE-2000 — validated against the Sharma, Wu & Dalal (2005) reference table.
 //    Each row: [L1,a1,b1, L2,a2,b2, ΔE00]. These are THE canonical vectors used
@@ -58,13 +58,13 @@ const XYZ_RED: [number, number, number] = [
 ];
 
 describe("ICtCp (BT.2100) + ΔE-ITP (BT.2124)", () => {
-    it("xyzToICtCp matches culori's `itp` goldens", () => {
-        const [iW, ctW, cpW] = xyzToICtCp(...XYZ_WHITE);
+    it("rawXyz2ictcp matches culori's `itp` goldens", () => {
+        const [iW, ctW, cpW] = rawXyz2ictcp(...XYZ_WHITE);
         expect(iW).toBeCloseTo(0.5806888810416109, 9);
         expect(ctW).toBeCloseTo(0, 9);
         expect(cpW).toBeCloseTo(0, 9);
 
-        const [iR, ctR, cpR] = xyzToICtCp(...XYZ_RED);
+        const [iR, ctR, cpR] = rawXyz2ictcp(...XYZ_RED);
         expect(iR).toBeCloseTo(0.4278802843622844, 9);
         expect(ctR).toBeCloseTo(-0.11570435976969046, 9);
         expect(cpR).toBeCloseTo(0.27872894737532694, 9);
@@ -72,7 +72,7 @@ describe("ICtCp (BT.2100) + ΔE-ITP (BT.2124)", () => {
 
     it("achromatic colors have Ct = Cp = 0", () => {
         // Grey at half media-white: chroma channels collapse to zero.
-        const [, ct, cp] = xyzToICtCp(
+        const [, ct, cp] = rawXyz2ictcp(
             0.5 * XYZ_WHITE[0],
             0.5 * XYZ_WHITE[1],
             0.5 * XYZ_WHITE[2],
@@ -82,8 +82,8 @@ describe("ICtCp (BT.2100) + ΔE-ITP (BT.2124)", () => {
     });
 
     it("ΔE-ITP is zero for identical colors and symmetric", () => {
-        const red = xyzToICtCp(...XYZ_RED);
-        const white = xyzToICtCp(...XYZ_WHITE);
+        const red = rawXyz2ictcp(...XYZ_RED);
+        const white = rawXyz2ictcp(...XYZ_WHITE);
         expect(deltaEITP(...red, ...red)).toBe(0);
         expect(deltaEITP(...red, ...white)).toBeCloseTo(
             deltaEITP(...white, ...red),
@@ -113,10 +113,10 @@ const XYZ_BLUE: [number, number, number] = [
     0.1804807884018343, 0.07219231536073371, 0.9505321522496607,
 ];
 
-describe("ICtCp inverse (ictcpToXYZ) — the perceptual round-trip (S.W1-6)", () => {
-    it("ictcpToXYZ ∘ xyzToICtCp is identity for every real color (≤1e-12)", () => {
+describe("ICtCp inverse (rawIctcp2xyz) — the perceptual round-trip (S.W1-6)", () => {
+    it("rawIctcp2xyz ∘ rawXyz2ictcp is identity for every real color (≤1e-12)", () => {
         for (const xyz of [XYZ_WHITE, XYZ_RED, XYZ_GREEN, XYZ_BLUE]) {
-            const back = ictcpToXYZ(...xyzToICtCp(...xyz));
+            const back = rawIctcp2xyz(...rawXyz2ictcp(...xyz));
             expect(back[0]).toBeCloseTo(xyz[0], 12);
             expect(back[1]).toBeCloseTo(xyz[1], 12);
             expect(back[2]).toBeCloseTo(xyz[2], 12);
@@ -126,7 +126,7 @@ describe("ICtCp inverse (ictcpToXYZ) — the perceptual round-trip (S.W1-6)", ()
             const xyz: [number, number, number] = [
                 XYZ_WHITE[0] * Y, XYZ_WHITE[1] * Y, XYZ_WHITE[2] * Y,
             ];
-            const back = ictcpToXYZ(...xyzToICtCp(...xyz));
+            const back = rawIctcp2xyz(...rawXyz2ictcp(...xyz));
             expect(back[0]).toBeCloseTo(xyz[0], 12);
             expect(back[1]).toBeCloseTo(xyz[1], 12);
             expect(back[2]).toBeCloseTo(xyz[2], 12);
@@ -135,17 +135,17 @@ describe("ICtCp inverse (ictcpToXYZ) — the perceptual round-trip (S.W1-6)", ()
 
     it("inverts culori's published red ICtCp golden back to XYZ_RED", () => {
         // The exact ICtCp culori goldens (see the forward test above) → XYZ_RED.
-        const back = ictcpToXYZ(0.4278802843622844, -0.11570435976969046, 0.27872894737532694);
+        const back = rawIctcp2xyz(0.4278802843622844, -0.11570435976969046, 0.27872894737532694);
         expect(back[0]).toBeCloseTo(XYZ_RED[0], 10);
         expect(back[1]).toBeCloseTo(XYZ_RED[1], 10);
         expect(back[2]).toBeCloseTo(XYZ_RED[2], 10);
     });
 
-    it("xyzToICtCp ∘ ictcpToXYZ is identity for in-range ICtCp", () => {
+    it("rawXyz2ictcp ∘ rawIctcp2xyz is identity for in-range ICtCp", () => {
         // Round-trip in the OTHER direction, seeding from valid (real-color) ICtCp.
         for (const seed of [XYZ_RED, XYZ_GREEN, XYZ_BLUE]) {
-            const ic = xyzToICtCp(...seed);
-            const back = xyzToICtCp(...ictcpToXYZ(...ic));
+            const ic = rawXyz2ictcp(...seed);
+            const back = rawXyz2ictcp(...rawIctcp2xyz(...ic));
             expect(back[0]).toBeCloseTo(ic[0], 12);
             expect(back[1]).toBeCloseTo(ic[1], 12);
             expect(back[2]).toBeCloseTo(ic[2], 12);

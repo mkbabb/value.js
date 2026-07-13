@@ -92,7 +92,7 @@ src/
 │       ├── gamut-raytrace.ts # raytrace gamut map (Q8/S.W1)
 │       ├── boundary.ts   # gamut-boundary helpers
 │       ├── okhsl.ts      # OKHSL/OKHSV perceptual picker pair
-│       ├── difference.ts # deltaE2000 + deltaEITP + xyzToICtCp
+│       ├── difference.ts # deltaE2000 + deltaEITP + rawXyz2ictcp
 │       ├── colorFilter.ts # CSS filter solver via SPSA optimization
 │       ├── contrast.ts   # OKLab contrast helpers, safeAccentColor
 │       ├── serialize.ts  # color serialization

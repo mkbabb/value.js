@@ -46,14 +46,14 @@ export {
     xyz2oklch,
 } from "./oklab";
 export {
-    srgbToLinear,
-    linearToSrgb,
-    adobeRgbToLinear,
-    linearToAdobeRgb,
-    proPhotoToLinear,
-    linearToProPhoto,
-    rec2020ToLinear,
-    linearToRec2020,
+    srgb2linear,
+    linear2srgb,
+    adobeRgb2linear,
+    linear2adobeRgb,
+    proPhoto2linear,
+    linear2proPhoto,
+    rec20202linear,
+    linear2rec2020,
 } from "./transfer";
 export {
     rgb2xyz,

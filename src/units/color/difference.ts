@@ -10,7 +10,7 @@
  *    (Sharma, Wu & Dalal 2005). Operates on CIE L*a*b* (the library's `lab`
  *    space: L ∈ [0,100], a,b ∈ physical).
  *  - **ΔE-ITP** (ITU-R BT.2124) — the HDR-ready metric over ICtCp (BT.2100),
- *    `720·√(ΔI² + (½ΔCt)² + ΔCp²)`, where one unit ≈ one JND. `xyzToICtCp`
+ *    `720·√(ΔI² + (½ΔCt)² + ΔCp²)`, where one unit ≈ one JND. `rawXyz2ictcp`
  *    exposes the ICtCp transform itself (shared math with the deferred R-6
  *    Jzazbz/ICtCp spaces).
  *
@@ -18,7 +18,7 @@
  * churn — mirroring `deltaEOK`'s raw-argument style so quantize / gamut callers
  * compose them over coordinates they already hold.
  *
- * S.W1-6 adds `ictcpToXYZ` — the INVERSE of `xyzToICtCp`, the second half of the
+ * S.W1-6 adds `rawIctcp2xyz` — the INVERSE of `rawXyz2ictcp`, the second half of the
  * ICtCp perceptual round-trip (Q9). It lifts the SAME BT.2100 matrices +
  * PQ constants the forward already ships (per the ratification's "lift, don't
  * re-derive"), inverting them via the library's own `invertMat3`.
@@ -148,7 +148,7 @@ function pqEncode(v: number): number {
  * Exposed as a building block: it is the shared front-end for the deferred R-6
  * ICtCp / Jzazbz perceptual spaces.
  */
-export function xyzToICtCp(x: number, y: number, z: number): [number, number, number] {
+export function rawXyz2ictcp(x: number, y: number, z: number): [number, number, number] {
     const absX = Math.max(x * ITP_YW, 0);
     const absY = Math.max(y * ITP_YW, 0);
     const absZ = Math.max(z * ITP_YW, 0);
@@ -180,7 +180,7 @@ export function xyzToICtCp(x: number, y: number, z: number): [number, number, nu
 
 // ── ICtCp → XYZ inverse (S.W1-6, Q9 — the ICtCp perceptual round-trip) ───────
 //
-// The exact inverse of {@link xyzToICtCp}: the two BT.2100 matrices the forward
+// The exact inverse of {@link rawXyz2ictcp}: the two BT.2100 matrices the forward
 // applies inline, materialised as row-major `Mat3` constants and inverted with
 // the library's `invertMat3` (no re-derived coefficients). The forward clamps
 // negative absolute values to 0 (the `Math.max`/`pqEncode` guards), so the
@@ -215,11 +215,11 @@ function pqDecode(N: number): number {
 }
 
 /**
- * Convert ICtCp (BT.2100 `[I, Ct, Cp]`, as {@link xyzToICtCp} produces) back to
+ * Convert ICtCp (BT.2100 `[I, Ct, Cp]`, as {@link rawXyz2ictcp} produces) back to
  * relative XYZ (D65, media white Y=1 — the library's `XYZColor` coordinates).
- * The exact inverse of {@link xyzToICtCp} for non-negative XYZ.
+ * The exact inverse of {@link rawXyz2ictcp} for non-negative XYZ.
  */
-export function ictcpToXYZ(I: number, Ct: number, Cp: number): [number, number, number] {
+export function rawIctcp2xyz(I: number, Ct: number, Cp: number): [number, number, number] {
     // ICtCp → LMS' → (PQ decode) absolute LMS → absolute XYZ → relative XYZ.
     const [lp, mp, sp] = transformMat3([I, Ct, Cp], ICTCP_TO_LMSP);
     const lms: [number, number, number] = [pqDecode(lp), pqDecode(mp), pqDecode(sp)];
@@ -229,7 +229,7 @@ export function ictcpToXYZ(I: number, Ct: number, Cp: number): [number, number, 
 
 /**
  * ΔE-ITP (ITU-R BT.2124) between two ICtCp colors (`[I, Ct, Cp]` as
- * {@link xyzToICtCp} produces): `720·√(ΔI² + (½ΔCt)² + ΔCp²)`. One unit ≈ one
+ * {@link rawXyz2ictcp} produces): `720·√(ΔI² + (½ΔCt)² + ΔCp²)`. One unit ≈ one
  * JND. Symmetric and non-negative.
  */
 export function deltaEITP(

@@ -3,7 +3,7 @@ import {
     deltaEOK,
     gamutMapOKLab,
     isInSRGBGamut,
-    oklabToLinearSRGB,
+    oklab2linearSrgb,
 } from "@src/units/color/gamut";
 import {
     gamutMapOKLabRaytrace,
@@ -30,7 +30,7 @@ function oogCorpus(): Array<[number, number, number]> {
             for (const C of [0.15, 0.2, 0.25, 0.3, 0.35, 0.4]) {
                 const a = C * Math.cos(hr);
                 const b = C * Math.sin(hr);
-                const lin = oklabToLinearSRGB(L, a, b);
+                const lin = oklab2linearSrgb(L, a, b);
                 if (!isInSRGBGamut(lin[0], lin[1], lin[2])) out.push([L, a, b]);
             }
         }
@@ -88,8 +88,8 @@ describe("raytrace gamut map — the DIVERGENCE that is the point (S.W1-10)", ()
         for (const [L, a, b] of corpus) {
             const an = gamutMapOKLab(L, a, b);
             const rt = gamutMapOKLabRaytrace(L, a, b);
-            maxRtOver = Math.max(maxRtOver, gamutOvershoot(oklabToLinearSRGB(rt[0], rt[1], rt[2])));
-            maxAnOver = Math.max(maxAnOver, gamutOvershoot(oklabToLinearSRGB(an[0], an[1], an[2])));
+            maxRtOver = Math.max(maxRtOver, gamutOvershoot(oklab2linearSrgb(rt[0], rt[1], rt[2])));
+            maxAnOver = Math.max(maxAnOver, gamutOvershoot(oklab2linearSrgb(an[0], an[1], an[2])));
         }
         // Raytrace NEVER escapes the cube — bisection returns the largest
         // in-gamut t, so every mapped color is renderable to ~2⁻⁴⁰.
@@ -103,7 +103,7 @@ describe("raytrace gamut map — the DIVERGENCE that is the point (S.W1-10)", ()
     it("each raytraced OOG color is exactly on the boundary (a channel at 0 or 1)", () => {
         for (const [L, a, b] of oogCorpus()) {
             const rt = gamutMapOKLabRaytrace(L, a, b);
-            const l = oklabToLinearSRGB(rt[0], rt[1], rt[2]);
+            const l = oklab2linearSrgb(rt[0], rt[1], rt[2]);
             expect(isInSRGBGamut(l[0], l[1], l[2])).toBe(true);
             // On the surface: min channel ≈ 0 OR max channel ≈ 1 (~1e-9).
             const onSurface =

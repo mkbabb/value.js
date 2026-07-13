@@ -19,7 +19,7 @@
  *
  * Both directions validated against the independent
  * `scratchpad/perceptual_oracle.py` transcription (self-inverse to ~1e-13).
- * Pure raw-value functions (no `Color` plumbing), mirroring `xyzToICtCp`.
+ * Pure raw-value functions (no `Color` plumbing), mirroring `rawXyz2ictcp`.
  */
 
 import type { Mat3 } from "../matrix";
@@ -77,7 +77,7 @@ function jzPqDecode(N: number): number {
  * Convert relative XYZ (D65, media white Y=1) to Jzazbz `[Jz, az, bz]`.
  * NET-NEW PQ-variant transfer (Safdar 2017); colorjs `xyz-abs-d65` convention.
  */
-export function xyzToJzazbz(x: number, y: number, z: number): [number, number, number] {
+export function rawXyz2jzazbz(x: number, y: number, z: number): [number, number, number] {
     const Xa = Math.max(x * JZ_YW, 0);
     const Ya = Math.max(y * JZ_YW, 0);
     const Za = Math.max(z * JZ_YW, 0);
@@ -98,9 +98,9 @@ export function xyzToJzazbz(x: number, y: number, z: number): [number, number, n
 
 /**
  * Convert Jzazbz `[Jz, az, bz]` back to relative XYZ (D65, media white Y=1).
- * The exact inverse of {@link xyzToJzazbz} (self-inverse to ~1e-13 for real XYZ).
+ * The exact inverse of {@link rawXyz2jzazbz} (self-inverse to ~1e-13 for real XYZ).
  */
-export function jzazbzToXYZ(Jz: number, az: number, bz: number): [number, number, number] {
+export function rawJzazbz2xyz(Jz: number, az: number, bz: number): [number, number, number] {
     const Iz = (Jz + JZ_D0) / (1 + JZ_D - JZ_D * (Jz + JZ_D0));
 
     const [lp, mp, sp] = transformMat3([Iz, az, bz], JZ_IAB_TO_LMSP);
@@ -118,14 +118,14 @@ export function jzazbzToXYZ(Jz: number, az: number, bz: number): [number, number
 // `[number,number,number]` transforms above to the `{ to, from }` XYZColor
 // signature, applying the [0,1] ⇄ physical normalization every conversion module
 // honours (see `oklab.ts` / `conversions/ictcp.ts`). The XYZ hub carries relative
-// physical XYZ (D65, Y=1 — exactly what `xyzToJzazbz` consumes); JzazbzColor
+// physical XYZ (D65, Y=1 — exactly what `rawXyz2jzazbz` consumes); JzazbzColor
 // carries [0,1]-normalized channels against `COLOR_SPACE_RANGES.jzazbz`.
 
 const JR = COLOR_SPACE_RANGES.jzazbz;
 
 /** XYZ (relative, Y=1) → Jzazbz. Physical [Jz,az,bz] normalized to [0,1]. */
 export function xyz2jzazbz(xyz: XYZColor): JzazbzColor {
-    const [Jz, az, bz] = xyzToJzazbz(xyz.x, xyz.y, xyz.z);
+    const [Jz, az, bz] = rawXyz2jzazbz(xyz.x, xyz.y, xyz.z);
     return new JzazbzColor(
         scale(Jz, JR.jz.number.min, JR.jz.number.max),
         scale(az, JR.az.number.min, JR.az.number.max),
@@ -139,6 +139,6 @@ export function jzazbz2xyz(color: JzazbzColor): XYZColor {
     const Jz = scale(color.jz, 0, 1, JR.jz.number.min, JR.jz.number.max);
     const az = scale(color.az, 0, 1, JR.az.number.min, JR.az.number.max);
     const bz = scale(color.bz, 0, 1, JR.bz.number.min, JR.bz.number.max);
-    const [x, y, z] = jzazbzToXYZ(Jz, az, bz);
+    const [x, y, z] = rawJzazbz2xyz(Jz, az, bz);
     return new XYZColor(x, y, z, color.alpha);
 }

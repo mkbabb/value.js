@@ -28,7 +28,7 @@ import {
     getColorSpaceDenormUnit,
 } from "./constants";
 import type { ColorSpace } from "./constants";
-import { deltaEOK, DELTA_E_OK_JND, gamutMapSRGB, oklchToXYZTuple } from "./gamut";
+import { deltaEOK, DELTA_E_OK_JND, gamutMapSRGB, oklch2xyzTuple } from "./gamut";
 import { hex2rgb, rgb2hex } from "./conversions/hex";
 import { kelvin2xyz, xyz2kelvin } from "./conversions/kelvin";
 import {
@@ -284,7 +284,7 @@ const _color2IntoXyzTuple: [number, number, number] = [0, 0, 0];
  * re-entrancy argument documented on `color2`/`gamutMapToRgbSpace` applies.
  *
  * Behaviour matches `color2` bit-for-bit (the OKLCH leg replays the wrapper
- * path's `scale` round-trip — see `gamut.ts oklchToXYZTuple`).
+ * path's `scale` round-trip — see `gamut.ts oklch2xyzTuple`).
  */
 export function color2Into<T, C extends ColorSpace>(
     src: Color<T>,
@@ -317,7 +317,7 @@ export function color2Into<T, C extends ColorSpace>(
     if (src.colorSpace === "oklch") {
         const oklch = src as Color<number>;
         const xyz = (_color2IntoXyzScratch ??= new XYZColor(0, 0, 0, 1));
-        oklchToXYZTuple(
+        oklch2xyzTuple(
             oklch.l as number,
             oklch.c as number,
             oklch.h as number,
