@@ -26,7 +26,7 @@ npm run dev:web-only # frontend ONLY (bare vite :9000). No backend: palette/API 
 ```
 npm test                 # vitest (jsdom) — unit suite (count → per-tranche FINAL.md)
 npx playwright test      # 6 projects: smoke / smoke-admin / smoke-mobile / smoke-reactivity / smoke-perf / smoke-safari (count → per-tranche FINAL.md)
-npm run lint             # eslint flat config (D.W1 L7) — exit 0 required
+npm run lint             # eslint flat config (D.W1 L7) — exit 0 required. DEPTH is intentionally shallow (U-F65 ACCEPT, RATIFIED): lint = the src/ glass-ui import-ban + a hygiene smoke gate; correctness depth is carried by the type system + review (the "type system + eslint + review" discipline below), NOT by an opinionated rule set.
 npm run typecheck        # vue-tsc --noEmit (library + demo); api typecheck: cd api && npx tsc --noEmit
 ```
 
@@ -53,22 +53,16 @@ src/
 ├── easing.ts             # CSS timing functions (30+ named, cubic-bezier, stepped, linear())
 ├── utils.ts              # clone, memoize, debounce, RAF, case conversion
 ├── vite-env.d.ts         # Vite module declarations (.vue, .bbnf?raw)
-├── parsing/              # parse-that combinators for CSS values (15 modules — file inventory: src/parsing/CLAUDE.md)
+├── parsing/              # parse-that combinators (T.W1-src §3: 6 core files + 3 clustered subdirs w/ index barrels — file inventory: src/parsing/CLAUDE.md)
 │   ├── index.ts          # top-level: parseCSSValue, gradients, transforms, var(), calc()
 │   ├── units.ts          # dimension parsers: length, angle, time, frequency, resolution, flex, %
-│   ├── color.ts          # 15+ color spaces, hex, kelvin, color-mix(), relative color syntax
-│   ├── color-unit.ts     # ValueUnit-level color parse/normalize bridge
-│   ├── relative-color.ts # relative color syntax (from … channel keywords)
-│   ├── math.ts           # calc() AST, min/max/clamp, trig, exp, round/mod/rem
-│   ├── easing.ts         # <easing-function> value parser (NOT src/easing.ts — that's the named-fn table)
-│   ├── scroll-timeline.ts # scroll()/view() timeline value parsing
+│   ├── math.ts           # calc() AST, min/max/clamp, trig, exp, round/mod/rem, evaluateMathFunction
 │   ├── syntax.ts         # <syntax> descriptor grammar (@property)
 │   ├── animation-shorthand.ts  # animation/transition shorthand parsing
-│   ├── extract.ts        # value extraction helpers
-│   ├── serialize.ts      # value serialization
-│   ├── stylesheet.ts     # stylesheet-level parsing
-│   ├── stylesheet-types.ts # stylesheet AST types
-│   └── utils.ts          # istring, number, none, tryParse, succeed, fail
+│   ├── utils.ts          # istring, number, none, tryParse, succeed, fail
+│   ├── color/            # color-parse cluster: color.ts (17-space, hex, named, color-mix(), color(), relative L5) + color-unit.ts bridge + relative-color.ts + index barrel
+│   ├── timeline/         # animation-value cluster: easing.ts (<easing-function>) + scroll-timeline.ts (scroll()/view()) + index barrel
+│   └── stylesheet/       # stylesheet-surface cluster: stylesheet.ts + stylesheet-types.ts + extract.ts + serialize.ts + index barrel
 ├── units/                # core value classes + unit definitions
 │   ├── index.ts          # ValueUnit, FunctionValue, ValueArray classes
 │   ├── constants.ts      # unit arrays, MatrixValues
@@ -84,14 +78,11 @@ src/
 │       ├── spaces.ts     # the space-class table (W1-8 split)
 │       ├── constants.ts  # ranges, matrices, white points, named colors
 │       ├── color-names.ts # CSS named-color table
-│       ├── conversions/  # 10 focused {from}2{to} modules (hex, kelvin, cylindrical, lab, oklab, transfer, xyz-extended, direct, ictcp, jzazbz) + index barrel (G.W1 Lane B; +ICtCp/Jzazbz S.W1)
+│       ├── conversions/  # 10 focused {from}2{to} modules (hex, kelvin, cylindrical, lab, oklab, transfer, xyz-extended, direct, ictcp, jzazbz) + matrices.ts shared data + index barrel (G.W1 Lane B; +ICtCp/Jzazbz S.W1)
+│       ├── gamut/         # gamut cluster (T.W1): gamut.ts (Ottosson analytical sRGB, zero-iteration) + raytrace.ts (Q8/S.W1) + boundary.ts + okhsl.ts (OKHSL/OKHSV picker pair) + index barrel
 │       ├── dispatch.ts   # color2() generic converter, DIRECT_PATHS, gamutMap, interpolateHue, mixColors
 │       ├── matrix.ts     # Vec3/Mat3 math (row-major, f64, replaces gl-matrix)
 │       ├── normalize.ts  # color normalization to [0,1], space conversion
-│       ├── gamut.ts      # Ottosson analytical sRGB gamut mapping (zero-iteration)
-│       ├── gamut-raytrace.ts # raytrace gamut map (Q8/S.W1)
-│       ├── boundary.ts   # gamut-boundary helpers
-│       ├── okhsl.ts      # OKHSL/OKHSV perceptual picker pair
 │       ├── difference.ts # deltaE2000 + deltaEITP + rawXyz2ictcp
 │       ├── colorFilter.ts # CSS filter solver via SPSA optimization
 │       ├── contrast.ts   # OKLab contrast helpers, safeAccentColor
@@ -124,8 +115,8 @@ e2e/smoke/                # playwright smoke suite across 6 projects:
                           #   smoke-perf (built-bundle :8091 frame-budget gates; workers:1)
                           #   smoke-safari (iPhone-14 WebKit; sustained-30s context-loss probe)
 demo/                     # Vue 3.5 color picker app (reka-ui, Tailwind, @vueuse)
-api/                      # Hono + MongoDB palette API (Docker, Node 22, 9 collections / 27 indexes)
-docs/                     # colors/ (theory · gamut-mapping · app · quantization) · RELEASE.md · precepts/ · tranches/
+api/                      # Hono + MongoDB palette API (Docker, Node 22, 9 collections / 22 indexes)
+docs/                     # colors/ (theory · gamut-mapping · app · quantization) · RELEASE.md · dev-deploy-standard.md · frontend-design/ · instructions/ · precepts/ · tranches/
 assets/docs/              # 11 color space reference pages (Vue + KaTeX; incl. kelvin.md)
 ```
 
@@ -151,7 +142,7 @@ assets/docs/              # 11 color space reference pages (Vue + KaTeX; incl. k
 
 ## Dependencies
 
-- **Runtime**: `@mkbabb/parse-that@^1.0.0` (the R-booked re-pin, shipped 2.0.1 `a7eabcc`; W0-4 discharged)
+- **Runtime**: `@mkbabb/parse-that@^1.0.0` (the R-booked re-pin; caret `^1.0.0`, 1.0.0 resolved in the lockfile — the pin is the source of truth, verify with `node -p "require('./package.json').dependencies['@mkbabb/parse-that']"`; W0-4 discharged)
 - **Dev**: vite, vue, typescript, vitest, playwright, reka-ui, @vueuse/core, tailwindcss, katex
 - **Sibling `file:` deps**: `@mkbabb/glass-ui: file:../glass-ui`, `@mkbabb/keyframes.js: file:../keyframes.js` (kept deliberately — see §3.4 pin policy). The keyframes devDep is NOT phantom: it is the demo build's provision of glass-ui's `@mkbabb/keyframes.js` peerDependency `^5.0.0`, and keyframes' dist is a live transitive consumer of value.js's own `/math` subpath (`clamp`/`lerpArray`/`scale`).
 

@@ -2,7 +2,7 @@
 
 Vue 3.5 color picker app. Serves as the live demo at [color.babb.dev](https://color.babb.dev).
 
-Design idioms catalog: see `demo/DESIGN.md` (the authoritative catalog landed at D.W4 Lane B — Token architecture, Type scale, Surfaces, Shadows, Radii, Motion, Z-tier, Color, Layout, Idioms NOT used, with cross-references to glass-ui's DESIGN.md and concrete `style.css` line ranges).
+Design idioms catalog: see `demo/DESIGN.md` (the authoritative catalog landed at D.W4 Lane B — Token architecture, Type, Surfaces, Depth, Shadows, Radii, Motion, Z-tier, Color, Layout, Idioms NOT used, with cross-references to glass-ui's DESIGN.md and concrete `style.css` line ranges).
 
 ## Structure
 
@@ -13,7 +13,7 @@ demo/
 │   ├── index.html            # Vite entry
 │   ├── vite.d.ts             # .vue + .md module declarations
 │   └── public/CNAME          # GitHub Pages domain
-├── DESIGN.md                 # design-idiom catalog (D.W4 Lane B; 10 sections)
+├── DESIGN.md                 # design-idiom catalog (D.W4 Lane B; 11 sections)
 ├── @/
 │   ├── components/
 │   │   ├── custom/           # maintained components — see subtrees below
@@ -32,7 +32,7 @@ Post-Mar-2026 restructure + B + D consolidations. Each subtree is colocated (com
 
 ### color-picker/
 
-Organised into `controls/`, `display/`, `visual/`, `composables/` subdirs (Mar-2026 restructure; the `editing/` subdir died at R.W4 — T21 deleted the dead `EditDrawer`, `ActionToolbar` moved to `controls/`). Top-level helpers: `spectrumLuma.ts` (the ONE luma ink-regime function), `gamutOverlayPaint.ts`, `readoutReservation.ts`, `colorSpaceInfo.ts` (R.W3).
+Organised into `controls/`, `display/`, `visual/`, `composables/` subdirs (Mar-2026 restructure; the `editing/` subdir died at R.W4 — T21 deleted the dead `EditDrawer`, `ActionToolbar` moved to `controls/`). Top-level helper: `colorSpaceInfo.ts` (color-space metadata, R.W3). Paint/measure helpers colocate beside their consumers (T.W1-src): `controls/spectrumLuma.ts` (the ONE luma ink-regime function), `controls/SpectrumCanvas/gamutOverlayPaint.ts`, `display/ColorComponentDisplay/readoutReservation.ts`.
 
 | Subdir | Highlights |
 |---|---|

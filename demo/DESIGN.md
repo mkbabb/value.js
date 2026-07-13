@@ -77,7 +77,7 @@ wherever live numeric values render at display scale:
 The law is codified here; the picker readout's application LANDED at R.W3
 Lane D — int/frac/unit span split + declared `tabular-nums` in
 `ColorComponentDisplay.vue`, the static per-space `ch` table at
-`color-picker/readoutReservation.ts` (derived at module scope from
+`color-picker/display/ColorComponentDisplay/readoutReservation.ts` (derived at module scope from
 `COLOR_SPACE_RANGES`; no runtime measurement), atomic `nowrap` cells + a
 2-line block lock. Verified by the close probe: End/Home/End keyboard sweeps
 leave the card rect byte-identical.

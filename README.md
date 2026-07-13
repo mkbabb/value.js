@@ -8,7 +8,7 @@ CSS value parsing, color theory, and unit conversion. Typed values with units—
 
 - Parse any CSS value: lengths, angles, times, colors, `calc()`, `var()`, gradients, transforms
 - CSS Color Level 4 support: `color()`, `color-mix()`, relative color syntax
-- **15 color spaces**: RGB, HSL, HSV, HWB, Lab, LCh, OKLab, OKLCh, XYZ, Kelvin, sRGB-linear, Display P3, Adobe RGB, ProPhoto RGB, Rec. 2020
+- **17 color spaces**: RGB, HSL, HSV, HWB, Lab, LCh, OKLab, OKLCh, XYZ, Kelvin, sRGB-linear, Display P3, Adobe RGB, ProPhoto RGB, Rec. 2020, ICtCp, Jzazbz
 - Color space conversion via **XYZ hub** with analytical gamut mapping (Ottosson's algorithm)
 - **Color quantization**: OKLab-native palette extraction (MMCQ + k-means++) with chroma-weighted clustering and JND deduplication
 - CSS math functions: `calc()`, `min()`, `max()`, `clamp()`, trig, exponential
@@ -65,7 +65,7 @@ src/
 ├── parsing/              # @mkbabb/parse-that combinators for CSS values
 │   ├── index.ts          # parseCSSValue, gradients, transforms, var()
 │   ├── units.ts          # length, angle, time, frequency, resolution, flex, %
-│   ├── color.ts          # 15 spaces, hex, named, color-mix(), relative syntax
+│   ├── color.ts          # 17 spaces, hex, named, color-mix(), relative syntax
 │   ├── math.ts           # calc() AST, min/max/clamp, trig, exp
 │   ├── utils.ts          # istring, number, none, tryParse helpers
 │   └── grammars/         # BBNF spec grammars (used in equivalence tests)
@@ -74,7 +74,7 @@ src/
 │   ├── constants.ts      # unit arrays, 630+ CSS property names
 │   ├── utils.ts          # unit conversion (px, deg, ms, Hz, dpi)
 │   ├── normalize.ts      # value normalization + interpolation setup
-│   └── color/            # 15 color spaces, conversion, gamut mapping
+│   └── color/            # 17 color spaces, conversion, gamut mapping
 │       ├── index.ts      # Color<T> base + space classes
 │       ├── constants.ts  # ranges, matrices, white points, named colors
 │       ├── matrix.ts     # Vec3/Mat3 (row-major, replaces gl-matrix)
