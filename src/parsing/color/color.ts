@@ -373,6 +373,24 @@ const colorMix: Parser<ValueUnit> = utils
         // opaque alpha to `100%`, diverging from the direct-parse `/ <0..1>` shape.
         const alpha = mixed.alpha;
         const physical = normalizeColor(mixed, true);
+        // `mixColors` emits sub-ULP float dust in the NORMALIZED domain — a
+        // 30%/70% srgb split derives r as `1 - 0.7 = 0.30000000000000004` (a
+        // 1-ULP weight artifact), which the denorm scales straight into the
+        // serialized string (`rgb(76.50000000000001 …)`) instead of the
+        // CSS-canonical `rgb(76.5 …)` a UA emits. Collapse that dust on the
+        // PHYSICAL channels to 12 significant figures — far below one OKLab JND,
+        // so it removes representation noise, never perceptible precision, and
+        // leaves genuinely-precise channels (`76.53125`) untouched. Confined to
+        // THIS parse consumer; `mixColors` stays byte-identical for its raw
+        // readers (the LIB-G6 convention guarantee).
+        for (const key of physical.channels) {
+            const channel = physical[key] as ValueUnit<number>;
+            const raw = ValueUnit.unwrapDeep(channel);
+            physical[key] = new ValueUnit(
+                Number(raw.toPrecision(12)),
+                channel.unit,
+            );
+        }
         physical.alpha = new ValueUnit(alpha);
         return createColorValueUnit(physical);
     });
