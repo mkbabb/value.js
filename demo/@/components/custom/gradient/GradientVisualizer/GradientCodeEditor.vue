@@ -90,7 +90,7 @@ onMounted(() => render(modelValue));
             role="textbox"
             aria-label="Gradient CSS"
             :aria-invalid="hasError || undefined"
-            class="hljs text-mono-small leading-relaxed p-3 rounded-lg glass-wash border min-h-[5rem] max-h-[12rem] overflow-y-auto whitespace-pre-wrap break-all outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+            class="hljs text-mono-small leading-relaxed p-3 rounded-lg glass-wash border min-h-[5rem] max-h-[12rem] overflow-y-auto scrollbar-thin whitespace-pre-wrap break-all outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
             :class="[hasError ? 'border-destructive' : 'border-border/40']"
             :style="{
                 transition: `border-color var(--duration-normal) var(--ease-standard), box-shadow var(--duration-normal) var(--ease-standard)`,

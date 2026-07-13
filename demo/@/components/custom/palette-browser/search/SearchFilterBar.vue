@@ -46,7 +46,7 @@
                     <!-- Tags -->
                     <div v-if="availableTags.length > 0" class="filter-section">
                         <div class="section-label">Tags</div>
-                        <div class="max-h-28 overflow-y-auto flex flex-col gap-0.5">
+                        <div class="max-h-28 overflow-y-auto scrollbar-thin flex flex-col gap-0.5">
                             <label v-for="tag in availableTags" :key="tag.name" class="filter-option">
                                 <Checkbox
                                     :checked="selectedTags.includes(tag.name)"

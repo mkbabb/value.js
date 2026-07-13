@@ -1,0 +1,38 @@
+# micro-chrome riders probe @ 2026-07-13T08:36:18.715Z
+# served: http://127.0.0.1:8598/ (worktree dist/gh-pages, PERF_PORT=8598)
+
+================ (d) DYNAMIC <title> ================
+initial (home, pre colour-URL sync): "Color Picker"
+home after colour-URL sync (hydrated seed): "lab(92% 88.8 20 / 82.7%) — Color Picker"
+nav picker + cornflowerblue
+     → document.title = "cornflowerblue — Color Picker"
+nav palettes + tomato
+     → document.title = "tomato · Palettes — Color Picker"
+nav gradient + #c84b31
+     → document.title = "#c84b31 · Gradient — Color Picker"
+nav mix + rebeccapurple
+     → document.title = "rebeccapurple · Mix — Color Picker"
+nav atmosphere + teal
+     → document.title = "teal · Atmosphere — Color Picker"
+nav browse (no colour arg → view voice only, but seed colour persists)
+     → document.title = "Browse — Color Picker"
+DELTA: static "Color Picker" → 8 distinct live titles across the drive (dynamic=TRUE)
+
+================ (c) .scrollbar-thin WIRING (computed; perceptual=ANNEX) ================
+view=home (picker · ComponentSliders console): .scrollbar-thin live elements = 0
+view=gradient (GradientCodeEditor): .scrollbar-thin live elements = 1
+   <div> scrollbar-width=thin overflowY=auto scrollbar-color="color(srgb 0.486275 0.4 0.313726 / 0.25) rgba(0, 0, 0, 0)"
+     class="hljs text-mono-small leading-relaxed p-3 rounded-lg glass-wash border mi…"
+view=atmosphere (AuroraPane · ConfigSliderPane): .scrollbar-thin live elements = 1
+   <div> scrollbar-width=thin overflowY=auto scrollbar-color="color(srgb 0.486275 0.4 0.313726 / 0.25) rgba(0, 0, 0, 0)"
+     class="pane-scroll-fade scrollbar-thin flex-1 min-w-0 overflow-y-auto overflow-…"
+
+================ FRAMES ================
+saved scrollbar-thin-gradient-editor.png (GradientCodeEditor container)
+saved title-palettes-tomato-page.png (title="tomato · Palettes — Color Picker")
+
+================ console errors ================
+  [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:8598 has no VITE_API_URL and is targeting the cross-origin production API (https:
+(the loopback dev-misconfig console.error is the DESIGNED honesty contract — expected, orthogonal to chrome)
+
+=== probe complete ===
