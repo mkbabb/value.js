@@ -162,6 +162,16 @@ no successor re-opens) or CENSUS-RED (this wave's designed re-cure). The WR → 
 >   thrown-error a11y half → **U-F58 error-injection** (U.W-A11Y, fold → U-F56); the perceptual
 >   micro-chrome roster → THIS census (an AUTOMATIC census-red re-cure if opened RED, else
 >   retire-to-census) OR out-of-scope-recorded per the owner's eye at wave-open. No silent drop.
+>
+> **The census slot for never-filed passes (the ZD-3 close):** these N=3 surfaces have NO produced
+> pass-file artefact, so they are NOT enumerable in the FORMATION-VERDICT §12 census's 176-row
+> PRODUCED-artefact enumeration — ZD-3's structural point stands *for that enumeration*, and is not
+> a drop. Their explicit slot is THIS block: **the N=3 never-filed W8 passes' surfaces re-enter the
+> tranche through the WAVE-OPEN census RE-JUDGMENT (a live read at the surface), NOT through pass
+> files** — easing → AUTOMATIC census-red re-cure or retire-with-the-O-17-cite; admin → U-F56
+> (U.W-A11Y driven-live); micro-chrome+thrown-error → this census (perceptual) + U-F58 (a11y). The
+> census's scoping input is therefore the filed WR-1..11 + the 29 pi-audit LAND rows + **THIS named
+> never-filed set** — every T.W8 surface has a slot, whether or not a pass file was ever produced.
 
 **Census law**: the verdicts are OWNER-ATTESTED, not headless-asserted (U-F54). A WR that lands
 GREEN retires with its frame recorded; the design cures below are the **CENSUS-RED contingency** —
@@ -574,10 +584,13 @@ The already-dispatched rows are cited BY NAME (no second book).
 | **U-F7** scene-transition-motion | **build** (real-GPU annex) | scheduling re-design (evict payload from the enter window), cured WITH the wake bead; owner-attested (OA-1) NOT headless — confound-isolated; producer confounds relayed/booked |
 | **U-F8** generate-plate-species-chrome | **build** (RELAY) | WatercolorDot face + one verb instrument; both are producer registers → RELAY addendum; owner-attested (OA-2) |
 | **U-F9** picker-header-spacing-regime (+ the **T-61/T-42 scrolled-header arm**) | **build** | AT-REST: one stepped rhythm + honest title↔readout seam (per-value-class OR seam-absorb, never blank); born-RED token/geometry (BR-4/BR-5). SCROLLED (T-61 owner-verbatim §0.8, distinct surface — at-rest T-23 STANDS): whole-header contraction (padding+background band+title as ONE condensed strip, not a compositor-only title scale); born-RED box-model (BR-9) + owner-attested gestalt (OA-6) + the P3 ScrollCardHeader producer RELAY. Shares U-F76 mount (settles first) |
+| **U-F9-rail** picker-active-rail-seat (a DISTINCT arm of U-F9 — T-5/P1-R1) | **build-if-CENSUS-RED** (W8-inheritance census; T.W8 Remediate never reached P1-R1) | the WatercolorDot active/selected seat tracks the selected channel's rung; born-RED **BR-12** seat-tracks-rung (LANDED-partial per W4-4, born-GREEN must-STAY if the geometry holds) + owner-attested **OA-7** reads-coherent; π/DELTA seat-offset RED→GREEN. T-5's 2nd residual (the P5/S-3 letter-rail) is PRODUCER-GATED → U.W-ADOPT BH relay, NOT this arm |
 | **U-F10** console-veil-material | **build** (RELAY) | veil-signal calibration (lower α + open a clarity window); the veil PRIMITIVE is glass-ui → RELAY; owner-attested material (OA-3) |
 | **U-F11** collapsed-dock-swatch-seam | **build** (AUTOMATIC — uncured by W8) | no WR row minted; a deliberate perceptible derive-seam (≥ JND); born-RED ΔE (BR-6) + owner-attested gestalt |
 | **U-F12** dark-scheme-derived-tint-muddiness | **build** (owner-judgment-at-formation) | NEW, no owner row → presented as a BRACKET for owner ruling; born-RED chroma-floor (BR-7); coordinates U-F6 + U-F26 |
 | **U-F13-demo** dock-edge-clip | **build** (demo half; producer half → U.W-ADOPT/relay) | Tools true-button box-model reserves its ring weight; born-RED box-model (BR-8); producer clip/fade relayed (already dispatched) |
+| **U-F13-band** dock-expand-scene-reflow (a DISTINCT arm from U-F13-demo's edge-clip — WR-9/T-57) | **build-if-CENSUS-RED** (absorbs WR-9's terminal residue) | dock-morph band-height invariance (no scene reflow on expand); born-RED **BR-10** band-invariance (computed band block-size + scene-top shift across the morph) + owner-attested no-scene-shift; π/DELTA +3.0px → 0px |
+| **U-F13-menuink** dock-nav Login/Tools Q10 accent-ink (P9-R4 — a THIRD U-F13 arm, sibling to -demo edge-clip / -band height) | **build-if-CENSUS-RED** (the P9-R4 residue; LANDED `ccf4b30`, born-GREEN must-STAY) | the Login/Tools nav-chrome Q10 live-accent PAINTS (accent-channel computed width/opacity > 0 AND non-neutral chroma), NEVER a cascade-dead `border-primary/30` → `border-width:0` neutral stone pill; born-RED **COMPUTED** gate **BR-14** (`getComputedStyle`, GPU-independent — mandatory because a cascade-dead accent renders as a coherent neutral pill the owner-eye census is BLIND to, the O-14 green-over-broken trap; Q10 = the owner-RATIFIED Q18/C3 menu-scoped-ink scope sub-clause). NO OA arm (computed-only) |
 | **U-F19 residue** T-53 dark caster | **build-if-CENSUS-RED** (material) | absorbs WR-5's terminal residue; a designed dark-caster re-cut (one declaration); born-RED headless token/α leg (BR-13, LANDED-partial per `style.css:639`) + owner-attested perceptual read (OA-5). AB-1 KaTeX build-scope → U.W-CANON (NOT here) |
 
 No family in this wave's set is folded-away without a named home or retired-silently; the U-F6

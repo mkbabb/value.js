@@ -824,3 +824,54 @@ convergence), this is recorded as RESIDUAL-HONEST, not converged.
 `c515fc1`); RG-1/RG-3/RG-4/RG-5 stand; 8 fresh-confirm findings named. Addendum to §11 — HARDENS the
 record, does not rewrite §1–§4. PLANNING-ONLY held; no source edit. Path-scoped to
 `docs/tranches/U/FORMATION-VERDICT.md`; pull-rebased on the shared `tranche-t` branch.*
+
+### §12.1 — The surgical close (the doc-fixable subset of the 8 residuals)
+
+A final surgical pass took the three DOC-FIXABLE residuals of the §12 census — the sole
+`[blocks-ratification]` (BR-14/Q10) plus the two structural notes (ZD-3, RG-5) — and closed the
+formation's actionable doc surface. The other five residuals are left AS RECORDS (below).
+
+- **BR-14/Q10 (RG-3's sole `[blocks-ratification]`, the Q10 Login-accent cascade-dead) — HOMING
+  COMPLETED, blocker is an epistemic record not a doc gap.** BR-14/Q10 was found already homed across
+  FOUR surfaces: the §Scope W8-inheritance census (`U.W-VISUAL:134-141`, P9-R4 → **U-F13-menuink**,
+  PROMOTED out of the perceptual catch-all), the born-RED gate register with its LIVE evidence cite
+  (`U.W-VISUAL:490`, **BR-14** — a `getComputedStyle` accent-paint predicate citing
+  `dock-nav-menus.p1.md:172-183`), the §π/DELTA obligations (`U.W-VISUAL:531`), and **DISPOSITION-LEDGER
+  §C** (`DISPOSITION-LEDGER:227-236`, computed gate BR-14 routed). The ONE thin surface: the
+  §Dispositions "families" table had no row for the U-F13-menuink arm — nor for its sibling arms
+  U-F13-band / U-F9-rail — so gates BR-10/BR-12/**BR-14** lacked a §Dispositions home. The surgical
+  close ADDED the three arm rows (`U.W-VISUAL §Dispositions`), so BR-14/Q10 is now homed on every
+  named surface (§Scope + §Register 1 + §π/DELTA + §Dispositions + ledger §C). **The `[blocks-ratification]`
+  status is NOT a doc gap and does not clear here:** it is the accurate *verified-present-but-not-
+  live-resolved* state — the T-side cure `ccf4b30` ("Q10 live at Login") landed (born-GREEN must-STAY),
+  but no fresh LIVE census ever re-judged the computed accent-paint predicate. PLANNING-ONLY cannot
+  flip it; U.W-VISUAL's wave-open census discharges it live (or reds it and re-cures). The blocker is
+  thus a real live-confirmation obligation carried into U.W-VISUAL, correctly recorded — not an open
+  doc gap.
+- **ZD-3 (never-filed W8 passes have no census slot) — SLOT NAMED.** The §12 census enumerates T-side
+  rows from PRODUCED artefacts, so the N=3 never-filed T.W8 critique passes (easing · admin ·
+  micro-chrome+thrown-error) are structurally un-enumerable in that 176-row count — ZD-3's point stands
+  *for that enumeration*. Their explicit slot is now named at `U.W-VISUAL §The W8-inheritance census`
+  ("**The census slot for never-filed passes (the ZD-3 close)**"): the N=3 surfaces re-enter the tranche
+  through the **WAVE-OPEN census RE-JUDGMENT** (a live read at the surface), NOT through pass files
+  (easing → AUTOMATIC census-red re-cure or retire-with-the-O-17-cite; admin → U-F56; micro-chrome →
+  this census + U-F58). The scoping input is filed WR-1..11 + the 29 pi-audit LAND rows + THIS named
+  never-filed set — every T.W8 surface has a slot whether or not a pass file was produced.
+- **RG-5 (a ratification-blocker surfaced as late as r7) — RECORD STANDS.** RG-5 is a process /
+  stability observation, not a doc gap: it records that BR-14/Q10 surfaced at the terminal round. There
+  is no missing cross-reference or incoherent late edit to fix — r7's remediation (`2fb383c`) was
+  deliberately consolidated into the §11 seal ("this seal is the sole in-verdict record of round 7",
+  §11 round-table + cross-ref `r7 2fb383c`), which is coherent by construction. Nothing to repair; the
+  record stands as an honest stability signal.
+
+The remaining residuals — **RG-1** (no clean pass ever occurred), **ZD-1** (homed ≠ cured — the §BOOKS
+decision-brackets ride into each wave), **ZD-2** (exhaustive-by-construction rests on the author's
+176-row enumeration), **ZD-4** (27 verified-homed on a cite-sample), **RG-4** (the 5-round peer-floor
+cite-miss history) — are **epistemic / historical records, not open gaps**. The formation's actionable
+doc surface is **CLOSED**; the owner ratifies against the full record (§1–§4 CONVERGED · §5–§10 the
+seven rounds · §11 RESIDUAL-GAPS seal · §12 census closure · this §12.1 surgical close).
+
+*Sealed by the surgical remediator (opus), 2026-07-13. BR-14/Q10 homing COMPLETED (§Dispositions arm
+rows added) + blocker recorded as a live-confirmation obligation; ZD-3 slot NAMED; RG-5 record STANDS.
+Addendum to §12 — does not renumber or rewrite. PLANNING-ONLY held; edits scoped to `docs/tranches/U/**`
+(no source edit). Pull-rebased on the shared `tranche-t` branch.*
