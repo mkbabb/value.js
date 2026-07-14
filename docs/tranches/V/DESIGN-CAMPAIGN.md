@@ -1,32 +1,9 @@
 # V — THE STRUCTURE DESIGN CAMPAIGN (formation-by-convergent-loop)
 
-**Status**: PASS 4 AGGLOMERATED — over BOTH fresh audits (2026-07-13) · mid-U.W-CLOSE (the owner: "this
-should be done alongside our above"). Pass-4 fold (`design/pass-4/AGGLOMERATION.md`): the three gap-closer
-charters CHARTED the whole formerly-un-charted owner HALF with RAN exemplars + **9 committed durable
-instruments** (BOTH auditors re-ran all 9 from the repo root; every number reproduced) — **δ** library
-complexity REDUCTION (clause 12: a metric that goes DOWN — G500 14→11 / OVER500 1576→1075 / MAXLOC 754→658 + a
-real born-RED gate; NG-4 ruled by measurement) · **ε** long-dirs + styles + the demo-wide manifest (clauses
-4/3/1: panes chassis-carve + `style.css` cohesion-carve RAN, the 377-site abrogation + 64-file placement
-census, NG-6 dispositioned, NG-3 objective stated) · **ζ** D4 hygiene (clause 11: all 6 survey items → booked
-dispositions; the plugins "delete" contradiction → OF-6 with measured poles). The pass-3 "half the edict
-un-charted" finding is CLOSED; NG-1/NG-3/NG-4/NG-6 discharged. **BOTH required fresh non-author adversaries RAN
-in pass-4**: the FULL-THESIS convergence adversary (**NOT clean, 80% convergence**, GAP-1..GAP-7) AND the
-owner-verbatim / clean-break lens (**CLEAN on clean-break, 78% carriage**, §4 gaps 1..5). The composed thesis
-rises **60% → 78%** (the un-inflated FLOOR of the two lenses — full-thesis 80 / owner-verbatim 78 — held at 78
-because clause-9 performance-above-all, un-charted anywhere, is a real drag the full-thesis lens under-
-weighted; never inflated above the stricter lens). **Gaps survive** — P4-G1/G2 the durable law was applied to
-the *censuses* not the *codemods* (no committed `--apply` carve; δ's "3 carves green" + ε's "smoke 154" reset
-away; the 2 color-SCC carves ride β's un-back-filled registry) · P4-G3 `@src` mislabeled DEAD (a live alias at
-235 sites — a fresh NG-3 self-violation) · P4-G4 the fork pile GREW to ~13 (OF-4→7 rows, OF-6→3 poles, + new
-OF-ε-1/OF-ε-2/NG-6-R1vR2) · P4-G5 clause-9 performance-above-all un-charted · P4-G6 clause-12's down-metric is
-ceiling-compliance not net (net LoC ROSE +158). **→ pass-4 is NOT the clean pass** (the two-clean-pass clock is
-0 of 2). Next: pass-5 gap-closers — **η** the execution-reproducibility CODEMOD set (commit `--apply` carve/
-scatter codemods idempotent from the pinned base + back-fill β's registry + a dedup scan) · **θ** scope-honesty
-(fix the `@src` mislabel) + fork CLOSURE (attach every fork a recommended pole + measured cost; the pile stops
-growing) · **ι** the PERFORMANCE limb (charter clause 9) — under the **standing durable-CODEMOD law** (every
-"RAN green" ships a committed idempotent codemod) + a FRESH full-thesis adversary over the expanded surface.
-**This document is the campaign state of record**; the registry (§3) and pass log (§4) update at every pass
-agglomeration.
+**Status**: **PAUSED BY THE OWNER 2026-07-13** post-pass-4 — composed thesis **78%**, clock 0/2,
+pass-5 charters η/θ/ι authored in `design/pass-4/AGGLOMERATION.md`. **THE HANDOFF OF RECORD:
+`HANDOFF-2026-07-13.md`** (read it first on resume — the full synthesis, the owner decision pile,
+the resume recipes). The registry (§3) and pass log (§4) update at every pass agglomeration.
 
 ## §0 The owner's verbatim (2026-07-13 — WINS over every encoding below)
 
