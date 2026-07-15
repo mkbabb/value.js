@@ -33,6 +33,7 @@
                         :color="cssColorOpaque"
                         :config="heroConfig"
                         :paused="blobPaused"
+                        press-label="Copy current color"
                         class="w-(--blob-fp)"
                         @click="onBlobClick"
                         @mouseenter="onBlobHover"
