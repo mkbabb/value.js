@@ -13,6 +13,5 @@ export {
     deCasteljau,
     cubicBezier,
     interpBezier,
-    cubicBezierToSVG,
     cubicBezierToString,
 } from "../math";

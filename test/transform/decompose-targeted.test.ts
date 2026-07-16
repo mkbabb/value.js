@@ -1,9 +1,16 @@
 import { describe, expect, it } from "vitest";
 import {
+    decomposeMatrix2D,
     decomposeMatrix3D,
+    interpolateDecomposed,
+    recomposeMatrix2D,
     recomposeMatrix3D,
+    slerp,
 } from "@src/transform/decompose";
-import type { Vec4 } from "@src/transform/decompose";
+import type {
+    DecomposedMatrix2D,
+    Vec4,
+} from "@src/transform/decompose";
 
 /**
  * Targeted decomposition tests covering branches not exercised by
@@ -25,6 +32,77 @@ const expectMat = (actual: number[], expected: number[], precision = 4) => {
         expect(actual[i]).toBeCloseTo(expected[i]!, precision);
     }
 };
+
+describe("2D decomposition, recomposition, and interpolation", () => {
+    it("round-trips identity, translation, rotation, skew, and reflection", () => {
+        const fixtures = [
+            [1, 0, 0, 1, 0, 0],
+            [1, 0, 0, 1, 100, -40],
+            [0, 1, -1, 0, 0, 0],
+            [2, 1, 0.5, 3, 10, 20],
+            [-1, 0, 0, 1, 8, 9],
+        ] as const;
+        for (const fixture of fixtures) {
+            const decomposed = decomposeMatrix2D(...fixture);
+            const recomposed = recomposeMatrix2D(decomposed);
+            recomposed.forEach((value, index) =>
+                expect(value, fixture.join(",")).toBeCloseTo(fixture[index]!, 10));
+        }
+    });
+
+    it("interpolates endpoints and midpoint without changing dimensionality", () => {
+        const start = decomposeMatrix2D(1, 0, 0, 1, 0, 0);
+        const end = decomposeMatrix2D(2, 0, 0, 3, 10, 20);
+        expect(interpolateDecomposed(start, end, 0)).toEqual(start);
+        expect(interpolateDecomposed(start, end, 1)).toEqual(end);
+        expect(interpolateDecomposed(start, end, 0.5)).toMatchObject({
+            translateX: 5,
+            translateY: 10,
+            scaleX: 1.5,
+            scaleY: 2,
+        });
+    });
+});
+
+describe("quaternion and dimensional interpolation", () => {
+    const identityQuaternion: Vec4 = [0, 0, 0, 1];
+    const quarterTurn: Vec4 = [
+        0,
+        0,
+        Math.sin(Math.PI / 4),
+        Math.cos(Math.PI / 4),
+    ];
+
+    it("slerps exact endpoints and the 45-degree midpoint", () => {
+        expect(slerp(identityQuaternion, quarterTurn, 0)).toEqual(identityQuaternion);
+        expect(slerp(identityQuaternion, quarterTurn, 1)).toEqual(quarterTurn);
+        const midpoint = slerp(identityQuaternion, quarterTurn, 0.5);
+        expect(midpoint[0]).toBeCloseTo(0, 12);
+        expect(midpoint[1]).toBeCloseTo(0, 12);
+        expect(midpoint[2]).toBeCloseTo(Math.sin(Math.PI / 8), 12);
+        expect(midpoint[3]).toBeCloseTo(Math.cos(Math.PI / 8), 12);
+    });
+
+    it("interpolates 3D endpoints/midpoint and rejects mixed dimensions", () => {
+        const start = decomposeMatrix3D(identity());
+        const endMatrix = identity();
+        endMatrix[12] = 10;
+        endMatrix[13] = 20;
+        endMatrix[14] = 30;
+        const end = decomposeMatrix3D(endMatrix);
+        if (!start || !end) throw new Error("3D fixture");
+        expect(interpolateDecomposed(start, end, 0)).toEqual(start);
+        expect(interpolateDecomposed(start, end, 1)).toEqual(end);
+        expect(interpolateDecomposed(start, end, 0.5)).toMatchObject({
+            translate: [5, 10, 15],
+        });
+        expect(() => interpolateDecomposed(
+            decomposeMatrix2D(1, 0, 0, 1, 0, 0) as DecomposedMatrix2D,
+            end as unknown as DecomposedMatrix2D,
+            0.5,
+        )).toThrow("cannot interpolate a 2D and a 3D decomposition");
+    });
+});
 
 // ─────────────────────────────────────────────────────────────────────────────
 // scale-only

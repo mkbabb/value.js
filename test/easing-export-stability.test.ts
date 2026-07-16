@@ -1,73 +1,103 @@
 import { describe, expect, it } from "vitest";
-
-// R.W1.6 · KF-3 — the `/easing` export-stability guard.
-//
-// glass-ui's `@mkbabb/value.js/easing` consume composes EXACTLY five symbols
-// (SYNTHESIS-v2 §3 R.W1 item 6 / R.W1.md:130). This test pins that surface so a
-// future barrel edit that drops or renames one of them fails HERE — in value.js's
-// own suite — rather than downstream in glass-ui's EasingPicker build. It imports
-// through the published `/easing` subpath barrel (`src/subpaths/easing.ts`), the
-// exact module glass-ui resolves, not the internal `../easing` / `../parsing`
-// homes.
 import * as easing from "../src/subpaths/easing";
-import { CSSCubicBezier, steppedEase, bezierPresets, jumpTerms, parseSteps } from "../src/subpaths/easing";
+import {
+    CubicBezier,
+    bezierPresets,
+    easing as resolveEasing,
+    jumpTerms,
+    steppedEase,
+} from "../src/subpaths/easing";
 
-describe("/easing export-stability guard (KF-3 — glass-ui's 5-symbol contract)", () => {
-    it("exposes all five composed symbols by name", () => {
-        for (const name of [
-            "CSSCubicBezier",
-            "steppedEase",
-            "bezierPresets",
-            "jumpTerms",
-            "parseSteps",
-        ] as const) {
-            expect(easing[name], `missing /easing export: ${name}`).toBeDefined();
+const runtimeExports = [
+    "CubicBezier",
+    "bezierPresets",
+    "easeInBounce",
+    "easeInOutCirc",
+    "easeInOutCubic",
+    "easeInOutExpo",
+    "easeInOutQuad",
+    "easeInOutSine",
+    "easeOutCubic",
+    "easeOutExpo",
+    "easing",
+    "jumpTerms",
+    "linear",
+    "linearEasing",
+    "smoothStep3",
+    "steppedEase",
+] as const;
+
+describe("/easing Value 4 surface", () => {
+    it("exports exactly the canonical runtime names", () => {
+        expect(Object.keys(easing).sort()).toEqual([...runtimeExports].sort());
+    });
+
+    it("constructs a failure-explicit cubic bezier", () => {
+        const result = CubicBezier(0.42, 0, 0.58, 1);
+        expect(result.ok).toBe(true);
+        if (!result.ok) throw new Error(result.error.code);
+        expect(result.value(0)).toBe(0);
+        expect(result.value(0.5)).toBeCloseTo(0.5, 6);
+        expect(result.value(1)).toBe(1);
+    });
+
+    it("matches the published ease midpoint oracle", () => {
+        const result = CubicBezier(0.25, 0.1, 0.25, 1);
+        if (!result.ok) throw new Error(result.error.code);
+        expect(result.value(0.5)).toBeCloseTo(0.8024, 3);
+    });
+
+    it("constructs a failure-explicit step function", () => {
+        const result = steppedEase(4, "jump-end");
+        expect(result.ok).toBe(true);
+        if (!result.ok) throw new Error(result.error.code);
+        expect(result.value(0)).toBe(0);
+        expect(result.value(0.99)).toBeCloseTo(0.75, 10);
+        expect(result.value(1)).toBe(1);
+    });
+
+    it("retains the canonical preset and jump catalogs", () => {
+        for (const [name, points] of Object.entries(bezierPresets)) {
+            expect(points, name).toHaveLength(4);
+            expect(points.every(Number.isFinite), name).toBe(true);
+        }
+        expect(jumpTerms).toEqual([
+            "jump-start",
+            "jump-end",
+            "jump-none",
+            "jump-both",
+        ]);
+    });
+
+    it("pins all six quart/quint catalog rows and resolves each one", () => {
+        const required = {
+            "ease-in-quart": [0.895, 0.03, 0.685, 0.22],
+            "ease-out-quart": [0.165, 0.84, 0.44, 1],
+            "ease-in-out-quart": [0.77, 0, 0.175, 1],
+            "ease-in-quint": [0.755, 0.05, 0.855, 0.06],
+            "ease-out-quint": [0.23, 1, 0.32, 1],
+            "ease-in-out-quint": [0.86, 0, 0.07, 1],
+        } as const;
+        for (const [name, points] of Object.entries(required)) {
+            expect(bezierPresets[name as keyof typeof required]).toEqual(points);
+            const resolved = resolveEasing(name);
+            expect(resolved.ok && Number.isFinite(resolved.value(0.37)), name)
+                .toBe(true);
         }
     });
 
-    it("CSSCubicBezier is the curried bezier factory", () => {
-        expect(typeof CSSCubicBezier).toBe("function");
-        const ease = CSSCubicBezier(0.42, 0, 0.58, 1);
-        expect(typeof ease).toBe("function");
-        expect(ease(0)).toBe(0);
-        expect(ease(1)).toBe(1);
-        // Monotone, in-range on the interior.
-        const mid = ease(0.5);
-        expect(mid).toBeGreaterThan(0);
-        expect(mid).toBeLessThan(1);
-    });
-
-    it("steppedEase produces a stepping timing function", () => {
-        expect(typeof steppedEase).toBe("function");
-        const step = steppedEase(4, "jump-end");
-        expect(typeof step).toBe("function");
-        expect(step(0)).toBe(0);
-        expect(step(0.99)).toBeCloseTo(0.75, 10);
-    });
-
-    it("bezierPresets is a control-point table keyed by name", () => {
-        expect(typeof bezierPresets).toBe("object");
-        // Every value is a 4-tuple of control points.
-        for (const [name, pts] of Object.entries(bezierPresets)) {
-            expect(Array.isArray(pts), `${name} not an array`).toBe(true);
-            expect(pts).toHaveLength(4);
+    it("implements every step-position boundary", () => {
+        const expected = {
+            "jump-start": [0.25, 0.75, 1],
+            "jump-end": [0, 0.5, 1],
+            "jump-none": [0, 2 / 3, 1],
+            "jump-both": [0.2, 0.6, 1],
+        } as const;
+        for (const [position, values] of Object.entries(expected)) {
+            const result = steppedEase(4, position as keyof typeof expected);
+            if (!result.ok) throw new Error(result.error.code);
+            expect([result.value(0), result.value(0.5), result.value(1)])
+                .toEqual(values);
         }
-        // The R.W1.4 rider row is present (smooth-step-3, exact ⅓-handle).
-        expect(bezierPresets["smooth-step-3"]).toEqual([1 / 3, 0, 2 / 3, 1]);
-    });
-
-    it("jumpTerms is the step-position keyword list", () => {
-        expect(Array.isArray(jumpTerms)).toBe(true);
-        expect(jumpTerms).toContain("jump-start");
-        expect(jumpTerms).toContain("jump-end");
-    });
-
-    it("parseSteps parses the CSS steps() grammar", () => {
-        expect(typeof parseSteps).toBe("function");
-        expect(parseSteps("steps(4)")).toEqual({ count: 4, jumpTerm: "jump-end" });
-        expect(parseSteps("steps(3, jump-start)")).toEqual({
-            count: 3,
-            jumpTerm: "jump-start",
-        });
     });
 });

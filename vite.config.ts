@@ -20,22 +20,13 @@ import {
     libraryFileName,
 } from "./vite.library";
 
-// value.js self-alias set, GENERATED from this repo's OWN `package.json#exports`
-// — the single source of truth (the same idiom `scripts/abrogation-sweep.mjs`
-// uses to read glass-ui's exports map). Why the demo aliases value.js to
-// itself at all: glass-ui's + keyframes.js's PUBLISHED `dist/` import value.js
-// by bare + subpath specifiers (`@mkbabb/value.js`, and keyframes'
-// `@mkbabb/value.js/math` — new in the S/O subpath era). Under dist-resolution
-// (N.W1.C) the demo consumes those siblings from their `dist/`, so those
-// value.js imports must land on THIS repo's freshly-built surface — NOT on the
-// stale registry self-install (`node_modules/@mkbabb/value.js@1.0.2`, a real
-// tarball dir that npm materializes from the `^1.0.2` self-dep) whose graph
-// predates the subpath cut. The alias's TRUE job is to OVERRIDE that stale
-// self-install and point every value.js specifier — the demo's own AND every
-// sibling's — at ONE consistent freshly-built published surface.
+// value.js self-alias set, derived from this repo's own `package.json#exports`.
+// The demo and its current sibling builds consume Value through bare package
+// subpaths. A package does not install itself, so these exact aliases point the
+// seven public specifiers at this checkout's freshly-built published surface.
 //
 // GENERATED (not hand-rolled) so the alias set can never drift from the exports
-// map: add/rename a subpath in `package.json#exports` and the alias follows.
+// map: add or rename a subpath in `package.json#exports` and the alias follows.
 // Each entry is an ANCHORED regex (`^…$`), which makes resolution
 // order-independent and — critically — subpath-safe. The prior object-form
 // STRING alias was a prefix rewrite (`@rollup/plugin-alias` matches a string
@@ -49,9 +40,7 @@ const VALUE_JS_PKG = JSON.parse(
 
 const valueJsSelfAlias = Object.entries(VALUE_JS_PKG.exports).map(
     ([subpath, conditions]) => {
-        // "." → "@mkbabb/value.js"; "./math" → "@mkbabb/value.js/math".
-        const specifier =
-            "@mkbabb/value.js" + (subpath === "." ? "" : subpath.slice(1));
+        const specifier = "@mkbabb/value.js" + subpath.slice(1);
         const escaped = specifier.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
         return {
             find: new RegExp(`^${escaped}$`),
@@ -189,33 +178,16 @@ export default defineConfig((mode) => {
             build: {
                 minify: true,
                 lib: {
-                    // O.W2 S1 — the multi-entry map (the glass-ui pattern):
-                    // `index` → dist/value.js (the "." monolith, BC-preserved)
-                    // + the 7 subpath barrels → dist/<name>.js. Each entry emits
-                    // one ES chunk; the non-parsing chunks are parse-that-free by
-                    // graph construction (O.W1 S1).
+                    // The seven literal package capabilities are the complete
+                    // library graph; there is no root or compatibility entry.
                     entry: libraryEntries(import.meta.dirname),
                     fileName: libraryFileName,
                     formats: ["es"],
                 },
                 rolldownOptions: {
-                    // `prettier` is externalized (N.W7.B): the `formatCSS` lazy
-                    // wrapper (`parsing/serialize.ts`) dynamic-imports
-                    // `prettier` + `prettier/plugins/postcss`. Without this,
-                    // Rolldown bundles Prettier's standalone+postcss (~304 KB
-                    // raw / 52% of the unpacked tarball — E3 F-1) into
-                    // `dist/postcss-*.js` + `dist/standalone-*.js`; every
-                    // consumer ships it, and a `formatCSS` user gets a copy
-                    // that can't dedup against their own Prettier. Externalized,
-                    // the dynamic `import("prettier")` resolves to the
-                    // consumer's own install. `prettier` is declared an OPTIONAL
-                    // peerDependency (package.json `peerDependenciesMeta`), so a
-                    // non-`formatCSS` consumer never installs it and pays zero
-                    // ship-weight; a `formatCSS` consumer (e.g. keyframes.js,
-                    // which already depends on prettier) supplies their own.
                     external: libraryExternal,
                     // H.W4 Lane A — strip per-module `//#region src/...` source-
-                    // navigation markers from `dist/value.js`. Default is
+                    // navigation markers from emitted library chunks. Default is
                     // `'simple'`, which emits one `//#region` + `//#endregion`
                     // pair per source module (artefact of the G.W1 1→9-module
                     // color/conversions decomposition; ~+314 B in the published
@@ -236,16 +208,10 @@ export default defineConfig((mode) => {
             },
             plugins: [
                 ...defaultPlugins,
-                // Flatten the emitted dts tree so `dist/index.d.ts` lives at
-                // the path package.json `"types"` + `exports["."].types`
-                // claim. vite-plugin-dts infers `publicRoot` from the common
-                // ancestor of the program's source files; with only
-                // `entryRoot` set, the plugin still mirrors the source layout
-                // under `dist/src/`, which breaks every TS consumer with
-                // TS7016. Overriding `compilerOptions.rootDir` anchors
-                // `publicRoot` at `<repo>/src` so the pairing collapses the
-                // tree to a flat `dist/{index,units,parsing,...}` shape —
-                // parallel to the runtime `dist/value.js`.
+                // Emit declarations beside the seven literal runtime entries.
+                // Overriding `rootDir` keeps vite-plugin-dts from mirroring the
+                // source tree under `dist/src/`; `outDir` is the package's
+                // declared `dist/subpaths/` trust boundary.
                 dts({
                     // K.W2 tsconfig split: the root `tsconfig.json` is now a
                     // thin solution file (`files: []` + references), which
@@ -253,11 +219,24 @@ export default defineConfig((mode) => {
                     // PUBLISHED library program (`src/` only) so the dts program
                     // sees the same source set the runtime bundle does.
                     tsconfigPath: path.resolve(import.meta.dirname, "tsconfig.lib.json"),
-                    include: ["src/"],
+                    include: [
+                        "src/subpaths/color.ts",
+                        "src/subpaths/value.ts",
+                        "src/subpaths/css.ts",
+                        "src/subpaths/easing.ts",
+                        "src/subpaths/math.ts",
+                        "src/subpaths/transform.ts",
+                        "src/subpaths/quantize.ts",
+                        "src/v4/**/*.ts",
+                        "src/math.ts",
+                        "src/transform/**/*.ts",
+                    ],
                     compilerOptions: {
                         rootDir: path.resolve(import.meta.dirname, "src"),
                     },
+                    outDir: path.resolve(import.meta.dirname, "dist/subpaths"),
                     entryRoot: path.resolve(import.meta.dirname, "src"),
+                    rollupTypes: true,
                 }),
             ],
         };

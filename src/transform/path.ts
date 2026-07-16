@@ -20,16 +20,18 @@
  * `getPointAtLength` calls are a binary search + a local interpolation.
  */
 
-export interface Point {
+export type Point = Readonly<{
     x: number;
     y: number;
-}
+}>;
 
 /** A point plus the unit tangent direction (radians) of the path at that point. */
-export interface PathSample extends Point {
+export type PathSample = Readonly<{
+    x: number;
+    y: number;
     /** Tangent angle in radians (atan2 of the path derivative), for `rotate: auto`. */
     angle: number;
-}
+}>;
 
 // A flattened path is a polyline: an ordered list of vertices with the
 // cumulative arc-length at each. Curves are subdivided into line segments fine
