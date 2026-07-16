@@ -56,7 +56,7 @@ jobs:
               shell: bash
               run: |
                   set -euo pipefail
-                  npm pack --json --ignore-scripts > /tmp/value-pack.json
+                  npm pack --json --ignore-scripts --silent > /tmp/value-pack.json
                   node --input-type=module <<'NODE'
                   import { createHash } from "node:crypto";
                   import { appendFileSync, readFileSync, writeFileSync } from "node:fs";
