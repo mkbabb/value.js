@@ -27,7 +27,7 @@ describe("repository.proposedName", () => {
             name: "test-red",
             css: "#ff0000",
             status: "proposed",
-            contributor: "alice",
+            proposerSlug: "alice",
             createdAt: new Date(),
             approvedAt: null,
         });
@@ -40,7 +40,7 @@ describe("repository.proposedName", () => {
             name: "azure-glow",
             css: "#00aaff",
             status: "approved",
-            contributor: null,
+            proposerSlug: null,
             createdAt: new Date(),
             approvedAt: new Date(),
         });
@@ -54,7 +54,7 @@ describe("repository.proposedName", () => {
                 name: `proposed-${i}`,
                 css: "#ffffff",
                 status: "proposed",
-                contributor: null,
+                proposerSlug: null,
                 createdAt: new Date(),
                 approvedAt: null,
             });
@@ -63,7 +63,7 @@ describe("repository.proposedName", () => {
             name: "approved-1",
             css: "#eeeeee",
             status: "approved",
-            contributor: null,
+            proposerSlug: null,
             createdAt: new Date(),
             approvedAt: new Date(),
         });
@@ -78,7 +78,7 @@ describe("repository.proposedName", () => {
             name: "trans",
             css: "#abc",
             status: "proposed",
-            contributor: null,
+            proposerSlug: null,
             createdAt: new Date(),
             approvedAt: null,
         });
@@ -96,7 +96,7 @@ describe("repository.proposedName", () => {
             name: "to-delete",
             css: "#000",
             status: "proposed",
-            contributor: null,
+            proposerSlug: null,
             createdAt: new Date(),
             approvedAt: null,
         });

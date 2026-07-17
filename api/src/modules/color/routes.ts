@@ -74,7 +74,8 @@ colors.post("/propose", async (c) => {
     if (!parsed.success) {
         throw new ValidationError("Invalid color body", parsed.error.format());
     }
-    const result = await proposeColor(c.var.services, c.var.sessionToken, parsed.data);
+    // Attribution is server-derived from the resolved Principal (V·W45 item 3).
+    const result = await proposeColor(c.var.services, c.var.userSlug, parsed.data);
     return c.json(result, 201);
 });
 

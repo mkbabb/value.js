@@ -199,16 +199,28 @@ describe("routes.colors — propose + public listings (N.W3.H-tests)", () => {
         });
     });
 
-    it("POST /colors/propose → 201", async () => {
+    it("POST /colors/propose → 201, attributed to the authed Principal (V·W45 item 3)", async () => {
         const res = await app.request("/colors/propose", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "X-Session-Token": "tok-c",
             },
-            body: JSON.stringify({ name: "dusk-rose", css: "#c97" }),
+            // Attempt to SPOOF attribution via the body. The schema carries no
+            // such field, so it is dropped; attribution is derived from the
+            // session (carol), never from the caller (item 3).
+            body: JSON.stringify({
+                name: "dusk-rose",
+                css: "#c97",
+                proposerSlug: "eve",
+                contributor: "eve",
+            }),
         });
         expect(res.status).toBe(201);
+        const body = (await res.json()) as { proposerSlug: string };
+        expect(body.proposerSlug).toBe("carol");
+        const stored = await services.repositories.proposedNames.findByName("dusk-rose");
+        expect(stored?.proposerSlug).toBe("carol");
     });
 
     it("POST /colors/propose → 400 problem+json on an invalid name", async () => {
@@ -249,7 +261,7 @@ describe("routes.colors — propose + public listings (N.W3.H-tests)", () => {
                 name,
                 css: "#abcabc",
                 status: "approved",
-                contributor: null,
+                proposerSlug: null,
                 createdAt: now,
                 approvedAt: now,
             });

@@ -21,7 +21,7 @@ export interface ProposedNameDTO {
     name: string;
     css: string;
     status: ProposedName["status"];
-    contributor: string | null;
+    proposerSlug: string | null;
     createdAt: Date;
     approvedAt: Date | null;
 }
@@ -51,7 +51,7 @@ function formatProposedName(
         name: doc.name,
         css: doc.css,
         status: doc.status,
-        contributor: doc.contributor,
+        proposerSlug: doc.proposerSlug,
         createdAt: doc.createdAt,
         approvedAt: doc.approvedAt,
     };

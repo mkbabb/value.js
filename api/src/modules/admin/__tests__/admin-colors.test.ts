@@ -39,7 +39,7 @@ describe("service.admin.colors", () => {
             name: "red-1",
             css: "#ff0000",
             status: "proposed",
-            contributor: "alice",
+            proposerSlug: "alice",
             createdAt: new Date(),
             approvedAt: null,
         });
@@ -53,7 +53,7 @@ describe("service.admin.colors", () => {
             name: "blue-1",
             css: "#0000ff",
             status: "proposed",
-            contributor: null,
+            proposerSlug: null,
             createdAt: new Date(),
             approvedAt: null,
         });
@@ -82,7 +82,7 @@ describe("service.admin.colors", () => {
             name: "del",
             css: "#000",
             status: "proposed",
-            contributor: null,
+            proposerSlug: null,
             createdAt: new Date(),
             approvedAt: null,
         });

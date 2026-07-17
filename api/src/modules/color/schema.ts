@@ -16,7 +16,8 @@ export const proposeColorBody = z.object({
             "name must be lowercase alphanumeric with hyphens, starting with a letter",
         ),
     css: z.string().min(1).max(200),
-    contributor: z.string().max(64).optional(),
+    // V·W45 item 3: NO caller-controlled attribution. The proposer is derived
+    // server-side from the authenticated session, never accepted from the body.
 });
 
 export const colorSearchQuery = z.object({
