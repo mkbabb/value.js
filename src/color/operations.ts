@@ -1,5 +1,5 @@
-import type { Result } from "../result";
-import { err, ok } from "../result";
+import type { Result } from "../foundation/result";
+import { err, ok } from "../foundation/result";
 import { CONVERSION_ANCHORS, HUE_INDEX, isPowerless } from "./anchors";
 import {
     type AnyColor,

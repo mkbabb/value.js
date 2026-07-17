@@ -1,5 +1,5 @@
-import type { Result } from "./result";
-import { err, ok } from "./result";
+import type { Result } from "./foundation/result";
+import { err, ok } from "./foundation/result";
 
 export type EasingFunction = (progress: number) => number;
 export type EasingIssue = Readonly<{ code:

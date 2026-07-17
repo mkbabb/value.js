@@ -10,7 +10,7 @@ export type {
     RGBA8,
     RgbGamut,
     SpaceId,
-} from "../v4/color";
+} from "../color/index";
 export {
     a98Rgb,
     convertColor,
@@ -35,4 +35,4 @@ export {
     safeAccentColor,
     toRgba8,
     xyz,
-} from "../v4/color";
+} from "../color/index";

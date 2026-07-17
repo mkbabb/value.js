@@ -1,5 +1,5 @@
-import type { Color, Result } from "./color";
-import { convertColor, oklab, rgb } from "./color";
+import type { Color, Result } from "./color/index";
+import { convertColor, oklab, rgb } from "./color/index";
 
 export type QuantizeOptions = Readonly<{
     k?: number;

@@ -9,7 +9,7 @@ import {
     cubicBezier,
     interpBezier,
     cubicBezierToString,
-} from "../src/math";
+} from "../src/foundation/math";
 
 describe("lerpArray", () => {
     it("matches scalar lerp across channel counts and progress samples", () => {

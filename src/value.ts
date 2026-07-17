@@ -1,4 +1,4 @@
-import type { AnyColor } from "./color";
+import type { AnyColor } from "./color/index";
 
 export type CssScalar = Readonly<{
     kind: "scalar";

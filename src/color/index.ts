@@ -10,7 +10,7 @@ export type {
     RGBA8,
     RgbGamut,
     SpaceId,
-} from "./color/model";
+} from "./model";
 export {
     a98Rgb,
     displayP3,
@@ -29,7 +29,7 @@ export {
     rec2020,
     rgb,
     xyz,
-} from "./color/model";
+} from "./model";
 export {
     convertColor,
     interpolateHue,
@@ -37,5 +37,5 @@ export {
     mixColors,
     safeAccentColor,
     toRgba8,
-} from "./color/operations";
-export type { Result } from "./result";
+} from "./operations";
+export type { Result } from "../foundation/result";

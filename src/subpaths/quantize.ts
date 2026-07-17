@@ -1,2 +1,2 @@
-export type { QuantizeIssue, QuantizeOptions, QuantizedColor } from "../v4/quantize";
-export { dominantColor, quantizePixels } from "../v4/quantize";
+export type { QuantizeIssue, QuantizeOptions, QuantizedColor } from "../quantize";
+export { dominantColor, quantizePixels } from "../quantize";

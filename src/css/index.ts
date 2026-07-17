@@ -32,7 +32,7 @@ export type {
     TriggerType,
     ViewInset,
     ViewTimelineDescriptor,
-} from "./css/types";
+} from "./types";
 export {
     coerceToSyntax,
     parseAnimationRange,
@@ -44,7 +44,7 @@ export {
     parseKeyframeSelector,
     parseTimingFunction,
     serializeCssColor,
-} from "./css/grammar";
+} from "./grammar";
 export {
     collectAnimationOptions,
     collectCustomFunctions,
@@ -55,4 +55,4 @@ export {
     collectTimelineOptions,
     parseStylesheet,
     serializeTimelineOptions,
-} from "./css/stylesheet";
+} from "./stylesheet";

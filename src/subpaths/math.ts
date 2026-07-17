@@ -14,4 +14,4 @@ export {
     cubicBezier,
     interpBezier,
     cubicBezierToString,
-} from "../math";
+} from "../foundation/math";
