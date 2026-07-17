@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { inject, ref } from "vue";
-import { Card } from "../../@/components/ui/card";
+import { Card } from "../../ui/card";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
-import GenerateControls from "../../@/components/custom/generate/GenerateControls.vue";
+import GenerateControls from "./GenerateControls.vue";
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";

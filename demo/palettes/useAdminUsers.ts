@@ -11,7 +11,7 @@ import {
     getUserPalettes,
 } from "./api";
 import type { Palette, User } from "./types";
-import type { AdminUsersPanel } from "../@/components/custom/palette-browser/admin";
+import type { AdminUsersPanel } from "./browser/admin";
 
 export function useAdminUsers(deps: {
     searchQuery: Ref<string>;

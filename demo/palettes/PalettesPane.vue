@@ -118,9 +118,9 @@
 
 <script setup lang="ts">
 import { inject, reactive, ref, computed, watch, onMounted, nextTick } from "vue";
-import { Card } from "../@/components/ui/card";
-import { Button } from "../@/components/ui/button";
-import { Badge } from "../@/components/ui/badge";
+import { Card } from "../ui/card";
+import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
 import { Trash2 } from "@lucide/vue";
 import { useSortable } from "@vueuse/integrations/useSortable";
 import { LIBRARY_PORT_KEY, COLOR_TARGET_PORT_KEY } from "./usePalettePorts";
@@ -129,7 +129,7 @@ import {
     CurrentPaletteEditor,
     PaletteCard,
     PaletteCardGrid,
-} from "../@/components/custom/palette-browser/card";
+} from "./browser/card";
 import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "../shared/ui/PaneHeader.vue";

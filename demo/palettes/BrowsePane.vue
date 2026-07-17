@@ -177,26 +177,26 @@
 
 <script setup lang="ts">
 import { inject, reactive, ref, computed, onMounted } from "vue";
-import { Card } from "../@/components/ui/card";
-import { Button } from "../@/components/ui/button";
+import { Card } from "../ui/card";
+import { Button } from "../ui/button";
 import { BROWSE_PORT_KEY } from "./usePalettePorts";
 import { CSS_COLOR_KEY } from "../color-session/keys";
 import {
     PaletteCard,
     PaletteCardGrid,
     PaletteCardSkeleton,
-} from "../@/components/custom/palette-browser/card";
-import EmptyState from "../@/components/common/EmptyState.vue";
-import { SearchFilterBar, TagEditPopover } from "../@/components/custom/palette-browser/search";
+} from "./browser/card";
+import EmptyState from "../shared/ui/EmptyState.vue";
+import { SearchFilterBar, TagEditPopover } from "./browser/search";
 import {
     VersionHistoryDrawer,
     FlagReportDialog,
-} from "../@/components/custom/palette-browser/dialog";
+} from "./browser/dialog";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
 import type { Palette, Tag } from "./types";
 import { usePaletteExport } from "./usePaletteExport";
-import { useDialogBrowseActions } from "../@/components/custom/palette-browser/dialog";
+import { useDialogBrowseActions } from "./browser/dialog";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(BROWSE_PORT_KEY)!;

@@ -60,15 +60,15 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Separator } from "../../@/components/ui/separator";
-import { Card, CardContent } from "../../@/components/ui/card";
+import { Separator } from "../../ui/separator";
+import { Card, CardContent } from "../../ui/card";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
-import { ColorNutritionLabel } from "../../@/components/custom/color-picker";
+import ColorNutritionLabel from "./ColorNutritionLabel.vue";
 import { DISPLAY_COLOR_SPACE_NAMES } from "../../color-session/color-model";
 import type { ColorModel } from "../../color-session/color-model";
-import ColorSpaceSelector from "../../@/components/custom/color-picker/display/ColorSpaceSelector.vue";
-import type { DocModule } from "../../@/components/custom/markdown";
-import { Markdown } from "../../@/components/custom/markdown";
+import ColorSpaceSelector from "../../color-session/ColorSpaceSelector.vue";
+import type { DocModule } from "./markdown";
+import { Markdown } from "./markdown";
 const model = defineModel<ColorModel>({ required: true });
 const aboutSelectOpen = ref(false);
 

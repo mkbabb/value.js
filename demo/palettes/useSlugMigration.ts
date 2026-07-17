@@ -3,7 +3,7 @@ import { useSession } from "../platform/auth/useSession";
 import { createAndSavePalette } from "./api";
 import { ApiProblem } from "../platform/transport/api-problem";
 import type { Palette } from "./types";
-import type { PaletteSlugBar } from "../@/components/custom/palette-browser/slug";
+import type { PaletteSlugBar } from "./browser/slug";
 
 export function useSlugMigration(deps: {
     savedPalettes: Ref<Palette[]> | ComputedRef<Palette[]>;

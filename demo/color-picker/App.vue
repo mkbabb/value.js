@@ -161,10 +161,10 @@
 import { computed, onMounted, provide, ref, shallowRef, useTemplateRef } from "vue";
 
 import type { ColorModel, EditTarget } from "../color-session/color-model";
-import { ColorPicker } from "../@/components/custom/color-picker";
+import { ColorPicker } from "../picker";
 import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "../color-session/keys";
 
-import { Dock } from "../@/components/custom/dock";
+import { Dock } from "../shell/dock";
 // U.W-DEMO · U-F47 (G-DEMO-3b): reached through the `dialog/` sub-barrel (a
 // barrel the top-level palette-browser seam re-exports), never the raw `.vue`
 // file. BOOK (PI-6 residual): the root `package.json` marks `./demo/**`
@@ -173,11 +173,11 @@ import { Dock } from "../@/components/custom/dock";
 // (narrow the `demo/**` sideEffects glob, or a manualChunk for this dialog) is a
 // build-config change to be verified once the demo builds (currently blocked by
 // the glass-ui 5.0.0 adopt-gap); tracked to U.W-CLOSE's re-probe.
-import { MigratePalettesDialog } from "../@/components/custom/palette-browser/dialog";
+import { MigratePalettesDialog } from "../palettes/browser/dialog";
 import PaneSlot from "../shell/PaneSlot.vue";
 // U.W-A11Y · U-F58: the focus-managed / SR-announced boundary that catches a
 // pane render throw instead of white-screening (never a silent dead plate).
-import ErrorBoundary from "../@/components/common/ErrorBoundary.vue";
+import ErrorBoundary from "./ErrorBoundary.vue";
 
 import { useCustomColorNames } from "../color-session/useCustomColorNames";
 import { useColorUrl } from "../color-session/useColorUrl";

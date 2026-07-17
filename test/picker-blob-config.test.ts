@@ -4,13 +4,18 @@ import { describe, expect, it } from "vitest";
 
 const demoFile = (file: string) =>
     readFileSync(
-        path.resolve(process.cwd(), "demo/@/components/custom/color-picker", file),
+        path.resolve(process.cwd(), "demo/picker", file),
         "utf8",
     );
 
 const source = demoFile("visual/HeroBlob.vue");
 const picker = demoFile("ColorPicker.vue");
-const actions = demoFile("controls/ActionToolbar.vue");
+// ActionToolbar is the dock's action bar (W43b3: colocated with its sole
+// consumer, the dock action-bar layer, in demo/shell/dock/).
+const actions = readFileSync(
+    path.resolve(process.cwd(), "demo/shell/dock/ActionToolbar.vue"),
+    "utf8",
+);
 
 describe("V.W29 Picker Blob fixed-footprint paint mass", () => {
     it("changes the sole body-radius authority while preserving the morphology tuple", () => {

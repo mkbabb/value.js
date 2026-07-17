@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
     channelLabel,
     sliderValueText,
-} from "../demo/@/components/custom/color-picker/controls/ComponentSliders/composables/sliderAnnouncement";
+} from "../demo/picker/controls/ComponentSliders/composables/sliderAnnouncement";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // U.W-A11Y · U-F27 (BR-4 formatter) — the slider announcement grammar.

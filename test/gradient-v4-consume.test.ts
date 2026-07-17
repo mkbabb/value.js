@@ -5,10 +5,10 @@ import {
     linearInterval,
     sampleCoalescedStops,
     serializeCoalescedGradient,
-} from "../demo/@/components/custom/gradient/composables/useGradientCSS";
-import { interpolateStopColors } from "../demo/@/components/custom/gradient/composables/useGradientInterpolation";
-import type { GradientModelState } from "../demo/@/components/custom/gradient/composables/useGradientModel";
-import { SPECIMEN_TILES } from "../demo/@/components/custom/gradient/GradientVisualizer/easing/easingCatalogue";
+} from "../demo/workbenches/gradient/composables/useGradientCSS";
+import { interpolateStopColors } from "../demo/workbenches/gradient/composables/useGradientInterpolation";
+import type { GradientModelState } from "../demo/workbenches/gradient/composables/useGradientModel";
+import { SPECIMEN_TILES } from "../demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue";
 
 const model: GradientModelState = {
     type: "linear",

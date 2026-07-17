@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { inject, computed } from "vue";
-import { Card } from "../../@/components/ui/card";
+import { Card } from "../../ui/card";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
-import MixSourceSelector from "../../@/components/custom/mix/MixSourceSelector.vue";
-import MixConfigBar from "../../@/components/custom/mix/MixConfigBar.vue";
-import MixResultDisplay from "../../@/components/custom/mix/MixResultDisplay.vue";
-import MixAnimationCanvas from "../../@/components/custom/mix/MixAnimationCanvas/MixAnimationCanvas.vue";
-import { useMixingState } from "../../@/components/custom/mix/composables/useMixingState";
+import MixSourceSelector from "./MixSourceSelector.vue";
+import MixConfigBar from "./MixConfigBar.vue";
+import MixResultDisplay from "./MixResultDisplay.vue";
+import MixAnimationCanvas from "./MixAnimationCanvas/MixAnimationCanvas.vue";
+import { useMixingState } from "./composables/useMixingState";
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";

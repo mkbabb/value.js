@@ -1,7 +1,7 @@
 /**
  * T.W3-5 — THE INK-ON-TIER CONTRACT probe (D6).
  *
- * The pure module (`demo/@/composables/color/ink.ts`) is probed through the
+ * The pure module (`demo/color-session/ink.ts`) is probed through the
  * same public color model the resolver consumes. The oracle independently
  * computes WCAG luminance after `/css` parsing and `/color` conversion.
  *

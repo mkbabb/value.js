@@ -28,7 +28,7 @@ import {
     RAMP_SAMPLE_COUNT,
     sampleInterpolationRamp,
     serializeStop,
-} from "../demo/@/components/custom/color-chips/sample";
+} from "../demo/color-session/color-chips/sample";
 import { parseColorIn } from "../demo/color-session/color-utils";
 import type { PickerColorIn, PickerSpace } from "../demo/color-session/picker-color";
 

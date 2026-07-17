@@ -38,7 +38,7 @@ import {
 import {
     resolveLampState,
     type LampState,
-} from "../demo/@/components/custom/dock/status-lamp";
+} from "../demo/shell/dock/status-lamp";
 
 afterEach(() => {
     // The latch is deliberate module state; reset between tests via its own

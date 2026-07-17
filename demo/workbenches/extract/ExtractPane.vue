@@ -21,8 +21,8 @@
 
 <script setup lang="ts">
 import { inject } from "vue";
-import { Card } from "../../@/components/ui/card";
-import ExtractWorkbench from "../../@/components/custom/image-palette-extractor/ExtractWorkbench.vue";
+import { Card } from "../../ui/card";
+import ExtractWorkbench from "./ExtractWorkbench.vue";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import { COLOR_TARGET_PORT_KEY } from "../../palettes/usePalettePorts";
 import type { SpaceId } from "@mkbabb/value.js/color";

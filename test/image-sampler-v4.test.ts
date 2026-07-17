@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
     useImageSampler,
     type DisplayColorSpace,
-} from "../demo/@/components/custom/image-palette-extractor/ImageEyedropper/composables/useImageSampler";
+} from "../demo/workbenches/extract/ImageEyedropper/composables/useImageSampler";
 
 function sampler(space: DisplayColorSpace) {
     return useImageSampler({
