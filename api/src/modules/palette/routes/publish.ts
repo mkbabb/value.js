@@ -23,7 +23,7 @@ export const publishRouter = new Hono<AppEnv>();
 
 function flipVisibility(target: "public" | "private") {
     return async (c: Context<AppEnv>) => {
-        const slug = c.req.param("slug");
+        const slug = c.req.param("slug")!;
 
         // If-Match guard (the PATCH precedent): a single pre-write optimistic-
         // concurrency check. The `requireOwnership` extractor already read the
