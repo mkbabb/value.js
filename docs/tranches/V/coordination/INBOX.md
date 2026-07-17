@@ -20,13 +20,11 @@ durable mark.
 
 ## Durability (E13 robustness — three layers, honest about what survives what)
 
-1. **In-session cron** `E13 MAIL SWEEP` — EXECUTION era, job `4f129d93` (hourly, off-minute
-   :41): sweeps the four paths, rows new mail UNREAD (append-only), replies "MAIL: quiet" and
-   touches nothing when empty. Replaced the formation-era `ba1d0311` at convergence
-   (2026-07-17, `reformation/FORMATION-CLOSED.md`). Platform-scoped to the live session
-   (crons cannot persist to disk; 7-day auto-expiry) — it survives rate-limit stalls and idle
-   time, NOT session death; any fresh session re-creates it while the tranche is open. Its
-   teardown sentinel is `reformation/TRANCHE-CLOSED.md`, written at W56's canon-terminal close.
+1. **In-session cron — TORN DOWN by owner order 2026-07-17** ("kill any remaining crons"),
+   after the formation-era `ba1d0311` (:23) and execution-era `4f129d93` (:41) each served
+   their span. No cron is re-created unless the owner orders one. Mail vigilance now rests
+   ENTIRELY on the wave Step-0 sweeps (V-PRIME §2 — every wave opens with the four-path
+   sweep; no wave closes with UNREAD mail in scope) plus layers 2–3 below.
 2. **This ledger** — the on-disk truth. Any session, including one born after a crash, resumes
    the mail state from here alone.
 3. **User memory** (`feedback-mail-inbox-law.md`) — loads into every future value.js session and
