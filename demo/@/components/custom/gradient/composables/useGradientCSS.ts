@@ -9,11 +9,25 @@
 
 import { computed } from "vue";
 import type { ComputedRef } from "vue";
-import type { Color } from "@mkbabb/value.js/color";
+import type { AnyColor } from "@mkbabb/value.js/color";
 import { mixColors } from "@mkbabb/value.js/color";
-import { linear, resolveEasing } from "@mkbabb/value.js/easing";
-import type { TimingFunction } from "@mkbabb/value.js/easing";
-import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
+import {
+    CubicBezier,
+    easing,
+    linear,
+    linearEasing,
+    steppedEase,
+} from "@mkbabb/value.js/easing";
+import type {
+    EasingFunction,
+    LinearEasingStop,
+} from "@mkbabb/value.js/easing";
+import { parseTimingFunction } from "@mkbabb/value.js/css";
+import type {
+    CssLinearStop,
+    CssTimingFunction,
+} from "@mkbabb/value.js/css";
+import { colorToCss, parseColorIn } from "@lib/color-utils";
 import type {
     GradientModelState,
     GradientInterval,
@@ -42,34 +56,80 @@ export function linearInterval(): GradientInterval {
         css: "cubic-bezier(0, 0, 1, 1)",
         fn: linear,
         points: [0, 0, 1, 1],
+        steps: 4,
+        term: "jump-end",
     };
 }
 
-// ── The easing resolver (W5-9: the W1-6 `resolveEasing` consume) ──
+// ── CSS timing AST → numeric easing ──
 //
-// The interval's `css` LITERAL is the persisted truth; the picker's `fn`
-// payload is a transient cache. Any interval whose fn is absent resolves
-// through the library's canonical string→TimingFunction resolver — the demo
-// never re-derives curve math from the literal.
+// `/css` owns text and `/easing` owns numeric evaluation. The interval's CSS
+// literal is persisted truth; the picker callable is only a live cache.
 
-const resolvedEasingCache = new Map<string, TimingFunction>();
+const resolvedEasingCache = new Map<string, EasingFunction>();
 
-/** The interval's live timing function: `fn` cache, else `resolveEasing(css)`. */
-export function easingFnOf(interval: GradientInterval | undefined): TimingFunction {
-    if (!interval) return linear;
+function easingValue(
+    result: ReturnType<typeof CubicBezier>,
+    source: string,
+): EasingFunction {
+    if (result.ok) return result.value;
+    throw new Error(`Invalid gradient easing "${source}": ${result.error.code}`);
+}
+
+/** Resolve CSS linear()'s optional/double positions into numeric stops. */
+function linearStops(stops: readonly CssLinearStop[]): LinearEasingStop[] {
+    const expanded = stops.flatMap(({ output, input }) =>
+        input.length === 2
+            ? [{ output, input: input[0] }, { output, input: input[1] }]
+            : [{ output, input: input[0] ?? Number.NaN }],
+    );
+    expanded[0]!.input = Number.isNaN(expanded[0]!.input) ? 0 : expanded[0]!.input;
+    const last = expanded.length - 1;
+    expanded[last]!.input = Number.isNaN(expanded[last]!.input)
+        ? 1
+        : Math.max(expanded[last]!.input, expanded[0]!.input);
+
+    let anchor = 0;
+    for (let i = 1; i <= last; i++) {
+        if (Number.isNaN(expanded[i]!.input)) continue;
+        expanded[i]!.input = Math.max(expanded[i]!.input, expanded[anchor]!.input);
+        const span = i - anchor;
+        for (let j = 1; j < span; j++) {
+            expanded[anchor + j]!.input = expanded[anchor]!.input
+                + (expanded[i]!.input - expanded[anchor]!.input) * j / span;
+        }
+        anchor = i;
+    }
+    return expanded;
+}
+
+function timingFunctionValue(ast: CssTimingFunction, source: string): EasingFunction {
+    switch (ast.kind) {
+        case "keyword":
+            return easingValue(easing(ast.name), source);
+        case "cubic-bezier":
+            return easingValue(CubicBezier(ast.x1, ast.y1, ast.x2, ast.y2), source);
+        case "steps":
+            return easingValue(steppedEase(ast.count, ast.position), source);
+        case "linear-function":
+            return easingValue(linearEasing(linearStops(ast.stops)), source);
+    }
+}
+
+/** The interval's live timing function: picker cache, else parsed CSS truth. */
+export function easingFnOf(
+    interval: Pick<GradientInterval, "css"> & Partial<Pick<GradientInterval, "fn">>,
+): EasingFunction {
     if (interval.fn) return interval.fn;
     const cached = resolvedEasingCache.get(interval.css);
     if (cached) return cached;
-    try {
-        const fn = resolveEasing(interval.css);
-        resolvedEasingCache.set(interval.css, fn);
-        return fn;
-    } catch (err) {
-        // Interval literals are internally minted (picker / linearInterval),
-        // so this is a defect signal, not a user state — say so, loudly.
-        console.warn(`easingFnOf: unresolvable easing literal "${interval.css}"`, err);
-        return linear;
+    const parsed = parseTimingFunction(interval.css);
+    if (!parsed.ok) {
+        throw new Error(`Invalid gradient easing "${interval.css}": ${parsed.diagnostics[0].code}`);
     }
+    const fn = timingFunctionValue(parsed.value, interval.css);
+    resolvedEasingCache.set(interval.css, fn);
+    return fn;
 }
 
 // ── Serialization ──
@@ -104,15 +164,13 @@ export function serializeGradient(model: GradientModelState): string {
 /** One eased sub-stop of the coalesced ramp (position 0–100). */
 export interface CoalescedSample {
     position: number;
-    /** The mixed raw color (normalized [0,1]) in `model.interpolationSpace`. */
-    color: Color<number>;
+    /** The final color in `model.interpolationSpace`. */
+    color: AnyColor;
 }
 
 /**
- * The ONE sampling law (S.W5-8): eased sub-stops along the ramp, consumed by
- * BOTH the coalesced serializer (below) and the perceived-space plate's
- * trajectory/rungs (`usePerceivedRamp`) — the render and the instrument can
- * never disagree about what the ramp does.
+ * The ONE sampling law: eased sub-stops consumed by the coalesced renderer,
+ * the normalized editing rail, and each interval specimen.
  */
 export function sampleCoalescedStops(model: GradientModelState): CoalescedSample[] {
     const { stops, intervals, interpolationSpace, hueMethod } = model;
@@ -127,12 +185,12 @@ export function sampleCoalescedStops(model: GradientModelState): CoalescedSample
     for (let i = 0; i < stops.length - 1; i++) {
         const s0 = stops[i]!;
         const s1 = stops[i + 1]!;
-        const easing = easingFnOf(intervals[i]);
+        const interval = intervals[i];
+        if (!interval) throw new Error(`Gradient interval ${i} is missing`);
+        const easing = easingFnOf(interval);
 
-        const c0 = cssToRawColor(s0.cssColor, interpolationSpace);
-        const c1 = cssToRawColor(s1.cssColor, interpolationSpace);
-
-        if (!c0 || !c1) continue;
+        const c0 = parseColorIn(s0.cssColor, interpolationSpace);
+        const c1 = parseColorIn(s1.cssColor, interpolationSpace);
 
         const posRange = s1.position - s0.position;
 
@@ -141,8 +199,16 @@ export function sampleCoalescedStops(model: GradientModelState): CoalescedSample
             const easedT = easing(t);
             const pos = s0.position + t * posRange;
 
-            const mixed = mixColors(c0, c1, 1 - easedT, easedT, interpolationSpace, hueMethod);
-            out.push({ position: pos, color: mixed });
+            const mixed = mixColors(c0, c1, easedT, {
+                space: interpolationSpace,
+                hue: hueMethod,
+            });
+            if (!mixed.ok) {
+                throw new Error(`Gradient color mix failed: ${mixed.error.code}`);
+            }
+            // A runtime SpaceId keeps the discriminant/channel pair intact;
+            // TypeScript cannot distribute Color<SpaceId> back into AnyColor.
+            out.push({ position: pos, color: mixed.value as AnyColor });
         }
     }
 
@@ -152,7 +218,7 @@ export function sampleCoalescedStops(model: GradientModelState): CoalescedSample
 /** Format eased samples as a normalized horizontal strip (the ONE ramp form). */
 function rampGradient(samples: CoalescedSample[]): string {
     const parts = samples.map(
-        (s) => `${rawColorToCSS(s.color)} ${s.position.toFixed(2)}%`,
+        (s) => `${colorToCss(s.color)} ${s.position.toFixed(2)}%`,
     );
     return `linear-gradient(90deg, ${parts.join(", ")})`;
 }
@@ -170,6 +236,8 @@ export function serializeIntervalRamp(
     const s0 = model.stops[index];
     const s1 = model.stops[index + 1];
     if (!s0 || !s1) return null;
+    const interval = model.intervals[index];
+    if (!interval) throw new Error(`Gradient interval ${index} is missing`);
 
     const sub: GradientModelState = {
         type: "linear",
@@ -178,14 +246,11 @@ export function serializeIntervalRamp(
             { ...s0, position: 0 },
             { ...s1, position: 100 },
         ],
-        intervals: [model.intervals[index] ?? linearInterval()],
+        intervals: [interval],
         interpolationSpace: model.interpolationSpace,
         hueMethod: model.hueMethod,
     };
-    const samples = sampleCoalescedStops(sub);
-    if (samples.length === 0) return null;
-
-    return rampGradient(samples);
+    return rampGradient(sampleCoalescedStops(sub));
 }
 
 /**
@@ -233,7 +298,7 @@ export function serializeCoalescedGradient(model: GradientModelState): string {
     }
 
     for (const sample of sampleCoalescedStops(model)) {
-        parts.push(`${rawColorToCSS(sample.color)} ${sample.position.toFixed(2)}%`);
+        parts.push(`${colorToCss(sample.color)} ${sample.position.toFixed(2)}%`);
     }
 
     return `${typeName}(${parts.join(", ")})`;

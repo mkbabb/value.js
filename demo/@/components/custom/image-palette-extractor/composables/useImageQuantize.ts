@@ -43,12 +43,12 @@ export interface ImageQuantizeOptions {
 export function useImageQuantize(options?: ImageQuantizeOptions) {
     const workerFactory = options?.workerFactory ?? createWorker;
 
-    const palette = shallowRef<QuantizedColor[]>([]);
+    const palette = shallowRef<readonly QuantizedColor[]>([]);
     const isProcessing = ref(false);
     const error = ref<string | null>(null);
 
     let worker: Worker | null = null;
-    let pendingResolve: ((value: QuantizedColor[]) => void) | null = null;
+    let pendingResolve: ((value: readonly QuantizedColor[]) => void) | null = null;
     let pendingReject: ((reason: unknown) => void) | null = null;
 
     function getWorker(): Worker {
@@ -56,10 +56,10 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
             worker = workerFactory();
             worker.onmessage = (e: MessageEvent<QuantizeWorkerResponse>) => {
                 if (e.data.type === "result") {
-                    palette.value = e.data.palette ?? [];
+                    palette.value = e.data.palette;
                     pendingResolve?.(palette.value);
                 } else {
-                    error.value = e.data.error ?? "Unknown worker error";
+                    error.value = e.data.error;
                     pendingReject?.(new Error(error.value));
                 }
                 isProcessing.value = false;
@@ -82,11 +82,11 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
         width: number,
         height: number,
         options?: Partial<QuantizeOptions>,
-    ): Promise<QuantizedColor[]> {
+    ): Promise<readonly QuantizedColor[]> {
         error.value = null;
         isProcessing.value = true;
 
-        return new Promise<QuantizedColor[]>((resolve, reject) => {
+        return new Promise<readonly QuantizedColor[]>((resolve, reject) => {
             pendingResolve = resolve;
             pendingReject = reject;
 
@@ -98,26 +98,21 @@ export function useImageQuantize(options?: ImageQuantizeOptions) {
         });
     }
 
-    // kC: `chromaWeight` (the OKLab distance-metric chroma bias, `QuantizeOptions.chromaWeight`)
-    // is threaded through into the worker options so the extractor's chroma-weight
-    // control actually perturbs the quantization. The library already consumes it
-    // (`src/quantize/index.ts:141`); the demo previously forwarded only `{ k }`,
-    // making the control a placebo. `chromaWeight` is omitted from the options when
-    // undefined so it never clobbers the library `DEFAULTS` (`{ ...DEFAULTS, ...opts }`).
+    // Keep the public default authoritative when the optional control is unset.
     const buildOptions = (k: number, chromaWeight?: number): Partial<QuantizeOptions> =>
         chromaWeight === undefined ? { k } : { k, chromaWeight };
 
-    async function quantizeFromFile(file: File, k: number, chromaWeight?: number): Promise<QuantizedColor[]> {
+    async function quantizeFromFile(file: File, k: number, chromaWeight?: number): Promise<readonly QuantizedColor[]> {
         const { pixels, width, height } = await imageFileToPixels(file);
         return runQuantize(pixels, width, height, buildOptions(k, chromaWeight));
     }
 
-    async function quantizeFromCanvas(canvas: HTMLCanvasElement, k: number, chromaWeight?: number): Promise<QuantizedColor[]> {
+    async function quantizeFromCanvas(canvas: HTMLCanvasElement, k: number, chromaWeight?: number): Promise<readonly QuantizedColor[]> {
         const { pixels, width, height } = canvasToPixels(canvas);
         return runQuantize(pixels, width, height, buildOptions(k, chromaWeight));
     }
 
-    async function quantizeFromCamera(k: number, chromaWeight?: number): Promise<{ palette: QuantizedColor[]; stop: () => void }> {
+    async function quantizeFromCamera(k: number, chromaWeight?: number): Promise<{ palette: readonly QuantizedColor[]; stop: () => void }> {
         const stream = await navigator.mediaDevices.getUserMedia({
             video: { facingMode: "environment", width: { ideal: 640 }, height: { ideal: 480 } },
         });

@@ -69,7 +69,7 @@
                             :max="1"
                             :step="0.001"
                             class="channel-slider"
-                            :model-value="[model.color.value[component].value]"
+                            :model-value="[sliderValue(component)]"
                             :style="sliderVars(component)"
                             @update:model-value="
                                 (payload: number[] | undefined) => {
@@ -94,7 +94,7 @@
 import { computed, inject, ref, watch } from "vue";
 import { Card } from "@components/ui/card";
 import { Slider } from "@components/ui/slider";
-import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
+import { PICKER_CHANNELS, channelNumber, normalizedChannel } from "@lib/picker-color";
 import { clamp } from "@mkbabb/value.js/math";
 import { spectrumFieldIsLight } from "../spectrumLuma";
 import { readoutDecimals } from "../../display/ColorComponentDisplay/readoutReservation";
@@ -111,7 +111,6 @@ const {
     componentsSlidersStyle,
     cssColorOpaque,
     HSVCurrentColor,
-    denormalizedCurrentColor,
     updateColorComponent,
 } = inject(COLOR_MODEL_KEY)!;
 
@@ -119,8 +118,18 @@ const debug = inject(POINTER_DEBUG_KEY)!;
 
 // All components for the current color space (including alpha)
 const componentEntries = computed(() =>
-    Object.entries(COLOR_SPACE_RANGES[currentColorSpace.value]),
+    [
+        ...PICKER_CHANNELS[currentColorSpace.value].map((meta) => [meta.key, meta] as [string, unknown]),
+        ["alpha", { key: "alpha", min: 0, max: 1, unit: "%" }] as [string, unknown],
+    ],
 );
+
+function sliderValue(component: string): number {
+    if (component === "alpha") {
+        return typeof model.value.color.alpha === "number" ? model.value.color.alpha : 1;
+    }
+    return normalizedChannel(model.value.color, component);
+}
 
 // Active component — tracks which slider was last interacted with
 const activeComponent = ref<string | null>(null);
@@ -150,7 +159,10 @@ function meterText(component: string): string {
     const fmt =
         currentColorComponentsFormatted.value[component] ??
         (component === "alpha" && model.value.selectedColorSpace !== "hex"
-            ? denormalizedCurrentColor.value.value.alpha
+            ? {
+                value: typeof model.value.color.alpha === "number" ? model.value.color.alpha * 100 : "none",
+                unit: "%",
+            }
             : undefined);
     if (!fmt) return "";
     if (typeof fmt.value === "string") return fmt.value;
@@ -165,8 +177,10 @@ function meterText(component: string): string {
 // so the thumb border, the WatercolorDot border, and the overlay contour ink
 // can never disagree about the same color.
 const thumbInk = computed(() => {
-    const { s, v } = HSVCurrentColor.value.value;
-    return spectrumFieldIsLight(clamp(s.value, 0, 1), clamp(v.value, 0, 1))
+    return spectrumFieldIsLight(
+        clamp(channelNumber(HSVCurrentColor.value, "s"), 0, 1),
+        clamp(channelNumber(HSVCurrentColor.value, "v"), 0, 1),
+    )
         ? "rgba(0, 0, 0, 0.55)"
         : "rgba(255, 255, 255, 0.8)";
 });

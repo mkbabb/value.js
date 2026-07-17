@@ -2,9 +2,8 @@
  * T.W3-5 — THE INK-ON-TIER CONTRACT probe (D6).
  *
  * The pure module (`demo/@/composables/color/ink.ts`) is probed through the
- * SAME library leaves the resolver consumes (`wcagContrastRatio`,
- * `OKLCHColor`) — the oracle and the implementation share the metric, not
- * the pipeline (the view-accents probe discipline).
+ * same public color model the resolver consumes. The oracle independently
+ * computes WCAG luminance after `/css` parsing and `/color` conversion.
  *
  * The probe SWEEPS the measured composited ambient band (t-a11y-contrast
  * F-1: 0.376–0.936) — the whole point of D6 is that the referent is live, so
@@ -15,9 +14,8 @@
 
 import { describe, expect, it } from "vitest";
 
-import { OKLCHColor, wcagContrastRatio } from "@src/units/color";
-import { getColorSpaceBound } from "@src/units/color/constants";
-import { cssToRawColor } from "@lib/color-utils";
+import { convertColor, oklch, type AnyColor, type Color } from "@mkbabb/value.js/color";
+import { parseCssColor } from "@mkbabb/value.js/css";
 import {
     CERTIFY_HEADROOM,
     TEXT_CONTRAST_FLOOR,
@@ -27,30 +25,46 @@ import {
     resolveSurfaceLightness,
 } from "@composables/color/ink";
 
-const cMax = getColorSpaceBound("oklch", "c", "number").max;
-const hMax = getColorSpaceBound("oklch", "h", "number").max;
+function requiredOklch(source: string): Color<"oklch"> {
+    const parsed = parseCssColor(source);
+    if (!parsed.ok) throw new Error(`Unparseable test color: ${source}`);
+    const converted = convertColor(parsed.value, "oklch");
+    if (!converted.ok) throw new Error(`Unconvertible test color: ${source}`);
+    return converted.value;
+}
+
+function relativeLuminance(color: AnyColor): number {
+    const converted = convertColor(color, "rgb");
+    if (!converted.ok)
+        throw new Error(`RGB conversion failed: ${converted.error.code}`);
+    const encoded = converted.value.channels.map((channel) => {
+        if (channel === "none") throw new Error("RGB test color is missing a channel");
+        const value = channel / 255;
+        return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+    });
+    return 0.2126 * encoded[0]! + 0.7152 * encoded[1]! + 0.0722 * encoded[2]!;
+}
 
 /** WCAG ratio of ANY CSS color against an achromatic surface lightness —
  *  measured through the library leaves (never trusted from the resolver). */
 function ratioOn(css: string, surfaceL: number): number {
-    const c = cssToRawColor(css, "oklch");
-    expect(c, `parseable ink: ${css}`).not.toBeNull();
-    return wcagContrastRatio(
-        new OKLCHColor(
-            c!.l as number,
-            (c!.c as number) * cMax,
-            (c!.h as number) * hMax,
-            1,
-        ),
-        new OKLCHColor(surfaceL, 0, 0, 1),
+    const surface = oklch(surfaceL, 0, 0, 1);
+    if (!surface.ok) throw new Error(`Invalid test surface: ${surface.error.code}`);
+    const inkLuminance = relativeLuminance(requiredOklch(css));
+    const surfaceLuminance = relativeLuminance(surface.value);
+    return (
+        (Math.max(inkLuminance, surfaceLuminance) + 0.05) /
+        (Math.min(inkLuminance, surfaceLuminance) + 0.05)
     );
 }
 
 /** Parse `oklch(L C H)` (the resolver's output voice) into raw components. */
 function parseOklch(css: string): { L: number; C: number; H: number } {
-    const m = /^oklch\(([\d.]+) ([\d.]+) ([\d.]+)\)$/.exec(css);
-    expect(m, `resolver output shape: ${css}`).not.toBeNull();
-    return { L: Number(m![1]), C: Number(m![2]), H: Number(m![3]) };
+    const [L, C, H] = requiredOklch(css).channels;
+    if (L === "none" || C === "none" || H === "none") {
+        throw new Error(`Resolver output is missing a channel: ${css}`);
+    }
+    return { L, C, H };
 }
 
 /** The measured ambient band (F-1) + interior points. */
@@ -60,9 +74,10 @@ const AMBIENTS = [0.376, 0.5, 0.63, 0.8, 0.936] as const;
  *  parsed through the same library leaf the resolver threads (never a
  *  hand-computed lightness). */
 function veilCardBound(dark: boolean): number {
-    const c = cssToRawColor(dark ? "hsl(26 22% 17%)" : "hsl(30 85% 96%)", "oklch");
-    expect(c).not.toBeNull();
-    return c!.l as number;
+    const lightness = requiredOklch(dark ? "hsl(26 22% 17%)" : "hsl(30 85% 96%)")
+        .channels[0];
+    if (lightness === "none") throw new Error("Veil card is missing lightness");
+    return lightness;
 }
 
 /** The owner's reference color (O-18's literal) + the failure-mode picks. */
@@ -244,11 +259,7 @@ describe("T-35 — the cream-collapse cure (T.W6.5 row 7 · t33-research §5.1)"
 
     for (const dark of [false, true]) {
         it(`the owner brick certifies CHROMATIC on the resting plate — hue held, C ≥ ${IDENTITY_C_FLOOR}× the pick (${dark ? "dark" : "light"})`, () => {
-            const plateL = resolveSurfaceLightness(
-                "resting",
-                OWNER_AMBIENT,
-                dark,
-            );
+            const plateL = resolveSurfaceLightness("resting", OWNER_AMBIENT, dark);
             const ink = certifyAccentInk(OWNER_BRICK, plateL);
             expect(
                 ratioOn(ink, plateL),

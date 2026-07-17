@@ -21,13 +21,15 @@
  */
 import {
     bezierPresets,
-    CSSCubicBezier,
+    CubicBezier,
     steppedEase,
 } from "@mkbabb/value.js/easing";
-import type { TimingFunction } from "@mkbabb/value.js/easing";
+import type {
+    EasingFunction,
+    JumpPosition,
+} from "@mkbabb/value.js/easing";
 import type {
     BezierPoints,
-    EasingPickerMode,
     EasingPickerValue,
     JumpTerm,
 } from "@mkbabb/glass-ui/easing";
@@ -61,7 +63,7 @@ export function stepsLiteral(n: number, term: JumpTerm): string {
  * row's specimen head glyph, and nothing else — dense enough (48) that a
  * steps staircase reads with near-vertical risers at specimen scale.
  */
-export function glyphPath(fn: TimingFunction, samples = 48): string {
+export function glyphPath(fn: EasingFunction, samples = 48): string {
     let d = "";
     for (let i = 0; i <= samples; i++) {
         const t = i / samples;
@@ -72,13 +74,6 @@ export function glyphPath(fn: TimingFunction, samples = 48): string {
 }
 
 // ── The specimen tiles ──────────────────────────────────────────────────────
-
-export interface TileSeed {
-    mode: EasingPickerMode;
-    preset?: string;
-    steps?: number;
-    term?: JumpTerm;
-}
 
 export interface SpecimenTile {
     /** The full curve name — the identity the head + readout speak. */
@@ -91,9 +86,6 @@ export interface SpecimenTile {
     css: string;
     /** The static sparkline portrait (unit-box path). */
     glyph: string;
-    /** Picker-seed props for the authoring canvas remount (the kf
-     *  `:key` re-seat seam — glass-ui's modelValue is emit-only). */
-    seed: TileSeed;
     /** Mint the full authored-curve payload a press selects. */
     payload: () => EasingPickerValue;
 }
@@ -103,14 +95,18 @@ export interface SpecimenFamily {
     tiles: SpecimenTile[];
 }
 
-/** `linear` is trivially a bezier; the identity callable serves as the
- *  total fallback the producer composable itself uses. */
-const identity: TimingFunction = (t) => t;
+function easingValue(
+    result: ReturnType<typeof CubicBezier>,
+    source: string,
+): EasingFunction {
+    if (result.ok) return result.value;
+    throw new Error(`Invalid easing catalogue entry "${source}": ${result.error.code}`);
+}
 
 function bezierTile(name: string, family: string, label: string): SpecimenTile {
     const quad = bezierPresets[name as keyof typeof bezierPresets];
     const points = [...quad] as BezierPoints;
-    const fn = CSSCubicBezier(...points);
+    const fn = easingValue(CubicBezier(...points), name);
     const css = bezierLiteral(points);
     return {
         id: name,
@@ -118,7 +114,6 @@ function bezierTile(name: string, family: string, label: string): SpecimenTile {
         label,
         css,
         glyph: glyphPath(fn),
-        seed: { mode: "bezier", preset: name },
         // The payload mirrors the picker's own emission for this preset:
         // css rounded (the literal law), points raw, fn from the raw quad.
         payload: () => ({
@@ -138,7 +133,8 @@ function stepsTile(
     n: number,
     term: JumpTerm,
 ): SpecimenTile {
-    const fn = steppedEase(n, term) ?? identity;
+    const position = term as JumpPosition;
+    const fn = easingValue(steppedEase(n, position), id);
     const css = stepsLiteral(n, term);
     return {
         id,
@@ -146,7 +142,6 @@ function stepsTile(
         label,
         css,
         glyph: glyphPath(fn),
-        seed: { mode: "steps", steps: n, term },
         payload: () => ({
             mode: "steps",
             css,
@@ -189,9 +184,9 @@ function buildFamilies(): SpecimenFamily[] {
     byFamily.set("steps", [
         // The honest static default (kf: "steps" = the 4-step staircase);
         // live n/term ride the readout literal + the authoring canvas.
-        stepsTile("steps", "n = 4", 4, "end"),
-        stepsTile("step-start", "start", 1, "start"),
-        stepsTile("step-end", "end", 1, "end"),
+        stepsTile("steps", "n = 4", 4, "jump-end"),
+        stepsTile("step-start", "start", 1, "jump-start"),
+        stepsTile("step-end", "end", 1, "jump-end"),
     ]);
     return FAMILY_ORDER.filter((f) => byFamily.has(f)).map((family) => ({
         family,
@@ -232,40 +227,4 @@ export function tileIdFor(interval: GradientInterval): string | null {
  *  literal itself lives ONLY in the open row's readout). */
 export function specimenNameFor(interval: GradientInterval): string {
     return tileIdFor(interval) ?? "custom";
-}
-
-// ── The authoring-canvas mount seed ─────────────────────────────────────────
-
-const QUAD_EPS = 0.0005;
-
-function quadEq(a: readonly number[], b: readonly number[]): boolean {
-    return a.length === b.length && a.every((v, i) => Math.abs(v - b[i]!) < QUAD_EPS);
-}
-
-/**
- * Derive the picker seed for an interval (the kf `seedFor` idiom): steps
- * intervals seed (n, term); bezier intervals seed by preset when the quad
- * (or literal) matches the catalogue. `null` = not derivable — a custom
- * curve; the caller seeds `linear` and swallows the mount echo (glass-ui
- * 4.2.0 has no points-in prop — the initialPoints gap rides the P7
- * EasingPicker-v2 packet, same as kf's §FORWARDING note).
- */
-export function seedForInterval(interval: GradientInterval): TileSeed | null {
-    if (isStepsInterval(interval)) {
-        const exact = SPECIMEN_TILES.find((t) => t.css === interval.css);
-        if (exact) return exact.seed;
-        if (typeof interval.steps === "number" && interval.term) {
-            return { mode: "steps", steps: interval.steps, term: interval.term };
-        }
-        return { mode: "steps" };
-    }
-    const byCss = SPECIMEN_TILES.find((t) => t.css === interval.css);
-    if (byCss) return byCss.seed;
-    if (interval.points) {
-        const byQuad = Object.entries(bezierPresets).find(([, q]) =>
-            quadEq(q, interval.points!),
-        );
-        if (byQuad) return { mode: "bezier", preset: byQuad[0] };
-    }
-    return null;
 }

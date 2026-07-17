@@ -66,7 +66,7 @@ export function useSpecimenRows(
                 name: specimenNameFor(interval),
                 glyph: glyphPath(fn),
                 tileId: tileIdFor(interval),
-                ink: mid ? safeCss(mid) : null,
+                ink: safeCss(mid),
             });
         }
         return rows;

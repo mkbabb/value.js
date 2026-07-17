@@ -3,13 +3,13 @@
  * chips (T.W6 · W6-4; t-nav-dropdowns F6/F7).
  *
  * THE SAMPLING LAW (the W7-4 dogfood clause): ramps are k-sample discrete
- * stops built from THE LIBRARY's interpolation (`sampleColorRamp` — the
- * shipped VJ-Q3 sampler over `mixColors`) — never CSS `in <space>` gradient
+ * stops built from THE LIBRARY's `mixColors` interpolation — never CSS
+ * `in <space>` gradient
  * interpolation, because the preview must show what THE APP computes, not
  * what the browser's engine would (and HSV/XYZ/kelvin are not
  * CSS-interpolable anyway). One mechanism for all rows, no engine
- * divergence. ZERO new demo math: parsing rides `cssToRawColor`, sampling
- * rides `sampleColorRamp`, serialization rides `rawColorToCSS` — all
+ * divergence. ZERO new color math: parsing rides `parseColorIn`, sampling
+ * rides `mixColors`, serialization rides `colorToCss` — all
  * library/`@lib` leaves.
  *
  * THE TRUTH LAW (O-14): a chip that approximates the library output is
@@ -24,16 +24,20 @@
  * can produce; a raw `hsv(…)`/`xyz(…)` string is not a CSS color).
  */
 
-import type { Color, ColorSpace, HueInterpolationMethod } from "@mkbabb/value.js/color";
-import { sampleColorRamp } from "@mkbabb/value.js/color";
-import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
+import {
+    mixColors,
+    type AnyColor,
+    type HueInterpolationMethod,
+} from "@mkbabb/value.js/color";
+import { colorToCss, parseColorIn } from "@lib/color-utils";
+import type { PickerColorIn, PickerSpace } from "@lib/picker-color";
 
 /** k — the F6 sample count (≈16): smooth to the eye, sub-ms to compute. */
 export const RAMP_SAMPLE_COUNT = 16;
 
 /** Serialize one sampled stop as paintable OKLCh (alpha only when < 1). */
-export function serializeStop(stop: Color<number>): string {
-    return rawColorToCSS(stop, "oklch").replace(/ \/ 1\)$/, ")");
+export function serializeStop(stop: AnyColor): string {
+    return colorToCss(stop, "oklch").replace(/ \/ 1\)$/, ")");
 }
 
 /**
@@ -47,40 +51,35 @@ export function serializeStop(stop: Color<number>): string {
  */
 export function sampleInterpolationRamp(
     operandsCss: readonly string[],
-    space: ColorSpace,
+    space: PickerSpace,
     hueMethod: HueInterpolationMethod,
     k: number = RAMP_SAMPLE_COUNT,
 ): string[] | null {
     if (operandsCss.length < 2) return null;
-    const operands: Color<number>[] = [];
+    const operands: AnyColor[] = [];
     for (const css of operandsCss) {
-        // Null-tolerant parse: `parseCSSColor` THROWS on malformed input
-        // (the view-accents tryParse lesson) — the chip contract is
-        // null-on-failure (the row simply carries no chip).
-        let parsed: Color<number> | null;
         try {
-            parsed = cssToRawColor(css, space);
+            operands.push(parseColorIn(css, space));
         } catch {
             return null;
         }
-        if (!parsed) return null;
-        operands.push(parsed);
     }
 
     const segments = operands.length - 1;
     const perSegment = Math.max(2, Math.ceil(k / segments) + 1);
     const stops: string[] = [];
     for (let i = 0; i < segments; i++) {
-        const ramp = sampleColorRamp(
-            operands[i]!,
-            operands[i + 1]!,
-            perSegment,
-            { space, hueMethod },
-        );
         // Dedupe the shared joint: every segment after the first drops its
         // inclusive start (identical to the previous segment's end).
-        for (let j = i === 0 ? 0 : 1; j < ramp.length; j++) {
-            stops.push(serializeStop(ramp[j] as Color<number>));
+        for (let j = i === 0 ? 0 : 1; j < perSegment; j++) {
+            const result = mixColors(
+                operands[i]!,
+                operands[i + 1]!,
+                j / (perSegment - 1),
+                { space, hue: hueMethod },
+            );
+            if (!result.ok) return null;
+            stops.push(serializeStop(result.value as PickerColorIn<typeof space>));
         }
     }
     return stops;

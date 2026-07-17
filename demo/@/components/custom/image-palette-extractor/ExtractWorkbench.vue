@@ -136,8 +136,8 @@
                                      select-all (never a lying readout). -->
                                 <code
                                     class="fira-code text-mono-small plate-ink truncate select-all"
-                                    :title="session.dominant.value.css"
-                                    >{{ session.dominant.value.css }}</code
+                                    :title="session.dominant.value.serialized"
+                                    >{{ session.dominant.value.serialized }}</code
                                 >
                             </span>
                         </div>
@@ -186,7 +186,7 @@ import { ref, inject, onBeforeUnmount, useTemplateRef } from "vue";
 import { Aperture } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { SpaceId } from "@mkbabb/value.js/color";
 import { CSS_COLOR_KEY } from "@composables/color/keys";
 import { useExtractSession } from "./composables/useExtractSession";
 
@@ -199,7 +199,7 @@ import {
     ShadowPalette,
 } from "@components/custom/palette-browser/card";
 
-type DisplayColorSpace = ColorSpace | "hex";
+type DisplayColorSpace = SpaceId | "hex";
 
 const { layout = "column", colorSpace = "hex" } = defineProps<{
     /** `column` — the pane's single flow; `split` — the dialog's two columns. */

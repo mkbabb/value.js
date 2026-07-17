@@ -1,11 +1,7 @@
 import { ref, readonly } from "vue";
-import { registerColorNames, clearCustomColorNames } from "@mkbabb/value.js/parsing";
-import { parseCSSColor } from "@mkbabb/value.js/parsing";
-import { colorUnit2 } from "@mkbabb/value.js/color";
+import { convertPickerColor, parsePickerColor, serializePickerColor } from "@lib/picker-color";
 import { getApprovedColorNames, ApiUnavailableError } from "@lib/palette/api";
 import type { ProposedColorName } from "@lib/palette/types";
-
-const DIGITS = 2;
 
 const customNameRegistry = ref<Map<string, ProposedColorName>>(new Map());
 const normalizedCustomNames = ref<Map<string, string>>(new Map());
@@ -20,25 +16,21 @@ export function useCustomColorNames() {
         try {
             const { data: approved } = await getApprovedColorNames();
 
-            const nameMap: Record<string, string> = {};
             const registry = new Map<string, ProposedColorName>();
             const normalized = new Map<string, string>();
 
             for (const entry of approved) {
                 const key = entry.name.toLowerCase();
-                nameMap[key] = entry.css;
                 registry.set(key, entry);
 
                 try {
-                    const parsed = parseCSSColor(entry.css);
-                    const xyz = colorUnit2(parsed, "xyz", false, false, false);
-                    normalized.set(key, xyz.value.toFormattedString(DIGITS));
+                    const xyz = convertPickerColor(parsePickerColor(entry.css), "xyz");
+                    normalized.set(key, serializePickerColor(xyz));
                 } catch {
                     // skip entries that fail to parse
                 }
             }
 
-            registerColorNames(nameMap);
             customNameRegistry.value = registry;
             normalizedCustomNames.value = normalized;
             loaded.value = true;
@@ -76,7 +68,6 @@ export function useCustomColorNames() {
     }
 
     function reset(): void {
-        clearCustomColorNames();
         customNameRegistry.value = new Map();
         normalizedCustomNames.value = new Map();
         loaded.value = false;

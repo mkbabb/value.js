@@ -5,7 +5,7 @@
  * from its actual chip position (`[data-mix-source]`); the drops arc across
  * the plate toward the result plate's awaiting well (`[data-mix-target]`, the
  * seeded WatercolorDot ghost), surrendering their identity en route — every
- * drop's pigment rides a `sampleColorRamp()` perceptual ramp from its own
+ * drop's pigment rides a perceptual ramp from its own
  * color to the TRUE mixed result, in the SAME interpolation space + hue
  * method the mix math itself ran. All drops arrive together (a chord, not a
  * queue) at `MIX_ARRIVE_MS`; the merged pool swells, settles with one soft
@@ -41,7 +41,7 @@ import type { Ref } from "vue";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useRAFLoop } from "@mkbabb/glass-ui/motion-core";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
-import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { PickerSpace } from "@lib/picker-color";
 import type { AnimationPhase, MixResult } from "../../composables/useMixingState";
 import type { Stage } from "./mixStage";
 import { collectStage, drawStage, MIX_CONVERGE_MS, MIX_EPILOGUE_MS } from "./mixStage";
@@ -50,7 +50,7 @@ export { MIX_ARRIVE_MS, MIX_CONVERGE_MS, MIX_EPILOGUE_MS } from "./mixStage";
 
 export interface MixingAnimationOptions {
     result: Ref<MixResult | null>;
-    space: Ref<ColorSpace>;
+    space: Ref<PickerSpace>;
     hueMethod: Ref<HueInterpolationMethod>;
     /** The completion event — the phase machine's ONLY forward edge. */
     onSettled: () => void;

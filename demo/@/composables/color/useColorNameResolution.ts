@@ -1,23 +1,22 @@
 import { computed, ref, watch, type ShallowRef, type ComputedRef } from "vue";
 import { debounce } from "@utils/utils";
-import { ValueUnit } from "@mkbabb/value.js/units";
-import { Color } from "@mkbabb/value.js/color";
-import type { ColorSpace } from "@mkbabb/value.js/color";
-import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
+import {
+    convertPickerColor,
+    serializePickerColor,
+    type PickerColor,
+    type PickerSpace,
+} from "@lib/picker-color";
 import { useCustomColorNames } from "./useCustomColorNames";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { DisplayColorSpace } from "@components/custom/color-picker";
 import { colorToHexString } from "@components/custom/color-picker";
-import { NORMALIZED_COLOR_NAMES } from "./normalizedColorNames";
-
-const DIGITS = 2;
 
 export function useColorNameResolution(deps: {
     model: ShallowRef<ColorModel>;
-    denormalizedCurrentColor: ComputedRef<ValueUnit<Color<ValueUnit<number>>, "color">>;
-    currentColorSpace: ComputedRef<ColorSpace>;
+    currentPhysicalColor: ComputedRef<PickerColor>;
+    currentColorSpace: ComputedRef<PickerSpace>;
 }) {
-    const { model, denormalizedCurrentColor } = deps;
+    const { model, currentPhysicalColor } = deps;
     const selectedDisplaySpace = computed<DisplayColorSpace>(() => model.value.selectedColorSpace);
     const { findCustomName, getMetadata } = useCustomColorNames();
 
@@ -25,8 +24,7 @@ export function useColorNameResolution(deps: {
     const currentXYZString = ref("");
 
     const recomputeXYZ = debounce(() => {
-        const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
-        currentXYZString.value = xyz.value.toFormattedString(DIGITS);
+        currentXYZString.value = serializePickerColor(convertPickerColor(model.value.color, "xyz"));
     }, 100);
 
     watch(() => model.value.color, () => recomputeXYZ(), { immediate: true });
@@ -36,14 +34,7 @@ export function useColorNameResolution(deps: {
     const formattedCurrentColor = computed(() => {
         const colorString = currentXYZString.value;
 
-        // Check built-in CSS color names first
         if (colorString) {
-            const colorName = Object.entries(NORMALIZED_COLOR_NAMES).find(
-                ([, value]) => value === colorString,
-            );
-            if (colorName) return colorName[0];
-
-            // Check custom (approved) color names
             const customName = findCustomName(colorString);
             if (customName) return customName;
         }
@@ -53,17 +44,14 @@ export function useColorNameResolution(deps: {
             return colorToHexString(model.value.color);
         }
 
-        return denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
+        return serializePickerColor(currentPhysicalColor.value);
     });
 
-    function savedColorLabel(color: ValueUnit<Color<ValueUnit<number>>, "color">): string {
-        const xyz = colorUnit2(color, "xyz", true, false, false);
-        const colorString = xyz.value.toFormattedString(DIGITS);
-        const builtIn = Object.entries(NORMALIZED_COLOR_NAMES).find(([, v]) => v === colorString);
-        if (builtIn) return builtIn[0];
+    function savedColorLabel(color: PickerColor): string {
+        const colorString = serializePickerColor(convertPickerColor(color, "xyz"));
         const custom = findCustomName(colorString);
         if (custom) return custom;
-        return normalizeColorUnit(color, true, false).value.toFormattedString(DIGITS);
+        return serializePickerColor(color);
     }
 
     const currentColorMeta = computed(() => {
@@ -77,11 +65,8 @@ export function useColorNameResolution(deps: {
 
     const canProposeName = computed(() => {
         const colorString = currentXYZString.value;
-        const hasBuiltIn = Object.entries(NORMALIZED_COLOR_NAMES).some(
-            ([, value]) => value === colorString,
-        );
         const hasCustom = !!findCustomName(colorString);
-        return !hasBuiltIn && !hasCustom;
+        return !hasCustom;
     });
 
     return {

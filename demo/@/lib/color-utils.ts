@@ -1,88 +1,25 @@
-/**
- * Shared color conversion utilities for the demo app.
- *
- * Bridges the parsed CSS color world (Color<ValueUnit<number>>)
- * with the math world (Color<number>) that mixColors/color2 expect.
- */
+import { toRgba8, type AnyColor } from "@mkbabb/value.js/color";
+import {
+    convertPickerColor,
+    parsePickerColor,
+    serializePickerColor,
+    type PickerColorIn,
+    type PickerSpace,
+} from "@lib/picker-color";
 
-import type { Color } from "@mkbabb/value.js/color";
-import type { ColorSpace } from "@mkbabb/value.js/color";
-import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
-import { ValueUnit } from "@mkbabb/value.js/units";
-import { parseCSSColor } from "@mkbabb/value.js/parsing";
-import { normalizeColorUnit, colorUnit2 } from "@mkbabb/value.js/color";
-import { color2 } from "@mkbabb/value.js/color";
-import { scale } from "@mkbabb/value.js/math";
-
-/**
- * Parse a CSS color string → normalized Color<number> in the given space.
- * Components are in [0, 1]. Returns null on parse failure.
- */
-export function cssToRawColor(css: string, space: ColorSpace): Color<number> | null {
-    const parsed = parseCSSColor(css);
-    if (!parsed) return null;
-
-    const unit = normalizeColorUnit(parsed);
-    const converted = colorUnit2(unit, space, true, false, false);
-    const color = converted.value;
-
-    // Unwrap ValueUnit<number> → number for each component
-    const rawValues: number[] = [];
-    for (const [key] of color.entries()) {
-        if (key === "alpha") continue;
-        const v = color[key];
-        rawValues.push(v instanceof ValueUnit ? v.value : (v as number));
-    }
-    const alpha = color.alpha instanceof ValueUnit
-        ? color.alpha.value
-        : (color.alpha as number);
-
-    const Ctor = color.constructor as new (...args: any[]) => Color<number>;
-    return new Ctor(...rawValues, alpha);
+/** Parse one concrete CSS color and convert it into the caller's physical space. */
+export function parseColorIn<S extends PickerSpace>(source: string, space: S): PickerColorIn<S> {
+    return convertPickerColor(parsePickerColor(source), space);
 }
 
-/**
- * Resolve any CSS color string to an 8-bit sRGB `[r, g, b]` triple (each
- * channel in `[0, 255]`). Library-backed: routes through `cssToRawColor` (the
- * single CSS-color→RGB resolution path — inv-N-3), so all 15 color spaces +
- * named colors resolve natively, with **zero DOM** (no hidden `<div>` +
- * `getComputedStyle`, no canvas `getImageData`). Returns a mid-grey fallback on
- * parse failure to match the prior resolver's behaviour.
- */
-export function cssToRgb255(css: string): [number, number, number] {
-    const rgb = cssToRawColor(css, "rgb");
-    if (!rgb) return [128, 128, 128];
-    const to255 = (v: number) => Math.round(Math.min(1, Math.max(0, v)) * 255);
-    return [to255(rgb.r as number), to255(rgb.g as number), to255(rgb.b as number)];
+/** Project a final color into straight, clipped sRGB bytes. */
+export function colorToRgb255(color: AnyColor): readonly [number, number, number] {
+    const result = toRgba8(color, { gamut: "clip" });
+    if (!result.ok) throw new Error(`Color byte projection failed: ${result.error.code}`);
+    return [result.value[0], result.value[1], result.value[2]];
 }
 
-/**
- * Convert a raw Color<number> (normalized [0,1]) to a CSS string.
- * Denormalizes from [0,1] back to the physical ranges of the output space.
- *
- * @param color  Color with normalized components
- * @param outputSpace  Optional space to convert to before output. If omitted, uses the color's native space.
- */
-export function rawColorToCSS(color: Color<number>, outputSpace?: ColorSpace): string {
-    const out = outputSpace ? color2(color, outputSpace) : color;
-    const space = out.colorSpace;
-    const ranges = COLOR_SPACE_RANGES[space] as Record<string, Record<string, { min: number; max: number }>>;
-
-    const parts: string[] = [];
-    for (const [key] of out.entries()) {
-        if (key === "alpha") continue;
-        const range = ranges[key]?.number ?? { min: 0, max: 1 };
-        const denorm = scale(out[key] as number, 0, 1, range.min, range.max);
-        parts.push(formatNum(denorm));
-    }
-
-    const alpha = out.alpha as number;
-    return `${space}(${parts.join(" ")} / ${formatNum(alpha)})`;
-}
-
-function formatNum(v: number): string {
-    if (!Number.isFinite(v)) return "none";
-    const s = v.toFixed(4);
-    // Trim trailing zeros: "0.5000" → "0.5", "1.0000" → "1"
-    return s.replace(/\.?0+$/, "");
+/** Serialize a final color, optionally after an explicit output-space conversion. */
+export function colorToCss(color: AnyColor, outputSpace?: PickerSpace): string {
+    return serializePickerColor(outputSpace ? convertPickerColor(color, outputSpace) : color);
 }

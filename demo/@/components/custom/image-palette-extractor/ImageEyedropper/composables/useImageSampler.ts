@@ -9,24 +9,38 @@
  * Extracted from `ImageEyedropper.vue` at D.W3 Lane A (De §2.4 split).
  */
 import { ref, type Ref } from "vue";
-import type { ColorSpace } from "@mkbabb/value.js/color";
-import { parseCSSColor } from "@mkbabb/value.js/parsing";
-import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
+import type { SpaceId } from "@mkbabb/value.js/color";
+import { parseCssColor } from "@mkbabb/value.js/css";
+import {
+    CSS_PICKER_SPACES,
+    convertPickerColor,
+    serializePickerColor,
+    type PickerColor,
+} from "@lib/picker-color";
 
-export type DisplayColorSpace = ColorSpace | "hex";
+export type DisplayColorSpace = SpaceId | "hex";
 
 export interface ImageSamplerDeps {
     /** Visible canvas element to mirror the image into (for the transform overlay). */
     canvasRef: Readonly<Ref<HTMLCanvasElement | null>>;
     /** Returns the current pan + zoom transform from the gesture composable. */
     getTransform: () => { panX: number; panY: number; zoom: number };
-    /** Display color space for the sampled hex formatter. */
+    /** Display color space for the sampled-color readout. */
     colorSpace: () => DisplayColorSpace;
 }
 
 function formatHex(r: number, g: number, b: number): string {
     const hex = (v: number) => v.toString(16).padStart(2, "0");
     return `#${hex(r)}${hex(g)}${hex(b)}`;
+}
+
+/** Product readout for the four spaces that deliberately have no CSS spelling. */
+function formatLibraryColor(color: PickerColor): string {
+    const channels = color.channels.map((channel) => channel === "none"
+        ? channel
+        : Number(channel.toFixed(4)).toString());
+    const alpha = color.alpha === 1 ? "" : ` · α ${color.alpha}`;
+    return `${color.space.toUpperCase()} ${channels.join(" · ")}${alpha}`;
 }
 
 export function useImageSampler(deps: ImageSamplerDeps) {
@@ -41,21 +55,14 @@ export function useImageSampler(deps: ImageSamplerDeps) {
     function formatInColorSpace(hex: string): string {
         const space = deps.colorSpace();
         if (space === "hex") return hex;
-        try {
-            const parsed = parseCSSColor(hex);
-            if (!parsed) return hex;
-            const converted = colorUnit2(
-                parsed,
-                space,
-                false,
-                false,
-                false,
-            );
-            const denorm = normalizeColorUnit(converted, true, false);
-            return denorm.value.toFormattedString(2);
-        } catch {
-            return hex;
+        const parsed = parseCssColor(hex);
+        if (!parsed.ok) {
+            throw new Error(`[ImageSampler] generated hex failed to parse: ${parsed.diagnostics[0].code}`);
         }
+        const converted = convertPickerColor(parsed.value, space);
+        return CSS_PICKER_SPACES.has(space)
+            ? serializePickerColor(converted)
+            : formatLibraryColor(converted);
     }
 
     async function loadImage(imageUrl: string) {

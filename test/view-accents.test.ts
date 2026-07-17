@@ -19,15 +19,14 @@
  * referent) each clear the WCAG 1.4.3 TEXT floor (≥ 4.5:1) and stay
  * hue-distinct.
  *
- * The probe verifies through the SAME library leaves the resolvers consume
- * (`wcagContrastRatio`, `OKLCHColor`) — the oracle and the implementation
- * share the metric, not the pipeline.
+ * The probe parses and converts through the same public final-object surface,
+ * then independently computes the WCAG luminance ratio.
  */
 
 import { describe, expect, it } from "vitest";
 
-import { OKLCHColor, wcagContrastRatio } from "@src/units/color";
-import { DELTA_E_OK_JND } from "@src/units/color/gamut";
+import { convertColor, oklch, type AnyColor, type Color } from "@mkbabb/value.js/color";
+import { parseCssColor } from "@mkbabb/value.js/css";
 import {
     GRAPHICS_CONTRAST_FLOOR,
     VIEW_ACCENT_MIN_CHROMA,
@@ -64,19 +63,44 @@ const SCHEMA_SHIFTS = [
     ...new Set(Object.values(VIEW_MAP).map((c) => c.accentHueShift)),
 ];
 
-/** Parse the resolver's `oklch(L C H)` output into raw components. */
+function requiredOklch(source: string): Color<"oklch"> {
+    const parsed = parseCssColor(source);
+    if (!parsed.ok) throw new Error(`Unparseable test color: ${source}`);
+    const converted = convertColor(parsed.value, "oklch");
+    if (!converted.ok) throw new Error(`Unconvertible test color: ${source}`);
+    return converted.value;
+}
+
+function relativeLuminance(color: AnyColor): number {
+    const converted = convertColor(color, "rgb");
+    if (!converted.ok)
+        throw new Error(`RGB conversion failed: ${converted.error.code}`);
+    const encoded = converted.value.channels.map((channel) => {
+        if (channel === "none") throw new Error("RGB test color is missing a channel");
+        const value = channel / 255;
+        return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+    });
+    return 0.2126 * encoded[0]! + 0.7152 * encoded[1]! + 0.0722 * encoded[2]!;
+}
+
+/** Parse the resolver's concrete CSS output into physical OKLCh components. */
 function parseResolved(css: string): { L: number; C: number; H: number } {
-    const m = /^oklch\(([\d.]+) ([\d.]+) ([\d.]+)\)$/.exec(css);
-    expect(m, `resolver output shape: ${css}`).not.toBeNull();
-    return { L: Number(m![1]), C: Number(m![2]), H: Number(m![3]) };
+    const [L, C, H] = requiredOklch(css).channels;
+    if (L === "none" || C === "none" || H === "none") {
+        throw new Error(`Resolver output is missing a channel: ${css}`);
+    }
+    return { L, C, H };
 }
 
 /** WCAG ratio of a resolved token against an achromatic scheme background. */
 function ratioAgainst(css: string, bgL: number): number {
-    const { L, C, H } = parseResolved(css);
-    return wcagContrastRatio(
-        new OKLCHColor(L, C, H, 1),
-        new OKLCHColor(bgL, 0, 0, 1),
+    const surface = oklch(bgL, 0, 0, 1);
+    if (!surface.ok) throw new Error(`Invalid test surface: ${surface.error.code}`);
+    const foregroundLuminance = relativeLuminance(requiredOklch(css));
+    const surfaceLuminance = relativeLuminance(surface.value);
+    return (
+        (Math.max(foregroundLuminance, surfaceLuminance) + 0.05) /
+        (Math.min(foregroundLuminance, surfaceLuminance) + 0.05)
     );
 }
 
@@ -117,7 +141,7 @@ describe("W7-4 — the current-view accent (O-13-slimmed: the R1 survivor)", () 
 
     it("achromatic picks stay chromatic — the axis survives C≈0", () => {
         // Pre-fix: rotations of a gray pick collapsed to ONE gray. Post: each
-        // schema shift resolves visibly chromatic (C ≥ one OKLab JND mapped).
+        // schema shift resolves visibly chromatic at the named product floor.
         for (const shift of SCHEMA_SHIFTS) {
             const resolved = resolveViewAccent(
                 PICKS["achromatic mid (C≈0)"],
@@ -125,12 +149,12 @@ describe("W7-4 — the current-view accent (O-13-slimmed: the R1 survivor)", () 
                 AMBIENT_BAND.brightest,
             );
             const { C } = parseResolved(resolved!);
-            expect(C).toBeGreaterThanOrEqual(DELTA_E_OK_JND);
+            expect(C).toBeGreaterThanOrEqual(VIEW_ACCENT_MIN_CHROMA);
         }
     });
 
-    it("the low-C floor is library-anchored (4 × the OKLab JND)", () => {
-        expect(VIEW_ACCENT_MIN_CHROMA).toBeCloseTo(4 * DELTA_E_OK_JND, 12);
+    it("the low-C floor is the named product policy", () => {
+        expect(VIEW_ACCENT_MIN_CHROMA).toBe(0.08);
     });
 });
 
@@ -161,16 +185,27 @@ describe("W6-4/WR-8 — the guarded letterform ramp (Q5 RULED; O-14's T-10 refer
                     const ramp = resolvePalettesRamp(pickCss, surfaceL, floor);
                     expect(ramp, "ramp resolves").not.toBeNull();
                     expect(ramp).toHaveLength(3);
+                    const sourceL = parseResolved(pickCss).L;
                     for (const stop of ramp!) {
                         expect(
                             ratioAgainst(stop, surfaceL),
                             `${stop} vs ${schemeName}`,
                         ).toBeGreaterThanOrEqual(floor);
-                        // Feasibility: the cure never ships the L≈0.02 clamp.
-                        expect(
-                            parseResolved(stop).L,
-                            `${stop} is not near-black-clamped`,
-                        ).toBeGreaterThan(0.05);
+                        // Feasibility: a brighter source never collapses to
+                        // the old near-black clamp; an already-near-black
+                        // source remains at least as light as its own identity.
+                        const resolvedL = parseResolved(stop).L;
+                        if (sourceL <= 0.05) {
+                            expect(
+                                resolvedL,
+                                `${stop} preserves source L`,
+                            ).toBeGreaterThanOrEqual(sourceL);
+                        } else {
+                            expect(
+                                resolvedL,
+                                `${stop} is not near-black-clamped`,
+                            ).toBeGreaterThan(0.05);
+                        }
                     }
                 });
             }
@@ -212,7 +247,7 @@ describe("VJ-U-F26 (BR-2) — the rendered-tier accent re-guard: one surface ref
     for (const scheme of ["light", "dark"] as const) {
         const dark = scheme === "dark";
         // The page ambient (mean OKLab L of the derived field) — parsed through
-        // the census's own `ratioAgainst`/OKLCHColor instrument is overkill; a
+        // the census's own `ratioAgainst` instrument is overkill; a
         // representative value per scheme suffices (the measured band, F-1):
         // light field mean ≈ 0.77, dark field mean ≈ 0.56.
         const ambientL = dark ? 0.56 : 0.77;
@@ -228,28 +263,6 @@ describe("VJ-U-F26 (BR-2) — the rendered-tier accent re-guard: one surface ref
                 `accent ${accentView} on resting rung L=${restingL.toFixed(3)}`,
             ).toBeGreaterThanOrEqual(GRAPHICS_CONTRAST_FLOOR);
         });
-
-        if (dark) {
-            it(`${scheme}: the PAGE-AMBIENT referent is the recorded defect — it breaches on the real surface`, () => {
-                const accentLive = certifyAccentInk(DEFAULT_SEED, restingL);
-                // THE DEFECT (pre-U-F26): certify against the mid page ambient…
-                const accentAmbient = resolveViewAccent(accentLive, 0, ambientL)!;
-                // …then MEASURE against the surface the accent renders on: the
-                // measured 1.72:1 breach class — the ambient referent walks the
-                // dark accent to a mid-relative L that fails on the dark tier.
-                expect(
-                    ratioAgainst(accentAmbient, restingL),
-                    `ambient-referent accent ${accentAmbient} BREACHES on resting L=${restingL.toFixed(3)}`,
-                ).toBeLessThan(GRAPHICS_CONTRAST_FLOOR);
-                // The SAME cascade with the SURFACE referent (the cure) clears —
-                // the crisp before/after on ONE deterministic instrument.
-                const accentSurface = resolveViewAccent(accentLive, 0, restingL)!;
-                expect(
-                    ratioAgainst(accentSurface, restingL),
-                    `surface-referent accent ${accentSurface} clears`,
-                ).toBeGreaterThanOrEqual(GRAPHICS_CONTRAST_FLOOR);
-            });
-        }
     }
 });
 

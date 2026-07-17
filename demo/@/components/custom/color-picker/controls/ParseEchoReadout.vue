@@ -1,8 +1,5 @@
 <template>
-    <!-- E4 (Q10): the Parse-Lab echo — the parsed structure + the typed gamut
-         verdict, in the plate-caption voice. The verdict is the SAME
-         deltaEOK/gamutMapOKLab/DELTA_E_OK_JND computation the spectrum
-         overlay draws — they cannot disagree. -->
+    <!-- Parsed structure plus the producer-owned sRGB mapping verdict. -->
     <div
         v-if="astEcho || gamutVerdict"
         class="fira-code text-mono-small flex flex-col items-center gap-1"
@@ -21,11 +18,8 @@
             >
         </div>
         <div v-if="gamutVerdict" class="gamut-verdict" :data-clips="gamutVerdict.clips">
-            <template v-if="gamutVerdict.clips">
-                clips in srgb — Δ {{ gamutVerdict.delta.toFixed(3) }} ≈
-                {{ gamutVerdict.jndRatio.toFixed(1) }}× jnd
-            </template>
-            <template v-else>in srgb — Δ &lt; jnd</template>
+            <template v-if="gamutVerdict.clips">outside srgb gamut</template>
+            <template v-else>in srgb gamut</template>
         </div>
     </div>
 </template>

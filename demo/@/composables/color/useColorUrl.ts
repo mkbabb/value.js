@@ -4,10 +4,8 @@ import { useRouter, useRoute } from "vue-router";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { DisplayColorSpace } from "@components/custom/color-picker";
 import { toCSSColorString, resolveColorSpace, colorToHexString } from "@components/custom/color-picker";
-import { parseCSSColor } from "@mkbabb/value.js/parsing";
-import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
+import { convertPickerColor, parsePickerColor, serializePickerColor } from "@lib/picker-color";
 import { debounce } from "@utils/utils";
-import { NORMALIZED_COLOR_NAMES } from "./normalizedColorNames";
 
 export function useColorUrl(options: {
     model: ShallowRef<ColorModel>;
@@ -31,9 +29,10 @@ export function useColorUrl(options: {
 
         try {
             const displaySpace = space as DisplayColorSpace;
-            const parsed = parseCSSColor(color);
-            const normalized = normalizeColorUnit(parsed);
-            const converted = colorUnit2(normalized, resolveColorSpace(displaySpace), true, false, false);
+            const converted = convertPickerColor(
+                parsePickerColor(color),
+                resolveColorSpace(displaySpace),
+            );
 
             syncGen++;
             updateModel({
@@ -53,17 +52,9 @@ export function useColorUrl(options: {
         const gen = syncGen;
         const space = model.value.selectedColorSpace;
 
-        const xyz = colorUnit2(model.value.color, "xyz", true, false, false);
-        const xyzStr = xyz.value.toFormattedString(2);
-        const namedColor = Object.entries(NORMALIZED_COLOR_NAMES).find(
-            ([, v]) => v === xyzStr,
-        );
-
-        const color = namedColor
-            ? namedColor[0]
-            : space === "hex"
+        const color = space === "hex"
               ? colorToHexString(model.value.color)
-              : toCSSColorString(model.value.color);
+              : serializePickerColor(model.value.color);
 
         // If generation changed since debounce was scheduled, URL→Model wrote
         // in the interim — skip to avoid circular update

@@ -30,10 +30,8 @@
  * method (gamutMapSRGB) to ensure displayability.
  */
 
-import { OKLCHColor } from "@mkbabb/value.js/color";
-import { oklch2xyz } from "@mkbabb/value.js/color";
-import { xyz2rgb } from "@mkbabb/value.js/color";
-import { gamutMapSRGB } from "@mkbabb/value.js/color";
+import { mapColorToGamut, oklch } from "@mkbabb/value.js/color";
+import { serializeCssColor } from "@mkbabb/value.js/css";
 import { mulberry32 } from "@composables/prng";
 
 // ── Preset definitions ──
@@ -200,20 +198,7 @@ export function generateSingleColor(
     const rawHue = rng() * 360;
     const h = clampHueToRanges(rawHue, p.h);
 
-    // Convert OKLCh → XYZ → RGB
-    const oklch = new OKLCHColor(l, c, h / 360); // h normalized to [0,1]
-    const xyz = oklch2xyz(oklch);
-    const rgb = xyz2rgb(xyz);
-
-    // Gamut-map to sRGB
-    const [r, g, b] = gamutMapSRGB(
-        rgb.r as number,
-        rgb.g as number,
-        rgb.b as number,
-    );
-
-    // Return as CSS rgb() string (denormalized to 0–255)
-    return `rgb(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)})`;
+    return generatedCss(l, c, h);
 }
 
 /**
@@ -243,16 +228,16 @@ export function generatePalette(
         const c = p.c[0] + rng() * (p.c[1] - p.c[0]);
         const h = clampHueToRanges(hue, p.h);
 
-        const oklch = new OKLCHColor(l, c, h / 360);
-        const xyz = oklch2xyz(oklch);
-        const rgb = xyz2rgb(xyz);
-
-        const [r, g, b] = gamutMapSRGB(
-            rgb.r as number,
-            rgb.g as number,
-            rgb.b as number,
-        );
-
-        return `rgb(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)})`;
+        return generatedCss(l, c, h);
     });
+}
+
+function generatedCss(l: number, c: number, h: number): string {
+    const color = oklch(l, c, h);
+    if (!color.ok) throw new Error(`Generated color is invalid: ${color.error.code}`);
+    const mapped = mapColorToGamut(color.value, "srgb");
+    if (!mapped.ok) throw new Error(`Generated color cannot map to sRGB: ${mapped.error.code}`);
+    const serialized = serializeCssColor(mapped.value);
+    if (!serialized.ok) throw new Error(`Generated color cannot serialize: ${serialized.error.code}`);
+    return serialized.value;
 }

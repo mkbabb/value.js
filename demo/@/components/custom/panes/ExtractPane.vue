@@ -25,9 +25,9 @@ import { Card } from "@components/ui/card";
 import ExtractWorkbench from "@components/custom/image-palette-extractor/ExtractWorkbench.vue";
 import PaneHeader from "./PaneHeader.vue";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import type { ColorSpace } from "@mkbabb/value.js/color";
+import type { SpaceId } from "@mkbabb/value.js/color";
 
-type DisplayColorSpace = ColorSpace | "hex";
+type DisplayColorSpace = SpaceId | "hex";
 
 const { colorSpace = "hex" } = defineProps<{
     colorSpace?: DisplayColorSpace;

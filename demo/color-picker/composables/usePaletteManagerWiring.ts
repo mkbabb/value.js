@@ -17,8 +17,7 @@ import type { Ref, ShallowRef } from "vue";
 import type { ColorModel } from "@components/custom/color-picker";
 import type { ColorPicker } from "@components/custom/color-picker";
 import type { ViewManager } from "@composables/useViewManager";
-import { normalizeColorUnit } from "@mkbabb/value.js/color";
-import { parseCSSColor } from "@mkbabb/value.js/parsing";
+import { parsePickerColor, serializePickerColor } from "@lib/picker-color";
 import { usePaletteManager, type PaletteManager } from "@composables/palette/usePaletteManager";
 
 export function usePaletteManagerWiring(
@@ -76,15 +75,13 @@ export function usePaletteManagerWiring(
                 viewManager.switchView("palettes");
             }
             try {
-                const parsed = parseCSSColor(css);
-                if (!parsed) return;
-                const normalized = normalizeColorUnit(parsed);
-                const newStr = normalizeColorUnit(normalized, true, false).value.toFormattedString(2);
+                const parsed = parsePickerColor(css);
+                const newStr = serializePickerColor(parsed);
 
                 const savedColors = [...model.value.savedColors];
                 const existingIdx = savedColors.findIndex((c) => {
                     try {
-                        return normalizeColorUnit(c, true, false).value.toFormattedString(2) === newStr;
+                        return serializePickerColor(c) === newStr;
                     } catch { return false; }
                 });
 
@@ -95,7 +92,7 @@ export function usePaletteManagerWiring(
                         model.value = { ...model.value, savedColors };
                     }
                 } else {
-                    savedColors.unshift(normalized);
+                    savedColors.unshift(parsed);
                     model.value = { ...model.value, savedColors };
                 }
             } catch {

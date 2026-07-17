@@ -3,8 +3,8 @@
  * EasingAuthoringStage (T.W6-3 / T-47) — the authoring half of the kf BG-8
  * division: the glass-ui <EasingPicker> (bezier drag / steps n+term) seated
  * as a flat WELL at gradient-interval scale. The strip selects; THIS stage
- * authors. One instance per specimen row, alive from birth (the parent
- * v-shows its disclosure — an authored curve is never unmounted away).
+ * authors. One instance per specimen row, alive from birth and bound
+ * directly to the interval's complete authored value.
  *
  * The seat imposes three laws on the consumed producer chrome
  * (t-easing-pane §2/§3, census CC-4 — each recorded on the P7
@@ -25,16 +25,13 @@
  * surface; `:readout="false"` keeps the row's literal in exactly ONE
  * place (the parent's readout rail — the one-literal law).
  */
-import { computed, onMounted, ref, useTemplateRef, watch } from "vue";
+import { onMounted, ref, useTemplateRef, watch } from "vue";
 import { EasingPicker } from "@mkbabb/glass-ui/easing";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
-import type { TileSeed } from "./easingCatalogue";
 
-const { seed, seedKey, label } = defineProps<{
-    /** The picker seed (mode/preset/steps/term) — the kf remount re-seat. */
-    seed: TileSeed;
-    /** Bumped on every deliberate re-seat (tile press / epoch). */
-    seedKey: string;
+const { value, label } = defineProps<{
+    /** The interval truth; Glass owns exact two-way authoring. */
+    value: EasingPickerValue;
     /** A11y label for the canvas. */
     label: string;
 }>();
@@ -42,15 +39,6 @@ const { seed, seedKey, label } = defineProps<{
 const emit = defineEmits<{
     authored: [value: EasingPickerValue | undefined];
 }>();
-
-// exactOptionalPropertyTypes: the producer's optional props reject an
-// explicit `undefined` — bind only the seed keys that exist.
-const pickerProps = computed(() => ({
-    mode: seed.mode,
-    ...(seed.preset !== undefined ? { preset: seed.preset } : {}),
-    ...(seed.steps !== undefined ? { steps: seed.steps } : {}),
-    ...(seed.term !== undefined ? { term: seed.term } : {}),
-}));
 
 // ── The zero-letterbox law: --vb-ratio ≡ the live viewBox h/w ──
 const rootEl = useTemplateRef<HTMLElement>("rootEl");
@@ -65,7 +53,7 @@ function syncVbRatio() {
 }
 
 // Every geometry change routes through an emission (drag / preset / steps /
-// term / remount echo) — sync after each, plus mount and re-seat.
+// term) — sync after each, plus mount and external model changes.
 function onAuthored(v: EasingPickerValue | undefined) {
     requestAnimationFrame(syncVbRatio);
     emit("authored", v);
@@ -73,7 +61,7 @@ function onAuthored(v: EasingPickerValue | undefined) {
 
 onMounted(syncVbRatio);
 watch(
-    () => seedKey,
+    () => value.css,
     () => requestAnimationFrame(syncVbRatio),
     { flush: "post" },
 );
@@ -86,8 +74,7 @@ watch(
         :style="{ '--vb-ratio': vbRatio }"
     >
         <EasingPicker
-            :key="seedKey"
-            v-bind="pickerProps"
+            :model-value="value"
             :readout="false"
             :playback="false"
             :label="label"
@@ -121,9 +108,8 @@ watch(
     margin-inline: 0 !important;
     /* The liquid morph (T-48 bar): a regime flip (linear → back → steps)
      * re-shapes the live viewBox — the canvas EASES to its new ratio
-     * instead of lurching the layout below. A remount paints at the OLD
-     * ratio (the wrapper holds --vb-ratio), then the rAF sync morphs it —
-     * arrival choreography by construction. The global PRM carve-out
+     * instead of lurching the layout below. The wrapper retains its prior
+     * ratio while the rAF sync reads the updated live viewBox. The global PRM carve-out
      * (animations.css) neutralizes it under reduced motion. */
     transition: aspect-ratio var(--duration-normal) var(--ease-standard);
 }

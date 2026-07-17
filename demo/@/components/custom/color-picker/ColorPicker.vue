@@ -28,13 +28,13 @@
                 <!-- Title row = THE BEAD'S BAND (T.W4-5 · D8; t-contradictions
                      C1 order: the seat re-derives AGAINST the settled ×φ title
                      and the freed tuple). The blob's reservation is scoped
-                     HERE and derived from the ONE seat formula (never a
-                     measured nudge, never a hand px): padding-right clears
-                     the visible bead's horizontal extent (0.76·fp from the
-                     card edge); min-height hosts the bead's vertical extent
-                     so the READOUT below starts clear of it at EVERY band —
-                     the line-lock capacity keeps the full header width by
-                     construction. Both bind in the scoped block (.title-row). -->
+                     HERE and remains the ONE W20-locked seat formula (never a
+                     measured nudge, never a hand px): padding-right and
+                     min-height stay 0.76·fp while W29 changes only rendered
+                     Blob paint. The routed witness must keep the READOUT
+                     collision-free — the line-lock capacity keeps the full
+                     header width by construction. Both bind in the scoped
+                     block (.title-row). -->
                 <div class="title-row w-full min-w-0">
                     <ColorSpaceSelector
                         :model-value="model.selectedColorSpace"
@@ -94,7 +94,6 @@
         <HeroBlob
             v-if="blobReady && ornamentOpen"
             class="hero-blob-anchor"
-            @click="onHeroBlobClick()"
             @vue:mounted="overture?.noteOrnamentEmerge()"
         />
 
@@ -207,7 +206,7 @@ const {
     formattedCurrentColor,
     canProposeName,
     savedColorStrings,
-    parseAndNormalizeColor,
+    parseColor,
     setCurrentColor,
     parseAndSetColor,
     parseAndSetColorDebounced,
@@ -218,14 +217,6 @@ const {
     onPaletteApply,
     applyExternalColor,
 } = colorModel;
-
-// --- HeroBlob click: copy color to clipboard ---
-
-function onHeroBlobClick() {
-    const color = formattedCurrentColor.value;
-    updateModel({ inputColor: color });
-    copyToClipboard(color);
-}
 
 // --- Component display input handler (general: parses text per component) ---
 
@@ -292,7 +283,7 @@ function onStartEdit(target: EditTarget) {
     // Snapshot: updateModel() replaces model.value wholesale, so holding
     // the reference is a valid pre-edit snapshot (no in-place mutation).
     preEditModel.value = model.value;
-    const parsed = parseAndNormalizeColor(target.originalCss);
+    const parsed = parseColor(target.originalCss);
     setCurrentColor(parsed, model.value.selectedColorSpace);
     setTimeout(() => setEditTarget(target), 120);
 }
@@ -329,7 +320,10 @@ const actionBarContext: ActionBarContext = {
     paletteActive,
     colorModel,
     reset: () => emit("reset"),
-    copy: () => { updateModel({ inputColor: formattedCurrentColor.value }); copyToClipboard(formattedCurrentColor.value); },
+    copy: () => {
+        updateModel({ inputColor: formattedCurrentColor.value });
+        copyToClipboard(formattedCurrentColor.value);
+    },
     random: () => setCurrentColor(generateRandomColor(model.value.selectedColorSpace)),
 };
 
@@ -342,7 +336,7 @@ defineExpose({
     cancelEdit,
     onPaletteApply,
     onPaletteAddColor,
-    parseAndNormalizeColor,
+    parseColor,
     setCurrentColor,
     applyExternalColor,
     onStartEdit,

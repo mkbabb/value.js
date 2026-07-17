@@ -1,7 +1,7 @@
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { computed, inject } from "vue";
-import { parseCSSColor } from "@mkbabb/value.js/parsing";
-import { colorUnit2 } from "@mkbabb/value.js/color";
+import { convertColor } from "@mkbabb/value.js/color";
+import { parseCssColor } from "@mkbabb/value.js/css";
 import { INK_AMBIENT_KEY } from "@composables/color/keys";
 import { certifyAccentInk } from "@composables/color/ink";
 import { resolveSurfaceLightnessLive } from "@composables/color/useContrastSafeColor";
@@ -28,54 +28,55 @@ export function useMarkdownColors(cssColor: () => string | undefined) {
         const colorStr = cssColor();
         if (!colorStr) return {};
 
-        try {
-            const parsed = parseCSSColor(colorStr);
-            if (!parsed) return {};
-
-            // Normalize to [0,1] then convert to OKLCH
-            const oklch = colorUnit2(parsed, "oklch", false, false, false);
-            const L = oklch.value.l.value;
-            const C = oklch.value.c.value;
-            const H = oklch.value.h.value;
-
-            const bgL = resolveSurfaceLightnessLive(
-                "resting",
-                ambient.value,
-                isDark.value,
-            );
-
-            // Denormalize: L [0,1]→[0,1], C [0,1]→[0,0.5], H [0,1]→[0,360];
-            // boost chroma slightly for headings.
-            const headingC = Math.max(C * 0.5, 0.08);
-
-            // S.W4-8 — the register boundary: letterforms speak ONE ink.
-            // The safe accent is minted once (the h2 rung, full strength);
-            // the h3/h4 rung derives by mixing toward the body ink at φ⁻¹ —
-            // an L/C step down the SAME hue, never a hue spin. (The former
-            // +40°/+20° per-level rotation painted sibling headings cyan and
-            // green simultaneously — a rainbow sampler, not one accent
-            // voice. Hue-variation belongs to color-DATA surfaces, never
-            // type — design-docs-about P2-3.) The oklab mix against the
-            // scheme's neutral foreground lowers C and moves L toward ink,
-            // correctly in BOTH schemes, with no second color minted.
-            //
-            // T.W3-5: the guard is `certifyAccentInk` — the D6 certified-ink
-            // path (distance guard + gamut-map + WCAG floor walk), keyed on
-            // the plate referent above; the former bare `computeSafeAccent`
-            // stopped at the distance heuristic.
-            const accent = certifyAccentInk(
-                `oklch(${L} ${headingC} ${H * 360})`,
-                bgL,
-            );
-
-            return {
-                "--md-color-h2": accent,
-                "--md-color-h3": `color-mix(in oklab, ${accent} 61.8%, var(--foreground))`,
-                "--md-color-accent": accent,
-            } as Record<string, string>;
-        } catch {
-            return {};
+        const parsed = parseCssColor(colorStr);
+        if (!parsed.ok) {
+            throw new Error(`[MarkdownColors] invalid CSS color: ${parsed.diagnostics[0].code}`);
         }
+        const converted = convertColor(parsed.value, "oklch");
+        if (!converted.ok) {
+            throw new Error(`[MarkdownColors] OKLCH conversion failed: ${converted.error.code}`);
+        }
+        const [L, C, H] = converted.value.channels;
+        if (L === "none" || C === "none") {
+            throw new Error("[MarkdownColors] OKLCH lightness and chroma are required");
+        }
+
+        const bgL = resolveSurfaceLightnessLive(
+            "resting",
+            ambient.value,
+            isDark.value,
+        );
+
+        // A powerless color has no hue to intensify; chromatic headings keep
+        // a modest floor without inventing a hue for neutral input.
+        const headingC = H === "none" ? 0 : Math.max(C, 0.08);
+        const headingH = H === "none" ? 0 : H;
+
+        // S.W4-8 — the register boundary: letterforms speak ONE ink.
+        // The safe accent is minted once (the h2 rung, full strength);
+        // the h3/h4 rung derives by mixing toward the body ink at φ⁻¹ —
+        // an L/C step down the SAME hue, never a hue spin. (The former
+        // +40°/+20° per-level rotation painted sibling headings cyan and
+        // green simultaneously — a rainbow sampler, not one accent
+        // voice. Hue-variation belongs to color-DATA surfaces, never
+        // type — design-docs-about P2-3.) The oklab mix against the
+        // scheme's neutral foreground lowers C and moves L toward ink,
+        // correctly in BOTH schemes, with no second color minted.
+        //
+        // T.W3-5: the guard is `certifyAccentInk` — the D6 certified-ink
+        // path (distance guard + gamut-map + WCAG floor walk), keyed on
+        // the plate referent above; the former bare `computeSafeAccent`
+        // stopped at the distance heuristic.
+        const accent = certifyAccentInk(
+            `oklch(${L} ${headingC} ${headingH})`,
+            bgL,
+        );
+
+        return {
+            "--md-color-h2": accent,
+            "--md-color-h3": `color-mix(in oklab, ${accent} 61.8%, var(--foreground))`,
+            "--md-color-accent": accent,
+        } as Record<string, string>;
     });
 
     return { mdColorVars };

@@ -142,8 +142,7 @@ import {
     Loader2,
 } from "@lucide/vue";
 import type { Tag } from "@lib/palette/types";
-import { srgb2oklab } from "@mkbabb/value.js/color";
-import { hex2rgb } from "@mkbabb/value.js/color";
+import { parseColorIn } from "@lib/color-utils";
 
 const { sort, tier, selectedTags, availableTags } = defineProps<{
     sort: string;
@@ -204,8 +203,10 @@ function toggleTag(name: string) {
 }
 
 function hexToOklab(hex: string): { L: number; a: number; b: number } {
-    const rgb = hex2rgb(hex);
-    const [L, a, b] = srgb2oklab(rgb.r, rgb.g, rgb.b);
+    const [L, a, b] = parseColorIn(hex, "oklab").channels;
+    if (L === "none" || a === "none" || b === "none") {
+        throw new Error("Hex color produced missing OKLab channels");
+    }
     return { L, a, b };
 }
 

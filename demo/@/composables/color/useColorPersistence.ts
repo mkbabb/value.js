@@ -1,8 +1,7 @@
 import { watch, type ShallowRef, type ComputedRef } from "vue";
 import { useStorage } from "@vueuse/core";
 import { debounce } from "@utils/utils";
-import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
-import { normalizeColorUnit } from "@mkbabb/value.js/color";
+import { serializePickerColor, type PickerColor } from "@lib/picker-color";
 import type { ColorModel } from "@components/custom/color-picker";
 import { defaultColorModel } from "@components/custom/color-picker";
 // The persisted color-state projection key — single-sourced (U-F48), shared
@@ -37,10 +36,10 @@ export function useColorPersistence(deps: {
     model: ShallowRef<ColorModel>;
     updateModel: (patch: Partial<ColorModel>) => void;
     parseAndSetColor: (css: string) => void;
-    parseAndNormalizeColor: (css: string) => ParsedColorUnit;
+    parseColor: (css: string) => PickerColor;
     cssColor: ComputedRef<string>;
 }) {
-    const { model, updateModel, parseAndSetColor, parseAndNormalizeColor, cssColor } =
+    const { model, updateModel, parseAndSetColor, parseColor, cssColor } =
         deps;
 
     // Capture whether a persisted color-state exists BEFORE useStorage seeds the
@@ -74,12 +73,12 @@ export function useColorPersistence(deps: {
             const parsed = storedSaved
                 .map((s) => {
                     try {
-                        return parseAndNormalizeColor(String(s));
+                        return parseColor(String(s));
                     } catch {
                         return null;
                     }
                 })
-                .filter((c): c is ParsedColorUnit => c !== null);
+                .filter((c): c is PickerColor => c !== null);
             if (parsed.length) updateModel({ savedColors: parsed });
         }
         return restored;
@@ -102,9 +101,7 @@ export function useColorPersistence(deps: {
     watch(
         () => model.value.savedColors,
         (colors) => {
-            colorStore.value.savedColors = colors.map((c) =>
-                normalizeColorUnit(c, true, false).toString(),
-            );
+            colorStore.value.savedColors = colors.map(serializePickerColor);
         },
     );
 
@@ -113,9 +110,7 @@ export function useColorPersistence(deps: {
     const resetStorage = (fresh: ColorModel) => {
         syncColorToStorage.cancel();
         colorStore.value.inputColor = fresh.inputColor;
-        colorStore.value.savedColors = fresh.savedColors.map((c) =>
-            normalizeColorUnit(c, true, false).toString(),
-        );
+        colorStore.value.savedColors = fresh.savedColors.map(serializePickerColor);
     };
 
     return { restoreFromStorage, resetStorage };

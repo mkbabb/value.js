@@ -14,7 +14,6 @@ import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import GradientStopEditor from "./GradientStopEditor.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
 import GradientEasingEditor from "./GradientEasingEditor.vue";
-import PerceivedSpacePlate from "./PerceivedSpacePlate/PerceivedSpacePlate.vue";
 import {
     useGradientModel,
     INTERPOLATION_SPACES,
@@ -22,10 +21,9 @@ import {
 } from "../composables/useGradientModel";
 import type { GradientType } from "../composables/useGradientModel";
 import { interpolateStopColors } from "../composables/useGradientInterpolation";
-import { usePerceivedRamp } from "../composables/usePerceivedRamp";
 import { easingFnOf } from "../composables/useGradientCSS";
-import type { ColorSpace } from "@mkbabb/value.js/color";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import type { PickerSpace } from "@lib/picker-color";
 import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
 import type { AcceptableValue } from "reka-ui";
 
@@ -52,9 +50,6 @@ const {
 
 const selectedStopId = defineModel<string | null>("selectedStopId", { default: null });
 
-// ── The perceived-space projection (W5-8): plate trajectory + rail rungs ──
-const ramp = usePerceivedRamp(modelState, selectedStopId);
-
 const GRADIENT_TYPES: { value: GradientType; label: string; description: string }[] = [
     { value: "linear", label: "Linear", description: "Left-to-right or angled" },
     { value: "radial", label: "Radial", description: "Center-outward circle" },
@@ -66,9 +61,9 @@ const GRADIENT_TYPES: { value: GradientType; label: string; description: string 
  * stop editor's add ghost AND the color a bar-click mints (W5-11: the old
  * fixed-teal insert is dead; an added stop is invisible until moved).
  */
-function colorAtPosition(position: number): string | null {
+function colorAtPosition(position: number): string {
     const list = stops.value;
-    if (list.length === 0) return null;
+    if (list.length === 0) throw new Error("A gradient must retain at least one stop");
     if (position <= list[0]!.position) return list[0]!.cssColor;
     const last = list[list.length - 1]!;
     if (position >= last.position) return last.cssColor;
@@ -78,7 +73,9 @@ function colorAtPosition(position: number): string | null {
         if (position < s0.position || position > s1.position) continue;
         const span = s1.position - s0.position;
         const t = span > 0 ? (position - s0.position) / span : 0;
-        const easedT = easingFnOf(intervals.value[i])(t);
+        const interval = intervals.value[i];
+        if (!interval) throw new Error(`Gradient interval ${i} is missing`);
+        const easedT = easingFnOf(interval)(t);
         return interpolateStopColors(
             s0.cssColor,
             s1.cssColor,
@@ -87,11 +84,11 @@ function colorAtPosition(position: number): string | null {
             hueMethod.value,
         );
     }
-    return null;
+    throw new Error(`No gradient interval contains ${position}%`);
 }
 
 function onAddStop(position: number) {
-    addStop(colorAtPosition(position) ?? "oklch(0.7 0.1 180)", position);
+    addStop(colorAtPosition(position), position);
 }
 
 function onStopPositionUpdate(id: string, position: number) {
@@ -104,12 +101,10 @@ const parseVerdict = ref<string | null>(null);
 
 function onParseCSS(css: string) {
     // A successful parse re-seeds every interval to the `linear` preset
-    // (easing-disposition §1.6/D3). Bump the epoch so the easing editor's
-    // alive picker instances remount re-seeded `linear` — the drawn curve
-    // and the interval's live fn must never disagree after a reset.
+    // (easing-disposition §1.6/D3); the picker's two-way model follows the
+    // complete replacement value directly.
     const result = applyCSS(css);
     parseVerdict.value = result.ok ? null : result.reason;
-    if (result.ok) easingEpoch.value++;
 }
 
 function seedFromPalette() {
@@ -129,11 +124,6 @@ function resetGradient() {
     parseVerdict.value = null;
 }
 
-// The easing editor's re-seed signal (a successful CSS parse re-keys its
-// rows; the accordion itself lives in GradientEasingEditor — the W5-9
-// surface, lifted at the ≤400 cap check).
-const easingEpoch = ref(0);
-
 async function copyCSS() {
     await copyToClipboard(coalescedCSS.value);
 }
@@ -143,24 +133,10 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
 <template>
     <div class="flex flex-col gap-5">
-        <!-- Hero: the hue-swept envelope plate (T.W6-2, re-authored from the
-             W5-8 slice). The old aria-hidden preview swatch is DISSOLVED
-             (P2-16 — it duplicated the editing rail below): the rail renders
-             the gradient itself; the plate renders what the ramp DOES in
-             perceptual space, across its OWN swept hues. -->
-        <PerceivedSpacePlate
-            :points="ramp.points.value"
-            :stop-points="ramp.stopPoints.value"
-            :hue="ramp.runningHue.value"
-            :sweep="ramp.sweptHues.value"
-            :selected-id="selectedStopId"
-        />
-
         <GradientStopEditor
             :stops="stops"
             :rail-ramp="railRampCSS"
             :color-at="colorAtPosition"
-            :rungs="ramp.rungs.value"
             v-model:selected-id="selectedStopId"
             @update:position="onStopPositionUpdate"
             @add="onAddStop"
@@ -202,7 +178,7 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
 
             <div class="flex flex-col gap-1">
                 <span class="section-label">Space</span>
-                <Select :model-value="interpolationSpace" @update:model-value="(v: AcceptableValue) => interpolationSpace = v as ColorSpace">
+                <Select :model-value="interpolationSpace" @update:model-value="(v: AcceptableValue) => interpolationSpace = v as PickerSpace">
                     <SelectTrigger class="h-9" aria-label="Interpolation space">
                         <SelectValue />
                     </SelectTrigger>
@@ -267,7 +243,6 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
                 :stops="stops"
                 :intervals="intervals"
                 :model-state="modelState"
-                :epoch="easingEpoch"
                 @update-interval="updateInterval"
             />
         </template>

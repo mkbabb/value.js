@@ -29,13 +29,7 @@
  * `test/value-domain-clamp.test.ts` (the wave's clamp oracle).
  */
 
-import type { ColorSpace } from "@mkbabb/value.js/color";
-import {
-    CYLINDRICAL_HUE_COMPONENT,
-    getColorSpaceBound,
-} from "@mkbabb/value.js/color";
-import { clamp } from "@mkbabb/value.js/math";
-import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
+import { clampPickerColor, type PickerColor } from "@lib/picker-color";
 
 /**
  * Clamp a model color into its space's value domain — IN PLACE (callers of
@@ -51,25 +45,5 @@ import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
  * kelvin pick to 40000 K (caught by the fidelity row of the clamp oracle).
  */
 export const clampColorToSpaceDomain = (
-    color: ParsedColorUnit,
-): ParsedColorUnit => {
-    const space = color.value.colorSpace as ColorSpace;
-    const hueComponent = CYLINDRICAL_HUE_COMPONENT[space];
-    for (const component of color.value.keys()) {
-        const channel = color.value[component];
-        const v = channel?.value;
-        if (typeof v !== "number" || !Number.isFinite(v)) continue;
-        if (component === hueComponent) {
-            // Wrap into [0,1] of the hue turn; 1 (= 360°) stays itself.
-            if (v < 0 || v > 1) channel.value = v - Math.floor(v);
-        } else if (space === "kelvin" && component === "kelvin") {
-            const { min, max } = getColorSpaceBound(space, component, "");
-            const next = clamp(v, min, max);
-            if (next !== v) channel.value = next;
-        } else {
-            const next = clamp(v, 0, 1);
-            if (next !== v) channel.value = next;
-        }
-    }
-    return color;
-};
+    color: PickerColor,
+): PickerColor => clampPickerColor(color);

@@ -100,7 +100,7 @@
                 <Separator class="my-2" />
 
                 <div class="fira-code w-full flex justify-center">
-                    {{ denormalizedCurrentColor.value.toFormattedString() }}
+                    {{ serializePickerColor(currentPhysicalColor) }}
                 </div>
 
                 <!-- E4 (Q10): the Parse-Lab echo (AST + gamut verdict). -->
@@ -130,6 +130,7 @@ import ParseEchoReadout from "./ParseEchoReadout.vue";
 import { proposeColorName } from "@lib/palette/api";
 import { useSession } from "@composables/auth/useSession";
 import type { EditTarget } from "..";
+import { serializePickerColor } from "@lib/picker-color";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
 
 const { proposeMode } = defineProps<{
@@ -138,7 +139,7 @@ const { proposeMode } = defineProps<{
 }>();
 
 const {
-    denormalizedCurrentColor,
+    currentPhysicalColor,
     cssColor,
     cssColorOpaque,
     formattedCurrentColor,
@@ -150,7 +151,6 @@ const {
     parseError,
     updateModel,
     copyToClipboard,
-    DIGITS,
 } = inject(COLOR_MODEL_KEY)!;
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
@@ -231,7 +231,7 @@ async function submitProposedName() {
     proposing.value = true;
     try {
         await session.ensureSession();
-        const cssStr = denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
+        const cssStr = serializePickerColor(currentPhysicalColor.value);
         await proposeColorName(proposedName.value.trim().toLowerCase(), cssStr);
         proposedName.value = "";
         // Signal parent to exit propose mode

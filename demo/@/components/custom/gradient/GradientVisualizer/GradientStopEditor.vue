@@ -3,24 +3,17 @@ import { ref, computed, useTemplateRef } from "vue";
 import { X } from "@lucide/vue";
 import type { GradientStop } from "../composables/useGradientModel";
 
-const { stops, railRamp, colorAt = undefined, rungs = undefined } = defineProps<{
+const { stops, railRamp, colorAt = undefined } = defineProps<{
     stops: GradientStop[];
     /**
      * The rail-normalized 90° projection (`serializeRailRamp`, T.W6-2): the
      * rail ALWAYS paints this — at every type/direction — so handles,
-     * add-ghost, rungs, and ramp share one axis by construction. The raw
-     * render string (type + direction applied) is the render tile's job.
+     * add-ghost and ramp share one axis by construction. The true render
+     * string (type + direction applied) is the render tile's job.
      */
     railRamp: string;
     /** Ramp color at a position (0–100) — previews the ghost + seeds adds. */
-    colorAt?: (position: number) => string | null;
-    /**
-     * iso-ΔE_OK rung positions (0–100) from `usePerceivedRamp` (W5-8):
-     * equal perceptual arc-length ticks — bunched rungs = fast perceptual
-     * change, open rungs = a flat zone; a steps() interval reads as
-     * rung-free bands with clusters at the risers.
-     */
-    rungs?: number[];
+    colorAt?: (position: number) => string;
 }>();
 
 const emit = defineEmits<{
@@ -49,12 +42,8 @@ const hoveredId = ref<string | null>(null);
 const hoverPos = ref<number | null>(null);
 let pendingAdd: { x: number; y: number } | null = null;
 
-// ── The re-tap deselect (P7-R1: the sweep regime's EXIT) ──
-// Selecting a stop pins the envelope plate to its single-hue slice; the
-// sweep hero regime was one-way (no gesture un-pinned it). A re-tap on the
-// already-selected handle — a press that does NOT become a drag — clears the
-// selection, un-pinning the plate. This is Escape's pointer twin (touch has
-// no Escape), so it must NOT fire when the press turns into a drag.
+// A re-tap on the selected handle — when the press does not become a drag —
+// clears selection. This is Escape's pointer twin for touch users.
 let handleGesture: { wasSelected: boolean; x: number; y: number; moved: boolean } | null = null;
 
 // ── Geometry (W5-11: end-handle truce) ──
@@ -158,7 +147,7 @@ function onHandlePointerMove(e: PointerEvent) {
 
 function onHandlePointerUp() {
     // A press that never became a drag ON the already-selected handle is a
-    // re-tap → deselect (un-pin the plate; the touch/mouse EXIT — P7-R1).
+    // Re-tap the selected handle to deselect without moving it.
     if (handleGesture && handleGesture.wasSelected && !handleGesture.moved) {
         selectedId.value = null;
     }
@@ -179,9 +168,7 @@ function onHandleContextMenu(e: MouseEvent, id: string) {
 
 /**
  * Keyboard: arrows nudge (±1, shift ±10); Delete/Backspace removes; Escape
- * clears the selection (P7-R1 — un-pins the envelope plate back to the
- * swept-hue hero regime; the handle keeps focus, the pin-on-select law is
- * untouched — this is the EXIT the sweep regime lacked).
+ * clears selection while the handle keeps focus.
  */
 function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
@@ -312,39 +299,6 @@ function onHandleKeydown(e: KeyboardEvent, stop: GradientStop) {
             <X class="w-3.5 h-3.5" aria-hidden="true" />
         </button>
 
-        <!-- The iso-ΔE_OK ruler (W5-8 rungs; T.W6-2 ruler grammar — finding
-             6's cure): rungs are INTERIOR perceptual arc-length marks (the
-             ends are not rungs), so the row carries terminal caps at 0/100
-             in a distinct taller voice — the termination law made visible;
-             the asymmetric extents read as perceptual truth, not layout
-             error. Mapped to the same inset track as the handles; the rung
-             ink joins the recalibrated gamut-ink register (ONE netting
-             voice across plate and rail, both schemes). -->
-        <!-- `mx-px`: the rail's 1px hairline insets its padding box (where
-             the handles' inset track lives); the borderless ruler row takes
-             the same 1px inset so caps/rungs and handle centers share ONE
-             axis to the pixel (O-21's cap↔handle congruence). -->
-        <div
-            v-if="rungs && rungs.length"
-            data-testid="gradient-rung-row"
-            class="relative h-2.5 mx-px"
-            aria-hidden="true"
-        >
-            <span
-                v-for="cap in [0, 100]"
-                :key="`cap-${cap}`"
-                data-testid="gradient-ruler-cap"
-                class="absolute top-0 h-full w-[1.5px] -translate-x-1/2 rounded-full bg-foreground/70"
-                :style="{ left: handleLeft(cap) }"
-            />
-            <span
-                v-for="(r, i) in rungs"
-                :key="i"
-                data-testid="gradient-rung"
-                class="absolute top-1/2 w-px h-1.5 -translate-y-1/2"
-                :style="{ left: handleLeft(r), background: 'var(--gamut-edge)' }"
-            />
-        </div>
     </div>
 </template>
 

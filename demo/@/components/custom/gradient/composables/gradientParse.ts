@@ -13,15 +13,12 @@
  * because the library's flat `FunctionValue` token stream loses the comma
  * grouping — `red 30%, blue` and `red, 30%, blue` (an interpolation hint)
  * parse to identical flat streams. Each token is then validated by the
- * LIBRARY's own parsers (`parseCSSColor` / `parseCSSValue` — the validity
+ * LIBRARY's own parsers (`parseCssColor` / `parseCssScalar` — the validity
  * oracles; the demo never hand-validates a color). A welcome corollary:
  * `stops[].cssColor` keeps the AUTHORED literal (`red` stays `red`, P2-15).
  */
 
-import { parseCSSValue } from "@mkbabb/value.js/parsing";
-import { parseCSSColor } from "@mkbabb/value.js/parsing";
-import { ValueUnit } from "@mkbabb/value.js/units";
-import { convertToDegrees } from "@mkbabb/value.js/units";
+import { parseCssColor, parseCssScalar } from "@mkbabb/value.js/css";
 import { linearInterval } from "./useGradientCSS";
 import type {
     GradientType,
@@ -91,47 +88,33 @@ function tokenizeTopLevel(s: string): string[] {
     return out;
 }
 
-/** Library-oracle color check (parse-that throws on junk). */
+/** Library-oracle color check. */
 function isColorToken(token: string): boolean {
-    try {
-        const parsed = parseCSSColor(token);
-        return parsed instanceof ValueUnit;
-    } catch {
-        return false;
-    }
+    return parseCssColor(token).ok;
 }
 
 /** Library-oracle angle → degrees; null when the token isn't an angle. */
 function angleToDegrees(token: string): number | null {
-    try {
-        const v = parseCSSValue(token);
-        if (
-            v instanceof ValueUnit &&
-            typeof v.value === "number" &&
-            v.superType?.includes("angle")
-        ) {
-            return convertToDegrees(
-                v.value,
-                v.unit as Parameters<typeof convertToDegrees>[1],
-            );
-        }
-    } catch {
-        /* not an angle */
+    const parsed = parseCssScalar(token);
+    if (!parsed.ok || parsed.value.payload.type !== "number") return null;
+    const { value, unit } = parsed.value.payload;
+    switch (unit.toLowerCase()) {
+        case "deg": return value;
+        case "grad": return value * 0.9;
+        case "rad": return value * 180 / Math.PI;
+        case "turn": return value * 360;
+        default: return null;
     }
-    return null;
 }
 
 /** Library-oracle percentage; null when the token isn't a `%` value. */
 function percentValue(token: string): number | null {
-    try {
-        const v = parseCSSValue(token);
-        if (v instanceof ValueUnit && typeof v.value === "number" && v.unit === "%") {
-            return v.value;
-        }
-    } catch {
-        /* not a percentage */
-    }
-    return null;
+    const parsed = parseCssScalar(token);
+    return parsed.ok
+        && parsed.value.payload.type === "number"
+        && parsed.value.payload.unit === "%"
+        ? parsed.value.payload.value
+        : null;
 }
 
 /** `to <side>` → exact degrees; corner keywords are box-dependent → null. */
@@ -316,4 +299,3 @@ export function parseGradientCSS(css: string): GradientParseResult {
 
     return { ok: true, model: { type, direction, stops, intervals } };
 }
-

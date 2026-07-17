@@ -23,8 +23,7 @@
  * (the seal-ink rows; the resolver + ramp rows probe the shared module).
  */
 
-import { contrastColor, getColorSpaceBound } from "@mkbabb/value.js/color";
-import { publicOklch, tryParseOklch } from "@composables/color/view-accent";
+import { contrastInkFor } from "@composables/color/ink";
 
 /**
  * Resolve the wax seal's icon ink from the WAX color itself (the SEEDS.md w7
@@ -37,18 +36,5 @@ import { publicOklch, tryParseOklch } from "@composables/color/view-accent";
  * @returns      `oklch(0 0 0)` | `oklch(1 0 0)`, or null on parse failure
  */
 export function resolveSealInk(waxCss: string): string | null {
-    const wax = tryParseOklch(waxCss);
-    if (!wax) return null;
-    const cMax = getColorSpaceBound("oklch", "c", "number").max;
-    const hMax = getColorSpaceBound("oklch", "h", "number").max;
-    const ink = contrastColor(
-        publicOklch(
-            wax.l as number,
-            (wax.c as number) * cMax,
-            (wax.h as number) * hMax,
-        ),
-    );
-    // The leaf returns pure black or pure white (the CSS Color 5 endpoints);
-    // re-express in the house oklch voice.
-    return (ink.r as number) === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
+    return contrastInkFor(waxCss);
 }

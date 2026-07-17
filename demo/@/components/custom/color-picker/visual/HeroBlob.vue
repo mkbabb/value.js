@@ -1,54 +1,22 @@
 <template>
-    <!-- Explicit root: the caller's class (the pane slot's corner-break
-         anchor) lands here, never on the renderless TooltipProvider.
-         pointer-events-none: the producer's F9.R8 pointer shaping makes the
-         SDF-shaped `.goo-blob-hit` child the ONLY interactive surface (its
-         explicit pointer-events:auto re-enables under this none) — the
-         wrapper square must never re-intercept a sibling-card click in the
-         corner-break overlap strip (the seed's (770,150) interception,
-         discharged by the producer's clip-path hit layer). -->
+    <!-- Explicit inert ornament root: the caller's anchor lands here and the
+         fixed footprint never intercepts the card. Omitting pressLabel keeps
+         the producer on its decorative canvas path—no button, focus target,
+         pointer host, Tooltip, or duplicate Copy ownership. -->
     <!-- T.W4.5 R2 — @animationend: the caller's `.hero-blob-anchor` class
          (and with it the W2-4 `blob-emerge` beat) lands on THIS root, so the
          emerge pose's end fires here; onEmergeEnd re-measures the engine's
          backing store against the settled box (see the script block). -->
-    <div class="pointer-events-none" @animationend="onEmergeEnd">
-        <TooltipProvider :skip-delay-duration="0" :delay-duration="100">
-            <Tooltip>
-                <TooltipTrigger as-child>
-                    <!-- W6-4 (S.W6): the FOOTPRINT is the caller's law — the
-                         pane slot's anchor class sets `--blob-fp` (the
-                         corner-break placement law in ColorPicker.vue); the
-                         blob only consumes it. No self-owned width rungs —
-                         Q7 full presence means the SAME consume at every
-                         viewport, sized by the slot. -->
-                    <!-- T.W4-5 — the RELEASE beat (t-blob-hero F-6/§3): the
-                         missing @mouseleave lands — hover-out returns the
-                         mood to the autonomic idle arc and re-arms the park
-                         countdown, so the park can never embalm a mid-smear
-                         hover pose. The park TRIGGER stays wall-clock until
-                         P6's `settled` seam ships (BOOKED — never a demo
-                         guess at silhouette energy). -->
-                    <Blob
-                        ref="blobRef"
-                        :color="cssColorOpaque"
-                        :config="heroConfig"
-                        :paused="blobPaused"
-                        press-label="Copy current color"
-                        class="w-(--blob-fp)"
-                        @click="onBlobClick"
-                        @mouseenter="onBlobHover"
-                        @mouseleave="onBlobLeave"
-                        @pointermove="noteBlobActivity"
-                    />
-                </TooltipTrigger>
-                <!-- T.W4-5 — the tooltip re-seats BELOW the bead, into the
-                     card region (t-blob-hero §3 Celebration: it used to pop
-                     upward into the dock band). -->
-                <TooltipContent side="bottom" align="end" class="fira-code">
-                    {{ denormalizedCurrentColor.value.toFormattedString() }}
-                </TooltipContent>
-            </Tooltip>
-        </TooltipProvider>
+    <div class="pointer-events-none" aria-hidden="true" @animationend="onEmergeEnd">
+        <!-- W6-4 (S.W6): the FOOTPRINT is the caller's law — the pane slot's
+             anchor class sets `--blob-fp`; Blob only consumes it. -->
+        <Blob
+            ref="blobRef"
+            :color="cssColorOpaque"
+            :config="heroConfig"
+            :paused="blobPaused"
+            class="w-(--blob-fp)"
+        />
     </div>
 </template>
 
@@ -63,12 +31,6 @@ import {
     useTemplateRef,
     watch,
 } from "vue";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@components/ui/tooltip";
 import { Blob, BLOB_CONFIG_KEY } from "@mkbabb/glass-ui/blob";
 import type { BlobConfig } from "@mkbabb/glass-ui/blob";
 import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
@@ -81,22 +43,17 @@ import { resolveSurfaceLightnessLive } from "@composables/color/useContrastSafeC
 
 // Thin consumer of glass-ui's Blob (the demo half of W6-4 — consume/config/
 // placement ONLY; the engine is the producer's, genesis brief §3.0). The
-// component owns its own autonomic mood arc; HeroBlob binds the REAL APP
-// MOMENTS the picker UX cares about (the W6-4 mood-FSM row):
+// component owns its own autonomic mood arc; HeroBlob binds the noninteractive
+// app moments the picker UX cares about (the W6-4 mood-FSM row):
 //   scrub → excited   (a run of rapid colour changes — the user is scrubbing)
 //   save  → happy drip (a colour lands in the palette — pulse() is the drip)
-//   click → happy + nudge (click = copy; the celebratory bounce)
-//   hover → curious
 //   idle  → sleepy-as-contained-pose (the W3-3 park freezes the SLEEPY frame,
 //           so the parked blob reads as a resting creature, not a paused video)
 // PRM: no demo wiring — the producer substrate renders ONE static frame and
 // parks itself under prefers-reduced-motion (seed w6-blob-redress §d-5); the
 // idle-gate + mood writes below are harmless no-ops on that parked substrate.
 
-const { cssColorOpaque, cssColorOpaqueFrame, denormalizedCurrentColor, savedColorStrings } =
-    inject(COLOR_MODEL_KEY)!;
-
-const emit = defineEmits<{ click: [] }>();
+const { cssColorOpaque, cssColorOpaqueFrame, savedColorStrings } = inject(COLOR_MODEL_KEY)!;
 
 const blobRef = useTemplateRef<InstanceType<typeof Blob>>("blobRef");
 
@@ -196,14 +153,13 @@ const heroConfig = computed<BlobConfig>(() => ({
     ...appBlobConfig,
     // The HERO geometry register (seed w6-blob-redress §What-was-built): the
     // shipped default hides the satellite show (orbitRadius 0.17 < bodyRadius
-    // 0.22 — centers orbit INSIDE the skin, genesis §1.3-4). Widened orbit +
-    // grown body = the visible-bead/satellite ceiling the CONSUMER can reach
-    // (~92px bead at the 11rem footprint; ≥96px + ≥2 detached beads at rest
-    // need the producer L5 HERO preset — the recorded producer-gap row).
-    // RETIRES to the producer HERO preset at the S.W8 5.0.0 adopt.
+    // 0.22 — centers orbit INSIDE the skin, genesis §1.3-4). W29 changes only
+    // bodyRadius: 0.325; the frozen orbit/satellite/eccentricity bytes preserve
+    // the established morphology. The dual-engine alpha-component witness,
+    // not the nominal 0.65 diameter, closes the rendered 0.66 ±0.015 contract.
     geometry: {
         ...appBlobConfig.geometry,
-        bodyRadius: 0.26,
+        bodyRadius: 0.325,
         orbitRadius: 0.4,
         satelliteRadius: 0.09,
         eccentricity: 0.03,
@@ -216,7 +172,7 @@ const heroConfig = computed<BlobConfig>(() => ({
     // The <lg GL-lifecycle half of Q7 full presence (DESIGNED, not toggled):
     // phones ship DPR ≈ 3 and every mainstream mobile GPU is fill-rate bound
     // (genesis §2.4) — the hand-scale bead takes the producer's own half-res
-    // quality rung below lg (visually free at a ~67px bead; the producer's
+    // quality rung below lg (visually free at the ~73px floor; the producer's
     // DPR ≤ 2 clamp still applies above it). lg+ keeps the app config's rung.
     quality: isLgViewport.value ? appBlobConfig.quality : "half",
 }));
@@ -226,10 +182,10 @@ const heroConfig = computed<BlobConfig>(() => ({
 // idle — the picker's default-view floor sits at 54fps vs the blob-off 85fps
 // (perf-transitions P0-2). We drive the renderer's EXISTING `paused` seam (the
 // `v-model:paused` prop → the substrate's `manual` suspend) after N ms with no
-// colour or pointer activity; the producer's own colour/paletteStops wake
+// colour or save activity; the producer's own colour/paletteStops wake
 // watchers repaint the parked blob on a colour change (single-frame repaint),
-// and pointer activity resumes the live loop. The producer per-frame CPU
-// profile is letter L5 — this is the demo half ONLY, no ../glass-ui patch.
+// and those programmatic moments resume the live loop. The producer per-frame
+// CPU profile is letter L5 — this is the demo half ONLY, no ../glass-ui patch.
 //
 // W6-4 (idle → sleepy-as-contained-pose): at the idle threshold the blob is
 // first put to SLEEP (the mood FSM's contained rest pose), then the park
@@ -258,7 +214,7 @@ const blobPaused = ref(false);
 let idleTimer: ReturnType<typeof setTimeout> | undefined;
 let poseTimer: ReturnType<typeof setTimeout> | undefined;
 function noteBlobActivity() {
-    blobPaused.value = false; // resume the live loop under interaction
+    blobPaused.value = false; // resume the live loop for the new app moment
     clearTimeout(idleTimer);
     clearTimeout(poseTimer);
     idleTimer = setTimeout(() => {
@@ -346,10 +302,9 @@ watch(
 // unchanged), so the idle park FREEZES the low-res frame (measured at dpr2:
 // backing 126×126 for a 180.2px box; a wake re-measures to 360×360). The cure
 // drives the producer's EXISTING re-measure seam — `resume()` re-measures via
-// idempotent `resize()` on the was-suspended path, the same path a pointer
-// wake over a parked blob takes — as a pause()/resume() pair at the emerge
-// pose's animationend, sizing the backing against the settled (untransformed)
-// box with one same-frame repaint. Name-filtered (the engine's own grammars
+// idempotent `resize()` on the was-suspended path — as a pause()/resume() pair
+// at the emerge pose's animationend, sizing the backing against the settled
+// (untransformed) box with one same-frame repaint. Name-filtered (the engine's own grammars
 // compose inside this subtree); park-guarded so a parked blob is never woken
 // by a beat's end. Under PRM the emerge never runs (no-preference-wrapped) and
 // the engine arms against the untransformed box — no cure needed, none fires.
@@ -359,30 +314,4 @@ function onEmergeEnd(e: AnimationEvent) {
     blobRef.value?.pause();
     blobRef.value?.resume();
 }
-
-function onBlobHover() {
-    noteBlobActivity();
-    blobRef.value?.setMood("curious");
-}
-
-// T.W4-5 — the RELEASE beat (F-6's missing half): hover-out hands the body
-// back to the autonomic arc (idle — the engine settles itself) and re-arms
-// the park countdown, so the freeze can never race a mid-smear hover pose.
-function onBlobLeave() {
-    noteBlobActivity();
-    blobRef.value?.setMood("idle");
-}
-
-function onBlobClick() {
-    noteBlobActivity();
-    emit("click");
-    blobRef.value?.setMood("happy");
-    blobRef.value?.nudge();
-}
-
-function nudgeSatellites() {
-    blobRef.value?.nudge();
-}
-
-defineExpose({ nudgeSatellites });
 </script>

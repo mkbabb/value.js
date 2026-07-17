@@ -39,12 +39,7 @@
  * lever 3; ictcp/jzazbz are 2-line at <sm).
  */
 
-import type { ColorSpace } from "@mkbabb/value.js/color";
-import {
-    COLOR_SPACE_RANGES,
-    getColorSpaceBound,
-    getColorSpaceDenormUnit,
-} from "@mkbabb/value.js/color";
+import { PICKER_CHANNELS, type PickerSpace } from "@lib/picker-color";
 
 /**
  * The Q11b lever-1 set (t-title-typography F6 + t-mobile F-4.3, the named
@@ -93,14 +88,19 @@ function chOf(n: number, decimals: number): number {
 /** The per-space, per-component worst-case `ch` table (line-lock input). */
 export const READOUT_CH: Readonly<Record<string, Readonly<Record<string, number>>>> =
     Object.fromEntries(
-        (Object.keys(COLOR_SPACE_RANGES) as ColorSpace[]).map((space) => [
+        (Object.keys(PICKER_CHANNELS) as PickerSpace[]).map((space) => [
             space,
             Object.fromEntries(
-                Object.keys(COLOR_SPACE_RANGES[space]).map((component) => {
-                    const unit = getColorSpaceDenormUnit(space, component);
-                    const { min, max } = getColorSpaceBound(space, component, unit);
-                    const d = readoutDecimals(space, component);
-                    return [component, Math.max(chOf(min, d), chOf(max, d))];
+                [
+                    ...PICKER_CHANNELS[space],
+                    { key: "alpha", min: 0, max: 100, unit: "%" as const },
+                ].map((meta) => {
+                    const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
+                    const d = readoutDecimals(space, meta.key);
+                    return [
+                        meta.key,
+                        Math.max(chOf(meta.min * scale, d), chOf(meta.max * scale, d)),
+                    ];
                 }),
             ),
         ]),

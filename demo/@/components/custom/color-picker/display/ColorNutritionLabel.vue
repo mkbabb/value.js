@@ -169,7 +169,7 @@ import { computed, ref, inject } from "vue";
 import { CSS_COLOR_KEY } from "@composables/color/keys";
 import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
 import { contrastInkFor } from "@composables/color/ink";
-import { getFormattedColorSpaceRange } from "@mkbabb/value.js/color";
+import { PICKER_CHANNELS } from "@lib/picker-color";
 import { Separator } from "@components/ui/separator";
 import {
     Tooltip,
@@ -213,8 +213,19 @@ const currentColorSpaceInfo = computed(() => {
         : colorSpaceInfo.rgb;
 });
 
-const formattedRange = computed(() =>
-    getFormattedColorSpaceRange(resolveColorSpace(model.value.selectedColorSpace)),
+const formattedRange = computed<Record<string, { min: string; max: string }>>(() =>
+    Object.fromEntries(
+        PICKER_CHANNELS[resolveColorSpace(model.value.selectedColorSpace)].map((meta) => {
+            const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
+            return [
+                meta.key,
+                {
+                    min: `${meta.min * scale}${meta.unit}`,
+                    max: `${meta.max * scale}${meta.unit}`,
+                },
+            ];
+        }),
+    ),
 );
 
 const hoveredPath = ref<string[]>([]);

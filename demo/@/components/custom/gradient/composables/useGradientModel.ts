@@ -8,9 +8,9 @@
  */
 
 import { ref, computed, watch } from "vue";
-import type { ColorSpace } from "@mkbabb/value.js/color";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
+import type { PickerSpace } from "@lib/picker-color";
 import { useGradientInterpolation } from "./useGradientInterpolation";
 import { useGradientCSS, linearInterval } from "./useGradientCSS";
 import { parseGradientCSS } from "./gradientParse";
@@ -39,15 +39,14 @@ export interface GradientStop {
 /**
  * A gradient interval carries the <EasingPicker> payload (the R.W4 `/easing`
  * consume — easing-disposition.md §2.3): the re-parseable CSS literal (the
- * persisted TRUTH) plus the live value.js callable and raw picker params as
- * transient caches. Since W5-9, `fn` is OPTIONAL — an interval without one
- * resolves through the library's canonical `resolveEasing(css)` (W1-6), so
- * the literal alone fully determines the curve. The former
+ * persisted TRUTH) plus the live value.js callable and authoring parameters.
+ * Literal-only reads still parse through `/css` and evaluate through
+ * `/easing`; editable model state stays complete for two-way picker binding.
+ * The former
  * `{easingName, easingFn}` name-catalogue shape died with the EasingSelector
  * fork — the picker's preset menu IS value.js `bezierPresets`.
  */
-export type GradientInterval = Pick<EasingPickerValue, "css"> &
-    Partial<Pick<EasingPickerValue, "fn" | "mode" | "points" | "steps" | "term">>;
+export type GradientInterval = EasingPickerValue;
 
 export type GradientType = "linear" | "radial" | "conic";
 
@@ -56,7 +55,7 @@ export interface GradientModelState {
     direction: number; // degrees (for linear); ignored for radial
     stops: GradientStop[];
     intervals: GradientInterval[];
-    interpolationSpace: ColorSpace;
+    interpolationSpace: PickerSpace;
     hueMethod: HueInterpolationMethod;
     // NOTE: no `resolution` — the coalesce density is the inlined
     // COALESCE_RESOLUTION constant (W5-11 / P2-14: it never had a UI).

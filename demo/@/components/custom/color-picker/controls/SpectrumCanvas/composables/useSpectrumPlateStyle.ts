@@ -7,11 +7,12 @@
 
 import { computed, type ComputedRef } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
+import { channelNumber, type PickerColorIn } from "@lib/picker-color";
 import { spectrumFieldIsLight } from "../../spectrumLuma";
 import type { useTouchGate } from "@mkbabb/glass-ui";
 
 export function useSpectrumPlateStyle(opts: {
-    HSVCurrentColor: ComputedRef<any>;
+    HSVCurrentColor: ComputedRef<PickerColorIn<"hsv">>;
     cssColorOpaque: ComputedRef<string>;
     dotPos: ComputedRef<{ s: number; v: number }>;
     spectrumGate: ReturnType<typeof useTouchGate>;
@@ -27,15 +28,14 @@ export function useSpectrumPlateStyle(opts: {
     });
 
     const spectrumStyle = computed(() => {
-        const { h } = HSVCurrentColor.value.value;
-        const hClamped = clamp(h.value, 0, 1);
+        const hue = clamp(channelNumber(HSVCurrentColor.value, "h"), 0, 360);
 
         const shadowStr = cssColorOpaque.value;
 
         return {
             background: `
         linear-gradient(to top, #000, transparent),
-        linear-gradient(to right, #fff, hsl(${hClamped * 360}deg, 100%, 50%))
+        linear-gradient(to right, #fff, hsl(${hue}deg, 100%, 50%))
       `,
             "--spectrum-shadow": shadowStr,
             touchAction: spectrumGate.isTouchDevice

@@ -109,7 +109,11 @@ import {
 } from "@components/ui/select";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { inject } from "vue";
-import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
+import {
+    CSS_PICKER_SPACES,
+    convertPickerColor,
+    serializePickerColor,
+} from "@lib/picker-color";
 import {
     DISPLAY_COLOR_SPACE_NAMES,
     colorToHexString,
@@ -149,19 +153,16 @@ const spaceEntries = Object.entries(DISPLAY_COLOR_SPACE_NAMES);
 // computed only while the dropdown renders (SelectContent unmounts closed).
 function specimenFor(space: DisplayColorSpace): string {
     if (!colorModel) return "";
-    try {
-        if (space === "hex") return colorToHexString(colorModel.model.value.color);
-        const converted = colorUnit2(
-            colorModel.model.value.color,
-            resolveColorSpace(space),
-            true,
-            false,
-            false,
-        );
-        return normalizeColorUnit(converted, true, false).value.toFormattedString(2);
-    } catch {
-        return "—";
-    }
+    if (space === "hex") return colorToHexString(colorModel.model.value.color);
+    const converted = convertPickerColor(
+        colorModel.model.value.color,
+        resolveColorSpace(space),
+    );
+    if (CSS_PICKER_SPACES.has(converted.space)) return serializePickerColor(converted);
+    const channels = converted.channels.map((channel) =>
+        typeof channel === "number" ? Number(channel.toFixed(4)) : channel,
+    );
+    return `${converted.space} · ${channels.join(" · ")}`;
 }
 </script>
 

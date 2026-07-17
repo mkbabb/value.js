@@ -7,25 +7,25 @@
  * THE LAW: the SLOT owns the footprint token AND the anchor; HeroBlob only
  * consumes `--blob-fp` (the surviving Q7/R3 slot-owned-token law). Size
  * identity: canvas = 1.6× wrapper, POS_SCALE 0.625 — the factors cancel, so
- * visible bead px = 2·bodyRadius·footprint exactly (bodyRadius 0.26 via
- * HeroBlob's HERO register → bead = 0.52·fp, edges 0.24·fp inside the
+ * nominal body px = 2·bodyRadius·footprint (bodyRadius 0.325 via HeroBlob's
+ * HERO register → body = 0.65·fp, edges 0.175·fp inside the
  * wrapper).
  *
  * ONE cqi FORMULA at every viewport (no band arms): fp = clamp(7rem, 22cqi,
  * 11rem) — derived from the ×φ title band it seats in: at the 512px pane,
- * 22cqi = 112.6px → bead ⌀58.6 ≈ the display-3 title line (≈75px tall), so
- * the bead sits BESIDE the title with zero added header height at desktop;
- * the 7rem floor keeps a full-presence hand-scale bead (⌀58) at 390 (Q7 —
- * presence designed, never toggled). The title row hosts the bead's whole
- * vertical extent via the formula-derived min-height — the readout band
- * below stays clear at EVERY band, which is what keeps the line-lock
- * capacity full-width (readoutReservation's derivation).
+ * 22cqi = 112.6px → nominal body ⌀73.2 ≈ the display-3 title line (≈75px
+ * tall), so the bead sits BESIDE the title with zero added header height at
+ * desktop;
+ * the 7rem floor keeps a full-presence hand-scale body (⌀72.8) at 390 (Q7 —
+ * presence designed, never toggled). W29 leaves the W20 title-row
+ * reservation untouched; its routed witness rechecks the readout clearance.
  *
  * T-30 (OWNER-2026-07-10): centre-ward + integrated is delivered by
  * CONTAINMENT ITSELF — the bead moves from half-off-card (overlapping the
- * About seam) to wholly inside the plate, its mass in the title band, edge
- * 0.24·fp (~27px) inside the corner; the contact shadow seats it ON the
- * paper. Re-judged at T.W4.5. The BLUR verdict, AMENDED at the W4.5
+ * About seam) to wholly inside the plate, its mass in the title band; the
+ * contact shadow seats it ON the paper. The nominal body edge is now
+ * 0.175·fp inside the wrapper; the fixed wrapper itself remains wholly
+ * contained. Re-judged at T.W4.5. The BLUR verdict, AMENDED at the W4.5
  * checkpoint (the W4 "demo-root cleared" read measured the AWAKE state):
  * the BOOT path was demo-root after all — the engine armed mid-`blob-emerge`
  * pose and presized its backing from the scaled gBCR (0.35× — dpr2 backing
@@ -78,13 +78,12 @@
     );
 }
 
-/* The title row hosts the bead (the C1-settled band): reservation +
- * min-height both derive from the ONE formula — visible-bead extent =
- * 0.76·fp from the card edge; the row's content box extends past the bead's
- * base (minus its own pt-3 = 0.75rem) so the readout below never enters the
- * bead's band. At desktop the min-height resolves ≤ the display-3 title
- * line (a no-op); at the phone floor it grows the row to seat the bead —
- * a clamp, never a band arm. */
+/* The title row hosts the bead (the C1-settled band): its W20-locked
+ * reservation + min-height remain the ONE 0.76·fp formula; W29 changes paint,
+ * not this layout geometry. W29's routed witness must recheck the readout
+ * clearance after the paint-mass change. At desktop the min-height resolves ≤
+ * the display-3 title line (a no-op); at the phone floor it grows the row to
+ * seat the bead — a clamp, never a band arm. */
 .title-row {
     padding-right: calc(0.76 * var(--blob-fp) + 0.5rem);
     min-height: calc(0.76 * var(--blob-fp) - 0.75rem);

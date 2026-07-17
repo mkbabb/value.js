@@ -12,9 +12,19 @@
 
 import { ref, shallowRef, computed, onBeforeUnmount } from "vue";
 import type { QuantizedColor } from "@mkbabb/value.js/quantize";
+import { serializeCssColor } from "@mkbabb/value.js/css";
 import { useImageQuantize } from "./useImageQuantize";
 import { usePaletteStore } from "@composables/palette/usePaletteStore";
 import type { Palette, PaletteColor } from "@lib/palette/types";
+
+type PresentedColor = Readonly<{
+    source: QuantizedColor;
+    serialized: string;
+}>;
+
+type PalettePresentation =
+    | Readonly<{ ok: true; value: readonly PresentedColor[] }>
+    | Readonly<{ ok: false; error: string }>;
 
 function readAsDataUrl(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -26,7 +36,7 @@ function readAsDataUrl(file: File): Promise<string> {
 }
 
 export function useExtractSession() {
-    const { palette, isProcessing, error: quantizeError, quantizeFromFile } =
+    const { palette, isProcessing, error: workerError, quantizeFromFile } =
         useImageQuantize();
     const { createPalette } = usePaletteStore();
 
@@ -38,16 +48,44 @@ export function useExtractSession() {
 
     let debounceTimer: ReturnType<typeof setTimeout> | null = null;
 
+    const presentedPalette = computed<PalettePresentation>(() => {
+        const value: PresentedColor[] = [];
+        for (const source of palette.value) {
+            const serialized = serializeCssColor(source.color);
+            if (!serialized.ok) {
+                return {
+                    ok: false,
+                    error: `Palette color serialization failed: ${serialized.error.code}`,
+                };
+            }
+            value.push({ source, serialized: serialized.value });
+        }
+        return { ok: true, value };
+    });
+
+    const quantizeError = computed<string | null>({
+        get: () =>
+            workerError.value ??
+            (presentedPalette.value.ok ? null : presentedPalette.value.error),
+        set: (value) => {
+            workerError.value = value;
+        },
+    });
+
     const extractedPalette = computed<Palette | null>(() => {
-        if (palette.value.length === 0) return null;
+        const presented = presentedPalette.value;
+        if (!presented.ok || presented.value.length === 0) return null;
         // S.W5-6 · F7: the population story rides ON the palette — each
         // swatch carries its normalized share, so the card's OWN strip is
         // population-proportional (ONE strip; the standalone twin died).
-        const total = palette.value.reduce((sum, c) => sum + c.population, 0);
-        const colors: PaletteColor[] = palette.value.map((c, i) => ({
-            css: c.css,
-            position: i / Math.max(1, palette.value.length - 1),
-            ...(total > 0 ? { weight: c.population / total } : {}),
+        const total = presented.value.reduce(
+            (sum, entry) => sum + entry.source.population,
+            0,
+        );
+        const colors: PaletteColor[] = presented.value.map((entry, i) => ({
+            css: entry.serialized,
+            position: i / Math.max(1, presented.value.length - 1),
+            ...(total > 0 ? { weight: entry.source.population / total } : {}),
         }));
         return {
             id: "__extracted__",
@@ -61,13 +99,14 @@ export function useExtractSession() {
     });
 
     const kSliderGradient = computed(() => {
-        if (palette.value.length === 0) return "var(--muted)";
-        const stops = palette.value.map((c, i) => {
+        const presented = presentedPalette.value;
+        if (!presented.ok || presented.value.length === 0) return "var(--muted)";
+        const stops = presented.value.map((entry, i) => {
             const pct =
-                palette.value.length === 1
+                presented.value.length === 1
                     ? 50
-                    : (i / (palette.value.length - 1)) * 100;
-            return `${c.css} ${pct.toFixed(0)}%`;
+                    : (i / (presented.value.length - 1)) * 100;
+            return `${entry.serialized} ${pct.toFixed(0)}%`;
         });
         return `linear-gradient(to right, ${stops.join(", ")})`;
     });
@@ -79,15 +118,24 @@ export function useExtractSession() {
     );
 
     /** Max-population cluster; ties break toward the higher-chroma color. */
-    const dominant = computed<QuantizedColor | null>(() => {
-        let best: QuantizedColor | null = null;
-        for (const c of palette.value) {
+    const dominant = computed<PresentedColor | null>(() => {
+        const presented = presentedPalette.value;
+        if (!presented.ok) return null;
+        let best: PresentedColor | null = null;
+        for (const entry of presented.value) {
+            if (!best) {
+                best = entry;
+                continue;
+            }
+            const candidateChroma = entry.source.color.channels[1];
+            const bestChroma = best.source.color.channels[1];
             if (
-                !best ||
-                c.population > best.population ||
-                (c.population === best.population && c.oklch[1] > best.oklch[1])
+                entry.source.population > best.source.population ||
+                (entry.source.population === best.source.population &&
+                    candidateChroma !== "none" &&
+                    (bestChroma === "none" || candidateChroma > bestChroma))
             ) {
-                best = c;
+                best = entry;
             }
         }
         return best;
@@ -97,7 +145,7 @@ export function useExtractSession() {
     const dominantShare = computed(() => {
         const total = totalPopulation.value;
         const d = dominant.value;
-        return total > 0 && d ? d.population / total : 0;
+        return total > 0 && d ? d.source.population / total : 0;
     });
 
     // ── Quantize orchestration ──

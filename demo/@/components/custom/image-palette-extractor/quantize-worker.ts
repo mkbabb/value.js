@@ -13,24 +13,32 @@ export interface QuantizeWorkerRequest {
     options?: Partial<QuantizeOptions>;
 }
 
-export interface QuantizeWorkerResponse {
-    type: "result" | "error";
-    palette?: QuantizedColor[];
-    error?: string;
-}
+export type QuantizeWorkerResponse =
+    | { type: "result"; palette: readonly QuantizedColor[] }
+    | { type: "error"; error: string };
 
 self.onmessage = (e: MessageEvent<QuantizeWorkerRequest>) => {
     try {
         const { pixels, width, height, options } = e.data;
         const clamped = new Uint8ClampedArray(pixels);
-        const palette = quantizePixels(clamped, width, height, options);
+        const result = quantizePixels(clamped, width, height, options);
 
-        (self as unknown as Worker).postMessage(
-            { type: "result", palette } satisfies QuantizeWorkerResponse,
-        );
+        if (!result.ok) {
+            (self as unknown as Worker).postMessage({
+                type: "error",
+                error: result.error.code,
+            } satisfies QuantizeWorkerResponse);
+            return;
+        }
+
+        (self as unknown as Worker).postMessage({
+            type: "result",
+            palette: result.value,
+        } satisfies QuantizeWorkerResponse);
     } catch (err) {
-        (self as unknown as Worker).postMessage(
-            { type: "error", error: String(err) } satisfies QuantizeWorkerResponse,
-        );
+        (self as unknown as Worker).postMessage({
+            type: "error",
+            error: String(err),
+        } satisfies QuantizeWorkerResponse);
     }
 };

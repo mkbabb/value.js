@@ -1,22 +1,23 @@
 import { computed, ref, watch, type ShallowRef } from "vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { debounce } from "@utils/utils";
-import type { ParsedColorUnit } from "@mkbabb/value.js/parsing";
-import { ValueUnit } from "@mkbabb/value.js/units";
-import type { ColorSpace } from "@mkbabb/value.js/color";
-import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
 import {
-    colorUnit2,
-    normalizeColorUnit,
-    normalizeColorUnitComponent,
-} from "@mkbabb/value.js/color";
+    PICKER_CHANNELS,
+    channelNumber,
+    convertPickerColor,
+    serializePickerColor,
+    withAlpha,
+    withChannel,
+    withNormalizedChannel,
+    type PickerColor,
+    type PickerSpace,
+} from "@lib/picker-color";
 import { clampColorToSpaceDomain } from "./valueDomain";
 import type { ColorModel } from "@components/custom/color-picker";
 import {
     createDefaultColorModel,
     toCSSColorString,
     colorToHexString,
-    CSS_NATIVE_SPACES,
     resolveColorSpace,
 } from "@components/custom/color-picker";
 import { useColorParsing } from "./useColorParsing";
@@ -47,7 +48,9 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     // `lab(40% 999 47)` would otherwise live in the model unclamped until
     // the first gated write. Clamp before the first derivation (initHsv
     // below reads it).
-    if (model.value.color) clampColorToSpaceDomain(model.value.color);
+    if (model.value.color) {
+        model.value = { ...model.value, color: clampColorToSpaceDomain(model.value.color) };
+    }
 
     // The sentinel — NOT a copy — distinguishes a self-originated write (slider/
     // component edit, which carries hue explicitly) from an external one (URL
@@ -59,16 +62,19 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         // model enters its space's value domain here (the dynamic-max law —
         // `./valueDomain`), so `lab(40% 999 47)` inks the space max and the
         // readout reservation's worst case is true by construction.
-        if (patch.color) clampColorToSpaceDomain(patch.color);
-        const next = { ...model.value, ...patch };
+        const next = {
+            ...model.value,
+            ...patch,
+            ...(patch.color ? { color: clampColorToSpaceDomain(patch.color) } : {}),
+        };
         lastWrittenModel = next;
         model.value = next; // the ONE ref — synchronous; derivations recompute now
     };
 
     // Stable HSV hue: oklch→HSV loses hue at low chroma (atan2(0,0)=0). stableHue
     // is the hue source-of-truth; refreshed only on external color changes.
-    const initHsv = colorUnit2(model.value.color, "hsv", true, false, false);
-    const stableHue = ref(initHsv.value.h.value);
+    const initHsv = convertPickerColor(model.value.color, "hsv");
+    const stableHue = ref(channelNumber(initHsv, "h"));
 
     watch(
         () => model.value,
@@ -80,12 +86,11 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
             // updateModel write would be marked self-originated and skip this
             // very watch's stableHue refresh), so the domain law binds here
             // for that origin class; pre-flush, so render reads clamped truth.
-            clampColorToSpaceDomain(m.color);
             try {
-                const hsv = colorUnit2(m.color, "hsv", true, false, false);
-                const s = hsv.value.s.value;
-                const v = hsv.value.v.value;
-                if (s * v > 0.01) stableHue.value = hsv.value.h.value;
+                const hsv = convertPickerColor(m.color, "hsv");
+                const s = channelNumber(hsv, "s");
+                const v = channelNumber(hsv, "v");
+                if (s * v > 0.01) stableHue.value = channelNumber(hsv, "h");
             } catch {
                 /* ignore */
             }
@@ -93,41 +98,18 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
     );
 
     // --- Derived colors (ONE set) ---
-    const denormalizedCurrentColor = computed(() =>
-        normalizeColorUnit(model.value.color, true, false),
-    );
+    const currentPhysicalColor = computed(() => model.value.color);
 
-    const cssColor = computed(() => {
-        if (CSS_NATIVE_SPACES.has(model.value.color.value.colorSpace)) {
-            return denormalizedCurrentColor.value.value.toFormattedString(DIGITS);
-        }
-        return toCSSColorString(model.value.color);
-    });
+    const cssColor = computed(() => serializePickerColor(model.value.color));
 
-    const cssColorOpaque = computed(() => {
-        if (CSS_NATIVE_SPACES.has(model.value.color.value.colorSpace)) {
-            const denorm = denormalizedCurrentColor.value;
-            const c = denorm.clone() as typeof denorm;
-            c.value.alpha.value = 100;
-            return c.value.toFormattedString(DIGITS);
-        }
-        const c = model.value.color.clone();
-        c.value.alpha.value = 1;
-        return toCSSColorString(c);
-    });
+    const cssColorOpaque = computed(() => serializePickerColor(withAlpha(model.value.color, 1)));
 
     const HSVCurrentColor = computed(() => {
-        const hsv = colorUnit2(model.value.color, "hsv", true, false, false);
-        hsv.value.h.value = stableHue.value;
-        return hsv;
+        const hsv = convertPickerColor(model.value.color, "hsv");
+        return withChannel(hsv, "h", stableHue.value);
     });
 
-    const currentColorOpaque = computed(() => {
-        const denorm = denormalizedCurrentColor.value;
-        const color = denorm.clone() as typeof denorm;
-        color.value.alpha.value = 100;
-        return color;
-    });
+    const currentColorOpaque = computed(() => withAlpha(model.value.color, 1));
 
     const currentColorSpace = computed(() =>
         resolveColorSpace(model.value.selectedColorSpace),
@@ -137,13 +119,11 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         if (model.value.selectedColorSpace === "hex") {
             return [["hex", 0]] as [string, any][];
         }
-        return Object.entries(COLOR_SPACE_RANGES[currentColorSpace.value]).filter(
-            ([key]) => key !== "alpha",
-        );
+        return PICKER_CHANNELS[currentColorSpace.value].map((meta) => [meta.key, meta] as [string, unknown]);
     });
     // --- Delegated composables (identical wiring to the former useColorModel) ---
     const {
-        parseAndNormalizeColor,
+        parseColor,
         setCurrentColor,
         parseAndSetColor,
         parseAndSetColorDebounced,
@@ -160,7 +140,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         model,
         updateModel,
         parseAndSetColor,
-        parseAndNormalizeColor,
+        parseColor,
         cssColor,
     });
 
@@ -173,7 +153,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         currentColorOpaque,
         currentColorSpace,
         stableHue,
-        denormalizedCurrentColor,
+        currentPhysicalColor,
     });
 
     const {
@@ -182,35 +162,28 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         currentColorMeta,
         crownKey,
         canProposeName,
-    } = useColorNameResolution({ model, denormalizedCurrentColor, currentColorSpace });
+    } = useColorNameResolution({ model, currentPhysicalColor, currentColorSpace });
     // --- Saved colors (canonical: the picker's per-space formatted twin) ---
     const savedColorStrings = computed(() =>
-        model.value.savedColors
-            .filter((c) => c instanceof ValueUnit)
-            .map((c) => {
-                const normalized = CSS_NATIVE_SPACES.has(c.value.colorSpace)
-                    ? normalizeColorUnit(c, true, false)
-                    : colorUnit2(c, "oklch", true, true, false);
-                return normalized.value.toFormattedString(DIGITS);
-            }),
+        model.value.savedColors.map(serializePickerColor),
     );
     // --- Component / space mutation ---
-    const updateToColorSpace = (to: ColorSpace) => {
-        const color = colorUnit2(model.value.color, to, true, false, false);
+    const updateToColorSpace = (to: PickerSpace) => {
+        const color = convertPickerColor(model.value.color, to);
         setCurrentColor(color, model.value.selectedColorSpace);
     };
 
-    const formatForSelectedDisplaySpace = (color: ParsedColorUnit) => {
+    const formatForSelectedDisplaySpace = (color: PickerColor) => {
         if (model.value.selectedColorSpace === "hex") {
             return colorToHexString(color);
         }
-        return normalizeColorUnit(color, true, false).value.toFormattedString(DIGITS);
+        return serializePickerColor(color);
     };
 
     const applyExternalColor = (cssColor: string) => {
-        const parsed = parseAndNormalizeColor(cssColor);
+        const parsed = parseColor(cssColor);
         const resolved = resolveColorSpace(model.value.selectedColorSpace);
-        const converted = colorUnit2(parsed, resolved, true, false, false);
+        const converted = convertPickerColor(parsed, resolved);
         setCurrentColor(parsed, model.value.selectedColorSpace);
         updateModel({ inputColor: formatForSelectedDisplaySpace(converted) });
     };
@@ -221,24 +194,16 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         normalized: boolean = false,
     ) => {
         if (Number.isNaN(value) || !Number.isFinite(value)) return;
-        const color = model.value.color.clone();
-        if (normalized) {
-            color.value[component].value = value;
-        } else {
-            const normalizedValue = normalizeColorUnitComponent(
-                value,
-                denormalizedCurrentColor.value.value[component].unit,
-                currentColorSpace.value,
-                component,
-                false,
-            );
-            color.value[component].value = normalizedValue.value;
-        }
+        const color = component === "alpha"
+            ? withAlpha(model.value.color, normalized ? value : value / 100)
+            : normalized
+              ? withNormalizedChannel(model.value.color, component, value)
+              : withChannel(model.value.color, component, value);
         updateModel({ color });
 
         if (component === "h" || component === "hue") {
-            const hsv = colorUnit2(color, "hsv", true, false, false);
-            stableHue.value = hsv.value.h.value;
+            const hsv = convertPickerColor(color, "hsv");
+            stableHue.value = channelNumber(hsv, "h");
         }
     };
 
@@ -249,11 +214,11 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         const savedColors = [...model.value.savedColors];
         const currentStr = toCSSColorString(model.value.color);
         const alreadyExists = savedColors.some(
-            (c) => c instanceof ValueUnit && toCSSColorString(c) === currentStr,
+            (c) => toCSSColorString(c) === currentStr,
         );
         if (alreadyExists) return;
         try {
-            savedColors.push(parseAndNormalizeColor(cssColor));
+            savedColors.push(parseColor(cssColor));
             updateModel({ savedColors });
         } catch {
             /* ignore */
@@ -264,12 +229,12 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         const parsed = colors
             .map((css) => {
                 try {
-                    return parseAndNormalizeColor(css);
+                    return parseColor(css);
                 } catch {
                     return null;
                 }
             })
-            .filter((c): c is ParsedColorUnit => c !== null);
+            .filter((c): c is PickerColor => c !== null);
         updateModel({ savedColors: parsed });
     }
     // --- App-level entry points (folded from useAppColorModel) ---
@@ -282,9 +247,9 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
 
     const applyColorString = (css: string) => {
         try {
-            const parsed = parseAndNormalizeColor(css);
+            const parsed = parseColor(css);
             const resolved = resolveColorSpace(model.value.selectedColorSpace);
-            const color = colorUnit2(parsed, resolved, true, false, false);
+            const color = convertPickerColor(parsed, resolved);
             const inputColor = formatForSelectedDisplaySpace(color);
             updateModel({ color, inputColor });
         } catch {
@@ -319,7 +284,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         model,
         updateModel,
         // Derived colors (ONE set)
-        denormalizedCurrentColor,
+        currentPhysicalColor,
         cssColor,
         cssColorOpaque,
         // W3-1: the rAF-coalesced opaque colour the atmosphere fan-out consumes
@@ -341,7 +306,7 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         onPaletteAddColor,
         onPaletteApply,
         // Parsing / setting
-        parseAndNormalizeColor,
+        parseColor,
         setCurrentColor,
         parseAndSetColor,
         parseAndSetColorDebounced,

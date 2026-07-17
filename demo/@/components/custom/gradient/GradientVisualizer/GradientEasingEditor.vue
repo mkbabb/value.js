@@ -13,11 +13,9 @@
  * Each row strokes the interval's OWN ink — `--motion-accent` = the
  * certified eased ramp midpoint (§8: one ink per specimen).
  *
- * Picker instances stay ALIVE (v-show, never v-if) so an authored custom
- * curve is never re-seeded away by a row or disclosure toggle. Remounts
- * happen ONLY on a tile press (the kf `:key` re-seat seam — glass-ui's
- * modelValue is emit-only) and on the parent's `epoch` bump (a successful
- * CSS parse re-seeds every interval `linear`).
+ * Picker instances stay ALIVE (v-show, never v-if) and consume the complete
+ * interval through Glass's two-way model. Tile selection and direct authoring
+ * therefore share one state path with no remount/echo discipline.
  *
  * The W5-9 regex autoplay drive (querySelector on the picker's play-button
  * text) DIED at T.W6.5 Row E (t33-research §3.4 — compactness by deletion:
@@ -26,7 +24,7 @@
  * only through P7's declarative `autoplay`/`playing` door — never a DOM
  * drive.
  */
-import { computed, onBeforeUnmount, ref, watch } from "vue";
+import { computed, onBeforeUnmount, ref } from "vue";
 import { Check, ChevronDown, Copy, SlidersHorizontal } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
@@ -34,7 +32,6 @@ import { serializeIntervalRamp } from "../composables/useGradientCSS";
 import EasingAuthoringStage from "./easing/EasingAuthoringStage.vue";
 import EasingSpecimenStrip from "./easing/EasingSpecimenStrip.vue";
 import type { SpecimenTile } from "./easing/easingCatalogue";
-import { usePickerSeeds } from "./easing/usePickerSeeds";
 import { useSpecimenRows } from "./easing/useSpecimenRows";
 import type {
     GradientInterval,
@@ -42,12 +39,10 @@ import type {
     GradientStop,
 } from "../composables/useGradientModel";
 
-const { stops, intervals, modelState, epoch } = defineProps<{
+const { stops, intervals, modelState } = defineProps<{
     stops: GradientStop[];
     intervals: GradientInterval[];
     modelState: GradientModelState;
-    /** Bumped by the parent on a model-wide re-seed (successful CSS parse). */
-    epoch: number;
 }>();
 
 const emit = defineEmits<{
@@ -79,31 +74,13 @@ onBeforeUnmount(() => {
     if (copyTimer !== null) clearTimeout(copyTimer);
 });
 
-// ── The picker seeds (the kf remount re-seat seam — usePickerSeeds owns
-// the derive/swallow/external-change discipline) ──
-const { seeds: pickerSeeds, reseed, shouldForward } = usePickerSeeds(
-    () => intervals,
-    () => epoch,
-);
-
-// A parse re-seed also closes every authoring disclosure.
-watch(
-    () => epoch,
-    () => {
-        tuneOpen.value = {};
-    },
-);
-
 function onTileSelect(index: number, tile: SpecimenTile) {
-    // The tile mints the payload directly (picker-law byte-identical —
-    // easingCatalogue's literal law) and the canvas re-seats to preview
-    // it; the remount echo then equals the interval and dedupes.
+    // The tile and authoring canvas write the same complete interval value.
     emit("update-interval", index, tile.payload());
-    reseed(index, tile);
 }
 
 function onPickerAuthored(index: number, v: EasingPickerValue | undefined) {
-    if (!v || !shouldForward(index, v)) return;
+    if (!v) return;
     emit("update-interval", index, v);
 }
 
@@ -136,7 +113,7 @@ async function copyLiteral(index: number, css: string) {
              interval's OWN ink through the producer's --motion-accent door. -->
         <div
             v-for="row in specimenRows"
-            :key="`${row.index}:${epoch}`"
+            :key="row.index"
             class="rounded-card border border-card-edge overflow-hidden"
             :style="row.ink ? { '--motion-accent': row.ink } : undefined"
         >
@@ -231,9 +208,8 @@ async function copyLiteral(index: number, css: string) {
                     :id="`easing-authoring-${row.index}`"
                 >
                     <EasingAuthoringStage
-                        v-if="pickerSeeds[row.index]"
-                        :seed="pickerSeeds[row.index]!.seed"
-                        :seed-key="`${row.index}:${epoch}:${pickerSeeds[row.index]!.key}`"
+                        v-if="intervals[row.index]"
+                        :value="intervals[row.index]!"
                         :label="`Easing curve ${row.label}`"
                         @authored="(v) => onPickerAuthored(row.index, v)"
                     />

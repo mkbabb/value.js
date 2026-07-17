@@ -16,14 +16,11 @@
  */
 
 import { ref, computed } from "vue";
-import type { ColorSpace } from "@mkbabb/value.js/color";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { Palette, PaletteColor } from "@lib/palette/types";
-import type { LeftoverStrategy } from "@lib/palette/mix";
-import { mixPalettes } from "@lib/palette/mix";
-import { mixColorsN } from "@mkbabb/value.js/color";
-import type { Color } from "@mkbabb/value.js/color";
-import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
+import { mixColorSequence, mixPalettes, type LeftoverStrategy } from "@lib/palette/mix";
+import { colorToCss, parseColorIn } from "@lib/color-utils";
+import type { PickerSpace } from "@lib/picker-color";
 
 export interface SelectedColor {
     css: string;
@@ -44,7 +41,7 @@ export function useMixingState() {
     const mode = ref<"colors" | "palettes">("colors");
     const selectedColors = ref<SelectedColor[]>([]);
     const selectedPalettes = ref<Palette[]>([]);
-    const colorSpace = ref<ColorSpace>("oklab");
+    const colorSpace = ref<PickerSpace>("oklab");
     const hueMethod = ref<HueInterpolationMethod>("shorter");
     const leftoverStrategy = ref<LeftoverStrategy>("discard");
     const mixResult = ref<MixResult | null>(null);
@@ -86,14 +83,11 @@ export function useMixingState() {
         if (animationPhase.value === "mixing") return;
 
         if (mode.value === "colors") {
-            const colors = selectedColors.value
-                .map((sc) => cssToRawColor(sc.css, colorSpace.value))
-                .filter((c): c is Color<number> => c !== null);
-
-            if (colors.length < 2) return;
-
-            const mixed = mixColorsN(colors, undefined, colorSpace.value, hueMethod.value);
-            mixResult.value = { type: "color", css: rawColorToCSS(mixed) };
+            const colors = selectedColors.value.map((selection) =>
+                parseColorIn(selection.css, colorSpace.value),
+            );
+            const mixed = mixColorSequence(colors, colorSpace.value, hueMethod.value);
+            mixResult.value = { type: "color", css: colorToCss(mixed) };
         } else {
             const resultColors = mixPalettes(selectedPalettes.value, {
                 space: colorSpace.value,

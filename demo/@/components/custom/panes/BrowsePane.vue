@@ -195,7 +195,6 @@ import {
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 import type { Palette, Tag } from "@lib/palette/types";
-import { deltaEOK } from "@mkbabb/value.js/color";
 import { usePaletteExport } from "@composables/palette/usePaletteExport";
 import { useDialogBrowseActions } from "@components/custom/palette-browser/dialog";
 
@@ -345,7 +344,7 @@ const displayedBrowse = computed(() => {
     return palettes.filter((p: any) => {
         const oklabColors = p.oklabColors as { L: number; a: number; b: number }[] | undefined;
         if (!oklabColors || oklabColors.length === 0) return false;
-        return oklabColors.some((c) => deltaEOK(c.L, c.a, c.b, L, a, b) <= radius);
+        return oklabColors.some((c) => Math.hypot(c.L - L, c.a - a, c.b - b) <= radius);
     });
 });
 

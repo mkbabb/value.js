@@ -11,7 +11,7 @@
  */
 
 import { onMounted, onUnmounted, ref, watch, nextTick, type WatchSource } from "vue";
-import { COLOR_SPACE_RANGES } from "@mkbabb/value.js/color";
+import { PICKER_CHANNELS } from "@lib/picker-color";
 import { useTouchGate } from "@mkbabb/glass-ui";
 import type { usePointerDebug } from "../../../composables/usePointerDebug";
 
@@ -29,7 +29,10 @@ export function useSliderTouchGates(opts: {
 
     // Slider touch gates — one per component across all color spaces
     const ALL_COMPONENTS = new Set(
-        Object.values(COLOR_SPACE_RANGES).flatMap((ranges) => Object.keys(ranges)),
+        [
+            ...Object.values(PICKER_CHANNELS).flatMap((channels) => channels.map(({ key }) => key)),
+            "alpha",
+        ],
     );
     const sliderGates: Record<string, ReturnType<typeof useTouchGate>> = {};
     for (const comp of ALL_COMPONENTS) {

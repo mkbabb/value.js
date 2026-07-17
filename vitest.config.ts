@@ -20,7 +20,10 @@ export default defineConfig({
         // T.W1-src §5: the test tree mirrors the src shape (test/units/color/…,
         // test/parsing/…, test/transform/, test/quantize/); the flat `test/*.ts`
         // glob would miss every mirrored subdir.
-        include: ["test/**/*.ts"],
+        // V′.W40-S3 bracket B7: the two relocated aurora suites live under
+        // `demo/test/glass/`; extend the include so they are discovered and run
+        // (they were silently dropped outside the `test/**` glob).
+        include: ["test/**/*.ts", "demo/test/**/*.ts"],
         // U.W-CANON (U-F49/U-F50): the repo-hygiene gates live in `test/dist/`,
         // but vitest's default exclude swallows `**/dist/**`. `include` is scoped
         // to `test/**` and `test/dist` is the ONLY dist dir under it, so drop just

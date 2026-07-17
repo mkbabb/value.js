@@ -7,26 +7,63 @@
  * - **distribute**: linearly interpolate shorter palettes across the longest length
  */
 
-import type { ColorSpace } from "@mkbabb/value.js/color";
-import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
-import { mixColors, mixColorsN } from "@mkbabb/value.js/color";
-import type { Color } from "@mkbabb/value.js/color";
-import { cssToRawColor, rawColorToCSS } from "@lib/color-utils";
+import {
+    mixColors,
+    type AnyColor,
+    type HueInterpolationMethod,
+} from "@mkbabb/value.js/color";
+import { colorToCss, parseColorIn } from "@lib/color-utils";
+import type { PickerColorIn, PickerSpace } from "@lib/picker-color";
 import type { Palette, PaletteColor } from "./types";
 
 export type LeftoverStrategy = "distribute" | "repeat" | "discard";
 
 export interface PaletteMixOptions {
-    space?: ColorSpace;
+    space?: PickerSpace;
     hueMethod?: HueInterpolationMethod;
     leftoverStrategy?: LeftoverStrategy;
     weights?: number[];
 }
 
-function cssToColor(css: string, space: ColorSpace): Color<number> {
-    const color = cssToRawColor(css, space);
-    if (!color) throw new Error(`Failed to parse color: "${css}"`);
-    return color;
+function mixedOrThrow<S extends PickerSpace>(
+    from: AnyColor,
+    to: AnyColor,
+    progress: number,
+    space: S,
+    hueMethod: HueInterpolationMethod,
+): PickerColorIn<S> {
+    const result = mixColors(from, to, progress, { space, hue: hueMethod });
+    if (!result.ok) throw new Error(`Color mix failed: ${result.error.code}`);
+    return result.value as unknown as PickerColorIn<S>;
+}
+
+export function mixColorSequence(
+    colors: readonly AnyColor[],
+    space: PickerSpace,
+    hueMethod: HueInterpolationMethod,
+    weights: readonly number[] = colors.map(() => 1),
+): AnyColor {
+    if (colors.length === 0) throw new Error("At least one color is required");
+    if (weights.length !== colors.length) {
+        throw new Error("Each color requires a weight");
+    }
+    if (weights.some((weight) => !Number.isFinite(weight) || weight < 0)) {
+        throw new Error("Color weights must be finite and nonnegative");
+    }
+    if (weights.every((weight) => weight === 0)) {
+        throw new Error("At least one color weight must be positive");
+    }
+
+    let mixed = colors[0]!;
+    let accumulated = weights[0]!;
+    for (let index = 1; index < colors.length; index++) {
+        const weight = weights[index]!;
+        if (weight === 0) continue;
+        const total = accumulated + weight;
+        mixed = mixedOrThrow(mixed, colors[index]!, weight / total, space, hueMethod);
+        accumulated = total;
+    }
+    return mixed;
 }
 
 function getColorAtIndex(
@@ -34,12 +71,13 @@ function getColorAtIndex(
     index: number,
     resultLength: number,
     strategy: LeftoverStrategy,
-    space: ColorSpace,
-): Color<number> {
+    space: PickerSpace,
+    hueMethod: HueInterpolationMethod,
+): AnyColor {
     const len = palette.colors.length;
 
     if (index < len) {
-        return cssToColor(palette.colors[index]!.css, space);
+        return parseColorIn(palette.colors[index]!.css, space);
     }
 
     switch (strategy) {
@@ -47,7 +85,7 @@ function getColorAtIndex(
             throw new Error("Index out of bounds in discard mode");
 
         case "repeat":
-            return cssToColor(palette.colors[index % len]!.css, space);
+            return parseColorIn(palette.colors[index % len]!.css, space);
 
         case "distribute": {
             const fracPos = (index * (len - 1)) / (resultLength - 1);
@@ -56,12 +94,12 @@ function getColorAtIndex(
             const t = fracPos - lo;
 
             if (t === 0 || lo === hi) {
-                return cssToColor(palette.colors[lo]!.css, space);
+                return parseColorIn(palette.colors[lo]!.css, space);
             }
 
-            const c1 = cssToColor(palette.colors[lo]!.css, space);
-            const c2 = cssToColor(palette.colors[hi]!.css, space);
-            return mixColors(c1, c2, 1 - t, t, space);
+            const c1 = parseColorIn(palette.colors[lo]!.css, space);
+            const c2 = parseColorIn(palette.colors[hi]!.css, space);
+            return mixedOrThrow(c1, c2, t, space, hueMethod);
         }
     }
 }
@@ -90,11 +128,18 @@ export function mixPalettes(
 
     for (let i = 0; i < resultLength; i++) {
         const colors = palettes.map((palette) =>
-            getColorAtIndex(palette, i, resultLength, leftoverStrategy, space),
+            getColorAtIndex(
+                palette,
+                i,
+                resultLength,
+                leftoverStrategy,
+                space,
+                hueMethod,
+            ),
         );
 
-        const mixed = mixColorsN(colors, weights, space, hueMethod);
-        result.push({ css: rawColorToCSS(mixed), position: i });
+        const mixed = mixColorSequence(colors, space, hueMethod, weights);
+        result.push({ css: colorToCss(mixed), position: i });
     }
 
     return result;

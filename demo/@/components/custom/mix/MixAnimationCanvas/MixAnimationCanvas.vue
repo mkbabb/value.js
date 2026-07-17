@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useTemplateRef, toRef } from "vue";
-import type { ColorSpace } from "@mkbabb/value.js/color";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import type { PickerSpace } from "@lib/picker-color";
 import { useMixingAnimation } from "./composables/useMixingAnimation";
 import type { AnimationPhase, MixResult } from "../composables/useMixingState";
 
 const { phase, result, space, hueMethod } = defineProps<{
     phase: AnimationPhase;
     result: MixResult | null;
-    space: ColorSpace;
+    space: PickerSpace;
     hueMethod: HueInterpolationMethod;
 }>();
 

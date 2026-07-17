@@ -9,8 +9,8 @@ import {
 } from "@components/ui/select";
 import { Button } from "@components/ui/button";
 import { Blend } from "@lucide/vue";
-import type { ColorSpace } from "@mkbabb/value.js/color";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import type { PickerSpace } from "@lib/picker-color";
 import type { LeftoverStrategy } from "@lib/palette/mix";
 import type { AcceptableValue } from "reka-ui";
 // S.W5-6 · F16: the interpolation vocabulary lives in its neutral @lib/ home
@@ -30,7 +30,7 @@ const {
     canMix,
     operandColors = [],
 } = defineProps<{
-    colorSpace: ColorSpace;
+    colorSpace: PickerSpace;
     hueMethod: HueInterpolationMethod;
     leftoverStrategy: LeftoverStrategy;
     showLeftoverStrategy: boolean;
@@ -74,7 +74,7 @@ const hueRamps = computed(
 );
 
 const emit = defineEmits<{
-    "update:colorSpace": [value: ColorSpace];
+    "update:colorSpace": [value: PickerSpace];
     "update:hueMethod": [value: HueInterpolationMethod];
     "update:leftoverStrategy": [value: LeftoverStrategy];
     mix: [];
@@ -96,7 +96,7 @@ const strategyLabels: Record<LeftoverStrategy, string> = {
                  #description rows already tell the story once, on demand. -->
             <div class="flex flex-col gap-1">
                 <label class="section-label">Color space</label>
-                <Select :model-value="colorSpace" @update:model-value="(v: AcceptableValue) => emit('update:colorSpace', v as ColorSpace)">
+                <Select :model-value="colorSpace" @update:model-value="(v: AcceptableValue) => emit('update:colorSpace', v as PickerSpace)">
                     <SelectTrigger aria-label="Color space" class="h-9">
                         <SelectValue />
                     </SelectTrigger>

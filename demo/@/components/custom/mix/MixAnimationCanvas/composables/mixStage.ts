@@ -13,13 +13,10 @@
  */
 
 import { lerp, clamp } from "@mkbabb/value.js/math";
-import { easeInOutCubic, easeOutCubic, easeInQuad } from "@mkbabb/value.js/easing";
-import { sampleColorRamp } from "@mkbabb/value.js/color";
-import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
-import { color2 } from "@mkbabb/value.js/color";
-import type { Color } from "@mkbabb/value.js/color";
-import type { ColorSpace } from "@mkbabb/value.js/color";
-import { cssToRawColor, cssToRgb255 } from "@lib/color-utils";
+import { easeInOutCubic, easeOutCubic, smoothStep3 } from "@mkbabb/value.js/easing";
+import { mixColors, type HueInterpolationMethod } from "@mkbabb/value.js/color";
+import { colorToRgb255, parseColorIn } from "@lib/color-utils";
+import type { PickerColorIn, PickerSpace } from "@lib/picker-color";
 
 /** All drops arrive at the well together — the convergence chord. */
 export const MIX_ARRIVE_MS = 700;
@@ -31,7 +28,7 @@ export const MIX_EPILOGUE_MS = 300;
 const RAMP_STOPS = 16;
 const MAX_DROPS = 12;
 
-export type RGB = [number, number, number];
+export type RGB = readonly [number, number, number];
 
 export interface Drop {
     /** Quadratic Bézier: origin → control → the well. */
@@ -88,44 +85,34 @@ function layoutCenter(el: HTMLElement, root: HTMLElement) {
     };
 }
 
-/** A Color (any space, normalized [0,1]) → drawable 8-bit sRGB triple. */
-function toRgb255(color: Color<number>): RGB {
-    const rgb = color2(color, "rgb") as Color<number>;
-    const to255 = (v: number) => Math.round(clamp(v, 0, 1) * 255);
-    return [
-        to255(rgb.r as number),
-        to255(rgb.g as number),
-        to255(rgb.b as number),
-    ];
-}
-
 /**
  * The perceptual pigment ramp for one drop: its own color → the mixed result,
- * sampled in the SAME space + hue method the mix ran (gamut-mapped per stop by
- * `sampleColorRamp`, so every frame draws a real sRGB pigment).
+ * sampled in the SAME space + hue method the mix ran, then projected to the
+ * drawable sRGB bytes used by the canvas.
  */
 function pigmentRamp(
     fromCss: string,
     toCss: string,
-    space: ColorSpace,
+    space: PickerSpace,
     hueMethod: HueInterpolationMethod,
 ): RGB[] {
-    const from = cssToRawColor(fromCss, space);
-    const to = cssToRawColor(toCss, space);
-    if (!from || !to) {
-        const flat = cssToRgb255(toCss);
-        return Array.from({ length: RAMP_STOPS }, () => flat);
-    }
-    return sampleColorRamp(from, to, RAMP_STOPS, { space, hueMethod }).map(
-        (stop) => toRgb255(stop as Color<number>),
-    );
+    const from = parseColorIn(fromCss, space);
+    const to = parseColorIn(toCss, space);
+    return Array.from({ length: RAMP_STOPS }, (_, index) => {
+        const result = mixColors(from, to, index / (RAMP_STOPS - 1), {
+            space,
+            hue: hueMethod,
+        });
+        if (!result.ok) throw new Error(`Pigment mix failed: ${result.error.code}`);
+        return colorToRgb255(result.value as PickerColorIn<typeof space>);
+    });
 }
 
 /** Measure the real DOM: chips are the springs, the ghost well is the sea. */
 export function collectStage(
     canvas: HTMLCanvasElement,
     poolCss: string,
-    space: ColorSpace,
+    space: PickerSpace,
     hueMethod: HueInterpolationMethod,
 ): Stage | null {
     const root = canvas.parentElement;
@@ -263,7 +250,7 @@ function drawPool(ctx: CanvasRenderingContext2D, s: Stage, elapsed: number) {
     const dissolve =
         elapsed <= MIX_CONVERGE_MS
             ? 0
-            : easeInQuad(clamp((elapsed - MIX_CONVERGE_MS) / MIX_EPILOGUE_MS, 0, 1));
+            : smoothStep3(clamp((elapsed - MIX_CONVERGE_MS) / MIX_EPILOGUE_MS, 0, 1));
     const alpha = 0.95 * (1 - dissolve);
     const r = s.tr * (1 + 0.18 * Math.sin(Math.PI * settle));
 

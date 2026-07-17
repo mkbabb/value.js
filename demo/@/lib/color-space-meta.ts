@@ -8,11 +8,11 @@
  * is the neutral home; the gradient composable re-exports for its own tree.
  */
 
-import type { ColorSpace } from "@mkbabb/value.js/color";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+import type { PickerSpace } from "@lib/picker-color";
 
 export interface InterpolationSpaceMeta {
-    value: ColorSpace;
+    value: PickerSpace;
     label: string;
     description: string;
 }

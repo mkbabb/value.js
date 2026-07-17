@@ -7,7 +7,7 @@ import {
     type ComputedRef,
 } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import { cssToRawColor } from "@lib/color-utils";
+import { parseColorIn } from "@lib/color-utils";
 import { INK_AMBIENT_KEY } from "./keys";
 import {
     certifyAccentInk,
@@ -123,9 +123,9 @@ function srgbLightness(r: number, g: number, b: number): number | null {
     const key = `${Math.round(r)},${Math.round(g)},${Math.round(b)}`;
     const hit = tintLCache.get(key);
     if (hit !== undefined) return hit;
-    const parsed = cssToRawColor(`rgb(${key})`, "oklch");
-    if (!parsed) return null;
-    const L = parsed.l as number;
+    const parsed = parseColorIn(`rgb(${key})`, "oklch");
+    const L = parsed.channels[0];
+    if (L === "none") return null;
     tintLCache.set(key, L);
     if (tintLCache.size > 512) tintLCache.clear();
     return L;
