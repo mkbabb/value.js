@@ -15,16 +15,15 @@
  *     `docs/precepts/infra/domains.md §The Mongo discipline` (SCRAM-SHA-256 +
  *     restricted bind, "Never 0.0.0.0"). That divergence must be honest: either
  *     SCRAM is WIRED (compose carries `--auth`/`--keyFile` AND `MONGODB_URI`
- *     carries credentials) OR a WRITTEN justified-residual exists in
- *     `api/CLAUDE.md` (the bounded internal-bridge posture recorded as an
- *     explicit documented divergence — never a silent divergence + false
- *     `.env.example` comment).
+ *     carries credentials) OR a WRITTEN justified-residual exists in the
+ *     diverging config itself — `compose.yaml` (the bounded internal-bridge
+ *     posture recorded as an explicit documented divergence — never a silent
+ *     divergence + false `.env.example` comment).
  *
- * BORN-RED (E-3): authored to FAIL against the pre-cure tree (4 unwired
- * `MONGO_*` vars; no SCRAM; no residual). Flips GREEN at the U-F37 cure —
- * delete the unwired vars + the false comment, write the residual (path b, the
- * prod-safe repo-side election; SCRAM-wire remains the owner's deploy-time call
- * per U.W-SEC §BOOKS).
+ * V·W45 / D52.i: the residual of record used to live in the since-deleted
+ * `api/CLAUDE.md`. That dependency is dead; the residual now rides the diverging
+ * config it justifies (`compose.yaml`), so this static-artefact check targets a
+ * LIVE source only.
  */
 
 import { readFileSync } from "node:fs";
@@ -36,9 +35,8 @@ const read = (rel: string): string =>
 
 const ENV_EXAMPLE = read("../.env.example");
 const COMPOSE = read("../compose.yaml");
-const API_CLAUDE = read("../CLAUDE.md");
 
-/** The stable marker the U-F37 residual section writes into `api/CLAUDE.md`. */
+/** The stable marker the U-F37 justified-residual writes into `compose.yaml`. */
 const RESIDUAL_MARKER = "Mongo-discipline justified-residual (U-F37)";
 
 /** Parse `.env.example` for declared keys matching /^MONGO_/ (skip comments). */
@@ -69,8 +67,10 @@ describe("G-SEC-2 · U-F37 · DB config tells the truth", () => {
         const uriHasCreds = /mongodb:\/\/[^@\s/]+:[^@\s/]+@/.test(COMPOSE);
         const scramWired = scramFlag && uriHasCreds;
 
-        // OR: the justified-residual is written into api/CLAUDE.md.
-        const residualWritten = API_CLAUDE.includes(RESIDUAL_MARKER);
+        // OR: the justified-residual is written into the diverging config
+        // itself (compose.yaml) — the residual of record after api/CLAUDE.md's
+        // deletion (V·W45 / D52.i).
+        const residualWritten = COMPOSE.includes(RESIDUAL_MARKER);
 
         expect(scramWired || residualWritten).toBe(true);
     });
