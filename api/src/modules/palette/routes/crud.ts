@@ -15,9 +15,9 @@ import type { AppEnv } from "../../../types.js";
 import {
     createPaletteBody,
     listPalettesQuery,
-    paginationQuery,
     updatePaletteBody,
 } from "../schema.js";
+import { paginationQuery } from "../../../platform/http/pagination.js";
 import { AuthenticationError, ValidationError } from "../../../platform/http/errors/index.js";
 import { requireOwnership } from "../require-ownership.js";
 import { assertIfMatch, paletteETag } from "../etag.js";
@@ -97,7 +97,7 @@ crudRouter.post("/", async (c) => {
 export const paletteOwnerExtractor = async (
     c: Parameters<Parameters<typeof requireOwnership>[0]>[0],
 ): Promise<string | null> => {
-    const palette = await getOwnedPalette(c.var.services, c.req.param("slug"));
+    const palette = await getOwnedPalette(c.var.services, c.req.param("slug")!);
     c.set("palette", palette ?? undefined);
     return palette?.userSlug ?? null;
 };

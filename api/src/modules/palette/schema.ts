@@ -91,8 +91,3 @@ export const listPalettesQuery = z.object({
     colorB: z.coerce.number().optional(),
     colorRadius: z.coerce.number().min(0).optional(),
 });
-
-export const paginationQuery = z.object({
-    limit: z.coerce.number().int().min(1).max(100).optional(),
-    offset: z.coerce.number().int().min(0).optional(),
-});

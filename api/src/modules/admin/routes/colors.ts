@@ -7,7 +7,7 @@
 
 import { Hono, type Context } from "hono";
 import type { AppEnv } from "../../../types.js";
-import { paginationQuery } from "../../palette/schema.js";
+import { paginationQuery } from "../../../platform/http/pagination.js";
 import {
     approveColor,
     deleteColor,

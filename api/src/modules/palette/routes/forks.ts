@@ -8,7 +8,8 @@
 
 import { Hono } from "hono";
 import type { AppEnv } from "../../../types.js";
-import { forkPaletteBody, paginationQuery } from "../schema.js";
+import { forkPaletteBody } from "../schema.js";
+import { paginationQuery } from "../../../platform/http/pagination.js";
 import { AuthenticationError, ValidationError } from "../../../platform/http/errors/index.js";
 import { formatPalette } from "../format.js";
 import { forkPalette, getProvenance, listForks } from "../service/forks.js";

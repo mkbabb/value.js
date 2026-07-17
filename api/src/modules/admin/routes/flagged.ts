@@ -5,7 +5,7 @@
 import { Hono, type Context } from "hono";
 import type { AppEnv } from "../../../types.js";
 import { ValidationError } from "../../../platform/http/errors/index.js";
-import { paginationQuery } from "../../palette/schema.js";
+import { paginationQuery } from "../../../platform/http/pagination.js";
 import { dismissFlags, listFlagged } from "../service/flagged.js";
 
 const router = new Hono<AppEnv>();
