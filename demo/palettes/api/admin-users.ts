@@ -14,7 +14,7 @@
 
 import type { Palette, User, PaginatedResponse } from "../types";
 
-import { adminRequest } from "./client";
+import { adminRequest } from "../../platform/transport/client";
 
 // ---- CRUD -------------------------------------------------------------------
 

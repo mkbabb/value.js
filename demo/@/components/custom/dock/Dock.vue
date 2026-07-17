@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
 import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
-import { GlassDock, DockLayerGroup, DockLayer } from ".";
+import { GlassDock, DockLayerGroup, DockLayer } from "./";
 import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import ActionBarToggle from "./ActionBarToggle.vue";

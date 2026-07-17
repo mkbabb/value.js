@@ -14,7 +14,7 @@
 
 import type { FlaggedPalette, PaginatedResponse } from "../types";
 
-import { adminRequest } from "./client";
+import { adminRequest } from "../../platform/transport/client";
 
 // ---- Single-palette moderation ---------------------------------------------
 

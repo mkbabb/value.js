@@ -186,7 +186,7 @@ import { useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { useColorPipeline } from "../color-session/useColorPipeline";
 import { usePaneRouter } from "../shell/usePaneRouter";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
-import { provideApiClient } from "../palettes/api/useApiClient";
+import { provideApiClient } from "../platform/transport/useApiClient";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";

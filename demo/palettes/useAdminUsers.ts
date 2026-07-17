@@ -1,5 +1,5 @@
 import { ref, computed, type Ref } from "vue";
-import { useAdminAuth } from "./useAdminAuth";
+import { useAdminAuth } from "../platform/auth/useAdminAuth";
 import {
     listUsers,
     impersonateUser,
@@ -9,9 +9,9 @@ import {
     deleteUserPalettes,
     pruneEmptyUsers,
     getUserPalettes,
-} from "../../palettes/api";
-import type { Palette, User } from "../../palettes/types";
-import type { AdminUsersPanel } from "../../@/components/custom/palette-browser/admin";
+} from "./api";
+import type { Palette, User } from "./types";
+import type { AdminUsersPanel } from "../@/components/custom/palette-browser/admin";
 
 export function useAdminUsers(deps: {
     searchQuery: Ref<string>;

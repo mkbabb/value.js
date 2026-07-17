@@ -11,9 +11,10 @@
  * H.W3 Lane A — extracted from `api.ts §ADMIN — COLORS` + `§ADMIN — TAGS`.
  */
 
-import type { ProposedColorName, Tag, PaginatedResponse } from "../types";
+import type { Tag, PaginatedResponse } from "../types";
+import type { ProposedColorName } from "../../color-session/color-names";
 
-import { adminRequest } from "./client";
+import { adminRequest } from "../../platform/transport/client";
 
 // ---- Proposal queue ---------------------------------------------------------
 

@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { useApiClient } from "../../../../../palettes/api/useApiClient";
+import { useApiClient } from "../../../../../platform/transport/useApiClient";
 
 // S.W2 W2-4: read the availability latch through the injected api-client seam,
 // not a hard module-singleton import.

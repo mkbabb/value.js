@@ -6,7 +6,7 @@ import { useAdminAuth } from "../platform/auth/useAdminAuth";
 import { useUserAuth } from "../platform/auth/useUserAuth";
 import { useSession } from "../platform/auth/useSession";
 import { useBrowsePalettes } from "./useBrowsePalettes";
-import { useAdminUsers } from "../platform/auth/useAdminUsers";
+import { useAdminUsers } from "./useAdminUsers";
 import { useColorNameQueue } from "./useColorNameQueue";
 import { useSlugMigration } from "./useSlugMigration";
 import { usePaletteActions } from "./usePaletteActions";

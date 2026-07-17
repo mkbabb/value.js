@@ -17,7 +17,7 @@ import type {
     PaginatedResponse,
 } from "../types";
 
-import { request } from "./client";
+import { request } from "../../platform/transport/client";
 
 // ---- Versions ---------------------------------------------------------------
 

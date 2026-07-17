@@ -176,7 +176,7 @@
 import { computed } from "vue";
 import type { Palette } from "../../../../../../palettes/types";
 import type { PaletteKind } from "../../../../../../palettes/utils";
-import { useApiClient } from "../../../../../../palettes/api/useApiClient";
+import { useApiClient } from "../../../../../../platform/transport/useApiClient";
 import {
     DropdownMenu,
     DropdownMenuContent,

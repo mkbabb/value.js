@@ -8,7 +8,7 @@ import {
     getApprovedColorNamesAdmin,
     deleteColorName,
 } from "./api";
-import type { ProposedColorName } from "./types";
+import type { ProposedColorName } from "../color-session/color-names";
 
 export function useColorNameQueue(deps: {
     searchQuery: Ref<string>;

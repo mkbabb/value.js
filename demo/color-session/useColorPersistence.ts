@@ -7,7 +7,12 @@ import { defaultColorModel } from "./color-model";
 // The persisted color-state projection key — single-sourced (U-F48), shared
 // with boot/hydrate. color→lib is a legal sideways/DOWN import (no color↔
 // color-picker boundary breach — @lib is the shared lib layer).
-import { COLOR_STORE_KEY } from "../palettes/constants";
+/**
+ * localStorage key for the persisted color-picker state projection
+ * (`{ inputColor, savedColors }`). Single-sourced here (the persistence
+ * collaborator) at W43b3; the boot hydrator imports the SAME literal.
+ */
+export const COLOR_STORE_KEY = "color-picker";
 
 /**
  * The persisted color-state projection (S.W2 W2-6). localStorage round-trips

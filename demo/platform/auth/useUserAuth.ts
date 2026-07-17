@@ -15,7 +15,7 @@
  * owns only the user SLUG, coupled to the token at each persist/clear.
  */
 import { ref, computed, type Ref } from "vue";
-import { createSession, deleteSession, loginWithSlug } from "../../palettes/api";
+import { createSession, deleteSession, loginWithSlug } from "./sessions";
 import { safeGetItem, safeSetItem, safeRemoveItem } from "../storage/useSafeStorage";
 
 import { clearPersistedToken, persistToken, restoreToken } from "./sessionToken";

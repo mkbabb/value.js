@@ -1,7 +1,8 @@
 import { ref, readonly } from "vue";
 import { convertPickerColor, parsePickerColor, serializePickerColor } from "./picker-color";
-import { getApprovedColorNames, ApiUnavailableError } from "../palettes/api";
-import type { ProposedColorName } from "../palettes/types";
+import { getApprovedColorNames } from "./color-names";
+import { ApiUnavailableError } from "../platform/transport/availability";
+import type { ProposedColorName } from "./color-names";
 
 const customNameRegistry = ref<Map<string, ProposedColorName>>(new Map());
 const normalizedCustomNames = ref<Map<string, string>>(new Map());

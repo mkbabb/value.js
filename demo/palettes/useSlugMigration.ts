@@ -1,7 +1,7 @@
 import { ref, type Ref, type ComputedRef } from "vue";
 import { useSession } from "../platform/auth/useSession";
 import { createAndSavePalette } from "./api";
-import { ApiProblem } from "./api/api-problem";
+import { ApiProblem } from "../platform/transport/api-problem";
 import type { Palette } from "./types";
 import type { PaletteSlugBar } from "../@/components/custom/palette-browser/slug";
 

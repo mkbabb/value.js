@@ -9,7 +9,7 @@
  * (`GET /sessions/me`) deleted — a wired wrapper with zero UI consumers.
  */
 
-import { request } from "./client";
+import { request } from "../transport/client";
 
 export function createSession(): Promise<{ token: string; userSlug: string }> {
     return request("/sessions", { method: "POST" });

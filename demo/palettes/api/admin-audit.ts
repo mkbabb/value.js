@@ -10,7 +10,7 @@
 
 import type { AuditEntry, PaginatedResponse } from "../types";
 
-import { adminRequest } from "./client";
+import { adminRequest } from "../../platform/transport/client";
 
 export interface AuditLogOptions {
     action?: string;

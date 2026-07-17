@@ -14,7 +14,7 @@ import type {
     CursorPaginatedResponse,
 } from "../types";
 
-import { request } from "./client";
+import { request } from "../../platform/transport/client";
 
 export interface ListPalettesOptions {
     limit?: number;

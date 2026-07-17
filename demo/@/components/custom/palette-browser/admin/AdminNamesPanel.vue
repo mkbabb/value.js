@@ -124,7 +124,7 @@ import { ref } from "vue";
 import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import { Button } from "../../../ui/button";
 import { Check, X as XIcon, Trash2 } from "@lucide/vue";
-import type { ProposedColorName } from "../../../../../palettes/types";
+import type { ProposedColorName } from "../../../../../color-session/color-names";
 import AdminListItem from "./AdminListItem.vue";
 import EmptyState from "../../../common/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";

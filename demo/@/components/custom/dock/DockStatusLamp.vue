@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { useApiClient } from "../../../../palettes/api/useApiClient";
+import { useApiClient } from "../../../../platform/transport/useApiClient";
 import { resolveLampState } from "./status-lamp";
 
 // The same injected api-client seam the per-surface affordances read

@@ -37,7 +37,7 @@ import {
 } from "../../../color-session/color-model";
 // The persisted color-state projection key — single-sourced (U-F48), shared
 // with useColorPersistence. boot→lib is a legal DOWN import.
-import { COLOR_STORE_KEY } from "../../../palettes/constants";
+import { COLOR_STORE_KEY } from "../../../color-session/useColorPersistence";
 
 export type BootSeedSource = "url" | "storage" | "default";
 

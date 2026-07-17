@@ -1,40 +1,22 @@
 /**
- * Palette API surface — aggregate barrel.
+ * Palette API surface — aggregate barrel (palette-DOMAIN endpoints only).
  *
- * Re-exports every public symbol from the 9 sub-modules so existing
- * `@lib/palette/api` import paths resolve through this barrel unchanged.
- * Consumers that need a single endpoint may import the specific sub-module
- * directly (e.g. `@lib/palette/api/sessions`); this barrel exists for
- * namespace-style consumption + back-compat with the pre-decomposition
- * `api.ts` surface.
+ * W43b3 (RF-15) split the non-palette layers out of this capsule: generic HTTP
+ * transport (`client` / `availability` / `api-problem` / `useApiClient`) →
+ * `platform/transport/`; session lifecycle (`sessions`) → `platform/auth/`;
+ * colour-NAMING (`getApprovedColorNames` / `proposeColorName` / `ProposedColorName`)
+ * → `color-session/color-names.ts`. Consumers import those from their real homes,
+ * not through this barrel — no forwarding re-exports survive.
  *
- * H.W3 Lane A — created with the `demo/@/lib/palette/api.ts` decomposition
- * (484 LoC god module → 9 cohesion-honest sub-modules, each ≤ 350 LoC).
- *
- * Sub-module map:
- *   - client.ts          — `request` / `adminRequest` / `setSessionToken` / `BASE_URL`
- *   - availability.ts    — the K-INV5 availability latch (`apiAvailability`)
- *   - sessions.ts        — session lifecycle (create/login/delete)
+ * Remaining palette-domain sub-module map:
  *   - palettes.ts        — user palette CRUD + publish/unpublish + vote + flag
  *   - versions.ts        — versions + forks
- *   - colors.ts          — public colour-name + tag listing
+ *   - colors.ts          — public tag listing (`getTags`)
  *   - admin-palettes.ts  — admin palette moderation + batch + flagged triage
  *   - admin-users.ts     — admin user CRUD + lifecycle + batch
  *   - admin-colors.ts    — admin colour-proposal queue + tag CRUD
  *   - admin-audit.ts     — admin audit log
  */
-
-export { setSessionToken, BASE_URL } from "./client";
-
-export {
-    type ApiAvailability,
-    apiAvailability,
-    ApiUnavailableError,
-    DevMisconfigError,
-    devMisconfigMessage,
-} from "./availability";
-
-export { createSession, loginWithSlug, deleteSession } from "./sessions";
 
 export {
     type ListPalettesOptions,
@@ -57,11 +39,7 @@ export {
     forkPalette,
 } from "./versions";
 
-export {
-    getApprovedColorNames,
-    getTags,
-    proposeColorName,
-} from "./colors";
+export { getTags } from "./colors";
 
 export {
     featurePalette,

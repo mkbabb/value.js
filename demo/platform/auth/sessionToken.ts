@@ -16,7 +16,7 @@
  * close). Exactly ONE write path (`persistToken`), ONE clear path
  * (`clearPersistedToken`), ONE boot restore (`restoreToken`).
  */
-import { sessionTokenRef, setSessionToken } from "../../palettes/api/client";
+import { sessionTokenRef, setSessionToken } from "../transport/client";
 import { safeGetItem, safeRemoveItem, safeSetItem } from "../storage/useSafeStorage";
 
 /** Persistent user token — survives tab close (localStorage). */

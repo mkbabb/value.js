@@ -127,7 +127,7 @@ import {
 import { Separator } from "../../../ui/separator";
 import { Crown, ArrowRight, Loader2 } from "@lucide/vue";
 import ParseEchoReadout from "./ParseEchoReadout.vue";
-import { proposeColorName } from "../../../../../palettes/api";
+import { proposeColorName } from "../../../../../color-session/color-names";
 import { useSession } from "../../../../../platform/auth/useSession";
 import type { EditTarget } from "../../../../../color-session/color-model";
 import { serializePickerColor } from "../../../../../color-session/picker-color";

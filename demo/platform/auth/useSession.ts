@@ -12,8 +12,8 @@
  * exposes the canonical cell directly, driven through the adapter's single
  * write path.
  */
-import { createSession } from "../../palettes/api";
-import { sessionTokenRef } from "../../palettes/api/client";
+import { createSession } from "./sessions";
+import { sessionTokenRef } from "../transport/client";
 
 import { loadPersistedToken, persistToken, restoreToken } from "./sessionToken";
 

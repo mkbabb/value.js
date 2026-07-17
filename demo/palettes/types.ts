@@ -85,16 +85,6 @@ export interface ProvenanceNode {
     isFork: boolean;
 }
 
-export interface ProposedColorName {
-    id: string;
-    name: string;
-    css: string;
-    status: "proposed" | "approved" | "rejected";
-    contributor?: string;
-    createdAt: string;
-    approvedAt?: string;
-}
-
 export interface User {
     slug: string;
     createdAt: string;

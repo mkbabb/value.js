@@ -7,16 +7,3 @@
  * `usePaletteActions.ts:78`.
  */
 export const CURRENT_PALETTE_ID = "__current__";
-
-/**
- * localStorage key for the persisted color-picker state projection
- * (`{ inputColor, savedColors }` — a parseable-string projection, not the live
- * unit graph).
- *
- * U-F48: single-sourced here so the boot hydrator
- * (`color-picker/composables/boot/hydrate.ts`) and the shared persistence
- * collaborator (`composables/color/useColorPersistence.ts`) key the SAME
- * literal — a change to one can no longer silently diverge the persistence
- * contract (the former dual-definition trap).
- */
-export const COLOR_STORE_KEY = "color-picker";
