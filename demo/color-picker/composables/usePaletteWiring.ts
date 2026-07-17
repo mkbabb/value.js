@@ -1,12 +1,15 @@
-// usePaletteManagerWiring — App.vue → usePaletteManager bridge.
+// usePaletteWiring — App.vue → palette-ports bridge (RF-15 §b 6: the old
+// usePaletteManager god facade is dissolved into five narrow ports; this file
+// adapts the root handles into the ports' deps and owns the cross-module
+// orchestration watchers).
 //
 // Two responsibilities:
 //   1. Adapt App.vue's color-picker / view-manager handles into the
-//      `usePaletteManager` deps shape (the original purpose; HARDEN-4 §1.2).
+//      `providePalettePorts` deps shape (the original purpose; HARDEN-4 §1.2).
 //   2. Cross-module orchestration watchers (E.W2 Lane D — lifted from
-//      usePaletteManager.ts §195–232 per AUD-5.14). These bridge
+//      the former facade §195–232 per AUD-5.14). These bridge
 //      auth ↔ view-router ↔ browse ↔ admin ↔ colorQueue and are *wiring*,
-//      not facade-internal coherence.
+//      not port-internal coherence.
 //
 // HARDEN-4 §1.2 note: `colorPickerRef` is passed as the REF OBJECT (not
 // `.value`) because the emitAddColor / emitStartEdit retry loops read
@@ -18,15 +21,15 @@ import type { ColorModel } from "../../@/components/custom/color-picker";
 import type { ColorPicker } from "../../@/components/custom/color-picker";
 import type { ViewManager } from "../../shell/useViewManager";
 import { parsePickerColor, serializePickerColor } from "../../color-session/picker-color";
-import { usePaletteManager, type PaletteManager } from "../../@/composables/palette/usePaletteManager";
+import { providePalettePorts, type PalettePorts } from "../../palettes/usePalettePorts";
 
-export function usePaletteManagerWiring(
+export function usePaletteWiring(
     colorPickerRef: Ref<InstanceType<typeof ColorPicker> | null>,
     viewManager: ViewManager,
     model: ShallowRef<ColorModel>,
     applyColorString: (css: string) => void,
     savedColorStrings: Ref<string[]>,
-): PaletteManager {
+): PalettePorts {
     // S.W2 W2-6: a BOUNDED retry for the "colorPickerRef not yet mounted" race.
     // The former self-rescheduling 50ms polls had no cap, deadline, or give-up
     // path — a permanently-absent picker (a future layout, a ref regression) left
@@ -45,7 +48,7 @@ export function usePaletteManagerWiring(
             }
             if (attempts++ >= PICKER_WAIT_ATTEMPTS) {
                 console.warn(
-                    `[usePaletteManagerWiring] gave up waiting for the color picker to mount (${label}).`,
+                    `[usePaletteWiring] gave up waiting for the color picker to mount (${label}).`,
                 );
                 return;
             }
@@ -54,7 +57,7 @@ export function usePaletteManagerWiring(
         poll();
     }
 
-    const manager = usePaletteManager({
+    const ports = providePalettePorts({
         currentView: viewManager.currentView,
         switchView: viewManager.switchView,
         savedColorStrings,
@@ -126,46 +129,46 @@ export function usePaletteManagerWiring(
 
     // --- Cross-module orchestration watchers (E.W2 Lane D / AUD-5.14) ---
     //
-    // Lifted from usePaletteManager.ts §195–232. These four watchers bridge
-    // distinct sub-composables (auth ↔ view-router ↔ browse ↔ admin ↔
-    // colorQueue) and belong in the wiring layer, not the facade.
+    // Lifted from the former facade §195–232. These four watchers bridge
+    // distinct ports (session ↔ view-router ↔ browse ↔ admin) and belong in the
+    // wiring layer, not inside any single port.
 
     // (1) Reload browse palettes when slug changes (always reload if on browse tab)
-    watch(manager.userSlug, () => {
+    watch(ports.session.userSlug, () => {
         if (viewManager.currentView.value === "browse") {
-            manager.loadRemotePalettes();
+            ports.browse.loadRemotePalettes();
         }
     });
 
     // (2) Load data when switching to a view (immediate: run on mount too)
     watch(viewManager.currentView, (view) => {
         if (view === "browse") {
-            manager.loadRemotePalettes();
+            ports.browse.loadRemotePalettes();
         }
-        if (view === "admin-users" && manager.adminUsers.value.length === 0) {
-            manager.loadAdminUsers();
+        if (view === "admin-users" && ports.admin.adminUsers.value.length === 0) {
+            ports.admin.loadAdminUsers();
         }
         if (view === "admin-names") {
-            if (manager.adminColorQueue.value.length === 0) manager.loadColorQueue();
-            if (!manager.approvedLoaded.value) manager.loadApprovedColors();
+            if (ports.admin.adminColorQueue.value.length === 0) ports.admin.loadColorQueue();
+            if (!ports.admin.approvedLoaded.value) ports.admin.loadApprovedColors();
         }
     }, { immediate: true });
 
     // (3) Debounced server-side search: reload browse when search query changes
     let searchDebounce: ReturnType<typeof setTimeout>;
-    watch(manager.searchQuery, () => {
+    watch(ports.browse.searchQuery, () => {
         if (viewManager.currentView.value === "browse") {
             clearTimeout(searchDebounce);
-            searchDebounce = setTimeout(() => manager.loadRemotePalettes(true), 400);
+            searchDebounce = setTimeout(() => ports.browse.loadRemotePalettes(true), 400);
         }
     });
 
     // (4) Hide admin views when admin logs out
-    watch(manager.isAdminAuthenticated, (auth) => {
+    watch(ports.session.isAdminAuthenticated, (auth) => {
         if (!auth && viewManager.currentView.value.startsWith("admin-")) {
             viewManager.switchView("picker");
         }
     });
 
-    return manager;
+    return ports;
 }

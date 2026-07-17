@@ -150,10 +150,10 @@
 
     <!-- Global modals -->
     <MigratePalettesDialog
-        v-model:open="paletteManager.showMigrateDialog.value"
-        :count="paletteManager.savedPalettes.value.length"
-        :mode="paletteManager.migrateMode.value"
-        @respond="paletteManager.onMigrateRespond"
+        v-model:open="paletteManager.migration.showMigrateDialog.value"
+        :count="paletteManager.library.savedPalettes.value.length"
+        :mode="paletteManager.migration.migrateMode.value"
+        @respond="paletteManager.migration.onMigrateRespond"
     />
 </template>
 
@@ -185,7 +185,7 @@ import { useColorUrl } from "../color-session/useColorUrl";
 import { useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
 import { useColorPipeline } from "../color-session/useColorPipeline";
 import { usePaneRouter } from "../shell/usePaneRouter";
-import { usePaletteManagerWiring } from "./composables/usePaletteManagerWiring";
+import { usePaletteWiring } from "./composables/usePaletteWiring";
 import { provideApiClient } from "../palettes/api/useApiClient";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { copyToClipboard } from "@mkbabb/glass-ui";
@@ -348,7 +348,7 @@ const { mobile, desktopLeft, desktopRight, actionBar } = usePaneRouter(
 );
 
 // --- Palette manager ---
-const paletteManager = usePaletteManagerWiring(
+const paletteManager = usePaletteWiring(
     colorPickerRef,
     viewManager,
     model,

@@ -21,10 +21,19 @@
  * handle so it stays free of injection (each host already injects pm).
  */
 import type { Palette } from "../../../../../../palettes/types";
-import type { PaletteManager } from "../../../../../composables/palette/usePaletteManager";
+import type { BrowsePort } from "../../../../../../palettes/usePalettePorts";
 
 export interface DialogBrowseActionsDeps {
-    pm: PaletteManager;
+    pm: Pick<
+        BrowsePort,
+        | "ensureUser"
+        | "ensureSession"
+        | "versions"
+        | "remotePalettes"
+        | "loadRemotePalettes"
+        | "tierFilter"
+        | "selectedTags"
+    >;
     /** Dialog-only; the pane host omits it (keeps its own version-drawer revert). */
     modalStack?: { onRevert: (hash: string, deps: { updateRemote: (slug: string, updated: Palette) => void }) => Promise<void> };
     /**

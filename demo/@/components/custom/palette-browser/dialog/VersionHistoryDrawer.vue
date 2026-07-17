@@ -112,7 +112,7 @@ import {
 import { Button } from "../../../ui/button";
 import { Loader2, RotateCcw } from "@lucide/vue";
 import { formatTime } from "../dateFormat";
-import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { BROWSE_PORT_KEY } from "../../../../../palettes/usePalettePorts";
 import type { PaletteVersion } from "../../../../../palettes/types";
 
 const { open, paletteSlug, paletteName, currentHash } = defineProps<{
@@ -129,7 +129,7 @@ defineEmits<{
 
 // D.W3 Lane B: route the api call through pm.versions, keep per-drawer local
 // list (each drawer instance owns its display state).
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(BROWSE_PORT_KEY)!;
 const versions = ref<PaletteVersion[]>([]);
 const total = ref(0);
 const loading = ref(false);

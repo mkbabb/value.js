@@ -24,10 +24,10 @@ import { interpolateStopColors } from "../composables/useGradientInterpolation";
 import { easingFnOf } from "../composables/useGradientCSS";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { PickerSpace } from "../../../../../color-session/picker-color";
-import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { LIBRARY_PORT_KEY } from "../../../../../palettes/usePalettePorts";
 import type { AcceptableValue } from "reka-ui";
 
-const pm = inject(PALETTE_MANAGER_KEY);
+const pm = inject(LIBRARY_PORT_KEY);
 
 const {
     type,

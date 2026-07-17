@@ -116,10 +116,10 @@ import { Input } from "../../../ui/input";
 import { Skeleton } from "../../../ui/skeleton";
 import { Plus, RefreshCw, X } from "@lucide/vue";
 import EmptyState from "../../../common/EmptyState.vue";
-import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { ADMIN_PORT_KEY } from "../../../../../palettes/usePalettePorts";
 
 // D.W3 Lane B: route through pm.tags sub-object (was: direct getAdminTags/createTag/deleteTag)
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(ADMIN_PORT_KEY)!;
 const tagsApi = pm.tags;
 
 onMounted(() => tagsApi.loadTags());

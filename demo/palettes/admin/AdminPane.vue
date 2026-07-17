@@ -74,7 +74,7 @@ import { inject, computed } from "vue";
 import { Card } from "../../@/components/ui/card";
 import { Badge } from "../../@/components/ui/badge";
 
-import { PALETTE_MANAGER_KEY } from "../../@/composables/palette/usePaletteManager";
+import { ADMIN_PORT_KEY } from "../usePalettePorts";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import {
     AdminUsersPanel,
@@ -92,7 +92,7 @@ const { subView } = defineProps<{
 }>();
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(ADMIN_PORT_KEY)!;
 
 const headerTitle = computed(() => {
     switch (subView) {

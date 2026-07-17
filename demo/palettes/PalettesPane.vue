@@ -43,14 +43,14 @@
                     :css-color-opaque="cssColorOpaque"
                     :saved-palette-count="pm.savedPalettes.value.length"
                     :saved-palettes="pm.savedPalettes.value"
-                    @apply="(colors) => pm.emitApply(colors)"
-                    @add-color="(css) => pm.emitAddColor(css)"
-                    @start-edit="(target) => pm.emitStartEdit(target)"
+                    @apply="(colors) => colorTarget.emitApply(colors)"
+                    @add-color="(css) => colorTarget.emitAddColor(css)"
+                    @start-edit="(target) => colorTarget.emitStartEdit(target)"
                     @saved="(name, colors) => pm.onCurrentPaletteSaved(name, colors)"
                     @updated="(id, colors) => pm.onCurrentPaletteUpdated(id, colors)"
                     @commit-edit="emit('commitEdit')"
                     @cancel-edit="emit('cancelEdit')"
-                    @clear-current="pm.emitApply([])"
+                    @clear-current="colorTarget.emitApply([])"
                 />
 
                 <!-- Saved palettes toolbar. S.W5-7: the "{n} palettes" line
@@ -123,7 +123,7 @@ import { Button } from "../@/components/ui/button";
 import { Badge } from "../@/components/ui/badge";
 import { Trash2 } from "@lucide/vue";
 import { useSortable } from "@vueuse/integrations/useSortable";
-import { PALETTE_MANAGER_KEY } from "../@/composables/palette/usePaletteManager";
+import { LIBRARY_PORT_KEY, COLOR_TARGET_PORT_KEY } from "./usePalettePorts";
 import { CSS_COLOR_KEY } from "../color-session/keys";
 import {
     CurrentPaletteEditor,
@@ -146,7 +146,8 @@ const emit = defineEmits<{
 }>();
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(LIBRARY_PORT_KEY)!;
+const colorTarget = inject(COLOR_TARGET_PORT_KEY)!;
 
 // WR-8 (P4-R1): alias the per-site TITLE ramp tokens into the shared
 // `.palettes-ramp-text` recipe's `--palettes-ramp-*` slots. The fallbacks

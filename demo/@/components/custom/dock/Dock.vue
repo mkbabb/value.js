@@ -15,7 +15,7 @@ import DockStatusLamp from "./DockStatusLamp.vue";
 import PaneSegmentedControl from "../../../../shell/PaneSegmentedControl.vue";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../../../../shell/useViewManager";
-import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
+import { SESSION_PORT_KEY } from "../../../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../../../color-session/keys";
 import { usePopupMutex } from "./composables/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
@@ -34,7 +34,7 @@ const emit = defineEmits<{ shareLink: []; commitEdit: []; cancelEdit: [] }>();
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
 const viewManager = inject(VIEW_MANAGER_KEY)!;
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(SESSION_PORT_KEY)!;
 
 const actionBar = computed(() => actionBarProp ?? null);
 const genericBar = computed(() => genericActionBar ?? null);

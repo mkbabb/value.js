@@ -44,7 +44,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import { Checkbox } from "../../../ui/checkbox";
 import { Loader2 } from "@lucide/vue";
 import { paletteETag } from "../../../../../palettes/api";
-import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { BROWSE_PORT_KEY } from "../../../../../palettes/usePalettePorts";
 
 const { open, paletteSlug, currentTags } = defineProps<{
     open: boolean;
@@ -58,7 +58,7 @@ const emit = defineEmits<{
 }>();
 
 // D.W3 Lane B: route through pm.tagEdit sub-object (was: direct getTags/updatePalette)
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(BROWSE_PORT_KEY)!;
 const tagEdit = pm.tagEdit;
 
 async function onToggle(name: string, checked: boolean) {

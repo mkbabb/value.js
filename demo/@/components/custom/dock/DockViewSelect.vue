@@ -5,7 +5,7 @@ import {
     Select, SelectContent, SelectGroup, SelectItem, SelectValue,
 } from "../../ui/select";
 import { inject } from "vue";
-import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
+import { SESSION_PORT_KEY } from "../../../../palettes/usePalettePorts";
 import type { ViewEntry } from "./composables/useDockAdminMode";
 
 const {
@@ -32,7 +32,7 @@ const emit = defineEmits<{
 // open is driven entirely by the parent's single mutex-managed ref
 const open = defineModel<boolean>("open", { default: false });
 
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(SESSION_PORT_KEY)!;
 
 // T.W6 · W6-4 (T-10, the owner overrule of W7-4's color-wheel legend): the
 // menu speaks INK. Rows are icon + label in the popover foreground pair;

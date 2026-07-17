@@ -12,7 +12,7 @@ import {
     DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuLabel,
 } from "../../../ui/dropdown-menu";
 import { Avatar, AvatarImage } from "../../../ui/avatar";
-import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { SESSION_PORT_KEY } from "../../../../../palettes/usePalettePorts";
 import { useSafeAccentFn } from "../../../../../color-session/useContrastSafeColor";
 
 const { cssColorOpaque, linkCopied } = defineProps<{
@@ -40,7 +40,7 @@ const emit = defineEmits<{
 const profileMenuOpen = defineModel<boolean>("profileMenuOpen", { default: false });
 const mbabbMenuOpen = defineModel<boolean>("mbabbMenuOpen", { default: false });
 
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(SESSION_PORT_KEY)!;
 const { toggleDark } = useGlobalDark();
 </script>
 

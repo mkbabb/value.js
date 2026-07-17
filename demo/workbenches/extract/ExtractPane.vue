@@ -24,7 +24,7 @@ import { inject } from "vue";
 import { Card } from "../../@/components/ui/card";
 import ExtractWorkbench from "../../@/components/custom/image-palette-extractor/ExtractWorkbench.vue";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
-import { PALETTE_MANAGER_KEY } from "../../@/composables/palette/usePaletteManager";
+import { COLOR_TARGET_PORT_KEY } from "../../palettes/usePalettePorts";
 import type { SpaceId } from "@mkbabb/value.js/color";
 
 type DisplayColorSpace = SpaceId | "hex";
@@ -33,5 +33,5 @@ const { colorSpace = "hex" } = defineProps<{
     colorSpace?: DisplayColorSpace;
 }>();
 
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(COLOR_TARGET_PORT_KEY)!;
 </script>

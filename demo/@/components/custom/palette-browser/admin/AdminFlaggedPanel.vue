@@ -143,10 +143,10 @@ import EmptyState from "../../../common/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatDate } from "../dateFormat";
-import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { ADMIN_PORT_KEY } from "../../../../../palettes/usePalettePorts";
 
 // D.W3 Lane B: route through pm.flagged sub-object (was: direct getFlaggedPalettes/dismissFlags/deletePaletteAdmin)
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(ADMIN_PORT_KEY)!;
 const flagged = pm.flagged;
 
 onMounted(() => flagged.loadFlagged());

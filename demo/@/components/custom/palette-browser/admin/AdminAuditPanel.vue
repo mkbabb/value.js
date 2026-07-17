@@ -101,10 +101,10 @@ import EmptyState from "../../../common/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatTime } from "../dateFormat";
-import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { ADMIN_PORT_KEY } from "../../../../../palettes/usePalettePorts";
 
 // D.W3 Lane B: route through pm.audit sub-object (was: direct getAuditLog)
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(ADMIN_PORT_KEY)!;
 const audit = pm.audit;
 
 let filterTimeout: ReturnType<typeof setTimeout>;

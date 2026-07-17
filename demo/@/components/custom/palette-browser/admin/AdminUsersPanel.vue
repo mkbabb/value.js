@@ -186,7 +186,7 @@ import { Badge } from "../../../ui/badge";
 import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 import { Loader2, Trash2, Eraser, RefreshCw } from "@lucide/vue";
 import type { Palette, User } from "../../../../../palettes/types";
-import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { ADMIN_PORT_KEY } from "../../../../../palettes/usePalettePorts";
 import { PaletteCard } from "../card";
 import EmptyState from "../../../common/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
@@ -220,7 +220,7 @@ const emit = defineEmits<{
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
 // D.W3 Lane B: route through pm.loadUserPalettes (was: direct getUserPalettes)
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(ADMIN_PORT_KEY)!;
 
 const expandedUserSlug = ref<string | null>(null);
 const userPalettes = ref<Palette[]>([]);

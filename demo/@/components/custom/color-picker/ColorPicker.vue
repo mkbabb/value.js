@@ -128,7 +128,7 @@ import { COLOR_MODEL_KEY } from "../../../../color-session/keys";
 import type { ActionBarContext } from "../../../../color-session/keys";
 import { OVERTURE_KEY } from "../../../../color-picker/composables/boot/useOverture";
 import { VIEW_MANAGER_KEY } from "../../../../shell/useViewManager";
-import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
+import { COLOR_TARGET_PORT_KEY } from "../../../../palettes/usePalettePorts";
 
 import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
 import { useHeaderCondense } from "./composables/useHeaderCondense";
@@ -195,7 +195,7 @@ const { condensed } = useHeaderCondense(headerSentinel, pickerHeaderEl, {
 });
 
 const viewManager = inject(VIEW_MANAGER_KEY)!;
-const paletteManager = inject(PALETTE_MANAGER_KEY);
+const paletteManager = inject(COLOR_TARGET_PORT_KEY);
 
 const {
     updateModel,

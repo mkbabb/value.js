@@ -7,13 +7,13 @@ import MixConfigBar from "../../@/components/custom/mix/MixConfigBar.vue";
 import MixResultDisplay from "../../@/components/custom/mix/MixResultDisplay.vue";
 import MixAnimationCanvas from "../../@/components/custom/mix/MixAnimationCanvas/MixAnimationCanvas.vue";
 import { useMixingState } from "../../@/components/custom/mix/composables/useMixingState";
-import { PALETTE_MANAGER_KEY } from "../../@/composables/palette/usePaletteManager";
+import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import type { PaletteColor } from "../../palettes/types";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(LIBRARY_PORT_KEY)!;
 
 const {
     mode,

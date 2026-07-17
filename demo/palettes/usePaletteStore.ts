@@ -11,7 +11,7 @@ const defaultStore: PaletteStore = { version: 1, palettes: [] };
 // The ONE localStorage binding, shared across every caller — the same lazy-init
 // module-ref pattern as useSession/useUserAuth. Before this, `usePaletteStore()`
 // re-created a fresh `useStorage` binding (a fresh localStorage round-trip) on
-// EVERY call at its three sites (usePaletteManager / useBrowsePalettes /
+// EVERY call at its three sites (usePalettePorts / useBrowsePalettes /
 // useExtractSession). Lazy so `useStorage` is not evaluated at import time
 // (SSR safety + Safari private-browsing), and created OUTSIDE the exported
 // function body so there is exactly one binding for the app's lifetime.

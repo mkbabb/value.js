@@ -3,13 +3,13 @@ import { inject, ref } from "vue";
 import { Card } from "../../@/components/ui/card";
 import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import GenerateControls from "../../@/components/custom/generate/GenerateControls.vue";
-import { PALETTE_MANAGER_KEY } from "../../@/composables/palette/usePaletteManager";
+import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import type { PaletteColor } from "../../palettes/types";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(LIBRARY_PORT_KEY)!;
 const controlsRef = ref<InstanceType<typeof GenerateControls> | null>(null);
 
 function onSave(colors: string[]) {

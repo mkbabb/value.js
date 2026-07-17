@@ -11,7 +11,7 @@ import {
 } from "../../../ui/dropdown-menu";
 import { DockDropdownTrigger } from "@mkbabb/glass-ui/dock";
 import { Avatar, AvatarImage } from "../../../ui/avatar";
-import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { SESSION_PORT_KEY } from "../../../../../palettes/usePalettePorts";
 import { useSafeAccentFn } from "../../../../../color-session/useContrastSafeColor";
 
 const { cssColorOpaque, linkCopied } = defineProps<{
@@ -31,7 +31,7 @@ const emit = defineEmits<{
 }>();
 
 const open = defineModel<boolean>("open", { default: false });
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(SESSION_PORT_KEY)!;
 const { toggleDark } = useGlobalDark();
 </script>
 

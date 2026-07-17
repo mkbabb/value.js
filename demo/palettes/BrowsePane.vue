@@ -179,7 +179,7 @@
 import { inject, reactive, ref, computed, onMounted } from "vue";
 import { Card } from "../@/components/ui/card";
 import { Button } from "../@/components/ui/button";
-import { PALETTE_MANAGER_KEY } from "../@/composables/palette/usePaletteManager";
+import { BROWSE_PORT_KEY } from "./usePalettePorts";
 import { CSS_COLOR_KEY } from "../color-session/keys";
 import {
     PaletteCard,
@@ -199,7 +199,7 @@ import { usePaletteExport } from "./usePaletteExport";
 import { useDialogBrowseActions } from "../@/components/custom/palette-browser/dialog";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
-const pm = inject(PALETTE_MANAGER_KEY)!;
+const pm = inject(BROWSE_PORT_KEY)!;
 
 // W5-1: the developing-wall shadow count — a handful of plates reads as "the
 // wall is developing" without paying 50 shimmer surfaces of compositor work

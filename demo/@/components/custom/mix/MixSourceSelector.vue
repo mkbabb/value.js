@@ -3,7 +3,7 @@ import { inject, computed, watch, ref, TransitionGroup } from "vue";
 import { Plus, X, ChevronDown } from "@lucide/vue";
 import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../../ui/collapsible";
-import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
+import { LIBRARY_PORT_KEY } from "../../../../palettes/usePalettePorts";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { PaletteCard, PaletteColorStrip } from "../palette-browser/card";
 import EmptyState from "../../common/EmptyState.vue";
@@ -30,7 +30,7 @@ const emit = defineEmits<{
     removePalette: [slug: string];
 }>();
 
-const pm = inject(PALETTE_MANAGER_KEY);
+const pm = inject(LIBRARY_PORT_KEY);
 const savedPalettes = computed(() => pm?.savedPalettes.value ?? []);
 
 // Source guards: remove needs ≥ 1 remaining, add stops at a sensible upper bound.
