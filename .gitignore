@@ -23,6 +23,8 @@ dist/
 !test/dist/
 !test/dist/**
 test-results/
+# V′.W42: operational release-staging clone (npm pack rehearsal); never tracked
+.release-working/
 # scripts/dev.sh (npm run dev) runtime scratch — mongo dbpath, logs, .ports
 .dev/
 .claude/

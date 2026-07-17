@@ -32,6 +32,9 @@ jobs:
             - run: npm ci
             - run: npm run lint
             - run: npx vue-tsc -p tsconfig.lib.json --noEmit
+            - run: npx vue-tsc -p tsconfig.demo.json --noEmit
+              # D48: soft until W44/B2 declares @mkbabb deps (island not reconstructible by npm ci); W44 flips to hard
+              continue-on-error: true
             - run: npm run build
             - run: npm test
             - name: pack producer bytes
