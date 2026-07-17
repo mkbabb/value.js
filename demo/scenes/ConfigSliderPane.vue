@@ -13,13 +13,13 @@
 // (rebuilt at N.W5.B) additionally drives the default slot with its enum-atom
 // Select rows (harmony / arrangement / medium / motion) above the sliders.
 
-import { Button } from "../../ui/button";
-import { Card } from "../../ui/card";
-import { Slider } from "../../ui/slider";
+import { Button } from "../@/components/ui/button";
+import { Card } from "../@/components/ui/card";
+import { Slider } from "../@/components/ui/slider";
 import { Copy, RotateCcw } from "@lucide/vue";
 import { GlassDock } from "@mkbabb/glass-ui/dock";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
-import PaneHeader from "./PaneHeader.vue";
+import PaneHeader from "../shared/ui/PaneHeader.vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 
 /** A single slider definition inside a section. `key` may be a dot-path
@@ -177,7 +177,7 @@ function resetDefaults() {
 </template>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../@/styles/style.css";
 
 /* T.W4-4 (the population clause): the console well's inner rhythm + the
  * certified-ink cure for the row's live value (the producer ConfiguratorRow

@@ -8,7 +8,7 @@
  *
  * Migration source: `palette-browser/TagEditPopover.vue`,
  * `palette-browser/PaletteDialog/PaletteDialog.vue` (availableTags),
- * `panes/BrowsePane.vue` (availableTags).
+ * `palettes/BrowsePane.vue` (availableTags).
  */
 import { ref, type Ref } from "vue";
 import { getTags, updatePalette } from "./api";

@@ -8,7 +8,7 @@
  * Migration source: `palette-browser/VersionHistoryDrawer.vue`,
  * `palette-browser/PaletteDialog/composables/useDialogModalStack.ts` (revert),
  * `palette-browser/PaletteDialog/composables/useDialogBrowseActions.ts` (fork),
- * `panes/BrowsePane.vue` (fork + revert).
+ * `palettes/BrowsePane.vue` (fork + revert).
  */
 import { ref, type Ref } from "vue";
 import { listVersions, revertPalette, forkPalette } from "./api";

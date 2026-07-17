@@ -174,7 +174,7 @@ import { Dock } from "../@/components/custom/dock";
 // build-config change to be verified once the demo builds (currently blocked by
 // the glass-ui 5.0.0 adopt-gap); tracked to U.W-CLOSE's re-probe.
 import { MigratePalettesDialog } from "../@/components/custom/palette-browser/dialog";
-import PaneSlot from "../@/components/custom/panes/PaneSlot.vue";
+import PaneSlot from "../shell/PaneSlot.vue";
 // U.W-A11Y · U-F58: the focus-managed / SR-announced boundary that catches a
 // pane render throw instead of white-screening (never a silent dead plate).
 import ErrorBoundary from "../@/components/common/ErrorBoundary.vue";

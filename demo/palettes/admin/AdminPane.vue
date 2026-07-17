@@ -71,21 +71,21 @@
 
 <script setup lang="ts">
 import { inject, computed } from "vue";
-import { Card } from "../../ui/card";
-import { Badge } from "../../ui/badge";
+import { Card } from "../../@/components/ui/card";
+import { Badge } from "../../@/components/ui/badge";
 
-import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "../../../../color-session/keys";
+import { PALETTE_MANAGER_KEY } from "../../@/composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "../../color-session/keys";
 import {
     AdminUsersPanel,
     AdminNamesPanel,
     AdminAuditPanel,
     AdminFlaggedPanel,
     AdminTagsPanel,
-} from "../palette-browser/admin";
-import { UserSortMenu } from "../palette-browser/search";
+} from "../../@/components/custom/palette-browser/admin";
+import { UserSortMenu } from "../../@/components/custom/palette-browser/search";
 import { SearchBar } from "@mkbabb/glass-ui/search";
-import PaneHeader from "./PaneHeader.vue";
+import PaneHeader from "../../shared/ui/PaneHeader.vue";
 
 const { subView } = defineProps<{
     subView: "admin-users" | "admin-names" | "admin-audit" | "admin-flagged" | "admin-tags";

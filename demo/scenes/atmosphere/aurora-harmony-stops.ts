@@ -20,7 +20,7 @@
 import type { AuroraAtoms } from "@mkbabb/glass-ui/aurora";
 import type { AuroraHarmony } from "@mkbabb/glass-ui/aurora";
 
-import { resolveCalibratedAtmosphere } from "../../../../color-picker/composables/boot/atmosphere-calibration";
+import { resolveCalibratedAtmosphere } from "../../color-picker/composables/boot/atmosphere-calibration";
 
 /** Trim to 4 decimals, dropping trailing zeros (the house formatNum shape). */
 function fmt(v: number): string {

@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { inject, computed } from "vue";
-import { Card } from "../../ui/card";
-import PaneHeader from "./PaneHeader.vue";
-import MixSourceSelector from "../mix/MixSourceSelector.vue";
-import MixConfigBar from "../mix/MixConfigBar.vue";
-import MixResultDisplay from "../mix/MixResultDisplay.vue";
-import MixAnimationCanvas from "../mix/MixAnimationCanvas/MixAnimationCanvas.vue";
-import { useMixingState } from "../mix/composables/useMixingState";
-import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "../../../../color-session/keys";
+import { Card } from "../../@/components/ui/card";
+import PaneHeader from "../../shared/ui/PaneHeader.vue";
+import MixSourceSelector from "../../@/components/custom/mix/MixSourceSelector.vue";
+import MixConfigBar from "../../@/components/custom/mix/MixConfigBar.vue";
+import MixResultDisplay from "../../@/components/custom/mix/MixResultDisplay.vue";
+import MixAnimationCanvas from "../../@/components/custom/mix/MixAnimationCanvas/MixAnimationCanvas.vue";
+import { useMixingState } from "../../@/components/custom/mix/composables/useMixingState";
+import { PALETTE_MANAGER_KEY } from "../../@/composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "../../color-session/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import type { PaletteColor } from "../../../../palettes/types";
+import type { PaletteColor } from "../../palettes/types";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;

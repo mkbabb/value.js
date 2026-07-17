@@ -65,16 +65,16 @@ export interface PaneSlot {
 
 // ── Component registry — one table, was duplicated across the two routers ──
 
-const AboutPane = defineAsyncComponent(() => import("../@/components/custom/panes/AboutPane.vue"));
-const PalettesPane = defineAsyncComponent(() => import("../@/components/custom/panes/PalettesPane.vue"));
-const BrowsePane = defineAsyncComponent(() => import("../@/components/custom/panes/BrowsePane.vue"));
-const ExtractPane = defineAsyncComponent(() => import("../@/components/custom/panes/ExtractPane.vue"));
-const GeneratePane = defineAsyncComponent(() => import("../@/components/custom/panes/GeneratePane.vue"));
-const GradientPane = defineAsyncComponent(() => import("../@/components/custom/panes/GradientPane.vue"));
-const MixPane = defineAsyncComponent(() => import("../@/components/custom/panes/MixPane.vue"));
-const AdminPane = defineAsyncComponent(() => import("../@/components/custom/panes/AdminPane.vue"));
-const AuroraPane = defineAsyncComponent(() => import("../@/components/custom/panes/AuroraPane.vue"));
-const BlobPane = defineAsyncComponent(() => import("../@/components/custom/panes/BlobPane.vue"));
+const AboutPane = defineAsyncComponent(() => import("../scenes/about/AboutPane.vue"));
+const PalettesPane = defineAsyncComponent(() => import("../palettes/PalettesPane.vue"));
+const BrowsePane = defineAsyncComponent(() => import("../palettes/BrowsePane.vue"));
+const ExtractPane = defineAsyncComponent(() => import("../workbenches/extract/ExtractPane.vue"));
+const GeneratePane = defineAsyncComponent(() => import("../workbenches/generate/GeneratePane.vue"));
+const GradientPane = defineAsyncComponent(() => import("../workbenches/gradient/GradientPane.vue"));
+const MixPane = defineAsyncComponent(() => import("../workbenches/mix/MixPane.vue"));
+const AdminPane = defineAsyncComponent(() => import("../palettes/admin/AdminPane.vue"));
+const AuroraPane = defineAsyncComponent(() => import("../scenes/atmosphere/AuroraPane.vue"));
+const BlobPane = defineAsyncComponent(() => import("../scenes/blob/BlobPane.vue"));
 
 /** Maps a view-config slot name to its component. `null` for an unknown name. */
 function componentFor(name: string | null): Component | null {

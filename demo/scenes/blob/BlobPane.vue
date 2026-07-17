@@ -11,8 +11,8 @@
 import { inject } from "vue";
 import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob";
 import type { BlobConfig } from "@mkbabb/glass-ui/blob";
-import ConfigSliderPane from "./ConfigSliderPane.vue";
-import type { SliderSection } from "./ConfigSliderPane.vue";
+import ConfigSliderPane from "../ConfigSliderPane.vue";
+import type { SliderSection } from "../ConfigSliderPane.vue";
 
 const cfg = inject(BLOB_CONFIG_KEY)!;
 

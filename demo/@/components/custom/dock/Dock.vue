@@ -12,7 +12,7 @@ import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
 import DockViewSelect from "./DockViewSelect.vue";
 import DockStatusLamp from "./DockStatusLamp.vue";
-import PaneSegmentedControl from "../panes/PaneSegmentedControl.vue";
+import PaneSegmentedControl from "../../../../shell/PaneSegmentedControl.vue";
 import { useMediaQuery } from "@vueuse/core";
 import { VIEW_MANAGER_KEY } from "../../../../shell/useViewManager";
 import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";

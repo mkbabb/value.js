@@ -58,7 +58,7 @@ defineProps<{
 </style>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../../@/styles/style.css";
 
 /* ── THE VEIL (T.W3-4) ──────────────────────────────────────────────────
  * Constitutive: the ::before paints the header's material AT REST. Fill +
