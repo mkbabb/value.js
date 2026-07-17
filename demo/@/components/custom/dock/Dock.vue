@@ -20,7 +20,7 @@ import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../../../color-session/keys";
 import { usePopupMutex } from "./composables/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
 import type { ActionBarContext } from "../../../../color-session/keys";
-import type { EditTarget } from "../color-picker";
+import type { EditTarget } from "../../../../color-session/color-model";
 import type { DockActionBar } from "../../../../shell/usePaneRouter";
 
 const {

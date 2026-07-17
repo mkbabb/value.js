@@ -8,8 +8,8 @@ import {
     type PickerColor,
     type PickerSpace,
 } from "./picker-color";
-import type { ColorModel } from "../@/components/custom/color-picker";
-import { colorToHexString } from "../@/components/custom/color-picker";
+import type { ColorModel } from "./color-model";
+import { colorToHexString } from "./color-model";
 
 const DIGITS = 2;
 

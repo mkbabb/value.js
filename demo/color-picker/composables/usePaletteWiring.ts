@@ -17,7 +17,7 @@
 
 import { watch } from "vue";
 import type { Ref, ShallowRef } from "vue";
-import type { ColorModel } from "../../@/components/custom/color-picker";
+import type { ColorModel } from "../../color-session/color-model";
 import type { ColorPicker } from "../../@/components/custom/color-picker";
 import type { ViewManager } from "../../shell/useViewManager";
 import { parsePickerColor, serializePickerColor } from "../../color-session/picker-color";

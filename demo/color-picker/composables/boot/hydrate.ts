@@ -30,11 +30,11 @@
  */
 
 import { convertPickerColor, parsePickerColor } from "../../../color-session/picker-color";
-import type { ColorModel, DisplayColorSpace } from "../../../@/components/custom/color-picker";
+import type { ColorModel, DisplayColorSpace } from "../../../color-session/color-model";
 import {
     createDefaultColorModel,
     resolveColorSpace,
-} from "../../../@/components/custom/color-picker";
+} from "../../../color-session/color-model";
 // The persisted color-state projection key — single-sourced (U-F48), shared
 // with useColorPersistence. boot→lib is a legal DOWN import.
 import { COLOR_STORE_KEY } from "../../../palettes/constants";

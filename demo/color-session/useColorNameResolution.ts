@@ -7,9 +7,9 @@ import {
     type PickerSpace,
 } from "./picker-color";
 import { useCustomColorNames } from "./useCustomColorNames";
-import type { ColorModel } from "../@/components/custom/color-picker";
-import type { DisplayColorSpace } from "../@/components/custom/color-picker";
-import { colorToHexString } from "../@/components/custom/color-picker";
+import type { ColorModel } from "./color-model";
+import type { DisplayColorSpace } from "./color-model";
+import { colorToHexString } from "./color-model";
 
 export function useColorNameResolution(deps: {
     model: ShallowRef<ColorModel>;

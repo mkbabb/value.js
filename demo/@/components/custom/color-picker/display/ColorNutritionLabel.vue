@@ -179,8 +179,9 @@ import {
 } from "../../../ui/tooltip";
 import { ArrowRight } from "@lucide/vue";
 import { Alert, AlertTitle, AlertDescription } from "../../../ui/alert";
-import type { ColorModel } from "..";
-import { colorSpaceInfo, resolveColorSpace } from "..";
+import type { ColorModel } from "../../../../../color-session/color-model";
+import { resolveColorSpace } from "../../../../../color-session/color-model";
+import { colorSpaceInfo } from "../../../../../color-session/colorSpaceInfo";
 
 const model = defineModel<ColorModel>({ required: true });
 

@@ -1,6 +1,6 @@
 import { ref, computed, inject, watch } from "vue";
 import type { Ref, ShallowRef } from "vue";
-import type { EditTarget } from "../../../color-picker";
+import type { EditTarget } from "../../../../../../color-session/color-model";
 import { EDIT_TARGET_KEY } from "../../../../../../color-session/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { CURRENT_PALETTE_ID } from "../../../../../../palettes/constants";

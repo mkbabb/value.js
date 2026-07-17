@@ -118,8 +118,8 @@ import {
     DISPLAY_COLOR_SPACE_NAMES,
     colorToHexString,
     resolveColorSpace,
-} from "..";
-import type { DisplayColorSpace } from "..";
+} from "../../../../../color-session/color-model";
+import type { DisplayColorSpace } from "../../../../../color-session/color-model";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../../../../color-session/keys";
 
 const { modelValue, cssColor, inline = false } = defineProps<{

@@ -122,8 +122,8 @@ import {
 } from "vue";
 import { useMagicKeys } from "@vueuse/core";
 import { useIdleReady } from "@mkbabb/glass-ui/dom";
-import type { ColorModel, EditTarget } from ".";
-import { toCSSColorString, resolveColorSpace } from ".";
+import type { ColorModel, EditTarget } from "../../../../color-session/color-model";
+import { toCSSColorString, resolveColorSpace } from "../../../../color-session/color-model";
 import { COLOR_MODEL_KEY } from "../../../../color-session/keys";
 import type { ActionBarContext } from "../../../../color-session/keys";
 import { OVERTURE_KEY } from "../../../../color-picker/composables/boot/useOverture";

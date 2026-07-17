@@ -2,8 +2,8 @@ import { watch, type ShallowRef, type ComputedRef } from "vue";
 import { useStorage } from "@vueuse/core";
 import { debounce } from "../shared/utils";
 import { serializePickerColor, type PickerColor } from "./picker-color";
-import type { ColorModel } from "../@/components/custom/color-picker";
-import { defaultColorModel } from "../@/components/custom/color-picker";
+import type { ColorModel } from "./color-model";
+import { defaultColorModel } from "./color-model";
 // The persisted color-state projection key — single-sourced (U-F48), shared
 // with boot/hydrate. color→lib is a legal sideways/DOWN import (no color↔
 // color-picker boundary breach — @lib is the shared lib layer).

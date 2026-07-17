@@ -1,9 +1,9 @@
 import type { ShallowRef } from "vue";
 import { watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import type { ColorModel } from "../@/components/custom/color-picker";
-import type { DisplayColorSpace } from "../@/components/custom/color-picker";
-import { toCSSColorString, resolveColorSpace, colorToHexString } from "../@/components/custom/color-picker";
+import type { ColorModel } from "./color-model";
+import type { DisplayColorSpace } from "./color-model";
+import { toCSSColorString, resolveColorSpace, colorToHexString } from "./color-model";
 import { convertPickerColor, parsePickerColor, serializePickerColor } from "./picker-color";
 import { debounce } from "../shared/utils";
 

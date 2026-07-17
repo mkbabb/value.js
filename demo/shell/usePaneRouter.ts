@@ -18,7 +18,8 @@ import {
     type ShallowRef,
 } from "vue";
 
-import { ColorPicker, type ColorModel, type EditTarget } from "../@/components/custom/color-picker";
+import { ColorPicker } from "../@/components/custom/color-picker";
+import type { ColorModel, EditTarget } from "../color-session/color-model";
 import type { ViewManager } from "./useViewManager";
 import {
     RefreshCw,

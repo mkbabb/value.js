@@ -129,7 +129,7 @@ import { Crown, ArrowRight, Loader2 } from "@lucide/vue";
 import ParseEchoReadout from "./ParseEchoReadout.vue";
 import { proposeColorName } from "../../../../../palettes/api";
 import { useSession } from "../../../../../platform/auth/useSession";
-import type { EditTarget } from "..";
+import type { EditTarget } from "../../../../../color-session/color-model";
 import { serializePickerColor } from "../../../../../color-session/picker-color";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../../../../color-session/keys";
 

@@ -12,8 +12,8 @@ import {
     type PickerColor,
     type PickerSpace,
 } from "./picker-color";
-import type { ColorModel, DisplayColorSpace } from "../@/components/custom/color-picker";
-import { resolveColorSpace } from "../@/components/custom/color-picker";
+import type { ColorModel, DisplayColorSpace } from "./color-model";
+import { resolveColorSpace } from "./color-model";
 
 export function useColorParsing(deps: {
     model: ShallowRef<ColorModel>;

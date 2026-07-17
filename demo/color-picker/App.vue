@@ -160,7 +160,7 @@
 <script setup lang="ts">
 import { computed, onMounted, provide, ref, shallowRef, useTemplateRef } from "vue";
 
-import type { ColorModel, EditTarget } from "../@/components/custom/color-picker";
+import type { ColorModel, EditTarget } from "../color-session/color-model";
 import { ColorPicker } from "../@/components/custom/color-picker";
 import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "../color-session/keys";
 

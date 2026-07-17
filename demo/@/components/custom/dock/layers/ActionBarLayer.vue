@@ -6,7 +6,7 @@ import type { ActionBarContext } from "../../../../../color-session/keys";
 import ActionToolbar from "../../color-picker/controls/ActionToolbar.vue";
 import ColorInput from "../../color-picker/controls/ColorInput.vue";
 import { DockIconButton, DockSeparator, useLayerTransition } from "@mkbabb/glass-ui/dock";
-import type { EditTarget } from "../../color-picker";
+import type { EditTarget } from "../../../../../color-session/color-model";
 
 const { actionBar, editTarget } = defineProps<{
     actionBar: ActionBarContext;

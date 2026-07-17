@@ -13,13 +13,13 @@ import {
     type PickerSpace,
 } from "./picker-color";
 import { clampColorToSpaceDomain } from "./valueDomain";
-import type { ColorModel } from "../@/components/custom/color-picker";
+import type { ColorModel } from "./color-model";
 import {
     createDefaultColorModel,
     toCSSColorString,
     colorToHexString,
     resolveColorSpace,
-} from "../@/components/custom/color-picker";
+} from "./color-model";
 import { useColorParsing } from "./useColorParsing";
 import { useSliderGradients } from "./useSliderGradients";
 import { useColorNameResolution } from "./useColorNameResolution";

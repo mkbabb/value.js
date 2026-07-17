@@ -96,8 +96,8 @@ import {
     bumpProbeEpochOnMount,
     resolveSurfaceLightnessLive,
 } from "../../../../../../color-session/useContrastSafeColor";
-import { colorSpaceInfo } from "../../index";
-import type { DisplayColorSpace } from "../../index";
+import { colorSpaceInfo } from "../../../../../../color-session/colorSpaceInfo";
+import type { DisplayColorSpace } from "../../../../../../color-session/color-model";
 import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "../../../../../../color-session/keys";
 
 const { components, active, animationKey } = defineProps<{
