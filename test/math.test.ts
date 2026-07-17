@@ -3,13 +3,41 @@ import {
     clamp,
     scale,
     lerp,
+    lerpArray,
     logerp,
     deCasteljau,
     cubicBezier,
     interpBezier,
-    cubicBezierToSVG,
     cubicBezierToString,
 } from "../src/math";
+
+describe("lerpArray", () => {
+    it("matches scalar lerp across channel counts and progress samples", () => {
+        for (const length of [1, 2, 5, 16, 64]) {
+            const start = Float64Array.from({ length }, (_, index) =>
+                Math.sin(index) * 100);
+            const stop = Float64Array.from({ length }, (_, index) =>
+                Math.cos(index) * 50 - 25);
+            const out = new Float64Array(length);
+            for (const t of [0, 0.05, 0.25, 0.5, 0.9, 1]) {
+                lerpArray(start, stop, t, out);
+                for (let index = 0; index < length; index++) {
+                    expect(out[index]).toBe(lerp(start[index]!, stop[index]!, t));
+                }
+            }
+        }
+    });
+
+    it("returns the caller-owned output and never mutates either input", () => {
+        const start = Float64Array.of(0, 10);
+        const stop = Float64Array.of(100, 20);
+        const out = new Float64Array(2);
+        expect(lerpArray(start, stop, 0.5, out)).toBe(out);
+        expect([...out]).toEqual([50, 15]);
+        expect([...start]).toEqual([0, 10]);
+        expect([...stop]).toEqual([100, 20]);
+    });
+});
 
 describe("clamp", () => {
     it("should return the value when it is within the range", () => {
@@ -373,54 +401,6 @@ describe("interpBezier", () => {
         expect(xm).toBeGreaterThan(0);
         expect(xm).toBeLessThan(6);
         expect(ym).toBeGreaterThan(0);
-    });
-});
-
-describe("cubicBezierToSVG", () => {
-    it("should return a string containing an SVG path element", () => {
-        const result = cubicBezierToSVG(0.25, 0.1, 0.25, 1.0);
-        expect(result).toContain("<path");
-        expect(result).toContain('d="');
-        expect(result).toContain("/>");
-    });
-
-    it("should start the path at M0 0", () => {
-        const result = cubicBezierToSVG(0.25, 0.1, 0.25, 1.0);
-        expect(result).toContain("M0 0");
-    });
-
-    it("should contain L (lineto) segments for the curve approximation", () => {
-        const result = cubicBezierToSVG(0.42, 0, 0.58, 1);
-        expect(result).toContain(" L");
-    });
-
-    it("should produce a path that ends near (1, 1)", () => {
-        const result = cubicBezierToSVG(0.25, 0.1, 0.25, 1.0);
-        // The last L segment should be close to L1 1
-        // Extract all numbers from the last L command
-        const matches = result.match(/L([\d.e+-]+) ([\d.e+-]+)/g);
-        expect(matches).not.toBeNull();
-        const lastMatch = matches![matches!.length - 1];
-        const [, xStr, yStr] = lastMatch.match(/L([\d.e+-]+) ([\d.e+-]+)/)!;
-        expect(parseFloat(xStr)).toBeCloseTo(1, 1);
-        expect(parseFloat(yStr)).toBeCloseTo(1, 1);
-    });
-
-    it("should produce many path segments (step size 0.001)", () => {
-        const result = cubicBezierToSVG(0.25, 0.1, 0.25, 1.0);
-        const lineSegments = result.match(/ L/g);
-        expect(lineSegments).not.toBeNull();
-        // 1/0.001 = 1000 steps, so ~1000 or 1001 L segments
-        expect(lineSegments!.length).toBeGreaterThanOrEqual(999);
-    });
-
-    it("should work with different control points", () => {
-        const easeIn = cubicBezierToSVG(0.42, 0, 1, 1);
-        const easeOut = cubicBezierToSVG(0, 0, 0.58, 1);
-        expect(easeIn).toContain("<path");
-        expect(easeOut).toContain("<path");
-        // Different control points should produce different paths
-        expect(easeIn).not.toBe(easeOut);
     });
 });
 
