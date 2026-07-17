@@ -38,7 +38,7 @@
 <script setup lang="ts">
 import { ref, nextTick, onErrorCaptured, useTemplateRef } from "vue";
 import { CircleAlert, RotateCcw } from "@lucide/vue";
-import { Button } from "@components/ui/button";
+import { Button } from "../ui/button";
 
 const {
     message = "This panel hit an unexpected error.",

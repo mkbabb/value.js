@@ -93,15 +93,15 @@
 
 <script setup lang="ts">
 import { inject, onMounted, watch } from "vue";
-import { Button } from "@components/ui/button";
-import { Input } from "@components/ui/input";
-import { Badge } from "@components/ui/badge";
+import { Button } from "../../../ui/button";
+import { Input } from "../../../ui/input";
+import { Badge } from "../../../ui/badge";
 import { RefreshCw } from "@lucide/vue";
-import EmptyState from "@components/common/EmptyState.vue";
+import EmptyState from "../../../common/EmptyState.vue";
 import AdminListSkeleton from "./AdminListSkeleton.vue";
 import PaginationBar from "./PaginationBar.vue";
 import { formatTime } from "../dateFormat";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
 
 // D.W3 Lane B: route through pm.audit sub-object (was: direct getAuditLog)
 const pm = inject(PALETTE_MANAGER_KEY)!;

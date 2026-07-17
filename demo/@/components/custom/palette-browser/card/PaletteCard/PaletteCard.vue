@@ -162,14 +162,14 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { Badge } from "@components/ui/badge";
-import { Button } from "@components/ui/button";
+import { Badge } from "../../../../ui/badge";
+import { Button } from "../../../../ui/button";
 import { Award, MoreHorizontal, GripVertical } from "@lucide/vue";
-import type { Palette, PaletteColor } from "@lib/palette/types";
-import { getPaletteKind, type PaletteKind } from "@lib/palette/utils";
+import type { Palette, PaletteColor } from "../../../../../../palettes/types";
+import { getPaletteKind, type PaletteKind } from "../../../../../../palettes/utils";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useLiquidPress } from "@mkbabb/glass-ui/motion";
-import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
+import { useSafeAccentFn } from "../../../../../../color-session/useContrastSafeColor";
 import { useHoverPopover } from "../composables/useHoverPopover";
 import { useHeightTransition } from "../composables/useHeightTransition";
 import PaletteColorStrip from "../PaletteColorStrip.vue";

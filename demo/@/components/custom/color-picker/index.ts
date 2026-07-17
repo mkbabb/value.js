@@ -7,11 +7,11 @@ import {
     serializePickerColor,
     type PickerColor,
     type PickerSpace,
-} from "@lib/picker-color";
+} from "../../../../color-session/picker-color";
 
 export { default as ColorPicker } from "./ColorPicker.vue";
 export { default as ColorNutritionLabel } from "./display/ColorNutritionLabel.vue";
-export type { ActionBarContext } from "@composables/color/keys";
+export type { ActionBarContext } from "../../../../color-session/keys";
 export { colorSpaceInfo } from "./colorSpaceInfo";
 
 export interface EditTarget {

@@ -14,8 +14,8 @@ import { ref, shallowRef, computed, onBeforeUnmount } from "vue";
 import type { QuantizedColor } from "@mkbabb/value.js/quantize";
 import { serializeCssColor } from "@mkbabb/value.js/css";
 import { useImageQuantize } from "./useImageQuantize";
-import { usePaletteStore } from "@composables/palette/usePaletteStore";
-import type { Palette, PaletteColor } from "@lib/palette/types";
+import { usePaletteStore } from "../../../../../palettes/usePaletteStore";
+import type { Palette, PaletteColor } from "../../../../../palettes/types";
 
 type PresentedColor = Readonly<{
     source: QuantizedColor;

@@ -96,9 +96,9 @@
 import { computed } from "vue";
 import { Upload, Camera, RotateCcw } from "@lucide/vue";
 import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
-import { Slider } from "@components/ui/slider";
-import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
-import { GRAPHICS_CONTRAST_FLOOR } from "@composables/color/ink";
+import { Slider } from "../../ui/slider";
+import { useSafeAccentFn } from "../../../../color-session/useContrastSafeColor";
+import { GRAPHICS_CONTRAST_FLOOR } from "../../../../color-session/ink";
 
 const { k, chromaWeight, gradient, cssColor, disabled, hasImage } =
     defineProps<{

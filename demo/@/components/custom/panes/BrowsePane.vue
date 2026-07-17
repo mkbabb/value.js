@@ -177,26 +177,26 @@
 
 <script setup lang="ts">
 import { inject, reactive, ref, computed, onMounted } from "vue";
-import { Card } from "@components/ui/card";
-import { Button } from "@components/ui/button";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@composables/color/keys";
+import { Card } from "../../ui/card";
+import { Button } from "../../ui/button";
+import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "../../../../color-session/keys";
 import {
     PaletteCard,
     PaletteCardGrid,
     PaletteCardSkeleton,
-} from "@components/custom/palette-browser/card";
-import EmptyState from "@components/common/EmptyState.vue";
-import { SearchFilterBar, TagEditPopover } from "@components/custom/palette-browser/search";
+} from "../palette-browser/card";
+import EmptyState from "../../common/EmptyState.vue";
+import { SearchFilterBar, TagEditPopover } from "../palette-browser/search";
 import {
     VersionHistoryDrawer,
     FlagReportDialog,
-} from "@components/custom/palette-browser/dialog";
+} from "../palette-browser/dialog";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
-import type { Palette, Tag } from "@lib/palette/types";
-import { usePaletteExport } from "@composables/palette/usePaletteExport";
-import { useDialogBrowseActions } from "@components/custom/palette-browser/dialog";
+import type { Palette, Tag } from "../../../../palettes/types";
+import { usePaletteExport } from "../../../../palettes/usePaletteExport";
+import { useDialogBrowseActions } from "../palette-browser/dialog";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const pm = inject(PALETTE_MANAGER_KEY)!;

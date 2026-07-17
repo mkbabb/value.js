@@ -14,11 +14,11 @@
 
 import { watch } from "vue";
 import type { Ref, ShallowRef } from "vue";
-import type { ColorModel } from "@components/custom/color-picker";
-import type { ColorPicker } from "@components/custom/color-picker";
-import type { ViewManager } from "@composables/useViewManager";
-import { parsePickerColor, serializePickerColor } from "@lib/picker-color";
-import { usePaletteManager, type PaletteManager } from "@composables/palette/usePaletteManager";
+import type { ColorModel } from "../../@/components/custom/color-picker";
+import type { ColorPicker } from "../../@/components/custom/color-picker";
+import type { ViewManager } from "../../shell/useViewManager";
+import { parsePickerColor, serializePickerColor } from "../../color-session/picker-color";
+import { usePaletteManager, type PaletteManager } from "../../@/composables/palette/usePaletteManager";
 
 export function usePaletteManagerWiring(
     colorPickerRef: Ref<InstanceType<typeof ColorPicker> | null>,

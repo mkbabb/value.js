@@ -130,9 +130,9 @@
 <script setup lang="ts">
 import { ref, nextTick } from "vue";
 import { SearchBar } from "@mkbabb/glass-ui/search";
-import { Button } from "@components/ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@components/ui/hover-card";
+import { Button } from "../../../ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "../../../ui/hover-card";
 import {
     Loader2,
     Copy,

@@ -6,8 +6,8 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@components/ui/select";
-import { Slider } from "@components/ui/slider";
+} from "../../../ui/select";
+import { Slider } from "../../../ui/slider";
 import { Copy } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
@@ -23,8 +23,8 @@ import type { GradientType } from "../composables/useGradientModel";
 import { interpolateStopColors } from "../composables/useGradientInterpolation";
 import { easingFnOf } from "../composables/useGradientCSS";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
-import type { PickerSpace } from "@lib/picker-color";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import type { PickerSpace } from "../../../../../color-session/picker-color";
+import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
 import type { AcceptableValue } from "reka-ui";
 
 const pm = inject(PALETTE_MANAGER_KEY);

@@ -2,12 +2,12 @@
 import { inject, computed, watch, ref, TransitionGroup } from "vue";
 import { Plus, X, ChevronDown } from "@lucide/vue";
 import { SegmentedTabs } from "@mkbabb/glass-ui/tabs";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@components/ui/collapsible";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../../ui/collapsible";
+import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
-import { PaletteCard, PaletteColorStrip } from "@components/custom/palette-browser/card";
-import EmptyState from "@components/common/EmptyState.vue";
-import type { Palette } from "@lib/palette/types";
+import { PaletteCard, PaletteColorStrip } from "../palette-browser/card";
+import EmptyState from "../../common/EmptyState.vue";
+import type { Palette } from "../../../../palettes/types";
 import type { SelectedColor } from "./composables/useMixingState";
 
 const {

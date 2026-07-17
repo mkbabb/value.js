@@ -37,10 +37,10 @@ import { computed, inject, onUnmounted, ref, useTemplateRef, watch } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { useTouchGate } from "@mkbabb/glass-ui";
-import { channelNumber, withChannel } from "@lib/picker-color";
+import { channelNumber, withChannel } from "../../../../../../color-session/picker-color";
 import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";
 import { useSpectrumPlateStyle } from "./composables/useSpectrumPlateStyle";
-import { COLOR_MODEL_KEY } from "@composables/color/keys";
+import { COLOR_MODEL_KEY } from "../../../../../../color-session/keys";
 
 const {
     model,

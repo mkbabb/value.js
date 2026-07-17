@@ -23,7 +23,7 @@
  * (the seal-ink rows; the resolver + ramp rows probe the shared module).
  */
 
-import { contrastInkFor } from "@composables/color/ink";
+import { contrastInkFor } from "../../../color-session/ink";
 
 /**
  * Resolve the wax seal's icon ink from the WAX color itself (the SEEDS.md w7

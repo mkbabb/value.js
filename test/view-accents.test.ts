@@ -31,19 +31,19 @@ import {
     GRAPHICS_CONTRAST_FLOOR,
     VIEW_ACCENT_MIN_CHROMA,
     resolveViewAccent,
-} from "../demo/@/composables/color/view-accent";
+} from "../demo/color-session/view-accent";
 import {
     certifyAccentInk,
     resolveSurfaceLightness,
-} from "../demo/@/composables/color/ink";
+} from "../demo/color-session/ink";
 import { resolveSealInk } from "../demo/color-picker/composables/boot/view-accents";
 import {
     PALETTES_RAMP_SHIFTS,
     RAMP_TEXT_CONTRAST_FLOOR,
     RAMP_LARGE_TEXT_CONTRAST_FLOOR,
     resolvePalettesRamp,
-} from "../demo/@/composables/color/palettes-ramp";
-import { VIEW_MAP } from "../demo/@/composables/viewSchema";
+} from "../demo/color-session/palettes-ramp";
+import { VIEW_MAP } from "../demo/shell/viewSchema";
 
 /**
  * D6 (T.W3-5): the BG_LIGHTNESS constants are RETIRED — the live referent is

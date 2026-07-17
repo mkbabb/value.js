@@ -1,22 +1,22 @@
 import { ref, computed, provide } from "vue";
 import type { Ref, InjectionKey } from "vue";
 
-import { usePaletteStore } from "./usePaletteStore";
-import { useAdminAuth } from "../auth/useAdminAuth";
-import { useUserAuth } from "../auth/useUserAuth";
-import { useSession } from "../auth/useSession";
-import { useBrowsePalettes } from "./useBrowsePalettes";
-import { useAdminUsers } from "../auth/useAdminUsers";
-import { useColorNameQueue } from "./useColorNameQueue";
-import { useSlugMigration } from "./useSlugMigration";
-import { usePaletteActions } from "./usePaletteActions";
-import { useFilteredList } from "../useFilteredList";
-import { useAdminAudit } from "./useAdminAudit";
-import { useAdminFlagged } from "./useAdminFlagged";
-import { useAdminTags } from "./useAdminTags";
-import { useVersionHistory } from "./useVersionHistory";
-import { useTagEdit } from "./useTagEdit";
-import type { ViewId } from "../useViewManager";
+import { usePaletteStore } from "../../../palettes/usePaletteStore";
+import { useAdminAuth } from "../../../platform/auth/useAdminAuth";
+import { useUserAuth } from "../../../platform/auth/useUserAuth";
+import { useSession } from "../../../platform/auth/useSession";
+import { useBrowsePalettes } from "../../../palettes/useBrowsePalettes";
+import { useAdminUsers } from "../../../platform/auth/useAdminUsers";
+import { useColorNameQueue } from "../../../palettes/useColorNameQueue";
+import { useSlugMigration } from "../../../palettes/useSlugMigration";
+import { usePaletteActions } from "../../../palettes/usePaletteActions";
+import { useFilteredList } from "../../../palettes/useFilteredList";
+import { useAdminAudit } from "../../../palettes/useAdminAudit";
+import { useAdminFlagged } from "../../../palettes/useAdminFlagged";
+import { useAdminTags } from "../../../palettes/useAdminTags";
+import { useVersionHistory } from "../../../palettes/useVersionHistory";
+import { useTagEdit } from "../../../palettes/useTagEdit";
+import type { ViewId } from "../../../shell/useViewManager";
 
 // `PaletteManager` is the public contract of this facade. We derive it from
 // the function's return-type rather than re-declaring 100+ members by hand —

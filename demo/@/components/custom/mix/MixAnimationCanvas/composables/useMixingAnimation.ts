@@ -41,7 +41,7 @@ import type { Ref } from "vue";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useRAFLoop } from "@mkbabb/glass-ui/motion-core";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
-import type { PickerSpace } from "@lib/picker-color";
+import type { PickerSpace } from "../../../../../../color-session/picker-color";
 import type { AnimationPhase, MixResult } from "../../composables/useMixingState";
 import type { Stage } from "./mixStage";
 import { collectStage, drawStage, MIX_CONVERGE_MS, MIX_EPILOGUE_MS } from "./mixStage";

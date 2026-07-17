@@ -2,7 +2,7 @@
 // toggleAdminMode, and the two admin-sync watchers.
 import { ref, computed, watch } from "vue";
 import type { Ref, ComputedRef } from "vue";
-import type { ViewId, ViewManager } from "@composables/useViewManager";
+import type { ViewId, ViewManager } from "../../../../../shell/useViewManager";
 
 export interface ViewEntry {
     id: ViewId;

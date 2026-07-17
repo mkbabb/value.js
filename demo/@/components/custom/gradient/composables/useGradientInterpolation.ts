@@ -7,14 +7,14 @@ import { ref } from "vue";
 import type { Ref } from "vue";
 import type { AnyColor, HueInterpolationMethod } from "@mkbabb/value.js/color";
 import { mixColors } from "@mkbabb/value.js/color";
-import { colorToCss, parseColorIn } from "@lib/color-utils";
-import type { PickerSpace } from "@lib/picker-color";
+import { colorToCss, parseColorIn } from "../../../../../color-session/color-utils";
+import type { PickerSpace } from "../../../../../color-session/picker-color";
 
 // ── Shared interpolation vocabulary — moved to its neutral `@lib/` home
 // (S.W5-6 · F16: color-space facts, not gradient facts). Re-exported here so
 // the gradient tree's own consumers (`useGradientModel` → visualizer) keep
 // their import path.
-export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@lib/color-space-meta";
+export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "../../../../../color-session/color-space-meta";
 
 // ── Helpers ──
 

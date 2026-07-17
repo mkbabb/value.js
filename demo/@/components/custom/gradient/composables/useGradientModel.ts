@@ -10,7 +10,7 @@
 import { ref, computed, watch } from "vue";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
-import type { PickerSpace } from "@lib/picker-color";
+import type { PickerSpace } from "../../../../../color-session/picker-color";
 import { useGradientInterpolation } from "./useGradientInterpolation";
 import { useGradientCSS, linearInterval } from "./useGradientCSS";
 import { parseGradientCSS } from "./gradientParse";

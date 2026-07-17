@@ -21,7 +21,7 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@components/ui/select";
+} from "../../ui/select";
 import type { AcceptableValue } from "reka-ui";
 import type {
     AuroraHarmony,
@@ -29,14 +29,14 @@ import type {
     AuroraMotionAtom,
     AuroraZoneArrangement,
 } from "@mkbabb/glass-ui/aurora";
-import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@composables/color/aurora-atoms";
+import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "../../../../scenes/atmosphere/aurora-atoms";
 import ConfigSliderPane from "./ConfigSliderPane.vue";
 import type { SliderSection } from "./ConfigSliderPane.vue";
 // T.W6 · W6-4 (T-17): the harmony rows carry a STRIP preview — the palette
 // each candidate harmony would resolve from the CURRENT atoms (the
 // calibrated truth function; O-14 byte-identity). Computed only while the
 // SelectContent renders (it unmounts closed), so zero rest cost.
-import { PreviewStrip } from "@components/custom/color-chips";
+import { PreviewStrip } from "../color-chips";
 import { auroraHarmonyStops } from "./aurora-harmony-stops";
 
 const atoms = inject(AURORA_ATOMS_KEY)!;

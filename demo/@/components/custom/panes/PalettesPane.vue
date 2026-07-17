@@ -118,23 +118,23 @@
 
 <script setup lang="ts">
 import { inject, reactive, ref, computed, watch, onMounted, nextTick } from "vue";
-import { Card } from "@components/ui/card";
-import { Button } from "@components/ui/button";
-import { Badge } from "@components/ui/badge";
+import { Card } from "../../ui/card";
+import { Button } from "../../ui/button";
+import { Badge } from "../../ui/badge";
 import { Trash2 } from "@lucide/vue";
 import { useSortable } from "@vueuse/integrations/useSortable";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@composables/color/keys";
+import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "../../../../color-session/keys";
 import {
     CurrentPaletteEditor,
     PaletteCard,
     PaletteCardGrid,
-} from "@components/custom/palette-browser/card";
+} from "../palette-browser/card";
 import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
-import type { Palette } from "@lib/palette/types";
-import { usePaletteExport } from "@composables/palette/usePaletteExport";
+import type { Palette } from "../../../../palettes/types";
+import { usePaletteExport } from "../../../../palettes/usePaletteExport";
 
 const { savedColorStrings } = defineProps<{
     savedColorStrings: string[];

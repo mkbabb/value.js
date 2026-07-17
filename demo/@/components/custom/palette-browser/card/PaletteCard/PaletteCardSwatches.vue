@@ -69,7 +69,7 @@
 <script setup lang="ts">
 import { Copy, Pencil, Plus } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import type { PaletteColor } from "@lib/palette/types";
+import type { PaletteColor } from "../../../../../../palettes/types";
 import SwatchHoverMenu from "../SwatchHoverMenu.vue";
 
 defineProps<{

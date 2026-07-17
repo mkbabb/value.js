@@ -160,11 +160,11 @@
 <script setup lang="ts">
 import { computed, onMounted, provide, ref, shallowRef, useTemplateRef } from "vue";
 
-import type { ColorModel, EditTarget } from "@components/custom/color-picker";
-import { ColorPicker } from "@components/custom/color-picker";
-import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@composables/color/keys";
+import type { ColorModel, EditTarget } from "../@/components/custom/color-picker";
+import { ColorPicker } from "../@/components/custom/color-picker";
+import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "../color-session/keys";
 
-import { Dock } from "@components/custom/dock";
+import { Dock } from "../@/components/custom/dock";
 // U.W-DEMO · U-F47 (G-DEMO-3b): reached through the `dialog/` sub-barrel (a
 // barrel the top-level palette-browser seam re-exports), never the raw `.vue`
 // file. BOOK (PI-6 residual): the root `package.json` marks `./demo/**`
@@ -173,20 +173,20 @@ import { Dock } from "@components/custom/dock";
 // (narrow the `demo/**` sideEffects glob, or a manualChunk for this dialog) is a
 // build-config change to be verified once the demo builds (currently blocked by
 // the glass-ui 5.0.0 adopt-gap); tracked to U.W-CLOSE's re-probe.
-import { MigratePalettesDialog } from "@components/custom/palette-browser/dialog";
-import PaneSlot from "@components/custom/panes/PaneSlot.vue";
+import { MigratePalettesDialog } from "../@/components/custom/palette-browser/dialog";
+import PaneSlot from "../@/components/custom/panes/PaneSlot.vue";
 // U.W-A11Y · U-F58: the focus-managed / SR-announced boundary that catches a
 // pane render throw instead of white-screening (never a silent dead plate).
-import ErrorBoundary from "@components/common/ErrorBoundary.vue";
+import ErrorBoundary from "../@/components/common/ErrorBoundary.vue";
 
-import { useCustomColorNames } from "@composables/color/useCustomColorNames";
-import { useColorUrl } from "@composables/color/useColorUrl";
+import { useCustomColorNames } from "../color-session/useCustomColorNames";
+import { useColorUrl } from "../color-session/useColorUrl";
 
-import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
-import { useColorPipeline } from "@composables/color/useColorPipeline";
-import { usePaneRouter } from "@composables/usePaneRouter";
+import { useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
+import { useColorPipeline } from "../color-session/useColorPipeline";
+import { usePaneRouter } from "../shell/usePaneRouter";
 import { usePaletteManagerWiring } from "./composables/usePaletteManagerWiring";
-import { provideApiClient } from "@lib/palette/api/useApiClient";
+import { provideApiClient } from "../palettes/api/useApiClient";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
@@ -196,14 +196,14 @@ import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
 import { useDockArrival } from "./composables/boot/useDockArrival";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
-import "@styles/utils.css";
-import "@styles/style.css";
+import "../@/styles/utils.css";
+import "../@/styles/style.css";
 // U.W-A11Y / U-F25: the `--focus-ring-inner/-outer` token recipe (:root) that
 // every keyboard-operable control's focus affordance composes. Global wire (a
 // `:root` token must be defined regardless of which control is mounted); the
 // modality lane REFERENCES these names from style.css. Imported AFTER style.css
 // so a later owner override there wins the cascade.
-import "@styles/focus-ring.css";
+import "../@/styles/focus-ring.css";
 // The overture's one-clock grammar sheet (tokens + arrival/appear/dock/emerge
 // rules) — colocated with the boot chain; imported AFTER style.css so the
 // cascade order matches the former in-SFC blocks (T.W2-3).

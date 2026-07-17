@@ -3,7 +3,7 @@ import {
     resolveAtoms,
     DEFAULT_AURORA_CONFIG,
 } from "@mkbabb/glass-ui/aurora";
-import { DEFAULT_AURORA_ATOMS } from "@composables/color/aurora-atoms";
+import { DEFAULT_AURORA_ATOMS } from "../../scenes/atmosphere/aurora-atoms";
 import { auroraHarmonyStops } from "../../@/components/custom/panes/aurora-harmony-stops";
 import {
     CALIBRATED_BREATH_PERIOD,

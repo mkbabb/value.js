@@ -27,7 +27,7 @@ import type {
     CssLinearStop,
     CssTimingFunction,
 } from "@mkbabb/value.js/css";
-import { colorToCss, parseColorIn } from "@lib/color-utils";
+import { colorToCss, parseColorIn } from "../../../../../color-session/color-utils";
 import type {
     GradientModelState,
     GradientInterval,

@@ -11,11 +11,11 @@
  */
 
 import { ref, computed } from "vue";
-import { generatePalette } from "@composables/color/generate-color";
+import { generatePalette } from "../../../../../color-session/generate-color";
 import type {
     PresetName,
     HarmonyName,
-} from "@composables/color/generate-color";
+} from "../../../../../color-session/generate-color";
 
 export function useColorGeneration() {
     const preset = ref<PresetName>("vibrant");

@@ -21,10 +21,10 @@
 
 <script setup lang="ts">
 import { inject } from "vue";
-import { Card } from "@components/ui/card";
-import ExtractWorkbench from "@components/custom/image-palette-extractor/ExtractWorkbench.vue";
+import { Card } from "../../ui/card";
+import ExtractWorkbench from "../image-palette-extractor/ExtractWorkbench.vue";
 import PaneHeader from "./PaneHeader.vue";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
 import type { SpaceId } from "@mkbabb/value.js/color";
 
 type DisplayColorSpace = SpaceId | "hex";

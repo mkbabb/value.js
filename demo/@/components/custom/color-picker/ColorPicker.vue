@@ -105,7 +105,7 @@
 </template>
 
 <script setup lang="ts">
-import { Card, CardContent, CardHeader } from "@components/ui/card";
+import { Card, CardContent, CardHeader } from "../../ui/card";
 import ColorSpaceSelector from "./display/ColorSpaceSelector.vue";
 import ColorComponentDisplay from "./display/ColorComponentDisplay/ColorComponentDisplay.vue";
 import {
@@ -124,11 +124,11 @@ import { useMagicKeys } from "@vueuse/core";
 import { useIdleReady } from "@mkbabb/glass-ui/dom";
 import type { ColorModel, EditTarget } from ".";
 import { toCSSColorString, resolveColorSpace } from ".";
-import { COLOR_MODEL_KEY } from "@composables/color/keys";
-import type { ActionBarContext } from "@composables/color/keys";
+import { COLOR_MODEL_KEY } from "../../../../color-session/keys";
+import type { ActionBarContext } from "../../../../color-session/keys";
 import { OVERTURE_KEY } from "../../../../color-picker/composables/boot/useOverture";
-import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { VIEW_MANAGER_KEY } from "../../../../shell/useViewManager";
+import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
 
 import { usePointerDebug, POINTER_DEBUG_KEY } from "./composables/usePointerDebug";
 import { useHeaderCondense } from "./composables/useHeaderCondense";

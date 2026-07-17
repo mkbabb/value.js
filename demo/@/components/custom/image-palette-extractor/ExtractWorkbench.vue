@@ -187,7 +187,7 @@ import { Aperture } from "@lucide/vue";
 import { DockIconButton } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import type { SpaceId } from "@mkbabb/value.js/color";
-import { CSS_COLOR_KEY } from "@composables/color/keys";
+import { CSS_COLOR_KEY } from "../../../../color-session/keys";
 import { useExtractSession } from "./composables/useExtractSession";
 
 import ImageDropZone from "./ImageDropZone.vue";
@@ -197,7 +197,7 @@ import {
     PaletteCard,
     PaletteCardSkeleton,
     ShadowPalette,
-} from "@components/custom/palette-browser/card";
+} from "../palette-browser/card";
 
 type DisplayColorSpace = SpaceId | "hex";
 

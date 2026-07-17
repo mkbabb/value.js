@@ -29,15 +29,15 @@
  * FIRST value — the seed the graph is constructed from.
  */
 
-import { convertPickerColor, parsePickerColor } from "@lib/picker-color";
-import type { ColorModel, DisplayColorSpace } from "@components/custom/color-picker";
+import { convertPickerColor, parsePickerColor } from "../../../color-session/picker-color";
+import type { ColorModel, DisplayColorSpace } from "../../../@/components/custom/color-picker";
 import {
     createDefaultColorModel,
     resolveColorSpace,
-} from "@components/custom/color-picker";
+} from "../../../@/components/custom/color-picker";
 // The persisted color-state projection key — single-sourced (U-F48), shared
 // with useColorPersistence. boot→lib is a legal DOWN import.
-import { COLOR_STORE_KEY } from "@lib/palette/constants";
+import { COLOR_STORE_KEY } from "../../../palettes/constants";
 
 export type BootSeedSource = "url" | "storage" | "default";
 

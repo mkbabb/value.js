@@ -108,12 +108,12 @@ import {
     SheetDescription,
     SheetHeader,
     SheetTitle,
-} from "@components/ui/sheet";
-import { Button } from "@components/ui/button";
+} from "../../../ui/sheet";
+import { Button } from "../../../ui/button";
 import { Loader2, RotateCcw } from "@lucide/vue";
 import { formatTime } from "../dateFormat";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import type { PaletteVersion } from "@lib/palette/types";
+import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import type { PaletteVersion } from "../../../../../palettes/types";
 
 const { open, paletteSlug, paletteName, currentHash } = defineProps<{
     open: boolean;

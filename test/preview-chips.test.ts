@@ -29,8 +29,8 @@ import {
     sampleInterpolationRamp,
     serializeStop,
 } from "../demo/@/components/custom/color-chips/sample";
-import { parseColorIn } from "../demo/@/lib/color-utils";
-import type { PickerColorIn, PickerSpace } from "../demo/@/lib/picker-color";
+import { parseColorIn } from "../demo/color-session/color-utils";
+import type { PickerColorIn, PickerSpace } from "../demo/color-session/picker-color";
 
 const OPERANDS = ["oklch(0.62 0.27 9.8)", "rebeccapurple"] as const;
 const OPERANDS_3 = [...OPERANDS, "rgb(20 120 200)"] as const;

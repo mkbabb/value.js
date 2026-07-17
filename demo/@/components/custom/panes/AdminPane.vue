@@ -71,19 +71,19 @@
 
 <script setup lang="ts">
 import { inject, computed } from "vue";
-import { Card } from "@components/ui/card";
-import { Badge } from "@components/ui/badge";
+import { Card } from "../../ui/card";
+import { Badge } from "../../ui/badge";
 
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY } from "@composables/color/keys";
+import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY } from "../../../../color-session/keys";
 import {
     AdminUsersPanel,
     AdminNamesPanel,
     AdminAuditPanel,
     AdminFlaggedPanel,
     AdminTagsPanel,
-} from "@components/custom/palette-browser/admin";
-import { UserSortMenu } from "@components/custom/palette-browser/search";
+} from "../palette-browser/admin";
+import { UserSortMenu } from "../palette-browser/search";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "./PaneHeader.vue";
 

@@ -1,9 +1,9 @@
 import { ref, computed, inject, watch } from "vue";
 import type { Ref, ShallowRef } from "vue";
-import type { EditTarget } from "@components/custom/color-picker";
-import { EDIT_TARGET_KEY } from "@composables/color/keys";
+import type { EditTarget } from "../../../color-picker";
+import { EDIT_TARGET_KEY } from "../../../../../../color-session/keys";
 import { copyToClipboard } from "@mkbabb/glass-ui";
-import { CURRENT_PALETTE_ID } from "@lib/palette/constants";
+import { CURRENT_PALETTE_ID } from "../../../../../../palettes/constants";
 import { useHoverPopover } from "./useHoverPopover";
 
 export interface SwatchActionsDeps {

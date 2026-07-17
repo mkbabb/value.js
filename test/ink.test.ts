@@ -23,7 +23,7 @@ import {
     contrastInkFor,
     resolveMutedInk,
     resolveSurfaceLightness,
-} from "@composables/color/ink";
+} from "../demo/color-session/ink";
 
 function requiredOklch(source: string): Color<"oklch"> {
     const parsed = parseCssColor(source);

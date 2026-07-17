@@ -170,15 +170,15 @@
 
 <script setup lang="ts">
 import { inject, ref, toRef, TransitionGroup } from "vue";
-import { SAFE_ACCENT_KEY } from "@composables/color/keys";
-import { Input } from "@components/ui/input";
-import { Button } from "@components/ui/button";
+import { SAFE_ACCENT_KEY } from "../../../../../color-session/keys";
+import { Input } from "../../../ui/input";
+import { Button } from "../../../ui/button";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "@components/ui/tooltip";
+} from "../../../ui/tooltip";
 import {
     Plus,
     Pencil,
@@ -187,7 +187,7 @@ import {
     Check,
     Undo2,
 } from "@lucide/vue";
-import type { Palette, PaletteColor } from "@lib/palette/types";
+import type { Palette, PaletteColor } from "../../../../../palettes/types";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import SwatchHoverMenu from "./SwatchHoverMenu.vue";
 import ApiOfflineChip from "../status/ApiOfflineChip.vue";

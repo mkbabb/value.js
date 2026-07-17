@@ -117,21 +117,21 @@ import {
     HoverCard,
     HoverCardContent,
     HoverCardTrigger,
-} from "@components/ui/hover-card";
+} from "../../../ui/hover-card";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "@components/ui/tooltip";
-import { Separator } from "@components/ui/separator";
+} from "../../../ui/tooltip";
+import { Separator } from "../../../ui/separator";
 import { Crown, ArrowRight, Loader2 } from "@lucide/vue";
 import ParseEchoReadout from "./ParseEchoReadout.vue";
-import { proposeColorName } from "@lib/palette/api";
-import { useSession } from "@composables/auth/useSession";
+import { proposeColorName } from "../../../../../palettes/api";
+import { useSession } from "../../../../../platform/auth/useSession";
 import type { EditTarget } from "..";
-import { serializePickerColor } from "@lib/picker-color";
-import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
+import { serializePickerColor } from "../../../../../color-session/picker-color";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../../../../color-session/keys";
 
 const { proposeMode } = defineProps<{
     editTarget: EditTarget | null;

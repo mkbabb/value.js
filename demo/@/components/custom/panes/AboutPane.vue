@@ -60,14 +60,14 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Separator } from "@components/ui/separator";
-import { Card, CardContent } from "@components/ui/card";
+import { Separator } from "../../ui/separator";
+import { Card, CardContent } from "../../ui/card";
 import PaneHeader from "./PaneHeader.vue";
-import { ColorNutritionLabel, DISPLAY_COLOR_SPACE_NAMES } from "@components/custom/color-picker";
-import type { ColorModel } from "@components/custom/color-picker";
-import ColorSpaceSelector from "@components/custom/color-picker/display/ColorSpaceSelector.vue";
-import type { DocModule } from "@components/custom/markdown";
-import { Markdown } from "@components/custom/markdown";
+import { ColorNutritionLabel, DISPLAY_COLOR_SPACE_NAMES } from "../color-picker";
+import type { ColorModel } from "../color-picker";
+import ColorSpaceSelector from "../color-picker/display/ColorSpaceSelector.vue";
+import type { DocModule } from "../markdown";
+import { Markdown } from "../markdown";
 const model = defineModel<ColorModel>({ required: true });
 const aboutSelectOpen = ref(false);
 
@@ -78,17 +78,17 @@ defineProps<{
 type MarkdownSpace = "rgb" | "hex" | "hsl" | "hsv" | "hwb" | "lab" | "lch" | "oklab" | "oklch" | "xyz" | "kelvin";
 
 const markdownModules: Record<MarkdownSpace, DocModule> = {
-    rgb: () => import("@assets/docs/rgb.md"),
-    hex: () => import("@assets/docs/hex.md"),
-    hsl: () => import("@assets/docs/hsl.md"),
-    hsv: () => import("@assets/docs/hsv.md"),
-    hwb: () => import("@assets/docs/hwb.md"),
-    lab: () => import("@assets/docs/lab.md"),
-    lch: () => import("@assets/docs/lch.md"),
-    oklab: () => import("@assets/docs/oklab.md"),
-    oklch: () => import("@assets/docs/oklch.md"),
-    xyz: () => import("@assets/docs/xyz.md"),
-    kelvin: () => import("@assets/docs/kelvin.md"),
+    rgb: () => import("../../../../../assets/docs/rgb.md"),
+    hex: () => import("../../../../../assets/docs/hex.md"),
+    hsl: () => import("../../../../../assets/docs/hsl.md"),
+    hsv: () => import("../../../../../assets/docs/hsv.md"),
+    hwb: () => import("../../../../../assets/docs/hwb.md"),
+    lab: () => import("../../../../../assets/docs/lab.md"),
+    lch: () => import("../../../../../assets/docs/lch.md"),
+    oklab: () => import("../../../../../assets/docs/oklab.md"),
+    oklch: () => import("../../../../../assets/docs/oklch.md"),
+    xyz: () => import("../../../../../assets/docs/xyz.md"),
+    kelvin: () => import("../../../../../assets/docs/kelvin.md"),
 };
 
 const colorSpaceName = computed(() => DISPLAY_COLOR_SPACE_NAMES[model.value.selectedColorSpace] ?? model.value.selectedColorSpace);

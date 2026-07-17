@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import ActionButton from "@components/custom/color-picker/controls/ActionButton.vue";
-import type { DockAction } from "@composables/usePaneRouter";
+import ActionButton from "../../color-picker/controls/ActionButton.vue";
+import type { DockAction } from "../../../../../shell/usePaneRouter";
 
 const { actions, accentColor } = defineProps<{
     actions: DockAction[];

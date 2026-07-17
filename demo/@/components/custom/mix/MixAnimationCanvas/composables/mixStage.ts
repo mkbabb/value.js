@@ -15,8 +15,8 @@
 import { lerp, clamp } from "@mkbabb/value.js/math";
 import { easeInOutCubic, easeOutCubic, smoothStep3 } from "@mkbabb/value.js/easing";
 import { mixColors, type HueInterpolationMethod } from "@mkbabb/value.js/color";
-import { colorToRgb255, parseColorIn } from "@lib/color-utils";
-import type { PickerColorIn, PickerSpace } from "@lib/picker-color";
+import { colorToRgb255, parseColorIn } from "../../../../../../color-session/color-utils";
+import type { PickerColorIn, PickerSpace } from "../../../../../../color-session/picker-color";
 
 /** All drops arrive at the well together — the convergence chord. */
 export const MIX_ARRIVE_MS = 700;

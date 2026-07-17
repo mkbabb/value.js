@@ -2,7 +2,7 @@
 import { ref, nextTick, inject, useTemplateRef } from "vue";
 import { LogIn, ArrowRight, RefreshCw, X as XIcon, Loader2 } from "@lucide/vue";
 import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 
 const pm = inject(PALETTE_MANAGER_KEY)!;

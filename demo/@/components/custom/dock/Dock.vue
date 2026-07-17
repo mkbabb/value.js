@@ -12,16 +12,16 @@ import MobileMenuDropdown from "./menus/MobileMenuDropdown.vue";
 import ProfileSection from "./menus/ProfileSection.vue";
 import DockViewSelect from "./DockViewSelect.vue";
 import DockStatusLamp from "./DockStatusLamp.vue";
-import PaneSegmentedControl from "@components/custom/panes/PaneSegmentedControl.vue";
+import PaneSegmentedControl from "../panes/PaneSegmentedControl.vue";
 import { useMediaQuery } from "@vueuse/core";
-import { VIEW_MANAGER_KEY } from "@composables/useViewManager";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
+import { VIEW_MANAGER_KEY } from "../../../../shell/useViewManager";
+import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
+import { CSS_COLOR_KEY, SAFE_ACCENT_KEY } from "../../../../color-session/keys";
 import { usePopupMutex } from "./composables/usePopupMutex";
 import { useDockAdminMode } from "./composables/useDockAdminMode";
-import type { ActionBarContext } from "@composables/color/keys";
-import type { EditTarget } from "@components/custom/color-picker";
-import type { DockActionBar } from "@composables/usePaneRouter";
+import type { ActionBarContext } from "../../../../color-session/keys";
+import type { EditTarget } from "../color-picker";
+import type { DockActionBar } from "../../../../shell/usePaneRouter";
 
 const {
     linkCopied,

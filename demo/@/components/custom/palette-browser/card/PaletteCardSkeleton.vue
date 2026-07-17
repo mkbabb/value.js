@@ -82,7 +82,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { Skeleton } from "@components/ui/skeleton";
+import { Skeleton } from "../../../ui/skeleton";
 
 const { count = 5, variant = "shadow" } = defineProps<{
     count?: number;

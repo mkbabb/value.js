@@ -4,16 +4,16 @@ import {
     Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle,
 } from "@lucide/vue";
 import { DockSeparator } from "@mkbabb/glass-ui/dock";
-import { Button } from "@components/ui/button";
+import { Button } from "../../../ui/button";
 import { DarkModeToggle } from "@mkbabb/glass-ui/controls";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuLabel,
-} from "@components/ui/dropdown-menu";
-import { Avatar, AvatarImage } from "@components/ui/avatar";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
+} from "../../../ui/dropdown-menu";
+import { Avatar, AvatarImage } from "../../../ui/avatar";
+import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { useSafeAccentFn } from "../../../../../color-session/useContrastSafeColor";
 
 const { cssColorOpaque, linkCopied } = defineProps<{
     cssColorOpaque: string;

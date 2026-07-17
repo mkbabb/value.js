@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { inject, ref } from "vue";
-import { Card } from "@components/ui/card";
+import { Card } from "../../ui/card";
 import PaneHeader from "./PaneHeader.vue";
-import GradientVisualizer from "@components/custom/gradient/GradientVisualizer/GradientVisualizer.vue";
-import { CSS_COLOR_KEY } from "@composables/color/keys";
+import GradientVisualizer from "../gradient/GradientVisualizer/GradientVisualizer.vue";
+import { CSS_COLOR_KEY } from "../../../../color-session/keys";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 const visualizerRef = ref<InstanceType<typeof GradientVisualizer> | null>(null);

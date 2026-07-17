@@ -6,7 +6,7 @@ import {
     parsePickerColor,
     type PickerColor,
     type PickerSpace,
-} from "@lib/picker-color";
+} from "../demo/color-session/picker-color";
 
 const SPACES = Object.keys(PICKER_CHANNELS) as PickerSpace[];
 

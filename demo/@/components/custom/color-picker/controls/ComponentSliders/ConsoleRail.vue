@@ -87,18 +87,18 @@ import {
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "@components/ui/tooltip";
+} from "../../../../ui/tooltip";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
-import { contrastInkFor, resolveMutedInk } from "@composables/color/ink";
+import { contrastInkFor, resolveMutedInk } from "../../../../../../color-session/ink";
 import {
     bumpProbeEpochOnMount,
     resolveSurfaceLightnessLive,
-} from "@composables/color/useContrastSafeColor";
+} from "../../../../../../color-session/useContrastSafeColor";
 import { colorSpaceInfo } from "../../index";
 import type { DisplayColorSpace } from "../../index";
-import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "@composables/color/keys";
+import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "../../../../../../color-session/keys";
 
 const { components, active, animationKey } = defineProps<{
     /** The current space's shown channels (rail order = row order). */

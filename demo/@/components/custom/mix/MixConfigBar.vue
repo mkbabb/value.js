@@ -6,21 +6,21 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@components/ui/select";
-import { Button } from "@components/ui/button";
+} from "../../ui/select";
+import { Button } from "../../ui/button";
 import { Blend } from "@lucide/vue";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
-import type { PickerSpace } from "@lib/picker-color";
-import type { LeftoverStrategy } from "@lib/palette/mix";
+import type { PickerSpace } from "../../../../color-session/picker-color";
+import type { LeftoverStrategy } from "../../../../palettes/mix";
 import type { AcceptableValue } from "reka-ui";
 // S.W5-6 · F16: the interpolation vocabulary lives in its neutral @lib/ home
 // (color-space facts, not gradient facts) — no more cross-feature reach.
-import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "@lib/color-space-meta";
+import { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "../../../../color-session/color-space-meta";
 // T.W6 · W6-4 (T-17): the preview-chip module — library-sampled ramps in
 // the Select #description lane. The chips render only while SelectContent
 // is mounted (reka unmounts it closed — the ColorSpaceSelector precedent),
 // so the sampling costs nothing at rest.
-import { PreviewRamp, sampleInterpolationRamp } from "@components/custom/color-chips";
+import { PreviewRamp, sampleInterpolationRamp } from "../color-chips";
 
 const {
     colorSpace,

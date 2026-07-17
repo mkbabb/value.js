@@ -32,10 +32,10 @@
 </template>
 
 <script setup lang="ts">
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-import { Skeleton } from "@components/ui/skeleton";
-import "@styles/style.css";
-import "@styles/utils.css";
+import { Alert, AlertDescription, AlertTitle } from "../../ui/alert";
+import { Skeleton } from "../../ui/skeleton";
+import "../../../styles/style.css";
+import "../../../styles/utils.css";
 import { computed, onMounted, onUpdated, ref, useTemplateRef } from "vue";
 import type { DocModule } from ".";
 import { useMarkdownColors } from "./composables/useMarkdownColors";

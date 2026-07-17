@@ -39,7 +39,7 @@
  * lever 3; ictcp/jzazbz are 2-line at <sm).
  */
 
-import { PICKER_CHANNELS, type PickerSpace } from "@lib/picker-color";
+import { PICKER_CHANNELS, type PickerSpace } from "../../../../../../color-session/picker-color";
 
 /**
  * The Q11b lever-1 set (t-title-typography F6 + t-mobile F-4.3, the named

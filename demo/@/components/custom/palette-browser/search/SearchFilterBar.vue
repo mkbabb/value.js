@@ -126,12 +126,12 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { Button } from "@components/ui/button";
-import { Input } from "@components/ui/input";
-import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
+import { Button } from "../../../ui/button";
+import { Input } from "../../../ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import MiniColorPicker from "./MiniColorPicker.vue";
-import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
-import { Checkbox } from "@components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "../../../ui/radio-group";
+import { Checkbox } from "../../../ui/checkbox";
 import {
     EllipsisVertical,
     Clock,
@@ -141,8 +141,8 @@ import {
     X,
     Loader2,
 } from "@lucide/vue";
-import type { Tag } from "@lib/palette/types";
-import { parseColorIn } from "@lib/color-utils";
+import type { Tag } from "../../../../../palettes/types";
+import { parseColorIn } from "../../../../../color-session/color-utils";
 
 const { sort, tier, selectedTags, availableTags } = defineProps<{
     sort: string;

@@ -106,21 +106,21 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@components/ui/select";
+} from "../../../ui/select";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { inject } from "vue";
 import {
     CSS_PICKER_SPACES,
     convertPickerColor,
     serializePickerColor,
-} from "@lib/picker-color";
+} from "../../../../../color-session/picker-color";
 import {
     DISPLAY_COLOR_SPACE_NAMES,
     colorToHexString,
     resolveColorSpace,
 } from "..";
 import type { DisplayColorSpace } from "..";
-import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../../../../color-session/keys";
 
 const { modelValue, cssColor, inline = false } = defineProps<{
     modelValue: string;

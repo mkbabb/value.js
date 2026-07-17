@@ -40,11 +40,11 @@
 
 <script setup lang="ts">
 import { inject, onMounted, watch } from "vue";
-import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
-import { Checkbox } from "@components/ui/checkbox";
+import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
+import { Checkbox } from "../../../ui/checkbox";
 import { Loader2 } from "@lucide/vue";
-import { paletteETag } from "@lib/palette/api";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { paletteETag } from "../../../../../palettes/api";
+import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
 
 const { open, paletteSlug, currentTags } = defineProps<{
     open: boolean;

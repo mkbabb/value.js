@@ -7,7 +7,7 @@
 
 import { computed, type ComputedRef } from "vue";
 import { clamp } from "@mkbabb/value.js/math";
-import { channelNumber, type PickerColorIn } from "@lib/picker-color";
+import { channelNumber, type PickerColorIn } from "../../../../../../../color-session/picker-color";
 import { spectrumFieldIsLight } from "../../spectrumLuma";
 import type { useTouchGate } from "@mkbabb/glass-ui";
 

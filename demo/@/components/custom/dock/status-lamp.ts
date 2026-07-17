@@ -28,7 +28,7 @@
  * `test/status-lamp.test.ts`; the SFC is a thin consume.
  */
 
-import type { ApiAvailability } from "@lib/palette/api/availability";
+import type { ApiAvailability } from "../../../../palettes/api/availability";
 
 export type LampVariant = "misconfigured" | "unavailable";
 

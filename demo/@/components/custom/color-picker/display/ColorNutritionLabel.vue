@@ -166,19 +166,19 @@
 </template>
 <script setup lang="ts">
 import { computed, ref, inject } from "vue";
-import { CSS_COLOR_KEY } from "@composables/color/keys";
-import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
-import { contrastInkFor } from "@composables/color/ink";
-import { PICKER_CHANNELS } from "@lib/picker-color";
-import { Separator } from "@components/ui/separator";
+import { CSS_COLOR_KEY } from "../../../../../color-session/keys";
+import { useSafeAccentFn } from "../../../../../color-session/useContrastSafeColor";
+import { contrastInkFor } from "../../../../../color-session/ink";
+import { PICKER_CHANNELS } from "../../../../../color-session/picker-color";
+import { Separator } from "../../../ui/separator";
 import {
     Tooltip,
     TooltipProvider,
     TooltipTrigger,
     TooltipContent,
-} from "@components/ui/tooltip";
+} from "../../../ui/tooltip";
 import { ArrowRight } from "@lucide/vue";
-import { Alert, AlertTitle, AlertDescription } from "@components/ui/alert";
+import { Alert, AlertTitle, AlertDescription } from "../../../ui/alert";
 import type { ColorModel } from "..";
 import { colorSpaceInfo, resolveColorSpace } from "..";
 

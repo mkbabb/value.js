@@ -42,17 +42,17 @@ import { computed, watch } from "vue";
 import type { ComputedRef } from "vue";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 
-import type { PaneConfig } from "@composables/viewSchema";
+import type { PaneConfig } from "../../../shell/viewSchema";
 import {
     resolvePalettesRamp,
     RAMP_TEXT_CONTRAST_FLOOR,
     RAMP_LARGE_TEXT_CONTRAST_FLOOR,
-} from "@composables/color/palettes-ramp";
+} from "../../../color-session/palettes-ramp";
 import {
     bumpProbeEpochOnMount,
     resolveSurfaceLightnessLive,
-} from "@composables/color/useContrastSafeColor";
-import { resolveViewAccent } from "@composables/color/view-accent";
+} from "../../../color-session/useContrastSafeColor";
+import { resolveViewAccent } from "../../../color-session/view-accent";
 import { resolveSealInk } from "./view-accents";
 
 export interface UseViewAccentsOptions {

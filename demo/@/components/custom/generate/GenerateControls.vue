@@ -6,19 +6,19 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@components/ui/select";
-import { Slider } from "@components/ui/slider";
-import { Button } from "@components/ui/button";
-import { Badge } from "@components/ui/badge";
+} from "../../ui/select";
+import { Slider } from "../../ui/slider";
+import { Button } from "../../ui/button";
+import { Badge } from "../../ui/badge";
 import { RefreshCw, Save, Copy } from "@lucide/vue";
 import { copyToClipboard } from "@mkbabb/glass-ui";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
-import { PaletteColorStrip } from "@components/custom/palette-browser/card";
+import { PaletteColorStrip } from "../palette-browser/card";
 // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
 // the chip module + spec; the GenerateControls consume routes through Lane
 // N's queue — recorded in both lane logs.
-import { PreviewStrip } from "@components/custom/color-chips";
-import type { PaletteColor } from "@lib/palette/types";
+import { PreviewStrip } from "../color-chips";
+import type { PaletteColor } from "../../../../palettes/types";
 import { useColorGeneration } from "./composables/useColorGeneration";
 // U.W-DEMO · U-F47: the pure generation core relocated DOWN to the shared color
 // layer; the feature consumes it UP-from-shared (feature → shared, correct).
@@ -28,8 +28,8 @@ import {
     HARMONY_NAMES,
     GENERATION_PRESETS,
     HARMONY_DEFS,
-} from "@composables/color/generate-color";
-import type { PresetName, HarmonyName } from "@composables/color/generate-color";
+} from "../../../../color-session/generate-color";
+import type { PresetName, HarmonyName } from "../../../../color-session/generate-color";
 import type { AcceptableValue } from "reka-ui";
 
 const {

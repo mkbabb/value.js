@@ -51,7 +51,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { CardTitle } from "@components/ui/card";
+import { CardTitle } from "../../../../ui/card";
 import {
     readoutDecimals,
     readoutFit,

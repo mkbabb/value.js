@@ -20,8 +20,8 @@
  * The composable accepts the facade slice it touches + the optional modal-stack
  * handle so it stays free of injection (each host already injects pm).
  */
-import type { Palette } from "@lib/palette/types";
-import type { PaletteManager } from "@composables/palette/usePaletteManager";
+import type { Palette } from "../../../../../../palettes/types";
+import type { PaletteManager } from "../../../../../composables/palette/usePaletteManager";
 
 export interface DialogBrowseActionsDeps {
     pm: PaletteManager;

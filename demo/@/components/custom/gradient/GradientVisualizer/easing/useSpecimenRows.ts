@@ -10,7 +10,7 @@
  */
 import { computed } from "vue";
 import type { ComputedRef } from "vue";
-import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
+import { useSafeAccentFn } from "../../../../../../color-session/useContrastSafeColor";
 import { easingFnOf } from "../../composables/useGradientCSS";
 import { interpolateStopColors } from "../../composables/useGradientInterpolation";
 import { glyphPath, specimenNameFor, tileIdFor } from "./easingCatalogue";

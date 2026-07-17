@@ -58,7 +58,7 @@
 
 <script setup lang="ts">
 import type { CSSProperties } from "vue";
-import { Popover, PopoverContent, PopoverTrigger } from "@components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 
 /** Shared panel layout — applied to both PopoverContent and the hover Teleport

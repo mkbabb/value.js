@@ -17,10 +17,10 @@
 
 import { ref, computed } from "vue";
 import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
-import type { Palette, PaletteColor } from "@lib/palette/types";
-import { mixColorSequence, mixPalettes, type LeftoverStrategy } from "@lib/palette/mix";
-import { colorToCss, parseColorIn } from "@lib/color-utils";
-import type { PickerSpace } from "@lib/picker-color";
+import type { Palette, PaletteColor } from "../../../../../palettes/types";
+import { mixColorSequence, mixPalettes, type LeftoverStrategy } from "../../../../../palettes/mix";
+import { colorToCss, parseColorIn } from "../../../../../color-session/color-utils";
+import type { PickerSpace } from "../../../../../color-session/picker-color";
 
 export interface SelectedColor {
     css: string;

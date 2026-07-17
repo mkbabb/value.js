@@ -92,9 +92,9 @@
 
 <script setup lang="ts">
 import { computed, inject, ref, watch } from "vue";
-import { Card } from "@components/ui/card";
-import { Slider } from "@components/ui/slider";
-import { PICKER_CHANNELS, channelNumber, normalizedChannel } from "@lib/picker-color";
+import { Card } from "../../../../ui/card";
+import { Slider } from "../../../../ui/slider";
+import { PICKER_CHANNELS, channelNumber, normalizedChannel } from "../../../../../../color-session/picker-color";
 import { clamp } from "@mkbabb/value.js/math";
 import { spectrumFieldIsLight } from "../spectrumLuma";
 import { readoutDecimals } from "../../display/ColorComponentDisplay/readoutReservation";
@@ -102,7 +102,7 @@ import { POINTER_DEBUG_KEY } from "../../composables/usePointerDebug";
 import { useSliderTouchGates } from "./composables/useSliderTouchGates";
 import { useSliderAnnouncements } from "./composables/useSliderAnnouncements";
 import ConsoleRail from "./ConsoleRail.vue";
-import { COLOR_MODEL_KEY } from "@composables/color/keys";
+import { COLOR_MODEL_KEY } from "../../../../../../color-session/keys";
 
 const {
     model,

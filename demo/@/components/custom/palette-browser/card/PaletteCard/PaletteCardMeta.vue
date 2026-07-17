@@ -56,7 +56,7 @@
 
 <script setup lang="ts">
 import { GitFork, History, Heart } from "@lucide/vue";
-import type { Palette } from "@lib/palette/types";
+import type { Palette } from "../../../../../../palettes/types";
 
 const { palette } = defineProps<{ palette: Palette }>();
 

@@ -29,8 +29,8 @@ import {
     type AnyColor,
     type HueInterpolationMethod,
 } from "@mkbabb/value.js/color";
-import { colorToCss, parseColorIn } from "@lib/color-utils";
-import type { PickerColorIn, PickerSpace } from "@lib/picker-color";
+import { colorToCss, parseColorIn } from "../../../../color-session/color-utils";
+import type { PickerColorIn, PickerSpace } from "../../../../color-session/picker-color";
 
 /** k — the F6 sample count (≈16): smooth to the eye, sub-ms to compute. */
 export const RAMP_SAMPLE_COUNT = 16;

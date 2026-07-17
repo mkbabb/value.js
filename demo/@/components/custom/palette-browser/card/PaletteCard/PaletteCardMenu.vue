@@ -174,9 +174,9 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import type { Palette } from "@lib/palette/types";
-import type { PaletteKind } from "@lib/palette/utils";
-import { useApiClient } from "@lib/palette/api/useApiClient";
+import type { Palette } from "../../../../../../palettes/types";
+import type { PaletteKind } from "../../../../../../palettes/utils";
+import { useApiClient } from "../../../../../../palettes/api/useApiClient";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -187,7 +187,7 @@ import {
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
-} from "@components/ui/dropdown-menu";
+} from "../../../../ui/dropdown-menu";
 import {
     Trash2,
     Globe,

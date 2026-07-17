@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from "@components/ui/button";
+import { Button } from "../../../ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -45,7 +45,7 @@ import {
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
     DropdownMenuTrigger,
-} from "@components/ui/dropdown-menu";
+} from "../../../ui/dropdown-menu";
 import { EllipsisVertical, Clock, ArrowDownAZ, Palette } from "@lucide/vue";
 
 defineProps<{

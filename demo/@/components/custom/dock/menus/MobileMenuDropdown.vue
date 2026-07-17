@@ -8,11 +8,11 @@ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuLabel,
-} from "@components/ui/dropdown-menu";
+} from "../../../ui/dropdown-menu";
 import { DockDropdownTrigger } from "@mkbabb/glass-ui/dock";
-import { Avatar, AvatarImage } from "@components/ui/avatar";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
-import { useSafeAccentFn } from "@composables/color/useContrastSafeColor";
+import { Avatar, AvatarImage } from "../../../ui/avatar";
+import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
+import { useSafeAccentFn } from "../../../../../color-session/useContrastSafeColor";
 
 const { cssColorOpaque, linkCopied } = defineProps<{
     cssColorOpaque: string;

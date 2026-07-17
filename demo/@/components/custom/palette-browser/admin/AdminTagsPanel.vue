@@ -111,12 +111,12 @@
 
 <script setup lang="ts">
 import { inject, onMounted } from "vue";
-import { Button } from "@components/ui/button";
-import { Input } from "@components/ui/input";
-import { Skeleton } from "@components/ui/skeleton";
+import { Button } from "../../../ui/button";
+import { Input } from "../../../ui/input";
+import { Skeleton } from "../../../ui/skeleton";
 import { Plus, RefreshCw, X } from "@lucide/vue";
-import EmptyState from "@components/common/EmptyState.vue";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import EmptyState from "../../../common/EmptyState.vue";
+import { PALETTE_MANAGER_KEY } from "../../../../composables/palette/usePaletteManager";
 
 // D.W3 Lane B: route through pm.tags sub-object (was: direct getAdminTags/createTag/deleteTag)
 const pm = inject(PALETTE_MANAGER_KEY)!;

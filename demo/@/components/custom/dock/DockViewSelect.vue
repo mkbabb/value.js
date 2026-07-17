@@ -3,9 +3,9 @@ import { ArrowLeft, Shield } from "@lucide/vue";
 import { DockSelectTrigger } from "@mkbabb/glass-ui/dock";
 import {
     Select, SelectContent, SelectGroup, SelectItem, SelectValue,
-} from "@components/ui/select";
+} from "../../ui/select";
 import { inject } from "vue";
-import { PALETTE_MANAGER_KEY } from "@composables/palette/usePaletteManager";
+import { PALETTE_MANAGER_KEY } from "../../../composables/palette/usePaletteManager";
 import type { ViewEntry } from "./composables/useDockAdminMode";
 
 const {

@@ -34,7 +34,7 @@ import {
     markApiReachable,
     markApiUnreachable,
     type ApiAvailability,
-} from "../demo/@/lib/palette/api/availability";
+} from "../demo/palettes/api/availability";
 import {
     resolveLampState,
     type LampState,

@@ -23,7 +23,7 @@ import { describe, expect, it } from "vitest";
 
 import { resolveAtoms } from "@mkbabb/glass-ui/aurora";
 
-import { DEFAULT_AURORA_ATOMS } from "../../@/composables/color/aurora-atoms";
+import { DEFAULT_AURORA_ATOMS } from "../../scenes/atmosphere/aurora-atoms";
 
 describe("aurora default motion (U33 — the field drifts)", () => {
     it("the demo default selects the spatial-drift register, not breathing", () => {

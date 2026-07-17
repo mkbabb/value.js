@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { inject } from "vue";
-import { COLOR_MODEL_KEY } from "@composables/color/keys";
+import { COLOR_MODEL_KEY } from "../../../../../color-session/keys";
 
 const { astEcho, gamutVerdict } = inject(COLOR_MODEL_KEY)!;
 </script>

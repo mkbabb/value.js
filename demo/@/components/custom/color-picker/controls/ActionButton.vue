@@ -50,7 +50,7 @@ import {
     HoverCard,
     HoverCardContent,
     HoverCardTrigger,
-} from "@components/ui/hover-card";
+} from "../../../ui/hover-card";
 import { useOptionalDockContext } from "@mkbabb/glass-ui/dock";
 
 const dock = useOptionalDockContext();

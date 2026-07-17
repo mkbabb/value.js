@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, inject, provide, ref, useTemplateRef } from "vue";
 import { EllipsisVertical, Type, Tag } from "@lucide/vue";
-import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
-import type { ActionBarContext } from "@composables/color/keys";
-import ActionToolbar from "@components/custom/color-picker/controls/ActionToolbar.vue";
-import ColorInput from "@components/custom/color-picker/controls/ColorInput.vue";
+import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../../../../color-session/keys";
+import type { ActionBarContext } from "../../../../../color-session/keys";
+import ActionToolbar from "../../color-picker/controls/ActionToolbar.vue";
+import ColorInput from "../../color-picker/controls/ColorInput.vue";
 import { DockIconButton, DockSeparator, useLayerTransition } from "@mkbabb/glass-ui/dock";
-import type { EditTarget } from "@components/custom/color-picker";
+import type { EditTarget } from "../../color-picker";
 
 const { actionBar, editTarget } = defineProps<{
     actionBar: ActionBarContext;

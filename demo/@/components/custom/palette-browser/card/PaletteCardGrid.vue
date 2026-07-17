@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import EmptyState from "@components/common/EmptyState.vue";
+import EmptyState from "../../../common/EmptyState.vue";
 
 defineProps<{
     empty?: boolean;

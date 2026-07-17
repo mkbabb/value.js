@@ -38,8 +38,8 @@ import type { OklchStop } from "@mkbabb/glass-ui/color";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { clamp } from "@mkbabb/value.js/math";
-import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "@composables/color/keys";
-import { resolveSurfaceLightnessLive } from "@composables/color/useContrastSafeColor";
+import { COLOR_MODEL_KEY, INK_AMBIENT_KEY } from "../../../../../color-session/keys";
+import { resolveSurfaceLightnessLive } from "../../../../../color-session/useContrastSafeColor";
 
 // Thin consumer of glass-ui's Blob (the demo half of W6-4 — consume/config/
 // placement ONLY; the engine is the producer's, genesis brief §3.0). The

@@ -60,9 +60,9 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-} from "@components/ui/dialog";
-import { Button } from "@components/ui/button";
-import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
+} from "../../../ui/dialog";
+import { Button } from "../../../ui/button";
+import { RadioGroup, RadioGroupItem } from "../../../ui/radio-group";
 import { Loader2 } from "@lucide/vue";
 
 const { open, paletteName, paletteSlug } = defineProps<{

@@ -16,7 +16,7 @@ import {
     convertPickerColor,
     serializePickerColor,
     type PickerColor,
-} from "@lib/picker-color";
+} from "../../../../../../color-session/picker-color";
 
 export type DisplayColorSpace = SpaceId | "hex";
 

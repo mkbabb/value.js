@@ -1,0 +1,50 @@
+/**
+ * Admin auth — module-level singleton with lazy initialization.
+ *
+ * Pattern: a single `_adminToken` Ref is created on first call to `useAdminAuth()`.
+ * Subsequent calls return the SAME ref, ensuring all components share one token.
+ *
+ * Why lazy-init:
+ * - Avoids Storage access at import time (SSR-safe, Safari private mode safe)
+ * - Guarantees single instance even if multiple components call useAdminAuth()
+ * - Token persists in localStorage across page reloads
+ */
+import { ref, computed, type Ref } from "vue";
+import { safeGetItem, safeSetItem, safeRemoveItem } from "../storage/useSafeStorage";
+
+const STORAGE_KEY = "palette-admin-token";
+
+let _adminToken: Ref<string | null> | null = null;
+
+function getAdminToken(): Ref<string | null> {
+    if (!_adminToken) {
+        _adminToken = ref<string | null>(safeGetItem(localStorage, STORAGE_KEY));
+    }
+    return _adminToken;
+}
+
+/**
+ * Module-level singleton: state is shared across all callers.
+ * Lazy-init avoids accessing Storage at import time
+ * (SSR safety + Safari private browsing).
+ */
+export function useAdminAuth() {
+    const adminToken = getAdminToken();
+    const isAuthenticated = computed(() => !!adminToken.value);
+
+    function login(token: string) {
+        adminToken.value = token;
+        safeSetItem(localStorage, STORAGE_KEY, token);
+    }
+
+    function logout() {
+        adminToken.value = null;
+        safeRemoveItem(localStorage, STORAGE_KEY);
+    }
+
+    function getToken(): string | null {
+        return adminToken.value;
+    }
+
+    return { isAuthenticated, login, logout, getToken };
+}

@@ -2,9 +2,9 @@ import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import { computed, inject } from "vue";
 import { convertColor } from "@mkbabb/value.js/color";
 import { parseCssColor } from "@mkbabb/value.js/css";
-import { INK_AMBIENT_KEY } from "@composables/color/keys";
-import { certifyAccentInk } from "@composables/color/ink";
-import { resolveSurfaceLightnessLive } from "@composables/color/useContrastSafeColor";
+import { INK_AMBIENT_KEY } from "../../../../../color-session/keys";
+import { certifyAccentInk } from "../../../../../color-session/ink";
+import { resolveSurfaceLightnessLive } from "../../../../../color-session/useContrastSafeColor";
 
 /**
  * Computes CSS custom properties for heading colors derived from the given CSS color.
