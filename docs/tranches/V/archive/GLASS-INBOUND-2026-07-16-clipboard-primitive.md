@@ -1,3 +1,5 @@
+> ARCHIVED 2026-07-17 — historical; superseded by W44 (content inlined). Read-only.
+
 # Glass inbound — clipboard primitive: `copyToClipboard` cut, adopt `writeClipboard` (W17b)
 
 **Date:** 2026-07-16

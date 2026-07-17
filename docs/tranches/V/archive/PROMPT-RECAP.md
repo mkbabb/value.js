@@ -1,3 +1,5 @@
+> ARCHIVED 2026-07-17 — historical; superseded by the W40-series wave specs (§7 E1–E11 rewrite lands terminally at W56). Read-only.
+
 # Tranche V — Prompt Recap
 
 ## 1. Method

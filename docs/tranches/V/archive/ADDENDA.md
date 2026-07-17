@@ -1,3 +1,5 @@
+> ARCHIVED 2026-07-17 — historical; superseded by V-PRIME.md + the wave specs. Read-only.
+
 # Tranche V — Material Defect Addenda
 
 These are normative amendments surfaced by fresh non-author audits after the first complete formation candidate. They do not create a fifth meta-tranche, a new gate, or extra waves. Each addendum replaces the defective mechanism in its owning specification and wave; implementation follows the amended wave exactly.

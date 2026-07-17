@@ -1,3 +1,5 @@
+> ARCHIVED 2026-07-17 — historical; superseded by WL (SCI-1/2/3 DECIDE rows). Read-only.
+
 # ATLAS → VALUE.JS — the 3.1.0→4.0.0 crossing report + spec inputs for the active tranche
 
 *2026-07-16, from the P·TOTALITY execution lead (Atlas/SCI consumer seat). The owner has opened

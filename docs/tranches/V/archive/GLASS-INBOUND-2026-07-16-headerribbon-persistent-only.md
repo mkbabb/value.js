@@ -1,3 +1,5 @@
+> ARCHIVED 2026-07-17 — historical; superseded by W40-S5 + W44 (content inlined). Read-only.
+
 # Glass inbound — HeaderRibbon goes persistent-only (V-A92 supersession mark)
 
 **Date:** 2026-07-16

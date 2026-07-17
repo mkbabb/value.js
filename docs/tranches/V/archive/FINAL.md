@@ -1,3 +1,5 @@
+> ARCHIVED 2026-07-17 — historical; superseded by V-PRIME.md §0. Read-only.
+
 # Tranche V — Formation Final
 
 **Verdict:** formation amended, not converged · `0/2` after V-A168 · Value `4.0.0` and Keyframes `6.0.0` are observed immutable producer releases; Glass source/lock is LANDED/IMPLEMENTED but dirty, while Q003 product integrity on the restored honest 5/0 baseline, fresh Glass7 publication, strict/native closure, the routed mount, legacy Picker housing/reservation and API wire/search/provenance remain RED. No wave/tranche close.
