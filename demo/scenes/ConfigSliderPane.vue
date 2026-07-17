@@ -177,7 +177,7 @@ function resetDefaults() {
 </template>
 
 <style scoped>
-@reference "../@/styles/foundation.css";
+@reference "../styles/foundation.css";
 
 /* T.W4-4 (the population clause): the console well's inner rhythm + the
  * certified-ink cure for the row's live value (the producer ConfiguratorRow

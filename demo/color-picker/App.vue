@@ -196,14 +196,14 @@ import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
 import { useDockArrival } from "./composables/boot/useDockArrival";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
-import "../@/styles/utils.css";
-import "../@/styles/foundation.css";
+import "../styles/utils.css";
+import "../styles/foundation.css";
 // U.W-A11Y / U-F25: the `--focus-ring-inner/-outer` token recipe (:root) that
 // every keyboard-operable control's focus affordance composes. Global wire (a
 // `:root` token must be defined regardless of which control is mounted); the
 // modality lane REFERENCES these names from style.css. Imported AFTER style.css
 // so a later owner override there wins the cascade.
-import "../@/styles/focus-ring.css";
+import "../styles/focus-ring.css";
 // The overture's one-clock grammar sheet (tokens + arrival/appear/dock/emerge
 // rules) — colocated with the boot chain; imported AFTER style.css so the
 // cascade order matches the former in-SFC blocks (T.W2-3).
@@ -387,7 +387,7 @@ onMounted(() => { loadCustomColorNames(); });
 </script>
 
 <style scoped>
-@reference "../../demo/@/styles/foundation.css";
+@reference "../../demo/styles/foundation.css";
 
 /* W3-4 (S.W3 · pane-swap payload): the former height/margin/padding transition
    on .pane-wrapper is DELETED. Layout properties never animate on a pane swap

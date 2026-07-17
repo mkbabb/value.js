@@ -248,7 +248,7 @@ watch(() => imageUrl, () => { loadAndFit(); });
 </script>
 
 <style scoped>
-@reference "../../../../styles/foundation.css";
+@reference "../../../../../styles/foundation.css";
 
 /* Smooth zoom transition — always on, disabled during active gestures */
 .eyedropper-canvas {

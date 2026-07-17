@@ -182,7 +182,7 @@ const SECTIONS: SliderSection[] = [
 </template>
 
 <style scoped>
-@reference "../../@/styles/foundation.css";
+@reference "../../styles/foundation.css";
 
 .aurora-row {
     display: flex;

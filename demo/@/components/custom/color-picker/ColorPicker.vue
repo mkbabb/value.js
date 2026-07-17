@@ -386,7 +386,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-@reference "../../../styles/foundation.css";
+@reference "../../../../styles/foundation.css";
 
 .pane-shell {
     /* W3-4 (S.W3): the `margin` layout-property transition is DELETED — margin

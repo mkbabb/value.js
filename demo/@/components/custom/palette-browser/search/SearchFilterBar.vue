@@ -233,7 +233,7 @@ function onClearAll() {
 </script>
 
 <style scoped>
-@reference "../../../../styles/foundation.css";
+@reference "../../../../../styles/foundation.css";
 
 .filter-section { padding: 0.75rem; }
 .filter-section > .section-label { margin-bottom: 0.375rem; }

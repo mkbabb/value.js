@@ -120,7 +120,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
 </template>
 
 <style scoped>
-@reference "../../../../styles/foundation.css";
+@reference "../../../../../styles/foundation.css";
 
 .toggle-btn:hover {
     stroke: var(--toggle-hover-color);

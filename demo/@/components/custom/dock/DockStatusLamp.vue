@@ -33,7 +33,7 @@ const lamp = computed(() => resolveLampState(availability.value, isDev));
 </script>
 
 <style scoped>
-@reference "../../../styles/foundation.css";
+@reference "../../../../styles/foundation.css";
 
 /* Band chrome: the lamp parks at the band's inline-end, vertically centred
    on the pill's axis — out of flow, so the dock's own centring never shifts
