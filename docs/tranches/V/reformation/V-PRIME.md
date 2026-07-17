@@ -1,9 +1,12 @@
-# Tranche V — Re-formed Authority (V′) — DRAFT pending final adversary passes
+# Tranche V — Re-formed Authority (V′) — THE STANDING AUTHORITY
 
-**Status:** DRAFT · authored by the 2026-07-16 owner-ordered re-formation campaign
-(`audit/REFORMATION-2026-07-16.md`, families RF-1…RF-29). Becomes the V authority when the
-campaign's two fresh adversary passes and the owner brackets close. Until then `V.md` remains
-the standing document; W41 (canon compression) executes the swap and the archival.
+**Status:** STANDING AUTHORITY (from 2026-07-17). Authored by the 2026-07-16 owner-ordered
+re-formation campaign (`audit/REFORMATION-2026-07-16.md`, families RF-1…RF-29) and converged
+by two independent fresh non-author adversary passes returning CLEAN (`reformation/
+FORMATION-CLOSED.md`; defect trajectory 20 → … → 0∥0) with the owner brackets closed under the
+2026-07-17 totality order (`reformation/RETURN.md §2`). This document replaces the former `V.md`,
+which W41 archived read-only to `archive/V.md`. Old wave IDs resolve through the single junction
+table `reformation/MAPPING.md` (§2).
 
 ## 0. The verdict this re-formation answers
 
@@ -61,6 +64,10 @@ forward whole).
   of W44; no pre-mount result may be counted as routed/gestalt evidence.
 
 ## 2. The re-formed wave set (W40-series; 34 → 17 + 1 lane; the frontend arc is 9 units)
+
+**Old→new junction:** `reformation/MAPPING.md` is the single lookup resolving every old wave ID
+(W0–W33) to its W40-series successor; the old wave files are archived read-only under
+`archive/waves/`. No wave file restates the mapping.
 
 **Step 0 of EVERY wave, before its first listed step (E13/L7):** the four-path mail sweep;
 new mail is rowed in `coordination/INBOX.md` before any other work; no wave closes with
