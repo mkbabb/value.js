@@ -46,12 +46,13 @@ jobs:
               id: pack
               shell: bash
               run: |
-                  npm pack --json --ignore-scripts > /tmp/value-pack.json
-                  node --input-type=module <<'NODE'
-                  import { appendFileSync, readFileSync } from "node:fs";
-                  const [packed] = JSON.parse(readFileSync("/tmp/value-pack.json", "utf8"));
-                  appendFileSync(process.env.GITHUB_OUTPUT, `filename=${packed.filename}\n`);
-                  NODE
+                  # npm's stdout differs across npm 10/11 (the prepare script's vite banner
+                  # polluted `--json` on Node 22) — derive the tarball name deterministically
+                  # from package.json instead of parsing pack output.
+                  FILE="$(node -p "const p=require('./package.json'); p.name.replace(/^@/,'').replace('/','-')+'-'+p.version+'.tgz'")"
+                  npm pack --ignore-scripts > /dev/null
+                  test -f "$FILE"
+                  echo "filename=$FILE" >> "$GITHUB_OUTPUT"
             - name: verify packed runtime and strict declarations
               run: node scripts/ci/verify-packed-surface.mjs "${{ steps.pack.outputs.filename }}"
 
