@@ -273,6 +273,45 @@ describe("K.W2 conformance — Idempotency-Key replay", () => {
         expect(count).toBe(1);
     });
 
+    it("replays the byte-identical status/body/HEADER tuple incl. ETag, keyed by UUIDv7 (V·W45 item 7)", async () => {
+        // A synthetic mutation that emits a distinctive ETag behind the REAL
+        // idempotency middleware — proving the replay reproduces the FULL header
+        // tuple (not just body/content-type) and never re-runs the handler.
+        const probe = new Hono<AppEnv>();
+        probe.use("*", async (c, next) => {
+            c.set("userSlug", "alice");
+            await next();
+        });
+        probe.use("*", idempotency);
+        let runs = 0;
+        probe.post("/thing", (c) => {
+            runs += 1;
+            c.header("ETag", `"v-${runs}"`);
+            return c.json({ runs }, 201);
+        });
+
+        // A canonical UUIDv7 (version nibble = 7) — the honest idempotency key.
+        const key = "01890a5d-ac96-774b-bcce-b302099a8057";
+        const headers = {
+            "Content-Type": "application/json",
+            "Idempotency-Key": key,
+        };
+
+        const first = await probe.request("/thing", { method: "POST", headers, body: "{}" });
+        expect(first.status).toBe(201);
+        const firstBody = await first.text();
+        expect(first.headers.get("ETag")).toBe('"v-1"');
+        expect(first.headers.get("Idempotency-Replayed")).toBeNull();
+
+        const replay = await probe.request("/thing", { method: "POST", headers, body: "{}" });
+        // Byte-identical status + body + ETag; the handler did NOT run again.
+        expect(replay.status).toBe(first.status);
+        expect(await replay.text()).toBe(firstBody);
+        expect(replay.headers.get("ETag")).toBe('"v-1"');
+        expect(replay.headers.get("Idempotency-Replayed")).toBe("true");
+        expect(runs).toBe(1);
+    });
+
     it("key is scoped per session — a different session does NOT replay another's result", async () => {
         const key = "shared-key";
         const aliceHeaders = {

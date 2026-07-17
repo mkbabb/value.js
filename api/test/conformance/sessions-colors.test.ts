@@ -97,11 +97,15 @@ describe("routes.sessions — register/me/logout round-trip (N.W3.H-tests)", () 
         expect(typeof meBody.createdAt).toBe("string");
     });
 
-    it("GET /sessions/me → 401 problem+json with no token", async () => {
+    it("GET /sessions/me → 401 problem+json with no token, and NO Set-Cookie mutation (V·W45 item 7)", async () => {
         const res = await app.request("/sessions/me", { method: "GET" });
         expect(res.status).toBe(401);
         const body = (await res.json()) as { type: string };
         expect(body.type).toBe("urn:contract:session-invalid");
+        // The cookie-recovery invariant: an absent/invalid session is a generic
+        // 401 that does NOT clear or mutate a cookie, so a cross-tab lease can
+        // re-derive auth without deleting a newer cookie (no clear-on-any-401).
+        expect(res.headers.get("Set-Cookie")).toBeNull();
     });
 
     it("GET /sessions/me → 401 with an invalid token (no resolve)", async () => {
