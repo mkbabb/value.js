@@ -3,7 +3,7 @@
  *
  * Owns the read-side of the public color-name surface:
  *   - GET /colors/approved  → paginated list of status="approved" names
- *   - GET /colors/search    → text + regex search (status="approved" only)
+ *   - GET /colors/search    → indexed byte-prefix search (status="approved")
  *   - GET /colors/tags      → all tags, sorted by name
  *
  * Writes (the propose flow) live in `./proposals.ts` to keep each service
@@ -14,7 +14,6 @@
 
 import type { WithId } from "mongodb";
 import type { Services } from "../../../platform/http/inject-services.js";
-import { escapeRegex } from "../../../platform/text/regex.js";
 import type { ProposedName, Tag } from "../model.js";
 
 export interface ProposedNameDTO {
@@ -91,42 +90,16 @@ export async function searchApprovedColors(
 ): Promise<SearchResults> {
     const { proposedNames } = services.repositories;
 
-    // Primary: $text search ordered by score.
-    const textResults = await proposedNames.searchText(q, limit);
-
-    // Fallback: regex on (name, css) for the remaining slots — preserves the
-    // pre-migration behaviour where text-search misses (e.g. short tokens,
-    // partial matches) are filled in by case-insensitive substring matches.
-    const collected = new Map<string, WithId<ProposedName>>();
-    for (const doc of textResults) {
-        collected.set(String(doc._id), doc);
-        if (collected.size >= limit) break;
-    }
-
-    if (collected.size < limit) {
-        const remaining = limit - collected.size;
-        // Fetch a small buffer to absorb overlap with the text-search hits.
-        const regexResults = await proposedNames.findManyByFilter(
-            {
-                status: "approved",
-                $or: [
-                    { name: { $regex: escapeRegex(q), $options: "i" } },
-                    { css: { $regex: escapeRegex(q), $options: "i" } },
-                ],
-            },
-            0,
-            remaining + 5,
-        );
-        for (const doc of regexResults) {
-            if (collected.size >= limit) break;
-            const id = String(doc._id);
-            if (collected.has(id)) continue;
-            collected.set(id, doc);
-        }
-    }
+    // V·W45 item 2 — indexed byte-prefix search ONLY. The former text-index
+    // rank-primary + case-insensitive substring (regex) fallback — which
+    // matched anywhere in a name/css and ranked non-deterministically — is
+    // retired: search is now a single bounded, normalized prefix range over
+    // the unique `{name:1}` index. A query matches iff a name STARTS WITH it.
+    const prefix = q.trim().toLowerCase();
+    const results = await proposedNames.searchByNamePrefix(prefix, limit);
 
     return {
-        data: Array.from(collected.values()).map(formatProposedName),
+        data: results.map(formatProposedName),
     };
 }
 

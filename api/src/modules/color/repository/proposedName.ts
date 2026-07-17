@@ -5,7 +5,7 @@
  * reads) and the admin moderation queue (status: "proposed" + transitions).
  */
 
-import type { Collection, Filter, ObjectId, Sort, WithId, WithoutId } from "mongodb";
+import type { Collection, ObjectId, Sort, WithId, WithoutId } from "mongodb";
 import type { ProposedName, ProposedNameStatus } from "../model.js";
 
 export class ProposedNameRepository {
@@ -37,25 +37,22 @@ export class ProposedNameRepository {
         return this.col.countDocuments({ status });
     }
 
-    findManyByFilter(
-        filter: Filter<ProposedName>,
-        skip: number,
-        limit: number,
-    ): Promise<WithId<ProposedName>[]> {
-        return this.col.find(filter).skip(skip).limit(limit).toArray();
-    }
-
     /**
-     * Text-search on the (name, css) compound text index defined in
-     * `api/src/db.ts:53-56`. Returns the highest-scoring results first.
+     * Indexed byte-prefix search over the unique `{name:1}` index (V·W45 item
+     * 2). A bounded half-open range `[prefix, prefix + U+FFFF)` the planner
+     * serves as an index scan — NOT a `$text` rank + `$regex` substring
+     * fallback. `prefix` is already normalized (trimmed, lowercase) by the
+     * caller; stored names are lowercase at rest. Names are ASCII `[a-z0-9-]`,
+     * so the `￿` sentinel cleanly bounds every name that starts with the
+     * prefix. Ordered by name for a stable, non-ranked result.
      */
-    searchText(query: string, limit: number): Promise<WithId<ProposedName>[]> {
+    searchByNamePrefix(prefix: string, limit: number): Promise<WithId<ProposedName>[]> {
         return this.col
-            .find(
-                { status: "approved", $text: { $search: query } },
-                { projection: { score: { $meta: "textScore" } } },
-            )
-            .sort({ score: { $meta: "textScore" } })
+            .find({
+                status: "approved",
+                name: { $gte: prefix, $lt: `${prefix}￿` },
+            })
+            .sort({ name: 1 })
             .limit(limit)
             .toArray();
     }

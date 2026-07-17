@@ -84,12 +84,12 @@ export async function getDb(): Promise<Db> {
         ),
 
         // --- proposed_names ---
+        // The unique `{name:1}` index also serves the V·W45 item-2 byte-prefix
+        // `/colors/search` (a bounded `[prefix, prefix+￿)` range scan). The
+        // former `proposed_names_text` ($text) index backed the retired
+        // rank-primary/regex-fallback search and now has zero consumers.
         db.collection("proposed_names").createIndex({ name: 1 }, { unique: true }),
         db.collection("proposed_names").createIndex({ status: 1 }),
-        db.collection("proposed_names").createIndex(
-            { name: "text", css: "text" },
-            { weights: { name: 10, css: 1 }, name: "proposed_names_text" },
-        ),
 
         // --- users ---
         db.collection("users").createIndex({ createdAt: -1 }),

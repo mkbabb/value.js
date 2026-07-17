@@ -239,6 +239,35 @@ describe("routes.colors — propose + public listings (N.W3.H-tests)", () => {
         expect(body.data).toEqual([]);
     });
 
+    it("GET /colors/search returns BYTE-PREFIX matches only (V·W45 item 2 — no substring/regex)", async () => {
+        // Seed approved names. `hazel` and `mauve` contain the substring "aze"
+        // /"azu" nowhere at their START — the retired $regex fallback matched
+        // them anywhere; the indexed prefix search must NOT.
+        const now = new Date();
+        const seed = (name: string) =>
+            services.repositories.proposedNames.insert({
+                name,
+                css: "#abcabc",
+                status: "approved",
+                contributor: null,
+                createdAt: now,
+                approvedAt: now,
+            });
+        await Promise.all([seed("azure"), seed("azure-sky"), seed("hazel")]);
+
+        // Prefix "azu" → the two azure* names, in name order; hazel excluded.
+        const hit = await app.request("/colors/search?q=azu", { method: "GET" });
+        expect(hit.status).toBe(200);
+        const hitBody = (await hit.json()) as { data: { name: string }[] };
+        expect(hitBody.data.map((d) => d.name)).toEqual(["azure", "azure-sky"]);
+
+        // Prefix "aze" → nothing STARTS with it; the old regex-substring rail
+        // would have surfaced `hazel` (and `azure`). Prefix search returns [].
+        const miss = await app.request("/colors/search?q=aze", { method: "GET" });
+        const missBody = (await miss.json()) as { data: unknown[] };
+        expect(missBody.data).toEqual([]);
+    });
+
     it("GET /colors/tags → 200 array", async () => {
         const res = await app.request("/colors/tags", { method: "GET" });
         expect(res.status).toBe(200);

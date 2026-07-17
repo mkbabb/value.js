@@ -41,7 +41,7 @@ colors.get("/approved", async (c) => {
     return c.json(result);
 });
 
-// GET /colors/search — text + regex search of approved names
+// GET /colors/search — indexed byte-prefix search of approved names
 colors.get("/search", async (c) => {
     // Per the legacy behaviour (short queries are not an error — they return
     // an empty result set): only validate when a query is present.
