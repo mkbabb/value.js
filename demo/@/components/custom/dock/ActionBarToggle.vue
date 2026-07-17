@@ -107,7 +107,7 @@ function onSlotSettled(e: TransitionEvent) {
 </template>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../../../styles/foundation.css";
 
 /* Slot presence: 0fr ↔ 1fr grid-template-columns (no max-width clipping).
    The transition arms only once `.is-live` sets (one frame AFTER the first

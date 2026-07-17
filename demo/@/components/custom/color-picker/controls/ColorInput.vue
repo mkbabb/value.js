@@ -288,7 +288,7 @@ defineExpose({
 </script>
 
 <style scoped>
-@reference "../../../../styles/style.css";
+@reference "../../../../styles/foundation.css";
 
 .color-input {
     border-color: var(--input);

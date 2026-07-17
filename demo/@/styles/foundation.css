@@ -79,6 +79,10 @@
  * TypeScript plates AND the gradient pane's live CSS editor. The former
  * GitHub-css imports + per-component head-injection swaps are dead. */
 @import "./hljs.css";
+/* The app-shell LAYOUT surface (W43 · RF-15 §b 5): the dock-atop band grid,
+ * pane container/wrappers, [data-layout] witnesses + the T-45 pane-card blur
+ * seat, split out of this file. It consumes foundation's layout tokens. */
+@import "./shell.css";
 
 /* The explicit demo-source scan (see the header block) — declared AFTER the
  * glass-ui `@import`s so its `@utility` registrations (text-mono-small &c.,
@@ -283,9 +287,8 @@
      * WELL ground it re-measures 46/38 — under the O-19 floor (≥59 L /
      * ≥45 D), so the floor rules the mix: 30% ink / 36% paper measures
      * 61/51 on the live W3 plate at desktop + 390 (intensity moves, the
-     * architecture stands). The 4.75px+1.25px tile MUST agree with
-     * `gamut-ink.ts` WEBBING (period 6 / weight 1.25) — two renderings of
-     * ONE register; a drift between them is a defect. */
+     * architecture stands). The tile geometry (period 6 / weight 1.25) is the
+     * sole register — the former paint-consumer that mirrored it is retired. */
     --gamut-edge:        color-mix(in oklab, var(--foreground) 45%, transparent);
     --gamut-hatch:       repeating-linear-gradient(45deg,
                            transparent 0 4.75px,
@@ -483,134 +486,6 @@
  * PaletteCardGrid.vue. (The `.palette-tab-content` cascade died with
  * PaletteDialog.vue — the dialog-era shell excised at T.W0-3, CC-6.) */
 
-/* ── App layout — THE DOCK-ATOP BAND LAW (T.W6 · T-31) ──
- * Two-band grid: the dock band (row 1, auto) sits ATOP as structure the
- * layout OWNS; the scene band (row 2, 1fr) sits below behind the designed
- * --dock-gap row-gap. The retired trio (see the token doc-comment above):
- * the fixed overlay, the --dock-total padding reservation, the load-bearing
- * z-dock. Occlusion of the dock by any card is impossible by construction —
- * grid rows do not overlap and no z-index is minted anywhere in the shell. */
-.app-layout {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    row-gap: var(--dock-gap);
-    height: 100dvh;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    padding: var(--dock-inset) var(--app-padding-x) 0.5rem;
-}
-
-/* The a11y landmarks are the two band rows. <nav> IS the dock band —
- * in-flow, static, centring the pill; --dock-band-min-h floors it at the
- * EXPANDED-pill height so the band never jitters across the dock's
- * collapse↔expand morph (T.W8 · P9-R2/T-57: the former --dock-h floor sat
- * BELOW the expanded pill, so the band grew 6.4px on every re-expand and
- * shifted the scene +3.0px — the reservation now covers the tallest state by
- * construction, the shorter collapsed seal centring in the reserved box).
- * position: relative seats the band-chrome instruments (the W6-6 status
- * lamp). */
-.dock-band {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: var(--dock-band-min-h);
-}
-
-/* <main> (.pane-main) is the scene band: it centres the pane container
- * within row 2 (the centring the flex shell used to do at the layout root —
- * now the band's own job). */
-.pane-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* flex-min-size idiom — let the column shrink to its content. */
-    min-height: 0;
-    min-width: 0;
-}
-
-.pane-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    width: 100%;
-    /* The GRID owns the clamp (R.W3 Lane A / A4 — U32, "handled generally"):
-     * the container grows fluidly with the viewport (minus .app-layout's
-     * horizontal padding, both sides) and clamps at two max-size cards plus
-     * the gutter (≈ 1050px — 32rem × 2 + 1.618rem, the 2026-07-05 owner-ruling
-     * clamp). Equal columns always; no shell self-clamps. */
-    max-width: min(
-        calc(100vw - var(--app-padding-x) * 2),
-        calc(var(--pane-max) * 2 + var(--pane-gap))
-    );
-    margin: 0 auto;
-    position: relative;
-    max-height: var(--content-max-h);
-    min-height: 0;
-}
-
-/* The pane slots are size containers: in-card sizing rides `cqi` (container
- * queries — structurally immune to the viewport-variant kill class), never
- * `vw`. Display type rungs are the named exception (viewport-fluid clamps). */
-.pane-wrapper {
-    container-type: inline-size;
-}
-
-/* W6-4 (S.W6) — the SLOT-owned cross-pane layer: the LEFT slot (the picker +
- * its corner-breaking hero-blob ornament) paints above the right pane, so the
- * bead's overlap strip is never buried under the About card (the S-4 burial —
- * both glass Cards are z-auto stacking contexts, so DOM order alone painted
- * the LATER right pane over the left pane's overflowing ornament). Grid items
- * take z-index directly (no positioning needed); portaled overlays are
- * unaffected; ZERO per-instance z-index on the ornament itself (the
- * no-z-hacks law — the slot assigns the layer). */
-.pane-wrapper--left {
-    z-index: 1;
-}
-
-/* MOB-1 (T round-4 — the C-5/D8-1 adjudication landed) — THE LAYOUT DISPLAY
- * WITNESSES key on [data-layout], the single-truth stamp App.vue sets on
- * .app-layout from `isDesktop` (= width AND landscape). The CSS witness IS the
- * JS witness: a portrait tablet ≥ 1024px wide (aspect < 1.1) stamps
- * data-layout="mobile", so the mobile slot shows and the desktop wrappers hide
- * BY CONSTRUCTION — the retired D6-03 portrait pathology needed a width-only
- * `lg:hidden` display exception here; the stamp dissolves it. The v-if
- * single-mount (App.vue X6) is the primary gate; these are the aspect-correct
- * defensive witnesses + the CI emission canary (scripts/ci/css-emission-probe.mjs,
- * re-pointed off the lg:* utilities onto these rules). They are intentionally
- * UN-media'd — the JS drives the breakpoint, so a media wrapper would
- * re-introduce the width-only disagreement the stamp exists to retire. */
-[data-layout="mobile"] .pane-slot-mobile {
-    display: flex;
-}
-[data-layout="desktop"] .pane-wrapper--left {
-    display: flex;
-}
-[data-layout="desktop"] .pane-wrapper--right {
-    display: block;
-}
-/* The mobile pane switcher (Dock.vue's PaneSegmentedControl) is mobile-grammar
- * only — hidden on desktop, shown on the portrait band so BOTH panes stay
- * reachable at 1024×1366 (the width-only `lg:hidden` it replaced marooned the
- * second pane there). */
-[data-layout="desktop"] .dock-mobile-panes {
-    display: none;
-}
-
-/* The dual grid fires on width AND landscape (the aspect law — see the
- * desktop :root block above; portrait keeps the single-column grammar). */
-@media (min-width: 1024px) and (min-aspect-ratio: 1.1) {
-    .pane-container {
-        gap: var(--pane-gap);
-    }
-    .pane-container--dual {
-        /* Equal columns always (the kept 1fr↔1fr invariant), with the floor
-         * explicit: no card ever renders below `--pane-min` on the dual
-         * grid. */
-        grid-template-columns: repeat(2, minmax(var(--pane-min), 1fr));
-    }
-}
 
 /* PROJECT OVERRIDE: dark-mode shadow tuning only (R.W3 Lane A / A3).
  * The dark COLOR ladder is glass-ui 4.2's stepped warm dark-material ladder
@@ -698,82 +573,6 @@
     -webkit-backdrop-filter: none;
 }
 
-/* ═══ T-45 · THE PANE-CARD OVERSAMPLED-BLUR SEAT (T.W6.5 Lane M · the
- * BOOKED-SWAP demo interim; root = producer, P3 rider) ═══════════════════
- *
- * THE DEFECT (t33-audit-13, ROOT FOUND BY BISECTION — t33-research §6.8):
- * the pane card's OWN `backdrop-filter: blur(8px) saturate(1.4)`
- * edge-samples the bright aurora beyond the card's border box (the spec
- * clips the backdrop INPUT at the border box, so the kernel edge-clamps)
- * and smears it inward ≈ one blur radius; the rounded clip then cuts the
- * band unevenly at the corner arcs — the owner's "strange clipping
- * artifacts on the borders of these cards". Card filter off → rim GONE;
- * header-veil toggles change nothing.
- *
- * THE CURE CLASS (the oversampled-pseudo idiom): the blur moves onto a
- * layer whose sample region OVERSHOOTS the visible edge by 2× the blur
- * radius, and whose OUTPUT is clipped back to the card's rounded box —
- * the edge-clamp smear falls entirely in the clipped-away band.
- *
- * THE SEAT (why the pane WRAPPER, not the card's own pseudo): the producer
- * ladder already claims BOTH card pseudos (`.glass-resting::before` = the
- * specular catch-light, `::after` = grain + rim — material.css), so an
- * on-card pseudo would fork the ladder (forbidden — the root cure is the
- * producer's); and most pane cards ARE their own scroll containers, where
- * an absolutely-positioned carrier would scroll away with the content and
- * inflate the scrollable overflow. The seat is therefore the pane card's
- * DIRECT WRAPPER (a static box the card fills by construction): the
- * `.pane-wrapper` slot for the root-Card panes, the one-deep wrapper div
- * for the wrapped panes (the picker's `.pane-shell`, Extract/Config).
- * `clip-path` clips hit-testing too, so the overshoot band can never
- * intercept a pointer. The `:not()` arm keeps the carrier SINGULAR during
- * a mixed pane swap (both structures transiently co-mounted in one slot).
- *
- * TOKEN-FIRST, ZERO FORKED VALUES: the carrier reads the SAME
- * `--glass-blur-resting` the `.glass-resting` rung consumes (ladder.css),
- * so `--glass-level`, the W55 bright-bucket, and the reduced-transparency
- * escape (`--glass-level: 0` → blur(0)) retune it in lockstep — every
- * producer escape is inherited by construction, no media-arm restatement.
- *
- * RETIREMENT: the producer-root cure is the BOOKED P3-family rider
- * (letters/GLASSUI-T-ASKS.md §P3/P10 riders — the oversampled-pseudo AT
- * THE LADDER, relayed `92136ab5` on tranche/BG, walked at W7
- * verify-at-cut). This whole block dies the day that lands — never a demo
- * fork of the ladder, a booked-swap interim. */
-@supports selector(:has(*)) {
-    .pane-wrapper:has(> .glass-resting),
-    .pane-wrapper:not(:has(> .glass-resting)) > div:has(> .glass-resting) {
-        position: relative;
-    }
-
-    /* UNPREFIXED backdrop-filter ONLY (the producer's own authoring law —
-     * glass-ui ladder.css authors the bare form and lets Lightning CSS
-     * inject the `-webkit-` companion). Hand-authoring the pair here made
-     * the demo's OWN minifier collapse it to the prefixed form alone (the
-     * exact unprefixed-leg-dropped class the spectrum-range MARKER above
-     * documents), which computes `none` in Chromium — probed live on the
-     * built bundle. */
-    .pane-wrapper:has(> .glass-resting)::before,
-    .pane-wrapper:not(:has(> .glass-resting))
-        > div:has(> .glass-resting)::before {
-        content: "";
-        position: absolute;
-        inset: calc(-2 * var(--glass-blur-resting-radius, 8px));
-        pointer-events: none;
-        backdrop-filter: var(--glass-blur-resting);
-        clip-path: inset(
-            calc(2 * var(--glass-blur-resting-radius, 8px))
-                round var(--radius-card)
-        );
-    }
-
-    /* The card's own filter dies where the carrier speaks for it — same
-     * material (one token), sampled wide, clipped true. */
-    .pane-wrapper > .glass-resting,
-    .pane-wrapper > div > .glass-resting {
-        backdrop-filter: none;
-    }
-}
 
 /* D.W4 Lane A: .touch-gate-* cluster colocated into ComponentSliders.vue's
  * unscoped <style>; .pane-scroll-fade colocated into PaneHeader.vue's unscoped

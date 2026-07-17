@@ -134,7 +134,7 @@ defineEmits<{
 </script>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../../../styles/foundation.css";
 
 /* Touch gate styling for extract sliders */
 .touch-gate-target {

@@ -225,7 +225,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-@reference "../../../../../styles/style.css";
+@reference "../../../../../styles/foundation.css";
 
 .spectrum-picker {
     border-radius: var(--radius-xl);

@@ -294,7 +294,7 @@ watch(
 </template>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../../../styles/foundation.css";
 
 /* The B3 settle beat — the vj-settle keyframe lives in animations.css
    (keyframes are global); the class is dock-local. */

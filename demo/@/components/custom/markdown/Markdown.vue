@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { Alert, AlertDescription, AlertTitle } from "../../ui/alert";
 import { Skeleton } from "../../ui/skeleton";
-import "../../../styles/style.css";
+import "../../../styles/foundation.css";
 import "../../../styles/utils.css";
 import { computed, onMounted, onUpdated, ref, useTemplateRef } from "vue";
 import type { DocModule } from ".";
@@ -76,7 +76,7 @@ onUpdated(() => {
 </script>
 
 <style scoped>
-@reference "../../../styles/style.css";
+@reference "../../../styles/foundation.css";
 
 /* ─────────────────────────────────────────────────────────────────────────
  * R.W4 Lane C / C1 (U4 · U5) — the φ ladder + the dead-reach cure.

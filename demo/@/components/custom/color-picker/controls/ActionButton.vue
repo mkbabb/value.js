@@ -99,7 +99,7 @@ function handleClick() {
 </script>
 
 <style scoped>
-@reference "../../../../styles/style.css";
+@reference "../../../../styles/foundation.css";
 
 .action-button-wrapper {
     display: flex;

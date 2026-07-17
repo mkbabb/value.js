@@ -197,7 +197,7 @@ import { useDockArrival } from "./composables/boot/useDockArrival";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
 import "../@/styles/utils.css";
-import "../@/styles/style.css";
+import "../@/styles/foundation.css";
 // U.W-A11Y / U-F25: the `--focus-ring-inner/-outer` token recipe (:root) that
 // every keyboard-operable control's focus affordance composes. Global wire (a
 // `:root` token must be defined regardless of which control is mounted); the
@@ -387,7 +387,7 @@ onMounted(() => { loadCustomColorNames(); });
 </script>
 
 <style scoped>
-@reference "../../demo/@/styles/style.css";
+@reference "../../demo/@/styles/foundation.css";
 
 /* W3-4 (S.W3 · pane-swap payload): the former height/margin/padding transition
    on .pane-wrapper is DELETED. Layout properties never animate on a pane swap

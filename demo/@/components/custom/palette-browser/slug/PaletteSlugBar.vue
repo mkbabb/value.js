@@ -238,7 +238,7 @@ defineExpose({ slugEditMode, setError, resetEditMode });
 </script>
 
 <style scoped>
-@reference "../../../../styles/style.css";
+@reference "../../../../styles/foundation.css";
 
 /* slug swap rides the morph family (R.W4 B1) — default geometry. */
 </style>
