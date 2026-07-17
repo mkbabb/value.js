@@ -32,7 +32,7 @@
  * auto-detection). This probe is its loud backstop: a future scan/emission
  * regression fails CI here instead of shipping a blank desktop.
  *
- * Standalone node script (the abrogation-sweep idiom): no proof-script grep
+ * Standalone node script: no proof-script grep
  * budget, just the build-output assertion wired as its own blocking CI step.
  *
  * Exit codes: 0 = every witness emitted (attr rules present, sm util gated);

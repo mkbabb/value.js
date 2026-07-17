@@ -1,39 +1,33 @@
 # Changelog
 
-## [3.2.0] — Unreleased (T.W1 · Q15 — the 8 leaked color primitives get citizenship)
+## [4.0.0] — 2026-07-16
 
-Additive (a semver MINOR — new public API, **zero breaks**; the fresh-build `.d.ts` symbol diff
-is additive-only, 0 removals / 16 additions). The T.W1 demo-dogfood keystone requires the demo to
-consume value.js through its **published subpaths only** (the 8 `exports` keys), no `@src/*` deep
-paths. The census (`docs/tranches/T/audit/lanes/t-coloc-src.md §2`) found the demo white-boxing a
-set of internal color primitives the public surface deliberately withheld. Q15 (ratified
-2026-07-09) promotes them to first-class API on **both** the `.` root barrel and the `./color`
-subpath (`@mkbabb/value.js` and `@mkbabb/value.js/color`). All are parse-that-FREE, so the color
-subpath's parse-that-free budget invariant survives.
+The capability cut. Version 4 removes the omnibus package root and publishes exactly seven explicit entries:
 
-The by-name MIGRATION table (old internal path → new public specifier):
+- `@mkbabb/value.js/color`
+- `@mkbabb/value.js/value`
+- `@mkbabb/value.js/css`
+- `@mkbabb/value.js/easing`
+- `@mkbabb/value.js/math`
+- `@mkbabb/value.js/transform`
+- `@mkbabb/value.js/quantize`
 
-| Symbol | Was (internal leaf) | Now (public) |
-|---|---|---|
-| `getColorSpaceBound` | `units/color/constants` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
-| `getColorSpaceDenormUnit` | `units/color/constants` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
-| `oklabToLinearSRGBInto` | `units/color/gamut` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
-| `hsl2rgb` | `units/color/conversions/cylindrical` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
-| `oklch2xyz` | `units/color/conversions/oklab` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
-| `xyz2rgb` | `units/color/conversions/xyz-extended` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
-| `linearToSrgb` | `units/color/conversions/transfer` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
-| `hex2rgb` | `units/color/conversions/hex` | `@mkbabb/value.js` · `@mkbabb/value.js/color` |
+### Breaking
 
-> **Count note (the "count is regenerable, not hardcoded" discipline)**: the ratified slate named
-> **7** (`getColorSpaceBound` + `oklabToLinearSRGBInto` + the 5 conversions). A fresh regeneration
-> of the demo leak-set against the live subpath barrels found an **8th** — `getColorSpaceDenormUnit`,
-> the twin of `getColorSpaceBound` (both resolve per-space component metadata; the demo imports
-> them together in every site: `readoutReservation.ts`, `useSliderGradients.ts`). Promoting one
-> without its twin would leave a lone deep `@src/units/color/constants` import and defeat the
-> keystone. The census's own 5→7 correction under-counted this twin; the regenerated count is 8.
+- Removed the `@mkbabb/value.js` root export, `/parsing`, and `/units`. There are no aliases, compatibility shims, or dual paths.
+- Replaced mutable class-oriented public values with immutable structural color, CSS value, and result types.
+- CSS parsers return `ParseResult<T>`: success carries a value and empty diagnostics; failure carries a non-empty diagnostic tuple.
+- Color, easing, serialization, and quantization operations that can fail return discriminated `Result` values instead of throwing, returning `null`, or substituting an identity/default.
+- Removed legacy timing registries, `ValueUnit`/`ValueArray`/`InterpolatedVar` contracts, raw color-conversion exports, and other root-barrel internals. Consumers import the owning capability and handle failure explicitly.
 
-Note: the five `<from>2<to>` conversion primitives were previously documented as internal-only in
-`src/index.ts`; that block comment is amended to record the Q15 exception.
+### Added and changed
+
+- `/color` owns immutable objects and failure-explicit conversion, mixing, gamut mapping, contrast, hue interpolation, and RGBA projection across 17 spaces.
+- `/css` owns the thirteen CSS-spellable color spaces plus structured value, stylesheet, keyframe, animation/timeline, property, custom-function, and timing grammar with canonical serialization.
+- `/easing` owns named numeric easings and failure-explicit cubic-bezier, stepped, linear, and dynamic lookup constructors.
+- `/value` exposes the structural CSS value union and the single semantic `isLayoutTrackingUnit` classifier.
+- `/math`, `/transform`, and `/quantize` remain DOM-free capability leaves.
+- The package build is unconditional, deletes stale output before emission, and produces declarations for every exact export-map target.
 
 ## [3.1.0] — 2026-07-05 (S.W1 · remediation — ICtCp + Jzazbz land as FULL spaces; the 3.0.0 record corrected)
 

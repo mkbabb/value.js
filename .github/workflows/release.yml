@@ -1,15 +1,13 @@
 # release — publish @mkbabb/value.js to npm on a v*.*.* tag (K.W2 CI/CD lane).
 #
-# Re-runs the release gate (build → lib-typecheck → test) before npm publish so
-# a tag never ships an artifact the gate would reject. value.js is the
+# Re-runs the producer checks (build → lib-typecheck → test), packs one named
+# candidate, preserves its coordinates, and publishes that exact file so a tag
+# never ships bytes the producer checks did not inspect. value.js is the
 # publish-chain root — keyframes.js + glass-ui resolve it via the npm registry,
 # so its tag-publish fires first in the dependency order.
 #
-# K.W2: publishes with npm PROVENANCE (id-token: write) — the W8 gap fix. Version
-# discipline is changesets-driven (.changeset/config.json + `npm run changeset`);
-# the v*.*.* tag is the publish trigger. The release typechecks the PUBLISHED
-# library graph only (tsconfig.lib.json — src/, glass-ui-free), so the publish job
-# needs no glass-ui checkout (the demo is not published).
+# The v*.*.* tag is the publish trigger. The release typechecks the published
+# library graph only (tsconfig.lib.json), so it has no Glass or Keyframes edge.
 name: release
 
 on:
@@ -31,13 +29,121 @@ jobs:
                   node-version: 22
                   registry-url: "https://registry.npmjs.org"
             - run: npm ci
+            - name: lint
+              run: npm run lint
             - name: build
               run: npm run build
             - name: typecheck (published library graph)
               run: npx vue-tsc -p tsconfig.lib.json --noEmit
             - name: test
               run: npx vitest run
-            - name: publish (with provenance)
-              run: npm publish --provenance --access public
+            - name: stamp immutable source identity
+              shell: bash
+              run: |
+                  node --input-type=module <<'NODE'
+                  import { readFileSync, writeFileSync } from "node:fs";
+
+                  const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
+                  const tagVersion = process.env.GITHUB_REF_NAME.replace(/^v/, "");
+                  if (packageJson.version !== tagVersion) {
+                      throw new Error(`tag ${tagVersion} does not match package ${packageJson.version}`);
+                  }
+                  packageJson.gitHead = process.env.GITHUB_SHA;
+                  writeFileSync("package.json", `${JSON.stringify(packageJson, null, 4)}\n`);
+                  NODE
+            - name: pack sole release candidate
+              id: pack
+              shell: bash
+              run: |
+                  set -euo pipefail
+                  npm pack --json --ignore-scripts > /tmp/value-pack.json
+                  node --input-type=module <<'NODE'
+                  import { createHash } from "node:crypto";
+                  import { appendFileSync, readFileSync, writeFileSync } from "node:fs";
+
+                  const [packed] = JSON.parse(readFileSync("/tmp/value-pack.json", "utf8"));
+                  const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
+                  const bytes = readFileSync(packed.filename);
+                  const sha256 = createHash("sha256").update(bytes).digest("hex");
+                  const sha512 = createHash("sha512").update(bytes).digest("hex");
+                  const integrity = `sha512-${createHash("sha512").update(bytes).digest("base64")}`;
+                  const shasum = createHash("sha1").update(bytes).digest("hex");
+                  const manifest = {
+                      package: "@mkbabb/value.js",
+                      version: packageJson.version,
+                      filename: packed.filename,
+                      bytes: bytes.length,
+                      sha256,
+                      sha512,
+                      integrity,
+                      shasum,
+                      commit: process.env.GITHUB_SHA,
+                      gitHead: packageJson.gitHead,
+                      tag: process.env.GITHUB_REF_NAME,
+                      repository: process.env.GITHUB_REPOSITORY,
+                      runId: process.env.GITHUB_RUN_ID,
+                      runAttempt: process.env.GITHUB_RUN_ATTEMPT,
+                  };
+                  writeFileSync("release-candidate.json", `${JSON.stringify(manifest, null, 2)}\n`);
+                  appendFileSync(process.env.GITHUB_OUTPUT, `filename=${packed.filename}\n`);
+                  appendFileSync(process.env.GITHUB_OUTPUT, `sha256=${sha256}\n`);
+                  appendFileSync(process.env.GITHUB_OUTPUT, `integrity=${integrity}\n`);
+                  NODE
+            - name: verify packed runtime and strict declarations
+              run: node scripts/ci/verify-packed-surface.mjs "${{ steps.pack.outputs.filename }}"
+            - name: preserve release candidate
+              uses: actions/upload-artifact@v4
+              with:
+                  name: value-js-${{ github.ref_name }}-release-candidate
+                  path: |
+                      ${{ steps.pack.outputs.filename }}
+                      release-candidate.json
+                  if-no-files-found: error
+                  retention-days: 90
+            - name: publish exact candidate with provenance
+              run: npm publish "${{ steps.pack.outputs.filename }}" --provenance --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            - name: record immutable registry coordinates
+              shell: bash
+              run: |
+                  set -euo pipefail
+                  PACKAGE_VERSION="${GITHUB_REF_NAME#v}"
+                  for attempt in {1..12}; do
+                      if npm view "@mkbabb/value.js@${PACKAGE_VERSION}" version --json > registry-version.json; then
+                          break
+                      fi
+                      if [[ "$attempt" == 12 ]]; then
+                          exit 1
+                      fi
+                      sleep 10
+                  done
+                  npm view "@mkbabb/value.js@${PACKAGE_VERSION}" dist --json > registry-dist.json
+                  npm view "@mkbabb/value.js@${PACKAGE_VERSION}" gitHead --json > registry-git-head.json
+                  node --input-type=module <<'NODE'
+                  import { readFileSync, writeFileSync } from "node:fs";
+
+                  const candidate = JSON.parse(readFileSync("release-candidate.json", "utf8"));
+                  const version = JSON.parse(readFileSync("registry-version.json", "utf8"));
+                  const dist = JSON.parse(readFileSync("registry-dist.json", "utf8"));
+                  const gitHead = JSON.parse(readFileSync("registry-git-head.json", "utf8"));
+                  if (version !== candidate.version) throw new Error(`registry version ${version}`);
+                  if (dist.integrity !== candidate.integrity) throw new Error("registry integrity mismatch");
+                  if (dist.shasum !== candidate.shasum) throw new Error("registry shasum mismatch");
+                  if (gitHead !== candidate.commit) throw new Error("registry gitHead mismatch");
+                  writeFileSync(
+                      "registry-coordinate.json",
+                      `${JSON.stringify({ version, gitHead, dist }, null, 2)}\n`,
+                  );
+                  NODE
+            - name: preserve registry coordinate
+              uses: actions/upload-artifact@v4
+              with:
+                  name: value-js-${{ github.ref_name }}-registry-coordinate
+                  path: |
+                      registry-coordinate.json
+                      registry-version.json
+                      registry-dist.json
+                      registry-git-head.json
+                  if-no-files-found: error
+                  retention-days: 90

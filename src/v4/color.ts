@@ -4,35 +4,38 @@ export type {
     Channel,
     ChannelsBySpace,
     Color,
+    ColorFactory,
     ColorIssue,
     HueInterpolationMethod,
-    Result,
     RGBA8,
     RgbGamut,
     SpaceId,
-} from "../v4/color";
+} from "./color/model";
 export {
     a98Rgb,
-    convertColor,
     displayP3,
     hsl,
     hsv,
     hwb,
     ictcp,
-    interpolateHue,
     jzazbz,
     kelvin,
     lab,
     lch,
     linearSrgb,
-    mapColorToGamut,
-    mixColors,
     oklab,
     oklch,
     prophotoRgb,
     rec2020,
     rgb,
+    xyz,
+} from "./color/model";
+export {
+    convertColor,
+    interpolateHue,
+    mapColorToGamut,
+    mixColors,
     safeAccentColor,
     toRgba8,
-    xyz,
-} from "../v4/color";
+} from "./color/operations";
+export type { Result } from "./result";

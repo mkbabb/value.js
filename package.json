@@ -1,67 +1,51 @@
 {
     "name": "@mkbabb/value.js",
-    "version": "3.1.0",
-    "description": "CSS value units for color, length, angles, & c.",
+    "version": "4.0.0",
+    "description": "Immutable, failure-explicit CSS color, value, easing, transform, math, and quantization capabilities.",
     "license": "MIT",
     "keywords": [
         "css",
         "value",
-        "unit",
-        "value-unit",
-        "css-value-unit",
         "color",
         "color-space",
+        "easing",
+        "transform",
+        "quantization",
+        "palette",
         "rgb",
         "xyz",
         "lab"
     ],
     "type": "module",
-    "main": "./dist/value.js",
-    "types": "./dist/index.d.ts",
-    "sideEffects": [
-        "./demo/**",
-        "**/*.css"
-    ],
+    "sideEffects": false,
     "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/value.js",
-            "default": "./dist/value.js"
-        },
         "./color": {
             "types": "./dist/subpaths/color.d.ts",
-            "import": "./dist/subpaths/color.js",
-            "default": "./dist/subpaths/color.js"
+            "import": "./dist/subpaths/color.js"
         },
-        "./parsing": {
-            "types": "./dist/subpaths/parsing.d.ts",
-            "import": "./dist/subpaths/parsing.js",
-            "default": "./dist/subpaths/parsing.js"
+        "./value": {
+            "types": "./dist/subpaths/value.d.ts",
+            "import": "./dist/subpaths/value.js"
         },
-        "./math": {
-            "types": "./dist/subpaths/math.d.ts",
-            "import": "./dist/subpaths/math.js",
-            "default": "./dist/subpaths/math.js"
+        "./css": {
+            "types": "./dist/subpaths/css.d.ts",
+            "import": "./dist/subpaths/css.js"
         },
         "./easing": {
             "types": "./dist/subpaths/easing.d.ts",
-            "import": "./dist/subpaths/easing.js",
-            "default": "./dist/subpaths/easing.js"
+            "import": "./dist/subpaths/easing.js"
+        },
+        "./math": {
+            "types": "./dist/subpaths/math.d.ts",
+            "import": "./dist/subpaths/math.js"
         },
         "./transform": {
             "types": "./dist/subpaths/transform.d.ts",
-            "import": "./dist/subpaths/transform.js",
-            "default": "./dist/subpaths/transform.js"
-        },
-        "./units": {
-            "types": "./dist/subpaths/units.d.ts",
-            "import": "./dist/subpaths/units.js",
-            "default": "./dist/subpaths/units.js"
+            "import": "./dist/subpaths/transform.js"
         },
         "./quantize": {
             "types": "./dist/subpaths/quantize.d.ts",
-            "import": "./dist/subpaths/quantize.js",
-            "default": "./dist/subpaths/quantize.js"
+            "import": "./dist/subpaths/quantize.js"
         }
     },
     "files": [
@@ -71,33 +55,19 @@
     ],
     "scripts": {
         "dev": "scripts/dev/dev.sh up",
-        "predev:web-only": "test -f dist/value.js || npm run build",
+        "predev:web-only": "npm run build",
         "dev:web-only": "vite --port 9000",
         "build": "vite build --mode production",
         "build:watch": "vite build --mode production --watch",
         "gh-pages": "vite build --mode gh-pages",
-        "prepare": "test -f dist/value.js || npm run build",
-        "bench": "node bench/color-channel-access.mjs && node bench/color2-direct-paths.mjs && node bench/parser-namelookup.mjs && node bench/computed-endpoint.mjs && node bench/color-soa-fold.mjs",
+        "prepare": "rm -rf dist && npm run build",
         "pretypecheck": "npm run build",
         "typecheck": "vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit",
         "lint": "eslint . --max-warnings=0",
-        "test": "vitest",
+        "test": "vitest run",
         "test:e2e": "playwright test",
-        "test:dist": "npm run build && npm run proof:dts-surface && npm run proof:css-parity && npm run proof:round-trip-idempotent && npm run proof:perf-target && npm run proof:serialize-fidelity && npm run proof:subpath-budget && npm run proof:lib-correctness && npm run proof:barrel-parity && npm run proof:pack-manifest && npm run proof:close-ledger",
         "boot-smoke": "node scripts/ci/boot-smoke.mjs",
-        "abrogation-sweep": "node scripts/ci/abrogation-sweep.mjs",
-        "css-emission-probe": "node scripts/ci/css-emission-probe.mjs",
-        "proof:dts-surface": "node scripts/gates/proof-dts-surface.mjs",
-        "proof:css-parity": "node scripts/gates/proof-css-parity.mjs",
-        "proof:round-trip-idempotent": "node scripts/gates/proof-round-trip-idempotent.mjs",
-        "proof:perf-target": "node scripts/gates/proof-perf-target.mjs",
-        "proof:serialize-fidelity": "node scripts/gates/proof-serialize-fidelity.mjs",
-        "proof:subpath-budget": "node scripts/gates/proof-subpath-budget.mjs",
-        "proof:lib-correctness": "node scripts/gates/proof-lib-correctness.mjs",
-        "proof:barrel-parity": "node scripts/gates/proof-barrel-parity.mjs",
-        "proof:pack-manifest": "node scripts/gates/proof-pack-manifest.mjs",
-        "proof:size-graph": "node scripts/gates/proof-size-graph.mjs",
-        "proof:close-ledger": "node scripts/gates/proof-close-ledger.mjs"
+        "css-emission-probe": "node scripts/ci/css-emission-probe.mjs"
     },
     "repository": {
         "type": "git",
@@ -111,21 +81,8 @@
         "url": "https://github.com/mkbabb/value.js/issues"
     },
     "homepage": "https://github.com/mkbabb/value.js#readme",
-    "dependencies": {
-        "@mkbabb/parse-that": "^1.0.0"
-    },
-    "peerDependencies": {
-        "prettier": "^3.0.0"
-    },
-    "peerDependenciesMeta": {
-        "prettier": {
-            "optional": true
-        }
-    },
     "devDependencies": {
         "@lucide/vue": "^1.16.0",
-        "@mkbabb/glass-ui": "file:../glass-ui",
-        "@mkbabb/keyframes.js": "file:../keyframes.js",
         "@playwright/test": "^1.60.0",
         "@tailwindcss/postcss": "^4.3.0",
         "@types/katex": "^0.16.8",

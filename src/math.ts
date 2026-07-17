@@ -83,7 +83,7 @@ export function logerp(start: number, end: number, t: number) {
 }
 
 // De Casteljau's algorithm for Bézier curve evaluation
-export function deCasteljau(t: number, points: number[]) {
+export function deCasteljau(t: number, points: readonly number[]) {
     const n = points.length - 1;
     const b = [...points];
     // Iteratively interpolate points
@@ -98,33 +98,16 @@ export function deCasteljau(t: number, points: number[]) {
 // Cubic Bézier curve evaluation
 export function cubicBezier(t: number, x1: number, y1: number, x2: number, y2: number) {
     // Evaluate x and y components separately
-    return [deCasteljau(t, [0, x1, x2, 1]), deCasteljau(t, [0, y1, y2, 1])];
+    return [deCasteljau(t, [0, x1, x2, 1]), deCasteljau(t, [0, y1, y2, 1])] as const;
 }
 
 // Generalized Bézier curve interpolation
-export function interpBezier(t: number, points: number[][]) {
+export function interpBezier(t: number, points: readonly (readonly [x: number, y: number])[]) {
     // Separate x and y coordinates
     const xCoords = points.map((xy) => xy[0]!);
     const yCoords = points.map((xy) => xy[1]!);
     // Interpolate x and y separately
-    return [deCasteljau(t, xCoords), deCasteljau(t, yCoords)];
-}
-
-export function cubicBezierToSVG(x1: number, y1: number, x2: number, y2: number) {
-    let path = `M${0} ${0}`;
-
-    let points = `
-    <circle cx="${x1}" cy="${y1}"/>
-    <circle cx="${0}" cy="${0}"/>
-    <circle cx="${x2}" cy="${y2}"/>
-    <circle cx="${1}" cy="${1}"/>`;
-
-    for (let t = 0; t <= 1; t += 0.001) {
-        const [x, y] = cubicBezier(t, x1, y1, x2, y2);
-        path += ` L${x} ${y}`;
-    }
-
-    return `<path d="${path}"/>`;
+    return [deCasteljau(t, xCoords), deCasteljau(t, yCoords)] as const;
 }
 
 export function cubicBezierToString(x1: number, y1: number, x2: number, y2: number) {

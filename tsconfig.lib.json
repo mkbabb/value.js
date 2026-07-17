@@ -12,5 +12,16 @@
 //   deleted — proving the library typecheck never depends on glass-ui's build).
 {
     "extends": "./tsconfig.base.json",
-    "include": ["src/"]
+    "include": [
+        "src/subpaths/color.ts",
+        "src/subpaths/value.ts",
+        "src/subpaths/css.ts",
+        "src/subpaths/easing.ts",
+        "src/subpaths/math.ts",
+        "src/subpaths/transform.ts",
+        "src/subpaths/quantize.ts",
+        "src/v4/**/*.ts",
+        "src/math.ts",
+        "src/transform/**/*.ts"
+    ]
 }

@@ -6,25 +6,31 @@
  * Also includes quaternion slerp for smooth rotation interpolation.
  */
 
-export type Vec4 = [number, number, number, number];
-export type Mat4 = number[]; // 16 elements, column-major (WebGL/CSS convention)
+export type Vec4 = readonly [x: number, y: number, z: number, w: number];
+export type Mat4 = readonly [
+    number, number, number, number,
+    number, number, number, number,
+    number, number, number, number,
+    number, number, number, number,
+];
+type MutableMat4 = number[];
 
-export interface DecomposedMatrix2D {
+export type DecomposedMatrix2D = Readonly<{
     translateX: number;
     translateY: number;
     scaleX: number;
     scaleY: number;
     angle: number; // radians
     skew: number; // tan(skew angle)
-}
+}>;
 
-export interface DecomposedMatrix3D {
-    translate: [number, number, number];
-    scale: [number, number, number];
-    skew: [number, number, number]; // [XY, XZ, YZ]
+export type DecomposedMatrix3D = Readonly<{
+    translate: readonly [x: number, y: number, z: number];
+    scale: readonly [x: number, y: number, z: number];
+    skew: readonly [xy: number, xz: number, yz: number];
     quaternion: Vec4;
     perspective: Vec4;
-}
+}>;
 
 // ────────────────────────────────────────────────────────────────
 // 2D Decomposition — CSSOM View spec §15.1
@@ -96,7 +102,7 @@ export function decomposeMatrix2D(
 // ────────────────────────────────────────────────────────────────
 
 /** Create a 4x4 identity matrix (column-major) */
-function mat4Identity(): Mat4 {
+function mat4Identity(): MutableMat4 {
     // prettier-ignore
     return [
         1, 0, 0, 0,
@@ -107,17 +113,17 @@ function mat4Identity(): Mat4 {
 }
 
 /** Get element at (row, col) from a column-major 4x4 matrix */
-function m4Get(m: Mat4, row: number, col: number): number {
+function m4Get(m: readonly number[], row: number, col: number): number {
     return m[col * 4 + row]!;
 }
 
 /** Set element at (row, col) in a column-major 4x4 matrix */
-function m4Set(m: Mat4, row: number, col: number, val: number): void {
+function m4Set(m: MutableMat4, row: number, col: number, val: number): void {
     m[col * 4 + row] = val;
 }
 
 /** Multiply two column-major 4x4 matrices: result = A * B */
-function mat4Multiply(a: Mat4, b: Mat4): Mat4 {
+function mat4Multiply(a: readonly number[], b: readonly number[]): MutableMat4 {
     const result = new Array(16).fill(0);
     for (let col = 0; col < 4; col++) {
         for (let row = 0; row < 4; row++) {
@@ -132,7 +138,7 @@ function mat4Multiply(a: Mat4, b: Mat4): Mat4 {
 }
 
 /** Transpose a column-major 4x4 matrix */
-function mat4Transpose(m: Mat4): Mat4 {
+function mat4Transpose(m: readonly number[]): MutableMat4 {
     const result = new Array(16).fill(0);
     for (let row = 0; row < 4; row++) {
         for (let col = 0; col < 4; col++) {
@@ -143,7 +149,7 @@ function mat4Transpose(m: Mat4): Mat4 {
 }
 
 /** Compute the determinant of a 4x4 matrix */
-function mat4Determinant(m: Mat4): number {
+function mat4Determinant(m: readonly number[]): number {
     const a00 = m[0]!, a01 = m[4]!, a02 = m[8]!, a03 = m[12]!;
     const a10 = m[1]!, a11 = m[5]!, a12 = m[9]!, a13 = m[13]!;
     const a20 = m[2]!, a21 = m[6]!, a22 = m[10]!, a23 = m[14]!;
@@ -158,7 +164,7 @@ function mat4Determinant(m: Mat4): number {
 }
 
 /** Invert a 4x4 matrix. Returns null if singular. */
-function mat4Inverse(m: Mat4): Mat4 | null {
+function mat4Inverse(m: readonly number[]): MutableMat4 | null {
     const det = mat4Determinant(m);
     if (Math.abs(det) < 1e-12) return null;
 
@@ -224,11 +230,11 @@ function vec3Dot(a: [number, number, number], b: [number, number, number]): numb
  *
  * Based on the "unmatrix" algorithm from the CSS Transforms spec.
  */
-export function decomposeMatrix3D(cssValues: number[]): DecomposedMatrix3D | null {
+export function decomposeMatrix3D(cssValues: Mat4): DecomposedMatrix3D | null {
     if (cssValues.length !== 16) return null;
 
     // CSS matrix3d parameter order is already column-major — use directly
-    const m: Mat4 = [...cssValues];
+    const m: MutableMat4 = [...cssValues];
 
     // Step 1: Normalize — divide by m[15] (m44)
     const w = m[15]!;
@@ -236,7 +242,7 @@ export function decomposeMatrix3D(cssValues: number[]): DecomposedMatrix3D | nul
     for (let i = 0; i < 16; i++) m[i] = m[i]! / w;
 
     // Step 2: Perspective
-    const perspective: Vec4 = [0, 0, 0, 1];
+    const perspective: [number, number, number, number] = [0, 0, 0, 1];
     if (
         Math.abs(m[3]!) > 1e-12 ||
         Math.abs(m[7]!) > 1e-12 ||
@@ -437,7 +443,7 @@ export function slerp(qa: Vec4, qb: Vec4, t: number): Vec4 {
  * A negative `scaleX` (the decompose determinant-flip encoding) is carried
  * through verbatim, so a reflected matrix round-trips exactly.
  */
-export function recomposeMatrix2D(d: DecomposedMatrix2D): number[] {
+export function recomposeMatrix2D(d: DecomposedMatrix2D): readonly [number, number, number, number, number, number] {
     const cos = Math.cos(d.angle);
     const sin = Math.sin(d.angle);
 
@@ -454,7 +460,7 @@ export function recomposeMatrix2D(d: DecomposedMatrix2D): number[] {
 /**
  * Recompose a 3D decomposed matrix back into a CSS matrix3d() value array (16 values, column-major CSS order).
  */
-export function recomposeMatrix3D(d: DecomposedMatrix3D): number[] {
+export function recomposeMatrix3D(d: DecomposedMatrix3D): Mat4 {
     // Start with identity
     const m = mat4Identity();
 
@@ -505,7 +511,7 @@ export function recomposeMatrix3D(d: DecomposedMatrix3D): number[] {
     m[8] = m[8]! * sz; m[9] = m[9]! * sz; m[10] = m[10]! * sz; m[11] = m[11]! * sz;
 
     // Already in column-major order (same as CSS matrix3d parameter order)
-    return [...m];
+    return [...m] as unknown as Mat4;
 }
 
 /**
