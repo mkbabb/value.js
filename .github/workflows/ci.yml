@@ -49,3 +49,24 @@ jobs:
                   NODE
             - name: verify packed runtime and strict declarations
               run: node scripts/ci/verify-packed-surface.mjs "${{ steps.pack.outputs.filename }}"
+
+    # api re-gate (V·W45 / bracket B3): the standalone api package typechecks and
+    # runs its full vitest suite (integration tests boot an ephemeral
+    # mongodb-memory-server replica set — no external service). A broken api test
+    # now fails CI, closing the "prod runs untested api code" gap.
+    api:
+        name: api / Node 22
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: api
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: npm
+                  cache-dependency-path: api/package-lock.json
+            - run: npm ci
+            - run: npx tsc --noEmit
+            - run: npm test
