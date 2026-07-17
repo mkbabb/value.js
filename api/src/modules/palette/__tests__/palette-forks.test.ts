@@ -106,7 +106,7 @@ describe("service.palette.forks", () => {
         expect(result.data).toHaveLength(2);
     });
 
-    it("getProvenance walks the fork chain", async () => {
+    it("getProvenance walks the fork chain (public hops carry minimal identity)", async () => {
         await forkPalette(services, {
             sourceSlug: "root",
             slug: "child",
@@ -114,9 +114,37 @@ describe("service.palette.forks", () => {
         });
         const chain = await getProvenance(services, "child");
         expect(chain).toHaveLength(2);
-        expect(chain[0].slug).toBe("child");
-        expect(chain[0].isFork).toBe(true);
-        expect(chain[1].slug).toBe("root");
-        expect(chain[1].isFork).toBe(false);
+        expect(chain[0]).toMatchObject({
+            kind: "palette",
+            ordinal: 0,
+            slug: "child",
+            isFork: true,
+        });
+        expect(chain[1]).toMatchObject({
+            kind: "palette",
+            ordinal: 1,
+            slug: "root",
+            isFork: false,
+        });
+    });
+
+    it("getProvenance collapses a private+trashed ancestor to {kind:'unavailable',ordinal} (V·W45 item 4)", async () => {
+        await forkPalette(services, {
+            sourceSlug: "root",
+            slug: "child",
+            userSlug: "bob",
+        });
+        // Make the ancestor non-public: private AND soft-deleted.
+        await services.repositories.palettes.update("root", {
+            $set: { visibility: "private", deletedAt: new Date() },
+        });
+
+        const chain = await getProvenance(services, "child");
+        expect(chain).toHaveLength(2);
+        // The child itself is still public → a full palette step.
+        expect(chain[0]).toMatchObject({ kind: "palette", slug: "child" });
+        // The hidden ancestor collapses — ONLY kind + ordinal, no lineage.
+        expect(chain[1]).toEqual({ kind: "unavailable", ordinal: 1 });
+        expect(Object.keys(chain[1]).sort()).toEqual(["kind", "ordinal"]);
     });
 });

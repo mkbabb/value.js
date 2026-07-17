@@ -15,11 +15,27 @@
  * `deletedAt` (§5.4 orthogonality).
  */
 
-import type { PaletteVisibility } from "../model.js";
+import type { Palette, PaletteVisibility } from "../model.js";
 import { PALETTE_VISIBILITIES } from "../model.js";
 import type { Services } from "../../../platform/http/inject-services.js";
 import { GoneError, NotFoundError, UnprocessableEntityError } from "../../../platform/http/errors/index.js";
 import { formatPalette, type FormattedPalette } from "../format.js";
+
+/**
+ * The single active-public predicate (V·W45 item 4). A palette is publicly
+ * visible iff its visibility is exactly `public` AND it is not soft-deleted.
+ * Shared by the provenance walk (and available to any detail/social read that
+ * must decide whether a row may cross the public wire) so those surfaces cannot
+ * drift apart. `unlisted`/`private` and trashed rows are NOT active-public.
+ */
+export function isActivePublic(
+    p: Pick<Palette, "visibility" | "deletedAt">,
+): boolean {
+    return (
+        p.visibility === "public" &&
+        (p.deletedAt === null || p.deletedAt === undefined)
+    );
+}
 
 /**
  * inv-I-2 visibility transition guard — the FIRST LIVE caller (J.W1c §5.1).
