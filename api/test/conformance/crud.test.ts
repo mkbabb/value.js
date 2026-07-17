@@ -186,9 +186,9 @@ describe("K.W2 conformance — CRUD-CONTRACT v2 envelope shape", () => {
         expect(body.name).toBe("Renamed");
     });
 
-    // ---- DELETE → RESTORE (soft-delete envelope shapes) ----
+    // ---- DELETE envelope + the RETIRED /restore route (V·W45 item 1) ----
 
-    it("DELETE → {deleted,deletedAt}; restore → full FormattedPalette envelope", async () => {
+    it("DELETE → {deleted,deletedAt}; the legacy /restore route is retired (404)", async () => {
         await create();
         const del = await app.request("/palettes/p", {
             method: "DELETE",
@@ -199,14 +199,14 @@ describe("K.W2 conformance — CRUD-CONTRACT v2 envelope shape", () => {
         expect(Object.keys(delBody).sort()).toEqual(["deleted", "deletedAt"]);
         expect(delBody.deleted).toBe(true);
 
+        // V·W45 item 1: `POST /palettes/:slug/restore` is retired — the drift
+        // anchor. It now resolves to a typed problem+json 404, and no longer
+        // appears on the wire or in the generated OpenAPI (item 6).
         const restore = await app.request("/palettes/p/restore", {
             method: "POST",
             headers: owner,
         });
-        expect(restore.status).toBe(200);
-        const restoreBody = (await restore.json()) as Record<string, unknown>;
-        expect(Object.keys(restoreBody).sort()).toEqual(FORMATTED_PALETTE_KEYS);
-        expect(restoreBody.deletedAt).toBeNull();
+        expect(restore.status).toBe(404);
     });
 
     // ---- PUBLISH / UNPUBLISH in-place idempotency parity ----

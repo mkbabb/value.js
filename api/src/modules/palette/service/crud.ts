@@ -269,41 +269,7 @@ export async function deletePalette(
     return { deleted: true, deletedAt };
 }
 
-export interface RestoreInput {
-    slug: string;
-}
-
-export async function restorePalette(
-    services: Services,
-    input: RestoreInput,
-): Promise<FormattedPalette> {
-    const { slug } = input;
-    const palette = await services.repositories.palettes.findBySlug(slug);
-    if (!palette) throw new NotFoundError("Palette not found");
-    if (palette.deletedAt === null || palette.deletedAt === undefined) {
-        // Already-live restore is a no-op success (idempotent).
-        return formatPalette(palette);
-    }
-    const now = new Date();
-    // N.W3.B — no transaction. Restore is SINGLE-collection: every write here
-    // touches only `palettes` (the doc's own `deletedAt` clear + the parent's
-    // fork-count recompute), so the H1 cross-collection invariant does not
-    // bind. The recompute is itself the heal: `setForkCount` writes the
-    // counted-from-truth value (N.W3.J), so the parent's `forkCount` converges
-    // to its live-fork count on every restore regardless of interleaving — no
-    // transactional isolation required. The clear runs BEFORE the recount so
-    // `countForksOf` (which filters `deletedAt: null`) includes this
-    // just-restored fork.
-    await services.repositories.palettes.update(slug, {
-        $set: { deletedAt: null, updatedAt: now },
-    });
-    if (palette.forkOf) {
-        const liveForks = await services.repositories.palettes.countForksOf(
-            palette.forkOf,
-        );
-        await services.repositories.palettes.setForkCount(palette.forkOf, liveForks);
-    }
-    const restored = await services.repositories.palettes.findBySlug(slug);
-    if (!restored) throw new NotFoundError("Palette not found");
-    return formatPalette(restored);
-}
+// The legacy `restorePalette` (soft-delete undo, behind the retired
+// `POST /:slug/restore` route) is removed at V·W45 item 1. Its parent
+// fork-count recompute primitive (`setForkCount`) survives on the repository;
+// the reaper cascade + the delete-path decrement remain the liveness authority.

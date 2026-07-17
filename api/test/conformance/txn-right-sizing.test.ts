@@ -9,8 +9,8 @@
  *                        returned count is advisory.
  *   - `registerSession`/`loginSession` — orphan user / advisory `lastSeenAt`,
  *                        both reaped/converged by standing sweeps.
- *   - `restorePalette` — single-collection (palettes-only); the fork-count
- *                        recompute is itself the heal.
+ *   (the former single-collection `restorePalette` site was retired with the
+ *    `/restore` route at V·W45 item 1.)
  *
  * This test spies on `services.withTransaction` and asserts the DROPPED sites
  * open ZERO transactions while a representative KEPT cross-collection site
@@ -22,7 +22,7 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
-import { createPalette, restorePalette, deletePalette } from "../../src/modules/palette/service/crud.js";
+import { createPalette, deletePalette } from "../../src/modules/palette/service/crud.js";
 import { toggleVote } from "../../src/modules/palette/service/votes.js";
 import { registerSession, loginSession } from "../../src/modules/session/service/auth.js";
 import { asUserSlug } from "../../src/modules/session/model.js";
@@ -98,20 +98,6 @@ describe("transaction right-sizing (N.W3.B)", () => {
         expect(result.userSlug).toBe("alice");
         expect(txns()).toBe(0);
         expect(await db.collection("sessions").countDocuments({})).toBe(1);
-    });
-
-    it("restorePalette opens NO transaction (single-collection; recompute self-heals)", async () => {
-        await createPalette(services, {
-            body: { name: "R", slug: "r", colors: [{ css: "#fff", position: 0 }], tags: [] },
-            userSlug: "owner",
-        });
-        await deletePalette(services, { slug: "r" }); // kept-txn site, before the spy
-        const txns = spyOnWithTransaction(services);
-        const restored = await restorePalette(services, { slug: "r" });
-        expect(restored.slug).toBe("r");
-        expect(txns()).toBe(0);
-        const doc = await services.repositories.palettes.findBySlug("r");
-        expect(doc?.deletedAt).toBeNull();
     });
 
     it("createPalette (cross-collection — KEPT) still opens exactly one transaction", async () => {

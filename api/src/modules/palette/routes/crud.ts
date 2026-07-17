@@ -28,7 +28,6 @@ import {
     listMine,
     listPalettes,
     patchPalette,
-    restorePalette,
 } from "../service/crud.js";
 import { getOwnedPalette } from "../service/ownership.js";
 
@@ -88,7 +87,7 @@ crudRouter.post("/", async (c) => {
     return c.json(result, 201);
 });
 
-// Owner-extractor shared by PATCH + DELETE + restore — reads the FULL palette
+// Owner-extractor shared by PATCH + DELETE — reads the FULL palette
 // via the service-owned `getOwnedPalette` (inv-L-5: routes never reach into
 // the repository) and STASHES it on `c.var.palette` so the gated handler can
 // reuse that single read for the ETag pre-check + the service write (N.W3.E:
@@ -158,15 +157,9 @@ crudRouter.delete(
     },
 );
 
-// POST /palettes/:slug/restore — restore soft-deleted palette (owner only).
-// I.W2: clears `deletedAt`; restores the palette's fork-count contribution
-// to its parent (if any). Idempotent: restoring a live palette is a no-op.
-crudRouter.post(
-    "/:slug/restore",
-    requireOwnership(paletteOwnerExtractor),
-    async (c) => {
-        const slug = c.req.param("slug");
-        const result = await restorePalette(c.var.services, { slug });
-        return c.json(result);
-    },
-);
+// NOTE (V·W45 item 1): the legacy `POST /:slug/restore` soft-delete-undo route
+// is RETIRED. It was the proven route-table drift anchor (mounted on the wire,
+// absent from the hand-kept `meta/route-table.ts`); the honest release surface
+// is the immutable versions/revert rail (see `routes/versions.ts`), and the
+// generated OpenAPI (item 6) now derives from the mounted registry so it cannot
+// drift. `POST /palettes/:slug/restore` therefore resolves to a typed 404.
