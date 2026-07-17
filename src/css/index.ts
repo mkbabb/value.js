@@ -34,9 +34,6 @@ export type {
     ViewTimelineDescriptor,
 } from "./types";
 export {
-    coerceToSyntax,
-    parseAnimationRange,
-    parseAnimationTimeline,
     parseCssColor,
     parseCssScalar,
     parseCssValue,
@@ -45,6 +42,12 @@ export {
     parseTimingFunction,
     serializeCssColor,
 } from "./grammar";
+export { coerceToSyntax } from "./syntax";
+export {
+    parseAnimationRange,
+    parseAnimationTimeline,
+    serializeTimelineOptions,
+} from "./timeline";
 export {
     collectAnimationOptions,
     collectCustomFunctions,
@@ -54,5 +57,4 @@ export {
     collectStyleRules,
     collectTimelineOptions,
     parseStylesheet,
-    serializeTimelineOptions,
 } from "./stylesheet";

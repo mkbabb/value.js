@@ -20,8 +20,6 @@ import type { Alpha, Channel, ChannelsBySpace, ColorIssue, SpaceId } from "../co
 import type { CssCall, CssList, CssScalar, CssValue } from "../value";
 import { adaptXyzD50ToD65 } from "../color/anchors";
 import type {
-    AnimationRangeValue,
-    AnimationTimelineValue,
     CssColor,
     CssColorSpace,
     CssLinearStop,
@@ -29,9 +27,6 @@ import type {
     KeyframeSelector,
     ParseIssue,
     ParseResult,
-    RangeBoundary,
-    RangePhase,
-    TimelineAxis,
 } from "./types";
 import { NAMED_COLORS } from "./named-colors";
 
@@ -483,176 +478,6 @@ export function parseTimingFunction(source: string): ParseResult<CssTimingFuncti
         return stops.length >= 2 ? success({ kind: "linear-function", stops }) : failure(source);
     }
     return failure(source, "css_syntax", ["timing function"]);
-}
-
-const SYNTAX_COMPONENTS = new Set([
-    "<angle>",
-    "<color>",
-    "<custom-ident>",
-    "<flex>",
-    "<integer>",
-    "<length>",
-    "<length-percentage>",
-    "<number>",
-    "<percentage>",
-    "<resolution>",
-    "<time>",
-    "<transform-function>",
-    "<transform-list>",
-]);
-const LENGTH_UNITS = new Set([
-    "cap", "ch", "cm", "cqb", "cqh", "cqi", "cqmax", "cqmin", "cqw",
-    "dvb", "dvh", "dvi", "dvmax", "dvmin", "dvw", "em", "ex", "ic", "in",
-    "lh", "lvb", "lvh", "lvi", "lvmax", "lvmin", "lvw", "mm", "pc", "pt",
-    "px", "q", "rcap", "rch", "rem", "rex", "ric", "rlh", "svb", "svh",
-    "svi", "svmax", "svmin", "svw", "vb", "vh", "vi", "vmax", "vmin", "vw",
-]);
-const TRANSFORM_FUNCTIONS = new Set([
-    "matrix", "matrix3d", "perspective", "rotate", "rotate3d", "rotatex",
-    "rotatey", "rotatez", "scale", "scale3d", "scalex", "scaley", "scalez",
-    "skew", "skewx", "skewy", "translate", "translate3d", "translatex",
-    "translatey", "translatez",
-]);
-
-function syntaxAlternatives(syntax: string): readonly string[] | null {
-    const alternatives = syntax.split("|").map((part) => part.trim());
-    return alternatives.length > 0
-        && alternatives.every((part) => part === "*" || SYNTAX_COMPONENTS.has(part))
-        ? alternatives
-        : null;
-}
-
-export function isSupportedSyntaxDescriptor(syntax: string): boolean {
-    return syntaxAlternatives(syntax) !== null;
-}
-
-function numeric(value: CssValue): Readonly<{ value: number; unit: string }> | null {
-    return value.kind === "scalar" && value.payload.type === "number"
-        ? value.payload
-        : null;
-}
-
-function isTransformCall(value: CssValue): boolean {
-    return value.kind === "call" && TRANSFORM_FUNCTIONS.has(value.name.toLowerCase());
-}
-
-function matchesSyntax(value: CssValue, component: string): boolean {
-    if (component === "*") return true;
-    if (component === "<color>") {
-        return value.kind === "scalar" && value.payload.type === "color";
-    }
-    if (component === "<custom-ident>") {
-        return value.kind === "scalar"
-            && value.payload.type === "keyword"
-            && !/^(?:initial|inherit|unset|revert|revert-layer|default)$/i.test(value.payload.value);
-    }
-    if (component === "<transform-function>") return isTransformCall(value);
-    if (component === "<transform-list>") {
-        return isTransformCall(value)
-            || value.kind === "list"
-                && value.separator === "space"
-                && value.items.length > 0
-                && value.items.every(isTransformCall);
-    }
-    const token = numeric(value);
-    if (!token) return false;
-    const unit = token.unit.toLowerCase();
-    switch (component) {
-        case "<number>": return unit === "";
-        case "<integer>": return unit === "" && Number.isInteger(token.value);
-        case "<percentage>": return unit === "%";
-        case "<length>": return LENGTH_UNITS.has(unit);
-        case "<length-percentage>": return unit === "%" || LENGTH_UNITS.has(unit);
-        case "<angle>": return ["deg", "grad", "rad", "turn"].includes(unit);
-        case "<time>": return unit === "s" || unit === "ms";
-        case "<resolution>": return ["dpi", "dpcm", "dppx", "x"].includes(unit);
-        case "<flex>": return unit === "fr";
-        default: return false;
-    }
-}
-
-export function coerceToSyntax(source: string, syntax: string): ParseResult<CssValue> {
-    const alternatives = syntaxAlternatives(syntax);
-    if (!alternatives) {
-        return failure(source, "syntax_descriptor_invalid", ["syntax descriptor"]);
-    }
-    const value = parseCssValue(source);
-    if (!value.ok) return value;
-    const matches = alternatives.some((alternative) =>
-        matchesSyntax(value.value, alternative));
-    return matches ? value : failure(source, "syntax_mismatch", alternatives);
-}
-
-const AXES = new Set<TimelineAxis>(["block", "inline", "x", "y"]);
-const SCROLLERS = new Set(["nearest", "root", "self"] as const);
-const LENGTH_PERCENTAGE = /^auto$|^[+-]?(?:\d+\.?\d*|\.\d+)(?:%|[a-z]+)?$/i;
-export function parseAnimationTimeline(source: string): ParseResult<AnimationTimelineValue> {
-    const input = source.trim();
-    const lower = input.toLowerCase();
-    if (lower === "auto" || lower === "none") return success({ kind: lower });
-    const scroll = input.match(/^scroll\((.*)\)$/i);
-    if (scroll) {
-        const args = splitTopLevel(scroll[1]!.replace(/,/g, " "), "space");
-        const result: { kind: "scroll"; scroller?: "nearest" | "root" | "self"; axis?: TimelineAxis } = { kind: "scroll" };
-        for (const arg of args) {
-            const token = arg.toLowerCase();
-            if (SCROLLERS.has(token as "nearest" | "root" | "self") && result.scroller === undefined) {
-                result.scroller = token as "nearest" | "root" | "self";
-            } else if (AXES.has(token as TimelineAxis) && result.axis === undefined) {
-                result.axis = token as TimelineAxis;
-            }
-            else return failure(source, "timeline_option_invalid", ["scroll timeline"]);
-        }
-        return success(result);
-    }
-    const view = input.match(/^view\((.*)\)$/i);
-    if (view) {
-        const args = splitTopLevel(view[1]!.replace(/,/g, " "), "space");
-        const result: { kind: "view"; axis?: TimelineAxis; inset?: { start: string; end?: string } } = { kind: "view" };
-        const inset: string[] = [];
-        for (const arg of args) {
-            const token = arg.toLowerCase();
-            if (AXES.has(token as TimelineAxis) && result.axis === undefined) result.axis = token as TimelineAxis;
-            else if (LENGTH_PERCENTAGE.test(arg) && inset.length < 2) inset.push(arg);
-            else return failure(source, "timeline_option_invalid", ["view timeline"]);
-        }
-        if (inset[0]) result.inset = inset[1] ? { start: inset[0], end: inset[1] } : { start: inset[0] };
-        return success(result);
-    }
-    return /^--[-\w]+$/.test(input) ? success({ kind: "name", name: input }) : failure(source, "timeline_option_invalid", ["timeline"]);
-}
-
-const RANGE_PHASES = new Set<RangePhase>(["normal", "cover", "contain", "entry", "exit", "entry-crossing", "exit-crossing"]);
-function rangeBoundary(tokens: string[]): RangeBoundary | null {
-    if (tokens.length === 0 || tokens.length > 2) return null;
-    const phase = tokens[0]?.toLowerCase() as RangePhase;
-    if (RANGE_PHASES.has(phase)) {
-        return tokens[1] === undefined
-            ? { phase }
-            : LENGTH_PERCENTAGE.test(tokens[1]) ? { phase, offset: tokens[1] } : null;
-    }
-    return tokens.length === 1 && tokens[0] !== undefined && LENGTH_PERCENTAGE.test(tokens[0])
-        ? { offset: tokens[0] }
-        : null;
-}
-export function parseAnimationRange(source: string): ParseResult<AnimationRangeValue> {
-    const input = source.trim();
-    const comma = splitTopLevel(input, ",");
-    if (comma.length > 2) return failure(source, "timeline_option_invalid", ["animation range"]);
-    if (comma.length === 2) {
-        const start = rangeBoundary(splitTopLevel(comma[0]!, "space"));
-        const end = rangeBoundary(splitTopLevel(comma[1]!, "space"));
-        return start && end ? success({ start, end }) : failure(source, "timeline_option_invalid", ["animation range"]);
-    }
-    const tokens = splitTopLevel(input, "space");
-    const single = rangeBoundary(tokens);
-    if (single) return success({ start: single });
-    for (const split of [2, 1]) {
-        const start = rangeBoundary(tokens.slice(0, split));
-        const end = rangeBoundary(tokens.slice(split));
-        if (start && end) return success({ start, end });
-    }
-    return failure(source, "timeline_option_invalid", ["animation range"]);
 }
 
 export { success, failure, splitTopLevel };

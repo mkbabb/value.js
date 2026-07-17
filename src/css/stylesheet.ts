@@ -1,10 +1,6 @@
 import type { CssList, CssScalar, CssValue } from "../value";
 import {
-    coerceToSyntax,
     failure,
-    isSupportedSyntaxDescriptor,
-    parseAnimationRange,
-    parseAnimationTimeline,
     parseCssValue,
     parseKeyframeSelector,
     parseTimingFunction,
@@ -12,6 +8,8 @@ import {
     splitTopLevel,
     success,
 } from "./grammar";
+import { coerceToSyntax, isSupportedSyntaxDescriptor } from "./syntax";
+import { parseAnimationRange, parseAnimationTimeline } from "./timeline";
 import type {
     AnimationRangeValue,
     AnimationTimelineValue,
@@ -899,42 +897,3 @@ export function collectTimelineOptions(declarations: readonly Declaration[]): CS
     };
 }
 
-function serializeTimeline(value: AnimationTimelineValue): string {
-    switch (value.kind) {
-        case "auto": case "none": return value.kind;
-        case "name": return value.name;
-        case "scroll": return `scroll(${[value.scroller, value.axis].filter(Boolean).join(" ")})`;
-        case "view": return `view(${[value.axis, value.inset?.start, value.inset?.end].filter(Boolean).join(" ")})`;
-    }
-}
-function serializeRange(value: AnimationRangeValue): string {
-    const boundary = (item: AnimationRangeValue["start"]) => [item.phase, item.offset].filter(Boolean).join(" ");
-    return [boundary(value.start), value.end ? boundary(value.end) : ""].filter(Boolean).join(" ");
-}
-function serializeScope(value: TimelineScopeValue): string {
-    return value.kind === "names" ? value.names.join(", ") : value.kind;
-}
-function serializeTrigger(value: AnimationTriggerValue): string {
-    return [
-        value.type,
-        value.timeline ? serializeTimeline(value.timeline) : undefined,
-        value.range ? serializeRange(value.range) : undefined,
-    ].filter(Boolean).join(" ");
-}
-export function serializeTimelineOptions(options: CSSTimelineOptions): Readonly<{
-    "animation-timeline"?: string;
-    "animation-range"?: string;
-    "timeline-scope"?: string;
-    "animation-trigger"?: string;
-}> {
-    return {
-        ...(options.timelines?.length
-            ? { "animation-timeline": options.timelines.map(serializeTimeline).join(", ") }
-            : options.timeline ? { "animation-timeline": serializeTimeline(options.timeline) } : {}),
-        ...(options.range ? { "animation-range": serializeRange(options.range) } : {}),
-        ...(options.timelineScope ? {
-            "timeline-scope": serializeScope(options.timelineScope),
-        } : {}),
-        ...(options.trigger ? { "animation-trigger": serializeTrigger(options.trigger) } : {}),
-    };
-}
