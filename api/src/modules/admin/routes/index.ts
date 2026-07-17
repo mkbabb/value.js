@@ -19,7 +19,7 @@
 
 import { Hono } from "hono";
 import type { AppEnv } from "../../../types.js";
-import { adminAuth } from "../admin-auth.js";
+import { adminAuth } from "../auth.js";
 import audit from "./audit.js";
 import batch from "./batch.js";
 import colors from "./colors.js";

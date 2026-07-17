@@ -23,7 +23,7 @@
  *             content-type) AND the request body-hash with a 24h expiry.
  *
  * Store: the in-process `LRU` at `cache/lru.ts` — the SAME primitive
- * `rate-limit.ts` + `resolve-session.ts` use. NOT a Mongo collection: this
+ * `rate-limit.ts` + `session/resolve.ts` use. NOT a Mongo collection: this
  * keeps the replay store bounded (FIFO + TTL eviction) and avoids a write per
  * mutation. Consequence — like rate-limit, the store is PER-PROCESS, so the
  * 24h durability is best-effort and does NOT survive a restart or span

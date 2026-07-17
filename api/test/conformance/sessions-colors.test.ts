@@ -23,7 +23,7 @@ import type { Db, MongoClient } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
 import sessions from "../../src/modules/session/routes.js";
 import colors from "../../src/modules/color/routes.js";
-import { resolveSession } from "../../src/modules/session/resolve-session.js";
+import { resolveSession } from "../../src/modules/session/resolve.js";
 import { toResponseEnvelope } from "../../src/platform/http/errors/index.js";
 import { asUserSlug, hashSessionToken } from "../../src/modules/session/model.js";
 import type { AppEnv } from "../../src/types.js";

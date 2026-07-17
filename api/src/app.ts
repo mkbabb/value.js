@@ -16,7 +16,7 @@ import { corsHeaders } from "./platform/http/cors.js";
 import { idempotency } from "./platform/http/idempotency.js";
 import { injectServices } from "./platform/http/inject-services.js";
 import { rateLimit } from "./platform/http/rate-limit.js";
-import { resolveSession } from "./modules/session/resolve-session.js";
+import { resolveSession } from "./modules/session/resolve.js";
 import { sanitizeBody } from "./platform/http/sanitize-body.js";
 import { toResponseEnvelope } from "./platform/http/errors/index.js";
 import { palettes } from "./modules/palette/routes/index.js";
