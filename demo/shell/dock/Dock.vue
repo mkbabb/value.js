@@ -2,7 +2,7 @@
 import { computed, inject, ref, watch, useTemplateRef } from "vue";
 import { Check, Undo2, ArrowLeft, Paintbrush } from "@lucide/vue";
 import { GlassDock, DockLayerGroup, DockLayer } from "./";
-import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
+import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import ActionBarToggle from "./ActionBarToggle.vue";
 import ActionBarLayer from "./layers/ActionBarLayer.vue";
@@ -140,8 +140,8 @@ watch(
                         <!-- W6-8 register pass: native `title` retired dock-wide —
                              icon-only controls carry aria-label (the UA tooltip slab
                              is a foreign register on the liquid-glass dock). -->
-                        <DockIconButton aria-label="Save edit" @click="emit('commitEdit')"><Check class="w-5 h-5" :style="{ color: safeAccent }" /></DockIconButton>
-                        <DockIconButton aria-label="Cancel edit" @click="emit('cancelEdit')"><Undo2 class="w-5 h-5" /></DockIconButton>
+                        <DockControl aria-label="Save edit" @click="emit('commitEdit')"><Check class="w-5 h-5" :style="{ color: safeAccent }" /></DockControl>
+                        <DockControl aria-label="Cancel edit" @click="emit('cancelEdit')"><Undo2 class="w-5 h-5" /></DockControl>
                     </DockLayer>
 
                     <!-- Slug edit layer -->
@@ -151,7 +151,7 @@ watch(
 
                     <!-- Action bar layer -->
                     <DockLayer v-if="hasAnyActionBar" id="action-bar">
-                        <DockIconButton class="shrink-0" aria-label="Back" @click="actionBarLayerActive = false"><ArrowLeft class="w-6 h-6" /></DockIconButton>
+                        <DockControl class="shrink-0" aria-label="Back" @click="actionBarLayerActive = false"><ArrowLeft class="w-6 h-6" /></DockControl>
                         <DockSeparator />
                         <ActionBarLayer v-if="actionBar" :action-bar="actionBar" :edit-target="editTarget" @open-palette="onActionBarOpenPalette" @open-extract="onActionBarOpenExtract" />
                         <GenericActionBar v-else-if="genericBar" :actions="genericBar.actions.value" :accent-color="genericBar.accentColor ?? safeAccent" />

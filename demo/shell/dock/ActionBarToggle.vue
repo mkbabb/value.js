@@ -2,7 +2,7 @@
 import { ref, watch } from "vue";
 import type { Component } from "vue";
 import { ArrowRight } from "@lucide/vue";
-import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
+import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 
 /**
  * <ActionBarToggle> — the dock's Tools trigger + its animated presence slot
@@ -83,7 +83,7 @@ function onSlotSettled(e: TransitionEvent) {
             <!-- T-36 (§0.6 rider): the TRUE-BUTTON box-model — dock-tools-btn
                  steps the compact register's 4px sticker seat up to the
                  Button-primitive px-3/py-2 scale (the scoped rule below). -->
-            <DockIconButton
+            <DockControl
                 compact
                 class="dock-tools-btn"
                 :class="{ 'is-active': active }"
@@ -101,7 +101,7 @@ function onSlotSettled(e: TransitionEvent) {
                      layer (one enter/exit motif); Tools SWAPS the dock layer,
                      so it wears the layer grammar. -->
                 <ArrowRight class="w-3 h-3 text-muted-foreground hidden lg:block" />
-            </DockIconButton>
+            </DockControl>
         </div>
     </div>
 </template>

@@ -78,7 +78,7 @@
                     </span>
                 </div>
 
-                <Badge variant="destructive" class="text-mono-caption shrink-0">
+                <Badge tone="destructive" class="text-mono-caption shrink-0">
                     {{ item.flagCount }}
                 </Badge>
 

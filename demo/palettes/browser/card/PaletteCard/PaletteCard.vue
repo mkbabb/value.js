@@ -167,7 +167,7 @@ import { Button } from "../../../../ui/button";
 import { Award, MoreHorizontal, GripVertical } from "@lucide/vue";
 import type { Palette, PaletteColor } from "../../../types";
 import { getPaletteKind, type PaletteKind } from "../../../utils";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui";
 import { useLiquidPress } from "@mkbabb/glass-ui/motion";
 import { useSafeAccentFn } from "../../../../color-session/useContrastSafeColor";
 import { useHoverPopover } from "../composables/useHoverPopover";
@@ -291,7 +291,7 @@ function handleMenuAction(action: string) {
     // `rename` opens an inline input — keep the menu open visually until the
     // input takes focus; all other actions close the menu immediately.
     const actions: Record<string, () => void> = {
-        copyAll: () => copyToClipboard(props.palette.colors.map((c) => c.css).join(", ")),
+        copyAll: () => void writeClipboard(props.palette.colors.map((c) => c.css).join(", ")),
         publish: () => emit("publish", props.palette),
         delete: () => emit("delete", props.palette),
         save: () => emit("save", props.palette),
@@ -330,7 +330,7 @@ function onPopoverEdit(color: PaletteColor, index: number) {
 
 function onPopoverCopy(css: string) {
     openPopoverIndex.value = null;
-    copyToClipboard(css);
+    void writeClipboard(css);
 }
 </script>
 

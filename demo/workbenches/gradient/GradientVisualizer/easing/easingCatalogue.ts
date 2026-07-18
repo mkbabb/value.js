@@ -122,7 +122,7 @@ function bezierTile(name: string, family: string, label: string): SpecimenTile {
             fn,
             points: [...points] as BezierPoints,
             steps: 4,
-            term: "end",
+            term: "jump-end",
         }),
     };
 }

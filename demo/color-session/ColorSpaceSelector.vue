@@ -42,7 +42,7 @@
         <SelectTrigger
             aria-label="Select color space"
             variant="ghost"
-            size="audacious"
+            size="default"
             :style="{ '--space-title-ink': safeAccent }"
             :class="[
                 'space-trigger inline-flex w-fit h-fit align-baseline font-display italic tracking-tight select-none [&>span]:overflow-visible [&>span]:line-clamp-none [&>span]:block [&_svg]:translate-y-[0.06em]',

@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { computed, inject } from "vue";
 import {
-    Share2, Check, LogIn, LogOut, Copy, RefreshCw, MoreVertical,
+    Share2, Check, LogIn, LogOut, Copy, RefreshCw, MoreVertical, Moon, Sun,
 } from "@lucide/vue";
-import { DarkModeToggle } from "@mkbabb/glass-ui/controls";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
     DropdownMenuSeparator, DropdownMenuLabel,
 } from "../../../ui/dropdown-menu";
-import { DockDropdownTrigger } from "@mkbabb/glass-ui/dock";
+import { DockTrigger } from "@mkbabb/glass-ui/dock";
 import { Avatar, AvatarImage } from "../../../ui/avatar";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
 import { useSafeAccentFn } from "../../../color-session/useContrastSafeColor";
@@ -32,15 +31,15 @@ const emit = defineEmits<{
 
 const open = defineModel<boolean>("open", { default: false });
 const pm = inject(SESSION_PORT_KEY)!;
-const { toggleDark } = useGlobalDark();
+const { isDark, toggleDark } = useGlobalDark();
 </script>
 
 <template>
     <div class="lg:hidden flex items-center">
         <DropdownMenu v-model:open="open">
-            <DockDropdownTrigger aria-label="Menu">
+            <DockTrigger for="dropdown" aria-label="Menu">
                 <MoreVertical class="w-6 h-6" />
-            </DockDropdownTrigger>
+            </DockTrigger>
             <DropdownMenuContent align="end" class="min-w-menu font-display">
                 <!-- Login / slug section -->
                 <template v-if="pm.userSlug.value">
@@ -78,7 +77,7 @@ const { toggleDark } = useGlobalDark();
 
                 <!-- @mbabb section -->
                 <div class="flex items-center gap-2 px-2 py-1.5">
-                    <Avatar class="w-7 h-7">
+                    <Avatar decorative class="w-7 h-7">
                         <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
                     </Avatar>
                     <div>
@@ -101,9 +100,13 @@ const { toggleDark } = useGlobalDark();
                 <DropdownMenuSeparator />
                 <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
                     <!-- W6-8: native `title` retired (the row's own "Dark mode"
-                         text is the accessible name; the passive glyph is
-                         decorative). -->
-                    <DarkModeToggle passive aria-hidden="true" class="aspect-square w-4" />
+                         text is the accessible name; the glyph is decorative).
+                         V-W44: Glass 7's DarkModeToggle is a native interactive
+                         theme command (no `passive` mode) — nesting it inside
+                         this already-clickable row would double-toggle, so the
+                         decorative state glyph is a plain theme-reflecting icon. -->
+                    <Moon v-if="isDark" class="aspect-square w-4" aria-hidden="true" />
+                    <Sun v-else class="aspect-square w-4" aria-hidden="true" />
                     Dark mode
                 </DropdownMenuItem>
             </DropdownMenuContent>

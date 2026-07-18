@@ -5,7 +5,6 @@ import PaneHeader from "../../shared/ui/PaneHeader.vue";
 import GenerateControls from "./GenerateControls.vue";
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
-import { copyToClipboard } from "@mkbabb/glass-ui";
 import type { PaletteColor } from "../../palettes/types";
 
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;

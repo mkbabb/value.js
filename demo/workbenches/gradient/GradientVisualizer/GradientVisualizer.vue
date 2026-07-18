@@ -9,8 +9,8 @@ import {
 } from "../../../ui/select";
 import { Slider } from "../../../ui/slider";
 import { Copy } from "@lucide/vue";
-import { copyToClipboard } from "@mkbabb/glass-ui";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
+import { writeClipboard } from "@mkbabb/glass-ui";
+import { DockControl } from "@mkbabb/glass-ui/dock";
 import GradientStopEditor from "./GradientStopEditor.vue";
 import GradientCodeEditor from "./GradientCodeEditor.vue";
 import GradientEasingEditor from "./GradientEasingEditor.vue";
@@ -125,7 +125,7 @@ function resetGradient() {
 }
 
 async function copyCSS() {
-    await copyToClipboard(coalescedCSS.value);
+    await writeClipboard(coalescedCSS.value);
 }
 
 defineExpose({ resetGradient, copyCSS, seedFromPalette });
@@ -251,9 +251,9 @@ defineExpose({ resetGradient, copyCSS, seedFromPalette });
         <hr class="border-border" />
         <div class="flex items-center justify-between">
             <h3 class="font-display text-subheading text-muted-foreground">CSS</h3>
-            <DockIconButton compact title="Copy CSS" @click="copyCSS">
+            <DockControl compact title="Copy CSS" @click="copyCSS">
                 <Copy class="w-5 h-5" />
-            </DockIconButton>
+            </DockControl>
         </div>
         <GradientCodeEditor
             :model-value="simpleCSS"

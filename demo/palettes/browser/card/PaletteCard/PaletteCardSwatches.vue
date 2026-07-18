@@ -13,7 +13,7 @@
             <button
                 class="p-0.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 :aria-label="`Copy slug ${displaySlug}`"
-                @click="copyToClipboard(displaySlug)"
+                @click="writeClipboard(displaySlug)"
             >
                 <Copy class="w-3 h-3 text-muted-foreground" aria-hidden="true" />
             </button>
@@ -68,7 +68,7 @@
 
 <script setup lang="ts">
 import { Copy, Pencil, Plus } from "@lucide/vue";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui";
 import type { PaletteColor } from "../../../types";
 import SwatchHoverMenu from "../SwatchHoverMenu.vue";
 

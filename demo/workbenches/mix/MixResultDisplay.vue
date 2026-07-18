@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Copy, Check, Save, RotateCcw } from "@lucide/vue";
-import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
-import { computed, ref, TransitionGroup } from "vue";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
+import { computed, TransitionGroup } from "vue";
+import { useClipboard } from "@mkbabb/glass-ui";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import type { MixResult } from "./composables/useMixingState";
 
@@ -27,7 +27,9 @@ const emit = defineEmits<{
     reset: [];
 }>();
 
-const copied = ref(false);
+// Glass 7: scope-owned confirmation state replaces the hand-rolled copy+timer.
+const { status, copy } = useClipboard({ resetMs: 1500 });
+const copied = computed(() => status.value === "success");
 
 // The well wears the pigment that is about to land: the result color, or the
 // palette's first swatch (the pool lands on slot 0 — spatially true).
@@ -41,9 +43,7 @@ async function onCopy() {
     const text = result.type === "color"
         ? result.css ?? ""
         : result.colors?.map((c) => c.css).join(", ") ?? "";
-    await copyToClipboard(text);
-    copied.value = true;
-    setTimeout(() => { copied.value = false; }, 1500);
+    await copy(text);
 }
 </script>
 
@@ -118,28 +118,28 @@ async function onCopy() {
 
                 <!-- Actions -->
                 <div class="flex items-center gap-1">
-                    <DockIconButton
+                    <DockControl
                         compact
                         :title="copied ? 'Copied!' : 'Copy color'"
                         @click="onCopy"
                     >
                         <component :is="copied ? Check : Copy" class="w-5 h-5" />
-                    </DockIconButton>
-                    <DockIconButton
+                    </DockControl>
+                    <DockControl
                         compact
                         title="Save to palettes"
                         @click="emit('save')"
                     >
                         <Save class="w-5 h-5" />
-                    </DockIconButton>
+                    </DockControl>
                     <DockSeparator />
-                    <DockIconButton
+                    <DockControl
                         compact
                         title="Reset"
                         @click="emit('reset')"
                     >
                         <RotateCcw class="w-5 h-5" />
-                    </DockIconButton>
+                    </DockControl>
                 </div>
             </div>
         </Transition>

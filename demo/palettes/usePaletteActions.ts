@@ -1,6 +1,6 @@
 import { ref, computed, type Ref } from "vue";
 
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui";
 import { useSession } from "../platform/auth/useSession";
 import { useUserAuth } from "../platform/auth/useUserAuth";
 import { createAndSavePalette } from "./api";
@@ -131,7 +131,7 @@ export function usePaletteActions(deps: {
     }
 
     function onDotClick(cssColorOpaque: string) {
-        copyToClipboard(cssColorOpaque);
+        void writeClipboard(cssColorOpaque);
     }
 
     return {

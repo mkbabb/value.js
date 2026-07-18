@@ -108,9 +108,10 @@ describe("O-6 — the T-26 bracket resolver (Q2-NOW)", () => {
 
     it("T-32 — the zones knob: count sits AT the producer ceiling; the scattered prior spreads the six across the frame", () => {
         // The owner rider (MANDATE §0.5): "a few more zones". The count half
-        // is producer-gated — MAX_NUCLEI = 6 is a shader #define; a raise
-        // beyond it CLAMPS (probed: count 8/9 → 6 nuclei). The demo landing
-        // is the legibility half: the scattered placement prior.
+        // is producer-gated — MAX_NUCLEI is a shader #define; a raise beyond it
+        // CLAMPS. Glass 7 raised the ceiling from 6 → 8 (probed: count 9 → 8
+        // nuclei). The demo landing keeps the count-6 default; the legibility
+        // half is the scattered placement prior.
         expect(DEFAULT_AURORA_ATOMS.zones).toEqual({
             count: 6,
             arrangement: "scattered",
@@ -121,13 +122,13 @@ describe("O-6 — the T-26 bracket resolver (Q2-NOW)", () => {
         });
         expect(landed.nuclei.length).toBe(6); // the ceiling, fully used
         // A count "raise" cannot exceed the ceiling at this dist — the clamp
-        // is the producer-book witness (re-judged at W7 on the P1 cut).
+        // is the producer-book witness (Glass 7 ceiling = 8; count 9 clamps).
         const clamped = resolveCalibratedAtmosphere({
             ...DEFAULT_AURORA_ATOMS,
             zones: { count: 9, arrangement: "scattered" },
             seed: MID_C_SEED,
         });
-        expect(clamped.nuclei.length).toBe(6);
+        expect(clamped.nuclei.length).toBe(8);
         // The legibility axis: scattered's spread covers the frame; composed
         // parks the lattice inside the middle-thirds band (the blur cause).
         const spreadOf = (nuclei: { x: number; y: number }[]) => {

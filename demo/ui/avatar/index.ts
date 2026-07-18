@@ -1,1 +1,1 @@
-export { Avatar, AvatarImage, AvatarFallback, avatarVariants, type AvatarVariants } from "@mkbabb/glass-ui";
+export { Avatar, AvatarImage, AvatarFallback } from "@mkbabb/glass-ui";

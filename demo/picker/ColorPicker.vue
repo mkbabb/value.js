@@ -135,7 +135,7 @@ import { useHeaderCondense } from "./composables/useHeaderCondense";
 import "./seat.css";
 import "./header.css";
 
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui";
 import SpectrumCanvas from "./controls/SpectrumCanvas/SpectrumCanvas.vue";
 import ComponentSliders from "./controls/ComponentSliders/ComponentSliders.vue";
 import PointerDebugOverlay from "./visual/PointerDebugOverlay.vue";
@@ -322,7 +322,7 @@ const actionBarContext: ActionBarContext = {
     reset: () => emit("reset"),
     copy: () => {
         updateModel({ inputColor: formattedCurrentColor.value });
-        copyToClipboard(formattedCurrentColor.value);
+        void writeClipboard(formattedCurrentColor.value);
     },
     random: () => setCurrentColor(generateRandomColor(model.value.selectedColorSpace)),
 };

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed, inject, provide, ref, useTemplateRef } from "vue";
+import { computed, inject, provide, ref, useTemplateRef, watch, type Ref } from "vue";
 import { EllipsisVertical, Type, Tag } from "@lucide/vue";
 import { COLOR_MODEL_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import type { ActionBarContext } from "../../../color-session/keys";
 import ActionToolbar from "../ActionToolbar.vue";
 import ColorInput from "../ColorInput.vue";
-import { DockIconButton, DockSeparator, useLayerTransition } from "@mkbabb/glass-ui/dock";
+import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import type { EditTarget } from "../../../color-session/color-model";
 
 const { actionBar, editTarget } = defineProps<{
@@ -51,11 +51,35 @@ const currentToggleIcon = computed(() => {
 });
 
 // ── Sub-layer transition (actions ↔ input) ──
-// glass-ui's `useLayerTransition` owns the size-morph + crossfade off ONE spring
-// scalar (`--dock-morph-t`); it exposes the post-swap `currentLayer` + the fading
-// `leavingLayer` refs. The per-id class/inert packaging the consumer template needs
-// is the same binding glass-ui's own DockLayerGroup applies — derived here so the
-// two call sites (`actions`/`input`) stay a single v-bind.
+// V-W44 (Glass 7): glass-ui removed the standalone `useLayerTransition`
+// composable — the layer size-morph + crossfade folded INTO the DockCrossfade
+// component, which internalizes the class/inert packaging this template hand-
+// binds and offers no public composable successor. This local successor
+// preserves the exact two-refs contract the template needs: `currentLayer`
+// flips immediately on swap; `leavingLayer` holds the prior id for the
+// crossfade window, then clears. (Relay note for glass: a public
+// content-swap composable would retire this local shim.)
+const SUB_LAYER_CROSSFADE_MS = 260;
+function useLayerTransition(opts: {
+    containerEl: Ref<HTMLElement | null>;
+    activeLayer: Ref<string>;
+}) {
+    void opts.containerEl; // signature parity with the retired producer composable
+    const currentLayer = ref(opts.activeLayer.value);
+    const leavingLayer = ref<string | null>(null);
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    watch(opts.activeLayer, (next, prev) => {
+        if (next === prev) return;
+        currentLayer.value = next;
+        leavingLayer.value = prev ?? null;
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => {
+            leavingLayer.value = null;
+        }, SUB_LAYER_CROSSFADE_MS);
+    });
+    return { currentLayer, leavingLayer };
+}
+
 const subLayerGridEl = useTemplateRef<HTMLElement>("subLayerGridEl");
 const activeSubLayer = computed(() => (showInput.value ? "input" : "actions"));
 const { currentLayer: currentSubLayer, leavingLayer: leavingSubLayer } =
@@ -102,7 +126,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
         <!-- Toggle button — E.W3 Lane A added aria-label so the role/label
              selectors in e2e/smoke/flows/color-propose.spec.ts can drive
              the actions→input→propose cycle. -->
-        <DockIconButton
+        <DockControl
             class="shrink-0"
             :aria-label="toolbarMode === 'actions' ? 'Open color input' : toolbarMode === 'input' ? (actionBar.canProposeName.value ? 'Propose color name' : 'Close input') : 'Close propose'"
             @click="cycleToolbarMode"
@@ -115,7 +139,7 @@ defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode });
                     :style="{ '--toggle-hover-color': safeAccent }"
                 />
             </Transition>
-        </DockIconButton>
+        </DockControl>
     </div>
 </template>
 

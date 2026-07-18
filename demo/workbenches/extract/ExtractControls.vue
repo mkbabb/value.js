@@ -37,22 +37,22 @@
 
         <!-- Controls row: upload, kC slider, reset -->
         <div class="flex items-center gap-2">
-            <DockIconButton
+            <DockControl
                 title="Upload image"
                 :style="{ '--btn-hover-color': cssColor }"
                 @click="$emit('upload')"
             >
                 <Upload class="w-5 h-5 transition-colors" />
-            </DockIconButton>
+            </DockControl>
 
             <!-- Camera capture (T20 — the unified workbench capability) -->
-            <DockIconButton
+            <DockControl
                 title="Open camera"
                 :style="{ '--btn-hover-color': cssColor }"
                 @click="$emit('camera')"
             >
                 <Camera class="w-5 h-5 transition-colors" />
-            </DockIconButton>
+            </DockControl>
 
             <DockSeparator />
 
@@ -80,14 +80,14 @@
 
             <DockSeparator />
 
-            <DockIconButton
+            <DockControl
                 :disabled="disabled || !hasImage"
                 title="Reset"
                 :style="{ '--btn-hover-color': cssColor }"
                 @click="$emit('reset')"
             >
                 <RotateCcw class="w-5 h-5 transition-colors" />
-            </DockIconButton>
+            </DockControl>
         </div>
     </div>
 </template>
@@ -95,7 +95,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { Upload, Camera, RotateCcw } from "@lucide/vue";
-import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
+import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { Slider } from "../../ui/slider";
 import { useSafeAccentFn } from "../../color-session/useContrastSafeColor";
 import { GRAPHICS_CONTRAST_FLOOR } from "../../color-session/ink";

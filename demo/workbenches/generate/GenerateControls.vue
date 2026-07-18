@@ -11,7 +11,7 @@ import { Slider } from "../../ui/slider";
 import { Button } from "../../ui/button";
 import { Badge } from "../../ui/badge";
 import { RefreshCw, Save, Copy } from "@lucide/vue";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 import { PaletteColorStrip } from "../../palettes/browser/card";
 // T.W6 · W6-4→N (T-17, the intra-wave single-writer clause): Lane D authored
@@ -104,12 +104,12 @@ function save() {
 }
 
 async function copyColors() {
-    await copyToClipboard(palette.value.join(", "));
+    await writeClipboard(palette.value.join(", "));
 }
 
 /** Per-swatch copy — the specimen face's one direct verb. */
 async function copyColor(css: string) {
-    await copyToClipboard(css);
+    await writeClipboard(css);
 }
 
 defineExpose({ regenerate, save, copyColors });

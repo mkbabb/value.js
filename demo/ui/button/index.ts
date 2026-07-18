@@ -1,1 +1,1 @@
-export { Button, buttonVariants, type ButtonVariants } from "@mkbabb/glass-ui";
+export { Button } from "@mkbabb/glass-ui";

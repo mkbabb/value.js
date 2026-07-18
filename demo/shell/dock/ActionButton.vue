@@ -1,13 +1,14 @@
 <template>
-    <HoverCard
+    <Popover
         v-if="!hidden"
+        trigger="hover"
         :open="isOpen"
         @update:open="onHoverOpenChange"
         :close-delay="0"
         :open-delay="300"
         class="pointer-events-auto"
     >
-        <HoverCardTrigger as-child>
+        <PopoverTrigger as-child>
             <!-- W5-a11y: native <button> for keyboard reach, focus-visible ring, and Enter/Space activation -->
             <button
                 type="button"
@@ -30,27 +31,27 @@
                 />
                 <span v-if="label" class="action-label">{{ label }}</span>
             </button>
-        </HoverCardTrigger>
-        <HoverCardContent class="pointer-events-auto font-display">
+        </PopoverTrigger>
+        <PopoverContent class="pointer-events-auto font-display">
             <div>
-                <!-- T.W4-6 (T-15/F7): the hover-card TITLE speaks the display
+                <!-- T.W4-6 (T-15/F7): the popover TITLE speaks the display
                      voice on its own class list — the bare `text-subheading`
                      set the body family directly on this node, silently
                      overriding the parent's `font-display` intent. -->
                 <p class="font-display font-medium text-subheading">{{ title }}</p>
                 <p class="text-small text-muted-foreground">{{ description }}</p>
             </div>
-        </HoverCardContent>
-    </HoverCard>
+        </PopoverContent>
+    </Popover>
 </template>
 
 <script setup lang="ts">
 import { computed, ref, type Component } from "vue";
 import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
-} from "../../ui/hover-card";
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "../../ui/popover";
 import { useOptionalDockContext } from "@mkbabb/glass-ui/dock";
 
 const dock = useOptionalDockContext();

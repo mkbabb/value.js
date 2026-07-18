@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { computed, inject } from "vue";
 import {
-    Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle,
+    Share2, Check, LogIn, LogOut, Copy, RefreshCw, UserCircle, Moon, Sun,
 } from "@lucide/vue";
 import { DockSeparator } from "@mkbabb/glass-ui/dock";
 import { Button } from "../../../ui/button";
-import { DarkModeToggle } from "@mkbabb/glass-ui/controls";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuItem,
@@ -41,7 +40,7 @@ const profileMenuOpen = defineModel<boolean>("profileMenuOpen", { default: false
 const mbabbMenuOpen = defineModel<boolean>("mbabbMenuOpen", { default: false });
 
 const pm = inject(SESSION_PORT_KEY)!;
-const { toggleDark } = useGlobalDark();
+const { isDark, toggleDark } = useGlobalDark();
 </script>
 
 <template>
@@ -143,7 +142,7 @@ const { toggleDark } = useGlobalDark();
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" class="min-w-menu font-display">
                 <div class="flex items-center gap-2 px-2 py-1.5">
-                    <Avatar class="w-7 h-7">
+                    <Avatar decorative class="w-7 h-7">
                         <AvatarImage src="https://avatars.githubusercontent.com/u/2848617?v=4" />
                     </Avatar>
                     <div>
@@ -167,9 +166,13 @@ const { toggleDark } = useGlobalDark();
                 <DropdownMenuSeparator />
                 <DropdownMenuItem class="text-small gap-2 cursor-pointer" @select.prevent @click="toggleDark()">
                     <!-- W6-8: native `title` retired (the row's own "Dark mode"
-                         text is the accessible name; the passive glyph is
-                         decorative). -->
-                    <DarkModeToggle passive aria-hidden="true" class="aspect-square w-4" />
+                         text is the accessible name; the glyph is decorative).
+                         V-W44: Glass 7's DarkModeToggle is a native interactive
+                         theme command (no `passive` mode) — nesting it inside
+                         this already-clickable row would double-toggle, so the
+                         decorative state glyph is a plain theme-reflecting icon. -->
+                    <Moon v-if="isDark" class="aspect-square w-4" aria-hidden="true" />
+                    <Sun v-else class="aspect-square w-4" aria-hidden="true" />
                     Dark mode
                 </DropdownMenuItem>
             </DropdownMenuContent>

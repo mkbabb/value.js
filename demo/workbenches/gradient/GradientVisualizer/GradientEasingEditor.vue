@@ -24,9 +24,9 @@
  * only through P7's declarative `autoplay`/`playing` door — never a DOM
  * drive.
  */
-import { computed, onBeforeUnmount, ref } from "vue";
+import { computed, ref } from "vue";
 import { Check, ChevronDown, Copy, SlidersHorizontal } from "@lucide/vue";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { useClipboard } from "@mkbabb/glass-ui";
 import type { EasingPickerValue } from "@mkbabb/glass-ui/easing";
 import { serializeIntervalRamp } from "../composables/useGradientCSS";
 import EasingAuthoringStage from "./easing/EasingAuthoringStage.vue";
@@ -70,10 +70,6 @@ function toggleInterval(index: number) {
     openInterval.value = openInterval.value === index ? null : index;
 }
 
-onBeforeUnmount(() => {
-    if (copyTimer !== null) clearTimeout(copyTimer);
-});
-
 function onTileSelect(index: number, tile: SpecimenTile) {
     // The tile and authoring canvas write the same complete interval value.
     emit("update-interval", index, tile.payload());
@@ -92,17 +88,18 @@ function toggleTune(index: number) {
 }
 
 // ── The readout copy (the row's ONE literal export) ──
+// Glass 7: scope-owned confirmation state replaces the hand-rolled copy+timer.
+// `copiedIndex` still tracks WHICH row copied; `copiedRow` gates it on the
+// live success status so the tick clears itself when the status resets.
+const { status: copyStatus, copy } = useClipboard({ resetMs: 1400 });
 const copiedIndex = ref<number | null>(null);
-let copyTimer: ReturnType<typeof setTimeout> | null = null;
+const copiedRow = computed(() =>
+    copyStatus.value === "success" ? copiedIndex.value : null,
+);
 
 async function copyLiteral(index: number, css: string) {
-    await copyToClipboard(css);
     copiedIndex.value = index;
-    if (copyTimer !== null) clearTimeout(copyTimer);
-    copyTimer = setTimeout(() => {
-        copiedIndex.value = null;
-        copyTimer = null;
-    }, 1400);
+    await copy(css);
 }
 </script>
 
@@ -181,10 +178,10 @@ async function copyLiteral(index: number, css: string) {
                     <button
                         type="button"
                         class="rail-btn shrink-0"
-                        :aria-label="copiedIndex === row.index ? 'Copied' : `Copy ${row.css}`"
+                        :aria-label="copiedRow === row.index ? 'Copied' : `Copy ${row.css}`"
                         @click="copyLiteral(row.index, row.css)"
                     >
-                        <Check v-if="copiedIndex === row.index" class="w-3.5 h-3.5 rail-tick" />
+                        <Check v-if="copiedRow === row.index" class="w-3.5 h-3.5 rail-tick" />
                         <Copy v-else class="w-3.5 h-3.5" />
                     </button>
                     <button

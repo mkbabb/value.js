@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ArrowLeft, Shield } from "@lucide/vue";
-import { DockSelectTrigger } from "@mkbabb/glass-ui/dock";
+import { DockTrigger } from "@mkbabb/glass-ui/dock";
 import {
     Select, SelectContent, SelectGroup, SelectItem, SelectValue,
 } from "../../ui/select";
@@ -63,7 +63,8 @@ const pm = inject(SESSION_PORT_KEY)!;
              accent: it is the W7-1 morph clause's continuity carrier (the seal
              rim grows into this ring — one hue held the whole way). The
              producer-side ring consume is the filed L13/W7-1 ask. -->
-        <DockSelectTrigger
+        <DockTrigger
+            for="select"
             aria-label="Select view"
             class="view-select-trigger text-small font-display font-normal [&>span]:line-clamp-none"
             :style="{ '--dock-ring': isAdminMode ? 'var(--color-gold)' : 'var(--accent-view)' }"
@@ -84,7 +85,7 @@ const pm = inject(SESSION_PORT_KEY)!;
                 />
             </Transition>
             <SelectValue v-if="isDesktop" />
-        </DockSelectTrigger>
+        </DockTrigger>
         <!-- B.W1: kept wider than --menu-min-w — long view-option labels need the space -->
         <SelectContent class="min-w-[12rem]">
             <SelectGroup class="text-small font-display">

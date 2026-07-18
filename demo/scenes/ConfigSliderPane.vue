@@ -20,7 +20,7 @@ import { Copy, RotateCcw } from "@lucide/vue";
 import { GlassDock } from "@mkbabb/glass-ui/dock";
 import { ConfiguratorRow } from "@mkbabb/glass-ui/configurator";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui";
 
 /** A single slider definition inside a section. `key` may be a dot-path
  *  (e.g. `geometry.bodyRadius`) addressing a nested config atom. */
@@ -86,7 +86,7 @@ function fmt(v: number): string {
 }
 
 async function copyAsJson() {
-    await copyToClipboard(JSON.stringify(config, null, 2));
+    await writeClipboard(JSON.stringify(config, null, 2));
 }
 
 function resetDefaults() {

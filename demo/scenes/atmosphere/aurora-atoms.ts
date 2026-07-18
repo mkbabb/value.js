@@ -61,9 +61,11 @@ export const DEFAULT_AURORA_ATOMS: AuroraAtoms = {
     // the spatial-drift register that actually moves the atmosphere over time.
     motion: "drifting",
     // W6-7 (owner ruling §1.3): the mouse influences the field. The producer
-    // aurora SHIPS the pointer door — `interactivity.light` drives the movable
-    // impasto light (cursor-as-light + idle orbit, PRM-gated at the runtime by
-    // the master tempo). The demo feeds the cursor from useAtmosphere's window
-    // pointermove wiring; this atom arms the light's cursor-pull.
-    interactivity: { light: true },
+    // aurora SHIPS the pointer door — on a SMOOTH medium the cursor axis is
+    // `swirl` (Glass 7 gates `light` to painterly/textured media only;
+    // `AuroraSmoothInteractivityAtom` types `light?: never`). `swirl` reads as
+    // the local luminance-lean the smooth field responds with. The demo feeds
+    // the cursor from useAtmosphere's window pointermove wiring; this atom arms
+    // the smooth field's cursor-pull.
+    interactivity: { swirl: true },
 };

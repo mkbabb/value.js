@@ -11,7 +11,7 @@
 import { nextTick, useTemplateRef, watch } from "vue";
 import { useMediaQuery } from "@vueuse/core";
 import { FadingScroll } from "@mkbabb/glass-ui/fading-scroll";
-import { ToggleChip } from "@mkbabb/glass-ui/toggle-chip";
+import { Chip } from "@mkbabb/glass-ui/chip";
 import { SPECIMEN_FAMILIES } from "./easingCatalogue";
 import type { SpecimenTile } from "./easingCatalogue";
 
@@ -95,10 +95,11 @@ watch(
             >
                 <span class="family-eyebrow" aria-hidden="true">{{ fam.family }}</span>
                 <div class="family-tiles">
-                    <ToggleChip
+                    <Chip
                         v-for="tile in fam.tiles"
                         :key="tile.id"
-                        variant="cell"
+                        mode="selectable"
+                        shape="cell"
                         class="specimen-tile"
                         :model-value="tile.id === selectedId"
                         :aria-label="tile.id"
@@ -113,7 +114,7 @@ watch(
                             <path :d="tile.glyph" vector-effect="non-scaling-stroke" />
                         </svg>
                         <span class="tile-label">{{ tile.label }}</span>
-                    </ToggleChip>
+                    </Chip>
                 </div>
             </div>
         </div>
@@ -157,8 +158,8 @@ watch(
 }
 
 /* The tile: a micro cell — portrait over variant label. The producer
-   ToggleChip cell recipe carries press/hover semantics + the pressed wash;
-   the seat sizes it to specimen scale. */
+   Chip cell recipe (mode="selectable" shape="cell") carries press/hover
+   semantics + the pressed wash; the seat sizes it to specimen scale. */
 .specimen-tile {
     display: flex;
     flex-direction: column;

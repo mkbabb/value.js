@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, nextTick, inject, useTemplateRef } from "vue";
 import { LogIn, ArrowRight, RefreshCw, X as XIcon, Loader2 } from "@lucide/vue";
-import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
+import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { SESSION_PORT_KEY } from "../../../palettes/usePalettePorts";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui";
 
 const pm = inject(SESSION_PORT_KEY)!;
 
@@ -66,7 +66,7 @@ async function onSlugSubmit() {
 }
 
 function onCopySlug() {
-    if (pm.userSlug.value) copyToClipboard(pm.userSlug.value);
+    if (pm.userSlug.value) void writeClipboard(pm.userSlug.value);
 }
 
 defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
@@ -88,7 +88,7 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
         <!-- W6-8 register pass: native `title` retired dock-wide — icon-only
              controls carry aria-label (the UA tooltip slab is a foreign
              register on the liquid-glass dock). -->
-        <DockIconButton
+        <DockControl
             compact
             type="submit"
             aria-label="Switch to slug"
@@ -96,24 +96,24 @@ defineExpose({ onStartSlugEdit, onCopySlug, slugSwitching });
         >
             <Loader2 v-if="slugSwitching" class="w-3.5 h-3.5 animate-spin" />
             <ArrowRight v-else class="w-3.5 h-3.5" />
-        </DockIconButton>
+        </DockControl>
     </form>
 
     <DockSeparator />
 
-    <DockIconButton
+    <DockControl
         compact
         aria-label="Generate new slug"
         @click="slugEditMode = false; pm.onRegenerateSlug()"
     >
         <RefreshCw class="w-3.5 h-3.5" />
-    </DockIconButton>
+    </DockControl>
 
-    <DockIconButton
+    <DockControl
         compact
         aria-label="Cancel"
         @click="slugEditMode = false"
     >
         <XIcon class="w-3.5 h-3.5" />
-    </DockIconButton>
+    </DockControl>
 </template>

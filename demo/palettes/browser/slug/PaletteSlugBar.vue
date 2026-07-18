@@ -42,22 +42,22 @@
         <!-- Default mode -->
         <div v-else key="slug-default" class="flex items-center gap-1.5">
             <!-- Slug pill (logged in) -->
-            <HoverCard v-if="userSlug" :close-delay="0" :open-delay="300">
-                <HoverCardTrigger as-child>
+            <Popover v-if="userSlug" trigger="hover" :close-delay="0" :open-delay="300">
+                <PopoverTrigger as-child>
                     <span
                         class="slug-pill cursor-help"
                         :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
                     >
                         {{ userSlug }}
                     </span>
-                </HoverCardTrigger>
-                <HoverCardContent class="text-small font-display w-56">
+                </PopoverTrigger>
+                <PopoverContent class="text-small font-display w-56">
                     <p class="font-bold">Your slug</p>
                     <p class="text-muted-foreground text-caption mt-1">
                         This is your unique identity. Use it to sign in from any device and access your palettes.
                     </p>
-                </HoverCardContent>
-            </HoverCard>
+                </PopoverContent>
+            </Popover>
 
             <!-- Admin pill -->
             <span
@@ -132,7 +132,6 @@ import { ref, nextTick } from "vue";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import { Button } from "../../../ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "../../../ui/hover-card";
 import {
     Loader2,
     Copy,
@@ -143,7 +142,7 @@ import {
     LogOut,
     RefreshCw,
 } from "@lucide/vue";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { writeClipboard } from "@mkbabb/glass-ui";
 
 const { userSlug, cssColorOpaque, hasSavedPalettes, isAdmin } = defineProps<{
     userSlug: string | null;
@@ -167,7 +166,7 @@ const slugError = ref("");
 const searchBarRef = ref<InstanceType<typeof SearchBar> | null>(null);
 
 function onCopySlug() {
-    if (userSlug) copyToClipboard(userSlug);
+    if (userSlug) void writeClipboard(userSlug);
 }
 
 function onStartSlugEdit() {

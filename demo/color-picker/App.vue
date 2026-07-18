@@ -188,7 +188,7 @@ import { usePaneRouter } from "../shell/usePaneRouter";
 import { usePaletteWiring } from "./composables/usePaletteWiring";
 import { provideApiClient } from "../platform/transport/useApiClient";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { useClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
 import { resolveHydratedBootModel } from "./composables/boot/hydrate";
@@ -357,16 +357,13 @@ const paletteManager = usePaletteWiring(
 );
 
 // --- Share link ---
-const linkCopied = ref(false);
-let linkCopiedTimer: ReturnType<typeof setTimeout> | undefined;
+// Glass 7: scope-owned confirmation state replaces the hand-rolled copy+timer;
+// `linkCopied` (a prop feed to the dock) derives off the reactive status.
+const { status: linkCopyStatus, copy: copyLink } = useClipboard({ resetMs: 2000 });
+const linkCopied = computed(() => linkCopyStatus.value === "success");
 
 const shareLink = async () => {
-    const success = await copyToClipboard(window.location.href);
-    if (success) {
-        linkCopied.value = true;
-        clearTimeout(linkCopiedTimer);
-        linkCopiedTimer = setTimeout(() => { linkCopied.value = false; }, 2000);
-    }
+    await copyLink(window.location.href);
 };
 
 // --- URL sync + persistence precedence (S.W2 · W2-1; re-scoped T.W2 · W2-1) ---

@@ -79,6 +79,10 @@
         "url": "https://github.com/mkbabb/value.js/issues"
     },
     "homepage": "https://github.com/mkbabb/value.js#readme",
+    "dependencies": {
+        "@mkbabb/glass-ui": "^7.0.0",
+        "@mkbabb/keyframes.js": "^6.0.0"
+    },
     "devDependencies": {
         "@lucide/vue": "^1.16.0",
         "@playwright/test": "^1.60.0",

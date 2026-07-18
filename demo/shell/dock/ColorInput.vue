@@ -1,11 +1,12 @@
 <template>
     <div class="grid grid-cols-1 gap-y-2 p-0 m-0">
-        <HoverCard
+        <Popover
+            trigger="hover"
             :close-delay="0"
             :open-delay="300"
             class="pointer-events-auto w-full"
         >
-            <HoverCardTrigger as-child>
+            <PopoverTrigger as-child>
                 <div class="relative w-full flex items-center cursor-default">
                     <span
                         ref="inputColorRef"
@@ -88,10 +89,10 @@
                         >
                     </Transition>
                 </div>
-            </HoverCardTrigger>
+            </PopoverTrigger>
 
-            <HoverCardContent v-if="!proposeMode" class="pointer-events-auto font-display w-full">
-                <!-- T.W4-6 (T-15/F7): hover-card title → display voice, ≤500
+            <PopoverContent v-if="!proposeMode" class="pointer-events-auto font-display w-full">
+                <!-- T.W4-6 (T-15/F7): popover title → display voice, ≤500
                      non-bold (the `font-bold` 700 dies with the sweep). -->
                 <p class="font-display font-medium text-subheading">Enter a color</p>
                 <p>
@@ -106,18 +107,19 @@
                 <!-- E4 (Q10): the Parse-Lab echo (AST + gamut verdict). -->
                 <Separator class="my-2" />
                 <ParseEchoReadout />
-            </HoverCardContent>
-        </HoverCard>
+            </PopoverContent>
+        </Popover>
     </div>
 </template>
 
 <script setup lang="ts">
 import { computed, inject, onMounted, ref, useTemplateRef, watch } from "vue";
+import { writeClipboard } from "@mkbabb/glass-ui";
 import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
-} from "../../ui/hover-card";
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "../../ui/popover";
 import {
     Tooltip,
     TooltipContent,
@@ -150,7 +152,6 @@ const {
     parseAndSetColorDebounced,
     parseError,
     updateModel,
-    copyToClipboard,
 } = inject(COLOR_MODEL_KEY)!;
 
 const safeAccent = inject(SAFE_ACCENT_KEY)!;
@@ -218,7 +219,7 @@ const onSubmitColor = () => {
 const copyAndSetInputColor = () => {
     const color = formattedCurrentColor.value;
     updateModel({ inputColor: color });
-    copyToClipboard(color);
+    void writeClipboard(color);
 };
 
 // Propose name state

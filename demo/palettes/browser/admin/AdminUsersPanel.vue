@@ -154,27 +154,31 @@
             </div>
         </div>
 
-        <!-- Confirmation dialog -->
-        <ConfirmDialog
-            v-model:open="confirmOpen"
-            :title="confirmTitle"
-            :confirm-label="confirmLabel"
-            :destructive="confirmDestructive"
-            @confirm="confirmAction?.()"
-        >
-            {{ confirmDescription }}
-            <!-- Ag-11: slug-pill class replaces copy-pasted cluster -->
-            <span
-                v-if="confirmSlug"
-                class="slug-pill inline-block align-middle mx-0.5"
-                :style="{ color: safeAccent, borderColor: safeAccent }"
-            >{{ confirmSlug }}</span>
-            <template v-if="confirmSlug"> and all associated data. This cannot be undone.</template>
-            <template #action>
-                <Trash2 class="w-3.5 h-3.5" />
-                {{ confirmLabel }}
-            </template>
-        </ConfirmDialog>
+        <!-- Confirmation dialog (Glass 7: ConfirmDialog folded onto the Dialog family) -->
+        <Dialog v-model:open="confirmOpen">
+            <DialogContent surface="glass" :show-close="false">
+                <DialogHeader>
+                    <DialogTitle>{{ confirmTitle }}</DialogTitle>
+                    <DialogDescription>
+                        {{ confirmDescription }}
+                        <!-- Ag-11: slug-pill class replaces copy-pasted cluster -->
+                        <span
+                            v-if="confirmSlug"
+                            class="slug-pill inline-block align-middle mx-0.5"
+                            :style="{ color: safeAccent, borderColor: safeAccent }"
+                        >{{ confirmSlug }}</span>
+                        <template v-if="confirmSlug"> and all associated data. This cannot be undone.</template>
+                    </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                    <Button emphasis="text" @click="confirmOpen = false">Cancel</Button>
+                    <Button :tone="confirmDestructive ? 'destructive' : 'neutral'" @click="onConfirm">
+                        <Trash2 class="w-3.5 h-3.5" />
+                        {{ confirmLabel }}
+                    </Button>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
     </div>
 </template>
 
@@ -183,7 +187,14 @@ import { inject, ref, computed, Transition } from "vue";
 import { SAFE_ACCENT_KEY } from "../../../color-session/keys";
 import { Button } from "../../../ui/button";
 import { Badge } from "../../../ui/badge";
-import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+} from "@mkbabb/glass-ui/dialog";
 import { Loader2, Trash2, Eraser, RefreshCw } from "@lucide/vue";
 import type { Palette, User } from "../../types";
 import { ADMIN_PORT_KEY } from "../../usePalettePorts";
@@ -264,6 +275,14 @@ function showConfirm(opts: {
     confirmDestructive.value = opts.destructive ?? false;
     confirmAction.value = opts.action;
     confirmOpen.value = true;
+}
+
+// Glass 7 folded ConfirmDialog onto the Dialog family: the confirm action now
+// fires from the composed footer button, then the dialog closes (the old
+// ConfirmDialog auto-close, made explicit at the call site).
+function onConfirm() {
+    confirmAction.value?.();
+    confirmOpen.value = false;
 }
 
 function onPruneClick() {

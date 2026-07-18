@@ -1,5 +1,4 @@
 import { computed, ref, watch, type ShallowRef } from "vue";
-import { copyToClipboard } from "@mkbabb/glass-ui";
 import { debounce } from "../shared/utils";
 import {
     PICKER_CHANNELS,
@@ -328,8 +327,6 @@ export function useColorPipeline(model: ShallowRef<ColorModel>) {
         // App-level entry points
         resetToDefaults,
         restoreFromStorage,
-        // Clipboard
-        copyToClipboard,
         // Constants
         DIGITS,
     };

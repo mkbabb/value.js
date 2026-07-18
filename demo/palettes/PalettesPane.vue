@@ -98,20 +98,28 @@
                 </PaletteCardGrid>
             </div>
 
-            <!-- Delete all confirmation -->
-            <ConfirmDialog
-                v-model:open="pm.showDeleteAllConfirm.value"
-                title="Delete all saved palettes?"
-                :description="`This will permanently delete ${pm.savedPalettes.value.length} palette${pm.savedPalettes.value.length !== 1 ? 's' : ''} from local storage. This cannot be undone.`"
-                confirm-label="Delete all"
-                destructive
-                @confirm="pm.onDeleteAllSaved"
-            >
-                <template #action>
-                    <Trash2 class="w-3.5 h-3.5" />
-                    Delete all
-                </template>
-            </ConfirmDialog>
+            <!-- Delete all confirmation (Glass 7: ConfirmDialog folded onto the Dialog family) -->
+            <Dialog v-model:open="pm.showDeleteAllConfirm.value">
+                <DialogContent surface="glass" :show-close="false">
+                    <DialogHeader>
+                        <DialogTitle>Delete all saved palettes?</DialogTitle>
+                        <DialogDescription>
+                            This will permanently delete {{ pm.savedPalettes.value.length }}
+                            palette{{ pm.savedPalettes.value.length !== 1 ? "s" : "" }}
+                            from local storage. This cannot be undone.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter>
+                        <Button emphasis="text" @click="pm.showDeleteAllConfirm.value = false">
+                            Cancel
+                        </Button>
+                        <Button tone="destructive" @click="pm.onDeleteAllSaved()">
+                            <Trash2 class="w-3.5 h-3.5" />
+                            Delete all
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </div>
     </Card>
 </template>
@@ -130,7 +138,14 @@ import {
     PaletteCard,
     PaletteCardGrid,
 } from "./browser/card";
-import { ConfirmDialog } from "@mkbabb/glass-ui/confirm-dialog";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogDescription,
+    DialogFooter,
+} from "@mkbabb/glass-ui/dialog";
 import { SearchBar } from "@mkbabb/glass-ui/search";
 import PaneHeader from "../shared/ui/PaneHeader.vue";
 import type { Palette } from "./types";

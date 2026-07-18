@@ -8,9 +8,9 @@
         <div class="absolute inset-0 z-popover flex flex-col glass-floating rounded-panel overflow-hidden" style="--vj-enter-y: 0px">
             <!-- Top bar -->
             <div class="flex items-center gap-2 px-3 py-2 shrink-0" :style="{ '--hover-color': sampledColor ?? '' }">
-                <DockIconButton class="eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">
+                <DockControl class="eyedropper-action-btn" title="Close eyedropper" @click="emit('close')">
                     <X class="w-4 h-4 transition-[transform,color]" />
-                </DockIconButton>
+                </DockControl>
 
                 <DockSeparator />
 
@@ -41,20 +41,20 @@
 
                 <!-- Action buttons (visible after pinning) -->
                 <template v-if="pinned">
-                    <DockIconButton
+                    <DockControl
                         class="eyedropper-action-btn"
                         title="Add to palette"
                         @click="onAddToPalette"
                     >
                         <Plus class="w-4 h-4 transition-[transform,color]" />
-                    </DockIconButton>
-                    <DockIconButton
+                    </DockControl>
+                    <DockControl
                         class="eyedropper-action-btn"
                         title="Apply as current color"
                         @click="onApplyColor"
                     >
                         <Check class="w-4 h-4 transition-[transform,color]" />
-                    </DockIconButton>
+                    </DockControl>
                 </template>
             </div>
 
@@ -92,7 +92,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, computed, watch, nextTick, useTemplateRef } from "vue";
 import { X, Plus, Check } from "@lucide/vue";
-import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
+import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
 import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
 
 import { useInertiaGesture } from "./composables/useInertiaGesture";

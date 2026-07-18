@@ -46,14 +46,14 @@
                         <div
                             class="absolute inset-x-0 bottom-0 flex justify-center p-2.5 bg-gradient-to-t from-stage/50 to-transparent"
                         >
-                            <DockIconButton
+                            <DockControl
                                 compact
                                 class="p-1.5 bg-on-stage-chrome/20 hover:bg-on-stage-chrome/40 backdrop-blur-sm"
                                 title="Capture frame"
                                 @click="captureFrame"
                             >
                                 <Aperture class="w-4.5 h-4.5 text-on-stage-chrome" />
-                            </DockIconButton>
+                            </DockControl>
                         </div>
                     </div>
                 </Transition>
@@ -184,7 +184,7 @@
 <script setup lang="ts">
 import { ref, inject, onBeforeUnmount, useTemplateRef } from "vue";
 import { Aperture } from "@lucide/vue";
-import { DockIconButton } from "@mkbabb/glass-ui/dock";
+import { DockControl } from "@mkbabb/glass-ui/dock";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import type { SpaceId } from "@mkbabb/value.js/color";
 import { CSS_COLOR_KEY } from "../../color-session/keys";
