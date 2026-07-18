@@ -1,22 +1,12 @@
 <script setup>
-import { xyz2oklab, oklab2xyz } from "@src/units/color/conversions/oklab?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
-import { Katex } from "@components/custom/katex";
-import {
-    COLOR_SPACE_DENORM_UNITS,
-    COLOR_SPACE_NAMES,
-    COLOR_SPACE_RANGES,
-} from "@src/units/color/constants";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-const { l, a, b } = getFormattedColorSpaceRange("oklab");
-
+import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
 ### Attributes
 
--   `L`: Lightness ({{l.min}} to {{l.max}})
--   `a`: Green-Red axis ({{a.min}} to {{a.max}})
--   `b`: Blue-Yellow axis ({{b.min}} to {{b.max}})
+-   `L`: Lightness (0 to 1)
+-   `a`: Green-Red axis (negative green, positive red)
+-   `b`: Blue-Yellow axis (negative blue, positive yellow)
 
 ### Historical Context
 
@@ -77,15 +67,11 @@ Two matrix multiplications sandwiching a cube root. The first maps XYZ to LMS co
 
 <Katex expression="\begin{bmatrix} l \\ m \\ s \end{bmatrix} = M_1 \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}, \quad \begin{bmatrix} L \\ a \\ b \end{bmatrix} = M_2 \begin{bmatrix} \sqrt[3]{l} \\ \sqrt[3]{m} \\ \sqrt[3]{s} \end{bmatrix}" />
 
-<div v-html="xyz2oklab" />
-
 ### OKLab to XYZ
 
 The inverse: undo the linear transform, cube to reverse the perceptual compression, then map back to XYZ:
 
 <Katex expression="\begin{bmatrix} l' \\ m' \\ s' \end{bmatrix} = M_2^{-1} \begin{bmatrix} L \\ a \\ b \end{bmatrix}, \quad \begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_1^{-1} \begin{bmatrix} l'^3 \\ m'^3 \\ s'^3 \end{bmatrix}" />
-
-<div v-html="oklab2xyz" />
 
 ---
 

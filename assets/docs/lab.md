@@ -1,22 +1,12 @@
 <script setup>
-import { xyz2lab, lab2xyz } from "@src/units/color/conversions/lab?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
-import { Katex } from "@components/custom/katex";
-import {
-    COLOR_SPACE_DENORM_UNITS,
-    COLOR_SPACE_NAMES,
-    COLOR_SPACE_RANGES,
-} from "@src/units/color/constants";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-const { l, a, b } = getFormattedColorSpaceRange("lab");
-
+import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
 ### Attributes
 
--   `L*`: Lightness ({{l.min}} to {{l.max}})
--   `a*`: Green-Red axis ({{a.min}} to {{a.max}})
--   `b*`: Blue-Yellow axis ({{b.min}} to {{b.max}})
+-   `L*`: Lightness (0 to 100)
+-   `a*`: Green-Red axis (negative green, positive red)
+-   `b*`: Blue-Yellow axis (negative blue, positive yellow)
 
 ### Historical Context
 
@@ -83,8 +73,6 @@ Normalize XYZ by the reference white point, apply a piecewise function that appr
 
 where <Katex expression="\epsilon = \tfrac{216}{24389}" :display-mode="false" /> and <Katex expression="\kappa = \tfrac{24389}{27}" :display-mode="false" />.
 
-<div v-html="xyz2lab" />
-
 ### Lab to XYZ
 
 Invert the L\*a\*b\* formulas—recover the normalized XYZ ratios, apply the inverse piecewise function, then scale by the white point:
@@ -92,8 +80,6 @@ Invert the L\*a\*b\* formulas—recover the normalized XYZ ratios, apply the inv
 <Katex expression="f_y = \frac{L^* + 16}{116}, \quad f_x = \frac{a^*}{500} + f_y, \quad f_z = f_y - \frac{b^*}{200}" />
 
 <Katex expression="X = X_n \cdot f^{-1}(f_x), \quad Y = Y_n \cdot f^{-1}(f_y), \quad Z = Z_n \cdot f^{-1}(f_z)" />
-
-<div v-html="lab2xyz" />
 
 ---
 

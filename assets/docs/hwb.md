@@ -1,22 +1,12 @@
 <script setup>
-import { hsl2hwb, hwb2hsl } from "@src/units/color/conversions/cylindrical?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
-import { Katex } from "@components/custom/katex";
-import {
-    COLOR_SPACE_DENORM_UNITS,
-    COLOR_SPACE_NAMES,
-    COLOR_SPACE_RANGES,
-} from "@src/units/color/constants";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-const { h, w, b } = getFormattedColorSpaceRange("hwb");
-
+import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
 ### Attributes
 
--   `H`: Hue ({{h.min}} to {{h.max}})
--   `W`: Whiteness ({{w.min}} to {{w.max}})
--   `B`: Blackness ({{b.min}} to {{b.max}})
+-   `H`: Hue (0° to 360°)
+-   `W`: Whiteness (0 to 1)
+-   `B`: Blackness (0 to 1)
 
 ### Background
 
@@ -78,8 +68,6 @@ Convert through HSV as an intermediate—whiteness and blackness derive directly
 
 <Katex expression="W = V(1 - S_V), \quad B = 1 - V" />
 
-<div v-html="hsl2hwb" />
-
 ### HWB to HSL
 
 Recover HSV saturation and value from whiteness and blackness (normalizing when `W + B ≥ 1`), then convert HSV → HSL:
@@ -87,8 +75,6 @@ Recover HSV saturation and value from whiteness and blackness (normalizing when 
 <Katex expression="V = 1 - B, \quad S_V = \begin{cases} 0 & V = 0 \\ 1 - W/V & \text{otherwise} \end{cases}" />
 
 When <Katex expression="W + B \geq 1" :display-mode="false" />, the color collapses to gray: <Katex expression="V = W/(W+B),\; S_V = 0" :display-mode="false" />.
-
-<div v-html="hwb2hsl" />
 
 ---
 

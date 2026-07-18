@@ -1,22 +1,12 @@
 <script setup>
-import { hsv2hsl, hsl2hsv, hsl2rgb, rgb2hsl } from "@src/units/color/conversions/cylindrical?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
-import { Katex } from "@components/custom/katex";
-import {
-    COLOR_SPACE_DENORM_UNITS,
-    COLOR_SPACE_NAMES,
-    COLOR_SPACE_RANGES,
-} from "@src/units/color/constants";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-const { h, s, v } = getFormattedColorSpaceRange("hsv");
-
+import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
 ### Attributes
 
--   `H`: Hue ({{h.min}} to {{h.max}})
--   `S`: Saturation ({{s.min}} to {{s.max}})
--   `V`: Value/Brightness ({{v.min}} to {{v.max}})
+-   `H`: Hue (0 to 1)
+-   `S`: Saturation (0 to 1)
+-   `V`: Value/Brightness (0 to 1)
 
 ### Background
 
@@ -73,27 +63,19 @@ Derive lightness from value and saturation, then recompute saturation for the HS
 
 <Katex expression="L = V - \frac{V \cdot S}{2}, \quad S_L = \begin{cases} 0 & L = 0 \text{ or } L = 1 \\ \frac{V - L}{\min(L,\; 1 - L)} & \text{otherwise} \end{cases}" />
 
-<div v-html="hsv2hsl" />
-
 ### HSL to HSV
 
 The inverse—recover value and saturation in the HSV model:
 
 <Katex expression="V = L + S \cdot \min(L,\; 1 - L), \quad S_V = \begin{cases} 0 & V = 0 \\ 2\left(1 - \frac{L}{V}\right) & \text{otherwise} \end{cases}" />
 
-<div v-html="hsl2hsv" />
-
 ### HSL to RGB
 
-The intermediate step when converting HSV to display-ready sRGB (HSV → HSL → RGB):
-
-<div v-html="hsl2rgb" />
+The intermediate step when converting HSV to display-ready sRGB (HSV → HSL → RGB).
 
 ### RGB to HSL
 
-The intermediate step when converting from sRGB back to HSV (RGB → HSL → HSV):
-
-<div v-html="rgb2hsl" />
+The intermediate step when converting from sRGB back to HSV (RGB → HSL → HSV).
 
 ---
 

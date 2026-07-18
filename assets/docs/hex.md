@@ -1,7 +1,5 @@
 <script setup>
-import { Katex } from "@components/custom/katex";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-
+import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
 ### Attributes

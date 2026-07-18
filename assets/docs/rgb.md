@@ -1,22 +1,12 @@
 <script setup>
-import { rgb2xyz, xyz2rgb } from "@src/units/color/conversions/xyz-extended?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
-import { Katex } from "@components/custom/katex";
-import {
-    COLOR_SPACE_DENORM_UNITS,
-    COLOR_SPACE_NAMES,
-    COLOR_SPACE_RANGES,
-} from "@src/units/color/constants";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-const { r, g, b } = getFormattedColorSpaceRange("rgb");
-
+import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
 ### Attributes
 
--   `R`: Red component ({{r.min}} to {{r.max}})
--   `G`: Green component ({{g.min}} to {{g.max}})
--   `B`: Blue component ({{b.min}} to {{b.max}})
+-   `R`: Red component (0 to 1)
+-   `G`: Green component (0 to 1)
+-   `B`: Blue component (0 to 1)
 
 ### Historical Context
 
@@ -82,8 +72,6 @@ Linearize sRGB via the inverse transfer function, then apply the 3×3 matrix:
 
 <Katex expression="\begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_{\text{sRGB}} \begin{bmatrix} \gamma^{-1}(R) \\ \gamma^{-1}(G) \\ \gamma^{-1}(B) \end{bmatrix}" />
 
-<div v-html="rgb2xyz" />
-
 ### XYZ to RGB
 
 Multiply by the inverse matrix, then apply gamma encoding:
@@ -91,8 +79,6 @@ Multiply by the inverse matrix, then apply gamma encoding:
 <Katex expression="\gamma(c) = \begin{cases} 12.92\, c & c \leq 0.0031308 \\ 1.055\, c^{1/2.4} - 0.055 & \text{otherwise} \end{cases}" />
 
 <Katex expression="\begin{bmatrix} R \\ G \\ B \end{bmatrix} = \gamma\!\left(M_{\text{sRGB}}^{-1} \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}\right)" />
-
-<div v-html="xyz2rgb" />
 
 ---
 

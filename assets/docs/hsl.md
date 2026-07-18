@@ -1,22 +1,12 @@
 <script setup>
-import { rgb2hsl, hsl2rgb } from "@src/units/color/conversions/cylindrical?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
-import { Katex } from "@components/custom/katex";
-import {
-    COLOR_SPACE_DENORM_UNITS,
-    COLOR_SPACE_NAMES,
-    COLOR_SPACE_RANGES,
-} from "@src/units/color/constants";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-const { h, s, l } = getFormattedColorSpaceRange("hsl");
-
+import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
 ### Attributes
 
--   `H`: Hue ({{h.min}} to {{h.max}})
--   `S`: Saturation ({{s.min}} to {{s.max}})
--   `L`: Lightness ({{l.min}} to {{l.max}})
+-   `H`: Hue (0° to 360°)
+-   `S`: Saturation (0 to 1)
+-   `L`: Lightness (0 to 1)
 
 ### Historical Context
 
@@ -74,8 +64,6 @@ Compute lightness from the min/max of the RGB channels, derive chroma and satura
 
 <Katex expression="H = \begin{cases} \frac{G - B}{C} & \text{if } \max = R \\ \frac{B - R}{C} + 2 & \text{if } \max = G \\ \frac{R - G}{C} + 4 & \text{if } \max = B \end{cases} \quad (\text{then } H = H / 6)" />
 
-<div v-html="rgb2hsl" />
-
 ### HSL to RGB
 
 Recover chroma from saturation and lightness, determine the RGB triple by hue sector, then shift by the lightness offset:
@@ -85,8 +73,6 @@ Recover chroma from saturation and lightness, determine the RGB triple by hue se
 <Katex expression="(R,\, G,\, B) = (r_1 + m,\; g_1 + m,\; b_1 + m)" />
 
 where <Katex expression="(r_1, g_1, b_1)" :display-mode="false" /> is selected from <Katex expression="(C, X, 0)" :display-mode="false" /> and its permutations based on the hue sector.
-
-<div v-html="hsl2rgb" />
 
 ---
 

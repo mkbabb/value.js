@@ -1,20 +1,10 @@
 <script setup>
-import { kelvin2rgb, rgb2kelvin } from "@src/units/color/conversions/kelvin?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
-import { Katex } from "@components/custom/katex";
-import {
-    COLOR_SPACE_DENORM_UNITS,
-    COLOR_SPACE_NAMES,
-    COLOR_SPACE_RANGES,
-} from "@src/units/color/constants";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-const { kelvin } = getFormattedColorSpaceRange("kelvin");
-
+import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
 ### Attributes
 
--   `kelvin`: Color temperature ({{kelvin.min}} to {{kelvin.max}})
+-   `kelvin`: Color temperature (1000K to 40000K)
 
 ### Background
 
@@ -74,13 +64,9 @@ Polynomial approximation (Tanner Helland) mapping temperature to RGB. Each chann
 
 where <Katex expression="T = \text{kelvin} / 100" :display-mode="false" /> and results are clamped to [0, 255] then normalized.
 
-<div v-html="kelvin2rgb" />
-
 ### RGB to Kelvin
 
-Inverts the polynomial fits to estimate the closest color temperature for a given RGB value:
-
-<div v-html="rgb2kelvin" />
+Inverts the polynomial fits to estimate the closest color temperature for a given RGB value.
 
 ---
 
