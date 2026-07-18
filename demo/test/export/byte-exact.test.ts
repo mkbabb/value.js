@@ -307,7 +307,8 @@ describe("PNG export (§7)", () => {
         expect(adlerBe).toBe(adler32(raw)); // trailer matches recomputed Adler-32
     });
 
-    it("decodes to the W8 raster: filter bytes 0x00 and toRgba8 spans", async () => {
+    // Full-raster decode + 240 deep row comparisons: ~7s on shared CI runners.
+    it("decodes to the W8 raster: filter bytes 0x00 and toRgba8 spans", { timeout: 30_000 }, async () => {
         const { oklch, toRgba8 } = await import("@mkbabb/value.js/color");
         const png = serializePng(release);
         if (!png.ok) throw new Error("png failed");
@@ -342,7 +343,8 @@ describe("PNG export (§7)", () => {
         }
     });
 
-    it("is deterministic: two serializations are byte-identical", () => {
+    // Two full PNG serializations back-to-back: ~5.5s on shared CI runners.
+    it("is deterministic: two serializations are byte-identical", { timeout: 30_000 }, () => {
         const a = serializePng(release);
         const b = serializePng(release);
         if (!a.ok || !b.ok) throw new Error("png failed");
