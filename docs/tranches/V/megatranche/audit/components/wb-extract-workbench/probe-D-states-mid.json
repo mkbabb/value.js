@@ -1,0 +1,708 @@
+{
+ "before": {
+  "present": {
+   "ghost": true,
+   "skeleton": false,
+   "card": true,
+   "caption": true,
+   "error": null
+  },
+  "ghostRect": {
+   "y": 581.7,
+   "w": 462,
+   "h": 150
+  },
+  "skelRect": null,
+  "cardRect": {
+   "y": 480.8,
+   "w": 462,
+   "h": 218.1
+  },
+  "colRect": {
+   "y": 494.7,
+   "w": 462,
+   "h": 267.6
+  },
+  "paneScrollH": 576,
+  "paneClientH": 576,
+  "docH": 900,
+  "anims": 21,
+  "live": [
+   "status:· empty plate ·No saved palettes yet.Add"
+  ]
+ },
+ "mid": [
+  {
+   "t": 0,
+   "present": {
+    "ghost": true,
+    "skeleton": false,
+    "card": true,
+    "caption": true,
+    "error": null
+   },
+   "ghostRect": {
+    "y": 581.7,
+    "w": 462,
+    "h": 150
+   },
+   "skelRect": null,
+   "cardRect": {
+    "y": 480.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": {
+    "y": 494.7,
+    "w": 462,
+    "h": 267.6
+   },
+   "paneScrollH": 576,
+   "paneClientH": 576,
+   "docH": 900,
+   "anims": 21,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 40,
+   "present": {
+    "ghost": true,
+    "skeleton": false,
+    "card": true,
+    "caption": true,
+    "error": null
+   },
+   "ghostRect": {
+    "y": 581.7,
+    "w": 462,
+    "h": 150
+   },
+   "skelRect": null,
+   "cardRect": {
+    "y": 480.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": {
+    "y": 494.7,
+    "w": 462,
+    "h": 267.6
+   },
+   "paneScrollH": 576,
+   "paneClientH": 576,
+   "docH": 900,
+   "anims": 29,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 80,
+   "present": {
+    "ghost": true,
+    "skeleton": false,
+    "card": true,
+    "caption": true,
+    "error": null
+   },
+   "ghostRect": {
+    "y": 581.5,
+    "w": 460.3,
+    "h": 149.4
+   },
+   "skelRect": null,
+   "cardRect": {
+    "y": 480.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": {
+    "y": 494.7,
+    "w": 462,
+    "h": 267.6
+   },
+   "paneScrollH": 576,
+   "paneClientH": 576,
+   "docH": 900,
+   "anims": 30,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 120,
+   "present": {
+    "ghost": true,
+    "skeleton": false,
+    "card": true,
+    "caption": true,
+    "error": null
+   },
+   "ghostRect": {
+    "y": 581.3,
+    "w": 457.6,
+    "h": 148.6
+   },
+   "skelRect": null,
+   "cardRect": {
+    "y": 480.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": {
+    "y": 494.7,
+    "w": 462,
+    "h": 267.6
+   },
+   "paneScrollH": 576,
+   "paneClientH": 576,
+   "docH": 900,
+   "anims": 30,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 160,
+   "present": {
+    "ghost": true,
+    "skeleton": false,
+    "card": true,
+    "caption": true,
+    "error": null
+   },
+   "ghostRect": {
+    "y": 580.9,
+    "w": 454,
+    "h": 147.4
+   },
+   "skelRect": null,
+   "cardRect": {
+    "y": 480.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": {
+    "y": 494.7,
+    "w": 462,
+    "h": 267.6
+   },
+   "paneScrollH": 576,
+   "paneClientH": 576,
+   "docH": 900,
+   "anims": 30,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 200,
+   "present": {
+    "ghost": true,
+    "skeleton": false,
+    "card": true,
+    "caption": true,
+    "error": null
+   },
+   "ghostRect": {
+    "y": 580.5,
+    "w": 449.7,
+    "h": 146
+   },
+   "skelRect": null,
+   "cardRect": {
+    "y": 480.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": {
+    "y": 494.7,
+    "w": 462,
+    "h": 267.6
+   },
+   "paneScrollH": 576,
+   "paneClientH": 576,
+   "docH": 900,
+   "anims": 30,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 240,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.9,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 14,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 280,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 17,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 320,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 13,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 360,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 13,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 400,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 13,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 440,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 19,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 480,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 17,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 520,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 17,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 560,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 17,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 600,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 16,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 640,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 16,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 680,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 16,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 720,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 9,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 760,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 9,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 800,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 9,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 840,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 9,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 880,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 9,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "t": 920,
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 9,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  }
+ ],
+ "after": {
+  "present": {
+   "ghost": false,
+   "skeleton": false,
+   "card": true,
+   "caption": false,
+   "error": null
+  },
+  "ghostRect": null,
+  "skelRect": null,
+  "cardRect": {
+   "y": 382.8,
+   "w": 462,
+   "h": 218.1
+  },
+  "colRect": null,
+  "paneScrollH": 774,
+  "paneClientH": 772,
+  "docH": 900,
+  "anims": 9,
+  "live": [
+   "status:· empty plate ·No saved palettes yet.Add"
+  ]
+ }
+}

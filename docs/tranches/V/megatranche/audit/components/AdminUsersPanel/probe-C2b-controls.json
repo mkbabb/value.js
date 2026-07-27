@@ -1,0 +1,58 @@
+{
+ "chromium": {
+  "K2a_singleClickDeleteUser": {
+   "deletes": [
+    "DELETE /admin/users/alpha-keeper-0001"
+   ]
+  },
+  "K2b_doubleClickPrune": {
+   "prunePosts": [
+    "POST /admin/users/prune-empty",
+    "POST /admin/users/prune-empty"
+   ],
+   "atSecondClick": {
+    "dialogPresent": true,
+    "elementUnderCursor": "button.button",
+    "elementText": "Prune"
+   },
+   "beat": "Pruned 2 users"
+  },
+  "K3_reexpandControl": {
+   "afterFirstExpand": "GEN-1",
+   "afterRefresh": "GEN-1",
+   "afterCollapseReexpand": "GEN-2",
+   "paletteFetches": [
+    "GET /admin/users/alpha-keeper-0001/palettes",
+    "GET /admin/users/alpha-keeper-0001/palettes"
+   ]
+  }
+ },
+ "webkit": {
+  "K2a_singleClickDeleteUser": {
+   "deletes": [
+    "DELETE /admin/users/alpha-keeper-0001"
+   ]
+  },
+  "K2b_doubleClickPrune": {
+   "prunePosts": [
+    "POST /admin/users/prune-empty",
+    "POST /admin/users/prune-empty"
+   ],
+   "atSecondClick": {
+    "dialogPresent": true,
+    "elementUnderCursor": "button.button",
+    "elementText": "Prune"
+   },
+   "beat": "Pruned 2 users"
+  },
+  "K3_reexpandControl": {
+   "afterFirstExpand": "GEN-1",
+   "afterRefresh": "GEN-1",
+   "afterCollapseReexpand": "GEN-2",
+   "paletteFetches": [
+    "GET /admin/users/alpha-keeper-0001/palettes",
+    "GET /admin/users/alpha-keeper-0001/palettes"
+   ]
+  }
+ }
+}

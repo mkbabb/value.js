@@ -165,3 +165,20 @@ updated at every phase boundary; outbound packets at every cross-repo consequenc
 - **fourier-analysis**: quiet; its exposure is nil on the direct surface (`/easing` measured 0/172).
 - Our three outbound packets stand as sent; the trifold re-formation is internal posture and is not
   re-mailed (E13 covers consequences, not constitutions).
+
+---
+
+## §5 — PHASE X: THE EXCAVATION (M-14, commissioned 2026-07-27 evening; long-horizon, never shelved)
+
+The last ~106 tranches (value 23 · keyframes 22 · fourier 14 · parse-that 4 · glass 43) and 42
+top-level session logs (~9GB with agent transcripts; owner-voice extraction only) are PHYSICALLY
+unearthed — memory recall is not evidence. Opus banausic seats (owner-message extraction per corpus,
+per-tranche truth tables, shadcn/library census, design-canon census, vnext standing, glass-forward
+compliance) → Fable AGGREGATED adjudication passes, batched: `EXHORTATION-CENSUS.md` (the
+"how many more ecoute-moi's" answer: every repeated exhortation → ENCODED-DURABLY / RE-EXHORT /
+ESCALATE-TO-DISEASE), `TRUTH-TABLE.md` (half-baked · silent-drop · rejected · kept registers),
+`CONTRIVANCE-REGISTER.md` (addenda + library gestalt; the shadcn-abrogation skeleton),
+`DESIGN-CANON-BRIEF.md` (GOLDEN GLASS · BREATH OF LIFE · MOVEMENT OF MOMENTUM; the design-MD
+re-authoring verdict). Output feeds Phase E (design tri-folds — Fable+Opus author, frontend-design
+plugin, Fable agglomerates) and Phase F (wave authoring consumes the registers WHOLE).
+Instrument: `workflows/excavation.js` · run `wf_a6f71311-4e5`.

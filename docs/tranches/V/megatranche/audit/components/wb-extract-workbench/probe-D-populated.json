@@ -1,0 +1,191 @@
+{
+ "occ": [
+  [
+   0,
+   "ghost"
+  ],
+  [
+   263,
+   "EMPTY"
+  ]
+ ],
+ "geo": {
+  "paneRect": {
+   "y": 103,
+   "h": 774
+  },
+  "paneScrollH": 773,
+  "paneClientH": 772,
+  "hiddenBelowFold": 1,
+  "cardRect": null,
+  "cardFullyVisible": null,
+  "cardVisibleFraction": null,
+  "scrollTop": 0,
+  "dominanceRow": "29% of the imagedominantoklch(82.932397303247% 0.126681844177 138.293855069907de",
+  "imgRect": {
+   "w": 458,
+   "h": 458
+  },
+  "dropTabindex": {
+   "tabindex": "-1",
+   "label": "Image preview area, tap to sample colors",
+   "cursor": "crosshair"
+  }
+ },
+ "disabledBefore": [
+  {
+   "el": "div[Upload image, click to]",
+   "disabled": false
+  },
+  {
+   "el": "span[Number of colors]",
+   "disabled": false
+  },
+  {
+   "el": "span[Number of colors]",
+   "disabled": false
+  },
+  {
+   "el": "button[Upload image]",
+   "disabled": false
+  },
+  {
+   "el": "button[Open camera]",
+   "disabled": false
+  },
+  {
+   "el": "span[Chroma weight]",
+   "disabled": false
+  },
+  {
+   "el": "span[Chroma weight]",
+   "disabled": false
+  },
+  {
+   "el": "button[Reset]",
+   "disabled": true
+  }
+ ],
+ "disabledAfter": [
+  {
+   "el": "div[Image preview area, ta]",
+   "disabled": false
+  },
+  {
+   "el": "span[Number of colors]",
+   "disabled": false
+  },
+  {
+   "el": "span[Number of colors]",
+   "disabled": false
+  },
+  {
+   "el": "button[Upload image]",
+   "disabled": false
+  },
+  {
+   "el": "button[Open camera]",
+   "disabled": false
+  },
+  {
+   "el": "span[Chroma weight]",
+   "disabled": false
+  },
+  {
+   "el": "span[Chroma weight]",
+   "disabled": false
+  },
+  {
+   "el": "button[Reset]",
+   "disabled": false
+  },
+  {
+   "el": "button[Palette menu]",
+   "disabled": false
+  }
+ ],
+ "tabs": [
+  {
+   "el": "button[Select view]",
+   "inExtract": false
+  },
+  {
+   "el": "button[Login]",
+   "inExtract": false
+  },
+  {
+   "el": "button[@mbabb]",
+   "inExtract": false
+  },
+  {
+   "el": "span[Number of colors]",
+   "inExtract": true
+  },
+  {
+   "el": "button[Upload image]",
+   "inExtract": true
+  },
+  {
+   "el": "button[Open camera]",
+   "inExtract": true
+  },
+  {
+   "el": "span[Chroma weight]",
+   "inExtract": true
+  },
+  {
+   "el": "button[Reset]",
+   "inExtract": true
+  },
+  {
+   "el": "button[Palette menu]",
+   "inExtract": true
+  },
+  {
+   "el": "input[]",
+   "inExtract": false
+  },
+  null,
+  {
+   "el": "button[Select view]",
+   "inExtract": false
+  },
+  {
+   "el": "button[Login]",
+   "inExtract": false
+  },
+  {
+   "el": "button[@mbabb]",
+   "inExtract": false
+  },
+  {
+   "el": "span[Number of colors]",
+   "inExtract": true
+  },
+  {
+   "el": "button[Upload image]",
+   "inExtract": true
+  },
+  {
+   "el": "button[Open camera]",
+   "inExtract": true
+  },
+  {
+   "el": "span[Chroma weight]",
+   "inExtract": true
+  },
+  {
+   "el": "button[Reset]",
+   "inExtract": true
+  },
+  {
+   "el": "button[Palette menu]",
+   "inExtract": true
+  },
+  {
+   "el": "input[]",
+   "inExtract": false
+  },
+  null
+ ]
+}

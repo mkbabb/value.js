@@ -1,0 +1,210 @@
+{
+ "chromium": {
+  "N5_noToken": {
+   "mainText": "Users 0 Manage accounts and permissions. 0 users Prune empty Refresh · ROSTER CLEAR · No users found. My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+   "rows": 0,
+   "hasUnreachable": false,
+   "hasSignIn": false,
+   "refreshDisabled": false,
+   "adminRequestsBefore": 10,
+   "adminRequestsAfterRefresh": 10,
+   "warns": []
+  },
+  "N1_loadingAria": {
+   "dom": [
+    {
+     "tag": "div",
+     "role": null,
+     "ariaLabel": "Loading users",
+     "childRoles": [
+      "status",
+      "status",
+      "status"
+     ]
+    },
+    {
+     "tag": "div",
+     "role": "status",
+     "ariaLabel": "Loading",
+     "childRoles": []
+    },
+    {
+     "tag": "div",
+     "role": "status",
+     "ariaLabel": "Loading",
+     "childRoles": []
+    },
+    {
+     "tag": "div",
+     "role": "status",
+     "ariaLabel": "Loading",
+     "childRoles": []
+    }
+   ],
+   "ariaSnapshotLoadingLines": [
+    "  - status \"Loading\"",
+    "  - status \"Loading\"",
+    "  - status \"Loading\""
+   ],
+   "snapshotMentionsLoadingUsers": false
+  },
+  "N4_search": {
+   "serverTotal": 60,
+   "serverReturned": 50,
+   "offpageUsers": 10,
+   "listRequests": [
+    "GET /admin/users?limit=50&offset=0"
+   ],
+   "qParamSent": false,
+   "requestsAfterTyping": 0,
+   "afterSearch": {
+    "rows": 0,
+    "emptyPlate": true,
+    "countLine": "50 users"
+   }
+  },
+  "N2_doubleConfirm": {
+   "deleteRequestsBefore": 0,
+   "deleteRequests": [
+    "DELETE /admin/users/alpha-keeper-0001",
+    "DELETE /admin/users/alpha-keeper-0001"
+   ],
+   "dialogStillOpen": 0
+  },
+  "N3_staleAcrossRefresh": {
+   "gen1Rendered": true,
+   "paletteFetches": [
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/admin/AdminPane.vue?t=1785167569503",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/index.ts?t=1785167569503",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminUsersPanel.vue?t=1785167569503",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminNamesPanel.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminAuditPanel.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminTagsPanel.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminListSkeleton.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminListItem.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/PaginationBar.vue",
+    "GET /admin/users/alpha-keeper-0001/palettes"
+   ],
+   "afterRefresh": {
+    "stillExpanded": true,
+    "showsGen1": true,
+    "showsGen2": false
+   }
+  },
+  "N6_collapseMidflight": {
+   "midway": {
+    "openRow": "beta-drifte r-0002 2 Palettes",
+    "region": "BETA-DRIFTER-0002-PALETTE 2 0"
+   },
+   "settled": {
+    "openRow": "beta-drifte r-0002 2 Palettes",
+    "region": "ALPHA-KEEPER-0001-PALETTE 2 0"
+   }
+  }
+ },
+ "webkit": {
+  "N5_noToken": {
+   "mainText": "Users 0 Manage accounts and permissions. 0 users Prune empty Refresh · ROSTER CLEAR · No users found. My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+   "rows": 0,
+   "hasUnreachable": false,
+   "hasSignIn": false,
+   "refreshDisabled": false,
+   "adminRequestsBefore": 10,
+   "adminRequestsAfterRefresh": 10,
+   "warns": []
+  },
+  "N1_loadingAria": {
+   "dom": [
+    {
+     "tag": "div",
+     "role": null,
+     "ariaLabel": "Loading users",
+     "childRoles": [
+      "status",
+      "status",
+      "status"
+     ]
+    },
+    {
+     "tag": "div",
+     "role": "status",
+     "ariaLabel": "Loading",
+     "childRoles": []
+    },
+    {
+     "tag": "div",
+     "role": "status",
+     "ariaLabel": "Loading",
+     "childRoles": []
+    },
+    {
+     "tag": "div",
+     "role": "status",
+     "ariaLabel": "Loading",
+     "childRoles": []
+    }
+   ],
+   "ariaSnapshotLoadingLines": [
+    "  - status \"Loading\"",
+    "  - status \"Loading\"",
+    "  - status \"Loading\""
+   ],
+   "snapshotMentionsLoadingUsers": false
+  },
+  "N4_search": {
+   "serverTotal": 60,
+   "serverReturned": 50,
+   "offpageUsers": 10,
+   "listRequests": [
+    "GET /admin/users?limit=50&offset=0"
+   ],
+   "qParamSent": false,
+   "requestsAfterTyping": 0,
+   "afterSearch": {
+    "rows": 0,
+    "emptyPlate": true,
+    "countLine": "50 users"
+   }
+  },
+  "N2_doubleConfirm": {
+   "deleteRequestsBefore": 0,
+   "deleteRequests": [
+    "DELETE /admin/users/alpha-keeper-0001",
+    "DELETE /admin/users/alpha-keeper-0001"
+   ],
+   "dialogStillOpen": 0
+  },
+  "N3_staleAcrossRefresh": {
+   "gen1Rendered": true,
+   "paletteFetches": [
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/admin/AdminPane.vue?t=1785167569503",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/index.ts?t=1785167569503",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminUsersPanel.vue?t=1785167569503",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminNamesPanel.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminAuditPanel.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminTagsPanel.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminListSkeleton.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/AdminListItem.vue",
+    "GET /@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/admin/PaginationBar.vue",
+    "GET /admin/users/alpha-keeper-0001/palettes"
+   ],
+   "afterRefresh": {
+    "stillExpanded": true,
+    "showsGen1": true,
+    "showsGen2": false
+   }
+  },
+  "N6_collapseMidflight": {
+   "midway": {
+    "openRow": "beta-drifte r-0002 2 Palettes",
+    "region": "BETA-DRIFTER-0002-PALETTE 2 0"
+   },
+   "settled": {
+    "openRow": "beta-drifte r-0002 2 Palettes",
+    "region": "ALPHA-KEEPER-0001-PALETTE 2 0"
+   }
+  }
+ }
+}

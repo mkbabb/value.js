@@ -279,3 +279,25 @@ records where the workers disagreed and which side won, with the evidence that d
 **Corollary.** A tri-fold whose two workers agree suspiciously well is re-examined, not celebrated —
 agreement is only evidence when the workers were genuinely independent. Cache-replayed seats count
 as the model that produced them, not the model law of the day (no relabeling; cf. L-11).
+
+## L-15 — THE SESSION-DURABILITY EDICT (owner: "Lose no progress to session walls")
+
+Derived from three measured wall events in ONE day (2026-07-27: ~5pm, ~10:50pm, + the mid-band
+kill of 07-24). Binding on every session of this formation:
+
+1. **Harvest is unconditional and immediate** — after EVERY workflow completion or failure
+   notification, before any other action: `node docs/tranches/V/megatranche/workflows/harvest-journals.mjs`.
+2. **Commit at every fold** — a completed band's artifacts (apotheoses, registries, witnesses,
+   STATE.md) are COMMITTED in the same turn they land. An untracked witness "does not exist"
+   (the AdminUsersPanel L-5 ruling); an uncommitted apotheosis is one `git clean` from nonexistence.
+3. **Owner marks are secured FIRST** — screenshots arriving in volatile paths (TemporaryItems)
+   are copied into `audit/visual/owner-marked/` with sha256s BEFORE any other work in the turn.
+4. **STATE.md §RESUME is maintained at every deploy/fold** — run IDs, exact resume invocations,
+   if-dead recipes, env relaunch commands. A fresh session resumes from disk alone.
+5. **Rosters are files, not memories** — every workflow's args are banked under `workflows/args/`
+   at launch time (recovered-from-transcript is the fallback, never the plan).
+6. **/tmp is not durable** — any agent return that matters (receipts, deviations, flags) is
+   banked into the megatranche tree in the turn it arrives.
+7. **Walls are expected, not exceptional** — re-deploy is always `resumeFromRunId` with
+   byte-identical args; completed seats replay from cache; a killed seat re-runs; NOTHING banked
+   is ever re-run.

@@ -1,0 +1,157 @@
+{
+ "chromium": {
+  "W1_confirmLiveWindowMs": {
+   "samplesTaken": 14,
+   "lastLiveAtMs": 271,
+   "firstDeadAtMs": 294,
+   "trace": [
+    {
+     "t": 1,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 25,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 48,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 71,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 93,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 115,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 138,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 160,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 183,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 205,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 227,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 249,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 271,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 294,
+     "dialog": false,
+     "live": false
+    }
+   ],
+   "prunePosts": [
+    "POST /admin/users/prune-empty"
+   ]
+  },
+  "W2a_noTokenFrame": "frames-C2/N5-chromium-no-token-roster-clear.png",
+  "W2b_search": {
+   "frame": "frames-C2/N4-chromium-search-false-negative.png",
+   "listRequests": [
+    "GET /admin/users"
+   ],
+   "visible": "Users 50 Manage accounts and permissions. 50 users Prune empty Refresh · ROSTER CLEAR · No users found. My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved "
+  }
+ },
+ "webkit": {
+  "W1_confirmLiveWindowMs": {
+   "samplesTaken": 9,
+   "lastLiveAtMs": 159,
+   "firstDeadAtMs": 181,
+   "trace": [
+    {
+     "t": 4,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 27,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 50,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 71,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 94,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 116,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 137,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 159,
+     "dialog": true,
+     "live": true
+    },
+    {
+     "t": 181,
+     "dialog": false,
+     "live": false
+    }
+   ],
+   "prunePosts": [
+    "POST /admin/users/prune-empty"
+   ]
+  },
+  "W2a_noTokenFrame": "frames-C2/N5-webkit-no-token-roster-clear.png",
+  "W2b_search": {
+   "frame": "frames-C2/N4-webkit-search-false-negative.png",
+   "listRequests": [
+    "GET /admin/users"
+   ],
+   "visible": "Users 50 Manage accounts and permissions. 50 users Prune empty Refresh · ROSTER CLEAR · No users found. My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved "
+  }
+ }
+}

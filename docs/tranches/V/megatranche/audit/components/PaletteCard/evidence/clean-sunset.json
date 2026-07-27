@@ -1,0 +1,26 @@
+{
+  "name": "Sunset",
+  "slug": "sunset",
+  "colors": [
+    {
+      "css": "#ff6b6b",
+      "position": 0
+    },
+    {
+      "css": "#f7b267",
+      "position": 1
+    },
+    {
+      "css": "#f79d65",
+      "position": 2
+    },
+    {
+      "css": "#f4845f",
+      "position": 3
+    },
+    {
+      "css": "#f27059",
+      "position": 4
+    }
+  ]
+}

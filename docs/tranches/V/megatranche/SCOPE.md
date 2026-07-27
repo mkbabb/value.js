@@ -131,3 +131,30 @@ falls to 65%; three parallel adaptation mechanisms). Executed as the tri-fold la
 its apotheosis feeds the wave set alongside the adjudicated corpus. "Without contrivance" binds the
 design: no new abstraction layers, no wrapper components, no fourth mechanism — the design must END
 with fewer mechanisms than it found.
+
+## M-14 — THE EXCAVATION COMMISSION (owner, 2026-07-27 evening; verbatim-in-intent)
+
+1. **Glass-forward law re-affirmed**: ALL glass-ui-forward items are delivered to the glass BJ
+   inbox and MARKED accordingly. No temp or adhoc fixes anywhere; all cures at the root.
+2. **The historical excavation**: the last 100+ tranches and 100+ sessions MUST be audited with
+   lurid, fastidious, exacting detail — *"what's been communicated again and again interminably in
+   our messages, what's been properly implemented, what's been half-baked"* — to inform friction
+   minimization and the tranche/wave addenda: **what needs re-exhortation, what needs pruning**.
+   This requires an agent swarm that PHYSICALLY unearths the session logs and tranche records —
+   memory recall is not evidence. Long-horizon; never shelved.
+3. **The library edicts restated as the excavation's lens**: distillation and reduction of the
+   library into an apotheosis; **full shadcn abrogation** (components AND style); consolidation or
+   pruning of unused, overfit, or contrived components; contrivance rooted out of BOTH the extant
+   wave addenda AND the library gestalt in totality. Deft, KISS, colocation, modularization; no
+   legacy code.
+4. **Model law refinement**: Opus for all banausic/manual labor; Fable adjudicates in AGGREGATED
+   passes, batched for efficacy. All design work: Fable + Opus author independent designs
+   (**frontend design always uses the frontend-design plugin**), then a Fable seat agglomerates
+   into a choosy apotheosis, scrupulously.
+5. **The design canon is itself in scope**: audit the consumers, the library gestalt, the
+   animations, the design aesthetic — does the design MD need re-authoring? **GOLDEN GLASS ·
+   BREATH OF LIFE · MOVEMENT OF MOMENTUM** are the named canon concepts; the excavation finds
+   their canonical definitions and audits adherence.
+6. *"How many more ecoute-moi's must this take"* — the re-exhortation census exists so the answer
+   becomes ZERO: every repeated exhortation either becomes durable law (formation laws, wave
+   gates, memory) or is retired as encoded.
