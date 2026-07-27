@@ -1,0 +1,87 @@
+{
+ "area": "demo/shell",
+ "parallelism": 2,
+ "components": [
+  {
+   "file": "demo/shell/dock/Dock.vue",
+   "slug": "shell-dock-dock",
+   "area": "demo/shell",
+   "loc": 359,
+   "extra": "\n## Component-specific context\nThe persistent chrome present on EVERY route. The root's own visual audit attributes shell-level a11y defects here: MT-F003 (h1 count is 0 on all 15 routes AND on live production), MT-F005 (exactly one button with NO accessible name on desktop, zero on mobile - so it is behind a responsive branch), and part of MT-F004 (sub-24px targets: 'Switch to slug' / 'Generate new slug' / 'Cancel' at 22x22 desktop, 23x23 mobile; an unlabelled 160x23 input). Find the exact elements. CARRY-LEDGER W47 (F1 shell and scene) owns this surface and its spec claims 'main/H1/active-subtree =1' - the H1 half is RED today and the wave never noticed."
+  },
+  {
+   "file": "demo/shell/dock/ColorInput.vue",
+   "slug": "shell-dock-colorinput",
+   "area": "demo/shell",
+   "loc": 377,
+   "extra": "\n## Component-specific context\nThis parses user-typed CSS colour. **MT-F001 is a live BLOCKER in exactly this path**: `parseCssColor` throws TypeError on eight inputs - `oklch()` `rgb()` `hsl()` `lab()` `lch()` `color()` `oklab()` `hsl(  )` - at `src/css/grammar.ts:181` (`slash[0]!.replace` where the non-null assertion is false). A user typing `oklch(` then `)` produces exactly this. Determine whether this component guards it, swallows it, or crashes. Reproduce in the live app at http://localhost:9000/#/ and report what the user actually sees."
+  },
+  {
+   "file": "demo/shell/dock/DockViewSelect.vue",
+   "slug": "shell-dock-dockviewselect",
+   "area": "demo/shell",
+   "loc": 162,
+   "extra": "\n## Component-specific context\nThe view selector - the primary navigation of the whole product. Verified working by the root: it lists Home/Palettes/Browse/Extract/Mix/Generate/Gradient as role=option and switching writes the hash (`/#/browse?space=lab&color=...`). But note the demo declares FIFTEEN routes (incl. /atmosphere, /blob and five /admin/*) and this selector offers SEVEN. Establish where the other eight are reachable from, or whether they are only reachable by typing a URL."
+  },
+  {
+   "file": "demo/shell/dock/layers/ActionBarLayer.vue",
+   "slug": "shell-dock-actionbarlayer",
+   "area": "demo/shell",
+   "loc": 158,
+   "extra": "\n## Component-specific context\n**Named dual-path suspect.** D58.iv records that this file locally reimplements the `useLayerTransition` composable that Glass 7.0.0 removed with no public successor; relay O-6 asked glass for a public content-swap composable (mark M2). CARRY-LEDGER \u00a7F says: retire the shim at the consuming wave (W47) if glass ships a successor. Read the local shim, judge whether it is honest or divergent, and state the exact retirement condition."
+  },
+  {
+   "file": "demo/shell/dock/ActionBarToggle.vue",
+   "slug": "shell-dock-actionbartoggle",
+   "area": "demo/shell",
+   "loc": 159
+  },
+  {
+   "file": "demo/shell/dock/ActionButton.vue",
+   "slug": "shell-dock-actionbutton",
+   "area": "demo/shell",
+   "loc": 137
+  },
+  {
+   "file": "demo/shell/dock/DockStatusLamp.vue",
+   "slug": "shell-dock-dockstatuslamp",
+   "area": "demo/shell",
+   "loc": 123
+  },
+  {
+   "file": "demo/shell/dock/layers/SlugEditLayer.vue",
+   "slug": "shell-dock-slugeditlayer",
+   "area": "demo/shell",
+   "loc": 119,
+   "extra": "\n## Component-specific context\nOwns the 'Switch to slug' / 'Generate new slug' / 'Cancel' buttons measured at 22x22 desktop and 23x23 mobile - all three below the 24x24 minimum (MT-F004), and the unlabelled 160x23 input is likely here too. Confirm by measurement in the live app, not by reading CSS."
+  },
+  {
+   "file": "demo/shell/dock/menus/ProfileSection.vue",
+   "slug": "shell-dock-profilesection",
+   "area": "demo/shell",
+   "loc": 181,
+   "extra": "\n## Component-specific context\nCalls `useGlobalDark()`. **MT-F009**: the repo has at least three parallel dark stores plus a direct `documentElement.classList.contains('dark')` reader at `demo/color-session/useContrastSafeColor.ts:242` - five readers, no single owner. Also D58.i: Glass 7's DarkModeToggle is interactive-only, so nesting it inside a row owning `@click=toggleDark` double-toggles; value ships a decorative glyph instead and asked glass for a passive variant (mark M1, folds at W47). Judge the current shape."
+  },
+  {
+   "file": "demo/shell/dock/menus/MobileMenuDropdown.vue",
+   "slug": "shell-dock-mobilemenudropdown",
+   "area": "demo/shell",
+   "loc": 110,
+   "extra": "\n## Component-specific context\nAlso calls `useGlobalDark()` / `toggleDark()` - see MT-F009. This is the mobile branch; MT-F005 found the nameless button on DESKTOP only, so compare the two branches and find what desktop renders that mobile does not."
+  },
+  {
+   "file": "demo/shell/PaneSlot.vue",
+   "slug": "shell-paneslot",
+   "area": "demo/shell",
+   "loc": 129,
+   "extra": "\n## Component-specific context\nPane mounting. Note the app uses `<KeepAlive>`: a sibling seat proved that a `window` keydown listener registered in `onMounted` SURVIVES deactivation and swallows Cmd+K on every other route. Audit whether this component's activation/deactivation lifecycle is honest, and census every `window`/`document` listener in the shell for the same class."
+  },
+  {
+   "file": "demo/shell/PaneSegmentedControl.vue",
+   "slug": "shell-panesegmentedcontrol",
+   "area": "demo/shell",
+   "loc": 100,
+   "extra": "\n## Component-specific context\nCARRY-LEDGER W47 says this component must go from 1 usage to 0: 'PaneSegmentedControl 1->0 (it lives ALIVE at demo/shell/ for exactly this gate)'. Establish its ACTUAL current usage count with a repo-wide search. If it is already 0, the wave gate is vacuous and must be rewritten; if 1, name the single consumer and the exact replacement."
+  }
+ ]
+}

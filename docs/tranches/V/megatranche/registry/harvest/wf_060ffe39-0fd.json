@@ -1,0 +1,211 @@
+{
+ "runId": "wf_060ffe39-0fd",
+ "workflow": "wf_060ffe39-0fd",
+ "resultCount": 1,
+ "results": [
+  {
+   "agentId": "ad200899e24642335",
+   "key": "v2:01218f865affbccfa7336cad7445e5a8166d66af2bcdaa1f99e393399f29c561",
+   "result": {
+    "modelObserved": "claude-opus-5[1m] — Opus 5, 1M-context variant (exact model id as observed: claude-opus-5[1m])",
+    "cells": [
+     {
+      "route": "#/",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "title 'lab(92% 88.8 20 / 82.7%) — Color Picker' (app rewrote hash to #/?space=lab&color=...); bodyText 69 chars; main=1 (358x680), canvas 1, 17 buttons, 228 DOM nodes, 104 visible boxes; scrollWidth==innerWidth (no overflow). Mobile collapses to dock+picker card only; the desktop cell of the same route expands to h2=10 / 855 chars."
+     },
+     {
+      "route": "#/gradient",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "title 'Gradient — Color Picker'; bodyText 502 chars ('Build gradients with per-interval easing and CSS output. Interpolation TYPE...'); main=1, 58 buttons, 518 nodes, 334 visible boxes, 57 svg. Richest mobile route."
+     },
+     {
+      "route": "#/browse",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "UNVERIFIABLE-HERE",
+      "note": "DATA-BACKED. Shell paints (main=1, 266 nodes, 19 buttons) but bodyText reads 'Browse Discover palettes from the community. The commons is unreachable. Failed to load'. API-less environment fact — NO defect booked."
+     },
+     {
+      "route": "#/blob",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "PARTIAL",
+      "note": "title 'Blob — Color Picker' but the DOM is the shape of #/ at this width: 228 nodes / 104 visible boxes / 17 buttons / bodyText 68 (vs 69 on #/). The blob right-pane does not mount at 390, while #/mix — also a right-pane view — DOES mount at 390 (309 nodes, 171 chars, 'Mix Mix colors and palettes together'). That asymmetry is the finding."
+     },
+     {
+      "route": "#/generate",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 199 chars incl. 'Generate Create pleasing random palettes with aesthetic presets. 5 Regenerate seed:'; 352 nodes, 176 visible boxes, 26 buttons."
+     },
+     {
+      "route": "#/mix",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 171 chars incl. 'Mix Mix colors and palettes together. Colors Palettes Selected COLOR SPACE OKLab HUE METHOD'; canvas 2, 309 nodes, 26 buttons."
+     },
+     {
+      "route": "#/extract",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 194 chars incl. 'Extract Pull palettes from any image. Drop an image or click to browse'; 312 nodes, 163 visible boxes, 20 buttons."
+     },
+     {
+      "route": "#/",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "title 'Color Picker'; h2=10; bodyText 855 chars (About-the-color-spaces pane fully populated); main=1 (1408x752), 1741 nodes, 991 visible boxes, 26 buttons; scrollWidth 1440 = no overflow. Heaviest cell in the matrix."
+     },
+     {
+      "route": "#/gradient",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 659 chars; 586 nodes, 367 visible boxes, 58 buttons, 62 svg."
+     },
+     {
+      "route": "#/browse",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "UNVERIFIABLE-HERE",
+      "note": "DATA-BACKED. 'Browse Discover palettes from the community. The commons is unreachable. Failed to load' — API-less environment, no defect booked. Shell healthy: main=1, 326 nodes, 157 visible boxes."
+     },
+     {
+      "route": "#/blob",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 710 chars ('Blob Tune metaball geometry, membrane, lit-glass surface, and satellite behavior. GEOMETRY...'); 642 nodes, 477 visible boxes. Visually verified at the widest tier: picker card + Blob control panel (sliders, Copy JSON/Reset) paint, but NO metaball is visible in the frame and canvas count is 1 here (the webkit-engine REPORT.md row for this route records 2 — recorded as an observation only, NOT copied as a verdict, per I-20)."
+     },
+     {
+      "route": "#/generate",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "PARTIAL",
+      "note": "SCREENSHOT-VERIFIED: only the dock (label reads 'Generate') + the Lab picker card paint; the Generate panel and the palettes pane are absent. bodyText 84 chars vs 199 at mobile and 356 at widest; 258 nodes / 123 visible boxes (vs 412/209 at 3440). A repeat at 1440 with a 4s settle measured 227 chars, so this reads as a SLOW PANE MOUNT at the ~2.3s settle rather than a hard blank — booked PARTIAL with that caveat, not a blank defect."
+     },
+     {
+      "route": "#/mix",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 183 chars; canvas 2, 342 nodes, 166 visible boxes, 30 buttons."
+     },
+     {
+      "route": "#/extract",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 345 chars; 372 nodes, 196 visible boxes, 20 buttons."
+     },
+     {
+      "route": "#/",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "CLAMP RECORD: the OS did NOT clamp — Safari accepted the 3440x1440 window rect verbatim and innerWidth measured 3440 (innerHeight 1388 after chrome). But the logical display is only 2048x1152 (avail 2048x1122, dpr 2), so ~1392 CSS px of the window sits OFF-SCREEN. Window snapshot succeeded here (6880x2776, 16.9 MB) and is visually verified. h2=10, 855 chars, 1741 nodes. Layout observation: content occupies a narrow centre band with very large empty gutters at this width."
+     },
+     {
+      "route": "#/gradient",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "Window snapshot succeeded (16.4 MB). bodyText 659 chars, 586 nodes, 367 visible boxes, 62 svg, scrollWidth 3440 = no overflow."
+     },
+     {
+      "route": "#/browse",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "UNVERIFIABLE-HERE",
+      "note": "DATA-BACKED. Window snapshot succeeded (16.7 MB). bodyText 223 chars reading 'My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE' — the empty-state, i.e. the API-less environment. No defect booked."
+     },
+     {
+      "route": "#/blob",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "Window snapshot succeeded (17.6 MB) and is visually verified: picker card + Blob control panel paint. 710 chars, 642 nodes, 477 visible boxes. No metaball visible in the frame; canvas count 1."
+     },
+     {
+      "route": "#/generate",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "DOM healthy (356 chars, 412 nodes, 209 visible boxes, main 3408x1288) and VISUALLY VERIFIED via an element snapshot of <main>: Generate panel, picker card and My Palettes pane all painted. The WINDOW snapshot returned an all-black frame — a safaridriver failure, NOT an app blank (proof: the black is pure black while the page's own body background computes to rgb(38,0,27), and the element snapshot taken at the same instant carries 11.6 MB of real pixels). Failing frame preserved as generate-3440-windowsnap-black.png."
+     },
+     {
+      "route": "#/mix",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "DOM healthy (183 chars, 342 nodes, canvas 2, main 3408x1288); deliverable PNG is an element snapshot of <main> (11.6 MB) because the window snapshot returned the same all-black driver frame; preserved as mix-3440-windowsnap-black.png."
+     },
+     {
+      "route": "#/extract",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "DOM healthy (345 chars, 372 nodes, 196 visible boxes, main 3408x1288); deliverable PNG is an element snapshot of <main> (11.4 MB); window snapshot black, preserved as extract-3440-windowsnap-black.png."
+     }
+    ],
+    "shots": [
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/root-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/gradient-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/browse-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/blob-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/generate-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/mix-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/extract-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/root-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/gradient-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/browse-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/blob-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/generate-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/mix-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/extract-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/root-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/gradient-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/browse-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/blob-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/generate-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/mix-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/extract-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/generate-3440-windowsnap-black.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/mix-3440-windowsnap-black.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/extract-3440-windowsnap-black.png"
+    ],
+    "limitations": "SHA256 of every PNG plus the full per-cell measurements are in the machine-readable sidecar /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/ROUTE-MATRIX.json (all 21 deliverable PNGs have distinct shas; the 3 preserved windowsnap-black frames share sha 914cfe439270b331..., which is itself the evidence). Harness scripts live in the scratchpad: safari-route-matrix.mjs, safari-recheck.mjs, safari-discriminate.mjs, safari-widest-retry.mjs, safari-widest-element.mjs. Routes were taken verbatim from ROUTES[] in docs/tranches/V/megatranche/audit/probes/layout-utilization.mjs; none invented. Browser: Safari 26.4 (AppleWebKit/605.1.15) on macOS 26.4.1 (25E253). LIMITS: (1) CONSOLE/BOOT ERRORS — WebDriver classic cannot inject before load; window.onerror + unhandledrejection hooks were installed AFTER load, so early-boot errors are a DECLARED BLIND SPOT. Post-install error arrays were empty on all 21 cells; that is NOT a claim of zero boot errors. (2) WIDEST WINDOW-SNAPSHOT FAILURE — at 3440x1440 the safaridriver window-screenshot endpoint returns a pixel-identical all-black 6880x2776 frame. Four valid frames were captured first (root/gradient/browse/blob), then it degraded permanently: 9 further attempts across 3 FRESH sessions, including as the very first capture of a session and for the previously-good #/ control, all returned the identical black frame; a repaint nudge did not revive it. Proven a driver failure, not an app blank: the frame is pure black while the page's own body background computes to rgb(38,0,27), and an element snapshot of <main> taken at the same instant returns 11.3-11.6 MB of real painted content. generate/mix/extract widest PNGs are therefore ELEMENT snapshots of <main> (3408x1288 CSS px = the viewport minus its 16px gutters); the failing window frames are preserved alongside. root/gradient/browse/blob widest PNGs remain true window snapshots. (3) VIEWPORT CLAMP — no clamp by the OS: Safari accepted all three window rects verbatim (390x844, 1440x900, 3440x1440) and innerWidth matched the request exactly at every tier; innerHeight is 52px short of the request at every tier (browser chrome). The real constraint is the DISPLAY: screen 2048x1152, avail 2048x1122, dpr 2 — so at the widest tier roughly 1392 CSS px of window width sits off-screen. 3440 is wider than the display can present, not wider than Safari will accept. (4) ENV — dev server API-less (no mongo); #/browse is the one data-backed primary surface among the 7 and is marked UNVERIFIABLE-HERE at all three widths with no defect booked; the right-hand 'palettes' pane on browse/extract/generate/gradient is empty for the same reason and was not counted against those routes. (5) SETTLE — ~1.5s base + 0.8s post-hook (~2.3s), with +2.5s extra on the first route of each viewport; #/generate at 1440 is settle-sensitive (84 chars at 2.3s vs 227 at 4s), which is why it is PARTIAL-with-caveat rather than a booked blank. (6) SCOPE — light appearance only (no dark-mode twin), first paint only: no interaction, no scroll state, no tap-target or contrast measurement. (7) CRASH ARM — Safari did NOT die: zero Safari/WebContent .ips written during any of the four runs (the only report on the machine, com.apple.WebKit.WebContent.Development-2026-07-27-111524.ips, predates this seat by ~70 minutes and is NOT attributable to it). (8) SESSION HYGIENE — every session created was deleted, including on the discriminator paths; safaridriver /status reads {ready:true} with no session outstanding. (9) I-20 — every row above was measured in the safari-app cell; no webkit-engine verdict was copied. The single cross-engine remark (canvas count on #/blob: 1 measured here vs 2 in the webkit REPORT.md row) is flagged as an observation for the parent, not scored. (10) WRITES — only under docs/tranches/V/megatranche/audit/visual/safari-real/ and the scratchpad; src/ demo/ api/ test/ e2e/ untouched."
+   }
+  }
+ ]
+}

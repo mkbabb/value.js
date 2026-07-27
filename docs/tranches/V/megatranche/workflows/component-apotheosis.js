@@ -1,12 +1,14 @@
 export const meta = {
   name: 'component-apotheosis',
-  description: 'One component: three hostile challengers on orthogonal flaw axes, then a triumvirate jury that re-authors the addendum and wave spec',
+  description: 'One component: three hostile challengers on orthogonal flaw axes (adjudication happens in separate M-12 tri-fold rounds, not here)',
   whenToUse: 'Invoked per component by an area orchestrator via workflow({scriptPath}, {component,...}).',
   phases: [
     { title: 'Challenge', detail: 'design-flawed / library-misstructured / component-misimplemented', model: 'opus' },
-    { title: 'Jury', detail: 'triumvirate adjudicates and re-authors spec', model: 'opus' },
   ],
 }
+// M-12 EDIT (2026-07-27): the original all-Opus triumvirate jury stage was removed — the owner's
+// tri-fold law routes adjudication through trifold-adjudication.js rounds (worker-F + worker-O →
+// arbiter-F). Challenge prompts are byte-identical to the original so cached seats replay on resume.
 
 const a = (typeof args === 'string' ? JSON.parse(args) : args) || {}
 if (!a.file || !a.slug) {
@@ -206,170 +208,6 @@ const challenges = (
 const allDefects = challenges.flatMap((c) => (c.defects || []).map((d) => ({ axis: c.axis, ...d })))
 log(`${SLUG}: ${challenges.length}/3 challengers · ${allDefects.length} defects (${allDefects.filter((d) => d.severity === 'BLOCKER').length} blockers)`)
 
-const dossier = challenges
-  .map(
-    (c) =>
-      `### CHALLENGE-${c.axis} — ${c.verdict} — ${c.reportPath}\nSTRONGEST: ${c.strongestDefect}\n` +
-      (c.verdict === 'SOUND' ? `NEGATIVE PROOF: ${c.negativeProof}\n` : '') +
-      (c.defects || [])
-        .map(
-          (d) =>
-            `- [${d.severity}] ${d.id}: ${d.defect}\n    mechanism: ${d.mechanism}\n    evidence: ${d.evidence}\n    repro: ${d.reproduction}\n    proposed cure: ${d.proposedCure}`,
-        )
-        .join('\n'),
-  )
-  .join('\n\n')
-
-const JURY_BASE = `
-You are a juror in the triumvirate adjudicating \`${FILE}\`.
-
-Three hostile challengers were each told, as a premise, that the component is defective on their
-axis — design (D), library structure (L), implementation (C). Their full reports are on disk:
-  ${OUT}/challenge-D-design.md
-  ${OUT}/challenge-L-library.md
-  ${OUT}/challenge-C-implementation.md
-**Read them on disk.** The dossier below is an index, not a substitute.
-
-## Your duty — and it is not rating
-You adjudicate AND **re-author**. A juror who returns a verdict without a rewritten spec has not
-discharged the seat. Your product is an addendum clause and a wave spec that could be executed
-tomorrow by someone who never read the challenges.
-
-## Adjudication law
-- A challenger began from a premise of guilt. Correct for that: a defect asserted without a
-  reproduction is a HYPOTHESIS, and you mark it so. A defect with bytes and a repro is UPHELD
-  regardless of how minor it sounds.
-- Two challengers describing the same underlying mechanism in different words are ONE defect.
-  Merge them and name the mechanism.
-- You may DISMISS a challenge only by citing the bytes that refute it.
-- Disagreement among jurors is preserved explicitly. No vote manufactures truth.
-- **Born-RED law:** if the defect reproduces against today's tree, the wave you author opens RED and
-  its gate must fail TODAY. Write the gate so that running it right now yields RED. A gate that is
-  green at authorship is vacuous and you have failed.
-- **π/DELTA law:** every visual claim in your spec carries a π obligation (the pinned witness
-  capture — matrix, route, selector) and a DELTA obligation (the before/after pair proving change).
-- **No re-booking.** Every defect gets BUILD, FOLD (into a named wave), or RETIRE (with rationale).
-  You may not write "next tranche decides" or any equivalent.
-- **No legacy.** Cures are clean breaks: no aliases, shims, dual paths, or masking fallbacks.
-  Architectural transposition for elegance, simplicity and performance is preferred to a patch.
-
-CHALLENGE DOSSIER:
-${dossier}
-
-${BASE}
-`
-
-const JURY_SCHEMA = {
-  type: 'object',
-  additionalProperties: false,
-  required: ['juror', 'modelObserved', 'reportPath', 'verdict', 'upheld', 'dismissed', 'waveSpec', 'addendumClause', 'dissent'],
-  properties: {
-    juror: { type: 'string' },
-    modelObserved: { type: 'string' },
-    reportPath: { type: 'string' },
-    verdict: { type: 'string', enum: ['APOTHEOSIS_REQUIRED', 'REPAIR_REQUIRED', 'MINOR_REPAIR', 'SOUND_AS_IS'] },
-    upheld: {
-      type: 'array',
-      items: {
-        type: 'object',
-        additionalProperties: false,
-        required: ['id', 'defect', 'mechanism', 'severity', 'status', 'disposition'],
-        properties: {
-          id: { type: 'string' },
-          defect: { type: 'string' },
-          mechanism: { type: 'string' },
-          severity: { type: 'string', enum: ['BLOCKER', 'MAJOR', 'MINOR', 'INFO'] },
-          status: { type: 'string', enum: ['UPHELD_REPRODUCED', 'UPHELD_BY_BYTES', 'HYPOTHESIS'] },
-          disposition: { type: 'string', enum: ['BUILD', 'FOLD', 'RETIRE'] },
-        },
-      },
-    },
-    dismissed: {
-      type: 'array',
-      items: {
-        type: 'object',
-        additionalProperties: false,
-        required: ['id', 'why', 'refutingBytes'],
-        properties: { id: { type: 'string' }, why: { type: 'string' }, refutingBytes: { type: 'string' } },
-      },
-    },
-    waveSpec: {
-      type: 'object',
-      additionalProperties: false,
-      required: ['waveId', 'title', 'bornRed', 'scope', 'gates', 'piObligations', 'deltaObligations'],
-      properties: {
-        waveId: { type: 'string' },
-        title: { type: 'string' },
-        bornRed: { type: 'boolean' },
-        scope: { type: 'string' },
-        gates: {
-          type: 'array',
-          items: {
-            type: 'object',
-            additionalProperties: false,
-            required: ['gate', 'command', 'redToday', 'whatWouldMakeItFail'],
-            properties: {
-              gate: { type: 'string' },
-              command: { type: 'string', description: 'the exact runnable command or probe' },
-              redToday: { type: 'boolean', description: 'does this gate fail against the CURRENT tree?' },
-              whatWouldMakeItFail: { type: 'string', description: 'the exact input that turns it RED — a gate with no such input is vacuous' },
-            },
-          },
-        },
-        piObligations: { type: 'array', items: { type: 'string' } },
-        deltaObligations: { type: 'array', items: { type: 'string' } },
-      },
-    },
-    addendumClause: { type: 'string', description: 'the re-authored normative clause, ready to paste into the addenda' },
-    dissent: { type: 'string', description: 'where you disagree with the other jurors, or NONE' },
-  },
-}
-
-phase('Jury')
-const jury = (
-  await parallel([
-    () =>
-      agent(
-        `# JUROR-1 — CORRECTNESS AND EVIDENCE
-Write \`${OUT}/jury-1-correctness.md\`.
-Your axis: is each alleged defect REAL? You are the empiricist. Where a challenger claimed a
-reproduction, RUN IT. Where a challenger claimed bytes, READ THEM. Where a challenger inferred,
-say so. Then author the wave spec whose gates are executable probes, each one RED today if the
-defect is live. You own the gate soundness of the final spec: for every gate, name the exact
-input that turns it RED, or delete the gate as vacuous.
-${JURY_BASE}`,
-        { label: `${SLUG}:jury-1`, phase: 'Jury', model: 'opus', effort: 'xhigh', schema: JURY_SCHEMA },
-      ),
-    () =>
-      agent(
-        `# JUROR-2 — ARCHITECTURE AND ISOMORPHISM
-Write \`${OUT}/jury-2-architecture.md\`.
-Your axis: what is the RIGHT structure? You own the library-design and modularization verdict.
-Decide the module lattice this component should sit in, the exact ownership of every concept it
-touches, and whether the cure is a patch or an architectural transposition — prefer the
-transposition where it buys elegance, simplicity or performance. Your wave spec states the
-target structure concretely: which files exist afterward, what each owns, which edges are legal.
-Kill every dual path and every god module you find; name the deletions explicitly.
-${JURY_BASE}`,
-        { label: `${SLUG}:jury-2`, phase: 'Jury', model: 'opus', effort: 'xhigh', schema: JURY_SCHEMA },
-      ),
-    () =>
-      agent(
-        `# JUROR-3 — DESIGN, GESTALT, AND PERFORMANCE
-Write \`${OUT}/jury-3-design-gestalt.md\`.
-Your axis: the whole, as experienced. You own the design verdict and the visual obligations.
-Look at the screenshots yourself — desktop and mobile, light and dark. Judge the component in its
-page, not in isolation: does it cohere with its neighbours, does it hold the proportion and palette
-canon, does it degrade honestly at 390px and at 200% zoom. Own the motion verdict and the
-performance verdict. Your wave spec's π obligations must name exact matrices, routes and selectors
-so a later session can re-capture the identical witness.
-This seat is the one that decides whether the component reaches APOTHEOSIS or merely repair.
-${JURY_BASE}`,
-        { label: `${SLUG}:jury-3`, phase: 'Jury', model: 'opus', effort: 'xhigh', schema: JURY_SCHEMA },
-      ),
-  ])
-).filter(Boolean)
-
 return {
   component: FILE,
   slug: SLUG,
@@ -377,8 +215,10 @@ return {
   loc: LOC,
   challengeVerdicts: challenges.map((c) => ({ axis: c.axis, verdict: c.verdict, strongest: c.strongestDefect, defectCount: (c.defects || []).length })),
   defects: allDefects,
-  juryVerdicts: jury.map((j) => ({ juror: j.juror, verdict: j.verdict, upheldCount: (j.upheld || []).length, dismissedCount: (j.dismissed || []).length, dissent: j.dissent })),
-  jury,
-  worstVerdict: ['APOTHEOSIS_REQUIRED', 'REPAIR_REQUIRED', 'MINOR_REPAIR', 'SOUND_AS_IS'].find((v) => jury.some((j) => j.verdict === v)) || 'NO_JURY',
+  worstVerdict: allDefects.some((d) => d.severity === 'BLOCKER')
+    ? 'CHALLENGED-BLOCKER (tri-fold adjudication pending)'
+    : allDefects.length
+      ? 'CHALLENGED (tri-fold adjudication pending)'
+      : challenges.length === 3 ? 'CHALLENGE-CLEAN (3/3 seats, zero rows)' : `INCOMPLETE (${challenges.length}/3 seats)`,
   blockers: allDefects.filter((d) => d.severity === 'BLOCKER'),
 }

@@ -7,7 +7,7 @@
    "slug": "Markdown",
    "area": "scenes",
    "loc": 408,
-   "extra": "408 LoC, the largest component in the demo tree. The owner's standing feedback (feedback_no_god_modules) forbids adding to god modules and requires focused modules with real encapsulation. Assess honestly whether this is one module or several wearing one name -- and if you propose a split, the wave must be individually completable (L-1), not a refactor arc."
+   "extra": "408 LoC, the largest component in the demo tree. The owner's standing feedback (feedback_no_god_modules) forbids adding to god modules and requires focused modules with real encapsulation. Assess honestly whether this is one module or several wearing one name. If you propose a split, the wave must be individually completable (L-1) -- closeable on its own evidence by one session -- not a refactor arc wearing a wave's name."
   },
   {
    "file": "demo/scenes/ConfigSliderPane.vue",
@@ -25,13 +25,15 @@
    "file": "demo/scenes/atmosphere/AuroraPane.vue",
    "slug": "AuroraPane",
    "area": "scenes",
-   "loc": 201
+   "loc": 201,
+   "extra": "The aurora rAF loop is glass-ui-owned and honours prefers-reduced-motion internally -- VERIFIED by the root, not assumed: raf/1.5s=0 under reducedMotion:reduce on all five routes. Do NOT born-RED reduced-motion here. Separately, C2 'aurora palette-blind static-Sky' is a chronic that has ridden multiple closes (see the disease registry); glass-ui authored deriveAurora with a different signature than the spec's deriveAuroraPalette. glass-ui is NOT ours to edit this formation -- any glass-ui-side need is a coordination packet, not a wave."
   },
   {
    "file": "demo/scenes/blob/BlobPane.vue",
    "slug": "BlobPane",
    "area": "scenes",
-   "loc": 130
+   "loc": 130,
+   "extra": "#/blob has 55 operable controls (35 role=slider) -- the densest control surface in the app. Keyboard reachability measured 46/55 in Chromium, 40/55 in WebKit; the WebKit delta is macOS Full Keyboard Access being OFF by default, NOT a defect (MT-F022). useMetaballRenderer's single-frame reduced-motion path is VERIFIED CORRECT (raf/1.5s=0 under reduce). Do not manufacture a11y or PRM findings here without a two-engine reproduction."
   },
   {
    "file": "demo/scenes/about/AboutPane.vue",

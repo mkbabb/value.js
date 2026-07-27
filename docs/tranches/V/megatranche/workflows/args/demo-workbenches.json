@@ -1,0 +1,127 @@
+{
+ "area": "demo/workbenches",
+ "parallelism": 2,
+ "components": [
+  {
+   "file": "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue",
+   "slug": "wb-gradient-stopeditor",
+   "area": "demo/workbenches",
+   "loc": 393,
+   "extra": "\n## Component-specific context\nGradient stop editing \u2014 drag, insert, delete, reorder. Prime suspects: pointer maths at container edges, stop-ordering invariants under drag, and colour parsing of stop values (MT-F001: parseCssColor throws on 8 empty-argument colour functions at src/css/grammar.ts:181). Exercise it live at http://localhost:9000/#/gradient."
+  },
+  {
+   "file": "demo/workbenches/generate/GenerateControls.vue",
+   "slug": "wb-generate-controls",
+   "area": "demo/workbenches",
+   "loc": 312,
+   "extra": "\n## Component-specific context\nPINNED CONSUMER in CARRY-LEDGER section D's glass BJ W4 hold, at SHA-256 4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6. Verify that hash still matches (shasum -a 256) \u2014 drift is a coordination-boundary finding. The hold FORBIDS any consumer edit here until Glass 8 proves source-to-served identity; author the wave BLOCKED-ON-GLASS-V8 with the exact release condition rather than proposing an edit."
+  },
+  {
+   "file": "demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue",
+   "slug": "wb-extract-imageeyedropper",
+   "area": "demo/workbenches",
+   "loc": 299,
+   "extra": "\n## Component-specific context\nCanvas pixel sampling. Suspects: devicePixelRatio handling, getImageData with tainted/CORS canvases, pointer-to-pixel mapping at edges and under zoom, and cleanup of object URLs. The visual audit's 200%-zoom matrix is at docs/tranches/V/megatranche/audit/visual/shots/zoom-200-desktop/."
+  },
+  {
+   "file": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+   "slug": "wb-gradient-easingeditor",
+   "area": "demo/workbenches",
+   "loc": 296
+  },
+  {
+   "file": "demo/workbenches/extract/ExtractWorkbench.vue",
+   "slug": "wb-extract-workbench",
+   "area": "demo/workbenches",
+   "loc": 294
+  },
+  {
+   "file": "demo/workbenches/mix/MixSourceSelector.vue",
+   "slug": "wb-mix-sourceselector",
+   "area": "demo/workbenches",
+   "loc": 283
+  },
+  {
+   "file": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+   "slug": "wb-gradient-visualizer",
+   "area": "demo/workbenches",
+   "loc": 280
+  },
+  {
+   "file": "demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue",
+   "slug": "wb-gradient-easingspecimenstrip",
+   "area": "demo/workbenches",
+   "loc": 216,
+   "extra": "\n## Component-specific context\nKNOWN VISUAL RESIDUAL, glass-owned. INBOX I-9 and D58: Glass 7.0.0 ships with Chip/Badge orphaned dist CSS, so THIS component's /toggle-chip to Chip site renders INCOMPLETE GLASS until glass fixes it (relayed as our mark M3; it is a glass BJ born-RED row, not ours). Look at the Safari captures for #/gradient and describe exactly what is visually wrong. Your disposition must be FOLD-banked on glass, NOT a local CSS patch \u2014 a local patch would be precisely the masking fallback the standing edict forbids (cf. MT-F014)."
+  },
+  {
+   "file": "demo/workbenches/mix/MixConfigBar.vue",
+   "slug": "wb-mix-configbar",
+   "area": "demo/workbenches",
+   "loc": 173
+  },
+  {
+   "file": "demo/workbenches/mix/MixResultDisplay.vue",
+   "slug": "wb-mix-resultdisplay",
+   "area": "demo/workbenches",
+   "loc": 159
+  },
+  {
+   "file": "demo/workbenches/extract/ExtractControls.vue",
+   "slug": "wb-extract-controls",
+   "area": "demo/workbenches",
+   "loc": 152,
+   "extra": "\n## Component-specific context\nPINNED CONSUMER in the glass BJ W4 hold at SHA-256 71aa0a65873c367ae3ae393283d4e81bcfc9cbb57b6f232eec9f930264d46c28. Verify the hash. Consumer edits are FORBIDDEN until Glass 8 \u2014 author the blocked wave with its exact release condition."
+  },
+  {
+   "file": "demo/workbenches/mix/MixPane.vue",
+   "slug": "wb-mix-pane",
+   "area": "demo/workbenches",
+   "loc": 124
+  },
+  {
+   "file": "demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue",
+   "slug": "wb-gradient-codeeditor",
+   "area": "demo/workbenches",
+   "loc": 117,
+   "extra": "\n## Component-specific context\nA CODE EDITOR for gradient CSS \u2014 i.e. it feeds user-typed CSS straight into the parser. MT-F001 is a live BLOCKER on that path: parseCssColor throws TypeError on oklch() rgb() hsl() lab() lch() color() oklab() and 'hsl(  )'. A user mid-typing produces exactly these. Reproduce live and report what the user sees."
+  },
+  {
+   "file": "demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue",
+   "slug": "wb-gradient-easingauthoringstage",
+   "area": "demo/workbenches",
+   "loc": 117
+  },
+  {
+   "file": "demo/workbenches/extract/ImageDropZone.vue",
+   "slug": "wb-extract-imagedropzone",
+   "area": "demo/workbenches",
+   "loc": 114
+  },
+  {
+   "file": "demo/workbenches/generate/GeneratePane.vue",
+   "slug": "wb-generate-pane",
+   "area": "demo/workbenches",
+   "loc": 41
+  },
+  {
+   "file": "demo/workbenches/extract/ExtractPane.vue",
+   "slug": "wb-extract-pane",
+   "area": "demo/workbenches",
+   "loc": 38
+  },
+  {
+   "file": "demo/workbenches/mix/MixAnimationCanvas/MixAnimationCanvas.vue",
+   "slug": "wb-mix-animationcanvas",
+   "area": "demo/workbenches",
+   "loc": 36,
+   "extra": "\n## Component-specific context\nAnimation canvas \u2014 check for the ungated requestAnimationFrame class (the constellation-wide PRM-RAF epidemic, ~40 sites): does the loop respect prefers-reduced-motion, and is it cancelled on unmount AND on KeepAlive deactivation? A sibling seat proved listeners survive deactivation in this app."
+  },
+  {
+   "file": "demo/workbenches/gradient/GradientPane.vue",
+   "slug": "wb-gradient-pane",
+   "area": "demo/workbenches",
+   "loc": 30
+  }
+ ]
+}

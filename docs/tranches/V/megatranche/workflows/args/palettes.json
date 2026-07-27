@@ -6,20 +6,22 @@
    "file": "demo/palettes/browser/admin/AdminUsersPanel.vue",
    "slug": "AdminUsersPanel",
    "area": "palettes",
-   "loc": 391
+   "loc": 391,
+   "extra": "Largest component in the palettes area and the surface behind route #/admin/users. Corrected state matrix: text=273 desktop / 122 mobile, 12 operable controls, keyboard reachability 7/12 in Chromium and 2/12 in WebKit -- the WebKit delta is macOS Full Keyboard Access being OFF by default and is NOT a defect (MT-F022). Roving tabindex accounts for most of the Chromium gap and is the CORRECT ARIA pattern. Any a11y finding here requires a two-engine reproduction."
   },
   {
    "file": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
    "slug": "PaletteCard",
    "area": "palettes",
-   "loc": 364
+   "loc": 364,
+   "extra": "PaletteCard is a six-file component folder (PaletteCard, PaletteCardMenu, PaletteCardSwatches, PaletteCardMeta, PaletteRenameInput, ActionFeedback). Judge the DECOMPOSITION itself, not merely this file: is the split along real seams, or is it a god module distributed across six files? The owner's standing feedback forbids wrapper components and shared/ dirs that earn nothing (feedback_kiss_no_contrivance)."
   },
   {
    "file": "demo/palettes/BrowsePane.vue",
    "slug": "BrowsePane",
    "area": "palettes",
    "loc": 360,
-   "extra": "Route surface for #/browse. The corrected state matrix measures text=280 at 1440 desktop and 124 at mobile with 12 operable controls; keyboard reachability is 7/12 in Chromium (the gap is largely roving tabindex, which is CORRECT -- do not born-RED it without proving otherwise in two engines, per MT-F022)."
+   "extra": "Route surface for #/browse. Corrected state matrix: text=280 at 1440 desktop, 124 at mobile, 12 operable controls, overflowX=0 in every matrix including RTL. Keyboard reachability 7/12 in Chromium -- the gap is largely roving tabindex, which is CORRECT. Do not born-RED it without a two-engine proof (MT-F022)."
   },
   {
    "file": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
@@ -115,7 +117,8 @@
    "file": "demo/palettes/browser/dialog/MigratePalettesDialog.vue",
    "slug": "MigratePalettesDialog",
    "area": "palettes",
-   "loc": 97
+   "loc": 97,
+   "extra": "A dialog named Migrate* deserves scrutiny against the owner's absolute standing rule: NO legacy code, no migration shims, no dual paths, no masking fallbacks (feedback_no_backwards_compat). Determine whether this is a one-shot user-facing data operation (legitimate) or a compatibility shim that should be RETIRED with the consumer migrated at the root."
   },
   {
    "file": "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
